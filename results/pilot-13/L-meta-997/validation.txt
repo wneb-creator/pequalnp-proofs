@@ -73,3 +73,8 @@ Combined snapshot c4dc68c3994167fbfdd8637af613e54b0ae39a1e1ce8c4a4278cd10b683ed5
 Fifteenth partial: 3612 lines. Build 18 passed. Added input-restriction circuit with unchanged gate count, exact masked evaluation and singleton-support containment.
 Root independently reviewed119-line Restriction extension authored by lean_setup, SHA256365139bcadb9ee42711a6c9bb27516a6b7db25671aa37d020960bf8c40f1be14: invalid-wire rewiring preserves prefix read semantics; mapped output handled; monotonicity explicit; namespace/format pass.
 Combined snapshot ed270f5b698862ec7c54c4db22195a7d42e4fdcd58c03fff7e7923bf10dd9ecb. General theorem remains absent.
+
+Sixteenth partial: 4011 lines. Build 19 passed. Added explicit light boundary and physical light/heavy trees with exact leaf and branch quotas.
+Independent status_review PASS on161-line LightBoundary SHA25663bc819f4c9f50d32e2d8e09e2484ae84bae0b814bf2f57dc41b5d71fbe8390e and143-line HeavyForest SHA256e28cbb7c92b4923e077a3ffff75b5204d59c998c35963a7ba5072e446ba5d6e4; independently compiled with standard axioms.
+Root independently reviewed95-line LightForest authored by heavy_window, SHA256cb83a6b83e0dfa4b0f01dcdfd886ffe743370bef37875bcf333a17c1e14be325. Input hypotheses, finite reachability, exact quota, branch charge inclusion and format pass; no semantic-transfer preservation claimed after pruning.
+Combined snapshot aed7eeaa16e17143767c529bf0e22c1ebb680c2140ea862cbb8df86188a6842a. General theorem remains absent.

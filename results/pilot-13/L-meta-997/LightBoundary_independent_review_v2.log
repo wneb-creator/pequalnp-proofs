@@ -1,0 +1,50 @@
+/tmp/oec/pequalnp-pilot-13/status_review/LightBoundary_independent_review.lean:2246:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-13/status_review/LightBoundary_independent_review.lean:2251:38: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-13/status_review/LightBoundary_independent_review.lean:2253:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-13/status_review/LightBoundary_independent_review.lean:2366:5: warning: Variable name `hMrange` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hMrange
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-13/status_review/LightBoundary_independent_review.lean:2752:26: warning: This simp argument is unused:
+  g
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-13/status_review/LightBoundary_independent_review.lean:2766:30: warning: This simp argument is unused:
+  g
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-13/status_review/LightBoundary_independent_review.lean:2774:30: warning: This simp argument is unused:
+  g
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-13/status_review/LightBoundary_independent_review.lean:3576:61: warning: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [restrict, List.getElem_map, List.map_map]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'PEqualNP.Outside.L_meta_997.LightBoundary.boundary_lower_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_997.LightBoundary.selected_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
