@@ -1,0 +1,1864 @@
+{
+  "scope": "Exact untrusted CPU-light count of enumerated candidate occurrences and raw-score early exclusions over all31 frozen compact grouped frontiers; duplicates retained, no frontier regeneration or Lean compilation.",
+  "graphs": [
+    {
+      "graph": 26,
+      "group": 48,
+      "states": 1067,
+      "raw_children": 168054,
+      "covered_children": 40696,
+      "orientation_needed": 7463,
+      "tight_covered": 33261,
+      "raw_score_pruned": 33233,
+      "pruned_orientation_fraction": 0.8166158836249263,
+      "old_action_calls_proxy": 1912712,
+      "new_action_calls_proxy": 350761,
+      "layers": {
+        "11": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 56,
+          "orientation_needed": 56
+        },
+        "10": {
+          "states": 9,
+          "raw_children": 2118,
+          "covered_children": 871,
+          "orientation_needed": 871
+        },
+        "9": {
+          "states": 158,
+          "raw_children": 36120,
+          "covered_children": 12520,
+          "orientation_needed": 3175,
+          "tight_covered": 9353,
+          "raw_score_pruned": 9345
+        },
+        "8": {
+          "states": 400,
+          "raw_children": 70552,
+          "covered_children": 17026,
+          "tight_covered": 14619,
+          "raw_score_pruned": 14605,
+          "orientation_needed": 2421
+        },
+        "7": {
+          "states": 334,
+          "raw_children": 44195,
+          "covered_children": 8045,
+          "tight_covered": 7226,
+          "raw_score_pruned": 7220,
+          "orientation_needed": 825
+        },
+        "6": {
+          "states": 137,
+          "raw_children": 13092,
+          "covered_children": 1964,
+          "tight_covered": 1854,
+          "raw_score_pruned": 1854,
+          "orientation_needed": 110
+        },
+        "5": {
+          "states": 27,
+          "raw_children": 1755,
+          "covered_children": 207,
+          "tight_covered": 202,
+          "raw_score_pruned": 202,
+          "orientation_needed": 5
+        },
+        "4": {
+          "states": 1,
+          "raw_children": 40,
+          "covered_children": 7,
+          "tight_covered": 7,
+          "raw_score_pruned": 7
+        }
+      }
+    },
+    {
+      "graph": 28,
+      "group": 2,
+      "states": 5742,
+      "raw_children": 963067,
+      "covered_children": 203362,
+      "orientation_needed": 30237,
+      "tight_covered": 173155,
+      "raw_score_pruned": 173125,
+      "pruned_orientation_fraction": 0.8513144048543976,
+      "old_action_calls_proxy": 203362,
+      "new_action_calls_proxy": 30237,
+      "layers": {
+        "11": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 56,
+          "orientation_needed": 56
+        },
+        "10": {
+          "states": 28,
+          "raw_children": 6694,
+          "covered_children": 2706,
+          "orientation_needed": 2706
+        },
+        "9": {
+          "states": 968,
+          "raw_children": 220836,
+          "covered_children": 71229,
+          "tight_covered": 55948,
+          "raw_score_pruned": 55926,
+          "orientation_needed": 15303
+        },
+        "8": {
+          "states": 2735,
+          "raw_children": 482580,
+          "covered_children": 99619,
+          "tight_covered": 88987,
+          "raw_score_pruned": 88982,
+          "orientation_needed": 10637
+        },
+        "7": {
+          "states": 1644,
+          "raw_children": 218468,
+          "covered_children": 26284,
+          "tight_covered": 24827,
+          "raw_score_pruned": 24824,
+          "orientation_needed": 1460
+        },
+        "6": {
+          "states": 341,
+          "raw_children": 32682,
+          "covered_children": 3306,
+          "tight_covered": 3231,
+          "raw_score_pruned": 3231,
+          "orientation_needed": 75
+        },
+        "5": {
+          "states": 25,
+          "raw_children": 1625,
+          "covered_children": 162,
+          "tight_covered": 162,
+          "raw_score_pruned": 162
+        }
+      }
+    },
+    {
+      "graph": 0,
+      "group": 8,
+      "states": 161,
+      "raw_children": 18467,
+      "covered_children": 4239,
+      "orientation_needed": 813,
+      "tight_covered": 3426,
+      "raw_score_pruned": 3426,
+      "pruned_orientation_fraction": 0.808209483368719,
+      "old_action_calls_proxy": 29673,
+      "new_action_calls_proxy": 5691,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 132,
+          "covered_children": 42,
+          "orientation_needed": 42
+        },
+        "8": {
+          "states": 13,
+          "raw_children": 2332,
+          "covered_children": 1000,
+          "orientation_needed": 408,
+          "tight_covered": 592,
+          "raw_score_pruned": 592
+        },
+        "7": {
+          "states": 71,
+          "raw_children": 9445,
+          "covered_children": 2258,
+          "tight_covered": 1961,
+          "raw_score_pruned": 1961,
+          "orientation_needed": 297
+        },
+        "6": {
+          "states": 54,
+          "raw_children": 5178,
+          "covered_children": 747,
+          "tight_covered": 686,
+          "raw_score_pruned": 686,
+          "orientation_needed": 61
+        },
+        "5": {
+          "states": 20,
+          "raw_children": 1300,
+          "covered_children": 178,
+          "tight_covered": 173,
+          "raw_score_pruned": 173,
+          "orientation_needed": 5
+        },
+        "4": {
+          "states": 2,
+          "raw_children": 80,
+          "covered_children": 14,
+          "tight_covered": 14,
+          "raw_score_pruned": 14
+        }
+      }
+    },
+    {
+      "graph": 1,
+      "group": 16,
+      "states": 85,
+      "raw_children": 10759,
+      "covered_children": 2363,
+      "orientation_needed": 396,
+      "tight_covered": 1967,
+      "raw_score_pruned": 1967,
+      "pruned_orientation_fraction": 0.8324164198053322,
+      "old_action_calls_proxy": 35445,
+      "new_action_calls_proxy": 5940,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 59,
+          "orientation_needed": 59
+        },
+        "8": {
+          "states": 18,
+          "raw_children": 3154,
+          "covered_children": 769,
+          "orientation_needed": 158,
+          "tight_covered": 611,
+          "raw_score_pruned": 611
+        },
+        "7": {
+          "states": 36,
+          "raw_children": 4803,
+          "covered_children": 1055,
+          "tight_covered": 914,
+          "raw_score_pruned": 914,
+          "orientation_needed": 141
+        },
+        "6": {
+          "states": 22,
+          "raw_children": 2100,
+          "covered_children": 419,
+          "tight_covered": 381,
+          "raw_score_pruned": 381,
+          "orientation_needed": 38
+        },
+        "5": {
+          "states": 8,
+          "raw_children": 520,
+          "covered_children": 61,
+          "tight_covered": 61,
+          "raw_score_pruned": 61
+        }
+      }
+    },
+    {
+      "graph": 2,
+      "group": 4,
+      "states": 106,
+      "raw_children": 13372,
+      "covered_children": 2549,
+      "orientation_needed": 306,
+      "tight_covered": 2249,
+      "raw_score_pruned": 2243,
+      "pruned_orientation_fraction": 0.8799529227147901,
+      "old_action_calls_proxy": 7647,
+      "new_action_calls_proxy": 918,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 60,
+          "orientation_needed": 60
+        },
+        "8": {
+          "states": 27,
+          "raw_children": 4794,
+          "covered_children": 1128,
+          "orientation_needed": 148,
+          "tight_covered": 981,
+          "raw_score_pruned": 980
+        },
+        "7": {
+          "states": 41,
+          "raw_children": 5374,
+          "covered_children": 859,
+          "tight_covered": 791,
+          "raw_score_pruned": 786,
+          "orientation_needed": 73
+        },
+        "6": {
+          "states": 25,
+          "raw_children": 2292,
+          "covered_children": 378,
+          "tight_covered": 357,
+          "raw_score_pruned": 357,
+          "orientation_needed": 21
+        },
+        "5": {
+          "states": 10,
+          "raw_children": 650,
+          "covered_children": 110,
+          "tight_covered": 106,
+          "raw_score_pruned": 106,
+          "orientation_needed": 4
+        },
+        "4": {
+          "states": 2,
+          "raw_children": 80,
+          "covered_children": 14,
+          "tight_covered": 14,
+          "raw_score_pruned": 14
+        }
+      }
+    },
+    {
+      "graph": 3,
+      "group": 2,
+      "states": 110,
+      "raw_children": 14496,
+      "covered_children": 2616,
+      "orientation_needed": 293,
+      "tight_covered": 2323,
+      "raw_score_pruned": 2323,
+      "pruned_orientation_fraction": 0.8879969418960245,
+      "old_action_calls_proxy": 2616,
+      "new_action_calls_proxy": 293,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 60,
+          "orientation_needed": 60
+        },
+        "8": {
+          "states": 31,
+          "raw_children": 5498,
+          "covered_children": 1246,
+          "orientation_needed": 152,
+          "tight_covered": 1094,
+          "raw_score_pruned": 1094
+        },
+        "7": {
+          "states": 45,
+          "raw_children": 5983,
+          "covered_children": 882,
+          "tight_covered": 817,
+          "raw_score_pruned": 817,
+          "orientation_needed": 65
+        },
+        "6": {
+          "states": 23,
+          "raw_children": 2208,
+          "covered_children": 337,
+          "tight_covered": 322,
+          "raw_score_pruned": 322,
+          "orientation_needed": 15
+        },
+        "5": {
+          "states": 9,
+          "raw_children": 585,
+          "covered_children": 84,
+          "tight_covered": 83,
+          "raw_score_pruned": 83,
+          "orientation_needed": 1
+        },
+        "4": {
+          "states": 1,
+          "raw_children": 40,
+          "covered_children": 7,
+          "tight_covered": 7,
+          "raw_score_pruned": 7
+        }
+      }
+    },
+    {
+      "graph": 4,
+      "group": 2,
+      "states": 195,
+      "raw_children": 24640,
+      "covered_children": 4625,
+      "orientation_needed": 548,
+      "tight_covered": 4077,
+      "raw_score_pruned": 4077,
+      "pruned_orientation_fraction": 0.8815135135135135,
+      "old_action_calls_proxy": 4625,
+      "new_action_calls_proxy": 548,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 61,
+          "orientation_needed": 61
+        },
+        "8": {
+          "states": 44,
+          "raw_children": 7816,
+          "covered_children": 1904,
+          "tight_covered": 1644,
+          "raw_score_pruned": 1644,
+          "orientation_needed": 260
+        },
+        "7": {
+          "states": 79,
+          "raw_children": 10502,
+          "covered_children": 1709,
+          "tight_covered": 1546,
+          "raw_score_pruned": 1546,
+          "orientation_needed": 163
+        },
+        "6": {
+          "states": 51,
+          "raw_children": 4890,
+          "covered_children": 769,
+          "tight_covered": 710,
+          "raw_score_pruned": 710,
+          "orientation_needed": 59
+        },
+        "5": {
+          "states": 18,
+          "raw_children": 1170,
+          "covered_children": 168,
+          "tight_covered": 163,
+          "raw_score_pruned": 163,
+          "orientation_needed": 5
+        },
+        "4": {
+          "states": 2,
+          "raw_children": 80,
+          "covered_children": 14,
+          "tight_covered": 14,
+          "raw_score_pruned": 14
+        }
+      }
+    },
+    {
+      "graph": 5,
+      "group": 2,
+      "states": 122,
+      "raw_children": 16701,
+      "covered_children": 2813,
+      "orientation_needed": 321,
+      "tight_covered": 2492,
+      "raw_score_pruned": 2492,
+      "pruned_orientation_fraction": 0.8858869534305013,
+      "old_action_calls_proxy": 2813,
+      "new_action_calls_proxy": 321,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 58,
+          "orientation_needed": 58
+        },
+        "8": {
+          "states": 40,
+          "raw_children": 7094,
+          "covered_children": 1532,
+          "tight_covered": 1350,
+          "raw_score_pruned": 1350,
+          "orientation_needed": 182
+        },
+        "7": {
+          "states": 52,
+          "raw_children": 6914,
+          "covered_children": 873,
+          "tight_covered": 809,
+          "raw_score_pruned": 809,
+          "orientation_needed": 64
+        },
+        "6": {
+          "states": 21,
+          "raw_children": 2016,
+          "covered_children": 277,
+          "tight_covered": 261,
+          "raw_score_pruned": 261,
+          "orientation_needed": 16
+        },
+        "5": {
+          "states": 7,
+          "raw_children": 455,
+          "covered_children": 66,
+          "tight_covered": 65,
+          "raw_score_pruned": 65,
+          "orientation_needed": 1
+        },
+        "4": {
+          "states": 1,
+          "raw_children": 40,
+          "covered_children": 7,
+          "tight_covered": 7,
+          "raw_score_pruned": 7
+        }
+      }
+    },
+    {
+      "graph": 6,
+      "group": 12,
+      "states": 72,
+      "raw_children": 9741,
+      "covered_children": 1732,
+      "orientation_needed": 242,
+      "tight_covered": 1490,
+      "raw_score_pruned": 1490,
+      "pruned_orientation_fraction": 0.8602771362586605,
+      "old_action_calls_proxy": 19052,
+      "new_action_calls_proxy": 2662,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 59,
+          "orientation_needed": 59
+        },
+        "8": {
+          "states": 23,
+          "raw_children": 4090,
+          "covered_children": 962,
+          "tight_covered": 834,
+          "raw_score_pruned": 834,
+          "orientation_needed": 128
+        },
+        "7": {
+          "states": 29,
+          "raw_children": 3856,
+          "covered_children": 497,
+          "tight_covered": 457,
+          "raw_score_pruned": 457,
+          "orientation_needed": 40
+        },
+        "6": {
+          "states": 13,
+          "raw_children": 1248,
+          "covered_children": 151,
+          "tight_covered": 140,
+          "raw_score_pruned": 140,
+          "orientation_needed": 11
+        },
+        "5": {
+          "states": 5,
+          "raw_children": 325,
+          "covered_children": 56,
+          "tight_covered": 52,
+          "raw_score_pruned": 52,
+          "orientation_needed": 4
+        },
+        "4": {
+          "states": 1,
+          "raw_children": 40,
+          "covered_children": 7,
+          "tight_covered": 7,
+          "raw_score_pruned": 7
+        }
+      }
+    },
+    {
+      "graph": 7,
+      "group": 2,
+      "states": 89,
+      "raw_children": 12783,
+      "covered_children": 2184,
+      "orientation_needed": 266,
+      "tight_covered": 1918,
+      "raw_score_pruned": 1918,
+      "pruned_orientation_fraction": 0.8782051282051282,
+      "old_action_calls_proxy": 2184,
+      "new_action_calls_proxy": 266,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 58,
+          "orientation_needed": 58
+        },
+        "8": {
+          "states": 34,
+          "raw_children": 6032,
+          "covered_children": 1304,
+          "orientation_needed": 155,
+          "tight_covered": 1149,
+          "raw_score_pruned": 1149
+        },
+        "7": {
+          "states": 40,
+          "raw_children": 5318,
+          "covered_children": 679,
+          "tight_covered": 632,
+          "raw_score_pruned": 632,
+          "orientation_needed": 47
+        },
+        "6": {
+          "states": 11,
+          "raw_children": 1056,
+          "covered_children": 128,
+          "tight_covered": 122,
+          "raw_score_pruned": 122,
+          "orientation_needed": 6
+        },
+        "5": {
+          "states": 3,
+          "raw_children": 195,
+          "covered_children": 15,
+          "tight_covered": 15,
+          "raw_score_pruned": 15
+        }
+      }
+    },
+    {
+      "graph": 8,
+      "group": 14,
+      "states": 14,
+      "raw_children": 2267,
+      "covered_children": 395,
+      "orientation_needed": 86,
+      "tight_covered": 309,
+      "raw_score_pruned": 309,
+      "pruned_orientation_fraction": 0.7822784810126582,
+      "old_action_calls_proxy": 5135,
+      "new_action_calls_proxy": 1118,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 56,
+          "orientation_needed": 56
+        },
+        "8": {
+          "states": 8,
+          "raw_children": 1420,
+          "covered_children": 288,
+          "tight_covered": 258,
+          "raw_score_pruned": 258,
+          "orientation_needed": 30
+        },
+        "7": {
+          "states": 5,
+          "raw_children": 665,
+          "covered_children": 51,
+          "tight_covered": 51,
+          "raw_score_pruned": 51
+        }
+      }
+    },
+    {
+      "graph": 9,
+      "group": 16,
+      "states": 122,
+      "raw_children": 14758,
+      "covered_children": 3575,
+      "orientation_needed": 569,
+      "tight_covered": 3006,
+      "raw_score_pruned": 3006,
+      "pruned_orientation_fraction": 0.8408391608391609,
+      "old_action_calls_proxy": 53625,
+      "new_action_calls_proxy": 8535,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 69,
+          "orientation_needed": 69
+        },
+        "8": {
+          "states": 20,
+          "raw_children": 3518,
+          "covered_children": 1116,
+          "tight_covered": 871,
+          "raw_score_pruned": 871,
+          "orientation_needed": 245
+        },
+        "7": {
+          "states": 49,
+          "raw_children": 6531,
+          "covered_children": 1605,
+          "tight_covered": 1401,
+          "raw_score_pruned": 1401,
+          "orientation_needed": 204
+        },
+        "6": {
+          "states": 38,
+          "raw_children": 3642,
+          "covered_children": 656,
+          "orientation_needed": 46,
+          "tight_covered": 610,
+          "raw_score_pruned": 610
+        },
+        "5": {
+          "states": 13,
+          "raw_children": 845,
+          "covered_children": 122,
+          "tight_covered": 117,
+          "raw_score_pruned": 117,
+          "orientation_needed": 5
+        },
+        "4": {
+          "states": 1,
+          "raw_children": 40,
+          "covered_children": 7,
+          "tight_covered": 7,
+          "raw_score_pruned": 7
+        }
+      }
+    },
+    {
+      "graph": 10,
+      "group": 2,
+      "states": 228,
+      "raw_children": 28708,
+      "covered_children": 5695,
+      "orientation_needed": 646,
+      "tight_covered": 5049,
+      "raw_score_pruned": 5049,
+      "pruned_orientation_fraction": 0.8865671641791045,
+      "old_action_calls_proxy": 5695,
+      "new_action_calls_proxy": 646,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 64,
+          "orientation_needed": 64
+        },
+        "8": {
+          "states": 43,
+          "raw_children": 7652,
+          "covered_children": 2126,
+          "tight_covered": 1796,
+          "raw_score_pruned": 1796,
+          "orientation_needed": 330
+        },
+        "7": {
+          "states": 101,
+          "raw_children": 13427,
+          "covered_children": 2462,
+          "tight_covered": 2250,
+          "raw_score_pruned": 2250,
+          "orientation_needed": 212
+        },
+        "6": {
+          "states": 67,
+          "raw_children": 6432,
+          "covered_children": 905,
+          "tight_covered": 869,
+          "raw_score_pruned": 869,
+          "orientation_needed": 36
+        },
+        "5": {
+          "states": 15,
+          "raw_children": 975,
+          "covered_children": 131,
+          "tight_covered": 127,
+          "raw_score_pruned": 127,
+          "orientation_needed": 4
+        },
+        "4": {
+          "states": 1,
+          "raw_children": 40,
+          "covered_children": 7,
+          "tight_covered": 7,
+          "raw_score_pruned": 7
+        }
+      }
+    },
+    {
+      "graph": 11,
+      "group": 8,
+      "states": 580,
+      "raw_children": 81747,
+      "covered_children": 18229,
+      "orientation_needed": 3025,
+      "tight_covered": 15227,
+      "raw_score_pruned": 15204,
+      "pruned_orientation_fraction": 0.8340556256514345,
+      "old_action_calls_proxy": 127603,
+      "new_action_calls_proxy": 21175,
+      "layers": {
+        "10": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 58,
+          "orientation_needed": 58
+        },
+        "9": {
+          "states": 23,
+          "raw_children": 5378,
+          "covered_children": 2239,
+          "orientation_needed": 956,
+          "tight_covered": 1288,
+          "raw_score_pruned": 1283
+        },
+        "8": {
+          "states": 193,
+          "raw_children": 34018,
+          "covered_children": 8394,
+          "tight_covered": 7079,
+          "raw_score_pruned": 7069,
+          "orientation_needed": 1325
+        },
+        "7": {
+          "states": 227,
+          "raw_children": 30064,
+          "covered_children": 5618,
+          "tight_covered": 5050,
+          "raw_score_pruned": 5042,
+          "orientation_needed": 576
+        },
+        "6": {
+          "states": 110,
+          "raw_children": 10440,
+          "covered_children": 1697,
+          "tight_covered": 1592,
+          "raw_score_pruned": 1592,
+          "orientation_needed": 105
+        },
+        "5": {
+          "states": 25,
+          "raw_children": 1625,
+          "covered_children": 216,
+          "tight_covered": 211,
+          "raw_score_pruned": 211,
+          "orientation_needed": 5
+        },
+        "4": {
+          "states": 1,
+          "raw_children": 40,
+          "covered_children": 7,
+          "tight_covered": 7,
+          "raw_score_pruned": 7
+        }
+      }
+    },
+    {
+      "graph": 12,
+      "group": 4,
+      "states": 209,
+      "raw_children": 25775,
+      "covered_children": 5400,
+      "orientation_needed": 728,
+      "tight_covered": 4672,
+      "raw_score_pruned": 4672,
+      "pruned_orientation_fraction": 0.8651851851851852,
+      "old_action_calls_proxy": 16200,
+      "new_action_calls_proxy": 2184,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 65,
+          "orientation_needed": 65
+        },
+        "8": {
+          "states": 34,
+          "raw_children": 6000,
+          "covered_children": 1698,
+          "orientation_needed": 317,
+          "tight_covered": 1381,
+          "raw_score_pruned": 1381
+        },
+        "7": {
+          "states": 91,
+          "raw_children": 12127,
+          "covered_children": 2569,
+          "tight_covered": 2278,
+          "raw_score_pruned": 2278,
+          "orientation_needed": 291
+        },
+        "6": {
+          "states": 68,
+          "raw_children": 6516,
+          "covered_children": 953,
+          "orientation_needed": 53,
+          "tight_covered": 900,
+          "raw_score_pruned": 900
+        },
+        "5": {
+          "states": 14,
+          "raw_children": 910,
+          "covered_children": 108,
+          "tight_covered": 106,
+          "raw_score_pruned": 106,
+          "orientation_needed": 2
+        },
+        "4": {
+          "states": 1,
+          "raw_children": 40,
+          "covered_children": 7,
+          "tight_covered": 7,
+          "raw_score_pruned": 7
+        }
+      }
+    },
+    {
+      "graph": 13,
+      "group": 4,
+      "states": 1102,
+      "raw_children": 149486,
+      "covered_children": 33184,
+      "orientation_needed": 4907,
+      "tight_covered": 28348,
+      "raw_score_pruned": 28277,
+      "pruned_orientation_fraction": 0.852127531340405,
+      "old_action_calls_proxy": 99552,
+      "new_action_calls_proxy": 14721,
+      "layers": {
+        "10": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 62,
+          "orientation_needed": 62
+        },
+        "9": {
+          "states": 28,
+          "raw_children": 6520,
+          "covered_children": 2798,
+          "orientation_needed": 1272,
+          "tight_covered": 1544,
+          "raw_score_pruned": 1526
+        },
+        "8": {
+          "states": 322,
+          "raw_children": 56258,
+          "covered_children": 14807,
+          "tight_covered": 12578,
+          "raw_score_pruned": 12548,
+          "orientation_needed": 2259
+        },
+        "7": {
+          "states": 466,
+          "raw_children": 61168,
+          "covered_children": 11676,
+          "tight_covered": 10595,
+          "raw_score_pruned": 10572,
+          "orientation_needed": 1104
+        },
+        "6": {
+          "states": 236,
+          "raw_children": 22248,
+          "covered_children": 3437,
+          "tight_covered": 3236,
+          "raw_score_pruned": 3236,
+          "orientation_needed": 201
+        },
+        "5": {
+          "states": 46,
+          "raw_children": 2990,
+          "covered_children": 383,
+          "tight_covered": 374,
+          "raw_score_pruned": 374,
+          "orientation_needed": 9
+        },
+        "4": {
+          "states": 3,
+          "raw_children": 120,
+          "covered_children": 21,
+          "tight_covered": 21,
+          "raw_score_pruned": 21
+        }
+      }
+    },
+    {
+      "graph": 14,
+      "group": 2,
+      "states": 115,
+      "raw_children": 15409,
+      "covered_children": 2822,
+      "orientation_needed": 320,
+      "tight_covered": 2502,
+      "raw_score_pruned": 2502,
+      "pruned_orientation_fraction": 0.8866052445074415,
+      "old_action_calls_proxy": 2822,
+      "new_action_calls_proxy": 320,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 62,
+          "orientation_needed": 62
+        },
+        "8": {
+          "states": 30,
+          "raw_children": 5328,
+          "covered_children": 1333,
+          "tight_covered": 1157,
+          "raw_score_pruned": 1157,
+          "orientation_needed": 176
+        },
+        "7": {
+          "states": 53,
+          "raw_children": 7047,
+          "covered_children": 1086,
+          "tight_covered": 1011,
+          "raw_score_pruned": 1011,
+          "orientation_needed": 75
+        },
+        "6": {
+          "states": 27,
+          "raw_children": 2592,
+          "covered_children": 315,
+          "tight_covered": 308,
+          "raw_score_pruned": 308,
+          "orientation_needed": 7
+        },
+        "5": {
+          "states": 4,
+          "raw_children": 260,
+          "covered_children": 26,
+          "tight_covered": 26,
+          "raw_score_pruned": 26
+        }
+      }
+    },
+    {
+      "graph": 15,
+      "group": 2,
+      "states": 1199,
+      "raw_children": 170553,
+      "covered_children": 35102,
+      "orientation_needed": 5085,
+      "tight_covered": 30017,
+      "raw_score_pruned": 30017,
+      "pruned_orientation_fraction": 0.8551364594609994,
+      "old_action_calls_proxy": 35102,
+      "new_action_calls_proxy": 5085,
+      "layers": {
+        "10": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 58,
+          "orientation_needed": 58
+        },
+        "9": {
+          "states": 41,
+          "raw_children": 9714,
+          "covered_children": 4015,
+          "orientation_needed": 1571,
+          "tight_covered": 2444,
+          "raw_score_pruned": 2444
+        },
+        "8": {
+          "states": 406,
+          "raw_children": 71788,
+          "covered_children": 16653,
+          "tight_covered": 14371,
+          "raw_score_pruned": 14371,
+          "orientation_needed": 2282
+        },
+        "7": {
+          "states": 488,
+          "raw_children": 64947,
+          "covered_children": 10909,
+          "tight_covered": 9914,
+          "raw_score_pruned": 9914,
+          "orientation_needed": 995
+        },
+        "6": {
+          "states": 222,
+          "raw_children": 21282,
+          "covered_children": 3169,
+          "tight_covered": 2992,
+          "raw_score_pruned": 2992,
+          "orientation_needed": 177
+        },
+        "5": {
+          "states": 40,
+          "raw_children": 2600,
+          "covered_children": 291,
+          "tight_covered": 289,
+          "raw_score_pruned": 289,
+          "orientation_needed": 2
+        },
+        "4": {
+          "states": 1,
+          "raw_children": 40,
+          "covered_children": 7,
+          "tight_covered": 7,
+          "raw_score_pruned": 7
+        }
+      }
+    },
+    {
+      "graph": 16,
+      "group": 1,
+      "states": 154,
+      "raw_children": 21905,
+      "covered_children": 3696,
+      "orientation_needed": 393,
+      "tight_covered": 3303,
+      "raw_score_pruned": 3303,
+      "pruned_orientation_fraction": 0.8936688311688312,
+      "old_action_calls_proxy": 0,
+      "new_action_calls_proxy": 0,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 60,
+          "orientation_needed": 60
+        },
+        "8": {
+          "states": 51,
+          "raw_children": 9048,
+          "covered_children": 2108,
+          "tight_covered": 1852,
+          "raw_score_pruned": 1852,
+          "orientation_needed": 256
+        },
+        "7": {
+          "states": 78,
+          "raw_children": 10371,
+          "covered_children": 1347,
+          "tight_covered": 1270,
+          "raw_score_pruned": 1270,
+          "orientation_needed": 77
+        },
+        "6": {
+          "states": 24,
+          "raw_children": 2304,
+          "covered_children": 181,
+          "tight_covered": 181,
+          "raw_score_pruned": 181
+        }
+      }
+    },
+    {
+      "graph": 17,
+      "group": 4,
+      "states": 983,
+      "raw_children": 140461,
+      "covered_children": 29669,
+      "orientation_needed": 4546,
+      "tight_covered": 25123,
+      "raw_score_pruned": 25123,
+      "pruned_orientation_fraction": 0.8467760962620917,
+      "old_action_calls_proxy": 89007,
+      "new_action_calls_proxy": 13638,
+      "layers": {
+        "10": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 60,
+          "orientation_needed": 60
+        },
+        "9": {
+          "states": 33,
+          "raw_children": 7728,
+          "covered_children": 3263,
+          "orientation_needed": 1397,
+          "tight_covered": 1866,
+          "raw_score_pruned": 1866
+        },
+        "8": {
+          "states": 337,
+          "raw_children": 59620,
+          "covered_children": 14777,
+          "tight_covered": 12620,
+          "raw_score_pruned": 12620,
+          "orientation_needed": 2157
+        },
+        "7": {
+          "states": 412,
+          "raw_children": 54835,
+          "covered_children": 9173,
+          "tight_covered": 8362,
+          "raw_score_pruned": 8362,
+          "orientation_needed": 811
+        },
+        "6": {
+          "states": 167,
+          "raw_children": 16026,
+          "covered_children": 2088,
+          "tight_covered": 1974,
+          "raw_score_pruned": 1974,
+          "orientation_needed": 114
+        },
+        "5": {
+          "states": 30,
+          "raw_children": 1950,
+          "covered_children": 287,
+          "tight_covered": 280,
+          "raw_score_pruned": 280,
+          "orientation_needed": 7
+        },
+        "4": {
+          "states": 3,
+          "raw_children": 120,
+          "covered_children": 21,
+          "tight_covered": 21,
+          "raw_score_pruned": 21
+        }
+      }
+    },
+    {
+      "graph": 18,
+      "group": 4,
+      "states": 391,
+      "raw_children": 60733,
+      "covered_children": 11679,
+      "orientation_needed": 1822,
+      "tight_covered": 9857,
+      "raw_score_pruned": 9857,
+      "pruned_orientation_fraction": 0.843993492593544,
+      "old_action_calls_proxy": 35037,
+      "new_action_calls_proxy": 5466,
+      "layers": {
+        "10": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 56,
+          "orientation_needed": 56
+        },
+        "9": {
+          "states": 25,
+          "raw_children": 5974,
+          "covered_children": 2427,
+          "orientation_needed": 883,
+          "tight_covered": 1544,
+          "raw_score_pruned": 1544
+        },
+        "8": {
+          "states": 180,
+          "raw_children": 31836,
+          "covered_children": 6545,
+          "orientation_needed": 752,
+          "tight_covered": 5793,
+          "raw_score_pruned": 5793
+        },
+        "7": {
+          "states": 138,
+          "raw_children": 18353,
+          "covered_children": 2135,
+          "tight_covered": 2013,
+          "raw_score_pruned": 2013,
+          "orientation_needed": 122
+        },
+        "6": {
+          "states": 43,
+          "raw_children": 4128,
+          "covered_children": 475,
+          "tight_covered": 466,
+          "raw_score_pruned": 466,
+          "orientation_needed": 9
+        },
+        "5": {
+          "states": 4,
+          "raw_children": 260,
+          "covered_children": 41,
+          "tight_covered": 41,
+          "raw_score_pruned": 41
+        }
+      }
+    },
+    {
+      "graph": 19,
+      "group": 2,
+      "states": 798,
+      "raw_children": 120147,
+      "covered_children": 24027,
+      "orientation_needed": 3488,
+      "tight_covered": 20549,
+      "raw_score_pruned": 20539,
+      "pruned_orientation_fraction": 0.8548299829358639,
+      "old_action_calls_proxy": 24027,
+      "new_action_calls_proxy": 3488,
+      "layers": {
+        "10": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 59,
+          "orientation_needed": 59
+        },
+        "9": {
+          "states": 34,
+          "raw_children": 8026,
+          "covered_children": 3322,
+          "orientation_needed": 1333,
+          "tight_covered": 1994,
+          "raw_score_pruned": 1989
+        },
+        "8": {
+          "states": 330,
+          "raw_children": 58152,
+          "covered_children": 13276,
+          "orientation_needed": 1675,
+          "tight_covered": 11606,
+          "raw_score_pruned": 11601
+        },
+        "7": {
+          "states": 337,
+          "raw_children": 44695,
+          "covered_children": 6435,
+          "tight_covered": 6021,
+          "raw_score_pruned": 6021,
+          "orientation_needed": 414
+        },
+        "6": {
+          "states": 92,
+          "raw_children": 8832,
+          "covered_children": 908,
+          "tight_covered": 901,
+          "raw_score_pruned": 901,
+          "orientation_needed": 7
+        },
+        "5": {
+          "states": 4,
+          "raw_children": 260,
+          "covered_children": 27,
+          "tight_covered": 27,
+          "raw_score_pruned": 27
+        }
+      }
+    },
+    {
+      "graph": 20,
+      "group": 1,
+      "states": 1499,
+      "raw_children": 220341,
+      "covered_children": 43568,
+      "orientation_needed": 6000,
+      "tight_covered": 37589,
+      "raw_score_pruned": 37568,
+      "pruned_orientation_fraction": 0.8622842453176643,
+      "old_action_calls_proxy": 0,
+      "new_action_calls_proxy": 0,
+      "layers": {
+        "10": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 59,
+          "orientation_needed": 59
+        },
+        "9": {
+          "states": 51,
+          "raw_children": 12064,
+          "covered_children": 5014,
+          "orientation_needed": 1998,
+          "tight_covered": 3022,
+          "raw_score_pruned": 3016
+        },
+        "8": {
+          "states": 575,
+          "raw_children": 101364,
+          "covered_children": 23414,
+          "tight_covered": 20427,
+          "raw_score_pruned": 20416,
+          "orientation_needed": 2998
+        },
+        "7": {
+          "states": 651,
+          "raw_children": 86330,
+          "covered_children": 12826,
+          "tight_covered": 11938,
+          "raw_score_pruned": 11934,
+          "orientation_needed": 892
+        },
+        "6": {
+          "states": 199,
+          "raw_children": 18996,
+          "covered_children": 2067,
+          "tight_covered": 2015,
+          "raw_score_pruned": 2015,
+          "orientation_needed": 52
+        },
+        "5": {
+          "states": 21,
+          "raw_children": 1365,
+          "covered_children": 181,
+          "tight_covered": 180,
+          "raw_score_pruned": 180,
+          "orientation_needed": 1
+        },
+        "4": {
+          "states": 1,
+          "raw_children": 40,
+          "covered_children": 7,
+          "tight_covered": 7,
+          "raw_score_pruned": 7
+        }
+      }
+    },
+    {
+      "graph": 21,
+      "group": 2,
+      "states": 1166,
+      "raw_children": 169858,
+      "covered_children": 34363,
+      "orientation_needed": 5037,
+      "tight_covered": 29326,
+      "raw_score_pruned": 29326,
+      "pruned_orientation_fraction": 0.85341792043768,
+      "old_action_calls_proxy": 34363,
+      "new_action_calls_proxy": 5037,
+      "layers": {
+        "10": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 59,
+          "orientation_needed": 59
+        },
+        "9": {
+          "states": 41,
+          "raw_children": 9656,
+          "covered_children": 4022,
+          "orientation_needed": 1642,
+          "tight_covered": 2380,
+          "raw_score_pruned": 2380
+        },
+        "8": {
+          "states": 432,
+          "raw_children": 76412,
+          "covered_children": 17981,
+          "tight_covered": 15541,
+          "raw_score_pruned": 15541,
+          "orientation_needed": 2440
+        },
+        "7": {
+          "states": 488,
+          "raw_children": 64948,
+          "covered_children": 10049,
+          "tight_covered": 9244,
+          "raw_score_pruned": 9244,
+          "orientation_needed": 805
+        },
+        "6": {
+          "states": 176,
+          "raw_children": 16890,
+          "covered_children": 2006,
+          "tight_covered": 1921,
+          "raw_score_pruned": 1921,
+          "orientation_needed": 85
+        },
+        "5": {
+          "states": 26,
+          "raw_children": 1690,
+          "covered_children": 232,
+          "tight_covered": 226,
+          "raw_score_pruned": 226,
+          "orientation_needed": 6
+        },
+        "4": {
+          "states": 2,
+          "raw_children": 80,
+          "covered_children": 14,
+          "tight_covered": 14,
+          "raw_score_pruned": 14
+        }
+      }
+    },
+    {
+      "graph": 22,
+      "group": 2,
+      "states": 85,
+      "raw_children": 12290,
+      "covered_children": 2052,
+      "orientation_needed": 249,
+      "tight_covered": 1803,
+      "raw_score_pruned": 1803,
+      "pruned_orientation_fraction": 0.8786549707602339,
+      "old_action_calls_proxy": 2052,
+      "new_action_calls_proxy": 249,
+      "layers": {
+        "9": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 59,
+          "orientation_needed": 59
+        },
+        "8": {
+          "states": 31,
+          "raw_children": 5504,
+          "covered_children": 1257,
+          "orientation_needed": 153,
+          "tight_covered": 1104,
+          "raw_score_pruned": 1104
+        },
+        "7": {
+          "states": 41,
+          "raw_children": 5452,
+          "covered_children": 642,
+          "tight_covered": 605,
+          "raw_score_pruned": 605,
+          "orientation_needed": 37
+        },
+        "6": {
+          "states": 12,
+          "raw_children": 1152,
+          "covered_children": 94,
+          "tight_covered": 94,
+          "raw_score_pruned": 94
+        }
+      }
+    },
+    {
+      "graph": 23,
+      "group": 2,
+      "states": 430,
+      "raw_children": 68253,
+      "covered_children": 12671,
+      "orientation_needed": 1904,
+      "tight_covered": 10767,
+      "raw_score_pruned": 10767,
+      "pruned_orientation_fraction": 0.8497356167626865,
+      "old_action_calls_proxy": 12671,
+      "new_action_calls_proxy": 1904,
+      "layers": {
+        "10": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 56,
+          "orientation_needed": 56
+        },
+        "9": {
+          "states": 28,
+          "raw_children": 6694,
+          "covered_children": 2701,
+          "orientation_needed": 965,
+          "tight_covered": 1736,
+          "raw_score_pruned": 1736
+        },
+        "8": {
+          "states": 213,
+          "raw_children": 37662,
+          "covered_children": 7566,
+          "tight_covered": 6749,
+          "raw_score_pruned": 6749,
+          "orientation_needed": 817
+        },
+        "7": {
+          "states": 154,
+          "raw_children": 20482,
+          "covered_children": 2010,
+          "tight_covered": 1945,
+          "raw_score_pruned": 1945,
+          "orientation_needed": 65
+        },
+        "6": {
+          "states": 33,
+          "raw_children": 3168,
+          "covered_children": 326,
+          "tight_covered": 325,
+          "raw_score_pruned": 325,
+          "orientation_needed": 1
+        },
+        "5": {
+          "states": 1,
+          "raw_children": 65,
+          "covered_children": 12,
+          "tight_covered": 12,
+          "raw_score_pruned": 12
+        }
+      }
+    },
+    {
+      "graph": 24,
+      "group": 8,
+      "states": 248,
+      "raw_children": 38971,
+      "covered_children": 7524,
+      "orientation_needed": 1260,
+      "tight_covered": 6264,
+      "raw_score_pruned": 6264,
+      "pruned_orientation_fraction": 0.8325358851674641,
+      "old_action_calls_proxy": 52668,
+      "new_action_calls_proxy": 8820,
+      "layers": {
+        "10": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 56,
+          "orientation_needed": 56
+        },
+        "9": {
+          "states": 18,
+          "raw_children": 4286,
+          "covered_children": 1729,
+          "orientation_needed": 635,
+          "tight_covered": 1094,
+          "raw_score_pruned": 1094
+        },
+        "8": {
+          "states": 118,
+          "raw_children": 20876,
+          "covered_children": 4257,
+          "tight_covered": 3770,
+          "raw_score_pruned": 3770,
+          "orientation_needed": 487
+        },
+        "7": {
+          "states": 82,
+          "raw_children": 10905,
+          "covered_children": 1201,
+          "tight_covered": 1124,
+          "raw_score_pruned": 1124,
+          "orientation_needed": 77
+        },
+        "6": {
+          "states": 27,
+          "raw_children": 2592,
+          "covered_children": 262,
+          "tight_covered": 257,
+          "raw_score_pruned": 257,
+          "orientation_needed": 5
+        },
+        "5": {
+          "states": 2,
+          "raw_children": 130,
+          "covered_children": 19,
+          "tight_covered": 19,
+          "raw_score_pruned": 19
+        }
+      }
+    },
+    {
+      "graph": 25,
+      "group": 4,
+      "states": 255,
+      "raw_children": 40582,
+      "covered_children": 7745,
+      "orientation_needed": 1277,
+      "tight_covered": 6481,
+      "raw_score_pruned": 6468,
+      "pruned_orientation_fraction": 0.8351194318915429,
+      "old_action_calls_proxy": 23235,
+      "new_action_calls_proxy": 3831,
+      "layers": {
+        "10": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 56,
+          "orientation_needed": 56
+        },
+        "9": {
+          "states": 20,
+          "raw_children": 4766,
+          "covered_children": 1915,
+          "orientation_needed": 700,
+          "tight_covered": 1222,
+          "raw_score_pruned": 1215
+        },
+        "8": {
+          "states": 131,
+          "raw_children": 22846,
+          "covered_children": 4537,
+          "tight_covered": 4057,
+          "raw_score_pruned": 4053,
+          "orientation_needed": 484
+        },
+        "7": {
+          "states": 84,
+          "raw_children": 11018,
+          "covered_children": 1080,
+          "tight_covered": 1045,
+          "raw_score_pruned": 1043,
+          "orientation_needed": 37
+        },
+        "6": {
+          "states": 19,
+          "raw_children": 1770,
+          "covered_children": 157,
+          "tight_covered": 157,
+          "raw_score_pruned": 157
+        }
+      }
+    },
+    {
+      "graph": 27,
+      "group": 8,
+      "states": 3124,
+      "raw_children": 506565,
+      "covered_children": 112287,
+      "orientation_needed": 18299,
+      "tight_covered": 93988,
+      "raw_score_pruned": 93988,
+      "pruned_orientation_fraction": 0.8370336726424252,
+      "old_action_calls_proxy": 786009,
+      "new_action_calls_proxy": 128093,
+      "layers": {
+        "11": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 56,
+          "orientation_needed": 56
+        },
+        "10": {
+          "states": 18,
+          "raw_children": 4286,
+          "covered_children": 1747,
+          "orientation_needed": 1747
+        },
+        "9": {
+          "states": 481,
+          "raw_children": 109795,
+          "covered_children": 36495,
+          "tight_covered": 28029,
+          "raw_score_pruned": 28029,
+          "orientation_needed": 8466
+        },
+        "8": {
+          "states": 1320,
+          "raw_children": 233422,
+          "covered_children": 51228,
+          "tight_covered": 44956,
+          "raw_score_pruned": 44956,
+          "orientation_needed": 6272
+        },
+        "7": {
+          "states": 947,
+          "raw_children": 125947,
+          "covered_children": 18806,
+          "tight_covered": 17213,
+          "raw_score_pruned": 17213,
+          "orientation_needed": 1593
+        },
+        "6": {
+          "states": 315,
+          "raw_children": 30228,
+          "covered_children": 3684,
+          "tight_covered": 3521,
+          "raw_score_pruned": 3521,
+          "orientation_needed": 163
+        },
+        "5": {
+          "states": 41,
+          "raw_children": 2665,
+          "covered_children": 264,
+          "tight_covered": 262,
+          "raw_score_pruned": 262,
+          "orientation_needed": 2
+        },
+        "4": {
+          "states": 1,
+          "raw_children": 40,
+          "covered_children": 7,
+          "tight_covered": 7,
+          "raw_score_pruned": 7
+        }
+      }
+    },
+    {
+      "graph": 29,
+      "group": 6,
+      "states": 2022,
+      "raw_children": 350819,
+      "covered_children": 75771,
+      "orientation_needed": 12354,
+      "tight_covered": 63433,
+      "raw_score_pruned": 63417,
+      "pruned_orientation_fraction": 0.8369560913806073,
+      "old_action_calls_proxy": 378855,
+      "new_action_calls_proxy": 61770,
+      "layers": {
+        "11": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 56,
+          "orientation_needed": 56
+        },
+        "10": {
+          "states": 16,
+          "raw_children": 3806,
+          "covered_children": 1537,
+          "orientation_needed": 1537
+        },
+        "9": {
+          "states": 411,
+          "raw_children": 93888,
+          "covered_children": 30354,
+          "tight_covered": 23686,
+          "raw_score_pruned": 23674,
+          "orientation_needed": 6680
+        },
+        "8": {
+          "states": 1007,
+          "raw_children": 177694,
+          "covered_children": 35941,
+          "orientation_needed": 3761,
+          "tight_covered": 32184,
+          "raw_score_pruned": 32180
+        },
+        "7": {
+          "states": 513,
+          "raw_children": 68145,
+          "covered_children": 7310,
+          "tight_covered": 6990,
+          "raw_score_pruned": 6990,
+          "orientation_needed": 320
+        },
+        "6": {
+          "states": 74,
+          "raw_children": 7104,
+          "covered_children": 573,
+          "tight_covered": 573,
+          "raw_score_pruned": 573
+        }
+      }
+    },
+    {
+      "graph": 30,
+      "group": 2,
+      "states": 5310,
+      "raw_children": 908834,
+      "covered_children": 189257,
+      "orientation_needed": 28462,
+      "tight_covered": 160798,
+      "raw_score_pruned": 160795,
+      "pruned_orientation_fraction": 0.8496119033906275,
+      "old_action_calls_proxy": 189257,
+      "new_action_calls_proxy": 28462,
+      "layers": {
+        "11": {
+          "states": 1,
+          "raw_children": 182,
+          "covered_children": 56,
+          "orientation_needed": 56
+        },
+        "10": {
+          "states": 28,
+          "raw_children": 6694,
+          "covered_children": 2696,
+          "orientation_needed": 2696
+        },
+        "9": {
+          "states": 970,
+          "raw_children": 221301,
+          "covered_children": 70739,
+          "tight_covered": 55662,
+          "raw_score_pruned": 55659,
+          "orientation_needed": 15080
+        },
+        "8": {
+          "states": 2654,
+          "raw_children": 468920,
+          "covered_children": 93647,
+          "tight_covered": 84007,
+          "raw_score_pruned": 84007,
+          "orientation_needed": 9640
+        },
+        "7": {
+          "states": 1429,
+          "raw_children": 190035,
+          "covered_children": 20297,
+          "tight_covered": 19322,
+          "raw_score_pruned": 19322,
+          "orientation_needed": 975
+        },
+        "6": {
+          "states": 222,
+          "raw_children": 21312,
+          "covered_children": 1771,
+          "tight_covered": 1756,
+          "raw_score_pruned": 1756,
+          "orientation_needed": 15
+        },
+        "5": {
+          "states": 6,
+          "raw_children": 390,
+          "covered_children": 51,
+          "tight_covered": 51,
+          "raw_score_pruned": 51
+        }
+      }
+    }
+  ],
+  "seconds": 22.81457606999902
+}

@@ -1,0 +1,9 @@
+Independent source review of EarlyScore984.lean
+SHA256: 1a8637919c13a159bfec7571c5e92b2a70771215f43ffb0a2059047817bd52a3
+Reviewer: toolchain_setup; author: single_not_reduction.
+Verdict: PASS source-level review, subject to separately recorded Lean compilation.
+Scope: new barEarlyScore, its soundness and strong-induction wrappers, and score_no_of_fastScr_eq.
+The raw and oriented scores each require explicit necessary-condition hypotheses for every MonRun. Orientation preservation is applied before the oriented score and exact lookup. The finite-table lookup checks its bound and permutation equality; successful lookup contradicts the induction hypothesis at a strictly smaller gate budget. Padding to cap requires a nonempty initial state. The score equality helper retains all fastScr guards.
+No equivalence to the old barrier is assumed: the added valid rejection test strengthens pruning. No frontier completeness or full31 theorem is claimed by this generic file.
+The corrected final binder types only make inference explicit; they add no hypotheses.
+Forbidden proof-construct scan on the preceding identical proof suffix found no sorry, axiom, native_decide, unsafe, _root_, quotes, attributes, or source options.

@@ -580,6 +580,18 @@
         "grouped-pattern-graph8-1.stderr"
       ],
       "scope": "Complete grouped/pattern certificate for exact posted conjunct8, all14states plus10\u2264circuit size; not the full31conjunct statement."
+    },
+    {
+      "file": "EarlyScore984.lean",
+      "sha256": "1a8637919c13a159bfec7571c5e92b2a70771215f43ffb0a2059047817bd52a3",
+      "bytes": 76777,
+      "lines": 1733,
+      "observed_compile_exit": 0,
+      "logs": [
+        "early-score-2.stdout",
+        "early-score-2.stderr"
+      ],
+      "scope": "Generic barrier soundness with independently justified raw and oriented score pruning; no whole graph or full posted theorem claim."
     }
   ]
 }

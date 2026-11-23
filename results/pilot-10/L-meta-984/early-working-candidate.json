@@ -1,0 +1,6 @@
+{
+  "file": "Full984-compact-v7b.lean",
+  "sha256": "065a86351fefe3349de2f58bfef1b2dd8de24f830a3568caea86881bfb91ff6c",
+  "bytes": 492624,
+  "status": "Full candidate source independently reviewed; generic early-score helper compiles. Complete G8 integration is running. Full v7b build and checker not yet run."
+}
