@@ -12,3 +12,9 @@ Second partial: 984 lines. Integrated build passed.
 Added heavy-window private-gate bound, truncated family sum, and all-sets-meet-y special case.
 Independent red-team review passed on SHA256 ec4ed6b22631d53f0ba2947a8776e994154bdbc72e8f0722098125c1cc448682.
 Posted theorem remains unproved; no checker acceptance or PR.
+
+Third partial: 1265 lines. Integrated build 6 passed after correcting integration errors; prior complete diagnostics preserved.
+Added exact refund lower bound, no-NOT case, and full mixed-family inequality for y.card <= 2.
+Independent red-team review passed on SHA256 9d8e440f9cb91bed95fbdb4b4beb512835e76eb45eba46a5556777d3a549acfb.
+General posted theorem remains unproved; no proof PR yet.
+TIMING total=12.1 subagents=5
