@@ -1,0 +1,103 @@
+L-meta-670 checked components only; finite exclusion and posted theorem are pending.
+Cut12 table has35 kernel-checked representative equalities; independent Python verifies4734 rows/555 recipes. No full-table kernel assertion is claimed.
+MetadataReplay and RawNoMemo universal soundness proofs compiled with no new axioms and passed independent review.
+status-review/Cut12CodecBody.lean SHA256 987de4d3e2b1978a06f4c441ff31f8c43f88c8a46fe96e55cb7f9e7bbd482673
+status-review/Cut12CodecTest.lean SHA256 9a8079e7051f6c4eb0f2d8f57c8cf964cfbfa3ae88a6577494341f727bc43250
+status-review/Cut12CodecManifest.json.gz SHA256 30b2e6b035275db27794e44b329a65234a4a32f0fb0375a48f00d172a453680b
+status-review/make_cut12_codec.py SHA256 751ec2ce8e9ec4a2e6668366ea304cc3459d549438dba87724d8589813656fa6
+status-review/validate_cut12_codec.py SHA256 c25ffe33ff2ac3596d5e8f52dd01c67d07097a3e0d9c008427de31fb8fb134ef
+replay/MetadataReplayBody.lean SHA256 45f509037ae2d925bead3ff4f112621449a86bdf101afaafc1eb4a33c194dd4f
+replay/MetadataReplayTest.lean SHA256 35669db850015a0e6554d0bdc84ef740ce08b9b7e05c92577772469160928347
+toolchain/DynamicRawNoMemoBody.lean SHA256 a93a548851315e56da0119d984fc0c5f18dcf221b04ec2e0e0c29aed310fdb48
+toolchain/DynamicRawNoMemoTest.lean SHA256 38ce3caf0bbb8fb5df5bda6530977b4d7745f96b97829316aad0c10d4a0d0cc0
+
+COMPLETE LOG status-review/cut12-codec-test.log
+
+COMPLETE LOG status-review/cut12-codec-validation.out
+Cut12CodecBody.lean 22108 987de4d3e2b1978a06f4c441ff31f8c43f88c8a46fe96e55cb7f9e7bbd482673
+Cut12CodecData.json 19560 5856cda24e6c8f50bc0d8b4b71a5025dc3dc62159ef0cb11dffef10f91c36dc0
+Cut12CodecManifest.json 641023 9699f96838af5b3a4028421455c2750faa01ca05366e76a0f83d6db8bd5411f3
+PASS: all4734rows,555recipes,levelmemberships and boundedchunk consumption independently decoded
+
+COMPLETE LOG status-review/cut12-codec-validation.err
+
+COMPLETE LOG counterexample/cut12-codec-independent-validation.txt
+PASS: independently reproduced exact fuel-bounded Lean decoder for all4734 rows, all98 groups and225 chunks.
+PASS: all555 recipes match manifest tokens and independently evaluated414-bit signatures; all level memberships match original.
+PASS: width bounds, row uniqueness/order, recipe bounds, gzip manifest identity,35test statements, exact body inclusion, format.
+These all-row checks are Python diagnostics, not a universal Lean theorem. Author reports35Lean examples compiled EXIT0; test log is empty.
+Cut12CodecBody.lean 22108 987de4d3e2b1978a06f4c441ff31f8c43f88c8a46fe96e55cb7f9e7bbd482673
+Cut12CodecTest.lean 24351 9a8079e7051f6c4eb0f2d8f57c8cf964cfbfa3ae88a6577494341f727bc43250
+Cut12CodecManifest.json 641023 9699f96838af5b3a4028421455c2750faa01ca05366e76a0f83d6db8bd5411f3
+Cut12CodecData.json 19560 5856cda24e6c8f50bc0d8b4b71a5025dc3dc62159ef0cb11dffef10f91c36dc0
+cut12-codec-test.log 0 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+cut12-codec-validation.out 375 3fa19e7a8a71a2a5aba39c6107865752423b241e27f9f95e6b014e4d89619a7f
+
+COMPLETE LOG replay/metadata-replay-build-2.log
+
+COMPLETE LOG lower-bound/metadata-replay-independent-audit.txt
+Independent source review: PASS
+Reviewer: /root/lower_bound
+Source: /tmp/oec/pequalnp-pilot-14/replay/MetadataReplayBody.lean
+SHA256: 45f509037ae2d925bead3ff4f112621449a86bdf101afaafc1eb4a33c194dd4f
+
+Config.Valid explicitly requires sound transport, terminal results, and cuts. It is a hypothesis of generic theorems, not an added axiom. Concrete integration must prove it.
+Reference validation checks the row count, enabled flag, and actual transported-state permutation. NOT-count limits are checked before using known lower-budget states.
+The fill operation stores only edges that passed a sound cut or an authenticated reference. Missing or spurious edge proposals cannot bypass completeness: the existing authoritative stepTest checks every actual move against the sound resulting memo.
+Budget induction decreases k, while disabled rows are used only vacuously and cannot be referenced as proved rows.
+The span and level wrappers preserve these requirements. No forbidden source constructs or hidden assumptions found.
+
+No duplicate compilation was run by this reviewer. The author separately reported MetadataReplayTest EXIT0 with full log replay/metadata-replay-build-2.log. This component is generic infrastructure; concrete finite certificate checks remain required.
+
+COMPLETE LOG toolchain/dynamic-raw-nomemo-test.log
+import took 3.31s
+/tmp/oec/pequalnp-pilot-14/toolchain/DynamicRawNoMemoTest.lean:58:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/DynamicRawNoMemoTest.lean:66:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'PEqualNP.Outside.L_meta_670_aux.DynamicRawNoMemo.fastLeafCheck_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	.olean serialization 4.65ms
+	attribute application 0.0729ms
+	blocked (unaccounted) 65.9ms
+	compilation (IR) 0.413ms
+	compilation (LCNF base) 7.57ms
+	compilation (LCNF impure) 3.09ms
+	compilation (LCNF mono) 3.03ms
+	congr simp thm 3.66ms
+	declTypeLinter 3.37ms
+	elaboration 39.5ms
+	fix level params 0.199ms
+	import 3.31s
+	initialization 34.9ms
+	instantiate metavars 0.287ms
+	interpretation 296ms
+	let-to-have transformation 0.3ms
+	linting 7.88ms
+	module linting 0.0289ms
+	parsing 8.51ms
+	process pre-definitions 5.11ms
+	share common exprs 0.867ms
+	simp 23.2ms
+	tactic execution 57.7ms
+	tacticAnalysis 1.72ms
+	type checking 5.22ms
+	typeclass inference 23.6ms
+
+COMPLETE LOG counterexample/raw-nomemo-independent-audit.txt
+PASS independent DynamicRawNoMemo review; no compiler rerun.
+The solver removes memo and dependent-context runtime wrappers while carrying Valid as a theorem premise. This does not remove a soundness assumption: every recursive child receives StrictPrefix.updateWithRecipe_valid, and the induction explicitly threads it.
+The same original stepTest authenticates every successor. exclude_step_nodup supplies child Nodup proofs, so checking Nodup only at the top is sufficient for soundness. It does not assume arbitrary runtime child lists are always distinct.
+Coverage cut uses actual remaining NOT count t and exact cached projection values. Prefix cut still requires existing oracle Sound. Target preservation and Boolean-operation homomorphisms remain explicit.
+Runtime fastLeafCheck omits hr, but fastLeafCheck_sound retains rho projection correctness and uses FastRecipe.initial_valid. Thus arbitrary incorrect runtime rho cannot yield an applicable proof without its genuine equality premise.
+findUnary/findBinary prepare a candidate recipe per child; invalid hints and guessed roots/gates remain covered by existing validated updater/checker semantics. No old lower-bound assumption is silently removed.
+Exact body occurs in successful test; final soundness theorem log lists only propext, Classical.choice, Quot.sound. Harmless deprecated-if_neg warnings do not affect validity. No forbidden constructs/new axioms found. No timing/memory improvement is claimed by this review.
+DynamicRawNoMemoBody.lean SHA256 a93a548851315e56da0119d984fc0c5f18dcf221b04ec2e0e0c29aed310fdb48
+DynamicRawNoMemoTest.lean SHA256 38ce3caf0bbb8fb5df5bda6530977b4d7745f96b97829316aad0c10d4a0d0cc0
+dynamic-raw-nomemo-test.log SHA256 dc60f57679c77e7ebc665dd739f38481964d67bf44a83ea6798be3544040dc59
