@@ -32,3 +32,6 @@ TIMING total=18.6 subagents=6
 Sixth partial: 1915 lines. Build 9 passed; lake build --no-build confirmed current artifacts. Added translation of strict heavy charges into original gate operations and support signatures.
 Root independently reviewed the 56-line extension authored by heavy_window, including hypotheses, namespace and forbidden constructs.
 Snapshot SHA256 7a39025a8c9f438b6a914224b680e22e591466b0810313bce9d475e3347da602
+
+Seventh partial: 1991 lines. Build 10 passed. Added minimum-weight gate budget: a monotone output true at y and false below weight k requires at least k-1 gates with empty singleton support that are true at y.
+Independent review by lean_setup passed on75-line extension SHA256990942dff8e2594695b5571c6362f1c3b2923160743555e80f861e085bc701ce. Combined snapshot257867fc004424953fac10d8481e944cc10fd375b1f6302add41cfbffbb283cf.

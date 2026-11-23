@@ -1913,3 +1913,79 @@ lemma heavy_or_original {n : ℕ} (C : Circuit) (t : ℕ)
     exact hf (by simpa only [heq] using he)
 
 end PEqualNP.Outside.L_meta_997.HeavyOr
+
+namespace PEqualNP.Outside.L_meta_997.Prefix
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_997.Heavy
+
+lemma empty_support_count {n k : ℕ} (C : Circuit) (o : ℕ) (y : Fin n → Bool)
+    (hgate : ∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hy : value C y o = true)
+    (hsmall : ∀ x : Fin n → Bool,
+      (Finset.univ.filter (fun p => x p = true)).card < k → value C x o = false) :
+    k ≤ ((Finset.Ico n (n + C.size)).filter
+      (fun w => supp C (∅ : Finset (Fin n)) w = ∅ ∧ value C y w = true)).card + 1 := by
+  classical
+  let G := (Finset.Ico n (n + C.size)).filter
+    (fun w => supp C (∅ : Finset (Fin n)) w = ∅ ∧ value C y w = true)
+  by_contra! hbad
+  have hG : ∀ w ∈ G, n ≤ w ∧ w < n + C.size := by
+    intro w hw
+    exact Finset.mem_Ico.mp (Finset.mem_filter.mp hw).1
+  obtain ⟨B, hd, hc, hcut⟩ := cut C hgate G hG (n + C.size) {o}
+    (fun w _ hw => (hG w hw).2)
+  have hBc : B.card ≤ G.card + 1 := by
+    have hf := Finset.card_filter_le G (fun w => w < n + C.size)
+    simp only [Finset.card_singleton] at hc
+    omega
+  let D := B.filter (fun w => value C y w = true)
+  have hnonempty (w : {w // w ∈ D}) : (supp C (∅ : Finset (Fin n)) w.val).Nonempty := by
+    have hwB := (Finset.mem_filter.mp w.property).1
+    have hwy := (Finset.mem_filter.mp w.property).2
+    by_contra! hempty
+    have hempty' : supp C (∅ : Finset (Fin n)) w.val = ∅ :=
+      hempty
+    by_cases hn : w.val < n
+    · let p : Fin n := ⟨w.val, hn⟩
+      have hp : p ∈ supp C (∅ : Finset (Fin n)) w.val := by
+        rw [mem_supp]
+        change value C (fun v => decide (v ∈ (∅ : Finset (Fin n)) ∨ v = p)) p = true
+        simp [input_value]
+      simp [hempty'] at hp
+    · by_cases hW : w.val < n + C.size
+      · have hwG : w.val ∈ G := Finset.mem_filter.mpr
+          ⟨Finset.mem_Ico.mpr ⟨by omega, hW⟩, hempty', hwy⟩
+        exact Finset.disjoint_left.mp hd hwB hwG
+      · rw [missing_value C y w.val (by omega)] at hwy
+        exact Bool.false_ne_true hwy
+  choose q hq using hnonempty
+  let U := D.attach.image q
+  let x : Fin n → Bool := fun p => decide (p ∈ U)
+  have hU : U.card < k := by
+    have h1 : U.card ≤ D.attach.card := Finset.card_image_le
+    have h2 := Finset.card_filter_le B (fun w => value C y w = true)
+    simp only [Finset.card_attach] at h1
+    change D.card ≤ B.card at h2
+    change G.card + 1 < k at hbad
+    omega
+  have hxf : value C x o = false := by
+    apply hsmall x
+    have he : Finset.univ.filter (fun p => x p = true) = U := by
+      ext p
+      simp [x]
+    rwa [he]
+  have hxt : value C x o = true := by
+    apply hcut y x _ o (Finset.mem_singleton_self o) hy
+    intro w hw hwy
+    let d : {w // w ∈ D} := ⟨w, Finset.mem_filter.mpr ⟨hw, hwy⟩⟩
+    apply value_mono C hgate (fun v => decide (v ∈ (∅ : Finset (Fin n)) ∨ v = q d)) x _ w
+      ((mem_supp C ∅ w (q d)).mp (hq d))
+    intro p hp
+    have he : p = q d := by simpa using hp
+    subst p
+    have hm : q d ∈ U := Finset.mem_image_of_mem q (Finset.mem_attach D d)
+    simpa [x] using hm
+  rw [hxf] at hxt
+  exact Bool.false_ne_true hxt
+
+end PEqualNP.Outside.L_meta_997.Prefix
