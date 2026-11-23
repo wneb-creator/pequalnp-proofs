@@ -136,3 +136,14 @@ and root against the reviewed full candidate: exact conjunct8 and all14
 finite states, PASS. Complete logs retain only deprecation warnings.
 Full compact v4 remains under compilation; independent source review is
 archived separately and does not imply a successful full proof/checker.
+
+ThresholdScore984 independently reviewed by independent_theory: PASS.
+The explicit12-wire bound justifies all4096 mask cases, tier decomposition
+and count-order arithmetic retain every necessary assumption. Root reviewed
+the separate finite threshold benchmark diff; it adds no general claim.
+DirectCompactV3Components984: root independently reviewed pattern-checker
+equality and the finite component declarations against previously reviewed
+pattern and compact helpers. Lookup remains guarded and sample lists prove
+only their displayed finite results. PASS for that scope. Full profiler
+logs and the successful explicit-j5 recheck of the identical parallel
+benchmark source are retained.

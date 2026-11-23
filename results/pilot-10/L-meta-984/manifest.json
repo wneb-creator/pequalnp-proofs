@@ -466,7 +466,12 @@
         "direct-compact-v3-parallel-1.stdout",
         "direct-compact-v3-parallel-1.stderr"
       ],
-      "scope": "Same helper facts and nine distinct layer8 entries: slot2358 and100through107; no whole graph bound."
+      "scope": "Same helper facts and nine distinct layer8 entries: slot2358 and100through107; no whole graph bound.",
+      "additional_success_logs": [
+        "direct-compact-v3-parallel-j5.stdout",
+        "direct-compact-v3-parallel-j5.stderr"
+      ],
+      "additional_success_scope": "Same frozen source rechecked with explicit -j5; observed exit0."
     },
     {
       "file": "ScoreLoopBenchmarkOld.lean",
@@ -503,6 +508,42 @@
         "compact-graph8-certificate-v3.stderr"
       ],
       "scope": "Complete compact certificate for exact posted conjunct8, all14states plus10\u2264circuit size. Remaining30conjuncts not established by this file."
+    },
+    {
+      "file": "ThresholdScore984.lean",
+      "sha256": "a416d136637c8c2ac5c7d8285492c280ba7d349bb6669c48a61fbf63f399b497",
+      "bytes": 11056,
+      "lines": 253,
+      "observed_compile_exit": 0,
+      "logs": [
+        "threshold-score-2.stdout",
+        "threshold-score-2.stderr"
+      ],
+      "scope": "Generic threshold-score equivalence for at most12 wires, including finite bit-clearing lemmas; no performance or graph-bound claim."
+    },
+    {
+      "file": "ScoreLoopBenchmarkThreshold.lean",
+      "sha256": "85c203b689b3cf9880fa67eec74fe64df5aa2dc78f5d98eaab25be4fa645964c",
+      "bytes": 11241,
+      "lines": 214,
+      "observed_compile_exit": 0,
+      "logs": [
+        "score-loop-benchmark-threshold.stdout",
+        "score-loop-benchmark-threshold.stderr"
+      ],
+      "scope": "Thirty finite threshold checks on one fixed9-wire sample only; no generic threshold correctness claimed by this file."
+    },
+    {
+      "file": "DirectCompactV3Components984.lean",
+      "sha256": "f161a049f881a20b20e77515fff449aec6d550a662c713a0d3388d76743b58d7",
+      "bytes": 154664,
+      "lines": 1893,
+      "observed_compile_exit": 0,
+      "logs": [
+        "direct-compact-v3-components-1.stdout",
+        "direct-compact-v3-components-1.stderr"
+      ],
+      "scope": "Generic pattern-checker equality, one matched barrier state, and finite coverage/orientation/scoring/lookup benchmark lists; no whole graph bound."
     }
   ]
 }
