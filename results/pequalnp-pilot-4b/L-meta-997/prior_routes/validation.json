@@ -1,0 +1,51 @@
+{
+  "status": "partial_helpers_compiled",
+  "posted_statement_proved": false,
+  "posted_statement_checker_run": false,
+  "compiler_workdir": "lean",
+  "compiler_command": "lake env lean <source path>",
+  "environment": "Pinned project toolchain and prepared Mathlib cache; executed through the session with-lean.sh wrapper.",
+  "records": [
+    {
+      "source": "SparseCount.lean",
+      "log": "SparseCount.log",
+      "exit_code": 0,
+      "sha256": "fd364c07367a572e4bd89398b37401e1c8efb2f69f7d97c2b75de75e4f7cb066",
+      "dependencies": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ]
+    },
+    {
+      "source": "HeavyOrCount.lean",
+      "log": "HeavyOrCount.log",
+      "exit_code": 0,
+      "sha256": "8cf8016ec80898558f4cd08bbfd41d3eac38bde987f8309ef0a5482a054a8d08",
+      "dependencies": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ]
+    },
+    {
+      "source": "PartialOverlap.lean",
+      "log": "PartialOverlap.log",
+      "exit_code": 0,
+      "sha256": "295269a8b0fa6f0cab8ae200046f94e74d29eeb8f6d6b3b02b1ea0689bf69d6b",
+      "dependencies": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ]
+    },
+    {
+      "source": "HeavyAndPruning.lean",
+      "log": "HeavyAndPruning.log",
+      "exit_code": 0,
+      "sha256": "b472b5f4614a481d7178ccc15cdbf58d47c80e91fcd6a8ae6c78b65068890426",
+      "dependencies": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ]
+    }
+  ],
+  "dependency_source": "dependencies/WeightedFrontier.lean; also inlined in HeavyOrCount.lean"
+}

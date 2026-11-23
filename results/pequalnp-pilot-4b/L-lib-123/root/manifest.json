@@ -1,0 +1,134 @@
+{
+  "gap": "L-lib-123",
+  "scope": "Checked helper lemmas only; no FP3 theorem or refutation",
+  "toolchain": "Lean 4.36.0 with repository pins",
+  "validation": "Each listed source compiled successfully; its complete final log is empty",
+  "files": [
+    {
+      "file": "ExponentBudget.lean",
+      "kind": "lean_source",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/ExponentBudget.lean",
+      "sha256": "c759a2bdbec15a8556fa5b97ca60454d1506554338b431f01b1dd06f56731ebf",
+      "bytes": 1533
+    },
+    {
+      "file": "exponent-budget-2.log",
+      "kind": "complete_successful_compiler_log",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/exponent-budget-2.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "FingerprintBudget.lean",
+      "kind": "lean_source",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/FingerprintBudget.lean",
+      "sha256": "16a308fe6e41a55f76220c7f4dceb0d5bcdcbc1636168508bc9f2df81c012599",
+      "bytes": 1451
+    },
+    {
+      "file": "fingerprint-budget-2.log",
+      "kind": "complete_successful_compiler_log",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/fingerprint-budget-2.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "AlphabetBound.lean",
+      "kind": "lean_source",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/AlphabetBound.lean",
+      "sha256": "89de556d1e7ec5d782c4d027a1eb50299a937401395112b583e6847f022f1391",
+      "bytes": 3925
+    },
+    {
+      "file": "alphabet-bound-4.log",
+      "kind": "complete_successful_compiler_log",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/alphabet-bound-4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "MacroBudget.lean",
+      "kind": "lean_source",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/MacroBudget.lean",
+      "sha256": "cdc5e3b2ffb93d5eec0c1bf2f72e4989472125b595c7adc13a2bfa38e4b986ac",
+      "bytes": 3631
+    },
+    {
+      "file": "macro-budget-3.log",
+      "kind": "complete_successful_compiler_log",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/macro-budget-3.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "Normalization.lean",
+      "kind": "lean_source",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/Normalization.lean",
+      "sha256": "b7e5866dcd23a5483bf823b7f25f16fe0e511225591a1e51e4d27f69f29e1301",
+      "bytes": 10092
+    },
+    {
+      "file": "normalization-6.log",
+      "kind": "complete_successful_compiler_log",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/normalization-6.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "UniversalFingerprint.lean",
+      "kind": "lean_source",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/UniversalFingerprint.lean",
+      "sha256": "b9a4f07e009be0dba65a7a461455ef4c9bd46bd0474d69ca08cf228ffa46b1d2",
+      "bytes": 2460
+    },
+    {
+      "file": "universal-fingerprint-2.log",
+      "kind": "complete_successful_compiler_log",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/universal-fingerprint-2.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "ThreeFifthsBudget.lean",
+      "kind": "lean_source",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/ThreeFifthsBudget.lean",
+      "sha256": "1df19bb1a606cb6f759837dd0b46f8f4c2ec60308c4b55a3bc4657cb9cc19ee8",
+      "bytes": 1641
+    },
+    {
+      "file": "three-fifths-budget-1.log",
+      "kind": "complete_successful_compiler_log",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/three-fifths-budget-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "NestedCheckpoints.lean",
+      "kind": "lean_source",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/NestedCheckpoints.lean",
+      "sha256": "07b266637c38f7bc75c950fc0d8377a26066a61509bbe1454f085dab429a8d7e",
+      "bytes": 3298
+    },
+    {
+      "file": "nested-checkpoints-1.log",
+      "kind": "complete_successful_compiler_log",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/nested-checkpoints-1.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "PrefixReplay.lean",
+      "kind": "lean_source",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/PrefixReplay.lean",
+      "sha256": "b09f1949f03ea2692c26a2db1b9cb3ae0e7bd9433d55e880fed2e02ac59cb42f",
+      "bytes": 4332
+    },
+    {
+      "file": "prefix-replay-3.log",
+      "kind": "complete_successful_compiler_log",
+      "source": "/tmp/oec/pequalnp-pilot-4b/root/prefix-replay-3.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ]
+}

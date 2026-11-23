@@ -1,0 +1,55 @@
+{
+  "gap": "L-meta-997",
+  "artifact_kind": "checked_special_case",
+  "full_gap_proved": false,
+  "theorem": "PEqualNP.Outside.L_meta_997.Small.small_one_not",
+  "supporting_theorem": "PEqualNP.Outside.L_meta_997.Small.small_of_monotone_window",
+  "additional_scope_hypothesis": "y.card <= 2",
+  "conclusion": "sum_i (if Disjoint (S i) y then |S i| else min |y| |S i|) <= C.gates.length + m",
+  "unused_original_premise": "The NOT wire is true on all inputs of weight below y.card.",
+  "refund_required": false,
+  "imports": [
+    "Mathlib",
+    "PEqualNP.Defs"
+  ],
+  "inline_dependencies": [
+    "L_meta_988 namespace machinery, renamed SmallBase",
+    "Root Window NOT-freezing bridge"
+  ],
+  "validation": {
+    "exit_code": 0,
+    "source_copied_byte_identically": true,
+    "log_complete": true,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "command": [
+      "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+      "lake",
+      "env",
+      "lean",
+      "/tmp/oec/pequalnp-pilot-4b/fp3_strategy/meta997/fresh/SmallWindow.lean"
+    ],
+    "workdir": "/workspace/pequalnp-proofs/lean"
+  },
+  "preserved_at_utc": "2026-11-23T20:43:43Z",
+  "files": [
+    {
+      "path": "SmallWindow.lean",
+      "bytes": 37176,
+      "sha256": "95ac4ed1d5cd582ee6a8fd8f700a6d2a18fe679efdde9a72a8c54760b5514679"
+    },
+    {
+      "path": "SmallWindow.log",
+      "bytes": 3381,
+      "sha256": "340a1dfd46faaab9ce0b0ce87524ec5ea630739a37ab850c42d0dcff8a11e03e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2231,
+      "sha256": "8112eeede132574d61ef7700209532c9fd2f5c04d036bbee20b76f436b078e58"
+    }
+  ]
+}
