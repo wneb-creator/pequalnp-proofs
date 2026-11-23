@@ -1,0 +1,98 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "0c5b51024959b89fddc80b5d83ac82429ab12ecb23fa55bd8557d6258c40aef1",
+  "imports": [
+    "import Mathlib",
+    "import PEqualNP.Defs"
+  ],
+  "routes": [
+    {
+      "case": 1,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 2,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 3,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 4,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 5,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 6,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 7,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 9,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 10,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 11,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 12,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 14,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 15,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 16,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 22,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": false
+    },
+    {
+      "case": 17,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": true
+    },
+    {
+      "case": 21,
+      "posted_statement_exact": true,
+      "conditional_on_seed0": true
+    }
+  ],
+  "unconditional_routes": 15,
+  "conditional_routes": 2,
+  "scope": "17 structural target routes; cases17/21 retain explicit seed0 lower-bound premise"
+}

@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "9299c81f7f5e7b2353d5239f91dde6786c01c8e260c1f9f092c45734dd204046",
+  "append_sha256": "270efbb52d470f9786be71feb4c5b62588f9829ac6b7e93f2f7f26a3d1b5fca1",
+  "compiled": {
+    "module": "Seed8Symmetry",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 3.7805876410002384,
+    "hard_cap_seconds": 60.0
+  },
+  "all14_concrete_checks_imported": true,
+  "scope": "Actual seed8Orient preserves RNatRun for arbitrary advice payload; no validity assumption on payload.",
+  "reason": "g%14 selects a proved coordinate bijection; fastHalfPerm equality preserves high bits; inverse/bounds and forbidden-pool conditions supplied explicitly; zero payload is identity."
+}

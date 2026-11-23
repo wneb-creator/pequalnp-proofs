@@ -1,0 +1,386 @@
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+
+open Reduced
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_0 :
+    (seed8PairPerms.getD 0 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 0 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 0 0) j < 218 ∧
+      seed8PairRow 0 (seed8PairRow (seed8InversePerms.getD 0 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_0 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 0)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 0)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_1 :
+    (seed8PairPerms.getD 1 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 1 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 1 0) j < 218 ∧
+      seed8PairRow 1 (seed8PairRow (seed8InversePerms.getD 1 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_1 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 1)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 1)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_2 :
+    (seed8PairPerms.getD 2 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 2 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 2 0) j < 218 ∧
+      seed8PairRow 2 (seed8PairRow (seed8InversePerms.getD 2 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_2 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 2)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 2)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_3 :
+    (seed8PairPerms.getD 3 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 3 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 3 0) j < 218 ∧
+      seed8PairRow 3 (seed8PairRow (seed8InversePerms.getD 3 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_3 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 3)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 3)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_4 :
+    (seed8PairPerms.getD 4 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 4 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 4 0) j < 218 ∧
+      seed8PairRow 4 (seed8PairRow (seed8InversePerms.getD 4 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_4 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 4)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 4)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_5 :
+    (seed8PairPerms.getD 5 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 5 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 5 0) j < 218 ∧
+      seed8PairRow 5 (seed8PairRow (seed8InversePerms.getD 5 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_5 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 5)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 5)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_6 :
+    (seed8PairPerms.getD 6 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 6 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 6 0) j < 218 ∧
+      seed8PairRow 6 (seed8PairRow (seed8InversePerms.getD 6 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_6 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 6)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 6)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_7 :
+    (seed8PairPerms.getD 7 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 7 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 7 0) j < 218 ∧
+      seed8PairRow 7 (seed8PairRow (seed8InversePerms.getD 7 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_7 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 7)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 7)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_8 :
+    (seed8PairPerms.getD 8 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 8 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 8 0) j < 218 ∧
+      seed8PairRow 8 (seed8PairRow (seed8InversePerms.getD 8 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_8 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 8)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 8)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_9 :
+    (seed8PairPerms.getD 9 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 9 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 9 0) j < 218 ∧
+      seed8PairRow 9 (seed8PairRow (seed8InversePerms.getD 9 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_9 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 9)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 9)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_10 :
+    (seed8PairPerms.getD 10 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 10 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 10 0) j < 218 ∧
+      seed8PairRow 10 (seed8PairRow (seed8InversePerms.getD 10 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_10 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 10)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 10)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_11 :
+    (seed8PairPerms.getD 11 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 11 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 11 0) j < 218 ∧
+      seed8PairRow 11 (seed8PairRow (seed8InversePerms.getD 11 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_11 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 11)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 11)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_12 :
+    (seed8PairPerms.getD 12 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 12 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 12 0) j < 218 ∧
+      seed8PairRow 12 (seed8PairRow (seed8InversePerms.getD 12 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_12 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 12)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 12)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pair_check_13 :
+    (seed8PairPerms.getD 13 []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow 13 j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD 13 0) j < 218 ∧
+      seed8PairRow 13 (seed8PairRow (seed8InversePerms.getD 13 0) j) = j := by
+  decide +kernel
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed8_pool_check_13 :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord 13)) := by
+  have hc : seed8Forbidden.all
+      (fun a => (seed8Forbidden.map (seed8SymWord 13)).contains a) = true := by
+    decide +kernel
+  intro a ha
+  simpa using (List.all_eq_true.1 hc a ha)
+
+
+set_option maxRecDepth 100000 in
+theorem seed8_pair_checks (g : Fin 14) :
+    (seed8PairPerms.getD g []).length = 218 ∧
+    ∀ j : Fin 218, seed8PairRow g j < 218 ∧
+      seed8PairRow (seed8InversePerms.getD g 0) j < 218 ∧
+      seed8PairRow g (seed8PairRow (seed8InversePerms.getD g 0) j) = j := by
+  fin_cases g
+  · exact seed8_pair_check_0
+  · exact seed8_pair_check_1
+  · exact seed8_pair_check_2
+  · exact seed8_pair_check_3
+  · exact seed8_pair_check_4
+  · exact seed8_pair_check_5
+  · exact seed8_pair_check_6
+  · exact seed8_pair_check_7
+  · exact seed8_pair_check_8
+  · exact seed8_pair_check_9
+  · exact seed8_pair_check_10
+  · exact seed8_pair_check_11
+  · exact seed8_pair_check_12
+  · exact seed8_pair_check_13
+
+
+set_option maxRecDepth 100000 in
+theorem seed8_pool_checks (g : Fin 14) :
+    seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord g)) := by
+  fin_cases g
+  · exact seed8_pool_check_0
+  · exact seed8_pool_check_1
+  · exact seed8_pool_check_2
+  · exact seed8_pool_check_3
+  · exact seed8_pool_check_4
+  · exact seed8_pool_check_5
+  · exact seed8_pool_check_6
+  · exact seed8_pool_check_7
+  · exact seed8_pool_check_8
+  · exact seed8_pool_check_9
+  · exact seed8_pool_check_10
+  · exact seed8_pool_check_11
+  · exact seed8_pool_check_12
+  · exact seed8_pool_check_13
+
+
+set_option maxRecDepth 100000 in
+theorem seed8_sym_run (g : Nat) {u : Nat} {ys : List Nat}
+    (h : RNatRun seed8Forbidden (Live.mask seed8K) (Live.goal seed8K) u ys) :
+    RNatRun seed8Forbidden (Live.mask seed8K) (Live.goal seed8K) u (ys.map (seed8SymWord g)) := by
+  let a : Fin 14 := ⟨g % 14, Nat.mod_lt _ (by decide)⟩
+  have hs := seed8_pair_checks a
+  have heq : seed8SymWord g = Symmetry.permWord (218+218)
+      (Symmetry.liftHalf 218 (seed8PairRow a)) := by
+    funext word
+    exact Symmetry.fastHalfPerm_eq 218 (seed8PairPerms.getD a []) hs.1 word
+  have hp : ∀ j < 218, seed8PairRow a j < 218 := fun j hj => (hs.2 ⟨j,hj⟩).1
+  have hq : ∀ j < 218, seed8PairRow (seed8InversePerms.getD a 0) j < 218 :=
+    fun j hj => (hs.2 ⟨j,hj⟩).2.1
+  have hinv : ∀ j < 218, seed8PairRow a (seed8PairRow (seed8InversePerms.getD a 0) j) = j :=
+    fun j hj => (hs.2 ⟨j,hj⟩).2.2
+  have hmod : seed8SymWord (g % 14) = seed8SymWord g := by
+    funext word
+    simp only [seed8SymWord, Nat.mod_mod]
+  have hf : seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord g)) := by
+    have hh := seed8_pool_checks a
+    change seed8Forbidden.Subset (seed8Forbidden.map (seed8SymWord (g % 14))) at hh
+    rw [hmod] at hh
+    exact hh
+  rw [heq] at hf
+  have hh := Symmetry.permWord_liftHalf_run 218 (seed8PairRow a)
+    (seed8PairRow (seed8InversePerms.getD a 0)) hp hq hinv hf h
+  simpa only [heq, Live.mask, Live.goal, Live.lo, seed8K] using hh
+
+theorem seed8_orient_run (payload : Nat → Nat → Nat → Nat) (s i tag : Nat)
+    {u : Nat} {ys : List Nat}
+    (h : RNatRun seed8Forbidden (Live.mask seed8K) (Live.goal seed8K) u ys) :
+    RNatRun seed8Forbidden (Live.mask seed8K) (Live.goal seed8K) u
+      (if payload s i tag = 0 then ys else ys.map (seed8SymWord ((payload s i tag-1)%64))) := by
+  split
+  · exact h
+  · exact seed8_sym_run _ h
+
+
+theorem seed8Orient_preserves (s i tag : Nat) {u : Nat} {ys : List Nat}
+    (h : Reduced.RNatRun seed8Forbidden (Live.mask seed8K) (Live.goal seed8K) u ys) :
+    Reduced.RNatRun seed8Forbidden (Live.mask seed8K) (Live.goal seed8K) u
+      (seed8Orient s i tag ys) := by
+  exact seed8_orient_run seed8Payload s i tag h
+
+end PEqualNP.Outside.L_meta_982_aux.Finite

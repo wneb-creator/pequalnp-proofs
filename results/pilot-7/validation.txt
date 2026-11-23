@@ -41,3 +41,7 @@ TIMING total=169.0 subagents=9
 AllCoreBridge982.lean compiled exit0 and independently audited: exact encodings for all14 finite cores, with explicit no-run premises still pending. Finite982MinimalHybrid.lean compiled exit0 and audited, supplying the smaller generic framework and checked table/DFS combination rule. C7Closure.lean compiled exit0: all116 table states closed; axioms only propext, Classical.choice, Quot.sound. All14 C7 concrete symmetry checks compiled and audited; final transport assembly is a separate follow-up. Complete source and diagnostics retained.
 Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, c7_pack, cube_symmetry, lean_setup, lemma_search, structural_twins
 TIMING total=171.8 subagents=9
+
+C7Lower982.lean compiled exit0: exact posted conjunct8 is now proved unconditionally (minimum circuit size10). Independent complete-proof audit passed. Seed8Symmetry.lean compiled/audited exact arbitrary-state transport. Structural982Minimal.lean compiled/audited all15 existing unconditional routes and2 conditional routes with fewer unused helpers. EarlyScore982.lean compiled/audited short-circuit score equivalence. Full L-meta-982 theorem remains unfinished; no upstream PR opened.
+Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, c7_pack, cube_symmetry, lean_setup, lemma_search, structural_twins
+TIMING total=174.1 subagents=9

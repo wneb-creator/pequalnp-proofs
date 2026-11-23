@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "16a74323afca8444be096f283567d595a718b479015d716153936b7b3f3b5060",
+  "sumLT": "Exact for every Nat-valued score and all bounds/lists, including0; guarded subtraction preserves strict inequality and remaining scores are nonnegative.",
+  "checker_equivalence": "Code0, zero-slack, target score, and pool.any guards preserved; equality to previously audited Reduced.scoreCheckW/scrW is unconditional.",
+  "compile": "Root reports EarlyScore982 exit0, empty diagnostics; no additional compiler launched by auditor."
+}

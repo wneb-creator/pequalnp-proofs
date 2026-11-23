@@ -1,0 +1,1 @@
+Independent review by counterexample_search: PASS. seed8Fn matches exact posted conjunct8; seed8_lower has no remaining hypotheses and proves all circuits for it have size at least10. Every upper-budget table, non-goal, transport, root, and exact encoder obligation is discharged by compiled proofs. Compilation exit0 verified.
