@@ -203,6 +203,114 @@
         "formal-ready-check-1.stderr"
       ],
       "scope": "Combined generic fast-score and routing infrastructure; concrete full certificates still required."
+    },
+    {
+      "file": "FormalReadyXor984.lean",
+      "sha256": "0d29799117b15ee8721710487866a87a7ca31ede48bb657c70411bb8063362aa",
+      "lines": 2128,
+      "bytes": 93605,
+      "observed_compile_exit": 0,
+      "logs": [
+        "formal-ready-xor-check-1.stdout",
+        "formal-ready-xor-check-1.stderr"
+      ],
+      "scope": "Generic fast-score and XOR routing infrastructure under explicit assumptions; no full graph bound."
+    },
+    {
+      "file": "RouteBenchmarkXor.lean",
+      "sha256": "46d891d01c125b4aa972412c8853768e24a623ca78abf4764699701437c7c3e6",
+      "lines": 28,
+      "bytes": 46454,
+      "observed_compile_exit": 0,
+      "logs": [
+        "route-benchmark-xor.stdout",
+        "route-benchmark-xor.stderr"
+      ],
+      "scope": "Finite arithmetic kernel checks on500 fixed routed words; performance benchmark only."
+    },
+    {
+      "file": "FastQuotient28Benchmark.lean",
+      "sha256": "020fefb6e4efcb0bef43756a041379c415658f17fdf21d48ad12a9132f136c28",
+      "lines": 2369,
+      "bytes": 170495,
+      "observed_compile_exit": 0,
+      "logs": [
+        "fast-quotient28-benchmark-1.stdout",
+        "fast-quotient28-benchmark-1.stderr"
+      ],
+      "scope": "One decoded state and one compact layer8 certificate check plus routing facts; no whole-graph bound."
+    },
+    {
+      "file": "CachedAction984.lean",
+      "sha256": "a4ae9f47ccc587bcb025a4a350988d2683b2302ea2b4e4383c47206395e93256",
+      "lines": 39,
+      "bytes": 1758,
+      "observed_compile_exit": 0,
+      "logs": [
+        "cached-action-1.stdout",
+        "cached-action-1.stderr"
+      ],
+      "scope": "Generic guarded-cache equality and transport under explicit cache correctness; no graph bound."
+    },
+    {
+      "file": "FormalCached984.lean",
+      "sha256": "e8f9b69f61b0c71bfa0ac31fd050f506fd899282ed034f69a99b48c959b5872f",
+      "lines": 2163,
+      "bytes": 95263,
+      "observed_compile_exit": 0,
+      "logs": [
+        "formal-cached-check-1.stdout",
+        "formal-cached-check-1.stderr"
+      ],
+      "scope": "Combined generic routing and guarded-cache soundness; concrete full certificate still required."
+    },
+    {
+      "file": "CachedQuotient28Benchmark.lean",
+      "sha256": "d101a281609259ae95e01fc9e303ec0f61047fec35a3dcb2aedaf7b04da9bf9c",
+      "lines": 2409,
+      "bytes": 172843,
+      "observed_compile_exit": 0,
+      "logs": [
+        "cached-quotient28-benchmark-1.stdout",
+        "cached-quotient28-benchmark-1.stderr"
+      ],
+      "scope": "One decoded state and one compact layer8 certificate check with finite input cache correctness; no whole-graph bound."
+    },
+    {
+      "file": "ForceMap984.lean",
+      "sha256": "7418d033331f4b7882291592b8d050e92fea9bfe1fafcfbeba1ae7974b853416",
+      "lines": 24,
+      "bytes": 790,
+      "observed_compile_exit": 0,
+      "logs": [
+        "force-map-1.stdout",
+        "force-map-1.stderr"
+      ],
+      "scope": "Generic equality of constructor-forced mapping with ordinary mapping under any continuation."
+    },
+    {
+      "file": "ForceBenchmarkPlain.lean",
+      "sha256": "38730c315d1ed0a3ab52ef38e2c750fd8a492f7717d95dacfc19b75950b887d9",
+      "lines": 90,
+      "bytes": 4818,
+      "observed_compile_exit": 0,
+      "logs": [
+        "force-benchmark-plain.stdout",
+        "force-benchmark-plain.stderr"
+      ],
+      "scope": "Thirty finite kernel score checks on one fixed9-wire state; performance benchmark only."
+    },
+    {
+      "file": "ForceBenchmarkForced.lean",
+      "sha256": "211af11643e9adbe68e104aa6caa07e68d083bb4dd233aed20765c54b7e86419",
+      "lines": 90,
+      "bytes": 4824,
+      "observed_compile_exit": 0,
+      "logs": [
+        "force-benchmark-forced.stdout",
+        "force-benchmark-forced.stderr"
+      ],
+      "scope": "Same thirty finite kernel score checks using constructor forcing; performance benchmark only."
     }
   ]
 }

@@ -59,3 +59,14 @@ section and the two routing microbenchmarks use namespace Bench; final
 integration uses the named shared Cert block instead. Quotient28BenchmarkV2
 was independently reviewed by independent_search: exact hash, decoder-slot
 correspondence, single checked state, profile-only diagnostics, PASS.
+
+FormalReadyXor984 reviewed independently by proof_strategy: PASS. Root
+reviewed the incremental FormalCached addition against the exact compiled
+CachedAction helper independently approved by fresh_full_proof: PASS.
+FastQuotient28Benchmark and CachedQuotient28Benchmark reviewed independently
+by independent_search: exact frozen hashes and audited data agree; finite
+cache bounds/key checks and orbit assumptions are explicit. Both check only
+one layer8 state, no whole graph. All successful full profiler logs retained.
+ForceMap984 reviewed by fresh_full_proof and independent_search: PASS for
+constructor/list equalities. Root reviewed both finite forcing benchmark
+sources and the XOR routing benchmark diff; arithmetic checks only.
