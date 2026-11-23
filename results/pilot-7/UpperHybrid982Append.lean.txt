@@ -1,0 +1,84 @@
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Reduced
+open PEqualNP.Outside.L_meta_982_aux.Finite.Live
+def rejectLeDepth (forbidden : List Nat) (k width : Nat) (pool : List Nat) :
+    Nat → Nat → List Nat → Bool
+  | 0,s,ws => if ws == [goal k] then false else !(covers k s ws) || scrW k width s pool ws
+  | d+1,s,ws => if ws == [goal k] then false else
+      !(covers k s ws) || scrW k width s pool ws ||
+        match s with
+        | 0 => true
+        | s+1 => !(next forbidden (mask k) (s+2-ws.length) ws fun _ zs =>
+            !(rejectLeDepth forbidden k width pool d s zs))
+
+theorem rejectLeDepth_no {forbidden k width pool} (d : Nat) {t s ws}
+    (h : RNatRun forbidden (mask k) (goal k) t ws) (ht : t ≤ s) :
+    rejectLeDepth forbidden k width pool d s ws = false := by
+  induction d generalizing t s ws with
+  | zero =>
+    by_cases hw : ws = [goal k]
+    · simp [rejectLeDepth,hw]
+    · simp [rejectLeDepth,hw,covers_ok_le h.toRun ht,scrW_no_le width pool h.toRun ht]
+  | succ d ih =>
+    by_cases hw : ws = [goal k]
+    · simp [rejectLeDepth,hw]
+    · cases t with
+      | zero => exact False.elim (hw (zero_done h.toRun rfl))
+      | succ t =>
+        cases s with
+        | zero => omega
+        | succ s =>
+          let F (_ : Nat) (zs : List Nat) : Bool := !(rejectLeDepth forbidden k width pool d s zs)
+          have hF (tag : Nat) (zs : List Nat) (hz : RNatRun forbidden (mask k) (goal k) t zs) :
+              F tag zs = true := by simp [F,ih hz (show t ≤ s by omega)]
+          have hN := next_complete h t rfl _ (List.Perm.refl _) F hF
+          have hN' := next_monoSlack (show t+2-ws.length ≤ s+2-ws.length by omega) hN
+          simpa [rejectLeDepth,hw,covers_ok_le h.toRun ht,scrW_no_le width pool h.toRun ht,F] using hN'
+
+theorem pairedBar_all_le_from_leaves {forbidden k width S N idx ori pool}
+    {cap cutoff : Nat}
+    (hr : ∀ p i tag {u ys}, RNatRun forbidden (mask k) (goal k) u ys →
+      RNatRun forbidden (mask k) (goal k) u (ori p i tag ys))
+    (hc : ∀ s ≤ cap, cutoff < s → ∀ i < N s,
+      pairedBar forbidden k width S N idx ori pool s i = true)
+    (hng : ∀ s ≤ cap, cutoff < s → ∀ i < N s, S s i ≠ [goal k])
+    (hleaf : ∀ s ≤ cutoff, ∀ i < N s, ∀ t ≤ s,
+      ¬ RNatRun forbidden (mask k) (goal k) t (S s i)) :
+    ∀ s ≤ cap, ∀ i < N s, ∀ t ≤ s,
+      ¬ RNatRun forbidden (mask k) (goal k) t (S s i) := by
+  intro s
+  induction s using Nat.strong_induction_on with
+  | ind s ih =>
+    intro hs i hi t ht h
+    by_cases hl : s ≤ cutoff
+    · exact hleaf s hl i hi t ht h
+    have hlt : cutoff < s := by omega
+    cases t with
+    | zero => exact hng s hs hlt i hi (zero_done h.toRun rfl)
+    | succ t =>
+      cases s with
+      | zero => omega
+      | succ s =>
+        let F (tag : Nat) (zs : List Nat) :=
+          covers k s zs && !(scrW k width s pool zs) &&
+            !(decide (idx (s+1) i tag < N s) &&
+              (ori (s+1) i tag zs).isPerm (S s (idx (s+1) i tag)))
+        have hF (tag : Nat) (zs) (hz : RNatRun forbidden (mask k) (goal k) t zs) :
+            F tag zs = true := by
+          simp only [F,covers_ok_le hz.toRun (show t ≤ s by omega),
+            scrW_no_le width pool hz.toRun (show t ≤ s by omega),
+            Bool.not_false,Bool.true_and]
+          simp only [Bool.not_eq_true',Bool.and_eq_false_imp,decide_eq_true_eq]
+          intro hj
+          by_contra! hp
+          have p := List.isPerm_iff.1 (Bool.eq_true_of_not_eq_false hp)
+          exact ih s (by omega) (by omega) _ hj t (by omega)
+            (RRun.perm p (hr (s+1) i tag hz))
+        have hN := next_complete h t rfl _ (List.Perm.refl _) F hF
+        have hN' := next_monoSlack (show t+2-(S (s+1) i).length ≤
+            s+2-(S (s+1) i).length by omega) hN
+        have hb := hc (s+1) hs hlt i hi
+        change !(next _ _ _ _ F) = true at hb
+        rw [hN'] at hb
+        contradiction
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Reduced

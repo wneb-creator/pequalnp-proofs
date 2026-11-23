@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "full_source_sha256": "32780f900ff937be03de4650c59f02eece4d112958ba6b3501b4f42466071a99",
+  "imports": [
+    "import Mathlib",
+    "import PEqualNP.Defs"
+  ],
+  "comments": "Hybrid table theorem has explicit no-run leaf obligations and upper-budget induction; fast equality is unconditional. No concrete leaf certificate asserted."
+}

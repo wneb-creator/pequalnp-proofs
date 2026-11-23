@@ -432,14 +432,302 @@
       "sha256": "670bdbf0368c5ce182e44d04d7d89e0dc5231f543842bb2640200771033b4a66",
       "compile_exit": 0,
       "seconds": 8.183219981001457
+    },
+    {
+      "module": "C7Chunk7_20",
+      "states": [
+        [
+          7,
+          20
+        ],
+        [
+          7,
+          21
+        ],
+        [
+          7,
+          22
+        ],
+        [
+          7,
+          23
+        ]
+      ],
+      "sha256": "78bc2ee3652832bf19358220e233264d7579de664e4804795a0ff603912052df",
+      "compile_exit": 0,
+      "seconds": 7.4621103439985745
+    },
+    {
+      "module": "C7Chunk7_24",
+      "states": [
+        [
+          7,
+          24
+        ],
+        [
+          7,
+          25
+        ],
+        [
+          7,
+          26
+        ],
+        [
+          7,
+          27
+        ]
+      ],
+      "sha256": "4319e284ddba8e39125ec7cb09484b910c73d60476b2de6ac4651767aa49e1c7",
+      "compile_exit": 0,
+      "seconds": 7.823327075999259
+    },
+    {
+      "module": "C7Chunk7_28",
+      "states": [
+        [
+          7,
+          28
+        ],
+        [
+          7,
+          29
+        ],
+        [
+          7,
+          30
+        ],
+        [
+          7,
+          31
+        ]
+      ],
+      "sha256": "f680736f8dcf12130d1ffcf033c910510f5f8436e2a7816fa3d322fe3403e1b1",
+      "compile_exit": 0,
+      "seconds": 10.517421402000764
+    },
+    {
+      "module": "C7Chunk7_32",
+      "states": [
+        [
+          7,
+          32
+        ],
+        [
+          7,
+          33
+        ],
+        [
+          7,
+          34
+        ],
+        [
+          7,
+          35
+        ]
+      ],
+      "sha256": "4ab236cd54fb532c920049b587be07c7f2d49a56bbfdae1608a34cd65528ecfb",
+      "compile_exit": 0,
+      "seconds": 10.79676176599969
+    },
+    {
+      "module": "C7Chunk7_36",
+      "states": [
+        [
+          7,
+          36
+        ],
+        [
+          7,
+          37
+        ],
+        [
+          7,
+          38
+        ],
+        [
+          7,
+          39
+        ]
+      ],
+      "sha256": "a890ad9f6121994d38d45be205ab2aa82d328ae983aac162ff6ced7897e90cd6",
+      "compile_exit": 0,
+      "seconds": 6.164046928999596
+    },
+    {
+      "module": "C7Chunk7_40",
+      "states": [
+        [
+          7,
+          40
+        ],
+        [
+          7,
+          41
+        ],
+        [
+          7,
+          42
+        ],
+        [
+          7,
+          43
+        ]
+      ],
+      "sha256": "202d1305322385b0d66004e4d95e2587d20fc33be192b37c6dc5d22654a67615",
+      "compile_exit": 0,
+      "seconds": 4.859880346999489
+    },
+    {
+      "module": "C7Chunk7_44",
+      "states": [
+        [
+          7,
+          44
+        ],
+        [
+          7,
+          45
+        ],
+        [
+          7,
+          46
+        ],
+        [
+          7,
+          47
+        ]
+      ],
+      "sha256": "8c7528c666f1da6b637aa113e0d1b1509ade4990bf086a4dbd4f64a1e068bfcf",
+      "compile_exit": 0,
+      "seconds": 5.09728429200004
+    },
+    {
+      "module": "C7Chunk7_48",
+      "states": [
+        [
+          7,
+          48
+        ],
+        [
+          7,
+          49
+        ],
+        [
+          7,
+          50
+        ],
+        [
+          7,
+          51
+        ]
+      ],
+      "sha256": "b7b94514380050be5d94b434cf8d3bd4bc8730a9afdb1661433c0ba3e854b701",
+      "compile_exit": 0,
+      "seconds": 4.281831788999625
+    },
+    {
+      "module": "C7Chunk7_52",
+      "states": [
+        [
+          7,
+          52
+        ],
+        [
+          7,
+          53
+        ],
+        [
+          7,
+          54
+        ],
+        [
+          7,
+          55
+        ]
+      ],
+      "sha256": "2c5703ad5e15c88b8f5f99d2025e5e5c3b8ca218170a57bca3b7a42928b073d2",
+      "compile_exit": 0,
+      "seconds": 3.523771799000315
+    },
+    {
+      "module": "C7Chunk7_56",
+      "states": [
+        [
+          7,
+          56
+        ]
+      ],
+      "sha256": "3d68063906c90576edef4aad25e33693ee31f1fe3f869cef43e76db79a54c90d",
+      "compile_exit": 0,
+      "seconds": 4.191662561001067
+    },
+    {
+      "module": "C7Chunk8_0",
+      "states": [
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "sha256": "57aab7d7d3e84e35f96c2d42c25527e4e5d508d6eb69fba28ed4cdaf55db6252",
+      "compile_exit": 0,
+      "seconds": 18.78488876099982
+    },
+    {
+      "module": "C7Chunk8_4",
+      "states": [
+        [
+          8,
+          4
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "sha256": "fed4984c52f5c973523ae2356b17f67b6656335be2c736f4a6f5875fc5315b08",
+      "compile_exit": 0,
+      "seconds": 23.398036738999508
+    },
+    {
+      "module": "C7Chunk9_0",
+      "states": [
+        [
+          9,
+          0
+        ]
+      ],
+      "sha256": "2e32ecf91cbfb20997b8fe4a3d8f23a8f0cd582664016e42686a703c3d073204",
+      "compile_exit": 0,
+      "seconds": 19.281651956000132
     }
   ],
-  "passed_chunk_count": 19,
-  "checked_states": 70,
+  "passed_chunk_count": 32,
+  "checked_states": 116,
   "total_states": 116,
+  "all_table_states_have_checked_chunks": true,
   "no_goal_compiled": true,
-  "no_goal_source_audit": true,
   "root_permutation_compiled": true,
   "root_goal_numerical_audit": "meta982-c7-root-goal-audit.json",
-  "scope": "only modules with complete PASS compile records in this snapshot; not yet whole C7 closure"
+  "scope": "only complete PASS records in snapshot; aggregate and symmetry proofs audited separately"
 }

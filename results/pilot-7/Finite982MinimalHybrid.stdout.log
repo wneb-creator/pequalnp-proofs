@@ -1,0 +1,48 @@
+/tmp/oec/pequalnp-pilot-7/Finite982MinimalHybrid.lean:124:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/Finite982MinimalHybrid.lean:124:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/Finite982MinimalHybrid.lean:130:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/Finite982MinimalHybrid.lean:130:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/Finite982MinimalHybrid.lean:829:4: warning: The namespace `Live` is duplicated in the declaration `PEqualNP.Outside.L_meta_982_aux.Finite.Live.Live`.
+
+Note: This linter can be disabled with `set_option linter.dupNamespace false`
+/tmp/oec/pequalnp-pilot-7/Finite982MinimalHybrid.lean:993:32: warning: This simp argument is unused:
+  Nat.testBit_bit_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [encL]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-7/Finite982MinimalHybrid.lean:1055:16: warning: Unused tactic linter: `exact Bool.or_le_or ha hb` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/Finite982MinimalHybrid.lean:1055:44: warning: Unused tactic linter: `exact Bool.and_le_and ha hb` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/Finite982MinimalHybrid.lean:2017:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-7/Finite982MinimalHybrid.lean:2035:39: warning: Variable name `hj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-7/Finite982MinimalHybrid.lean:2050:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-7/Finite982MinimalHybrid.lean:2085:5: warning: Variable name `hpi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

@@ -1,0 +1,79 @@
+{
+  "support_source_audit": "PASS",
+  "pair_inverse_bounds_audit": "PASS",
+  "forbidden_subset_direction": "pool subset transformed_pool, correctly weakens mapped forbidden set",
+  "compiled_concrete_checks": [
+    {
+      "module": "Seed8SymCheck0",
+      "sha256": "28333be853b544964b00816c067584476a186c447d38e0a3f3adaf0ec8b55cc4",
+      "seconds": 6.884596792000593
+    },
+    {
+      "module": "Seed8SymCheck1",
+      "sha256": "5f96a4d444aebc3881a48557857d4484bf859ed15e1018e42b5e97389d0bb875",
+      "seconds": 6.8479493470003945
+    },
+    {
+      "module": "Seed8SymCheck2",
+      "sha256": "b81fcd4efc045ec26b226192a8041d613a56c490b9bb1df7af391f64f058f2b6",
+      "seconds": 5.959213218999139
+    },
+    {
+      "module": "Seed8SymCheck3",
+      "sha256": "b83f038b8fc118d289791583271b62adccbf77c17a52ef93cd63d6edf011a9b4",
+      "seconds": 7.041610894999394
+    },
+    {
+      "module": "Seed8SymCheck4",
+      "sha256": "db693428702c7668c0f32d3115ad03d026f582f54f01ae8c142d5465cc486104",
+      "seconds": 6.801559886000177
+    },
+    {
+      "module": "Seed8SymCheck5",
+      "sha256": "09150384565dba0f19f87079e016b34e0cfa335f456fb1c9337c39fd66a0c52e",
+      "seconds": 5.790366975999859
+    },
+    {
+      "module": "Seed8SymCheck6",
+      "sha256": "728feef02e5fb5e1129c0e470f17ab2c77e81809a2dc4ddac3299542a7058885",
+      "seconds": 6.20314130999941
+    },
+    {
+      "module": "Seed8SymCheck7",
+      "sha256": "f5bf63b80c4f4a53c735cc561f7552bd5e9dd4fedbec71da9757c156c91eb71e",
+      "seconds": 7.694390030999784
+    },
+    {
+      "module": "Seed8SymCheck8",
+      "sha256": "eba2fd721a1dfb5d05617589cabfa19e6834574551265c5374919e28463ab5f9",
+      "seconds": 6.289181894000649
+    },
+    {
+      "module": "Seed8SymCheck9",
+      "sha256": "a766868773903691d40863dc9ad394c9da823bc21e6c826041b8b52a5549bf3b",
+      "seconds": 6.962186194999958
+    },
+    {
+      "module": "Seed8SymCheck10",
+      "sha256": "7c3cd865dc4e6503d4451ca7a253b60bdd08d7965d3d725bf0a3a4087e89f2aa",
+      "seconds": 6.71611589999884
+    },
+    {
+      "module": "Seed8SymCheck11",
+      "sha256": "8f5ed8ab81db1953355583ab65c1a79aef59018e0f1c7be447b6594313153515",
+      "seconds": 7.021140683998965
+    },
+    {
+      "module": "Seed8SymCheck12",
+      "sha256": "2ae4cf643ff9be26ddd86a3930332cefd5258db355f10520e94f5f432b129020",
+      "seconds": 8.435270079000475
+    },
+    {
+      "module": "Seed8SymCheck13",
+      "sha256": "d7b81d0106644fe28141cbf601cb2123f4c6449c96024de4e4184548d7342a36",
+      "seconds": 7.3584214840011555
+    }
+  ],
+  "independent_numeric_all14_symmetries": true,
+  "scope": "All14 concrete symmetry check modules compiled and match independently audited proof template; aggregate symmetry theorem audited separately."
+}

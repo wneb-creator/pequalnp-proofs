@@ -1,0 +1,246 @@
+{
+  "state_count": 116,
+  "fresh_moves": 7087,
+  "coverage_rejections": 6823,
+  "exact_child_links": 264,
+  "aggregate": {
+    "module": "C7Closure",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 4.246974034998857,
+    "hard_cap_seconds": 60.0
+  },
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "chunks": [
+    {
+      "module": "C7Chunk4_0",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 3.6246845759997086,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk5_0",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 3.8431805149994034,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk5_4",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.332707363000736,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk6_0",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.008109488000628,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk6_4",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.602219575001072,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk6_8",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 5.299957913999606,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk6_12",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.239548536001166,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk6_16",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 3.637069162001353,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk6_20",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 3.790002653000556,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk6_24",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 3.778857799999969,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk6_28",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.950074316999235,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk6_32",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 5.005833893001181,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk6_36",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 7.835007265000968,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk6_40",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.238095124999745,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_0",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.302590930999941,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_4",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.559788123999169,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_8",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 6.993364361000204,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_12",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.762531551999928,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_16",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 8.183219981001457,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_20",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 7.4621103439985745,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_24",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 7.823327075999259,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_28",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 10.517421402000764,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_32",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 10.79676176599969,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_36",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 6.164046928999596,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_40",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.859880346999489,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_44",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 5.09728429200004,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_48",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.281831788999625,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_52",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 3.523771799000315,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk7_56",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.191662561001067,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk8_0",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 18.78488876099982,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk8_4",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 23.398036738999508,
+      "hard_cap_seconds": 60.0
+    },
+    {
+      "module": "C7Chunk9_0",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 19.281651956000132,
+      "hard_cap_seconds": 60.0
+    }
+  ],
+  "append_sha256": "d3acfd12dce7112d125066cef9a85b22439e1a65eb6bfc6f7c50ba2635eccc99",
+  "append_bytes": 64386
+}

@@ -1,0 +1,149 @@
+{
+  "verdict": "PASS",
+  "cases": [
+    {
+      "case": 0,
+      "n": 6,
+      "bound": 10,
+      "K": 151,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 6,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 8,
+      "n": 7,
+      "bound": 10,
+      "K": 218,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 13,
+      "n": 7,
+      "bound": 11,
+      "K": 276,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 18,
+      "n": 7,
+      "bound": 11,
+      "K": 276,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 19,
+      "n": 7,
+      "bound": 11,
+      "K": 284,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 20,
+      "n": 7,
+      "bound": 11,
+      "K": 270,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 23,
+      "n": 7,
+      "bound": 11,
+      "K": 265,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 24,
+      "n": 7,
+      "bound": 11,
+      "K": 285,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 25,
+      "n": 7,
+      "bound": 11,
+      "K": 277,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 26,
+      "n": 7,
+      "bound": 12,
+      "K": 399,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 27,
+      "n": 7,
+      "bound": 12,
+      "K": 360,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 28,
+      "n": 7,
+      "bound": 12,
+      "K": 341,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 29,
+      "n": 7,
+      "bound": 12,
+      "K": 347,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    },
+    {
+      "case": 30,
+      "n": 7,
+      "bound": 12,
+      "K": 344,
+      "formula_exact": true,
+      "all_rows_inputs_goal_forbidden_checked": true,
+      "essential_witnesses": 7,
+      "no_run_is_explicit_premise": true
+    }
+  ],
+  "append_sha256": "7d73d93283786b97b552d8bc0702f5fceb4c65b09b730ecd866eae55af0642af",
+  "data_sha256": "31a5fb0be9e2fa7d93ce8b71c0b7cff6bdf77fcd9367882d1b67b050b930a80b",
+  "generator_sha256": "51f0147ef8e78d7df3e181622edec6d61dd37f6854dbdf840435a11dffb19768",
+  "scope": "conditional concrete bridges only; no finite no-run certificate claimed"
+}

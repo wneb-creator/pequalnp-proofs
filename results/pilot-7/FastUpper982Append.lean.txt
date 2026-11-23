@@ -1,0 +1,21 @@
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Fast
+
+def rejectLeDepth (forbidden : List Nat) (k width : Nat) (pool : List Nat) :
+    Nat → Nat → List Nat → Bool
+  | 0,s,ws => if ws == [Live.goal k] then false else !(covers k s ws) || scr k width s pool ws
+  | d+1,s,ws => if ws == [Live.goal k] then false else
+      !(covers k s ws) || scr k width s pool ws ||
+        match s with
+        | 0 => true
+        | s+1 => !(Reduced.next forbidden (Live.mask k) (s+2-ws.length) ws fun _ zs =>
+            !(rejectLeDepth forbidden k width pool d s zs))
+
+theorem rejectLeDepth_eq (forbidden : List Nat) (k width : Nat) (pool : List Nat)
+    (d s : Nat) (ws : List Nat) :
+    rejectLeDepth forbidden k width pool d s ws =
+      Reduced.rejectLeDepth forbidden k width pool d s ws := by
+  induction d generalizing s ws with
+  | zero => simp [rejectLeDepth, Reduced.rejectLeDepth, covers_eq, scr_eq]
+  | succ d ih => cases s <;> simp [rejectLeDepth, Reduced.rejectLeDepth, covers_eq, scr_eq, ih]
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Fast

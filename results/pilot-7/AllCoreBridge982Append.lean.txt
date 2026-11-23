@@ -1,0 +1,826 @@
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed0Fn : BFn 6 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 3 && x 4) || (x 3 && x 5) || (x 4 && x 5)
+def seed0Pack (x : Fin 6 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed0Pack_spec (x : Fin 6 → Bool) :
+    seed0Pack x < 64 ∧ pt 6 (seed0Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed0Rows_cover : ∀ x : Fin 6 → Bool, ∃ v ∈ seed0Rows, pt 6 v = x := by
+  have hmem : ∀ v : Fin 64, v.val ∈ seed0Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed0Pack_spec x
+  exact ⟨seed0Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed0Witnesses : List (Nat × Nat) := [(56, 151), (49, 151), (49, 152), (49, 155), (60, 164), (60, 176)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed0Essential : ∀ a ∈ seed0Inputs, ∃ i j : Nat,
+    seed0Mask.testBit i = seed0Mask.testBit j ∧
+    seed0Goal.testBit i ≠ seed0Goal.testBit j ∧
+    ∀ b ∈ seed0Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed0Inputs, ∃ p : Fin 6,
+      seed0Mask.testBit (seed0Witnesses.getD p.val (0,0)).1 =
+        seed0Mask.testBit (seed0Witnesses.getD p.val (0,0)).2 ∧
+      seed0Goal.testBit (seed0Witnesses.getD p.val (0,0)).1 ≠
+        seed0Goal.testBit (seed0Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed0Inputs, b ≠ a →
+        b.testBit (seed0Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed0Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed0Witnesses.getD p.val (0,0)).1,(seed0Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed0Lower_of_noRun
+    (hno : ∀ t < 10, ¬ RNatRun seed0Forbidden seed0Mask seed0Goal t seed0Inputs) :
+    ∀ s, HasCircuitSize 6 seed0Fn s → 10 ≤ s := by
+  apply lower_from_rows seed0Fn seed0Rows seed0Inputs seed0Forbidden seed0Mask seed0Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed0Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed0Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed8Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 1 && x 3) || (x 2 && x 4) || (x 3 && x 5) || (x 4 && x 6) || (x 5 && x 6)
+def seed8Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed8Pack_spec (x : Fin 7 → Bool) :
+    seed8Pack x < 128 ∧ pt 7 (seed8Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed8Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed8Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed8Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed8Pack_spec x
+  exact ⟨seed8Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed8Witnesses : List (Nat × Nat) := [(100, 218), (99, 218), (99, 219), (100, 221), (101, 227), (106, 240), (116, 269)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed8Essential : ∀ a ∈ seed8Inputs, ∃ i j : Nat,
+    seed8Mask.testBit i = seed8Mask.testBit j ∧
+    seed8Goal.testBit i ≠ seed8Goal.testBit j ∧
+    ∀ b ∈ seed8Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed8Inputs, ∃ p : Fin 7,
+      seed8Mask.testBit (seed8Witnesses.getD p.val (0,0)).1 =
+        seed8Mask.testBit (seed8Witnesses.getD p.val (0,0)).2 ∧
+      seed8Goal.testBit (seed8Witnesses.getD p.val (0,0)).1 ≠
+        seed8Goal.testBit (seed8Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed8Inputs, b ≠ a →
+        b.testBit (seed8Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed8Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed8Witnesses.getD p.val (0,0)).1,(seed8Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed8Lower_of_noRun
+    (hno : ∀ t < 10, ¬ RNatRun seed8Forbidden seed8Mask seed8Goal t seed8Inputs) :
+    ∀ s, HasCircuitSize 7 seed8Fn s → 10 ≤ s := by
+  apply lower_from_rows seed8Fn seed8Rows seed8Inputs seed8Forbidden seed8Mask seed8Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed8Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed8Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed13Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 2 && x 6) || (x 3 && x 4)
+def seed13Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed13Pack_spec (x : Fin 7 → Bool) :
+    seed13Pack x < 128 ∧ pt 7 (seed13Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed13Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed13Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed13Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed13Pack_spec x
+  exact ⟨seed13Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed13Witnesses : List (Nat × Nat) := [(118, 276), (100, 276), (100, 277), (100, 280), (100, 285), (118, 298), (123, 324)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed13Essential : ∀ a ∈ seed13Inputs, ∃ i j : Nat,
+    seed13Mask.testBit i = seed13Mask.testBit j ∧
+    seed13Goal.testBit i ≠ seed13Goal.testBit j ∧
+    ∀ b ∈ seed13Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed13Inputs, ∃ p : Fin 7,
+      seed13Mask.testBit (seed13Witnesses.getD p.val (0,0)).1 =
+        seed13Mask.testBit (seed13Witnesses.getD p.val (0,0)).2 ∧
+      seed13Goal.testBit (seed13Witnesses.getD p.val (0,0)).1 ≠
+        seed13Goal.testBit (seed13Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed13Inputs, b ≠ a →
+        b.testBit (seed13Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed13Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed13Witnesses.getD p.val (0,0)).1,(seed13Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed13Lower_of_noRun
+    (hno : ∀ t < 11, ¬ RNatRun seed13Forbidden seed13Mask seed13Goal t seed13Inputs) :
+    ∀ s, HasCircuitSize 7 seed13Fn s → 11 ≤ s := by
+  apply lower_from_rows seed13Fn seed13Rows seed13Inputs seed13Forbidden seed13Mask seed13Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed13Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed13Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed18Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 3 && x 5) || (x 4 && x 6) || (x 5 && x 6)
+def seed18Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed18Pack_spec (x : Fin 7 → Bool) :
+    seed18Pack x < 128 ∧ pt 7 (seed18Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed18Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed18Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed18Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed18Pack_spec x
+  exact ⟨seed18Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed18Witnesses : List (Nat × Nat) := [(118, 276), (101, 276), (101, 277), (101, 280), (101, 285), (124, 299), (129, 329)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed18Essential : ∀ a ∈ seed18Inputs, ∃ i j : Nat,
+    seed18Mask.testBit i = seed18Mask.testBit j ∧
+    seed18Goal.testBit i ≠ seed18Goal.testBit j ∧
+    ∀ b ∈ seed18Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed18Inputs, ∃ p : Fin 7,
+      seed18Mask.testBit (seed18Witnesses.getD p.val (0,0)).1 =
+        seed18Mask.testBit (seed18Witnesses.getD p.val (0,0)).2 ∧
+      seed18Goal.testBit (seed18Witnesses.getD p.val (0,0)).1 ≠
+        seed18Goal.testBit (seed18Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed18Inputs, b ≠ a →
+        b.testBit (seed18Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed18Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed18Witnesses.getD p.val (0,0)).1,(seed18Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed18Lower_of_noRun
+    (hno : ∀ t < 11, ¬ RNatRun seed18Forbidden seed18Mask seed18Goal t seed18Inputs) :
+    ∀ s, HasCircuitSize 7 seed18Fn s → 11 ≤ s := by
+  apply lower_from_rows seed18Fn seed18Rows seed18Inputs seed18Forbidden seed18Mask seed18Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed18Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed18Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed19Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 2 && x 5) || (x 3 && x 6) || (x 4 && x 6)
+def seed19Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed19Pack_spec (x : Fin 7 → Bool) :
+    seed19Pack x < 128 ∧ pt 7 (seed19Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed19Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed19Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed19Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed19Pack_spec x
+  exact ⟨seed19Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed19Witnesses : List (Nat × Nat) := [(110, 284), (101, 284), (101, 285), (101, 288), (110, 293), (119, 305), (122, 332)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed19Essential : ∀ a ∈ seed19Inputs, ∃ i j : Nat,
+    seed19Mask.testBit i = seed19Mask.testBit j ∧
+    seed19Goal.testBit i ≠ seed19Goal.testBit j ∧
+    ∀ b ∈ seed19Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed19Inputs, ∃ p : Fin 7,
+      seed19Mask.testBit (seed19Witnesses.getD p.val (0,0)).1 =
+        seed19Mask.testBit (seed19Witnesses.getD p.val (0,0)).2 ∧
+      seed19Goal.testBit (seed19Witnesses.getD p.val (0,0)).1 ≠
+        seed19Goal.testBit (seed19Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed19Inputs, b ≠ a →
+        b.testBit (seed19Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed19Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed19Witnesses.getD p.val (0,0)).1,(seed19Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed19Lower_of_noRun
+    (hno : ∀ t < 11, ¬ RNatRun seed19Forbidden seed19Mask seed19Goal t seed19Inputs) :
+    ∀ s, HasCircuitSize 7 seed19Fn s → 11 ≤ s := by
+  apply lower_from_rows seed19Fn seed19Rows seed19Inputs seed19Forbidden seed19Mask seed19Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed19Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed19Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed20Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 3 && x 6) || (x 4 && x 5)
+def seed20Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed20Pack_spec (x : Fin 7 → Bool) :
+    seed20Pack x < 128 ∧ pt 7 (seed20Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed20Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed20Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed20Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed20Pack_spec x
+  exact ⟨seed20Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed20Witnesses : List (Nat × Nat) := [(114, 270), (101, 270), (101, 271), (101, 274), (114, 279), (123, 294), (123, 322)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed20Essential : ∀ a ∈ seed20Inputs, ∃ i j : Nat,
+    seed20Mask.testBit i = seed20Mask.testBit j ∧
+    seed20Goal.testBit i ≠ seed20Goal.testBit j ∧
+    ∀ b ∈ seed20Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed20Inputs, ∃ p : Fin 7,
+      seed20Mask.testBit (seed20Witnesses.getD p.val (0,0)).1 =
+        seed20Mask.testBit (seed20Witnesses.getD p.val (0,0)).2 ∧
+      seed20Goal.testBit (seed20Witnesses.getD p.val (0,0)).1 ≠
+        seed20Goal.testBit (seed20Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed20Inputs, b ≠ a →
+        b.testBit (seed20Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed20Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed20Witnesses.getD p.val (0,0)).1,(seed20Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed20Lower_of_noRun
+    (hno : ∀ t < 11, ¬ RNatRun seed20Forbidden seed20Mask seed20Goal t seed20Inputs) :
+    ∀ s, HasCircuitSize 7 seed20Fn s → 11 ≤ s := by
+  apply lower_from_rows seed20Fn seed20Rows seed20Inputs seed20Forbidden seed20Mask seed20Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed20Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed20Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed23Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 4 && x 6) || (x 5 && x 6)
+def seed23Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed23Pack_spec (x : Fin 7 → Bool) :
+    seed23Pack x < 128 ∧ pt 7 (seed23Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed23Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed23Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed23Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed23Pack_spec x
+  exact ⟨seed23Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed23Witnesses : List (Nat × Nat) := [(112, 265), (102, 265), (102, 266), (102, 269), (112, 274), (125, 289), (138, 319)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed23Essential : ∀ a ∈ seed23Inputs, ∃ i j : Nat,
+    seed23Mask.testBit i = seed23Mask.testBit j ∧
+    seed23Goal.testBit i ≠ seed23Goal.testBit j ∧
+    ∀ b ∈ seed23Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed23Inputs, ∃ p : Fin 7,
+      seed23Mask.testBit (seed23Witnesses.getD p.val (0,0)).1 =
+        seed23Mask.testBit (seed23Witnesses.getD p.val (0,0)).2 ∧
+      seed23Goal.testBit (seed23Witnesses.getD p.val (0,0)).1 ≠
+        seed23Goal.testBit (seed23Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed23Inputs, b ≠ a →
+        b.testBit (seed23Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed23Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed23Witnesses.getD p.val (0,0)).1,(seed23Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed23Lower_of_noRun
+    (hno : ∀ t < 11, ¬ RNatRun seed23Forbidden seed23Mask seed23Goal t seed23Inputs) :
+    ∀ s, HasCircuitSize 7 seed23Fn s → 11 ≤ s := by
+  apply lower_from_rows seed23Fn seed23Rows seed23Inputs seed23Forbidden seed23Mask seed23Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed23Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed23Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed24Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 3 && x 4) || (x 4 && x 5) || (x 4 && x 6) || (x 5 && x 6)
+def seed24Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed24Pack_spec (x : Fin 7 → Bool) :
+    seed24Pack x < 128 ∧ pt 7 (seed24Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed24Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed24Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed24Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed24Pack_spec x
+  exact ⟨seed24Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed24Witnesses : List (Nat × Nat) := [(110, 285), (103, 285), (103, 286), (103, 289), (112, 298), (130, 315), (130, 340)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed24Essential : ∀ a ∈ seed24Inputs, ∃ i j : Nat,
+    seed24Mask.testBit i = seed24Mask.testBit j ∧
+    seed24Goal.testBit i ≠ seed24Goal.testBit j ∧
+    ∀ b ∈ seed24Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed24Inputs, ∃ p : Fin 7,
+      seed24Mask.testBit (seed24Witnesses.getD p.val (0,0)).1 =
+        seed24Mask.testBit (seed24Witnesses.getD p.val (0,0)).2 ∧
+      seed24Goal.testBit (seed24Witnesses.getD p.val (0,0)).1 ≠
+        seed24Goal.testBit (seed24Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed24Inputs, b ≠ a →
+        b.testBit (seed24Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed24Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed24Witnesses.getD p.val (0,0)).1,(seed24Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed24Lower_of_noRun
+    (hno : ∀ t < 11, ¬ RNatRun seed24Forbidden seed24Mask seed24Goal t seed24Inputs) :
+    ∀ s, HasCircuitSize 7 seed24Fn s → 11 ≤ s := by
+  apply lower_from_rows seed24Fn seed24Rows seed24Inputs seed24Forbidden seed24Mask seed24Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed24Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed24Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed25Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 4) || (x 2 && x 5) || (x 3 && x 6) || (x 4 && x 5) || (x 4 && x 6)
+def seed25Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed25Pack_spec (x : Fin 7 → Bool) :
+    seed25Pack x < 128 ∧ pt 7 (seed25Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed25Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed25Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed25Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed25Pack_spec x
+  exact ⟨seed25Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed25Witnesses : List (Nat × Nat) := [(110, 277), (101, 277), (101, 278), (101, 280), (110, 284), (114, 296), (118, 325)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed25Essential : ∀ a ∈ seed25Inputs, ∃ i j : Nat,
+    seed25Mask.testBit i = seed25Mask.testBit j ∧
+    seed25Goal.testBit i ≠ seed25Goal.testBit j ∧
+    ∀ b ∈ seed25Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed25Inputs, ∃ p : Fin 7,
+      seed25Mask.testBit (seed25Witnesses.getD p.val (0,0)).1 =
+        seed25Mask.testBit (seed25Witnesses.getD p.val (0,0)).2 ∧
+      seed25Goal.testBit (seed25Witnesses.getD p.val (0,0)).1 ≠
+        seed25Goal.testBit (seed25Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed25Inputs, b ≠ a →
+        b.testBit (seed25Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed25Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed25Witnesses.getD p.val (0,0)).1,(seed25Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed25Lower_of_noRun
+    (hno : ∀ t < 11, ¬ RNatRun seed25Forbidden seed25Mask seed25Goal t seed25Inputs) :
+    ∀ s, HasCircuitSize 7 seed25Fn s → 11 ≤ s := by
+  apply lower_from_rows seed25Fn seed25Rows seed25Inputs seed25Forbidden seed25Mask seed25Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed25Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed25Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed26Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 0 && x 5) || (x 0 && x 6) || (x 1 && x 2) || (x 3 && x 4) || (x 5 && x 6)
+def seed26Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed26Pack_spec (x : Fin 7 → Bool) :
+    seed26Pack x < 128 ∧ pt 7 (seed26Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed26Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed26Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed26Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed26Pack_spec x
+  exact ⟨seed26Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed26Witnesses : List (Nat × Nat) := [(125, 399), (100, 399), (100, 400), (100, 403), (100, 408), (100, 421), (100, 444)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed26Essential : ∀ a ∈ seed26Inputs, ∃ i j : Nat,
+    seed26Mask.testBit i = seed26Mask.testBit j ∧
+    seed26Goal.testBit i ≠ seed26Goal.testBit j ∧
+    ∀ b ∈ seed26Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed26Inputs, ∃ p : Fin 7,
+      seed26Mask.testBit (seed26Witnesses.getD p.val (0,0)).1 =
+        seed26Mask.testBit (seed26Witnesses.getD p.val (0,0)).2 ∧
+      seed26Goal.testBit (seed26Witnesses.getD p.val (0,0)).1 ≠
+        seed26Goal.testBit (seed26Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed26Inputs, b ≠ a →
+        b.testBit (seed26Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed26Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed26Witnesses.getD p.val (0,0)).1,(seed26Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed26Lower_of_noRun
+    (hno : ∀ t < 12, ¬ RNatRun seed26Forbidden seed26Mask seed26Goal t seed26Inputs) :
+    ∀ s, HasCircuitSize 7 seed26Fn s → 12 ≤ s := by
+  apply lower_from_rows seed26Fn seed26Rows seed26Inputs seed26Forbidden seed26Mask seed26Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed26Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed26Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed27Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 1 && x 6) || (x 3 && x 4) || (x 5 && x 6)
+def seed27Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed27Pack_spec (x : Fin 7 → Bool) :
+    seed27Pack x < 128 ∧ pt 7 (seed27Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed27Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed27Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed27Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed27Pack_spec x
+  exact ⟨seed27Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed27Witnesses : List (Nat × Nat) := [(122, 360), (104, 360), (104, 361), (104, 364), (104, 369), (122, 382), (122, 407)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed27Essential : ∀ a ∈ seed27Inputs, ∃ i j : Nat,
+    seed27Mask.testBit i = seed27Mask.testBit j ∧
+    seed27Goal.testBit i ≠ seed27Goal.testBit j ∧
+    ∀ b ∈ seed27Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed27Inputs, ∃ p : Fin 7,
+      seed27Mask.testBit (seed27Witnesses.getD p.val (0,0)).1 =
+        seed27Mask.testBit (seed27Witnesses.getD p.val (0,0)).2 ∧
+      seed27Goal.testBit (seed27Witnesses.getD p.val (0,0)).1 ≠
+        seed27Goal.testBit (seed27Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed27Inputs, b ≠ a →
+        b.testBit (seed27Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed27Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed27Witnesses.getD p.val (0,0)).1,(seed27Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed27Lower_of_noRun
+    (hno : ∀ t < 12, ¬ RNatRun seed27Forbidden seed27Mask seed27Goal t seed27Inputs) :
+    ∀ s, HasCircuitSize 7 seed27Fn s → 12 ≤ s := by
+  apply lower_from_rows seed27Fn seed27Rows seed27Inputs seed27Forbidden seed27Mask seed27Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed27Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed27Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed28Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 3 && x 4) || (x 3 && x 6) || (x 5 && x 6)
+def seed28Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed28Pack_spec (x : Fin 7 → Bool) :
+    seed28Pack x < 128 ∧ pt 7 (seed28Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed28Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed28Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed28Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed28Pack_spec x
+  exact ⟨seed28Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed28Witnesses : List (Nat × Nat) := [(121, 341), (104, 341), (104, 342), (104, 345), (104, 350), (121, 363), (132, 392)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed28Essential : ∀ a ∈ seed28Inputs, ∃ i j : Nat,
+    seed28Mask.testBit i = seed28Mask.testBit j ∧
+    seed28Goal.testBit i ≠ seed28Goal.testBit j ∧
+    ∀ b ∈ seed28Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed28Inputs, ∃ p : Fin 7,
+      seed28Mask.testBit (seed28Witnesses.getD p.val (0,0)).1 =
+        seed28Mask.testBit (seed28Witnesses.getD p.val (0,0)).2 ∧
+      seed28Goal.testBit (seed28Witnesses.getD p.val (0,0)).1 ≠
+        seed28Goal.testBit (seed28Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed28Inputs, b ≠ a →
+        b.testBit (seed28Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed28Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed28Witnesses.getD p.val (0,0)).1,(seed28Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed28Lower_of_noRun
+    (hno : ∀ t < 12, ¬ RNatRun seed28Forbidden seed28Mask seed28Goal t seed28Inputs) :
+    ∀ s, HasCircuitSize 7 seed28Fn s → 12 ≤ s := by
+  apply lower_from_rows seed28Fn seed28Rows seed28Inputs seed28Forbidden seed28Mask seed28Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed28Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed28Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed29Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 2 && x 5) || (x 3 && x 6) || (x 4 && x 6) || (x 5 && x 6)
+def seed29Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed29Pack_spec (x : Fin 7 → Bool) :
+    seed29Pack x < 128 ∧ pt 7 (seed29Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed29Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed29Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed29Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed29Pack_spec x
+  exact ⟨seed29Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed29Witnesses : List (Nat × Nat) := [(114, 347), (104, 347), (104, 348), (104, 351), (114, 356), (124, 368), (134, 395)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed29Essential : ∀ a ∈ seed29Inputs, ∃ i j : Nat,
+    seed29Mask.testBit i = seed29Mask.testBit j ∧
+    seed29Goal.testBit i ≠ seed29Goal.testBit j ∧
+    ∀ b ∈ seed29Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed29Inputs, ∃ p : Fin 7,
+      seed29Mask.testBit (seed29Witnesses.getD p.val (0,0)).1 =
+        seed29Mask.testBit (seed29Witnesses.getD p.val (0,0)).2 ∧
+      seed29Goal.testBit (seed29Witnesses.getD p.val (0,0)).1 ≠
+        seed29Goal.testBit (seed29Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed29Inputs, b ≠ a →
+        b.testBit (seed29Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed29Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed29Witnesses.getD p.val (0,0)).1,(seed29Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed29Lower_of_noRun
+    (hno : ∀ t < 12, ¬ RNatRun seed29Forbidden seed29Mask seed29Goal t seed29Inputs) :
+    ∀ s, HasCircuitSize 7 seed29Fn s → 12 ≤ s := by
+  apply lower_from_rows seed29Fn seed29Rows seed29Inputs seed29Forbidden seed29Mask seed29Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed29Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed29Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed30Fn : BFn 7 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 3 && x 6) || (x 4 && x 5) || (x 5 && x 6)
+def seed30Pack (x : Fin 7 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed30Pack_spec (x : Fin 7 → Bool) :
+    seed30Pack x < 128 ∧ pt 7 (seed30Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed30Rows_cover : ∀ x : Fin 7 → Bool, ∃ v ∈ seed30Rows, pt 7 v = x := by
+  have hmem : ∀ v : Fin 128, v.val ∈ seed30Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed30Pack_spec x
+  exact ⟨seed30Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed30Witnesses : List (Nat × Nat) := [(116, 344), (105, 344), (105, 345), (105, 348), (116, 353), (131, 368), (131, 396)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed30Essential : ∀ a ∈ seed30Inputs, ∃ i j : Nat,
+    seed30Mask.testBit i = seed30Mask.testBit j ∧
+    seed30Goal.testBit i ≠ seed30Goal.testBit j ∧
+    ∀ b ∈ seed30Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed30Inputs, ∃ p : Fin 7,
+      seed30Mask.testBit (seed30Witnesses.getD p.val (0,0)).1 =
+        seed30Mask.testBit (seed30Witnesses.getD p.val (0,0)).2 ∧
+      seed30Goal.testBit (seed30Witnesses.getD p.val (0,0)).1 ≠
+        seed30Goal.testBit (seed30Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed30Inputs, b ≠ a →
+        b.testBit (seed30Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed30Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed30Witnesses.getD p.val (0,0)).1,(seed30Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed30Lower_of_noRun
+    (hno : ∀ t < 12, ¬ RNatRun seed30Forbidden seed30Mask seed30Goal t seed30Inputs) :
+    ∀ s, HasCircuitSize 7 seed30Fn s → 12 ≤ s := by
+  apply lower_from_rows seed30Fn seed30Rows seed30Inputs seed30Forbidden seed30Mask seed30Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed30Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed30Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite

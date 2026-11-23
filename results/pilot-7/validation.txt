@@ -37,3 +37,7 @@ TIMING total=166.0 subagents=9
 C7 concrete certificate checkpoint:19 compiled chunks cover70 of116 stored states. C7NoGoal.lean separately compiled all-state non-goal and initial-root permutation facts. Independent source/hash audit passed for every retained module. Full C7 closure and symmetry transport remain in progress.
 Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, c7_pack, cube_symmetry, lean_setup, lemma_search, structural_twins
 TIMING total=169.0 subagents=9
+
+AllCoreBridge982.lean compiled exit0 and independently audited: exact encodings for all14 finite cores, with explicit no-run premises still pending. Finite982MinimalHybrid.lean compiled exit0 and audited, supplying the smaller generic framework and checked table/DFS combination rule. C7Closure.lean compiled exit0: all116 table states closed; axioms only propext, Classical.choice, Quot.sound. All14 C7 concrete symmetry checks compiled and audited; final transport assembly is a separate follow-up. Complete source and diagnostics retained.
+Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, c7_pack, cube_symmetry, lean_setup, lemma_search, structural_twins
+TIMING total=171.8 subagents=9

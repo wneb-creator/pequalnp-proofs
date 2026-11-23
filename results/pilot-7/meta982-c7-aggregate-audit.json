@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "module": "C7Closure",
+  "source_sha256": "2043b1fb3810d40357c70811cbcfb1a730c0926d783feb89a26add116d6798f1",
+  "all32_audited_chunks_imported": true,
+  "all116_states_covered": true,
+  "all_remaining_budgets_0_through_9_quantified": true,
+  "fast_to_checked_equality_used": true,
+  "scope": "complete paired table closure; final RNatRun transport theorem and circuit bound assemble separately"
+}

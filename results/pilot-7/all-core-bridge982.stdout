@@ -1,0 +1,44 @@
+/tmp/oec/pequalnp-pilot-7/AllCoreBridge982.lean:131:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AllCoreBridge982.lean:131:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AllCoreBridge982.lean:137:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AllCoreBridge982.lean:137:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AllCoreBridge982.lean:901:4: warning: The namespace `Live` is duplicated in the declaration `PEqualNP.Outside.L_meta_982_aux.Finite.Live.Live`.
+
+Note: This linter can be disabled with `set_option linter.dupNamespace false`
+/tmp/oec/pequalnp-pilot-7/AllCoreBridge982.lean:1250:62: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ht, Bool.true_or, Bool.or_true, Bool.and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-7/AllCoreBridge982.lean:1302:32: warning: This simp argument is unused:
+  Nat.testBit_bit_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [encL]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-7/AllCoreBridge982.lean:1392:16: warning: Unused tactic linter: `exact Bool.or_le_or ha hb` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AllCoreBridge982.lean:1392:44: warning: Unused tactic linter: `exact Bool.and_le_and ha hb` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AllCoreBridge982.lean:1676:62: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ht, Bool.true_or, Bool.or_true, Bool.and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-7/AllCoreBridge982.lean:1720:6: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-7/AllCoreBridge982.lean:2290:2: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
