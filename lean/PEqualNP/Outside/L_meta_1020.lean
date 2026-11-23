@@ -8832,15 +8832,6 @@ lemma net_length_add_usedForks_le {J : ℕ} (N : ℕ) (C : Circuit)
       3 * Pilot5bMeta1020Forward.degreeCount N 2 C.gates + (seeds N C fa fb).length at h
   simpa only [seeds_length] using h
 
-lemma net_length_add_jobs_le {J : ℕ} (N : ℕ) (C : Circuit)
-    (fa fb : Fin J → ℕ) (hm : PEqualNP.MetaComplexity.Monotone2 C) :
-    (net N C fa fb).length + (jobs N C fa fb).length ≤
-      1 + Pilot5bMeta1020Forward.degreeCount N 1 C.gates +
-        3 * Pilot5bMeta1020Forward.degreeCount N 2 C.gates + 2 * J := by
-  have h := net_length_add_usedForks_le N C fa fb hm
-  rw [jobs_length]
-  omega
-
 end Pilot5bMeta1020OriginalNormalization
 end PEqualNP.Outside.L_meta_1020
 
