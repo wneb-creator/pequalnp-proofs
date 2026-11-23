@@ -1,0 +1,9 @@
+L-meta-997 partial helper preservation. Posted theorem is not yet proved.
+Light.lean: lake env lean exit 0; stdout and stderr empty.
+Heavy.lean: lake env lean exit 0; stdout and stderr empty.
+Sub-agents: 5 (independent edge review, light proof, heavy proof, setup and red-team review, overlap strategy)
+TIMING total=6.5 subagents=5
+Integrated named file: lake build PEqualNP.Outside.L_meta_997 passed (18383 jobs).
+Outside guard: REFUSED: the file holds no theorem. Partial only; no proof PR yet.
+Local exact-statement checker not run: main theorem is still absent.
+Independent red-team review passed for compiled helper snapshot b9c92da609e7eef5401d6cb01162456e5627890bd73e8fff9e5d4705f9222f02.
