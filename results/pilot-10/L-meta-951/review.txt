@@ -54,3 +54,7 @@ Sixth snapshot: independent_theory reviewed FirstConsumerBound951 and its
 unchanged earlier prefix, explicit additional ownership/first-read/endpoint
 hypotheses, frozen hash and complete warning-only diagnostics: PASS. This
 conditional capped-base+2 conclusion does not settle the full951 statement.
+
+Final E3 archive: root reviewed generator changes, exact UNKNOWN result labels,
+positive-control scope, completed-run input/source hashes, and gzip fidelity.
+No solver result is described as a Lean certificate or posted counterexample.

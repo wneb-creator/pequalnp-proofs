@@ -1,0 +1,18 @@
+{
+  "gap": "L-meta-984",
+  "status": "PARTIAL; concrete certificates pending",
+  "artifacts": [
+    {
+      "file": "Formal984.lean",
+      "sha256": "d99b8a081e251bfa130f08215f7ab1c068b77f8a407311f6d5868d8deab21b53",
+      "lines": 1547,
+      "bytes": 69246,
+      "observed_compile_exit": 0,
+      "logs": [
+        "formal-check-1.stdout",
+        "formal-check-1.stderr"
+      ],
+      "scope": "Generic monotone circuit normalization and finite-frontier certificate soundness; no concrete984 lower bound yet."
+    }
+  ]
+}

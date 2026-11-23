@@ -1,0 +1,3 @@
+Full L-meta-984 proof/refutation: NOT OBTAINED.
+Repository checker acceptance: NOT OBTAINED.
+Formal984.lean: lake env lean exit0, both diagnostic files empty.

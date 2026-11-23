@@ -16,3 +16,5 @@ Sub-agents: independent_search; literal_not_restriction; independent_theory; pro
 TIMING total=94 subagents=7
 
 Frozen generated SMT inputs are additionally preserved under `queries/` as gzip files, with original SHA-256 hashes in `queries/manifest.json`. They are finite solver inputs, not Lean proof certificates. Inputs for still-running E3 queries are added only when those runs finish.
+
+Final E3 searches all ended UNKNOWN; none found a counterexample. Complete final records, source and input hashes are in independent-search/e3-final-status.json. L-meta-951 was released with reason other after more than90minutes of work. All32 compiled research artifacts remain preserved.

@@ -1,0 +1,6 @@
+Independent review by independent_theory: PASS for Formal984 generic certificate machinery.
+Exact frozen source hash and empty successful diagnostics verified.
+Imports only Mathlib and PEqualNP.Defs, own namespace, no forbidden proof constructs,
+namespace escape text, quotes, attributes or options. Final theorems explicitly retain
+the circuit-encoding and finite-run-exclusion hypotheses; no concrete984 result claimed.
+Root independently read the certificate soundness and final bridge declarations.

@@ -1,0 +1,258 @@
+{
+  "as_of_utc": "2026-11-23T21:12:35.466066+00:00",
+  "family": [
+    [
+      0,
+      1,
+      3
+    ],
+    [
+      0,
+      2,
+      4
+    ],
+    [
+      0,
+      5,
+      6,
+      7
+    ],
+    [
+      1,
+      2,
+      5
+    ],
+    [
+      1,
+      4,
+      6,
+      8
+    ],
+    [
+      2,
+      3,
+      7,
+      8
+    ]
+  ],
+  "target_sum": 15,
+  "actual_gate_budget": 14,
+  "assignments_encoded": 512,
+  "runs": [
+    {
+      "prefix": "e3_core9_full14",
+      "constraints": "Full truth tables plus Good ownership; no graph equality pruning.",
+      "result_record": {
+        "n": 9,
+        "family": [
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            2,
+            4
+          ],
+          [
+            0,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            2,
+            5
+          ],
+          [
+            1,
+            4,
+            6,
+            8
+          ],
+          [
+            2,
+            3,
+            7,
+            8
+          ]
+        ],
+        "budget": 14,
+        "exactly_one_not": true,
+        "first_gate": null,
+        "canonical_order": true,
+        "constraint_mode": "ownership",
+        "result": "unknown",
+        "seconds": 605.5663814709997
+      },
+      "full_stdout_stderr": "e3_core9_full14.log",
+      "query_raw_sha256": "35aaed23acbf6cc6a67917ed612955d68f6bfb2488c54b98772607bf0f91a16b"
+    },
+    {
+      "prefix": "e3_core9_tight14",
+      "constraints": "Additionally exactly14gates, NOT fanout1, all ordinary gates have a positive path to an output.",
+      "result_record": {
+        "n": 9,
+        "family": [
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            2,
+            4
+          ],
+          [
+            0,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            2,
+            5
+          ],
+          [
+            1,
+            4,
+            6,
+            8
+          ],
+          [
+            2,
+            3,
+            7,
+            8
+          ]
+        ],
+        "budget": 14,
+        "exactly_one_not": true,
+        "first_gate": null,
+        "canonical_order": true,
+        "constraint_mode": "tightshape",
+        "result": "unknown",
+        "seconds": 602.790171787
+      },
+      "full_stdout_stderr": "e3_core9_tight14.log",
+      "query_raw_sha256": "662a74b64171b4de5b1a2e2d06da0aeca4c11af6ff41aac1fc0ac993b7a49f30"
+    },
+    {
+      "prefix": "e3_core9_goodsource14",
+      "constraints": "Additionally NOT must read an internal Good gate; separately argued premise, not kernel checked.",
+      "result_record": {
+        "n": 9,
+        "family": [
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            2,
+            4
+          ],
+          [
+            0,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            2,
+            5
+          ],
+          [
+            1,
+            4,
+            6,
+            8
+          ],
+          [
+            2,
+            3,
+            7,
+            8
+          ]
+        ],
+        "budget": 14,
+        "exactly_one_not": true,
+        "first_gate": null,
+        "canonical_order": true,
+        "constraint_mode": "goodsource",
+        "result": "unknown",
+        "seconds": 602.464568767
+      },
+      "full_stdout_stderr": "e3_core9_goodsource14.log",
+      "query_raw_sha256": "a2cf8699ad1a59b71ec2769c16ca039a5ea0ecad0f61dab6615fd64bb47991a5"
+    }
+  ],
+  "controls": [
+    {
+      "prefix": "tightshape_control11",
+      "result": "SAT positive control",
+      "assignments_independently_verified": 32,
+      "target_sum": 4,
+      "actual_gates": 11
+    },
+    {
+      "prefix": "goodsource_control11",
+      "result": "SAT positive control",
+      "assignments_independently_verified": 64,
+      "target_sum": 4,
+      "actual_gates": 11
+    }
+  ],
+  "claims": "No full proof or counterexample to posted L-meta-951. UNKNOWN is inconclusive. Tight shape and Good-source implications are mathematical premises beyond the completed Lean artifact set. Positive controls exceed their lower bound and are not counterexamples.",
+  "small_files": [
+    "bv_tightshape.py",
+    "tightshape_control.py",
+    "tightshape_control11.log",
+    "bv_goodsource.py",
+    "goodsource_control.py",
+    "goodsource_control11.log",
+    "merged-negative-edge-search.md",
+    "e3_core9_full14.log",
+    "e3_core9_tight14.log",
+    "e3_core9_full14.stats",
+    "e3_core9_tight14.stats",
+    "e3_core9_goodsource14.log",
+    "e3_core9_goodsource14.stats",
+    "preservation-review.txt"
+  ],
+  "frozen_queries_to_gzip": [
+    "e3_core9_full14.smt2",
+    "e3_core9_tight14.smt2",
+    "goodsource_control11.smt2",
+    "e3_core9_goodsource14.smt2"
+  ],
+  "pending_until_completion": [],
+  "hashes": {
+    "bv_tightshape.py": "dedc78d50b89c2b22248409921794b789eb6633a6e7c289fadb6792e0188f1e9",
+    "tightshape_control.py": "5b4dff1630154d89192e17b2e7061e81c69264347725e589e639f6f34a1b405d",
+    "tightshape_control11.log": "1eb631f0e2f70d67892998cdb544cd868bd48d07cb24ef4388ddd25657793ed8",
+    "bv_goodsource.py": "7faccaeef27ec2810c05c00d1a63bfe1bda3348ef72677ded8948cc42837c8b7",
+    "goodsource_control.py": "ae6ea307734c323731dd77ec28a7640fc83d6ebff1e47c17178f79ae20db0428",
+    "goodsource_control11.log": "4e27f45ce6adbe6984e5beaed1b700376e65b287edd93d8f9a212b28ffdb1a11",
+    "merged-negative-edge-search.md": "08e41279a601f6c4180513207cf9036ab994b98ba24cc12765e9e0ce3abe8f62",
+    "e3_core9_full14.log": "0666c65b7578a57e8979783d76e14336f0af66685a8dd23a6fa1c58772278c64",
+    "e3_core9_tight14.log": "65c4af9148820254c55d7b7f10bb5e4f90c4038fb366a922dc51a15623ef732c",
+    "e3_core9_full14.stats": "625c74c4ab117daa53a797269ec39a0d3e4f3ce0dd33e8642d8d9c64452f73e9",
+    "e3_core9_tight14.stats": "748a400b713c89518ccdff78259d16a21afad270d784db51f0acb88175d6004a",
+    "e3_core9_goodsource14.log": "989bf7977e9aca35f5cc933effba032c4df1dd8be7701559d413e7b3cf3b8235",
+    "e3_core9_goodsource14.stats": "841a77ad8b2138478fca35d3c90d931b6e17870057b6317011c8b82b92706e21",
+    "preservation-review.txt": "443355904d208f54a0d9482c45dd42e21538a2a6e66bb7ea64fd2431148b42f0",
+    "e3_core9_full14.smt2": "35aaed23acbf6cc6a67917ed612955d68f6bfb2488c54b98772607bf0f91a16b",
+    "e3_core9_tight14.smt2": "662a74b64171b4de5b1a2e2d06da0aeca4c11af6ff41aac1fc0ac993b7a49f30",
+    "goodsource_control11.smt2": "5d29695a4de46211a7aedbf05cf72e6cec0002833d8baba91e815d571af83458",
+    "e3_core9_goodsource14.smt2": "a2cf8699ad1a59b71ec2769c16ca039a5ea0ecad0f61dab6615fd64bb47991a5"
+  },
+  "all_951_searches_finished": true,
+  "no_more_951_queries": "Gap released by root; research now targets L-meta-984."
+}

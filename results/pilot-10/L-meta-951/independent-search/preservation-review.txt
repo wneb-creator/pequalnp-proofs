@@ -1,0 +1,32 @@
+Independent preservation review: PASS
+Reviewer: /root/independent_search
+Date: 2026-11-23
+Scope: GeneralLiteralNot.lean and the 47-file frozen SMT input archive.
+No recompilation was performed for this review.
+
+GeneralLiteralNot.lean:
+- Exact declarations require target sizes >=3, pairwise intersection <=1,
+  one literal-input NOT at an arbitrary gate position, and the stated degree
+  restriction only in the final corollary.
+- Checked claims are erased-cost+2 lower bound, erased-cost identity (requiring
+  sizes >=2), and the degree<=2 corollary. No universal L-meta-951 claim.
+- 702 lines; SHA256:
+  3d5e20b62b430976d5331cf99367eb5efd9b9270fb201602ab9af3c26feab829
+- Complete general-compile-2.log contains warnings only; validation records
+  exit code zero. No errors or unsolved goals found.
+- Imports occur only on first three lines. No sorry, axiom, native_decide,
+  or unsafe token was found in the source.
+- Earlier CountedRestriction.lean and K5LiteralNot.lean hashes are unchanged.
+
+Archived queries:
+- Read manifest JSON shape before interpreting all 47 records.
+- Every gzip stream decompresses successfully.
+- Every decompressed byte sequence exactly matches its original scratch file.
+- Raw SHA256, raw byte length, and compressed byte length match every record.
+- Archive filenames are unique and confined to the query directory.
+- The two then-running E3 main queries were explicitly excluded.
+- Scope correctly states that these are finite SMT inputs, not Lean
+  certificates; diagnostic relaxations and interrupted attempts are included.
+
+This review approves preservation of the stated limited results. It does not
+certify the unresolved posted L-meta-951 statement or an SMT UNSAT proof.
