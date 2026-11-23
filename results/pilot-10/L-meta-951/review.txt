@@ -23,3 +23,15 @@ credential-pattern scan, and limited status labels: PASS. Root then read the
 new AntitoneReversibleCode source independently: finite kernel decide proofs
 with explicit intermediate scope, no full951 or gate-count claim, frozen hash
 verified and final diagnostics empty. Manifest now contains21 compiled files.
+
+Third snapshot: independent_theory reviewed the new GoodPlusOne and
+FirstConsumer statements and successful diagnostics: PASS for their explicit
+restricted/local scope. Root independently read the canonical-section, cut
+capacity, and literal-NOT declarations and verified all six frozen hashes.
+None of these results proves or refutes the full posted statement.
+
+independent_search reviewed the general literal-NOT source, restrictions,
+hashes and complete successful log: PASS. It also decompressed all47 archived
+SMT inputs and verified exact scratch bytes, raw hashes, sizes, unique paths,
+and exclusion of the two pending E3 inputs: PASS. These are archived solver
+inputs, not Lean certificates.

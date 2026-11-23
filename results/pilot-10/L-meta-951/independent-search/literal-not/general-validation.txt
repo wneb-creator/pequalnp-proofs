@@ -1,0 +1,35 @@
+Task: bounded extension of the L-meta-951 literal-NOT auxiliary result.
+Source: GeneralLiteralNot.lean (702 lines).
+SHA256: 3d5e20b62b430976d5331cf99367eb5efd9b9270fb201602ab9af3c26feab829
+
+Validation command, from /workspace/pequalnp-proofs/lean:
+source /tmp/oec/pequalnp-pilot-10/toolchain/environment.sh && lake env lean /tmp/oec/pequalnp-pilot-10/independent-search/literal-not/GeneralLiteralNot.lean
+Exit code: 0.
+Complete stdout/stderr: general-compile-2.log.
+No sorry, axiom, native_decide, or unsafe occurrences in source.
+
+New checked results:
+1. literal_not_erased_bound: for any pairwise-linear target family with
+   every target size at least three and at least one target containing v,
+   a circuit whose sole NOT directly reads input v has at least
+   sum_i(card(S_i erase v)-1)+2 gates.
+2. erased_cost_identity: for every family of sets of size at least two,
+   restricted cost + number of targets containing v = original cost.
+3. literal_not_degree_two_bound: under the first result's hypotheses, if
+   v occurs in at most two targets then original gate count is at least
+   sum_i(card(S_i)-1).
+
+The sole NOT may occur at any position; arbitrary wire indices and arities
+at most two are included. Uses existing L_meta_900.promise as the monotone
+lower bound. Not a proof of the entire posted L-meta-951 statement.
+
+Preserved source hashes checked after writing the new file:
+CountedRestriction.lean 743faba303ecd6ae97c09b1903df92c79fd16d3246bd4f4b460cef98cdc4bafa
+K5LiteralNot.lean 96f94cb7d9824a69cf7d8b3fa6b88ee5c3da28770088eaf93e47717771cc97a5
+
+Stopped after successful requested extension: root found existing
+L_meta_986 gives a stronger literal-NOT theorem. No repository edits,
+desk calls, pushes, PR writes, or credential access by this agent.
+
+Sub-agents: none.
+TIMING total=2 subagents=0

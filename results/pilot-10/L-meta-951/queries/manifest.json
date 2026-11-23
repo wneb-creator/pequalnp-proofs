@@ -1,0 +1,338 @@
+{
+  "scope": "Exact finite SMT inputs, not Lean certificates. Consult individual logs and generator sources for constraints and outcomes. Some queries are diagnostic relaxations or interrupted attempts.",
+  "files": [
+    {
+      "original": "independent-search/partial_grid9_full13.smt2",
+      "archive": "queries/independent-search/partial_grid9_full13.smt2.gz",
+      "bytes": 199644,
+      "sha256": "f968050cace34444a92e11a3d663603e9977bad47c6b16545092a254dae4f977",
+      "gzip_bytes": 9768
+    },
+    {
+      "original": "independent-search/fano_le13.smt2",
+      "archive": "queries/independent-search/fano_le13.smt2.gz",
+      "bytes": 53315,
+      "sha256": "3e6c1e07cfb68d8731b05d03c9b6ee61f932a6d5bcb57f0a171c1e23f4bb4f61",
+      "gzip_bytes": 4884
+    },
+    {
+      "original": "independent-search/freeanti_partial_grid7_9.smt2",
+      "archive": "queries/independent-search/freeanti_partial_grid7_9.smt2.gz",
+      "bytes": 73727,
+      "sha256": "61b8bc0ae5f40f591d8984540e06a3da632fbcec1d54f23eb611cc44486ec65d",
+      "gzip_bytes": 5721
+    },
+    {
+      "original": "independent-search/one5_two3_qffd.smt2",
+      "archive": "queries/independent-search/one5_two3_qffd.smt2.gz",
+      "bytes": 32540,
+      "sha256": "c35460f50de0727b616716c71bd82b2264ef9e420df2827bb91de9685a099430",
+      "gzip_bytes": 2655
+    },
+    {
+      "original": "independent-search/k5_case_and_disjoint.smt2",
+      "archive": "queries/independent-search/k5_case_and_disjoint.smt2.gz",
+      "bytes": 247283,
+      "sha256": "91da582d977f7647ac05198d7c10e3294305674de40e0be0265527a2a63015d6",
+      "gzip_bytes": 10363
+    },
+    {
+      "original": "independent-search/anticegis_pasch_control-00.smt2",
+      "archive": "queries/independent-search/anticegis_pasch_control-00.smt2.gz",
+      "bytes": 18643,
+      "sha256": "df6c5230ce08ab219d78c2de9b863aa58a25478a361a9862176887cd71c84448",
+      "gzip_bytes": 2271
+    },
+    {
+      "original": "independent-search/conditional_two4_two2_le7.smt2",
+      "archive": "queries/independent-search/conditional_two4_two2_le7.smt2.gz",
+      "bytes": 25877,
+      "sha256": "2f882d86419a7514141a91d69c0d39db314015262d6507276c713b7114d6ff09",
+      "gzip_bytes": 2566
+    },
+    {
+      "original": "independent-search/bv_pasch_le7.smt2",
+      "archive": "queries/independent-search/bv_pasch_le7.smt2.gz",
+      "bytes": 22089,
+      "sha256": "fa2e1902dab75a6af3eb824368773b43461753a405bf2024ebf1a3a37e576f95",
+      "gzip_bytes": 2174
+    },
+    {
+      "original": "independent-search/canonical_pasch_control.smt2",
+      "archive": "queries/independent-search/canonical_pasch_control.smt2.gz",
+      "bytes": 27357,
+      "sha256": "27bfce2cf2ceb935f1ee63400372fcda69eeebcc78a22b92ae4d038f669075cf",
+      "gzip_bytes": 2743
+    },
+    {
+      "original": "independent-search/bv_two4_three2_core.smt2",
+      "archive": "queries/independent-search/bv_two4_three2_core.smt2.gz",
+      "bytes": 34084,
+      "sha256": "3e963f7387c9ecdf925267503fb8c69dca713a9b51b7e81f62b873e2406b2ff0",
+      "gzip_bytes": 2867
+    },
+    {
+      "original": "independent-search/fano5_le9.smt2",
+      "archive": "queries/independent-search/fano5_le9.smt2.gz",
+      "bytes": 31825,
+      "sha256": "8c2a4da14eae3f93b67677e9f18017e14d0ab5a918394caf0f19ce713f45d736",
+      "gzip_bytes": 3041
+    },
+    {
+      "original": "independent-search/freeanti_mixed4_7.smt2",
+      "archive": "queries/independent-search/freeanti_mixed4_7.smt2.gz",
+      "bytes": 61341,
+      "sha256": "f341700bb05dfa1ce339f227631b6e31e6b8e3e010fa300dc9e13ed4fe36f89f",
+      "gzip_bytes": 4791
+    },
+    {
+      "original": "independent-search/k5_case_or_disjoint.smt2",
+      "archive": "queries/independent-search/k5_case_or_disjoint.smt2.gz",
+      "bytes": 247283,
+      "sha256": "5b4e6ff19a8175bb968ec57ae4b36282d29e3dd8e3cb187bf6bf5b4b3a19cb6d",
+      "gzip_bytes": 10363
+    },
+    {
+      "original": "independent-search/bv_k5stars_le14.smt2",
+      "archive": "queries/independent-search/bv_k5stars_le14.smt2.gz",
+      "bytes": 244725,
+      "sha256": "f042378de06f5101f968709701f1b8c4f851539351b0f202bd56e86f7ba92e12",
+      "gzip_bytes": 9805
+    },
+    {
+      "original": "independent-search/freeanti_mixed4core8.smt2",
+      "archive": "queries/independent-search/freeanti_mixed4core8.smt2.gz",
+      "bytes": 67290,
+      "sha256": "57429e9763b983efdbc94c95895abf634ad1ec6076bd0e11fd98955f079ed828",
+      "gzip_bytes": 5228
+    },
+    {
+      "original": "independent-search/bv_pasch_le8.smt2",
+      "archive": "queries/independent-search/bv_pasch_le8.smt2.gz",
+      "bytes": 26237,
+      "sha256": "a7e0bc9dc7c6ddc60986def38af864bc2ab3e2a5a547f26c720d49f4783fa5bb",
+      "gzip_bytes": 2498
+    },
+    {
+      "original": "independent-search/k5_case_or_adjacent.smt2",
+      "archive": "queries/independent-search/k5_case_or_adjacent.smt2.gz",
+      "bytes": 247083,
+      "sha256": "5da21fd57650950fab04a7d932e374ce355da69eca7e9e1443e0d373450cd789",
+      "gzip_bytes": 10313
+    },
+    {
+      "original": "independent-search/anticegis_pasch7-00.smt2",
+      "archive": "queries/independent-search/anticegis_pasch7-00.smt2.gz",
+      "bytes": 16125,
+      "sha256": "8963e1b73357d75d580bcd9ee63ac1b988fa9fa9aedeaf8e7604f10474f21196",
+      "gzip_bytes": 2003
+    },
+    {
+      "original": "independent-search/freeanti_pasch7.smt2",
+      "archive": "queries/independent-search/freeanti_pasch7.smt2.gz",
+      "bytes": 36168,
+      "sha256": "7d069d0703a20a9313ad708dcb009aaa4e2f41e05c5cf79d8156833ea420561d",
+      "gzip_bytes": 3260
+    },
+    {
+      "original": "independent-search/or4_atmost2good.smt2",
+      "archive": "queries/independent-search/or4_atmost2good.smt2.gz",
+      "bytes": 18123,
+      "sha256": "8b345ab03b8af945a272fa9642de1cee389443213ab4c8c65472e90b46447e3f",
+      "gzip_bytes": 2323
+    },
+    {
+      "original": "independent-search/bv_two4_three2_core_B_exactnot.smt2",
+      "archive": "queries/independent-search/bv_two4_three2_core_B_exactnot.smt2.gz",
+      "bytes": 39599,
+      "sha256": "2257990f961c921f86d183505dd7dd2d9bbaa4c2c4b70025d011fc6083b3de79",
+      "gzip_bytes": 3275
+    },
+    {
+      "original": "independent-search/bv_k5_minus_edge.smt2",
+      "archive": "queries/independent-search/bv_k5_minus_edge.smt2.gz",
+      "bytes": 119156,
+      "sha256": "f7bfbc272a47b8b1e9b2dfc0d963287a3d3943b319fab399935eb151dc64dd9b",
+      "gzip_bytes": 5944
+    },
+    {
+      "original": "independent-search/pasch_le8.smt2",
+      "archive": "queries/independent-search/pasch_le8.smt2.gz",
+      "bytes": 20253,
+      "sha256": "ebce15f4a1bbc6ce83d67a0c0b85e74a183bb617c1fd892304379717d59e816f",
+      "gzip_bytes": 2369
+    },
+    {
+      "original": "independent-search/partial_grid7_full9.smt2",
+      "archive": "queries/independent-search/partial_grid7_full9.smt2.gz",
+      "bytes": 42078,
+      "sha256": "cb8bb8629f50309c21b55afc14793a0ec102da7a22d0267f367058e576f66589",
+      "gzip_bytes": 3631
+    },
+    {
+      "original": "independent-search/bv_k5stars_first_not.smt2",
+      "archive": "queries/independent-search/bv_k5stars_first_not.smt2.gz",
+      "bytes": 244792,
+      "sha256": "d406d8f7244fd9956c4b1da460c56387c9a3970dfcaf1ed092ef01744b96a577",
+      "gzip_bytes": 9828
+    },
+    {
+      "original": "independent-search/pasch7.smt2",
+      "archive": "queries/independent-search/pasch7.smt2.gz",
+      "bytes": 14263,
+      "sha256": "a9b7e38e26a3f9397dcf21cc5d244e1cbfe5aaca859748c4449592fddec1284a",
+      "gzip_bytes": 1809
+    },
+    {
+      "original": "independent-search/cegis_pasch_le8-00.smt2",
+      "archive": "queries/independent-search/cegis_pasch_le8-00.smt2.gz",
+      "bytes": 12156,
+      "sha256": "2c7f5b8aacbf462a7128a27b7e3a6ec566ea30ba068688c4c6c401c70ea6b20e",
+      "gzip_bytes": 1888
+    },
+    {
+      "original": "independent-search/pasch_le7.smt2",
+      "archive": "queries/independent-search/pasch_le7.smt2.gz",
+      "bytes": 17281,
+      "sha256": "ea6a8d794e5484c8dafb170c55d562ed62993da23712dffa629eb39a9523848a",
+      "gzip_bytes": 2055
+    },
+    {
+      "original": "independent-search/anticegis_partial_grid7_9-00.smt2",
+      "archive": "queries/independent-search/anticegis_partial_grid7_9-00.smt2.gz",
+      "bytes": 24979,
+      "sha256": "89881230e99869ac45698090a9eff8ac9f1a40130f3400dcd8656e1049b457e6",
+      "gzip_bytes": 2839
+    },
+    {
+      "original": "independent-search/bv_three4_le8.smt2",
+      "archive": "queries/independent-search/bv_three4_le8.smt2.gz",
+      "bytes": 69146,
+      "sha256": "c32b1068f8ca253607f2183795bcc1a2ff996d2e8f161d3d75d2d9ef55ec51b7",
+      "gzip_bytes": 3876
+    },
+    {
+      "original": "independent-search/k5_case_and_adjacent.smt2",
+      "archive": "queries/independent-search/k5_case_and_adjacent.smt2.gz",
+      "bytes": 247083,
+      "sha256": "93d457e5c51e8c34400c80ee812eaf01ad85b9cd0feeeb937d54207656020116",
+      "gzip_bytes": 10313
+    },
+    {
+      "original": "independent-search/one5_two3_le7.smt2",
+      "archive": "queries/independent-search/one5_two3_le7.smt2.gz",
+      "bytes": 32529,
+      "sha256": "5afb4ec5de5ff028e519469e54faaa6575dacbb97a615d9295c504f088b301e7",
+      "gzip_bytes": 2643
+    },
+    {
+      "original": "independent-search/bv_two4_two2_B_exactnot.smt2",
+      "archive": "queries/independent-search/bv_two4_two2_B_exactnot.smt2.gz",
+      "bytes": 33044,
+      "sha256": "d927ef8a377397e3695b5e9b2297a38b769cdaa5f804646aa1ee722d39cf3e8e",
+      "gzip_bytes": 2820
+    },
+    {
+      "original": "independent-search/cegis_k5stars_default-00.smt2",
+      "archive": "queries/independent-search/cegis_k5stars_default-00.smt2.gz",
+      "bytes": 30572,
+      "sha256": "f8cfc1d35cf05e0f0cc32f752e8e4c18e437d4477373e196da86f1fe0ad65a15",
+      "gzip_bytes": 4126
+    },
+    {
+      "original": "independent-search/freeanti_pasch8_control.smt2",
+      "archive": "queries/independent-search/freeanti_pasch8_control.smt2.gz",
+      "bytes": 40121,
+      "sha256": "e00409095816ca8010da0a79f5a031cfc9a51f45c3f1dd7909461d2db2a0724d",
+      "gzip_bytes": 3599
+    },
+    {
+      "original": "independent-search/cegis_three4_le8-00.smt2",
+      "archive": "queries/independent-search/cegis_three4_le8-00.smt2.gz",
+      "bytes": 13261,
+      "sha256": "2e59e40662b67ab2d744d6b33500aee98630a889e0b801a5aaf94a46b4504f0d",
+      "gzip_bytes": 1951
+    },
+    {
+      "original": "independent-search/pasch_singleton_le7.smt2",
+      "archive": "queries/independent-search/pasch_singleton_le7.smt2.gz",
+      "bytes": 13284,
+      "sha256": "91645f10c9330a031c80a0a47a4f3c2bd28acc038985e1f1a87e90ca8355ce1c",
+      "gzip_bytes": 1851
+    },
+    {
+      "original": "independent-search/cegis_three4_qffd-00.smt2",
+      "archive": "queries/independent-search/cegis_three4_qffd-00.smt2.gz",
+      "bytes": 13273,
+      "sha256": "5198974e891f88283ec2ca2ccfa30be690932b310d9bc4793b1c231968ff229e",
+      "gzip_bytes": 1963
+    },
+    {
+      "original": "independent-search/collapsed_triangle11.smt2",
+      "archive": "queries/independent-search/collapsed_triangle11.smt2.gz",
+      "bytes": 71430,
+      "sha256": "5f890e518ba3acd5cb3c718ac9e3cb01442ef31bf58fb148a41514005ae54145",
+      "gzip_bytes": 4967
+    },
+    {
+      "original": "independent-search/three4_le8.smt2",
+      "archive": "queries/independent-search/three4_le8.smt2.gz",
+      "bytes": 62585,
+      "sha256": "2f11b5a702b00a7da0922be1a3480bb8a9d7b71f1e7b871be165ba7e9eb1e790",
+      "gzip_bytes": 3758
+    },
+    {
+      "original": "independent-search/two4_two2_le7.smt2",
+      "archive": "queries/independent-search/two4_two2_le7.smt2.gz",
+      "bytes": 22936,
+      "sha256": "2904dc349923c1333ac50a77ab496e77f3ad2a22787a23c0eb2ae2e39c831618",
+      "gzip_bytes": 2321
+    },
+    {
+      "original": "independent-search/freeanti_wheel10.smt2",
+      "archive": "queries/independent-search/freeanti_wheel10.smt2.gz",
+      "bytes": 139331,
+      "sha256": "384896cd47b067841ff5f1aa313000a7231b0c38e8e9adf6ca2027edcaced908",
+      "gzip_bytes": 9532
+    },
+    {
+      "original": "independent-search/tightshape_control11.smt2",
+      "archive": "queries/independent-search/tightshape_control11.smt2.gz",
+      "bytes": 62343,
+      "sha256": "052cd6c7526d300dfbe4b81afa1bcb40e322c8004f04b11968ebbb2d63f600c6",
+      "gzip_bytes": 5450
+    },
+    {
+      "original": "independent-search/cegis_k5stars_le14-00.smt2",
+      "archive": "queries/independent-search/cegis_k5stars_le14-00.smt2.gz",
+      "bytes": 30583,
+      "sha256": "77062ed335d94a4ae965258b5fd86ca217e2d4bdbc3396e1e43e593288e7ff1e",
+      "gzip_bytes": 4139
+    },
+    {
+      "original": "independent-search/cegis_mixed4_basis-00.smt2",
+      "archive": "queries/independent-search/cegis_mixed4_basis-00.smt2.gz",
+      "bytes": 10944,
+      "sha256": "2fd01c50564e7dcaafe218a6afcc658481351ec4c6a9c3bc506f25622e7aec48",
+      "gzip_bytes": 1724
+    },
+    {
+      "original": "independent-theory/five_quads_one_not.smt2",
+      "archive": "queries/independent-theory/five_quads_one_not.smt2.gz",
+      "bytes": 24556,
+      "sha256": "abd04927164af88c8dfb172d8dd5edd3b84a7a8ab6e1b058d5fbc0a3c2559ac4",
+      "gzip_bytes": 2638
+    },
+    {
+      "original": "independent-theory/five_quads_free_oracle.smt2",
+      "archive": "queries/independent-theory/five_quads_free_oracle.smt2.gz",
+      "bytes": 28931,
+      "sha256": "541babb98712a175b0cdfc86386d7ba51b0c9b61e37cffa0a5b9e7160bd18dd7",
+      "gzip_bytes": 2928
+    }
+  ],
+  "pending_queries_excluded": [
+    "independent-search/e3_core9_full14.smt2",
+    "independent-search/e3_core9_tight14.smt2"
+  ]
+}

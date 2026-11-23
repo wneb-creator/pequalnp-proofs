@@ -1,0 +1,53 @@
+{
+  "as_of_utc": "2026-11-23 20:54",
+  "completed": [
+    {
+      "prefix": "partial_grid7_full9",
+      "result": "UNSAT",
+      "seconds": 347.0419960619997,
+      "model": "full128truthrows, atmost9gates, atmostoneNOT, no Good constraints"
+    },
+    {
+      "prefix": "anticegis_partial_grid7_9",
+      "result": "UNKNOWN",
+      "seconds": 180.22546936699973,
+      "model": "free-antitone oracle, initial15sampledrows only"
+    },
+    {
+      "prefix": "tightshape_control11",
+      "result": "SAT positive control",
+      "seconds": 0.028328207999948063,
+      "full_assignments_verified": 32,
+      "counterexample": false
+    }
+  ],
+  "interrupted_without_result": [
+    {
+      "prefix": "partial_grid9_full13",
+      "reason": "workspace/tool refresh; prior session no longer exists and process state zombie; complete stdout/stderr file empty"
+    },
+    {
+      "prefix": "freeanti_partial_grid7_9",
+      "reason": "workspace/tool refresh; prior session no longer exists and process state zombie; complete stdout/stderr file empty"
+    }
+  ],
+  "running": [
+    {
+      "prefix": "e3_core9_full14",
+      "budget": 14,
+      "cap_seconds": 600,
+      "constraint_mode": "ownership; no graph shape restrictions"
+    },
+    {
+      "prefix": "e3_core9_tight14",
+      "budget": 14,
+      "cap_seconds": 600,
+      "constraint_mode": "ownership plus reviewed, not kernel-checked tight graph equality restrictions"
+    }
+  ],
+  "source_sha256": {
+    "bv_tightshape.py": "dedc78d50b89c2b22248409921794b789eb6633a6e7c289fadb6792e0188f1e9",
+    "tightshape_control.py": "5b4dff1630154d89192e17b2e7061e81c69264347725e589e639f6f34a1b405d"
+  },
+  "limits": "No full proof or counterexample to posted L-meta-951. UNKNOWN, interruptions and pending queries are not lower bounds."
+}

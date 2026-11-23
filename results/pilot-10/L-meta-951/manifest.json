@@ -250,6 +250,76 @@
         "independent-theory/antitone-reversible-code-final.stderr"
       ],
       "scope": "Finite reversible-code counterexample to an attempted intermediate no-coding claim; NOT a refutation of L-meta-951."
+    },
+    {
+      "file": "proof-strategy/GoodPlusOne951.lean",
+      "sha256": "d3127e1542ce2fbd6b8d0752b1998ddf78484afab97907552adccd86f4a49df4",
+      "lines": 899,
+      "bytes": 39921,
+      "observed_compile_exit": 0,
+      "logs": [
+        "proof-strategy/good-plus-one-build-2.log"
+      ],
+      "scope": "Full sum only with extra condition sum_i Nat(card(S_i)-3)<=1; also owned-base plus one for an existing NOT."
+    },
+    {
+      "file": "proof-strategy/FirstConsumer951.lean",
+      "sha256": "dc2a3b92efaaf71df82e83feb3c7144d1e5c717e61a01c2610ac362ed0997703",
+      "lines": 993,
+      "bytes": 43729,
+      "observed_compile_exit": 0,
+      "logs": [
+        "proof-strategy/first-consumer-build-1.log"
+      ],
+      "scope": "Includes the preceding restricted theorem and local first-consumer ownership/non-exactness facts; not the global excess<=2 bound."
+    },
+    {
+      "file": "independent-theory/CanonicalCut.lean",
+      "sha256": "8b64ad54f97e65128044547c1239ce94ee7e75a723f66182eb5c18d0a2d4e9f3",
+      "lines": 50,
+      "bytes": 2132,
+      "observed_compile_exit": 0,
+      "logs": [
+        "independent-theory/canonical-cut-2.stdout",
+        "independent-theory/canonical-cut-2.stderr"
+      ],
+      "scope": "Abstract canonical-section code injection and cardinality theorem; no gate-count conclusion."
+    },
+    {
+      "file": "independent-theory/ORCanonicalSection.lean",
+      "sha256": "66a32d788a98ad83e09ec08e78aadb1ee7c7f99f711c40d2d1ee1f1f1601a7df",
+      "lines": 69,
+      "bytes": 2321,
+      "observed_compile_exit": 0,
+      "logs": [
+        "independent-theory/or-canonical-section-2.stdout",
+        "independent-theory/or-canonical-section-2.stderr"
+      ],
+      "scope": "Canonical greatest preimage, adjunction and section for arbitrary OR families."
+    },
+    {
+      "file": "independent-theory/ORCutCapacity.lean",
+      "sha256": "ed1669f8422c78eaba1c2d86c82b888e04febef424589cd312e6a14382e32cdb",
+      "lines": 146,
+      "bytes": 5639,
+      "observed_compile_exit": 0,
+      "logs": [
+        "independent-theory/or-cut-capacity-1.stdout",
+        "independent-theory/or-cut-capacity-1.stderr"
+      ],
+      "scope": "Arbitrary OR-family output range has cardinality at most the ordinary code range, despite an antitone oracle decoded monotonically; no circuit gate-count theorem."
+    },
+    {
+      "file": "independent-search/literal-not/GeneralLiteralNot.lean",
+      "sha256": "3d5e20b62b430976d5331cf99367eb5efd9b9270fb201602ab9af3c26feab829",
+      "lines": 702,
+      "bytes": 30893,
+      "observed_compile_exit": 0,
+      "logs": [
+        "independent-search/literal-not/general-compile-2.log"
+      ],
+      "scope": "Erased-cost+2 transformation and literal-NOT degree<=2 corollary with target sizes>=3; the end-result scope is superseded by existing L_meta_986."
     }
-  ]
+  ],
+  "updated_at_utc": "2026-11-23T20:58:23.033028+00:00"
 }

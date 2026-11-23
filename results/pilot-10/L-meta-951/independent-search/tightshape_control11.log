@@ -1,0 +1,2 @@
+{"n": 5, "family": [[0, 1, 2, 3], [3, 4]], "budget": 11, "exactly_one_not": true, "first_gate": null, "canonical_order": true, "constraint_mode": "tightshape", "result": "sat", "seconds": 0.028328207999948063}
+VALID_FULL_CIRCUIT {"gates": [[2, 4, 4], [1, 0, 4], [1, 0, 7], [1, 1, 8], [1, 1, 9], [1, 2, 10], [1, 2, 11], [1, 3, 4], [1, 3, 12], [1, 3, 13], [0, 15, 16]], "outputs": [10, 7], "used": 11, "free_constant_true_used": false, "assignments_verified": 32}
