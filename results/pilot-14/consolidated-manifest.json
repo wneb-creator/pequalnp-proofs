@@ -1,0 +1,147 @@
+[
+  {
+    "source": "toolchain/SlimCompact1007.lean",
+    "bytes": 306244,
+    "sha256": "21069a8982b627c2f8d2c916edf7b70c2224b9be12f590f72acd097fb7c0a97f"
+  },
+  {
+    "component": "LiveSearch414",
+    "bytes": 38737,
+    "sha256": "e7f0b78558d44fdaf40427674bfb5959b0b5345cf9578fd76250e6d62737886c"
+  },
+  {
+    "component": "CompactSymmetry414",
+    "bytes": 25148,
+    "sha256": "da7a72a1c579cd5378747a87371f6c1b9a4d61253a0bb1ed069bf5af796a0e94"
+  },
+  {
+    "component": "ProjectionCore",
+    "bytes": 5246,
+    "sha256": "38679cbb565985fd42297d606a110f96d0af8011465d0db3785ff65a928fe6f6"
+  },
+  {
+    "component": "ProjectionCount",
+    "bytes": 4835,
+    "sha256": "5178a2a69a1caa069ae1d9074079f23bee0f4c5635097ccc97ad0e1582ebd6eb"
+  },
+  {
+    "component": "PrefixExtraction",
+    "bytes": 959,
+    "sha256": "d12e4354fac09b310e34c99e0419fd3368bfbca62c0d6830d46d2e86fbbec907"
+  },
+  {
+    "component": "GeneralPrefix",
+    "bytes": 2297,
+    "sha256": "62bc22885db77d435d4ec5250a9ba6fdf8051b3574ae49ef217b957ff947db65"
+  },
+  {
+    "component": "ConcreteProjection",
+    "bytes": 10403,
+    "sha256": "e66ea83ba8f8deee140c0920aeb2e04108ac5d4cda1909bc342d7d528c94f9e6"
+  },
+  {
+    "component": "PrefixLegality",
+    "bytes": 728,
+    "sha256": "cf608a2b96accffd5ad0048114d09d3585d48d5c2a89b99b9a131959c3d0b08d"
+  },
+  {
+    "component": "CachedCounting",
+    "bytes": 593,
+    "sha256": "277697730f225dcf734dad73c3e742cc743e3230f5f512579f119f485f11926d"
+  },
+  {
+    "component": "GeneralCachedPrefix",
+    "bytes": 2482,
+    "sha256": "60bd7f727850989ee01a3e61a6465e4f9ae7a43fddf525db2eb2382a51fc5ee6"
+  },
+  {
+    "component": "ProjectionDomains12",
+    "bytes": 1764,
+    "sha256": "a3260f999c2342859c2ef944e05cc15dabb03859eadbed770e97afaa6e30fad9"
+  },
+  {
+    "component": "CachedRawProjection",
+    "bytes": 2818,
+    "sha256": "25a643c94cba88393bcd8445d33b65c1f9a09fb1e4ac19071f4dd7a3f3a94b78"
+  },
+  {
+    "component": "CachedRawIntegration",
+    "bytes": 1948,
+    "sha256": "eee1840bc95e9f28c2508ff2a3446676e97f1c5ba82713551e5f5a6c0cd06f18"
+  },
+  {
+    "component": "DynamicClosedCore",
+    "bytes": 5925,
+    "sha256": "bcc99ff652974dabec588d1d0d7e82cb395e9a8ba6f485c84a008d01c63378eb"
+  },
+  {
+    "component": "DynamicPruning",
+    "bytes": 613,
+    "sha256": "49d13c015f60bc28832c0c87fc827eed60f9b0ba366e8e9fd7a440194df82c17"
+  },
+  {
+    "component": "ClosedDomains12",
+    "bytes": 1582,
+    "sha256": "5a1703cfbed30e8d3021cdfc166011513087373358c9699df20ff94bec3c6617"
+  },
+  {
+    "component": "ClosedThetaBridge",
+    "bytes": 1164,
+    "sha256": "b8a97367d29e1d0cad48b9a559df26b2f71499f426ec0ec2c3fa75e5df8cbc4a"
+  },
+  {
+    "component": "RecipeContextUpdate",
+    "bytes": 791,
+    "sha256": "bddc778a54442098ff8dfb013fd9a730b6e09320b3f65cb1e7ad7c6a666bc10b"
+  },
+  {
+    "component": "MemoProtocol",
+    "bytes": 7804,
+    "sha256": "0bdf64c002c18ad3cdc080ffc5c0a293dffdf2a349c70aad34ddbb6f553d5fe2"
+  },
+  {
+    "component": "MemoChildren",
+    "bytes": 2638,
+    "sha256": "f435131dce3ccd935bb6b396527c4e3aea4bef68291c4d4943c73ae73f56ccc3"
+  },
+  {
+    "component": "DynamicMemoCore",
+    "bytes": 1322,
+    "sha256": "3fd894f84d9c69c08899bf77902551da5da940bc42de4ee92e859ad31649db94"
+  },
+  {
+    "component": "FastRecipe",
+    "bytes": 5375,
+    "sha256": "66435404006683c17d733b9abfce497b5fe2e3af4700e5ffd3392449b9cc632e"
+  },
+  {
+    "component": "DynamicMemoFast",
+    "bytes": 2358,
+    "sha256": "17aa4127043b780232d62a8b5d292427bd6f25edd78a10b437e1c406e58778d9"
+  },
+  {
+    "component": "AutoContext",
+    "bytes": 3361,
+    "sha256": "d91b6b91d760bc9eef4882b7c93b83135ebb3ae400ad00dc346783f779ce4011"
+  },
+  {
+    "component": "StaticReplay",
+    "bytes": 5545,
+    "sha256": "7c38b9922943073ac4040ca382919ade741a289c2a63c5f635d4a50fa47a27ff"
+  },
+  {
+    "component": "SharedThetaData",
+    "bytes": 25630,
+    "sha256": "37a51021d7764fb40657c23bdfc7bed14f1fbf90691e747d3555c71c39a53ccb"
+  },
+  {
+    "component": "MemoBatch",
+    "bytes": 2545,
+    "sha256": "c8eb82121bdbe2203bb38a76c794365877c976eeef81c7a078654751248dcfb9"
+  },
+  {
+    "component": "CertificateInterfaces",
+    "bytes": 2042,
+    "sha256": "f10e2f7c4112213bb1a0d405ab2240926d5f962e4c006626453a6f6cbd551881"
+  }
+]

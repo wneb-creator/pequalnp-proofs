@@ -1,0 +1,153 @@
+L-meta-670 checked partials; exact posted theorem remains unproved.
+Memo forcing and direct trie construction preserve the checked soundness API; independent toolchain review PASS.
+The assembled new proof body smoke-compiled against the fully checked SlimCompact1007; all component reviews passed.
+The consolidated candidate is a one-file draft with an explicit certificate hypothesis. Its complete inline rebuild has NOT run, and it is not a submission.
+
+MemoForcedTest.lean
+SHA256 8cdabe78aa8740e42931cc8e54f33765bafdf2c93cf09be682046fed11b9d2e6
+Lean exit code: 0. Complete stdout/stderr:
+import took 3.85s
+cumulative profiling times:
+	attribute application 0.315ms
+	blocked (unaccounted) 764ms
+	compilation (IR) 1.57ms
+	compilation (LCNF base) 18.7ms
+	compilation (LCNF impure) 7.02ms
+	compilation (LCNF mono) 17.7ms
+	congr simp thm 5.34ms
+	declTypeLinter 11.1ms
+	elaboration 116ms
+	fix level params 0.5ms
+	import 3.85s
+	initialization 24.3ms
+	instantiate metavars 1.24ms
+	interpretation 417ms
+	let-to-have transformation 1.08ms
+	linting 35.3ms
+	module linting 0.139ms
+	parsing 13.9ms
+	process pre-definitions 17.3ms
+	share common exprs 2.81ms
+	simp 59.4ms
+	tactic execution 99.5ms
+	tacticAnalysis 6.77ms
+	type checking 49.6ms
+	typeclass inference 39ms
+
+
+DynamicForcedTest.lean
+SHA256 74ae1ffa017a3f78c3810876b98cb40b588c40ca75b8b04a707e9c7bf0a499a5
+Lean exit code: 0. Complete stdout/stderr:
+
+
+Smoke.lean
+SHA256 4ba912ce728a33d1a7093f3f7f348dcb3030ea9364d3ac7354bfcfd94be660e3
+Lean exit code: 0. Complete stdout/stderr:
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:114:85: warning: exponent 414 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:144:183: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:144:183: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:154:204: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:154:204: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:160:177: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:160:177: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:168:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:168:81: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:187:112: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:187:108: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:187:112: warning: Unused tactic linter: `aesop` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:209:4: warning: Unused tactic linter: `change x ∈ v ↔ _` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:284:99: warning: This simp argument is unused:
+  BitVec.and_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.or_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:284:115: warning: This simp argument is unused:
+  BitVec.or_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.and_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:284:185: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:284:185: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:639:60: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sep, bin, ite_false, ite_true, takeTwo, top, BitVec.getLsbD_allOnes, BitVec.getLsbD_and,
+    BitVec.getLsbD_or, BitVec.getLsbD_not, reduceCtorEq, hi, decide_true, Bool.true_and] at hh ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:648:59: warning: This simp argument is unused:
+  decide_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [slowBinary, tryGate, Nat.sub_zero, hlen, ite_true, Bool.or_eq_true, Bool.and_eq_true,
+    beq_iff_eq] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:750:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:1137:13: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:1696:42: warning: This simp argument is unused:
+  hgo
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [legalOp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:2555:13: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:2624:4: warning: exponent 414 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean:3124:15: warning: Variable name `k` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _k
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
