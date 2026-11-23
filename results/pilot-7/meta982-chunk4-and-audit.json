@@ -1,0 +1,12 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "5df818fe2f32a0d5db051a69a1524dc97976c5933566c73096a14ad8cf41e5f6",
+  "compile_exit": 0,
+  "independent_nibble_cases": 256,
+  "reason": [
+    "digit_fin checks every two-nibble lookup; an independent Python decoder agrees in all256 cases.",
+    "Radix16 induction uses the exact mod/div AND lemmas and Nat.mod_add_div; operand bounds descend correctly after division by16.",
+    "safeAnd explicitly falls back to actual AND whenever either bound fails, so safeAnd_eq is unconditional for every fuel and every Nat, including fuel0."
+  ],
+  "scope": "Semantic equality of alternative AND evaluation; no runtime speedup claim."
+}

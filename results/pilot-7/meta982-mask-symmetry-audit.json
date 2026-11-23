@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "227ddeb29f22e474f411bef95065fbdbff1f71b1e19f8e16c51e7e526ee7cd40",
+  "compile_exit": 0,
+  "independent_numeric_cases": 250,
+  "reason": [
+    "maskFor selects exactly destination indices j with displacement width+p[j]-j; offsets includes every such displacement.",
+    "For j<width, truncated subtraction in the two shift exponents is valid in either displacement direction and part_bit recovers exactly input bit p[j]. No bound on p[j] is assumed.",
+    "Each selected part has no bits above width. The explicit tail preserves all input bits at or above width, and OR combines precisely the selected low bits.",
+    "fast_eq is unconditional apart from list length=width, including width0 and arbitrary high bits. Full.Good supplies that length in the transport theorem.",
+    "word/orient retain sound identity branches and bounded modulo lookup; no new literal data or axioms are trusted."
+  ],
+  "scope": "Exact alternative implementation of full coordinate permutation and run transport; benchmark speed is separate."
+}

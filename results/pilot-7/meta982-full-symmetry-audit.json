@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "ea6014838353a48411992b7cd967ecc30c2fa5e77055088f2bc4af0c5ab755df",
+  "append_sha256": "0aba1d8f89acf019e9938266837a39d26a29528fe3ed2aba55ff56235c6f634a",
+  "compile_exit": 0,
+  "reason": [
+    "Full.fast is proved equal to arbitrary-width permWord and retains every bit above width2K.",
+    "Check supplies length2K, all p/q bounds, right inverse, and iff membership in the high half. These separately justify injectivity, mask preservation, and goal preservation.",
+    "Forbidden-pool subset uses the same correct image direction as the audited generic run_map theorem. AND/OR/XOR are transported exactly; NOT uses the verified mask preservation.",
+    "Good composition preserves bounds and half membership by transitivity in decoder old[generator[j]] order; the corresponding word actions compose in the reverse order as proved.",
+    "Packed group replay uses width2K consistently and checks every generator and recipe/reference bound.",
+    "The index0 action and payload0 branches are literal identity; other indices are bounded by modulo with an explicit positive action count."
+  ],
+  "scope": "Generic run transport allowing distinct low/high-half permutations. Concrete packedCheck results and encoded-data correctness are separate."
+}

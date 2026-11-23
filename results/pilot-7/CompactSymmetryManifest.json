@@ -1,0 +1,182 @@
+[
+  {
+    "module": "CompactSymmetry",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 4.535063958999672,
+    "hard_cap_seconds": 60.0,
+    "sha256": "fbeca90db05d34bbf30a54a47cff9e528647586fe2d2bdc032e055bcda9ec298",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetry.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetry.compile.log"
+  },
+  {
+    "module": "CompactSymmetryDecoder",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 4.038611846999629,
+    "hard_cap_seconds": 60.0,
+    "sha256": "eb883addb4caefde6f668bc19db0d098afa3a13667121f30377cc7acff6c4b95",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryDecoder.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryDecoder.compile.log"
+  },
+  {
+    "module": "CompactSymmetryReplay",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 4.4865125579999585,
+    "hard_cap_seconds": 60.0,
+    "sha256": "2ccd96acd7b4e8504eb3c087a29c0b2dded9af82adb7ba360e6fff32749dc408",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryReplay.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryReplay.compile.log"
+  },
+  {
+    "module": "CompactSymmetryData",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 3.8270083340012206,
+    "hard_cap_seconds": 60.0,
+    "sha256": "2d8bf525add6790e5af76ac917cb99d88bc822af87c64572d1a943185db65e19",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryData.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryData.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll0",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 5.679830368999319,
+    "hard_cap_seconds": 60.0,
+    "sha256": "fd75d8f80c291a4c4530d6762ee4ad73ccb3a46dc49f6b0bd6a00bf2341dc3fe",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll0.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll0.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll8",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 8.499137902999792,
+    "hard_cap_seconds": 60.0,
+    "sha256": "54fcf1b78248f638d2fbc03dcd499563b1c8e5aae30197191e6ebfebb17c3b96",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll8.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll8.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll13",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 10.126194554000904,
+    "hard_cap_seconds": 60.0,
+    "sha256": "d3b7d72d5ce9c8082a84edce1f94e9de1e57b06df0d01e5fa9d1c2825c69a2e5",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll13.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll13.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll18",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 9.803830889999517,
+    "hard_cap_seconds": 60.0,
+    "sha256": "aa3383634f5348d14ec04ab93c080d5352ce02bbe61dba7dd1d8365fbbcc61b1",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll18.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll18.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll19",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 7.563572070999726,
+    "hard_cap_seconds": 60.0,
+    "sha256": "5e38478e3879103e4ad3e66effeee30428164f3c3bc0654d7c231881b12a4877",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll19.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll19.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll20",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 3.491859484000088,
+    "hard_cap_seconds": 60.0,
+    "sha256": "e7dc03250d734c2ff7ae4d02799167f8a3c08e3e92c7137ed9baa65c92126916",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll20.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll20.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll23",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 7.575017049000962,
+    "hard_cap_seconds": 60.0,
+    "sha256": "a6e9fcb99f271d19dc0bbdb3b8a8c2489e28708f5a90b8318beed12faa1dd9ad",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll23.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll23.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll24",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 12.453375534998486,
+    "hard_cap_seconds": 60.0,
+    "sha256": "39916f94420c11982a6e98581cc6ef8fce7e1b9ff4dbc93801948dded706afec",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll24.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll24.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll25",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 11.490974984999411,
+    "hard_cap_seconds": 60.0,
+    "sha256": "d155d5b97b8e90dbd40e9a2be144d82967cda6c814bb27075d2d459bb10bdc6b",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll25.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll25.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll26",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 36.0785988789994,
+    "hard_cap_seconds": 60.0,
+    "sha256": "4b75d997130c6829a5199fc68638e0eb8ed5f84d5f3f657db6e12a5af0f6fb50",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll26.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll26.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll27",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 13.465254697001,
+    "hard_cap_seconds": 60.0,
+    "sha256": "ea0db4479abc1d4014c9ec15291133e82f89901df2cfa6c25755ffc0d85f536f",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll27.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll27.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll28",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 8.044540087999849,
+    "hard_cap_seconds": 60.0,
+    "sha256": "316504d01c95f9a808b41c823d526a84ad4017533e5de2de8375de3be5ac12cf",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll28.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll28.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll29",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 13.38805059600054,
+    "hard_cap_seconds": 60.0,
+    "sha256": "452000d771b8584cc823588866838125d1d7cb15cf3f12de44264848c5c77eb6",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll29.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll29.compile.log"
+  },
+  {
+    "module": "CompactSymmetryAll30",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 8.454067601998759,
+    "hard_cap_seconds": 60.0,
+    "sha256": "33f0adc5d8be35c40d1f403abc798e67400e7c2eb33181a3bf533a59c11b6a48",
+    "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll30.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryAll30.compile.log"
+  }
+]

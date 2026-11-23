@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS",
+  "slice_sha256": "656994e7ab0d17ed1244955b91c112e4a185b57fc2a69c8dfcd33ce0f5223b96",
+  "upper_sha256": "0ddbb31a68da8614cbe4cd5d67b7580a1f949f99aecd27768f74b420aa823fd4",
+  "compile_exit": "0 reported by author; all four complete logs are empty",
+  "independent_truth_table_cases": 64,
+  "independent_bit_parallel_accumulator_cases": 500,
+  "layout": "p-bit blocks D,E,F at0,p,2p and A,B,C atk,k+p,k+2p; 3p<=k ensures the goal evaluates to111000 in every witness column.",
+  "reason": [
+    "The three disjoint class masks exactly represent value6=0,1,2, verified by kernel Boolean enumeration and independent exhaustive64-row calculation.",
+    "The accumulator convolution tracks total score0/1/2 exactly, discarding sums>=3; sums cannot decrease. Once its union is zero, every continuation remains zero.",
+    "Initial accumulator is score0 in exactly p columns; roll_outside prevents extra high bits from creating false witnesses.",
+    "At zero slack, eval6_bound requires every true run to have each summed witness score>=3. Upper-budget use proves actual budget equals the supplied budget whenever the wire-length guard is active.",
+    "The generic rejectWith wrapper preserves the early goal guard and all actual-run t<=budget transitions, using next_monoSlack. Slice.bad adds only the already checked coverage and sound score predicates."
+  ],
+  "scope": "Generic score rejection and DFS soundness. Concrete appended row data and closure certificates remain separate.",
+  "export_note": "Slice982RollAppend.lean.txt is stale relative to compiled Slice982.lean; use the compiled source or refresh that snippet before final assembly."
+}

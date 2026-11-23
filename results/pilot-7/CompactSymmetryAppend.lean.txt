@@ -1,0 +1,93 @@
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Symmetry
+open Reduced
+
+def Check (k : Nat) (pool p q : List Nat) : Bool :=
+  decide (p.length = k) &&
+  (List.range k).all (fun j => decide (p.getD j 0 < k ∧ q.getD j 0 < k ∧
+    p.getD (q.getD j 0) 0 = j)) &&
+  pool.all (fun a => (pool.map (fastHalfPerm k p)).contains a)
+
+def Good (k : Nat) (pool p : List Nat) : Prop :=
+  p.length = k ∧ (∀ j < k, p.getD j 0 < k) ∧
+  ∀ {s : Nat} {ws : List Nat}, RNatRun pool (Live.mask k) (Live.goal k) s ws →
+    RNatRun pool (Live.mask k) (Live.goal k) s (ws.map (fastHalfPerm k p))
+
+theorem check_good {k : Nat} {pool p q : List Nat} (hc : Check k pool p q = true) :
+    Good k pool p := by
+  simp only [Check, Bool.and_eq_true, decide_eq_true_eq, List.all_eq_true,
+    List.mem_range] at hc
+  refine ⟨hc.1.1, fun j hj => (hc.1.2 j hj).1, ?_⟩
+  intro s ws h
+  have he : fastHalfPerm k p = permWord (k+k) (liftHalf k (fun j => p.getD j 0)) :=
+    funext (fastHalfPerm_eq k p hc.1.1)
+  have hf : pool.Subset (pool.map (fastHalfPerm k p)) := by
+    intro a ha
+    simpa using hc.2 a ha
+  rw [he] at hf ⊢
+  exact permWord_liftHalf_run k (fun j => p.getD j 0) (fun j => q.getD j 0)
+    (fun j hj => (hc.1.2 j hj).1) (fun j hj => (hc.1.2 j hj).2.1)
+    (fun j hj => (hc.1.2 j hj).2.2) hf h
+
+theorem range_getD {k j : Nat} (h : j < k) : (List.range k).getD j 0 = j := by
+  rw [List.getD_eq_getElem _ _ (by simpa using h)]
+  simp
+
+theorem fastHalfPerm_id (k w : Nat) : fastHalfPerm k (List.range k) w = w := by
+  rw [fastHalfPerm_eq k _ (List.length_range)]
+  apply Nat.eq_of_testBit_eq
+  intro j
+  rw [permWord_testBit]
+  by_cases hj : j < k+k
+  · rw [if_pos hj]
+    by_cases hk : j < k
+    · simp [liftHalf, hk, range_getD hk]
+    · simp only [liftHalf, if_neg hk, range_getD (show j-k < k by omega)]
+      congr 1
+      omega
+  · rw [if_neg hj]
+
+theorem good_id (k : Nat) (pool : List Nat) : Good k pool (List.range k) := by
+  refine ⟨List.length_range, ?_, ?_⟩
+  · intro j hj
+    simpa only [range_getD hj] using hj
+  · intro s ws h
+    have he : fastHalfPerm k (List.range k) = id := funext (fastHalfPerm_id k)
+    simpa only [he, List.map_id] using h
+
+theorem fastHalfPerm_comp {k : Nat} {p q : List Nat}
+    (hp : p.length = k) (hq : q.length = k) (hb : ∀ j < k, q.getD j 0 < k)
+    (w : Nat) :
+    fastHalfPerm k (q.map (p.getD · 0)) w = fastHalfPerm k q (fastHalfPerm k p w) := by
+  apply Nat.eq_of_testBit_eq
+  intro j
+  rw [fastHalfPerm_eq k _ (by simpa using hq), permWord_testBit,
+    fastHalfPerm_eq k q hq, permWord_testBit, fastHalfPerm_eq k p hp, permWord_testBit]
+  by_cases hj : j < k+k
+  · rw [if_pos hj]
+    by_cases hk : j < k
+    · have hqj := hb j hk
+      simp only [if_pos hj, liftHalf, if_pos hk, if_pos (by omega : q.getD j 0 < k+k),
+        if_pos hqj]
+      rw [getD_map_lt q (p.getD · 0) 0 0 j (by omega)]
+    · have hqj := hb (j-k) (by omega)
+      simp only [if_pos hj, liftHalf, if_neg hk,
+        if_pos (by omega : k + q.getD (j-k) 0 < k+k),
+        if_neg (by omega : ¬ k + q.getD (j-k) 0 < k), Nat.add_sub_cancel_left]
+      rw [getD_map_lt q (p.getD · 0) 0 0 (j-k) (by omega)]
+  · simp only [if_neg hj]
+
+theorem good_comp {k : Nat} {pool p q : List Nat}
+    (hp : Good k pool p) (hq : Good k pool q) : Good k pool (q.map (p.getD · 0)) := by
+  refine ⟨by simpa using hq.1, ?_, ?_⟩
+  · intro j hj
+    rw [getD_map_lt q (p.getD · 0) 0 0 j (by simpa [hq.1] using hj)]
+    exact hp.2.1 _ (hq.2.1 j hj)
+  · intro s ws h
+    have hh := hq.2.2 (hp.2.2 h)
+    have he : fastHalfPerm k (q.map (p.getD · 0)) =
+        (fun w => fastHalfPerm k q (fastHalfPerm k p w)) :=
+      funext (fastHalfPerm_comp hp.1 hq.1 hq.2.1)
+    simpa only [he, List.map_map, Function.comp_def] using hh
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Symmetry

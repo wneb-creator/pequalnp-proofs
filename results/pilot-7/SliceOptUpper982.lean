@@ -1,0 +1,20 @@
+import SliceUpper982
+import SliceOpt982
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.SliceOpt
+
+def bad (k p s : Nat) (ws : List Nat) : Bool := !(Fast.covers k s ws) || scr k p s ws
+
+theorem bad_no {forbidden k p} (hk : 3*p ≤ k) (s : Nat) {t ws} (ht : t ≤ s)
+    (h : Reduced.RNatRun forbidden (Live.mask k) (Live.goal k) t ws) :
+    bad k p s ws = false := by
+  simp [bad,Fast.covers_eq,Reduced.covers_ok_le h.toRun ht,scr_no_le hk h.toRun ht]
+
+abbrev reject (forbidden : List Nat) (k p : Nat) :=
+  Reduced.rejectWith forbidden (Live.mask k) (Live.goal k) (bad k p)
+
+theorem reject_no {forbidden k p t s ws} (hk : 3*p ≤ k) (d : Nat)
+    (h : Reduced.RNatRun forbidden (Live.mask k) (Live.goal k) t ws) (ht : t ≤ s) :
+    reject forbidden k p d s ws = false :=
+  Reduced.rejectWith_no d (fun u _ _ hu hh => bad_no hk u hu hh) h ht
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.SliceOpt

@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "definitions_namespace": "PEqualNP.Outside.L_meta_982_aux.Finite.Chunk4",
+  "bounded_correctness": "blockAnd fuel a b = a &&& b when a,b < 16^fuel",
+  "unconditional_equalities": [
+    "safeAnd_eq",
+    "safeOr_eq",
+    "safeXor_eq"
+  ],
+  "runtime_note": "safeAnd checks bounds and falls back to Nat.land when either bound fails; arithmetic OR/XOR inherit unconditional equality.",
+  "axioms_checked": [
+    "blockAnd_eq_of_lt",
+    "safeAnd_eq"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "files": {
+    "Chunk4And982.lean": "5df818fe2f32a0d5db051a69a1524dc97976c5933566c73096a14ad8cf41e5f6",
+    "Chunk4Arithmetic982.lean": "b602c0f35992edec3abc2af1ed6e7bb7a28421019dfc094cf3d8341ff8247b2c",
+    "Chunk4Ops982.lean": "757879539e224a0298ef175f81c2938f13c6ccfa325ef0469a0b868264061bf4",
+    "Chunk4All982Append.lean.txt": "5f23cd687e568ba7852ec986254a23ee2957ea0025c3e4c5169fc5ec7c4d77fd"
+  },
+  "compile_results": {
+    "Chunk4And982.lean": {
+      "module": "Chunk4And982",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.986669170000823,
+      "hard_cap_seconds": 30.0
+    },
+    "Chunk4Arithmetic982.lean": {
+      "module": "Chunk4Arithmetic982",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 1.368516260999968,
+      "hard_cap_seconds": 30.0
+    },
+    "Chunk4Ops982.lean": {
+      "module": "Chunk4Ops982",
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_seconds": 4.207347685000059,
+      "hard_cap_seconds": 30.0
+    }
+  }
+}

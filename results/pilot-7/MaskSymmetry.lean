@@ -1,0 +1,127 @@
+import FullSymmetry
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Symmetry.Masked
+
+def maskFor (width : Nat) (p : List Nat) (d : Nat) : Nat :=
+  (p.zipIdx.map (fun (s,j) => decide (width+s-j=d))).foldr Nat.bit 0
+
+def offsets (width : Nat) (p : List Nat) : List Nat :=
+  (p.zipIdx.map (fun (s,j) => width+s-j)).eraseDups
+
+def part (width : Nat) (p : List Nat) (d x : Nat) : Nat :=
+  ((x / 2^(d-width)) * 2^(width-d)) &&& maskFor width p d
+
+def fast (width : Nat) (p : List Nat) (x : Nat) : Nat :=
+  (offsets width p).foldr (fun d y => part width p d x ||| y)
+    ((x / 2^width) * 2^width)
+
+theorem maskFor_bit {width : Nat} {p : List Nat} (hp : p.length = width) (d j : Nat) :
+    (maskFor width p d).testBit j =
+      if j < width then decide (width + p.getD j 0 - j = d) else false := by
+  change (putBits _ 0).testBit j = _
+  rw [putBits_testBit]
+  simp only [List.length_map, List.length_zipIdx, hp]
+  by_cases hj : j < width
+  · rw [if_pos hj, if_pos hj]
+    rw [getD_map_lt _ (fun (s,i) => decide (width+s-i=d)) (0,0) false j
+      (by simpa [hp] using hj)]
+    rw [List.getD_eq_getElem _ _ (by simpa [hp] using hj), List.getElem_zipIdx]
+    rw [List.getD_eq_getElem p 0 (by omega)]
+    simp only [Nat.zero_add]
+  · simp [hj]
+
+theorem offsets_mem {width : Nat} {p : List Nat} (hp : p.length = width)
+    {j : Nat} (hj : j < width) : width + p.getD j 0 - j ∈ offsets width p := by
+  simp only [offsets, List.mem_eraseDups, List.mem_map]
+  refine ⟨(p.getD j 0, j), ?_, rfl⟩
+  have hmem := List.getElem_mem (l := p.zipIdx) (by simpa [hp] using hj)
+  rw [List.getD_eq_getElem p 0 (by omega)]
+  simpa only [List.getElem_zipIdx, Nat.zero_add] using hmem
+
+theorem tail_bit (width x j : Nat) :
+    ((x / 2^width) * 2^width).testBit j = if j < width then false else x.testBit j := by
+  rw [← Nat.shiftLeft_eq, Nat.testBit_shiftLeft, ← Nat.shiftRight_eq_div_pow,
+    Nat.testBit_shiftRight]
+  by_cases hj : j < width
+  · simp [hj, show ¬ j ≥ width by omega]
+  · simp only [if_neg hj, decide_eq_true (by omega : j ≥ width), Bool.true_and]
+    congr 1
+    omega
+
+theorem part_bit {width : Nat} {p : List Nat} (hp : p.length = width) (d x j : Nat) :
+    (part width p d x).testBit j =
+      if j < width then decide (width + p.getD j 0 - j = d) && x.testBit (p.getD j 0)
+      else false := by
+  rw [part, Nat.testBit_and, maskFor_bit hp]
+  by_cases hj : j < width
+  · rw [if_pos hj, if_pos hj]
+    by_cases hd : width + p.getD j 0 - j = d
+    · have hl : width-d ≤ j := by omega
+      have hs : d-width+(j-(width-d)) = p.getD j 0 := by omega
+      rw [←Nat.shiftLeft_eq, Nat.testBit_shiftLeft, ←Nat.shiftRight_eq_div_pow,
+        Nat.testBit_shiftRight]
+      simp only [hd, decide_true, Bool.and_true, decide_eq_true hl, Bool.true_and, hs]
+    · simp only [hd, decide_false, Bool.and_false, Bool.false_and]
+  · simp only [if_neg hj, Bool.and_false]
+
+theorem fold_bit (width : Nat) (p ds : List Nat) (x tail j : Nat) :
+    (ds.foldr (fun d y => part width p d x ||| y) tail).testBit j =
+      (tail.testBit j || ds.any (fun d => (part width p d x).testBit j)) := by
+  induction ds with
+  | nil => simp
+  | cons d ds ih =>
+    simp only [List.foldr_cons, Nat.testBit_or, ih, List.any_cons]
+    ac_rfl
+
+theorem fast_eq {width : Nat} {p : List Nat} (hp : p.length = width) (x : Nat) :
+    fast width p x = Full.fast width p x := by
+  apply Nat.eq_of_testBit_eq
+  intro j
+  rw [Full.fast_eq hp, permWord_testBit]
+  rw [fast, fold_bit, tail_bit]
+  by_cases hj : j < width
+  · rw [if_pos hj, if_pos hj, Bool.false_or]
+    apply Bool.eq_iff_iff.mpr
+    simp only [List.any_eq_true, part_bit hp, if_pos hj, Bool.and_eq_true, decide_eq_true_eq]
+    constructor
+    · rintro ⟨d, hd, _, hx⟩
+      exact hx
+    · intro hx
+      exact ⟨width + p.getD j 0 - j, offsets_mem hp hj, rfl, hx⟩
+  · rw [if_neg hj, if_neg hj]
+    have hz : (offsets width p).any (fun d => (part width p d x).testBit j) = false := by
+      simp [part_bit hp, hj]
+    rw [hz, Bool.or_false]
+
+def word (k n : Nat) (ps : Array (List Nat)) (g : Nat) : Nat → Nat :=
+  if g % n = 0 then id else fast (k+k) (ps.getD (g % n) [])
+
+theorem word_run {k n : Nat} {pool : List Nat} {ps : Array (List Nat)}
+    (hn : 0 < n) (hs : ps.size = n) (hp : ∀ p ∈ ps, Full.Good k pool p)
+    (g : Nat) {u : Nat} {ws : List Nat}
+    (h : Reduced.RNatRun pool (Live.mask k) (Live.goal k) u ws) :
+    Reduced.RNatRun pool (Live.mask k) (Live.goal k) u (ws.map (word k n ps g)) := by
+  unfold word
+  split
+  · simpa only [List.map_id] using h
+  · have hg := hp (ps.getD (g%n) [])
+      (Checkpoint.array_getD_mem ps [] (by rw [hs]; exact Nat.mod_lt g hn))
+    have he : fast (k+k) (ps.getD (g%n) []) = Full.fast (k+k) (ps.getD (g%n) []) :=
+      funext (fast_eq hg.1)
+    rw [he]
+    exact hg.2.2.2 h
+
+def orient (k n : Nat) (ps : Array (List Nat)) (payload : Nat) (ws : List Nat) :=
+  if payload = 0 then ws else ws.map (word k n ps ((payload-1)%64))
+
+theorem orient_run {k n : Nat} {pool : List Nat} {ps : Array (List Nat)}
+    (hn : 0 < n) (hs : ps.size = n) (hp : ∀ p ∈ ps, Full.Good k pool p)
+    (payload : Nat) {u : Nat} {ws : List Nat}
+    (h : Reduced.RNatRun pool (Live.mask k) (Live.goal k) u ws) :
+    Reduced.RNatRun pool (Live.mask k) (Live.goal k) u (orient k n ps payload ws) := by
+  unfold orient
+  split
+  · exact h
+  · exact word_run hn hs hp _ h
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Symmetry.Masked

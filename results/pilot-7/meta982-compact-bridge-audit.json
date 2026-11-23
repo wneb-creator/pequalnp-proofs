@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "c45e2974e2b64993890c8a589a1a5553b9c361ca5ce3bd27ce74e53ce5121f25",
+  "append_sha256": "f3fcc62b5117e5e549d4217822ffc795e8a2111a6759d1a563f22d05cd1ea488",
+  "compile_exit": 0,
+  "reason": [
+    "Valid bundles exactly the audited concrete bridge obligations: nonconstant endpoints, all finite assignment codes in rows, exact initial/forbidden/mask/goal encodings, initial nodup, and explicit essential-variable coordinate witnesses.",
+    "The generic pack premise turns finite-code row coverage into coverage of every Boolean assignment; the closed arity6/7 pack lemmas are kernel-decided.",
+    "lower forwards every obligation to the audited lower_from_rows theorem, extracting essential witnesses without strengthening or weakening their conditions.",
+    "The complete no-run requirement forall t<bound is retained explicitly; Valid alone does not prove a lower bound."
+  ],
+  "scope": "Shared conditional bridge. Concrete Valid and complete no-run certificates must still be supplied."
+}

@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "67de473bad0f2f47873f2eb56d83c2bea7ecb7e1e7a29d9d689b508e5ac47a7a",
+  "compile_exit": "0 reported by author; complete logs empty",
+  "reason": [
+    "Both extracted blocks have widthk-3p, at low offset3p and high offsetk+3p; each selected pair lies in opposite halves with equal mask bits and false/true goal bits. If width is0 the coverage condition is vacuous.",
+    "Positive-slack XOR coverage follows directly from run_bits; zero-slack directional coverage follows from bits_le with high/low arguments in the correct order.",
+    "The coordinate bounds are proved from i<k-3p, so coverage soundness itself does not need an additional3p<=k premise.",
+    "External budgett<=s with wire count s+1 forces t=s before directional coverage is used.",
+    "bad combines only sound coverage rejection and audited SliceOpt score rejection; the explicit3p<=k premise is retained where SliceOpt requires it. reject_no uses the audited generic upper-budget rejectWith theorem."
+  ],
+  "scope": "Generic soundness on retained coordinates, independent of any data transformation. It may be weaker than all-coordinate coverage but cannot falsely reject a true run."
+}

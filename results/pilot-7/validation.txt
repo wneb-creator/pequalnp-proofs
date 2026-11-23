@@ -50,3 +50,7 @@ Seed0Lower982.lean compiled exit0 and was independently audited: exact posted co
 Combined982Compact.lean (244917bytes), EarlyUpper982.lean, Indexed982.lean, CompactSymmetry.lean and Checkpoint982AllDataCheck.lean all compiled and passed independent source/data audits. The data check proves elaboration plus two seed8 decoder equalities; it does not assert all compressed closures. Full output is retained.
 Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, c7_pack, cube_symmetry, lean_setup, lemma_search, structural_twins
 TIMING total=184.1 subagents=9
+
+Checked optimization checkpoint: CompactBridge982, Slice/SliceOpt plus upper-budget wrappers, OldCoverage982, full-coordinate/masked/linear symmetry, compact group replay, and Chunk4 AND/OR/XOR helpers compiled and independently audited. SliceCheckpoint28Leaf0 compiled; the faster OldCoverageCheckpoint28Leaf0 compiled in30.033s. All31 re-encoded datasets were independently numerically audited; they remain untrusted advice until the complete Lean closure check passes. Source/data archive preserves every full search frontier and both encoded table versions. The full posted theorem is still unfinished.
+Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, c7_pack, cube_symmetry, lean_setup, lemma_search, structural_twins
+TIMING total=199.0 subagents=9

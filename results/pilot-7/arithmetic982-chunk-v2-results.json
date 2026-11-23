@@ -1,0 +1,32 @@
+{
+  "cases_per_operation": 4,
+  "word_bits": 436,
+  "operations": [
+    "and",
+    "or",
+    "xor"
+  ],
+  "results": [
+    {
+      "module": "Arithmetic982BaselineV2",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 3.3836447469984705,
+      "cap_seconds": 30
+    },
+    {
+      "module": "Arithmetic982RawV2",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 3.79021274400111,
+      "cap_seconds": 30
+    },
+    {
+      "module": "Arithmetic982Block4V2",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 3.4231712610016984,
+      "cap_seconds": 30
+    }
+  ]
+}

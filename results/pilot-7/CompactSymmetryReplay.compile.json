@@ -1,0 +1,7 @@
+{
+  "module": "CompactSymmetryReplay",
+  "status": "PASS",
+  "exit_code": 0,
+  "wall_seconds": 4.4865125579999585,
+  "hard_cap_seconds": 60.0
+}

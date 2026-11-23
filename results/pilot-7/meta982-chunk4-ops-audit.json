@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "ops_sha256": "757879539e224a0298ef175f81c2938f13c6ccfa325ef0469a0b868264061bf4",
+  "combined_append_sha256": "5f23cd687e568ba7852ec986254a23ee2957ea0025c3e4c5169fc5ec7c4d77fd",
+  "all_manifest_hashes_match": true,
+  "all_three_components_compile": true,
+  "exported_bodies_match_checked_sources": true,
+  "reason": "safeOr and safeXor substitute unconditional safeAnd_eq into the independently reviewed exact addition identities, then use Nat.add_sub_cancel. Truncated Nat subtraction is therefore exact for every fuel and all operands, without hidden bounds.",
+  "scope": "Semantic equality only; performance remains empirical."
+}

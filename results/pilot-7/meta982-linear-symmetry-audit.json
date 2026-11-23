@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "audit_kind": "independent source audit; no compiler was run",
+  "compile_record": {
+    "module": "LinearSymmetry",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 4.8645383390012285,
+    "hard_cap_seconds": 60.0
+  },
+  "empty_compile_log": true,
+  "files": {
+    "LinearSymmetry.lean": {
+      "sha256": "e494c91926212d467711b7343c19f992bf53dfab1a98607b5e004615a36528c3",
+      "bytes": 3114,
+      "mtime_ns": 1795469164659698814
+    },
+    "LinearSymmetry.compile.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795469165747722426
+    },
+    "LinearSymmetry.compile.json": {
+      "sha256": "eec092f4341fa2368668223a658f5c0691a0988787af65633015ec8153678e72",
+      "bytes": 137,
+      "mtime_ns": 1795469170617849249
+    },
+    "FullSymmetry.lean": {
+      "sha256": "ea6014838353a48411992b7cd967ecc30c2fa5e77055088f2bc4af0c5ab755df",
+      "bytes": 6301,
+      "mtime_ns": 1795468683537321964
+    },
+    "MaskSymmetry.lean": {
+      "sha256": "227ddeb29f22e474f411bef95065fbdbff1f71b1e19f8e16c51e7e526ee7cd40",
+      "bytes": 5412,
+      "mtime_ns": 1795469065778976075
+    },
+    "CompactSymmetryReplay.lean": {
+      "sha256": "2ccd96acd7b4e8504eb3c087a29c0b2dded9af82adb7ba360e6fff32749dc408",
+      "bytes": 5696,
+      "mtime_ns": 1795468457186874766
+    }
+  },
+  "olean_exists": true,
+  "source_not_newer_than_olean": true,
+  "checks": [
+    {
+      "name": "p length and entry bounds",
+      "verdict": "PASS",
+      "detail": "Check demands p.length=2k and bounds every list entry; check_good transfers these to every valid index using getD_mem."
+    },
+    {
+      "name": "q length and inverse direction",
+      "verdict": "PASS",
+      "detail": "q.map(array lookup p)=range(2k) implies q.length=2k. Every q entry is checked below2k. Reading indexj yields p[q[j]]=j, the direction required by Full.check_good and permWord_injective."
+    },
+    {
+      "name": "array/list agreement",
+      "verdict": "PASS",
+      "detail": "array_getD proves unconditional equality p.toArray.getD j0=p.getD j0, with identical default0. Valid-index proofs eliminate accidental default use in inverse transport."
+    },
+    {
+      "name": "half preservation",
+      "verdict": "PASS",
+      "detail": "p.zipIdx checks k\u2264source iff k\u2264destination for every actual list entry. zip_mem transfers exactly to eachj<2k."
+    },
+    {
+      "name": "forbidden pool direction",
+      "verdict": "PASS",
+      "detail": "The checked condition is pool\u2286map(Masked.fast,pool), unchanged from Full.Check after Masked.fast_eq; with injectivity this preserves freshness under the word map."
+    },
+    {
+      "name": "arbitrary Nat and high bits",
+      "verdict": "PASS",
+      "detail": "Masked.fast_eq assumes only p.length=width and applies to every Nat x. Its explicit tail (x/2^width)*2^width preserves all bits\u2265width; Full.fast and permWord preserve the same tail. No finite-word bound is silently assumed."
+    },
+    {
+      "name": "group and action replay",
+      "verdict": "PASS",
+      "detail": "checked_actions uses checked base generators, Full.good_id and Full.good_comp. recipeCheck bounds earlier-group and generator references; actionCheck bounds references by n+1, matching group_size."
+    },
+    {
+      "name": "scope of result",
+      "verdict": "PASS",
+      "detail": "Linear.check_good proves the original Full.Good. It constructs an original Full.Check proof internally and does not weaken run transport or rewrite the target predicate."
+    }
+  ],
+  "issues": [],
+  "limitations": [
+    "Compilation metadata was inspected rather than reproduced.",
+    "This audit does not claim a measured linear runtime for the entire checker: pool membership and masked-word evaluation have their own costs."
+  ]
+}

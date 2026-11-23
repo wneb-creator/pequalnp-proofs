@@ -1,0 +1,115 @@
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.OldCoverage
+open PEqualNP.Outside.L_meta_982_aux.Finite.Live
+
+def diff (k p w : Nat) : Nat :=
+  (Slice.fld w (3*p) (k-3*p)) ^^^ (Slice.fld w (k+3*p) (k-3*p))
+def diffUp (k p w : Nat) : Nat :=
+  (Slice.fld w (k+3*p) (k-3*p)) &&& ((Slice.fld w (3*p) (k-3*p)) ^^^ lo (k-3*p))
+def cov (k p : Nat) : List Nat → Nat
+  | [] => 0
+  | w::ws => diff k p w ||| cov k p ws
+def covUp (k p : Nat) : List Nat → Nat
+  | [] => 0
+  | w::ws => diffUp k p w ||| covUp k p ws
+
+theorem cov_bit (k p i : Nat) (hi : i < k-3*p) (ws : List Nat) :
+    (cov k p ws).testBit i = true ↔
+      ∃ w ∈ ws, w.testBit (i+3*p) ≠ w.testBit (i+(k+3*p)) := by
+  induction ws with
+  | nil => simp [cov]
+  | cons a ws ih =>
+    simp only [cov,Nat.testBit_or,Bool.or_eq_true,ih,diff,Nat.testBit_xor,
+      Slice.fld_bit _ _ _ _ hi,List.mem_cons]
+    cases hx : a.testBit (i+3*p) <;> cases hy : a.testBit (i+(k+3*p)) <;> simp_all
+
+theorem covUp_bit (k p i : Nat) (hi : i < k-3*p) (ws : List Nat) :
+    (covUp k p ws).testBit i = true ↔
+      ∃ w ∈ ws, w.testBit (i+3*p) = false ∧ w.testBit (i+(k+3*p)) = true := by
+  induction ws with
+  | nil => simp [covUp]
+  | cons a ws ih =>
+    simp only [covUp,Nat.testBit_or,Bool.or_eq_true,ih,diffUp,Nat.testBit_and,
+      Nat.testBit_xor,Slice.fld_bit _ _ _ _ hi,lo,Nat.testBit_two_pow_sub_one,
+      decide_eq_true hi,Bool.xor_true,List.mem_cons]
+    cases hx : a.testBit (i+3*p) <;> cases hy : a.testBit (i+(k+3*p)) <;> simp_all
+
+theorem mask_pair (k p i : Nat) (hi : i < k-3*p) :
+    (mask k).testBit (i+3*p) = (mask k).testBit (i+(k+3*p)) := by
+  have h1 : i+3*p < k+k := by omega
+  have h2 : i+(k+3*p) < k+k := by omega
+  simp [mask,lo,Nat.testBit_two_pow_sub_one,h1,h2]
+
+theorem goal_pair (k p i : Nat) (hi : i < k-3*p) :
+    (goal k).testBit (i+3*p) = false ∧ (goal k).testBit (i+(k+3*p)) = true := by
+  have h0 : ¬ k ≤ i+3*p := by omega
+  have h1 : k ≤ i+(k+3*p) := by omega
+  have h2 : i+(k+3*p)-k < k := by omega
+  simp [goal,lo,Nat.testBit_shiftLeft,Nat.testBit_two_pow_sub_one,h0,h1,h2]
+
+theorem required {k p s ws} (h : NatRun (mask k) (goal k) s ws) :
+    cov k p ws % 2^(k-3*p) = lo (k-3*p) := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  by_cases hi : i < k-3*p
+  · have hc : (cov k p ws).testBit i = true := by
+      apply (cov_bit k p i hi ws).2
+      by_contra! hh
+      have hg := goal_pair k p i hi
+      have he := run_bits h (i+3*p) (i+(k+3*p)) (mask_pair k p i hi) hh
+      rw [hg.1,hg.2] at he
+      contradiction
+    simp [Nat.testBit_mod_two_pow,lo,Nat.testBit_two_pow_sub_one,hi,hc]
+  · simp [Nat.testBit_mod_two_pow,lo,Nat.testBit_two_pow_sub_one,hi]
+
+theorem required_up {k p s ws} (h : NatRun (mask k) (goal k) s ws)
+    (hl : ws.length = s+1) : covUp k p ws % 2^(k-3*p) = lo (k-3*p) := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  by_cases hi : i < k-3*p
+  · have hc : (covUp k p ws).testBit i = true := by
+      apply (covUp_bit k p i hi ws).2
+      by_contra! hh
+      have he := bits_le h hl (i+(k+3*p)) (i+3*p) (by
+        intro a ha
+        specialize hh a ha
+        cases hx : a.testBit (i+3*p) <;> cases hy : a.testBit (i+(k+3*p)) <;> simp_all)
+      have hg := goal_pair k p i hi
+      rw [hg.1,hg.2] at he
+      contradiction
+    simp [Nat.testBit_mod_two_pow,lo,Nat.testBit_two_pow_sub_one,hi,hc]
+  · simp [Nat.testBit_mod_two_pow,lo,Nat.testBit_two_pow_sub_one,hi]
+
+def covers (k p s : Nat) (ws : List Nat) : Bool :=
+  if ws.length == s+1 then covUp k p ws % 2^(k-3*p) == lo (k-3*p)
+  else cov k p ws % 2^(k-3*p) == lo (k-3*p)
+
+theorem covers_ok {k p s ws} (h : NatRun (mask k) (goal k) s ws) :
+    covers k p s ws = true := by
+  by_cases hl : ws.length = s+1
+  · simp [covers,hl,required_up h hl]
+  · simp [covers,hl,required h]
+
+theorem covers_ok_le {k p t s ws} (h : NatRun (mask k) (goal k) t ws) (ht : t ≤ s) :
+    covers k p s ws = true := by
+  by_cases hl : ws.length = s+1
+  · have hr := run_len h
+    have he : t = s := by omega
+    subst t
+    exact covers_ok h
+  · simp [covers,hl,required h]
+
+def bad (k p s : Nat) (ws : List Nat) : Bool := !(covers k p s ws) || SliceOpt.scr k p s ws
+
+theorem bad_no {forbidden k p} (hk : 3*p ≤ k) (s : Nat) {t ws} (ht : t ≤ s)
+    (h : Reduced.RNatRun forbidden (mask k) (goal k) t ws) : bad k p s ws = false := by
+  simp [bad,covers_ok_le h.toRun ht,SliceOpt.scr_no_le hk h.toRun ht]
+
+abbrev reject (forbidden : List Nat) (k p : Nat) :=
+  Reduced.rejectWith forbidden (mask k) (goal k) (bad k p)
+
+theorem reject_no {forbidden k p t s ws} (hk : 3*p ≤ k) (d : Nat)
+    (h : Reduced.RNatRun forbidden (mask k) (goal k) t ws) (ht : t ≤ s) :
+    reject forbidden k p d s ws = false :=
+  Reduced.rejectWith_no d (fun u _ _ hu hh => bad_no hk u hu hh) h ht
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.OldCoverage

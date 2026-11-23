@@ -1,0 +1,10 @@
+{
+  "status": "all three modules kernel checked",
+  "warning": "One tiny timing sample; baseline subtraction is noisy; no proven general speedup. Earlier six-second suite was inconclusive.",
+  "files": {
+    "Arithmetic982BaselineV2.lean": "f4bbbf55245610915a3d2632e473bfddadbd980bdc5ea9623cecb91299db1ca8",
+    "Arithmetic982RawV2.lean": "12d6f78080f583fa6911f4a2a028adcde05371e34b2d2656d2625bead69fd992",
+    "Arithmetic982Block4V2.lean": "1cfe46026303e0d1e7bc78a33b0ce50d07baf27087edbbd3d4e1496234c6e2c3",
+    "arithmetic982-chunk-v2-results.json": "f9382b61dcd1f487df17bcd096ce835fc27429827cef4be97ea50bbacc1d5eac"
+  }
+}

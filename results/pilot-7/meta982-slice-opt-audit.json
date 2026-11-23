@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "786e51fea75930651d9b1007f3fa84af7a5528c37a16d13c940be21db56b91d6",
+  "upper_sha256": "72e62260a31ab8c5d50f4a9d47e1a62189e90962400dfa8c6ec2078257367981",
+  "compile_exit": "0 reported by author; complete logs empty",
+  "independent_boolean_cases": 64,
+  "reason": "Only c0/c1/c2 and shared-factor cls formulas change. Every generic proof from cls_bits onward is identical to audited Slice after namespace renaming. All64 optimized Boolean cases equal value6 classifications. The upper wrapper reuses checked rejectWith and has identical bad/reject proofs after namespace renaming.",
+  "scope": "Optimized generic score rejection and DFS soundness; concrete row data and closure remain separate."
+}

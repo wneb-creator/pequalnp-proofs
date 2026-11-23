@@ -1,0 +1,87 @@
+import Fast982
+open PEqualNP.MetaComplexity
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Reduced
+open PEqualNP.Outside.L_meta_982_aux.Finite.Live
+
+theorem lower_from_rows {n bound : Nat} (f : BFn n) (rows : List Nat)
+    (initial forbidden : List Nat) (m y : Nat)
+    (hnc : ∃ x z, f x ≠ f z)
+    (hcover : ∀ x : Fin n → Bool, ∃ v ∈ rows, pt n v = x)
+    (hi : (List.ofFn (fun i : Fin n => fun x : Fin n → Bool => x i)).map
+      (fun g => encL g rows) = initial)
+    (hf : (forbiddenFns n).map (fun g => encL g rows) = forbidden)
+    (hm : 2^rows.length-1 = m) (hy : encL f rows = y)
+    (hn : initial.Nodup)
+    (he : ∀ a ∈ initial, ∃ i j : Nat, m.testBit i = m.testBit j ∧
+      y.testBit i ≠ y.testBit j ∧ ∀ b ∈ initial, b ≠ a → b.testBit i = b.testBit j)
+    (hno : ∀ t < bound, ¬ RNatRun forbidden m y t initial) :
+    ∀ s, HasCircuitSize n f s → bound ≤ s := by
+  intro s hs
+  by_contra! hlt
+  obtain ⟨t,ht,ws,hsub,hrun⟩ := exists_run f hnc s hs
+  have hr := encoded_run_rows rows hcover hrun
+  rw [hf,hm,hy] at hr
+  have hsub' : (ws.map (fun g => encL g rows)).Sublist initial := by
+    rw [←hi]
+    exact hsub.map _
+  have hp := initial_full hn hsub' he hr.toRun
+  exact hno t (by omega) (RRun.perm hp hr)
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Reduced
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Concrete
+open PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def pack (n : Nat) (x : Fin n → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem pack6 (x : Fin 6 → Bool) : pack 6 x < 2^6 ∧ pt 6 (pack 6 x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem pack7 (x : Fin 7 → Bool) : pack 7 x < 2^7 ∧ pt 7 (pack 7 x) = x := by
+  revert x
+  decide +kernel
+
+def Valid (n : Nat) (f : BFn n) (rows initial forbidden : List Nat)
+    (m y : Nat) (witnesses : List (Nat × Nat)) : Prop :=
+  f (fun _ => false) ≠ f (fun _ => true) ∧
+  (∀ v : Fin (2^n), v.val ∈ rows) ∧
+  (List.ofFn (fun i : Fin n => fun x : Fin n → Bool => x i)).map (fun g => encL g rows) = initial ∧
+  (forbiddenFns n).map (fun g => encL g rows) = forbidden ∧
+  2^rows.length-1 = m ∧ encL f rows = y ∧ initial.Nodup ∧
+  ∀ a ∈ initial, ∃ p : Fin n,
+    m.testBit (witnesses.getD p.val (0,0)).1 = m.testBit (witnesses.getD p.val (0,0)).2 ∧
+    y.testBit (witnesses.getD p.val (0,0)).1 ≠ y.testBit (witnesses.getD p.val (0,0)).2 ∧
+    ∀ b ∈ initial, b ≠ a →
+      b.testBit (witnesses.getD p.val (0,0)).1 = b.testBit (witnesses.getD p.val (0,0)).2
+
+theorem lower {n bound : Nat} (f : BFn n) (rows initial forbidden : List Nat)
+    (m y : Nat) (witnesses : List (Nat × Nat))
+    (hp : ∀ x : Fin n → Bool, pack n x < 2^n ∧ pt n (pack n x) = x)
+    (hv : Valid n f rows initial forbidden m y witnesses)
+    (hno : ∀ t < bound, ¬ RNatRun forbidden m y t initial) :
+    ∀ s, HasCircuitSize n f s → bound ≤ s := by
+  obtain ⟨hnc,hcov,hi,hf,hm,hy,hn,he⟩ := hv
+  apply lower_from_rows f rows initial forbidden m y
+  · exact ⟨(fun _ => false),(fun _ => true),hnc⟩
+  · intro x
+    obtain ⟨hb,hx⟩ := hp x
+    exact ⟨pack n x,hcov ⟨_,hb⟩,hx⟩
+  · exact hi
+  · exact hf
+  · exact hm
+  · exact hy
+  · exact hn
+  · intro a ha
+    obtain ⟨p,hp⟩ := he a ha
+    exact ⟨(witnesses.getD p.val (0,0)).1,(witnesses.getD p.val (0,0)).2,hp⟩
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Concrete

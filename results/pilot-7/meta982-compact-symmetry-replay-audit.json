@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "2ccd96acd7b4e8504eb3c087a29c0b2dded9af82adb7ba360e6fff32749dc408",
+  "decoder_sha256": "eb883addb4caefde6f668bc19db0d098afa3a13667121f30377cc7acff6c4b95",
+  "compile_exit": 0,
+  "decoder_is_exact_prefix_of_audited_decoder": true,
+  "reason": [
+    "recipeCheck bounds each recipe parent by the accumulator size i+1 and each generator by gs.size, so defaults cannot introduce an unproved group action.",
+    "group_preserves starts with the identity and applies the explicit composition premise in the same old[generator[j]] order as the decoder.",
+    "actionCheck bounds every final reference; actions_preserves transfers the property and actions_size proves the requested count.",
+    "array_all obtains every array member via a valid Fin index. packedCheck includes Check for every generator plus both recipe and final-reference bounds, so checked_actions supplies every Good premise.",
+    "word_run requires a positive action count and exact array size. Action index0 uses literal identity, which preserves any run independently of the array; all other arbitrary indices are reduced modulo n and use Good.",
+    "orient_run retains identity for payload0 and uses the proved word action otherwise. All nontrivial word maps use high-bit-preserving fastHalfPerm, not the bounded data decoder permute."
+  ],
+  "scope": "Generic packed-group replay and run transport; concrete packedCheck certificates remain separate."
+}

@@ -1,0 +1,72 @@
+namespace PEqualNP.Outside.L_meta_982_aux.CheckpointData
+open PEqualNP.Outside.L_meta_982_aux.Finite
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c0Good : ∀ p ∈ c0Perms, Symmetry.Good c0K c0F p :=
+  Symmetry.checked_actions (c0Gens.getD · []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c8Good : ∀ p ∈ c8Perms, Symmetry.Good c8K c8F p :=
+  Symmetry.checked_actions (c8Gens.getD · []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c13Good : ∀ p ∈ c13Perms, Symmetry.Good c13K c13F p :=
+  Symmetry.checked_actions (c13Gens.getD · []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c18Good : ∀ p ∈ c18Perms, Symmetry.Good c18K c18F p :=
+  Symmetry.checked_actions (c18Gens.getD · []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c19Good : ∀ p ∈ c19Perms, Symmetry.Good c19K c19F p :=
+  Symmetry.checked_actions (c19Gens.getD · []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c20Good : ∀ p ∈ c20Perms, Symmetry.Good c20K c20F p :=
+  Symmetry.checked_actions (c20Gens.getD · []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c23Good : ∀ p ∈ c23Perms, Symmetry.Good c23K c23F p :=
+  Symmetry.checked_actions (c23Gens.getD · []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c24Good : ∀ p ∈ c24Perms, Symmetry.Good c24K c24F p :=
+  Symmetry.checked_actions (c24Gens.getD · []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c25Good : ∀ p ∈ c25Perms, Symmetry.Good c25K c25F p :=
+  Symmetry.checked_actions (c25Gens.getD · []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c26Good : ∀ p ∈ c26Perms, Symmetry.Good c26K c26F p :=
+  Symmetry.checked_actions (fun i => if i = 1 then c26Perms.getD 24 [] else c26Gens.getD i []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c27Good : ∀ p ∈ c27Perms, Symmetry.Good c27K c27F p :=
+  Symmetry.checked_actions (c27Gens.getD · []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c28Good : ∀ p ∈ c28Perms, Symmetry.Good c28K c28F p :=
+  Symmetry.checked_actions (c28Gens.getD · []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c29Good : ∀ p ∈ c29Perms, Symmetry.Good c29K c29F p :=
+  Symmetry.checked_actions (c29Gens.getD · []) (by decide +kernel)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem c30Good : ∀ p ∈ c30Perms, Symmetry.Good c30K c30F p :=
+  Symmetry.checked_actions (c30Gens.getD · []) (by decide +kernel)
+end PEqualNP.Outside.L_meta_982_aux.CheckpointData
