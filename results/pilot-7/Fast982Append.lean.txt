@@ -1,0 +1,122 @@
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Fast
+open PEqualNP.Outside.L_meta_982_aux.Finite
+
+def diff (k w : Nat) : Nat := w ^^^ (w / 2^k)
+
+theorem diff_eq (k w : Nat) : diff k w = Live.diff k w := by
+  simp [diff, Live.diff, Nat.shiftRight_eq_div_pow]
+
+def cov (k : Nat) : List Nat → Nat
+  | [] => 0
+  | a :: t => diff k a ||| cov k t
+
+theorem cov_eq (k : Nat) (ws : List Nat) : cov k ws = Live.cov k ws := by
+  induction ws with
+  | nil => rfl
+  | cons a t ih => simp [cov, Live.cov, diff_eq, ih]
+
+def diffUp (k w : Nat) : Nat := (w / 2^k) &&& (w ^^^ Live.lo k)
+
+theorem diffUp_eq (k w : Nat) : diffUp k w = Live.diffUp k w := by
+  simp [diffUp, Live.diffUp, Nat.shiftRight_eq_div_pow]
+
+def covUp (k : Nat) : List Nat → Nat
+  | [] => 0
+  | a :: t => diffUp k a ||| covUp k t
+
+theorem covUp_eq (k : Nat) (ws : List Nat) : covUp k ws = Live.covUp k ws := by
+  induction ws with
+  | nil => rfl
+  | cons a t ih => simp [covUp, Live.covUp, diffUp_eq, ih]
+
+def covers (k s : Nat) (ws : List Nat) : Bool :=
+  if ws.length == s+1 then covUp k ws % 2^k == Live.lo k
+  else cov k ws % 2^k == Live.lo k
+
+theorem covers_eq (k s : Nat) (ws : List Nat) : covers k s ws = Live.covers k s ws := by
+  simp [covers, Live.covers, cov_eq, covUp_eq, Live.lo,
+    Nat.and_two_pow_sub_one_eq_mod]
+
+def bit (w i : Nat) : Bool := decide (w / 2^i % 2 = 1)
+
+theorem bit_eq (w i : Nat) : bit w i = w.testBit i :=
+  Nat.testBit_eq_decide_div_mod_eq.symm
+
+def eval6 (a b c d e f v : Nat) : Nat :=
+  Live.value6 (bit v a) (bit v b) (bit v c) (bit v d) (bit v e) (bit v f)
+
+theorem eval6_eq (a b c d e f v : Nat) : eval6 a b c d e f v = Live.eval6 a b c d e f v := by
+  simp [eval6, Live.eval6, bit_eq]
+
+theorem eval6_fun_eq : eval6 = Live.eval6 := by
+  funext a b c d e f v
+  exact eval6_eq a b c d e f v
+
+def fld (T w i : Nat) : Nat := (T / 2^(w*i)) % 2^w
+
+theorem fld_eq (T w i : Nat) : fld T w i = Live.fld T w i := by
+  simp [fld, Live.fld, Nat.shiftRight_eq_div_pow, Nat.and_two_pow_sub_one_eq_mod]
+
+def scoreCheck (k width s : Nat) (ws : List Nat) (code : Nat) : Bool :=
+  if code = 0 then false else
+    ws.length == s+1 &&
+      (ws.map (eval6 (fld code width 0) (fld code width 1) (fld code width 2)
+        (fld code width 3) (fld code width 4) (fld code width 5))).sum <
+      eval6 (fld code width 0) (fld code width 1) (fld code width 2)
+        (fld code width 3) (fld code width 4) (fld code width 5) (Live.goal k)
+
+theorem scoreCheck_eq (k width s : Nat) (ws : List Nat) (code : Nat) :
+    scoreCheck k width s ws code = Reduced.scoreCheckW k width s ws code := by
+  simp [scoreCheck, Reduced.scoreCheckW, fld_eq, eval6_fun_eq]
+
+theorem scoreCheck_fun_eq : scoreCheck = Reduced.scoreCheckW := by
+  funext k width s ws code
+  exact scoreCheck_eq k width s ws code
+
+def scr (k width s : Nat) (pool : List Nat) (ws : List Nat) : Bool :=
+  ws.length == s+1 && pool.any (scoreCheck k width s ws)
+
+theorem scr_eq (k width s : Nat) (pool : List Nat) (ws : List Nat) :
+    scr k width s pool ws = Reduced.scrW k width s pool ws := by
+  simp [scr, Reduced.scrW, scoreCheck_fun_eq]
+
+def rejectDepth (forbidden : List Nat) (k width : Nat) (pool : List Nat) :
+    Nat → Nat → List Nat → Bool
+  | 0,s,ws => !(covers k s ws) || scr k width s pool ws
+  | _+1,0,ws => !(covers k 0 ws) || scr k width 0 pool ws || !(ws == [Live.goal k])
+  | d+1,s+1,ws => !(covers k (s+1) ws) || scr k width (s+1) pool ws ||
+      !(Reduced.next forbidden (Live.mask k) (s+2-ws.length) ws fun _ zs =>
+        !(rejectDepth forbidden k width pool d s zs))
+
+theorem rejectDepth_eq (forbidden : List Nat) (k width : Nat) (pool : List Nat)
+    (d s : Nat) (ws : List Nat) :
+    rejectDepth forbidden k width pool d s ws =
+      Reduced.rejectDepth forbidden k width pool d s ws := by
+  induction d generalizing s ws with
+  | zero => simp [rejectDepth, Reduced.rejectDepth, covers_eq, scr_eq]
+  | succ d ih => cases s <;> simp [rejectDepth, Reduced.rejectDepth, covers_eq, scr_eq, ih]
+
+def pairedBar (forbidden : List Nat) (k width : Nat)
+    (S : Nat → Nat → List Nat) (N : Nat → Nat)
+    (idx : Nat → Nat → Nat → Nat)
+    (ori : Nat → Nat → Nat → List Nat → List Nat)
+    (pool : List Nat) : Nat → Nat → Bool
+  | 0, i => !(S 0 i == [Live.goal k])
+  | s+1, i =>
+    let ws := S (s+1) i
+    !(Reduced.next forbidden (Live.mask k) (s+2-ws.length) ws fun tag zs =>
+      covers k s zs && !(scr k width s pool zs) &&
+        !(decide (idx (s+1) i tag < N s) &&
+          (ori (s+1) i tag zs).isPerm (S s (idx (s+1) i tag))))
+
+theorem pairedBar_eq (forbidden : List Nat) (k width : Nat)
+    (S : Nat → Nat → List Nat) (N : Nat → Nat)
+    (idx : Nat → Nat → Nat → Nat)
+    (ori : Nat → Nat → Nat → List Nat → List Nat)
+    (pool : List Nat) (s i : Nat) :
+    pairedBar forbidden k width S N idx ori pool s i =
+      Reduced.pairedBar forbidden k width S N idx ori pool s i := by
+  cases s <;> simp [pairedBar, Reduced.pairedBar, covers_eq, scr_eq]
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Fast

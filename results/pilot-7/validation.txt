@@ -13,3 +13,7 @@ Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant
 TIMING total=151.1 subagents=7
 
 Repository checkpoint build: lake build PEqualNP.Outside.L_meta_982 exited0; Build completed successfully (18363 jobs). The file contains component lemmas only; this does not establish the full posted theorem. Full build output is retained alongside this record.
+
+Fast982.lean: Lean exit0 on 2026-11-23 20:52 UTC. Unconditional equality proofs relate arithmetic implementations to the audited finite checker. Source audit passed; full stdout/stderr and exit are retained. This is another component, not the full posted theorem. Both kernel primitive benchmark files also compiled exit0.
+Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, cube_symmetry, lean_setup, lemma_search
+TIMING total=161.0 subagents=7
