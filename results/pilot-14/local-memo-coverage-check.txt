@@ -1,0 +1,128 @@
+L-meta-670 checked partials; the posted theorem is not yet proved.
+All five archived Lean sources were independently reviewed.
+toolchain/MemoLocalBody.lean SHA256 c24dd567daa778f02c70b0068f499d121dcf0f6ebb59fd09be5d87ce59a974e6
+toolchain/MemoLocalTest.lean SHA256 10e5b649280c601f9c8b656e981ce668b8d8605642f047902e48b2f86777fd8b
+lower-bound/ProjectedCoverageBody.lean SHA256 5020abf9ea1a02abbdaad4914ef3bd5e8842174312a9f12c4c514bcfb647b9f7
+lower-bound/ProjectedCoverageBridge.lean SHA256 115e54e68188639d2b9c401e8cb28438e858687872eb907ae85a2ae07ffd2e59
+lower-bound/ProjectedCoverageTest.lean SHA256 cebba7bac2a0de62daf5b2b972820027c95aa2b17ba9e4273e4961be2518a505
+
+COMPLETE LOG toolchain/memo-local-test.log
+import took 3.35s
+'PEqualNP.Outside.L_meta_670_aux.MemoLocal.solve_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_670_aux.MemoLocal.localTrial_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+cumulative profiling times:
+	.olean serialization 8.1ms
+	attribute application 0.214ms
+	blocked (unaccounted) 167ms
+	compilation (IR) 0.993ms
+	compilation (LCNF base) 10.1ms
+	compilation (LCNF impure) 4.18ms
+	compilation (LCNF mono) 7.44ms
+	congr simp thm 2.07ms
+	declTypeLinter 5.98ms
+	elaboration 86.7ms
+	fix level params 0.43ms
+	import 3.35s
+	initialization 27.1ms
+	instantiate metavars 0.937ms
+	interpretation 340ms
+	let-to-have transformation 0.159ms
+	linting 19.2ms
+	module linting 0.0284ms
+	parsing 11.5ms
+	process pre-definitions 8.33ms
+	share common exprs 1.71ms
+	simp 43.3ms
+	tactic execution 72.8ms
+	tacticAnalysis 4.41ms
+	type checking 27ms
+	typeclass inference 18.5ms
+
+COMPLETE LOG lower-bound/projected-coverage-build.log
+import took 3.92s
+/tmp/oec/pequalnp-pilot-14/lower-bound/ProjectedCoverageTest.lean:9:183: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/ProjectedCoverageTest.lean:9:183: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/ProjectedCoverageTest.lean:19:204: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/ProjectedCoverageTest.lean:19:204: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/ProjectedCoverageTest.lean:25:177: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/ProjectedCoverageTest.lean:25:177: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/ProjectedCoverageTest.lean:31:112: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/ProjectedCoverageTest.lean:31:108: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/ProjectedCoverageTest.lean:31:112: warning: Unused tactic linter: `aesop` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/ProjectedCoverageTest.lean:52:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/ProjectedCoverageTest.lean:52:81: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+cumulative profiling times:
+	.olean serialization 8.33ms
+	attribute application 0.0681ms
+	congr simp thm 6.28ms
+	declTypeLinter 3.2ms
+	elaboration 31ms
+	fix level params 0.584ms
+	import 3.92s
+	initialization 24.9ms
+	instantiate metavars 8.17ms
+	interpretation 341ms
+	let-to-have transformation 0.0922ms
+	linting 25.6ms
+	module linting 0.0271ms
+	parsing 4.31ms
+	process pre-definitions 11.3ms
+	share common exprs 8.54ms
+	simp 421ms
+	tactic execution 257ms
+	tacticAnalysis 5.16ms
+	type checking 25.5ms
+	typeclass inference 32.3ms
+
+COMPLETE LOG counterexample/memo-local-independent-audit.txt
+PASS independent soundness and format review of MemoLocalBody.lean.
+Exact reviewed body occurs in MemoLocalTest.lean; successful test log reports only propext, Classical.choice, Quot.sound. Existing olean observed. Reviewer ran no compiler.
+localHit requires stored budget >= requested budget, exactly matching NOT count, and full List.Perm. Hash collisions cannot establish a hit on their own. Finset equality transports cached impossibility soundly.
+EntriesSound and persistent Memo.Sound are preserved separately. stash adds local entries only from a ResultSound false result; true results add no impossibility claim.
+collect may consume any child list, including incomplete, duplicate, or unrelated children. complete reruns original stepTest against sound cache answers, so arbitrary next/Context/retain cannot create a false exclusion.
+guarded checks persistent hits, then Nodup, then the supplied sound cut. Non-Nodup returns true. Cheap cuts return false with the persistent memo unchanged.
+Parent-local entries are used during complete and discarded from its returned pair. Only finish/save may persist newly searched failures, subject to retain. Thus retain=false remains sound and can use local child evidence.
+withEntry uses verified identity-preserving Nat/wire forcing functions. This establishes unchanged mathematical values; long-run closure retention and memory usage remain performance questions for benchmarks.
+Tiny tests cover retain=false result/cache emptiness, cheap-cut cache emptiness, and target-open. Generic solve_sound is the universal correctness assurance.
+No forbidden strings, sorry, axioms, native_decide, bv_decide, attributes, options, imports, or diagnostic commands in the body. Test import and #print commands are harness only.
+MemoLocalBody.lean SHA256 c24dd567daa778f02c70b0068f499d121dcf0f6ebb59fd09be5d87ce59a974e6
+MemoLocalTest.lean SHA256 10e5b649280c601f9c8b656e981ce668b8d8605642f047902e48b2f86777fd8b
+memo-local-test.log SHA256 db160a70f94392f4a4c10f7351a9ffae53cf4680e09f5dfbfdb1c584c31c1a21
+
+COMPLETE LOG counterexample/projected-coverage-independent-audit.txt
+PASS independent mathematical and format review; compilation status remains author-owned.
+Only assumptions are preservation of target, NOT, and both binary Boolean operations.
+Projected separation proof follows Live constructors directly; no old circuit lower bound, projection injectivity, proper-image, or distinct projected rows assumption.
+Unary induction uses XOR coverage because remaining NOT count becomes positive; binary induction preserves the existing directed/XOR mode.
+XOR coverage is a safe weakening for any NOT count. Directed failure requires the actual t from the state.
+List-to-Finset bridge does not need list/projection injectivity. Impossible k t v quantifies m<=k with the same t, matching both failure lemmas.
+The four public bridge helpers exactly match original DynamicBase private helper proofs modulo whitespace/private prefix.
+No forbidden constructs or new assumptions. Test includes both reviewed blocks exactly.
+Initial compilation found omitted section hypotheses; author notified to add include pt pn pb.
+Canonical closed/Memo integration should inline bridge/body, not import a separate DynamicBase-based test module. Full single-file proof may reuse original private helpers.
+Body SHA256 5020abf9ea1a02abbdaad4914ef3bd5e8842174312a9f12c4c514bcfb647b9f7
+Bridge SHA256 115e54e68188639d2b9c401e8cb28438e858687872eb907ae85a2ae07ffd2e59
+
+Author confirmed corrected body compilation passed; full successful log lower-bound/projected-coverage-build-original.log. Canonical import-only recompile follows separately.
