@@ -431,6 +431,78 @@
         "straight-score-1.stderr"
       ],
       "scope": "Pointwise equality of fixed graph28 straight-line scoring to the existing rank-pool evaluation, for every mask list; no graph bound or performance claim."
+    },
+    {
+      "file": "PatternScore984.lean",
+      "sha256": "7a9853595d4d28453a08b85595bbdbf6ee6967e1fa4a7c5bdd36344711fea988",
+      "bytes": 7121,
+      "lines": 143,
+      "observed_compile_exit": 0,
+      "logs": [
+        "pattern-score-1.stdout",
+        "pattern-score-1.stderr"
+      ],
+      "scope": "Pointwise equivalence of a16-row pattern scorer to the fixed rank pool for arbitrary mask lists; no graph or performance claim."
+    },
+    {
+      "file": "DirectCompactV3Fair984.lean",
+      "sha256": "956e25459304e7c4bf8fef7af5f6fbf675c7e58498d76730dc7214cb52e87da5",
+      "bytes": 139736,
+      "lines": 1806,
+      "observed_compile_exit": 0,
+      "logs": [
+        "direct-compact-v3-fair-1.stdout",
+        "direct-compact-v3-fair-1.stderr"
+      ],
+      "scope": "Pruned generic and flat-certificate soundness, compact semantic/routing facts and only matched slot2358 at remaining8; no whole graph bound."
+    },
+    {
+      "file": "DirectCompactV3Parallel984.lean",
+      "sha256": "a4ccf12ecc342338b8e63581ef6087a76209c9a4033f82ee4dc2e9d645f534cc",
+      "bytes": 140881,
+      "lines": 1839,
+      "observed_compile_exit": 0,
+      "logs": [
+        "direct-compact-v3-parallel-1.stdout",
+        "direct-compact-v3-parallel-1.stderr"
+      ],
+      "scope": "Same helper facts and nine distinct layer8 entries: slot2358 and100through107; no whole graph bound."
+    },
+    {
+      "file": "ScoreLoopBenchmarkOld.lean",
+      "sha256": "446e3d071b1e632e5212cf1d8fe41656ed8600c4c00d16b1331cc401c0497081",
+      "bytes": 9840,
+      "lines": 175,
+      "observed_compile_exit": 0,
+      "logs": [
+        "score-loop-benchmark-old.stdout",
+        "score-loop-benchmark-old.stderr"
+      ],
+      "scope": "Thirty finite kernel score checks on one fixed9-wire sample, baseline performance benchmark only."
+    },
+    {
+      "file": "ScoreLoopBenchmarkPattern.lean",
+      "sha256": "0e3f3cd3c76f77603fdf66124268e4582bed5a9e44280658e1cfdbb9d192cc0d",
+      "bytes": 9330,
+      "lines": 175,
+      "observed_compile_exit": 0,
+      "logs": [
+        "score-loop-benchmark-pattern.stdout",
+        "score-loop-benchmark-pattern.stderr"
+      ],
+      "scope": "Same thirty finite kernel score checks with the equivalent pattern scorer; performance benchmark only."
+    },
+    {
+      "file": "CompactGraph8Certificate984-v3.lean",
+      "sha256": "259d7adfaf555a672f1a5296c9593a92d09e919cfccaece58d63a6448a43303e",
+      "bytes": 75906,
+      "lines": 1722,
+      "observed_compile_exit": 0,
+      "logs": [
+        "compact-graph8-certificate-v3.stdout",
+        "compact-graph8-certificate-v3.stderr"
+      ],
+      "scope": "Complete compact certificate for exact posted conjunct8, all14states plus10\u2264circuit size. Remaining30conjuncts not established by this file."
     }
   ]
 }

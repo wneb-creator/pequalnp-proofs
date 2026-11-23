@@ -122,3 +122,17 @@ rank pool for every mask list, and the outer size guards are retained by
 straightScr_eq. PASS for semantic equality only; no speed or graph claim.
 Additional independent review by single_not_reduction confirms the exact
 DirectCompact28Benchmark hash, prefix, graph mapping and limited scope.
+
+PatternScore984 independently reviewed by independent_search and root:
+PASS for exact arbitrary-mask equality and unchanged wrapper guards. Root
+reviewed both finite score-loop benchmark tails and their identical sample;
+performance-only scope. DirectCompactV3Fair984 independently reviewed by
+single_not_reduction and root; certFlat helper also by independent_theory:
+PASS with exact finite range coverage and explicit semantic assumptions.
+Root reviewed the entire Parallel benchmark diff: exactly eight additional
+closed state checks, giving nine distinct entries including2358.
+CompactGraph8Certificate984-v3 independently reviewed by proof_strategy
+and root against the reviewed full candidate: exact conjunct8 and all14
+finite states, PASS. Complete logs retain only deprecation warnings.
+Full compact v4 remains under compilation; independent source review is
+archived separately and does not imply a successful full proof/checker.
