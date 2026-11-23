@@ -54,3 +54,12 @@ TIMING total=184.1 subagents=9
 Checked optimization checkpoint: CompactBridge982, Slice/SliceOpt plus upper-budget wrappers, OldCoverage982, full-coordinate/masked/linear symmetry, compact group replay, and Chunk4 AND/OR/XOR helpers compiled and independently audited. SliceCheckpoint28Leaf0 compiled; the faster OldCoverageCheckpoint28Leaf0 compiled in30.033s. All31 re-encoded datasets were independently numerically audited; they remain untrusted advice until the complete Lean closure check passes. Source/data archive preserves every full search frontier and both encoded table versions. The full posted theorem is still unfinished.
 Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, c7_pack, cube_symmetry, lean_setup, lemma_search, structural_twins
 TIMING total=199.0 subagents=9
+
+Final preservation checkpoint: proof work stopped after lease renewal returned HTTP410 at21:37:51UTC. The required identical curl -si retry returned the same expired-lease error; complete headers/body are in beat-resume-response.txt. No new gap was requested, no lease was released, and no upstream PR was opened. Full L-meta-982 remains incomplete; the repository local checker has not accepted it. No cleanup pass was performed.
+Latest retained checked components: PairReplay982, OrbitLookup982, BinaryHint982, GroupedSymmetry/GroupedSymmetryHom, CoordinateSymmetry, and all31 radix state wrappers. Derived core26 coordinate generator4 passed in30.435s; generator18 was interrupted and is not verified. Independent audits and full compile diagnostics are retained. Compressed state samples do not establish full closure.
+Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, c7_pack, cube_symmetry, lean_setup, lemma_search, structural_twins
+TIMING total=209.4 subagents=9
+
+Independent final staged preservation review: PASS. All215 previously staged paths are confined to results/pilot-7; target Lean file unchanged. All259 copied hashes,53 complete logs, both archives and every archive member verified. This review is for preservation only, not acceptance of the unfinished theorem. Raw HTTP CRLF and original appendix EOF whitespace are intentionally retained.
+Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, c7_pack, cube_symmetry, lean_setup, lemma_search, structural_twins
+TIMING total=211.1 subagents=9

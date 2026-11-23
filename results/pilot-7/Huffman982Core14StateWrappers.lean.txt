@@ -1,0 +1,9 @@
+namespace PEqualNP.Outside.L_meta_982_aux.HuffmanData
+open PEqualNP.Outside.L_meta_982_aux.Huffman
+def c14Mask : Nat := 2^(c14K+c14K)-1
+def c14Root := c14Inputs.foldr insertWord []
+def c14Count (s : Nat) := h14counts.getD s 0
+def c14Blocks := recordBlock 32 h14offsetWidth h14offsetBlock h14offsets h14layerBase h14data readDelta readTag
+def c14Records := recordFromBlocks 32 c14Blocks
+def c14States := state 9 c14Mask c14Root c14Records
+end PEqualNP.Outside.L_meta_982_aux.HuffmanData

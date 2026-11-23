@@ -1,0 +1,32 @@
+import GroupedSymmetry
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Symmetry.Grouped
+
+theorem permWord_zero (width : Nat) (p : Nat → Nat) : permWord width p 0 = 0 := by
+  apply Nat.eq_of_testBit_eq
+  intro j
+  simp only [permWord_testBit]
+  simp
+
+theorem word_hom {bits k n : Nat} {pool : List Nat} {ps : Array (List Nat)}
+    (hn : 0 < n) (hs : ps.size = n) (hp : ∀ p ∈ ps, Full.Good k pool p) (g : Nat) :
+    word bits k n ps g 0 = 0 ∧
+    (∀ a, word bits k n ps g (a ^^^ Live.mask k) = word bits k n ps g a ^^^ Live.mask k) ∧
+    (∀ a b, word bits k n ps g (a &&& b) = word bits k n ps g a &&& word bits k n ps g b) ∧
+    (∀ a b, word bits k n ps g (a ||| b) = word bits k n ps g a ||| word bits k n ps g b) := by
+  by_cases hz : g%n = 0
+  · simp [word, hz]
+  · have hg := hp (ps.getD (g%n) [])
+      (Checkpoint.array_getD_mem ps [] (by rw [hs]; exact Nat.mod_lt g hn))
+    have he : word bits k n ps g = permWord (k+k) ((ps.getD (g%n) []).getD · 0) := by
+      funext x
+      simp only [word, hz, if_false]
+      rw [fast_eq hg.1, Full.fast_eq hg.1]
+    rw [he]
+    refine ⟨permWord_zero _ _, ?_, permWord_and _ _, permWord_or _ _⟩
+    intro a
+    change permWord (k+k) _ (a ^^^ (2^(k+k)-1)) = _
+    rw [permWord_xor, permWord_mask _ _ hg.2.1]
+    rfl
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Symmetry.Grouped

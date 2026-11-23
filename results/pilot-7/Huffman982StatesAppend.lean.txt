@@ -1,0 +1,34 @@
+namespace PEqualNP.Outside.L_meta_982_aux.Huffman
+
+def insertWord (a : Nat) : List Nat → List Nat
+  | [] => [a]
+  | b::bs => if a ≤ b then a::b::bs else b::insertWord a bs
+
+def move (mask : Nat) (ws : List Nat) (tag : Nat) : List Nat :=
+  if tag < 48 then
+    let i := tag / 4
+    let a := ws.getD i 0
+    [a ^^^ mask] ++ (if tag % 4 = 3 then [a] else []) ++ ws.take i ++ ws.drop (i+1)
+  else
+    let t := (tag-48) / 8
+    let b := (List.range 16).foldl (fun old j => if j*(j+1)/2 ≤ t then j else old) 0
+    let a := t-b*(b+1)/2
+    let x := ws.getD a 0
+    let y := ws.getD b 0
+    let v := if (tag-48) / 4 % 2 = 1 then x &&& y else x ||| y
+    [v] ++ (if (tag-48) / 2 % 2 = 1 then [x] else []) ++
+      (if (tag-48) % 2 = 1 then [y] else []) ++
+      (ws.zipIdx.filterMap fun (w,i) => if i = a ∨ i = b then none else some w)
+
+def fromRoot (cap mask : Nat) (root : List Nat) (records : Nat → Nat → Nat × Nat) :
+    Nat → Nat → List Nat
+  | 0, i => if i = 0 then root else []
+  | d+1, i =>
+    let (parent,tag) := records (cap-(d+1)) i
+    (move mask (fromRoot cap mask root records d parent) tag).foldr insertWord []
+
+def state (cap mask : Nat) (root : List Nat) (records : Nat → Nat → Nat × Nat)
+    (s i : Nat) : List Nat :=
+  if s ≤ cap then fromRoot cap mask root records (cap-s) i else []
+
+end PEqualNP.Outside.L_meta_982_aux.Huffman

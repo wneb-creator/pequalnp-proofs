@@ -1,0 +1,29 @@
+{
+  "verdict": "PASS",
+  "scope": "Final preservation checkpoint only, not proof PR",
+  "staged_paths": 215,
+  "all_paths_under_results_pilot7": true,
+  "target_unchanged": true,
+  "index_matches_worktree": true,
+  "copy_manifest_entries_verified": 259,
+  "full_log_copies_verified": 53,
+  "archives": [
+    {
+      "name": "search-data-982.tar.gz",
+      "members": 168,
+      "sha256": "e88fee3ecb04641b2388606535c393f3d48adae33da4f6b4a222e4e9345c3c67"
+    },
+    {
+      "name": "reoriented-data-982.tar.gz",
+      "members": 31,
+      "sha256": "f57cce5227a2d8b9b2b850e65ad6bdb5bbea81e419688d5990582931a29adc39"
+    }
+  ],
+  "credential_pattern_scan": "No GitHub token/private-key/Authorization-secret/credential-URL patterns found in staged files or archive members; no credential environment was read.",
+  "status_notes": "Validation and resume notes truthfully state incomplete31-conjunct theorem, no local-checker acceptance, no upstream PR, expired leaseHTTP410. Historical progress entries remain clearly followed by final stopped status.",
+  "intentional_whitespace": "Raw HTTP response CRLF/trailing status whitespace and one checked-source EOF blank are preserved exactly; no source/evidence normalization was performed.",
+  "remaining_scope_limits": [
+    "Coordinate generator18 is explicitly unverified.",
+    "Decoder samples and partial component proofs do not establish the full theorem."
+  ]
+}

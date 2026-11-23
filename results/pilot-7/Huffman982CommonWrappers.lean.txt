@@ -1,0 +1,5 @@
+namespace PEqualNP.Outside.L_meta_982_aux.HuffmanData
+open PEqualNP.Outside.L_meta_982_aux.Huffman
+def readDelta := read deltastarts deltacounts deltabases deltasymbolBaseWidth deltasymbolBlock deltasymbols
+def readTag := read tagstarts tagcounts tagbases tagsymbolBaseWidth tagsymbolBlock tagsymbols
+end PEqualNP.Outside.L_meta_982_aux.HuffmanData

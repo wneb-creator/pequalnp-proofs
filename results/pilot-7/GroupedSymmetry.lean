@@ -1,0 +1,199 @@
+import RadixSymmetry
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Symmetry.Grouped
+
+def split (bit : Nat) (p : List (Nat × Nat)) : List (Nat × Nat) :=
+  p.filter (fun j => !(Fast.bit j.1 bit)) ++ p.filter (fun j => Fast.bit j.1 bit)
+def sort : Nat → List (Nat × Nat) → List (Nat × Nat)
+  | 0,p => p
+  | b+1,p => split b (sort b p)
+def merge : List (Nat × Nat) → List (Nat × Nat)
+  | [] => []
+  | (d,m)::xs =>
+      match merge xs with
+      | [] => [(d,m)]
+      | (e,n)::ys => if d=e then (d,m|||n)::ys else (d,m)::(e,n)::ys
+
+def term (width x : Nat) (a : Nat × Nat) : Nat :=
+  ((x/2^(a.1-width))*2^(width-a.1)) &&& a.2
+
+def eval (width x : Nat) (ops : List (Nat × Nat)) (tail : Nat) : Nat :=
+  ops.foldr (fun a y => term width x a ||| y) tail
+
+def ops (bits width : Nat) (p : List Nat) : List (Nat × Nat) :=
+  merge (sort bits (p.zipIdx.map (fun (s,j) => (width+s-j,2^j))))
+
+def fast (bits width : Nat) (p : List Nat) (x : Nat) : Nat :=
+  eval width x (ops bits width p) ((x/2^width)*2^width)
+
+theorem mem_sort (bits : Nat) (a : Nat × Nat) (p : List (Nat × Nat)) :
+    a ∈ sort bits p ↔ a ∈ p := by
+  have hs (b : Nat) (xs : List (Nat × Nat)) : a ∈ split b xs ↔ a ∈ xs := by
+    simp only [split, List.mem_append, List.mem_filter]
+    cases hb : Fast.bit a.1 b <;> simp [hb]
+  induction bits with
+  | zero => rfl
+  | succ b ih => simpa only [sort, hs] using ih
+
+theorem eval_bit (width x : Nat) (ps : List (Nat × Nat)) (tail j : Nat) :
+    (eval width x ps tail).testBit j =
+      (tail.testBit j || ps.any (fun a => (term width x a).testBit j)) := by
+  induction ps with
+  | nil => simp [eval]
+  | cons a ps ih =>
+    change (term width x a ||| eval width x ps tail).testBit j = _
+    rw [Nat.testBit_or, ih]
+    simp only [List.any_cons]
+    ac_rfl
+
+theorem eval_sort (bits width x : Nat) (ps : List (Nat × Nat)) (tail : Nat) :
+    eval width x (sort bits ps) tail = eval width x ps tail := by
+  apply Nat.eq_of_testBit_eq
+  intro j
+  rw [eval_bit, eval_bit]
+  congr 1
+  apply Bool.eq_iff_iff.mpr
+  simp only [List.any_eq_true, mem_sort]
+
+theorem eval_merge (width x : Nat) (ps : List (Nat × Nat)) (tail : Nat) :
+    eval width x (merge ps) tail = eval width x ps tail := by
+  induction ps with
+  | nil => rfl
+  | cons a ps ih =>
+    rcases a with ⟨d,m⟩
+    change eval width x (merge ((d,m)::ps)) tail = term width x (d,m) ||| eval width x ps tail
+    rw [←ih]
+    cases hm : merge ps with
+    | nil => simp [merge, hm, eval]
+    | cons a ys =>
+      rcases a with ⟨e,n⟩
+      by_cases hd : d=e
+      · subst e
+        simp [merge, hm, eval, term, Nat.and_or_distrib_left, Nat.or_assoc]
+      · simp [merge, hm, hd, eval]
+
+theorem zip_mem_iff {p : List Nat} {s i : Nat} :
+    (s,i) ∈ p.zipIdx ↔ ∃ h : i < p.length, p[i] = s := by
+  constructor
+  · intro hm
+    obtain ⟨j,hj,he⟩ := List.mem_iff_getElem.1 hm
+    rw [List.getElem_zipIdx] at he
+    have hji : j=i := by simpa using congrArg Prod.snd he
+    subst i
+    exact ⟨by simpa using hj, congrArg Prod.fst he⟩
+  · rintro ⟨hi,rfl⟩
+    have hm := List.getElem_mem (l := p.zipIdx) (by simpa using hi)
+    simpa only [List.getElem_zipIdx, Nat.zero_add] using hm
+
+theorem term_bit (width x s i j : Nat) (hi : i < width) :
+    (term width x (width+s-i,2^i)).testBit j =
+      if i=j then x.testBit s else false := by
+  rw [term, Nat.testBit_and, Nat.testBit_two_pow]
+  by_cases hij : i=j
+  · subst j
+    have hl : width-(width+s-i) ≤ i := by omega
+    have hs : (width+s-i)-width+(i-(width-(width+s-i))) = s := by omega
+    rw [←Nat.shiftLeft_eq, Nat.testBit_shiftLeft, ←Nat.shiftRight_eq_div_pow,
+      Nat.testBit_shiftRight]
+    simp [hl, hs]
+  · simp [hij]
+
+theorem fast_eq {width : Nat} {p : List Nat} (hp : p.length = width) (bits x : Nat) :
+    fast bits width p x = Full.fast width p x := by
+  apply Nat.eq_of_testBit_eq
+  intro j
+  rw [Full.fast_eq hp, permWord_testBit]
+  rw [fast, ops, eval_merge, eval_sort, eval_bit, Masked.tail_bit]
+  by_cases hj : j < width
+  · rw [if_pos hj, if_pos hj, Bool.false_or]
+    apply Bool.eq_iff_iff.mpr
+    simp only [List.any_eq_true, List.mem_map]
+    constructor
+    · rintro ⟨a, ⟨⟨s,i⟩,hi,rfl⟩,hx⟩
+      obtain ⟨hi,hs⟩ := zip_mem_iff.1 hi
+      rw [term_bit _ _ _ _ _ (by omega)] at hx
+      by_cases hij : i=j
+      · subst i
+        have he : p.getD j 0 = s := by rw [List.getD_eq_getElem p 0 hi]; exact hs
+        rw [he]
+        simpa using hx
+      · simp [hij] at hx
+    · intro hx
+      refine ⟨(width+p.getD j 0-j,2^j), ⟨(p.getD j 0,j), Linear.zip_mem (by omega), rfl⟩, ?_⟩
+      simpa [term_bit _ _ _ _ _ hj] using hx
+  · rw [if_neg hj, if_neg hj]
+    have hz : (p.zipIdx.map (fun (s,i) => (width+s-i,2^i))).any
+        (fun a => (term width x a).testBit j) = false := by
+      apply List.any_eq_false.2
+      intro a ha
+      obtain ⟨⟨s,i⟩,hi,rfl⟩ := List.mem_map.1 ha
+      obtain ⟨hi,_⟩ := zip_mem_iff.1 hi
+      simp [term_bit width x s i j (by omega), show i ≠ j by omega]
+    rw [hz, Bool.or_false]
+
+def Check (k bits : Nat) (pool p : List Nat) : Bool :=
+  decide (p.length = k+k) && decide (Radix.sort bits p = List.range (k+k)) &&
+  p.zipIdx.all (fun (s,j) => decide (k ≤ s ↔ k ≤ j)) &&
+  pool.all (fun a => (pool.map (fast bits (k+k) p)).contains a)
+
+theorem check_good {k bits : Nat} {pool p : List Nat}
+    (hc : Check k bits pool p = true) : Full.Good k pool p := by
+  have hl : p.length = k+k := by
+    have hh := hc
+    simp only [Check, Bool.and_eq_true, decide_eq_true_eq] at hh
+    exact hh.1.1.1
+  have he : fast bits (k+k) p = Masked.fast (k+k) p := by
+    funext x
+    rw [fast_eq hl, Masked.fast_eq hl]
+  apply Radix.check_good (bits := bits)
+  simpa only [Check, Radix.Check, he] using hc
+
+def packedCheck (k bits pw rw rb n fw fb count : Nat) (pool : List Nat)
+    (gs : Array (List Nat)) (rs refs : Array Nat) : Bool :=
+  (List.range gs.size).all (fun i => Check k bits pool (gs.getD i [])) &&
+  Checkpoint.recipeCheck pw rw rb n gs.size rs && Checkpoint.actionCheck fw fb count (n+1) refs
+
+theorem checked_actions {k bits pw rw rb n fw fb count : Nat} {pool : List Nat}
+    {gs : Array (List Nat)} {rs refs : Array Nat}
+    (hc : packedCheck k bits pw rw rb n fw fb count pool gs rs refs = true) :
+    ∀ p ∈ Checkpoint.actions fw fb count refs (Checkpoint.group (k+k) pw rw rb n gs rs),
+      Full.Good k pool p := by
+  simp only [packedCheck, Bool.and_eq_true, List.all_eq_true, List.mem_range] at hc
+  apply Checkpoint.actions_preserves
+  · exact Checkpoint.group_preserves (Full.Good k pool) (k+k) pw rw rb n gs rs (Full.good_id k pool)
+      (array_all (xs := gs) (P := Full.Good k pool) [] rfl (fun i => check_good (hc.1.1 i i.2)))
+      (fun _ _ hp hq => Full.good_comp hp hq) hc.1.2
+  · simpa only [Checkpoint.group_size] using hc.2
+
+def word (bits k n : Nat) (ps : Array (List Nat)) (g : Nat) : Nat → Nat :=
+  if g % n = 0 then id else fast bits (k+k) (ps.getD (g % n) [])
+
+theorem word_run {bits k n : Nat} {pool : List Nat} {ps : Array (List Nat)}
+    (hn : 0 < n) (hs : ps.size = n) (hp : ∀ p ∈ ps, Full.Good k pool p)
+    (g : Nat) {u : Nat} {ws : List Nat}
+    (h : Reduced.RNatRun pool (Live.mask k) (Live.goal k) u ws) :
+    Reduced.RNatRun pool (Live.mask k) (Live.goal k) u (ws.map (word bits k n ps g)) := by
+  unfold word
+  split
+  · simpa only [List.map_id] using h
+  · have hg := hp (ps.getD (g%n) [])
+      (Checkpoint.array_getD_mem ps [] (by rw [hs]; exact Nat.mod_lt g hn))
+    have he : fast bits (k+k) (ps.getD (g%n) []) = Full.fast (k+k) (ps.getD (g%n) []) :=
+      funext (fast_eq hg.1 bits)
+    rw [he]
+    exact hg.2.2.2 h
+
+def orient (bits k n : Nat) (ps : Array (List Nat)) (payload : Nat) (ws : List Nat) :=
+  if payload = 0 then ws else ws.map (word bits k n ps ((payload-1)%64))
+
+theorem orient_run {bits k n : Nat} {pool : List Nat} {ps : Array (List Nat)}
+    (hn : 0 < n) (hs : ps.size = n) (hp : ∀ p ∈ ps, Full.Good k pool p)
+    (payload : Nat) {u : Nat} {ws : List Nat}
+    (h : Reduced.RNatRun pool (Live.mask k) (Live.goal k) u ws) :
+    Reduced.RNatRun pool (Live.mask k) (Live.goal k) u (orient bits k n ps payload ws) := by
+  unfold orient
+  split
+  · exact h
+  · exact word_run hn hs hp _ h
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Symmetry.Grouped

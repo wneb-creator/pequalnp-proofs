@@ -1,0 +1,41 @@
+{
+  "verdict": "PASS",
+  "purpose": "Final preservation review after lease expiry; no new compilation or proof experiment",
+  "sources": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-7/PairReplay982.lean",
+      "sha256": "6a4341e4344983131e6520da09acf720366b2693303b8c65a14b0f1c253713cf",
+      "logs": [
+        "/tmp/oec/pequalnp-pilot-7/PairReplay982.stdout.log",
+        "/tmp/oec/pequalnp-pilot-7/PairReplay982.stderr.log"
+      ],
+      "compile_exit": "0 reported by root/author; complete stdout/stderr are empty"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-7/OrbitLookup982.lean",
+      "sha256": "e9ccf0087f8e127d6da5225a81bddae2dfb2771c8ee1718e1847645a72d05c48",
+      "logs": [
+        "/tmp/oec/pequalnp-pilot-7/OrbitLookup982.stdout.log",
+        "/tmp/oec/pequalnp-pilot-7/OrbitLookup982.stderr.log"
+      ],
+      "compile_exit": "0 reported by root/author; complete stdout/stderr are empty"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-7/BinaryHint982.lean",
+      "sha256": "11de6f38f5f0518afc32ed311cf2b0c071b4137470fad06784263720f28694d5",
+      "logs": [
+        "/tmp/oec/pequalnp-pilot-7/BinaryHint982.stdout.log",
+        "/tmp/oec/pequalnp-pilot-7/BinaryHint982.stderr.log"
+      ],
+      "compile_exit": "0 reported by root/author; complete stdout/stderr are empty"
+    }
+  ],
+  "reason": [
+    "PairReplay maintains the explicit relation second=f(first) through default lookups, NOT/AND/OR moves, filtering and sorting. f0=0 and gate-homomorphism premises are explicit, so arbitrary malformed tags/records do not smuggle assumptions.",
+    "guarded transforms an actual child only after isPerm matches its first-coordinate list exactly. The relation and explicit run-preservation premise then transport that run to the second-coordinate list; mismatch returns the original list.",
+    "orbitLookup returns either one action applied to the original child or the untouched child. Its proof requires run preservation for every candidate action and does not trust the lookup result.",
+    "Binary search/sorting are deliberately untrusted hints: the soundness theorem permits any returned index, because the downstream indexed checker still checks bounds and exact isPerm. No sorted-table or search-completeness theorem is assumed.",
+    "The three kernel examples test specific binaryFind outputs only; they do not claim a universal search specification."
+  ],
+  "scope": "Generic relation replay and run-preserving lookup hints, not complete concrete closure or the posted31-conjunct theorem."
+}

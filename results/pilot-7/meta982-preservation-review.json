@@ -1,0 +1,184 @@
+{
+  "purpose": "Final preservation review after lease expiry; no new proof experiments or compilation",
+  "groups": {
+    "pair_replay": [
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/PairReplay982.lean",
+        "sha256": "6a4341e4344983131e6520da09acf720366b2693303b8c65a14b0f1c253713cf"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/PairReplay982.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/PairReplay982.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/meta982-final-lookup-replay-audit.json",
+        "sha256": "b8f2a99a9814710bb57cd58778ae825dd55abced4f474457270eec5b05dd495f"
+      }
+    ],
+    "lookup": [
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/OrbitLookup982.lean",
+        "sha256": "e9ccf0087f8e127d6da5225a81bddae2dfb2771c8ee1718e1847645a72d05c48"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/OrbitLookup982.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/OrbitLookup982.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/BinaryHint982.lean",
+        "sha256": "11de6f38f5f0518afc32ed311cf2b0c071b4137470fad06784263720f28694d5"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/BinaryHint982.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/BinaryHint982.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "grouped_symmetry": [
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry.lean",
+        "sha256": "72af48e7f24931a59ac3fa0baff11454c2692b98b0a399f8d0aa4a038fbf7a0e"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry.compile.log",
+        "sha256": "7b800b827405ee16d9c34012820c3b23fd29fc71e7d1566406dec4de1e4dcb4f"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry.compile.json",
+        "sha256": "81b878629effd22d7b98380efe990fddbe8e1e370c4d94ff4b84cc47b20b322c"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/meta982-grouped-symmetry-audit.json",
+        "sha256": "65c992cfc518d8eb92d2f43874da0f6c827fa288bb611ca5f859622fc0118916"
+      }
+    ],
+    "coordinate_symmetry": [
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry.lean",
+        "sha256": "1c15093ebf16e1bafe29a4835d257a68919cf921d082b86aed6817266817ce8c"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry.compile.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry.compile.json",
+        "sha256": "e20b61f616b0e25b903475b3b3235c391166be1db9853ecc76ea8d84d4173f6c"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/meta982-coordinate-symmetry-audit.json",
+        "sha256": "8d23478b16037d249e2c80d8eee377c58e21b443d805ee0c7bea28803c3a2613"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry26Gen4.lean",
+        "sha256": "22acbc6871a58e0ace15e694251d52cbd974d7a385b9c2f8e254b467456e3ac8"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry26Gen4.compile.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry26Gen4.compile.json",
+        "sha256": "31865efab9e1b84fad5582d041105738cbc1f835ca68fe2710ff004ea13dc060"
+      }
+    ],
+    "radix_huffman": [
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/Huffman982RadixDecoder.lean",
+        "sha256": "7268d919cbc383f705af0e3bd04d065667cc870a179afcf46c12c4ba7da63afe"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/Huffman982StatesAppend.lean.txt",
+        "sha256": "6689c1815642da5e012c810aaccf8b09b4a3de248d7823a7c5af620da2ece0a2"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/Huffman982Radix3StateCache.lean.txt",
+        "sha256": "81e8017426f51239fc7dfe6766f51eccb4eacf5654b87f46b6987544ffcfcf69"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/lemma982-huffman-manifest.json",
+        "sha256": "a77b6d92774b0abb7333e1cdb8e078c8717b7179eee9521024d1001e6d987dbd"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/lemma982-huffman-radix-manifest.json",
+        "sha256": "a77b6d92774b0abb7333e1cdb8e078c8717b7179eee9521024d1001e6d987dbd"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/meta982-huffman-audit.json",
+        "sha256": "900b982e46af40bf744c70afa15129957b0500c4f471f1dcf45fac91414d95fd"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/meta982-huffman-radix-source-audit.json",
+        "sha256": "1dd24cc5ccc556bd6fd9351e2dfbb4fbfbf85dc3fee0f158fb5b6fbc2d66bcb9"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/meta982-huffman-radix-deep-audit.json",
+        "sha256": "52bdc889e7429cc2005956f73642e1304a44dd30f2f0c56715226a61368ae536"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/Huffman982Core28RadixDirectCheck.lean",
+        "sha256": "585c8842bea5ee7c1228a1c7bd60ef8d2d85e9b76859cc42cd93b9e8ddfbc037"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/huffman982-core28-radix-direct.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/huffman982-core28-radix-direct-timing.json",
+        "sha256": "bad942adef3918e8597e6d0ffb3fab149aac56cc5eb64d921cfdc2470e9fbe0a"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/Huffman982Core28RadixDeepBlocksCheck.lean",
+        "sha256": "339352548c59df79278e28a04ead80c3e08de90c29232918cbda08493d8b8e2e"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/huffman982-core28-radix-deep-blocks.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/huffman982-core28-radix-deep-blocks-timing.json",
+        "sha256": "3daa4265fb87ad34af06b394d6494673e49301ef59c9a4167685e1f7e8cc3bf5"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/Huffman982Core28RadixDeepCached3Check.lean",
+        "sha256": "b5245d402606b760694913348fc9375c9cd53875e8cd08297f09c9084cd99078"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/huffman982-core28-radix-deep-cached3.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/huffman982-core28-radix-deep-cached3-timing.json",
+        "sha256": "cedb2b79aaeba918434bc100ce6bd0c774e4d622bd521f53ad9c8c906334f8e2"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/Huffman982AllStateWrappersCheck.lean",
+        "sha256": "40adbcf3e0527bf7853f4278fa93c556e5d238e0a4fecb429e10a93a544bb65f"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/huffman982-all-state-wrappers.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/tmp/oec/pequalnp-pilot-7/huffman982-all-state-wrappers-timing.json",
+        "sha256": "4faa1d2d7caea90b6326ea462d0ae96b428f7558b7b3a0b4c0eb516d201ca731"
+      }
+    ]
+  },
+  "notes": [
+    "The full Huffman manifest additionally names every payload/codebook/input/wrapper source; preserve those or the already prepared data archive.",
+    "CoordinateGen4 late PASS is independently confirmed and its audit supplement is complete. It certifies core26 derived action[0,1,2,5,6,3,4] with the full9-word forbidden pool. CoordinateGen18 remains unconfirmed.",
+    "These artifacts do not prove the entire posted31-conjunct statement; no complete local-checker acceptance or proof PR is claimed."
+  ]
+}

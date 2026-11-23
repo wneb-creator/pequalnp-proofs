@@ -1,0 +1,335 @@
+{
+  "status": "stopped on parent instruction after lease expiration",
+  "no_active_owned_compilers": true,
+  "recommended_modules": [
+    "GroupedSymmetry",
+    "GroupedSymmetryHom",
+    "CoordinateSymmetry"
+  ],
+  "handoff": "/tmp/oec/pequalnp-pilot-7/Symmetry982FinalHandoff.md",
+  "modules": [
+    {
+      "module": "CompactSymmetry",
+      "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetry.lean",
+      "sha256": "fbeca90db05d34bbf30a54a47cff9e528647586fe2d2bdc032e055bcda9ec298",
+      "lines": 94,
+      "bytes": 3825,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/CompactSymmetry.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetry.compile.log",
+      "compile": {
+        "module": "CompactSymmetry",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 4.535063958999672,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "CompactSymmetryDecoder",
+      "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryDecoder.lean",
+      "sha256": "eb883addb4caefde6f668bc19db0d098afa3a13667121f30377cc7acff6c4b95",
+      "lines": 27,
+      "bytes": 1192,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryDecoder.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryDecoder.compile.log",
+      "compile": {
+        "module": "CompactSymmetryDecoder",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 4.038611846999629,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "CompactSymmetryReplay",
+      "source": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryReplay.lean",
+      "sha256": "2ccd96acd7b4e8504eb3c087a29c0b2dded9af82adb7ba360e6fff32749dc408",
+      "lines": 128,
+      "bytes": 5696,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryReplay.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/CompactSymmetryReplay.compile.log",
+      "compile": {
+        "module": "CompactSymmetryReplay",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 4.4865125579999585,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "ConcreteSymmetrySupport",
+      "source": "/tmp/oec/pequalnp-pilot-7/ConcreteSymmetrySupport.lean",
+      "sha256": "2d2434ec9f8c857940a136aac648af18e195595dced9f54f01afeb02d35607d9",
+      "lines": 238,
+      "bytes": 9400,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/ConcreteSymmetrySupport.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/ConcreteSymmetrySupport.compile.log",
+      "compile": {
+        "module": "ConcreteSymmetrySupport",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 5.209898873001293,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "FullSymmetry",
+      "source": "/tmp/oec/pequalnp-pilot-7/FullSymmetry.lean",
+      "sha256": "ea6014838353a48411992b7cd967ecc30c2fa5e77055088f2bc4af0c5ab755df",
+      "lines": 145,
+      "bytes": 6301,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/FullSymmetry.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/FullSymmetry.compile.log",
+      "compile": {
+        "module": "FullSymmetry",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 3.7834324260002177,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "MaskSymmetry",
+      "source": "/tmp/oec/pequalnp-pilot-7/MaskSymmetry.lean",
+      "sha256": "227ddeb29f22e474f411bef95065fbdbff1f71b1e19f8e16c51e7e526ee7cd40",
+      "lines": 127,
+      "bytes": 5412,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/MaskSymmetry.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/MaskSymmetry.compile.log",
+      "compile": {
+        "module": "MaskSymmetry",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 4.1824238510016585,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "LinearSymmetry",
+      "source": "/tmp/oec/pequalnp-pilot-7/LinearSymmetry.lean",
+      "sha256": "e494c91926212d467711b7343c19f992bf53dfab1a98607b5e004615a36528c3",
+      "lines": 64,
+      "bytes": 3114,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/LinearSymmetry.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/LinearSymmetry.compile.log",
+      "compile": {
+        "module": "LinearSymmetry",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 4.8645383390012285,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "RadixSymmetry",
+      "source": "/tmp/oec/pequalnp-pilot-7/RadixSymmetry.lean",
+      "sha256": "b4f2fb620d101af825df6876f90798fe19a698e9b3a15088215e9a4545104878",
+      "lines": 83,
+      "bytes": 3590,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/RadixSymmetry.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/RadixSymmetry.compile.log",
+      "compile": {
+        "module": "RadixSymmetry",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 4.37944519300072,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "GroupedSymmetry",
+      "source": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry.lean",
+      "sha256": "72af48e7f24931a59ac3fa0baff11454c2692b98b0a399f8d0aa4a038fbf7a0e",
+      "lines": 199,
+      "bytes": 8284,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry.compile.log",
+      "compile": {
+        "module": "GroupedSymmetry",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 5.08123348799927,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "GroupedSymmetryHom",
+      "source": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetryHom.lean",
+      "sha256": "fc5c09c8d9b3bd643d7ea122ccf16f90f242fe40d4cda25150bf68928d8468ed",
+      "lines": 32,
+      "bytes": 1348,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetryHom.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetryHom.compile.log",
+      "compile": {
+        "module": "GroupedSymmetryHom",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 4.33521233799911,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "CoordinateSymmetry",
+      "source": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry.lean",
+      "sha256": "1c15093ebf16e1bafe29a4835d257a68919cf921d082b86aed6817266817ce8c",
+      "lines": 25,
+      "bytes": 970,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry.compile.log",
+      "compile": {
+        "module": "CoordinateSymmetry",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 4.034724339999229,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "LinearSymmetryData26",
+      "source": "/tmp/oec/pequalnp-pilot-7/LinearSymmetryData26.lean",
+      "sha256": "91184502dfe3c611016896ae09f4d8325149c6013fba3249f5ba4987fad19443",
+      "lines": 11,
+      "bytes": 38462,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/LinearSymmetryData26.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/LinearSymmetryData26.compile.log",
+      "compile": {
+        "module": "LinearSymmetryData26",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 9.85154803200021,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "GroupedSymmetry26Full4",
+      "source": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry26Full4.lean",
+      "sha256": "993b6f50fa7a5a2de7f8581679497b9b08dca400d7f5dadddab2d76121c251b0",
+      "lines": 7,
+      "bytes": 314,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry26Full4.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry26Full4.compile.log",
+      "compile": {
+        "module": "GroupedSymmetry26Full4",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 14.975647266001033,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "GroupedSymmetry26Full18",
+      "source": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry26Full18.lean",
+      "sha256": "f1c890e3168013a3e2ff43f0fe5a83409df5c723afd4557ace7022e82f36f37d",
+      "lines": 7,
+      "bytes": 316,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry26Full18.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry26Full18.compile.log",
+      "compile": {
+        "module": "GroupedSymmetry26Full18",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 14.97637706400019,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "CoordinateSymmetry26Gen4",
+      "source": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry26Gen4.lean",
+      "sha256": "22acbc6871a58e0ace15e694251d52cbd974d7a385b9c2f8e254b467456e3ac8",
+      "lines": 7,
+      "bytes": 432,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry26Gen4.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry26Gen4.compile.log",
+      "compile": {
+        "module": "CoordinateSymmetry26Gen4",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 30.435039986999982,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "RadixSymmetry26Geometry",
+      "source": "/tmp/oec/pequalnp-pilot-7/RadixSymmetry26Geometry.lean",
+      "sha256": "80cf33088a4efa331daad58b72d4cf7a080f61ad3418c56059e65e5ecc05620d",
+      "lines": 7,
+      "bytes": 313,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/RadixSymmetry26Geometry.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/RadixSymmetry26Geometry.compile.log",
+      "compile": {
+        "module": "RadixSymmetry26Geometry",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 9.010398194999652,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "RadixSymmetry26Pool",
+      "source": "/tmp/oec/pequalnp-pilot-7/RadixSymmetry26Pool.lean",
+      "sha256": "be58085b6f043153043acef33f05bdfe0af444ef9a34ed2d07ffccbc62c64362",
+      "lines": 7,
+      "bytes": 311,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/RadixSymmetry26Pool.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/RadixSymmetry26Pool.compile.log",
+      "compile": {
+        "module": "RadixSymmetry26Pool",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 61.385896703999606,
+        "hard_cap_seconds": 90.0
+      }
+    },
+    {
+      "module": "MaskSymmetryManyFinal",
+      "source": "/tmp/oec/pequalnp-pilot-7/MaskSymmetryManyFinal.lean",
+      "sha256": "886b623b6a63c757370f957538cf176e9e905ae839afc757e3b2d41299c195fe",
+      "lines": 8,
+      "bytes": 13589,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/MaskSymmetryManyFinal.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/MaskSymmetryManyFinal.compile.log",
+      "compile": {
+        "module": "MaskSymmetryManyFinal",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 17.515058230999784,
+        "hard_cap_seconds": 60.0
+      }
+    },
+    {
+      "module": "GroupedSymmetry26Pool",
+      "source": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry26Pool.lean",
+      "sha256": "3467c04f59222ddca8d004c6bbdd85dece58203b9cb283506a95f01d36b2e9c7",
+      "lines": 6,
+      "bytes": 339,
+      "compile_record": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry26Pool.compile.json",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/GroupedSymmetry26Pool.compile.log",
+      "compile": {
+        "module": "GroupedSymmetry26Pool",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 9.668798836999486,
+        "hard_cap_seconds": 90.0
+      }
+    }
+  ],
+  "prior_manifests": [
+    "/tmp/oec/pequalnp-pilot-7/CompactSymmetryManifest.json",
+    "/tmp/oec/pequalnp-pilot-7/Symmetry982Manifest.json"
+  ],
+  "pending": {
+    "module": "CoordinateSymmetry26Gen18",
+    "status": "INTERRUPTED; no PASS claimed",
+    "source": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry26Gen18.lean",
+    "log": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry26Gen18.compile.log",
+    "detail": "Batch interrupted after root stop; exact child compiler PID46174 was then terminated."
+  },
+  "audits": [
+    "/tmp/oec/pequalnp-pilot-7/meta982-full-symmetry-audit.json",
+    "/tmp/oec/pequalnp-pilot-7/meta982-mask-symmetry-audit.json",
+    "/tmp/oec/pequalnp-pilot-7/meta982-linear-symmetry-audit.json",
+    "/tmp/oec/pequalnp-pilot-7/meta982-radix-symmetry-audit.json",
+    "/tmp/oec/pequalnp-pilot-7/meta982-grouped-symmetry-audit.json",
+    "/tmp/oec/pequalnp-pilot-7/meta982-compact-symmetry-replay-audit.json"
+  ]
+}

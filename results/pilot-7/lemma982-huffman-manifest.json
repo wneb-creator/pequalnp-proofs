@@ -1,0 +1,636 @@
+{
+  "version": "radix32-state-wrappers",
+  "cores": 31,
+  "stored_states": 79270,
+  "data_source_bytes": 324397,
+  "optional_input_literals_bytes": 51842,
+  "state_wrappers_bytes": 15241,
+  "source_scope": "Pure definitions and sampled kernel equalities only; no full finite closure is proved here.",
+  "all_parent_tag_records_python_round_trip": true,
+  "all_reoriented_states_match_original_orbits": true,
+  "all_sliced_state_layers_sorted_by_raw_words": true,
+  "no_symmetry_in_state_recipes": true,
+  "decoder_table_depth": 2,
+  "decoder_table_fanout": 32,
+  "cached_state_table_depth": 3,
+  "cached_state_table_fanout": 32,
+  "checks": [
+    {
+      "snapshot": "Huffman982Core28RadixDirectCheck.lean",
+      "states": [
+        [
+          9,
+          0
+        ],
+        [
+          8,
+          31
+        ],
+        [
+          7,
+          17
+        ]
+      ],
+      "exit_code": 0,
+      "seconds": 14.249928399000055
+    },
+    {
+      "snapshot": "Huffman982Core28RadixDeepBlocksCheck.lean",
+      "states": [
+        [
+          8,
+          9000
+        ],
+        [
+          7,
+          7700
+        ],
+        [
+          6,
+          500
+        ],
+        [
+          5,
+          24
+        ]
+      ],
+      "variant": "Blocks",
+      "exit_code": 0,
+      "seconds": 14.636408200000005
+    },
+    {
+      "snapshot": "Huffman982Core28RadixDeepCached3Check.lean",
+      "states": [
+        [
+          8,
+          9000
+        ],
+        [
+          7,
+          7700
+        ],
+        [
+          6,
+          500
+        ],
+        [
+          5,
+          24
+        ]
+      ],
+      "variant": "Cached3",
+      "exit_code": 0,
+      "seconds": 13.882037987999865
+    },
+    {
+      "snapshot": "Huffman982AllStateWrappersCheck.lean",
+      "states_with_case": [
+        [
+          0,
+          7,
+          31
+        ],
+        [
+          8,
+          7,
+          31
+        ],
+        [
+          26,
+          9,
+          31
+        ],
+        [
+          30,
+          9,
+          31
+        ]
+      ],
+      "all31_wrapper_definitions_elaborated": true,
+      "exit_code": 0,
+      "seconds": 9.870535969999764
+    }
+  ],
+  "files": [
+    {
+      "name": "Huffman982RadixDecoder.lean",
+      "bytes": 2856,
+      "sha256": "7268d919cbc383f705af0e3bd04d065667cc870a179afcf46c12c4ba7da63afe"
+    },
+    {
+      "name": "Huffman982StatesAppend.lean.txt",
+      "bytes": 1364,
+      "sha256": "6689c1815642da5e012c810aaccf8b09b4a3de248d7823a7c5af620da2ece0a2"
+    },
+    {
+      "name": "Huffman982Radix3StateCache.lean.txt",
+      "bytes": 1253,
+      "sha256": "81e8017426f51239fc7dfe6766f51eccb4eacf5654b87f46b6987544ffcfcf69"
+    },
+    {
+      "name": "Huffman982CommonWrappers.lean.txt",
+      "bytes": 349,
+      "sha256": "898273be0a0afa643b7da0b041ace0b08880df53f91df7131fb9e1da5b62c528"
+    },
+    {
+      "name": "lemma982_radix_wrappers.py",
+      "bytes": 3545,
+      "sha256": "51ef3f2da6b9112043e0cff5e8078e9c910d91e6da2407806079fca324381ac5"
+    },
+    {
+      "name": "lemma982-huffman32-radix-books.lean",
+      "bytes": 12907,
+      "sha256": "709e0432e2c77912627ba6b44db97942dd12a7f8c9ef7a0e8b67f1c4c363c64c"
+    },
+    {
+      "name": "Huffman982Core28RadixDirectCheck.lean",
+      "bytes": 104992,
+      "sha256": "585c8842bea5ee7c1228a1c7bd60ef8d2d85e9b76859cc42cd93b9e8ddfbc037"
+    },
+    {
+      "name": "Huffman982Core28RadixBlocksCheck.lean",
+      "bytes": 104974,
+      "sha256": "6ef8488ac8360f9158c4b4cfe84191e59516e3dbced024386b51eab5d53ab81a"
+    },
+    {
+      "name": "Huffman982Core28RadixDeepBlocksCheck.lean",
+      "bytes": 106899,
+      "sha256": "339352548c59df79278e28a04ead80c3e08de90c29232918cbda08493d8b8e2e"
+    },
+    {
+      "name": "Huffman982Core28RadixDeepCached3Check.lean",
+      "bytes": 106923,
+      "sha256": "b5245d402606b760694913348fc9375c9cd53875e8cd08297f09c9084cd99078"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core0.lean",
+      "bytes": 1487,
+      "sha256": "f3eda72f9b5fb07a44699dcc0c506f05d515a43c3bab30f72463ca4098578352"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core1.lean",
+      "bytes": 803,
+      "sha256": "6a03113a444d9efa82a030345dfc42fc2e51d27b140ccbfe0b6c79878bff08fa"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core2.lean",
+      "bytes": 853,
+      "sha256": "632e04ecc4b05fe390d8a52df4201590e5f440ddfbfa75dd17418377236de36f"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core3.lean",
+      "bytes": 866,
+      "sha256": "11e0c3d8713ededabaa086acb47a9144be10acfd06a0447b7e9bd1b1ced8ff95"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core4.lean",
+      "bytes": 1342,
+      "sha256": "bc4fd7e14caa5f19028f1f307177ddd4fd505cfbe00be8ed8a76eacbed75542b"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core5.lean",
+      "bytes": 930,
+      "sha256": "6918f1fa8e8f084b6b19d7299cbe4465c0e40b77d787eccf9c536251ba6b6406"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core6.lean",
+      "bytes": 698,
+      "sha256": "0644d4a00ac7ffb6c17b349720a934b0252965e90bbe176b72cccd7a18540a39"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core7.lean",
+      "bytes": 788,
+      "sha256": "8bb6e4f8543f28d35866c0c5b38e36bbd7fdfa1b51b425b2f9381dc2a07f3d7d"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core8.lean",
+      "bytes": 743,
+      "sha256": "17c909665d6896e91e4646fab1a929a2082517958dea97a456c8af8cb19d1293"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core9.lean",
+      "bytes": 1050,
+      "sha256": "ad3091a7ee5a6624a7daae64d66ecc88ac4df314e41c8e8691af1378167426e2"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core10.lean",
+      "bytes": 1581,
+      "sha256": "5de52b109753141fbb562d45da81a09f9ce6b42518749963cc017a98ba028d1c"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core11.lean",
+      "bytes": 4553,
+      "sha256": "d4ccb6400eb510cbb3b8ecf1db1ca1342fd2edd5ebd76bba8a4f1180989dcf05"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core12.lean",
+      "bytes": 1571,
+      "sha256": "ee5c6d8f1de57cfd886e58fdf9eec40ac97272ff8ca03dec5f508b7efc574c31"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core13.lean",
+      "bytes": 8796,
+      "sha256": "d469b25c658561ffd7002861f0c66421c07766f06886d88b498330aa74aa0f17"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core14.lean",
+      "bytes": 954,
+      "sha256": "b8e0a463ee8f43ddd673948d2848e94813c79bf53b23dd7e17049fd67d51951f"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core15.lean",
+      "bytes": 9733,
+      "sha256": "34c514a3e489f828f71faea95ae91f7a82bc9fb7e8ab175f486f5414239420fc"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core16.lean",
+      "bytes": 1174,
+      "sha256": "9c5d11bb2d3967d25440d70d830deb69bf831ed458425630b7e89c8f8646a6a0"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core17.lean",
+      "bytes": 8088,
+      "sha256": "2450e2a687602bf3434f3ce1b64f090d444a6cd100f8a57d5d85cf456dcf51b1"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core18.lean",
+      "bytes": 3489,
+      "sha256": "344e5b1aee4736d41f1ad5757dafc3608a1ce6c0ec645019b8c278849e32bd16"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core19.lean",
+      "bytes": 7156,
+      "sha256": "2d04d87d1120d33bfb0a05eff6794318871dc8dc4260570c262bdd012770e255"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core20.lean",
+      "bytes": 13529,
+      "sha256": "33fdc3557c86e28e9105ba8268d511a9510cc22c44fcb989d8d0e629af27dad6"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core21.lean",
+      "bytes": 10061,
+      "sha256": "10ee4cdff5c2592a63636a24046bc0d13a026f5079912f84678fe93edf353a33"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core22.lean",
+      "bytes": 812,
+      "sha256": "b54a39cfa2737914f26746c29a88f8b3a874f977489171fa7f4e2b90ae04a815"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core23.lean",
+      "bytes": 4324,
+      "sha256": "e91091f87fc8f0e2dba9616318477cc65bdce4093ddc5b13df972d5d8bdb83f8"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core24.lean",
+      "bytes": 2286,
+      "sha256": "6e64aba372549b597e381d2a2ecc3a293c7c8b8e703da95765d3332770f39671"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core25.lean",
+      "bytes": 2563,
+      "sha256": "fb47e4bc1e552e2713b3eb66bea174aa06ac1609df3afcf9a4cffe58c49b8682"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core26.lean",
+      "bytes": 10067,
+      "sha256": "09ea19a5387d0a914a2b28404b43c6a7500bf58d2228965db0269e71521e1c95"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core27.lean",
+      "bytes": 34360,
+      "sha256": "ae3b7652e6b0f3f131908ba3179eb0029e609542d4cd7acac4c1b169818ef20d"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core28.lean",
+      "bytes": 76434,
+      "sha256": "b072f96c9b6347d04997164dc1d506ae791b23373e1fe68533e021ac026eeef5"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core29.lean",
+      "bytes": 27662,
+      "sha256": "ea46c431aa79b6493fd434f2258c2f781901ded1820b2e6f6289ced14f0c5522"
+    },
+    {
+      "name": "lemma982-huffman32-radix-core30.lean",
+      "bytes": 72737,
+      "sha256": "0ec8a031fd85249c35d363fc5fc7578d97c6402c3372249010efb9f7d19ae067"
+    },
+    {
+      "name": "Huffman982Core0Inputs.lean.txt",
+      "bytes": 1130,
+      "sha256": "99aa93099b42901930aa883c075946f47f123506197fe68ecd9b928f3c0699c4"
+    },
+    {
+      "name": "Huffman982Core1Inputs.lean.txt",
+      "bytes": 1741,
+      "sha256": "4b8737acd65376647a0ab2492f5ad3473bc2b87d3476b231da43d85ed5afbe43"
+    },
+    {
+      "name": "Huffman982Core2Inputs.lean.txt",
+      "bytes": 1321,
+      "sha256": "5ec90fb45cbb5d4fa67b511c2a680af549d14a20d883ba4d86bc3bc1b9b33fc5"
+    },
+    {
+      "name": "Huffman982Core3Inputs.lean.txt",
+      "bytes": 1055,
+      "sha256": "7e1d34eaa038c6c9dc00f1b78fbdc9c0a1f1b237577ef6e0471ca8884fe8c5ce"
+    },
+    {
+      "name": "Huffman982Core4Inputs.lean.txt",
+      "bytes": 1118,
+      "sha256": "9c98800c5f4392e4f12b4fdb26f22b9d1e513c8b63873ff4e46db27d6d021dc9"
+    },
+    {
+      "name": "Huffman982Core5Inputs.lean.txt",
+      "bytes": 1069,
+      "sha256": "279681610ca703ec3133b570cb109c6f82c65a47bb6d14a53db1f06c5f28dac4"
+    },
+    {
+      "name": "Huffman982Core6Inputs.lean.txt",
+      "bytes": 1412,
+      "sha256": "cf3ef06a73c1d5d934085d22d0d64da243fad1048932d60065a9d2c9884d3026"
+    },
+    {
+      "name": "Huffman982Core7Inputs.lean.txt",
+      "bytes": 1090,
+      "sha256": "c74bdcc0e74e068c42fee078b8926619dec1736ca05ccbcb76a6379048d3c726"
+    },
+    {
+      "name": "Huffman982Core8Inputs.lean.txt",
+      "bytes": 936,
+      "sha256": "8f1ad0a0bf35fed258ae86bc0334ba6aa8a2e76a504dc8d8331fe5541d06a598"
+    },
+    {
+      "name": "Huffman982Core9Inputs.lean.txt",
+      "bytes": 1783,
+      "sha256": "35d614c6a3557c0d6e76d3ccc6385d322302f74a499b1730a6632f5bf2d743a8"
+    },
+    {
+      "name": "Huffman982Core10Inputs.lean.txt",
+      "bytes": 1190,
+      "sha256": "ef477c14eaa35a59dea1df4479ea11d52cde49252ced4dcb12c682489e27efa8"
+    },
+    {
+      "name": "Huffman982Core11Inputs.lean.txt",
+      "bytes": 2625,
+      "sha256": "73ba4ce554f7b98e75bcc365aeb43085f8cdec654d95b78bcd5d6e12380d4822"
+    },
+    {
+      "name": "Huffman982Core12Inputs.lean.txt",
+      "bytes": 1127,
+      "sha256": "c1a162fe9c20d05eafb3cd7ff3b06ee33215b46848e02b34e0936538b282e586"
+    },
+    {
+      "name": "Huffman982Core13Inputs.lean.txt",
+      "bytes": 1974,
+      "sha256": "1e08981d577b6f2416ad6461745717c2bab9329d23054dc52fdcb517ffdfe682"
+    },
+    {
+      "name": "Huffman982Core14Inputs.lean.txt",
+      "bytes": 1127,
+      "sha256": "4766284e5c2fa8079646bb9be1743cad3eef0b63577dc09ab9ba064ddf61f97c"
+    },
+    {
+      "name": "Huffman982Core15Inputs.lean.txt",
+      "bytes": 1638,
+      "sha256": "6ffb82c08bf291a214c632d57cc27734784171bc355741f84e77fc8407807136"
+    },
+    {
+      "name": "Huffman982Core16Inputs.lean.txt",
+      "bytes": 1071,
+      "sha256": "7ebcab8008c4da3b30991d606ca2aa06759a8fe89edc5e289b38872af16ec39e"
+    },
+    {
+      "name": "Huffman982Core17Inputs.lean.txt",
+      "bytes": 1757,
+      "sha256": "7561617a32a2c5e0bd91bbf9fb4ef48dddbe6a4902fe24b7326098ae51bc2a66"
+    },
+    {
+      "name": "Huffman982Core18Inputs.lean.txt",
+      "bytes": 1708,
+      "sha256": "8a887a968f3fec77e0b6a3071eb13e8d18ce6e872f2830ed00ffd34cde30ff15"
+    },
+    {
+      "name": "Huffman982Core19Inputs.lean.txt",
+      "bytes": 1540,
+      "sha256": "4e884329d83e311afca048fee398c4b560397e90b5547d9b14d5983f4d7b5dbe"
+    },
+    {
+      "name": "Huffman982Core20Inputs.lean.txt",
+      "bytes": 1456,
+      "sha256": "c73b880ab86751c5c75a39adeabfc701b1e573fe31c483d0ce4ef12d6d331857"
+    },
+    {
+      "name": "Huffman982Core21Inputs.lean.txt",
+      "bytes": 1575,
+      "sha256": "a0f5b0fe053cc13599bdffdf17c3b5dcfc1544c018bcabfc9c70b333762d7efd"
+    },
+    {
+      "name": "Huffman982Core22Inputs.lean.txt",
+      "bytes": 1036,
+      "sha256": "bb0042dab4b8ae9e35f1b58428956b785f24bbe56cdba3e0deb739202b0c624c"
+    },
+    {
+      "name": "Huffman982Core23Inputs.lean.txt",
+      "bytes": 1491,
+      "sha256": "4ff46e16ddfa420f727266f4088080e4ab642e991d46b67ad30f5da84d4871f0"
+    },
+    {
+      "name": "Huffman982Core24Inputs.lean.txt",
+      "bytes": 1701,
+      "sha256": "2d4ed09209b7e708ff866a247dee45e8111ac7681b7fa68a087c77356d300948"
+    },
+    {
+      "name": "Huffman982Core25Inputs.lean.txt",
+      "bytes": 1883,
+      "sha256": "27cf0b9cc08e1d90027aaa4d68bd3140a93dd7ad4880ac568cc8b4682b8cfc09"
+    },
+    {
+      "name": "Huffman982Core26Inputs.lean.txt",
+      "bytes": 4502,
+      "sha256": "41dce721f517547b5ed8d1b6c4eee14893d338b9acfcb399c62974d6fe32b289"
+    },
+    {
+      "name": "Huffman982Core27Inputs.lean.txt",
+      "bytes": 2695,
+      "sha256": "337e4b776b69f29e55c37b0eb45cc480bd3e89bdbbec279443a17ef975a95c47"
+    },
+    {
+      "name": "Huffman982Core28Inputs.lean.txt",
+      "bytes": 2359,
+      "sha256": "b0bd87e22e890092cbb2ccf413bb788b134b66bc5230d9819914cb0c84341f20"
+    },
+    {
+      "name": "Huffman982Core29Inputs.lean.txt",
+      "bytes": 2618,
+      "sha256": "b1d7e8e28756617a078cde5ff53b533e51404ab4009e2b5eefa15f20ba9663f8"
+    },
+    {
+      "name": "Huffman982Core30Inputs.lean.txt",
+      "bytes": 2114,
+      "sha256": "9b02293bfc76359380f53dad4ba747d6e8a14e29dab26694f6b0a4d4f0512ae9"
+    },
+    {
+      "name": "Huffman982Core0StateWrappers.lean.txt",
+      "bytes": 467,
+      "sha256": "d516880c6431d5772a44ffa18a7057dee156240fdf82024262bba430222f9c39"
+    },
+    {
+      "name": "Huffman982Core1StateWrappers.lean.txt",
+      "bytes": 467,
+      "sha256": "a7905df4074b3a71851b1b8455e829520db38eec18ccaf874a86c8cffb3d53b6"
+    },
+    {
+      "name": "Huffman982Core2StateWrappers.lean.txt",
+      "bytes": 467,
+      "sha256": "c9a73d174fc4560f1a1b5e8910211240221f0aaae71af3f054eaaf51d9f98081"
+    },
+    {
+      "name": "Huffman982Core3StateWrappers.lean.txt",
+      "bytes": 467,
+      "sha256": "5c9cdec06dc25c622c4961882af0848fff874bed777130778a533b2b3b03969b"
+    },
+    {
+      "name": "Huffman982Core4StateWrappers.lean.txt",
+      "bytes": 467,
+      "sha256": "1dbb1a7e0b9c9a4f70e7fb576687d890bf60ea5c605753c3a36c210ff07f6e94"
+    },
+    {
+      "name": "Huffman982Core5StateWrappers.lean.txt",
+      "bytes": 467,
+      "sha256": "538b50ecd00e0d511217540f82a9b1b803756f9e59cde6b529ec2935f88e509f"
+    },
+    {
+      "name": "Huffman982Core6StateWrappers.lean.txt",
+      "bytes": 467,
+      "sha256": "aab9d3618a033d98d6bb0a6f4310b234d24559ec45ff26054f52a08c2b21c21d"
+    },
+    {
+      "name": "Huffman982Core7StateWrappers.lean.txt",
+      "bytes": 467,
+      "sha256": "ddfd3bc8108ad0d9e302e151705d9e17e49c8b431c0e5b058f27ddeb6672c5e0"
+    },
+    {
+      "name": "Huffman982Core8StateWrappers.lean.txt",
+      "bytes": 467,
+      "sha256": "51e41f9a8db2fbcc039e266d0e34d42a81c2eeafc16dedd06d075c78cb8765bb"
+    },
+    {
+      "name": "Huffman982Core9StateWrappers.lean.txt",
+      "bytes": 467,
+      "sha256": "0c3ab4d9ba96cfd3f1d1114b49d391e4cce771c51de90cab0bab156316ce3df8"
+    },
+    {
+      "name": "Huffman982Core10StateWrappers.lean.txt",
+      "bytes": 486,
+      "sha256": "486caca462a22a0b79a7e724baf400c6b5c89db71168e9792afc11daae3103eb"
+    },
+    {
+      "name": "Huffman982Core11StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "b82849d7ef07d0775b9d8b85fefd6197748f7b715ebb0234dd4b211300d6fae6"
+    },
+    {
+      "name": "Huffman982Core12StateWrappers.lean.txt",
+      "bytes": 486,
+      "sha256": "44554322bd9dc83a0453a916b8d42e8a7a0476dcb0380c0e35d408c7155598f4"
+    },
+    {
+      "name": "Huffman982Core13StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "329e428674e921ccfc31e260391eab0a7e9bce056ebb4580b28d14e6c73da791"
+    },
+    {
+      "name": "Huffman982Core14StateWrappers.lean.txt",
+      "bytes": 486,
+      "sha256": "eae67860a857f365fd050029167129bf3c477e04123f25f9dfc4acd0b00f9611"
+    },
+    {
+      "name": "Huffman982Core15StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "9d407e12ae5262d119227f806bcbbe8b57c78852893fb6b1792809421f5ace03"
+    },
+    {
+      "name": "Huffman982Core16StateWrappers.lean.txt",
+      "bytes": 486,
+      "sha256": "672cc25f2b5a8de9b77994fb65c1a1559d5aa79d056fb0eb1980cdf9cd988ece"
+    },
+    {
+      "name": "Huffman982Core17StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "ea242838bee8b056777f501dd4c92b0d3800f7d3b6d90ff33f24c4c65f06e356"
+    },
+    {
+      "name": "Huffman982Core18StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "25a8f145e2f3bdb6bf03909daa9945fdf767bce5817456145848f8a45e440fae"
+    },
+    {
+      "name": "Huffman982Core19StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "c8164ba7be309b161436c98eb5d6f276dc4d9009adeb3ba75bfa62dbedb380ff"
+    },
+    {
+      "name": "Huffman982Core20StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "6b5858573b3a67de451caf6ecb1510b9acbaaaad9d22d4b199caa67ec8cfe17f"
+    },
+    {
+      "name": "Huffman982Core21StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "b3d8a38d6444eaf9c6783bd6259193aee36f5c971d383f37ee706e1fc5e4dc6c"
+    },
+    {
+      "name": "Huffman982Core22StateWrappers.lean.txt",
+      "bytes": 486,
+      "sha256": "64c5d593aa06bb8673589b780c26c1e30dc72129a4193f533b1a8f076dbcba6a"
+    },
+    {
+      "name": "Huffman982Core23StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "8e12f6a0c2212ae01dc202baece73a862bb9846d65e06521afa0b783e9f7c890"
+    },
+    {
+      "name": "Huffman982Core24StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "902266e4f407d293d12abaab23bb9248e8cd13995edcdb088efb6fd6f9b92872"
+    },
+    {
+      "name": "Huffman982Core25StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "1fc6136ea5a099835438af626979574b5cd70ab5d2dc5abb1918bc06638631b5"
+    },
+    {
+      "name": "Huffman982Core26StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "1097adab9b10a6d56dc5e410e88dc349759d328ae4c05dbfe6f20ec2e7e0ba54"
+    },
+    {
+      "name": "Huffman982Core27StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "ed1b3b403b19e179d2eb814ff892c72e8b39de8836d80979a5fff61188f951d7"
+    },
+    {
+      "name": "Huffman982Core28StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "8530bbd15b4ef80e7bc0ccfbe90a4bfc67d1854a5f195b486315431e1d30c941"
+    },
+    {
+      "name": "Huffman982Core29StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "5d60d149062f14474829af3b05bb580394f623dc407ee292741b3aef2e424e5a"
+    },
+    {
+      "name": "Huffman982Core30StateWrappers.lean.txt",
+      "bytes": 487,
+      "sha256": "8f4533556a4889c4b337ca28ca45d26ecda165de467e328bc450b7726e6199d3"
+    },
+    {
+      "name": "Huffman982AllStateWrappersCheck.lean",
+      "bytes": 405689,
+      "sha256": "40adbcf3e0527bf7853f4278fa93c556e5d238e0a4fecb429e10a93a544bb65f"
+    }
+  ]
+}

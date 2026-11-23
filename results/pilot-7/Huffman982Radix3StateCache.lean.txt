@@ -1,0 +1,26 @@
+namespace PEqualNP.Outside.L_meta_982_aux.Huffman
+
+def smallTable {α : Type} (count : Nat) (f : Nat → α) : Array (Array (Array α)) :=
+  ((List.range ((count+1023)/1024)).map fun a =>
+    ((List.range (min 32 ((count-a*1024+31)/32))).map fun b =>
+      ((List.range (min 32 (count-a*1024-b*32))).map fun j =>
+        f (a*1024+b*32+j)).toArray).toArray).toArray
+
+def smallTableAt {α : Type} (default : α) (data : Array (Array (Array α))) (i : Nat) : α :=
+  (((data.getD (i/1024) #[]).getD (i/32%32) #[]).getD (i%32) default)
+
+def cachedLayers (cap mask : Nat) (root : List Nat)
+    (records : Nat → Nat → Nat × Nat) (counts : Nat → Nat) :
+    Nat → Array (Array (Array (List Nat)))
+  | 0 => #[#[#[root]]]
+  | d+1 =>
+    let previous := cachedLayers cap mask root records counts d
+    smallTable (counts (cap-(d+1))) fun i =>
+      let (parent,tag) := records (cap-(d+1)) i
+      (move mask (smallTableAt [] previous parent) tag).foldr insertWord []
+
+def cachedState (cap mask : Nat) (root : List Nat)
+    (records : Nat → Nat → Nat × Nat) (counts : Nat → Nat) (s i : Nat) : List Nat :=
+  if s ≤ cap then smallTableAt [] (cachedLayers cap mask root records counts (cap-s)) i else []
+
+end PEqualNP.Outside.L_meta_982_aux.Huffman

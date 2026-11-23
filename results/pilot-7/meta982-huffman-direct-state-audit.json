@@ -1,0 +1,31 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "33fb2ae0d4d480e22aa34b7d2f3a4c5b5efe7912fa430189ce2711d5d78b7762",
+  "compile_exit": 0,
+  "seconds": 34.18650107999929,
+  "examples": [
+    {
+      "remaining": 9,
+      "index": 0
+    },
+    {
+      "remaining": 8,
+      "index": 31
+    },
+    {
+      "remaining": 7,
+      "index": 17
+    }
+  ],
+  "all_three_literals_match_independently_encoded_reoriented_truth_states": true,
+  "inputs_match_audited_slice_data": true,
+  "K": 623,
+  "reason": [
+    "This immutable snapshot contains the arithmetic decoder and block helpers, plus direct recursive state reconstruction by parent/tag and insertion sort.",
+    "All three kernel-decided full-state outputs match independent encoding of the reoriented truth states against the audited1246-row slice layout.",
+    "State depth is cap-s; each recursive edge decreases depth and reads the correct remaining-budget record. Invalid data/defaults remain untrusted and cannot bypass the later exact transition matcher."
+  ],
+  "scope": "Three full-state decoding equalities only, not complete table closure or equivalence of every block-cache wrapper.",
+  "numeric_all_record_audit": "meta982-huffman-audit.json",
+  "canonical_decoder_manifest": "The mutable Huffman982Decoder.lean changed beyond the original manifest; this report is tied only to the immutable DirectCheck hash."
+}

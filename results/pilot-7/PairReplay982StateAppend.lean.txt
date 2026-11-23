@@ -1,0 +1,58 @@
+def fromRoot (cap m : Nat) (root : List (Nat × Nat)) (records : Nat → Nat → Nat × Nat) :
+    Nat → Nat → List (Nat × Nat)
+  | 0,i => if i = 0 then root else []
+  | d+1,i =>
+    let r := records (cap-(d+1)) i
+    sort (move m (fromRoot cap m root records d r.1) r.2)
+
+theorem rel_fromRoot {f : Nat → Nat} {cap m root records} (h0 : f 0 = 0)
+    (hn : ∀ x, f (x ^^^ m) = f x ^^^ m)
+    (hm : ∀ x y, f (x &&& y) = f x &&& f y)
+    (hj : ∀ x y, f (x ||| y) = f x ||| f y)
+    (hroot : Rel f root) (d i : Nat) : Rel f (fromRoot cap m root records d i) := by
+  induction d generalizing i with
+  | zero => simp only [fromRoot]; split; exact hroot; simp [Rel]
+  | succ d ih => exact rel_sort (rel_move h0 hn hm hj (ih _) _)
+
+def state (cap m : Nat) (root : List (Nat × Nat)) (records : Nat → Nat → Nat × Nat)
+    (s i : Nat) : List (Nat × Nat) :=
+  if s ≤ cap then fromRoot cap m root records (cap-s) i else []
+
+theorem rel_state {f : Nat → Nat} {cap m root records} (h0 : f 0 = 0)
+    (hn : ∀ x, f (x ^^^ m) = f x ^^^ m)
+    (hm : ∀ x y, f (x &&& y) = f x &&& f y)
+    (hj : ∀ x y, f (x ||| y) = f x ||| f y)
+    (hroot : Rel f root) (s i : Nat) : Rel f (state cap m root records s i) := by
+  unfold state
+  split
+  · exact rel_fromRoot h0 hn hm hj hroot _ _
+  · simp [Rel]
+
+def guarded (child : List (Nat × Nat)) (ys : List Nat) : List Nat :=
+  if ys.isPerm (child.map Prod.fst) then child.map Prod.snd else ys
+
+theorem guarded_run {forbidden m y} {f : Nat → Nat} {child} (hc : Rel f child)
+    (hf : ∀ {t ws}, RNatRun forbidden m y t ws → RNatRun forbidden m y t (ws.map f))
+    {t ys} (h : RNatRun forbidden m y t ys) : RNatRun forbidden m y t (guarded child ys) := by
+  unfold guarded
+  split
+  · rename_i hp
+    have p := List.isPerm_iff.1 hp
+    have he : (child.map Prod.fst).map f = child.map Prod.snd := by
+      rw [List.map_map]
+      apply List.map_congr_left
+      intro a ha
+      exact (hc a ha).symm
+    exact RRun.perm (by simpa only [he] using p.map f) (hf h)
+  · exact h
+
+def child (cap m : Nat) (root : List (Nat × Nat)) (records : Nat → Nat → Nat × Nat)
+    (s i tag : Nat) : List (Nat × Nat) := move m (state cap m root records s i) tag
+
+theorem child_rel {f : Nat → Nat} {cap m root records} (h0 : f 0 = 0)
+    (hn : ∀ x, f (x ^^^ m) = f x ^^^ m)
+    (hm : ∀ x y, f (x &&& y) = f x &&& f y)
+    (hj : ∀ x y, f (x ||| y) = f x ||| f y)
+    (hroot : Rel f root) (s i tag : Nat) : Rel f (child cap m root records s i tag) :=
+  rel_move h0 hn hm hj (rel_state h0 hn hm hj hroot s i) tag
+

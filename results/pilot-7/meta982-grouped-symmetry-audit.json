@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "72af48e7f24931a59ac3fa0baff11454c2692b98b0a399f8d0aa4a038fbf7a0e",
+  "compile_exit": 0,
+  "independent_numeric_cases": 500,
+  "reason": [
+    "Radix partitioning preserves membership. Since eval combines terms with OR, membership alone suffices for eval_sort; no stability or adequate-bit-width assumption is needed for equality.",
+    "Merging adjacent equal-displacement terms preserves evaluation by AND distributing over mask OR. Full coalescing is a performance property, not a soundness premise.",
+    "Each original one-bit mask at indexi extracts exactly sourcep[i], using the same correct two-direction shift arithmetic as Masked.fast; explicit high-bit tail is retained.",
+    "fast_eq requires only list length and is valid for arbitrary bits, coordinate values, and high input bits.",
+    "Check delegates to the audited Radix.Check after proving evaluator equality; packedCheck and run transport retain the same generator/reference bounds and Full.Good premises."
+  ],
+  "scope": "Generic evaluator/checker/run-transport soundness; concrete generator and full table closure checks remain separate."
+}

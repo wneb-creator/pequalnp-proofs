@@ -1,0 +1,24 @@
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Symmetry.Coordinates
+
+def act (vp : List Nat) (row : Nat) : Nat :=
+  (vp.map (fun i => Fast.bit row i)).foldr Nat.bit 0
+
+def half (rowBits indexBits : Nat) (rows vp : List Nat) : List Nat :=
+  let source := Grouped.sort rowBits rows.zipIdx
+  let destination := Grouped.sort rowBits (rows.zipIdx.map (fun (r,j) => (act vp r,j)))
+  let pairs := (destination.zip source).map (fun (d,s) => (d.2,s.2))
+  (Grouped.sort indexBits pairs).map Prod.snd
+
+def full (k rowBits indexBits : Nat) (rows vp : List Nat) : List Nat :=
+  half rowBits indexBits (rows.take k) vp ++
+    (half rowBits indexBits (rows.drop k) vp).map (fun j => k+j)
+
+def inject : Nat → List Nat → List Nat
+  | _,[] => []
+  | w,r::rs => (w%2+2*r)::inject (w/2) rs
+
+def rows (width : Nat) (inputs : List Nat) : List Nat :=
+  inputs.foldr inject (List.replicate width 0)
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Symmetry.Coordinates

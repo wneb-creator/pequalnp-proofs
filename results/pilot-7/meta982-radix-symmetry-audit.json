@@ -1,0 +1,112 @@
+{
+  "status": "PASS",
+  "audit_kind": "independent source and small numeric scope audit; no compiler rerun",
+  "source_stability": "author confirmed Radix sources stable",
+  "modules": [
+    {
+      "module": "RadixSymmetry",
+      "source_sha256": "b4f2fb620d101af825df6876f90798fe19a698e9b3a15088215e9a4545104878",
+      "source_bytes": 3590,
+      "compile": {
+        "module": "RadixSymmetry",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 4.37944519300072,
+        "hard_cap_seconds": 60.0
+      },
+      "compile_log_sha256": "19fba0529ee1c9f83915d56ba487c4d6456ca80c5a0aaddf0f908525c3eb81da",
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/RadixSymmetry.lean:15:38: warning: This simp argument is unused:\n  hb\n\nHint: Omit it from the simp argument list.\n  [apply] simp\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+      "source_not_newer_than_olean": true
+    },
+    {
+      "module": "RadixSymmetry26Geometry",
+      "source_sha256": "80cf33088a4efa331daad58b72d4cf7a080f61ad3418c56059e65e5ecc05620d",
+      "source_bytes": 313,
+      "compile": {
+        "module": "RadixSymmetry26Geometry",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 9.010398194999652,
+        "hard_cap_seconds": 60.0
+      },
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compile_log": "",
+      "source_not_newer_than_olean": true
+    },
+    {
+      "module": "RadixSymmetry26Pool",
+      "source_sha256": "be58085b6f043153043acef33f05bdfe0af444ef9a34ed2d07ffccbc62c64362",
+      "source_bytes": 311,
+      "compile": {
+        "module": "RadixSymmetry26Pool",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 61.385896703999606,
+        "hard_cap_seconds": 90.0
+      },
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compile_log": "",
+      "source_not_newer_than_olean": true
+    }
+  ],
+  "dependencies": {
+    "LinearSymmetryData26.lean": "91184502dfe3c611016896ae09f4d8325149c6013fba3249f5ba4987fad19443",
+    "root982-slice-core26.json": "bd9fbd9e3eee4925b1844028a8d5e6177e5ecbe12d5fcd416fd62edb5694bdb0",
+    "LinearSymmetry.lean": "e494c91926212d467711b7343c19f992bf53dfab1a98607b5e004615a36528c3"
+  },
+  "concrete": {
+    "k": 1236,
+    "coordinates": 2472,
+    "permutation_index": 4,
+    "forbidden_pool_size": 9,
+    "bits": 12,
+    "all_actions_certified": false
+  },
+  "checks": [
+    {
+      "name": "radix membership",
+      "status": "PASS",
+      "detail": "Each pass concatenates complementary Bool filters and preserves membership. Induction preserves membership through any number of passes. Proof does not assume sorting correctness, adequate bit width, stability, or multiplicity preservation."
+    },
+    {
+      "name": "range coverage and bounds",
+      "status": "PASS",
+      "detail": "Checked sort bits p=range(2k) plus mem_sort gives j\u2208p iff j<2k. Checked length2k makes every requested index valid; getD_mem supplies bounds on p[j]."
+    },
+    {
+      "name": "inverse and injectivity direction",
+      "status": "PASS",
+      "detail": "Every j<2k occurs in p, so idxOf j<length p=2k and p[idxOf j]=j. This is the right-inverse direction required to recover input bits and prove permWord injective. No unchecked inverse list or finite pigeonhole assumption is used."
+    },
+    {
+      "name": "half preservation",
+      "status": "PASS",
+      "detail": "zipIdx.all checks k\u2264p[j] iff k\u2264j at every valid position, passed unchanged to permWord_halfGoal."
+    },
+    {
+      "name": "forbidden pool and high-bit preservation",
+      "status": "PASS",
+      "detail": "pool\u2286map(Masked.fast,pool) is transferred through unconditional Masked.fast_eq and Full.fast_eq under length. High bits remain unchanged for arbitrary Nat words; run_map receives injectivity and AND/OR/XOR-mask preservation."
+    },
+    {
+      "name": "packed composition",
+      "status": "PASS",
+      "detail": "checked_actions reuses checked recipe/action bounds, original Full.good_id and Full.good_comp, and group_size=n+1. Its conclusion is original Full.Good, without altered run semantics."
+    },
+    {
+      "name": "concrete geometry",
+      "status": "PASS",
+      "detail": "k1236 means2472 coordinates. checkGeometry checks only p4 with an empty pool, so its pool clause is vacuous; it does not certify all48 actions."
+    },
+    {
+      "name": "new concrete pool result",
+      "status": "PASS",
+      "detail": "Author confirmed stable sources and separately compiled checkPool using the exact full forbidden pool for p4. Parsed pool is0,mask,and all7input words; p4 equals slice-core26 full_coordinate_perms[4]. This still certifies one generator only."
+    }
+  ],
+  "issues": [],
+  "limitations": [
+    "The generic theorem only uses membership preservation; this audit makes no overall runtime complexity claim.",
+    "Existing compiler logs were inspected; no new compile or axiom query was run."
+  ]
+}

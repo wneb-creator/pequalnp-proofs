@@ -1,0 +1,39 @@
+{
+  "verdict": "PASS for immutable checked record snapshot; canonical decoder manifest requires refresh",
+  "checked_source_sha256": "a7377ac233a81dec9e9e5c5d853b7d2d020ce374382dc2e44b691bbc87bd9cf5",
+  "manifest_sha256": "9924047aab60aa4e9787532c893c45fa22e2801af14e870d850b92b9f2f81555",
+  "manifest_mismatches": [
+    "Huffman982Decoder.lean"
+  ],
+  "all31_payloads_and_codebook_hashes_match": true,
+  "kernel_examples": [
+    {
+      "remaining": 9,
+      "index": 0,
+      "parent": 2,
+      "tag": 79
+    },
+    {
+      "remaining": 8,
+      "index": 31,
+      "parent": 2,
+      "tag": 101
+    },
+    {
+      "remaining": 7,
+      "index": 17,
+      "parent": 8287,
+      "tag": 26
+    }
+  ],
+  "compile_exit": "0 reported by root and manifest; complete log empty",
+  "reason": [
+    "The embedded old decoder reads at most32 bits per symbol and at most32 records for one indexed lookup, with explicit block checkpoints and parent0 reset.",
+    "Canonical codes accumulate left-to-right while storage bits are fetched LSB-first from1024-bit chunks. Even delta codes add and odd codes subtract; arbitrary defaults/truncated subtraction remain untrusted data decoding.",
+    "The three exact kernel record outputs are independently confirmed by the all31 numeric replay audit.",
+    "The immutable direct-state snapshot separately validates the arithmetic/block revision on three full reconstructed states."
+  ],
+  "scope": "Data decoding and stated finite equalities only; no full closure claim.",
+  "numeric_audit": "meta982-huffman-audit.json",
+  "newer_snapshot_audit": "meta982-huffman-direct-state-audit.json"
+}

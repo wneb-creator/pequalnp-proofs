@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "audit_kind": "final independent source and existing-record audit; no proof experiments or compiler runs",
+  "source": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry.lean",
+  "source_sha256": "1c15093ebf16e1bafe29a4835d257a68919cf921d082b86aed6817266817ce8c",
+  "source_bytes": 970,
+  "compile_log": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry.compile.log",
+  "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "compile_metadata": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry.compile.json",
+  "compile_record": {
+    "module": "CoordinateSymmetry",
+    "status": "PASS",
+    "exit_code": 0,
+    "wall_seconds": 4.034724339999229,
+    "hard_cap_seconds": 60.0
+  },
+  "source_not_newer_than_olean": true,
+  "dependency_sha256": {
+    "GroupedSymmetry.lean": "72af48e7f24931a59ac3fa0baff11454c2692b98b0a399f8d0aa4a038fbf7a0e"
+  },
+  "checks": [
+    {
+      "name": "scope",
+      "status": "PASS",
+      "detail": "CoordinateSymmetry contains only total data-producing definitions, not a theorem claiming arbitrary supplied rows/vp form a valid permutation. Soundness is supplied later by Grouped.Check=true and Grouped.check_good."
+    },
+    {
+      "name": "row extraction direction",
+      "status": "PASS",
+      "detail": "rows uses inputs.foldr inject, so input0 contributes row bit0, input1 bit1, etc. inject consumes successive low bits of each input word across coordinate positions and retains the accumulator length."
+    },
+    {
+      "name": "vertex action direction",
+      "status": "PASS",
+      "detail": "act vp row maps destination positionj to Fast.bit row (vp[j]) and folds with Nat.bit/zero tail. This matches source(row)=sum_j row[vp[j]]*2^j. No permutation hypothesis is silently assumed."
+    },
+    {
+      "name": "stable pairing and halves",
+      "status": "PASS",
+      "detail": "half stably groups original and transformed rows, zips them and sorts destination/source index pairs by destination. full constructs negative and positive halves independently and offsets only the positive source indices byk."
+    },
+    {
+      "name": "malformed inputs and defaults",
+      "status": "PASS",
+      "detail": "take/drop and zip are total and zip may truncate; insufficient rowBits/indexBits or mismatching row multiplicities are not assumed impossible. Any resulting list must still pass Grouped.Check length, range permutation, half membership and full forbidden-pool checks before Full.Good follows."
+    },
+    {
+      "name": "compile evidence",
+      "status": "PASS",
+      "detail": "Generic source PASS4.03472434s, empty log, source no newer than cached olean. No new compile was run."
+    }
+  ],
+  "concrete_candidates": [
+    {
+      "source": "CoordinateSymmetry26Gen4.lean",
+      "source_sha256": "22acbc6871a58e0ace15e694251d52cbd974d7a385b9c2f8e254b467456e3ac8",
+      "completed_compile_record_found": true,
+      "verdict": "PASS",
+      "compile_record": {
+        "module": "CoordinateSymmetry26Gen4",
+        "status": "PASS",
+        "exit_code": 0,
+        "wall_seconds": 30.435039986999982,
+        "hard_cap_seconds": 60.0
+      },
+      "compile_log": "/tmp/oec/pequalnp-pilot-7/CoordinateSymmetry26Gen4.compile.log",
+      "compile_log_bytes": 0,
+      "scope": "Core26 k1236, full2472-coordinate action derived from the seven input words in pool.drop2 and vertex action[0,1,2,5,6,3,4]; proves Grouped.Check k13 pool derivedAction=true. Includes length, permutation, half preservation and full9-word forbidden-pool certificate. Certifies only this derived action, not every generator."
+    },
+    {
+      "source": "CoordinateSymmetry26Gen18.lean",
+      "source_sha256": "282f1ca1ce9c0df1b2393425c086ab883f24c2f5c7109e463ef4d9d70270c342",
+      "completed_compile_record_found": false,
+      "verdict": "NOT_CLAIMED: no completed compile metadata found in discovered artifacts"
+    }
+  ],
+  "issues": [],
+  "limits": [
+    "Generic definitions and the concrete Gen4 certificate have completed compile records. Gen18 remains unconfirmed.",
+    "No all-generator closure is asserted."
+  ],
+  "preservation_supplement": "Gen4 PASS metadata arrived after initial audit; inspected existing source/log/metadata only, no compiler run."
+}

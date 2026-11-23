@@ -1,0 +1,7 @@
+{
+  "module": "CoordinateSymmetry26Gen4",
+  "status": "PASS",
+  "exit_code": 0,
+  "wall_seconds": 30.435039986999982,
+  "hard_cap_seconds": 60.0
+}

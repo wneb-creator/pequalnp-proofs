@@ -1,0 +1,317 @@
+{
+  "status": "Stopped after parent reported lease expiry; no new proof work after stop.",
+  "artifacts": [
+    {
+      "artifact": "Indexed982",
+      "kernel_compile_exit": 0,
+      "independent_review": "not independently reviewed",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/Indexed982.lean",
+          "bytes": 3934,
+          "sha256": "59fe526f406825e0215df8b55d593584e9fdbefa2d7101a8149f2d7e9356264e"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/Indexed982.stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/Indexed982.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/Indexed982Append.lean.txt",
+          "bytes": 3913,
+          "sha256": "f2151fceaa6337fbb68c8b2f4e582e1e03a0e68c9e8a4ec35b58ecc29863de73"
+        }
+      ]
+    },
+    {
+      "artifact": "OrbitLookup982",
+      "kernel_compile_exit": 0,
+      "independent_review": "not independently reviewed",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/OrbitLookup982.lean",
+          "bytes": 975,
+          "sha256": "e9ccf0087f8e127d6da5225a81bddae2dfb2771c8ee1718e1847645a72d05c48"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/OrbitLookup982.stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/OrbitLookup982.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/OrbitLookup982Append.lean.txt",
+          "bytes": 957,
+          "sha256": "215a1f33f2534441e29eade00d07c4410ad2bb985ae490836f8cde39349db978"
+        }
+      ]
+    },
+    {
+      "artifact": "BinaryHint982",
+      "kernel_compile_exit": 0,
+      "independent_review": "not independently reviewed",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/BinaryHint982.lean",
+          "bytes": 1890,
+          "sha256": "11de6f38f5f0518afc32ed311cf2b0c071b4137470fad06784263720f28694d5"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/BinaryHint982.stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/BinaryHint982.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/BinaryHint982Append.lean.txt",
+          "bytes": 1868,
+          "sha256": "39ec3aa01b1dddaf8655b599125e4f61d1c6d0664677e422d91b84a488378fd2"
+        }
+      ]
+    },
+    {
+      "artifact": "BinaryCore28Lookup",
+      "kernel_compile_exit": 0,
+      "independent_review": "not independently reviewed",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/BinaryCore28Lookup.lean",
+          "bytes": 98691,
+          "sha256": "ae900d6627dfd030b80caec5de28156096594e9492f165f97a7aba93e9b27158"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/BinaryCore28Lookup.stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/BinaryCore28Lookup.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/BinaryCore28Lookup.timing.json",
+          "bytes": 42,
+          "sha256": "ebb7d82e8409c9854b6ac85400f6b2c5ac36272a87785d53f117bcce5de8ebcd"
+        }
+      ]
+    },
+    {
+      "artifact": "Slice982",
+      "kernel_compile_exit": 0,
+      "independent_review": "PASS",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/Slice982.lean",
+          "bytes": 8720,
+          "sha256": "656994e7ab0d17ed1244955b91c112e4a185b57fc2a69c8dfcd33ce0f5223b96"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/Slice982.stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/Slice982.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/Slice982Append.lean.txt",
+          "bytes": 8699,
+          "sha256": "9c2cf8adaa1196f1fe37de556bd37ff9fa2dcedeb40d194386e8038d0bbbc699"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/meta982-slice-audit.json",
+          "bytes": 1669,
+          "sha256": "a0b2131f6005366a90ee02363281ffa607e774769342d197746ab3649ea5c1f1"
+        }
+      ]
+    },
+    {
+      "artifact": "SliceUpper982",
+      "kernel_compile_exit": 0,
+      "independent_review": "PASS",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/SliceUpper982.lean",
+          "bytes": 2534,
+          "sha256": "0ddbb31a68da8614cbe4cd5d67b7580a1f949f99aecd27768f74b420aa823fd4"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/SliceUpper982.stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/SliceUpper982.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/meta982-slice-audit.json",
+          "bytes": 1669,
+          "sha256": "a0b2131f6005366a90ee02363281ffa607e774769342d197746ab3649ea5c1f1"
+        }
+      ]
+    },
+    {
+      "artifact": "SliceOpt982",
+      "kernel_compile_exit": 0,
+      "independent_review": "PASS",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/SliceOpt982.lean",
+          "bytes": 8359,
+          "sha256": "786e51fea75930651d9b1007f3fa84af7a5528c37a16d13c940be21db56b91d6"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/SliceOpt982.stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/SliceOpt982.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/SliceOpt982Append.lean.txt",
+          "bytes": 8338,
+          "sha256": "6e8df69fecddb71de0692f01a6f635e166dedf8b3962424f34fb95c359b35792"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/meta982-slice-opt-audit.json",
+          "bytes": 740,
+          "sha256": "d0b338455b398d0045b2f357f09cd2a0eb507f982646fbf22824d72848e5cac3"
+        }
+      ]
+    },
+    {
+      "artifact": "SliceOptUpper982",
+      "kernel_compile_exit": 0,
+      "independent_review": "PASS",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/SliceOptUpper982.lean",
+          "bytes": 895,
+          "sha256": "72e62260a31ab8c5d50f4a9d47e1a62189e90962400dfa8c6ec2078257367981"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/SliceOptUpper982.stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/SliceOptUpper982.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/meta982-slice-opt-audit.json",
+          "bytes": 740,
+          "sha256": "d0b338455b398d0045b2f357f09cd2a0eb507f982646fbf22824d72848e5cac3"
+        }
+      ]
+    },
+    {
+      "artifact": "OldCoverage982",
+      "kernel_compile_exit": 0,
+      "independent_review": "PASS",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/OldCoverage982.lean",
+          "bytes": 4813,
+          "sha256": "67de473bad0f2f47873f2eb56d83c2bea7ecb7e1e7a29d9d689b508e5ac47a7a"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/OldCoverage982.stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/OldCoverage982.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/OldCoverage982Append.lean.txt",
+          "bytes": 4789,
+          "sha256": "ea998856e9bb54ea8e325bf35a1ff799ca36327d746d554d745ae100e274299e"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/meta982-old-coverage-audit.json",
+          "bytes": 1200,
+          "sha256": "6c3b61a1c5ddfbf7b04978b814cd97e0ebfda917c43bb4ef5b9d60293de22e46"
+        }
+      ]
+    },
+    {
+      "artifact": "PairReplay982",
+      "kernel_compile_exit": 0,
+      "independent_review": "not independently reviewed",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/PairReplay982.lean",
+          "bytes": 6610,
+          "sha256": "6a4341e4344983131e6520da09acf720366b2693303b8c65a14b0f1c253713cf"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/PairReplay982.stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/PairReplay982.stderr.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-7/PairReplay982Append.lean.txt",
+          "bytes": 6589,
+          "sha256": "b7129f069734e18af839f95b441b392a0fa791c91318c7f1173a5da36bf4d29a"
+        }
+      ]
+    }
+  ],
+  "supporting_files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-7/AbstractDFS982Append.lean.txt",
+      "bytes": 1650,
+      "sha256": "980ee09aee60316847b3668c756e866d575de272916d4703d11c7e6c16c0c40b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-7/Slice982BadAppend.lean.txt",
+      "bytes": 849,
+      "sha256": "c995e8385048d2508a2ce5d8aba0e27d9159756d1a82e2779ae2229a1d7de184"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-7/SliceOpt982BadAppend.lean.txt",
+      "bytes": 855,
+      "sha256": "23aa0c9c747b50cb1a37809647ed13ff86c3e85ea68f669deb53e9c16b0be214"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-7/PairReplay982StateAppend.lean.txt",
+      "bytes": 2562,
+      "sha256": "27de6df97530fac4bd5d8da0c241b2003446e84a28a60568f6de22c4b73b4704"
+    }
+  ],
+  "resume_note": {
+    "path": "/tmp/oec/pequalnp-pilot-7/proof-strategy-resume.md",
+    "bytes": 5923,
+    "sha256": "2b1bff198ecd1fd4deec8e449ec1ea399b47409c2cc82b084d682b23581b9b13"
+  }
+}

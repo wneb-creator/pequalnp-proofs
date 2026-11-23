@@ -1,0 +1,160 @@
+{
+  "files": [
+    {
+      "name": "lemma982-reoriented-core0.json",
+      "bytes": 49754,
+      "sha256": "5c2d20ce303fc450da1c43ca5c9690773396d7e281d9c49260a6f25ca2eb9d12"
+    },
+    {
+      "name": "lemma982-reoriented-core1.json",
+      "bytes": 34244,
+      "sha256": "d60ac9ee997333fd9cd6ed347ff2df85c6bd8ed6cc339bfc1bb3b3f00a9bd8f2"
+    },
+    {
+      "name": "lemma982-reoriented-core2.json",
+      "bytes": 38781,
+      "sha256": "62f8d862bfcba12fec088550c3e35c304a353a74884b33c16fa0c3504deb3254"
+    },
+    {
+      "name": "lemma982-reoriented-core3.json",
+      "bytes": 42076,
+      "sha256": "c6fefc0158b7514f9c0256eb192f4da6675d8a2e5bb52a661958da30e332d07a"
+    },
+    {
+      "name": "lemma982-reoriented-core4.json",
+      "bytes": 76511,
+      "sha256": "e952cf832c5d232b20633e04744bf71182c71fc75f7b0beffe1bcad1ccd52f09"
+    },
+    {
+      "name": "lemma982-reoriented-core5.json",
+      "bytes": 47212,
+      "sha256": "485548328e50e633ec207c3e338a46a0b500ad91617e44d0e2e899f98265252e"
+    },
+    {
+      "name": "lemma982-reoriented-core6.json",
+      "bytes": 27733,
+      "sha256": "4cb609774aa8a66faa373ea39cca813fce297def2548ef89a60897931b0ac169"
+    },
+    {
+      "name": "lemma982-reoriented-core7.json",
+      "bytes": 35618,
+      "sha256": "7004dcc0565585552725c27c8e72f12193a6f33d21455c4ab960be7871e6e1a3"
+    },
+    {
+      "name": "lemma982-reoriented-core8.json",
+      "bytes": 33783,
+      "sha256": "84a862ceb83cfda807e272a26d518907ab26ef68064647ae46abc683aa60eb33"
+    },
+    {
+      "name": "lemma982-reoriented-core9.json",
+      "bytes": 51892,
+      "sha256": "12ede80a097aa659622914036d14d587e94a46fafa7b1698117ef332f67b29aa"
+    },
+    {
+      "name": "lemma982-reoriented-core10.json",
+      "bytes": 95461,
+      "sha256": "a6a79d6022131197108c87844333997a1b46914030cd3d4bd9bb31af82ec28ef"
+    },
+    {
+      "name": "lemma982-reoriented-core11.json",
+      "bytes": 324258,
+      "sha256": "f1d64766024935a110df14f00d2cefeb085708ef6e8ff5d03b58db11c59ebce4"
+    },
+    {
+      "name": "lemma982-reoriented-core12.json",
+      "bytes": 91826,
+      "sha256": "f60a4460ca926f1b47c570996d6da2d31f958eb6a263c2768ecc9649cc9461dc"
+    },
+    {
+      "name": "lemma982-reoriented-core13.json",
+      "bytes": 643069,
+      "sha256": "b9c2b9dba53419c441e4d959d603cbf2f2a5ce362e7c85216d2e8f4faf41abd9"
+    },
+    {
+      "name": "lemma982-reoriented-core14.json",
+      "bytes": 48593,
+      "sha256": "63f6ebb46fe39c6857dd69edaaf35d5319caed9b7db17a11a6c10e6d484cd16a"
+    },
+    {
+      "name": "lemma982-reoriented-core15.json",
+      "bytes": 725691,
+      "sha256": "c4e35b79b69817b0ecef2fff977872a9c8508e92514f1b813c6d36b229bc8ef1"
+    },
+    {
+      "name": "lemma982-reoriented-core16.json",
+      "bytes": 69031,
+      "sha256": "b353cb50d04538d469a1febc0e289924850502cc08b30937b69fdc038b368251"
+    },
+    {
+      "name": "lemma982-reoriented-core17.json",
+      "bytes": 593476,
+      "sha256": "ff99fd846dee0442a718b4c1c485180399d371c0d448e97ae36ea7a264164842"
+    },
+    {
+      "name": "lemma982-reoriented-core18.json",
+      "bytes": 259082,
+      "sha256": "a8139a951dd32fd0d8dbe88455cdd2d842dbcd3a037a56c623ac68f2361b8bee"
+    },
+    {
+      "name": "lemma982-reoriented-core19.json",
+      "bytes": 535777,
+      "sha256": "f7a8b86c457fd854c55e646769a9149956cd733c6a7de5602e4052823afbcd63"
+    },
+    {
+      "name": "lemma982-reoriented-core20.json",
+      "bytes": 1021240,
+      "sha256": "04d7be117f4122c0a08c9b3a619aaecd74500df2bda151c5e335181ebd1176c9"
+    },
+    {
+      "name": "lemma982-reoriented-core21.json",
+      "bytes": 757312,
+      "sha256": "15858e0304719c5bab286c48eeb142c7ddc8904aa09786644ec1d91df64b5c02"
+    },
+    {
+      "name": "lemma982-reoriented-core22.json",
+      "bytes": 37454,
+      "sha256": "b5d24dce48b7934e1f12d02131761c365c6b74989f97e994749ca937b69323f3"
+    },
+    {
+      "name": "lemma982-reoriented-core23.json",
+      "bytes": 331683,
+      "sha256": "ae6652068edf0787343beac36e9c92192af17c74c708a51cfdf62d91960b64df"
+    },
+    {
+      "name": "lemma982-reoriented-core24.json",
+      "bytes": 164533,
+      "sha256": "8a21aaa43c39579d334f84bf050db6a294d6f2b4539edf309d855c3cd90692a0"
+    },
+    {
+      "name": "lemma982-reoriented-core25.json",
+      "bytes": 186618,
+      "sha256": "68e716bd30ffa2cd2aa2a176016b9a4a9c708f14d0096c67277c91e6be9a0d05"
+    },
+    {
+      "name": "lemma982-reoriented-core26.json",
+      "bytes": 765274,
+      "sha256": "0a0a8ded15396f997887679dc5db9c5d156c3aeaf3420c5fc2b1dd58f999e6f8"
+    },
+    {
+      "name": "lemma982-reoriented-core27.json",
+      "bytes": 2619590,
+      "sha256": "8c3c8d9231a9fa10af9283324c2ff59b2875c34c458459c42683c2d411f8d09e"
+    },
+    {
+      "name": "lemma982-reoriented-core28.json",
+      "bytes": 5760058,
+      "sha256": "c772005814b8114dc6891f3d4554619e77b006f3ba6eca1655661a5a7dbf785f"
+    },
+    {
+      "name": "lemma982-reoriented-core29.json",
+      "bytes": 2115925,
+      "sha256": "32f89880a09db7a41825a1f9c6e0c6b94013f2c3d3c63d91c73bc3ab63115c13"
+    },
+    {
+      "name": "lemma982-reoriented-core30.json",
+      "bytes": 5479786,
+      "sha256": "75d9e5063aee6331fd2b39cdc43ab034ac3756c848dca3685d6aed67fc9d87e2"
+    }
+  ],
+  "archive_sha256": "f57cce5227a2d8b9b2b850e65ad6bdb5bbea81e419688d5990582931a29adc39"
+}
