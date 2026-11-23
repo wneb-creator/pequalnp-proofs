@@ -1,0 +1,36 @@
+L-meta-670 checked partials only; the posted statement is not yet proved.
+DynamicCoveredTest author compilation EXIT0; successful log is empty.
+ThetaDataTest checks root_link_7 only, not a finite exclusion.
+sat-proof/DynamicCoveredBody.lean SHA256 c1b4d1e3c44148059aba84adf7a36dbae8e9c016df1548a18685703e653ef012
+sat-proof/DynamicCoveredFastBody.lean SHA256 8d77f1d80a41556590f7c6ded23568bc400b284e62d4d08d8fe7ceb5892ac370
+sat-proof/DynamicCoveredTest.lean SHA256 14f828a81813dd0da46148e772be59a4283b9008732b1cf7ec95ccbdcbae27db
+replay/ThetaDataTest.lean SHA256 dd9a1b8f41aac0af13f3b42b59f06f24fa0a010d423853874632d2e8597b9415
+
+COMPLETE LOG sat-proof/dynamic-covered-test.log
+
+COMPLETE LOG replay/theta-data-test.log
+/tmp/oec/pequalnp-pilot-14/replay/ThetaDataTest.lean:209:15: warning: Variable name `k` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _k
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+COMPLETE LOG counterexample/covered-and-theta-independent-audit.txt
+PASS independent review: DynamicCoveredBody.lean, DynamicCoveredFastBody.lean, ThetaDataTest.lean raw-hash shortcut.
+DynamicCovered.cut uses actual state NOT count t for directed coverage. CheckedContext.Valid equates cached values with the projection of every live wire. Coverage failure is justified by target/negation/binary preservation; prefix branch delegates to proved oracle Sound.
+Coverage is evaluated before prefix pruning. No cache mutation or new lower-bound assumption is introduced by coverage. Context updates retain proofs; arbitrary child-generation heuristics remain authenticated by the underlying MemoForced solver.
+Fast initialization explicitly requires rho equals each oracle projection on source inputs. Hint correctness is not an assumption: FastRecipe.initial_valid supplies Valid using its existing checked recipe/fallback mechanism. Both normal and fast leafCheck_sound use ResultSound on an empty sound memo.
+Sat author confirmed DynamicCoveredTest compilation EXIT0, session70345; log is empty on success. No separate covered-theorem axiom print was captured. Reviewer launched no compiler.
+Both covered source bodies occur exactly in the test; no forbidden syntax, new axioms, sorry, native_decide, bv_decide, attributes, options, or embedded imports.
+Independently parsed all nine 414-bit raw signatures and recomputed all nine packed 31-bit hash values using the exact modular cubic formula. Verified all108 symmetry-indexed raw hashes against rawImage/rawSym definitions.
+Checked all4096 possible12-bit hint table words: smallRecipe returns nonzero; its <=9 shortcut occurs exactly for leaf codes1..9. Raw-hash shortcut therefore matches slow evaluation on every reachable shortcut input.
+Lookup remains an untrusted candidate mechanism: StaticReplay.linkCheck checks the returned index bound and full permutation after recipeAction, whose fallback is proved equal to action. Hash collisions or bad hints cannot establish an invalid proof; they can only lose useful matches.
+ThetaDataTest contains only approved limit options and an import-line harness. Existing root_link_7 is a checked link assertion, not itself the final lower bound. Test log contains only the harmless unused k warning.
+Full successful logs and sources were retained; no heavy build was run for this review.
+sat-proof/DynamicCoveredBody.lean SHA256 c1b4d1e3c44148059aba84adf7a36dbae8e9c016df1548a18685703e653ef012
+sat-proof/DynamicCoveredFastBody.lean SHA256 8d77f1d80a41556590f7c6ded23568bc400b284e62d4d08d8fe7ceb5892ac370
+sat-proof/DynamicCoveredTest.lean SHA256 14f828a81813dd0da46148e772be59a4283b9008732b1cf7ec95ccbdcbae27db
+sat-proof/dynamic-covered-test.log SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+replay/ThetaDataTest.lean SHA256 dd9a1b8f41aac0af13f3b42b59f06f24fa0a010d423853874632d2e8597b9415
+replay/theta-data-test.log SHA256 35e2f7a81b73502c7d61885850c4b6ecf54a5be02bd39969ddb4198c079496f6
