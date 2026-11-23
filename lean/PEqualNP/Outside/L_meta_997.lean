@@ -1989,3 +1989,214 @@ lemma empty_support_count {n k : ℕ} (C : Circuit) (o : ℕ) (y : Fin n → Boo
   exact Bool.false_ne_true hxt
 
 end PEqualNP.Outside.L_meta_997.Prefix
+namespace PEqualNP.Outside.L_meta_997.HeavySelected
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_997.Heavy PEqualNP.Outside.L_meta_997.HeavyOr
+
+lemma branch_edges {n : ℕ} (C : Circuit)
+    (hG : ∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (Y S : Finset (Fin n)) (w : ℕ) (hn : n ≤ w) (hw : w<n+C.size)
+    (hs : sound C S w) :
+    ∃ P : Finset ℕ, P.card ≤ 2 ∧ (w ∉ charged C Y S → P.card ≤ 1) ∧
+      (∀ r ∈ P, r<w ∧ sound C S r ∧ r ∈ (readGate C n w).inputs) ∧
+      supp C Y w ⊆ P.biUnion (supp C Y) := by
+  classical
+  by_cases hne : (supp C Y w).Nonempty
+  · have hg := hG (readGate C n w) (by rw [readGate_eq C n w hn hw]; exact List.getElem_mem _)
+    rcases hg.1 with hop | hop
+    · obtain ⟨r,hr,hrw,hrs,hcov⟩ := and_sound_parent C hG Y S w hn hw hop hs hne
+      refine ⟨{r},by simp,by simp,?_,?_⟩
+      · intro q hq
+        have : q=r := Finset.mem_singleton.mp hq
+        subst q
+        exact ⟨hrw,hrs,hr⟩
+      · simpa using hcov
+    · by_cases heq : ∃ r ∈ (readGate C n w).inputs, r<w ∧ supp C Y r = supp C Y w
+      · obtain ⟨r,hr,hrw,hre⟩ := heq
+        refine ⟨{r},by simp,by simp,?_,?_⟩
+        · intro q hq
+          have : q=r := Finset.mem_singleton.mp hq
+          subst q
+          exact ⟨hrw,or_sound C S w r hn hw hop hs hr hrw,hr⟩
+        · simp [hre]
+      · let P := (readGate C n w).inputs.toFinset.filter (· < w)
+        refine ⟨P,(Finset.card_filter_le _ _).trans
+          ((List.toFinset_card_le _).trans hg.2),?_,?_,?_⟩
+        · intro hnot
+          apply False.elim (hnot ?_)
+          apply (mem_charged C Y S w).mpr
+          refine ⟨⟨hn,hw⟩,hs,hop,hne,?_⟩
+          intro r hr hrw hre
+          exact heq ⟨r,hr,hrw,hre⟩
+        · intro r hr
+          have hr' := Finset.mem_filter.mp hr
+          exact ⟨hr'.2,or_sound C S w r hn hw hop hs
+            (List.mem_toFinset.mp hr'.1) hr'.2,List.mem_toFinset.mp hr'.1⟩
+        · exact (or_supp C Y w hn hw hop).le
+  · refine ⟨∅,by simp,by simp,by simp,?_⟩
+    simp [Finset.not_nonempty_iff_eq_empty.mp hne]
+
+lemma coverage_used {α : Type*} [DecidableEq α] (support : ℕ → Finset α)
+    (Good : ℕ → Prop) (H K : Finset ℕ) (parents : ℕ → Finset ℕ)
+    (hstep : ∀ w ∈ H,
+      (parents w).card ≤ (if w ∈ K then 2 else 1) ∧
+      (∀ r ∈ parents w, r<w ∧ Good r) ∧ support w ⊆ (parents w).biUnion support)
+    (R : Set ℕ) (hR : ∀ w ∈ H, w ∈ R → ∀ r ∈ parents w, r ∈ R)
+    (t : ℕ) (F : Finset ℕ) (hF : ∀ w ∈ F, w ∈ H → w<t)
+    (hGood : ∀ w ∈ F, Good w) (hFR : ∀ w ∈ F, w ∈ R) :
+    ∃ B U : Finset ℕ, Disjoint B H ∧ B.card ≤ F.card + U.card ∧
+      (∀ w ∈ B, Good w ∧ w ∈ R) ∧ F.biUnion support ⊆ B.biUnion support ∧
+      ∀ w ∈ U, w ∈ H ∧ w ∈ K ∧ w<t ∧ w ∈ R := by
+  classical
+  induction t generalizing F with
+  | zero =>
+    refine ⟨F,∅,?_,by simp,?_,Finset.Subset.refl _,by simp⟩
+    · exact Finset.disjoint_left.mpr (fun w hw hg => by have := hF w hw hg; omega)
+    · intro w hw
+      exact ⟨hGood w hw,hFR w hw⟩
+  | succ t ih =>
+    by_cases hex : t ∈ F ∧ t ∈ H
+    · obtain ⟨hPcard,hP,hp⟩ := hstep t hex.2
+      let F' := F.erase t ∪ parents t
+      have hF' : ∀ w ∈ F', w ∈ H → w<t := by
+        intro w hw hg
+        rcases Finset.mem_union.mp hw with hw | hw
+        · have hne := (Finset.mem_erase.mp hw).1
+          have hlt := hF w (Finset.mem_erase.mp hw).2 hg
+          omega
+        · exact (hP w hw).1
+      have hGood' : ∀ w ∈ F', Good w := by
+        intro w hw
+        rcases Finset.mem_union.mp hw with hw | hw
+        · exact hGood w (Finset.mem_erase.mp hw).2
+        · exact (hP w hw).2
+      have hR' : ∀ w ∈ F', w ∈ R := by
+        intro w hw
+        rcases Finset.mem_union.mp hw with hw | hw
+        · exact hFR w (Finset.mem_erase.mp hw).2
+        · exact hR t hex.2 (hFR t hex.1) w hw
+      obtain ⟨B,U,hd,hc,hb,hcov,hu⟩ := ih F' hF' hGood' hR'
+      have hsize : F'.card + 1 ≤ F.card + (if t ∈ K then 2 else 1) := by
+        have hUnion := Finset.card_union_le (F.erase t) (parents t)
+        have hErase := Finset.card_erase_add_one hex.1
+        change F'.card ≤ _ at hUnion
+        omega
+      have hcov' : F.biUnion support ⊆ B.biUnion support := by
+        intro p hpF
+        apply hcov
+        obtain ⟨w,hw,hpw⟩ := Finset.mem_biUnion.mp hpF
+        by_cases he : w=t
+        · subst w
+          obtain ⟨r,hr,hpr⟩ := Finset.mem_biUnion.mp (hp hpw)
+          exact Finset.mem_biUnion.mpr ⟨r,Finset.mem_union_right _ hr,hpr⟩
+        · exact Finset.mem_biUnion.mpr
+            ⟨w,Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨he,hw⟩),hpw⟩
+      by_cases ht : t ∈ K
+      · have htu : t ∉ U := by intro h; have := (hu t h).2.2.1; omega
+        refine ⟨B,insert t U,hd,?_,hb,hcov',?_⟩
+        · rw [Finset.card_insert_of_notMem htu]
+          simp only [ht,ite_true] at hsize
+          omega
+        · intro w hw
+          rcases Finset.mem_insert.mp hw with he | hw
+          · subst w
+            exact ⟨hex.2,ht,by omega,hFR t hex.1⟩
+          · obtain ⟨hwH,hwK,hwt,hwR⟩ := hu w hw
+            exact ⟨hwH,hwK,by omega,hwR⟩
+      · refine ⟨B,U,hd,?_,hb,hcov',?_⟩
+        · simp only [ht,ite_false] at hsize
+          omega
+        · intro w hw
+          obtain ⟨hwH,hwK,hwt,hwR⟩ := hu w hw
+          exact ⟨hwH,hwK,by omega,hwR⟩
+    · have hF' : ∀ w ∈ F, w ∈ H → w<t := by
+        intro w hw hg
+        have hne : w≠t := fun e => hex ⟨e ▸ hw,e ▸ hg⟩
+        have hlt := hF w hw hg
+        omega
+      obtain ⟨B,U,hd,hc,hb,hcov,hu⟩ := ih F hF' hGood hFR
+      refine ⟨B,U,hd,hc,hb,hcov,?_⟩
+      intro w hw
+      obtain ⟨hwH,hwK,hwt,hwR⟩ := hu w hw
+      exact ⟨hwH,hwK,by omega,hwR⟩
+
+lemma selected_count {n : ℕ} (C : Circuit)
+    (hG : ∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (Y S : Finset (Fin n)) (o : ℕ) (hYS : Disjoint Y S) (hso : sound C S o)
+    (hfire : ∀ p ∈ S, value C (fun v => decide (v ∈ Y ∨ v=p)) o = true) :
+    ∃ (parents : ℕ → Finset ℕ) (U : Finset ℕ), U ⊆ charged C Y S ∧
+      S.card ≤ U.card + 1 ∧
+      (∀ w, (n ≤ w ∧ w<n+C.size) → sound C S w →
+        (parents w).card ≤ (if w ∈ charged C Y S then 2 else 1) ∧
+        (∀ r ∈ parents w, r<w ∧ sound C S r) ∧
+        supp C Y w ⊆ (parents w).biUnion (supp C Y)) ∧
+      (∀ w ∈ U, Relation.ReflTransGen (fun a b => b ∈ parents a) o w) ∧
+      (∀ w r, r ∈ parents w → (n ≤ w ∧ w<n+C.size) ∧ sound C S w ∧
+        r<w ∧ sound C S r ∧ r ∈ (readGate C n w).inputs) := by
+  classical
+  let H := (Finset.Ico n (n+C.size)).filter (sound C S)
+  have hbranch : ∀ w ∈ H, ∃ P : Finset ℕ,
+      P.card ≤ (if w ∈ charged C Y S then 2 else 1) ∧
+        (∀ r ∈ P, r<w ∧ sound C S r ∧ r ∈ (readGate C n w).inputs) ∧
+          supp C Y w ⊆ P.biUnion (supp C Y) := by
+    intro w hw
+    have hg := Finset.mem_Ico.mp (Finset.mem_filter.mp hw).1
+    obtain ⟨P,hP,hP',hp,hcover⟩ := branch_edges C hG Y S w hg.1 hg.2 (Finset.mem_filter.mp hw).2
+    refine ⟨P,?_,hp,hcover⟩
+    split_ifs with hc
+    · exact hP
+    · exact hP' hc
+  let parents := fun w => if hw : w ∈ H then Classical.choose (hbranch w hw) else ∅
+  have hpFull : ∀ w ∈ H,
+      (parents w).card ≤ (if w ∈ charged C Y S then 2 else 1) ∧
+        (∀ r ∈ parents w, r<w ∧ sound C S r ∧ r ∈ (readGate C n w).inputs) ∧
+        supp C Y w ⊆ (parents w).biUnion (supp C Y) := by
+    intro w hw
+    simpa only [parents,dite_eq_left hw] using Classical.choose_spec (hbranch w hw)
+  have hp : ∀ w ∈ H,
+      (parents w).card ≤ (if w ∈ charged C Y S then 2 else 1) ∧
+        (∀ r ∈ parents w, r<w ∧ sound C S r) ∧
+        supp C Y w ⊆ (parents w).biUnion (supp C Y) := by
+    intro w hw
+    have hh := hpFull w hw
+    exact ⟨hh.1,fun r hr => ⟨(hh.2.1 r hr).1,(hh.2.1 r hr).2.1⟩,hh.2.2⟩
+  let R := {w | Relation.ReflTransGen (fun a b => b ∈ parents a) o w}
+  have hR : ∀ w ∈ H, w ∈ R → ∀ r ∈ parents w, r ∈ R := by
+    intro w _ hw r hr
+    exact Relation.ReflTransGen.tail hw hr
+  obtain ⟨B,U,hd,hB,hBs,hcov,hu⟩ := coverage_used (supp C Y) (sound C S)
+    H (charged C Y S) parents hp R hR (n+C.size) {o}
+      (fun w _ hw => (Finset.mem_Ico.mp (Finset.mem_filter.mp hw).1).2)
+      (fun w hw => by have : w=o := Finset.mem_singleton.mp hw; simpa [this] using hso)
+      (fun w hw => by have : w=o := Finset.mem_singleton.mp hw; subst w; exact Relation.ReflTransGen.refl)
+  refine ⟨parents,U,?_,?_,?_,?_,?_⟩
+  · intro w hw
+    exact (hu w hw).2.1
+  · have hsmall : ∀ w ∈ B, (supp C Y w).card ≤ 1 := by
+      intro w hw
+      by_contra! hlarge
+      have hg := supp_gate C Y S w hYS (hBs w hw).1 (by omega)
+      exact Finset.disjoint_left.mp hd hw
+        (Finset.mem_filter.mpr ⟨Finset.mem_Ico.mpr hg,(hBs w hw).1⟩)
+    have hS : S ⊆ B.biUnion (supp C Y) := by
+      intro p hpS
+      apply hcov
+      exact Finset.mem_biUnion.mpr
+        ⟨o,Finset.mem_singleton_self o,(mem_supp C Y o p).mpr (hfire p hpS)⟩
+    have h1 := Finset.card_le_card hS
+    have h2 := Finset.card_biUnion_le_card_mul B (supp C Y) 1 hsmall
+    simp only [Finset.card_singleton] at hB
+    simp only [mul_one] at h2
+    omega
+  · intro w hg hs
+    exact hp w (Finset.mem_filter.mpr ⟨Finset.mem_Ico.mpr hg,hs⟩)
+  · intro w hw
+    exact (hu w hw).2.2.2
+  · intro w r hr
+    by_cases hw : w ∈ H
+    · exact ⟨Finset.mem_Ico.mp (Finset.mem_filter.mp hw).1,
+        (Finset.mem_filter.mp hw).2,(hpFull w hw).2.1 r hr⟩
+    · simp [parents,hw] at hr
+
+end PEqualNP.Outside.L_meta_997.HeavySelected
+

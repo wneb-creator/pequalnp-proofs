@@ -35,3 +35,9 @@ Snapshot SHA256 7a39025a8c9f438b6a914224b680e22e591466b0810313bce9d475e3347da602
 
 Seventh partial: 1991 lines. Build 10 passed. Added minimum-weight gate budget: a monotone output true at y and false below weight k requires at least k-1 gates with empty singleton support that are true at y.
 Independent review by lean_setup passed on75-line extension SHA256990942dff8e2594695b5571c6362f1c3b2923160743555e80f861e085bc701ce. Combined snapshot257867fc004424953fac10d8481e944cc10fd375b1f6302add41cfbffbb283cf.
+
+Eighth partial: 2202 lines. Build 11 passed. Added selected heavy gate DAG with actual input edges, decreasing indices, output reachability, and cardinality certificate.
+Independent review by lean_setup PASS on211-line extension SHA2565b895c6a4e853b46a7522c8870caf381a44a9a524204ebda238f53881e08dfe3. Combined snapshot 507ad005fd63a70134eeeb7a0b4490c64361d7d473fddc0d2354f996160e27ad.
+General posted theorem still absent; no checker acceptance.
+Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
+TIMING total=34.0 subagents=6
