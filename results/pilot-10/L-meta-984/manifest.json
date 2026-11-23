@@ -83,6 +83,42 @@
         "shard28-benchmark-one-1.stderr"
       ],
       "scope": "Semantic encoding checks and only one layer8 frontier state; performance comparison only, no full shard or gap proof."
+    },
+    {
+      "file": "FormalOrbit984.lean",
+      "sha256": "80ad7bdf061f21359e2b5a5f9533091a66d78aa955f32382981d8ed76b90362a",
+      "lines": 1811,
+      "bytes": 80244,
+      "observed_compile_exit": 0,
+      "logs": [
+        "formal-orbit-check-2.stdout",
+        "formal-orbit-check-2.stderr"
+      ],
+      "scope": "Generic row-map transport and orientation-aware certificate soundness; no concrete graph theorem."
+    },
+    {
+      "file": "FastScore984.lean",
+      "sha256": "bd195ffb5c596817ce29f71cb30b6a858ea2765f46cb0faabf03325f85f44fa4",
+      "lines": 120,
+      "bytes": 4428,
+      "observed_compile_exit": 0,
+      "logs": [
+        "fast-score-2.stdout",
+        "fast-score-2.stderr"
+      ],
+      "scope": "Exact five-popcount evaluation of the six-coordinate score for lists of length at most12; no graph lower bound."
+    },
+    {
+      "file": "MaskStage984.lean",
+      "sha256": "0552ee3d7ac906fff71e559070acadcbd41153997fb2c6809b5b202692ffb4e2",
+      "lines": 36,
+      "bytes": 1596,
+      "observed_compile_exit": 0,
+      "logs": [
+        "mask-stage-1.stdout",
+        "mask-stage-1.stderr"
+      ],
+      "scope": "Bitwise homomorphisms for a masked shift/swap stage under three explicit mask-disjointness assumptions."
     }
   ]
 }
