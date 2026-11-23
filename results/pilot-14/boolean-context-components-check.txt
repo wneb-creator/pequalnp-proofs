@@ -1,0 +1,323 @@
+L-meta-670 checked partial components, not the posted theorem.
+Each component compile exited0; independent reviews are included in full.
+The Cheap+Local real case159 kernel benchmark FAILED its10000MiB cap; full diagnostic retained below.
+force-context/ForceContextBody.lean SHA256 b0b1bb2e912fb36dd6033b01ed5589a12cc3bd90ea792cdd40f590e5645615cc
+force-context/ForceContextTest.lean SHA256 712114d2ae9c4d417c3ced9865646e33587c9b633b309a30af6b7cdf58a33ca8
+toolchain/BoolNodupBody.lean SHA256 07a862cb01682aa8f77c6ca36cb38378db5fb71341e30052b7be2150ab75e665
+toolchain/BoolNodupTest.lean SHA256 57a1d57867cad1f879cdc1f55cb7be78e68ac9d15e04da3023a3627284e449dd
+lower-bound/MemoBoolBody.lean SHA256 5e20075f1b7346dfbf2b71f1840204cf0b0bfcd3e2fa5714935db98e62ef2b24
+lower-bound/MemoLocalBoolBody.lean SHA256 44a79cba0ffd51d3994976d377bb57cf58743c818e8da461993d633ddcc670fd
+lower-bound/MemoBoolTest.lean SHA256 c4ce30b066a51a2fef7394551b03879c01da5ef5e9f430b719488c578055f69e
+lower-bound/MemoBoolFastBody.lean SHA256 6c738cb29ba40d4b3d82acb75d280065be9f402a365f409f41e1091cc173e34a
+lower-bound/MemoLocalBoolFastBody.lean SHA256 96a0dcd808353a629b39c2e8004d714c9f7ee6f8fa425fead32a14beccdb7a8b
+lower-bound/MemoBoolFastTest.lean SHA256 b868c4165e93c7fbb6ffb88895bd5814cdc79dac66ed45456517dd9a748723ec
+lower-bound/PreparedBoolUpdateBody.lean SHA256 b592186f385b92a68134e1fbf4bfc5234c776dce39146de54e6bc4d0dede5c05
+lower-bound/PreparedBoolUpdateTest.lean SHA256 5beec3bce0c2721435bbe4af0fb885252590d592ab5758f8beb591d74bdfecfc
+sat-proof/DynamicRapidBody.lean SHA256 17f18faef8f9df2ee9360b435bf39152b5272a71e84c5cb3d640d4f4e85d7a0f
+sat-proof/DynamicRapidTest.lean SHA256 95475f2d91c3e9e771124c3381204a14b4c1640f71d39330c66362778ea33e02
+sat-proof/DynamicRapidForceBody.lean SHA256 b37ae7e2dcc6f2d9524de9ca74776bd13f715a5373d51a68fa4447a143d437c4
+sat-proof/DynamicRapidForceTest.lean SHA256 d2593af067f2d054c7a229599c290bbe185d0e18444d2473815645d5d2280aed
+
+COMPLETE LOG force-context/force-context-build.log
+import took 4.32s
+'PEqualNP.Outside.L_meta_670_aux.ForceContext.materialize_eq' depends on axioms: [propext, Quot.sound]
+cumulative profiling times:
+	.olean serialization 3.51ms
+	attribute application 0.0873ms
+	blocked (unaccounted) 19.8ms
+	compilation (IR) 0.562ms
+	compilation (LCNF base) 3.29ms
+	compilation (LCNF impure) 2.24ms
+	compilation (LCNF mono) 4.42ms
+	congr simp thm 1.55ms
+	declTypeLinter 2.86ms
+	elaboration 24.8ms
+	fix level params 0.146ms
+	import 4.32s
+	initialization 27.2ms
+	instantiate metavars 0.34ms
+	interpretation 288ms
+	let-to-have transformation 0.0954ms
+	linting 6.58ms
+	module linting 0.0275ms
+	parsing 3.33ms
+	process pre-definitions 4.17ms
+	share common exprs 0.754ms
+	simp 19.3ms
+	tactic execution 30.1ms
+	tacticAnalysis 1.69ms
+	type checking 4.79ms
+	typeclass inference 1.85ms
+
+COMPLETE LOG toolchain/bool-nodup-test.log
+import took 3.25s
+'PEqualNP.Outside.L_meta_670_aux.BoolNodup.check_eq_true' depends on axioms: [propext, Classical.choice, Quot.sound]
+cumulative profiling times:
+	.olean serialization 2.09ms
+	attribute application 0.0247ms
+	blocked (unaccounted) 33.8ms
+	compilation (IR) 0.113ms
+	compilation (LCNF base) 1.74ms
+	compilation (LCNF impure) 0.365ms
+	compilation (LCNF mono) 0.721ms
+	congr simp thm 0.672ms
+	declTypeLinter 2.22ms
+	elaboration 7.05ms
+	fix level params 0.0361ms
+	import 3.25s
+	initialization 40.4ms
+	instantiate metavars 0.0676ms
+	interpretation 271ms
+	let-to-have transformation 0.0253ms
+	linting 2.54ms
+	module linting 0.0237ms
+	parsing 0.768ms
+	process pre-definitions 1.74ms
+	share common exprs 0.168ms
+	simp 8.39ms
+	tactic execution 16.3ms
+	tacticAnalysis 0.913ms
+	type checking 1.81ms
+	typeclass inference 4.88ms
+
+COMPLETE LOG lower-bound/memo-bool-build.log
+import took 6.67s
+cumulative profiling times:
+	.olean serialization 20.6ms
+	attribute application 0.481ms
+	blocked (unaccounted) 1.17s
+	compilation (IR) 2.05ms
+	compilation (LCNF base) 23ms
+	compilation (LCNF impure) 8.97ms
+	compilation (LCNF mono) 17ms
+	congr simp thm 5.32ms
+	declTypeLinter 11.5ms
+	elaboration 166ms
+	fix level params 0.774ms
+	import 6.67s
+	initialization 26.2ms
+	instantiate metavars 1.93ms
+	interpretation 425ms
+	let-to-have transformation 0.952ms
+	linting 42.1ms
+	module linting 0.0942ms
+	parsing 20.3ms
+	process pre-definitions 22.7ms
+	share common exprs 4.52ms
+	simp 101ms
+	tactic execution 158ms
+	tacticAnalysis 8.88ms
+	type checking 61.8ms
+	typeclass inference 53.7ms
+
+COMPLETE LOG lower-bound/memo-bool-fast-build.log
+import took 3.72s
+cumulative profiling times:
+	.olean serialization 21.5ms
+	attribute application 0.392ms
+	blocked (unaccounted) 1.19s
+	compilation (IR) 1.97ms
+	compilation (LCNF base) 22ms
+	compilation (LCNF impure) 8.83ms
+	compilation (LCNF mono) 13.7ms
+	congr simp thm 5.22ms
+	declTypeLinter 10.9ms
+	elaboration 164ms
+	fix level params 0.737ms
+	import 3.72s
+	initialization 30.5ms
+	instantiate metavars 1.74ms
+	interpretation 413ms
+	let-to-have transformation 0.947ms
+	linting 47.2ms
+	module linting 0.049ms
+	parsing 19.1ms
+	process pre-definitions 22.5ms
+	share common exprs 4.36ms
+	simp 99.2ms
+	tactic execution 155ms
+	tacticAnalysis 8.2ms
+	type checking 58ms
+	typeclass inference 51.2ms
+
+COMPLETE LOG lower-bound/prepared-bool-update-build.log
+import took 6.68s
+cumulative profiling times:
+	.olean serialization 26.2ms
+	attribute application 0.257ms
+	blocked (unaccounted) 237ms
+	compilation (IR) 2.02ms
+	compilation (LCNF base) 19.6ms
+	compilation (LCNF impure) 9.39ms
+	compilation (LCNF mono) 16ms
+	congr simp thm 8.52ms
+	declTypeLinter 5.87ms
+	elaboration 158ms
+	fix level params 0.475ms
+	import 6.68s
+	initialization 26.6ms
+	instantiate metavars 0.599ms
+	interpretation 330ms
+	let-to-have transformation 1.06ms
+	linting 17.3ms
+	module linting 0.0307ms
+	parsing 10.8ms
+	process pre-definitions 14.1ms
+	share common exprs 2.31ms
+	simp 59.7ms
+	tactic execution 74.1ms
+	tacticAnalysis 3.48ms
+	type checking 37.1ms
+	typeclass inference 35.5ms
+
+COMPLETE LOG sat-proof/dynamic-rapid-test-attempt2.log
+import took 3.98s
+cumulative profiling times:
+	.olean serialization 5.5ms
+	attribute application 0.0813ms
+	compilation (IR) 0.545ms
+	compilation (LCNF base) 5.15ms
+	compilation (LCNF impure) 2.07ms
+	compilation (LCNF mono) 4.82ms
+	congr simp thm 2.45ms
+	declTypeLinter 3.76ms
+	elaboration 33ms
+	fix level params 0.139ms
+	import 3.98s
+	initialization 29.3ms
+	instantiate metavars 0.114ms
+	interpretation 292ms
+	let-to-have transformation 0.392ms
+	linting 6.77ms
+	module linting 0.0237ms
+	parsing 4.04ms
+	process pre-definitions 2.45ms
+	share common exprs 0.75ms
+	simp 6.44ms
+	tactic execution 10.7ms
+	tacticAnalysis 2.55ms
+	type checking 4.75ms
+	typeclass inference 6.23ms
+real 5.92
+user 3.65
+sys 2.32
+
+COMPLETE LOG sat-proof/dynamic-rapid-force-test.log
+import took 3.62s
+cumulative profiling times:
+	.olean serialization 3.32ms
+	attribute application 0.091ms
+	compilation (IR) 0.319ms
+	compilation (LCNF base) 2.92ms
+	compilation (LCNF impure) 1.2ms
+	compilation (LCNF mono) 2.08ms
+	congr simp thm 1.13ms
+	declTypeLinter 2.79ms
+	dsimp 0.356ms
+	elaboration 22.1ms
+	fix level params 0.0729ms
+	import 3.62s
+	initialization 27.6ms
+	instantiate metavars 0.115ms
+	interpretation 412ms
+	let-to-have transformation 0.449ms
+	linting 4.87ms
+	module linting 0.0222ms
+	parsing 3.59ms
+	process pre-definitions 1.98ms
+	share common exprs 0.356ms
+	simp 0.526ms
+	tactic execution 6.83ms
+	tacticAnalysis 2.12ms
+	type checking 1.88ms
+	typeclass inference 0.236ms
+real 5.83
+user 3.65
+sys 2.19
+
+COMPLETE LOG counterexample/force-context-independent-audit.txt
+PASS independent ForceContext source/format review; no compiler rerun.
+Every force helper is universally proved extensionally equal to direct application of its continuation: Nat, generic lists, all GateOp constructors including mod/maj, gates, 252-bit projected signatures, and PrefixCtx records.
+BitVec reconstruction uses the correct Base1007 width252 and ofNat_toNat; no truncation assumption is added. Gate input indices and roots retain their original Nat values.
+materialize enumerates c on List.ofFn over Fin n; the resulting list has exactly n elements, and every later Fin n lookup is in range. The empty default PrefixCtx is unreachable. Function extensionality proves materialize c f = f c for all n (including n=0) and arbitrary continuation f.
+Exact body occurs in successful ForceContextTest; full log prints materialize_eq axioms [propext,Quot.sound]. No forbidden constructs/new axioms. No performance, closure-release, or memory-improvement claim is made by the identity theorem.
+force-context/ForceContextBody.lean SHA256 b0b1bb2e912fb36dd6033b01ed5589a12cc3bd90ea792cdd40f590e5645615cc
+force-context/ForceContextTest.lean SHA256 712114d2ae9c4d417c3ced9865646e33587c9b633b309a30af6b7cdf58a33ca8
+force-context/force-context-build.log SHA256 28977f1e95c5b999093a4ea297e06b7318ef9959d9ee157f5adc511922954800
+
+COMPLETE LOG counterexample/bool-variants-independent-audit.txt
+PASS source-only independent delta review. Compilation and benchmarking remain author-owned; reviewer ran no compiler for these variants.
+MemoBool replaces decidable List.Perm by Boolean List.isPerm. List.isPerm_iff turns accepted hits back into the exact previous permutation premise; budget and NOT-count guards and all memo/search semantics are unchanged.
+MemoLocalBool makes the identical replacement for local hits and imports the Boolean global memo variant. The local-entry soundness invariant and authentication through stepTest remain unchanged.
+PreparedBoolUpdate replaces exactly four equality guards (cached Option lookup, unary value, binary value, fresh selection) with Boolean equality. Each successful branch immediately converts the guard using beq_iff_eq into the same dependent constructor proof as before. Direct fallbacks and all value-map/forcing proofs are unchanged.
+No extra mathematical assumptions are introduced: lawful Boolean equality instances are those already provided for the fixed Bool/BitVec/product/Option/List types. No new axioms or forbidden constructs were found.
+Namespace-normalized full diffs saved alongside this audit as delta-MemoBoolBody.diff, delta-MemoLocalBoolBody.diff, delta-PreparedBoolUpdateBody.diff. No performance benefit is asserted without measurements.
+MemoBoolBody.lean SHA256 5e20075f1b7346dfbf2b71f1840204cf0b0bfcd3e2fa5714935db98e62ef2b24
+MemoLocalBoolBody.lean SHA256 44a79cba0ffd51d3994976d377bb57cf58743c818e8da461993d633ddcc670fd
+PreparedBoolUpdateBody.lean SHA256 b592186f385b92a68134e1fbf4bfc5234c776dce39146de54e6bc4d0dede5c05
+
+COMPLETE LOG counterexample/bool-nodup-fast-independent-audit.txt
+PASS independent BoolNodup and MemoBoolFast/MemoLocalBoolFast delta review; no compiler rerun.
+BoolNodup.check recursively requires the current head absent from its tail and checks the tail. Its proved iff exactly matches List.Nodup for fixed Sig equality; sound extracts the same proposition formerly obtained by of_decide_eq_true.
+The normalized full diff from reviewed MemoBool and MemoLocalBool has only two semantic edits per body: decide v.Nodup becomes BoolNodup.check v, and the proof extraction becomes BoolNodup.sound. All memo, budget, NOT, permutation, local-entry, cut, and final authentication behavior is unchanged.
+Exact fast bodies occur in MemoBoolFastTest. Author reports successful compiler exit0; full log has no errors. BoolNodup test prints only standard axioms. No forbidden constructs/new assumptions were found; no measured runtime improvement is asserted.
+Earlier MemoBool/LocalBool/PreparedBool source-only reviews remain applicable; author now reports all three compiled successfully, with complete memo-bool-build.log and prepared-bool-update-build.log retained.
+toolchain/BoolNodupBody.lean SHA256 07a862cb01682aa8f77c6ca36cb38378db5fb71341e30052b7be2150ab75e665
+toolchain/BoolNodupTest.lean SHA256 57a1d57867cad1f879cdc1f55cb7be78e68ac9d15e04da3023a3627284e449dd
+toolchain/bool-nodup-test.log SHA256 91438158fc2c1671256fe655c82c009a381123e234d204c9cb6ec53feac08d2e
+lower-bound/MemoBoolFastBody.lean SHA256 6c738cb29ba40d4b3d82acb75d280065be9f402a365f409f41e1091cc173e34a
+lower-bound/MemoLocalBoolFastBody.lean SHA256 96a0dcd808353a629b39c2e8004d714c9f7ee6f8fa425fead32a14beccdb7a8b
+lower-bound/MemoBoolFastTest.lean SHA256 b868c4165e93c7fbb6ffb88895bd5814cdc79dac66ed45456517dd9a748723ec
+lower-bound/memo-bool-fast-build.log SHA256 ba617b53677c81b0571f308558e80a7b860bfb7c157e36a0883e939bc68569e8
+lower-bound/memo-bool-build.log SHA256 80bafe74be182441f18b7c35316ae9deaa2f8e9cd797395178703a703cda941c
+lower-bound/prepared-bool-update-build.log SHA256 0e9dafbed52f6683b098020f20813d2126212fb235b3e6806e40095c6da95643
+
+COMPLETE LOG assembly/dynamic-rapid-independent-audit.txt
+Independent review: PASS (source semantics; compilation owned by sat_proof).
+Source: /tmp/oec/pequalnp-pilot-14/sat-proof/DynamicRapidBody.lean
+SHA256: 17f18faef8f9df2ee9360b435bf39152b5272a71e84c5cb3d640d4f4e85d7a0f
+Bytes: 4708
+
+strictUpdateOne changes only untrusted gate/program roots and keeps exact projected cached values through StrictPrefix.compact_vals and routes.values_map. updatePrepared_valid carries the invariant into every checked child context. fastInitial uses FastRecipe.initial_valid with explicit exact raw-projection agreement. fastLeafCheck_sound retains explicit Oracle.Sound and target preservation, applies DynamicCovered.cut_sound and MemoLocalBoolFast.solve_sound, and starts from the empty sound memo. The final Boolean negation is converted to the required false result without an unchecked implication. No new axiom, sorry, native_decide, unsafe command, or hidden semantic assumption.
+
+COMPLETE LOG assembly/dynamic-rapid-force-independent-audit.txt
+Independent review: PASS.
+Source: /tmp/oec/pequalnp-pilot-14/sat-proof/DynamicRapidForceBody.lean
+SHA256: b37ae7e2dcc6f2d9524de9ca74776bd13f715a5373d51a68fa4447a143d437c4
+Bytes: 3390
+
+Delta from checked DynamicRapid: parent context is materialized using ForceContext.materialize; its exact equality lemma rewrites back to c.val, proving Valid for flat without a new assumption. Every child uses the same checked updatePrepared_valid on flat. Checked initial context, projected prefix/coverage cut, Bool memo solver, oracle Sound, target preservation, raw projection agreement, and final false-result conversion are unchanged. Program construction remains untrusted and authenticated by the checker. No forbidden forms found. Compilation reported EXIT0 by author in dynamic-rapid-force-test.log.
+
+COMPLETE LOG sat-proof/theta-cheap-local159.log
+import took 3.98s
+/tmp/oec/pequalnp-pilot-14/sat-proof/ThetaCheapLocal159.lean:30:74: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) excessive memory consumption detected
+type checking took 25.2s
+cumulative profiling times:
+	attribute application 0.0528ms
+	blocked (unaccounted) 24.3ms
+	compilation (IR) 0.543ms
+	compilation (LCNF base) 12.1ms
+	compilation (LCNF impure) 3.67ms
+	compilation (LCNF mono) 10.4ms
+	declTypeLinter 5.91ms
+	elaboration 63.2ms
+	fix level params 0.178ms
+	import 3.98s
+	initialization 28.4ms
+	instantiate metavars 0.377ms
+	interpretation 321ms
+	let-to-have transformation 0.0621ms
+	linting 9.36ms
+	module linting 0.0225ms
+	parsing 3.29ms
+	process pre-definitions 3.34ms
+	share common exprs 0.785ms
+	tactic execution 4.57ms
+	tacticAnalysis 1.55ms
+	type checking 25.2s
+	typeclass inference 5.63ms
+real 111.35
+user 107.81
+sys 3.32
