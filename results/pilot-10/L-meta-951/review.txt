@@ -49,3 +49,8 @@ read each incremental theorem independently and verified archived hashes.
 These prove local prefix monotonicity and same-length unread-gate replacement;
 none claims gate deletion or the full posted lower bound. Manifest31 records
 the exact checked source bytes and complete diagnostics.
+
+Sixth snapshot: independent_theory reviewed FirstConsumerBound951 and its
+unchanged earlier prefix, explicit additional ownership/first-read/endpoint
+hypotheses, frozen hash and complete warning-only diagnostics: PASS. This
+conditional capped-base+2 conclusion does not settle the full951 statement.
