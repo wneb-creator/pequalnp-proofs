@@ -5267,3 +5267,229 @@ lemma fixed_match {n : ℕ} (C : Circuit) (t : ℕ) (Y : Finset (Fin n))
 
 end PEqualNP.Outside.L_meta_997.HeavyExit
 
+
+namespace PEqualNP.Outside.L_meta_997.TwoIncidence
+
+lemma source_count {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (P : Finset α) (S : Finset β) (R : α → β → Prop) [DecidableRel R]
+    (hne : ∀ p ∈ P, ∃ s ∈ S, R p s)
+    (hsize : ∀ s ∈ S, (P.filter fun p => R p s).card ≤ 2)
+    (hexcl : ∀ p ∈ P, (S.filter (R p)).card = 1 →
+      ∀ s ∈ S, R p s → ∀ q ∈ P, R q s → q = p) :
+    P.card ≤ S.card := by
+  classical
+  let D := P.filter fun p => (S.filter (R p)).card = 1
+  let E := S.filter fun s => (P.filter fun p => R p s).card = 1
+  have hDE : D.card ≤ E.card := by
+    have choose_source (p : α) (hp : p ∈ D) : ∃ s ∈ E, R p s := by
+      have hpP := (Finset.mem_filter.mp hp).1
+      obtain ⟨s, hsS, hps⟩ := hne p hpP
+      refine ⟨s, Finset.mem_filter.mpr ⟨hsS, ?_⟩, hps⟩
+      have heq : (P.filter fun q => R q s) = {p} := by
+        ext q
+        simp only [Finset.mem_filter, Finset.mem_singleton]
+        constructor
+        · intro hq
+          exact hexcl p hpP (Finset.mem_filter.mp hp).2 s hsS hps q hq.1 hq.2
+        · intro hq
+          subst q
+          exact ⟨hpP, hps⟩
+      simp [heq]
+    choose f hfE hfR using choose_source
+    let F : D → E := fun p => ⟨f p p.property, hfE p p.property⟩
+    have hF : Function.Injective F := by
+      intro p q heq
+      apply Subtype.ext
+      have hpP := (Finset.mem_filter.mp p.property).1
+      have hqP := (Finset.mem_filter.mp q.property).1
+      have hval : f p p.property = f q q.property := congrArg Subtype.val heq
+      exact (hexcl p hpP (Finset.mem_filter.mp p.property).2
+        (f p p.property) (Finset.mem_filter.mp (hfE p p.property)).1
+        (hfR p p.property) q hqP (hval ▸ hfR q q.property)).symm
+    simpa using Fintype.card_le_of_injective F hF
+  have hsum : (∑ p ∈ P, (S.filter (R p)).card) =
+      ∑ s ∈ S, (P.filter fun p => R p s).card := by
+    simp only [Finset.card_filter]
+    exact Finset.sum_comm
+  have hlo : 2 * P.card ≤ (∑ p ∈ P, (S.filter (R p)).card) + D.card := by
+    have hpoint (p : α) (hp : p ∈ P) :
+        2 ≤ (S.filter (R p)).card + if p ∈ D then 1 else 0 := by
+      obtain ⟨s, hsS, hps⟩ := hne p hp
+      have hpos : 0 < (S.filter (R p)).card :=
+        Finset.card_pos.mpr ⟨s, Finset.mem_filter.mpr ⟨hsS, hps⟩⟩
+      by_cases hd : p ∈ D
+      · simp only [hd, ite_true]
+        omega
+      · have hnot : (S.filter (R p)).card ≠ 1 := by
+          intro h
+          exact hd (Finset.mem_filter.mpr ⟨hp, h⟩)
+        simp only [hd, ite_false, add_zero]
+        omega
+    have hDs : (∑ p ∈ P, if p ∈ D then 1 else 0) = D.card := by
+      rw [← Finset.card_filter]
+      congr 1
+      ext p
+      simp only [Finset.mem_filter]
+      exact ⟨fun h => h.2, fun h => ⟨(Finset.mem_filter.mp h).1, h⟩⟩
+    have hh := Finset.sum_le_sum hpoint
+    simpa only [Finset.sum_add_distrib, hDs, Finset.sum_const,
+      smul_eq_mul, Nat.mul_comm] using hh
+  have hhi : (∑ s ∈ S, (P.filter fun p => R p s).card) + E.card ≤ 2 * S.card := by
+    have hpoint (s : β) (hs : s ∈ S) :
+        (P.filter fun p => R p s).card + (if s ∈ E then 1 else 0) ≤ 2 := by
+      by_cases he : s ∈ E
+      · have hh := (Finset.mem_filter.mp he).2
+        simp only [he, ite_true, hh]
+        omega
+      · simpa only [he, ite_false, add_zero] using hsize s hs
+    have hEs : (∑ s ∈ S, if s ∈ E then 1 else 0) = E.card := by
+      rw [← Finset.card_filter]
+      congr 1
+      ext s
+      simp only [Finset.mem_filter]
+      exact ⟨fun h => h.2, fun h => ⟨(Finset.mem_filter.mp h).1, h⟩⟩
+    have hh := Finset.sum_le_sum hpoint
+    simpa only [Finset.sum_add_distrib, hEs, Finset.sum_const,
+      smul_eq_mul, Nat.mul_comm] using hh
+  omega
+
+end PEqualNP.Outside.L_meta_997.TwoIncidence
+
+namespace PEqualNP.Outside.L_meta_997.Incidence
+
+lemma two_color_count {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (P Q : Finset α) (B : Finset β) (A : β → Finset α)
+    (hdis : Disjoint P Q) (hneP : P.Nonempty) (hneQ : Q.Nonempty)
+    (hP : ∀ b ∈ B, (A b ∩ P).card ≤ 1)
+    (hQ : ∀ b ∈ B, (A b ∩ Q).card ≤ 1)
+    (hPQ : ∀ p ∈ P, ∀ q ∈ Q, ∃ b ∈ B, p ∈ A b ∧ q ∉ A b)
+    (hQP : ∀ q ∈ Q, ∀ p ∈ P, ∃ b ∈ B, q ∈ A b ∧ p ∉ A b) :
+    P.card + Q.card ≤ B.card := by
+  classical
+  have hne (p : α) (hp : p ∈ P ∪ Q) : ∃ b ∈ B, p ∈ A b := by
+    rcases Finset.mem_union.mp hp with hp | hp
+    · obtain ⟨q, hq⟩ := hneQ
+      obtain ⟨b, hb, hpb, _⟩ := hPQ p hp q hq
+      exact ⟨b, hb, hpb⟩
+    · obtain ⟨q, hq⟩ := hneP
+      obtain ⟨b, hb, hpb, _⟩ := hQP p hp q hq
+      exact ⟨b, hb, hpb⟩
+  have hsize (b : β) (hb : b ∈ B) :
+      ((P ∪ Q).filter fun p => p ∈ A b).card ≤ 2 := by
+    have heq : ((P ∪ Q).filter fun p => p ∈ A b) = (A b ∩ P) ∪ (A b ∩ Q) := by
+      ext p
+      simp only [Finset.mem_filter, Finset.mem_union, Finset.mem_inter]
+      tauto
+    rw [heq]
+    have hh := Finset.card_union_le (A b ∩ P) (A b ∩ Q)
+    have hp := hP b hb
+    have hq := hQ b hb
+    omega
+  have hexcl (p : α) (hp : p ∈ P ∪ Q)
+      (hdeg : (B.filter fun b => p ∈ A b).card = 1)
+      (b : β) (hb : b ∈ B) (hpb : p ∈ A b)
+      (q : α) (hq : q ∈ P ∪ Q) (hqb : q ∈ A b) : q = p := by
+    have huniq (c : β) (hc : c ∈ B) (hpc : p ∈ A c) : c = b :=
+      Finset.card_le_one.mp (by omega : (B.filter fun b => p ∈ A b).card ≤ 1)
+        c (Finset.mem_filter.mpr ⟨hc, hpc⟩) b (Finset.mem_filter.mpr ⟨hb, hpb⟩)
+    rcases Finset.mem_union.mp hp with hp | hp <;>
+      rcases Finset.mem_union.mp hq with hq | hq
+    · exact Finset.card_le_one.mp (hP b hb)
+        q (Finset.mem_inter.mpr ⟨hqb, hq⟩) p (Finset.mem_inter.mpr ⟨hpb, hp⟩)
+    · obtain ⟨c, hc, hpc, hqc⟩ := hPQ p hp q hq
+      exact False.elim (hqc (huniq c hc hpc ▸ hqb))
+    · obtain ⟨c, hc, hpc, hqc⟩ := hQP p hp q hq
+      exact False.elim (hqc (huniq c hc hpc ▸ hqb))
+    · exact Finset.card_le_one.mp (hQ b hb)
+        q (Finset.mem_inter.mpr ⟨hqb, hq⟩) p (Finset.mem_inter.mpr ⟨hpb, hp⟩)
+  have hh := TwoIncidence.source_count (P ∪ Q) B (fun p b => p ∈ A b) hne hsize hexcl
+  simpa only [Finset.card_union_of_disjoint hdis] using hh
+
+end PEqualNP.Outside.L_meta_997.Incidence
+namespace PEqualNP.Outside.L_meta_997.TwoBoundary
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_997.light
+
+lemma separating_boundary {n : ℕ} (C : Circuit) (P Q : Finset (Fin n))
+    (oP oQ : ℕ) (M : Finset ℕ)
+    (hG : ∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hP : ∀ p ∈ P, value C (fun v => decide (v = p)) oP = true)
+    (hQ : ∀ q ∈ Q, value C (fun v => decide (v = q)) oQ = true)
+    (hPQ : ∀ q ∈ Q, value C (fun v => decide (v = q)) oP = false)
+    (hQP : ∀ p ∈ P, value C (fun v => decide (v = p)) oQ = false)
+    (hMP : ∀ w ∈ M, (singleSupp C w ∩ P).card ≤ 1)
+    (hMQ : ∀ w ∈ M, (singleSupp C w ∩ Q).card ≤ 1) :
+    ∃ B : Finset ℕ,
+      B.card ≤ ((Finset.Ico n (n + C.size)) \ M).card + 2 ∧
+      (∀ w ∈ B, (singleSupp C w ∩ P).card ≤ 1) ∧
+      (∀ w ∈ B, (singleSupp C w ∩ Q).card ≤ 1) ∧
+      (∀ p ∈ P, ∀ q ∈ Q, ∃ w ∈ B, p ∈ singleSupp C w ∧ q ∉ singleSupp C w) ∧
+      (∀ q ∈ Q, ∀ p ∈ P, ∃ w ∈ B, q ∈ singleSupp C w ∧ p ∉ singleSupp C w) := by
+  classical
+  let H := (Finset.Ico n (n + C.size)) \ M
+  have hH : ∀ w ∈ H, n ≤ w ∧ w < n + C.size := by
+    intro w hw
+    exact Finset.mem_Ico.mp (Finset.mem_sdiff.mp hw).1
+  obtain ⟨B, hd, hB, hcut⟩ := cut C hG H hH (n + C.size) {oP, oQ}
+    (fun w _ hw => (hH w hw).2)
+  have hsize : B.card ≤ H.card + 2 := by
+    have hf := Finset.card_filter_le H (fun w => w < n + C.size)
+    have hp : ({oP, oQ} : Finset ℕ).card ≤ 2 := by
+      by_cases he : oP = oQ
+      · simp [he]
+      · simp [he]
+    omega
+  have hcap (T : Finset (Fin n))
+      (hM : ∀ w ∈ M, (singleSupp C w ∩ T).card ≤ 1) :
+      ∀ w ∈ B, (singleSupp C w ∩ T).card ≤ 1 := by
+    intro w hw
+    by_cases hm : w ∈ M
+    · exact hM w hm
+    · by_contra! hc
+      have hs : singleSupp C w ∩ T ⊆ singleSupp C w := Finset.inter_subset_left
+      have hr := singleSupp_gate C w (by have := Finset.card_le_card hs; omega)
+      exact Finset.disjoint_left.mp hd hw
+        (Finset.mem_sdiff.mpr ⟨Finset.mem_Ico.mpr hr, hm⟩)
+  refine ⟨B, hsize, hcap P hMP, hcap Q hMQ, ?_, ?_⟩
+  · intro p hp q hq
+    by_contra hnone
+    have hrows : ∀ w ∈ B,
+        value C (fun v => decide (v = p)) w = true → value C (fun v => decide (v = q)) w = true := by
+      intro w hw hpw
+      apply (mem_singleSupp C w q).mp
+      by_contra hqw
+      exact hnone ⟨w, hw, (mem_singleSupp C w p).mpr hpw, hqw⟩
+    have h := hcut (fun v => decide (v = p)) (fun v => decide (v = q)) hrows oP
+      (by simp) (hP p hp)
+    rw [hPQ q hq] at h
+    exact Bool.false_ne_true h
+  · intro q hq p hp
+    by_contra hnone
+    have hrows : ∀ w ∈ B,
+        value C (fun v => decide (v = q)) w = true → value C (fun v => decide (v = p)) w = true := by
+      intro w hw hqw
+      apply (mem_singleSupp C w p).mp
+      by_contra hpw
+      exact hnone ⟨w, hw, (mem_singleSupp C w q).mpr hqw, hpw⟩
+    have h := hcut (fun v => decide (v = q)) (fun v => decide (v = p)) hrows oQ
+      (by simp) (hQ q hq)
+    rw [hQP p hp] at h
+    exact Bool.false_ne_true h
+
+lemma two_output_budget {n : ℕ} (C : Circuit) (P Q : Finset (Fin n))
+    (oP oQ : ℕ) (M : Finset ℕ)
+    (hG : ∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hdis : Disjoint P Q) (hneP : P.Nonempty) (hneQ : Q.Nonempty)
+    (hP : ∀ p ∈ P, value C (fun v => decide (v = p)) oP = true)
+    (hQ : ∀ q ∈ Q, value C (fun v => decide (v = q)) oQ = true)
+    (hPQ : ∀ q ∈ Q, value C (fun v => decide (v = q)) oP = false)
+    (hQP : ∀ p ∈ P, value C (fun v => decide (v = p)) oQ = false)
+    (hMP : ∀ w ∈ M, (singleSupp C w ∩ P).card ≤ 1)
+    (hMQ : ∀ w ∈ M, (singleSupp C w ∩ Q).card ≤ 1) :
+    P.card + Q.card ≤ ((Finset.Ico n (n + C.size)) \ M).card + 2 := by
+  obtain ⟨B, hsize, hBP, hBQ, hsepPQ, hsepQP⟩ :=
+    separating_boundary C P Q oP oQ M hG hP hQ hPQ hQP hMP hMQ
+  exact le_trans (Incidence.two_color_count P Q B (singleSupp C)
+    hdis hneP hneQ hBP hBQ hsepPQ hsepQP) hsize
+
+end PEqualNP.Outside.L_meta_997.TwoBoundary
