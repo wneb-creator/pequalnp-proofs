@@ -1,0 +1,1 @@
+Root deliberately interrupted full v5 with SIGINT after the early-score helper and complete G8-v7b integration passed. Lake exited1; this is not a mathematical rejection. The unchanged v5 source had no full build verdict. The reviewed full v7b candidate is now being built.

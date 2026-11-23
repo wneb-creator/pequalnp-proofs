@@ -2,6 +2,6 @@
   "candidate": "Full984-compact-v5.lean",
   "sha256": "6d1a583f6e7b731f4597264f90310d3f2ec661a46ffa3b674f6cde6a4d7c0f67",
   "first_attempt": "Started2026-11-23T22:11:18Z; interrupted by environment restart around22:31Z. No exit-status file, no complete Lean verdict.",
-  "second_attempt": "Started2026-11-23T22:34Z; currently running.",
+  "second_attempt": "Started2026-11-23T22:34Z; deliberately interrupted22:44Z after faster early-score integration passed; Lake exit1. No full theorem verdict.",
   "checker": "NOT RUN"
 }
