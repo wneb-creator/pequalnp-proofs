@@ -1,0 +1,1 @@
+theorem C1_decoder_diagnostic : qNorm (C1_S 8 0) = [0x3c21, 0x454a, 0x4a94, 0x90c6, 0xa318, 0x1001f, 0x103e0] := by decide +kernel

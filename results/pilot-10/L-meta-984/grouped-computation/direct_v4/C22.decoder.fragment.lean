@@ -1,0 +1,1 @@
+theorem C22_decoder_diagnostic : qNorm (C22_S 8 0) = [0x1d1, 0x2a4, 0x64a, 0x928, 0x1430, 0x2038, 0x3807] := by decide +kernel

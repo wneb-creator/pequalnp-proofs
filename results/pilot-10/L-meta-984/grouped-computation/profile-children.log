@@ -1,0 +1,2 @@
+sorted {"raw": 176, "covered": 45, "score_rejected": 41, "survivors": 4, "survivor_found_true": 4, "unique_raw_multisets": 159}
+actual_direct {"raw": 176, "covered": 45, "score_rejected": 41, "survivors": 4, "survivor_found_true": 4, "unique_raw_multisets": 159}

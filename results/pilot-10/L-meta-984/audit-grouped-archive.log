@@ -1,0 +1,6 @@
+Source manifest: direct-v4-preservation-manifest.json records 318 scope Computational grouping/CHD/decoder transformation and exact matched-state component input decomposition. All27783 grouped states and lookup offsets verified by generator; independent audit requested. No full Lean984 proof claimed. Pending standalone grouped decoder compilation excluded.
+Source manifest: grouped-checked-preservation-manifest.json records 7 scope One Lean-checked grouped decoder example (observed exit0), independent scorer helper reviews, and Lean threading source analysis. No full31graph984 result claimed.
+PASS archive: 322 records; 2471443 raw bytes; 610860 stored bytes; 97 deterministic gzip files.
+Every stored/decompressed byte equals frozen scratch source; raw SHA256, raw/stored sizes, metadata and complete manifest union checked.
+Exactly three already-archived decoder proof/log files omitted: GroupedCompact28Decoder.lean,grouped-decoder.stderr,grouped-decoder.stdout
+Scope labels correctly distinguish computational evidence, one decoder proof, and source review from pending full31 theorem acceptance.

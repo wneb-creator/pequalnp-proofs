@@ -1,0 +1,128 @@
+{
+  "graph": 8,
+  "name": "C8",
+  "word_bits": 14,
+  "dictionary_index_bits": 4,
+  "initial": [
+    421,
+    666,
+    1362,
+    2657,
+    5133,
+    10254,
+    12400
+  ],
+  "noninputs": [
+    1,
+    5,
+    128,
+    384,
+    959,
+    2010,
+    3955,
+    12528,
+    12656,
+    13424
+  ],
+  "packed_values_hex": "0xd1c3170c3c0f731f683bf06000800014001",
+  "pattern_codes": [
+    5461,
+    5462
+  ],
+  "packed_patterns_hex": "0x5559555",
+  "groups": 2,
+  "record_block_size": 256,
+  "layers": {
+    "7": {
+      "N": 5,
+      "packed_counts_hex": "0x4001",
+      "packed_specs_hex": "0x281105",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 1,
+          "recordBits": 1,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x0"
+          ]
+        },
+        "1": {
+          "N": 4,
+          "offset": 1,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 11,
+          "seedBits": 5,
+          "flag": 16,
+          "buckets": 1,
+          "seeds_hex": "0x9",
+          "record_blocks_hex": [
+            "0x87e9fa9fcbf"
+          ]
+        }
+      }
+    },
+    "8": {
+      "N": 8,
+      "packed_counts_hex": "0x6002",
+      "packed_specs_hex": "0x305206",
+      "groups": {
+        "0": {
+          "N": 2,
+          "offset": 0,
+          "countBits": 2,
+          "patternBits": 1,
+          "recordBits": 1,
+          "seedBits": 4,
+          "flag": 8,
+          "buckets": 1,
+          "seeds_hex": "0x6",
+          "record_blocks_hex": [
+            "0x1"
+          ]
+        },
+        "1": {
+          "N": 6,
+          "offset": 2,
+          "countBits": 1,
+          "patternBits": 1,
+          "recordBits": 5,
+          "seedBits": 6,
+          "flag": 32,
+          "buckets": 2,
+          "seeds_hex": "0x463",
+          "record_blocks_hex": [
+            "0x4c329c4"
+          ]
+        }
+      }
+    },
+    "9": {
+      "N": 1,
+      "packed_counts_hex": "0x1",
+      "packed_specs_hex": "0x105",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 1,
+          "recordBits": 1,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x0"
+          ]
+        }
+      }
+    }
+  }
+}

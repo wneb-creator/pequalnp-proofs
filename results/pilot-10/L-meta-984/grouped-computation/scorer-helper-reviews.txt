@@ -1,0 +1,5 @@
+PASS StraightScore984.lean
+SHA256 8f85b3488c39d7a7c3e7a396f4ccec674f8d26f409b37b4215dd1d2fdef9b9d8; 99 lines/5513 bytes. straight-score-1.stdout/stderr both empty; exit0 reported by author. Independently decoded all22 literal six-tuples from the audited compactG28 rank pool. Goal65408 and coordinates0..15 match the compact representation. straightScore_eq is definitional equality for arbitrary mask lists; straightScr_eq retains the original exact-width/at-most12 guards. Only first-line Mathlib import; no sorry, axiom, native_decide or unsafe token. Scope fixedG28 scorer equivalence only.
+
+PASS PatternScore984.lean
+SHA256 7a9853595d4d28453a08b85595bbdbf6ee6967e1fa4a7c5bdd36344711fea988; 143 lines/7121 bytes. pattern-score-1.stdout/stderr both empty; exit0 reported by author. Exact audited StraightScore prefix retained. New pattern binds all16 rows once and uses the same22 literal tuples; other list lengths fall back to the old pool. Equality for every mask list is proved by pattern splitting and rfl; wrapper guards unchanged. No forbidden tokens. Scope scorer equivalence, not a runtime or graph lower-bound claim. No recompilations performed for either review.

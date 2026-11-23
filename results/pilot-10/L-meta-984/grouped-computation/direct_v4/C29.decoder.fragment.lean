@@ -1,0 +1,1 @@
+theorem C29_decoder_diagnostic : qNorm (C29_S 10 0) = [0x394, 0xca2, 0x1541, 0x220b, 0x480d, 0x900e, 0xe070] := by decide +kernel

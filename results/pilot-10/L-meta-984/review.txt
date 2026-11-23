@@ -158,3 +158,11 @@ PASS for exact conjunct8 and all14 states. Source hash and observed exit0
 logs verified. The full-v5 review and audits are archived; full31 compilation
 is pending. Full-v4 build was deliberately stopped after the faster equivalent
 v5 passed these gates; its complete output and interruption reason are saved.
+
+Grouped computation archive independently verified by proof_strategy:
+322records,97 deterministic gzip streams, every raw/stored hash and size
+agrees with the original manifests and source bytes. Three already archived
+decoder files are correctly omitted. PASS for archive fidelity only.
+Root reran final source format checks on exact v5 hash:492897bytes,5849lines,
+one Cert namespace,396 properly scoped allowed limit options, no forbidden
+text or attributes, regular nonexecutable file. Full build still pending.

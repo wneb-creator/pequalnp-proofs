@@ -1,0 +1,1 @@
+theorem C26_decoder_diagnostic : qNorm (C26_S 10 0) = [0x7e01, 0x7e01, 0x82aa, 0x8554, 0x10866, 0x11198, 0x2201e, 0x241e0] := by decide +kernel

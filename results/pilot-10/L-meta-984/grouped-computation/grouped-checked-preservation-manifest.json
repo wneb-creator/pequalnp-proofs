@@ -1,0 +1,47 @@
+{
+  "scope": "One Lean-checked grouped decoder example (observed exit0), independent scorer helper reviews, and Lean threading source analysis. No full31graph984 result claimed.",
+  "files": [
+    {
+      "file": "GroupedCompact28Decoder.lean",
+      "sha256": "1d727031aad8b0ad54f11fb26cb4ff8093beab7d2492e3fef90d7cd2eb7a3814",
+      "bytes": 50952,
+      "gzip_recommended": true
+    },
+    {
+      "file": "grouped-decoder.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "gzip_recommended": false
+    },
+    {
+      "file": "grouped-decoder.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "gzip_recommended": false
+    },
+    {
+      "file": "lean-threading-analysis.md",
+      "sha256": "83a8fb37c7835c9dacfa5ef5761f7422d214365d2ca6c4f15cd228660d5cf58e",
+      "bytes": 2139,
+      "gzip_recommended": false
+    },
+    {
+      "file": "scorer-helper-reviews.txt",
+      "sha256": "40478a33400722ffb06967197b220bb11584d2e8e68129b1216978701b774800",
+      "bytes": 1177,
+      "gzip_recommended": false
+    },
+    {
+      "file": "lean-help.stdout",
+      "sha256": "c9557089ab7ea58658784c290df0780bdaf08a8e975f6a411a4fd397e027f326",
+      "bytes": 2994,
+      "gzip_recommended": false
+    },
+    {
+      "file": "lean-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "gzip_recommended": false
+    }
+  ]
+}

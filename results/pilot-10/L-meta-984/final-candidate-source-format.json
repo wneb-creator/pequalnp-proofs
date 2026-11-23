@@ -1,0 +1,13 @@
+{
+  "sha256": "6d1a583f6e7b731f4597264f90310d3f2ec661a46ffa3b674f6cde6a4d7c0f67",
+  "bytes": 492897,
+  "lines": 5849,
+  "symlink": false,
+  "executable": false,
+  "limit_options": 396,
+  "namespace_blocks": [
+    "namespace PEqualNP.Outside.L_meta_984.Cert"
+  ],
+  "forbidden_matches": [],
+  "status": "SOURCE FORMAT PASS; full Lean build pending"
+}

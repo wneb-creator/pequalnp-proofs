@@ -1,0 +1,1 @@
+theorem C18_decoder_diagnostic : qNorm (C18_S 9 0) = [0xf24, 0x1149, 0x1292, 0x24c3, 0x481b, 0xa01c, 0xc0e0] := by decide +kernel
