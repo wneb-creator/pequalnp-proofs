@@ -35,3 +35,9 @@ hashes and complete successful log: PASS. It also decompressed all47 archived
 SMT inputs and verified exact scratch bytes, raw hashes, sizes, unique paths,
 and exclusion of the two pending E3 inputs: PASS. These are archived solver
 inputs, not Lean certificates.
+
+Root independently read the new117-line owned-surplus argument and the
+explicit witness assumptions in OwnedSurplus951.lean. Its base+2 conclusion
+is conditional and is labeled accordingly; no full951 result is claimed.
+independent_theory independently verified the new proof, explicit witness
+assumptions, frozen source/log copies, and manifest28 metadata: PASS.
