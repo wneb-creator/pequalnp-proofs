@@ -104,3 +104,14 @@ all14 state coverage, encoding, initial permutation and final bound; its
 header is the independently reviewed full-v2 header. PASS for conjunct8.
 The separately archived full-v2 candidate remains under compilation;
 its source review does not imply a successful build or checker verdict.
+
+DirectCompact28Benchmark: root independently reviewed the new semantic
+encoding, exact graph28 edges, proper-sublist and permutation checks,
+explicit routing validity/goal-fixing and one-state barrier check. Combined
+generic prefix was previously reviewed; compact data independently audited
+by proof_strategy. PASS for its stated finite scope; no whole graph bound.
+Compact computation archive independently verified by proof_strategy: all
+1366records match scratch originals, including281 deterministic gzip streams;
+three already archived decoder files are correctly omitted. Full cached
+build was interrupted by environment restart, not rejected by Lean; complete
+partial logs and an explicit no-verdict status are preserved.

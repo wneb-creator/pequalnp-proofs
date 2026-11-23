@@ -1,0 +1,154 @@
+{
+  "graph": 6,
+  "name": "C6",
+  "cap": 9,
+  "word_bits": 16,
+  "dictionary_index_bits": 6,
+  "initial": [
+    2486,
+    3657,
+    4754,
+    5412,
+    24583,
+    41016,
+    49600
+  ],
+  "noninputs": [
+    1,
+    2,
+    6,
+    146,
+    512,
+    2048,
+    2054,
+    2194,
+    2560,
+    2998,
+    3584,
+    4095,
+    4096,
+    4608,
+    5120,
+    5924,
+    6070,
+    6582,
+    6802,
+    7094,
+    7460,
+    7606,
+    7680,
+    7753,
+    7826,
+    7899,
+    7972,
+    8045,
+    8118,
+    8192,
+    10678,
+    11849,
+    13604,
+    24576,
+    27063,
+    28239,
+    29335,
+    43064,
+    49152,
+    50112,
+    51648,
+    53696,
+    57344,
+    57351,
+    57407,
+    57792,
+    57848
+  ],
+  "packed_values_hex": "0xe1f8e1c0e03fe007e000d1c0c9c0c3c0c000a83872976e4f69b7600035242e4929b620001fb61f6d1f241edb1e921e491e001db61d241bb61a9219b617b617241400120010000fff0e000bb60a0008920806080002000092000600020001",
+  "goal": 65024,
+  "layers": {
+    "4": {
+      "N": 1,
+      "countBits": 1,
+      "slots": 1,
+      "recordBits": 13,
+      "records": "0xbf0",
+      "buckets": 1,
+      "flag": 2,
+      "seedBits": 2,
+      "seeds": "0x2",
+      "record_blocks_hex": [
+        "0xbf0"
+      ]
+    },
+    "5": {
+      "N": 5,
+      "countBits": 1,
+      "slots": 2,
+      "recordBits": 19,
+      "records": "0x1e4f002b1eeb1c0d2f838cf0",
+      "buckets": 2,
+      "flag": 8,
+      "seedBits": 4,
+      "seeds": "0x62",
+      "record_blocks_hex": [
+        "0x1e4f002b1eeb1c0d2f838cf0"
+      ]
+    },
+    "6": {
+      "N": 13,
+      "countBits": 1,
+      "slots": 2,
+      "recordBits": 19,
+      "records": "0x308f1bec1eaa7ca7787805fc015ecb1dca998f52ab674de4c2dd006fb344f8",
+      "buckets": 4,
+      "flag": 128,
+      "seedBits": 8,
+      "seeds": "0x4f4a0611",
+      "record_blocks_hex": [
+        "0x308f1bec1eaa7ca7787805fc015ecb1dca998f52ab674de4c2dd006fb344f8"
+      ]
+    },
+    "7": {
+      "N": 29,
+      "countBits": 1,
+      "slots": 2,
+      "recordBits": 19,
+      "records": "0x153f009fc050fd637b009fe022de025f8077f00af7021ee03ff951bb5233e018fa015f8057b226f3006fc00ff80a5f80877014fc011f8003f8107d02e7f6bd3c03bdb8b76",
+      "buckets": 8,
+      "flag": 256,
+      "seedBits": 9,
+      "seeds": "0x708cc6a100082c0219",
+      "record_blocks_hex": [
+        "0x153f009fc050fd637b009fe022de025f8077f00af7021ee03ff951bb5233e018fa015f8057b226f3006fc00ff80a5f80877014fc011f8003f8107d02e7f6bd3c03bdb8b76"
+      ]
+    },
+    "8": {
+      "N": 23,
+      "countBits": 2,
+      "slots": 1,
+      "recordBits": 20,
+      "records": "0x5155501556b55550d55519555515544555501559015650955501655355557955569555115558d55505555955550155531555155551955491555",
+      "buckets": 6,
+      "flag": 2048,
+      "seedBits": 12,
+      "seeds": "0x81700452f0010060d3",
+      "record_blocks_hex": [
+        "0x5155501556b55550d55519555515544555501559015650955501655355557955569555115558d55505555955550155531555155551955491555"
+      ]
+    },
+    "9": {
+      "N": 1,
+      "countBits": 1,
+      "slots": 0,
+      "recordBits": 7,
+      "records": "0x7f",
+      "buckets": 1,
+      "flag": 2,
+      "seedBits": 2,
+      "seeds": "0x2",
+      "record_blocks_hex": [
+        "0x7f"
+      ]
+    }
+  },
+  "record_block_size": 256
+}

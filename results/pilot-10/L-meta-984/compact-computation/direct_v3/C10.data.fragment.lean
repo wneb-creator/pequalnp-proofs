@@ -1,0 +1,90 @@
+def C10_initial : List Nat := [0x21b, 0x3e4, 0x458, 0x81c, 0xc23, 0x1089, 0x1112]
+
+def C10_values : Nat := 0x1ebbe55f08f22589dc44e072db7512a6cd1627ed3ed9f24e6e7253529994c6e62529b944c86e3371928a944ca1010007fe3f9dfc8ea373db9e1cc6e5c72db961c76e23651b1ed8f0c6362e316187ec2060e30017f8be451c287d438a1b50022710b883c41020610108044001ff0fc86d833c196ccb061b26c11e08804001ff8a6c50025b12008ec440218104880c40008002000800300090040010006001
+
+def C10_N : Nat → Nat
+  | 4 => 1
+  | 5 => 15
+  | 6 => 67
+  | 7 => 101
+  | 8 => 43
+  | 9 => 1
+  | _ => 0
+
+def C10_countBits : Nat → Nat
+  | 4 => 1
+  | 5 => 1
+  | 6 => 1
+  | 7 => 1
+  | 8 => 2
+  | 9 => 1
+  | _ => 0
+
+def C10_slots : Nat → Nat
+  | 4 => 2
+  | 5 => 2
+  | 6 => 3
+  | 7 => 2
+  | 8 => 1
+  | _ => 0
+
+def C10_recordBits : Nat → Nat
+  | 4 => 21
+  | 5 => 21
+  | 6 => 28
+  | 7 => 21
+  | 8 => 21
+  | 9 => 7
+  | _ => 0
+
+def C10_records : Nat → List Nat
+  | 4 => [0x10a060]
+  | 5 => [0x405f8aa5338c4de2a2d192d35c211be109d6484df0ce5ad273364e59e200ff93e6989cadc801df2]
+  | 6 => [0x273e00b54f40000e7a00cd4f200e50660078df8013a61e000147600f19f200ccdf2013953600e97e601356f40080d720138d3a00cc57201527bc00f4d72000283e86e97640139a360139736017ae1701359f200e5a6600e4d6a00c0df200d087200e99f20139cae0001cee0121a3300dd7e3015251d00019f300a8d7200d5a630000d7a00028be00d0d7200b457400e576600016f500b4df4013e31e014e29e00e55660169a7201799b30000efa00cd6f1013903600018e7000167600e96f40001f6e00020ee01796b500021750110df200d0df2000293e00d08f200bcdf20101a7200b8d720001b73]
+  | 7 => [0xb7b686fb3411cec34e6e97760179f8073bc04cfce9a765c37b0031ec01af401d7e0033f008efd01bec019f79a83b1b2bea5453e01aefbc81b80a7f800efc0007f003ff005ddd70aec030fe66839805bf4054fb3853e00e7f0069de7c57c018770137f2a15d9a1bf47cdfa5c6fb2015d802dee02cbf0083b8067cdd20ec02d7e342bd00b7dc01afc013f7009bb8047dc022ee01c6f00cfdc375b8040fc009fe0043f4d69d9c8adc014fe006ff0073b804bfc012f76ed39cd5dd800dfc005fe006bd809cf800afcd0df30113bc35dd4024eeb50750047f3a47d801efa02bfb017f78090fc012fc01577011af809cfc0497e00cfe005fda941d9a0aec010f7686f9005bd6b4f7c017f7]
+  | 8 => [0x205555baaab1555536aaa345456c2aaa0195500aac815554daaaa5555564aaa945555d2aa90d55500aaa86555452aa8e955510aaa83555702aaa015955ca8acd555002caa1555508aaaab555452aaa2555504aaaae55543aaaa01565baaaab4555652aaa01556aaaaa9f55566aaaa81515]
+  | 9 => [0x7f]
+  | _ => []
+
+def C10_buckets : Nat → Nat
+  | 4 => 1
+  | 5 => 4
+  | 6 => 17
+  | 7 => 26
+  | 8 => 11
+  | 9 => 1
+  | _ => 0
+
+def C10_flag : Nat → Nat
+  | 4 => 2
+  | 5 => 256
+  | 6 => 0x400
+  | 7 => 0x800
+  | 8 => 256
+  | 9 => 2
+  | _ => 0
+
+def C10_seedBits : Nat → Nat
+  | 4 => 2
+  | 5 => 9
+  | 6 => 11
+  | 7 => 12
+  | 8 => 9
+  | 9 => 2
+  | _ => 0
+
+def C10_seeds : Nat → Nat
+  | 4 => 2
+  | 5 => 0x614202003
+  | 6 => 0x246c4ac3087204e1d01086b084034060080080280a40b
+  | 7 => 0x82c4910178211638140021780f203700e04701c16410102200705803403002d012865003015001
+  | 8 => 0x240020d2d2e01e0f1b0261e0b
+  | 9 => 2
+  | _ => 0
+
+def C10_S (s j : Nat) : List Nat :=
+  qDirectState C10_initial (C10_countBits s) 13 7 (C10_slots s) C10_values
+    (fld ((C10_records s).getD (j / 256) 0) (C10_recordBits s) (j % 256))
+
+def C10_idx : Nat → List Nat → Nat :=
+  qIndex C10_N C10_buckets C10_flag C10_seedBits C10_seeds

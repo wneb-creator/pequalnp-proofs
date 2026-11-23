@@ -1,0 +1,218 @@
+{
+  "graph": 10,
+  "budget": 9,
+  "source_k": 40,
+  "k": 40,
+  "encoding": "unique negative rows followed by unique positive rows; k retained only as source paired-encoding metadata, not a compact goal parameter",
+  "negative_count": 5,
+  "positive_count": 8,
+  "width": 13,
+  "goal": 8160,
+  "goal_hex": "0x1fe0",
+  "coordinate_rows": [
+    42,
+    50,
+    65,
+    108,
+    116,
+    3,
+    5,
+    9,
+    17,
+    33,
+    6,
+    66,
+    24
+  ],
+  "negative_rows": [
+    42,
+    50,
+    65,
+    108,
+    116
+  ],
+  "positive_rows": [
+    3,
+    5,
+    9,
+    17,
+    33,
+    6,
+    66,
+    24
+  ],
+  "inputs_hex": [
+    "21b",
+    "3e4",
+    "458",
+    "81c",
+    "c23",
+    "1089",
+    "1112"
+  ],
+  "vertex_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    [
+      0,
+      1,
+      2,
+      4,
+      3,
+      5,
+      6
+    ]
+  ],
+  "group": 2,
+  "bit_inverse_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    [
+      1,
+      0,
+      2,
+      4,
+      3,
+      5,
+      6,
+      8,
+      7,
+      9,
+      10,
+      11,
+      12
+    ]
+  ],
+  "bit_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    [
+      1,
+      0,
+      2,
+      4,
+      3,
+      5,
+      6,
+      8,
+      7,
+      9,
+      10,
+      11,
+      12
+    ]
+  ],
+  "row_inverse_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    [
+      1,
+      0,
+      2,
+      4,
+      3,
+      5,
+      6,
+      8,
+      7,
+      9,
+      10,
+      11,
+      12
+    ]
+  ],
+  "row_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    [
+      1,
+      0,
+      2,
+      4,
+      3,
+      5,
+      6,
+      8,
+      7,
+      9,
+      10,
+      11,
+      12
+    ]
+  ],
+  "row_schema": "full compact width; source bit index for each destination bit in bit_inverse_perms",
+  "orientation": "lexicographic_minimum_sorted_multiset",
+  "score_order": "coverage_then_orientation_then_score",
+  "source_meta_sha256": "f5a49515594161ce4705b4228b581e313c0b0aeb76bf4942b8f7820c85b0688e",
+  "states": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 1,
+    "5": 15,
+    "6": 67,
+    "7": 101,
+    "8": 43,
+    "9": 1
+  }
+}

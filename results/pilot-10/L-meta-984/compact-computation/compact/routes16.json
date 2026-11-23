@@ -1,0 +1,34 @@
+{
+  "graph": 16,
+  "width": 32,
+  "encoding_width": 14,
+  "goal": 16320,
+  "distances": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    8,
+    4,
+    2,
+    1
+  ],
+  "padding": "fixed",
+  "networks": [
+    {
+      "auto": 0,
+      "lo_hex": [
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    }
+  ]
+}

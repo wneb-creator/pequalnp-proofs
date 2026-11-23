@@ -1,4 +1,4 @@
-Research snapshot at 2026-11-23T21:53:06.554880+00:00
+Research snapshot at 2026-11-23T21:59:56.436322+00:00
 Branch: pnp/pilot-10. Authorized partial-results preservation.
 L-meta-904 shard1: exhausted 8,388,608 orientations; no counterexample; not a universal Lean proof.
 L-meta-951: 32 compiled Lean research artifacts with explicit scope restrictions.
@@ -7,7 +7,7 @@ Repository checker acceptance: not obtained; checker executable build succeeded.
 All source hashes and successful full diagnostics are in L-meta-951/manifest.json.
 No final-proof cleanup pass applies yet. Exact compiled source bytes are preserved.
 Sub-agents: independent_search; literal_not_restriction; independent_theory; proof_strategy; single_not_reduction; toolchain_setup; fresh_full_proof.
-TIMING total=138 subagents=7
+TIMING total=145 subagents=7
 
 L-meta-951 released reason other;32 compiled partials preserved.
 L-meta-984 assigned shard28; generic Formal984 certificate machinery compiles.
@@ -22,3 +22,4 @@ L-meta-984 now26 compiled artifacts; full posted theorem remains pending.
 L-meta-984 now27 compiled artifacts; all31 quotient computations also archived.
 L-meta-984 now30 compiled artifacts, including compact-coverage soundness.
 L-meta-984 now34 compiled artifacts, including the complete cached certificate for conjunct8.
+L-meta-984 now35 compiled artifacts. Full cached build interrupted by environment restart; no full build/checker verdict.

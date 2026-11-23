@@ -1,0 +1,162 @@
+{
+  "graph": 20,
+  "budget": 10,
+  "source_k": 56,
+  "k": 56,
+  "encoding": "unique negative rows followed by unique positive rows; k retained only as source paired-encoding metadata, not a compact goal parameter",
+  "negative_count": 7,
+  "positive_count": 8,
+  "width": 15,
+  "goal": 32640,
+  "goal_hex": "0x7f80",
+  "coordinate_rows": [
+    10,
+    28,
+    81,
+    84,
+    97,
+    98,
+    100,
+    3,
+    5,
+    9,
+    6,
+    18,
+    40,
+    72,
+    48
+  ],
+  "negative_rows": [
+    10,
+    28,
+    81,
+    84,
+    97,
+    98,
+    100
+  ],
+  "positive_rows": [
+    3,
+    5,
+    9,
+    6,
+    18,
+    40,
+    72,
+    48
+  ],
+  "inputs_hex": [
+    "394",
+    "54a",
+    "ca1",
+    "207c",
+    "3203",
+    "480e",
+    "5070"
+  ],
+  "vertex_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  ],
+  "group": 1,
+  "bit_inverse_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  ],
+  "bit_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  ],
+  "row_inverse_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  ],
+  "row_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  ],
+  "row_schema": "full compact width; source bit index for each destination bit in bit_inverse_perms",
+  "orientation": "lexicographic_minimum_sorted_multiset",
+  "score_order": "coverage_then_orientation_then_score",
+  "source_meta_sha256": "4c638e7e9c5bc55fef7c2ed4c4d5c368ec27e44a7ad6192c2d08b8953ef8600d",
+  "states": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 1,
+    "5": 21,
+    "6": 199,
+    "7": 651,
+    "8": 575,
+    "9": 51,
+    "10": 1
+  }
+}

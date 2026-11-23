@@ -1,0 +1,8 @@
+PASS independent review; no recompilation.
+FastQuotient28Benchmark.lean SHA256 020fefb6e4efcb0bef43756a041379c415658f17fdf21d48ad12a9132f136c28: 2369 lines, 170495 bytes.
+CachedQuotient28Benchmark.lean SHA256 d101a281609259ae95e01fc9e303ec0f61047fec35a3dcb2aedaf7b04da9bf9c: 2409 lines, 172843 bytes.
+Both retain the exact audited FormalFast984 prefix. Their definitions match the previously independently decoded fast31 and fast31_v2 data respectively, including masks, parent records, hash tables, initial inputs and score pools. Cached inputActions matches the separately computed row-map/Benes cache mapping. Cache hits require both a bounded index and exact key equality; the generic cachedAction equality and the concrete 14 cached values justify route preservation.
+Both compiler stdout files have 15 JSON information-level profiling records and no errors. Stderr is profiling/timing only, real 21.12 and 20.88 seconds respectively. Reported exit status was 0. Imports occur only on the first two lines; no sorry, axiom, native_decide or unsafe token was found.
+Exact scope: route validity/goal preservation, generic orbit preservation, one decoder example at G28_S 8 0, and one concrete frontier check span (G28_Z 8) 1 0. Neither source proves the entire shard28 bound or the full L-meta-984 conjunction.
+
+PASS ForceMap984.lean SHA256 7418d033331f4b7882291592b8d050e92fea9bfe1fafcfbeba1ae7974b853416: 24 lines, 790 bytes. Both compilation logs are empty; exit0 reported. forceNat_eq is constructor analysis and forceMap_eq is list induction with generalized continuation. Arbitrary Sort continuations are permitted. Exact scope is semantic equality only; no performance or graph-bound claim.

@@ -1,0 +1,75 @@
+{
+  "graph": 8,
+  "name": "C8",
+  "cap": 9,
+  "word_bits": 14,
+  "dictionary_index_bits": 4,
+  "initial": [
+    421,
+    666,
+    1362,
+    2657,
+    5133,
+    10254,
+    12400
+  ],
+  "noninputs": [
+    1,
+    5,
+    128,
+    384,
+    959,
+    2010,
+    3955,
+    12528,
+    12656,
+    13424
+  ],
+  "packed_values_hex": "0xd1c3170c3c0f731f683bf06000800014001",
+  "goal": 16256,
+  "layers": {
+    "7": {
+      "N": 5,
+      "countBits": 1,
+      "slots": 1,
+      "recordBits": 11,
+      "records": "0x43f4fd4fe5f87f",
+      "buckets": 2,
+      "flag": 8,
+      "seedBits": 4,
+      "seeds": "0x35",
+      "record_blocks_hex": [
+        "0x43f4fd4fe5f87f"
+      ]
+    },
+    "8": {
+      "N": 8,
+      "countBits": 2,
+      "slots": 1,
+      "recordBits": 18,
+      "records": "0x5555955515554d555755549555055595555",
+      "buckets": 2,
+      "flag": 64,
+      "seedBits": 7,
+      "seeds": "0x7a4",
+      "record_blocks_hex": [
+        "0x5555955515554d555755549555055595555"
+      ]
+    },
+    "9": {
+      "N": 1,
+      "countBits": 1,
+      "slots": 0,
+      "recordBits": 7,
+      "records": "0x7f",
+      "buckets": 1,
+      "flag": 2,
+      "seedBits": 2,
+      "seeds": "0x2",
+      "record_blocks_hex": [
+        "0x7f"
+      ]
+    }
+  },
+  "record_block_size": 256
+}

@@ -1,0 +1,15 @@
+{
+  "graph": 25,
+  "negative_count": 7,
+  "positive_count": 8,
+  "width": 15,
+  "states": 255,
+  "wire_occurrences": 1908,
+  "unique_wires": 146,
+  "wire_index_bits": 8,
+  "packed_fullstate_bits": 15264,
+  "noninput_unique_wires": 139,
+  "noninput_occurrences": 353,
+  "input_mask_plus_noninput_indices_bits": 4609,
+  "source_layers_and_parent_ids_preserved": true
+}

@@ -1,0 +1,1 @@
+theorem C0_decoder_diagnostic : (qNorm (C0_S 8 0)) = [0x400, 0x724, 0x949, 0xa92, 0x3403, 0x501c, 0x60e0] := by decide +kernel

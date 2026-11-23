@@ -407,6 +407,18 @@
         "cached-graph8-certificate-1.stderr"
       ],
       "scope": "Complete certificate for exact posted conjunct8: all14 frontier states and10\u2264circuit size. Remaining30conjuncts not established by this file."
+    },
+    {
+      "file": "DirectCompact28Benchmark.lean",
+      "sha256": "df4595b10e89767bcbf6f3da6ef249491ef3cab25b29fe46138bd143dcb7e9aa",
+      "bytes": 176331,
+      "lines": 2495,
+      "observed_compile_exit": 0,
+      "logs": [
+        "direct-compact28-benchmark-1.stdout",
+        "direct-compact28-benchmark-1.stderr"
+      ],
+      "scope": "Compact graph28 input/target encodings, proper-sublist exclusion, initial permutation, validated routing, one decoded state and one frontier check only; no whole-graph lower bound."
     }
   ]
 }

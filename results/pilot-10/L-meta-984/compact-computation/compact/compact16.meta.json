@@ -1,0 +1,155 @@
+{
+  "graph": 16,
+  "budget": 9,
+  "source_k": 48,
+  "k": 48,
+  "encoding": "unique negative rows followed by unique positive rows; k retained only as source paired-encoding metadata, not a compact goal parameter",
+  "negative_count": 6,
+  "positive_count": 8,
+  "width": 14,
+  "goal": 16320,
+  "goal_hex": "0x3fc0",
+  "coordinate_rows": [
+    26,
+    33,
+    60,
+    65,
+    82,
+    84,
+    3,
+    5,
+    9,
+    17,
+    6,
+    34,
+    72,
+    96
+  ],
+  "negative_rows": [
+    26,
+    33,
+    60,
+    65,
+    82,
+    84
+  ],
+  "positive_rows": [
+    3,
+    5,
+    9,
+    17,
+    6,
+    34,
+    72,
+    96
+  ],
+  "inputs_hex": [
+    "235",
+    "3ca",
+    "4a4",
+    "c51",
+    "1105",
+    "2806",
+    "3038"
+  ],
+  "vertex_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  ],
+  "group": 1,
+  "bit_inverse_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  ],
+  "bit_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  ],
+  "row_inverse_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  ],
+  "row_perms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  ],
+  "row_schema": "full compact width; source bit index for each destination bit in bit_inverse_perms",
+  "orientation": "lexicographic_minimum_sorted_multiset",
+  "score_order": "coverage_then_orientation_then_score",
+  "source_meta_sha256": "8d2d0d609116daac69df0597b3457b668f885cf6055195adf9e4c60729e320e8",
+  "states": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 24,
+    "7": 78,
+    "8": 51,
+    "9": 1
+  }
+}

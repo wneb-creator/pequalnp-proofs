@@ -1,0 +1,90 @@
+def C4_initial : List Nat := [0x721, 0x94a, 0xa94, 0x20e7, 0x3418, 0x40f8, 0x5007]
+
+def C4_values : Nat := 0xefcfdc87a7c741fe831d01fa0070e7e1c1c01f80060ffc1f1839f0005a94b29f652ac03d727ae43501e883d0ffa1f1400254a49fa929523e23fcc72189f107e20704048804100620003d5a7830dce5b90b51869fed001873b0005528a7bd4a528e74fce9c85273a40043ce83810212021400e8000d4a172120003dac7908e9417bc2e5048008000800040007000480084008401000180010001c0010001
+
+def C4_N : Nat → Nat
+  | 4 => 2
+  | 5 => 18
+  | 6 => 51
+  | 7 => 79
+  | 8 => 44
+  | 9 => 1
+  | _ => 0
+
+def C4_countBits : Nat → Nat
+  | 4 => 1
+  | 5 => 1
+  | 6 => 1
+  | 7 => 1
+  | 8 => 2
+  | 9 => 1
+  | _ => 0
+
+def C4_slots : Nat → Nat
+  | 4 => 2
+  | 5 => 3
+  | 6 => 3
+  | 7 => 2
+  | 8 => 1
+  | _ => 0
+
+def C4_recordBits : Nat → Nat
+  | 4 => 21
+  | 5 => 28
+  | 6 => 28
+  | 7 => 21
+  | 8 => 21
+  | 9 => 7
+  | _ => 0
+
+def C4_records : Nat → Nat
+  | 4 => 0x4e0f4e806
+  | 5 => 0xb951601161999ae9c1100ecf960152807014a787014200e0002517a135d0301425070140fc600ece8700b938701425879ae9a92a135a860142687011601a
+  | 6 => 0x9ae9713a135707014268f01423c700ecd9700027b7000284fa5466870120fd600ed0170048878014104700e9ada0001d9f0141ace0141d4b00023570135797014a597012d233009117100e9c590090ff2014208f9ad57160135d97012d71701426870140bc70148fd600b931701517170001576013571700ecb9700013e7000265700b8a9e0115d9b00b8fd60000ff600b9297012e417012cfb60101d9e0141d8f00025b7014269701426c70148ec701426a7
+  | 7 => 0x3fdc033be00ff65c5eb8043dc037be01dbf0142f8035de6ae3eb90570122f802dec03bbe0166f00d2f80a13e3aeae025b774badab41d802fbf0571f00bafcd655c020ee018df0109fcd5cdc01cee00ef700ebd803ddc035fc00c77a536bcd5c5c015fc008fb485f98033dc03e7e406f9a482b8037dc052bf466b7003be80617e5976f48dd7007ff482f5c047ee01d9f009bb80a1bdaaebc007fb004bf522f5c03f7f4174f0137bd2767c000fe7cbf600caf8053bd7143e00bf7a5467804bdc024f6025f79abab8096fc054ee01e5f
+  | 8 => 0xaaa885555eaaab3551546aaaa055555aaaa0955526aaac4555692aaa016550eaaa94555422aaa255551aaaaae55568aaaa5d51516aaaa8555402b2b355552eaaac15555b2aaa81515012aac9555402aac01559a48aa80655482aaa315550caaa8a5555caaaa155555c8aaad55540aaaa0d555
+  | 9 => 127
+  | _ => 0
+
+def C4_buckets : Nat → Nat
+  | 4 => 1
+  | 5 => 5
+  | 6 => 13
+  | 7 => 20
+  | 8 => 11
+  | 9 => 1
+  | _ => 0
+
+def C4_flag : Nat → Nat
+  | 4 => 8
+  | 5 => 512
+  | 6 => 0x800
+  | 7 => 0x1000
+  | 8 => 0x400
+  | 9 => 2
+  | _ => 0
+
+def C4_seedBits : Nat → Nat
+  | 4 => 4
+  | 5 => 10
+  | 6 => 12
+  | 7 => 13
+  | 8 => 11
+  | 9 => 2
+  | _ => 0
+
+def C4_seeds : Nat → Nat
+  | 4 => 4
+  | 5 => 0x30650f11c04
+  | 6 => 0x27502a1b000d00200101c8330010750060227c8
+  | 7 => 0xb863800201a000ab0400c00300c801c01624382206a42ac034000805c04d04f
+  | 8 => 0x9747207905e014014100180140084c
+  | 9 => 2
+  | _ => 0
+
+def C4_S (s j : Nat) : List Nat :=
+  qDirectState C4_initial (C4_countBits s) 15 7 (C4_slots s) C4_values
+    (fld (C4_records s) (C4_recordBits s) j)
+
+def C4_idx : Nat → List Nat → Nat :=
+  qIndex C4_N C4_buckets C4_flag C4_seedBits C4_seeds

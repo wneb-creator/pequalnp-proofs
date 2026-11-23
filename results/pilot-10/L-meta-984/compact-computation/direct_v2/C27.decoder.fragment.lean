@@ -1,0 +1,1 @@
+theorem C27_decoder_diagnostic : (qNorm (C27_S 10 0)) = [0xf24, 0x12d8, 0x7103, 0x8449, 0x8892, 0x1201c, 0x140e0, 0x1a45d] := by decide +kernel
