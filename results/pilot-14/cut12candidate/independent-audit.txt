@@ -1,0 +1,12 @@
+PASS: complete package hash manifest: 27 entries
+PASS: authoritative frozen gzip identity, all555 recipe values, all4734 canonical scores,4695 classes,39 aliases
+PASS: packed arrays and Lean literals equal expanded data; all bounds fit
+PASS: independently reconstructed membership cases 255690 and actual automorphism transports 148980
+SOURCE REVIEW: lookup returns untrusted candidate only; arbitrary hash misses/alias misses need downstream bounds/permutation authentication. No universal theorem or current lookup Lean compilation is claimed.
+BODY SHA256 9001d965cb5c43c60a43d77d906bed1c3b4c0d73df1bfe594fb8896c2c6941c9
+
+V2 enabled-table compression independently reviewed: all4734 pattern indices decode identically through 1184 seven-bit block IDs and 110 twenty-bit blocks. All other packed fields and lookup logic unchanged.
+V2 body SHA256 86e1605d5779f825961420de1b24e2590a24d3f304734b17168f6f2ca11778a5 (27277 bytes).
+V2 packed SHA256 cae2a4fcb62378aebbb07a73104b05e05947619a751889891085973b1f022b9c.
+V2 data SHA256 86494f729d2004a5edbdf20e7e8430eccdf092841964a3b7d019e583d506fb0d.
+No Lean compiler launched by reviewer. Native diagnostics are not a checked lower-bound proof.
