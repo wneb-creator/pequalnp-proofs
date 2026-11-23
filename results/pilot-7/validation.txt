@@ -25,3 +25,7 @@ TIMING total=161.8 subagents=8
 ConcreteBridge982.lean compiled exit0. Exact encodings and essential-variable witnesses for posted conjuncts0/8 are kernel checked. Their circuit lower bounds now require only the explicit no-run certificate premises; those are still pending. Independent formula/encoding audit passed.
 Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, c7_pack, cube_symmetry, lean_setup, lemma_search, structural_twins
 TIMING total=164.0 subagents=9
+
+Finite982UpperDFS.lean including pairedBar_all_le compiled exit0 (reported tool session59513). Complete stdout/stderr retained. Independent source audit passed. This allows one maximum-budget table to exclude every smaller circuit budget, provided each stored state differs from the target.
+Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, c7_pack, cube_symmetry, lean_setup, lemma_search, structural_twins
+TIMING total=164.9 subagents=9
