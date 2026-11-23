@@ -1,0 +1,122 @@
+L-meta-670: first nontrivial case159 child kernel-checked.
+Case159Child11 compiled EXIT0; closed Impossible12 statement,6.21s kernel and11.94s total. This is a subcase, not the full gap.
+Parent/marker helpers compiled and independently reviewed. DiagonalT7Base is a checked harness with conditional full-exclusion interface; finite exclusions are still pending. Root independently inspected its exact source and standard proof composition.
+sat-proof/Case159Child11.lean SHA256 819ff754dc120f62e8e0c6d786283bd159d2508eb5645b1584240c356ea7670d
+sat-proof/Case159Common.lean SHA256 bbb23a93c5caec2537c6fda5a306a4976144215c4fe6d0799dfe975fc99c80d1
+sat-proof/Case159CommonBody.lean SHA256 4d30f45f9bd38cc2254410ad93bde297ca02a7a118c3999695f714970036a0b2
+replay/ChildReplayBody.lean SHA256 7b5ae0dc4f27b1c09c12cbcf08b59a5139dd6bfafaeec775644c3119321fbf77
+replay/ProjectedChildBody.lean SHA256 c06f50f5648260ad7c27e5a155e739397e800cc71756428d6369bb6b54fc71cb
+replay/ProjectedChildTest.lean SHA256 86a58a73ef372273677b81340b82fed91353c5c3a3d1343370f961b85a37ee49
+replay/MetadataMarkerBody.lean SHA256 ea5accecc970c5180a1fe6c48f475ade46d81b2b6088c888a84b2a54c7de9fdf
+replay/MetadataMarkerTest.lean SHA256 d9e6aec3f27ed44dfe75def1db94db885fbf88a0effe9a930f319e4c87c8f9f5
+replay/DiagonalT7Base.lean SHA256 632c9a599aea9e6a840df9936ddd0ada52684770188801996614019b49dfc882
+
+COMPLETE LOG sat-proof/case159-child11.log
+import took 3.73s
+type checking took 6.21s
+cumulative profiling times:
+	.olean serialization 0.917ms
+	attribute application 0.0216ms
+	declTypeLinter 1.98ms
+	elaboration 3.4ms
+	fix level params 0.0146ms
+	import 3.73s
+	initialization 64.4ms
+	instantiate metavars 0.0177ms
+	interpretation 269ms
+	let-to-have transformation 0.0369ms
+	linting 1.44ms
+	module linting 0.02ms
+	parsing 0.376ms
+	process pre-definitions 1.44ms
+	share common exprs 0.316ms
+	tactic execution 0.635ms
+	tacticAnalysis 0.838ms
+	type checking 6.21s
+	typeclass inference 0.642ms
+real 11.94
+user 9.31
+sys 2.62
+
+COMPLETE LOG sat-proof/case159-common.log
+import took 4s
+type checking took 272ms
+cumulative profiling times:
+	.olean serialization 6.58ms
+	attribute application 0.0675ms
+	blocked (unaccounted) 19.1ms
+	compilation (IR) 0.969ms
+	compilation (LCNF base) 13.9ms
+	compilation (LCNF impure) 3.63ms
+	compilation (LCNF mono) 10.9ms
+	declTypeLinter 3.08ms
+	elaboration 75.8ms
+	fix level params 0.0742ms
+	import 4s
+	initialization 28.8ms
+	instantiate metavars 0.294ms
+	interpretation 292ms
+	let-to-have transformation 0.059ms
+	linting 7.91ms
+	module linting 0.301ms
+	parsing 3.49ms
+	process pre-definitions 2.1ms
+	share common exprs 0.497ms
+	tactic execution 0.363ms
+	tacticAnalysis 1.73ms
+	type checking 278ms
+	typeclass inference 4.87ms
+real 6.57
+user 3.60
+sys 2.51
+
+COMPLETE LOG assembly/case159-child11-independent-audit.txt
+Independent review: PASS.
+Source: /tmp/oec/pequalnp-pilot-14/sat-proof/Case159Child11.lean
+SHA256: 819ff754dc120f62e8e0c6d786283bd159d2508eb5645b1584240c356ea7670d
+
+The closed check11 Boolean is proved with decide +kernel, then the already-reviewed check_sound transfers it to the exact budget12, child11 NOTcount and wires. Only allowed scoped recursion/heartbeat limits occur. No sorry, axiom, native_decide or full-gap claim. This is a checked child exclusion, not the final gap theorem. Author reports EXIT0.
+
+COMPLETE LOG assembly/case159-common-independent-audit.txt
+Independent source review: PASS.
+Source: /tmp/oec/pequalnp-pilot-14/sat-proof/Case159CommonBody.lean
+SHA256: 4d30f45f9bd38cc2254410ad93bde297ca02a7a118c3999695f714970036a0b2
+Bytes: 2764
+
+The state has all nine raw signals plus AND(raw2,raw0) and AND(raw3,raw1); both postfix hints evaluate to those exact gates. Twelve projected prefix programs remain untrusted hints, while FastRecipe.initial_valid fixes the actual cached projection values independently. Proposals use the actual complete MemoChildren generator at budget13 and NOTcount2; child_count is a kernel-checked finite equality. getD fallback does not justify any omitted in-range child: final parent completeness still comes from ChildReplay/stepTest, and finite enumeration must use the proven length59. Both child soundness wrappers retain actual NOTcount and wire state, explicit oracle Sound, target equality, checked parent context and actual prefix/search Boolean. No weakened theorem or full-gap claim.
+
+COMPLETE LOG replay/projected-child.log
+
+COMPLETE LOG replay/metadata-marker.log
+
+COMPLETE LOG replay/diagonal-t7-base-2.log
+/tmp/oec/pequalnp-pilot-14/replay/DiagonalT7Base.lean:78:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/replay/DiagonalT7Base.lean:86:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+
+COMPLETE LOG lower-bound/child-replay-independent-audit.txt
+Independent source review: PASS
+Reviewer: /root/lower_bound
+
+/tmp/oec/pequalnp-pilot-14/replay/ChildReplayBody.lean
+SHA256: 7b5ae0dc4f27b1c09c12cbcf08b59a5139dd6bfafaeec775644c3119321fbf77
+/tmp/oec/pequalnp-pilot-14/replay/ProjectedChildBody.lean
+SHA256: c06f50f5648260ad7c27e5a155e739397e800cc71756428d6369bb6b54fc71cb
+
+ChildReplay.fill inserts only children supplied with exact Impossible proofs, preserving MemoBoolFast.Sound. Parent check runs the existing authoritative stepTest against sound memo answers, so missing, duplicate, or spurious child proposals cannot establish a false parent exclusion. check_fin_sound covers every supplied list element via an actual Fin index.
+ProjectedChild check and prefixCheck use a checked projected child context with its exact cached-value invariant, Boolean Nodup, and explicit oracle and target soundness hypotheses. The full-search helper additionally requires the actual search result; the prefix helper requires the actual cut result.
+children/parentCheck preserve the exact proposal NOT counts and wire lists. parentCheck_fin_sound requires a proved exclusion for every proposal and still requires the actual parent stepTest result. It makes no unchecked completeness assumption about MemoChildren.
+No new axioms or forbidden source forms found. These new source helpers were awaiting scheduled compilation at review time; no duplicate build was run. They are bridges for separate finite child proofs, not an unconditional full lower bound.
+
+COMPLETE LOG lower-bound/metadata-marker-independent-audit.txt
+Independent source review: PASS
+Reviewer: /root/lower_bound
+Source: /tmp/oec/pequalnp-pilot-14/replay/MetadataMarkerBody.lean
+SHA256: ea5accecc970c5180a1fe6c48f475ade46d81b2b6088c888a84b2a54c7de9fdf
+
+The terminal marker requires exact level equality, row bounds, enabled status, and actual state permutation. It transports a separately supplied exact leaf exclusion through equality of toFinset, retaining the full gate budget and NOT count. The supplied leaves hypothesis covers every possible terminal reference. Updating Config replaces only terminal, preserving the original transport and cuts soundness fields. No unchecked leaf assertion, new axiom, or forbidden source form is introduced. This was source-only review; author scheduled a separate small compile.

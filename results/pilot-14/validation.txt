@@ -7,6 +7,7 @@ native: every normalized NOT count 0 through 7 excluded by the 12-domain C++ sea
 independent native audit: counterexample rebuilt t=7, validated all 2662 frontier records, and checked manifest/tables; this does not replace Lean finite checks
 checker: not run on a final theorem; exact named final theorem absent, so no proof submission or PR yet
 Sub-agents: status_review, lower_bound, counterexample, toolchain, sat_proof, red_team
-TIMING total=108.93 subagents=6
+TIMING total=131.73 subagents=6
 latest: checked local-prefix memo and projected-coverage soundness; complete logs and independent reviews archived
 latest: Boolean cache checks, precomputed update routes, and context materialization are checked; full finite proof remains pending
+finite progress: case159 child11 closed exclusion kernel-checked; full gap and local final checker remain pending
