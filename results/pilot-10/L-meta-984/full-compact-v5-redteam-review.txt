@@ -1,0 +1,29 @@
+Independent red-team source/data review: PASS, conditional on the complete Lean build and repository checker.
+Reviewed source: fresh-full-proof/meta984/Full984-compact-v5.lean
+SHA256: 6d1a583f6e7b731f4597264f90310d3f2ec661a46ffa3b674f6cde6a4d7c0f67
+Size: 492897 bytes, 5849 lines; below 524288-byte limit.
+
+Scope and exact statement:
+- The final theorem is exactly the desk-posted 31-conjunct L-meta-984 statement after whitespace normalization.
+- All 31 semantic graph definitions, input encodings, nonconstancy/goal/proper-sublist premises, orientation preservation, lower bounds and final conjunct mapping are unchanged from the previously reviewed v4 source.
+- Complete frontier checking covers all 27783 states in consecutive chunks of at most 512, with no omission or overlap. Every referenced C-declaration precedes its use.
+
+Changes from reviewed v4:
+- Every existing generic declaration is byte-identical. The new grouped decoder helpers are byte-identical to independently audited direct_v4 helpers.
+- All 31 actual data fragments match frozen direct_v4 fragments. Separate audit_direct_groups.py verifies every actual Lean literal, decoded multiset, group classifier, group offset and CHD lookup, and equality of all state collections to audited compact/v3 frontiers (27783 states, 451 nonempty groups).
+- Group classification uses count of noninput occurrences, not distinct count. Decoding retains multiplicity; full membership remains guarded by found's bounded index and multiset equality. Incorrect indexing therefore cannot silently certify membership.
+- New barWithScore is accepted only by a theorem requiring equality to fastScr for every budget and wire list. It changes no soundness premise.
+- For each graph, every specialized pattern term matches the six decoded indices from the existing score pool and the target value 3. The exact-length pattern has the original evaluator as fallback, and patternScr retains both original guards: length=s+1 and length<=12.
+- All patternScore equalities are kernel reflexivity proofs after a pattern split. patternScr_eq transports them under the unchanged guards. no_run differs only by rewriting through that equality before applying the old checked-frontier theorem.
+
+Red-team considerations:
+- The proof does not trust the C++ generator, CHD, dictionary, group classifier, or compiler evaluation for finite claims. Finite claims are decide +kernel; all semantic normalization/coverage/score/orientation premises remain explicitly proved.
+- Only Mathlib and PEqualNP.Defs imports; namespace stays within the assigned gap. No sorry, axiom, native_decide, unsafe, admit, opaque, metaprogramming, _root_, quotes, added instances, or non-simp attributes. Resource options remain locally scoped.
+- No change to the statement, circuit model, AND/OR cost model, multiset multiplicity, paired-to-compact row semantics, raw coverage versus canonical score order, or automorphism goal-fixing obligations.
+
+Evidence:
+- audit_full_compact_v5.py / audit-full-compact-v5.log: all automated source/data comparison checks passed.
+- audit_direct_groups.py / audit-direct-groups-v4-all31.log: independent complete grouped-data audit passed.
+- toolchain owner independently observed GroupedPatternGraph8Certificate984.lean exit0, exact hash fbf370b6406fd64662f99063542d87b580a679277ea305237c9a18fbc5274cfc, giving complete smallest-graph integration evidence.
+
+This review is not a claim that the full 31-conjunct Lean build or repository checker has completed. Root must obtain those separate verdicts before representing L-meta-984 as proved/accepted.

@@ -1,0 +1,1 @@
+Root deliberately interrupted the unfinished v4 build after the smaller v5 candidate passed independent review and complete G8 integration, with a measured faster equivalent checker. No full v4 proof verdict was obtained.

@@ -544,6 +544,42 @@
         "direct-compact-v3-components-1.stderr"
       ],
       "scope": "Generic pattern-checker equality, one matched barrier state, and finite coverage/orientation/scoring/lookup benchmark lists; no whole graph bound."
+    },
+    {
+      "file": "GroupedCompact28Decoder.lean",
+      "sha256": "1d727031aad8b0ad54f11fb26cb4ff8093beab7d2492e3fef90d7cd2eb7a3814",
+      "bytes": 50952,
+      "lines": 147,
+      "observed_compile_exit": 0,
+      "logs": [
+        "grouped-decoder.stdout",
+        "grouped-decoder.stderr"
+      ],
+      "scope": "One grouped-state decoder equality only; no graph lower bound."
+    },
+    {
+      "file": "ScoreLoopBenchmarkThresholdForced.lean",
+      "sha256": "f3a05d7b186b2b28303fcaa45639ac72f64226c7cb66b57b6922cad02da96fb7",
+      "bytes": 12075,
+      "lines": 234,
+      "observed_compile_exit": 0,
+      "logs": [
+        "score-loop-benchmark-threshold-forced-2.stdout",
+        "score-loop-benchmark-threshold-forced-2.stderr"
+      ],
+      "scope": "Generic forcing equality and thirty finite threshold checks on one fixed sample; no performance superiority or graph-bound claim."
+    },
+    {
+      "file": "GroupedPatternGraph8Certificate984.lean",
+      "sha256": "fbf370b6406fd64662f99063542d87b580a679277ea305237c9a18fbc5274cfc",
+      "bytes": 79220,
+      "lines": 1772,
+      "observed_compile_exit": 0,
+      "logs": [
+        "grouped-pattern-graph8-1.stdout",
+        "grouped-pattern-graph8-1.stderr"
+      ],
+      "scope": "Complete grouped/pattern certificate for exact posted conjunct8, all14states plus10\u2264circuit size; not the full31conjunct statement."
     }
   ]
 }

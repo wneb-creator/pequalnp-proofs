@@ -147,3 +147,14 @@ pattern and compact helpers. Lookup remains guarded and sample lists prove
 only their displayed finite results. PASS for that scope. Full profiler
 logs and the successful explicit-j5 recheck of the identical parallel
 benchmark source are retained.
+
+GroupedCompact28Decoder independently reviewed by proof_strategy against
+audited grouped data: PASS for one exact decoder equality only. Root
+reviewed the complete forced-threshold benchmark diff: forcing equality
+and thirty closed sample checks only; no performance superiority claimed.
+GroupedPatternGraph8Certificate984 independently reviewed with the full-v5
+source by proof_strategy and generic score-transfer helper by independent_theory:
+PASS for exact conjunct8 and all14 states. Source hash and observed exit0
+logs verified. The full-v5 review and audits are archived; full31 compilation
+is pending. Full-v4 build was deliberately stopped after the faster equivalent
+v5 passed these gates; its complete output and interruption reason are saved.
