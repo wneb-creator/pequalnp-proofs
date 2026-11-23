@@ -1,0 +1,59 @@
+{"n": 12, "target_size": 5, "tail_size": 8, "prefix_gates": 27, "total_gates": 35, "pair_order": "pq", "not_index": 26, "family": [[0, 3, 7], [0, 4, 8], [0, 5, 9], [0, 6, 10], [1, 3, 8], [1, 4, 9], [1, 5, 10], [1, 6, 7], [2, 3, 9], [2, 4, 10], [2, 5, 7], [2, 6, 8], [3, 4, 5, 6, 11], [7, 8, 9, 10, 11]], "y": [0, 1, 2], "h_factors": [[0, 3, 7], [1, 4, 9], [2, 6, 8]], "rounds": []}
+{"round": 0, "samples": 45, "variables": 1784, "constraints": 63746}
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 4e+01]
+  Cost   [0e+00, 0e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 2e+00]
+Presolving model
+34946 rows, 1784 cols, 77680 nonzeros  0s
+20594 rows, 1784 cols, 63328 nonzeros  0s
+20590 rows, 1782 cols, 63246 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   20590 rows
+   1782 cols (1782 binary, 0 integer, 0 implied int., 0 continuous)
+   63246 nonzeros
+MIP-Timing:         0.4 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.4s
+         0       0         0   0.00%   0               inf                  inf        0      0      6       746     0.5s
+         0       0         0   0.00%   0               inf                  inf     2770     54    515     10123     8.0s
+        11       0         1   0.10%   0               inf                  inf     2770     54    525     37918    20.9s
+       162       5        65   5.47%   0               inf                  inf     3256     70   1442     50464    26.0s
+       266       7       110  10.94%   0               inf                  inf     3454     74   1838     60007    31.1s
+       397       5       167  33.98%   0               inf                  inf     3749     46   2354     75663    36.1s
+       647      85       214  39.36%   0               inf                  inf     4518     46   2895     89415    41.2s
+       774      98       250  39.36%   0               inf                  inf     4444     77   3464    103119    46.7s
+       925     108       305  39.36%   0               inf                  inf     4416     60   4021    115677    51.8s
+      1047     128       338  39.36%   0               inf                  inf     4713     87   4436    128733    57.0s
+      1115     138       358  39.36%   0               inf                  inf     4831     70   4614    137464    60.0s
+
+Solving report
+  Status            Time limit reached
+  Primal bound      inf
+  Dual bound        0
+  Gap               inf
+  P-D integral      0
+  Solution status   -
+  Timing            60.02 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 4
+  Nodes             1115
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     137464 (total)
+                    0 (strong br.)
+                    4068 (separation)
+                    35402 (heuristics)
+{"n": 12, "target_size": 5, "tail_size": 8, "prefix_gates": 27, "total_gates": 35, "pair_order": "pq", "not_index": 26, "family": [[0, 3, 7], [0, 4, 8], [0, 5, 9], [0, 6, 10], [1, 3, 8], [1, 4, 9], [1, 5, 10], [1, 6, 7], [2, 3, 9], [2, 4, 10], [2, 5, 7], [2, 6, 8], [3, 4, 5, 6, 11], [7, 8, 9, 10, 11]], "y": [0, 1, 2], "h_factors": [[0, 3, 7], [1, 4, 9], [2, 6, 8]], "rounds": [{"round": 0, "samples": 45, "variables": 1784, "constraints": 63746, "status": 1, "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)", "elapsed": 60.07277274131775}], "elapsed_total": 60.152726888656616}

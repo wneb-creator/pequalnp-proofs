@@ -1,0 +1,57 @@
+{"n": 14, "target_size": 6, "tail_size": 4, "prefix_gates": 33, "total_gates": 37, "pair_order": "yp", "not_index": 32, "family": [[0, 3, 8], [0, 4, 9], [0, 5, 10], [0, 6, 11], [0, 7, 12], [1, 3, 9], [1, 4, 10], [1, 5, 11], [1, 6, 12], [1, 7, 8], [2, 3, 10], [2, 4, 11], [2, 5, 12], [2, 6, 8], [2, 7, 9], [3, 4, 5, 6, 7, 13], [8, 9, 10, 11, 12, 13]], "y": [0, 1, 2], "h_factors": [[0, 3, 8], [1, 4, 10], [2, 5, 12]], "rounds": []}
+{"round": 0, "samples": 49, "variables": 988, "constraints": 39410}
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 5e+01]
+  Cost   [0e+00, 0e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 2e+00]
+Presolving model
+20594 rows, 988 cols, 43896 nonzeros  0s
+11578 rows, 988 cols, 34880 nonzeros  0s
+11574 rows, 986 cols, 34782 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   11574 rows
+   986 cols (986 binary, 0 integer, 0 implied int., 0 continuous)
+   34782 nonzeros
+MIP-Timing:        0.25 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.3s
+         0       0         0   0.00%   0               inf                  inf        0      0      6       496     0.3s
+        34       1        13  53.12%   0               inf                  inf     2709     28    666     14351     5.3s
+       163       4        70  64.65%   0               inf                  inf     3802     33   1075     36517    10.4s
+       239       3       104  70.12%   0               inf                  inf     4080     40   1221     57280    15.4s
+       335       1       143  75.00%   0               inf                  inf     4483     54   1448     78502    20.5s
+       441       5       184  79.74%   0               inf                  inf     4692     22   1641     99764    25.6s
+       531       4       223  86.38%   0               inf                  inf     4791     26   1913    121153    30.7s
+       617       4       262  92.82%   0               inf                  inf     5010     36   2140    144217    35.9s
+       681       0       290 100.00%   inf             inf                  inf     5395     32   2364    160122    40.0s
+
+Solving report
+  Status            Infeasible
+  Primal bound      inf
+  Dual bound        inf
+  Gap               inf
+  P-D integral      0
+  Solution status   -
+  Timing            39.99 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 1
+  Nodes             681
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     160122 (total)
+                    0 (strong br.)
+                    3748 (separation)
+                    9248 (heuristics)
+{"n": 14, "target_size": 6, "tail_size": 4, "prefix_gates": 33, "total_gates": 37, "pair_order": "yp", "not_index": 32, "family": [[0, 3, 8], [0, 4, 9], [0, 5, 10], [0, 6, 11], [0, 7, 12], [1, 3, 9], [1, 4, 10], [1, 5, 11], [1, 6, 12], [1, 7, 8], [2, 3, 10], [2, 4, 11], [2, 5, 12], [2, 6, 8], [2, 7, 9], [3, 4, 5, 6, 7, 13], [8, 9, 10, 11, 12, 13]], "y": [0, 1, 2], "h_factors": [[0, 3, 8], [1, 4, 10], [2, 5, 12]], "rounds": [{"round": 0, "samples": 49, "variables": 988, "constraints": 39410, "status": 2, "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)", "elapsed": 40.03070902824402}], "elapsed_total": 40.07956647872925}

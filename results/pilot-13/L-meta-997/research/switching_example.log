@@ -1,0 +1,630 @@
+{
+  "all_256_assignments_pass": true,
+  "gate_count": 28,
+  "y": [
+    0,
+    1,
+    2
+  ],
+  "target": [
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "meeting": [
+    0,
+    1,
+    3
+  ],
+  "output_t": 34,
+  "output_a": 35,
+  "selected_heavy_outside_meeting": [
+    "V",
+    "O_T"
+  ],
+  "light_target_charge": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "G",
+    "O_T"
+  ],
+  "gates": [
+    {
+      "label": "ab",
+      "op": "and",
+      "inputs": [
+        0,
+        1
+      ],
+      "index": 0,
+      "wire": 8,
+      "light_support": [],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "H",
+      "op": "and",
+      "inputs": [
+        8,
+        2
+      ],
+      "index": 1,
+      "wire": 9,
+      "light_support": [],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "z",
+      "op": "not",
+      "inputs": [
+        9
+      ],
+      "index": 2,
+      "wire": 10,
+      "light_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "P",
+      "op": "or",
+      "inputs": [
+        0,
+        1
+      ],
+      "index": 3,
+      "wire": 11,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_base": true,
+      "meeting_charge": true,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "zP",
+      "op": "and",
+      "inputs": [
+        10,
+        11
+      ],
+      "index": 4,
+      "wire": 12,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "c_t3",
+      "op": "and",
+      "inputs": [
+        2,
+        3
+      ],
+      "index": 5,
+      "wire": 13,
+      "light_support": [],
+      "heavy_support": [
+        3
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "W3",
+      "op": "or",
+      "inputs": [
+        12,
+        13
+      ],
+      "index": 6,
+      "wire": 14,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "c_t4",
+      "op": "and",
+      "inputs": [
+        2,
+        4
+      ],
+      "index": 7,
+      "wire": 15,
+      "light_support": [],
+      "heavy_support": [
+        4
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "W4",
+      "op": "or",
+      "inputs": [
+        14,
+        15
+      ],
+      "index": 8,
+      "wire": 16,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": true,
+      "light_target_charge": false
+    },
+    {
+      "label": "c_t5",
+      "op": "and",
+      "inputs": [
+        2,
+        5
+      ],
+      "index": 9,
+      "wire": 17,
+      "light_support": [],
+      "heavy_support": [
+        5
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "W5",
+      "op": "or",
+      "inputs": [
+        16,
+        17
+      ],
+      "index": 10,
+      "wire": 18,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": true,
+      "light_target_charge": false
+    },
+    {
+      "label": "c_t6",
+      "op": "and",
+      "inputs": [
+        2,
+        6
+      ],
+      "index": 11,
+      "wire": 19,
+      "light_support": [],
+      "heavy_support": [
+        6
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "W6",
+      "op": "or",
+      "inputs": [
+        18,
+        19
+      ],
+      "index": 12,
+      "wire": 20,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": true,
+      "light_target_charge": false
+    },
+    {
+      "label": "c_t7",
+      "op": "and",
+      "inputs": [
+        2,
+        7
+      ],
+      "index": 13,
+      "wire": 21,
+      "light_support": [],
+      "heavy_support": [
+        7
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "W7",
+      "op": "or",
+      "inputs": [
+        20,
+        21
+      ],
+      "index": 14,
+      "wire": 22,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": true,
+      "light_target_charge": false
+    },
+    {
+      "label": "z_t3",
+      "op": "and",
+      "inputs": [
+        10,
+        3
+      ],
+      "index": 15,
+      "wire": 23,
+      "light_support": [
+        3
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "z_t4",
+      "op": "and",
+      "inputs": [
+        10,
+        4
+      ],
+      "index": 16,
+      "wire": 24,
+      "light_support": [
+        4
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "z_t5",
+      "op": "and",
+      "inputs": [
+        10,
+        5
+      ],
+      "index": 17,
+      "wire": 25,
+      "light_support": [
+        5
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "z_t6",
+      "op": "and",
+      "inputs": [
+        10,
+        6
+      ],
+      "index": 18,
+      "wire": 26,
+      "light_support": [
+        6
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "z_t7",
+      "op": "and",
+      "inputs": [
+        10,
+        7
+      ],
+      "index": 19,
+      "wire": 27,
+      "light_support": [
+        7
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false
+    },
+    {
+      "label": "L1",
+      "op": "or",
+      "inputs": [
+        23,
+        24
+      ],
+      "index": 20,
+      "wire": 28,
+      "light_support": [
+        3,
+        4
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": true
+    },
+    {
+      "label": "L2",
+      "op": "or",
+      "inputs": [
+        28,
+        25
+      ],
+      "index": 21,
+      "wire": 29,
+      "light_support": [
+        3,
+        4,
+        5
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": true
+    },
+    {
+      "label": "L3",
+      "op": "or",
+      "inputs": [
+        29,
+        26
+      ],
+      "index": 22,
+      "wire": 30,
+      "light_support": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": true
+    },
+    {
+      "label": "L4",
+      "op": "or",
+      "inputs": [
+        30,
+        27
+      ],
+      "index": 23,
+      "wire": 31,
+      "light_support": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": true
+    },
+    {
+      "label": "G",
+      "op": "or",
+      "inputs": [
+        9,
+        31
+      ],
+      "index": 24,
+      "wire": 32,
+      "light_support": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": true
+    },
+    {
+      "label": "V",
+      "op": "and",
+      "inputs": [
+        22,
+        32
+      ],
+      "index": 25,
+      "wire": 33,
+      "light_support": [],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": true,
+      "light_target_charge": false
+    },
+    {
+      "label": "O_T",
+      "op": "or",
+      "inputs": [
+        33,
+        31
+      ],
+      "index": 26,
+      "wire": 34,
+      "light_support": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": true,
+      "light_target_charge": true
+    },
+    {
+      "label": "O_A",
+      "op": "or",
+      "inputs": [
+        11,
+        3
+      ],
+      "index": 27,
+      "wire": 35,
+      "light_support": [
+        0,
+        1,
+        3
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_base": true,
+      "meeting_charge": true,
+      "heavy_charge": false,
+      "light_target_charge": false
+    }
+  ]
+}

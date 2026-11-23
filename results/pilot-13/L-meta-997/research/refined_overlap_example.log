@@ -1,0 +1,172 @@
+{
+  "n": 10,
+  "Y": [
+    0,
+    1,
+    2
+  ],
+  "A": [
+    2,
+    3,
+    4
+  ],
+  "T": [
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "all_inputs_checked": 1024,
+  "gates": [
+    {
+      "label": "ab",
+      "op": "and",
+      "inputs": [
+        0,
+        1
+      ]
+    },
+    {
+      "label": "H",
+      "op": "and",
+      "inputs": [
+        10,
+        2
+      ]
+    },
+    {
+      "label": "z",
+      "op": "not",
+      "inputs": [
+        11
+      ]
+    },
+    {
+      "label": "z_u3",
+      "op": "and",
+      "inputs": [
+        12,
+        3
+      ]
+    },
+    {
+      "label": "c_t5",
+      "op": "and",
+      "inputs": [
+        2,
+        5
+      ]
+    },
+    {
+      "label": "f3",
+      "op": "or",
+      "inputs": [
+        13,
+        14
+      ]
+    },
+    {
+      "label": "z_u4",
+      "op": "and",
+      "inputs": [
+        12,
+        4
+      ]
+    },
+    {
+      "label": "c_t6",
+      "op": "and",
+      "inputs": [
+        2,
+        6
+      ]
+    },
+    {
+      "label": "f4",
+      "op": "or",
+      "inputs": [
+        16,
+        17
+      ]
+    },
+    {
+      "label": "overlap",
+      "op": "or",
+      "inputs": [
+        15,
+        18
+      ]
+    },
+    {
+      "label": "out_A",
+      "op": "or",
+      "inputs": [
+        2,
+        19
+      ]
+    },
+    {
+      "label": "out_T_6",
+      "op": "or",
+      "inputs": [
+        5,
+        6
+      ]
+    },
+    {
+      "label": "out_T_7",
+      "op": "or",
+      "inputs": [
+        21,
+        7
+      ]
+    },
+    {
+      "label": "out_T_8",
+      "op": "or",
+      "inputs": [
+        22,
+        8
+      ]
+    },
+    {
+      "label": "out_T_9",
+      "op": "or",
+      "inputs": [
+        23,
+        9
+      ]
+    }
+  ],
+  "overlap_wire": 19,
+  "overlap_singleton_support": [
+    3,
+    4
+  ],
+  "overlap_heavy_support": [
+    5,
+    6
+  ],
+  "children_singleton_supports": [
+    [
+      3
+    ],
+    [
+      4
+    ]
+  ],
+  "children_heavy_supports": [
+    [
+      5
+    ],
+    [
+      6
+    ]
+  ],
+  "global_A_sound": true,
+  "heavy_T_sound": true,
+  "not_refunded": true,
+  "output_A": 20,
+  "output_T": 24
+}

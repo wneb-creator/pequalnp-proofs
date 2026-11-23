@@ -1,0 +1,18 @@
+{
+  "margin_without_refunds": -3,
+  "y": 7,
+  "selected": [
+    8440,
+    16128,
+    265,
+    1042,
+    4132
+  ],
+  "used_gates": 19,
+  "benefit": 16,
+  "available_or_outputs": 34,
+  "minimum_y_choices": 27,
+  "search_complete": false,
+  "nodes": 30032934,
+  "note": "Gate trimming considered; nonnegative refunds omitted from margin."
+}

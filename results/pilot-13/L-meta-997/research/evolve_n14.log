@@ -1,0 +1,10 @@
+{"elapsed": 0.0010421199999655073, "restart": 0, "evaluations": 1, "best_normalized_error": 5.0625}
+{"elapsed": 0.0020416049999312236, "restart": 0, "evaluations": 5, "best_normalized_error": 5.0}
+{"elapsed": 0.9361606229999779, "restart": 5, "evaluations": 10011, "best_normalized_error": 4.125}
+{"elapsed": 7.116325346999929, "restart": 34, "evaluations": 68041, "best_normalized_error": 4.0}
+{"elapsed": 7.205545916999881, "restart": 34, "evaluations": 68875, "best_normalized_error": 3.875}
+{"elapsed": 16.528373659999943, "restart": 80, "evaluations": 160941, "best_normalized_error": 3.1875}
+{"elapsed": 268.0025206019998, "restart": 1299, "evaluations": 2600411, "best_normalized_error": 3.109375}
+{"elapsed": 268.06199374699986, "restart": 1299, "evaluations": 2600632, "best_normalized_error": 3.078125}
+{"elapsed": 268.0658234260002, "restart": 1299, "evaluations": 2600643, "best_normalized_error": 3.0}
+{"n": 14, "y": [0, 1, 2], "gates": 37, "normalized_error": 3.0, "evaluations": 2600643, "elapsed": 268.065854403, "completed": true, "evaluations_total": 3203652, "elapsed_total": 330.0011698239998, "restarts": 1601}

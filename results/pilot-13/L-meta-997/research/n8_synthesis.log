@@ -1,0 +1,71 @@
+{"case": "n8", "variables": 770, "constraints": 9755, "gates": 10, "paid_limit": 3, "family": [[0, 1, 3], [0, 2, 4], [1, 2, 5]], "target": [3, 4, 5, 6, 7]}
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 2e+01]
+  Cost   [0e+00, 0e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 7e+00]
+Presolving model
+6661 rows, 756 cols, 17627 nonzeros  0s
+4418 rows, 745 cols, 14349 nonzeros  0s
+4360 rows, 745 cols, 14289 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   4360 rows
+   745 cols (745 binary, 0 integer, 0 implied int., 0 continuous)
+   14289 nonzeros
+MIP-Timing:       0.076 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.1s
+         0       0         0   0.00%   0               inf                  inf        0      0     10       319     0.1s
+
+0.9% inactive integer columns, restarting
+Model after restart has 4326 rows, 738 cols (738 bin., 0 int., 0 impl., 0 cont.), and 14127 nonzeros
+
+MIP-Timing:         1.9 - starting analytic centre calculation
+         0       0         0   0.00%   0               inf                  inf       50      0      0      5083     1.9s
+         0       0         0   0.00%   0               inf                  inf       50     19     12      5211     1.9s
+       294      11       112   0.46%   0               inf                  inf     3160     65   2011     31362     7.5s
+       574      47       197   0.75%   0               inf                  inf     4055     73   3373     63652    12.7s
+       949      95       318   0.81%   0               inf                  inf     3742     33   5082     95623    18.7s
+      1266     111       423   0.82%   0               inf                  inf     2736     41   6579    122231    23.9s
+
+Restarting search from the root node
+Model after restart has 4326 rows, 738 cols (738 bin., 0 int., 0 impl., 0 cont.), and 14127 nonzeros
+
+MIP-Timing:          24 - starting analytic centre calculation
+      1322       0         0   0.00%   0               inf                  inf       58      0      0    124329    24.2s
+      1322       0         0   0.00%   0               inf                  inf       58     14      8    124385    24.2s
+      1642      18       117   0.70%   0               inf                  inf     2956     78   2210    147398    29.2s
+      2181      20       351   7.06%   0               inf                  inf     3615     46   4280    167147    34.2s
+      2797      85       554   8.76%   0               inf                  inf     3405     79   6379    193176    39.2s
+      3981     142       928   8.78%   0               inf                  inf     3747     46   8776    227061    44.2s
+      4139     144       979   8.78%   0               inf                  inf     3941     52   9335    232194    45.0s
+
+Solving report
+  Status            Time limit reached
+  Primal bound      inf
+  Dual bound        0
+  Gap               inf
+  P-D integral      0
+  Solution status   -
+  Timing            45.00 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 3
+  Nodes             4139
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     232194 (total)
+                    0 (strong br.)
+                    11444 (separation)
+                    94414 (heuristics)
+{"status": 1, "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)", "elapsed": 45.01969313621521, "n": 8, "y": [0, 1, 2], "family": [[0, 1, 3], [0, 2, 4], [1, 2, 5]], "target": [3, 4, 5, 6, 7], "initial_count": 11}

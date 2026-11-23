@@ -1,0 +1,108 @@
+{
+  "actual_posted_counterexample_found": false,
+  "search_interval_utc": [
+    "2026-11-23 22:06:22",
+    "2026-11-23 22:21:39"
+  ],
+  "search_scope": "Fixed-prefix MILP/CEGIS and broader fixed-H evolutionary searches; not exhaustive over all circuits.",
+  "milp": [
+    {
+      "artifact": "full_r6_pq.json",
+      "n": 14,
+      "total_gates": 37,
+      "prefix_gates": 33,
+      "tail_gates": 4,
+      "rounds": [
+        {
+          "round": 0,
+          "samples": 49,
+          "variables": 988,
+          "constraints": 39410,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "elapsed": 45.99360108375549
+        }
+      ]
+    },
+    {
+      "artifact": "full_r6_yp.json",
+      "n": 14,
+      "total_gates": 37,
+      "prefix_gates": 33,
+      "tail_gates": 4,
+      "rounds": [
+        {
+          "round": 0,
+          "samples": 49,
+          "variables": 988,
+          "constraints": 39410,
+          "status": 2,
+          "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+          "elapsed": 40.03070902824402
+        }
+      ]
+    },
+    {
+      "artifact": "full_r7_yp.json",
+      "n": 16,
+      "total_gates": 45,
+      "prefix_gates": 39,
+      "tail_gates": 6,
+      "rounds": [
+        {
+          "round": 0,
+          "samples": 53,
+          "variables": 1662,
+          "constraints": 75386,
+          "status": 1,
+          "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)",
+          "elapsed": 180.06666827201843
+        }
+      ]
+    },
+    {
+      "artifact": "full_r8_yq.json",
+      "n": 18,
+      "total_gates": 53,
+      "prefix_gates": 45,
+      "tail_gates": 8,
+      "rounds": [
+        {
+          "round": 0,
+          "samples": 57,
+          "variables": 2456,
+          "constraints": 124514,
+          "status": 1,
+          "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)",
+          "elapsed": 240.1311972141266
+        }
+      ]
+    }
+  ],
+  "evolution": [
+    {
+      "artifact": "evolve_n14.json",
+      "n": 14,
+      "gates": 37,
+      "evaluations": 3203652,
+      "best_normalized_error": 3.0,
+      "false_positive_weight": 1,
+      "elapsed": 330.0011698239998
+    },
+    {
+      "artifact": "evolve_n14_fp4.json",
+      "n": 14,
+      "gates": 37,
+      "evaluations": 2947324,
+      "best_normalized_error": 6.0,
+      "false_positive_weight": 4,
+      "elapsed": 285.0006348180002
+    }
+  ],
+  "known_baseline_constraint_check": "full_r5_baseline_verified.json",
+  "intermediate_claim_counterexamples": [
+    "switching_example.json",
+    "union_switching_example.json",
+    "refined_overlap_example.json"
+  ]
+}

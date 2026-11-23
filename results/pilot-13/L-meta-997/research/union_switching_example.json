@@ -1,0 +1,1538 @@
+{
+  "all_assignments_pass": 4096,
+  "gate_count": 51,
+  "y": [
+    0,
+    1,
+    2
+  ],
+  "target": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "meeting": [
+    0,
+    1,
+    3
+  ],
+  "output_t": 61,
+  "output_a": 62,
+  "selected_union_outside_meeting": [
+    "F_ab",
+    "F_abc",
+    "L",
+    "V",
+    "O_T"
+  ],
+  "light_target_charge": [
+    "F_ab",
+    "F_abc",
+    "L",
+    "O_T"
+  ],
+  "heavy_target_charge": [
+    "W4",
+    "W5",
+    "W6",
+    "W7",
+    "W8",
+    "W9",
+    "W10",
+    "V",
+    "O_T"
+  ],
+  "posted_refund_gates": [
+    "O_T"
+  ],
+  "gates": [
+    {
+      "label": "ab",
+      "op": "and",
+      "inputs": [
+        0,
+        1
+      ],
+      "index": 0,
+      "wire": 12,
+      "light_support": [],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "H",
+      "op": "and",
+      "inputs": [
+        12,
+        2
+      ],
+      "index": 1,
+      "wire": 13,
+      "light_support": [],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "z",
+      "op": "not",
+      "inputs": [
+        13
+      ],
+      "index": 2,
+      "wire": 14,
+      "light_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "P",
+      "op": "or",
+      "inputs": [
+        0,
+        1
+      ],
+      "index": 3,
+      "wire": 15,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": true,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "zP",
+      "op": "and",
+      "inputs": [
+        14,
+        15
+      ],
+      "index": 4,
+      "wire": 16,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "c_t3",
+      "op": "and",
+      "inputs": [
+        2,
+        3
+      ],
+      "index": 5,
+      "wire": 17,
+      "light_support": [],
+      "heavy_support": [
+        3
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "W3",
+      "op": "or",
+      "inputs": [
+        16,
+        17
+      ],
+      "index": 6,
+      "wire": 18,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "c_t4",
+      "op": "and",
+      "inputs": [
+        2,
+        4
+      ],
+      "index": 7,
+      "wire": 19,
+      "light_support": [],
+      "heavy_support": [
+        4
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "W4",
+      "op": "or",
+      "inputs": [
+        18,
+        19
+      ],
+      "index": 8,
+      "wire": 20,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": true,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "c_t5",
+      "op": "and",
+      "inputs": [
+        2,
+        5
+      ],
+      "index": 9,
+      "wire": 21,
+      "light_support": [],
+      "heavy_support": [
+        5
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "W5",
+      "op": "or",
+      "inputs": [
+        20,
+        21
+      ],
+      "index": 10,
+      "wire": 22,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": true,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "c_t6",
+      "op": "and",
+      "inputs": [
+        2,
+        6
+      ],
+      "index": 11,
+      "wire": 23,
+      "light_support": [],
+      "heavy_support": [
+        6
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "W6",
+      "op": "or",
+      "inputs": [
+        22,
+        23
+      ],
+      "index": 12,
+      "wire": 24,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": true,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "c_t7",
+      "op": "and",
+      "inputs": [
+        2,
+        7
+      ],
+      "index": 13,
+      "wire": 25,
+      "light_support": [],
+      "heavy_support": [
+        7
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "W7",
+      "op": "or",
+      "inputs": [
+        24,
+        25
+      ],
+      "index": 14,
+      "wire": 26,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": true,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "c_t8",
+      "op": "and",
+      "inputs": [
+        2,
+        8
+      ],
+      "index": 15,
+      "wire": 27,
+      "light_support": [],
+      "heavy_support": [
+        8
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "W8",
+      "op": "or",
+      "inputs": [
+        26,
+        27
+      ],
+      "index": 16,
+      "wire": 28,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": true,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "c_t9",
+      "op": "and",
+      "inputs": [
+        2,
+        9
+      ],
+      "index": 17,
+      "wire": 29,
+      "light_support": [],
+      "heavy_support": [
+        9
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "W9",
+      "op": "or",
+      "inputs": [
+        28,
+        29
+      ],
+      "index": 18,
+      "wire": 30,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": true,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "c_t10",
+      "op": "and",
+      "inputs": [
+        2,
+        10
+      ],
+      "index": 19,
+      "wire": 31,
+      "light_support": [],
+      "heavy_support": [
+        10
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "W10",
+      "op": "or",
+      "inputs": [
+        30,
+        31
+      ],
+      "index": 20,
+      "wire": 32,
+      "light_support": [
+        0,
+        1
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "heavy_base": false,
+      "meeting_charge": true,
+      "heavy_charge": true,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F0_3",
+      "op": "or",
+      "inputs": [
+        0,
+        3
+      ],
+      "index": 21,
+      "wire": 33,
+      "light_support": [
+        0,
+        3
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": true,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F0_4",
+      "op": "or",
+      "inputs": [
+        33,
+        4
+      ],
+      "index": 22,
+      "wire": 34,
+      "light_support": [
+        0,
+        3,
+        4
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F0_5",
+      "op": "or",
+      "inputs": [
+        34,
+        5
+      ],
+      "index": 23,
+      "wire": 35,
+      "light_support": [
+        0,
+        3,
+        4,
+        5
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F0_6",
+      "op": "or",
+      "inputs": [
+        35,
+        6
+      ],
+      "index": 24,
+      "wire": 36,
+      "light_support": [
+        0,
+        3,
+        4,
+        5,
+        6
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F0_7",
+      "op": "or",
+      "inputs": [
+        36,
+        7
+      ],
+      "index": 25,
+      "wire": 37,
+      "light_support": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F0_8",
+      "op": "or",
+      "inputs": [
+        37,
+        8
+      ],
+      "index": 26,
+      "wire": 38,
+      "light_support": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F0_9",
+      "op": "or",
+      "inputs": [
+        38,
+        9
+      ],
+      "index": 27,
+      "wire": 39,
+      "light_support": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F0_10",
+      "op": "or",
+      "inputs": [
+        39,
+        10
+      ],
+      "index": 28,
+      "wire": 40,
+      "light_support": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F1_3",
+      "op": "or",
+      "inputs": [
+        1,
+        3
+      ],
+      "index": 29,
+      "wire": 41,
+      "light_support": [
+        1,
+        3
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": true,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F1_4",
+      "op": "or",
+      "inputs": [
+        41,
+        4
+      ],
+      "index": 30,
+      "wire": 42,
+      "light_support": [
+        1,
+        3,
+        4
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F1_5",
+      "op": "or",
+      "inputs": [
+        42,
+        5
+      ],
+      "index": 31,
+      "wire": 43,
+      "light_support": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F1_6",
+      "op": "or",
+      "inputs": [
+        43,
+        6
+      ],
+      "index": 32,
+      "wire": 44,
+      "light_support": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F1_7",
+      "op": "or",
+      "inputs": [
+        44,
+        7
+      ],
+      "index": 33,
+      "wire": 45,
+      "light_support": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F1_8",
+      "op": "or",
+      "inputs": [
+        45,
+        8
+      ],
+      "index": 34,
+      "wire": 46,
+      "light_support": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F1_9",
+      "op": "or",
+      "inputs": [
+        46,
+        9
+      ],
+      "index": 35,
+      "wire": 47,
+      "light_support": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F1_10",
+      "op": "or",
+      "inputs": [
+        47,
+        10
+      ],
+      "index": 36,
+      "wire": 48,
+      "light_support": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F2_3",
+      "op": "or",
+      "inputs": [
+        2,
+        3
+      ],
+      "index": 37,
+      "wire": 49,
+      "light_support": [
+        2,
+        3
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F2_4",
+      "op": "or",
+      "inputs": [
+        49,
+        4
+      ],
+      "index": 38,
+      "wire": 50,
+      "light_support": [
+        2,
+        3,
+        4
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F2_5",
+      "op": "or",
+      "inputs": [
+        50,
+        5
+      ],
+      "index": 39,
+      "wire": 51,
+      "light_support": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F2_6",
+      "op": "or",
+      "inputs": [
+        51,
+        6
+      ],
+      "index": 40,
+      "wire": 52,
+      "light_support": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F2_7",
+      "op": "or",
+      "inputs": [
+        52,
+        7
+      ],
+      "index": 41,
+      "wire": 53,
+      "light_support": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F2_8",
+      "op": "or",
+      "inputs": [
+        53,
+        8
+      ],
+      "index": 42,
+      "wire": 54,
+      "light_support": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F2_9",
+      "op": "or",
+      "inputs": [
+        54,
+        9
+      ],
+      "index": 43,
+      "wire": 55,
+      "light_support": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F2_10",
+      "op": "or",
+      "inputs": [
+        55,
+        10
+      ],
+      "index": 44,
+      "wire": 56,
+      "light_support": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "F_ab",
+      "op": "and",
+      "inputs": [
+        40,
+        48
+      ],
+      "index": 45,
+      "wire": 57,
+      "light_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": true,
+      "refund": false
+    },
+    {
+      "label": "F_abc",
+      "op": "and",
+      "inputs": [
+        57,
+        56
+      ],
+      "index": 46,
+      "wire": 58,
+      "light_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": true,
+      "refund": false
+    },
+    {
+      "label": "L",
+      "op": "and",
+      "inputs": [
+        14,
+        58
+      ],
+      "index": 47,
+      "wire": 59,
+      "light_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "heavy_support": [],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": false,
+      "light_target_charge": true,
+      "refund": false
+    },
+    {
+      "label": "V",
+      "op": "and",
+      "inputs": [
+        13,
+        32
+      ],
+      "index": 48,
+      "wire": 60,
+      "light_support": [],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": true,
+      "light_target_charge": false,
+      "refund": false
+    },
+    {
+      "label": "O_T",
+      "op": "or",
+      "inputs": [
+        60,
+        59
+      ],
+      "index": 49,
+      "wire": 61,
+      "light_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "heavy_base": false,
+      "meeting_charge": false,
+      "heavy_charge": true,
+      "light_target_charge": true,
+      "refund": true
+    },
+    {
+      "label": "O_A",
+      "op": "or",
+      "inputs": [
+        15,
+        3
+      ],
+      "index": 50,
+      "wire": 62,
+      "light_support": [
+        0,
+        1,
+        3
+      ],
+      "heavy_support": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "heavy_base": true,
+      "meeting_charge": true,
+      "heavy_charge": false,
+      "light_target_charge": false,
+      "refund": false
+    }
+  ]
+}
