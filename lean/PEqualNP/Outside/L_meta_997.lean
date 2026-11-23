@@ -2200,3 +2200,65 @@ lemma selected_count {n : ℕ} (C : Circuit)
 
 end PEqualNP.Outside.L_meta_997.HeavySelected
 
+namespace PEqualNP.Outside.L_meta_997.BoundedDisjoint
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_997.light
+
+lemma capped_disjoint_bound {n m : ℕ} (S : Fin m → Finset (Fin n)) (C : Circuit)
+    (o : Fin m → ℕ) (t : ℕ) (y : Finset (Fin n))
+    (hinter : ∀ i j : Fin m, i ≠ j → (S i ∩ S j).card ≤ 1)
+    (hgate : ∀ g ∈ C.gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2)
+    (hnot : ∀ i : Fin C.gates.length, (C.gates.get i).op = GateOp.not → (i : ℕ) = t)
+    (hcorrect : ∀ (i : Fin m) (x : Fin n → Bool),
+      (C.wires (List.ofFn x)).getD (o i) false = decide (∃ p ∈ S i, x p = true))
+    (hlow : ∀ x : Fin n → Bool,
+      (Finset.univ.filter (fun v : Fin n => x v = true)).card < y.card →
+        (C.wires (List.ofFn x)).getD (n + t) false = true)
+    (hfalse : (C.wires (List.ofFn (fun v : Fin n => decide (v ∈ y)))).getD
+      (n + t) false = false)
+    (hcap : ∀ i : Fin m, Disjoint (S i) y → (S i).card ≤ y.card + 1) :
+    (∑ i : Fin m, if Disjoint (S i) y then (S i).card else min y.card (S i).card) ≤
+      C.gates.length + (Finset.univ.filter (fun g : Fin C.gates.length =>
+        (∃ i : Fin m, ∀ p : Fin n,
+          (C.wires (List.ofFn (fun v : Fin n => decide (v = p)))).getD (n + g) false = true ↔ p ∈ S i) ∧
+        (∃ i : Fin m, Disjoint (S i) y ∧ ∀ p : Fin n, p ∉ y →
+          ((C.wires (List.ofFn (fun v : Fin n => decide (v ∈ y ∨ v = p)))).getD
+            (n + g) false = true ↔ p ∈ S i)))).card + m := by
+  classical
+  by_cases hy : y.card ≤ 2
+  · have h := small_window_bound S C o t y hinter hgate hnot hcorrect hfalse hy
+    omega
+  · let I := Finset.univ.filter (fun i : Fin m => Disjoint (S i) y ∧ 2 ≤ (S i).card)
+    have hterm (i : Fin m) :
+        (if Disjoint (S i) y then (S i).card else min y.card (S i).card) ≤
+          min y.card (S i).card + (if i ∈ I then 1 else 0) := by
+      by_cases hd : Disjoint (S i) y
+      · rw [if_pos hd]
+        by_cases hc : (S i).card ≤ y.card
+        · rw [min_eq_right hc]
+          omega
+        · have hi : i ∈ I := Finset.mem_filter.mpr ⟨Finset.mem_univ _, hd, by omega⟩
+          rw [min_eq_left (by omega), if_pos hi]
+          exact hcap i hd
+      · rw [if_neg hd]
+        omega
+    have hs : (∑ i : Fin m, min y.card (S i).card) ≤ C.gates.length + m :=
+      truncated_sum_original S C o t y.card hinter hgate hnot hcorrect hlow
+    have hr := PEqualNP.Outside.L_meta_997.Refund.refund_output_count S C o y hinter hcorrect
+    have hsum :
+        (∑ i : Fin m, if Disjoint (S i) y then (S i).card else min y.card (S i).card) ≤
+          (∑ i : Fin m, min y.card (S i).card) + I.card := by
+      calc
+        _ ≤ ∑ i : Fin m, (min y.card (S i).card + if i ∈ I then 1 else 0) :=
+          Finset.sum_le_sum fun i _ => hterm i
+        _ = _ := by simp [Finset.sum_add_distrib]
+    change I.card ≤ _ at hr
+    change (∑ i : Fin m, if Disjoint (S i) y then (S i).card else min y.card (S i).card) ≤
+      C.gates.length + (Finset.univ.filter (fun g : Fin C.gates.length =>
+        (∃ i : Fin m, ∀ p : Fin n, value C (fun v => decide (v = p)) (n + g) = true ↔ p ∈ S i) ∧
+        (∃ i : Fin m, Disjoint (S i) y ∧ ∀ p : Fin n, p ∉ y →
+          (value C (fun v => decide (v ∈ y ∨ v = p)) (n + g) = true ↔ p ∈ S i)))).card + m
+    omega
+
+end PEqualNP.Outside.L_meta_997.BoundedDisjoint
