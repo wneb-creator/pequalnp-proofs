@@ -1,0 +1,39 @@
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Symmetry
+
+theorem getD_map_lt {α β : Type} (l : List α) (f : α → β) (da : α) (db : β)
+    (j : Nat) (hj : j < l.length) : (l.map f).getD j db = f (l.getD j da) := by
+  rw [List.getD_eq_getElem (l.map f) db (by simpa using hj), List.getD_eq_getElem l da hj]
+  simp
+
+def fastHalfPerm (k : Nat) (p : List Nat) (word : Nat) : Nat :=
+  let coordinates := p ++ p.map (fun i => k+i)
+  (coordinates.map (fun i => Fast.bit word i)).foldr Nat.bit (word / 2^(k+k))
+
+theorem halfCoords_getD (k : Nat) (p : List Nat) (hp : p.length = k)
+    (j : Nat) (hj : j < k+k) :
+    (p ++ p.map (fun i => k+i)).getD j 0 = liftHalf k (fun i => p.getD i 0) j := by
+  by_cases hk : j < k
+  · rw [List.getD_append _ _ _ _ (by omega)]
+    simp [liftHalf, hk]
+  · rw [List.getD_append_right _ _ _ _ (by omega)]
+    rw [getD_map_lt p (fun i => k+i) 0 0 (j-p.length) (by omega)]
+    simp [liftHalf, hk, hp]
+
+theorem fastHalfPerm_eq (k : Nat) (p : List Nat) (hp : p.length = k) (word : Nat) :
+    fastHalfPerm k p word = permWord (k+k) (liftHalf k (fun i => p.getD i 0)) word := by
+  apply Nat.eq_of_testBit_eq
+  intro j
+  change (putBits ((p ++ p.map (fun i => k+i)).map (fun i => Fast.bit word i))
+    (word / 2^(k+k))).testBit j = _
+  rw [putBits_testBit, permWord_testBit]
+  simp only [List.length_map, List.length_append, hp]
+  by_cases hj : j < k+k
+  · rw [if_pos hj, if_pos hj]
+    rw [getD_map_lt _ (fun i => Fast.bit word i) 0 false j (by simpa [hp] using hj)]
+    rw [Fast.bit_eq, halfCoords_getD k p hp j hj]
+  · rw [if_neg hj, if_neg hj, ←Nat.shiftRight_eq_div_pow, Nat.testBit_shiftRight]
+    congr 1
+    omega
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Symmetry

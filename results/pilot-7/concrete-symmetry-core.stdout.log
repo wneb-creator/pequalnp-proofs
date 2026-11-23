@@ -1,0 +1,36 @@
+/tmp/oec/pequalnp-pilot-7/ConcreteSymmetryCore.lean:84:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-7/ConcreteSymmetryCore.lean:102:39: warning: Variable name `hj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-7/ConcreteSymmetryCore.lean:117:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-7/ConcreteSymmetryCore.lean:152:5: warning: Variable name `hpi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-7/ConcreteSymmetryCore.lean:207:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-7/ConcreteSymmetryCore.lean:207:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-7/ConcreteSymmetryCore.lean:210:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-7/ConcreteSymmetryCore.lean:210:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲

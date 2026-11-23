@@ -1,0 +1,1 @@
+Independent source/log review by counterexample_search: PASS. The fast half-permutation equals the checked globally injective coordinate permutation on every Nat, preserving bits above2k. Explicit inverse/bound premises still govern actual symmetries. Source SHA256:31feee33a0be8c21e7c6e80c5d94678e7cfe19a142b4bde453e8052775b9716c.
