@@ -2950,4 +2950,11 @@ lemma finalBound : ¬ PEqualNP.MetaComplexity.HasCircuitSize 8 (fun x : Fin 8 �
   rintro ⟨C, hf, hs, he⟩
   obtain ⟨k,hk,t,ht,h⟩ := root_restricted C hs hf he
   exact rootImpossible t ht k hk h
+lemma noSmallLive {k t : Nat} (hk : k ≤ 12) : ¬ Live k t raw.toFinset := by
+  intro h
+  have sz := live_size h
+  rw [List.toFinset_card_of_nodup raw_nd] at sz
+  have len : raw.length = 8 := rfl
+  exact rootImpossible t (by omega) k hk (restrict_live h (project_bound_root hk))
+
 end PEqualNP.Outside.L_meta_670_aux.Base1007

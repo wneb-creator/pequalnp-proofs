@@ -1,10 +1,10 @@
-CHECKED COMPONENT: copied L-meta-1007 lower bound for the exact eight-input residual graph, with packed certificate data.
-423817 bytes, 2953 lines; original499569 bytes. All original finite kernel certificate proofs passed.
-This helper component is NOT a standalone proof submission: the source guard refuses the missing theorem (all declarations are lemmas). No forbidden-source rejection was reported.
-Command: lake env lean /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean
-Exit status: 0
-Independent review: root compared finalBound statement and variable context exactly with upstream accepted L_meta_1007, confirmed owned namespace and inspected compression design.
-Full stdout and stderr follow:
+L-meta-670 embedded 8-input lower-bound certificate, now including public noSmallLive.
+Full Lean build exit code: 0. Independent root review: PASS.
+The new interface follows from the existing checked root exclusion and live-size bound.
+This certifies the embedded 8-input problem, not the posted 9-input statement.
+Full compiler output follows.
+import took 7.86s
+parsing took 115ms
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:132:183: warning: this tactic is never executed
 
 Note: This linter can be disabled with `set_option linter.unreachableTactic false`
@@ -63,9 +63,17 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:272:185: warning: Unused tactic linter: `<;>` can be replaced with `;`.
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
+simp took 110ms
+type checking took 333ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 118ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 110ms
+simp took 110ms
+simp took 223ms
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:622:0: warning: Definition `keep_perm` is a proposition; use `theorem` instead of `def`
 
 Note: This linter can be disabled with `set_option linter.defProp false`
+simp took 112ms
+simp took 124ms
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:689:62: warning: This simp argument is unused:
   Bool.true_and
 
@@ -73,13 +81,110 @@ Hint: Omit it from the simp argument list.
   [apply] simp only [ht, Bool.true_or, Bool.or_true, Bool.and_true]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 758ms
+type checking took 196ms
+sym typeclass inference of Lean.Grind.IsCharP took 313ms
+sym typeclass inference of Lean.Grind.NoNatZeroDivisors took 392ms
+grind took 156ms
+sym typeclass inference of Lean.Grind.IsCharP took 204ms
+sym typeclass inference of Lean.Grind.NoNatZeroDivisors took 429ms
+grind took 226ms
+grind took 260ms
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:808:16: warning: Unused tactic linter: `exact Bool.or_le_or ha hb` does not change the goal.
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:808:44: warning: Unused tactic linter: `exact Bool.and_le_and ha hb` does not change the goal.
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
+simp took 142ms
+type checking took 246ms
+type checking took 273ms
+elaboration took 1.49s
+elaboration took 234ms
+elaboration took 1.14s
+compilation (LCNF base) took 401ms
+compilation (LCNF mono) took 186ms
+compilation (LCNF mono) took 144ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 127ms
+linting took 107ms
+type checking took 971ms
+type checking took 770ms
+type checking took 1.26s
+type checking took 1.5s
+type checking took 1.24s
+type checking took 1.03s
+type checking took 640ms
+type checking took 669ms
+type checking took 648ms
+type checking took 810ms
+type checking took 678ms
+type checking took 820ms
+type checking took 1.12s
+type checking took 1.01s
+type checking took 1.26s
+type checking took 1.44s
+type checking took 1.45s
+type checking took 1.11s
+type checking took 1.59s
+type checking took 1.8s
+type checking took 1.3s
+type checking took 930ms
+type checking took 943ms
+type checking took 1.01s
+type checking took 1.18s
+type checking took 1.66s
+type checking took 759ms
+type checking took 901ms
+type checking took 751ms
+type checking took 649ms
+type checking took 1.12s
+elaboration took 126ms
+type checking took 2.11s
+type checking took 2.03s
+type checking took 1.14s
+type checking took 1.08s
+type checking took 1.13s
+type checking took 1.7s
+type checking took 2.25s
+type checking took 2.94s
+type checking took 2.66s
+type checking took 3.58s
+type checking took 2.97s
+type checking took 3.55s
+type checking took 3.65s
+type checking took 3.4s
+type checking took 2.43s
+type checking took 1.52s
+type checking took 1.67s
+type checking took 1.3s
+type checking took 1.88s
+type checking took 1.62s
+type checking took 1.26s
+type checking took 3.02s
+type checking took 2.54s
+type checking took 3.53s
+type checking took 2.79s
+type checking took 2.8s
+type checking took 3.1s
+type checking took 3.57s
+type checking took 2.84s
+type checking took 2.98s
+type checking took 4.82s
+type checking took 2.85s
+type checking took 2.1s
+type checking took 1.79s
+type checking took 1.31s
+type checking took 2.18s
+type checking took 1.55s
+type checking took 10.9s
+type checking took 9.06s
+type checking took 5.03s
+type checking took 564ms
+type checking took 817ms
+simp took 169ms
+simp took 108ms
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1418:4: warning: exponent 464 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+simp took 126ms
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1418:41: warning: This simp argument is unused:
   BitVec.getLsbD_not
 
@@ -94,9 +199,16 @@ Hint: Omit it from the simp argument list.
   [apply] simp [hl, hh, neg, Theta.mask, Theta.lo, show j - 232 < 252 by omega]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 108ms
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1472:9: warning: Local variable 'done' resembles constructor 'PEqualNP.Outside.L_meta_670_aux.Base1007.Theta.Run.done' - write '.done' (with a dot) or 'PEqualNP.Outside.L_meta_670_aux.Base1007.Theta.Run.done' to use the constructor.
 
 Note: This linter can be disabled with `set_option linter.constructorNameAsVariable false`
+type checking took 6.78s
+simp took 142ms
+simp took 227ms
+simp took 196ms
+simp took 175ms
+simp took 190ms
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1657:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
@@ -117,6 +229,22 @@ Hint: Replace the deprecated name:
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+simp took 106ms
+simp took 168ms
+simp took 221ms
+simp took 174ms
+simp took 215ms
+simp took 171ms
+simp took 101ms
+simp took 111ms
+simp took 104ms
+simp took 105ms
+simp took 145ms
+simp took 122ms
+simp took 201ms
+simp took 165ms
+simp took 155ms
+simp took 112ms
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1886:60: warning: This simp argument is unused:
   BitVec.getLsbD_zero
 
@@ -133,10 +261,17 @@ Hint: Omit it from the simp argument list.
     beq_iff_eq] at h
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 121ms
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:2013:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+type checking took 1.07s
+tactic execution of Lean.Parser.Tactic.refine took 273ms
+tactic execution of Lean.Parser.Tactic.refine took 458ms
+type checking took 5.52s
+type checking took 11s
+elaboration took 188ms
 /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:2226:13: warning: This simp argument is unused:
   Function.comp_def
 
@@ -144,3 +279,164 @@ Hint: Omit it from the simp argument list.
   [apply] simp [h]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+elaboration took 115ms
+elaboration took 256ms
+elaboration took 165ms
+elaboration took 985ms
+elaboration took 144ms
+type checking took 2.51s
+type checking took 2.07s
+type checking took 5.94s
+type checking took 4.92s
+type checking took 4.43s
+type checking took 2.93s
+type checking took 5.75s
+type check.olean serialization took 728ms
+ing took 2.56s
+type checking took 3.1s
+type checking took 2.74s
+type checking took 3.11s
+type checking took 5.71s
+type checking took 5.03s
+type checking took 2.31s
+type checking took 6.69s
+type checking took 2.05s
+type checking took 3.34s
+type checking took 6.44s
+type checking took 3.5s
+type checking took 2.91s
+type checking took 2.8s
+type checking took 2.15s
+type checking took 2.48s
+type checking took 1.57s
+type checking took 2.18s
+type checking took 2.28s
+type checking took 1.79s
+type checking took 2.82s
+type checking took 939ms
+type checking took 2.13s
+type checking took 1.22s
+type checking took 1.56s
+type checking took 1.9s
+type checking took 1.16s
+type checking took 1.73s
+type checking took 2.06s
+type checking took 2.76s
+type checking took 1.3s
+type checking took 1.49s
+type checking took 1.62s
+type checking took 3.09s
+type checking took 2.43s
+type checking took 1.69s
+type checking took 1.96s
+type checking took 1.29s
+elaboration took 143ms
+type checking took 5.64s
+type checking took 2.14s
+type checking took 2s
+type checking took 2.02s
+type checking took 2.2s
+type checking took 2.37s
+type checking took 2.9s
+type checking took 2.75s
+type checking took 3.23s
+type checking took 3.07s
+type checking took 3.2s
+type checking took 1.41s
+type checking took 649ms
+type checking took 12.6s
+type checking took 11.7s
+type checking took 11.4s
+type checking took 13.3s
+type checking took 9.51s
+type checking took 3.7s
+type checking took 4.97s
+type checking took 7.32s
+type checking took 6.48s
+type checking took 9.16s
+declTypeLinter took 195ms
+linting took 157ms
+type checking took 9.3s
+type checking took 10.7s
+type checking took 7.14s
+type checking took 10.2s
+type checking took 16.1s
+type checking took 13.2s
+type checking took 7.27s
+type checking took 9.14s
+type checking took 11.6s
+type checking took 20.1s
+type checking took 1.23s
+type checking took 23.5s
+type checking took 17s
+type checking took 19.9s
+type checking took 29s
+type checking took 20s
+type checking took 15.5s
+type checking took 28.7s
+type checking took 5.54s
+type checking took 10.4s
+type checking took 10.2s
+type checking took 11.1s
+type checking took 10.7s
+type checking took 2.89s
+type checking took 16.7s
+type checking took 4.74s
+type checking took 32.7s
+type checking took 30.5s
+type checking took 2.7s
+type checking took 16s
+type checking took 14.2s
+type checking took 15.2s
+type checking took 9.43s
+type checking took 3.31s
+type checking took 1.28s
+type checking took 3.24s
+type checking took 4.53s
+type checking took 2.78s
+type checking took 1.46s
+type checking took 105ms
+type checking took 264ms
+type checking took 336ms
+type checking took 490ms
+type checking took 441ms
+type checking took 140ms
+cumulative profiling times:
+	.olean serialization 728ms
+	attribute application 18.2ms
+	blocked (unaccounted) 3.99e+04s
+	compilation (IR) 92.4ms
+	compilation (LCNF base) 943ms
+	compilation (LCNF impure) 177ms
+	compilation (LCNF mono) 571ms
+	congr simp thm 251ms
+	declTypeLinter 780ms
+	dsimp 31ms
+	elaboration 10.4s
+	fix level params 24.5ms
+	grind 693ms
+	grind ac 1.42ms
+	grind cutsat 10.7ms
+	grind ematch 279ms
+	grind linarith 0.124ms
+	grind mark subsingleton 86.8ms
+	grind ring 17.2ms
+	grind simp 351ms
+	import 7.86s
+	initialization 28.2ms
+	instantiate metavars 132ms
+	interpretation 8.63s
+	let-to-have transformation 35.1ms
+	linting 3.44s
+	module linting 1.51ms
+	norm_num 2.23ms
+	parsing 628ms
+	process pre-definitions 1.56s
+	share common exprs 241ms
+	simp 18.9s
+	sym canon 70.2ms
+	sym typeclass inference 2.22s
+	tactic execution 13s
+	tacticAnalysis 317ms
+	type checking 908s
+	typeclass inference 7.43s

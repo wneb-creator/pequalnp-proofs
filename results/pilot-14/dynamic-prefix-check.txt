@@ -1,0 +1,7 @@
+L-meta-670 checked partials: DynamicBase, DynamicLeafTest, GeneralCachedPrefixTest.
+Each Lean build exited 0. Independent root review of cached projection transport: PASS. Independent red_team review of generic prefix extraction and cached pruning: PASS.
+The test files import the included DynamicBase.lean. The generic test contains a reproved public test bridge for an existing private lemma.
+These are soundness components with explicit lower-bound hypotheses, not a proof of the posted statement.
+Full DynamicLeafTest output follows.
+
+Full GeneralCachedPrefixTest output follows.
