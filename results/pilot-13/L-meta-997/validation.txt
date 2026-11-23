@@ -69,3 +69,7 @@ Fourteenth partial: 3493 lines. Build 17 passed. Added physical DAG-to-tree extr
 Independent status_review PASS on167-line GraphForest extension SHA2561c766eb8b09cb4b913f347903922e27db98b421dc65885e07c68e74c2d4d9221; independent compile and standard axioms. Pruning preserves graph edges, not semantic transfer (not claimed).
 Root independently reviewed118-line Euler extension SHA256cde11805f041eb5246f93c05c4ff6604b90e68410feb12a527707d0c75d599ff and99-line OrParents extension SHA2562856e3db7f636c391ae4dfda67743af371cb0c4aeb280fe6bf4d32f8125d48ca. Cardinal identities, physical-input assumptions, monotone hypotheses, namespace/format pass.
 Combined snapshot c4dc68c3994167fbfdd8637af613e54b0ae39a1e1ce8c4a4278cd10b683ed529. General theorem remains absent.
+
+Fifteenth partial: 3612 lines. Build 18 passed. Added input-restriction circuit with unchanged gate count, exact masked evaluation and singleton-support containment.
+Root independently reviewed119-line Restriction extension authored by lean_setup, SHA256365139bcadb9ee42711a6c9bb27516a6b7db25671aa37d020960bf8c40f1be14: invalid-wire rewiring preserves prefix read semantics; mapped output handled; monotonicity explicit; namespace/format pass.
+Combined snapshot ed270f5b698862ec7c54c4db22195a7d42e4fdcd58c03fff7e7923bf10dd9ecb. General theorem remains absent.

@@ -3491,3 +3491,122 @@ lemma strict_or_parents {n : ℕ} (C : Circuit)
   refine ⟨Finset.eq_of_subset_of_card_le hPQ (by omega), by omega⟩
 
 end PEqualNP.Outside.L_meta_997.OrParents
+namespace PEqualNP.Outside.L_meta_997.Restriction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_997.light
+
+def mask {n : ℕ} (U : Finset (Fin n)) (x : Fin n → Bool) : Fin n → Bool :=
+  fun p => if p ∈ U then x p else false
+
+def wire {n : ℕ} (C : Circuit) (U : Finset (Fin n)) (r : ℕ) : ℕ :=
+  if r ∈ U.image Fin.val ∨ n ≤ r then r else n + C.size
+
+def restrict {n : ℕ} (C : Circuit) (U : Finset (Fin n)) : Circuit :=
+  ⟨C.gates.map (fun g => ⟨g.op, g.inputs.map (wire C U)⟩), wire C U C.output⟩
+
+lemma restrict_size {n : ℕ} (C : Circuit) (U : Finset (Fin n)) :
+    (restrict C U).size = C.size := by simp [restrict, Circuit.size]
+
+lemma wire_above {n : ℕ} (C : Circuit) (U : Finset (Fin n)) (r : ℕ) (hr : n ≤ r) :
+    wire C U r = r := by simp [wire, hr]
+
+lemma wire_input {n : ℕ} (C : Circuit) (U : Finset (Fin n)) (p : Fin n) :
+    wire C U p = if p ∈ U then p.val else n + C.size := by
+  have he : p.val ∈ U.image Fin.val ↔ p ∈ U := by
+    constructor
+    · rintro hp
+      obtain ⟨q, hq, he⟩ := Finset.mem_image.mp hp
+      have : q = p := Fin.ext he
+      simpa [this] using hq
+    · exact fun hp => Finset.mem_image_of_mem Fin.val hp
+  simp only [wire, he, not_le_of_gt p.isLt, or_false]
+
+lemma wire_le {n : ℕ} (C : Circuit) (U : Finset (Fin n)) (r : ℕ) : r ≤ wire C U r := by
+  unfold wire
+  split_ifs with h
+  · exact le_rfl
+  · have hn : ¬ n ≤ r := fun hn => h (Or.inr hn)
+    omega
+
+lemma moved_false {n : ℕ} (C : Circuit) (U : Finset (Fin n)) (x : Fin n → Bool)
+    (r : ℕ) (hr : wire C U r ≠ r) : value C (mask U x) r = false := by
+  have hn : r < n := by
+    by_contra h
+    exact hr (wire_above C U r (by omega))
+  let p : Fin n := ⟨r, hn⟩
+  have hp : p ∉ U := by
+    intro hp
+    have he := wire_input C U p
+    rw [ite_eq_left hp] at he
+    exact hr he
+  change value C (mask U x) p = false
+  rw [input_value]
+  simp [mask, hp]
+
+lemma restrict_value {n : ℕ} (C : Circuit) (U : Finset (Fin n)) (x : Fin n → Bool) (w : ℕ) :
+    value (restrict C U) x (wire C U w) = value C (mask U x) w := by
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    by_cases hn : w < n
+    · let p : Fin n := ⟨w, hn⟩
+      change value (restrict C U) x (wire C U p) = value C (mask U x) p
+      rw [wire_input, input_value]
+      by_cases hp : p ∈ U
+      · rw [ite_eq_left hp]
+        simp [input_value, mask, hp]
+      · rw [ite_eq_right hp, missing_value _ _ _ (by rw [restrict_size])]
+        simp [mask, hp]
+    · have hn' : n ≤ w := by omega
+      rw [wire_above C U w hn']
+      by_cases hw : w < n + C.size
+      · have hj : w - n < C.gates.length := by unfold Circuit.size at hw; omega
+        have hread (r : ℕ) :
+            (if wire C U r < w then value (restrict C U) x (wire C U r) else false) =
+              (if r < w then value C (mask U x) r else false) := by
+          by_cases hr : r < w
+          · rw [ite_eq_left hr]
+            by_cases hm : wire C U r < w
+            · rw [ite_eq_left hm, ih r hr]
+            · rw [ite_eq_right hm]
+              have hne : wire C U r ≠ r := fun he => hm (by rw [he]; exact hr)
+              exact (moved_false C U x r hne).symm
+          · have hm : ¬ wire C U r < w := by have := wire_le C U r; omega
+            simp [hr, hm]
+        rw [gate_value (restrict C U) x w hn' (by rwa [restrict_size]), gate_value C _ w hn' hw]
+        simp only [restrict, List.getElem_map, List.map_map, Function.comp_apply]
+        congr 1
+        apply List.map_congr_left
+        intro r _
+        exact hread r
+      · rw [missing_value C _ w (by omega), missing_value (restrict C U) x w
+          (by rw [restrict_size]; omega)]
+
+lemma restrict_good {n : ℕ} (C : Circuit) (U : Finset (Fin n))
+    (hgate : ∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) :
+    ∀ g ∈ (restrict C U).gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2 := by
+  intro g hg
+  obtain ⟨h, hh, rfl⟩ := List.mem_map.mp hg
+  simpa using hgate h hh
+
+lemma restrict_supp_subset {n : ℕ} (C : Circuit) (U : Finset (Fin n))
+    (hgate : ∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (w : ℕ) : singleSupp (n := n) (restrict C U) w ⊆ singleSupp C w := by
+  intro p hp
+  have hv := (mem_singleSupp (restrict C U) w p).mp hp
+  apply (mem_singleSupp C w p).mpr
+  by_cases hn : w < n
+  · let r : Fin n := ⟨w, hn⟩
+    change value C (fun v => decide (v = p)) r = true
+    change value (restrict C U) (fun v => decide (v = p)) r = true at hv
+    simpa only [input_value] using hv
+  · have he := restrict_value C U (fun v => decide (v = p)) w
+    rw [wire_above C U w (by omega)] at he
+    rw [he] at hv
+    apply value_mono C hgate (mask U (fun v => decide (v = p))) (fun v => decide (v = p)) _ w hv
+    intro r hr
+    by_cases hu : r ∈ U
+    · simpa [mask, hu] using hr
+    · simp [mask, hu] at hr
+
+end PEqualNP.Outside.L_meta_997.Restriction
