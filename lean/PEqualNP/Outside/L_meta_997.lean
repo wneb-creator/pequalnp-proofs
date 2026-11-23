@@ -1800,3 +1800,60 @@ lemma charge_count {n : ℕ} (C : Circuit)
   omega
 
 end PEqualNP.Outside.L_meta_997.HeavyOr
+
+namespace PEqualNP.Outside.L_meta_997.HeavyOr
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_997.Heavy
+
+lemma charged_subset_asg {n : ℕ} (C : Circuit) (Y S : Finset (Fin n)) :
+    charged C Y S ⊆ asg C Y S := by
+  classical
+  intro w hw
+  obtain ⟨⟨hn,hW⟩,hs,hop,hne,hfresh⟩ := (mem_charged C Y S w).mp hw
+  apply (mem_asg C Y S w).mpr
+  refine ⟨⟨hn,hW⟩,hs,?_⟩
+  by_contra! hlt
+  have hsmall : (supp C Y w).card ≤ 1 := by omega
+  obtain ⟨p,hp⟩ := hne
+  have hp' : p ∈ ((readGate C n w).inputs.toFinset.filter (· < w)).biUnion (supp C Y) := by
+    rw [← or_supp C Y w hn hW hop]
+    exact hp
+  obtain ⟨r,hr,hrp⟩ := Finset.mem_biUnion.mp hp'
+  have hr' := Finset.mem_filter.mp hr
+  apply hfresh r (List.mem_toFinset.mp hr'.1) hr'.2
+  apply Finset.ext
+  intro q
+  constructor
+  · intro hqr
+    rw [or_supp C Y w hn hW hop]
+    exact Finset.mem_biUnion.mpr ⟨r,hr,hqr⟩
+  · intro hqw
+    have hqp : q=p := Finset.card_le_one_iff.mp hsmall hqw hp
+    simpa [hqp] using hrp
+
+lemma charged_disjoint {n : ℕ} (C : Circuit) (Y Si Sj : Finset (Fin n))
+    (hi : Disjoint Y Si) (hj : Disjoint Y Sj) (hij : (Si ∩ Sj).card ≤ 1) :
+    Disjoint (charged C Y Si) (charged C Y Sj) :=
+  (heavy_disjoint C Y Si Sj hi hj hij).mono
+    (charged_subset_asg C Y Si) (charged_subset_asg C Y Sj)
+
+lemma heavy_or_count {n : ℕ} (C : Circuit) (t : ℕ)
+    (hgate : ∀ g ∈ C.gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2)
+    (hnot : ∀ q : Fin C.gates.length, (C.gates.get q).op = GateOp.not → q.val = t)
+    (ht : t < C.gates.length) (hop : (C.gates[t]).op = GateOp.not)
+    (Y S : Finset (Fin n)) (o : ℕ) (hYS : Disjoint Y S)
+    (hY : value C (fun v => decide (v ∈ Y)) (n+t) = false)
+    (hout : ∀ x : Fin n → Bool, value C x o = decide (∃ p ∈ S, x p = true)) :
+    S.card ≤ (charged (fixed C t false) Y S).card + 1 := by
+  apply charge_count (fixed C t false) (fixed_good C t false hgate hnot) Y S o hYS
+  · intro x hx
+    have h := fixed_false_le C t hgate hnot x o hx
+    simpa [hout] using h
+  · intro p hp
+    rw [fixed_false_eq_above C t hgate hnot ht hop
+      (fun v => decide (v ∈ Y)) (fun v => decide (v ∈ Y ∨ v = p))
+      (by intro v hv; simpa using Or.inl (of_decide_eq_true hv)) hY o, hout]
+    exact decide_eq_true ⟨p,hp,by simp⟩
+
+end PEqualNP.Outside.L_meta_997.HeavyOr
