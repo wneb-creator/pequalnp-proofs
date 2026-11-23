@@ -323,6 +323,42 @@
         "forced-quotient28-benchmark-1.stderr"
       ],
       "scope": "One compact layer8 state and existing finite routing/cache facts with provably equal row-mask forcing; no whole-graph bound."
+    },
+    {
+      "file": "FormalCompact984.lean",
+      "sha256": "47314391cf8b256811d61d062c7aaa988c59d7499bb1477925c48d64b6372521",
+      "bytes": 95356,
+      "lines": 2166,
+      "observed_compile_exit": 0,
+      "logs": [
+        "formal-compact-2.stdout",
+        "formal-compact-2.stderr"
+      ],
+      "scope": "Generic certificate soundness for arbitrary encoded goal and explicitly sound coverage predicate; no concrete graph theorem."
+    },
+    {
+      "file": "CompactCoverage984.lean",
+      "sha256": "b02e31c799881b2b763368fb78222d62048a5ff54aed61cf01754487338b3847",
+      "bytes": 7340,
+      "lines": 172,
+      "observed_compile_exit": 0,
+      "logs": [
+        "compact-coverage-1.stdout",
+        "compact-coverage-1.stderr"
+      ],
+      "scope": "Compact negative/positive row coverage is necessary for a monotone run; no concrete graph bound."
+    },
+    {
+      "file": "CachedPreservationProbeV2.lean",
+      "sha256": "d9c3b6ad87f1f9a7f304cf4ff87e73c76d1a294b94d2ea4f071fb7da05eecd91",
+      "bytes": 173310,
+      "lines": 2415,
+      "observed_compile_exit": 0,
+      "logs": [
+        "cached-preservation-probe-v2.stdout",
+        "cached-preservation-probe-v2.stderr"
+      ],
+      "scope": "Generic cached orientation preservation and finite graph28 cache/routing facts; no whole-graph bound."
     }
   ]
 }

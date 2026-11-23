@@ -79,3 +79,14 @@ Quotient computation archive reviewed independently by proof_strategy: all799
 records match originals, including101 deterministic gzip streams. Both new
 independent-search manifests (43 and68 files) also match exactly. These are
 computational records, not a full Lean proof or checker verdict.
+
+FormalCompact984: root independently reviewed the complete diff against
+FormalCached. It generalizes the target and retains explicit coverage
+soundness; transition/retention proofs are unchanged. PASS.
+CompactCoverage984: independent review by single_not_reduction and root,
+PASS; positive/negative coordinate obligations and masked extra bits are
+handled explicitly. Its standalone research copy has an unnamed section;
+final integration keeps only the added declarations in the named Cert block.
+CachedPreservationProbeV2: independent_theory reviewed the exact helper,
+root read the helper and finite graph28 probe. PASS under explicit routing,
+goal-fixing, and cache-correctness assumptions. No whole graph is claimed.
