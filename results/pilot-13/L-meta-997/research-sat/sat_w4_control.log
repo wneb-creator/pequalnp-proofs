@@ -1,0 +1,10 @@
+{"n": 12, "width": 4, "prefix_kind": "all", "pair_order": "yp", "prefix": [["or", 0, 3], ["or", 12, 7], ["or", 0, 4], ["or", 14, 8], ["or", 0, 5], ["or", 16, 9], ["or", 0, 6], ["or", 18, 10], ["or", 1, 3], ["or", 20, 8], ["or", 1, 4], ["or", 22, 9], ["or", 1, 5], ["or", 24, 10], ["or", 1, 6], ["or", 26, 7], ["or", 2, 3], ["or", 28, 9], ["or", 2, 4], ["or", 30, 10], ["or", 2, 5], ["or", 32, 7], ["or", 2, 6], ["or", 34, 8], ["and", 13, 23], ["and", 36, 35], ["not", 37, null]], "tail_size": 8, "total_gates": 35, "family": [[0, 3, 7], [0, 4, 8], [0, 5, 9], [0, 6, 10], [1, 3, 8], [1, 4, 9], [1, 5, 10], [1, 6, 7], [2, 3, 9], [2, 4, 10], [2, 5, 7], [2, 6, 8], [3, 4, 5, 6, 11], [7, 8, 9, 10, 11]], "y": [0, 1, 2], "factors": [0, 5, 11], "lhs": 46, "max_violation_gates_with_two_refunds": 29, "control": true, "rounds": []}
+{"iteration": 0, "samples": 52, "variables": 2630, "clauses": 50718, "cnf_bytes": 678038}
+{"iteration": 0, "samples": 52, "variables": 2630, "clauses": 50718, "cnf_bytes": 678038, "solver_exit": 10, "seconds": 0.3437268050001876}
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-13/status_review/sat_family_synthesis.py", line 245, in <module>
+    main()
+  File "/tmp/oec/pequalnp-pilot-13/status_review/sat_family_synthesis.py", line 194, in main
+    assert all(any((x>0 and x in model) or (x<0 and -x not in model) for x in c) for c in cnf.clauses)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

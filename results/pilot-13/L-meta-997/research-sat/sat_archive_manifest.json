@@ -1,0 +1,262 @@
+{
+  "scope": "Bounded SAT search and review supplement; no posted counterexample or final theorem.",
+  "files": [
+    {
+      "name": "HeavyForest_independent_review.log",
+      "bytes": 2378,
+      "sha256": "1c4e3753c8cba09f27478ee65bebff7f549a3ee78db6894911964d85628d3786"
+    },
+    {
+      "name": "LightBoundary_independent_review_v2.log",
+      "bytes": 2527,
+      "sha256": "fb82524d39407dfe107cdb71d88f021e241e5437151f5a3f9bfeced2cedbde14"
+    },
+    {
+      "name": "PrefixBudget_independent_review.log",
+      "bytes": 3882,
+      "sha256": "16fcfbd264b360a3beb165fb5de6beeee9f7e8af2e23cf9257cf87429a126738"
+    },
+    {
+      "name": "SAT_REVIEW_README.md",
+      "bytes": 2804,
+      "sha256": "89eadb63d7d848f62925621042e33e1345c930bf7b8a187a26b4f8e57dfe9745"
+    },
+    {
+      "name": "cadical_help.log",
+      "bytes": 14905,
+      "sha256": "3130f29128ff982dbf028386f6af7e99342bde5f9dd10db4a65ab0b91a7da23c"
+    },
+    {
+      "name": "colors3_partial_w3_g5.json",
+      "bytes": 794,
+      "sha256": "d22c7465599f44fec2943652d25e23df7976d42cc854594d9d05853608009222"
+    },
+    {
+      "name": "colors3_partial_w3_g5.log",
+      "bytes": 910,
+      "sha256": "316e284a3242416ffa5f962689ba3fa3bc49856f97b3f11a131747130020061e"
+    },
+    {
+      "name": "colors3_partial_w3_g5.solver.log",
+      "bytes": 4570,
+      "sha256": "656f23f0483699b92b9084051ca2efecd3a9e8bd1b327fd4527165816e44a30f"
+    },
+    {
+      "name": "colors3_partial_w4_g8.json",
+      "bytes": 1408,
+      "sha256": "6b6fefc0053114823ac150ff0916d690b83eb42596edc083d2ab033f9c1d6220"
+    },
+    {
+      "name": "colors3_partial_w4_g8.log",
+      "bytes": 1652,
+      "sha256": "c7175260666cd93352012ed35d069d88cc911373e5c206a1fedaab4a646cf9cb"
+    },
+    {
+      "name": "colors3_partial_w4_g8.solver.log",
+      "bytes": 15662,
+      "sha256": "688f85db5c23fe6c0e2f7377708859bfc292f986607c3045641d88c0cf6e74d4"
+    },
+    {
+      "name": "colors3_w3_g5.json",
+      "bytes": 565,
+      "sha256": "d228987069ed17b1293f0dab6f57b33543295ab3dcc0d88b113a851dc449f74b"
+    },
+    {
+      "name": "colors3_w3_g5.log",
+      "bytes": 668,
+      "sha256": "792e07fb7509d336369fc56c95370b3c535bfefe8e6cf7842b4378b832280261"
+    },
+    {
+      "name": "colors3_w3_g5.solver.log",
+      "bytes": 4605,
+      "sha256": "1080518afdb1ebac2ad883dd961e9f14799510402b2647edcbeee2db73e2bdf3"
+    },
+    {
+      "name": "colors3_w4_g8.json",
+      "bytes": 972,
+      "sha256": "0a88a63bc4d83a41f51a21f081e9c739e976e9e9060a2c72b22fbf0af6aafd3d"
+    },
+    {
+      "name": "colors3_w4_g8.log",
+      "bytes": 1164,
+      "sha256": "b3ac18c35c6e6b5c4e523b4d5ad6acb0654a10ca2c6e9c09221ff1326ee49d4a"
+    },
+    {
+      "name": "colors3_w4_g8.solver.log",
+      "bytes": 12875,
+      "sha256": "2262d8d3de080baef22f7509ab6f23686e2a08745247210583fe3e64f8842ba5"
+    },
+    {
+      "name": "colors_w4_g5.json",
+      "bytes": 430,
+      "sha256": "0047f7b6d75e7fad13a34726be4a4be84e06730734addeeab28b8e8064e4d3bc"
+    },
+    {
+      "name": "colors_w4_g5.log",
+      "bytes": 507,
+      "sha256": "aa6abaecf0a6ac9668cf4f0746d52080d485d23e77cd19859cf2161a6f586fc5"
+    },
+    {
+      "name": "colors_w4_g5.solver.log",
+      "bytes": 6133,
+      "sha256": "5d84f21d4abe19c35ff8a7272a4b74f987ebe158a9c88be42f4d4d15d5f9f9fe"
+    },
+    {
+      "name": "colors_w4_g6_control.json",
+      "bytes": 823,
+      "sha256": "5d3d6d42c9973fb3c3142b86183ddaa1b8a0efad345c36f5fe1c813cfa66c00f"
+    },
+    {
+      "name": "colors_w4_g6_control.log",
+      "bytes": 676,
+      "sha256": "c01cb058d1eb89e90453d67212105b832c57b4ca9b93c1a9b58fa9a5d7b0afcf"
+    },
+    {
+      "name": "colors_w4_g6_control.solver.log",
+      "bytes": 3685,
+      "sha256": "f0e8483c7094fe9ac636e70f98494ed1bf0172c70e35687433cf32ddf71a8611"
+    },
+    {
+      "name": "colors_w5_g7.json",
+      "bytes": 534,
+      "sha256": "f4c362f6baa70d38decb9829d7038fface2d295cf578a39f40451795f966123d"
+    },
+    {
+      "name": "colors_w5_g7.log",
+      "bytes": 628,
+      "sha256": "ddba7b522e83ec58f34b1b45648bd850ddd977cad6bd6203187411c2ac89a216"
+    },
+    {
+      "name": "colors_w5_g7.solver.log",
+      "bytes": 11001,
+      "sha256": "c00556be56e344ad779355ea06899432ca90841cc2e19958956a9b3267ff61a2"
+    },
+    {
+      "name": "sat_family_synthesis.py",
+      "bytes": 11167,
+      "sha256": "d10d47e133c8750ac46d0e66bfc080527893f011527bef7b966c9c3e0a4fe59f"
+    },
+    {
+      "name": "sat_two_colors.py",
+      "bytes": 4134,
+      "sha256": "701039559c1f026167ca8e9fb6322419c2569f472fdcdbd6774538b42d053be8"
+    },
+    {
+      "name": "sat_w4_all.json",
+      "bytes": 2363,
+      "sha256": "a9f17f08ede8a5f0ffebd7f85fbe4e72937cf30d3f09189dfa75991bf02be355"
+    },
+    {
+      "name": "sat_w4_all.log",
+      "bytes": 1152,
+      "sha256": "1ce0a2423a62db81cd2fee4124b74903739804950eefcef387a9d73d17633c0c"
+    },
+    {
+      "name": "sat_w4_all.round0.solver.log",
+      "bytes": 3493,
+      "sha256": "7eb78b0dc7ca11626aaad077d6ef49be6f8f49e87ac1d204f67816db59c67ed8"
+    },
+    {
+      "name": "sat_w4_control.log",
+      "bytes": 1511,
+      "sha256": "f2f1ea6ea22529cb554aabcaa357955ed7505ce221cd4157345bb93801d786e5"
+    },
+    {
+      "name": "sat_w4_control.round0.solver.log",
+      "bytes": 5581,
+      "sha256": "f71c8bc990a32d434ed983df51fd1ed23ad0bea77e5094459cc02c1afaf3ae26"
+    },
+    {
+      "name": "sat_w4_control_v2.json",
+      "bytes": 3050,
+      "sha256": "0d0a2cc84c6fdb4d47824c80a79553b03b53de1f38cc41cc1ae24214dfa5b905"
+    },
+    {
+      "name": "sat_w4_control_v2.log",
+      "bytes": 1128,
+      "sha256": "714d80a32e5a83ff15fdab2fb2c86f81978d6ebd967abb4fd569ba56eb5b605e"
+    },
+    {
+      "name": "sat_w4_control_v2.round0.solver.log",
+      "bytes": 5590,
+      "sha256": "8657c88e3da52a3b38e8d586640e0d7d1b2d7fa2285ca165e6bb7ae929238084"
+    },
+    {
+      "name": "sat_w4_factors.json",
+      "bytes": 1570,
+      "sha256": "3fc5bfe5d4d023595cdd83fb831885baa95951719ac76e3ebb374cd4db21143e"
+    },
+    {
+      "name": "sat_w4_factors.log",
+      "bytes": 866,
+      "sha256": "ebda8e81ec2ed4fd7796a93ce5886a67bc340a177454ebaecadd003c7dc92d8f"
+    },
+    {
+      "name": "sat_w4_factors.round0.solver.log",
+      "bytes": 27428,
+      "sha256": "814fa5f800196f6eb07ad2463dce829100efc8421d8d5fffcfeb715398c15241"
+    },
+    {
+      "name": "sat_w4_factors_control.json",
+      "bytes": 1578,
+      "sha256": "7d58867d7f1bef24067661f278b35a28a13d787e88edcb371b8f80d0e6aae2d9"
+    },
+    {
+      "name": "sat_w4_factors_control.log",
+      "bytes": 874,
+      "sha256": "2d4439a67286d236c8f89a14f58948238653536841742c7f7c59a368db802e16"
+    },
+    {
+      "name": "sat_w4_factors_control.round0.solver.log",
+      "bytes": 15084,
+      "sha256": "24d3a090bcb0a9d055c195ae37c04f013d03a497fb0ca819619f40af0c0e6015"
+    },
+    {
+      "name": "sat_w5_all.json",
+      "bytes": 2767,
+      "sha256": "e3f4ad201fb7ed18e22ff47c2ea37266030dd275612a6eaebebff25ffe4fd0a4"
+    },
+    {
+      "name": "sat_w5_all.log",
+      "bytes": 1293,
+      "sha256": "37ef11207c57b0e49f8301704b73a2d32c252a1c67aafdbd184220bb8de95dbb"
+    },
+    {
+      "name": "sat_w5_all.round0.solver.log",
+      "bytes": 4558,
+      "sha256": "c5c8e70f83369255663e6f500db1a3691bdca6239123775a5154ccd9ef595216"
+    },
+    {
+      "name": "sat_w5_factors.json",
+      "bytes": 1725,
+      "sha256": "44701226660353ae7604566653811d57137e963703f60ba839a6a27eadb1d4f1"
+    },
+    {
+      "name": "sat_w5_factors.log",
+      "bytes": 926,
+      "sha256": "48b4e9f6d62a2af774f07f9cc2e60d200d4455d77921e74dacb63a94f30c92d8"
+    },
+    {
+      "name": "sat_w5_factors.round0.solver.log",
+      "bytes": 24539,
+      "sha256": "c97e88bf5035a5522d2e380e2bfe311ab497b83bd8873cdbf57a0a218d4727e3"
+    },
+    {
+      "name": "sat_w7_all.json",
+      "bytes": 3571,
+      "sha256": "5f235612e1c3d2ba0d94f1750d5d57af0ec204f8a47518466c0070adc322986a"
+    },
+    {
+      "name": "sat_w7_all.log",
+      "bytes": 1570,
+      "sha256": "b1e1c09a3a34d247415af077f5c2b194acbf817fec2f0aaf2ec90dbaa15ddaa9"
+    },
+    {
+      "name": "sat_w7_all.round0.solver.log",
+      "bytes": 19526,
+      "sha256": "588032eafc80f1ba8bd257ccd3ac72becfdbf7de41e2bfce165baa51d91c710c"
+    }
+  ],
+  "total_bytes": 243802,
+  "excluded": "Generated CNFs, raw witness files, copied full Lean review snapshots."
+}

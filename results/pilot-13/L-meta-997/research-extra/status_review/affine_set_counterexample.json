@@ -1,0 +1,17 @@
+{
+  "scope": "Counterexample only to abstract singleton-support/set-lattice lower bound; not to L-meta-997.",
+  "inputs": 256,
+  "outputs": 272,
+  "set_cardinality": 16,
+  "pairwise_intersection_at_most_one": true,
+  "coordinate_union_gates": 2032,
+  "dual_xor_operations": 128,
+  "dual_xor_gates": 768,
+  "equality_and_gates": 476,
+  "total_and_or_gates": 3276,
+  "sum_card_minus_one": 4080,
+  "saved_gates_against_false_bound": 804,
+  "all_output_masks_checked": true,
+  "instruction_sha256": "a374436eaaccd8aa985dda8119ba06cf83426dd97e9669aabbe93712c429c008",
+  "warning": "AND of singleton-support sets models intersections; actual Boolean gate functions need not be ORs of those sets."
+}

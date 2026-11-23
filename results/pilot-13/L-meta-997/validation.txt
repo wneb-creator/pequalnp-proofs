@@ -85,3 +85,9 @@ Root independently reviewed158-line UnionTrue extension authored by lean_setup S
 Combined snapshot cf1a0109290ea18e1fdb14ea1f659562afc41f60f73f9db6788460ae8a19dad1. General posted theorem remains absent; these are proved special cases.
 Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
 TIMING total=61.0 subagents=6
+
+Eighteenth partial: 5269 lines. Build 21 passed. Added within-output Hall matchings, singleton-active physical paths, heavy active paths and foreign-marker exit at an uncharged heavy OR.
+Independent status_review PASS on all five exact extension hashes recorded in ActiveBatch_independent_review.log; combined independent compilation and15 standard-axiom probes pass. No inter-output capacity or distinct-exit conclusion is claimed.
+Combined snapshot bb9051a92bf715e94136fa4775785c13e0de435ca020e048d3eb6054b8b052ce. General theorem remains absent. Archived extra countermodels and completed SAT searches with complete output logs and SHA256 manifests.
+Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
+TIMING total=66.3 subagents=6

@@ -1,0 +1,1 @@
+q=11; k=9; light_outputs=99; heavy_outputs=99; inputs=251; gate_count=1461; weighted_sum=1980; output_count=198; no_refund_rhs=1659; excess=321

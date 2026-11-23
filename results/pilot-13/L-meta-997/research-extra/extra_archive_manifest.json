@@ -1,0 +1,56 @@
+{
+  "summary": "Supplementary exact set/window abstraction counterexamples and independent Lean helper review logs. None is a refutation of L-meta-997. GF16 affine model lacks arbitrary-input OR semantics; q11 switched model lacks required heavy singleton support.",
+  "files": [
+    {
+      "path": "status_review/affine_set_counterexample.py",
+      "bytes": 3204,
+      "sha256": "417b1d66c1a7addb83cdd6c76a286fa85e99deaaff1ecce811d0a834d25520dc"
+    },
+    {
+      "path": "status_review/affine_set_counterexample.json",
+      "bytes": 693,
+      "sha256": "c0e16f38281d70a0cb6c6b533188c277200b7ea655f64d3aff0adfd1bb91c9b5"
+    },
+    {
+      "path": "status_review/affine_set_counterexample.log",
+      "bytes": 693,
+      "sha256": "c0e16f38281d70a0cb6c6b533188c277200b7ea655f64d3aff0adfd1bb91c9b5"
+    },
+    {
+      "path": "status_review/LightSelected_independent_review.log",
+      "bytes": 1479,
+      "sha256": "993f69c629cc4bd099d350818d6584a778e3d3817d7c24cbb79881585204854a"
+    },
+    {
+      "path": "status_review/LightSmart_independent_review.log",
+      "bytes": 2263,
+      "sha256": "55335e726c55ee139740f3f7b2a87a29286d3ce05f009b39b54c5d6595c76294"
+    },
+    {
+      "path": "status_review/GraphForest_independent_review.log",
+      "bytes": 2277,
+      "sha256": "923977a257c54cb3efd59c595f66590d884394cdbb03034d82a7baa968a30555"
+    },
+    {
+      "path": "overlap_theory/weaker_abstraction.md",
+      "bytes": 2340,
+      "sha256": "fc7c9031a7e75f39d0593ecf7453c517a71b92640df3298f6ff352d948a73537"
+    },
+    {
+      "path": "overlap_theory/weaker_abstraction_count.txt",
+      "bytes": 144,
+      "sha256": "e80e5eafda1ccec923702196643cef26a553938ccf25346cbfc5c4826db4e74d"
+    },
+    {
+      "path": "overlap_theory/weaker_abstraction_circuit.json",
+      "bytes": 32237,
+      "sha256": "9ee2f735ff21814398615404efb706b797bb5a048166ffc5a73a6f1fc9fef876"
+    },
+    {
+      "path": "overlap_theory/weaker_abstraction_tables.txt",
+      "bytes": 207,
+      "sha256": "f6e82705d86d0863d66a2cfc78af3008cd9b7651953dff4cea8e339f60ae6b4a"
+    }
+  ],
+  "total_bytes": 45537
+}

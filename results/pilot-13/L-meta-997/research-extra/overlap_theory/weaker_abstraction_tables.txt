@@ -1,0 +1,1 @@
+Explicit circuit: 251 inputs, 1461 gates, 198 outputs. Exact singleton table: all99 lightoutputs correct, all99 heavyoutputs wrong. Exact Y+singleton table: all99 heavyoutputs correct. Postedrefund count=0.

@@ -1,0 +1,140 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 180 seconds real time (due to '-t 180')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-13/status_review/colors_w4_g5.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-13/status_review/colors_w4_g5.cnf'
+c found 'p cnf 693 5454' header
+c parsed 5454 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0 5454 693 100%
+c {  0.00  3  0 0   0    0    0  0% 0 5454 693 100%
+c i  0.00  3 40 0   1   29   25 76% 1 5454 692 100%
+c -  0.00  4 26 1  50  306  230 53% 4 5445 692 100%
+c i  0.00  4 26 1  53  333  249 53% 4 5445 691 100%
+c i  0.01  4 21 1 109  648  523 49% 5 5445 690 100%
+c i  0.01  4 21 1 110  652  526 49% 5 5445 689 99%
+c i  0.01  4 21 1 110  653  526 49% 5 5445 688 99%
+c i  0.01  4 21 1 111  654  526 49% 5 5445 687 99%
+c i  0.01  4 21 1 111  655  526 49% 5 5445 686 99%
+c i  0.01  4 21 1 111  656  526 49% 5 5445 685 99%
+c i  0.01  4 21 1 112  657  526 49% 5 5445 684 99%
+c i  0.01  4 20 1 112  658  526 49% 5 5445 683 99%
+c i  0.01  4 20 1 113  660  527 49% 5 5445 682 98%
+c i  0.01  4 20 1 113  661  527 48% 5 5445 681 98%
+c i  0.01  4 20 1 113  662  527 48% 5 5445 680 98%
+c i  0.01  4 20 1 114  663  527 48% 5 5445 679 98%
+c i  0.01  4 20 1 114  664  527 48% 5 5445 678 98%
+c i  0.01  4 20 1 116  689  545 48% 4 5445 677 98%
+c i  0.01  4 20 1 116  690  545 48% 4 5445 676 98%
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c i  0.01  4 20 1 116  691  545 48% 4 5445 675 97%
+c i  0.01  4 21 1 116  730  574 48% 4 5445 674 97%
+c -  0.01  4 22 2 136  906  696 49% 5 5050 674 97%
+c }  0.01  4 21 2 157 1000  757 49% 5 5050 674 97%
+c [  0.01  4  0 2 157 1000  757  0% 0 5050 674 97%
+c O  0.01  4 12 2 157 1002  759 54% 4 5050 674 97%
+c -  0.02  4 10 3 157 1807 1348 54% 5 5050 674 97%
+c i  0.03  4  9 3 158 2368 1726 54% 5 5050 673 97%
+c i  0.04  4  9 3 158 2487 1816 53% 5 5050 672 97%
+c i  0.04  4  8 3 158 2822 2015 52% 5 5050 670 97%
+c i  0.05  4  8 3 158 2964 2083 51% 5 5050 615 89%
+c ]  0.05  4  8 3 158 3000 2112 51% 5 5050 615 89%
+c {  0.05  4 21 3 158 3000 2112 49% 5 5050 615 89%
+c F  0.05  4 21 3 160 3004 2116 49% 5 5050 615 89%
+c -  0.05  4 21 4 161 3007  936 49% 5 4329 615 89%
+c i  0.05  4 20 4 163 3032  946 48% 5 4329 600 87%
+c i  0.05  4 20 4 163 3106  978 48% 5 4329 599 86%
+c i  0.05  4 19 4 163 3137  987 48% 5 4329 556 80%
+c i  0.05  4 19 4 163 3154  617 31% 5 3641 504 73%
+c i  0.05  4 18 4 163 3185  640 29% 5 3641 413 60%
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c i  0.05  4 18 4 163 3186  640 29% 5 3641 412 59%
+c }  0.05  4 18 4 163 3212  653 32% 5 3641 399 58%
+c 0  0.05  4 18 4 163 3212  653 32% 5 3641 399 58%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-13/status_review/colors_w4_g5.witness'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.05   99.87% search
+c         0.03   71.23% stable
+c         0.01   28.44% unstable
+c         0.00    1.89% parse
+c         0.00    0.14% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.05   97.69% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               959        29.86 %  of conflicts
+c conflicts:                  3212     65553.70    per second
+c decisions:                  7576    154618.56    per second
+c fixed:                       294        42.42 %  of all variables
+c learned:                    3060        95.27 %  per conflict
+c learned_lits:              73316       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                  18455        25.17 %  learned literals
+c minishrunken:              11902        16.23 %  learned literals
+c otfs:                         81         2.52 %  of conflict
+c propagations:             269321         5.50 M  per second
+c reduced:                     219         6.82 %  per conflict
+c rephased:                      2      1606.00    interval
+c restarts:                    163        19.71    interval
+c stabilizing:                   1        62.20 %  of conflicts
+c subsumed:                    676         7.97 %  of all clauses
+c strengthened:                 78         0.92 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.05    seconds
+c total real time since initialization:            0.12    seconds
+c maximum resident set size of process:           12.50    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 20
