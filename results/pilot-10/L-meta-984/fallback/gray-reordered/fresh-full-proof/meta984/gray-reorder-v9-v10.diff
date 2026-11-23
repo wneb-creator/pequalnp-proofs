@@ -1,0 +1,495 @@
+--- Full984-compact-v9.lean
++++ Full984-compact-v10.lean
+@@ -1749,6 +1749,68 @@
+   simp only [Bool.and_eq_true,beq_iff_eq] at hrgood
+   exact routeStages_run hz r hrgood.1 hrgood.2
+ 
++def qGrayGood (y : Nat) (routes : List (List (Nat × Nat))) : Bool :=
++  routes.all fun ps => validStages ps && (routeStages ps y == y)
++
++theorem qInsert_perm (a : Nat) (xs : List Nat) : (a :: xs).Perm (qInsert a xs) := by
++  induction xs with
++  | nil => exact List.Perm.refl _
++  | cons b xs ih =>
++    simp only [qInsert]
++    split
++    · exact List.Perm.refl _
++    · exact (List.Perm.swap _ _ _).trans (List.Perm.cons b ih)
++
++theorem qNorm_perm (xs : List Nat) : xs.Perm (qNorm xs) := by
++  induction xs with
++  | nil => exact List.Perm.refl _
++  | cons a xs ih =>
++    exact (List.Perm.cons a ih).trans (qInsert_perm a (qNorm xs))
++
++def orbitNormWalk (actions : List (Nat → Nat)) (current best : List Nat) : List Nat :=
++  match actions with
++  | [] => best
++  | action :: rest =>
++    let candidate := current.map action
++    let normalized := qNorm candidate
++    orbitNormWalk rest candidate (if qLex normalized best then normalized else best)
++
++theorem orbitNormWalk_run {y : Nat} (actions : List (Nat → Nat))
++    (preserved : ∀ action ∈ actions, ∀ {u zs},
++      MonRun y u zs → MonRun y u (zs.map action)) :
++    ∀ {s current best}, MonRun y s current → MonRun y s best →
++      MonRun y s (orbitNormWalk actions current best) := by
++  induction actions with
++  | nil =>
++    intro s current best hcurrent hbest
++    exact hbest
++  | cons action rest ih =>
++    intro s current best hcurrent hbest
++    have hnext := preserved action (by simp) hcurrent
++    have hnorm := Run.perm (qNorm_perm (current.map action)) hnext
++    have htail := ih (fun p hp => preserved p (by simp [hp]))
++    change MonRun y s (orbitNormWalk rest (current.map action)
++      (if qLex (qNorm (current.map action)) best then qNorm (current.map action) else best))
++    split
++    · exact htail hnext hnorm
++    · exact htail hnext hbest
++
++def qGrayNormOrbit (routes : List (List (Nat × Nat))) (ws : List Nat) : List Nat :=
++  orbitNormWalk (routes.map routeStages) ws (qNorm ws)
++
++theorem qGrayNormOrbit_run {y s : Nat} {ws : List Nat}
++    {routes : List (List (Nat × Nat))}
++    (h : MonRun y s ws) (hgood : qGrayGood y routes = true) :
++    MonRun y s (qGrayNormOrbit routes ws) := by
++  apply orbitNormWalk_run (routes.map routeStages) ?_ h (Run.perm (qNorm_perm ws) h)
++  intro action ha u zs hz
++  rcases List.mem_map.1 ha with ⟨ps,hps,rfl⟩
++  have hp := List.all_eq_true.1 hgood ps hps
++  have hv := (Bool.and_eq_true.1 hp).1
++  have hy : routeStages ps y = y := by
++    simpa only [beq_iff_eq] using (Bool.and_eq_true.1 hp).2
++  exact routeStages_run hz ps hv hy
++
+ def C0_initial : List Nat := [0x724, 0x949, 0xa92, 0x3403, 0x501c, 0x60e0]
+ 
+ def C0_values : Nat := 0x77fcee49d38fa70741fe839d00fa0070fce1c1c0738006af2d5c1a7a74f068e0cfc99c932f064e0c7c18782fbedbdfb4396576c0e573ca83944728004a9292931c920003fdb7edefa4df01bd4b7a06f00db93b7036c06d40cca497241ffe3ed87b68f241d2435245ed8b92169228004ac894d12962420480890010102004400072c0e4a1c00280040108000c0008401040202040000c00090010000c0008000
+@@ -1809,10 +1871,10 @@
+ def C0_literalRoutes : List (List (Nat × Nat)) := [[(0x20,2),(0xc,4),(0x10,2),(0x1054,1)],[(0x10,1),(0x20,2),(0x8,4),(0x20,2),(0x151,1)],[(0x40,1),(0x20,2),(0xc,4),(0x10,2),(0x1115,1)],[(0x4000,1),(0xb02,4),(0x11,2),(0x4000,1)],[(0x4054,1),(0x30,2),(0xb06,4),(0x13,2),(0x4100,1)],[(0x4000,1),(0x20,2),(0xb09,4),(0x3,2),(0x5054,1)],[(0x4054,1),(0xb05,4),(0x2,2),(0x5154,1)]]
+ 
+ def C0_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+-def C0_rankPool : List Nat := [4401547, 7609806, 5275034, 6626216, 7425741, 3174108, 7670697, 5520265, 2112650, 6454168, 2182298, 6303405, 5340570, 7559563, 6650776, 5270922]
++def C0_rankPool : List Nat := [3174108, 4401547, 7609806, 5340570, 7670697, 6303405, 2112650, 6650776, 5520265, 2182298, 7425741, 7559563, 5270922, 5275034, 6626216, 6454168]
+ 
+ def C0_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r11 r8 r9 r2 r3 r4 < 3) || ((sum6 r14 r12 r13 r1 r4 r7 < 3) || ((sum6 r10 r9 r13 r7 r0 r5 < 3) || ((sum6 r8 r10 r11 r1 r5 r6 < 3) || ((sum6 r13 r12 r14 r4 r1 r7 < 3) || ((sum6 r12 r13 r14 r6 r0 r3 < 3) || ((sum6 r9 r10 r11 r0 r5 r7 < 3) || ((sum6 r9 r8 r11 r3 r4 r5 < 3) || ((sum6 r10 r8 r12 r3 r0 r2 < 3) || ((sum6 r8 r9 r11 r7 r2 r6 < 3) || ((sum6 r10 r9 r12 r4 r1 r2 < 3) || ((sum6 r13 r10 r14 r2 r0 r6 < 3) || ((sum6 r10 r9 r13 r7 r1 r5 < 3) || ((sum6 r11 r8 r9 r5 r3 r7 < 3) || ((sum6 r8 r9 r11 r7 r5 r6 < 3) || ((sum6 r10 r8 r13 r6 r0 r5 < 3) || (false))))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r12 r13 r14 r6 r0 r3 < 3) || ((sum6 r11 r8 r9 r2 r3 r4 < 3) || ((sum6 r14 r12 r13 r1 r4 r7 < 3) || ((sum6 r10 r9 r13 r7 r1 r5 < 3) || ((sum6 r9 r10 r11 r0 r5 r7 < 3) || ((sum6 r13 r10 r14 r2 r0 r6 < 3) || ((sum6 r10 r8 r12 r3 r0 r2 < 3) || ((sum6 r8 r9 r11 r7 r5 r6 < 3) || ((sum6 r9 r8 r11 r3 r4 r5 < 3) || ((sum6 r10 r9 r12 r4 r1 r2 < 3) || ((sum6 r13 r12 r14 r4 r1 r7 < 3) || ((sum6 r11 r8 r9 r5 r3 r7 < 3) || ((sum6 r10 r8 r13 r6 r0 r5 < 3) || ((sum6 r10 r9 r13 r7 r0 r5 < 3) || ((sum6 r8 r10 r11 r1 r5 r6 < 3) || ((sum6 r8 r9 r11 r7 r2 r6 < 3) || (false))))))))))))))))
+   | masks => C0_rankPool.any (fastEntry (compactGoal 8 7) 4 C0_coords masks)
+ def C0_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -1883,10 +1945,10 @@
+ def C1_literalRoutes : List (List (Nat × Nat)) := [[(0x200,2),(0x100,4),(0x18,8),(0x10f,4),(0x221,2),(0x155,1)],[(0x210,2),(0x900,4),(0x90,8),(0x904,4),(0x212,2),(0x1000,1)],[(0x130,2),(0x6,8),(0x9,4),(0x103,2),(0x1155,1)],[(0x4,1),(0x10,2),(0x4,4),(0x12,2),(0x544,1)],[(0x140,1),(0x200,2),(0x100,4),(0x18,8),(0x10f,4),(0x221,2),(0x415,1)],[(0x10,1),(0x300,2),(0xc00,4),(0xc0,8),(0xc02,4),(0x300,2),(0x1554,1)],[(0x140,1),(0x130,2),(0x6,8),(0x9,4),(0x103,2),(0x1415,1)],[(0x100,1),(0x1200,2),(0x800,4),(0x80,8),(0xe00,4),(0x1200,2),(0x4104,1)],[(0x4,1),(0x1200,2),(0x100,4),(0x18,8),(0x70f,4),(0x1221,2),(0x4151,1)],[(0x100,1),(0x1210,2),(0x800,4),(0x80,8),(0xe04,4),(0x1212,2),(0x4444,1)],[(0x4,1),(0x1200,2),(0x100,4),(0x18,8),(0x707,4),(0x1220,2),(0x4411,1)],[(0x104,1),(0x3010,2),(0x100,4),(0x10,8),(0xd04,4),(0x3012,2),(0x5040,1)],[(0x144,1),(0x2110,2),(0x6,8),(0x90b,4),(0x2100,2),(0x5151,1)],[(0x110,1),(0x2100,2),(0x400,4),(0x40,8),(0xd02,4),(0x2100,2),(0x5510,1)],[(0x144,1),(0x2130,2),(0x6,8),(0x909,4),(0x2103,2),(0x5411,1)]]
+ 
+ def C1_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+-def C1_rankPool : List Nat := [7708636, 3165914, 6445998, 8417229, 8478159, 2125483, 6651594, 9473755, 6328284, 4227021, 5414844]
++def C1_rankPool : List Nat := [8478159, 2125483, 3165914, 8417229, 6328284, 6445998, 9473755, 6651594, 7708636, 4227021, 5414844]
+ 
+ def C1_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r12 r13 r15 r9 r5 r7 < 3) || ((sum6 r10 r13 r14 r4 r0 r3 < 3) || ((sum6 r14 r10 r11 r5 r2 r6 < 3) || ((sum6 r13 r12 r15 r6 r0 r8 < 3) || ((sum6 r15 r12 r13 r5 r1 r8 < 3) || ((sum6 r11 r10 r14 r6 r0 r2 < 3) || ((sum6 r10 r12 r14 r7 r5 r6 < 3) || ((sum6 r11 r13 r14 r8 r0 r9 < 3) || ((sum6 r12 r13 r15 r8 r0 r6 < 3) || ((sum6 r13 r12 r15 r7 r0 r4 < 3) || ((sum6 r12 r11 r15 r9 r2 r5 < 3) || (false)))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r15 r12 r13 r5 r1 r8 < 3) || ((sum6 r11 r10 r14 r6 r0 r2 < 3) || ((sum6 r10 r13 r14 r4 r0 r3 < 3) || ((sum6 r13 r12 r15 r6 r0 r8 < 3) || ((sum6 r12 r13 r15 r8 r0 r6 < 3) || ((sum6 r14 r10 r11 r5 r2 r6 < 3) || ((sum6 r11 r13 r14 r8 r0 r9 < 3) || ((sum6 r10 r12 r14 r7 r5 r6 < 3) || ((sum6 r12 r13 r15 r9 r5 r7 < 3) || ((sum6 r13 r12 r15 r7 r0 r4 < 3) || ((sum6 r12 r11 r15 r9 r2 r5 < 3) || (false)))))))))))
+   | masks => C1_rankPool.any (fastEntry (compactGoal 10 7) 4 C1_coords masks)
+ def C1_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -1962,10 +2024,10 @@
+ def C2_literalRoutes : List (List (Nat × Nat)) := [[(0x1000,1),(0x2030,2),(0x80c,4),(0x2030,2),(0x5000,1)],[(0x100,1),(0x200,2),(0x800,4),(0x80,8),(0x800,4),(0x300,2),(0x115,1)],[(0x1100,1),(0x2030,2),(0x200,4),(0x20,8),(0xa0c,4),(0x2130,2),(0x5115,1)]]
+ 
+ def C2_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+-def C2_rankPool : List Nat := [8813978, 6524844, 6303387, 2189981, 6655659, 6442940, 6438345, 6577593, 6381500, 6455196, 6586011]
++def C2_rankPool : List Nat := [8813978, 6381500, 2189981, 6586011, 6577593, 6655659, 6524844, 6442940, 6438345, 6455196, 6303387]
+ 
+ def C2_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r10 r9 r13 r7 r6 r8 < 3) || ((sum6 r12 r10 r15 r8 r3 r6 < 3) || ((sum6 r11 r9 r14 r2 r0 r6 < 3) || ((sum6 r13 r9 r10 r6 r1 r2 < 3) || ((sum6 r11 r10 r14 r8 r5 r6 < 3) || ((sum6 r12 r11 r15 r4 r2 r6 < 3) || ((sum6 r9 r12 r13 r3 r2 r6 < 3) || ((sum6 r9 r11 r13 r5 r4 r6 < 3) || ((sum6 r12 r11 r15 r5 r1 r6 < 3) || ((sum6 r12 r9 r15 r7 r2 r6 < 3) || ((sum6 r11 r9 r14 r7 r4 r6 < 3) || (false)))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r10 r9 r13 r7 r6 r8 < 3) || ((sum6 r12 r11 r15 r5 r1 r6 < 3) || ((sum6 r13 r9 r10 r6 r1 r2 < 3) || ((sum6 r11 r9 r14 r7 r4 r6 < 3) || ((sum6 r9 r11 r13 r5 r4 r6 < 3) || ((sum6 r11 r10 r14 r8 r5 r6 < 3) || ((sum6 r12 r10 r15 r8 r3 r6 < 3) || ((sum6 r12 r11 r15 r4 r2 r6 < 3) || ((sum6 r9 r12 r13 r3 r2 r6 < 3) || ((sum6 r12 r9 r15 r7 r2 r6 < 3) || ((sum6 r11 r9 r14 r2 r0 r6 < 3) || (false)))))))))))
+   | masks => C2_rankPool.any (fastEntry (compactGoal 9 7) 4 C2_coords masks)
+ def C2_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2041,10 +2103,10 @@
+ def C3_literalRoutes : List (List (Nat × Nat)) := [[(0x4040,1),(0x1010,2),(0x404,4),(0x3232,2),(0x4040,1)]]
+ 
+ def C3_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+-def C3_rankPool : List Nat := [7695241, 3165884, 1060250, 5442728, 6576523, 3235468, 3239306, 6650776]
++def C3_rankPool : List Nat := [6650776, 3165884, 3239306, 6576523, 7695241, 1060250, 3235468, 5442728]
+ 
+ def C3_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r9 r8 r11 r6 r5 r7 < 3) || ((sum6 r12 r11 r14 r4 r0 r3 < 3) || ((sum6 r10 r9 r13 r2 r0 r1 < 3) || ((sum6 r8 r10 r12 r0 r3 r5 < 3) || ((sum6 r11 r8 r9 r5 r4 r6 < 3) || ((sum6 r12 r8 r14 r5 r1 r3 < 3) || ((sum6 r10 r8 r13 r6 r1 r3 < 3) || ((sum6 r8 r9 r11 r7 r5 r6 < 3) || (false))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r8 r9 r11 r7 r5 r6 < 3) || ((sum6 r12 r11 r14 r4 r0 r3 < 3) || ((sum6 r10 r8 r13 r6 r1 r3 < 3) || ((sum6 r11 r8 r9 r5 r4 r6 < 3) || ((sum6 r9 r8 r11 r6 r5 r7 < 3) || ((sum6 r10 r9 r13 r2 r0 r1 < 3) || ((sum6 r12 r8 r14 r5 r1 r3 < 3) || ((sum6 r8 r10 r12 r0 r3 r5 < 3) || (false))))))))
+   | masks => C3_rankPool.any (fastEntry (compactGoal 8 7) 4 C3_coords masks)
+ def C3_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2120,10 +2182,10 @@
+ def C4_literalRoutes : List (List (Nat × Nat)) := [[(0x4,1),(0x10,2),(0x4,4),(0x12,2),(0x144,1)]]
+ 
+ def C4_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+-def C4_rankPool : List Nat := [7756171, 4205722, 3239644, 2112425, 5467530, 3165096, 4357852, 3153034, 5537178]
++def C4_rankPool : List Nat := [7756171, 4205722, 3239644, 3165096, 2112425, 5467530, 4357852, 3153034, 5537178]
+ 
+ def C4_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r11 r8 r9 r5 r6 r7 < 3) || ((sum6 r10 r9 r12 r2 r0 r4 < 3) || ((sum6 r12 r13 r14 r6 r1 r3 < 3) || ((sum6 r9 r10 r11 r3 r0 r2 < 3) || ((sum6 r10 r8 r13 r6 r3 r5 < 3) || ((sum6 r8 r10 r11 r4 r0 r3 < 3) || ((sum6 r12 r13 r14 r7 r2 r4 < 3) || ((sum6 r10 r8 r12 r1 r0 r3 < 3) || ((sum6 r10 r9 r13 r7 r4 r5 < 3) || (false)))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r11 r8 r9 r5 r6 r7 < 3) || ((sum6 r10 r9 r12 r2 r0 r4 < 3) || ((sum6 r12 r13 r14 r6 r1 r3 < 3) || ((sum6 r8 r10 r11 r4 r0 r3 < 3) || ((sum6 r9 r10 r11 r3 r0 r2 < 3) || ((sum6 r10 r8 r13 r6 r3 r5 < 3) || ((sum6 r12 r13 r14 r7 r2 r4 < 3) || ((sum6 r10 r8 r12 r1 r0 r3 < 3) || ((sum6 r10 r9 r13 r7 r4 r5 < 3) || (false)))))))))
+   | masks => C4_rankPool.any (fastEntry (compactGoal 8 7) 4 C4_coords masks)
+ def C4_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2199,10 +2261,10 @@
+ def C5_literalRoutes : List (List (Nat × Nat)) := [[(0x4,1),(0x10,2),(0x4,4),(0x12,2),(0x144,1)]]
+ 
+ def C5_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+-def C5_rankPool : List Nat := [7695241, 1059752, 5258957, 7409068, 5336202, 5405850, 4413835]
++def C5_rankPool : List Nat := [7695241, 7409068, 1059752, 5258957, 5405850, 4413835, 5336202]
+ 
+ def C5_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r9 r8 r11 r6 r5 r7 < 3) || ((sum6 r8 r10 r11 r2 r0 r1 < 3) || ((sum6 r13 r12 r14 r3 r0 r5 < 3) || ((sum6 r12 r10 r13 r0 r1 r7 < 3) || ((sum6 r10 r8 r12 r6 r1 r5 < 3) || ((sum6 r10 r9 r12 r7 r2 r5 < 3) || ((sum6 r11 r8 r9 r5 r3 r4 < 3) || (false)))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r9 r8 r11 r6 r5 r7 < 3) || ((sum6 r12 r10 r13 r0 r1 r7 < 3) || ((sum6 r8 r10 r11 r2 r0 r1 < 3) || ((sum6 r13 r12 r14 r3 r0 r5 < 3) || ((sum6 r10 r9 r12 r7 r2 r5 < 3) || ((sum6 r11 r8 r9 r5 r3 r4 < 3) || ((sum6 r10 r8 r12 r6 r1 r5 < 3) || (false)))))))
+   | masks => C5_rankPool.any (fastEntry (compactGoal 8 7) 4 C5_coords masks)
+ def C5_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2278,10 +2340,10 @@
+ def C6_literalRoutes : List (List (Nat × Nat)) := [[(0x4140,1),(0x200,4),(0x20,8),(0x208,4),(0x2010,2),(0x4140,1)],[(0x10,2),(0x6,4),(0x13,2),(0x4015,1)],[(0x4100,1),(0x200,4),(0x20,8),(0x20e,4),(0x2013,2),(0x154,1)],[(0x100,2),(0x4,8),(0x7,4),(0x2132,2),(0x4015,1)],[(0x130,2),(0x4,8),(0x3,4),(0x2130,2)],[(0x104,1),(0x200,2),(0x800,4),(0x80,8),(0x800,4),(0x302,2),(0x114,1)],[(0x4404,1),(0x100,4),(0x10,8),(0x104,4),(0x2222,2),(0x4404,1)],[(0x110,1),(0x210,2),(0x800,4),(0x80,8),(0x806,4),(0x313,2),(0x4105,1)],[(0x4110,1),(0x200,4),(0x20,8),(0x20e,4),(0x2111,2),(0x144,1)],[(0x144,1),(0x2,8),(0xb,4),(0x2111,2),(0x4110,1)],[(0x104,1),(0x10,2),(0x2,8),(0x9,4),(0x2110,2),(0x114,1)]]
+ 
+ def C6_coords : List Nat := [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 12, 13, 14, 15]
+-def C6_rankPool : List Nat := [5258684, 2103945, 5339800, 4353483]
++def C6_rankPool : List Nat := [4353483, 2103945, 5258684, 5339800]
+ 
+ def C6_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13] => (sum6 r12 r11 r13 r3 r0 r5 < 3) || ((sum6 r9 r8 r10 r1 r0 r2 < 3) || ((sum6 r8 r9 r10 r7 r1 r5 < 3) || ((sum6 r11 r12 r13 r6 r2 r4 < 3) || (false))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13] => (sum6 r11 r12 r13 r6 r2 r4 < 3) || ((sum6 r9 r8 r10 r1 r0 r2 < 3) || ((sum6 r12 r11 r13 r3 r0 r5 < 3) || ((sum6 r8 r9 r10 r7 r1 r5 < 3) || (false))))
+   | masks => C6_rankPool.any (fastEntry (compactGoal 9 7) 4 C6_coords masks)
+ def C6_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2352,10 +2414,10 @@
+ def C7_literalRoutes : List (List (Nat × Nat)) := [[(0x1004,1),(0x2000,2),(0x800,4),(0x2032,2),(0x1104,1)]]
+ 
+ def C7_coords : List Nat := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+-def C7_rankPool : List Nat := [5401464, 3235194, 4275595, 5262473, 6507143, 1059757, 3239033]
++def C7_rankPool : List Nat := [4275595, 3239033, 3235194, 5401464, 5262473, 1059757, 6507143]
+ 
+ def C7_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13] => (sum6 r8 r7 r11 r6 r2 r5 < 3) || ((sum6 r10 r7 r13 r5 r1 r3 < 3) || ((sum6 r11 r8 r13 r3 r1 r4 < 3) || ((sum6 r9 r8 r12 r4 r0 r5 < 3) || ((sum6 r7 r8 r10 r4 r3 r6 < 3) || ((sum6 r13 r10 r11 r2 r0 r1 < 3) || ((sum6 r9 r7 r12 r6 r1 r3 < 3) || (false)))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13] => (sum6 r11 r8 r13 r3 r1 r4 < 3) || ((sum6 r9 r7 r12 r6 r1 r3 < 3) || ((sum6 r10 r7 r13 r5 r1 r3 < 3) || ((sum6 r8 r7 r11 r6 r2 r5 < 3) || ((sum6 r9 r8 r12 r4 r0 r5 < 3) || ((sum6 r13 r10 r11 r2 r0 r1 < 3) || ((sum6 r7 r8 r10 r4 r3 r6 < 3) || (false)))))))
+   | masks => C7_rankPool.any (fastEntry (compactGoal 8 7) 4 C7_coords masks)
+ def C7_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2416,10 +2478,10 @@
+ def C8_literalRoutes : List (List (Nat × Nat)) := [[(0x450,1),(0x1010,2),(0x100,4),(0x10,8),(0x50e,4),(0x1210,2),(0x450,1)],[(0x1515,1)],[(0x450,1),(0x1010,2),(0x100,4),(0x10,8),(0x50e,4),(0x1210,2),(0x1145,1)],[(0x410,1),(0x2020,2),(0x200,4),(0x20,8),(0xa0d,4),(0x2120,2),(0x1105,1)],[(0x144,1),(0x2000,2),(0x400,4),(0x40,8),(0xd01,4),(0x2022,2),(0x144,1)],[(0x410,1),(0x2020,2),(0x200,4),(0x20,8),(0xa0d,4),(0x2120,2),(0x410,1)],[(0x144,1),(0x2000,2),(0x400,4),(0x40,8),(0xd01,4),(0x2022,2),(0x1451,1)],[(0x104,1),(0x1000,2),(0x800,4),(0x80,8),(0xe02,4),(0x1011,2),(0x1411,1)],[(0x40,1),(0x1000,2),(0x40,8),(0x20a,4),(0x1123,2),(0x40,1)],[(0x104,1),(0x1000,2),(0x800,4),(0x80,8),(0xe02,4),(0x1011,2),(0x104,1)],[(0x40,1),(0x1000,2),(0x40,8),(0x20a,4),(0x1123,2),(0x1555,1)],[(0x2000,2),(0x80,8),(0x105,4),(0x2213,2),(0x1515,1)],[(0x2000,2),(0x80,8),(0x105,4),(0x2213,2)]]
+ 
+ def C8_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+-def C8_rankPool : List Nat := [5532039, 4398508, 6376859, 6306424, 5377213, 1072266, 6564729]
++def C8_rankPool : List Nat := [5377213, 5532039, 4398508, 6376859, 6306424, 1072266, 6564729]
+ 
+ def C8_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13] => (sum6 r7 r8 r9 r6 r4 r5 < 3) || ((sum6 r12 r10 r13 r1 r3 r4 < 3) || ((sum6 r11 r9 r13 r4 r1 r6 < 3) || ((sum6 r8 r7 r10 r3 r0 r6 < 3) || ((sum6 r13 r11 r12 r0 r2 r5 < 3) || ((sum6 r10 r8 r12 r5 r0 r1 < 3) || ((sum6 r9 r7 r11 r2 r4 r6 < 3) || (false)))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13] => (sum6 r13 r11 r12 r0 r2 r5 < 3) || ((sum6 r7 r8 r9 r6 r4 r5 < 3) || ((sum6 r12 r10 r13 r1 r3 r4 < 3) || ((sum6 r11 r9 r13 r4 r1 r6 < 3) || ((sum6 r8 r7 r10 r3 r0 r6 < 3) || ((sum6 r10 r8 r12 r5 r0 r1 < 3) || ((sum6 r9 r7 r11 r2 r4 r6 < 3) || (false)))))))
+   | masks => C8_rankPool.any (fastEntry (compactGoal 7 7) 4 C8_coords masks)
+ def C8_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2495,10 +2557,10 @@
+ def C9_literalRoutes : List (List (Nat × Nat)) := [[(0x400,1),(0x200,2),(0x400,1)],[(0x100,1),(0x210,2),(0x800,4),(0x80,8),(0x804,4),(0x212,2),(0x100,1)],[(0x100,1),(0x210,2),(0x800,4),(0x80,8),(0x804,4),(0x312,2),(0x100,1)],[(0x44,1),(0x10,2),(0x4,4),(0x32,2),(0x44,1)],[(0x444,1),(0x10,2),(0x4,4),(0x232,2),(0x444,1)],[(0x110,1),(0x200,2),(0x800,4),(0x80,8),(0x802,4),(0x210,2),(0x114,1)],[(0x110,1),(0x200,2),(0x800,4),(0x80,8),(0x802,4),(0x310,2),(0x114,1)],[(0x1000,1),(0x2100,2),(0x400,4),(0x40,8),(0xc00,4),(0x2120,2),(0x1004,1)],[(0x400,1),(0x100,2),(0x400,4),(0x40,8),(0x500,4),(0x320,2),(0x404,1)],[(0x1140,1),(0x210,2),(0x800,4),(0x80,8),(0xa04,4),(0x232,2),(0x1104,1)],[(0x1140,1),(0x210,2),(0x800,4),(0x80,8),(0xa04,4),(0x332,2),(0x1104,1)],[(0x1104,1),(0x2010,2),(0x200,4),(0x20,8),(0xa04,4),(0x2032,2),(0x1140,1)],[(0x1104,1),(0x2010,2),(0x200,4),(0x20,8),(0xa04,4),(0x2132,2),(0x1140,1)],[(0x1010,1),(0x2000,2),(0x100,4),(0x10,8),(0x902,4),(0x2000,2),(0x1050,1)],[(0x410,1),(0x1000,2),(0x100,4),(0x10,8),(0x502,4),(0x1200,2),(0x450,1)]]
+ 
+ def C9_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+-def C9_rankPool : List Nat := [1059685, 3153016, 4209574, 3278972, 2104214, 4205736, 1064087, 3165061, 2116743, 4392539, 1064103, 4201334, 4205672, 2112599]
++def C9_rankPool : List Nat := [3153016, 4392539, 2116743, 2104214, 3165061, 3278972, 4209574, 1064087, 4205672, 1059685, 4205736, 1064103, 4201334, 2112599]
+ 
+ def C9_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12] => (sum6 r5 r6 r11 r2 r0 r1 < 3) || ((sum6 r8 r7 r12 r1 r0 r3 < 3) || ((sum6 r6 r10 r11 r3 r0 r4 < 3) || ((sum6 r12 r7 r8 r0 r2 r3 < 3) || ((sum6 r6 r9 r11 r1 r0 r2 < 3) || ((sum6 r8 r10 r12 r2 r0 r4 < 3) || ((sum6 r7 r9 r12 r3 r0 r1 < 3) || ((sum6 r5 r8 r11 r4 r0 r3 < 3) || ((sum6 r7 r8 r12 r4 r0 r2 < 3) || ((sum6 r11 r5 r6 r0 r3 r4 < 3) || ((sum6 r7 r10 r12 r3 r0 r1 < 3) || ((sum6 r6 r7 r11 r1 r0 r4 < 3) || ((sum6 r8 r6 r12 r2 r0 r4 < 3) || ((sum6 r7 r5 r12 r3 r0 r2 < 3) || (false))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12] => (sum6 r8 r7 r12 r1 r0 r3 < 3) || ((sum6 r11 r5 r6 r0 r3 r4 < 3) || ((sum6 r7 r8 r12 r4 r0 r2 < 3) || ((sum6 r6 r9 r11 r1 r0 r2 < 3) || ((sum6 r5 r8 r11 r4 r0 r3 < 3) || ((sum6 r12 r7 r8 r0 r2 r3 < 3) || ((sum6 r6 r10 r11 r3 r0 r4 < 3) || ((sum6 r7 r9 r12 r3 r0 r1 < 3) || ((sum6 r8 r6 r12 r2 r0 r4 < 3) || ((sum6 r5 r6 r11 r2 r0 r1 < 3) || ((sum6 r8 r10 r12 r2 r0 r4 < 3) || ((sum6 r7 r10 r12 r3 r0 r1 < 3) || ((sum6 r6 r7 r11 r1 r0 r4 < 3) || ((sum6 r7 r5 r12 r3 r0 r2 < 3) || (false))))))))))))))
+   | masks => C9_rankPool.any (fastEntry (compactGoal 5 8) 4 C9_coords masks)
+ def C9_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2574,10 +2636,10 @@
+ def C10_literalRoutes : List (List (Nat × Nat)) := [[(0x110,1),(0x20,2),(0x200,4),(0x20,8),(0x208,4),(0x20,2),(0x111,1)]]
+ 
+ def C10_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12]
+-def C10_rankPool : List Nat := [4340328, 2181477, 2103943, 4204121, 3221626, 2165336, 2111861, 3279222, 3295879, 4331862]
++def C10_rankPool : List Nat := [4340328, 2111861, 3221626, 4331862, 3295879, 4204121, 2165336, 2181477, 3279222, 2103943]
+ 
+ def C10_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10] => (sum6 r8 r6 r10 r3 r2 r4 < 3) || ((sum6 r5 r6 r9 r4 r1 r2 < 3) || ((sum6 r7 r8 r10 r1 r0 r2 < 3) || ((sum6 r9 r5 r6 r2 r0 r4 < 3) || ((sum6 r10 r7 r8 r2 r1 r3 < 3) || ((sum6 r8 r5 r10 r0 r1 r2 < 3) || ((sum6 r5 r7 r9 r3 r0 r2 < 3) || ((sum6 r6 r7 r9 r0 r2 r3 < 3) || ((sum6 r7 r8 r10 r4 r2 r3 < 3) || ((sum6 r6 r5 r9 r1 r2 r4 < 3) || (false))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10] => (sum6 r8 r6 r10 r3 r2 r4 < 3) || ((sum6 r5 r7 r9 r3 r0 r2 < 3) || ((sum6 r10 r7 r8 r2 r1 r3 < 3) || ((sum6 r6 r5 r9 r1 r2 r4 < 3) || ((sum6 r7 r8 r10 r4 r2 r3 < 3) || ((sum6 r9 r5 r6 r2 r0 r4 < 3) || ((sum6 r8 r5 r10 r0 r1 r2 < 3) || ((sum6 r5 r6 r9 r4 r1 r2 < 3) || ((sum6 r6 r7 r9 r0 r2 r3 < 3) || ((sum6 r7 r8 r10 r1 r0 r2 < 3) || (false))))))))))
+   | masks => C10_rankPool.any (fastEntry (compactGoal 5 8) 4 C10_coords masks)
+ def C10_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2658,10 +2720,10 @@
+ def C11_literalRoutes : List (List (Nat × Nat)) := [[(0x1000,1),(0x2100,2),(0x400,4),(0x40,8),(0xc00,4),(0x2123,2),(0x1000,1)],[(0x440,1),(0x100,2),(0x400,4),(0x40,8),(0x400,4),(0x320,2),(0x445,1)],[(0x1100,1),(0x2000,2),(0x200,4),(0x20,8),(0xa00,4),(0x2103,2),(0x1145,1)],[(0x4,1),(0x1000,2),(0x400,4),(0x1202,2),(0x4044,1)],[(0x1404,1),(0x2100,2),(0x400,4),(0x40,8),(0xc00,4),(0x2322,2),(0x5041,1)],[(0x1044,1),(0x100,2),(0x400,4),(0x40,8),(0x600,4),(0x321,2),(0x5401,1)],[(0x104,1),(0x200,4),(0x20,8),(0x300,4),(0x1,2),(0x4504,1)]]
+ 
+ def C11_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+-def C11_rankPool : List Nat := [239352137, 272842092, 134398253, 206711086, 136330604, 205798731, 235024751, 272710026, 135281066, 172177769, 137642381, 135479629, 134299051, 136561037, 205764970, 135380395, 272809260, 136560941, 205699370, 205765002, 239254828, 272873866, 172211595, 136593741, 170013007, 241315118, 235023695, 206713166]
++def C11_rankPool : List Nat := [235024751, 205699370, 136561037, 239352137, 136330604, 205798731, 206711086, 135479629, 272873866, 272842092, 134299051, 239254828, 172211595, 134398253, 136593741, 235023695, 206713166, 272710026, 135281066, 172177769, 137642381, 205764970, 135380395, 272809260, 136560941, 205765002, 170013007, 241315118]
+ 
+ def C11_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16] => (sum6 r9 r10 r14 r8 r4 r7 < 3) || ((sum6 r12 r11 r15 r6 r4 r8 < 3) || ((sum6 r13 r9 r16 r5 r0 r4 < 3) || ((sum6 r14 r9 r10 r4 r5 r6 < 3) || ((sum6 r12 r11 r15 r0 r2 r4 < 3) || ((sum6 r11 r10 r15 r8 r4 r6 < 3) || ((sum6 r15 r11 r12 r4 r0 r7 < 3) || ((sum6 r10 r12 r14 r2 r4 r8 < 3) || ((sum6 r10 r13 r14 r0 r1 r4 < 3) || ((sum6 r9 r11 r14 r6 r4 r5 < 3) || ((sum6 r13 r12 r16 r8 r3 r4 < 3) || ((sum6 r13 r10 r16 r6 r1 r4 < 3) || ((sum6 r11 r13 r15 r2 r0 r4 < 3) || ((sum6 r13 r12 r16 r7 r2 r4 < 3) || ((sum6 r10 r11 r14 r7 r4 r6 < 3) || ((sum6 r11 r13 r15 r3 r1 r4 < 3) || ((sum6 r12 r9 r15 r5 r4 r8 < 3) || ((sum6 r13 r9 r16 r7 r2 r4 < 3) || ((sum6 r10 r9 r14 r5 r4 r6 < 3) || ((sum6 r10 r12 r14 r7 r4 r6 < 3) || ((sum6 r12 r9 r15 r5 r4 r7 < 3) || ((sum6 r10 r12 r14 r7 r4 r8 < 3) || ((sum6 r11 r12 r15 r7 r4 r5 < 3) || ((sum6 r13 r10 r16 r8 r2 r4 < 3) || ((sum6 r15 r10 r12 r4 r2 r5 < 3) || ((sum6 r14 r9 r11 r4 r6 r7 < 3) || ((sum6 r15 r10 r11 r4 r0 r7 < 3) || ((sum6 r14 r10 r12 r4 r5 r6 < 3) || (false))))))))))))))))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16] => (sum6 r15 r11 r12 r4 r0 r7 < 3) || ((sum6 r10 r9 r14 r5 r4 r6 < 3) || ((sum6 r13 r12 r16 r7 r2 r4 < 3) || ((sum6 r9 r10 r14 r8 r4 r7 < 3) || ((sum6 r12 r11 r15 r0 r2 r4 < 3) || ((sum6 r11 r10 r15 r8 r4 r6 < 3) || ((sum6 r14 r9 r10 r4 r5 r6 < 3) || ((sum6 r13 r10 r16 r6 r1 r4 < 3) || ((sum6 r10 r12 r14 r7 r4 r8 < 3) || ((sum6 r12 r11 r15 r6 r4 r8 < 3) || ((sum6 r11 r13 r15 r2 r0 r4 < 3) || ((sum6 r12 r9 r15 r5 r4 r7 < 3) || ((sum6 r11 r12 r15 r7 r4 r5 < 3) || ((sum6 r13 r9 r16 r5 r0 r4 < 3) || ((sum6 r13 r10 r16 r8 r2 r4 < 3) || ((sum6 r15 r10 r11 r4 r0 r7 < 3) || ((sum6 r14 r10 r12 r4 r5 r6 < 3) || ((sum6 r10 r12 r14 r2 r4 r8 < 3) || ((sum6 r10 r13 r14 r0 r1 r4 < 3) || ((sum6 r9 r11 r14 r6 r4 r5 < 3) || ((sum6 r13 r12 r16 r8 r3 r4 < 3) || ((sum6 r10 r11 r14 r7 r4 r6 < 3) || ((sum6 r11 r13 r15 r3 r1 r4 < 3) || ((sum6 r12 r9 r15 r5 r4 r8 < 3) || ((sum6 r13 r9 r16 r7 r2 r4 < 3) || ((sum6 r10 r12 r14 r7 r4 r6 < 3) || ((sum6 r15 r10 r12 r4 r2 r5 < 3) || ((sum6 r14 r9 r11 r4 r6 r7 < 3) || (false))))))))))))))))))))))))))))
+   | masks => C11_rankPool.any (fastEntry (compactGoal 9 8) 5 C11_coords masks)
+ def C11_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2737,10 +2799,10 @@
+ def C12_literalRoutes : List (List (Nat × Nat)) := [[(0x400,1)],[(0x110,1),(0x20,2),(0x200,4),(0x20,8),(0x208,4),(0x20,2),(0x111,1)],[(0x110,1),(0x20,2),(0x200,4),(0x20,8),(0x208,4),(0x20,2),(0x511,1)]]
+ 
+ def C12_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+-def C12_rankPool : List Nat := [4340344, 2181509, 3155545, 3279222, 2103895, 3295879, 2111861, 4331910, 4204666, 2165368]
++def C12_rankPool : List Nat := [4340344, 3155545, 2103895, 2181509, 3279222, 4204666, 2111861, 3295879, 4331910, 2165368]
+ 
+ def C12_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10] => (sum6 r8 r7 r10 r3 r2 r4 < 3) || ((sum6 r5 r8 r9 r4 r1 r2 < 3) || ((sum6 r9 r5 r6 r2 r0 r3 < 3) || ((sum6 r6 r7 r9 r0 r2 r3 < 3) || ((sum6 r7 r5 r10 r1 r0 r2 < 3) || ((sum6 r7 r8 r10 r4 r2 r3 < 3) || ((sum6 r5 r7 r9 r3 r0 r2 < 3) || ((sum6 r6 r8 r9 r1 r2 r4 < 3) || ((sum6 r10 r7 r8 r2 r0 r4 < 3) || ((sum6 r8 r7 r10 r0 r1 r2 < 3) || (false))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10] => (sum6 r8 r7 r10 r3 r2 r4 < 3) || ((sum6 r9 r5 r6 r2 r0 r3 < 3) || ((sum6 r7 r5 r10 r1 r0 r2 < 3) || ((sum6 r5 r8 r9 r4 r1 r2 < 3) || ((sum6 r6 r7 r9 r0 r2 r3 < 3) || ((sum6 r10 r7 r8 r2 r0 r4 < 3) || ((sum6 r5 r7 r9 r3 r0 r2 < 3) || ((sum6 r7 r8 r10 r4 r2 r3 < 3) || ((sum6 r6 r8 r9 r1 r2 r4 < 3) || ((sum6 r8 r7 r10 r0 r1 r2 < 3) || (false))))))))))
+   | masks => C12_rankPool.any (fastEntry (compactGoal 5 8) 4 C12_coords masks)
+ def C12_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2821,10 +2883,10 @@
+ def C13_literalRoutes : List (List (Nat × Nat)) := [[(0x440,1),(0x220,2),(0x445,1)],[(0x100,1),(0x200,2),(0x800,4),(0x80,8),(0x800,4),(0x203,2),(0x1100,1)],[(0x440,1),(0x100,2),(0x400,4),(0x40,8),(0x400,4),(0x323,2),(0x1445,1)]]
+ 
+ def C13_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+-def C13_rankPool : List Nat := [6577818, 2115707, 4287912, 4341369, 1067678, 4402810, 2121163, 4418727, 4349079, 4263562, 4202121, 4205464, 3239371, 5458590, 4328327, 4397991, 4218264, 3295902, 4275064, 4397959, 4205432]
++def C13_rankPool : List Nat := [6577818, 2115707, 3295902, 4287912, 4349079, 4341369, 4402810, 2121163, 4205432, 4328327, 3239371, 4263562, 4202121, 4418727, 4218264, 1067678, 4275064, 4397959, 4205464, 5458590, 4397991]
+ 
+ def C13_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r10 r9 r14 r5 r4 r6 < 3) || ((sum6 r11 r7 r8 r4 r0 r2 < 3) || ((sum6 r8 r10 r13 r6 r1 r4 < 3) || ((sum6 r9 r7 r14 r3 r2 r4 < 3) || ((sum6 r14 r9 r10 r4 r0 r1 < 3) || ((sum6 r10 r7 r14 r2 r3 r4 < 3) || ((sum6 r11 r12 r13 r5 r0 r2 < 3) || ((sum6 r7 r10 r12 r6 r3 r4 < 3) || ((sum6 r7 r9 r12 r5 r2 r4 < 3) || ((sum6 r10 r8 r14 r0 r1 r4 < 3) || ((sum6 r9 r8 r14 r1 r0 r4 < 3) || ((sum6 r8 r9 r11 r2 r0 r4 < 3) || ((sum6 r11 r12 r13 r6 r1 r3 < 3) || ((sum6 r14 r9 r10 r4 r3 r5 < 3) || ((sum6 r7 r8 r11 r0 r2 r4 < 3) || ((sum6 r7 r10 r11 r1 r3 r4 < 3) || ((sum6 r8 r9 r13 r5 r0 r4 < 3) || ((sum6 r14 r9 r10 r4 r2 r3 < 3) || ((sum6 r8 r7 r11 r3 r1 r4 < 3) || ((sum6 r7 r8 r11 r1 r3 r4 < 3) || ((sum6 r8 r7 r11 r2 r0 r4 < 3) || (false)))))))))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r10 r9 r14 r5 r4 r6 < 3) || ((sum6 r11 r7 r8 r4 r0 r2 < 3) || ((sum6 r14 r9 r10 r4 r2 r3 < 3) || ((sum6 r8 r10 r13 r6 r1 r4 < 3) || ((sum6 r7 r9 r12 r5 r2 r4 < 3) || ((sum6 r9 r7 r14 r3 r2 r4 < 3) || ((sum6 r10 r7 r14 r2 r3 r4 < 3) || ((sum6 r11 r12 r13 r5 r0 r2 < 3) || ((sum6 r8 r7 r11 r2 r0 r4 < 3) || ((sum6 r7 r8 r11 r0 r2 r4 < 3) || ((sum6 r11 r12 r13 r6 r1 r3 < 3) || ((sum6 r10 r8 r14 r0 r1 r4 < 3) || ((sum6 r9 r8 r14 r1 r0 r4 < 3) || ((sum6 r7 r10 r12 r6 r3 r4 < 3) || ((sum6 r8 r9 r13 r5 r0 r4 < 3) || ((sum6 r14 r9 r10 r4 r0 r1 < 3) || ((sum6 r8 r7 r11 r3 r1 r4 < 3) || ((sum6 r7 r8 r11 r1 r3 r4 < 3) || ((sum6 r8 r9 r11 r2 r0 r4 < 3) || ((sum6 r14 r9 r10 r4 r3 r5 < 3) || ((sum6 r7 r10 r11 r1 r3 r4 < 3) || (false)))))))))))))))))))))
+   | masks => C13_rankPool.any (fastEntry (compactGoal 7 8) 4 C13_coords masks)
+ def C13_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2895,10 +2957,10 @@
+ def C14_literalRoutes : List (List (Nat × Nat)) := [[(0x4,1),(0x100,2),(0x400,4),(0x40,8),(0x500,4),(0x322,2),(0x4,1)]]
+ 
+ def C14_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+-def C14_rankPool : List Nat := [3295589, 3230567, 2111611, 1063529, 3279704, 4397928, 3157079, 4401494, 3152229, 3213654]
++def C14_rankPool : List Nat := [3295589, 2111611, 3230567, 3213654, 1063529, 3157079, 3279704, 4401494, 4397928, 3152229]
+ 
+ def C14_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12] => (sum6 r5 r6 r9 r4 r2 r3 < 3) || ((sum6 r7 r6 r11 r4 r1 r3 < 3) || ((sum6 r11 r7 r8 r3 r0 r2 < 3) || ((sum6 r9 r6 r10 r3 r0 r1 < 3) || ((sum6 r8 r5 r11 r0 r2 r3 < 3) || ((sum6 r8 r6 r11 r1 r3 r4 < 3) || ((sum6 r7 r5 r12 r2 r0 r3 < 3) || ((sum6 r6 r5 r9 r2 r3 r4 < 3) || ((sum6 r5 r6 r9 r1 r0 r3 < 3) || ((sum6 r6 r5 r9 r0 r1 r3 < 3) || (false))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12] => (sum6 r5 r6 r9 r4 r2 r3 < 3) || ((sum6 r11 r7 r8 r3 r0 r2 < 3) || ((sum6 r7 r6 r11 r4 r1 r3 < 3) || ((sum6 r6 r5 r9 r0 r1 r3 < 3) || ((sum6 r9 r6 r10 r3 r0 r1 < 3) || ((sum6 r7 r5 r12 r2 r0 r3 < 3) || ((sum6 r8 r5 r11 r0 r2 r3 < 3) || ((sum6 r6 r5 r9 r2 r3 r4 < 3) || ((sum6 r8 r6 r11 r1 r3 r4 < 3) || ((sum6 r5 r6 r9 r1 r0 r3 < 3) || (false))))))))))
+   | masks => C14_rankPool.any (fastEntry (compactGoal 5 8) 4 C14_coords masks)
+ def C14_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -2979,10 +3041,10 @@
+ def C15_literalRoutes : List (List (Nat × Nat)) := [[(0x4,1),(0x32,2),(0x404,1)]]
+ 
+ def C15_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+-def C15_rankPool : List Nat := [2165678, 6519960, 1068169, 4284365, 2104987, 6622620, 4419210, 1060538, 4210573, 6455245, 7367817, 6311563, 4201624, 4340654, 7556265, 7616908, 4414616]
++def C15_rankPool : List Nat := [2165678, 4414616, 7367817, 4284365, 2104987, 4419210, 4210573, 7616908, 6311563, 1060538, 1068169, 6455245, 6519960, 6622620, 4201624, 4340654, 7556265]
+ 
+ def C15_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r14 r10 r11 r0 r1 r2 < 3) || ((sum6 r8 r9 r12 r7 r3 r6 < 3) || ((sum6 r9 r8 r12 r4 r0 r1 < 3) || ((sum6 r13 r12 r15 r5 r1 r4 < 3) || ((sum6 r11 r9 r14 r1 r0 r2 < 3) || ((sum6 r12 r9 r13 r0 r5 r6 < 3) || ((sum6 r10 r8 r14 r6 r3 r4 < 3) || ((sum6 r10 r11 r14 r2 r0 r1 < 3) || ((sum6 r13 r8 r15 r3 r0 r4 < 3) || ((sum6 r13 r12 r15 r7 r2 r6 < 3) || ((sum6 r9 r8 r12 r6 r0 r7 < 3) || ((sum6 r11 r8 r14 r4 r0 r6 < 3) || ((sum6 r8 r9 r12 r1 r0 r4 < 3) || ((sum6 r14 r10 r11 r3 r2 r4 < 3) || ((sum6 r9 r10 r12 r4 r3 r7 < 3) || ((sum6 r12 r8 r9 r3 r4 r7 < 3) || ((sum6 r8 r9 r12 r5 r3 r4 < 3) || (false)))))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r14 r10 r11 r0 r1 r2 < 3) || ((sum6 r8 r9 r12 r5 r3 r4 < 3) || ((sum6 r9 r8 r12 r6 r0 r7 < 3) || ((sum6 r13 r12 r15 r5 r1 r4 < 3) || ((sum6 r11 r9 r14 r1 r0 r2 < 3) || ((sum6 r10 r8 r14 r6 r3 r4 < 3) || ((sum6 r13 r8 r15 r3 r0 r4 < 3) || ((sum6 r12 r8 r9 r3 r4 r7 < 3) || ((sum6 r11 r8 r14 r4 r0 r6 < 3) || ((sum6 r10 r11 r14 r2 r0 r1 < 3) || ((sum6 r9 r8 r12 r4 r0 r1 < 3) || ((sum6 r13 r12 r15 r7 r2 r6 < 3) || ((sum6 r8 r9 r12 r7 r3 r6 < 3) || ((sum6 r12 r9 r13 r0 r5 r6 < 3) || ((sum6 r8 r9 r12 r1 r0 r4 < 3) || ((sum6 r14 r10 r11 r3 r2 r4 < 3) || ((sum6 r9 r10 r12 r4 r3 r7 < 3) || (false)))))))))))))))))
+   | masks => C15_rankPool.any (fastEntry (compactGoal 8 8) 4 C15_coords masks)
+ def C15_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -3132,10 +3194,10 @@
+ def C17_literalRoutes : List (List (Nat × Nat)) := [[(0x4000,1),(0x20,2),(0xc,4),(0x2010,2),(0x4054,1)],[(0x10,1),(0x20,2),(0x8,4),(0x20,2),(0x151,1)],[(0x4040,1),(0x20,2),(0xc,4),(0x2010,2),(0x4115,1)]]
+ 
+ def C17_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+-def C17_rankPool : List Nat := [6491871, 6651032, 2112954, 7547276, 7695545, 5255086, 5271178, 2195437, 4340873, 2182554, 7426014, 2187181, 5340826, 3296408, 5250216]
++def C17_rankPool : List Nat := [6491871, 4340873, 6651032, 5255086, 2182554, 7547276, 2195437, 5271178, 7695545, 5340826, 2112954, 7426014, 2187181, 3296408, 5250216]
+ 
+ def C17_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r15 r13 r14 r0 r3 r6 < 3) || ((sum6 r8 r9 r12 r7 r5 r6 < 3) || ((sum6 r10 r11 r13 r3 r0 r2 < 3) || ((sum6 r12 r8 r9 r2 r3 r7 < 3) || ((sum6 r9 r11 r12 r6 r5 r7 < 3) || ((sum6 r14 r10 r15 r2 r0 r5 < 3) || ((sum6 r10 r8 r14 r6 r0 r5 < 3) || ((sum6 r13 r14 r15 r7 r1 r2 < 3) || ((sum6 r9 r8 r12 r3 r2 r4 < 3) || ((sum6 r10 r9 r13 r4 r1 r2 < 3) || ((sum6 r14 r13 r15 r4 r1 r7 < 3) || ((sum6 r13 r10 r15 r5 r1 r2 < 3) || ((sum6 r10 r9 r14 r7 r1 r5 < 3) || ((sum6 r8 r9 r12 r4 r2 r3 < 3) || ((sum6 r8 r10 r12 r1 r0 r5 < 3) || (false)))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r15 r13 r14 r0 r3 r6 < 3) || ((sum6 r9 r8 r12 r3 r2 r4 < 3) || ((sum6 r8 r9 r12 r7 r5 r6 < 3) || ((sum6 r14 r10 r15 r2 r0 r5 < 3) || ((sum6 r10 r9 r13 r4 r1 r2 < 3) || ((sum6 r12 r8 r9 r2 r3 r7 < 3) || ((sum6 r13 r14 r15 r7 r1 r2 < 3) || ((sum6 r10 r8 r14 r6 r0 r5 < 3) || ((sum6 r9 r11 r12 r6 r5 r7 < 3) || ((sum6 r10 r9 r14 r7 r1 r5 < 3) || ((sum6 r10 r11 r13 r3 r0 r2 < 3) || ((sum6 r14 r13 r15 r4 r1 r7 < 3) || ((sum6 r13 r10 r15 r5 r1 r2 < 3) || ((sum6 r8 r9 r12 r4 r2 r3 < 3) || ((sum6 r8 r10 r12 r1 r0 r5 < 3) || (false)))))))))))))))
+   | masks => C17_rankPool.any (fastEntry (compactGoal 8 8) 4 C17_coords masks)
+ def C17_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -3211,10 +3273,10 @@
+ def C18_literalRoutes : List (List (Nat × Nat)) := [[(0x4000,1),(0x20,2),(0xc,4),(0x2010,2),(0x4454,1)],[(0x10,1),(0x20,2),(0x8,4),(0x20,2),(0x151,1)],[(0x4040,1),(0x20,2),(0xc,4),(0x2010,2),(0x4515,1)]]
+ 
+ def C18_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+-def C18_rankPool : List Nat := [3296408, 6491871, 7695529, 2195115, 7756172, 5320638, 5520569, 4284333, 6438282, 6454424, 2125451, 7687610]
++def C18_rankPool : List Nat := [5520569, 6491871, 6454424, 5320638, 2195115, 7756172, 6438282, 4284333, 7695529, 2125451, 3296408, 7687610]
+ 
+ def C18_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r8 r9 r12 r4 r2 r3 < 3) || ((sum6 r15 r13 r14 r0 r3 r6 < 3) || ((sum6 r9 r10 r12 r6 r5 r7 < 3) || ((sum6 r11 r10 r14 r7 r1 r2 < 3) || ((sum6 r12 r8 r9 r5 r6 r7 < 3) || ((sum6 r14 r11 r15 r2 r1 r5 < 3) || ((sum6 r9 r11 r12 r3 r4 r5 < 3) || ((sum6 r13 r10 r15 r5 r1 r4 < 3) || ((sum6 r10 r8 r13 r3 r2 r6 < 3) || ((sum6 r8 r9 r12 r7 r2 r6 < 3) || ((sum6 r11 r8 r14 r6 r0 r2 < 3) || ((sum6 r10 r11 r13 r4 r5 r7 < 3) || (false))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r9 r11 r12 r3 r4 r5 < 3) || ((sum6 r15 r13 r14 r0 r3 r6 < 3) || ((sum6 r8 r9 r12 r7 r2 r6 < 3) || ((sum6 r14 r11 r15 r2 r1 r5 < 3) || ((sum6 r11 r10 r14 r7 r1 r2 < 3) || ((sum6 r12 r8 r9 r5 r6 r7 < 3) || ((sum6 r10 r8 r13 r3 r2 r6 < 3) || ((sum6 r13 r10 r15 r5 r1 r4 < 3) || ((sum6 r9 r10 r12 r6 r5 r7 < 3) || ((sum6 r11 r8 r14 r6 r0 r2 < 3) || ((sum6 r8 r9 r12 r4 r2 r3 < 3) || ((sum6 r10 r11 r13 r4 r5 r7 < 3) || (false))))))))))))
+   | masks => C18_rankPool.any (fastEntry (compactGoal 8 8) 4 C18_coords masks)
+ def C18_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -3290,10 +3352,10 @@
+ def C19_literalRoutes : List (List (Nat × Nat)) := [[(0x4044,1),(0x2322,2),(0x4044,1)]]
+ 
+ def C19_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+-def C19_rankPool : List Nat := [5336441, 1059722, 5532280, 4206237, 6446715, 4283514, 6311595, 1064122, 2112664, 5447102, 6638215, 6576250, 2117001, 6634391]
++def C19_rankPool : List Nat := [6446715, 1059722, 5532280, 4206237, 6634391, 5447102, 4283514, 2112664, 6638215, 1064122, 5336441, 6311595, 2117001, 6576250]
+ 
+ def C19_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r9 r7 r13 r6 r1 r5 < 3) || ((sum6 r10 r8 r11 r2 r0 r1 < 3) || ((sum6 r8 r7 r10 r6 r4 r5 < 3) || ((sum6 r13 r9 r14 r2 r0 r4 < 3) || ((sum6 r11 r7 r14 r5 r2 r6 < 3) || ((sum6 r10 r7 r12 r5 r1 r4 < 3) || ((sum6 r11 r10 r14 r4 r0 r6 < 3) || ((sum6 r10 r11 r12 r3 r0 r1 < 3) || ((sum6 r8 r9 r12 r3 r0 r2 < 3) || ((sum6 r14 r11 r13 r1 r3 r5 < 3) || ((sum6 r7 r8 r10 r4 r5 r6 < 3) || ((sum6 r10 r7 r8 r5 r4 r6 < 3) || ((sum6 r9 r8 r13 r4 r0 r2 < 3) || ((sum6 r7 r9 r11 r3 r5 r6 < 3) || (false))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r11 r7 r14 r5 r2 r6 < 3) || ((sum6 r10 r8 r11 r2 r0 r1 < 3) || ((sum6 r8 r7 r10 r6 r4 r5 < 3) || ((sum6 r13 r9 r14 r2 r0 r4 < 3) || ((sum6 r7 r9 r11 r3 r5 r6 < 3) || ((sum6 r14 r11 r13 r1 r3 r5 < 3) || ((sum6 r10 r7 r12 r5 r1 r4 < 3) || ((sum6 r8 r9 r12 r3 r0 r2 < 3) || ((sum6 r7 r8 r10 r4 r5 r6 < 3) || ((sum6 r10 r11 r12 r3 r0 r1 < 3) || ((sum6 r9 r7 r13 r6 r1 r5 < 3) || ((sum6 r11 r10 r14 r4 r0 r6 < 3) || ((sum6 r9 r8 r13 r4 r0 r2 < 3) || ((sum6 r10 r7 r8 r5 r4 r6 < 3) || (false))))))))))))))
+   | masks => C19_rankPool.any (fastEntry (compactGoal 7 8) 4 C19_coords masks)
+ def C19_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -3374,10 +3436,10 @@
+ def C20_literalRoutes : List (List (Nat × Nat)) := []
+ 
+ def C20_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+-def C20_rankPool : List Nat := [6637690, 6368924, 2104215, 4262552, 2178441, 5311678, 2121081, 3156874, 6445688, 5336747, 5532295, 5394043, 6373084, 4414072]
++def C20_rankPool : List Nat := [6637690, 5311678, 2178441, 2104215, 6445688, 6368924, 5394043, 5532295, 5336747, 6373084, 2121081, 4262552, 4414072, 3156874]
+ 
+ def C20_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r10 r7 r8 r4 r5 r6 < 3) || ((sum6 r12 r9 r14 r2 r1 r6 < 3) || ((sum6 r7 r9 r11 r1 r0 r2 < 3) || ((sum6 r8 r9 r10 r0 r1 r4 < 3) || ((sum6 r9 r8 r13 r3 r1 r2 < 3) || ((sum6 r14 r11 r12 r0 r1 r5 < 3) || ((sum6 r9 r7 r13 r5 r0 r2 < 3) || ((sum6 r10 r8 r11 r2 r0 r3 < 3) || ((sum6 r8 r7 r10 r5 r2 r6 < 3) || ((sum6 r11 r10 r14 r6 r1 r5 < 3) || ((sum6 r7 r8 r10 r6 r4 r5 < 3) || ((sum6 r11 r7 r14 r4 r2 r5 < 3) || ((sum6 r12 r13 r14 r3 r1 r6 < 3) || ((sum6 r8 r7 r10 r5 r3 r4 < 3) || (false))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r10 r7 r8 r4 r5 r6 < 3) || ((sum6 r14 r11 r12 r0 r1 r5 < 3) || ((sum6 r9 r8 r13 r3 r1 r2 < 3) || ((sum6 r7 r9 r11 r1 r0 r2 < 3) || ((sum6 r8 r7 r10 r5 r2 r6 < 3) || ((sum6 r12 r9 r14 r2 r1 r6 < 3) || ((sum6 r11 r7 r14 r4 r2 r5 < 3) || ((sum6 r7 r8 r10 r6 r4 r5 < 3) || ((sum6 r11 r10 r14 r6 r1 r5 < 3) || ((sum6 r12 r13 r14 r3 r1 r6 < 3) || ((sum6 r9 r7 r13 r5 r0 r2 < 3) || ((sum6 r8 r9 r10 r0 r1 r4 < 3) || ((sum6 r8 r7 r10 r5 r3 r4 < 3) || ((sum6 r10 r8 r11 r2 r0 r3 < 3) || (false))))))))))))))
+   | masks => C20_rankPool.any (fastEntry (compactGoal 7 8) 4 C20_coords masks)
+ def C20_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -3458,10 +3520,10 @@
+ def C21_literalRoutes : List (List (Nat × Nat)) := [[(0x4000,1),(0x20,2),(0xc,4),(0x2010,2),(0x4054,1)]]
+ 
+ def C21_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+-def C21_rankPool : List Nat := [6389402, 4340107, 7610079, 7756681, 6298792, 5255134, 6315658, 3157386, 3231130, 4288429, 3296152, 7367051, 6651032, 6373294]
++def C21_rankPool : List Nat := [7610079, 4340107, 6389402, 6298792, 5255134, 4288429, 7756681, 3296152, 3231130, 6315658, 6651032, 3157386, 6373294, 7367051]
+ 
+ def C21_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r10 r9 r14 r7 r1 r6 < 3) || ((sum6 r11 r8 r9 r3 r2 r4 < 3) || ((sum6 r15 r13 r14 r1 r4 r7 < 3) || ((sum6 r9 r8 r11 r5 r6 r7 < 3) || ((sum6 r8 r10 r12 r1 r0 r6 < 3) || ((sum6 r14 r13 r15 r2 r0 r5 < 3) || ((sum6 r10 r8 r14 r5 r0 r6 < 3) || ((sum6 r10 r8 r13 r2 r0 r3 < 3) || ((sum6 r10 r9 r13 r4 r1 r3 < 3) || ((sum6 r13 r10 r15 r6 r1 r4 < 3) || ((sum6 r8 r9 r11 r4 r2 r3 < 3) || ((sum6 r11 r8 r9 r6 r0 r7 < 3) || ((sum6 r8 r9 r12 r7 r5 r6 < 3) || ((sum6 r14 r10 r15 r3 r1 r6 < 3) || (false))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r15 r13 r14 r1 r4 r7 < 3) || ((sum6 r11 r8 r9 r3 r2 r4 < 3) || ((sum6 r10 r9 r14 r7 r1 r6 < 3) || ((sum6 r8 r10 r12 r1 r0 r6 < 3) || ((sum6 r14 r13 r15 r2 r0 r5 < 3) || ((sum6 r13 r10 r15 r6 r1 r4 < 3) || ((sum6 r9 r8 r11 r5 r6 r7 < 3) || ((sum6 r8 r9 r11 r4 r2 r3 < 3) || ((sum6 r10 r9 r13 r4 r1 r3 < 3) || ((sum6 r10 r8 r14 r5 r0 r6 < 3) || ((sum6 r8 r9 r12 r7 r5 r6 < 3) || ((sum6 r10 r8 r13 r2 r0 r3 < 3) || ((sum6 r14 r10 r15 r3 r1 r6 < 3) || ((sum6 r11 r8 r9 r6 r0 r7 < 3) || (false))))))))))))))
+   | masks => C21_rankPool.any (fastEntry (compactGoal 8 8) 4 C21_coords masks)
+ def C21_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -3527,10 +3589,10 @@
+ def C22_literalRoutes : List (List (Nat × Nat)) := [[(0x1010,1),(0x2020,2),(0x200,4),(0x20,8),(0xa08,4),(0x2120,2),(0x1011,1)]]
+ 
+ def C22_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+-def C22_rankPool : List Nat := [4413814, 5393547, 5389740, 2103655, 5458553]
++def C22_rankPool : List Nat := [4413814, 5393547, 2103655, 5389740, 5458553]
+ 
+ def C22_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13] => (sum6 r6 r7 r9 r5 r3 r4 < 3) || ((sum6 r11 r8 r12 r4 r2 r5 < 3) || ((sum6 r12 r10 r13 r3 r2 r5 < 3) || ((sum6 r7 r6 r9 r1 r0 r2 < 3) || ((sum6 r9 r7 r10 r4 r3 r5 < 3) || (false)))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13] => (sum6 r6 r7 r9 r5 r3 r4 < 3) || ((sum6 r11 r8 r12 r4 r2 r5 < 3) || ((sum6 r7 r6 r9 r1 r0 r2 < 3) || ((sum6 r12 r10 r13 r3 r2 r5 < 3) || ((sum6 r9 r7 r10 r4 r3 r5 < 3) || (false)))))
+   | masks => C22_rankPool.any (fastEntry (compactGoal 6 8) 4 C22_coords masks)
+ def C22_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -3606,10 +3668,10 @@
+ def C23_literalRoutes : List (List (Nat × Nat)) := [[(0x50,1),(0x10,2),(0xe,4),(0x310,2),(0x1050,1)]]
+ 
+ def C23_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+-def C23_rankPool : List Nat := [6576760, 6491598, 2177927, 5328540, 1076651, 2112649, 4202173, 5532311, 6375546, 2182523, 5381241]
++def C23_rankPool : List Nat := [1076651, 2112649, 6491598, 6576760, 2177927, 5381241, 6375546, 2182523, 5532311, 4202173, 5328540]
+ 
+ def C23_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r8 r7 r10 r5 r4 r6 < 3) || ((sum6 r14 r12 r13 r0 r3 r6 < 3) || ((sum6 r7 r8 r11 r3 r1 r2 < 3) || ((sum6 r12 r9 r14 r4 r1 r5 < 3) || ((sum6 r11 r10 r13 r6 r0 r1 < 3) || ((sum6 r9 r8 r12 r3 r0 r2 < 3) || ((sum6 r13 r11 r14 r1 r0 r4 < 3) || ((sum6 r7 r9 r10 r6 r4 r5 < 3) || ((sum6 r10 r7 r8 r4 r1 r6 < 3) || ((sum6 r11 r7 r13 r4 r1 r2 < 3) || ((sum6 r9 r7 r12 r1 r2 r5 < 3) || (false)))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r11 r10 r13 r6 r0 r1 < 3) || ((sum6 r9 r8 r12 r3 r0 r2 < 3) || ((sum6 r14 r12 r13 r0 r3 r6 < 3) || ((sum6 r8 r7 r10 r5 r4 r6 < 3) || ((sum6 r7 r8 r11 r3 r1 r2 < 3) || ((sum6 r9 r7 r12 r1 r2 r5 < 3) || ((sum6 r10 r7 r8 r4 r1 r6 < 3) || ((sum6 r11 r7 r13 r4 r1 r2 < 3) || ((sum6 r7 r9 r10 r6 r4 r5 < 3) || ((sum6 r13 r11 r14 r1 r0 r4 < 3) || ((sum6 r12 r9 r14 r4 r1 r5 < 3) || (false)))))))))))
+   | masks => C23_rankPool.any (fastEntry (compactGoal 7 8) 4 C23_coords masks)
+ def C23_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -3685,10 +3747,10 @@
+ def C24_literalRoutes : List (List (Nat × Nat)) := [[(0x140,1),(0x200,4),(0x20,8),(0x208,4),(0x10,2),(0x4140,1)],[(0x104,1),(0x200,2),(0x800,4),(0x80,8),(0x800,4),(0x302,2),(0x114,1)],[(0x404,1),(0x100,4),(0x10,8),(0x104,4),(0x222,2),(0x4404,1)],[(0x4000,1),(0x10000,4),(0x100000,8),(0x1000,16),(0x100000,8),(0x10e04,4),(0x2222,2),(0x4000,1)],[(0x54,1),(0x100,4),(0x10000,8),(0x100,16),(0x10010,8),(0xf08,4),(0x2212,2),(0x4040,1)],[(0x4040,1),(0x11120,2),(0x400,4),(0x40000,8),(0x400,16),(0x40040,8),(0xf02,4),(0x13332,2),(0x54,1)],[(0x40,1),(0x20,2),(0x100,4),(0x10000,8),(0x100,16),(0x10010,8),(0xf02,4),(0x2220,2),(0x44,1)]]
+ 
+ def C24_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+-def C24_rankPool : List Nat := [241447241, 201441743, 134264107, 135512494, 272738604, 67252586, 206650832, 134330733, 270744941, 275982636, 206585296]
++def C24_rankPool : List Nat := [201441743, 67252586, 275982636, 134264107, 206650832, 135512494, 241447241, 270744941, 134330733, 206585296, 272738604]
+ 
+ def C24_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16] => (sum6 r9 r10 r12 r8 r6 r7 < 3) || ((sum6 r15 r14 r16 r3 r0 r6 < 3) || ((sum6 r11 r9 r13 r1 r0 r4 < 3) || ((sum6 r14 r13 r16 r7 r1 r4 < 3) || ((sum6 r12 r9 r10 r3 r4 r8 < 3) || ((sum6 r10 r11 r12 r4 r0 r2 < 3) || ((sum6 r16 r14 r15 r2 r5 r6 < 3) || ((sum6 r13 r11 r14 r3 r0 r4 < 3) || ((sum6 r13 r11 r15 r6 r2 r8 < 3) || ((sum6 r12 r9 r10 r6 r7 r8 < 3) || ((sum6 r16 r14 r15 r0 r5 r6 < 3) || (false)))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16] => (sum6 r15 r14 r16 r3 r0 r6 < 3) || ((sum6 r10 r11 r12 r4 r0 r2 < 3) || ((sum6 r12 r9 r10 r6 r7 r8 < 3) || ((sum6 r11 r9 r13 r1 r0 r4 < 3) || ((sum6 r16 r14 r15 r2 r5 r6 < 3) || ((sum6 r14 r13 r16 r7 r1 r4 < 3) || ((sum6 r9 r10 r12 r8 r6 r7 < 3) || ((sum6 r13 r11 r15 r6 r2 r8 < 3) || ((sum6 r13 r11 r14 r3 r0 r4 < 3) || ((sum6 r16 r14 r15 r0 r5 r6 < 3) || ((sum6 r12 r9 r10 r3 r4 r8 < 3) || (false)))))))))))
+   | masks => C24_rankPool.any (fastEntry (compactGoal 9 8) 5 C24_coords masks)
+ def C24_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -3759,10 +3821,10 @@
+ def C25_literalRoutes : List (List (Nat × Nat)) := [[(0x1010,1),(0x2020,2),(0x808,4),(0x3020,2),(0x1110,1)],[(0x5400,1),(0x220,2),(0x200,4),(0x20,8),(0xb0d,4),(0x231,2),(0x5414,1)],[(0x410,1),(0x800,4),(0x80,8),(0xf05,4),(0x1111,2),(0x410,1)]]
+ 
+ def C25_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+-def C25_rankPool : List Nat := [5532536, 5381788, 3279789, 5515927, 5389774, 3284363, 2121338, 5459081, 5467257, 4328622, 5450375, 4349306]
++def C25_rankPool : List Nat := [4328622, 3284363, 5467257, 4349306, 5381788, 3279789, 5532536, 5389774, 5459081, 5515927, 2121338, 5450375]
+ 
+ def C25_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r8 r7 r11 r6 r4 r5 < 3) || ((sum6 r12 r9 r14 r1 r2 r5 < 3) || ((sum6 r13 r10 r11 r0 r2 r3 < 3) || ((sum6 r7 r9 r10 r2 r4 r5 < 3) || ((sum6 r14 r12 r13 r3 r2 r5 < 3) || ((sum6 r11 r8 r13 r1 r2 r3 < 3) || ((sum6 r10 r7 r14 r5 r0 r2 < 3) || ((sum6 r9 r8 r12 r4 r3 r5 < 3) || ((sum6 r9 r7 r12 r6 r3 r5 < 3) || ((sum6 r14 r10 r12 r0 r2 r4 < 3) || ((sum6 r7 r8 r10 r2 r3 r5 < 3) || ((sum6 r10 r7 r13 r5 r2 r4 < 3) || (false))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14] => (sum6 r14 r10 r12 r0 r2 r4 < 3) || ((sum6 r11 r8 r13 r1 r2 r3 < 3) || ((sum6 r9 r7 r12 r6 r3 r5 < 3) || ((sum6 r10 r7 r13 r5 r2 r4 < 3) || ((sum6 r12 r9 r14 r1 r2 r5 < 3) || ((sum6 r13 r10 r11 r0 r2 r3 < 3) || ((sum6 r8 r7 r11 r6 r4 r5 < 3) || ((sum6 r14 r12 r13 r3 r2 r5 < 3) || ((sum6 r9 r8 r12 r4 r3 r5 < 3) || ((sum6 r7 r9 r10 r2 r4 r5 < 3) || ((sum6 r10 r7 r14 r5 r0 r2 < 3) || ((sum6 r7 r8 r10 r2 r3 r5 < 3) || (false))))))))))))
+   | masks => C25_rankPool.any (fastEntry (compactGoal 7 8) 4 C25_coords masks)
+ def C25_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -3848,10 +3910,17 @@
+ def C26_literalRoutes : List (List (Nat × Nat)) := [[(0x4000,1),(0x100,4),(0x10,8),(0x10e,4),(0x2000,2),(0x4000,1)],[(0x1000,1),(0x2010,2),(0x100,4),(0x10,8),(0x904,4),(0x2032,2),(0x1000,1)],[(0x1000,1),(0x2100,2),(0x4,8),(0x80a,4),(0x3132,2),(0x1000,1)],[(0x2020,2),(0x808,4),(0x3030,2),(0x10000,1)],[(0x5000,1),(0x20,2),(0x100,4),(0x10,8),(0x90c,4),(0x2012,2),(0x14000,1)],[(0x4000,1),(0x2030,2),(0x100,4),(0x10,8),(0x906,4),(0x2,2),(0x15000,1)],[(0x4000,1),(0x120,2),(0x4,8),(0x802,4),(0x120,2),(0x15000,1)],[(0x444,1),(0x10,2),(0x100,4),(0x10,8),(0x104,4),(0x232,2),(0x444,1)],[(0x4444,1),(0x100,2),(0x4,8),(0xa,4),(0x2332,2),(0x4444,1)],[(0x410,1),(0x1000,2),(0x100,4),(0x10,8),(0x502,4),(0x1200,2),(0x454,1)],[(0x1100,1),(0x2000,2),(0x2,8),(0x80c,4),(0x3100,2),(0x1154,1)],[(0x104,1),(0x200,2),(0x800,4),(0x80,8),(0xa04,4),(0x1302,2),(0x10114,1)],[(0x454,1),(0x1130,2),(0x4,8),(0x106,4),(0x310,2),(0x11410,1)],[(0x1410,1),(0x110,2),(0x400,4),(0x40,8),(0x506,4),(0x1330,2),(0x10454,1)],[(0x4100,1),(0x10,2),(0x2,8),(0x80c,4),(0x120,2),(0x15154,1)],[(0x10000,1),(0x21000,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800000,8),(0x80400,4),(0x21200,2),(0x10044,1)],[(0x4000,1),(0x1000,2),(0x100,4),(0x10000,8),(0x100,16),(0x10010,8),(0x50e,4),(0x3200,2),(0x4044,1)],[(0x11400,1),(0x2010,2),(0x20100,4),(0x200000,8),(0x2000,16),(0x200010,8),(0x20904,4),(0x2232,2),(0x11044,1)],[(0x11400,1),(0x2100,2),(0x20000,4),(0x200000,8),(0x2000,16),(0x200004,8),(0x2080a,4),(0x3332,2),(0x11044,1)],[(0x2020,2),(0x20000,4),(0x200000,8),(0x2000,16),(0x200000,8),(0x20c08,4),(0x3230,2),(0x10044,1)],[(0x15000,1),(0x1020,2),(0x100,4),(0x10000,8),(0x100,16),(0x10010,8),(0xd0c,4),(0x3212,2),(0x4044,1)],[(0x400,1),(0x2030,2),(0x20100,4),(0x200000,8),(0x2000,16),(0x200010,8),(0x20d06,4),(0x2202,2),(0x11044,1)],[(0x15000,1),(0x10120,2),(0x40000,4),(0x400000,8),(0x4000,16),(0x400004,8),(0x40902,4),(0x10320,2),(0x4044,1)],[(0x11044,1),(0x20010,2),(0x80100,4),(0x800000,8),(0x8000,16),(0x800010,8),(0x80304,4),(0x20232,2),(0x11400,1)],[(0x11044,1),(0x20100,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800004,8),(0x8020a,4),(0x21332,2),(0x11400,1)],[(0x11010,1),(0x20000,2),(0x80100,4),(0x800000,8),(0x8000,16),(0x800010,8),(0x80302,4),(0x20000,2),(0x11410,1)],[(0x4100,1),(0x10000,2),(0x40000,4),(0x400000,8),(0x4000,16),(0x400002,8),(0x4010c,4),(0x12000,2),(0x4510,1)],[(0x15104,1),(0x12200,2),(0x40800,4),(0x400000,8),(0x4000,16),(0x400080,8),(0x40b04,4),(0x10202,2),(0x4550,1)],[(0x15454,1),(0x12130,2),(0x40000,4),(0x400000,8),(0x4000,16),(0x400004,8),(0x40306,4),(0x10110,2),(0x5054,1)],[(0x14010,1),(0x10110,2),(0x400,4),(0x40000,8),(0x400,16),(0x40040,8),(0xe06,4),(0x10130,2),(0x5410,1)],[(0x1500,1),(0x20010,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800002,8),(0x8050c,4),(0x20120,2),(0x10110,1)],[(0x10010,1),(0x21010,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800000,8),(0x80604,4),(0x20230,2),(0x54,1)],[(0x11044,1),(0x20020,2),(0x80100,4),(0x800000,8),(0x8000,16),(0x800010,8),(0x8070c,4),(0x20212,2),(0x400,1)],[(0x4540,1),(0x10200,2),(0x40800,4),(0x400000,8),(0x4000,16),(0x400080,8),(0x40b04,4),(0x12202,2),(0x15114,1)],[(0x11010,1),(0x21130,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800004,8),(0x80306,4),(0x21110,2),(0x410,1)],[(0x10,1),(0x20010,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800000,8),(0x80604,4),(0x20030,2),(0x10,1)],[(0x14444,1),(0x10020,2),(0x40100,4),(0x400000,8),(0x4000,16),(0x400010,8),(0x40b0c,4),(0x10212,2),(0x14444,1)],[(0x1140,1),(0x20200,2),(0x800,4),(0x80000,8),(0x800,16),(0x80080,8),(0xf04,4),(0x20202,2),(0x1150,1)],[(0x14410,1),(0x10130,2),(0x40000,4),(0x400000,8),(0x4000,16),(0x400004,8),(0x40b06,4),(0x10310,2),(0x14454,1)],[(0x4044,1),(0x1030,2),(0x100,4),(0x10000,8),(0x100,16),(0x10010,8),(0x706,4),(0x3202,2),(0x15000,1)],[(0x11540,1),(0x21220,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800008,8),(0x80302,4),(0x21320,2),(0x504,1)],[(0x5054,1),(0x10110,2),(0x400,4),(0x40000,8),(0x400,16),(0x40040,8),(0x706,4),(0x12130,2),(0x15454,1)],[(0x10110,1),(0x20020,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800002,8),(0x8050c,4),(0x21010,2),(0x1500,1)],[(0x14444,1),(0x10030,2),(0x40100,4),(0x400000,8),(0x4000,16),(0x400010,8),(0x40b06,4),(0x12002,2),(0x14444,1)],[(0x1140,1),(0x20220,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800008,8),(0x80502,4),(0x21320,2),(0x1140,1)],[(0x14054,1),(0x10110,2),(0x400,4),(0x40000,8),(0x400,16),(0x40040,8),(0xf06,4),(0x12130,2),(0x15410,1)],[(0x110,1),(0x2020,2),(0x20000,4),(0x200000,8),(0x2000,16),(0x200002,8),(0x20d0c,4),(0x3110,2),(0x1544,1)]]
+ 
+ def C26_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+-def C26_rankPool : List Nat := [134300012, 235158857, 134331818, 167822638, 268584270, 272644529, 170930544, 236988719, 67323341, 235061548, 168018219, 67256747, 67157354, 33735981, 33635657, 201409966, 134299980, 268648812, 100910477, 201506090, 167984585, 100941257, 100712812, 268680586, 33669419, 234997134, 134497741, 201605451, 134267308, 100810153, 234964334, 100844909, 33800651, 167855438, 100810121, 201475470, 67157418, 201409902, 268517804]
+-
++def C26_rankPool : List Nat := [272644529, 100712812, 201506090, 170930544, 167855438, 100910477, 236988719, 67256747, 235158857, 234997134, 134299980, 33735981, 268648812, 168018219, 268680586, 167822638, 67323341, 134331818, 235061548, 201605451, 134300012, 268584270, 67157354, 33635657, 201409966, 167984585, 100941257, 33669419, 134497741, 134267308, 100810153, 234964334, 100844909, 33800651, 100810121, 201475470, 67157418, 201409902, 268517804]
++
++def C26_grayRoute8 : List (Nat × Nat) := [(0x2aa,1)]
++def C26_grayRoute2 : List (Nat × Nat) := [(0x800,1),(0x66,2)]
++def C26_grayRoute1 : List (Nat × Nat) := [(0x2000,1),(0x1e,4)]
++def C26_grayRoute16 : List (Nat × Nat) := [(0x8044,1),(0x600,2)]
++def C26_grayRoute4 : List (Nat × Nat) := [(0x10000,1),(0x1818,2)]
++def C26_grayWalk : List (List (Nat × Nat)) :=
++  [C26_grayRoute8,C26_grayRoute2,C26_grayRoute8,C26_grayRoute1,C26_grayRoute8,C26_grayRoute2,C26_grayRoute8,C26_grayRoute16,C26_grayRoute8,C26_grayRoute2,C26_grayRoute8,C26_grayRoute1,C26_grayRoute8,C26_grayRoute2,C26_grayRoute8,C26_grayRoute4,C26_grayRoute8,C26_grayRoute2,C26_grayRoute8,C26_grayRoute1,C26_grayRoute8,C26_grayRoute2,C26_grayRoute8,C26_grayRoute16,C26_grayRoute8,C26_grayRoute2,C26_grayRoute8,C26_grayRoute1,C26_grayRoute8,C26_grayRoute2,C26_grayRoute8,C26_grayRoute4,C26_grayRoute8,C26_grayRoute2,C26_grayRoute8,C26_grayRoute1,C26_grayRoute8,C26_grayRoute2,C26_grayRoute8,C26_grayRoute16,C26_grayRoute8,C26_grayRoute2,C26_grayRoute8,C26_grayRoute1,C26_grayRoute8,C26_grayRoute2,C26_grayRoute8]
+ def C26_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16,r17] => (sum6 r12 r11 r16 r2 r0 r4 < 3) || ((sum6 r9 r10 r15 r8 r0 r7 < 3) || ((sum6 r10 r13 r15 r3 r0 r4 < 3) || ((sum6 r14 r9 r17 r1 r0 r5 < 3) || ((sum6 r14 r10 r17 r4 r0 r8 < 3) || ((sum6 r17 r13 r14 r0 r4 r8 < 3) || ((sum6 r16 r11 r12 r0 r3 r5 < 3) || ((sum6 r15 r9 r10 r0 r2 r7 < 3) || ((sum6 r13 r14 r17 r6 r0 r2 < 3) || ((sum6 r12 r9 r16 r5 r0 r7 < 3) || ((sum6 r11 r9 r16 r7 r0 r5 < 3) || ((sum6 r11 r13 r16 r4 r0 r2 < 3) || ((sum6 r10 r11 r15 r1 r0 r2 < 3) || ((sum6 r13 r9 r17 r5 r0 r1 < 3) || ((sum6 r9 r10 r15 r2 r0 r1 < 3) || ((sum6 r14 r13 r17 r2 r0 r6 < 3) || ((sum6 r12 r10 r16 r2 r0 r4 < 3) || ((sum6 r12 r11 r16 r6 r0 r8 < 3) || ((sum6 r13 r12 r17 r7 r0 r3 < 3) || ((sum6 r10 r9 r15 r5 r0 r6 < 3) || ((sum6 r9 r14 r15 r6 r0 r5 < 3) || ((sum6 r9 r14 r15 r8 r0 r3 < 3) || ((sum6 r12 r11 r16 r1 r0 r3 < 3) || ((sum6 r10 r12 r15 r7 r0 r8 < 3) || ((sum6 r11 r9 r16 r3 r0 r1 < 3) || ((sum6 r14 r12 r17 r3 r0 r7 < 3) || ((sum6 r13 r14 r17 r8 r0 r4 < 3) || ((sum6 r11 r10 r16 r8 r0 r6 < 3) || ((sum6 r12 r13 r16 r1 r0 r4 < 3) || ((sum6 r9 r13 r15 r4 r0 r3 < 3) || ((sum6 r14 r11 r17 r2 r0 r7 < 3) || ((sum6 r13 r11 r17 r5 r0 r3 < 3) || ((sum6 r11 r14 r16 r7 r0 r1 < 3) || ((sum6 r14 r10 r17 r2 r0 r5 < 3) || ((sum6 r9 r12 r15 r4 r0 r3 < 3) || ((sum6 r14 r12 r17 r4 r0 r6 < 3) || ((sum6 r10 r13 r15 r1 r0 r2 < 3) || ((sum6 r14 r11 r17 r2 r0 r6 < 3) || ((sum6 r12 r13 r16 r2 r0 r8 < 3) || (false)))))))))))))))))))))))))))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16,r17] => (sum6 r17 r13 r14 r0 r4 r8 < 3) || ((sum6 r12 r11 r16 r1 r0 r3 < 3) || ((sum6 r10 r9 r15 r5 r0 r6 < 3) || ((sum6 r16 r11 r12 r0 r3 r5 < 3) || ((sum6 r14 r10 r17 r2 r0 r5 < 3) || ((sum6 r13 r12 r17 r7 r0 r3 < 3) || ((sum6 r15 r9 r10 r0 r2 r7 < 3) || ((sum6 r11 r13 r16 r4 r0 r2 < 3) || ((sum6 r9 r10 r15 r8 r0 r7 < 3) || ((sum6 r14 r12 r17 r3 r0 r7 < 3) || ((sum6 r12 r10 r16 r2 r0 r4 < 3) || ((sum6 r13 r9 r17 r5 r0 r1 < 3) || ((sum6 r12 r11 r16 r6 r0 r8 < 3) || ((sum6 r11 r9 r16 r7 r0 r5 < 3) || ((sum6 r10 r12 r15 r7 r0 r8 < 3) || ((sum6 r14 r9 r17 r1 r0 r5 < 3) || ((sum6 r13 r14 r17 r6 r0 r2 < 3) || ((sum6 r10 r13 r15 r3 r0 r4 < 3) || ((sum6 r12 r9 r16 r5 r0 r7 < 3) || ((sum6 r11 r10 r16 r8 r0 r6 < 3) || ((sum6 r12 r11 r16 r2 r0 r4 < 3) || ((sum6 r14 r10 r17 r4 r0 r8 < 3) || ((sum6 r10 r11 r15 r1 r0 r2 < 3) || ((sum6 r9 r10 r15 r2 r0 r1 < 3) || ((sum6 r14 r13 r17 r2 r0 r6 < 3) || ((sum6 r9 r14 r15 r6 r0 r5 < 3) || ((sum6 r9 r14 r15 r8 r0 r3 < 3) || ((sum6 r11 r9 r16 r3 r0 r1 < 3) || ((sum6 r13 r14 r17 r8 r0 r4 < 3) || ((sum6 r12 r13 r16 r1 r0 r4 < 3) || ((sum6 r9 r13 r15 r4 r0 r3 < 3) || ((sum6 r14 r11 r17 r2 r0 r7 < 3) || ((sum6 r13 r11 r17 r5 r0 r3 < 3) || ((sum6 r11 r14 r16 r7 r0 r1 < 3) || ((sum6 r9 r12 r15 r4 r0 r3 < 3) || ((sum6 r14 r12 r17 r4 r0 r6 < 3) || ((sum6 r10 r13 r15 r1 r0 r2 < 3) || ((sum6 r14 r11 r17 r2 r0 r6 < 3) || ((sum6 r12 r13 r16 r2 r0 r8 < 3) || (false)))))))))))))))))))))))))))))))))))))))
+   | masks => C26_rankPool.any (fastEntry (compactGoal 9 9) 5 C26_coords masks)
+ def C26_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -3862,7 +3931,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C26_rows)
+ def C26_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 0 && x 5) || (x 0 && x 6) || (x 1 && x 2) || (x 3 && x 4) || (x 5 && x 6)
+-def C26_ori : List Nat → List Nat := literalRouteOrient C26_literalRoutes
++def C26_ori : List Nat → List Nat := qGrayNormOrbit C26_grayWalk
+ def C26_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 9 9) (compactCover 9 9) C26_S C26_N C26_idx C26_ori
+     C26_patternScr C26_patternScr s
+@@ -3937,10 +4006,10 @@
+ def C27_literalRoutes : List (List (Nat × Nat)) := [[(0x4000,1),(0x20,2),(0xc,4),(0x2010,2),(0x4054,1)],[(0x10,1),(0x20,2),(0x8,4),(0x20,2),(0x451,1)],[(0x4040,1),(0x20,2),(0xc,4),(0x2010,2),(0x4415,1)],[(0x5000,1),(0x1000,2),(0x10000,4),(0x100000,8),(0x1000,16),(0x100000,8),(0x10e02,4),(0x1011,2),(0x5000,1)],[(0x5054,1),(0x1030,2),(0x10000,4),(0x100000,8),(0x1000,16),(0x100000,8),(0x10e06,4),(0x1013,2),(0x5400,1)],[(0x5400,1),(0x1020,2),(0x10000,4),(0x100000,8),(0x1000,16),(0x100000,8),(0x10e09,4),(0x1003,2),(0x5054,1)],[(0x5454,1),(0x1000,2),(0x10000,4),(0x100000,8),(0x1000,16),(0x100000,8),(0x10e05,4),(0x1002,2),(0x5454,1)]]
+ 
+ def C27_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+-def C27_rankPool : List Nat := [240336203, 102773001, 236077486, 137440591, 169062760, 203668778, 68338125, 201441678, 201401612, 136428843, 171064618, 203438512, 135512461, 67320136, 67219784, 203472138, 237023497, 67157258, 167854350, 236108076, 33631567, 169916848, 167983400, 134292748, 204487088, 68173067, 167884104, 100876749, 135446797, 236077454, 68301160, 240336171, 100876685]
++def C27_rankPool : List Nat := [204487088, 240336203, 134292748, 167854350, 169062760, 137440591, 102773001, 135512461, 201441678, 203668778, 68173067, 67219784, 136428843, 236077486, 68338125, 236108076, 68301160, 33631567, 67157258, 167983400, 171064618, 237023497, 236077454, 201401612, 203438512, 67320136, 203472138, 169916848, 167884104, 100876749, 135446797, 240336171, 100876685]
+ 
+ def C27_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16] => (sum6 r11 r10 r15 r6 r5 r7 < 3) || ((sum6 r9 r8 r12 r0 r2 r3 < 3) || ((sum6 r14 r13 r16 r4 r1 r7 < 3) || ((sum6 r15 r10 r11 r2 r3 r4 < 3) || ((sum6 r8 r11 r12 r7 r1 r5 < 3) || ((sum6 r10 r9 r15 r7 r2 r6 < 3) || ((sum6 r13 r14 r16 r5 r1 r2 < 3) || ((sum6 r14 r12 r16 r3 r0 r6 < 3) || ((sum6 r12 r8 r9 r2 r0 r6 < 3) || ((sum6 r11 r9 r15 r3 r2 r4 < 3) || ((sum6 r10 r9 r15 r4 r3 r5 < 3) || ((sum6 r16 r13 r14 r0 r2 r6 < 3) || ((sum6 r13 r12 r16 r7 r1 r4 < 3) || ((sum6 r8 r10 r14 r6 r0 r2 < 3) || ((sum6 r8 r10 r12 r3 r0 r2 < 3) || ((sum6 r10 r8 r15 r1 r2 r6 < 3) || ((sum6 r9 r8 r12 r1 r2 r7 < 3) || ((sum6 r10 r8 r15 r1 r0 r2 < 3) || ((sum6 r14 r8 r16 r2 r0 r5 < 3) || ((sum6 r12 r9 r14 r5 r1 r7 < 3) || ((sum6 r15 r10 r11 r2 r0 r1 < 3) || ((sum6 r16 r13 r14 r1 r2 r5 < 3) || ((sum6 r8 r9 r14 r6 r0 r5 < 3) || ((sum6 r12 r8 r9 r2 r0 r4 < 3) || ((sum6 r16 r13 r14 r0 r3 r6 < 3) || ((sum6 r11 r8 r15 r0 r1 r2 < 3) || ((sum6 r8 r10 r13 r3 r0 r5 < 3) || ((sum6 r13 r14 r16 r6 r0 r3 < 3) || ((sum6 r13 r8 r16 r5 r1 r4 < 3) || ((sum6 r14 r12 r16 r4 r1 r7 < 3) || ((sum6 r8 r11 r12 r4 r1 r2 < 3) || ((sum6 r11 r9 r15 r6 r5 r7 < 3) || ((sum6 r13 r12 r16 r6 r0 r3 < 3) || (false)))))))))))))))))))))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16] => (sum6 r16 r13 r14 r0 r3 r6 < 3) || ((sum6 r11 r10 r15 r6 r5 r7 < 3) || ((sum6 r12 r8 r9 r2 r0 r4 < 3) || ((sum6 r14 r8 r16 r2 r0 r5 < 3) || ((sum6 r8 r11 r12 r7 r1 r5 < 3) || ((sum6 r15 r10 r11 r2 r3 r4 < 3) || ((sum6 r9 r8 r12 r0 r2 r3 < 3) || ((sum6 r13 r12 r16 r7 r1 r4 < 3) || ((sum6 r14 r12 r16 r3 r0 r6 < 3) || ((sum6 r10 r9 r15 r7 r2 r6 < 3) || ((sum6 r11 r8 r15 r0 r1 r2 < 3) || ((sum6 r8 r10 r12 r3 r0 r2 < 3) || ((sum6 r11 r9 r15 r3 r2 r4 < 3) || ((sum6 r14 r13 r16 r4 r1 r7 < 3) || ((sum6 r13 r14 r16 r5 r1 r2 < 3) || ((sum6 r12 r9 r14 r5 r1 r7 < 3) || ((sum6 r8 r11 r12 r4 r1 r2 < 3) || ((sum6 r15 r10 r11 r2 r0 r1 < 3) || ((sum6 r10 r8 r15 r1 r0 r2 < 3) || ((sum6 r8 r9 r14 r6 r0 r5 < 3) || ((sum6 r10 r9 r15 r4 r3 r5 < 3) || ((sum6 r9 r8 r12 r1 r2 r7 < 3) || ((sum6 r14 r12 r16 r4 r1 r7 < 3) || ((sum6 r12 r8 r9 r2 r0 r6 < 3) || ((sum6 r16 r13 r14 r0 r2 r6 < 3) || ((sum6 r8 r10 r14 r6 r0 r2 < 3) || ((sum6 r10 r8 r15 r1 r2 r6 < 3) || ((sum6 r16 r13 r14 r1 r2 r5 < 3) || ((sum6 r8 r10 r13 r3 r0 r5 < 3) || ((sum6 r13 r14 r16 r6 r0 r3 < 3) || ((sum6 r13 r8 r16 r5 r1 r4 < 3) || ((sum6 r11 r9 r15 r6 r5 r7 < 3) || ((sum6 r13 r12 r16 r6 r0 r3 < 3) || (false)))))))))))))))))))))))))))))))))
+   | masks => C27_rankPool.any (fastEntry (compactGoal 8 9) 5 C27_coords masks)
+ def C27_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -4021,10 +4090,10 @@
+ def C28_literalRoutes : List (List (Nat × Nat)) := [[(0x5550,1),(0x1010,2),(0x100,4),(0x10,8),(0x50e,4),(0x3210,2),(0x5550,1)]]
+ 
+ def C28_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+-def C28_rankPool : List Nat := [2178473, 6426319, 6637691, 5311866, 6577064, 5532551, 4328344, 1059991, 4333470, 5468092, 3296941, 6307806, 3152541, 5328764, 1072761, 3222938, 3283613, 4263631, 4205463, 6556538, 6360472, 1072505]
++def C28_rankPool : List Nat := [2178473, 6426319, 6637691, 5311866, 5468092, 3296941, 4333470, 6577064, 5532551, 5328764, 3222938, 1072505, 4328344, 6307806, 3283613, 4205463, 4263631, 6556538, 6360472, 1059991, 3152541, 1072761]
+ 
+ def C28_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r9 r10 r13 r3 r1 r2 < 3) || ((sum6 r15 r12 r14 r0 r2 r6 < 3) || ((sum6 r11 r7 r8 r4 r5 r6 < 3) || ((sum6 r10 r7 r13 r0 r1 r5 < 3) || ((sum6 r8 r10 r11 r5 r4 r6 < 3) || ((sum6 r7 r8 r11 r6 r4 r5 < 3) || ((sum6 r8 r9 r11 r0 r2 r4 < 3) || ((sum6 r7 r9 r12 r2 r0 r1 < 3) || ((sum6 r14 r9 r15 r1 r2 r4 < 3) || ((sum6 r12 r11 r15 r6 r3 r5 < 3) || ((sum6 r13 r10 r14 r4 r2 r3 < 3) || ((sum6 r14 r13 r15 r3 r0 r6 < 3) || ((sum6 r13 r9 r10 r1 r0 r3 < 3) || ((sum6 r12 r7 r15 r4 r1 r5 < 3) || ((sum6 r9 r7 r14 r5 r0 r1 < 3) || ((sum6 r10 r9 r13 r2 r1 r3 < 3) || ((sum6 r13 r9 r10 r1 r2 r3 < 3) || ((sum6 r15 r12 r14 r0 r1 r4 < 3) || ((sum6 r7 r9 r11 r2 r0 r4 < 3) || ((sum6 r10 r7 r11 r0 r4 r6 < 3) || ((sum6 r8 r9 r13 r0 r1 r6 < 3) || ((sum6 r9 r7 r13 r5 r0 r1 < 3) || (false))))))))))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r9 r10 r13 r3 r1 r2 < 3) || ((sum6 r15 r12 r14 r0 r2 r6 < 3) || ((sum6 r11 r7 r8 r4 r5 r6 < 3) || ((sum6 r10 r7 r13 r0 r1 r5 < 3) || ((sum6 r12 r11 r15 r6 r3 r5 < 3) || ((sum6 r13 r10 r14 r4 r2 r3 < 3) || ((sum6 r14 r9 r15 r1 r2 r4 < 3) || ((sum6 r8 r10 r11 r5 r4 r6 < 3) || ((sum6 r7 r8 r11 r6 r4 r5 < 3) || ((sum6 r12 r7 r15 r4 r1 r5 < 3) || ((sum6 r10 r9 r13 r2 r1 r3 < 3) || ((sum6 r9 r7 r13 r5 r0 r1 < 3) || ((sum6 r8 r9 r11 r0 r2 r4 < 3) || ((sum6 r14 r13 r15 r3 r0 r6 < 3) || ((sum6 r13 r9 r10 r1 r2 r3 < 3) || ((sum6 r7 r9 r11 r2 r0 r4 < 3) || ((sum6 r15 r12 r14 r0 r1 r4 < 3) || ((sum6 r10 r7 r11 r0 r4 r6 < 3) || ((sum6 r8 r9 r13 r0 r1 r6 < 3) || ((sum6 r7 r9 r12 r2 r0 r1 < 3) || ((sum6 r13 r9 r10 r1 r0 r3 < 3) || ((sum6 r9 r7 r14 r5 r0 r1 < 3) || (false))))))))))))))))))))))
+   | masks => C28_rankPool.any (fastEntry (compactGoal 7 9) 4 C28_coords masks)
+ def C28_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -4100,10 +4169,10 @@
+ def C29_literalRoutes : List (List (Nat × Nat)) := [[(0x1040,1),(0x2100,2),(0x400,4),(0x40,8),(0xc00,4),(0x2120,2),(0x5041,1)],[(0x4004,1),(0x2302,2),(0x4014,1)],[(0x5040,1),(0x2100,2),(0x400,4),(0x40,8),(0xc00,4),(0x3221,2),(0x1051,1)],[(0x1404,1),(0x800,4),(0x80,8),(0xa00,4),(0x1312,2),(0x5115,1)],[(0x5400,1),(0x800,4),(0x80,8),(0xa00,4),(0x1011,2),(0x5400,1)]]
+ 
+ def C29_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+-def C29_rankPool : List Nat := [2112664, 2182779, 5532295, 5250494, 5311951, 6637690, 6381484, 2117516, 5451421, 5258426, 3304841, 6576760, 2186617, 6426319, 2177943, 5447614, 5271211, 1064122, 4403101, 2125193]
++def C29_rankPool : List Nat := [1064122, 6426319, 6576760, 5451421, 2182779, 6381484, 2177943, 2125193, 5447614, 6637690, 5532295, 2112664, 5271211, 2117516, 2186617, 4403101, 5250494, 5311951, 5258426, 3304841]
+ 
+ def C29_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r8 r9 r12 r3 r0 r2 < 3) || ((sum6 r11 r7 r14 r4 r1 r2 < 3) || ((sum6 r7 r8 r10 r6 r4 r5 < 3) || ((sum6 r14 r11 r13 r1 r0 r5 < 3) || ((sum6 r15 r12 r13 r0 r1 r5 < 3) || ((sum6 r10 r7 r8 r4 r5 r6 < 3) || ((sum6 r12 r10 r15 r5 r1 r6 < 3) || ((sum6 r12 r8 r15 r4 r0 r2 < 3) || ((sum6 r13 r9 r14 r2 r3 r5 < 3) || ((sum6 r10 r11 r12 r3 r0 r5 < 3) || ((sum6 r9 r8 r13 r6 r2 r3 < 3) || ((sum6 r8 r7 r10 r5 r4 r6 < 3) || ((sum6 r9 r7 r13 r5 r1 r2 < 3) || ((sum6 r15 r12 r14 r0 r2 r6 < 3) || ((sum6 r7 r9 r11 r3 r1 r2 < 3) || ((sum6 r14 r11 r15 r1 r3 r5 < 3) || ((sum6 r11 r10 r14 r6 r0 r5 < 3) || ((sum6 r10 r11 r12 r3 r0 r1 < 3) || ((sum6 r13 r9 r15 r2 r3 r4 < 3) || ((sum6 r9 r8 r13 r6 r0 r2 < 3) || (false))))))))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15] => (sum6 r10 r11 r12 r3 r0 r1 < 3) || ((sum6 r15 r12 r14 r0 r2 r6 < 3) || ((sum6 r8 r7 r10 r5 r4 r6 < 3) || ((sum6 r13 r9 r14 r2 r3 r5 < 3) || ((sum6 r11 r7 r14 r4 r1 r2 < 3) || ((sum6 r12 r10 r15 r5 r1 r6 < 3) || ((sum6 r7 r9 r11 r3 r1 r2 < 3) || ((sum6 r9 r8 r13 r6 r0 r2 < 3) || ((sum6 r14 r11 r15 r1 r3 r5 < 3) || ((sum6 r10 r7 r8 r4 r5 r6 < 3) || ((sum6 r7 r8 r10 r6 r4 r5 < 3) || ((sum6 r8 r9 r12 r3 r0 r2 < 3) || ((sum6 r11 r10 r14 r6 r0 r5 < 3) || ((sum6 r12 r8 r15 r4 r0 r2 < 3) || ((sum6 r9 r7 r13 r5 r1 r2 < 3) || ((sum6 r13 r9 r15 r2 r3 r4 < 3) || ((sum6 r14 r11 r13 r1 r0 r5 < 3) || ((sum6 r15 r12 r13 r0 r1 r5 < 3) || ((sum6 r10 r11 r12 r3 r0 r5 < 3) || ((sum6 r9 r8 r13 r6 r2 r3 < 3) || (false))))))))))))))))))))
+   | masks => C29_rankPool.any (fastEntry (compactGoal 7 9) 4 C29_coords masks)
+ def C29_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -4184,10 +4253,10 @@
+ def C30_literalRoutes : List (List (Nat × Nat)) := [[(0x10040,1),(0x21020,2),(0x80000,8),(0x800,16),(0x80000,8),(0x302,4),(0x22021,2),(0x15150,1)]]
+ 
+ def C30_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+-def C30_rankPool : List Nat := [239122864, 201370952, 204553484, 241347849, 202619178, 167887278, 238235947, 68338063, 202386697, 134292747, 135511501, 67220746, 204614952, 202457422, 235028910, 135478605, 238207375, 171981232, 201567528, 235027820, 101725583, 201505034, 170110248, 67289549, 100843981, 68302122, 204517704]
++def C30_rankPool : List Nat := [239122864, 241347849, 204553484, 100843981, 238235947, 202619178, 202457422, 201370952, 101725583, 204614952, 167887278, 135478605, 171981232, 238207375, 135511501, 67220746, 134292747, 170110248, 204517704, 235027820, 68302122, 202386697, 201567528, 201505034, 235028910, 68338063, 67289549]
+ 
+ def C30_patternScore : List Nat → Bool
+-  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16] => (sum6 r16 r13 r14 r1 r4 r7 < 3) || ((sum6 r8 r10 r11 r1 r0 r6 < 3) || ((sum6 r12 r8 r15 r2 r3 r6 < 3) || ((sum6 r9 r8 r11 r5 r6 r7 < 3) || ((sum6 r10 r9 r14 r7 r1 r6 < 3) || ((sum6 r14 r13 r16 r3 r0 r5 < 3) || ((sum6 r11 r9 r12 r6 r3 r7 < 3) || ((sum6 r15 r12 r16 r5 r1 r2 < 3) || ((sum6 r9 r8 r11 r0 r1 r6 < 3) || ((sum6 r11 r8 r9 r2 r0 r4 < 3) || ((sum6 r13 r14 r15 r7 r1 r4 < 3) || ((sum6 r10 r8 r13 r3 r0 r2 < 3) || ((sum6 r8 r9 r11 r4 r3 r6 < 3) || ((sum6 r14 r10 r16 r2 r1 r6 < 3) || ((sum6 r14 r13 r16 r4 r0 r7 < 3) || ((sum6 r13 r10 r15 r6 r1 r4 < 3) || ((sum6 r15 r12 r16 r5 r3 r7 < 3) || ((sum6 r16 r13 r14 r0 r4 r5 < 3) || ((sum6 r8 r9 r11 r7 r0 r6 < 3) || ((sum6 r12 r11 r15 r4 r0 r7 < 3) || ((sum6 r15 r12 r13 r0 r1 r3 < 3) || ((sum6 r10 r8 r14 r5 r0 r6 < 3) || ((sum6 r8 r9 r11 r7 r2 r5 < 3) || ((sum6 r13 r14 r16 r5 r0 r2 < 3) || ((sum6 r13 r14 r16 r5 r0 r3 < 3) || ((sum6 r10 r9 r13 r4 r1 r2 < 3) || ((sum6 r8 r10 r12 r1 r3 r6 < 3) || (false)))))))))))))))))))))))))))
++  | [r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16] => (sum6 r16 r13 r14 r1 r4 r7 < 3) || ((sum6 r9 r8 r11 r5 r6 r7 < 3) || ((sum6 r12 r8 r15 r2 r3 r6 < 3) || ((sum6 r13 r14 r16 r5 r0 r3 < 3) || ((sum6 r11 r9 r12 r6 r3 r7 < 3) || ((sum6 r10 r9 r14 r7 r1 r6 < 3) || ((sum6 r14 r10 r16 r2 r1 r6 < 3) || ((sum6 r8 r10 r11 r1 r0 r6 < 3) || ((sum6 r15 r12 r13 r0 r1 r3 < 3) || ((sum6 r8 r9 r11 r4 r3 r6 < 3) || ((sum6 r14 r13 r16 r3 r0 r5 < 3) || ((sum6 r13 r10 r15 r6 r1 r4 < 3) || ((sum6 r16 r13 r14 r0 r4 r5 < 3) || ((sum6 r15 r12 r16 r5 r3 r7 < 3) || ((sum6 r13 r14 r15 r7 r1 r4 < 3) || ((sum6 r10 r8 r13 r3 r0 r2 < 3) || ((sum6 r11 r8 r9 r2 r0 r4 < 3) || ((sum6 r8 r9 r11 r7 r2 r5 < 3) || ((sum6 r8 r10 r12 r1 r3 r6 < 3) || ((sum6 r12 r11 r15 r4 r0 r7 < 3) || ((sum6 r10 r9 r13 r4 r1 r2 < 3) || ((sum6 r9 r8 r11 r0 r1 r6 < 3) || ((sum6 r8 r9 r11 r7 r0 r6 < 3) || ((sum6 r10 r8 r14 r5 r0 r6 < 3) || ((sum6 r14 r13 r16 r4 r0 r7 < 3) || ((sum6 r15 r12 r16 r5 r1 r2 < 3) || ((sum6 r13 r14 r16 r5 r0 r2 < 3) || (false)))))))))))))))))))))))))))
+   | masks => C30_rankPool.any (fastEntry (compactGoal 8 9) 5 C30_coords masks)
+ def C30_patternScr (s : Nat) (ws : List Nat) : Bool :=
+   if ws.length = s+1 ∧ ws.length ≤ 12 then
+@@ -4794,6 +4863,7 @@
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C25_b1 : span C25_F 127 128 = true := by decide +kernel
++theorem C26_grayGood : qGrayGood (compactGoal 9 9) C26_grayWalk = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C26_enc_goal : encL C26_f C26_rows = compactGoal 9 9 := by decide +kernel
+@@ -6084,7 +6154,7 @@
+ theorem C26_nonconstant : ∃ x y : Fin 7 → Bool, C26_f x ≠ C26_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C26_ori_run {s ws} (h : MonRun (compactGoal 9 9) s ws) :
+-    MonRun (compactGoal 9 9) s (C26_ori ws) := literalRouteOrient_run h C26_literalRoutes C26_good
++    MonRun (compactGoal 9 9) s (C26_ori ws) := qGrayNormOrbit_run h C26_grayGood
+ theorem C26_checked : ∀ s ≤ 11, ∀ j < C26_N s, C26_Z s j = true := by
+   apply certFlat_sound
+   change span C26_F 1067 0 = true

@@ -1,0 +1,35 @@
+PASS graph 0 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 1 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 2 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 3 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 4 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 5 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 6 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 7 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 8 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 9 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 10 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 11 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 12 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 13 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 14 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 15 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 16 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 17 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 18 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 19 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 20 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 21 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 22 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 23 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 24 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 25 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 26 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 27 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 28 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 29 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS graph 30 same score multiset, exact proposedorder, matching specialized terms; data/checks/semantics unchanged
+PASS cumulative Graywalk covers exactly old48 basisactions; each generatorvalid/goal fixed; generichelpers exact; one-state probe scope verified.
+PASS fullv10 static integration, all27783 finite-state checks and exact31conj statement unchanged. Bytes 515826 remaining512KiB 8462
+Probe SHA256 3c1067ae29383ce567b65bb0675491d2470e7720f12a1e16405088f7bff3ef21
+Scope: source review only. Fullv10 and probe compilation/checker verdicts are separate and not claimed.

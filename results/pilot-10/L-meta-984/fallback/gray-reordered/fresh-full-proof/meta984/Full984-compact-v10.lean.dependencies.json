@@ -1,0 +1,9541 @@
+[
+  {
+    "name": "C0_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_S",
+    "dependencies": [
+      "C0_counts",
+      "C0_initial",
+      "C0_patterns",
+      "C0_records",
+      "C0_specs",
+      "C0_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C0_idx",
+    "dependencies": [
+      "C0_counts",
+      "C0_initial",
+      "C0_seeds",
+      "C0_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C0_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_patternScore",
+    "dependencies": [
+      "C0_coords",
+      "C0_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C0_patternScr",
+    "dependencies": [
+      "C0_coords",
+      "C0_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C0_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_xs",
+    "dependencies": [
+      "C0_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C0_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C0_ori",
+    "dependencies": [
+      "C0_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C0_Z",
+    "dependencies": [
+      "C0_N",
+      "C0_S",
+      "C0_idx",
+      "C0_ori",
+      "C0_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C0_F",
+    "dependencies": [
+      "C0_N",
+      "C0_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C1_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_S",
+    "dependencies": [
+      "C1_counts",
+      "C1_initial",
+      "C1_patterns",
+      "C1_records",
+      "C1_specs",
+      "C1_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C1_idx",
+    "dependencies": [
+      "C1_counts",
+      "C1_initial",
+      "C1_seeds",
+      "C1_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C1_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_patternScore",
+    "dependencies": [
+      "C1_coords",
+      "C1_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C1_patternScr",
+    "dependencies": [
+      "C1_coords",
+      "C1_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C1_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_xs",
+    "dependencies": [
+      "C1_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C1_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C1_ori",
+    "dependencies": [
+      "C1_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C1_Z",
+    "dependencies": [
+      "C1_N",
+      "C1_S",
+      "C1_idx",
+      "C1_ori",
+      "C1_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C1_F",
+    "dependencies": [
+      "C1_N",
+      "C1_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C2_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_S",
+    "dependencies": [
+      "C2_counts",
+      "C2_initial",
+      "C2_patterns",
+      "C2_records",
+      "C2_specs",
+      "C2_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C2_idx",
+    "dependencies": [
+      "C2_counts",
+      "C2_initial",
+      "C2_seeds",
+      "C2_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C2_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_patternScore",
+    "dependencies": [
+      "C2_coords",
+      "C2_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C2_patternScr",
+    "dependencies": [
+      "C2_coords",
+      "C2_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C2_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_xs",
+    "dependencies": [
+      "C2_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C2_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C2_ori",
+    "dependencies": [
+      "C2_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C2_Z",
+    "dependencies": [
+      "C2_N",
+      "C2_S",
+      "C2_idx",
+      "C2_ori",
+      "C2_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C2_F",
+    "dependencies": [
+      "C2_N",
+      "C2_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C3_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_S",
+    "dependencies": [
+      "C3_counts",
+      "C3_initial",
+      "C3_patterns",
+      "C3_records",
+      "C3_specs",
+      "C3_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C3_idx",
+    "dependencies": [
+      "C3_counts",
+      "C3_initial",
+      "C3_seeds",
+      "C3_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C3_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_patternScore",
+    "dependencies": [
+      "C3_coords",
+      "C3_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C3_patternScr",
+    "dependencies": [
+      "C3_coords",
+      "C3_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C3_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_xs",
+    "dependencies": [
+      "C3_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C3_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C3_ori",
+    "dependencies": [
+      "C3_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C3_Z",
+    "dependencies": [
+      "C3_N",
+      "C3_S",
+      "C3_idx",
+      "C3_ori",
+      "C3_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C3_F",
+    "dependencies": [
+      "C3_N",
+      "C3_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C4_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_S",
+    "dependencies": [
+      "C4_counts",
+      "C4_initial",
+      "C4_patterns",
+      "C4_records",
+      "C4_specs",
+      "C4_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C4_idx",
+    "dependencies": [
+      "C4_counts",
+      "C4_initial",
+      "C4_seeds",
+      "C4_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C4_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_patternScore",
+    "dependencies": [
+      "C4_coords",
+      "C4_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C4_patternScr",
+    "dependencies": [
+      "C4_coords",
+      "C4_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C4_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_xs",
+    "dependencies": [
+      "C4_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C4_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C4_ori",
+    "dependencies": [
+      "C4_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C4_Z",
+    "dependencies": [
+      "C4_N",
+      "C4_S",
+      "C4_idx",
+      "C4_ori",
+      "C4_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C4_F",
+    "dependencies": [
+      "C4_N",
+      "C4_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C5_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_S",
+    "dependencies": [
+      "C5_counts",
+      "C5_initial",
+      "C5_patterns",
+      "C5_records",
+      "C5_specs",
+      "C5_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C5_idx",
+    "dependencies": [
+      "C5_counts",
+      "C5_initial",
+      "C5_seeds",
+      "C5_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C5_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_patternScore",
+    "dependencies": [
+      "C5_coords",
+      "C5_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C5_patternScr",
+    "dependencies": [
+      "C5_coords",
+      "C5_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C5_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_xs",
+    "dependencies": [
+      "C5_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C5_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C5_ori",
+    "dependencies": [
+      "C5_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C5_Z",
+    "dependencies": [
+      "C5_N",
+      "C5_S",
+      "C5_idx",
+      "C5_ori",
+      "C5_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C5_F",
+    "dependencies": [
+      "C5_N",
+      "C5_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C6_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_S",
+    "dependencies": [
+      "C6_counts",
+      "C6_initial",
+      "C6_patterns",
+      "C6_records",
+      "C6_specs",
+      "C6_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C6_idx",
+    "dependencies": [
+      "C6_counts",
+      "C6_initial",
+      "C6_seeds",
+      "C6_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C6_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_patternScore",
+    "dependencies": [
+      "C6_coords",
+      "C6_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C6_patternScr",
+    "dependencies": [
+      "C6_coords",
+      "C6_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C6_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_xs",
+    "dependencies": [
+      "C6_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C6_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C6_ori",
+    "dependencies": [
+      "C6_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C6_Z",
+    "dependencies": [
+      "C6_N",
+      "C6_S",
+      "C6_idx",
+      "C6_ori",
+      "C6_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C6_F",
+    "dependencies": [
+      "C6_N",
+      "C6_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C7_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_S",
+    "dependencies": [
+      "C7_counts",
+      "C7_initial",
+      "C7_patterns",
+      "C7_records",
+      "C7_specs",
+      "C7_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C7_idx",
+    "dependencies": [
+      "C7_counts",
+      "C7_initial",
+      "C7_seeds",
+      "C7_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C7_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_patternScore",
+    "dependencies": [
+      "C7_coords",
+      "C7_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C7_patternScr",
+    "dependencies": [
+      "C7_coords",
+      "C7_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C7_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_xs",
+    "dependencies": [
+      "C7_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C7_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C7_ori",
+    "dependencies": [
+      "C7_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C7_Z",
+    "dependencies": [
+      "C7_N",
+      "C7_S",
+      "C7_idx",
+      "C7_ori",
+      "C7_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C7_F",
+    "dependencies": [
+      "C7_N",
+      "C7_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C8_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_S",
+    "dependencies": [
+      "C8_counts",
+      "C8_initial",
+      "C8_patterns",
+      "C8_records",
+      "C8_specs",
+      "C8_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C8_idx",
+    "dependencies": [
+      "C8_counts",
+      "C8_initial",
+      "C8_seeds",
+      "C8_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C8_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_patternScore",
+    "dependencies": [
+      "C8_coords",
+      "C8_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C8_patternScr",
+    "dependencies": [
+      "C8_coords",
+      "C8_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C8_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_xs",
+    "dependencies": [
+      "C8_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C8_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C8_ori",
+    "dependencies": [
+      "C8_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C8_Z",
+    "dependencies": [
+      "C8_N",
+      "C8_S",
+      "C8_idx",
+      "C8_ori",
+      "C8_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C8_F",
+    "dependencies": [
+      "C8_N",
+      "C8_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C9_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_S",
+    "dependencies": [
+      "C9_counts",
+      "C9_initial",
+      "C9_patterns",
+      "C9_records",
+      "C9_specs",
+      "C9_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C9_idx",
+    "dependencies": [
+      "C9_counts",
+      "C9_initial",
+      "C9_seeds",
+      "C9_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C9_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_patternScore",
+    "dependencies": [
+      "C9_coords",
+      "C9_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C9_patternScr",
+    "dependencies": [
+      "C9_coords",
+      "C9_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C9_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_xs",
+    "dependencies": [
+      "C9_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C9_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C9_ori",
+    "dependencies": [
+      "C9_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C9_Z",
+    "dependencies": [
+      "C9_N",
+      "C9_S",
+      "C9_idx",
+      "C9_ori",
+      "C9_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C9_F",
+    "dependencies": [
+      "C9_N",
+      "C9_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C10_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_S",
+    "dependencies": [
+      "C10_counts",
+      "C10_initial",
+      "C10_patterns",
+      "C10_records",
+      "C10_specs",
+      "C10_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C10_idx",
+    "dependencies": [
+      "C10_counts",
+      "C10_initial",
+      "C10_seeds",
+      "C10_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C10_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_patternScore",
+    "dependencies": [
+      "C10_coords",
+      "C10_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C10_patternScr",
+    "dependencies": [
+      "C10_coords",
+      "C10_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C10_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_xs",
+    "dependencies": [
+      "C10_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C10_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C10_ori",
+    "dependencies": [
+      "C10_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C10_Z",
+    "dependencies": [
+      "C10_N",
+      "C10_S",
+      "C10_idx",
+      "C10_ori",
+      "C10_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C10_F",
+    "dependencies": [
+      "C10_N",
+      "C10_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C11_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_S",
+    "dependencies": [
+      "C11_counts",
+      "C11_initial",
+      "C11_patterns",
+      "C11_records",
+      "C11_specs",
+      "C11_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C11_idx",
+    "dependencies": [
+      "C11_counts",
+      "C11_initial",
+      "C11_seeds",
+      "C11_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C11_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_patternScore",
+    "dependencies": [
+      "C11_coords",
+      "C11_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C11_patternScr",
+    "dependencies": [
+      "C11_coords",
+      "C11_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C11_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_xs",
+    "dependencies": [
+      "C11_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C11_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C11_ori",
+    "dependencies": [
+      "C11_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C11_Z",
+    "dependencies": [
+      "C11_N",
+      "C11_S",
+      "C11_idx",
+      "C11_ori",
+      "C11_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C11_F",
+    "dependencies": [
+      "C11_N",
+      "C11_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C12_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_S",
+    "dependencies": [
+      "C12_counts",
+      "C12_initial",
+      "C12_patterns",
+      "C12_records",
+      "C12_specs",
+      "C12_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C12_idx",
+    "dependencies": [
+      "C12_counts",
+      "C12_initial",
+      "C12_seeds",
+      "C12_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C12_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_patternScore",
+    "dependencies": [
+      "C12_coords",
+      "C12_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C12_patternScr",
+    "dependencies": [
+      "C12_coords",
+      "C12_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C12_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_xs",
+    "dependencies": [
+      "C12_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C12_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C12_ori",
+    "dependencies": [
+      "C12_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C12_Z",
+    "dependencies": [
+      "C12_N",
+      "C12_S",
+      "C12_idx",
+      "C12_ori",
+      "C12_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C12_F",
+    "dependencies": [
+      "C12_N",
+      "C12_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C13_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_S",
+    "dependencies": [
+      "C13_counts",
+      "C13_initial",
+      "C13_patterns",
+      "C13_records",
+      "C13_specs",
+      "C13_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C13_idx",
+    "dependencies": [
+      "C13_counts",
+      "C13_initial",
+      "C13_seeds",
+      "C13_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C13_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_patternScore",
+    "dependencies": [
+      "C13_coords",
+      "C13_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C13_patternScr",
+    "dependencies": [
+      "C13_coords",
+      "C13_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C13_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_xs",
+    "dependencies": [
+      "C13_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C13_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C13_ori",
+    "dependencies": [
+      "C13_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C13_Z",
+    "dependencies": [
+      "C13_N",
+      "C13_S",
+      "C13_idx",
+      "C13_ori",
+      "C13_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C13_F",
+    "dependencies": [
+      "C13_N",
+      "C13_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C14_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_S",
+    "dependencies": [
+      "C14_counts",
+      "C14_initial",
+      "C14_patterns",
+      "C14_records",
+      "C14_specs",
+      "C14_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C14_idx",
+    "dependencies": [
+      "C14_counts",
+      "C14_initial",
+      "C14_seeds",
+      "C14_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C14_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_patternScore",
+    "dependencies": [
+      "C14_coords",
+      "C14_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C14_patternScr",
+    "dependencies": [
+      "C14_coords",
+      "C14_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C14_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_xs",
+    "dependencies": [
+      "C14_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C14_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C14_ori",
+    "dependencies": [
+      "C14_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C14_Z",
+    "dependencies": [
+      "C14_N",
+      "C14_S",
+      "C14_idx",
+      "C14_ori",
+      "C14_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C14_F",
+    "dependencies": [
+      "C14_N",
+      "C14_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C15_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_S",
+    "dependencies": [
+      "C15_counts",
+      "C15_initial",
+      "C15_patterns",
+      "C15_records",
+      "C15_specs",
+      "C15_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C15_idx",
+    "dependencies": [
+      "C15_counts",
+      "C15_initial",
+      "C15_seeds",
+      "C15_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C15_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_patternScore",
+    "dependencies": [
+      "C15_coords",
+      "C15_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C15_patternScr",
+    "dependencies": [
+      "C15_coords",
+      "C15_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C15_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_xs",
+    "dependencies": [
+      "C15_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C15_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C15_ori",
+    "dependencies": [
+      "C15_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C15_Z",
+    "dependencies": [
+      "C15_N",
+      "C15_S",
+      "C15_idx",
+      "C15_ori",
+      "C15_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C15_F",
+    "dependencies": [
+      "C15_N",
+      "C15_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C16_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_S",
+    "dependencies": [
+      "C16_counts",
+      "C16_initial",
+      "C16_patterns",
+      "C16_records",
+      "C16_specs",
+      "C16_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C16_idx",
+    "dependencies": [
+      "C16_counts",
+      "C16_initial",
+      "C16_seeds",
+      "C16_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C16_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_patternScore",
+    "dependencies": [
+      "C16_coords",
+      "C16_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C16_patternScr",
+    "dependencies": [
+      "C16_coords",
+      "C16_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C16_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_xs",
+    "dependencies": [
+      "C16_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C16_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C16_ori",
+    "dependencies": [
+      "C16_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C16_Z",
+    "dependencies": [
+      "C16_N",
+      "C16_S",
+      "C16_idx",
+      "C16_ori",
+      "C16_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C16_F",
+    "dependencies": [
+      "C16_N",
+      "C16_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C17_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_S",
+    "dependencies": [
+      "C17_counts",
+      "C17_initial",
+      "C17_patterns",
+      "C17_records",
+      "C17_specs",
+      "C17_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C17_idx",
+    "dependencies": [
+      "C17_counts",
+      "C17_initial",
+      "C17_seeds",
+      "C17_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C17_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_patternScore",
+    "dependencies": [
+      "C17_coords",
+      "C17_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C17_patternScr",
+    "dependencies": [
+      "C17_coords",
+      "C17_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C17_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_xs",
+    "dependencies": [
+      "C17_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C17_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C17_ori",
+    "dependencies": [
+      "C17_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C17_Z",
+    "dependencies": [
+      "C17_N",
+      "C17_S",
+      "C17_idx",
+      "C17_ori",
+      "C17_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C17_F",
+    "dependencies": [
+      "C17_N",
+      "C17_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C18_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_S",
+    "dependencies": [
+      "C18_counts",
+      "C18_initial",
+      "C18_patterns",
+      "C18_records",
+      "C18_specs",
+      "C18_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C18_idx",
+    "dependencies": [
+      "C18_counts",
+      "C18_initial",
+      "C18_seeds",
+      "C18_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C18_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_patternScore",
+    "dependencies": [
+      "C18_coords",
+      "C18_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C18_patternScr",
+    "dependencies": [
+      "C18_coords",
+      "C18_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C18_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_xs",
+    "dependencies": [
+      "C18_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C18_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C18_ori",
+    "dependencies": [
+      "C18_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C18_Z",
+    "dependencies": [
+      "C18_N",
+      "C18_S",
+      "C18_idx",
+      "C18_ori",
+      "C18_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C18_F",
+    "dependencies": [
+      "C18_N",
+      "C18_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C19_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_S",
+    "dependencies": [
+      "C19_counts",
+      "C19_initial",
+      "C19_patterns",
+      "C19_records",
+      "C19_specs",
+      "C19_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C19_idx",
+    "dependencies": [
+      "C19_counts",
+      "C19_initial",
+      "C19_seeds",
+      "C19_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C19_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_patternScore",
+    "dependencies": [
+      "C19_coords",
+      "C19_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C19_patternScr",
+    "dependencies": [
+      "C19_coords",
+      "C19_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C19_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_xs",
+    "dependencies": [
+      "C19_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C19_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C19_ori",
+    "dependencies": [
+      "C19_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C19_Z",
+    "dependencies": [
+      "C19_N",
+      "C19_S",
+      "C19_idx",
+      "C19_ori",
+      "C19_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C19_F",
+    "dependencies": [
+      "C19_N",
+      "C19_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C20_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_S",
+    "dependencies": [
+      "C20_counts",
+      "C20_initial",
+      "C20_patterns",
+      "C20_records",
+      "C20_specs",
+      "C20_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C20_idx",
+    "dependencies": [
+      "C20_counts",
+      "C20_initial",
+      "C20_seeds",
+      "C20_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C20_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_patternScore",
+    "dependencies": [
+      "C20_coords",
+      "C20_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C20_patternScr",
+    "dependencies": [
+      "C20_coords",
+      "C20_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C20_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_xs",
+    "dependencies": [
+      "C20_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C20_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C20_ori",
+    "dependencies": [
+      "C20_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C20_Z",
+    "dependencies": [
+      "C20_N",
+      "C20_S",
+      "C20_idx",
+      "C20_ori",
+      "C20_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C20_F",
+    "dependencies": [
+      "C20_N",
+      "C20_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C21_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_S",
+    "dependencies": [
+      "C21_counts",
+      "C21_initial",
+      "C21_patterns",
+      "C21_records",
+      "C21_specs",
+      "C21_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C21_idx",
+    "dependencies": [
+      "C21_counts",
+      "C21_initial",
+      "C21_seeds",
+      "C21_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C21_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_patternScore",
+    "dependencies": [
+      "C21_coords",
+      "C21_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C21_patternScr",
+    "dependencies": [
+      "C21_coords",
+      "C21_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C21_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_xs",
+    "dependencies": [
+      "C21_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C21_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C21_ori",
+    "dependencies": [
+      "C21_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C21_Z",
+    "dependencies": [
+      "C21_N",
+      "C21_S",
+      "C21_idx",
+      "C21_ori",
+      "C21_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C21_F",
+    "dependencies": [
+      "C21_N",
+      "C21_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C22_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_S",
+    "dependencies": [
+      "C22_counts",
+      "C22_initial",
+      "C22_patterns",
+      "C22_records",
+      "C22_specs",
+      "C22_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C22_idx",
+    "dependencies": [
+      "C22_counts",
+      "C22_initial",
+      "C22_seeds",
+      "C22_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C22_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_patternScore",
+    "dependencies": [
+      "C22_coords",
+      "C22_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C22_patternScr",
+    "dependencies": [
+      "C22_coords",
+      "C22_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C22_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_xs",
+    "dependencies": [
+      "C22_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C22_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C22_ori",
+    "dependencies": [
+      "C22_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C22_Z",
+    "dependencies": [
+      "C22_N",
+      "C22_S",
+      "C22_idx",
+      "C22_ori",
+      "C22_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C22_F",
+    "dependencies": [
+      "C22_N",
+      "C22_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C23_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_S",
+    "dependencies": [
+      "C23_counts",
+      "C23_initial",
+      "C23_patterns",
+      "C23_records",
+      "C23_specs",
+      "C23_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C23_idx",
+    "dependencies": [
+      "C23_counts",
+      "C23_initial",
+      "C23_seeds",
+      "C23_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C23_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_patternScore",
+    "dependencies": [
+      "C23_coords",
+      "C23_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C23_patternScr",
+    "dependencies": [
+      "C23_coords",
+      "C23_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C23_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_xs",
+    "dependencies": [
+      "C23_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C23_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C23_ori",
+    "dependencies": [
+      "C23_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C23_Z",
+    "dependencies": [
+      "C23_N",
+      "C23_S",
+      "C23_idx",
+      "C23_ori",
+      "C23_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C23_F",
+    "dependencies": [
+      "C23_N",
+      "C23_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C24_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_S",
+    "dependencies": [
+      "C24_counts",
+      "C24_initial",
+      "C24_patterns",
+      "C24_records",
+      "C24_specs",
+      "C24_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C24_idx",
+    "dependencies": [
+      "C24_counts",
+      "C24_initial",
+      "C24_seeds",
+      "C24_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C24_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_patternScore",
+    "dependencies": [
+      "C24_coords",
+      "C24_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C24_patternScr",
+    "dependencies": [
+      "C24_coords",
+      "C24_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C24_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_xs",
+    "dependencies": [
+      "C24_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C24_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C24_ori",
+    "dependencies": [
+      "C24_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C24_Z",
+    "dependencies": [
+      "C24_N",
+      "C24_S",
+      "C24_idx",
+      "C24_ori",
+      "C24_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C24_F",
+    "dependencies": [
+      "C24_N",
+      "C24_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C25_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_S",
+    "dependencies": [
+      "C25_counts",
+      "C25_initial",
+      "C25_patterns",
+      "C25_records",
+      "C25_specs",
+      "C25_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C25_idx",
+    "dependencies": [
+      "C25_counts",
+      "C25_initial",
+      "C25_seeds",
+      "C25_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C25_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_patternScore",
+    "dependencies": [
+      "C25_coords",
+      "C25_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C25_patternScr",
+    "dependencies": [
+      "C25_coords",
+      "C25_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C25_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_xs",
+    "dependencies": [
+      "C25_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C25_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C25_ori",
+    "dependencies": [
+      "C25_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C25_Z",
+    "dependencies": [
+      "C25_N",
+      "C25_S",
+      "C25_idx",
+      "C25_ori",
+      "C25_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C25_F",
+    "dependencies": [
+      "C25_N",
+      "C25_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C26_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_S",
+    "dependencies": [
+      "C26_counts",
+      "C26_initial",
+      "C26_patterns",
+      "C26_records",
+      "C26_specs",
+      "C26_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C26_idx",
+    "dependencies": [
+      "C26_counts",
+      "C26_initial",
+      "C26_seeds",
+      "C26_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C26_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_grayRoute8",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_grayRoute2",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_grayRoute1",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_grayRoute16",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_grayRoute4",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_grayWalk",
+    "dependencies": [
+      "C26_grayRoute1",
+      "C26_grayRoute16",
+      "C26_grayRoute2",
+      "C26_grayRoute4",
+      "C26_grayRoute8"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C26_patternScore",
+    "dependencies": [
+      "C26_coords",
+      "C26_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C26_patternScr",
+    "dependencies": [
+      "C26_coords",
+      "C26_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C26_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_xs",
+    "dependencies": [
+      "C26_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C26_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C26_ori",
+    "dependencies": [
+      "C26_grayWalk"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C26_Z",
+    "dependencies": [
+      "C26_N",
+      "C26_S",
+      "C26_idx",
+      "C26_ori",
+      "C26_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C26_F",
+    "dependencies": [
+      "C26_N",
+      "C26_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C27_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_S",
+    "dependencies": [
+      "C27_counts",
+      "C27_initial",
+      "C27_patterns",
+      "C27_records",
+      "C27_specs",
+      "C27_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C27_idx",
+    "dependencies": [
+      "C27_counts",
+      "C27_initial",
+      "C27_seeds",
+      "C27_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C27_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_patternScore",
+    "dependencies": [
+      "C27_coords",
+      "C27_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C27_patternScr",
+    "dependencies": [
+      "C27_coords",
+      "C27_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C27_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_xs",
+    "dependencies": [
+      "C27_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C27_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C27_ori",
+    "dependencies": [
+      "C27_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C27_Z",
+    "dependencies": [
+      "C27_N",
+      "C27_S",
+      "C27_idx",
+      "C27_ori",
+      "C27_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C27_F",
+    "dependencies": [
+      "C27_N",
+      "C27_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C28_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_S",
+    "dependencies": [
+      "C28_counts",
+      "C28_initial",
+      "C28_patterns",
+      "C28_records",
+      "C28_specs",
+      "C28_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C28_idx",
+    "dependencies": [
+      "C28_counts",
+      "C28_initial",
+      "C28_seeds",
+      "C28_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C28_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_patternScore",
+    "dependencies": [
+      "C28_coords",
+      "C28_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C28_patternScr",
+    "dependencies": [
+      "C28_coords",
+      "C28_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C28_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_xs",
+    "dependencies": [
+      "C28_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C28_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C28_ori",
+    "dependencies": [
+      "C28_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C28_Z",
+    "dependencies": [
+      "C28_N",
+      "C28_S",
+      "C28_idx",
+      "C28_ori",
+      "C28_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C28_F",
+    "dependencies": [
+      "C28_N",
+      "C28_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C29_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_S",
+    "dependencies": [
+      "C29_counts",
+      "C29_initial",
+      "C29_patterns",
+      "C29_records",
+      "C29_specs",
+      "C29_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C29_idx",
+    "dependencies": [
+      "C29_counts",
+      "C29_initial",
+      "C29_seeds",
+      "C29_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C29_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_patternScore",
+    "dependencies": [
+      "C29_coords",
+      "C29_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C29_patternScr",
+    "dependencies": [
+      "C29_coords",
+      "C29_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C29_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_xs",
+    "dependencies": [
+      "C29_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C29_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C29_ori",
+    "dependencies": [
+      "C29_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C29_Z",
+    "dependencies": [
+      "C29_N",
+      "C29_S",
+      "C29_idx",
+      "C29_ori",
+      "C29_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C29_F",
+    "dependencies": [
+      "C29_N",
+      "C29_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C30_initial",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_values",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_patterns",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_N",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_counts",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_specs",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_seeds",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_records",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_S",
+    "dependencies": [
+      "C30_counts",
+      "C30_initial",
+      "C30_patterns",
+      "C30_records",
+      "C30_specs",
+      "C30_values"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C30_idx",
+    "dependencies": [
+      "C30_counts",
+      "C30_initial",
+      "C30_seeds",
+      "C30_specs"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C30_literalRoutes",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_coords",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_rankPool",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_patternScore",
+    "dependencies": [
+      "C30_coords",
+      "C30_rankPool"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C30_patternScr",
+    "dependencies": [
+      "C30_coords",
+      "C30_patternScore"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C30_rows",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_xs",
+    "dependencies": [
+      "C30_rows"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C30_f",
+    "dependencies": [],
+    "group": 0
+  },
+  {
+    "name": "C30_ori",
+    "dependencies": [
+      "C30_literalRoutes"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C30_Z",
+    "dependencies": [
+      "C30_N",
+      "C30_S",
+      "C30_idx",
+      "C30_ori",
+      "C30_patternScr"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C30_F",
+    "dependencies": [
+      "C30_N",
+      "C30_Z"
+    ],
+    "group": 0
+  },
+  {
+    "name": "C0_enc_goal",
+    "dependencies": [
+      "C0_f",
+      "C0_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C0_proper",
+    "dependencies": [
+      "C0_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C0_initial_perm",
+    "dependencies": [
+      "C0_S",
+      "C0_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C0_good",
+    "dependencies": [
+      "C0_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C0_b0",
+    "dependencies": [
+      "C0_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C0_b1",
+    "dependencies": [
+      "C0_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C1_enc_goal",
+    "dependencies": [
+      "C1_f",
+      "C1_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C1_proper",
+    "dependencies": [
+      "C1_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C1_initial_perm",
+    "dependencies": [
+      "C1_S",
+      "C1_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C1_good",
+    "dependencies": [
+      "C1_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C1_b0",
+    "dependencies": [
+      "C1_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C2_enc_goal",
+    "dependencies": [
+      "C2_f",
+      "C2_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C2_proper",
+    "dependencies": [
+      "C2_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C2_initial_perm",
+    "dependencies": [
+      "C2_S",
+      "C2_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C2_good",
+    "dependencies": [
+      "C2_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C2_b0",
+    "dependencies": [
+      "C2_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C3_enc_goal",
+    "dependencies": [
+      "C3_f",
+      "C3_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C3_proper",
+    "dependencies": [
+      "C3_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C3_initial_perm",
+    "dependencies": [
+      "C3_S",
+      "C3_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C3_good",
+    "dependencies": [
+      "C3_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C3_b0",
+    "dependencies": [
+      "C3_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C4_enc_goal",
+    "dependencies": [
+      "C4_f",
+      "C4_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C4_proper",
+    "dependencies": [
+      "C4_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C4_initial_perm",
+    "dependencies": [
+      "C4_S",
+      "C4_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C4_good",
+    "dependencies": [
+      "C4_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C4_b0",
+    "dependencies": [
+      "C4_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C4_b1",
+    "dependencies": [
+      "C4_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C5_enc_goal",
+    "dependencies": [
+      "C5_f",
+      "C5_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C5_proper",
+    "dependencies": [
+      "C5_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C5_initial_perm",
+    "dependencies": [
+      "C5_S",
+      "C5_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C5_good",
+    "dependencies": [
+      "C5_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C5_b0",
+    "dependencies": [
+      "C5_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C6_enc_goal",
+    "dependencies": [
+      "C6_f",
+      "C6_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C6_proper",
+    "dependencies": [
+      "C6_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C6_initial_perm",
+    "dependencies": [
+      "C6_S",
+      "C6_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C6_good",
+    "dependencies": [
+      "C6_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C6_b0",
+    "dependencies": [
+      "C6_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C7_enc_goal",
+    "dependencies": [
+      "C7_f",
+      "C7_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C7_proper",
+    "dependencies": [
+      "C7_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C7_initial_perm",
+    "dependencies": [
+      "C7_S",
+      "C7_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C7_good",
+    "dependencies": [
+      "C7_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C7_b0",
+    "dependencies": [
+      "C7_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C8_enc_goal",
+    "dependencies": [
+      "C8_f",
+      "C8_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C8_proper",
+    "dependencies": [
+      "C8_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C8_initial_perm",
+    "dependencies": [
+      "C8_S",
+      "C8_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C8_good",
+    "dependencies": [
+      "C8_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C8_b0",
+    "dependencies": [
+      "C8_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C9_enc_goal",
+    "dependencies": [
+      "C9_f",
+      "C9_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C9_proper",
+    "dependencies": [
+      "C9_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C9_initial_perm",
+    "dependencies": [
+      "C9_S",
+      "C9_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C9_good",
+    "dependencies": [
+      "C9_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C9_b0",
+    "dependencies": [
+      "C9_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C10_enc_goal",
+    "dependencies": [
+      "C10_f",
+      "C10_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C10_proper",
+    "dependencies": [
+      "C10_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C10_initial_perm",
+    "dependencies": [
+      "C10_S",
+      "C10_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C10_good",
+    "dependencies": [
+      "C10_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C10_b0",
+    "dependencies": [
+      "C10_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C10_b1",
+    "dependencies": [
+      "C10_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C11_enc_goal",
+    "dependencies": [
+      "C11_f",
+      "C11_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C11_proper",
+    "dependencies": [
+      "C11_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C11_initial_perm",
+    "dependencies": [
+      "C11_S",
+      "C11_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C11_good",
+    "dependencies": [
+      "C11_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C11_b0",
+    "dependencies": [
+      "C11_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C11_b1",
+    "dependencies": [
+      "C11_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C11_b2",
+    "dependencies": [
+      "C11_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C11_b3",
+    "dependencies": [
+      "C11_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C11_b4",
+    "dependencies": [
+      "C11_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C12_enc_goal",
+    "dependencies": [
+      "C12_f",
+      "C12_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C12_proper",
+    "dependencies": [
+      "C12_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C12_initial_perm",
+    "dependencies": [
+      "C12_S",
+      "C12_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C12_good",
+    "dependencies": [
+      "C12_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C12_b0",
+    "dependencies": [
+      "C12_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C12_b1",
+    "dependencies": [
+      "C12_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_enc_goal",
+    "dependencies": [
+      "C13_f",
+      "C13_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_proper",
+    "dependencies": [
+      "C13_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_initial_perm",
+    "dependencies": [
+      "C13_S",
+      "C13_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_good",
+    "dependencies": [
+      "C13_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_b0",
+    "dependencies": [
+      "C13_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_b1",
+    "dependencies": [
+      "C13_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_b2",
+    "dependencies": [
+      "C13_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_b3",
+    "dependencies": [
+      "C13_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_b4",
+    "dependencies": [
+      "C13_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_b5",
+    "dependencies": [
+      "C13_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_b6",
+    "dependencies": [
+      "C13_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_b7",
+    "dependencies": [
+      "C13_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C13_b8",
+    "dependencies": [
+      "C13_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C14_enc_goal",
+    "dependencies": [
+      "C14_f",
+      "C14_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C14_proper",
+    "dependencies": [
+      "C14_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C14_initial_perm",
+    "dependencies": [
+      "C14_S",
+      "C14_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C14_good",
+    "dependencies": [
+      "C14_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C14_b0",
+    "dependencies": [
+      "C14_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_enc_goal",
+    "dependencies": [
+      "C15_f",
+      "C15_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_proper",
+    "dependencies": [
+      "C15_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_initial_perm",
+    "dependencies": [
+      "C15_S",
+      "C15_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_good",
+    "dependencies": [
+      "C15_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_b0",
+    "dependencies": [
+      "C15_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_b1",
+    "dependencies": [
+      "C15_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_b2",
+    "dependencies": [
+      "C15_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_b3",
+    "dependencies": [
+      "C15_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_b4",
+    "dependencies": [
+      "C15_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_b5",
+    "dependencies": [
+      "C15_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_b6",
+    "dependencies": [
+      "C15_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_b7",
+    "dependencies": [
+      "C15_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_b8",
+    "dependencies": [
+      "C15_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C15_b9",
+    "dependencies": [
+      "C15_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C16_enc_goal",
+    "dependencies": [
+      "C16_f",
+      "C16_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C16_proper",
+    "dependencies": [
+      "C16_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C16_initial_perm",
+    "dependencies": [
+      "C16_S",
+      "C16_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C16_good",
+    "dependencies": [
+      "C16_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C16_b0",
+    "dependencies": [
+      "C16_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C16_b1",
+    "dependencies": [
+      "C16_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C17_enc_goal",
+    "dependencies": [
+      "C17_f",
+      "C17_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C17_proper",
+    "dependencies": [
+      "C17_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C17_initial_perm",
+    "dependencies": [
+      "C17_S",
+      "C17_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C17_good",
+    "dependencies": [
+      "C17_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C17_b0",
+    "dependencies": [
+      "C17_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C17_b1",
+    "dependencies": [
+      "C17_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C17_b2",
+    "dependencies": [
+      "C17_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C17_b3",
+    "dependencies": [
+      "C17_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C17_b4",
+    "dependencies": [
+      "C17_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C17_b5",
+    "dependencies": [
+      "C17_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C17_b6",
+    "dependencies": [
+      "C17_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C17_b7",
+    "dependencies": [
+      "C17_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C18_enc_goal",
+    "dependencies": [
+      "C18_f",
+      "C18_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C18_proper",
+    "dependencies": [
+      "C18_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C18_initial_perm",
+    "dependencies": [
+      "C18_S",
+      "C18_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C18_good",
+    "dependencies": [
+      "C18_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C18_b0",
+    "dependencies": [
+      "C18_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C18_b1",
+    "dependencies": [
+      "C18_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C18_b2",
+    "dependencies": [
+      "C18_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C18_b3",
+    "dependencies": [
+      "C18_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C19_enc_goal",
+    "dependencies": [
+      "C19_f",
+      "C19_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C19_proper",
+    "dependencies": [
+      "C19_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C19_initial_perm",
+    "dependencies": [
+      "C19_S",
+      "C19_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C19_good",
+    "dependencies": [
+      "C19_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C19_b0",
+    "dependencies": [
+      "C19_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C19_b1",
+    "dependencies": [
+      "C19_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C19_b2",
+    "dependencies": [
+      "C19_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C19_b3",
+    "dependencies": [
+      "C19_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C19_b4",
+    "dependencies": [
+      "C19_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C19_b5",
+    "dependencies": [
+      "C19_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C19_b6",
+    "dependencies": [
+      "C19_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_enc_goal",
+    "dependencies": [
+      "C20_f",
+      "C20_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_proper",
+    "dependencies": [
+      "C20_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_initial_perm",
+    "dependencies": [
+      "C20_S",
+      "C20_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_good",
+    "dependencies": [
+      "C20_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_b0",
+    "dependencies": [
+      "C20_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_b1",
+    "dependencies": [
+      "C20_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_b2",
+    "dependencies": [
+      "C20_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_b3",
+    "dependencies": [
+      "C20_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_b4",
+    "dependencies": [
+      "C20_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_b5",
+    "dependencies": [
+      "C20_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_b6",
+    "dependencies": [
+      "C20_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_b7",
+    "dependencies": [
+      "C20_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_b8",
+    "dependencies": [
+      "C20_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_b9",
+    "dependencies": [
+      "C20_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_b10",
+    "dependencies": [
+      "C20_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C20_b11",
+    "dependencies": [
+      "C20_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_enc_goal",
+    "dependencies": [
+      "C21_f",
+      "C21_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_proper",
+    "dependencies": [
+      "C21_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_initial_perm",
+    "dependencies": [
+      "C21_S",
+      "C21_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_good",
+    "dependencies": [
+      "C21_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_b0",
+    "dependencies": [
+      "C21_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_b1",
+    "dependencies": [
+      "C21_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_b2",
+    "dependencies": [
+      "C21_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_b3",
+    "dependencies": [
+      "C21_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_b4",
+    "dependencies": [
+      "C21_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_b5",
+    "dependencies": [
+      "C21_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_b6",
+    "dependencies": [
+      "C21_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_b7",
+    "dependencies": [
+      "C21_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_b8",
+    "dependencies": [
+      "C21_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C21_b9",
+    "dependencies": [
+      "C21_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C22_enc_goal",
+    "dependencies": [
+      "C22_f",
+      "C22_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C22_proper",
+    "dependencies": [
+      "C22_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C22_initial_perm",
+    "dependencies": [
+      "C22_S",
+      "C22_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C22_good",
+    "dependencies": [
+      "C22_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C22_b0",
+    "dependencies": [
+      "C22_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C23_enc_goal",
+    "dependencies": [
+      "C23_f",
+      "C23_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C23_proper",
+    "dependencies": [
+      "C23_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C23_initial_perm",
+    "dependencies": [
+      "C23_S",
+      "C23_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C23_good",
+    "dependencies": [
+      "C23_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C23_b0",
+    "dependencies": [
+      "C23_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C23_b1",
+    "dependencies": [
+      "C23_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C23_b2",
+    "dependencies": [
+      "C23_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C23_b3",
+    "dependencies": [
+      "C23_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C24_enc_goal",
+    "dependencies": [
+      "C24_f",
+      "C24_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C24_proper",
+    "dependencies": [
+      "C24_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C24_initial_perm",
+    "dependencies": [
+      "C24_S",
+      "C24_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C24_good",
+    "dependencies": [
+      "C24_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C24_b0",
+    "dependencies": [
+      "C24_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C24_b1",
+    "dependencies": [
+      "C24_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C25_enc_goal",
+    "dependencies": [
+      "C25_f",
+      "C25_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C25_proper",
+    "dependencies": [
+      "C25_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C25_initial_perm",
+    "dependencies": [
+      "C25_S",
+      "C25_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C25_good",
+    "dependencies": [
+      "C25_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C25_b0",
+    "dependencies": [
+      "C25_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C25_b1",
+    "dependencies": [
+      "C25_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_grayGood",
+    "dependencies": [
+      "C26_grayWalk"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_enc_goal",
+    "dependencies": [
+      "C26_f",
+      "C26_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_proper",
+    "dependencies": [
+      "C26_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_initial_perm",
+    "dependencies": [
+      "C26_S",
+      "C26_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_good",
+    "dependencies": [
+      "C26_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_b0",
+    "dependencies": [
+      "C26_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_b1",
+    "dependencies": [
+      "C26_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_b2",
+    "dependencies": [
+      "C26_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_b3",
+    "dependencies": [
+      "C26_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_b4",
+    "dependencies": [
+      "C26_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_b5",
+    "dependencies": [
+      "C26_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_b6",
+    "dependencies": [
+      "C26_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_b7",
+    "dependencies": [
+      "C26_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C26_b8",
+    "dependencies": [
+      "C26_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_enc_goal",
+    "dependencies": [
+      "C27_f",
+      "C27_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_proper",
+    "dependencies": [
+      "C27_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_initial_perm",
+    "dependencies": [
+      "C27_S",
+      "C27_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_good",
+    "dependencies": [
+      "C27_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b0",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b1",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b2",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b3",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b4",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b5",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b6",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b7",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b8",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b9",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b10",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b11",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b12",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b13",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b14",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b15",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b16",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b17",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b18",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b19",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b20",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b21",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b22",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b23",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C27_b24",
+    "dependencies": [
+      "C27_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_enc_goal",
+    "dependencies": [
+      "C28_f",
+      "C28_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_proper",
+    "dependencies": [
+      "C28_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_initial_perm",
+    "dependencies": [
+      "C28_S",
+      "C28_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_good",
+    "dependencies": [
+      "C28_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b0",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b1",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b2",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b3",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b4",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b5",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b6",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b7",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b8",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b9",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b10",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b11",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b12",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b13",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b14",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b15",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b16",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b17",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b18",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b19",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b20",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b21",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b22",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b23",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b24",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b25",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b26",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b27",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b28",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b29",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b30",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b31",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b32",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b33",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b34",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b35",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b36",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b37",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b38",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b39",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b40",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b41",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b42",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b43",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C28_b44",
+    "dependencies": [
+      "C28_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_enc_goal",
+    "dependencies": [
+      "C29_f",
+      "C29_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_proper",
+    "dependencies": [
+      "C29_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_initial_perm",
+    "dependencies": [
+      "C29_S",
+      "C29_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_good",
+    "dependencies": [
+      "C29_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b0",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b1",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b2",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b3",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b4",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b5",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b6",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b7",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b8",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b9",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b10",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b11",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b12",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b13",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b14",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C29_b15",
+    "dependencies": [
+      "C29_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_enc_goal",
+    "dependencies": [
+      "C30_f",
+      "C30_rows"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_proper",
+    "dependencies": [
+      "C30_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_initial_perm",
+    "dependencies": [
+      "C30_S",
+      "C30_xs"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_good",
+    "dependencies": [
+      "C30_literalRoutes"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b0",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b1",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b2",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b3",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b4",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b5",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b6",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b7",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b8",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b9",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b10",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b11",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b12",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b13",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b14",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b15",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b16",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b17",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b18",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b19",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b20",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b21",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b22",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b23",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b24",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b25",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b26",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b27",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b28",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b29",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b30",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b31",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b32",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b33",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b34",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b35",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b36",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b37",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b38",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b39",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b40",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C30_b41",
+    "dependencies": [
+      "C30_F"
+    ],
+    "group": 1
+  },
+  {
+    "name": "C0_patternScore_eq",
+    "dependencies": [
+      "C0_coords",
+      "C0_patternScore",
+      "C0_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C0_patternScr_eq",
+    "dependencies": [
+      "C0_coords",
+      "C0_patternScore_eq",
+      "C0_patternScr",
+      "C0_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C0_nonconstant",
+    "dependencies": [
+      "C0_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C0_ori_run",
+    "dependencies": [
+      "C0_good",
+      "C0_literalRoutes",
+      "C0_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C0_checked",
+    "dependencies": [
+      "C0_F",
+      "C0_N",
+      "C0_Z",
+      "C0_b0",
+      "C0_b1"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C0_no_run",
+    "dependencies": [
+      "C0_N",
+      "C0_S",
+      "C0_checked",
+      "C0_idx",
+      "C0_initial_perm",
+      "C0_ori",
+      "C0_ori_run",
+      "C0_patternScr",
+      "C0_patternScr_eq",
+      "C0_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C0_no_small",
+    "dependencies": [
+      "C0_enc_goal",
+      "C0_f",
+      "C0_no_run",
+      "C0_nonconstant",
+      "C0_proper",
+      "C0_rows",
+      "C0_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C0_lower",
+    "dependencies": [
+      "C0_f",
+      "C0_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C1_patternScore_eq",
+    "dependencies": [
+      "C1_coords",
+      "C1_patternScore",
+      "C1_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C1_patternScr_eq",
+    "dependencies": [
+      "C1_coords",
+      "C1_patternScore_eq",
+      "C1_patternScr",
+      "C1_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C1_nonconstant",
+    "dependencies": [
+      "C1_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C1_ori_run",
+    "dependencies": [
+      "C1_good",
+      "C1_literalRoutes",
+      "C1_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C1_checked",
+    "dependencies": [
+      "C1_F",
+      "C1_N",
+      "C1_Z",
+      "C1_b0"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C1_no_run",
+    "dependencies": [
+      "C1_N",
+      "C1_S",
+      "C1_checked",
+      "C1_idx",
+      "C1_initial_perm",
+      "C1_ori",
+      "C1_ori_run",
+      "C1_patternScr",
+      "C1_patternScr_eq",
+      "C1_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C1_no_small",
+    "dependencies": [
+      "C1_enc_goal",
+      "C1_f",
+      "C1_no_run",
+      "C1_nonconstant",
+      "C1_proper",
+      "C1_rows",
+      "C1_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C1_lower",
+    "dependencies": [
+      "C1_f",
+      "C1_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C2_patternScore_eq",
+    "dependencies": [
+      "C2_coords",
+      "C2_patternScore",
+      "C2_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C2_patternScr_eq",
+    "dependencies": [
+      "C2_coords",
+      "C2_patternScore_eq",
+      "C2_patternScr",
+      "C2_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C2_nonconstant",
+    "dependencies": [
+      "C2_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C2_ori_run",
+    "dependencies": [
+      "C2_good",
+      "C2_literalRoutes",
+      "C2_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C2_checked",
+    "dependencies": [
+      "C2_F",
+      "C2_N",
+      "C2_Z",
+      "C2_b0"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C2_no_run",
+    "dependencies": [
+      "C2_N",
+      "C2_S",
+      "C2_checked",
+      "C2_idx",
+      "C2_initial_perm",
+      "C2_ori",
+      "C2_ori_run",
+      "C2_patternScr",
+      "C2_patternScr_eq",
+      "C2_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C2_no_small",
+    "dependencies": [
+      "C2_enc_goal",
+      "C2_f",
+      "C2_no_run",
+      "C2_nonconstant",
+      "C2_proper",
+      "C2_rows",
+      "C2_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C2_lower",
+    "dependencies": [
+      "C2_f",
+      "C2_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C3_patternScore_eq",
+    "dependencies": [
+      "C3_coords",
+      "C3_patternScore",
+      "C3_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C3_patternScr_eq",
+    "dependencies": [
+      "C3_coords",
+      "C3_patternScore_eq",
+      "C3_patternScr",
+      "C3_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C3_nonconstant",
+    "dependencies": [
+      "C3_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C3_ori_run",
+    "dependencies": [
+      "C3_good",
+      "C3_literalRoutes",
+      "C3_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C3_checked",
+    "dependencies": [
+      "C3_F",
+      "C3_N",
+      "C3_Z",
+      "C3_b0"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C3_no_run",
+    "dependencies": [
+      "C3_N",
+      "C3_S",
+      "C3_checked",
+      "C3_idx",
+      "C3_initial_perm",
+      "C3_ori",
+      "C3_ori_run",
+      "C3_patternScr",
+      "C3_patternScr_eq",
+      "C3_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C3_no_small",
+    "dependencies": [
+      "C3_enc_goal",
+      "C3_f",
+      "C3_no_run",
+      "C3_nonconstant",
+      "C3_proper",
+      "C3_rows",
+      "C3_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C3_lower",
+    "dependencies": [
+      "C3_f",
+      "C3_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C4_patternScore_eq",
+    "dependencies": [
+      "C4_coords",
+      "C4_patternScore",
+      "C4_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C4_patternScr_eq",
+    "dependencies": [
+      "C4_coords",
+      "C4_patternScore_eq",
+      "C4_patternScr",
+      "C4_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C4_nonconstant",
+    "dependencies": [
+      "C4_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C4_ori_run",
+    "dependencies": [
+      "C4_good",
+      "C4_literalRoutes",
+      "C4_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C4_checked",
+    "dependencies": [
+      "C4_F",
+      "C4_N",
+      "C4_Z",
+      "C4_b0",
+      "C4_b1"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C4_no_run",
+    "dependencies": [
+      "C4_N",
+      "C4_S",
+      "C4_checked",
+      "C4_idx",
+      "C4_initial_perm",
+      "C4_ori",
+      "C4_ori_run",
+      "C4_patternScr",
+      "C4_patternScr_eq",
+      "C4_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C4_no_small",
+    "dependencies": [
+      "C4_enc_goal",
+      "C4_f",
+      "C4_no_run",
+      "C4_nonconstant",
+      "C4_proper",
+      "C4_rows",
+      "C4_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C4_lower",
+    "dependencies": [
+      "C4_f",
+      "C4_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C5_patternScore_eq",
+    "dependencies": [
+      "C5_coords",
+      "C5_patternScore",
+      "C5_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C5_patternScr_eq",
+    "dependencies": [
+      "C5_coords",
+      "C5_patternScore_eq",
+      "C5_patternScr",
+      "C5_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C5_nonconstant",
+    "dependencies": [
+      "C5_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C5_ori_run",
+    "dependencies": [
+      "C5_good",
+      "C5_literalRoutes",
+      "C5_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C5_checked",
+    "dependencies": [
+      "C5_F",
+      "C5_N",
+      "C5_Z",
+      "C5_b0"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C5_no_run",
+    "dependencies": [
+      "C5_N",
+      "C5_S",
+      "C5_checked",
+      "C5_idx",
+      "C5_initial_perm",
+      "C5_ori",
+      "C5_ori_run",
+      "C5_patternScr",
+      "C5_patternScr_eq",
+      "C5_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C5_no_small",
+    "dependencies": [
+      "C5_enc_goal",
+      "C5_f",
+      "C5_no_run",
+      "C5_nonconstant",
+      "C5_proper",
+      "C5_rows",
+      "C5_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C5_lower",
+    "dependencies": [
+      "C5_f",
+      "C5_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C6_patternScore_eq",
+    "dependencies": [
+      "C6_coords",
+      "C6_patternScore",
+      "C6_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C6_patternScr_eq",
+    "dependencies": [
+      "C6_coords",
+      "C6_patternScore_eq",
+      "C6_patternScr",
+      "C6_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C6_nonconstant",
+    "dependencies": [
+      "C6_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C6_ori_run",
+    "dependencies": [
+      "C6_good",
+      "C6_literalRoutes",
+      "C6_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C6_checked",
+    "dependencies": [
+      "C6_F",
+      "C6_N",
+      "C6_Z",
+      "C6_b0"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C6_no_run",
+    "dependencies": [
+      "C6_N",
+      "C6_S",
+      "C6_checked",
+      "C6_idx",
+      "C6_initial_perm",
+      "C6_ori",
+      "C6_ori_run",
+      "C6_patternScr",
+      "C6_patternScr_eq",
+      "C6_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C6_no_small",
+    "dependencies": [
+      "C6_enc_goal",
+      "C6_f",
+      "C6_no_run",
+      "C6_nonconstant",
+      "C6_proper",
+      "C6_rows",
+      "C6_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C6_lower",
+    "dependencies": [
+      "C6_f",
+      "C6_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C7_patternScore_eq",
+    "dependencies": [
+      "C7_coords",
+      "C7_patternScore",
+      "C7_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C7_patternScr_eq",
+    "dependencies": [
+      "C7_coords",
+      "C7_patternScore_eq",
+      "C7_patternScr",
+      "C7_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C7_nonconstant",
+    "dependencies": [
+      "C7_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C7_ori_run",
+    "dependencies": [
+      "C7_good",
+      "C7_literalRoutes",
+      "C7_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C7_checked",
+    "dependencies": [
+      "C7_F",
+      "C7_N",
+      "C7_Z",
+      "C7_b0"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C7_no_run",
+    "dependencies": [
+      "C7_N",
+      "C7_S",
+      "C7_checked",
+      "C7_idx",
+      "C7_initial_perm",
+      "C7_ori",
+      "C7_ori_run",
+      "C7_patternScr",
+      "C7_patternScr_eq",
+      "C7_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C7_no_small",
+    "dependencies": [
+      "C7_enc_goal",
+      "C7_f",
+      "C7_no_run",
+      "C7_nonconstant",
+      "C7_proper",
+      "C7_rows",
+      "C7_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C7_lower",
+    "dependencies": [
+      "C7_f",
+      "C7_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C8_patternScore_eq",
+    "dependencies": [
+      "C8_coords",
+      "C8_patternScore",
+      "C8_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C8_patternScr_eq",
+    "dependencies": [
+      "C8_coords",
+      "C8_patternScore_eq",
+      "C8_patternScr",
+      "C8_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C8_nonconstant",
+    "dependencies": [
+      "C8_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C8_ori_run",
+    "dependencies": [
+      "C8_good",
+      "C8_literalRoutes",
+      "C8_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C8_checked",
+    "dependencies": [
+      "C8_F",
+      "C8_N",
+      "C8_Z",
+      "C8_b0"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C8_no_run",
+    "dependencies": [
+      "C8_N",
+      "C8_S",
+      "C8_checked",
+      "C8_idx",
+      "C8_initial_perm",
+      "C8_ori",
+      "C8_ori_run",
+      "C8_patternScr",
+      "C8_patternScr_eq",
+      "C8_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C8_no_small",
+    "dependencies": [
+      "C8_enc_goal",
+      "C8_f",
+      "C8_no_run",
+      "C8_nonconstant",
+      "C8_proper",
+      "C8_rows",
+      "C8_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C8_lower",
+    "dependencies": [
+      "C8_f",
+      "C8_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C9_patternScore_eq",
+    "dependencies": [
+      "C9_coords",
+      "C9_patternScore",
+      "C9_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C9_patternScr_eq",
+    "dependencies": [
+      "C9_coords",
+      "C9_patternScore_eq",
+      "C9_patternScr",
+      "C9_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C9_nonconstant",
+    "dependencies": [
+      "C9_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C9_ori_run",
+    "dependencies": [
+      "C9_good",
+      "C9_literalRoutes",
+      "C9_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C9_checked",
+    "dependencies": [
+      "C9_F",
+      "C9_N",
+      "C9_Z",
+      "C9_b0"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C9_no_run",
+    "dependencies": [
+      "C9_N",
+      "C9_S",
+      "C9_checked",
+      "C9_idx",
+      "C9_initial_perm",
+      "C9_ori",
+      "C9_ori_run",
+      "C9_patternScr",
+      "C9_patternScr_eq",
+      "C9_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C9_no_small",
+    "dependencies": [
+      "C9_enc_goal",
+      "C9_f",
+      "C9_no_run",
+      "C9_nonconstant",
+      "C9_proper",
+      "C9_rows",
+      "C9_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C9_lower",
+    "dependencies": [
+      "C9_f",
+      "C9_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C10_patternScore_eq",
+    "dependencies": [
+      "C10_coords",
+      "C10_patternScore",
+      "C10_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C10_patternScr_eq",
+    "dependencies": [
+      "C10_coords",
+      "C10_patternScore_eq",
+      "C10_patternScr",
+      "C10_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C10_nonconstant",
+    "dependencies": [
+      "C10_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C10_ori_run",
+    "dependencies": [
+      "C10_good",
+      "C10_literalRoutes",
+      "C10_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C10_checked",
+    "dependencies": [
+      "C10_F",
+      "C10_N",
+      "C10_Z",
+      "C10_b0",
+      "C10_b1"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C10_no_run",
+    "dependencies": [
+      "C10_N",
+      "C10_S",
+      "C10_checked",
+      "C10_idx",
+      "C10_initial_perm",
+      "C10_ori",
+      "C10_ori_run",
+      "C10_patternScr",
+      "C10_patternScr_eq",
+      "C10_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C10_no_small",
+    "dependencies": [
+      "C10_enc_goal",
+      "C10_f",
+      "C10_no_run",
+      "C10_nonconstant",
+      "C10_proper",
+      "C10_rows",
+      "C10_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C10_lower",
+    "dependencies": [
+      "C10_f",
+      "C10_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C11_patternScore_eq",
+    "dependencies": [
+      "C11_coords",
+      "C11_patternScore",
+      "C11_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C11_patternScr_eq",
+    "dependencies": [
+      "C11_coords",
+      "C11_patternScore_eq",
+      "C11_patternScr",
+      "C11_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C11_nonconstant",
+    "dependencies": [
+      "C11_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C11_ori_run",
+    "dependencies": [
+      "C11_good",
+      "C11_literalRoutes",
+      "C11_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C11_checked",
+    "dependencies": [
+      "C11_F",
+      "C11_N",
+      "C11_Z",
+      "C11_b0",
+      "C11_b1",
+      "C11_b2",
+      "C11_b3",
+      "C11_b4"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C11_no_run",
+    "dependencies": [
+      "C11_N",
+      "C11_S",
+      "C11_checked",
+      "C11_idx",
+      "C11_initial_perm",
+      "C11_ori",
+      "C11_ori_run",
+      "C11_patternScr",
+      "C11_patternScr_eq",
+      "C11_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C11_no_small",
+    "dependencies": [
+      "C11_enc_goal",
+      "C11_f",
+      "C11_no_run",
+      "C11_nonconstant",
+      "C11_proper",
+      "C11_rows",
+      "C11_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C11_lower",
+    "dependencies": [
+      "C11_f",
+      "C11_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C12_patternScore_eq",
+    "dependencies": [
+      "C12_coords",
+      "C12_patternScore",
+      "C12_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C12_patternScr_eq",
+    "dependencies": [
+      "C12_coords",
+      "C12_patternScore_eq",
+      "C12_patternScr",
+      "C12_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C12_nonconstant",
+    "dependencies": [
+      "C12_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C12_ori_run",
+    "dependencies": [
+      "C12_good",
+      "C12_literalRoutes",
+      "C12_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C12_checked",
+    "dependencies": [
+      "C12_F",
+      "C12_N",
+      "C12_Z",
+      "C12_b0",
+      "C12_b1"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C12_no_run",
+    "dependencies": [
+      "C12_N",
+      "C12_S",
+      "C12_checked",
+      "C12_idx",
+      "C12_initial_perm",
+      "C12_ori",
+      "C12_ori_run",
+      "C12_patternScr",
+      "C12_patternScr_eq",
+      "C12_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C12_no_small",
+    "dependencies": [
+      "C12_enc_goal",
+      "C12_f",
+      "C12_no_run",
+      "C12_nonconstant",
+      "C12_proper",
+      "C12_rows",
+      "C12_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C12_lower",
+    "dependencies": [
+      "C12_f",
+      "C12_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C13_patternScore_eq",
+    "dependencies": [
+      "C13_coords",
+      "C13_patternScore",
+      "C13_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C13_patternScr_eq",
+    "dependencies": [
+      "C13_coords",
+      "C13_patternScore_eq",
+      "C13_patternScr",
+      "C13_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C13_nonconstant",
+    "dependencies": [
+      "C13_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C13_ori_run",
+    "dependencies": [
+      "C13_good",
+      "C13_literalRoutes",
+      "C13_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C13_checked",
+    "dependencies": [
+      "C13_F",
+      "C13_N",
+      "C13_Z",
+      "C13_b0",
+      "C13_b1",
+      "C13_b2",
+      "C13_b3",
+      "C13_b4",
+      "C13_b5",
+      "C13_b6",
+      "C13_b7",
+      "C13_b8"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C13_no_run",
+    "dependencies": [
+      "C13_N",
+      "C13_S",
+      "C13_checked",
+      "C13_idx",
+      "C13_initial_perm",
+      "C13_ori",
+      "C13_ori_run",
+      "C13_patternScr",
+      "C13_patternScr_eq",
+      "C13_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C13_no_small",
+    "dependencies": [
+      "C13_enc_goal",
+      "C13_f",
+      "C13_no_run",
+      "C13_nonconstant",
+      "C13_proper",
+      "C13_rows",
+      "C13_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C13_lower",
+    "dependencies": [
+      "C13_f",
+      "C13_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C14_patternScore_eq",
+    "dependencies": [
+      "C14_coords",
+      "C14_patternScore",
+      "C14_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C14_patternScr_eq",
+    "dependencies": [
+      "C14_coords",
+      "C14_patternScore_eq",
+      "C14_patternScr",
+      "C14_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C14_nonconstant",
+    "dependencies": [
+      "C14_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C14_ori_run",
+    "dependencies": [
+      "C14_good",
+      "C14_literalRoutes",
+      "C14_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C14_checked",
+    "dependencies": [
+      "C14_F",
+      "C14_N",
+      "C14_Z",
+      "C14_b0"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C14_no_run",
+    "dependencies": [
+      "C14_N",
+      "C14_S",
+      "C14_checked",
+      "C14_idx",
+      "C14_initial_perm",
+      "C14_ori",
+      "C14_ori_run",
+      "C14_patternScr",
+      "C14_patternScr_eq",
+      "C14_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C14_no_small",
+    "dependencies": [
+      "C14_enc_goal",
+      "C14_f",
+      "C14_no_run",
+      "C14_nonconstant",
+      "C14_proper",
+      "C14_rows",
+      "C14_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C14_lower",
+    "dependencies": [
+      "C14_f",
+      "C14_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C15_patternScore_eq",
+    "dependencies": [
+      "C15_coords",
+      "C15_patternScore",
+      "C15_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C15_patternScr_eq",
+    "dependencies": [
+      "C15_coords",
+      "C15_patternScore_eq",
+      "C15_patternScr",
+      "C15_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C15_nonconstant",
+    "dependencies": [
+      "C15_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C15_ori_run",
+    "dependencies": [
+      "C15_good",
+      "C15_literalRoutes",
+      "C15_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C15_checked",
+    "dependencies": [
+      "C15_F",
+      "C15_N",
+      "C15_Z",
+      "C15_b0",
+      "C15_b1",
+      "C15_b2",
+      "C15_b3",
+      "C15_b4",
+      "C15_b5",
+      "C15_b6",
+      "C15_b7",
+      "C15_b8",
+      "C15_b9"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C15_no_run",
+    "dependencies": [
+      "C15_N",
+      "C15_S",
+      "C15_checked",
+      "C15_idx",
+      "C15_initial_perm",
+      "C15_ori",
+      "C15_ori_run",
+      "C15_patternScr",
+      "C15_patternScr_eq",
+      "C15_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C15_no_small",
+    "dependencies": [
+      "C15_enc_goal",
+      "C15_f",
+      "C15_no_run",
+      "C15_nonconstant",
+      "C15_proper",
+      "C15_rows",
+      "C15_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C15_lower",
+    "dependencies": [
+      "C15_f",
+      "C15_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C16_patternScore_eq",
+    "dependencies": [
+      "C16_coords",
+      "C16_patternScore",
+      "C16_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C16_patternScr_eq",
+    "dependencies": [
+      "C16_coords",
+      "C16_patternScore_eq",
+      "C16_patternScr",
+      "C16_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C16_nonconstant",
+    "dependencies": [
+      "C16_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C16_ori_run",
+    "dependencies": [
+      "C16_good",
+      "C16_literalRoutes",
+      "C16_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C16_checked",
+    "dependencies": [
+      "C16_F",
+      "C16_N",
+      "C16_Z",
+      "C16_b0",
+      "C16_b1"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C16_no_run",
+    "dependencies": [
+      "C16_N",
+      "C16_S",
+      "C16_checked",
+      "C16_idx",
+      "C16_initial_perm",
+      "C16_ori",
+      "C16_ori_run",
+      "C16_patternScr",
+      "C16_patternScr_eq",
+      "C16_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C16_no_small",
+    "dependencies": [
+      "C16_enc_goal",
+      "C16_f",
+      "C16_no_run",
+      "C16_nonconstant",
+      "C16_proper",
+      "C16_rows",
+      "C16_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C16_lower",
+    "dependencies": [
+      "C16_f",
+      "C16_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C17_patternScore_eq",
+    "dependencies": [
+      "C17_coords",
+      "C17_patternScore",
+      "C17_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C17_patternScr_eq",
+    "dependencies": [
+      "C17_coords",
+      "C17_patternScore_eq",
+      "C17_patternScr",
+      "C17_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C17_nonconstant",
+    "dependencies": [
+      "C17_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C17_ori_run",
+    "dependencies": [
+      "C17_good",
+      "C17_literalRoutes",
+      "C17_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C17_checked",
+    "dependencies": [
+      "C17_F",
+      "C17_N",
+      "C17_Z",
+      "C17_b0",
+      "C17_b1",
+      "C17_b2",
+      "C17_b3",
+      "C17_b4",
+      "C17_b5",
+      "C17_b6",
+      "C17_b7"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C17_no_run",
+    "dependencies": [
+      "C17_N",
+      "C17_S",
+      "C17_checked",
+      "C17_idx",
+      "C17_initial_perm",
+      "C17_ori",
+      "C17_ori_run",
+      "C17_patternScr",
+      "C17_patternScr_eq",
+      "C17_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C17_no_small",
+    "dependencies": [
+      "C17_enc_goal",
+      "C17_f",
+      "C17_no_run",
+      "C17_nonconstant",
+      "C17_proper",
+      "C17_rows",
+      "C17_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C17_lower",
+    "dependencies": [
+      "C17_f",
+      "C17_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C18_patternScore_eq",
+    "dependencies": [
+      "C18_coords",
+      "C18_patternScore",
+      "C18_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C18_patternScr_eq",
+    "dependencies": [
+      "C18_coords",
+      "C18_patternScore_eq",
+      "C18_patternScr",
+      "C18_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C18_nonconstant",
+    "dependencies": [
+      "C18_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C18_ori_run",
+    "dependencies": [
+      "C18_good",
+      "C18_literalRoutes",
+      "C18_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C18_checked",
+    "dependencies": [
+      "C18_F",
+      "C18_N",
+      "C18_Z",
+      "C18_b0",
+      "C18_b1",
+      "C18_b2",
+      "C18_b3"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C18_no_run",
+    "dependencies": [
+      "C18_N",
+      "C18_S",
+      "C18_checked",
+      "C18_idx",
+      "C18_initial_perm",
+      "C18_ori",
+      "C18_ori_run",
+      "C18_patternScr",
+      "C18_patternScr_eq",
+      "C18_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C18_no_small",
+    "dependencies": [
+      "C18_enc_goal",
+      "C18_f",
+      "C18_no_run",
+      "C18_nonconstant",
+      "C18_proper",
+      "C18_rows",
+      "C18_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C18_lower",
+    "dependencies": [
+      "C18_f",
+      "C18_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C19_patternScore_eq",
+    "dependencies": [
+      "C19_coords",
+      "C19_patternScore",
+      "C19_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C19_patternScr_eq",
+    "dependencies": [
+      "C19_coords",
+      "C19_patternScore_eq",
+      "C19_patternScr",
+      "C19_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C19_nonconstant",
+    "dependencies": [
+      "C19_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C19_ori_run",
+    "dependencies": [
+      "C19_good",
+      "C19_literalRoutes",
+      "C19_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C19_checked",
+    "dependencies": [
+      "C19_F",
+      "C19_N",
+      "C19_Z",
+      "C19_b0",
+      "C19_b1",
+      "C19_b2",
+      "C19_b3",
+      "C19_b4",
+      "C19_b5",
+      "C19_b6"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C19_no_run",
+    "dependencies": [
+      "C19_N",
+      "C19_S",
+      "C19_checked",
+      "C19_idx",
+      "C19_initial_perm",
+      "C19_ori",
+      "C19_ori_run",
+      "C19_patternScr",
+      "C19_patternScr_eq",
+      "C19_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C19_no_small",
+    "dependencies": [
+      "C19_enc_goal",
+      "C19_f",
+      "C19_no_run",
+      "C19_nonconstant",
+      "C19_proper",
+      "C19_rows",
+      "C19_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C19_lower",
+    "dependencies": [
+      "C19_f",
+      "C19_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C20_patternScore_eq",
+    "dependencies": [
+      "C20_coords",
+      "C20_patternScore",
+      "C20_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C20_patternScr_eq",
+    "dependencies": [
+      "C20_coords",
+      "C20_patternScore_eq",
+      "C20_patternScr",
+      "C20_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C20_nonconstant",
+    "dependencies": [
+      "C20_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C20_ori_run",
+    "dependencies": [
+      "C20_good",
+      "C20_literalRoutes",
+      "C20_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C20_checked",
+    "dependencies": [
+      "C20_F",
+      "C20_N",
+      "C20_Z",
+      "C20_b0",
+      "C20_b1",
+      "C20_b10",
+      "C20_b11",
+      "C20_b2",
+      "C20_b3",
+      "C20_b4",
+      "C20_b5",
+      "C20_b6",
+      "C20_b7",
+      "C20_b8",
+      "C20_b9"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C20_no_run",
+    "dependencies": [
+      "C20_N",
+      "C20_S",
+      "C20_checked",
+      "C20_idx",
+      "C20_initial_perm",
+      "C20_ori",
+      "C20_ori_run",
+      "C20_patternScr",
+      "C20_patternScr_eq",
+      "C20_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C20_no_small",
+    "dependencies": [
+      "C20_enc_goal",
+      "C20_f",
+      "C20_no_run",
+      "C20_nonconstant",
+      "C20_proper",
+      "C20_rows",
+      "C20_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C20_lower",
+    "dependencies": [
+      "C20_f",
+      "C20_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C21_patternScore_eq",
+    "dependencies": [
+      "C21_coords",
+      "C21_patternScore",
+      "C21_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C21_patternScr_eq",
+    "dependencies": [
+      "C21_coords",
+      "C21_patternScore_eq",
+      "C21_patternScr",
+      "C21_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C21_nonconstant",
+    "dependencies": [
+      "C21_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C21_ori_run",
+    "dependencies": [
+      "C21_good",
+      "C21_literalRoutes",
+      "C21_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C21_checked",
+    "dependencies": [
+      "C21_F",
+      "C21_N",
+      "C21_Z",
+      "C21_b0",
+      "C21_b1",
+      "C21_b2",
+      "C21_b3",
+      "C21_b4",
+      "C21_b5",
+      "C21_b6",
+      "C21_b7",
+      "C21_b8",
+      "C21_b9"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C21_no_run",
+    "dependencies": [
+      "C21_N",
+      "C21_S",
+      "C21_checked",
+      "C21_idx",
+      "C21_initial_perm",
+      "C21_ori",
+      "C21_ori_run",
+      "C21_patternScr",
+      "C21_patternScr_eq",
+      "C21_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C21_no_small",
+    "dependencies": [
+      "C21_enc_goal",
+      "C21_f",
+      "C21_no_run",
+      "C21_nonconstant",
+      "C21_proper",
+      "C21_rows",
+      "C21_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C21_lower",
+    "dependencies": [
+      "C21_f",
+      "C21_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C22_patternScore_eq",
+    "dependencies": [
+      "C22_coords",
+      "C22_patternScore",
+      "C22_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C22_patternScr_eq",
+    "dependencies": [
+      "C22_coords",
+      "C22_patternScore_eq",
+      "C22_patternScr",
+      "C22_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C22_nonconstant",
+    "dependencies": [
+      "C22_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C22_ori_run",
+    "dependencies": [
+      "C22_good",
+      "C22_literalRoutes",
+      "C22_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C22_checked",
+    "dependencies": [
+      "C22_F",
+      "C22_N",
+      "C22_Z",
+      "C22_b0"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C22_no_run",
+    "dependencies": [
+      "C22_N",
+      "C22_S",
+      "C22_checked",
+      "C22_idx",
+      "C22_initial_perm",
+      "C22_ori",
+      "C22_ori_run",
+      "C22_patternScr",
+      "C22_patternScr_eq",
+      "C22_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C22_no_small",
+    "dependencies": [
+      "C22_enc_goal",
+      "C22_f",
+      "C22_no_run",
+      "C22_nonconstant",
+      "C22_proper",
+      "C22_rows",
+      "C22_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C22_lower",
+    "dependencies": [
+      "C22_f",
+      "C22_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C23_patternScore_eq",
+    "dependencies": [
+      "C23_coords",
+      "C23_patternScore",
+      "C23_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C23_patternScr_eq",
+    "dependencies": [
+      "C23_coords",
+      "C23_patternScore_eq",
+      "C23_patternScr",
+      "C23_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C23_nonconstant",
+    "dependencies": [
+      "C23_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C23_ori_run",
+    "dependencies": [
+      "C23_good",
+      "C23_literalRoutes",
+      "C23_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C23_checked",
+    "dependencies": [
+      "C23_F",
+      "C23_N",
+      "C23_Z",
+      "C23_b0",
+      "C23_b1",
+      "C23_b2",
+      "C23_b3"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C23_no_run",
+    "dependencies": [
+      "C23_N",
+      "C23_S",
+      "C23_checked",
+      "C23_idx",
+      "C23_initial_perm",
+      "C23_ori",
+      "C23_ori_run",
+      "C23_patternScr",
+      "C23_patternScr_eq",
+      "C23_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C23_no_small",
+    "dependencies": [
+      "C23_enc_goal",
+      "C23_f",
+      "C23_no_run",
+      "C23_nonconstant",
+      "C23_proper",
+      "C23_rows",
+      "C23_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C23_lower",
+    "dependencies": [
+      "C23_f",
+      "C23_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C24_patternScore_eq",
+    "dependencies": [
+      "C24_coords",
+      "C24_patternScore",
+      "C24_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C24_patternScr_eq",
+    "dependencies": [
+      "C24_coords",
+      "C24_patternScore_eq",
+      "C24_patternScr",
+      "C24_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C24_nonconstant",
+    "dependencies": [
+      "C24_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C24_ori_run",
+    "dependencies": [
+      "C24_good",
+      "C24_literalRoutes",
+      "C24_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C24_checked",
+    "dependencies": [
+      "C24_F",
+      "C24_N",
+      "C24_Z",
+      "C24_b0",
+      "C24_b1"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C24_no_run",
+    "dependencies": [
+      "C24_N",
+      "C24_S",
+      "C24_checked",
+      "C24_idx",
+      "C24_initial_perm",
+      "C24_ori",
+      "C24_ori_run",
+      "C24_patternScr",
+      "C24_patternScr_eq",
+      "C24_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C24_no_small",
+    "dependencies": [
+      "C24_enc_goal",
+      "C24_f",
+      "C24_no_run",
+      "C24_nonconstant",
+      "C24_proper",
+      "C24_rows",
+      "C24_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C24_lower",
+    "dependencies": [
+      "C24_f",
+      "C24_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C25_patternScore_eq",
+    "dependencies": [
+      "C25_coords",
+      "C25_patternScore",
+      "C25_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C25_patternScr_eq",
+    "dependencies": [
+      "C25_coords",
+      "C25_patternScore_eq",
+      "C25_patternScr",
+      "C25_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C25_nonconstant",
+    "dependencies": [
+      "C25_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C25_ori_run",
+    "dependencies": [
+      "C25_good",
+      "C25_literalRoutes",
+      "C25_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C25_checked",
+    "dependencies": [
+      "C25_F",
+      "C25_N",
+      "C25_Z",
+      "C25_b0",
+      "C25_b1"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C25_no_run",
+    "dependencies": [
+      "C25_N",
+      "C25_S",
+      "C25_checked",
+      "C25_idx",
+      "C25_initial_perm",
+      "C25_ori",
+      "C25_ori_run",
+      "C25_patternScr",
+      "C25_patternScr_eq",
+      "C25_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C25_no_small",
+    "dependencies": [
+      "C25_enc_goal",
+      "C25_f",
+      "C25_no_run",
+      "C25_nonconstant",
+      "C25_proper",
+      "C25_rows",
+      "C25_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C25_lower",
+    "dependencies": [
+      "C25_f",
+      "C25_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C26_patternScore_eq",
+    "dependencies": [
+      "C26_coords",
+      "C26_patternScore",
+      "C26_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C26_patternScr_eq",
+    "dependencies": [
+      "C26_coords",
+      "C26_patternScore_eq",
+      "C26_patternScr",
+      "C26_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C26_nonconstant",
+    "dependencies": [
+      "C26_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C26_ori_run",
+    "dependencies": [
+      "C26_grayGood",
+      "C26_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C26_checked",
+    "dependencies": [
+      "C26_F",
+      "C26_N",
+      "C26_Z",
+      "C26_b0",
+      "C26_b1",
+      "C26_b2",
+      "C26_b3",
+      "C26_b4",
+      "C26_b5",
+      "C26_b6",
+      "C26_b7",
+      "C26_b8"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C26_no_run",
+    "dependencies": [
+      "C26_N",
+      "C26_S",
+      "C26_checked",
+      "C26_idx",
+      "C26_initial_perm",
+      "C26_ori",
+      "C26_ori_run",
+      "C26_patternScr",
+      "C26_patternScr_eq",
+      "C26_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C26_no_small",
+    "dependencies": [
+      "C26_enc_goal",
+      "C26_f",
+      "C26_no_run",
+      "C26_nonconstant",
+      "C26_proper",
+      "C26_rows",
+      "C26_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C26_lower",
+    "dependencies": [
+      "C26_f",
+      "C26_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C27_patternScore_eq",
+    "dependencies": [
+      "C27_coords",
+      "C27_patternScore",
+      "C27_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C27_patternScr_eq",
+    "dependencies": [
+      "C27_coords",
+      "C27_patternScore_eq",
+      "C27_patternScr",
+      "C27_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C27_nonconstant",
+    "dependencies": [
+      "C27_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C27_ori_run",
+    "dependencies": [
+      "C27_good",
+      "C27_literalRoutes",
+      "C27_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C27_checked",
+    "dependencies": [
+      "C27_F",
+      "C27_N",
+      "C27_Z",
+      "C27_b0",
+      "C27_b1",
+      "C27_b10",
+      "C27_b11",
+      "C27_b12",
+      "C27_b13",
+      "C27_b14",
+      "C27_b15",
+      "C27_b16",
+      "C27_b17",
+      "C27_b18",
+      "C27_b19",
+      "C27_b2",
+      "C27_b20",
+      "C27_b21",
+      "C27_b22",
+      "C27_b23",
+      "C27_b24",
+      "C27_b3",
+      "C27_b4",
+      "C27_b5",
+      "C27_b6",
+      "C27_b7",
+      "C27_b8",
+      "C27_b9"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C27_no_run",
+    "dependencies": [
+      "C27_N",
+      "C27_S",
+      "C27_checked",
+      "C27_idx",
+      "C27_initial_perm",
+      "C27_ori",
+      "C27_ori_run",
+      "C27_patternScr",
+      "C27_patternScr_eq",
+      "C27_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C27_no_small",
+    "dependencies": [
+      "C27_enc_goal",
+      "C27_f",
+      "C27_no_run",
+      "C27_nonconstant",
+      "C27_proper",
+      "C27_rows",
+      "C27_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C27_lower",
+    "dependencies": [
+      "C27_f",
+      "C27_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C28_patternScore_eq",
+    "dependencies": [
+      "C28_coords",
+      "C28_patternScore",
+      "C28_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C28_patternScr_eq",
+    "dependencies": [
+      "C28_coords",
+      "C28_patternScore_eq",
+      "C28_patternScr",
+      "C28_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C28_nonconstant",
+    "dependencies": [
+      "C28_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C28_ori_run",
+    "dependencies": [
+      "C28_good",
+      "C28_literalRoutes",
+      "C28_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C28_checked",
+    "dependencies": [
+      "C28_F",
+      "C28_N",
+      "C28_Z",
+      "C28_b0",
+      "C28_b1",
+      "C28_b10",
+      "C28_b11",
+      "C28_b12",
+      "C28_b13",
+      "C28_b14",
+      "C28_b15",
+      "C28_b16",
+      "C28_b17",
+      "C28_b18",
+      "C28_b19",
+      "C28_b2",
+      "C28_b20",
+      "C28_b21",
+      "C28_b22",
+      "C28_b23",
+      "C28_b24",
+      "C28_b25",
+      "C28_b26",
+      "C28_b27",
+      "C28_b28",
+      "C28_b29",
+      "C28_b3",
+      "C28_b30",
+      "C28_b31",
+      "C28_b32",
+      "C28_b33",
+      "C28_b34",
+      "C28_b35",
+      "C28_b36",
+      "C28_b37",
+      "C28_b38",
+      "C28_b39",
+      "C28_b4",
+      "C28_b40",
+      "C28_b41",
+      "C28_b42",
+      "C28_b43",
+      "C28_b44",
+      "C28_b5",
+      "C28_b6",
+      "C28_b7",
+      "C28_b8",
+      "C28_b9"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C28_no_run",
+    "dependencies": [
+      "C28_N",
+      "C28_S",
+      "C28_checked",
+      "C28_idx",
+      "C28_initial_perm",
+      "C28_ori",
+      "C28_ori_run",
+      "C28_patternScr",
+      "C28_patternScr_eq",
+      "C28_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C28_no_small",
+    "dependencies": [
+      "C28_enc_goal",
+      "C28_f",
+      "C28_no_run",
+      "C28_nonconstant",
+      "C28_proper",
+      "C28_rows",
+      "C28_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C28_lower",
+    "dependencies": [
+      "C28_f",
+      "C28_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C29_patternScore_eq",
+    "dependencies": [
+      "C29_coords",
+      "C29_patternScore",
+      "C29_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C29_patternScr_eq",
+    "dependencies": [
+      "C29_coords",
+      "C29_patternScore_eq",
+      "C29_patternScr",
+      "C29_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C29_nonconstant",
+    "dependencies": [
+      "C29_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C29_ori_run",
+    "dependencies": [
+      "C29_good",
+      "C29_literalRoutes",
+      "C29_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C29_checked",
+    "dependencies": [
+      "C29_F",
+      "C29_N",
+      "C29_Z",
+      "C29_b0",
+      "C29_b1",
+      "C29_b10",
+      "C29_b11",
+      "C29_b12",
+      "C29_b13",
+      "C29_b14",
+      "C29_b15",
+      "C29_b2",
+      "C29_b3",
+      "C29_b4",
+      "C29_b5",
+      "C29_b6",
+      "C29_b7",
+      "C29_b8",
+      "C29_b9"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C29_no_run",
+    "dependencies": [
+      "C29_N",
+      "C29_S",
+      "C29_checked",
+      "C29_idx",
+      "C29_initial_perm",
+      "C29_ori",
+      "C29_ori_run",
+      "C29_patternScr",
+      "C29_patternScr_eq",
+      "C29_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C29_no_small",
+    "dependencies": [
+      "C29_enc_goal",
+      "C29_f",
+      "C29_no_run",
+      "C29_nonconstant",
+      "C29_proper",
+      "C29_rows",
+      "C29_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C29_lower",
+    "dependencies": [
+      "C29_f",
+      "C29_no_small"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C30_patternScore_eq",
+    "dependencies": [
+      "C30_coords",
+      "C30_patternScore",
+      "C30_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C30_patternScr_eq",
+    "dependencies": [
+      "C30_coords",
+      "C30_patternScore_eq",
+      "C30_patternScr",
+      "C30_rankPool"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C30_nonconstant",
+    "dependencies": [
+      "C30_f"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C30_ori_run",
+    "dependencies": [
+      "C30_good",
+      "C30_literalRoutes",
+      "C30_ori"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C30_checked",
+    "dependencies": [
+      "C30_F",
+      "C30_N",
+      "C30_Z",
+      "C30_b0",
+      "C30_b1",
+      "C30_b10",
+      "C30_b11",
+      "C30_b12",
+      "C30_b13",
+      "C30_b14",
+      "C30_b15",
+      "C30_b16",
+      "C30_b17",
+      "C30_b18",
+      "C30_b19",
+      "C30_b2",
+      "C30_b20",
+      "C30_b21",
+      "C30_b22",
+      "C30_b23",
+      "C30_b24",
+      "C30_b25",
+      "C30_b26",
+      "C30_b27",
+      "C30_b28",
+      "C30_b29",
+      "C30_b3",
+      "C30_b30",
+      "C30_b31",
+      "C30_b32",
+      "C30_b33",
+      "C30_b34",
+      "C30_b35",
+      "C30_b36",
+      "C30_b37",
+      "C30_b38",
+      "C30_b39",
+      "C30_b4",
+      "C30_b40",
+      "C30_b41",
+      "C30_b5",
+      "C30_b6",
+      "C30_b7",
+      "C30_b8",
+      "C30_b9"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C30_no_run",
+    "dependencies": [
+      "C30_N",
+      "C30_S",
+      "C30_checked",
+      "C30_idx",
+      "C30_initial_perm",
+      "C30_ori",
+      "C30_ori_run",
+      "C30_patternScr",
+      "C30_patternScr_eq",
+      "C30_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C30_no_small",
+    "dependencies": [
+      "C30_enc_goal",
+      "C30_f",
+      "C30_no_run",
+      "C30_nonconstant",
+      "C30_proper",
+      "C30_rows",
+      "C30_xs"
+    ],
+    "group": 2
+  },
+  {
+    "name": "C30_lower",
+    "dependencies": [
+      "C30_f",
+      "C30_no_small"
+    ],
+    "group": 2
+  }
+]

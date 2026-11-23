@@ -1,0 +1,143 @@
+{
+  "status": "UNCOMPILED fallback. Static source/data audits PASS only. Current named v9 build continues unchanged; no full proof or checker verdict claimed.",
+  "records": [
+    {
+      "source": "proof-strategy/meta984/audit_full_compact_v10.py",
+      "stored": "proof-strategy/meta984/audit_full_compact_v10.py",
+      "sha256": "a52a59c29591e892dfdd7ad4c2183a73d564901a5b5aff3047cc3ae4e0aefe1b",
+      "bytes": 5297
+    },
+    {
+      "source": "proof-strategy/meta984/full-compact-v10-static-review.txt",
+      "stored": "proof-strategy/meta984/full-compact-v10-static-review.txt",
+      "sha256": "fd9c818a1cc1f342df4fbca7c42b31b1066a8408371ed96a2fae917f79b91f95",
+      "bytes": 2745
+    },
+    {
+      "source": "fresh-full-proof/meta984/GrayReorderedGraph26OneState984.lean",
+      "stored": "fresh-full-proof/meta984/GrayReorderedGraph26OneState984.lean",
+      "sha256": "3c1067ae29383ce567b65bb0675491d2470e7720f12a1e16405088f7bff3ef21",
+      "bytes": 100902
+    },
+    {
+      "source": "fresh-full-proof/meta984/reorder-compact-v10.stderr",
+      "stored": "fresh-full-proof/meta984/reorder-compact-v10.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "proof-strategy/meta984/audit-full-compact-v10.log",
+      "stored": "proof-strategy/meta984/audit-full-compact-v10.log",
+      "sha256": "789d14769a164062e2263c0e48d1cf027eccc429e8476cc5e8dec7a13d4e553e",
+      "bytes": 4047
+    },
+    {
+      "source": "fresh-full-proof/meta984/gray-reorder-v9-v10.diff",
+      "stored": "fresh-full-proof/meta984/gray-reorder-v9-v10.diff",
+      "sha256": "a7eb8f6c8dbb5786adeff09be79eb15d210a2b02aae5791f9e898e7d7e1edc17",
+      "bytes": 75397
+    },
+    {
+      "source": "fresh-full-proof/meta984/Full984-compact-v10.lean.dependencies.json",
+      "stored": "fresh-full-proof/meta984/Full984-compact-v10.lean.dependencies.json",
+      "sha256": "0a46a225cac2c73931e8c151336631c515728ed757dfd0e17f142578be74c05c",
+      "bytes": 140356
+    },
+    {
+      "source": "fresh-full-proof/meta984/Full984-compact-v10.lean.assembly.json",
+      "stored": "fresh-full-proof/meta984/Full984-compact-v10.lean.assembly.json",
+      "sha256": "e191051350df413317214cdb2e9f592d7841b4f1d017f8c504bfbd469bf62699",
+      "bytes": 24157
+    },
+    {
+      "source": "fresh-full-proof/meta984/Full984-compact-v10.lean",
+      "stored": "fresh-full-proof/meta984/Full984-compact-v10.lean",
+      "sha256": "afb1f795d3d50558279cbd0f455e4aec17daa7da2badb44c0bdb8e5fe5954f98",
+      "bytes": 515826
+    },
+    {
+      "source": "fresh-full-proof/meta984/reorder-compact-v10.stdout",
+      "stored": "fresh-full-proof/meta984/reorder-compact-v10.stdout",
+      "sha256": "f21aa72929fe8ad9dc7aebf005c1e05cd85f960547dd53b35a7663bfa9d58efb",
+      "bytes": 710
+    },
+    {
+      "source": "independent-search/984/audit_v10_score_orders.py",
+      "stored": "independent-search/984/audit_v10_score_orders.py",
+      "sha256": "ccf3e771910372c483b2fb5c71393b3fe2a12b1040b10edb7009f46ca5556177",
+      "bytes": 3895
+    },
+    {
+      "source": "fresh-full-proof/meta984/gray-reorder-v10-audit.json",
+      "stored": "fresh-full-proof/meta984/gray-reorder-v10-audit.json",
+      "sha256": "ea622b0cf8a5c9fe9eb3e318fda3ee22aa3212f9d8d1ad839c35a6c02ce686a8",
+      "bytes": 1783
+    },
+    {
+      "source": "independent-search/984/audit-v10-score-orders.log",
+      "stored": "independent-search/984/audit-v10-score-orders.log",
+      "sha256": "bf81a9af5275b960089d46fa6e80ba29d870e09ee329ef11e7b1f37e55bb90c8",
+      "bytes": 207
+    },
+    {
+      "source": "independent-search/984/audit-v10-score-orders-2.log",
+      "stored": "independent-search/984/audit-v10-score-orders-2.log",
+      "sha256": "2867a545be53a86082b76392c9fb7bc6183f235e5309a570570bb03b17a5dd68",
+      "bytes": 4540
+    },
+    {
+      "source": "single-not-reduction/meta984/gray-walk/GrayWalkSuffix984.lean",
+      "stored": "single-not-reduction/meta984/gray-walk/GrayWalkSuffix984.lean",
+      "sha256": "2294e114bf1c5af4d972c126a2d9d5f51b47c8d122364b4cee4cacffc97d3a37",
+      "bytes": 1981
+    },
+    {
+      "source": "single-not-reduction/meta984/gray-walk/GrayWalk984.lean",
+      "stored": "single-not-reduction/meta984/gray-walk/GrayWalk984.lean",
+      "sha256": "1bc66893cac4b6e29650594eab402ae4e6c90a6b30317b376136b12654435388",
+      "bytes": 79568
+    },
+    {
+      "source": "single-not-reduction/meta984/gray-walk/GrayNormWalk984.lean",
+      "stored": "single-not-reduction/meta984/gray-walk/GrayNormWalk984.lean",
+      "sha256": "4f48ff9a865393d461df4717a884482ce5a3a30c7b70942b2efaa138bfd4570d",
+      "bytes": 81970
+    },
+    {
+      "source": "single-not-reduction/meta984/gray-walk/GrayNormWalkSuffix984.lean",
+      "stored": "single-not-reduction/meta984/gray-walk/GrayNormWalkSuffix984.lean",
+      "sha256": "0c35fe624df7f55911757cd9f48f068bfb65d414b848e20e4d79da6797184b9a",
+      "bytes": 2401
+    },
+    {
+      "source": "independent-theory/meta984/gray26-fallback/C26GrayData984.fragment.lean",
+      "stored": "independent-theory/meta984/gray26-fallback/C26GrayData984.fragment.lean",
+      "sha256": "550bd55475d6adc6d8c48997478473b259cc3bd74acda63808dde8e290ab8a31",
+      "bytes": 1737
+    },
+    {
+      "source": "independent-theory/meta984/gray26-fallback/C26NormReplacement984.fragment.lean",
+      "stored": "independent-theory/meta984/gray26-fallback/C26NormReplacement984.fragment.lean",
+      "sha256": "f0f63cf9ceac2ee7ac36c52f4825ad2a40f0fa6891bde372a8a424cdb7909a79",
+      "bytes": 319
+    },
+    {
+      "source": "independent-theory/meta984/gray26-fallback/README.md",
+      "stored": "independent-theory/meta984/gray26-fallback/README.md",
+      "sha256": "9d9fdc357e3a596776a3e06a2381d1d1d43ae20371f35fd3cac39fd947719300",
+      "bytes": 2521
+    },
+    {
+      "source": "independent-theory/meta984/gray26-fallback/validation.json",
+      "stored": "independent-theory/meta984/gray26-fallback/validation.json",
+      "sha256": "97c5333c5f2d8dfd468851b6dcf924deededae9ae609b727fe3b5d5d266191b4",
+      "bytes": 1877
+    },
+    {
+      "source": "independent-theory/meta984/gray26-fallback/C26Replacement984.fragment.lean",
+      "stored": "independent-theory/meta984/gray26-fallback/C26Replacement984.fragment.lean",
+      "sha256": "a71e1a00a2f1cbcd9c3feac834cb2d143b1061f61cff34d4bd8a2e7cad805675",
+      "bytes": 311
+    }
+  ]
+}

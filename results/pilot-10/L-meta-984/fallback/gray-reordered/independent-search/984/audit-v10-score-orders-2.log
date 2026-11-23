@@ -1,0 +1,34 @@
+PASS graph=0 pool_size=16 rank_width=4 coords=15 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=1 pool_size=11 rank_width=4 coords=16 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=2 pool_size=11 rank_width=4 coords=16 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=3 pool_size=8 rank_width=4 coords=15 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=4 pool_size=9 rank_width=4 coords=15 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=5 pool_size=7 rank_width=4 coords=15 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=6 pool_size=4 rank_width=4 coords=14 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=7 pool_size=7 rank_width=4 coords=14 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=8 pool_size=7 rank_width=4 coords=14 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=9 pool_size=14 rank_width=4 coords=13 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=10 pool_size=10 rank_width=4 coords=11 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=11 pool_size=28 rank_width=5 coords=17 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=12 pool_size=10 rank_width=4 coords=11 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=13 pool_size=21 rank_width=4 coords=15 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=14 pool_size=10 rank_width=4 coords=13 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=15 pool_size=17 rank_width=4 coords=16 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=16 pool_size=5 rank_width=4 coords=13 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=17 pool_size=15 rank_width=4 coords=16 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=18 pool_size=12 rank_width=4 coords=16 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=19 pool_size=14 rank_width=4 coords=15 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=20 pool_size=14 rank_width=4 coords=15 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=21 pool_size=14 rank_width=4 coords=16 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=22 pool_size=5 rank_width=4 coords=14 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=23 pool_size=11 rank_width=4 coords=15 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=24 pool_size=11 rank_width=5 coords=17 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=25 pool_size=12 rank_width=4 coords=15 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=26 pool_size=39 rank_width=5 coords=18 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=27 pool_size=33 rank_width=5 coords=17 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=28 pool_size=22 rank_width=4 coords=16 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=29 pool_size=20 rank_width=4 coords=16 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS graph=30 pool_size=27 rank_width=5 coords=17 exact_pool_permutation=yes exact_pattern_order=yes unchanged_guard_and_fallback=yes
+PASS all31 pools and 444 pattern clauses independently checked against frozen permutation records and compact pool files.
+SOURCE_SHA256 afb1f795d3d50558279cbd0f455e4aec17daa7da2badb44c0bdb8e5fe5954f98
+SCOPE score pools, pattern expressions, coordinate arrays, source-pool hashes, fallback definitions and wrapper guards only. Gray helper, other proof/data changes and compilation are outside this audit.

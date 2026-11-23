@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-10/independent-search/984/audit_v10_score_orders.py", line 49, in <module>
+    assert g['graph']==i
+           ^^^^^^^^^^^^^
+AssertionError

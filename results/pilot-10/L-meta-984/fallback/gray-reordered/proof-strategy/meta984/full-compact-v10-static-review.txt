@@ -1,0 +1,13 @@
+PASS independent static source and data review. Full v10 SHA256afb1f795d3d50558279cbd0f455e4aec17daa7da2badb44c0bdb8e5fe5954f98,515826bytes,6302lines,8462bytes below512KiB. Compilation/checker acceptance not claimed.
+
+Actual declaration comparison against reviewed v9 permits only additions of normalized Gray-walk helpers/data, changes to C26_ori/C26_ori_run, and all31 rankPool/patternScore orderings. All frontier encodings, multiplicities, CHD state lookup guards, score guards/equality lemmas, finite checks/joins, semantic graph wrappers and the exact final31-conjunct posted statement remain unchanged.
+
+Generic proof reasoning: qInsert_perm establishes insertion as a permutation using one swap and induction; qNorm_perm composes these permutations. orbitNormWalk tracks both the current state and its normalized best candidate. Each generator preserves MonRun by routeStages_run under explicit stage validity and goal-fixing. Sorting the candidate preserves MonRun through Run.perm. Either branch selecting the new normalized candidate or old best therefore preserves MonRun. Initial current and qNorm(initial) both satisfy MonRun. No assumption that the traversal is complete is needed for soundness; finite closure checks still independently validate the chosen orientation.
+
+Stronger computational compatibility audit: the actual47 generator-route sequence was composed on all32 basis bits, starting at identity. It visits exactly the old48 graph26 automorphism maps once. Every generator satisfies disjoint-stage masks and fixes the exact goal. Thus the intended full orbit is preserved, including padding. Comparison uses actual Lean route literals rather than trusting a generator status label.
+
+For all31 graphs, actual rankPool literals equal the proposed index permutations of the previous pools, retaining exact multiplicities. Every specialized sum6 clause matches its corresponding six packed indices and target3; fallback clauses and all patternScr guards are unchanged. Reordering therefore changes the evaluation order alone.
+
+The small G26 integration file has the identical generic/data/score/orientation declarations from fullv10 and only adds a literal decoder diagnostic and span(C26_Z8)1 0=true. It contains no C26_lower or complete graph certificate claim. Its exact SHA256 is recorded in audit-full-compact-v10.log.
+
+Automated evidence: audit_full_compact_v10.py and audit-full-compact-v10.log, both frozen after PASS. These verify source hashes, actual-declaration equality, score permutations/pattern terms, all basis compositions, final statement, namespace/format restrictions,512KiB cap, declaration dependency order and probe scope. No compilation or named proof-file mutation was performed by this review.
