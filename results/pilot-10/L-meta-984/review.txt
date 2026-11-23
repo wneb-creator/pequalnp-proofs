@@ -19,3 +19,10 @@ Root independently reviewed all79lines of PseudoforestFacts984 and its empty
 successful log: explicit finite graph facts only, no circuit lower bound.
 The archived source has global limit options and a helper instance requiring
 cleanup if reused in a final PR; exact compiled bytes are retained here.
+
+SlackScore984: independent review by fresh_full_proof plus root source read
+PASS. Generic Run/retention/slack accounting is explicit; no concrete bound.
+Shard28Benchmark: independent_search review PASS, exact frozen hash/graph/rows
+and limited checked declarations verified. Only five layer8 state checks and
+semantic input/goal/proper-subset facts are claimed. Stdout is empty; stderr
+contains only real65.46/user52.54/sys5.04 timing. It proves no whole-graph bound.
