@@ -1,0 +1,7 @@
+Posted gap: L-meta-997
+Status: partial lemmas; no full proof or refutation of the posted statement.
+Lean validation: Windows.lean compiled with pinned Lean 4.36.0, exit 0.
+Complete compiler stdout/stderr: windows-build.log (empty).
+Local posted-statement checker: NOT RUN; no completed posted-statement proof exists.
+Independent review: formal_audit reviewed Windows.lean and found no issue.
+This checkpoint is preserved under the owner's 2026-11-23 PUSH-EARLY rule.
