@@ -7,3 +7,8 @@ Integrated named file: lake build PEqualNP.Outside.L_meta_997 passed (18383 jobs
 Outside guard: REFUSED: the file holds no theorem. Partial only; no proof PR yet.
 Local exact-statement checker not run: main theorem is still absent.
 Independent red-team review passed for compiled helper snapshot b9c92da609e7eef5401d6cb01162456e5627890bd73e8fff9e5d4705f9222f02.
+
+Second partial: 984 lines. Integrated build passed.
+Added heavy-window private-gate bound, truncated family sum, and all-sets-meet-y special case.
+Independent red-team review passed on SHA256 ec4ed6b22631d53f0ba2947a8776e994154bdbc72e8f0722098125c1cc448682.
+Posted theorem remains unproved; no checker acceptance or PR.
