@@ -1,0 +1,188 @@
+[
+  {
+    "graph": 0,
+    "coordinates": 15,
+    "rank_width": 4,
+    "codes": 16
+  },
+  {
+    "graph": 1,
+    "coordinates": 16,
+    "rank_width": 4,
+    "codes": 11
+  },
+  {
+    "graph": 2,
+    "coordinates": 16,
+    "rank_width": 4,
+    "codes": 11
+  },
+  {
+    "graph": 3,
+    "coordinates": 15,
+    "rank_width": 4,
+    "codes": 8
+  },
+  {
+    "graph": 4,
+    "coordinates": 15,
+    "rank_width": 4,
+    "codes": 9
+  },
+  {
+    "graph": 5,
+    "coordinates": 15,
+    "rank_width": 4,
+    "codes": 7
+  },
+  {
+    "graph": 6,
+    "coordinates": 14,
+    "rank_width": 4,
+    "codes": 4
+  },
+  {
+    "graph": 7,
+    "coordinates": 14,
+    "rank_width": 4,
+    "codes": 7
+  },
+  {
+    "graph": 8,
+    "coordinates": 14,
+    "rank_width": 4,
+    "codes": 7
+  },
+  {
+    "graph": 9,
+    "coordinates": 13,
+    "rank_width": 4,
+    "codes": 14
+  },
+  {
+    "graph": 10,
+    "coordinates": 11,
+    "rank_width": 4,
+    "codes": 10
+  },
+  {
+    "graph": 11,
+    "coordinates": 17,
+    "rank_width": 5,
+    "codes": 28
+  },
+  {
+    "graph": 12,
+    "coordinates": 11,
+    "rank_width": 4,
+    "codes": 10
+  },
+  {
+    "graph": 13,
+    "coordinates": 15,
+    "rank_width": 4,
+    "codes": 21
+  },
+  {
+    "graph": 14,
+    "coordinates": 13,
+    "rank_width": 4,
+    "codes": 10
+  },
+  {
+    "graph": 15,
+    "coordinates": 16,
+    "rank_width": 4,
+    "codes": 17
+  },
+  {
+    "graph": 16,
+    "coordinates": 13,
+    "rank_width": 4,
+    "codes": 5
+  },
+  {
+    "graph": 17,
+    "coordinates": 16,
+    "rank_width": 4,
+    "codes": 15
+  },
+  {
+    "graph": 18,
+    "coordinates": 16,
+    "rank_width": 4,
+    "codes": 12
+  },
+  {
+    "graph": 19,
+    "coordinates": 15,
+    "rank_width": 4,
+    "codes": 14
+  },
+  {
+    "graph": 20,
+    "coordinates": 15,
+    "rank_width": 4,
+    "codes": 14
+  },
+  {
+    "graph": 21,
+    "coordinates": 16,
+    "rank_width": 4,
+    "codes": 14
+  },
+  {
+    "graph": 22,
+    "coordinates": 14,
+    "rank_width": 4,
+    "codes": 5
+  },
+  {
+    "graph": 23,
+    "coordinates": 15,
+    "rank_width": 4,
+    "codes": 11
+  },
+  {
+    "graph": 24,
+    "coordinates": 17,
+    "rank_width": 5,
+    "codes": 11
+  },
+  {
+    "graph": 25,
+    "coordinates": 15,
+    "rank_width": 4,
+    "codes": 12
+  },
+  {
+    "graph": 26,
+    "coordinates": 18,
+    "rank_width": 5,
+    "codes": 39
+  },
+  {
+    "graph": 27,
+    "coordinates": 17,
+    "rank_width": 5,
+    "codes": 33
+  },
+  {
+    "graph": 28,
+    "coordinates": 16,
+    "rank_width": 4,
+    "codes": 22
+  },
+  {
+    "graph": 29,
+    "coordinates": 16,
+    "rank_width": 4,
+    "codes": 20
+  },
+  {
+    "graph": 30,
+    "coordinates": 17,
+    "rank_width": 5,
+    "codes": 27
+  }
+]

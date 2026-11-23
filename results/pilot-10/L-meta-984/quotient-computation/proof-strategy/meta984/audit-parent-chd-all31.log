@@ -1,0 +1,34 @@
+PASS parent/CHD 0 states 161 group 8
+PASS parent/CHD 1 states 85 group 16
+PASS parent/CHD 2 states 106 group 4
+PASS parent/CHD 3 states 110 group 2
+PASS parent/CHD 4 states 195 group 2
+PASS parent/CHD 5 states 122 group 2
+PASS parent/CHD 6 states 72 group 12
+PASS parent/CHD 7 states 89 group 2
+PASS parent/CHD 8 states 14 group 14
+PASS parent/CHD 9 states 122 group 16
+PASS parent/CHD 10 states 228 group 2
+PASS parent/CHD 11 states 580 group 8
+PASS parent/CHD 12 states 209 group 4
+PASS parent/CHD 13 states 1102 group 4
+PASS parent/CHD 14 states 115 group 2
+PASS parent/CHD 15 states 1199 group 2
+PASS parent/CHD 16 states 154 group 1
+PASS parent/CHD 17 states 983 group 4
+PASS parent/CHD 18 states 391 group 4
+PASS parent/CHD 19 states 798 group 2
+PASS parent/CHD 20 states 1499 group 1
+PASS parent/CHD 21 states 1166 group 2
+PASS parent/CHD 22 states 85 group 2
+PASS parent/CHD 23 states 430 group 2
+PASS parent/CHD 24 states 248 group 8
+PASS parent/CHD 25 states 255 group 4
+PASS parent/CHD 26 states 1067 group 48
+PASS parent/CHD 27 states 3124 group 8
+PASS parent/CHD 28 states 5742 group 2
+PASS parent/CHD 29 states 2022 group 6
+PASS parent/CHD 30 states 5310 group 2
+PASS all31 compact parent decodings, exact saved-state sets, every CHD slot and kernel-block coverage
+TOTAL states 27783 kernel blocks 257
+Scope: independent data audit; full Lean elaboration and local checker remain required.

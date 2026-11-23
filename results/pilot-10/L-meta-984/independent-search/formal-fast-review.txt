@@ -1,0 +1,7 @@
+PASS: independent review of FormalFast984.lean
+Source: /tmp/oec/pequalnp-pilot-10/toolchain/meta984/FormalFast984.lean
+SHA256: 4d9b4bfdc16f48146853f5bf22b9f1cc74010ec879d995f41e38f1558438c5f1
+Size: 90052 bytes; 2049 lines.
+Reported compilation exit 0. formal-fast-check-2.stdout is empty; stderr contains only real 20.99, user 28.06, sys 3.66. No recompile performed.
+All six rank indices are guarded by coords.length before getD. The masks list is constructed from precisely the same coords list. fastScr requires exact width s+1 and width at most 12, the latter matching the SWAR verification domain. sum6_row proves the Nat subtraction identity through an additive equality. fastEntry_no uses the actual decoded coordinates in eval6_bound. barFastOrbit scores and looks up ori zs, and soundness explicitly transports the MonRun to that canonical successor. Arbitrary orbitActions require preservation for each action. Imports occupy lines 1-2; no sorry, axiom, native_decide, or unsafe token was found.
+Scope: generic fast-scoring and orbit-checker soundness only. This artifact does not prove the full 31-graph L-meta-984 theorem.

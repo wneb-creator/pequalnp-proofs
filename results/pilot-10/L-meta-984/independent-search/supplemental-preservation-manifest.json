@@ -1,0 +1,220 @@
+{
+  "scope": "Fast-pool reencoding, independent partial-artifact review, and symmetry reduction experiments only; no full Lean proof of L-meta-984. Exact symmetry data is reconstructed from archived quotient frontiers and prepare_exact_symmetry.py; binaries and redundant state matrices are excluded.",
+  "files": [
+    {
+      "file": "fast_pool_0.json",
+      "sha256": "487b1a1066221a287bcb1d6162eb9852477cdb742c6594b45300886965b296c6",
+      "bytes": 1114
+    },
+    {
+      "file": "fast_pool_1.json",
+      "sha256": "2579405dec38ed020d61056b30a628621df543dc29ff4e9efedaa781770fa77f",
+      "bytes": 942
+    },
+    {
+      "file": "fast_pool_2.json",
+      "sha256": "4cbf42093d21180c797ce3804e7c2412fe9abba3dc43d419f92fb2b4b485f904",
+      "bytes": 942
+    },
+    {
+      "file": "fast_pool_3.json",
+      "sha256": "dda0290be3060eda38da8b3ffa05cb984e4393e5dcc4cbde7f4829a1c56263b5",
+      "bytes": 825
+    },
+    {
+      "file": "fast_pool_4.json",
+      "sha256": "a849f64f992d90424f933f19a23d9c615251d5022b0dc328a795f21810c13861",
+      "bytes": 862
+    },
+    {
+      "file": "fast_pool_5.json",
+      "sha256": "3f39832c989fc6eec93923287e2d36a24f78be9e8eba969124ee9a17313308ed",
+      "bytes": 789
+    },
+    {
+      "file": "fast_pool_6.json",
+      "sha256": "88c2d5cf5092be6a7d393d8bcdaf5d512d3ecb8df2e1bd38e9ad8440935e140f",
+      "bytes": 674
+    },
+    {
+      "file": "fast_pool_7.json",
+      "sha256": "c1ba1537c36273cf5bb3b31db28898c722bc8b5b20e5ffe4d555c90462f1b5cb",
+      "bytes": 783
+    },
+    {
+      "file": "fast_pool_8.json",
+      "sha256": "5b92a9bd1d0bfd81827e96f613e36a7622c2e8dd9c1b5bfdd6b3e342a628a543",
+      "bytes": 781
+    },
+    {
+      "file": "fast_pool_9.json",
+      "sha256": "c445199e37f1ddd11882b5d24a25a35ad6512cc5cb9da8c590e6eadf95323098",
+      "bytes": 1023
+    },
+    {
+      "file": "fast_pool_10.json",
+      "sha256": "62a4b439af31d5628e0a91acf8d69d196b2f448020b6d61a3106853685db26e8",
+      "bytes": 867
+    },
+    {
+      "file": "fast_pool_11.json",
+      "sha256": "0eb8bc59fb5608ef5947dadede45417503d24fbb4fe9fb6242598dd47eb691db",
+      "bytes": 1619
+    },
+    {
+      "file": "fast_pool_12.json",
+      "sha256": "c2ec413457233e434a25fb766c01cb5ca1a75b30041a99ad11887c901339c19e",
+      "bytes": 867
+    },
+    {
+      "file": "fast_pool_13.json",
+      "sha256": "fc510e51f1b8cb7b01ec90a56c6ebbfe42860ffcad5e02eaa52c497269a53a97",
+      "bytes": 1294
+    },
+    {
+      "file": "fast_pool_14.json",
+      "sha256": "befd2a746747024467d75e2267b49f02c9468e1190913e361289454fbb10a5c2",
+      "bytes": 882
+    },
+    {
+      "file": "fast_pool_15.json",
+      "sha256": "1c8398d96b1f3fe1fc715e892bd0a8bca45dca040bf0a9149becac0985a42b97",
+      "bytes": 1157
+    },
+    {
+      "file": "fast_pool_16.json",
+      "sha256": "bf1197e0d837cfd1f3e79a11eb9abd8fce4a33b6477b9d6ff20136495b1ba88f",
+      "bytes": 703
+    },
+    {
+      "file": "fast_pool_17.json",
+      "sha256": "5736e7aa8839e261c15fa5f7983fee3068deefae929738f7caa85b3b25860a2f",
+      "bytes": 1087
+    },
+    {
+      "file": "fast_pool_18.json",
+      "sha256": "53b6e1cf483340d9d75bb8795f37d57353f225a222b9bf56c44e69439095c9f9",
+      "bytes": 979
+    },
+    {
+      "file": "fast_pool_19.json",
+      "sha256": "baecd3f7d2af6ece3718932f26ba491ae70c5e113f7a103ce7d53c125200e795",
+      "bytes": 1041
+    },
+    {
+      "file": "fast_pool_20.json",
+      "sha256": "140f9fb902799a56521bea49bc40bbe639e77a602731e7656b50a9462b31d81e",
+      "bytes": 1043
+    },
+    {
+      "file": "fast_pool_21.json",
+      "sha256": "dcb01495ea9682d388060bdc7daab2948948f4aa24f6daa193faea0278fa8b10",
+      "bytes": 1051
+    },
+    {
+      "file": "fast_pool_22.json",
+      "sha256": "7544683c22c032295348f50ee9532d5a925404139dd7ed8af336cbf125e0d5e2",
+      "bytes": 711
+    },
+    {
+      "file": "fast_pool_23.json",
+      "sha256": "474d5f439f32e3a60929d008a10bc9c0f6ab4b34c12a47767f63da6c2ca8f8ee",
+      "bytes": 934
+    },
+    {
+      "file": "fast_pool_24.json",
+      "sha256": "0de9c60b7c0f96b50500eac0ff049c466b08358d647be4e47f5ca97cf3e7b594",
+      "bytes": 972
+    },
+    {
+      "file": "fast_pool_25.json",
+      "sha256": "6ddbd72010036700005044feaf57e17c37f6dcbe4e24f5c23879452bb118e79b",
+      "bytes": 971
+    },
+    {
+      "file": "fast_pool_26.json",
+      "sha256": "45e6aabe9ede72072100c40c482ab92beeae216661974d978e7a2a8b91cdc3f6",
+      "bytes": 2037
+    },
+    {
+      "file": "fast_pool_27.json",
+      "sha256": "b85d444d8a3c98ed1f310f64818599cc9d2cacb197526c9a0966b0d4ae72ae15",
+      "bytes": 1802
+    },
+    {
+      "file": "fast_pool_28.json",
+      "sha256": "0c70ce86a3765f8be071dc284e273d86b127ee85089d7352c8b00652780ed1a2",
+      "bytes": 1339
+    },
+    {
+      "file": "fast_pool_29.json",
+      "sha256": "90e8c1748ce424ca46f64cf6a1290864b76f3dfefbf896194a8f95b71b5654ee",
+      "bytes": 1267
+    },
+    {
+      "file": "fast_pool_30.json",
+      "sha256": "32a590aa11707fc83c12816ff1ab73a160353b705d41a3cf9a87ea6da68cac27",
+      "bytes": 1577
+    },
+    {
+      "file": "fast_pool_summary.json",
+      "sha256": "790cab9bb3d1d4aa6521de6c1253e72425c61dcef5bc0bcddd72eb4e42630b47",
+      "bytes": 2651
+    },
+    {
+      "file": "make_fast_pools.py",
+      "sha256": "379bf0a7e467b68625298a43be2a1e65577d894a4d2f32a38cf1520f1780be57",
+      "bytes": 1728
+    },
+    {
+      "file": "make_fast_pools.log",
+      "sha256": "1addb7cffe0a7e1703cf6af885cc98398eea5d1b1c83e62fea72ccb835fbc148",
+      "bytes": 137
+    },
+    {
+      "file": "measure_row_symmetry.py",
+      "sha256": "79ff2095d627b84968d6965812caf3f4b58e770afae5acb4ff48c3d31ce4d73b",
+      "bytes": 2087
+    },
+    {
+      "file": "row_symmetry_measurement.log",
+      "sha256": "c8470a35bef4c54fd92f09fdb320c9660958f9a75eec84812510ec459abfe76f",
+      "bytes": 4799
+    },
+    {
+      "file": "row_symmetry_measurement.json",
+      "sha256": "c6733ecbd1fba56f66721d7992e508e2b977ad832008c515bde11fc0b2eb8256",
+      "bytes": 7327
+    },
+    {
+      "file": "prepare_exact_symmetry.py",
+      "sha256": "fedf9b2c73ebc8bef61e7cad3f4259307cc2b0ac620a63294eda2925a4a1e87c",
+      "bytes": 1322
+    },
+    {
+      "file": "prepare_exact_symmetry.log",
+      "sha256": "fe52246c2ff548da95892c1042c9d39750ef220252b23b6c5052b12155600961",
+      "bytes": 94
+    },
+    {
+      "file": "exact_symmetry.cpp",
+      "sha256": "98afdd801b17beb9f48a0a61c0ac898089387575ff9187d9a5109d7a15f5d8e2",
+      "bytes": 2355
+    },
+    {
+      "file": "exact_symmetry_compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "exact_symmetry.log",
+      "sha256": "5f2409810db43cce60a691c04e8bd6b641aa7aa742852d79b20db26554290213",
+      "bytes": 2104
+    },
+    {
+      "file": "formal-fast-review.txt",
+      "sha256": "82aea6aa91e4141c311fc5d2821f69283b20fcffd7796bf780bb37ec9ff5c58a",
+      "bytes": 1135
+    }
+  ]
+}

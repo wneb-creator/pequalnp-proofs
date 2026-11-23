@@ -1,0 +1,14 @@
+automorphisms=2 k=63 initial_auto=0
+remaining=11 states=1 candidates=0 cached_wires=7 seconds=1.6619e-05
+remaining=10 states=28 candidates=176 cached_wires=47 seconds=0.000201007
+remaining=9 states=968 candidates=6643 cached_wires=175 seconds=0.00276581
+remaining=8 states=2735 candidates=218737 cached_wires=725 seconds=0.0565966
+remaining=7 states=1644 candidates=681338 cached_wires=1806 seconds=0.147081
+remaining=6 states=341 candidates=889984 cached_wires=1944 seconds=0.185619
+remaining=5 states=25 candidates=920966 cached_wires=1971 seconds=0.19034
+remaining=4 states=0 candidates=922491 cached_wires=1977 seconds=0.190927
+remaining=3 states=0 candidates=922491 cached_wires=1977 seconds=0.190982
+remaining=2 states=0 candidates=922491 cached_wires=1977 seconds=0.191008
+remaining=1 states=0 candidates=922491 cached_wires=1977 seconds=0.191151
+remaining=0 states=0 candidates=922491 cached_wires=1977 seconds=0.191175
+EXHAUSTED

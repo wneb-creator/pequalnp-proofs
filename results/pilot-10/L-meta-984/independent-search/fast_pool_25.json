@@ -1,0 +1,53 @@
+{
+  "graph": 25,
+  "k": 56,
+  "coordinate_array": [
+    0,
+    8,
+    16,
+    24,
+    32,
+    40,
+    48,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "rank_width": 4,
+  "rank_codes": [
+    5532536,
+    5381788,
+    3279789,
+    5515927,
+    5389774,
+    3284363,
+    2121338,
+    5459081,
+    5467257,
+    4328622,
+    5450375,
+    4349306
+  ],
+  "original_score_codes": [
+    45071232248373305,
+    45053597115803709,
+    27039190013242430,
+    45071197887588408,
+    45053614294627391,
+    27039198605272124,
+    18014441525272635,
+    45062418976531514,
+    45062436156399674,
+    36046389269031999,
+    45062401794565176,
+    36046432219750459
+  ],
+  "goal_score_per_code": 3,
+  "validation": "Every decoded rank tuple maps exactly to the original six coordinates; every first triple lies in positive half and every last triple in negative half.",
+  "source_pool_sha256": "f6d3a881d369ad21d45bedf9074557327e67528e6e6ca8f570299d29be1e1003"
+}

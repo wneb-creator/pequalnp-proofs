@@ -311,6 +311,18 @@
         "force-benchmark-forced.stderr"
       ],
       "scope": "Same thirty finite kernel score checks using constructor forcing; performance benchmark only."
+    },
+    {
+      "file": "ForcedQuotient28Benchmark.lean",
+      "sha256": "8b592c729196fafcf2e19556d7125157360be23e697d16db38d6058aa17d2965",
+      "bytes": 174304,
+      "lines": 2448,
+      "observed_compile_exit": 0,
+      "logs": [
+        "forced-quotient28-benchmark-1.stdout",
+        "forced-quotient28-benchmark-1.stderr"
+      ],
+      "scope": "One compact layer8 state and existing finite routing/cache facts with provably equal row-mask forcing; no whole-graph bound."
     }
   ]
 }

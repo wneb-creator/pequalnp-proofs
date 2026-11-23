@@ -70,3 +70,12 @@ one layer8 state, no whole graph. All successful full profiler logs retained.
 ForceMap984 reviewed by fresh_full_proof and independent_search: PASS for
 constructor/list equalities. Root reviewed both finite forcing benchmark
 sources and the XOR routing benchmark diff; arithmetic checks only.
+
+ForcedQuotient28Benchmark: root independently reviewed the complete diff
+against the frozen Cached benchmark. Changes insert the independently
+reviewed ForceMap helper and prove fastScr equality; all concrete data and
+finite check scope are unchanged. PASS; successful complete logs retained.
+Quotient computation archive reviewed independently by proof_strategy: all799
+records match originals, including101 deterministic gzip streams. Both new
+independent-search manifests (43 and68 files) also match exactly. These are
+computational records, not a full Lean proof or checker verdict.

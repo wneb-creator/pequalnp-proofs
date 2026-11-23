@@ -1,0 +1,1 @@
+def G1_inputActions : Nat := 0xb8a706a5382e45c1aa2e0b8a8c6a5462e4631aa318b9c286ae142e8ca1ac650b9c446ae222e8d11ac688

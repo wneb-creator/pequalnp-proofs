@@ -1,0 +1,23 @@
+Independent source review: frontier_quotient.cpp
+SHA256: f5e61876a91cb0f106dd84655662dd105ff2e63f83e5745253313236ab350755
+Verdict: PASS for the intended finite frontier generator; generated data remains untrusted until the Lean closure checks pass.
+
+Reviewed all 86 lines. No repository changes, network calls, credential access, or external side effects beyond explicitly named output files.
+
+Checked:
+- Fixed 256-bit shifts handle zero, 128, and 256 boundaries before evaluating unsafe shift counts; 2*k<=256 is enforced.
+- Rows are maximal independent assignments crossed with graph edges, negative half first and positive half second.
+- Graph automorphisms preserve adjacency and induce checked bijections on row pairs; both map directions are emitted.
+- Canonical states are lexicographic minima of sorted multisets; duplicates are preserved.
+- Coverage uses positive AND NOT negative bits and masks the k relevant pairs.
+- Scoring applies only at exact remaining-width equality and uses the same six-coordinate function as Lean, after canonicalization.
+- Identity moves, retained identity copies, AND/OR pairs, and all allowed retention combinations agree with the slack s+1-width rule.
+- Parent indices follow the same stable unordered-map iteration order used when writing the current layer; current-layer map is not mutated while generating its successor.
+- References to cached transform vectors remain valid across unordered_map rehashes.
+- Only exhaustion at layer zero reports EXHAUSTED; state/time limits return separate failure statuses.
+
+Decoder reminders:
+- Metadata op=0 means AND and op=1 means OR.
+- Metadata row_perms maps source to destination; mapBits uses row_inverse_perms, destination to source, extended separately to both halves.
+- Score pruning must follow orientation unless pool invariance is separately proved.
+- This source review does not establish a Lean theorem or checker acceptance.

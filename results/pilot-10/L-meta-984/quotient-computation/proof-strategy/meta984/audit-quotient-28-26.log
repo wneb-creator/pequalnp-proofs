@@ -1,0 +1,27 @@
+START quotient 28 automorphisms 2 states 5742
+PASS quotient closure 28 11 to 10 states 28 candidates 182 seconds 0.0
+PASS quotient closure 28 10 to 9 states 968 candidates 6694 seconds 0.02
+PASS quotient closure 28 9 to 8 states 2735 candidates 220836 seconds 0.8
+PASS quotient closure 28 8 to 7 states 1644 candidates 482580 seconds 2.09
+PASS quotient closure 28 7 to 6 states 341 candidates 218468 seconds 2.51
+PASS quotient closure 28 6 to 5 states 25 candidates 32682 seconds 2.57
+PASS quotient closure 28 5 to 4 states 0 candidates 1625 seconds 2.57
+PASS quotient closure 28 4 to 3 states 0 candidates 0 seconds 2.57
+PASS quotient closure 28 3 to 2 states 0 candidates 0 seconds 2.57
+PASS quotient closure 28 2 to 1 states 0 candidates 0 seconds 2.57
+PASS quotient closure 28 1 to 0 states 0 candidates 0 seconds 2.57
+PASS quotient graph 28 automorphisms, exact canonical closure and every parent witness
+START quotient 26 automorphisms 48 states 1067
+PASS quotient closure 26 11 to 10 states 9 candidates 182 seconds 0.0
+PASS quotient closure 26 10 to 9 states 158 candidates 2118 seconds 0.08
+PASS quotient closure 26 9 to 8 states 400 candidates 36120 seconds 1.2
+PASS quotient closure 26 8 to 7 states 334 candidates 70552 seconds 3.67
+PASS quotient closure 26 7 to 6 states 137 candidates 44195 seconds 4.32
+PASS quotient closure 26 6 to 5 states 27 candidates 13092 seconds 4.49
+PASS quotient closure 26 5 to 4 states 1 candidates 1755 seconds 4.51
+PASS quotient closure 26 4 to 3 states 0 candidates 40 seconds 4.51
+PASS quotient closure 26 3 to 2 states 0 candidates 0 seconds 4.51
+PASS quotient closure 26 2 to 1 states 0 candidates 0 seconds 4.51
+PASS quotient closure 26 1 to 0 states 0 candidates 0 seconds 4.51
+PASS quotient graph 26 automorphisms, exact canonical closure and every parent witness
+PASS selected quotient frontiers [28, 26] states 6809 literal candidates 1131121

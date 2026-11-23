@@ -1,0 +1,83 @@
+{
+  "graph": 29,
+  "keys_hex": [
+    "0xe070381c0e070380001ff007fc0000",
+    "0x32190c86432190c803fe0000003fe00",
+    "0x542a150a8542a157fc00000000001ff",
+    "0x8844221108844220000000ff803ffff",
+    "0x12090482412090480000000ffffc01ff",
+    "0x24120904824120900000000ffffffe00",
+    "0x381c0e070381c0e07ffffff000000000"
+  ],
+  "key_count": 7,
+  "index_bits": 3,
+  "auto_code_bits": 21,
+  "permutations": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    [
+      0,
+      2,
+      1,
+      3,
+      5,
+      4,
+      6
+    ],
+    [
+      1,
+      0,
+      2,
+      4,
+      3,
+      5,
+      6
+    ],
+    [
+      1,
+      2,
+      0,
+      4,
+      5,
+      3,
+      6
+    ],
+    [
+      2,
+      0,
+      1,
+      5,
+      3,
+      4,
+      6
+    ],
+    [
+      2,
+      1,
+      0,
+      5,
+      4,
+      3,
+      6
+    ]
+  ],
+  "auto_codes": [
+    1754760,
+    1726032,
+    1751169,
+    1693713,
+    1718850,
+    1690122
+  ],
+  "packed_auto_codes_hex": "0x339415a3a42cec08eae2074aca1ac688",
+  "meta_sha256": "6f5aeff461446064560d12511fe3689cee80a8da712f653b55e0832510bda13c",
+  "routes_sha256": "3466124d025f8b3240c2c4d9b545c5a01017772ec0189250619f3551b2134268",
+  "validation": "Every cache value equals the original row-inverse permutation action and independently evaluated Benes XOR stages. Keys exactly match emitted G_initial."
+}
