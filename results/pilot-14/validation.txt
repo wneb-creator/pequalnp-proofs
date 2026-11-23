@@ -1,9 +1,10 @@
 gap: L-meta-670
-status: CHECKED PARTIAL ONLY; posted theorem not proved
-file: lean/PEqualNP/Outside/L_meta_670.lean
-result: dependency lower bound 8 <= s; bounded gate normalization; exact 402-pair live-circuit abstraction and exhaustive-search completeness
-build: lake build +PEqualNP.Outside.L_meta_670 exited 0
-checker: not run; named final theorem absent, so this is not a proof submission
-independent review: red_team, source SHA256 3e1af08a6895dbc1c9ba94cc94fbac65c9b05312a25c60b09cd541f48f22f192
+status: CHECKED PARTIALS AND UNVERIFIED NATIVE EXCLUSION; posted theorem not yet proved
+file: lean/PEqualNP/Outside/L_meta_670.lean remains the earlier checked partial framework
+build: named partial lake build exited 0; individual archived component builds are recorded in their check files
+components: embedded 8-input/7-input lower bounds, 414-pair abstraction, symmetry, generic projection and cached-oracle soundness, static replay, compression equivalences, prefix generator
+native: every normalized NOT count 0 through 7 excluded by the 12-domain C++ search; native/ contains complete reproducible sources, data, stdout/stderr, and manifest
+independent native audit: counterexample rebuilt t=7, validated all 2662 frontier records, and checked manifest/tables; this does not replace Lean finite checks
+checker: not run on a final theorem; exact named final theorem absent, so no proof submission or PR yet
 Sub-agents: status_review, lower_bound, counterexample, toolchain, sat_proof, red_team
-TIMING total=10.21 subagents=6
+TIMING total=58.51 subagents=6

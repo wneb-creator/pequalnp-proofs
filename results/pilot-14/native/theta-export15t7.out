@@ -1,0 +1,4 @@
+result=FRONTIER k=15 t=7 sec=0.000393223 nodes=28 hits=17 branches=27 failed=9 signals=21 bins=0 expressions=8
+depth 13 nodes 18 unique 6 prefix 2 cached 10
+depth 14 nodes 9 unique 2 prefix 0 cached 7
+depth 15 nodes 1 unique 1 prefix 0 cached 0

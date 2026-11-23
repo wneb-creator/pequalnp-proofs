@@ -1,0 +1,10 @@
+result=EXCLUDED k=15 t=2 sec=5.57865 nodes=386158 hits=94789 branches=386157 failed=59038 signals=82458 bins=82371 expressions=232590
+depth 7 nodes 223 unique 40 prefix 79 cached 104
+depth 8 nodes 6634 unique 1022 prefix 3950 cached 1662
+depth 9 nodes 65893 unique 12623 prefix 37011 cached 16259
+depth 10 nodes 168078 unique 25505 prefix 102387 cached 40186
+depth 11 nodes 121971 unique 16692 prefix 74586 cached 30693
+depth 12 nodes 21844 unique 2924 prefix 13491 cached 5429
+depth 13 nodes 1424 unique 219 prefix 803 cached 402
+depth 14 nodes 90 unique 12 prefix 24 cached 54
+depth 15 nodes 1 unique 1 prefix 0 cached 0

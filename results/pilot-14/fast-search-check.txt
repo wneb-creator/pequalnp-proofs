@@ -1,0 +1,16 @@
+L-meta-670 checked partial: nodup-preserving recursive search and recipe-aware cache update.
+Both Lean tests exited 0. Independent red_team review: PASS.
+Tests import the included DynamicFastBase and DynamicOracleTest modules. No full concrete finite exclusion is claimed.
+Full fast-search output follows.
+/tmp/oec/pequalnp-pilot-14/sat-proof/DynamicFastTest.lean:188:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/sat-proof/DynamicFastTest.lean:196:27: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+
+Full recipe-update output follows.
+build queue: waiting 60s for one of 3 slots
+build queue: waiting 120s for one of 3 slots

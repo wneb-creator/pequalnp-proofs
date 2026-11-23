@@ -1,0 +1,13 @@
+L-meta-670 checked partial: automatic projected-prefix program generator and explicit-data fallback.
+AutoContextTest2 Lean exit code: 0; independent lower_bound review PASS.
+ContextDataTest Lean exit code: 0; independent counterexample review PASS.
+Each imports included DynamicBase.lean. Generated programs remain untrusted until the existing legality and coverage checker succeeds. The sample_shared check validates one generated program; it is not a complete finite search.
+Full automatic-context compiler output follows.
+build queue: waiting 60s for one of 3 slots
+build queue: waiting 120s for one of 3 slots
+build queue: waiting 180s for one of 3 slots
+
+Full explicit-context compiler output follows.
+build queue: waiting 60s for one of 3 slots
+build queue: waiting 120s for one of 3 slots
+build queue: waiting 180s for one of 3 slots

@@ -1,0 +1,7 @@
+L-meta-670 checked partial: replacement recipes for all 572 embedded wire signals.
+Lean exit code: 0. Independent counterexample review: PASS, including zero index and all tail indices.
+The replacement saves 25,592 bytes and uses the original evaluator. Full modified embedded-certificate rebuild remains pending.
+Full compiler output follows.
+build queue: waiting 60s for one of 3 slots
+'PEqualNP.Outside.L_meta_670_aux.WireRecipeCheck.exact_values' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_670_aux.WireRecipeCheck.tail_values' depends on axioms: [propext, Quot.sound]

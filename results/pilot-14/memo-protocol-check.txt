@@ -1,0 +1,32 @@
+L-meta-670 checked partial: memoized-search soundness protocol.
+Lean exit code: 0. Independent root review: PASS.
+Cache hits check actual state permutation, exact NOT count, and a sufficient stored gate budget. Only proved exclusions enter the cache. Arbitrary child prefill is authenticated afterward by the existing complete step checker. Tiny tests cover exclusion, duplicate-child reuse, later hits, and an open target.
+This is not a full finite gap certificate.
+Full compiler output follows.
+import took 4.9s
+cumulative profiling times:
+	attribute application 0.268ms
+	blocked (unaccounted) 782ms
+	compilation (IR) 1.63ms
+	compilation (LCNF base) 22.3ms
+	compilation (LCNF impure) 9.16ms
+	compilation (LCNF mono) 12.1ms
+	congr simp thm 4.58ms
+	declTypeLinter 11ms
+	elaboration 106ms
+	fix level params 0.402ms
+	import 4.9s
+	initialization 29.8ms
+	instantiate metavars 1.18ms
+	interpretation 408ms
+	let-to-have transformation 0.898ms
+	linting 35.5ms
+	module linting 0.0449ms
+	parsing 12.7ms
+	process pre-definitions 16.5ms
+	share common exprs 2.53ms
+	simp 64.4ms
+	tactic execution 102ms
+	tacticAnalysis 6.55ms
+	type checking 45.2ms
+	typeclass inference 39.4ms
