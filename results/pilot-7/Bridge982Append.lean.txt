@@ -1,0 +1,29 @@
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Reduced
+open PEqualNP.Outside.L_meta_982_aux.Finite.Live
+
+theorem lower_from_rows {n bound : Nat} (f : BFn n) (rows : List Nat)
+    (initial forbidden : List Nat) (m y : Nat)
+    (hnc : ∃ x z, f x ≠ f z)
+    (hcover : ∀ x : Fin n → Bool, ∃ v ∈ rows, pt n v = x)
+    (hi : (List.ofFn (fun i : Fin n => fun x : Fin n → Bool => x i)).map
+      (fun g => encL g rows) = initial)
+    (hf : (forbiddenFns n).map (fun g => encL g rows) = forbidden)
+    (hm : 2^rows.length-1 = m) (hy : encL f rows = y)
+    (hn : initial.Nodup)
+    (he : ∀ a ∈ initial, ∃ i j : Nat, m.testBit i = m.testBit j ∧
+      y.testBit i ≠ y.testBit j ∧ ∀ b ∈ initial, b ≠ a → b.testBit i = b.testBit j)
+    (hno : ∀ t < bound, ¬ RNatRun forbidden m y t initial) :
+    ∀ s, HasCircuitSize n f s → bound ≤ s := by
+  intro s hs
+  by_contra! hlt
+  obtain ⟨t,ht,ws,hsub,hrun⟩ := exists_run f hnc s hs
+  have hr := encoded_run_rows rows hcover hrun
+  rw [hf,hm,hy] at hr
+  have hsub' : (ws.map (fun g => encL g rows)).Sublist initial := by
+    rw [←hi]
+    exact hsub.map _
+  have hp := initial_full hn hsub' he hr.toRun
+  exact hno t (by omega) (RRun.perm hp hr)
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Reduced

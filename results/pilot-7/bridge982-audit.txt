@@ -1,0 +1,1 @@
+Independent review by counterexample_search: PASS. The exact circuit bound follows from the explicit row coverage, exact encodings, initial essentiality, and no-run premises. No implicit size-padding or monotonicity assumption. Combined Lean compilation exited0.
