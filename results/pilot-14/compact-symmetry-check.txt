@@ -1,0 +1,160 @@
+L-meta-670 checked partial: compact symmetry model.
+Lean exit code: 0. Independent red-team review: PASS.
+All twelve inverse selectors exactly match the original packed selectors; theorem statements and proofs unchanged.
+This is a partial framework, not the posted theorem.
+Full compiler output follows.
+import took 15s
+parsing took 113ms
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:100:85: warning: exponent 414 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:130:183: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:130:183: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:140:204: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:140:204: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:146:177: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:146:177: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:154:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:154:81: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:173:112: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:173:108: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:173:112: warning: Unused tactic linter: `aesop` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:195:4: warning: Unused tactic linter: `change x ∈ v ↔ _` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:270:99: warning: This simp argument is unused:
+  BitVec.and_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.or_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:270:115: warning: This simp argument is unused:
+  BitVec.or_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.and_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:270:185: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:270:185: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+type checking took 1.67s
+simp took 108ms
+simp took 106ms
+simp took 188ms
+simp took 209ms
+simp took 215ms
+simp took 312ms
+simp took 105ms
+simp took 167ms
+simp took 116ms
+simp took 101ms
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:625:60: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sep, bin, ite_false, ite_true, takeTwo, top, BitVec.getLsbD_allOnes, BitVec.getLsbD_and,
+    BitVec.getLsbD_or, BitVec.getLsbD_not, reduceCtorEq, hi, decide_true, Bool.true_and] at hh ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:634:59: warning: This simp argument is unused:
+  decide_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [slowBinary, tryGate, Nat.sub_zero, hlen, ite_true, Bool.or_eq_true, Bool.and_eq_true,
+    beq_iff_eq] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:736:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+type checking took 445ms
+type checking took 833ms
+type checking took 450ms
+type checking took 513ms
+type checking took 461ms
+type checking took 396ms
+type checking took 380ms
+type checking took 953ms
+type checking took 513ms
+type checking took 409ms
+type checking took 654ms
+type checking took 443ms
+tactic execution of Lean.Parser.Tactic.refine took 757ms
+tactic execution of Lean.Parser.Tactic.refine took 463ms
+type checking took 4.99s
+type checking took 5.03s
+type checking took 3.15s
+type checking took 3.33s
+type checking took 2.6s
+type checking took 3.21s
+type checking took 2.99s
+type checking took 2.52s
+type checking took 1.98s
+type checking took 1.99s
+type checking took 1.74s
+type checking took 2.06s
+tactic execution of Lean.Parser.Tactic.decide took 557ms
+type checking took 234ms
+type checking took 303ms
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveCompactSymmetry414.lean:1117:13: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+cumulative profiling times:
+	attribute application 6ms
+	blocked (unaccounted) 597s
+	compilation (IR) 8.12ms
+	compilation (LCNF base) 75.2ms
+	compilation (LCNF impure) 66.2ms
+	compilation (LCNF mono) 58.8ms
+	congr simp thm 138ms
+	declTypeLinter 142ms
+	dsimp 2.58ms
+	elaboration 733ms
+	fix level params 9.98ms
+	import 15s
+	initialization 45.4ms
+	instantiate metavars 82.9ms
+	interpretation 2.1s
+	let-to-have transformation 7.71ms
+	linting 679ms
+	module linting 0.118ms
+	parsing 194ms
+	process pre-definitions 432ms
+	share common exprs 52.5ms
+	simp 7.56s
+	tactic execution 4.05s
+	tacticAnalysis 91ms
+	type checking 44.9s
+	typeclass inference 1.95s
