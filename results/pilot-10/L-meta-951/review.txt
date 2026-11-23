@@ -11,3 +11,15 @@ results under results/ on the work branch.
 Two trailing blank EOF lines in CountedRestriction.lean and K5LiteralNot.lean
 are retained to preserve the exact compiled source bytes. Historical audit
 notes retain their original timestamps and scope.
+
+Incremental review: root independently read EndpointNormalForm.lean (76 lines),
+checked its explicit endpoint/cofactor hypotheses and restricted conclusions,
+and verified the frozen successful source hash and empty final diagnostics.
+No full951 claim is introduced by this new semantic lemma.
+
+Second archive review: proof_strategy independently checked the incremental
+solver/search archive, all20 then-listed source hashes, scratch/log fidelity,
+credential-pattern scan, and limited status labels: PASS. Root then read the
+new AntitoneReversibleCode source independently: finite kernel decide proofs
+with explicit intermediate scope, no full951 or gate-count claim, frozen hash
+verified and final diagnostics empty. Manifest now contains21 compiled files.

@@ -1,0 +1,1 @@
+{"n": 7, "family": [[0, 1, 2, 3], [0, 4, 5, 6], [1, 4], [2, 5]], "budget": 8, "exactly_one_not": true, "first_gate": null, "result": "unsat", "seconds": 94.98707864800008}

@@ -1,0 +1,1 @@
+{"n": 8, "targets": [[0, 1, 2, 3, 4], [0, 5, 6], [1, 5, 7]], "gate_count": 7, "singleton_mode": false, "result": "unsat", "seconds": 103.56984961099988}

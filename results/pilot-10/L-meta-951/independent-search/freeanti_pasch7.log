@@ -1,0 +1,1 @@
+{"n": 6, "family": [[0, 1, 2], [0, 3, 4], [1, 3, 5], [2, 4, 5]], "budget": 7, "free_antitone_input": true, "result": "unsat", "seconds": 27.729248985999675}

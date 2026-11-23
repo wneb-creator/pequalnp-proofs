@@ -1,0 +1,7 @@
+shard=1 graph=A n=13 edges=23 C4_free=true
+independent_sets=211
+orientations_examined=8388608 violations=0 witnesses_independently_rechecked=8388608
+candidates_tested=20475236 max_candidates_per_orientation=30
+witness_size=4 count=746240
+witness_size=5 count=7642368
+elapsed_seconds=1.54558

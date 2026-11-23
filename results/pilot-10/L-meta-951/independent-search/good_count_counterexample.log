@@ -1,0 +1,170 @@
+{
+  "variables": 5,
+  "target": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "gate_count": 10,
+  "assignments_checked": 32,
+  "not_count": 1,
+  "good_wires": [
+    9,
+    14
+  ],
+  "good_count": 2,
+  "desired_but_false_good_lower_bound": 3,
+  "details": [
+    {
+      "wire": 5,
+      "gate": [
+        "not",
+        [
+          4
+        ]
+      ],
+      "low": false,
+      "high": false,
+      "singleton_hits": 4,
+      "outside_value": false,
+      "good": false
+    },
+    {
+      "wire": 6,
+      "gate": [
+        "or",
+        [
+          5,
+          0
+        ]
+      ],
+      "low": false,
+      "high": false,
+      "singleton_hits": 4,
+      "outside_value": false,
+      "good": false
+    },
+    {
+      "wire": 7,
+      "gate": [
+        "or",
+        [
+          6,
+          1
+        ]
+      ],
+      "low": false,
+      "high": false,
+      "singleton_hits": 4,
+      "outside_value": false,
+      "good": false
+    },
+    {
+      "wire": 8,
+      "gate": [
+        "or",
+        [
+          7,
+          2
+        ]
+      ],
+      "low": false,
+      "high": false,
+      "singleton_hits": 4,
+      "outside_value": false,
+      "good": false
+    },
+    {
+      "wire": 9,
+      "gate": [
+        "or",
+        [
+          8,
+          3
+        ]
+      ],
+      "low": false,
+      "high": true,
+      "singleton_hits": 4,
+      "outside_value": false,
+      "good": true
+    },
+    {
+      "wire": 10,
+      "gate": [
+        "or",
+        [
+          4,
+          0
+        ]
+      ],
+      "low": false,
+      "high": false,
+      "singleton_hits": 1,
+      "outside_value": true,
+      "good": false
+    },
+    {
+      "wire": 11,
+      "gate": [
+        "or",
+        [
+          10,
+          1
+        ]
+      ],
+      "low": false,
+      "high": false,
+      "singleton_hits": 2,
+      "outside_value": true,
+      "good": false
+    },
+    {
+      "wire": 12,
+      "gate": [
+        "or",
+        [
+          11,
+          2
+        ]
+      ],
+      "low": false,
+      "high": false,
+      "singleton_hits": 3,
+      "outside_value": true,
+      "good": false
+    },
+    {
+      "wire": 13,
+      "gate": [
+        "or",
+        [
+          12,
+          3
+        ]
+      ],
+      "low": false,
+      "high": true,
+      "singleton_hits": 4,
+      "outside_value": true,
+      "good": false
+    },
+    {
+      "wire": 14,
+      "gate": [
+        "and",
+        [
+          9,
+          13
+        ]
+      ],
+      "low": true,
+      "high": true,
+      "singleton_hits": 4,
+      "outside_value": false,
+      "good": true
+    }
+  ]
+}
+program_sha256=917fbcd74b2bd7f7dbd1297d3ad13b14738a732980d99760e575661d281f895a

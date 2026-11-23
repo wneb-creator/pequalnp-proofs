@@ -1,0 +1,3 @@
+{"iteration": 0, "rows": 12, "result": "sat", "seconds": 6.481475073999945}
+{"iteration": 0, "used": 8, "failing_full_assignments": 0}
+VALID_FULL_CIRCUIT {"n": 6, "family": [[0, 1, 2], [0, 3, 4], [1, 3, 5], [2, 4, 5]], "gates": [[1, 2, 4], [1, 1, 3], [1, 0, 1], [1, 2, 9], [1, 3, 4], [1, 5, 7], [1, 0, 11], [1, 5, 8]], "outputs": [3, 6, 7, 5], "used": 8, "bound": 8, "full_assignments_checked": 64, "actual_constant_true_is_counted": true}

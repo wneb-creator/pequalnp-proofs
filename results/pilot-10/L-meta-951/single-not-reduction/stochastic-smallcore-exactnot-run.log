@@ -1,0 +1,26 @@
+best=88 steps=1 restarts=0
+best=80 steps=1742 restarts=0
+best=64 steps=3488 restarts=0
+best=48 steps=4863 restarts=0
+best=32 steps=5078 restarts=0
+best=16 steps=5517 restarts=0
+elapsed=30.0011 steps=10991616 restarts=1099 best=16
+elapsed=60.0014 steps=22897664 restarts=2289 best=16
+elapsed=90.0028 steps=33232896 restarts=3323 best=16
+elapsed=120.004 steps=45128704 restarts=4512 best=16
+elapsed=150.005 steps=58759168 restarts=5875 best=16
+elapsed=180.006 steps=71024640 restarts=7102 best=16
+elapsed=210.009 steps=81045504 restarts=8104 best=16
+elapsed=240.013 steps=87880704 restarts=8788 best=16
+elapsed=270.013 steps=97591296 restarts=9759 best=16
+elapsed=300.017 steps=108241920 restarts=10824 best=16
+elapsed=330.018 steps=114499584 restarts=11449 best=16
+elapsed=360.021 steps=124806144 restarts=12480 best=16
+elapsed=390.022 steps=136025088 restarts=13602 best=16
+elapsed=420.023 steps=145304576 restarts=14530 best=16
+elapsed=450.024 steps=157264896 restarts=15726 best=16
+elapsed=480.029 steps=169195520 restarts=16919 best=16
+elapsed=510.03 steps=181383168 restarts=18138 best=16
+elapsed=540.031 steps=199118848 restarts=19911 best=16
+elapsed=570.031 steps=214201344 restarts=21420 best=16
+NO WITNESS; stochastic search is incomplete. elapsed=600 steps=229372928 restarts=22937 best=16

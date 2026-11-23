@@ -1,0 +1,79 @@
+[
+  {
+    "name": "stochastic",
+    "log": "stochastic-run.log",
+    "source": "stochastic.cpp",
+    "status": "completed_no_witness",
+    "proves_lower_bound": false,
+    "seconds": 600.038,
+    "mutations": 34963456,
+    "restarts": 3496,
+    "best_error_score": 64
+  },
+  {
+    "name": "stochastic-plane3",
+    "log": "stochastic-plane3-run.log",
+    "source": "stochastic-plane3.cpp",
+    "status": "completed_no_witness",
+    "proves_lower_bound": false,
+    "seconds": 600.756,
+    "mutations": 659456,
+    "restarts": 65,
+    "best_error_score": 512
+  },
+  {
+    "name": "stochastic-plane3-hot",
+    "log": "stochastic-plane3-hot-run.log",
+    "source": "stochastic-plane3-hot.cpp",
+    "status": "completed_no_witness",
+    "proves_lower_bound": false,
+    "seconds": 900.085,
+    "mutations": 901120,
+    "restarts": 90,
+    "best_error_score": 512
+  },
+  {
+    "name": "stochastic-triangle",
+    "log": "stochastic-triangle-run.log",
+    "source": "stochastic-triangle.cpp",
+    "status": "completed_no_witness",
+    "proves_lower_bound": false,
+    "seconds": 600.003,
+    "mutations": 145543168,
+    "restarts": 14554,
+    "best_error_score": 16
+  },
+  {
+    "name": "stochastic-grid3",
+    "log": "stochastic-grid3-run.log",
+    "source": "stochastic-grid3.cpp",
+    "status": "completed_no_witness",
+    "proves_lower_bound": false,
+    "seconds": 900.036,
+    "mutations": 14332928,
+    "restarts": 1433,
+    "best_error_score": 128
+  },
+  {
+    "name": "stochastic-smallcore",
+    "log": "stochastic-smallcore-run.log",
+    "source": "stochastic-smallcore.cpp",
+    "status": "completed_no_witness",
+    "proves_lower_bound": false,
+    "seconds": 600.0,
+    "mutations": 193937408,
+    "restarts": 19393,
+    "best_error_score": 8
+  },
+  {
+    "name": "stochastic-smallcore-exactnot",
+    "log": "stochastic-smallcore-exactnot-run.log",
+    "source": "stochastic-smallcore-exactnot.cpp",
+    "status": "completed_no_witness",
+    "proves_lower_bound": false,
+    "seconds": 600.0,
+    "mutations": 229372928,
+    "restarts": 22937,
+    "best_error_score": 16
+  }
+]

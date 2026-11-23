@@ -226,6 +226,30 @@
         "independent-search/literal-not/k5-compile-2.log"
       ],
       "scope": "K5-star bound when the sole NOT reads an original input; uses an existing Outside theorem."
+    },
+    {
+      "file": "fresh-full-proof/EndpointNormalForm.lean",
+      "sha256": "9401a259589dd3f7d9f351641ffbfbe4df56c228c5ba462c6dc3d99ecb8900f7",
+      "lines": 76,
+      "bytes": 2839,
+      "observed_compile_exit": 0,
+      "logs": [
+        "fresh-full-proof/endpoint-check-3.stdout",
+        "fresh-full-proof/endpoint-check-3.stderr"
+      ],
+      "scope": "Semantic cofactor endpoint normal forms and Boolean aliases only; no full951 or circuit gate-count conclusion."
+    },
+    {
+      "file": "independent-theory/AntitoneReversibleCode.lean",
+      "sha256": "44b01adb7d26253611a1d1f0d5f120039b4b9069a1dc7f1c13f9ab242192c90e",
+      "lines": 29,
+      "bytes": 860,
+      "observed_compile_exit": 0,
+      "logs": [
+        "independent-theory/antitone-reversible-code-final.stdout",
+        "independent-theory/antitone-reversible-code-final.stderr"
+      ],
+      "scope": "Finite reversible-code counterexample to an attempted intermediate no-coding claim; NOT a refutation of L-meta-951."
     }
   ]
 }
