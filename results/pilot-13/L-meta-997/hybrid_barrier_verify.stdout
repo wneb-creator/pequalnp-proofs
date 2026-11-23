@@ -1,0 +1,114 @@
+{
+  "scope": "Counterexample only to gatewise hybrid rewrite; NOT a refutation of L-meta-997",
+  "inputs": 8,
+  "gates": [
+    [
+      "and",
+      [
+        0,
+        1
+      ]
+    ],
+    [
+      "and",
+      [
+        8,
+        2
+      ]
+    ],
+    [
+      "not",
+      [
+        9
+      ]
+    ],
+    [
+      "and",
+      [
+        10,
+        5
+      ]
+    ],
+    [
+      "or",
+      [
+        3,
+        11
+      ]
+    ],
+    [
+      "and",
+      [
+        9,
+        5
+      ]
+    ],
+    [
+      "or",
+      [
+        4,
+        13
+      ]
+    ],
+    [
+      "or",
+      [
+        12,
+        14
+      ]
+    ],
+    [
+      "or",
+      [
+        6,
+        7
+      ]
+    ],
+    [
+      "or",
+      [
+        15,
+        16
+      ]
+    ],
+    [
+      "or",
+      [
+        0,
+        14
+      ]
+    ]
+  ],
+  "outputs": [
+    17,
+    18
+  ],
+  "target_sets": [
+    [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    [
+      0,
+      4
+    ]
+  ],
+  "checked_inputs": 256,
+  "problem_gate": 7,
+  "hybrid_singleton_support": [
+    3,
+    4,
+    5
+  ],
+  "maximum_prior_hybrid_singleton_support": 1,
+  "refund_gate_indices": [
+    9,
+    10
+  ],
+  "posted_lhs": 7,
+  "posted_rhs": 15,
+  "verdict": "All assertions passed; any binary monotone gate over prior hybrid wires has at most2 singleton truths, whereas problem hybrid has3."
+}

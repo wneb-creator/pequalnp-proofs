@@ -1,0 +1,15 @@
+{
+  "id": "L-meta-997",
+  "title": "Every NOT gate at index t, the wire of t true below weight |y| and false at y: sets meeting y pay min(|y|, size), the others their size, refunds counted",
+  "statement": "\u2200 (n m : \u2115) (S : Fin m \u2192 Finset (Fin n)) (C : PEqualNP.CircuitLowerBounds.Circuit) (o : Fin m \u2192 \u2115) (t : \u2115) (y : Finset (Fin n)), (\u2200 i j : Fin m, i \u2260 j \u2192 (S i \u2229 S j).card \u2264 1) \u2192 (\u2200 g \u2208 C.gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2228 g.op = PEqualNP.CircuitLowerBounds.GateOp.or \u2228 g.op = PEqualNP.CircuitLowerBounds.GateOp.not) \u2227 g.inputs.length \u2264 2) \u2192 (\u2200 i : Fin C.gates.length, (C.gates.get i).op = PEqualNP.CircuitLowerBounds.GateOp.not \u2192 (i : \u2115) = t) \u2192 (\u2200 (i : Fin m) (x : Fin n \u2192 Bool), (C.wires (List.ofFn x)).getD (o i) false = decide (\u2203 p \u2208 S i, x p = true)) \u2192 (\u2200 x : Fin n \u2192 Bool, (Finset.univ.filter (fun v : Fin n => x v = true)).card < y.card \u2192 (C.wires (List.ofFn x)).getD (n + t) false = true) \u2192 (C.wires (List.ofFn (fun v : Fin n => decide (v \u2208 y)))).getD (n + t) false = false \u2192 (\u2211 i : Fin m, if Disjoint (S i) y then (S i).card else min y.card (S i).card) \u2264 C.gates.length + (Finset.univ.filter (fun g : Fin C.gates.length => (\u2203 i : Fin m, \u2200 p : Fin n, (C.wires (List.ofFn (fun v : Fin n => decide (v = p)))).getD (n + g) false = true \u2194 p \u2208 S i) \u2227 (\u2203 i : Fin m, Disjoint (S i) y \u2227 \u2200 p : Fin n, p \u2209 y \u2192 ((C.wires (List.ofFn (fun v : Fin n => decide (v \u2208 y \u2228 v = p)))).getD (n + g) false = true \u2194 p \u2208 S i)))).card + m",
+  "file": "lean/PEqualNP/Outside/L_meta_997.lean",
+  "module": "PEqualNP.Outside.L_meta_997",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "unlocks": "Charges the private gates of a circuit with NOT gates at one index on both windows of the NOT gate's wire, toward a sum over pieces.",
+  "context": "SKETCH: on the window where the NOT gate's wire is false use the light-input sum bound; on the window where it is true use the heavy-input bound; sets meeting y pay min(|y|, size) and the rest pay on the other window. On paper, one mind. Namespace: PEqualNP.MetaComplexity. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 70,
+  "parallel": 6
+}

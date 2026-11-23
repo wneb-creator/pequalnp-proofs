@@ -6225,3 +6225,86 @@ lemma union_output_budget_free {n : ℕ} {ι : Type*} [DecidableEq ι]
   exact hu.trans hsize
 
 end PEqualNP.Outside.L_meta_997.UnionBudget
+
+namespace PEqualNP.Outside.L_meta_997.SmallDimension16
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_997.light
+
+lemma dimension_window_bound {n m : ℕ} (S : Fin m → Finset (Fin n)) (C : Circuit)
+    (o : Fin m → ℕ) (t : ℕ) (y : Finset (Fin n))
+    (hinter : ∀ i j : Fin m, i ≠ j → (S i ∩ S j).card ≤ 1)
+    (hgate : ∀ g ∈ C.gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2)
+    (hnot : ∀ i : Fin C.gates.length, (C.gates.get i).op = GateOp.not → (i : ℕ) = t)
+    (hcorrect : ∀ (i : Fin m) (x : Fin n → Bool),
+      value C x (o i) = decide (∃ p ∈ S i, x p = true))
+    (hlow : ∀ x : Fin n → Bool,
+      (Finset.univ.filter (fun v : Fin n => x v = true)).card < y.card →
+        value C x (n+t) = true)
+    (hfalse : value C (fun v : Fin n => decide (v ∈ y)) (n+t) = false)
+    (hn : n ≤ 5 * y.card + 1) :
+    (∑ i : Fin m, if Disjoint (S i) y then (S i).card else min y.card (S i).card) ≤
+      C.gates.length + (Finset.univ.filter (fun g : Fin C.gates.length =>
+        (∃ i : Fin m, ∀ p : Fin n,
+          value C (fun v : Fin n => decide (v = p)) (n + g) = true ↔ p ∈ S i) ∧
+        (∃ i : Fin m, Disjoint (S i) y ∧ ∀ p : Fin n, p ∉ y →
+          (value C (fun v : Fin n => decide (v ∈ y ∨ v = p))
+            (n + g) = true ↔ p ∈ S i)))).card + m := by
+  classical
+  by_cases hy : y.card ≤ 2
+  · have h := small_window_bound S C o t y hinter hgate hnot hcorrect hfalse hy
+    omega
+  apply ThreeOversized.at_most_three_oversized_bound S C o t y hinter hgate hnot
+    hcorrect hlow hfalse
+  let R := Finset.univ.filter (fun i : Fin m => Disjoint (S i) y ∧ y.card+1 < (S i).card)
+  change R.card ≤ 3
+  by_contra! hr
+  obtain ⟨J, hJR, hJcard⟩ := Finset.exists_subset_card_eq (show 4 ≤ R.card by omega)
+  have hJ (i : Fin m) (hi : i ∈ J) :
+      Disjoint (S i) y ∧ y.card+2 ≤ (S i).card := by
+    have h := (Finset.mem_filter.mp (hJR hi)).2
+    exact ⟨h.1, by omega⟩
+  have hsum : J.card * (y.card+2) ≤ ∑ i ∈ J, (S i).card := by
+    calc
+      _ = ∑ i ∈ J, (y.card+2) := by simp
+      _ ≤ _ := Finset.sum_le_sum fun i hi => (hJ i hi).2
+  have hdis : Disjoint (J.biUnion S) y := by
+    apply Finset.disjoint_left.mpr
+    intro p hp hpy
+    obtain ⟨i, hi, hpi⟩ := Finset.mem_biUnion.mp hp
+    exact Finset.disjoint_left.mp (hJ i hi).1 hpi hpy
+  have hU : (J.biUnion S).card + y.card ≤ n := by
+    have h := Finset.card_le_univ ((J.biUnion S) ∪ y)
+    simpa only [Finset.card_union_of_disjoint hdis, Fintype.card_fin] using h
+  have hloss := ThreeOversized.linear_union_loss S hinter J
+  rw [hJcard] at hsum hloss
+  norm_num [Nat.choose] at hloss
+  omega
+
+lemma at_most_sixteen_inputs_bound {n m : ℕ} (S : Fin m → Finset (Fin n)) (C : Circuit)
+    (o : Fin m → ℕ) (t : ℕ) (y : Finset (Fin n))
+    (hinter : ∀ i j : Fin m, i ≠ j → (S i ∩ S j).card ≤ 1)
+    (hgate : ∀ g ∈ C.gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2)
+    (hnot : ∀ i : Fin C.gates.length, (C.gates.get i).op = GateOp.not → (i : ℕ) = t)
+    (hcorrect : ∀ (i : Fin m) (x : Fin n → Bool),
+      value C x (o i) = decide (∃ p ∈ S i, x p = true))
+    (hlow : ∀ x : Fin n → Bool,
+      (Finset.univ.filter (fun v : Fin n => x v = true)).card < y.card →
+        value C x (n+t) = true)
+    (hfalse : value C (fun v : Fin n => decide (v ∈ y)) (n+t) = false)
+    (hn : n ≤ 16) :
+    (∑ i : Fin m, if Disjoint (S i) y then (S i).card else min y.card (S i).card) ≤
+      C.gates.length + (Finset.univ.filter (fun g : Fin C.gates.length =>
+        (∃ i : Fin m, ∀ p : Fin n,
+          value C (fun v : Fin n => decide (v = p)) (n + g) = true ↔ p ∈ S i) ∧
+        (∃ i : Fin m, Disjoint (S i) y ∧ ∀ p : Fin n, p ∉ y →
+          (value C (fun v : Fin n => decide (v ∈ y ∨ v = p))
+            (n + g) = true ↔ p ∈ S i)))).card + m := by
+  classical
+  by_cases hy : y.card ≤ 2
+  · have h := small_window_bound S C o t y hinter hgate hnot hcorrect hfalse hy
+    omega
+  exact dimension_window_bound S C o t y hinter hgate hnot hcorrect hlow hfalse (by omega)
+
+end PEqualNP.Outside.L_meta_997.SmallDimension16

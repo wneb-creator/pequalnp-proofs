@@ -119,3 +119,11 @@ Integrated build26 passed at6227lines. Correct actual lease renewed successfully
 Combined snapshot 791d53151f52745ef1ad3609c60b7679545e161a2f52502c10867dd55b9614bd. General posted theorem remains absent.
 Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
 TIMING total=78.6 subagents=6
+
+Checker rerun on6227-line build26 snapshot: REJECTED (no-theorem), exit1. The main theorem is intentionally absent because the general statement is not yet proved. Cleanup pass not applicable: exact-statement checker has not passed. No proof PR opened.
+
+Twenty-fourth partial:6310 lines. Integrated build27 passed. Added exact posted inequality under n<=5*|Y|+1 and, consequently, n<=16.
+Independent root/fresh_proof review PASS on82-line SmallDimension16 SHA2563653fecf739d7590d3f6110c41cafabe435885468a6a274f42e6218240c2619f. Fresh independently compiled it successfully. Four oversized sets force n>=5k+2 using pairwise union-loss<=6; original assumptions/conclusion retained, extra hypothesis explicit. Formatting scan clean.
+Combined snapshot e489901ce3c7e8249c06a486ebf1cf060bedfc36b5c82d73926cf5134de67505. General posted theorem remains absent. Cleanup skipped because exact checker never passed; before/after cleanup6310/6310 lines.
+Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
+TIMING total=87.1 subagents=6
