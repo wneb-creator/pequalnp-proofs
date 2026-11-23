@@ -1,0 +1,6 @@
+L-meta-670 checked partial: all 2,942 frontier rows decode identically after packing raw IDs as a mask.
+Lean exit code: 0. Independent lower_bound review: PASS, including explicit insertion-sort decoder.
+Candidate embedded certificate shrinks by 35,023 bytes; the whole modified certificate has not yet been rebuilt.
+This data equivalence is not the posted theorem.
+Full compiler output follows.
+build queue: waiting 60s for one of 3 slots
