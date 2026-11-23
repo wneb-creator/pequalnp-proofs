@@ -1,0 +1,9 @@
+gap: L-meta-670
+status: CHECKED PARTIAL ONLY; posted theorem not proved
+file: lean/PEqualNP/Outside/L_meta_670.lean
+result: dependency lower bound 8 <= s and bounded gate normalization
+build: lake build +PEqualNP.Outside.L_meta_670 exited 0
+checker: not run; named final theorem is absent, so this is not a proof submission
+independent review: red_team; checkpoint-only
+Sub-agents: status_review, lower_bound, counterexample, toolchain, sat_proof, red_team
+TIMING total=7.38 subagents=6
