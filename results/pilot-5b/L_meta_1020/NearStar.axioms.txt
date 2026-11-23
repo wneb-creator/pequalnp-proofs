@@ -1,4 +1,0 @@
-'Pilot5bMeta1020NearStar.count_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Pilot5bMeta1020PrunedNearStar.pruned_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Pilot5bMeta1020PrunedNearStar.preserve' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Pilot5bMeta1020PrunedNearStar.count_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
