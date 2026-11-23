@@ -1,31 +1,21 @@
-Checkpoint for L-meta-1020, authorized by Ben push-early rule on 2026-11-23.
+Gap: L-meta-1020
 KIT-MESSAGE-ID msg-1f79ba3f7315f701679bbcfc
-Status: compiled partial lemmas; the exact posted theorem is not yet assembled.
-Lean toolchain: 4.36.0. Builds used lake env lean in the pinned project.
-NearStar, LinearNetwork, LinearCleaning and ReverseNetwork compiled successfully.
-Empty build logs mean successful compilation with no diagnostics.
-NearStar and LinearCleaning axiom audits are included; only standard Lean axioms occur.
-Local target checker: NOT RUN; no complete target theorem exists yet.
-These checkpoint files are research artifacts, not an accepted proof of the gap.
-Sub-agents: 13 unique agents, including independent proof attempts, counterexample searches, Lean formalization and audits.
-TIMING total=184.20 subagents=13
-
-Checkpoint 2: TripleCounting, ForwardBridge, LinearDAGAdapter and ReversePipeline compile successfully (exit 0).
-The complete compiler output for each is preserved in its .build.txt file.
-Warnings are Lean style/deprecation warnings; no target-theorem claim is made.
-Exact posted target checker remains NOT RUN pending integration.
-
-Checkpoint 3: complete concrete linear-triple counting and original-circuit normalization modules compile.
-Their successful axiom-audit output is included; only the permitted standard axioms occur.
-The exact final posted theorem is still being assembled; local target checker is NOT RUN.
-Checkpoint 3 independent review: PASS; no fixes required.
-
-Checkpoint 4: complete deduplicated helpers compile in the required helper namespace.
-File-format cleanup removes compiler commands, makes simp lemmas local, and preserves all mathematical declarations.
-Exact target statement still pending final assembly; target checker NOT RUN.
-
-Exact final theorem now compiles with lake build PEqualNP.Outside.L_meta_1020 (exit0).
-Target before cleanup: 8909 lines, 399500 bytes.
-Posted statement matches verbatim; three independent semantic/format reviews are in progress or passed.
-Local checker currently RUNNING. No ACCEPTED verdict claimed yet.
-Independent review: complete helper file PASS; exact final-body semantic reviews by two separate agents PASS.
+Final theorem: PEqualNP.Outside.L_meta_1020
+Final file: lean/PEqualNP/Outside/L_meta_1020.lean
+Exact posted statement: byte-for-byte identical in the theorem type.
+Toolchain: Lean 4.36.0, pinned project and Mathlib cache; no lake update.
+Build: lake build PEqualNP.Outside.L_meta_1020
+Build output: Build completed successfully (18363 jobs).
+Local checker: ACCEPTED (check), exit 0, before and after cleanup.
+Permitted axioms only: propext, Classical.choice, Quot.sound.
+Full stdout/stderr are preserved in the build and checker text files.
+Cleanup: removed one unused helper in under 10 minutes; 8909 -> 8900 lines.
+Final bytes: 399094
+Final source SHA256: 9fcf51e67c69c00ecafedab4a6fc3491a526c97a61120d9bb7ea049ec4fe8b74
+Independent red-team review: PASS, including final statement, proof, scopes, imports, and cleanup.
+Independent semantic audits: PASS from two additional agents.
+Ride-along refactor: one unused helper removed, nine deleted lines, separate refactor commit.
+PR handoff: Mac opens the PR as wneb-creator; container has not created a PR.
+Packaging: checkpoint sources and logs remain durable in branch history; final tree will add only the named Lean file.
+Sub-agents: 13 unique agents for proof attempts, counterexample searches, Lean formalization, and independent audits.
+TIMING total=187.52 subagents=13
