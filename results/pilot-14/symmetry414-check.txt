@@ -1,0 +1,240 @@
+CHECKED PARTIAL: 414-row abstraction, 12 graph symmetries and proof-preserving fast actions.
+The complete L-meta-670 statement remains unproved.
+Command: lake env lean -j1 --profile /tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean
+Exit status: 0
+Independent review: status_review recomputed selectors, inverse maps, raw images and audited Live transport and recipe fallback.
+Full stdout and stderr follow:
+interpretation of Batteries.Util.LibraryNote.libraryNoteExt took 105ms
+import took 25.5s
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:100:85: warning: exponent 414 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+type checking took 171ms
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:130:183: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:130:183: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+share common exprs took 197ms
+process pre-definitions took 148ms
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:140:204: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:140:204: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:146:177: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:146:177: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:154:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:154:81: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+simp took 102ms
+tactic execution of Lean.Parser.Tactic.simp took 107ms
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:173:112: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:173:108: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:173:112: warning: Unused tactic linter: `aesop` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+simp took 131ms
+simp took 145ms
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:195:4: warning: Unused tactic linter: `change x ∈ v ↔ _` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:270:99: warning: This simp argument is unused:
+  BitVec.and_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.or_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:270:115: warning: This simp argument is unused:
+  BitVec.or_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.and_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:270:185: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:270:185: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+simp took 209ms
+simp took 152ms
+simp took 149ms
+simp took 207ms
+type checking took 106ms
+type checking took 2.18s
+tactic execution of Lean.Parser.Tactic.simp took 309ms
+simp took 145ms
+simp took 250ms
+simp took 231ms
+simp took 223ms
+simp took 365ms
+simp took 198ms
+simp took 285ms
+simp took 311ms
+simp took 268ms
+simp took 360ms
+simp took 327ms
+simp took 376ms
+simp took 335ms
+simp took 391ms
+simp took 312ms
+simp took 452ms
+simp took 448ms
+simp took 253ms
+simp took 174ms
+simp took 251ms
+simp took 320ms
+simp took 290ms
+simp took 135ms
+simp took 232ms
+simp took 562ms
+simp took 253ms
+simp took 495ms
+simp took 145ms
+simp took 252ms
+simp took 216ms
+simp took 357ms
+simp took 458ms
+simp took 219ms
+simp took 407ms
+simp took 128ms
+simp took 256ms
+simp took 124ms
+simp took 491ms
+simp took 491ms
+simp took 344ms
+simp took 289ms
+simp took 256ms
+simp took 465ms
+simp took 314ms
+simp took 381ms
+simp took 631ms
+simp took 105ms
+simp took 388ms
+simp took 585ms
+simp took 351ms
+simp took 103ms
+simp took 200ms
+simp took 207ms
+simp took 332ms
+simp took 205ms
+simp took 260ms
+simp took 196ms
+simp took 197ms
+simp took 268ms
+simp took 207ms
+simp took 220ms
+simp took 170ms
+simp took 263ms
+simp took 245ms
+simp took 214ms
+simp took 204ms
+simp took 214ms
+simp took 249ms
+simp took 223ms
+simp took 164ms
+simp took 219ms
+tactic execution of Lean.Parser.Tactic.allGoals took 107ms
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:625:60: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sep, bin, ite_false, ite_true, takeTwo, top, BitVec.getLsbD_allOnes, BitVec.getLsbD_and,
+    BitVec.getLsbD_or, BitVec.getLsbD_not, reduceCtorEq, hi, decide_true, Bool.true_and] at hh ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:634:59: warning: This simp argument is unused:
+  decide_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [slowBinary, tryGate, Nat.sub_zero, hlen, ite_true, Bool.or_eq_true, Bool.and_eq_true,
+    beq_iff_eq] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 155ms
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:736:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+elaboration took 126ms
+type checking took 1.13s
+type checking took 357ms
+type checking took 1.3s
+type checking took 534ms
+type checking took 306ms
+type checking took 233ms
+type checking took 764ms
+type checking took 358ms
+type checking took 214ms
+type checking took 771ms
+type checking took 1.72s
+type checking took 244ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 112ms
+tactic execution of Lean.Parser.Tactic.refine took 1.35s
+tactic execution of Lean.Parser.Tactic.refine took 987ms
+type checking took 5.38s
+type checking took 2.5s
+type checking took 2.78s
+type checking took 4.28s
+type checking took 5.91s
+type checking took 6.63s
+type checking took 5.65s
+type checking took 5.15s
+type checking took 6.87s
+type checking took 6.76s
+type checking took 10.5s
+type checking took 6.2s
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 115ms
+tactic execution of Lean.Parser.Tactic.decide took 1.63s
+type checking took 683ms
+type checking took 1.21s
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiveSymmetry414.lean:1129:13: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+cumulative profiling times:
+	attribute application 2.09ms
+	blocked (unaccounted) 997s
+	compilation (IR) 13.7ms
+	compilation (LCNF base) 235ms
+	compilation (LCNF impure) 67.5ms
+	compilation (LCNF mono) 170ms
+	congr simp thm 545ms
+	declTypeLinter 200ms
+	dsimp 11ms
+	elaboration 1.25s
+	fix level params 19.1ms
+	import 25.5s
+	initialization 168ms
+	instantiate metavars 214ms
+	interpretation 5.15s
+	let-to-have transformation 3.22ms
+	linting 1.17s
+	module linting 0.057ms
+	parsing 94.1ms
+	process pre-definitions 1.14s
+	share common exprs 451ms
+	simp 28.9s
+	tactic execution 12.3s
+	tacticAnalysis 236ms
+	type checking 82.2s
+	typeclass inference 7.77s
