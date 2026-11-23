@@ -41,3 +41,11 @@ explicit witness assumptions in OwnedSurplus951.lean. Its base+2 conclusion
 is conditional and is labeled accordingly; no full951 result is claimed.
 independent_theory independently verified the new proof, explicit witness
 assumptions, frozen source/log copies, and manifest28 metadata: PASS.
+
+Fifth snapshot: independent_theory reviewed FirstConsumerPrefix951,
+UnusedWire951 and UnusedGate951, including frozen hashes, unchanged earlier
+prefixes, full successful diagnostics and explicit hypotheses: PASS. Root
+read each incremental theorem independently and verified archived hashes.
+These prove local prefix monotonicity and same-length unread-gate replacement;
+none claims gate deletion or the full posted lower bound. Manifest31 records
+the exact checked source bytes and complete diagnostics.

@@ -6,4 +6,4 @@ lake build PEqualNP.Defs: exit 0.
 lake exe cache get: exit 0; Mathlib was downloaded from cache, not built from source.
 Complete infrastructure stdout/stderr are preserved under toolchain/.
 Sub-agents: independent_search; literal_not_restriction; independent_theory; proof_strategy; single_not_reduction; toolchain_setup; fresh_full_proof.
-TIMING total=86 subagents=7
+TIMING total=90 subagents=7

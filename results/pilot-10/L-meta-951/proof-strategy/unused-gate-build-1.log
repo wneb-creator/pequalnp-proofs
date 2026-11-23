@@ -1,0 +1,6 @@
+/tmp/oec/pequalnp-pilot-10/proof-strategy/UnusedGate951.lean:488:34: warning: Variable name `he` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _he
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
