@@ -1,0 +1,20 @@
+L-meta-670 checked partial: generic projection-oracle recursive search soundness.
+Lean exit code: 0. Independent red_team review: PASS.
+Imports the included DynamicBase.lean; every pruning oracle must supply its soundness proof. No complete concrete finite search is claimed here.
+Full compiler output follows.
+/tmp/oec/pequalnp-pilot-14/sat-proof/DynamicOracleTest.lean:191:30: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/sat-proof/DynamicOracleTest.lean:191:41: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/sat-proof/DynamicOracleTest.lean:201:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/sat-proof/DynamicOracleTest.lean:201:39: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲

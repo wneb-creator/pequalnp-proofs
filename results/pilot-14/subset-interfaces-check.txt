@@ -1,0 +1,8 @@
+L-meta-670 checked partial: closed subset bounds for the embedded 8-input and 7-input problems.
+Lean exit code: 0. Independent root review: PASS.
+Imports the included Compressed1007.lean. The scratch-only OpenPrivate import is omitted when the lemma bodies are inlined in the final single file.
+Axiom audit uses only propext, Classical.choice, and Quot.sound. The posted 9-input claim remains unproved.
+Full compiler output follows.
+'PEqualNP.Outside.L_meta_670_aux.Base1007.noSmallSubset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_670_aux.Base1007.noThetaSubset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_670_aux.Base1007.noSmallLive' depends on axioms: [propext, Classical.choice, Quot.sound]
