@@ -90,3 +90,17 @@ final integration keeps only the added declarations in the named Cert block.
 CachedPreservationProbeV2: independent_theory reviewed the exact helper,
 root read the helper and finite graph28 probe. PASS under explicit routing,
 goal-fixing, and cache-correctness assumptions. No whole graph is claimed.
+
+FormalCompactCoverage984 independently reviewed by single_not_reduction
+and root: exact generic prefix and explicit encoding/sublist/exclusion
+hypotheses retained, PASS. OptimizedStrictQuotient28Benchmark reviewed by
+root as a complete incremental diff: forcing equality and Boolean
+associativity preserve the barrier; four-stage routing validity and target
+fixing are checked explicitly. Finite one-state scope remains unchanged.
+DirectCompact28Decoder: root reviewed decoder and final arithmetic
+equality; untrusted compressed tables establish only the displayed state.
+CachedGraph8Certificate984: root reviewed exact graph/function mapping,
+all14 state coverage, encoding, initial permutation and final bound; its
+header is the independently reviewed full-v2 header. PASS for conjunct8.
+The separately archived full-v2 candidate remains under compilation;
+its source review does not imply a successful build or checker verdict.

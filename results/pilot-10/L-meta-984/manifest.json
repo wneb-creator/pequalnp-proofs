@@ -359,6 +359,54 @@
         "cached-preservation-probe-v2.stderr"
       ],
       "scope": "Generic cached orientation preservation and finite graph28 cache/routing facts; no whole-graph bound."
+    },
+    {
+      "file": "FormalCompactCoverage984.lean",
+      "sha256": "5dcb21f09966c6024ae12c0cb32ce3237ea166a64cc6f560b18f9f67482b152f",
+      "bytes": 99070,
+      "lines": 2253,
+      "observed_compile_exit": 0,
+      "logs": [
+        "formal-compact-coverage-1.stdout",
+        "formal-compact-coverage-1.stderr"
+      ],
+      "scope": "Generic compact coverage and exact encoded circuit-exclusion bridge; no concrete graph bound."
+    },
+    {
+      "file": "OptimizedStrictQuotient28Benchmark.lean",
+      "sha256": "afffcc5446cfe5dba531028da5aac5544bb096fd5dc8feb8e497b767ff3b2171",
+      "bytes": 175204,
+      "lines": 2464,
+      "observed_compile_exit": 0,
+      "logs": [
+        "optimized-strict-quotient28-benchmark-1.stdout",
+        "optimized-strict-quotient28-benchmark-1.stderr"
+      ],
+      "scope": "One compact layer8 state using strict evaluation and validated four-stage routing; no whole-graph bound."
+    },
+    {
+      "file": "DirectCompact28Decoder.lean",
+      "sha256": "c37920891d200d71901e423754b68810e7853f3e8692a29a957df8144cf58df8",
+      "bytes": 73085,
+      "lines": 140,
+      "observed_compile_exit": 0,
+      "logs": [
+        "direct-decoder.stdout",
+        "direct-decoder.stderr"
+      ],
+      "scope": "One exact compact-state decoder equality only; no coverage or graph lower-bound claim."
+    },
+    {
+      "file": "CachedGraph8Certificate984.lean",
+      "sha256": "db9e771f555e2c67f814b882d11911a1daf22235e31cb88b79a829180f6b9a42",
+      "bytes": 143016,
+      "lines": 2420,
+      "observed_compile_exit": 0,
+      "logs": [
+        "cached-graph8-certificate-1.stdout",
+        "cached-graph8-certificate-1.stderr"
+      ],
+      "scope": "Complete certificate for exact posted conjunct8: all14 frontier states and10\u2264circuit size. Remaining30conjuncts not established by this file."
     }
   ]
 }
