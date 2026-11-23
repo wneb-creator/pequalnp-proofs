@@ -1,0 +1,51 @@
+{
+  "status": "partial_helpers_compiled",
+  "posted_statement_proved": false,
+  "posted_statement_checker_run": false,
+  "compiler_workdir": "lean",
+  "compiler_command": "lake env lean <source path>",
+  "verification": "Successful original pinned-toolchain compiles through the session with-lean.sh wrapper. Sources and complete logs copied byte-for-byte; no new compile is claimed by this preservation step.",
+  "records": [
+    {
+      "source": "SmallContext.lean",
+      "log": "SmallContext.log",
+      "exit_code": 0,
+      "sha256": "2d8f7730c909f42bba937a4ed0f6760f1f694ad9e99d26769cabc04e630c84de",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "Ownership of a small certificate when at most two fixed context points force a four-point line under the weight-at-most-five promise."
+    },
+    {
+      "source": "SevenGateExample.lean",
+      "log": "SevenGateExample.log",
+      "exit_code": 0,
+      "sha256": "c5e4504ca139adcba2cdf4d9ac4364f2f8b03e0dc94f5bd28cc27b0d0dbfab28",
+      "source_dependencies": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ],
+      "scope": "An actual seven-gate circuit computes two line conjunctions under the sparse promise and refutes a stronger private-gate-count claim. It does not refute the posted 39-gate bound."
+    },
+    {
+      "source": "FirstOrPromiseLoss.lean",
+      "log": "FirstOrPromiseLoss.log",
+      "exit_code": 0,
+      "sha256": "f5e08ff7dd3f8c76e7c5f02aebbafa4f657e57e4f2efc2ae339d6360425bd1e8",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "Forcing a first singleton OR to true loses one level of sparse soundness, with a checked sharp example. It does not preserve the original promise."
+    },
+    {
+      "source": "PlanePartition.lean",
+      "log": "PlanePartition.log",
+      "exit_code": 0,
+      "sha256": "8df879eb2b7477c680ccea130709340160bc14b60e2a3df101c949f3be8f7f70",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "The 13 cyclic plane lines have point degree four and admit no partition splitting every line two-and-two."
+    }
+  ]
+}

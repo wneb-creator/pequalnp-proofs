@@ -1,0 +1,18 @@
+{
+  "gap": "L-meta-952",
+  "status": "checked partial results only; no posted-statement acceptance",
+  "toolchain": "leanprover/lean4:v4.36.0",
+  "records": [
+    {
+      "file": "FanoUpper.lean",
+      "compiler_log": "compiler/FanoUpper.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "0377c2707c2054325bd323d8ddcbc10d5c972dfddf23ef3d2bb7cf20b0123fbe",
+      "compiler_log_bytes": 0,
+      "scope": "Fano incidence hypotheses and an exact 14-gate binary-OR circuit on every Boolean input, checked with ordinary decide.",
+      "imports": [
+        "PEqualNP.Defs"
+      ]
+    }
+  ]
+}

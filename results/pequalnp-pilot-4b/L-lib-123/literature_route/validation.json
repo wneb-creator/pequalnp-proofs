@@ -1,0 +1,97 @@
+{
+  "status": "checked intermediate results; posted statement not proved or refuted",
+  "lean_toolchain": "leanprover/lean4:v4.36.0",
+  "mathlib_commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+  "imports": [
+    "Mathlib"
+  ],
+  "local_source_dependencies": [],
+  "posted_statement_checker": "not run for these intermediate helpers",
+  "checks": [
+    {
+      "gap": "L-lib-123",
+      "file": "Factorization.lean",
+      "sha256": "8bf888ccd044add2d4b0faf0461ad09adfe1252947495c993ece1608d3d6a9d3",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "../results/pequalnp-pilot-4b/L-lib-123/literature_route/Factorization.lean"
+      ],
+      "working_directory": "lean",
+      "exit_code": 0,
+      "started_utc": "2026-11-23T20:44:47.501390+00:00",
+      "finished_utc": "2026-11-23T20:45:13.426224+00:00",
+      "combined_stdout_stderr": "Factorization.lean.log",
+      "log_bytes": 0
+    },
+    {
+      "gap": "L-lib-123",
+      "file": "SumCheckOrder.lean",
+      "sha256": "341967ba7ff786ea5560754aeb7cae89b3b6e7ee777e25ad65b5f6a872e164c8",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "../results/pequalnp-pilot-4b/L-lib-123/literature_route/SumCheckOrder.lean"
+      ],
+      "working_directory": "lean",
+      "exit_code": 0,
+      "started_utc": "2026-11-23T20:44:47.501797+00:00",
+      "finished_utc": "2026-11-23T20:45:13.248903+00:00",
+      "combined_stdout_stderr": "SumCheckOrder.lean.log",
+      "log_bytes": 0
+    },
+    {
+      "gap": "L-lib-123",
+      "file": "ShortInputNormalization.lean",
+      "sha256": "8a6f62e529dd51a62fd2c4c8b36a957518d884faad7d3034f43480ecea1349df",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "../results/pequalnp-pilot-4b/L-lib-123/literature_route/ShortInputNormalization.lean"
+      ],
+      "working_directory": "lean",
+      "exit_code": 0,
+      "started_utc": "2026-11-23T20:44:47.502388+00:00",
+      "finished_utc": "2026-11-23T20:45:13.114989+00:00",
+      "combined_stdout_stderr": "ShortInputNormalization.lean.log",
+      "log_bytes": 0
+    },
+    {
+      "gap": "L-lib-123",
+      "file": "LookupParity.lean",
+      "sha256": "e4c5127fa19b105209af3f18214d00542c263e3d636d5d9eed44a6c2b4960c6d",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "../results/pequalnp-pilot-4b/L-lib-123/literature_route/LookupParity.lean"
+      ],
+      "working_directory": "lean",
+      "exit_code": 0,
+      "started_utc": "2026-11-23T20:45:13.115122+00:00",
+      "finished_utc": "2026-11-23T20:45:19.340871+00:00",
+      "combined_stdout_stderr": "LookupParity.lean.log",
+      "log_bytes": 0
+    },
+    {
+      "gap": "L-lib-123",
+      "file": "ReverseReplay.lean",
+      "sha256": "52fb1f76a4e607dac6b1480eb088649463f34d1233cdde1d2b1ddb125d3b4a96",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "../results/pequalnp-pilot-4b/L-lib-123/literature_route/ReverseReplay.lean"
+      ],
+      "working_directory": "lean",
+      "exit_code": 0,
+      "started_utc": "2026-11-23T20:45:13.248964+00:00",
+      "finished_utc": "2026-11-23T20:45:19.119777+00:00",
+      "combined_stdout_stderr": "ReverseReplay.lean.log",
+      "log_bytes": 0
+    }
+  ]
+}

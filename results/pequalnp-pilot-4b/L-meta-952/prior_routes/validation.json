@@ -1,0 +1,20 @@
+{
+  "status": "partial_helpers_compiled",
+  "posted_statement_proved": false,
+  "posted_statement_checker_run": false,
+  "compiler_workdir": "lean",
+  "compiler_command": "lake env lean <source path>",
+  "verification": "Successful original pinned-toolchain compiles through the session with-lean.sh wrapper. Sources and complete logs copied byte-for-byte; no new compile is claimed by this preservation step.",
+  "records": [
+    {
+      "source": "FrozenNegation.lean",
+      "log": "FrozenNegation.log",
+      "exit_code": 0,
+      "sha256": "23b17f3d9b5de73f9100246366d6a861426c3e864e9330ab61deb6c5a7aae880",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "A negative input can be frozen on a face with a unique zero of the target, under the explicit monotonicity hypotheses."
+    }
+  ]
+}

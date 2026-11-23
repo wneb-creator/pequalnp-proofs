@@ -1,0 +1,29 @@
+{
+  "gap": "L-meta-921",
+  "status": "checked partial results only; no posted-statement acceptance",
+  "toolchain": "leanprover/lean4:v4.36.0",
+  "records": [
+    {
+      "file": "CyclicPlane.lean",
+      "compiler_log": "compiler/CyclicPlane.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "c98fa8cebf0bd3c6bc9b7f8d33f30011ec37b1f9a6af963f70af966492dc6337",
+      "compiler_log_bytes": 0,
+      "scope": "All 13 cyclic lines have size four, distinct intersections have size one, point degrees are four, and related complement/union cardinalities.",
+      "imports": [
+        "PEqualNP.Defs"
+      ]
+    },
+    {
+      "file": "DenseCritical.lean",
+      "compiler_log": "compiler/DenseCritical.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "e322bdcb49e5b31f317e87a708dbd1ebde4870f006f9334b02912324debadbe8",
+      "compiler_log_bytes": 0,
+      "scope": "For a monotone predicate, correctness on the weight-eight layer and the maximal outside-line input implies correctness throughout the dense promise.",
+      "imports": [
+        "PEqualNP.Defs"
+      ]
+    }
+  ]
+}

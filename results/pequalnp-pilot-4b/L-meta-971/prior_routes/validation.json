@@ -1,0 +1,48 @@
+{
+  "status": "partial_helpers_compiled",
+  "posted_statement_proved": false,
+  "posted_statement_checker_run": false,
+  "compiler_workdir": "lean",
+  "compiler_command": "lake env lean <source path>",
+  "verification": "Successful original pinned-toolchain compiles through the session with-lean.sh wrapper. Sources and complete logs were copied byte-for-byte, except RunTrim.lean: trailing blank lines at EOF were removed and the archived file was then recompiled successfully. Its complete log is from that fresh replay.",
+  "records": [
+    {
+      "source": "FirstOrTrim.lean",
+      "log": "FirstOrTrim.log",
+      "exit_code": 0,
+      "sha256": "7dad6a45db707e3104f0c6e7b70cdd88739d1bf40ba0e8dd41e25a5dc4295b2f",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "Shrinking a monotone output while preserving all minimal positive edge inputs preserves the exact edge function; includes a first-OR trimming consequence."
+    },
+    {
+      "source": "RunTrim.lean",
+      "log": "RunTrim.log",
+      "exit_code": 0,
+      "sha256": "ac8c4bac895878c304d6e9582ffcb8bb3482fe2744987d7f40d1eacf5321213b",
+      "source_dependencies": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ],
+      "scope": "Refinement and first-dead-operand deletion in the abstract Run model with free intersections and counted unions. This is not a physical gate-count normalization theorem.",
+      "original_sha256": "e3effdb8b05dc4933b1336e617ffdbcde14b6553a0b2f506fbc859e0c27ca8e0",
+      "preservation_change": "Removed only two final newline bytes; no Lean declaration changed.",
+      "replay_command": "lake env lean /workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-meta-971/prior_routes/RunTrim.lean",
+      "replay_exit_code": 0,
+      "replay_recorded_at": "2026-11-23T20:48:35.362936+00:00",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "ThreePayment.lean",
+      "log": "ThreePayment.log",
+      "exit_code": 0,
+      "sha256": "4603fc69e6f1f57057ec9a9f285fc1df6f64d018cb2d3f6c91fb529f9b2ff3ce",
+      "source_dependencies": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ],
+      "scope": "A conditional three-union payment lemma from specified restricted prefix unions and distinguishing probes, plus a common-variable-prefix instance."
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "status": "partial_helpers_compiled",
+  "posted_statement_proved": false,
+  "posted_statement_checker_run": false,
+  "compiler_workdir": "lean",
+  "compiler_command": "lake env lean <source path>",
+  "verification": "Successful original pinned-toolchain compiles through the session with-lean.sh wrapper. Sources and complete logs copied byte-for-byte; no new compile is claimed by this preservation step.",
+  "records": [
+    {
+      "source": "ExponentBudget.lean",
+      "log": "ExponentBudget.log",
+      "exit_code": 0,
+      "sha256": "f8210a8c63286181b4db7d4d44185b898afd1a4906e8d9a58e5b3674405bd984",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "Uniform exponent slack and absorption of machine-dependent polynomial factors; assumes an exponent strictly below one."
+    },
+    {
+      "source": "CubeExpansion.lean",
+      "log": "CubeExpansion.log",
+      "exit_code": 0,
+      "sha256": "c8b9a24356a87dc0b28d6ff0d9878a97bb452884210775bec3a35c2e45058d3e",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "A Boolean-cube edge-boundary lower bound; does not prove a circuit or alternating-time lower bound."
+    },
+    {
+      "source": "StackPointer.lean",
+      "log": "StackPointer.log",
+      "exit_code": 0,
+      "sha256": "cbf351b14692b9f64127d4496bd76af0ae1cc67f3e7a5851058d93723162ee9b",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "Correctness of a retained stack-cell pointer under explicit height and no-overwrite assumptions; not a complete machine simulation."
+    },
+    {
+      "source": "StackSummary.lean",
+      "log": "StackSummary.log",
+      "exit_code": 0,
+      "sha256": "7bc087945d13c77f9284e529afabcffb48bc2c0ead5453420e7529ab02162d83",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "Finite-state transition summaries for reversed stack consumption, including paired equal-length streams."
+    },
+    {
+      "source": "BatchVerification.lean",
+      "log": "BatchVerification.log",
+      "exit_code": 0,
+      "sha256": "0fe5f1b0552e6beb3a84a6f2c54f26c5a9770afb390d4e9401184a57925cc073",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "Semantic universal-table batching of point queries. Finite encodings and runtime bounds are separate obligations."
+    },
+    {
+      "source": "AdaptiveUnionBound.lean",
+      "log": "AdaptiveUnionBound.log",
+      "exit_code": 0,
+      "sha256": "856dcea2acacebecc8c2162c61429aafeedfc1f67745ff8e37e295eaf1e9023b",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "A seed rejecting all adaptive certificates exists when the explicit finite union bound holds."
+    },
+    {
+      "source": "FingerprintCancellation.lean",
+      "log": "FingerprintCancellation.log",
+      "exit_code": 0,
+      "sha256": "f411d32d59e07e77864bd331af71fd6d067dd505c9bc1543d95b6c1adf2283e8",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "An invalid push/pop trace has identically cancelling endpoint hash errors. This refutes that endpoint-only protocol, not FP3."
+    },
+    {
+      "source": "QuotientChallenge.lean",
+      "log": "QuotientChallenge.log",
+      "exit_code": 0,
+      "sha256": "38f2f2dd877e75a5aa211379b03ef79d481eda52c6f58321219d5f7b95684399",
+      "source_dependencies": [
+        "Mathlib"
+      ],
+      "scope": "A nonzero non-root yields a bounded-degree rejecting minimal polynomial with constant coefficient one; also proves invertibility of X from the quotient relation."
+    }
+  ]
+}

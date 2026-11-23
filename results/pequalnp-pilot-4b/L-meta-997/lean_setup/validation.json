@@ -1,0 +1,30 @@
+{
+  "gap": "L-meta-997",
+  "status": "checked partial results only; no posted-statement acceptance",
+  "toolchain": "leanprover/lean4:v4.36.0",
+  "records": [
+    {
+      "file": "Aggregation.lean",
+      "compiler_log": "compiler/Aggregation.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "691023709c70e28afe044231eb7aaae718d62f42e0e96822ddb690bdabd2e997",
+      "compiler_log_bytes": 0,
+      "scope": "Union/refund cardinal accounting, spare-gate compensation accounting, and target-weighted sum aggregation with all semantic charge assumptions explicit.",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "file": "PartialOverlap.lean",
+      "compiler_log": "compiler/PartialOverlap.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "be78a0447dc6ecaf3218ed1c60cb7c9d80cad0b7482784f9fa886b73077bc891",
+      "compiler_log_bytes": 0,
+      "scope": "Six-input, eight-gate one-NOT fixture satisfying the relevant hypotheses whose partial light/full heavy switched gate is absent from the exact refund.",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ]
+    }
+  ]
+}

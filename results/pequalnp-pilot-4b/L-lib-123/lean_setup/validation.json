@@ -1,0 +1,126 @@
+{
+  "gap": "L-lib-123",
+  "status": "checked partial results only; no posted-statement acceptance",
+  "toolchain": "leanprover/lean4:v4.36.0",
+  "records": [
+    {
+      "file": "Baseline.lean",
+      "compiler_log": "compiler/Baseline.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "caf4d8ad9510a9df5d0c082878c973ecf460469f507840d67a4d67313a32e39c",
+      "compiler_log_bytes": 0,
+      "scope": "Matching-exponent FP3 baseline using an actual linear input-length-clocked verifier.",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Library.Evasion.MBudget",
+        "PEqualNP.Library.Evasion.MTrans"
+      ]
+    },
+    {
+      "file": "StackSummary.lean",
+      "compiler_log": "compiler/StackSummary.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "42c8223c7290907e3a97c413cd33eecf80710bd11952fccc8e32d4626137bcac",
+      "compiler_log_bytes": 0,
+      "scope": "Exact prefix-replacement stack summaries, composition, and limitations of shortened summaries.",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "file": "CircuitCertificate.lean",
+      "compiler_log": "compiler/CircuitCertificate.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "b0ddc7ee7541e7d9b085dba9495a03bc92aeca5a033979af8a83a92ce70877a8",
+      "compiler_log_bytes": 0,
+      "scope": "Soundness and completeness of sorted source/reference records for BinaryCircuit evaluation, with an explicit permutation requirement.",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ]
+    },
+    {
+      "file": "BlockReplay.lean",
+      "compiler_log": "compiler/BlockReplay.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "029f698ca7ca06b89be0e2574d4a7b3d19e33510ded3df79378d2f6001943672",
+      "compiler_log_bytes": 0,
+      "scope": "Independent replay equivalence when each event updates only its selected store entry; coupled equality does not factor this way.",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "file": "RadixPass.lean",
+      "compiler_log": "compiler/RadixPass.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "1f81f6a28518cb14f85d58c8385f39a119cecfdc3637abfb5316f1afc04d2626",
+      "compiler_log_bytes": 0,
+      "scope": "Actual TM2 stable radix pass, globally linear and non-lengthening.",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Library.Evasion.MTrans"
+      ]
+    },
+    {
+      "file": "IterationBound.lean",
+      "compiler_log": "compiler/IterationBound.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "a9094907bd5bb9e1f89c1d140e1a31dd5a355136ee2bae3ff307ff686040f9f2",
+      "compiler_log_bytes": 0,
+      "scope": "Actual TM2 bounded iteration with an explicit pointwise runtime estimate.",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Library.Machines.IterMeasure"
+      ]
+    },
+    {
+      "file": "RadixOrder.lean",
+      "compiler_log": "compiler/RadixOrder.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "9465ac08f2ed80720d3ea7c6464ec3e5a577629d74c0f5495a42b8097c0fb9c0",
+      "compiler_log_bytes": 0,
+      "scope": "Pure stable radix sorting correctness and permutation; supplied by subagent radix_order.",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "file": "BitEncoding.lean",
+      "compiler_log": "compiler/BitEncoding.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "564f40028064f2be4ac7c7c65573261487560bec326380ef8b25b5d02a06c4a9",
+      "compiler_log_bytes": 0,
+      "scope": "Address-width, binary record encoding, and natural-key sorting correctness; supplied by subagent radix_order.",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "file": "RadixSortMachine.lean",
+      "compiler_log": "compiler/RadixSortMachine.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "0d15672b86596093e4ddcef025ac59f52ef697d0b1f1a39b3288e75f7a0a0cb0",
+      "compiler_log_bytes": 0,
+      "scope": "Actual TM2 sorter with structured O((rows+1)*(width+1)^2) run bound; arbitrary-input declared bound remains quadratic.",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Library.Evasion.MTrans",
+        "PEqualNP.Library.Machines.IterMeasure"
+      ]
+    },
+    {
+      "file": "AdjacentScan.lean",
+      "compiler_log": "compiler/AdjacentScan.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "2853be179c8638774f69ac211acab6f39f8f226f61591b09cc0278b7d168684a",
+      "compiler_log_bytes": 0,
+      "scope": "Actual globally linear TM2 adjacent-key consistency scanner; sortedness and common-width validity are separate premises.",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Library.Evasion.MTrans",
+        "PEqualNP.MetaComplexity.Helpers.Machines.Zip"
+      ]
+    }
+  ]
+}

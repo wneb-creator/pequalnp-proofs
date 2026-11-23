@@ -1,0 +1,46 @@
+{
+  "status": "checked intermediate results; posted statement not proved or refuted",
+  "lean_toolchain": "leanprover/lean4:v4.36.0",
+  "mathlib_commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+  "imports": [
+    "Mathlib"
+  ],
+  "local_source_dependencies": [],
+  "posted_statement_checker": "not run for these intermediate helpers",
+  "checks": [
+    {
+      "gap": "L-meta-921",
+      "file": "SharedFilter.lean",
+      "sha256": "21d45b112fdcaacef0fcb3b7f033c89c104bcbb065565f831c27dc0b9be90cb6",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "../results/pequalnp-pilot-4b/L-meta-921/literature_route/SharedFilter.lean"
+      ],
+      "working_directory": "lean",
+      "exit_code": 0,
+      "started_utc": "2026-11-23T20:45:18.778775+00:00",
+      "finished_utc": "2026-11-23T20:45:23.707662+00:00",
+      "combined_stdout_stderr": "SharedFilter.lean.log",
+      "log_bytes": 0
+    },
+    {
+      "gap": "L-meta-921",
+      "file": "SingletonOR.lean",
+      "sha256": "86064b9851dc650f8dec1d2cfe98fe29f915f925fe1e7a54e02339ddd5dbf12a",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "../results/pequalnp-pilot-4b/L-meta-921/literature_route/SingletonOR.lean"
+      ],
+      "working_directory": "lean",
+      "exit_code": 0,
+      "started_utc": "2026-11-23T20:45:19.120716+00:00",
+      "finished_utc": "2026-11-23T20:45:23.624806+00:00",
+      "combined_stdout_stderr": "SingletonOR.lean.log",
+      "log_bytes": 0
+    }
+  ]
+}

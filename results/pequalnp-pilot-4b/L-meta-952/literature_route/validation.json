@@ -1,0 +1,29 @@
+{
+  "status": "checked intermediate results; posted statement not proved or refuted",
+  "lean_toolchain": "leanprover/lean4:v4.36.0",
+  "mathlib_commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+  "imports": [
+    "Mathlib"
+  ],
+  "local_source_dependencies": [],
+  "posted_statement_checker": "not run for these intermediate helpers",
+  "checks": [
+    {
+      "gap": "L-meta-952",
+      "file": "CofactorObstruction.lean",
+      "sha256": "a63ad6a23a316f547b68d0bbe228894639b9798bf8c814c4cf64571933dc1f7d",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "../results/pequalnp-pilot-4b/L-meta-952/literature_route/CofactorObstruction.lean"
+      ],
+      "working_directory": "lean",
+      "exit_code": 0,
+      "started_utc": "2026-11-23T20:45:13.426301+00:00",
+      "finished_utc": "2026-11-23T20:45:18.778720+00:00",
+      "combined_stdout_stderr": "CofactorObstruction.lean.log",
+      "log_bytes": 0
+    }
+  ]
+}

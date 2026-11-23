@@ -1,0 +1,40 @@
+{
+  "gap": "L-meta-971",
+  "status": "checked partial results only; no posted-statement acceptance",
+  "toolchain": "leanprover/lean4:v4.36.0",
+  "records": [
+    {
+      "file": "HeawoodFixture.lean",
+      "compiler_log": "compiler/HeawoodFixture.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "13514ae2989dc0e36b9c2f8419c050cd340f26a6ec00210a22c364e3dfefc5a2",
+      "compiler_log_bytes": 0,
+      "scope": "Graph invariants, seven-edge matching, cover lower bound seven, exact 37-independent-set cover, and equivalence between 58 critical rows and full monotone correctness.",
+      "imports": [
+        "PEqualNP.Defs"
+      ]
+    },
+    {
+      "file": "HeawoodUpper.lean",
+      "compiler_log": "compiler/HeawoodUpper.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "ac8938c5dc9818736fece85b2031a0941853dc7ca9ed3ec415deba281501361e",
+      "compiler_log_bytes": 0,
+      "scope": "Exact 27-gate Monotone2 circuit for the posted 21-edge function on all Boolean inputs.",
+      "imports": [
+        "PEqualNP.Defs"
+      ]
+    },
+    {
+      "file": "CriticalRows.lean",
+      "compiler_log": "compiler/CriticalRows.log",
+      "recorded_exit_code": 0,
+      "source_sha256": "a64a42926d3552bf806c0b8a43d96df06ae9d2e464a1c5f85ff5a9b7788c6b48",
+      "compiler_log_bytes": 0,
+      "scope": "General critical-row theorem from a family covering every independent set.",
+      "imports": [
+        "PEqualNP.Defs"
+      ]
+    }
+  ]
+}
