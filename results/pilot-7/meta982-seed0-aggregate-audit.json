@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "dbbe61ad273155edab4b38aeeb9bd915f5d0978d76f7c40ba3d4d2559a5f324b",
+  "compile_exit": 0,
+  "all357_states_checked": true,
+  "imports_exactly_all48_checked_chunks_and_noGoal": true,
+  "aggregate_proof_same_as_audited_C7": true,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Complete finite table closure. Combining with symmetry and the already-audited concrete bridge gives the seed0 lower bound."
+}

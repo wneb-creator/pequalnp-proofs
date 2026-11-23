@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "decoder_sha256": "343ff30eafab08323c427e2f049bc99fa74bf36e7a6f3904fd74f4ada40041cd",
+  "all_data_check_sha256": "b187bcc0a91bb43fc5c8e433c90f069ea8024700b0e3871c004cbeb67e07f44b",
+  "manifest_hashes_match": true,
+  "compiled_scope": "All14 packed declarations elaborate; kernel equality checks cover exactly seed8 state(8,0) and advice(9,0), both independently compared against the original checked table.",
+  "decoder_scope": "Pure total Nat/Array recipe decoding; it does not validate freshness, gate legality, permutation bounds, or closure. Those remain obligations of the downstream kernel checker.",
+  "notes": [
+    "Insertion sort preserves the same sorted state representation.",
+    "Decoder permute discards high bits; it is data reconstruction for bounded 2K-bit words, not the high-bit-preserving generic run-transport theorem.",
+    "Unary tags0/1 and out-of-bounds data have default behavior but are never trusted as valid moves; downstream checker must independently reject invalid certificates."
+  ],
+  "independent_roundtrip": "meta982-decoder-roundtrip-audit.json",
+  "compile_exit": "0 reported by author; empty complete log verified",
+  "full_closure_claimed": false
+}

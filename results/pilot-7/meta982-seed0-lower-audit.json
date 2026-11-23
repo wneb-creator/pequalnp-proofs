@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "exact_posted_case": 0,
+  "unconditional": true,
+  "source_sha256": "1cfaa0af6e0695a19597bb54794a4cb62a4d8fbcb76e0cdf3e58939e577520fe",
+  "append_sha256": "347c1e64a0c6dc0ca12feb0a2942eb611fe9fa838e9595166b0aaec17aa805c5",
+  "compile_exit": 0,
+  "reason": "Exact posted six-input graph formula and bound10, modulo the bound variable name. Complete lower theorem proof is identical to audited C7 assembly after seed renaming and arity6. Every t<10 is ruled out by upper-budget closure, proved transport, no-goal, and the root permutation in the correct reversed direction.",
+  "final_format_note": "Rename seed0_root_perm to seed0_rt_perm during final assembly under the new user restriction."
+}

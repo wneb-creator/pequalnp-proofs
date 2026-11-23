@@ -1,0 +1,120 @@
+{
+  "verdict": "PASS",
+  "seconds": 2.9603805520000606,
+  "independent_reimplementation": true,
+  "cases": [
+    {
+      "case": 0,
+      "states_checked": 331,
+      "advice_entries_checked": 742,
+      "group_actions_checked": 8,
+      "packed_sha256": "6b515b6d002e072ad83fec1c179a8a5ad5c7ac0f9eeba8c010900873d8b6e253",
+      "original_sha256": "bd176b234ddb5823cea2e6cbea5e0f5849288c46ae27e29344c7f9adb89ef07f"
+    },
+    {
+      "case": 8,
+      "states_checked": 116,
+      "advice_entries_checked": 264,
+      "group_actions_checked": 14,
+      "packed_sha256": "1ece1dbb629038ed0f7c4718235523ba20e816fdf8dd3a973b07ccadba0a9f53",
+      "original_sha256": "82f55fcf3fb83f1434b2eb024f62622e2ccee6b488c03b4a5c153934e010b4a9"
+    },
+    {
+      "case": 13,
+      "states_checked": 630,
+      "advice_entries_checked": 1303,
+      "group_actions_checked": 4,
+      "packed_sha256": "1ee6f5c49ba72e9fad9bd552fae8d6a1efaec16d1b9fe1dd3be55aace400dbae",
+      "original_sha256": "877166b99f8c8fb56eef111218c61e76232130ef3d91530a49e1c076ae8074e7"
+    },
+    {
+      "case": 18,
+      "states_checked": 447,
+      "advice_entries_checked": 917,
+      "group_actions_checked": 4,
+      "packed_sha256": "0ed7a30990670bc365b5b912f322ab81f0bad26d7183b1b56961cd0194b88cb6",
+      "original_sha256": "9debd361962b9e33cd3946bf764846d87c3561efd1e93fb68636240dc1b416c3"
+    },
+    {
+      "case": 19,
+      "states_checked": 748,
+      "advice_entries_checked": 1374,
+      "group_actions_checked": 2,
+      "packed_sha256": "99d807bda9352131126bb9414317aa0484161e52a90807c044328a9b523d8a9d",
+      "original_sha256": "802038c9ba4ce40e5844da5d9712f51216a1f42aff3d05323732ceef659eca8d"
+    },
+    {
+      "case": 20,
+      "states_checked": 1329,
+      "advice_entries_checked": 2078,
+      "group_actions_checked": 1,
+      "packed_sha256": "12ab75f1eae52d133428d5ae4a54f973f9acb8103a7c3a7f84dd1121474b7e3e",
+      "original_sha256": "57fcdac5b856569e5a3cf7541a25b0782ba79c29f296e956749aa7cc425bc044"
+    },
+    {
+      "case": 23,
+      "states_checked": 581,
+      "advice_entries_checked": 1007,
+      "group_actions_checked": 2,
+      "packed_sha256": "a40c0551963b6121f0c1a0235ce933fda5d053319aa617b5fd7914ed22073f7e",
+      "original_sha256": "6e80a38531f63e8039757e02b9f133879eef10597d7268129a27e1b996a3759a"
+    },
+    {
+      "case": 24,
+      "states_checked": 291,
+      "advice_entries_checked": 665,
+      "group_actions_checked": 8,
+      "packed_sha256": "f63c7e65325c5c14bc2a54337c3c487811e6423b064584be329a539c0563324c",
+      "original_sha256": "6a335d06d7681237894a024bf1e67fd093d74313cf39ca65775afde0a880df85"
+    },
+    {
+      "case": 25,
+      "states_checked": 339,
+      "advice_entries_checked": 724,
+      "group_actions_checked": 4,
+      "packed_sha256": "bb5bfbf2fcd3666328fef255a88abc4e58b48e73c121da11d3d0fb66f4c0d46a",
+      "original_sha256": "9b1386121dd7d7cbaf609de1bd572978e9e0a44900835c3db8f18191c3e0c28e"
+    },
+    {
+      "case": 26,
+      "states_checked": 224,
+      "advice_entries_checked": 867,
+      "group_actions_checked": 48,
+      "packed_sha256": "09cea7e6f7184bd4d9becf39922f3d9bdb6eb21f2b6811be0b3d1dc33dc6cb91",
+      "original_sha256": "2002e4268979a4c97944038a2543fcc17e0243bb97e4bb829bfba61f75d4941a"
+    },
+    {
+      "case": 27,
+      "states_checked": 692,
+      "advice_entries_checked": 1687,
+      "group_actions_checked": 8,
+      "packed_sha256": "6bcae03c02178219a850ab45573327ec0cb0b01b62f11bf83f9925b2e6ca3384",
+      "original_sha256": "ebe72d220d374510162f6d6aa030dfc5793d4ba02aee2336f89a269d1824142d"
+    },
+    {
+      "case": 28,
+      "states_checked": 1472,
+      "advice_entries_checked": 2666,
+      "group_actions_checked": 2,
+      "packed_sha256": "a66a36f4eba1c21af286a9d6f28e48273c2824c73e35774f3831361b58d9cb43",
+      "original_sha256": "8df0f66b3eeaa62871ecf4346f5d867c43737ba31fc618392f9bb16bdeef43e0"
+    },
+    {
+      "case": 29,
+      "states_checked": 627,
+      "advice_entries_checked": 1507,
+      "group_actions_checked": 6,
+      "packed_sha256": "0d8aa447c8a79d2f7d335e08318b3b4d521cbd39d1106af75b4010a0d4c0fd74",
+      "original_sha256": "6d02ae121e28f91c8e8484d61f4d74df4cafdc6e9b06f4292e7335c926d7a194"
+    },
+    {
+      "case": 30,
+      "states_checked": 1470,
+      "advice_entries_checked": 2656,
+      "group_actions_checked": 2,
+      "packed_sha256": "2c28d353a41d593ee2c2f70d420b0b3605099cb5d160eaf17c2fac8c338f97a6",
+      "original_sha256": "8aca2fd90d91942753ad5b08931fef63fd378e5338de3faf1f823643c548bd57"
+    }
+  ],
+  "scope": "Packed data equality only; does not prove closure or any new lower bound."
+}

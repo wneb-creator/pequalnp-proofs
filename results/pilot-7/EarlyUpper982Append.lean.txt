@@ -1,0 +1,44 @@
+namespace PEqualNP.Outside.L_meta_982_aux.Finite.Early
+open PEqualNP.Outside.L_meta_982_aux.Finite
+
+def rejectLeDepth (forbidden : List Nat) (k width : Nat) (pool : List Nat) :
+    Nat → Nat → List Nat → Bool
+  | 0,s,ws => if ws == [Live.goal k] then false else !(Fast.covers k s ws) || scr k width s pool ws
+  | d+1,s,ws => if ws == [Live.goal k] then false else
+      !(Fast.covers k s ws) || scr k width s pool ws ||
+        match s with
+        | 0 => true
+        | s+1 => !(Reduced.next forbidden (Live.mask k) (s+2-ws.length) ws fun _ zs =>
+            !(rejectLeDepth forbidden k width pool d s zs))
+
+theorem rejectLeDepth_eq (forbidden : List Nat) (k width : Nat) (pool : List Nat)
+    (d s : Nat) (ws : List Nat) :
+    rejectLeDepth forbidden k width pool d s ws =
+      Reduced.rejectLeDepth forbidden k width pool d s ws := by
+  induction d generalizing s ws with
+  | zero => simp [rejectLeDepth, Reduced.rejectLeDepth, Fast.covers_eq, scr_eq]
+  | succ d ih => cases s <;> simp [rejectLeDepth, Reduced.rejectLeDepth, Fast.covers_eq, scr_eq, ih]
+
+def pairedBar (forbidden : List Nat) (k width : Nat)
+    (S : Nat → Nat → List Nat) (N : Nat → Nat)
+    (idx : Nat → Nat → Nat → Nat)
+    (ori : Nat → Nat → Nat → List Nat → List Nat)
+    (pool : List Nat) : Nat → Nat → Bool
+  | 0, i => !(S 0 i == [Live.goal k])
+  | s+1, i =>
+    let ws := S (s+1) i
+    !(Reduced.next forbidden (Live.mask k) (s+2-ws.length) ws fun tag zs =>
+      Fast.covers k s zs && !(scr k width s pool zs) &&
+        !(decide (idx (s+1) i tag < N s) &&
+          (ori (s+1) i tag zs).isPerm (S s (idx (s+1) i tag))))
+
+theorem pairedBar_eq (forbidden : List Nat) (k width : Nat)
+    (S : Nat → Nat → List Nat) (N : Nat → Nat)
+    (idx : Nat → Nat → Nat → Nat)
+    (ori : Nat → Nat → Nat → List Nat → List Nat)
+    (pool : List Nat) (s i : Nat) :
+    pairedBar forbidden k width S N idx ori pool s i =
+      Reduced.pairedBar forbidden k width S N idx ori pool s i := by
+  cases s <;> simp [pairedBar, Reduced.pairedBar, Fast.covers_eq, scr_eq]
+
+end PEqualNP.Outside.L_meta_982_aux.Finite.Early

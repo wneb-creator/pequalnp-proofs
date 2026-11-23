@@ -1,0 +1,74 @@
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Live Reduced
+
+def seed0Fn : BFn 6 := fun x => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 3 && x 4) || (x 3 && x 5) || (x 4 && x 5)
+def seed0Pack (x : Fin 6 → Bool) : Nat := (List.ofFn x).foldr Nat.bit 0
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed0Pack_spec (x : Fin 6 → Bool) :
+    seed0Pack x < 64 ∧ pt 6 (seed0Pack x) = x := by
+  revert x
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed0Rows_cover : ∀ x : Fin 6 → Bool, ∃ v ∈ seed0Rows, pt 6 v = x := by
+  have hmem : ∀ v : Fin 64, v.val ∈ seed0Rows := by decide +kernel
+  intro x
+  obtain ⟨hb,he⟩ := seed0Pack_spec x
+  exact ⟨seed0Pack x,hmem ⟨_,hb⟩,he⟩
+
+def seed0Witnesses : List (Nat × Nat) := [(56, 151), (49, 151), (49, 152), (49, 155), (60, 164), (60, 176)]
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed0Essential : ∀ a ∈ seed0Inputs, ∃ i j : Nat,
+    seed0Mask.testBit i = seed0Mask.testBit j ∧
+    seed0Goal.testBit i ≠ seed0Goal.testBit j ∧
+    ∀ b ∈ seed0Inputs, b ≠ a → b.testBit i = b.testBit j := by
+  have hc : ∀ a ∈ seed0Inputs, ∃ p : Fin 6,
+      seed0Mask.testBit (seed0Witnesses.getD p.val (0,0)).1 =
+        seed0Mask.testBit (seed0Witnesses.getD p.val (0,0)).2 ∧
+      seed0Goal.testBit (seed0Witnesses.getD p.val (0,0)).1 ≠
+        seed0Goal.testBit (seed0Witnesses.getD p.val (0,0)).2 ∧
+      ∀ b ∈ seed0Inputs, b ≠ a →
+        b.testBit (seed0Witnesses.getD p.val (0,0)).1 =
+          b.testBit (seed0Witnesses.getD p.val (0,0)).2 := by decide +kernel
+  intro a ha
+  obtain ⟨p,hp⟩ := hc a ha
+  exact ⟨(seed0Witnesses.getD p.val (0,0)).1,(seed0Witnesses.getD p.val (0,0)).2,hp⟩
+
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+theorem seed0Lower_of_noRun
+    (hno : ∀ t < 10, ¬ RNatRun seed0Forbidden seed0Mask seed0Goal t seed0Inputs) :
+    ∀ s, HasCircuitSize 6 seed0Fn s → 10 ≤ s := by
+  apply lower_from_rows seed0Fn seed0Rows seed0Inputs seed0Forbidden seed0Mask seed0Goal
+  · exact ⟨(fun _ => false),(fun _ => true),by decide +kernel⟩
+  · exact seed0Rows_cover
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · decide +kernel
+  · exact seed0Essential
+  · exact hno
+
+end PEqualNP.Outside.L_meta_982_aux.Finite
+
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+open Reduced
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+theorem seed0_lower : ∀ s, HasCircuitSize 6 seed0Fn s → 10 ≤ s := by
+  apply seed0Lower_of_noRun
+  intro t ht h
+  have hn := pairedBar_all_le (cap := 9) seed0Orient_preserves seed0_checked seed0_noGoal
+  apply hn 9 (by omega) 0 (by decide +kernel) t (by omega)
+  have hm : seed0Mask = Live.mask seed0K := by decide +kernel
+  have hy : seed0Goal = Live.goal seed0K := by decide +kernel
+  rw [hm,hy] at h
+  exact RRun.perm seed0_root_perm.symm h
+
+end PEqualNP.Outside.L_meta_982_aux.Finite

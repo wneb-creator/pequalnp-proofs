@@ -1,0 +1,115 @@
+{
+  "latest_lean_check": "Checkpoint982AllDataCheck.lean",
+  "observed_exit_code": 0,
+  "diagnostics_file": "checkpoint982-alldata.log",
+  "diagnostics_bytes": 0,
+  "lean_scope": "All declarations elaborate; concrete kernel equalities cover only seed8 state (8,0) and advice (9,0). Full proof closure is not asserted.",
+  "python_scope": "Every retained state reconstructed exactly from parent/tag/symmetry; every packed stream round trips; all symmetry group compositions replay exactly.",
+  "full_seed0_max_root_only": 9,
+  "full_seed0_states": 331,
+  "full_seed8_states": 116,
+  "checkpoint_cores": [
+    13,
+    18,
+    19,
+    20,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "checkpoint_retained_states": 8850,
+  "checkpoint_dfs_surviving_visits": 250592,
+  "data_and_wrapper_bytes": 230141,
+  "files": [
+    {
+      "name": "lemma982_checkpoint_pack.py",
+      "bytes": 13948,
+      "sha256": "df06d4438447c7a7b2ff4d77c05b6f41b60575224705c7fec50c06aade84fd7b"
+    },
+    {
+      "name": "Checkpoint982Decoder.lean",
+      "bytes": 3685,
+      "sha256": "343ff30eafab08323c427e2f049bc99fa74bf36e7a6f3904fd74f4ada40041cd"
+    },
+    {
+      "name": "Checkpoint982AllDataCheck.lean",
+      "bytes": 234791,
+      "sha256": "b187bcc0a91bb43fc5c8e433c90f069ea8024700b0e3871c004cbeb67e07f44b"
+    },
+    {
+      "name": "lemma982-checkpoint2-core13.lean",
+      "bytes": 16062,
+      "sha256": "d451b66a6099c7f0db098031bdae92c199a69aee91b951f81d905393c1eba032"
+    },
+    {
+      "name": "lemma982-checkpoint2-core18.lean",
+      "bytes": 12677,
+      "sha256": "fa46fc7a0b074ab5255e7dc5f24f87425a192060dea5620fcf0e21e131c7d6c1"
+    },
+    {
+      "name": "lemma982-checkpoint2-core19.lean",
+      "bytes": 15350,
+      "sha256": "f09de2097f5691514c65e69a5f072a9d9908c89068d7d4077da6564114643f42"
+    },
+    {
+      "name": "lemma982-checkpoint2-core20.lean",
+      "bytes": 20103,
+      "sha256": "f30abae6d0c4d44c03491d0443c8ef40bdae8809eb851862aa897afed92d26da"
+    },
+    {
+      "name": "lemma982-checkpoint2-core23.lean",
+      "bytes": 12527,
+      "sha256": "7fa818bb14c89a895f044328c4aa6e3c0a898974aee692b295e31e5f260a6f43"
+    },
+    {
+      "name": "lemma982-checkpoint2-core24.lean",
+      "bytes": 11081,
+      "sha256": "24a80f723cbd379e206888832628a359a0f84bb99a4724aafbff9d754b4ea39d"
+    },
+    {
+      "name": "lemma982-checkpoint2-core25.lean",
+      "bytes": 11517,
+      "sha256": "650a8f7e82d3e8270e1d9100ec6463dafdf17f7519ff44a10a7a338605636082"
+    },
+    {
+      "name": "lemma982-checkpoint2-core26.lean",
+      "bytes": 17544,
+      "sha256": "025ab6a272b769714fb975f2ad2e6b6db6230586820e2decceb4c4f220748423"
+    },
+    {
+      "name": "lemma982-checkpoint2-core27.lean",
+      "bytes": 20596,
+      "sha256": "03dd618f27d09042079f59cf1cf5cf30ccf543a80cb4acff0c77ee9f415bb632"
+    },
+    {
+      "name": "lemma982-checkpoint2-core28.lean",
+      "bytes": 26560,
+      "sha256": "494613b99b5d2b7063e6d7c52248547ada56db8509223c31cc1dd845d034b5cb"
+    },
+    {
+      "name": "lemma982-checkpoint2-core29.lean",
+      "bytes": 19110,
+      "sha256": "15d6792b40466d9de93ae6a7cced5ea87b7182e2d53a785457110ef67554c2ba"
+    },
+    {
+      "name": "lemma982-checkpoint2-core30.lean",
+      "bytes": 26153,
+      "sha256": "14b6079d0b851f5bec7b3b567968a6479f14e2eab3a67b4bffd147d1f7262bd3"
+    },
+    {
+      "name": "lemma982-checkpoint20-core0.lean",
+      "bytes": 12176,
+      "sha256": "ba4dae87ff19d43b0ff9daf4293d595f5e663b3919ebcb38c0e3f971dd7063bf"
+    },
+    {
+      "name": "lemma982-checkpoint20-core8.lean",
+      "bytes": 8685,
+      "sha256": "32c3b80d8f8cc231cf60d148b43726f76ee857a8d80fd64bf0472daa0147c119"
+    }
+  ]
+}

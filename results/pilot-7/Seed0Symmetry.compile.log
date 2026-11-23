@@ -1,0 +1,1 @@
+/tmp/oec/pequalnp-pilot-7/Seed0Symmetry.lean:53:10: warning: exponent 302 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold

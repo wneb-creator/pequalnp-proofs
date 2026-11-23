@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "59fe526f406825e0215df8b55d593584e9fdbefa2d7101a8149f2d7e9356264e",
+  "append_sha256": "f2151fceaa6337fbb68c8b2f4e582e1e03a0e68c9e8a4ec35b58ecc29863de73",
+  "compile_exit": "0 reported by root; complete logs contain no errors",
+  "reason": [
+    "The combined hint may depend on the child state, but the explicit hr premise preserves every actual run through that exact returned state.",
+    "The returned child index is bounded and its returned list must be isPerm to the stored child; induction decreases the budget. Missing or incorrect advice cannot certify a run.",
+    "The actual-run bound t<=s is retained throughout; next_monoSlack transfers the actual transition to the larger enumerated budget. All zero-gate cases require the separate no-goal premise.",
+    "Cutoff leaves explicitly exclude every actual t<=s; the full-table specialization uses cutoff0 and zero_done.",
+    "Early.bad_no uses the previously checked upper-budget covers and score lemmas, so a genuine run is never discarded as bad."
+  ],
+  "scope": "Generic indexed lookup checker soundness. Concrete table closure and concrete hint transport must still be supplied."
+}

@@ -1,0 +1,12 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "fbeca90db05d34bbf30a54a47cff9e528647586fe2d2bdc032e055bcda9ec298",
+  "compile_exit": 0,
+  "reason": [
+    "Check supplies exact list length, in-range p/q, right-inverse p(q(j))=j, and forbidden-pool subset of its mapped image; check_good applies the previously audited arbitrary-word run-transport theorem in the correct subset direction.",
+    "Identity retains all high bits, including k=0.",
+    "Composition has the decoder convention new[j]=old[generator[j]]; fastHalfPerm_comp proves the corresponding reversed word-action order, and good_comp composes the two run-preservation results accordingly.",
+    "Good retains length and coordinate bounds as well as run-preservation, so recursive composition supplies every subsequent premise."
+  ],
+  "scope": "Generic symmetry checking/composition only; concrete generator checks and recipe validity remain separate."
+}

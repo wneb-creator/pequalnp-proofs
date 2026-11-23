@@ -1,0 +1,224 @@
+{
+  "namespace": "PEqualNP.Outside.L_meta_982_aux.Finite",
+  "generic_addition": "ConcreteSymmetryCoreAppend.lean.txt",
+  "seeds": [
+    {
+      "seed": 0,
+      "automorphisms": 8,
+      "definition_snippet": {
+        "file": "Seed0SymmetryDefinitions.lean.txt",
+        "bytes": 393,
+        "lines": 11,
+        "sha256": "3d23389e5a745631c73e5da71750c669c1cbb11aede39b00d607f6504b92c0db"
+      },
+      "proof_snippet": {
+        "file": "Seed0SymmetryProofs.lean.txt",
+        "bytes": 8787,
+        "lines": 247,
+        "sha256": "3ff1c45d3cfe621ea173d3fd8db10d6664adcf6e5e88ecfe04bbc873b3987dfc"
+      },
+      "depends_on": [
+        "Finite generic RRun + Symmetry + Fast",
+        "ConcreteSymmetryCoreAppend.lean.txt",
+        "seed0 reduced data",
+        "seed0Payload/Orient wrapper"
+      ],
+      "transport": "PEqualNP.Outside.L_meta_982_aux.Finite.seed0Orient_preserves",
+      "verified_modules": [
+        {
+          "module": "Seed0SymCheck0",
+          "source_sha256": "c71de498a42eb3f9ed318f61e2f77af542fdc3b38bcef10eae813b886dc68942",
+          "status": "PASS",
+          "seconds": 4.680612554999243,
+          "log": "Seed0SymCheck0.compile.log"
+        },
+        {
+          "module": "Seed0SymCheck1",
+          "source_sha256": "3d40228d61648d67b1f3719316fb201ccf4822afad59f84e454a81856c023dbe",
+          "status": "PASS",
+          "seconds": 4.03066525199938,
+          "log": "Seed0SymCheck1.compile.log"
+        },
+        {
+          "module": "Seed0SymCheck2",
+          "source_sha256": "d2668db7ef7d1f597169f6d8259403cda998d6ed9271d5915bf6e4f81e08380f",
+          "status": "PASS",
+          "seconds": 4.227547008998954,
+          "log": "Seed0SymCheck2.compile.log"
+        },
+        {
+          "module": "Seed0SymCheck3",
+          "source_sha256": "d0b423cdbf8c539d6a119a49d20573ad28561cc3bdf7ded39f5650d9ada23d13",
+          "status": "PASS",
+          "seconds": 4.543904841000767,
+          "log": "Seed0SymCheck3.compile.log"
+        },
+        {
+          "module": "Seed0SymCheck4",
+          "source_sha256": "6dae8d5396fb58b630be5f80d436bcdbf278fe1ed84dd92ce66c041a0ce81082",
+          "status": "PASS",
+          "seconds": 9.764458143999946,
+          "log": "Seed0SymCheck4.compile.log"
+        },
+        {
+          "module": "Seed0SymCheck5",
+          "source_sha256": "69ea5a6275931f2f03a16ac741b2ad539f1b4140f8fa24c4f2f0aab43cd868d1",
+          "status": "PASS",
+          "seconds": 6.0475340640005015,
+          "log": "Seed0SymCheck5.compile.log"
+        },
+        {
+          "module": "Seed0SymCheck6",
+          "source_sha256": "6de212093cc969e44bffb345b3aff564c795f6a5918b85514890e182aaf32e64",
+          "status": "PASS",
+          "seconds": 4.979568046999702,
+          "log": "Seed0SymCheck6.compile.log"
+        },
+        {
+          "module": "Seed0SymCheck7",
+          "source_sha256": "0ca1e428d9ce720de992df2feee93f4c64d76ec586fd9771e706ec668417c3a6",
+          "status": "PASS",
+          "seconds": 4.569814534001125,
+          "log": "Seed0SymCheck7.compile.log"
+        },
+        {
+          "module": "Seed0Symmetry",
+          "source_sha256": "2bd26ebb256646f2469fb8b6dc29847f3adceb360f879e85580bb6b2c1e0e51a",
+          "status": "PASS",
+          "seconds": 3.7695057689998066,
+          "log": "Seed0Symmetry.compile.log"
+        }
+      ]
+    },
+    {
+      "seed": 8,
+      "automorphisms": 14,
+      "definition_snippet": {
+        "file": "Seed8SymmetryDefinitions.lean.txt",
+        "bytes": 394,
+        "lines": 11,
+        "sha256": "23bd0fd803324234c842efca37220dfa6b4670bb7db153583223f81b91f43077"
+      },
+      "proof_snippet": {
+        "file": "Seed8SymmetryProofs.lean.txt",
+        "bytes": 13356,
+        "lines": 386,
+        "sha256": "9d7269916d87ef885aec58cc440e8b050f7ab749997a095597d0073a3c08b88e"
+      },
+      "depends_on": [
+        "Finite generic RRun + Symmetry + Fast",
+        "ConcreteSymmetryCoreAppend.lean.txt",
+        "seed8 reduced data",
+        "seed8Payload/Orient wrapper"
+      ],
+      "transport": "PEqualNP.Outside.L_meta_982_aux.Finite.seed8Orient_preserves",
+      "verified_modules": [
+        {
+          "module": "Seed8SymCheck0",
+          "source_sha256": "28333be853b544964b00816c067584476a186c447d38e0a3f3adaf0ec8b55cc4",
+          "status": "PASS",
+          "seconds": 6.884596792000593,
+          "log": "Seed8SymCheck0.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck1",
+          "source_sha256": "5f96a4d444aebc3881a48557857d4484bf859ed15e1018e42b5e97389d0bb875",
+          "status": "PASS",
+          "seconds": 6.8479493470003945,
+          "log": "Seed8SymCheck1.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck2",
+          "source_sha256": "b81fcd4efc045ec26b226192a8041d613a56c490b9bb1df7af391f64f058f2b6",
+          "status": "PASS",
+          "seconds": 5.959213218999139,
+          "log": "Seed8SymCheck2.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck3",
+          "source_sha256": "b83f038b8fc118d289791583271b62adccbf77c17a52ef93cd63d6edf011a9b4",
+          "status": "PASS",
+          "seconds": 7.041610894999394,
+          "log": "Seed8SymCheck3.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck4",
+          "source_sha256": "db693428702c7668c0f32d3115ad03d026f582f54f01ae8c142d5465cc486104",
+          "status": "PASS",
+          "seconds": 6.801559886000177,
+          "log": "Seed8SymCheck4.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck5",
+          "source_sha256": "09150384565dba0f19f87079e016b34e0cfa335f456fb1c9337c39fd66a0c52e",
+          "status": "PASS",
+          "seconds": 5.790366975999859,
+          "log": "Seed8SymCheck5.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck6",
+          "source_sha256": "728feef02e5fb5e1129c0e470f17ab2c77e81809a2dc4ddac3299542a7058885",
+          "status": "PASS",
+          "seconds": 6.20314130999941,
+          "log": "Seed8SymCheck6.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck7",
+          "source_sha256": "f5bf63b80c4f4a53c735cc561f7552bd5e9dd4fedbec71da9757c156c91eb71e",
+          "status": "PASS",
+          "seconds": 7.694390030999784,
+          "log": "Seed8SymCheck7.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck8",
+          "source_sha256": "eba2fd721a1dfb5d05617589cabfa19e6834574551265c5374919e28463ab5f9",
+          "status": "PASS",
+          "seconds": 6.289181894000649,
+          "log": "Seed8SymCheck8.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck9",
+          "source_sha256": "a766868773903691d40863dc9ad394c9da823bc21e6c826041b8b52a5549bf3b",
+          "status": "PASS",
+          "seconds": 6.962186194999958,
+          "log": "Seed8SymCheck9.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck10",
+          "source_sha256": "7c3cd865dc4e6503d4451ca7a253b60bdd08d7965d3d725bf0a3a4087e89f2aa",
+          "status": "PASS",
+          "seconds": 6.71611589999884,
+          "log": "Seed8SymCheck10.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck11",
+          "source_sha256": "8f5ed8ab81db1953355583ab65c1a79aef59018e0f1c7be447b6594313153515",
+          "status": "PASS",
+          "seconds": 7.021140683998965,
+          "log": "Seed8SymCheck11.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck12",
+          "source_sha256": "2ae4cf643ff9be26ddd86a3930332cefd5258db355f10520e94f5f432b129020",
+          "status": "PASS",
+          "seconds": 8.435270079000475,
+          "log": "Seed8SymCheck12.compile.log"
+        },
+        {
+          "module": "Seed8SymCheck13",
+          "source_sha256": "d7b81d0106644fe28141cbf601cb2123f4c6449c96024de4e4184548d7342a36",
+          "status": "PASS",
+          "seconds": 7.3584214840011555,
+          "log": "Seed8SymCheck13.compile.log"
+        },
+        {
+          "module": "Seed8Symmetry",
+          "source_sha256": "9299c81f7f5e7b2353d5239f91dde6786c01c8e260c1f9f092c45734dd204046",
+          "status": "PASS",
+          "seconds": 3.7805876410002384,
+          "log": "Seed8Symmetry.compile.log"
+        }
+      ]
+    }
+  ]
+}

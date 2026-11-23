@@ -1,0 +1,12 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "62408db4ab154203c91f1fe6da0b02723633dcf1585478d854d4d6ff8e37170e",
+  "append_sha256": "625bef4606853a0781f2454a28d16890af16d8c9d7a7bc6b226307659eafdbf9",
+  "compile_exit": 0,
+  "unconditional_equalities": [
+    "rejectLeDepth_eq",
+    "pairedBar_eq"
+  ],
+  "reason": "Only the score implementation changes to previously audited Early.scr; Fast.covers is equated to Reduced.covers. The recursive depth/budget decreases, early goal guard, next slack, mask, child-index bound, and isPerm child test match the audited Reduced checker exactly. Every equality is proved for arbitrary arguments, with no width, state, or budget assumptions.",
+  "scope": "Generic implementation equivalence, not a concrete closure certificate."
+}

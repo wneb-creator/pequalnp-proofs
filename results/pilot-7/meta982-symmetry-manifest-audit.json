@@ -1,0 +1,32 @@
+{
+  "verdict": "PASS",
+  "manifest_sha256": "81f53ee74a8998b20179a7eb0a69f97cd4fb9a2b4e55757b5c4270bfb7c3df2f",
+  "modules": [
+    "Seed0SymCheck0",
+    "Seed0SymCheck1",
+    "Seed0SymCheck2",
+    "Seed0SymCheck3",
+    "Seed0SymCheck4",
+    "Seed0SymCheck5",
+    "Seed0SymCheck6",
+    "Seed0SymCheck7",
+    "Seed0Symmetry",
+    "Seed8SymCheck0",
+    "Seed8SymCheck1",
+    "Seed8SymCheck2",
+    "Seed8SymCheck3",
+    "Seed8SymCheck4",
+    "Seed8SymCheck5",
+    "Seed8SymCheck6",
+    "Seed8SymCheck7",
+    "Seed8SymCheck8",
+    "Seed8SymCheck9",
+    "Seed8SymCheck10",
+    "Seed8SymCheck11",
+    "Seed8SymCheck12",
+    "Seed8SymCheck13",
+    "Seed8Symmetry"
+  ],
+  "source_hashes_and_pass_records_match": true,
+  "snippet_hashes_match": true
+}

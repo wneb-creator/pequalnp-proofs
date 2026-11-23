@@ -1,0 +1,11 @@
+namespace PEqualNP.Outside.L_meta_982_aux.Finite
+
+def seed0PairRow (g j : Nat) : Nat := (seed0PairPerms.getD g []).getD j 0
+
+def seed0SymWord (g word : Nat) : Nat :=
+  let p := seed0PairPerms.getD (g % 8) []
+  let coordinates := p ++ p.map (fun i => seed0K+i)
+  (coordinates.map (fun i => Fast.bit word i)).foldr Nat.bit (word / 2^(seed0K+seed0K))
+
+
+end PEqualNP.Outside.L_meta_982_aux.Finite

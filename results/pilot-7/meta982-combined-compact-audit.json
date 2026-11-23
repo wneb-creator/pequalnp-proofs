@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "b2d50c47c1794bac6d7f3c65a518de6622ceedbb7f94e862fb83dd1c74d196c2",
+  "typed_source_sha256": "808790ea629fa878b789069e9e9a318335ed787c970530f3603dd17d75054f8e",
+  "equivalence": "After removing the new outer auxiliary namespace and normalizing that namespace prefix on both sources, every nonblank source line equals the audited TypedDedup source. Only namespace qualification and blank lines change.",
+  "compile_exit": "0 reported by author; complete logs have no errors",
+  "scope": "Checkpoint packaging, not final format compliance; anonymous section/end and diagnostic/global-option formatting still require final cleanup."
+}
