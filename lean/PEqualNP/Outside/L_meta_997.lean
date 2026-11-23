@@ -2419,3 +2419,291 @@ lemma single_heavy_budget {n : ℕ} (C : Circuit) (T : Finset (Fin n)) (o : ℕ)
   omega
 
 end PEqualNP.Outside.L_meta_997.Exclusion
+namespace PEqualNP.Outside.L_meta_997.LightSelected
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_997.light
+
+lemma budget_used {n : ℕ} (C : Circuit) (H K : Finset ℕ) (parents : ℕ → Finset ℕ)
+    (hstep : ∀ w ∈ H, (parents w).card ≤ (if w ∈ K then 2 else 1) ∧
+      (∀ r ∈ parents w, r < w) ∧
+      ∀ (p : Fin n) (z : Fin n → Bool),
+        (∀ r ∈ parents w, value C (fun v => decide (v = p)) r = true → value C z r = true) →
+        value C (fun v => decide (v = p)) w = true → value C z w = true)
+    (R : Set ℕ) (hR : ∀ w ∈ H, w ∈ R → ∀ r ∈ parents w, r ∈ R)
+    (t : ℕ) (F : Finset ℕ) (hF : ∀ w ∈ F, w ∈ H → w < t)
+    (hFR : ∀ w ∈ F, w ∈ R) :
+    ∃ B U : Finset ℕ, Disjoint B H ∧ B.card ≤ F.card + U.card ∧
+      (∀ w ∈ B, w ∈ R) ∧
+      (∀ (p : Fin n) (z : Fin n → Bool),
+        (∀ w ∈ B, value C (fun v => decide (v = p)) w = true → value C z w = true) →
+        ∀ w ∈ F, value C (fun v => decide (v = p)) w = true → value C z w = true) ∧
+      ∀ w ∈ U, w ∈ H ∧ w ∈ K ∧ w < t ∧ w ∈ R := by
+  classical
+  induction t generalizing F with
+  | zero =>
+    refine ⟨F, ∅, ?_, by simp, hFR, ?_, by simp⟩
+    · exact Finset.disjoint_left.mpr (fun w hw hg => by have := hF w hw hg; omega)
+    · exact fun _ _ h => h
+  | succ t ih =>
+    by_cases hex : t ∈ F ∧ t ∈ H
+    · obtain ⟨hPcard, hP, hp⟩ := hstep t hex.2
+      let F' := F.erase t ∪ parents t
+      have hF' : ∀ w ∈ F', w ∈ H → w < t := by
+        intro w hw hg
+        rcases Finset.mem_union.mp hw with hw | hw
+        · have hne := (Finset.mem_erase.mp hw).1
+          have hlt := hF w (Finset.mem_erase.mp hw).2 hg
+          omega
+        · exact hP w hw
+      have hR' : ∀ w ∈ F', w ∈ R := by
+        intro w hw
+        rcases Finset.mem_union.mp hw with hw | hw
+        · exact hFR w (Finset.mem_erase.mp hw).2
+        · exact hR t hex.2 (hFR t hex.1) w hw
+      obtain ⟨B, U, hd, hc, hBR, hi, hu⟩ := ih F' hF' hR'
+      have hsize : F'.card + 1 ≤ F.card + (if t ∈ K then 2 else 1) := by
+        have hUnion := Finset.card_union_le (F.erase t) (parents t)
+        have hErase := Finset.card_erase_add_one hex.1
+        change F'.card ≤ _ at hUnion
+        omega
+      have htrans : ∀ (p : Fin n) (z : Fin n → Bool),
+          (∀ w ∈ B, value C (fun v => decide (v = p)) w = true → value C z w = true) →
+          ∀ w ∈ F, value C (fun v => decide (v = p)) w = true → value C z w = true := by
+        intro p z hz w hw
+        by_cases he : w = t
+        · subst w
+          exact hp p z fun r hr => hi p z hz r (Finset.mem_union_right _ hr)
+        · exact hi p z hz w (Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨he, hw⟩))
+      by_cases ht : t ∈ K
+      · have htu : t ∉ U := by intro h; have := (hu t h).2.2.1; omega
+        refine ⟨B, insert t U, hd, ?_, hBR, htrans, ?_⟩
+        · rw [Finset.card_insert_of_notMem htu]
+          simp only [ht, ite_true] at hsize
+          omega
+        · intro w hw
+          rcases Finset.mem_insert.mp hw with he | hw
+          · subst w
+            exact ⟨hex.2, ht, by omega, hFR t hex.1⟩
+          · obtain ⟨hwH, hwK, hwt, hwR⟩ := hu w hw
+            exact ⟨hwH, hwK, by omega, hwR⟩
+      · refine ⟨B, U, hd, ?_, hBR, htrans, ?_⟩
+        · simp only [ht, ite_false] at hsize
+          omega
+        · intro w hw
+          obtain ⟨hwH, hwK, hwt, hwR⟩ := hu w hw
+          exact ⟨hwH, hwK, by omega, hwR⟩
+    · have hF' : ∀ w ∈ F, w ∈ H → w < t := by
+        intro w hw hg
+        have hne : w ≠ t := fun e => hex ⟨e ▸ hw, e ▸ hg⟩
+        have hlt := hF w (Finset.mem_erase.mp (Finset.mem_erase.mpr ⟨hne,hw⟩)).2 hg
+        omega
+      obtain ⟨B, U, hd, hc, hBR, hi, hu⟩ := ih F hF' hFR
+      refine ⟨B, U, hd, hc, hBR, hi, ?_⟩
+      intro w hw
+      obtain ⟨hwH, hwK, hwt, hwR⟩ := hu w hw
+      exact ⟨hwH, hwK, by omega, hwR⟩
+
+lemma branch_edges {n : ℕ} (C : Circuit)
+    (hG : ∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (S : Finset (Fin n)) (w : ℕ) (hw : w ∈ charge C S) :
+    ∃ P : Finset ℕ, P.card ≤ (if w ∈ refinedCharge C S then 2 else 1) ∧
+      (∀ r ∈ P, r < w ∧ r ∈ (HeavyOr.readGate C n w).inputs) ∧
+      ∀ (p : Fin n) (z : Fin n → Bool),
+        (∀ r ∈ P, value C (fun v => decide (v = p)) r = true → value C z r = true) →
+        value C (fun v => decide (v = p)) w = true → value C z w = true := by
+  classical
+  have hg := ((mem_charge C S w).mp hw).1
+  let g := HeavyOr.readGate C n w
+  have hge : g = C.gates[w-n]'(by unfold Circuit.size at hg; omega) :=
+    HeavyOr.readGate_eq C n w hg.1 hg.2
+  by_cases hc : copyOr (n := n) C w
+  · have hc' := hc
+    change g.op = GateOp.or ∧ ∃ r ∈ g.inputs, r < w ∧ singleSupp C r = singleSupp C w at hc'
+    obtain ⟨hop, r, hr, hrw, hs⟩ := hc'
+    refine ⟨{r}, by simp [refinedCharge, hc], ?_, ?_⟩
+    · intro q hq
+      have he : q = r := Finset.mem_singleton.mp hq
+      subst q
+      exact ⟨hrw, hr⟩
+    · intro p z hz hp
+      have hpr : value C (fun v => decide (v = p)) r = true := by
+        apply (mem_singleSupp C r p).mp
+        rw [hs]
+        exact (mem_singleSupp C w p).mpr hp
+      have hzr := hz r (Finset.mem_singleton_self r) hpr
+      rw [gate_value C z w hg.1 hg.2, ← hge, hop]
+      simp only [GateOp.eval, List.any_eq_true, id_eq]
+      exact ⟨_, List.mem_map.mpr ⟨r, hr, rfl⟩, by simp [hrw, hzr]⟩
+  · have hgm : g ∈ C.gates := by rw [hge]; exact List.getElem_mem _
+    obtain ⟨hop, hlen⟩ := hG g hgm
+    let P := g.inputs.toFinset.filter (· < w)
+    refine ⟨P, ?_, ?_, ?_⟩
+    · have hp := (Finset.card_filter_le g.inputs.toFinset (· < w)).trans
+        ((List.toFinset_card_le g.inputs).trans hlen)
+      simpa [refinedCharge, hw, hc] using hp
+    · intro r hr
+      exact ⟨(Finset.mem_filter.mp hr).2, List.mem_toFinset.mp (Finset.mem_filter.mp hr).1⟩
+    · intro p z htrans hx
+      have hr (r : ℕ) (hr : r ∈ g.inputs) :
+          (if r < w then value C (fun v => decide (v = p)) r else false) = true →
+          (if r < w then value C z r else false) = true := by
+        by_cases h : r < w
+        · simpa [h] using htrans r (Finset.mem_filter.mpr ⟨List.mem_toFinset.mpr hr, h⟩)
+        · simp [h]
+      have formula (x : Fin n → Bool) :
+          value C x w = g.op.eval (g.inputs.map fun r => if r < w then value C x r else false) := by
+        rw [hge]
+        exact gate_value C x w hg.1 hg.2
+      rw [formula] at hx ⊢
+      rcases hop with hop | hop
+      · simp only [hop, GateOp.eval, List.all_eq_true, id_eq] at hx ⊢
+        intro b hb
+        obtain ⟨r, hrm, rfl⟩ := List.mem_map.mp hb
+        exact hr r hrm (hx _ (List.mem_map.mpr ⟨r, hrm, rfl⟩))
+      · simp only [hop, GateOp.eval, List.any_eq_true, id_eq] at hx ⊢
+        obtain ⟨b, hb, hbt⟩ := hx
+        obtain ⟨r, hrm, rfl⟩ := List.mem_map.mp hb
+        exact ⟨_, List.mem_map.mpr ⟨r, hrm, rfl⟩, hr r hrm hbt⟩
+
+lemma selected_count {n : ℕ} (C : Circuit)
+    (hG : ∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (S : Finset (Fin n)) (o k : ℕ)
+    (hcorrect : ∀ x : Fin n → Bool,
+      (Finset.univ.filter (fun v => x v = true)).card < k →
+      value C x o = decide (∃ p ∈ S, x p = true)) :
+    ∃ (parents : ℕ → Finset ℕ) (U : Finset ℕ), U ⊆ refinedCharge C S ∧
+      min k S.card ≤ U.card + 1 ∧
+      (∀ w ∈ charge C S,
+        (parents w).card ≤ (if w ∈ refinedCharge C S then 2 else 1) ∧
+        (∀ r ∈ parents w, r < w) ∧
+        ∀ (p : Fin n) (z : Fin n → Bool),
+          (∀ r ∈ parents w, value C (fun v => decide (v = p)) r = true → value C z r = true) →
+          value C (fun v => decide (v = p)) w = true → value C z w = true) ∧
+      (∀ w ∈ U, Relation.ReflTransGen (fun a b => b ∈ parents a) o w) ∧
+      (∀ w r, r ∈ parents w → w ∈ charge C S ∧ r < w ∧
+        r ∈ (HeavyOr.readGate C n w).inputs ∧ (singleSupp (n := n) C r).Nonempty) := by
+  classical
+  let H := charge C S
+  let K := refinedCharge C S
+  have hbranch : ∀ w ∈ H, ∃ P : Finset ℕ,
+      P.card ≤ (if w ∈ K then 2 else 1) ∧
+      (∀ r ∈ P, r < w ∧ r ∈ (HeavyOr.readGate C n w).inputs ∧ (singleSupp (n := n) C r).Nonempty) ∧
+      ∀ (p : Fin n) (z : Fin n → Bool),
+        (∀ r ∈ P, value C (fun v => decide (v = p)) r = true → value C z r = true) →
+        value C (fun v => decide (v = p)) w = true → value C z w = true := by
+    intro w hw
+    obtain ⟨P, hcard, hpar, htrans⟩ := branch_edges C hG S w hw
+    let Q := P.filter (fun r => (singleSupp (n := n) C r).Nonempty)
+    refine ⟨Q, (Finset.card_filter_le _ _).trans hcard, ?_, ?_⟩
+    · intro r hr
+      have hr' := Finset.mem_filter.mp hr
+      exact ⟨(hpar r hr'.1).1, (hpar r hr'.1).2, hr'.2⟩
+    · intro p z hq
+      apply htrans p z
+      intro r hr hpr
+      exact hq r (Finset.mem_filter.mpr ⟨hr, ⟨p, (mem_singleSupp C r p).mpr hpr⟩⟩) hpr
+  let parents := fun w => if hw : w ∈ H then Classical.choose (hbranch w hw) else ∅
+  have hpFull : ∀ w ∈ H,
+      (parents w).card ≤ (if w ∈ K then 2 else 1) ∧
+      (∀ r ∈ parents w, r < w ∧ r ∈ (HeavyOr.readGate C n w).inputs ∧ (singleSupp (n := n) C r).Nonempty) ∧
+      ∀ (p : Fin n) (z : Fin n → Bool),
+        (∀ r ∈ parents w, value C (fun v => decide (v = p)) r = true → value C z r = true) →
+        value C (fun v => decide (v = p)) w = true → value C z w = true := by
+    intro w hw
+    simpa only [parents, dite_eq_left hw] using Classical.choose_spec (hbranch w hw)
+  have hp : ∀ w ∈ H,
+      (parents w).card ≤ (if w ∈ K then 2 else 1) ∧
+      (∀ r ∈ parents w, r < w) ∧
+      ∀ (p : Fin n) (z : Fin n → Bool),
+        (∀ r ∈ parents w, value C (fun v => decide (v = p)) r = true → value C z r = true) →
+        value C (fun v => decide (v = p)) w = true → value C z w = true := by
+    intro w hw
+    have hh := hpFull w hw
+    exact ⟨hh.1, fun r hr => (hh.2.1 r hr).1, hh.2.2⟩
+  let R := {w | Relation.ReflTransGen (fun a b => b ∈ parents a) o w}
+  have hR : ∀ w ∈ H, w ∈ R → ∀ r ∈ parents w, r ∈ R := by
+    intro w _ hw r hr
+    exact Relation.ReflTransGen.tail hw hr
+  obtain ⟨B, U, hd, hB, hBR, hcut, hu⟩ := budget_used C H K parents hp R hR
+    (n + C.size) {o}
+    (fun w _ hw => ((mem_charge C S w).mp hw).1.2)
+    (fun w hw => by have : w = o := Finset.mem_singleton.mp hw; subst w; exact Relation.ReflTransGen.refl)
+  refine ⟨parents, U, ?_, ?_, hp, ?_, ?_⟩
+  · intro w hw
+    exact (hu w hw).2.1
+  · by_contra! hsmall
+    have hsmallS : U.card + 1 < S.card := hsmall.trans_le (min_le_right ..)
+    have hsmallK : U.card + 1 < k := hsmall.trans_le (min_le_left ..)
+    have hb : B.card ≤ U.card + 1 := by simpa only [Finset.card_singleton, Nat.add_comm] using hB
+    let clean (w : ℕ) : Finset (Fin n) :=
+      if singleSupp C w ⊆ S then singleSupp C w else ∅
+    have hclean : ∀ w ∈ B, (clean w).card ≤ 1 := by
+      intro w hw
+      by_cases hs : singleSupp C w ⊆ S
+      · simp only [clean, ite_eq_left hs]
+        by_contra! hlarge
+        exact Finset.disjoint_left.mp hd hw
+          ((mem_charge C S w).mpr ⟨singleSupp_gate C w (by omega), hs, by omega⟩)
+      · simp [clean, hs]
+    have hcover : (B.biUnion clean).card < S.card := by
+      have h := Finset.card_biUnion_le_card_mul B clean 1 hclean
+      simp only [mul_one] at h
+      omega
+    obtain ⟨p, hpS, hpnot⟩ := Finset.exists_mem_notMem_of_card_lt_card hcover
+    let Dn := B.filter (fun w => ¬ singleSupp C w ⊆ S)
+    have hout (w : {w // w ∈ Dn}) : ∃ q : Fin n, q ∈ singleSupp C w.val ∧ q ∉ S := by
+      have hns := (Finset.mem_filter.mp w.property).2
+      simpa only [Finset.not_subset] using hns
+    choose qs hqs using hout
+    let V : Finset (Fin n) := Dn.attach.image qs
+    let z : Fin n → Bool := fun v => decide (v ∈ V)
+    have hVcard : V.card < k := by
+      have hi := Finset.card_image_le (s := Dn.attach) (f := qs)
+      have hf := Finset.card_filter_le B (fun w => ¬ singleSupp C w ⊆ S)
+      simp only [Finset.card_attach] at hi
+      change V.card ≤ Dn.card at hi
+      change Dn.card ≤ B.card at hf
+      omega
+    have hweight : (Finset.univ.filter (fun v => z v = true)).card < k := by
+      simpa [z] using hVcard
+    have hVS : ∀ q ∈ V, q ∉ S := by
+      intro q hq
+      obtain ⟨w, _, rfl⟩ := Finset.mem_image.mp hq
+      exact (hqs w).2
+    have hzfalse : value C z o = false := by
+      rw [hcorrect z hweight]
+      simp only [decide_eq_false_iff_not, not_exists]
+      intro q hq
+      exact hVS q (by simpa [z] using hq.2) hq.1
+    have hfire : value C (fun v => decide (v = p)) o = true := by
+      rw [hcorrect]
+      · simp [hpS]
+      · have hsingle : Finset.univ.filter (fun v : Fin n => decide (v = p) = true) = {p} := by
+          ext v
+          simp
+        rw [hsingle, Finset.card_singleton]
+        omega
+    have hztrue : value C z o = true := by
+      apply hcut p z _ o (Finset.mem_singleton_self o) hfire
+      intro w hw hx
+      by_cases hs : singleSupp C w ⊆ S
+      · exact False.elim (hpnot (Finset.mem_biUnion.mpr
+          ⟨w, hw, by simp only [clean, ite_eq_left hs]; exact (mem_singleSupp C w p).mpr hx⟩))
+      · let d : {w // w ∈ Dn} := ⟨w, Finset.mem_filter.mpr ⟨hw, hs⟩⟩
+        apply value_mono C hG (fun v => decide (v = qs d)) z _ w
+          ((mem_singleSupp C w (qs d)).mp (hqs d).1)
+        intro v hv
+        have hv' : v = qs d := by simpa using hv
+        subst v
+        simp only [z, decide_eq_true_eq]
+        exact Finset.mem_image.mpr ⟨d, Finset.mem_attach _ _, rfl⟩
+    rw [hzfalse] at hztrue
+    exact Bool.false_ne_true hztrue
+  · intro w hw
+    exact (hu w hw).2.2.2
+  · intro w r hr
+    by_cases hw : w ∈ H
+    · exact ⟨hw, (hpFull w hw).2.1 r hr⟩
+    · simp [parents, hw] at hr
+
+end PEqualNP.Outside.L_meta_997.LightSelected

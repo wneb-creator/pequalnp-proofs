@@ -53,3 +53,7 @@ Eleventh partial: 2421 lines. Build 14 passed. Added single-heavy exclusion budg
 Root independently reviewed148-line Exclusion extension authored by lean_setup, SHA256d77c12ff54ef473d074eb84bb7eeedff8c66a875076bbb936464ad9b1e86c7dc: false-input propagation, NOT exclusion, cut cardinality, assumptions and format pass.
 Combined snapshot 759aed61b715e2bac470a89e168d9c1ca68137460b5aca8693362a64829d95c9. Main theorem remains absent.
 Archived42 research files with full logs and SHA256 manifest. No actual counterexample: restricted n14 MILPs infeasible; larger timeouts and6,150,976 unsuccessful heuristic candidates inconclusive. Local failed-claim counterexamples are clearly distinguished.
+
+Twelfth partial: 2709 lines. Build 15 passed. Added used light charge certificate with physical edges, nonempty child support and output reachability.
+Independent status_review PASS on288-line extension SHA2566c3a4ff35363ba75e0a995b7915584891364b7f4055a2e15dfa326643068b591; recompiled independently; only standard axioms. It requires monotone fixed-true C1 and does not claim global soundness from reachability.
+Combined snapshot b9e33fbf99467004cd5023ef2f3e59ec02b54e44618ca7dc600f318f6c3366cf. Main theorem remains absent.
