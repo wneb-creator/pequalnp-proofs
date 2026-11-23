@@ -4,3 +4,13 @@ Imports only Mathlib and PEqualNP.Defs, own namespace, no forbidden proof constr
 namespace escape text, quotes, attributes or options. Final theorems explicitly retain
 the circuit-encoding and finite-run-exclusion hypotheses; no concrete984 result claimed.
 Root independently read the certificate soundness and final bridge declarations.
+
+FormalScore984 incremental review by single_not_reduction: PASS, frozenhash
+verified with empty successful diagnostics. Score exclusion and padding preserve
+the explicit certificate assumptions; no concrete graph bound is asserted.
+CoreCases984 review by single_not_reduction and root: its final two statements
+match exactly conjuncts6 and8, n7 and bound10. Successful frozen hash verified.
+It is an archived partial, not a final-format submission: exported helper
+instances and global limit-option directives require cleanup if reused in a PR.
+No forbidden proof holes, axioms, unsafe tactics, namespace-escape text or
+string literals occur in either source.

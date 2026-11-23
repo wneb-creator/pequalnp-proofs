@@ -13,6 +13,29 @@
         "formal-check-1.stderr"
       ],
       "scope": "Generic monotone circuit normalization and finite-frontier certificate soundness; no concrete984 lower bound yet."
+    },
+    {
+      "file": "FormalScore984.lean",
+      "sha256": "3e8613066fa88b726fae87ac1ef61570c8ecb3288bc16ed805c1832b9eb675f4",
+      "lines": 1684,
+      "bytes": 74875,
+      "observed_compile_exit": 0,
+      "logs": [
+        "formal-score-check-3.stdout",
+        "formal-score-check-3.stderr"
+      ],
+      "scope": "Generic score-pruned finite-frontier soundness and padding bridges; concrete graph certificates still required."
+    },
+    {
+      "file": "CoreCases984.lean",
+      "sha256": "066426e4ba9dc8d4f0fbce8a0111b95db23dae90c92242ce330ee87372425622",
+      "lines": 870,
+      "bytes": 37729,
+      "observed_compile_exit": 0,
+      "logs": [
+        "core-cases-build-2.log"
+      ],
+      "scope": "Exact conjuncts6 and8 only of the31-conjunct posted L-meta-984 statement."
     }
   ]
 }
