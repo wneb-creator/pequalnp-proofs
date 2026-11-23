@@ -1,0 +1,14 @@
+{
+  "gap": "L-meta-984",
+  "desk_response": {
+    "error": "this step was withdrawn: proved. Stop work on it and ask /desk/next for a step the attack is waiting on.",
+    "withdrawn": true
+  },
+  "diagnostic_http_status": 410,
+  "latest_scheduled_expiry_before_withdrawal": "2026-11-24T00:05:24.217Z",
+  "action": "Stopped own renewal timer and deliberately interrupted the running full v9 build after desk withdrawal. No release call for the invalidated lease.",
+  "full_build": "No successful full theorem compile verdict. Final fullv9 attempt interrupted by root after withdrawal; Lake exit1.",
+  "checker": "NOT RUN",
+  "compiled_components": 51,
+  "next_action": "Preserve all results before replacement desk request under the latest HTTP410 instruction."
+}

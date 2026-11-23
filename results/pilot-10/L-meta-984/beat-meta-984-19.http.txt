@@ -1,0 +1,21 @@
+HTTP/1.1 200 OK
+date: Mon, 23 Nov 2026 23:52:59 GMT
+server: envoy
+
+HTTP/2 410 
+date: Mon, 23 Nov 2026 23:52:59 GMT
+content-type: application/json; charset=utf-8
+content-length: 86
+access-control-allow-origin: *
+cache-control: no-store
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=5XsTaxZ4zPibTQN4BKq8n3PzohJIQBkeuVawg5uIYaE%2BHECSg5lm%2BjRreKIya0Qzo0Y%2FVVtYVEhfxBJ8%2F%2FXuhHhthxLNhycho%2F2lxoAlhYtotlAerr13ROawiBCs3zI%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: envoy
+cf-ray: a5f4173cfec3511a-MSP
+alt-svc: h3=":443"; ma=86400
+x-envoy-upstream-service-time: 200
+
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}

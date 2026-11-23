@@ -5,5 +5,5 @@
   "lines": 6232,
   "status": "Full v9 build started23:14:25Z and was interrupted by an environment restart after about26s. No exit-status file or full theorem verdict. Literal G8 integration compiled successfully.",
   "checker": "NOT RUN",
-  "second_attempt": "Restarted around2026-11-23T23:16Z after safe stale-queue cleanup; running, no full build verdict."
+  "second_attempt": "Deliberately interrupted after desk withdrew L-meta-984 as proved. Lake exit1; no full theorem compile verdict."
 }

@@ -1,6 +1,6 @@
 {
   "gap": "L-meta-984",
-  "status": "PARTIAL; concrete certificates pending",
+  "status": "PARTIAL research only. Desk withdrew L-meta-984 as proved. No successful full theorem build or repository checker verdict was obtained by this job.",
   "artifacts": [
     {
       "file": "Formal984.lean",
