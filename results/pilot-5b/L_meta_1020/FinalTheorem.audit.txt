@@ -1,0 +1,116 @@
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:580:0: warning: automatically included section variable(s) unused in theorem `Pilot5bMeta1020FirstQuery.fiber_small`:
+  [Fintype P]
+  [Fintype L]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype P] [Fintype L] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:629:18: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:604:0: warning: automatically included section variable(s) unused in theorem `Pilot5bMeta1020FirstQuery.smallPairs_bound_of_fibers`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:660:0: warning: automatically included section variable(s) unused in theorem `Pilot5bMeta1020FirstQuery.goodFirst_of_uncharged`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:697:0: warning: automatically included section variable(s) unused in theorem `Pilot5bMeta1020FirstQuery.first_origin`:
+  [Fintype P]
+  [Fintype L]
+  [DecidableEq P]
+  [DecidableEq L]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype P] [Fintype L] [DecidableEq P] [DecidableEq L] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:722:0: warning: automatically included section variable(s) unused in theorem `Pilot5bMeta1020FirstQuery.retained_origin`:
+  [Fintype P]
+  [DecidableEq P]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype P] [DecidableEq P] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:2887:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [Pilot5bMeta1020DeadCover.deadInput, Pilot5bMeta1020DeadCover.bit, hbad] at hlt
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4342:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [run]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4345:19: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4356:48: warning: This simp argument is unused:
+  Nat.add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.length_cons, List.length_nil, Nat.zero_add, List.cons_append,
+    List.nil_append] at hlast hfirst hsecond
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4382:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4369:5: warning: Variable name `hN` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hN
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4423:56: warning: This simp argument is unused:
+  hf
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [payload, hdeg, ↓reduceIte, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4435:56: warning: This simp argument is unused:
+  hf
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [payload, hdeg, ↓reduceIte, hr, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4412:64: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4423:64: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4435:68: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4412:64: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4423:64: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4435:68: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:4508:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-5b/meta1020/upper_bound/CheckFinalTheorem.lean:7899:51: warning: `Nat.add_eq_zero` has been deprecated: Use `Nat.add_eq_zero_iff` instead
+
+Hint: Replace the deprecated name:
+  Nat.add_eq_zero_̲i̲f̲f̲
+'PEqualNP.Outside.L_meta_1020' depends on axioms: [propext, Classical.choice, Quot.sound]
