@@ -64,3 +64,8 @@ Root independently reviewed167-line OneOversized extension authored by lean_setu
 Combined snapshot eda8ef31694608cbf264705dc151135cc91a858facffb17c7780826d4a7af22f. General theorem remains absent.
 Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
 TIMING total=47.0 subagents=6
+
+Fourteenth partial: 3493 lines. Build 17 passed. Added physical DAG-to-tree extraction, exact forest-intersection Euler counts, and strict OR parent-set equality.
+Independent status_review PASS on167-line GraphForest extension SHA2561c766eb8b09cb4b913f347903922e27db98b421dc65885e07c68e74c2d4d9221; independent compile and standard axioms. Pruning preserves graph edges, not semantic transfer (not claimed).
+Root independently reviewed118-line Euler extension SHA256cde11805f041eb5246f93c05c4ff6604b90e68410feb12a527707d0c75d599ff and99-line OrParents extension SHA2562856e3db7f636c391ae4dfda67743af371cb0c4aeb280fe6bf4d32f8125d48ca. Cardinal identities, physical-input assumptions, monotone hypotheses, namespace/format pass.
+Combined snapshot c4dc68c3994167fbfdd8637af613e54b0ae39a1e1ce8c4a4278cd10b683ed529. General theorem remains absent.
