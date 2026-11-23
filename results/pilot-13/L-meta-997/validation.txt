@@ -105,3 +105,9 @@ Combined snapshot 69c70e1ef6ffd1441b71064d9b496e70ef0a2885179e0a91a580d21e9e9f59
 Twenty-first partial:5985 lines. Build24 passed. Added two-heavy hybrid and exact posted inequality when at most two disjoint sets exceed k+1.
 Independent overlap_theory review PASS on TwoOversized SHA256dd54fed3cdc2d26d9afcaab0596ed48fb0866f29e71e38628acedd3df5832ce6: explicit extra restriction, unchanged original assumptions/conclusion, two distinct output refunds cover hybrid loss, remaining caps paid by other refunds, small/degenerate cases valid, format clean.
 Combined snapshot 8bc442e07ddf191afaee19d0599afd8a41213fd446d027d4c5cc100142095e8d. General posted theorem remains absent.
+
+Twenty-second partial:6165 lines. Build25 passed. Added linear-family union-loss count, selected oversized-family bound, and exact posted inequality when at most three disjoint sets exceed k+1.
+Independent lean_setup review PASS on three_oversized SHA2564ef8ab34d880fb8b29aeae081d0912150b2328b0e7b4f87790c8aa169bc3c140: generic assumptions and cardinal restriction explicit; overlap deficit and refund arithmetic valid; original hypotheses/conclusion retained; format clean.
+Combined snapshot a6b88e0439d1841ba3f5c512d411d16df1c7e27c429c12914cee539aaec3aa94. General posted theorem remains absent.
+Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
+TIMING total=75.0 subagents=6
