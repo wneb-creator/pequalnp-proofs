@@ -1,0 +1,34 @@
+CHECKED PARTIAL: same complement-class framework on64diagnostic pairs, narrowMathlib imports.
+No finite search exclusion or final gap theorem in this snapshot.
+Command: lake env lean Signed64.lean (with olean output for scratch iteration)
+Exit status: 0
+Independent review: lower_bound verified all64pairs, ninepackedcolumns andnineessential-inputsites againstData64, and source format.
+Full stdout and stderr follow:
+/tmp/oec/pequalnp-pilot-14/sat-proof/Signed64.lean:268:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hp.mem_iff]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-14/sat-proof/Signed64.lean:409:36: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/sat-proof/Signed64.lean:522:20: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/sat-proof/Signed64.lean:529:18: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/sat-proof/Signed64.lean:581:76: warning: This simp argument is unused:
+  BitVec.getElem_not
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bit, graph, assignment, BitVec.getElem_or, BitVec.getElem_and]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

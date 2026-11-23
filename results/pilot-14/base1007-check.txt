@@ -1,0 +1,146 @@
+CHECKED COMPONENT: copied L-meta-1007 lower bound for the exact eight-input residual graph, with packed certificate data.
+423817 bytes, 2953 lines; original499569 bytes. All original finite kernel certificate proofs passed.
+This helper component is NOT a standalone proof submission: the source guard refuses the missing theorem (all declarations are lemmas). No forbidden-source rejection was reported.
+Command: lake env lean /tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean
+Exit status: 0
+Independent review: root compared finalBound statement and variable context exactly with upstream accepted L_meta_1007, confirmed owned namespace and inspected compression design.
+Full stdout and stderr follow:
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:132:183: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:132:183: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:142:204: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:142:204: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:148:177: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:148:177: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:156:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:156:81: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:175:112: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:175:108: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:175:112: warning: Unused tactic linter: `aesop` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:197:4: warning: Unused tactic linter: `change x ∈ v ↔ _` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:272:99: warning: This simp argument is unused:
+  BitVec.and_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.or_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:272:115: warning: This simp argument is unused:
+  BitVec.or_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.and_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:272:185: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:272:185: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:622:0: warning: Definition `keep_perm` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:689:62: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ht, Bool.true_or, Bool.or_true, Bool.and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:808:16: warning: Unused tactic linter: `exact Bool.or_le_or ha hb` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:808:44: warning: Unused tactic linter: `exact Bool.and_le_and ha hb` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1418:4: warning: exponent 464 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1418:41: warning: This simp argument is unused:
+  BitVec.getLsbD_not
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hl, neg, Theta.mask, Theta.lo, show j < 252 by omega, show j < 464 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1421:47: warning: This simp argument is unused:
+  BitVec.getLsbD_not
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hl, hh, neg, Theta.mask, Theta.lo, show j - 232 < 252 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1472:9: warning: Local variable 'done' resembles constructor 'PEqualNP.Outside.L_meta_670_aux.Base1007.Theta.Run.done' - write '.done' (with a dot) or 'PEqualNP.Outside.L_meta_670_aux.Base1007.Theta.Run.done' to use the constructor.
+
+Note: This linter can be disabled with `set_option linter.constructorNameAsVariable false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1657:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1672:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1674:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1687:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1689:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1886:60: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sep, bin, ite_false, ite_true, takeTwo, top, BitVec.getLsbD_allOnes, BitVec.getLsbD_and,
+    BitVec.getLsbD_or, BitVec.getLsbD_not, reduceCtorEq, hi, decide_true, Bool.true_and] at hh ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:1895:59: warning: This simp argument is unused:
+  decide_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [slowBinary, tryGate, Nat.sub_zero, hlen, ite_true, Bool.or_eq_true, Bool.and_eq_true,
+    beq_iff_eq] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:2013:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/Compressed1007.lean:2226:13: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
