@@ -1,0 +1,66 @@
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:376:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [run]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:379:19: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:390:48: warning: This simp argument is unused:
+  Nat.add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.length_cons, List.length_nil, Nat.zero_add, List.cons_append,
+    List.nil_append] at hlast hfirst hsecond
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:416:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:403:5: warning: Variable name `hN` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hN
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:457:56: warning: This simp argument is unused:
+  hf
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [payload, hdeg, ↓reduceIte, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:469:56: warning: This simp argument is unused:
+  hf
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [payload, hdeg, ↓reduceIte, hr, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:446:64: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:457:64: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:469:68: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:446:64: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:457:64: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:469:68: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/pilot-5b/L_meta_1020/ForwardBridge.lean:542:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
