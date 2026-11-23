@@ -119,6 +119,90 @@
         "mask-stage-1.stderr"
       ],
       "scope": "Bitwise homomorphisms for a masked shift/swap stage under three explicit mask-disjointness assumptions."
+    },
+    {
+      "file": "BenesRouting984.lean",
+      "sha256": "af7a61605e23cdb7c8e9cc25907dbf4dddea4452c0047f8e7283ac2a75930bb2",
+      "lines": 186,
+      "bytes": 8195,
+      "observed_compile_exit": 0,
+      "logs": [
+        "benes-routing-2.stdout",
+        "benes-routing-2.stderr"
+      ],
+      "scope": "Generic fixed-stage bit-routing homomorphisms and Run transport under validity and goal-fixing assumptions."
+    },
+    {
+      "file": "Quotient28BenchmarkV2.lean",
+      "sha256": "c47547045e962bad6409983f6f6d3575a6c589c8aed45e5ba3cba41cf988a0c4",
+      "lines": 1988,
+      "bytes": 118611,
+      "observed_compile_exit": 0,
+      "logs": [
+        "quotient28-benchmark-2.stdout",
+        "quotient28-benchmark-2.stderr"
+      ],
+      "scope": "One compact shard28 decoder equality and one layer8 certificate state, plus action goal-fixing/transport; no whole-graph bound."
+    },
+    {
+      "file": "RouteBenchmarkOld.lean",
+      "sha256": "7430ea9aa310a086e2481607fb41e67cfee9f5ba77e2c6de4e2af188eab10fc7",
+      "lines": 26,
+      "bytes": 46351,
+      "observed_compile_exit": 0,
+      "logs": [
+        "route-benchmark-old.stdout",
+        "route-benchmark-old.stderr"
+      ],
+      "scope": "Performance-only finite kernel checks on500 fixed words using direct bit selection; no graph bound."
+    },
+    {
+      "file": "RouteBenchmarkBenes.lean",
+      "sha256": "9cfc26608f9f8380f1311d782f27b6aa22004379260938c78a3e301bebfb7428",
+      "lines": 26,
+      "bytes": 46411,
+      "observed_compile_exit": 0,
+      "logs": [
+        "route-benchmark-benes.stdout",
+        "route-benchmark-benes.stderr"
+      ],
+      "scope": "Performance-only finite kernel checks on500 fixed words using routing stages; no graph bound."
+    },
+    {
+      "file": "FormalFast984.lean",
+      "sha256": "4d9b4bfdc16f48146853f5bf22b9f1cc74010ec879d995f41e38f1558438c5f1",
+      "lines": 2049,
+      "bytes": 90052,
+      "observed_compile_exit": 0,
+      "logs": [
+        "formal-fast-check-2.stdout",
+        "formal-fast-check-2.stderr"
+      ],
+      "scope": "Generic fast score certificate soundness with explicit index/length guards and orientation-preservation assumptions."
+    },
+    {
+      "file": "BenesXorRouting984.lean",
+      "sha256": "98d5b44a3565302e9864aaac773b9e1a49729596923ba2c581b7ca24a067cfb0",
+      "lines": 169,
+      "bytes": 7594,
+      "observed_compile_exit": 0,
+      "logs": [
+        "benes-xor-routing-1.stdout",
+        "benes-xor-routing-1.stderr"
+      ],
+      "scope": "Generic XOR bit-routing homomorphisms and Run transport under explicit mask validity and goal fixing."
+    },
+    {
+      "file": "FormalReady984.lean",
+      "sha256": "ff90f2b2a8974b8c8bf672c0975dbeb7c2a857d7be41369471e8dfd9cb569aa4",
+      "lines": 2145,
+      "bytes": 94212,
+      "observed_compile_exit": 0,
+      "logs": [
+        "formal-ready-check-1.stdout",
+        "formal-ready-check-1.stderr"
+      ],
+      "scope": "Combined generic fast-score and routing infrastructure; concrete full certificates still required."
     }
   ]
 }

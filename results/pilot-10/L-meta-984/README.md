@@ -9,3 +9,5 @@ FormalScore984 adds proved score pruning and padding bridges. CoreCases984 prove
 SlackScore984 and Shard28Benchmark are additional compiled partials. The latter checks semantic encodings and four distinct frontier states only. Its complete timing diagnostics are retained. The full31-conjunct proof is still pending, and the uncompressed certificate exceeds the repository512KiB limit.
 
 FormalOrbit984, FastScore984 and MaskStage984 compile as generic symmetry and score-evaluation helpers. They do not instantiate a full graph certificate. The current compact proof remains in development.
+
+Additional compiled generic routing/fast-score helpers and finite performance benchmarks are listed with their exact scope in the manifest. Quotient28BenchmarkV2 checks only one compact frontier state. No complete L-meta-984 proof or checker acceptance is claimed.

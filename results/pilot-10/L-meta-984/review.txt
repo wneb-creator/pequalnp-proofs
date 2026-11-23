@@ -48,3 +48,14 @@ fixing and cache-correctness hypotheses are explicit. Frozen hash and complete
 successful timing diagnostics verified. FastScore984 and MaskStage984 were
 independently reviewed by fresh_full_proof and root: PASS under their explicit
 length/mask assumptions. All three are generic helper results, no gap theorem.
+
+BenesRouting984 and BenesXorRouting984 were independently reviewed by
+fresh_full_proof; the XOR version and FormalFast984 were also reviewed by
+proof_strategy: PASS with all mask/index/length/goal assumptions explicit.
+Root reviewed the frozen combined FormalReady infrastructure and finite
+routing benchmark declarations; these are generic or finite arithmetic
+results, not graph lower bounds. BenesRouting retains an unnamed research
+section and the two routing microbenchmarks use namespace Bench; final
+integration uses the named shared Cert block instead. Quotient28BenchmarkV2
+was independently reviewed by independent_search: exact hash, decoder-slot
+correspondence, single checked state, profile-only diagnostics, PASS.
