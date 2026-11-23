@@ -2132,24 +2132,33 @@ lemma selected_count {n : ℕ} (C : Circuit)
         supp C Y w ⊆ (parents w).biUnion (supp C Y)) ∧
       (∀ w ∈ U, Relation.ReflTransGen (fun a b => b ∈ parents a) o w) ∧
       (∀ w r, r ∈ parents w → (n ≤ w ∧ w<n+C.size) ∧ sound C S w ∧
-        r<w ∧ sound C S r ∧ r ∈ (readGate C n w).inputs) := by
+        r<w ∧ sound C S r ∧ r ∈ (readGate C n w).inputs ∧ (supp C Y r).Nonempty) := by
   classical
   let H := (Finset.Ico n (n+C.size)).filter (sound C S)
   have hbranch : ∀ w ∈ H, ∃ P : Finset ℕ,
       P.card ≤ (if w ∈ charged C Y S then 2 else 1) ∧
-        (∀ r ∈ P, r<w ∧ sound C S r ∧ r ∈ (readGate C n w).inputs) ∧
+        (∀ r ∈ P, r<w ∧ sound C S r ∧ r ∈ (readGate C n w).inputs ∧ (supp C Y r).Nonempty) ∧
           supp C Y w ⊆ P.biUnion (supp C Y) := by
     intro w hw
     have hg := Finset.mem_Ico.mp (Finset.mem_filter.mp hw).1
     obtain ⟨P,hP,hP',hp,hcover⟩ := branch_edges C hG Y S w hg.1 hg.2 (Finset.mem_filter.mp hw).2
-    refine ⟨P,?_,hp,hcover⟩
-    split_ifs with hc
-    · exact hP
-    · exact hP' hc
+    let Q := P.filter (fun r => (supp C Y r).Nonempty)
+    refine ⟨Q,?_,?_,?_⟩
+    · have hQP : Q.card ≤ P.card := Finset.card_filter_le _ _
+      split_ifs with hc
+      · exact hQP.trans hP
+      · exact hQP.trans (hP' hc)
+    · intro r hr
+      have hr' := Finset.mem_filter.mp hr
+      exact ⟨(hp r hr'.1).1,(hp r hr'.1).2.1,(hp r hr'.1).2.2,hr'.2⟩
+    · intro p hpw
+      obtain ⟨r,hr,hpr⟩ := Finset.mem_biUnion.mp (hcover hpw)
+      exact Finset.mem_biUnion.mpr ⟨r,Finset.mem_filter.mpr ⟨hr,⟨p,hpr⟩⟩,hpr⟩
   let parents := fun w => if hw : w ∈ H then Classical.choose (hbranch w hw) else ∅
   have hpFull : ∀ w ∈ H,
       (parents w).card ≤ (if w ∈ charged C Y S then 2 else 1) ∧
-        (∀ r ∈ parents w, r<w ∧ sound C S r ∧ r ∈ (readGate C n w).inputs) ∧
+        (∀ r ∈ parents w, r<w ∧ sound C S r ∧ r ∈ (readGate C n w).inputs ∧
+          (supp C Y r).Nonempty) ∧
         supp C Y w ⊆ (parents w).biUnion (supp C Y) := by
     intro w hw
     simpa only [parents,dite_eq_left hw] using Classical.choose_spec (hbranch w hw)

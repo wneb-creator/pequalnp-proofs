@@ -45,3 +45,6 @@ TIMING total=34.0 subagents=6
 Ninth partial: 2264 lines. Build 12 passed. Added capped-disjoint special case: exact posted inequality if every disjoint output set has size at most |y|+1.
 Root independently reviewed62-line extension authored by lean_setup, SHA2567c7359504951d4bcf9db93ca2c48ba0a3f16bad226314fee1f5a1f9dacaa91b8: all original hypotheses retained, extra cap explicit, refund arithmetic valid, namespace/format pass.
 Combined snapshot 712f89408c84c1947cf0e21b49a5999ec1f01961c2926e013b9f490bcbcb0d05. Main theorem remains absent.
+
+Tenth partial: 2273 lines. Build 13 passed. Selected heavy DAG parent edges now also have nonempty heavy support, excluding frozen empty-support wires.
+Independent delta review by lean_setup PASS on220-line namespace SHA256abb2a6bae1d47327081cb5d96c948c440ae75660fa6e863342c9fe299e4c504d. Combined snapshot 0f8eadd500aeea1d65fdea23ef2e43c3d9325c16dd332dc33852650ee6765d33.
