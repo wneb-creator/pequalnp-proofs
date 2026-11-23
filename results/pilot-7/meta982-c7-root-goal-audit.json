@@ -1,0 +1,12 @@
+{
+  "case": 8,
+  "states_not_goal": 116,
+  "states_nodup": 116,
+  "root_input_permutations_verified": [
+    [
+      9,
+      0
+    ]
+  ],
+  "K": 218
+}

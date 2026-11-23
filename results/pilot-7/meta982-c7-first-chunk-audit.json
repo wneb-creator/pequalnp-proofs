@@ -1,0 +1,20 @@
+{
+  "case": 8,
+  "states_not_goal": 116,
+  "states_nodup": 116,
+  "root_input_permutations_verified": [
+    [
+      9,
+      0
+    ]
+  ],
+  "K": 218,
+  "packed_data_verbatim_match": true,
+  "first_chunk_scope": {
+    "remaining_budget": 4,
+    "state_index": 0
+  },
+  "first_chunk_proof": "decide +kernel",
+  "base_sha256": "95705337141c241ed1e87cf78a8f6f2bae26950aac1da71f2a5025eaff63c6b3",
+  "chunk_sha256": "2801670ce7850b9106a1117cb73c4ce6e9b6ad7b087543e055f6aaf798458854"
+}
