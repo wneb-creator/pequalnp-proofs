@@ -36,6 +36,17 @@
         "core-cases-build-2.log"
       ],
       "scope": "Exact conjuncts6 and8 only of the31-conjunct posted L-meta-984 statement."
+    },
+    {
+      "file": "PseudoforestFacts984.lean",
+      "sha256": "61111d3213579afb327654c33cb3bb80acc9603bc701ff7c04d22f28c5aa115a",
+      "lines": 79,
+      "bytes": 3156,
+      "observed_compile_exit": 0,
+      "logs": [
+        "pseudoforest-facts-build-1.log"
+      ],
+      "scope": "Finite graph facts for conjunct2:7edges, C4-free pseudoforest,9 maximal false assignments; no circuit lower bound."
     }
   ]
 }
