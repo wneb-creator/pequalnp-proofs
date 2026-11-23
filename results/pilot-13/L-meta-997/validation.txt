@@ -57,3 +57,10 @@ Archived42 research files with full logs and SHA256 manifest. No actual countere
 Twelfth partial: 2709 lines. Build 15 passed. Added used light charge certificate with physical edges, nonempty child support and output reachability.
 Independent status_review PASS on288-line extension SHA2566c3a4ff35363ba75e0a995b7915584891364b7f4055a2e15dfa326643068b591; recompiled independently; only standard axioms. It requires monotone fixed-true C1 and does not claim global soundness from reachability.
 Combined snapshot b9e33fbf99467004cd5023ef2f3e59ec02b54e44618ca7dc600f318f6c3366cf. Main theorem remains absent.
+
+Thirteenth partial: 3109 lines. Build 16 passed. Added light exemption for AND with a parent true at empty input, and full posted inequality when at most one disjoint set exceeds |y|+1.
+Independent status_review PASS on233-line LightSmart extension SHA256b75afb75f3d451ad4c4322e0667003dff321a3584984e01dd3b6465181230b28, including independent compilation and standard axioms only.
+Root independently reviewed167-line OneOversized extension authored by lean_setup, SHA256da3aa2661ebc9c9a9410b53eb67b47607794193129ff30741e34bb4c15ce016b: singleton-support equality, disjoint charges, exclusion, and refund arithmetic valid; extra hypothesis explicit; format pass.
+Combined snapshot eda8ef31694608cbf264705dc151135cc91a858facffb17c7780826d4a7af22f. General theorem remains absent.
+Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
+TIMING total=47.0 subagents=6
