@@ -1,0 +1,194 @@
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:217:76: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:217:72: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:217:76: warning: Unused tactic linter: `omega` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:290:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:292:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:294:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:290:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:292:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:294:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:340:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:340:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:346:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:346:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:1682:62: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ht, Bool.true_or, Bool.or_true, Bool.and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:1729:32: warning: This simp argument is unused:
+  Nat.testBit_bit_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [encL]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:1783:16: warning: Unused tactic linter: `exact Bool.or_le_or ha hb` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:1783:44: warning: Unused tactic linter: `exact Bool.and_le_and ha hb` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:2534:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [h0, h1]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:2564:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [h0, h1]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:2625:27: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:2626:27: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-7/AuditShard982Structural.lean:2626:38: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+'PEqualNP.Outside.L_meta_982_aux.shard15' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem PEqualNP.Outside.L_meta_982_aux.shard15 : ∀ (t : ℕ),
+  PEqualNP.MetaComplexity.HasCircuitSize 7
+      (fun x =>
+        x 0 && x 1 || x 0 && x 2 || x 0 && x 3 || x 0 && x 4 || x 1 && x 2 || x 1 && x 5 || x 3 && x 4 || x 5 && x 6)
+      t →
+    11 ≤ t :=
+have heq :=
+  funext fun x =>
+    of_eq_true
+      (Eq.trans
+        (congr
+          (congrArg Eq
+            (Eq.trans
+              (Eq.trans
+                (congrFun'
+                  (congrArg or
+                    (Eq.trans
+                      (Eq.trans
+                        (congrFun'
+                          (congrArg or
+                            (Eq.trans
+                              (Eq.trans
+                                (congrFun'
+                                  (congrArg or
+                                    (Eq.trans
+                                      (Eq.trans
+                                        (congrFun'
+                                          (congrArg or
+                                            (Eq.trans
+                                              (Eq.trans
+                                                (congrFun'
+                                                  (congrArg or (Bool.or_assoc (x 0 && x 1) (x 0 && x 2) (x 0 && x 3)))
+                                                  (x 0 && x 4))
+                                                (Bool.or_assoc (x 0 && x 1) (x 0 && x 2 || x 0 && x 3) (x 0 && x 4)))
+                                              (congrArg (x 0 && x 1).or
+                                                (Bool.or_assoc (x 0 && x 2) (x 0 && x 3) (x 0 && x 4)))))
+                                          (x 1 && x 2))
+                                        (Bool.or_assoc (x 0 && x 1) (x 0 && x 2 || (x 0 && x 3 || x 0 && x 4))
+                                          (x 1 && x 2)))
+                                      (congrArg (x 0 && x 1).or
+                                        (Eq.trans (Bool.or_assoc (x 0 && x 2) (x 0 && x 3 || x 0 && x 4) (x 1 && x 2))
+                                          (congrArg (x 0 && x 2).or
+                                            (Bool.or_assoc (x 0 && x 3) (x 0 && x 4) (x 1 && x 2)))))))
+                                  (x 1 && x 5))
+                                (Bool.or_assoc (x 0 && x 1) (x 0 && x 2 || (x 0 && x 3 || (x 0 && x 4 || x 1 && x 2)))
+                                  (x 1 && x 5)))
+                              (congrArg (x 0 && x 1).or
+                                (Eq.trans
+                                  (Bool.or_assoc (x 0 && x 2) (x 0 && x 3 || (x 0 && x 4 || x 1 && x 2)) (x 1 && x 5))
+                                  (congrArg (x 0 && x 2).or
+                                    (Eq.trans (Bool.or_assoc (x 0 && x 3) (x 0 && x 4 || x 1 && x 2) (x 1 && x 5))
+                                      (congrArg (x 0 && x 3).or
+                                        (Bool.or_assoc (x 0 && x 4) (x 1 && x 2) (x 1 && x 5)))))))))
+                          (x 3 && x 4))
+                        (Bool.or_assoc (x 0 && x 1)
+                          (x 0 && x 2 || (x 0 && x 3 || (x 0 && x 4 || (x 1 && x 2 || x 1 && x 5)))) (x 3 && x 4)))
+                      (congrArg (x 0 && x 1).or
+                        (Eq.trans
+                          (Bool.or_assoc (x 0 && x 2) (x 0 && x 3 || (x 0 && x 4 || (x 1 && x 2 || x 1 && x 5)))
+                            (x 3 && x 4))
+                          (congrArg (x 0 && x 2).or
+                            (Eq.trans
+                              (Bool.or_assoc (x 0 && x 3) (x 0 && x 4 || (x 1 && x 2 || x 1 && x 5)) (x 3 && x 4))
+                              (congrArg (x 0 && x 3).or
+                                (Eq.trans (Bool.or_assoc (x 0 && x 4) (x 1 && x 2 || x 1 && x 5) (x 3 && x 4))
+                                  (congrArg (x 0 && x 4).or
+                                    (Bool.or_assoc (x 1 && x 2) (x 1 && x 5) (x 3 && x 4)))))))))))
+                  (x 5 && x 6))
+                (Bool.or_assoc (x 0 && x 1)
+                  (x 0 && x 2 || (x 0 && x 3 || (x 0 && x 4 || (x 1 && x 2 || (x 1 && x 5 || x 3 && x 4)))))
+                  (x 5 && x 6)))
+              (congrArg (x 0 && x 1).or
+                (Eq.trans
+                  (Bool.or_assoc (x 0 && x 2) (x 0 && x 3 || (x 0 && x 4 || (x 1 && x 2 || (x 1 && x 5 || x 3 && x 4))))
+                    (x 5 && x 6))
+                  (congrArg (x 0 && x 2).or
+                    (Eq.trans
+                      (Bool.or_assoc (x 0 && x 3) (x 0 && x 4 || (x 1 && x 2 || (x 1 && x 5 || x 3 && x 4)))
+                        (x 5 && x 6))
+                      (congrArg (x 0 && x 3).or
+                        (Eq.trans (Bool.or_assoc (x 0 && x 4) (x 1 && x 2 || (x 1 && x 5 || x 3 && x 4)) (x 5 && x 6))
+                          (congrArg (x 0 && x 4).or
+                            (Eq.trans (Bool.or_assoc (x 1 && x 2) (x 1 && x 5 || x 3 && x 4) (x 5 && x 6))
+                              (congrArg (x 1 && x 2).or
+                                (Bool.or_assoc (x 1 && x 5) (x 3 && x 4) (x 5 && x 6)))))))))))))
+          (Eq.trans
+            (congrArg false.or
+              (congrArg (x 0 && x 1).or
+                (congrArg (x 0 && x 2).or
+                  (congrArg (x 0 && x 3).or
+                    (congrArg (x 0 && x 4).or
+                      (congrArg (x 1 && x 2).or
+                        (congrArg (x 1 && x 5).or (congrArg (x 3 && x 4).or (Bool.or_false (x 5 && x 6))))))))))
+            (Bool.false_or
+              (x 0 && x 1 ||
+                (x 0 && x 2 ||
+                  (x 0 && x 3 || (x 0 && x 4 || (x 1 && x 2 || (x 1 && x 5 || (x 3 && x 4 || x 5 && x 6))))))))))
+        (eq_self
+          (x 0 && x 1 ||
+            (x 0 && x 2 ||
+              (x 0 && x 3 || (x 0 && x 4 || (x 1 && x 2 || (x 1 && x 5 || (x 3 && x 4 || x 5 && x 6)))))))));
+Eq.mpr (id (congrArg (fun _a => ∀ (t : ℕ), PEqualNP.MetaComplexity.HasCircuitSize 7 _a t → 11 ≤ t) heq))
+  (PEqualNP.Outside.L_meta_982_aux.gfn_branch2 [] PEqualNP.Outside.L_meta_982_aux.E15 6 []
+    PEqualNP.Outside.L_meta_982_aux.E15zero [5] PEqualNP.Outside.L_meta_982_aux.E15bowtie 9
+    (of_decide_eq_true (id (Eq.refl true))) (of_decide_eq_true (id (Eq.refl true)))
+    (of_decide_eq_true (id (Eq.refl true))) (of_decide_eq_true (id (Eq.refl true)))
+    (of_decide_eq_true (id (Eq.refl true))) (of_decide_eq_true (id (Eq.refl true)))
+    (of_decide_eq_true (id (Eq.refl true))) (of_decide_eq_true (id (Eq.refl true)))
+    (of_decide_eq_true (id (Eq.refl true))) PEqualNP.Outside.L_meta_982_aux.shard15_zero
+    PEqualNP.Outside.L_meta_982_aux.shard15_one)

@@ -1,0 +1,13 @@
+Checkpoint for L-meta-982, assigned shard15.
+KIT-MESSAGE-ID msg-b493ff75057293776fcb9f22
+
+The target Lean file currently contains a checked component proof, not the complete 31-conjunct posted theorem. No upstream PR has been opened.
+
+Shard15: exact posted lower bound 11; independently compiled with Lean exit0. Axioms: propext, Classical.choice, Quot.sound. Complete output: audit-shard982-structural.log.
+Structural982Routes.lean: 15 unconditional conjuncts and two conditional on seed0; Lean exit0. Complete output: structural982-routes.stdout.log and structural982-routes.stderr.log.
+Finite982DFS.lean: generic finite-checker soundness; independently compiled with permitted axioms only. Complete output: audit-finite982-dfs.log.
+
+The full repository local checker has not accepted L-meta-982 yet. Further finite base proofs are in progress.
+
+Sub-agents: proof_strategy, term_context, counterexample_search, merge_invariant, cube_symmetry, lean_setup, lemma_search
+TIMING total=151.1 subagents=7
