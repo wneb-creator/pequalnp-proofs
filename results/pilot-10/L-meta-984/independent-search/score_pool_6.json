@@ -1,0 +1,88 @@
+{
+  "graph": "all6",
+  "k": 63,
+  "codes": [
+    47287818708388932,
+    15762606281260096,
+    47295552867598399,
+    31540643240153155
+  ],
+  "pool": [
+    {
+      "coordinates": [
+        68,
+        67,
+        69,
+        21,
+        0,
+        42
+      ],
+      "code": 47287818708388932
+    },
+    {
+      "coordinates": [
+        64,
+        63,
+        66,
+        7,
+        0,
+        14
+      ],
+      "code": 15762606281260096
+    },
+    {
+      "coordinates": [
+        63,
+        64,
+        66,
+        56,
+        7,
+        42
+      ],
+      "code": 47295552867598399
+    },
+    {
+      "coordinates": [
+        67,
+        68,
+        69,
+        49,
+        14,
+        28
+      ],
+      "code": 31540643240153155
+    }
+  ],
+  "tight_states": 1762,
+  "covered": 1762,
+  "uncovered": 0,
+  "covered_by_layer": {
+    "7": 522,
+    "6": 674,
+    "5": 361,
+    "4": 155,
+    "3": 47,
+    "2": 3
+  },
+  "uncovered_by_layer": {},
+  "validation": "Independent scalar value6 evaluation of original raw wire Nats for every tight state; target score3 for every code; counts match complete C++ log.",
+  "source_sha256": {
+    "prepare_score_states_batch.py": "5336e6874378e4775e235df4aaf1050d9429b98632c0e29923cca78a70a7738c",
+    "score_pool.cpp": "a12a105f3cc88785acb54cff5d9aa3d7a1586cf8551c8b9935e1863ba69821ef",
+    "finalize_score_pool_batch.py": "dff6dacf811364f50b8a3dd12838ca7537cd2143838fda08cd39e216d289093c"
+  },
+  "full_frontier_state_counts": {
+    "0": 0,
+    "1": 0,
+    "2": 3,
+    "3": 47,
+    "4": 156,
+    "5": 368,
+    "6": 703,
+    "7": 591,
+    "8": 53,
+    "9": 1
+  },
+  "maximum_full_layer_size": 703,
+  "maximum_tight_layer_size": 674
+}

@@ -1,0 +1,25 @@
+pool=1 seed_layer=8 seed_index=0 gained=19479 covered=19479 remaining=12272 perlayer=2:3,3:113,4:1029,5:4135,6:7634,7:5711,8:854,
+pool=2 seed_layer=8 seed_index=11 gained=6484 covered=25963 remaining=5788 perlayer=3:16,4:304,5:1469,6:2575,7:1815,8:305,
+pool=3 seed_layer=8 seed_index=16 gained=1597 covered=27560 remaining=4191 perlayer=3:6,4:64,5:307,6:608,7:527,8:85,
+pool=4 seed_layer=8 seed_index=32 gained=1505 covered=29065 remaining=2686 perlayer=3:6,4:46,5:225,6:583,7:538,8:107,
+pool=5 seed_layer=8 seed_index=146 gained=804 covered=29869 remaining=1882 perlayer=4:19,5:118,6:316,7:296,8:55,
+pool=6 seed_layer=8 seed_index=254 gained=246 covered=30115 remaining=1636 perlayer=4:8,5:41,6:105,7:80,8:12,
+pool=7 seed_layer=8 seed_index=376 gained=512 covered=30627 remaining=1124 perlayer=3:3,4:18,5:113,6:196,7:159,8:23,
+pool=8 seed_layer=8 seed_index=484 gained=364 covered=30991 remaining=760 perlayer=3:4,4:36,5:103,6:126,7:81,8:14,
+pool=9 seed_layer=8 seed_index=508 gained=166 covered=31157 remaining=594 perlayer=4:9,5:47,6:67,7:38,8:5,
+pool=10 seed_layer=8 seed_index=623 gained=34 covered=31191 remaining=560 perlayer=5:4,6:12,7:12,8:6,
+pool=11 seed_layer=8 seed_index=626 gained=173 covered=31364 remaining=387 perlayer=4:15,5:42,6:63,7:44,8:9,
+pool=12 seed_layer=8 seed_index=797 gained=119 covered=31483 remaining=268 perlayer=4:12,5:39,6:48,7:18,8:2,
+pool=13 seed_layer=8 seed_index=1123 gained=41 covered=31524 remaining=227 perlayer=6:21,7:18,8:2,
+unscorable_seeds=25 covered=31524
+pool=14 seed_layer=7 seed_index=115 gained=1 covered=31525 remaining=226 perlayer=7:1,
+pool=15 seed_layer=7 seed_index=794 gained=96 covered=31621 remaining=130 perlayer=4:8,5:36,6:40,7:12,
+pool=16 seed_layer=7 seed_index=900 gained=9 covered=31630 remaining=121 perlayer=6:6,7:3,
+pool=17 seed_layer=7 seed_index=1899 gained=25 covered=31655 remaining=96 perlayer=4:3,5:6,6:10,7:6,
+pool=18 seed_layer=7 seed_index=2687 gained=1 covered=31656 remaining=95 perlayer=7:1,
+pool=19 seed_layer=7 seed_index=4028 gained=32 covered=31688 remaining=63 perlayer=4:1,5:11,6:15,7:5,
+pool=20 seed_layer=7 seed_index=4250 gained=3 covered=31691 remaining=60 perlayer=6:2,7:1,
+unscorable_seeds=50 covered=31691
+pool=21 seed_layer=7 seed_index=7045 gained=3 covered=31694 remaining=57 perlayer=6:2,7:1,
+unscorable_seeds=75 covered=31694
+DONE states=31751 pool=21 covered=31694 remaining=57 seeds=78 formula_checks=10000

@@ -1,0 +1,175 @@
+{
+  "k": 56,
+  "goal_hex": "0xffffffffffffff00000000000000",
+  "coordinate_map": {
+    "k": 56,
+    "positive_coordinate_indices": [
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "negative_coordinate_indices": [
+      0,
+      8,
+      16,
+      24,
+      32,
+      40,
+      48
+    ],
+    "positive_rows": [
+      3,
+      5,
+      9,
+      6,
+      18,
+      40,
+      72,
+      48
+    ],
+    "negative_rows": [
+      10,
+      28,
+      81,
+      84,
+      97,
+      98,
+      100
+    ],
+    "tight_states": 17352
+  },
+  "states": [
+    {
+      "layer": 8,
+      "index": 1139,
+      "wires_hex": [
+        "0x70707070707070000ff00ff0000",
+        "0xa0a0a0a0a0a0aff0000ff00ff00",
+        "0x1919191919191900ff00000000ff",
+        "0x1f1f1f1f1f1f1f00ffff00ff00ff",
+        "0x40404040404040ffffffffff0000",
+        "0x646464646464640000000000ffff",
+        "0x90909090909090000000ffffff00",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xf4f4f4f4f4f4f4000000ffffffff"
+      ]
+    },
+    {
+      "layer": 8,
+      "index": 1449,
+      "wires_hex": [
+        "0x70707070707070000ff00ff0000",
+        "0xa0a0a0a0a0a0aff0000ff00ff00",
+        "0x1919191919191900ff00000000ff",
+        "0x40404040404040ffffffffff0000",
+        "0x646464646464640000000000ffff",
+        "0x7d7d7d7d7d7d7d00ff000000ffff",
+        "0x90909090909090000000ffffff00",
+        "0x979797979797970000ffffffff00",
+        "0xa0a0a0a0a0a0a0ffffff00000000"
+      ]
+    },
+    {
+      "layer": 8,
+      "index": 1478,
+      "wires_hex": [
+        "0x70707070707070000ff00ff0000",
+        "0xa0a0a0a0a0a0aff0000ff00ff00",
+        "0x1919191919191900ff00000000ff",
+        "0x40404040404040ffffffffff0000",
+        "0x646464646464640000000000ffff",
+        "0x7d7d7d7d7d7d7d00ff000000ffff",
+        "0x90909090909090000000ffffff00",
+        "0x9a9a9a9a9a9a9aff0000ffffff00",
+        "0xa0a0a0a0a0a0a0ffffff00000000"
+      ]
+    },
+    {
+      "layer": 7,
+      "index": 1004,
+      "wires_hex": [
+        "0x70707070707070000ff00ff0000",
+        "0xa0a0a0a0a0a0aff0000ff00ff00",
+        "0x1919191919191900ff00000000ff",
+        "0x6e6e6e6e6e6e6eff0000ff00ffff",
+        "0x7d7d7d7d7d7d7d00ff000000ffff",
+        "0x90909090909090000000ffffff00",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xe0e0e0e0e0e0e0ffffffffff0000"
+      ]
+    },
+    {
+      "layer": 7,
+      "index": 2278,
+      "wires_hex": [
+        "0x70707070707070000ff00ff0000",
+        "0xa0a0a0a0a0a0aff0000ff00ff00",
+        "0x1818181818181800000000000000",
+        "0x40404040404040ffffffffff0000",
+        "0x646464646464640000000000ffff",
+        "0x7d7d7d7d7d7d7d00ff000000ffff",
+        "0x90909090909090000000ffffff00",
+        "0xa0a0a0a0a0a0a0ffffff00000000"
+      ]
+    },
+    {
+      "layer": 7,
+      "index": 3682,
+      "wires_hex": [
+        "0x70707070707070000ff00ff0000",
+        "0xa0a0a0a0a0a0aff0000ff00ff00",
+        "0x1f1f1f1f1f1f1f00ffff00ff00ff",
+        "0x40404040404040ffffffffff0000",
+        "0x7d7d7d7d7d7d7d00ff000000ffff",
+        "0x90909090909090000000ffffff00",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xf4f4f4f4f4f4f4000000ffffffff"
+      ]
+    },
+    {
+      "layer": 7,
+      "index": 3811,
+      "wires_hex": [
+        "0xa0a0a0a0a0a0aff0000ff00ff00",
+        "0x1f1f1f1f1f1f1f00ffff00ff00ff",
+        "0x40404040404040ffffffffff0000",
+        "0x646464646464640000000000ffff",
+        "0x7d7d7d7d7d7d7d00ff000000ffff",
+        "0x90909090909090000000ffffff00",
+        "0x979797979797970000ffffffff00",
+        "0xa0a0a0a0a0a0a0ffffff00000000"
+      ]
+    },
+    {
+      "layer": 6,
+      "index": 5348,
+      "wires_hex": [
+        "0x70707070707070000ff00ff0000",
+        "0xa0a0a0a0a0a0aff0000ff00ff00",
+        "0x1919191919191900ff00000000ff",
+        "0x676767676767670000ff00ff0000",
+        "0x7d7d7d7d7d7d7d00ff000000ffff",
+        "0x90909090909090000000ffffff00",
+        "0xa0a0a0a0a0a0a0ffffff00000000"
+      ]
+    },
+    {
+      "layer": 6,
+      "index": 6088,
+      "wires_hex": [
+        "0xa0a0a0a0a0a0aff0000ff00ff00",
+        "0x1f1f1f1f1f1f1f0000ff00ff0000",
+        "0x40404040404040ffffffffff0000",
+        "0x646464646464640000000000ffff",
+        "0x7d7d7d7d7d7d7d00ff000000ffff",
+        "0x90909090909090000000ffffff00",
+        "0xa0a0a0a0a0a0a0ffffff00000000"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+L-meta-984 independent finite-search and score-pool results
+
+Shard 28: seven variables; edges 01,02,03,04,12,15,34,36,56.
+Direct finite checks confirm nine edges, no 4-cycle, minimum vertex cover four.
+The posted lower bound is twelve gates.
+
+Full-semantics AND/OR synthesis:
+- All 128 Boolean assignments are encoded; no NOT operations are admitted.
+- At most eleven active gates are allowed. Free false/true constants are a
+  relaxation; duplicate functions and dead gates are eliminated, and adjacent
+  independent gates are canonically ordered. The sole output is the final
+  active gate. These reductions preserve any smallest counterexample.
+- Result: UNKNOWN after 602.376 seconds, reason canceled by the time cap.
+  This is inconclusive, not UNSAT or a finite lower-bound certificate.
+- An explicit twelve-gate star-cover circuit passed the same encoding as a
+  positive control (SAT in 0.033 seconds). Python independently evaluated all
+  128 assignments. It uses no free constants and meets, rather than refutes,
+  the posted bound. Its exact gates are in shard28_control12.witness.json.
+
+Score pools for all 31 posted graph claims:
+- Input frontiers and metadata were generated independently by root under
+  /tmp/oec/pequalnp-pilot-10/root984/all{i}.layer{s}.jsonl and all{i}.meta.json.
+- score_pool_0.json through score_pool_30.json contain actual packed Nat codes
+  for the existing L611 six-coordinate value6 predicate, not representative
+  indices. Integer fields can exceed 2^53 and require exact integer parsing.
+- The 31 pools contain 4 through 39 codes each. Across 949572 tight frontier
+  states, they exclude 949324, leaving 248. Twenty-one graphs have no tight
+  survivors. All 31 pools passed independent scalar evaluation on original
+  raw wire Nats, using the definition of value6 directly.
+- The C++ search uses an algebraically equivalent five-popcount formula;
+  10000 randomized checks compare it with the scalar definition. Its results
+  are additionally checked by the independent Python pass above.
+- Batch generation and validation took 100.893 seconds with two workers.
+- Applying the shard-28 pool with the separately proved slack multiplier
+  gives no additional exclusions among its 11249 non-tight frontier states.
+
+Limits: these pools are inputs to the Lean certificate checker. Pool search
+and frontier exhaustion do not themselves prove the posted theorem. A full
+L-meta-984 proof requires the root's kernel check of all 31 conjuncts.
+No counterexample was found. All solver processes from this agent finished.
+
+Complete diagnostics are retained in the listed .log and .stats files.
+Sub-agents: none for L-meta-984; literal_not_restriction was used earlier for
+L-meta-951 checked partials and has completed.
+TIMING total=12 subagents=0

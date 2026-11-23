@@ -1,0 +1,136 @@
+{
+  "graph": "all3",
+  "k": 56,
+  "codes": [
+    55207623501340729,
+    23643928173538364,
+    7881314444305466,
+    39429586546649144,
+    47318620053758011,
+    23651632271122492,
+    23651639786266682,
+    47326331669636152
+  ],
+  "pool": [
+    {
+      "coordinates": [
+        57,
+        56,
+        59,
+        42,
+        35,
+        49
+      ],
+      "code": 55207623501340729
+    },
+    {
+      "coordinates": [
+        60,
+        59,
+        62,
+        28,
+        0,
+        21
+      ],
+      "code": 23643928173538364
+    },
+    {
+      "coordinates": [
+        58,
+        57,
+        61,
+        14,
+        0,
+        7
+      ],
+      "code": 7881314444305466
+    },
+    {
+      "coordinates": [
+        56,
+        58,
+        60,
+        0,
+        21,
+        35
+      ],
+      "code": 39429586546649144
+    },
+    {
+      "coordinates": [
+        59,
+        56,
+        57,
+        35,
+        28,
+        42
+      ],
+      "code": 47318620053758011
+    },
+    {
+      "coordinates": [
+        60,
+        56,
+        62,
+        35,
+        7,
+        21
+      ],
+      "code": 23651632271122492
+    },
+    {
+      "coordinates": [
+        58,
+        56,
+        61,
+        42,
+        7,
+        21
+      ],
+      "code": 23651639786266682
+    },
+    {
+      "coordinates": [
+        56,
+        57,
+        59,
+        49,
+        35,
+        42
+      ],
+      "code": 47326331669636152
+    }
+  ],
+  "tight_states": 2340,
+  "covered": 2340,
+  "uncovered": 0,
+  "covered_by_layer": {
+    "7": 574,
+    "6": 939,
+    "5": 585,
+    "4": 202,
+    "3": 37,
+    "2": 3
+  },
+  "uncovered_by_layer": {},
+  "validation": "Independent scalar value6 evaluation of original raw wire Nats for every tight state; target score3 for every code; counts match complete C++ log.",
+  "source_sha256": {
+    "prepare_score_states_batch.py": "5336e6874378e4775e235df4aaf1050d9429b98632c0e29923cca78a70a7738c",
+    "score_pool.cpp": "a12a105f3cc88785acb54cff5d9aa3d7a1586cf8551c8b9935e1863ba69821ef",
+    "finalize_score_pool_batch.py": "dff6dacf811364f50b8a3dd12838ca7537cd2143838fda08cd39e216d289093c"
+  },
+  "full_frontier_state_counts": {
+    "0": 0,
+    "1": 0,
+    "2": 3,
+    "3": 37,
+    "4": 203,
+    "5": 601,
+    "6": 984,
+    "7": 659,
+    "8": 54,
+    "9": 1
+  },
+  "maximum_full_layer_size": 984,
+  "maximum_tight_layer_size": 939
+}

@@ -1,0 +1,159 @@
+{
+  "graph": "all14",
+  "k": 40,
+  "codes": [
+    27039224356185128,
+    27030428265260074,
+    18014424324417582,
+    9007225071772716,
+    27039189998542891,
+    36055193936241707,
+    27021614993416234,
+    36055202524078121,
+    27021606400336936,
+    27030393903423529
+  ],
+  "pool": [
+    {
+      "coordinates": [
+        40,
+        41,
+        44,
+        32,
+        16,
+        24
+      ],
+      "code": 27039224356185128
+    },
+    {
+      "coordinates": [
+        42,
+        41,
+        46,
+        32,
+        8,
+        24
+      ],
+      "code": 27030428265260074
+    },
+    {
+      "coordinates": [
+        46,
+        42,
+        43,
+        24,
+        0,
+        16
+      ],
+      "code": 18014424324417582
+    },
+    {
+      "coordinates": [
+        44,
+        41,
+        45,
+        24,
+        0,
+        8
+      ],
+      "code": 9007225071772716
+    },
+    {
+      "coordinates": [
+        43,
+        40,
+        46,
+        0,
+        16,
+        24
+      ],
+      "code": 27039189998542891
+    },
+    {
+      "coordinates": [
+        43,
+        41,
+        46,
+        8,
+        24,
+        32
+      ],
+      "code": 36055193936241707
+    },
+    {
+      "coordinates": [
+        42,
+        40,
+        47,
+        16,
+        0,
+        24
+      ],
+      "code": 27021614993416234
+    },
+    {
+      "coordinates": [
+        41,
+        40,
+        44,
+        16,
+        24,
+        32
+      ],
+      "code": 36055202524078121
+    },
+    {
+      "coordinates": [
+        40,
+        41,
+        44,
+        8,
+        0,
+        24
+      ],
+      "code": 27021606400336936
+    },
+    {
+      "coordinates": [
+        41,
+        40,
+        44,
+        0,
+        8,
+        24
+      ],
+      "code": 27030393903423529
+    }
+  ],
+  "tight_states": 2458,
+  "covered": 2458,
+  "uncovered": 0,
+  "covered_by_layer": {
+    "7": 597,
+    "6": 1103,
+    "5": 613,
+    "4": 135,
+    "3": 10
+  },
+  "uncovered_by_layer": {},
+  "validation": "Independent scalar value6 evaluation of original raw wire Nats for every tight state; target score3 for every code; counts match complete C++ log.",
+  "source_sha256": {
+    "prepare_score_states_batch.py": "5336e6874378e4775e235df4aaf1050d9429b98632c0e29923cca78a70a7738c",
+    "score_pool.cpp": "a12a105f3cc88785acb54cff5d9aa3d7a1586cf8551c8b9935e1863ba69821ef",
+    "finalize_score_pool_batch.py": "dff6dacf811364f50b8a3dd12838ca7537cd2143838fda08cd39e216d289093c"
+  },
+  "full_frontier_state_counts": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 10,
+    "4": 135,
+    "5": 619,
+    "6": 1155,
+    "7": 699,
+    "8": 51,
+    "9": 1
+  },
+  "maximum_full_layer_size": 1155,
+  "maximum_tight_layer_size": 1103
+}

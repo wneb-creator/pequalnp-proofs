@@ -1,0 +1,16 @@
+rows 63 maximal negatives [10, 33, 44, 52, 65, 82, 84]
+input coordinate order ['0x1e0f0783c1e0f0780001ff00003fe00', '0x6231188c4623118803fe000000001ff', '0x2412090482412097fc0000ffffc0000', '0x188c46231188c4620000000007fc01ff', '0x9048241209048247fffe00ff8000000', '0x24120904824120900000000ffffffe00', '0x30180c06030180c07ffffff000000000']
+states 132265 unique wire values 3246
+PASS transition 11 to 10 states 48 literal candidates 182 elapsed 0.0
+PASS transition 10 to 9 states 1855 literal candidates 11518 elapsed 0.05
+PASS transition 9 to 8 states 27769 literal candidates 423114 elapsed 1.85
+PASS transition 8 to 7 states 57306 literal candidates 2569596 elapsed 14.8
+PASS transition 7 to 6 states 35278 literal candidates 3463058 elapsed 30.89
+PASS transition 6 to 5 states 8981 literal candidates 1518510 elapsed 35.83
+PASS transition 5 to 4 states 967 literal candidates 271180 elapsed 36.59
+PASS transition 4 to 3 states 60 literal candidates 19340 elapsed 36.65
+PASS transition 3 to 2 states 0 literal candidates 720 elapsed 36.65
+PASS transition 2 to 1 states 0 literal candidates 0 elapsed 36.65
+PASS transition 1 to 0 states 0 literal candidates 0 elapsed 36.65
+PASS: exact L742 successor closure, directed coverage, row encoding, and all proper input subsets
+Scope: independent finite audit only; the Lean certificate and semantic circuit bridge remain separate obligations.

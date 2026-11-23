@@ -1,0 +1,11 @@
+layer 3 states 60 slots 132 max bucket 4 max seed 27 packed bytes 234
+layer 4 states 967 slots 1937 max bucket 6 max seed 11 packed bytes 4960
+layer 5 states 8981 slots 18179 max bucket 7 max seed 44 packed bytes 62125
+layer 6 states 35278 slots 70744 max bucket 7 max seed 253 packed bytes 278191
+layer 7 states 57306 slots 115436 max bucket 7 max seed 442 packed bytes 460096
+layer 8 states 27769 slots 56109 max bucket 7 max seed 48 packed bytes 202396
+layer 9 states 1855 slots 3589 max bucket 5 max seed 70 packed bytes 10500
+layer 10 states 48 slots 104 max bucket 4 max seed 11 packed bytes 174
+layer 11 states 1 slots 1 max bucket 1 max seed 1 packed bytes 1
+PASS all132265 known keys resolve to their exact increasing-hash state index; elapsed 38.31
+This is an untrusted lookup optimization, not a proof. Keep exact isPerm checking.

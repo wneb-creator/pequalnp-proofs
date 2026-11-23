@@ -1,0 +1,11 @@
+remaining=9 states=1 candidates=0 seconds=1.22e-07
+remaining=8 states=53 candidates=176 seconds=0.000192112
+remaining=7 states=90 candidates=9168 seconds=0.00681345
+remaining=6 states=56 candidates=20527 seconds=0.0134004
+remaining=5 states=19 candidates=25378 seconds=0.0143449
+remaining=4 states=2 candidates=26537 seconds=0.0145719
+remaining=3 states=0 candidates=26611 seconds=0.0146153
+remaining=2 states=0 candidates=26611 seconds=0.014709
+remaining=1 states=0 candidates=26611 seconds=0.0147295
+remaining=0 states=0 candidates=26611 seconds=0.0147966
+EXHAUSTED

@@ -1,0 +1,220 @@
+{
+  "k": 56,
+  "goal_hex": "0xffffffffffffff00000000000000",
+  "coordinate_map": {
+    "k": 56,
+    "positive_coordinate_indices": [
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "negative_coordinate_indices": [
+      0,
+      8,
+      16,
+      24,
+      32,
+      40,
+      48
+    ],
+    "positive_rows": [
+      3,
+      5,
+      9,
+      18,
+      36,
+      72,
+      48,
+      80
+    ],
+    "negative_rows": [
+      14,
+      17,
+      28,
+      42,
+      70,
+      97,
+      98
+    ],
+    "tight_states": 10102
+  },
+  "states": [
+    {
+      "layer": 8,
+      "index": 236,
+      "wires_hex": [
+        "0x707070707070700ff000000ff00",
+        "0x9090909090909ff00ffff0000ff",
+        "0x121212121212120000ff00ff00ff",
+        "0x24242424242424000000ffff00ff",
+        "0x363636363636360000ffffff00ff",
+        "0x50505050505050ffff00ff000000",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xc8c8c8c8c8c8c800000000ffff00",
+        "0xcfcfcfcfcfcfcf00ff0000ffff00"
+      ]
+    },
+    {
+      "layer": 8,
+      "index": 564,
+      "wires_hex": [
+        "0x707070707070700ff000000ff00",
+        "0x9090909090909ff00ffff0000ff",
+        "0x121212121212120000ff00ff00ff",
+        "0x24242424242424000000ffff00ff",
+        "0x50505050505050ffff00ff000000",
+        "0x57575757575757ffff00ff00ff00",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xc8c8c8c8c8c8c800000000ffff00",
+        "0xececececececec000000ffffffff"
+      ]
+    },
+    {
+      "layer": 8,
+      "index": 651,
+      "wires_hex": [
+        "0x707070707070700ff000000ff00",
+        "0x9090909090909ff00ffff0000ff",
+        "0x121212121212120000ff00ff00ff",
+        "0x24242424242424000000ffff00ff",
+        "0x50505050505050ffff00ff000000",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xc8c8c8c8c8c8c800000000ffff00",
+        "0xcfcfcfcfcfcfcf00ff0000ffff00",
+        "0xf0f0f0f0f0f0f0ffffffff000000"
+      ]
+    },
+    {
+      "layer": 8,
+      "index": 1451,
+      "wires_hex": [
+        "0x707070707070700ff000000ff00",
+        "0x9090909090909ff00ffff0000ff",
+        "0x121212121212120000ff00ff00ff",
+        "0x24242424242424000000ffff00ff",
+        "0x50505050505050ffff00ff000000",
+        "0x74747474747474ffff00ffff00ff",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xc8c8c8c8c8c8c800000000ffff00",
+        "0xcfcfcfcfcfcfcf00ff0000ffff00"
+      ]
+    },
+    {
+      "layer": 8,
+      "index": 1563,
+      "wires_hex": [
+        "0x707070707070700ff000000ff00",
+        "0x9090909090909ff00ffff0000ff",
+        "0x121212121212120000ff00ff00ff",
+        "0x24242424242424000000ffff00ff",
+        "0x50505050505050ffff00ff000000",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xa7a7a7a7a7a7a7ffffff0000ff00",
+        "0xc8c8c8c8c8c8c800000000ffff00",
+        "0xdadadadadadada0000ff00ffffff"
+      ]
+    },
+    {
+      "layer": 8,
+      "index": 1629,
+      "wires_hex": [
+        "0x707070707070700ff000000ff00",
+        "0x9090909090909ff00ffff0000ff",
+        "0x121212121212120000ff00ff00ff",
+        "0x24242424242424000000ffff00ff",
+        "0x50505050505050ffff00ff000000",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xb2b2b2b2b2b2b2ffffff00ff00ff",
+        "0xc8c8c8c8c8c8c800000000ffff00",
+        "0xcfcfcfcfcfcfcf00ff0000ffff00"
+      ]
+    },
+    {
+      "layer": 7,
+      "index": 1277,
+      "wires_hex": [
+        "0x707070707070700ff000000ff00",
+        "0x9090909090909ff00ffff0000ff",
+        "0x121212121212120000ff00ff00ff",
+        "0x24242424242424000000ffff00ff",
+        "0x50505050505050ffff00ff000000",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xc0c0c0c0c0c0c000000000000000",
+        "0xcfcfcfcfcfcfcf00ff0000ffff00"
+      ]
+    },
+    {
+      "layer": 7,
+      "index": 2691,
+      "wires_hex": [
+        "0x9090909090909ff00ffff0000ff",
+        "0x121212121212120000ff00ff00ff",
+        "0x24242424242424000000ffff00ff",
+        "0x50505050505050ffff00ff000000",
+        "0x57575757575757ffff00ff00ff00",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xcfcfcfcfcfcfcf00ff0000ffff00",
+        "0xececececececec000000ffffffff"
+      ]
+    },
+    {
+      "layer": 7,
+      "index": 3333,
+      "wires_hex": [
+        "0x606060606060600000000000000",
+        "0x9090909090909ff00ffff0000ff",
+        "0x121212121212120000ff00ff00ff",
+        "0x24242424242424000000ffff00ff",
+        "0x50505050505050ffff00ff000000",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xc8c8c8c8c8c8c800000000ffff00",
+        "0xcfcfcfcfcfcfcf00ff0000ffff00"
+      ]
+    },
+    {
+      "layer": 7,
+      "index": 3364,
+      "wires_hex": [
+        "0x9090909090909ff00ffff0000ff",
+        "0x121212121212120000ff00ff00ff",
+        "0x24242424242424000000ffff00ff",
+        "0x50505050505050ffff00ff000000",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xa7a7a7a7a7a7a7ffffff0000ff00",
+        "0xcfcfcfcfcfcfcf00ff0000ffff00",
+        "0xdadadadadadada0000ff00ffffff"
+      ]
+    },
+    {
+      "layer": 6,
+      "index": 188,
+      "wires_hex": [
+        "0xf0f0f0f0f0f0fff00ffff0000ff",
+        "0x121212121212120000ff00ff00ff",
+        "0x24242424242424000000ffff00ff",
+        "0x50505050505050ffff00ff000000",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xc8c8c8c8c8c8c800000000ffff00",
+        "0xcfcfcfcfcfcfcf00ff0000ffff00"
+      ]
+    },
+    {
+      "layer": 6,
+      "index": 2625,
+      "wires_hex": [
+        "0x707070707070700ff000000ff00",
+        "0x121212121212120000ff00ff00ff",
+        "0x24242424242424000000ffff00ff",
+        "0x50505050505050ffff00ff000000",
+        "0xa0a0a0a0a0a0a0ffffff00000000",
+        "0xc9c9c9c9c9c9c9ff00ffff0000ff",
+        "0xcfcfcfcfcfcfcf00ff0000ffff00"
+      ]
+    }
+  ]
+}

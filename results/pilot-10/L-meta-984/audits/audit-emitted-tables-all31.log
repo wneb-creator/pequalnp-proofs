@@ -1,0 +1,34 @@
+PASS emitted tables 0 states 609 budget 9 k 56
+PASS emitted tables 1 states 279 budget 9 k 70
+PASS emitted tables 2 states 221 budget 9 k 63
+PASS emitted tables 3 states 202 budget 9 k 56
+PASS emitted tables 4 states 229 budget 9 k 56
+PASS emitted tables 5 states 149 budget 9 k 56
+PASS emitted tables 6 states 160 budget 9 k 63
+PASS emitted tables 7 states 138 budget 9 k 56
+PASS emitted tables 8 states 94 budget 9 k 49
+PASS emitted tables 9 states 544 budget 9 k 40
+PASS emitted tables 10 states 289 budget 9 k 40
+PASS emitted tables 11 states 1922 budget 10 k 72
+PASS emitted tables 12 states 342 budget 9 k 40
+PASS emitted tables 13 states 2693 budget 10 k 56
+PASS emitted tables 14 states 212 budget 9 k 40
+PASS emitted tables 15 states 1608 budget 10 k 64
+PASS emitted tables 16 states 154 budget 9 k 48
+PASS emitted tables 17 states 1940 budget 10 k 64
+PASS emitted tables 18 states 938 budget 10 k 64
+PASS emitted tables 19 states 1441 budget 10 k 56
+PASS emitted tables 20 states 1499 budget 10 k 56
+PASS emitted tables 21 states 1551 budget 10 k 64
+PASS emitted tables 22 states 142 budget 9 k 48
+PASS emitted tables 23 states 810 budget 10 k 56
+PASS emitted tables 24 states 883 budget 10 k 72
+PASS emitted tables 25 states 829 budget 10 k 56
+PASS emitted tables 26 states 17767 budget 11 k 81
+PASS emitted tables 27 states 13536 budget 11 k 72
+PASS emitted tables 28 states 11271 budget 11 k 63
+PASS emitted tables 29 states 10117 budget 11 k 63
+PASS emitted tables 30 states 10401 budget 11 k 72
+PASS all31 packed Lean table decodings, binary lookup entries, pool mappings and kernel-check range coverage
+TOTAL states 82970 kernel blocks 10465
+Scope: data-generation audit only; kernel elaboration remains independently required.

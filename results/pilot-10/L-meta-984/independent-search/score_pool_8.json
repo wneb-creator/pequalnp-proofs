@@ -1,0 +1,122 @@
+{
+  "graph": "all8",
+  "k": 49,
+  "codes": [
+    39437328215754801,
+    31548294709694518,
+    47295522791279669,
+    47287818690544690,
+    39421889958958135,
+    7881336985536564,
+    47318597500978227
+  ],
+  "pool": [
+    {
+      "coordinates": [
+        49,
+        50,
+        51,
+        42,
+        28,
+        35
+      ],
+      "code": 39437328215754801
+    },
+    {
+      "coordinates": [
+        54,
+        52,
+        55,
+        7,
+        21,
+        28
+      ],
+      "code": 31548294709694518
+    },
+    {
+      "coordinates": [
+        53,
+        51,
+        55,
+        28,
+        7,
+        42
+      ],
+      "code": 47295522791279669
+    },
+    {
+      "coordinates": [
+        50,
+        49,
+        52,
+        21,
+        0,
+        42
+      ],
+      "code": 47287818690544690
+    },
+    {
+      "coordinates": [
+        55,
+        53,
+        54,
+        0,
+        14,
+        35
+      ],
+      "code": 39421889958958135
+    },
+    {
+      "coordinates": [
+        52,
+        50,
+        54,
+        35,
+        0,
+        7
+      ],
+      "code": 7881336985536564
+    },
+    {
+      "coordinates": [
+        51,
+        49,
+        53,
+        14,
+        28,
+        42
+      ],
+      "code": 47318597500978227
+    }
+  ],
+  "tight_states": 730,
+  "covered": 730,
+  "uncovered": 0,
+  "covered_by_layer": {
+    "7": 351,
+    "6": 295,
+    "5": 77,
+    "4": 7
+  },
+  "uncovered_by_layer": {},
+  "validation": "Independent scalar value6 evaluation of original raw wire Nats for every tight state; target score3 for every code; counts match complete C++ log.",
+  "source_sha256": {
+    "prepare_score_states_batch.py": "5336e6874378e4775e235df4aaf1050d9429b98632c0e29923cca78a70a7738c",
+    "score_pool.cpp": "a12a105f3cc88785acb54cff5d9aa3d7a1586cf8551c8b9935e1863ba69821ef",
+    "finalize_score_pool_batch.py": "dff6dacf811364f50b8a3dd12838ca7537cd2143838fda08cd39e216d289093c"
+  },
+  "full_frontier_state_counts": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 7,
+    "5": 77,
+    "6": 295,
+    "7": 394,
+    "8": 50,
+    "9": 1
+  },
+  "maximum_full_layer_size": 394,
+  "maximum_tight_layer_size": 351
+}

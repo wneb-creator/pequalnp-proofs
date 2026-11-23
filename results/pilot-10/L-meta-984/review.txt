@@ -23,6 +23,21 @@ cleanup if reused in a final PR; exact compiled bytes are retained here.
 SlackScore984: independent review by fresh_full_proof plus root source read
 PASS. Generic Run/retention/slack accounting is explicit; no concrete bound.
 Shard28Benchmark: independent_search review PASS, exact frozen hash/graph/rows
-and limited checked declarations verified. Only five layer8 state checks and
+and limited checked declarations verified. Only four distinct layer8 states with an overlapping one-state check and
 semantic input/goal/proper-subset facts are claimed. Stdout is empty; stderr
 contains only real65.46/user52.54/sys5.04 timing. It proves no whole-graph bound.
+
+Root independently diffed Shard28BenchmarkOne against the reviewed frozen
+benchmark covering four distinct states: the sole change deletes the four-state check. Frozen
+hash and observed-success timing logs verified; explicit one-state scope.
+All31 finite frontier generators, row mappings and score-pruning transitions
+were independently reproduced by proof_strategy using Python unbounded integers:
+82970 states and13152099 literal candidate transitions, PASS. These computations
+and their exact frozen data are archived separately from Lean acceptance.
+
+Independent archive-fidelity review by independent_search: PASS for all723
+computation records. Every raw hash/size and stored size matches;333 gzip
+streams decode correctly;712 mapped originals match byte-for-byte. Scope
+labels distinguish finite computation from kernel/checker acceptance. The
+benchmark wording is corrected: span1 and span4 at offset0 cover four
+distinct states, with one overlapping check, not five distinct states.

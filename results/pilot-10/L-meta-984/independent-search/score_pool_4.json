@@ -1,0 +1,148 @@
+{
+  "graph": "all4",
+  "k": 56,
+  "codes": [
+    55215312564445243,
+    31525212486951994,
+    23651639787320380,
+    15762621306300473,
+    39429631644852282,
+    23643928170391608,
+    31540643232805948,
+    23643905622859834,
+    39437335742440506
+  ],
+  "pool": [
+    {
+      "coordinates": [
+        59,
+        56,
+        57,
+        35,
+        42,
+        49
+      ],
+      "code": 55215312564445243
+    },
+    {
+      "coordinates": [
+        58,
+        57,
+        60,
+        14,
+        0,
+        28
+      ],
+      "code": 31525212486951994
+    },
+    {
+      "coordinates": [
+        60,
+        61,
+        62,
+        42,
+        7,
+        21
+      ],
+      "code": 23651639787320380
+    },
+    {
+      "coordinates": [
+        57,
+        58,
+        59,
+        21,
+        0,
+        14
+      ],
+      "code": 15762621306300473
+    },
+    {
+      "coordinates": [
+        58,
+        56,
+        61,
+        42,
+        21,
+        35
+      ],
+      "code": 39429631644852282
+    },
+    {
+      "coordinates": [
+        56,
+        58,
+        59,
+        28,
+        0,
+        21
+      ],
+      "code": 23643928170391608
+    },
+    {
+      "coordinates": [
+        60,
+        61,
+        62,
+        49,
+        14,
+        28
+      ],
+      "code": 31540643232805948
+    },
+    {
+      "coordinates": [
+        58,
+        56,
+        60,
+        7,
+        0,
+        21
+      ],
+      "code": 23643905622859834
+    },
+    {
+      "coordinates": [
+        58,
+        57,
+        61,
+        49,
+        28,
+        35
+      ],
+      "code": 39437335742440506
+    }
+  ],
+  "tight_states": 2690,
+  "covered": 2690,
+  "uncovered": 0,
+  "covered_by_layer": {
+    "7": 620,
+    "6": 1059,
+    "5": 698,
+    "4": 258,
+    "3": 52,
+    "2": 3
+  },
+  "uncovered_by_layer": {},
+  "validation": "Independent scalar value6 evaluation of original raw wire Nats for every tight state; target score3 for every code; counts match complete C++ log.",
+  "source_sha256": {
+    "prepare_score_states_batch.py": "5336e6874378e4775e235df4aaf1050d9429b98632c0e29923cca78a70a7738c",
+    "score_pool.cpp": "a12a105f3cc88785acb54cff5d9aa3d7a1586cf8551c8b9935e1863ba69821ef",
+    "finalize_score_pool_batch.py": "dff6dacf811364f50b8a3dd12838ca7537cd2143838fda08cd39e216d289093c"
+  },
+  "full_frontier_state_counts": {
+    "0": 0,
+    "1": 0,
+    "2": 3,
+    "3": 52,
+    "4": 260,
+    "5": 719,
+    "6": 1116,
+    "7": 713,
+    "8": 55,
+    "9": 1
+  },
+  "maximum_full_layer_size": 1116,
+  "maximum_tight_layer_size": 1059
+}

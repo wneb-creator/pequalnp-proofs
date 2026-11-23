@@ -1,0 +1,396 @@
+PASS value6 AND/OR subadditivity: all8192 checks
+PASS mapping 0 n 6 bound 10 k 56 score codes 16
+START closure 0 states 609 maxbits 112
+PASS closure 0 9 to 8 states 37 literal candidates 132 elapsed 0.0
+PASS closure 0 8 to 7 states 288 literal candidates 6732 elapsed 0.03
+PASS closure 0 7 to 6 states 213 literal candidates 38305 elapsed 0.16
+PASS closure 0 6 to 5 states 66 literal candidates 20436 elapsed 0.22
+PASS closure 0 5 to 4 states 4 literal candidates 4290 elapsed 0.26
+PASS closure 0 4 to 3 states 0 literal candidates 160 elapsed 0.27
+PASS closure 0 3 to 2 states 0 literal candidates 0 elapsed 0.27
+PASS closure 0 2 to 1 states 0 literal candidates 0 elapsed 0.27
+PASS closure 0 1 to 0 states 0 literal candidates 0 elapsed 0.27
+PASS full frontier 0 independent Python integer semantics
+PASS mapping 1 n 7 bound 10 k 70 score codes 11
+START closure 1 states 279 maxbits 140
+PASS closure 1 9 to 8 states 53 literal candidates 182 elapsed 0.0
+PASS closure 1 8 to 7 states 123 literal candidates 9344 elapsed 0.04
+PASS closure 1 7 to 6 states 78 literal candidates 16389 elapsed 0.09
+PASS closure 1 6 to 5 states 24 literal candidates 7452 elapsed 0.11
+PASS closure 1 5 to 4 states 0 literal candidates 1560 elapsed 0.11
+PASS closure 1 4 to 3 states 0 literal candidates 0 elapsed 0.11
+PASS closure 1 3 to 2 states 0 literal candidates 0 elapsed 0.11
+PASS closure 1 2 to 1 states 0 literal candidates 0 elapsed 0.11
+PASS closure 1 1 to 0 states 0 literal candidates 0 elapsed 0.11
+PASS full frontier 1 independent Python integer semantics
+PASS mapping 2 n 7 bound 10 k 63 score codes 11
+START closure 2 states 221 maxbits 126
+PASS closure 2 9 to 8 states 53 literal candidates 182 elapsed 0.0
+PASS closure 2 8 to 7 states 90 literal candidates 9400 elapsed 0.04
+PASS closure 2 7 to 6 states 56 literal candidates 11889 elapsed 0.08
+PASS closure 2 6 to 5 states 19 literal candidates 5106 elapsed 0.09
+PASS closure 2 5 to 4 states 2 literal candidates 1235 elapsed 0.09
+PASS closure 2 4 to 3 states 0 literal candidates 80 elapsed 0.09
+PASS closure 2 3 to 2 states 0 literal candidates 0 elapsed 0.09
+PASS closure 2 2 to 1 states 0 literal candidates 0 elapsed 0.09
+PASS closure 2 1 to 0 states 0 literal candidates 0 elapsed 0.09
+PASS full frontier 2 independent Python integer semantics
+PASS mapping 3 n 7 bound 10 k 56 score codes 8
+START closure 3 states 202 maxbits 112
+PASS closure 3 9 to 8 states 54 literal candidates 182 elapsed 0.0
+PASS closure 3 8 to 7 states 85 literal candidates 9576 elapsed 0.03
+PASS closure 3 7 to 6 states 45 literal candidates 11301 elapsed 0.07
+PASS closure 3 6 to 5 states 16 literal candidates 4320 elapsed 0.08
+PASS closure 3 5 to 4 states 1 literal candidates 1040 elapsed 0.08
+PASS closure 3 4 to 3 states 0 literal candidates 40 elapsed 0.08
+PASS closure 3 3 to 2 states 0 literal candidates 0 elapsed 0.08
+PASS closure 3 2 to 1 states 0 literal candidates 0 elapsed 0.08
+PASS closure 3 1 to 0 states 0 literal candidates 0 elapsed 0.08
+PASS full frontier 3 independent Python integer semantics
+PASS mapping 4 n 7 bound 10 k 56 score codes 9
+START closure 4 states 229 maxbits 112
+PASS closure 4 9 to 8 states 55 literal candidates 182 elapsed 0.0
+PASS closure 4 8 to 7 states 93 literal candidates 9758 elapsed 0.04
+PASS closure 4 7 to 6 states 57 literal candidates 12364 elapsed 0.07
+PASS closure 4 6 to 5 states 21 literal candidates 5466 elapsed 0.09
+PASS closure 4 5 to 4 states 2 literal candidates 1365 elapsed 0.09
+PASS closure 4 4 to 3 states 0 literal candidates 80 elapsed 0.09
+PASS closure 4 3 to 2 states 0 literal candidates 0 elapsed 0.09
+PASS closure 4 2 to 1 states 0 literal candidates 0 elapsed 0.09
+PASS closure 4 1 to 0 states 0 literal candidates 0 elapsed 0.09
+PASS full frontier 4 independent Python integer semantics
+PASS mapping 5 n 7 bound 10 k 56 score codes 7
+START closure 5 states 149 maxbits 112
+PASS closure 5 9 to 8 states 51 literal candidates 182 elapsed 0.0
+PASS closure 5 8 to 7 states 64 literal candidates 9036 elapsed 0.03
+PASS closure 5 7 to 6 states 24 literal candidates 8510 elapsed 0.06
+PASS closure 5 6 to 5 states 8 literal candidates 2304 elapsed 0.06
+PASS closure 5 5 to 4 states 1 literal candidates 520 elapsed 0.06
+PASS closure 5 4 to 3 states 0 literal candidates 40 elapsed 0.06
+PASS closure 5 3 to 2 states 0 literal candidates 0 elapsed 0.06
+PASS closure 5 2 to 1 states 0 literal candidates 0 elapsed 0.06
+PASS closure 5 1 to 0 states 0 literal candidates 0 elapsed 0.06
+PASS full frontier 5 independent Python integer semantics
+PASS mapping 6 n 7 bound 10 k 63 score codes 4
+START closure 6 states 160 maxbits 126
+PASS closure 6 9 to 8 states 53 literal candidates 182 elapsed 0.0
+PASS closure 6 8 to 7 states 69 literal candidates 9394 elapsed 0.03
+PASS closure 6 7 to 6 states 29 literal candidates 9175 elapsed 0.06
+PASS closure 6 6 to 5 states 7 literal candidates 2784 elapsed 0.07
+PASS closure 6 5 to 4 states 1 literal candidates 455 elapsed 0.07
+PASS closure 6 4 to 3 states 0 literal candidates 40 elapsed 0.07
+PASS closure 6 3 to 2 states 0 literal candidates 0 elapsed 0.07
+PASS closure 6 2 to 1 states 0 literal candidates 0 elapsed 0.07
+PASS closure 6 1 to 0 states 0 literal candidates 0 elapsed 0.07
+PASS full frontier 6 independent Python integer semantics
+PASS mapping 7 n 7 bound 10 k 56 score codes 7
+START closure 7 states 138 maxbits 112
+PASS closure 7 9 to 8 states 52 literal candidates 182 elapsed 0.0
+PASS closure 7 8 to 7 states 62 literal candidates 9212 elapsed 0.11
+PASS closure 7 7 to 6 states 18 literal candidates 8244 elapsed 0.14
+PASS closure 7 6 to 5 states 5 literal candidates 1728 elapsed 0.14
+PASS closure 7 5 to 4 states 0 literal candidates 325 elapsed 0.14
+PASS closure 7 4 to 3 states 0 literal candidates 0 elapsed 0.14
+PASS closure 7 3 to 2 states 0 literal candidates 0 elapsed 0.14
+PASS closure 7 2 to 1 states 0 literal candidates 0 elapsed 0.14
+PASS closure 7 1 to 0 states 0 literal candidates 0 elapsed 0.14
+PASS full frontier 7 independent Python integer semantics
+PASS mapping 8 n 7 bound 10 k 49 score codes 7
+START closure 8 states 94 maxbits 98
+PASS closure 8 9 to 8 states 50 literal candidates 182 elapsed 0.0
+PASS closure 8 8 to 7 states 43 literal candidates 8848 elapsed 0.03
+PASS closure 8 7 to 6 states 0 literal candidates 5719 elapsed 0.05
+PASS closure 8 6 to 5 states 0 literal candidates 0 elapsed 0.05
+PASS closure 8 5 to 4 states 0 literal candidates 0 elapsed 0.05
+PASS closure 8 4 to 3 states 0 literal candidates 0 elapsed 0.05
+PASS closure 8 3 to 2 states 0 literal candidates 0 elapsed 0.05
+PASS closure 8 2 to 1 states 0 literal candidates 0 elapsed 0.05
+PASS closure 8 1 to 0 states 0 literal candidates 0 elapsed 0.05
+PASS full frontier 8 independent Python integer semantics
+PASS mapping 9 n 7 bound 10 k 40 score codes 14
+START closure 9 states 544 maxbits 80
+PASS closure 9 9 to 8 states 58 literal candidates 182 elapsed 0.0
+PASS closure 9 8 to 7 states 221 literal candidates 10284 elapsed 0.04
+PASS closure 9 7 to 6 states 208 literal candidates 29415 elapsed 0.15
+PASS closure 9 6 to 5 states 54 literal candidates 19944 elapsed 0.21
+PASS closure 9 5 to 4 states 2 literal candidates 3510 elapsed 0.22
+PASS closure 9 4 to 3 states 0 literal candidates 80 elapsed 0.22
+PASS closure 9 3 to 2 states 0 literal candidates 0 elapsed 0.22
+PASS closure 9 2 to 1 states 0 literal candidates 0 elapsed 0.22
+PASS closure 9 1 to 0 states 0 literal candidates 0 elapsed 0.22
+PASS full frontier 9 independent Python integer semantics
+PASS mapping 10 n 7 bound 10 k 40 score codes 10
+START closure 10 states 289 maxbits 80
+PASS closure 10 9 to 8 states 54 literal candidates 182 elapsed 0.0
+PASS closure 10 8 to 7 states 128 literal candidates 9600 elapsed 0.03
+PASS closure 10 7 to 6 states 87 literal candidates 17017 elapsed 0.09
+PASS closure 10 6 to 5 states 18 literal candidates 8352 elapsed 0.11
+PASS closure 10 5 to 4 states 1 literal candidates 1170 elapsed 0.11
+PASS closure 10 4 to 3 states 0 literal candidates 40 elapsed 0.11
+PASS closure 10 3 to 2 states 0 literal candidates 0 elapsed 0.11
+PASS closure 10 2 to 1 states 0 literal candidates 0 elapsed 0.11
+PASS closure 10 1 to 0 states 0 literal candidates 0 elapsed 0.11
+PASS full frontier 10 independent Python integer semantics
+PASS mapping 11 n 7 bound 11 k 72 score codes 28
+START closure 11 states 1922 maxbits 144
+PASS closure 11 10 to 9 states 52 literal candidates 182 elapsed 0.0
+PASS closure 11 9 to 8 states 597 literal candidates 12362 elapsed 0.04
+PASS closure 11 8 to 7 states 777 literal candidates 105116 elapsed 0.32
+PASS closure 11 7 to 6 states 399 literal candidates 102466 elapsed 0.53
+PASS closure 11 6 to 5 states 94 literal candidates 37836 elapsed 0.59
+PASS closure 11 5 to 4 states 2 literal candidates 6110 elapsed 0.6
+PASS closure 11 4 to 3 states 0 literal candidates 80 elapsed 0.6
+PASS closure 11 3 to 2 states 0 literal candidates 0 elapsed 0.6
+PASS closure 11 2 to 1 states 0 literal candidates 0 elapsed 0.6
+PASS closure 11 1 to 0 states 0 literal candidates 0 elapsed 0.6
+PASS full frontier 11 independent Python integer semantics
+PASS mapping 12 n 7 bound 10 k 40 score codes 10
+START closure 12 states 342 maxbits 80
+PASS closure 12 9 to 8 states 52 literal candidates 182 elapsed 0.0
+PASS closure 12 8 to 7 states 159 literal candidates 9204 elapsed 0.02
+PASS closure 12 7 to 6 states 111 literal candidates 21175 elapsed 0.06
+PASS closure 12 6 to 5 states 18 literal candidates 10644 elapsed 0.08
+PASS closure 12 5 to 4 states 1 literal candidates 1170 elapsed 0.08
+PASS closure 12 4 to 3 states 0 literal candidates 40 elapsed 0.08
+PASS closure 12 3 to 2 states 0 literal candidates 0 elapsed 0.08
+PASS closure 12 2 to 1 states 0 literal candidates 0 elapsed 0.08
+PASS closure 12 1 to 0 states 0 literal candidates 0 elapsed 0.08
+PASS full frontier 12 independent Python integer semantics
+PASS mapping 13 n 7 bound 11 k 56 score codes 21
+START closure 13 states 2693 maxbits 112
+PASS closure 13 10 to 9 states 55 literal candidates 182 elapsed 0.0
+PASS closure 13 9 to 8 states 783 literal candidates 12850 elapsed 0.04
+PASS closure 13 8 to 7 states 1177 literal candidates 137040 elapsed 0.36
+PASS closure 13 7 to 6 states 568 literal candidates 154637 elapsed 0.65
+PASS closure 13 6 to 5 states 105 literal candidates 53568 elapsed 0.74
+PASS closure 13 5 to 4 states 4 literal candidates 6825 elapsed 0.75
+PASS closure 13 4 to 3 states 0 literal candidates 160 elapsed 0.75
+PASS closure 13 3 to 2 states 0 literal candidates 0 elapsed 0.75
+PASS closure 13 2 to 1 states 0 literal candidates 0 elapsed 0.75
+PASS closure 13 1 to 0 states 0 literal candidates 0 elapsed 0.75
+PASS full frontier 13 independent Python integer semantics
+PASS mapping 14 n 7 bound 10 k 40 score codes 10
+START closure 14 states 212 maxbits 80
+PASS closure 14 9 to 8 states 51 literal candidates 182 elapsed 0.0
+PASS closure 14 8 to 7 states 102 literal candidates 9060 elapsed 0.02
+PASS closure 14 7 to 6 states 52 literal candidates 13562 elapsed 0.05
+PASS closure 14 6 to 5 states 6 literal candidates 4992 elapsed 0.05
+PASS closure 14 5 to 4 states 0 literal candidates 390 elapsed 0.05
+PASS closure 14 4 to 3 states 0 literal candidates 0 elapsed 0.05
+PASS closure 14 3 to 2 states 0 literal candidates 0 elapsed 0.05
+PASS closure 14 2 to 1 states 0 literal candidates 0 elapsed 0.05
+PASS closure 14 1 to 0 states 0 literal candidates 0 elapsed 0.05
+PASS full frontier 14 independent Python integer semantics
+PASS mapping 15 n 7 bound 11 k 64 score codes 17
+START closure 15 states 1608 maxbits 128
+PASS closure 15 10 to 9 states 52 literal candidates 182 elapsed 0.0
+PASS closure 15 9 to 8 states 552 literal candidates 12362 elapsed 0.03
+PASS closure 15 8 to 7 states 664 literal candidates 97580 elapsed 0.27
+PASS closure 15 7 to 6 states 288 literal candidates 88364 elapsed 0.43
+PASS closure 15 6 to 5 states 50 literal candidates 27612 elapsed 0.48
+PASS closure 15 5 to 4 states 1 literal candidates 3250 elapsed 0.48
+PASS closure 15 4 to 3 states 0 literal candidates 40 elapsed 0.48
+PASS closure 15 3 to 2 states 0 literal candidates 0 elapsed 0.48
+PASS closure 15 2 to 1 states 0 literal candidates 0 elapsed 0.48
+PASS closure 15 1 to 0 states 0 literal candidates 0 elapsed 0.48
+PASS full frontier 15 independent Python integer semantics
+PASS mapping 16 n 7 bound 10 k 48 score codes 5
+START closure 16 states 154 maxbits 96
+PASS closure 16 9 to 8 states 51 literal candidates 182 elapsed 0.0
+PASS closure 16 8 to 7 states 78 literal candidates 9048 elapsed 0.02
+PASS closure 16 7 to 6 states 24 literal candidates 10371 elapsed 0.04
+PASS closure 16 6 to 5 states 0 literal candidates 2304 elapsed 0.04
+PASS closure 16 5 to 4 states 0 literal candidates 0 elapsed 0.04
+PASS closure 16 4 to 3 states 0 literal candidates 0 elapsed 0.04
+PASS closure 16 3 to 2 states 0 literal candidates 0 elapsed 0.04
+PASS closure 16 2 to 1 states 0 literal candidates 0 elapsed 0.04
+PASS closure 16 1 to 0 states 0 literal candidates 0 elapsed 0.04
+PASS full frontier 16 independent Python integer semantics
+PASS mapping 17 n 7 bound 11 k 64 score codes 15
+START closure 17 states 1940 maxbits 128
+PASS closure 17 10 to 9 states 54 literal candidates 182 elapsed 0.0
+PASS closure 17 9 to 8 states 662 literal candidates 12726 elapsed 0.04
+PASS closure 17 8 to 7 states 853 literal candidates 117040 elapsed 0.3
+PASS closure 17 7 to 6 states 321 literal candidates 113531 elapsed 0.51
+PASS closure 17 6 to 5 states 46 literal candidates 30810 elapsed 0.56
+PASS closure 17 5 to 4 states 3 literal candidates 2990 elapsed 0.56
+PASS closure 17 4 to 3 states 0 literal candidates 120 elapsed 0.56
+PASS closure 17 3 to 2 states 0 literal candidates 0 elapsed 0.56
+PASS closure 17 2 to 1 states 0 literal candidates 0 elapsed 0.56
+PASS closure 17 1 to 0 states 0 literal candidates 0 elapsed 0.56
+PASS full frontier 17 independent Python integer semantics
+PASS mapping 18 n 7 bound 11 k 64 score codes 12
+START closure 18 states 938 maxbits 128
+PASS closure 18 10 to 9 states 50 literal candidates 182 elapsed 0.0
+PASS closure 18 9 to 8 states 433 literal candidates 11998 elapsed 0.04
+PASS closure 18 8 to 7 states 348 literal candidates 76538 elapsed 0.23
+PASS closure 18 7 to 6 states 99 literal candidates 46283 elapsed 0.33
+PASS closure 18 6 to 5 states 7 literal candidates 9504 elapsed 0.34
+PASS closure 18 5 to 4 states 0 literal candidates 455 elapsed 0.34
+PASS closure 18 4 to 3 states 0 literal candidates 0 elapsed 0.34
+PASS closure 18 3 to 2 states 0 literal candidates 0 elapsed 0.34
+PASS closure 18 2 to 1 states 0 literal candidates 0 elapsed 0.34
+PASS closure 18 1 to 0 states 0 literal candidates 0 elapsed 0.34
+PASS full frontier 18 independent Python integer semantics
+PASS mapping 19 n 7 bound 11 k 56 score codes 14
+START closure 19 states 1441 maxbits 112
+PASS closure 19 10 to 9 states 52 literal candidates 182 elapsed 0.0
+PASS closure 19 9 to 8 states 580 literal candidates 12304 elapsed 0.04
+PASS closure 19 8 to 7 states 629 literal candidates 102232 elapsed 0.25
+PASS closure 19 7 to 6 states 173 literal candidates 83484 elapsed 0.4
+PASS closure 19 6 to 5 states 6 literal candidates 16608 elapsed 0.42
+PASS closure 19 5 to 4 states 0 literal candidates 390 elapsed 0.42
+PASS closure 19 4 to 3 states 0 literal candidates 0 elapsed 0.42
+PASS closure 19 3 to 2 states 0 literal candidates 0 elapsed 0.42
+PASS closure 19 2 to 1 states 0 literal candidates 0 elapsed 0.42
+PASS closure 19 1 to 0 states 0 literal candidates 0 elapsed 0.42
+PASS full frontier 19 independent Python integer semantics
+PASS mapping 20 n 7 bound 11 k 56 score codes 14
+START closure 20 states 1499 maxbits 112
+PASS closure 20 10 to 9 states 51 literal candidates 182 elapsed 0.0
+PASS closure 20 9 to 8 states 575 literal candidates 12064 elapsed 0.04
+PASS closure 20 8 to 7 states 651 literal candidates 101364 elapsed 0.29
+PASS closure 20 7 to 6 states 199 literal candidates 86330 elapsed 0.44
+PASS closure 20 6 to 5 states 21 literal candidates 18996 elapsed 0.47
+PASS closure 20 5 to 4 states 1 literal candidates 1365 elapsed 0.47
+PASS closure 20 4 to 3 states 0 literal candidates 40 elapsed 0.47
+PASS closure 20 3 to 2 states 0 literal candidates 0 elapsed 0.47
+PASS closure 20 2 to 1 states 0 literal candidates 0 elapsed 0.47
+PASS closure 20 1 to 0 states 0 literal candidates 0 elapsed 0.47
+PASS full frontier 20 independent Python integer semantics
+PASS mapping 21 n 7 bound 11 k 64 score codes 14
+START closure 21 states 1551 maxbits 128
+PASS closure 21 10 to 9 states 52 literal candidates 182 elapsed 0.0
+PASS closure 21 9 to 8 states 586 literal candidates 12304 elapsed 0.03
+PASS closure 21 8 to 7 states 659 literal candidates 103618 elapsed 0.27
+PASS closure 21 7 to 6 states 222 literal candidates 87700 elapsed 0.43
+PASS closure 21 6 to 5 states 29 literal candidates 21306 elapsed 0.46
+PASS closure 21 5 to 4 states 2 literal candidates 1885 elapsed 0.46
+PASS closure 21 4 to 3 states 0 literal candidates 80 elapsed 0.46
+PASS closure 21 3 to 2 states 0 literal candidates 0 elapsed 0.46
+PASS closure 21 2 to 1 states 0 literal candidates 0 elapsed 0.46
+PASS closure 21 1 to 0 states 0 literal candidates 0 elapsed 0.46
+PASS full frontier 21 independent Python integer semantics
+PASS mapping 22 n 7 bound 10 k 48 score codes 5
+START closure 22 states 142 maxbits 96
+PASS closure 22 9 to 8 states 48 literal candidates 182 elapsed 0.0
+PASS closure 22 8 to 7 states 72 literal candidates 8514 elapsed 0.02
+PASS closure 22 7 to 6 states 21 literal candidates 9574 elapsed 0.03
+PASS closure 22 6 to 5 states 0 literal candidates 2016 elapsed 0.04
+PASS closure 22 5 to 4 states 0 literal candidates 0 elapsed 0.04
+PASS closure 22 4 to 3 states 0 literal candidates 0 elapsed 0.04
+PASS closure 22 3 to 2 states 0 literal candidates 0 elapsed 0.04
+PASS closure 22 2 to 1 states 0 literal candidates 0 elapsed 0.04
+PASS closure 22 1 to 0 states 0 literal candidates 0 elapsed 0.04
+PASS full frontier 22 independent Python integer semantics
+PASS mapping 23 n 7 bound 11 k 56 score codes 11
+START closure 23 states 810 maxbits 112
+PASS closure 23 10 to 9 states 48 literal candidates 182 elapsed 0.0
+PASS closure 23 9 to 8 states 399 literal candidates 11518 elapsed 0.03
+PASS closure 23 8 to 7 states 299 literal candidates 70542 elapsed 0.19
+PASS closure 23 7 to 6 states 61 literal candidates 39767 elapsed 0.25
+PASS closure 23 6 to 5 states 2 literal candidates 5856 elapsed 0.26
+PASS closure 23 5 to 4 states 0 literal candidates 130 elapsed 0.26
+PASS closure 23 4 to 3 states 0 literal candidates 0 elapsed 0.26
+PASS closure 23 3 to 2 states 0 literal candidates 0 elapsed 0.26
+PASS closure 23 2 to 1 states 0 literal candidates 0 elapsed 0.26
+PASS closure 23 1 to 0 states 0 literal candidates 0 elapsed 0.26
+PASS full frontier 23 independent Python integer semantics
+PASS mapping 24 n 7 bound 11 k 72 score codes 11
+START closure 24 states 883 maxbits 144
+PASS closure 24 10 to 9 states 50 literal candidates 182 elapsed 0.0
+PASS closure 24 9 to 8 states 428 literal candidates 11998 elapsed 0.04
+PASS closure 24 8 to 7 states 314 literal candidates 75658 elapsed 0.19
+PASS closure 24 7 to 6 states 86 literal candidates 41760 elapsed 0.27
+PASS closure 24 6 to 5 states 4 literal candidates 8256 elapsed 0.28
+PASS closure 24 5 to 4 states 0 literal candidates 260 elapsed 0.28
+PASS closure 24 4 to 3 states 0 literal candidates 0 elapsed 0.28
+PASS closure 24 3 to 2 states 0 literal candidates 0 elapsed 0.28
+PASS closure 24 2 to 1 states 0 literal candidates 0 elapsed 0.28
+PASS closure 24 1 to 0 states 0 literal candidates 0 elapsed 0.28
+PASS full frontier 24 independent Python integer semantics
+PASS mapping 25 n 7 bound 11 k 56 score codes 12
+START closure 25 states 829 maxbits 112
+PASS closure 25 10 to 9 states 48 literal candidates 182 elapsed 0.0
+PASS closure 25 9 to 8 states 412 literal candidates 11518 elapsed 0.04
+PASS closure 25 8 to 7 states 304 literal candidates 72206 elapsed 0.21
+PASS closure 25 7 to 6 states 64 literal candidates 40124 elapsed 0.27
+PASS closure 25 6 to 5 states 0 literal candidates 6036 elapsed 0.28
+PASS closure 25 5 to 4 states 0 literal candidates 0 elapsed 0.28
+PASS closure 25 4 to 3 states 0 literal candidates 0 elapsed 0.28
+PASS closure 25 3 to 2 states 0 literal candidates 0 elapsed 0.28
+PASS closure 25 2 to 1 states 0 literal candidates 0 elapsed 0.28
+PASS closure 25 1 to 0 states 0 literal candidates 0 elapsed 0.28
+PASS full frontier 25 independent Python integer semantics
+PASS mapping 26 n 7 bound 12 k 81 score codes 39
+START closure 26 states 17767 maxbits 162
+PASS closure 26 11 to 10 states 50 literal candidates 182 elapsed 0.0
+PASS closure 26 10 to 9 states 2075 literal candidates 11998 elapsed 0.03
+PASS closure 26 9 to 8 states 6829 literal candidates 473485 elapsed 1.35
+PASS closure 26 8 to 7 states 5950 literal candidates 1204976 elapsed 4.33
+PASS closure 26 7 to 6 states 2457 literal candidates 786673 elapsed 6.2
+PASS closure 26 6 to 5 states 402 literal candidates 235152 elapsed 6.69
+PASS closure 26 5 to 4 states 3 literal candidates 26130 elapsed 6.73
+PASS closure 26 4 to 3 states 0 literal candidates 120 elapsed 6.73
+PASS closure 26 3 to 2 states 0 literal candidates 0 elapsed 6.73
+PASS closure 26 2 to 1 states 0 literal candidates 0 elapsed 6.73
+PASS closure 26 1 to 0 states 0 literal candidates 0 elapsed 6.73
+PASS full frontier 26 independent Python integer semantics
+PASS mapping 27 n 7 bound 12 k 72 score codes 33
+START closure 27 states 13536 maxbits 144
+PASS closure 27 11 to 10 states 50 literal candidates 182 elapsed 0.0
+PASS closure 27 10 to 9 states 1994 literal candidates 11998 elapsed 0.03
+PASS closure 27 9 to 8 states 6010 literal candidates 454761 elapsed 1.54
+PASS closure 27 8 to 7 states 4122 literal candidates 1062214 elapsed 4.5
+PASS closure 27 7 to 6 states 1230 literal candidates 548193 elapsed 5.78
+PASS closure 27 6 to 5 states 127 literal candidates 118056 elapsed 6.02
+PASS closure 27 5 to 4 states 2 literal candidates 8255 elapsed 6.04
+PASS closure 27 4 to 3 states 0 literal candidates 80 elapsed 6.04
+PASS closure 27 3 to 2 states 0 literal candidates 0 elapsed 6.04
+PASS closure 27 2 to 1 states 0 literal candidates 0 elapsed 6.04
+PASS closure 27 1 to 0 states 0 literal candidates 0 elapsed 6.04
+PASS full frontier 27 independent Python integer semantics
+PASS mapping 28 n 7 bound 12 k 63 score codes 22
+START closure 28 states 11271 maxbits 126
+PASS closure 28 11 to 10 states 48 literal candidates 182 elapsed 0.0
+PASS closure 28 10 to 9 states 1855 literal candidates 11518 elapsed 0.02
+PASS closure 28 9 to 8 states 5403 literal candidates 423114 elapsed 1.78
+PASS closure 28 8 to 7 states 3243 literal candidates 953326 elapsed 4.59
+PASS closure 28 7 to 6 states 671 literal candidates 430952 elapsed 5.53
+PASS closure 28 6 to 5 states 50 literal candidates 64308 elapsed 5.69
+PASS closure 28 5 to 4 states 0 literal candidates 3250 elapsed 5.69
+PASS closure 28 4 to 3 states 0 literal candidates 0 elapsed 5.69
+PASS closure 28 3 to 2 states 0 literal candidates 0 elapsed 5.69
+PASS closure 28 2 to 1 states 0 literal candidates 0 elapsed 5.69
+PASS closure 28 1 to 0 states 0 literal candidates 0 elapsed 5.69
+PASS full frontier 28 independent Python integer semantics
+PASS mapping 29 n 7 bound 12 k 63 score codes 20
+START closure 29 states 10117 maxbits 126
+PASS closure 29 11 to 10 states 47 literal candidates 182 elapsed 0.0
+PASS closure 29 10 to 9 states 1798 literal candidates 11278 elapsed 0.03
+PASS closure 29 9 to 8 states 5103 literal candidates 410134 elapsed 1.88
+PASS closure 29 8 to 7 states 2769 literal candidates 900354 elapsed 4.9
+PASS closure 29 7 to 6 states 399 literal candidates 368007 elapsed 5.72
+PASS closure 29 6 to 5 states 0 literal candidates 38304 elapsed 5.79
+PASS closure 29 5 to 4 states 0 literal candidates 0 elapsed 5.79
+PASS closure 29 4 to 3 states 0 literal candidates 0 elapsed 5.79
+PASS closure 29 3 to 2 states 0 literal candidates 0 elapsed 5.79
+PASS closure 29 2 to 1 states 0 literal candidates 0 elapsed 5.79
+PASS closure 29 1 to 0 states 0 literal candidates 0 elapsed 5.79
+PASS full frontier 29 independent Python integer semantics
+PASS mapping 30 n 7 bound 12 k 72 score codes 27
+START closure 30 states 10401 maxbits 144
+PASS closure 30 11 to 10 states 48 literal candidates 182 elapsed 0.0
+PASS closure 30 10 to 9 states 1857 literal candidates 11518 elapsed 0.02
+PASS closure 30 9 to 8 states 5232 literal candidates 423607 elapsed 1.66
+PASS closure 30 8 to 7 states 2812 literal candidates 924416 elapsed 5.13
+PASS closure 30 7 to 6 states 439 literal candidates 373956 elapsed 6.22
+PASS closure 30 6 to 5 states 12 literal candidates 42144 elapsed 6.34
+PASS closure 30 5 to 4 states 0 literal candidates 780 elapsed 6.36
+PASS closure 30 4 to 3 states 0 literal candidates 0 elapsed 6.36
+PASS closure 30 3 to 2 states 0 literal candidates 0 elapsed 6.36
+PASS closure 30 2 to 1 states 0 literal candidates 0 elapsed 6.36
+PASS closure 30 1 to 0 states 0 literal candidates 0 elapsed 6.36
+PASS full frontier 30 independent Python integer semantics
+PASS: graph/row/bound mappings and all selected exact successor closures
+Scope: independent computational audit, not a Lean theorem or local-checker verdict.

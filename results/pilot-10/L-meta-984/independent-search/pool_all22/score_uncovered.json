@@ -1,0 +1,45 @@
+{
+  "k": 48,
+  "goal_hex": "0xffffffffffff000000000000",
+  "coordinate_map": {
+    "k": 48,
+    "positive_coordinate_indices": [
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55
+    ],
+    "negative_coordinate_indices": [
+      0,
+      8,
+      16,
+      24,
+      32,
+      40
+    ],
+    "positive_rows": [
+      3,
+      5,
+      9,
+      6,
+      18,
+      40,
+      48,
+      96
+    ],
+    "negative_rows": [
+      33,
+      34,
+      36,
+      74,
+      81,
+      92
+    ],
+    "tight_states": 1352
+  },
+  "states": []
+}

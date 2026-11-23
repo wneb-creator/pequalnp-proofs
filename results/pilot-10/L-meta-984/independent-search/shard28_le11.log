@@ -1,0 +1,3 @@
+{"n": 7, "edges": [[0, 1], [0, 2], [0, 3], [0, 4], [1, 2], [1, 5], [3, 4], [3, 6], [5, 6]], "edge_count": 9, "minimum_vertex_cover": 4, "C4_free": true, "target_bound": 12, "budget": 11, "fixed_control": false, "result": "unknown", "seconds": 602.376428179}
+(:reason-unknown "canceled")
+

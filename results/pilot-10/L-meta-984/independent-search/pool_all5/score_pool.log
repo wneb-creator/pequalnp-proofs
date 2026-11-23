@@ -1,0 +1,8 @@
+pool=1 seed_layer=7 seed_index=0 gained=1147 covered=1147 remaining=387 perlayer=2:3,3:27,4:111,5:246,6:439,7:321,
+pool=2 seed_layer=7 seed_index=6 gained=145 covered=1292 remaining=242 perlayer=4:2,5:17,6:61,7:65,
+pool=3 seed_layer=7 seed_index=7 gained=167 covered=1459 remaining=75 perlayer=4:2,5:32,6:72,7:61,
+pool=4 seed_layer=7 seed_index=44 gained=37 covered=1496 remaining=38 perlayer=4:1,5:10,6:18,7:8,
+pool=5 seed_layer=7 seed_index=89 gained=17 covered=1513 remaining=21 perlayer=4:3,5:5,6:6,7:3,
+pool=6 seed_layer=7 seed_index=134 gained=12 covered=1525 remaining=9 perlayer=4:1,5:4,6:5,7:2,
+pool=7 seed_layer=7 seed_index=412 gained=9 covered=1534 remaining=0 perlayer=5:4,6:3,7:2,
+DONE states=1534 pool=7 covered=1534 remaining=0 seeds=7 formula_checks=10000

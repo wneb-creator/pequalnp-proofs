@@ -70,7 +70,19 @@
         "shard28-benchmark-1.stdout",
         "shard28-benchmark-1.stderr"
       ],
-      "scope": "Concrete shard28 input/goal encoding, proper-subset coverage failure, and five layer8 state checks only; NOT a complete shard or gap proof."
+      "scope": "Concrete shard28 input/goal encoding, proper-subset coverage failure, and four distinct layer8 states with an overlapping one-state check only; NOT a complete shard or gap proof."
+    },
+    {
+      "file": "Shard28BenchmarkOne.lean",
+      "sha256": "c513822e21152415cb3f4e5aa733c7b232c089b4c5f0eb88bfa9840684fa7540",
+      "lines": 2890,
+      "bytes": 499063,
+      "observed_compile_exit": 0,
+      "logs": [
+        "shard28-benchmark-one-1.stdout",
+        "shard28-benchmark-one-1.stderr"
+      ],
+      "scope": "Semantic encoding checks and only one layer8 frontier state; performance comparison only, no full shard or gap proof."
     }
   ]
 }
