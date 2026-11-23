@@ -1,0 +1,12 @@
+Gap: L-lib-123
+Status: checked partial results only; full posted statement remains unproved and unrefuted.
+Lean validation: 8 standalone relocated sources, every compiler exit code 0.
+Source integrity: every SHA-256 matches the previously checked original.
+Logs: complete stdout and stderr saved beside each source; all compiler processes exited normally.
+Proof-placeholder scan: no sorry, admit, native_decide, or axiom tokens in the preserved source snapshots.
+Posted-statement checker: NOT RUN for these partial lemmas; no target acceptance claimed.
+Exact per-file commands, hashes, and scope: manifest.json
+Validation UTC: 2026-11-23T20:48:25.883250+00:00
+KIT-MESSAGE-ID: msg-9574e75c4a2464ba7a74e928
+Sub-agents: formal_audit; fp3_strategy; lean_setup; prior_routes; literature_route; lean_setup/radix_order; literature_route/compression_attempt; fp3_strategy/fresh_simulation
+TIMING total=198.91 subagents=8

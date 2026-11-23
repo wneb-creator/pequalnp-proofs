@@ -1,0 +1,82 @@
+{
+  "gap": "L-meta-952",
+  "owner": "fp3_strategy",
+  "status": "Checked partial results only; no accepted posted-statement proof.",
+  "posted_statement_checker": "NOT RUN for these partial lemmas.",
+  "scope_boundary": "The helpers do not eliminate a general single NOT gate without increasing size. The posted projective-plane gate bound remains unproved and unrefuted.",
+  "sources": [
+    {
+      "source": "NotReplacement.lean",
+      "sha256": "fdcd29d44a2773dba373c47ae64b601af2d6c3c781c74441fcb440d3b864c736",
+      "lines": 109,
+      "scope": "Conditional monotone cofactor replacement and necessary obstructions.",
+      "complete_stdout_stderr_log": "not-replacement-build.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/NotReplacement.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "source": "RectangleFull.lean",
+      "sha256": "06ce3a6c45f2bad0787a04e4de53a431086b9366deeb047293682b7e727ac980",
+      "lines": 174,
+      "scope": "Self-contained incidence-rectangle restriction for singleton and outside profiles.",
+      "complete_stdout_stderr_log": "rectangle-build.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/RectangleFull.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "source": "SharedUpperFull.lean",
+      "sha256": "367e126b193ecaf5ed8bacbca46460ce5389f4237eea0e224137315eb9d9427f",
+      "lines": 230,
+      "scope": "Self-contained restrictions on shared upper cofactors and line agreement.",
+      "complete_stdout_stderr_log": "shared-upper-build.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/SharedUpperFull.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "dependencies": "Each listed Lean file is self-contained apart from Mathlib and, where imported, PEqualNP.Defs. Full harnesses inline their helper dependencies.",
+  "kit_message_id": "msg-9574e75c4a2464ba7a74e928",
+  "preservation_completed_utc": "2026-11-23T20:48:25.883250+00:00",
+  "validation_summary": "Every listed relocated source compiled successfully; all source hashes match the previously checked originals."
+}

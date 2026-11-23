@@ -1,0 +1,197 @@
+{
+  "gap": "L-lib-123",
+  "owner": "fp3_strategy",
+  "status": "Checked partial results only; no accepted posted-statement proof.",
+  "posted_statement_checker": "NOT RUN for these partial lemmas.",
+  "scope_boundary": "No universal short trace representation or strict exponent-saving simulation was proved. The posted FP3 statement remains unproved and unrefuted.",
+  "sources": [
+    {
+      "source": "AltLemmas.lean",
+      "sha256": "df88c8b52378dfb2b6926c608d374e738657832032972b4a3c4b15b14f215060",
+      "lines": 99,
+      "scope": "Boundary lemmas and fixed-exponent constant-absorption obstruction.",
+      "complete_stdout_stderr_log": "alt-lemmas-build.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/AltLemmas.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "source": "FlattenBudget.lean",
+      "sha256": "17d541d35c4f7f3fe1604aa3b03de5a0f6feef69bae345b712a420609419b21e",
+      "lines": 41,
+      "scope": "Resource arithmetic for recursively flattened alternating verification.",
+      "complete_stdout_stderr_log": "flatten-budget-build.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/FlattenBudget.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "source": "GrammarBound.lean",
+      "sha256": "bd5aef604007aec27c066c83816069142784c147b2e06173d7aca0ec7ec11180",
+      "lines": 165,
+      "scope": "Distinct-substring lower bounds for binary concatenation grammars; no bound for general arithmetic or program summaries.",
+      "complete_stdout_stderr_log": "grammar-bound-build.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/GrammarBound.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "source": "StackTrace.lean",
+      "sha256": "8903d29dbdf8c22b72b067648347be2145befee5e2023162ed0f72290df099a8",
+      "lines": 410,
+      "scope": "Exact local characterization of list-stack execution, including initial stacks.",
+      "complete_stdout_stderr_log": "stack-trace-build.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/StackTrace.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "source": "StackChallengeFull.lean",
+      "sha256": "2bf4da4de0a4591e8577c0c52a0154bf29fa41285db2b10b6a92f22cf101cef5",
+      "lines": 581,
+      "scope": "Self-contained mate-free three-block stack challenge characterization.",
+      "complete_stdout_stderr_log": "stack-challenge-build.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/StackChallengeFull.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "source": "CheckpointReplay.lean",
+      "sha256": "5408b7d69f0bc48d6f26e670ef2aa37d401840b14f6a058a0943194058398d3a",
+      "lines": 89,
+      "scope": "Fixed-checkpoint local replay gluing and existence equivalence.",
+      "complete_stdout_stderr_log": "checkpoint-replay-build.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/CheckpointReplay.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "source": "BlockMinimum.lean",
+      "sha256": "fbc1538d9c0aab02198b1767347a3943ad608f0824f4d4b71fb3355ed0864059",
+      "lines": 85,
+      "scope": "Canonical block minima and interval decomposition.",
+      "complete_stdout_stderr_log": "block-minimum-build.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/BlockMinimum.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "source": "AltEncoding.lean",
+      "sha256": "1ea26ee6686baaff019fbbb691366498443c884ca672b05bdfa6cd436391d76b",
+      "lines": 120,
+      "scope": "Typed three-block encoding and self-sized parsing semantics; no total verifier runtime theorem.",
+      "complete_stdout_stderr_log": "alt-encoding-build.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/AltEncoding.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "dependencies": "Each listed Lean file is self-contained apart from Mathlib and, where imported, PEqualNP.Defs. Full harnesses inline their helper dependencies.",
+  "kit_message_id": "msg-9574e75c4a2464ba7a74e928",
+  "preservation_completed_utc": "2026-11-23T20:48:25.883250+00:00",
+  "validation_summary": "Every listed relocated source compiled successfully; all source hashes match the previously checked originals."
+}

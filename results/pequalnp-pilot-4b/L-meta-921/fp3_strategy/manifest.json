@@ -1,0 +1,36 @@
+{
+  "gap": "L-meta-921",
+  "owner": "fp3_strategy",
+  "status": "Checked partial results only; no accepted posted-statement proof.",
+  "posted_statement_checker": "NOT RUN for these partial lemmas.",
+  "scope_boundary": "No global gate-count invariant or size-preserving elimination theorem was completed. Restricted finite-search outcomes are not a proof of the posted 39-gate bound.",
+  "sources": [
+    {
+      "source": "SingletonCofactor.lean",
+      "sha256": "ce414142938ad798dc51e9b467cf4c0bc91e3aba3fad22ef59e243df3756038d",
+      "lines": 94,
+      "scope": "Conditional singleton-cut replacement, leakage restrictions, and foreign-line context bounds.",
+      "complete_stdout_stderr_log": "singleton-cofactor.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-meta-921/fp3_strategy/SingletonCofactor.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "dependencies": "Each listed Lean file is self-contained apart from Mathlib and, where imported, PEqualNP.Defs. Full harnesses inline their helper dependencies.",
+  "kit_message_id": "msg-9574e75c4a2464ba7a74e928",
+  "preservation_completed_utc": "2026-11-23T20:48:25.883250+00:00",
+  "validation_summary": "Every listed relocated source compiled successfully; all source hashes match the previously checked originals."
+}

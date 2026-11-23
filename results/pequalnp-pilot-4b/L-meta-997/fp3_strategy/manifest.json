@@ -1,0 +1,82 @@
+{
+  "gap": "L-meta-997",
+  "owner": "fp3_strategy",
+  "status": "Checked partial results only; no accepted posted-statement proof.",
+  "posted_statement_checker": "NOT RUN for these partial lemmas.",
+  "scope_boundary": "The general light/heavy overlap compensation remains unproved. Exact full-signature refunds cannot be inferred from arbitrary partial-support overlaps. The separately preserved fresh/SmallWindow.lean covers only |y|<=2.",
+  "sources": [
+    {
+      "source": "RefundOutputs.lean",
+      "sha256": "9c3997ec6781ae2d408d3802018d314f1c65d8dc5b4640a78d76d78ad7dcc7c3",
+      "lines": 203,
+      "scope": "Exact output-gate refund injection and bounded-heavy-size arithmetic.",
+      "complete_stdout_stderr_log": "refund-outputs.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/RefundOutputs.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "source": "BoundedCase.lean",
+      "sha256": "bf26be52746eb3f3bef96849181f09cfe2364e778419b14bdd88b252de1ecdda",
+      "lines": 821,
+      "scope": "Self-contained proof under the additional assumptions that |y| is positive and every disjoint piece has size at most |y|+1.",
+      "complete_stdout_stderr_log": "bounded-case.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/BoundedCase.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "source": "WeightedFrontier.lean",
+      "sha256": "3084b397aec8129505bae03754c94eb188d39edd1875c40839ca9841c619f311",
+      "lines": 133,
+      "scope": "Abstract shared-DAG frontier bound with free unary and paid binary expansions.",
+      "complete_stdout_stderr_log": "weighted-frontier.log",
+      "preserved_original_log_bytes": 0,
+      "preservation_recheck": {
+        "exit_code": 0,
+        "source_hash_unchanged": true,
+        "command": [
+          "/tmp/oec/pequalnp-pilot-4b/with-lean.sh",
+          "lake",
+          "env",
+          "lean",
+          "/workspace/pequalnp-proofs/results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/WeightedFrontier.lean"
+        ],
+        "workdir": "/workspace/pequalnp-proofs/lean",
+        "log_complete": true,
+        "log_bytes": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "dependencies": "Each listed Lean file is self-contained apart from Mathlib and, where imported, PEqualNP.Defs. Full harnesses inline their helper dependencies.",
+  "kit_message_id": "msg-9574e75c4a2464ba7a74e928",
+  "preservation_completed_utc": "2026-11-23T20:48:25.883250+00:00",
+  "validation_summary": "Every listed relocated source compiled successfully; all source hashes match the previously checked originals."
+}
