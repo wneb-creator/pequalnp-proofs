@@ -28,3 +28,7 @@ Root independently reviewed the 57-line extension authored by heavy_window; assu
 Snapshot SHA256 730e41df4ac14807b8094195965df0e22b2173d18388dcb3562974b09a5389d5
 Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
 TIMING total=18.6 subagents=6
+
+Sixth partial: 1915 lines. Build 9 passed; lake build --no-build confirmed current artifacts. Added translation of strict heavy charges into original gate operations and support signatures.
+Root independently reviewed the 56-line extension authored by heavy_window, including hypotheses, namespace and forbidden constructs.
+Snapshot SHA256 7a39025a8c9f438b6a914224b680e22e591466b0810313bce9d475e3347da602

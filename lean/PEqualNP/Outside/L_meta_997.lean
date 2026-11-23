@@ -1857,3 +1857,59 @@ lemma heavy_or_count {n : ℕ} (C : Circuit) (t : ℕ)
     exact decide_eq_true ⟨p,hp,by simp⟩
 
 end PEqualNP.Outside.L_meta_997.HeavyOr
+
+namespace PEqualNP.Outside.L_meta_997.HeavyOr
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_997.Heavy
+
+lemma charged_fixed_ne {n : ℕ} (C : Circuit) (t : ℕ) (Y S : Finset (Fin n))
+    (w : ℕ) (hw : w ∈ charged (fixed C t false) Y S) : w ≠ n+t := by
+  intro heq
+  have h := (mem_charged (fixed C t false) Y S w).mp hw
+  have ht : t < C.gates.length := by
+    have hb := h.1.2
+    rw [fixed_size] at hb
+    unfold Circuit.size at hb
+    omega
+  obtain ⟨p,hp⟩ := h.2.2.2.1
+  have hv := (mem_supp (fixed C t false) Y w p).mp hp
+  rw [heq,fixed_at C t false ht] at hv
+  exact Bool.false_ne_true hv
+
+lemma readGate_fixed_other (C : Circuit) (n t w : ℕ) (b : Bool)
+    (hn : n ≤ w) (hw : w<n+C.size) (hne : w≠n+t) :
+    readGate (fixed C t b) n w = readGate C n w := by
+  rw [readGate_eq (fixed C t b) n w hn (by rw [fixed_size]; exact hw),
+    readGate_eq C n w hn hw]
+  simp only [fixed,List.getElem_set]
+  rw [ite_eq_right (by omega)]
+
+lemma heavy_or_original {n : ℕ} (C : Circuit) (t : ℕ)
+    (hgate : ∀ g ∈ C.gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2)
+    (hnot : ∀ q : Fin C.gates.length, (C.gates.get q).op = GateOp.not → q.val = t)
+    (ht : t < C.gates.length) (hop : (C.gates[t]).op = GateOp.not)
+    (Y S : Finset (Fin n)) (hYS : Disjoint Y S)
+    (hY : value C (fun v => decide (v ∈ Y)) (n+t) = false)
+    (w : ℕ) (hw : w ∈ charged (fixed C t false) Y S) :
+    n ≤ w ∧ w<n+C.size ∧ w≠n+t ∧ (readGate C n w).op = GateOp.or ∧
+      value C (fun v => decide (v ∈ Y)) w = false ∧
+      2 ≤ (supp C Y w).card ∧ supp C Y w ⊆ S ∧
+      ∀ r ∈ (readGate C n w).inputs, r<w → supp C Y r ≠ supp C Y w := by
+  have hc := (mem_charged (fixed C t false) Y S w).mp hw
+  have hb : n ≤ w ∧ w<n+C.size := by simpa [fixed_size] using hc.1
+  have hne := charged_fixed_ne C t Y S w hw
+  have hg := readGate_fixed_other C n t w false hb.1 hb.2 hne
+  have ha := charged_subset_asg (fixed C t false) Y S hw
+  have has := (mem_asg (fixed C t false) Y S w).mp ha
+  have heq := heavy_supp_eq C t hgate hnot ht hop Y hY
+  refine ⟨hb.1,hb.2,hne,?_,heavy_base_false C t Y S hYS hY w ha,?_,?_,?_⟩
+  · simpa [hg] using hc.2.2.1
+  · simpa [heq w] using has.2.2
+  · rw [← heq w]
+    exact sound_supp_subset (fixed C t false) Y S hYS w has.2.1
+  · intro r hr hrw he
+    have hf := hc.2.2.2.2 r (by simpa [hg] using hr) hrw
+    exact hf (by simpa only [heq] using he)
+
+end PEqualNP.Outside.L_meta_997.HeavyOr
