@@ -419,6 +419,18 @@
         "direct-compact28-benchmark-1.stderr"
       ],
       "scope": "Compact graph28 input/target encodings, proper-sublist exclusion, initial permutation, validated routing, one decoded state and one frontier check only; no whole-graph lower bound."
+    },
+    {
+      "file": "StraightScore984.lean",
+      "sha256": "8f85b3488c39d7a7c3e7a396f4ccec674f8d26f409b37b4215dd1d2fdef9b9d8",
+      "bytes": 5513,
+      "lines": 99,
+      "observed_compile_exit": 0,
+      "logs": [
+        "straight-score-1.stdout",
+        "straight-score-1.stderr"
+      ],
+      "scope": "Pointwise equality of fixed graph28 straight-line scoring to the existing rank-pool evaluation, for every mask list; no graph bound or performance claim."
     }
   ]
 }

@@ -115,3 +115,10 @@ Compact computation archive independently verified by proof_strategy: all
 three already archived decoder files are correctly omitted. Full cached
 build was interrupted by environment restart, not rejected by Lean; complete
 partial logs and an explicit no-verdict status are preserved.
+
+StraightScore984: root independently read the complete99-line source.
+The fixed22-entry Boolean expression is definitionally equal to the original
+rank pool for every mask list, and the outer size guards are retained by
+straightScr_eq. PASS for semantic equality only; no speed or graph claim.
+Additional independent review by single_not_reduction confirms the exact
+DirectCompact28Benchmark hash, prefix, graph mapping and limited scope.
