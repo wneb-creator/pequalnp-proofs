@@ -1,0 +1,248 @@
+L-meta-670 checked partial components; no full posted theorem yet.
+Each archived component build exited 0 and passed independent soundness review.
+The real case159 baseline kernel test FAILED its 10000 MiB memory cap; its complete output follows.
+toolchain/CheapPrefixBody.lean SHA256 d7c2f97d9e108e523a9fd45b6d7928c22c118f213e963cef1cd98a2a616b296b
+toolchain/CheapPrefixTest.lean SHA256 af434be59305ff63a86d348e8bf8170623eddec34ac684addcb76fff30dd8044
+toolchain/DynamicCoveredLocalBody.lean SHA256 2660d595c27d6e0c2c49276b74f7657422e35e37511ba1f95c897ab9c8f229ed
+toolchain/DynamicCoveredLocalTest.lean SHA256 423be2c04f61ec9b0446a15c3f48994ef209b658875704cec51dda6f418515df
+toolchain/StrictPrefixBody.lean SHA256 e8f001f1fc53b9e0ef43e32f1fe7ed904b7e4bf250812b37da6c33a8c3ed95b7
+toolchain/StrictPrefixTest.lean SHA256 22c0acd652354651983ed645d5d02fcd0d97854d2837cfe71cd089cc6c9c7830
+lower-bound/MemoSortedBody.lean SHA256 47db407ea831e11fa03390534f87b716700decd6a7b2daf973dd7b8aceadd123
+lower-bound/MemoSortedTest.lean SHA256 4ba80d947672b923481cf5cab6bf3a22db3d192ae06f5700bc1523dc3104c87c
+lower-bound/PreparedUpdateBody.lean SHA256 d152f0e692160c5a5410f61261f8a2ffaba86461f53f70ab5bccb59b0afc04c3
+lower-bound/PreparedUpdateTest.lean SHA256 96e12f4eebfc58d34b8e15f14eeff35683795cfa3a04b738b5bc5a3b5d0db355
+
+COMPLETE LOG toolchain/cheap-prefix-test.log
+import took 8.3s
+'PEqualNP.Outside.L_meta_670_aux.CheapPrefix.wrap_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_670_aux.CheapPrefix.oracles_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+cumulative profiling times:
+	.olean serialization 7.31ms
+	attribute application 0.0461ms
+	blocked (unaccounted) 10.9ms
+	compilation (IR) 0.223ms
+	compilation (LCNF base) 5.25ms
+	compilation (LCNF impure) 0.985ms
+	compilation (LCNF mono) 1.69ms
+	congr simp thm 1.54ms
+	declTypeLinter 3.36ms
+	elaboration 24ms
+	fix level params 0.0503ms
+	import 8.3s
+	initialization 29ms
+	instantiate metavars 0.0824ms
+	interpretation 366ms
+	let-to-have transformation 0.147ms
+	linting 9.44ms
+	module linting 0.263ms
+	parsing 2.16ms
+	process pre-definitions 1.31ms
+	share common exprs 0.23ms
+	simp 4.38ms
+	tactic execution 3.84ms
+	tacticAnalysis 1.28ms
+	type checking 1.34ms
+	typeclass inference 3.01ms
+
+COMPLETE LOG toolchain/dynamic-covered-local-test.log
+import took 3.33s
+'PEqualNP.Outside.L_meta_670_aux.DynamicCoveredLocal.fastLeafCheck_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	.olean serialization 3.37ms
+	attribute application 0.0868ms
+	blocked (unaccounted) 13.4ms
+	compilation (IR) 0.137ms
+	compilation (LCNF base) 1.09ms
+	compilation (LCNF impure) 0.561ms
+	compilation (LCNF mono) 0.933ms
+	congr simp thm 1.77ms
+	declTypeLinter 4.37ms
+	elaboration 14.8ms
+	fix level params 0.0808ms
+	import 3.33s
+	initialization 31.4ms
+	instantiate metavars 0.109ms
+	interpretation 353ms
+	let-to-have transformation 0.0348ms
+	linting 4.96ms
+	module linting 0.051ms
+	parsing 2.33ms
+	process pre-definitions 1.12ms
+	share common exprs 0.312ms
+	simp 0.801ms
+	tactic execution 8.86ms
+	tacticAnalysis 1.07ms
+	type checking 1.72ms
+	typeclass inference 0.238ms
+
+COMPLETE LOG toolchain/strict-prefix-test.log
+import took 3.58s
+'PEqualNP.Outside.L_meta_670_aux.StrictPrefix.updateWithRecipe_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	.olean serialization 5.68ms
+	attribute application 0.0922ms
+	blocked (unaccounted) 36.7ms
+	compilation (IR) 0.75ms
+	compilation (LCNF base) 15.1ms
+	compilation (LCNF impure) 3.45ms
+	compilation (LCNF mono) 7.15ms
+	congr simp thm 0.561ms
+	declTypeLinter 3.85ms
+	elaboration 66.1ms
+	fix level params 0.138ms
+	import 3.58s
+	initialization 27.7ms
+	instantiate metavars 0.278ms
+	interpretation 302ms
+	let-to-have transformation 0.634ms
+	linting 8.94ms
+	module linting 0.0196ms
+	parsing 5.46ms
+	process pre-definitions 5.4ms
+	share common exprs 0.735ms
+	simp 3.7ms
+	tactic execution 26.2ms
+	tacticAnalysis 2.45ms
+	type checking 15.6ms
+	typeclass inference 18.8ms
+
+COMPLETE LOG lower-bound/memo-sorted-build.log
+import took 3.88s
+cumulative profiling times:
+	.olean serialization 17.7ms
+	attribute application 0.342ms
+	blocked (unaccounted) 833ms
+	compilation (IR) 1.65ms
+	compilation (LCNF base) 18.2ms
+	compilation (LCNF impure) 7.95ms
+	compilation (LCNF mono) 12.8ms
+	congr simp thm 8.52ms
+	declTypeLinter 12.4ms
+	elaboration 130ms
+	fix level params 0.582ms
+	import 3.88s
+	initialization 28.3ms
+	instantiate metavars 1.32ms
+	interpretation 446ms
+	let-to-have transformation 0.966ms
+	linting 33.1ms
+	module linting 0.07ms
+	parsing 15.4ms
+	process pre-definitions 22.6ms
+	share common exprs 3.56ms
+	simp 101ms
+	tactic execution 137ms
+	tacticAnalysis 7.42ms
+	type checking 51.8ms
+	typeclass inference 45.7ms
+
+COMPLETE LOG lower-bound/prepared-update-build.log
+import took 3.41s
+cumulative profiling times:
+	.olean serialization 22.7ms
+	attribute application 0.21ms
+	blocked (unaccounted) 273ms
+	compilation (IR) 1.91ms
+	compilation (LCNF base) 18.5ms
+	compilation (LCNF impure) 9.58ms
+	compilation (LCNF mono) 18.1ms
+	congr simp thm 8.6ms
+	declTypeLinter 7.22ms
+	elaboration 148ms
+	fix level params 0.479ms
+	import 3.41s
+	initialization 27.8ms
+	instantiate metavars 0.602ms
+	interpretation 323ms
+	let-to-have transformation 0.893ms
+	linting 20.2ms
+	module linting 0.0309ms
+	parsing 10.6ms
+	process pre-definitions 13ms
+	share common exprs 1.98ms
+	simp 63.9ms
+	tactic execution 91.5ms
+	tacticAnalysis 4.69ms
+	type checking 37.1ms
+	typeclass inference 19.6ms
+
+COMPLETE LOG counterexample/cheap-sorted-independent-audit.txt
+PASS independent review: CheapPrefixBody.lean and MemoSortedBody.lean. Reviewer ran no compiler.
+
+CheapPrefix: wrapper.check = precheck && original.check. A true result necessarily includes a true original check, so soundness follows from the original oracle independently of the precheck assumptions. Projection, operation homomorphisms, and input values remain the original fields.
+Concrete precheck counts distinct nonconstant required values absent from the initial list, then guards available gate budget before invoking the expensive original checker. These guards can only suppress acceptance; they cannot create a false exclusion even if they are overly restrictive.
+Exact CheapPrefix body occurs in the successful test. Compiler log reports only propext, Classical.choice, Quot.sound. No forbidden constructs or extra assumptions were found.
+
+MemoSorted: full namespace-normalized diff against checked MemoForced was reviewed and saved as counterexample/memo-sorted-versus-forced.diff. Changes are insertion normalization, proved finset preservation, normalized-query list equality, and normalized forced save; existing budget and exact NOT-count guards remain unchanged.
+Any cache hit is safe because normalize v = stored wires implies equality of their finsets through normalize_finset. The proof does not require unproved sort canonicality, order completeness, or hash invariance. A hash mismatch can only lose a cache hit.
+Insertion normalization preserves every element; the new explicit finset lemmas transport Impossible to normalized saved entries. Existing generic solve_sound proof is unchanged outside its audited hit/save dependencies.
+Exact MemoSorted body and tiny tests occur in successful MemoSortedTest.lean. The build log contains no errors; the author reports EXIT0. Separate axiom print is not in that log. No forbidden constructs were found. No performance improvement is claimed by this audit.
+
+Bodies contain no imports or diagnostic commands. Imports/#print in test harnesses are not intended for inline proof bodies.
+toolchain/CheapPrefixBody.lean SHA256 d7c2f97d9e108e523a9fd45b6d7928c22c118f213e963cef1cd98a2a616b296b
+toolchain/CheapPrefixTest.lean SHA256 af434be59305ff63a86d348e8bf8170623eddec34ac684addcb76fff30dd8044
+toolchain/cheap-prefix-test.log SHA256 df789d0807b6582713c7762bc64d561ac58ed9e80f15b7eb395794e0c9a5ecdb
+lower-bound/MemoSortedBody.lean SHA256 47db407ea831e11fa03390534f87b716700decd6a7b2daf973dd7b8aceadd123
+lower-bound/MemoSortedTest.lean SHA256 4ba80d947672b923481cf5cab6bf3a22db3d192ae06f5700bc1523dc3104c87c
+lower-bound/memo-sorted-build.log SHA256 d10ad678597f4e473838c6ab80414f8f3cdfa06371681ec3e0d7cea1f899e419
+
+COMPLETE LOG counterexample/prepared-update-independent-audit.txt
+PASS independent review of PreparedUpdateBody.lean; no compiler rerun.
+Route.cached carries a checked v[index]?=some a equality; missing or invalid route hints fall back to direct projection. Route.value_map proves indexed cached lookup returns exactly p a when parent cached values equal v.map p.
+Expression.unary/binary carry exact original-signal gate equalities; invalid recipe hints fall back to a leaf route. Oracle operation homomorphisms establish Expression.value_map without assuming heuristic hint correctness.
+Selection.fresh carries a=z; old selections carry a valid route. Dependent Selections is indexed by the entire child wire list, preventing missing/reordered values from being silently treated as valid. Its map theorem proves every cached child projection exactly.
+Plan builds the shared recipe/selection data before the oracle-index function. Every force helper has a proved extensional identity, and updatePrepared_valid rewrites these identities then applies the value-map theorem for each oracle.
+Prefix gates/roots remain untrusted candidate programs. The final proof only establishes exact cached values; the existing Oracle checker must still verify candidate legality, costs, and coverage before any prefix exclusion. A direct route can yield root8 or a leaf empty-OR candidate without compromising cached-value soundness.
+No full final lower bound or measured speed/memory benefit is claimed here. Sharing/forcing performance remains empirical.
+Exact body occurs in PreparedUpdateTest.lean importing canonical DynamicClosedTest. Author reports EXIT0; full log contains no errors. No separate axiom print is in this log. No forbidden constructs, new axioms, sorry, native_decide, bv_decide, attributes, options, imports, or diagnostic commands occur in the body.
+lower-bound/PreparedUpdateBody.lean SHA256 d152f0e692160c5a5410f61261f8a2ffaba86461f53f70ab5bccb59b0afc04c3
+lower-bound/PreparedUpdateTest.lean SHA256 96e12f4eebfc58d34b8e15f14eeff35683795cfa3a04b738b5bc5a3b5d0db355
+lower-bound/prepared-update-build.log SHA256 d24d954725fdd19fb315d879055a1176e2b9981eed264a74eb5db175cc8226b0
+
+COMPLETE LOG assembly/local-strict-independent-audit.txt
+PASS independent semantic and format review.
+Compilation success was reported by the component owner and parent; reviewer did not run another compiler.
+DynamicCoveredLocal uses the checked MemoLocal solver with the existing sound projected-coverage/prefix cut, metadata child enumeration, and FastRecipe.initial_valid. Its soundness theorem retains explicit oracle soundness, target preservation, and cached-raw agreement assumptions. The empty memo is sound; only solve_sound false results imply exclusion.
+StrictPrefix changes only the untrusted proposed gate program and compaction strategy. compact_vals and updateOne_vals show that cached projected values are retained exactly. updateWithRecipe_valid authenticates proposedValue using its value-equality guard and the existing homomorphism/fallback lemmas. Bad roots, insufficient fuel, or non-ten-wire inputs can lose pruning opportunities but do not establish false coverage.
+Actual generated program legality and coverage remain checked by the oracle. The review does not claim a memory or runtime improvement.
+No sorry, new axioms, native_decide, string literals, forbidden attributes/options, imports, or diagnostic commands appear in either body.
+toolchain/DynamicCoveredLocalBody.lean SHA256 2660d595c27d6e0c2c49276b74f7657422e35e37511ba1f95c897ab9c8f229ed
+toolchain/StrictPrefixBody.lean SHA256 e8f001f1fc53b9e0ef43e32f1fe7ed904b7e4bf250812b37da6c33a8c3ed95b7
+
+COMPLETE LOG sat-proof/theta-covered-case159.log
+import took 4.38s
+/tmp/oec/pequalnp-pilot-14/sat-proof/ThetaCoveredCase159.lean:29:74: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) excessive memory consumption detected
+type checking took 26.3s
+cumulative profiling times:
+	attribute application 0.0494ms
+	blocked (unaccounted) 23.4ms
+	compilation (IR) 0.602ms
+	compilation (LCNF base) 13.4ms
+	compilation (LCNF impure) 3.11ms
+	compilation (LCNF mono) 8.87ms
+	declTypeLinter 6.93ms
+	elaboration 68ms
+	fix level params 0.295ms
+	import 4.38s
+	initialization 27.1ms
+	instantiate metavars 0.321ms
+	interpretation 345ms
+	let-to-have transformation 0.0623ms
+	linting 11.4ms
+	module linting 0.0351ms
+	parsing 3.22ms
+	process pre-definitions 4.34ms
+	share common exprs 0.592ms
+	tactic execution 6.74ms
+	tacticAnalysis 1.62ms
+	type checking 26.4s
+	typeclass inference 5.63ms
+real 108.05
+user 103.80
+sys 4.17
