@@ -7,7 +7,7 @@ Repository checker acceptance: not obtained; checker executable build succeeded.
 All source hashes and successful full diagnostics are in L-meta-951/manifest.json.
 No final-proof cleanup pass applies yet. Exact compiled source bytes are preserved.
 Sub-agents: independent_search; literal_not_restriction; independent_theory; proof_strategy; single_not_reduction; toolchain_setup; fresh_full_proof.
-TIMING total=161 subagents=7
+TIMING total=185 subagents=7
 
 L-meta-951 released reason other;32 compiled partials preserved.
 L-meta-984 assigned shard28; generic Formal984 certificate machinery compiles.
@@ -28,3 +28,4 @@ L-meta-984 now42 compiled artifacts; complete compact conjunct8 passes, full31 b
 L-meta-984 now45 compiled artifacts; full31 compact build remains pending.
 L-meta-984 now48 compiled artifacts; full31 grouped/pattern v5 build pending.
 Grouped computation and final source-format audit preserved; full v5 build pending.
+Second environment restart interrupted full v5 before a verdict; unchanged candidate restarted. All48 compiled984artifacts remain preserved.

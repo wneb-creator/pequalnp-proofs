@@ -1,7 +1,7 @@
 {
-  "file": "Full984-compact-v5.lean",
+  "candidate": "Full984-compact-v5.lean",
   "sha256": "6d1a583f6e7b731f4597264f90310d3f2ec661a46ffa3b674f6cde6a4d7c0f67",
-  "bytes": 492897,
-  "status": "Full lake build started2026-11-23T22:11:18Z; pending, no full compile verdict yet.",
+  "first_attempt": "Started2026-11-23T22:11:18Z; interrupted by environment restart around22:31Z. No exit-status file, no complete Lean verdict.",
+  "second_attempt": "Started2026-11-23T22:34Z; currently running.",
   "checker": "NOT RUN"
 }

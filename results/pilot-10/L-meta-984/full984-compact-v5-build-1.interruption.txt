@@ -1,0 +1,1 @@
+Environment restart interrupted this build. Complete captured stdout/stderr are retained. No build exit status or full theorem verdict was observed. The Lean process was confirmed zombie after restart; the stale queue holder had no live descendants or process-group members. The unchanged candidate was restarted.
