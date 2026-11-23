@@ -1,0 +1,39 @@
+Task: L-meta-951 auxiliary literal-NOT restriction and K5-star lower bound.
+Scope: scratch only; no tracked repository files changed by this agent.
+
+CountedRestriction.lean
+  576 lines.
+  SHA256 743faba303ecd6ae97c09b1903df92c79fd16d3246bd4f4b460cef98cdc4bafa
+  Imports only Mathlib and PEqualNP.Defs.
+  Checked: lake env lean /tmp/oec/pequalnp-pilot-10/independent-search/literal-not/CountedRestriction.lean
+  Exit code: 0. Complete stdout/stderr: compile-5.log.
+  Main result: literal_not_two_savings constructs a binary monotone circuit
+  with at least two fewer gates after setting the input read by the sole NOT
+  to false, provided an exact OR output of size at least two contains it.
+  Preserves every nonconstant restricted output. Arbitrary wire indices and
+  the evaluator's default-false behavior are included in the proof.
+
+K5LiteralNot.lean
+  668 lines.
+  SHA256 96f94cb7d9824a69cf7d8b3fa6b88ee5c3da28770088eaf93e47717771cc97a5
+  Adds import PEqualNP.Outside.L_meta_900 for its existing monotone promise.
+  Checked: lake env lean /tmp/oec/pequalnp-pilot-10/independent-search/literal-not/K5LiteralNot.lean
+  Exit code: 0. Complete stdout/stderr: k5-compile-2.log.
+  Main result: k5_literal_not_bound proves at least 15 gates for the five
+  K5-star OR outputs when the sole NOT directly reads an original input.
+  The NOT may occur anywhere in the gate list. Other gates have arity at
+  most two. Restricted-star total monotone cost is 13, and two gates save.
+
+All reported successful compilations ran from /workspace/pequalnp-proofs/lean
+after sourcing /tmp/oec/pequalnp-pilot-10/toolchain/environment.sh.
+L_meta_900 was built through the installed lake wrapper; build-900.log holds
+complete output and the build exited 0. Mathlib cache was already prepared.
+Source scan found no sorry, axiom, native_decide, or unsafe occurrences.
+Warnings are deprecation or linter messages only.
+
+Limit: these are auxiliary results, not a proof of the posted universal
+L-meta-951 statement. The repository submission checker was not run on
+these scratch auxiliary files. No gap or PR state was changed.
+
+Sub-agents: none (this agent is an independent-search child).
+TIMING total=15 subagents=0

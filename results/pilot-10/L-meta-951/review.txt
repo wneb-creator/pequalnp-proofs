@@ -1,0 +1,13 @@
+Independent review of the partial-results snapshot: PASS.
+Reviewers: independent_theory and proof_strategy.
+
+Both reviewers checked the 19-source manifest and preserved successful logs.
+They independently checked each other's or root's artifacts, the stated
+restrictions, forbidden proof constructs, and absence of credential patterns.
+The archive does not claim a full proof, refutation, or checker acceptance for
+L-meta-951. The latest user instruction explicitly authorizes these partial
+results under results/ on the work branch.
+
+Two trailing blank EOF lines in CountedRestriction.lean and K5LiteralNot.lean
+are retained to preserve the exact compiled source bytes. Historical audit
+notes retain their original timestamps and scope.

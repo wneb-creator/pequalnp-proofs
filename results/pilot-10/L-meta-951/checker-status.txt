@@ -1,0 +1,9 @@
+Full L-meta-951 proof: NOT OBTAINED.
+Lean-checked refutation of L-meta-951: NOT OBTAINED.
+Repository checker acceptance: NOT OBTAINED; no full-file check has been run.
+lake build checklemma: exit 0 (infrastructure executable only).
+lake build PEqualNP.Defs: exit 0.
+lake exe cache get: exit 0; Mathlib was downloaded from cache, not built from source.
+Complete infrastructure stdout/stderr are preserved under toolchain/.
+Sub-agents: independent_search; literal_not_restriction; independent_theory; proof_strategy; single_not_reduction; toolchain_setup; fresh_full_proof.
+TIMING total=68 subagents=7

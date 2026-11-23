@@ -1,0 +1,78 @@
+L-meta-951 research notes
+
+Exact statement elaborated successfully against pinned Lean 4.36.0 and Mathlib.
+No theorem file or repository modifications yet.
+
+Known references in repository:
+- L_meta_529: monotone binary AND/OR additive lower bound, via partition merges and disjoint charged wires.
+- L_meta_986: one-NOT bound with a correction involving degrees in a zero-certificate for its monotone input.
+- L_meta_907: comparison-based Good wire ownership, enough for size-three output sets.
+
+Failed abstractions:
+- Singleton truth tables alone lose higher-order Boolean behavior; a set-lattice circuit may exploit intersections.
+- Persistent singleton implicants alone miss merges hidden by a common NOT mask and later restored.
+
+Useful exact decomposition:
+Expose sole NOT input h (monotone), replace its output by zero/one to get monotone A_i <= B_i.
+For exact OR target f_i: A_i <= f_i <= B_i, f_i AND h <= A_i, B_i <= f_i OR h.
+
+Previous assigned shard L-meta-904 shard1 was exhausted: 8,388,608 orientations, no counterexample, independent edge-wise witness check for every orientation. Desk accepted exhausted release.
+
+Compiled decomposition: toolchain/OneNotDecomposition.lean,386lines, successful Lean checks; exact Fin1cover split, prefixh monotone, constant replacement sandwich.
+
+Explicit failure of Good-wire count generalization:
+For target S={a,b,c,d} with outsidevariablee, build f=not(e) OR a OR b OR c OR d (chain), g=e OR a OR b OR c OR d (chain), output f AND g. Ten gates, exact ORS; onlyfinalf andoutput areGood(S,wire) per907, fewerthan|S|-1=3. This is not a counterexample to951.
+
+Global Pos(f) ownership alone also fails: h=abc; t=not h; masked a*t,b*t,c*t then their OR and restoreh. Onlyfinaloutput has>=2persistent singleton implicants, despite threeessential inputs. Need countmasked gates too.
+
+New compiled partial results:
+- proof-strategy/Small951.lean (481 lines): exact951 bound with extra every target cardinality<=3 hypothesis.
+- SafeBranch951.lean: upper_exact_when_not_input_false and safe_branch_lower compile successfully. The latter assumes h(maxzero S_i)=false for every target.
+- proof-strategy/GoodObstruction951.lean: kernel-checked obstruction to naive Good-wire count.
+
+No full theorem, accepted checker verdict, or counterexample to951 yet.
+
+Further mathematical progress:
+- A second exact replacement class: if OR(S)<=h, replaceNOTbyfalse; lowerbranch lies betweenh AND OR(S) andOR(S), henceequalsOR(S).
+- Opposite comparability directions fordistinctlinear-familytargets implyoneSsubsetanother, contradictcard>=2/intersection<=1. Thus ifhcomparablewitheverytarget, a commonconstantreplacement suffices.
+- Hardpiecealone is not enough evenwithfullLowsemantics/crossmaxzero tests: gridSij={ai,bj,cij}, t=ANDallai OR ANDallbj, Gij=t OR cij costsq^2+2q-1<2q^2. A compatiblehprefixisnotfree.
+- EvenPasch4triples have7gatehardpieceoutputs: t=x1ANDx4,p=x0ORt,q=x5ORt, outputs pORx2,pORx3,qORx3,qORx2. This isnotacounterexampleto951; missinghprefixandupperpiece.
+
+Primary literature read on 2026-11-23:
+- Stasys Jukna, Boolean Function Complexity, Chapter 9, section 9.9:
+  https://web.vu.lt/mif/s.jukna/boolean/Chapter9.pdf
+  Short quotation: "just one NOT gate be used at the top of the circuit!"
+  The surrounding argument separates selected positive and negative test inputs
+  with a negated threshold. It does not prove or disprove the posted statement.
+- Sajin Koroth and Jayalal Sarma, Depth Lower Bounds against Circuits with
+  Sparse Orientation, Remark 3:
+  https://eccc.weizmann.ac.il/report/2014/072/download/
+  It establishes a depth separation for some monotone functions with one NOT.
+  Therefore an unrestricted monotone-function elimination theorem cannot be
+  assumed. The special structure of the OR outputs is essential here.
+
+Additional checked scratch results reported by agents:
+- independent-theory/Comparable951.lean: full bound when every target OR is
+  comparable to the monotone function feeding the NOT gate.
+- toolchain/FaninLower.lean: full bound when all but one target has size two;
+  more generally |S_i|-1 + (m-1) <= number of gates for each target i.
+- toolchain/DeleteAlias.lean: safe deletion of a gate equal to an earlier wire
+  or the permanently absent false wire, with suffix-only relabeling. Preserves
+  forward reads as false, arity and allowed operations, and uniqueness of NOT.
+- toolchain/PrivateVariable.lean: a positive change from zero to a singleton
+  at a non-input output requires a direct AND/OR consumer of that input.
+- single-not-reduction/PaschHardPiece.lean: kernel-checked seven-gate conditional
+  countermodel for the Pasch family, with demand eight. It refutes an attempted
+  intermediate statement, and explicitly does not compute the exact OR outputs.
+
+Promising unresolved formulations:
+- For the two monotone cofactors A_i <= f_i <= B_i, common-selector correctness
+  implies B_j AND f_i <= f_j OR A_i for every pair i,j. Upper false positives
+  and lower false negatives cannot occur on the same input.
+- A stronger possible theorem gives an arbitrary antimonotone input for free
+  to an AND/OR circuit and still requires sum_i(|S_i|-1) binary gates for the
+  linear family of OR outputs. This is being tested, not assumed.
+
+All finite synthesis timeouts or unknown results are inconclusive. Stochastic
+search is incomplete negative evidence only. No restricted lemma, relaxed
+countermodel, or bounded search is an exact proof or refutation of L-meta-951.
