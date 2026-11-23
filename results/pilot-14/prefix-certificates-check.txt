@@ -1,0 +1,130 @@
+CHECKED PARTIAL: Boolean prefix-certificate checker with free constants, empty-prefix and degree-two-star certificates.
+The target_lower14 lemma explicitly takes the old abstract lower bound as a premise; the complete L-meta-670 statement remains unproved.
+Command: lake env lean /tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean
+Exit status: 0
+Independent review: root audited red_team constant-prefix extraction, legal/coverage/cost Boolean soundness, target_lower14 and star-state exclusion; source guard passed.
+Full stdout and stderr follow:
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:132:183: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:132:183: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:142:204: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:142:204: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:148:177: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:148:177: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:156:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:156:81: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:175:112: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:175:108: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:175:112: warning: Unused tactic linter: `aesop` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:197:4: warning: Unused tactic linter: `change x ∈ v ↔ _` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:272:99: warning: This simp argument is unused:
+  BitVec.and_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.or_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:272:115: warning: This simp argument is unused:
+  BitVec.or_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.and_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:272:185: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:272:185: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:610:85: warning: exponent 414 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:640:183: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:640:183: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:650:204: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:650:204: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:656:177: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:656:177: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:664:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:664:81: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:683:112: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:683:108: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:683:112: warning: Unused tactic linter: `aesop` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:705:4: warning: Unused tactic linter: `change x ∈ v ↔ _` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:780:99: warning: This simp argument is unused:
+  BitVec.and_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.or_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:780:115: warning: This simp argument is unused:
+  BitVec.or_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.and_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:780:185: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:780:185: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/projection/PrefixLower14Test.lean:1532:42: warning: This simp argument is unused:
+  hgo
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [legalOp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

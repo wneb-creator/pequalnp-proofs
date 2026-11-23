@@ -1,0 +1,69 @@
+Checked scratch fragment; depends on the already checked signed-search.lean source.
+Not a standalone proof submission. Root independently reviewed the split and recombination lemmas.
+
+import SignedReady
+
+namespace PEqualNP.Outside.L_meta_670_aux.SignedCheck.Check
+
+def advanceOne (k : Nat) (next : List W → Bool) (a b : W) (rest : List W) (z : W) : Bool :=
+  let base := cuts rest
+  let attempt := fun (kept : List W) (covered : BitVec 414) =>
+    if kept.length + 1 ≤ k + 1 then
+      !(a :: b :: rest).contains z && (covered ||| sep z == -1) && next (z :: kept)
+    else false
+  attempt rest base || attempt (a :: rest) (sep a ||| base) ||
+    attempt (b :: rest) (sep b ||| base) ||
+    attempt (a :: b :: rest) (sep a ||| (sep b ||| base))
+
+lemma any_four {α : Type} (l : List α) (p q r s : α → Bool) :
+    l.any (fun x => p x || q x || r x || s x) =
+      (l.any p || l.any q || l.any r || l.any s) := by
+  induction l with
+  | nil => rfl
+  | cons x xs ih =>
+    simp only [List.any_cons, ih]
+    ac_rfl
+
+lemma advance_split (k : Nat) (next : List W → Bool) (a b : W) (r : List W) :
+    advance k next a b r = (ops a b).any (advanceOne k next a b r) := by
+  unfold advance advanceOne
+  dsimp only
+  rw [any_four]
+  split_ifs <;> simp_all [ops] <;> omega
+
+
+def firstBranch (k i j : Nat) : Bool :=
+  let p := (pairs inputs)[i]?.getD (0, 0, [])
+  let z := (ops p.1 p.2.1)[j]?.getD 0
+  advanceOne k (search k) p.1 p.2.1 p.2.2 z
+
+lemma firstPairCount : (pairs inputs).length = 36 := by decide +kernel
+
+lemma search_false_of_branches (k : Nat)
+    (h : ∀ (i : Fin 36) (j : Fin 4), firstBranch k i.val j.val = false) :
+    search (k + 1) inputs = false := by
+  rw [search]
+  apply Bool.or_eq_false_iff.mpr
+  constructor
+  · decide +kernel
+  · apply List.any_eq_false.mpr
+    rintro ⟨a,b,r⟩ hp
+    change advance k (search k) a b r ≠ true
+    have hn : advance k (search k) a b r = false := by
+      obtain ⟨i, hi, he⟩ := List.mem_iff_getElem.mp hp
+      rw [advance_split]
+      apply List.any_eq_false.mpr
+      intro z hz
+      obtain ⟨j, hj, hjz⟩ := List.mem_iff_getElem.mp hz
+      have hi36 : i < 36 := by rwa [firstPairCount] at hi
+      have hj4 : j < 4 := by simpa [ops] using hj
+      have hh := h ⟨i,hi36⟩ ⟨j,hj4⟩
+      have hfalse : advanceOne k (search k) a b r z = false := by
+        simpa only [firstBranch,List.getElem?_eq_getElem hi,Option.getD_some,he,
+          List.getElem?_eq_getElem hj,hjz] using hh
+      rw [hfalse]
+      decide
+    rw [hn]
+    decide
+
+end PEqualNP.Outside.L_meta_670_aux.SignedCheck.Check

@@ -1,0 +1,11 @@
+lake env lean ChunkTest.lean: exit 0, as reported by sat_proof.
+Full stdout/stderr follows:
+/tmp/oec/pequalnp-pilot-14/sat-proof/ChunkTest.lean:29:35: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/sat-proof/ChunkTest.lean:29:31: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/sat-proof/ChunkTest.lean:29:35: warning: Unused tactic linter: `omega` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
