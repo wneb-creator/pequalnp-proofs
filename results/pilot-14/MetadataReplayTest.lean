@@ -149,8 +149,48 @@ lemma span_join {f : Nat → Bool} {a b start : Nat}
     refine ⟨h₁.1,ih h₁.2 ?_⟩
     simpa only [Nat.add_assoc,Nat.add_comm,Nat.add_left_comm] using h₂
 
+lemma span_of_points {f : Nat → Bool} {n start : Nat}
+    (h : ∀ j, start ≤ j → j < start+n → f j = true) : span f n start = true := by
+  induction n generalizing start with
+  | zero => rfl
+  | succ n ih =>
+    simp only [span,Bool.and_eq_true]
+    exact ⟨h start (by omega) (by omega),ih (fun j hj hjn => h j (by omega) (by omega))⟩
+
+lemma span_of_fin {f : Nat → Bool} {n start : Nat}
+    (h : ∀ i : Fin n, f (start+i.val) = true) : span f n start = true := by
+  apply span_of_points
+  intro j hj hjn
+  have hi : j-start < n := by omega
+  have he : start+(j-start) = j := by omega
+  simpa only [he] using h ⟨j-start,hi⟩
+
 def levelCheck (c : Config) (k t : Nat) : Bool :=
   span (nodeCheck c k t) (c.count k t) 0
+
+def enabledNodes (c : Config) (k t : Nat) : List Nat :=
+  (List.range (c.count k t)).filter (c.enabled k t)
+
+lemma levelCheck_of_enabled (c : Config) {k t : Nat}
+    (checks : ∀ j ∈ enabledNodes c k t, nodeCheck c k t j = true) :
+    levelCheck c k t = true := by
+  apply span_of_points
+  intro j hj hjn
+  by_cases he : c.enabled k t j = true
+  · apply checks
+    exact List.mem_filter.mpr ⟨List.mem_range.mpr (by omega),he⟩
+  · have hf : c.enabled k t j = false := by cases h : c.enabled k t j <;> simp_all
+    simp only [nodeCheck,hf,Bool.not_false,Bool.true_or]
+
+lemma levelCheck_of_list (c : Config) {k t : Nat} (nodes : List Nat)
+    (enumeration : enabledNodes c k t = nodes)
+    (checks : ∀ i : Fin nodes.length, nodeCheck c k t nodes[i.val] = true) :
+    levelCheck c k t = true := by
+  apply levelCheck_of_enabled
+  intro j hj
+  rw [enumeration] at hj
+  obtain ⟨i,hi,he⟩ := List.getElem_of_mem hj
+  simpa only [he] using checks ⟨i,hi⟩
 
 lemma checked_levels_sound (c : Config) (hc : Valid c) (budget : Nat)
     (checks : ∀ k ≤ budget, ∀ t ≤ c.limit, levelCheck c k t = true) :

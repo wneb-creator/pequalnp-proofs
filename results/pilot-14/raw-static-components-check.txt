@@ -1,0 +1,276 @@
+L-meta-670 checked generic components; posted theorem remains unproved.
+RawNoMemo and RawNormalized whole case159 benchmarks FAILED the10000MiB kernel cap; RapidForce was interrupted after193.67s with no completed theorem. All full logs follow.
+Metadata runtime smoke and auxiliary-declaration prototype compiled; no full finite exclusion is claimed.
+toolchain/DynamicRawNormalizedBody.lean SHA256 c8cdc64eb8a2489dc4e34c35522398c845f8dab1a9a7ef2ba9360becad9e6aa2
+toolchain/DynamicRawNormalizedTest.lean SHA256 55fefb4fa496de75216c98e6abf54326f99959d4ae9f9f76cfa4267c2c293b70
+toolchain/MemoInvariantBody.lean SHA256 f39cf506e8b3b1542721a51b746aaa1447d0a60fd391f6e55d17e30ac958ab14
+toolchain/DynamicRawBody.lean SHA256 841efd8faeba4ed04d677a849333b39d826c61e86ea7f301ca75a1bd6be0c4e0
+toolchain/DynamicRawTest.lean SHA256 9d3bfad19ef4ac5ecf60a727fa70c6610f7405daf2a1ab126a6367b6b0da79b5
+lower-bound/IndexedUpdateBody.lean SHA256 e6d803b7ec2c320ab26d09432f2b38daae3632e663c66a67266297c20d8e803d
+lower-bound/IndexedUpdateTest.lean SHA256 3daf3cb91fa8677bf181a15e0743e4953232e8e0a02713a94da128e5f56ea42c
+replay/MetadataReplayBody.lean SHA256 b5e12edb6b9b77dee2e9e9305965fd6b90483a071c2eb8ddb539b3fdb4fa4e5d
+replay/MetadataReplayTest.lean SHA256 5a30cf80fbac9b59cba2b79e5405ce8d0989336b2aad8f19c9a9038924584471
+replay/MetadataStrictEdgesBody.lean SHA256 879af24bbb127f413c7b9e19747f566bd8f36f65ad44e0f0c0843d6571898c18
+replay/Cut12RuntimeStrictBody.lean SHA256 ea55e62f6c9f2324eb0666a5488eff247f1aec41273eeb7f62214e99ad17e1d1
+replay/Cut12StrictRuntimeSmoke.lean SHA256 627e066608690c4bb167b663a7e7e209a2e4d16e0a0062ea265d254bcefb7e31
+replay/AuxChunkPrototype.lean SHA256 23a6c63bcb82fab7b24f119b291d1ee816894cb319fdf8b3f06cba2643536574
+
+COMPLETE LOG toolchain/dynamic-raw-normalized-test.log
+import took 7.41s
+/tmp/oec/pequalnp-pilot-14/toolchain/DynamicRawNormalizedTest.lean:60:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/DynamicRawNormalizedTest.lean:68:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'PEqualNP.Outside.L_meta_670_aux.DynamicRawNormalized.fastLeafCheck_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	.olean serialization 7.75ms
+	attribute application 0.0533ms
+	blocked (unaccounted) 69.3ms
+	compilation (IR) 0.479ms
+	compilation (LCNF base) 5.52ms
+	compilation (LCNF impure) 1.81ms
+	compilation (LCNF mono) 4.98ms
+	congr simp thm 1.43ms
+	declTypeLinter 4.44ms
+	elaboration 39.4ms
+	fix level params 0.145ms
+	import 7.41s
+	initialization 42.5ms
+	instantiate metavars 0.348ms
+	interpretation 294ms
+	let-to-have transformation 0.118ms
+	linting 9.96ms
+	module linting 0.0239ms
+	parsing 4.08ms
+	process pre-definitions 4.91ms
+	share common exprs 0.867ms
+	simp 18.4ms
+	tactic execution 57.3ms
+	tacticAnalysis 1.57ms
+	type checking 5.33ms
+	typeclass inference 23.4ms
+
+COMPLETE LOG toolchain/dynamic-raw-test.log
+import took 4.46s
+'PEqualNP.Outside.L_meta_670_aux.MemoInvariant.solve_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_670_aux.DynamicRaw.fastLeafCheck_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	.olean serialization 5.42ms
+	attribute application 0.127ms
+	blocked (unaccounted) 11.7ms
+	compilation (IR) 0.296ms
+	compilation (LCNF base) 5.71ms
+	compilation (LCNF impure) 1.38ms
+	compilation (LCNF mono) 2.57ms
+	congr simp thm 1.32ms
+	declTypeLinter 4.62ms
+	elaboration 54.2ms
+	fix level params 0.238ms
+	import 4.46s
+	initialization 27.6ms
+	instantiate metavars 0.545ms
+	interpretation 334ms
+	let-to-have transformation 0.0913ms
+	linting 14.9ms
+	module linting 0.0159ms
+	parsing 8.88ms
+	process pre-definitions 3.29ms
+	share common exprs 1.3ms
+	simp 29ms
+	tactic execution 49.8ms
+	tacticAnalysis 3.9ms
+	type checking 7.31ms
+	typeclass inference 10.8ms
+
+COMPLETE LOG lower-bound/indexed-update-build.log
+import took 6.68s
+/tmp/oec/pequalnp-pilot-14/lower-bound/IndexedUpdateTest.lean:23:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/lower-bound/IndexedUpdateTest.lean:26:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/lower-bound/IndexedUpdateTest.lean:177:13: warning: This simp argument is unused:
+  PrefixCtx.vals
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+cumulative profiling times:
+	.olean serialization 25ms
+	attribute application 0.198ms
+	blocked (unaccounted) 189ms
+	compilation (IR) 2.05ms
+	compilation (LCNF base) 28.4ms
+	compilation (LCNF impure) 16.4ms
+	compilation (LCNF mono) 17.3ms
+	congr simp thm 3.81ms
+	declTypeLinter 11.9ms
+	elaboration 106ms
+	fix level params 0.349ms
+	import 6.68s
+	initialization 30.9ms
+	instantiate metavars 1.05ms
+	interpretation 450ms
+	let-to-have transformation 0.853ms
+	linting 32.9ms
+	module linting 0.0379ms
+	parsing 9.41ms
+	process pre-definitions 8.25ms
+	share common exprs 2.2ms
+	simp 35.7ms
+	tactic execution 65.3ms
+	tacticAnalysis 29.5ms
+	type checking 37.3ms
+	typeclass inference 42.6ms
+
+COMPLETE LOG replay/metadata-replay-build-3.log
+
+COMPLETE LOG replay/cut12-strict-runtime-build.log
+/tmp/oec/pequalnp-pilot-14/replay/Cut12StrictRuntimeSmoke.lean:28:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/replay/Cut12StrictRuntimeSmoke.lean:28:81: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+
+COMPLETE LOG replay/aux-chunk-prototype.log
+'PEqualNP.Outside.L_meta_670_aux.AuxChunkPrototype.checks' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_670_aux.AuxChunkPrototype.checks (i : Fin 8) : test ↑i = true
+PEqualNP.Outside.L_meta_670_aux.AuxChunkPrototype.test (i : ℕ) : Bool
+
+COMPLETE LOG counterexample/raw-normalized-independent-audit.txt
+Verdict: PASS, independent source/soundness review; no compiler rerun. Author reports EXIT0, existing successful log inspected and exact body inclusion in test verified.
+Only semantic delta versus previously audited DynamicRawNoMemo is expanded branch wraps forceWires then materialize; both universal equality lemmas rewrite to original stepTest recursion. Cut runs before forcing, recursive k decreases unchanged, child contexts remain validated by update_valid. Search soundness uses same actualt projected coverage and exclude_step_nodup. fastLeafCheck_sound log reports only propext, Classical.choice, Quot.sound. This establishes generic soundness, not that any concrete finite case passes or that CPS reduces runtime/memory.
+
+Exact reviewed hashes:
+{
+  "toolchain/DynamicRawNormalizedBody.lean": "c8cdc64eb8a2489dc4e34c35522398c845f8dab1a9a7ef2ba9360becad9e6aa2",
+  "toolchain/DynamicRawNormalizedTest.lean": "55fefb4fa496de75216c98e6abf54326f99959d4ae9f9f76cfa4267c2c293b70",
+  "toolchain/dynamic-raw-normalized-test.log": "586dd2b5c7236523e8eafbd3dbbfcd15dbf371926217c8933b68e17aa243a2e4"
+}
+
+COMPLETE LOG counterexample/indexed-update-independent-audit.txt
+Verdict: PASS, independent source/soundness review; no compiler rerun. Author reports EXIT0, existing successful log inspected and exact body inclusion in test verified.
+Route is proof-free data, but route_value only claims correctness for generated route v a: true cached guard is converted by beq_iff_eq to an exact list-index equation, otherwise direct p a fallback. expression_value validates recipe equality and uses only Oracle.mapNeg/mapBin; selection_value validates fresh-wire equality or generated route. plan maps every child wire, including empty lists. updateOne_valid requires only the old cached-value invariant and proves exact new map; it makes no unwarranted claim about gates/roots. Any default8, hardcoded10, invalid program or arbitrary expression/root data remains untrusted and must pass Oracle.check before a cut can be sound. updateIndexed_valid applies proved CPS identities to generated plans, not arbitrary user-constructed Routes with unchecked cached flags. No extra semantic assumptions, unsafe code, new axioms or computation-trust tactic. No finite exclusion or runtime performance result is asserted. Test log has no separate axiom diagnostic for this helper.
+
+Exact reviewed hashes:
+{
+  "lower-bound/IndexedUpdateBody.lean": "e6d803b7ec2c320ab26d09432f2b38daae3632e663c66a67266297c20d8e803d",
+  "lower-bound/IndexedUpdateTest.lean": "3daf3cb91fa8677bf181a15e0743e4953232e8e0a02713a94da128e5f56ea42c",
+  "lower-bound/indexed-update-build.log": "285d979946774a41329b2c11f7ce60cebd4fcdc2a9c86e364fc7e7b90148bc60"
+}
+
+COMPLETE LOG counterexample/raw-memo-invariant-independent-audit.txt
+Verdict: PASS, independent source/soundness review. No compiler rerun. Existing author EXIT0 log and exact source inclusion in test inspected; both exported soundness declarations list only propext, Classical.choice, Quot.sound.
+MemoInvariant retains an explicit external Inv hypothesis and requires nextValid only for actual proposed children. collect_fold_sound_on passes that membership to induction; guards retain prior Sound memo and only accept proved hits or a proved cut. Missing or spurious child proposals cannot themselves prove exclusion because MemoLocalBoolFast.complete_sound authenticates recursive failures via original stepTest. k decreases on every evaluated child; no runtime certificate is trusted.
+DynamicRaw uses proof-free Context n while separately proving Valid oracles v ctx. Its next_valid follows checked StrictPrefix.updateWithRecipe_valid, including arbitrary recipe fallback. cut_sound obtains exact cached projection lists from Valid for directed separation and passes original Nodup to prefix pruning. Initial rho equality and Oracle.Sound remain explicit hypotheses; top run starts sound empty memo. Negating a false search result yields Impossible only through the generic ResultSound proof. No finite exclusion or performance claim is made.
+
+Exact hashes:
+{
+  "toolchain/MemoInvariantBody.lean": "f39cf506e8b3b1542721a51b746aaa1447d0a60fd391f6e55d17e30ac958ab14",
+  "toolchain/DynamicRawBody.lean": "841efd8faeba4ed04d677a849333b39d826c61e86ea7f301ca75a1bd6be0c4e0",
+  "toolchain/DynamicRawTest.lean": "9d3bfad19ef4ac5ecf60a727fa70c6610f7405daf2a1ab126a6367b6b0da79b5",
+  "toolchain/dynamic-raw-test.log": "0230233ecfaa5c1cba18d1bc8b55e179d1da1e1d11044207dc90e9da69ecb77a"
+}
+
+COMPLETE LOG lower-bound/metadata-strict-enumeration-independent-audit.txt
+Independent delta source review: PASS
+Reviewer: /root/lower_bound
+
+/tmp/oec/pequalnp-pilot-14/replay/MetadataStrictEdgesBody.lean
+SHA256: 879af24bbb127f413c7b9e19747f566bd8f36f65ad44e0f0c0843d6571898c18
+/tmp/oec/pequalnp-pilot-14/replay/Cut12RuntimeStrictBody.lean
+SHA256: ea55e62f6c9f2324eb0666a5488eff247f1aec41273eeb7f62214e99ad17e1d1
+/tmp/oec/pequalnp-pilot-14/replay/MetadataReplayBody.lean
+SHA256: b5e12edb6b9b77dee2e9e9305965fd6b90483a071c2eb8ddb539b3fdb4fa4e5d
+
+The strict runtime variant substitutes previously checked StrictPrefix.updateWithRecipe and its exact cached-value invariant theorem. Initial contexts directly pair FastRecipe.initial with FastRecipe.initial_valid; this is the same justified initialization as the former wrapper. Prefix gate and root programs remain untrusted inputs to existing semantic checks.
+New span_of_points and span_of_fin lemmas prove coverage of every offset in the exact natural-number interval. Enabled-node enumeration is an actual range/filter equality, and levelCheck_of_list requires a checked row result for every Fin index of that enumerated list. Disabled rows are vacuously true in nodeCheck and cannot be referenced as proved rows because linkCheck checks enabled.
+No soundness assumptions were dropped, and no data table, recipe hint, or enumeration is accepted without the existing explicit validation. No new axioms or forbidden source forms found.
+Author reports both strict runtime smoke and updated MetadataReplayTest compiled EXIT0. No duplicate compilation was run by this reviewer; full finite bounds remain pending.
+
+COMPLETE LOG sat-proof/theta-raw-nomemo159.log
+import took 4.31s
+/tmp/oec/pequalnp-pilot-14/sat-proof/ThetaRawNoMemo159.lean:30:63: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) excessive memory consumption detected
+type checking took 30s
+cumulative profiling times:
+	attribute application 0.0483ms
+	blocked (unaccounted) 26.5ms
+	compilation (IR) 0.674ms
+	compilation (LCNF base) 14.1ms
+	compilation (LCNF impure) 3.28ms
+	compilation (LCNF mono) 7.74ms
+	declTypeLinter 6.77ms
+	elaboration 76.9ms
+	fix level params 0.0654ms
+	import 4.31s
+	initialization 33ms
+	instantiate metavars 0.279ms
+	interpretation 353ms
+	let-to-have transformation 0.099ms
+	linting 10.8ms
+	module linting 0.0426ms
+	parsing 3.68ms
+	process pre-definitions 3.33ms
+	share common exprs 0.678ms
+	tactic execution 3.74ms
+	tacticAnalysis 2.04ms
+	type checking 30s
+	typeclass inference 7.13ms
+real 172.61
+user 167.78
+sys 4.63
+
+COMPLETE LOG sat-proof/theta-raw-normalized159.log
+import took 3.44s
+/tmp/oec/pequalnp-pilot-14/sat-proof/ThetaRawNormalized159.lean:30:63: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) excessive memory consumption detected
+type checking took 23.6s
+cumulative profiling times:
+	attribute application 0.0523ms
+	blocked (unaccounted) 22.7ms
+	compilation (IR) 0.585ms
+	compilation (LCNF base) 10.5ms
+	compilation (LCNF impure) 2.77ms
+	compilation (LCNF mono) 7.44ms
+	declTypeLinter 2.25ms
+	elaboration 57.5ms
+	fix level params 0.0642ms
+	import 3.44s
+	initialization 26.8ms
+	instantiate metavars 0.223ms
+	interpretation 272ms
+	let-to-have transformation 0.0606ms
+	linting 4.78ms
+	module linting 0.0389ms
+	parsing 3.13ms
+	process pre-definitions 1.27ms
+	share common exprs 0.414ms
+	tactic execution 1.32ms
+	tacticAnalysis 1.09ms
+	type checking 23.6s
+	typeclass inference 5.63ms
+real 150.12
+user 146.48
+sys 3.34
+
+COMPLETE LOG sat-proof/theta-rapid-force159.log
+import took 4.57s
+real 193.67
+user 186.36
+sys 6.83
