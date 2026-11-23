@@ -1,0 +1,219 @@
+{
+  "gap": "L-lib-123",
+  "owner_agent": "formal_audit",
+  "status": "partial_research_no_target_proof",
+  "checker": "NOT RUN",
+  "artifacts": [
+    {
+      "path": "AltAudit.lean",
+      "sha256": "93282f4e70daef52d2841f1422d7d96828f712888d62f1db37536eb7ca1ebb16",
+      "bytes": 1465,
+      "kind": "lean_source",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/AltAudit.lean"
+    },
+    {
+      "path": "alt-audit.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/alt-audit.log"
+    },
+    {
+      "path": "DyckSummaries.lean",
+      "sha256": "15158bae0875ec87631d6ef6d0b1d05e4e4c9112f1f7936d0327ca024c140bf5",
+      "bytes": 1276,
+      "kind": "lean_source",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/DyckSummaries.lean"
+    },
+    {
+      "path": "dyck-summaries.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/dyck-summaries.log"
+    },
+    {
+      "path": "TreeBudget.lean",
+      "sha256": "280c1af9bf47aecded0643e9b6e271a089c3af89a2a1612ab418ad1c46803516",
+      "bytes": 1611,
+      "kind": "lean_source",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/TreeBudget.lean"
+    },
+    {
+      "path": "tree-budget.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/tree-budget.log"
+    },
+    {
+      "path": "TreeGameCounterexample.lean",
+      "sha256": "e8365ec8e9b7d9c113677f9818422a958cec29f1cd02673ea0d73a6b26a42843",
+      "bytes": 930,
+      "kind": "lean_source",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/TreeGameCounterexample.lean"
+    },
+    {
+      "path": "tree-game-counterexample.log",
+      "sha256": "ab9d5a302aab744c9c524e5603cb4b038499c7f109c6972666ce5d33200b69be",
+      "bytes": 380,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/tree-game-counterexample.log"
+    },
+    {
+      "path": "TraceCircuitHypothesis.lean",
+      "sha256": "9b6b0bbd1d52f01927f014fc53e5903dfc6c34c28220e4f5f04f7abb0f7e677a",
+      "bytes": 1540,
+      "kind": "lean_source",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/TraceCircuitHypothesis.lean"
+    },
+    {
+      "path": "trace-circuit-hypothesis.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/trace-circuit-hypothesis.log"
+    },
+    {
+      "path": "CircuitClamp.lean",
+      "sha256": "3d3fb833e327a45bfe17f727dee8fdb4f3a65ad470f98a6b6d24bd044d955af0",
+      "bytes": 3116,
+      "kind": "lean_source",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/CircuitClamp.lean"
+    },
+    {
+      "path": "circuit-clamp.log",
+      "sha256": "6bf479033388380c45c06de643040d79e165ae0df800c47d43f28b4cb47b9197",
+      "bytes": 328,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/circuit-clamp.log"
+    },
+    {
+      "path": "GlobalTraceFinite.lean",
+      "sha256": "68cacba8c7866212bc8db8360889215acdf37d26a1f1f809e9492521822b023a",
+      "bytes": 58765,
+      "kind": "lean_source",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/GlobalTraceFinite.lean"
+    },
+    {
+      "path": "global-trace-finite-2.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/global-trace-finite-2.log"
+    },
+    {
+      "path": "PrimitiveBridge.lean",
+      "sha256": "e4925c79f64bdf25853edf2636e2c6fb66fbc938289f0a77b6f4d37516b99ee2",
+      "bytes": 93345,
+      "kind": "lean_source",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/PrimitiveBridge.lean"
+    },
+    {
+      "path": "primitive-bridge-13.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/primitive-bridge-13.log"
+    },
+    {
+      "path": "primitive-bridge-axioms.log",
+      "sha256": "4b22e5eefb0c05eea9106a731ed3927db2a9c80217ae84b40efd89d1e148993e",
+      "bytes": 251,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/primitive-bridge-axioms.log"
+    },
+    {
+      "path": "final-semantic-audit.md",
+      "sha256": "51493dc377e84d0775beb6003d3e6c78b596cb500afc631938e088ffbcde69eb",
+      "bytes": 4706,
+      "kind": "research_ledger",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/final-semantic-audit.md"
+    },
+    {
+      "path": "circuit-route-analysis.md",
+      "sha256": "8f545a1190a3df64f4e20dc03808a3b8ebfb56db462a848dece340ee97dc3981",
+      "bytes": 4480,
+      "kind": "research_ledger",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/circuit-route-analysis.md"
+    },
+    {
+      "path": "shared-controller-notes.md",
+      "sha256": "4cb53eda22b53416ec97f8a01c328cc0e6e44706f5173a9289325ba0dada0026",
+      "bytes": 4381,
+      "kind": "research_ledger",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/shared-controller-notes.md"
+    },
+    {
+      "path": "README.md",
+      "sha256": "67749a3a7e72a249e34c76bb0ae359b9753f65751c1784e4b89dd786f904532d",
+      "bytes": 1720,
+      "kind": "scope_note",
+      "original_scratch_path": null
+    }
+  ],
+  "lean_validation": [
+    {
+      "source": "AltAudit.lean",
+      "complete_log": "alt-audit.log",
+      "recorded_exit_code": 0,
+      "lean_version": "4.36.0",
+      "validation_type": "kernel_checked_helper"
+    },
+    {
+      "source": "DyckSummaries.lean",
+      "complete_log": "dyck-summaries.log",
+      "recorded_exit_code": 0,
+      "lean_version": "4.36.0",
+      "validation_type": "kernel_checked_helper"
+    },
+    {
+      "source": "TreeBudget.lean",
+      "complete_log": "tree-budget.log",
+      "recorded_exit_code": 0,
+      "lean_version": "4.36.0",
+      "validation_type": "kernel_checked_helper"
+    },
+    {
+      "source": "TreeGameCounterexample.lean",
+      "complete_log": "tree-game-counterexample.log",
+      "recorded_exit_code": 0,
+      "lean_version": "4.36.0",
+      "validation_type": "kernel_checked_helper"
+    },
+    {
+      "source": "TraceCircuitHypothesis.lean",
+      "complete_log": "trace-circuit-hypothesis.log",
+      "recorded_exit_code": 0,
+      "lean_version": "4.36.0",
+      "validation_type": "kernel_checked_helper"
+    },
+    {
+      "source": "CircuitClamp.lean",
+      "complete_log": "circuit-clamp.log",
+      "recorded_exit_code": 0,
+      "lean_version": "4.36.0",
+      "validation_type": "kernel_checked_helper"
+    },
+    {
+      "source": "GlobalTraceFinite.lean",
+      "complete_log": "global-trace-finite-2.log",
+      "recorded_exit_code": 0,
+      "lean_version": "4.36.0",
+      "validation_type": "kernel_checked_helper"
+    },
+    {
+      "source": "PrimitiveBridge.lean",
+      "complete_log": "primitive-bridge-13.log",
+      "recorded_exit_code": 0,
+      "lean_version": "4.36.0",
+      "validation_type": "kernel_checked_helper"
+    }
+  ],
+  "excluded": [
+    "CNF files",
+    "LRAT traces from synthesis",
+    "failed Lean sources",
+    "failed and superseded build logs"
+  ]
+}

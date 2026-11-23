@@ -1,0 +1,128 @@
+{
+  "gap": "L-meta-971",
+  "owner_agent": "formal_audit",
+  "status": "partial_research_no_target_proof",
+  "checker": "NOT RUN",
+  "artifacts": [
+    {
+      "path": "Statement.lean",
+      "sha256": "2f8daadc5cb9d2622e07c7455d3f1264b1767292695040840727e45839f392b1",
+      "bytes": 582,
+      "kind": "lean_source",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/Statement.lean"
+    },
+    {
+      "path": "statement.log",
+      "sha256": "0d697ad1780c57d14c685e31ec09401b67c7be453e0ca943c956945b69706bcd",
+      "bytes": 71,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/statement.log"
+    },
+    {
+      "path": "audit.md",
+      "sha256": "5b76c8b4009f20927bd71b11dc21d5550c25b574f4b202415953430ee7d6bd95",
+      "bytes": 5274,
+      "kind": "research_ledger",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/audit.md"
+    },
+    {
+      "path": "search-ledger.json",
+      "sha256": "51c5fe8dd836f0c7690baa03d86e085d7074f172972bf8bc1febc974f629ddb1",
+      "bytes": 914,
+      "kind": "research_ledger",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/search-ledger.json"
+    },
+    {
+      "path": "full26-driver.log",
+      "sha256": "9de7893a4a07752d3890613bb23d83e871a10f785fde8863ea5590f74681631f",
+      "bytes": 145,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/full26-driver.log"
+    },
+    {
+      "path": "full26.solver.log",
+      "sha256": "1c9c6f07ff8dd19712635535766909e6397f1b15d831fa212b026abaea3a8c26",
+      "bytes": 25692,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/full26.solver.log"
+    },
+    {
+      "path": "satphase26-driver.log",
+      "sha256": "9db9a3a2bf39d8084fe887073d0844756679ee81d97118ef0c4ca586c0c64ad6",
+      "bytes": 146,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/satphase26-driver.log"
+    },
+    {
+      "path": "satphase26.solver.log",
+      "sha256": "487d50508b2a56fface69c243d7e91ba2f6988660ff47ad8e43baf252a75bede",
+      "bytes": 27192,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/satphase26.solver.log"
+    },
+    {
+      "path": "first-or-01-driver.log",
+      "sha256": "7c09ed1796322f3af1d7ba7c2a569a45d02e866b3e6efa03ad8e65658a4b87f5",
+      "bytes": 145,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/first-or-01-driver.log"
+    },
+    {
+      "path": "first-or-01.solver.log",
+      "sha256": "3b6aee25e0358e1f95bdc669ceb84384f5540d48da557ec8c1bdf68b22777435",
+      "bytes": 20805,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/first-or-01.solver.log"
+    },
+    {
+      "path": "canonical26-driver.log",
+      "sha256": "17069d110717e48a3965e14d244ff78ad72c841f0dc0009a6395f663522cc0c0",
+      "bytes": 146,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/canonical26-driver.log"
+    },
+    {
+      "path": "canonical26.solver.log",
+      "sha256": "8e2a60ae7ed9aaa043dae8b7e2360a676d85c1b72c9eaedcd70d2954145629b9",
+      "bytes": 32885,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/canonical26.solver.log"
+    },
+    {
+      "path": "fixture-test.log",
+      "sha256": "64dbdc8e487bf6687b70aedcf1b3aef03167983f29d3a82849bf752e20fb8623",
+      "bytes": 93,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/fixture-test.log"
+    },
+    {
+      "path": "canonical-fixture-test.log",
+      "sha256": "e62cf7322aff4571c9cc6b634f8291c0da804cd87efe1b78719dc9165f9923b2",
+      "bytes": 93,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta971/canonical-fixture-test.log"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ce2a665402a946ff02fa6526a49ac4d286e2d56373a58c1469a902e79fe57480",
+      "bytes": 1721,
+      "kind": "scope_note",
+      "original_scratch_path": null
+    }
+  ],
+  "lean_validation": [
+    {
+      "source": "Statement.lean",
+      "complete_log": "statement.log",
+      "recorded_exit_code": 0,
+      "lean_version": "4.36.0",
+      "validation_type": "statement_elaboration"
+    }
+  ],
+  "excluded": [
+    "CNF files",
+    "LRAT traces from synthesis",
+    "failed Lean sources",
+    "failed and superseded build logs"
+  ]
+}

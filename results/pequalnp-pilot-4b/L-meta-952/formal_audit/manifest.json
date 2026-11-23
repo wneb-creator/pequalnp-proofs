@@ -1,0 +1,51 @@
+{
+  "gap": "L-meta-952",
+  "owner_agent": "formal_audit",
+  "status": "partial_research_no_target_proof",
+  "checker": "NOT RUN",
+  "artifacts": [
+    {
+      "path": "Statement.lean",
+      "sha256": "7e70425c802509cac14a152c25cc56a441aec48636b5657b20ac5eeb5e13e7c9",
+      "bytes": 1016,
+      "kind": "lean_source",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta952/Statement.lean"
+    },
+    {
+      "path": "statement.log",
+      "sha256": "1cd0f936f9340ab8d3fcf46c20719c22b06197caa632ba8202232e1853ef23d9",
+      "bytes": 101,
+      "kind": "diagnostic_log",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta952/statement.log"
+    },
+    {
+      "path": "audit.md",
+      "sha256": "b021a152e8170f50ce24c43b2c97f3f6fd2468136771c1e9631339ff725963af",
+      "bytes": 2963,
+      "kind": "research_ledger",
+      "original_scratch_path": "/tmp/oec/pequalnp-pilot-4b/formal_audit/meta952/audit.md"
+    },
+    {
+      "path": "README.md",
+      "sha256": "8a4e71ca7e04ed649257a3c572415d89214e2094f4327d6ac75282a1540b0855",
+      "bytes": 1721,
+      "kind": "scope_note",
+      "original_scratch_path": null
+    }
+  ],
+  "lean_validation": [
+    {
+      "source": "Statement.lean",
+      "complete_log": "statement.log",
+      "recorded_exit_code": 0,
+      "lean_version": "4.36.0",
+      "validation_type": "statement_elaboration"
+    }
+  ],
+  "excluded": [
+    "CNF files",
+    "LRAT traces from synthesis",
+    "failed Lean sources",
+    "failed and superseded build logs"
+  ]
+}

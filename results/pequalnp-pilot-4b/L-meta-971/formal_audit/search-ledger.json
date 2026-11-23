@@ -1,0 +1,46 @@
+[
+  {
+    "returncode": 0,
+    "elapsed": 180.1140308260001,
+    "result": "UNKNOWN_or_error",
+    "name": "full26",
+    "files_bytes": {
+      ".cnf": 2612682,
+      ".lrat": 804359173,
+      ".solver.log": 25692
+    }
+  },
+  {
+    "returncode": 0,
+    "elapsed": 180.21031639800094,
+    "result": "UNKNOWN_or_error",
+    "name": "satphase26",
+    "files_bytes": {
+      ".cnf": 2612682,
+      ".lrat": 2111189831,
+      ".solver.log": 27192
+    }
+  },
+  {
+    "returncode": 0,
+    "elapsed": 90.17955637500017,
+    "result": "UNKNOWN_or_error",
+    "name": "first-or-01",
+    "files_bytes": {
+      ".cnf": 2612697,
+      ".lrat": 1028314552,
+      ".solver.log": 20805
+    }
+  },
+  {
+    "returncode": 0,
+    "elapsed": 180.25270375000036,
+    "result": "UNKNOWN_or_error",
+    "name": "canonical26",
+    "files_bytes": {
+      ".cnf": 2745029,
+      ".lrat": 1614927374,
+      ".solver.log": 32885
+    }
+  }
+]

@@ -1,0 +1,7 @@
+/tmp/oec/pequalnp-pilot-4b/formal_audit/CircuitClamp.lean:30:44: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ih, circuitStep, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

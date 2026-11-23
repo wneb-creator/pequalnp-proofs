@@ -1,0 +1,2 @@
+{"iteration": 0, "lines": [0, 1, 2], "gates": 8, "points": [0, 1, 2, 3, 4, 5, 9, 10, 11], "samples": 31, "variables": 975, "clauses": 12139}
+{"returncode": 20, "elapsed": 2.0224017539994747, "result": "UNSAT_for_encoded_subproblem"}

@@ -1,0 +1,4 @@
+{"iteration": 0, "lines": [0, 1, 2, 4], "gates": 11, "points": [0, 1, 2, 3, 4, 5, 7, 9, 10, 11], "samples": 21, "variables": 1062, "clauses": 15199}
+{"returncode": 10, "elapsed": 0.14068411700009165, "result": "SAT_partial_only", "full_domain_failures": 100}
+{"iteration": 1, "lines": [0, 1, 2, 4], "gates": 11, "points": [0, 1, 2, 3, 4, 5, 7, 9, 10, 11], "samples": 61, "variables": 2382, "clauses": 35919}
+{"returncode": 0, "elapsed": 60.1900408219999, "result": "UNKNOWN_or_error"}
