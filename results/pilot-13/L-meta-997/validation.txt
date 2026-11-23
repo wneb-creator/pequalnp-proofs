@@ -111,3 +111,6 @@ Independent lean_setup review PASS on three_oversized SHA2564ef8ab34d880fb8b29ae
 Combined snapshot a6b88e0439d1841ba3f5c512d411d16df1c7e27c429c12914cee539aaec3aa94. General posted theorem remains absent.
 Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
 TIMING total=75.0 subagents=6
+
+Recovery preservation:6227 lines. UnionFree61-line extension independently root-reviewed PASS and individually compiled by status_review (SHA25672fd2172e116ebce30b8ed7a1f98f7cc6c74701830756054859d74c038b59f8a); integrated build pending. Last fully integrated build25 at6165lines passed. Archived latest full compile/review/SAT logs with checked SHA256 manifests. A renewal with mistyped short lease ID returned410; actual lease last successfully renewed through23:17:42 UTC. Preserving before correcting the request.
+Combined snapshot 791d53151f52745ef1ad3609c60b7679545e161a2f52502c10867dd55b9614bd. General posted theorem remains absent.

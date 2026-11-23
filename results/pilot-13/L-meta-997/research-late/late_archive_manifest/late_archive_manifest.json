@@ -1,0 +1,51 @@
+{
+  "scope": "Final bounded SAT run and subsequent Lean helper/review logs. All-low-weight n14 SAT run UNKNOWN at300 seconds; no counterexample. LowDegree initial compile failed explicit argument ordering; v2 compiles with standard axioms only.",
+  "files": [
+    {
+      "name": "sat_family_synthesis_low.py",
+      "bytes": 11411,
+      "sha256": "dd42e60204d5bf1009235b699d268e44884d270b17e0a11e442bfb0a6389f81f"
+    },
+    {
+      "name": "sat_w5_factors_all_low.json",
+      "bytes": 1748,
+      "sha256": "5724028ebf6437a9a28e2e3a41fccf05260e247c8e86ba67084e7688b94cf0a5"
+    },
+    {
+      "name": "sat_w5_factors_all_low.log",
+      "bytes": 948,
+      "sha256": "7cc433cb79829ea2fe0d47c4f31e68e8f84b5d48c8149a0975a8b8592513bfb6"
+    },
+    {
+      "name": "sat_w5_factors_all_low.round0.solver.log",
+      "bytes": 22772,
+      "sha256": "e0ba192bdf1e4d8aef1f7c9c22c5b500f3c149b35ffc3c373ab5dfc8ca4e47ca"
+    },
+    {
+      "name": "ActiveBatch_independent_review.log",
+      "bytes": 5671,
+      "sha256": "43491c82ccc79eaf8053d2e2bf6ad480fa452d860d931be44fc8f812190f9750"
+    },
+    {
+      "name": "BoundedIncidence_independent_review.log",
+      "bytes": 4106,
+      "sha256": "3c02170075387fdefbd3b342b55ed151ac89a59a8b4b12e8321021d65c59b3e1"
+    },
+    {
+      "name": "LowDegree_extension.lean",
+      "bytes": 3062,
+      "sha256": "a1b76fd4a7eb1387deac1dbecfb0fd28a4f97ba256ba5cdb69e19d058d215f0e"
+    },
+    {
+      "name": "LowDegree_compile.log",
+      "bytes": 4209,
+      "sha256": "e50df5f24bcf317200c7627314c148de00973ebede4b1c103ab7fad16048ed18"
+    },
+    {
+      "name": "LowDegree_compile_v2.log",
+      "bytes": 3832,
+      "sha256": "264867b311102c4d8b67aa5a7ca8cc2c0b63d1fa3ab083800456a5a117402cb0"
+    }
+  ],
+  "total_bytes": 57759
+}

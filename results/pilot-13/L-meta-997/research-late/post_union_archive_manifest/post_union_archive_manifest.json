@@ -1,0 +1,66 @@
+{
+  "scope": "Compiled UnionBudget/UnionFree helpers and exact n17,k3,four-heavy SAT architecture. Fixed-all-light +8-gate tail UNSAT in20.9s on200 samples. Control16-gate tail SAT and full131072-input truth table plus exact refund verified, no posted violation. CNFs/witnesses remain scratch, omitted here because regenerable.",
+  "files": [
+    {
+      "name": "UnionBudget_extension.lean",
+      "bytes": 4757,
+      "sha256": "3a8f452849d880ce178a7878a029316ffdd1e0a6b8e9c0d05813b05b20469f30"
+    },
+    {
+      "name": "UnionBudget_compile.log",
+      "bytes": 3984,
+      "sha256": "7ddf013e1ed5534342614c16097e2eedc717fb6176b6213354c71ddd2ec56b3d"
+    },
+    {
+      "name": "UnionFree_extension.lean",
+      "bytes": 2839,
+      "sha256": "72fd2172e116ebce30b8ed7a1f98f7cc6c74701830756054859d74c038b59f8a"
+    },
+    {
+      "name": "UnionFree_compile.log",
+      "bytes": 3841,
+      "sha256": "e33547486b0d9beea9ee69c344465334d49c7d89dd20f6f881044fb3acf70529"
+    },
+    {
+      "name": "sat_custom_family.py",
+      "bytes": 12323,
+      "sha256": "5836cc8b951e2eb1b1624d0e729f7102a61f49e51a3f1e7d0656639bb412db6d"
+    },
+    {
+      "name": "k4_heavy_family.json",
+      "bytes": 1347,
+      "sha256": "49975a11d21ea61bff3bec9309197d8ec148f4cbfdd80e72975c1347e09113e3"
+    },
+    {
+      "name": "sat_k4_fixed.json",
+      "bytes": 3688,
+      "sha256": "1b570d873b8e74987a5af23d46e897c6e1371bcea700e32b33e4972e511a19cc"
+    },
+    {
+      "name": "sat_k4_fixed.log",
+      "bytes": 1641,
+      "sha256": "9bf7e6067850fc73a083ed9fa1abf9d36702fcfaf7da03b5d00cda7988ef5cb6"
+    },
+    {
+      "name": "sat_k4_fixed.round0.solver.log",
+      "bytes": 11957,
+      "sha256": "dd72f3bba27c01715b89dab8dc5caaf7539d272e494006a3b753e8be5cf0a8f4"
+    },
+    {
+      "name": "sat_k4_control.json",
+      "bytes": 4897,
+      "sha256": "4d600e6a46eaa393e05e9b8cf73ed6c8344964776ec4ae2d7697117578e9a762"
+    },
+    {
+      "name": "sat_k4_control.log",
+      "bytes": 1621,
+      "sha256": "129501be7288e208d1efcaaaa9cdd5aa98e95005c09d096874816d43938c6ea8"
+    },
+    {
+      "name": "sat_k4_control.round0.solver.log",
+      "bytes": 11799,
+      "sha256": "77caabc17edcbcad361f2ed017072837f82293c75b4fac87f7fa88190ba0399c"
+    }
+  ],
+  "total_bytes": 64694
+}
