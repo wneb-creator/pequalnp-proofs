@@ -1,0 +1,1142 @@
+L-meta-670 checked components. Every listed Lean compilation exited 0.
+These components and two small calibration leaves do not constitute the posted theorem.
+Scratch harness imports are included for reproduction; final submission must inline the integration bodies in the one named file.
+
+CombinedBase1007.lean
+SHA256 23be067e4f3cbd5b74dff5629032e0e41cc9d63639381f93f4fd2fde34c7cc70
+full embedded-base rebuild; independently audited packing and subset interfaces
+Complete stdout/stderr:
+import took 12.3s
+simp took 146ms
+simp took 144ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:132:183: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:132:183: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:142:204: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:142:204: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:148:177: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:148:177: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:156:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:156:81: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+simp took 122ms
+tactic execution of Lean.Parser.Tactic.simp took 150ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:175:112: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:175:108: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:175:112: warning: Unused tactic linter: `aesop` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:197:4: warning: Unused tactic linter: `change x ∈ v ↔ _` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+simp took 148ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:272:99: warning: This simp argument is unused:
+  BitVec.and_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.or_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:272:115: warning: This simp argument is unused:
+  BitVec.or_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.and_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:272:185: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:272:185: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+simp took 174ms
+simp took 190ms
+type checking took 1.78s
+simp took 138ms
+simp took 112ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 117ms
+tactic execution of Lean.Parser.Tactic.contradiction took 153ms
+tactic execution of Lean.Parser.Tactic.contradiction took 148ms
+tactic execution of Lean.Parser.Tactic.contradiction took 110ms
+tactic execution of Lean.Parser.Tactic.contradiction took 113ms
+tactic execution of Lean.Parser.Tactic.contradiction took 194ms
+tactic execution of Lean.Parser.Tactic.contradiction took 134ms
+tactic execution of Lean.Parser.Tactic.contradiction took 191ms
+tactic execution of Lean.Parser.Tactic.contradiction took 154ms
+tactic execution of Lean.Parser.Tactic.contradiction took 137ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 370ms
+tactic execution of Lean.Parser.Tactic.contradiction took 259ms
+tactic execution of Lean.Parser.Tactic.contradiction took 167ms
+tactic execution of Lean.Parser.Tactic.contradiction took 198ms
+tactic execution of Lean.Parser.Tactic.contradiction took 145ms
+tactic execution of Lean.Parser.Tactic.contradiction took 228ms
+tactic execution of Lean.Parser.Tactic.contradiction took 201ms
+tactic execution of Lean.Parser.Tactic.contradiction took 228ms
+tactic execution of Lean.Parser.Tactic.contradiction took 182ms
+tactic execution of Lean.Parser.Tactic.contradiction took 243ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 263ms
+tactic execution of Lean.Parser.Tactic.contradiction took 186ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 190ms
+tactic execution of Lean.Parser.Tactic.contradiction took 212ms
+tactic execution of Lean.Parser.Tactic.contradiction took 126ms
+tactic execution of Lean.Parser.Tactic.contradiction took 174ms
+tactic execution of Lean.Parser.Tactic.contradiction took 103ms
+tactic execution of Lean.Parser.Tactic.contradiction took 149ms
+tactic execution of Lean.Parser.Tactic.contradiction took 130ms
+tactic execution of Lean.Parser.Tactic.contradiction took 163ms
+tactic execution of Lean.Parser.Tactic.contradiction took 177ms
+tactic execution of Lean.Parser.Tactic.contradiction took 112ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 282ms
+tactic execution of Lean.Parser.Tactic.contradiction took 102ms
+tactic execution of Lean.Parser.Tactic.contradiction took 145ms
+tactic execution of Lean.Parser.Tactic.contradiction took 120ms
+tactic execution of Lean.Parser.Tactic.contradiction took 127ms
+tactic execution of Lean.Parser.Tactic.contradiction took 164ms
+tactic execution of Lean.Parser.Tactic.contradiction took 112ms
+tactic execution of Lean.Parser.Tactic.contradiction took 154ms
+tactic execution of Lean.Parser.Tactic.contradiction took 117ms
+tactic execution of Lean.Parser.Tactic.contradiction took 157ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 245ms
+simp took 147ms
+simp took 188ms
+simp took 141ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:622:0: warning: Definition `keep_perm` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 152ms
+simp took 108ms
+simp took 199ms
+simp took 242ms
+simp took 199ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:689:62: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ht, Bool.true_or, Bool.or_true, Bool.and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 582ms
+type checking took 242ms
+simp took 100ms
+sym typeclass inference of Lean.Grind.IsCharP took 481ms
+sym typeclass inference of Lean.Grind.NoNatZeroDivisors took 869ms
+sym typeclass inference of Lean.Grind.PowIdentity took 110ms
+sym typeclass inference of Lean.Grind.OrderedAdd took 185ms
+sym typeclass inference of Lean.Grind.NoNatZeroDivisors took 188ms
+grind took 376ms
+sym typeclass inference of Lean.Grind.IsCharP took 118ms
+grind took 277ms
+sym typeclass inference of Lean.Grind.IsCharP took 171ms
+sym typeclass inference of Lean.Grind.NoNatZeroDivisors took 269ms
+grind took 356ms
+sym typeclass inference of Lean.Grind.IsCharP took 120ms
+grind took 361ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:808:16: warning: Unused tactic linter: `exact Bool.or_le_or ha hb` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:808:44: warning: Unused tactic linter: `exact Bool.and_le_and ha hb` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+simp took 201ms
+typeclass inference of AddLeftReflectLE took 127ms
+simp took 344ms
+simp took 111ms
+type checking took 709ms
+type checking took 689ms
+tactic execution of Lean.Parser.Tactic.simp took 110ms
+tactic execution of Lean.Parser.Tactic.refine took 115ms
+elaboration took 4.01s
+elaboration took 739ms
+elaboration took 4.76s
+type checking took 1.87s
+type checking took 3.65s
+type checking took 2.9s
+type checking took 3s
+type checking took 4.99s
+type checking took 3.86s
+type checking took 3.66s
+type checking took 1.54s
+type checking took 3.45s
+type checking took 1.95s
+type checking took 4.71s
+type checking took 4.95s
+type checking took 7.24s
+type checking took 2.06s
+type checking took 1.83s
+type checking took 3.36s
+type checking took 4.3s
+type checking took 6.21s
+type checking took 1.3s
+type checking took 3.96s
+type checking took 8.05s
+type checking took 2.01s
+type checking took 3.88s
+type checking took 2.01s
+type checking took 6.25s
+type checking took 6.49s
+type checking took 5.36s
+type checking took 2.33s
+type checking took 6.28s
+type checking took 3.79s
+type checking took 3.74s
+type checking took 323ms
+elaboration took 121ms
+type checking took 3.24s
+type checking took 9.37s
+type checking took 4.4s
+type checking took 5.64s
+type checking took 5.9s
+type checking took 2.3s
+type checking took 2.71s
+type checking took 3.32s
+type checking took 2.51s
+type checking took 3.53s
+type checking took 2.67s
+type checking took 3.17s
+type checking took 2.99s
+type checking took 3.24s
+type checking took 1.98s
+type checking took 1.46s
+type checking took 1.56s
+type checking took 1.29s
+type checking took 1.96s
+type checking took 1.59s
+type checking took 1.43s
+type checking took 3.6s
+type checking took 3.21s
+type checking took 8.41s
+type checking took 3.88s
+type checking took 4.69s
+type checking took 4s
+type checking took 3.9s
+type checking took 4.26s
+type checking took 4.72s
+type checking took 6.28s
+type checking took 3.05s
+type checking took 1.32s
+type checking took 1.16s
+type checking took 891ms
+type checking took 1.51s
+type checking took 1.01s
+type checking took 10.7s
+type checking took 13.1s
+type checking took 6.41s
+type checking took 320ms
+type checking took 531ms
+simp took 162ms
+simp took 110ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:1423:4: warning: exponent 464 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:1423:41: warning: This simp argument is unused:
+  BitVec.getLsbD_not
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hl, neg, Theta.mask, Theta.lo, show j < 252 by omega, show j < 464 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:1426:47: warning: This simp argument is unused:
+  BitVec.getLsbD_not
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hl, hh, neg, Theta.mask, Theta.lo, show j - 232 < 252 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 342ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:1477:9: warning: Local variable 'done' resembles constructor 'PEqualNP.Outside.L_meta_670_aux.Base1007.Theta.Run.done' - write '.done' (with a dot) or 'PEqualNP.Outside.L_meta_670_aux.Base1007.Theta.Run.done' to use the constructor.
+
+Note: This linter can be disabled with `set_option linter.constructorNameAsVariable false`
+type checking took 5.24s
+simp took 241ms
+simp took 276ms
+simp took 192ms
+simp took 155ms
+simp took 585ms
+simp took 469ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:1662:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:1677:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:1679:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:1692:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:1694:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+interpretation of _private.Mathlib.Tactic.Linter.Lint.0.Mathlib.Linter.DupNamespaceLinter.dupNamespace._lam_1._boxed took 172ms
+tactic execution of Lean.Parser.Tactic.exact took 112ms
+elaboration took 209ms
+simp took 101ms
+simp took 109ms
+simp took 135ms
+simp took 104ms
+simp took 304ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:1891:60: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sep, bin, ite_false, ite_true, takeTwo, top, BitVec.getLsbD_allOnes, BitVec.getLsbD_and,
+    BitVec.getLsbD_or, BitVec.getLsbD_not, reduceCtorEq, hi, decide_true, Bool.true_and] at hh ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:1900:59: warning: This simp argument is unused:
+  decide_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [slowBinary, tryGate, Nat.sub_zero, hlen, ite_true, Bool.or_eq_true, Bool.and_eq_true,
+    beq_iff_eq] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:2018:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+type checking took 1.01s
+tactic execution of Lean.Parser.Tactic.refine took 168ms
+tactic execution of Lean.Parser.Tactic.refine took 247ms
+type checking took 5.06s
+type checking took 9.24s
+elaboration took 129ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CombinedBase1007.lean:2231:13: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+elaboration took 202ms
+elaboration took 138ms
+type checking took 2.18s
+type checking took 3.55s
+type checking took 3.42s
+type checking took 3.47s
+type checking took 3.02s
+type checking took 2.16s
+type checking took 1.99s
+type checking took 2s
+type checking took 2.34s
+type checking took 1.67s
+type checking took 2.67s
+type checking took 3.17s
+type checking took 3.53s
+type checking took 1.61s
+type checking took 2.63s
+type checking took 1.35s
+type checking took 2.11s
+type checking took 2.76s
+type checking took 3.18s
+type checking took 2.54s
+type checking took 2.52s
+type checking took 2.59s
+type checking took 2.83s
+type checking took 1.46s
+type checking took 2.28s
+type checking took 1.96s
+type checking took 1.71s
+type checking took 1.43s
+type checking took 879ms
+type checking took 1.37s
+type checking took 945ms
+type checking took 1.46s
+type checking took 1.43s
+type checking too.olean serialization took 307ms
+k 1.24s
+type checking took 1.46s
+type checking took 1.82s
+type checking took 2.05s
+type checking took 1.54s
+type checking took 1.06s
+type checking took 1.4s
+type checking took 1.97s
+type checking took 1.12s
+type checking took 2.59s
+type checking took 1.03s
+type checking took 1.83s
+type checking took 2.02s
+type checking took 1.83s
+type checking took 1.71s
+type checking took 1.85s
+type checking took 1.44s
+type checking took 1.51s
+type checking took 1.76s
+type checking took 1.51s
+type checking took 1.92s
+type checking took 1.45s
+type checking took 2.3s
+type checking took 872ms
+type checking took 705ms
+type checking took 10.9s
+type checking took 7.48s
+type checking took 11s
+type checking took 20s
+type checking took 13s
+type checking took 3.21s
+type checking took 7.62s
+type checking took 9.57s
+type checking took 6.01s
+type checking took 7.75s
+type checking took 5.33s
+type checking took 3.72s
+type checking took 3.42s
+type checking took 3.69s
+type checking took 4.74s
+type checking took 6.28s
+type checking took 6.7s
+type checking took 7.04s
+type checking took 6.17s
+type checking took 6.43s
+type checking took 7.27s
+type checking took 5.08s
+type checking took 5.04s
+type checking took 3.23s
+type checking took 2.97s
+type checking took 4.56s
+type checking took 3.84s
+type checking took 3.22s
+type checking took 3.1s
+type checking took 4.72s
+type checking took 2.7s
+type checking took 2.86s
+type checking took 1.17s
+type checking took 5.2s
+type checking took 1.21s
+type checking took 15.3s
+type checking took 18.9s
+type checking took 2.43s
+type checking took 13.9s
+type checking took 8.96s
+type checking took 10.3s
+type checking took 6.12s
+type checking took 2.1s
+type checking took 988ms
+type checking took 2.27s
+type checking took 4.24s
+type checking took 2.53s
+type checking took 809ms
+type checking took 226ms
+type checking took 246ms
+type checking took 322ms
+type checking took 634ms
+type checking took 139ms
+simp took 130ms
+cumulative profiling times:
+	.olean serialization 307ms
+	attribute application 11ms
+	blocked (unaccounted) 3.45e+04s
+	compilation (IR) 26.6ms
+	compilation (LCNF base) 465ms
+	compilation (LCNF impure) 143ms
+	compilation (LCNF mono) 179ms
+	congr simp thm 294ms
+	declTypeLinter 653ms
+	dsimp 6.69ms
+	elaboration 14.7s
+	fix level params 19.9ms
+	grind 1.37s
+	grind ac 1.59ms
+	grind cutsat 28.7ms
+	grind ematch 200ms
+	grind linarith 0.155ms
+	grind mark subsingleton 139ms
+	grind ring 4.03ms
+	grind simp 513ms
+	import 12.3s
+	initialization 29.2ms
+	instantiate metavars 202ms
+	interpretation 9.21s
+	let-to-have transformation 16.6ms
+	linting 2.49s
+	module linting 0.297ms
+	norm_num 2.47ms
+	parsing 407ms
+	process pre-definitions 1.81s
+	share common exprs 357ms
+	simp 23s
+	sym canon 102ms
+	sym typeclass inference 3.11s
+	tactic execution 19.8s
+	tacticAnalysis 449ms
+	type checking 712s
+	typeclass inference 6.77s
+
+
+SlimCompact1007.lean
+SHA256 21069a8982b627c2f8d2c916edf7b70c2224b9be12f590f72acd097fb7c0a97f
+full compact-base rebuild; all replacement data kernel-equated and independently audited
+Complete stdout/stderr:
+import took 6.92s
+typeclass inference of PartialOrder took 295ms
+simp took 143ms
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:132:183: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:132:183: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+simp took 127ms
+simp took 104ms
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:142:204: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:142:204: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:148:177: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:148:177: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+typeclass inference of DecidableEq took 166ms
+tactic execution of Lean.Parser.Tactic.exact took 155ms
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:156:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:156:81: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+typeclass inference of LE took 113ms
+simp took 310ms
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:175:112: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:175:108: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:175:112: warning: Unused tactic linter: `aesop` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+tactic execution of Lean.Parser.Tactic.refine took 142ms
+tactic execution of Lean.Parser.Tactic.simpa took 145ms
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:197:4: warning: Unused tactic linter: `change x ∈ v ↔ _` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:272:99: warning: This simp argument is unused:
+  BitVec.and_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.or_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:272:115: warning: This simp argument is unused:
+  BitVec.or_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.and_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:272:185: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:272:185: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 180ms
+simp took 115ms
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:519:0: warning: Definition `keep_perm` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:586:62: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ht, Bool.true_or, Bool.or_true, Bool.and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 230ms
+sym typeclass inference of Lean.Grind.NoNatZeroDivisors took 105ms
+sym typeclass inference of Lean.Grind.IsCharP took 212ms
+sym typeclass inference of Lean.Grind.NoNatZeroDivisors took 576ms
+grind took 173ms
+grind took 191ms
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:705:16: warning: Unused tactic linter: `exact Bool.or_le_or ha hb` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:705:44: warning: Unused tactic linter: `exact Bool.and_le_and ha hb` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+type checking took 162ms
+type checking took 148ms
+typeclass inference of Decidable took 163ms
+elaboration took 120ms
+elaboration took 2.01s
+type checking took 1.14s
+type checking took 545ms
+type checking took 952ms
+type checking took 2.35s
+type checking took 825ms
+type checking took 1.67s
+type checking took 486ms
+type checking took 528ms
+type checking took 511ms
+type checking took 1.71s
+type checking took 562ms
+type checking took 669ms
+type checking took 1.81s
+type checking took 860ms
+type checking took 1.63s
+type checking took 984ms
+type checking took 1.46s
+type checking took 857ms
+type checking took 888ms
+type checking took 2.1s
+type checking took 2.26s
+type checking took 664ms
+type checking took 618ms
+type checking took 1.21s
+type checking took 875ms
+type checking took 1.76s
+type checking took 777ms
+type checking took 687ms
+type checking took 1.19s
+type checking took 650ms
+type checking took 693ms
+type checking took 2.82s
+type checking took 1.82s
+type checking took 1.78s
+type checking took 1.56s
+type checking took 1.16s
+type checking took 1.87s
+type checking took 2.06s
+type checking took 1.78s
+type checking took 1.73s
+type checking took 2.17s
+type checking took 1.77s
+type checking took 2.08s
+type checking took 1.67s
+type checking took 3s
+type checking took 1.51s
+type checking took 1.16s
+type checking took 942ms
+type checking took 1.09s
+type checking took 2.34s
+type checking took 1.28s
+type checking took 1.47s
+type checking took 1.9s
+type checking took 2.14s
+type checking took 2.63s
+type checking took 3.19s
+type checking took 2.6s
+type checking took 2.46s
+type checking took 2.27s
+type checking took 2.5s
+type checking took 3.34s
+type checking took 4.19s
+type checking took 2.56s
+type checking took 1.48s
+type checking took 1.46s
+type checking took 1.19s
+type checking took 1.99s
+type checking took 1.24s
+type checking took 7.41s
+type checking took 7.9s
+type checking took 4.34s
+type checking took 617ms
+type checking took 483ms
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:1340:4: warning: exponent 464 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:1340:41: warning: This simp argument is unused:
+  BitVec.getLsbD_not
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hl, neg, Theta.mask, Theta.lo, show j < 252 by omega, show j < 464 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:1343:47: warning: This simp argument is unused:
+  BitVec.getLsbD_not
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hl, hh, neg, Theta.mask, Theta.lo, show j - 232 < 252 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:1394:9: warning: Local variable 'done' resembles constructor 'PEqualNP.Outside.L_meta_670_aux.Base1007.Theta.Run.done' - write '.done' (with a dot) or 'PEqualNP.Outside.L_meta_670_aux.Base1007.Theta.Run.done' to use the constructor.
+
+Note: This linter can be disabled with `set_option linter.constructorNameAsVariable false`
+type checking took 4.89s
+simp took 182ms
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:1579:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:1594:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:1596:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:1609:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:1611:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+simp took 160ms
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:1794:60: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sep, bin, ite_false, ite_true, takeTwo, top, BitVec.getLsbD_allOnes, BitVec.getLsbD_and,
+    BitVec.getLsbD_or, BitVec.getLsbD_not, reduceCtorEq, hi, decide_true, Bool.true_and] at hh ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:1803:59: warning: This simp argument is unused:
+  decide_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [slowBinary, tryGate, Nat.sub_zero, hlen, ite_true, Bool.or_eq_true, Bool.and_eq_true,
+    beq_iff_eq] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:1921:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+type checking took 677ms
+tactic execution of Lean.Parser.Tactic.refine took 165ms
+type checking took 4.39s
+type checking took 8.86s
+/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean:2134:13: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+elaboration took 163ms
+elaboration took 139ms
+type checking took 1.45s
+type checking took 1.91s
+type checking took 2.77s
+type checking took 2.27s
+type checking took 2.37s
+type checking took 2.69s
+type checking took 1.89s
+type checking took 1.92s
+type checking took 1.72s
+type checking took 1.8s
+type checking took 2.09s
+type checking took 2.99s
+type checking took 3.66s
+type checking took 1.76s
+type checking took 2.58s
+type checking took 1.25s
+type checking took 1.87s
+type checking took 2.75s
+type checking took 2.14s
+type checking took 1.68s
+type checking took 2.84s
+type checking took 2.51s
+type checking took 2.15s
+type checking took 1.26s
+type checking took 1.84s
+type checking took 1.84s
+type checking took 1.41s
+type checking took 1.84s
+type checking took 1.19s
+type checking took 961ms
+type checking took 1.37s
+type checking took 1.15s
+type checking took 1.52s
+type checking took 802ms
+type checking took 1.77s
+t.olean serialization took 311ms
+ype checking took 1.71s
+type checking took 2.85s
+type checking took 868ms
+type checking took 963ms
+type checking took 1.67s
+type checking took 1.82s
+type checking took 1.13s
+type checking took 1.24s
+type checking took 993ms
+type checking took 1.02s
+type checking took 1.32s
+type checking took 1.74s
+type checking took 1.49s
+type checking took 2.96s
+type checking took 1.68s
+type checking took 1.47s
+type checking took 1.9s
+type checking took 1.73s
+type checking took 2.08s
+type checking took 1.59s
+type checking took 1.72s
+type checking took 760ms
+type checking took 669ms
+type checking took 8.72s
+type checking took 7.8s
+type checking took 8.23s
+type checking took 11.7s
+type checking took 9.67s
+type checking took 2.94s
+type checking took 5.41s
+type checking took 5.53s
+type checking took 4.12s
+type checking took 5.85s
+type checking took 4.21s
+type checking took 4.41s
+type checking took 3.9s
+type checking took 4.4s
+type checking took 3.65s
+type checking took 5.69s
+type checking took 4.59s
+type checking took 4.54s
+type checking took 3.89s
+type checking took 4.9s
+type checking took 6.08s
+type checking took 4.72s
+type checking took 6.77s
+type checking took 4.9s
+type checking took 4.08s
+type checking took 2.65s
+type checking took 3.96s
+type checking took 2.9s
+type checking took 2.88s
+type checking took 3.93s
+type checking took 2.35s
+type checking took 3.58s
+type checking took 1.2s
+type checking took 6.14s
+type checking took 1.26s
+type checking took 18.9s
+type checking took 14.8s
+type checking took 1.31s
+type checking took 10.6s
+type checking took 7.24s
+type checking took 6.59s
+type checking took 5.16s
+type checking took 2.18s
+type checking took 637ms
+type checking took 2.46s
+type checking took 2.78s
+type checking took 2.56s
+type checking took 839ms
+type checking took 247ms
+type checking took 634ms
+type checking took 241ms
+type checking took 265ms
+type checking took 136ms
+cumulative profiling times:
+	.olean serialization 311ms
+	attribute application 10.7ms
+	blocked (unaccounted) 2.39e+04s
+	compilation (IR) 14ms
+	compilation (LCNF base) 187ms
+	compilation (LCNF impure) 53.4ms
+	compilation (LCNF mono) 101ms
+	congr simp thm 87.7ms
+	declTypeLinter 280ms
+	dsimp 2.76ms
+	elaboration 4.64s
+	fix level params 15.6ms
+	grind 446ms
+	grind ac 2.16ms
+	grind cutsat 11.5ms
+	grind ematch 146ms
+	grind linarith 0.125ms
+	grind mark subsingleton 43.9ms
+	grind ring 4.35ms
+	grind simp 206ms
+	import 6.92s
+	initialization 27ms
+	instantiate metavars 77.8ms
+	interpretation 3.99s
+	let-to-have transformation 13.1ms
+	linting 885ms
+	module linting 0.0338ms
+	norm_num 1.8ms
+	parsing 222ms
+	process pre-definitions 570ms
+	share common exprs 104ms
+	simp 9.13s
+	sym canon 45.7ms
+	sym typeclass inference 1.35s
+	tactic execution 6.6s
+	tacticAnalysis 126ms
+	type checking 502s
+	typeclass inference 4.53s
+
+
+ThetaRecipesTest.lean
+SHA256 78558434d2cbec2fa16458f783fd2bbbbb892eebbc9333e0a7962d435e41263b
+321 signal and 709 row equalities; counterexample independent review PASS
+Complete stdout/stderr:
+import took 5.42s
+type checking took 572ms
+type checking took 4.8s
+'PEqualNP.Outside.L_meta_670_aux.ThetaRecipeCheck.exact_signals' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_670_aux.ThetaRecipeCheck.exact_rows' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_670_aux.ThetaRecipeCheck.tail_signals' depends on axioms: [propext]
+cumulative profiling times:
+	.olean serialization 4.89ms
+	attribute application 0.0903ms
+	blocked (unaccounted) 11.4s
+	compilation (IR) 5.28ms
+	compilation (LCNF base) 20ms
+	compilation (LCNF impure) 3.99ms
+	compilation (LCNF mono) 4.17ms
+	declTypeLinter 4.75ms
+	elaboration 36.5ms
+	fix level params 0.0694ms
+	import 5.42s
+	initialization 32.4ms
+	instantiate metavars 0.0862ms
+	interpretation 358ms
+	let-to-have transformation 0.0654ms
+	linting 23.7ms
+	module linting 0.0247ms
+	parsing 2.53ms
+	process pre-definitions 6.73ms
+	share common exprs 0.31ms
+	tactic execution 3.12ms
+	tacticAnalysis 6.37ms
+	type checking 5.38s
+	typeclass inference 14.2ms
+
+
+MemoChildrenTest.lean
+SHA256 77cfc388f3453cd1d26272f4e3df56cfbe31b7acb3981bc2eebdc636026dec3a
+untrusted child metadata; root independent review PASS
+Complete stdout/stderr:
+import took 5.13s
+type checking took 176ms
+type checking took 156ms
+type checking took 161ms
+type checking took 174ms
+cumulative profiling times:
+	attribute application 0.101ms
+	blocked (unaccounted) 1.43s
+	compilation (IR) 1.04ms
+	compilation (LCNF base) 17.7ms
+	compilation (LCNF impure) 4.4ms
+	compilation (LCNF mono) 10.6ms
+	congr simp thm 0.135ms
+	declTypeLinter 4.39ms
+	elaboration 61.2ms
+	fix level params 0.125ms
+	import 5.13s
+	initialization 38.4ms
+	instantiate metavars 0.144ms
+	interpretation 548ms
+	let-to-have transformation 1.22ms
+	linting 12.7ms
+	module linting 0.0506ms
+	parsing 5.26ms
+	process pre-definitions 5.32ms
+	share common exprs 0.844ms
+	simp 0.505ms
+	tactic execution 1.41ms
+	tacticAnalysis 2.21ms
+	type checking 673ms
+	typeclass inference 27ms
+
+
+DynamicClosedTest.lean
+SHA256 e6e7ea09ac8f989b16d88084dc699d57b5a499a8c705c3dbba64975ce72df3d1
+separate computational oracle data and soundness; red_team independent review PASS
+Complete stdout/stderr:
+/tmp/oec/pequalnp-pilot-14/sat-proof/DynamicClosedTest.lean:191:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/sat-proof/DynamicClosedTest.lean:199:27: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+
+
+DynamicClosedCalibration.lean
+SHA256 0305822b3e19b538b167e51cdc0f0b53597bb940048ec462855bf6c77229684d
+one selected ten-call search leaf, conditional lower-bound hypotheses
+Complete stdout/stderr:
+real 11.35
+user 7.85
+sys 3.41
+
+
+DynamicMemoTest.lean
+SHA256 10a1b7f12a6b275998c6905ac277cd45fc50d22efbbcc9bdd9cf125aaa54f549
+memo and cached-context integration; red_team independent review PASS
+Complete stdout/stderr:
+
+
+MemoCalibration.lean
+SHA256 a3c274d3a90ab369008f26ff11d9acc4cf679af07d1221a4e406e7dce2c348b3
+same selected ten-call leaf with memo reuse
+Complete stdout/stderr:
+real 8.46
+user 6.02
+sys 2.44
+
+
+FastRecipeImportTest.lean
+SHA256 eae5724a23359fe9e2005b3e68f2121e4dd805f9f29cbec23933c6293a295141
+checked recipe-based projected initialization; lower_bound independent review PASS
+Complete stdout/stderr:
+/tmp/oec/pequalnp-pilot-14/replay/FastRecipeImportTest.lean:35:13: warning: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/replay/FastRecipeImportTest.lean:104:4: warning: exponent 414 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+
+
+CachedRawIntegrationTest.lean
+SHA256 0dd6c5753fad2cd1c8fc0318ec825a8f4a082ca89d3023895218723abdaaf2cc
+all concrete projected input values; toolchain independent review PASS
+Complete stdout/stderr:
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:101:85: warning: exponent 414 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:131:183: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:131:183: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:141:204: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:141:204: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:147:177: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:147:177: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:155:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:155:81: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:174:112: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:174:108: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:174:112: warning: Unused tactic linter: `aesop` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:196:4: warning: Unused tactic linter: `change x ∈ v ↔ _` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:271:99: warning: This simp argument is unused:
+  BitVec.and_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.or_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:271:115: warning: This simp argument is unused:
+  BitVec.or_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, top, reduceCtorEq, ite_true, ite_false, BitVec.and_allOnes, BitVec.or_allOnes,
+    BitVec.and_zero, BitVec.and_self, BitVec.or_self, Prod.mk.injEq, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:271:185: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:271:185: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:626:60: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sep, bin, ite_false, ite_true, takeTwo, top, BitVec.getLsbD_allOnes, BitVec.getLsbD_and,
+    BitVec.getLsbD_or, BitVec.getLsbD_not, reduceCtorEq, hi, decide_true, Bool.true_and] at hh ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:635:59: warning: This simp argument is unused:
+  decide_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [slowBinary, tryGate, Nat.sub_zero, hlen, ite_true, Bool.or_eq_true, Bool.and_eq_true,
+    beq_iff_eq] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/counterexample/CachedRawIntegrationTest.lean:737:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'PEqualNP.Outside.L_meta_670_aux.CachedProjection.cachedRaw_eq_domains' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+
+ClosedDomains12Test.lean
+SHA256 f02488f17b7c76a9dd284530dfcf5e85d23e848677b116ebcb286636da7927ab
+all twelve concrete oracle definitions; toolchain independent review PASS
+Complete stdout/stderr:
+'PEqualNP.Outside.L_meta_670_aux.ClosedDomains12.oracles_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_670_aux.ClosedDomains12.inputs_cached' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_670_aux.ClosedDomains12.cachedRaw_correct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+
+ClosedThetaBridgeTest.lean
+SHA256 784cae249a72c52c65e0416dd5df653110f92819620b7750e26bbe5b6d0a2d8c
+oracle assumptions match the embedded closed subset bounds; toolchain independent review PASS
+Complete stdout/stderr:
+'PEqualNP.Outside.L_meta_670_aux.ClosedDomains12.oracles_sound_from_base' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+
+DynamicMemoFastTest.lean
+SHA256 c2732ba7eac344def98601978a1d564c48835830dadad2729948332e0c3537f7
+fast initializer with memoized search; red_team independent review PASS
+Complete stdout/stderr:
+
+
+MemoBatchTest.lean
+SHA256 4bb49a808b80780cd46824a1e3d443bef1d110b0c0d286ab75c9487a72b3af25
+sound reuse across a chunk of states; root independent review PASS
+Complete stdout/stderr:
+
