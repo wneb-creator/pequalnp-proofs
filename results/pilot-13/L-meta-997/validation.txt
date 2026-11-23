@@ -127,3 +127,9 @@ Independent root/fresh_proof review PASS on82-line SmallDimension16 SHA2563653fe
 Combined snapshot e489901ce3c7e8249c06a486ebf1cf060bedfc36b5c82d73926cf5134de67505. General posted theorem remains absent. Cleanup skipped because exact checker never passed; before/after cleanup6310/6310 lines.
 Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
 TIMING total=87.1 subagents=6
+
+Final6310-line snapshot: exact-statement checker exit1, REJECTED (no-theorem). Outside format guard exit1, REFUSED: the file holds no theorem. Full stdout/stderr preserved. These are expected partial-result verdicts, not accepted proofs.
+
+L-meta-997 attempt ended after the required90-minute effort at2026-11-23T23:13:54.618191+00:00. General theorem and actual counterexample remain unresolved; release reason other. All compiled partials and diagnostics preserved before release.
+Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
+TIMING total=90.3 subagents=6
