@@ -18,3 +18,7 @@ Added exact refund lower bound, no-NOT case, and full mixed-family inequality fo
 Independent red-team review passed on SHA256 9d8e440f9cb91bed95fbdb4b4beb512835e76eb45eba46a5556777d3a549acfb.
 General posted theorem remains unproved; no proof PR yet.
 TIMING total=12.1 subagents=5
+
+Fourth partial: 1802 lines. Build 7 passed. Added weighted light cut, strictly growing heavy OR charge bound, and all-disjoint family case.
+Independent red-team review passed on SHA256 f707d8000b82d38e48e06b36088f1ccbbd2a82d278ebc416b78f77978d0c326f.
+Checker on prior1265-line snapshot: REJECTED (no-theorem); general posted theorem remains absent.
