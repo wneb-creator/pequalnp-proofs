@@ -1,0 +1,8 @@
+Independent source review: LiteralEarlyGraph8Certificate984.lean
+SHA256: 091874729344b4dc4d8ed9a65cb42ca8ad201546b75949974b7e6f657343a29a
+Reviewer: toolchain_setup. Source author: fresh_full_proof.
+Verdict: PASS; separately observed Lean exit0/status0.
+The new literalRoutesGood checks validity and target-fixing for every listed route. literalRouteOrient_run derives each action's MonRun preservation from those checks and routeStages_run, then applies orbitActions_run. No bijectivity assumption is required by this one-way preservation result. Explicit nonzero stage lists remove packed-mask extraction; the finite state checker is still evaluated on the actual resulting orientation.
+All fourteen G8 finite entries and the complete Circuit/Monotone2 lower-bound wrapper compiled. This proves only that conjunct, not the complete31-conjunct posted theorem.
+The remaining checker, score, coverage, table lookup, and semantic bridge are unchanged from the previously reviewed complete G8-v7b source. No forbidden proof construct or quoted string was found; existing limit options and two deprecation warnings are unchanged.
+Validation: toolchain/meta984/literal-early-graph8-1.stdout, .stderr, .status.

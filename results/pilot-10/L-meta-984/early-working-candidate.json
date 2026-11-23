@@ -2,6 +2,6 @@
   "file": "Full984-compact-v7b.lean",
   "sha256": "065a86351fefe3349de2f58bfef1b2dd8de24f830a3568caea86881bfb91ff6c",
   "bytes": 492624,
-  "status": "Generic helper and complete G8 integration compile successfully. Full v7b lake build started2026-11-23T22:44:49Z; pending, no full compile verdict yet.",
+  "status": "Full v7b lake build ended2026-11-23T23:11Z: Lake exit1, Lean killed137 after1562s. No source-level Lean error or full theorem compile verdict. Generic helper and G8 integration remain successfully compiled.",
   "checker": "NOT RUN"
 }

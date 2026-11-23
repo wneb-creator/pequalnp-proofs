@@ -604,6 +604,18 @@
         "early-grouped-pattern-graph8-v7b.stderr"
       ],
       "scope": "Complete early-score grouped certificate for exact posted conjunct8, all14 states plus10\u2264circuit size; remaining30 conjuncts are not established by this file."
+    },
+    {
+      "file": "LiteralEarlyGraph8Certificate984.lean",
+      "sha256": "091874729344b4dc4d8ed9a65cb42ca8ad201546b75949974b7e6f657343a29a",
+      "bytes": 83174,
+      "lines": 1863,
+      "observed_compile_exit": 0,
+      "logs": [
+        "literal-early-graph8-1.stdout",
+        "literal-early-graph8-1.stderr"
+      ],
+      "scope": "Literal-route preservation and complete early-score certificate for exact posted conjunct8, all14 states plus10\u2264circuit size. Not the full31 conjunct statement."
     }
   ]
 }

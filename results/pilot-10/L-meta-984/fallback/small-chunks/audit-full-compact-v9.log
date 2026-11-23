@@ -1,0 +1,34 @@
+PASS graph 0 states 161 chunks 2 balancedjoin depth 1
+PASS graph 1 states 85 chunks 1 balancedjoin depth 0
+PASS graph 2 states 106 chunks 1 balancedjoin depth 0
+PASS graph 3 states 110 chunks 1 balancedjoin depth 0
+PASS graph 4 states 195 chunks 2 balancedjoin depth 1
+PASS graph 5 states 122 chunks 1 balancedjoin depth 0
+PASS graph 6 states 72 chunks 1 balancedjoin depth 0
+PASS graph 7 states 89 chunks 1 balancedjoin depth 0
+PASS graph 8 states 14 chunks 1 balancedjoin depth 0
+PASS graph 9 states 122 chunks 1 balancedjoin depth 0
+PASS graph 10 states 228 chunks 2 balancedjoin depth 1
+PASS graph 11 states 580 chunks 5 balancedjoin depth 3
+PASS graph 12 states 209 chunks 2 balancedjoin depth 1
+PASS graph 13 states 1102 chunks 9 balancedjoin depth 4
+PASS graph 14 states 115 chunks 1 balancedjoin depth 0
+PASS graph 15 states 1199 chunks 10 balancedjoin depth 4
+PASS graph 16 states 154 chunks 2 balancedjoin depth 1
+PASS graph 17 states 983 chunks 8 balancedjoin depth 3
+PASS graph 18 states 391 chunks 4 balancedjoin depth 2
+PASS graph 19 states 798 chunks 7 balancedjoin depth 3
+PASS graph 20 states 1499 chunks 12 balancedjoin depth 4
+PASS graph 21 states 1166 chunks 10 balancedjoin depth 4
+PASS graph 22 states 85 chunks 1 balancedjoin depth 0
+PASS graph 23 states 430 chunks 4 balancedjoin depth 2
+PASS graph 24 states 248 chunks 2 balancedjoin depth 1
+PASS graph 25 states 255 chunks 2 balancedjoin depth 1
+PASS graph 26 states 1067 chunks 9 balancedjoin depth 4
+PASS graph 27 states 3124 chunks 25 balancedjoin depth 5
+PASS graph 28 states 5742 chunks 45 balancedjoin depth 6
+PASS graph 29 states 2022 chunks 16 balancedjoin depth 4
+PASS graph 30 states 5310 chunks 42 balancedjoin depth 6
+PASS v9 source-only audit: all230 chunks≤128 cover27783 states exactly once; every nestedjoin has contiguous intervals and correct summed conclusion; all other declarations/header/statement identical to reviewed v8.
+Source SHA256 c777b1369bc0dd65a76f7f5c5590c65b4af53e328c714b8122f91912b24b5f5d bytes 512150 remaining bytes below512KiB 12138
+Scope: UNCOMPILED fallback. No full Lean theorem or repository checker verdict claimed.

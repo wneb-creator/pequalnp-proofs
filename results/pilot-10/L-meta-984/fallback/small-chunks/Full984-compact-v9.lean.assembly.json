@@ -1,0 +1,1497 @@
+{
+  "file": "/tmp/oec/pequalnp-pilot-10/fresh-full-proof/meta984/Full984-compact-v9.lean",
+  "bytes": 512150,
+  "lines": 6232,
+  "sha256": "c777b1369bc0dd65a76f7f5c5590c65b4af53e328c714b8122f91912b24b5f5d",
+  "graphs": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "states": {
+    "0": 161,
+    "1": 85,
+    "2": 106,
+    "3": 110,
+    "4": 195,
+    "5": 122,
+    "6": 72,
+    "7": 89,
+    "8": 14,
+    "9": 122,
+    "10": 228,
+    "11": 580,
+    "12": 209,
+    "13": 1102,
+    "14": 115,
+    "15": 1199,
+    "16": 154,
+    "17": 983,
+    "18": 391,
+    "19": 798,
+    "20": 1499,
+    "21": 1166,
+    "22": 85,
+    "23": 430,
+    "24": 248,
+    "25": 255,
+    "26": 1067,
+    "27": 3124,
+    "28": 5742,
+    "29": 2022,
+    "30": 5310
+  },
+  "chunks": [
+    {
+      "graph": 0,
+      "name": "C0_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 0,
+      "name": "C0_b1",
+      "offset": 128,
+      "count": 33
+    },
+    {
+      "graph": 1,
+      "name": "C1_b0",
+      "offset": 0,
+      "count": 85
+    },
+    {
+      "graph": 2,
+      "name": "C2_b0",
+      "offset": 0,
+      "count": 106
+    },
+    {
+      "graph": 3,
+      "name": "C3_b0",
+      "offset": 0,
+      "count": 110
+    },
+    {
+      "graph": 4,
+      "name": "C4_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 4,
+      "name": "C4_b1",
+      "offset": 128,
+      "count": 67
+    },
+    {
+      "graph": 5,
+      "name": "C5_b0",
+      "offset": 0,
+      "count": 122
+    },
+    {
+      "graph": 6,
+      "name": "C6_b0",
+      "offset": 0,
+      "count": 72
+    },
+    {
+      "graph": 7,
+      "name": "C7_b0",
+      "offset": 0,
+      "count": 89
+    },
+    {
+      "graph": 8,
+      "name": "C8_b0",
+      "offset": 0,
+      "count": 14
+    },
+    {
+      "graph": 9,
+      "name": "C9_b0",
+      "offset": 0,
+      "count": 122
+    },
+    {
+      "graph": 10,
+      "name": "C10_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 10,
+      "name": "C10_b1",
+      "offset": 128,
+      "count": 100
+    },
+    {
+      "graph": 11,
+      "name": "C11_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 11,
+      "name": "C11_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 11,
+      "name": "C11_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 11,
+      "name": "C11_b3",
+      "offset": 384,
+      "count": 128
+    },
+    {
+      "graph": 11,
+      "name": "C11_b4",
+      "offset": 512,
+      "count": 68
+    },
+    {
+      "graph": 12,
+      "name": "C12_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 12,
+      "name": "C12_b1",
+      "offset": 128,
+      "count": 81
+    },
+    {
+      "graph": 13,
+      "name": "C13_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 13,
+      "name": "C13_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 13,
+      "name": "C13_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 13,
+      "name": "C13_b3",
+      "offset": 384,
+      "count": 128
+    },
+    {
+      "graph": 13,
+      "name": "C13_b4",
+      "offset": 512,
+      "count": 128
+    },
+    {
+      "graph": 13,
+      "name": "C13_b5",
+      "offset": 640,
+      "count": 128
+    },
+    {
+      "graph": 13,
+      "name": "C13_b6",
+      "offset": 768,
+      "count": 128
+    },
+    {
+      "graph": 13,
+      "name": "C13_b7",
+      "offset": 896,
+      "count": 128
+    },
+    {
+      "graph": 13,
+      "name": "C13_b8",
+      "offset": 1024,
+      "count": 78
+    },
+    {
+      "graph": 14,
+      "name": "C14_b0",
+      "offset": 0,
+      "count": 115
+    },
+    {
+      "graph": 15,
+      "name": "C15_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 15,
+      "name": "C15_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 15,
+      "name": "C15_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 15,
+      "name": "C15_b3",
+      "offset": 384,
+      "count": 128
+    },
+    {
+      "graph": 15,
+      "name": "C15_b4",
+      "offset": 512,
+      "count": 128
+    },
+    {
+      "graph": 15,
+      "name": "C15_b5",
+      "offset": 640,
+      "count": 128
+    },
+    {
+      "graph": 15,
+      "name": "C15_b6",
+      "offset": 768,
+      "count": 128
+    },
+    {
+      "graph": 15,
+      "name": "C15_b7",
+      "offset": 896,
+      "count": 128
+    },
+    {
+      "graph": 15,
+      "name": "C15_b8",
+      "offset": 1024,
+      "count": 128
+    },
+    {
+      "graph": 15,
+      "name": "C15_b9",
+      "offset": 1152,
+      "count": 47
+    },
+    {
+      "graph": 16,
+      "name": "C16_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 16,
+      "name": "C16_b1",
+      "offset": 128,
+      "count": 26
+    },
+    {
+      "graph": 17,
+      "name": "C17_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 17,
+      "name": "C17_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 17,
+      "name": "C17_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 17,
+      "name": "C17_b3",
+      "offset": 384,
+      "count": 128
+    },
+    {
+      "graph": 17,
+      "name": "C17_b4",
+      "offset": 512,
+      "count": 128
+    },
+    {
+      "graph": 17,
+      "name": "C17_b5",
+      "offset": 640,
+      "count": 128
+    },
+    {
+      "graph": 17,
+      "name": "C17_b6",
+      "offset": 768,
+      "count": 128
+    },
+    {
+      "graph": 17,
+      "name": "C17_b7",
+      "offset": 896,
+      "count": 87
+    },
+    {
+      "graph": 18,
+      "name": "C18_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 18,
+      "name": "C18_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 18,
+      "name": "C18_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 18,
+      "name": "C18_b3",
+      "offset": 384,
+      "count": 7
+    },
+    {
+      "graph": 19,
+      "name": "C19_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 19,
+      "name": "C19_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 19,
+      "name": "C19_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 19,
+      "name": "C19_b3",
+      "offset": 384,
+      "count": 128
+    },
+    {
+      "graph": 19,
+      "name": "C19_b4",
+      "offset": 512,
+      "count": 128
+    },
+    {
+      "graph": 19,
+      "name": "C19_b5",
+      "offset": 640,
+      "count": 128
+    },
+    {
+      "graph": 19,
+      "name": "C19_b6",
+      "offset": 768,
+      "count": 30
+    },
+    {
+      "graph": 20,
+      "name": "C20_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 20,
+      "name": "C20_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 20,
+      "name": "C20_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 20,
+      "name": "C20_b3",
+      "offset": 384,
+      "count": 128
+    },
+    {
+      "graph": 20,
+      "name": "C20_b4",
+      "offset": 512,
+      "count": 128
+    },
+    {
+      "graph": 20,
+      "name": "C20_b5",
+      "offset": 640,
+      "count": 128
+    },
+    {
+      "graph": 20,
+      "name": "C20_b6",
+      "offset": 768,
+      "count": 128
+    },
+    {
+      "graph": 20,
+      "name": "C20_b7",
+      "offset": 896,
+      "count": 128
+    },
+    {
+      "graph": 20,
+      "name": "C20_b8",
+      "offset": 1024,
+      "count": 128
+    },
+    {
+      "graph": 20,
+      "name": "C20_b9",
+      "offset": 1152,
+      "count": 128
+    },
+    {
+      "graph": 20,
+      "name": "C20_b10",
+      "offset": 1280,
+      "count": 128
+    },
+    {
+      "graph": 20,
+      "name": "C20_b11",
+      "offset": 1408,
+      "count": 91
+    },
+    {
+      "graph": 21,
+      "name": "C21_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 21,
+      "name": "C21_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 21,
+      "name": "C21_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 21,
+      "name": "C21_b3",
+      "offset": 384,
+      "count": 128
+    },
+    {
+      "graph": 21,
+      "name": "C21_b4",
+      "offset": 512,
+      "count": 128
+    },
+    {
+      "graph": 21,
+      "name": "C21_b5",
+      "offset": 640,
+      "count": 128
+    },
+    {
+      "graph": 21,
+      "name": "C21_b6",
+      "offset": 768,
+      "count": 128
+    },
+    {
+      "graph": 21,
+      "name": "C21_b7",
+      "offset": 896,
+      "count": 128
+    },
+    {
+      "graph": 21,
+      "name": "C21_b8",
+      "offset": 1024,
+      "count": 128
+    },
+    {
+      "graph": 21,
+      "name": "C21_b9",
+      "offset": 1152,
+      "count": 14
+    },
+    {
+      "graph": 22,
+      "name": "C22_b0",
+      "offset": 0,
+      "count": 85
+    },
+    {
+      "graph": 23,
+      "name": "C23_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 23,
+      "name": "C23_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 23,
+      "name": "C23_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 23,
+      "name": "C23_b3",
+      "offset": 384,
+      "count": 46
+    },
+    {
+      "graph": 24,
+      "name": "C24_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 24,
+      "name": "C24_b1",
+      "offset": 128,
+      "count": 120
+    },
+    {
+      "graph": 25,
+      "name": "C25_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 25,
+      "name": "C25_b1",
+      "offset": 128,
+      "count": 127
+    },
+    {
+      "graph": 26,
+      "name": "C26_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 26,
+      "name": "C26_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 26,
+      "name": "C26_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 26,
+      "name": "C26_b3",
+      "offset": 384,
+      "count": 128
+    },
+    {
+      "graph": 26,
+      "name": "C26_b4",
+      "offset": 512,
+      "count": 128
+    },
+    {
+      "graph": 26,
+      "name": "C26_b5",
+      "offset": 640,
+      "count": 128
+    },
+    {
+      "graph": 26,
+      "name": "C26_b6",
+      "offset": 768,
+      "count": 128
+    },
+    {
+      "graph": 26,
+      "name": "C26_b7",
+      "offset": 896,
+      "count": 128
+    },
+    {
+      "graph": 26,
+      "name": "C26_b8",
+      "offset": 1024,
+      "count": 43
+    },
+    {
+      "graph": 27,
+      "name": "C27_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b3",
+      "offset": 384,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b4",
+      "offset": 512,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b5",
+      "offset": 640,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b6",
+      "offset": 768,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b7",
+      "offset": 896,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b8",
+      "offset": 1024,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b9",
+      "offset": 1152,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b10",
+      "offset": 1280,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b11",
+      "offset": 1408,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b12",
+      "offset": 1536,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b13",
+      "offset": 1664,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b14",
+      "offset": 1792,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b15",
+      "offset": 1920,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b16",
+      "offset": 2048,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b17",
+      "offset": 2176,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b18",
+      "offset": 2304,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b19",
+      "offset": 2432,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b20",
+      "offset": 2560,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b21",
+      "offset": 2688,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b22",
+      "offset": 2816,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b23",
+      "offset": 2944,
+      "count": 128
+    },
+    {
+      "graph": 27,
+      "name": "C27_b24",
+      "offset": 3072,
+      "count": 52
+    },
+    {
+      "graph": 28,
+      "name": "C28_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b3",
+      "offset": 384,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b4",
+      "offset": 512,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b5",
+      "offset": 640,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b6",
+      "offset": 768,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b7",
+      "offset": 896,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b8",
+      "offset": 1024,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b9",
+      "offset": 1152,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b10",
+      "offset": 1280,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b11",
+      "offset": 1408,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b12",
+      "offset": 1536,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b13",
+      "offset": 1664,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b14",
+      "offset": 1792,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b15",
+      "offset": 1920,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b16",
+      "offset": 2048,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b17",
+      "offset": 2176,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b18",
+      "offset": 2304,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b19",
+      "offset": 2432,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b20",
+      "offset": 2560,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b21",
+      "offset": 2688,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b22",
+      "offset": 2816,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b23",
+      "offset": 2944,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b24",
+      "offset": 3072,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b25",
+      "offset": 3200,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b26",
+      "offset": 3328,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b27",
+      "offset": 3456,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b28",
+      "offset": 3584,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b29",
+      "offset": 3712,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b30",
+      "offset": 3840,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b31",
+      "offset": 3968,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b32",
+      "offset": 4096,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b33",
+      "offset": 4224,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b34",
+      "offset": 4352,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b35",
+      "offset": 4480,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b36",
+      "offset": 4608,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b37",
+      "offset": 4736,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b38",
+      "offset": 4864,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b39",
+      "offset": 4992,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b40",
+      "offset": 5120,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b41",
+      "offset": 5248,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b42",
+      "offset": 5376,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b43",
+      "offset": 5504,
+      "count": 128
+    },
+    {
+      "graph": 28,
+      "name": "C28_b44",
+      "offset": 5632,
+      "count": 110
+    },
+    {
+      "graph": 29,
+      "name": "C29_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b3",
+      "offset": 384,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b4",
+      "offset": 512,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b5",
+      "offset": 640,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b6",
+      "offset": 768,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b7",
+      "offset": 896,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b8",
+      "offset": 1024,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b9",
+      "offset": 1152,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b10",
+      "offset": 1280,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b11",
+      "offset": 1408,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b12",
+      "offset": 1536,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b13",
+      "offset": 1664,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b14",
+      "offset": 1792,
+      "count": 128
+    },
+    {
+      "graph": 29,
+      "name": "C29_b15",
+      "offset": 1920,
+      "count": 102
+    },
+    {
+      "graph": 30,
+      "name": "C30_b0",
+      "offset": 0,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b1",
+      "offset": 128,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b2",
+      "offset": 256,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b3",
+      "offset": 384,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b4",
+      "offset": 512,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b5",
+      "offset": 640,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b6",
+      "offset": 768,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b7",
+      "offset": 896,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b8",
+      "offset": 1024,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b9",
+      "offset": 1152,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b10",
+      "offset": 1280,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b11",
+      "offset": 1408,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b12",
+      "offset": 1536,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b13",
+      "offset": 1664,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b14",
+      "offset": 1792,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b15",
+      "offset": 1920,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b16",
+      "offset": 2048,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b17",
+      "offset": 2176,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b18",
+      "offset": 2304,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b19",
+      "offset": 2432,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b20",
+      "offset": 2560,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b21",
+      "offset": 2688,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b22",
+      "offset": 2816,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b23",
+      "offset": 2944,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b24",
+      "offset": 3072,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b25",
+      "offset": 3200,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b26",
+      "offset": 3328,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b27",
+      "offset": 3456,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b28",
+      "offset": 3584,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b29",
+      "offset": 3712,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b30",
+      "offset": 3840,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b31",
+      "offset": 3968,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b32",
+      "offset": 4096,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b33",
+      "offset": 4224,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b34",
+      "offset": 4352,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b35",
+      "offset": 4480,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b36",
+      "offset": 4608,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b37",
+      "offset": 4736,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b38",
+      "offset": 4864,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b39",
+      "offset": 4992,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b40",
+      "offset": 5120,
+      "count": 128
+    },
+    {
+      "graph": 30,
+      "name": "C30_b41",
+      "offset": 5248,
+      "count": 62
+    }
+  ],
+  "graph_source_chars": {
+    "0": 6969,
+    "1": 6702,
+    "2": 6179,
+    "3": 5860,
+    "4": 6622,
+    "5": 5855,
+    "6": 5972,
+    "7": 5512,
+    "8": 5522,
+    "9": 7117,
+    "10": 6914,
+    "11": 11587,
+    "12": 6867,
+    "13": 14996,
+    "14": 5985,
+    "15": 15969,
+    "16": 5988,
+    "17": 13611,
+    "18": 8698,
+    "19": 12162,
+    "20": 17944,
+    "21": 15344,
+    "22": 5440,
+    "23": 8738,
+    "24": 7964,
+    "25": 7406,
+    "26": 21575,
+    "27": 35738,
+    "28": 58312,
+    "29": 23415,
+    "30": 54539
+  },
+  "status": "REORDERED_EXACT_DECLARATIONS_NOT_YET_BUILT",
+  "generic": "/tmp/oec/pequalnp-pilot-10/single-not-reduction/meta984/prune/FormalCompactPruned984.lean",
+  "data": "/tmp/oec/pequalnp-pilot-10/independent-search/984/direct_v4",
+  "source": "/tmp/oec/pequalnp-pilot-10/fresh-full-proof/meta984/Full984-smallchunks-unordered.lean",
+  "source_sha256": "1fefd4262f45a4050b66f666c4f100d6a60d8bb5c2e094bfc2cc39c36fe35e51",
+  "declaration_groups": {
+    "0": 651,
+    "1": 354,
+    "2": 248
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "status": "UNCOMPILED fallback; static review PASS only. Current named v7b build continues unchanged.",
+  "records": [
+    {
+      "source": "fresh-full-proof/meta984/Full984-compact-v9.lean",
+      "stored": "Full984-compact-v9.lean",
+      "sha256": "c777b1369bc0dd65a76f7f5c5590c65b4af53e328c714b8122f91912b24b5f5d",
+      "bytes": 512150
+    },
+    {
+      "source": "fresh-full-proof/meta984/Full984-compact-v9.lean.assembly.json",
+      "stored": "Full984-compact-v9.lean.assembly.json",
+      "sha256": "3b865f76b5ae3444f25a08a9422dba716f8cdd014bd616bf69e733320da824f3",
+      "bytes": 24153
+    },
+    {
+      "source": "fresh-full-proof/meta984/Full984-compact-v9.lean.dependencies.json",
+      "stored": "Full984-compact-v9.lean.dependencies.json",
+      "sha256": "48afbd28db1ad955643160d67fa6009d1dabc4392dcf954fbaa3f2c4748699b1",
+      "bytes": 139690
+    },
+    {
+      "source": "fresh-full-proof/meta984/smallchunks-v9-audit.json",
+      "stored": "smallchunks-v9-audit.json",
+      "sha256": "83125e3c84c2ad91417ed786d8360e2060700e7bae4474ce5c2c5d2524ba3314",
+      "bytes": 4521
+    },
+    {
+      "source": "fresh-full-proof/meta984/reorder-compact-v9.stdout",
+      "stored": "reorder-compact-v9.stdout",
+      "sha256": "7c862b14f8610491f40095d50e2b23ce6e9c481728a646105299f17cb386ad2a",
+      "bytes": 706
+    },
+    {
+      "source": "fresh-full-proof/meta984/reorder-compact-v9.stderr",
+      "stored": "reorder-compact-v9.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "proof-strategy/meta984/audit_full_compact_v9.py",
+      "stored": "audit_full_compact_v9.py",
+      "sha256": "4209f2865a586f152a8c06b1ec6021f472e3e146bfd774286603f9dd26a4bf23",
+      "bytes": 3819
+    },
+    {
+      "source": "proof-strategy/meta984/audit-full-compact-v9.log",
+      "stored": "audit-full-compact-v9.log",
+      "sha256": "0443ec343bfa5c0a1c5b16e4f5def98c1a6557033563fd886920b493455e679f",
+      "bytes": 2138
+    }
+  ]
+}
