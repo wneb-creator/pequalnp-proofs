@@ -1,0 +1,30 @@
+{
+  "results": [
+    {
+      "case": 0,
+      "n": 6,
+      "bound": 10,
+      "posted_function_exact_match": true,
+      "all_assignments": 64,
+      "K": 151,
+      "encoded_inputs_match": true,
+      "encoded_goal_match": true,
+      "essential_witnesses_verified": 6,
+      "no_run_premise_remains_explicit": true
+    },
+    {
+      "case": 8,
+      "n": 7,
+      "bound": 10,
+      "posted_function_exact_match": true,
+      "all_assignments": 128,
+      "K": 218,
+      "encoded_inputs_match": true,
+      "encoded_goal_match": true,
+      "essential_witnesses_verified": 7,
+      "no_run_premise_remains_explicit": true
+    }
+  ],
+  "source_sha256": "51c5b9fd3442e365bdb79f0747bcb56c3ddb9c8925b1fb65e43870d799ed2598",
+  "generator_sha256": "b3fd5ff0a9289bfde96ce3790534853a4b3d825f9f6d401d7d45e0acb3b640e1"
+}
