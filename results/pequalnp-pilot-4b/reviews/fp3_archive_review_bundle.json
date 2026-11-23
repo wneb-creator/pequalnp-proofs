@@ -1,0 +1,303 @@
+{
+  "verdict": "PASS",
+  "reviewer": "prior_routes",
+  "reviewed_utc": "2026-11-23T20:52:11.373579+00:00",
+  "file_count": 58,
+  "scope": "Five fp3_strategy top-level archive folders; separately published fresh subtree excluded.",
+  "staged_bytes_match_reviewed_worktree": true,
+  "pathset_sha256": "0e2ced07e9898dde0a29522471d0f8612ab1b05d6d54eb7b6c98e739f5d04301",
+  "content_list_sha256": "0a835ea841275d875592268da653acbd667936f4c6607fd58380b4bda152279f",
+  "digest_format": "UTF-8 rows sorted by repository-relative path: sha256 + two spaces + path + newline; pathset digest uses path + newline only.",
+  "files": [
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/AltEncoding.lean",
+      "bytes": 4560,
+      "sha256": "1ea26ee6686baaff019fbbb691366498443c884ca672b05bdfa6cd436391d76b"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/AltLemmas.lean",
+      "bytes": 3251,
+      "sha256": "df88c8b52378dfb2b6926c608d374e738657832032972b4a3c4b15b14f215060"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/BlockMinimum.lean",
+      "bytes": 3569,
+      "sha256": "fbc1538d9c0aab02198b1767347a3943ad608f0824f4d4b71fb3355ed0864059"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/CheckpointReplay.lean",
+      "bytes": 3845,
+      "sha256": "5408b7d69f0bc48d6f26e670ef2aa37d401840b14f6a058a0943194058398d3a"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/FlattenBudget.lean",
+      "bytes": 1239,
+      "sha256": "17d541d35c4f7f3fe1604aa3b03de5a0f6feef69bae345b712a420609419b21e"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/GrammarBound.lean",
+      "bytes": 6554,
+      "sha256": "bd5aef604007aec27c066c83816069142784c147b2e06173d7aca0ec7ec11180"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/README.md",
+      "bytes": 1550,
+      "sha256": "c3a23f7f70d6937652d44e550307335793cc0db4d42d49840d0fe1ab718c38cc"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/StackChallengeFull.lean",
+      "bytes": 25036,
+      "sha256": "2bf4da4de0a4591e8577c0c52a0154bf29fa41285db2b10b6a92f22cf101cef5"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/StackTrace.lean",
+      "bytes": 17262,
+      "sha256": "8903d29dbdf8c22b72b067648347be2145befee5e2023162ed0f72290df099a8"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/alt-encoding-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/alt-lemmas-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/block-minimum-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/checkpoint-replay-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/dyadic-replay.md",
+      "bytes": 2950,
+      "sha256": "9165379a33c6133b31b5264b9bbf5cf970dae529b712f76d2eb5b3acecd9edb6"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/flatten-budget-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/fresh-strategy-report.md",
+      "bytes": 7849,
+      "sha256": "26db15fee6a94e41ca81d9224ccb4463b06fa72758f015e9d435faab3045de00"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/grammar-bound-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/manifest.json",
+      "bytes": 8001,
+      "sha256": "f5433d8ea59f785b284d1abf14b02968ca7e9861c60c4637cd496298bac29300"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/retained-push-audit.md",
+      "bytes": 2992,
+      "sha256": "584a391d550024c7e93319cbfaed5a2da77b9e592967be4112b8e214887c7640"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/stack-challenge-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/stack-trace-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/strategy-report.md",
+      "bytes": 16348,
+      "sha256": "ccb5d33e9fb71f46b6389a1ce17569a9223502f31dcde4369bd2c7ba4cc16bc0"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-lib-123/fp3_strategy/validation.txt",
+      "bytes": 913,
+      "sha256": "21a7ccdb32c5bb03e867a6d2d718a728cc811ddfc0546e6923c0be974060f182"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-921/fp3_strategy/README.md",
+      "bytes": 879,
+      "sha256": "5c2fc7da02593e2efe50b4edc7dc0c973082a59e6ae56b724ede83403bbd0868"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-921/fp3_strategy/SingletonCofactor.lean",
+      "bytes": 3862,
+      "sha256": "ce414142938ad798dc51e9b467cf4c0bc91e3aba3fad22ef59e243df3756038d"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-921/fp3_strategy/fresh-search-scope.md",
+      "bytes": 10094,
+      "sha256": "a1a419ef42ed125ad5fba81f2c657ca9854725847ed711b699f4f104a5141218"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-921/fp3_strategy/manifest.json",
+      "bytes": 1753,
+      "sha256": "39109794b6d1c5d46fc7c369f4ce74010b3de79a51ad9b7829989e9872fd1f08"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-921/fp3_strategy/report.md",
+      "bytes": 6028,
+      "sha256": "8803452981286bcc8dd4615d625b6cf971796bce3c41b993cc783276b922dcc1"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-921/fp3_strategy/singleton-cofactor.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-921/fp3_strategy/validation.txt",
+      "bytes": 914,
+      "sha256": "0ed6994508cb27d720d30912fea3749ebe933e09eb3db924d9cf76133371b313"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/NotReplacement.lean",
+      "bytes": 4134,
+      "sha256": "fdcd29d44a2773dba373c47ae64b601af2d6c3c781c74441fcb440d3b864c736"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/README.md",
+      "bytes": 1046,
+      "sha256": "10439189495c4bba16af18ca0122ab50952f18f460c7537b485d74a1af5b6af3"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/RectangleFull.lean",
+      "bytes": 6905,
+      "sha256": "06ce3a6c45f2bad0787a04e4de53a431086b9366deeb047293682b7e727ac980"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/SharedUpperFull.lean",
+      "bytes": 9108,
+      "sha256": "367e126b193ecaf5ed8bacbca46460ce5389f4237eea0e224137315eb9d9427f"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/fresh-search-scope.md",
+      "bytes": 6923,
+      "sha256": "3f2fe1c6c50d17ad6db2d698cb2babee82464e251d2175b329787a39bf013462"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/manifest.json",
+      "bytes": 3516,
+      "sha256": "1470f926a3e1451bf19afcda3e70c08a2498832efd3dd959188a06fa83911ab7"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/not-replacement-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/rectangle-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/report.md",
+      "bytes": 6200,
+      "sha256": "08778444b9683c499c138e3f2b5e824ca2b053c83bddf3a9bde091995e1f4045"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/shared-upper-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-952/fp3_strategy/validation.txt",
+      "bytes": 914,
+      "sha256": "2cd968659555cc316ac01147f7e102a23c6f9c997868f11be76a8529f6d748f1"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-971/fp3_strategy/README.md",
+      "bytes": 855,
+      "sha256": "4216c8499292f60f965986dbc23fde1892e58c91b00e593725fb2f3e688a11ff"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-971/fp3_strategy/SafeMeetCounterexample.lean",
+      "bytes": 1471,
+      "sha256": "2ea910205980a981a26ed1ff32bb0b851da48461b0f15afb307ff98b67b043f6"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-971/fp3_strategy/fresh-search-scope.md",
+      "bytes": 5237,
+      "sha256": "9d0240ba0e36f1e0c3610b7536da520a35cb9c70126b769ad63e32710dd8ac44"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-971/fp3_strategy/manifest.json",
+      "bytes": 1740,
+      "sha256": "30412caf7b32ba6dd3a41e771b05e62dc396696b0ecf1ec74b58b096877c8cbd"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-971/fp3_strategy/report.md",
+      "bytes": 5730,
+      "sha256": "9d6fe56e4c433714468ad4a5d07253fef8eee9c6fc79ad0597c3cb972e69c853"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-971/fp3_strategy/safe-meet-counterexample.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-971/fp3_strategy/validation.txt",
+      "bytes": 914,
+      "sha256": "09215239b60ce42d6d943f728ccd4cd6e4cdaf4aba945287f607f0ed781f00ca"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/BoundedCase.lean",
+      "bytes": 37258,
+      "sha256": "bf26be52746eb3f3bef96849181f09cfe2364e778419b14bdd88b252de1ecdda"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/README.md",
+      "bytes": 1159,
+      "sha256": "cf18449d4a604e08bd6985cf22ddcb8cf5452dffec5a6387cbe6c834def905c9"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/RefundOutputs.lean",
+      "bytes": 9070,
+      "sha256": "9c3997ec6781ae2d408d3802018d314f1c65d8dc5b4640a78d76d78ad7dcc7c3"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/WeightedFrontier.lean",
+      "bytes": 5426,
+      "sha256": "3084b397aec8129505bae03754c94eb188d39edd1875c40839ca9841c619f311"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/bounded-case.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/manifest.json",
+      "bytes": 3616,
+      "sha256": "fee3373ac21bad97767515464084befd66e80b441a2adfed3faca705c1f7e9fd"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/refund-outputs.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/report.md",
+      "bytes": 4860,
+      "sha256": "dc1194b3502795131383fc607c06fa0fe6f3ddcb841983e220fcec2d160d4774"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/validation.txt",
+      "bytes": 914,
+      "sha256": "50d863c76d314476dfad971406a7659a3cf057b04ff6e9ee0334f24b458e3e84"
+    },
+    {
+      "path": "results/pequalnp-pilot-4b/L-meta-997/fp3_strategy/weighted-frontier.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+Job: pequalnp-pilot-4b
+KIT-MESSAGE-ID: msg-9574e75c4a2464ba7a74e928
+Recorded: 2026-11-23T20:52:52.953725+00:00
+Branch: pnp/pilot-4b
+Fork: https://github.com/wneb-creator/pequalnp-proofs
+Research/checkpoint base: cc19d3d18bbb20f0c8a304eb95d4bef8e433453f
+
+Outcome: checked partial results preserved; no complete proof or refutation
+of any posted statement was obtained.
+Attempted gaps: L-lib-123, L-meta-952, L-meta-921, L-meta-971, L-meta-997.
+Exact desk statements: each gap directory's statement.txt.
+
+Archived Lean source/check files: 91; total Lean lines: 15226.
+Helper compilation: pinned Lean 4.36.0; complete stdout/stderr logs and
+source hashes/exit records are beside each source or in its local manifest.
+An empty log with recorded exit 0 denotes a silent successful compilation.
+Some archived Lean files are diagnostic or statement elaboration checks.
+They are not all independent mathematical theorems.
+Mathlib prebuilt cache was fetched before the first build. No lake update
+or Mathlib source build was used.
+
+Target lake build: NOT RUN; no completed target proof exists.
+Target tools/check-lean.mjs: NOT RUN; no completed target proof exists.
+Target checker acceptance: NONE.
+Cleanup pass: NOT APPLICABLE; target build/checker prerequisites not met.
+Target line counts before/after cleanup: NOT APPLICABLE; target files absent.
+The only archival source cleanup was RunTrim.lean's extra final newlines;
+the resulting exact file was recompiled successfully and its manifest updated.
+Full compiler and solver logs are preserved without whitespace normalization.
+Independent review: see independent-review.md and per-directory records.
+
+Desk: no active lease. All five of this job's leases were released with
+reason other; no other contributor's lease was touched.
+Final next-gap retry: 2026-11-23 20:43:21 UTC; gap null; retry limit reached.
+Exact desk note:
+no step is free that you have not already looked at and handed back in the last hour (6); new steps are posted through the day, ask again in a few minutes
+No further desk request was made.
+
+PR: none. These multi-file research checkpoints are not a one-gap proof PR.
+The owner authorized preservation on the fork branch under PUSH-EARLY.
+Sub-agents: formal_audit; fp3_strategy; lean_setup; prior_routes; literature_route; lean_setup/radix_order; literature_route/compression_attempt; fp3_strategy/fresh_simulation
+TIMING total=203.37 subagents=8

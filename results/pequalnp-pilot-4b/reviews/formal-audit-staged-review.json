@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS",
+  "staged_files": 72,
+  "staged_blob_hash_matches": 72,
+  "stable_manifest_digest": "977cec92d894d6f881819a911b8e2ea1cad17f44821636914defe79c195fb624",
+  "whitespace_findings": 459,
+  "whitespace_log_files": 9,
+  "whitespace_scope": "Every finding is the unchanged raw solver separator line c followed by a space. No source or documentation findings.",
+  "preservation_exception": "Acceptable: retaining complete stdout/stderr byte-for-byte preserves original logs and manifest hashes; trimming would alter evidence.",
+  "findings_by_path": {
+    "results/pequalnp-pilot-4b/L-meta-921/formal_audit/full38-i0.solver.log": 51,
+    "results/pequalnp-pilot-4b/L-meta-921/formal_audit/full38-or01-i0.solver.log": 49,
+    "results/pequalnp-pilot-4b/L-meta-921/formal_audit/general4-11-i0.solver.log": 31,
+    "results/pequalnp-pilot-4b/L-meta-921/formal_audit/general4-11-i1.solver.log": 51,
+    "results/pequalnp-pilot-4b/L-meta-921/formal_audit/triangle8-i0.solver.log": 37,
+    "results/pequalnp-pilot-4b/L-meta-971/formal_audit/canonical26.solver.log": 69,
+    "results/pequalnp-pilot-4b/L-meta-971/formal_audit/first-or-01.solver.log": 51,
+    "results/pequalnp-pilot-4b/L-meta-971/formal_audit/full26.solver.log": 59,
+    "results/pequalnp-pilot-4b/L-meta-971/formal_audit/satphase26.solver.log": 61
+  }
+}

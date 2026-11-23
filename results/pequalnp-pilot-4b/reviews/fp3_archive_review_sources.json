@@ -1,0 +1,103 @@
+{
+  "reviewer": "prior_routes",
+  "reviewed_utc": "2026-11-23T20:50:48.802737+00:00",
+  "scope": "16 fp3_strategy sources; fresh subtree excluded because separately reviewed/pushed",
+  "sources": [
+    {
+      "path": "L-lib-123/fp3_strategy/AltLemmas.lean",
+      "sha256": "df88c8b52378dfb2b6926c608d374e738657832032972b4a3c4b15b14f215060",
+      "complete_log": "L-lib-123/fp3_strategy/alt-lemmas-build.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-lib-123/fp3_strategy/FlattenBudget.lean",
+      "sha256": "17d541d35c4f7f3fe1604aa3b03de5a0f6feef69bae345b712a420609419b21e",
+      "complete_log": "L-lib-123/fp3_strategy/flatten-budget-build.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-lib-123/fp3_strategy/GrammarBound.lean",
+      "sha256": "bd5aef604007aec27c066c83816069142784c147b2e06173d7aca0ec7ec11180",
+      "complete_log": "L-lib-123/fp3_strategy/grammar-bound-build.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-lib-123/fp3_strategy/StackTrace.lean",
+      "sha256": "8903d29dbdf8c22b72b067648347be2145befee5e2023162ed0f72290df099a8",
+      "complete_log": "L-lib-123/fp3_strategy/stack-trace-build.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-lib-123/fp3_strategy/StackChallengeFull.lean",
+      "sha256": "2bf4da4de0a4591e8577c0c52a0154bf29fa41285db2b10b6a92f22cf101cef5",
+      "complete_log": "L-lib-123/fp3_strategy/stack-challenge-build.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-lib-123/fp3_strategy/CheckpointReplay.lean",
+      "sha256": "5408b7d69f0bc48d6f26e670ef2aa37d401840b14f6a058a0943194058398d3a",
+      "complete_log": "L-lib-123/fp3_strategy/checkpoint-replay-build.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-lib-123/fp3_strategy/BlockMinimum.lean",
+      "sha256": "fbc1538d9c0aab02198b1767347a3943ad608f0824f4d4b71fb3355ed0864059",
+      "complete_log": "L-lib-123/fp3_strategy/block-minimum-build.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-lib-123/fp3_strategy/AltEncoding.lean",
+      "sha256": "1ea26ee6686baaff019fbbb691366498443c884ca672b05bdfa6cd436391d76b",
+      "complete_log": "L-lib-123/fp3_strategy/alt-encoding-build.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-meta-952/fp3_strategy/NotReplacement.lean",
+      "sha256": "fdcd29d44a2773dba373c47ae64b601af2d6c3c781c74441fcb440d3b864c736",
+      "complete_log": "L-meta-952/fp3_strategy/not-replacement-build.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-meta-952/fp3_strategy/RectangleFull.lean",
+      "sha256": "06ce3a6c45f2bad0787a04e4de53a431086b9366deeb047293682b7e727ac980",
+      "complete_log": "L-meta-952/fp3_strategy/rectangle-build.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-meta-952/fp3_strategy/SharedUpperFull.lean",
+      "sha256": "367e126b193ecaf5ed8bacbca46460ce5389f4237eea0e224137315eb9d9427f",
+      "complete_log": "L-meta-952/fp3_strategy/shared-upper-build.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-meta-921/fp3_strategy/SingletonCofactor.lean",
+      "sha256": "ce414142938ad798dc51e9b467cf4c0bc91e3aba3fad22ef59e243df3756038d",
+      "complete_log": "L-meta-921/fp3_strategy/singleton-cofactor.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-meta-971/fp3_strategy/SafeMeetCounterexample.lean",
+      "sha256": "2ea910205980a981a26ed1ff32bb0b851da48461b0f15afb307ff98b67b043f6",
+      "complete_log": "L-meta-971/fp3_strategy/safe-meet-counterexample.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-meta-997/fp3_strategy/RefundOutputs.lean",
+      "sha256": "9c3997ec6781ae2d408d3802018d314f1c65d8dc5b4640a78d76d78ad7dcc7c3",
+      "complete_log": "L-meta-997/fp3_strategy/refund-outputs.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-meta-997/fp3_strategy/BoundedCase.lean",
+      "sha256": "bf26be52746eb3f3bef96849181f09cfe2364e778419b14bdd88b252de1ecdda",
+      "complete_log": "L-meta-997/fp3_strategy/bounded-case.log",
+      "recorded_relocated_compile_exit": 0
+    },
+    {
+      "path": "L-meta-997/fp3_strategy/WeightedFrontier.lean",
+      "sha256": "3084b397aec8129505bae03754c94eb188d39edd1875c40839ca9841c619f311",
+      "complete_log": "L-meta-997/fp3_strategy/weighted-frontier.log",
+      "recorded_relocated_compile_exit": 0
+    }
+  ]
+}
