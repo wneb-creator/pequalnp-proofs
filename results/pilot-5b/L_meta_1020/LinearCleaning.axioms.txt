@@ -1,0 +1,5 @@
+'Pilot5bMeta1020Linear.cleaning_run_mono' depends on axioms: [propext, Quot.sound]
+'Pilot5bMeta1020Linear.cleanedLabels_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot5bMeta1020Linear.cleaned_wire_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot5bMeta1020Linear.retained_label_false_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Pilot5bMeta1020Linear.cleaned_triple_sound' depends on axioms: [propext, Classical.choice, Quot.sound]

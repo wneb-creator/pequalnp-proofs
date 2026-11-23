@@ -1,0 +1,11 @@
+Checkpoint for L-meta-1020, authorized by Ben push-early rule on 2026-11-23.
+KIT-MESSAGE-ID msg-1f79ba3f7315f701679bbcfc
+Status: compiled partial lemmas; the exact posted theorem is not yet assembled.
+Lean toolchain: 4.36.0. Builds used lake env lean in the pinned project.
+NearStar, LinearNetwork, LinearCleaning and ReverseNetwork compiled successfully.
+Empty build logs mean successful compilation with no diagnostics.
+NearStar and LinearCleaning axiom audits are included; only standard Lean axioms occur.
+Local target checker: NOT RUN; no complete target theorem exists yet.
+These checkpoint files are research artifacts, not an accepted proof of the gap.
+Sub-agents: 13 unique agents, including independent proof attempts, counterexample searches, Lean formalization and audits.
+TIMING total=170.82 subagents=13
