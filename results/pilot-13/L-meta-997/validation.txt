@@ -78,3 +78,10 @@ Sixteenth partial: 4011 lines. Build 19 passed. Added explicit light boundary an
 Independent status_review PASS on161-line LightBoundary SHA25663bc819f4c9f50d32e2d8e09e2484ae84bae0b814bf2f57dc41b5d71fbe8390e and143-line HeavyForest SHA256e28cbb7c92b4923e077a3ffff75b5204d59c998c35963a7ba5072e446ba5d6e4; independently compiled with standard axioms.
 Root independently reviewed95-line LightForest authored by heavy_window, SHA256cb83a6b83e0dfa4b0f01dcdfd886ffe743370bef37875bcf333a17c1e14be325. Input hypotheses, finite reachability, exact quota, branch charge inclusion and format pass; no semantic-transfer preservation claimed after pruning.
 Combined snapshot aed7eeaa16e17143767c529bf0e22c1ebb680c2140ea862cbb8df86188a6842a. General theorem remains absent.
+
+Seventeenth partial: 4704 lines. Build 20 passed. Added k spare-gate budget, exact posted inequality for total disjoint excess above k+1 at most k, full no-refund inequality when NOT is true on the heavy union, and posted inequality whenever n<=4k+1 or n<=13.
+Independent status_review PASS on prefix budget/extra/corollary hashes6359477c98821644e66d51a5e074d2edc187941ff2530bc85f8eb64e9564e81f,4c86119a41043a13a5e342944ba9bcc5530553d01ec5d66dfc78cfc6eabbd3d4,f4bb2fe8b744f32bbd06fcb8cac32102a33ca7ebcf53f78add88342248c502d9; independent compile and permitted axioms only.
+Root independently reviewed158-line UnionTrue extension authored by lean_setup SHA2564a1ccdb01c562730c6767542ddf62d7b98cac35b3b267eef7cf2ea6c0641ef22 and123-line dimension extension authored by fresh_proof SHA256e34233e1a78fa75bed6a563c5b067df96f2a2f9d26bd23b846746bf436cc7c28. Mixed private charge disjointness, explicit covering-NOT premise, union cardinal budgets, excess arithmetic, original assumptions and format pass.
+Combined snapshot cf1a0109290ea18e1fdb14ea1f659562afc41f60f73f9db6788460ae8a19dad1. General posted theorem remains absent; these are proved special cases.
+Sub-agents: 6 (edge/refund/synthesis, light proof, setup/review, heavy proof, overlap theory, fresh proof)
+TIMING total=61.0 subagents=6
