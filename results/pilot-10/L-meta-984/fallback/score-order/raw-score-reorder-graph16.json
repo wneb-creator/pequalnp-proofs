@@ -1,0 +1,159 @@
+{
+  "graph": 16,
+  "source_pool_sha256": "1c9b2e6c8ad80dff7ae5032f53c40839632186b0d38bf49fe61346d326f4ef93",
+  "pool_size": 5,
+  "states": 154,
+  "tight_covered": 3303,
+  "all_scores_pass": 0,
+  "unique_tight_states": 1174,
+  "distinct_rejection_masks": 25,
+  "original_first_reject_position_zero_based": {
+    "0": 2399,
+    "1": 736,
+    "2": 112,
+    "3": 43,
+    "4": 13
+  },
+  "proposed_first_reject_position_zero_based": {
+    "0": 2399,
+    "1": 736,
+    "2": 112,
+    "3": 43,
+    "4": 13
+  },
+  "original_entry_tests": 4444,
+  "greedy_entry_tests": 4444,
+  "proposed_entry_tests": 4444,
+  "saved_entry_tests": 0,
+  "saved_fraction": 0.0,
+  "greedy_original_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "proposed_original_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "original_rank_codes": [
+    5376940,
+    4413814,
+    3284107,
+    5458279,
+    5511017
+  ],
+  "proposed_rank_codes": [
+    5376940,
+    4413814,
+    3284107,
+    5458279,
+    5511017
+  ],
+  "weighted_rejection_masks": [
+    [
+      "1",
+      57
+    ],
+    [
+      "2",
+      54
+    ],
+    [
+      "3",
+      78
+    ],
+    [
+      "4",
+      44
+    ],
+    [
+      "5",
+      506
+    ],
+    [
+      "6",
+      50
+    ],
+    [
+      "7",
+      160
+    ],
+    [
+      "8",
+      43
+    ],
+    [
+      "9",
+      74
+    ],
+    [
+      "10",
+      76
+    ],
+    [
+      "11",
+      17
+    ],
+    [
+      "12",
+      36
+    ],
+    [
+      "13",
+      159
+    ],
+    [
+      "14",
+      3
+    ],
+    [
+      "15",
+      16
+    ],
+    [
+      "16",
+      13
+    ],
+    [
+      "17",
+      8
+    ],
+    [
+      "20",
+      32
+    ],
+    [
+      "21",
+      106
+    ],
+    [
+      "23",
+      3
+    ],
+    [
+      "26",
+      409
+    ],
+    [
+      "27",
+      353
+    ],
+    [
+      "29",
+      3
+    ],
+    [
+      "30",
+      144
+    ],
+    [
+      "31",
+      859
+    ]
+  ]
+}

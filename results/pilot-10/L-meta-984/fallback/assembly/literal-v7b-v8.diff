@@ -1,0 +1,1237 @@
+--- Full984-compact-v7b.lean
++++ Full984-compact-v8.lean
+@@ -1730,6 +1730,25 @@
+   rw [heq u ys]
+   exact fastScr_no coords bw pool h
+ 
++def literalRoutesGood (y : Nat) (routes : List (List (Nat × Nat))) : Bool :=
++  routes.all fun r => validStages r && (routeStages r y == y)
++
++def literalRouteOrient (routes : List (List (Nat × Nat))) : List Nat → List Nat :=
++  orbitActions qPrefer (routes.map routeStages)
++
++theorem literalRouteOrient_run {y s : Nat} {ws : List Nat}
++    (h : MonRun y s ws) (routes : List (List (Nat × Nat)))
++    (hg : literalRoutesGood y routes = true) :
++    MonRun y s (literalRouteOrient routes ws) := by
++  unfold literalRouteOrient
++  unfold literalRoutesGood at hg
++  apply orbitActions_run h qPrefer
++  intro action ha u zs hz
++  rcases List.mem_map.1 ha with ⟨r,hr,rfl⟩
++  have hrgood := (List.all_eq_true.1 hg) r hr
++  simp only [Bool.and_eq_true,beq_iff_eq] at hrgood
++  exact routeStages_run hz r hrgood.1 hrgood.2
++
+ def C0_initial : List Nat := [0x724, 0x949, 0xa92, 0x3403, 0x501c, 0x60e0]
+ 
+ def C0_values : Nat := 0x77fcee49d38fa70741fe839d00fa0070fce1c1c0738006af2d5c1a7a74f068e0cfc99c932f064e0c7c18782fbedbdfb4396576c0e573ca83944728004a9292931c920003fdb7edefa4df01bd4b7a06f00db93b7036c06d40cca497241ffe3ed87b68f241d2435245ed8b92169228004ac894d12962420480890010102004400072c0e4a1c00280040108000c0008401040202040000c00090010000c0008000
+@@ -1787,7 +1806,8 @@
+ def C0_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C0_initial (C0_counts s) (C0_specs s) (C0_seeds s) ws
+ 
+-def C0_routeCodes : Nat := 0x51540000000200000b05000000000000000000000000000000000000000000004054000050540000000300000b09000000000000000000000000000000000000002000004000000041000000001300000b06000000000000000000000000000000000000003000004054000040000000001100000b0200000000000000000000000000000000000000000000400000001115000000100000000c00000000000000000000000000000000000000200000004000000151000000200000000800000000000000000000000000000000000000200000001000001054000000100000000c000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000
++def C0_literalRoutes : List (List (Nat × Nat)) := [[(0x20,2),(0xc,4),(0x10,2),(0x1054,1)],[(0x10,1),(0x20,2),(0x8,4),(0x20,2),(0x151,1)],[(0x40,1),(0x20,2),(0xc,4),(0x10,2),(0x1115,1)],[(0x4000,1),(0xb02,4),(0x11,2),(0x4000,1)],[(0x4054,1),(0x30,2),(0xb06,4),(0x13,2),(0x4100,1)],[(0x4000,1),(0x20,2),(0xb09,4),(0x3,2),(0x5054,1)],[(0x4054,1),(0xb05,4),(0x2,2),(0x5154,1)]]
++
+ def C0_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+ def C0_rankPool : List Nat := [4401547, 7609806, 5275034, 6626216, 7425741, 3174108, 7670697, 5520265, 2112650, 6454168, 2182298, 6303405, 5340570, 7559563, 6650776, 5270922]
+ 
+@@ -1803,7 +1823,7 @@
+   (List.ofFn fun (i : Fin 6) => (fun x : Fin 6 → Bool => x i)).map
+     (fun a => encL a C0_rows)
+ def C0_f (x : Fin 6 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 3 && x 4) || (x 3 && x 5) || (x 4 && x 5)
+-def C0_ori : List Nat → List Nat := qCompactOrient 8 C0_routeCodes
++def C0_ori : List Nat → List Nat := literalRouteOrient C0_literalRoutes
+ def C0_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 8 7) (compactCover 8 7) C0_S C0_N C0_idx C0_ori
+     C0_patternScr C0_patternScr s
+@@ -1860,7 +1880,8 @@
+ def C1_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C1_initial (C1_counts s) (C1_specs s) (C1_seeds s) ws
+ 
+-def C1_routeCodes : Nat := 0x54110000210300000909000000060000000000000000000000000000213000000144000055100000210000000d0200000040000000000000000000000400000021000000011000005151000021000000090b000000060000000000000000000000000000211000000144000050400000301200000d04000000100000000000000000000001000000301000000104000044110000122000000707000000180000000000000000000001000000120000000004000044440000121200000e0400000080000000000000000000000800000012100000010000004151000012210000070f000000180000000000000000000001000000120000000004000041040000120000000e00000000800000000000000000000008000000120000000100000014150000010300000009000000060000000000000000000000000000013000000140000015540000030000000c02000000c0000000000000000000000c00000003000000001000000415000002210000010f00000018000000000000000000000100000002000000014000000544000000120000000400000000000000000000000000000000000000100000000400001155000001030000000900000006000000000000000000000000000001300000000000001000000002120000090400000090000000000000000000000900000002100000000000000155000002210000010f000000180000000000000000000001000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000
++def C1_literalRoutes : List (List (Nat × Nat)) := [[(0x200,2),(0x100,4),(0x18,8),(0x10f,4),(0x221,2),(0x155,1)],[(0x210,2),(0x900,4),(0x90,8),(0x904,4),(0x212,2),(0x1000,1)],[(0x130,2),(0x6,8),(0x9,4),(0x103,2),(0x1155,1)],[(0x4,1),(0x10,2),(0x4,4),(0x12,2),(0x544,1)],[(0x140,1),(0x200,2),(0x100,4),(0x18,8),(0x10f,4),(0x221,2),(0x415,1)],[(0x10,1),(0x300,2),(0xc00,4),(0xc0,8),(0xc02,4),(0x300,2),(0x1554,1)],[(0x140,1),(0x130,2),(0x6,8),(0x9,4),(0x103,2),(0x1415,1)],[(0x100,1),(0x1200,2),(0x800,4),(0x80,8),(0xe00,4),(0x1200,2),(0x4104,1)],[(0x4,1),(0x1200,2),(0x100,4),(0x18,8),(0x70f,4),(0x1221,2),(0x4151,1)],[(0x100,1),(0x1210,2),(0x800,4),(0x80,8),(0xe04,4),(0x1212,2),(0x4444,1)],[(0x4,1),(0x1200,2),(0x100,4),(0x18,8),(0x707,4),(0x1220,2),(0x4411,1)],[(0x104,1),(0x3010,2),(0x100,4),(0x10,8),(0xd04,4),(0x3012,2),(0x5040,1)],[(0x144,1),(0x2110,2),(0x6,8),(0x90b,4),(0x2100,2),(0x5151,1)],[(0x110,1),(0x2100,2),(0x400,4),(0x40,8),(0xd02,4),(0x2100,2),(0x5510,1)],[(0x144,1),(0x2130,2),(0x6,8),(0x909,4),(0x2103,2),(0x5411,1)]]
++
+ def C1_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ def C1_rankPool : List Nat := [7708636, 3165914, 6445998, 8417229, 8478159, 2125483, 6651594, 9473755, 6328284, 4227021, 5414844]
+ 
+@@ -1876,7 +1897,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C1_rows)
+ def C1_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 3 && x 4) || (x 5 && x 6)
+-def C1_ori : List Nat → List Nat := qCompactOrient 16 C1_routeCodes
++def C1_ori : List Nat → List Nat := literalRouteOrient C1_literalRoutes
+ def C1_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 10 7) (compactCover 10 7) C1_S C1_N C1_idx C1_ori
+     C1_patternScr C1_patternScr s
+@@ -1938,7 +1959,8 @@
+ def C2_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C2_initial (C2_counts s) (C2_specs s) (C2_seeds s) ws
+ 
+-def C2_routeCodes : Nat := 0x51150000213000000a0c00000020000000000000000000000200000020300000110000000115000003000000080000000080000000000000000000000800000002000000010000005000000020300000080c000000000000000000000000000000000000203000001000000000000000000000000000000000000000000000000000000000000000000000000000
++def C2_literalRoutes : List (List (Nat × Nat)) := [[(0x1000,1),(0x2030,2),(0x80c,4),(0x2030,2),(0x5000,1)],[(0x100,1),(0x200,2),(0x800,4),(0x80,8),(0x800,4),(0x300,2),(0x115,1)],[(0x1100,1),(0x2030,2),(0x200,4),(0x20,8),(0xa0c,4),(0x2130,2),(0x5115,1)]]
++
+ def C2_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ def C2_rankPool : List Nat := [8813978, 6524844, 6303387, 2189981, 6655659, 6442940, 6438345, 6577593, 6381500, 6455196, 6586011]
+ 
+@@ -1954,7 +1976,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C2_rows)
+ def C2_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 3 && x 5) || (x 4 && x 6)
+-def C2_ori : List Nat → List Nat := qCompactOrient 4 C2_routeCodes
++def C2_ori : List Nat → List Nat := literalRouteOrient C2_literalRoutes
+ def C2_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 9 7) (compactCover 9 7) C2_S C2_N C2_idx C2_ori
+     C2_patternScr C2_patternScr s
+@@ -2016,7 +2038,8 @@
+ def C3_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C3_initial (C3_counts s) (C3_specs s) (C3_seeds s) ws
+ 
+-def C3_routeCodes : Nat := 0x40400000323200000404000000000000000000000000000000000000101000004040000000000000000000000000000000000000000000000000000000000000000000000000
++def C3_literalRoutes : List (List (Nat × Nat)) := [[(0x4040,1),(0x1010,2),(0x404,4),(0x3232,2),(0x4040,1)]]
++
+ def C3_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+ def C3_rankPool : List Nat := [7695241, 3165884, 1060250, 5442728, 6576523, 3235468, 3239306, 6650776]
+ 
+@@ -2032,7 +2055,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C3_rows)
+ def C3_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 4 && x 6)
+-def C3_ori : List Nat → List Nat := qCompactOrient 2 C3_routeCodes
++def C3_ori : List Nat → List Nat := literalRouteOrient C3_literalRoutes
+ def C3_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 8 7) (compactCover 8 7) C3_S C3_N C3_idx C3_ori
+     C3_patternScr C3_patternScr s
+@@ -2094,7 +2117,8 @@
+ def C4_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C4_initial (C4_counts s) (C4_specs s) (C4_seeds s) ws
+ 
+-def C4_routeCodes : Nat := 0x1440000001200000004000000000000000000000000000000000000001000000004000000000000000000000000000000000000000000000000000000000000000000000000
++def C4_literalRoutes : List (List (Nat × Nat)) := [[(0x4,1),(0x10,2),(0x4,4),(0x12,2),(0x144,1)]]
++
+ def C4_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+ def C4_rankPool : List Nat := [7756171, 4205722, 3239644, 2112425, 5467530, 3165096, 4357852, 3153034, 5537178]
+ 
+@@ -2110,7 +2134,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C4_rows)
+ def C4_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 3 && x 4) || (x 3 && x 5) || (x 4 && x 6)
+-def C4_ori : List Nat → List Nat := qCompactOrient 2 C4_routeCodes
++def C4_ori : List Nat → List Nat := literalRouteOrient C4_literalRoutes
+ def C4_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 8 7) (compactCover 8 7) C4_S C4_N C4_idx C4_ori
+     C4_patternScr C4_patternScr s
+@@ -2172,7 +2196,8 @@
+ def C5_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C5_initial (C5_counts s) (C5_specs s) (C5_seeds s) ws
+ 
+-def C5_routeCodes : Nat := 0x1440000001200000004000000000000000000000000000000000000001000000004000000000000000000000000000000000000000000000000000000000000000000000000
++def C5_literalRoutes : List (List (Nat × Nat)) := [[(0x4,1),(0x10,2),(0x4,4),(0x12,2),(0x144,1)]]
++
+ def C5_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+ def C5_rankPool : List Nat := [7695241, 1059752, 5258957, 7409068, 5336202, 5405850, 4413835]
+ 
+@@ -2188,7 +2213,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C5_rows)
+ def C5_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 3 && x 4) || (x 4 && x 5) || (x 5 && x 6)
+-def C5_ori : List Nat → List Nat := qCompactOrient 2 C5_routeCodes
++def C5_ori : List Nat → List Nat := literalRouteOrient C5_literalRoutes
+ def C5_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 8 7) (compactCover 8 7) C5_S C5_N C5_idx C5_ori
+     C5_patternScr C5_patternScr s
+@@ -2250,7 +2275,8 @@
+ def C6_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C6_initial (C6_counts s) (C6_specs s) (C6_seeds s) ws
+ 
+-def C6_routeCodes : Nat := 0x114000021100000000900000002000000000000000000000000000000100000010400004110000021110000000b00000002000000000000000000000000000000000000014400000144000021110000020e00000020000000000000000000000200000000000000411000004105000003130000080600000080000000000000000000000800000002100000011000004404000022220000010400000010000000000000000000000100000000000000440400000114000003020000080000000080000000000000000000000800000002000000010400000000000021300000000300000004000000000000000000000000000001300000000000004015000021320000000700000004000000000000000000000000000001000000000000000154000020130000020e000000200000000000000000000002000000000000004100000040150000001300000006000000000000000000000000000000000000001000000000000041400000201000000208000000200000000000000000000002000000000000004140000000000000000000000000000000000000000000000000000000000000000000000000
++def C6_literalRoutes : List (List (Nat × Nat)) := [[(0x4140,1),(0x200,4),(0x20,8),(0x208,4),(0x2010,2),(0x4140,1)],[(0x10,2),(0x6,4),(0x13,2),(0x4015,1)],[(0x4100,1),(0x200,4),(0x20,8),(0x20e,4),(0x2013,2),(0x154,1)],[(0x100,2),(0x4,8),(0x7,4),(0x2132,2),(0x4015,1)],[(0x130,2),(0x4,8),(0x3,4),(0x2130,2)],[(0x104,1),(0x200,2),(0x800,4),(0x80,8),(0x800,4),(0x302,2),(0x114,1)],[(0x4404,1),(0x100,4),(0x10,8),(0x104,4),(0x2222,2),(0x4404,1)],[(0x110,1),(0x210,2),(0x800,4),(0x80,8),(0x806,4),(0x313,2),(0x4105,1)],[(0x4110,1),(0x200,4),(0x20,8),(0x20e,4),(0x2111,2),(0x144,1)],[(0x144,1),(0x2,8),(0xb,4),(0x2111,2),(0x4110,1)],[(0x104,1),(0x10,2),(0x2,8),(0x9,4),(0x2110,2),(0x114,1)]]
++
+ def C6_coords : List Nat := [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 12, 13, 14, 15]
+ def C6_rankPool : List Nat := [5258684, 2103945, 5339800, 4353483]
+ 
+@@ -2266,7 +2292,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C6_rows)
+ def C6_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 4 && x 5) || (x 4 && x 6) || (x 5 && x 6)
+-def C6_ori : List Nat → List Nat := qCompactOrient 12 C6_routeCodes
++def C6_ori : List Nat → List Nat := literalRouteOrient C6_literalRoutes
+ def C6_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 9 7) (compactCover 9 7) C6_S C6_N C6_idx C6_ori
+     C6_patternScr C6_patternScr s
+@@ -2323,7 +2349,8 @@
+ def C7_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C7_initial (C7_counts s) (C7_specs s) (C7_seeds s) ws
+ 
+-def C7_routeCodes : Nat := 0x11040000203200000800000000000000000000000000000000000000200000001004000000000000000000000000000000000000000000000000000000000000000000000000
++def C7_literalRoutes : List (List (Nat × Nat)) := [[(0x1004,1),(0x2000,2),(0x800,4),(0x2032,2),(0x1104,1)]]
++
+ def C7_coords : List Nat := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+ def C7_rankPool : List Nat := [5401464, 3235194, 4275595, 5262473, 6507143, 1059757, 3239033]
+ 
+@@ -2339,7 +2366,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C7_rows)
+ def C7_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 4) || (x 2 && x 5) || (x 3 && x 6) || (x 4 && x 5)
+-def C7_ori : List Nat → List Nat := qCompactOrient 2 C7_routeCodes
++def C7_ori : List Nat → List Nat := literalRouteOrient C7_literalRoutes
+ def C7_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 8 7) (compactCover 8 7) C7_S C7_N C7_idx C7_ori
+     C7_patternScr C7_patternScr s
+@@ -2386,7 +2413,8 @@
+ def C8_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C8_initial (C8_counts s) (C8_specs s) (C8_seeds s) ws
+ 
+-def C8_routeCodes : Nat := 0x22130000010500000080000000000000000000000000000020000000000000001515000022130000010500000080000000000000000000000000000020000000000000001555000011230000020a000000400000000000000000000000000000100000000040000001040000101100000e0200000080000000000000000000000800000010000000010400000040000011230000020a000000400000000000000000000000000000100000000040000014110000101100000e02000000800000000000000000000008000000100000000104000014510000202200000d01000000400000000000000000000004000000200000000144000004100000212000000a0d000000200000000000000000000002000000202000000410000001440000202200000d01000000400000000000000000000004000000200000000144000011050000212000000a0d00000020000000000000000000000200000020200000041000001145000012100000050e00000010000000000000000000000100000010100000045000001515000000000000000000000000000000000000000000000000000000000000000000000450000012100000050e000000100000000000000000000001000000101000000450000000000000000000000000000000000000000000000000000000000000000000000000
++def C8_literalRoutes : List (List (Nat × Nat)) := [[(0x450,1),(0x1010,2),(0x100,4),(0x10,8),(0x50e,4),(0x1210,2),(0x450,1)],[(0x1515,1)],[(0x450,1),(0x1010,2),(0x100,4),(0x10,8),(0x50e,4),(0x1210,2),(0x1145,1)],[(0x410,1),(0x2020,2),(0x200,4),(0x20,8),(0xa0d,4),(0x2120,2),(0x1105,1)],[(0x144,1),(0x2000,2),(0x400,4),(0x40,8),(0xd01,4),(0x2022,2),(0x144,1)],[(0x410,1),(0x2020,2),(0x200,4),(0x20,8),(0xa0d,4),(0x2120,2),(0x410,1)],[(0x144,1),(0x2000,2),(0x400,4),(0x40,8),(0xd01,4),(0x2022,2),(0x1451,1)],[(0x104,1),(0x1000,2),(0x800,4),(0x80,8),(0xe02,4),(0x1011,2),(0x1411,1)],[(0x40,1),(0x1000,2),(0x40,8),(0x20a,4),(0x1123,2),(0x40,1)],[(0x104,1),(0x1000,2),(0x800,4),(0x80,8),(0xe02,4),(0x1011,2),(0x104,1)],[(0x40,1),(0x1000,2),(0x40,8),(0x20a,4),(0x1123,2),(0x1555,1)],[(0x2000,2),(0x80,8),(0x105,4),(0x2213,2),(0x1515,1)],[(0x2000,2),(0x80,8),(0x105,4),(0x2213,2)]]
++
+ def C8_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+ def C8_rankPool : List Nat := [5532039, 4398508, 6376859, 6306424, 5377213, 1072266, 6564729]
+ 
+@@ -2402,7 +2430,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C8_rows)
+ def C8_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 1 && x 3) || (x 2 && x 4) || (x 3 && x 5) || (x 4 && x 6) || (x 5 && x 6)
+-def C8_ori : List Nat → List Nat := qCompactOrient 14 C8_routeCodes
++def C8_ori : List Nat → List Nat := literalRouteOrient C8_literalRoutes
+ def C8_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 7 7) (compactCover 7 7) C8_S C8_N C8_idx C8_ori
+     C8_patternScr C8_patternScr s
+@@ -2464,7 +2492,8 @@
+ def C9_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C9_initial (C9_counts s) (C9_specs s) (C9_seeds s) ws
+ 
+-def C9_routeCodes : Nat := 0x4500000120000000502000000100000000000000000000001000000100000000410000010500000200000000902000000100000000000000000000001000000200000001010000011400000213200000a04000000200000000000000000000002000000201000001104000011400000203200000a04000000200000000000000000000002000000201000001104000011040000033200000a04000000800000000000000000000008000000021000001140000011040000023200000a04000000800000000000000000000008000000021000001140000004040000032000000500000000400000000000000000000004000000010000000400000010040000212000000c00000000400000000000000000000004000000210000001000000001140000031000000802000000800000000000000000000008000000020000000110000001140000021000000802000000800000000000000000000008000000020000000110000004440000023200000004000000000000000000000000000000000000001000000444000000440000003200000004000000000000000000000000000000000000001000000044000001000000031200000804000000800000000000000000000008000000021000000100000001000000021200000804000000800000000000000000000008000000021000000100000004000000020000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000
++def C9_literalRoutes : List (List (Nat × Nat)) := [[(0x400,1),(0x200,2),(0x400,1)],[(0x100,1),(0x210,2),(0x800,4),(0x80,8),(0x804,4),(0x212,2),(0x100,1)],[(0x100,1),(0x210,2),(0x800,4),(0x80,8),(0x804,4),(0x312,2),(0x100,1)],[(0x44,1),(0x10,2),(0x4,4),(0x32,2),(0x44,1)],[(0x444,1),(0x10,2),(0x4,4),(0x232,2),(0x444,1)],[(0x110,1),(0x200,2),(0x800,4),(0x80,8),(0x802,4),(0x210,2),(0x114,1)],[(0x110,1),(0x200,2),(0x800,4),(0x80,8),(0x802,4),(0x310,2),(0x114,1)],[(0x1000,1),(0x2100,2),(0x400,4),(0x40,8),(0xc00,4),(0x2120,2),(0x1004,1)],[(0x400,1),(0x100,2),(0x400,4),(0x40,8),(0x500,4),(0x320,2),(0x404,1)],[(0x1140,1),(0x210,2),(0x800,4),(0x80,8),(0xa04,4),(0x232,2),(0x1104,1)],[(0x1140,1),(0x210,2),(0x800,4),(0x80,8),(0xa04,4),(0x332,2),(0x1104,1)],[(0x1104,1),(0x2010,2),(0x200,4),(0x20,8),(0xa04,4),(0x2032,2),(0x1140,1)],[(0x1104,1),(0x2010,2),(0x200,4),(0x20,8),(0xa04,4),(0x2132,2),(0x1140,1)],[(0x1010,1),(0x2000,2),(0x100,4),(0x10,8),(0x902,4),(0x2000,2),(0x1050,1)],[(0x410,1),(0x1000,2),(0x100,4),(0x10,8),(0x502,4),(0x1200,2),(0x450,1)]]
++
+ def C9_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+ def C9_rankPool : List Nat := [1059685, 3153016, 4209574, 3278972, 2104214, 4205736, 1064087, 3165061, 2116743, 4392539, 1064103, 4201334, 4205672, 2112599]
+ 
+@@ -2480,7 +2509,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C9_rows)
+ def C9_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 0 && x 5) || (x 0 && x 6) || (x 1 && x 2) || (x 3 && x 4)
+-def C9_ori : List Nat → List Nat := qCompactOrient 16 C9_routeCodes
++def C9_ori : List Nat → List Nat := literalRouteOrient C9_literalRoutes
+ def C9_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 5 8) (compactCover 5 8) C9_S C9_N C9_idx C9_ori
+     C9_patternScr C9_patternScr s
+@@ -2542,7 +2571,8 @@
+ def C10_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C10_initial (C10_counts s) (C10_specs s) (C10_seeds s) ws
+ 
+-def C10_routeCodes : Nat := 0x1110000002000000208000000200000000000000000000002000000002000000110000000000000000000000000000000000000000000000000000000000000000000000000
++def C10_literalRoutes : List (List (Nat × Nat)) := [[(0x110,1),(0x20,2),(0x200,4),(0x20,8),(0x208,4),(0x20,2),(0x111,1)]]
++
+ def C10_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12]
+ def C10_rankPool : List Nat := [4340328, 2181477, 2103943, 4204121, 3221626, 2165336, 2111861, 3279222, 3295879, 4331862]
+ 
+@@ -2558,7 +2588,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C10_rows)
+ def C10_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 0 && x 5) || (x 1 && x 2) || (x 1 && x 6) || (x 3 && x 4)
+-def C10_ori : List Nat → List Nat := qCompactOrient 2 C10_routeCodes
++def C10_ori : List Nat → List Nat := literalRouteOrient C10_literalRoutes
+ def C10_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 5 8) (compactCover 5 8) C10_S C10_N C10_idx C10_ori
+     C10_patternScr C10_patternScr s
+@@ -2625,7 +2655,8 @@
+ def C11_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C11_initial (C11_counts s) (C11_specs s) (C11_seeds s) ws
+ 
+-def C11_routeCodes : Nat := 0x45040000000100000300000000200000000000000000000002000000000000000104000054010000032100000600000000400000000000000000000004000000010000001044000050410000232200000c00000000400000000000000000000004000000210000001404000040440000120200000400000000000000000000000000000000000000100000000004000011450000210300000a00000000200000000000000000000002000000200000001100000004450000032000000400000000400000000000000000000004000000010000000440000010000000212300000c00000000400000000000000000000004000000210000001000000000000000000000000000000000000000000000000000000000000000000000000000
++def C11_literalRoutes : List (List (Nat × Nat)) := [[(0x1000,1),(0x2100,2),(0x400,4),(0x40,8),(0xc00,4),(0x2123,2),(0x1000,1)],[(0x440,1),(0x100,2),(0x400,4),(0x40,8),(0x400,4),(0x320,2),(0x445,1)],[(0x1100,1),(0x2000,2),(0x200,4),(0x20,8),(0xa00,4),(0x2103,2),(0x1145,1)],[(0x4,1),(0x1000,2),(0x400,4),(0x1202,2),(0x4044,1)],[(0x1404,1),(0x2100,2),(0x400,4),(0x40,8),(0xc00,4),(0x2322,2),(0x5041,1)],[(0x1044,1),(0x100,2),(0x400,4),(0x40,8),(0x600,4),(0x321,2),(0x5401,1)],[(0x104,1),(0x200,4),(0x20,8),(0x300,4),(0x1,2),(0x4504,1)]]
++
+ def C11_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+ def C11_rankPool : List Nat := [239352137, 272842092, 134398253, 206711086, 136330604, 205798731, 235024751, 272710026, 135281066, 172177769, 137642381, 135479629, 134299051, 136561037, 205764970, 135380395, 272809260, 136560941, 205699370, 205765002, 239254828, 272873866, 172211595, 136593741, 170013007, 241315118, 235023695, 206713166]
+ 
+@@ -2641,7 +2672,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C11_rows)
+ def C11_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 0 && x 5) || (x 1 && x 2) || (x 3 && x 4) || (x 5 && x 6)
+-def C11_ori : List Nat → List Nat := qCompactOrient 8 C11_routeCodes
++def C11_ori : List Nat → List Nat := literalRouteOrient C11_literalRoutes
+ def C11_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 9 8) (compactCover 9 8) C11_S C11_N C11_idx C11_ori
+     C11_patternScr C11_patternScr s
+@@ -2703,7 +2734,8 @@
+ def C12_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C12_initial (C12_counts s) (C12_specs s) (C12_seeds s) ws
+ 
+-def C12_routeCodes : Nat := 0x5110000002000000208000000200000000000000000000002000000002000000110000001110000002000000208000000200000000000000000000002000000002000000110000004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
++def C12_literalRoutes : List (List (Nat × Nat)) := [[(0x400,1)],[(0x110,1),(0x20,2),(0x200,4),(0x20,8),(0x208,4),(0x20,2),(0x111,1)],[(0x110,1),(0x20,2),(0x200,4),(0x20,8),(0x208,4),(0x20,2),(0x511,1)]]
++
+ def C12_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+ def C12_rankPool : List Nat := [4340344, 2181509, 3155545, 3279222, 2103895, 3295879, 2111861, 4331910, 4204666, 2165368]
+ 
+@@ -2719,7 +2751,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C12_rows)
+ def C12_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 1 && x 6) || (x 3 && x 4)
+-def C12_ori : List Nat → List Nat := qCompactOrient 4 C12_routeCodes
++def C12_ori : List Nat → List Nat := literalRouteOrient C12_literalRoutes
+ def C12_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 5 8) (compactCover 5 8) C12_S C12_N C12_idx C12_ori
+     C12_patternScr C12_patternScr s
+@@ -2786,7 +2818,8 @@
+ def C13_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C13_initial (C13_counts s) (C13_specs s) (C13_seeds s) ws
+ 
+-def C13_routeCodes : Nat := 0x14450000032300000400000000400000000000000000000004000000010000000440000011000000020300000800000000800000000000000000000008000000020000000100000004450000022000000000000000000000000000000000000000000000000000000440000000000000000000000000000000000000000000000000000000000000000000000000
++def C13_literalRoutes : List (List (Nat × Nat)) := [[(0x440,1),(0x220,2),(0x445,1)],[(0x100,1),(0x200,2),(0x800,4),(0x80,8),(0x800,4),(0x203,2),(0x1100,1)],[(0x440,1),(0x100,2),(0x400,4),(0x40,8),(0x400,4),(0x323,2),(0x1445,1)]]
++
+ def C13_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+ def C13_rankPool : List Nat := [6577818, 2115707, 4287912, 4341369, 1067678, 4402810, 2121163, 4418727, 4349079, 4263562, 4202121, 4205464, 3239371, 5458590, 4328327, 4397991, 4218264, 3295902, 4275064, 4397959, 4205432]
+ 
+@@ -2802,7 +2835,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C13_rows)
+ def C13_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 2 && x 6) || (x 3 && x 4)
+-def C13_ori : List Nat → List Nat := qCompactOrient 4 C13_routeCodes
++def C13_ori : List Nat → List Nat := literalRouteOrient C13_literalRoutes
+ def C13_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 7 8) (compactCover 7 8) C13_S C13_N C13_idx C13_ori
+     C13_patternScr C13_patternScr s
+@@ -2859,7 +2892,8 @@
+ def C14_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C14_initial (C14_counts s) (C14_specs s) (C14_seeds s) ws
+ 
+-def C14_routeCodes : Nat := 0x40000032200000500000000400000000000000000000004000000010000000004000000000000000000000000000000000000000000000000000000000000000000000000
++def C14_literalRoutes : List (List (Nat × Nat)) := [[(0x4,1),(0x100,2),(0x400,4),(0x40,8),(0x500,4),(0x322,2),(0x4,1)]]
++
+ def C14_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+ def C14_rankPool : List Nat := [3295589, 3230567, 2111611, 1063529, 3279704, 4397928, 3157079, 4401494, 3152229, 3213654]
+ 
+@@ -2875,7 +2909,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C14_rows)
+ def C14_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 3 && x 4) || (x 3 && x 6)
+-def C14_ori : List Nat → List Nat := qCompactOrient 2 C14_routeCodes
++def C14_ori : List Nat → List Nat := literalRouteOrient C14_literalRoutes
+ def C14_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 5 8) (compactCover 5 8) C14_S C14_N C14_idx C14_ori
+     C14_patternScr C14_patternScr s
+@@ -2942,7 +2976,8 @@
+ def C15_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C15_initial (C15_counts s) (C15_specs s) (C15_seeds s) ws
+ 
+-def C15_routeCodes : Nat := 0x4040000003200000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000000000000
++def C15_literalRoutes : List (List (Nat × Nat)) := [[(0x4,1),(0x32,2),(0x404,1)]]
++
+ def C15_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ def C15_rankPool : List Nat := [2165678, 6519960, 1068169, 4284365, 2104987, 6622620, 4419210, 1060538, 4210573, 6455245, 7367817, 6311563, 4201624, 4340654, 7556265, 7616908, 4414616]
+ 
+@@ -2958,7 +2993,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C15_rows)
+ def C15_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 3 && x 4) || (x 5 && x 6)
+-def C15_ori : List Nat → List Nat := qCompactOrient 2 C15_routeCodes
++def C15_ori : List Nat → List Nat := literalRouteOrient C15_literalRoutes
+ def C15_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 8 8) (compactCover 8 8) C15_S C15_N C15_idx C15_ori
+     C15_patternScr C15_patternScr s
+@@ -3010,7 +3045,8 @@
+ def C16_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C16_initial (C16_counts s) (C16_specs s) (C16_seeds s) ws
+ 
+-def C16_routeCodes : Nat := 0x0
++def C16_literalRoutes : List (List (Nat × Nat)) := []
++
+ def C16_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13]
+ def C16_rankPool : List Nat := [5376940, 4413814, 3284107, 5458279, 5511017]
+ 
+@@ -3026,7 +3062,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C16_rows)
+ def C16_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 3 && x 6) || (x 5 && x 6)
+-def C16_ori : List Nat → List Nat := qCompactOrient 1 C16_routeCodes
++def C16_ori : List Nat → List Nat := literalRouteOrient C16_literalRoutes
+ def C16_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 6 8) (compactCover 6 8) C16_S C16_N C16_idx C16_ori
+     C16_patternScr C16_patternScr s
+@@ -3093,7 +3129,8 @@
+ def C17_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C17_initial (C17_counts s) (C17_specs s) (C17_seeds s) ws
+ 
+-def C17_routeCodes : Nat := 0x4115000020100000000c00000000000000000000000000000000000000200000404000000151000000200000000800000000000000000000000000000000000000200000001000004054000020100000000c000000000000000000000000000000000000002000004000000000000000000000000000000000000000000000000000000000000000000000000000
++def C17_literalRoutes : List (List (Nat × Nat)) := [[(0x4000,1),(0x20,2),(0xc,4),(0x2010,2),(0x4054,1)],[(0x10,1),(0x20,2),(0x8,4),(0x20,2),(0x151,1)],[(0x4040,1),(0x20,2),(0xc,4),(0x2010,2),(0x4115,1)]]
++
+ def C17_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ def C17_rankPool : List Nat := [6491871, 6651032, 2112954, 7547276, 7695545, 5255086, 5271178, 2195437, 4340873, 2182554, 7426014, 2187181, 5340826, 3296408, 5250216]
+ 
+@@ -3109,7 +3146,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C17_rows)
+ def C17_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 3 && x 5) || (x 3 && x 6) || (x 5 && x 6)
+-def C17_ori : List Nat → List Nat := qCompactOrient 4 C17_routeCodes
++def C17_ori : List Nat → List Nat := literalRouteOrient C17_literalRoutes
+ def C17_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 8 8) (compactCover 8 8) C17_S C17_N C17_idx C17_ori
+     C17_patternScr C17_patternScr s
+@@ -3171,7 +3208,8 @@
+ def C18_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C18_initial (C18_counts s) (C18_specs s) (C18_seeds s) ws
+ 
+-def C18_routeCodes : Nat := 0x4515000020100000000c00000000000000000000000000000000000000200000404000000151000000200000000800000000000000000000000000000000000000200000001000004454000020100000000c000000000000000000000000000000000000002000004000000000000000000000000000000000000000000000000000000000000000000000000000
++def C18_literalRoutes : List (List (Nat × Nat)) := [[(0x4000,1),(0x20,2),(0xc,4),(0x2010,2),(0x4454,1)],[(0x10,1),(0x20,2),(0x8,4),(0x20,2),(0x151,1)],[(0x4040,1),(0x20,2),(0xc,4),(0x2010,2),(0x4515,1)]]
++
+ def C18_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ def C18_rankPool : List Nat := [3296408, 6491871, 7695529, 2195115, 7756172, 5320638, 5520569, 4284333, 6438282, 6454424, 2125451, 7687610]
+ 
+@@ -3187,7 +3225,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C18_rows)
+ def C18_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 3 && x 5) || (x 4 && x 6) || (x 5 && x 6)
+-def C18_ori : List Nat → List Nat := qCompactOrient 4 C18_routeCodes
++def C18_ori : List Nat → List Nat := literalRouteOrient C18_literalRoutes
+ def C18_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 8 8) (compactCover 8 8) C18_S C18_N C18_idx C18_ori
+     C18_patternScr C18_patternScr s
+@@ -3249,7 +3287,8 @@
+ def C19_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C19_initial (C19_counts s) (C19_specs s) (C19_seeds s) ws
+ 
+-def C19_routeCodes : Nat := 0x40440000232200000000000000000000000000000000000000000000000000004044000000000000000000000000000000000000000000000000000000000000000000000000
++def C19_literalRoutes : List (List (Nat × Nat)) := [[(0x4044,1),(0x2322,2),(0x4044,1)]]
++
+ def C19_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+ def C19_rankPool : List Nat := [5336441, 1059722, 5532280, 4206237, 6446715, 4283514, 6311595, 1064122, 2112664, 5447102, 6638215, 6576250, 2117001, 6634391]
+ 
+@@ -3265,7 +3304,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C19_rows)
+ def C19_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 2 && x 5) || (x 3 && x 6) || (x 4 && x 6)
+-def C19_ori : List Nat → List Nat := qCompactOrient 2 C19_routeCodes
++def C19_ori : List Nat → List Nat := literalRouteOrient C19_literalRoutes
+ def C19_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 7 8) (compactCover 7 8) C19_S C19_N C19_idx C19_ori
+     C19_patternScr C19_patternScr s
+@@ -3332,7 +3371,8 @@
+ def C20_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C20_initial (C20_counts s) (C20_specs s) (C20_seeds s) ws
+ 
+-def C20_routeCodes : Nat := 0x0
++def C20_literalRoutes : List (List (Nat × Nat)) := []
++
+ def C20_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+ def C20_rankPool : List Nat := [6637690, 6368924, 2104215, 4262552, 2178441, 5311678, 2121081, 3156874, 6445688, 5336747, 5532295, 5394043, 6373084, 4414072]
+ 
+@@ -3348,7 +3388,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C20_rows)
+ def C20_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 3 && x 6) || (x 4 && x 5)
+-def C20_ori : List Nat → List Nat := qCompactOrient 1 C20_routeCodes
++def C20_ori : List Nat → List Nat := literalRouteOrient C20_literalRoutes
+ def C20_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 7 8) (compactCover 7 8) C20_S C20_N C20_idx C20_ori
+     C20_patternScr C20_patternScr s
+@@ -3415,7 +3455,8 @@
+ def C21_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C21_initial (C21_counts s) (C21_specs s) (C21_seeds s) ws
+ 
+-def C21_routeCodes : Nat := 0x4054000020100000000c000000000000000000000000000000000000002000004000000000000000000000000000000000000000000000000000000000000000000000000000
++def C21_literalRoutes : List (List (Nat × Nat)) := [[(0x4000,1),(0x20,2),(0xc,4),(0x2010,2),(0x4054,1)]]
++
+ def C21_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ def C21_rankPool : List Nat := [6389402, 4340107, 7610079, 7756681, 6298792, 5255134, 6315658, 3157386, 3231130, 4288429, 3296152, 7367051, 6651032, 6373294]
+ 
+@@ -3431,7 +3472,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C21_rows)
+ def C21_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 3 && x 6) || (x 5 && x 6)
+-def C21_ori : List Nat → List Nat := qCompactOrient 2 C21_routeCodes
++def C21_ori : List Nat → List Nat := literalRouteOrient C21_literalRoutes
+ def C21_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 8 8) (compactCover 8 8) C21_S C21_N C21_idx C21_ori
+     C21_patternScr C21_patternScr s
+@@ -3483,7 +3524,8 @@
+ def C22_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C22_initial (C22_counts s) (C22_specs s) (C22_seeds s) ws
+ 
+-def C22_routeCodes : Nat := 0x10110000212000000a08000000200000000000000000000002000000202000001010000000000000000000000000000000000000000000000000000000000000000000000000
++def C22_literalRoutes : List (List (Nat × Nat)) := [[(0x1010,1),(0x2020,2),(0x200,4),(0x20,8),(0xa08,4),(0x2120,2),(0x1011,1)]]
++
+ def C22_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+ def C22_rankPool : List Nat := [4413814, 5393547, 5389740, 2103655, 5458553]
+ 
+@@ -3499,7 +3541,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C22_rows)
+ def C22_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 4 && x 5) || (x 5 && x 6)
+-def C22_ori : List Nat → List Nat := qCompactOrient 2 C22_routeCodes
++def C22_ori : List Nat → List Nat := literalRouteOrient C22_literalRoutes
+ def C22_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 6 8) (compactCover 6 8) C22_S C22_N C22_idx C22_ori
+     C22_patternScr C22_patternScr s
+@@ -3561,7 +3603,8 @@
+ def C23_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C23_initial (C23_counts s) (C23_specs s) (C23_seeds s) ws
+ 
+-def C23_routeCodes : Nat := 0x1050000003100000000e000000000000000000000000000000000000001000000050000000000000000000000000000000000000000000000000000000000000000000000000
++def C23_literalRoutes : List (List (Nat × Nat)) := [[(0x50,1),(0x10,2),(0xe,4),(0x310,2),(0x1050,1)]]
++
+ def C23_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+ def C23_rankPool : List Nat := [6576760, 6491598, 2177927, 5328540, 1076651, 2112649, 4202173, 5532311, 6375546, 2182523, 5381241]
+ 
+@@ -3577,7 +3620,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C23_rows)
+ def C23_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 4 && x 6) || (x 5 && x 6)
+-def C23_ori : List Nat → List Nat := qCompactOrient 2 C23_routeCodes
++def C23_ori : List Nat → List Nat := literalRouteOrient C23_literalRoutes
+ def C23_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 7 8) (compactCover 7 8) C23_S C23_N C23_idx C23_ori
+     C23_patternScr C23_patternScr s
+@@ -3639,7 +3682,8 @@
+ def C24_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C24_initial (C24_counts s) (C24_specs s) (C24_seeds s) ws
+ 
+-def C24_routeCodes : Nat := 0x440000222000000f02000100100000010000010000000001000000002000000040000000540001333200000f02000400400000040000040000000004000001112000004040000040400000221200000f08000100100000010000010000000001000000000000000054000040000000222200010e04001000000000100000100000000100000000000000004000000044040000022200000104000000100000000000000000000001000000000000000404000001140000030200000800000000800000000000000000000008000000020000000104000041400000001000000208000000200000000000000000000002000000000000000140000000000000000000000000000000000000000000000000000000000000000000000000
++def C24_literalRoutes : List (List (Nat × Nat)) := [[(0x140,1),(0x200,4),(0x20,8),(0x208,4),(0x10,2),(0x4140,1)],[(0x104,1),(0x200,2),(0x800,4),(0x80,8),(0x800,4),(0x302,2),(0x114,1)],[(0x404,1),(0x100,4),(0x10,8),(0x104,4),(0x222,2),(0x4404,1)],[(0x4000,1),(0x10000,4),(0x100000,8),(0x1000,16),(0x100000,8),(0x10e04,4),(0x2222,2),(0x4000,1)],[(0x54,1),(0x100,4),(0x10000,8),(0x100,16),(0x10010,8),(0xf08,4),(0x2212,2),(0x4040,1)],[(0x4040,1),(0x11120,2),(0x400,4),(0x40000,8),(0x400,16),(0x40040,8),(0xf02,4),(0x13332,2),(0x54,1)],[(0x40,1),(0x20,2),(0x100,4),(0x10000,8),(0x100,16),(0x10010,8),(0xf02,4),(0x2220,2),(0x44,1)]]
++
+ def C24_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+ def C24_rankPool : List Nat := [241447241, 201441743, 134264107, 135512494, 272738604, 67252586, 206650832, 134330733, 270744941, 275982636, 206585296]
+ 
+@@ -3655,7 +3699,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C24_rows)
+ def C24_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 3 && x 4) || (x 4 && x 5) || (x 4 && x 6) || (x 5 && x 6)
+-def C24_ori : List Nat → List Nat := qCompactOrient 8 C24_routeCodes
++def C24_ori : List Nat → List Nat := literalRouteOrient C24_literalRoutes
+ def C24_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 9 8) (compactCover 9 8) C24_S C24_N C24_idx C24_ori
+     C24_patternScr C24_patternScr s
+@@ -3712,7 +3756,8 @@
+ def C25_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C25_initial (C25_counts s) (C25_specs s) (C25_seeds s) ws
+ 
+-def C25_routeCodes : Nat := 0x4100000111100000f05000000800000000000000000000008000000000000000410000054140000023100000b0d000000200000000000000000000002000000022000005400000011100000302000000808000000000000000000000000000000000000202000001010000000000000000000000000000000000000000000000000000000000000000000000000
++def C25_literalRoutes : List (List (Nat × Nat)) := [[(0x1010,1),(0x2020,2),(0x808,4),(0x3020,2),(0x1110,1)],[(0x5400,1),(0x220,2),(0x200,4),(0x20,8),(0xb0d,4),(0x231,2),(0x5414,1)],[(0x410,1),(0x800,4),(0x80,8),(0xf05,4),(0x1111,2),(0x410,1)]]
++
+ def C25_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+ def C25_rankPool : List Nat := [5532536, 5381788, 3279789, 5515927, 5389774, 3284363, 2121338, 5459081, 5467257, 4328622, 5450375, 4349306]
+ 
+@@ -3728,7 +3773,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C25_rows)
+ def C25_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 4) || (x 2 && x 5) || (x 3 && x 6) || (x 4 && x 5) || (x 4 && x 6)
+-def C25_ori : List Nat → List Nat := qCompactOrient 4 C25_routeCodes
++def C25_ori : List Nat → List Nat := literalRouteOrient C25_literalRoutes
+ def C25_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 7 8) (compactCover 7 8) C25_S C25_N C25_idx C25_ori
+     C25_patternScr C25_patternScr s
+@@ -3800,7 +3845,8 @@
+ def C26_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C26_initial (C26_counts s) (C26_specs s) (C26_seeds s) ws
+ 
+-def C26_routeCodes : Nat := 0x15440000311000020d0c002000020000200000200000000200000000202000000110000154100001213000000f06000400400000040000040000000004000001011000014054000011400002132000080502008000080000800000800000000800000002022000001140000144440001200200040b0600400010000040000040000000040100000100300001444400001500000210100008050c008000020000800000800000000800000002002000010110000154540001213000000706000400400000040000040000000004000001011000005054000005040002132000080302008000080000800000800000000800000002122000011540000150000000320200000706000100100000010000010000000001000000103000004044000144540001031000040b06004000040000400000400000000400000001013000014410000011500002020200000f04000800800000080000080000000008000002020000001140000144440001021200040b0c004000100000400000400000000401000001002000014444000000100002003000080604008000000000800000800000000800000002001000000010000004100002111000080306008000040000800000800000000800000002113000011010000151140001220200040b0400400080000040000040000000040800000102000000454000000400000202120008070c00800010000080000080000000080100000200200001104400000054000202300008060400800000000080000080000000080000000210100001001000010110000201200008050c008000020000800000800000000800000002001000001500000054100001013000000e06000400400000040000040000000004000001011000014010000050540001011000040306004000040000400000400000000400000001213000015454000045500001020200040b0400400080000040000040000000040800000122000001510400004510000120000004010c00400002000040000040000000040000000100000000410000011410000200000008030200800010000080000080000000080100000200000001101000011400000213320008020a008000040000800000800000000800000002010000011044000114000002023200080304008000100000800000800000000801000002001000011044000040440001032000040902004000040000400000400000000400000001012000015000000110440000220200020d06002000100000200000200000000201000000203000000400000040440000321200000d0c000100100000010000010000000001000000102000015000000100440000323000020c0800200000000020000020000000020000000020200000000000011044000033320002080a00200004000020000020000000020000000021000001140000011044000022320002090400200010000020000020000000020100000020100001140000004044000032000000050e00010010000001000001000000000100000010000000400000010044000212000008040000800000000080000080000000080000000210000001000000015154000001200000080c000000020000000000000000000000000000001000004100000104540000133000000506000000400000000000000000000004000000011000001410000114100000031000000106000000040000000000000000000000000000113000000454000101140000130200000a0400000080000000000000000000000800000002000000010400001154000031000000080c00000002000000000000000000000000000020000000110000000454000012000000050200000010000000000000000000000100000010000000041000004444000023320000000a00000004000000000000000000000000000001000000444400000444000002320000010400000010000000000000000000000100000000100000044400015000000001200000080200000004000000000000000000000000000001200000400000015000000000020000090600000010000000000000000000000100000020300000400000014000000020120000090c00000010000000000000000000000100000000200000500000010000000030300000080800000000000000000000000000000000000020200000000000001000000031320000080a00000004000000000000000000000000000021000000100000001000000020320000090400000010000000000000000000000100000020100000100000004000000020000000010e000000100000000000000000000001000000000000004000000000000000000000000000000000000000000000000000000000000000000000000000
++def C26_literalRoutes : List (List (Nat × Nat)) := [[(0x4000,1),(0x100,4),(0x10,8),(0x10e,4),(0x2000,2),(0x4000,1)],[(0x1000,1),(0x2010,2),(0x100,4),(0x10,8),(0x904,4),(0x2032,2),(0x1000,1)],[(0x1000,1),(0x2100,2),(0x4,8),(0x80a,4),(0x3132,2),(0x1000,1)],[(0x2020,2),(0x808,4),(0x3030,2),(0x10000,1)],[(0x5000,1),(0x20,2),(0x100,4),(0x10,8),(0x90c,4),(0x2012,2),(0x14000,1)],[(0x4000,1),(0x2030,2),(0x100,4),(0x10,8),(0x906,4),(0x2,2),(0x15000,1)],[(0x4000,1),(0x120,2),(0x4,8),(0x802,4),(0x120,2),(0x15000,1)],[(0x444,1),(0x10,2),(0x100,4),(0x10,8),(0x104,4),(0x232,2),(0x444,1)],[(0x4444,1),(0x100,2),(0x4,8),(0xa,4),(0x2332,2),(0x4444,1)],[(0x410,1),(0x1000,2),(0x100,4),(0x10,8),(0x502,4),(0x1200,2),(0x454,1)],[(0x1100,1),(0x2000,2),(0x2,8),(0x80c,4),(0x3100,2),(0x1154,1)],[(0x104,1),(0x200,2),(0x800,4),(0x80,8),(0xa04,4),(0x1302,2),(0x10114,1)],[(0x454,1),(0x1130,2),(0x4,8),(0x106,4),(0x310,2),(0x11410,1)],[(0x1410,1),(0x110,2),(0x400,4),(0x40,8),(0x506,4),(0x1330,2),(0x10454,1)],[(0x4100,1),(0x10,2),(0x2,8),(0x80c,4),(0x120,2),(0x15154,1)],[(0x10000,1),(0x21000,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800000,8),(0x80400,4),(0x21200,2),(0x10044,1)],[(0x4000,1),(0x1000,2),(0x100,4),(0x10000,8),(0x100,16),(0x10010,8),(0x50e,4),(0x3200,2),(0x4044,1)],[(0x11400,1),(0x2010,2),(0x20100,4),(0x200000,8),(0x2000,16),(0x200010,8),(0x20904,4),(0x2232,2),(0x11044,1)],[(0x11400,1),(0x2100,2),(0x20000,4),(0x200000,8),(0x2000,16),(0x200004,8),(0x2080a,4),(0x3332,2),(0x11044,1)],[(0x2020,2),(0x20000,4),(0x200000,8),(0x2000,16),(0x200000,8),(0x20c08,4),(0x3230,2),(0x10044,1)],[(0x15000,1),(0x1020,2),(0x100,4),(0x10000,8),(0x100,16),(0x10010,8),(0xd0c,4),(0x3212,2),(0x4044,1)],[(0x400,1),(0x2030,2),(0x20100,4),(0x200000,8),(0x2000,16),(0x200010,8),(0x20d06,4),(0x2202,2),(0x11044,1)],[(0x15000,1),(0x10120,2),(0x40000,4),(0x400000,8),(0x4000,16),(0x400004,8),(0x40902,4),(0x10320,2),(0x4044,1)],[(0x11044,1),(0x20010,2),(0x80100,4),(0x800000,8),(0x8000,16),(0x800010,8),(0x80304,4),(0x20232,2),(0x11400,1)],[(0x11044,1),(0x20100,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800004,8),(0x8020a,4),(0x21332,2),(0x11400,1)],[(0x11010,1),(0x20000,2),(0x80100,4),(0x800000,8),(0x8000,16),(0x800010,8),(0x80302,4),(0x20000,2),(0x11410,1)],[(0x4100,1),(0x10000,2),(0x40000,4),(0x400000,8),(0x4000,16),(0x400002,8),(0x4010c,4),(0x12000,2),(0x4510,1)],[(0x15104,1),(0x12200,2),(0x40800,4),(0x400000,8),(0x4000,16),(0x400080,8),(0x40b04,4),(0x10202,2),(0x4550,1)],[(0x15454,1),(0x12130,2),(0x40000,4),(0x400000,8),(0x4000,16),(0x400004,8),(0x40306,4),(0x10110,2),(0x5054,1)],[(0x14010,1),(0x10110,2),(0x400,4),(0x40000,8),(0x400,16),(0x40040,8),(0xe06,4),(0x10130,2),(0x5410,1)],[(0x1500,1),(0x20010,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800002,8),(0x8050c,4),(0x20120,2),(0x10110,1)],[(0x10010,1),(0x21010,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800000,8),(0x80604,4),(0x20230,2),(0x54,1)],[(0x11044,1),(0x20020,2),(0x80100,4),(0x800000,8),(0x8000,16),(0x800010,8),(0x8070c,4),(0x20212,2),(0x400,1)],[(0x4540,1),(0x10200,2),(0x40800,4),(0x400000,8),(0x4000,16),(0x400080,8),(0x40b04,4),(0x12202,2),(0x15114,1)],[(0x11010,1),(0x21130,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800004,8),(0x80306,4),(0x21110,2),(0x410,1)],[(0x10,1),(0x20010,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800000,8),(0x80604,4),(0x20030,2),(0x10,1)],[(0x14444,1),(0x10020,2),(0x40100,4),(0x400000,8),(0x4000,16),(0x400010,8),(0x40b0c,4),(0x10212,2),(0x14444,1)],[(0x1140,1),(0x20200,2),(0x800,4),(0x80000,8),(0x800,16),(0x80080,8),(0xf04,4),(0x20202,2),(0x1150,1)],[(0x14410,1),(0x10130,2),(0x40000,4),(0x400000,8),(0x4000,16),(0x400004,8),(0x40b06,4),(0x10310,2),(0x14454,1)],[(0x4044,1),(0x1030,2),(0x100,4),(0x10000,8),(0x100,16),(0x10010,8),(0x706,4),(0x3202,2),(0x15000,1)],[(0x11540,1),(0x21220,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800008,8),(0x80302,4),(0x21320,2),(0x504,1)],[(0x5054,1),(0x10110,2),(0x400,4),(0x40000,8),(0x400,16),(0x40040,8),(0x706,4),(0x12130,2),(0x15454,1)],[(0x10110,1),(0x20020,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800002,8),(0x8050c,4),(0x21010,2),(0x1500,1)],[(0x14444,1),(0x10030,2),(0x40100,4),(0x400000,8),(0x4000,16),(0x400010,8),(0x40b06,4),(0x12002,2),(0x14444,1)],[(0x1140,1),(0x20220,2),(0x80000,4),(0x800000,8),(0x8000,16),(0x800008,8),(0x80502,4),(0x21320,2),(0x1140,1)],[(0x14054,1),(0x10110,2),(0x400,4),(0x40000,8),(0x400,16),(0x40040,8),(0xf06,4),(0x12130,2),(0x15410,1)],[(0x110,1),(0x2020,2),(0x20000,4),(0x200000,8),(0x2000,16),(0x200002,8),(0x20d0c,4),(0x3110,2),(0x1544,1)]]
++
+ def C26_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+ def C26_rankPool : List Nat := [134300012, 235158857, 134331818, 167822638, 268584270, 272644529, 170930544, 236988719, 67323341, 235061548, 168018219, 67256747, 67157354, 33735981, 33635657, 201409966, 134299980, 268648812, 100910477, 201506090, 167984585, 100941257, 100712812, 268680586, 33669419, 234997134, 134497741, 201605451, 134267308, 100810153, 234964334, 100844909, 33800651, 167855438, 100810121, 201475470, 67157418, 201409902, 268517804]
+ 
+@@ -3816,7 +3862,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C26_rows)
+ def C26_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 0 && x 5) || (x 0 && x 6) || (x 1 && x 2) || (x 3 && x 4) || (x 5 && x 6)
+-def C26_ori : List Nat → List Nat := qCompactOrient 48 C26_routeCodes
++def C26_ori : List Nat → List Nat := literalRouteOrient C26_literalRoutes
+ def C26_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 9 9) (compactCover 9 9) C26_S C26_N C26_idx C26_ori
+     C26_patternScr C26_patternScr s
+@@ -3888,7 +3934,8 @@
+ def C27_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C27_initial (C27_counts s) (C27_specs s) (C27_seeds s) ws
+ 
+-def C27_routeCodes : Nat := 0x54540000100200010e05001000000000100000100000000100000000100000005454000050540000100300010e09001000000000100000100000000100000000102000005400000054000000101300010e06001000000000100000100000000100000000103000005054000050000000101100010e0200100000000010000010000000010000000010000000500000004415000020100000000c00000000000000000000000000000000000000200000404000000451000000200000000800000000000000000000000000000000000000200000001000004054000020100000000c000000000000000000000000000000000000002000004000000000000000000000000000000000000000000000000000000000000000000000000000
++def C27_literalRoutes : List (List (Nat × Nat)) := [[(0x4000,1),(0x20,2),(0xc,4),(0x2010,2),(0x4054,1)],[(0x10,1),(0x20,2),(0x8,4),(0x20,2),(0x451,1)],[(0x4040,1),(0x20,2),(0xc,4),(0x2010,2),(0x4415,1)],[(0x5000,1),(0x1000,2),(0x10000,4),(0x100000,8),(0x1000,16),(0x100000,8),(0x10e02,4),(0x1011,2),(0x5000,1)],[(0x5054,1),(0x1030,2),(0x10000,4),(0x100000,8),(0x1000,16),(0x100000,8),(0x10e06,4),(0x1013,2),(0x5400,1)],[(0x5400,1),(0x1020,2),(0x10000,4),(0x100000,8),(0x1000,16),(0x100000,8),(0x10e09,4),(0x1003,2),(0x5054,1)],[(0x5454,1),(0x1000,2),(0x10000,4),(0x100000,8),(0x1000,16),(0x100000,8),(0x10e05,4),(0x1002,2),(0x5454,1)]]
++
+ def C27_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+ def C27_rankPool : List Nat := [240336203, 102773001, 236077486, 137440591, 169062760, 203668778, 68338125, 201441678, 201401612, 136428843, 171064618, 203438512, 135512461, 67320136, 67219784, 203472138, 237023497, 67157258, 167854350, 236108076, 33631567, 169916848, 167983400, 134292748, 204487088, 68173067, 167884104, 100876749, 135446797, 236077454, 68301160, 240336171, 100876685]
+ 
+@@ -3904,7 +3951,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C27_rows)
+ def C27_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 1 && x 6) || (x 3 && x 4) || (x 5 && x 6)
+-def C27_ori : List Nat → List Nat := qCompactOrient 8 C27_routeCodes
++def C27_ori : List Nat → List Nat := literalRouteOrient C27_literalRoutes
+ def C27_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 8 9) (compactCover 8 9) C27_S C27_N C27_idx C27_ori
+     C27_patternScr C27_patternScr s
+@@ -3971,7 +4018,8 @@
+ def C28_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C28_initial (C28_counts s) (C28_specs s) (C28_seeds s) ws
+ 
+-def C28_routeCodes : Nat := 0x5550000032100000050e000000100000000000000000000001000000101000005550000000000000000000000000000000000000000000000000000000000000000000000000
++def C28_literalRoutes : List (List (Nat × Nat)) := [[(0x5550,1),(0x1010,2),(0x100,4),(0x10,8),(0x50e,4),(0x3210,2),(0x5550,1)]]
++
+ def C28_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ def C28_rankPool : List Nat := [2178473, 6426319, 6637691, 5311866, 6577064, 5532551, 4328344, 1059991, 4333470, 5468092, 3296941, 6307806, 3152541, 5328764, 1072761, 3222938, 3283613, 4263631, 4205463, 6556538, 6360472, 1072505]
+ 
+@@ -3987,7 +4035,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C28_rows)
+ def C28_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 3 && x 4) || (x 3 && x 6) || (x 5 && x 6)
+-def C28_ori : List Nat → List Nat := qCompactOrient 2 C28_routeCodes
++def C28_ori : List Nat → List Nat := literalRouteOrient C28_literalRoutes
+ def C28_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 7 9) (compactCover 7 9) C28_S C28_N C28_idx C28_ori
+     C28_patternScr C28_patternScr s
+@@ -4049,7 +4097,8 @@
+ def C29_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C29_initial (C29_counts s) (C29_specs s) (C29_seeds s) ws
+ 
+-def C29_routeCodes : Nat := 0x54000000101100000a00000000800000000000000000000008000000000000005400000051150000131200000a00000000800000000000000000000008000000000000001404000010510000322100000c00000000400000000000000000000004000000210000005040000040140000230200000000000000000000000000000000000000000000000000004004000050410000212000000c00000000400000000000000000000004000000210000001040000000000000000000000000000000000000000000000000000000000000000000000000
++def C29_literalRoutes : List (List (Nat × Nat)) := [[(0x1040,1),(0x2100,2),(0x400,4),(0x40,8),(0xc00,4),(0x2120,2),(0x5041,1)],[(0x4004,1),(0x2302,2),(0x4014,1)],[(0x5040,1),(0x2100,2),(0x400,4),(0x40,8),(0xc00,4),(0x3221,2),(0x1051,1)],[(0x1404,1),(0x800,4),(0x80,8),(0xa00,4),(0x1312,2),(0x5115,1)],[(0x5400,1),(0x800,4),(0x80,8),(0xa00,4),(0x1011,2),(0x5400,1)]]
++
+ def C29_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ def C29_rankPool : List Nat := [2112664, 2182779, 5532295, 5250494, 5311951, 6637690, 6381484, 2117516, 5451421, 5258426, 3304841, 6576760, 2186617, 6426319, 2177943, 5447614, 5271211, 1064122, 4403101, 2125193]
+ 
+@@ -4065,7 +4114,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C29_rows)
+ def C29_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 2 && x 5) || (x 3 && x 6) || (x 4 && x 6) || (x 5 && x 6)
+-def C29_ori : List Nat → List Nat := qCompactOrient 6 C29_routeCodes
++def C29_ori : List Nat → List Nat := literalRouteOrient C29_literalRoutes
+ def C29_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 7 9) (compactCover 7 9) C29_S C29_N C29_idx C29_ori
+     C29_patternScr C29_patternScr s
+@@ -4132,7 +4181,8 @@
+ def C30_idx (s : Nat) (ws : List Nat) : Nat :=
+   qGroupedIndex C30_initial (C30_counts s) (C30_specs s) (C30_seeds s) ws
+ 
+-def C30_routeCodes : Nat := 0x151500002202100000302000800000000080000080000000000000002102000010040000000000000000000000000000000000000000000000000000000000000000000000000
++def C30_literalRoutes : List (List (Nat × Nat)) := [[(0x10040,1),(0x21020,2),(0x80000,8),(0x800,16),(0x80000,8),(0x302,4),(0x22021,2),(0x15150,1)]]
++
+ def C30_coords : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+ def C30_rankPool : List Nat := [239122864, 201370952, 204553484, 241347849, 202619178, 167887278, 238235947, 68338063, 202386697, 134292747, 135511501, 67220746, 204614952, 202457422, 235028910, 135478605, 238207375, 171981232, 201567528, 235027820, 101725583, 201505034, 170110248, 67289549, 100843981, 68302122, 204517704]
+ 
+@@ -4148,7 +4198,7 @@
+   (List.ofFn fun (i : Fin 7) => (fun x : Fin 7 → Bool => x i)).map
+     (fun a => encL a C30_rows)
+ def C30_f (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 3 && x 6) || (x 4 && x 5) || (x 5 && x 6)
+-def C30_ori : List Nat → List Nat := qCompactOrient 2 C30_routeCodes
++def C30_ori : List Nat → List Nat := literalRouteOrient C30_literalRoutes
+ def C30_Z (s : Nat) : Nat → Bool :=
+   barEarlyScore (compactGoal 8 9) (compactCover 8 9) C30_S C30_N C30_idx C30_ori
+     C30_patternScr C30_patternScr s
+@@ -4164,9 +4214,7 @@
+ theorem C0_initial_perm : C0_xs.Perm (C0_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C0_good : qCompactGood (compactGoal 8 7) 8 C0_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C0_good : literalRoutesGood (compactGoal 8 7) C0_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C0_b0 : span C0_F 161 0 = true := by decide +kernel
+@@ -4181,9 +4229,7 @@
+ theorem C1_initial_perm : C1_xs.Perm (C1_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C1_good : qCompactGood (compactGoal 10 7) 16 C1_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C1_good : literalRoutesGood (compactGoal 10 7) C1_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C1_b0 : span C1_F 85 0 = true := by decide +kernel
+@@ -4198,9 +4244,7 @@
+ theorem C2_initial_perm : C2_xs.Perm (C2_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C2_good : qCompactGood (compactGoal 9 7) 4 C2_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C2_good : literalRoutesGood (compactGoal 9 7) C2_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C2_b0 : span C2_F 106 0 = true := by decide +kernel
+@@ -4215,9 +4259,7 @@
+ theorem C3_initial_perm : C3_xs.Perm (C3_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C3_good : qCompactGood (compactGoal 8 7) 2 C3_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C3_good : literalRoutesGood (compactGoal 8 7) C3_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C3_b0 : span C3_F 110 0 = true := by decide +kernel
+@@ -4232,9 +4274,7 @@
+ theorem C4_initial_perm : C4_xs.Perm (C4_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C4_good : qCompactGood (compactGoal 8 7) 2 C4_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C4_good : literalRoutesGood (compactGoal 8 7) C4_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C4_b0 : span C4_F 195 0 = true := by decide +kernel
+@@ -4249,9 +4289,7 @@
+ theorem C5_initial_perm : C5_xs.Perm (C5_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C5_good : qCompactGood (compactGoal 8 7) 2 C5_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C5_good : literalRoutesGood (compactGoal 8 7) C5_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C5_b0 : span C5_F 122 0 = true := by decide +kernel
+@@ -4266,9 +4304,7 @@
+ theorem C6_initial_perm : C6_xs.Perm (C6_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C6_good : qCompactGood (compactGoal 9 7) 12 C6_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C6_good : literalRoutesGood (compactGoal 9 7) C6_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C6_b0 : span C6_F 72 0 = true := by decide +kernel
+@@ -4283,9 +4319,7 @@
+ theorem C7_initial_perm : C7_xs.Perm (C7_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C7_good : qCompactGood (compactGoal 8 7) 2 C7_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C7_good : literalRoutesGood (compactGoal 8 7) C7_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C7_b0 : span C7_F 89 0 = true := by decide +kernel
+@@ -4300,9 +4334,7 @@
+ theorem C8_initial_perm : C8_xs.Perm (C8_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C8_good : qCompactGood (compactGoal 7 7) 14 C8_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C8_good : literalRoutesGood (compactGoal 7 7) C8_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C8_b0 : span C8_F 14 0 = true := by decide +kernel
+@@ -4317,9 +4349,7 @@
+ theorem C9_initial_perm : C9_xs.Perm (C9_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C9_good : qCompactGood (compactGoal 5 8) 16 C9_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C9_good : literalRoutesGood (compactGoal 5 8) C9_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C9_b0 : span C9_F 122 0 = true := by decide +kernel
+@@ -4334,9 +4364,7 @@
+ theorem C10_initial_perm : C10_xs.Perm (C10_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C10_good : qCompactGood (compactGoal 5 8) 2 C10_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C10_good : literalRoutesGood (compactGoal 5 8) C10_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C10_b0 : span C10_F 228 0 = true := by decide +kernel
+@@ -4351,9 +4379,7 @@
+ theorem C11_initial_perm : C11_xs.Perm (C11_S 10 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C11_good : qCompactGood (compactGoal 9 8) 8 C11_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C11_good : literalRoutesGood (compactGoal 9 8) C11_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C11_b0 : span C11_F 512 0 = true := by decide +kernel
+@@ -4371,9 +4397,7 @@
+ theorem C12_initial_perm : C12_xs.Perm (C12_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C12_good : qCompactGood (compactGoal 5 8) 4 C12_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C12_good : literalRoutesGood (compactGoal 5 8) C12_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C12_b0 : span C12_F 209 0 = true := by decide +kernel
+@@ -4388,9 +4412,7 @@
+ theorem C13_initial_perm : C13_xs.Perm (C13_S 10 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C13_good : qCompactGood (compactGoal 7 8) 4 C13_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C13_good : literalRoutesGood (compactGoal 7 8) C13_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C13_b0 : span C13_F 512 0 = true := by decide +kernel
+@@ -4411,9 +4433,7 @@
+ theorem C14_initial_perm : C14_xs.Perm (C14_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C14_good : qCompactGood (compactGoal 5 8) 2 C14_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C14_good : literalRoutesGood (compactGoal 5 8) C14_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C14_b0 : span C14_F 115 0 = true := by decide +kernel
+@@ -4428,9 +4448,7 @@
+ theorem C15_initial_perm : C15_xs.Perm (C15_S 10 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C15_good : qCompactGood (compactGoal 8 8) 2 C15_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C15_good : literalRoutesGood (compactGoal 8 8) C15_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C15_b0 : span C15_F 512 0 = true := by decide +kernel
+@@ -4451,9 +4469,7 @@
+ theorem C16_initial_perm : C16_xs.Perm (C16_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C16_good : qCompactGood (compactGoal 6 8) 1 C16_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C16_good : literalRoutesGood (compactGoal 6 8) C16_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C16_b0 : span C16_F 154 0 = true := by decide +kernel
+@@ -4468,9 +4484,7 @@
+ theorem C17_initial_perm : C17_xs.Perm (C17_S 10 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C17_good : qCompactGood (compactGoal 8 8) 4 C17_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C17_good : literalRoutesGood (compactGoal 8 8) C17_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C17_b0 : span C17_F 512 0 = true := by decide +kernel
+@@ -4488,9 +4502,7 @@
+ theorem C18_initial_perm : C18_xs.Perm (C18_S 10 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C18_good : qCompactGood (compactGoal 8 8) 4 C18_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C18_good : literalRoutesGood (compactGoal 8 8) C18_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C18_b0 : span C18_F 391 0 = true := by decide +kernel
+@@ -4505,9 +4517,7 @@
+ theorem C19_initial_perm : C19_xs.Perm (C19_S 10 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C19_good : qCompactGood (compactGoal 7 8) 2 C19_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C19_good : literalRoutesGood (compactGoal 7 8) C19_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C19_b0 : span C19_F 512 0 = true := by decide +kernel
+@@ -4525,9 +4535,7 @@
+ theorem C20_initial_perm : C20_xs.Perm (C20_S 10 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C20_good : qCompactGood (compactGoal 7 8) 1 C20_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C20_good : literalRoutesGood (compactGoal 7 8) C20_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C20_b0 : span C20_F 512 0 = true := by decide +kernel
+@@ -4548,9 +4556,7 @@
+ theorem C21_initial_perm : C21_xs.Perm (C21_S 10 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C21_good : qCompactGood (compactGoal 8 8) 2 C21_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C21_good : literalRoutesGood (compactGoal 8 8) C21_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C21_b0 : span C21_F 512 0 = true := by decide +kernel
+@@ -4571,9 +4577,7 @@
+ theorem C22_initial_perm : C22_xs.Perm (C22_S 9 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C22_good : qCompactGood (compactGoal 6 8) 2 C22_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C22_good : literalRoutesGood (compactGoal 6 8) C22_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C22_b0 : span C22_F 85 0 = true := by decide +kernel
+@@ -4588,9 +4592,7 @@
+ theorem C23_initial_perm : C23_xs.Perm (C23_S 10 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C23_good : qCompactGood (compactGoal 7 8) 2 C23_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C23_good : literalRoutesGood (compactGoal 7 8) C23_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C23_b0 : span C23_F 430 0 = true := by decide +kernel
+@@ -4605,9 +4607,7 @@
+ theorem C24_initial_perm : C24_xs.Perm (C24_S 10 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C24_good : qCompactGood (compactGoal 9 8) 8 C24_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C24_good : literalRoutesGood (compactGoal 9 8) C24_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C24_b0 : span C24_F 248 0 = true := by decide +kernel
+@@ -4622,9 +4622,7 @@
+ theorem C25_initial_perm : C25_xs.Perm (C25_S 10 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C25_good : qCompactGood (compactGoal 7 8) 4 C25_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C25_good : literalRoutesGood (compactGoal 7 8) C25_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C25_b0 : span C25_F 255 0 = true := by decide +kernel
+@@ -4639,9 +4637,7 @@
+ theorem C26_initial_perm : C26_xs.Perm (C26_S 11 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C26_good : qCompactGood (compactGoal 9 9) 48 C26_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C26_good : literalRoutesGood (compactGoal 9 9) C26_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C26_b0 : span C26_F 128 0 = true := by decide +kernel
+@@ -4680,9 +4676,7 @@
+ theorem C27_initial_perm : C27_xs.Perm (C27_S 11 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C27_good : qCompactGood (compactGoal 8 9) 8 C27_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C27_good : literalRoutesGood (compactGoal 8 9) C27_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C27_b0 : span C27_F 512 0 = true := by decide +kernel
+@@ -4715,9 +4709,7 @@
+ theorem C28_initial_perm : C28_xs.Perm (C28_S 11 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C28_good : qCompactGood (compactGoal 7 9) 2 C28_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C28_good : literalRoutesGood (compactGoal 7 9) C28_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C28_b0 : span C28_F 512 0 = true := by decide +kernel
+@@ -4765,9 +4757,7 @@
+ theorem C29_initial_perm : C29_xs.Perm (C29_S 11 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C29_good : qCompactGood (compactGoal 7 9) 6 C29_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C29_good : literalRoutesGood (compactGoal 7 9) C29_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C29_b0 : span C29_F 512 0 = true := by decide +kernel
+@@ -4791,9 +4781,7 @@
+ theorem C30_initial_perm : C30_xs.Perm (C30_S 11 0) := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+-theorem C30_good : qCompactGood (compactGoal 8 9) 2 C30_routeCodes := by
+-  unfold qCompactGood
+-  decide +kernel
++theorem C30_good : literalRoutesGood (compactGoal 8 9) C30_literalRoutes = true := by decide +kernel
+ set_option maxRecDepth 32768 in
+ set_option maxHeartbeats 0 in
+ theorem C30_b0 : span C30_F 512 0 = true := by decide +kernel
+@@ -4840,7 +4828,7 @@
+ theorem C0_nonconstant : ∃ x y : Fin 6 → Bool, C0_f x ≠ C0_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C0_ori_run {s ws} (h : MonRun (compactGoal 8 7) s ws) :
+-    MonRun (compactGoal 8 7) s (C0_ori ws) := qCompactOrient_run h C0_good
++    MonRun (compactGoal 8 7) s (C0_ori ws) := literalRouteOrient_run h C0_literalRoutes C0_good
+ theorem C0_checked : ∀ s ≤ 9, ∀ j < C0_N s, C0_Z s j = true := by
+   apply certFlat_sound
+   change span C0_F 161 0 = true
+@@ -4871,7 +4859,7 @@
+ theorem C1_nonconstant : ∃ x y : Fin 7 → Bool, C1_f x ≠ C1_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C1_ori_run {s ws} (h : MonRun (compactGoal 10 7) s ws) :
+-    MonRun (compactGoal 10 7) s (C1_ori ws) := qCompactOrient_run h C1_good
++    MonRun (compactGoal 10 7) s (C1_ori ws) := literalRouteOrient_run h C1_literalRoutes C1_good
+ theorem C1_checked : ∀ s ≤ 9, ∀ j < C1_N s, C1_Z s j = true := by
+   apply certFlat_sound
+   change span C1_F 85 0 = true
+@@ -4902,7 +4890,7 @@
+ theorem C2_nonconstant : ∃ x y : Fin 7 → Bool, C2_f x ≠ C2_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C2_ori_run {s ws} (h : MonRun (compactGoal 9 7) s ws) :
+-    MonRun (compactGoal 9 7) s (C2_ori ws) := qCompactOrient_run h C2_good
++    MonRun (compactGoal 9 7) s (C2_ori ws) := literalRouteOrient_run h C2_literalRoutes C2_good
+ theorem C2_checked : ∀ s ≤ 9, ∀ j < C2_N s, C2_Z s j = true := by
+   apply certFlat_sound
+   change span C2_F 106 0 = true
+@@ -4933,7 +4921,7 @@
+ theorem C3_nonconstant : ∃ x y : Fin 7 → Bool, C3_f x ≠ C3_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C3_ori_run {s ws} (h : MonRun (compactGoal 8 7) s ws) :
+-    MonRun (compactGoal 8 7) s (C3_ori ws) := qCompactOrient_run h C3_good
++    MonRun (compactGoal 8 7) s (C3_ori ws) := literalRouteOrient_run h C3_literalRoutes C3_good
+ theorem C3_checked : ∀ s ≤ 9, ∀ j < C3_N s, C3_Z s j = true := by
+   apply certFlat_sound
+   change span C3_F 110 0 = true
+@@ -4964,7 +4952,7 @@
+ theorem C4_nonconstant : ∃ x y : Fin 7 → Bool, C4_f x ≠ C4_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C4_ori_run {s ws} (h : MonRun (compactGoal 8 7) s ws) :
+-    MonRun (compactGoal 8 7) s (C4_ori ws) := qCompactOrient_run h C4_good
++    MonRun (compactGoal 8 7) s (C4_ori ws) := literalRouteOrient_run h C4_literalRoutes C4_good
+ theorem C4_checked : ∀ s ≤ 9, ∀ j < C4_N s, C4_Z s j = true := by
+   apply certFlat_sound
+   change span C4_F 195 0 = true
+@@ -4995,7 +4983,7 @@
+ theorem C5_nonconstant : ∃ x y : Fin 7 → Bool, C5_f x ≠ C5_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C5_ori_run {s ws} (h : MonRun (compactGoal 8 7) s ws) :
+-    MonRun (compactGoal 8 7) s (C5_ori ws) := qCompactOrient_run h C5_good
++    MonRun (compactGoal 8 7) s (C5_ori ws) := literalRouteOrient_run h C5_literalRoutes C5_good
+ theorem C5_checked : ∀ s ≤ 9, ∀ j < C5_N s, C5_Z s j = true := by
+   apply certFlat_sound
+   change span C5_F 122 0 = true
+@@ -5026,7 +5014,7 @@
+ theorem C6_nonconstant : ∃ x y : Fin 7 → Bool, C6_f x ≠ C6_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C6_ori_run {s ws} (h : MonRun (compactGoal 9 7) s ws) :
+-    MonRun (compactGoal 9 7) s (C6_ori ws) := qCompactOrient_run h C6_good
++    MonRun (compactGoal 9 7) s (C6_ori ws) := literalRouteOrient_run h C6_literalRoutes C6_good
+ theorem C6_checked : ∀ s ≤ 9, ∀ j < C6_N s, C6_Z s j = true := by
+   apply certFlat_sound
+   change span C6_F 72 0 = true
+@@ -5057,7 +5045,7 @@
+ theorem C7_nonconstant : ∃ x y : Fin 7 → Bool, C7_f x ≠ C7_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C7_ori_run {s ws} (h : MonRun (compactGoal 8 7) s ws) :
+-    MonRun (compactGoal 8 7) s (C7_ori ws) := qCompactOrient_run h C7_good
++    MonRun (compactGoal 8 7) s (C7_ori ws) := literalRouteOrient_run h C7_literalRoutes C7_good
+ theorem C7_checked : ∀ s ≤ 9, ∀ j < C7_N s, C7_Z s j = true := by
+   apply certFlat_sound
+   change span C7_F 89 0 = true
+@@ -5088,7 +5076,7 @@
+ theorem C8_nonconstant : ∃ x y : Fin 7 → Bool, C8_f x ≠ C8_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C8_ori_run {s ws} (h : MonRun (compactGoal 7 7) s ws) :
+-    MonRun (compactGoal 7 7) s (C8_ori ws) := qCompactOrient_run h C8_good
++    MonRun (compactGoal 7 7) s (C8_ori ws) := literalRouteOrient_run h C8_literalRoutes C8_good
+ theorem C8_checked : ∀ s ≤ 9, ∀ j < C8_N s, C8_Z s j = true := by
+   apply certFlat_sound
+   change span C8_F 14 0 = true
+@@ -5119,7 +5107,7 @@
+ theorem C9_nonconstant : ∃ x y : Fin 7 → Bool, C9_f x ≠ C9_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C9_ori_run {s ws} (h : MonRun (compactGoal 5 8) s ws) :
+-    MonRun (compactGoal 5 8) s (C9_ori ws) := qCompactOrient_run h C9_good
++    MonRun (compactGoal 5 8) s (C9_ori ws) := literalRouteOrient_run h C9_literalRoutes C9_good
+ theorem C9_checked : ∀ s ≤ 9, ∀ j < C9_N s, C9_Z s j = true := by
+   apply certFlat_sound
+   change span C9_F 122 0 = true
+@@ -5150,7 +5138,7 @@
+ theorem C10_nonconstant : ∃ x y : Fin 7 → Bool, C10_f x ≠ C10_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C10_ori_run {s ws} (h : MonRun (compactGoal 5 8) s ws) :
+-    MonRun (compactGoal 5 8) s (C10_ori ws) := qCompactOrient_run h C10_good
++    MonRun (compactGoal 5 8) s (C10_ori ws) := literalRouteOrient_run h C10_literalRoutes C10_good
+ theorem C10_checked : ∀ s ≤ 9, ∀ j < C10_N s, C10_Z s j = true := by
+   apply certFlat_sound
+   change span C10_F 228 0 = true
+@@ -5181,7 +5169,7 @@
+ theorem C11_nonconstant : ∃ x y : Fin 7 → Bool, C11_f x ≠ C11_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C11_ori_run {s ws} (h : MonRun (compactGoal 9 8) s ws) :
+-    MonRun (compactGoal 9 8) s (C11_ori ws) := qCompactOrient_run h C11_good
++    MonRun (compactGoal 9 8) s (C11_ori ws) := literalRouteOrient_run h C11_literalRoutes C11_good
+ theorem C11_j0 : span C11_F 580 0 = true :=
+   span_join C11_b0 C11_b1
+ theorem C11_checked : ∀ s ≤ 10, ∀ j < C11_N s, C11_Z s j = true := by
+@@ -5214,7 +5202,7 @@
+ theorem C12_nonconstant : ∃ x y : Fin 7 → Bool, C12_f x ≠ C12_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C12_ori_run {s ws} (h : MonRun (compactGoal 5 8) s ws) :
+-    MonRun (compactGoal 5 8) s (C12_ori ws) := qCompactOrient_run h C12_good
++    MonRun (compactGoal 5 8) s (C12_ori ws) := literalRouteOrient_run h C12_literalRoutes C12_good
+ theorem C12_checked : ∀ s ≤ 9, ∀ j < C12_N s, C12_Z s j = true := by
+   apply certFlat_sound
+   change span C12_F 209 0 = true
+@@ -5245,7 +5233,7 @@
+ theorem C13_nonconstant : ∃ x y : Fin 7 → Bool, C13_f x ≠ C13_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C13_ori_run {s ws} (h : MonRun (compactGoal 7 8) s ws) :
+-    MonRun (compactGoal 7 8) s (C13_ori ws) := qCompactOrient_run h C13_good
++    MonRun (compactGoal 7 8) s (C13_ori ws) := literalRouteOrient_run h C13_literalRoutes C13_good
+ theorem C13_j0 : span C13_F 590 512 = true :=
+   span_join C13_b1 C13_b2
+ theorem C13_j1 : span C13_F 1102 0 = true :=
+@@ -5280,7 +5268,7 @@
+ theorem C14_nonconstant : ∃ x y : Fin 7 → Bool, C14_f x ≠ C14_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C14_ori_run {s ws} (h : MonRun (compactGoal 5 8) s ws) :
+-    MonRun (compactGoal 5 8) s (C14_ori ws) := qCompactOrient_run h C14_good
++    MonRun (compactGoal 5 8) s (C14_ori ws) := literalRouteOrient_run h C14_literalRoutes C14_good
+ theorem C14_checked : ∀ s ≤ 9, ∀ j < C14_N s, C14_Z s j = true := by
+   apply certFlat_sound
+   change span C14_F 115 0 = true
+@@ -5311,7 +5299,7 @@
+ theorem C15_nonconstant : ∃ x y : Fin 7 → Bool, C15_f x ≠ C15_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C15_ori_run {s ws} (h : MonRun (compactGoal 8 8) s ws) :
+-    MonRun (compactGoal 8 8) s (C15_ori ws) := qCompactOrient_run h C15_good
++    MonRun (compactGoal 8 8) s (C15_ori ws) := literalRouteOrient_run h C15_literalRoutes C15_good
+ theorem C15_j0 : span C15_F 687 512 = true :=
+   span_join C15_b1 C15_b2
+ theorem C15_j1 : span C15_F 1199 0 = true :=
+@@ -5346,7 +5334,7 @@
+ theorem C16_nonconstant : ∃ x y : Fin 7 → Bool, C16_f x ≠ C16_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C16_ori_run {s ws} (h : MonRun (compactGoal 6 8) s ws) :
+-    MonRun (compactGoal 6 8) s (C16_ori ws) := qCompactOrient_run h C16_good
++    MonRun (compactGoal 6 8) s (C16_ori ws) := literalRouteOrient_run h C16_literalRoutes C16_good
+ theorem C16_checked : ∀ s ≤ 9, ∀ j < C16_N s, C16_Z s j = true := by
+   apply certFlat_sound
+   change span C16_F 154 0 = true
+@@ -5377,7 +5365,7 @@
+ theorem C17_nonconstant : ∃ x y : Fin 7 → Bool, C17_f x ≠ C17_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C17_ori_run {s ws} (h : MonRun (compactGoal 8 8) s ws) :
+-    MonRun (compactGoal 8 8) s (C17_ori ws) := qCompactOrient_run h C17_good
++    MonRun (compactGoal 8 8) s (C17_ori ws) := literalRouteOrient_run h C17_literalRoutes C17_good
+ theorem C17_j0 : span C17_F 983 0 = true :=
+   span_join C17_b0 C17_b1
+ theorem C17_checked : ∀ s ≤ 10, ∀ j < C17_N s, C17_Z s j = true := by
+@@ -5410,7 +5398,7 @@
+ theorem C18_nonconstant : ∃ x y : Fin 7 → Bool, C18_f x ≠ C18_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C18_ori_run {s ws} (h : MonRun (compactGoal 8 8) s ws) :
+-    MonRun (compactGoal 8 8) s (C18_ori ws) := qCompactOrient_run h C18_good
++    MonRun (compactGoal 8 8) s (C18_ori ws) := literalRouteOrient_run h C18_literalRoutes C18_good
+ theorem C18_checked : ∀ s ≤ 10, ∀ j < C18_N s, C18_Z s j = true := by
+   apply certFlat_sound
+   change span C18_F 391 0 = true
+@@ -5441,7 +5429,7 @@
+ theorem C19_nonconstant : ∃ x y : Fin 7 → Bool, C19_f x ≠ C19_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C19_ori_run {s ws} (h : MonRun (compactGoal 7 8) s ws) :
+-    MonRun (compactGoal 7 8) s (C19_ori ws) := qCompactOrient_run h C19_good
++    MonRun (compactGoal 7 8) s (C19_ori ws) := literalRouteOrient_run h C19_literalRoutes C19_good
+ theorem C19_j0 : span C19_F 798 0 = true :=
+   span_join C19_b0 C19_b1
+ theorem C19_checked : ∀ s ≤ 10, ∀ j < C19_N s, C19_Z s j = true := by
+@@ -5474,7 +5462,7 @@
+ theorem C20_nonconstant : ∃ x y : Fin 7 → Bool, C20_f x ≠ C20_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C20_ori_run {s ws} (h : MonRun (compactGoal 7 8) s ws) :
+-    MonRun (compactGoal 7 8) s (C20_ori ws) := qCompactOrient_run h C20_good
++    MonRun (compactGoal 7 8) s (C20_ori ws) := literalRouteOrient_run h C20_literalRoutes C20_good
+ theorem C20_j0 : span C20_F 987 512 = true :=
+   span_join C20_b1 C20_b2
+ theorem C20_j1 : span C20_F 1499 0 = true :=
+@@ -5509,7 +5497,7 @@
+ theorem C21_nonconstant : ∃ x y : Fin 7 → Bool, C21_f x ≠ C21_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C21_ori_run {s ws} (h : MonRun (compactGoal 8 8) s ws) :
+-    MonRun (compactGoal 8 8) s (C21_ori ws) := qCompactOrient_run h C21_good
++    MonRun (compactGoal 8 8) s (C21_ori ws) := literalRouteOrient_run h C21_literalRoutes C21_good
+ theorem C21_j0 : span C21_F 654 512 = true :=
+   span_join C21_b1 C21_b2
+ theorem C21_j1 : span C21_F 1166 0 = true :=
+@@ -5544,7 +5532,7 @@
+ theorem C22_nonconstant : ∃ x y : Fin 7 → Bool, C22_f x ≠ C22_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C22_ori_run {s ws} (h : MonRun (compactGoal 6 8) s ws) :
+-    MonRun (compactGoal 6 8) s (C22_ori ws) := qCompactOrient_run h C22_good
++    MonRun (compactGoal 6 8) s (C22_ori ws) := literalRouteOrient_run h C22_literalRoutes C22_good
+ theorem C22_checked : ∀ s ≤ 9, ∀ j < C22_N s, C22_Z s j = true := by
+   apply certFlat_sound
+   change span C22_F 85 0 = true
+@@ -5575,7 +5563,7 @@
+ theorem C23_nonconstant : ∃ x y : Fin 7 → Bool, C23_f x ≠ C23_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C23_ori_run {s ws} (h : MonRun (compactGoal 7 8) s ws) :
+-    MonRun (compactGoal 7 8) s (C23_ori ws) := qCompactOrient_run h C23_good
++    MonRun (compactGoal 7 8) s (C23_ori ws) := literalRouteOrient_run h C23_literalRoutes C23_good
+ theorem C23_checked : ∀ s ≤ 10, ∀ j < C23_N s, C23_Z s j = true := by
+   apply certFlat_sound
+   change span C23_F 430 0 = true
+@@ -5606,7 +5594,7 @@
+ theorem C24_nonconstant : ∃ x y : Fin 7 → Bool, C24_f x ≠ C24_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C24_ori_run {s ws} (h : MonRun (compactGoal 9 8) s ws) :
+-    MonRun (compactGoal 9 8) s (C24_ori ws) := qCompactOrient_run h C24_good
++    MonRun (compactGoal 9 8) s (C24_ori ws) := literalRouteOrient_run h C24_literalRoutes C24_good
+ theorem C24_checked : ∀ s ≤ 10, ∀ j < C24_N s, C24_Z s j = true := by
+   apply certFlat_sound
+   change span C24_F 248 0 = true
+@@ -5637,7 +5625,7 @@
+ theorem C25_nonconstant : ∃ x y : Fin 7 → Bool, C25_f x ≠ C25_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C25_ori_run {s ws} (h : MonRun (compactGoal 7 8) s ws) :
+-    MonRun (compactGoal 7 8) s (C25_ori ws) := qCompactOrient_run h C25_good
++    MonRun (compactGoal 7 8) s (C25_ori ws) := literalRouteOrient_run h C25_literalRoutes C25_good
+ theorem C25_checked : ∀ s ≤ 10, ∀ j < C25_N s, C25_Z s j = true := by
+   apply certFlat_sound
+   change span C25_F 255 0 = true
+@@ -5668,7 +5656,7 @@
+ theorem C26_nonconstant : ∃ x y : Fin 7 → Bool, C26_f x ≠ C26_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C26_ori_run {s ws} (h : MonRun (compactGoal 9 9) s ws) :
+-    MonRun (compactGoal 9 9) s (C26_ori ws) := qCompactOrient_run h C26_good
++    MonRun (compactGoal 9 9) s (C26_ori ws) := literalRouteOrient_run h C26_literalRoutes C26_good
+ theorem C26_j0 : span C26_F 256 0 = true :=
+   span_join C26_b0 C26_b1
+ theorem C26_j1 : span C26_F 256 256 = true :=
+@@ -5715,7 +5703,7 @@
+ theorem C27_nonconstant : ∃ x y : Fin 7 → Bool, C27_f x ≠ C27_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C27_ori_run {s ws} (h : MonRun (compactGoal 8 9) s ws) :
+-    MonRun (compactGoal 8 9) s (C27_ori ws) := qCompactOrient_run h C27_good
++    MonRun (compactGoal 8 9) s (C27_ori ws) := literalRouteOrient_run h C27_literalRoutes C27_good
+ theorem C27_j0 : span C27_F 1024 512 = true :=
+   span_join C27_b1 C27_b2
+ theorem C27_j1 : span C27_F 1536 0 = true :=
+@@ -5758,7 +5746,7 @@
+ theorem C28_nonconstant : ∃ x y : Fin 7 → Bool, C28_f x ≠ C28_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C28_ori_run {s ws} (h : MonRun (compactGoal 7 9) s ws) :
+-    MonRun (compactGoal 7 9) s (C28_ori ws) := qCompactOrient_run h C28_good
++    MonRun (compactGoal 7 9) s (C28_ori ws) := literalRouteOrient_run h C28_literalRoutes C28_good
+ theorem C28_j0 : span C28_F 1024 512 = true :=
+   span_join C28_b1 C28_b2
+ theorem C28_j1 : span C28_F 1536 0 = true :=
+@@ -5811,7 +5799,7 @@
+ theorem C29_nonconstant : ∃ x y : Fin 7 → Bool, C29_f x ≠ C29_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C29_ori_run {s ws} (h : MonRun (compactGoal 7 9) s ws) :
+-    MonRun (compactGoal 7 9) s (C29_ori ws) := qCompactOrient_run h C29_good
++    MonRun (compactGoal 7 9) s (C29_ori ws) := literalRouteOrient_run h C29_literalRoutes C29_good
+ theorem C29_j0 : span C29_F 1024 0 = true :=
+   span_join C29_b0 C29_b1
+ theorem C29_j1 : span C29_F 998 1024 = true :=
+@@ -5848,7 +5836,7 @@
+ theorem C30_nonconstant : ∃ x y : Fin 7 → Bool, C30_f x ≠ C30_f y := by
+   exact ⟨fun _ => false, fun _ => true, by decide⟩
+ theorem C30_ori_run {s ws} (h : MonRun (compactGoal 8 9) s ws) :
+-    MonRun (compactGoal 8 9) s (C30_ori ws) := qCompactOrient_run h C30_good
++    MonRun (compactGoal 8 9) s (C30_ori ws) := literalRouteOrient_run h C30_literalRoutes C30_good
+ theorem C30_j0 : span C30_F 1024 0 = true :=
+   span_join C30_b0 C30_b1
+ theorem C30_j1 : span C30_F 1024 1536 = true :=

@@ -1,0 +1,16 @@
+{
+  "file": "/tmp/oec/pequalnp-pilot-10/fresh-full-proof/meta984/Full984-compact-v8.lean",
+  "bytes": 492778,
+  "lines": 5880,
+  "sha256": "59e37306666c67f6fed4fce929f9dbd7778256382c7a4d698d649d835587a652",
+  "status": "REORDERED_EXACT_DECLARATIONS_NOT_YET_BUILT",
+  "generic": "/tmp/oec/pequalnp-pilot-10/single-not-reduction/meta984/prune/FormalCompactPruned984.lean",
+  "data": "/tmp/oec/pequalnp-pilot-10/independent-search/984/direct_v4",
+  "source": "/tmp/oec/pequalnp-pilot-10/fresh-full-proof/meta984/Full984-literal-unordered.lean",
+  "source_sha256": "8960fcc9e1677374d4c31049ed2964830b2efc1f0ca0bd9b1f37c303c657b7c6",
+  "declaration_groups": {
+    "0": 651,
+    "1": 204,
+    "2": 297
+  }
+}

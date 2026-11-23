@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "lean_compiled": false,
+  "named_source_sha256": "065a86351fefe3349de2f58bfef1b2dd8de24f830a3568caea86881bfb91ff6c",
+  "graphs": 31,
+  "original_automorphisms": 196,
+  "nonidentity_action_entries": 165,
+  "basis_checks": 6272,
+  "literal_data_bytes": 11990,
+  "all_fragment_bytes": 24938,
+  "remaining_stages": 1097
+}

@@ -1,0 +1,659 @@
+{
+  "status": "UNCOMPILED fallback research. No full proof or checker verdict claimed. Current named-file v7b build continues unchanged.",
+  "records": [
+    {
+      "source": "fresh-full-proof/meta984/Full984-compact-v8.lean.dependencies.json",
+      "stored": "assembly/Full984-compact-v8.lean.dependencies.json",
+      "sha256": "a7412c090849df2f6eaf2dd056372cd40b5ba4264e59bcd689225353a88a3da9",
+      "bytes": 128919
+    },
+    {
+      "source": "fresh-full-proof/meta984/Full984-compact-v8.lean",
+      "stored": "assembly/Full984-compact-v8.lean",
+      "sha256": "59e37306666c67f6fed4fce929f9dbd7778256382c7a4d698d649d835587a652",
+      "bytes": 492778
+    },
+    {
+      "source": "fresh-full-proof/meta984/LiteralEarlyGraph8Certificate984.lean",
+      "stored": "assembly/LiteralEarlyGraph8Certificate984.lean",
+      "sha256": "091874729344b4dc4d8ed9a65cb42ca8ad201546b75949974b7e6f657343a29a",
+      "bytes": 83174
+    },
+    {
+      "source": "fresh-full-proof/meta984/literal-v8-audit.json",
+      "stored": "assembly/literal-v8-audit.json",
+      "sha256": "f7eed2a0818aa3472ffbddf58549ef5d52439d52d2a8989f5e82dbb2db9e5b7f",
+      "bytes": 3241
+    },
+    {
+      "source": "fresh-full-proof/meta984/literal-v7b-v8.diff",
+      "stored": "assembly/literal-v7b-v8.diff",
+      "sha256": "6b13a1f57a6f7dea4ba14d7772940a2620809c6dc405ed63dc59e80a366b7227",
+      "bytes": 92515
+    },
+    {
+      "source": "fresh-full-proof/meta984/reorder-compact-v8.stderr",
+      "stored": "assembly/reorder-compact-v8.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "fresh-full-proof/meta984/Full984-compact-v8.lean.assembly.json",
+      "stored": "assembly/Full984-compact-v8.lean.assembly.json",
+      "sha256": "052860fbb66dd1e42d0d89b70f70c9466bf07071ec67baa6924d5ca9b23f6a82",
+      "bytes": 9604
+    },
+    {
+      "source": "fresh-full-proof/meta984/reorder-compact-v8.stdout",
+      "stored": "assembly/reorder-compact-v8.stdout",
+      "sha256": "7d02c348b4397dc9565b0904ec8189d30a2a08880486dd03dbd6449b0d0f36ea",
+      "bytes": 702
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C4.fragment.lean",
+      "stored": "literal-routes/C4.fragment.lean",
+      "sha256": "a492fee2d2794781c3ebf8a39a9cd2817697bbaa1ca6a0e3e783ee759684a048",
+      "bytes": 458
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C5.json",
+      "stored": "literal-routes/C5.json",
+      "sha256": "82ed9ea26f7dd018f09e35e9ce749f0197a84435683a2b72c050498f0ffe4256",
+      "bytes": 875
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C0.fragment.lean",
+      "stored": "literal-routes/C0.fragment.lean",
+      "sha256": "b5bb08c3178608c96c115d0ab39c9cb3586fd048b624aa0a1e728d9697bf4be3",
+      "bytes": 734
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C19.json",
+      "stored": "literal-routes/C19.json",
+      "sha256": "9282406289b86601395a399ff19fc83d8fa24fac02cd5fa4664b54262394d70e",
+      "bytes": 781
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C0.json",
+      "stored": "literal-routes/C0.json",
+      "sha256": "e39a400af81faf1ca1f30b3fc74acfcb717f3555569035ec26d4a9ce41efb8d4",
+      "bytes": 2647
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/validation.json",
+      "stored": "literal-routes/validation.json",
+      "sha256": "cf7c2488a81d659737bc52b66a431406ed2e56dfb42021a4beae1af535ea96bb",
+      "bytes": 4710
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/generator.stdout",
+      "stored": "literal-routes/generator.stdout",
+      "sha256": "640bed1cbeebe199543feba3154aeabd760a28283b06cdd7186e762e13bddf28",
+      "bytes": 342
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C26.json",
+      "stored": "literal-routes/C26.json",
+      "sha256": "5ef37890db33226d7e599f90a27108c6a8b35df4ef92a22797e65e125d221180",
+      "bytes": 23977
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/all31.fragment.lean",
+      "stored": "literal-routes/all31.fragment.lean",
+      "sha256": "417bce652d119dc435b8b0a8e88d5cb5336ab9151c1eb938a1bed0ef1f06819f",
+      "bytes": 24968
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C18.fragment.lean",
+      "stored": "literal-routes/C18.fragment.lean",
+      "sha256": "9b5beb4839264ddcbc2c2f437a8bf55af2b785c45df657472d614908cb243420",
+      "bytes": 572
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C15.fragment.lean",
+      "stored": "literal-routes/C15.fragment.lean",
+      "sha256": "b74341a21d3a732734c911554b718ba9410d697249bacac32ccff3882d7f9dcf",
+      "bytes": 450
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C14.json",
+      "stored": "literal-routes/C14.json",
+      "sha256": "ccc0a8d18dea50b55240c2fdcbd73073842370877662ef1052c02635d515a66b",
+      "bytes": 980
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C23.json",
+      "stored": "literal-routes/C23.json",
+      "sha256": "af82b435d8bcc2e36b91412de50deaf256a1b9689912b5452d01b79d5be051d4",
+      "bytes": 879
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C9.json",
+      "stored": "literal-routes/C9.json",
+      "sha256": "5aae4ca506188c8bbc4d362e88f9a2b62e1cc6d5df0d8d0cbf4b43a717472e2d",
+      "bytes": 6550
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C22.fragment.lean",
+      "stored": "literal-routes/C22.fragment.lean",
+      "sha256": "c0858fd717a98e845543538c3ca53c8b9833e961047e1cc87d4708b653b60f9f",
+      "bytes": 496
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C10.fragment.lean",
+      "stored": "literal-routes/C10.fragment.lean",
+      "sha256": "965650041d745969696149369448b28aa9e228753220aba0d64ae3d658c921e1",
+      "bytes": 490
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C21.fragment.lean",
+      "stored": "literal-routes/C21.fragment.lean",
+      "sha256": "b2f693673ceba8339d7cec7adb0731173b4a8beb473026853d9a36bd188a43b3",
+      "bytes": 473
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C16.json",
+      "stored": "literal-routes/C16.json",
+      "sha256": "652945911abe960d8e92c7e3fdab72716d645334ff4b145ef056a56cf64bba5a",
+      "bytes": 555
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/LiteralRoutes984.fragment.lean",
+      "stored": "literal-routes/LiteralRoutes984.fragment.lean",
+      "sha256": "d2986c612ba8093ce0b02e6652333140e03cf61c55b606a7cc4ed5dd3e6e6c1f",
+      "bytes": 808
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C4.json",
+      "stored": "literal-routes/C4.json",
+      "sha256": "1a5b1ab37b40018af79342baf80ef1945f40b56853543d3587e7cacf65267992",
+      "bytes": 875
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C1.fragment.lean",
+      "stored": "literal-routes/C1.fragment.lean",
+      "sha256": "1ab5a1f2201c3a0649bf80bfdf4183a873779a1ca3044a0e3da9c7e36a3644dd",
+      "bytes": 1400
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C6.fragment.lean",
+      "stored": "literal-routes/C6.fragment.lean",
+      "sha256": "1988fdb3b01e639f163ac62f83f8239de25571c755427ece6118ee46839eda9a",
+      "bytes": 1045
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/generator.stderr",
+      "stored": "literal-routes/generator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C12.fragment.lean",
+      "stored": "literal-routes/C12.fragment.lean",
+      "sha256": "73238882670d5c0b59fde5b7a1e938d326300b507936aed81d3d9ae26b7b5aec",
+      "bytes": 571
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C30.json",
+      "stored": "literal-routes/C30.json",
+      "sha256": "b6d9fe30c6241db316804e45bc87dcf78c8a7b6a2397c7c9ff47e7e657f3b7ad",
+      "bytes": 1052
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C16.fragment.lean",
+      "stored": "literal-routes/C16.fragment.lean",
+      "sha256": "98c1472558159ec0483dab5c9bad0a203bd53f58bf92cfc6c4088e323ffe130b",
+      "bytes": 422
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C17.fragment.lean",
+      "stored": "literal-routes/C17.fragment.lean",
+      "sha256": "8d82c7acccbbbaf4cd25606b766f95d6f702e5fcd714968c08ccaaf967b5e97f",
+      "bytes": 572
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C26.fragment.lean",
+      "stored": "literal-routes/C26.fragment.lean",
+      "sha256": "d1faaf1f2055e15e9f0653ccd76a271b7f45fac7c81267196417beed0956a799",
+      "bytes": 4894
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C17.json",
+      "stored": "literal-routes/C17.json",
+      "sha256": "f832af1b98fb1a8f9a6c9b08b156c1defbe171857bd1e9b15fb6c21da0e79310",
+      "bytes": 1523
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C14.fragment.lean",
+      "stored": "literal-routes/C14.fragment.lean",
+      "sha256": "463a4c00f05c3fc3b7d827490be4eceae52c154149cc017a7219e079a2288bc3",
+      "bytes": 488
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C25.json",
+      "stored": "literal-routes/C25.json",
+      "sha256": "bdd54ebdb53f52e3e2aee0a82f781ec99cf06d95e1ec6372499c7c6fd18787da",
+      "bytes": 1689
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C27.json",
+      "stored": "literal-routes/C27.json",
+      "sha256": "1536458b478216e81a1dc1e926a6cc28760f6737e3c17d56762a41606cefbfff",
+      "bytes": 3709
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C21.json",
+      "stored": "literal-routes/C21.json",
+      "sha256": "bef401d3d2496f2496282d7a93fedf8d8d2fe6f3b1514a04bd02fe9e27fbee66",
+      "bytes": 882
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C6.json",
+      "stored": "literal-routes/C6.json",
+      "sha256": "1bdabe29fd6e65a5a3c896b16b9a194776b067bce9cc863275c0afcecb6f2de5",
+      "bytes": 4464
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C2.json",
+      "stored": "literal-routes/C2.json",
+      "sha256": "cd7d69ab4830f7a5320abf95f1ecf6834b1a3ad87e095c09d05beac224d116f6",
+      "bytes": 1741
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C30.fragment.lean",
+      "stored": "literal-routes/C30.fragment.lean",
+      "sha256": "d28959c36ebb902bf0d53d6607acde8ea26b81e13849cd0e9cb6472aac14c1bb",
+      "bytes": 519
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C5.fragment.lean",
+      "stored": "literal-routes/C5.fragment.lean",
+      "sha256": "696c51b63995e75b5963047ce3f04391543a5518639d5e60b988693e4d72b814",
+      "bytes": 458
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/README.md",
+      "stored": "literal-routes/README.md",
+      "sha256": "df4797c1ac6e8819c6c774ca29a1c84de5100f7f173116cb612b3db9db7350e3",
+      "bytes": 2413
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C3.fragment.lean",
+      "stored": "literal-routes/C3.fragment.lean",
+      "sha256": "45c201be2df8a97bd3ef31bbad55ebd958e1b366b22adc9cc79ac9bd74478283",
+      "bytes": 468
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C2.fragment.lean",
+      "stored": "literal-routes/C2.fragment.lean",
+      "sha256": "d642f4b8cc869d400310fd3fa45e7cb510ecbfe5c3d83f4beaf78b3c5924493d",
+      "bytes": 614
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C11.fragment.lean",
+      "stored": "literal-routes/C11.fragment.lean",
+      "sha256": "1ea4c82dcc1639ac5e366bdaf3c5a145e33a95c0dd5d09efd5672356c7a3705d",
+      "bytes": 906
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C7.json",
+      "stored": "literal-routes/C7.json",
+      "sha256": "4d5a824cefec59b709c22c7cf46f49e5293eee0a1c9f2927b3158471fe57c63d",
+      "bytes": 885
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C12.json",
+      "stored": "literal-routes/C12.json",
+      "sha256": "1f014e2e0bc42d82732fb965526cbac934751b4d96b18d6cd5087096625dbcb2",
+      "bytes": 1521
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C29.json",
+      "stored": "literal-routes/C29.json",
+      "sha256": "3ec9ff23d3914f1db1bfa1099ec0675a986b7d60d2b6983798bdbc24b147c145",
+      "bytes": 2393
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C1.json",
+      "stored": "literal-routes/C1.json",
+      "sha256": "fe0cb28495ccd86d2ecd42067e07eeb0e939ca2ed40c582fdec69486bed162a1",
+      "bytes": 6493
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C10.json",
+      "stored": "literal-routes/C10.json",
+      "sha256": "92c8cfdabeb32173dfbaf3f6b55ab686d46681bffa9cdc7b56afd4293add3fbb",
+      "bytes": 982
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C28.json",
+      "stored": "literal-routes/C28.json",
+      "sha256": "da05877f8a3736af765a159efd2b79433c6f639d1e1c97009ffc3d97d4ea4b50",
+      "bytes": 989
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C29.fragment.lean",
+      "stored": "literal-routes/C29.fragment.lean",
+      "sha256": "e7a91c9d51f8369d6aa0c9ba2bda003038bf5efcfba1e5856695671481d1cae0",
+      "bytes": 734
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C8.fragment.lean",
+      "stored": "literal-routes/C8.fragment.lean",
+      "sha256": "180abab3045b611a7a7eea55c419c6e02d7c2e5d9436673c6a7cea88c065d2c1",
+      "bytes": 1234
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C7.fragment.lean",
+      "stored": "literal-routes/C7.fragment.lean",
+      "sha256": "9e964c797248a3b393c360ed387dd0c5b0acee24631b15471f1d9f606fa62375",
+      "bytes": 468
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C27.fragment.lean",
+      "stored": "literal-routes/C27.fragment.lean",
+      "sha256": "171bb85b882d03e66bf146415e99e374b8eafbc0ab6b7f7656fd32cefb0c5d97",
+      "bytes": 1007
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C24.fragment.lean",
+      "stored": "literal-routes/C24.fragment.lean",
+      "sha256": "d0e11dddf33aba4ed97ef6b103eeecfcab53b905b17a5861243721c70e07d236",
+      "bytes": 999
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C15.json",
+      "stored": "literal-routes/C15.json",
+      "sha256": "2a63e4e69da6fad82a97ff2eea0023b31e266c5baa4fa4538c9dc59820fcf326",
+      "bytes": 775
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C23.fragment.lean",
+      "stored": "literal-routes/C23.fragment.lean",
+      "sha256": "ed1866976a04fb62b6e40cdee7e8bff118d33ce9bd0da70b391063934d249a69",
+      "bytes": 470
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C9.fragment.lean",
+      "stored": "literal-routes/C9.fragment.lean",
+      "sha256": "23faf24f8e698851f39e19059bd151c69234d6cc2f6114e89a30886c3e385ba7",
+      "bytes": 1413
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C11.json",
+      "stored": "literal-routes/C11.json",
+      "sha256": "c01882d2a8ca0dc69ec401f0e09963b49184a77fb95412f542d7f99d9df14e8e",
+      "bytes": 3397
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C22.json",
+      "stored": "literal-routes/C22.json",
+      "sha256": "ef3ca4a1f9df1e4ab4b1e08385521d7727077959cfaeffdba0ffac4339da5273",
+      "bytes": 989
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C13.fragment.lean",
+      "stored": "literal-routes/C13.fragment.lean",
+      "sha256": "5d58785a971f282d03f6a29aaf6677335014fec2f0957a54e7dcc59df160d61f",
+      "bytes": 597
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C20.fragment.lean",
+      "stored": "literal-routes/C20.fragment.lean",
+      "sha256": "3d0738f187ad11109293c1d77a141b44e13ea5d8000ba00801feaae5ecb6d87f",
+      "bytes": 422
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C20.json",
+      "stored": "literal-routes/C20.json",
+      "sha256": "040235496dbcb5e197370e04df2099280e7e8ead6efd4c94f4b7f04b9570e58e",
+      "bytes": 555
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C28.fragment.lean",
+      "stored": "literal-routes/C28.fragment.lean",
+      "sha256": "ffcf5b0ca199626de9a280ea7d66a29d9117de84240d897b0fc3fe7452904fd6",
+      "bytes": 496
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C25.fragment.lean",
+      "stored": "literal-routes/C25.fragment.lean",
+      "sha256": "86022bf08d4c9c54065e134bc5ef87a6c07b193f5c25d4ac189e78ce1baa5c9d",
+      "bytes": 612
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C18.json",
+      "stored": "literal-routes/C18.json",
+      "sha256": "1ada88de32daeda1d458830235f734597f2ffc31e8b01b15711e7e6ce39779bd",
+      "bytes": 1523
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C24.json",
+      "stored": "literal-routes/C24.json",
+      "sha256": "9a82d61a264953ddc6ea2df8c609fb2b37cd2bc3772f3ad1c9f4518b4f3b0886",
+      "bytes": 3784
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C3.json",
+      "stored": "literal-routes/C3.json",
+      "sha256": "f4c6023b1c02294338cea6eea6252978d4aa3875afad06d01636c75290dcd853",
+      "bytes": 885
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C8.json",
+      "stored": "literal-routes/C8.json",
+      "sha256": "c57ed8736db360379df90fa4e299adf05643f06c8f7608d33ee7e3b088d4929e",
+      "bytes": 5449
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C19.fragment.lean",
+      "stored": "literal-routes/C19.fragment.lean",
+      "sha256": "da15d7477301ba145c694847ce8b064be1fe5cfeeb74bd3919f9bed2112d453d",
+      "bytes": 456
+    },
+    {
+      "source": "independent-theory/meta984/literal-routes/C13.json",
+      "stored": "literal-routes/C13.json",
+      "sha256": "3e077a52f5dd3406359ec7dd70887a8579bd5c829b3a646ee53c9909fac3b647",
+      "bytes": 1632
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph16.json",
+      "stored": "score-order/raw-score-reorder-graph16.json",
+      "sha256": "ae8ed6ed2c09419065f38eddcfc1140a6dd927cc4e19cd2d2b98ef7f19838fac",
+      "bytes": 1863
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph1.json",
+      "stored": "score-order/raw-score-reorder-graph1.json",
+      "sha256": "b7ef8eb236106c470d93e3b82d94411c6c36f1502b0754f44b9d846b431d845b",
+      "bytes": 3646
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph30.json",
+      "stored": "score-order/raw-score-reorder-graph30.json",
+      "sha256": "fcfee07b50487a933de8581621f137c0bf467c6ca80cce671cb0ded2ace83a0b",
+      "bytes": 313801
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph23.json",
+      "stored": "score-order/raw-score-reorder-graph23.json",
+      "sha256": "1eff580089acdf44dd4cd28a30f9debb67fbbfa1132f3bec50c614f65b00833e",
+      "bytes": 16927
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph26.json",
+      "stored": "score-order/raw-score-reorder-graph26.json",
+      "sha256": "63b00df4e7d28e494e9b6b80e68378523198be65eb1f7cc6de82d24d1d042c4b",
+      "bytes": 97902
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph24.json",
+      "stored": "score-order/raw-score-reorder-graph24.json",
+      "sha256": "7e0a5b58b778a338e4d02391c541c9b3c9a675d97fe8890b13ae94e8745308d9",
+      "bytes": 11645
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-2.log",
+      "stored": "score-order/raw-score-reorder-2.log",
+      "sha256": "4ecd472d5bb08bdb3384dd647c73839a627b04bea5865853b86f9a473954014b",
+      "bytes": 5347
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph13.json",
+      "stored": "score-order/raw-score-reorder-graph13.json",
+      "sha256": "78d141e5a78ef3574a07a117a96dab79f25867ed8188a85cf2faaaeb96b81263",
+      "bytes": 41709
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph18.json",
+      "stored": "score-order/raw-score-reorder-graph18.json",
+      "sha256": "aa4b23304ced4ff446a58ae9d36ebdb4d99f1da1f2e43fd75b65013f3c74fa47",
+      "bytes": 17464
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph2.json",
+      "stored": "score-order/raw-score-reorder-graph2.json",
+      "sha256": "c7aed44086aa208778f0ee66613da9efde20ed22a953fc7ff41af2fa6c894d21",
+      "bytes": 5571
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph27.json",
+      "stored": "score-order/raw-score-reorder-graph27.json",
+      "sha256": "f46bb5abf494020d37041247b30a8154c20ffac4c184500abcdff677713c94f2",
+      "bytes": 208654
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph15.json",
+      "stored": "score-order/raw-score-reorder-graph15.json",
+      "sha256": "6ff7019d8ee40e25e1463070a38c4031fdb958d41ce1b6f276e07d62aaf19171",
+      "bytes": 37525
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph25.json",
+      "stored": "score-order/raw-score-reorder-graph25.json",
+      "sha256": "2805fa80b3a3477e624d0cc7f91e0033c6620537f34f94c141629bde06d0f25f",
+      "bytes": 16349
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph20.json",
+      "stored": "score-order/raw-score-reorder-graph20.json",
+      "sha256": "bf1f1919d73bcf36bb5bb2cbfb8e9b4da1aa257f9c9e8bceca634ff5eb82912e",
+      "bytes": 32992
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph29.json",
+      "stored": "score-order/raw-score-reorder-graph29.json",
+      "sha256": "e739ed14b10caa7c80d11a63cc8d36c7467455c0c7028fea3aa515b35b0f4ce4",
+      "bytes": 120253
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph9.json",
+      "stored": "score-order/raw-score-reorder-graph9.json",
+      "sha256": "a7d1441f7e347eb733ed4ea69d1353d3afcf7df5e130d4ee9cb1bb4854b9634e",
+      "bytes": 6987
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph4.json",
+      "stored": "score-order/raw-score-reorder-graph4.json",
+      "sha256": "9e861b6d60276340195ae3813a7839db908facb6d331d954ad5bb4c8906fcf3e",
+      "bytes": 5217
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph3.json",
+      "stored": "score-order/raw-score-reorder-graph3.json",
+      "sha256": "dd0f576bf97a0c44565617a7131fca352e5ab1c3d7d072837713bb4e68785716",
+      "bytes": 3876
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph11.json",
+      "stored": "score-order/raw-score-reorder-graph11.json",
+      "sha256": "cc692a406566ddd6b5f8858da5ba98ab47998f19447cb331e827bb71e9d0048f",
+      "bytes": 28030
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph22.json",
+      "stored": "score-order/raw-score-reorder-graph22.json",
+      "sha256": "6abf149d977ecb1e236389bbe35e7838a8c0c72ba739d4b67436f5c25982d040",
+      "bytes": 2072
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph17.json",
+      "stored": "score-order/raw-score-reorder-graph17.json",
+      "sha256": "7f491f795f42a1d5889f307f4fac14884f8cb9542011d85bd0f8b0a59b3d0611",
+      "bytes": 29770
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph0.json",
+      "stored": "score-order/raw-score-reorder-graph0.json",
+      "sha256": "e14b07e76b79e913643876eb4f784da3834e475efdad0cfb68464ee50090a0c8",
+      "bytes": 12314
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph19.json",
+      "stored": "score-order/raw-score-reorder-graph19.json",
+      "sha256": "aa0cad1aff8578f3f42325a3f78952dadfda8118d4da1cf9cfcccd6d720fa2a0",
+      "bytes": 29138
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph14.json",
+      "stored": "score-order/raw-score-reorder-graph14.json",
+      "sha256": "834f13c5440488913f5f2d798bb43deee8e01d208330680147aadc397dc4ef32",
+      "bytes": 5750
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph7.json",
+      "stored": "score-order/raw-score-reorder-graph7.json",
+      "sha256": "4f01da0ac28d62769207258277a4a2c0a6c7fde0b074a8b4143ff3bd52c3b2ff",
+      "bytes": 3619
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph8.json",
+      "stored": "score-order/raw-score-reorder-graph8.json",
+      "sha256": "9379f90d639b19d99475261c7f6124be417a8f915893cdeb173a4190f84d6a83",
+      "bytes": 2694
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph21.json",
+      "stored": "score-order/raw-score-reorder-graph21.json",
+      "sha256": "48bf33e172e4fea322f0f1fca7725684152216ffc47227d4996cb313e888b23d",
+      "bytes": 29376
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder.json",
+      "stored": "score-order/raw-score-reorder.json",
+      "sha256": "fa404c007d6c2e3964e9c330cee4dfa9931a894ad01b969e4f857ec1be21d8d0",
+      "bytes": 1788961
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph5.json",
+      "stored": "score-order/raw-score-reorder-graph5.json",
+      "sha256": "ccc1fe816b634341e3254184f4b4a03dae2fa82defee7673bf4b685425bb4114",
+      "bytes": 3447
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph28.json",
+      "stored": "score-order/raw-score-reorder-graph28.json",
+      "sha256": "5cf964c662f19e0e00b2f5a55f4401af5ca548e0543f3e23a538d77369565c98",
+      "bytes": 167468
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph10.json",
+      "stored": "score-order/raw-score-reorder-graph10.json",
+      "sha256": "60b0cdeec9f80b539df5f786ab132e6eff8378a5fc126f538272d1edf16e9d16",
+      "bytes": 4835
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph6.json",
+      "stored": "score-order/raw-score-reorder-graph6.json",
+      "sha256": "80a34ff828a27421a7259a401f75781e8487b8938605363fd8078b482faa6db1",
+      "bytes": 1466
+    },
+    {
+      "source": "independent-search/984/raw-score-reorder-graph12.json",
+      "stored": "score-order/raw-score-reorder-graph12.json",
+      "sha256": "d79bbe040cb182586aff125087349c40825d63055f9438cb2df85fd6433ffe38",
+      "bytes": 4148
+    }
+  ]
+}

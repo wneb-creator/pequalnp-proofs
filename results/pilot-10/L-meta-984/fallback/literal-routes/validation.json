@@ -1,0 +1,231 @@
+{
+  "result": "PASS",
+  "lean_compiled": false,
+  "named_source_sha256": "065a86351fefe3349de2f58bfef1b2dd8de24f830a3568caea86881bfb91ff6c",
+  "graphs": 31,
+  "original_automorphisms": 196,
+  "nonidentity_action_entries": 165,
+  "basis_checks": 6272,
+  "literal_data_bytes": 11990,
+  "all_fragment_bytes": 24938,
+  "remaining_stages": 1097,
+  "graphs_detail": [
+    {
+      "graph": 0,
+      "group": 8,
+      "literal_data_bytes": 323,
+      "fragment_bytes": 734,
+      "remaining_stages": 32
+    },
+    {
+      "graph": 1,
+      "group": 16,
+      "literal_data_bytes": 986,
+      "fragment_bytes": 1400,
+      "remaining_stages": 96
+    },
+    {
+      "graph": 2,
+      "group": 4,
+      "literal_data_bytes": 203,
+      "fragment_bytes": 614,
+      "remaining_stages": 19
+    },
+    {
+      "graph": 3,
+      "group": 2,
+      "literal_data_bytes": 57,
+      "fragment_bytes": 468,
+      "remaining_stages": 5
+    },
+    {
+      "graph": 4,
+      "group": 2,
+      "literal_data_bytes": 47,
+      "fragment_bytes": 458,
+      "remaining_stages": 5
+    },
+    {
+      "graph": 5,
+      "group": 2,
+      "literal_data_bytes": 47,
+      "fragment_bytes": 458,
+      "remaining_stages": 5
+    },
+    {
+      "graph": 6,
+      "group": 12,
+      "literal_data_bytes": 634,
+      "fragment_bytes": 1045,
+      "remaining_stages": 62
+    },
+    {
+      "graph": 7,
+      "group": 2,
+      "literal_data_bytes": 57,
+      "fragment_bytes": 468,
+      "remaining_stages": 5
+    },
+    {
+      "graph": 8,
+      "group": 14,
+      "literal_data_bytes": 823,
+      "fragment_bytes": 1234,
+      "remaining_stages": 78
+    },
+    {
+      "graph": 9,
+      "group": 16,
+      "literal_data_bytes": 1002,
+      "fragment_bytes": 1413,
+      "remaining_stages": 97
+    },
+    {
+      "graph": 10,
+      "group": 2,
+      "literal_data_bytes": 70,
+      "fragment_bytes": 490,
+      "remaining_stages": 7
+    },
+    {
+      "graph": 11,
+      "group": 8,
+      "literal_data_bytes": 483,
+      "fragment_bytes": 906,
+      "remaining_stages": 46
+    },
+    {
+      "graph": 12,
+      "group": 4,
+      "literal_data_bytes": 151,
+      "fragment_bytes": 571,
+      "remaining_stages": 15
+    },
+    {
+      "graph": 13,
+      "group": 4,
+      "literal_data_bytes": 177,
+      "fragment_bytes": 597,
+      "remaining_stages": 17
+    },
+    {
+      "graph": 14,
+      "group": 2,
+      "literal_data_bytes": 68,
+      "fragment_bytes": 488,
+      "remaining_stages": 7
+    },
+    {
+      "graph": 15,
+      "group": 2,
+      "literal_data_bytes": 30,
+      "fragment_bytes": 450,
+      "remaining_stages": 3
+    },
+    {
+      "graph": 16,
+      "group": 1,
+      "literal_data_bytes": 2,
+      "fragment_bytes": 422,
+      "remaining_stages": 0
+    },
+    {
+      "graph": 17,
+      "group": 4,
+      "literal_data_bytes": 152,
+      "fragment_bytes": 572,
+      "remaining_stages": 15
+    },
+    {
+      "graph": 18,
+      "group": 4,
+      "literal_data_bytes": 152,
+      "fragment_bytes": 572,
+      "remaining_stages": 15
+    },
+    {
+      "graph": 19,
+      "group": 2,
+      "literal_data_bytes": 36,
+      "fragment_bytes": 456,
+      "remaining_stages": 3
+    },
+    {
+      "graph": 20,
+      "group": 1,
+      "literal_data_bytes": 2,
+      "fragment_bytes": 422,
+      "remaining_stages": 0
+    },
+    {
+      "graph": 21,
+      "group": 2,
+      "literal_data_bytes": 53,
+      "fragment_bytes": 473,
+      "remaining_stages": 5
+    },
+    {
+      "graph": 22,
+      "group": 2,
+      "literal_data_bytes": 76,
+      "fragment_bytes": 496,
+      "remaining_stages": 7
+    },
+    {
+      "graph": 23,
+      "group": 2,
+      "literal_data_bytes": 50,
+      "fragment_bytes": 470,
+      "remaining_stages": 5
+    },
+    {
+      "graph": 24,
+      "group": 8,
+      "literal_data_bytes": 576,
+      "fragment_bytes": 999,
+      "remaining_stages": 53
+    },
+    {
+      "graph": 25,
+      "group": 4,
+      "literal_data_bytes": 192,
+      "fragment_bytes": 612,
+      "remaining_stages": 18
+    },
+    {
+      "graph": 26,
+      "group": 48,
+      "literal_data_bytes": 4471,
+      "fragment_bytes": 4894,
+      "remaining_stages": 382
+    },
+    {
+      "graph": 27,
+      "group": 8,
+      "literal_data_bytes": 584,
+      "fragment_bytes": 1007,
+      "remaining_stages": 51
+    },
+    {
+      "graph": 28,
+      "group": 2,
+      "literal_data_bytes": 76,
+      "fragment_bytes": 496,
+      "remaining_stages": 7
+    },
+    {
+      "graph": 29,
+      "group": 6,
+      "literal_data_bytes": 314,
+      "fragment_bytes": 734,
+      "remaining_stages": 29
+    },
+    {
+      "graph": 30,
+      "group": 2,
+      "literal_data_bytes": 96,
+      "fragment_bytes": 519,
+      "remaining_stages": 8
+    }
+  ]
+}

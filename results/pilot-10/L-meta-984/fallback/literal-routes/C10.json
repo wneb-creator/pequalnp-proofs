@@ -1,0 +1,52 @@
+{
+  "graph": 10,
+  "goal": 8160,
+  "group": 2,
+  "excluded_auto": 0,
+  "action_auto_order": [
+    1
+  ],
+  "networks": [
+    {
+      "auto": 1,
+      "stages": [
+        [
+          "0x110",
+          1
+        ],
+        [
+          "0x20",
+          2
+        ],
+        [
+          "0x200",
+          4
+        ],
+        [
+          "0x20",
+          8
+        ],
+        [
+          "0x208",
+          4
+        ],
+        [
+          "0x20",
+          2
+        ],
+        [
+          "0x111",
+          1
+        ]
+      ]
+    }
+  ],
+  "named_source_sha256": "065a86351fefe3349de2f58bfef1b2dd8de24f830a3568caea86881bfb91ff6c",
+  "metadata_sha256": "c3354b3d0024010c7bb02791eca357163e94f1b30b08fede402dbc865c75de94",
+  "routes_sha256": "4ea145108a7757c258a53901398d513ee471d65e5188689d5f65ec2474ea39c6",
+  "literal_data_bytes": 70,
+  "fragment_bytes": 490,
+  "remaining_stages": 7,
+  "basis_check": "all32bits, exact packed source and metadata mapping",
+  "compiled": false
+}

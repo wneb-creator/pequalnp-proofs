@@ -1,0 +1,96 @@
+{
+  "graph": 18,
+  "goal": 65280,
+  "group": 4,
+  "excluded_auto": 0,
+  "action_auto_order": [
+    1,
+    2,
+    3
+  ],
+  "networks": [
+    {
+      "auto": 1,
+      "stages": [
+        [
+          "0x4000",
+          1
+        ],
+        [
+          "0x20",
+          2
+        ],
+        [
+          "0xc",
+          4
+        ],
+        [
+          "0x2010",
+          2
+        ],
+        [
+          "0x4454",
+          1
+        ]
+      ]
+    },
+    {
+      "auto": 2,
+      "stages": [
+        [
+          "0x10",
+          1
+        ],
+        [
+          "0x20",
+          2
+        ],
+        [
+          "0x8",
+          4
+        ],
+        [
+          "0x20",
+          2
+        ],
+        [
+          "0x151",
+          1
+        ]
+      ]
+    },
+    {
+      "auto": 3,
+      "stages": [
+        [
+          "0x4040",
+          1
+        ],
+        [
+          "0x20",
+          2
+        ],
+        [
+          "0xc",
+          4
+        ],
+        [
+          "0x2010",
+          2
+        ],
+        [
+          "0x4515",
+          1
+        ]
+      ]
+    }
+  ],
+  "named_source_sha256": "065a86351fefe3349de2f58bfef1b2dd8de24f830a3568caea86881bfb91ff6c",
+  "metadata_sha256": "32aaa3adff4e113e8d04da390c29fc8835e531811cfe57e507a966089e506760",
+  "routes_sha256": "0ea48548bd00edad5a4c61d1e7f2be710791d9ef1327cd4a18c32ba782b712e3",
+  "literal_data_bytes": 152,
+  "fragment_bytes": 572,
+  "remaining_stages": 15,
+  "basis_check": "all32bits, exact packed source and metadata mapping",
+  "compiled": false
+}
