@@ -29,3 +29,9 @@ Namedlakebuild:active; checker:notyetstarted.
 2026-11-24T23:05:44.218657+00:00: HeaderProbe and HeaderSplitProbe compiled successfully; their archived sources and complete logs were independently reviewed. Variant H full source SHA256 828908401f738b2b5cae01f52fc0ede5d86de4a9ec1fb23f39c0b2a3c41b4fd6, 4438 lines; text guard PASS. Full named build and local checker remain pending.
 Sub-agents: six (status, certificate recovery, structural review, finite search, independent review, nested cost review).
 TIMING total=77 subagents=6
+
+2026-11-24T23:18:26.027492+00:00: Checked rank_not_prefix.lean from zakpgrove PR10495: exit 0, 108.59 seconds, peak 4569348 KiB. This excludes final audit blocks. Independently reviewed source and logs. rank_first_block.lean proves only the first two audit states, not the full target. Full H build and J sample checks are pending.
+Sub-agents: six (status/toolchain, certificate recovery, structural review, finite search, independent review, nested cost review).
+TIMING total=90 subagents=6
+
+2026-11-24T23:19:51.977199+00:00: rank_signed_blocks.lean compiled successfully: 90 representative states, 46.05 seconds, 3135572 KiB peak RSS. Full named variant J now running, guard PASS, independent static review PASS. Full lower-bound theorem and checker NOT yet validated.

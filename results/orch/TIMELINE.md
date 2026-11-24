@@ -10,3 +10,7 @@
 2026-11-24T22:50:28.706368+00:00 preserving reviewed variantE while namedbuildcontinues; fullkernelverdictpending.
 
 - 2026-11-24T23:05:44.218657+00:00: Independent review approved variant H and compiled header benchmarks. Stopped E after 2053 seconds without completion; started full H build. Lease renewed until 23:24:39 UTC.
+
+- 2026-11-24T23:18:26.027492+00:00: Adapted public PR10495 rank/NOT-bound prefix compiled in 108.59 seconds. Original full candidate exceeded 6000 MB after 278.86 seconds. Splitting the first two certificate states compiled in 2.92 seconds. Variant J splits individual state conditions; static review passed, representative tests running.
+
+- 2026-11-24T23:19:51.977199+00:00: Switched named source to variant J after independently reviewed 90-state kernel benchmarks passed in 46.05 seconds. Full named J build started. Source SHA256 bfa9e492bd382f3fed3ae9f3933670ff22cc9b5fc94fcf47954655c6ac3a6b8c; 6349 lines, 510912 bytes. H interrupted after 815.88 seconds without completion.

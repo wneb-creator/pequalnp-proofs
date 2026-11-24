@@ -1,0 +1,38 @@
+import took 1.53s
+{"caption":"","data":"This simp argument is unused:\n  ite_false\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hybridNode, rankCount, Nat.reduceAdd, Nat.reduceLT, ite_true, rankNode, nodeSignedVerified,\n    Bool.and_eq_true]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`","endPos":{"column":93,"line":10},"fileName":"/tmp/oec/pequalnp-pilot-44/sibling-search/Bench10495J.lean","isSilent":false,"keepFullRange":false,"kind":"linter.unusedSimpArgs","pos":{"column":84,"line":10},"severity":"warning"}
+{"caption":"","data":"Unused tactic linter: `try` can be removed.\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`","endPos":{"column":15,"line":10},"fileName":"/tmp/oec/pequalnp-pilot-44/sibling-search/Bench10495J.lean","isSilent":false,"keepFullRange":false,"kind":"linter.unusedTactic","pos":{"column":12,"line":10},"severity":"warning"}
+{"caption":"","data":"type checking took 109ms\ntype checking took 209ms\ntype checking took 220ms\ntype checking took 172ms\ntype checking took 247ms\ntype checking took 123ms\ntype checking took 123ms\ntype checking took 244ms\ntype checking took 158ms\ntype checking took 179ms\ntype checking took 106ms\ntype checking took 250ms\ntype checking took 180ms\ntype checking took 104ms\ntype checking took 212ms\ntype checking took 130ms\ntype checking took 242ms\ntype checking took 146ms\ntype checking took 201ms\ntype checking took 262ms\ntype checking took 224ms\ntype checking took 131ms\ntype checking took 128ms\ntype checking took 136ms\ntype checking took 171ms\ntype checking took 228ms\ntype checking took 184ms\ntype checking took 153ms\ntype checking took 150ms\ntype checking took 171ms\ntype checking took 124ms\ntype checking took 127ms\ntype checking took 169ms\ntype checking took 125ms\ntype checking took 127ms\ntype checking took 250ms\ntype checking took 167ms\ntype checking took 143ms\ntype checking took 172ms\ntype checking took 121ms\ntype checking took 139ms\ntype checking took 123ms\ntype checking took 225ms\n","endPos":null,"fileName":"/tmp/oec/pequalnp-pilot-44/sibling-search/Bench10495J.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":0,"line":16},"severity":"information"}
+{"caption":"","data":"type checking took 370ms\n","endPos":null,"fileName":"/tmp/oec/pequalnp-pilot-44/sibling-search/Bench10495J.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":8,"line":16},"severity":"information"}
+{"caption":"","data":"This simp argument is unused:\n  ite_false\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hybridNode, rankCount, Nat.reduceAdd, Nat.reduceLT, ite_true, rankNode, nodeSignedVerified,\n    Bool.and_eq_true]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`","endPos":{"column":93,"line":19},"fileName":"/tmp/oec/pequalnp-pilot-44/sibling-search/Bench10495J.lean","isSilent":false,"keepFullRange":false,"kind":"linter.unusedSimpArgs","pos":{"column":84,"line":19},"severity":"warning"}
+{"caption":"","data":"Unused tactic linter: `try` can be removed.\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`","endPos":{"column":15,"line":19},"fileName":"/tmp/oec/pequalnp-pilot-44/sibling-search/Bench10495J.lean","isSilent":false,"keepFullRange":false,"kind":"linter.unusedTactic","pos":{"column":12,"line":19},"severity":"warning"}
+{"caption":"","data":"type checking took 314ms\ntype checking took 435ms\ntype checking took 287ms\ntype checking took 399ms\ntype checking took 652ms\ntype checking took 538ms\ntype checking took 414ms\ntype checking took 343ms\ntype checking took 694ms\ntype checking took 558ms\ntype checking took 532ms\ntype checking took 630ms\ntype checking took 674ms\ntype checking took 915ms\ntype checking took 817ms\ntype checking took 1.03s\ntype checking took 858ms\ntype checking took 429ms\ntype checking took 451ms\ntype checking took 438ms\ntype checking took 1.07s\ntype checking took 562ms\ntype checking took 600ms\ntype checking took 477ms\ntype checking took 715ms\ntype checking took 999ms\ntype checking took 990ms\ntype checking took 552ms\ntype checking took 1.15s\ntype checking took 579ms\ntype checking took 561ms\ntype checking took 1.11s\ntype checking took 941ms\ntype checking took 1.46s\ntype checking took 860ms\ntype checking took 1.09s\ntype checking took 491ms\ntype checking took 493ms\ntype checking took 473ms\ntype checking took 681ms\ntype checking took 793ms\ntype checking took 687ms\ntype checking took 1.43s\ntype checking took 1.01s\n","endPos":null,"fileName":"/tmp/oec/pequalnp-pilot-44/sibling-search/Bench10495J.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":0,"line":25},"severity":"information"}
+{"caption":"","data":"type checking took 326ms\n","endPos":null,"fileName":"/tmp/oec/pequalnp-pilot-44/sibling-search/Bench10495J.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":8,"line":25},"severity":"information"}
+{"caption":"","data":"This simp argument is unused:\n  ite_true\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [hybridNode, rankCount, Nat.reduceAdd, Nat.reduceLT, ite_false, rankNode, nodeSignedVerified,\n    Bool.and_eq_true]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`","endPos":{"column":83,"line":28},"fileName":"/tmp/oec/pequalnp-pilot-44/sibling-search/Bench10495J.lean","isSilent":false,"keepFullRange":false,"kind":"linter.unusedSimpArgs","pos":{"column":75,"line":28},"severity":"warning"}
+{"caption":"","data":"Unused tactic linter: `try` can be removed.\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`","endPos":{"column":15,"line":28},"fileName":"/tmp/oec/pequalnp-pilot-44/sibling-search/Bench10495J.lean","isSilent":false,"keepFullRange":false,"kind":"linter.unusedTactic","pos":{"column":12,"line":28},"severity":"warning"}
+cumulative profiling times:
+	.olean serialization 32.3ms
+	attribute application 0.173ms
+	blocked (unaccounted) 11.7s
+	compilation (IR) 0.12ms
+	compilation (LCNF base) 1.32ms
+	compilation (LCNF impure) 0.666ms
+	compilation (LCNF mono) 1.31ms
+	congr simp thm 5.84ms
+	declTypeLinter 3.95ms
+	elaboration 8.42ms
+	fix level params 0.903ms
+	import 1.53s
+	initialization 29ms
+	instantiate metavars 1.04ms
+	interpretation 216ms
+	let-to-have transformation 0.0263ms
+	linting 12.7ms
+	module linting 0.0491ms
+	parsing 0.813ms
+	process pre-definitions 10.5ms
+	share common exprs 4.76ms
+	simp 516ms
+	tactic execution 286ms
+	tacticAnalysis 10.3ms
+	type checking 42.4s
+	typeclass inference 94.1ms

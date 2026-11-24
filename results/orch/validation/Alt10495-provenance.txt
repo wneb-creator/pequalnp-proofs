@@ -1,0 +1,4 @@
+Unmodified source by zakpgrove from https://github.com/brilliant-hq/pequalnp-proofs/pull/10495
+Upstream PR head 8397d94eefc6d8e9aef2a184fe946911f2104d1b
+Source attribution comments retained verbatim, including PressF10 PR4332.
+SHA256 65e331d2ceb61e70d00216f4e25e753032e13f5d57dbb21bf4de214e1b5b6854
