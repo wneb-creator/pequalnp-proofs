@@ -281,13 +281,19 @@ jobs:
           # The checker and everything it starts, the locked compile included, run inside one
           # memory limit below the machine's memory. What they need beyond it goes to swap,
           # instead of starving the runner itself, which loses the log and leaves the run hanging.
-          # The same machine for every run, whatever runner GitHub hands out: two cores and at
-          # most 6.5 GB of memory (the rest goes to swap). That is the 2 core, 8 GB runner on
-          # which honest proofs that import all of Mathlib are accepted in about 7 minutes. On
-          # the 4 core, 16 GB runner a limit of the machine's memory less 1.5 GB starved the
-          # runner itself: the run lost contact with GitHub after 45 minutes and left no log.
-          cap=$(( $(awk '/^MemTotal:/{print $2}' /proc/meminfo) - 1572864 ))
-          [ "$cap" -le 6815744 ] || cap=6815744
+          # Two cores for every run; memory: the machine's memory less 3 GB, but never less than before.
+          # History: a fixed 6.5 GB ceiling (to make every runner look like the 2 core, 8 GB one)
+          # left about 8 GB of a 16 GB runner idle while heavy checks swapped at the ceiling until
+          # the time limit (seven FAULTs with exit 124 on 2026-11-24, 5 to 8 GB of swap in use,
+          # 7 to 8 GB still available). Earlier, a limit of the machine's memory less 1.5 GB starved
+          # the 16 GB runner itself (lost contact after 45 minutes, no log); 3 GB is left now, and
+          # the memory watch below ends the check as a FAULT, never a verdict, if the machine runs
+          # short anyway. A check that needs more than the limit still goes to swap.
+          # cap = max(min(MemTotal - 1.5 GB, 6.5 GB), MemTotal - 3 GB): 6.5 GB on an 8 GB runner (as before,
+          # where honest Mathlib-wide proofs pass in about 7 minutes), about 12.7 GB on a 16 GB one (red team).
+          mem=$(awk '/^MemTotal:/{print $2}' /proc/meminfo)
+          old=$(( mem - 1572864 )); [ "$old" -le 6815744 ] || old=6815744
+          cap=$(( mem - 3145728 )); [ "$cap" -ge "$old" ] || cap=$old
           echo "memory: $(awk '/^MemTotal:/{print $2}' /proc/meminfo) kB, limit for the checker: $cap kB"
           # Time: 20 minutes for the proof file, 4 more for each listed outside module the same
           # build compiles first, at most 45 minutes.
