@@ -1,0 +1,10 @@
+L-meta-2870 conditional DNF reduction R_meta_2870_34
+
+Initial lake build: exit 0.
+Format/import guard: exit 0; imports allowed: PEqualNP.Defs.
+Local reduction checker: pending.
+Independent static review: PASS, see REVIEW.md.
+Initial source lines: 53.
+
+Sub-agents: 5 (direct proof/compiler, counterexamples/review, reduction design, library search, environment/checker review)
+TIMING total=8.3 min subagents=5
