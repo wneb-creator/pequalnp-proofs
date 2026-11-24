@@ -12,6 +12,20 @@
       "exit": 0,
       "scope": "Two-variable propositional tautology testing the kernel LRAT proof importer; no circuit bound yet.",
       "review": "Independent root review of toolchain-authored source and successful complete compile logs; no forbidden syntax, permitted imports, correct tautology."
+    },
+    {
+      "file": "MonotoneUpper1425V2.lean",
+      "sha256": "cb8c0b319ff704333e7b0a8913c0d0042dec478b3ac9f6e6efc5256ccc7df344",
+      "bytes": 6888,
+      "lines": 126,
+      "exit": 0,
+      "scope": "All ten explicit monotone upper bounds [6,7,8,9,7,9,7,6,5,9], and equivalent-circuit conclusion conditional on this size bound. No lower bounds or full posted theorem.",
+      "review": "Independent root source/diff/log review PASS; all truth tables use kernel decide and exact posted evaluation."
     }
+  ],
+  "lrat_probe_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
   ]
 }
