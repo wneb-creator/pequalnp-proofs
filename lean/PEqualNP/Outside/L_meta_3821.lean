@@ -648,4 +648,242 @@ lemma remove_duplicate_gate (n : ℕ) (C : Circuit) (pre mid post : List Gate) (
   simpa only [hw] using duplicate_gate_value g mid (wiresFrom pre (List.ofFn x))
     (by intro i hi; simpa only [hw] using hbound i hi)
 
+def Proper (g : Gate) : Prop :=
+  (g.op = GateOp.not ∧ ∃ j, g.inputs = [j]) ∨
+    ((g.op = GateOp.and ∨ g.op = GateOp.or) ∧ ∃ j k, g.inputs = [j, k] ∧ j ≠ k)
+
+lemma simplify_proper (op : GateOp) (m : ℕ) (ins : List Stat) :
+    ∀ g ∈ (simplify op m ins).1, Proper g := by
+  intro g hg
+  cases op <;> simp only [simplify] at hg
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
+      simp [simpAnd] at hg <;> split_ifs at hg <;> simp_all [Proper] <;> subst g <;>
+      simp_all [Proper]
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
+      simp [simpOr] at hg <;> split_ifs at hg <;> simp_all [Proper] <;> subst g <;>
+      simp_all [Proper]
+  · rcases ins with _ | ⟨a, l⟩ <;> (try cases a) <;>
+      simp [simpNot] at hg <;> (subst hg; simp [Proper])
+  · simp at hg
+  · simp at hg
+
+lemma elim_proper (n : ℕ) (gs : List Gate) : ∀ acc : List Stat × List Gate,
+    (∀ g ∈ acc.2, Proper g) → ∀ g ∈ (elim n gs acc).2, Proper g := by
+  induction gs with
+  | nil => intro acc h; exact h
+  | cons g gs ih =>
+    intro acc h
+    apply ih (elimStep n acc g)
+    intro g' hg'
+    rcases List.mem_append.1 hg' with hpre | hnew
+    · exact h g' hpre
+    · exact simplify_proper _ _ _ g' (by simpa using hnew)
+
+lemma simplify_bounded (op : GateOp) (m : ℕ) (ins : List Stat)
+    (hv : ∀ s ∈ ins, s.Valid m) :
+    ∀ g ∈ (simplify op m ins).1, ∀ i ∈ g.inputs, i < m := by
+  intro g hg
+  cases op <;> simp only [simplify] at hg
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
+      simp [simpAnd] at hg <;> split_ifs at hg <;> simp_all [Stat.Valid] <;> subst g <;>
+      simp_all
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
+      simp [simpOr] at hg <;> split_ifs at hg <;> simp_all [Stat.Valid] <;> subst g <;>
+      simp_all
+  · rcases ins with _ | ⟨a, l⟩ <;> (try cases a) <;>
+      simp [simpNot] at hg <;> subst g <;> simp_all [Stat.Valid]
+  · simp at hg
+  · simp at hg
+
+def ProperList (n : ℕ) (gs : List Gate) : Prop :=
+  ∀ p g, gs[p]? = some g → Proper g ∧ ∀ i ∈ g.inputs, i < n + p
+
+lemma option_toList_getElem? {α : Type} (o : Option α) (k : ℕ) (a : α)
+    (h : o.toList[k]? = some a) : k = 0 ∧ a ∈ o := by
+  cases o with
+  | none => simp at h
+  | some b =>
+    cases k with
+    | zero => simp at h; simp [h]
+    | succ k => simp at h
+
+lemma elim_properList (n : ℕ) (y : List Bool) (hy : y.length = n) (gs : List Gate) :
+    ∀ (w : List Bool) (acc : List Stat × List Gate), (∀ g ∈ gs, Ok g) → Inv n y w acc →
+      ProperList n acc.2 → ProperList n (elim n gs acc).2 := by
+  induction gs with
+  | nil => intro w acc _ _ h; exact h
+  | cons g gs ih =>
+    intro w acc hok hinv hproper
+    have hinv' : Inv n y (wiresFrom [g] w) (elimStep n acc g) :=
+      inv_elim n y hy [g] w acc (fun g' hg' => hok g' (by simp at hg'; simp [hg'])) hinv
+    refine ih _ (elimStep n acc g) (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg')) hinv' ?_
+    intro p g' hp
+    have hp' : (acc.2 ++ (simplify g.op (n + acc.2.length)
+        (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList)[p]? = some g' := hp
+    by_cases hlt : p < acc.2.length
+    · rw [List.getElem?_append_left hlt] at hp'
+      exact hproper p g' hp'
+    · rw [List.getElem?_append_right (by omega)] at hp'
+      obtain ⟨h0, hmem⟩ := option_toList_getElem? _ _ _ hp'
+      have hpl : p = acc.2.length := by omega
+      rw [hpl]
+      refine ⟨simplify_proper _ _ _ g' hmem, ?_⟩
+      exact simplify_bounded _ _ _ (fun s hs => by
+        obtain ⟨a, _, rfl⟩ := List.mem_map.1 hs
+        exact (hinv.2 a).1) g' hmem
+
+def idStats (n : ℕ) : List Stat :=
+  List.ofFn (fun i : Fin n => (Sum.inr (i : ℕ) : Stat))
+
+lemma inv_id (n : ℕ) (y : Fin n → Bool) :
+    Inv n (List.ofFn y) (List.ofFn y) (idStats n, []) := by
+  refine ⟨by simp [idStats], ?_⟩
+  intro i
+  by_cases hi : i < n
+  · simp [idStats, hi, Stat.Valid, Stat.val, wiresFrom]
+  · rw [List.getD_eq_default _ _ (by simp [idStats]; omega),
+      List.getD_eq_default _ _ (by simp; omega)]
+    exact ⟨trivial, rfl⟩
+
+lemma clean_pair (n : ℕ) (C : Circuit) (a b : ℕ) (hC : FanInTwo C)
+    (ha : ∃ x y : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD a false ≠ (C.wires (List.ofFn y)).getD a false)
+    (hb : ∃ x y : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD b false ≠ (C.wires (List.ofFn y)).getD b false) :
+    ∃ (D : Circuit) (a' b' : ℕ), D.output = 0 ∧ FanInTwo D ∧ ProperList n D.gates ∧ D.size ≤ C.size ∧
+      a' < n + D.size ∧ b' < n + D.size ∧
+      ∀ x : Fin n → Bool,
+        (D.wires (List.ofFn x)).getD a' false = (C.wires (List.ofFn x)).getD a false ∧
+        (D.wires (List.ofFn x)).getD b' false = (C.wires (List.ofFn x)).getD b false := by
+  let acc := elim n C.gates (idStats n, [])
+  have hinv : ∀ x : Fin n → Bool, Inv n (List.ofFn x) (C.wires (List.ofFn x)) acc :=
+    fun x => inv_elim n _ (by simp) C.gates _ _ hC (inv_id n x)
+  have hval (w : ℕ) (x : Fin n → Bool) :
+      (acc.1.getD w (Sum.inl false)).val (wiresFrom acc.2 (List.ofFn x)) =
+        (C.wires (List.ofFn x)).getD w false := ((hinv x).2 w).2
+  have live (w : ℕ)
+      (hw : ∃ x y : Fin n → Bool,
+        (C.wires (List.ofFn x)).getD w false ≠ (C.wires (List.ofFn y)).getD w false) :
+      ∃ j, acc.1.getD w (Sum.inl false) = Sum.inr j := by
+    cases hs : acc.1.getD w (Sum.inl false) with
+    | inr j => exact ⟨j, rfl⟩
+    | inl c =>
+      exfalso
+      obtain ⟨x, y, hxy⟩ := hw
+      apply hxy
+      rw [← hval w x, ← hval w y, hs]
+      rfl
+  obtain ⟨a', hsa⟩ := live a ha
+  obtain ⟨b', hsb⟩ := live b hb
+  refine ⟨⟨acc.2, 0⟩, a', b', rfl, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact elim_ok n C.gates (idStats n, []) (by simp)
+  · exact elim_properList n (List.ofFn (fun _ : Fin n => false)) (by simp) C.gates _ _ hC
+      (inv_id n _) (by intro p g hp; simp at hp)
+  · simpa [Circuit.size, acc] using elim_len n C.gates (idStats n, [])
+  · have h := ((hinv (fun _ => false)).2 a).1
+    rw [hsa] at h
+    exact h
+  · have h := ((hinv (fun _ => false)).2 b).1
+    rw [hsb] at h
+    exact h
+  · intro x
+    constructor
+    · have h := hval a x
+      rw [hsa] at h
+      exact h
+    · have h := hval b x
+      rw [hsb] at h
+      exact h
+
+lemma clean_incomparable_pair (n : ℕ) (C : Circuit) (a b : ℕ) (hC : FanInTwo C)
+    (ha : ∃ x : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD a false = true ∧
+      (C.wires (List.ofFn x)).getD b false = false)
+    (hb : ∃ x : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD a false = false ∧
+      (C.wires (List.ofFn x)).getD b false = true) :
+    ∃ (D : Circuit) (a' b' : ℕ), D.output = 0 ∧ FanInTwo D ∧ ProperList n D.gates ∧
+      D.size ≤ C.size ∧ a' < n + D.size ∧ b' < n + D.size ∧
+      ∀ x : Fin n → Bool,
+        (D.wires (List.ofFn x)).getD a' false = (C.wires (List.ofFn x)).getD a false ∧
+        (D.wires (List.ofFn x)).getD b' false = (C.wires (List.ofFn x)).getD b false := by
+  obtain ⟨x, hxa, hxb⟩ := ha
+  obtain ⟨y, hya, hyb⟩ := hb
+  exact clean_pair n C a b hC ⟨x, y, by rw [hxa, hya]; decide⟩
+    ⟨x, y, by rw [hxb, hyb]; decide⟩
+
+lemma Proper.inputs_nodup (g : Gate) (hg : Proper g) : g.inputs.Nodup := by
+  rcases hg with ⟨_, j, hj⟩ | ⟨_, j, k, hjk, hne⟩
+  · simp [hj]
+  · simp [hjk, hne]
+
+lemma Proper.count_input (g : Gate) (hg : Proper g) (i : ℕ) :
+    g.inputs.count i = if g.inputs.contains i then 1 else 0 := by
+  by_cases hi : i ∈ g.inputs
+  · have hc := List.count_eq_one_of_mem (Proper.inputs_nodup g hg) hi
+    simp [hc, hi]
+  · have hc : g.inputs.count i = 0 := List.count_eq_zero.mpr hi
+    simp [hc, hi]
+
+lemma proper_slot_count_eq_readers (gs : List Gate) (i : ℕ)
+    (hproper : ∀ g ∈ gs, Proper g) :
+    (gs.flatMap Gate.inputs).count i = gs.countP (fun g => g.inputs.contains i) := by
+  induction gs with
+  | nil => simp
+  | cons g gs ih =>
+    have hh := Proper.count_input g (hproper g List.mem_cons_self) i
+    have ht := ih (fun g' hg' => hproper g' (List.mem_cons_of_mem _ hg'))
+    simp only [List.flatMap_cons, List.count_append, List.countP_cons, hh, ht]
+    cases g.inputs.contains i <;> simp [Nat.add_comm]
+
+lemma exists_minimal_clean_pair (n : ℕ) (C : Circuit) (a b : ℕ) (hC : FanInTwo C)
+    (ha : ∃ x y : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD a false ≠ (C.wires (List.ofFn y)).getD a false)
+    (hb : ∃ x y : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD b false ≠ (C.wires (List.ofFn y)).getD b false) :
+    ∃ (D : Circuit) (a' b' : ℕ), D.output = 0 ∧ FanInTwo D ∧ ProperList n D.gates ∧
+      D.size ≤ C.size ∧ a' < n + D.size ∧ b' < n + D.size ∧
+      (∀ x : Fin n → Bool,
+        (D.wires (List.ofFn x)).getD a' false = (C.wires (List.ofFn x)).getD a false ∧
+        (D.wires (List.ofFn x)).getD b' false = (C.wires (List.ofFn x)).getD b false) ∧
+      ∀ (E : Circuit) (c d : ℕ), FanInTwo E →
+        (∀ x : Fin n → Bool,
+          (E.wires (List.ofFn x)).getD c false = (D.wires (List.ofFn x)).getD a' false ∧
+          (E.wires (List.ofFn x)).getD d false = (D.wires (List.ofFn x)).getD b' false) →
+        D.size ≤ E.size := by
+  classical
+  let P : ℕ → Prop := fun s => ∃ (E : Circuit) (c d : ℕ), FanInTwo E ∧ E.size = s ∧
+    ∀ x : Fin n → Bool,
+      (E.wires (List.ofFn x)).getD c false = (C.wires (List.ofFn x)).getD a false ∧
+      (E.wires (List.ofFn x)).getD d false = (C.wires (List.ofFn x)).getD b false
+  have hex : ∃ s, P s := ⟨C.size, C, a, b, hC, rfl, fun _ => ⟨rfl, rfl⟩⟩
+  obtain ⟨E, c, d, hE, hsize, hEC⟩ := Nat.find_spec hex
+  have hleast (F : Circuit) (u v : ℕ) (hF : FanInTwo F)
+      (hFC : ∀ x : Fin n → Bool,
+        (F.wires (List.ofFn x)).getD u false = (C.wires (List.ofFn x)).getD a false ∧
+        (F.wires (List.ofFn x)).getD v false = (C.wires (List.ofFn x)).getD b false) :
+      E.size ≤ F.size := by
+    rw [hsize]
+    exact Nat.find_min' hex ⟨F, u, v, hF, rfl, hFC⟩
+  have hc : ∃ x y : Fin n → Bool,
+      (E.wires (List.ofFn x)).getD c false ≠ (E.wires (List.ofFn y)).getD c false := by
+    obtain ⟨x, y, hxy⟩ := ha
+    exact ⟨x, y, by rw [(hEC x).1, (hEC y).1]; exact hxy⟩
+  have hd : ∃ x y : Fin n → Bool,
+      (E.wires (List.ofFn x)).getD d false ≠ (E.wires (List.ofFn y)).getD d false := by
+    obtain ⟨x, y, hxy⟩ := hb
+    exact ⟨x, y, by rw [(hEC x).2, (hEC y).2]; exact hxy⟩
+  obtain ⟨D, a', b', h0, hD, hproper, hDEsize, ha', hb', hDE⟩ := clean_pair n E c d hE hc hd
+  have hDC : ∀ x : Fin n → Bool,
+      (D.wires (List.ofFn x)).getD a' false = (C.wires (List.ofFn x)).getD a false ∧
+      (D.wires (List.ofFn x)).getD b' false = (C.wires (List.ofFn x)).getD b false := by
+    intro x
+    exact ⟨(hDE x).1.trans (hEC x).1, (hDE x).2.trans (hEC x).2⟩
+  refine ⟨D, a', b', h0, hD, hproper,
+    le_trans hDEsize (hleast C a b hC (fun _ => ⟨rfl, rfl⟩)), ha', hb', hDC, ?_⟩
+  intro F u v hF hFD
+  apply le_trans hDEsize (hleast F u v hF ?_)
+  intro x
+  exact ⟨(hFD x).1.trans (hDC x).1, (hFD x).2.trans (hDC x).2⟩
+
 end PEqualNP.Outside.L_meta_3821
