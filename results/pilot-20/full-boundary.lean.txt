@@ -1,0 +1,206 @@
+import Mathlib
+import PEqualNP.Defs
+
+namespace PEqualNP.Outside.L_meta_1482
+
+open PEqualNP.CircuitLowerBounds
+
+def boundaryCircuit : Circuit :=
+  { gates := [
+      ⟨GateOp.or, [13, 17]⟩,
+      ⟨GateOp.or, [26, 23]⟩,
+      ⟨GateOp.or, [27, 25]⟩,
+      ⟨GateOp.and, [0, 28]⟩,
+      ⟨GateOp.or, [13, 14]⟩,
+      ⟨GateOp.or, [30, 18]⟩,
+      ⟨GateOp.or, [31, 24]⟩,
+      ⟨GateOp.and, [1, 32]⟩,
+      ⟨GateOp.or, [13, 15]⟩,
+      ⟨GateOp.or, [34, 16]⟩,
+      ⟨GateOp.or, [35, 20]⟩,
+      ⟨GateOp.and, [3, 36]⟩,
+      ⟨GateOp.or, [14, 16]⟩,
+      ⟨GateOp.or, [38, 17]⟩,
+      ⟨GateOp.or, [39, 21]⟩,
+      ⟨GateOp.and, [4, 40]⟩,
+      ⟨GateOp.or, [15, 17]⟩,
+      ⟨GateOp.or, [42, 18]⟩,
+      ⟨GateOp.or, [43, 22]⟩,
+      ⟨GateOp.and, [5, 44]⟩,
+      ⟨GateOp.or, [16, 18]⟩,
+      ⟨GateOp.or, [46, 19]⟩,
+      ⟨GateOp.or, [47, 23]⟩,
+      ⟨GateOp.and, [6, 48]⟩,
+      ⟨GateOp.or, [17, 19]⟩,
+      ⟨GateOp.or, [50, 20]⟩,
+      ⟨GateOp.or, [51, 24]⟩,
+      ⟨GateOp.and, [7, 52]⟩,
+      ⟨GateOp.or, [18, 20]⟩,
+      ⟨GateOp.or, [54, 21]⟩,
+      ⟨GateOp.or, [55, 25]⟩,
+      ⟨GateOp.and, [8, 56]⟩,
+      ⟨GateOp.or, [13, 19]⟩,
+      ⟨GateOp.or, [58, 21]⟩,
+      ⟨GateOp.or, [59, 22]⟩,
+      ⟨GateOp.and, [9, 60]⟩,
+      ⟨GateOp.or, [14, 20]⟩,
+      ⟨GateOp.or, [62, 22]⟩,
+      ⟨GateOp.or, [63, 23]⟩,
+      ⟨GateOp.and, [10, 64]⟩,
+      ⟨GateOp.or, [15, 21]⟩,
+      ⟨GateOp.or, [66, 23]⟩,
+      ⟨GateOp.or, [67, 24]⟩,
+      ⟨GateOp.and, [11, 68]⟩,
+      ⟨GateOp.or, [16, 22]⟩,
+      ⟨GateOp.or, [70, 24]⟩,
+      ⟨GateOp.or, [71, 25]⟩,
+      ⟨GateOp.and, [12, 72]⟩,
+      ⟨GateOp.or, [29, 33]⟩,
+      ⟨GateOp.or, [74, 37]⟩,
+      ⟨GateOp.or, [75, 41]⟩,
+      ⟨GateOp.or, [76, 45]⟩,
+      ⟨GateOp.or, [77, 49]⟩,
+      ⟨GateOp.or, [78, 53]⟩,
+      ⟨GateOp.or, [79, 57]⟩,
+      ⟨GateOp.or, [80, 61]⟩,
+      ⟨GateOp.or, [81, 65]⟩,
+      ⟨GateOp.or, [82, 69]⟩,
+      ⟨GateOp.or, [83, 73]⟩,
+      ⟨GateOp.or, [14, 15]⟩,
+      ⟨GateOp.or, [85, 19]⟩,
+      ⟨GateOp.or, [86, 25]⟩,
+      ⟨GateOp.or, [84, 2]⟩,
+      ⟨GateOp.or, [84, 87]⟩,
+      ⟨GateOp.and, [88, 89]⟩],
+    output := 90 }
+
+def boundaryBase (x : Fin 26 → Bool) : Bool :=
+  ((((((((((((x 0 && (((x 13 || x 17) || x 23) || x 25)) || (x 1 && (((x 13 || x 14) || x 18) || x 24))) || (x 3 && (((x 13 || x 15) || x 16) || x 20))) || (x 4 && (((x 14 || x 16) || x 17) || x 21))) || (x 5 && (((x 15 || x 17) || x 18) || x 22))) || (x 6 && (((x 16 || x 18) || x 19) || x 23))) || (x 7 && (((x 17 || x 19) || x 20) || x 24))) || (x 8 && (((x 18 || x 20) || x 21) || x 25))) || (x 9 && (((x 13 || x 19) || x 21) || x 22))) || (x 10 && (((x 14 || x 20) || x 22) || x 23))) || (x 11 && (((x 15 || x 21) || x 23) || x 24))) || (x 12 && (((x 16 || x 22) || x 24) || x 25)))
+
+def boundaryNeighbor (x : Fin 26 → Bool) : Bool :=
+  (((x 14 || x 15) || x 19) || x 25)
+
+lemma boundaryCircuit_size : boundaryCircuit.size = 65 := rfl
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma boundaryCircuit_eval (x : Fin 26 → Bool) :
+    boundaryCircuit.eval (List.ofFn x) =
+      ((boundaryBase x || x 2) && (boundaryBase x || boundaryNeighbor x)) := by
+  simp [boundaryCircuit, Circuit.eval, Circuit.wires, GateOp.eval, boundaryBase, boundaryNeighbor]
+
+lemma factorization (f r n : Bool) :
+    ((f || r) && (f || n)) = (f || (r && n)) := by
+  cases f <;> cases r <;> cases n <;> rfl
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma boundaryCircuit_correct (x : Fin 26 → Bool) :
+    boundaryCircuit.eval (List.ofFn x) = true ↔
+      ∃ p l : Fin 13, (p = l ∨ p = l + 1 ∨ p = l + 3 ∨ p = l + 9) ∧
+        x (Fin.castAdd 13 p) = true ∧ x (Fin.natAdd 13 l) = true := by
+  rw [boundaryCircuit_eval, factorization]
+  simp only [boundaryBase, boundaryNeighbor, Bool.or_eq_true, Bool.and_eq_true]
+  simp [Fin.exists_fin_succ]
+  simp only [and_or_left]
+  apply Iff.of_eq
+  ac_rfl
+
+set_option maxHeartbeats 4000000 in
+lemma boundaryCircuit_legal : ∀ j g, boundaryCircuit.gates[j]? = some g →
+    (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+    ∃ a b : ℕ, g.inputs = [a, b] ∧ a ≠ b ∧ a < 26 + j ∧ b < 26 + j := by
+  intro j g hg
+  have hj : j < 65 := by
+    by_contra hn
+    have hlen : boundaryCircuit.gates.length ≤ j := by change 65 ≤ j; omega
+    rw [List.getElem?_eq_none hlen] at hg
+    cases hg
+  interval_cases j <;> simp [boundaryCircuit] at hg <;> subst g <;> simp
+
+def boundaryPointValues : List Bool := [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma boundary_point_wires :
+    boundaryCircuit.wires (List.ofFn (fun i : Fin 26 => decide (i = Fin.castAdd 13 (0 : Fin 13)))) =
+      boundaryPointValues := by
+  have hx : List.ofFn (fun i : Fin 26 => decide (i = Fin.castAdd 13 (0 : Fin 13))) = [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false] := by
+    decide +kernel
+  rw [hx]
+  simp [boundaryCircuit, Circuit.wires, GateOp.eval, boundaryPointValues]
+
+def boundaryLineValues : List Bool := [false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, false, true, true, true, false, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma boundary_line_wires :
+    boundaryCircuit.wires (List.ofFn (fun i : Fin 26 => decide (i = Fin.natAdd 13 (0 : Fin 13)))) =
+      boundaryLineValues := by
+  have hx : List.ofFn (fun i : Fin 26 => decide (i = Fin.natAdd 13 (0 : Fin 13))) = [false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false] := by
+    decide +kernel
+  rw [hx]
+  simp [boundaryCircuit, Circuit.wires, GateOp.eval, boundaryLineValues]
+
+def boundaryV (i : ℕ) : Bool := decide (i ∈ ({13, 26, 27, 28, 29, 30, 31, 32, 34, 35, 36, 58, 59, 60, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 88, 89} : Finset ℕ))
+
+lemma boundaryV_input : ∀ i : Fin 13,
+    boundaryV i.val = false ∧ boundaryV (13 + i.val) = decide (i = 0) := by
+  decide +kernel
+
+lemma boundaryV_output : boundaryV boundaryCircuit.output = false := by
+  decide +kernel
+
+set_option maxHeartbeats 8000000 in
+lemma boundaryV_recurrence : ∀ (j : ℕ) (g : Gate) (a b : ℕ),
+    boundaryCircuit.gates[j]? = some g → g.inputs = [a, b] →
+    (g.op = GateOp.and → boundaryV (26 + j) =
+      (((boundaryCircuit.wires (List.ofFn (fun i : Fin 26 => decide (i = Fin.castAdd 13 (0 : Fin 13))))).getD a false && boundaryV b) ||
+        (boundaryV a && (boundaryCircuit.wires (List.ofFn (fun i : Fin 26 => decide (i = Fin.castAdd 13 (0 : Fin 13))))).getD b false))) ∧
+    (g.op = GateOp.or → boundaryV (26 + j) = (boundaryV a || boundaryV b)) := by
+  intro j g a b hg hin
+  have hj : j < 65 := by
+    by_contra hn
+    have hlen : boundaryCircuit.gates.length ≤ j := by change 65 ≤ j; omega
+    rw [List.getElem?_eq_none hlen] at hg
+    cases hg
+  simp only [boundary_point_wires]
+  interval_cases j <;> simp [boundaryCircuit] at hg <;> subst g <;>
+    simp only [List.cons.injEq, and_true] at hin <;>
+    rcases hin with ⟨rfl, rfl⟩ <;> simp [boundaryV, boundaryPointValues]
+
+def boundaryW (i : ℕ) : Bool := decide (i ∈ ({0, 29, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 88, 89} : Finset ℕ))
+
+lemma boundaryW_input : ∀ i : Fin 13,
+    boundaryW i.val = decide (i = 0) ∧ boundaryW (13 + i.val) = false := by
+  decide +kernel
+
+lemma boundaryW_output : boundaryW boundaryCircuit.output = false := by
+  decide +kernel
+
+set_option maxHeartbeats 8000000 in
+lemma boundaryW_recurrence : ∀ (j : ℕ) (g : Gate) (a b : ℕ),
+    boundaryCircuit.gates[j]? = some g → g.inputs = [a, b] →
+    (g.op = GateOp.and → boundaryW (26 + j) =
+      (((boundaryCircuit.wires (List.ofFn (fun i : Fin 26 => decide (i = Fin.natAdd 13 (0 : Fin 13))))).getD a false && boundaryW b) ||
+        (boundaryW a && (boundaryCircuit.wires (List.ofFn (fun i : Fin 26 => decide (i = Fin.natAdd 13 (0 : Fin 13))))).getD b false))) ∧
+    (g.op = GateOp.or → boundaryW (26 + j) = (boundaryW a || boundaryW b)) := by
+  intro j g a b hg hin
+  have hj : j < 65 := by
+    by_contra hn
+    have hlen : boundaryCircuit.gates.length ≤ j := by change 65 ≤ j; omega
+    rw [List.getElem?_eq_none hlen] at hg
+    cases hg
+  simp only [boundary_line_wires]
+  interval_cases j <;> simp [boundaryCircuit] at hg <;> subst g <;>
+    simp only [List.cons.injEq, and_true] at hin <;>
+    rcases hin with ⟨rfl, rfl⟩ <;> simp [boundaryW, boundaryLineValues]
+
+
+lemma boundary_exists_at_65 : ∃ C : PEqualNP.CircuitLowerBounds.Circuit, C.size = 65 ∧ (∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ ∃ a b : ℕ, g.inputs = [a, b] ∧ a ≠ b ∧ a < 26 + j ∧ b < 26 + j) ∧ (∀ x : Fin 26 → Bool, C.eval (List.ofFn x) = true ↔ ∃ u t : Fin 13, (u = t ∨ u = t + 1 ∨ u = t + 3 ∨ u = t + 9) ∧ x (Fin.castAdd 13 u) = true ∧ x (Fin.natAdd 13 t) = true) ∧ ∃ p l : Fin 13, (p = l ∨ p = l + 1 ∨ p = l + 3 ∨ p = l + 9) ∧ (∃ v : ℕ → Bool, (∀ my : Fin 13, v my.val = false ∧ v (13 + my.val) = decide (my = l)) ∧ (∀ (ky : ℕ) (hy : PEqualNP.CircuitLowerBounds.Gate) (cy dy : ℕ), C.gates[ky]? = some hy → hy.inputs = [cy, dy] → (hy.op = PEqualNP.CircuitLowerBounds.GateOp.and → v (26 + ky) = (((C.wires (List.ofFn (fun iy : Fin 26 => decide (iy = Fin.castAdd 13 p)))).getD cy false && v dy) || (v cy && (C.wires (List.ofFn (fun ey : Fin 26 => decide (ey = Fin.castAdd 13 p)))).getD dy false))) ∧ (hy.op = PEqualNP.CircuitLowerBounds.GateOp.or → v (26 + ky) = (v cy || v dy))) ∧ v C.output = false) ∧ (∃ w : ℕ → Bool, (∀ mx : Fin 13, w mx.val = decide (mx = p) ∧ w (13 + mx.val) = false) ∧ (∀ (kx : ℕ) (hx : PEqualNP.CircuitLowerBounds.Gate) (cx dx : ℕ), C.gates[kx]? = some hx → hx.inputs = [cx, dx] → (hx.op = PEqualNP.CircuitLowerBounds.GateOp.and → w (26 + kx) = (((C.wires (List.ofFn (fun ix : Fin 26 => decide (ix = Fin.natAdd 13 l)))).getD cx false && w dx) || (w cx && (C.wires (List.ofFn (fun ex : Fin 26 => decide (ex = Fin.natAdd 13 l)))).getD dx false))) ∧ (hx.op = PEqualNP.CircuitLowerBounds.GateOp.or → w (26 + kx) = (w cx || w dx))) ∧ w C.output = false) := by
+  refine ⟨boundaryCircuit, boundaryCircuit_size, boundaryCircuit_legal,
+    boundaryCircuit_correct, 0, 0, Or.inl rfl, ?_, ?_⟩
+  · exact ⟨boundaryV, boundaryV_input, boundaryV_recurrence, boundaryV_output⟩
+  · exact ⟨boundaryW, boundaryW_input, boundaryW_recurrence, boundaryW_output⟩
+
+end PEqualNP.Outside.L_meta_1482

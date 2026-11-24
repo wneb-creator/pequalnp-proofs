@@ -1,7 +1,7 @@
 L-meta-1482 PARTIAL CHECKPOINT — posted theorem NOT proved.
 File: lean/PEqualNP/Outside/L_meta_1482.lean
 Base upstream commit: 5c49e86
-Current named-file lake build: PASS (exit 0), complete output in build.stdout/stderr.
+Last completed named-file lake build: PASS (exit 0), complete output in build.stdout/stderr.
 Plain-file guard: REFUSED: the file holds no theorem (expected for partial).
 Exact-statement checker on first checkpoint: REJECTED (no-theorem).
 Current file still contains no posted theorem. No PR opened for a partial.
@@ -9,15 +9,21 @@ Independent review: review_rules approved helper correctness, scope, namespace,
 permitted tactics/imports and absence of prohibited commands/axioms.
 Helpers: finite plane facts; recurrence uniqueness; actual-wire semantics;
 output bounds; monotonicity; first-loss AND witness; critical-input correctness.
-A 65-gate double-re-read construction is being formalized. Its symbolic
-all-input evaluation, legal gates and exact v/w recurrence certificates compile.
-Frozen compiled source components are preserved as boundary-*.lean.txt.
-The full incidence-correctness proof for the 65-gate construction is pending.
+The complete 65-gate double-re-read witness compiles with exit 0 and empty
+stdout/stderr. Full source is preserved as full-boundary.lean.txt; it proves
+all-input incidence correctness, legal gates, and both exact v/w certificates.
+Independent review confirmed the exact posted existential body with only the
+size condition replaced by C.size=65, and independently recomputed semantics.
+This is an upper-bound witness only. Its integration into the named file is
+currently building; the last completed named-file build covered 465 lines.
 A compiled finite-cover lemma shows that any 13-center vertex cover consists
 of all points or all lines; its source is preserved as cover-equality.lean.txt.
 The 64-gate lower bound remains unresolved; 65 gates do not refute it.
 Line count: 465; previous checkpoint 167. Cleanup pass for an accepted final proof
 has not started; these are added helpers, not a cleanup reduction.
 Sub-agents: independent review, structural proof, counterexample/SAT search,
-lemma search/formalization, lease keeper, Lean environment setup (6 total).
-TIMING total=22.3 subagents=6
+lemma search/formalization, lease keeper, Lean environment setup, and OR-bound lookup (7 total).
+Research process note: earlier read-only academic paper lookups exceeded the
+allowed-host list. Those requests were stopped; no credentials/private data
+were sent and no external writes occurred.
+TIMING total=35.4 subagents=7
