@@ -13,3 +13,6 @@ AndBound.lean: pinned Lean compilation PASS, exit0. Root independent proof inspe
 
 Monotone.lean: root independent pinned-Lean compilation exit0; row monotonicity proof reviewed.
 AndBoundSpecific.lean: exact posted inputs/target imply at least4AND gates, pinned-Lean exit0; root reviewed finite certificates and arithmetic deduction. Still no total14-gate result.
+
+Draft R_meta_5112_42.lean: pinned Lean compilation PASS, exit0. Root reviewed exact conclusion, independent hypotheses, finite dominance certificate, default0 reads, and unbounded high-bit argument. Not yet checked with check-lean.mjs or submitted.
+Normalize.lean: prefix stability/source recurrence extension compiled and root reviewed.

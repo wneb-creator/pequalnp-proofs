@@ -131,4 +131,57 @@ theorem bounded_pad (xs : List Nat) (gs : List (Bool × Nat × Nat)) (s : Nat)
     change (raw.foldl gateStep xs).getD (xs.length + raw.length - 1) 0 = _ at ho
     simpa only [hraw] using ho
 
+theorem eval_extends (xs : List Nat) (gs : List (Bool × Nat × Nat)) :
+    ∃ zs : List Nat, gs.foldl gateStep xs = xs ++ zs := by
+  induction gs generalizing xs with
+  | nil => exact ⟨[], by simp⟩
+  | cons g gs ih =>
+    obtain ⟨zs, hz⟩ := ih (gateStep xs g)
+    refine ⟨[if g.1 = true then xs.getD g.2.1 0 ||| xs.getD g.2.2 0
+      else xs.getD g.2.1 0 &&& xs.getD g.2.2 0] ++ zs, ?_⟩
+    rw [List.foldl_cons, hz]
+    simp only [gateStep, List.append_assoc]
+
+theorem eval_preserves (xs : List Nat) (gs : List (Bool × Nat × Nat)) (i : Nat)
+    (hi : i < xs.length) :
+    (gs.foldl gateStep xs).getD i 0 = xs.getD i 0 := by
+  obtain ⟨zs, hz⟩ := eval_extends xs gs
+  rw [hz, List.getD_append xs zs 0 i hi]
+
+theorem take_eval_length (xs : List Nat) (gs : List (Bool × Nat × Nat)) (j : Nat)
+    (hj : j ≤ gs.length) :
+    ((gs.take j).foldl gateStep xs).length = xs.length + j := by
+  rw [eval_length, List.length_take, Nat.min_eq_left hj]
+
+theorem take_eval_preserves (xs : List Nat) (gs : List (Bool × Nat × Nat)) (j k : Nat)
+    (hj : j ≤ gs.length) (hk : k < xs.length + j) :
+    (gs.foldl gateStep xs).getD k 0 = ((gs.take j).foldl gateStep xs).getD k 0 := by
+  have hh : k < ((gs.take j).foldl gateStep xs).length := by
+    rw [take_eval_length xs gs j hj]
+    exact hk
+  simpa only [← List.foldl_append, List.take_append_drop] using
+    eval_preserves ((gs.take j).foldl gateStep xs) (gs.drop j) k hh
+
+theorem take_eval_source (xs : List Nat) (gs : List (Bool × Nat × Nat)) (j k : Nat)
+    (hj : j ≤ gs.length) :
+    ((gs.take j).foldl gateStep xs).getD k 0 =
+      if k < xs.length + j then (gs.foldl gateStep xs).getD k 0 else 0 := by
+  split
+  · exact (take_eval_preserves xs gs j k hj ‹_›).symm
+  · exact getD_default _ _ (by rw [take_eval_length xs gs j hj]; omega)
+
+theorem gate_eq (xs : List Nat) (gs : List (Bool × Nat × Nat)) (j : Nat)
+    (hj : j < gs.length) :
+    (gs.foldl gateStep xs).getD (xs.length + j) 0 =
+      let front := (gs.take j).foldl gateStep xs
+      let g := gs[j]
+      if g.1 = true then front.getD g.2.1 0 ||| front.getD g.2.2 0
+        else front.getD g.2.1 0 &&& front.getD g.2.2 0 := by
+  rw [take_eval_preserves xs gs (j + 1) (xs.length + j) (by omega) (by omega)]
+  rw [List.take_succ_eq_append_getElem hj, List.foldl_append]
+  simp only [List.foldl_cons, List.foldl_nil, gateStep]
+  rw [List.getD_append_right _ _ 0 _ (by rw [take_eval_length xs gs j (by omega)])]
+  rw [take_eval_length xs gs j (by omega), Nat.sub_self]
+  rfl
+
 end PEqualNP.Outside.L_meta_5112_aux
