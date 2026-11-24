@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S01/LateJunkBool.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 1.3284966700011864,
+  "max_child_rss_kib": 1054632,
+  "source_sha256": "cbc7bcfab33a9595038592bd3115552df26b723d886ae51c4cb6fd79ab4c9843",
+  "source_lines": 39,
+  "shared_Lean_lock_held": true,
+  "scope": "Boolean structural helpers only; not the full normalization or posted gap."
+}

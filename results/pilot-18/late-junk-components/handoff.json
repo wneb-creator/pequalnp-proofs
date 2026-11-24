@@ -1,0 +1,56 @@
+{
+  "verdict": "COMPILED_COMPONENTS_STANDARD_AXIOMS_ONLY",
+  "source_sha256": "cbc7bcfab33a9595038592bd3115552df26b723d886ae51c4cb6fd79ab4c9843",
+  "source_lines": 39,
+  "theorems": [
+    "late_junk_absorb",
+    "late_junk_reorder",
+    "late_junk_copy_before_or",
+    "late_junk_clean_operand",
+    "late_junk_dirty_parents",
+    "late_junk_clean_superfunction"
+  ],
+  "scope": "Six helper lemmas, not the complete circuit normalization or the posted theorem. Axiom audit source is diagnostic only and must not be inserted into a PR proof.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/LateJunkBool.lean",
+      "sha256": "cbc7bcfab33a9595038592bd3115552df26b723d886ae51c4cb6fd79ab4c9843",
+      "bytes": 1368
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-third.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-third.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-third-validation.json",
+      "sha256": "7d82878337fab88938d2323fe40e8fe043897832a5ffb96c4ab9189544242f86",
+      "bytes": 511
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/LateJunkBoolAxioms.lean",
+      "sha256": "d013ff5f99e56350c7ce0b05b465222c980aab82896853309e905b1aebd7a354",
+      "bytes": 1789
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-axioms.stdout.txt",
+      "sha256": "fc5adf45a548ebfc9e081c46abbb5ab0d9160e83629ebcc4c47dfd061599f6ac",
+      "bytes": 528
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-axioms.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-axioms-validation.json",
+      "sha256": "2e52d2c795cf9f19675c615d76ff4091405730a13a9be8ae8154e5fae09dd3c1",
+      "bytes": 812
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "verdict": "PASS_FOR_RESEARCH_ARTIFACT_PACKAGING",
+  "timestamp_utc": "2026-11-24T03:34:40.274518+00:00",
+  "scope": "Only results/pilot-18/search/repairs/* and stochastic-second-full-results.json; not an overall repository or Lean review.",
+  "files": [
+    {
+      "path": "results/pilot-18/search/repairs/audit_local_repairs.py",
+      "sha256": "84608ab2ca91d8d33f14bef2417c8d7eccd5c3d7dcb5958bcf603e89c6dde9fa",
+      "bytes": 8328,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/lean-setup/audit_local_repairs.py"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/audit_distance_repairs.py",
+      "sha256": "4d617d4f847ff95a3647ada008141bf199faca4324aa8b191a3546c91680ce47",
+      "bytes": 11317,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/lean-setup/audit_distance_repairs.py"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/generate_local_repairs.py",
+      "sha256": "857f7082cb81bda879891aba76a84e59f0a1b030f6c6c0eccf08f507cf96cd97",
+      "bytes": 10481,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/lean-setup/generate_local_repairs.py"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/generate_distance_repairs.py",
+      "sha256": "39e65cae78a5bd8dd6417cf1132fb77187867d6765f20d62e10fd51bcedc9da1",
+      "bytes": 5330,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/lean-setup/generate_distance_repairs.py"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/local-repair-review.json",
+      "sha256": "23ef393d6c630c62a8980fb66c9607c6d827587f0e1e12379e931e909a22cfc8",
+      "bytes": 8087,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/lean-setup/local-repair-review.json"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/distance-repair-review.json",
+      "sha256": "10d172cfc013c50c9663001c4a91a844a21e621b47e91b9888deaf6070a26692",
+      "bytes": 3369,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/lean-setup/distance-repair-review.json"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/local-repair-independent-review.json",
+      "sha256": "b640a281eb3983bcad1203a9a3c71b6d277ffb3288728ffbb14d5032d408cd5f",
+      "bytes": 4265,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/local-repair-independent-review.json"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/distance-repair-independent-review.json",
+      "sha256": "cf2bce81b197bd1f99f064c477de2d009b5e2fa9836b50761dfe5b53ec4c1cff",
+      "bytes": 1938,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/distance-repair-independent-review.json"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/run_local_repair_candidates.py",
+      "sha256": "774a14c5c382a65b0a471f2b14530d493f9925dab19e55d323f742dcae21e360",
+      "bytes": 4946,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/run_local_repair_candidates.py"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/run_distance_repair_candidates.py",
+      "sha256": "aaaf66c23ebd9f1415eec887e0395ba51a241b0b1bfafac93b6a04be7cf995e7",
+      "bytes": 4972,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/run_distance_repair_candidates.py"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/repair-candidate-launches.json",
+      "sha256": "60024238a8708e35b419c5c1ef765cc55b90a922917beb3ca3d0f5e576ae10ab",
+      "bytes": 2630,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/repair-candidate-launches.json"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/repair-controllers-review.json",
+      "sha256": "de6335c4694503cb6f4851e212ba49889c65b08af1f9b2f6d056efa61483eaac",
+      "bytes": 5430,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/orch/S02/repair-controllers-review.json"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/local-repairs-134218-manifest.json",
+      "sha256": "585eaf7fc7e06938356e30f86a3ef562a36a3c31e2582db18bbb5efb116fed36",
+      "bytes": 8493,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/local-repairs-134218/family.json"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/distance-repairs-134218-manifest.json",
+      "sha256": "8b9f3d4b523aad54bcea21bc35a300428fdf65fa073341015d24f7a025361e56",
+      "bytes": 2233,
+      "exact_copy_of": "/tmp/oec/pequalnp-pilot-18/distance-repairs-134218/family.json"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/local-repair-candidates-full-results.json",
+      "sha256": "765f1a52bb27e5a32b30b5182fcb7f072d41d578836d97def37966890f643a2f",
+      "bytes": 268817,
+      "full_content_archive_of": "/tmp/oec/pequalnp-pilot-18/local-repair-candidates"
+    },
+    {
+      "path": "results/pilot-18/search/repairs/distance-repair-candidates-full-results.json",
+      "sha256": "42db552fb68efd6438d670da9d78864b60c98f5f0d483f0a1a68be8d6dd44f2f",
+      "bytes": 150451,
+      "full_content_archive_of": "/tmp/oec/pequalnp-pilot-18/distance-repair-candidates"
+    },
+    {
+      "path": "results/pilot-18/search/stochastic-second-full-results.json",
+      "sha256": "6727a42d9f832a1d11f5e79e470a4810f96c2d87405bb09ffb2b38af2ed77e94",
+      "bytes": 7115,
+      "full_content_archive_of": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134219"
+    }
+  ],
+  "direct_exact_copies": 14,
+  "embedded_complete_source_files_verified": 57,
+  "archives": [
+    {
+      "archive": "results/pilot-18/search/repairs/local-repair-candidates-full-results.json",
+      "embedded_files_verified": 41,
+      "all_complete_and_byte_exact": true,
+      "outcomes": {
+        "UNSAT_UNCERTIFIED": 16,
+        "UNKNOWN": 4
+      }
+    },
+    {
+      "archive": "results/pilot-18/search/repairs/distance-repair-candidates-full-results.json",
+      "embedded_files_verified": 9,
+      "all_complete_and_byte_exact": true,
+      "outcomes": {
+        "UNSAT_UNCERTIFIED": 2,
+        "UNKNOWN": 2
+      }
+    },
+    {
+      "archive": "results/pilot-18/search/stochastic-second-full-results.json",
+      "embedded_files_verified": 7,
+      "all_complete_and_byte_exact": true,
+      "status": "UNKNOWN",
+      "iterations": 1446451200,
+      "seed_gate_count": 21,
+      "live_gates": 20,
+      "known_incorrect": true
+    }
+  ],
+  "blocking_findings": [],
+  "claims": "All24 repair logs agree with their completed portfolios:18 uncertified neighborhood UNSAT,6UNKNOWN, noSAT. Second annealer UNKNOWN; its21stored/20live gates are not an exact target witness.",
+  "credential_or_lease_value_scan_findings": 0,
+  "controller_and_generator_reviews_hash_preserved": true,
+  "no_global_or_shard_exhaustion_claim": true,
+  "no_Lean_or_checker_acceptance_claim": true,
+  "repository_modified": false,
+  "solver_or_lease_action": false,
+  "Sub-agents": "none"
+}

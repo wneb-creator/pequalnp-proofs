@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS_MAIN_INDEPENDENT_PROOF_AND_ARTIFACT_REVIEW",
+  "utc": "2026-11-24T03:41:37.478200+00:00",
+  "source_sha256": "cbc7bcfab33a9595038592bd3115552df26b723d886ae51c4cb6fd79ab4c9843",
+  "source_lines": 39,
+  "scope": "Six generic Boolean helper lemmas only; full circuit normalization and posted theorem remain unproved",
+  "checks": [
+    "Three Boolean identities verified byexhaustivecases/rfl",
+    "Cleanoperand forcesANDclean",
+    "DirtyAND witnessgivesdirtybothparents",
+    "Positiveandnegativeagreementgivesfunctionextensionality",
+    "No newaxioms/forbiddenproofmechanisms; importsplainMathlibonly",
+    "Allhandoffartifactbytes/hashmatch exactbuildandauditrecords"
+  ],
+  "preservation": "Standalonecompiledsourceanddiagnosticauditharnesssavedverbatimwith.lean.txtextensions; namedmoduleunchanged"
+}

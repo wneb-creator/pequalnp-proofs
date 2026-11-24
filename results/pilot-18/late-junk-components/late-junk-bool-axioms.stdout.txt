@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_1342_aux.late_junk_absorb' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1342_aux.late_junk_reorder' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1342_aux.late_junk_copy_before_or' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1342_aux.late_junk_clean_operand' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1342_aux.late_junk_dirty_parents' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1342_aux.late_junk_clean_superfunction' depends on axioms: [Quot.sound]

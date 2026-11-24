@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S01/LateJunkBoolAxioms.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 1.7005583789996308,
+  "max_child_rss_kib": 1057156,
+  "proof_source_sha256": "cbc7bcfab33a9595038592bd3115552df26b723d886ae51c4cb6fd79ab4c9843",
+  "audit_source_sha256": "d013ff5f99e56350c7ce0b05b465222c980aab82896853309e905b1aebd7a354",
+  "theorems": [
+    "late_junk_absorb",
+    "late_junk_reorder",
+    "late_junk_copy_before_or",
+    "late_junk_clean_operand",
+    "late_junk_dirty_parents",
+    "late_junk_clean_superfunction"
+  ],
+  "shared_Lean_lock_held": true,
+  "scope": "Diagnostic axiom audit; audit source includes print commands and is not a PR proof fragment."
+}

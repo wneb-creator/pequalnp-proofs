@@ -1,0 +1,41 @@
+{
+  "verdict": "PASS_FOR_CANDIDATE_SEARCH",
+  "reviewer": "main",
+  "timestamp_utc": "2026-11-24T03:26:32.653068+00:00",
+  "generator_sha256": "39e65cae78a5bd8dd6417cf1132fb77187867d6765f20d62e10fd51bcedc9da1",
+  "source_lines_read": 106,
+  "cases": [
+    {
+      "case": "distance-00",
+      "cnf_sha256": "cc62b0cfe47d5ee2f326becc50b088403045f1dc12e7d71e9c6ccf24dd1205db",
+      "exact_unrestricted_base_output_pin_keep_equivalences_and_counter": true
+    },
+    {
+      "case": "distance-02",
+      "cnf_sha256": "322ec5915f3cf09fe3f9d8bbe8a311ee51db60f05eecbeba2159cfe194cc341d",
+      "exact_unrestricted_base_output_pin_keep_equivalences_and_counter": true
+    },
+    {
+      "case": "distance-03",
+      "cnf_sha256": "3d0eea6ecda1be79b1b5334666624d08f09cec0ed2f4f12d177c0239e708bfae",
+      "exact_unrestricted_base_output_pin_keep_equivalences_and_counter": true
+    },
+    {
+      "case": "distance-04",
+      "cnf_sha256": "b878a801fa46c6c3f3a641e5f64f6a29419ef6c569a84fc70541abfe50027d19",
+      "exact_unrestricted_base_output_pin_keep_equivalences_and_counter": true
+    },
+    {
+      "case": "distance-05",
+      "cnf_sha256": "766819acb96fbfff97c26db9c4d0ce9654a6a23d45f0d99d972ec6df2577f872",
+      "exact_unrestricted_base_output_pin_keep_equivalences_and_counter": true
+    }
+  ],
+  "reasoning": [
+    "Each keep flag is exactly the conjunction of its three matching signed operation/one-hot-operand literals.",
+    "The existing independently reviewed signed exact totalizer applied to negated keeps counts changed descriptions; prohibiting thresholdK+1 enforces distance<=K.",
+    "All free gates are unrestricted binaryAND/OR; original output is fixed. There is no clean-prefix or forced-junk condition.",
+    "All-input validation and Lean proof remain necessary. K0 contradiction and known22 controls are not target results."
+  ],
+  "scope": "Candidate neighborhoods only; no assigned-shard/global exhaustion."
+}

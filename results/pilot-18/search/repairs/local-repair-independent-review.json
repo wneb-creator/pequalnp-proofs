@@ -1,0 +1,111 @@
+{
+  "verdict": "PASS_FOR_CANDIDATE_SEARCH",
+  "reviewer": "main",
+  "timestamp_utc": "2026-11-24T03:25:56.708332+00:00",
+  "generator_sha256": "857f7082cb81bda879891aba76a84e59f0a1b030f6c6c0eccf08f507cf96cd97",
+  "cases": [
+    {
+      "case": "r0000-free03",
+      "cnf_sha256": "26c312fab1bdd2c98a45ad930a45e71ca0f02c6111c01d8869f989b120ae10ae",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0001-free04",
+      "cnf_sha256": "efd294af8433fe7646d2c4c820d47651dcee2feefa8dfac7798c7c86e80575ad",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0002-free05",
+      "cnf_sha256": "de032119010073e1eda0e8e51e5dd92a8f99a3017bd0a2666d907444e0718647",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0003-free06",
+      "cnf_sha256": "fb6c524d5d3a2c17a0ccd57befc8483c95297b61701581446ed36558da1e4f0d",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0004-free07",
+      "cnf_sha256": "ba128b7cd4180053a99445bd48845b799c7d330010cd47d940f3e6d1901bf78c",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0005-free03",
+      "cnf_sha256": "8c6260e013123317517a10e021c69d6b68e89d6c71d6549052e268b84954d1fa",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0006-free04",
+      "cnf_sha256": "3fc2b8aa6424d21a2ee059301ab190e73c25a24d89a586730068f624d7efbfd3",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0007-free05",
+      "cnf_sha256": "b01a7090cc8e9ec9c8c107d06aea212f6e4ed91d2559ae9bdd5cee28cb242434",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0008-free06",
+      "cnf_sha256": "5acdb21584e25a00fb85b3d89fac098e8d92bacde47bec3246db98e033574c8b",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0009-free07",
+      "cnf_sha256": "6784f7d18ec6d105f6da13d0e14f36366c96f9682447e3d5efdf972847e19401",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0010-free03",
+      "cnf_sha256": "45da4934d64c57e755b327d4c1e9add83ab77631e6d978e72bb06bb79e18fb59",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0011-free04",
+      "cnf_sha256": "001afa5d704cf95cf4f9f3f009a0a914f0efe2beaf9d3065ff7b1cef563adae2",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0012-free05",
+      "cnf_sha256": "3e2b7296bee87b2d5b937b958c8dc69e9a22d45b973db480aa6bc0bbe80392ca",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0013-free06",
+      "cnf_sha256": "17355f150329dc407f42027a3c8cff06f63378a583b74d40bfb68a93938ea7e0",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0014-free07",
+      "cnf_sha256": "1c30d374e819fbb79282dfd93777d12e7de633e2d6bfa070afc07163f43a3910",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0015-free03",
+      "cnf_sha256": "cb9d83173d7e795da2bea4103956ad389c5065e1f9f914b6f5185da99be0b409",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0016-free04",
+      "cnf_sha256": "7f06f186bed125528cc70a3857f4bc741c9d29306ef7a984e3e8eda750864d36",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0017-free05",
+      "cnf_sha256": "d261e4af7d89414241de2c79e840daa9903e96c27451bbd7e25d073e7232c169",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0018-free06",
+      "cnf_sha256": "069f93a1b89cb0118d200890313b5b1424fb6d948333112e5728ced77e383ccf",
+      "exact_base_minus_junk_unit_plus_pins": true
+    },
+    {
+      "case": "r0019-free07",
+      "cnf_sha256": "10ddaeeba43d5451427a6bc4cb1bfbfeba80137f55189a5f1982548872d5d853",
+      "exact_base_minus_junk_unit_plus_pins": true
+    }
+  ],
+  "source_lines_read": 226,
+  "reasoning": "Only fixed gate descriptions and original output are pinned; all clean-prefix and forced-junk assumptions are removed. Gates in the holes may change to any valid binaryAND/OR fanins under the base encoding. The candidate is independently all-input checked before any witness claim.",
+  "scope": "Local neighborhoods only; no global/shard exhaustion."
+}

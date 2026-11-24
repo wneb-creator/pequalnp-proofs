@@ -1,0 +1,39 @@
+import Mathlib.Data.Bool.Basic
+
+namespace PEqualNP.Outside.L_meta_1342_aux
+
+lemma late_junk_absorb (d q r : Bool) :
+    (((d || q) && d) && r) = (d && r) := by
+  cases d <;> cases q <;> cases r <;> rfl
+
+lemma late_junk_reorder (o t r : Bool) :
+    ((o && t) && r) = ((r && t) && o) := by
+  cases o <;> cases t <;> cases r <;> rfl
+
+lemma late_junk_copy_before_or (d q r : Bool) :
+    (((d || q) && (d || q)) && r) = (((d && d) || q) && r) := by
+  cases d <;> cases q <;> cases r <;> rfl
+
+lemma late_junk_clean_operand {X : Type} (N : X → Prop) (a b : X → Bool)
+    (h : ∀ x, N x → a x = false) :
+    ∀ x, N x → (a x && b x) = false := by
+  intro x hx
+  simp [h x hx]
+
+lemma late_junk_dirty_parents {X : Type} (N : X → Prop) (a b : X → Bool)
+    (h : ∃ x, N x ∧ (a x && b x) = true) :
+    (∃ x, N x ∧ a x = true) ∧ (∃ x, N x ∧ b x = true) := by
+  obtain ⟨x,hx,hab⟩ := h
+  have both : a x = true ∧ b x = true := by
+    cases ha : a x <;> cases hb : b x <;> simp_all
+  exact ⟨⟨x,hx,both.1⟩,⟨x,hx,both.2⟩⟩
+
+lemma late_junk_clean_superfunction {X : Type} (f h : X → Bool)
+    (positive : ∀ x, f x = true → h x = true)
+    (negative : ∀ x, f x = false → h x = false) : h = f := by
+  funext x
+  cases hf : f x with
+  | false => exact negative x hf
+  | true => exact positive x hf
+
+end PEqualNP.Outside.L_meta_1342_aux

@@ -1,0 +1,44 @@
+{
+  "timestamp_utc": "2026-11-24T03:27:24.333982+00:00",
+  "launches": [
+    {
+      "script": "run_local_repair_candidates.py",
+      "pid": 21059,
+      "sha256": "774a14c5c382a65b0a471f2b14530d493f9925dab19e55d323f742dcae21e360",
+      "parent_sha256": "e60ae4b64015c74674be737f890fb3cd20ff7b7f12d739ef7625a27a6d2e235a",
+      "exact_changes": {
+        "FAMILY=ROOT/'cover-neighborhoods-144'": "FAMILY=ROOT/'local-repairs-134218'",
+        "OUT=ROOT/'cover-candidates'": "OUT=ROOT/'local-repair-candidates'",
+        "assert manifest['complete'] and len(manifest['cases'])==manifest['samples']==144": "assert manifest['complete'] and len(manifest['cases'])==20",
+        "91bc4ce8fa0c7ce92bd6a1280cb836ca100729ced9ac1c4b7d6b66fbf97e8f68": "857f7082cb81bda879891aba76a84e59f0a1b030f6c6c0eccf08f507cf96cd97",
+        "r'c[0-9]{4}-k[0-9]{2}'": "r'r[0-9]{4}-free[0-9]{2}'",
+        "'--time=10'": "'--time=5'",
+        "'prefix':item['prefix']": "'free_gates':item['free_gates']",
+        "time.monotonic()-started>30": "time.monotonic()-started>30",
+        "Solver exceeded 30-second outer limit": "Solver exceeded 30-second outer limit"
+      },
+      "family": "local-repairs-134218",
+      "family_manifest_sha256": "585eaf7fc7e06938356e30f86a3ef562a36a3c31e2582db18bbb5efb116fed36"
+    },
+    {
+      "script": "run_distance_repair_candidates.py",
+      "pid": 21060,
+      "sha256": "aaaf66c23ebd9f1415eec887e0395ba51a241b0b1bfafac93b6a04be7cf995e7",
+      "parent_sha256": "e60ae4b64015c74674be737f890fb3cd20ff7b7f12d739ef7625a27a6d2e235a",
+      "exact_changes": {
+        "FAMILY=ROOT/'cover-neighborhoods-144'": "FAMILY=ROOT/'distance-repairs-134218'",
+        "OUT=ROOT/'cover-candidates'": "OUT=ROOT/'distance-repair-candidates'",
+        "assert manifest['complete'] and len(manifest['cases'])==manifest['samples']==144": "assert manifest['complete'] and len(manifest['cases'])==5",
+        "91bc4ce8fa0c7ce92bd6a1280cb836ca100729ced9ac1c4b7d6b66fbf97e8f68": "39e65cae78a5bd8dd6417cf1132fb77187867d6765f20d62e10fd51bcedc9da1",
+        "r'c[0-9]{4}-k[0-9]{2}'": "r'distance-[0-9]{2}'",
+        "'--time=10'": "'--time=60'",
+        "'prefix':item['prefix']": "'budget':item['budget']",
+        "time.monotonic()-started>30": "time.monotonic()-started>90",
+        "Solver exceeded 30-second outer limit": "Solver exceeded 90-second outer limit",
+        "queue=list(manifest['cases']);": "queue=[item for item in manifest['cases'] if item['budget']>0];"
+      },
+      "family": "distance-repairs-134218",
+      "family_manifest_sha256": "8b9f3d4b523aad54bcea21bc35a300428fdf65fa073341015d24f7a025361e56"
+    }
+  ]
+}

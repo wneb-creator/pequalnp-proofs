@@ -1,0 +1,87 @@
+{
+  "verdict": "PASS_SELF_AUDIT_READY_FOR_MAIN_INDEPENDENT_REVIEW",
+  "generator_sha256": "39e65cae78a5bd8dd6417cf1132fb77187867d6765f20d62e10fd51bcedc9da1",
+  "audit_sha256": "4d617d4f847ff95a3647ada008141bf199faca4324aa8b191a3546c91680ce47",
+  "local_repair_helper_sha256": "857f7082cb81bda879891aba76a84e59f0a1b030f6c6c0eccf08f507cf96cd97",
+  "base_generator_sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+  "family_manifest_sha256": "8b9f3d4b523aad54bcea21bc35a300428fdf65fa073341015d24f7a025361e56",
+  "source_sha256": "3f7e31aa55a515196f4fd7f08905e0a2b08561ab09e6c93a93ae5bc6d202d813",
+  "cases": [
+    {
+      "budget": 0,
+      "cnf_sha256": "cc62b0cfe47d5ee2f326becc50b088403045f1dc12e7d71e9c6ccf24dd1205db",
+      "exact_delta": true,
+      "variables": 5086,
+      "clauses": 84163
+    },
+    {
+      "budget": 2,
+      "cnf_sha256": "322ec5915f3cf09fe3f9d8bbe8a311ee51db60f05eecbeba2159cfe194cc341d",
+      "exact_delta": true,
+      "variables": 5118,
+      "clauses": 84303
+    },
+    {
+      "budget": 3,
+      "cnf_sha256": "3d0eea6ecda1be79b1b5334666624d08f09cec0ed2f4f12d177c0239e708bfae",
+      "exact_delta": true,
+      "variables": 5125,
+      "clauses": 84352
+    },
+    {
+      "budget": 4,
+      "cnf_sha256": "b878a801fa46c6c3f3a641e5f64f6a29419ef6c569a84fc70541abfe50027d19",
+      "exact_delta": true,
+      "variables": 5132,
+      "clauses": 84399
+    },
+    {
+      "budget": 5,
+      "cnf_sha256": "766819acb96fbfff97c26db9c4d0ce9654a6a23d45f0d99d972ec6df2577f872",
+      "exact_delta": true,
+      "variables": 5136,
+      "clauses": 84438
+    }
+  ],
+  "exact_keep_equivalence_truth_assignments": 1680,
+  "signed_totalizer_projection_assignments": 1538,
+  "k0_wrong_source_unit_refutation": {
+    "replayed": true,
+    "steps": 4082,
+    "proof_sha256": "01bbff754a6daeadccfa8af428306bae542f9471e7efce88c9571d466c0c5889",
+    "scope": "K=0 control only"
+  },
+  "known22_controls": [
+    {
+      "budget": 0,
+      "validator_exit": 0,
+      "all_clauses_checked": 90268,
+      "cnf_sha256": "109fb0942ec565c5088a0d6dce5259f1375e09edeee08ba11ddcce5188432b9a",
+      "meets_posted_gate_limit": false
+    },
+    {
+      "budget": 2,
+      "validator_exit": 0,
+      "all_clauses_checked": 90416,
+      "cnf_sha256": "db8993c55ff5e0657c6c0beb3b77549ec3449484215ed61fd7bf84551794b4a1",
+      "meets_posted_gate_limit": false
+    },
+    {
+      "budget": 5,
+      "validator_exit": 0,
+      "all_clauses_checked": 90559,
+      "cnf_sha256": "ab4a6cbd459707b89a8874a515fa6c617cb67f16dc4073690612890a2c54b411",
+      "meets_posted_gate_limit": false
+    }
+  ],
+  "byte_identical_reproduction_files": 13,
+  "reasoning": "keep_g is equivalent to matching the seed operation and both canonical one-hot operands. The signed counter bounds the number of false keep flags. Thus at most K descriptions change, with arbitrary operations/fanins at changed gates, no clean prefix, no junk units, and the same output selector.",
+  "blocking_findings": [],
+  "scope": "Candidate-only local repair; no assigned-shard or global exhaustion.",
+  "limits": [
+    "No repair solver launched and no 21-gate witness found.",
+    "K=0 unit contradiction concerns only the fixed wrong seed; it is not a proof of the posted gap.",
+    "Known22 models are synthetic compatibility controls, not discoveries."
+  ],
+  "Sub-agents": "none"
+}

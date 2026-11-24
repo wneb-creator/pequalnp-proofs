@@ -1,0 +1,313 @@
+{
+  "kind": "candidate_only_local_repairs",
+  "complete": true,
+  "seed": 134218,
+  "samples": 20,
+  "source_sha256": "3f7e31aa55a515196f4fd7f08905e0a2b08561ab09e6c93a93ae5bc6d202d813",
+  "source_summary_sha256": "8b4294f8cc0ad548a55c4628f87a67aae6ba7dd562d2225e8532a3e77725191d",
+  "program_sha256": "857f7082cb81bda879891aba76a84e59f0a1b030f6c6c0eccf08f507cf96cd97",
+  "base_generator_sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+  "assigned_shard_exhaustion": false,
+  "cases": [
+    {
+      "case": "r0000-free03",
+      "free_gates": [
+        9,
+        19,
+        20
+      ],
+      "selection_mode": "tail_and_dead",
+      "cnf_sha256": "26c312fab1bdd2c98a45ad930a45e71ca0f02c6111c01d8869f989b120ae10ae",
+      "metadata_sha256": "22114f3f7a4125faefea532e232af4b6130921ac112731b8b45bebc8efa243a8",
+      "variables": 5045,
+      "clauses": 84072
+    },
+    {
+      "case": "r0001-free04",
+      "free_gates": [
+        4,
+        7,
+        8,
+        9
+      ],
+      "selection_mode": "error_influence",
+      "cnf_sha256": "efd294af8433fe7646d2c4c820d47651dcee2feefa8dfac7798c7c86e80575ad",
+      "metadata_sha256": "fbf3ffcccce39239193aac40fae1cecbcb5aa52abc3712776d45eaa9ad9cbe6d",
+      "variables": 5045,
+      "clauses": 84069
+    },
+    {
+      "case": "r0002-free05",
+      "free_gates": [
+        0,
+        7,
+        16,
+        17,
+        18
+      ],
+      "selection_mode": "connected",
+      "cnf_sha256": "de032119010073e1eda0e8e51e5dd92a8f99a3017bd0a2666d907444e0718647",
+      "metadata_sha256": "28e8af63758ccdbc93f3746bae1931ca3fabb807190e866eca9ad1e6dad01080",
+      "variables": 5045,
+      "clauses": 84066
+    },
+    {
+      "case": "r0003-free06",
+      "free_gates": [
+        1,
+        3,
+        4,
+        13,
+        17,
+        19
+      ],
+      "selection_mode": "uniform",
+      "cnf_sha256": "fb6c524d5d3a2c17a0ccd57befc8483c95297b61701581446ed36558da1e4f0d",
+      "metadata_sha256": "fc99d8cc52c633841032892fc1f2b7325ed44c43939c3906a93ed5c9ae7c8ec3",
+      "variables": 5045,
+      "clauses": 84063
+    },
+    {
+      "case": "r0004-free07",
+      "free_gates": [
+        9,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "selection_mode": "tail_and_dead",
+      "cnf_sha256": "ba128b7cd4180053a99445bd48845b799c7d330010cd47d940f3e6d1901bf78c",
+      "metadata_sha256": "62ce91189128c396a4c45e244f99eae4aa5573a629b06cc1fd304a52e53b8a65",
+      "variables": 5045,
+      "clauses": 84060
+    },
+    {
+      "case": "r0005-free03",
+      "free_gates": [
+        0,
+        4,
+        9
+      ],
+      "selection_mode": "error_influence",
+      "cnf_sha256": "8c6260e013123317517a10e021c69d6b68e89d6c71d6549052e268b84954d1fa",
+      "metadata_sha256": "99123a32c6c2ba97fb28b2286f85bf3dee4e75289cb750a2fe175983d7902b6c",
+      "variables": 5045,
+      "clauses": 84072
+    },
+    {
+      "case": "r0006-free04",
+      "free_gates": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "selection_mode": "connected",
+      "cnf_sha256": "3fc2b8aa6424d21a2ee059301ab190e73c25a24d89a586730068f624d7efbfd3",
+      "metadata_sha256": "aa79c1905fbe3b0e5327c0c21266e19e121be6aa8e93198871f9cc7b0f54cc29",
+      "variables": 5045,
+      "clauses": 84069
+    },
+    {
+      "case": "r0007-free05",
+      "free_gates": [
+        1,
+        7,
+        10,
+        13,
+        20
+      ],
+      "selection_mode": "uniform",
+      "cnf_sha256": "b01a7090cc8e9ec9c8c107d06aea212f6e4ed91d2559ae9bdd5cee28cb242434",
+      "metadata_sha256": "c7d5c70713228d1ef6653c6ec44d70e828678067d1e516ae55aaff78396d75cd",
+      "variables": 5045,
+      "clauses": 84066
+    },
+    {
+      "case": "r0008-free06",
+      "free_gates": [
+        9,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "selection_mode": "tail_and_dead",
+      "cnf_sha256": "5acdb21584e25a00fb85b3d89fac098e8d92bacde47bec3246db98e033574c8b",
+      "metadata_sha256": "89272ac071de600a469cbf27b128d8d3e8158d2bf996e27b3bfaf684635510c1",
+      "variables": 5045,
+      "clauses": 84063
+    },
+    {
+      "case": "r0009-free07",
+      "free_gates": [
+        0,
+        4,
+        8,
+        9,
+        11,
+        17,
+        20
+      ],
+      "selection_mode": "error_influence",
+      "cnf_sha256": "6784f7d18ec6d105f6da13d0e14f36366c96f9682447e3d5efdf972847e19401",
+      "metadata_sha256": "e4e8fcb3816cc4376b35c5ea902a361bc6cd0bb3b896f26c82f6ab15830201dd",
+      "variables": 5045,
+      "clauses": 84060
+    },
+    {
+      "case": "r0010-free03",
+      "free_gates": [
+        0,
+        17,
+        18
+      ],
+      "selection_mode": "connected",
+      "cnf_sha256": "45da4934d64c57e755b327d4c1e9add83ab77631e6d978e72bb06bb79e18fb59",
+      "metadata_sha256": "20c32f249df02a6f79c5a9dc172591f2478edce189a6e7a91a3a0cfedfa57c27",
+      "variables": 5045,
+      "clauses": 84072
+    },
+    {
+      "case": "r0011-free04",
+      "free_gates": [
+        1,
+        4,
+        12,
+        20
+      ],
+      "selection_mode": "uniform",
+      "cnf_sha256": "001afa5d704cf95cf4f9f3f009a0a914f0efe2beaf9d3065ff7b1cef563adae2",
+      "metadata_sha256": "2d9ed0986d68514dc29d5c1817f410a4280185b11c88c4c712b06d2f013ec090",
+      "variables": 5045,
+      "clauses": 84069
+    },
+    {
+      "case": "r0012-free05",
+      "free_gates": [
+        9,
+        17,
+        18,
+        19,
+        20
+      ],
+      "selection_mode": "tail_and_dead",
+      "cnf_sha256": "3e2b7296bee87b2d5b937b958c8dc69e9a22d45b973db480aa6bc0bbe80392ca",
+      "metadata_sha256": "1e507b591fc9c97079f40fd2b2b9566afaa82a338240f2f2c6ae9bc3096f6115",
+      "variables": 5045,
+      "clauses": 84066
+    },
+    {
+      "case": "r0013-free06",
+      "free_gates": [
+        4,
+        7,
+        9,
+        15,
+        18,
+        20
+      ],
+      "selection_mode": "error_influence",
+      "cnf_sha256": "17355f150329dc407f42027a3c8cff06f63378a583b74d40bfb68a93938ea7e0",
+      "metadata_sha256": "cd7221fb5b34a17bfbb41b0456fc2a4247f49b68b47527824c3838b221365e69",
+      "variables": 5045,
+      "clauses": 84063
+    },
+    {
+      "case": "r0014-free07",
+      "free_gates": [
+        0,
+        11,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "selection_mode": "connected",
+      "cnf_sha256": "1c30d374e819fbb79282dfd93777d12e7de633e2d6bfa070afc07163f43a3910",
+      "metadata_sha256": "65bf6cbd0625fea8a415d5d4cc5a7f80c3226b3c1b98c8de93829a10d543b1b8",
+      "variables": 5045,
+      "clauses": 84060
+    },
+    {
+      "case": "r0015-free03",
+      "free_gates": [
+        0,
+        7,
+        13
+      ],
+      "selection_mode": "uniform",
+      "cnf_sha256": "cb9d83173d7e795da2bea4103956ad389c5065e1f9f914b6f5185da99be0b409",
+      "metadata_sha256": "cb585b42c31ddc722d158036bb4eb205e461227b7a2c6600c54ec2a1785532d1",
+      "variables": 5045,
+      "clauses": 84072
+    },
+    {
+      "case": "r0016-free04",
+      "free_gates": [
+        9,
+        18,
+        19,
+        20
+      ],
+      "selection_mode": "tail_and_dead",
+      "cnf_sha256": "7f06f186bed125528cc70a3857f4bc741c9d29306ef7a984e3e8eda750864d36",
+      "metadata_sha256": "d75c87df77aaa7ff864bcc7f5282dc96dd2e7d31dfecae248696a9161c5a895a",
+      "variables": 5045,
+      "clauses": 84069
+    },
+    {
+      "case": "r0017-free05",
+      "free_gates": [
+        4,
+        8,
+        9,
+        16,
+        17
+      ],
+      "selection_mode": "error_influence",
+      "cnf_sha256": "d261e4af7d89414241de2c79e840daa9903e96c27451bbd7e25d073e7232c169",
+      "metadata_sha256": "28f7c83e01c9279d75e76bf4057cbcecb659d3f283e9f43e746b5079b7ca8594",
+      "variables": 5045,
+      "clauses": 84066
+    },
+    {
+      "case": "r0018-free06",
+      "free_gates": [
+        1,
+        2,
+        3,
+        4,
+        19,
+        20
+      ],
+      "selection_mode": "connected",
+      "cnf_sha256": "069f93a1b89cb0118d200890313b5b1424fb6d948333112e5728ced77e383ccf",
+      "metadata_sha256": "f608c054b256238efa33f5d0f3af40fbda033d69b96c6acd24bd02c618a5d8ae",
+      "variables": 5045,
+      "clauses": 84063
+    },
+    {
+      "case": "r0019-free07",
+      "free_gates": [
+        2,
+        4,
+        5,
+        9,
+        10,
+        14,
+        20
+      ],
+      "selection_mode": "uniform",
+      "cnf_sha256": "10ddaeeba43d5451427a6bc4cb1bfbfeba80137f55189a5f1982548872d5d853",
+      "metadata_sha256": "d47debdac0b4f6b3f8a9834a80f87caa9e8036e22287fa7b0bc937ef3cab4dd3",
+      "variables": 5045,
+      "clauses": 84060
+    }
+  ]
+}

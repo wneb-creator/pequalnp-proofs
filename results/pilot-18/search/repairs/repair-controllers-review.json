@@ -1,0 +1,113 @@
+{
+  "verdict": "PASS_FOR_CANDIDATE_CONTROLLER_DELTAS",
+  "timestamp_utc": "2026-11-24T03:28:41.187717+00:00",
+  "launch_record_sha256": "60024238a8708e35b419c5c1ef765cc55b90a922917beb3ca3d0f5e576ae10ab",
+  "parent_review_sha256": "5fcc221b1c8c82d58746dfe444461c5ab67115616656b7a1c341b05db0848dcb",
+  "controllers": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-18/run_local_repair_candidates.py",
+      "source_sha256": "774a14c5c382a65b0a471f2b14530d493f9925dab19e55d323f742dcae21e360",
+      "parent_sha256": "e60ae4b64015c74674be737f890fb3cd20ff7b7f12d739ef7625a27a6d2e235a",
+      "exact_recorded_replacements_only": true,
+      "changes": {
+        "FAMILY=ROOT/'cover-neighborhoods-144'": "FAMILY=ROOT/'local-repairs-134218'",
+        "OUT=ROOT/'cover-candidates'": "OUT=ROOT/'local-repair-candidates'",
+        "assert manifest['complete'] and len(manifest['cases'])==manifest['samples']==144": "assert manifest['complete'] and len(manifest['cases'])==20",
+        "91bc4ce8fa0c7ce92bd6a1280cb836ca100729ced9ac1c4b7d6b66fbf97e8f68": "857f7082cb81bda879891aba76a84e59f0a1b030f6c6c0eccf08f507cf96cd97",
+        "r'c[0-9]{4}-k[0-9]{2}'": "r'r[0-9]{4}-free[0-9]{2}'",
+        "'--time=10'": "'--time=5'",
+        "'prefix':item['prefix']": "'free_gates':item['free_gates']",
+        "time.monotonic()-started>30": "time.monotonic()-started>30",
+        "Solver exceeded 30-second outer limit": "Solver exceeded 30-second outer limit"
+      },
+      "family_manifest_sha256": "585eaf7fc7e06938356e30f86a3ef562a36a3c31e2582db18bbb5efb116fed36",
+      "selected_cases": 20,
+      "all_case_CNF_and_metadata_hashes_verified": 20,
+      "internal_seconds": 5,
+      "outer_guard_seconds": 30,
+      "initial_workers": 1,
+      "worker_limit_range": [
+        1,
+        2
+      ],
+      "solver_RLIMIT_AS_MiB": 1000,
+      "K0_excluded_from_distance_production": false
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-18/run_distance_repair_candidates.py",
+      "source_sha256": "aaaf66c23ebd9f1415eec887e0395ba51a241b0b1bfafac93b6a04be7cf995e7",
+      "parent_sha256": "e60ae4b64015c74674be737f890fb3cd20ff7b7f12d739ef7625a27a6d2e235a",
+      "exact_recorded_replacements_only": true,
+      "changes": {
+        "FAMILY=ROOT/'cover-neighborhoods-144'": "FAMILY=ROOT/'distance-repairs-134218'",
+        "OUT=ROOT/'cover-candidates'": "OUT=ROOT/'distance-repair-candidates'",
+        "assert manifest['complete'] and len(manifest['cases'])==manifest['samples']==144": "assert manifest['complete'] and len(manifest['cases'])==5",
+        "91bc4ce8fa0c7ce92bd6a1280cb836ca100729ced9ac1c4b7d6b66fbf97e8f68": "39e65cae78a5bd8dd6417cf1132fb77187867d6765f20d62e10fd51bcedc9da1",
+        "r'c[0-9]{4}-k[0-9]{2}'": "r'distance-[0-9]{2}'",
+        "'--time=10'": "'--time=60'",
+        "'prefix':item['prefix']": "'budget':item['budget']",
+        "time.monotonic()-started>30": "time.monotonic()-started>90",
+        "Solver exceeded 30-second outer limit": "Solver exceeded 90-second outer limit",
+        "queue=list(manifest['cases']);": "queue=[item for item in manifest['cases'] if item['budget']>0];"
+      },
+      "family_manifest_sha256": "8b9f3d4b523aad54bcea21bc35a300428fdf65fa073341015d24f7a025361e56",
+      "selected_cases": 4,
+      "all_case_CNF_and_metadata_hashes_verified": 5,
+      "internal_seconds": 60,
+      "outer_guard_seconds": 90,
+      "initial_workers": 1,
+      "worker_limit_range": [
+        1,
+        2
+      ],
+      "solver_RLIMIT_AS_MiB": 1000,
+      "K0_excluded_from_distance_production": true
+    }
+  ],
+  "runtime_snapshots": [
+    {
+      "family": "local-repair-candidates",
+      "snapshot": "/tmp/oec/pequalnp-pilot-18/orch/S02/local-repair-candidates-20261124T032841.json",
+      "sha256": "02b212213ef605200370bb2cab74dfdb226ffbbae50c91348e7c9a028f2a40ea",
+      "timestamp_utc": "2026-11-24T03:28:41.187717+00:00",
+      "counts": {
+        "UNSAT_UNCERTIFIED": 16,
+        "UNKNOWN": 4
+      },
+      "finished_recorded": true,
+      "candidate_record": null,
+      "error": null
+    },
+    {
+      "family": "distance-repair-candidates",
+      "snapshot": "/tmp/oec/pequalnp-pilot-18/orch/S02/distance-repair-candidates-20261124T032841.json",
+      "sha256": "5587054861904ea52d9e4b2ec63159df02c1439b37b842e52c6d853f6c5018ed",
+      "timestamp_utc": "2026-11-24T03:28:41.187717+00:00",
+      "counts": {
+        "UNSAT_UNCERTIFIED": 2,
+        "UNKNOWN": 1,
+        "incomplete_at_snapshot": 1
+      },
+      "finished_recorded": false,
+      "candidate_record": null,
+      "error": null
+    }
+  ],
+  "blocking_findings": [],
+  "preserved_safety": [
+    "separate full stdout/stderr",
+    "fresh directories and exclusive log creation",
+    "per-case input hashes",
+    "process-group stop and finally cleanup",
+    "stop on SAT then full validator",
+    "validator exit recorded, Lean still required",
+    "atomic portfolio updates",
+    "no certified UNSAT or exhaustion claims"
+  ],
+  "nonblocking_limits": [
+    "Inherited parent limitations remain: no parent-death signal, limit reductions affect future starts, synchronous validation can take up to120s.",
+    "Original cover-neighborhood docstring is retained; scope remains candidate-only and actual family paths/metadata are correct.",
+    "This review observes existing portfolio records without launching, stopping, signaling or changing workers. Runtime snapshots are not certificates."
+  ],
+  "Sub-agents": "none"
+}

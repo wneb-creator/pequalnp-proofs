@@ -1,0 +1,61 @@
+{
+  "kind": "candidate_only_gate_distance_repairs",
+  "complete": true,
+  "source_sha256": "3f7e31aa55a515196f4fd7f08905e0a2b08561ab09e6c93a93ae5bc6d202d813",
+  "program_sha256": "39e65cae78a5bd8dd6417cf1132fb77187867d6765f20d62e10fd51bcedc9da1",
+  "local_repair_helper_sha256": "857f7082cb81bda879891aba76a84e59f0a1b030f6c6c0eccf08f507cf96cd97",
+  "base_generator_sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+  "assigned_shard_exhaustion": false,
+  "cases": [
+    {
+      "case": "distance-00",
+      "budget": 0,
+      "variables": 5086,
+      "clauses": 84163,
+      "cnf_sha256": "cc62b0cfe47d5ee2f326becc50b088403045f1dc12e7d71e9c6ccf24dd1205db",
+      "metadata_sha256": "e45315900acab34e6851653ab3ed0e018661a583e67eaacad730784b30b9214b",
+      "added_variables": 41,
+      "added_clauses": 145
+    },
+    {
+      "case": "distance-02",
+      "budget": 2,
+      "variables": 5118,
+      "clauses": 84303,
+      "cnf_sha256": "322ec5915f3cf09fe3f9d8bbe8a311ee51db60f05eecbeba2159cfe194cc341d",
+      "metadata_sha256": "72be097ed04d6979ff3f659030078b152c4ef595dbc17bc06cd9d7afad12b50d",
+      "added_variables": 73,
+      "added_clauses": 285
+    },
+    {
+      "case": "distance-03",
+      "budget": 3,
+      "variables": 5125,
+      "clauses": 84352,
+      "cnf_sha256": "3d0eea6ecda1be79b1b5334666624d08f09cec0ed2f4f12d177c0239e708bfae",
+      "metadata_sha256": "1d7ffe939ae6e090a32c70b6e31c1e9e1a5d8fa2ff1f5920f25187c7e86df75f",
+      "added_variables": 80,
+      "added_clauses": 334
+    },
+    {
+      "case": "distance-04",
+      "budget": 4,
+      "variables": 5132,
+      "clauses": 84399,
+      "cnf_sha256": "b878a801fa46c6c3f3a641e5f64f6a29419ef6c569a84fc70541abfe50027d19",
+      "metadata_sha256": "cb96ba695be348826cd1b02fea0b1fc9675a028c091351ffe008e42021532906",
+      "added_variables": 87,
+      "added_clauses": 381
+    },
+    {
+      "case": "distance-05",
+      "budget": 5,
+      "variables": 5136,
+      "clauses": 84438,
+      "cnf_sha256": "766819acb96fbfff97c26db9c4d0ce9654a6a23d45f0d99d972ec6df2577f872",
+      "metadata_sha256": "2d63081fa74fcac2300300054df66fa12f549a8de870902a2ae5f9dd9b86fa4f",
+      "added_variables": 91,
+      "added_clauses": 420
+    }
+  ]
+}
