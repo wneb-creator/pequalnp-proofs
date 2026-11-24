@@ -1,0 +1,27 @@
+{'edges': [(0, 1)], 'tau': 1, 'and_lb': True, 'or_lb': True, 'or_required': 0} seconds 0.0003674929999988308
+{'edges': [(0, 1), (0, 2)], 'tau': 1, 'and_lb': True, 'or_lb': True, 'or_required': 1} seconds 0.0010100019999867982
+{'edges': [(0, 1), (0, 2), (0, 3)], 'tau': 1, 'and_lb': True, 'or_lb': True, 'or_required': 2} seconds 0.002098063000005368
+{'edges': [(0, 1), (0, 2), (0, 3), (0, 4)], 'tau': 1, 'and_lb': True, 'or_lb': True, 'or_required': 3} seconds 0.03309610999997403
+{'edges': [(0, 3), (1, 2)], 'tau': 2, 'and_lb': True, 'or_lb': True, 'or_required': 1} seconds 0.034364090999986274
+{'edges': [(0, 1), (0, 3), (1, 2)], 'tau': 2, 'and_lb': True, 'or_lb': True, 'or_required': 2} seconds 0.03514338700000508
+{'edges': [(0, 3), (0, 4), (1, 2)], 'tau': 2, 'and_lb': True, 'or_lb': True, 'or_required': 2} seconds 0.03680250599995816
+{'edges': [(0, 1), (0, 3), (0, 4), (1, 2)], 'tau': 2, 'and_lb': True, 'or_lb': True, 'or_required': 3} seconds 0.05769796999999244
+{'edges': [(0, 2), (0, 4), (1, 2), (1, 3)], 'tau': 2, 'and_lb': True, 'or_lb': True, 'or_required': 3} seconds 0.08815136699996629
+initial 285
+first 0 states 396 seconds 0.03921834499999477
+first 20 states 8632 seconds 1.2871102429999723
+first 40 states 16369 seconds 2.2103546249999795
+first 60 states 24376 seconds 3.182572774999983
+first 80 states 31854 seconds 4.037271872999952
+first 100 states 39421 seconds 4.876011989999995
+first 120 states 46171 seconds 5.490597741999977
+first 140 states 53896 seconds 6.466447341999981
+first 160 states 61145 seconds 7.094301798000004
+first 180 states 68340 seconds 7.763170709000008
+first 200 states 75067 seconds 8.293890497999996
+first 220 states 81716 seconds 8.847939788999952
+first 240 states 88159 seconds 9.29983602699997
+first 260 states 94664 seconds 9.761335180000003
+first 280 states 100823 seconds 10.173307959999988
+{'edges': [(0, 3), (0, 4), (1, 2), (1, 4), (2, 3)], 'tau': 3, 'and_lb': True, 'or_lb': True, 'or_required': 4} seconds 10.357310408999979
+ALL PASSED 10 unlabelled nonempty girth5graphs on5 vertices

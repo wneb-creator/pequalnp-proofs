@@ -1,0 +1,141 @@
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:1468:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp at e
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7365:2: error: failed to synthesize
+  Decidable (∀ (a b c d : Fin 9), a ≠ c → b ≠ d → ¬(graph.Adj a b ∧ graph.Adj b c ∧ graph.Adj c d ∧ graph.Adj d a))
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7371:2: error: failed to synthesize
+  Decidable (∀ (S : Finset (Fin 9)), (∀ (u v : Fin 9), graph.Adj u v → u ∈ S ∨ v ∈ S) → 5 ≤ S.card)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7377:2: error: failed to synthesize
+  Decidable (∀ (x : Fin 9 → Bool), target x = true ↔ ∃ u v, graph.Adj u v ∧ x u = true ∧ x v = true)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7381:18: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7381:25: error(lean.unknownIdentifier): Unknown identifier `GateOp.and`
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7386:33: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7386:40: error(lean.unknownIdentifier): Unknown identifier `GateOp.and`
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7391:11: error: unsolved goals
+case cons.zero
+Gate : Type u_1
+g : Gate
+gs : List Gate
+ih : ∀ (j : ℕ) (hj : gs[j]? = some g), sorry = sorry → j ∈ andIndices gs
+hj : (g :: gs)[0]? = some g
+hg : sorry = sorry
+⊢ 0 ∈ sorry (g :: gs)
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7400:6: error: Tactic `split` failed: Could not split an `if` or `match` expression in the goal
+
+Hint: Use `set_option trace.split.failure true` to display additional diagnostic information
+
+case cons.succ
+Gate : Type u_1
+g a : Gate
+gs : List Gate
+ih : ∀ (j : ℕ) (hj : gs[j]? = some g), sorry = sorry → j ∈ andIndices gs
+j : ℕ
+hj : (a :: gs)[j + 1]? = some g
+hg : sorry = sorry
+hj' : gs[j]? = some g
+hm : j + 1 ∈ Finset.image Nat.succ (andIndices gs)
+⊢ j + 1 ∈ sorry (a :: gs)
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7394:12: warning: declaration uses `sorry`
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7394:24: warning: This simp argument is unused:
+  hg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andIndices]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7405:63: error(lean.unknownIdentifier): Unknown identifier `GateOp.and`
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7405:56: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7407:8: error: unsolved goals
+case nil
+Gate : Type u_1
+⊢ sorry [] = ∅
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7412:18: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7412:25: error(lean.unknownIdentifier): Unknown identifier `GateOp.and`
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7417:63: error: Application type mismatch: The argument
+  C
+has type
+  Circuit
+but is expected to have type
+  CircuitLowerBounds.Circuit
+in the application
+  ReadTwo.nAnd C
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7416:48: error: Function expected at
+  Monotone2
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  C
+
+Hint: The identifier `Monotone2` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7417:10: error: Function expected at
+  circuitFun
+but this term has type
+  ?m.3
+
+Note: Expected a function because this term is being applied to the argument
+  9
+
+Hint: The identifier `circuitFun` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7418:32: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  C
+has type `Circuit` which does not have the necessary form.
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7421:14: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  C
+has type `Circuit` which does not have the necessary form.
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7424:40: error: Application type mismatch: The argument
+  C
+has type
+  Circuit
+of sort `Sort u_1` but is expected to have type
+  CircuitLowerBounds.Circuit
+of sort `Type` in the application
+  generic_and_lower 9 5 graph C
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7425:16: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  C
+has type `Circuit` which does not have the necessary form.
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7425:26: error(lean.unknownIdentifier): Unknown identifier `andIndices_mem`
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7417:68: error: unsolved goals
+Circuit : Sort u_1
+x✝¹ : Sort u_2
+Monotone2 : x✝¹
+x✝ : Sort u_3
+circuitFun : x✝
+C : Circuit
+hm : sorry
+hf : sorry = target
+hc : ∀ (x : Fin 9 → Bool), sorry = true ↔ ∃ u v, graph.Adj u v ∧ x u = true ∧ x v = true
+⊢ 5 ≤ ReadTwo.nAnd sorry
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7432:8: warning: declaration uses `sorry`
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7432:65: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7433:5: warning: Variable name `hf` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hf
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-32/and_lower/AndLower.lean:7438:2: warning: Unused tactic linter: `exact PEqualNP.Outside.L_meta_670_aux.AndLower.specialized C hm hf` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

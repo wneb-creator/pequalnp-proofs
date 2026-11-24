@@ -21,34 +21,6 @@ theorem PEqualNP.Outside.R_meta_670_32
     let wiresFrom (gs : List Gate) (w : List Bool) : List Bool :=
       gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) w
 
-    have wires_eq (C : Circuit) (x : List Bool) : C.wires x = wiresFrom C.gates x := rfl
-
-    have wiresFrom_append (gs gs' : List Gate) (w : List Bool) :
-        wiresFrom (gs ++ gs') w = wiresFrom gs' (wiresFrom gs w) := by
-      simp [wiresFrom, List.foldl_append]
-
-    have wiresFrom_prefix (gs : List Gate) : ∀ w : List Bool,
-        ∃ t : List Bool, wiresFrom gs w = w ++ t ∧ t.length = gs.length := by
-      induction gs with
-      | nil => intro w; exact ⟨[], by simp [wiresFrom], rfl⟩
-      | cons g gs ih =>
-        intro w
-        obtain ⟨t, ht, hl⟩ := ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
-        refine ⟨g.op.eval (g.inputs.map fun i => w.getD i false) :: t, ?_, by simp [hl]⟩
-        have : wiresFrom (g :: gs) w
-            = wiresFrom gs (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) := rfl
-        rw [this, ht]; simp
-
-    have length_wiresFrom (gs : List Gate) (w : List Bool) :
-        (wiresFrom gs w).length = w.length + gs.length := by
-      obtain ⟨t, ht, hl⟩ := wiresFrom_prefix gs w
-      rw [ht]; simp [hl]
-
-    have getD_wiresFrom (gs : List Gate) (w : List Bool) (i : ℕ) (h : i < w.length) :
-        (wiresFrom gs w).getD i false = w.getD i false := by
-      obtain ⟨t, ht, _⟩ := wiresFrom_prefix gs w
-      rw [ht, List.getD_append _ _ _ _ h]
-
     let effInputs (g : Gate) : List ℕ :=
       if g.op = GateOp.not then g.inputs.take 1 else g.inputs
 
@@ -59,10 +31,10 @@ theorem PEqualNP.Outside.R_meta_670_32
         g.op.eval (g.inputs.map fun i => w.getD i false) =
           g.op.eval ((effInputs g).map fun i => w.getD i false) := by
       by_cases hop : g.op = GateOp.not
-      · have he : effInputs g = g.inputs.take 1 := if_pos hop
+      · have he : effInputs g = g.inputs.take 1 := ite_eq_left hop
         rw [he, hop]
         cases g.inputs <;> rfl
-      · simp only [effInputs, if_neg hop]
+      · simp only [effInputs, ite_eq_right hop]
 
     have effInputs_length (g : Gate) (h : g.inputs.length ≤ 2) :
         (effInputs g).length ≤ (if active g then 1 else 0) + 1 := by
@@ -249,11 +221,10 @@ theorem PEqualNP.Outside.R_meta_670_32
       | nil => simp
       | cons g gs ih =>
         by_cases ha : g.op = GateOp.and
-        · have ho : g.op ≠ GateOp.or := by simp [ha]
-          simp [ha, ho]
+        · simp [ha]
           omega
         · by_cases ho : g.op = GateOp.or
-          · simp [ha, ho]
+          · simp [ho]
             omega
           · simp [ha, ho]
             omega
