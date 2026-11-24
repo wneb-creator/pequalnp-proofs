@@ -2,7 +2,7 @@
 
 Read this index together with `../NOTES.md` before starting a new assignment.
 
-The integrated source of truth is `lean/PEqualNP/Outside/L_meta_1024.lean` from the repository root (the relative link from this folder is `../../../lean/PEqualNP/Outside/L_meta_1024.lean`). Its 4,455-line checkpoint builds. It does not yet contain the exact named theorem.
+The integrated source of truth is `lean/PEqualNP/Outside/L_meta_1024.lean` from the repository root (the relative link from this folder is `../../../lean/PEqualNP/Outside/L_meta_1024.lean`). Its original 4,455-line checkpoint builds; the current 4,041-line source also compiled after the reviewed removal of unused demonstrations. It does not yet contain the exact named theorem.
 
 - `Sink.lean`: immutable independently reviewed standalone development, including its existing dependencies. Full build log: `../validation/sink-build-001.log`. New namespaces/lemmas are Sink.clamp, gate, transform, transform_sink, band_correct, preserves_ordinary, and exotic_subset.
 - `four_or_sinks.md`: mathematical high-gate argument, requiring formalization.
@@ -24,3 +24,5 @@ Put new stable, compiled components here only after review. Work in an individua
 
 - `Dead.lean`: compiled and independently reviewed semantic preservation and operation-tag preservation for dead-gate deletion under NoReads. Full log: `../validation/dead-build-002.log`.
 - `Compiler.lean`: compiled and independently reviewed deleted-root formula and paid-cut compiler wrappers. Full log: `../validation/compiler-build-002.log`.
+
+- `FourPairs.lean`: compiled reduced four-output impossibility theorem using band correctness alone; independently reviewed and approved. Full log: `../validation/four-pairs-build-003.log`.
