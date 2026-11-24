@@ -8,3 +8,4 @@
 - 2026-11-24T15:24:22.765227+00:00 First checked results: named partial vertex-cover bound and16gate witness; conditional3child reduction; terminal normalization. Preparing immediate preservation push after independent review.
 - 2026-11-24T15:26:37.568461+00:00 Global exact-function monotone-normalization reduction rejected on quality review: effectively original bound once monotone optimum is known. Replanned toward bounded-NOT cases plus AND/OR counts, with high-NOT cases solved by essential-input count.
 - 2026-11-24T15:27:53.634173+00:00 Checked all9 essential-input witnesses; independently reviewed; preserving immediately.
+- 2026-11-24T15:28:28.386169+00:00 Generic essential-support bound checked and independently reviewed: n essential inputs require at least n-1 non-NOT gates.
