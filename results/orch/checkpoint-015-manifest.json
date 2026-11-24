@@ -1,0 +1,17 @@
+{
+  "base_sha256": "cb046523b4da53a642b4c49b037942b3fc3395872a1b0c850ccd744f062429e5",
+  "replacement": [
+    "color-special/color-erase-fragment.txt",
+    "color-special/color-erase-v2-fragment.txt"
+  ],
+  "appended": [
+    "color-special/color-guard-fragment.txt",
+    "color-special/color-disjoint-fragment.txt",
+    "color-special/color-split-fragment.txt",
+    "color-special/color-final-fragment.txt",
+    "global-second/witness-descent/critical-purification-fragment.txt"
+  ],
+  "sha256": "3d8e330ca362daf97df9e541cc1403a8a98b2fdb6cdcca15b922b912e165a6b2",
+  "lines": 11186,
+  "bytes": 512481
+}

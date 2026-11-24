@@ -106,3 +106,8 @@ Build017: exit0; Build completed successfully (18419 jobs).
 Independent reviews014a/b/c/d, edge-purification, full014-format, and finite-search archive review passed.
 Main checker remains REJECTED(no-theorem), full theorem absent. Finite search outputs are empirical evidence only; random counts are qualifying samples, not globally deduplicated circuits.
 TIMING total=80.5 subagents=20
+
+Checkpoint15: natural least-circuit mixed-color elimination and unique-critical-edge purification.
+Target:11186 lines,512481 bytes. Build018 exit0: Build completed successfully (18419 jobs).
+All582 public helper declarations audited: only propext, Classical.choice, Quot.sound. Full posted theorem is absent. Checker running.
+TIMING total=85.7 subagents=20

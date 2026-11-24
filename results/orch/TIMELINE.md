@@ -74,3 +74,7 @@
 - 2026-11-24T19:13:17.921362+00:00: structure_second independently approved repair-junk-008 (271 lines); combined same-file compile and five axiom audits passed. Review: review-014b.txt.
 
 - 2026-11-24T19:17:43.943280+00:00: checkpoint14 compiled10827line helperfile and independent reviews passed. Archived88 finite-search artifacts with exact hashes and complete diagnostics; no full-gap acceptance.
+
+2026-11-24T19:22:55.918191+00:00 Checkpoint015 combined build018 passed; 11186 lines, 512481 bytes. All582 public declarations passed allowed-axiom audit. Independent color/critical component reviews passed; final integration review and actual posted-statement checker pending.
+
+2026-11-24T19:22:55.918191+00:00 Re-plan: no global descent proof found. Continue one concrete pure-color two-dirty alias route with color_special (composition), structure_second (factor/frontier combinatorics), repair_second (upward alias semantics). Other approaches frozen as research evidence. This local route still does not cover arbitrary dirty chains.

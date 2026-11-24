@@ -1,0 +1,135 @@
+Independent checkpoint015 color bundle review
+Reviewer: /root/review_second, independent of implementation and integration.
+Additional independent guard/disjoint source review: /root/repair_second.
+UTC: 2026-11-24T19:21:06.059764+00:00
+
+Verdict: PASS FOR COMPILED PARTIAL CHECKPOINT INTEGRATION.
+All 13 bundle lemmas independently compile with only the three standard
+axioms. No semantic or source-format blocker found. The final lemma is a
+conditional color-purity result, not the unrestricted posted gap theorem.
+No checker acceptance of the posted gap is claimed.
+
+Frozen fragment manifest:
+- color-erase-v2-fragment.txt: 184 lines / 8999 bytes;
+  df3a8d63b47a71c4ce0d38ec55b11fdee3a7197d7f298a67635c213a8b070a33
+- color-guard-fragment.txt: 70 lines / 3234 bytes;
+  1f7013da9f8eedccc4e83aef7cc24ed5d18359fb5313b8f32a742a75c98bce7f
+- color-disjoint-fragment.txt: 39 lines / 1920 bytes;
+  9eafc7ad7841065cdbd4e837911ad0808a5997817b08c49888860ebc08b5b93b
+- color-split-fragment.txt: 103 lines / 5384 bytes;
+  48b1565c66901c3898b922466b0437055a661ab80fbfff7ec70c40f61dab0b95
+- color-final-fragment.txt: 63 lines / 3068 bytes;
+  b73eeaeb54abd1ee242cb96599ee0bb5c4bc51ad040de94fdd153579509d7fe5
+
+Original reviewed ColorErase block:
+184 lines / 8824 bytes;
+cabd5057eb311f777e19eeb3de5d86b1ed7cf9829d827725214adaa8f4adb85e
+Current main base for this review:
+494817 bytes;
+cb046523b4da53a642b4c49b037942b3fc3395872a1b0c850ccd744f062429e5
+
+Exact orientation replacement:
+Compared every line of color-erase-v2 against the original reviewed block.
+Only the two erasure lemmas' input-order hypotheses and the corresponding
+operand-membership/OR-value proofs change. They now accept [a,b] OR [b,a].
+The designated retained child is still a and the removed child is still b;
+this is not an accidental interchange of the soundness guard. Both input
+bounds split the disjunction explicitly, and hcval uses actual Bool OR
+commutativity. The selected replacement OR[a,a] remains valid and decreasing.
+The wrapper forwards the same oriented children and unchanged assumptions.
+All other original proof text is unchanged. Existing main has no external
+call to either changed interface beyond the wrapper inside this block.
+Replace the existing ColorErase block with v2 exactly; do not append a
+second definition of those five lemmas.
+
+New proof review:
+- mixed_guard_unique_frontier constructs an actual false graph assignment
+  pairInput f l on which c and h are true. The existing shared-false-input
+  lemma excludes a clean AND frontier. The only-dirty-gates hypothesis
+  leaves g or h; pure S-side operands at g exclude the opposite-side f.
+  A true singleton p excludes direct OR reach from the output. Both pure
+  operand assumptions and the stated no-common-neighbor condition are
+  explicit; none is silently inferred from a singleton support.
+- empty_and_or_shadow_disjoint uses actual singleton rejection at h. A
+  common OR-shadow input u forces both stated AND operands on pairInput u u,
+  contradicting hempty. This implication needs no extra purity assumption.
+  The child-shadow inclusion composes the path w to c, the valid OR edge
+  c to its child, and the child's OR path to an input in the correct
+  direction. The final disjointness wrapper applies subset monotonicity
+  on the intended left shadow. The second independent reviewer checked
+  these contracts and found no issue.
+- or_shadow_input excludes nontrivial OR paths ending above an input using
+  the actual decreasing-wire bound. or_shadow_union handles exactly the
+  stated valid binary OR gate; both inclusions follow the graph definition
+  of OR reachability and IsAO2 backward input bounds.
+- first_mixed_or_split descends by strict natural-number wire order through
+  valid OR ancestors. It rules out an input with both colors; if a child
+  remains mixed it recurses with inherited purity. Otherwise the two
+  nonmixed shadows can be oriented as an S child and a non-S child. The
+  returned input-order disjunction records that orientation explicitly.
+  The conclusion still gives both colors at the selected parent and a
+  real OR path from the original wire. It does not claim all its ancestors
+  already had a color-separating shape.
+- least_guarded_or_pure_side assumes a least exact graph circuit, TopForm,
+  at most the two specified dirty AND candidates, a singleton at g, the
+  valid binary AND h with empty singleton support, pure OR ancestors for
+  both h operands, pure S-side OR operands at g, a non-S guard operand d,
+  independence of each color class, and at least one S input in a's shadow.
+  Given an opposite-side input in a, first_mixed_or_split produces a genuine
+  oriented OR gate c. Positivity of every valid AO2 wire on all-true inputs
+  supplies an input in d's pure OR shadow. Color independence then gives
+  the required false pair and no common neighbor, yielding a unique AND
+  frontier h and absence of an output OR path. Empty singleton support at
+  h gives disjointness of the removed child shadow and guard shadow.
+  The v2 erasure theorem now applies regardless of child ordering and
+  produces a strictly smaller exact graph circuit, contradicting leastness.
+  The argument never substitutes separate read minima for a joint witness
+  and never assumes pair agreement alone determines arbitrary circuits:
+  the reused erasure theorem explicitly combines global decrease with
+  all-positive-pair coverage and monotonicity.
+
+Scope and integration limits:
+The final conclusion says the guarded operand a has only S-colored inputs
+in its OR shadow under all the hypotheses above. It does not derive this
+configuration from arbitrary two-dirty circuits, handle every gate-order
+case, or prove the full existential read-two replacement theorem. Graph
+bipartition is supplied as two independence assumptions, not silently
+assumed. No four-cycle-free assumption or graph nonemptiness is used or
+claimed by this local statement. All unchanged helper contracts retain
+exact graph-function equality where required.
+
+Independent validation:
+- Read all 459 fragment lines, including all original 184 lines and their
+  precise orientation-only diff. The author ColorFull.lean is exactly the
+  five frozen fragments, with namespace ColorErase renamed to ColorFull,
+  plus its expected main-module import and outer namespace. No hidden
+  helper, option, hypothesis, or proof-changing command was added there.
+  Author full-001 stdout/stderr are both empty.
+- Built a fresh ReviewColor015 namespace from those exact fragments and
+  independently ran lake env lean against the checked main artifact.
+  It completed exit 0, with empty stderr and only the requested axiom
+  reports in stdout. Namespace renaming prevents accidental reuse of the
+  previously imported ColorErase declarations for these new proofs.
+- Printed axioms of ALL 13 bundle lemmas, including the five revised or
+  reused original lemmas and all eight additions. Every axiom list is
+  exactly propext, Classical.choice, Quot.sound; there is no sorryAx.
+- Full-fragment scan finds no root-escape marker, double quote, sorry,
+  admit, axiom, native shortcut, executable/meta command, syntax/notation,
+  custom data type/instance, attribute, option, import, or theorem. Each
+  fragment is a relative ColorErase namespace suitable within the single
+  target outer namespace. Audit import/print commands exist only in the
+  scratch validation harness and must not enter the proposed source.
+- All fragment hashes and the main source hash were rechecked after the
+  independent compile and remained unchanged. The fragment bundle is
+  22605 bytes total, replacing the existing 8824-byte original block and
+  adding the other blocks; root must still do the final combined build
+  and whole-source size/format check with any other new fragments.
+
+Preserved evidence:
+results/orch/review-015-color.stdout
+results/orch/review-015-color.stderr
+/tmp/oec/pequalnp-pilot-39/color-special/ReviewColor015.lean
+/tmp/oec/pequalnp-pilot-39/color-special/review-015-metadata.json
+/tmp/oec/pequalnp-pilot-39/color-special/review-015-erase.diff
+
+No main-file edit, Git mutation, desk call, or credential access occurred.

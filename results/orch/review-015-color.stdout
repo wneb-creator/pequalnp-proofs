@@ -1,0 +1,35 @@
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.overwrite_eq_of_or_frontiers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.overwrite_eq_of_false_unique_frontier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.erase_or_with_false_frontier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.disjoint_or_false_on_independent_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.erase_or_disjoint_guard' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.mixed_guard_unique_frontier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.empty_and_or_shadow_disjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.or_child_shadow_subset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.guarded_or_child_shadow_disjoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.or_shadow_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.or_shadow_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.first_mixed_or_split' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColor015.least_guarded_or_pure_side' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

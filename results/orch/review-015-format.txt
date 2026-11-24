@@ -1,0 +1,83 @@
+Independent checkpoint015 full-source format and integration review
+Reviewer: /root/review_second, independent of integration.
+UTC: 2026-11-24T19:22:56.591513+00:00
+
+Verdict: PASS FOR COMPILED PARTIAL CHECKPOINT PUSH.
+Exact manifest integration and whole-source format checks pass. The final
+posted theorem is still absent, so this is not an accepted proof and is
+not ready for a proof PR. Root's public-helper axiom audit and local checker
+are separate checks; this report does not prejudge their results.
+
+Frozen source:
+lean/PEqualNP/Outside/L_meta_2584.lean
+11186 lines; 512481 bytes; 11807 bytes below the 512 KiB ceiling.
+SHA256: 3d8e330ca362daf97df9e541cc1403a8a98b2fdb6cdcca15b922b912e165a6b2
+Reviewed base HEAD: 37c1c5be83f5f52baf88bd4577b915a57d1fec4f
+Base source SHA256:
+cb046523b4da53a642b4c49b037942b3fc3395872a1b0c850ccd744f062429e5
+
+Exact manifest integration:
+Read /tmp/oec/pequalnp-pilot-39/checkpoint-015-manifest.json, checked its
+structure, and reconstructed the entire expected source independently
+from git's HEAD blob and the frozen fragments. The reconstruction matches
+the main file byte for byte, including every unchanged base byte except
+the explicitly reviewed ColorErase block replacement and joining whitespace.
+- The one old 184-line ColorErase block was replaced exactly once by its
+  orientation-generalized v2. No duplicate old/revised definitions remain.
+- The guard, disjointness, split, final color-purity, and critical-purification
+  fragments were appended exactly once, in manifest order, inside the
+  restored single outer namespace. None was already present in the base.
+- Manifest line/byte counts and final source hash match independently.
+- Git diff is 365 additions, 6 deletions (359 net lines); diff --check has
+  exit 0 and empty stdout/stderr. Complete diff and diagnostics were saved.
+
+Semantic review linkage:
+results/orch/review-015-color.txt covers all five color fragments and their
+precise old/new orientation diff. All 13 color lemmas independently compile
+in a renamed namespace and report only standard axioms. Its exact frozen
+fragment hashes match the integrated inputs.
+results/orch/review-critical-purification.txt independently reviews all
+79 lines / 3878 bytes of the final fragment, hash
+12325917416d062e00b48b3999fd158255c500e508d2c07d95b25354986e6333.
+It records the essential global output-criticality hypothesis and distinguishes
+it from mere local gate acceptance. The exact reviewed fragment is integrated.
+All review reports retain the conditional scope and the unresolved full gap.
+
+Whole-source plain-file audit:
+- The target is regular non-executable UTF-8 text, not a symlink, below
+  the stated size cap. Only 11807 bytes remain for further source additions.
+- Exactly the same two initial imports: Mathlib and PEqualNP.Defs. No later
+  import text, changed import scope, or other imported helper module.
+- All 625 helpers (539 lemmas, 81 definitions, 5 abbreviations) remain inside
+  the single outer module namespace and its subnamespaces. All namespace
+  commands and named matching end commands start at column zero. The full
+  namespace stack closes; there are no duplicate qualified helper names.
+- No theorem declaration has been supplied yet. The exact final posted
+  statement is still missing and is not replaced by a weaker theorem.
+- No root-escape marker, double quote, comments, sorry/admit, new axiom,
+  native decision shortcut, unsafe/executable/meta commands, hash commands,
+  syntax/notation changes, custom types, instances, or attributes.
+- All 26 existing options remain allowed scoped limit lines immediately
+  above the declaration they serve, including consecutive scoped limits.
+  No new options were introduced. Every column-zero command has a known
+  permitted form. No hidden top-level command was introduced in the bundle.
+
+Combined build evidence:
+Complete build-018.stdout: 72126 bytes, no error diagnostic, final line:
+Build completed successfully (18419 jobs).
+Complete build-018.stderr: empty.
+No repeat build was needed for this format audit. The source hash was
+rechecked after reading the completed build logs and remained frozen.
+
+Audit evidence:
+/tmp/oec/pequalnp-pilot-39/review-second-015-format-audit.json
+/tmp/oec/pequalnp-pilot-39/review-second-015-diff.stdout
+/tmp/oec/pequalnp-pilot-39/review-second-015-diff.stderr
+/tmp/oec/pequalnp-pilot-39/review-second-015-diff-check.stdout
+/tmp/oec/pequalnp-pilot-39/review-second-015-diff-check.stderr
+/tmp/oec/pequalnp-pilot-39/build-018.stdout
+/tmp/oec/pequalnp-pilot-39/build-018.stderr
+
+The research/report artifacts remain checkpoint-branch material; any final
+proof PR must add only the named Lean file and prove the exact statement.
+No main-file edit, Git mutation, desk call, or credential access occurred.

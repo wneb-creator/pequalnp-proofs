@@ -1,0 +1,10 @@
+Independent source review of CriticalPurification
+Reviewer: global_second (implementation by child witness_descent).
+UTC: 2026-11-24T19:19:38.390964+00:00
+Scope: all 79 lines, 3878 bytes. SHA256 12325917416d062e00b48b3999fd158255c500e508d2c07d95b25354986e6333
+
+Verdict: PASS for this partial component; not a proof of L-meta-2584.
+
+The hypothesis concerns global output criticality on positive edge assignments, not merely local acceptance. AND[u,v] is pointwise below the old selected AND because that gate accepts uv. On uv the replacement gate has the same value, so the final output stays true. For any other positive edge, forcing the selected old gate false leaves the old output true by the uniqueness hypothesis. Overwriting the replacement circuit with false yields exactly that same forced circuit via List.set_set; monotonicity therefore puts its output below the replacement circuit, proving coverage. The existing pair-sandwich lemma now gives exact functionality because the replacement globally decreases the old exact circuit. This does not assume pair-correctness suffices by itself. AO2, size, AND count, and selected-gate cleanliness are verified as in EdgePurification. The imported junk-subset lemma applies correctly. Strict junk-count decrease requires the selected gate to belong to old junk.
+
+All 79 lines were reviewed. No C4, minimum-size, or star hypothesis is hidden or needed. No argument is supplied that an arbitrary lexicographic minimum must have an eligible gate; that is still a global obstruction. Format scan clean. Author critical-004 compiler logs are empty (reported exit0). Axiom audit inspected: only propext, Classical.choice, Quot.sound. Root must still perform combined integration/build before pushing.
