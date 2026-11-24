@@ -1,0 +1,32 @@
+import Mathlib
+
+namespace PEqualNP.Outside.L_meta_1482
+
+
+def termFamilyValue {n : ℕ} (F : Finset (Finset (Fin n))) (x : Fin n → Bool) : Bool :=
+  decide (∃ A ∈ F, ∀ i ∈ A, x i = true)
+
+def termFamilyCovers {n : ℕ} (F G : Finset (Finset (Fin n))) : Bool :=
+  decide (∀ A ∈ F, ∃ B ∈ G, B ⊆ A)
+
+def termFamilyEquiv {n : ℕ} (F G : Finset (Finset (Fin n))) : Bool :=
+  termFamilyCovers F G && termFamilyCovers G F
+
+def termFamilyProduct {n : ℕ} (F G : Finset (Finset (Fin n))) : Finset (Finset (Fin n)) :=
+  (F ×ˢ G).image (fun p => p.1 ∪ p.2)
+
+lemma termFamily_absorption_check :
+    termFamilyEquiv
+      (termFamilyProduct ({{0, 1}} : Finset (Finset (Fin 3))) {{0, 1}, {2}})
+      {{0, 1}} = true := by
+  decide +kernel
+
+lemma termFamily_spurious_check :
+    termFamilyEquiv ({{0, 1}, {2}} : Finset (Finset (Fin 3))) {{0, 1}} = false := by
+  decide +kernel
+
+lemma termFamily_weakened_check :
+    termFamilyEquiv ({{0}, {1}} : Finset (Finset (Fin 3))) {{0, 1}} = false := by
+  decide +kernel
+
+end PEqualNP.Outside.L_meta_1482

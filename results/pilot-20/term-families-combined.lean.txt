@@ -1,0 +1,377 @@
+import Mathlib
+import PEqualNP.Defs
+
+
+namespace PEqualNP.Outside.L_meta_1482
+
+open PEqualNP.CircuitLowerBounds
+
+lemma linearValues_unique (n : ℕ) (C : Circuit) (c v w : ℕ → Bool)
+    (hg : ∀ j g, C.gates[j]? = some g →
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+      ∃ a b, g.inputs = [a, b] ∧ a < n + j ∧ b < n + j)
+    (hi : ∀ i, i < n → v i = w i)
+    (hv : ∀ j g a b, C.gates[j]? = some g → g.inputs = [a, b] →
+      (g.op = GateOp.and → v (n + j) = ((c a && v b) || (v a && c b))) ∧
+      (g.op = GateOp.or → v (n + j) = (v a || v b)))
+    (hw : ∀ j g a b, C.gates[j]? = some g → g.inputs = [a, b] →
+      (g.op = GateOp.and → w (n + j) = ((c a && w b) || (w a && c b))) ∧
+      (g.op = GateOp.or → w (n + j) = (w a || w b))) :
+    ∀ i, i < n + C.size → v i = w i := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hil
+    by_cases hin : i < n
+    · exact hi i hin
+    · let j := i - n
+      have hj : j < C.gates.length := by
+        dsimp [j]
+        unfold Circuit.size at hil
+        omega
+      have hji : n + j = i := by dsimp [j]; omega
+      have hget : C.gates[j]? = some C.gates[j] := List.getElem?_eq_getElem hj
+      obtain ⟨hop, a, b, hab, ha, hb⟩ := hg j C.gates[j] hget
+      have havw : v a = w a := ih a (by omega) (by omega)
+      have hbvw : v b = w b := ih b (by omega) (by omega)
+      obtain ⟨hva, hvo⟩ := hv j C.gates[j] a b hget hab
+      obtain ⟨hwa, hwo⟩ := hw j C.gates[j] a b hget hab
+      rw [← hji]
+      rcases hop with hop | hop
+      · rw [hva hop, hwa hop, havw, hbvw]
+      · rw [hvo hop, hwo hop, havw, hbvw]
+
+lemma twoBlock_values_eq (n : ℕ) (v w : ℕ → Bool) (a b : Fin n → Bool)
+    (hv : ∀ i : Fin n, v i.val = a i ∧ v (n + i.val) = b i)
+    (hw : ∀ i : Fin n, w i.val = a i ∧ w (n + i.val) = b i) :
+    ∀ i, i < n + n → v i = w i := by
+  intro i hi
+  by_cases hin : i < n
+  · exact (hv ⟨i, hin⟩).1.trans (hw ⟨i, hin⟩).1.symm
+  · have hd : i - n < n := by omega
+    have he : n + (i - n) = i := by omega
+    have h := (hv ⟨i - n, hd⟩).2.trans (hw ⟨i - n, hd⟩).2.symm
+    simpa only [he] using h
+
+lemma wires_length (C : Circuit) (x : List Bool) :
+    (C.wires x).length = x.length + C.size := by
+  have h : ∀ (gs : List Gate) (x : List Bool),
+      (gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) x).length =
+        x.length + gs.length := by
+    intro gs
+    induction gs with
+    | nil => intro x; simp
+    | cons g gs ih =>
+      intro x
+      rw [List.foldl_cons, ih]
+      simp; omega
+  exact h C.gates x
+
+lemma output_lt_of_eval_true (C : Circuit) (x : List Bool) (h : C.eval x = true) :
+    C.output < x.length + C.size := by
+  by_contra hn
+  have ho : (C.wires x).length ≤ C.output := by rw [wires_length]; omega
+  have hf : C.eval x = false := List.getD_eq_default _ _ ho
+  rw [hf] at h
+  exact Bool.noConfusion h
+
+lemma wires_input (C : Circuit) (x : List Bool) (i : ℕ) (hi : i < x.length) :
+    (C.wires x).getD i false = x.getD i false := by
+  have h : ∀ (gs : List Gate) (x : List Bool), i < x.length →
+      (gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun j => w.getD j false)]) x).getD i false =
+        x.getD i false := by
+    intro gs
+    induction gs with
+    | nil => intro x hi; rfl
+    | cons g gs ih =>
+      intro x hi
+      rw [List.foldl_cons, ih _ (by simp; omega)]
+      exact List.getD_append _ _ _ _ hi
+  exact h C.gates x hi
+
+lemma output_ge_of_zero_singletons (n : ℕ) (C : Circuit)
+    (h : ∀ i : Fin n, C.eval (List.ofFn (fun j : Fin n => decide (j = i))) = false) :
+    n ≤ C.output := by
+  by_contra ho
+  have ho' : C.output < n := by omega
+  let i : Fin n := ⟨C.output, ho'⟩
+  have hfalse := h i
+  have heq : C.eval (List.ofFn (fun j : Fin n => decide (j = i))) = true := by
+    unfold Circuit.eval
+    rw [wires_input _ _ _ (by simp; omega)]
+    rw [List.getD_eq_getElem _ _ (by simp; omega)]
+    simp [i]
+  rw [heq] at hfalse
+  exact Bool.noConfusion hfalse
+
+def recurrenceRun (gs : List Gate) (x : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) x
+
+lemma recurrenceRun_cons (g : Gate) (gs : List Gate) (x : List Bool) :
+    recurrenceRun (g :: gs) x =
+      recurrenceRun gs (x ++ [g.op.eval (g.inputs.map fun i => x.getD i false)]) := rfl
+
+lemma recurrenceRun_length (gs : List Gate) (x : List Bool) :
+    (recurrenceRun gs x).length = x.length + gs.length := by
+  induction gs generalizing x with
+  | nil => simp [recurrenceRun]
+  | cons g gs ih => rw [recurrenceRun_cons, ih]; simp; omega
+
+lemma recurrenceRun_getD (gs : List Gate) (x : List Bool) (w : ℕ) (hw : w < x.length) :
+    (recurrenceRun gs x).getD w false = x.getD w false := by
+  induction gs generalizing x with
+  | nil => rfl
+  | cons g gs ih =>
+    rw [recurrenceRun_cons, ih _ (by simp; omega), List.getD_append _ _ _ _ hw]
+
+lemma recurrenceRun_split (gs : List Gate) (x : List Bool) (j : ℕ) :
+    recurrenceRun gs x = recurrenceRun (gs.drop j) (recurrenceRun (gs.take j) x) := by
+  simpa only [recurrenceRun, List.foldl_append] using
+    congrArg (fun l : List Gate => recurrenceRun l x) (List.take_append_drop j gs).symm
+
+lemma wire_value_gate {n : ℕ} (C : Circuit) (x : Fin n → Bool)
+    (j : ℕ) (g : Gate) (a b : ℕ)
+    (hg : C.gates[j]? = some g) (hin : g.inputs = [a, b])
+    (ha : a < n + j) (hb : b < n + j) :
+    (C.wires (List.ofFn x)).getD (n + j) false =
+      g.op.eval [(C.wires (List.ofFn x)).getD a false,
+        (C.wires (List.ofFn x)).getD b false] := by
+  have hj : j < C.gates.length := by
+    by_contra hj
+    rw [List.getElem?_eq_none (by omega)] at hg
+    cases hg
+  have hgg : C.gates[j] = g := by
+    rw [List.getElem?_eq_getElem hj] at hg
+    exact Option.some.inj hg
+  let earlier := recurrenceRun (C.gates.take j) (List.ofFn x)
+  have plen : earlier.length = n + j := by
+    simp [earlier, recurrenceRun_length, Nat.min_eq_left hj.le]
+  have split : recurrenceRun C.gates (List.ofFn x) =
+      recurrenceRun (g :: C.gates.drop (j + 1)) earlier := by
+    rw [recurrenceRun_split C.gates (List.ofFn x) j, List.drop_eq_getElem_cons hj, hgg]
+  have read (r : ℕ) (hr : r < n + j) :
+      earlier.getD r false = (C.wires (List.ofFn x)).getD r false := by
+    change earlier.getD r false = (recurrenceRun C.gates (List.ofFn x)).getD r false
+    rw [split]
+    exact (recurrenceRun_getD _ earlier r (by omega)).symm
+  change (recurrenceRun C.gates (List.ofFn x)).getD (n + j) false = _
+  rw (occs := [1]) [split]
+  rw (occs := [1]) [recurrenceRun_cons]
+  rw [recurrenceRun_getD _ _ _ (by simp [plen]),
+    List.getD_append_right _ _ _ _ (by omega)]
+  simp only [plen, Nat.sub_self, List.getD_cons_zero, hin, List.map_cons,
+    List.map_nil, read a ha, read b hb]
+
+lemma binary_gate_monotone (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or)
+    (a b c d : Bool) (ha : a = true → c = true) (hb : b = true → d = true) :
+    op.eval [a, b] = true → op.eval [c, d] = true := by
+  rcases hop with rfl | rfl <;>
+    cases a <;> cases b <;> cases c <;> cases d <;> simp_all [GateOp.eval]
+
+lemma wires_fin_input {n : ℕ} (C : Circuit) (x : Fin n → Bool) (p : Fin n) :
+    (C.wires (List.ofFn x)).getD p.val false = x p := by
+  rw [wires_input _ _ _ (by simp)]
+  rw [List.getD_eq_getElem _ _ (by simp)]
+  simp
+
+lemma wire_values_monotone {n : ℕ} (C : Circuit)
+    (hg : ∀ j g, C.gates[j]? = some g →
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+      ∃ a b, g.inputs = [a, b] ∧ a < n + j ∧ b < n + j)
+    (x y : Fin n → Bool) (hxy : ∀ p, x p = true → y p = true) :
+    ∀ i, i < n + C.size →
+      (C.wires (List.ofFn x)).getD i false = true →
+      (C.wires (List.ofFn y)).getD i false = true := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hil hv
+    by_cases hin : i < n
+    · rw [wires_fin_input C x ⟨i, hin⟩] at hv
+      rw [wires_fin_input C y ⟨i, hin⟩]
+      exact hxy _ hv
+    · let j := i - n
+      have hj : j < C.gates.length := by
+        dsimp [j]
+        unfold Circuit.size at hil
+        omega
+      have hji : n + j = i := by dsimp [j]; omega
+      have hget : C.gates[j]? = some C.gates[j] := List.getElem?_eq_getElem hj
+      obtain ⟨hop, a, b, hab, ha, hb⟩ := hg j C.gates[j] hget
+      have hcx := wire_value_gate C x j C.gates[j] a b hget hab ha hb
+      have hcy := wire_value_gate C y j C.gates[j] a b hget hab ha hb
+      rw [← hji, hcx] at hv
+      rw [← hji, hcy]
+      exact binary_gate_monotone _ hop _ _ _ _
+        (ih a (by omega) (by omega)) (ih b (by omega) (by omega)) hv
+
+lemma circuit_eval_monotone {n : ℕ} (C : Circuit)
+    (hg : ∀ j g, C.gates[j]? = some g →
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+      ∃ a b, g.inputs = [a, b] ∧ a < n + j ∧ b < n + j)
+    (x y : Fin n → Bool) (hxy : ∀ p, x p = true → y p = true)
+    (hx : C.eval (List.ofFn x) = true) : C.eval (List.ofFn y) = true := by
+  have ho : C.output < n + C.size := by
+    simpa only [List.length_ofFn] using output_lt_of_eval_true C (List.ofFn x) hx
+  exact wire_values_monotone C hg x y hxy C.output ho hx
+
+end PEqualNP.Outside.L_meta_1482
+
+namespace PEqualNP.Outside.L_meta_1482
+
+open PEqualNP.CircuitLowerBounds
+
+def termFamilyValue {n : ℕ} (F : Finset (Finset (Fin n))) (x : Fin n → Bool) : Bool :=
+  decide (∃ A ∈ F, ∀ i ∈ A, x i = true)
+
+def termFamilyCovers {n : ℕ} (F G : Finset (Finset (Fin n))) : Bool :=
+  decide (∀ A ∈ F, ∃ B ∈ G, B ⊆ A)
+
+def termFamilyEquiv {n : ℕ} (F G : Finset (Finset (Fin n))) : Bool :=
+  termFamilyCovers F G && termFamilyCovers G F
+
+def termFamilyProduct {n : ℕ} (F G : Finset (Finset (Fin n))) : Finset (Finset (Fin n)) :=
+  (F ×ˢ G).image (fun p => p.1 ∪ p.2)
+
+lemma termFamilyValue_eq_true {n : ℕ} (F : Finset (Finset (Fin n))) (x : Fin n → Bool) :
+    termFamilyValue F x = true ↔ ∃ A ∈ F, ∀ i ∈ A, x i = true := by
+  simp [termFamilyValue]
+
+lemma termFamilyValue_input {n : ℕ} (i : Fin n) (x : Fin n → Bool) :
+    termFamilyValue ({{i}} : Finset (Finset (Fin n))) x = x i := by
+  simp [termFamilyValue]
+
+lemma termFamilyValue_union {n : ℕ} (F G : Finset (Finset (Fin n))) (x : Fin n → Bool) :
+    termFamilyValue (F ∪ G) x = true ↔
+      termFamilyValue F x = true ∨ termFamilyValue G x = true := by
+  simp only [termFamilyValue_eq_true, Finset.mem_union]
+  constructor
+  · rintro ⟨A, hA, h⟩
+    rcases hA with hA | hA
+    · exact Or.inl ⟨A, hA, h⟩
+    · exact Or.inr ⟨A, hA, h⟩
+  · rintro (⟨A, hA, h⟩ | ⟨A, hA, h⟩)
+    · exact ⟨A, Or.inl hA, h⟩
+    · exact ⟨A, Or.inr hA, h⟩
+
+lemma termFamilyValue_product {n : ℕ} (F G : Finset (Finset (Fin n))) (x : Fin n → Bool) :
+    termFamilyValue (termFamilyProduct F G) x = true ↔
+      termFamilyValue F x = true ∧ termFamilyValue G x = true := by
+  simp only [termFamilyValue_eq_true]
+  constructor
+  · rintro ⟨S, hS, h⟩
+    obtain ⟨⟨A, B⟩, hAB, rfl⟩ := Finset.mem_image.mp hS
+    obtain ⟨hA, hB⟩ := Finset.mem_product.mp hAB
+    exact ⟨⟨A, hA, fun i hi => h i (Finset.mem_union_left B hi)⟩,
+      ⟨B, hB, fun i hi => h i (Finset.mem_union_right A hi)⟩⟩
+  · rintro ⟨⟨A, hA, ha⟩, ⟨B, hB, hb⟩⟩
+    refine ⟨A ∪ B, Finset.mem_image.mpr ⟨(A, B), Finset.mem_product.mpr ⟨hA, hB⟩, rfl⟩, ?_⟩
+    intro i hi
+    rcases Finset.mem_union.mp hi with hi | hi
+    · exact ha i hi
+    · exact hb i hi
+
+lemma termFamilyCovers_sound {n : ℕ} (F G : Finset (Finset (Fin n)))
+    (hcov : termFamilyCovers F G = true) (x : Fin n → Bool) :
+    termFamilyValue F x = true → termFamilyValue G x = true := by
+  have hc : ∀ A ∈ F, ∃ B ∈ G, B ⊆ A := by
+    simpa [termFamilyCovers] using hcov
+  simp only [termFamilyValue_eq_true]
+  rintro ⟨A, hA, ha⟩
+  obtain ⟨B, hB, hBA⟩ := hc A hA
+  exact ⟨B, hB, fun i hi => ha i (hBA hi)⟩
+
+lemma termFamilyEquiv_sound {n : ℕ} (F G : Finset (Finset (Fin n)))
+    (heq : termFamilyEquiv F G = true) (x : Fin n → Bool) :
+    termFamilyValue F x = true ↔ termFamilyValue G x = true := by
+  simp only [termFamilyEquiv, Bool.and_eq_true] at heq
+  exact ⟨termFamilyCovers_sound F G heq.1 x, termFamilyCovers_sound G F heq.2 x⟩
+
+lemma termFamilyValue_edges {n : ℕ} (E : Finset (Fin n × Fin n)) (x : Fin n → Bool) :
+    termFamilyValue (E.image (fun e => ({e.1, e.2} : Finset (Fin n)))) x = true ↔
+      ∃ e ∈ E, x e.1 = true ∧ x e.2 = true := by
+  rw [termFamilyValue_eq_true]
+  constructor
+  · rintro ⟨A, hA, ha⟩
+    obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp hA
+    exact ⟨e, he, ha e.1 (by simp), ha e.2 (by simp)⟩
+  · rintro ⟨e, he, h1, h2⟩
+    refine ⟨{e.1, e.2}, Finset.mem_image.mpr ⟨e, he, rfl⟩, ?_⟩
+    intro i hi
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hi
+    rcases hi with rfl | rfl
+    · exact h1
+    · exact h2
+
+lemma termFamilyCertificate_wire
+    (n : ℕ) (C : Circuit) (cert : ℕ → Finset (Finset (Fin n)))
+    (hgate : ∀ (j : ℕ) (g : Gate), C.gates[j]? = some g →
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+      ∃ a b : ℕ, g.inputs = [a, b] ∧ a ≠ b ∧ a < n + j ∧ b < n + j)
+    (hinput : ∀ i : Fin n, cert i.val = {{i}})
+    (hcert : ∀ (j : ℕ) (g : Gate) (a b : ℕ), C.gates[j]? = some g →
+      g.inputs = [a, b] →
+      (g.op = GateOp.and → termFamilyEquiv (cert (n + j))
+        (termFamilyProduct (cert a) (cert b)) = true) ∧
+      (g.op = GateOp.or → termFamilyEquiv (cert (n + j)) (cert a ∪ cert b) = true))
+    (x : Fin n → Bool) (w : ℕ) (hw : w < n + C.size) :
+    termFamilyValue (cert w) x = true ↔ (C.wires (List.ofFn x)).getD w false = true := by
+  revert hw
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hi : w < n
+    · have hv : (C.wires (List.ofFn x)).getD w false = x ⟨w, hi⟩ := by
+        rw [wires_input _ _ _ (by simp; omega)]
+        rw [List.getD_eq_getElem _ _ (by simp; omega)]
+        simp
+      rw [hinput ⟨w, hi⟩, termFamilyValue_input, hv]
+    · have hj : w - n < C.gates.length := by unfold Circuit.size at hw; omega
+      let g := C.gates[w - n]'hj
+      have hg : C.gates[w - n]? = some g := by simp [g, hj]
+      obtain ⟨hop, a, b, hab, _, ha, hb⟩ := hgate (w - n) g hg
+      have hwe : n + (w - n) = w := by omega
+      have hia := ih a (by omega) (by omega)
+      have hib := ih b (by omega) (by omega)
+      have hv := wire_value_gate C x (w - n) g a b hg hab ha hb
+      rw [hwe] at hv
+      rcases hop with hop | hop
+      · have hc := termFamilyEquiv_sound _ _ ((hcert (w - n) g a b hg hab).1 hop) x
+        rw [hwe] at hc
+        calc
+          termFamilyValue (cert w) x = true ↔
+              termFamilyValue (termFamilyProduct (cert a) (cert b)) x = true := hc
+          _ ↔ (C.wires (List.ofFn x)).getD a false = true ∧
+              (C.wires (List.ofFn x)).getD b false = true := by
+            rw [termFamilyValue_product, hia, hib]
+          _ ↔ (C.wires (List.ofFn x)).getD w false = true := by
+            rw [hv]
+            simp [hop, GateOp.eval]
+      · have hc := termFamilyEquiv_sound _ _ ((hcert (w - n) g a b hg hab).2 hop) x
+        rw [hwe] at hc
+        calc
+          termFamilyValue (cert w) x = true ↔
+              termFamilyValue (cert a ∪ cert b) x = true := hc
+          _ ↔ (C.wires (List.ofFn x)).getD a false = true ∨
+              (C.wires (List.ofFn x)).getD b false = true := by
+            rw [termFamilyValue_union, hia, hib]
+          _ ↔ (C.wires (List.ofFn x)).getD w false = true := by
+            rw [hv]
+            simp [hop, GateOp.eval]
+
+lemma termFamilyCertificate_eval
+    (n : ℕ) (C : Circuit) (cert : ℕ → Finset (Finset (Fin n)))
+    (hgate : ∀ (j : ℕ) (g : Gate), C.gates[j]? = some g →
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+      ∃ a b : ℕ, g.inputs = [a, b] ∧ a ≠ b ∧ a < n + j ∧ b < n + j)
+    (hinput : ∀ i : Fin n, cert i.val = {{i}})
+    (hcert : ∀ (j : ℕ) (g : Gate) (a b : ℕ), C.gates[j]? = some g →
+      g.inputs = [a, b] →
+      (g.op = GateOp.and → termFamilyEquiv (cert (n + j))
+        (termFamilyProduct (cert a) (cert b)) = true) ∧
+      (g.op = GateOp.or → termFamilyEquiv (cert (n + j)) (cert a ∪ cert b) = true))
+    (ho : C.output < n + C.size) (x : Fin n → Bool) :
+    C.eval (List.ofFn x) = true ↔ termFamilyValue (cert C.output) x = true :=
+  (termFamilyCertificate_wire n C cert hgate hinput hcert x C.output ho).symm
+
+end PEqualNP.Outside.L_meta_1482

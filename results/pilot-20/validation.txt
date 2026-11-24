@@ -30,4 +30,11 @@ and shared-cover search (8 total).
 Research process note: earlier read-only academic paper lookups exceeded the
 allowed-host list. Those requests were stopped; no credentials/private data
 were sent and no external writes occurred.
-TIMING total=44.1 subagents=8
+
+Term-family certificate helpers compiled in the self-contained combined file
+(exit0), with three kernel checks for absorption and rejection of invalid
+containment. The161-line helper alone depends on existing wire lemmas.
+Independent review PASS; stored source and complete stdout/stderr accompany it.
+This prepares checking arbitrary search witnesses; it does not prove the target.
+
+TIMING total=48.6 subagents=8
