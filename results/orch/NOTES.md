@@ -41,3 +41,15 @@ Read primary sources 2026-11-24: Jukna https://eccc.weizmann.ac.il/report/2005/0
 
 ### Complete small-instance evidence 2026-11-24T18:06:06.372553+00:00
 Enumerated all 334 C4-free3×3 incidence matrices, quotienting row/column permutations and transposition into16 isomorphism classes. Empty case has0-gate witness. For each15 nonempty class, full truth-table SAT synthesis found an unrestricted minimum and a requested-clean circuit of the same size; all preceding sizes down to essential-inputs−1 were UNSAT, with no unknown result. Minima range1–8. Witnesses independently reevaluated on all64 assignments. This is computation, not a Lean proof. Preserved scripts/results in results/orch/lemmas/counterexample/all3_*.
+
+Universal graph completion 2026-11-24T18:07:19.640676+00:00: all 163 lines of universal_graph.lean compile, including incGraphDecidable and incGraph_edge_iff / incGraph_graphFun_iff bridges. Only warning: class-definition semireducibility; no error. Full stdout/stderr: /tmp/oec/pequalnp-pilot-40/universal-graph-build.log. APIs shared with normal_form and decomposition.
+
+2026-11-24T18:08:02.586862+00:00 — counterexample strategy: theta(3,3,3)11-gate queries timed out120s in full-BV, boundary-BV, and one-hot Boolean SAT encodings; no result. Cycle8 queries similarly timed out45s above7 gates. These are NOT lower bounds and NOT evidence of falsity. Stopped larger brute-force search after preserving complete output. All3×3 finite validation remains complete with no unknowns.
+
+2026-11-24T18:08:18.812163+00:00 — decomposition SUCCESS: forest_bridge.lean compiled exit 0 with empty log. Includes cardinality-minimal cover selection, clean-upper/forest-lower bridge, and exact incidence target conclusion assembly. Inputs to the bridge are theorem parameters, not added axioms; normal_form will instantiate them with checked copied support. cover_selection.lean also compiled but duplicates decMinCover, so combine forest_bridge only.
+
+## Clean upper construction, 2026-11-24T18:09:07.814923+00:00
+
+normal_form.lean compiles: edgeless case for every N, positive gate-count for nonempty incidence, and complete N=1 case. universal_normal.lean compiles: forest circuit lower bound and dependency proofs copied from eight existing helper modules into own ForestSupport namespace (1833 lines). clean_upper.lean compiles: new strengthened builder with Reads and Safe invariants. CleanUpper.clean_upper proves for every finite graph G and vertex cover T a Monotone2 ReadsBack circuit of size+1≤|E|+|T|, computing the edge function, with every AND gate below the graph function on all inputs. Its ForestSupport prefix duplicates the first two source modules, so retain only the CleanUpper namespace when merging with universal_normal.
+
+The remaining full-gap difficulty is nonedge cleaning when every vertex has a nonneighbor; universal-row/column exceptions can now be resolved using the copied forest lower bound and this clean upper construction.

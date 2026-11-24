@@ -10,3 +10,4 @@ Named build: lake build PEqualNP.Outside.L_meta_3451 — exit 0, Build completed
 Local exact-statement checker pending; helper-only file cannot prove the posted target.
 Exact statement checker: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_3451. This is expected for partial helper preservation.
 Combined helper build2: exit 0; Build completed successfully (18419 jobs). Includes arbitrary zero restriction/embedding, unchanged gate count, ReadsBack, output/wire semantics and complete N=1 case.
+Independent review passed for clean upper construction, forest bridge, universal incidence acyclicity and copied forest lower bound. All compiled in Lean; full gap not proved. Finite census334 cases independently recomputed (not a Lean proof).

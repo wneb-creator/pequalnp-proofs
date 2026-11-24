@@ -6,3 +6,8 @@
 2026-11-24T18:05:07.564097+00:00 — decomposition helpers compiled; full normalization unresolved; preparing first preservation push
 2026-11-24T18:06:51.784901+00:00 — first preservation push 41e44c3de563a3daea78b690673054259a9cd98e; named build passed; checker correctly rejects missing final theorem
 2026-11-24T18:07:17.376142+00:00 — generic restriction, small cases and cover selection compiled in named file; all334 C4free3x3 matrices have matching minima (computation only)
+2026-11-24T18:07:19.640676+00:00 — universal_vertex finished compiled universal-row/column acyclicity and incidence semantics bridges.
+2026-11-24T18:08:02.586911+00:00 — counterexample strategy completed all3×3 finite census; larger synthesis hit timeouts, no counterexample found.
+2026-11-24T18:08:18.812163+00:00 — forest bridge partial Lean-check complete; root notified for push.
+2026-11-24T18:09:07.814923+00:00 — normal_form: CleanUpper.clean_upper compiled; new safe/read-back vertex-cover construction checked by Lean.
+2026-11-24T18:09:58.328396+00:00 — preserving checked clean upper construction, forest proof support and independently audited finite census

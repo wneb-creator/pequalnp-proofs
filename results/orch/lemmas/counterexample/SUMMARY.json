@@ -1,0 +1,9 @@
+{
+  "read_at": "2026-11-24T18:07:19.678077+00:00",
+  "all3_labeled_matrices": 334,
+  "all3_isomorphism_classes": 16,
+  "all3_nonempty_classes_verified": 15,
+  "all3_unknown_count": 0,
+  "all3_minima_match": true,
+  "formal_status": "Computational evidence only; no Lean counterexample or proof."
+}
