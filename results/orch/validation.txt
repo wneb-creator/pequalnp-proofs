@@ -1,9 +1,0 @@
-L-meta-670 reduction: PEqualNP.Outside.R_meta_670_32
-File: lean/PEqualNP/Outside/R_meta_670_32.lean
-Build: Build completed successfully (5145 jobs).
-Checker: ACCEPTED (reduce); CHILDREN 4; standard axioms only;1664 constants rechecked.
-Final SHA256:53635fc646bb19bd78c84f133e0e891b84085bdff046e6add728dc14b1e11860
-Cleanup:299 lines before,270 after; started15:38:02UTC, accepted2026-11-24T15:42:11.579263+00:00
-Desk nulls:0; first answer assigned L-meta-670.
-Sub-agents: special_status, direct_structural, finite_cases, reduction_design, graph_bounds, independent_review
-TIMING total=27.4 subagents=6

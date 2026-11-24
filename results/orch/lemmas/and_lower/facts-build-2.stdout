@@ -1,6 +1,0 @@
-/tmp/oec/pequalnp-pilot-32/and_lower/AndFacts.lean:92:2: error: Type mismatch: After simplification, term
-  h
- has type
-  @LE.le ℕ instLENat 5 (List.filter isAndGate C.gates).length
-but is expected to have type
-  @LE.le ℕ instLENat 5 (List.filter (fun g => decide (g.op = GateOp.and)) C.gates).length

@@ -1,7 +1,0 @@
-L-meta-670: checked partial results only; the posted lower bound is not proved.
-Named partial lake build: PASS.
-Reduction candidate lake env lean: PASS.
-Terminal normalization lake env lean: PASS.
-Local checker: not yet run; no PR submitted.
-Sub-agents: special_status, direct_structural, finite_cases, reduction_design, graph_bounds, independent_review
-TIMING total=10 subagents=6
