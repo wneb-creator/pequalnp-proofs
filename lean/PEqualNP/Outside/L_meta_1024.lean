@@ -820,3 +820,83 @@ lemma count_triples {α β : Type*} [Fintype α] [DecidableEq α]
   exact Finset.card_le_card hsub
 
 end PEqualNP.Outside.L_meta_1024_aux.AndRoot
+
+
+namespace PEqualNP.Outside.L_meta_1024_aux.Minterms
+
+abbrev Increasing (f : Finset (Fin 13) → Bool) : Prop :=
+  ∀ S T, S ⊆ T → f S = true → f T = true
+
+abbrev BandSpec (f : Finset (Fin 13) → Bool) (L : Finset (Fin 13)) : Prop :=
+  ∀ S, S.card = 5 ∨ S.card = 6 → f S = decide (L ⊆ S)
+
+def MinimalTrue (f : Finset (Fin 13) → Bool) (S : Finset (Fin 13)) : Prop :=
+  f S = true ∧ ∀ T, T ⊂ S → f T = false
+
+lemma avoid_extension (S : Finset (Fin 13)) (p : Fin 13) (hp : p ∉ S)
+    (hs : S.card ≤ 6) :
+    ∃ T : Finset (Fin 13), S ⊆ T ∧ T.card = 6 ∧ p ∉ T := by
+  have hsub : S ⊆ Finset.univ.erase p := by
+    intro q hq
+    exact Finset.mem_erase.mpr ⟨fun h => hp (h ▸ hq), Finset.mem_univ q⟩
+  have hc : 6 ≤ (Finset.univ.erase p).card := by simp
+  obtain ⟨T, hST, hT, hcard⟩ := Finset.exists_subsuperset_card_eq hsub hs hc
+  exact ⟨T, hST, hcard, fun h => (Finset.mem_erase.mp (hT h)).1 rfl⟩
+
+lemma low_true_contains (f : Finset (Fin 13) → Bool) (L : Finset (Fin 13))
+    (hmono : Increasing f) (hband : BandSpec f L) (S : Finset (Fin 13))
+    (hs : S.card ≤ 6) (hf : f S = true) : L ⊆ S := by
+  intro p hp
+  by_contra hn
+  obtain ⟨T, hST, hcard, hpT⟩ := avoid_extension S p hn hs
+  have hfT := hmono S T hST hf
+  rw [hband T (Or.inr hcard)] at hfT
+  exact hpT (of_decide_eq_true hfT hp)
+
+lemma low_exact_of_true (f : Finset (Fin 13) → Bool) (L : Finset (Fin 13))
+    (hmono : Increasing f) (hband : BandSpec f L) (hfL : f L = true)
+    (S : Finset (Fin 13)) (hs : S.card ≤ 6) : f S = decide (L ⊆ S) := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [decide_eq_true_eq]
+  exact ⟨low_true_contains f L hmono hband S hs, fun h => hmono L S h hfL⟩
+
+lemma extension_minimal_of_false (f : Finset (Fin 13) → Bool)
+    (L : Finset (Fin 13)) (hmono : Increasing f) (hband : BandSpec f L)
+    (hcard : L.card = 4) (hfL : f L = false) (p : Fin 13) (hp : p ∉ L) :
+    MinimalTrue f (insert p L) := by
+  have hc : (insert p L).card = 5 := by simp [hp, hcard]
+  constructor
+  · rw [hband _ (Or.inl hc)]
+    exact decide_eq_true (Finset.subset_insert p L)
+  · intro T hT
+    have htcard : T.card < 5 := (Finset.card_lt_card hT).trans_eq hc
+    cases hft : f T with
+    | false => rfl
+    | true =>
+      have hLT := low_true_contains f L hmono hband T (by omega) hft
+      have heq : L = T := Finset.eq_of_subset_of_card_le hLT (by omega)
+      rw [← heq, hfL] at hft
+      cases hft
+
+lemma extensions_distinct (L : Finset (Fin 13)) (p q : Fin 13)
+    (hp : p ∉ L) (hpq : p ≠ q) : insert p L ≠ insert q L := by
+  intro h
+  have hm : p ∈ insert q L := h ▸ Finset.mem_insert_self p L
+  rcases Finset.mem_insert.mp hm with h | h
+  · exact hpq h
+  · exact hp h
+
+lemma minterm_dichotomy (f : Finset (Fin 13) → Bool) (L : Finset (Fin 13))
+    (hmono : Increasing f) (hband : BandSpec f L) (hcard : L.card = 4) :
+    (f L = true ∧ ∀ S, S.card ≤ 6 → f S = decide (L ⊆ S)) ∨
+      (f L = false ∧ (Finset.univ \ L).card = 9 ∧
+        ∀ p, p ∉ L → MinimalTrue f (insert p L)) := by
+  cases hfL : f L with
+  | false =>
+    refine Or.inr ⟨rfl, ?_, fun p hp =>
+      extension_minimal_of_false f L hmono hband hcard hfL p hp⟩
+    simp [Finset.card_sdiff, hcard]
+  | true =>
+    exact Or.inl ⟨rfl, low_exact_of_true f L hmono hband hfL⟩
+
+end PEqualNP.Outside.L_meta_1024_aux.Minterms
