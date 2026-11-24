@@ -235,3 +235,15 @@
 2026-11-24 10:19:56 UTC structural: EligibleFamilyCover and CommonMaskCounterexample compiled; independent review requested.
 
 2026-11-24T10:20:27.008739+00:00 Root preserves24 further reviewed components including opposite-center exclusion and Complement12 calibration/lift. Exact theorem not yet proved/refuted; constant gap explicitly recorded.
+
+2026-11-24T10:20:29.547515+00:00 gate_invariants OwnedFourClauseResidual.lean frozen FIRST TRY build001 EXIT0, SHA 8848b2d16800ed2ff39d32662073f51b80557b84b9c4e102134e1a49335f30fe, 5616lines. Exact OwnedResidualPairCover plus reviewed FourClauseCoverTwo, TwoCenterSignatures and CoverLocations bodies; new heavy-signature and full four-clause owned residual integration. Actual four root supports, full cleanliness, independent disjoint pure clauses and FoutsideE coverage explicit. Final F.card≤((orN\lam)\Z).card+2 excludes every external paid-star stop and handles split/heavy-row/heavy-column cases.
+
+2026-11-24 10:23:37 UTC lean_setup: MaskJointBudgetReserved compiled/frozen. Actual joint-star + grouped mask charge reserves arbitrary outside-Lambda OR set T disjoint all mask gates and both joint-root cones: U+boundary+T.card≤outside+t+1. Intended T=two private connectors plus outside-four-root reader ORs; final full gap remains open.
+
+2026-11-24 10:25:11 UTC lean_setup: MaskPrivateUnique frozen/compiled build002 exit0. A private incident edge and a specified effective internal cleaner force ALL mask edges to equal that cleaner’s full opposite-support star (left/right orientations), using checked center uniqueness. This reduces the both-mask family to exactly two explicit roots.
+
+2026-11-24 10:25:54 UTC status_audit: checked split-reader cover2 and actual-top adapter; ActualFilterCoverage first build exit0. Alternative6Diverse seed14772923 active in same local slot, endpoint about10:31 UTC.
+
+2026-11-24T10:27:22.869656+00:00 gate_invariants PrivateBothMaskRefund.lean frozen build002 EXIT0, SHA e9c39a00a2dec849afc89e927d8332ed486c6f15878e610a05325b1c6662e218, 6816lines. Exact reserved mask/joint budget + connector + paired-reader snapshots; actual two-star mask family, four pure bounded roots, opposite-orientation connector pair and one joint star give Ustar+1≤outsideLambdaOR+2centreless. Reserved T explicitly contains two connector indices in four-root cone plus all outside-cone ORs, disjoint from every mask/joint charge. Actual Ustar-family coverage and joint geometry are retained as explicit premises pending finite/semantic adapter.
+
+2026-11-24T10:29:11.473481+00:00 Root preserves reviewed connector refund, one-mask cover2, actual reader/filter bridges and local diagnostic. Exact unrestricted theorem remains open.

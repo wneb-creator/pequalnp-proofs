@@ -1,0 +1,25 @@
+UTC 2026-11-24T10:29:11.473481+00:00
+Gap L-meta-1477
+PARTIAL RESULTS ONLY. The exact posted statement is not proved or refuted.
+Named-file lake build passed previously; exact checker remains REJECTED (no-theorem).
+No PR opened. No final proof cleanup claimed.
+
+OneMaskJointCover.lean: 670 lines; sha256 652c0f56d786201bf227194c096cbdfd15aa68794796dc9f01a3130e70592c67; author one-mask-joint-cover-build-001.log exit0; independent review PASS.
+PrivateJointSizes.lean: 1228 lines; sha256 d9b0fcf6c23faee94cb88b33f7ae65881ab1542b8ccc55de40341eec23f8b273; author private-joint-sizes-build-001.log exit0; independent review PASS.
+PrivateOneMaskFull.lean: 1659 lines; sha256 23ce26f76074f20e26189a525f5aadd73337cab45f82d6842e748e2a9a56f71e; author private-one-mask-full-build-001.log exit0; independent review PASS.
+PrivateConnectorCredits.lean: 4101 lines; sha256 1e728b67ad6d07d03e7bc7a33cc346b6cc212a6474bbdf7415ecd450c729671a; author private-connector-credits-build-003.log exit0; independent review PASS.
+MaskPrivateUnique.lean: 764 lines; sha256 65021e0c8b8dfed8f2f1d11e536dbef02a9f313d7ecefc0ee2313aee589e13f3; author mask-private-unique-build-002.log exit0; independent review PASS.
+MaskJointBudgetReserved.lean: 6355 lines; sha256 fea6c8de7476cc39952c8237ee97ed0b29defd31a17c89e0e3375a7aec19feb6; author mask-joint-budget-reserved-build-002.log exit0; independent review PASS.
+PrivateBothMaskRefund.lean: 6816 lines; sha256 e9c39a00a2dec849afc89e927d8332ed486c6f15878e610a05325b1c6662e218; author private-both-mask-refund-build-002.log exit0; independent review PASS.
+OwnedFourClauseResidual.lean: 5616 lines; sha256 8848b2d16800ed2ff39d32662073f51b80557b84b9c4e102134e1a49335f30fe; author owned-four-clause-residual-build-001.log exit0; independent review PASS.
+SplitReaderActual.lean: 5145 lines; sha256 f29963d0877595572d2bcec7531f0a2d491e67e9c96dd4b007dc57f2e3f0c547; author split-reader-actual-build-002.log exit0; independent review PASS.
+ActualFilterCoverage.lean: 6446 lines; sha256 482e98d5048b3863a867faa33c61dc051c9c35a9b78c876e268de42896265f3a; author actual-filter-coverage-build-001.log exit0; independent review PASS.
+EligibleFamilyCover.lean: 6682 lines; sha256 2b28f2fc73364c36959d079e7e7e6ffd203c2023eb1f4afe2de6ed795642bb87; author eligible-family-cover-build-002.log exit0; independent review PASS.
+CommonFamilyAccounting.lean: 6851 lines; sha256 62e12902eb2ea77b5fb2f2caa39a0d140adb05dcaca3e6b8659041306c8c19c3; author common-family-accounting-build-001.log exit0; independent review PASS.
+CommonMaskCounterexample.lean: 136 lines; sha256 466237417a6ee7d5948dfc13d93d73fd8cb86e075b4e48abb32abdc19f37bfac; author common-mask-counterexample-build-006.log exit0; independent review PASS.
+
+The both-mask private branch now has an actual conditional U+1 refund, using two distinct pure OR connectors plus paired-reader overhead. Joint geometry and family coverage adapters remain explicit. The one-mask finite branch has cover<=2, including all orientations. Actual paired-top split-reader cover<=2 is checked; it does not force a chosen ordinary center into that cover.
+CommonFamilyAccounting excludes a single common-filter configuration under explicit full Ustar coverage, t<=junk and centreless>=1. The C6 diagnostic refutes only a local cover-two helper: a globally clean top has a five-edge pair shadow needing cover3; its full function is below C6 and is not the five-edge graph function. It does not refute the gap.
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=260.7 subagents=6

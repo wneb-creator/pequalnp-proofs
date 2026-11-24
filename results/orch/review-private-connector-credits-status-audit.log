@@ -1,0 +1,3 @@
+PASS PrivateConnector.lean SHA9aa6278f083be89d868bca820c12fefb2f801749738d1b41b6588f6077a49424
+PASS PrivateConnectorCredits.lean SHA1e728b67ad6d07d03e7bc7a33cc346b6cc212a6474bbdf7415ecd450c729671a
+Previously forbidden names replaced by rt; format scan clean. New witnesses are actual r=n+k and s=n+l, private-pair Lambda exclusion correct, u absent from s forces distinct indices. Charged set Q excluded via explicit clean-mask centers unequal both private endpoints. Opposite-root specialization uses D/E disjointness and actual support equations; no global Q coverage silently assumed. Author strongest build003 exit0 accepted; source/math/provenance independently reviewed.
