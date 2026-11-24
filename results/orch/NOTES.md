@@ -53,3 +53,7 @@ For reduction_design, independently tested raw supports F(input)={{i}}, OR=famil
 Draft `results/orch/lemmas/direct_compiler.lean` constructs a list of support families in parallel with circuit wires. The proof separates: union/product truth semantics; prefix preservation; a per-gate recurrence; initial input semantics. The exported `dnf_compiler` lemma has exactly the signature requested by reduction_design. It awaits Lean checking after cache setup.
 
 The DNF representation is raw (not minimal): inputs are singleton singleton families, OR forms family union, AND forms pairwise support union. Nonminimal supports are retained, so no minimization theorem is assumed. This removes a possible validity hazard in abstract support bounds.
+
+## DNF compiler checked
+
+2026-11-24T17:18:04.867515+00:00: `results/orch/lemmas/direct_compiler.lean` passes `lake env lean` with exit 0, empty stdout/stderr, no warnings. The 170-line file proves the exact first hypothesis of the proposed DNF reduction; no missing facts remain in compilation. Earlier finite checks covered 9,132 circuits and 905,786 wire/assignment instances. Final logs are `/tmp/oec/pequalnp-pilot-34/direct-compiler.stdout` and `.stderr`. Root notified to archive/push immediately after independent review.

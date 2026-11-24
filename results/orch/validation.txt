@@ -8,3 +8,5 @@ Initial source lines: 53.
 
 Sub-agents: 5 (direct proof/compiler, counterexamples/review, reduction design, library search, environment/checker review)
 TIMING total=8.3 min subagents=5
+
+Generic DNF compiler lemma: Lean exit 0; 170 lines, no warnings. Independent review PASS.

@@ -5,3 +5,6 @@
 - 2026-11-24T17:12:02.020039+00:00: renewed lease; expiry 2026-11-24T17:32:01.804Z.
 - 2026-11-24T17:15:24.688481+00:00: renewed lease; expiry 2026-11-24T17:35:24.510Z.
 - 2026-11-24T17:17:00.281217+00:00: named reduction lake build passed (exit 0); checker pending.
+- 2026-11-24T17:17:14.275146+00:00: renewed lease; expiry 2026-11-24T17:37:14.100Z.
+- 2026-11-24T17:18:04.867515+00:00: direct_proof finished and Lean-checked exact DNF compiler component.
+- 2026-11-24T17:18:31.921300+00:00: generic DNF compiler independently checked in Lean and reviewed; preserving immediately.
