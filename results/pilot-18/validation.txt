@@ -1,0 +1,25 @@
+gap: L-meta-1342
+shard: 17 of 19
+status: PARTIAL; the posted 21-gate existence statement is not proved.
+checkpoint: 98ce31d630c67b5e2c00e8795d0c78cb318f12a1
+file: lean/PEqualNP/Outside/L_meta_1342.lean
+checkpoint lines: 38
+checkpoint sha256: 78d2cfec555f9fbbffd30b4de60b53806eeead9b1079d585f3ca81716b4e09eb
+
+The checkpoint defines a 22-gate circuit and proves only Monotone2 and size = 22.
+An independent Python check agrees with the posted edge function on all 2048
+inputs. Universal functional correctness is not yet proved in Lean.
+
+Build: lake build +PEqualNP.Outside.L_meta_1342
+Lean: 4.36.0; pinned Mathlib cache fetched without lake update.
+Build exit: 0
+Build output: Build completed successfully (5109 jobs).
+Full build stdout/stderr are adjacent files.
+
+Checker: NOT RUN for the posted gap; the module-named theorem is absent.
+Independent source review: PASS for an authorized partial push, not a proof PR.
+PR: none.
+Cleanup: not applicable; there is no accepted proof to simplify.
+
+Sub-agents: 2 inherited-model agents for mathematical search and independent validation/proof engineering
+TIMING total=25.7 subagents=2

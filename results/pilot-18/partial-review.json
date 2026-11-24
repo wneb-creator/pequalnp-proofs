@@ -1,0 +1,15 @@
+{
+  "file": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1342.lean",
+  "sha256": "78d2cfec555f9fbbffd30b4de60b53806eeead9b1079d585f3ca81716b4e09eb",
+  "lines": 38,
+  "bytes": 942,
+  "identical_to_compiled_probe": true,
+  "gates": 22,
+  "output": 32,
+  "matches_previously_truth_table_checked_circuit": true,
+  "truth_table_evidence": "Previous independent 2048-input check applies to the unchanged circuit",
+  "source_review": "PASS for authorized partial push; no forbidden source markers; allowed imports; helpers in own namespace; single added file",
+  "build_evidence": "Main reports identical BaselineProbe.lean compiled exit 0 in about 2 seconds; named-module build was running when review requested",
+  "pr_status": "NOT READY: no final theorem; no 21-gate claim; only monotonicity and size=22 helpers",
+  "subagents": "none"
+}
