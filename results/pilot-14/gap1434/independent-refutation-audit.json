@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS independent source/format review for refute mode; fresh build and kernel verifier remain the final validation",
+  "file": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1434.lean",
+  "sha256": "9b5eb61fe75dcbbbf3a6071d2cd4255a41f50ac58c5c320a7a6457749d1373a8",
+  "bytes": 208366,
+  "lines": 3721,
+  "positive_twin_sha256": "dbd7100b0435f9be5d4d8985236d02bb94e0983d5bbb8d68dbc7349ceecaee20",
+  "exact_relation": "1434 statement is byte-for-byte Not(1433 final theorem type); candidate final theorem is byte-for-byte Not(1434 posted statement), hence Not(Not(positive twin)).",
+  "unchanged_proof": "All original1433 helper source bytes are unchanged except exact namespace-prefix replacement to1434_aux. The original final proof becomes helperpositive; the new final proof is funh=>hpositive. No original lower bound, hypothesis, circuit model, or finite certificate changed.",
+  "format": "Independent outside-guard imports/plain/namespace command exited0 with complete success log: imports allowed: Mathlib PEqualNP.Defs. Exactly Mathlib+PEqualNP.Defs imports,208366bytes, own auxiliary namespace, finaltheorem last, no bannedwords/sorry/axiom/native_decide/root/quotes/attributes. Only maxHeartbeats/maxRecDepth options.",
+  "checker_protocol": {
+    "checker_cli": "tools/check-lean.mjs68-70 accepts check|refute",
+    "kernel_goal": "lean/CheckLemma.lean236-245 wraps recorded statement in Not only for refute, then kernel-checks actual named theorem as witness",
+    "ordinary_advisory": ".github/workflows/advisory.yml109 hardcodes check",
+    "ordinary_authoritative": ".github/workflows/authoritative.yml329 hardcodes check",
+    "pr_verdict": "No valid ordinary proof PR for this1434 refutation under current workflows: its theorem has the negated posted type, while PR checks require posted type. Positive twin1433 alreadyexists upstream, so adding it as another one-file proof is not an available new proofPR. Preserve the compiled standalone refutation+local ACCEPTED(refute) output on the authorized fork branch before own-lease release, without representing it as an ordinary accepted1434 proof."
+  }
+}

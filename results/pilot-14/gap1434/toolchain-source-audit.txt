@@ -1,0 +1,25 @@
+Independent source audit: PASS; build and axiom check still pending.
+
+Original source:
+  lean/PEqualNP/Outside/L_meta_1433.lean
+  SHA256 dbd7100b0435f9be5d4d8985236d02bb94e0983d5bbb8d68dbc7349ceecaee20
+New source:
+  lean/PEqualNP/Outside/L_meta_1434.lean
+  SHA256 9b5eb61fe75dcbbbf3a6071d2cd4255a41f50ac58c5c320a7a6457749d1373a8
+
+Checked by direct string comparison:
+1. Posted1434 is exactly the negation of the final1433 theorem's type.
+2. The new auxiliary positive theorem has exactly the original positive type.
+3. Every source byte before the original final declaration is preserved after
+   replacing only the1433 namespace with the1434 auxiliary namespace.
+4. The final1434 theorem has exactly Not(posted1434) as its type.
+
+The positive proof still invokes the same solveWithMajority and bound_fee8e880
+proofs under their renamed namespace. The final refutation introduces the posted
+negative assertion and applies it to the checked positive proposition.
+
+Imports remain Mathlib and PEqualNP.Defs. A bounded raw source scan found none
+of the forbidden root-namespace marker, quotation marks, or attributes.
+
+No duplicate1433 build was launched. Refutation1434.lean is a separate scratch
+import/type/axiom check for the new1434 theorem, to be run only after its build.

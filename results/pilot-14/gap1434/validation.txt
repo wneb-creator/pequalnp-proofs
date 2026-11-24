@@ -1,0 +1,10 @@
+L-meta-1434 refutation of a stale negative search statement.
+Build: lake build +PEqualNP.Outside.L_meta_1434, exit 0.
+Local checker refute: pending.
+Source: copied accepted L-meta-1433 proof from upstream PR2928, with namespaced helpers and an exact negation wrapper; no new circuit result is claimed.
+The posted1434 statement is exactly Not(1433).
+Ordinary PR workflows require check mode; the positive twin1433 was already merged at2026-11-24T00:31:50Z. No invalid duplicatePR will be opened.
+SourceSHA256: 9b5eb61fe75dcbbbf3a6071d2cd4255a41f50ac58c5c320a7a6457749d1373a8
+Lines before cleanup:3721; cleanup pending.
+Sub-agents: counterexample, lower_bound, red_team, sat_proof, status_review, toolchain
+TIMING total=198 subagents=6
