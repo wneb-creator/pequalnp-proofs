@@ -12,3 +12,7 @@ results/orch/lemmas/FastBench.lean sha256=525bf94738228e3e82e842b6e3240b7f2ab40e
 results/orch/validation/fast-bench-build.log sha256=9b8f974e1f009de37297ee8f5225e29fda6b9a9315b620f14e017c129e4a221d bytes=2653
 results/orch/validation/fast-bench-stats.json sha256=b80eff515563e7c83582c61b69f7f2ae16f988d7970e852dedae1f5ce5b0f09c bytes=360
 results/orch/validation/variantF-native-batch.log sha256=ab76af52472230dc7f734640eecf6996d315655a250136ddd84c51c20644243f bytes=1546
+
+2026-11-24T23:04:02.589422+00:00 HeaderProbe.lean compileexit0 via lake env lean -j1 -M6000 --profile --json --root=/tmp/oec/pequalnp-pilot-44/finite-search -o /tmp/oec/pequalnp-pilot-44/finite-search/HeaderProbe.olean /tmp/oec/pequalnp-pilot-44/finite-search/HeaderProbe.lean withsameexplicitELAN_HOME,PATH,PEQUALNP_HOME,MATHLIB_CACHE_DIR andLEAN_PATHincludingfinite-search+sibling-search asFastBench. Headerarity+prelim isolatedkernel0.306s. FastGroupBench abortedexit143after91.38s,peak7771296KiB,first16statecombinedheader/bodyuncompleted; no128stategroupresult.
+
+HeaderSplitProbe.lean compileexit0: lake env lean -j1 -M6000 --profile --json --root=/tmp/oec/pequalnp-pilot-44/finite-search -o /tmp/oec/pequalnp-pilot-44/finite-search/HeaderSplitProbe.olean /tmp/oec/pequalnp-pilot-44/finite-search/HeaderSplitProbe.lean withsameenvironmentasHeaderProbe. Level11split16stateheader264ms+body3.68s;level12header219ms+body10.7s. Unsplitcombinedlevel11hadabortedafter91s/7.4GiB; differenceismaterial. Fullproofruntimeandmemorynotyetverified.

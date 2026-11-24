@@ -1,0 +1,23 @@
+import took 1.46s
+{"caption":"","data":"type checking took 218ms\n","endPos":null,"fileName":"/tmp/oec/pequalnp-pilot-44/finite-search/HeaderProbe.lean","isSilent":false,"keepFullRange":false,"kind":"[anonymous]","pos":{"column":0,"line":12},"severity":"information"}
+cumulative profiling times:
+	.olean serialization 1.04ms
+	attribute application 0.019ms
+	blocked (unaccounted) 4.82ms
+	declTypeLinter 1.16ms
+	elaboration 4.04ms
+	fix level params 0.0168ms
+	import 1.46s
+	initialization 24.6ms
+	instantiate metavars 0.0241ms
+	interpretation 140ms
+	let-to-have transformation 0.0279ms
+	linting 2.79ms
+	module linting 0.0486ms
+	parsing 0.553ms
+	process pre-definitions 0.356ms
+	share common exprs 0.0616ms
+	tactic execution 0.688ms
+	tacticAnalysis 0.739ms
+	type checking 306ms
+	typeclass inference 1.51ms
