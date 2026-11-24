@@ -1,0 +1,383 @@
+{
+  "full_2048_false_negative_count": 0,
+  "full_2048_false_positive_count": 22,
+  "boundary_false_negative_masks": [],
+  "boundary_false_positive_masks": [
+    526,
+    540,
+    582,
+    596,
+    1546
+  ],
+  "boundary_error_masks": [
+    526,
+    540,
+    582,
+    596,
+    1546
+  ],
+  "error_flip_influence": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    5,
+    5,
+    0,
+    0,
+    5,
+    5,
+    5,
+    5
+  ],
+  "live_gates": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "dead_gates": [
+    12
+  ],
+  "exact_target": false,
+  "all_positive_edges": true,
+  "suppression_impact": [
+    {
+      "gate": 0,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        1025,
+        1088
+      ],
+      "negative_gain": 0,
+      "positive_loss": 2
+    },
+    {
+      "gate": 1,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        1025,
+        1040,
+        1088
+      ],
+      "negative_gain": 0,
+      "positive_loss": 3
+    },
+    {
+      "gate": 2,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        1025,
+        1028,
+        1040,
+        1088
+      ],
+      "negative_gain": 0,
+      "positive_loss": 4
+    },
+    {
+      "gate": 3,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        1025,
+        1028,
+        1040,
+        1088
+      ],
+      "negative_gain": 0,
+      "positive_loss": 4
+    },
+    {
+      "gate": 4,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        18,
+        272
+      ],
+      "negative_gain": 0,
+      "positive_loss": 2
+    },
+    {
+      "gate": 5,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        18,
+        272
+      ],
+      "negative_gain": 0,
+      "positive_loss": 2
+    },
+    {
+      "gate": 6,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        136,
+        192
+      ],
+      "negative_gain": 0,
+      "positive_loss": 2
+    },
+    {
+      "gate": 7,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        136,
+        192
+      ],
+      "negative_gain": 0,
+      "positive_loss": 2
+    },
+    {
+      "gate": 8,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        258,
+        288
+      ],
+      "negative_gain": 0,
+      "positive_loss": 2
+    },
+    {
+      "gate": 9,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        258,
+        288
+      ],
+      "negative_gain": 0,
+      "positive_loss": 2
+    },
+    {
+      "gate": 10,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        72
+      ],
+      "negative_gain": 0,
+      "positive_loss": 1
+    },
+    {
+      "gate": 11,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        36
+      ],
+      "negative_gain": 0,
+      "positive_loss": 1
+    },
+    {
+      "gate": 12,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [],
+      "negative_gain": 0,
+      "positive_loss": 0
+    },
+    {
+      "gate": 13,
+      "fixed_false_positive_masks": [
+        526,
+        540,
+        582,
+        596,
+        1546
+      ],
+      "lost_positive_edge_masks": [
+        513,
+        544,
+        640,
+        768
+      ],
+      "negative_gain": 5,
+      "positive_loss": 4
+    },
+    {
+      "gate": 14,
+      "fixed_false_positive_masks": [
+        526,
+        540,
+        582,
+        596,
+        1546
+      ],
+      "lost_positive_edge_masks": [
+        513,
+        544,
+        640,
+        768
+      ],
+      "negative_gain": 5,
+      "positive_loss": 4
+    },
+    {
+      "gate": 15,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        1025,
+        1028,
+        72,
+        1040,
+        1088
+      ],
+      "negative_gain": 0,
+      "positive_loss": 5
+    },
+    {
+      "gate": 16,
+      "fixed_false_positive_masks": [],
+      "lost_positive_edge_masks": [
+        1025,
+        18,
+        1028,
+        72,
+        272,
+        1040,
+        1088
+      ],
+      "negative_gain": 0,
+      "positive_loss": 7
+    },
+    {
+      "gate": 17,
+      "fixed_false_positive_masks": [
+        526,
+        540,
+        582,
+        596,
+        1546
+      ],
+      "lost_positive_edge_masks": [
+        513,
+        258,
+        288,
+        544,
+        640,
+        768
+      ],
+      "negative_gain": 5,
+      "positive_loss": 6
+    },
+    {
+      "gate": 18,
+      "fixed_false_positive_masks": [
+        526,
+        540,
+        582,
+        596,
+        1546
+      ],
+      "lost_positive_edge_masks": [
+        513,
+        258,
+        36,
+        288,
+        544,
+        640,
+        768
+      ],
+      "negative_gain": 5,
+      "positive_loss": 7
+    },
+    {
+      "gate": 19,
+      "fixed_false_positive_masks": [
+        526,
+        540,
+        582,
+        596,
+        1546
+      ],
+      "lost_positive_edge_masks": [
+        513,
+        258,
+        36,
+        136,
+        288,
+        544,
+        192,
+        640,
+        768
+      ],
+      "negative_gain": 5,
+      "positive_loss": 9
+    },
+    {
+      "gate": 20,
+      "fixed_false_positive_masks": [
+        526,
+        540,
+        582,
+        596,
+        1546
+      ],
+      "lost_positive_edge_masks": [
+        513,
+        1025,
+        18,
+        258,
+        36,
+        1028,
+        72,
+        136,
+        272,
+        1040,
+        288,
+        544,
+        192,
+        1088,
+        640,
+        768
+      ],
+      "negative_gain": 5,
+      "positive_loss": 16
+    }
+  ],
+  "negative_repair_gate_order": [
+    13,
+    14,
+    17,
+    18,
+    19,
+    20,
+    12,
+    10,
+    11,
+    0,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    1,
+    2,
+    3,
+    15,
+    16
+  ],
+  "ranking_is_heuristic_not_a_soundness_constraint": true
+}

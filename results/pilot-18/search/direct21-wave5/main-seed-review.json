@@ -1,0 +1,33 @@
+{
+  "utc": "2026-11-24T04:36:25.967188+00:00",
+  "verdict": "PASS_MAIN_SCALAR_SEED_CONTROL_AND_REVIEWED_SOURCE_DIFF",
+  "pack_sha256": "90d8ddfed015eb49461188a8f10f07d84d3e46d938470ff840356aab551867bd",
+  "all_input_checks": 8192,
+  "source_diff_review": "Loader validates structural21slots and all2048 metadata; freshstart copiesseed withoutdeletion; legacyrandomorder/score/mutation/acceptance unchanged; wrappermandatory rawvalidator; inexactseednotaccepted",
+  "results": [
+    {
+      "seed": 0,
+      "all2048_formula_equal": true,
+      "fn": 0,
+      "fp": 51
+    },
+    {
+      "seed": 1,
+      "all2048_formula_equal": true,
+      "fn": 0,
+      "fp": 51
+    },
+    {
+      "seed": 2,
+      "all2048_formula_equal": true,
+      "fn": 0,
+      "fp": 51
+    },
+    {
+      "seed": 3,
+      "all2048_formula_equal": true,
+      "fn": 0,
+      "fp": 51
+    }
+  ]
+}

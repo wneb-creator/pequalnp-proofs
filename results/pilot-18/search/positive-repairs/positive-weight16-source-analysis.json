@@ -1,0 +1,75 @@
+{
+  "utc": "2026-11-24T03:50:55.940357+00:00",
+  "verdict": "SOURCE_CAPABILITY_CONFIRMED_NO_WORKER_LAUNCHED",
+  "source_hashes": {
+    "lean-setup/stochastic/circuit_anneal.cpp": "a82e670373e5f0048df004efbcb0f417949ce0255545c0767b647cb7207068b3",
+    "lean-setup/stochastic/circuit_anneal": "31620eae27eed733fe22f94965a215394e3fc6bd2a313f566335a3eb30dd4f00",
+    "lean-setup/stochastic/stochastic_tools.py": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+    "lean-setup/stochastic/seed-pack-ready/seeds.txt": "e65e3d1a9f6524b0e2cb6eab49042b87be412812e66d6239875b845572e41ba2"
+  },
+  "energy": "16*FN + FP + 0.02*live",
+  "boundary_rows": {
+    "positive": 16,
+    "negative": 24
+  },
+  "verified_properties": [
+    "Both source engine and wrapper explicitly allow integer weights 1..16.",
+    "No source or executable change is required for weight16.",
+    "All strict energy improvements are saved; engine-result stores the best score.",
+    "Both FN and FP zero trigger full2048 scalar checking and independent raw validator."
+  ],
+  "limitations": [
+    "Weight16 favors but does not enforce all-positive sources. Any all-positive source with at most15FP has lower score than every source with at least1FN because the live tie-break is at most0.42.",
+    "All-positive16FP is not strictly preferred over1FN0FP; 17..24FP can lose.",
+    "Only strict overall energy improvements are saved; an all-positive circuit need not be retained if a prior state has lower energy.",
+    "Higher weight does not prove better runtime or success; no effectiveness claim.",
+    "Never treat all-positive sources or local UNSAT as posted witnesses/refutations."
+  ],
+  "candidate_intake": {
+    "generator": "/tmp/oec/pequalnp-pilot-18/orch/S02/prepare_positive_repairs.py",
+    "sha256": "7552f3d344d4e34a6f681b116b5ec748e032b2000315dfc9527c77f8de2bdb6b",
+    "criteria": "21 augmented gates; strict acyclic structure; all16 edge rows and all1923 target-positive inputs accepted; 1..15 false-positive maximal-independent rows by default.",
+    "repair_modes": [
+      "Free-output exact-target distanceK2/K3, all gate descriptions editable with cardinality bound.",
+      "Free-output exact-target local3/5-hole repairs, ranked by forced-FALSE error influence."
+    ],
+    "all_target_constraints_preserved": true,
+    "original_seed_output_not_pinned": true,
+    "no_clean_or_junk_restrictions": true
+  },
+  "proposed_unlaunched_command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/stochastic_tools.py",
+    "run",
+    "--engine",
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/circuit_anneal",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/seed-pack-ready/seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/stochastic-positive-134224",
+    "--seed",
+    "134224",
+    "--seconds",
+    "60",
+    "--iterations",
+    "400000000",
+    "--restart",
+    "200000",
+    "--weight",
+    "16"
+  ],
+  "resource_note": "Coordinator schedules only; do not start while its chain certificate occupies spare CPUs.",
+  "prior_best_files_audit": {
+    "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/prior-best-positive-intake.json",
+    "sha256": "38daa05371c5a9a6aa5bf728dfd655f4c52d36b866088851ec541bb45a3ec1c1",
+    "count": 15,
+    "eligible_count": 3
+  },
+  "ready_real_seed_families_review": {
+    "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-real-families-review.json",
+    "sha256": "cd8be9195a74da16146175de85e5a53187c56100949570299fe5bbff5cf23e02",
+    "cases": 4,
+    "seed_function": "F_G OR x9, with an actual junk AND at gate14; source best3 all21live, best4 20live."
+  }
+}

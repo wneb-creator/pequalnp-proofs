@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-24T04:39:39.644507+00:00",
+  "status": "PASS_LOCAL_PACKAGING_AND_RECONSTRUCTION_PENDING_INDEPENDENT_DELIVERY_REVIEW",
+  "source_sha256": "5c37fd33c211dde826e89a3183692a8bb69cb836ca9a0710c12e86b8f4ade3b6",
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S06/charge-archive-v1",
+  "manifest_sha256": "149bcc57286b9f3af38f505c5deb407727ea303ef98534f670e6027e7c7f23ac",
+  "tar_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/charge-archive-v1.tar.gz",
+  "tar_sha256": "aeb918872f1a57b4ab4e3fb9afd48176dfe5022718b639063a4fd3f40d1ed0fd",
+  "tar_bytes": 3753740,
+  "tar_members": 694,
+  "manifest_files": 693,
+  "large_cnf_recipes": 55,
+  "all_tar_members_hash_bound": true,
+  "finished_AAOA_runs": 4,
+  "all_finished_runs_UNKNOWN": true,
+  "restore_exit_code": 0,
+  "restore_stdout_sha256": "a153c94527b38f56702f4cd827ba5532158a3b971da89a789c22f41bfbc8e7bf",
+  "restore_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "elapsed_seconds": 5.67871265299982,
+  "solver_checker_Lean_launch": false,
+  "read_running_directories": false
+}

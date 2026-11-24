@@ -63,7 +63,7 @@ SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 6 inherited-model agents, ultra effort: structural proof, SAT repairs, finite Lean certificates, CNF red-team review, solver performance, integration review
-TIMING total=233.6 subagents=6
+TIMING total=264.2 subagents=6
 
 Candidate neighborhoods: 144 independently reviewed formulas preserve prefixes
 of exact 22-gate cover constructions and search arbitrary shorter completions.
@@ -104,3 +104,13 @@ axiom audit exit0 (6.83s), permitted axioms only; full logs and source bindings
 are archived. Four equivalent schedules pass independent all2048-input checks.
 This is a bound22 partial result, not the posted bound21 theorem. The named
 module remains2069lines with the same hash; no cleanup or posted checker run.
+
+Research checkpoint around04:42UTC: six original agents were resumed after a
+brief tool-environment transition; no extra agents were spawned. Independent
+reviews passed ten stronger irrelevant-input constraint instances, a complete
+253excluded/262remaining classification within515 specified support families,
+and the direct21 inexact-seed candidate engine. Archived retained-proof runs
+T1throughT4 all ended UNKNOWN at600seconds; no exhaustion is claimed. Broader
+local repairs and strengthened searches are running. The new research packages
+preserve complete logs, code, exact hashes, and CNF reconstruction recipes.
+Named Lean source/build/axiom results remain unchanged; posted checker NOT RUN.

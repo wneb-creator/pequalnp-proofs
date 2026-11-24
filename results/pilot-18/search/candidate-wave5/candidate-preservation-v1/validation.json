@@ -1,0 +1,32 @@
+{
+  "verdict": "PASS_SELF_PACKAGING_EXACT_COPIES_FULL_LOGS_RECONSTRUCTION_AND_ARCHIVE_ROUNDTRIP",
+  "archive": "S02-candidates.tar.gz",
+  "archive_sha256": "cc2a5d6751aa0f817b4a831288481da5565e9170e023e78ee769da757d404889",
+  "archive_bytes": 631915,
+  "archive_regular_members": 181,
+  "manifest_sha256": "1ffd350b6f8aa243d77cc9043a39fe9e19464f29b535b1fe3e1a3c14f157c2fd",
+  "sealing_source_sha256": "81840722c3daef2e263a025304abd42e0f9869c4ffd329eb33f4ba5a11946523",
+  "exact_source_copies": 150,
+  "embedded_full_file_checks": {
+    "positive-repairs/full-results.json": 6,
+    "dirty22-window-repairs/full-results.json": 14,
+    "positive-repairs/controls-full-results.json": 32
+  },
+  "reconstruction_files": 68,
+  "reconstruction_CNF_files": 28,
+  "reconstruction_commands_exit0": 8,
+  "reconstruction_validation_sha256": "3756a843f986521887ffff3460744dd87e3f27b3d4d37fcd96536b9c1d8cc9ca",
+  "credential_value_indicators": 0,
+  "lease_value_indicators": 0,
+  "raw_CNF_members": 0,
+  "outcomes": {
+    "positive_K3_UNKNOWN": 2,
+    "positive_local5_not_run": 2,
+    "dirty22_UNSAT_UNCERTIFIED": 6,
+    "factor_cases_retired_unrun": 18
+  },
+  "blocking_findings": [],
+  "scope": "Main independent review required before preservation push. No global/shard UNSAT, exact21 witness or Lean acceptance.",
+  "solver_launched": false,
+  "repository_changed": false
+}

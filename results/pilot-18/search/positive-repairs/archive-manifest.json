@@ -1,0 +1,251 @@
+{
+  "scope": "Research artifact preservation only; no exact21 witness, posted acceptance or exhaustion claim.",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "c4e695b52339c0e40aff93a58aff1738bcff286892580c39942979606d7cbf67",
+      "bytes": 2611
+    },
+    {
+      "path": "audit_positive_repairs.py",
+      "sha256": "4f04633828de9f670ecc8caf7eae9a154e0d51f05e076805229049252b67e932",
+      "bytes": 10209
+    },
+    {
+      "path": "controls-full-results.json",
+      "sha256": "1028e6406f8352a9ca83ea49fa735f94fcd81aaf82f186e917965abb91ac0a3b",
+      "bytes": 348608
+    },
+    {
+      "path": "dependencies/lean-setup/audit_cover_neighborhoods.py",
+      "sha256": "c95bedc59ed0f48eea883144c6b99c74a8ad5d5942f2ba5a91d8d6843280d90c",
+      "bytes": 10890
+    },
+    {
+      "path": "dependencies/lean-setup/cover-neighborhood-controls/reproduced/c0000-k08.baseline22.json",
+      "sha256": "c4c1231febb62b233061508443a43b917cf7bfb0cb08eb3d494902e26e2a7469",
+      "bytes": 2182
+    },
+    {
+      "path": "dependencies/lean-setup/generate_distance_repairs.py",
+      "sha256": "39e65cae78a5bd8dd6417cf1132fb77187867d6765f20d62e10fd51bcedc9da1",
+      "bytes": 5330
+    },
+    {
+      "path": "dependencies/lean-setup/generate_local_repairs.py",
+      "sha256": "857f7082cb81bda879891aba76a84e59f0a1b030f6c6c0eccf08f507cf96cd97",
+      "bytes": 10481
+    },
+    {
+      "path": "dependencies/lean-setup/validate_sat_candidate.py",
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+      "bytes": 22665
+    },
+    {
+      "path": "dependencies/orch/S02/generate_rescheduled_repairs.py",
+      "sha256": "9276816606eb7ab1738b277bcf4c34f128b63e5158a23d54debbaadfaf88fd8c",
+      "bytes": 9647
+    },
+    {
+      "path": "dependencies/search_l1342_shard17_ancestorreverse.py",
+      "sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+      "bytes": 30356
+    },
+    {
+      "path": "dependencies/stochastic-candidate-134218/engine-result.json",
+      "sha256": "3f7e31aa55a515196f4fd7f08905e0a2b08561ab09e6c93a93ae5bc6d202d813",
+      "bytes": 801
+    },
+    {
+      "path": "dependencies/validate_raw_candidate.py",
+      "sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+      "bytes": 4085
+    },
+    {
+      "path": "dirty22-positive-launch.json",
+      "sha256": "8f5f611c742894531ffa163709afcf852617c7f5009f1bef2121e7998d0355f5",
+      "bytes": 972
+    },
+    {
+      "path": "families/positive-best3-family/distance-k03.json",
+      "sha256": "06d0342a0e29d1c6e483b25b8c7fd15140c707f47062468593f18a499916f58d",
+      "bytes": 21841
+    },
+    {
+      "path": "families/positive-best3-family/family.json",
+      "sha256": "3c8c8e1bef9c9a6cdc1235badda13447de1dbe4fd6a038d5346f0ab69b717455",
+      "bytes": 1600
+    },
+    {
+      "path": "families/positive-best3-family/negative-free05.json",
+      "sha256": "e0f9930e2e6272050dbe17a0dc65224dfe57cb5282afe214e43fb504d651d8d7",
+      "bytes": 21102
+    },
+    {
+      "path": "families/positive-best3-family/source-summary.json",
+      "sha256": "e687e26cb1865a36d9a0a8c97e3541c789da9b1904c793127303dff67a2efb8e",
+      "bytes": 6103
+    },
+    {
+      "path": "families/positive-best3-family/source.json",
+      "sha256": "a536e70248fe8a12de358e887fc9b913f64b08f462d4f35843da14f93460d6c7",
+      "bytes": 819
+    },
+    {
+      "path": "families/positive-best4-family/distance-k03.json",
+      "sha256": "a871b9528ba65759519a30d34e52f96b9ebd352120b7746d5a74f3a47ffec5f3",
+      "bytes": 21840
+    },
+    {
+      "path": "families/positive-best4-family/family.json",
+      "sha256": "80a802da982798119dcf946b00969269f23c85cde9694600e3ceb1b5cc6aea3b",
+      "bytes": 1600
+    },
+    {
+      "path": "families/positive-best4-family/negative-free05.json",
+      "sha256": "4761b88752b4ab3be783a2879ee6e7b6def07b513b119d8dacdf569b54f80e42",
+      "bytes": 21102
+    },
+    {
+      "path": "families/positive-best4-family/source-summary.json",
+      "sha256": "d664476cd82864171e9135ab4be484b441a6d555bef8e2a474611a48f908f99a",
+      "bytes": 6028
+    },
+    {
+      "path": "families/positive-best4-family/source.json",
+      "sha256": "0b42692c78f217f07439194fe726a04553777014a2dc6b9b299d8b759ca479af",
+      "bytes": 818
+    },
+    {
+      "path": "full-results.json",
+      "sha256": "c3b989647f160bebd2f5966bece24482fd35ce75c2631e3d84e89c005dbbafbf",
+      "bytes": 66813
+    },
+    {
+      "path": "historical-handoff.json",
+      "sha256": "a08d07a4e6a3b4abebe1a1a90bae0b36acabdd9fbb6ea3fd18cc6b4599d7f576",
+      "bytes": 5783
+    },
+    {
+      "path": "historical-preparation.md",
+      "sha256": "83cd432280f6811597025e12e991dba21e98dc260828811f8fd153b8ae96d3c5",
+      "bytes": 4977
+    },
+    {
+      "path": "main-positive-review.json",
+      "sha256": "11eac2d56f2f9110db39394dc658358aa16428daaa6a76d94cd6fba97b5e9f0e",
+      "bytes": 1264
+    },
+    {
+      "path": "positive-audit.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "positive-audit.stdout.txt",
+      "sha256": "bc024767995fa143e2d41175c6d6e574c36e3104f209a79bec0a6ac4d1bef8c4",
+      "bytes": 246
+    },
+    {
+      "path": "positive-controller-review.json",
+      "sha256": "fafffa54059b236a23939116175927ea1088bd2349226304a8ef0c2cca62015a",
+      "bytes": 4311
+    },
+    {
+      "path": "positive-controller-reviewed.diff",
+      "sha256": "a6b56c900fcf79bd77efaba91ee56588e996a826062f4f9890c2b3dd622140bc",
+      "bytes": 3356
+    },
+    {
+      "path": "positive-help.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "positive-help.stdout.txt",
+      "sha256": "014efc596ce4f3451075e6261812939bd4f3aa2637c2c2a24b3e72cfae512c82",
+      "bytes": 887
+    },
+    {
+      "path": "positive-pilot.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "positive-pilot.stdout",
+      "sha256": "5bfd87e8b046d90c21a59c544a419042eeeb365df3a25886432a8b51aedcd327",
+      "bytes": 210
+    },
+    {
+      "path": "positive-real-families-review.json",
+      "sha256": "cd8be9195a74da16146175de85e5a53187c56100949570299fe5bbff5cf23e02",
+      "bytes": 4193
+    },
+    {
+      "path": "positive-repairs-review.json",
+      "sha256": "667dfab9773d414fa6603472f8678e0b0c2807c6f11f4fba5a916c4e84e3673d",
+      "bytes": 2435
+    },
+    {
+      "path": "positive-weight16-source-analysis.json",
+      "sha256": "0ec2d3cdca5c15141a31e0eb2943c2db2d8c0e26c262bd5d133052bb1004e341",
+      "bytes": 3664
+    },
+    {
+      "path": "prepare_positive_repairs.py",
+      "sha256": "7552f3d344d4e34a6f681b116b5ec748e032b2000315dfc9527c77f8de2bdb6b",
+      "bytes": 8253
+    },
+    {
+      "path": "prior-best-positive-intake.json",
+      "sha256": "38daa05371c5a9a6aa5bf728dfd655f4c52d36b866088851ec541bb45a3ec1c1",
+      "bytes": 5006
+    },
+    {
+      "path": "reconstruct.py",
+      "sha256": "ebae49416144b62ff0243c9cab78074161d6c5a32b616ced2119a41a25ff81c5",
+      "bytes": 3458
+    },
+    {
+      "path": "reconstruction-controls.json",
+      "sha256": "9e032dd73443c53aa4b652be148d59f09770d7c617f3ab8ecf3f3832f902a0b3",
+      "bytes": 2003
+    },
+    {
+      "path": "reconstruction-validation.json",
+      "sha256": "68023e468777462175a482e28f53fe5fdc5b78db70d175202f0aa620dd2a19f7",
+      "bytes": 2485
+    },
+    {
+      "path": "reconstruction.json",
+      "sha256": "029f3598ef70d9ea2bf41723a116a022888f041167b73c94b6ec235681bd6ca1",
+      "bytes": 5139
+    },
+    {
+      "path": "reconstruction.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "reconstruction.stdout.txt",
+      "sha256": "e14ddb6f0fdfa23793ae202f370ab8598cf0fd6567a796ae0869b44584ebe88b",
+      "bytes": 134
+    },
+    {
+      "path": "run_positive_candidate_pilot.py",
+      "sha256": "bcd50a96f66084e2c5473a348bac27ff9ce13f7fe73d33df4a2c72bb31bc7c36",
+      "bytes": 5327
+    },
+    {
+      "path": "seeds/engine-result.json.best-3.json",
+      "sha256": "a536e70248fe8a12de358e887fc9b913f64b08f462d4f35843da14f93460d6c7",
+      "bytes": 819
+    },
+    {
+      "path": "seeds/engine-result.json.best-4.json",
+      "sha256": "0b42692c78f217f07439194fe726a04553777014a2dc6b9b299d8b759ca479af",
+      "bytes": 818
+    }
+  ],
+  "raw_CNF_files": 0
+}

@@ -1,0 +1,37 @@
+{
+  "status": "PASS_EXACT_RECONSTRUCTION_AND_NEGATIVE_CONTROLS",
+  "source_sha256": "ebae49416144b62ff0243c9cab78074161d6c5a32b616ced2119a41a25ff81c5",
+  "exact_reconstruction_files": 14,
+  "tests": [
+    {
+      "test": "existing-output",
+      "exit_code": 1,
+      "expected_rejection": true
+    },
+    {
+      "test": "bad-source-hash",
+      "exit_code": 1,
+      "expected_rejection": true,
+      "output_created": false
+    }
+  ],
+  "solver_launched": false,
+  "full_negative_logs": {
+    "bad-source-hash.stderr": {
+      "sha256": "2053b2a2b945f986f19d040a6b5e56cf785329d4fc3a656a63c29cfc1e2e78cd",
+      "content": "Traceback (most recent call last):\n  File \"/tmp/oec/pequalnp-pilot-18/orch/S02/positive-reconstruction-controls/bad-hash-package/reconstruct.py\", line 78, in <module>\n    reconstruct(parser.parse_args().output)\n  File \"/tmp/oec/pequalnp-pilot-18/orch/S02/positive-reconstruction-controls/bad-hash-package/reconstruct.py\", line 38, in reconstruct\n    raise ValueError('Archived source hash mismatch')\nValueError: Archived source hash mismatch\n"
+    },
+    "existing-output.stderr": {
+      "sha256": "599330c528344d63fc68563a0220d4c56d35a675df2e10023d22188df279cb87",
+      "content": "Traceback (most recent call last):\n  File \"/workspace/pequalnp-proofs/results/pilot-18/search/positive-repairs/reconstruct.py\", line 78, in <module>\n    reconstruct(parser.parse_args().output)\n  File \"/workspace/pequalnp-proofs/results/pilot-18/search/positive-repairs/reconstruct.py\", line 32, in reconstruct\n    raise ValueError('Output must be a fresh directory inside the named scratch root')\nValueError: Output must be a fresh directory inside the named scratch root\n"
+    },
+    "bad-source-hash.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content": ""
+    },
+    "existing-output.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content": ""
+    }
+  }
+}

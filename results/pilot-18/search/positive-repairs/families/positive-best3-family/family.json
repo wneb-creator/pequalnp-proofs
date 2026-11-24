@@ -1,0 +1,45 @@
+{
+  "kind": "candidate_only_all_positive_negative_error_repairs",
+  "complete": true,
+  "analysis_only": false,
+  "source_sha256": "a536e70248fe8a12de358e887fc9b913f64b08f462d4f35843da14f93460d6c7",
+  "source_summary_sha256": "e687e26cb1865a36d9a0a8c97e3541c789da9b1904c793127303dff67a2efb8e",
+  "program_sha256": "7552f3d344d4e34a6f681b116b5ec748e032b2000315dfc9527c77f8de2bdb6b",
+  "free_output_helper_sha256": "9276816606eb7ab1738b277bcf4c34f128b63e5158a23d54debbaadfaf88fd8c",
+  "distance_helper_sha256": "39e65cae78a5bd8dd6417cf1132fb77187867d6765f20d62e10fd51bcedc9da1",
+  "local_helper_sha256": "857f7082cb81bda879891aba76a84e59f0a1b030f6c6c0eccf08f507cf96cd97",
+  "base_generator_sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+  "assigned_shard_exhaustion": false,
+  "output_selection_free": true,
+  "budgets": [
+    3
+  ],
+  "local_counts": [
+    5
+  ],
+  "max_false_positive_rows": 15,
+  "cases": [
+    {
+      "case": "distance-k03",
+      "budget": 3,
+      "variables": 5125,
+      "clauses": 84351,
+      "cnf_sha256": "23873a0bda528a61966b0c50e47b84fb9309edcb524eb520d16795cdb2bac1ec",
+      "metadata_sha256": "06d0342a0e29d1c6e483b25b8c7fd15140c707f47062468593f18a499916f58d"
+    },
+    {
+      "case": "negative-free05",
+      "free_gates": [
+        13,
+        14,
+        17,
+        18,
+        19
+      ],
+      "variables": 5045,
+      "clauses": 84065,
+      "cnf_sha256": "caab0679009375b1696c4eed929fdc68c709b72062b1c0bead91c79d691f3c76",
+      "metadata_sha256": "e0f9930e2e6272050dbe17a0dc65224dfe57cb5282afe214e43fb504d651d8d7"
+    }
+  ]
+}

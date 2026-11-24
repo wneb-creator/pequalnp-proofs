@@ -1,0 +1,41 @@
+{
+  "started": "2026-11-24T04:07:42.203729+00:00",
+  "pause_watchdog": 26352,
+  "programs": [
+    {
+      "name": "dirty22-anneal",
+      "pid": 26353,
+      "command": [
+        "python",
+        "-B",
+        "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/stochastic_tools.py",
+        "run",
+        "--engine",
+        "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/circuit_anneal",
+        "--pack",
+        "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-seed-pack/seeds.txt",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134222",
+        "--seed",
+        "134222",
+        "--seconds",
+        "290",
+        "--iterations",
+        "2000000000",
+        "--restart",
+        "200000",
+        "--weight",
+        "2"
+      ]
+    },
+    {
+      "name": "positive-pilot",
+      "pid": 26354,
+      "command": [
+        "python",
+        "-B",
+        "/tmp/oec/pequalnp-pilot-18/run_positive_candidate_pilot.py"
+      ]
+    }
+  ]
+}

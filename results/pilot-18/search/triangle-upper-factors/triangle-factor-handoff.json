@@ -1,0 +1,195 @@
+{
+  "utc": "2026-11-24T04:03:59.255084+00:00",
+  "status": "READY_FOR_MAIN_INDEPENDENT_REVIEW_NO_SOLVER_LAUNCHED",
+  "generator_sha256": "e24f9c066ab8a37fa9dbe0d028acb594b8d6d8bc83e9f482fd62e8a390920538",
+  "review_sha256": "006965e4cedc6bc6264b56b52df76ae97dd5893837713a62d04766a3db13deeb",
+  "case_count": 12,
+  "cost_feasible_case_count": 6,
+  "priority_cases": [
+    "tri-1-4-8-order-4-1-8",
+    "tri-1-4-8-order-4-8-1",
+    "tri-1-4-8-order-8-1-4",
+    "tri-1-4-8-order-8-4-1",
+    "tri-3-6-7-order-6-7-3",
+    "tri-3-6-7-order-7-6-3"
+  ],
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/generate_triangle_factors.py",
+      "sha256": "e24f9c066ab8a37fa9dbe0d028acb594b8d6d8bc83e9f482fd62e8a390920538",
+      "bytes": 8711
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/audit_triangle_factors.py",
+      "sha256": "0dcc892aab13a22096e953ee37a30e0fe8b0793ddfaa2e44af11d3b3d64b648d",
+      "bytes": 9095
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-factor-review.json",
+      "sha256": "006965e4cedc6bc6264b56b52df76ae97dd5893837713a62d04766a3db13deeb",
+      "bytes": 5473
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/TRIANGLE-FACTORS.md",
+      "sha256": "e068a8e3dbf30519e3467df42ddbd66600df91ada79c1592128956afb641f834",
+      "bytes": 4687
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-help.stdout.txt",
+      "sha256": "87d9e4562ff6afd7ae34752dff6f4e9ff9b460f87f200859943aa4eb7875d458",
+      "bytes": 407
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-help.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-generation.stdout.txt",
+      "sha256": "6e22cb0cae2c3fdce34f97c544b1408d4fac729bac139b8a5574183355b5b1bf",
+      "bytes": 199
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-generation.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-audit.stdout.txt",
+      "sha256": "6f9f638a7d21385b1f83e35aaf32dbc1e99349dfb324f0c7b540e7c5f7371d51",
+      "bytes": 326
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-audit.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/family.json",
+      "sha256": "be2632ca05664313c19becd3f11e7525d827ddb133400e89a27dd1762beba9ad",
+      "bytes": 9997
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-1-4-8.cnf",
+      "sha256": "5fc8c0bc3857b0e087b4f6815aa1f0602f796f5afb51caeca1a7573486347f9e",
+      "bytes": 1966119
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-1-4-8.json",
+      "sha256": "2d92563b906cac02d6076113518a37de88a8f02b8c4a4ab906f36a2c26c22b93",
+      "bytes": 144410
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-1-8-4.cnf",
+      "sha256": "55a33d7a82c7dd0296546a427601c4be18f8d4e0ed2065ad08fd5a763528849e",
+      "bytes": 1966119
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-1-8-4.json",
+      "sha256": "2414ecbc344cadb96cbddaa94567c3e35589bfc8cb5a1ba71b1be8ba8e28c652",
+      "bytes": 144410
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-4-1-8.cnf",
+      "sha256": "9fb9a42e2a0fc643c41f04d4e19bf451cfe028e5d40e90cac63333058f276a3e",
+      "bytes": 1966119
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-4-1-8.json",
+      "sha256": "544b42c0780ff26e9ab736facccf948d668c3b91f8de3cc7f747b728a7b82c2e",
+      "bytes": 144408
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-4-8-1.cnf",
+      "sha256": "09d85db1ebd01e1658151d19a118ccd71551a112f7dd02af0ad7f4bfe7220d0d",
+      "bytes": 1966119
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-4-8-1.json",
+      "sha256": "69638c7f332bced709c669b50aa6fae4cca01f682d64470b12c486766822df9c",
+      "bytes": 144408
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-8-1-4.cnf",
+      "sha256": "4b1a31efbc6090eaa5bea12fbb302d76fbab6df814ef6b32a4d3c64b6bb00b78",
+      "bytes": 1966119
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-8-1-4.json",
+      "sha256": "1e357878addae7861863e2f27d1597d5179f9cd629c99e43bc65f752e673a600",
+      "bytes": 144408
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-8-4-1.cnf",
+      "sha256": "d81ee09eeee17067e368136d1151475eb2b7fe7638c63fac06e64b20d98c69cd",
+      "bytes": 1966119
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-8-4-1.json",
+      "sha256": "be5d4a68ac294be1637d1d7bc758944adc7f5c1432d7c98745ed44274c4265f2",
+      "bytes": 144408
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-3-6-7.cnf",
+      "sha256": "46c3386df563a9238012215f6c6a6717ddd61442e373b353d3fd2209146362f8",
+      "bytes": 1966120
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-3-6-7.json",
+      "sha256": "a769571f1534c7783d12b6c6f19cb26e8c9228150d1113d6877684e18b347d7c",
+      "bytes": 144584
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-3-7-6.cnf",
+      "sha256": "ab58fb4ce5c8469b53fc694a6aeb2ed1d7a526c891091a8c3627d75b924c1abc",
+      "bytes": 1966120
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-3-7-6.json",
+      "sha256": "eb395101644733885f051907c8b5c0fe00fe6364ac6dab5d6cb810878a111483",
+      "bytes": 144584
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-6-3-7.cnf",
+      "sha256": "d8ea3b13f4ae188dae142d1ff989b97a9211821389d55a72d2f44a860d493c82",
+      "bytes": 1966120
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-6-3-7.json",
+      "sha256": "95995b94f5c71bf16781f995d9095c240c959f8289d91aa90fa556dee2f1e5cf",
+      "bytes": 144584
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-6-7-3.cnf",
+      "sha256": "36e85d554fdc9786f975163f54e6c144c3a976c57d261b9f839cc990ff22e2fa",
+      "bytes": 1966120
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-6-7-3.json",
+      "sha256": "d10ff5c48b4a5d2d416d1285bc5c0f1b7dc7f0428614052c1a17291736868d41",
+      "bytes": 144582
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-7-3-6.cnf",
+      "sha256": "c1873d728c7d5522573e854d920c49131328824711408a3c028bfe4b47aab5d1",
+      "bytes": 1966120
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-7-3-6.json",
+      "sha256": "beb72f95e0c16f6bb31f8368d2ee98d887635dd8e2dbd0c8a7c5e3fcf98f0bef",
+      "bytes": 144584
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-7-6-3.cnf",
+      "sha256": "13cdbb52daf5ffe5c2285711a5e3413090d7bf39533d94d9ba4e1a5b1e6774df",
+      "bytes": 1966120
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-7-6-3.json",
+      "sha256": "b4122e22796330d9177bc067b0c4bdf2dced428fb7f0aaf612ef679ec2e7ff77",
+      "bytes": 144582
+    }
+  ],
+  "scope": "Candidate-only exact upper-factor pins; no completeness/WLOG claim for last-three outputs or this family.",
+  "Sub-agents": "none"
+}

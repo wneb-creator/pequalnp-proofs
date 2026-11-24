@@ -1,0 +1,76 @@
+{
+  "status": "PASS_EXACT_RECONSTRUCTION",
+  "files": [
+    {
+      "family": "positive-best3-family",
+      "file": "distance-k03.cnf",
+      "sha256": "23873a0bda528a61966b0c50e47b84fb9309edcb524eb520d16795cdb2bac1ec"
+    },
+    {
+      "family": "positive-best3-family",
+      "file": "distance-k03.json",
+      "sha256": "06d0342a0e29d1c6e483b25b8c7fd15140c707f47062468593f18a499916f58d"
+    },
+    {
+      "family": "positive-best3-family",
+      "file": "family.json",
+      "sha256": "3c8c8e1bef9c9a6cdc1235badda13447de1dbe4fd6a038d5346f0ab69b717455"
+    },
+    {
+      "family": "positive-best3-family",
+      "file": "negative-free05.cnf",
+      "sha256": "caab0679009375b1696c4eed929fdc68c709b72062b1c0bead91c79d691f3c76"
+    },
+    {
+      "family": "positive-best3-family",
+      "file": "negative-free05.json",
+      "sha256": "e0f9930e2e6272050dbe17a0dc65224dfe57cb5282afe214e43fb504d651d8d7"
+    },
+    {
+      "family": "positive-best3-family",
+      "file": "source-summary.json",
+      "sha256": "e687e26cb1865a36d9a0a8c97e3541c789da9b1904c793127303dff67a2efb8e"
+    },
+    {
+      "family": "positive-best3-family",
+      "file": "source.json",
+      "sha256": "a536e70248fe8a12de358e887fc9b913f64b08f462d4f35843da14f93460d6c7"
+    },
+    {
+      "family": "positive-best4-family",
+      "file": "distance-k03.cnf",
+      "sha256": "2cbe3c35cdf1a688acb8186dbf9d104d5d889f66ec64b1717b398fb03ef5a213"
+    },
+    {
+      "family": "positive-best4-family",
+      "file": "distance-k03.json",
+      "sha256": "a871b9528ba65759519a30d34e52f96b9ebd352120b7746d5a74f3a47ffec5f3"
+    },
+    {
+      "family": "positive-best4-family",
+      "file": "family.json",
+      "sha256": "80a802da982798119dcf946b00969269f23c85cde9694600e3ceb1b5cc6aea3b"
+    },
+    {
+      "family": "positive-best4-family",
+      "file": "negative-free05.cnf",
+      "sha256": "caab0679009375b1696c4eed929fdc68c709b72062b1c0bead91c79d691f3c76"
+    },
+    {
+      "family": "positive-best4-family",
+      "file": "negative-free05.json",
+      "sha256": "4761b88752b4ab3be783a2879ee6e7b6def07b513b119d8dacdf569b54f80e42"
+    },
+    {
+      "family": "positive-best4-family",
+      "file": "source-summary.json",
+      "sha256": "d664476cd82864171e9135ab4be484b441a6d555bef8e2a474611a48f908f99a"
+    },
+    {
+      "family": "positive-best4-family",
+      "file": "source.json",
+      "sha256": "0b42692c78f217f07439194fe726a04553777014a2dc6b9b299d8b759ca479af"
+    }
+  ],
+  "solver_launched": false
+}

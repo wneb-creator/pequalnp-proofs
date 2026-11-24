@@ -119,3 +119,587 @@ The normalized file is the original body plus exactly unit3243, with 11968 varia
 All sixteen Boolean operation assignments were checked: AND17, AND18, and at least three suffix ANDs give exactly these three disjoint cases. Parent-clause preservation is byte exact. Independent review JSON `orch/S04/j18-delta-review.json` SHA `a12ddf32ac70dc5a84f50982bbd7c76b56a6a27b262c937c8ac4cb110c58a599` records all metadata hashes and exact added clauses; complete logs are `j18-delta.stdout.log` / `j18-delta.stderr.log` (empty stderr, exit0). Source `review_j18_delta.py` is retained separately from S01's self-audit. The latter's new source and `encoding-validation.json` agree on all four scoped artifacts.
 
 The metadata's pending-review wording predates this external hash-bound PASS. Keep this review attached rather than treating that wording as a mathematical failure. `AAAA-chain` and `AAAO-chain` remain outside this review. No solver or existing input was modified. Authorized S07 restriction work is reported separately in `S07-restriction.md`.
+
+## Extension at 03:48 UTC: AAAA/AAAO chains PASS
+
+This subsequent review extends the earlier scope to both v2 chain variants. **PASS for the mathematical existence normalizations and exact CNF deltas**, with the degenerate-final-OR repair stated below. No solver or new Lean run was made by S04.
+
+For AAAA, the four live AND gates have at most five external prefix-wire occurrences: among their eight input ports, at least three read suffix gates. Associativity and idempotence express the output as their product. Choose an inclusion-minimal subfamily Q whose product is clean on independent inputs. Removing factors increases the function, while cleanliness bounds the result above by F; hence its product remains exactly F. The empty family is not clean. A one-factor family would give F in the clean prefix, and a two-factor family would add only one clean AND. The clean bound22 excludes both, so 3<=|Q|<=5.
+
+Each retained factor has a private independent witness where all other Q factors are TRUE and it is FALSE. A witness extends to a maximal independent input: the other factors remain TRUE by monotonicity, and the missing factor must remain FALSE because the whole product is clean. Thus the existing 24 negative rows suffice. Distinct retained factors have distinct negative-row functions; no TRUE-like factor is retained.
+
+Sort Q by wire index and repeat its least index until there are five leaf occurrences. The chain's first three AND outputs all omit its greatest retained factor. The same private negative row makes all three outputs TRUE, giving junk17,junk18,junk19. The last output is F. The construction supplies the canonical patterns stated by S01. The implemented inequalities `a<=b<=c<d<e` also admit `a<b=c<d<e`; that additional pattern only weakens the restriction and is safe.
+
+For AAAO, live g19 feeds the final clean OR and is clean. Gate18 must be the second junk AND. Dirty g17/g18 cannot feed the final OR directly, so all three suffix ANDs reach g19 and their branch has at most four external factors. **One omitted case in the original prose needs repair:** the final OR may be `OR(g19,g19)`. Replace this by `OR(FALSE,g19)`, using existing free-FALSE source11. The function and all four suffix gates' liveness are unchanged; the actual chain CNF already permits this value of P. Otherwise the final OR's other operand is directly a clean prefix wire P.
+
+Choose a minimal clean factor subfamily for g19. Its product may be larger than old g19, but remains below F, and `P OR product(Q)` remains F. A one-factor family would yield a clean circuit with at most18 gates; a two-factor family would yield at most19. Hence |Q| is3 or4. Sort it, repeat the least factor if needed, and use the four-factor chain. The private negative witness for its greatest factor makes g17/g18 dirty and g19 clean. P stays clean. This uses only clean22, not a one-junk or arbitrary-circuit22 bound.
+
+**Joint prefix composition:** first prune discarded dependencies and stabilize the prefix core under all reviewed rewrites. Negative functions of every retained factor and P are unchanged; factor minimality and the private witnesses survive. An alias cannot identify two retained Q factors, since their negative functions are distinct. In AAAO it also cannot identify P with a Q factor: P is clean and each Q factor is dirty. If padding is needed, the highest live core gate is a selected factor or P. Attach the final OR-copy chain there and redirect its selected role through the chain endpoint. Then re-sort the retained Q representatives and rebuild the suffix chain, repeating the new least representative as required. Redirect every repeated occurrence of that representative consistently. This preserves padding liveness and avoids claiming that the old sorted occurrence list remains sorted after renumbering. Core lex order and all prefix cuts survive as in the earlier audit; recompute the auxiliary assignments.
+
+The independent exact-delta reconstruction found:
+
+| Case | CNF SHA-256 | Clauses | Added to original |
+|---|---|---:|---:|
+| AAAA-chain | `41995c72708a950daa154eb3dfa50447b4a4f6ce6199082f14a28a8cfdda1730` |116381|1815|
+| AAAO-chain | `a8e94b6cfeaafb8b6c4e01d33e6f552a984e395d224dc3d6281d99cc49850753` |115946|1380|
+
+Both retain11968 variables and every original body byte. Their deltas are J18 plus four operation units, three predecessor-right-port units, six prohibitions on suffix-valued left ports, the signed J19 unit, and the stated sorted-leaf clauses. The latter contribute1800 or1365 clauses. AAAA forces J19; AAAO forces its negation. The final AAAO left port remains an arbitrary prefix source, including FALSE. All source, parent, family and metadata hashes match.
+
+Controls checked6300 leaf-order assignments and1038 factor-permutation/padding configurations on27696 Boolean rows, including padding a factor, padding P and no padding. These controls verify the local normal form; the mathematical argument supplies the general existence implication. Review `orch/S04/chain-review.json` SHA `299f6bdc23ac20e8f9b54cae7eb3a787c1aacf951ab08b8314be212c67f1472d`; source `review_chain_variants.py` SHA `c0059c6e170b5ff5a8c3c55ca82ba5bd8e0148bbccb4e5f5fa972f15a3e15345`; complete logs `chain-review.stdout.log` and `.stderr.log` (empty stderr, exit0). Main received the PASS before launching its new chain run. These remain fresh normalization targets, not implied clauses of the unchanged original CNF.
+
+## Extension at 03:50 UTC: four AAOA forms plus AAAA fallback PASS
+
+**PASS for S01's mathematical coverage and permitted leaf symmetries.** No newly generated AAOA-template CNF is covered by this verdict yet. Four template UNSAT results alone do not exclude every original AAOA circuit: the absorbed cases move to AAAA and require that fallback as well.
+
+Write D=g17, J=g18, O=g19. D/J are dirty ANDs, O is OR, and the final output is `O AND R`. Liveness forces O into the output. R cannot be O: J would reach O through only an OR and make the output dirty. Thus R is a prefix wire, D or J. J either is `D AND C`, with C prefix or D, or is an independent prefix pair.
+
+The following case review covers every available operand, including repeated operands and constants:
+
+| Final R | J shape | Result |
+|---|---|---|
+| Prefix | D AND C | J must feed O. A prefix other OR operand gives T1. Other operand D or J absorbs the OR and gives the AAAA fallback. If C=D, repeat one prefix factor of D to represent the same product. |
+| Prefix | Independent pair | D must be O's other operand, giving T2. |
+| D | D AND C | Actually impossible: J<=D and liveness gives J<=O, hence J<=F, contradicting dirty J. S01's extra rewrite branch is harmless but unreachable. |
+| D | Independent pair | J must feed O. Other operand D is impossible; J gives an absorbed conjunction/AAAA; a prefix wire gives T3. |
+| J | D AND C | O cannot read D or J, since either would make the output J dirty. O has two prefix operands, giving T4, including a repeated factor when J=D. |
+| J | Independent pair | D must feed O. Other operand J is impossible; D gives AAAA; a prefix wire gives T3 after swapping the independent dirty pairs into their required outer/inner roles. |
+
+The reviewed schedules are exactly:
+
+| Form | g17 | g18 | g19 | g20 |
+|---|---|---|---|---|
+| T1: a(b+cde) | c AND d | e AND g17 | b OR g18 | a AND g19 |
+| T2: a(bc+de) | b AND c | d AND e | g17 OR g18 | a AND g19 |
+| T3: ab(c+de) | a AND b | d AND e | c OR g18 | g17 AND g19 |
+| T4: abc(d+e) | a AND b | c AND g17 | d OR e | g18 AND g19 |
+
+For T1/T4 the three-factor product is dirty, so any two-factor subproduct is dirty; sorting that triple preserves both junk gates. For T2 each pair may be sorted and the two OR branches exchanged. For T3 sort the two pairs independently, but do not exchange the outer/inner roles as an extra symmetry. Sort the T4 OR pair freely. Repeated factors are allowed. Every displayed gate has a later reader. Absorption fallbacks are exact pure conjunctions and can use the already reviewed minimal-factor AAAA chain, preserving the junk requirements.
+
+Prune/stabilize/pad remains compatible. Prefix rewrites preserve every leaf's negative values and cannot reduce edge values, so the fixed monotone suffix still computes F on the boundary and retains both junk flags. Redirect a needed leaf through the final prefix copy chain; if the same selected signal occurs several times, use a consistent representative. Rebuild only the template's permitted sorted groups. There is no additional whole-leaf ordering or exchange of T3 roles. All auxiliary flags can be recomputed. Unlike the chain forms, the four AAOA templates may overlap; they form an existence cover together with AAAA, not a disjoint operation partition.
+
+Independent bounded enumeration examined453600 syntactic port configurations over five independent prefix signals plus constants. The5960 cases satisfying all-live, dirty D/J and the necessary no-prefix-pair-output premise all passed exact output equality on32 rows, suffix liveness, dirty17/18 and the approved leaf reorderings. Counts: T1=1260,T2=660,T3=2040,T4=1100,AAAA=900;190720 rows total. The impossible R=D/chained-J branch has no eligible example, as the direct argument predicts. These are algebraic controls, not graph witnesses or exhaustive prefix-function enumeration.
+
+With five distinct terminals, minimal-term-size/intersection signatures are T1=(2,4;1), T2=(3,3;1), T3=(3,4;2), T4=(4,4;3). They are invariant under relabeling and all distinct. Repeating a terminal or using a constant loses a fifth essential variable. Thus removing T3/T4 requires a further graph-specific theorem; generic Boolean rewriting does not suffice.
+
+Review `orch/S04/aaOA-review.json` SHA `43c372c7bf7ce40f262a907323708c182e5e67b58b660ab8ff03922ce4a27b48`; source `review_aaOA_forms.py` SHA `ef6dfe937175278d68c9b8583e14034055d8ae9fa69669fb81ea823bc2da4fdd`; complete logs `aaOA-review.stdout.log` / `.stderr.log` (empty stderr, exit0). Main/S01 were notified through locked NOTES before this report addition. Exact future template deltas require a separate review against these schedules and symmetries.
+
+## Extension at 03:53 UTC: fresh four-AAOA CNF deltas PASS
+
+The subsequently available `orch/S01/aaoa-four-v1/` is now independently reviewed. **PASS** for exact parent preservation, intended topology, permitted symmetry cuts and metadata binding. Source `build_aaoa_shapes.py` SHA `6bcb7e1abdb2c65ffdc9a6a1ced8554509ed2f96a40a756f30d718708256ae63`; family SHA `b05805738736e9b04257657dd8bd39d0fe1c6c31428f191a9fa727fb32109401`. The parent is the reviewed AAOA case SHA `70308894ffc6f4c3b682140c7df3d17ed3035c79dc66f56dc51bd47020004e91`, metadata SHA `0f530e106a5811be95fb87df8802be78bd6a45f91c4ef548acf1d4688c00857f`.
+
+| Case | CNF SHA-256 | Clauses | Added |
+|---|---|---:|---:|
+| T1 | `422b20c5d9fd5c7eff0ec8a4d7283c70750686da38e3bc3e1dc68e7a1dd5353c` |115450|879|
+| T2 | `a295babc305737a921da6bb5c0e990f6c91b2a4c200544d57bcd3abc3e574c3b` |115884|1313|
+| T3 | `0ab8fcacbcfe9fa8e094d8db4d0a52eb5d885a032313992ac7c02f312eaffbdf` |115448|877|
+| T4 | `661f44876da7e7f8d24d9a06f64ae3708037fc19048e9e20153c47e6a49ea5e3` |115884|1313|
+
+All have11968 variables. Every original AAOA parent clause is byte-preserved; no junk or correctness clause is removed. Fixed selector units implement exactly the table above. Every free terminal port excludes suffix sources. Orders are non-strict: T1/T4's three-factor product is sorted, T4's OR pair is sorted, T3's pairs are independently sorted, and T2 sorts each pair then compares the first leaf of the first pair with the first leaf of the second. The latter is weaker than full lexicographic branch ordering and is justified by the permitted OR-branch exchange. No exchange of T3 outer/inner roles is imposed. Repeated terminals and constants remain available.
+
+Independently reconstructed added clauses match every child byte and each complete `aaoa_added_clauses` field. All inherited metadata fields except hash/count are unchanged. Parent/source/family/CNF/metadata hashes match. Metadata explicitly retains the AAAA fallback requirement and disclaims logical implication of the parent; its pending-review wording predates this external PASS.
+
+In addition to source/delta inspection,1000 canonical selector assignments satisfied1095500 added clauses. Script `orch/S04/review_aaoa_deltas.py` SHA `56fb0f205bbb25fd9d248caed7e13d300636f2dcf8373fac885b571080c5a0e1`; result `aaoa-delta-review.json`; complete logs `aaoa-delta.stdout.log` and `.stderr.log` (empty stderr, exit0, under one second). Main/S01 were notified immediately under the notes lock. No solver or Lean process was started.
+
+The reviewed complete existence cover is now the two chain CNFs plus T1–T4, subject to the documented mathematical normalizations. The four AAOA CNFs by themselves are not an exhaustion of AAOA, and none of these reviews is a solver verdict or a Lean global refutation.
+
+## Joint factor charge: independent mathematical PASS, 04:08 UTC
+
+Reviewed S01's `orch/S01/joint-factor-cost.md`, SHA
+`78070f3939d1ac081e67f1b4f18e1655e1aaaed7e4efa4b0d9fa3a4cf24d865f`.
+For a minimal family of at least three proper-support full-cover factors in
+a productive clean prefix, with distinguished support S and a nonempty
+residual graph, the bound is sound:
+
+    m >= |S| + |E(G-S)| + tau(G-S) - 1 + z + d.
+
+Here z counts other factors with no common neighbor, and d counts distinct
+owners in S which are the unique common neighbor of another factor's
+support. Owners outside S and repeated copies of the same owner receive no
+extra charge. This is a mathematical review, not a Lean theorem, implemented
+cut, or UNSAT certificate.
+
+Minimality gives incomparable supports because a clean full-cover wire with
+proper support T computes exactly F OR OR(T). It also makes each pair dirty:
+the pair is a proper subfamily when the family has at least three members.
+These two consequences are used at different points and must both survive
+any later application to a selected tail family.
+
+If another chosen factor is an ancestor of the distinguished output, choose
+the first AND along a path from it. The path up to that AND consists of ORs,
+so the entering operand A dominates the chosen factor and accepts every
+ambient edge. Productivity and cleanliness force the other operand B to
+have a nonempty support contained in the factor's common-neighbor set.
+An empty common-neighbor set therefore forbids ancestry. For a unique owner
+v, B has support exactly {v}.
+
+If v is in S, set S to zero. On every residual independent input, both B
+and A AND B are false; this includes the empty input. On every residual
+edge row, A is true, so A AND B equals B. Redirecting this AND's output to
+B consequently preserves every downstream wire on all these boundary
+rows. It may change larger positive rows, which is harmless: the actual
+partial-edge lower bound needs ambient cleanliness, zero output support,
+and acceptance of the residual edges. It does not need all intermediate
+functions to remain pointwise equal.
+
+Different charged owners give different AND gates. If their paths enter
+the same operand of one gate, the other operand's support is contained in
+two distinct singleton owner sets, contradicting productivity. If they
+enter opposite operands, that AND dominates the conjunction of the two
+chosen factors. That conjunction is dirty, contradicting cleanliness.
+
+The overlap concern is resolved by one invariant on the original DAG:
+every rewritten wire has its original value on all residual independent
+and edge rows. Process gates in topological order, redirecting charged
+ANDs to their designated original B operands. Earlier redirections preserve
+both operands on the boundary, so the local equality still applies even
+when B contains another charged gate. This produces an acyclic circuit and
+deletes each charged original node once. If ordinary constant simplification
+already deleted a charged node, it has already paid that charge.
+
+Independently mark the pure-S OR nodes and their boundary OR nodes in the
+original OR-only ancestry of the distinguished output. Their component
+count gives at least |S| distinct OR nodes. Pure-S inputs remain exactly
+FALSE after restriction; the marked boundary ORs remain exact aliases of
+their other operands. These OR nodes cannot coincide with charged ANDs.
+Thus the cone loses at least |S|+t original nodes, even with shared edges,
+copies, repeated operands, and constants. FALSE may be included among the
+zero sources in the component argument; TRUE cannot enter this OR-only
+ancestry because the distinguished support is proper. Eliminate any
+remaining constant/alias gates before applying the actual partial-edge
+theorem; the nonempty residual guarantees a nonconstant retained output.
+
+Each of the z factors with no common neighbor is outside the cone. Each
+owner group without an ancestor representative supplies a distinct output
+gate outside it. Minimality excludes raw-input/constant factors and repeated
+output nodes; an output cannot represent two distinct unique-owner groups.
+These outside gates pay z+d-t. Adding their count to the cone bound proves
+the claimed inequality. Dead nodes can only increase m.
+
+For N(1), N(4), N(8), the individual bounds are 16,13,12. Distinguish N(1):
+owners4 and8 are distinct and lie in N(1), giving a joint bound18. For
+N(3), N(6), N(7), the bounds are17,14,14; owners6 and7 lie in N(3), giving19.
+Both triples are minimal (the three triangle singleton inputs are private
+witnesses), and their products equal F on all2048 inputs. Thus **all twelve
+S02 cases with these exact factors in a17-gate clean productive prefix
+can be retired**, regardless of output order or last-three placement. This
+does not exclude a larger clean prefix or all possible AAAA factor families.
+
+Independent finite controls are in `orch/S04/review_joint_factor.py`, SHA
+`411d45e3f0e0cd6de9e3fe5838ffdad0bdb3346dd4be022ed0eece571c0c10dc`;
+results and complete circuits/redirections are in `joint-factor-review.json`.
+All4096 triangle product rows, exact residual minimum covers, and eight
+ancestor/nonancestor charge cases pass. Eight actual productive clean DAGs
+with shared edge gates and overlapping charged cones pass34696 all-wire
+boundary comparisons after simultaneous OR/AND deletion. Variants include
+repeated OR inputs, FALSE copies, and dead TRUE copies. Full logs are
+`joint-factor-review.stdout.log` and `.stderr.log` (empty stderr, exit0).
+These controls stress the local proof mechanisms; they are not an exhaustive
+enumeration of circuits or a substitute for the mathematical argument.
+
+The original triangle generator delta review was superseded by this
+obstruction before any solver launch, following main's direction. Its source
+SHA is `e24f9c066ab8a37fa9dbe0d028acb594b8d6d8bc83e9f482fd62e8a390920538`;
+its candidate-only status remains. S04 does not claim an independent exact
+unit-delta PASS for that retired generator.
+
+Next application: enumerate minimal support families using the joint bound,
+then independently review the enumeration's coverage. A later AAAA cut must
+either retain this minimal-family witness normalization or explicitly encode
+the needed antichain and dirty-pair hypotheses. The joint inequality is not
+automatically a logical consequence for every redundant family permitted
+by the weaker chain encoding. No active CNF was changed.
+
+## Preservation and independent finite-family follow-up, 04:15 UTC
+
+The six normal forms and joint-cost proof/reviews are preserved in
+`orch/S04/normalization-preservation-v1.tar.gz`, SHA
+`ab76bf72819cac52f98c13d133b94fceedc2dc7fa4952ef06f825d19081beea4`,
+735815bytes. It has164 regular members, zero raw CNFs, all mathematical/source
+and exact-delta reviews, full logs, exact metadata, and a portable Python
+recipe. Running the unchanged archived generators reproduced all14 CNFs,
+all14 metadata files, and both family manifests byte for byte. The archive's
+manifest SHA is `cb20dfacd44f6d62ebb3ea77773ce7b6b2237cfcb2ea078b072f4a4a18243a05`;
+`normalization-preservation-validation.json` records all checks. Main was
+notified under the notes lock. This archive is immutable; the following newer
+enumeration review is a separate addendum.
+
+S01's `enumerate_joint_supports.py` SHA
+`1fa83032ddea490b4c7909362d9bd3e3b7b40e99f306cafc20845c2a220567a0`
+reports a survivor, not exhaustion. Independent review PASS: its family is
+
+    A = F OR x8 OR x10
+    B = F OR x9 OR x10
+    C = F OR x4 OR x6.
+
+Their individual bounds are14,14,16 and joint bounds15,15,17. Unique common
+neighbors are4,0,10, respectively. All2048 scalar input rows satisfy ABC=F.
+Private maximal independent witnesses, indexed in the established bitmask
+convention, are540 for A,325 for B, and1066 for C. Thus the family is minimal
+and passes the reviewed joint-cost support relaxation. It is not an actual
+shared17-gate prefix or a21-gate circuit.
+
+The source's candidate pool excludes full support, supports whose individual
+cost exceeds17, and supports with no zero maximal independent row. All are
+safe exclusions for a minimal family. Independent exact vertex-cover
+calculation recovers958 candidates,49 with a common neighbor. Its handling
+of edgeless residuals deliberately omits the new joint charge, which only
+weakens the filter. Empty/singleton supports are already excluded by the
+individual bound. Every remaining individual bound is at least6; the filler
+cost6 in the partial sorted-slot check is therefore safe.
+
+The pruning argument is sound. Increasing selected owners only increases
+the joint charge; each owner's bit is counted once. Including a factor's
+own unique owner in the accumulated owner set adds nothing because that
+owner is not in its support in a loopless graph. The count of other
+empty-common-neighbor factors is r minus its own indicator. Sorted individual
+costs must fit the last k distinct gate slots. Equal/comparable zero sets
+cannot belong to a minimal complete cover; a factor losing all private
+maximal-independent rows can never regain them when more factors are added.
+The chosen-uncovered-row branching assigns each covering family to its first
+selected candidate for that row; excluding earlier candidates in later
+branches does not lose a family. A partial cover of all rows cannot be
+extended to a larger minimal family. Time-limit status is explicitly UNKNOWN.
+
+An independent brute-force traversal of all18424 unordered triples from
+the49 common-neighbor candidates finds **515** minimal support families
+passing individual, sorted-slot, and joint bounds. The complete finite list
+is retained in `orch/S04/joint-enumeration-review.json`. This traversal is
+complete only for k=3,r=0 and only for this support relaxation. It confirms
+that the current joint inequality alone cannot exhaust the AAAA case.
+
+There is a useful further necessary condition for S01's reported survivor.
+In any17-gate productive clean prefix producing A,B,C, B must be an ancestor
+of C. Indeed C has individual lower bound16, and A's owner4 lies in C's
+support: A costs one gate whether inside C's cone (charged AND) or outside
+(its distinct output gate). If B is also outside, total cost is at least18.
+If A is inside, C's cone contains all17 gates; if A is outside, C's cone has
+exactly16 gates and A is the sole outside gate. The first AND along the
+mandatory B-to-C path has other-operand support {0}. Owner0 lies outside
+C's support, precisely the interaction uncharged by the current inequality.
+This is a concrete next structural target; no stronger deletion charge is
+claimed without a new proof.
+
+Independent source `orch/S04/review_joint_enumeration.py` SHA
+`132e6055ae70e65929d62513b091f32f34550d373d81b6b380a4b4796765f389`;
+full stdout/stderr are `joint-enumeration-review.stdout.log` and `.stderr.log`
+(empty stderr, exit0,0.12s). No other agent's script was executed or modified,
+and no solver, Lean build, worker, lease, or git write was used.
+
+## Tight-survivor obstruction: mathematical PASS and shorter proof
+
+S01's `orch/S01/tight-survivor-obstruction.md`, SHA
+`69bb5f1587acceb0fd5ecebf3ed4a525919c439eef62c70a7c11e9ae149a1acc`,
+passes independent review. Its `joint-cost-handoff.json` SHA
+`d187d5ef0337b54dfcd25bf2722851604463f382e9fad5ca30943b56e41cf328`
+binds18 artifacts; every size and hash matches. This proof excludes the
+specific full-cover support triple1280,1536,80 from a productive clean
+prefix of at most17 gates, with arbitrary output positions. Main/S01 were
+notified immediately to retire the candidate pins before any solver launch.
+
+The new arbitrary-ancestor charge is sound. Let W be a full-cover wire of
+proper support S, with a nonempty residual graph. Let an ancestor signal R
+have nonempty support T not contained in S, with every common neighbor of
+T in S. On a path from R to W, the first AND has an entering operand U
+containing R through ORs. Its other operand V has a nonempty support inside
+the common-neighbor set of T, hence inside S. After setting S to zero, V
+and that clean AND both vanish on every independent residual input. Replacing
+the AND by V preserves all those negative values and pointwise increases
+all restricted downstream values. Every residual edge accepted by W remains
+accepted; every retained AND remains clean. This uses nondecrease on edges,
+not the stronger equality from the full-cover-ancestor argument.
+
+The original pure-S OR nodes still become FALSE, and their boundary OR
+nodes still become exact aliases. They supply at least |S| deleted original
+OR nodes, separately from the newly deleted AND. Even if simplification
+already removed the AND, that distinct original node has paid its charge.
+Free FALSE, copies, and repeated operands do not reduce the deletion count.
+The residual output is nonzero with empty support, so constants can be
+eliminated before the actual-circuit lower bound is applied. Consequently
+the cone of W has at least L(S)+1 gates. R need not cover any target edge.
+
+Here is a shorter complete contradiction for the triple, which avoids the
+last two sections of S01's longer argument. Write A,B,C for the full-cover
+wires of supports {8,10},{9,10},{4,6}, with individual bounds14,14,16.
+The earlier reviewed joint charge forces B to be an ancestor of C: A costs
+one extra gate either inside C's cone or outside, so an outside B would
+raise the total from16 to18.
+
+All three chosen outputs are distinct OR gates at indices at least13,13,15.
+Their supports are incomparable. The B-to-C path therefore needs an AND q,
+and A,B,C,q fill all four late positions13 through16. No other late gate
+exists. A cannot be an OR intermediate on either side of q: its support
+neither contains B's support nor is contained in C's. Thus the path is
+direct at both ends:
+
+    q = B AND R,       C = q OR P,       support(P) = {4,6}.
+
+A is not an ancestor of B. If earlier, an A-to-B path would need an AND;
+the sole late AND q is later than B. C and q are also later than B. Hence
+B's cone is contained in gates0–12 together with B itself. Its lower bound14
+forces exact equality: every one of gates0–12 is in B's cone.
+
+P has support {4,6}, so it is neither a raw input nor either free constant.
+It cannot be A,B,C,q by their supports and topological order. Therefore P
+is a gate among0–12, and hence an ancestor of B. Now
+
+    commonNeighbors({4,6}) = {10} subset {9,10},
+    {4,6} is not a subset of {9,10}.
+
+Apply the new arbitrary-ancestor charge directly to R=P and W=B. It forces
+B's cone to contain at least L({9,10})+1=15 gates, contradicting its exact14.
+This completes the18-gate lower bound without assuming R=x0, without any
+absorption rewrite, and without the partial-support cost of P.
+
+For completeness, the longer argument also checks out. If R is computed
+among0–12, its support {0} and N(0)={9,10} trigger the same extra charge, so
+R must be raw x0. Then P must accept the eight stated residual edges, which
+have the displayed disjoint matching4 and vertex cover4, giving cost13.
+P must be gate12 and feed the OR B directly, contradicting support
+containment. There are exactly four possible late schedules; this argument
+also covers C at15 with A at16, and B at14 with A at13. Copies and constants
+are excluded by the same support/count statements, not by an implicit
+minimal-circuit assumption. Padding a shorter circuit with dead OR gates
+does not change the hypotheses or avoid the contradiction.
+
+Independent controls in `orch/S04/review_tight_survivor.py`, SHA
+`437a6441a10c31fe45d9e46b864cb46c1da8b68f226471104371e09daec12422`,
+verify the18 handoff bindings, four schedules, matching/cover arithmetic,
+and eight concrete clean productive DAGs using a non-full-cover ancestor.
+The rewritten circuits preserve16192 independent wire values and satisfy
+94208 pointwise wire nondecreases. Each control deliberately includes a
+strict residual edge-value increase, confirming that equality is not the
+invariant required by the new lemma. Full circuits, redirects, results and
+stdout/stderr are retained in `tight-survivor-review.json` and corresponding
+logs; final exit0, empty stderr,0.37s. The original control version and its
+complete logs are retained separately after removal of an irrelevant
+tautological assertion; the final source hash above is authoritative.
+
+This is a mathematical prefix obstruction, not a Lean proof or CNF UNSAT
+certificate. It rules out this one support family; the other514 triples
+in the earlier k=3,r=0 relaxation have not been excluded by this argument.
+No active CNF, solver, worker, named proof, or previously handed-off archive
+was changed.
+
+## Irrelevant raw-input charge: mathematical and encoding-specification PASS
+
+Reviewed S01 `orch/S01/irrelevant-input-charge.md`, SHA
+`951fd0d38db513a2fcfa98ddad5ef9c9dbc8c5d58acc4ba37867d0bc564af48f`.
+The claimed one-bit strengthening is sound for every proper-support wire W
+in a productive ambient-clean prefix, including partial and empty accepted
+residual edge sets. If raw input v is a syntactic ancestor of W, v is outside
+its singleton support S, and N_G(v) is contained in S, then
+
+    M >= |S| + |E(H)| + tau(H),
+
+where M counts actual gate ancestors, including W when W is a gate, and H
+may be any subset of ambient edges accepted by W outside S. C4-freeness is
+required for the existing partial-edge lower bound. The new charge is one
+Boolean penalty, not a sum over every qualifying raw input.
+
+Because v is absent from S, its path to W meets an AND. At the first one,
+the entering operand contains v in singleton support. Cleanliness makes
+the other operand's support a subset of N_G(v), and productivity makes it
+nonempty. Setting S to zero makes this operand and the original AND false
+on every independent residual input, including the empty input. Bypassing
+the AND by that operand preserves these negative values at every retained
+wire. It pointwise increases all downstream restricted values, so all H
+edge rows remain accepted. This preserves cleanliness for the ambient
+induced graph G-S. Intermediate ANDs need not be clean for the smaller
+selected graph H; that is exactly why the actual partial-edge theorem,
+rather than an exact-output theorem for H, is used.
+
+For nonempty H, the restricted output is nonzero. The pure-S OR component
+argument deletes at least |S| original OR gates, separately from the bypassed
+AND. Their pure inputs still become exactly FALSE; their boundary ORs remain
+exact aliases after the AND replacement. The partial-edge theorem applies
+to at most M-|S|-1 remaining gates and gives the stated bound. Higher-degree
+positive values may change, and neither W nor its restriction needs to equal
+the graph function of H.
+
+For empty H and |S|>=1, no deletion argument is required: the OR-only
+ancestry of W must connect all |S| distinct raw support inputs and therefore
+contains at least |S|-1 OR nodes. The first AND on v's path is a distinct
+additional node, so M>=|S|. This remains true when the output accepts
+higher-degree positive inputs but no residual edge rows. For empty S the
+asserted inequality is merely M>=0. Moreover, its trigger would require an
+isolated v, whose path cannot meet a productive clean AND; this confirms
+that no exceptional hidden circuit is needed. Full support cannot trigger
+because v must be absent. Free TRUE therefore remains exempt. FALSE, OR
+aliases, repeated operands and dead nodes do not reduce the original-node
+count. A raw output has no such other-input path; constant outputs do not
+supply a counterexample.
+
+The proposed trigger clauses have the correct polarity. For root g, gate
+h<=g, and raw vertex v, each side contributes
+
+    p_g OR S_g[v] OR (OR over u in N(v) of NOT S_g[u])
+        OR NOT ancestor(g,h) OR NOT selected_side(h,v).
+
+For h=g, omit the ancestor literal, since the stored table contains only
+strict ancestors. Every syntactic raw-input path has a first gate reading
+that input, so these clauses detect every genuine trigger. Conversely an
+ancestor gate selecting raw v supplies that path. Existing ancestry flags
+are exact equivalences in the pinned source. Singleton support alone must
+not replace syntactic reachability. There are2*11*153=3366 trigger clauses.
+
+No equivalence for p_g is needed. To extend an actual circuit, choose p_g
+to indicate whether any trigger holds, choose minimum residual covers, and
+assign exact counter thresholds. Off-trigger choose p_g false, including at
+full support. An arbitrary true off-trigger choice may fail the strengthened
+cost constraint, but its false choice remains available. Thus this is an
+existential auxiliary extension argument; it does not assert that every old
+nonminimum cover assignment satisfies the strengthened clauses or claim a
+RUP proof from the previous CNF.
+
+There is a cheaper implementation specification than rebuilding counters.
+In the pinned parent38d93...ace08, the signed counter for root g counts
+
+    weight = popcount(S) + popcount(residual-edge flags)
+             + popcount(cover flags) + popcount(NOT strict-ancestor flags).
+
+The original proper-support constraint is weight<=g+2, equivalent to
+|S|+|H|+|cover|<=M+1. The root overflow flag represents weight>=g+3. The
+preceding root threshold represents weight>=g+2 and, in this exact generator,
+has ID `overflow_flag-1`. Therefore append just
+
+    NOT p_g OR NOT (overflow_flag-1)
+
+to enforce weight+p_g<=g+2 on proper support. With p_g=false, full support
+retains the original exemption. The total becomes **17 new variables and
+3383 added clauses**, consisting of3366 triggers and17 counter links, with
+no fresh counter auxiliaries. For unchanged11968-variable parents, the new
+penalty IDs are11969..11985. All six reviewed normal forms retain these
+original counter blocks, but each production source/delta must still be
+checked separately. The numeric ID shortcut must not be assumed for a
+different counter implementation or unpinned parent.
+
+Independent source `orch/S04/review_irrelevant_input.py`, SHA
+`4fa439ce59425cca9f0a8d2da0a34eac523b6528353885527c5060118fabc7bb`,
+reconstructed all17 exact original counter clause blocks and verified their
+threshold IDs. Its799 exact counter assignments satisfy1043861 network
+clause evaluations. All360448 Boolean trigger/diagonal checks pass. Twenty-four
+actual clean productive partial-output DAGs pass72 chosen-H cost checks;
+eight have no accepted residual edge, and variants include constant/copy
+nodes. Replacement checks preserve every independent wire value and only
+increase restricted values. Complete circuits, expected trigger-clause
+fixture, counter-link IDs and diagnostics are in `irrelevant-input-review.json`
+and its full stdout/stderr logs (exit0, empty stderr,0.90s).
+
+Verdict: mathematical bound, trigger specification and pinned-counter reuse
+PASS. No production generator or child CNF has yet received an implementation
+PASS from this review. No solver, Lean build, active search, or named proof
+was changed. Main/S01 were notified under the notes lock before packaging.
+
+## Generalized three-factor classification: independent PASS
+
+S01 handoff `three-factor-classification-handoff.json`, SHA
+`9a48bf0acf8e5aca20a6bda737506b33897e13841f9b5577aee06188822c3f7e`,
+binds11 math/source/result/log artifacts. Every binding matches. The generic
+proof and finite classification pass independent review:233 exclusions from
+the one-spare-AND pattern,199 from the position filter, with20 new exclusions,
+give253 excluded and262 remaining among the supplied515 families.
+
+The review concerns three proper full-cover outputs whose conjunction is F
+and whose family is minimal, in a productive clean prefix of at most17 gates.
+All515 families have distinct incomparable supports, dirty pair products,
+and a unique common-neighbor owner for each factor. Their supports have
+nonempty residual graphs, as independently checked. In this concrete graph,
+a common-neighbor support has size at most4, whereas a vertex cover needs7;
+thus the nonempty-residual requirement for the earlier owner charge holds.
+
+When all three individual costs are at least14, their distinct OR outputs
+occupy three of positions13–16. If none is ancestral to another, each cone
+excludes the other two output gates and has at most15 gates. Otherwise an
+incomparable-support ancestry path needs an AND, so the single remaining
+late gate q must be that AND. Every selected-output ancestry path uses q.
+Two selected factors cannot enter its opposite operands because their pair
+is dirty. If both enter the same operand, their paths need a separate OR
+merge, unavailable in these four late positions; another selected output
+cannot perform that merge because its support is incomparable. Hence there
+is one source B and one or two children, covering all nine possible stars.
+
+For every such star q=B AND R and each child C=q OR P_C. The input R has
+singleton support equal to B's unique owner, and P_C has support S_C. Both
+operands lie in the thirteen earlier gates or raw sources; P_C cannot be
+raw or constant because its support has at least two vertices. Source B
+and any nonchild exclude q and both other selected outputs, so their cone
+capacity is14. Since their costs are at least14, they attain that capacity
+and contain every gate0–12. Each child contains this entire source cone,
+q and itself, giving exactly16 ancestor gates, with the other selected
+output excluded.
+
+The four substantive star restrictions therefore follow. A child pays an
+extra deletion if B's owner lies in its support. Its operand P_C, already
+an ancestor of B, would instead raise B's tight14-gate cost if the child's
+owner lies in S_B. If S_B equals the entire neighborhood of its owner,
+a computed R would similarly raise B's cost, forcing R to be that raw input.
+Then P_C must cover all target edges not incident to that input. Its partial
+support cost must be at most12: a bound13 forces it to gate12, which must
+feed B's OR directly and would violate support containment. With two
+children, two distinct P_C operands each costing at least12 would force
+one to gate12 and give the same contradiction. None of these arguments
+assumes a tree, strict operands, or ancestry-free chosen outputs. Families
+with minimum cost below14 remain untouched by this star proof.
+
+The separate position filter enumerates every allowed output-position tuple
+and every relation on the three temporally ordered output pairs. Its
+transitivity and intervening-AND conditions are necessary. When both other
+outputs are ancestors of one output, two unselected gates are necessary:
+a comparable pair requires successive AND transitions; an incomparable
+pair needs distinct first ANDs or an OR merge followed by a shared first
+AND. Opposite entry into the same first AND is excluded by pair dirtiness.
+
+For root i, subtracting earlier nonancestor selected outputs from p_i+1
+is a valid cone upper bound. If another pair a->b lies earlier but a is
+not ancestral to i, its first AND is also outside i's cone; otherwise a
+would be ancestral to i. This extra node is distinct from selected outputs
+because they are ORs. With only three selected outputs this adds at most
+one extra subtraction.
+
+The corresponding cone lower bound uses the individual cost plus the
+maximum of two charges: the number of distinct ancestral owners lying in
+S_i, and the single irrelevant-raw-input bit. Their deleted ANDs may overlap,
+so adding the two charges would be unjustified. The raw essentiality test
+is exact: for H_S=F OR OR(S), vertex v is essential iff v belongs to S or
+has a neighbor outside S. A singleton witnesses the first alternative;
+a residual edge witnesses the second. If neither holds, every edge term
+involving v is absorbed by OR(S). An essential input must be a syntactic
+ancestor in any implementation, so selected ancestry propagates that raw
+input into the later cone. This justifies use of the independently reviewed
+irrelevant-input charge. All remaining witness inequalities were checked.
+
+Independent script `orch/S04/review_three_factor_classification.py`, SHA
+`8cb412c03bbec35752d2ca8ee47a9ce396fd0dcdf2382cad16ecb15f8847ba9f`,
+recomputes individual/partial costs with exact covers, all nine star choices,
+and every temporal position/relation assignment. Its traversal differs from
+S01's and does not stop after finding a witness. It checks57560 assignments,
+finds9007 abstract feasible models, and reproduces every one of the515 family
+decisions. All saved position witnesses and their cone bounds agree. The
+1545 pair functions were independently checked on full truth-table bitsets.
+Full per-family records and complete logs are in
+`three-factor-classification-review.json` and its stdout/stderr files
+(exit0, empty stderr,0.27s). S01's13927 assignment count reflects its early
+exit on each surviving family, not an exhaustive count of all models.
+
+One nonblocking metadata qualification: `pair_features.pure_singleton_OR`
+means that the pair is F OR OR(the support intersection), not that it is
+just the standalone linear OR. For example the previously reviewed pair
+with supports {8,10} and {9,10} equals F OR x10 and remains true on edge(1,4).
+This field is unused by the exclusion filters; all supplied flags match the
+former interpretation. Future algebra must retain F.
+
+Future cuts may forbid the exact253 excluded support triples when all three
+wires are proper full-cover outputs in the17-gate productive clean prefix,
+with all output placements covered. The finite tables already certify each
+listed triple's minimality and owners. A generic predicate implementation
+must retain the corresponding hypotheses, use actual ancestry and signed
+costs, and avoid double-counting the owner/raw charges. Arbitrary non-full-
+cover wires with the same singleton supports are not covered. Neither a
+last-three placement restriction nor a general selected-output antichain
+was proved. A generated cut requires its own clause/projection review.
+
+This result does not cover r>0, four/five-factor families, larger or dirty
+prefixes, or a whole AAAA exhaustion. The262 retained entries are abstract
+necessary-condition witnesses, not shared-prefix constructions. The proposed
+separate +2 deletion extension is outside this review. No solver, Lean build,
+production CNF, active worker, named proof, or other agent output was changed.

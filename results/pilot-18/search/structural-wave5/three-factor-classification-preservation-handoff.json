@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS_CLASSIFICATION_REVIEW_PRESERVATION",
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/three-factor-classification-preservation-v1.tar.gz",
+  "archive_sha256": "42ddc0515f31acbf023663d7edf74e9bb7a5fda2f52ae599c1a9eda0983e506e",
+  "archive_bytes": 104018,
+  "regular_members": 23,
+  "manifest_sha256": "57d997e2e0ebddafee69af8c2f30d60b22ab59815fc5c2efa600935b356b228a",
+  "review_sha256": "cc4b27a97ae90846e8b0d9bfcdc5b57e8e6151bff4621ba3c949ff6732066aff",
+  "scope": "Independent generic-proof and supplied515-family finite classification PASS;253excluded/262abstract survivors, no exhaustion or implemented cut."
+}

@@ -1,0 +1,55 @@
+{
+  "status": "READY_MAIN_INDEPENDENT_PACKAGING_REVIEW",
+  "created": "2026-11-24T04:39:58.278594+00:00",
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/candidate-preservation-v1/README.md",
+      "sha256": "46e823d89cc730e572381735e83be9cb3207f03bc5087a931dec4f0ebec8cecd",
+      "bytes": 970
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/candidate-preservation-v1/S02-candidates.tar.gz",
+      "sha256": "cc2a5d6751aa0f817b4a831288481da5565e9170e023e78ee769da757d404889",
+      "bytes": 631915
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/candidate-preservation-v1/manifest.json",
+      "sha256": "1ffd350b6f8aa243d77cc9043a39fe9e19464f29b535b1fe3e1a3c14f157c2fd",
+      "bytes": 33693
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/candidate-preservation-v1/validation.json",
+      "sha256": "c2cf1d935cd0c881efada759cfbbf2a895478c6484e4d60091527c278296f895",
+      "bytes": 1364
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/context-preservation-v1/README.md",
+      "sha256": "276481825326bf03b59337a75f3da2798bf9e1f75e03913ff6d09e9351375a40",
+      "bytes": 1190
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/context-preservation-v1/S02-context.tar.gz",
+      "sha256": "a7bfcc499d6917539c5b53cc5c7beadfe93e94853741f448e459cc548e0f4932",
+      "bytes": 57507
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/context-preservation-v1/manifest.json",
+      "sha256": "d445db83f0b2b403945325748e85359df9c612f89d4aedcefad53c2469b62f2f",
+      "bytes": 9968
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/context-preservation-v1/validation.json",
+      "sha256": "09bd3b6f0fa02e427aa98f7974b1860d5bb692f07a81addedae4140aebd4af78",
+      "bytes": 981
+    }
+  ],
+  "prior_outcomes": {
+    "positive_UNKNOWN": 2,
+    "dirty22_UNSAT_UNCERTIFIED": 6,
+    "retired_unrun_factor_cases": 18
+  },
+  "context_scope": "Source/review/launch provenance only; running solver outputs excluded.",
+  "solver_launched": false,
+  "git_or_lease_write": false,
+  "repo_artifact_changes": false
+}

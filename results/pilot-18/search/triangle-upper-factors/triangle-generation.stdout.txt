@@ -1,0 +1,1 @@
+{"output": "orch/S02/triangle-upper-factors", "cases": 12, "cost_feasible_cases": 6, "generator_sha256": "e24f9c066ab8a37fa9dbe0d028acb594b8d6d8bc83e9f482fd62e8a390920538", "solver_launched": false}

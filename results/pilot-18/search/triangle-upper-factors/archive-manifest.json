@@ -1,0 +1,196 @@
+{
+  "scope": "Research artifact preservation only; no exact21 witness, posted acceptance or exhaustion claim.",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "e610ad420888995723c31c806c149f743f7ffeb7e1d99b3d386f8a489dc3b6a5",
+      "bytes": 2655
+    },
+    {
+      "path": "audit_triangle_factors.py",
+      "sha256": "0dcc892aab13a22096e953ee37a30e0fe8b0793ddfaa2e44af11d3b3d64b648d",
+      "bytes": 9095
+    },
+    {
+      "path": "dependencies/build_consecutive_junk.py",
+      "sha256": "3802650c1492cb267a8f8ae5e44715b9b86fe88e642617b85ffbbe857184bb71",
+      "bytes": 7137
+    },
+    {
+      "path": "generate_triangle_factors.py",
+      "sha256": "e24f9c066ab8a37fa9dbe0d028acb594b8d6d8bc83e9f482fd62e8a390920538",
+      "bytes": 8711
+    },
+    {
+      "path": "historical-preparation.md",
+      "sha256": "e068a8e3dbf30519e3467df42ddbd66600df91ada79c1592128956afb641f834",
+      "bytes": 4687
+    },
+    {
+      "path": "mathematics/check_triangle_joint_cost.py",
+      "sha256": "896a8b5ae7da878f47d664c20b9758f4c7b481db220b76959be95c3446cb0c2e",
+      "bytes": 5257
+    },
+    {
+      "path": "mathematics/joint-factor-cost.md",
+      "sha256": "78070f3939d1ac081e67f1b4f18e1655e1aaaed7e4efa4b0d9fa3a4cf24d865f",
+      "bytes": 5503
+    },
+    {
+      "path": "mathematics/joint-factor-review.json",
+      "sha256": "a5ba83161105f5b0b4baec2823da1f9cc06b10c0e871a3b5c14612e812d0b691",
+      "bytes": 71100
+    },
+    {
+      "path": "mathematics/joint-factor-review.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "mathematics/joint-factor-review.stdout.log",
+      "sha256": "aa5727ca73b952c8f07c8f4c2f4c1f19c0be44d9ea8991e2d79bd59d24806c87",
+      "bytes": 445
+    },
+    {
+      "path": "mathematics/review_joint_factor.py",
+      "sha256": "411d45e3f0e0cd6de9e3fe5838ffdad0bdb3346dd4be022ed0eece571c0c10dc",
+      "bytes": 6593
+    },
+    {
+      "path": "mathematics/triangle-joint-cost-validation.json",
+      "sha256": "4f9bf578ffb7d32818e0e1b04d753a03d3d7fb4e87e960605d70c8818c1680a8",
+      "bytes": 9201
+    },
+    {
+      "path": "mathematics/triangle-joint-cost.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "mathematics/triangle-joint-cost.stdout.txt",
+      "sha256": "4c999444d8fbead6e55593705e43d177f7f7040740ef1f31d976fe7a198e83e5",
+      "bytes": 226
+    },
+    {
+      "path": "metadata/family.json",
+      "sha256": "be2632ca05664313c19becd3f11e7525d827ddb133400e89a27dd1762beba9ad",
+      "bytes": 9997
+    },
+    {
+      "path": "metadata/tri-1-4-8-order-1-4-8.json",
+      "sha256": "2d92563b906cac02d6076113518a37de88a8f02b8c4a4ab906f36a2c26c22b93",
+      "bytes": 144410
+    },
+    {
+      "path": "metadata/tri-1-4-8-order-1-8-4.json",
+      "sha256": "2414ecbc344cadb96cbddaa94567c3e35589bfc8cb5a1ba71b1be8ba8e28c652",
+      "bytes": 144410
+    },
+    {
+      "path": "metadata/tri-1-4-8-order-4-1-8.json",
+      "sha256": "544b42c0780ff26e9ab736facccf948d668c3b91f8de3cc7f747b728a7b82c2e",
+      "bytes": 144408
+    },
+    {
+      "path": "metadata/tri-1-4-8-order-4-8-1.json",
+      "sha256": "69638c7f332bced709c669b50aa6fae4cca01f682d64470b12c486766822df9c",
+      "bytes": 144408
+    },
+    {
+      "path": "metadata/tri-1-4-8-order-8-1-4.json",
+      "sha256": "1e357878addae7861863e2f27d1597d5179f9cd629c99e43bc65f752e673a600",
+      "bytes": 144408
+    },
+    {
+      "path": "metadata/tri-1-4-8-order-8-4-1.json",
+      "sha256": "be5d4a68ac294be1637d1d7bc758944adc7f5c1432d7c98745ed44274c4265f2",
+      "bytes": 144408
+    },
+    {
+      "path": "metadata/tri-3-6-7-order-3-6-7.json",
+      "sha256": "a769571f1534c7783d12b6c6f19cb26e8c9228150d1113d6877684e18b347d7c",
+      "bytes": 144584
+    },
+    {
+      "path": "metadata/tri-3-6-7-order-3-7-6.json",
+      "sha256": "eb395101644733885f051907c8b5c0fe00fe6364ac6dab5d6cb810878a111483",
+      "bytes": 144584
+    },
+    {
+      "path": "metadata/tri-3-6-7-order-6-3-7.json",
+      "sha256": "95995b94f5c71bf16781f995d9095c240c959f8289d91aa90fa556dee2f1e5cf",
+      "bytes": 144584
+    },
+    {
+      "path": "metadata/tri-3-6-7-order-6-7-3.json",
+      "sha256": "d10ff5c48b4a5d2d416d1285bc5c0f1b7dc7f0428614052c1a17291736868d41",
+      "bytes": 144582
+    },
+    {
+      "path": "metadata/tri-3-6-7-order-7-3-6.json",
+      "sha256": "beb72f95e0c16f6bb31f8368d2ee98d887635dd8e2dbd0c8a7c5e3fcf98f0bef",
+      "bytes": 144584
+    },
+    {
+      "path": "metadata/tri-3-6-7-order-7-6-3.json",
+      "sha256": "b4122e22796330d9177bc067b0c4bdf2dced428fb7f0aaf612ef679ec2e7ff77",
+      "bytes": 144582
+    },
+    {
+      "path": "parent-metadata.json",
+      "sha256": "a7425759cf64d1eef6ccd281dedf0c2e67049b88ce335a4ac166fcc0d077e19b",
+      "bytes": 137664
+    },
+    {
+      "path": "retirement.json",
+      "sha256": "cd9720e44506313aabfcc4e837946842fde069f6f655f6a65ad2cebfb5dbd4d7",
+      "bytes": 685
+    },
+    {
+      "path": "triangle-audit.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "triangle-audit.stdout.txt",
+      "sha256": "6f9f638a7d21385b1f83e35aaf32dbc1e99349dfb324f0c7b540e7c5f7371d51",
+      "bytes": 326
+    },
+    {
+      "path": "triangle-factor-handoff.json",
+      "sha256": "643c5f4025d175a4fdb759d1062c1078592ff27728199c180c1f977625cff01f",
+      "bytes": 8195
+    },
+    {
+      "path": "triangle-factor-review.json",
+      "sha256": "006965e4cedc6bc6264b56b52df76ae97dd5893837713a62d04766a3db13deeb",
+      "bytes": 5473
+    },
+    {
+      "path": "triangle-generation.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "triangle-generation.stdout.txt",
+      "sha256": "6e22cb0cae2c3fdce34f97c544b1408d4fac729bac139b8a5574183355b5b1bf",
+      "bytes": 199
+    },
+    {
+      "path": "triangle-help.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "triangle-help.stdout.txt",
+      "sha256": "87d9e4562ff6afd7ae34752dff6f4e9ff9b460f87f200859943aa4eb7875d458",
+      "bytes": 407
+    },
+    {
+      "path": "triangle-strength-note.json",
+      "sha256": "0b1e29ce601331c635e982dc49e009aef50454f6fd2914cac925196133fcdee3",
+      "bytes": 3501
+    }
+  ],
+  "raw_CNF_files": 0
+}

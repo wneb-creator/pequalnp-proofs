@@ -71,3 +71,144 @@ The465.995s window averaged5993records/s, which would take another15411s to the1
 The precise obstruction is unchanged: all four broad operation cases survived scalar probing, and the checked subcases do not exhaust any broad case. Their conditional fixed points and CNF hashes are preserved for further search. S01's pending existence normalization could removeAOAA from a new search, but it is not an implication of the existing CNF and was not mixed into this work. S04 found no original-DAG completeness blocker, and S03's40-row sufficiency proof now supports candidate verification. The next useful S06 step is the coordinated capped exact-cube sweep above, not further unaudited encoding restrictions.
 
 Only this report, S06 scratch artifacts and flock-protected NOTES appends were written. No active worker, named Lean file, other agent output, lease, credentials, git history or remote service was modified.
+
+## Completed serial wave and archival handoff,03:47UTC
+
+Main independently reviewed the frozen282-line controller SHA256 `bd2366dc9770fe35268092f06cbdbec0511a90585fee54bbd5fbb0b72cfc3e98`, including the exact four-log-key/byte-count/SHA256 checks. Nine bounded control groups passed using simulated processes; preflight passed all17pinned cases. Main launched the sole production wave at03:40:01. It completed at03:44:07: five new online-checked UNSAT cases, right-source wires14..18; twelve time limits, wires12 and19..29; no SAT indication. The queue's exit0 means completion, not exhaustion. The source and original worker were untouched throughout S06 read-only monitoring.
+
+The production runner retains proof hashes/full logs, not replayable production proof streams. The earlier wire13 DRAT and all RUP consequences remain retained replayable evidence. S08's final package/partition review PASS is bound to SHA256 `6a5daee23ed457fecf8c280e23dea6a42bfbd4eb98eb3f0fb9ff012ac748efad`.
+
+`orch/S06/archive-wave1/` is prepared for main's review/copy/push. It includes reproduction sources, full original and independent checker logs, retained RUP/direct DRAT proofs, partition metadata, all completed controller/runner records and logs, and controller controls. No raw CNF or compiled binary is included. `cnf-recipes.json` plus archived clause deltas reconstruct126exact parent-derived CNFs, including all production input/snapshot copies; reconstruction was verified in memory against every recorded byte count and SHA256. `omitted-files.json` records omitted CNF/binary/TSV hashes. `manifest.json` binds the archive contents. Full archival generation/reconstruction diagnostics remain alongside the archive. An initial packaging-only failure on a deliberately malformed controller-test CNF was corrected; the failed archive and complete diagnostics were retained separately, and no proof or controller source changed.
+
+Next authorized direction: after S04's independent chain-normalization review passes, perform bounded unit/failed-literal consequence generation and exact cubing against each distinct S01chain parent. Every added clause must receive a checker replay against that exact parent. Do not rerun the twelve timed-out old cubes or launch a new production solver from S06.
+
+## AAAO-chain follow-up: checked absorption cuts and exact two-case split
+
+After S04's chain review PASS (`299f6bdc23ac20e8f9b54cae7eb3a787c1aacf951ab08b8314be212c67f1472d`), main launched AAAA-chain separately. S06 worked only on copies of AAAO-chain parent `a8e94b6cfeaafb8b6c4e01d33e6f552a984e395d224dc3d6281d99cc49850753`,115946clauses/11968variables. The active AAAA and original solver inputs were untouched.
+
+The chain computes `P OR (((a AND b) AND c) AND d)`, with prefix-wire leaves and the reviewed order `a<=b<c<d`. Replaying the old3692RUP clauses against this stronger parent is sound and was independently checked again. Bounded probing then derived67rootunits and12conditional units in about one second aggregate. All four broad operation cases from earlier work remain separate; this is only AAAO-chain.
+
+A further5.94second scalar job refuted all68cubes `P=w AND factor=w`, for prefix-gate wires `w=13..29` and each factor `a,b,c,d`. Each local unit proof ends in the empty clause; lifting it emits the binary exclusion of that pair. The complete lifted proof was independently checked against the exact AAAO-chain parent by unchanged DSR `--forward --rup-only`, exit0/`s VALID`. This is the encoded form of absorption: if P were also a product factor, the entire output would be P, requiring the clean prefix alone to compute the target. Soundness of the delivered CNF consequences rests on the replayed proof, not on this informal explanation.
+
+The accumulated3895-clause proof also contains `[3644,3371]` and `[-3644,-3371]`. Variable3644 selects the last prefix wire29 for final OR operand P; variable3371 selects wire29 as product factor d. Liveness and sorted-factor restrictions force one, and the checked absorption cut forbids both. Thus there is an exact two-case XOR partition:
+
+| Case | Unit cube | CNF SHA256 |
+|---|---|---|
+| Last prefix is P | `[3644,-3371]` | `433a5667dbf600990410a6579b5c332a1738fbe78777bcf5ebec2220ab4638c3` |
+| Last prefix is d | `[-3644,3371]` | `e0021fcf9b3e6c014763f7f6f5b3378b0fec386019944966bbc519da254f9c74` |
+
+Both excluded Boolean assignments, `[3644,3371]` and `[-3644,-3371]`, have separate replay-checked RUP refutations directly on the chain parent plus their two units. Neither remaining case has been solved. No production solver was launched, and no Lean or full-shard claim is made.
+
+Artifacts are in `orch/S06/AAAO-chain-absorption-family/`. Global proof `combined.drat` SHA256 `8e937b00f88bc1b24b1dec5586c774af36215fc8f2ddbb7397bcdba55a3dcdc8`; augmented CNF SHA256 `2c7d3f950b6f8b6093b78b36369a0f675b01aa4b2878583b8fc04aa101245682`; excluded-pair proof SHA256 `8c3d367d53fe64dc016141a0f8c20d2d14b1cbe79337963a288979ec5c12e4e3`. `AAAO-chain-handoff.json` inventories every source, CNF, metadata file and full diagnostic. Reproduction sources are `probe_AAAO_chain.py`, `split_AAAO_chain.py`, and `probe_AAAO_absorption.py`, reusing the unchanged reviewed scalar probe. Source hashes are recorded in the handoff.
+
+Recommendation: review this exact parent-bound RUP package and two-case split as a future AAAO-chain search input. Do not add its clauses to the active original input without their chain premise. Both current production pairs remain under main's sole control.
+
+
+## 2026-11-24T04:07:25.411448+00:00 — bounded retained-DRAT runner ready for review
+
+Status: code ready for independent S08/main review; no production launch and no real solver/checker/validator executed by this adapter. Source frozen at SHA256 `aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a`.
+
+`offline_checked_cadical.py` runs one pinned child at a time. CaDiCaL retains binary DRAT under 600-second wall, 1536-MiB address-space and 512-MiB per-file limits. A completed solver exit20 with the sole verdict `s UNSATISFIABLE` is necessary before the independent pinned DSR checker starts. The checker has a separate 600-second wall, 3072-MiB address-space and 64-MiB per-log cap. Only checker exit0 plus the sole verdict `s VERIFIED UNSAT`, unchanged pinned inputs/binaries/proof, and no abort/limit yield runner exit0 `VERIFIED_UNSAT`. A SAT exit10/verdict invokes the pinned full2048-input validator with30-second wall; exact provenance and <=21 gate limit are required for exit10 `VALIDATED_SAT`. Other outcomes are exit2 `UNKNOWN`.
+
+Fresh output directories, immutable CNF/metadata snapshots, before/after hash checks, abort sentinel, SIGINT/SIGTERM handling, child process-group cleanup and parent-death SIGKILL are implemented. Full attempted-stage stdout/stderr, commands, phase exits/limits/CPU/RSS, proof bytes/hash and atomic progress/result are retained. Partial proofs remain explicitly unaccepted. Each controller slot must be held through checking or validation: filling a newly freed solver position while its checker still runs would exceed the intended child count. There is no scheduler or global disk reservation in this adapter.
+
+Nine simulated subprocess control groups passed with actual test-process exit0 (5.275s): sequential acceptance; UNKNOWN/crash/exit-verdict mismatch/missing or malformed proof; file/record caps; bad checker verdict/exit/proof mutation; full SAT validation including size22 and provenance rejection; abort/hash/disk guards; fresh-directory refusal; solver/checker timeout escalation; active-child abort. All complete fake-process fixtures/logs are retained under offline-controls/. The test summary and exact source/log hashes are in offline-controls-final-result.json. These tests exercise plumbing with fake executables; they do not verify real binary-DRAT compatibility. A production-input preflight passed, hashing the real pinned binaries and AAAO input/metadata without starting any child or creating its output directory. Independent review remains pending at handoff time; any real compatibility control or launch is for main to coordinate.
+
+The 64.580-second sample ending04:04:28UTC measured original solver/checker0.465/0.993 average CPU cores and AAAA solver/checker0.603/0.990. Total checker CPU1.983, solver CPU1.068. Original relay held its full1MiB buffer, consistent with checker backpressure; this is an inference, not a profiling result. Retained mode removes checker work on UNKNOWN cases but may increase unthrottled proof growth and adds later checking latency. A complete pipeline can take600+600 seconds plus snapshot/hashing overhead (or600+30 for SAT), rather than600 seconds total. No throughput improvement has yet been measured.
+
+Free scratch was12.534GiB at04:04:28UTC. Four proofs at512MiB consume at most2GiB per wave; incomplete proofs are also retained. The solver per-file cap also bounds each stdout/stderr separately, so proof storage is not the full worst-case disk bound. Reserve additional log/snapshot space and the default1GiB free-space floor. Admission checks one proof cap plus the floor per process; main must budget the whole batch before launch. A four-slot batch may temporarily run four checkers, each capped3GiB address space. Current active pairs remain untouched.
+
+For04:12, if main frees two slots and runtime review/control passes, the two independently reviewed AAAO chain cases are a concrete capped portfolio. They are an exact partition of that normalized parent, not global exhaustion: [3644,-3371] and [-3644,3371]. The former uses last-prefix wire29 in P, the latter in d. Avoid repeating the broad old20-second cubes. Recommended initial retained cap is600seconds/512MiB each, then decide from actual proof rate and search statistics; no automatic resubmission. Main alone chooses whether to replace the older online pair.
+
+Archive2 should include the AAAO handoff and source generators, exact parent/generator/hash bindings, all3895-clause RUP evidence and full checks, both excluded-assignment proofs/checks, exact2-case manifest, S08 AAAO independent review/full replay logs, this runner plus final controls/full fixtures/preflight/resource samples, and the pending independent runner review. Preserve old and final control records under distinct filenames; old source hashes describe historical tests. Large raw CNFs may be represented by checked parent/delta reconstruction. No archive2 completion or independent runner PASS is claimed here.
+
+Handoff `orch/S06/offline-runner-handoff.json` SHA256 `19192c58c5a4075e92e6744b1f2052eda7afa5db01973db2e220c8c74e4459ca` inventories 614 full source/control/log artifacts and two proposed commands (not executed). S08 AAAO review now PASS: `orch/S08/aaao-chain-review-v2/review.json`, SHA256 `5ce1515a74ede401f5324f2940a08e4276e069887f960a080f14c038891cbe97`.
+
+
+## 2026-11-24T04:12:41.235166+00:00 — archive2 ready for independent packaging review
+
+Final package is `orch/S06/archive2-final.tar.gz` (3,239,216 bytes), SHA256 `de4ba452cf2b996aa8fe89987bf4c61711eca8e8c92175cb6df1be5586e2b373`. Internal manifest SHA256 `005189a6921f0d52b442d5e26703b05b86482010e7ab5dc0247a77297fe98519` binds1783 files; tar has1784 regular members including the manifest. All file/tar hashes and95 reconstructed large CNFs passed local validation. There are137 tiny raw CNF fixtures, no bulk raw CNFs and no compiled binaries. All probing statistics and full diagnostics are retained.
+
+Included: AAAO3895RUP plus exact two-case partition, all local proofs/checks, S01 chain source/input recipes and S04 normalization review, S08 AAAO review/full replay logs; frozen offline runner aa5d13... with9 S06 and14 S08 simulated controls/full fixtures; main's actual wire13 compatibility run (0.669s,417878-byte binary DRAT SHA8125b968b7872be6b0c65d3d9fce9231364fd6e1e06a19c951b7752d730c320d), exact input recipe/full solver and checker logs, and S08 independent replay review c1a224.../full logs. The current P/d production jobs are outside this snapshot. This is no global/shard/chain exhaustion or Lean claim.
+
+The first packaging pass rejected a compiled checker snapshot; its source and full failure diagnostics are retained. The final packager omits that binary with exact size/hash, retains its pin/source provenance, and passes the no-binary scan. The intermediate archive2 snapshot lacks the later independent real-control replay; use archive2-final for delivery. `archive2-final-handoff.json` SHA256 `adb6a85c3c83fa6b1b5cb58c544b91f717ed755f9c2a73dd81b9649f966b4b25` binds tar, build/validation records, complete outer logs and read-only validation source. Packaging/reconstruction launched no worker and changed no active file. Main/S08 may review/copy/push this concrete package.
+
+
+## 2026-11-24T04:16:55.691982+00:00 — unchanged four AAOA offline commands ready
+
+`orch/S06/AAOA-offline-plan/commands-manifest.json` SHA256 `adabaea68e23813da23a98eeba453040930adddc570e02ff4bb1eedbe1df4175` binds exact argv arrays for T1..T4, fresh output directories, the unchanged aa5d13... runner, S04 mathematics and exact-delta reviews, S08 runner review and real compatibility review. Four real-input/tool-hash preflights passed without launching any solver/checker/validator or creating case output directories. Parent bodies, clause deltas, metadata and review hashes match; no cut or input changed.
+
+| Case | Clauses | CNF SHA256 | Metadata SHA256 |
+|---|---:|---|---|
+| T1 | 115450 | `422b20c5d9fd5c7eff0ec8a4d7283c70750686da38e3bc3e1dc68e7a1dd5353c` | `8925809ed282165430b24ff29d0dfe855a8a201caee9f4f89d644460b1644b43` |
+| T2 | 115884 | `a295babc305737a921da6bb5c0e990f6c91b2a4c200544d57bcd3abc3e574c3b` | `32645cb4ecbf1930eac6a4d472de4c3894e72c68ee73c29193030ec06a5ca91a` |
+| T3 | 115448 | `0ab8fcacbcfe9fa8e094d8db4d0a52eb5d885a032313992ac7c02f312eaffbdf` | `e52df0ccce39250ad98e3d9053d0585ae1cdcab85a330db75e7596de6f4a058a` |
+| T4 | 115884 | `661f44876da7e7f8d24d9a06f64ae3708037fc19048e9e20153c47e6a49ea5e3` | `b5471b3ac9514a8b02dd6090d8329c6eddbfd012914875dcd47e973d06c5e9b7` |
+
+Per case: solver600s/1536MiB AS, checker600s/3072MiB AS after completed UNSAT, SAT validator30s/1536MiB AS,512MiB proof cap and default1GiB free-space floor. One active child per controller; retain its slot until the entire checker/validator pipeline completes. Proposed T1/T2 allocation waits for BOTH AAAA online children to exit; T3/T4 wait for completed P/d pipelines, subject to main candidate-pin priorities. No timers or launch controller were installed. Four forms still require the separate AAAA fallback for existence coverage. All full preflight outputs, exact metadata/deltas and review snapshots are in AAOA-offline-plan; outer source/results/logs are bound by `AAOA-offline-handoff.json` SHA256 `660a4f994c06f38d68638f19ed077252c8c12de6ada2faee4aba3874661b2db3`. Frozen archive2-final is unchanged and remains the priority review package.
+
+
+2026-11-24T04:19:27.220628+00:00 — Archive2 independent delivery review now PASS `c7af9386a329d8af7c4049167ff5b0b7a087f417e939d772c1ec9d55e279d329`. Initial failure was S08 harness requiring a local __pycache__ file absent by design from payload, manifest and source map. S08 corrected that expectation in v2 and preserved the historical failure. Tar de4ba452... unchanged; all95 recipes and full evidence pass. Resolution record: `orch/S06/archive2-review-resolution.json`. No repackaging or worker action.
+
+
+## 2026-11-24T04:23:15.457679+00:00 — bounded AAOA static consequences and exact partitions
+
+Both sequential static passes completed in5.253514seconds aggregate, below the10second budget. No SAT solver ran. Child jobs ran sequentially at lowered priority,768MiBAS/2CPU-second caps; all full probe/checker outputs and statistics are retained. Parent CNFs/metadata were hashed before and after; no active or source input changed.
+
+The exact-parent DSR --forward --rup-only checks all exit0/s VALID. Added245rootunits across templates, five absorption exclusions, sorted-port implications, coverage clauses and conditional units. Per-template full proofs include the prior3692 original-RUP clauses:
+
+| Case | New root units | Full proof clauses | Remaining partition cases | Proof SHA256 |
+|---|---:|---:|---:|---|
+| T1 | 40 | 3872 | 3 | `c7e73b1cfad4d4df10e323ff3b9637c37f0f691cba0d79dd0d666ec82869f021` |
+| T2 | 86 | 3960 | 3 | `b5a7267a68a289cf1f48c3a74fbad32a39efaebd0eb3f1c07a97fd9dad7f34b6` |
+| T3 | 55 | 3867 | 3 | `0287d3e61224d2af864307c9df2b94beb2574f01685d49f68075b0e1e1264cca` |
+| T4 | 64 | 3873 | 2 | `4c926bf0ad8f9367f3a719caf98715332373f493ca625a9e0e0d272f97a50c25` |
+
+The five checked absorption clauses are T1 `[-3644,-3102]`; T2 `[-3644,-2867]` and `[-3644,-3133]`; T3 `[-3371,-2867]`; T4 `[-3102,-3403]`. Direct root propagation initially found no conflict; the bounded failed-literal pass derived the local unit conflicts and lifted each clause. These are now replay-checked implications, not unverified algebraic cuts. No whole remaining case was refuted.
+
+Exact disjoint partitions (all selectors refer to wire29):
+
+- T1: `[3644,-3102]`, `[-3644,3371]`, `[-3644,-3371,3102]`.
+- T2: `[3644,-2867,-3133]`, `[-3644,2867]`, `[-3644,-2867,3133]`.
+- T3: `[3371,-2867]`, `[-3371,2867]`, `[-3371,-2867,3133]`.
+- T4: `[3102,-3403]`, `[-3102,3403]`.
+
+T4 is an exact XOR between factorc (left18wire29) and OROperande (right19wire29). Coverage follows liveness and sorted ports; absorption forbids both. Exhaustive Boolean checks over the2/3representative selectors confirm each partition covers exactly the replay-checked coverage/absorption formula and is disjoint. No root-probe fixed-point claim is used.
+
+Handoff `orch/S06/AAOA-static-handoff.json` SHA256 `9fbf54e91191c177abfb18d526973dd8f468f84952ae5e71a0eb378677160be6` inventories226 complete artifacts plus exact parent/source/proof/metadata bindings. Final result `AAOA-static-v2/result.json` SHA256 `2e9e964342c09add959bb3cd225e89b9e0b45f03ba222384568f7cae49c7aaa2`. Review T4 first as the smallest future split. Keep active T1/T2 inputs and prior pending command manifest unchanged; main chooses any later use after independent review. Archive2 remains unchanged and independentlyPASS.
+
+
+## 2026-11-24T04:31:49.407189+00:00 — reusable +1 ancestor-cost encoding ready for actual-delta review
+
+Ready for independent actual-delta review; no solver/checker/Lean or active-input mutation. Generator SHA256 `56da4e9f313a18cabbcb582dffd999b212f8858e110c43c9f5dd7fb2c778b27d`. All ten fresh inputs append the identical3553-clause delta SHA256 `2c69ea99739a06d291dbbc9ee3a26d1f4411f25645bc07a04805bb860ee279dc`. Old variables1..11968 and all old clause bytes are unchanged. New penalty bits11969..11985 are the only additional variables.
+
+For prefix gate g, let A count strict gate ancestors and M=A+1. The old signed counter counts T=|S|+|H|+selected_cover+g-A. Its old proper-support bound T<=g+2 is the ancestor lower bound M>=|S|+|H|+selected_cover-1. The proposed extra charge requires T+p<=g+2. When p=true this is T<=g+1, so threshold T>=g+2 must be forbidden. The source-pinned exact reverse totalizer stores this threshold as overflow_flag-1. Every one of17 complete counter clause blocks, adjacent full-support guards and root allocations is regenerated and checked byte-for-byte in each actual parent before use. No counter is rebuilt in the child and no existing index changes.
+
+There are3366 trigger implications: for each root g, reader h<=g, rawinput v, and left/right operand, p OR S[v] OR any missing neighbor OR not ancestor(g,h) OR not selected(h,v). For h=g the ancestor condition is omitted. Raw inputs occupy existing selector positions0..10; free constants11/12 are excluded. The trigger uses actual syntactic ancestry, not singleton support as reachability. One bit charges at most once even if multiple irrelevant inputs trigger it.
+
+The remaining187 clauses are `[-p_g,-threshold_g,S_g[v]]`, one for each of11 support bits/output. For any proper support, at least one is `[-p_g,-threshold_g]`; for full support every clause is true. S04's compact alternative uses17 unguarded links and3383 total clauses. Both variants are sound under existential penalty choice; ours intentionally leaves full support exempt for either penalty value, adding170 clauses. S08's prep review explicitly accepts this guarded treatment. No change is needed merely to save those clauses.
+
+S04 mathematics/trigger/counter-spec review is PASS `73ae23f8a5df0ba581d85ffbbd0572424e522dd8672d8c2dc348a15f2c8b5bf6`, for math951fd... including arbitrary accepted residual H, empty H, empty/full support, constants and productive clean-prefix assumptions. S08 counter-spec/boundary prep PASS is `d3684badea28b22aeff35bf353a8fdf72a4400bf56e956db6dd89d121b569d14`. These are not yet an independent review of the final generated child deltas. Historical generated metadata says review pending; this handoff updates the mathematical/spec status while keeping all tested bytes frozen.
+
+This is a mathematical restriction with auxiliary existential choices, not an RUP proof that every old CNF model implies the new clauses. In particular an old model can have an unnecessarily large selected cover; completeness chooses a minimum cover afresh and canonical exact thresholds. Do not claim preservation of every old auxiliary assignment. Circuit-level existential completeness is the reviewed mathematical claim. Full support can choose p=false even in the compact unguarded formulation.
+
+The first seven fresh parents are original, AAAA-chain, AAAO-chain and T1..T4 under irrelevant-charge-v1/. Controls passed in0.919793seconds:180224 trigger rows,8704 syntactic input-path checks,1538 small signed-counter assignments/77468 clause evaluations,85 actual-counter boundary assignments/106225 clause evaluations,3196 bound arithmetic checks,3366 independent trigger-shape checks, five negative-control groups, and seven exact parent-delta/metadata checks. Full stdout/stderr and execution caps/exit0 are retained. The test driver never invokes a SAT solver, checker or generator main process; generation is a Python API call.
+
+Three additional fresh parents under irrelevant-charge-AAAO-v1/ are the reviewed3895-RUP-augmented AAAO parent and its P/d partition children. Preparation took0.305558seconds; each has exactly the same3553-clause suffix, unchanged old metadata except count/hash fields, and unchanged parent bytes. Their parent hashes are checked against S08 AAAO review5ce151...; all old RUP literals remain<=11968. Old RUP implications remain valid after adding clauses by monotonicity; no new replay was needed or performed. These three deltas also await independent actual-delta review before launch.
+
+Reproduction uses the frozen generator CLI with a parent path, a fresh output directory beneath S06scratch, and exact --parent-sha256/--metadata-sha256 from the handoff/generation record. It writes instance.cnf, instance.json, delta.clauses, thresholds.json and generation.json. Original and normalized input paths remain untouched. The generic interface supports the three RUP parents without special handling because their original counter blocks and variable IDs are intact.
+
+All full control logs, exact family/metadata/threshold bindings, sources and copied mathematical/spec review evidence are inventoried in irrelevant-charge-handoff.json. Main/S08 should review the actual3553-clause shared delta and all10 fresh parent suffixes. No resource admission or production launch is authorized by this package.
+
+Handoff SHA256 `9b9adf9f84a8e1321f55d936b5c9d091ee80edf0347750d0aefda7020b9084f2`; all71 source/control/provenance/input artifacts are bound.
+
+
+## 2026-11-24T04:40:14.594221+00:00 — reviewed charge archive and four completed AAOA runs
+
+Final S08 actual-delta review PASS `b0af769b67da5f0b2f42aa1d4e341e217556b56cf17ea3a7a7aa5ffe9a0a2d7b` covers all10 frozen strengthened inputs, parent bodies/old indices and prior AAAO RUP compatibility. Main independently rechecked107bindings and launched two strengthened runs; those running directories were not read or modified by S06. Pinned validator metadata-parser/decoder-shape checks pass for all10 inputs, recorded in charge-metadata-compatibility.json; this is structural compatibility, not a SAT model validation.
+
+Archive `orch/S06/charge-archive-v1.tar.gz` is3,753,740bytes, SHA256 `aeb918872f1a57b4ab4e3fb9afd48176dfe5022718b639063a4fd3f40d1ed0fd`; internalmanifest SHA256 `149bcc57286b9f3af38f505c5deb407727ea303ef98534f670e6027e7c7f23ac`. It retains693boundpayloads/694regularmembers including all10cuts source/delta/metadata/thresholds, full controls and S04/S08 reviews/sources/fulloutputs. Portable standard-library reconstruction passed for55 exact CNFs, including11968/11985variable headers, with no rawbulkCNFs or compiledbinarypayloads. All tarfile/hash bindings passed. Original generator dependencies and normalized-parent provenance are included.
+
+All four completed AAOA T1..T4 runs are UNKNOWN/solverwalllimit, exit2, with full result/progress/inputmetadata/solverstdoutstderr/outerstdoutstderr and launch records. No checker phase ran. Four incomplete DRAT streams remain in scratch, omitted from archive with independently recomputed sizes/hashes totaling1,278,861,312bytes; none is an accepted certificate. No exhaustion claim follows.
+
+First packaging attempt rejected a historical checker executable snapshot; its full source/diagnostics are retained. Final package omits it with exact size/hash. Cached bytecode is excluded from payload and selection expectations. No reviewed producer source or input was edited. Final build/restore/log records are bound by `charge-archive-v1-handoff.json` SHA256 `29be436c4c78c47632e987d0df17f5b25357e00f407067f2933817c6bfae4677`. Package is ready for main/S08 independent delivery review and preservation; no solver/checker/Lean/git/desk activity by S06.

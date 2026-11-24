@@ -1,0 +1,43 @@
+{
+  "utc": "2026-11-24T04:05:21.505181+00:00",
+  "verdict": "PASS_INDEPENDENT_SOURCE_AND_EXACT_CNF_DELTAS",
+  "reviewer": "main",
+  "generator_sha256": "7552f3d344d4e34a6f681b116b5ec748e032b2000315dfc9527c77f8de2bdb6b",
+  "allinput_scalar_checks": 4096,
+  "source_function": "F OR x9",
+  "cases": [
+    {
+      "family": "positive-best3-family",
+      "case": "distance-k03",
+      "exact_bytes": true,
+      "sha256": "23873a0bda528a61966b0c50e47b84fb9309edcb524eb520d16795cdb2bac1ec",
+      "fn": 0,
+      "fp": 22
+    },
+    {
+      "family": "positive-best3-family",
+      "case": "negative-free05",
+      "exact_bytes": true,
+      "sha256": "caab0679009375b1696c4eed929fdc68c709b72062b1c0bead91c79d691f3c76",
+      "fn": 0,
+      "fp": 22
+    },
+    {
+      "family": "positive-best4-family",
+      "case": "distance-k03",
+      "exact_bytes": true,
+      "sha256": "2cbe3c35cdf1a688acb8186dbf9d104d5d889f66ec64b1717b398fb03ef5a213",
+      "fn": 0,
+      "fp": 22
+    },
+    {
+      "family": "positive-best4-family",
+      "case": "negative-free05",
+      "exact_bytes": true,
+      "sha256": "caab0679009375b1696c4eed929fdc68c709b72062b1c0bead91c79d691f3c76",
+      "fn": 0,
+      "fp": 22
+    }
+  ],
+  "scope": "candidate-only; no result or exhaustion"
+}

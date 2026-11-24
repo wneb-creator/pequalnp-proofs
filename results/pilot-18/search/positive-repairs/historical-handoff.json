@@ -1,0 +1,148 @@
+{
+  "utc": "2026-11-24T03:54:51.471928+00:00",
+  "status": "READY_FOR_MAIN_INDEPENDENT_REVIEW_NO_WORKERS_STARTED",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/prepare_positive_repairs.py",
+      "sha256": "7552f3d344d4e34a6f681b116b5ec748e032b2000315dfc9527c77f8de2bdb6b",
+      "bytes": 8253
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/audit_positive_repairs.py",
+      "sha256": "4f04633828de9f670ecc8caf7eae9a154e0d51f05e076805229049252b67e932",
+      "bytes": 10209
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-repairs-review.json",
+      "sha256": "667dfab9773d414fa6603472f8678e0b0c2807c6f11f4fba5a916c4e84e3673d",
+      "bytes": 2435
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-real-families-review.json",
+      "sha256": "cd8be9195a74da16146175de85e5a53187c56100949570299fe5bbff5cf23e02",
+      "bytes": 4193
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-weight16-source-analysis.json",
+      "sha256": "0ec2d3cdca5c15141a31e0eb2943c2db2d8c0e26c262bd5d133052bb1004e341",
+      "bytes": 3664
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/prior-best-positive-intake.json",
+      "sha256": "38daa05371c5a9a6aa5bf728dfd655f4c52d36b866088851ec541bb45a3ec1c1",
+      "bytes": 5006
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/POSITIVE-REPAIRS.md",
+      "sha256": "83cd432280f6811597025e12e991dba21e98dc260828811f8fd153b8ae96d3c5",
+      "bytes": 4977
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-audit.stdout.txt",
+      "sha256": "bc024767995fa143e2d41175c6d6e574c36e3104f209a79bec0a6ac4d1bef8c4",
+      "bytes": 246
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-audit.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-help.stdout.txt",
+      "sha256": "014efc596ce4f3451075e6261812939bd4f3aa2637c2c2a24b3e72cfae512c82",
+      "bytes": 887
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-help.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best3-family/distance-k03.cnf",
+      "sha256": "23873a0bda528a61966b0c50e47b84fb9309edcb524eb520d16795cdb2bac1ec",
+      "bytes": 1438756
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best3-family/distance-k03.json",
+      "sha256": "06d0342a0e29d1c6e483b25b8c7fd15140c707f47062468593f18a499916f58d",
+      "bytes": 21841
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best3-family/family.json",
+      "sha256": "3c8c8e1bef9c9a6cdc1235badda13447de1dbe4fd6a038d5346f0ab69b717455",
+      "bytes": 1600
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best3-family/negative-free05.cnf",
+      "sha256": "caab0679009375b1696c4eed929fdc68c709b72062b1c0bead91c79d691f3c76",
+      "bytes": 1433821
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best3-family/negative-free05.json",
+      "sha256": "e0f9930e2e6272050dbe17a0dc65224dfe57cb5282afe214e43fb504d651d8d7",
+      "bytes": 21102
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best3-family/source-summary.json",
+      "sha256": "e687e26cb1865a36d9a0a8c97e3541c789da9b1904c793127303dff67a2efb8e",
+      "bytes": 6103
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best3-family/source.json",
+      "sha256": "a536e70248fe8a12de358e887fc9b913f64b08f462d4f35843da14f93460d6c7",
+      "bytes": 819
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best4-family/distance-k03.cnf",
+      "sha256": "2cbe3c35cdf1a688acb8186dbf9d104d5d889f66ec64b1717b398fb03ef5a213",
+      "bytes": 1438756
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best4-family/distance-k03.json",
+      "sha256": "a871b9528ba65759519a30d34e52f96b9ebd352120b7746d5a74f3a47ffec5f3",
+      "bytes": 21840
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best4-family/family.json",
+      "sha256": "80a802da982798119dcf946b00969269f23c85cde9694600e3ceb1b5cc6aea3b",
+      "bytes": 1600
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best4-family/negative-free05.cnf",
+      "sha256": "caab0679009375b1696c4eed929fdc68c709b72062b1c0bead91c79d691f3c76",
+      "bytes": 1433821
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best4-family/negative-free05.json",
+      "sha256": "4761b88752b4ab3be783a2879ee6e7b6def07b513b119d8dacdf569b54f80e42",
+      "bytes": 21102
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best4-family/source-summary.json",
+      "sha256": "d664476cd82864171e9135ab4be484b441a6d555bef8e2a474611a48f908f99a",
+      "bytes": 6028
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best4-family/source.json",
+      "sha256": "0b42692c78f217f07439194fe726a04553777014a2dc6b9b299d8b759ca479af",
+      "bytes": 818
+    }
+  ],
+  "source_sha256": "7552f3d344d4e34a6f681b116b5ec748e032b2000315dfc9527c77f8de2bdb6b",
+  "case_count": 4,
+  "exact_target_witness": false,
+  "source_function": "F_G OR x9, scalar verified all2048; one junk AND at14",
+  "priority": [
+    "positive-best3-family/distance-k03.cnf",
+    "positive-best4-family/distance-k03.cnf"
+  ],
+  "optional": [
+    "positive-best3-family/negative-free05.cnf",
+    "positive-best4-family/negative-free05.cnf"
+  ],
+  "recommended_initial_seconds_per_case": [
+    10,
+    20
+  ],
+  "subagents_used": 0
+}

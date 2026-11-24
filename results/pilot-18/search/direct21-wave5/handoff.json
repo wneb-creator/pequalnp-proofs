@@ -1,0 +1,10 @@
+{
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz",
+  "archive_sha256": "70858a65855a12f1345980afbfd2c490bec7963fcf3c1c3aa58847108b441323",
+  "archive_bytes": 46691,
+  "members": 119,
+  "omitted_binary_count": 1,
+  "manifest_sha256": "6c838e8d549437e34a6bac8d2b6ac8ebea1035469a4a963d2b79cd45d501353b",
+  "all_members_regular": true,
+  "roundtrip_hashes_pass": true
+}

@@ -1,7 +1,8 @@
 # S01: consecutive first junk gates
 
-Updated 2026-11-24 03:29 UTC. Mathematical result; not yet a Lean theorem or an
-independently reviewed SAT restriction. No solver or generator has been changed.
+Updated 2026-11-24 04:03 UTC. Mathematical normalization independently reviewed
+by S04, with generated clauses independently checked. This is not a Lean
+formalization or an exhaustion result. S01 has launched no solver.
 
 ## Main result
 
@@ -145,7 +146,7 @@ Sub-agents: none
 
 ## Follow-up: AAOA has four forms, plus an AAAA fallback
 
-This additional classification is awaiting separate independent review. It
+This additional classification and its generated clauses passed S04 review. It
 assumes both first ANDs are junk, as justified above. It does not use a one-junk
 lower bound. Four exact formulas suffice for AAOA, with all letters prefix
 wire occurrences and repeats allowed:
@@ -240,3 +241,239 @@ inspection in `late-junk-bool-axioms.stdout.txt` reports no axioms for the three
 Boolean identities, propext for the clean/dirty operand lemmas, and Quot.sound
 for functional equality. Audit exit0 in1.70seconds, empty stderr. These are
 checked components, not a Lean formalization of the full four-gate normalization.
+
+The four AAOA files are in `orch/S01/aaoa-four-v1/`. Their self-contained
+generator `build_aaoa_shapes.py` has SHA
+`6bcb7e1abdb2c65ffdc9a6a1ced8554509ed2f96a40a756f30d718708256ae63`.
+The family manifest has SHA
+`b05805738736e9b04257657dd8bd39d0fe1c6c31428f191a9fa727fb32109401`.
+All four preserve the exact reviewed AAOA parent and add 879,1313,877,1313
+clauses. S01 controls check every added clause,9000order projections and128
+five-terminal truth rows. S04 independently reviewed the full six-case cover
+(AAAA-chain,AAAO-chain,T1,T2,T3,T4), including the AAAA absorption fallback;
+its manifest is `orch/S04/six-case-review-manifest.json`, SHA
+`96286c7bc5424c199bf5a1336e9d52e2f016c1a726403af0959ca4ebd8d8f39b`.
+
+## Early full-cover prefix factors
+
+For a clean-prefix wire W accepting all16edges, with proper singleton support
+S, the exact function is W=F OR OR(S). Negative inputs follow from prefix
+cleanliness; positive inputs follow from monotonicity and edge coverage.
+The already formal support bound is
+
+    L(S) = |S| + |E(G minus S)| + cover(G minus S) - 1.
+
+Because S plus a residual cover covers G, L(S) is at least
+|E(G minus S)|+6. Thus a nonconstant full-cover wire needs at least6ancestor
+gates. Free TRUE is exempt: full support cannot be excluded merely by this
+bound. There is an important indexing distinction: augmented wire18 is g5,
+so has at most6earlier-and-current gates; wire19 is g6 and has at most7.
+
+Every proper support with L<=7 has exactly one of these forms:
+
+| Support size | Residual edges | Residual cover | L | Number of supports |
+|---|---|---|---|---|
+| 7 | 0 | 0 | 6 | 22 |
+| 8 | 0 | 0 | 7 | 52 |
+| 6 | 1 | 1 | 7 | 46 |
+
+The finite enumeration is `orch/S01/early-full-cover-supports.json`. In
+particular wire19 need not be an OR of a seven-vertex cover: it may compute
+the OR of six variables and one residual edge product. Example:
+
+    g0=x1 AND x4; g1=x5 OR x6; g2=x7 OR x8; g3=x9 OR x10;
+    g4=g0 OR g1; g5=g2 OR g3; g6=g4 OR g5.
+
+Its support is {5,6,7,8,9,10}; the only residual edge is(1,4). This is a
+seven-gate full-cover prefix factor, not a circuit for F.
+
+These small bounds also constrain gate types. An OR-only ancestry graph of
+a proper-support output has its support variables as leaves, and stops at
+clean AND outputs. If any AND is present, at least one such frontier exists.
+A connected binary OR graph with at least |S|+1 distinct leaves needs at
+least |S| OR nodes. Consequently a seven-variable OR factor with at most7
+ancestor gates has no AND ancestor. An eight-variable OR with7gates is an OR
+tree. A six-support,one-residual-edge factor with7gates has exactly one AND
+and six ORs. The AND is the raw residual-edge product: an OR ancestor of
+that AND would lie in the six-support OR ancestry and vanish on the residual
+edge row. Constants, aliases and repeated leaves cannot improve these counts.
+
+## Limits of independent factor-cost obstructions
+
+The sorted-budget proposal alone admits supports {8,10},{4,6},{3,4} with
+L=14,16,17. Their zero sets cover all24MIS and the family is minimal.
+`orch/S01/position-budget-counterexample.json` retains this finite check.
+This is not a common17-gate prefix construction.
+
+The refined no-common-neighbor proposal also has a feasible support family:
+
+| S | Common neighbor | Residual edges | Residual cover | L |
+|---|---|---|---|---|
+| {4,8}=N(1) | 1 | 10 | 5 | 16 |
+| {1,8,10}=N(4) | 4 | 7 | 4 | 13 |
+| {1,4,5,9}=N(8) | 8 | 6 | 3 | 12 |
+
+All three have a common neighbor, so r=0 and the proposed cap17 permits
+every factor. Any independent input hitting N(1) contains4 or8. In the
+first case it cannot hit N(4); in the second it cannot hit N(8). Thus their
+zero sets cover every independent input. Singleton inputs1,4,8 respectively
+witness that all three factors are necessary. The independent scalar script
+`orch/S01/check_common_neighbor_family.py` verifies costs,common neighbors,
+all24MIS and8192full-input identities; full logs and
+`common-neighbor-family-validation.json` are saved alongside it.
+
+S05 algebra handoff: let A be the triangle function on {3,6,7},
+B=x10 AND(x0 OR x2 OR x6), C=x9 AND(x0 OR x5 OR x7), D=x2 AND x5.
+The three required outputs H_v=F OR OR(N(v)) are exactly
+
+    H1=A OR B OR C OR D OR x4 OR x8;
+    H4=A OR C OR D OR x1 OR x8 OR x10;
+    H8=A OR B OR x1 OR x4 OR x5 OR x9.
+
+Their conjunction is F. These are an exact multi-output optimization target,
+not a17-gate implementation. Shared-prefix cost remains the obstruction to
+resolve. No uniform cap for common-neighbor factors follows from dominance:
+the earlier dominance rule requires its dominating wire to have empty
+singleton support. No general ancestry antichain is asserted here.
+
+## New joint bound excludes that three-factor family
+
+The individual-cost counterexample above has a stronger joint obstruction.
+For a minimal family of at least three proper full-cover factors in a
+productive clean prefix, fix S_i with nonempty residual graph. Let z count
+other factors with no common neighbor, and let d count distinct vertices v
+in S_i which are the unique common neighbor of some other factor. Then
+
+    prefix gates >= L(S_i)+z+d.
+
+Full argument: `orch/S01/joint-factor-cost.md`, SHA
+`78070f3939d1ac081e67f1b4f18e1655e1aaaed7e4efa4b0d9fa3a4cf24d865f`.
+This passed S04 independent mathematical review, as relayed by main at04:10;
+it is not Lean or an implemented cut. Each relevant factor outside the ancestor cone costs a separate output
+gate; an ancestor factor instead supplies a clean AND removable on restricting
+S_i, in addition to the usual |S_i| OR deletions. Distinct owners supply
+distinct ANDs. Multiple factors with one owner are charged only once.
+
+For S_i=N(1), the other owners4,8 belong to S_i, giving16+2=18. Hence this
+particular family cannot fit the17-gate productive clean prefix, even though
+all its individual-cost and negative-row conditions hold. This does not
+exclude every possible factor family or prove AAAA exhaustion.
+
+The same calculation gives19prefixgates for N(3),N(6),N(7), using L(N(3))=17
+and the two charged owners6,7. Thus both S02 triangle pin families, including
+all six individually cost-feasible permutations, are excluded at17gates by
+this mathematical argument. `orch/S01/triangle-joint-cost-validation.json`
+binds all twelve pinned metadata files and checks the finite graph data and
+eight ancestor/outside-cone count cases. It is not a solver certificate.
+
+## First surviving support family and a further obstruction
+
+The authorized single-CPU finite probe found a survivor in0.025seconds and
+stopped after six search nodes. It did not exhaust sizes3..5. The exact source
+and complete logs are `orch/S01/enumerate_joint_supports.py` and
+`joint-support-enumeration.stdout.txt`/`.stderr.txt`; result
+`joint-support-enumeration.json`. This uses sorted position budgets and joint
+charges, with edgeless residuals exempted from the joint charge.
+
+The surviving supports are A={8,10}, B={9,10}, C={4,6}. Their individual costs
+are14,14,16, common-neighbor owners4,0,10, and joint bounds15,15,17. Independent
+`validate_joint_survivor.py` checks4096full-input identities, minimality,
+antichain and cost values. A AND B is exactly F OR x10, and ABC=F. These
+support functions are not a common-prefix construction.
+
+New structural argument, pending independent review:
+`orch/S01/tight-survivor-obstruction.md`, SHA
+`69bb5f1587acceb0fd5ecebf3ed4a525919c439eef62c70a7c11e9ae149a1acc`.
+It excludes this triple from17productivecleanprefixgates as well. Joint
+tightness forces B ancestor C. Three selected OR outputs occupy three of
+indices13..16, leaving one AND q. Hence q=B AND R, C=q OR P, with supportR={0}
+and supportP={4,6}; R/P are raw inputs or core gates0..12. B has exactly14
+ancestor gates, including every core gate. A restriction-charge lemma for
+arbitrary supported ancestors forces R to be rawx0. Consequently P accepts
+eight residual edges with a matching of size4, giving cost13; P is gate12.
+It must directly feed B's OR, contradicting their incompatible supports.
+
+The new charge permits a non-full-cover ancestor: after restricting the
+output's support, bypass its first AND by the other operand if that operand's
+support lies in the zeroed set. This preserves independent rows and only
+increases accepted edge rows, sufficient for the formal partial-edge bound.
+The proof counts this AND separately from support OR deletions.
+
+`check_tight_survivor.py` and `tight-survivor-validation.json` verify all four
+possible late-prefix position patterns, the residual graph, matching/cover
+certificate and arithmetic. Full logs are saved. These finite controls do
+not independently verify the structural proof. No further support enumeration,
+solver, active-worker mutation, or named Lean edit was performed.
+
+## Coverage of the515 three-factor, common-neighbor survivors
+
+S04 independently enumerated all18424 triples from49 common-neighbor support
+candidates, retaining515 after individual, sorted-position, joint and minimal
+negative-cover tests. S01's new scripts consume that exact hash-pinned list.
+
+The reusable one-spare-late-gate lemma applies when all three individual costs
+are at least14. Only one unselected gate remains among indices13..16. Ancestry
+between selected factors therefore forms a star through one clean AND. Its
+source and nonchildren have exact14-gate cones; each child has a16-gate cone.
+Supported-ancestor restriction charges and partial-operand bounds reject all
+possible stars for233families. Full proof `orch/S01/one-late-AND-pattern.md`;
+source `classify_three_common_factors.py`; results and full logs alongside.
+
+The further position/relation filter enumerates all distinct output positions
+and transitive selected-ancestry choices, checking necessary intervening-AND
+slots and actual cone upper/lower bounds. It excludes20additional families.
+The combined result is253excluded,262remaining. All are mathematical pattern
+exclusions pending independent review, not a SAT or Lean certificate.
+
+Proof `orch/S01/three-factor-position-conditions.md`, source
+`classify_three_factor_positions.py` SHA
+`30a0f04da70984ac6e554325f0ceff246febaf0c558572b8dbc0ff6b18bd610d`.
+Its result `three-factor-position-classification.json` saves every family's
+rejection counts or an explicit remaining abstract position/ancestry pattern.
+The run examined13927choices in0.057seconds. A v2 cone-union experiment gives
+the same count; it is preserved but unnecessary for the253claim.
+
+Separately, `orch/S01/irrelevant-input-charge.md` gives a proposed reusable
+per-output +1cost charge: if rawv is an ancestor, v is outside supportS and
+N(v) is contained in S, the existing ancestor partial-edge bound increases
+by1. Nonempty residuals use an extra first-AND deletion; empty residuals use
+the elementary OR-support node count plus that AND. It does not require any
+selected factor family. Full support automatically disables the condition.
+An encoding can use17penaltybits and3366implicationclauses with existing
+gate-ancestor/raw-operand selectors; no code for that cut was authored here.
+
+None of these results closes AAAA:262three-factor/all-common-neighbor patterns
+remain, and other support classes and larger families are outside this scope.
+
+## Multiple irrelevant inputs: +2/+3 coverage
+
+The per-output +1 charge passed S04 mathematics, trigger-specification and
+counter-reuse review; S06 prepared its encoding. S01 has not modified a CNF.
+
+The new `orch/S01/disjoint-neighborhood-input-charge.md` generalizes the charge
+to any set I of irrelevant actual-ancestor inputs with pairwise-disjoint
+neighborhoods. Their first ANDs are distinct: sharing an operand would require
+a nonempty intersection of neighborhoods, while entering opposite operands
+would make the AND true on an independent pair. Restriction and simultaneous
+bypasses remove |I| distinct ANDs in addition to the support OR deletions.
+The empty-residual case uses |S|-1 OR support nodes plus these ANDs. The
+generalization is pending independent review; no Lean theorem is claimed.
+
+The complete2048-support table has14eligible input pairs and3eligible triples.
+There are202support masks permitting+2,132with nonempty residual graph, and
+9masks permitting+3. Maximum disjoint charge is3. Actual input ancestry is
+still required; these counts alone do not justify a penalty on an output.
+
+This does not reduce the262remaining all-common-neighbor factor families.
+In a C4-free graph with minimum degree2, a support with a common neighbor
+has at most one vertex outside it whose neighborhood it contains. The
+proved ancestry lemma also prevents a no-common-neighbor prefix wire from
+reaching a common-neighbor factor in a productive live prefix. Thus no live
+prefix wire of these families can trigger+2. The broader suffix search can.
+
+An unimplemented encoding outline reuses per-input witness flags and existing
+counter thresholds: relative to+1, +2needs204variables/3621clauses; supporting
++3as well needs221variables/3689clauses. These are separate threshold bounds,
+not a sum of1+2+3penalties. Exact graph witnesses, full logs, source hashes,
+proof and encoding caveats are bound by `orch/S01/disjoint-charge-handoff.json`,
+SHA `c4ec0d309a0a8c7702629d51ab617138f59c5d663d4e80e972cd17cd7573582c`.

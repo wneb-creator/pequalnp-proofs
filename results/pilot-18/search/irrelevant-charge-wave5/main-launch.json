@@ -1,0 +1,51 @@
+{
+  "verdict": "PASS_BINDINGS_AND_RESOURCE_ADMISSION",
+  "independent_review_sha256": "b0af769b67da5f0b2f42aa1d4e341e217556b56cf17ea3a7a7aa5ffe9a0a2d7b",
+  "verified_bindings": 107,
+  "launches": [
+    {
+      "name": "AAAA-chain",
+      "pid": 29719,
+      "argv": [
+        "python",
+        "-B",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/offline_checked_cadical.py",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-v1/AAAA-chain/instance.cnf",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/offline-irrelevant-AAAA-chain-wave1",
+        "--cnf-sha256",
+        "1c7b87b6ae74a785985acfe2637e4ba1e1d06b7ab97a2815df62d10a5c691c42",
+        "--metadata-sha256",
+        "6a765f58a0f13255776240f174228436ce448c6029c8ca82d72cedfd2fd31f2d",
+        "--solver-seconds",
+        "600",
+        "--checker-seconds",
+        "600",
+        "--proof-mib",
+        "512"
+      ],
+      "utc": "2026-11-24T04:35:10.301761+00:00"
+    },
+    {
+      "name": "AAAO-RUP",
+      "pid": 29720,
+      "argv": [
+        "python",
+        "-B",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/offline_checked_cadical.py",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-AAAO-v1/AAAO-RUP/instance.cnf",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/offline-irrelevant-AAAO-RUP-wave1",
+        "--cnf-sha256",
+        "3ca38756fce2122a57ba543019e73b9f4bf45eff83c8c64da63ddf6c2a4772cb",
+        "--metadata-sha256",
+        "a6abfed6f12ea12b9706ce79708074885d57b167af867376cc5692b93ec96963",
+        "--solver-seconds",
+        "600",
+        "--checker-seconds",
+        "600",
+        "--proof-mib",
+        "512"
+      ],
+      "utc": "2026-11-24T04:35:10.304734+00:00"
+    }
+  ]
+}

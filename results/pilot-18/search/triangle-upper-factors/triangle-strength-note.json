@@ -1,0 +1,138 @@
+{
+  "utc": "2026-11-24T04:07:24.400567+00:00",
+  "scope": "Additional nonblocking scope/strategy note; existing generator, CNFs, review and35filehandoff unchanged.",
+  "generator_sha256": "e24f9c066ab8a37fa9dbe0d028acb594b8d6d8bc83e9f482fd62e8a390920538",
+  "handoff_sha256": "643c5f4025d175a4fdb759d1062c1078592ff27728199c180c1f977625cff01f",
+  "verified_copy_normalization": {
+    "prefix_gates": 17,
+    "suffix_original_gates": 4,
+    "suffix_copies_removed": 2,
+    "normalized_total_gate_upper_bound": 19,
+    "normalized_suffix_gate_descriptions": [
+      [
+        "and",
+        27,
+        28
+      ],
+      [
+        "and",
+        29,
+        30
+      ]
+    ],
+    "normalized_output_wire": 31,
+    "boolean_controls": [
+      {
+        "factors": [
+          false,
+          false,
+          false
+        ],
+        "original_output": false,
+        "two_gate_output": false
+      },
+      {
+        "factors": [
+          false,
+          false,
+          true
+        ],
+        "original_output": false,
+        "two_gate_output": false
+      },
+      {
+        "factors": [
+          false,
+          true,
+          false
+        ],
+        "original_output": false,
+        "two_gate_output": false
+      },
+      {
+        "factors": [
+          false,
+          true,
+          true
+        ],
+        "original_output": false,
+        "two_gate_output": false
+      },
+      {
+        "factors": [
+          true,
+          false,
+          false
+        ],
+        "original_output": false,
+        "two_gate_output": false
+      },
+      {
+        "factors": [
+          true,
+          false,
+          true
+        ],
+        "original_output": false,
+        "two_gate_output": false
+      },
+      {
+        "factors": [
+          true,
+          true,
+          false
+        ],
+        "original_output": false,
+        "two_gate_output": false
+      },
+      {
+        "factors": [
+          true,
+          true,
+          true
+        ],
+        "original_output": true,
+        "two_gate_output": true
+      }
+    ]
+  },
+  "implication": "This family seeks a stronger19-effective-gate construction, while the posted candidate limit is21; it is intentionally incomplete.",
+  "new_S01_claim": {
+    "source": "/tmp/oec/pequalnp-pilot-18/orch/S01/joint-factor-cost.md",
+    "sha256": "78070f3939d1ac081e67f1b4f18e1655e1aaaed7e4efa4b0d9fa3a4cf24d865f",
+    "status": "PROPOSED_JOINT_BOUND_PENDING_INDEPENDENT_MATHEMATICAL_REVIEW_NOT_LEAN",
+    "conditional_if_valid": [
+      {
+        "triangle": [
+          1,
+          4,
+          8
+        ],
+        "distinguished_factor": 1,
+        "individual_bound": 16,
+        "distinct_owners_in_support": [
+          4,
+          8
+        ],
+        "joint_prefix_lower_bound": 18
+      },
+      {
+        "triangle": [
+          3,
+          6,
+          7
+        ],
+        "distinguished_factor": 3,
+        "individual_bound": 17,
+        "distinct_owners_in_support": [
+          6,
+          7
+        ],
+        "joint_prefix_lower_bound": 19
+      }
+    ],
+    "consequence_if_valid": "Both proposed triangle families with17cleanprefix gates are impossible. Do not present this pending claim as a checked refutation."
+  },
+  "possible_followup": "If main wants a less restrictive global candidate family,19cleanprefix gates andtwo finalANDs would use21effective gates; this would require a fresh parent and a separate review, not these inputs. No such variant generated or launched.",
+  "workers_started": 0
+}

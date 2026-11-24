@@ -1,0 +1,132 @@
+{
+  "verdict": "PASS_SELF_AUDIT_READY_FOR_MAIN_REVIEW",
+  "generator_sha256": "e24f9c066ab8a37fa9dbe0d028acb594b8d6d8bc83e9f482fd62e8a390920538",
+  "audit_sha256": "0dcc892aab13a22096e953ee37a30e0fe8b0793ddfaa2e44af11d3b3d64b648d",
+  "family_manifest_sha256": "be2632ca05664313c19becd3f11e7525d827ddb133400e89a27dd1762beba9ad",
+  "parent_sha256": "3fefefe3949bc703fc2b9f023be12bc42f1afe7619e8ed5ed63be2f8e7648812",
+  "parent_metadata_sha256": "a7425759cf64d1eef6ccd281dedf0c2e67049b88ce335a4ac166fcc0d077e19b",
+  "case_count": 12,
+  "cost_feasible_cases": 6,
+  "factor_scalar_checks": 12288,
+  "factor_product_checks": 4096,
+  "full_suffix_row_checks": 24576,
+  "added_unit_controls": 1116,
+  "costs": {
+    "1": 16,
+    "4": 13,
+    "8": 12,
+    "3": 17,
+    "6": 14,
+    "7": 14
+  },
+  "cases": [
+    {
+      "case": "tri-1-4-8-order-1-4-8",
+      "cnf_sha256": "5fc8c0bc3857b0e087b4f6815aa1f0602f796f5afb51caeca1a7573486347f9e",
+      "metadata_sha256": "2d92563b906cac02d6076113518a37de88a8f02b8c4a4ab906f36a2c26c22b93",
+      "parent_body_preserved": true,
+      "exact_93_unit_delta": true,
+      "cost_feasible": false
+    },
+    {
+      "case": "tri-1-4-8-order-1-8-4",
+      "cnf_sha256": "55a33d7a82c7dd0296546a427601c4be18f8d4e0ed2065ad08fd5a763528849e",
+      "metadata_sha256": "2414ecbc344cadb96cbddaa94567c3e35589bfc8cb5a1ba71b1be8ba8e28c652",
+      "parent_body_preserved": true,
+      "exact_93_unit_delta": true,
+      "cost_feasible": false
+    },
+    {
+      "case": "tri-1-4-8-order-4-1-8",
+      "cnf_sha256": "9fb9a42e2a0fc643c41f04d4e19bf451cfe028e5d40e90cac63333058f276a3e",
+      "metadata_sha256": "544b42c0780ff26e9ab736facccf948d668c3b91f8de3cc7f747b728a7b82c2e",
+      "parent_body_preserved": true,
+      "exact_93_unit_delta": true,
+      "cost_feasible": true
+    },
+    {
+      "case": "tri-1-4-8-order-4-8-1",
+      "cnf_sha256": "09d85db1ebd01e1658151d19a118ccd71551a112f7dd02af0ad7f4bfe7220d0d",
+      "metadata_sha256": "69638c7f332bced709c669b50aa6fae4cca01f682d64470b12c486766822df9c",
+      "parent_body_preserved": true,
+      "exact_93_unit_delta": true,
+      "cost_feasible": true
+    },
+    {
+      "case": "tri-1-4-8-order-8-1-4",
+      "cnf_sha256": "4b1a31efbc6090eaa5bea12fbb302d76fbab6df814ef6b32a4d3c64b6bb00b78",
+      "metadata_sha256": "1e357878addae7861863e2f27d1597d5179f9cd629c99e43bc65f752e673a600",
+      "parent_body_preserved": true,
+      "exact_93_unit_delta": true,
+      "cost_feasible": true
+    },
+    {
+      "case": "tri-1-4-8-order-8-4-1",
+      "cnf_sha256": "d81ee09eeee17067e368136d1151475eb2b7fe7638c63fac06e64b20d98c69cd",
+      "metadata_sha256": "be5d4a68ac294be1637d1d7bc758944adc7f5c1432d7c98745ed44274c4265f2",
+      "parent_body_preserved": true,
+      "exact_93_unit_delta": true,
+      "cost_feasible": true
+    },
+    {
+      "case": "tri-3-6-7-order-3-6-7",
+      "cnf_sha256": "46c3386df563a9238012215f6c6a6717ddd61442e373b353d3fd2209146362f8",
+      "metadata_sha256": "a769571f1534c7783d12b6c6f19cb26e8c9228150d1113d6877684e18b347d7c",
+      "parent_body_preserved": true,
+      "exact_93_unit_delta": true,
+      "cost_feasible": false
+    },
+    {
+      "case": "tri-3-6-7-order-3-7-6",
+      "cnf_sha256": "ab58fb4ce5c8469b53fc694a6aeb2ed1d7a526c891091a8c3627d75b924c1abc",
+      "metadata_sha256": "eb395101644733885f051907c8b5c0fe00fe6364ac6dab5d6cb810878a111483",
+      "parent_body_preserved": true,
+      "exact_93_unit_delta": true,
+      "cost_feasible": false
+    },
+    {
+      "case": "tri-3-6-7-order-6-3-7",
+      "cnf_sha256": "d8ea3b13f4ae188dae142d1ff989b97a9211821389d55a72d2f44a860d493c82",
+      "metadata_sha256": "95995b94f5c71bf16781f995d9095c240c959f8289d91aa90fa556dee2f1e5cf",
+      "parent_body_preserved": true,
+      "exact_93_unit_delta": true,
+      "cost_feasible": false
+    },
+    {
+      "case": "tri-3-6-7-order-6-7-3",
+      "cnf_sha256": "36e85d554fdc9786f975163f54e6c144c3a976c57d261b9f839cc990ff22e2fa",
+      "metadata_sha256": "d10ff5c48b4a5d2d416d1285bc5c0f1b7dc7f0428614052c1a17291736868d41",
+      "parent_body_preserved": true,
+      "exact_93_unit_delta": true,
+      "cost_feasible": true
+    },
+    {
+      "case": "tri-3-6-7-order-7-3-6",
+      "cnf_sha256": "c1873d728c7d5522573e854d920c49131328824711408a3c028bfe4b47aab5d1",
+      "metadata_sha256": "beb72f95e0c16f6bb31f8368d2ee98d887635dd8e2dbd0c8a7c5e3fcf98f0bef",
+      "parent_body_preserved": true,
+      "exact_93_unit_delta": true,
+      "cost_feasible": false
+    },
+    {
+      "case": "tri-3-6-7-order-7-6-3",
+      "cnf_sha256": "13cdbb52daf5ffe5c2285711a5e3413090d7bf39533d94d9ba4e1a5b1e6774df",
+      "metadata_sha256": "b4122e22796330d9177bc067b0c4bdf2dced428fb7f0aaf612ef679ec2e7ff77",
+      "parent_body_preserved": true,
+      "exact_93_unit_delta": true,
+      "cost_feasible": true
+    }
+  ],
+  "negative_controls": [
+    "mutated_parent_hash_rejected_before_output",
+    "existing_directory_rejected"
+  ],
+  "byte_identical_reproduction_files": 25,
+  "blocking_findings": [],
+  "limitations": [
+    "No SAT model is known; abstract factor oracles validate the suffix but not17gate simultaneous prefix realizability.",
+    "Fixed last-three output locations, exact factors and every inherited parent cut restrict a candidate family; no WLOG or exhaustion claim.",
+    "Six bound-infeasible permutations remain generated for audit and should not receive candidate runtime.",
+    "No solver, worker, Lean build, repository change or desk request occurred."
+  ]
+}

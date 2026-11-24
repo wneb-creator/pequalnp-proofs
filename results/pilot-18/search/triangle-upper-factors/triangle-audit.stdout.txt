@@ -1,0 +1,1 @@
+{"review": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-factor-review.json", "sha256": "006965e4cedc6bc6264b56b52df76ae97dd5893837713a62d04766a3db13deeb", "verdict": "PASS_SELF_AUDIT_READY_FOR_MAIN_REVIEW", "cases": 12, "cost_feasible": 6, "source_sha256": "e24f9c066ab8a37fa9dbe0d028acb594b8d6d8bc83e9f482fd62e8a390920538"}

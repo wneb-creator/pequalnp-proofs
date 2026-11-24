@@ -1,0 +1,12 @@
+usage: generate_triangle_factors.py [-h] [--parent PARENT] output
+
+Candidate-only exact upper-factor pins on the reviewed original-DAG parent. No
+solver is invoked. The last three clean-prefix wires are restricted to F_G OR
+OR(N(v)) for one triangle, in all six orders. This is not a WLOG claim.
+
+positional arguments:
+  output
+
+options:
+  -h, --help       show this help message and exit
+  --parent PARENT

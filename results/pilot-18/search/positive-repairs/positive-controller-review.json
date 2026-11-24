@@ -1,0 +1,71 @@
+{
+  "utc": "2026-11-24T04:06:52.868664+00:00",
+  "verdict": "PASS_INDEPENDENT_TWO_CASE_CONTROLLER_DIFF",
+  "controller_sha256": "bcd50a96f66084e2c5473a348bac27ff9ce13f7fe73d33df4a2c72bb31bc7c36",
+  "parent_sha256": "13f485549478c262de70e1dafd34f510490cf2f43db245fa82dc48296cf94d80",
+  "prior_controller_review_sha256": "585842559e599d8a87a844574ceaa89aba78efed60a3aff1a7868014237799b2",
+  "main_source_review_sha256": "11eac2d56f2f9110db39394dc658358aa16428daaa6a76d94cd6fba97b5e9f0e",
+  "full_diff_sha256": "a6b56c900fcf79bd77efaba91ee56588e996a826062f4f9890c2b3dd622140bc",
+  "exact_reconstruction_changes": [
+    {
+      "old": "OUT=ROOT/'rescheduled-candidate-pilot'",
+      "new": "OUT=ROOT/'positive-candidate-pilot'",
+      "occurrences": 1
+    },
+    {
+      "old": "manifest=json.loads((FAMILY/'family.json').read_text())\nassert manifest['complete'] and len(manifest['cases'])==24\nassert manifest['program_sha256']=='9276816606eb7ab1738b277bcf4c34f128b63e5158a23d54debbaadfaf88fd8c'\nwanted=['s01-random-p20-k05','s00-random-p20-k05','s01-original-p00-k05','s00-original-p00-k05']; byname={item['case']:item for item in manifest['cases']}; queue=[byname[name] for name in wanted];OUT.mkdir(exist_ok=False)\n",
+      "new": "queue=[]\nfor source_name in ['positive-best3-family','positive-best4-family']:\n    source_dir=ROOT/'orch/S02'/source_name\n    manifest=json.loads((source_dir/'family.json').read_text())\n    assert manifest['complete'] and len(manifest['cases'])==2\n    assert manifest['program_sha256']=='7552f3d344d4e34a6f681b116b5ec748e032b2000315dfc9527c77f8de2bdb6b'\n    item=next(x.copy() for x in manifest['cases'] if x['case']=='distance-k03')\n    item['case']=source_name+'-distance-k03'\n    item['source_cnf']=str(source_dir/'distance-k03.cnf')\n    queue.append(item)\ncase_paths={x['case']:Path(x['source_cnf']) for x in queue}\nOUT.mkdir(exist_ok=False)\n",
+      "occurrences": 1
+    },
+    {
+      "old": "r's[0-9]{2}-(original|random)-p[0-9]{2}-k[0-9]{2}'",
+      "new": "r'positive-best[34]-family-distance-k03'",
+      "occurrences": 1
+    },
+    {
+      "old": "cnf=FAMILY/(name+'.cnf')",
+      "new": "cnf=case_paths[name]",
+      "occurrences": 2
+    }
+  ],
+  "selected_cases": [
+    {
+      "case": "positive-best3-family-distance-k03",
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best3-family/distance-k03.cnf",
+      "cnf_sha256": "23873a0bda528a61966b0c50e47b84fb9309edcb524eb520d16795cdb2bac1ec",
+      "metadata_sha256": "06d0342a0e29d1c6e483b25b8c7fd15140c707f47062468593f18a499916f58d",
+      "manifest_sha256": "3c8c8e1bef9c9a6cdc1235badda13447de1dbe4fd6a038d5346f0ab69b717455",
+      "budget": 3
+    },
+    {
+      "case": "positive-best4-family-distance-k03",
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/positive-best4-family/distance-k03.cnf",
+      "cnf_sha256": "2cbe3c35cdf1a688acb8186dbf9d104d5d889f66ec64b1717b398fb03ef5a213",
+      "metadata_sha256": "a871b9528ba65759519a30d34e52f96b9ebd352120b7746d5a74f3a47ffec5f3",
+      "manifest_sha256": "80a802da982798119dcf946b00969269f23c85cde9694600e3ceb1b5cc6aea3b",
+      "budget": 3
+    }
+  ],
+  "checks": {
+    "exactly_two_K3_cases_in_intended_order": true,
+    "only_configuration_and_case_path_delta": true,
+    "functions_AST_identical": true,
+    "both_launch_and_validator_use_same_per_case_CNF": true,
+    "source_metadata_CNF_and_binary_hashes_verified": true,
+    "AST_compile_without_execution": true,
+    "solver_seconds": 20,
+    "outer_seconds": 30,
+    "default_workers": 1,
+    "maximum_configurable_workers": 2,
+    "solver_AS_MiB": 1000,
+    "full_separate_stdout_stderr_preserved": true,
+    "unchanged_abort_process_group_cleanup_and_SAT_validator": true
+  },
+  "nonblocking_notes": [
+    "Unused FAMILY constant still names the previous family; no references remain beyond its assignment.",
+    "Inherited lifecycle limits unchanged: no PDEATHSIG for uncatchable parentkill; synchronous validator timeout120s; exit20 remains uncertified local UNSAT.",
+    "Case metadata is hash-bound before launch, as in the reviewed parent; current manifests and selected files are additionally bound in this review."
+  ],
+  "scope": "Read-only review; no controller import/execution, worker launch or signal; no proof or exhaustion claim.",
+  "blocking_findings": []
+}

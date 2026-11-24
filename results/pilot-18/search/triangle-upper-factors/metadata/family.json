@@ -1,0 +1,543 @@
+{
+  "kind": "candidate_only_triangle_exact_upper_factors",
+  "complete": true,
+  "program_sha256": "e24f9c066ab8a37fa9dbe0d028acb594b8d6d8bc83e9f482fd62e8a390920538",
+  "parent_sha256": "3fefefe3949bc703fc2b9f023be12bc42f1afe7619e8ed5ed63be2f8e7648812",
+  "parent_metadata_sha256": "a7425759cf64d1eef6ccd281dedf0c2e67049b88ce335a4ac166fcc0d077e19b",
+  "assigned_shard_exhaustion": false,
+  "claimed_WLOG": false,
+  "solver_launched": false,
+  "factor_definition": "H_v = F_G OR OR(N(v))",
+  "factor_costs": {
+    "1": {
+      "support": [
+        4,
+        8
+      ],
+      "support_mask": 272,
+      "residual_edges": [
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "residual_cover_size": 5,
+      "clean_wire_gate_lower_bound": 16
+    },
+    "4": {
+      "support": [
+        1,
+        8,
+        10
+      ],
+      "support_mask": 1282,
+      "residual_edges": [
+        [
+          0,
+          9
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "residual_cover_size": 4,
+      "clean_wire_gate_lower_bound": 13
+    },
+    "8": {
+      "support": [
+        1,
+        4,
+        5,
+        9
+      ],
+      "support_mask": 562,
+      "residual_edges": [
+        [
+          0,
+          10
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          10
+        ]
+      ],
+      "residual_cover_size": 3,
+      "clean_wire_gate_lower_bound": 12
+    },
+    "3": {
+      "support": [
+        6,
+        7
+      ],
+      "support_mask": 192,
+      "residual_edges": [
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          10
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "residual_cover_size": 5,
+      "clean_wire_gate_lower_bound": 17
+    },
+    "6": {
+      "support": [
+        3,
+        7,
+        10
+      ],
+      "support_mask": 1160,
+      "residual_edges": [
+        [
+          0,
+          9
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "residual_cover_size": 4,
+      "clean_wire_gate_lower_bound": 14
+    },
+    "7": {
+      "support": [
+        3,
+        6,
+        9
+      ],
+      "support_mask": 584,
+      "residual_edges": [
+        [
+          0,
+          10
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "residual_cover_size": 4,
+      "clean_wire_gate_lower_bound": 14
+    }
+  },
+  "fixed_factor_wires": [
+    27,
+    28,
+    29
+  ],
+  "fixed_suffix": [
+    [
+      "and",
+      27,
+      27
+    ],
+    [
+      "and",
+      30,
+      30
+    ],
+    [
+      "and",
+      28,
+      31
+    ],
+    [
+      "and",
+      29,
+      32
+    ]
+  ],
+  "all_2048_factor_product_checks": 4096,
+  "cases": [
+    {
+      "case": "tri-1-4-8-order-1-4-8",
+      "triangle": [
+        1,
+        4,
+        8
+      ],
+      "order": [
+        1,
+        4,
+        8
+      ],
+      "cost_feasible": false,
+      "variables": 11968,
+      "clauses": 114660,
+      "added_unit_clauses": 93,
+      "cnf_sha256": "5fc8c0bc3857b0e087b4f6815aa1f0602f796f5afb51caeca1a7573486347f9e",
+      "metadata_sha256": "2d92563b906cac02d6076113518a37de88a8f02b8c4a4ab906f36a2c26c22b93"
+    },
+    {
+      "case": "tri-1-4-8-order-1-8-4",
+      "triangle": [
+        1,
+        4,
+        8
+      ],
+      "order": [
+        1,
+        8,
+        4
+      ],
+      "cost_feasible": false,
+      "variables": 11968,
+      "clauses": 114660,
+      "added_unit_clauses": 93,
+      "cnf_sha256": "55a33d7a82c7dd0296546a427601c4be18f8d4e0ed2065ad08fd5a763528849e",
+      "metadata_sha256": "2414ecbc344cadb96cbddaa94567c3e35589bfc8cb5a1ba71b1be8ba8e28c652"
+    },
+    {
+      "case": "tri-1-4-8-order-4-1-8",
+      "triangle": [
+        1,
+        4,
+        8
+      ],
+      "order": [
+        4,
+        1,
+        8
+      ],
+      "cost_feasible": true,
+      "variables": 11968,
+      "clauses": 114660,
+      "added_unit_clauses": 93,
+      "cnf_sha256": "9fb9a42e2a0fc643c41f04d4e19bf451cfe028e5d40e90cac63333058f276a3e",
+      "metadata_sha256": "544b42c0780ff26e9ab736facccf948d668c3b91f8de3cc7f747b728a7b82c2e"
+    },
+    {
+      "case": "tri-1-4-8-order-4-8-1",
+      "triangle": [
+        1,
+        4,
+        8
+      ],
+      "order": [
+        4,
+        8,
+        1
+      ],
+      "cost_feasible": true,
+      "variables": 11968,
+      "clauses": 114660,
+      "added_unit_clauses": 93,
+      "cnf_sha256": "09d85db1ebd01e1658151d19a118ccd71551a112f7dd02af0ad7f4bfe7220d0d",
+      "metadata_sha256": "69638c7f332bced709c669b50aa6fae4cca01f682d64470b12c486766822df9c"
+    },
+    {
+      "case": "tri-1-4-8-order-8-1-4",
+      "triangle": [
+        1,
+        4,
+        8
+      ],
+      "order": [
+        8,
+        1,
+        4
+      ],
+      "cost_feasible": true,
+      "variables": 11968,
+      "clauses": 114660,
+      "added_unit_clauses": 93,
+      "cnf_sha256": "4b1a31efbc6090eaa5bea12fbb302d76fbab6df814ef6b32a4d3c64b6bb00b78",
+      "metadata_sha256": "1e357878addae7861863e2f27d1597d5179f9cd629c99e43bc65f752e673a600"
+    },
+    {
+      "case": "tri-1-4-8-order-8-4-1",
+      "triangle": [
+        1,
+        4,
+        8
+      ],
+      "order": [
+        8,
+        4,
+        1
+      ],
+      "cost_feasible": true,
+      "variables": 11968,
+      "clauses": 114660,
+      "added_unit_clauses": 93,
+      "cnf_sha256": "d81ee09eeee17067e368136d1151475eb2b7fe7638c63fac06e64b20d98c69cd",
+      "metadata_sha256": "be5d4a68ac294be1637d1d7bc758944adc7f5c1432d7c98745ed44274c4265f2"
+    },
+    {
+      "case": "tri-3-6-7-order-3-6-7",
+      "triangle": [
+        3,
+        6,
+        7
+      ],
+      "order": [
+        3,
+        6,
+        7
+      ],
+      "cost_feasible": false,
+      "variables": 11968,
+      "clauses": 114660,
+      "added_unit_clauses": 93,
+      "cnf_sha256": "46c3386df563a9238012215f6c6a6717ddd61442e373b353d3fd2209146362f8",
+      "metadata_sha256": "a769571f1534c7783d12b6c6f19cb26e8c9228150d1113d6877684e18b347d7c"
+    },
+    {
+      "case": "tri-3-6-7-order-3-7-6",
+      "triangle": [
+        3,
+        6,
+        7
+      ],
+      "order": [
+        3,
+        7,
+        6
+      ],
+      "cost_feasible": false,
+      "variables": 11968,
+      "clauses": 114660,
+      "added_unit_clauses": 93,
+      "cnf_sha256": "ab58fb4ce5c8469b53fc694a6aeb2ed1d7a526c891091a8c3627d75b924c1abc",
+      "metadata_sha256": "eb395101644733885f051907c8b5c0fe00fe6364ac6dab5d6cb810878a111483"
+    },
+    {
+      "case": "tri-3-6-7-order-6-3-7",
+      "triangle": [
+        3,
+        6,
+        7
+      ],
+      "order": [
+        6,
+        3,
+        7
+      ],
+      "cost_feasible": false,
+      "variables": 11968,
+      "clauses": 114660,
+      "added_unit_clauses": 93,
+      "cnf_sha256": "d8ea3b13f4ae188dae142d1ff989b97a9211821389d55a72d2f44a860d493c82",
+      "metadata_sha256": "95995b94f5c71bf16781f995d9095c240c959f8289d91aa90fa556dee2f1e5cf"
+    },
+    {
+      "case": "tri-3-6-7-order-6-7-3",
+      "triangle": [
+        3,
+        6,
+        7
+      ],
+      "order": [
+        6,
+        7,
+        3
+      ],
+      "cost_feasible": true,
+      "variables": 11968,
+      "clauses": 114660,
+      "added_unit_clauses": 93,
+      "cnf_sha256": "36e85d554fdc9786f975163f54e6c144c3a976c57d261b9f839cc990ff22e2fa",
+      "metadata_sha256": "d10ff5c48b4a5d2d416d1285bc5c0f1b7dc7f0428614052c1a17291736868d41"
+    },
+    {
+      "case": "tri-3-6-7-order-7-3-6",
+      "triangle": [
+        3,
+        6,
+        7
+      ],
+      "order": [
+        7,
+        3,
+        6
+      ],
+      "cost_feasible": false,
+      "variables": 11968,
+      "clauses": 114660,
+      "added_unit_clauses": 93,
+      "cnf_sha256": "c1873d728c7d5522573e854d920c49131328824711408a3c028bfe4b47aab5d1",
+      "metadata_sha256": "beb72f95e0c16f6bb31f8368d2ee98d887635dd8e2dbd0c8a7c5e3fcf98f0bef"
+    },
+    {
+      "case": "tri-3-6-7-order-7-6-3",
+      "triangle": [
+        3,
+        6,
+        7
+      ],
+      "order": [
+        7,
+        6,
+        3
+      ],
+      "cost_feasible": true,
+      "variables": 11968,
+      "clauses": 114660,
+      "added_unit_clauses": 93,
+      "cnf_sha256": "13cdbb52daf5ffe5c2285711a5e3413090d7bf39533d94d9ba4e1a5b1e6774df",
+      "metadata_sha256": "b4122e22796330d9177bc067b0c4bdf2dced428fb7f0aaf612ef679ec2e7ff77"
+    }
+  ],
+  "cost_feasible_case_count": 6
+}

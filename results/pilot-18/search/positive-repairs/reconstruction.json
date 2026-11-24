@@ -1,0 +1,111 @@
+{
+  "scratch_root": "/tmp/oec/pequalnp-pilot-18",
+  "stage_sources": [
+    {
+      "package_path": "dependencies/orch/S02/generate_rescheduled_repairs.py",
+      "scratch_path": "orch/S02/generate_rescheduled_repairs.py",
+      "sha256": "9276816606eb7ab1738b277bcf4c34f128b63e5158a23d54debbaadfaf88fd8c"
+    },
+    {
+      "package_path": "dependencies/lean-setup/generate_distance_repairs.py",
+      "scratch_path": "lean-setup/generate_distance_repairs.py",
+      "sha256": "39e65cae78a5bd8dd6417cf1132fb77187867d6765f20d62e10fd51bcedc9da1"
+    },
+    {
+      "package_path": "dependencies/lean-setup/generate_local_repairs.py",
+      "scratch_path": "lean-setup/generate_local_repairs.py",
+      "sha256": "857f7082cb81bda879891aba76a84e59f0a1b030f6c6c0eccf08f507cf96cd97"
+    },
+    {
+      "package_path": "dependencies/validate_raw_candidate.py",
+      "scratch_path": "validate_raw_candidate.py",
+      "sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401"
+    },
+    {
+      "package_path": "dependencies/lean-setup/validate_sat_candidate.py",
+      "scratch_path": "lean-setup/validate_sat_candidate.py",
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529"
+    },
+    {
+      "package_path": "dependencies/search_l1342_shard17_ancestorreverse.py",
+      "scratch_path": "search_l1342_shard17_ancestorreverse.py",
+      "sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f"
+    },
+    {
+      "package_path": "dependencies/lean-setup/audit_cover_neighborhoods.py",
+      "scratch_path": "lean-setup/audit_cover_neighborhoods.py",
+      "sha256": "c95bedc59ed0f48eea883144c6b99c74a8ad5d5942f2ba5a91d8d6843280d90c"
+    },
+    {
+      "package_path": "dependencies/lean-setup/cover-neighborhood-controls/reproduced/c0000-k08.baseline22.json",
+      "scratch_path": "lean-setup/cover-neighborhood-controls/reproduced/c0000-k08.baseline22.json",
+      "sha256": "c4c1231febb62b233061508443a43b917cf7bfb0cb08eb3d494902e26e2a7469"
+    },
+    {
+      "package_path": "dependencies/stochastic-candidate-134218/engine-result.json",
+      "scratch_path": "stochastic-candidate-134218/engine-result.json",
+      "sha256": "3f7e31aa55a515196f4fd7f08905e0a2b08561ab09e6c93a93ae5bc6d202d813"
+    },
+    {
+      "package_path": "prepare_positive_repairs.py",
+      "scratch_path": "orch/S02/prepare_positive_repairs.py",
+      "sha256": "7552f3d344d4e34a6f681b116b5ec748e032b2000315dfc9527c77f8de2bdb6b"
+    },
+    {
+      "package_path": "audit_positive_repairs.py",
+      "scratch_path": "orch/S02/audit_positive_repairs.py",
+      "sha256": "4f04633828de9f670ecc8caf7eae9a154e0d51f05e076805229049252b67e932"
+    },
+    {
+      "package_path": "seeds/engine-result.json.best-3.json",
+      "scratch_path": "stochastic-candidate-134218/engine-result.json.best-3.json",
+      "sha256": "a536e70248fe8a12de358e887fc9b913f64b08f462d4f35843da14f93460d6c7"
+    },
+    {
+      "package_path": "seeds/engine-result.json.best-4.json",
+      "scratch_path": "stochastic-candidate-134218/engine-result.json.best-4.json",
+      "sha256": "0b42692c78f217f07439194fe726a04553777014a2dc6b9b299d8b759ca479af"
+    }
+  ],
+  "families": [
+    {
+      "name": "positive-best3-family",
+      "source_scratch_path": "stochastic-candidate-134218/engine-result.json.best-3.json",
+      "expected_files_sha256": {
+        "distance-k03.cnf": "23873a0bda528a61966b0c50e47b84fb9309edcb524eb520d16795cdb2bac1ec",
+        "distance-k03.json": "06d0342a0e29d1c6e483b25b8c7fd15140c707f47062468593f18a499916f58d",
+        "family.json": "3c8c8e1bef9c9a6cdc1235badda13447de1dbe4fd6a038d5346f0ab69b717455",
+        "negative-free05.cnf": "caab0679009375b1696c4eed929fdc68c709b72062b1c0bead91c79d691f3c76",
+        "negative-free05.json": "e0f9930e2e6272050dbe17a0dc65224dfe57cb5282afe214e43fb504d651d8d7",
+        "source-summary.json": "e687e26cb1865a36d9a0a8c97e3541c789da9b1904c793127303dff67a2efb8e",
+        "source.json": "a536e70248fe8a12de358e887fc9b913f64b08f462d4f35843da14f93460d6c7"
+      },
+      "budgets": [
+        3
+      ],
+      "local_counts": [
+        5
+      ]
+    },
+    {
+      "name": "positive-best4-family",
+      "source_scratch_path": "stochastic-candidate-134218/engine-result.json.best-4.json",
+      "expected_files_sha256": {
+        "distance-k03.cnf": "2cbe3c35cdf1a688acb8186dbf9d104d5d889f66ec64b1717b398fb03ef5a213",
+        "distance-k03.json": "a871b9528ba65759519a30d34e52f96b9ebd352120b7746d5a74f3a47ffec5f3",
+        "family.json": "80a802da982798119dcf946b00969269f23c85cde9694600e3ceb1b5cc6aea3b",
+        "negative-free05.cnf": "caab0679009375b1696c4eed929fdc68c709b72062b1c0bead91c79d691f3c76",
+        "negative-free05.json": "4761b88752b4ab3be783a2879ee6e7b6def07b513b119d8dacdf569b54f80e42",
+        "source-summary.json": "d664476cd82864171e9135ab4be484b441a6d555bef8e2a474611a48f908f99a",
+        "source.json": "0b42692c78f217f07439194fe726a04553777014a2dc6b9b299d8b759ca479af"
+      },
+      "budgets": [
+        3
+      ],
+      "local_counts": [
+        5
+      ]
+    }
+  ],
+  "scope": "Exact regeneration of four candidate CNFs; no solver."
+}

@@ -1,0 +1,22 @@
+usage: prepare_positive_repairs.py [-h] [--budgets [BUDGETS ...]]
+                                   [--local-counts [LOCAL_COUNTS ...]]
+                                   [--max-false-positive-rows MAX_FALSE_POSITIVE_ROWS]
+                                   [--analysis-only]
+                                   source output
+
+Analyze all-positive near-circuits and prepare exact-target repairs; no
+solver. The source may have false positives, but all 16 target edges must be
+accepted. Every generated formula retains all target boundary constraints.
+Output is free; there is no first-junk, second-junk, clean-prefix, liveness or
+tail restriction.
+
+positional arguments:
+  source
+  output
+
+options:
+  -h, --help            show this help message and exit
+  --budgets [BUDGETS ...]
+  --local-counts [LOCAL_COUNTS ...]
+  --max-false-positive-rows MAX_FALSE_POSITIVE_ROWS
+  --analysis-only

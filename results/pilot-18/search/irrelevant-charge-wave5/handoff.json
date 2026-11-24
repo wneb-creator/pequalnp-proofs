@@ -1,0 +1,59 @@
+{
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S06/charge-archive-v1",
+  "files": {
+    "charge-archive-v1-final-build.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "charge-archive-v1-final-build.stdout": {
+      "bytes": 1078,
+      "sha256": "4d620802dc779556429fade4a6f9968a82e91cef02cb485b006d8edc6969802e"
+    },
+    "charge-archive-v1-final.execution.json": {
+      "bytes": 578,
+      "sha256": "30a138363f2beb25eb9ab0c96e519a6eb71dc1b1e2ff6c82a13a22cf95d35700"
+    },
+    "charge-archive-v1-restore.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "charge-archive-v1-restore.stdout": {
+      "bytes": 121,
+      "sha256": "a153c94527b38f56702f4cd827ba5532158a3b971da89a789c22f41bfbc8e7bf"
+    },
+    "charge-archive-v1.record.json": {
+      "bytes": 3055,
+      "sha256": "2826e8943850ea8cff8b00d4ada5dafc561e3c2fc4dbebb446336268934cb17b"
+    },
+    "charge-archive-v1.tar.gz": {
+      "bytes": 3753740,
+      "sha256": "aeb918872f1a57b4ab4e3fb9afd48176dfe5022718b639063a4fd3f40d1ed0fd"
+    }
+  },
+  "manifest_sha256": "149bcc57286b9f3af38f505c5deb407727ea303ef98534f670e6027e7c7f23ac",
+  "payload": {
+    "cnf_recipes": 55,
+    "completed_AAOA_runs": 4,
+    "completed_AAOA_statuses": [
+      "UNKNOWN",
+      "UNKNOWN",
+      "UNKNOWN",
+      "UNKNOWN"
+    ],
+    "frozen_cut_inputs": 10,
+    "full_solver_and_supervisor_logs_retained": true,
+    "incomplete_proof_bytes_omitted": 1278861312,
+    "large_raw_CNF_or_compiled_binary_payloads": 0,
+    "manifest_bound_payloads": 693,
+    "tar_regular_members": 694
+  },
+  "reviews": {
+    "all10_actual_delta": "b0af769b67da5f0b2f42aa1d4e341e217556b56cf17ea3a7a7aa5ffe9a0a2d7b",
+    "math": "73ae23f8a5df0ba581d85ffbbd0572424e522dd8672d8c2dc348a15f2c8b5bf6"
+  },
+  "scope": "Exact reviewed encoding preservation plus finished UNKNOWN runs; no new SAT/UNSAT/Lean result. New strengthened running directories never read. All existing reviewed files unchanged.",
+  "status": "READY_FOR_MAIN_S08_DELIVERY_REVIEW",
+  "tar_bytes": 3753740,
+  "tar_sha256": "aeb918872f1a57b4ab4e3fb9afd48176dfe5022718b639063a4fd3f40d1ed0fd",
+  "utc": "2026-11-24T04:40:14.594221+00:00"
+}

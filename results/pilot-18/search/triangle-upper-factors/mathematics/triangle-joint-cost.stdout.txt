@@ -1,0 +1,1 @@
+{"verdict": "PASS_FINITE_HYPOTHESES_AND_ARITHMETIC", "source_sha256": "896a8b5ae7da878f47d664c20b9758f4c7b481db220b76959be95c3446cb0c2e", "truth_checks": 4096, "support_extension_checks": 1920, "ancestry_arithmetic_cases": 8}

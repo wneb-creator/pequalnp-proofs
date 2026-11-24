@@ -1,0 +1,71 @@
+{
+  "verdict": "PASS_BOUNDED_SELF_CONTROLS_READY_FOR_MAIN_REVIEW",
+  "generator_sha256": "7552f3d344d4e34a6f681b116b5ec748e032b2000315dfc9527c77f8de2bdb6b",
+  "audit_sha256": "4f04633828de9f670ecc8caf7eae9a154e0d51f05e076805229049252b67e932",
+  "baseline_fixture_sha256": "c4c1231febb62b233061508443a43b917cf7bfb0cb08eb3d494902e26e2a7469",
+  "synthetic21_fixture_sha256": "62e645907367dd61421090a923af33014bc3f6b6a2504105dfc6ca7346f62f2c",
+  "family_manifest_sha256": "e0363549949c23996f2499c43d3ee5502ef222b73375cda377b47fbfb087b33b",
+  "allpositive_synthetic_variants": 14,
+  "allinput_scalar_checks": 30720,
+  "fixture_deleted_AND_gate": 5,
+  "fixture_alias": 9,
+  "fixture_boundary_FP": 5,
+  "fixture_full_FP": 22,
+  "suppression_controls": 840,
+  "exact_CNF_deltas": [
+    {
+      "case": "distance-k02",
+      "cnf_sha256": "528b315cdb1e7a207f4202c0c4dcd2618c1e972ffab92b11b38d52475f286e7c",
+      "exact_reconstruction": true
+    },
+    {
+      "case": "distance-k03",
+      "cnf_sha256": "e27725caf59b1c1f1476b1fcdad95b1490499be512383c332ab5470c6b0c2a41",
+      "exact_reconstruction": true
+    },
+    {
+      "case": "negative-free03",
+      "cnf_sha256": "04ccf7c82defd59d982f4c7cf831065aa9862c8df364221cfd44c54c76ef1ed4",
+      "exact_reconstruction": true
+    },
+    {
+      "case": "negative-free05",
+      "cnf_sha256": "c1f70cc3d8b297fd7535147e6e54bf10214f3c479367bed1f931f981c63aa09a",
+      "exact_reconstruction": true
+    }
+  ],
+  "known22_models": [
+    {
+      "case": "distance-k01",
+      "validator_exit": 0,
+      "clauses": 90350,
+      "gate_limit_met": false,
+      "output_changed_from_TRUE_to_target": true,
+      "one_gate_changed_back_to_AND": true
+    },
+    {
+      "case": "negative-free01",
+      "validator_exit": 0,
+      "clauses": 90178,
+      "gate_limit_met": false,
+      "output_changed_from_TRUE_to_target": true,
+      "one_gate_changed_back_to_AND": true
+    }
+  ],
+  "negative_controls": [
+    {
+      "case": "misses_edge",
+      "error": "Source misses target positive inputs",
+      "created_output": false
+    },
+    {
+      "case": "too_many_FP",
+      "error": "Source must be inexact with bounded positive false-positive count",
+      "created_output": false
+    }
+  ],
+  "analysis_only_no_CNF": true,
+  "byte_identical_reproduction_files": 11,
+  "blockers": [],
+  "scope": "Candidate preparation only; synthetic superfunction is wrong, known22 models exceed21; no solver run."
+}

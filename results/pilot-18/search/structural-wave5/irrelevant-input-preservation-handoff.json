@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS_REVIEW_PRESERVATION",
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/irrelevant-input-preservation-v1.tar.gz",
+  "archive_sha256": "6c755de4bcd95084d4f0ca639337cbdcf7d0df3cf45565468c624c6f5ec3f66c",
+  "archive_bytes": 83316,
+  "regular_members": 13,
+  "manifest_sha256": "130770a28f4af899a4bb24ce012f45a98b9272a3f30bc58513a7fff433f6524e",
+  "review_sha256": "73ae23f8a5df0ba581d85ffbbd0572424e522dd8672d8c2dc348a15f2c8b5bf6",
+  "scope": "Mathematical and encoding specification PASS, including pinned-parent counter reuse; no production implementation/CNF/Lean/UNSAT acceptance."
+}

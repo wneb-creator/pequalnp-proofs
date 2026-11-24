@@ -1,0 +1,142 @@
+{
+  "scope": "Read-only scalar classification; no solver/search",
+  "scalar_inputs": 30720,
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-0.json",
+      "sha256": "3188a6be5f157b81de31e3e4e8af411199be4b1d3f5a21ceddb74a123e078bd6",
+      "boundary_FN": 0,
+      "boundary_FP": 13,
+      "full_FN": 0,
+      "full_FP": 49,
+      "eligible_allpositive": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-1.json",
+      "sha256": "382af9503b26a127548145faa6f4ce312ddbd50987037b61ebdc6073910af118",
+      "boundary_FN": 3,
+      "boundary_FP": 0,
+      "full_FN": 65,
+      "full_FP": 0,
+      "eligible_allpositive": false
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-2.json",
+      "sha256": "0cb43fa78d45473c57ac70eb8300285f66e31c04ba1ac6ecfabe0b8e7f16d5f7",
+      "boundary_FN": 2,
+      "boundary_FP": 0,
+      "full_FN": 40,
+      "full_FP": 0,
+      "eligible_allpositive": false
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-3.json",
+      "sha256": "a536e70248fe8a12de358e887fc9b913f64b08f462d4f35843da14f93460d6c7",
+      "boundary_FN": 0,
+      "boundary_FP": 5,
+      "full_FN": 0,
+      "full_FP": 22,
+      "eligible_allpositive": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-4.json",
+      "sha256": "0b42692c78f217f07439194fe726a04553777014a2dc6b9b299d8b759ca479af",
+      "boundary_FN": 0,
+      "boundary_FP": 5,
+      "full_FN": 0,
+      "full_FP": 22,
+      "eligible_allpositive": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-5.json",
+      "sha256": "ff302c5ffc202e831967eb5294fe3dcafd8f0dcbbef95ba6a7e9cfef22bb26c6",
+      "boundary_FN": 1,
+      "boundary_FP": 0,
+      "full_FN": 24,
+      "full_FP": 0,
+      "eligible_allpositive": false
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-6.json",
+      "sha256": "ad8a70ebb3a47ccfe1730be014d70ea86b54c9eabde1957172d3f95e641b45bc",
+      "boundary_FN": 1,
+      "boundary_FP": 0,
+      "full_FN": 18,
+      "full_FP": 0,
+      "eligible_allpositive": false
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134219/engine-result.json.best-0.json",
+      "sha256": "165e839c551e72b129f4ac0bd27700dc64c68cbc0eb822462c59d564bb32e726",
+      "boundary_FN": 1,
+      "boundary_FP": 0,
+      "full_FN": 15,
+      "full_FP": 0,
+      "eligible_allpositive": false
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134219/engine-result.json.best-1.json",
+      "sha256": "08d30cbc6054f183e220df5a339b6bf5f7bd2bf129a37ea3689b0a5b8ae8ec16",
+      "boundary_FN": 1,
+      "boundary_FP": 0,
+      "full_FN": 30,
+      "full_FP": 0,
+      "eligible_allpositive": false
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134220/engine-result.json.best-0.json",
+      "sha256": "f95d8a76162a06e05263aa2a50c6060f46a3a5ef94d3ccf14653eaa0d65e9f58",
+      "boundary_FN": 2,
+      "boundary_FP": 0,
+      "full_FN": 43,
+      "full_FP": 0,
+      "eligible_allpositive": false
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134220/engine-result.json.best-1.json",
+      "sha256": "daae77d5cd6540189770892bff021a0de29b33ff5a8424d3f869b6942cfc0508",
+      "boundary_FN": 1,
+      "boundary_FP": 0,
+      "full_FN": 22,
+      "full_FP": 0,
+      "eligible_allpositive": false
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134220/engine-result.json.best-2.json",
+      "sha256": "994a7bc06c06fbb5ab78baa85e3ce8203716422e2c13c808eb8a38793ce90210",
+      "boundary_FN": 1,
+      "boundary_FP": 0,
+      "full_FN": 27,
+      "full_FP": 0,
+      "eligible_allpositive": false
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134221/engine-result.json.best-0.json",
+      "sha256": "fd29b702ad65742cb4204f11d8c70a33fc33c4388bd2d4bf78f347323524714f",
+      "boundary_FN": 2,
+      "boundary_FP": 0,
+      "full_FN": 46,
+      "full_FP": 0,
+      "eligible_allpositive": false
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134221/engine-result.json.best-1.json",
+      "sha256": "eb32ef0c599fcf896356e16e9d957633ada3d8ad55c34a7b05b08844658d0786",
+      "boundary_FN": 1,
+      "boundary_FP": 0,
+      "full_FN": 13,
+      "full_FP": 0,
+      "eligible_allpositive": false
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134221/engine-result.json.best-2.json",
+      "sha256": "a11a4961734773211fad24f3d6c3332b5c0b45f904993c01162e7a9c7d25926e",
+      "boundary_FN": 1,
+      "boundary_FP": 0,
+      "full_FN": 24,
+      "full_FP": 0,
+      "eligible_allpositive": false
+    }
+  ],
+  "eligible_count": 3
+}

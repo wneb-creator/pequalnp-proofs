@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-24T04:40:14.594221+00:00",
+  "command": [
+    "python3",
+    "-B",
+    "package_charge_archive.py"
+  ],
+  "cwd": "/tmp/oec/pequalnp-pilot-18/orch/S06",
+  "exit_code": 0,
+  "source_sha256": "5c37fd33c211dde826e89a3183692a8bb69cb836ca9a0710c12e86b8f4ade3b6",
+  "stdout_sha256": "4d620802dc779556429fade4a6f9968a82e91cef02cb485b006d8edc6969802e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "record_sha256": "2826e8943850ea8cff8b00d4ada5dafc561e3c2fc4dbebb446336268934cb17b",
+  "solver_checker_Lean_launch": false
+}

@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS_SELF_CONTEXT_SOURCE_PACKAGING_AND_EXACT_REPRODUCTION",
+  "archive_sha256": "a7bfcc499d6917539c5b53cc5c7beadfe93e94853741f448e459cc548e0f4932",
+  "archive_bytes": 57507,
+  "archive_regular_members": 58,
+  "manifest_sha256": "d445db83f0b2b403945325748e85359df9c612f89d4aedcefad53c2469b62f2f",
+  "exact_copy_files": 41,
+  "reproduced_files": 16,
+  "reproduced_CNF_files": 6,
+  "negative_controls": 2,
+  "main_review_sha256": "8eede10175e0cbdbf73e9e8c2d46d55072a3864dd3d944723160a80192df4c48",
+  "companion_prior_archive_sha256": "cc2a5d6751aa0f817b4a831288481da5565e9170e023e78ee769da757d404889",
+  "source_snapshot_only": true,
+  "live_solver_outputs_archived": false,
+  "raw_CNF_members": 0,
+  "credential_value_indicators": 0,
+  "lease_value_indicators": 0,
+  "blocking_findings": [],
+  "solver_launched": false,
+  "production_inputs_changed": false,
+  "scope": "No global/shard exhaustion or exact21 claim; completed pilot outcomes require later addendum."
+}

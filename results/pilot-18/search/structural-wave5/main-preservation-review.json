@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-24T04:39:28.831630+00:00",
+  "verdict": "PASS_BYTE_INVENTORY_HASHES_SAFE_REGULAR_MEMBERS_AND_SCOPE",
+  "archives": [
+    {
+      "archive": "irrelevant-input-preservation-v1.tar.gz",
+      "sha256": "6c755de4bcd95084d4f0ca639337cbdcf7d0df3cf45565468c624c6f5ec3f66c",
+      "verified_payloads": 12,
+      "scope": "Mathematical and encoding specification PASS, including pinned-parent counter reuse; no production implementation/CNF/Lean/UNSAT acceptance."
+    },
+    {
+      "archive": "three-factor-classification-preservation-v1.tar.gz",
+      "sha256": "42ddc0515f31acbf023663d7edf74e9bb7a5fda2f52ae599c1a9eda0983e506e",
+      "verified_payloads": 22,
+      "scope": "Independent generic-proof and supplied515-family finite classification PASS;253excluded/262abstract survivors, no exhaustion or implemented cut."
+    }
+  ]
+}

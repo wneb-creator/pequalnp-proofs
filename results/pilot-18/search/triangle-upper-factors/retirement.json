@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-24T04:11:53.970109+00:00",
+  "status": "RETIRED_BEFORE_SOLVING_BY_REVIEWED_MATHEMATICS",
+  "retired_cases": 12,
+  "minimum_joint_clean_prefix_gates": {
+    "1,4,8": 18,
+    "3,6,7": 19
+  },
+  "available_prefix_gates": 17,
+  "independent_math_review_sha256": "a5ba83161105f5b0b4baec2823da1f9cc06b10c0e871a3b5c14612e812d0b691",
+  "generator_review_still_confirms_exact_encoding": true,
+  "solver_launched": false,
+  "Lean_proof": false,
+  "UNSAT_certificate": false,
+  "global_or_assigned_shard_refutation": false,
+  "historical_status_superseded": "Historical READY and six individual-cost-feasible labels predate the reviewed joint bound; all12 are now retired."
+}
