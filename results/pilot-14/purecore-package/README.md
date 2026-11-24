@@ -1,0 +1,7 @@
+# Pure-core search ablation (native diagnostic only)
+
+UNVERIFIED AS LEAN. This bounded diagnostic removes all projected prefix-cost checks and all dynamic prefix program updates from the existing seeded search. Mode0 uses only414-pair separation, cardinality, fresh/proper gate checks and optional exact-state/budget memoization. Mode1 adds12projected separation checks but still has no prefix-cost bound. Seed programs are parsed once for file-format compatibility; they do not affect search outcomes in either mode. No automorphism memoization is used.
+
+Compile `g++ -O2 -std=c++17 live_purecore_seed.cpp -o live_purecore_seed`. The compact `ablation_seeds.txt` contains exactly the original case159(seed65) and easy cut12 seed11315 as new indices0and1. Commands reproducing the recorded outcomes: `./live_purecore_seed 5 100000 0 1 0 ablation_seeds.txt` (case159memo), change fourthargument to0for no-memo; use seed1for cut12easy; use mode1to enable projected coverage. Original output logs retain original seed indices65/11315.
+
+Case159(k13,t2): purecore13,575calls/5,544expanded,0.109s with memo;44,081calls,0.733s without. Coverage-only10,055calls/4,924memo entries,0.094s. Easy cut12(k12,t4):424calls/140expanded,0.002s. All these native searches completed and returned EXCLUDED within caps, but no Lean exclusion is claimed here. Complete stdout/stderr and source are included. Node limit is checked immediately; time/RSS sampling occurs every1,024calls.

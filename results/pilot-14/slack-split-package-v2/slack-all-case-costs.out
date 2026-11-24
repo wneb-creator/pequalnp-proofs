@@ -1,0 +1,24 @@
+{"pair": [0, 1], "sign": 0, "root_calls": 3277, "hard_duplicates": [[0, 841], [1, 145], [2, 145], [3, 131], [4, 129], [5, 131], [6, 131], [7, 131], [8, 129], [9, 129]], "hard_consume": [[37, 181]], "hard_retain": []}
+{"pair": [0, 1], "sign": 1, "root_calls": 799, "hard_duplicates": [[1, 82], [3, 64]], "hard_consume": [], "hard_retain": []}
+{"pair": [0, 1], "sign": 2, "root_calls": 799, "hard_duplicates": [[2, 82], [6, 64]], "hard_consume": [], "hard_retain": []}
+{"pair": [0, 1], "sign": 3, "root_calls": 914, "hard_duplicates": [[1, 63], [2, 63]], "hard_consume": [[38, 181]], "hard_retain": []}
+{"pair": [0, 2], "sign": 0, "root_calls": 1038, "hard_duplicates": [[0, 71], [1, 80], [2, 79], [3, 80], [4, 65], [5, 65], [6, 65], [8, 65]], "hard_consume": [[41, 92]], "hard_retain": []}
+{"pair": [0, 2], "sign": 1, "root_calls": 1275, "hard_duplicates": [[0, 121], [1, 86], [2, 87], [3, 86], [4, 71], [5, 75], [6, 75], [8, 67], [9, 61]], "hard_consume": [[40, 119]], "hard_retain": []}
+{"pair": [0, 2], "sign": 2, "root_calls": 1275, "hard_duplicates": [[0, 121], [1, 86], [2, 87], [3, 86], [4, 75], [5, 67], [6, 71], [8, 75], [9, 61]], "hard_consume": [[43, 119]], "hard_retain": []}
+{"pair": [0, 2], "sign": 3, "root_calls": 1059, "hard_duplicates": [[0, 71], [1, 80], [2, 105], [3, 80], [4, 65], [6, 65]], "hard_consume": [[42, 92]], "hard_retain": []}
+{"pair": [0, 3], "sign": 0, "root_calls": 1558, "hard_duplicates": [[0, 199], [1, 96], [2, 85], [3, 85], [4, 96], [5, 99], [6, 85], [7, 63], [8, 63], [9, 85]], "hard_consume": [[45, 152]], "hard_retain": []}
+{"pair": [0, 3], "sign": 1, "root_calls": 1023, "hard_duplicates": [[0, 71], [1, 84], [2, 65], [3, 61], [4, 80], [5, 77], [6, 65], [9, 61]], "hard_consume": [[44, 83]], "hard_retain": []}
+{"pair": [0, 3], "sign": 2, "root_calls": 1023, "hard_duplicates": [[0, 71], [1, 80], [2, 61], [3, 65], [4, 84], [5, 77], [6, 61], [9, 65]], "hard_consume": [[47, 83]], "hard_retain": []}
+{"pair": [0, 3], "sign": 3, "root_calls": 1431, "hard_duplicates": [[0, 121], [1, 86], [2, 67], [3, 67], [4, 86], [5, 127], [6, 67], [9, 67]], "hard_consume": [[19, 139], [46, 152]], "hard_retain": []}
+{"pair": [0, 4], "sign": 0, "root_calls": 3585, "hard_duplicates": [[0, 825], [1, 145], [2, 131], [3, 179], [4, 217], [5, 137], [6, 131], [7, 129], [8, 129], [9, 179]], "hard_consume": [[48, 175]], "hard_retain": []}
+{"pair": [0, 4], "sign": 1, "root_calls": 814, "hard_duplicates": [[1, 82], [4, 90]], "hard_consume": [], "hard_retain": []}
+{"pair": [0, 4], "sign": 2, "root_calls": 727, "hard_duplicates": [[5, 82]], "hard_consume": [], "hard_retain": []}
+{"pair": [0, 4], "sign": 3, "root_calls": 869, "hard_duplicates": [[1, 63], [5, 61]], "hard_consume": [[51, 175]], "hard_retain": []}
+{"pair": [0, 6], "sign": 0, "root_calls": 1005, "hard_duplicates": [[0, 71], [1, 76], [2, 79], [5, 65], [6, 65], [7, 76], [9, 67]], "hard_consume": [[57, 92]], "hard_retain": []}
+{"pair": [0, 6], "sign": 1, "root_calls": 984, "hard_duplicates": [[0, 71], [1, 76], [2, 77], [5, 65], [6, 65], [7, 76]], "hard_consume": [[56, 83]], "hard_retain": []}
+{"pair": [0, 6], "sign": 2, "root_calls": 1008, "hard_duplicates": [[0, 71], [1, 76], [2, 77], [7, 76], [9, 87]], "hard_consume": [[59, 83]], "hard_retain": []}
+{"pair": [0, 6], "sign": 3, "root_calls": 1050, "hard_duplicates": [[0, 71], [1, 76], [2, 105], [4, 61], [7, 76], [9, 79]], "hard_consume": [[58, 92]], "hard_retain": []}
+{"pair": [4, 6], "sign": 0, "root_calls": 972, "hard_duplicates": [[0, 71], [1, 65], [2, 65], [4, 65], [5, 76], [7, 76], [9, 65]], "hard_consume": [[145, 83]], "hard_retain": []}
+{"pair": [4, 6], "sign": 1, "root_calls": 936, "hard_duplicates": [[0, 71], [1, 65], [4, 65], [5, 76], [7, 76]], "hard_consume": [[144, 83]], "hard_retain": []}
+{"pair": [4, 6], "sign": 2, "root_calls": 936, "hard_duplicates": [[0, 71], [2, 65], [5, 76], [7, 76], [9, 65]], "hard_consume": [[147, 83]], "hard_retain": []}
+{"pair": [4, 6], "sign": 3, "root_calls": 876, "hard_duplicates": [[0, 71], [5, 76], [7, 76]], "hard_consume": [[146, 83]], "hard_retain": []}

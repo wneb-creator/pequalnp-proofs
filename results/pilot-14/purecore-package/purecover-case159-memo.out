@@ -1,0 +1,7 @@
+seed=65 result=EXCLUDED k=13 t=2 memo=1 sec=0.0941719 nodes=10055 hits=5131 branches=10054 failed=4924 signals=533 bins=747 expressions=11 mode=1 exprReuses=0 exprImprovements=0
+depth 8 nodes 625 unique 127 prefix 0 cached 492
+depth 9 nodes 3934 unique 960 prefix 0 cached 2198
+depth 10 nodes 4286 unique 1747 prefix 0 cached 2013
+depth 11 nodes 1150 unique 650 prefix 0 cached 428
+depth 12 nodes 59 unique 57 prefix 0 cached 0
+depth 13 nodes 1 unique 1 prefix 0 cached 0

@@ -1,0 +1,154 @@
+[
+  {
+    "pair_index": 2,
+    "pair": [
+      0,
+      3
+    ],
+    "canonical_sign": 0,
+    "actual_sign": 2,
+    "hard_duplicates": [],
+    "namespace": "PEqualNP.Outside.L_meta_670_aux.UnorderedFormula.FiniteP2U0",
+    "modules": [
+      "SignedCaseP2U0Common",
+      "SignedCaseP2U0Duplicates",
+      "SignedCaseP2U0Consume",
+      "SignedCaseP2U0Keep",
+      "SignedCaseP2U0Closed"
+    ],
+    "closed": "SignedCaseP2U0Closed"
+  },
+  {
+    "pair_index": 2,
+    "pair": [
+      0,
+      3
+    ],
+    "canonical_sign": 1,
+    "actual_sign": 3,
+    "hard_duplicates": [],
+    "namespace": "PEqualNP.Outside.L_meta_670_aux.UnorderedFormula.FiniteP2U1",
+    "modules": [
+      "SignedCaseP2U1Common",
+      "SignedCaseP2U1Duplicates",
+      "SignedCaseP2U1Consume",
+      "SignedCaseP2U1Keep",
+      "SignedCaseP2U1Closed"
+    ],
+    "closed": "SignedCaseP2U1Closed"
+  },
+  {
+    "pair_index": 2,
+    "pair": [
+      0,
+      3
+    ],
+    "canonical_sign": 2,
+    "actual_sign": 0,
+    "hard_duplicates": [],
+    "namespace": "PEqualNP.Outside.L_meta_670_aux.UnorderedFormula.FiniteP2U2",
+    "modules": [
+      "SignedCaseP2U2Common",
+      "SignedCaseP2U2Duplicates",
+      "SignedCaseP2U2Consume",
+      "SignedCaseP2U2Keep",
+      "SignedCaseP2U2Closed"
+    ],
+    "closed": "SignedCaseP2U2Closed"
+  },
+  {
+    "pair_index": 2,
+    "pair": [
+      0,
+      3
+    ],
+    "canonical_sign": 3,
+    "actual_sign": 1,
+    "hard_duplicates": [],
+    "namespace": "PEqualNP.Outside.L_meta_670_aux.UnorderedFormula.FiniteP2U3",
+    "modules": [
+      "SignedCaseP2U3Common",
+      "SignedCaseP2U3Duplicates",
+      "SignedCaseP2U3Consume",
+      "SignedCaseP2U3Keep",
+      "SignedCaseP2U3Closed"
+    ],
+    "closed": "SignedCaseP2U3Closed"
+  },
+  {
+    "pair_index": 5,
+    "pair": [
+      4,
+      6
+    ],
+    "canonical_sign": 0,
+    "actual_sign": 2,
+    "hard_duplicates": [],
+    "namespace": "PEqualNP.Outside.L_meta_670_aux.UnorderedFormula.FiniteP5U0",
+    "modules": [
+      "SignedCaseP5U0Common",
+      "SignedCaseP5U0Duplicates",
+      "SignedCaseP5U0Consume",
+      "SignedCaseP5U0Keep",
+      "SignedCaseP5U0Closed"
+    ],
+    "closed": "SignedCaseP5U0Closed"
+  },
+  {
+    "pair_index": 5,
+    "pair": [
+      4,
+      6
+    ],
+    "canonical_sign": 1,
+    "actual_sign": 3,
+    "hard_duplicates": [],
+    "namespace": "PEqualNP.Outside.L_meta_670_aux.UnorderedFormula.FiniteP5U1",
+    "modules": [
+      "SignedCaseP5U1Common",
+      "SignedCaseP5U1Duplicates",
+      "SignedCaseP5U1Consume",
+      "SignedCaseP5U1Keep",
+      "SignedCaseP5U1Closed"
+    ],
+    "closed": "SignedCaseP5U1Closed"
+  },
+  {
+    "pair_index": 5,
+    "pair": [
+      4,
+      6
+    ],
+    "canonical_sign": 2,
+    "actual_sign": 0,
+    "hard_duplicates": [],
+    "namespace": "PEqualNP.Outside.L_meta_670_aux.UnorderedFormula.FiniteP5U2",
+    "modules": [
+      "SignedCaseP5U2Common",
+      "SignedCaseP5U2Duplicates",
+      "SignedCaseP5U2Consume",
+      "SignedCaseP5U2Keep",
+      "SignedCaseP5U2Closed"
+    ],
+    "closed": "SignedCaseP5U2Closed"
+  },
+  {
+    "pair_index": 5,
+    "pair": [
+      4,
+      6
+    ],
+    "canonical_sign": 3,
+    "actual_sign": 1,
+    "hard_duplicates": [],
+    "namespace": "PEqualNP.Outside.L_meta_670_aux.UnorderedFormula.FiniteP5U3",
+    "modules": [
+      "SignedCaseP5U3Common",
+      "SignedCaseP5U3Duplicates",
+      "SignedCaseP5U3Consume",
+      "SignedCaseP5U3Keep",
+      "SignedCaseP5U3Closed"
+    ],
+    "closed": "SignedCaseP5U3Closed"
+  }
+]

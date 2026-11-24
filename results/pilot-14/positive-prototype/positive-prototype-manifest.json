@@ -1,0 +1,58 @@
+{
+  "PositiveDataBody.lean": {
+    "sha256": "07ba55be66ac9b7752337d62040944dd63efbcbc11b92b61ed364776b8a5770e",
+    "bytes": 1412
+  },
+  "PositiveRestrictedBody.lean": {
+    "sha256": "895f4a686eea80876668dafd9932184302bed402175e7e83001d28b2c79163f9",
+    "bytes": 1790
+  },
+  "PositiveData.json": {
+    "sha256": "4b1c20fdc2639643679cf355cf3c9b434e7afd2071982582ccedf8e7dd6595b0",
+    "bytes": 7611
+  },
+  "generate_positive_data.py": {
+    "sha256": "0f13d5dc9f8771b89f6b17a1395823a33c9b661d03fdf5519ab16f315344048b",
+    "bytes": 1480
+  },
+  "positive-data-generation.log": {
+    "sha256": "2cc870d4a920f43c381fbcba987eefa4b1b7c03db057f29f07c6571c4b180943",
+    "bytes": 32
+  },
+  "cofactor_one.cpp": {
+    "sha256": "71d6707006ba5f546af9137232d4a25f2ccecf5cf3322c3ffd940a5425250c9c",
+    "bytes": 7281
+  },
+  "cofactor-one-compile.log": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "cofactor-one-t0.out": {
+    "sha256": "33779f3af68e57a2576b506f698b6094938a66d067654ecd2f7967a2aa7aa615",
+    "bytes": 192
+  },
+  "cofactor-one-t0.err": {
+    "sha256": "1f49668ee301ac1b220e79a9eba9aac13aad2963e64ebf90ded0fc607a373d3e",
+    "bytes": 51
+  },
+  "cofactor-one-t1.out": {
+    "sha256": "16bac5fb00976d9629d4ab72cc101a839d53551b3025306705b37dedf93c735d",
+    "bytes": 167
+  },
+  "cofactor-one-t1.err": {
+    "sha256": "1f49668ee301ac1b220e79a9eba9aac13aad2963e64ebf90ded0fc607a373d3e",
+    "bytes": 51
+  },
+  "cofactor-one-t2.out": {
+    "sha256": "e795fa55ec07c1d921569983088f2ac281d628aa7b5ef964c1c0a2d047c5648d",
+    "bytes": 165
+  },
+  "cofactor-one-t2.err": {
+    "sha256": "1f49668ee301ac1b220e79a9eba9aac13aad2963e64ebf90ded0fc607a373d3e",
+    "bytes": 51
+  },
+  "final-math-assessment.txt": {
+    "sha256": "b977120d0c423437bf7ca5507e67cfe8c6b4ac0b51d117a02e5c37f6dbb15e7d",
+    "bytes": 2567
+  }
+}

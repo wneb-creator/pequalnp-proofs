@@ -1,0 +1,169 @@
+Final independent preservation review for L-meta-670 diagnostic packages
+Reviewer: counterexample agent; 2026-11-24 UTC
+Verdict: PASS for preservation with existing native-only/UNCOMPILED labels.
+No posted-gap proof, complete finite Lean family, or additional Lean theorem
+is claimed by these packages. No new builds/searches were launched for review.
+
+Manifest integrity:97 entries across4 frozen manifests recomputed exactly.
+Full reviewer program/output:counterexample/audit_final_packages.py and
+counterexample/final-packages-validation.out (successful exit0).
+
+Purecore: inspected search/attempt/canonical/cache/control logic. Mode0 removes
+all dynamic projected programs and prefix-cost checks from recursion. Mode1
+adds projected separation only. canonical returns the exact state unchanged;
+there is no automorphism reuse. Memoization stores the largest excluded budget
+per exact(state,t), a sound monotone reuse direction, rather than separate
+exact k rows. Input program arrays are parsed only once and not consumed by
+recursive search. Independently parsed both compact seeds and checked every
+program/operand/output bound. Seed0 is exactly case159 modulo commutative
+operand order in its two AND recipes; seed1 has k12,t4. Native outputs' counts
+and EXCLUDED labels are consistent; the separately failed90s Lean pure check
+does not certify these native exclusions and is documented separately.
+
+Positive cofactors: independently recomputed all3 selectors (94 distinct rows
+repeated to252), all24 remaining-input signatures, and marker->all-ones values.
+Original12 domains are unchanged. Independently rebuilt the complete C++
+source string from the original with only15-domain arrays and the threshold10
+addition; it matches byte-for-byte. This bound10 remains an explicit unproved
+oracle assumption in this native diagnostic.998821calls is in the included
+log. Baseline1159421calls is confirmed in already-preserved
+status-review/native-package/theta15t0.out, yielding13.85% reduction.
+Compressed full compiler log is hashed with the package. No additional NOT
+budgets or formal positive-cofactor bound are claimed.
+
+Slack splitting: source-reviewed phase convention/sign conversion and recursive
+count recurrence. It memoizes subtree costs but adds them each time, so reported
+counts model no-memo work. Independently recomputed all154x12 automorphism
+actions with phase changes, the23 orbit partition and20 proper-orbit count.
+Independently enumerated every covered ordered immediate move of both the
+first01 parent (160moves/78states) and duplicated-computed-signal child
+(82moves/19states); saved state multisets match exactly. Verified24-case pair
+order/sign metadata,29233 root-call total,21 consume rows over60 with maximum181,
+and retained-child maximum28. Did not rerun recursive cost search; values remain
+scheduling diagnostics. Cost hints cannot discharge an unchecked Lean premise.
+
+Uncompiled plans:40 files form8 cases for pair groups2=(0,3),5=(4,6), each
+with4 canonical signs and Common/Duplicates/Consume/Keep/Closed modules.
+Manifest signs map to original-input signs by XOR2 and exact state expressions
+match the intended pair/sign. No olean exists in this package; README and folder
+name explicitly say no plan was compiled. Sources contain no forbidden proof
+escape or hidden axiom. This is source preservation only, not a compilation
+review. The generator's external cost-table path limitation is explicit.
+
+Frozen manifests and their exact checked entries:
+
+purecore-package SHA256.json 1e1005e6858a9faade25dd5ea10c9aa8c578a5104bc22387a637fbb8e435f428
+{
+  "README.md": "fc0c0b0070ad923a96581d113809e2ceb4e4ce0b9f71e0b5abd646a9e08b3ab7",
+  "ablation_seeds.txt": "ff91e1503210afaa4a20a7569fcf25628c4c2d8b026e0fe683f95da445cef512",
+  "live_purecore_seed.cpp": "94f6b48bcacbba53e245cf6f79d60ef766fc0a10280ff049815b1103b901d238",
+  "purecore-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "purecore-case159-memo.err": "4b741a3799252a9574c8e211df49c309c29d85992614719372046c50c6f90ce5",
+  "purecore-case159-memo.out": "182bb7ee4c67d00e239a33897a70b9bf26d7843d08f5ce7830f7778706426f09",
+  "purecore-case159-nomemo.err": "4b741a3799252a9574c8e211df49c309c29d85992614719372046c50c6f90ce5",
+  "purecore-case159-nomemo.out": "3dd5427f9139c6554cf972152bca22dc55b3290d19ee1fb7eb9866b99c1d50f2",
+  "purecore-cut12-easy.err": "4b741a3799252a9574c8e211df49c309c29d85992614719372046c50c6f90ce5",
+  "purecore-cut12-easy.out": "3a4ea42cc4fad90c0010abcbb21492802d222b8ab877ff1498f026fd6e32cc6f",
+  "purecover-case159-memo.err": "4b741a3799252a9574c8e211df49c309c29d85992614719372046c50c6f90ce5",
+  "purecover-case159-memo.out": "280c2548c8fa8059a9f2c542d477406615296990014225863c763550efffa2bb"
+}
+
+positive-domain-package SHA256.json 67061fcd4b71aeb57f69f80fec5a42fd79861152909d9958c6a07b24ae8edd15
+{
+  "Data414.json": "2b368956564706035458f7c26066b064d476c8bb4ec00d56fbe746a4de025c9e",
+  "Domains12.json": "61da49c6e2b3cc055ac0d0ce2daf302e479315782c9af4da0387b301f8f11054",
+  "Domains15.json": "95c1adf3129c545533ca39910897b24a0e165f0dcd0f94df48574f05500ab867",
+  "README.md": "acd3a891fb14ccb00643b802e40d64c39fb84872307df90c66c118f2de1422b9",
+  "live_positive15.cpp": "ffe63aa911e2ce324808e231c86f03e274e9c6a617ec6ec27bd25b18bffc488f",
+  "live_theta12.cpp": "96d72c8b3bcd97036aa89d55ff6554af15f3222b8bd1fb735191802c35260219",
+  "make_positive_domains.py": "c2bcd73051fbbc0707109a9eab589b4f510929610f90e856e954213f72815b1b",
+  "positive-domain-generation.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "positive-domain-generation.out": "719a41ddc669b40594021a4059b791762f99fb610e74a739e60b057e26efc0e2",
+  "positive15-build.log.gz": "ed0e787b9fab8fddbddafac739848bd60bd64ac8238f9b658f96c5448775c5e1",
+  "positive15-t0.err": "4b741a3799252a9574c8e211df49c309c29d85992614719372046c50c6f90ce5",
+  "positive15-t0.out": "1f183df462def207c3708353b0e42505db52ea99a3fe5d19a841eaf23c19eade"
+}
+
+slack-split-package-v2 SHA256.json b1e9c491cd52d99a49a95da2b8003f05ddf6255c24b2d8186f50ee6e184542ed
+{
+  "Data414.json": "2b368956564706035458f7c26066b064d476c8bb4ec00d56fbe746a4de025c9e",
+  "README.md": "c97609aaeb5d1853ef4cf54711033fc5a5bfc930b53aa993267193798b508e67",
+  "SlackOneAllCaseCosts.json": "f3969b607b7acffd3c79e5eb6d6b5941168de3fe9a26bc43ab8112497f845c1f",
+  "SlackOneCase02Sign0Children.json.gz": "e2d99ec9bb99ee8a8fba318b2d67eff326cd050d80126cfd0b4ac725e34c6963",
+  "SlackOneCase02Sign2Children.json.gz": "9fe6e2a7063ba1eb23aa828e00704306fb2f7baf92af074b1af2d68022110fe7",
+  "SlackOneCase02Sign2Consume43Children.json.gz": "e3b5b1cc56263798d316c3b35846eafc9bbc5845239c00d3db664ae3a46b842e",
+  "SlackOneCase02Sign2DuplicateCosts.json": "8ee89e397dcd870e2dde524b695449172ab83f5211fce4cb4db312346566f1ed",
+  "SlackOneFirst01Children.json": "a3e30e2e8e411427dbdeef6c22fd9b064d90b3db1f5d066256906d467078866b",
+  "SlackOneFirst01DupGChildren.json": "e2a29c11cd5127e0f6885f452d264c4d8409ca6ffc97d8021a3ca1d5fd9cb8ce",
+  "SlackOneOrbitData.json": "d7fc2ca70ed52b9362d48f887b70f2b5604774206a1756cf255ebec2969bdefb",
+  "compute_slack_orbits.py": "1abedae5388e1cb376f6477dd96c709febb27e51d3cd679403d7a12b563628ee",
+  "slack-all-case-costs.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "slack-all-case-costs.out": "717c58496cfb92397272e0feabeccc66d78dcfe55f7e6fe333c92e24b2f15cf1",
+  "slack-case02-consume43.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "slack-case02-consume43.out": "d63750f4c5169d31132a25384abbac292959da8e193f0e97042a39248439effe",
+  "slack-one-counts-nomemo.json": "63e82eb23278aa17b574008e09fc08d55394dc08fef141c6a4320ea9f66a9779",
+  "slack-one-first01-children.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "slack-one-first01-children.out": "1bbb117027accb6e5506a6e6a3fe8aa41d6a14086313f48dc93e1d9cd877bec0",
+  "slack-one-first01-dupg-children.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "slack-one-first01-dupg-children.out": "071aea52f87d959c57d2e1c1921bdf9dac94185d3e0591dbc5d91ea06ba0c807",
+  "slack-orbits.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "slack-orbits.out": "8a2a3355cb8619a7443c63e088613f3ff8dc28f26b19847797d82f2c86a0b7e4",
+  "slack_all_case_costs.py": "25c7adc4b8901030d2a0611d2f0058079ee6a7263206775a1b20178db0b753fe",
+  "slack_case02_consume43_costs.py": "2a5f8f27c41b9bcba03b5982ea83605042a7eb4310296d5f0f7598e1c1e835f9",
+  "slack_case_child_costs.py": "0d237128ba9c3e4f1ae16dfbf68a6e82037ad486faa2a192d9ac94a60e0acfff",
+  "slack_one_child_costs.py": "dc8569bbf8ef4a380b65a291eb90cbe1a8abd81fd1d9f7f47c69c2ee56b2e07f",
+  "slack_one_grandchild_costs.py": "57030b18190d17e4cf37149d085ffb40413d12dd69e545da8da06d824b6676ed",
+  "slack_tight_duplicate_costs.py": "6375411f7076b5daa7d8421afe98fdf94d45346fe09dd3db8b3a0679b7ad165f"
+}
+
+finite-plans-uncompiled-package SHA256.json f9d71ed5582728d2a08805d9e6aeb2c9a1433406ea17c11b2f346f484cdced06
+{
+  "README.md": "32658b7dfd350316dc35a1e94da02d375dec954c3a58205c2b0cf7497d6ada40",
+  "SlackOneAllCaseCosts.json": "f3969b607b7acffd3c79e5eb6d6b5941168de3fe9a26bc43ab8112497f845c1f",
+  "generate_signed_cases.py": "e4d4ccc18ec3342d1fbd4b9e1d2a4c1479c3fffefc05e0db62c94294fe01e41d",
+  "plans/SignedCaseP2U0Closed.lean": "a70802b1a3685195fe78f9b601129c313e3a8172ee608b74e9e91beef83d5b32",
+  "plans/SignedCaseP2U0Common.lean": "d8a2bf4e070b7bf7acba36e307b1aa76481d8607cea3216f4e68a7649f3c8be3",
+  "plans/SignedCaseP2U0Consume.lean": "7e3694f0f940dcc904ecbda776c36d77ffdeb236a4235057c3af86223435849c",
+  "plans/SignedCaseP2U0Duplicates.lean": "1b9e4b0191a1f126bc7ab2027fd097920bd1929ad785b6c969305fb2bf38f10b",
+  "plans/SignedCaseP2U0Keep.lean": "43487ad624366f210e520257697baf1efd6f46cb7501dec3cfafe0369767c86c",
+  "plans/SignedCaseP2U1Closed.lean": "67ba9f4509cdee4bac7e068466fa04a7e61bece42c5a3975cc918ed01e40e0d8",
+  "plans/SignedCaseP2U1Common.lean": "cf27581678058cabcb711ec6d399106495e52d9dadef32b6a10648ecfb47c809",
+  "plans/SignedCaseP2U1Consume.lean": "61c5b317340c630b62c81957737167065f46ef77c629e4127f5ff63c2ae286f9",
+  "plans/SignedCaseP2U1Duplicates.lean": "33312ca90274617b41d1869137df79c042880b0ac9471222a91d2547b812f634",
+  "plans/SignedCaseP2U1Keep.lean": "98002f8ce2a130f184afa335d41be9bce36a0724d400374823393de4924121e1",
+  "plans/SignedCaseP2U2Closed.lean": "d8733d96f1b1853a1a2ea546c8f848af2f2c100bf8e92706ca68aba175dca256",
+  "plans/SignedCaseP2U2Common.lean": "1d3f6400d4ffbe57f12a8bf7bb71adaf5a3d471c9325533c9b2e56d2fb9525ee",
+  "plans/SignedCaseP2U2Consume.lean": "c19118189db028dea884d171ceae0cfc66a37de8539c68ef8ccbeea9b5ea51b6",
+  "plans/SignedCaseP2U2Duplicates.lean": "32fb36d8e32d09c04d3b4fbfa235f0d5d30f932aab955584a4707355055cb646",
+  "plans/SignedCaseP2U2Keep.lean": "3b910ee794590f2fb61fe60cf8b3ee85861b5c5ef01970a413bb0f6062cdacd4",
+  "plans/SignedCaseP2U3Closed.lean": "8f359ffa75a8408cfa999398c16f7ebc710876127906d8045389a933789dea1e",
+  "plans/SignedCaseP2U3Common.lean": "84a94283b99bd9d406011fc5a7b181f31b6fd06869906518de79715b1efb71a2",
+  "plans/SignedCaseP2U3Consume.lean": "f9f4fe86f812cb5a20d0dda86a5bd0eac8ead7d6fe7919c66b2faf28deada59c",
+  "plans/SignedCaseP2U3Duplicates.lean": "389eecff39926e3ef236e24a646fe208b452c00761681085da5c3130ee8d822b",
+  "plans/SignedCaseP2U3Keep.lean": "dacc97740ae582c38d0248804457dfabb43de40de3adb67fd80ee2376a20027b",
+  "plans/SignedCaseP5U0Closed.lean": "14a73aaa2a4fc776e3226d4c18452f542544000f8dff8124a6dd7e0e16060693",
+  "plans/SignedCaseP5U0Common.lean": "9453efaf8e59a4ad7276b047bf72da0e00bac2effb5a536074b9e32a257f3c94",
+  "plans/SignedCaseP5U0Consume.lean": "76a4ae22ef5d67b7f57e0a33b2fbd9bcf94cbd4bc33d7da597124d0cfb677bac",
+  "plans/SignedCaseP5U0Duplicates.lean": "67201886ab45274203b3a38438c124d4c1cf7e695714bf9bbe0718b0e988ef5d",
+  "plans/SignedCaseP5U0Keep.lean": "1224e03271f90c0478edd4229c2e41b0428ace2cc3084eeec0b6c40174927d00",
+  "plans/SignedCaseP5U1Closed.lean": "4a34de4476a03b2a468c7cf9f917330c4ec4a0d38aaaaec569306002989965e2",
+  "plans/SignedCaseP5U1Common.lean": "249384427b87249917dc1edf2e2f7758b9602208b44444ed7144e157d8af1eec",
+  "plans/SignedCaseP5U1Consume.lean": "f085e42ec12d2978a4920544ab94b632d13cdb3833282ad2c0e614854df5af02",
+  "plans/SignedCaseP5U1Duplicates.lean": "14760b81d8eea306dd8d2a656675e87337458d613bace82c667cd4c34c7fa40a",
+  "plans/SignedCaseP5U1Keep.lean": "fff5b7fd72f14292d2ce1846a437fd2b0805ea81aab6ead21e9dc7587f6ce8fb",
+  "plans/SignedCaseP5U2Closed.lean": "f07101b3b2dad37d8e612c6b5f3078aba44468d3a3138b7dcc24bb556773265b",
+  "plans/SignedCaseP5U2Common.lean": "369985d08156f45d738ca18daa6cd1523a138e269f6602a85221339dc3273f67",
+  "plans/SignedCaseP5U2Consume.lean": "c84c4f5a1aa03e1babed5dcd0d057165c27b7ab8f8a51c82708a2b45a86ed9a7",
+  "plans/SignedCaseP5U2Duplicates.lean": "3cd86cefea48fa5e644344084e9571c66285a013ca10ce18b8698b440e6f8e5e",
+  "plans/SignedCaseP5U2Keep.lean": "f708759dabfad524db62b94f0492576808e8ebe38aeeb5aedef400fe37420328",
+  "plans/SignedCaseP5U3Closed.lean": "724cad3d954cc3844dfdad2f28bf2017bc26e634b3e49f3d41e701086f6071de",
+  "plans/SignedCaseP5U3Common.lean": "5e5e84869e1fae27663a42965d06b9b27dda888def0820100b32c06826514e5f",
+  "plans/SignedCaseP5U3Consume.lean": "9c5aec100e7caa08b41380ddffefcb0b27dbdc36c1d6f240823f9dc86d0b30e0",
+  "plans/SignedCaseP5U3Duplicates.lean": "b2ed7a685afc4b0a4ced8559106c3ada4cb87cad71633c6cfc083755d74f7908",
+  "plans/SignedCaseP5U3Keep.lean": "65b4b4a4b45923a62c4170704bf952816b2f1fed904fd63de47976a35b4aa497",
+  "run_signed_cases.py": "b639b80b72e61e31afd2d8562838855075af883b5e001cabbe2a1e70bc55e208",
+  "signed-cases-manifest.json": "a6c7029e38921fad6c12bb8be0046142106aa438b3faa13c596fd92ffd22645e"
+}
+counterexample/audit_final_packages.py e945a29be38636721619f5da817381d61de075b57f6e6d453bc9ccb479f91e59
+counterexample/final-packages-validation.out 18edc6aa673f50bb44c0b629c6b083e529ad86ca7649cef7924c3c8362011a1c
+baseline native-package/theta15t0.out 30b68d229a9aecc5259c058e5990cab1d1b724e54710ebbdc42eb82068cd23a6

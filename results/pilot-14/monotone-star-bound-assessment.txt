@@ -1,0 +1,14 @@
+Assessment: no unconditional monotone16 lower bound was proved or refuted by this investigation. No Lean theorem can be substituted for t0 on the basis of this assessment.
+
+Exact useful local result: lean/PEqualNP/Outside/L_meta_613.lean, final theorem, proves edgecount + cardinality of AND-center image ≤ C.size+1 for C4-free graphfunctions, provided EVERY AND output implies the target and its assigned center, and no AND is an ancestor of another AND. This is the desired counting theorem after a star normal form, but not a normalization theorem. The file is661lines.
+The remaining obligation is a size-nonincreasing transformation of an arbitrary monotone circuit for this girth5 graph to that productive-AND, AND-depth-one form, together with proof that the centers cover all target edges. No such unconditional transformation was located in the483local meta-proof census or relevant library files.
+
+Other local theorems are insufficient: L_meta_599 gives OR>=edges-1 only under a hereditary pseudoforest density condition, violated by the full9vertex12edge target. L_meta_614 gives n+cover<=size+1, i.e. only13 here. L_meta_616 strengthens a bound for3regular graphs, while our graph has three degree2 vertices. L_meta_615 solves theta graphs, not the Petersen-minus-vertex graph. Related L_meta_1020/1319/1320 etc impose line-degree/pivot conditions and have large constants; they supply no exact star normalization.
+
+Reason the tempting direct argument is incomplete: singleton linear parts of a PRODUCTIVE AND whose entire output implies the graphfunction form a biclique, hence a star in a C4-free graph. But arbitrary internal ANDs need not be productive; they can create nonedge pairs or mixed linear/quadratic functions subsequently filtered by later ANDs. Restricting to final productive ANDs loses earlier useful gates. C4-free restrictions on shared OR-of-many-variable nodes apply only after proving the normal form. No gate-cost-preserving absorption cleanup was established.
+
+All graph arithmetic below was independently enumerated natively only: edges12, degrees3,3,3,3,2,3,2,2,3, coverminimum5, exactly three minimum covers [0,1,3,7,8], [0,2,3,5,6], [1,2,4,5,8]. Every minimum cover uses one degree2vertex; excluding all three forces all six degree3vertices. These facts suggest a gate-elimination route but do not establish which input an arbitrary circuit must eliminate at cost3.
+
+No verified counterexample to the general C4-free star bound was found. The mixed bowtie expression (a OR bc OR de) AND (b OR c OR d OR e) costs8 gates, matching6edges+cover3-1; it is not a7gate counterexample.
+
+Read-only public search restricted to github.com/pequalnp.com on2026-11-24 found no relevant primary proof. No external mathematical result was imported or relied on. Existing-source census and exact theorem text are saved in monotone-candidate-filenames.txt and monotone-main-statements.txt.

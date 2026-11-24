@@ -1,0 +1,7 @@
+PASS as a clearly unsuccessful, bounded diagnostic only. Source calls the existing unmodified pure LiveCheck.search on the exact11-signal Case159 state at budget13,t2. The full log records import3.31s, timeout TERM, and178.16s wall time including guard wait; status records exit124 and90s actual execution bound. No olean exists, and README/status explicitly say UNCOMPILED/UNKNOWN, not a checked theorem or refutation. Recorded source/log/resource hashes match. Resource max is a sampled observation, not a claimed exact peak. This does not alter the separately checked split Case159 result.
+
+bd290473e6da3b495c3ed3517bdcf00c8ebf85cf2a790bed721d6b17fb1d4d5a  counterexample/PureCase159.lean
+b121506534d8836ac2d7b373507ca24d0265c7692009ac0fc0faba865a7eb448  counterexample/pure-case159-build.log
+00d5909ee6ab8ac86672c7b020e40ffecc0be1abbdd845d91678283de06f365f  counterexample/pure-case159-resource-samples.log
+d1979e11354d9dd22271ecdd06d8ce31dadd6151fc005945a8e2bf744da9ed7b  counterexample/pure-case159-status.json
+4a2f272c8b0f086eaef4951d3cd56023374f16a1155e3f8deba7ee7998854c37  counterexample/pure-case159-README.txt

@@ -1,0 +1,5 @@
+seed=11315 result=EXCLUDED k=12 t=4 memo=1 sec=0.00196059 nodes=424 hits=284 branches=423 failed=140 signals=23 bins=2 expressions=14 mode=0 exprReuses=0 exprImprovements=0
+depth 9 nodes 333 unique 93 prefix 0 cached 240
+depth 10 nodes 81 unique 37 prefix 0 cached 44
+depth 11 nodes 9 unique 9 prefix 0 cached 0
+depth 12 nodes 1 unique 1 prefix 0 cached 0

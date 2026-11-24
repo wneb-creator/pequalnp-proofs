@@ -1,0 +1,14 @@
+purecore-package manifest PASS 12 files 1e1005e6858a9faade25dd5ea10c9aa8c578a5104bc22387a637fbb8e435f428
+positive-domain-package manifest PASS 12 files 67061fcd4b71aeb57f69f80fec5a42fd79861152909d9958c6a07b24ae8edd15
+slack-split-package-v2 manifest PASS 28 files b1e9c491cd52d99a49a95da2b8003f05ddf6255c24b2d8186f50ee6e184542ed
+finite-plans-uncompiled-package manifest PASS 45 files f9d71ed5582728d2a08805d9e6aeb2c9a1433406ea17c11b2f346f484cdced06
+positive domain 4 94 selectors and all8 raw signatures PASS
+positive domain 6 94 selectors and all8 raw signatures PASS
+positive domain 7 94 selectors and all8 raw signatures PASS
+positive C++ exact source delta PASS; claimed gain 13.85 percent
+purecore exact case159 and cut12 seed shape/program-index validation PASS
+all154x12 actual phase-correct automorphism actions and23/20 orbit census PASS
+SlackOneFirst01Children.json complete one-step states/coverage/multiset transport PASS 78 160
+SlackOneFirst01DupGChildren.json complete one-step states/coverage/multiset transport PASS 19 82
+24-case costs/sign-order/summaries PASS; no recursive cost rerun
+40 UNCOMPILED plans /8 cases exact manifests and pair/sign references PASS; no proof claim

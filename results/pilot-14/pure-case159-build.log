@@ -1,0 +1,6 @@
+build queue: waiting 60s for one of 3 slots
+import took 3.31s
+timeout: sending signal TERM to command ‘/tmp/oec/pequalnp-pilot-14/sat-proof/lean-scratch.sh’
+real 178.16
+user 87.26
+sys 4.69

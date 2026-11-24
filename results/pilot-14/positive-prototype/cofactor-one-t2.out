@@ -1,0 +1,5 @@
+result=EXCLUDED k=9 t=2 sec=0.000135635 nodes=26 hits=16 branches=25 failed=10 signals=143 bins=126
+depth 6 nodes 4
+depth 7 nodes 12
+depth 8 nodes 9
+depth 9 nodes 1

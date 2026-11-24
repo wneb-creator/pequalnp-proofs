@@ -1,0 +1,28 @@
+{
+  "status": "UNKNOWN: requested kernel finite check did not complete before90s timeout; no theorem or olean produced",
+  "exit_code": 124,
+  "lean_time_limit_seconds": 90,
+  "lean_memory_limit_MB": 10000,
+  "sampled_rss_external_cap_KB": 10485760,
+  "sampled_rss_max_KB": 10214744,
+  "total_wall_seconds_including_guard_queue": 178.16,
+  "user_cpu_seconds": 87.26,
+  "system_cpu_seconds": 4.69,
+  "import_seconds": 3.31,
+  "target": "existing LiveCheck.search13 2 exact Case159 11-wire state =false",
+  "engine": "unmodified existing pure LiveCheck.search, no projections/context/memo",
+  "files": {
+    "PureCase159.lean": {
+      "sha256": "bd290473e6da3b495c3ed3517bdcf00c8ebf85cf2a790bed721d6b17fb1d4d5a",
+      "bytes": 546
+    },
+    "pure-case159-build.log": {
+      "sha256": "b121506534d8836ac2d7b373507ca24d0265c7692009ac0fc0faba865a7eb448",
+      "bytes": 193
+    },
+    "pure-case159-resource-samples.log": {
+      "sha256": "00d5909ee6ab8ac86672c7b020e40ffecc0be1abbdd845d91678283de06f365f",
+      "bytes": 1636
+    }
+  }
+}

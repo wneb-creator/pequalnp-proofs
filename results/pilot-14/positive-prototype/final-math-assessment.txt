@@ -1,0 +1,13 @@
+L-meta-670 final lower-bound assessment, 2026-11-24 UTC
+
+Checked closed result: TightLowerEleven.lean proves t+11 <= k for any literal-only Live cut, and hence excludes size15 at every NOT count t>=5. All324 first signed-gate cases were kernel checked. Axiom diagnostic lists only propext, Classical.choice and Quot.sound. Exact source/log hashes are in closed-eleven-manifest.json. This does not prove the full posted size15 lower bound.
+
+Checked conditional stronger result: UnorderedEndgameTest.lean proves that24 representative first-gate testOne4 exclusions imply t+12 <= k and exclude all t>=4. It uses counterexample/FirstOrbit.first_cut and the checked tight/slack-one semantics. Its24 finite hypotheses have not all been proved here. Independent reviews are recorded by root/counterexample and root/red_team.
+
+Monotone investigation: no unconditional monotone16 lower bound was established. The potential OR>=edges-1 plus AND>=vertex-cover argument still needs a valid treatment of mixed linear/quadratic intermediate functions and later filtering. Existing L_meta_613 gives counting only after productive AND-depth-one conditions; L_meta_614 gives a weaker branch-budget bound. L_meta_950 is not a ready general biclique-cover theorem: it handles at most3 AND gates with a special six-vertex classification. The general normalization/counting step was not proved, and no counterexample to the target was found.
+
+Positive-cofactor prototype: fixing degree2 input4 to true leaves two free OR variables plus the six-cycle edge function. Selecting existing row pairs with input4 true on both sides gives94 pairs. Native C++ exact size9 searches excluded t0/t1/t2 in740/81/26 calls; t>=3 is ruled out by the eight-input live-size bound at this budget. These are native findings only, not new Lean theorems.
+
+For a compact potential formal certificate, PositiveDataBody.lean periodically pads94 rows to252. Every padded signature satisfies equality of bit positions6 and100 in both components; all four old Base1007 special markers violate that equality. PositiveRestrictedBody.lean sketches the operation-preserved invariant needed to reuse Base1007's restricted search without its original graph hypotheses. Neither Lean prototype was compiled. Native addition of all three positive domains improved the full t0 search by only13.85 percent, according to status-review/positive15-t0 logs, so further oracle work was stopped by parent.
+
+All new proof work stopped at parent instruction. No lease, desk, repository edit, or push was performed by this child agent.
