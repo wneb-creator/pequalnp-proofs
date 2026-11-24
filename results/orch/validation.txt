@@ -1,0 +1,5 @@
+PARTIAL RESULT ONLY: mask equivalence lemma, not the L-meta-1677 lower bound.
+Lean4.36.0 compile: exit0. Independent recompile/review: PASS.
+Full candidate still compiling.
+Sub-agents:6 (checker review, sibling adaptation, counterexample search, structural audit, toolchain setup, certificate optimization)
+TIMING total=8.1 subagents=6
