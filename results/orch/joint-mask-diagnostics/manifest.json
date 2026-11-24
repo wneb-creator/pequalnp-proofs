@@ -1,0 +1,90 @@
+{
+  "frozen_at": "2026-11-24T09:34:26.946038+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "7bea660c99ba156f38130156b1c5f865550c927de781a21cb6987da73f41e41c",
+      "bytes": 2404
+    },
+    {
+      "file": "SearchJointTight.py",
+      "sha256": "6c9ce6cd315dfa6ceafb9cc8983e5001e9fb86bcbd14ce00d993a5a0277bae99",
+      "bytes": 6883
+    },
+    {
+      "file": "SearchJointUnion.py",
+      "sha256": "7eb98c628e1bfc3fc8a6e052ffb3d5bf8f9b330c0dbe1be56c1af0b01990fa80",
+      "bytes": 6614
+    },
+    {
+      "file": "edge-bound-overlap-counterexample.json",
+      "sha256": "79d344487fb398dd6e079cf780443851bfb6065cdc824f0bb5d525940ac01120",
+      "bytes": 904
+    },
+    {
+      "file": "edge-bound-overlap-counterexample.log",
+      "sha256": "69ad35b4578c9f646407b741b9bfb9af43f1a2d2d54a96e22115be61a1429006",
+      "bytes": 428
+    },
+    {
+      "file": "joint-union-edge-budget-eight-disjoint.json",
+      "sha256": "db34fb46a73050ba1e60e3b5897323369b6f6d2cfbe66b2048287386837ba4e8",
+      "bytes": 1017
+    },
+    {
+      "file": "joint-union-edge-budget-eight-disjoint.log",
+      "sha256": "e759bd0f05ccb4a3bed2fd29dbf3042239684e0af389400f449b2cf8864fe860",
+      "bytes": 907
+    },
+    {
+      "file": "joint-union-edge-budget-tight-eight.json",
+      "sha256": "db34fb46a73050ba1e60e3b5897323369b6f6d2cfbe66b2048287386837ba4e8",
+      "bytes": 1017
+    },
+    {
+      "file": "joint-union-edge-budget-tight-eight.log",
+      "sha256": "a526f379e947330e983867fed220801be48ac1979300b3dc85e753560ea13b1f",
+      "bytes": 908
+    },
+    {
+      "file": "joint-union-edge-budget-tight-six.json",
+      "sha256": "f8762aa756ca1787df729f20116d360abb9b6d76462693ec92e7062d7da06c09",
+      "bytes": 971
+    },
+    {
+      "file": "joint-union-edge-budget-tight-six.log",
+      "sha256": "6fe275dcd054b92ffa4ed8ad6102aa90bdfc386168c7a450221a1a2da130ff57",
+      "bytes": 861
+    },
+    {
+      "file": "joint-union-private-eight-disjoint.json",
+      "sha256": "88090156fc971c74664941606c6bc7d9a298597dd0922d897fd4f9767efce5fa",
+      "bytes": 1060
+    },
+    {
+      "file": "joint-union-private-eight-disjoint.log",
+      "sha256": "3106a77cc631a06d3807ce5f852c52862e173aef3b679f8a6a44b61c8ab7cc59",
+      "bytes": 565
+    },
+    {
+      "file": "joint-union-private-six.json",
+      "sha256": "59d5265b3efbe1c4fe3f27084bcbfed27af7afa0ef794805fb862a3de84a3070",
+      "bytes": 985
+    },
+    {
+      "file": "joint-union-private-six.log",
+      "sha256": "a645ddaa48c38a7bc701a39269436813e5c8bf90b58f8f5b002397bb08bfd31c",
+      "bytes": 551
+    },
+    {
+      "file": "joint-union-small-hosts.json",
+      "sha256": "fa66ea03b730dd7d7d7da714fbf5aaa6f488694a680bf1f904830d556442df2d",
+      "bytes": 899
+    },
+    {
+      "file": "joint-union-small-hosts.log",
+      "sha256": "f0f3bbe11d633245d82713e18d6bd4d4707a9f380afb6e103d7364651f8b0437",
+      "bytes": 385
+    }
+  ]
+}

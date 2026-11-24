@@ -1,0 +1,3 @@
+PASS independent source/math/format review by root.
+SHA256 74d34d2937e46e4ac08b9d69f04f5e13e2313603f00d5c2587df0de141a9c540
+Reach labels propagate along directed paths. Each representative with two labels has paths to the corresponding private roots, hence a first exit for each label. Private cardinality<=1 forces distinct exit endpoints. Source-component fibers are disjoint and each contains at least two exits, yielding2*components<=exitCount. All path, label monotonicity, component constancy and representative premises remain explicit; no actual circuit tagging is assumed proven. Author build001 exit0, empty log inspected.

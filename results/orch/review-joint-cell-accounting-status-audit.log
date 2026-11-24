@@ -1,0 +1,3 @@
+PASS independent source/math/format review
+SHA256 28a2a19dfbefbd58270fa41fdcdd6fad76dad2628729772478ada5a7b1e60c12
+Cross-edge cardinality uses disjoint endpoints to make unordered-pair image injective. Cross-edge disjointness correctly excludes both orientations. Pair/four-cell budgets retain explicit empty-cell restrictions and productive crossing premise. Shared-cell refund combines disjoint cross-pair sets with subset cardinality. Union budget is exact inclusion-exclusion plus explicit overlap refund. No claim that actual circuit products automatically satisfy the premises. Author build001 exit0 empty log confirmed by author.

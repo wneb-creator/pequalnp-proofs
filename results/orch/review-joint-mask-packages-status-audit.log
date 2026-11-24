@@ -1,0 +1,13 @@
+PASS manifest global-matching-completed 2
+PASS manifest joint-mask-diagnostics 17
+PASS complete global matching log, best125/no124, heuristic scope
+PASS scalar allassignment counterexample replay edge-bound-overlap-counterexample.json 256 cases
+PASS completed bounded census scope joint-union-edge-budget-eight-disjoint.json
+PASS completed bounded census scope joint-union-edge-budget-tight-eight.json
+PASS completed bounded census scope joint-union-edge-budget-tight-six.json
+PASS scalar allassignment counterexample replay joint-union-private-eight-disjoint.json 256 cases
+PASS scalar allassignment counterexample replay joint-union-private-six.json 64 cases
+PASS scalar allassignment counterexample replay joint-union-small-hosts.json 64 cases
+PASS source review: fullassignment truth masks, clean-joint/effective-mask definitions, distinct-product pair loops, timeout scopes and shared-quadrant cost formula. No network or credentials.
+No large census rerun; negative results remain bounded computational evidence, not Lean lower bounds.
+PASS independently counted2037 unordered disjoint>=2 product forms; all saved witness hosts are simple bipartite C4free

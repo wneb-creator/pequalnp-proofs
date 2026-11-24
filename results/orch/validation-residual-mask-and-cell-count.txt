@@ -1,0 +1,21 @@
+L-meta-1477 PARTIALS ONLY. Exact unrestricted statement remains unproved.
+Named file unchanged; lake build passed, exact checker REJECTED (no-theorem).
+Checked components now include product-indexed raw OR charge, residual graph pruning/reachability, finite partition Euler count, single-product mask-plus-joint forest bound, and cross-cell overlap accounting. Their full arbitrary-circuit combination remains open.
+All diagnostic counterexamples concern proposed helper claims; none is a124-gate plane witness. All finite censuses are bounded computational evidence, not general lower bounds. Search timeout records have no UNSAT verdict unless explicitly returned by solver.
+
+MaskGraphReach 4239 lines SHA256 6f2c0ffa51aa22a351324dfd8e42c5fe47a4452271b002baff5a01562792e3d7; author build exit0; independent review PASS
+MaskGraphCharge 4382 lines SHA256 1fbff39d2ef74e37daf78e169399cab6d84d978f7e828938948c872ceb90a437; author build exit0; independent review PASS
+MaskGraphPruneReach 4598 lines SHA256 4c258801e9984e0c41c8ccc5d07cbbffe4b279b7fe071c237a1421f0493bde8e; author build exit0; independent review PASS
+MaskProductCharge 4719 lines SHA256 3141eefb9227f37be4be04484bc650c15a7313e88489ae80ef5064f86524684b; author build exit0; independent review PASS
+GraphBoundaryCharge 139 lines SHA256 8081b89c1cd8b59fb1f1269ed5582bd7e4a5c38bade3befbf27e351eec01fd25; author build exit0; independent review PASS
+PositiveOutputBypass 1486 lines SHA256 863789a023668842180701bce9f65f59edbdf5a9f787341476e58733a3e82eac; author build exit0; independent review PASS
+SharedTagExit 96 lines SHA256 74d34d2937e46e4ac08b9d69f04f5e13e2313603f00d5c2587df0de141a9c540; author build exit0; independent review PASS
+GraphPartitionCharge 159 lines SHA256 93e9b9fcd06d3ddd776621219278e2da62e329debb1b4dab6d3a976d87c8dfa5; author build exit0; independent review PASS
+UnpairedCell 61 lines SHA256 34ac17145e632f3a81c92d746356f2a5d19369569a87cc20704e6d7fd699aadf; author build exit0; independent review PASS
+JointCellAccounting 104 lines SHA256 28a2a19dfbefbd58270fa41fdcdd6fad76dad2628729772478ada5a7b1e60c12; author build exit0; independent review PASS
+JointCellGeometry 210 lines SHA256 e26ab6d7220ba755c5fb7b0a3c84a8e8a767a51bebd647e23387daf979a0ca05; author build exit0; independent review PASS
+MaskJointForest 95 lines SHA256 b61d660f11a723d60f22a85d30c5fa7eb9ffe987af72aa88c25a16ce97c6330c; author build exit0; independent review PASS
+MaskJointForestFull 228 lines SHA256 6f9242bbc0c861d19ade6c808925426141dc2bda18b82547e768063fc79e1130; author build exit0; independent review PASS
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=216.7 subagents=6

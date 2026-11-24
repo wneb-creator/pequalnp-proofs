@@ -1,0 +1,40 @@
+{
+  "frozen_at": "2026-11-24T09:38:13.026181+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "8a4d9c37a8821177d277af647d6022e8cc6d31ed0e84b7e0fe3bbfacbc3a8f1c",
+      "bytes": 1284
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticTriangle9Near.py",
+      "sha256": "d8383063b19e71a926be4bae01cf7af1146ecbf9ad38489ef1cf629ba7e58b04",
+      "bytes": 19463
+    },
+    {
+      "file": "SearchTriangle9Problem.json",
+      "sha256": "57dd768796981145fd4968a0f86d75af756037be7d40bf4ca2eddedb7620b505",
+      "bytes": 1871
+    },
+    {
+      "file": "SearchTriangle9Problem.py",
+      "sha256": "c0aecd88761752cf16d7599e9432e8dd61c1fba1355673d589bd6ede888d1c28",
+      "bytes": 1094
+    },
+    {
+      "file": "review-triangle9-near-status-audit.log",
+      "sha256": "cc61b53fbb2f3791c9fb96e86409fec36e6a52f2bef063e2f476b4abe65e4905",
+      "bytes": 365
+    },
+    {
+      "file": "triangle9-near-calibration.log",
+      "sha256": "d247fb5d61f9631f9e6388ed3831f7e97cfed3214f269426a694003410b1c21c",
+      "bytes": 118
+    }
+  ]
+}

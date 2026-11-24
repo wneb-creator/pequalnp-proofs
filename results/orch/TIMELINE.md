@@ -161,3 +161,17 @@
 2026-11-24T09:35:07.408775+00:00 counterexample_search: froze global-matching-completed and joint-mask-diagnostics for independent package review; launched C6private12 four-AND warm-start search60s.
 
 2026-11-24T09:35:52.364026+00:00 Root preserved complete two-junk semantic classification, abstract grouped graph count, mask labeling/grouping, automatic conditional plane bound and checked counterexample to a helper conjecture. No exact proof/refutation.
+
+2026-11-24T09:36:25.837532+00:00 gate_invariants: SharedTagExit firsttry compiled, frozen for review.
+
+2026-11-24T09:37:10.272376+00:00 structural: MaskGraphReach and TwoJunkClassification frozen, compiled, reviewed.
+
+- 2026-11-24 09:41:16 UTC: lean_setup froze JointCellAccounting.lean, author Lean exit 0; generic cell/union counting partial.
+
+2026-11-24 09:41:47 UTC status_audit: GraphBoundaryCharge.lean compiled exit0 (graph-boundary-charge-build-003.log), 139 lines SHA256 8081b89c1cd8b59fb1f1269ed5582bd7e4a5c38bade3befbf27e351eec01fd25. Adds a boundary/apex vertex to grouped Euler charging: labels+gates+1 vertices, at most2*gates edges, grouped roots cover all nonboundary vertices => labels<=gates+groups. No reachability premise for boundary needed. Pending independent review.
+
+2026-11-24T09:43:36.830057+00:00 counterexample_search: Triangle9 run005 completed1200.0445s/43184128mutations,best53,target52. Frozen triangle9-run-005 preserves full log+fixtures+frontier. Reviewed Triangle9Near run006 launched same slot with seed14772919,1200s; nearby52 SAT base ready for explicit INVALID repair seeds.
+
+2026-11-24 09:43:45 UTC status_audit: MaskProductCharge.lean frozen, 4719 lines SHA256 3141eefb9227f37be4be04484bc650c15a7313e88489ae80ef5064f86524684b; mask-product-charge-build-002.log exit0 (inherited warnings). Exact reviewed MaskGraphCharge + MaskGrouping prefixes; product_roots_charge derives center-root grouping from clean centers for disjoint product sides of size>=2; product_roots_or_charge gives U.card<=orN.card+numberProducts for any covered edge subset. Explicit pure roots, support equality and leastness retained; no automatic masks-only circuit decomposition claim. Pending independent review.
+
+2026-11-24T09:45:10.671569+00:00 Root preserved shared-OR mask accounting, residual pruning, finite component partition and static joint-cell/forest proof components, all independently reviewed. Still no exact result.

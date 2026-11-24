@@ -1,0 +1,6 @@
+{"unique_product_functions": 2037, "incomparable_operands": false, "disjoint_min_two": true, "private_joint_required": false, "test_edge_budget": true}
+{"host": "cycle8", "dirty_products": 2037, "product_pairs_checked": 2073666, "productive_joint_clean_pairs": 11680, "counterexample_found": false}
+{"host": "path8", "dirty_products": 2037, "product_pairs_checked": 2073666, "productive_joint_clean_pairs": 5768, "counterexample_found": false}
+{"host": "cover4_example", "dirty_products": 2037, "product_pairs_checked": 2073666, "productive_joint_clean_pairs": 12331, "counterexample_found": false}
+{"host": "overlap_budget_example", "dirty_products": 2037, "product_pairs_checked": 2073666, "productive_joint_clean_pairs": 6005, "counterexample_found": false}
+{"host": "matching4", "dirty_products": 2037, "product_pairs_checked": 2073666, "productive_joint_clean_pairs": 54, "counterexample_found": false}

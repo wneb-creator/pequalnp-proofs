@@ -1,0 +1,4 @@
+PASS96full-grid baselines including12AND/8linear helpers; all557raw scalar tests;288expanded baseline/mutant404-test checks
+Matching starts 12
+PASS source review: bounded INVALID near recorder, correct search/raw error distinction, active physical dirty count, no RNG/objective/mutation edits
+SHA256 d8383063b19e71a926be4bae01cf7af1146ecbf9ad38489ef1cf629ba7e58b04

@@ -1,0 +1,6 @@
+{"unique_product_functions": 130, "incomparable_operands": false, "disjoint_min_two": true, "private_joint_required": false, "test_edge_budget": true}
+{"host": "cycle6", "dirty_products": 130, "product_pairs_checked": 8385, "productive_joint_clean_pairs": 903, "counterexample_found": false}
+{"host": "path6", "dirty_products": 130, "product_pairs_checked": 8385, "productive_joint_clean_pairs": 348, "counterexample_found": false}
+{"host": "tree122", "dirty_products": 130, "product_pairs_checked": 8385, "productive_joint_clean_pairs": 187, "counterexample_found": false}
+{"host": "path4_edge", "dirty_products": 130, "product_pairs_checked": 8385, "productive_joint_clean_pairs": 91, "counterexample_found": false}
+{"host": "matching3", "dirty_products": 130, "product_pairs_checked": 8385, "productive_joint_clean_pairs": 15, "counterexample_found": false}

@@ -1,0 +1,70 @@
+{
+  "frozen_at": "2026-11-24T09:40:52.703423+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "0d54c7d6b503e25fd970bae66d47353545458fb1a4ef72d1ad78c6abf45be7e8",
+      "bytes": 1624
+    },
+    {
+      "file": "c6-automorphisms.json",
+      "sha256": "ae3fc254a56a58d68abcefcee376dd446b6f62561d0a37781062ac425cb7931b",
+      "bytes": 1114
+    },
+    {
+      "file": "c6private-automorphisms.json",
+      "sha256": "758183a0560d3d4d94393d7ff9f49722f30f183a3360698a6e823cb9388d3af0",
+      "bytes": 1390
+    },
+    {
+      "file": "search-alternative6-multi1-edits6.log",
+      "sha256": "a12c0ab0531590a0e276f5280687ffe9ab9426404782c52e506a205e9f369a27",
+      "bytes": 12622
+    },
+    {
+      "file": "search-alternative6-multi2-edits8.log",
+      "sha256": "5a6585a50a2a92e08a461c74416e480044ed28479345f4392549dd3883a15996",
+      "bytes": 19499
+    },
+    {
+      "file": "search-alternative6-near-3-10-edits6.log",
+      "sha256": "e009476e2a690113a8cabb10f78ec77220adc43a34b0339d95b3a91cf91e7619",
+      "bytes": 13826
+    },
+    {
+      "file": "search-alternative6-near-3-7-edits6.log",
+      "sha256": "d4e3b1f4bfb2a03586f4370eae59241474d9f984865e09d979cbb49c4307d978",
+      "bytes": 12412
+    },
+    {
+      "file": "search-c6-dirty9-build.log",
+      "sha256": "aafc7e2d15e0619e2fd5e041ffc4e5f75a4ce00e0f4b3899ef394ce12810df48",
+      "bytes": 113
+    },
+    {
+      "file": "search-c6-dirty9.log",
+      "sha256": "64dd4e832136c1782d255b9b6fb758dae273f4d0610a96ff05ea316ad9ed78f8",
+      "bytes": 19208
+    },
+    {
+      "file": "search-c6private-dirty12-and4-build.log",
+      "sha256": "f9910fd376bc72dab247bd5e7affb5fb2e7d4b45ae4b93ed44a1c70217784b01",
+      "bytes": 123
+    },
+    {
+      "file": "search-c6private-dirty12-and4.log",
+      "sha256": "4d80c9f25dfb070ddbe9f1dc2d2ea4f367c751943341a10cd5227e6908d6dbd8",
+      "bytes": 21824
+    },
+    {
+      "file": "search-c6private-dirty12-build.log",
+      "sha256": "8fa12bd98d04c99463f90a72a75f43727129f7623c2dd8d1a1d466988139363b",
+      "bytes": 123
+    },
+    {
+      "file": "search-c6private-dirty12.log",
+      "sha256": "9510d882561f66d9300219d65426defadd546516b1e2ba5050eded5d5c15aabc",
+      "bytes": 21533
+    }
+  ]
+}
