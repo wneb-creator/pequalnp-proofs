@@ -1,0 +1,26 @@
+# L-meta-1024 timeline (UTC)
+
+- 2026-11-24 01:28:21 — Job began; message id msg-d6f3c373d145b7479ffe5c8c acknowledged.
+- 2026-11-24, initial setup — Acquired L-meta-1024 as this job's sole lease. Exact acquisition timestamp will be recovered from the preserved desk/timer records; it is not inferred here.
+- 2026-11-24 03:13:38 — Lease renewal succeeded; expiry 03:33:38.441.
+- 2026-11-24, before 03:16 — Combined 4,455-line partial module built successfully. Exact named theorem remains absent.
+- 2026-11-24, before 03:16 — Sink normalization compiled successfully; independent review subsequently approved it.
+- 2026-11-24 03:18:50 approximately — External workspace/tool interruption killed running checker and solver processes. Files survived; incomplete proof streams were retained. No SAT/UNSAT conclusion arose from the interruption.
+- 2026-11-24 03:19:47 — Lease timer recovered with exclusive process lock; expiry extended to 03:39:47.166.
+- 2026-11-24 03:20 — Pushed compiled integration at 4f2bed9. This is a partial result, not a completed proof.
+- 2026-11-24 03:20:26 — Renewal before search restart; expiry 03:40:26.157.
+- 2026-11-24 03:21:40 — Three detached low-fanout SAT searches restarted, each with a 90-minute budget.
+- 2026-11-24 03:21:56 — Renewal before new Lean builds; expiry 03:41:56.518.
+- 2026-11-24 03:21:57 — Detached full 3,003-row SAT search restarted.
+- 2026-11-24 03:22:29 — Detached normalized dual SAT search restarted.
+- 2026-11-24 03:22 — Owner requested orchestrator mode: retain this gap and lease, share notes and lemmas, replan every 20–30 minutes, and keep pushing partials.
+- 2026-11-24 03:23 — Shared notes, lemma index, and timeline initialized. No acceptance or proof PR yet.
+
+- 2026-11-24 03:24:54 — Root-triggered renewal succeeded; expiry03:44:54.399, next automatic03:34:24.
+- 2026-11-24 03:25 — SharedParent compiled successfully; independent review requested.
+
+- 2026-11-24 03:26 — Checker retry ended with CHECKER FAULT (verifier exit137, wrapper exit3); cgroup recorded one OOM kill. This supplies no theorem verdict. Further overlapping builds paused; SAT workers survived.
+
+- 2026-11-24 03:27 — Root moved the exclusive-lock lease timer into a detached session to survive tool-session resets. Existing renewal schedule and lease ownership were retained.
+
+- 2026-11-24 03:27:40 — Root-triggered renewal succeeded; expiry03:47:40.648, next automatic03:37:10.
