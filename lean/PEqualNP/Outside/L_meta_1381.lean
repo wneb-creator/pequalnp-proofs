@@ -1,0 +1,6 @@
+import PEqualNP.Outside.L_meta_1349
+import PEqualNP.MetaComplexity.L1355
+
+theorem PEqualNP.Outside.L_meta_1381 :
+    ∀ (h q n t : ℕ) (S : Fin n → Finset (Fin n)) (K : Fin (h + 1) → Finset (Fin n)), 1 ≤ h → q = 2 ^ h → n = q * q + q + 1 → (∀ i : Fin n, (S i).card = q + 1) → (∀ i j : Fin n, i ≠ j → (S i ∩ S j).card = 1) → (∀ p p' : Fin n, p ≠ p' → ∃ i : Fin n, p ∈ S i ∧ p' ∈ S i) → (∀ j : Fin (h + 1), (K j).card = (2 ^ (j : ℕ) - 1) * q + 2 ^ (j : ℕ)) → (∀ (j : Fin (h + 1)) (i : Fin n), (S i ∩ K j).card = 0 ∨ (S i ∩ K j).card = 2 ^ (j : ℕ)) → (∀ j j' : Fin (h + 1), j ≤ j' → K j ⊆ K j') → ∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (out : Fin n → ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.not) ∧ g.inputs.length ≤ 2) → (∃ ι : Fin t → Fin gates.length, ∀ i : Fin gates.length, (gates.get i).op = PEqualNP.CircuitLowerBounds.GateOp.not → ∃ j : Fin t, ι j = i) → (∀ (w : Fin n) (x : Fin n → Bool), PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, out w⟩ (List.ofFn x) = decide (∃ v ∈ S w, x v = true)) → (q * q / 2) * (2 ^ ((h + 3 + 2 ^ t - 1) / 2 ^ t - 1 - 1) - 1) ≤ gates.length :=
+  PEqualNP.MetaComplexity.L1355 PEqualNP.Outside.L_meta_1349
