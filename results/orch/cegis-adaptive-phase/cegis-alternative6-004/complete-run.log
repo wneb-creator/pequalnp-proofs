@@ -1,0 +1,3 @@
+{"event": "start", "initial_tests": 31, "complete_tests": 88, "edits": 8, "round_seconds": 60, "rounds": 24, "refine_count": 2}
+{"event": "solver", "round": 0, "tests": 31, "exit": 0}
+{"event": "NO_VERDICT", "round": 0}

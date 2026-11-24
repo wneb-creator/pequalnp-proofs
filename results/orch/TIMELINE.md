@@ -285,3 +285,9 @@
 2026-11-24 10:48:31 UTC lean_setup: PlaneTwoJunkPrivate frozen FIRST-TRY build001 EXIT0. Combined all ZERO/ONE/BOTH effective-mask-family PRIVATE cases. Main private_pair_size_of_card: leastAO TopForm plane circuit, exactly2 dirty ANDs, each dirty gate has disjoint pure operand supports, an unmasked residual Ustar edge =>125≤size. Corollary short_two_junk_all_masked: any≤124 circuit under same2junk/disjoint assumptions masks every Ustar edge. No root/product/purity/independence/reader/quantitative premises remain. Assembler574unique+871identicalduplicates,0conflicts,manifest saved. Result-only666647bytes exceeds512KiB PRcap; full unrestricted gap still open.
 
 - 2026-11-24T10:48:32.675954+00:00 root preserved8 checked/refereed private-branch and all-centreless-count masked-product results; singleton extra-reader budgets also preserved. Exact unrestricted gap remains open.
+
+2026-11-24 10:49:21 UTC lean_setup: PlaneTwoJunkPrivate independent assembly/math/format review PASS by structural_lower_bound. Independent reassembly matched frozen prefix byte-exact; all3 source hashes verified,574kept/871identicalduplicates/0conflicts. Full author Lean output copied to PlaneTwoJunkPrivate.build.log for branch preservation.
+
+2026-11-24T10:54:18.088059+00:00 status_audit: all-centreless two-product lower bound and plane125 specialization accepted by independent source review; nofullgapresult. Positive-complete28gate/8-error search seed preserved inrun008.
+
+- 2026-11-24T10:54:19.038979+00:00 root preserved7 checked/refereed partials, including combined index-free private-edge125 bound and general masked many-centreless accounting;2 reviewed completed search packages preserved.

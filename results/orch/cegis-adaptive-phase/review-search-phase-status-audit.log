@@ -1,0 +1,3 @@
+results/orch/lemmas/SearchPhase.py SHA256 dcf39740c4f98862173dbe9266e5b684e0f6491a2df72d7bdb27b98a4f034e5c
+results/orch/lemmas/SearchCegisAlternative6Phase.py SHA256 0acb5aa511ca19eee7f982f31cd0ee40eeac2f0eff372a99b80974dad467bb8e
+PASS 1280 exhaustive signed-clause equivalence checks. Transform and restore apply the same involution to every CNF/model literal; DIMACS zero unchanged. No clauses or constraints added. Reference tables affect only heuristic polarity even if reference circuit is invalid. Driver preserves raw solver logs, restores v-lines before ordinary decoding, and retains complete88-case witness verification. UNSAT scope remains current adaptive nearby neighborhood. Author29 calibration SAT and full88 replay reviewed; no target witness claim.

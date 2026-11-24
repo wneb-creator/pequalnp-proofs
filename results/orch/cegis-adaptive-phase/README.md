@@ -1,0 +1,11 @@
+# Adaptive neighborhood and SAT phase experiments
+
+All trials target the exact19input24edge Alternative6 core at28gates. The reviewed Adaptive driver moves its neighborhood center to each decoded INVALID candidate after complete88-case replay and adds failed maximal negative tests. A SAT model is accepted as a computational witness only after all88cases pass; formal use still requires Lean. UNSAT remains scoped to the current neighborhood, never a general lower bound.
+
+The reviewed SearchPhase utility bijectively renames CNF literals so the exact padded reference circuit corresponds to the solver's all-false initial phase. Selector, operator, selected-argument, gate-value and nearby-counter variables are assigned directly from the reference. Unknown auxiliary variables receive an arbitrary phase. Reference invalidity changes only a search heuristic; every clause is transformed by an invertible signed-variable substitution, with no added constraints. Complete raw solver stdout/stderr is saved, and every model v-line is restored before ordinary decoding and full88verification.
+
+Calibration transformed a known29gate zero-edit instance, checked every original clause against its reference and every transformed clause against all-false, solvedSAT, restored the model and verified all88raw cases. Independent review tested1280 signed-clause assignments and verified inversion/restoration is an involution. These are pipeline checks at29gates, not a28gate result.
+
+Runs004/005/006 started from31accumulated tests and the explicitly INVALID28gate reference copied here. Runs004/005 used Adaptive with8/24edits and60/90second solver caps respectively; both timed out at round0. Run006 added the phase transform,8edits,90seconds; it likewise timed out at round0. There is no SAT witness or UNSAT claim from these trials. Full generation/main/raw/restored solver logs and exact tests are retained; generated CNFs/maps are reproducible and omitted.
+
+Reproduce a trial with the selected driver, --solver <cadical-path> --statement statement.txt --tests initial31tests.json --nearby INVALID-reference28.json --output-dir <scratch> --edits <8or24> --round-seconds <60or90> --rounds 24 --refine-count 1. Pass option names and values as separate arguments. Future adaptive rounds would recenter only after complete scalar replay.

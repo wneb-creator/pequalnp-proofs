@@ -1,0 +1,4 @@
+Independent incremental review PASS
+File: results/orch/lemmas/MaskedFamilyLowerBound.lean
+SHA256: a1a10147b02b295d81244c8c4d11779881d1e96db6a27c16753d24eb4965750a
+Exact reviewed TwoProductLowerBound prefix. Reviewed all101newlines. Actual input-mask witness becomes CleanMask via exact pure-product equality, then effective_mask_pair_covered gives center star membership. Grouped mask budget with empty ordinary-center set bounds residual by outside+t. Union of cleaner sets covers Ustar and hascard<=2t via C4 and both operand-card hypotheses. General accounting pays3t with2centreless+junk under c>=t andj>=t. No no-productive-joint or two-centers hypothesis used. All purity/disjointness/large operand and actualmaskcoverage premises remain explicit. Author build004 EXIT0 reported; no unrestricted theorem claim. Forbidden scan PASS.

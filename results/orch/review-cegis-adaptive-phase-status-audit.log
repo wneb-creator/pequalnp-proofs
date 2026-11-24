@@ -1,0 +1,2 @@
+cegis-adaptive-phase INVALID-reference28.json gates 28 wrong 32 dirty 2
+PASS cegis-adaptive-phase manifest 31 circuits 1 scalar_cases 88 valid 0 INVALID 1

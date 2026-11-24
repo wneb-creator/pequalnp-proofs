@@ -1,0 +1,16 @@
+PARTIAL RESULTS ONLY. Exact gap L-meta-1477 remains unproved.
+Named-file checker remains REJECTED (no-theorem); no proof PR opened.
+PlaneTwoJunkPrivate is a results-only preservation file above512KiB. Its assembler provenance separates prefix metadata from final compiled-file metadata.
+
+DistinctDirtyReaders.lean lines=4152 bytes=193916 SHA256=8003c240067446ff7467fae91c0ec3e951237200907acc83b7e5d404a5410bb7; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/distinct-dirty-readers-build-002.log
+SingletonPivotMask.lean lines=373 bytes=17645 SHA256=9b5424093bcdb84d1ec3525cf1fbdfc079052fced40f50d238711142a31e2884; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/singleton-pivot-mask-build-001.log
+PlaneTwoJunkPrivate.lean lines=13756 bytes=666647 SHA256=23c37958d3660f05d2c98d94ea12d55e4bbc4caa5c3a6023e3498b2875b997b2; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/plane-two-junk-private-build-001.log
+SingletonFamilyBudget.lean lines=8240 bytes=403376 SHA256=7c5a3d8a66c64fe733d127c90a2cd338e022fb15a17f34ece6da720537d81f9b; author build EXIT0; independent review PASS by status_audit; full log=results/orch/singleton-family-budget-build-001.log
+PlaneTwoProduct.lean lines=8802 bytes=432295 SHA256=f7de7dcc6ec6665348b515b3a40657c32921cf2627096c923596f42d45cde867; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/plane-two-product-build-001.log
+ManyProductLowerBound.lean lines=8610 bytes=424230 SHA256=2f9c6409a41feb92bb25cde3744461d0d0b6cc8c94e74bb5fc68f10a12a8fc34; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/many-product-lower-bound-build-001.log
+MaskedFamilyLowerBound.lean lines=8648 bytes=426130 SHA256=a1a10147b02b295d81244c8c4d11779881d1e96db6a27c16753d24eb4965750a; author build EXIT0; independent review PASS by root; full log=results/orch/masked-family-lower-bound-build-004.log
+complement12-run-008: 53 manifest entries independently reviewed, all hashes and bytecounts rechecked; no target witness.
+cegis-adaptive-phase: 31 manifest entries independently reviewed, all hashes and bytecounts rechecked; no target witness.
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=285.80 subagents=6

@@ -1,0 +1,160 @@
+{
+  "frozen_at": "2026-11-24T10:43:20.885161+00:00",
+  "files": [
+    {
+      "file": "INVALID-reference28.json",
+      "sha256": "d52783976db04d302ae4ee2dca7f62e056d187f0401cf8a7e06c520343920050",
+      "bytes": 5335
+    },
+    {
+      "file": "README.md",
+      "sha256": "4456530d0250b81eede15720dac34cd7267e8c6921079c82235e0940536b5766",
+      "bytes": 2332
+    },
+    {
+      "file": "SearchAlternative6Problem.json",
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+      "bytes": 2275
+    },
+    {
+      "file": "SearchAlternative6Problem.py",
+      "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+      "bytes": 925
+    },
+    {
+      "file": "SearchCegisAlternative6Adaptive.py",
+      "sha256": "327ba24102a95eb2061811011b33fa9acbdbd537ad36f991624ca224ad0b2fb8",
+      "bytes": 6278
+    },
+    {
+      "file": "SearchCegisAlternative6Phase.py",
+      "sha256": "0acb5aa511ca19eee7f982f31cd0ee40eeac2f0eff372a99b80974dad467bb8e",
+      "bytes": 6545
+    },
+    {
+      "file": "SearchNearby.py",
+      "sha256": "85968fa00ad5e45ebd7981dec901a1bf320c4b2519eaaaa7e533e083000abdb6",
+      "bytes": 4775
+    },
+    {
+      "file": "SearchPhase.py",
+      "sha256": "dcf39740c4f98862173dbe9266e5b684e0f6491a2df72d7bdb27b98a4f034e5c",
+      "bytes": 3088
+    },
+    {
+      "file": "SearchSubset.py",
+      "sha256": "d127ab38a426cbd38655c36a099c435d91478300b2c8724af804437db9310fd2",
+      "bytes": 10538
+    },
+    {
+      "file": "alternative6-baseline29.json",
+      "sha256": "d97ad7d32cc74d88e0063f31ae90908bb91cbbeab05dc349ca3908a206a3a73e",
+      "bytes": 515
+    },
+    {
+      "file": "cegis-alternative6-004/complete-run.log",
+      "sha256": "416138acafd95176658875143ce046c0b260c7ecc0f562b4d035930c005ffb5c",
+      "bytes": 220
+    },
+    {
+      "file": "cegis-alternative6-004/round-0.generate.log",
+      "sha256": "e8e3e21450e48603a84c5af0a8c4305b4fad9d19cdb966c3e67d5a4767edfb0c",
+      "bytes": 487
+    },
+    {
+      "file": "cegis-alternative6-004/round-0.solver.log",
+      "sha256": "660e2cd80e73941b168e74ae1e1bd3f660c813422c6f91f3a9b13b476dba8098",
+      "bytes": 15321
+    },
+    {
+      "file": "cegis-alternative6-004/round-0.tests.json",
+      "sha256": "8c776767ccc3ca2621f70f42f89ddc5905859fa0bacff0554ce4539d25cc3bd7",
+      "bytes": 203
+    },
+    {
+      "file": "cegis-alternative6-005/complete-run.log",
+      "sha256": "d7810621526cf1a22caa2cb845a32fbdbc16a906b7d3fbd29c25ed894a0061fb",
+      "bytes": 221
+    },
+    {
+      "file": "cegis-alternative6-005/round-0.generate.log",
+      "sha256": "e3b78cc56e090b45ecb2be10a0abcc0a48cd30e5eb29c39e6235a20b4f4dbb15",
+      "bytes": 488
+    },
+    {
+      "file": "cegis-alternative6-005/round-0.solver.log",
+      "sha256": "5771f280f7b51387e0fba20ce2709c7760daf27d8f8c4f0992c175711bba1123",
+      "bytes": 19799
+    },
+    {
+      "file": "cegis-alternative6-005/round-0.tests.json",
+      "sha256": "8c776767ccc3ca2621f70f42f89ddc5905859fa0bacff0554ce4539d25cc3bd7",
+      "bytes": 203
+    },
+    {
+      "file": "cegis-alternative6-006/complete-run.log",
+      "sha256": "55b1634d17edda7d3ccd7adba47766fc15e462dff58fd2516fa1c35b2aeaedd4",
+      "bytes": 220
+    },
+    {
+      "file": "cegis-alternative6-006/round-0.generate.log",
+      "sha256": "e8e3e21450e48603a84c5af0a8c4305b4fad9d19cdb966c3e67d5a4767edfb0c",
+      "bytes": 487
+    },
+    {
+      "file": "cegis-alternative6-006/round-0.phase.phase.json",
+      "sha256": "b68372d14a5e77f1b75287d0c645613829f8c7a6f0c7a6775cc7961d655a09e3",
+      "bytes": 4924
+    },
+    {
+      "file": "cegis-alternative6-006/round-0.solver.log",
+      "sha256": "c1209cf335843564481507360ac48d0671904f88687c4558899bb51ede31e1be",
+      "bytes": 20249
+    },
+    {
+      "file": "cegis-alternative6-006/round-0.solver.raw.log",
+      "sha256": "c1209cf335843564481507360ac48d0671904f88687c4558899bb51ede31e1be",
+      "bytes": 20249
+    },
+    {
+      "file": "cegis-alternative6-006/round-0.tests.json",
+      "sha256": "8c776767ccc3ca2621f70f42f89ddc5905859fa0bacff0554ce4539d25cc3bd7",
+      "bytes": 203
+    },
+    {
+      "file": "initial31tests.json",
+      "sha256": "8c776767ccc3ca2621f70f42f89ddc5905859fa0bacff0554ce4539d25cc3bd7",
+      "bytes": 203
+    },
+    {
+      "file": "review-cegis-adaptive-status-audit.log",
+      "sha256": "df4732d80eeda693d0ccd4938f539c97f0fb9ea63d990431110db744e4d31488",
+      "bytes": 409
+    },
+    {
+      "file": "review-search-phase-status-audit.log",
+      "sha256": "bb69fa3a1aeef6da94b96329f8d971b86ae9fe1e0de4d6abbbe8d3b09115b41e",
+      "bytes": 767
+    },
+    {
+      "file": "search-phase-calibration.log",
+      "sha256": "b983ea931d69250739fd4f9671af792feed2c8fe76d15dc1d09d082ab7781e55",
+      "bytes": 291
+    },
+    {
+      "file": "search-phase-calibration29.solver.log",
+      "sha256": "d04520458d39f8530e704eaa5359a52fb303221cf992d27098d91fba59ea2887",
+      "bytes": 31197
+    },
+    {
+      "file": "search-phase-calibration29.solver.raw.log",
+      "sha256": "b38e742366a00f0b7b50c464f1093177e31c3f1ec1b676a04d29bb32a2124324",
+      "bytes": 32069
+    },
+    {
+      "file": "statement.txt",
+      "sha256": "d962214a09d1adf8b5837468e4d94e19c895b742875d55870d08ebcd0fe6fda0",
+      "bytes": 1260
+    }
+  ]
+}

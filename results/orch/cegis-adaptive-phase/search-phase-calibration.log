@@ -1,0 +1,1 @@
+{"PASS": true, "reference_satisfies_all_original_clauses": 143294, "all_false_satisfies_all_transformed_clauses": 143294, "inversions": 872, "solver_exit": 10, "decoded_gates": 29, "full_raw_cases": 88, "phase_source_sha": "dcf39740c4f98862173dbe9266e5b684e0f6491a2df72d7bdb27b98a4f034e5c"}
