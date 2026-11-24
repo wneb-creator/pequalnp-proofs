@@ -1,0 +1,6 @@
+{"event": "start", "size": 70, "positive_errors": 0, "negative_errors": 248, "seconds": 120.0, "width": 16, "rounds": 4}
+{"event": "round", "round": 0, "tested": 9380, "beam": 16, "best_positive_complete_negative_errors": 248, "best_beam_errors": [[0, 248], [0, 297], [0, 308], [0, 361]], "seconds": 0.12084512699948391, "timed_out": false}
+{"event": "round", "round": 1, "tested": 159281, "beam": 16, "best_positive_complete_negative_errors": 248, "best_beam_errors": [[0, 248], [0, 297], [0, 308], [0, 329]], "seconds": 1.730996337999386, "timed_out": false}
+{"event": "round", "round": 2, "tested": 308623, "beam": 16, "best_positive_complete_negative_errors": 248, "best_beam_errors": [[0, 248], [0, 297], [0, 308], [0, 329]], "seconds": 3.276848618999793, "timed_out": false}
+{"event": "round", "round": 3, "tested": 457897, "beam": 16, "best_positive_complete_negative_errors": 248, "best_beam_errors": [[0, 248], [0, 297], [0, 308], [0, 329]], "seconds": 4.880173983998247, "timed_out": false}
+{"event": "finished", "tested": 457897, "seconds": 4.880237049001153, "conclusion": "bounded heuristic search; no lower-bound conclusion"}

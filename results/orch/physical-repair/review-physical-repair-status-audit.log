@@ -1,0 +1,3 @@
+SHA 1eb4aee543d263793e7ae1a9510bafc0f601d28b3a89fb42ec82717dc8a8d208
+PASS 200 neighbors 12800 exhaustive scalar cases
+Source review PASS: backward wire indices and fixed size preserved; suffix incremental evaluation agrees with independent scalar replay. Beam/pool bounded; outputlast assumption asserted. Full extremal scalar verification required before witness; INVALID artifacts marked and errors retained. Time/beam exhaustion has no lower-bound meaning. No network/credential operations.

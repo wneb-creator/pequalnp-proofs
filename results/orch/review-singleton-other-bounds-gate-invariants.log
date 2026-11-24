@@ -1,0 +1,7 @@
+2026-11-24T11:06:08.870205+00:00 Independent review by gate_invariants: PASS.
+SingletonOtherOneCentreless.lean SHA256 3b435294e900503b3b5668926a4b00cdaa8a53236ab9f5b7e66a8af42d747658,9287lines.
+SingletonOtherLowerBound.lean SHA256 01cba6d889bc24f67aa5e64f45325ba4c04523347d035b6a57368164783dd443,9438lines.
+Exact NoCentreless prefix, reviewed SingletonEmptyBudget/SingletonEmptyReaders copied blocks, and exact OneCentreless prefix of LowerBound verified.
+New c=1 argument: actual no-joint common-filter classification assigns each Ustar edge to singleton pivot family or the other product's two clean centers, with actual reader witnesses. If one reader family absent, cover drops to<=2. If both present, at most one centreless top and empty dirty-side supports force both dirty leaves into the same OR operand, producing an actual outside-Lambda OR gate with empty pure-input support; otherwise mixing is already nonempty. That extra disjoint credit strengthens the residual budget, and paid-cover arithmetic closes E+tau<=size+1.
+New c>=2 argument retains all first-layer,disjoint,large-support,two-clean-center,no-productive-joint premises; generic mask-plus-single-star budget plus cover<=3 and two junk gates closes the same bound. Final c=0/1/>=2 split is exhaustive and introduces no additional conclusion outside those premises.
+No forbidden text/mechanisms found. Author build002/001 logs saved in scratch have zero errors and only90 inherited warnings each; author reports exit0 accepted, no redundant rebuild.

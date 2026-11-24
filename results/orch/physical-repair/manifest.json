@@ -1,0 +1,170 @@
+{
+  "frozen_at": "2026-11-24T11:01:00.285364+00:00",
+  "files": [
+    {
+      "file": "INVALID-alternative6-input28.json",
+      "sha256": "612b45e90d83d61a4236dc416d3f09cd71d71379c155ecd9a480dd7bbb4c1cd1",
+      "bytes": 3885
+    },
+    {
+      "file": "INVALID-complement12-input70.json",
+      "sha256": "4a423265f0e232c40a25180b97cfa68baa309fdea57995fa01d9b2decd93c26b",
+      "bytes": 28875
+    },
+    {
+      "file": "README.md",
+      "sha256": "faf96b4de70398b619b2eb26c36ee94cb5c456fe7be0d187112973afa29a74c3",
+      "bytes": 2718
+    },
+    {
+      "file": "SearchAlternative6Problem.json",
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+      "bytes": 2275
+    },
+    {
+      "file": "SearchAlternative6Problem.py",
+      "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+      "bytes": 925
+    },
+    {
+      "file": "SearchComplement12Problem.json",
+      "sha256": "1a3302c5297d676a1dd00bd697538a0bcb09b0802f3ff0e1100ecf92c83fe540",
+      "bytes": 2300
+    },
+    {
+      "file": "SearchComplement12Problem.py",
+      "sha256": "c0aecd88761752cf16d7599e9432e8dd61c1fba1355673d589bd6ede888d1c28",
+      "bytes": 1094
+    },
+    {
+      "file": "SearchPhysicalRepair.py",
+      "sha256": "1eb4aee543d263793e7ae1a9510bafc0f601d28b3a89fb42ec82717dc8a8d208",
+      "bytes": 7787
+    },
+    {
+      "file": "SearchPhysicalRepairDiverse.py",
+      "sha256": "9e84d771b42b69ce852ee448d18ef10bc4488923547f0e1ffdb3f0e8ab60ca88",
+      "bytes": 8369
+    },
+    {
+      "file": "SearchPlaneProblem.json",
+      "sha256": "f13c8c17d8d2e3842d6a2a9ac736b17c7bf831d801a54ca07345907352ae1017",
+      "bytes": 358849
+    },
+    {
+      "file": "SearchPlaneProblem.py",
+      "sha256": "9c9369995311971fef919af1a75364f091b9b6b77552c2e66bef85648e83f865",
+      "bytes": 693
+    },
+    {
+      "file": "alternative6-multi-physical-seeds.log",
+      "sha256": "ce058a509b1d8b6b8f935d22c86c527fec08cda17261a21816b88ef530e639e2",
+      "bytes": 244
+    },
+    {
+      "file": "alternative6-overapprox3-structure.log",
+      "sha256": "d9cceafc48c79ff48d570a184703f01fb22ed82a56f166161b908fca5b88d4d0",
+      "bytes": 1830
+    },
+    {
+      "file": "complement12-overapprox5-diagnostic.log",
+      "sha256": "9f071b8e1a122ff55c702ca68033116765b72088147ccd66f8d577b40f7260c9",
+      "bytes": 636
+    },
+    {
+      "file": "multi-starts/dirty2-base22-padded28.json",
+      "sha256": "a7e38daf3dc2d59de9d3f0da2d5921b3466c993d496c0d9c2aacff938d1c70ef",
+      "bytes": 6891
+    },
+    {
+      "file": "multi-starts/dirty2-base23-padded28.json",
+      "sha256": "3f76deb3ab96b38a627bb7a24f5274f0aa2b6c9aa133076e4f4f7aa0f688fc9b",
+      "bytes": 6890
+    },
+    {
+      "file": "multi-starts/dirty2-base24-padded28.json",
+      "sha256": "f6a7c9f3e4323759d58ea9f7769c01447840aa1b0df27cca78e8da953664c99c",
+      "bytes": 6889
+    },
+    {
+      "file": "multi-starts/dirty2-base25-padded28.json",
+      "sha256": "e71607cbf8886ea84854048ed6838c565c654b9bc1453d52e9ba072c339b9018",
+      "bytes": 6569
+    },
+    {
+      "file": "multi-starts/dirty2-base26-padded28.json",
+      "sha256": "b26a18be371f384cd5bde1c8c0ba05f82c8314e373bca66542a35555b165ed2b",
+      "bytes": 6569
+    },
+    {
+      "file": "multi-starts/dirty2-base27-padded28.json",
+      "sha256": "b303dabcd2498b1e0bbb68403603b499f639751a7b084593ca128bd9166f15e8",
+      "bytes": 5917
+    },
+    {
+      "file": "multi-starts/dirty3-base26-padded28.json",
+      "sha256": "f727a50863ced0a675f42015da23432b734106198909b6cab7df27e464d4591d",
+      "bytes": 6566
+    },
+    {
+      "file": "physical-repair-alternative6-002/complete-run.log",
+      "sha256": "cc633d0e3c208b757997dfa0c7db36ef538482851ccf0fef2eaebc87f36ddc70",
+      "bytes": 2828
+    },
+    {
+      "file": "physical-repair-alternative6-003/complete-run.log",
+      "sha256": "a4191ab8129dcea640571cefd2d8f62c0d073025e3437a216264476496409800",
+      "bytes": 5514
+    },
+    {
+      "file": "physical-repair-alternative6-003/improved-15.json",
+      "sha256": "1b6cc6dd608fc8dba8240c171960021afa5ddf29f7a4c734a01bc7771cbef43a",
+      "bytes": 6114
+    },
+    {
+      "file": "physical-repair-alternative6-003/improved-16.json",
+      "sha256": "7bd72461cf450d10a7f7110effc9348a756b8fdaa1523e0b5fe6b689d6e2d03a",
+      "bytes": 6033
+    },
+    {
+      "file": "physical-repair-alternative6-003/improved-17.json",
+      "sha256": "339d516a14382f43d7aaaec8208c137b7def55204583f7d5bfc1479f0f501f65",
+      "bytes": 5873
+    },
+    {
+      "file": "physical-repair-alternative6-003/improved-18.json",
+      "sha256": "0b8afda5022955711f4d05c5f6bfa2ef86e701e9a18c2d8bf77cdb77cec46876",
+      "bytes": 5791
+    },
+    {
+      "file": "physical-repair-alternative6-003/improved-19.json",
+      "sha256": "4e0b6846e2aa5f2e889ac9a03cc98b1f76f0ef55c79a93afdd17066adc227860",
+      "bytes": 5630
+    },
+    {
+      "file": "physical-repair-alternative6-003/improved-2.json",
+      "sha256": "b27c7f820ab3c3b5d265f38066a70dab56c3fe04f6d3cdc8b9427427a4605f40",
+      "bytes": 6349
+    },
+    {
+      "file": "physical-repair-calibration.log",
+      "sha256": "d01bbdeec10b15b36cd1f5586b9a818eb932b1223d85930ecfc9a4909c3b02e2",
+      "bytes": 160
+    },
+    {
+      "file": "physical-repair-complement12-001/complete-run.log",
+      "sha256": "fc9f88807ca87ecf61313697a7fac979d9aa2f2eaf70677155bdb4398558be7c",
+      "bytes": 1140
+    },
+    {
+      "file": "review-physical-repair-diverse-status-audit.log",
+      "sha256": "40e7ae4b2e47ff49e09ea9025d4a310d3c675741fa9863b72de1ec3a4a1f393d",
+      "bytes": 552
+    },
+    {
+      "file": "review-physical-repair-status-audit.log",
+      "sha256": "6a719e48aa8a10ecd8442a33ed74e91c6a5921378e382a645171b6cbe07f93c3",
+      "bytes": 494
+    }
+  ]
+}

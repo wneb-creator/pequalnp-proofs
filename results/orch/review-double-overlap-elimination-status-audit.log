@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "file": "results/orch/lemmas/DoubleOverlapElimination.lean",
+  "sha256": "c076012e1802500221fd1b73b41e4b4473e1f8c8c5f180614c86cbf7cd8acc5c",
+  "review": "Independent incremental source/math/provenance/format review; author build002 exit0, no duplicate build.",
+  "findings": "Exact reviewed FirstLayerOverlap prefix. For an accepted pair containing an effective cleaner outside both supports, both pure operand leaves must equal the other endpoint and hence lie in the support intersection. Replacing the dirty gate by OR of the two common inputs decreases it pointwise and preserves every sensitive positive graph pair; graph correctness, AO2 and exact size preserved. Every old clean gate stays clean, the replaced operation is OR, so junk is contained in erase j, contradicting minimum junk. C4 bounds all cleaner vertices by the unique common neighbor of the distinct overlap inputs; any internal effective cleaner would violate checked sole-mask exclusion. No unsupported assumption about disjointness or bipartition is added."
+}

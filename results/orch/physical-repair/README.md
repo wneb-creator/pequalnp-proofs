@@ -1,0 +1,13 @@
+# Bounded physical-wire repair
+
+The reviewed SearchPhysicalRepair program enumerates single physical gate-operation or backward fan-in changes and maintains a bounded heuristic beam. Half of the beam preserves every positive edge; the remainder ranks balanced errors. Every exactzero-error candidate is independently scalar-checked on the complete raw basis before saving a computational witness, still requiring Lean verification. No witness was found in these runs.
+
+The separately reviewed Diverse delta retains current beam parents, allows several internal rewiring shapes per output signature using AND-count and four deterministic structural buckets, and uses a fixed RNG seed for replacement/ties. The neighbor evaluator and complete verification are unchanged. Bounded pools control memory. Beam exhaustion and timeouts are heuristic outcomes, not UNSAT or lower bounds.
+
+Author calibration checked4064neighbor circuits on all64assignments of a six-input diagnostic,260096scalarcases. Independent review checked another200neighbors/12800scalarcases. Complete logs are included.
+
+Run001 used Complement12's INVALID70gate seed, width16/4rounds, and inspected457897neighbors in4.8802seconds; the best all-positive error count remained248. Diagnostic analysis found singleton leakage on inputs25and28. Run002 used Alternative6's INVALID28gate8-error seed, width64/12rounds, and inspected1248418neighbors in8.8603seconds with no improvement. Its exact symbolic function is the target OR input7, so subsequent search left that one-dirty region.
+
+Run003 used Diverse, seed14772938, width256/30rounds/120second cap, starting from a26gate three-dirty biclique circuit padded to28 using absorbing OR gates. It inspected10203136neighbors in120.0307seconds and improved all-positive negative errors56→45. Six improved candidates are explicitly INVALID and include exact full88-case errors. The latest improved-19 has four dirty ANDs whose operands are incomparable on the complete88test basis; this is diagnostic, not a minimum-circuit theorem. Further exact inspection found that this45-error state accepts singleton inputs7,13,14,17 despite its four nontrivial dirty gates. Its improved score does not show escape from singleton leakage. Run004 continues separately and is not included in this completed snapshot.
+
+Seven padded multi-start fixtures are included; every one was scalar-replayed on all88cases. Reproduce using either program with --problem SearchAlternative6Problem or SearchComplement12Problem, --input <INVALID-json> --output-dir <scratch> --seconds 120 --rounds <count> --width <count>; Diverse additionally accepts --seed <integer>. This package proves no target circuit and no impossibility result.

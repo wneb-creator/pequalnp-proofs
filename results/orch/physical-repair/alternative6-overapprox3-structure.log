@@ -1,0 +1,141 @@
+{
+  "size": 28,
+  "wrong_raw": 8,
+  "badpairs": [
+    [
+      0,
+      7
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      7,
+      11
+    ],
+    [
+      7,
+      12
+    ],
+    [
+      7,
+      13
+    ],
+    [
+      7,
+      14
+    ],
+    [
+      7,
+      15
+    ],
+    [
+      7,
+      16
+    ],
+    [
+      7,
+      17
+    ],
+    [
+      7,
+      18
+    ]
+  ],
+  "singletons": [
+    7
+  ],
+  "wrong_raw_inputs": [
+    {
+      "input": 102553,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 103313,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 104664,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 234633,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 244936,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 251777,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 367568,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 524224,
+      "actual": true,
+      "expected": false
+    }
+  ]
+}
+19 or 12 14
+20 or 8 13
+21 or 15 20
+22 and 2 21
+23 or 8 9
+24 or 14 23
+25 or 18 24
+26 and 3 25
+27 or 4 7
+28 or 7 10
+29 or 13 28
+30 or 14 29
+31 or 17 30
+32 and 27 31
+33 or 16 17
+34 or 18 33
+35 and 5 34
+36 or 6 11
+37 or 13 36
+38 or 18 37
+39 and 0 38
+40 or 6 19
+41 and 1 40
+42 or 22 26
+43 or 32 42
+44 or 35 43
+45 or 39 44
+46 or 41 45
+singleton 7 true_gate_wires [27, 28, 29, 30, 31, 32, 43, 44, 45, 46]
+FINAL_MINTERMS [[0, 6], [1, 6], [7], [2, 8], [3, 8], [3, 9], [4, 10], [0, 11], [1, 12], [0, 13], [2, 13], [4, 13], [1, 14], [3, 14], [4, 14], [2, 15], [5, 16], [4, 17], [5, 17], [0, 18], [3, 18], [5, 18]]

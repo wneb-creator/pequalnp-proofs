@@ -1,0 +1,11 @@
+{"event": "start", "seed": 14772939, "seconds": 0.01, "tests": 25342, "negative_scale": 0.004160557911003685, "archive_weighted_limit": 52.5, "model": "full42-input plane:balanced negative errors; INVALID one/two/three-cluster biclique starts; valid mixed126/shared128/matching131; target124; active-AND-diverse archive; full raw verification"}
+{"event": "INVALID_OVERAPPROX", "size": 123, "wrong_maximal_negatives": 15746, "wrong_raw": 15746, "file": "overapprox-best-1.json"}
+{"event": "INVALID_MULTI_OVERAPPROX", "size": 123, "category": 2, "wrong_search_negatives": 15746, "wrong_raw": 15746, "file": "multi-dirty-overapprox-2.json"}
+{"event": "finished", "seconds": 1.1471342619988718, "steps": 1, "epochs": 1, "best_valid": 1000000000, "matching_starts": 0, "shared_sum_starts": 0, "mixed_cover_starts": 0, "invalid_biclique_starts": 0, "best_overapprox_negative_errors": 15746, "conclusion": "heuristic search only; no lower-bound conclusion"}
+RECORDER_PASS 2 15746
+{"event": "start", "seed": 14772939, "seconds": 0.01, "tests": 25342, "negative_scale": 0.004160557911003685, "archive_weighted_limit": 52.5, "model": "full42-input plane:balanced negative errors; INVALID one/two/three-cluster biclique starts; valid mixed126/shared128/matching131; target124; active-AND-diverse archive; full raw verification"}
+{"event": "INVALID_OVERAPPROX", "size": 108, "wrong_maximal_negatives": 24875, "wrong_raw": 24875, "file": "overapprox-best-1.json"}
+{"event": "INVALID_MULTI_OVERAPPROX", "size": 108, "category": 3, "wrong_search_negatives": 24875, "wrong_raw": 24875, "file": "multi-dirty-overapprox-3.json"}
+{"event": "finished", "seconds": 0.8136078770003223, "steps": 1, "epochs": 1, "best_valid": 1000000000, "matching_starts": 0, "shared_sum_starts": 0, "mixed_cover_starts": 0, "invalid_biclique_starts": 0, "best_overapprox_negative_errors": 24875, "conclusion": "heuristic search only; no lower-bound conclusion"}
+RECORDER_PASS 3 24875
+SOURCE_SHA d779ccead629ae46aa8485dedcf2f96c94e931bfecc708c29231262d6ab5b43c

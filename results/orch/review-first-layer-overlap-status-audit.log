@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "file": "results/orch/lemmas/FirstLayerOverlap.lean",
+  "sha256": "6338c34bd7da3367517001a56b00ce710e645311c61092091b2b71ed04d07c24",
+  "review": "Independent source, mathematics, provenance and format; author-reported build exit 0; no duplicate build.",
+  "findings": "Exact OverlapInputElimination prefix and full OverlapMaskGeometry namespace confirmed. Pure-product equality uses bounded pure operands. Internal effective existence is the contrapositive of checked external-only elimination. Singleton overlap internal uniqueness invokes C4/bipartite geometry in both operand orientations; absence of external effective centers contradicts minimum-junk sole-mask elimination. All structural premises remain explicit.",
+  "author_log": "first-layer-overlap-build-003.log",
+  "author_log_bytes": 5616
+}

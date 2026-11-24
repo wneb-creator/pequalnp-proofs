@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "file": "results/orch/lemmas/SingletonEmptyReaders.lean",
+  "sha256": "00900fadd7adbe89e05d83958cbdb67f3b71053f091f1c0387921d5cd2db0a33",
+  "review": "Independent source, mathematics, provenance and format; author-reported build exit 0; no duplicate build.",
+  "findings": "Exact SingletonOtherNoCentreless prefix confirmed. In absence of mixing each dirty-reading side has empty raw support. Both tops are centreless, card at most one identifies them; nonempty opposite supports identify the same side. Two distinct AND leaves force the common wire to be an OR gate. Empty support plus dirty descendant excludes BelowF and Lambda. Thus mixing nonempty or an empty-support outside-Lambda OR is correctly established.",
+  "author_log": "singleton-empty-readers-build-001.log",
+  "author_log_bytes": 18327
+}

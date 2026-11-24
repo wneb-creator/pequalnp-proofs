@@ -1,0 +1,24 @@
+PARTIAL RESULTS ONLY. Exact gap L-meta-1477 remains unproved.
+Named-file checker remains REJECTED (no-theorem); no proof PR opened.
+MultiFilterBudget retains an explicit local mask-stop hypothesis; no unconditional overlap/counting result is claimed.
+
+MultiFilterCount.lean lines=8121 bytes=396410 SHA256=10b1e2ce365494127c4486ee1bb7da6e23d1cd9f01df8d3c3f71a118e1f9b307; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/multi-filter-count-build-002.log
+MultiFilterStops.lean lines=8212 bytes=400684 SHA256=26f346647fe9e9bf65b0c16598771648e76482429fa135623b41e3d91f1b0616; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/multi-filter-stops-build-001.log
+MultiFilterBudget.lean lines=8270 bytes=404214 SHA256=2f598df7149c75754f53b5a01f67dbdd6c9e039d216a91400252f7c47a13ff90; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/multi-filter-budget-build-001.log
+FirstLayerOverlap.lean lines=6829 bytes=316636 SHA256=6338c34bd7da3367517001a56b00ce710e645311c61092091b2b71ed04d07c24; author build EXIT0; independent review PASS by status_audit; full log=results/orch/first-layer-overlap-build-003.log
+OverlapMaskSmallSide.lean lines=312 bytes=15518 SHA256=f7b450b06a9ac33da95bc44316404060df3fafa77e1a167ff91263b963cf8503; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/overlap-mask-small-side-build-001.log
+SingletonEmptyReaders.lean lines=8916 bytes=438439 SHA256=00900fadd7adbe89e05d83958cbdb67f3b71053f091f1c0387921d5cd2db0a33; author build EXIT0; independent review PASS by status_audit; full log=results/orch/singleton-empty-readers-build-001.log
+SingletonOtherOneCentreless.lean lines=9287 bytes=458228 SHA256=3b435294e900503b3b5668926a4b00cdaa8a53236ab9f5b7e66a8af42d747658; author build EXIT0; independent review PASS by gate_invariants; full log=results/orch/singleton-other-one-centreless-build-002.log
+SingletonOtherLowerBound.lean lines=9438 bytes=466664 SHA256=01cba6d889bc24f67aa5e64f45325ba4c04523347d035b6a57368164783dd443; author build EXIT0; independent review PASS by gate_invariants; full log=results/orch/singleton-other-lower-bound-build-001.log
+DoubleOverlapElimination.lean lines=7000 bytes=325438 SHA256=c076012e1802500221fd1b73b41e4b4473e1f8c8c5f180614c86cbf7cd8acc5c; author build EXIT0; independent review PASS by status_audit; full log=results/orch/double-overlap-elimination-build-002.log
+OrdinaryJointCredit.lean lines=8862 bytes=437053 SHA256=cbd668ebc7b5a3271ef0e939e9f69659bfb06a37da2e6ffb118095714af5e0f1; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/ordinary-joint-credit-build-002.log
+OrdinaryExtraCredit.lean lines=7977 bytes=389616 SHA256=f16120f5901799e90191338af0f8c012251ffddb98fe9ca29ab9dce7e5362196; author build EXIT0; independent review PASS by normal_form; full log=results/orch/ordinary-extra-credit-build-002.log
+SharedMaskCollision.lean lines=349 bytes=16774 SHA256=337a22cfc0ae75ffa7f68088f0e3c91b4ca1e5210ffe056b745dcdc66618d90a; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/shared-mask-collision-build-002.log
+ProductJointCover.lean lines=474 bytes=23654 SHA256=174778182b01b7f776ba5c7c4753b35985f36868d92de21d524c51223fc4d25c; author build EXIT0; independent review PASS by normal_form; full log=results/orch/product-joint-cover-build-002.log
+plane-multi-recorder: 7 manifest entries independently reviewed, all hashes and bytecounts rechecked; no target witness; singleton-leak diagnostics and invalid labels retained.
+plane-multi-clean-recorder: 7 manifest entries independently reviewed, all hashes and bytecounts rechecked; no target witness; singleton-leak diagnostics and invalid labels retained.
+physical-repair: 33 manifest entries independently reviewed, all hashes and bytecounts rechecked; no target witness; singleton-leak diagnostics and invalid labels retained.
+complement12-run-009: 38 manifest entries independently reviewed, all hashes and bytecounts rechecked; no target witness; singleton-leak diagnostics and invalid labels retained.
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=299.20 subagents=6

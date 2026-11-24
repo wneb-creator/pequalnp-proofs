@@ -1,0 +1,40 @@
+{
+  "frozen_at": "2026-11-24T11:00:22.186148+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "a92a87df7674509a46e8aabf3213212bd22bad14ee13ddb56a848e0a87d8258c",
+      "bytes": 1668
+    },
+    {
+      "file": "SearchPlaneProblem.json",
+      "sha256": "f13c8c17d8d2e3842d6a2a9ac736b17c7bf831d801a54ca07345907352ae1017",
+      "bytes": 358849
+    },
+    {
+      "file": "SearchPlaneProblem.py",
+      "sha256": "9c9369995311971fef919af1a75364f091b9b6b77552c2e66bef85648e83f865",
+      "bytes": 693
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticPlaneBalancedMultiRecord.py",
+      "sha256": "d779ccead629ae46aa8485dedcf2f96c94e931bfecc708c29231262d6ab5b43c",
+      "bytes": 30025
+    },
+    {
+      "file": "plane-multi-recorder-calibration.log",
+      "sha256": "97e472c2e82a188c683517a75770577c954777ab1694161f2f48945fa6aed93d",
+      "bytes": 2022
+    },
+    {
+      "file": "review-plane-multi-recorder-status-audit.log",
+      "sha256": "d279b7bd6bdbacf580283849aa223984ef82bfd308bec97a8f7f8526f960f8d9",
+      "bytes": 705
+    }
+  ]
+}
