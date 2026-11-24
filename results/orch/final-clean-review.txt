@@ -1,0 +1,8 @@
+Independent final cleanup review: PASS, contingent on rebuilt file and repeated checker acceptance.
+UTC: 2026-11-24T18:20:55.781478+00:00
+File: lean/PEqualNP/Outside/R_meta_2215_37.lean
+SHA256: 1b5a929be9302b0a851d9529c22ff4e3d523e4ab1753331cec25350d31046ee5
+The exact cleanup diff removes only the maxRecDepth and maxHeartbeats option lines. This changes resource allowances, not theorem content, hypotheses, proof terms, or mathematical meaning. The prior typed-let revision already received ACCEPTED(reduce), as reported by root.
+The current file still has exactly one top-level theorem, two independent smaller proposition hypotheses, the exact posted conclusion, and only the authorized PEqualNP.Defs import. Forbidden raw-text and source-format scans pass. No options remain.
+The previous mathematical review and exhaustive independent boundary coverage checks apply unchanged. No mathematical or formatting issue found.
+Final PR must have exactly one added file: this reduction file. Research artifacts may remain available in prior branch commits, but must not appear in the final base-to-head diff.

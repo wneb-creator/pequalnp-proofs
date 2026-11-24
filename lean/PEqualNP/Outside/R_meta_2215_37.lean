@@ -1,7 +1,5 @@
 import PEqualNP.Defs
 
-set_option maxRecDepth 32768 in
-set_option maxHeartbeats 4000000 in
 theorem PEqualNP.Outside.R_meta_2215_37
 (geometry :
   let D : Finset (Fin 13) := {0, 1, 3, 9}

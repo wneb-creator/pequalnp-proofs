@@ -13,3 +13,7 @@ Timeline (UTC)
 2026-11-24T18:12:52.781714+00:00 targetMeaning partial compiled and independently reviewed
 2026-11-24T18:17:26.987386+00:00 complete reduction compiled: build successful,268lines; local checker started
 2026-11-24T18:19:32.420129+00:00 typed finite-set child representation compiled; same geometry statement, checker rerun
+2026-11-24T18:20:39.959627+00:00 local checker ACCEPTED(reduce); cleanup starts removing two limit options,269→267lines
+
+2026-11-24T18:21:19.648949+00:00 circuit_search: all three runs completed without witness; total387260000 mutations,206790 exhaustive single-gate repair candidates.
+2026-11-24T18:21:31.196266+00:00 cleanup267lines builds with default limits; independent reviewPASS; checker rerun
