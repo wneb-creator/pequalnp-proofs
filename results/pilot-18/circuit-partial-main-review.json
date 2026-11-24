@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS: partial actual-circuit theorem",
+  "reviewer": "main agent, independent of lemma author",
+  "file_sha256": "4c04b9af4adc59a183616886cdabf8385b9ba35757d96c9320fcbc1ce004a2b1",
+  "lines": 1133,
+  "new_statement": "Actual binary AND/OR Circuit, clean for ambient C4-free K, rejects all singleton inputs and accepts every edge row of G; concludes a cover T of G with |E(G)|+|T|<=C.gates.length+1",
+  "proof_review": "Original circuit models and clamped/default wire handling are reused; singleton and edge hypotheses provide only the abstract output assumptions needed; no exact-output or clean-for-G premise is imposed. Previous proof bodies unchanged.",
+  "format": "Own helper namespace, allowed imports, no forbidden text/axioms/admissions/attributes; existing permitted limit options retained",
+  "build_exit": 0,
+  "build_output": "Build completed successfully (5109 jobs).",
+  "module_seconds": 31,
+  "posted_gap_checker": "NOT RUN; final module-named theorem absent",
+  "scope": "Neither an at-most-21 witness nor global refutation; proper-support lift/deletion remains unformalized"
+}

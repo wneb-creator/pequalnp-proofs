@@ -1,0 +1,195 @@
+{
+  "verdict": "PASS_FOR_PARTIAL_PUSH",
+  "timestamp_utc": "2026-11-24T02:15:12.403289+00:00",
+  "base_commit": "b67208484f98588806cb32e1901747833029492e",
+  "source_sha256": "4c04b9af4adc59a183616886cdabf8385b9ba35757d96c9320fcbc1ce004a2b1",
+  "source_lines": 1133,
+  "source_bytes": 55709,
+  "changed_files": [
+    "lean/PEqualNP/Outside/L_meta_1342.lean",
+    "results/pilot-18/validation.txt"
+  ],
+  "untracked_files": [
+    "results/pilot-18/circuit-partial-axioms.stderr",
+    "results/pilot-18/circuit-partial-axioms.stdout",
+    "results/pilot-18/circuit-partial-build.stderr",
+    "results/pilot-18/circuit-partial-build.stdout",
+    "results/pilot-18/circuit-partial-component-validation.json",
+    "results/pilot-18/circuit-partial-main-review.json"
+  ],
+  "artifacts": [
+    {
+      "path": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1342.lean",
+      "sha256": "4c04b9af4adc59a183616886cdabf8385b9ba35757d96c9320fcbc1ce004a2b1",
+      "bytes": 55709
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/pilot-18/circuit-partial-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/pilot-18/circuit-partial-axioms.stdout",
+      "sha256": "d8a0a5be0ffa882924546cd29759a6cf40593c33da4289309fdfa81ed15fa80b",
+      "bytes": 121
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/pilot-18/circuit-partial-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/pilot-18/circuit-partial-build.stdout",
+      "sha256": "d345d7d00960496dbc63619496f247079424b0033410faa07a0b8454742995ae",
+      "bytes": 53744
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/pilot-18/circuit-partial-component-validation.json",
+      "sha256": "0033bae545fa21a242f4c65311fe9ee58e7b9a1a7fb24b777dcf514a562e8270",
+      "bytes": 2540
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/pilot-18/circuit-partial-main-review.json",
+      "sha256": "23aa79243f35dd424e40d9ac0fa463b7d351fa091ceb0ec2ce2bfa08c8acc110",
+      "bytes": 1112
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/pilot-18/validation.txt",
+      "sha256": "dedc2a93f9039cbbedbe6dee56a24ba3ecad8367a60b0d2a8383ea9974da18bb",
+      "bytes": 2420
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/CircuitPartialBound.lean",
+      "sha256": "3d13f551aeecac1a7c8e66369aabe67382d3fa79811efa5e9a3bc06d4ff4c940",
+      "bytes": 43266
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/CircuitPartialBound.additions.lean.txt",
+      "sha256": "a65b8172b9f4a157a336c6133a9247c00115abc79eb9ab1fb03f3595d3fd19c3",
+      "bytes": 18008
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/CircuitPartialBound.validation.json",
+      "sha256": "0033bae545fa21a242f4c65311fe9ee58e7b9a1a7fb24b777dcf514a562e8270",
+      "bytes": 2540
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/CircuitPartialBound.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/CircuitPartialBound.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1407.lean",
+      "sha256": "24ba7b58eb791f970ead4d330e4a3adc6305915883584cc64b6c8670d86e1e2e",
+      "bytes": 40944
+    }
+  ],
+  "full_diff_sha256": "b369af44391a6040cf4e8095b04561d292ec46e9c0ec4e158f7b01ae0fd9f505",
+  "integration": {
+    "previous_source_lines": 716,
+    "previous_source_sha256": "d121bcacd6d21cf9267b46a04458bf35a948869cf09aa1d24c7818a6248c82aa",
+    "inserted_lines": 417,
+    "fragment_lines": 420,
+    "only_wrapper_lines_removed": true,
+    "all_previous_bytes_preserved_after_removing_insertion": true,
+    "baseline_preserved": true,
+    "abstract_proofs_preserved": true,
+    "copied_helpers_literal_match_1407": true,
+    "copied_helper_block_lines_including_separator": 365,
+    "copied_helper_block_sha256": "d7940d87b003ac5c3d383bbeff0dd6ee2cef5e4e32fc28b19a560ba303e19695",
+    "new_theorem_and_separator_lines": 52,
+    "within_existing_aux_namespace": true,
+    "standalone_order_note": "Copied helpers precede abstract proofs in the standalone source; integration places them afterward. Each block and the new theorem are byte-identical."
+  },
+  "statement_review": {
+    "theorem": "PEqualNP.Outside.L_meta_1342_aux.circuit_partial_edge_bound",
+    "conclusion": "A vertex cover T of G exists with |E(G)| + |T| <= C.gates.length + 1.",
+    "hypotheses": [
+      "K is a simple C4-free graph on Fin n; G is any simple graph on these vertices.",
+      "Actual Circuit gates are AND or OR with at most two operands.",
+      "Every true AND output implies an edge of K is present in that input.",
+      "Output rejects all singleton inputs.",
+      "Output accepts each pair input belonging to an edge of G."
+    ],
+    "no_exact_output_hypothesis": true,
+    "no_clean_for_G_hypothesis": true,
+    "no_abstract_model_assumptions": true,
+    "G_subset_K": "No explicit premise is needed: singleton rejection and acceptance imply a target-edge AND birth; cleanliness makes that edge belong to K.",
+    "proof_checks": [
+      "Singleton rejection gives empty output support; accepted edges give root edge hits.",
+      "Position 0 denotes false; clamping future or unavailable reads matches Circuit getD semantics.",
+      "Unary/repeated operands use idempotence; empty OR is false; cleanliness rules out empty AND on the all-false input.",
+      "root_read handles actual Circuit.eval and out-of-range outputs.",
+      "Copied lemmas discharge all actual-circuit premises of total_from_model_partial."
+    ]
+  },
+  "validation": {
+    "standalone_compile": {
+      "exit_code": 0,
+      "wall_seconds": 7.999104240000634,
+      "source_sha256": "3d13f551aeecac1a7c8e66369aabe67382d3fa79811efa5e9a3bc06d4ff4c940",
+      "exact_added_and_prior_blocks_present": true,
+      "rerun_by_reviewer": false
+    },
+    "named_module_build": {
+      "exit_code_recorded": 0,
+      "output": "Build completed successfully (5109 jobs).",
+      "module_seconds": 31,
+      "stderr_bytes": 0,
+      "rerun_by_reviewer": false
+    },
+    "new_theorem_axiom_audit": {
+      "status": "PASS",
+      "exit_code_reported_by_main": 0,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "stdout_verified_exact": true,
+      "stderr_bytes": 0,
+      "rerun_by_reviewer": false
+    },
+    "posted_gap_checker": "NOT RUN; final module-named theorem absent"
+  },
+  "red_team": {
+    "only_related_files_changed": true,
+    "allowed_top_imports_unchanged": true,
+    "all_added_declarations_in_existing_aux_namespace": true,
+    "forbidden_text_commands_attributes_absent": true,
+    "only_allowed_limit_options": true,
+    "no_new_axiom_or_opaque_declaration": true,
+    "no_credential_or_lease_values_detected": true,
+    "build_and_partial_scope_claims_accurate": true
+  },
+  "limitations": [
+    "Partial checkpoint only: no 21-gate witness, final posted theorem, acceptance, or global refutation.",
+    "Proper-support restriction/deletion and ancestor-pruning are not formalized here. Applying the theorem to SAT virtual TRUE inputs requires a separate reduction.",
+    "Two pre-existing helper namespace blocks remain; consolidate for a final proof PR."
+  ],
+  "actions": {
+    "repository_mutated": false,
+    "build_started": false,
+    "workers_touched": false,
+    "lease_called": false
+  },
+  "Sub-agents": "none",
+  "TIMING": {
+    "total_minutes": 116.4,
+    "subagents": 0
+  },
+  "final_binding": {
+    "all_eight_current_files_bound": true,
+    "lean_source_unchanged_since_source_review": true,
+    "build_logs_and_component_evidence_unchanged": true,
+    "new_axiom_logs_verified": true,
+    "updated_validation_read": true,
+    "no_pending_validation_artifacts": true,
+    "source_format_review_retained_for_identical_source": true
+  }
+}
