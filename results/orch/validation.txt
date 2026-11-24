@@ -11,3 +11,5 @@ PrivateUnion.lean: projected union-program compressor compiled exit 0; reviewed 
 PrivateUnion v2, Cardinality, Transpose v1 compiled exit0; independently reviewed.
 pmatos PR7597 baseline L_meta_3679: lake build exit0 (65 seconds). Local checker still running. Attributed reference only; adaptation underway.
 Independent TarjanFull, Transpose-v3, Flat-v3, Pruning, OrLogic: compile exit0, independent review passed.
+Final plain-file adaptation (1302 lines, SHA3a693c9f14adee73b712508c8385f97c523647a35904c91ed34a90440a895d26): lake build exit0; independent source review and structural guard pass. Final checker running.
+Original pmatos baseline checker: ACCEPTED (check); standard three axioms.

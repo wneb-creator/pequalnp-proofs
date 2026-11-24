@@ -51,3 +51,11 @@ Full generic union-program transposition compiled in scratch lemmas/Transpose-v3
 
 ## Counterexample checked upper 2026-11-24T17:25:18.271625+00:00
 Independent upper proof TarjanFull.lean now Lean-compiles with exit0 and empty diagnostic log tarjan-full.log. Checked size58, AO2, explicit39-vertex bipartition, and exact circuitFun equality to64-edge graphFun. No lower bound in this file. Source frozen for preservation. Independently parsed fetched PR7597 upper, verified58 gates/15AND/64edges/no forward reads via symbolic antichain evaluation, and confirmed same graph under original-input permutation. Review JSON pr7597-independent-upper-review.json; source hash f01c21af3259521d8d188168f00ee794162009246ab4e18822ea1e11a136da25.
+
+## lemma_search 2026-11-24T17:31:10.241901+00:00
+
+Pivot: root found existing exact Tarjan39 refutation in public PR7597. Own task is format-only adaptation of FlatTranspose3679 Built and State, replacing fresh inductive/structure declarations with recursive predicates and existing Sigma/Subtype. Candidate diff adapt/transpose.diff; isolated block validation pending. Other agents own D/Base and Trace, root owns graph-instance removal and final integration.
+
+## lemma_search 2026-11-24T17:34:33.100925+00:00
+
+Plain-file adaptation of PR7597 FlatTranspose3679 completed: Built is now a recursive proposition with nil/cons lemmas; State is a dependent pair/subtype of existing library types; transfer and packed use ordinary list induction. Isolated full transpose namespace compiled exit0. Frozen source adapt/PR7597-Transpose-v5.lean SHA256 0b1c9a0b0ad3d7be04d28582f345ca04226d5acde81d02377bcd10848d62c297; diff adapt/transpose-v5.diff SHA256 53188c71e34a275cfd7c28d57076ab5729e09ae5570e6aa6528bccabda98105c; log adapt/transpose-only-v5.log. Root integrating and checking full source; full modified copy was not separately checked, avoiding duplicate expensive finite certificates.

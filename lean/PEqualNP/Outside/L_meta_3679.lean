@@ -1,28 +1,51 @@
-import Mathlib
 import PEqualNP.Defs
+
+-- Adapted from pmatos, https://github.com/open-goat/pequalnp-proofs/pull/7597.
+-- The helper representations here use standard library types.
 
 namespace PEqualNP.Outside.L_meta_3679
 
 namespace FlatDag3679
-structure D (n : ℕ) where
-  m : ℕ
-  out : ℕ
-  out_lt : out < n+m
-  isAnd : ℕ → Bool
-  a : ℕ → ℕ
-  b : ℕ → ℕ
-  a_lt : ∀ w, n ≤ w → w < n+m → a w < w
-  b_lt : ∀ w, n ≤ w → w < n+m → b w < w
-  val : ℕ → (Fin n → Bool) → Bool
-  inp : ∀ i : Fin n, ∀ x, val i.val x = x i
-  step : ∀ w, n ≤ w → w < n+m → ∀ x, val w x = if isAnd w then val (a w) x && val (b w) x else val (a w) x || val (b w) x
+abbrev DData (n : ℕ) :=
+  ℕ × ℕ × (ℕ → Bool) × (ℕ → ℕ) × (ℕ → ℕ) × (ℕ → (Fin n → Bool) → Bool)
+
+def D (n : ℕ) := { t : DData n //
+  t.2.1 < n+t.1 ∧
+  (∀ w, n ≤ w → w < n+t.1 → t.2.2.2.1 w < w) ∧
+  (∀ w, n ≤ w → w < n+t.1 → t.2.2.2.2.1 w < w) ∧
+  (∀ i : Fin n, ∀ x, t.2.2.2.2.2 i.val x = x i) ∧
+  (∀ w, n ≤ w → w < n+t.1 → ∀ x,
+    t.2.2.2.2.2 w x = if t.2.2.1 w then
+      t.2.2.2.2.2 (t.2.2.2.1 w) x && t.2.2.2.2.2 (t.2.2.2.2.1 w) x else
+      t.2.2.2.2.2 (t.2.2.2.1 w) x || t.2.2.2.2.2 (t.2.2.2.2.1 w) x) }
+
 namespace D
 variable {n : ℕ} (d : D n)
+abbrev m : ℕ := (Subtype.val d).1
+abbrev out : ℕ := (Subtype.val d).2.1
+abbrev isAnd : ℕ → Bool := (Subtype.val d).2.2.1
+abbrev a : ℕ → ℕ := (Subtype.val d).2.2.2.1
+abbrev b : ℕ → ℕ := (Subtype.val d).2.2.2.2.1
+abbrev val : ℕ → (Fin n → Bool) → Bool := (Subtype.val d).2.2.2.2.2
+
+lemma out_lt : d.out < n+d.m := (Subtype.property d).1
+lemma a_lt : ∀ w, n ≤ w → w < n+d.m → d.a w < w := (Subtype.property d).2.1
+lemma b_lt : ∀ w, n ≤ w → w < n+d.m → d.b w < w := (Subtype.property d).2.2.1
+lemma inp : ∀ i : Fin n, ∀ x, d.val i.val x = x i := (Subtype.property d).2.2.2.1
+lemma step : ∀ w, n ≤ w → w < n+d.m → ∀ x,
+    d.val w x = if d.isAnd w then d.val (d.a w) x && d.val (d.b w) x else
+      d.val (d.a w) x || d.val (d.b w) x := (Subtype.property d).2.2.2.2
 def clean (w : ℕ) := ∀ i : Fin n, d.val w (fun j => decide (j=i)) = false
 noncomputable def top : Finset ℕ := by classical exact (Finset.range (n+d.m)).filter (fun w => n ≤ w ∧ d.isAnd w=false ∧ d.clean w)
-structure Base (U : ℕ → Prop) : Prop where
-  children : ∀ w, n ≤ w → w < n+d.m → U w → d.isAnd w=false ∧ U (d.a w) ∧ U (d.b w)
-  andArgs : ∀ w, n ≤ w → w < n+d.m → d.isAnd w=true → U (d.a w) ∧ U (d.b w)
+def Base (U : ℕ → Prop) : Prop :=
+  (∀ w, n ≤ w → w < n+d.m → U w → d.isAnd w=false ∧ U (d.a w) ∧ U (d.b w)) ∧
+  (∀ w, n ≤ w → w < n+d.m → d.isAnd w=true → U (d.a w) ∧ U (d.b w))
+
+lemma Base.children {n : ℕ} {d : D n} {U : ℕ → Prop} (h : d.Base U) :
+    ∀ w, n ≤ w → w < n+d.m → U w → d.isAnd w=false ∧ U (d.a w) ∧ U (d.b w) := h.1
+
+lemma Base.andArgs {n : ℕ} {d : D n} {U : ℕ → Prop} (h : d.Base U) :
+    ∀ w, n ≤ w → w < n+d.m → d.isAnd w=true → U (d.a w) ∧ U (d.b w) := h.2
 def supp (w : ℕ) : Finset (Fin n) := Finset.univ.filter (fun i => d.val w (fun j => decide (j=i)) = true)
 end D
 end FlatDag3679
@@ -34,41 +57,40 @@ namespace Upper3679
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
 abbrev V := Fin 39
 def edges : List (V × V) := [(25,0),(25,9),(25,11),(26,1),(26,10),(26,12),(27,2),(27,9),(27,13),(28,3),(28,10),(28,14),(29,6),(29,9),(29,15),(30,6),(30,7),(30,9),(30,16),(31,6),(31,7),(31,8),(31,9),(31,17),(32,6),(32,10),(32,18),(33,6),(33,7),(33,10),(33,19),(34,6),(34,7),(34,8),(34,10),(34,20),(35,0),(35,4),(35,6),(35,7),(35,8),(35,9),(35,21),(36,1),(36,4),(36,6),(36,7),(36,8),(36,10),(36,22),(37,2),(37,5),(37,6),(37,7),(37,8),(37,9),(37,23),(38,3),(38,5),(38,6),(38,7),(38,8),(38,10),(38,24)]
-def G : SimpleGraph V where
+abbrev G : SimpleGraph V where
   Adj x y := x ≠ y ∧ ((x,y) ∈ edges ∨ (y,x) ∈ edges)
   symm := ⟨fun _ _ h => ⟨h.1.symm,h.2.symm⟩⟩
   loopless := ⟨fun _ h => h.1 rfl⟩
-instance : DecidableRel G.Adj := fun x y => inferInstanceAs (Decidable (x ≠ y ∧ ((x,y) ∈ edges ∨ (y,x) ∈ edges)))
 def side (i : V) := decide (25 ≤ i.val)
-theorem bip : ∀ x y, G.Adj x y → side x ≠ side y := by decide +kernel
-private theorem noLoops : ∀ e ∈ edges, e.1 ≠ e.2 := by decide +kernel
+lemma bip : ∀ x y, G.Adj x y → side x ≠ side y := by decide +kernel
+private lemma noLoops : ∀ e ∈ edges, e.1 ≠ e.2 := by decide +kernel
 def C : Circuit := ⟨[⟨.or,[0,9]⟩,⟨.or,[1,10]⟩,⟨.or,[2,9]⟩,⟨.or,[3,10]⟩,⟨.or,[6,9]⟩,⟨.or,[43,7]⟩,⟨.or,[44,8]⟩,⟨.or,[6,10]⟩,⟨.or,[46,7]⟩,⟨.or,[47,8]⟩,⟨.and,[45,48]⟩,⟨.or,[49,4]⟩,⟨.or,[49,5]⟩,⟨.or,[39,50]⟩,⟨.or,[40,50]⟩,⟨.or,[41,51]⟩,⟨.or,[42,51]⟩,⟨.or,[39,11]⟩,⟨.and,[56,25]⟩,⟨.or,[40,12]⟩,⟨.and,[58,26]⟩,⟨.or,[41,13]⟩,⟨.and,[60,27]⟩,⟨.or,[42,14]⟩,⟨.and,[62,28]⟩,⟨.or,[43,15]⟩,⟨.and,[64,29]⟩,⟨.or,[44,16]⟩,⟨.and,[66,30]⟩,⟨.or,[45,17]⟩,⟨.and,[68,31]⟩,⟨.or,[46,18]⟩,⟨.and,[70,32]⟩,⟨.or,[47,19]⟩,⟨.and,[72,33]⟩,⟨.or,[48,20]⟩,⟨.and,[74,34]⟩,⟨.or,[52,21]⟩,⟨.and,[76,35]⟩,⟨.or,[53,22]⟩,⟨.and,[78,36]⟩,⟨.or,[54,23]⟩,⟨.and,[80,37]⟩,⟨.or,[55,24]⟩,⟨.and,[82,38]⟩,⟨.or,[57,59]⟩,⟨.or,[84,61]⟩,⟨.or,[85,63]⟩,⟨.or,[86,65]⟩,⟨.or,[87,67]⟩,⟨.or,[88,69]⟩,⟨.or,[89,71]⟩,⟨.or,[90,73]⟩,⟨.or,[91,75]⟩,⟨.or,[92,77]⟩,⟨.or,[93,79]⟩,⟨.or,[94,81]⟩,⟨.or,[95,83]⟩],96⟩
-theorem size : C.size = 58 := by decide
-theorem ao : IsAO2 39 C := by decide +kernel
-private theorem fun_edges (x : V → Bool) : graphFun G ∅ x = edges.any (fun e => x e.1 && x e.2) := by
+lemma size : C.size = 58 := by decide
+lemma ao : IsAO2 39 C := by decide +kernel
+private lemma fun_edges (x : V → Bool) : graphFun G ∅ x = edges.any (fun e => x e.1 && x e.2) := by
   apply Bool.eq_iff_iff.mpr; simp only [graphFun,Finset.notMem_empty, false_and,exists_false,decide_false,Bool.false_or,decide_eq_true_eq,List.any_eq_true,Bool.and_eq_true]
   constructor
   · rintro ⟨u,v,⟨_,h|h⟩,hu,hv⟩; exact ⟨(u,v),h,hu,hv⟩; exact ⟨(v,u),h,hv,hu⟩
   · rintro ⟨⟨u,v⟩,h,hu,hv⟩; exact ⟨u,v,⟨noLoops _ h,Or.inl h⟩,hu,hv⟩
 set_option maxRecDepth 10000 in
 set_option maxHeartbeats 4000000 in
-private theorem row0 : ∀ b0 b9 b11 b25 : Bool, (((b0 || b9) || b11) && b25) = ((b25 && b0) || (b25 && b9) || (b25 && b11)) := by decide +kernel
-private theorem row1 : ∀ b1 b10 b12 b26 : Bool, (((b1 || b10) || b12) && b26) = ((b26 && b1) || (b26 && b10) || (b26 && b12)) := by decide +kernel
-private theorem row2 : ∀ b2 b9 b13 b27 : Bool, (((b2 || b9) || b13) && b27) = ((b27 && b2) || (b27 && b9) || (b27 && b13)) := by decide +kernel
-private theorem row3 : ∀ b3 b10 b14 b28 : Bool, (((b3 || b10) || b14) && b28) = ((b28 && b3) || (b28 && b10) || (b28 && b14)) := by decide +kernel
-private theorem row4 : ∀ b6 b9 b15 b29 : Bool, (((b6 || b9) || b15) && b29) = ((b29 && b6) || (b29 && b9) || (b29 && b15)) := by decide +kernel
-private theorem row5 : ∀ b6 b9 b7 b16 b30 : Bool, ((((b6 || b9) || b7) || b16) && b30) = ((b30 && b6) || (b30 && b7) || (b30 && b9) || (b30 && b16)) := by decide +kernel
-private theorem row6 : ∀ b6 b9 b7 b8 b17 b31 : Bool, (((((b6 || b9) || b7) || b8) || b17) && b31) = ((b31 && b6) || (b31 && b7) || (b31 && b8) || (b31 && b9) || (b31 && b17)) := by decide +kernel
-private theorem row7 : ∀ b6 b10 b18 b32 : Bool, (((b6 || b10) || b18) && b32) = ((b32 && b6) || (b32 && b10) || (b32 && b18)) := by decide +kernel
-private theorem row8 : ∀ b6 b10 b7 b19 b33 : Bool, ((((b6 || b10) || b7) || b19) && b33) = ((b33 && b6) || (b33 && b7) || (b33 && b10) || (b33 && b19)) := by decide +kernel
-private theorem row9 : ∀ b6 b10 b7 b8 b20 b34 : Bool, (((((b6 || b10) || b7) || b8) || b20) && b34) = ((b34 && b6) || (b34 && b7) || (b34 && b8) || (b34 && b10) || (b34 && b20)) := by decide +kernel
-private theorem row10 : ∀ b0 b9 b6 b7 b8 b10 b4 b21 b35 : Bool, ((((b0 || b9) || (((((b6 || b9) || b7) || b8) && (((b6 || b10) || b7) || b8)) || b4)) || b21) && b35) = ((b35 && b0) || (b35 && b4) || (b35 && b6) || (b35 && b7) || (b35 && b8) || (b35 && b9) || (b35 && b21)) := by decide +kernel
-private theorem row11 : ∀ b1 b10 b6 b9 b7 b8 b4 b22 b36 : Bool, ((((b1 || b10) || (((((b6 || b9) || b7) || b8) && (((b6 || b10) || b7) || b8)) || b4)) || b22) && b36) = ((b36 && b1) || (b36 && b4) || (b36 && b6) || (b36 && b7) || (b36 && b8) || (b36 && b10) || (b36 && b22)) := by decide +kernel
-private theorem row12 : ∀ b2 b9 b6 b7 b8 b10 b5 b23 b37 : Bool, ((((b2 || b9) || (((((b6 || b9) || b7) || b8) && (((b6 || b10) || b7) || b8)) || b5)) || b23) && b37) = ((b37 && b2) || (b37 && b5) || (b37 && b6) || (b37 && b7) || (b37 && b8) || (b37 && b9) || (b37 && b23)) := by decide +kernel
-private theorem row13 : ∀ b3 b10 b6 b9 b7 b8 b5 b24 b38 : Bool, ((((b3 || b10) || (((((b6 || b9) || b7) || b8) && (((b6 || b10) || b7) || b8)) || b5)) || b24) && b38) = ((b38 && b3) || (b38 && b5) || (b38 && b6) || (b38 && b7) || (b38 && b8) || (b38 && b10) || (b38 && b24)) := by decide +kernel
+private lemma row0 : ∀ b0 b9 b11 b25 : Bool, (((b0 || b9) || b11) && b25) = ((b25 && b0) || (b25 && b9) || (b25 && b11)) := by decide +kernel
+private lemma row1 : ∀ b1 b10 b12 b26 : Bool, (((b1 || b10) || b12) && b26) = ((b26 && b1) || (b26 && b10) || (b26 && b12)) := by decide +kernel
+private lemma row2 : ∀ b2 b9 b13 b27 : Bool, (((b2 || b9) || b13) && b27) = ((b27 && b2) || (b27 && b9) || (b27 && b13)) := by decide +kernel
+private lemma row3 : ∀ b3 b10 b14 b28 : Bool, (((b3 || b10) || b14) && b28) = ((b28 && b3) || (b28 && b10) || (b28 && b14)) := by decide +kernel
+private lemma row4 : ∀ b6 b9 b15 b29 : Bool, (((b6 || b9) || b15) && b29) = ((b29 && b6) || (b29 && b9) || (b29 && b15)) := by decide +kernel
+private lemma row5 : ∀ b6 b9 b7 b16 b30 : Bool, ((((b6 || b9) || b7) || b16) && b30) = ((b30 && b6) || (b30 && b7) || (b30 && b9) || (b30 && b16)) := by decide +kernel
+private lemma row6 : ∀ b6 b9 b7 b8 b17 b31 : Bool, (((((b6 || b9) || b7) || b8) || b17) && b31) = ((b31 && b6) || (b31 && b7) || (b31 && b8) || (b31 && b9) || (b31 && b17)) := by decide +kernel
+private lemma row7 : ∀ b6 b10 b18 b32 : Bool, (((b6 || b10) || b18) && b32) = ((b32 && b6) || (b32 && b10) || (b32 && b18)) := by decide +kernel
+private lemma row8 : ∀ b6 b10 b7 b19 b33 : Bool, ((((b6 || b10) || b7) || b19) && b33) = ((b33 && b6) || (b33 && b7) || (b33 && b10) || (b33 && b19)) := by decide +kernel
+private lemma row9 : ∀ b6 b10 b7 b8 b20 b34 : Bool, (((((b6 || b10) || b7) || b8) || b20) && b34) = ((b34 && b6) || (b34 && b7) || (b34 && b8) || (b34 && b10) || (b34 && b20)) := by decide +kernel
+private lemma row10 : ∀ b0 b9 b6 b7 b8 b10 b4 b21 b35 : Bool, ((((b0 || b9) || (((((b6 || b9) || b7) || b8) && (((b6 || b10) || b7) || b8)) || b4)) || b21) && b35) = ((b35 && b0) || (b35 && b4) || (b35 && b6) || (b35 && b7) || (b35 && b8) || (b35 && b9) || (b35 && b21)) := by decide +kernel
+private lemma row11 : ∀ b1 b10 b6 b9 b7 b8 b4 b22 b36 : Bool, ((((b1 || b10) || (((((b6 || b9) || b7) || b8) && (((b6 || b10) || b7) || b8)) || b4)) || b22) && b36) = ((b36 && b1) || (b36 && b4) || (b36 && b6) || (b36 && b7) || (b36 && b8) || (b36 && b10) || (b36 && b22)) := by decide +kernel
+private lemma row12 : ∀ b2 b9 b6 b7 b8 b10 b5 b23 b37 : Bool, ((((b2 || b9) || (((((b6 || b9) || b7) || b8) && (((b6 || b10) || b7) || b8)) || b5)) || b23) && b37) = ((b37 && b2) || (b37 && b5) || (b37 && b6) || (b37 && b7) || (b37 && b8) || (b37 && b9) || (b37 && b23)) := by decide +kernel
+private lemma row13 : ∀ b3 b10 b6 b9 b7 b8 b5 b24 b38 : Bool, ((((b3 || b10) || (((((b6 || b9) || b7) || b8) && (((b6 || b10) || b7) || b8)) || b5)) || b24) && b38) = ((b38 && b3) || (b38 && b5) || (b38 && b6) || (b38 && b7) || (b38 && b8) || (b38 && b10) || (b38 && b24)) := by decide +kernel
 set_option maxRecDepth 10000 in
 set_option maxHeartbeats 4000000 in
-theorem computes : circuitFun 39 C = graphFun G ∅ := by
+lemma computes : circuitFun 39 C = graphFun G ∅ := by
   funext x; rw [fun_edges]; unfold circuitFun
   rw [show List.ofFn x = [x 0,x 1,x 2,x 3,x 4,x 5,x 6,x 7,x 8,x 9,x 10,x 11,x 12,x 13,x 14,x 15,x 16,x 17,x 18,x 19,x 20,x 21,x 22,x 23,x 24,x 25,x 26,x 27,x 28,x 29,x 30,x 31,x 32,x 33,x 34,x 35,x 36,x 37,x 38] from rfl]
   simp [C,Circuit.eval,Circuit.wires,GateOp.eval,edges]
@@ -246,7 +268,7 @@ lemma inCone_iff (n : ℕ) (C : Circuit) (i k : ℕ) (hk : k < C.gates.length) :
       rw [← h2 (w - n) (by omega)]
       exact h
 
-theorem fromCircuit (C : Circuit) (hao : IsAO2 39 C)
+lemma fromCircuit (C : Circuit) (hao : IsAO2 39 C)
     (hc : circuitFun 39 C = graphFun Upper3679.G ∅)
     (hflat : ∀ i < C.gates.length, ∀ j < C.gates.length, (gateAt C i).op = .and →
       (gateAt C j).op = .and → ¬ InCone 39 C i j) :
@@ -273,19 +295,20 @@ theorem fromCircuit (C : Circuit) (hao : IsAO2 39 C)
       simp only [graphFun, Bool.or_eq_true, decide_eq_true_eq]; right
       exact ⟨25,0, by decide, rfl,rfl⟩
     simp [hg] at hv
-  let d : D 39 := {
-    m := C.gates.length, out := C.output, out_lt := hout
-    isAnd := fun w => decide ((gateAt C (w-39)).op = .and)
-    a := fun w => a (w-39), b := fun w => b (w-39)
-    a_lt := fun w hw hw' => lt_of_lt_of_eq (bounds (w-39) (by omega)).1 (by omega)
-    b_lt := fun w hw hw' => lt_of_lt_of_eq (bounds (w-39) (by omega)).2 (by omega)
-    val := fun w x => W 39 C x w, inp := fun i x => W_input _ _ _ _ i.isLt
-    step := by
+  let d : D 39 := ⟨
+    ⟨C.gates.length, C.output,
+      (fun w => decide ((gateAt C (w-39)).op = .and)),
+      (fun w => a (w-39)), (fun w => b (w-39)),
+      (fun w x => W 39 C x w)⟩,
+    hout,
+    (fun w hw hw' => lt_of_lt_of_eq (bounds (w-39) (by omega)).1 (by omega)),
+    (fun w hw hw' => lt_of_lt_of_eq (bounds (w-39) (by omega)).2 (by omega)),
+    (fun i x => W_input _ _ _ _ i.isLt), by
       intro w hw hw' x
       obtain ⟨k,rfl⟩ := Nat.exists_eq_add_of_le hw
       have hk : k < C.gates.length := by omega
       rcases spec k hk with ⟨hop|hop,hin⟩ <;>
-        simp [W_gate 39 C x k hk, hop, hin, GateOp.eval, (bounds k hk).1, (bounds k hk).2] }
+        simp [W_gate 39 C x k hk, hop, hin, GateOp.eval, (bounds k hk).1, (bounds k hk).2]⟩
   let U := fun w => ∀ (hw : 39 ≤ w) i, i = w-39 ∨ InCone 39 C i (w-39) →
     (gateAt C i).op ≠ .and
   refine ⟨d,rfl,congrFun hc,U,?_,?_⟩
@@ -297,13 +320,13 @@ theorem fromCircuit (C : Circuit) (hao : IsAO2 39 C)
       intro hn i hi
       exact hu hw i (Or.inr ((inCone_iff 39 C i k hk).2
         ⟨v,hv,hn,hao.2.1 k hk v hv,hi⟩))
-    exact ⟨by simpa [d] using hu hw (w-39) (Or.inl rfl),
+    exact ⟨by simpa [d,D.isAnd,D.a,D.b,D.val] using hu hw (w-39) (Or.inl rfl),
       pass (a k) (by simp [(spec k hk).2]),pass (b k) (by simp [(spec k hk).2])⟩
   · intro w hw hw' hand
     change w < 39+C.gates.length at hw'
     let k := w-39
     have hk : k < C.gates.length := by dsimp [k]; omega
-    have hop : (gateAt C k).op = .and := by simpa [d,k] using hand
+    have hop : (gateAt C k).op = .and := by simpa [d,k,D.isAnd,D.a,D.b,D.val] using hand
     have pass (v) (hv : v ∈ (gateAt C k).inputs) : U v := by
       intro hn i hi hiand
       have hcone := (inCone_iff 39 C i k hk).2 ⟨v,hv,hn,hao.2.1 k hk v hv,hi⟩
@@ -319,17 +342,21 @@ def left (i : Fin 14) : V := ⟨25+i.val,by omega⟩
 def right (j : Fin 25) : V := ⟨j.val,by omega⟩
 def privateCol (i : Fin 14) : Fin 25 := ⟨11+i.val,by omega⟩
 def row (i : Fin 14) := Finset.univ.filter (fun j : Fin 25 => G.Adj (left i) (right j))
-theorem private_mem : ∀ i j : Fin 14, privateCol j ∈ row i ↔ i=j := by decide +kernel
-theorem nonempty (i : Fin 14) : (row i).Nonempty := ⟨_,(private_mem i i).mpr rfl⟩
+lemma private_mem : ∀ i j : Fin 14, privateCol j ∈ row i ↔ i=j := by decide +kernel
+lemma nonempty (i : Fin 14) : (row i).Nonempty := ⟨_,(private_mem i i).mpr rfl⟩
 def mask (S : Finset V) : V → Bool := fun u => decide (u ∈ S)
-theorem graph_two (u v : V) : graphFun G ∅ (mask {u,v}) = true ↔ G.Adj u v := by
+lemma graph_two (u v : V) : graphFun G ∅ (mask {u,v}) = true ↔ G.Adj u v := by
   simp only [graphFun,Finset.notMem_empty,false_and,exists_false,decide_false,Bool.false_or,decide_eq_true_eq,mask,Finset.mem_insert,Finset.mem_singleton]
   constructor
-  · rintro ⟨a,b,h,(rfl|rfl),(rfl|rfl)⟩ <;> first | exact h | exact h.symm | exact (G.irrefl h).elim
+  · rintro ⟨a,b,h,(rfl|rfl),(rfl|rfl)⟩
+    · exact (h.1 rfl).elim
+    · exact h
+    · exact ⟨h.1.symm, h.2.symm⟩
+    · exact (h.1 rfl).elim
   · intro h; exact ⟨_,_,h,Or.inl rfl,Or.inr rfl⟩
-theorem split : ∀ u : V, (∃ i, left i=u) ∨ (∃ j, right j=u) := by decide +kernel
-theorem noLeft : ∀ i j, ¬G.Adj (left i) (left j) := by decide +kernel
-theorem noRight : ∀ i j, ¬G.Adj (right i) (right j) := by decide +kernel
+lemma split : ∀ u : V, (∃ i, left i=u) ∨ (∃ j, right j=u) := by decide +kernel
+lemma noLeft : ∀ i j, ¬G.Adj (left i) (left j) := by decide +kernel
+lemma noRight : ∀ i j, ¬G.Adj (right i) (right j) := by decide +kernel
 end Rows3679
 
 namespace FlatDag3679.D
@@ -337,7 +364,7 @@ open Rows3679 Upper3679
 open PEqualNP.MetaComplexity.NestedCover
 variable {n : ℕ} (d : D n)
 
-theorem baseFacts {U : ℕ → Prop} (base : d.Base U) (w : ℕ) (lim : w < n+d.m) (hu : U w) :
+lemma baseFacts {U : ℕ → Prop} (base : d.Base U) (w : ℕ) (lim : w < n+d.m) (hu : U w) :
     (d.supp w).Nonempty ∧ ∀ x, d.val w x = true ↔ ∃ i ∈ d.supp w, x i = true := by
   induction w using Nat.strong_induction_on with
   | ind w ih =>
@@ -361,7 +388,7 @@ theorem baseFacts {U : ℕ → Prop} (base : d.Base U) (w : ℕ) (lim : w < n+d.
       intro x; simp only [d.step w hn lim,op,Bool.false_eq_true,ite_false,Bool.or_eq_true,sa,sb,Finset.mem_union]
       aesop
 
-private theorem sees {S : Finset V} (i : Fin 14) (j : Fin 25)
+private lemma sees {S : Finset V} (i : Fin 14) (j : Fin 25)
     {f : Fin k → V} (onSide : ∀ u ∈ S, ∃ p, f p = u) (other : ∀ p, f p ≠ right j) :
     (∃ u ∈ S, mask {left i,right j} u = true) ↔ left i ∈ S := by
   constructor
@@ -372,7 +399,7 @@ private theorem sees {S : Finset V} (i : Fin 14) (j : Fin 25)
     · obtain ⟨p,ep⟩ := onSide _ hu; exact (other p ep).elim
   · intro hi; exact ⟨_,hi,by simp [mask]⟩
 
-private theorem seesRight {S : Finset V} (i : Fin 14) (j : Fin 25)
+private lemma seesRight {S : Finset V} (i : Fin 14) (j : Fin 25)
     (onSide : ∀ u ∈ S, ∃ p, right p = u) :
     (∃ u ∈ S, mask {left i,right j} u = true) ↔ right j ∈ S := by
   constructor
@@ -386,7 +413,7 @@ private theorem seesRight {S : Finset V} (i : Fin 14) (j : Fin 25)
 
 variable (Dg : D 39)
 
-theorem orient {U : ℕ → Prop} (base : Dg.Base U) (w : ℕ)
+lemma orient {U : ℕ → Prop} (base : Dg.Base U) (w : ℕ)
     (lo : 39 ≤ w) (lim : w < 39+Dg.m) (op : Dg.isAnd w=true)
     (below : ∀ x, Dg.val w x=true → graphFun G ∅ x=true) :
     ∃ p q : ℕ, p < 39+Dg.m ∧ q < 39+Dg.m ∧ U p ∧ U q ∧
@@ -426,27 +453,42 @@ namespace FlatTranspose3679
 variable {α β : Type*} [DecidableEq α] [DecidableEq β]
 
 def Av (B : List (Finset α)) (x : Finset α) : Prop := x.card ≤ 1 ∨ x ∈ B
-inductive Built : List (Finset α) → Prop
-  | nil : Built []
-  | cons {B : List (Finset α)} {u v : Finset α} : Built B → Av B u → Av B v → Built ((u ∪ v) :: B)
+def Built : List (Finset α) → Prop
+  | [] => True
+  | S :: B => Built B ∧ ∃ u v, Av B u ∧ Av B v ∧ S = u ∪ v
+
+namespace Built
+
+lemma nil : Built ([] : List (Finset α)) := True.intro
+
+lemma cons {B : List (Finset α)} {u v : Finset α}
+    (h : Built B) (hu : Av B u) (hv : Av B v) : Built ((u ∪ v) :: B) :=
+  ⟨h, u, v, hu, hv, rfl⟩
+
+
+end Built
 
 omit [DecidableEq α] in
-private theorem av_cons {B : List (Finset α)} {x t : Finset α} (h : Av B x) : Av (t :: B) x :=
+private lemma av_cons {B : List (Finset α)} {x t : Finset α} (h : Av B x) : Av (t :: B) x :=
   h.elim Or.inl (fun hh => Or.inr (List.mem_cons_of_mem _ hh))
 
-private structure State (α β : Type*) [DecidableEq β] where
-  keys : Finset (Finset α)
-  label : Finset α → Finset β
-  bank : List (Finset β)
-  built : Built bank
-  avail : ∀ u ∈ keys, Av bank (label u)
+private abbrev State (α β : Type*) [DecidableEq β] :=
+  (keys : Finset (Finset α)) ×
+    (label : Finset α → Finset β) ×
+      { bank : List (Finset β) // Built bank ∧ ∀ u ∈ keys, Av bank (label u) }
+
+private abbrev State.keys (q : State α β) := q.1
+private abbrev State.label (q : State α β) := q.2.1
+private abbrev State.bank (q : State α β) := q.2.2.1
+private abbrev State.built (q : State α β) : Built q.bank := q.2.2.2.1
+private abbrev State.avail (q : State α β) : ∀ u ∈ q.keys, Av q.bank (q.label u) := q.2.2.2.2
 
 private def State.rel (q : State α β) (x : α) (y : β) : Prop :=
   ∃ u ∈ q.keys, x ∈ u ∧ y ∈ q.label u
 
 private def State.price (q : State α β) := q.bank.length + q.keys.card
 
-private theorem push (q : State α β) (u : Finset α) (v : Finset β) (hv : Av q.bank v) :
+private lemma push (q : State α β) (u : Finset α) (v : Finset β) (hv : Av q.bank v) :
     ∃ p : State α β, p.keys = insert u q.keys ∧ p.price ≤ q.price + 1 ∧
       (∀ w, Av q.bank w → Av p.bank w) ∧
       ∀ x y, p.rel x y ↔ q.rel x y ∨ (x ∈ u ∧ y ∈ v) := by
@@ -458,47 +500,48 @@ private theorem push (q : State α β) (u : Finset α) (v : Finset β) (hv : Av 
         intro t ht
         by_cases eq : t = u
         · subst t; exact Or.inr (by simp)
-        · simp only [Function.update_of_ne eq]; exact av_cons (q.avail _ ((Finset.mem_insert.mp ht).resolve_left eq))⟩
+        · simp only [State.keys, State.label, State.bank, Function.update_of_ne eq]; exact av_cons (q.avail _ ((Finset.mem_insert.mp ht).resolve_left eq))⟩
     refine ⟨p, rfl, ?_, fun _ => av_cons, ?_⟩
-    · simp [State.price,p,hu,Nat.add_right_comm]
+    · simp [State.keys, State.label, State.bank, State.price,p,hu,Nat.add_right_comm]
     · intro x y; constructor
       · rintro ⟨t,ht,hx,hy⟩
         by_cases eq : t = u
-        · subst t; change y ∈ Function.update q.label u b u at hy; simp [b] at hy
+        · subst t; change y ∈ Function.update q.label u b u at hy; simp [State.keys, State.label, State.bank, b] at hy
           exact hy.elim (fun h => Or.inl ⟨u,hu,hx,h⟩) (fun h => Or.inr ⟨hx,h⟩)
-        · exact Or.inl ⟨t,(Finset.mem_insert.mp ht).resolve_left eq,hx,by simpa [p,eq] using hy⟩
+        · exact Or.inl ⟨t,(Finset.mem_insert.mp ht).resolve_left eq,hx,by simpa [State.keys, State.label, State.bank, p,eq] using hy⟩
       · rintro (⟨t,ht,hx,hy⟩ | ⟨hx,hy⟩)
         · refine ⟨t,Finset.mem_insert_of_mem ht,hx,?_⟩
           by_cases eq : t = u
-          · subst t; simp [p,b,hy]
-          · simpa [p,eq] using hy
-        · exact ⟨u,Finset.mem_insert_self ..,hx,by simp [p,b,hy]⟩
+          · subst t; simp [State.keys, State.label, State.bank, p,b,hy]
+          · simpa [State.keys, State.label, State.bank, p,eq] using hy
+        · exact ⟨u,Finset.mem_insert_self ..,hx,by simp [State.keys, State.label, State.bank, p,b,hy]⟩
   · let p : State α β := ⟨insert u q.keys, Function.update q.label u v, q.bank, q.built, by
         intro t ht
         rcases Finset.mem_insert.mp ht with rfl | ht
         · simpa using hv
         · have ne : t ≠ u := fun e => hu (e ▸ ht)
-          simpa [ne] using q.avail t ht⟩
-    refine ⟨p,rfl,by simp [State.price,p,hu,Nat.add_assoc],fun _ h => h,?_⟩
+          simpa [State.keys, State.label, State.bank, ne] using q.avail t ht⟩
+    refine ⟨p,rfl,by simp [State.keys, State.label, State.bank, State.price,p,hu,Nat.add_assoc],fun _ h => h,?_⟩
     intro x y; constructor
     · rintro ⟨t,ht,hx,hy⟩
       rcases Finset.mem_insert.mp ht with rfl | ht
-      · exact Or.inr ⟨hx,by simpa [p] using hy⟩
+      · exact Or.inr ⟨hx,by simpa [State.keys, State.label, State.bank, p] using hy⟩
       · have ne : t ≠ u := fun e => hu (e ▸ ht)
-        exact Or.inl ⟨t,ht,hx,by simpa [p,ne] using hy⟩
+        exact Or.inl ⟨t,ht,hx,by simpa [State.keys, State.label, State.bank, p,ne] using hy⟩
     · rintro (⟨t,ht,hx,hy⟩ | ⟨hx,hy⟩)
       · have ne : t ≠ u := fun e => hu (e ▸ ht)
-        exact ⟨t,Finset.mem_insert_of_mem ht,hx,by simpa [p,ne] using hy⟩
-      · exact ⟨u,Finset.mem_insert_self ..,hx,by simpa [p] using hy⟩
+        exact ⟨t,Finset.mem_insert_of_mem ht,hx,by simpa [State.keys, State.label, State.bank, p,ne] using hy⟩
+      · exact ⟨u,Finset.mem_insert_self ..,hx,by simpa [State.keys, State.label, State.bank, p] using hy⟩
 
-private theorem transfer {L : List (Finset α)} (bl : Built L) (q : State α β)
+private lemma transfer {L : List (Finset α)} (bl : Built L) (q : State α β)
     (hk : ∀ t ∈ q.keys, Av L t) :
     ∃ p : State α β, (∀ t ∈ p.keys, t.card ≤ 1) ∧ p.price ≤ q.price + L.length ∧
       ∀ x y, p.rel x y ↔ q.rel x y := by
   classical
-  induction bl generalizing q with
-  | nil => exact ⟨q,fun t ht => by simpa [Av] using hk t ht,by simp,fun _ _ => Iff.rfl⟩
-  | @cons L u v _ hu hv ih =>
+  induction L generalizing q with
+  | nil => exact ⟨q,fun t ht => by simpa [State.keys, State.label, State.bank, Av] using hk t ht,by simp,fun _ _ => Iff.rfl⟩
+  | cons S L ih =>
+    obtain ⟨bl, u, v, hu, hv, rfl⟩ := bl
     by_cases h : u ∪ v ∈ q.keys
     · let s : State α β := ⟨q.keys.erase (u ∪ v),q.label,q.bank,q.built,
         fun t ht => q.avail _ (Finset.mem_erase.mp ht).2⟩
@@ -511,12 +554,13 @@ private theorem transfer {L : List (Finset α)} (bl : Built L) (q : State α β)
         rcases Finset.mem_insert.mp ht with rfl | ht
         · exact hu
         obtain ⟨ne,hm⟩ := Finset.mem_erase.mp ht
-        simpa [Av,ne] using hk t hm
-      obtain ⟨p,hp,hle,hr⟩ := ih s₂ hgood
+        simpa [State.keys, State.label, State.bank, Av,ne] using hk t hm
+      obtain ⟨p,hp,hle,hr⟩ := ih bl s₂ hgood
       refine ⟨p,hp,?_,?_⟩
       · have hc := Finset.card_erase_add_one h
         change s₁.price ≤ q.bank.length + (q.keys.erase (u ∪ v)).card + 1 at hp₁
-        simp only [State.price,List.length_cons] at hle hp₂ ⊢; unfold State.price at hp₁; omega
+        simp only [State.price, State.keys, State.bank, List.length_cons] at hle hp₂ hp₁ hc ⊢
+        omega
       · intro x y; rw [hr,hr₂,hr₁]; constructor
         · rintro ((⟨t,ht,hx,hy⟩ | ⟨hx,hy⟩) | ⟨hx,hy⟩)
           · exact ⟨t,(Finset.mem_erase.mp ht).2,hx,hy⟩
@@ -526,12 +570,12 @@ private theorem transfer {L : List (Finset α)} (bl : Built L) (q : State α β)
           by_cases eq : t = u ∪ v
           · subst t; exact (Finset.mem_union.mp hx).elim (fun hu => Or.inl (Or.inr ⟨hu,hy⟩)) (fun hv => Or.inr ⟨hv,hy⟩)
           · exact Or.inl (Or.inl ⟨t,Finset.mem_erase.mpr ⟨eq,ht⟩,hx,hy⟩)
-    · obtain ⟨p,hp,hle,hr⟩ := ih q (fun t ht => by
+    · obtain ⟨p,hp,hle,hr⟩ := ih bl q (fun t ht => by
         have ne : t ≠ u ∪ v := fun e => h (e ▸ ht)
-        simpa [Av,ne] using hk t ht)
-      exact ⟨p,hp,by simp only [List.length_cons]; omega,hr⟩
+        simpa [State.keys, State.label, State.bank, Av,ne] using hk t ht)
+      exact ⟨p,hp,by simp only [State.keys, State.label, State.bank, List.length_cons]; omega,hr⟩
 
-private theorem seed (R : List (Finset α × Finset β)) (B : List (Finset β)) (hb : Built B)
+private lemma seed (R : List (Finset α × Finset β)) (B : List (Finset β)) (hb : Built B)
     (h : ∀ w ∈ R, Av B w.2) :
     ∃ q : State α β, (∀ t ∈ q.keys, ∃ w ∈ R, w.1 = t) ∧ q.price ≤ B.length + R.length ∧
       (∀ w, Av B w → Av q.bank w) ∧
@@ -540,17 +584,17 @@ private theorem seed (R : List (Finset α × Finset β)) (B : List (Finset β)) 
   induction R with
   | nil =>
     let q : State α β := ⟨∅,fun _ => ∅,B,hb,by simp⟩
-    exact ⟨q,by simp [q],by simp [State.price,q],fun _ h => h,by simp [State.rel,q]⟩
+    exact ⟨q,by simp [State.keys, State.label, State.bank, q],by simp [State.keys, State.label, State.bank, State.price,q],fun _ h => h,by simp [State.keys, State.label, State.bank, State.rel,q]⟩
   | cons w R ih =>
     obtain ⟨q,hk,hp,ha,hr⟩ := ih (fun t ht => h t (List.mem_cons_of_mem _ ht))
     obtain ⟨p,hk',hp',ha',hr'⟩ := push q w.1 w.2 (ha _ (h _ List.mem_cons_self))
-    refine ⟨p,?_,by simp only [List.length_cons]; omega, fun t ht => ha' _ (ha _ ht),?_⟩
+    refine ⟨p,?_,by simp only [State.keys, State.label, State.bank, List.length_cons]; omega, fun t ht => ha' _ (ha _ ht),?_⟩
     · intro t ht; rw [hk'] at ht; rcases Finset.mem_insert.mp ht with rfl | ht
       · exact ⟨w,List.mem_cons_self,rfl⟩
       · obtain ⟨z,hz,eq⟩ := hk _ ht; exact ⟨z,List.mem_cons_of_mem _ hz,eq⟩
-    · intro x y; rw [hr',hr]; simp only [List.mem_cons]; aesop
+    · intro x y; rw [hr',hr]; simp only [State.keys, State.label, State.bank, List.mem_cons]; aesop
 
-theorem transpose [Fintype α] (L : List (Finset α)) (B : List (Finset β))
+lemma transpose [Fintype α] (L : List (Finset α)) (B : List (Finset β))
     (rect : List (Finset α × Finset β)) (row : α → Finset β)
     (bl : Built L) (bb : Built B) (hb : ∀ w ∈ rect, Av L w.1 ∧ Av B w.2)
     (cover : ∀ x y, y ∈ row x ↔ ∃ w ∈ rect, x ∈ w.1 ∧ y ∈ w.2)
@@ -562,7 +606,7 @@ theorem transpose [Fintype α] (L : List (Finset α)) (B : List (Finset β))
   obtain ⟨p,hsmall,hp',hr'⟩ := transfer bl q (fun t ht => by
     obtain ⟨w,hw,rfl⟩ := hk t ht; exact (hb _ hw).1)
   have keyeq (x : α) (u : Finset α) (hu : u ∈ p.keys) (hx : x ∈ u) : u = {x} := by
-    ext z; simp only [Finset.mem_singleton]
+    ext z; simp only [State.keys, State.label, State.bank, Finset.mem_singleton]
     exact ⟨fun hz => Finset.card_le_one.mp (hsmall _ hu) _ hz _ hx,fun e => e ▸ hx⟩
   have rep (x : α) (y : β) : y ∈ row x ↔ p.rel x y := (cover x y).trans ((hr x y).symm.trans (hr' x y).symm)
   have member (x : α) : {x} ∈ p.keys := by
@@ -571,7 +615,7 @@ theorem transpose [Fintype α] (L : List (Finset α)) (B : List (Finset β))
     exact keyeq x u hu hx ▸ hu
   have size : Fintype.card α ≤ p.keys.card := by
     let f (x : α) : {t // t ∈ p.keys} := ⟨{x},member x⟩
-    have inj : Function.Injective f := by intro x y e; simpa [f] using congrArg Subtype.val e
+    have inj : Function.Injective f := by intro x y e; simpa [State.keys, State.label, State.bank, f] using congrArg Subtype.val e
     simpa using Fintype.card_le_of_injective f inj
   refine ⟨p.bank,p.built,?_,?_⟩
   · intro x
@@ -582,7 +626,7 @@ theorem transpose [Fintype α] (L : List (Finset α)) (B : List (Finset β))
     rw [eq]; exact p.avail _ (member x)
   · unfold State.price at hp hp'; omega
 
-theorem fooling_bound [Fintype α] (rect : List (Finset α × Finset β))
+lemma fooling_bound [Fintype α] (rect : List (Finset α × Finset β))
     (R : α → β → Prop) (marker : α → β)
     (cover : ∀ x y, R x y ↔ ∃ w ∈ rect, x ∈ w.1 ∧ y ∈ w.2)
     (diag : ∀ x z, R x (marker z) ↔ x = z) : Fintype.card α ≤ rect.length := by
@@ -590,7 +634,7 @@ theorem fooling_bound [Fintype α] (rect : List (Finset α × Finset β))
   have pick (x : α) : ∃ j : Fin rect.length, x ∈ rect[j].1 ∧ marker x ∈ rect[j].2 := by
     obtain ⟨w,hw,hx,hm⟩ := (cover x _).mp ((diag x x).mpr rfl)
     obtain ⟨j,hj,ej⟩ := List.getElem_of_mem hw
-    exact ⟨⟨j,hj⟩,by simpa [ej] using hx,by simpa [ej] using hm⟩
+    exact ⟨⟨j,hj⟩,by simpa [State.keys, State.label, State.bank, ej] using hx,by simpa [State.keys, State.label, State.bank, ej] using hm⟩
   let f := fun x => (pick x).choose
   have hf (x : α) : x ∈ rect[f x].1 ∧ marker x ∈ rect[f x].2 := (pick x).choose_spec
   have inj : Function.Injective f := by
@@ -599,7 +643,7 @@ theorem fooling_bound [Fintype α] (rect : List (Finset α × Finset β))
       ⟨rect[f x],List.getElem_mem _,(hf x).1,(congrArg (fun j => marker z ∈ (rect.get j).2) eq).mpr (hf z).2⟩)
   simpa using Fintype.card_le_of_injective f inj
 
-theorem flat_price [Fintype α] (L : List (Finset α)) (B : List (Finset β))
+lemma flat_price [Fintype α] (L : List (Finset α)) (B : List (Finset β))
     (rect : List (Finset α × Finset β)) (row : α → Finset β) (marker : α → β)
     (bl : Built L) (bb : Built B) (hb : ∀ w ∈ rect, Av L w.1 ∧ Av B w.2)
     (cover : ∀ x y, y ∈ row x ↔ ∃ w ∈ rect, x ∈ w.1 ∧ y ∈ w.2)
@@ -630,7 +674,7 @@ private def paid {k : ℕ} (f : Fin k → Fin 39) (U : ℕ → Prop) (w : ℕ) :
   39 ≤ w ∧ U w ∧ d.On f w ∧ 1 < (d.proj f w).card
 
 open Classical in
-private theorem bank {k : ℕ} (f : Fin k → Fin 39) (inj : Function.Injective f)
+private lemma bank {k : ℕ} (f : Fin k → Fin 39) (inj : Function.Injective f)
     {U : ℕ → Prop} (base : d.Base U) (t : ℕ) (ht : t ≤ 39+d.m) :
     ∃ L : List (Finset (Fin k)), Built L ∧
       L.length ≤ ((range t).filter (d.paid f U)).card ∧
@@ -672,7 +716,7 @@ private theorem bank {k : ℕ} (f : Fin k → Fin 39) (inj : Function.Injective 
             simpa [proj,supp,d.inp (⟨w,hi⟩ : Fin 39)] using mx
           exact inj ((hx _ mi).symm.trans (hx _ mj))
 
-theorem banks {U : ℕ → Prop} (base : d.Base U) :
+lemma banks {U : ℕ → Prop} (base : d.Base U) :
     ∃ L : List (Finset (Fin 14)), ∃ R : List (Finset (Fin 25)), Built L ∧ Built R ∧
       L.length + R.length ≤ (d.bots U).card ∧
       (∀ w, w < 39+d.m → U w → d.On Rows3679.left w → Av L (d.proj Rows3679.left w)) ∧
@@ -708,7 +752,7 @@ end FlatDag3679.D
 namespace FlatDag3679.D
 variable {n : ℕ} (d : D n)
 
-private theorem clean_ge {w : ℕ} (h : d.clean w) : n ≤ w := by
+private lemma clean_ge {w : ℕ} (h : d.clean w) : n ≤ w := by
   by_contra! hw
   let i : Fin n := ⟨w,hw⟩
   have eq := d.inp i (fun j => decide (j=i))
@@ -716,11 +760,11 @@ private theorem clean_ge {w : ℕ} (h : d.clean w) : n ≤ w := by
   change d.val w _ = _ at eq
   simp [eq] at bad
 
-private theorem or_iff {w : ℕ} (hn : n ≤ w) (hw : w < n + d.m) (ho : d.isAnd w = false) (x : Fin n → Bool) :
+private lemma or_iff {w : ℕ} (hn : n ≤ w) (hw : w < n + d.m) (ho : d.isAnd w = false) (x : Fin n → Bool) :
     d.val w x = true ↔ d.val (d.a w) x = true ∨ d.val (d.b w) x = true := by
   rw [d.step w hn hw x]; simp [ho]
 
-private theorem clean_children {w : ℕ} (hn : n ≤ w) (hw : w < n + d.m) (ho : d.isAnd w = false) (hc : d.clean w) :
+private lemma clean_children {w : ℕ} (hn : n ≤ w) (hw : w < n + d.m) (ho : d.isAnd w = false) (hc : d.clean w) :
     d.clean (d.a w) ∧ d.clean (d.b w) := by
   have h (i : Fin n) := hc i
   simp only [d.step w hn hw,ho,Bool.false_eq_true,ite_false,Bool.or_eq_false_iff] at h
@@ -728,7 +772,7 @@ private theorem clean_children {w : ℕ} (hn : n ≤ w) (hw : w < n + d.m) (ho :
 
 private noncomputable def remaining (k : ℕ) := d.top.filter (· < k)
 
-private theorem gather (k : ℕ) (S : Finset ℕ)
+private lemma gather (k : ℕ) (S : Finset ℕ)
     (hs : ∀ w ∈ S, w < n + d.m ∧ d.clean w ∧ (d.isAnd w = true ∨ w < k)) :
     ∃ K : Finset ℕ, (∀ w ∈ K, n ≤ w ∧ w < n+d.m ∧ d.isAnd w = true ∧ d.clean w) ∧
       K.card ≤ S.card + (d.remaining k).card ∧
@@ -799,7 +843,7 @@ private theorem gather (k : ℕ) (S : Finset ℕ)
         obtain ⟨a,b⟩ := Finset.mem_filter.mp hi; exact Finset.mem_filter.mpr ⟨a,by omega⟩
       exact ⟨K,hK,price.trans (Nat.add_le_add_left (Finset.card_le_card le) _),rep⟩
 
-theorem topCover (h : d.clean d.out) : ∃ K : Finset ℕ,
+lemma topCover (h : d.clean d.out) : ∃ K : Finset ℕ,
     (∀ w ∈ K, n ≤ w ∧ w < n+d.m ∧ d.isAnd w = true ∧ d.clean w) ∧
     K.card ≤ d.top.card + 1 ∧ ∀ x, d.val d.out x = true ↔ ∃ w ∈ K, d.val w x = true := by
   obtain ⟨K,hK,hp,rep⟩ := d.gather (n+d.m) {d.out} (by
@@ -814,7 +858,7 @@ open FlatTranspose3679 FlatDag3679 Rows3679
 open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
 open Upper3679 (G)
 
-private theorem count (d : D 39) {U} (K : Finset ℕ)
+private lemma count (d : D 39) {U} (K : Finset ℕ)
     (ok : ∀ w ∈ K, 39 ≤ w ∧ w < 39+d.m ∧ d.isAnd w=true ∧ d.clean w) :
     (d.bots U).card + d.top.card + K.card ≤ d.m := by
   classical
@@ -838,7 +882,7 @@ private theorem count (d : D 39) {U} (K : Finset ℕ)
   rw [Finset.card_union_of_disjoint bk,Finset.card_union_of_disjoint bt,Nat.card_Ico] at h
   omega
 
-theorem extract (C : Circuit) (hao : IsAO2 39 C)
+lemma extract (C : Circuit) (hao : IsAO2 39 C)
     (hc : circuitFun 39 C = graphFun G ∅)
     (hflat : ∀ i < C.gates.length, ∀ j < C.gates.length, (gateAt C i).op = .and →
       (gateAt C j).op = .and → ¬ InCone 39 C i j) :
@@ -884,7 +928,7 @@ end FlatStructure3679
 namespace Rectangle3679
 open FlatTranspose3679 Rows3679
 
-theorem lower (L : List (Finset (Fin 14))) (B : List (Finset (Fin 25)))
+lemma lower (L : List (Finset (Fin 14))) (B : List (Finset (Fin 25)))
     (rect : List (Finset (Fin 14) × Finset (Fin 25))) (m : ℕ)
     (bl : Built L) (bb : Built B) (hb : ∀ w ∈ rect, Av L w.1 ∧ Av B w.2)
     (cover : ∀ x y, y ∈ row x ↔ ∃ w ∈ rect, x ∈ w.1 ∧ y ∈ w.2)
@@ -921,13 +965,13 @@ private def allows (i : Fin 7) (c : Cat) : Bool :=
   | 4 => c == 9 || c == 7 | 5 => c == 10 || c == 7
   | _ => c == 8
 private def nonwitnesses (i : Fin 7) := ((List.finRange 2048).map (fun j => BitVec.ofFin j : Fin 2048 → W)).filter (fun u => sub u (tgt i) && !allows i (tag u))
-private theorem allmask (u : W) : u ∈ (List.finRange 2048).map (fun j => BitVec.ofFin j : Fin 2048 → W) :=
+private lemma allmask (u : W) : u ∈ (List.finRange 2048).map (fun j => BitVec.ofFin j : Fin 2048 → W) :=
   List.mem_map.mpr ⟨u.toFin,List.mem_finRange _,rfl⟩
 set_option maxHeartbeats 0 in
 set_option maxRecDepth 100000 in
-private theorem pairCert : ∀ i : Fin 7,
+private lemma pairCert : ∀ i : Fin 7,
     (nonwitnesses i).all (fun u => (nonwitnesses i).all (fun v => !(split (tgt i) u v))) = true := by decide +kernel
-private theorem allows_split (i : Fin 7) (u v : W) (h : split (tgt i) u v=true) :
+private lemma allows_split (i : Fin 7) (u v : W) (h : split (tgt i) u v=true) :
     allows i (tag u)=true ∨ allows i (tag v)=true := by
   simp only [split,Bool.and_eq_true,beq_iff_eq] at h
   have su : sub u (tgt i)=true := by
@@ -942,7 +986,7 @@ private theorem allows_split (i : Fin 7) (u v : W) (h : split (tgt i) u v=true) 
   have eq : split (tgt i) u v = true := by simpa only [split,Bool.and_eq_true,beq_iff_eq] using h
   exact (Bool.noConfusion (contra.symm.trans eq))
 private def demand (a b c : Cat) (i : Fin 7) := allows i a || allows i b || allows i c
-private theorem takeDemand {a b c : W} (i : Fin 7) (h : can (a::b::c::(inputs++targets)) (tgt i)=true) :
+private lemma takeDemand {a b c : W} (i : Fin 7) (h : can (a::b::c::(inputs++targets)) (tgt i)=true) :
     demand (tag a) (tag b) (tag c) i=true := by
   obtain ⟨u,hu,h⟩ := List.any_eq_true.mp h
   obtain ⟨v,hv,h⟩ := List.any_eq_true.mp h
@@ -955,13 +999,13 @@ private theorem takeDemand {a b c : W} (i : Fin 7) (h : can (a::b::c::(inputs++t
       have f := (by decide : ∀ i : Fin 7, allows i 0=false) i
       rw [z,f] at h; contradiction
   exact (allows_split i u v h).elim (one _ hu) (one _ hv)
-private theorem tag_eq : ∀ (i : Fin 3) (u : W), tag u = (⟨5+i.val,by omega⟩ : Cat) → u = tgt ⟨4+i.val,by omega⟩ := by decide +kernel
-private theorem tag_noinput : ∀ i : Fin 3, inputs.contains (tgt ⟨4+i.val,by omega⟩) = false := by decide
-private theorem tags_impossible : ∀ a b c : Cat,
+private lemma tag_eq : ∀ (i : Fin 3) (u : W), tag u = (⟨5+i.val,by omega⟩ : Cat) → u = tgt ⟨4+i.val,by omega⟩ := by decide +kernel
+private lemma tag_noinput : ∀ i : Fin 3, inputs.contains (tgt ⟨4+i.val,by omega⟩) = false := by decide
+private lemma tags_impossible : ∀ a b c : Cat,
     (∀ i : Fin 4, demand a b c ⟨i.val,by omega⟩ = true) →
     (∀ i : Fin 3, (⟨5+i.val,by omega⟩ : Cat) ∈ [a,b,c] → demand a b c ⟨4+i.val,by omega⟩ = true) → False := by decide +kernel
 
-private theorem certificate (a b c : W) :
+private lemma certificate (a b c : W) :
     let pool := a :: b :: c :: (inputs ++ targets)
     ¬ ((big.all (can pool)) && ([a,b,c].all (fun w => inputs.contains w || can pool w))) = true := by
   intro pool ok
@@ -977,16 +1021,23 @@ private theorem certificate (a b c : W) :
     have eq := tag_eq i u e; subst u
     simpa only [tag_noinput,Bool.false_or] using List.all_eq_true.mp hh _ hu
 
-inductive Trace : List W → Prop
-| nil : Trace []
-| gate {tail : List W} {u v : W} : Trace tail → u ∈ inputs ++ tail → v ∈ inputs ++ tail →
-    Trace ((u ||| v) :: tail)
+def Trace : List W → Prop
+  | [] => True
+  | w :: tail => Trace tail ∧ ∃ u ∈ inputs ++ tail, ∃ v ∈ inputs ++ tail, w = u ||| v
 
-private theorem explain {ws : List W} (h : Trace ws) {w : W} (hw : w ∈ ws) :
+lemma Trace.nil : Trace [] := trivial
+
+lemma Trace.gate {tail : List W} {u v : W} (h : Trace tail)
+    (hu : u ∈ inputs ++ tail) (hv : v ∈ inputs ++ tail) : Trace ((u ||| v) :: tail) :=
+  ⟨h, u, hu, v, hv, rfl⟩
+
+private lemma explain {ws : List W} (h : Trace ws) {w : W} (hw : w ∈ ws) :
     w ∈ inputs ∨ ∃ u ∈ inputs ++ ws, ∃ v ∈ inputs ++ ws, split w u v = true := by
-  induction h with
+  induction ws with
   | nil => simp at hw
-  | @gate tail u v ht hu hv ih =>
+  | cons z tail ih =>
+    obtain ⟨ht, u, hu, v, hv, rfl⟩ := h
+    have ih := ih ht
     have lift (x : W) (hx : x ∈ inputs ++ tail) : x ∈ inputs ++ (u ||| v) :: tail := by
       simpa only [List.mem_append, List.mem_cons] using
         (List.mem_append.mp hx).imp_right (fun h => Or.inr h : x ∈ tail → x = u ||| v ∨ x ∈ tail)
@@ -1007,7 +1058,7 @@ private theorem explain {ws : List W} (h : Trace ws) {w : W} (hw : w ∈ ws) :
       exact Or.inr ⟨u,lift _ hu,v,lift _ hv,by simp [split, neq _ hu, neq _ hv]⟩
     · exact transfer hw
 
-private theorem three (s : Finset W) (h : s.card ≤ 3) :
+private lemma three (s : Finset W) (h : s.card ≤ 3) :
     ∃ a b c : W, (∀ w ∈ s, w ∈ [a,b,c]) ∧ ∀ w ∈ [a,b,c], w = 0 ∨ w ∈ s := by
   let l := s.toList
   have hl : l.length ≤ 3 := by simpa [l] using h
@@ -1022,7 +1073,7 @@ private theorem three (s : Finset W) (h : s.card ≤ 3) :
         | nil => exact ⟨a,b,c,by simp_all,by simp_all⟩
         | cons d z => simp [e, et, er, ek] at hl; omega
 
-theorem length_lower {ws : List W} (trace : Trace ws) (outs : ∀ w ∈ targets, w ∈ ws) :
+lemma length_lower {ws : List W} (trace : Trace ws) (outs : ∀ w ∈ targets, w ∈ ws) :
     18 ≤ ws.length := by
   by_contra! small
   let extra := ws.toFinset \ targets.toFinset
@@ -1076,9 +1127,15 @@ private def unitBit (j : Fin 25) : P := BitVec.ofNat 25 (2 ^ j.val)
 private def free (w : P) : Prop := w = 0 ∨ ∃ j, w = unitBit j
 private def usable (bank : List P) (w : P) := free w ∨ w ∈ bank
 
-inductive Trace : List P → Prop
-  | nil : Trace []
-  | gate {t : List P} {u v : P} : Trace t → usable t u → usable t v → Trace ((u ||| v) :: t)
+def Trace : List P → Prop
+  | [] => True
+  | w :: tail => Trace tail ∧ ∃ u, usable tail u ∧ ∃ v, usable tail v ∧ w = u ||| v
+
+lemma Trace.nil : Trace [] := trivial
+
+lemma Trace.gate {tail : List P} {u v : P} (h : Trace tail)
+    (hu : usable tail u) (hv : usable tail v) : Trace ((u ||| v) :: tail) :=
+  ⟨h, u, hu, v, hv, rfl⟩
 
 private def low (w : P) : Tarjan3679.W := w.setWidth 11
 private def high (w : P) : Finset (Fin 14) :=
@@ -1086,9 +1143,9 @@ private def high (w : P) : Finset (Fin 14) :=
 private def key (i : Fin 14) : Finset (Fin 14) := {i}
 
 private def marked (w : P) (i : Fin 14) := high w = key i ∧ low w ≠ 0
-private theorem low_union (u v : P) : low (u ||| v) = low u ||| low v := by
+private lemma low_union (u v : P) : low (u ||| v) = low u ||| low v := by
   exact BitVec.setWidth_or
-private theorem inherit_key (u v : P) (i : Fin 14) (h : high (u ||| v) = key i) :
+private lemma inherit_key (u v : P) (i : Fin 14) (h : high (u ||| v) = key i) :
     high u = key i ∨ high v = key i := by
   have eq : high u ∪ high v = {i} := by
     change high u ∪ high v = key i
@@ -1099,31 +1156,32 @@ private theorem inherit_key (u v : P) (i : Fin 14) (h : high (u ||| v) = key i) 
     rw [← eq]; exact Finset.subset_union_left
   · right; apply Finset.Subset.antisymm _ (Finset.singleton_subset_iff.mpr hv)
     rw [← eq]; exact Finset.subset_union_right
-private theorem key_inj (i j : Fin 14) (h : key i = key j) : i = j := by simpa [key] using h
-private theorem free_low {w : P} (h : free w) : low w ∈ Tarjan3679.inputs := by
+private lemma key_inj (i j : Fin 14) (h : key i = key j) : i = j := by simpa [key] using h
+private lemma free_low {w : P} (h : free w) : low w ∈ Tarjan3679.inputs := by
   rcases h with rfl | ⟨j,rfl⟩
   · decide
   · exact (by decide +kernel : ∀ j : Fin 25, low (unitBit j) ∈ Tarjan3679.inputs) j
-private theorem free_unmarked {w : P} (h : free w) (i : Fin 14) : ¬ marked w i := by
+private lemma free_unmarked {w : P} (h : free w) (i : Fin 14) : ¬ marked w i := by
   rcases h with rfl | ⟨j,rfl⟩
   · intro hm; exact hm.2 rfl
   · exact (by unfold marked; decide +kernel : ∀ j : Fin 25, ∀ i : Fin 14, ¬ marked (unitBit j) i) j i
 
-private theorem project {ws : List P} (h : Trace ws) :
+private lemma project {ws : List P} (h : Trace ws) :
     ∃ (ts : List Tarjan3679.W) (paid : Finset (Fin 14)), Tarjan3679.Trace ts ∧
     ts.length + paid.card ≤ ws.length ∧
     (∀ w, usable ws w → low w ∈ Tarjan3679.inputs ++ ts) ∧
     ∀ w, usable ws w → ∀ i, marked w i → i ∈ paid := by
   classical
-  induction h with
+  induction ws with
   | nil =>
     refine ⟨[],∅,.nil,by simp,?_,?_⟩
     · intro w hw; have hf : free w := by simpa [usable] using hw
       simpa using free_low hf
     · intro w hw i hm; have hf : free w := by simpa [usable] using hw
       exact (free_unmarked hf i hm).elim
-  | @gate t u v ht hu hv ih =>
-    obtain ⟨ts,paid,bt,cost,avail,tracked⟩ := ih
+  | cons z t ih =>
+    obtain ⟨ht, u, hu, v, hv, rfl⟩ := h
+    obtain ⟨ts,paid,bt,cost,avail,tracked⟩ := ih ht
     have casesWire (w : P) (hw : usable ((u ||| v) :: t) w) : w = u ||| v ∨ usable t w := by
       simpa only [usable,List.mem_cons] using (show w = u ||| v ∨ free w ∨ w ∈ t by
         rcases hw with hf | h; exact Or.inr (Or.inl hf); exact (List.mem_cons.mp h).imp_right Or.inr)
@@ -1157,7 +1215,7 @@ private def bitsAux (s : Finset (Fin 25)) : List (Fin 25) → P
   | [] => 0
   | j :: js => (if j ∈ s then unitBit j else 0) ||| bitsAux s js
 private def bits (s : Finset (Fin 25)) : P := bitsAux s (List.finRange 25)
-private theorem bits_union (a b : Finset (Fin 25)) : bits (a ∪ b) = bits a ||| bits b := by
+private lemma bits_union (a b : Finset (Fin 25)) : bits (a ∪ b) = bits a ||| bits b := by
   unfold bits
   generalize List.finRange 25 = js
   induction js with
@@ -1166,26 +1224,29 @@ private theorem bits_union (a b : Finset (Fin 25)) : bits (a ∪ b) = bits a |||
     by_cases h : j ∈ a <;> by_cases k : j ∈ b <;> simp [bitsAux,h,k,ih] <;>
       apply BitVec.eq_of_getLsbD_eq <;> intro n hn <;>
       simp [BitVec.getLsbD_or,Bool.or_assoc,Bool.or_left_comm,Bool.or_comm]
-private theorem small_free (w : Finset (Fin 25)) (h : w.card ≤ 1) : free (bits w) := by
+private lemma small_free (w : Finset (Fin 25)) (h : w.card ≤ 1) : free (bits w) := by
   by_cases he : w = ∅
   · subst w; exact Or.inl rfl
   · have hp := Finset.card_pos.mpr (Finset.nonempty_iff_ne_empty.mpr he)
     obtain ⟨j,rfl⟩ := Finset.card_eq_one.mp (show w.card = 1 by omega)
     exact Or.inr ⟨j,(by decide +kernel : ∀ j : Fin 25, bits {j} = unitBit j) j⟩
-private theorem avail_bits {B : List (Finset (Fin 25))} {w : Finset (Fin 25)} (h : Av B w) :
+private lemma avail_bits {B : List (Finset (Fin 25))} {w : Finset (Fin 25)} (h : Av B w) :
     usable (B.map bits) (bits w) :=
   h.elim (fun hs => Or.inl (small_free _ hs)) (fun hw => Or.inr (List.mem_map.mpr ⟨w,hw,rfl⟩))
-private theorem packed {B : List (Finset (Fin 25))} (h : Built B) : Trace (B.map bits) := by
-  induction h with
+private lemma packed {B : List (Finset (Fin 25))} (h : Built B) : Trace (B.map bits) := by
+  induction B with
   | nil => exact .nil
-  | cons _ hu hv ih => simp only [List.map_cons,bits_union]; exact .gate ih (avail_bits hu) (avail_bits hv)
+  | cons S B ih =>
+    obtain ⟨hB, u, v, hu, hv, rfl⟩ := h
+    simp only [List.map_cons,bits_union]
+    exact .gate (ih hB) (avail_bits hu) (avail_bits hv)
 
 set_option maxRecDepth 10000 in
-private theorem row_marks : ∀ i : Fin 14, marked (bits (Rows3679.row i)) i := by unfold marked; decide +kernel
+private lemma row_marks : ∀ i : Fin 14, marked (bits (Rows3679.row i)) i := by unfold marked; decide +kernel
 set_option maxRecDepth 10000 in
-private theorem row_data : List.ofFn (fun i : Fin 14 => low (bits (Rows3679.row i))) = Tarjan3679.targets := by decide +kernel
+private lemma row_data : List.ofFn (fun i : Fin 14 => low (bits (Rows3679.row i))) = Tarjan3679.targets := by decide +kernel
 
-theorem length_lower {B : List (Finset (Fin 25))} (h : Built B) (out : ∀ i, Av B (Rows3679.row i)) :
+lemma length_lower {B : List (Finset (Fin 25))} (h : Built B) (out : ∀ i, Av B (Rows3679.row i)) :
     32 ≤ B.length := by
   obtain ⟨ts,paid,ht,cost,avail,tracked⟩ := project (packed h)
   have hall : paid = Finset.univ := Finset.eq_univ_of_forall (fun i => tracked _ (avail_bits (out i)) i (row_marks i))
@@ -1203,7 +1264,7 @@ end Padding3679
 namespace Finish3679
 open Upper3679 PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership
 def Flat (D : Circuit) := ∀ i < D.gates.length, ∀ j < D.gates.length, (gateAt D i).op = GateOp.and → (gateAt D j).op = GateOp.and → ¬InCone 39 D i j
-theorem finish (lb : ∀ D, IsAO2 39 D → circuitFun 39 D = graphFun G ∅ → Flat D → 59 ≤ D.size) : ¬ (∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (s : Fin n → Bool),
+lemma finish (lb : ∀ D, IsAO2 39 D → circuitFun 39 D = graphFun G ∅ → Flat D → 59 ≤ D.size) : ¬ (∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (s : Fin n → Bool),
   (∀ u v : Fin n, G.Adj u v → s u ≠ s v) →
   (∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.TopForm.IsAO2 n C ∧
     PEqualNP.MetaComplexity.circuitFun n C = PEqualNP.MetaComplexity.NestedCover.graphFun G ∅) →
@@ -1220,7 +1281,7 @@ end Finish3679
 namespace Joined3679
 open Upper3679 PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
 
-theorem flat_lower (D : Circuit) (hao : IsAO2 39 D) (hc : circuitFun 39 D = graphFun G ∅)
+lemma flat_lower (D : Circuit) (hao : IsAO2 39 D) (hc : circuitFun 39 D = graphFun G ∅)
     (flat : Finish3679.Flat D) : 59 ≤ D.size := by
   obtain ⟨L,R,rect,bl,br,avail,cover,budget⟩ := FlatStructure3679.extract D hao hc flat
   exact Rectangle3679.lower L R rect D.size bl br avail cover budget (fun _ => Padding3679.length_lower)

@@ -11,3 +11,5 @@
 2026-11-24T17:23:18.600985+00:00 private-step cardinality and transposition primitives compiled and reviewed.
 2026-11-24T17:26:44.877781+00:00 independently built pmatos PR7597 full refutation; reviewed baseline preserved before plain-file adaptation.
 2026-11-24T17:27:47.992069+00:00 independent full upper witness, transpose, flat partition, and pruning helpers compiled and reviewed.
+2026-11-24T17:34:54.935792+00:00 original pmatos baseline local checker ACCEPTED; integrated plain-file adaptation prepared for full validation.
+2026-11-24T17:41:32.826539+00:00 complete plain-file L_meta_3679 built successfully and exact source independently reviewed; final checker started.
