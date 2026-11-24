@@ -1,0 +1,26 @@
+{
+  "frozen_at": "2026-11-24T09:13:08.552483+00:00",
+  "no_smaller_witness": true,
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "a83abe6b718dbd84cafae7957a5d415587e9efe3bd3035fc5cd5dafbd2303426",
+      "bytes": 864
+    },
+    {
+      "file": "search-alternative6-sym28.log",
+      "sha256": "66b19f934695c72851cf3b2f03ec040322f10280642c9a13e465f81352cc3e6f",
+      "bytes": 40374
+    },
+    {
+      "file": "search-k4-dirty15.log",
+      "sha256": "7900fec53889f703d2ff6603c84bd4d596bc2c4d502cb8d950a1ac92b3c36d8d",
+      "bytes": 21801
+    },
+    {
+      "file": "stochastic-plane-run-003.log",
+      "sha256": "eb4884631c72a71cf008d0864d04125309d0fcb97929a825a06be7f062889beb",
+      "bytes": 20900
+    }
+  ]
+}

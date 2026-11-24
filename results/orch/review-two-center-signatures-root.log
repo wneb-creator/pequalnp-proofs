@@ -1,0 +1,4 @@
+PASS independent source/math/provenance/format review by root.
+SHA256 fd9d267c6791cf8e84be492d2b63f56a171a985f08555d0628f0c27b25af6783
+Exact reviewed TwoJunkBudget prefix. Two distinct heavy rows cannot have nested accepted neighborhoods in a C4-free graph; inclusion of two-bit signatures gives precisely that forbidden nesting. Boolean case split yields opposite singleton signatures. The common-filter support is contained in their common neighborhood and hence has at most one vertex.
+All adjacency/support/distinctness/degree premises explicit. No stronger global circuit claim. Forbidden literals and unscoped options absent. Author build001 exit0, empty log inspected; no redundant rebuild.

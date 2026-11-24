@@ -125,3 +125,11 @@
 2026-11-24 09:08:03 UTC gate_invariants: strict private two-junk clean module budget+semantics compiled (FourClauseStarsStrict).
 
 2026-11-24T09:09:10.005125+00:00 Root: named exact-statement checker exit1, REJECTED (no-theorem); preserved compiled and reviewed private-block strict savings, four-clause cover-two, completed local search. No acceptance claim.
+
+- 2026-11-24 09:10:12 UTC: lean_setup completed FirstDirtyProduct/Accounting reviews and produced independently reviewed BoundarySharingChecked proof, first build PASS.
+
+- 2026-11-24 09:10:47 UTC: lean_setup compiled boundary-sharing center-erasure strengthening with empty log; frozen snapshot sent for independent review.
+
+- 2026-11-24 09:14:16 UTC — Private four-clause strict-saving corollary compiled and independently reviewed; triangle9 conditional+72 lift compiled. Local interacting-helper search active, no target witness.
+
+2026-11-24T09:14:49.646896+00:00 Root preserved general dirty-pair decomposition, private four-clause strict replacement, boundary sharing and residual-root counting. Still partial; arbitrary-junk lower bound open.

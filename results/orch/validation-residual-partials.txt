@@ -1,0 +1,14 @@
+L-meta-1477 PARTIALS ONLY. Exact unrestricted statement remains unproved.
+Named file unchanged; lake build passed, exact checker REJECTED (no-theorem).
+The general dirty-pair decomposition is unconditional under least-AO/TopForm, but the joint charging/replacement conclusions retain explicit support or privacy hypotheses. No reduction of arbitrary circuits to two junk gates is established.
+
+BoundarySharingChecked 77 lines SHA256 219a99fc616e58d548e37e01ba579c057d99e6efc4f0b650df7d4549cb8e7f17; author build exit0; independent review PASS
+BoundarySharingCenter 109 lines SHA256 805f013f17da76fc86730092c32999d736b1c11c08e58f7c489c999147c7032b; author build exit0; independent review PASS
+PrivateFourClause 2514 lines SHA256 efd71283d855d8a7811770604b174b8509aea8328e99aabff8da595af8688428; author build exit0; independent review PASS
+GeneralDirtyPairs 3776 lines SHA256 23c1d87b25c33890daaab82c39879fefe248e13f9ccdbbce55b892ef40252f7c; author build exit0; independent review PASS
+ResidualRootCone 4000 lines SHA256 0b5bcea143cd81cb0c8d4c0dc1c3631cc1ff0a0e14d183ecc33f8c0fc9bede39; author build exit0; independent review PASS
+TwoCenterSignatures 453 lines SHA256 fd9d267c6791cf8e84be492d2b63f56a171a985f08555d0628f0c27b25af6783; author build exit0; independent review PASS
+CoverConversion 45 lines SHA256 baae578c61eead3dfbd868cd12acf006950c686f58610b8f5f9b1a0c76a6cbee; author build exit0; independent review PASS
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=186.3 subagents=6

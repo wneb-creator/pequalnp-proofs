@@ -1,0 +1,8 @@
+PASS independent source/math/provenance review
+SHA256 23c1d87b25c33890daaab82c39879fefe248e13f9ccdbbce55b892ef40252f7c
+Exact reviewed OneJunkProduct prefix.
+Opposite true OR leaf is either an input endpoint yielding a global cleaner, or an AND ancestor that TopForm forces dirty.
+The second dirty gate is distinct because the same dirty gate cannot feed both operands of a clean top.
+OR-path monotonicity then proves global joint cleanliness for the two dirty gates.
+No singleton-junk or unstated graph assumptions introduced.
+Author reports compiled frozen snapshot; no duplicate build performed.
