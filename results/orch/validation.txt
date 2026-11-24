@@ -1,0 +1,11 @@
+Gap: L-meta-3314
+Result: exact negation of the posted statement
+File: lean/PEqualNP/Outside/L_meta_3314.lean
+Initial lines: 105
+Build: Build completed successfully (18419 jobs).
+Checker: ACCEPTED (refute); 1661 constants; axioms propext, Classical.choice, Quot.sound
+Independent red-team review: PASS
+Desk null answers: 0
+Desk submission limitation: row kind check, no posted refutation twin.
+Sub-agents: counterexample (main proof), circuit_lemmas (monotonicity), rules_review (independent review)
+TIMING total=8.93 subagents=3

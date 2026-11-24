@@ -1,0 +1,5 @@
+L-meta-3314: candidate refutation by predicate False. Monotone wires preserve order; maximal True is alltrue, where final OR must be false. Unequal wire values at one test assignment make their OR true below alltrue, contradiction.
+
+Parent owns lease; agents must not call desk.
+
+2026-11-24T15:18:30.561361+00:00 circuit_lemmas: Root cause located in lean/PEqualNP/Outside/R_meta_2876_1.lean. Its h_or and h_and hypotheses universally quantify an arbitrary predicate x1, while its conclusion binds x1 to the Heawood edge predicate. L-meta-3314 is exactly h_or, which is false at the constant False predicate. Monotone2 permits nullary AND gates (constant true), so the initially proposed allfalse invariant is invalid; wire monotonicity is valid. Checked upstream source L_meta_150 supplies a shorter fold invariant, extracted with a wrapper into /tmp/oec/pequalnp-pilot-33/circuit_lemmas/ShortWireMono.lean (79 lines). Fallback from L_meta_616 is WireMono.lean (157 lines). Neither scratch candidate has been locally compiled yet; waiting for cache and Defs build.
