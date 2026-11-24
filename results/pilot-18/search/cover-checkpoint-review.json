@@ -1,0 +1,204 @@
+{
+  "verdict": "PASS_FOR_RESEARCH_CHECKPOINT_PUSH",
+  "timestamp_utc": "2026-11-24T02:59:11.265280+00:00",
+  "base_commit": "7514a6532d02ed4aa9d5ada9415ea8e40a372cba",
+  "files": [
+    {
+      "path": "results/pilot-18/search/README.md",
+      "bytes": 7651,
+      "sha256": "13fecfb6d09af16481be4f2cb25a200d560c7d9db5376073169c40908c0083f3"
+    },
+    {
+      "path": "results/pilot-18/validation.txt",
+      "bytes": 4552,
+      "sha256": "6187819d32eba0241e85d40a17df43925c397809890a63a43b85e4f6d7ed2705"
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-first-batch-result.json",
+      "bytes": 4926,
+      "sha256": "7c47122057bbdfa47985029401162b844625ddab727b9414df37474b82853f46",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/ancestor-first-batch-result.json",
+      "source_sha256": "7c47122057bbdfa47985029401162b844625ddab727b9414df37474b82853f46",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-online-meet5-checker.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/ancestor-online/meet5/checker.stderr.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-online-meet5-checker.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/ancestor-online/meet5/checker.stdout.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-online-meet5-result.json",
+      "bytes": 2117,
+      "sha256": "20c3bf5b978cabb0b9ce1b7fa7ff2fba2af70f2caa6ff7560be03be16186e78b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/ancestor-online/meet5/result.json",
+      "source_sha256": "20c3bf5b978cabb0b9ce1b7fa7ff2fba2af70f2caa6ff7560be03be16186e78b",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-online-meet5-solver.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/ancestor-online/meet5/solver.stderr.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-online-meet5-solver.stdout.txt",
+      "bytes": 156873,
+      "sha256": "39db33567c2d965c2063a0edb0d242249c36c099fa6bb7c1ee6c7f3960713315",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/ancestor-online/meet5/solver.stdout.txt",
+      "source_sha256": "39db33567c2d965c2063a0edb0d242249c36c099fa6bb7c1ee6c7f3960713315",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-online-or1meet4-checker.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/ancestor-online/or1meet4/checker.stderr.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-online-or1meet4-checker.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/ancestor-online/or1meet4/checker.stdout.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-online-or1meet4-result.json",
+      "bytes": 2114,
+      "sha256": "460c8f1a4274392858e9b7b6a198617f81f18592373f85e9c86fbf8cf64fdd6d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/ancestor-online/or1meet4/result.json",
+      "source_sha256": "460c8f1a4274392858e9b7b6a198617f81f18592373f85e9c86fbf8cf64fdd6d",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-online-or1meet4-solver.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/ancestor-online/or1meet4/solver.stderr.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-online-or1meet4-solver.stdout.txt",
+      "bytes": 155783,
+      "sha256": "21e43b3fb5301054dbf143dc25a8936a992a1a6f73d4537f6d73aa702584893c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/ancestor-online/or1meet4/solver.stdout.txt",
+      "source_sha256": "21e43b3fb5301054dbf143dc25a8936a992a1a6f73d4537f6d73aa702584893c",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/audit_cover_neighborhoods.py",
+      "bytes": 10890,
+      "sha256": "c95bedc59ed0f48eea883144c6b99c74a8ad5d5942f2ba5a91d8d6843280d90c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/lean-setup/audit_cover_neighborhoods.py",
+      "source_sha256": "c95bedc59ed0f48eea883144c6b99c74a8ad5d5942f2ba5a91d8d6843280d90c",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/cover-controller-review.json",
+      "bytes": 3290,
+      "sha256": "5fcc221b1c8c82d58746dfe444461c5ab67115616656b7a1c341b05db0848dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cover-controller-review.json",
+      "source_sha256": "5fcc221b1c8c82d58746dfe444461c5ab67115616656b7a1c341b05db0848dcb",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/cover-neighborhood-independent-review.json",
+      "bytes": 3843,
+      "sha256": "8a6c1a3c9b0408690faeedba7857a553d9623235038a5619ec43360c86cb5d3f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/cover-neighborhood-independent-review.json",
+      "source_sha256": "8a6c1a3c9b0408690faeedba7857a553d9623235038a5619ec43360c86cb5d3f",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/cover-neighborhood-review.json",
+      "bytes": 9033,
+      "sha256": "8ad5bf0d9aaf3fa4253eb3161b9713b167d59e36fe51a5f9b8b8a1a87c56e8c9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cover-neighborhood-review.json",
+      "source_sha256": "8ad5bf0d9aaf3fa4253eb3161b9713b167d59e36fe51a5f9b8b8a1a87c56e8c9",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/cover-neighborhoods-144-manifest.json",
+      "bytes": 59478,
+      "sha256": "b6463e051994e8a3bb26931a91ea1ea36bbc50361e9850a75f58a2944e869232",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/cover-neighborhoods-144/family.json",
+      "source_sha256": "b6463e051994e8a3bb26931a91ea1ea36bbc50361e9850a75f58a2944e869232",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/generate_cover_neighborhoods.py",
+      "bytes": 8926,
+      "sha256": "91bc4ce8fa0c7ce92bd6a1280cb836ca100729ced9ac1c4b7d6b66fbf97e8f68",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/lean-setup/generate_cover_neighborhoods.py",
+      "source_sha256": "91bc4ce8fa0c7ce92bd6a1280cb836ca100729ced9ac1c4b7d6b66fbf97e8f68",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/paused-ancestor-queue.json",
+      "bytes": 275,
+      "sha256": "863b2ad16f96e0baecbfa3b38f2e20d22b05da4e604d08797bf147a66d091bac",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/paused-ancestor-queue.json",
+      "source_sha256": "863b2ad16f96e0baecbfa3b38f2e20d22b05da4e604d08797bf147a66d091bac",
+      "exact_source_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/run_cover_candidates.py",
+      "bytes": 4954,
+      "sha256": "e60ae4b64015c74674be737f890fb3cd20ff7b7f12d739ef7625a27a6d2e235a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/run_cover_candidates.py",
+      "source_sha256": "e60ae4b64015c74674be737f890fb3cd20ff7b7f12d739ef7625a27a6d2e235a",
+      "exact_source_copy": true
+    }
+  ],
+  "changed_count": 21,
+  "new_count": 19,
+  "edited_count": 2,
+  "exact_scratch_copy_count": 19,
+  "lean": {
+    "path": "lean/PEqualNP/Outside/L_meta_1342.lean",
+    "sha256": "f4bd1991b5602c241151fac9e8a2279df1a4ae9b6f4b6aa44782a27c0f4d6ea5",
+    "unchanged_from_HEAD": true
+  },
+  "blocking_findings": [],
+  "checks": {
+    "all_changes_under_results_pilot18": true,
+    "all_copied_files_byte_identical_to_scratch": true,
+    "both_ABORTED_records_match_full_original_logs": true,
+    "all_eight_logs_bound_by_recorded_hash_and_size": true,
+    "no_solver_or_checker_verdict_in_aborted_logs": true,
+    "aggregate_result_matches_individual_results": true,
+    "proof_streams_incomplete_and_not_accepted": true,
+    "manifest_and_source_hash_bindings_match_review": true,
+    "generator_and_controller_source_previously_independently_reviewed": true,
+    "README_and_validation_describe_ABORTED_not_UNSAT": true,
+    "candidate_only_and_no_exhaustion_claims_accurate": true,
+    "known22_controls_not_presented_as_21_witnesses": true,
+    "no_credential_or_lease_value_detected": true,
+    "no_related_or_unrelated_Lean_change": true,
+    "no_staged_diff": true
+  },
+  "format_scope": "Research checkpoint on fork branch, not a final single-file proof PR. No Lean commands/imports/statements changed.",
+  "limits": [
+    "No solver launched or process modified. No desk or git write performed.",
+    "No new Lean proof or CNF exhaustion result claimed.",
+    "The copied source contains original scratch paths; reproducibility uses those paths or an explicit reviewed relocation."
+  ],
+  "Sub-agents": "none",
+  "TIMING": "total=160.4 subagents=0"
+}

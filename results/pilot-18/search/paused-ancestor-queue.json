@@ -1,0 +1,6 @@
+{
+  "supervisor_pid": 11825,
+  "paused_utc": "2026-11-24T02:45:28.707789+00:00",
+  "reason": "Let first two cases finish their one-hour limits; prevent queued older formulas from starting while a stronger original-DAG search is prepared.",
+  "active_workers_paused": false
+}

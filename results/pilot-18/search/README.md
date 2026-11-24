@@ -104,3 +104,15 @@ DAG would exclude the assigned shard under the reviewed normalizations, without
 requiring seven template results. It would not refute the global Lean statement.
 A CaDiCaL --unsat run now streams its certificate through the unchanged checker
 runner. No production verdict has been obtained.
+
+The two one-hour online formula-tail runs (`ancestor-online-meet5-*` and
+`ancestor-online-or1meet4-*`) both ended ABORTED at their wall-time limit.
+Neither returned a solver verdict or a verified UNSAT certificate. Their full
+solver/checker stdout and stderr are retained, including empty files.
+
+`generate_cover_neighborhoods.py` creates candidate-only searches preserving
+8–14 gates from exact 22-gate minimum-cover constructions. The reproducible
+144-case manifest, seed, all formula hashes, generator audit, independent
+review, and reviewed one-to-two-worker controller are retained here. Any SAT
+model still requires all-input validation and Lean verification. These local
+neighborhoods cannot establish assigned-shard or global exhaustion.

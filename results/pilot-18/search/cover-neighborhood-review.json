@@ -1,0 +1,240 @@
+{
+  "verdict": "PASS_SELF_AUDIT_READY_FOR_MAIN_INDEPENDENT_REVIEW",
+  "timestamp_utc": "2026-11-24T02:50:27.634921+00:00",
+  "generator": "/tmp/oec/pequalnp-pilot-18/lean-setup/generate_cover_neighborhoods.py",
+  "generator_sha256": "91bc4ce8fa0c7ce92bd6a1280cb836ca100729ced9ac1c4b7d6b66fbf97e8f68",
+  "base_generator_sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+  "audit_script_sha256": "c95bedc59ed0f48eea883144c6b99c74a8ad5d5942f2ba5a91d8d6843280d90c",
+  "validator_sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+  "minimum_cover_count": 22,
+  "baseline_circuits_validated_all2048_before_and_after_normalization": 102,
+  "candidate_formulas": 14,
+  "candidate_formula_audits": {
+    "c0000-k08": {
+      "sha256": "eb6b3c479a2a983fe575420056639b147e0e065a85cbf99dced415a1c0a46de3",
+      "variables": 4533,
+      "clauses": 74866,
+      "prefix": 8,
+      "pins": 24,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0001-k09": {
+      "sha256": "f749e1e6862295173091527af4070ed4f8dfaa6d8cf2201de64d37e53de9ff19",
+      "variables": 4469,
+      "clauses": 73938,
+      "prefix": 9,
+      "pins": 27,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0002-k10": {
+      "sha256": "2bc76933e118fecdac6d8371b380bba339a3d0994ff27f761611071cf26cff2a",
+      "variables": 4405,
+      "clauses": 73058,
+      "prefix": 10,
+      "pins": 30,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0003-k11": {
+      "sha256": "e0356c280af46ff0e76e44b260965be805bdbd0c3461fef21df4fa2dbf836099",
+      "variables": 4341,
+      "clauses": 72226,
+      "prefix": 11,
+      "pins": 33,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0004-k12": {
+      "sha256": "558e7ad14c515bffc357094916a258caf40743baca99499d25cf625b537917f8",
+      "variables": 4277,
+      "clauses": 71442,
+      "prefix": 12,
+      "pins": 36,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0005-k13": {
+      "sha256": "4c1b4e5a36050cee3e9893c2d7a07aa6d8c93fe41c1674ec209cd4cd47a81533",
+      "variables": 4213,
+      "clauses": 70706,
+      "prefix": 13,
+      "pins": 39,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0006-k14": {
+      "sha256": "ecd321b2cd933786deeaff778083a11c5ddba53f59d117763ffd9d4b3ef8b065",
+      "variables": 4149,
+      "clauses": 70018,
+      "prefix": 14,
+      "pins": 42,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0007-k08": {
+      "sha256": "4e5b5c60fee0b9e6019ddfa39ff3635181edbe34bf678aea211cd4a2a2cb1e1f",
+      "variables": 4533,
+      "clauses": 74866,
+      "prefix": 8,
+      "pins": 24,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0008-k09": {
+      "sha256": "d78d8cbba8ba5374f3a26b736ccee1ac4b1ddc5a502e7523420706c76d3c61d5",
+      "variables": 4469,
+      "clauses": 73938,
+      "prefix": 9,
+      "pins": 27,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0009-k10": {
+      "sha256": "55ce56fbad13aaeb863e656fe9e77ecbc6e53b3dc407bdcabc3b023cc3c651c3",
+      "variables": 4405,
+      "clauses": 73058,
+      "prefix": 10,
+      "pins": 30,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0010-k11": {
+      "sha256": "3180e1eef2c33bcd4610be4125e6f4d136018352202640e0fca2b3fe0b0dc64f",
+      "variables": 4341,
+      "clauses": 72226,
+      "prefix": 11,
+      "pins": 33,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0011-k12": {
+      "sha256": "e6f1999a0b49cb5d5a92ff7bfd7dad10fc7fed9554c5fe9077fdeb192236197d",
+      "variables": 4277,
+      "clauses": 71442,
+      "prefix": 12,
+      "pins": 36,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0012-k13": {
+      "sha256": "92a064288de5c22ce1657bb6ad780eb46a25b675787cf95235988b41e3e2055e",
+      "variables": 4213,
+      "clauses": 70706,
+      "prefix": 13,
+      "pins": 39,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    },
+    "c0013-k14": {
+      "sha256": "5701bb36234ae405380cf712f0856b3b8c1d6b959d2cb637bf1a651201fca4cc",
+      "variables": 4149,
+      "clauses": 70018,
+      "prefix": 14,
+      "pins": 42,
+      "removed_exactly_one_forced_junk_unit": true,
+      "all_other_base_clauses_unchanged": true,
+      "baseline_all2048_checked": true
+    }
+  },
+  "known22_validator_fixtures": {
+    "known22-k08": {
+      "cnf_sha256": "17d721bb643448b3f0bf53a78fb81f3aa02c1141cb0ff81f21f97d97d1557cf9",
+      "variables": 4816,
+      "clauses": 80606,
+      "free_irrelevant_auxiliaries_set_false": 143,
+      "generic_validator_exit": 0,
+      "report_sha256": "30aa29c0eb915c46531d682131034ed61451e784a59db3e0583828b2a0d1f283",
+      "meets_posted_gate_limit": false,
+      "no_solver_run": true
+    },
+    "known22-k09": {
+      "cnf_sha256": "0ac82918015ac03414ae0a2430d9ccd8ce4d82eca0ca16c70eb1a0c6b74e56c8",
+      "variables": 4752,
+      "clauses": 79625,
+      "free_irrelevant_auxiliaries_set_false": 132,
+      "generic_validator_exit": 0,
+      "report_sha256": "9f5934a8fdfad39fdcad72fb4aabbe687363582354d8b2aa2f4cfed3f9aa61ea",
+      "meets_posted_gate_limit": false,
+      "no_solver_run": true
+    },
+    "known22-k10": {
+      "cnf_sha256": "54896534dd54465fbf269305e81d22e08259a2b87b8d87f19b01dae4e95b4ec6",
+      "variables": 4688,
+      "clauses": 78692,
+      "free_irrelevant_auxiliaries_set_false": 121,
+      "generic_validator_exit": 0,
+      "report_sha256": "07da7d20a8698b156f58bb313277f6fcf2c5e2d3271d7432ad7aabfabcdb1472",
+      "meets_posted_gate_limit": false,
+      "no_solver_run": true
+    },
+    "known22-k11": {
+      "cnf_sha256": "54a40b68cdc7eefeebc13e001354b6a5e4e93e3b76f555eb04483b00549e02ae",
+      "variables": 4624,
+      "clauses": 77807,
+      "free_irrelevant_auxiliaries_set_false": 110,
+      "generic_validator_exit": 0,
+      "report_sha256": "bfca5901bba7111f7f3ddb88401e44287d27a412d7358ef3997359191f7a52bc",
+      "meets_posted_gate_limit": false,
+      "no_solver_run": true
+    },
+    "known22-k12": {
+      "cnf_sha256": "bbc0954c727b3b813f235bdd6cc43684195b5fefaaa5a0a575699e70104247e7",
+      "variables": 4560,
+      "clauses": 76970,
+      "free_irrelevant_auxiliaries_set_false": 99,
+      "generic_validator_exit": 0,
+      "report_sha256": "a6e49b916875449edcd32d88dc2b3482644dfeb0c4d56fe367bb14ee3d444374",
+      "meets_posted_gate_limit": false,
+      "no_solver_run": true
+    },
+    "known22-k13": {
+      "cnf_sha256": "5d7545f984342dd23ec48ab113f4995beca2bc0b693fcac7fd095a87dcfe6aa1",
+      "variables": 4496,
+      "clauses": 76181,
+      "free_irrelevant_auxiliaries_set_false": 88,
+      "generic_validator_exit": 0,
+      "report_sha256": "47afe7bb0a6dc08339caf52efa2c708f24730c2b723ee59693c9e6a1c850ad31",
+      "meets_posted_gate_limit": false,
+      "no_solver_run": true
+    },
+    "known22-k14": {
+      "cnf_sha256": "2948e4a5ae77fcd03af153386a93755b47b073534f11bc46569117c6b5868257",
+      "variables": 4432,
+      "clauses": 75440,
+      "free_irrelevant_auxiliaries_set_false": 77,
+      "generic_validator_exit": 0,
+      "report_sha256": "adc1d02334c9be45c7e0bfd7d927737ada9b9682839443fd498684b7e6535a22",
+      "meets_posted_gate_limit": false,
+      "no_solver_run": true
+    }
+  },
+  "byte_identical_reproduction_files": 44,
+  "all_prefix_lengths_8_through14_covered": true,
+  "exactly_one_required_junk_unit_removed": true,
+  "no_two_junk_condition_added": true,
+  "all_original_variable_ids_preserved": true,
+  "prefix_only_op_and_fanin_pins": true,
+  "no_search_worker_started": true,
+  "scope": "Only candidate neighborhoods; neither global nor assigned-shard exhaustion.",
+  "limitations": [
+    "No 21-gate witness or UNSAT result obtained.",
+    "Known22 SAT models are explicitly synthetic validation controls, not solver discoveries.",
+    "Main independent review is required before launching candidate searches."
+  ],
+  "Sub-agents": "none"
+}

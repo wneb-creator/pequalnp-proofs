@@ -54,12 +54,18 @@ and permitted-axiom audit pass; full output is in ancestor-support-axioms.*.
 Search: seven independently reviewed formula-tail overapproximations, with
 strict-OR, residual-edge and exact-ancestor cost restrictions. No production
 SAT/UNSAT verdict yet. The original-DAG variant is independently reviewed and runs with CaDiCaL and
-an online certificate checker. Two older formula cases finish their existing
-one-hour limits; their queue is paused. Four weaker states remain paused.
+an online certificate checker. The two older formula cases both reached their one-hour wall limit without a
+verdict (ABORTED); complete solver/checker logs and result records are preserved.
+Their queue was stopped without starting the five remaining cases. Four weaker states remain paused.
 Candidate-only runs cover stronger reverse-counter and antichain shapes.
 A prior 1,200-second candidate run returned UNKNOWN; its complete logs are saved.
 SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 2 inherited-model agents for mathematical search and independent validation/proof engineering
-TIMING total=150.4 subagents=2
+TIMING total=161.2 subagents=2
+
+Candidate neighborhoods: 144 independently reviewed formulas preserve prefixes
+of exact 22-gate cover constructions and search arbitrary shorter completions.
+The controller validates every SAT candidate against all 2048 inputs. It never
+claims global or assigned-shard exhaustion from a neighborhood UNSAT.

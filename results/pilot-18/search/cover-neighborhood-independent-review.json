@@ -1,0 +1,96 @@
+{
+  "verdict": "PASS",
+  "reviewer": "main independent of Jason implementation",
+  "timestamp_utc": "2026-11-24T02:52:30.327563+00:00",
+  "generator_sha256": "91bc4ce8fa0c7ce92bd6a1280cb836ca100729ced9ac1c4b7d6b66fbf97e8f68",
+  "base_generator_sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+  "all_source_lines_reviewed": true,
+  "cases": {
+    "c0000-k08": {
+      "cnf_sha256": "eb6b3c479a2a983fe575420056639b147e0e065a85cbf99dced415a1c0a46de3",
+      "prefix": 8,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0001-k09": {
+      "cnf_sha256": "f749e1e6862295173091527af4070ed4f8dfaa6d8cf2201de64d37e53de9ff19",
+      "prefix": 9,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0002-k10": {
+      "cnf_sha256": "2bc76933e118fecdac6d8371b380bba339a3d0994ff27f761611071cf26cff2a",
+      "prefix": 10,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0003-k11": {
+      "cnf_sha256": "e0356c280af46ff0e76e44b260965be805bdbd0c3461fef21df4fa2dbf836099",
+      "prefix": 11,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0004-k12": {
+      "cnf_sha256": "558e7ad14c515bffc357094916a258caf40743baca99499d25cf625b537917f8",
+      "prefix": 12,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0005-k13": {
+      "cnf_sha256": "4c1b4e5a36050cee3e9893c2d7a07aa6d8c93fe41c1674ec209cd4cd47a81533",
+      "prefix": 13,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0006-k14": {
+      "cnf_sha256": "ecd321b2cd933786deeaff778083a11c5ddba53f59d117763ffd9d4b3ef8b065",
+      "prefix": 14,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0007-k08": {
+      "cnf_sha256": "4e5b5c60fee0b9e6019ddfa39ff3635181edbe34bf678aea211cd4a2a2cb1e1f",
+      "prefix": 8,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0008-k09": {
+      "cnf_sha256": "d78d8cbba8ba5374f3a26b736ccee1ac4b1ddc5a502e7523420706c76d3c61d5",
+      "prefix": 9,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0009-k10": {
+      "cnf_sha256": "55ce56fbad13aaeb863e656fe9e77ecbc6e53b3dc407bdcabc3b023cc3c651c3",
+      "prefix": 10,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0010-k11": {
+      "cnf_sha256": "3180e1eef2c33bcd4610be4125e6f4d136018352202640e0fca2b3fe0b0dc64f",
+      "prefix": 11,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0011-k12": {
+      "cnf_sha256": "e6f1999a0b49cb5d5a92ff7bfd7dad10fc7fed9554c5fe9077fdeb192236197d",
+      "prefix": 12,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0012-k13": {
+      "cnf_sha256": "92a064288de5c22ce1657bb6ad780eb46a25b675787cf95235988b41e3e2055e",
+      "prefix": 13,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    },
+    "c0013-k14": {
+      "cnf_sha256": "5701bb36234ae405380cf712f0856b3b8c1d6b959d2cb637bf1a651201fca4cc",
+      "prefix": 14,
+      "all2048baseline_inputs": true,
+      "exact_clause_delta": true
+    }
+  },
+  "reasoning": "Pins retain a known clean prefix of a 22-gate vertex-cover construction; all later 21-gate suffix slots remain free. Removing exactly the forced first-junk unit permits any later first junk. No two-junk restriction remains. Boundary constraints for monotone circuits and virtual-constant elimination remain as in the reviewed base. Any SAT model still needs full independent validation and Lean checking.",
+  "limits": "Candidate neighborhoods only. Their UNSAT results do not exhaust the global statement or assigned shard. Known22 fixtures are synthetic controls, not discoveries."
+}

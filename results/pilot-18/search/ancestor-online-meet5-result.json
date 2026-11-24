@@ -1,0 +1,63 @@
+{
+  "accepted_CNF_UNSAT": false,
+  "checker_exit": -15,
+  "checker_may_stop_after_verified_empty_clause": false,
+  "checker_pid": 11831,
+  "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+  "checker_verdicts": [],
+  "children_maxrss_kib": 1407204,
+  "children_system_cpu_seconds": 19.492642,
+  "children_user_cpu_seconds": 4264.462307,
+  "cnf_sha256": "53534d3e4fced3343b0baca899ee1232963622de064a2fe1b1ad278f97c19555",
+  "elapsed_seconds": 3600.151254,
+  "error_detail": null,
+  "limits": {
+    "checker_address_space_mb": 3000,
+    "max_proof_zero_bytes": 100000000,
+    "max_seconds": 3600.0,
+    "min_free_mb": 256,
+    "solver_address_space_mb": 1500
+  },
+  "logs": {
+    "checker.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "checker.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "solver.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "solver.stdout.txt": {
+      "bytes": 156873,
+      "sha256": "39db33567c2d965c2063a0edb0d242249c36c099fa6bb7c1ee6c7f3960713315"
+    }
+  },
+  "max_pending_bytes": 1048576,
+  "proof_bytes_forwarded_to_checker_pipe": 1392451584,
+  "proof_bytes_not_forwarded": 1048576,
+  "proof_bytes_read": 1393500160,
+  "proof_retained": false,
+  "proof_sha256": "e16483c9272ff0fd0f8a406cdaf38cae3e6086af6d58f33a9355f224b0d4c164",
+  "proof_stream_complete": false,
+  "reason": "wall_time_limit",
+  "relay_buffer_limit_bytes": 1048576,
+  "runner_cpu_seconds": 33.650389902,
+  "sampled_peak_rss_kib": {
+    "checker": 1407680,
+    "solver": 44084
+  },
+  "scope": "Online CNF certificate checking only; no retained replayable certificate or Lean acceptance.",
+  "solver_exit": -15,
+  "solver_options": [
+    "--unsat"
+  ],
+  "solver_pid": 11832,
+  "solver_sha256": "21da5d984e38b74f620f14c62442f834f27b9158decdb722540d97f98aac93a1",
+  "solver_verdicts": [],
+  "status": "ABORTED",
+  "zero_bytes_counted": 26393488
+}
