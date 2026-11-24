@@ -1,0 +1,219 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:300:37: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:304:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:322:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:323:18: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:323:18: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:331:18: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:331:18: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:337:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:337:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:366:25: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:372:24: warning: This simp argument is unused:
+  List.getD_eq_default
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [zResWire, hi, zResInput]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:372:46: warning: This simp argument is unused:
+  zResInput
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [zResWire, hi, List.getD_eq_default]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:408:25: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:412:25: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:518:46: error: Application type mismatch: The argument
+  ha'
+has type
+  a.castSucc = a'.castSucc
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type` in the application
+  Fin.castSucc_injective ha'
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:521:46: error: Application type mismatch: The argument
+  hb'
+has type
+  b.castSucc = b'.castSucc
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type` in the application
+  Fin.castSucc_injective hb'
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:532:80: error: unsolved goals
+N : ℕ
+z : Fin (N + 1 + (N + 1)) → Bool
+l : Fin N
+⊢ (Fin.addCases (fun p => some (Fin.castAdd (N + 1) p.castSucc)) (fun l => some (l.castSucc.addNat (N + 1)))
+          (l.addNat N)).elim
+      false z =
+    z (l.castSucc.addNat (N + 1))
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:540:80: error: unsolved goals
+N : ℕ
+z : Fin (N + N) → Bool
+l : Fin N
+⊢ (Fin.addCases (fun i => Fin.lastCases none (fun p => some (Fin.castAdd N p)) i)
+          (fun i => Fin.lastCases none (fun l => some (l.addNat N)) i) (l.castSucc.addNat (N + 1))).elim
+      false z =
+    z (l.addNat N)
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:548:38: error: don't know how to synthesize implicit argument `n`
+  @zResCircuit (?m.84 I C hC hf z + ?m.84 I C hC hf z) (?m.84 I C hC hf z + 1 + (?m.84 I C hC hf z + 1)) padLift C
+context:
+N : ℕ
+I : Fin N → Fin N → Prop
+C : Circuit
+hC : Monotone2 C
+hf :
+  ∀ (z : Fin (N + N) → Bool),
+    circuitFun (N + N) C z = true ↔ ∃ p l, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true
+z : Fin (N + 1 + (N + 1)) → Bool
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:548:38: error: don't know how to synthesize implicit argument `m`
+  @zResCircuit (?m.84 I C hC hf z + ?m.84 I C hC hf z) (?m.84 I C hC hf z + 1 + (?m.84 I C hC hf z + 1)) padLift C
+context:
+N : ℕ
+I : Fin N → Fin N → Prop
+C : Circuit
+hC : Monotone2 C
+hf :
+  ∀ (z : Fin (N + N) → Bool),
+    circuitFun (N + N) C z = true ↔ ∃ p l, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true
+z : Fin (N + 1 + (N + 1)) → Bool
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:548:50: error: don't know how to synthesize implicit argument `N`
+  @padLift (?m.84 I C hC hf z)
+context:
+N : ℕ
+I : Fin N → Fin N → Prop
+C : Circuit
+hC : Monotone2 C
+hf :
+  ∀ (z : Fin (N + N) → Bool),
+    circuitFun (N + N) C z = true ↔ ∃ p l, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true
+z : Fin (N + 1 + (N + 1)) → Bool
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:556:50: error: Type mismatch: After simplification, term
+  hl
+ has type
+  zResInput padLift z (l.addNat N) = true
+but is expected to have type
+  z (l.castSucc.addNat (N + 1)) = true
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:559:9: error: Type mismatch: After simplification, term
+  hl
+ has type
+  z (b.castSucc.addNat (N + 1)) = true
+but is expected to have type
+  zResInput padLift z (b.addNat N) = true
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:567:50: error: don't know how to synthesize implicit argument `n`
+  @zResCircuit (?m.84 I C hC hf z + 1 + (?m.84 I C hC hf z + 1)) (?m.84 I C hC hf z + ?m.84 I C hC hf z) padDrop C
+context:
+N : ℕ
+I : Fin N → Fin N → Prop
+C : Circuit
+hC : Monotone2 C
+hf :
+  ∀ (z : Fin (N + 1 + (N + 1)) → Bool),
+    circuitFun (N + 1 + (N + 1)) C z = true ↔
+      ∃ p l, padI I p l ∧ z (Fin.castAdd (N + 1) p) = true ∧ z (Fin.natAdd (N + 1) l) = true
+z : Fin (N + N) → Bool
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:567:50: error: don't know how to synthesize implicit argument `m`
+  @zResCircuit (?m.84 I C hC hf z + 1 + (?m.84 I C hC hf z + 1)) (?m.84 I C hC hf z + ?m.84 I C hC hf z) padDrop C
+context:
+N : ℕ
+I : Fin N → Fin N → Prop
+C : Circuit
+hC : Monotone2 C
+hf :
+  ∀ (z : Fin (N + 1 + (N + 1)) → Bool),
+    circuitFun (N + 1 + (N + 1)) C z = true ↔
+      ∃ p l, padI I p l ∧ z (Fin.castAdd (N + 1) p) = true ∧ z (Fin.natAdd (N + 1) l) = true
+z : Fin (N + N) → Bool
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:567:62: error: don't know how to synthesize implicit argument `N`
+  @padDrop (?m.84 I C hC hf z)
+context:
+N : ℕ
+I : Fin N → Fin N → Prop
+C : Circuit
+hC : Monotone2 C
+hf :
+  ∀ (z : Fin (N + 1 + (N + 1)) → Bool),
+    circuitFun (N + 1 + (N + 1)) C z = true ↔
+      ∃ p l, padI I p l ∧ z (Fin.castAdd (N + 1) p) = true ∧ z (Fin.natAdd (N + 1) l) = true
+z : Fin (N + N) → Bool
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:574:9: error: Type mismatch: After simplification, term
+  hl
+ has type
+  zResInput padDrop z (b.castSucc.addNat (N + 1)) = true
+but is expected to have type
+  z (b.addNat N) = true
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:577:50: error: Type mismatch: After simplification, term
+  hl
+ has type
+  z (b.addNat N) = true
+but is expected to have type
+  zResInput padDrop z (b.castSucc.addNat (N + 1)) = true
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:587:14: error: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:590:14: error: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:590:14: error: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:602:14: error: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:602:14: error: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:614:14: error: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:614:14: error: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.

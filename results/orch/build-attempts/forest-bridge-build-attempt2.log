@@ -1,0 +1,8 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/forest_bridge.lean:96:31: error: Application type mismatch: The argument
+  h
+has type
+  Fin.castAdd N p = Fin.castAdd N p0
+but is expected to have type
+  p = p0
+in the application
+  congrArg Fin.val h

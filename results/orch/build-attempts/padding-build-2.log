@@ -1,0 +1,148 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:300:37: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:304:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:322:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:323:18: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:323:18: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:331:18: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:331:18: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:337:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:337:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:366:25: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:372:24: warning: This simp argument is unused:
+  List.getD_eq_default
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [zResWire, hi, zResInput]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:372:46: warning: This simp argument is unused:
+  zResInput
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [zResWire, hi, List.getD_eq_default]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:408:25: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:412:25: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:529:52: warning: This simp argument is unused:
+  Fin.addCases_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zResInput, padLift, Fin.addCases_left, Option.elim_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:533:33: warning: This simp argument is unused:
+  Fin.addCases_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zResInput, padLift, Fin.addCases_right, Option.elim_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:537:52: warning: This simp argument is unused:
+  Fin.addCases_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zResInput, padDrop, Fin.addCases_left, Fin.lastCases_castSucc, Option.elim_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:541:33: warning: This simp argument is unused:
+  Fin.addCases_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zResInput, padDrop, Fin.addCases_right, Fin.lastCases_castSucc, Option.elim_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:588:14: error: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:592:14: error: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:586:56: warning: This simp argument is unused:
+  Fin.addCases_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zResInput, padDrop, Fin.addCases_left, Fin.lastCases_last, Fin.lastCases_castSucc,
+    Option.elim_none, Option.elim_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:590:37: warning: This simp argument is unused:
+  Fin.addCases_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zResInput, padDrop, Fin.addCases_right, Fin.lastCases_last, Fin.lastCases_castSucc,
+    Option.elim_none, Option.elim_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:600:56: warning: This simp argument is unused:
+  Fin.addCases_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zResInput, padDrop, Fin.addCases_left, Fin.lastCases_last, Fin.lastCases_castSucc,
+    Option.elim_none, Option.elim_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:604:37: warning: This simp argument is unused:
+  Fin.addCases_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zResInput, padDrop, Fin.addCases_right, Fin.lastCases_last, Fin.lastCases_castSucc,
+    Option.elim_none, Option.elim_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:602:4: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:614:56: warning: This simp argument is unused:
+  Fin.addCases_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zResInput, padDrop, Fin.addCases_left, Fin.lastCases_last, Fin.lastCases_castSucc,
+    Option.elim_none, Option.elim_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:618:37: warning: This simp argument is unused:
+  Fin.addCases_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [zResInput, padDrop, Fin.addCases_right, Fin.lastCases_last, Fin.lastCases_castSucc,
+    Option.elim_none, Option.elim_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/padding.lean:620:4: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

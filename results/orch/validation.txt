@@ -5,7 +5,7 @@ Mathlib cache download passed; PEqualNP.Defs build passed.
 Decomposition helper file compiled with lake env lean (exit 0, no diagnostics).
 Independent review: conditionally approved for preservation push only.
 Sub-agents: direct normalization, counterexample search, decomposition, independent review, universal-vertex forest proof, generic input restriction, independent fixed-pair review
-TIMING total=71.8 subagents=7
+TIMING total=79.0 subagents=7
 Named build: lake build PEqualNP.Outside.L_meta_3451 — exit 0, Build completed successfully (18419 jobs).
 Local exact-statement checker pending; helper-only file cannot prove the posted target.
 Exact statement checker: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_3451. This is expected for partial helper preservation.
@@ -27,3 +27,5 @@ Build16 passed5245lines. Strict safe-operand deletion and minimum-circuit binary
 Build17/18/19/20 all passed; latest5958lines SHA2569b29e70bcd56154f2ce043efdf3c512243e21c0c5618217002ce85ee92ea1460. Actual shared-reader factoring proves at most1ANDreader among outputORfrontierroots. Independent source/composition/count review approved. Final solver28+11file checkpoints audited, five dirtyminimum+one productive-theta queries unknown, no new bounds/witnesses.
 The frozen minimum_dirty/solve_dirty.py archive retains one original trailing blank line; its approved checkpoint hash is preserved. Whitespace validation applies to Lean source and prose, with complete historical diagnostics/scripts preserved verbatim.
 Build22 passed6124lines SHA256c886a35443966cd07754fad56ee044e53eaf53837415f748ad68b797d5ccadfd. raMinimumReaderOne proves exactly1 contributing frontierANDreader; empty/no-reader cases give strict circuit savings. Frozen source independently approved. Build21 checked the prior unchanged file after a working-directory read error; Build22 is the actual integrated validation. Full target absent.
+FINAL SOURCE VALIDATION:6124lines281440bytes SHA256c886a35443966cd07754fad56ee044e53eaf53837415f748ad68b797d5ccadfd. Build22exit0; exactcheckerexit1REJECTED(no-theorem). Final21helperaxiomauditexit0, standardaxiomsonly. Formatguardonlymissingtarget/finalposition. Independentredteamreviewapprovedpreservationonly. Cleanupnottriggeredbecauseexactcheckerfailed;before/after6124/6124.
+Desk:0nulls;firstrequestassignedL-meta-3451. No no-step-free message was returned. Publicrowrechecked19:16stilldoesnotenableindividualreductions;noPRopened. Fullbuildattemptlogsarchived(62files);25previouslyuntrackedcheckpointinputs/logsnowincludedtofulfillfrozenmanifests.

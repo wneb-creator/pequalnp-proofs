@@ -1,0 +1,47 @@
+[
+  {
+    "removed": "results/orch/lemmas/erase_copy.lean",
+    "identical_preserved": "results/orch/lemmas/erase_copy_checked.lean",
+    "sha256": "d08fdb8c1a3b41c32d1beb784a9698a6400f5e1ee960e10fc49b8d56b5d2a844"
+  },
+  {
+    "removed": "results/orch/lemmas/essential_support.lean",
+    "identical_preserved": "results/orch/lemmas/essential_support_checked.lean",
+    "sha256": "d48d14eaa3f0d28e64bb1f72ce5c127e56dca05b2e4393ea5436a96da7fce3f2"
+  },
+  {
+    "removed": "results/orch/lemmas/frontier_tail_assembly.lean",
+    "identical_preserved": "results/orch/lemmas/frontier_tail_assembly_checked.lean",
+    "sha256": "b1132e2e7eb0e1d5b87a2d955d8e792505f2f971f38f8dd66dba54fe9d82ea4a"
+  },
+  {
+    "removed": "results/orch/lemmas/local_clean.lean",
+    "identical_preserved": "results/orch/lemmas/local_clean_checked.lean",
+    "sha256": "b6079da44fd578eb7d6134a1e8b4c40aa1635b2a422381f972614bc0afa3777c"
+  },
+  {
+    "removed": "results/orch/lemmas/minimum_dirty.lean",
+    "identical_preserved": "results/orch/lemmas/minimum_dirty_checked.lean",
+    "sha256": "da114b16ad2b2a2996f9cd7f17b8cc4c2b32c4fed3dd9544841f603953360472"
+  },
+  {
+    "removed": "results/orch/lemmas/universal_complete.lean",
+    "identical_preserved": "results/orch/lemmas/universal_complete_checked.lean",
+    "sha256": "52a87f21fb550ab17a90a985d20aaf17b2e01524d5743f9c9448c36910cb98e1"
+  },
+  {
+    "removed": "results/orch/lemmas/dirty_frontier.lean",
+    "exact_body_preserved_in": "lean/PEqualNP/Outside/L_meta_3451.lean",
+    "sha256": "6d30836f71a2659540ba4e71d74e0bfb287e303f642ce9d2055f5c530eb8e02c"
+  },
+  {
+    "removed": "results/orch/lemmas/strict_safe_operand.lean",
+    "exact_body_preserved_in": "lean/PEqualNP/Outside/L_meta_3451.lean",
+    "sha256": "f1377499d2bbcb5792e1d75a8df8a8d0f9726e57fb48b20571a117fd74908b80"
+  },
+  {
+    "removed": "results/orch/lemmas/embedding.lean",
+    "reason": "root abandoned draft, never compiled; general checked zResCircuit subsumes intended input reindexing",
+    "sha256": "8fd5a158644ef5f5a17724fb56638868cd5efb7ac5138887f2b7bc05a06cc3f7"
+  }
+]

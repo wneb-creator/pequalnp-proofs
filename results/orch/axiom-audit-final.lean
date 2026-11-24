@@ -1,0 +1,22 @@
+import PEqualNP.Outside.L_meta_3451
+#print axioms PEqualNP.Outside.L_meta_3451.acyclic_incidence
+#print axioms PEqualNP.Outside.L_meta_3451.universal_row
+#print axioms PEqualNP.Outside.L_meta_3451.universal_column
+#print axioms PEqualNP.Outside.L_meta_3451.padSuffices
+#print axioms PEqualNP.Outside.L_meta_3451.lcReplacement
+#print axioms PEqualNP.Outside.L_meta_3451.minimum_dirty_essential
+#print axioms PEqualNP.Outside.L_meta_3451.lcLiteralEssential
+#print axioms PEqualNP.Outside.L_meta_3451.fsNormalize
+#print axioms PEqualNP.Outside.L_meta_3451.mfTwoEachForcePair
+#print axioms PEqualNP.Outside.L_meta_3451.frGloballySafeReaders
+#print axioms PEqualNP.Outside.L_meta_3451.saSafeOperand
+#print axioms PEqualNP.Outside.L_meta_3451.edUnary_delete
+#print axioms PEqualNP.Outside.L_meta_3451.saStrictSafeOperand
+#print axioms PEqualNP.Outside.L_meta_3451.frMinimumLatestReaders
+#print axioms PEqualNP.Outside.L_meta_3451.frAndAfterLatest
+#print axioms PEqualNP.Outside.L_meta_3451.taFactorCircuit
+#print axioms PEqualNP.Outside.L_meta_3451.otFrontier_semantics
+#print axioms PEqualNP.Outside.L_meta_3451.otFrontier_card
+#print axioms PEqualNP.Outside.L_meta_3451.saMinimumOutputValid
+#print axioms PEqualNP.Outside.L_meta_3451.raMinimumReaderCard
+#print axioms PEqualNP.Outside.L_meta_3451.raMinimumReaderOne
