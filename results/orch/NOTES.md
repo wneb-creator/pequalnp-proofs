@@ -96,3 +96,10 @@ Source-only delta review PASS for `e300d0c36141a27da3c7d8a22b1a27a9f9731212bea3b
 ## checker_review — 2026-11-24T23:40:37.908794+00:00 — audit-block splitting
 
 Independent AuditParts.lean compile exit0, empty stdout/stderr. Helper SHA256 `b6164ef7f7642253006d16294c07e39d3565bf8bfa97cfec25ba0ef0a6df748d`. Reviewed splitter script; independent rerun reproduces exact preview bytes. Preview SHA256 `91ccfc37d5eee47cee1b6d82d2de9240105c33306cf73126cce980d15b717ceb` (521499bytes6253lines) passes full guard, keeps statement identical modulo whitespace, retains every hexadecimal certificate literal. All60 interval partitions independently checked complete and contiguous, with nonempty leaves at most8 nodes. No credential patterns found. GO for partial artifact push and source adoption; full optimized proof build/checker still unverified. One transient exec-server transport failure occurred, then retry succeeded.
+
+## checker_review — 2026-11-24T23:42:47.308576+00:00 — adopted split preview
+
+GO for pending checkpoint of `5439dbcaa6f90064037f257c999c1cb3cc19233ab9dd2deddf75d6821ec08f54` (521507bytes6253lines). Independently confirmed only change from reviewed split preview is final theorem whitespace restored to byte-exact desk statement. Entire source identical modulo whitespace; prior source/guard review carries forward. Full build/checker remain pending.
+
+## Re-plan at30minutes
+The full library-type certificate is the primary route. Structural-only bounds do not close the16gategoal; counterexample searches timed out without a witness or exhaustion. Baseline fullbuild was interrupted by the environment restart after about19minutes, with memory spikes above10GB. Reviewed partition proofs now bound each closed audit to8nodes; all certificate data and the posted statement remain unchanged. Toolchain/cache survived; restarting named build on the partitioned version.
