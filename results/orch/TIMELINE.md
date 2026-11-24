@@ -39,3 +39,9 @@
 2026-11-24T18:45:25.905832+00:00 — mixed_filter constraints, shared-reader unique badpair, and rectangle star/2x2 classification Lean-checked.
 
 - 2026-11-24T18:48:00.683764+00:00: mixed-filter constraints integrated; named4515lines build13 passes and exact composition independently reviewed. Added seventh lifetime subagent for independent fixed-pair conceptual review. No full proof/refutation.
+
+2026-11-24T18:48:40.181778+00:00 normal_form: checked globally safe frontier (latest semantically unsafe gate); empty Lean logs.
+
+2026-11-24T18:52:25.289562+00:00 normal_form: safe operand bypass checked; exit0, empty log.
+
+- 2026-11-24T18:52:57.299141+00:00: named4630line build14 passes with latest-globally-unsafe frontier theorem; exact composition independently reviewed for preservation.
