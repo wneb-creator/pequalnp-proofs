@@ -525,4 +525,49 @@ lemma kw_opposite_diagonal : ∀ (u v : Fin 10) (i j : Fin 3),
       kwNegativeMask u i = kwNegativeMask v j := by decide
 
 
+
+def kwEdgeIndex (v : Fin 10) (i : Fin 3) : Fin 15 :=
+  (([[0,4,5],
+    [0,1,6],
+    [1,2,7],
+    [2,3,8],
+    [4,3,9],
+    [5,10,14],
+    [6,13,12],
+    [7,10,11],
+    [8,14,13],
+    [9,12,11]] : List (List (Fin 15))).getD v []).getD i 0
+
+lemma kw_index_injective : ∀ v, Function.Injective (kwEdgeIndex v) := by
+  unfold Function.Injective
+  decide
+
+lemma kw_equal_edge_mask : ∀ (u v : Fin 10) (i j : Fin 3),
+    kwEdgeIndex u i = kwEdgeIndex v j → kwNegativeMask u i = kwNegativeMask v j := by
+  decide
+
+set_option maxHeartbeats 2000000 in
+lemma kw_equal_edge_pair : ∀ (u v : Fin 10) (i j : Fin 3),
+    kwEdgeIndex u i = kwEdgeIndex v j →
+      ∀ k, pair u (kwNeighbor u i) k = pair v (kwNeighbor v j) k := by
+  decide
+
+lemma kw_winner_injective
+    (label : (Fin 10 → Bool) → (Fin 10 → Bool) → Fin 10)
+    (wins : Fin 10 → Finset (Fin 3))
+    (hwin : ∀ v i, i ∈ wins v →
+      label (pair v (kwNeighbor v i)) (maskRow (kwNegativeMask v i)) = v) :
+    ∀ (u v : Fin 10) (i j : Fin 3), i ∈ wins u → j ∈ wins v →
+      kwEdgeIndex u i = kwEdgeIndex v j → u = v ∧ i = j := by
+  intro u v i j hi hj he
+  have hp : pair u (kwNeighbor u i) = pair v (kwNeighbor v j) :=
+    funext (kw_equal_edge_pair u v i j he)
+  have hn := kw_equal_edge_mask u v i j he
+  have huv : u = v := by
+    rw [← hwin u i hi, hp, hn, hwin v j hj]
+  refine ⟨huv, ?_⟩
+  subst v
+  exact kw_index_injective u he
+
+
 end PEqualNP.Outside.L_meta_3821_aux
