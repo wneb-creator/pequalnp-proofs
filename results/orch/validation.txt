@@ -1,0 +1,10 @@
+L-meta-1677 partial validation
+Upper-bound Lean file: results/orch/lemmas/upper_bound.lean
+Command: lake env lean ../results/orch/lemmas/upper_bound.lean
+Exit: 0
+Stdout: empty
+Stderr: empty
+Proves a 16-gate circuit for the exact target with first OR(0,6), second OR(1,3).
+Full lower-bound candidate build is pending.
+Sub-agents: 5 (status/bootstrap, structural proof, finite search, sibling proofs, independent review)
+TIMING total=7 subagents=5
