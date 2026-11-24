@@ -1,0 +1,8 @@
+class 0 gates 125 positive_errors 0 negative_errors 0
+class 1 gates 122 positive_errors 0 negative_errors 14466
+class 2 gates 123 positive_errors 0 negative_errors 15746
+class 3 gates 122 positive_errors 0 negative_errors 19599
+SearchStochasticPlaneBalanced.py aa492acb8f5faf4fa6613c4788e7ff772e9e9870a4721c81ae44885224647bfe
+SearchStochasticPlaneBalancedMulti.py 8dcf6ca2784d38075a3537dbdf7c40fae616423cbb32c0a044deea957704d570
+PASS 96 physical baseline checks 101368 independent full raw scalar cases
+Source delta reviewed: exact42-input105edge thresholds125/124, valid126/128/131 warmstarts, normalizednegativeweight plus stronger heuristic penalties. Multi clusters disjoint2..4point rows, atmost12of21points; exactadditivesavings, allpositivepreservation, explicitINVALIDnegativeerrors. Complete witness verification unchanged; no proof/lowerbound claim.

@@ -1,0 +1,1 @@
+{"PASS": true, "full88_baselines": 72, "categories": {"valid": 57, "INVALID-2dirty": 11, "INVALID-3dirty": 1, "INVALID-1dirty": 3}, "scalar_cases": 6336, "source_sha": "b8f00462eb2d4b60daefa112959a773f7d4f48e55a7109c30e61c9c9d98c397e", "review": "only clustered baseline replacement/header differs from reviewed localBalanced; exact additive cost and full verification preserved"}

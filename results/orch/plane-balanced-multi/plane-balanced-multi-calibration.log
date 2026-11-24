@@ -1,0 +1,1 @@
+{"PASS": true, "physical_baselines": 96, "categories": {"valid": 83, "INVALID-1dirty": 4, "INVALID-2dirty": 4, "INVALID-3dirty": 5}, "scalar_full25342": {"valid": 2, "INVALID-1dirty": 2, "INVALID-2dirty": 2, "INVALID-3dirty": 2}, "scalar_cases": 202736, "source_sha": "8dcf6ca2784d38075a3537dbdf7c40fae616423cbb32c0a044deea957704d570"}

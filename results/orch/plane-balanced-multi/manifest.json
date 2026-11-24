@@ -1,0 +1,65 @@
+{
+  "frozen_at": "2026-11-24T10:52:33.450340+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "affcad504e3ccf39b04e386f62311fe408f659c7b74c58fd26e011aaae9b837b",
+      "bytes": 2171
+    },
+    {
+      "file": "SearchPlaneProblem.json",
+      "sha256": "f13c8c17d8d2e3842d6a2a9ac736b17c7bf831d801a54ca07345907352ae1017",
+      "bytes": 358849
+    },
+    {
+      "file": "SearchPlaneProblem.py",
+      "sha256": "9c9369995311971fef919af1a75364f091b9b6b77552c2e66bef85648e83f865",
+      "bytes": 693
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticPlaneBalanced.py",
+      "sha256": "aa492acb8f5faf4fa6613c4788e7ff772e9e9870a4721c81ae44885224647bfe",
+      "bytes": 27204
+    },
+    {
+      "file": "SearchStochasticPlaneBalancedMulti.py",
+      "sha256": "8dcf6ca2784d38075a3537dbdf7c40fae616423cbb32c0a044deea957704d570",
+      "bytes": 27562
+    },
+    {
+      "file": "plane-balanced-calibration.log",
+      "sha256": "91d2a786079fd8418d80de9eca36e4f2a1f6d7b3eed8a4aa323298b0b9931f9d",
+      "bytes": 349
+    },
+    {
+      "file": "plane-balanced-multi-calibration.log",
+      "sha256": "4281e9f19510f37fa03fae3a2cbdffd05d8ce10b52a1b3f41f5c30aa15ae6290",
+      "bytes": 336
+    },
+    {
+      "file": "plane-invalid-1bicliques.json",
+      "sha256": "912e1c67dea96de4357547ba1855f6c5445d50f4631ee53137e3d97ec146fd21",
+      "bytes": 858375
+    },
+    {
+      "file": "plane-invalid-2bicliques.json",
+      "sha256": "51a392be09dba423aedd9c5e08207616859f87d59d3b695efbf98b2ebdc7b90e",
+      "bytes": 1397014
+    },
+    {
+      "file": "plane-invalid-3bicliques.json",
+      "sha256": "854886a187fd84235a49a5d422451502bc7c3cea166f1e00ff0ae0a0bbc6ef7e",
+      "bytes": 2200238
+    },
+    {
+      "file": "review-plane-balanced-multi-status-audit-002.log",
+      "sha256": "14709620136ac585a101f6545e8f488006b47f3fd77226a956273f99a4fde55b",
+      "bytes": 860
+    }
+  ]
+}

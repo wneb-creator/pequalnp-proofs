@@ -1,0 +1,11 @@
+# Alternative6 balanced search with several dirty starting products
+
+The exact19-input24-edge core, target28gates and complete88-case verification are unchanged from alternative6-balanced. Positive errors have weight1 and negative errors24/64. Existing valid29 and redundant warmstarts remain available. No28-gate witness is present.
+
+The only source delta partitions the six point stars into one, two or three disjoint clusters, each containing two to four points. Each selected cluster is replaced by its complete point-by-neighbor biclique. Remaining-point bounds reserve two points for every later cluster. These starts preserve every positive edge but are explicitly INVALID on negatives, and introduce up to three dirty AND gates. Exact cost savings add the selected degree sums minus each neighbor-union size; every constructor checks topology, physical gate cost and the complete truth signature. The current witness and INVALID recording paths retain full88-case scalar replay.
+
+Author calibration checked144full88baselines,12672scalarcases:120valid and6/8/10INVALID starts with one/two/three dirty ANDs. Independent calibration checked72baselines,6336scalarcases:57valid and3/11/1INVALID starts. Complete logs are preserved. This is a heuristic search; timeout or failure to find a witness proves no lower bound.
+
+Run: python3 SearchStochasticAlternative6BalancedMulti.py --seed 14772934 --seconds 1200 --output-dir <scratch-directory>. The worker replaces the current local search in the same CPU slot after a fresh lease renewal; it adds no concurrent solver.
+
+{"PASS": true, "manifest_files": 7, "source_exact_reviewed": true}

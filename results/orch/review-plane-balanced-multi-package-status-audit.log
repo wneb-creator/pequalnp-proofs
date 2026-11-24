@@ -1,0 +1,4 @@
+plane-balanced-multi plane-invalid-1bicliques.json gates 124 wrong 9644 dirty 1
+plane-balanced-multi plane-invalid-2bicliques.json gates 123 wrong 15746 dirty 2
+plane-balanced-multi plane-invalid-3bicliques.json gates 108 wrong 24875 dirty 3
+PASS plane-balanced-multi manifest 12 circuits 3 scalar_cases 76026 valid 0 INVALID 3

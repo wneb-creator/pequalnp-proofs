@@ -1,0 +1,1 @@
+{"PASS": true, "full25342_valid": 21, "full25342_INVALID_positive_complete": 3, "scalar_cases": 608208, "cost_histogram": {"129": 7, "141": 5, "126": 2, "120": 1, "124": 2, "149": 3, "128": 3, "125": 1}, "negative_scale": 0.004160557911003685, "archive_limit": 52.5, "source_sha": "aa492acb8f5faf4fa6613c4788e7ff772e9e9870a4721c81ae44885224647bfe"}

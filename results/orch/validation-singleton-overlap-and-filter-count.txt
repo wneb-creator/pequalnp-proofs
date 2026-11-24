@@ -1,0 +1,24 @@
+PARTIAL RESULTS ONLY. Exact gap L-meta-1477 remains unproved.
+Named-file checker remains REJECTED (no-theorem); no proof PR opened.
+PlaneTwoProductMinimum is a results-only preservation file above512KiB; independently reproduced from full provenance.
+Remaining productive-joint, singleton/overlap, first-layer and arbitrary dirty-count restrictions remain explicit per theorem.
+
+AdjacentCentersCover.lean lines=337 bytes=16400 SHA256=bd46e66d7893fb41a47c5121b25e5623812784e5381c44b4b8903d45fd17c478; author build EXIT0; independent review PASS by normal_form; full log=results/orch/adjacent-centers-cover-build-001.log
+SingletonIntegrationHelpers.lean lines=8672 bytes=425824 SHA256=62e3a25b6f9898f62c4b9ddbbc5777a2f34d7c53930ca27682aa8e2b25f0f197; author build EXIT0; independent review PASS by root,status_audit; full log=results/orch/singleton-integration-helpers-build-001.log
+SingletonOtherNoCentreless.lean lines=8823 bytes=434290 SHA256=f82a24fd13209d5e5095ff1ffc9fe1d115ab0e5dbbf47b8325f1bb48ae653568; author build EXIT0; independent review PASS by root,status_audit; full log=results/orch/singleton-other-no-centreless-build-001.log
+MultiFilterActive.lean lines=7915 bytes=386389 SHA256=3ac29db4534a75df7c6b61e0fabb91012f5ea297bb74bbc31e1a0f952efbcab3; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/multi-filter-active-build-001.log
+MultiOutputFrontier.lean lines=106 bytes=5058 SHA256=9002a8e1740623509f0d96c39af4395d61c95115b78aff75cdcb6c2f0e95363c; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/multi-output-frontier-build-002.log
+OverlapMaskGeometry.lean lines=154 bytes=7650 SHA256=cc4679b196f3e5c7ced9092f6bfb8f21d44b132ae1bee645794b7479316ed8c3; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/overlap-mask-geometry-build-002.log
+OverlapInputElimination.lean lines=6561 bytes=302944 SHA256=6a0639eea1ad8a1e93454db343d4a12b803bc1bd26ccae2aae4e6b6e62aa26d5; author build EXIT0; independent review PASS by status_audit; full log=results/orch/overlap-input-elimination-build-004.log
+MaskedSingleCrossed.lean lines=8841 bytes=436858 SHA256=733f7da34e0f692bdb3f30205d63da9cf5e4f8b999b687d03aa45d3b372fbf83; author build EXIT0; independent review PASS by status_audit; full log=results/orch/masked-single-crossed-build-002.log
+MaskedSingleCrossedActual.lean lines=10393 bytes=511770 SHA256=0cb703c767065d9dd5ed7377ae2e714498863d59effcbd575547938659a0f6f2; author build EXIT0; independent review PASS by status_audit; full log=results/orch/masked-single-crossed-actual-build-001.log
+MaskedCentersAccounting.lean lines=8707 bytes=429360 SHA256=684f4f6b22849c37ead620b30fa7ff7b0e1273b945f38203aa4104e44b8f3a85; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/masked-centers-accounting-build-001.log
+PlaneTwoProductMinimum.lean lines=11606 bytes=559807 SHA256=00cfc0f343a4b9ae919dcae4093e942dac630fad8d5ff3aa51c3c14ce9560455; author build EXIT0; independent review PASS by root; full log=results/orch/plane-two-product-minimum-build-003.log
+SingletonOtherCentreless.lean lines=8939 bytes=440594 SHA256=fc59e95d5083dc173cec3ec3b59a571954c89819e585d07ec563d62467d6efa6; author build EXIT0; independent review PASS by status_audit; full log=results/orch/singleton-other-centreless-build-003.log
+SingletonEmptyBudget.lean lines=9021 bytes=444914 SHA256=65cf72db62b86f8d49ef4f2e50d45eaceffea3ac8e624010e3e259d123908ff7; author build EXIT0; independent review PASS by status_audit; full log=results/orch/singleton-empty-budget-build-001.log
+plane-balanced-multi: 12 manifest entries independently reviewed, all hashes and bytecounts rechecked; no target witness; invalid candidates remain labeled.
+alternative6-balanced-multi: 7 manifest entries independently reviewed, all hashes and bytecounts rechecked; no target witness; invalid candidates remain labeled.
+alternative6-run-008: 58 manifest entries independently reviewed, all hashes and bytecounts rechecked; no target witness; invalid candidates remain labeled.
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=293.38 subagents=6

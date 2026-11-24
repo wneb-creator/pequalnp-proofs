@@ -1,0 +1,574 @@
+{
+  "inputs": 19,
+  "gates": [
+    [
+      "or",
+      [
+        6,
+        18
+      ]
+    ],
+    [
+      "or",
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      "or",
+      [
+        4,
+        20
+      ]
+    ],
+    [
+      "or",
+      [
+        6,
+        7
+      ]
+    ],
+    [
+      "or",
+      [
+        8,
+        22
+      ]
+    ],
+    [
+      "or",
+      [
+        10,
+        23
+      ]
+    ],
+    [
+      "or",
+      [
+        12,
+        24
+      ]
+    ],
+    [
+      "or",
+      [
+        13,
+        25
+      ]
+    ],
+    [
+      "or",
+      [
+        14,
+        26
+      ]
+    ],
+    [
+      "or",
+      [
+        15,
+        27
+      ]
+    ],
+    [
+      "or",
+      [
+        17,
+        28
+      ]
+    ],
+    [
+      "and",
+      [
+        21,
+        29
+      ]
+    ],
+    [
+      "or",
+      [
+        7,
+        16
+      ]
+    ],
+    [
+      "or",
+      [
+        17,
+        31
+      ]
+    ],
+    [
+      "or",
+      [
+        18,
+        32
+      ]
+    ],
+    [
+      "and",
+      [
+        5,
+        33
+      ]
+    ],
+    [
+      "or",
+      [
+        11,
+        13
+      ]
+    ],
+    [
+      "or",
+      [
+        19,
+        35
+      ]
+    ],
+    [
+      "and",
+      [
+        0,
+        36
+      ]
+    ],
+    [
+      "or",
+      [
+        8,
+        9
+      ]
+    ],
+    [
+      "or",
+      [
+        14,
+        38
+      ]
+    ],
+    [
+      "or",
+      [
+        18,
+        39
+      ]
+    ],
+    [
+      "and",
+      [
+        3,
+        40
+      ]
+    ],
+    [
+      "or",
+      [
+        30,
+        34
+      ]
+    ],
+    [
+      "or",
+      [
+        37,
+        42
+      ]
+    ],
+    [
+      "or",
+      [
+        41,
+        43
+      ]
+    ]
+  ],
+  "output": 44,
+  "size": 26,
+  "edge_list": [
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      1,
+      12
+    ],
+    [
+      0,
+      13
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      4,
+      13
+    ],
+    [
+      1,
+      14
+    ],
+    [
+      3,
+      14
+    ],
+    [
+      4,
+      14
+    ],
+    [
+      2,
+      15
+    ],
+    [
+      5,
+      16
+    ],
+    [
+      4,
+      17
+    ],
+    [
+      5,
+      17
+    ],
+    [
+      0,
+      18
+    ],
+    [
+      3,
+      18
+    ],
+    [
+      5,
+      18
+    ]
+  ],
+  "wrong_search_tests": 48,
+  "wrong_raw_tests": 48,
+  "wrong_tests": [
+    {
+      "input": 1071,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 1575,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 3118,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 3622,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 4157,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 4661,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 5165,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 6268,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 6772,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 7276,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 22053,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 24164,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 32827,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 33587,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 33835,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 34595,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 34874,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 35634,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 36921,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 37681,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 39032,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 39792,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 44074,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 44834,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 69661,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 70165,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 71772,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 98331,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 99091,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 100378,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 102553,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 103313,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 104664,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 197647,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 198151,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 199694,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 201741,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 203852,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 218629,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 230411,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 231171,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 240650,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 334420,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 363282,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 367568,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 462342,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 482884,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 503554,
+      "actual": true,
+      "expected": false
+    }
+  ],
+  "seed": 14772930,
+  "steps": 18000,
+  "rows": [
+    [
+      16576
+    ],
+    [
+      262208
+    ],
+    [
+      1312768,
+      1049168
+    ],
+    [
+      22,
+      193984
+    ],
+    [
+      32,
+      458880
+    ],
+    [
+      1,
+      1058816
+    ],
+    [
+      8,
+      279296
+    ],
+    [
+      41943040
+    ],
+    [
+      16,
+      156672
+    ],
+    [
+      2,
+      528384
+    ]
+  ],
+  "selected_outputs": 120,
+  "proof_status": "INVALID positive-complete overapproximation; not a target witness"
+}

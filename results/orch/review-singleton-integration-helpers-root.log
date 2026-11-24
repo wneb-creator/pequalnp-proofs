@@ -1,0 +1,5 @@
+Independent source/math/provenance/format review PASS
+File: results/orch/lemmas/SingletonIntegrationHelpers.lean
+SHA256: 62e3a25b6f9898f62c4b9ddbbc5777a2f34d7c53930ca27682aa8e2b25f0f197
+Exact reviewed prefix SingletonFamilyBudget.lean confirmed. Reviewed reused actual off-star common-filter and accounting blocks against earlier versions; new certificate cover retains S inclusion, singleton pair order follows disjointness, absence of centreless implies every top operand nonempty, and reader_active constructs the established ordinary witness using both orientation cases.
+Author first build001 EXIT0 reported. Forbidden scan PASS. Restricted result only.
