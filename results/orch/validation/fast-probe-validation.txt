@@ -6,3 +6,9 @@ This is a diagnostic helper component using the compiled Perf16Small prefix; it 
 results/orch/lemmas/FastProbe.lean sha256=b020d037876e070d6e1a87d58390ecd2f2a1c6e91d959f47506d8afa6605a3e2 bytes=850
 results/orch/lemmas/Perf16Small.lean sha256=1283a205f30d639d9f757dae7cc6d1465fbf775360944649bdb57426cef9f0fc bytes=511238
 results/orch/validation/fast-probe-build.log sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 bytes=0
+
+2026-11-24T22:58:21.455552+00:00 FastBench compiled exit0;8checkedrepresentativebatchtheorems comparing scalarcheckAt withpostcoveragefallback; exactcommand,walltime,andmemoryinfast-bench-stats.json. Fulloutputinfast-bench-build.log. Nativeexactpackedmasktailvalidationisdiagnosticonly.
+results/orch/lemmas/FastBench.lean sha256=525bf94738228e3e82e842b6e3240b7f2ab40e78dbca8accea6d700f43255163 bytes=2928
+results/orch/validation/fast-bench-build.log sha256=9b8f974e1f009de37297ee8f5225e29fda6b9a9315b620f14e017c129e4a221d bytes=2653
+results/orch/validation/fast-bench-stats.json sha256=b80eff515563e7c83582c61b69f7f2ae16f988d7970e852dedae1f5ce5b0f09c bytes=360
+results/orch/validation/variantF-native-batch.log sha256=ab76af52472230dc7f734640eecf6996d315655a250136ddd84c51c20644243f bytes=1546

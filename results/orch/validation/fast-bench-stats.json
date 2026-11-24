@@ -1,0 +1,17 @@
+{
+  "exit": 0,
+  "seconds": 40.46198365300006,
+  "maxrss_kib": 4600096,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-j1",
+    "--profile",
+    "--json",
+    "--root=/tmp/oec/pequalnp-pilot-44/finite-search",
+    "-o",
+    "/tmp/oec/pequalnp-pilot-44/finite-search/FastBench.olean",
+    "/tmp/oec/pequalnp-pilot-44/finite-search/FastBench.lean"
+  ]
+}

@@ -1,0 +1,9 @@
+SOURCE_SHA256 bd23be62299beea55cf24925ff6305e499dfde354e84287ab98fb92ef1a8e314
+LEVEL_PASS 14 seconds 0.02 counts {'fallback_invocations': 231, 'link': 87, 'pool': 131, 'batch_states': 2, 'scalar_remainder_states': 2, 'duplicate': 13}
+LEVEL_PASS 13 seconds 0.43 counts {'fallback_invocations': 12207, 'link': 3074, 'pool': 7592, 'batch_states': 70, 'scalar_remainder_states': 22, 'duplicate': 1541}
+LEVEL_PASS 12 seconds 6.41 counts {'fallback_invocations': 197424, 'link': 22417, 'pool': 75466, 'batch_states': 1429, 'scalar_remainder_states': 37, 'duplicate': 32136, 'score': 67405}
+LEVEL_PASS 11 seconds 14.69 counts {'fallback_invocations': 409122, 'link': 33003, 'pool': 174426, 'batch_states': 7843, 'scalar_remainder_states': 83, 'duplicate': 82545, 'score': 119148}
+LEVEL_PASS 10 seconds 17.09 counts {'fallback_invocations': 433788, 'link': 33663, 'pool': 189088, 'batch_states': 11183, 'scalar_remainder_states': 95, 'duplicate': 88447, 'score': 122590}
+LEVEL_PASS 9 seconds 17.19 counts {'fallback_invocations': 434299, 'link': 33663, 'pool': 189541, 'batch_states': 11370, 'scalar_remainder_states': 106, 'duplicate': 88465, 'score': 122630}
+ALL_PACKED_MASKS_AND_POSTCOVERAGE_TAILS_PASS {'fallback_invocations': 434299, 'link': 33663, 'pool': 189541, 'batch_states': 11370, 'scalar_remainder_states': 106, 'duplicate': 88465, 'score': 122630} seconds 17.19204878807068
+LIMITATION: independent Python diagnostic, not Lean kernel result. Every set packed mask bit matched scalar size/coverage guards and its stricter tail returned true.
