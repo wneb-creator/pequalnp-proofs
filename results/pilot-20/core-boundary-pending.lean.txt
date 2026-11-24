@@ -1,0 +1,1017 @@
+import Mathlib
+import PEqualNP.Defs
+
+namespace PEqualNP.Outside.L_meta_1482
+
+open PEqualNP.CircuitLowerBounds
+
+lemma linearValues_unique (n : ℕ) (C : Circuit) (c v w : ℕ → Bool)
+    (hg : ∀ j g, C.gates[j]? = some g →
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+      ∃ a b, g.inputs = [a, b] ∧ a < n + j ∧ b < n + j)
+    (hi : ∀ i, i < n → v i = w i)
+    (hv : ∀ j g a b, C.gates[j]? = some g → g.inputs = [a, b] →
+      (g.op = GateOp.and → v (n + j) = ((c a && v b) || (v a && c b))) ∧
+      (g.op = GateOp.or → v (n + j) = (v a || v b)))
+    (hw : ∀ j g a b, C.gates[j]? = some g → g.inputs = [a, b] →
+      (g.op = GateOp.and → w (n + j) = ((c a && w b) || (w a && c b))) ∧
+      (g.op = GateOp.or → w (n + j) = (w a || w b))) :
+    ∀ i, i < n + C.size → v i = w i := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hil
+    by_cases hin : i < n
+    · exact hi i hin
+    · let j := i - n
+      have hj : j < C.gates.length := by
+        dsimp [j]
+        unfold Circuit.size at hil
+        omega
+      have hji : n + j = i := by dsimp [j]; omega
+      have hget : C.gates[j]? = some C.gates[j] := List.getElem?_eq_getElem hj
+      obtain ⟨hop, a, b, hab, ha, hb⟩ := hg j C.gates[j] hget
+      have havw : v a = w a := ih a (by omega) (by omega)
+      have hbvw : v b = w b := ih b (by omega) (by omega)
+      obtain ⟨hva, hvo⟩ := hv j C.gates[j] a b hget hab
+      obtain ⟨hwa, hwo⟩ := hw j C.gates[j] a b hget hab
+      rw [← hji]
+      rcases hop with hop | hop
+      · rw [hva hop, hwa hop, havw, hbvw]
+      · rw [hvo hop, hwo hop, havw, hbvw]
+
+lemma twoBlock_values_eq (n : ℕ) (v w : ℕ → Bool) (a b : Fin n → Bool)
+    (hv : ∀ i : Fin n, v i.val = a i ∧ v (n + i.val) = b i)
+    (hw : ∀ i : Fin n, w i.val = a i ∧ w (n + i.val) = b i) :
+    ∀ i, i < n + n → v i = w i := by
+  intro i hi
+  by_cases hin : i < n
+  · exact (hv ⟨i, hin⟩).1.trans (hw ⟨i, hin⟩).1.symm
+  · have hd : i - n < n := by omega
+    have he : n + (i - n) = i := by omega
+    have h := (hv ⟨i - n, hd⟩).2.trans (hw ⟨i - n, hd⟩).2.symm
+    simpa only [he] using h
+
+lemma wires_length (C : Circuit) (x : List Bool) :
+    (C.wires x).length = x.length + C.size := by
+  have h : ∀ (gs : List Gate) (x : List Bool),
+      (gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) x).length =
+        x.length + gs.length := by
+    intro gs
+    induction gs with
+    | nil => intro x; simp
+    | cons g gs ih =>
+      intro x
+      rw [List.foldl_cons, ih]
+      simp; omega
+  exact h C.gates x
+
+lemma output_lt_of_eval_true (C : Circuit) (x : List Bool) (h : C.eval x = true) :
+    C.output < x.length + C.size := by
+  by_contra hn
+  have ho : (C.wires x).length ≤ C.output := by rw [wires_length]; omega
+  have hf : C.eval x = false := List.getD_eq_default _ _ ho
+  rw [hf] at h
+  exact Bool.noConfusion h
+
+lemma wires_input (C : Circuit) (x : List Bool) (i : ℕ) (hi : i < x.length) :
+    (C.wires x).getD i false = x.getD i false := by
+  have h : ∀ (gs : List Gate) (x : List Bool), i < x.length →
+      (gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun j => w.getD j false)]) x).getD i false =
+        x.getD i false := by
+    intro gs
+    induction gs with
+    | nil => intro x hi; rfl
+    | cons g gs ih =>
+      intro x hi
+      rw [List.foldl_cons, ih _ (by simp; omega)]
+      exact List.getD_append _ _ _ _ hi
+  exact h C.gates x hi
+
+lemma output_ge_of_zero_singletons (n : ℕ) (C : Circuit)
+    (h : ∀ i : Fin n, C.eval (List.ofFn (fun j : Fin n => decide (j = i))) = false) :
+    n ≤ C.output := by
+  by_contra ho
+  have ho' : C.output < n := by omega
+  let i : Fin n := ⟨C.output, ho'⟩
+  have hfalse := h i
+  have heq : C.eval (List.ofFn (fun j : Fin n => decide (j = i))) = true := by
+    unfold Circuit.eval
+    rw [wires_input _ _ _ (by simp; omega)]
+    rw [List.getD_eq_getElem _ _ (by simp; omega)]
+    simp [i]
+  rw [heq] at hfalse
+  exact Bool.noConfusion hfalse
+
+def recurrenceRun (gs : List Gate) (x : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) x
+
+lemma recurrenceRun_cons (g : Gate) (gs : List Gate) (x : List Bool) :
+    recurrenceRun (g :: gs) x =
+      recurrenceRun gs (x ++ [g.op.eval (g.inputs.map fun i => x.getD i false)]) := rfl
+
+lemma recurrenceRun_length (gs : List Gate) (x : List Bool) :
+    (recurrenceRun gs x).length = x.length + gs.length := by
+  induction gs generalizing x with
+  | nil => simp [recurrenceRun]
+  | cons g gs ih => rw [recurrenceRun_cons, ih]; simp; omega
+
+lemma recurrenceRun_getD (gs : List Gate) (x : List Bool) (w : ℕ) (hw : w < x.length) :
+    (recurrenceRun gs x).getD w false = x.getD w false := by
+  induction gs generalizing x with
+  | nil => rfl
+  | cons g gs ih =>
+    rw [recurrenceRun_cons, ih _ (by simp; omega), List.getD_append _ _ _ _ hw]
+
+lemma recurrenceRun_split (gs : List Gate) (x : List Bool) (j : ℕ) :
+    recurrenceRun gs x = recurrenceRun (gs.drop j) (recurrenceRun (gs.take j) x) := by
+  simpa only [recurrenceRun, List.foldl_append] using
+    congrArg (fun l : List Gate => recurrenceRun l x) (List.take_append_drop j gs).symm
+
+lemma wire_value_gate {n : ℕ} (C : Circuit) (x : Fin n → Bool)
+    (j : ℕ) (g : Gate) (a b : ℕ)
+    (hg : C.gates[j]? = some g) (hin : g.inputs = [a, b])
+    (ha : a < n + j) (hb : b < n + j) :
+    (C.wires (List.ofFn x)).getD (n + j) false =
+      g.op.eval [(C.wires (List.ofFn x)).getD a false,
+        (C.wires (List.ofFn x)).getD b false] := by
+  have hj : j < C.gates.length := by
+    by_contra hj
+    rw [List.getElem?_eq_none (by omega)] at hg
+    cases hg
+  have hgg : C.gates[j] = g := by
+    rw [List.getElem?_eq_getElem hj] at hg
+    exact Option.some.inj hg
+  let earlier := recurrenceRun (C.gates.take j) (List.ofFn x)
+  have plen : earlier.length = n + j := by
+    simp [earlier, recurrenceRun_length, Nat.min_eq_left hj.le]
+  have split : recurrenceRun C.gates (List.ofFn x) =
+      recurrenceRun (g :: C.gates.drop (j + 1)) earlier := by
+    rw [recurrenceRun_split C.gates (List.ofFn x) j, List.drop_eq_getElem_cons hj, hgg]
+  have read (r : ℕ) (hr : r < n + j) :
+      earlier.getD r false = (C.wires (List.ofFn x)).getD r false := by
+    change earlier.getD r false = (recurrenceRun C.gates (List.ofFn x)).getD r false
+    rw [split]
+    exact (recurrenceRun_getD _ earlier r (by omega)).symm
+  change (recurrenceRun C.gates (List.ofFn x)).getD (n + j) false = _
+  rw (occs := [1]) [split]
+  rw (occs := [1]) [recurrenceRun_cons]
+  rw [recurrenceRun_getD _ _ _ (by simp [plen]),
+    List.getD_append_right _ _ _ _ (by omega)]
+  simp only [plen, Nat.sub_self, List.getD_cons_zero, hin, List.map_cons,
+    List.map_nil, read a ha, read b hb]
+
+lemma binary_gate_monotone (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or)
+    (a b c d : Bool) (ha : a = true → c = true) (hb : b = true → d = true) :
+    op.eval [a, b] = true → op.eval [c, d] = true := by
+  rcases hop with rfl | rfl <;>
+    cases a <;> cases b <;> cases c <;> cases d <;> simp_all [GateOp.eval]
+
+lemma wires_fin_input {n : ℕ} (C : Circuit) (x : Fin n → Bool) (p : Fin n) :
+    (C.wires (List.ofFn x)).getD p.val false = x p := by
+  rw [wires_input _ _ _ (by simp)]
+  rw [List.getD_eq_getElem _ _ (by simp)]
+  simp
+
+lemma wire_values_monotone {n : ℕ} (C : Circuit)
+    (hg : ∀ j g, C.gates[j]? = some g →
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+      ∃ a b, g.inputs = [a, b] ∧ a < n + j ∧ b < n + j)
+    (x y : Fin n → Bool) (hxy : ∀ p, x p = true → y p = true) :
+    ∀ i, i < n + C.size →
+      (C.wires (List.ofFn x)).getD i false = true →
+      (C.wires (List.ofFn y)).getD i false = true := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hil hv
+    by_cases hin : i < n
+    · rw [wires_fin_input C x ⟨i, hin⟩] at hv
+      rw [wires_fin_input C y ⟨i, hin⟩]
+      exact hxy _ hv
+    · let j := i - n
+      have hj : j < C.gates.length := by
+        dsimp [j]
+        unfold Circuit.size at hil
+        omega
+      have hji : n + j = i := by dsimp [j]; omega
+      have hget : C.gates[j]? = some C.gates[j] := List.getElem?_eq_getElem hj
+      obtain ⟨hop, a, b, hab, ha, hb⟩ := hg j C.gates[j] hget
+      have hcx := wire_value_gate C x j C.gates[j] a b hget hab ha hb
+      have hcy := wire_value_gate C y j C.gates[j] a b hget hab ha hb
+      rw [← hji, hcx] at hv
+      rw [← hji, hcy]
+      exact binary_gate_monotone _ hop _ _ _ _
+        (ih a (by omega) (by omega)) (ih b (by omega) (by omega)) hv
+
+lemma circuit_eval_monotone {n : ℕ} (C : Circuit)
+    (hg : ∀ j g, C.gates[j]? = some g →
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+      ∃ a b, g.inputs = [a, b] ∧ a < n + j ∧ b < n + j)
+    (x y : Fin n → Bool) (hxy : ∀ p, x p = true → y p = true)
+    (hx : C.eval (List.ofFn x) = true) : C.eval (List.ofFn y) = true := by
+  have ho : C.output < n + C.size := by
+    simpa only [List.length_ofFn] using output_lt_of_eval_true C (List.ofFn x) hx
+  exact wire_values_monotone C hg x y hxy C.output ho hx
+
+
+
+def termFamilyValue {n : ℕ} (F : Finset (Finset (Fin n))) (x : Fin n → Bool) : Bool :=
+  decide (∃ A ∈ F, ∀ i ∈ A, x i = true)
+
+def termFamilyCovers {n : ℕ} (F G : Finset (Finset (Fin n))) : Bool :=
+  decide (∀ A ∈ F, ∃ B ∈ G, B ⊆ A)
+
+def termFamilyEquiv {n : ℕ} (F G : Finset (Finset (Fin n))) : Bool :=
+  termFamilyCovers F G && termFamilyCovers G F
+
+def termFamilyProduct {n : ℕ} (F G : Finset (Finset (Fin n))) : Finset (Finset (Fin n)) :=
+  (F ×ˢ G).image (fun p => p.1 ∪ p.2)
+
+lemma termFamilyValue_eq_true {n : ℕ} (F : Finset (Finset (Fin n))) (x : Fin n → Bool) :
+    termFamilyValue F x = true ↔ ∃ A ∈ F, ∀ i ∈ A, x i = true := by
+  simp [termFamilyValue]
+
+lemma termFamilyValue_input {n : ℕ} (i : Fin n) (x : Fin n → Bool) :
+    termFamilyValue ({{i}} : Finset (Finset (Fin n))) x = x i := by
+  simp [termFamilyValue]
+
+lemma termFamilyValue_union {n : ℕ} (F G : Finset (Finset (Fin n))) (x : Fin n → Bool) :
+    termFamilyValue (F ∪ G) x = true ↔
+      termFamilyValue F x = true ∨ termFamilyValue G x = true := by
+  simp only [termFamilyValue_eq_true, Finset.mem_union]
+  constructor
+  · rintro ⟨A, hA, h⟩
+    rcases hA with hA | hA
+    · exact Or.inl ⟨A, hA, h⟩
+    · exact Or.inr ⟨A, hA, h⟩
+  · rintro (⟨A, hA, h⟩ | ⟨A, hA, h⟩)
+    · exact ⟨A, Or.inl hA, h⟩
+    · exact ⟨A, Or.inr hA, h⟩
+
+lemma termFamilyValue_product {n : ℕ} (F G : Finset (Finset (Fin n))) (x : Fin n → Bool) :
+    termFamilyValue (termFamilyProduct F G) x = true ↔
+      termFamilyValue F x = true ∧ termFamilyValue G x = true := by
+  simp only [termFamilyValue_eq_true]
+  constructor
+  · rintro ⟨S, hS, h⟩
+    obtain ⟨⟨A, B⟩, hAB, rfl⟩ := Finset.mem_image.mp hS
+    obtain ⟨hA, hB⟩ := Finset.mem_product.mp hAB
+    exact ⟨⟨A, hA, fun i hi => h i (Finset.mem_union_left B hi)⟩,
+      ⟨B, hB, fun i hi => h i (Finset.mem_union_right A hi)⟩⟩
+  · rintro ⟨⟨A, hA, ha⟩, ⟨B, hB, hb⟩⟩
+    refine ⟨A ∪ B, Finset.mem_image.mpr ⟨(A, B), Finset.mem_product.mpr ⟨hA, hB⟩, rfl⟩, ?_⟩
+    intro i hi
+    rcases Finset.mem_union.mp hi with hi | hi
+    · exact ha i hi
+    · exact hb i hi
+
+lemma termFamilyCovers_sound {n : ℕ} (F G : Finset (Finset (Fin n)))
+    (hcov : termFamilyCovers F G = true) (x : Fin n → Bool) :
+    termFamilyValue F x = true → termFamilyValue G x = true := by
+  have hc : ∀ A ∈ F, ∃ B ∈ G, B ⊆ A := by
+    simpa [termFamilyCovers] using hcov
+  simp only [termFamilyValue_eq_true]
+  rintro ⟨A, hA, ha⟩
+  obtain ⟨B, hB, hBA⟩ := hc A hA
+  exact ⟨B, hB, fun i hi => ha i (hBA hi)⟩
+
+lemma termFamilyEquiv_sound {n : ℕ} (F G : Finset (Finset (Fin n)))
+    (heq : termFamilyEquiv F G = true) (x : Fin n → Bool) :
+    termFamilyValue F x = true ↔ termFamilyValue G x = true := by
+  simp only [termFamilyEquiv, Bool.and_eq_true] at heq
+  exact ⟨termFamilyCovers_sound F G heq.1 x, termFamilyCovers_sound G F heq.2 x⟩
+
+lemma termFamilyValue_edges {n : ℕ} (E : Finset (Fin n × Fin n)) (x : Fin n → Bool) :
+    termFamilyValue (E.image (fun e => ({e.1, e.2} : Finset (Fin n)))) x = true ↔
+      ∃ e ∈ E, x e.1 = true ∧ x e.2 = true := by
+  rw [termFamilyValue_eq_true]
+  constructor
+  · rintro ⟨A, hA, ha⟩
+    obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp hA
+    exact ⟨e, he, ha e.1 (by simp), ha e.2 (by simp)⟩
+  · rintro ⟨e, he, h1, h2⟩
+    refine ⟨{e.1, e.2}, Finset.mem_image.mpr ⟨e, he, rfl⟩, ?_⟩
+    intro i hi
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hi
+    rcases hi with rfl | rfl
+    · exact h1
+    · exact h2
+
+lemma termFamilyCertificate_wire
+    (n : ℕ) (C : Circuit) (cert : ℕ → Finset (Finset (Fin n)))
+    (hgate : ∀ (j : ℕ) (g : Gate), C.gates[j]? = some g →
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+      ∃ a b : ℕ, g.inputs = [a, b] ∧ a ≠ b ∧ a < n + j ∧ b < n + j)
+    (hinput : ∀ i : Fin n, cert i.val = {{i}})
+    (hcert : ∀ (j : ℕ) (g : Gate) (a b : ℕ), C.gates[j]? = some g →
+      g.inputs = [a, b] →
+      (g.op = GateOp.and → termFamilyEquiv (cert (n + j))
+        (termFamilyProduct (cert a) (cert b)) = true) ∧
+      (g.op = GateOp.or → termFamilyEquiv (cert (n + j)) (cert a ∪ cert b) = true))
+    (x : Fin n → Bool) (w : ℕ) (hw : w < n + C.size) :
+    termFamilyValue (cert w) x = true ↔ (C.wires (List.ofFn x)).getD w false = true := by
+  revert hw
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hi : w < n
+    · have hv : (C.wires (List.ofFn x)).getD w false = x ⟨w, hi⟩ := by
+        rw [wires_input _ _ _ (by simp; omega)]
+        rw [List.getD_eq_getElem _ _ (by simp; omega)]
+        simp
+      rw [hinput ⟨w, hi⟩, termFamilyValue_input, hv]
+    · have hj : w - n < C.gates.length := by unfold Circuit.size at hw; omega
+      let g := C.gates[w - n]'hj
+      have hg : C.gates[w - n]? = some g := by simp [g, hj]
+      obtain ⟨hop, a, b, hab, _, ha, hb⟩ := hgate (w - n) g hg
+      have hwe : n + (w - n) = w := by omega
+      have hia := ih a (by omega) (by omega)
+      have hib := ih b (by omega) (by omega)
+      have hv := wire_value_gate C x (w - n) g a b hg hab ha hb
+      rw [hwe] at hv
+      rcases hop with hop | hop
+      · have hc := termFamilyEquiv_sound _ _ ((hcert (w - n) g a b hg hab).1 hop) x
+        rw [hwe] at hc
+        calc
+          termFamilyValue (cert w) x = true ↔
+              termFamilyValue (termFamilyProduct (cert a) (cert b)) x = true := hc
+          _ ↔ (C.wires (List.ofFn x)).getD a false = true ∧
+              (C.wires (List.ofFn x)).getD b false = true := by
+            rw [termFamilyValue_product, hia, hib]
+          _ ↔ (C.wires (List.ofFn x)).getD w false = true := by
+            rw [hv]
+            simp [hop, GateOp.eval]
+      · have hc := termFamilyEquiv_sound _ _ ((hcert (w - n) g a b hg hab).2 hop) x
+        rw [hwe] at hc
+        calc
+          termFamilyValue (cert w) x = true ↔
+              termFamilyValue (cert a ∪ cert b) x = true := hc
+          _ ↔ (C.wires (List.ofFn x)).getD a false = true ∨
+              (C.wires (List.ofFn x)).getD b false = true := by
+            rw [termFamilyValue_union, hia, hib]
+          _ ↔ (C.wires (List.ofFn x)).getD w false = true := by
+            rw [hv]
+            simp [hop, GateOp.eval]
+
+lemma termFamilyCertificate_eval
+    (n : ℕ) (C : Circuit) (cert : ℕ → Finset (Finset (Fin n)))
+    (hgate : ∀ (j : ℕ) (g : Gate), C.gates[j]? = some g →
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+      ∃ a b : ℕ, g.inputs = [a, b] ∧ a ≠ b ∧ a < n + j ∧ b < n + j)
+    (hinput : ∀ i : Fin n, cert i.val = {{i}})
+    (hcert : ∀ (j : ℕ) (g : Gate) (a b : ℕ), C.gates[j]? = some g →
+      g.inputs = [a, b] →
+      (g.op = GateOp.and → termFamilyEquiv (cert (n + j))
+        (termFamilyProduct (cert a) (cert b)) = true) ∧
+      (g.op = GateOp.or → termFamilyEquiv (cert (n + j)) (cert a ∪ cert b) = true))
+    (ho : C.output < n + C.size) (x : Fin n → Bool) :
+    C.eval (List.ofFn x) = true ↔ termFamilyValue (cert C.output) x = true :=
+  (termFamilyCertificate_wire n C cert hgate hinput hcert x C.output ho).symm
+
+def coreBoundaryCircuit : Circuit :=
+  ⟨[⟨GateOp.or, [17, 23]⟩,
+    ⟨GateOp.or, [26, 25]⟩,
+    ⟨GateOp.or, [14, 18]⟩,
+    ⟨GateOp.or, [28, 24]⟩,
+    ⟨GateOp.and, [0, 27]⟩,
+    ⟨GateOp.or, [13, 30]⟩,
+    ⟨GateOp.and, [0, 31]⟩,
+    ⟨GateOp.or, [1, 32]⟩,
+    ⟨GateOp.or, [29, 31]⟩,
+    ⟨GateOp.and, [33, 34]⟩,
+    ⟨GateOp.or, [14, 15]⟩,
+    ⟨GateOp.or, [36, 19]⟩,
+    ⟨GateOp.or, [37, 25]⟩,
+    ⟨GateOp.and, [2, 38]⟩,
+    ⟨GateOp.or, [13, 15]⟩,
+    ⟨GateOp.or, [40, 16]⟩,
+    ⟨GateOp.or, [41, 20]⟩,
+    ⟨GateOp.and, [3, 42]⟩,
+    ⟨GateOp.or, [14, 16]⟩,
+    ⟨GateOp.or, [44, 17]⟩,
+    ⟨GateOp.or, [45, 21]⟩,
+    ⟨GateOp.and, [4, 46]⟩,
+    ⟨GateOp.or, [15, 17]⟩,
+    ⟨GateOp.or, [48, 18]⟩,
+    ⟨GateOp.or, [49, 22]⟩,
+    ⟨GateOp.and, [5, 50]⟩,
+    ⟨GateOp.or, [16, 18]⟩,
+    ⟨GateOp.or, [52, 19]⟩,
+    ⟨GateOp.or, [53, 23]⟩,
+    ⟨GateOp.and, [6, 54]⟩,
+    ⟨GateOp.or, [17, 19]⟩,
+    ⟨GateOp.or, [56, 20]⟩,
+    ⟨GateOp.or, [57, 24]⟩,
+    ⟨GateOp.and, [7, 58]⟩,
+    ⟨GateOp.or, [18, 20]⟩,
+    ⟨GateOp.or, [60, 21]⟩,
+    ⟨GateOp.or, [61, 25]⟩,
+    ⟨GateOp.and, [8, 62]⟩,
+    ⟨GateOp.or, [13, 19]⟩,
+    ⟨GateOp.or, [64, 21]⟩,
+    ⟨GateOp.or, [65, 22]⟩,
+    ⟨GateOp.and, [9, 66]⟩,
+    ⟨GateOp.or, [14, 20]⟩,
+    ⟨GateOp.or, [68, 22]⟩,
+    ⟨GateOp.or, [69, 23]⟩,
+    ⟨GateOp.and, [10, 70]⟩,
+    ⟨GateOp.or, [15, 21]⟩,
+    ⟨GateOp.or, [72, 23]⟩,
+    ⟨GateOp.or, [73, 24]⟩,
+    ⟨GateOp.and, [11, 74]⟩,
+    ⟨GateOp.or, [16, 22]⟩,
+    ⟨GateOp.or, [76, 24]⟩,
+    ⟨GateOp.or, [77, 25]⟩,
+    ⟨GateOp.and, [12, 78]⟩,
+    ⟨GateOp.or, [35, 39]⟩,
+    ⟨GateOp.or, [80, 43]⟩,
+    ⟨GateOp.or, [81, 47]⟩,
+    ⟨GateOp.or, [82, 51]⟩,
+    ⟨GateOp.or, [83, 55]⟩,
+    ⟨GateOp.or, [84, 59]⟩,
+    ⟨GateOp.or, [85, 63]⟩,
+    ⟨GateOp.or, [86, 67]⟩,
+    ⟨GateOp.or, [87, 71]⟩,
+    ⟨GateOp.or, [88, 75]⟩,
+    ⟨GateOp.or, [89, 79]⟩], 90⟩
+
+lemma coreBoundaryCircuit_size : coreBoundaryCircuit.size = 65 := rfl
+
+set_option maxHeartbeats 4000000 in
+lemma coreBoundaryCircuit_legal : ∀ j g, coreBoundaryCircuit.gates[j]? = some g →
+    (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+    ∃ a b : ℕ, g.inputs = [a, b] ∧ a ≠ b ∧ a < 26 + j ∧ b < 26 + j := by
+  intro j g hg
+  have hj : j < 65 := by
+    by_contra hn
+    have hlen : coreBoundaryCircuit.gates.length ≤ j := by change 65 ≤ j; omega
+    rw [List.getElem?_eq_none hlen] at hg
+    cases hg
+  interval_cases j <;> simp [coreBoundaryCircuit] at hg <;> subst g <;> simp
+
+
+def coreFamilyList : List (Finset (Finset (Fin 26))) :=
+  [{{0}},
+    {{1}},
+    {{2}},
+    {{3}},
+    {{4}},
+    {{5}},
+    {{6}},
+    {{7}},
+    {{8}},
+    {{9}},
+    {{10}},
+    {{11}},
+    {{12}},
+    {{13}},
+    {{14}},
+    {{15}},
+    {{16}},
+    {{17}},
+    {{18}},
+    {{19}},
+    {{20}},
+    {{21}},
+    {{22}},
+    {{23}},
+    {{24}},
+    {{25}},
+    {{17}, {23}},
+    {{17}, {23}, {25}},
+    {{14}, {18}},
+    {{14}, {18}, {24}},
+    {{0, 17}, {0, 23}, {0, 25}},
+    {{13}, {0, 17}, {0, 23}, {0, 25}},
+    {{0, 13}, {0, 17}, {0, 23}, {0, 25}},
+    {{1}, {0, 13}, {0, 17}, {0, 23}, {0, 25}},
+    {{13}, {14}, {0, 17}, {18}, {0, 23}, {24}, {0, 25}},
+    {{0, 13}, {1, 13}, {1, 14}, {0, 17}, {1, 18}, {0, 23}, {1, 24}, {0, 25}},
+    {{14}, {15}},
+    {{14}, {15}, {19}},
+    {{14}, {15}, {19}, {25}},
+    {{2, 14}, {2, 15}, {2, 19}, {2, 25}},
+    {{13}, {15}},
+    {{13}, {15}, {16}},
+    {{13}, {15}, {16}, {20}},
+    {{3, 13}, {3, 15}, {3, 16}, {3, 20}},
+    {{14}, {16}},
+    {{14}, {16}, {17}},
+    {{14}, {16}, {17}, {21}},
+    {{4, 14}, {4, 16}, {4, 17}, {4, 21}},
+    {{15}, {17}},
+    {{15}, {17}, {18}},
+    {{15}, {17}, {18}, {22}},
+    {{5, 15}, {5, 17}, {5, 18}, {5, 22}},
+    {{16}, {18}},
+    {{16}, {18}, {19}},
+    {{16}, {18}, {19}, {23}},
+    {{6, 16}, {6, 18}, {6, 19}, {6, 23}},
+    {{17}, {19}},
+    {{17}, {19}, {20}},
+    {{17}, {19}, {20}, {24}},
+    {{7, 17}, {7, 19}, {7, 20}, {7, 24}},
+    {{18}, {20}},
+    {{18}, {20}, {21}},
+    {{18}, {20}, {21}, {25}},
+    {{8, 18}, {8, 20}, {8, 21}, {8, 25}},
+    {{13}, {19}},
+    {{13}, {19}, {21}},
+    {{13}, {19}, {21}, {22}},
+    {{9, 13}, {9, 19}, {9, 21}, {9, 22}},
+    {{14}, {20}},
+    {{14}, {20}, {22}},
+    {{14}, {20}, {22}, {23}},
+    {{10, 14}, {10, 20}, {10, 22}, {10, 23}},
+    {{15}, {21}},
+    {{15}, {21}, {23}},
+    {{15}, {21}, {23}, {24}},
+    {{11, 15}, {11, 21}, {11, 23}, {11, 24}},
+    {{16}, {22}},
+    {{16}, {22}, {24}},
+    {{16}, {22}, {24}, {25}},
+    {{12, 16}, {12, 22}, {12, 24}, {12, 25}},
+    {{0, 13}, {1, 13}, {1, 14}, {2, 14}, {2, 15}, {0, 17}, {1, 18}, {2, 19}, {0, 23}, {1, 24}, {0, 25}, {2, 25}},
+    {{0, 13}, {1, 13}, {3, 13}, {1, 14}, {2, 14}, {2, 15}, {3, 15}, {3, 16}, {0, 17}, {1, 18}, {2, 19}, {3, 20}, {0, 23}, {1, 24}, {0, 25}, {2, 25}},
+    {{0, 13}, {1, 13}, {3, 13}, {1, 14}, {2, 14}, {4, 14}, {2, 15}, {3, 15}, {3, 16}, {4, 16}, {0, 17}, {4, 17}, {1, 18}, {2, 19}, {3, 20}, {4, 21}, {0, 23}, {1, 24}, {0, 25}, {2, 25}},
+    {{0, 13}, {1, 13}, {3, 13}, {1, 14}, {2, 14}, {4, 14}, {2, 15}, {3, 15}, {5, 15}, {3, 16}, {4, 16}, {0, 17}, {4, 17}, {5, 17}, {1, 18}, {5, 18}, {2, 19}, {3, 20}, {4, 21}, {5, 22}, {0, 23}, {1, 24}, {0, 25}, {2, 25}},
+    {{0, 13}, {1, 13}, {3, 13}, {1, 14}, {2, 14}, {4, 14}, {2, 15}, {3, 15}, {5, 15}, {3, 16}, {4, 16}, {6, 16}, {0, 17}, {4, 17}, {5, 17}, {1, 18}, {5, 18}, {6, 18}, {2, 19}, {6, 19}, {3, 20}, {4, 21}, {5, 22}, {0, 23}, {6, 23}, {1, 24}, {0, 25}, {2, 25}},
+    {{0, 13}, {1, 13}, {3, 13}, {1, 14}, {2, 14}, {4, 14}, {2, 15}, {3, 15}, {5, 15}, {3, 16}, {4, 16}, {6, 16}, {0, 17}, {4, 17}, {5, 17}, {7, 17}, {1, 18}, {5, 18}, {6, 18}, {2, 19}, {6, 19}, {7, 19}, {3, 20}, {7, 20}, {4, 21}, {5, 22}, {0, 23}, {6, 23}, {1, 24}, {7, 24}, {0, 25}, {2, 25}},
+    {{0, 13}, {1, 13}, {3, 13}, {1, 14}, {2, 14}, {4, 14}, {2, 15}, {3, 15}, {5, 15}, {3, 16}, {4, 16}, {6, 16}, {0, 17}, {4, 17}, {5, 17}, {7, 17}, {1, 18}, {5, 18}, {6, 18}, {8, 18}, {2, 19}, {6, 19}, {7, 19}, {3, 20}, {7, 20}, {8, 20}, {4, 21}, {8, 21}, {5, 22}, {0, 23}, {6, 23}, {1, 24}, {7, 24}, {0, 25}, {2, 25}, {8, 25}},
+    {{0, 13}, {1, 13}, {3, 13}, {9, 13}, {1, 14}, {2, 14}, {4, 14}, {2, 15}, {3, 15}, {5, 15}, {3, 16}, {4, 16}, {6, 16}, {0, 17}, {4, 17}, {5, 17}, {7, 17}, {1, 18}, {5, 18}, {6, 18}, {8, 18}, {2, 19}, {6, 19}, {7, 19}, {9, 19}, {3, 20}, {7, 20}, {8, 20}, {4, 21}, {8, 21}, {9, 21}, {5, 22}, {9, 22}, {0, 23}, {6, 23}, {1, 24}, {7, 24}, {0, 25}, {2, 25}, {8, 25}},
+    {{0, 13}, {1, 13}, {3, 13}, {9, 13}, {1, 14}, {2, 14}, {4, 14}, {10, 14}, {2, 15}, {3, 15}, {5, 15}, {3, 16}, {4, 16}, {6, 16}, {0, 17}, {4, 17}, {5, 17}, {7, 17}, {1, 18}, {5, 18}, {6, 18}, {8, 18}, {2, 19}, {6, 19}, {7, 19}, {9, 19}, {3, 20}, {7, 20}, {8, 20}, {10, 20}, {4, 21}, {8, 21}, {9, 21}, {5, 22}, {9, 22}, {10, 22}, {0, 23}, {6, 23}, {10, 23}, {1, 24}, {7, 24}, {0, 25}, {2, 25}, {8, 25}},
+    {{0, 13}, {1, 13}, {3, 13}, {9, 13}, {1, 14}, {2, 14}, {4, 14}, {10, 14}, {2, 15}, {3, 15}, {5, 15}, {11, 15}, {3, 16}, {4, 16}, {6, 16}, {0, 17}, {4, 17}, {5, 17}, {7, 17}, {1, 18}, {5, 18}, {6, 18}, {8, 18}, {2, 19}, {6, 19}, {7, 19}, {9, 19}, {3, 20}, {7, 20}, {8, 20}, {10, 20}, {4, 21}, {8, 21}, {9, 21}, {11, 21}, {5, 22}, {9, 22}, {10, 22}, {0, 23}, {6, 23}, {10, 23}, {11, 23}, {1, 24}, {7, 24}, {11, 24}, {0, 25}, {2, 25}, {8, 25}},
+    {{0, 13}, {1, 13}, {3, 13}, {9, 13}, {1, 14}, {2, 14}, {4, 14}, {10, 14}, {2, 15}, {3, 15}, {5, 15}, {11, 15}, {3, 16}, {4, 16}, {6, 16}, {12, 16}, {0, 17}, {4, 17}, {5, 17}, {7, 17}, {1, 18}, {5, 18}, {6, 18}, {8, 18}, {2, 19}, {6, 19}, {7, 19}, {9, 19}, {3, 20}, {7, 20}, {8, 20}, {10, 20}, {4, 21}, {8, 21}, {9, 21}, {11, 21}, {5, 22}, {9, 22}, {10, 22}, {12, 22}, {0, 23}, {6, 23}, {10, 23}, {11, 23}, {1, 24}, {7, 24}, {11, 24}, {12, 24}, {0, 25}, {2, 25}, {8, 25}, {12, 25}}]
+
+def coreFamily (w : ℕ) : Finset (Finset (Fin 26)) :=
+  coreFamilyList.getD w ∅
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_input : ∀ i : Fin 26, coreFamily i.val = {{i}} := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_0 : termFamilyEquiv (coreFamily 26) (coreFamily 17 ∪ coreFamily 23) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_1 : termFamilyEquiv (coreFamily 27) (coreFamily 26 ∪ coreFamily 25) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_2 : termFamilyEquiv (coreFamily 28) (coreFamily 14 ∪ coreFamily 18) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_3 : termFamilyEquiv (coreFamily 29) (coreFamily 28 ∪ coreFamily 24) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_4 : termFamilyEquiv (coreFamily 30) (termFamilyProduct (coreFamily 0) (coreFamily 27)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_5 : termFamilyEquiv (coreFamily 31) (coreFamily 13 ∪ coreFamily 30) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_6 : termFamilyEquiv (coreFamily 32) (termFamilyProduct (coreFamily 0) (coreFamily 31)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_7 : termFamilyEquiv (coreFamily 33) (coreFamily 1 ∪ coreFamily 32) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_8 : termFamilyEquiv (coreFamily 34) (coreFamily 29 ∪ coreFamily 31) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_9 : termFamilyEquiv (coreFamily 35) (termFamilyProduct (coreFamily 33) (coreFamily 34)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_10 : termFamilyEquiv (coreFamily 36) (coreFamily 14 ∪ coreFamily 15) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_11 : termFamilyEquiv (coreFamily 37) (coreFamily 36 ∪ coreFamily 19) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_12 : termFamilyEquiv (coreFamily 38) (coreFamily 37 ∪ coreFamily 25) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_13 : termFamilyEquiv (coreFamily 39) (termFamilyProduct (coreFamily 2) (coreFamily 38)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_14 : termFamilyEquiv (coreFamily 40) (coreFamily 13 ∪ coreFamily 15) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_15 : termFamilyEquiv (coreFamily 41) (coreFamily 40 ∪ coreFamily 16) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_16 : termFamilyEquiv (coreFamily 42) (coreFamily 41 ∪ coreFamily 20) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_17 : termFamilyEquiv (coreFamily 43) (termFamilyProduct (coreFamily 3) (coreFamily 42)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_18 : termFamilyEquiv (coreFamily 44) (coreFamily 14 ∪ coreFamily 16) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_19 : termFamilyEquiv (coreFamily 45) (coreFamily 44 ∪ coreFamily 17) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_20 : termFamilyEquiv (coreFamily 46) (coreFamily 45 ∪ coreFamily 21) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_21 : termFamilyEquiv (coreFamily 47) (termFamilyProduct (coreFamily 4) (coreFamily 46)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_22 : termFamilyEquiv (coreFamily 48) (coreFamily 15 ∪ coreFamily 17) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_23 : termFamilyEquiv (coreFamily 49) (coreFamily 48 ∪ coreFamily 18) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_24 : termFamilyEquiv (coreFamily 50) (coreFamily 49 ∪ coreFamily 22) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_25 : termFamilyEquiv (coreFamily 51) (termFamilyProduct (coreFamily 5) (coreFamily 50)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_26 : termFamilyEquiv (coreFamily 52) (coreFamily 16 ∪ coreFamily 18) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_27 : termFamilyEquiv (coreFamily 53) (coreFamily 52 ∪ coreFamily 19) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_28 : termFamilyEquiv (coreFamily 54) (coreFamily 53 ∪ coreFamily 23) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_29 : termFamilyEquiv (coreFamily 55) (termFamilyProduct (coreFamily 6) (coreFamily 54)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_30 : termFamilyEquiv (coreFamily 56) (coreFamily 17 ∪ coreFamily 19) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_31 : termFamilyEquiv (coreFamily 57) (coreFamily 56 ∪ coreFamily 20) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_32 : termFamilyEquiv (coreFamily 58) (coreFamily 57 ∪ coreFamily 24) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_33 : termFamilyEquiv (coreFamily 59) (termFamilyProduct (coreFamily 7) (coreFamily 58)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_34 : termFamilyEquiv (coreFamily 60) (coreFamily 18 ∪ coreFamily 20) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_35 : termFamilyEquiv (coreFamily 61) (coreFamily 60 ∪ coreFamily 21) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_36 : termFamilyEquiv (coreFamily 62) (coreFamily 61 ∪ coreFamily 25) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_37 : termFamilyEquiv (coreFamily 63) (termFamilyProduct (coreFamily 8) (coreFamily 62)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_38 : termFamilyEquiv (coreFamily 64) (coreFamily 13 ∪ coreFamily 19) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_39 : termFamilyEquiv (coreFamily 65) (coreFamily 64 ∪ coreFamily 21) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_40 : termFamilyEquiv (coreFamily 66) (coreFamily 65 ∪ coreFamily 22) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_41 : termFamilyEquiv (coreFamily 67) (termFamilyProduct (coreFamily 9) (coreFamily 66)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_42 : termFamilyEquiv (coreFamily 68) (coreFamily 14 ∪ coreFamily 20) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_43 : termFamilyEquiv (coreFamily 69) (coreFamily 68 ∪ coreFamily 22) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_44 : termFamilyEquiv (coreFamily 70) (coreFamily 69 ∪ coreFamily 23) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_45 : termFamilyEquiv (coreFamily 71) (termFamilyProduct (coreFamily 10) (coreFamily 70)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_46 : termFamilyEquiv (coreFamily 72) (coreFamily 15 ∪ coreFamily 21) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_47 : termFamilyEquiv (coreFamily 73) (coreFamily 72 ∪ coreFamily 23) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_48 : termFamilyEquiv (coreFamily 74) (coreFamily 73 ∪ coreFamily 24) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_49 : termFamilyEquiv (coreFamily 75) (termFamilyProduct (coreFamily 11) (coreFamily 74)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_50 : termFamilyEquiv (coreFamily 76) (coreFamily 16 ∪ coreFamily 22) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_51 : termFamilyEquiv (coreFamily 77) (coreFamily 76 ∪ coreFamily 24) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_52 : termFamilyEquiv (coreFamily 78) (coreFamily 77 ∪ coreFamily 25) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_53 : termFamilyEquiv (coreFamily 79) (termFamilyProduct (coreFamily 12) (coreFamily 78)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_54 : termFamilyEquiv (coreFamily 80) (coreFamily 35 ∪ coreFamily 39) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_55 : termFamilyEquiv (coreFamily 81) (coreFamily 80 ∪ coreFamily 43) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_56 : termFamilyEquiv (coreFamily 82) (coreFamily 81 ∪ coreFamily 47) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_57 : termFamilyEquiv (coreFamily 83) (coreFamily 82 ∪ coreFamily 51) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_58 : termFamilyEquiv (coreFamily 84) (coreFamily 83 ∪ coreFamily 55) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_59 : termFamilyEquiv (coreFamily 85) (coreFamily 84 ∪ coreFamily 59) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_60 : termFamilyEquiv (coreFamily 86) (coreFamily 85 ∪ coreFamily 63) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_61 : termFamilyEquiv (coreFamily 87) (coreFamily 86 ∪ coreFamily 67) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_62 : termFamilyEquiv (coreFamily 88) (coreFamily 87 ∪ coreFamily 71) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_63 : termFamilyEquiv (coreFamily 89) (coreFamily 88 ∪ coreFamily 75) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_gate_64 : termFamilyEquiv (coreFamily 90) (coreFamily 89 ∪ coreFamily 79) = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_certificate : ∀ (j : ℕ) (g : Gate) (a b : ℕ),
+    coreBoundaryCircuit.gates[j]? = some g → g.inputs = [a, b] →
+    (g.op = GateOp.and → termFamilyEquiv (coreFamily (26 + j))
+      (termFamilyProduct (coreFamily a) (coreFamily b)) = true) ∧
+    (g.op = GateOp.or → termFamilyEquiv (coreFamily (26 + j))
+      (coreFamily a ∪ coreFamily b) = true) := by
+  intro j g a b hg hin
+  have hj : j < 65 := by
+    by_contra hn
+    have hlen : coreBoundaryCircuit.gates.length ≤ j := by change 65 ≤ j; omega
+    rw [List.getElem?_eq_none hlen] at hg
+    cases hg
+  interval_cases j <;> simp [coreBoundaryCircuit] at hg <;> subst g <;>
+    simp only [List.cons.injEq, and_true] at hin <;>
+    rcases hin with ⟨rfl, rfl⟩ <;> simp [coreFamily_gate_0, coreFamily_gate_1, coreFamily_gate_2, coreFamily_gate_3, coreFamily_gate_4, coreFamily_gate_5, coreFamily_gate_6, coreFamily_gate_7, coreFamily_gate_8, coreFamily_gate_9, coreFamily_gate_10, coreFamily_gate_11, coreFamily_gate_12, coreFamily_gate_13, coreFamily_gate_14, coreFamily_gate_15, coreFamily_gate_16, coreFamily_gate_17, coreFamily_gate_18, coreFamily_gate_19, coreFamily_gate_20, coreFamily_gate_21, coreFamily_gate_22, coreFamily_gate_23, coreFamily_gate_24, coreFamily_gate_25, coreFamily_gate_26, coreFamily_gate_27, coreFamily_gate_28, coreFamily_gate_29, coreFamily_gate_30, coreFamily_gate_31, coreFamily_gate_32, coreFamily_gate_33, coreFamily_gate_34, coreFamily_gate_35, coreFamily_gate_36, coreFamily_gate_37, coreFamily_gate_38, coreFamily_gate_39, coreFamily_gate_40, coreFamily_gate_41, coreFamily_gate_42, coreFamily_gate_43, coreFamily_gate_44, coreFamily_gate_45, coreFamily_gate_46, coreFamily_gate_47, coreFamily_gate_48, coreFamily_gate_49, coreFamily_gate_50, coreFamily_gate_51, coreFamily_gate_52, coreFamily_gate_53, coreFamily_gate_54, coreFamily_gate_55, coreFamily_gate_56, coreFamily_gate_57, coreFamily_gate_58, coreFamily_gate_59, coreFamily_gate_60, coreFamily_gate_61, coreFamily_gate_62, coreFamily_gate_63, coreFamily_gate_64]
+
+def corePlaneFamily : Finset (Finset (Fin 26)) :=
+  ((Finset.univ : Finset (Fin 13 × Fin 13)).filter
+    (fun e => e.1 = e.2 ∨ e.1 = e.2 + 1 ∨ e.1 = e.2 + 3 ∨ e.1 = e.2 + 9)).image
+      (fun e => ({Fin.castAdd 13 e.1, Fin.natAdd 13 e.2} : Finset (Fin 26)))
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 16000000 in
+lemma coreFamily_output : coreFamily 90 = corePlaneFamily := by
+  decide +kernel
+
+lemma coreBoundaryCircuit_correct (x : Fin 26 → Bool) :
+    coreBoundaryCircuit.eval (List.ofFn x) = true ↔ ∃ u t : Fin 13,
+      (u = t ∨ u = t + 1 ∨ u = t + 3 ∨ u = t + 9) ∧
+      x (Fin.castAdd 13 u) = true ∧ x (Fin.natAdd 13 t) = true := by
+  rw [termFamilyCertificate_eval 26 coreBoundaryCircuit coreFamily
+    coreBoundaryCircuit_legal coreFamily_input coreFamily_certificate (by decide)]
+  change termFamilyValue (coreFamily 90) x = true ↔ _
+  rw [coreFamily_output, termFamilyValue_eq_true]
+  constructor
+  · rintro ⟨A, hA, ha⟩
+    obtain ⟨⟨u, t⟩, hut, rfl⟩ := Finset.mem_image.mp hA
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and] at hut
+    exact ⟨u, t, hut, ha _ (by simp), ha _ (by simp)⟩
+  · rintro ⟨u, t, hut, hu, ht⟩
+    refine ⟨{Fin.castAdd 13 u, Fin.natAdd 13 t}, ?_, ?_⟩
+    · exact Finset.mem_image.mpr ⟨(u, t), by simpa using hut, rfl⟩
+    · intro i hi
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hi
+      rcases hi with rfl | rfl
+      · exact hu
+      · exact ht
+
+def coreBoundaryPointValues : List Bool := [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma coreBoundary_point_wires :
+    coreBoundaryCircuit.wires (List.ofFn (fun i : Fin 26 => decide (i = Fin.castAdd 13 (0 : Fin 13)))) =
+      coreBoundaryPointValues := by
+  have hx : List.ofFn (fun i : Fin 26 => decide (i = Fin.castAdd 13 (0 : Fin 13))) = [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false] := by
+    decide +kernel
+  rw [hx]
+  simp [coreBoundaryCircuit, Circuit.wires, GateOp.eval, coreBoundaryPointValues]
+
+def coreBoundaryLineValues : List Bool := [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, false, true, true, true, false, false, false, false, false, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma coreBoundary_line_wires :
+    coreBoundaryCircuit.wires (List.ofFn (fun i : Fin 26 => decide (i = Fin.natAdd 13 (4 : Fin 13)))) =
+      coreBoundaryLineValues := by
+  have hx : List.ofFn (fun i : Fin 26 => decide (i = Fin.natAdd 13 (4 : Fin 13))) = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false] := by
+    decide +kernel
+  rw [hx]
+  simp [coreBoundaryCircuit, Circuit.wires, GateOp.eval, coreBoundaryLineValues]
+
+def coreBoundaryV (i : ℕ) : Bool := decide (i ∈ ({17, 26, 27, 30, 31, 32, 33, 34, 45, 46, 48, 49, 50, 56, 57, 58} : Finset ℕ))
+
+lemma coreBoundaryV_input : ∀ i : Fin 13,
+    coreBoundaryV i.val = false ∧ coreBoundaryV (13 + i.val) = decide (i = 4) := by
+  decide +kernel
+
+lemma coreBoundaryV_output : coreBoundaryV coreBoundaryCircuit.output = false := by
+  decide +kernel
+
+set_option maxHeartbeats 8000000 in
+lemma coreBoundaryV_recurrence : ∀ (j : ℕ) (g : Gate) (a b : ℕ),
+    coreBoundaryCircuit.gates[j]? = some g → g.inputs = [a, b] →
+    (g.op = GateOp.and → coreBoundaryV (26 + j) =
+      (((coreBoundaryCircuit.wires (List.ofFn (fun i : Fin 26 => decide (i = Fin.castAdd 13 (0 : Fin 13))))).getD a false && coreBoundaryV b) ||
+        (coreBoundaryV a && (coreBoundaryCircuit.wires (List.ofFn (fun i : Fin 26 => decide (i = Fin.castAdd 13 (0 : Fin 13))))).getD b false))) ∧
+    (g.op = GateOp.or → coreBoundaryV (26 + j) = (coreBoundaryV a || coreBoundaryV b)) := by
+  intro j g a b hg hin
+  have hj : j < 65 := by
+    by_contra hn
+    have hlen : coreBoundaryCircuit.gates.length ≤ j := by change 65 ≤ j; omega
+    rw [List.getElem?_eq_none hlen] at hg
+    cases hg
+  simp only [coreBoundary_point_wires]
+  interval_cases j <;> simp [coreBoundaryCircuit] at hg <;> subst g <;>
+    simp only [List.cons.injEq, and_true] at hin <;>
+    rcases hin with ⟨rfl, rfl⟩ <;> simp [coreBoundaryV, coreBoundaryPointValues]
+
+def coreBoundaryW (i : ℕ) : Bool := decide (i ∈ ({0, 30, 31, 34} : Finset ℕ))
+
+lemma coreBoundaryW_input : ∀ i : Fin 13,
+    coreBoundaryW i.val = decide (i = 0) ∧ coreBoundaryW (13 + i.val) = false := by
+  decide +kernel
+
+lemma coreBoundaryW_output : coreBoundaryW coreBoundaryCircuit.output = false := by
+  decide +kernel
+
+set_option maxHeartbeats 8000000 in
+lemma coreBoundaryW_recurrence : ∀ (j : ℕ) (g : Gate) (a b : ℕ),
+    coreBoundaryCircuit.gates[j]? = some g → g.inputs = [a, b] →
+    (g.op = GateOp.and → coreBoundaryW (26 + j) =
+      (((coreBoundaryCircuit.wires (List.ofFn (fun i : Fin 26 => decide (i = Fin.natAdd 13 (4 : Fin 13))))).getD a false && coreBoundaryW b) ||
+        (coreBoundaryW a && (coreBoundaryCircuit.wires (List.ofFn (fun i : Fin 26 => decide (i = Fin.natAdd 13 (4 : Fin 13))))).getD b false))) ∧
+    (g.op = GateOp.or → coreBoundaryW (26 + j) = (coreBoundaryW a || coreBoundaryW b)) := by
+  intro j g a b hg hin
+  have hj : j < 65 := by
+    by_contra hn
+    have hlen : coreBoundaryCircuit.gates.length ≤ j := by change 65 ≤ j; omega
+    rw [List.getElem?_eq_none hlen] at hg
+    cases hg
+  simp only [coreBoundary_line_wires]
+  interval_cases j <;> simp [coreBoundaryCircuit] at hg <;> subst g <;>
+    simp only [List.cons.injEq, and_true] at hin <;>
+    rcases hin with ⟨rfl, rfl⟩ <;> simp [coreBoundaryW, coreBoundaryLineValues]
+
+
+
+lemma coreBoundary_exists_at_65 : ∃ C : PEqualNP.CircuitLowerBounds.Circuit, C.size = 65 ∧ (∀ (j : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[j]? = some g → (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ ∃ a b : ℕ, g.inputs = [a, b] ∧ a ≠ b ∧ a < 26 + j ∧ b < 26 + j) ∧ (∀ x : Fin 26 → Bool, C.eval (List.ofFn x) = true ↔ ∃ u t : Fin 13, (u = t ∨ u = t + 1 ∨ u = t + 3 ∨ u = t + 9) ∧ x (Fin.castAdd 13 u) = true ∧ x (Fin.natAdd 13 t) = true) ∧ ∃ p l : Fin 13, (p = l ∨ p = l + 1 ∨ p = l + 3 ∨ p = l + 9) ∧ (∃ v : ℕ → Bool, (∀ my : Fin 13, v my.val = false ∧ v (13 + my.val) = decide (my = l)) ∧ (∀ (ky : ℕ) (hy : PEqualNP.CircuitLowerBounds.Gate) (cy dy : ℕ), C.gates[ky]? = some hy → hy.inputs = [cy, dy] → (hy.op = PEqualNP.CircuitLowerBounds.GateOp.and → v (26 + ky) = (((C.wires (List.ofFn (fun iy : Fin 26 => decide (iy = Fin.castAdd 13 p)))).getD cy false && v dy) || (v cy && (C.wires (List.ofFn (fun ey : Fin 26 => decide (ey = Fin.castAdd 13 p)))).getD dy false))) ∧ (hy.op = PEqualNP.CircuitLowerBounds.GateOp.or → v (26 + ky) = (v cy || v dy))) ∧ v C.output = false) ∧ (∃ w : ℕ → Bool, (∀ mx : Fin 13, w mx.val = decide (mx = p) ∧ w (13 + mx.val) = false) ∧ (∀ (kx : ℕ) (hx : PEqualNP.CircuitLowerBounds.Gate) (cx dx : ℕ), C.gates[kx]? = some hx → hx.inputs = [cx, dx] → (hx.op = PEqualNP.CircuitLowerBounds.GateOp.and → w (26 + kx) = (((C.wires (List.ofFn (fun ix : Fin 26 => decide (ix = Fin.natAdd 13 l)))).getD cx false && w dx) || (w cx && (C.wires (List.ofFn (fun ex : Fin 26 => decide (ex = Fin.natAdd 13 l)))).getD dx false))) ∧ (hx.op = PEqualNP.CircuitLowerBounds.GateOp.or → w (26 + kx) = (w cx || w dx))) ∧ w C.output = false) := by
+  refine ⟨coreBoundaryCircuit, coreBoundaryCircuit_size, coreBoundaryCircuit_legal,
+    coreBoundaryCircuit_correct, 0, 4, (by decide), ?_, ?_⟩
+  · exact ⟨coreBoundaryV, coreBoundaryV_input, coreBoundaryV_recurrence, coreBoundaryV_output⟩
+  · exact ⟨coreBoundaryW, coreBoundaryW_input, coreBoundaryW_recurrence, coreBoundaryW_output⟩
+
+
+end PEqualNP.Outside.L_meta_1482

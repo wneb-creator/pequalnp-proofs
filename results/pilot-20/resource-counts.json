@@ -1,0 +1,44 @@
+[
+  {
+    "file": "shannon65-full.json",
+    "sha256": "ddb7577af78442321160447d7f3de09168d58f2aebd7f422781e9c79816657c3",
+    "gates": 65,
+    "counts": {
+      "and": 13,
+      "wide_or": 40,
+      "narrow_or": 12
+    },
+    "false_closure_tests": 8192,
+    "unsafe_and_indices": [],
+    "output_false_on_closures": true
+  },
+  {
+    "file": "calibration-core6-global65.json",
+    "sha256": "217f2f0cfad04985e6be65850a3c4e7a9bed9da436693c58220f070de7c190b0",
+    "gates": 65,
+    "counts": {
+      "and": 14,
+      "wide_or": 38,
+      "narrow_or": 13
+    },
+    "false_closure_tests": 8192,
+    "unsafe_and_indices": [],
+    "output_false_on_closures": true
+  },
+  {
+    "file": "cnf-core9-global68.json",
+    "sha256": "aa8850f7ab1b6aa5c309634db9e4fe29d0c3c3b53eaff0abb501d199f45c4b3b",
+    "gates": 68,
+    "counts": {
+      "and": 14,
+      "wide_or": 43,
+      "narrow_or": 11
+    },
+    "false_closure_tests": 8192,
+    "unsafe_and_indices": [
+      10,
+      11
+    ],
+    "output_false_on_closures": true
+  }
+]

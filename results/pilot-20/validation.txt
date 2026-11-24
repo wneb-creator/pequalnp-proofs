@@ -47,4 +47,13 @@ The independently reviewed normal-form note states mathematical safe-wire
 reductions and the unresolved unsafe-intermediate obstacle. It does not prove
 the target and explicitly says those reductions can destroy double reread.
 
-TIMING total=58.4 subagents=8
+
+Pending second65-gate source is preserved as core-boundary-pending.lean.txt.
+Its14AND+51OR gate data and certificates were independently reviewed, but
+its Lean compile has NOT completed; no new checked-result claim is made.
+The first65-gate witness and705-line named module remain compiled and pushed.
+A reviewed addendum records the existing conditional all-AND-safe lower bound,
+and resource-counts.json independently checks both65 candidates and the68
+unsafe-AND research seed on8,192 point-derived false closures.
+
+TIMING total=73.2 subagents=8

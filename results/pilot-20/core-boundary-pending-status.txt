@@ -1,0 +1,6 @@
+Second65-gate candidate:14AND+51OR, p=0,l=4.
+Source/data/plain-format independent review PASS.
+Lean compilation NOT completed as of2026-11-24 01:39UTC.
+Environment briefly transitioned through starting; process survival under investigation.
+This snapshot preserves pending source, not a newly checked Lean result.
+Assigned64-gate statement remains unproved/unrefuted.
