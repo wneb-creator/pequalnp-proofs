@@ -4,3 +4,7 @@ Lean compilation NOT completed as of2026-11-24 01:39UTC.
 Environment briefly transitioned through starting; process survival under investigation.
 This snapshot preserves pending source, not a newly checked Lean result.
 Assigned64-gate statement remains unproved/unrefuted.
+
+Superseded by the corrected bounded successor core-boundary.lean.txt, which
+compiled successfully with exit0. See core-boundary-status.txt and review.
+This original pending snapshot remains unchanged for provenance.

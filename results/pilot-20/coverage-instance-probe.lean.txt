@@ -1,0 +1,10 @@
+import Mathlib
+namespace PEqualNP.Outside.L_meta_1482
+def probeCoversInstance {n : ℕ} (F G : Finset (Finset (Fin n))) : Bool :=
+  decide (∀ A ∈ F, ∃ B ∈ G, B ⊆ A)
+run_cmd do
+  let c ← Lean.getConstInfo ``probeCoversInstance
+  match c with
+  | .defnInfo d => Lean.logInfo (repr d.value)
+  | _ => pure ()
+end PEqualNP.Outside.L_meta_1482

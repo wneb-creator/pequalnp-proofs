@@ -1,0 +1,549 @@
+Lean.Expr.lam
+  `n
+  (Lean.Expr.const `Nat [])
+  (Lean.Expr.lam
+    `F
+    (Lean.Expr.app
+      (Lean.Expr.const `Finset [Lean.Level.zero])
+      (Lean.Expr.app
+        (Lean.Expr.const `Finset [Lean.Level.zero])
+        (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 0))))
+    (Lean.Expr.lam
+      `G
+      (Lean.Expr.app
+        (Lean.Expr.const `Finset [Lean.Level.zero])
+        (Lean.Expr.app
+          (Lean.Expr.const `Finset [Lean.Level.zero])
+          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 1))))
+      (Lean.Expr.app
+        (Lean.Expr.app
+          (Lean.Expr.const `Decidable.decide [])
+          (Lean.Expr.forallE
+            `A
+            (Lean.Expr.app
+              (Lean.Expr.const `Finset [Lean.Level.zero])
+              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 2)))
+            (Lean.Expr.forallE
+              (Lean.Name.mkNum `a._@._internal._hyg 0)
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.const `Membership.mem [Lean.Level.zero, Lean.Level.zero])
+                        (Lean.Expr.app
+                          (Lean.Expr.const `Finset [Lean.Level.zero])
+                          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))
+                      (Lean.Expr.app
+                        (Lean.Expr.const `Finset [Lean.Level.zero])
+                        (Lean.Expr.app
+                          (Lean.Expr.const `Finset [Lean.Level.zero])
+                          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3)))))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `SetLike.instMembership [Lean.Level.zero, Lean.Level.zero])
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Finset [Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3)))))
+                        (Lean.Expr.app
+                          (Lean.Expr.const `Finset [Lean.Level.zero])
+                          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))
+                      (Lean.Expr.app
+                        (Lean.Expr.const `Finset.instSetLike [Lean.Level.zero])
+                        (Lean.Expr.app
+                          (Lean.Expr.const `Finset [Lean.Level.zero])
+                          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))))
+                  (Lean.Expr.bvar 2))
+                (Lean.Expr.bvar 0))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.const `Exists [Lean.Level.succ (Lean.Level.zero)])
+                  (Lean.Expr.app
+                    (Lean.Expr.const `Finset [Lean.Level.zero])
+                    (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 4))))
+                (Lean.Expr.lam
+                  `B
+                  (Lean.Expr.app
+                    (Lean.Expr.const `Finset [Lean.Level.zero])
+                    (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 4)))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `And [])
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Membership.mem [Lean.Level.zero, Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Finset [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5)))))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `SetLike.instMembership [Lean.Level.zero, Lean.Level.zero])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Finset [Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Finset [Lean.Level.zero])
+                                      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5)))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Finset.instSetLike [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))))
+                          (Lean.Expr.bvar 3))
+                        (Lean.Expr.bvar 0)))
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `LE.le [Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Preorder.toLE [Lean.Level.zero])
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Finset [Lean.Level.zero])
+                                (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `PartialOrder.toPreorder [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Finset.instPartialOrder [Lean.Level.zero])
+                                (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))))
+                        (Lean.Expr.bvar 0))
+                      (Lean.Expr.bvar 2)))
+                  (Lean.BinderInfo.default)))
+              (Lean.BinderInfo.default))
+            (Lean.BinderInfo.default)))
+        (Lean.Expr.app
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.app
+                (Lean.Expr.const `Fintype.decidableForallFintype [Lean.Level.zero])
+                (Lean.Expr.app
+                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 2))))
+              (Lean.Expr.lam
+                `A
+                (Lean.Expr.app
+                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 2)))
+                (Lean.Expr.forallE
+                  (Lean.Name.mkNum `a._@._internal._hyg 0)
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Membership.mem [Lean.Level.zero, Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Finset [Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3)))))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `SetLike.instMembership [Lean.Level.zero, Lean.Level.zero])
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Finset [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3)))))
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Finset.instSetLike [Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))))
+                      (Lean.Expr.bvar 2))
+                    (Lean.Expr.bvar 0))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `Exists [Lean.Level.succ (Lean.Level.zero)])
+                      (Lean.Expr.app
+                        (Lean.Expr.const `Finset [Lean.Level.zero])
+                        (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 4))))
+                    (Lean.Expr.lam
+                      `B
+                      (Lean.Expr.app
+                        (Lean.Expr.const `Finset [Lean.Level.zero])
+                        (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 4)))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `And [])
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Membership.mem [Lean.Level.zero, Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Finset [Lean.Level.zero])
+                                      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Finset [Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Finset [Lean.Level.zero])
+                                      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5)))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `SetLike.instMembership [Lean.Level.zero, Lean.Level.zero])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Finset [Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Finset [Lean.Level.zero])
+                                          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5)))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Finset [Lean.Level.zero])
+                                      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Finset.instSetLike [Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Finset [Lean.Level.zero])
+                                      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))))
+                              (Lean.Expr.bvar 3))
+                            (Lean.Expr.bvar 0)))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `LE.le [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Preorder.toLE [Lean.Level.zero])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Finset [Lean.Level.zero])
+                                    (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `PartialOrder.toPreorder [Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Finset [Lean.Level.zero])
+                                      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Finset.instPartialOrder [Lean.Level.zero])
+                                    (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))))
+                            (Lean.Expr.bvar 0))
+                          (Lean.Expr.bvar 2)))
+                      (Lean.BinderInfo.default)))
+                  (Lean.BinderInfo.default))
+                (Lean.BinderInfo.default)))
+            (Lean.Expr.lam
+              `a
+              (Lean.Expr.app
+                (Lean.Expr.const `Finset [Lean.Level.zero])
+                (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 2)))
+              (Lean.Expr.app
+                (Lean.Expr.app
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.const `forall_prop_decidable [])
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Membership.mem [Lean.Level.zero, Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Finset [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3)))))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `SetLike.instMembership [Lean.Level.zero, Lean.Level.zero])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Finset [Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Finset [Lean.Level.zero])
+                                      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3)))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Finset.instSetLike [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))))
+                          (Lean.Expr.bvar 2))
+                        (Lean.Expr.bvar 0)))
+                    (Lean.Expr.lam
+                      (Lean.Name.mkNum `a._@._internal._hyg 0)
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Membership.mem [Lean.Level.zero, Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Finset [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3)))))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `SetLike.instMembership [Lean.Level.zero, Lean.Level.zero])
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Finset [Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Finset [Lean.Level.zero])
+                                      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3)))))
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Finset.instSetLike [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))))
+                          (Lean.Expr.bvar 2))
+                        (Lean.Expr.bvar 0))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `Exists [Lean.Level.succ (Lean.Level.zero)])
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Finset [Lean.Level.zero])
+                            (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 4))))
+                        (Lean.Expr.lam
+                          `B
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Finset [Lean.Level.zero])
+                            (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 4)))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `And [])
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Membership.mem [Lean.Level.zero, Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Finset [Lean.Level.zero])
+                                          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Finset [Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Finset [Lean.Level.zero])
+                                          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5)))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `SetLike.instMembership [Lean.Level.zero, Lean.Level.zero])
+                                          (Lean.Expr.app
+                                            (Lean.Expr.const `Finset [Lean.Level.zero])
+                                            (Lean.Expr.app
+                                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5)))))
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Finset [Lean.Level.zero])
+                                          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Finset.instSetLike [Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Finset [Lean.Level.zero])
+                                          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))))
+                                  (Lean.Expr.bvar 3))
+                                (Lean.Expr.bvar 0)))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `LE.le [Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Finset [Lean.Level.zero])
+                                      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Preorder.toLE [Lean.Level.zero])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Finset [Lean.Level.zero])
+                                        (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `PartialOrder.toPreorder [Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Finset [Lean.Level.zero])
+                                          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Finset.instPartialOrder [Lean.Level.zero])
+                                        (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))))
+                                (Lean.Expr.bvar 0))
+                              (Lean.Expr.bvar 2)))
+                          (Lean.BinderInfo.default)))
+                      (Lean.BinderInfo.default)))
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.const `Finset.decidableMem [Lean.Level.zero])
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Finset [Lean.Level.zero])
+                            (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))
+                        (Lean.Expr.lam
+                          `a
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Finset [Lean.Level.zero])
+                            (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3)))
+                          (Lean.Expr.lam
+                            `b
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 4)))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `Finset.decidableEq [Lean.Level.zero])
+                                    (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5)))
+                                  (Lean.Expr.app (Lean.Expr.const `instDecidableEqFin []) (Lean.Expr.bvar 5)))
+                                (Lean.Expr.bvar 1))
+                              (Lean.Expr.bvar 0))
+                            (Lean.BinderInfo.default))
+                          (Lean.BinderInfo.default)))
+                      (Lean.Expr.bvar 0))
+                    (Lean.Expr.bvar 2)))
+                (Lean.Expr.lam
+                  `h
+                  (Lean.Expr.app
+                    (Lean.Expr.app
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Membership.mem [Lean.Level.zero, Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Finset [Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3)))))
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `SetLike.instMembership [Lean.Level.zero, Lean.Level.zero])
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Finset [Lean.Level.zero])
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3)))))
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Finset.instSetLike [Lean.Level.zero])
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 3))))))
+                      (Lean.Expr.bvar 2))
+                    (Lean.Expr.bvar 0))
+                  (Lean.Expr.app
+                    (Lean.Expr.lam
+                      `a
+                      (Lean.Expr.app
+                        (Lean.Expr.const `Finset [Lean.Level.zero])
+                        (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 4)))
+                      (Lean.Expr.app
+                        (Lean.Expr.app
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset.decidableExistsAndFinsetCoe [Lean.Level.zero])
+                              (Lean.Expr.app
+                                (Lean.Expr.const `Finset [Lean.Level.zero])
+                                (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5))))
+                            (Lean.Expr.bvar 3))
+                          (Lean.Expr.lam
+                            `B
+                            (Lean.Expr.app
+                              (Lean.Expr.const `Finset [Lean.Level.zero])
+                              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5)))
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.app
+                                    (Lean.Expr.const `LE.le [Lean.Level.zero])
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Finset [Lean.Level.zero])
+                                      (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 6))))
+                                  (Lean.Expr.app
+                                    (Lean.Expr.app
+                                      (Lean.Expr.const `Preorder.toLE [Lean.Level.zero])
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Finset [Lean.Level.zero])
+                                        (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 6))))
+                                    (Lean.Expr.app
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `PartialOrder.toPreorder [Lean.Level.zero])
+                                        (Lean.Expr.app
+                                          (Lean.Expr.const `Finset [Lean.Level.zero])
+                                          (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 6))))
+                                      (Lean.Expr.app
+                                        (Lean.Expr.const `Finset.instPartialOrder [Lean.Level.zero])
+                                        (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 6))))))
+                                (Lean.Expr.bvar 0))
+                              (Lean.Expr.bvar 1))
+                            (Lean.BinderInfo.default)))
+                        (Lean.Expr.lam
+                          `a
+                          (Lean.Expr.app
+                            (Lean.Expr.const `Finset [Lean.Level.zero])
+                            (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 5)))
+                          (Lean.Expr.app
+                            (Lean.Expr.app
+                              (Lean.Expr.app
+                                (Lean.Expr.app
+                                  (Lean.Expr.const `Finset.instDecidableLE [Lean.Level.zero])
+                                  (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 6)))
+                                (Lean.Expr.app (Lean.Expr.const `instDecidableEqFin []) (Lean.Expr.bvar 6)))
+                              (Lean.Expr.bvar 0))
+                            (Lean.Expr.bvar 1))
+                          (Lean.BinderInfo.default)))
+                      (Lean.BinderInfo.default))
+                    (Lean.Expr.bvar 1))
+                  (Lean.BinderInfo.default)))
+              (Lean.BinderInfo.default)))
+          (Lean.Expr.app
+            (Lean.Expr.app
+              (Lean.Expr.const `Finset.fintype [Lean.Level.zero])
+              (Lean.Expr.app (Lean.Expr.const `Fin []) (Lean.Expr.bvar 2)))
+            (Lean.Expr.app (Lean.Expr.const `Fin.fintype []) (Lean.Expr.bvar 2)))))
+      (Lean.BinderInfo.default))
+    (Lean.BinderInfo.default))
+  (Lean.BinderInfo.implicit)

@@ -1,0 +1,15 @@
+{
+  "status": "PASS independent mathematical/data/format review; compilation pending",
+  "sha256": "8acbf7db8dd8828b6149d3e8ea2c8fd1e2fea3730b8cf2504698f5f5f1a580e2",
+  "lines": 1033,
+  "gates": 65,
+  "and_count": 14,
+  "or_count": 51,
+  "families": 91,
+  "final_terms": 52,
+  "target": [
+    0,
+    4
+  ],
+  "boundary_only": true
+}

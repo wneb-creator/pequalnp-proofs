@@ -26,7 +26,7 @@ Cleanup pass not started: the checker has not accepted the posted theorem.
 
 Sub-agents: independent review, structural proof, counterexample/SAT search,
 lemma search/formalization, lease keeper, Lean environment setup, OR-bound lookup,
-and shared-cover search (8 total).
+shared-cover search, and replacement archive review (9 total).
 Research process note: earlier read-only academic paper lookups exceeded the
 allowed-host list. Those requests were stopped; no credentials/private data
 were sent and no external writes occurred.
@@ -48,12 +48,23 @@ reductions and the unresolved unsafe-intermediate obstacle. It does not prove
 the target and explicitly says those reductions can destroy double reread.
 
 
-Pending second65-gate source is preserved as core-boundary-pending.lean.txt.
-Its14AND+51OR gate data and certificates were independently reviewed, but
-its Lean compile has NOT completed; no new checked-result claim is made.
+The original second65-gate source snapshot remains core-boundary-pending.lean.txt.
+Its initial compile was interrupted. The corrected bounded successor is now
+checked and preserved as core-boundary.lean.txt (1033 lines, exit0).
 The first65-gate witness and705-line named module remain compiled and pushed.
 A reviewed addendum records the existing conditional all-AND-safe lower bound,
 and resource-counts.json independently checks both65 candidates and the68
 unsafe-AND research seed on8,192 point-derived false closures.
 
-TIMING total=73.2 subagents=8
+
+Second complete65-gate witness:14AND+51OR, double reread at p=0,l=4.
+All-input incidence correctness, legal distinct earlier operands, and both
+posted recurrence certificates are proved. Full independent review PASS;
+source SHA2568acbf7db8dd8828b6149d3e8ea2c8fd1e2fea3730b8cf2504698f5f5f1a580e2.
+The fixed coverage predicate avoids the confirmed2^26-subset instance choice;
+its equivalence to the original bounded coverage meaning is proved in Lean.
+Complete successful compile logs and diagnostic evidence accompany the source.
+This second witness is an artifact; named file remains705 lines and unchanged.
+Neither65-gate witness proves or refutes the assigned64-gate statement.
+
+TIMING total=82.2 subagents=9
