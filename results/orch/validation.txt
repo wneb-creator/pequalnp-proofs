@@ -15,3 +15,4 @@ Padding theorem checked: universal nonedge-only normalization implies the exact 
 Forest case checked: acyclic incidence graphs satisfy the exact target conclusion; C4free universal-row and universal-column instances are corollaries.
 Integrated named partial:3199lines149260bytes, lake build exit0. Universal forest proof uses standard Bool+Nat types; no custom datatype. Independent exact-composition review passed.
 Local replacement helpers compiled in named file3482lines: zero/one supported incident edge cleanup, all-wire decrease, incident-pair vector equality and full edge-function preservation. Full gap still unproved.
+Named build8:3763lines176426bytes, exit0. Checked no-larger equivalent normal form with each residual nonedge-dirty AND accepting at least two distinct incident edges; checked conditional star cleanup with an existing neighborhood-OR wire.

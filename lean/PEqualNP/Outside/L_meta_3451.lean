@@ -3479,4 +3479,285 @@ lemma lcOneSupport (N : ℕ) (I : Fin N → Fin N → Prop) (C : Circuit)
     exact ⟨p0, l0, hI, hz.1, hz.2⟩
 
 
+
+lemma mdReplacementShape (C : Circuit) (pre post : List Gate) (g r : Gate)
+    (hsplit : C.gates = pre ++ g :: post) :
+    ∀ k, k ≠ pre.length →
+      gateAt (⟨pre ++ r :: post, C.output⟩ : Circuit) k = gateAt C k := by
+  intro k hk
+  change (pre ++ r :: post).getD k ⟨GateOp.or, []⟩ = C.gates.getD k ⟨GateOp.or, []⟩
+  rw [hsplit]
+  exact lcGetDReplace pre post g r ⟨GateOp.or, []⟩ k hk
+
+lemma mdZeroSupport (N : ℕ) (I : Fin N → Fin N → Prop) (C : Circuit)
+    (pre post : List Gate) (g : Gate) (hsplit : C.gates = pre ++ g :: post)
+    (hmono : Monotone2 C) (hreads : ReadsBack (N + N) C)
+    (hfun : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z = true ↔
+      ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true)
+    (hnone : ∀ p l : Fin N, I p l →
+      (C.wires (List.ofFn (lcPair N p l))).getD (N + N + pre.length) false = false) :
+    ∃ D : Circuit, lcImproves N I C D ∧
+      (∀ k, k ≠ pre.length → gateAt D k = gateAt C k) ∧
+      (gateAt D pre.length).op = GateOp.or ∧
+      (∀ z : Fin (N + N) → Bool, (D.wires (List.ofFn z)).getD (N + N + pre.length) false = false) := by
+  let r : Gate := ⟨GateOp.or, []⟩
+  let D : Circuit := ⟨pre ++ r :: post, C.output⟩
+  refine ⟨D, ?_, ?_, ?_, ?_⟩
+  · exact lcReplacement N I C pre post g r hsplit hmono hreads hfun (Or.inr rfl)
+      (by simp [r]) (by simp [r]) (by simp [r, GateOp.eval]) (by
+        intro p l hpl
+        rw [← lcCircuitGate (N + N) C pre post g hsplit, hnone p l hpl]
+        rfl)
+  · exact mdReplacementShape C pre post g r hsplit
+  · simp [gateAt, D, r]
+  · intro z
+    rw [lcCircuitGate (N + N) D pre post r rfl]
+    rfl
+
+
+lemma mdOneSupport (N : ℕ) (I : Fin N → Fin N → Prop) (C : Circuit)
+    (pre post : List Gate) (g : Gate) (hsplit : C.gates = pre ++ g :: post)
+    (hmono : Monotone2 C) (hreads : ReadsBack (N + N) C)
+    (hfun : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z = true ↔
+      ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true)
+    (p0 l0 : Fin N) (hI : I p0 l0)
+    (haccept : (C.wires (List.ofFn (lcPair N p0 l0))).getD (N + N + pre.length) false = true)
+    (honly : ∀ p l : Fin N, I p l →
+      (C.wires (List.ofFn (lcPair N p l))).getD (N + N + pre.length) false = true →
+        p = p0 ∧ l = l0) :
+    ∃ D : Circuit, lcImproves N I C D ∧
+      (∀ k, k ≠ pre.length → gateAt D k = gateAt C k) ∧
+      (gateAt D pre.length).op = GateOp.and ∧
+      (∀ z : Fin (N + N) → Bool,
+        (D.wires (List.ofFn z)).getD (N + N + pre.length) false = true →
+        ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) := by
+  let r : Gate := ⟨GateOp.and, [p0.val, N + l0.val]⟩
+  let D : Circuit := ⟨pre ++ r :: post, C.output⟩
+  refine ⟨D, ?_, ?_, ?_, ?_⟩
+  · apply lcReplacement N I C pre post g r hsplit hmono hreads hfun (Or.inl rfl)
+    · simp [r]
+    · intro a ha
+      simp only [r, List.mem_cons, List.not_mem_nil, or_false] at ha
+      rcases ha with rfl | rfl <;> omega
+    · intro z hz
+      change GateOp.and.eval _ = true at hz
+      rw [lcRawPairEval] at hz
+      simp only [Bool.and_eq_true] at hz
+      rw [← lcCircuitGate (N + N) C pre post g hsplit]
+      exact decWireMono (N + N) C hmono _ z (lcPairLe N p0 l0 z hz.1 hz.2)
+        (N + N + pre.length) haccept
+    · intro p l hpl
+      change GateOp.and.eval _ = _
+      rw [lcRawPairEval, ← lcCircuitGate (N + N) C pre post g hsplit,
+        Bool.eq_iff_iff, Bool.and_eq_true, lcPairPoint, lcPairLine]
+      constructor
+      · rintro ⟨rfl, rfl⟩
+        exact haccept
+      · intro ht
+        obtain ⟨hp, hl⟩ := honly p l hpl ht
+        exact ⟨hp.symm, hl.symm⟩
+  · exact mdReplacementShape C pre post g r hsplit
+  · simp [gateAt, D, r]
+  · intro z hz
+    rw [lcCircuitGate (N + N) D pre post r rfl] at hz
+    change GateOp.and.eval _ = true at hz
+    rw [lcRawPairEval] at hz
+    simp only [Bool.and_eq_true] at hz
+    exact ⟨p0, l0, hI, hz.1, hz.2⟩
+
+def mdDirty (N : ℕ) (I : Fin N → Fin N → Prop) (C : Circuit) (j : ℕ) : Prop :=
+  (gateAt C j).op = GateOp.and ∧ ∃ p l : Fin N, ¬ I p l ∧
+    (C.wires (List.ofFn (lcPair N p l))).getD (N + N + j) false = true
+
+noncomputable def mdCount (N : ℕ) (I : Fin N → Fin N → Prop) (C : Circuit) : ℕ := by
+  classical
+  exact ((Finset.range C.gates.length).filter (mdDirty N I C)).card
+
+lemma mdCleanFromBelow (N : ℕ) (I : Fin N → Fin N → Prop) (D : Circuit) (j : ℕ)
+    (hbelow : ∀ z : Fin (N + N) → Bool,
+      (D.wires (List.ofFn z)).getD (N + N + j) false = true →
+      ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) :
+    ¬ mdDirty N I D j := by
+  rintro ⟨_, p0, l0, hn, ht⟩
+  obtain ⟨p, l, hI, hp, hl⟩ := hbelow _ ht
+  have hpp := (lcPairPoint N p0 l0 p).mp hp
+  have hll := (lcPairLine N p0 l0 l).mp hl
+  exact hn (hpp ▸ hll ▸ hI)
+
+lemma mdCountDecrease (N : ℕ) (I : Fin N → Fin N → Prop) (C D : Circuit) (j : ℕ)
+    (hj : j < C.gates.length) (hsize : D.size = C.size)
+    (hle : ∀ z : Fin (N + N) → Bool, ∀ i,
+      (D.wires (List.ofFn z)).getD i false = true → (C.wires (List.ofFn z)).getD i false = true)
+    (hshape : ∀ k, k ≠ j → gateAt D k = gateAt C k)
+    (hdirty : mdDirty N I C j) (hclean : ¬ mdDirty N I D j) :
+    mdCount N I D < mdCount N I C := by
+  classical
+  let S := (Finset.range C.gates.length).filter (mdDirty N I C)
+  let T := (Finset.range D.gates.length).filter (mdDirty N I D)
+  have hjS : j ∈ S := Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hj, hdirty⟩
+  have hsub : T ⊆ S.erase j := by
+    intro k hk
+    obtain ⟨hklen, hkd⟩ := Finset.mem_filter.mp hk
+    have hkne : k ≠ j := by
+      intro h
+      subst k
+      exact hclean hkd
+    apply Finset.mem_erase.mpr
+    refine ⟨hkne, Finset.mem_filter.mpr ⟨?_, ?_⟩⟩
+    · have hlen : D.gates.length = C.gates.length := hsize
+      simpa only [hlen] using hklen
+    · obtain ⟨hop, p, l, hn, ht⟩ := hkd
+      exact ⟨(congrArg Gate.op (hshape k hkne)).symm.trans hop, p, l, hn, hle _ _ ht⟩
+  have hlecard := Finset.card_le_card hsub
+  have hcard := Finset.card_erase_of_mem hjS
+  have hpos := Finset.card_pos.mpr ⟨j, hjS⟩
+  change T.card < S.card
+  omega
+
+lemma minimum_dirty (N : ℕ) (I : Fin N → Fin N → Prop) (C : Circuit)
+    (hmono : Monotone2 C) (hreads : ReadsBack (N + N) C)
+    (hfun : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z = true ↔
+      ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) :
+    ∃ D : Circuit, Monotone2 D ∧ ReadsBack (N + N) D ∧ D.size ≤ C.size ∧
+      (∀ z : Fin (N + N) → Bool, circuitFun (N + N) D z = true ↔
+        ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) ∧
+      (∀ j < D.gates.length, mdDirty N I D j →
+        ∃ p l : Fin N, I p l ∧
+          (D.wires (List.ofFn (lcPair N p l))).getD (N + N + j) false = true ∧
+          ∃ p' l' : Fin N, I p' l' ∧
+            (D.wires (List.ofFn (lcPair N p' l'))).getD (N + N + j) false = true ∧
+            (p ≠ p' ∨ l ≠ l')) := by
+  classical
+  let P : ℕ → Prop := fun k => ∃ D : Circuit,
+    Monotone2 D ∧ ReadsBack (N + N) D ∧ D.size ≤ C.size ∧
+    (∀ z : Fin (N + N) → Bool, circuitFun (N + N) D z = true ↔
+      ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) ∧
+    mdCount N I D = k
+  have hex : ∃ k, P k := ⟨mdCount N I C, C, hmono, hreads, le_rfl, hfun, rfl⟩
+  obtain ⟨D, hm, hr, hs, hf, hcount⟩ := Nat.find_spec hex
+  have hmin (E : Circuit) (he : lcImproves N I D E) : mdCount N I D ≤ mdCount N I E := by
+    rw [hcount]
+    obtain ⟨hem, her, hes, _, _, hef⟩ := he
+    exact Nat.find_min' hex ⟨E, hem, her, hes ▸ hs, hef, rfl⟩
+  refine ⟨D, hm, hr, hs, hf, ?_⟩
+  intro j hj hdirty
+  by_contra htwo
+  let pre := D.gates.take j
+  let post := D.gates.drop (j + 1)
+  let g := gateAt D j
+  have hpre : pre.length = j := List.length_take_of_le hj.le
+  have hsplit : D.gates = pre ++ g :: post := by
+    dsimp [pre, post, g, gateAt]
+    rw [List.getD_eq_getElem _ _ hj]
+    simp
+  by_cases hsupport : ∃ p l : Fin N, I p l ∧
+      (D.wires (List.ofFn (lcPair N p l))).getD (N + N + j) false = true
+  · obtain ⟨p0, l0, hI, haccept⟩ := hsupport
+    have honly : ∀ p l : Fin N, I p l →
+        (D.wires (List.ofFn (lcPair N p l))).getD (N + N + pre.length) false = true →
+        p = p0 ∧ l = l0 := by
+      intro p l hpl ht
+      rw [hpre] at ht
+      by_contra hne
+      have hd : p0 ≠ p ∨ l0 ≠ l := by
+        by_cases hp : p = p0
+        · right
+          intro hl
+          exact hne ⟨hp, hl.symm⟩
+        · exact Or.inl (Ne.symm hp)
+      exact htwo ⟨p0, l0, hI, haccept, p, l, hpl, ht, hd⟩
+    obtain ⟨E, he, hshape, _, hbelow⟩ := mdOneSupport N I D pre post g hsplit hm hr hf p0 l0 hI
+      (by simpa only [hpre] using haccept) honly
+    have hclean := mdCleanFromBelow N I E pre.length hbelow
+    have hdec := mdCountDecrease N I D E j hj he.2.2.1 he.2.2.2.1
+      (by simpa only [hpre] using hshape) hdirty (by simpa only [hpre] using hclean)
+    exact (Nat.not_lt_of_ge (hmin E he)) hdec
+  · have hnone : ∀ p l : Fin N, I p l →
+        (D.wires (List.ofFn (lcPair N p l))).getD (N + N + pre.length) false = false := by
+      intro p l hpl
+      apply Bool.eq_false_iff.mpr
+      intro ht
+      exact hsupport ⟨p, l, hpl, by simpa only [hpre] using ht⟩
+    obtain ⟨E, he, hshape, hor, _⟩ := mdZeroSupport N I D pre post g hsplit hm hr hf hnone
+    have hclean : ¬ mdDirty N I E pre.length := by
+      rintro ⟨hand, _⟩
+      rw [hor] at hand
+      cases hand
+    have hdec := mdCountDecrease N I D E j hj he.2.2.1 he.2.2.2.1
+      (by simpa only [hpre] using hshape) hdirty (by simpa only [hpre] using hclean)
+    exact (Nat.not_lt_of_ge (hmin E he)) hdec
+
+
+lemma lcStarEval (N : ℕ) (pre : List Gate) (p : Fin N) (w : ℕ)
+    (z : Fin (N + N) → Bool) :
+    GateOp.and.eval ([p.val, w].map fun i =>
+      (pre.foldl decStep (List.ofFn z)).getD i false) =
+      (z (Fin.castAdd N p) && (pre.foldl decStep (List.ofFn z)).getD w false) := by
+  have hp : (pre.foldl decStep (List.ofFn z)).getD p.val false = z (Fin.castAdd N p) := by
+    rw [lcRead _ _ _ (by simp only [List.length_ofFn]; omega)]
+    exact lcGetDOfFn z (Fin.castAdd N p)
+  simp only [GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+    id_eq, Bool.and_true, hp]
+
+lemma lcStarSupport (N : ℕ) (I : Fin N → Fin N → Prop) (C : Circuit)
+    (pre post : List Gate) (g : Gate) (hsplit : C.gates = pre ++ g :: post)
+    (hmono : Monotone2 C) (hreads : ReadsBack (N + N) C)
+    (hfun : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z = true ↔
+      ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true)
+    (p0 : Fin N) (w : ℕ) (hw : w < N + N + pre.length)
+    (hstar : ∀ p l : Fin N, I p l →
+      (C.wires (List.ofFn (lcPair N p l))).getD (N + N + pre.length) false = true → p = p0)
+    (hwire : ∀ z : Fin (N + N) → Bool,
+      (pre.foldl decStep (List.ofFn z)).getD w false = true ↔
+      ∃ l : Fin N, I p0 l ∧
+        (C.wires (List.ofFn (lcPair N p0 l))).getD (N + N + pre.length) false = true ∧
+        z (Fin.natAdd N l) = true) :
+    ∃ D : Circuit, lcImproves N I C D ∧
+      (gateAt D pre.length).op = GateOp.and ∧
+      (∀ z : Fin (N + N) → Bool,
+        (D.wires (List.ofFn z)).getD (N + N + pre.length) false = true →
+        ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) := by
+  let r : Gate := ⟨GateOp.and, [p0.val, w]⟩
+  let D : Circuit := ⟨pre ++ r :: post, C.output⟩
+  have hle : ∀ z : Fin (N + N) → Bool,
+      r.op.eval (r.inputs.map fun i => (pre.foldl decStep (List.ofFn z)).getD i false) = true →
+      g.op.eval (g.inputs.map fun i => (pre.foldl decStep (List.ofFn z)).getD i false) = true := by
+    intro z hz
+    change GateOp.and.eval _ = true at hz
+    rw [lcStarEval, Bool.and_eq_true] at hz
+    obtain ⟨l, _, haccept, hl⟩ := (hwire z).mp hz.2
+    rw [← lcCircuitGate (N + N) C pre post g hsplit]
+    exact decWireMono (N + N) C hmono _ z (lcPairLe N p0 l z hz.1 hl)
+      (N + N + pre.length) haccept
+  refine ⟨D, ?_, ?_, ?_⟩
+  · apply lcReplacement N I C pre post g r hsplit hmono hreads hfun (Or.inl rfl)
+    · simp [r]
+    · intro a ha
+      simp only [r, List.mem_cons, List.not_mem_nil, or_false] at ha
+      rcases ha with rfl | rfl <;> omega
+    · exact hle
+    · intro p l hpl
+      rw [Bool.eq_iff_iff]
+      constructor
+      · exact hle _
+      · intro ht
+        have haccept : (C.wires (List.ofFn (lcPair N p l))).getD
+            (N + N + pre.length) false = true := by
+          rw [lcCircuitGate (N + N) C pre post g hsplit]
+          exact ht
+        have hp := hstar p l hpl haccept
+        subst p
+        change GateOp.and.eval _ = true
+        rw [lcStarEval, Bool.and_eq_true]
+        exact ⟨(lcPairTrue N p0 l).1,
+          (hwire _).mpr ⟨l, hpl, haccept, (lcPairTrue N p0 l).2⟩⟩
+  · simp [gateAt, D, r]
+  · intro z hz
+    rw [lcCircuitGate (N + N) D pre post r rfl] at hz
+    change GateOp.and.eval _ = true at hz
+    rw [lcStarEval, Bool.and_eq_true] at hz
+    obtain ⟨l, hpl, _, hl⟩ := (hwire z).mp hz.2
+    exact ⟨p0, l, hpl, hz.1, hl⟩
+
+
 end PEqualNP.Outside.L_meta_3451
