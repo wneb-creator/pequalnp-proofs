@@ -1,0 +1,72 @@
+{
+  "verdict": "PASS",
+  "reviewer": "main agent, independent of Jason implementation",
+  "timestamp_utc": "2026-11-24T02:25:13.274266+00:00",
+  "sources": {
+    "search_l1342_shard17_ancestorconstant.py": "b4ebb9509ecd7278f417ee2f0c4ebfc1c15288006942fcf90006e63d88ce8720",
+    "search_l1342_shard17_ancestorreverse.py": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+    "lean-setup/add_suffix_some_junk.py": "f2bb60e320dccc47de788d5585c1c88a4158ac397704704742893ec054389e57"
+  },
+  "checks": {
+    "function_AST_delta": [
+      "totalizer_atleast"
+    ],
+    "all_parent_clauses_preserved": true,
+    "reverse_added_clauses_per_formula": 10325,
+    "one_junk_delta_exact": true
+  },
+  "mathematical_review": [
+    "Forward totalizer clauses force output thresholds at most the true leaf count. Reverse clause -C(i+j+1) or A(i+1) or B(j+1) forbids thresholds above the sum; missing exhausted-child thresholds are false. Truncation at cap cannot omit a threshold used in a stored parent clause. Exact threshold extensions preserve projected models, including signed or repeated leaves.",
+    "Every 21-gate exact target circuit with no junk AND contradicts the established clean C4-free bound 16+7-1=22 after virtual-constant elimination. Prefix ANDs are clean and suffix flags exactly recognize independent-input contamination, so at least one suffix junk flag is necessary. This does not restore first-junk or two-junk constraints after tail rewriting."
+  ],
+  "cases": {
+    "prefix-base": {
+      "reverse_cnf_sha256": "7c8cdd78f24e0de8ec143d4c5801d1481c9d5f336c1e9bf79d9b461c9e3c127d",
+      "inserted": 10325
+    },
+    "prefix-lex": {
+      "reverse_cnf_sha256": "741a81093f40bcbbb28f10514bf1e9d609b046c9fa711e5d086548f3cc4a64cf",
+      "inserted": 10325
+    },
+    "prefix-distinct": {
+      "reverse_cnf_sha256": "811937a8a658d01fac36418e9fb3087218820a9f9dc571ef09246f936df8168e",
+      "inserted": 10325
+    },
+    "meet5": {
+      "reverse_cnf_sha256": "8ad19290450febcacee8d7e67acbb8501202a45c731926f480b14d0c6c0dfd02",
+      "inserted": 10325,
+      "one_junk_cnf_sha256": "03ab94c59d6fa7b3e6df9ce21168042073e4021db6c0c4b00167424574704fb6"
+    },
+    "or1meet4": {
+      "reverse_cnf_sha256": "fe246e722f3b572bb2a96756f616e25498c3f362311b4d1209439cf89673ec34",
+      "inserted": 10325,
+      "one_junk_cnf_sha256": "b10bf17a564d314b434a273d146a501de70b0b7b0f76e9c9df38d5fd35e1c1c9"
+    },
+    "or2meet3": {
+      "reverse_cnf_sha256": "0aea6404d19a245da1f965fdbad414fbf83a245cab22c772ae951533fb4c89b7",
+      "inserted": 10325,
+      "one_junk_cnf_sha256": "ff276b2a4c41f08229a7fe6c159ded09361bb1c22456b8a7c88c8a03d4d8c42a"
+    },
+    "meet1or1meet3": {
+      "reverse_cnf_sha256": "9610390e91547f89ab076d029877510149f211d996f50364065c30b497fe83e8",
+      "inserted": 10325,
+      "one_junk_cnf_sha256": "8b3d3993133ee35abb4c1b3616b8cca0fed564e4bef424c1f5e3b460e1624124"
+    },
+    "meet1or2meet2": {
+      "reverse_cnf_sha256": "77ab45a27f103fc0b4b1de10c8394c871a16fe6f9e30028f3345b0f89af5797b",
+      "inserted": 10325,
+      "one_junk_cnf_sha256": "c001aeac40cf0716bd4803462f5ed00494874cab941e7db8774c80a3a844e7dd"
+    },
+    "meet2or1meet2": {
+      "reverse_cnf_sha256": "db261ee9272995baed5e5fa98818c2f2c67a06d233280af96c1404140f6f6674",
+      "inserted": 10325,
+      "one_junk_cnf_sha256": "1aeaa1986ddec4a4d12b95eecf1a6e2d66d1108e767b9b6a255df172d19f859f"
+    },
+    "meet3or2": {
+      "reverse_cnf_sha256": "20a06718803dfbbf25ebf39434dd54a4c03df9cadb25d2d09b5d0893da9fb8ad",
+      "inserted": 10325,
+      "one_junk_cnf_sha256": "377320e652fee718147563545de2924fc56fd40c64c59948898e5779175970bd"
+    }
+  },
+  "limits": "Encoding review, not solver exhaustion or a Lean proof of the posted theorem."
+}

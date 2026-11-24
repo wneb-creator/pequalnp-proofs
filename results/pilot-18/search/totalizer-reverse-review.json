@@ -1,0 +1,183 @@
+{
+  "verdict": "PASS_FINITE_AUDIT_AND_PROJECTION_ARGUMENT",
+  "source_sha256": "60a37d85580f1190e3dac3793610a6d90197c90f2cde08520ec79269be3f5997",
+  "audited_code_sha256": "76b1ad488ff1f37df429a1cbff8a6a3ec58699212c7b8a8367cda6931b2c532c",
+  "timestamp_utc": "2026-11-24T02:07:49.317860+00:00",
+  "small_gadgets": 135,
+  "small_input_assignments": 12291,
+  "all_auxiliary_assignments_checked": 36327,
+  "inputs_with_exhaustive_unique_extension": 387,
+  "alias_and_complement_assignments": 85,
+  "actual_size_assignments": 1088,
+  "actual_sizes": [
+    {
+      "gate": 0,
+      "inputs": 38,
+      "cap": 3,
+      "variables": 95,
+      "forward_clauses": 203,
+      "reverse_added_clauses": 168,
+      "added_variables": 0
+    },
+    {
+      "gate": 1,
+      "inputs": 39,
+      "cap": 4,
+      "variables": 113,
+      "forward_clauses": 259,
+      "reverse_added_clauses": 224,
+      "added_variables": 0
+    },
+    {
+      "gate": 2,
+      "inputs": 40,
+      "cap": 5,
+      "variables": 131,
+      "forward_clauses": 316,
+      "reverse_added_clauses": 281,
+      "added_variables": 0
+    },
+    {
+      "gate": 3,
+      "inputs": 41,
+      "cap": 6,
+      "variables": 142,
+      "forward_clauses": 367,
+      "reverse_added_clauses": 332,
+      "added_variables": 0
+    },
+    {
+      "gate": 4,
+      "inputs": 42,
+      "cap": 7,
+      "variables": 153,
+      "forward_clauses": 419,
+      "reverse_added_clauses": 384,
+      "added_variables": 0
+    },
+    {
+      "gate": 5,
+      "inputs": 43,
+      "cap": 8,
+      "variables": 164,
+      "forward_clauses": 472,
+      "reverse_added_clauses": 437,
+      "added_variables": 0
+    },
+    {
+      "gate": 6,
+      "inputs": 44,
+      "cap": 9,
+      "variables": 175,
+      "forward_clauses": 526,
+      "reverse_added_clauses": 491,
+      "added_variables": 0
+    },
+    {
+      "gate": 7,
+      "inputs": 45,
+      "cap": 10,
+      "variables": 186,
+      "forward_clauses": 581,
+      "reverse_added_clauses": 546,
+      "added_variables": 0
+    },
+    {
+      "gate": 8,
+      "inputs": 46,
+      "cap": 11,
+      "variables": 197,
+      "forward_clauses": 637,
+      "reverse_added_clauses": 602,
+      "added_variables": 0
+    },
+    {
+      "gate": 9,
+      "inputs": 47,
+      "cap": 12,
+      "variables": 207,
+      "forward_clauses": 693,
+      "reverse_added_clauses": 658,
+      "added_variables": 0
+    },
+    {
+      "gate": 10,
+      "inputs": 48,
+      "cap": 13,
+      "variables": 215,
+      "forward_clauses": 748,
+      "reverse_added_clauses": 713,
+      "added_variables": 0
+    },
+    {
+      "gate": 11,
+      "inputs": 49,
+      "cap": 14,
+      "variables": 223,
+      "forward_clauses": 804,
+      "reverse_added_clauses": 769,
+      "added_variables": 0
+    },
+    {
+      "gate": 12,
+      "inputs": 50,
+      "cap": 15,
+      "variables": 231,
+      "forward_clauses": 861,
+      "reverse_added_clauses": 826,
+      "added_variables": 0
+    },
+    {
+      "gate": 13,
+      "inputs": 51,
+      "cap": 16,
+      "variables": 239,
+      "forward_clauses": 919,
+      "reverse_added_clauses": 884,
+      "added_variables": 0
+    },
+    {
+      "gate": 14,
+      "inputs": 52,
+      "cap": 17,
+      "variables": 247,
+      "forward_clauses": 978,
+      "reverse_added_clauses": 943,
+      "added_variables": 0
+    },
+    {
+      "gate": 15,
+      "inputs": 53,
+      "cap": 18,
+      "variables": 255,
+      "forward_clauses": 1038,
+      "reverse_added_clauses": 1003,
+      "added_variables": 0
+    },
+    {
+      "gate": 16,
+      "inputs": 54,
+      "cap": 19,
+      "variables": 263,
+      "forward_clauses": 1099,
+      "reverse_added_clauses": 1064,
+      "added_variables": 0
+    }
+  ],
+  "new_variables": 0,
+  "added_clauses_for_seventeen_counters": 10325,
+  "exact_threshold_extension_satisfies_all_clauses": true,
+  "unit_propagation_forces_all_exact_thresholds_in_controls": true,
+  "forward_subsequence_matches_reviewed_source": true,
+  "production_source_or_cnf_modified": false,
+  "solver_started": false,
+  "limitations": [
+    "No runtime benefit measured.",
+    "Requires cap >= 1 and the same positive cap throughout recursion.",
+    "Performance-only cut; no result about satisfiability of any search instance.",
+    "Not integrated into the constant variant or any production generator."
+  ],
+  "sub_agents": "none",
+  "review_markdown_sha256": "4e8abec974f8b3dfcadeececf8c3393d63af436d231f89c4893a604208312d23",
+  "total_session_minutes": 109.7
+}

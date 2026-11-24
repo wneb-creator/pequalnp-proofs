@@ -36,9 +36,10 @@ Adding the concrete circuit connection brings the file to 1133 lines.
 Search: seven independently reviewed formula-tail overapproximations, with
 strict-OR, residual-edge and exact-ancestor cost restrictions. No production
 SAT/UNSAT verdict yet. Two online solver/checker pairs run, four weaker states
-are paused, and a separate candidate-focused run examines a third shape.
+are paused, and short candidate-only runs cover the seven stronger reverse-counter shapes.
+A prior 1,200-second candidate run returned UNKNOWN; its complete logs are saved.
 SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 2 inherited-model agents for mathematical search and independent validation/proof engineering
-TIMING total=115.4 subagents=2
+TIMING total=129.2 subagents=2

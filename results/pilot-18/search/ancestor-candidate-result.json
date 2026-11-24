@@ -1,0 +1,9 @@
+{
+  "case": "or2meet3",
+  "mode": "candidate-only",
+  "time_limit_seconds": 1200,
+  "status_lines": [
+    "s UNKNOWN"
+  ],
+  "conclusion": "NONE; not SAT, not UNSAT, no certificate"
+}

@@ -1,0 +1,141 @@
+{
+  "verdict": "PASS_MATHEMATICAL_REVIEW_AND_EXACT_DELTA_SELF_AUDIT",
+  "timestamp_utc": "2026-11-24T02:22:47.509907+00:00",
+  "postprocessor": "/tmp/oec/pequalnp-pilot-18/lean-setup/add_suffix_some_junk.py",
+  "postprocessor_sha256": "f2bb60e320dccc47de788d5585c1c88a4158ac397704704742893ec054389e57",
+  "parent_generator_sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+  "graph": {
+    "vertices": 11,
+    "edges": 16,
+    "ordered_four_distinct_vertices_checked": 7920,
+    "four_cycles_found": 0,
+    "vertex_subsets_checked": 2048,
+    "minimum_vertex_cover": 7,
+    "minimum_cover_witness": [
+      0,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "negative_inputs": 125,
+    "maximal_independent_sets": 24,
+    "all_negative_inputs_extend_to_maximal": true,
+    "clean_gate_lower_bound": 22
+  },
+  "junk_equivalence_boolean_assignments": 8,
+  "new_clause_boolean_assignments": 16,
+  "new_clause_accepts_all_four_exactly_one_junk_patterns": true,
+  "added_variables": 0,
+  "added_clauses_per_tail_case": 1,
+  "first_junk_unit_restored": false,
+  "two_junk_requirement_restored": false,
+  "case_audits": {
+    "meet5": {
+      "variables": 11764,
+      "clauses": 112776,
+      "sha256": "03ab94c59d6fa7b3e6df9ce21168042073e4021db6c0c4b00167424574704fb6",
+      "parent_sha256": "8ad19290450febcacee8d7e67acbb8501202a45c731926f480b14d0c6c0dfd02",
+      "exact_prior_plus_one_clause": true,
+      "clause": [
+        2974,
+        3243,
+        3516,
+        3793
+      ]
+    },
+    "or1meet4": {
+      "variables": 11764,
+      "clauses": 112341,
+      "sha256": "b10bf17a564d314b434a273d146a501de70b0b7b0f76e9c9df38d5fd35e1c1c9",
+      "parent_sha256": "fe246e722f3b572bb2a96756f616e25498c3f362311b4d1209439cf89673ec34",
+      "exact_prior_plus_one_clause": true,
+      "clause": [
+        2974,
+        3243,
+        3516,
+        3793
+      ]
+    },
+    "or2meet3": {
+      "variables": 11764,
+      "clauses": 112339,
+      "sha256": "ff276b2a4c41f08229a7fe6c159ded09361bb1c22456b8a7c88c8a03d4d8c42a",
+      "parent_sha256": "0aea6404d19a245da1f965fdbad414fbf83a245cab22c772ae951533fb4c89b7",
+      "exact_prior_plus_one_clause": true,
+      "clause": [
+        2974,
+        3243,
+        3516,
+        3793
+      ]
+    },
+    "meet1or1meet3": {
+      "variables": 11764,
+      "clauses": 111906,
+      "sha256": "8b3d3993133ee35abb4c1b3616b8cca0fed564e4bef424c1f5e3b460e1624124",
+      "parent_sha256": "9610390e91547f89ab076d029877510149f211d996f50364065c30b497fe83e8",
+      "exact_prior_plus_one_clause": true,
+      "clause": [
+        2974,
+        3243,
+        3516,
+        3793
+      ]
+    },
+    "meet1or2meet2": {
+      "variables": 11764,
+      "clauses": 112340,
+      "sha256": "c001aeac40cf0716bd4803462f5ed00494874cab941e7db8774c80a3a844e7dd",
+      "parent_sha256": "77ab45a27f103fc0b4b1de10c8394c871a16fe6f9e30028f3345b0f89af5797b",
+      "exact_prior_plus_one_clause": true,
+      "clause": [
+        2974,
+        3243,
+        3516,
+        3793
+      ]
+    },
+    "meet2or1meet2": {
+      "variables": 11764,
+      "clauses": 111905,
+      "sha256": "1aeaa1986ddec4a4d12b95eecf1a6e2d66d1108e767b9b6a255df172d19f859f",
+      "parent_sha256": "db261ee9272995baed5e5fa98818c2f2c67a06d233280af96c1404140f6f6674",
+      "exact_prior_plus_one_clause": true,
+      "clause": [
+        2974,
+        3243,
+        3516,
+        3793
+      ]
+    },
+    "meet3or2": {
+      "variables": 11764,
+      "clauses": 112339,
+      "sha256": "377320e652fee718147563545de2924fc56fd40c64c59948898e5779175970bd",
+      "parent_sha256": "20a06718803dfbbf25ebf39434dd54a4c03df9cadb25d2d09b5d0893da9fb8ad",
+      "exact_prior_plus_one_clause": true,
+      "clause": [
+        2974,
+        3243,
+        3516,
+        3793
+      ]
+    }
+  },
+  "solver_started": false,
+  "running_cases_modified": false,
+  "limitations": [
+    "The mathematical use of constant elimination is not a newly formalized Lean theorem.",
+    "No runtime improvement measured; no search SAT/UNSAT result.",
+    "Main independent review remains required before use."
+  ],
+  "Sub-agents": "none",
+  "review_markdown_sha256": "3c5d06bc4385d6f0af591ae6776d16d641b0141dd8f51bf1a6981f45453988c7",
+  "TIMING": {
+    "total_minutes": 127.1,
+    "subagents": 0
+  }
+}

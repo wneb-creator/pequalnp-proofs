@@ -1,0 +1,261 @@
+{
+  "verdict": "PASS_FOR_RESEARCH_CHECKPOINT_PUSH",
+  "timestamp_utc": "2026-11-24T02:28:25.944068+00:00",
+  "head": "78f99e5147cb1b662898d720533b60b687f2fed1",
+  "changed_relative_paths": [
+    "results/pilot-18/search/README.md",
+    "results/pilot-18/validation.txt"
+  ],
+  "untracked_relative_paths": [
+    "results/pilot-18/search/add_suffix_some_junk.py",
+    "results/pilot-18/search/ancestor-candidate-result.json",
+    "results/pilot-18/search/ancestor-sat-or2meet3.stderr",
+    "results/pilot-18/search/ancestor-sat-or2meet3.stdout",
+    "results/pilot-18/search/ancestorconstant-independent-review.json",
+    "results/pilot-18/search/ancestorconstant-review.json",
+    "results/pilot-18/search/ancestorreverse-review.json",
+    "results/pilot-18/search/ancestorreverse-review.md",
+    "results/pilot-18/search/reverse-onejunk-independent-review.json",
+    "results/pilot-18/search/run_reverse_candidates.py",
+    "results/pilot-18/search/search_l1342_shard17_ancestorconstant.py",
+    "results/pilot-18/search/search_l1342_shard17_ancestorreverse.py",
+    "results/pilot-18/search/suffix-some-junk-review.json",
+    "results/pilot-18/search/suffix-some-junk-review.md",
+    "results/pilot-18/search/totalizer-reverse-review.json",
+    "results/pilot-18/search/totalizer-reverse-review.md"
+  ],
+  "artifacts": [
+    {
+      "path": "results/pilot-18/search/README.md",
+      "sha256": "d2ce58a4240b8712ad6fb949cb4cf4570c1dcb76b5ba92f4f05084ae6caef64e",
+      "bytes": 4657
+    },
+    {
+      "path": "results/pilot-18/validation.txt",
+      "sha256": "90296b7fcc1cb37ac530b03047a10f190eaaa79b4e3214a061a4067fd402fa4d",
+      "bytes": 2520
+    },
+    {
+      "path": "results/pilot-18/search/add_suffix_some_junk.py",
+      "sha256": "f2bb60e320dccc47de788d5585c1c88a4158ac397704704742893ec054389e57",
+      "bytes": 3201
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-candidate-result.json",
+      "sha256": "d1759fc87a030f3dc9601bea7afa60256234a9ad2b63f3aba9086ec19fe62bb5",
+      "bytes": 184
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-sat-or2meet3.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-sat-or2meet3.stdout",
+      "sha256": "add6867256bcc9c162c5b59b5a975769e0f87a9522878774e3c01b39dc663307",
+      "bytes": 170170
+    },
+    {
+      "path": "results/pilot-18/search/ancestorconstant-independent-review.json",
+      "sha256": "9a9225266b57a981dcf6221dbeff5d387689c7bee0f6c9f9e81510347e4fb5bf",
+      "bytes": 2284
+    },
+    {
+      "path": "results/pilot-18/search/ancestorconstant-review.json",
+      "sha256": "f1f6b2e8eca081a9b1154b7865dd24d3f3ab06df57158fd6111a75d8d57267cd",
+      "bytes": 4459
+    },
+    {
+      "path": "results/pilot-18/search/ancestorreverse-review.json",
+      "sha256": "516ea225c51bb2e13aa7e72d8e16a6fc94d3ce629f4c02d38c895b684dc8468f",
+      "bytes": 4579
+    },
+    {
+      "path": "results/pilot-18/search/ancestorreverse-review.md",
+      "sha256": "ddd797b1c0c85cd9cc2b739e2eef7aa140978fe1af8bd434839352423efeb35f",
+      "bytes": 2124
+    },
+    {
+      "path": "results/pilot-18/search/reverse-onejunk-independent-review.json",
+      "sha256": "081d60a48025140f8d768dba31719152097d49e46d42bb58947a4ec4f4d31353",
+      "bytes": 3746
+    },
+    {
+      "path": "results/pilot-18/search/run_reverse_candidates.py",
+      "sha256": "4cec1277df4e4a4f209eaa5f95021196b7565dbf13dbf0bb1ffe096d08eb5589",
+      "bytes": 3252
+    },
+    {
+      "path": "results/pilot-18/search/search_l1342_shard17_ancestorconstant.py",
+      "sha256": "b4ebb9509ecd7278f417ee2f0c4ebfc1c15288006942fcf90006e63d88ce8720",
+      "bytes": 29861
+    },
+    {
+      "path": "results/pilot-18/search/search_l1342_shard17_ancestorreverse.py",
+      "sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+      "bytes": 30356
+    },
+    {
+      "path": "results/pilot-18/search/suffix-some-junk-review.json",
+      "sha256": "f2dc4ebbd0b1e561acfc6ee6dcbe75b5f85b06367707c1549fbf30943e38d728",
+      "bytes": 4291
+    },
+    {
+      "path": "results/pilot-18/search/suffix-some-junk-review.md",
+      "sha256": "3c5d06bc4385d6f0af591ae6776d16d641b0141dd8f51bf1a6981f45453988c7",
+      "bytes": 3629
+    },
+    {
+      "path": "results/pilot-18/search/totalizer-reverse-review.json",
+      "sha256": "decdd58c407934d751ef9dd88a2833354ebd2cbf77f6c797dac8bead4f7635a0",
+      "bytes": 4457
+    },
+    {
+      "path": "results/pilot-18/search/totalizer-reverse-review.md",
+      "sha256": "4e8abec974f8b3dfcadeececf8c3393d63af436d231f89c4893a604208312d23",
+      "bytes": 4303
+    }
+  ],
+  "exact_scratch_copies": [
+    {
+      "path": "results/pilot-18/search/add_suffix_some_junk.py",
+      "original": "/tmp/oec/pequalnp-pilot-18/lean-setup/add_suffix_some_junk.py",
+      "sha256": "f2bb60e320dccc47de788d5585c1c88a4158ac397704704742893ec054389e57"
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-sat-or2meet3.stderr",
+      "original": "/tmp/oec/pequalnp-pilot-18/ancestor-sat-or2meet3.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-sat-or2meet3.stdout",
+      "original": "/tmp/oec/pequalnp-pilot-18/ancestor-sat-or2meet3.stdout",
+      "sha256": "add6867256bcc9c162c5b59b5a975769e0f87a9522878774e3c01b39dc663307"
+    },
+    {
+      "path": "results/pilot-18/search/ancestorconstant-independent-review.json",
+      "original": "/tmp/oec/pequalnp-pilot-18/ancestorconstant-independent-review.json",
+      "sha256": "9a9225266b57a981dcf6221dbeff5d387689c7bee0f6c9f9e81510347e4fb5bf"
+    },
+    {
+      "path": "results/pilot-18/search/ancestorconstant-review.json",
+      "original": "/tmp/oec/pequalnp-pilot-18/lean-setup/ancestorconstant-review.json",
+      "sha256": "f1f6b2e8eca081a9b1154b7865dd24d3f3ab06df57158fd6111a75d8d57267cd"
+    },
+    {
+      "path": "results/pilot-18/search/ancestorreverse-review.json",
+      "original": "/tmp/oec/pequalnp-pilot-18/lean-setup/ancestorreverse-review.json",
+      "sha256": "516ea225c51bb2e13aa7e72d8e16a6fc94d3ce629f4c02d38c895b684dc8468f"
+    },
+    {
+      "path": "results/pilot-18/search/ancestorreverse-review.md",
+      "original": "/tmp/oec/pequalnp-pilot-18/lean-setup/ancestorreverse-review.md",
+      "sha256": "ddd797b1c0c85cd9cc2b739e2eef7aa140978fe1af8bd434839352423efeb35f"
+    },
+    {
+      "path": "results/pilot-18/search/reverse-onejunk-independent-review.json",
+      "original": "/tmp/oec/pequalnp-pilot-18/reverse-onejunk-independent-review.json",
+      "sha256": "081d60a48025140f8d768dba31719152097d49e46d42bb58947a4ec4f4d31353"
+    },
+    {
+      "path": "results/pilot-18/search/run_reverse_candidates.py",
+      "original": "/tmp/oec/pequalnp-pilot-18/run_reverse_candidates.py",
+      "sha256": "4cec1277df4e4a4f209eaa5f95021196b7565dbf13dbf0bb1ffe096d08eb5589"
+    },
+    {
+      "path": "results/pilot-18/search/search_l1342_shard17_ancestorconstant.py",
+      "original": "/tmp/oec/pequalnp-pilot-18/search_l1342_shard17_ancestorconstant.py",
+      "sha256": "b4ebb9509ecd7278f417ee2f0c4ebfc1c15288006942fcf90006e63d88ce8720"
+    },
+    {
+      "path": "results/pilot-18/search/search_l1342_shard17_ancestorreverse.py",
+      "original": "/tmp/oec/pequalnp-pilot-18/search_l1342_shard17_ancestorreverse.py",
+      "sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f"
+    },
+    {
+      "path": "results/pilot-18/search/suffix-some-junk-review.json",
+      "original": "/tmp/oec/pequalnp-pilot-18/lean-setup/suffix-some-junk-review.json",
+      "sha256": "f2dc4ebbd0b1e561acfc6ee6dcbe75b5f85b06367707c1549fbf30943e38d728"
+    },
+    {
+      "path": "results/pilot-18/search/suffix-some-junk-review.md",
+      "original": "/tmp/oec/pequalnp-pilot-18/lean-setup/suffix-some-junk-review.md",
+      "sha256": "3c5d06bc4385d6f0af591ae6776d16d641b0141dd8f51bf1a6981f45453988c7"
+    },
+    {
+      "path": "results/pilot-18/search/totalizer-reverse-review.json",
+      "original": "/tmp/oec/pequalnp-pilot-18/lean-setup/totalizer-reverse-review.json",
+      "sha256": "decdd58c407934d751ef9dd88a2833354ebd2cbf77f6c797dac8bead4f7635a0"
+    },
+    {
+      "path": "results/pilot-18/search/totalizer-reverse-review.md",
+      "original": "/tmp/oec/pequalnp-pilot-18/lean-setup/totalizer-reverse-review.md",
+      "sha256": "4e8abec974f8b3dfcadeececf8c3393d63af436d231f89c4893a604208312d23"
+    }
+  ],
+  "reviewed_source_bindings": {
+    "search_l1342_shard17_ancestorconstant.py": "b4ebb9509ecd7278f417ee2f0c4ebfc1c15288006942fcf90006e63d88ce8720",
+    "search_l1342_shard17_ancestorreverse.py": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+    "add_suffix_some_junk.py": "f2bb60e320dccc47de788d5585c1c88a4158ac397704704742893ec054389e57"
+  },
+  "red_team": {
+    "all18files_in_authorized_results_scope": true,
+    "Lean_byte_identical_to_HEAD": true,
+    "lean_sha256": "4c04b9af4adc59a183616886cdabf8385b9ba35757d96c9320fcbc1ce004a2b1",
+    "all15copied_artifacts_byte_identical": true,
+    "review_source_and_CNF_hash_bindings_consistent": true,
+    "review_markdown_hash_bindings_consistent": true,
+    "credential_and_lease_value_scan_passed": true,
+    "no_unrelated_files_or_symlinks": true,
+    "no_proof_acceptance_exhaustion_or_global_refutation_claims": true,
+    "runtime_improvement_not_claimed": true,
+    "final_PR_one_file_rule": "This is an explicitly authorized fork research checkpoint, not a proof PR; results files must not be included in a final single-file proof PR."
+  },
+  "old_candidate_log_review": {
+    "full_stdout_bytes": 170170,
+    "full_stdout_lines": 2243,
+    "byte_identical_to_original": true,
+    "status_lines": [
+      "s UNKNOWN"
+    ],
+    "final_solver_log_line": "c exit 0",
+    "stderr_bytes": 0,
+    "conclusion": "UNKNOWN; no SAT witness or UNSAT certificate"
+  },
+  "runner_review": {
+    "source_sha256": "4cec1277df4e4a4f209eaa5f95021196b7565dbf13dbf0bb1ffe096d08eb5589",
+    "executed_by_reviewer": false,
+    "classification": "candidate-only; no certified proof verdict",
+    "checks": [
+      "Seven intended cases, fresh output directory and separate complete stdout/stderr files.",
+      "Verifies CNF SHA against metadata before launching each candidate run.",
+      "1,500 MiB address-space cap, 300-second solver time limit, 330-second wall guard.",
+      "Owned solver process group receives interrupt and then kill on timeout/shutdown; finally attempts cleanup.",
+      "SIGTERM/SIGINT and desk-error sentinel stop new work; state writes are atomic replacements.",
+      "A SAT exit or SAT status only marks candidate_requires_validation and stops the sequence; it does not accept a witness.",
+      "Exit 20 is recorded without a proof/certificate acceptance claim."
+    ],
+    "nonblocking_limitations": [
+      "External scratch renew.py and DESK_ERROR.response are runtime dependencies; they were not read or executed in this review. The archived source contains no lease value.",
+      "No parent-death signal: supervisor SIGKILL can leave a candidate solver until its own limit. SIGINT/SIGTERM cleanup paths are present.",
+      "Renewal uses a blocking subprocess and inherited stdout/stderr; this source alone does not certify helper timeouts or its logging. No renewal-helper output is included in these added artifacts.",
+      "Possible process-exit/killpg races can end the orchestration with an exception and incomplete status; they cannot establish a false SAT/UNSAT result.",
+      "A candidate requires the separate full-model/all-clause/all-input validator before use. No live process controls were exercised."
+    ]
+  },
+  "documentation_notes": [
+    "README includes historical variant paragraphs; its new paragraph explicitly explains the newer one-junk consequence and UNKNOWN candidate result.",
+    "Claimed current worker status is main-reported; reviewer did not signal or otherwise modify workers."
+  ],
+  "actions": {
+    "repo_modified": false,
+    "workers_modified": false,
+    "lease_calls": false,
+    "build_or_solver_started": false
+  },
+  "Sub-agents": "none",
+  "TIMING": {
+    "total_minutes": 129.6,
+    "subagents": 0
+  }
+}

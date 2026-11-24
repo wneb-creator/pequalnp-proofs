@@ -1,0 +1,55 @@
+{
+  "verdict": "PASS",
+  "reviewer": "main agent, independent of implementation author",
+  "source_sha256": "b4ebb9509ecd7278f417ee2f0c4ebfc1c15288006942fcf90006e63d88ce8720",
+  "prior_function_AST_identical": true,
+  "cases": {
+    "meet5": {
+      "sha256": "bdd5469e8c5e676e786cede683c4c26b6b5ae3bb89b3944ab8f5bb3da9ce1199",
+      "variables": 11764,
+      "clauses": 102450,
+      "exact_prior_sequence_plus17": true
+    },
+    "or1meet4": {
+      "sha256": "97ae8eb26f22d4cbbb660228335443ba069d171f43ad5fd99b46c0ae0a6ae441",
+      "variables": 11764,
+      "clauses": 102015,
+      "exact_prior_sequence_plus17": true
+    },
+    "or2meet3": {
+      "sha256": "aa9c79ce7909db6bbd3fedd5271706c04e5a6a3bcf3b0c0b3115a056e01ef2a8",
+      "variables": 11764,
+      "clauses": 102013,
+      "exact_prior_sequence_plus17": true
+    },
+    "meet1or1meet3": {
+      "sha256": "89cff7b6314097a0d6fdc6cb9aa517e867f8bb99dc774271258fa937790b3f95",
+      "variables": 11764,
+      "clauses": 101580,
+      "exact_prior_sequence_plus17": true
+    },
+    "meet1or2meet2": {
+      "sha256": "f785366e2e86f0fb9268921ffaee0ea89628f43aa7c90c871a8547bba371cf42",
+      "variables": 11764,
+      "clauses": 102014,
+      "exact_prior_sequence_plus17": true
+    },
+    "meet2or1meet2": {
+      "sha256": "762b0f72a7fdbcb6ae342ea8eb416d3fb70ffe5c98118d48d36a6acad2873b9d",
+      "variables": 11764,
+      "clauses": 101579,
+      "exact_prior_sequence_plus17": true
+    },
+    "meet3or2": {
+      "sha256": "f3ae90ee245116133ac4f20606bf3a731ba43fffe23ae796e0f138143a98dfbe",
+      "variables": 11764,
+      "clauses": 102013,
+      "exact_prior_sequence_plus17": true
+    }
+  },
+  "mathematics": "Full singleton support implies TRUE on every nonempty input. Substituting free TRUE preserves all nonempty circuit outputs and prefix cleanliness. The target remains false at a singleton, so monotonicity forces the empty output false. Prune, resort, and pad exempt copies as already reviewed.",
+  "empty_input_caveat": "Intermediate empty-input values may change; the claim is about final exact target preservation.",
+  "no_new_search_started": true,
+  "scope": "Necessary normalization only; not a Lean theorem, UNSAT verdict, or runtime improvement",
+  "reviewed_at": "2026-11-24T02:06:34.234113+00:00"
+}

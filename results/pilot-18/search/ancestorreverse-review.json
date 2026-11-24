@@ -1,0 +1,105 @@
+{
+  "verdict": "PASS_SELF_AUDIT_READY_FOR_MAIN_INDEPENDENT_REVIEW",
+  "source": "/tmp/oec/pequalnp-pilot-18/search_l1342_shard17_ancestorreverse.py",
+  "source_sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+  "parent_source_sha256": "b4ebb9509ecd7278f417ee2f0c4ebfc1c15288006942fcf90006e63d88ce8720",
+  "audit_script_sha256": "c865e432bf52b90f934b58008418ed370a9040a9f584ddb80d7bc4809410c63e",
+  "timestamp_utc": "2026-11-24T02:20:42.106126+00:00",
+  "only_changed_function": "totalizer_atleast",
+  "other_definitions_AST_identical": true,
+  "main_only_adds_metadata_flag": true,
+  "added_variables": 0,
+  "added_clauses_per_formula": 10325,
+  "small_input_assignments": 12291,
+  "alias_and_complement_assignments": 85,
+  "actual_size_assignments": 1088,
+  "all_clauses_match_independent_finite_audit": true,
+  "all_thresholds_forced_exact_in_controls": true,
+  "full_base_replay_matches": true,
+  "all_parent_clauses_preserved_in_order": true,
+  "all_selector_and_auxiliary_ids_unchanged": true,
+  "case_audits": {
+    "prefix-base": {
+      "variables": 11732,
+      "clauses": 106952,
+      "sha256": "7c8cdd78f24e0de8ec143d4c5801d1481c9d5f336c1e9bf79d9b461c9e3c127d",
+      "prior_sha256": "d2359bc542a4e21a392af1584f899046864f482786f0e3d3018884064cf0ff35",
+      "exact_prior_formula_plus_reverse_clauses": true
+    },
+    "prefix-lex": {
+      "variables": 11764,
+      "clauses": 110992,
+      "sha256": "741a81093f40bcbbb28f10514bf1e9d609b046c9fa711e5d086548f3cc4a64cf",
+      "prior_sha256": "5769fdf5c6c54fae955a379e16d1b974c8561c69e15f0fd2336e9766b3760ce2",
+      "exact_prior_formula_plus_reverse_clauses": true
+    },
+    "prefix-distinct": {
+      "variables": 11764,
+      "clauses": 111024,
+      "sha256": "811937a8a658d01fac36418e9fb3087218820a9f9dc571ef09246f936df8168e",
+      "prior_sha256": "11f7b3db485249daf15212a944535f68cccd44c4ac5509e9c7f415406089ee5b",
+      "exact_prior_formula_plus_reverse_clauses": true
+    },
+    "meet5": {
+      "variables": 11764,
+      "clauses": 112775,
+      "sha256": "8ad19290450febcacee8d7e67acbb8501202a45c731926f480b14d0c6c0dfd02",
+      "prior_sha256": "bdd5469e8c5e676e786cede683c4c26b6b5ae3bb89b3944ab8f5bb3da9ce1199",
+      "exact_prior_formula_plus_reverse_clauses": true
+    },
+    "or1meet4": {
+      "variables": 11764,
+      "clauses": 112340,
+      "sha256": "fe246e722f3b572bb2a96756f616e25498c3f362311b4d1209439cf89673ec34",
+      "prior_sha256": "97ae8eb26f22d4cbbb660228335443ba069d171f43ad5fd99b46c0ae0a6ae441",
+      "exact_prior_formula_plus_reverse_clauses": true
+    },
+    "or2meet3": {
+      "variables": 11764,
+      "clauses": 112338,
+      "sha256": "0aea6404d19a245da1f965fdbad414fbf83a245cab22c772ae951533fb4c89b7",
+      "prior_sha256": "aa9c79ce7909db6bbd3fedd5271706c04e5a6a3bcf3b0c0b3115a056e01ef2a8",
+      "exact_prior_formula_plus_reverse_clauses": true
+    },
+    "meet1or1meet3": {
+      "variables": 11764,
+      "clauses": 111905,
+      "sha256": "9610390e91547f89ab076d029877510149f211d996f50364065c30b497fe83e8",
+      "prior_sha256": "89cff7b6314097a0d6fdc6cb9aa517e867f8bb99dc774271258fa937790b3f95",
+      "exact_prior_formula_plus_reverse_clauses": true
+    },
+    "meet1or2meet2": {
+      "variables": 11764,
+      "clauses": 112339,
+      "sha256": "77ab45a27f103fc0b4b1de10c8394c871a16fe6f9e30028f3345b0f89af5797b",
+      "prior_sha256": "f785366e2e86f0fb9268921ffaee0ea89628f43aa7c90c871a8547bba371cf42",
+      "exact_prior_formula_plus_reverse_clauses": true
+    },
+    "meet2or1meet2": {
+      "variables": 11764,
+      "clauses": 111904,
+      "sha256": "db261ee9272995baed5e5fa98818c2f2c67a06d233280af96c1404140f6f6674",
+      "prior_sha256": "762b0f72a7fdbcb6ae342ea8eb416d3fb70ffe5c98118d48d36a6acad2873b9d",
+      "exact_prior_formula_plus_reverse_clauses": true
+    },
+    "meet3or2": {
+      "variables": 11764,
+      "clauses": 112338,
+      "sha256": "20a06718803dfbbf25ebf39434dd54a4c03df9cadb25d2d09b5d0893da9fb8ad",
+      "prior_sha256": "f3ae90ee245116133ac4f20606bf3a731ba43fffe23ae796e0f138143a98dfbe",
+      "exact_prior_formula_plus_reverse_clauses": true
+    }
+  },
+  "some_suffix_junk_cut_included": false,
+  "scope": [
+    "No solver started; no running formulas, repository, or leases touched.",
+    "Projection argument is in totalizer-reverse-review.md.",
+    "Runtime improvement is unmeasured. No search SAT/UNSAT claim."
+  ],
+  "Sub-agents": "none",
+  "review_markdown_sha256": "ddd797b1c0c85cd9cc2b739e2eef7aa140978fe1af8bd434839352423efeb35f",
+  "TIMING": {
+    "total_minutes": 127.1,
+    "subagents": 0
+  }
+}

@@ -57,3 +57,18 @@ no replayable certificate. It accepts only the explicit solver/checker UNSAT
 verdicts with successful exits and a complete producer stream. Fifteen controls
 passed, and the runner received an independent source review. No production
 case has yet produced a verdict.
+
+The constant-canonicalization and exact-counter variants received independent
+source, clause-delta, and mathematical review. Reproduce the newest inputs with
+`python search_l1342_shard17_ancestorreverse.py --distinct-prefix FRESH_PARENT`,
+then `python add_suffix_some_junk.py FRESH_PARENT FRESH_OUTPUT`. The separate
+postprocessor requires at least one suffix junk AND, a consequence of the
+22-gate clean lower bound. It does not restore the original gate-17 or two-junk
+requirements after rewriting. All seven output hashes are bound in the reviews.
+The exact counters add 10,325 clauses and no variables; canonical constants add
+17 clauses, and the suffix consequence adds one. Runtime benefit is unmeasured.
+
+A 1,200-second candidate-only run on the previous ancestor encoding returned
+UNKNOWN. Its complete stdout/stderr are preserved. Short candidate runs now
+cover the seven new shapes; the two original online-checking runs continue.
+Neither campaign has established SAT or UNSAT for an assigned case.

@@ -1,0 +1,104 @@
+{
+  "case_audits": {
+    "meet1or1meet3": {
+      "clauses": 101580,
+      "old_sequence_plus_exact_17_clauses": true,
+      "prior_sha256": "3ed39132e1c62ded17c5f2ab7c4d87a72028bfdaa6f42c96702db63a3113c178",
+      "sha256": "89cff7b6314097a0d6fdc6cb9aa517e867f8bb99dc774271258fa937790b3f95",
+      "variables": 11764
+    },
+    "meet1or2meet2": {
+      "clauses": 102014,
+      "old_sequence_plus_exact_17_clauses": true,
+      "prior_sha256": "f2bc694e3f8a2adcaad70df74c85b2db0d3f843f9c6e8924350323248a48deba",
+      "sha256": "f785366e2e86f0fb9268921ffaee0ea89628f43aa7c90c871a8547bba371cf42",
+      "variables": 11764
+    },
+    "meet2or1meet2": {
+      "clauses": 101579,
+      "old_sequence_plus_exact_17_clauses": true,
+      "prior_sha256": "f08746870b59fe0b78e142b593a340738d7edfafe422edf82cb55fb74bd920b8",
+      "sha256": "762b0f72a7fdbcb6ae342ea8eb416d3fb70ffe5c98118d48d36a6acad2873b9d",
+      "variables": 11764
+    },
+    "meet3or2": {
+      "clauses": 102013,
+      "old_sequence_plus_exact_17_clauses": true,
+      "prior_sha256": "65b6c201cf6c0ca3e3e19046add3c3a22d0927a286aec891a68510d092998733",
+      "sha256": "f3ae90ee245116133ac4f20606bf3a731ba43fffe23ae796e0f138143a98dfbe",
+      "variables": 11764
+    },
+    "meet5": {
+      "clauses": 102450,
+      "old_sequence_plus_exact_17_clauses": true,
+      "prior_sha256": "53534d3e4fced3343b0baca899ee1232963622de064a2fe1b1ad278f97c19555",
+      "sha256": "bdd5469e8c5e676e786cede683c4c26b6b5ae3bb89b3944ab8f5bb3da9ce1199",
+      "variables": 11764
+    },
+    "or1meet4": {
+      "clauses": 102015,
+      "old_sequence_plus_exact_17_clauses": true,
+      "prior_sha256": "b67ffc01320b368e482f01a143eb99fbda87fe13f640ab2730c6b351326eb72b",
+      "sha256": "97ae8eb26f22d4cbbb660228335443ba069d171f43ad5fd99b46c0ae0a6ae441",
+      "variables": 11764
+    },
+    "or2meet3": {
+      "clauses": 102013,
+      "old_sequence_plus_exact_17_clauses": true,
+      "prior_sha256": "cd9e809a81aa96b6f0f6774eccdd4c14b43ed72a60c4b88c2276e455fef29501",
+      "sha256": "aa9c79ce7909db6bbd3fedd5271706c04e5a6a3bcf3b0c0b3115a056e01ef2a8",
+      "variables": 11764
+    },
+    "prefix-base": {
+      "clauses": 96627,
+      "old_sequence_plus_exact_17_clauses": true,
+      "prior_sha256": "45ab1a010dbf0bfdd9351da710af29e815837a08d7271a217f459459fd650e24",
+      "sha256": "d2359bc542a4e21a392af1584f899046864f482786f0e3d3018884064cf0ff35",
+      "variables": 11732
+    },
+    "prefix-distinct": {
+      "clauses": 100699,
+      "old_sequence_plus_exact_17_clauses": true,
+      "prior_sha256": "be26b85132b39d05ddd4abd183e4eae5a4a9ab5af41c95f8840685678483d681",
+      "sha256": "11f7b3db485249daf15212a944535f68cccd44c4ac5509e9c7f415406089ee5b",
+      "variables": 11764
+    },
+    "prefix-lex": {
+      "clauses": 100667,
+      "old_sequence_plus_exact_17_clauses": true,
+      "prior_sha256": "1942bb1f6d91913674a378c436f969ee7897381e57cf0e994e9d2748beee9d19",
+      "sha256": "5769fdf5c6c54fae955a379e16d1b974c8561c69e15f0fd2336e9766b3760ce2",
+      "variables": 11764
+    }
+  },
+  "clause_projection_assignments": 69632,
+  "empty_input_intermediate_change_controls": 32,
+  "implementation_and_finite_projection": "PASS; main independent audit remains the next review step",
+  "inputs_checked_per_control_before_and_after": 2048,
+  "mathematical_normalization": "PASS for this eleven-input edge target, with a nonempty negative singleton",
+  "new_clauses": 17,
+  "new_variables": 0,
+  "normalization_controls": 64,
+  "old_common_definitions_AST_identical": true,
+  "parent_source_sha256": "60a37d85580f1190e3dac3793610a6d90197c90f2cde08520ec79269be3f5997",
+  "retained_core_sizes_tested": [
+    0,
+    1
+  ],
+  "reverse_totalizer_clauses_added": false,
+  "reviewed_at_utc": "2026-11-24T02:04:28.854686+00:00",
+  "scope": [
+    "Fresh directory only; no running CNF was changed.",
+    "No solver or lease call; no repository edit.",
+    "The 64 normalization controls use a larger known target circuit, not a 21-gate witness.",
+    "No runtime improvement measured.",
+    "Not a Lean formalization or search-exhaustion verdict."
+  ],
+  "source": "/tmp/oec/pequalnp-pilot-18/search_l1342_shard17_ancestorconstant.py",
+  "source_sha256": "b4ebb9509ecd7278f417ee2f0c4ebfc1c15288006942fcf90006e63d88ce8720",
+  "subagent_count": 0,
+  "subagents": "none",
+  "total_session_minutes": 109.7,
+  "verdict": "PASS",
+  "review_markdown_sha256": "96ab295c9bde7184cd882dfaeaaeed65728c688ca832023bb2a3042958e6c563"
+}
