@@ -739,3 +739,84 @@ lemma band_lower (gates : List Gate) (out : Fin 13 → ℕ)
   simpa using hmain
 
 end PEqualNP.Outside.L_meta_1024.OrOnly
+
+
+namespace PEqualNP.Outside.L_meta_1024_aux.AndRoot
+
+lemma above_unique {α β : Type*} [Fintype α] [DecidableEq α]
+    (f : β → Finset α) (hsep : ∀ i j, i ≠ j → f i ∪ f j = Finset.univ)
+    {s : Finset α} {i j : β} (hi : f i ⊆ s) (hj : f j ⊆ s)
+    (hs : s ≠ Finset.univ) : i = j := by
+  by_contra hij
+  apply hs
+  apply Finset.Subset.antisymm (Finset.subset_univ _)
+  rw [← hsep i j hij]
+  exact Finset.union_subset hi hj
+
+lemma intersection_triple {α : Type*} [Fintype α] [DecidableEq α]
+    (f s t : Finset α) (h : s ∩ t = f) (hs : s ≠ f) (ht : t ≠ f) :
+    ({f, s, t} : Finset (Finset α)).card = 3 ∧
+      ∀ u ∈ ({f, s, t} : Finset (Finset α)), f ⊆ u ∧ u ≠ Finset.univ := by
+  have hfs : f ⊆ s := h ▸ Finset.inter_subset_left
+  have hft : f ⊆ t := h ▸ Finset.inter_subset_right
+  have hst : s ≠ t := by
+    intro he
+    subst t
+    simp only [Finset.inter_self] at h
+    exact hs h
+  have hsu : s ≠ Finset.univ := by
+    intro he
+    subst s
+    simp only [Finset.univ_inter] at h
+    exact ht h
+  have htu : t ≠ Finset.univ := by
+    intro he
+    subst t
+    simp only [Finset.inter_univ] at h
+    exact hs h
+  have hfu : f ≠ Finset.univ := by
+    intro he
+    apply hsu
+    exact Finset.Subset.antisymm (Finset.subset_univ _) (he ▸ hfs)
+  constructor
+  · simp [hs, ht, hst, Ne.symm hs, Ne.symm ht]
+  · intro u hu
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hu
+    rcases hu with rfl | rfl | rfl
+    · exact ⟨Finset.Subset.refl _, hfu⟩
+    · exact ⟨hfs, hsu⟩
+    · exact ⟨hft, htu⟩
+
+lemma count_triples {α β : Type*} [Fintype α] [DecidableEq α]
+    [Fintype β] [DecidableEq β]
+    (f s t : β → Finset α) (pool : Finset (Finset α))
+    (hsep : ∀ i j, i ≠ j → f i ∪ f j = Finset.univ)
+    (he : ∀ i, s i ∩ t i = f i) (hs : ∀ i, s i ≠ f i) (ht : ∀ i, t i ≠ f i)
+    (hm : ∀ i, f i ∈ pool ∧ s i ∈ pool ∧ t i ∈ pool) :
+    3 * Fintype.card β ≤ pool.card := by
+  let triple (i : β) : Finset (Finset α) := {f i, s i, t i}
+  have hp (i : β) := intersection_triple (f i) (s i) (t i) (he i) (hs i) (ht i)
+  have hd : ∀ i ∈ (Finset.univ : Finset β),
+      ∀ j ∈ (Finset.univ : Finset β), i ≠ j → Disjoint (triple i) (triple j) := by
+    intro i _ j _ hij
+    rw [Finset.disjoint_left]
+    intro u hui huj
+    obtain ⟨hi, hu⟩ := (hp i).2 u hui
+    obtain ⟨hj, _⟩ := (hp j).2 u huj
+    exact hij (above_unique f hsep hi hj hu)
+  have hsub : (Finset.univ.biUnion triple) ⊆ pool := by
+    intro u hu
+    obtain ⟨i, _, hi⟩ := Finset.mem_biUnion.mp hu
+    simp only [triple, Finset.mem_insert, Finset.mem_singleton] at hi
+    rcases hi with rfl | rfl | rfl
+    · exact (hm i).1
+    · exact (hm i).2.1
+    · exact (hm i).2.2
+  have hc : (Finset.univ.biUnion triple).card = 3 * Fintype.card β := by
+    rw [Finset.card_biUnion hd]
+    have heq : ∀ i : β, (triple i).card = 3 := fun i => (hp i).1
+    simp [heq, Nat.mul_comm]
+  rw [← hc]
+  exact Finset.card_le_card hsub
+
+end PEqualNP.Outside.L_meta_1024_aux.AndRoot
