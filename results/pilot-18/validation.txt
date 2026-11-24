@@ -1,44 +1,39 @@
 gap: L-meta-1342
 shard: 17 of 19
-status: PARTIAL; the posted 21-gate existence statement is not proved.
+status: PARTIAL; no proof or refutation of the posted at-most-21 statement.
 file: lean/PEqualNP/Outside/L_meta_1342.lean
-lines: 201
-sha256: b8d3c2ae6508190f3ad278c134b60c0f8c7b6a799d22ce93cc8878e25d15ddc6
+lines: 715
+sha256: 47dea301a31cb1aeffbca714f59b7d4f0046f6efbc4c1a1f46255f7b1c6950bb
 
-The current checkpoint defines a 22-gate circuit and proves Monotone2,
-size = 22, stepwise evaluation, and the exact posted edge function for every
-Fin 11 -> Bool input. The bound remains 22, not the required at most 21.
-An independent Python check also agrees on all 2048 inputs.
+The file retains the complete 22-gate circuit and its exact full-input
+specification proof. It now also proves an abstract empty-support partial-edge
+lower bound for a clean circuit model in a C4-free ambient graph. The accepted
+edge graph need not equal the whole output function. The proper-support
+restriction/gate-deletion argument and search normalizations remain mathematical
+reviews, not Lean formalizations.
 
 Build: lake build +PEqualNP.Outside.L_meta_1342
-Lean: 4.36.0; pinned Mathlib cache fetched without lake update.
+Lean: 4.36.0; pinned Mathlib cache fetched; no lake update or Mathlib source build.
 Build exit: 0
-Build output: Build completed successfully (5109 jobs).
-Named file built in 25 seconds. Full stdout/stderr are adjacent files.
+Build output: Build completed successfully (18383 jobs).
+Named module: 38 seconds. Full stdout/stderr in partial-bound-build.*.
+Axiom audit for baseline: propext and Quot.sound; size uses no axioms.
+New abstract-lemma axiom audit: propext, Classical.choice, Quot.sound only.
+Full audit output is preserved in partial-bound-axioms.*.
 
 Checker: NOT RUN for the posted gap; the module-named theorem is absent.
-Independent review: main reviewed the sub-agent-authored proof and final diff.
-PR: none.
-Cleanup: not applicable; there is no accepted proof of the posted statement.
-Earlier partial checkpoint: 38 lines; current complete 22-gate baseline: 201 lines.
+Main independently reviewed the sub-agent-authored added proof.
+PR: none. No acceptance or global refutation is claimed.
+Cleanup: not applicable to unfinished gap.
+Line counts: original partial38; complete baseline201; baseline plus lower-bound
+helpers715. This increase adds proved lemmas; it is not a shortening pass.
 
-Search checkpoint: seven independently reviewed formula-tail overapproximations.
-No SAT or UNSAT verdict yet; full generator and reviews are in search/.
-Checker executable build: PASS; posted-gap checker remains NOT RUN.
-Axiom audit: only propext and Quot.sound (size lemma uses no axioms).
-
-Strong-search checkpoint: dominance/copy-chain variants and full SAT validator reviewed.
-SAT validator tests: 30 passed. Streaming certificate checker controls: 4 passed.
-No SAT/UNSAT search verdict and no posted-gap checker acceptance yet.
+Search: seven independently reviewed formula-tail overapproximations, with
+strict-OR, residual-edge and exact-ancestor cost restrictions. No production
+SAT/UNSAT verdict yet. Two online solver/checker pairs run, four weaker states
+are paused, and a separate candidate-focused run examines a third shape.
+SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
+Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 2 inherited-model agents for mathematical search and independent validation/proof engineering
-TIMING total=96.4 subagents=2
-
-Recovery checkpoint: files and pushed results survived the environment restart.
-All interrupted searches remain inconclusive. Reviewed support-cost generator
-adds 17 variables and 1287 clauses. Seven fresh cases running or queued.
-
-Ancestor-cost checkpoint: mathematical and independent encoding reviews PASS.
-Signed-counter and exact-reachability finite controls PASS. Online runner: 15
-controls PASS, independent source review PASS. Production results still PENDING.
-No posted-gap theorem, acceptance, exhaustion, or PR is claimed.
+TIMING total=102.6 subagents=2

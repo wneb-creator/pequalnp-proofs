@@ -1,0 +1,169 @@
+{
+  "actions_not_taken": [
+    "repository_edit",
+    "stage",
+    "push",
+    "build",
+    "axiom_compile",
+    "solver",
+    "desk_or_lease_call"
+  ],
+  "axiom_audit": {
+    "exit_source": "Main reported exit 0; saved output independently checked",
+    "recorded_exit": 0,
+    "rerun_by_reviewer": false,
+    "status": "PASS",
+    "stderr_empty": true,
+    "theorems": {
+      "PEqualNP.Outside.L_meta_1342_aux.edge_finset_gate_bound_partial": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "PEqualNP.Outside.L_meta_1342_aux.total_from_model_partial": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "baseline_bytes_unchanged_after_added_Mathlib_import": true,
+  "baseline_lines": 201,
+  "build": {
+    "evidence": "Main exit record plus exact saved stdout ending in successful named-module build",
+    "exit": 0,
+    "jobs": 18383,
+    "module_seconds": 38,
+    "rerun_by_reviewer": false
+  },
+  "copied_helpers_byte_identical_to_L_meta_1407": true,
+  "copied_logs": {
+    "partial-bound-axioms.stderr": {
+      "byte_identical": true,
+      "scratch_source": "partial-bound-axioms.stderr"
+    },
+    "partial-bound-axioms.stdout": {
+      "byte_identical": true,
+      "scratch_source": "partial-bound-axioms.stdout"
+    },
+    "partial-bound-build.stderr": {
+      "byte_identical": true,
+      "scratch_source": "combined-partial-build.stderr"
+    },
+    "partial-bound-build.stdout": {
+      "byte_identical": true,
+      "scratch_source": "combined-partial-build.stdout"
+    }
+  },
+  "final_PR_layout_note": "The partial preserves the baseline namespace and appends a separate module_aux namespace. CONTRIBUTING describes a single helper namespace block; consolidate/verify final PR layout when the posted theorem is supplied. This does not block the explicitly authorized partial checkpoint.",
+  "final_PR_status": "NOT READY: the module-named exact posted theorem is absent. This is an authorized partial checkpoint.",
+  "format_review": {
+    "allowed_top_imports_only": true,
+    "diff_check": "PASS",
+    "namespace_names_and_balancing": "PASS",
+    "no_forbidden_markers_commands_attributes_or_strings": true,
+    "no_import_token_after_header": true,
+    "options": [
+      "set_option maxHeartbeats 1000000 in",
+      "set_option maxRecDepth 8000 in",
+      "set_option maxHeartbeats 1000000 in",
+      "set_option maxRecDepth 8000 in"
+    ],
+    "ordinary_UTF8_nonexecutable_nonlink_under_512KiB": true
+  },
+  "gap": "L-meta-1342",
+  "head_commit": "b70fcbb910d490b3a941cba5feaeee28251c95b1",
+  "index_empty": true,
+  "new_theorems": [
+    "PEqualNP.Outside.L_meta_1342_aux.edge_finset_gate_bound_partial",
+    "PEqualNP.Outside.L_meta_1342_aux.total_from_model_partial"
+  ],
+  "no_unrelated_repo_changes": true,
+  "nonblocking_clarification": "The main-review format sentence concerns the added fragment; the unchanged baseline retains four permitted limit-option lines.",
+  "reviewed_at_utc": "2026-11-24T02:01:35.093662+00:00",
+  "scope": "Entire current eight-file diff: combined Lean partial and final build/axiom evidence; not a proof PR or posted-gap verdict",
+  "scope_note": "Only an abstract empty-support partial-edge lower bound is formalized here; proper-support restriction/deletion, normalization, and any search exhaustion remain separate work.",
+  "scratch_namespace_exact_match": true,
+  "scratch_source_sha256": "5c3626e3f385300bbaabd3146fb97365e720f11b213b0d03aae4b7a24ea2b9be",
+  "sensitive_scan": {
+    "files": 8,
+    "findings": 0,
+    "patterns": [
+      "github_token",
+      "authorization_value",
+      "private_key",
+      "url_userinfo",
+      "secret_assignment",
+      "lease_identifier",
+      "uuid"
+    ]
+  },
+  "snapshots": [
+    {
+      "bytes": 37718,
+      "path": "lean/PEqualNP/Outside/L_meta_1342.lean",
+      "sha256": "47dea301a31cb1aeffbca714f59b7d4f0046f6efbc4c1a1f46255f7b1c6950bb",
+      "status": " M"
+    },
+    {
+      "bytes": 2115,
+      "path": "results/pilot-18/validation.txt",
+      "sha256": "cd5ce081d694ace62efc9972fceb5589ce79884771eb91596cd2e60ce48851f9",
+      "status": " M"
+    },
+    {
+      "bytes": 0,
+      "path": "results/pilot-18/partial-bound-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "??"
+    },
+    {
+      "bytes": 246,
+      "path": "results/pilot-18/partial-bound-axioms.stdout",
+      "sha256": "0664e2384c0b5224b863228e34bf483da0fdfa6482654a039b875cb3bb31cacc",
+      "status": "??"
+    },
+    {
+      "bytes": 0,
+      "path": "results/pilot-18/partial-bound-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "??"
+    },
+    {
+      "bytes": 53449,
+      "path": "results/pilot-18/partial-bound-build.stdout",
+      "sha256": "908578213643e140eb2058dd87fe4e9cf7429304051db09925404399abde077f",
+      "status": "??"
+    },
+    {
+      "bytes": 2637,
+      "path": "results/pilot-18/partial-bound-component-validation.json",
+      "sha256": "95037f2ad366bed1e45da05b52990ebf59911cec7f299b1e6e75fcb7abc22552",
+      "status": "??"
+    },
+    {
+      "bytes": 1107,
+      "path": "results/pilot-18/partial-bound-main-review.json",
+      "sha256": "857f1748d51f7416d7f7c6a76d9a319f400784a525ad04e430571ac7a4a62fd3",
+      "status": "??"
+    }
+  ],
+  "source_bytes": 37718,
+  "source_lines": 715,
+  "source_sha256": "47dea301a31cb1aeffbca714f59b7d4f0046f6efbc4c1a1f46255f7b1c6950bb",
+  "statement_review": {
+    "accepted_graph_G_separate_from_ambient_K": true,
+    "acyclic_parents_and_gate_partition_bound_explicit": true,
+    "ambient_graph_K_C4_free_explicit": true,
+    "birth_graph_subgraph_preserves_ambient_C4_freeness": true,
+    "edge_and_vertex_cover_bounds_combine_under_partition": true,
+    "edge_birth_implies_target_containment_in_birth_graph": true,
+    "empty_output_support_explicit": true,
+    "no_exact_target_or_21_gate_witness_claim": true
+  },
+  "subagent_count": 0,
+  "subagents": "none",
+  "total_session_minutes": 102.8,
+  "validation_text_final_axiom_PASS_bound": true,
+  "verdict": "PASS_FOR_PARTIAL_PUSH"
+}

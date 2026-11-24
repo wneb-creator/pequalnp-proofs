@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "scope": "Abstract empty-support partial-edge lower bound; no final module theorem or 21-gate witness.",
+  "source": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/PartialBound.lean",
+  "source_sha256": "5c3626e3f385300bbaabd3146fb97365e720f11b213b0d03aae4b7a24ea2b9be",
+  "source_lines": 515,
+  "source_bytes": 25245,
+  "new_theorems": [
+    "PEqualNP.Outside.L_meta_1342_aux.edge_finset_gate_bound_partial",
+    "PEqualNP.Outside.L_meta_1342_aux.total_from_model_partial"
+  ],
+  "imports": [
+    "Mathlib",
+    "PEqualNP.Defs"
+  ],
+  "copied_helpers_byte_identical": true,
+  "copied_helper_lines": 407,
+  "build_command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M8000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/PartialBound.lean"
+  ],
+  "build_workdir": "/workspace/pequalnp-proofs/lean",
+  "build_exit": 0,
+  "stdout_file": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/PartialBound.stdout.txt",
+  "stderr_file": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/PartialBound.stderr.txt",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "prior_attempt": {
+    "memory_mb": 4000,
+    "exit": 134,
+    "reason": "Lean memory cap exceeded; full logs preserved as PartialBound.attempt1.*"
+  },
+  "format_scan": "PASS: own namespace, permitted imports, no prohibited markers, no attributes/options, no admitted steps or new axioms.",
+  "statement_scope": "Ambient K is C4-free. AND cross supports are adjacent only in K. Target G needs accepted edge rows, not exact output or cleanliness relative to G. Empty output support, acyclic parents and gate-count partition hypotheses are explicit.",
+  "target_subgraph_note": "G subset K follows from accepted-edge births and the ambient cross-support hypothesis; no additional subgraph premise is needed.",
+  "append_fragment": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/PartialBound.append.lean.txt",
+  "append_instructions": "Ensure Mathlib is among top import lines; append the namespace fragment after the unchanged baseline namespace. Main should independently compile the combined file before publishing.",
+  "baseline_observed_lines": 201,
+  "baseline_observed_sha256": "b8d3c2ae6508190f3ad278c134b60c0f8c7b6a799d22ce93cc8878e25d15ddc6",
+  "baseline_matches_201_line_checkpoint": true,
+  "repository_modified": false,
+  "lease_or_git_write": false,
+  "target_checker": "NOT RUN",
+  "axiom_print_audit": "Not run separately; source and imported proof dependencies use standard Lean/Mathlib proofs.",
+  "subagents": "none"
+}

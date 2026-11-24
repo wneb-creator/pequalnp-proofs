@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_1342_aux.edge_finset_gate_bound_partial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.total_from_model_partial' depends on axioms: [propext, Classical.choice, Quot.sound]

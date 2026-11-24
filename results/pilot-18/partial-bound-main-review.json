@@ -1,0 +1,16 @@
+{
+  "status": "PASS: partial Lean theorem, not posted gap",
+  "reviewer": "main agent, independent of component author",
+  "source_sha256": "47dea301a31cb1aeffbca714f59b7d4f0046f6efbc4c1a1f46255f7b1c6950bb",
+  "lines": 715,
+  "baseline_preserved": true,
+  "new_statement": "Abstract clean-model empty-support partial-edge lower bound with ambient C4-free graph",
+  "new_proof_review": "Birth graph is a C4-free ambient subgraph; edge_birth supplies target containment; edge and vertex-cover counts use distinct ambient and target roles; no stronger exact-output premise introduced",
+  "copied_helpers": "407 lines from existing repository proof, separately validated byte-identical by author",
+  "format": "No prohibited markers, string literals, axioms, admissions, native_decide, attributes, or options; imports remain top-level",
+  "build_exit": 0,
+  "build_output": "Build completed successfully (18383 jobs).",
+  "build_module_seconds": 38,
+  "posted_gap_checker": "NOT RUN: module-named posted theorem absent",
+  "cleanup": "Not applicable to unfinished gap; baseline201 + partial proof =715 lines"
+}
