@@ -47,3 +47,9 @@
 - 2026-11-24T18:52:57.299141+00:00: named4630line build14 passes with latest-globally-unsafe frontier theorem; exact composition independently reviewed for preservation.
 
 - 2026-11-24T18:55:17.067511+00:00: safe-operand increasing replacement and strict unary deletion integrated; named5109line build15 passes and exact composition independently reviewed.
+
+2026-11-24T18:55:24.487480+00:00 normal_form: strict safe-operand deletion and minimum-size consequences checked.
+
+2026-11-24T18:58:14.881122+00:00 normal_form: latest-unsafe binary-reader partner ordering checked.
+
+- 2026-11-24T19:01:06.795512+00:00: named5245line build16 passes with strict minimum-safe-operand and binary frontier-reader corollaries. Exact composition and generic OR-expansion helper independently reviewed. Theta81-file checkpoint all12unknown, independently audited.

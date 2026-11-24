@@ -1,0 +1,1 @@
+Theta(3,3,3) first-gate partition. Twelve disjoint cases: six canonical input-pair orbits under12 graph automorphisms, with AND/OR choice. Each received one180-second Kissat attempt after the environment restart. All12 returned unknown; no counterexample or lower bound follows. Full SMT, DIMACS, atom maps and stdout retained. This directory is now frozen.

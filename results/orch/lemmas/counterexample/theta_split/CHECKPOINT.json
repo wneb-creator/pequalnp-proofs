@@ -1,0 +1,329 @@
+{
+  "at": "2026-11-24T18:58:33.702465+00:00",
+  "files": {
+    "theta_branch_3_0_g59731_free_atmost11_kissat.stdout": {
+      "bytes": 87407,
+      "sha256": "94c0e10ad22d75641effe5a44891f2de5373a1ccc044e76ac475cc84a4eaefba"
+    },
+    "theta_branch_3_1_g59731_free_atmost11_kissat.stdout": {
+      "bytes": 86643,
+      "sha256": "db430c820d12cefcb13f58ac2c0303bc8f5d4198b8bf64b9b58b4e13886d1015"
+    },
+    "theta_branch_2_0_g59731_free_atmost11_kissat.stdout": {
+      "bytes": 90435,
+      "sha256": "e5577105a4ad6bc60d6e8c8fdeee3e01ae513a60ab3c99446c76d9f6361931db"
+    },
+    "theta_branch_1_1_g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1573619,
+      "sha256": "129e9bfaad18de83ed06a6e91a85a65b86624a4f56e32b57c384ada8898ec9e7"
+    },
+    "theta_branch_5_0.run.log": {
+      "bytes": 244,
+      "sha256": "ec3d5062bfcf0b948500c948716d5acf464f9a0be6c67ff28f93935a705673a9"
+    },
+    "theta_branch_5_1_g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58729,
+      "sha256": "19041af39e821b4652aada8d023c16f041e69a6c6d0f6b7d16280e521cf2e77a"
+    },
+    "theta_branch_5_0_g59731_free_atmost11_kissat.json": {
+      "bytes": 266,
+      "sha256": "7051cb228003d137ce4a4512bac49e07e5e22171f23cd6a86897decc37857de6"
+    },
+    "theta_branch_2_1_g59731_free_atmost11_kissat.json": {
+      "bytes": 266,
+      "sha256": "3774bb5866b67e2e6c988b2c5f4e2ffbe80f4bcf0b8c7e9a813bb0a5284dc2d9"
+    },
+    "theta_branch_3_0_g59731_free_atmost11_kissat.json": {
+      "bytes": 266,
+      "sha256": "a1377769a0da7ecf136270f8e6556c4d90c8f8a228e925c081fd2703e522e04a"
+    },
+    "theta_branch_5_0_g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1573619,
+      "sha256": "54e9ac2055ad098411bf9baf915308edcb7fc508108088c86418d4be437ba317"
+    },
+    "theta_branch_4_0.run.log": {
+      "bytes": 244,
+      "sha256": "8dd913334f4d029819a40fcb9fdc4a75325c82251f4dc8c2ae2250a676cf424b"
+    },
+    "theta_branch_2_0_g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58729,
+      "sha256": "19041af39e821b4652aada8d023c16f041e69a6c6d0f6b7d16280e521cf2e77a"
+    },
+    "theta_branch_1_0_g59731_free_atmost11_kissat.json": {
+      "bytes": 266,
+      "sha256": "f88b5c026e40a1e8fb509ab1a18a93d22ccb606c45be9e00174a98632f302f6c"
+    },
+    "theta_branch_2_1_g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1573620,
+      "sha256": "b2d2fd82ae016ab862c3328bcb9af6350965f17dc333dea2de63062ecb7b7626"
+    },
+    "theta_branch_5_1_g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1573618,
+      "sha256": "0e4ecb80ec27c99576649034511c52062a66d8079f255c10cfbf45d29bfbd0ff"
+    },
+    "theta_branch_0_0_g59731_free_atmost11_kissat.stdout": {
+      "bytes": 88591,
+      "sha256": "18077196892d004d596a05bcbd69a44739ab3902b3a49a3c7e5d567c06409ed9"
+    },
+    "theta_branch_0_0_g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58729,
+      "sha256": "19041af39e821b4652aada8d023c16f041e69a6c6d0f6b7d16280e521cf2e77a"
+    },
+    "theta_branch_0_0_g59731_free_atmost11_kissat.json": {
+      "bytes": 266,
+      "sha256": "db24ae0838bf015c75f37eed9a6380857724f6269ed53cd65b25c74e6644e795"
+    },
+    "kissat_probe.py": {
+      "bytes": 4357,
+      "sha256": "ed4fcf6adaf283585ec7558b2823ff9e605f0d86dd64ed18c778deb42d5dd72a"
+    },
+    "theta_branch_4_0_g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1573620,
+      "sha256": "7f6afa75f3f11a951c43ca3833b46a8a017447a3189860dbd22e2bd4814585ae"
+    },
+    "theta_branch_1_1_g59731_free_atmost11_kissat.json": {
+      "bytes": 266,
+      "sha256": "cf2284a94f65a4c0d39a0f836236f548b10ff3e6d9987599cf90f1689bb60ed7"
+    },
+    "theta_branch_batch.log": {
+      "bytes": 3403,
+      "sha256": "9f1be0121e89c00cbae39a46b293329e2f470e4a1733d79fdb8e947c7b5f64e8"
+    },
+    "theta_branch_results.json": {
+      "bytes": 4148,
+      "sha256": "3ebb682007e78abb887a6f043b743ccbc7e88c54a4f4c25b04283dbf5bff4426"
+    },
+    "theta_branch_5_1_g59731_free_atmost11_kissat.stdout": {
+      "bytes": 88984,
+      "sha256": "d17d5a2fd4471edfda1d1a4a058065db32792e6a07ee18bcb68b81cdb1f5975b"
+    },
+    "g59731_free_atmost11.smt2": {
+      "bytes": 30804,
+      "sha256": "2ba651ca5756b19a1b02a900b449d0f0acfd576ddf28e11ac1f7abb8cbdbd056"
+    },
+    "theta_branch_1_0.run.log": {
+      "bytes": 244,
+      "sha256": "8d2e620b63fd788a815801c9e117393f94e3b31852124dd12b58f054d730f242"
+    },
+    "theta_branch_4_1_g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1573619,
+      "sha256": "89c63586f89578789e2486901aae55f839559e8389ef5b05e9106dd34237f4be"
+    },
+    "theta_branch_1_0_g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1573620,
+      "sha256": "e76ac4386576e5dd8988838d9ff57e133402f04a813d2c0b0420e60179b8a14e"
+    },
+    "theta_branch_5_1_g59731_free_atmost11_kissat.json": {
+      "bytes": 265,
+      "sha256": "4f8b018f8149f9b955f743615183fb18fa00cce928605ec3dcc6750b79300653"
+    },
+    "theta_branch_0_1_g59731_free_atmost11_kissat.stdout": {
+      "bytes": 90335,
+      "sha256": "18e587928b0b8870ab104ea6bb97d6388dd2645c47ddad2dc92315dbf1c46d59"
+    },
+    "theta_branch_2_0_g59731_free_atmost11_kissat.json": {
+      "bytes": 266,
+      "sha256": "a0f376c5118d03a9dd4dad0d064d4f8d8aab35621ce714761b8404e9905f2b66"
+    },
+    "theta_branch_4_1_g59731_free_atmost11_kissat.stdout": {
+      "bytes": 88320,
+      "sha256": "bd1e6b8051b811c0202ecc1b8be3107d6bfb93cab899389ecdc6f433ed86932b"
+    },
+    "theta_branch_0_0.run.log": {
+      "bytes": 244,
+      "sha256": "098aa9b23a272ca3f86c0629bdf91381cca9cf9bbad0dc49d06d0d8991a36c5f"
+    },
+    "theta_branch_1_1_g59731_free_atmost11_kissat.stdout": {
+      "bytes": 91206,
+      "sha256": "4237ca5c460406f1323252d99fe5a79923d58bb3d644cbe43162cfff15900a78"
+    },
+    "theta_branch_2_1_g59731_free_atmost11_kissat.stdout": {
+      "bytes": 87272,
+      "sha256": "e984d8461f746b4c415c4d03f69d100862eec90071516fe23fb94c36a40ae67e"
+    },
+    "theta_branch_4_1_g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58729,
+      "sha256": "19041af39e821b4652aada8d023c16f041e69a6c6d0f6b7d16280e521cf2e77a"
+    },
+    "theta_branch_1_1.run.log": {
+      "bytes": 244,
+      "sha256": "04ff96f8b85399463be2b7e8b3ad28a926a9d05abc5b13e9c58843db423a70c8"
+    },
+    "theta_branch_3_1_g59731_free_atmost11_kissat.json": {
+      "bytes": 266,
+      "sha256": "15ca541106f94a0b5b7a998caf9fdac4fe1d37b99380839016591c6ca88fe26e"
+    },
+    "theta_branch_5_0_g59731_free_atmost11_kissat.stdout": {
+      "bytes": 93424,
+      "sha256": "4a932801c4f929a03a48693f060c4bc2256b5b3618b12c656e937dff69ed676f"
+    },
+    "theta_branch_0_1.run.log": {
+      "bytes": 244,
+      "sha256": "a4e93a1c9f9d5650c08f6aed36e9c1deb8ab79865a2e51327e1cafde949bc011"
+    },
+    "theta_branch_0_1_g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58729,
+      "sha256": "19041af39e821b4652aada8d023c16f041e69a6c6d0f6b7d16280e521cf2e77a"
+    },
+    "theta_branch_4_1.run.log": {
+      "bytes": 244,
+      "sha256": "8d089dca90b7ebf0490fceeebd85d85948cd9be88a3e7e7252dd57b5d03e5d72"
+    },
+    "theta_branch_3_0_g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58729,
+      "sha256": "19041af39e821b4652aada8d023c16f041e69a6c6d0f6b7d16280e521cf2e77a"
+    },
+    "theta_branch_3_0.run.log": {
+      "bytes": 244,
+      "sha256": "d3aef81d8c07f0295b6ec341f462c25b5ca9abee9a156482c53297c3fea9dd30"
+    },
+    "theta_branch_0_0_g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1573621,
+      "sha256": "09aea36164d206530a2e602e46dc0ea498adc79a35d0fc490eb7970d3c50b14e"
+    },
+    "theta_branch_2_0.run.log": {
+      "bytes": 244,
+      "sha256": "bd95aff8a020f2f8b6a7f65a79e181ffe8bd4a65b53f9b88223f725c56a4ccde"
+    },
+    "theta_branch_1_0_g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58729,
+      "sha256": "19041af39e821b4652aada8d023c16f041e69a6c6d0f6b7d16280e521cf2e77a"
+    },
+    "theta_branch_1_1_g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58729,
+      "sha256": "19041af39e821b4652aada8d023c16f041e69a6c6d0f6b7d16280e521cf2e77a"
+    },
+    "theta_branch_1_0_g59731_free_atmost11_kissat.stdout": {
+      "bytes": 86977,
+      "sha256": "df7a4d077bca33f78c79aa406a502cbe649d898824a654f8352bfdd65c8bcdb8"
+    },
+    "theta_branch_2_0_g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1573621,
+      "sha256": "1fe2eeb08b3cc44bf5b67f5fea530ce1a51e44a66fae385d05ee9424f069fa31"
+    },
+    "theta_branches.py": {
+      "bytes": 3144,
+      "sha256": "66b4be2cc754ca9460c3bac3356f0b14bf04a80751c991932afc80de55d1f689"
+    },
+    "theta_branch_3_1_g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1573619,
+      "sha256": "793b1b74cffa39b2c4c4d872dca9bec5f0e88e9201ce4809b11f079d2db1bad6"
+    },
+    "theta_branch_3_1_g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58729,
+      "sha256": "19041af39e821b4652aada8d023c16f041e69a6c6d0f6b7d16280e521cf2e77a"
+    },
+    "theta_branch_0_1_g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1573620,
+      "sha256": "fec7004dde32646705c4ddb48a73036a54c3de72f640cc1f52c2e3cb6a78ffcb"
+    },
+    "theta_branch_5_0_g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58729,
+      "sha256": "19041af39e821b4652aada8d023c16f041e69a6c6d0f6b7d16280e521cf2e77a"
+    },
+    "theta_branch_2_1_g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58729,
+      "sha256": "19041af39e821b4652aada8d023c16f041e69a6c6d0f6b7d16280e521cf2e77a"
+    },
+    "classes.json": {
+      "bytes": 42101,
+      "sha256": "934087ee26ebae0fef80d54098626e7fd41edfda5fffe9f1b28b8ba2f9645568"
+    },
+    "theta_branch_4_0_g59731_free_atmost11_kissat.stdout": {
+      "bytes": 91523,
+      "sha256": "9a41ca5fd407219ae8c7fef21364e9ae6aeb3585defb5a7daf73e006131a193b"
+    },
+    "theta_branch_3_0_g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1573620,
+      "sha256": "b5f73bd7a13aa56b943bc8afdc945c07fe4dc4481f9cb20856ceafd2ec868b0b"
+    },
+    "theta_branch_5_1.run.log": {
+      "bytes": 243,
+      "sha256": "8d5247a50e519a91ade0ddc26657478ce1699d76deaf394ecfd6cfd9cbac7fe4"
+    },
+    "theta_branches.json": {
+      "bytes": 3261,
+      "sha256": "32c72b34d12fb9ff9b6dc50da7261427f4abecaa739e1e3f3236e125310655d6"
+    },
+    "theta_branch_2_1.run.log": {
+      "bytes": 244,
+      "sha256": "7c04e3f9d668b8a8e48cdb4df0bc381140035a1c9b0132017b1abb6ba952c22e"
+    },
+    "theta_branch_4_0_g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58729,
+      "sha256": "19041af39e821b4652aada8d023c16f041e69a6c6d0f6b7d16280e521cf2e77a"
+    },
+    "theta_branch_4_0_g59731_free_atmost11_kissat.json": {
+      "bytes": 266,
+      "sha256": "6caecc5521d52df5be6bb739f6db95668bbb947bdd43f7af1d5b6eb18481f1bf"
+    },
+    "theta_branch_3_1.run.log": {
+      "bytes": 244,
+      "sha256": "91c5eeca033db04f4c8b06619592ff3293a67c378f36fb8d84b6773a20c9c245"
+    },
+    "theta_branch_4_1_g59731_free_atmost11_kissat.json": {
+      "bytes": 266,
+      "sha256": "30b3a90ee875f895962e30be6a5fcda1690315fb5f1cb5ce6623f9a4425ad76a"
+    },
+    "theta_branch_0_1_g59731_free_atmost11_kissat.json": {
+      "bytes": 266,
+      "sha256": "4eb6e75273eb017a85a388df2db01e44a9215348d9d8848fa93eec7a10d35100"
+    },
+    "branches/theta_branch_2_1/g59731_free_atmost11.smt2": {
+      "bytes": 41826,
+      "sha256": "24cac79abd3a893e5a5b0b0a8314499fd21c3d63b6114e8abc519fc7c1e0bb5a"
+    },
+    "branches/theta_branch_3_0/g59731_free_atmost11.smt2": {
+      "bytes": 41827,
+      "sha256": "6839cffd41bbef8dd5950252815ab4cadea2fdcd10792da594fbc97bbc0b984b"
+    },
+    "branches/theta_branch_0_0/g59731_free_atmost11.smt2": {
+      "bytes": 41827,
+      "sha256": "0ba3be1edfe1c247a3db320829635062bcfb89481b84910d70696e15102662a0"
+    },
+    "branches/theta_branch_3_1/g59731_free_atmost11.smt2": {
+      "bytes": 41826,
+      "sha256": "3cbbbb745d2a72e4cfcd8c509d4846de9aaf2c1fd41c06012e17ad0e2a6ef8e6"
+    },
+    "branches/theta_branch_4_1/g59731_free_atmost11.smt2": {
+      "bytes": 41826,
+      "sha256": "ce0633aab09c663037383af2b74279f6e93ad1170f2b4280cc26828d5cc3c33f"
+    },
+    "branches/theta_branch_1_1/g59731_free_atmost11.smt2": {
+      "bytes": 41826,
+      "sha256": "bacb27e4d838ac174758dc77c706a1e5eec6e65a292011a158754d98366cc16b"
+    },
+    "branches/theta_branch_5_0/g59731_free_atmost11.smt2": {
+      "bytes": 41827,
+      "sha256": "d3a88a2d69068d5b4c24edf29994392fec5d92ce5114d7feae1820bbdd1f5562"
+    },
+    "branches/theta_branch_2_0/g59731_free_atmost11.smt2": {
+      "bytes": 41827,
+      "sha256": "03af55a29722e32f2457a6e3521af890ee8f6d8bea211327e534bfcbe4c8c5ad"
+    },
+    "branches/theta_branch_0_1/g59731_free_atmost11.smt2": {
+      "bytes": 41826,
+      "sha256": "f5c6bebe5f304f2ff971b5a5ed05c90c42741da2de2e7adf4eb742e527585ddb"
+    },
+    "branches/theta_branch_5_1/g59731_free_atmost11.smt2": {
+      "bytes": 41826,
+      "sha256": "6d5555fb50eda5892853a79951a593618d7524f57d6c4c12b168eae600aa7dd0"
+    },
+    "branches/theta_branch_1_0/g59731_free_atmost11.smt2": {
+      "bytes": 41827,
+      "sha256": "a83dda299a1c0d77f29434f2d5882d900accbbe3302731c2d811ea6438c2df59"
+    },
+    "branches/theta_branch_4_0/g59731_free_atmost11.smt2": {
+      "bytes": 41827,
+      "sha256": "0424ea6936fef22577869a0b991c340760a0c468332f9ee2949d9e58888a9c82"
+    },
+    "SUMMARY.json": {
+      "bytes": 224,
+      "sha256": "9425b1fb21119d7e8dd0d9707fe665c36e5ee4e10a0474754b739277849cc3e2"
+    },
+    "README.md": {
+      "bytes": 358,
+      "sha256": "7cc3ea7942b3581693dccdd33ad89011b6bc9f38b569933aec32e4c4427257b0"
+    }
+  }
+}

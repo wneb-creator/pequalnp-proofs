@@ -4,8 +4,8 @@ Full posted statement remains unproved; no proof PR is ready.
 Mathlib cache download passed; PEqualNP.Defs build passed.
 Decomposition helper file compiled with lake env lean (exit 0, no diagnostics).
 Independent review: conditionally approved for preservation push only.
-Sub-agents: direct normalization, counterexample search, decomposition, independent review, universal-vertex forest proof, generic input restriction
-TIMING total=8 subagents=6
+Sub-agents: direct normalization, counterexample search, decomposition, independent review, universal-vertex forest proof, generic input restriction, independent fixed-pair review
+TIMING total=63.7 subagents=7
 Named build: lake build PEqualNP.Outside.L_meta_3451 — exit 0, Build completed successfully (18419 jobs).
 Local exact-statement checker pending; helper-only file cannot prove the posted target.
 Exact statement checker: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_3451. This is expected for partial helper preservation.
@@ -23,3 +23,4 @@ Build12 passes4321lines. Conditional literal-essential cleanup independently rev
 Build13 passed4515lines. Mixed safe-product cross-incidence and rectangle uniqueness helpers independently reviewed. Total subagents now7 (additional fixed-pair conceptual review).
 Build14 passed4630lines. Latest globally unsafe frontier and safe-AND direct reader facts checked, independently reviewed; no reader-existence or gate-saving conclusion.
 Build15 passed5109lines. Increasing safe-operand replacement and strict unary-copy deletion independently reviewed; deletion saves exactly1gate and preserves all survivingANDwiresemantics. Fulltarget still absent.
+Build16 passed5245lines. Strict safe-operand deletion and minimum-circuit binary frontier-reader theorem independently reviewed. Generic OR-frontier helper compiled and reviewed as separate artifact. Theta12branch queries all timed out;81-file hashes/sizes and orbit partition independently audited.

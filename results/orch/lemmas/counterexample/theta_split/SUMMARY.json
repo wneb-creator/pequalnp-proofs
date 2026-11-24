@@ -1,0 +1,9 @@
+{
+  "at": "2026-11-24T18:58:33.702465+00:00",
+  "branches": 12,
+  "results": {
+    "unknown": 12
+  },
+  "candidate": false,
+  "formal_status": "Every branch timed out. No finite lower bound or counterexample established."
+}

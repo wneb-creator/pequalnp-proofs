@@ -1,0 +1,1 @@
+{"tag": "theta_branch_2_0", "replayed": false, "at": "2026-11-24T18:47:52.180262+00:00", "smt": "g59731_free_atmost11.smt2", "solver": "kissat4.0.4", "exit_code": 0, "result": "unknown", "seconds": 180.016, "variables": 5983, "clauses": 65461}
