@@ -8,3 +8,10 @@ Proves a 16-gate circuit for the exact target with first OR(0,6), second OR(1,3)
 Full lower-bound candidate build is pending.
 Sub-agents: 5 (status/bootstrap, structural proof, finite search, sibling proofs, independent review)
 TIMING total=7 subagents=5
+
+Full certificate candidate: lean/PEqualNP/Outside/L_meta_1677.lean
+Static/import guard: PASS
+Independent exact-statement and source review: PASS
+Lean build: still running, no completion verdict yet
+Kernel checker: not yet run
+Resource work: investigating smaller certificate batches after measured transient RSS above 6.5 GB.
