@@ -329,4 +329,64 @@ lemma restriction_exists_of_coordinate_bound
   obtain ⟨C, hC, hsize, heval⟩ := restriction_transport 9 (by decide) U σ p hp b _ hbound
   exact ⟨σ, b, C, hσ, hC, hsize, heval⟩
 
+lemma lastCases_relabel_eq_update (n : ℕ)
+    (σ : Equiv.Perm (Fin (n + 1))) (p : Fin (n + 1))
+    (hp : σ p = Fin.last n) (b : Bool) (x : Fin (n + 1) → Bool) :
+    (Fin.lastCases b (x ∘ fun j : Fin n => σ.symm j.castSucc) :
+      Fin (n + 1) → Bool) ∘ σ = Function.update x p b := by
+  funext i
+  by_cases hi : i = p
+  · subst i
+    simp [hp]
+  · have hne : σ i ≠ Fin.last n := by
+      intro he
+      exact hi (σ.injective (he.trans hp.symm))
+    obtain ⟨j, hj⟩ := Fin.exists_castSucc_eq.mpr hne
+    simp only [Function.comp_apply]
+    rw [Function.update_of_ne hi, ← hj, Fin.lastCases_castSucc]
+    simp only [Function.comp_apply]
+    rw [hj, σ.symm_apply_apply]
+
+lemma restriction_transport_iff (n : ℕ) (hn : 0 < n)
+    (f : (Fin (n + 1) → Bool) → Bool) (σ : Equiv.Perm (Fin (n + 1)))
+    (p : Fin (n + 1)) (hp : σ p = Fin.last n) (b : Bool) (s : ℕ) :
+    HasCircuitSize n
+      (fun y => f ((Fin.lastCases b y : Fin (n + 1) → Bool) ∘ σ)) s ↔
+    HasCircuitSize (n + 1) (fun x => f (Function.update x p b)) s := by
+  constructor
+  · intro h
+    have hr := relabel_size (fun j : Fin n => σ.symm j.castSucc) _ s h
+    have he : (fun x : Fin (n + 1) → Bool =>
+      f ((Fin.lastCases b (x ∘ fun j : Fin n => σ.symm j.castSucc) :
+        Fin (n + 1) → Bool) ∘ σ)) =
+      (fun x => f (Function.update x p b)) := by
+      funext x
+      rw [lastCases_relabel_eq_update n σ p hp b x]
+    rwa [he] at hr
+  · exact restriction_transport n hn f σ p hp b s
+
+lemma no_two_wins (wins : Fin 10 → Finset (Fin 3))
+    (edge : Fin 10 → Fin 3 → Fin 15)
+    (hmany : ∀ v : Fin 10, 2 ≤ (wins v).card)
+    (hinj : ∀ (v w : Fin 10) (i j : Fin 3), i ∈ wins v → j ∈ wins w →
+      edge v i = edge w j → v = w ∧ i = j) : False := by
+  classical
+  let Winning := Σ v : Fin 10, {i : Fin 3 // i ∈ wins v}
+  let label : Winning → Fin 15 := fun a => edge a.1 a.2.val
+  have hi : Function.Injective label := by
+    intro a b hab
+    obtain ⟨v, i, hi⟩ := a
+    obtain ⟨w, j, hj⟩ := b
+    obtain ⟨rfl, rfl⟩ := hinj v w i j hi hj hab
+    rfl
+  have hcard : Fintype.card Winning ≤ 15 := by
+    simpa using Fintype.card_le_of_injective label hi
+  have hsum : Fintype.card Winning = ∑ v : Fin 10, (wins v).card := by
+    simp [Winning, Fintype.card_sigma]
+  have hlow : 20 ≤ ∑ v : Fin 10, (wins v).card := by
+    have hh := Finset.sum_le_sum (s := (Finset.univ : Finset (Fin 10)))
+      (fun v _ => hmany v)
+    simpa using hh
+  omega
+
 end PEqualNP.Outside.L_meta_3821
