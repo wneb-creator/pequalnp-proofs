@@ -1,0 +1,25 @@
+Gap: L-meta-1422
+Outcome: assigned statement is false; exact opposite already accepted upstream.
+Upstream evidence: https://github.com/brilliant-hq/pequalnp-proofs/pull/2958
+Upstream verdict: ACCEPTED (checker exit 0)
+Upstream merge: 2855f75f83a4aaedaf14406b199d21f6ad33cb8b
+Independent comparison: posted 1422 is literally the negation of theorem 1421.
+
+Artifact: lean/PEqualNP/Outside/L_meta_1422.lean
+Artifact proves: negation of the posted statement, using the accepted proof with renamed namespace.
+Source review: PASS; checkImports and checkOwnNamespace PASS.
+Local build: NOT RUN; cache setup cancelled on desk withdrawal.
+Local checker: NOT RUN; no claim of local acceptance.
+Cache setup: cancelled with exit 130, complete output in mathlib-cache-get.log.
+Cleanup: skipped; before 1345 lines, after 1345 lines.
+PR: none; step withdrawn, and its previous default check mode could not accept a refutation.
+
+Desk initial null count: 0
+Renewal error: this step was withdrawn: The attack no longer needs it.. Stop work on it and ask /desk/next for a step the attack is waiting on.
+Diagnostic HTTP status: 410
+Diagnostic body: {"error":"no such live lease: it expired or was released. Ask /desk/next again."}
+Full diagnostic headers and body: desk-withdrawn-http.txt
+Stopped according to the desk-error instruction; preserved uncompiled work according to the lease-loss instruction.
+
+Sub-agents: 2 (independent statement/source review; toolchain setup)
+TIMING total=4.8 subagents=2
