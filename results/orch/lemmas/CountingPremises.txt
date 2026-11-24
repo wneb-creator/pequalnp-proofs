@@ -1,0 +1,22 @@
+GENERIC COMPILER
+∀ (C : PEqualNP.CircuitLowerBounds.Circuit) (s : Equiv.Perm (Fin 10)) (v : Bool),
+  PEqualNP.MetaComplexity.FanInTwo C →
+  let R := fun y : Fin 9 → Bool => (Fin.lastCases v y : Fin 10 → Bool) ∘ s
+  let W := fun i : ℕ => fun y : Fin 9 → Bool => (C.wires (List.ofFn (R y))).getD i false
+  PEqualNP.MetaComplexity.HasCircuitSize 9 (fun y => C.eval (List.ofFn (R y)))
+    (((Finset.range (10 + C.size)).image W) \ insert (fun _ : Fin 9 → Bool => false) (Finset.univ.image (fun i : Fin 9 => fun y : Fin 9 → Bool => y i))).card
+
+STRUCTURAL CERTIFICATE
+let G := fun x : Fin 10 → Bool => (List.finRange 5).any fun i => (x (Fin.castAdd 5 i) && x (Fin.castAdd 5 (i + 1))) || (x (Fin.castAdd 5 i) && x (Fin.natAdd 5 i)) || (x (Fin.natAdd 5 i) && x (Fin.natAdd 5 (i + 2)));
+  ∀ C : PEqualNP.CircuitLowerBounds.Circuit,
+    PEqualNP.MetaComplexity.FanInTwo C → C.size ≤ 19 →
+    (∀ D : PEqualNP.CircuitLowerBounds.Circuit,
+      PEqualNP.MetaComplexity.FanInTwo D →
+      (∀ x : Fin 10 → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size) →
+    (∀ x : Fin 10 → Bool, G x = false ∨ (List.ofFn x).count true ≤ 2 →
+      C.eval (List.ofFn x) = G x) →
+    ∃ (s : Equiv.Perm (Fin 10)) (v : Bool),
+      (∀ x : Fin 10 → Bool, G (x ∘ s) = G x) ∧
+      let R := fun y : Fin 9 → Bool => (Fin.lastCases v y : Fin 10 → Bool) ∘ s
+      let W := fun i : ℕ => fun y : Fin 9 → Bool => (C.wires (List.ofFn (R y))).getD i false
+      (((Finset.range (10 + C.size)).image W) \ insert (fun _ : Fin 9 → Bool => false) (Finset.univ.image (fun i : Fin 9 => fun y : Fin 9 → Bool => y i))).card ≤ if v = true then 10 else 15

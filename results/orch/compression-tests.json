@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "exhaustive_single_gate_cases": 25824,
+  "random_multigate_cases": 10000,
+  "tested_features": [
+    "all three operations",
+    "arity zero/one/two",
+    "duplicate and invalid reads",
+    "both cofactor bits",
+    "input and missing output",
+    "constant true counted"
+  ],
+  "scope": "Computational checks of generic compression only; no proof of Petersen-specific counting premise."
+}

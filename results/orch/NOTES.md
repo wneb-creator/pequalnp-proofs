@@ -46,3 +46,7 @@ Counterexample computation update: SAT encoding at `/tmp/oec/pequalnp-pilot-38/s
 Exhaustive enumeration of 40 standard 20-gate star-cover circuits (five independent four-sets, eight assignments of edges internal to the complement) shows simple constant propagation gives best zero cofactor size 16 in all cases; best true cofactor size 11 in 20 cases and 12 in 20 cases. This supports the magnitude of the claimed gate savings but does not verify it for arbitrary circuits. Program/log: `/tmp/oec/pequalnp-pilot-38/restriction_counts.py`, `restriction-counts.log`.
 
 2026-11-24T18:02:13.443958+00:00 — OutputBounds.lean compiled successfully with lake env lean (exit 0). Full log: /tmp/oec/pequalnp-pilot-38/output-bounds-build.log. File frozen for independent review and push. Boolean OR equalities must be parenthesized because Lean otherwise parses the equality inside the OR.
+
+### counting_reduction compiled result
+
+2026-11-24T18:03:52.313859+00:00: `lemmas/Reduction.lean` compiled (80 lines), theorem `PEqualNP.Outside.R_meta_3821_38`, exact desk conclusion. The two premises are the generic fresh-function compiler and the Petersen cofactor cardinal bound for globally minimum-size circuits. The proof constructs the 19-gate OR extension, minimizes full truth-function size with `Nat.find`, obtains a cofactor certificate, and compiles it. File frozen for root review/push. Full log: `/tmp/oec/pequalnp-pilot-38/reduction-build.log`. Only diagnostic is unused simp argument `Nat.add_assoc`, removable in cleanup.

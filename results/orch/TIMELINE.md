@@ -7,3 +7,5 @@
 - 2026-11-24T18:01:42.655736+00:00: Restriction.lean compiled; first partial ready for independent review and push.
 - 2026-11-24T18:02:30.486044+00:00: output bounds compiled and independently reviewed; preserving second partial.
 - 2026-11-24T18:03:14.665466+00:00: generic compression prefix lemmas compiled and independently reviewed; preserving third partial.
+- 2026-11-24T18:03:52.313859+00:00: counting_reduction completed compiled two-premise reduction; sent frozen file to root for independent review and push.
+- 2026-11-24T18:05:33.080085+00:00: provisional reduction and generic compression step compile. Structural count remains under reassessment; no PR.
