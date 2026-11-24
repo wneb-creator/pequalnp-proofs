@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "gate_count": 52,
+  "all_band_rows_checked": 3003,
+  "all_gates_band_nonconstant": true,
+  "first_complement_minterm_gates": [
+    23,
+    23
+  ],
+  "router_minterms": [
+    6629,
+    7145,
+    7668,
+    8184
+  ],
+  "router_band_positive_rows": [
+    6629
+  ],
+  "abnormal_outputs": [
+    0,
+    1
+  ],
+  "artifact_sha256": "76fc6bf0a91741ee611117c1ec1e482e020ddd49223fe4db74b1cfa1a05a8f1b",
+  "scope": "Auxiliary nonminimal router only; not a gap counterexample or Lean proof"
+}

@@ -1,6 +1,8 @@
 # L-meta-1024 orchestration notes
 
-Status summary updated 2026-11-24 04:37:54 UTC. Owner: root. Branch: pnp/pilot-21.
+**STOPPED / WITHDRAWN at2026-11-24 05:27:38UTC.** The desk states that the attack no longer needs this step. Required diagnostic retry returned HTTP410 and there is no live lease. No further proof work, searches, renewals or replan are scheduled. Root is preserving checked results and final shutdown records. The exact theorem remains unproved; no PR was opened.
+
+Status summary updated 2026-11-24T05:27:01.009932+00:00. Owner: root. Branch: pnp/pilot-21.
 
 ## Read before starting
 
@@ -12,7 +14,7 @@ Only root controls the single L-meta-1024 lease and publication. Do not acquire,
 
 Prove the exact posted theorem in `lean/PEqualNP/Outside/L_meta_1024.lean`: a fan-in-at-most-two monotone circuit producing the thirteen projective-line ORs on inputs with five or six false coordinates needs at least 39 gates. The line at w is `{0,1,3,9}+w` modulo 13. There are 3,003 required input rows.
 
-The current 4,041-line target passes the named-module lake build; its source is pushed at `0fb15ea`. It contains partial results, not the exact named theorem. The local checker previously rejected it with `REJECTED (no-theorem)`; the fresh retry faulted without a verdict after an OOM kill (verifier exit137). No proof PR exists. No valid counterexample to the posted statement has been found.
+The current10,204-line target passed standalone and named-module lake builds and independent review; it is pushed at `d1e66c93`. It consolidates checked partial results, not the exact named theorem. The local checker rejected an earlier partial with `REJECTED (no-theorem)`; another earlier retry faulted after an OOM kill (verifier exit137). The checker has not been rerun on this consolidation because the exact theorem is still absent. No proof PR exists and no valid full-gap counterexample has been found. Public status was refreshed05:25UTC: no matching PR/commit/file history; the conjecture node is unchanged.
 
 ## Checked results
 
@@ -20,20 +22,22 @@ The current 4,041-line target passes the named-module lake build; its source is 
 - Nine globally ordinary outputs imply39 gates; therefore every smaller counterexample has at least five globally nonordinary outputs. Each nonordinary output has at least eight essential raw inputs.
 - OR-sink normalization preserves any specified ordinary family without increasing gate count. Paid-source clamping and dead-gate deletion handle invalid/forward reads exactly.
 - Eight ordinary outputs in a circuit of at most38 gates reduce to five distinct band-correct, globally line-bounded, globally nonordinary OR pairs over at most nine internal gates. This is a reduction, not an impossibility theorem.
-- Every connected abstract five-edge parent graph satisfying the shared-parent dependence equations has raw-component rank at least10. Its direct circuit application is being compiled separately.
+- Every connected abstract five-edge parent graph satisfying the shared-parent dependence equations has raw-component rank at least10. Its direct circuit application and canonical disconnectedness are checked and integrated.
 - Two distinct nonordinary band-correct OR pairs cannot use at most six internal gates. Consequently at least four of five reduced outputs read one of the last three internal gates.
 - An abnormal output, true at its own line complement, requires at least eight AND gates and all thirteen raw inputs in its support.
 - If every output has minimum formal false-certificate cost at most four, pruning proves39. Repeated occurrences make this cost condition stronger than a semantic four-point false certificate.
+- All five outputs of any at-most14-gate normal residual circuit have formal false cost at least5; PrivateSurgery, Certificate and AllFiveCost are checked and integrated.
+- NormalResidualFast now proves paid-charge deletion for arbitrary k in the all-normal class and transfers any residual ordinary improvement to a full-family improvement; its explicit maximality premise is still present. Cached validation passed; full standalone replay is pending.
 - Stable compiled components and complete successful logs are in `lemmas/` and `validation/`; each was independently reviewed before preservation.
 
-## Active strategies and ownership
+## Final strategy ownership (stopped after withdrawal)
 
-1. **fresh_proof — disconnected reduced circuits.** Use the checked ancestry/TwoPairs tools to prove the early-common-parent obstruction, then cover the remaining disconnected five-parent patterns. The proposed ten-gate two-output bound was disproved; the checked nine-gate bound for two OR-pair outputs is sharp.
-2. **lower_bound — exact connected circuit bridge.** Apply the complete connected rank theorem directly to FiveOwned and preserve the resulting disconnected-only reduction. Parent indices may be repeated or invalid; no canonicalization hypothesis is needed.
-3. **formal_baseline — global graph counting.** Investigate whether fixed selected false-DAG collective avoidance forces the incidence cycle rank; challenge the actual graph statement and assess stronger three-foreign-zero resilience if pairwise avoidance is insufficient.
-4. **toolchain_setup — semantic global bridge.** Formalize fixed selected-DAG collective avoidance with prefix-valid edges, and investigate charging repeated certificates under the extremal private-gate normal form. The full global count remains open.
-5. **counterexample_search — exact finite models.** Preserve the restricted disconnected2+3 UNSAT result and complete proof/CNF streams. Keep existing long searches; prepare the complementary abnormal class and a general five-output reduced query with checked structural guards. A solver verdict is not a Lean theorem.
-6. **special_status — independent review.** Review every compiled checkpoint, encoding change, archive and proposed push. Auxiliary counterexamples and restricted UNSAT results must remain explicitly scoped.
+1. **fresh_proof — global sharing charge.** Pursue productive-line pencils, first full-line creation and raw-fanout accounting. Do not assume pairwise avoidance makes cycle charges independent.
+2. **lower_bound — abnormal outputs.** Focus on minimum-count surgery and context-at-most-one privacy. The pure-conjunction count and endpoint routers are auxiliary evidence, not a mixed-circuit bound.
+3. **formal_baseline — normal residuals.** Complete finite maximal-family selection and obtain a normal k-family with5≤k≤13 and fewer than3k gates; combine with generic no-improvement cost bounds.
+4. **toolchain_setup — repeated certificate charge.** Validate GeneralCost, then investigate the truncated degree-six monomial bound and cyclic-center residual geometry. Resource monitoring remains available.
+5. **counterexample_search — finite models.** Keep the five current queries: diagnostic533 rows, full abnormal, earlier general-five, full normal, canonical all-five-cost. Next natural deadline is diagnostic around05:48UTC. Prepare any next guard only after review and root admission; no additional solver now.
+6. **special_status — independent review.** Review every compiled checkpoint, normalization argument, encoding, archive and push. Keep auxiliary models and restricted UNSAT explicitly scoped.
 
 Root alone owns lease renewals, build/encoder admission, pushes and submission. One Lean build or large encoder runs at a time. The passive resource watcher continues.
 
@@ -58,9 +62,9 @@ Source `/tmp/oec/pequalnp-pilot-21/setup/env.sh` before Lean commands. Build in 
 
 Every compiled result is preserved promptly on the fork after independent review. The branch may carry these owner-requested orchestration artifacts; any eventual proof PR must still have the repository-required single proof-file diff. Root handles that delivery preparation. Do not open issues or PRs.
 
-## Next replan
+## No further replan
 
-Next review at 05:27 UTC. The fourth review completed at 2026-11-24 05:02:51 UTC. Continue 20–30 minute replanning thereafter. Overall job started at 01:28:21 UTC; the approximate six-hour budget ends at 07:28 UTC.
+Desk withdrawal ended proof work at05:27:38UTC, about239 minutes after job start. The last replan was05:27UTC; its historical notes remain below. Root is completing preservation and shutdown only.
 
 Sub-agents: counterexample_search, formal_baseline, fresh_proof, lease_timer, lower_bound, special_status, toolchain_setup.
 TIMING total=115 subagents=7
@@ -853,3 +857,70 @@ Archive0520 approved:18files209316bytes, exact inventory/hashes/sourcecopies/Pyt
 Independently checked the54-gate endpoint auxiliary JSONSHA2567ff1eb2ef997d3d011c3137ccfa7a83c1c1735ad39b2a007bf5c53aa19cf50a5 using full8192-bit truthcolumns. All3003targetrows correct, everygate true on some7-true row and false on some8-true row. Sharedwire25 has minterms5/7145/7668/8184 ofsizes2/9/9/10, and both complement9 firstcertificates occur there; abnormaloutputs exactly0/1. Its bandfunction equals raw0 AND raw2 on924rows, an obvious nonminimal duplication. Portable independent source and complete successful log are packing-review/mixed-router-endpoints-independent.py and -002.log; the first log retains a reviewer expected-count typo925, corrected to924 before fullrerun. This is an auxiliary obstruction to ownership from endpoint premises alone, not a minimum-circuit or gap counterexample.
 
 Draft NormalResidualExtra passed mathematical review with its explicit class-relative Maximal budget W premise: ordinary paid gates are true at every residual complement, so deletion/clamping preserves arbitrary-k normal correctness; appending3|W| direct gates transfers residual ordinary improvements to full-family improvements. No source-cardinality bound is required. The draft is uncompiled, and maximal-family existence/final residual impossibility remain separate.
+
+2026-11-24T05:24:50.697018+00:00 — counterexample_search replan snapshot: {"utc": "2026-11-24T05:24:50.697018+00:00", "CPU_cores": 4.0, "cgroup_GiB": 13.46, "anon_GiB": 4.77, "disk_free_GiB": 10.73, "oom_events": {"low": 0, "high": 0, "max": 679386, "oom": 1, "oom_kill": 1, "oom_group_kill": 0}, "progress": {"cegis-collective-diagnostic-progress.log": ["RUNNING elapsed 3903 freeGiB 10.76 proofMiB 316.2", "RUNNING elapsed 3963 freeGiB 10.74 proofMiB 319.5"], "cegis-abnormal-or-sinks-stream-progress.log": ["RUNNING elapsed 2412 freeGiB 10.74 proofMiB 43.5", "RUNNING elapsed 2472 freeGiB 10.73 proofMiB 44.2"], "cegis-general-five-cost-progress.log": ["RUNNING elapsed 1802 freeGiB 10.74 proofMiB 47.0", "RUNNING elapsed 1862 freeGiB 10.74 proofMiB 47.8"], "cegis-normal-or-sinks-cost-stream-progress.log": ["RUNNING elapsed 1151 freeGiB 10.75 proofMiB 22.0", "RUNNING elapsed 1211 freeGiB 10.74 proofMiB 23.8"], "cegis-general-five-canonical-allcost-progress.log": ["RUNNING elapsed 245 freeGiB 10.75 proofMiB 5.2", "RUNNING elapsed 305 freeGiB 10.74 proofMiB 7.8"]}}. Allfive searches are live with no new verdict. Completed oldORfull remains UNKNOWN; its complete logs and CRC/hash audit are preserved in archive0520. Canonical all-five-cost source and finite1287map certificate are independently reviewed/preserved. No endpoint/prefix guard has been added to any live query.
+
+## 2026-11-24 05:26:47 UTC — special_status: status refresh and normal residual review
+
+Read-only public status refresh completed in status-review-0525. Five fully paginated structured GH queries all exit0 with empty stderr and complete JSON: exact/broad1024 PR-title searches0, exact/broad commit searches0, exact Outside target-file history0. Publichead generated05:23:18; current meta node remains [1024,j,[],2da58f2dfcd0,1795461348,0,-1]. No other accepted proof/refutation was found; no desk action.
+
+Approved cached NormalResidualFast.lean SHA25682048bc33aa3d120c7e07f951f66268a7aea2182bcfb9c4c1a330ab885fa53c6,161lines,durable002exit0/emptylog. Only change from reviewed draft is an explicit id-reduced normality equality for rewriting. Full5859-line assemblySHAe0b50323842f91a446ad0ee99b0ca8bc9a7bb585900b99c37375aa09096b6ba8 is prepared but full replay deferred. This conditional arbitrary-k reduction uses explicit maximality; no final bound is claimed.
+
+Approved abnormal-0525 auxiliary archive:12files32496bytes, exact original source/log copies, hashes/inventory/AST and scope checked. Endpoint normalization and sole-AND-input-consumer arguments were mathematically reviewed separately; neither is yet formalized. The component counting route needs raw-inclusive multigraph components or prior repeated-input/copy cleanup. Under that condition, triangle and acyclic-center star exclusions follow from union≥11 and g≥r−1+cycle-rank; cyclic-center star and all-loop possibilities remain open.
+
+
+## 2026-11-24T05:26:50.282158+00:00 — fresh_proof: additional fanout base case
+
+Special_status independently approved the sole-AND-consumer exclusion under the reviewed false-eight-witness minimum-count normalization. If raw p has sole consumer AND(p,h), h is p-independent. Its false-eight witness has at most five outside-p zeros; the four disjoint p-line triples supply one whose union with those zeros has size at most six. Padding creates a band input where p alone makes its line true but the sole consumer stays false; dropping p leaves all generated wires unchanged and contradicts monotone extension to a negative band row. The sole-OR case remains possible. No Lean build was started and no full fanout count follows.
+
+The productive-line route also isolates an exact limitation: a shared gate essential for one missing point p in an L certificate can be true only on lines through p. Nonconcurrent productive families are individually variable-redundant, but repeated certificates can keep such gates collectively necessary. Global substitution or a distinct accounting of reconvergence is not yet proved. Details are in scratch fresh/global_fanout_notes.md.
+
+## Replan5 — 2026-11-24T05:27:01.009932+00:00
+
+The all-five certificate result and its standalone proof are now preserved and integrated into the named module; named lake build passed. NormalResidualFast also passed with an explicit maximal-family premise. Prioritize removing that premise by finite maximal selection and completing GeneralCost. The remaining theorem is the residual global count, with abnormal outputs a separate unresolved branch. Keep repeated-certificate/fanout charging and minimum-count abnormal surgery active. Retire owner injection based only on endpoint/nonconstant hypotheses: the52/54-gate auxiliary routers disprove that shortcut. Do not broaden disconnected pattern enumeration or restart pure-AND diagnostics. Five solver processes remain within memory limits; canonical all-five-cost is newly running. Prepare endpoint/prefix normalization only for a later freed slot after joint review. Next review05:51UTC; approximate deadline07:28UTC.
+
+2026-11-24 05:27:03 UTC — special_status correction: the all-loop single-component case is already excluded by raw union≥11 and g≥r−1≥10. With a cyclic center, at most two used components also gives g≥11−2+1=10. Thus any nine-internal survivor in that component route has at least two leaf components; the unresolved case is a cyclic-center star, not all loops alone.
+
+
+## 2026-11-24T05:27:24.477419+00:00 — lower_bound: reviewed auxiliary archive preserved
+
+Copied the independently approved12-file/32496-byte abnormal-0525 archive verbatim into results/orch/research/abnormal-0525, plus its manifest, and rechecked every hash. It preserves the52/54-gate mixed routers, full output data, complete generator and independent checker logs, and explicit nonminimal/non-gap/non-Lean scope. The54-gate router includes the known band-duplicate gate caveat. No AND25 incomplete proof trace is included. Root owns staging and publication.
+
+## 2026-11-24 05:27:58 UTC — toolchain_setup: arbitrary-family cost guard compiled
+
+GeneralCost.lean compiled on first detached pass with durable exit 0, cached AllFiveCost import, and five harmless deprecation warnings. It strengthens PrivateSurgery.rebuild to preserve all normal outputs and every previously ordinary output, then proves every_cost_large_of_no_improvement for arbitrary injectively labeled finite output families under the explicit no-ordinary-improvement premise. No unrestricted gap theorem is claimed. Source is frozen in scratch research2/GeneralCost.lean (106 lines, SHA256 c6a8c554c7e517e4e98ce7dbee192114f6876184d6f2a81d05fd331335b4af3d); source extra and complete build log/status remain beside it. Root and formal_baseline notified; build slot released for independent review/preservation.
+
+
+## 2026-11-24T05:29:18.581578+00:00 — fresh_proof: stopped after withdrawal
+
+Root reported desk withdrawal at05:27:38 and HTTP410/no live lease; all new work and builds stopped immediately. No fresh compiler or solver is running. The latest cyclic-center argument is preserved only as an unproved outline in scratch fresh/cyclic_center_stop_note.md. Its final c9 case would force three early parents to depend on three complete nonconcurrent lines, giving nine connected raw labels and requiring eight gates in a six-gate prefix. Physical component extraction, leaf exactness/resynthesis, forest/cost and case hypotheses are still unformalized. Exact leaf functions do not imply sharp formal costs; direct leaf resynthesis followed by reapplication of AllFiveCost is required. No unconditional five-output or39-gate theorem is claimed.
+
+/tmp/oec/pequalnp-pilot-21/fresh/cyclic_center_stop_note.md SHA256 80c576ba9382d0c0f3a8675b5f568f3b67248f788c450c7f97307bc76e3f7281
+/tmp/oec/pequalnp-pilot-21/fresh/global_fanout_notes.md SHA256 b5d138dc5afaa715475da1be3ceaa3356699dc4bf40c364ea623a7d5c57ee198
+/tmp/oec/pequalnp-pilot-21/fresh/EarlyCommon.lean SHA256 b7fe2ee65a79b53896695853d5020f8e20f1042e89d50cbf9e72495ed80926fe
+
+
+## 2026-11-24T05:29:22.277091+00:00 — lower_bound: stopped after desk withdrawal; final privacy note
+
+Root reported the desk withdrew L-meta-1024 at05:27:38 and the required diagnostic returned HTTP410/no live lease. All proof work and builds for this agent stop. The reviewed abnormal-0525 archive was already copied and hash-checked; root owns its preservation.
+
+Final mathematical privacy finding (not Lean checked): if a selected gate has a falsity-propagation context C with at most one zero coordinate, then it is true on every other target M's negative eight-true row. Otherwise zero C as well, producing at most six zeros while the selected target L still has a true line point, contradicting band correctness. True-clamping that gate preserves every other negative eight-true row; monotonicity extends this to negative seven-true rows, and positive rows persist under increase. This does not require normality of the other outputs. A sharp four-leaf certificate supplies only one or two such productive joins, so a third deletion remains unproved. Formal_baseline agreed with the endpoint extension, not a complete three-gate surgery.
+
+Unverified final normal-case observation retained without further investigation: fix one false cone at each nine-true line complement. A generated gate selected by multiple cones is globally bounded by the OR of the intersection of their owner lines, hence by one raw point or false. Replacing it by that point could preserve each owner negative-complement certificate and leave nonowner fixed cones intact, while increasing all values globally. If valid under exact prefix/masked-read compilation, a minimum normal circuit might then have disjoint generated false cones and the desired39 count. This is an unchecked proposed surgery, not a proved theorem or accepted result; no subsequent work was performed after the stop.
+
+## 2026-11-24 05:29:24 UTC — toolchain_setup: withdrawal freeze and scoped component argument
+
+Root reports desk WITHDRAWN/HTTP410 at05:27:38, so all new proof work and builds are stopped. GeneralCost106lines remains frozen, compiled exit0 and independently approved (SHA256 c6a8c554c7e517e4e98ce7dbee192114f6876184d6f2a81d05fd331335b4af3d). It proves arbitrary-family cost5 only under the explicit no-ordinary-improvement premise; no unrestricted gap result.
+
+A complete MATHEMATICAL DRAFT of the normalized five-output/nine-internal-gate component route is saved at scratch research2/five_component_argument.md, SHA256 a83940856272d0689997098ea201d46ac77c2055605e8cbdbc97abc4796c99a5. It excludes triangle and acyclic-center stars by raw-component rank, resynthesizes globally exact leaf OR functions without increasing gates, and counts late center-parent positions to exclude cyclic-center stars. Fresh independently identified the final three-loop prefix-rank contradiction; reviewer approved the local accounting and leaf resynthesis. Outstanding formal obligations are stated explicitly: copy/constant/sink normalization, raw-component/tree certificate extraction, generic exact-OR subset-family lower bound and replacement compiler, component-pair star/triangle classification, and the combined final theorem. NONE of these draft cases has been integrated as a checked five-output contradiction, and the posted39-gate theorem remains unproved. Root notified to preserve this note as research only.
+
+
+2026-11-24T05:29:36.909053+00:00 — lower_bound correction: DISCARD the immediately preceding unverified shared-cone surgery. Its first implication is false: g bounded by both OR(L) and OR(M) is bounded by their conjunction, not by OR of their intersection. For a in L outside M and b in M outside L, g=x_a AND x_b is the direct counterexample. The context-at-most-one privacy finding above is unaffected. Root was immediately notified; no theorem or build claimed this false observation.
+
+## 2026-11-24 05:29:44 UTC — special_status: withdrawal evidence and final review
+
+Independently read complete lease/beat-107.json and error-107.response. Initial response explicitly says withdrawn:true and that the attack no longer needs the step. Required diagnostic contains actualHTTP/2 410 at05:27:38 and no-live-lease body; both stderr files are empty. Timer sequence107 records error; sequence106 expiry is stale. No further desk request or release is appropriate under the user stop-on-error rule. Proof/search work has stopped; only preservation reviews continue.
+
+GeneralCost.lean cached checkpoint independently approved:106lines,SHA256c6a8c554c7e517e4e98ce7dbee192114f6876184d6f2a81d05fd331335b4af3d, durable001exit0/five deprecation warnings. Exact Extra and syntax checked. Arbitrary-family rebuilding preserves normality and all prior ordinary outputs; no-improvement cost bound remains explicitly conditional. MaximalSelect/NormalCost drafts received mathematical review only, not a compilation claim.
+
+Definite correction to the final shared-cone suggestion: g≤OR(L) and g≤OR(M) do not imply g≤OR(L∩M); x_l AND x_m with l in L\M and m in M\L is a counterexample. Therefore the proposed replacement by the common raw point is rejected as stated. No new search/build was performed to establish this elementary review correction.

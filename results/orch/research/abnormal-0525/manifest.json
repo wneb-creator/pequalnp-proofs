@@ -1,0 +1,50 @@
+{
+  "README.md": {
+    "bytes": 1441,
+    "sha256": "c01cbfebce9a78053a88457be35beab784ab41846382410f36789c3e7963e2e9"
+  },
+  "mixed-complement-router-endpoints.json": {
+    "bytes": 12503,
+    "sha256": "7ff1eb2ef997d3d011c3137ccfa7a83c1c1735ad39b2a007bf5c53aa19cf50a5"
+  },
+  "mixed-complement-router-endpoints.log": {
+    "bytes": 396,
+    "sha256": "b0839131361c3463025c2e218f95b74cb6a0eb3dc78dc3bab920c4d4c8f0bfc9"
+  },
+  "mixed-complement-router.json": {
+    "bytes": 3220,
+    "sha256": "76fc6bf0a91741ee611117c1ec1e482e020ddd49223fe4db74b1cfa1a05a8f1b"
+  },
+  "mixed-complement-router.log": {
+    "bytes": 384,
+    "sha256": "d5dfdbe4674a7c418852285b6a110674e14d57f7df2f81ad330fdc91ba052f57"
+  },
+  "mixed-router-endpoints-independent-002.log": {
+    "bytes": 541,
+    "sha256": "18983fad5b471a322d8d06394edcaf176a4f1feb59e664a0388a6673516f1f79"
+  },
+  "mixed-router-endpoints-independent.py": {
+    "bytes": 2799,
+    "sha256": "b09afc3fec300c99d772b6dd2e229d436ba15afdcaae98d0bb4ba7136cb965c2"
+  },
+  "mixed-router-independent.log": {
+    "bytes": 504,
+    "sha256": "82ba3104a6f0a9d20946a58e3bb3c3a72ac30f39cf2910af51eee816dd1e06be"
+  },
+  "mixed-router-independent.py": {
+    "bytes": 2400,
+    "sha256": "1007f6bf96fafca1d4fee774f2485006b3e7950d3053a14dd650a58e80e3bcb3"
+  },
+  "mixed_complement_router.py": {
+    "bytes": 3068,
+    "sha256": "5139b2044913170444eccc0ac19693e742f0a57f740aec3e83786b8bc018e958"
+  },
+  "mixed_complement_router_endpoints.py": {
+    "bytes": 3390,
+    "sha256": "076730cc7db4be000a79c8e6db882b3a288faa9f2a5e2c9edbabf7bdab1dadc9"
+  },
+  "mixed_router_notes.md": {
+    "bytes": 1850,
+    "sha256": "9027e2e5134a80966ab9f47d1a5318b31282814dcb6ce6d10211253e51be7660"
+  }
+}

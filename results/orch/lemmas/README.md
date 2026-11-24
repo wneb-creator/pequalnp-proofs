@@ -77,3 +77,6 @@ Put new stable, compiled components here only after review. Work in an individua
 - `AllFiveCost.lean`: complete standalone version of the all-five cost bound and ordinary-preserving rebuild, importing only Mathlib and PEqualNP.Defs. Full standalone validation passed and was independently reviewed; full log/status: `../validation/all-five-cost-standalone-001.log` and `.exit`.
 
 - Consolidated named module `lean/PEqualNP/Outside/L_meta_1024.lean` now includes the reviewed canonical reduction, connected-case theorem, certificate machinery and all-five cost theorem in one10204-line file. Standalone and named lake builds passed. The exact posted theorem remains absent; original one-AND partial is retained in earlier branch commits. Full logs and source-parts manifest are in `../validation/`.
+
+- `NormalResidualFast.lean`: checked/reviewed cached reduction deleting ordinary charges for arbitrary k in the all-normal class, conditional on explicit maximal ordinary family. Full log/status: `../validation/normal-residual-build-002.log` and `.exit`.
+- `GeneralCost.lean`: checked/reviewed cached arbitrary-k no-improvement theorem forcing every formal false cost to be at least5, preserving normality and prior ordinary outputs. Full log/status: `../validation/general-cost-build-001.log` and `.exit`. Both wrappers import the preserved standalone AllFiveCost.
