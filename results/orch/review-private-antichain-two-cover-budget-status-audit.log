@@ -1,0 +1,6 @@
+PASS PrivateConnectorAntichain.lean SHA199bfcec056495e0d5ffc6632f82cf2b844038b706bee2215e9d9ea4998ae241
+PASS MaskJointTwoBudget.lean SHA25244c7117f5e9de2516b9d20fcc30d78f62cfb18e954d1aca4c9c7c5c76c5d6
+PASS TwoJunkPrivateCoverTwo.lean SHA10f587f0086231500e324bc2439355e0feaefe63feb14e0544d5a3f83118a2fb
+Antichain adapter: OR reach gives exact support inclusion; full joint-clean/private endpoint excludes every other operand cone; actual root index comes from checked private connector, retained in conclusion.
+MaskJointTwoBudget: explicitly assumed two-clause residual charge plus disjointmask live indices and reserved T; triple disjoint union preserves +T and boundary credit, no actual charge construction claimed.
+TwoJunkPrivateCoverTwo: actual Ustar inclusion follows exact pair semantics in all three union branches; private endpoint wmax converted iff CleanMask, empty-family cover2 applied; final classification supplies independence and JointClean with support disjointness and empty-family premise explicit. Reviewed inherited PrivateOneMaskFull by gateagent, all new wrappers sound. Author successful builds accepted; source/math/format independently reviewed.

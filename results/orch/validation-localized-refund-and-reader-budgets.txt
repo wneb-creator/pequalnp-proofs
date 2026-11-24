@@ -1,0 +1,23 @@
+PARTIAL RESULTS ONLY. Exact gap L-meta-1477 remains unproved.
+Named-file checker remains REJECTED (no-theorem); no proof PR opened.
+These independently reviewed frozen components compiled under pinned Lean with queued lake.
+Singleton/overlapping/dependent products and arbitrary numbers of dirty gates remain beyond the closed restricted cases.
+
+OppositeJointGeometry.lean lines=160 bytes=7979 SHA256=05affe424511ffb1aef490ce0559033e21ca30b6204d53d886a682e9193a6296; author build EXIT0; independent review PASS by gate_invariants; full log=results/orch/opposite-joint-geometry-build-002.log
+OneMaskJointGeometry.lean lines=827 bytes=40514 SHA256=0803d8f9a66c5a88a118e2cdff45e5f8b28ae43a7758a2d8203223fd7a047fe1; author build EXIT0; independent review PASS by normal_form; full log=results/orch/one-mask-joint-geometry-build-001.log
+PrivateOperandAntichain.lean lines=1222 bytes=59661 SHA256=7b058c7d7d4384df0b0b29ad3f9cb0ea0f49fc95ba13adf1e5ce4fbe33635d68; author build EXIT0; independent review PASS by status_audit; full log=results/orch/private-operand-antichain-build-002.log
+PrivateConnectorAntichain.lean lines=4277 bytes=199952 SHA256=199bfcec056495e0d5ffc6632f82cf2b844038b706bee2215e9d9ea4998ae241; author build EXIT0; independent review PASS by status_audit; full log=results/orch/private-connector-antichain-build-001.log
+TwoJunkPrivateCoverTwo.lean lines=5969 bytes=284568 SHA256=10f587f0086231500e324bc2439355e0feaefe63feb14e0544d5a3f83118a2fb; author build EXIT0; independent review PASS by status_audit; full log=results/orch/two-junk-private-cover-two-build-001.log
+JointOnlyLocalized.lean lines=5898 bytes=284378 SHA256=f4309185e16c41c03931895a6b658f92da106215c199cdcb2f0afba243dad186; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/joint-only-localized-build-002.log
+JointOnlyAutomatic.lean lines=6044 bytes=291724 SHA256=6e343a5043b977e589d820cba3c85ebcbc5f404a39adf4d2f60255164eb8194e; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/joint-only-automatic-build-001.log
+MaskJointTwoBudget.lean lines=5974 bytes=285176 SHA256=25244c7117f5e9de2516b9d20fcc30d78f62cfb18e954d1aca4c9c7c5c76c5d6; author build EXIT0; independent review PASS by status_audit; full log=results/orch/mask-joint-two-budget-build-001.log
+OrdinaryMaskReaders.lean lines=7065 bytes=341585 SHA256=2facdcc7b1be53a3bbb0a2502874555e0b7f9ce4ab6e58e821a4db4da665cff4; author build EXIT0; independent review PASS by status_audit; full log=results/orch/ordinary-mask-readers-build-002.log
+OrdinaryEligibleCharge.lean lines=7208 bytes=349463 SHA256=f76cdd90073506c8513839cbb60ff397695deebce6c6cdc188e195abf24c1f48; author build EXIT0; independent review PASS by status_audit; full log=results/orch/ordinary-eligible-charge-build-002.log
+OrdinaryFilterSeparation.lean lines=7398 bytes=358736 SHA256=3a221222cc2eb559f2db8e4ca04c3e0a8dcf17a6d460d1375ace794e54288466; author build EXIT0; independent review PASS by status_audit; full log=results/orch/ordinary-filter-separation-build-002.log
+OrdinaryFilterBudget.lean lines=7559 bytes=368168 SHA256=83dcbc3d6e1d870e2f6335e8a5c844b948fa14130e88132af79032d2ca8beb87; author build EXIT0; independent review PASS by status_audit; full log=results/orch/ordinary-filter-budget-build-002.log
+ActualFilterFamilies.lean lines=6549 bytes=302951 SHA256=833a682ac0f5bf696eec4efee68cd379a2dbc43c08d696c1a389a11503a0d83e; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/actual-filter-families-build-002.log
+EligibleCenterCover.lean lines=6939 bytes=335994 SHA256=24e4667eb116936e8b7ad760bd922d4800b74318b01b7ee5ac76409914b4dd14; author build EXIT0; independent review PASS by root; full log=results/orch/eligible-center-cover-build-001.log
+PrivateBothMaskPlane.lean lines=7165 bytes=342969 SHA256=aad7aae28a08de197ba7a4fa55d0457639bf1b798a1a94072802eb8f2b50edc8; author build EXIT0; independent review PASS by normal_form; full log=results/orch/private-both-mask-plane-build-002.log
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=268.37 subagents=6

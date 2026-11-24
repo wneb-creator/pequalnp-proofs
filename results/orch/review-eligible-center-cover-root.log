@@ -1,0 +1,4 @@
+Independent review PASS
+File: results/orch/lemmas/EligibleCenterCover.lean
+SHA256: 24e4667eb116936e8b7ad760bd922d4800b74318b01b7ee5ac76409914b4dd14
+Exact CommonFamilyAccounting prefix confirmed. Reviewed all88 newlines. P1 accounting, minimum-cover union and paid-offset arithmetic agree. Boundary witness image cardinality at most boundaryProducts.card; its union with S covers every specified residual edge. lower_bound_from_center_budget correctly composes the witnesses with accounting. All hypotheses remain explicit; no unrestricted gap proof claimed. Author first build001 EXIT0 reported; full log inspected, no errors. Forbidden-token and attribute scans PASS.
