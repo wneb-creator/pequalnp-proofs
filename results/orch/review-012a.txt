@@ -1,0 +1,26 @@
+Independent checkpoint012a structural-fragment review
+Reviewer: /root/composition_recovery/or_context, independent of the four implementations.
+UTC: 2026-11-24T19:04:16.398418+00:00
+Scope (all lines reviewed):
+- structure-recovery/four-or-block-fragment.txt: 109 lines; SHA256 77257128e625a870c5e41be3327c0cec0d2e61af022e890bb1e137c4d5691748.
+- structure-recovery/overwrite-junk-fragment.txt: 52 lines; SHA256 6e440cf0cd3ab51e017fb075a71a415549c5c351dff512c6e298f9949472291a.
+- structure-recovery/or-and-singleton-fragment.txt: 44 lines; SHA256 23e36ed42ccfdcbba80d5eef422e7901e81c835f5ac6c067d487a57aa1638a59.
+- structure-recovery/pure-side-fragment.txt: 48 lines; SHA256 a22e2fa5ed516e65f940763b383674e1924310ced446abae11d94528cd0cb3ba.
+
+Verdict: PASS for these partial components. No semantic defect found. This is not acceptance of the posted L-meta-2584 statement.
+
+Semantic red-team review:
+- pure_or_pair_iff uses full pure-OR completeness to characterize a wire on a two-input assignment. It does not claim that a general dirty wire is described by its OR shadow.
+- four_or_block_double_star retains all necessary hypotheses: four pure-OR factors, a point-only first factor, a line-only fourth factor, global soundness of their conjunction, the actual four-cycle prohibition, and the three-versus-one signature of the distinguished pair. Its pair and three-input test assignments derive exactly the incidence conditions needed by the earlier four-clause theorem. The conclusion only covers accepted edge pairs by two centres; it neither constructs a circuit nor asserts that all edges in those two stars are sound.
+- overwrite_or_junk_subset explicitly requires the replacement to shrink the original gate for every assignment. Any false-target witness for a new dirty AND then transfers to the old gate by overwrite monotonicity. The overwritten index cannot remain an AND because the new operation is OR. This gives the stated subset of the old dirty set with the replaced index erased, including harmless out-of-range-index cases.
+- overwrite_or_junk_card_le_one uses only the explicit two-dirty-gate classification and that subset. It makes no assumption that minimum gate count automatically controls the number of dirty gates.
+- pure_or_and_singleton_inputs proves the exact intersection formula using binary AND semantics and pure-OR factors in both directions. pure_opposite_and_singletons_empty then uses only the incompatible point/line bounds on a common input.
+- sound_or_factors_have_pure_sides tests the all-line and all-point assignments. If every factor had an OR-shadow witness of the forbidden colour, every factor would be true, contradicting incidence soundness on a monochromatic assignment. Its conclusion concerns OR shadows only: empty shadows are permitted and the two selected wires need not be distinct. It must not be promoted to semantic purity without the separate pure-OR hypotheses. The source makes no such promotion.
+
+Independent validation:
+- Recompiled all seven lemmas with only exported helper names prefixed review012_, retaining their statements and proof bodies, in Review012Structure.lean.
+- Exit 0; stderr empty; two nonsemantic linter suggestions (unused simp argument and unnecessary simpa).
+- Axiom audits for all seven lemmas report exactly propext, Classical.choice, Quot.sound.
+- Complete audit source and stdout/stderr: /tmp/oec/pequalnp-pilot-39/composition-recovery/or-context/Review012Structure.lean, review-012a.stdout, review-012a.stderr.
+- Audit-only imports/printing commands remain in scratch. No target edits, desk calls, or git mutations were performed.
+- Whole-file namespace/format/integration audit is separately recorded in review-012-format.txt.

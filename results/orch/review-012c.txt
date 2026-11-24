@@ -1,0 +1,53 @@
+Independent TopAndCount review
+UTC: 2026-11-24 19:02 UTC
+Reviewer: /root/review_recovery, independent of implementation.
+Scope: all 107 lines of
+/tmp/oec/pequalnp-pilot-39/full-gap-challenge/top-and-count-fragment.txt
+SHA256: 765ccb6b2601f6a7bbc986775535e163b943a8550559a6b58b5f2e5b1df33dbc
+Size: 5252 bytes.
+
+Verdict: APPROVED FOR COMPILED PARTIAL CHECKPOINT, subject to root combined
+build/namespace audit. No mathematical or source-format blocker found.
+
+Review findings:
+- andCount_eq_card correctly identifies the list count of AND gates with
+  the cardinality of the finite set of their valid indices. The range map
+  reconstructs the exact gate list, so default gate values do not intrude.
+- andCount_eq_of_rho uses the existing deletion-index bijection. The old
+  omitted gate and new final gate are both OR gates, while all surviving
+  gate operators correspond, so AND count is unchanged.
+- main_ind_andCount strengthens the existing TopNormalize induction using
+  precisely the same structural reduction. Each step preserves leastness,
+  size, junk count and now AND count, while strictly decreasing the finite
+  number of ancestor-related AND pairs. The nonempty-graph premise supplies
+  a true assignment, which justifies the valid-output bound required by
+  step3_struct. The two count equalities are composed in the right order.
+- least_to_topForm_andCount is the direct specialization of that induction.
+- exists_least_and_topForm first selects minimum size and then minimum AND
+  count. Top normalization preserves both counts, so the resulting TopForm
+  circuit retains the AND-count optimality among all equal-size competitors.
+
+Composition boundary:
+This closes the previously missing AND-count preservation under TopForm
+normalization. However, exists_least_and_topForm does NOT export a junk
+bound relative to its arbitrary input C: the global AND-count minimizer A
+was chosen without a junk constraint. Normalization preserves A's junk
+count only. A later argument requiring at most two junk gates must preserve
+that restriction through minimizer selection or establish it separately.
+The fragment itself makes no unsupported junk-bound claim.
+
+Validation and format:
+- Independently inspected the reused card_filter_rho, step3_struct and
+  pairs_lt contracts; the new applications meet their stated premises.
+- top-and-006 complete stdout/stderr files are both empty; implementer
+  reports successful compilation.
+- top-and-007 diagnostics list only propext, Classical.choice and Quot.sound
+  for all five new lemmas; stderr is empty. Diagnostics are not in the
+  submitted fragment.
+- No sorry, axioms, native_decide, unsafe/initialization/elaboration commands,
+  _root_, string quotes, hash commands, attributes, options or new types.
+- All declarations are in the module's TopAndCount child namespace. Full
+  namespace paths require top-level placement or consistent integration.
+- There is no posted final theorem or checker-acceptance claim here.
+
+No source changes made by reviewer. Frozen hash rechecked after review.

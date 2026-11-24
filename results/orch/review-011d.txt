@@ -27,3 +27,8 @@ Independent validation:
 - Exit0; stderr empty; one harmless pre-existing unused-binder warning for ha in alias_false_surg.
 - alias_spec, forced_alias_lower, repair_private_pair, appendOr_ao2, appendOr_value all report only the allowed axioms propext/Classical.choice/Quot.sound (appendOr_ao2 uses only propext/Quot.sound).
 - Complete source/logs: /tmp/oec/pequalnp-pilot-39/full-gap-challenge/Review011d.lean, review-011d.stdout.txt, review-011d.stderr.txt.
+
+Supplemental V2 review (2026-11-24T18:58:38.003121+00:00): CHECKPOINT PUSH READY.
+Reviewed surgery-v2-002.diff completely against the above reviewed007 source.
+New frozen full-fragment SHA256: 89797c40b5bfc8b46d322ba6521109db5e98c173724792da5c3f804d554ce609.
+The explicit repairCircuit is definitionally the same witness appendOr n B o k already proved in007. repairCircuit_gates exposes precisely that constructor's gate list. The old proof now proves repair_private_pair_spec for this explicit object; its only proof changes remove the existential witness and add two definitional change steps. repair_private_pair restores the original API by existentially packaging that exact object and its specification. No hypotheses, bounds, semantic claims, or count claims were weakened or changed. The new declarations were compiled by the implementer with exit0 and empty logs; the underlying full surgery007 proof was independently recompiled/audited above. Root must replace the old repair declaration with this delta, not append a duplicate name.

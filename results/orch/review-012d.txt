@@ -1,0 +1,27 @@
+Independent checkpoint012 Reorder junk preservation review
+Reviewer: /root/full_gap_challenge, independent of implementation.
+UTC: 2026-11-24T19:02:31.607354+00:00
+Frozen scope: reorder-recovery/junk-005.fragment, all195 lines /9919 bytes.
+SHA256: 55c2dc5a88d1e4fb57fc2e995e3b477691734f24b8c6f89761c3c9038bc88a81
+
+Verdict: CHECKPOINT PUSH READY for this fragment; partial mathematics only.
+No semantic or format blocker found. No claim of a full L-meta-2584 proof.
+
+Mathematical review:
+- sw_add correctly translates the adjacent gate-index swap to absolute wire indices.
+- adjacent_gateOp covers swapped positions, unchanged prefix, and renamed suffix, including absent indices/default OR gates. Renaming operands does not change any gate operation.
+- adjacent_gateVal applies the existing all-wire adjacent semantics at output n+j, then sw_add identifies the corresponding gate wire. Both swapped gates must read strictly before their shared prefix boundary, making them independent. The actual circuit output field does not affect intermediate gate values.
+- adjacent_junk_mem preserves gate validity, AND operation, and the full semantic dirty witness on every assignment. It does not infer dirtiness merely from edge-pair behavior. The range-validity equivalence follows from swap involutivity and its bound.
+- adjacent_junk_card uses the actual involutive swap as a bijection; the surjection direction correctly applies membership at the swapped index and simplifies the double swap.
+- bubble_private_junk preserves the original bubble_private obligations and adds exact junk-card equality at each swap. For the first intervening gate, backward reads plus privacy exclude the private gate and therefore force every input before it. This justifies the independent swap. The renamed companion operand may equal the intervening gate's old output and is correctly remapped.
+- Privacy, non-output status, earlier input values, and companion-wire value are maintained under the same swap. The induction strictly decreases mid.length, and final junk equality composes in the correct direction. No leastness or C4-free premise is silently assumed.
+- Missing-output behavior is handled by the inherited Same/all-wire semantics; the theorem only excludes the private gate itself as output and does not introduce an unsupported general output-validity assumption.
+
+Validation and limits:
+- Full fragment lexical scan passed: no shortcuts/new axioms, unsafe/code-generation commands, quotes, forbidden root marker, attributes/options, imports/theorems, new type/instance declarations.
+- The relative Reorder namespace must be inserted inside the main auxiliary namespace, once.
+- Implementer's exact frozen source compiled exit0 with empty junk-005 stdout/stderr; metadata/hash inspected independently.
+- A fresh-namespace independent audit source Review012d.lean is prepared. Its first meaningful attempt could not import the main module because root was rebuilding and its olean was temporarily absent (review-012d-002 logs). This is not a proof error; independent source review above is complete. Audit will be rerun after root's combined build restores the module, and its result appended separately.
+
+Independent audit completed 2026-11-24T19:03:58.282349+00:00:
+Fresh-namespace Review012d.lean compiled exit0 with empty stderr and no warnings. All five audited exports (adjacent_gateOp, adjacent_gateVal, adjacent_junk_mem, adjacent_junk_card, bubble_private_junk) use exactly propext, Classical.choice, Quot.sound. Complete successful logs are full-gap-challenge/review-012d-003.stdout.txt and .stderr.txt. This supersedes the temporary import-blocked audit status above.

@@ -1,0 +1,27 @@
+Independent checkpoint012 whole-source namespace/format/integration audit
+Reviewer: /root/composition_recovery/or_context.
+UTC: 2026-11-24T19:04:16.398418+00:00
+Frozen source: lean/PEqualNP/Outside/L_meta_2584.lean
+SHA256: 79d7cc4457121e4762830ebdec23eabdcb99ef8004c3e1ebb82f9d82da4e83e0
+Size: 9632 lines, 436651 UTF-8 bytes, below the 524288-byte limit.
+
+Verdict: PASS for checkpoint012 source format and integration. The source still has zero final theorem declarations; this is a partial checkpoint, not an accepted proof or refutation of L-meta-2584.
+
+Manifest and diff:
+- The exact source is obtained from HEAD by the one declared Surgery replacement and the six manifest additions, modulo blank-line/indent spacing and equivalent relative namespace spelling. No other target changes were found.
+- The old surgery-007.fragment occurs exactly once in the prior source and is replaced exactly once by surgery-v2-002.fragment.
+- Integration matches /tmp/oec/pequalnp-pilot-39/checkpoint-012-fragments.txt. Git reports 594 added and 5 deleted lines; git --no-pager diff --check passes.
+- Full target diff and diagnostic stderr are retained as checkpoint-012-full.diff / checkpoint-012-full.stderr in the reviewer's scratch directory. The structured comparison and scan are in checkpoint-012-format.json.
+
+Whole-file checks:
+- Regular UTF-8 file, not a symlink or executable (filesystem mode 0600).
+- Only the initial Mathlib and PEqualNP.Defs import lines; no later import text.
+- All 573 helper declarations are within the correctly named outer module namespace or child namespaces. Namespace/end commands are at column zero, match their names, and leave no unclosed scopes.
+- No forbidden root marker, double quote, sorry/admit/axiom/native_decide, unsafe/executable/metaprogramming command, custom instance/data type, attribute, or hash command appears.
+- All 24 options use permitted limit names, scoped `in`, and immediate declaration/limit adjacency.
+- No missing or duplicate fragment integration was detected.
+
+Scope:
+- This is an independent integration/format audit, not a semantic rereview of every old helper. Independent mathematical reviews 012a/012b/012c/012d and the root's Surgery delta review cover the new components.
+- Root reports combined build015 passed. This reviewer additionally recompiled the four structure fragments independently for review012a, but did not rerun the whole build.
+- No target edits, desk calls, or git mutations occurred. A future final proof PR must still satisfy the single-file restriction and contain the exact posted theorem.

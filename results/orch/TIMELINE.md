@@ -60,3 +60,7 @@
 - 2026-11-24T18:56:08.699150+00:00 structure_recovery checked complete alias-output OR lifted-star edge coverage (six stable fragments).
 
 - 2026-11-24T18:58:11.305059+00:00: checkpoint11 complete9043line helper file built, allnewcomponents independently reviewed, size407971bytes below512KiB. Full theorem still open; continuing beyond firsthour.
+
+- 2026-11-24T19:00:35.900986+00:00 structure_recovery checked actual-OR double-star bridge and OR-overwrite junk bound.
+
+- 2026-11-24T19:04:31.034069+00:00: checkpoint12 complete9632line source built and independently reviewed. CommonLine explicit two-dirty ReadK2 replacement separately compiled/reviewed, pending next integration.

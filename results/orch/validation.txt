@@ -85,3 +85,10 @@ Independent semantic reviews011a/b/c/d/e plus full format/integration review011-
 Actual main checker on checkpoint010: exit1, REJECTED (no-theorem). Required final theorem remains absent. No proof/refutation accepted and no PR opened.
 Sub-agents: status_review, toolchain_setup, combinatorial_route, circuit_route, counterexample_search, structural_route, combinatorial_route/forced_semantics, review_recovery, structure_recovery, composition_recovery, composition_recovery/or_context, full_gap_challenge, full_gap_challenge/literature_challenge.
 TIMING total=61.0 subagents=13
+
+Checkpoint 12: explicit repair constructor, exact dirty-count preservation under reordering, TopForm AND-count preservation, semantic OR-factor extraction and overwrite dirty-count decrease.
+Target: 9632 lines, 436651 bytes.
+Build015: exit0; Build completed successfully (18419 jobs).
+Independent reviews012a/b/c/d and012-format passed; only allowed axioms in component audits.
+Main checker remains REJECTED(no-theorem); full arbitrary-dirty statement still open.
+TIMING total=67.3 subagents=13
