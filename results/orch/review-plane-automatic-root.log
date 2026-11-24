@@ -1,0 +1,4 @@
+PASS independent source/math/provenance/format review by root.
+SHA256 160de5511fb43b7939ca6f6fcaa514a2992aa2c29c23c8007b0150e69fcb2ad3
+Exact reviewed AutomaticFourClauses prefix; new concrete wrapper derives the plane bipartition from exact edge bounds, invokes automatic residual count/cover2, and combines existing accounting,105edges,cover21,2junk and1centreless to yield125.
+All four actual OR-root supports, global conjunction cleanliness and all-Ustar coverage remain explicit. No arbitrary-circuit coverage claim. Author build002 exit0 confirmed; full warning-only log retained.

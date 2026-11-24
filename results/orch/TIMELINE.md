@@ -147,3 +147,17 @@
 - 2026-11-24 09:22:20 UTC: triangle9 baseline53 verified via80-row DNF certificate and independently reviewed PASS; all geometry/basis/lift/calibration components ready,52gate witness absent.
 
 2026-11-24T09:26:38.680775+00:00 Root: preserved first conditional125-gate plane bound handling arbitrary OR sharing, exact Triangle9 symbolic baseline, and positive-only minimality witness. All independently reviewed.
+
+2026-11-24 09:28:30 UTC gate_invariants: arbitrary-sharing conditional plane125 and automatic pure-clause selection compiled.
+
+- 2026-11-24 09:28:49 UTC — Finite root-graph Euler charge compiled/reviewed; local search broadens to shared ORs containing prior AND outputs, with no target witness yet.
+
+- 2026-11-24 09:29:44 UTC: lean_setup located existing pure-OR support>=2 lemma and completed MaskGraphSupport/AutomaticFourClauses independent source reviews, both PASS.
+
+2026-11-24T09:31:43.172572+00:00 gate_invariants: PlaneAutomaticFourClauses confirming build002 exit0; frozen for independent review.
+
+- 2026-11-24T09:34:30.775212+00:00 normal_form: MaskGrouping finite mask-star connectivity COMPLETE; first author compile exit0.
+
+2026-11-24T09:35:07.408775+00:00 counterexample_search: froze global-matching-completed and joint-mask-diagnostics for independent package review; launched C6private12 four-AND warm-start search60s.
+
+2026-11-24T09:35:52.364026+00:00 Root preserved complete two-junk semantic classification, abstract grouped graph count, mask labeling/grouping, automatic conditional plane bound and checked counterexample to a helper conjecture. No exact proof/refutation.

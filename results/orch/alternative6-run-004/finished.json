@@ -1,0 +1,9 @@
+{
+  "event": "finished",
+  "seconds": 1200.0311570819995,
+  "steps": 68642816,
+  "epochs": 3814,
+  "best_valid": 29,
+  "matching_starts": 478,
+  "conclusion": "heuristic search only; no lower-bound conclusion"
+}

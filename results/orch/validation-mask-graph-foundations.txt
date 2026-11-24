@@ -1,0 +1,22 @@
+L-meta-1477 PARTIALS ONLY. Exact unrestricted statement remains unproved.
+Named file unchanged; lake build passed, exact checker REJECTED (no-theorem).
+The automatic four-clause lower bound retains actual-root and all-Ustar-coverage premises. Graph charging and mask grouping are checked infrastructure; the complete mask-plus-joint counting bridge is open.
+SearchJointMaskCounterexample refutes only a proposed helper cover bound, NOT L-meta-1477.
+Reviewed mixed local search expands allowed intermediate sharing; no28-gate local witness found.
+
+AutomaticFourClauses 5895 lines SHA256 1649c6d9b37314aaf83620bd157f8eb0ccb6e65ae601cb2bc42e7999a8a67a9a; author build exit0; independent review PASS
+PlaneAutomaticFourClauses 5942 lines SHA256 160de5511fb43b7939ca6f6fcaa514a2992aa2c29c23c8007b0150e69fcb2ad3; author build exit0; independent review PASS
+GraphRootCharge 59 lines SHA256 b11fbcb2de2f8f27cce5fd277c8cd0b408a6e4aeacb2b2eedb4b1cbb49184ebe; author build exit0; independent review PASS
+GraphGroupCharge 96 lines SHA256 fcab500780c25a182166990e31dff2f1a0d3b2e5d8ec1de75f5bc23fefd3db9c; author build exit0; independent review PASS
+MaskGraphSupport 3999 lines SHA256 a75abce17f93f8ddfa760959e954216460627dc7c2fd20b648863875220e21c1; author build exit0; independent review PASS
+MaskGrouping 281 lines SHA256 bac9aa28b3bac8f903cc5624191d09a735e39838f86202d59e58c4efdaab58ee; author build exit0; independent review PASS
+SearchJointMaskCounterexample 79 lines SHA256 e6464df156c848f873a9eb2499e8788f00074bc4cf93f251c1c98c90aafdad80; author build exit0; independent review PASS
+TwoJunkClassification 4042 lines SHA256 a07d87d05a6adae5014ef8ccabb6d7c9c221bfe4f158848aefccf76adc810f9a; author build exit0; independent review PASS
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=207.4 subagents=6
+
+Additional frozen reviewed components:
+GraphComponentCharge 84 lines SHA256 1088c5ece638e2daf8caee90c4936b6621f7841f82ea4ba82e21c6c5a5dc0457; author build exit0; independent review PASS
+MaskGraphNetwork 4121 lines SHA256 28d0e1c7c9694ce4cf47ca4a83e46046887175e8395d4156a1e626c6e0dd3579; author build exit0; independent review PASS
+MaskGroupingPairs 344 lines SHA256 6ae34f797c7f4a7f2898ea3f87bf9a6cfeb3d8c3acfdb91dc7d1b4b17d0ff26f; author build exit0; independent review PASS

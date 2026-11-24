@@ -1,0 +1,41 @@
+{
+  "frozen_at": "2026-11-24T09:27:29.015243+00:00",
+  "no_target_witness": true,
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1620,
+      "sha256": "b8078e897f6f63da69527c6fba6ce46f59730a152e52f459b80299ef6e51a6c8"
+    },
+    {
+      "file": "SearchAlternative6Problem.json",
+      "bytes": 2275,
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1"
+    },
+    {
+      "file": "SearchAlternative6Problem.py",
+      "bytes": 925,
+      "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121"
+    },
+    {
+      "file": "SearchReduce.py",
+      "bytes": 2888,
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef"
+    },
+    {
+      "file": "SearchStochasticAlternative6Mixed.py",
+      "bytes": 16505,
+      "sha256": "614e261213824c5e6462652c08ac944fea71b66e37921d8ae8cff1d92cf23d90"
+    },
+    {
+      "file": "alternative6-mixed-calibration.log",
+      "bytes": 180,
+      "sha256": "d3a38f519e5e67d64014b5da0bd21cddb368f7654c442411df0f84345e96201c"
+    },
+    {
+      "file": "review-alternative6-mixed-counterexample.log",
+      "bytes": 144,
+      "sha256": "429e91b02b8a82dd8bee54b1ecd902bbf4cbd841914b96e87ac737e06754371f"
+    }
+  ]
+}

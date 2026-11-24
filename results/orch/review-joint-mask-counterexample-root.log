@@ -1,0 +1,5 @@
+PASS independent source/math/format review by root.
+SHA256 e6464df156c848f873a9eb2499e8788f00074bc4cf93f251c1c98c90aafdad80
+Exact six-variable five-edge tree has bipartition0..2/3..5 and no4cycle. Both two-clause products use disjoint two-element operands and admit explicit bad pairs. Full64-input kernel checks establish joint cleanliness, productive pair13, and four effective variable masks. Matching04,15,23 is included in contributed edges and prevents any two-vertex cover, with repeated covering vertices also allowed.
+This refutes only the proposed combined joint-plus-mask cover lemma. It is not a refutation of L-meta-1477. No circuit-size claim is made.
+Author build002 exit0; empty log inspected. Source has no forbidden mechanism, literal or unscoped option. No redundant build.
