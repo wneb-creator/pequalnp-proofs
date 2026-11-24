@@ -47,7 +47,6 @@ lemma residual_edges : G.edgeFinset \ D =
     ({s((0 : Fin 4), 2), s((0 : Fin 4), 3)} : Finset (Sym2 (Fin 4))) := by
   decide +kernel
 
-
 set_option maxRecDepth 10000 in
 set_option maxHeartbeats 2000000 in
 lemma maximalCores_eq : PEqualNP.Core.maximalCores G C = {3} := by
@@ -56,9 +55,6 @@ lemma maximalCores_eq : PEqualNP.Core.maximalCores G C = {3} := by
 set_option maxRecDepth 10000 in
 set_option maxHeartbeats 2000000 in
 lemma gammaE_eq : PEqualNP.TopForm.gammaE G C 3 = {s((0 : Fin 4), 1)} := by
-  decide
-
-lemma coneSet_eq : PEqualNP.Core.coneSet 4 C 3 = {0, 1, 2, 3} := by
   decide
 
 set_option maxRecDepth 10000 in
@@ -70,7 +66,6 @@ lemma internal_card :
           (fun k => PEqualNP.Core.InOutputCone 4 C k)) ⊆
             ({3} : Finset ℕ).biUnion (PEqualNP.Core.coneSet 4 C))).card = 3 := by
   decide
-
 
 end PEqualNP.Outside.L_meta_3444
 
