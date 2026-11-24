@@ -1,0 +1,60 @@
+{
+  "utc": "2026-11-24T05:30:32.845268+00:00",
+  "status": "Frozen on desk withdrawal; no full-gap proof or counterexample",
+  "files": [
+    {
+      "path": "NormalResidual.lean",
+      "bytes": 269239,
+      "sha256": "e0b50323842f91a446ad0ee99b0ca8bc9a7bb585900b99c37375aa09096b6ba8",
+      "status": "Standalone assembly of checked cached reduction; this assembly was not replayed"
+    },
+    {
+      "path": "MaximalSelectExtra.txt",
+      "bytes": 4004,
+      "sha256": "32549954e1990f3abf83d9997d427dd9349d23246f90eb1d77cc2a8aeb02d67f",
+      "status": "Mathematically reviewed, uncompiled draft"
+    },
+    {
+      "path": "NormalCostExtra.txt",
+      "bytes": 3220,
+      "sha256": "cce7f033c220494aa0f6c32488a7b246d44f294ad282ae0cad7529e091bceddf",
+      "status": "Mathematically reviewed, uncompiled draft"
+    },
+    {
+      "path": "NormalCostFast.lean",
+      "bytes": 13184,
+      "sha256": "9d7c304b8596d2f73da0b6592df9f85175587199b2a846a1cee413f20470d362",
+      "status": "Uncompiled cached composition; validation never started"
+    },
+    {
+      "path": "NormalCost.lean",
+      "bytes": 282397,
+      "sha256": "4ab3a4cac959ae51d0c32e0105087b52928ffe35039eb139b03e25f04df9d22c",
+      "status": "Uncompiled standalone composition; validation never started"
+    },
+    {
+      "path": "five_component_argument.md",
+      "bytes": 9673,
+      "sha256": "a83940856272d0689997098ea201d46ac77c2055605e8cbdbc97abc4796c99a5",
+      "status": "Mathematical draft with outstanding formal obligations; not a Lean theorem"
+    },
+    {
+      "path": "cyclic_center_stop_note.md",
+      "bytes": 3239,
+      "sha256": "80c576ba9382d0c0f3a8675b5f568f3b67248f788c450c7f97307bc76e3f7281",
+      "status": "Unproved outline and explicit remaining obligations"
+    },
+    {
+      "path": "global_fanout_notes.md",
+      "bytes": 8041,
+      "sha256": "b5d138dc5afaa715475da1be3ceaa3356699dc4bf40c364ea623a7d5c57ee198",
+      "status": "Research notes; not a completed counting proof"
+    },
+    {
+      "path": "README.md",
+      "bytes": 725,
+      "sha256": "fbcd195489fa821ea8d7c4803ea6e1928925360c48f157bfc7cb887b7167d42d",
+      "status": "Scope description"
+    }
+  ]
+}

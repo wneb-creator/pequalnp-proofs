@@ -1,0 +1,28 @@
+SOLVE 0 rows 3003 vars 361953 clauses 12693968 proof True budget 5399
+RUNNING elapsed 11 freeGiB 11.0 proofMiB 0
+RUNNING elapsed 71 freeGiB 10.99 proofMiB 7.2
+RUNNING elapsed 131 freeGiB 10.98 proofMiB 9.2
+RUNNING elapsed 191 freeGiB 10.97 proofMiB 10.2
+RUNNING elapsed 251 freeGiB 10.95 proofMiB 11.8
+RUNNING elapsed 311 freeGiB 10.94 proofMiB 12.8
+RUNNING elapsed 371 freeGiB 10.94 proofMiB 13.8
+RUNNING elapsed 431 freeGiB 10.93 proofMiB 14.0
+RUNNING elapsed 491 freeGiB 10.92 proofMiB 14.2
+RUNNING elapsed 551 freeGiB 10.91 proofMiB 15.0
+RUNNING elapsed 611 freeGiB 10.9 proofMiB 15.8
+RUNNING elapsed 671 freeGiB 10.89 proofMiB 17.5
+RUNNING elapsed 731 freeGiB 10.87 proofMiB 18.0
+RUNNING elapsed 791 freeGiB 10.86 proofMiB 18.0
+RUNNING elapsed 851 freeGiB 10.85 proofMiB 18.0
+RUNNING elapsed 911 freeGiB 10.8 proofMiB 19.0
+RUNNING elapsed 971 freeGiB 10.79 proofMiB 19.8
+RUNNING elapsed 1031 freeGiB 10.77 proofMiB 20.5
+RUNNING elapsed 1091 freeGiB 10.77 proofMiB 21.2
+RUNNING elapsed 1151 freeGiB 10.75 proofMiB 22.0
+RUNNING elapsed 1211 freeGiB 10.74 proofMiB 23.8
+RUNNING elapsed 1271 freeGiB 10.73 proofMiB 24.5
+RUNNING elapsed 1331 freeGiB 10.72 proofMiB 24.5
+RUNNING elapsed 1391 freeGiB 10.71 proofMiB 24.8
+RUNNING elapsed 1451 freeGiB 10.7 proofMiB 26.5
+RESULT unknown exit -2 elapsed 1471
+FINISHED elapsed 1471

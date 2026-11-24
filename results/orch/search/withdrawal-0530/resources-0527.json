@@ -1,0 +1,100 @@
+{
+  "utc": "2026-11-24T05:24:50.697018+00:00",
+  "CPU_cores": 4.000952194994616,
+  "memory_current": 14457729024,
+  "memory_stat": {
+    "anon": 5120471040,
+    "file": 8908967936,
+    "kernel": 427302912,
+    "kernel_stack": 1441792,
+    "pagetables": 13533184,
+    "sec_pagetables": 0,
+    "percpu": 11060,
+    "sock": 0,
+    "vmalloc": 36864,
+    "shmem": 90112,
+    "file_mapped": 2019328,
+    "file_dirty": 21635072,
+    "file_writeback": 0,
+    "swapcached": 0,
+    "anon_thp": 0,
+    "file_thp": 354418688,
+    "shmem_thp": 0,
+    "inactive_anon": 5120180224,
+    "active_anon": 241664,
+    "inactive_file": 607293440,
+    "active_file": 8301584384,
+    "unevictable": 0,
+    "slab_reclaimable": 409105176,
+    "slab_unreclaimable": 3066136,
+    "slab": 412171312,
+    "workingset_refault_anon": 0,
+    "workingset_refault_file": 33613627,
+    "workingset_activate_anon": 0,
+    "workingset_activate_file": 7990117,
+    "workingset_restore_anon": 0,
+    "workingset_restore_file": 3941364,
+    "workingset_nodereclaim": 0,
+    "pgdemote_kswapd": 0,
+    "pgdemote_direct": 0,
+    "pgdemote_khugepaged": 0,
+    "pgdemote_proactive": 0,
+    "pgscan": 318707339,
+    "pgsteal": 31225450,
+    "pswpin": 0,
+    "pswpout": 0,
+    "pgscan_kswapd": 19548,
+    "pgscan_direct": 318679350,
+    "pgscan_khugepaged": 8441,
+    "pgscan_proactive": 0,
+    "pgsteal_kswapd": 19201,
+    "pgsteal_direct": 31199100,
+    "pgsteal_khugepaged": 7149,
+    "pgsteal_proactive": 0,
+    "pgfault": 133917843,
+    "pgmajfault": 248754,
+    "pgrefill": 11635447,
+    "pgactivate": 8530541,
+    "pgdeactivate": 11004120,
+    "pglazyfree": 315,
+    "pglazyfreed": 0,
+    "swpin_zero": 0,
+    "swpout_zero": 0,
+    "thp_fault_alloc": 78557,
+    "thp_collapse_alloc": 542,
+    "thp_swpout": 0,
+    "thp_swpout_fallback": 0
+  },
+  "memory_events": {
+    "low": 0,
+    "high": 0,
+    "max": 679386,
+    "oom": 1,
+    "oom_kill": 1,
+    "oom_group_kill": 0
+  },
+  "disk_free": 11524694016,
+  "progress": {
+    "cegis-collective-diagnostic-progress.log": [
+      "RUNNING elapsed 3903 freeGiB 10.76 proofMiB 316.2",
+      "RUNNING elapsed 3963 freeGiB 10.74 proofMiB 319.5"
+    ],
+    "cegis-abnormal-or-sinks-stream-progress.log": [
+      "RUNNING elapsed 2412 freeGiB 10.74 proofMiB 43.5",
+      "RUNNING elapsed 2472 freeGiB 10.73 proofMiB 44.2"
+    ],
+    "cegis-general-five-cost-progress.log": [
+      "RUNNING elapsed 1802 freeGiB 10.74 proofMiB 47.0",
+      "RUNNING elapsed 1862 freeGiB 10.74 proofMiB 47.8"
+    ],
+    "cegis-normal-or-sinks-cost-stream-progress.log": [
+      "RUNNING elapsed 1151 freeGiB 10.75 proofMiB 22.0",
+      "RUNNING elapsed 1211 freeGiB 10.74 proofMiB 23.8"
+    ],
+    "cegis-general-five-canonical-allcost-progress.log": [
+      "RUNNING elapsed 245 freeGiB 10.75 proofMiB 5.2",
+      "RUNNING elapsed 305 freeGiB 10.74 proofMiB 7.8"
+    ]
+  },
+  "processes": "    PID    PPID STAT     ELAPSED     TIME   RSS\n  29365       1 SNs     01:06:42 00:00:01 12696\n  29366   29365 RN      01:06:40 00:52:47 376924\n  33063       1 SNs        41:17 00:00:09 13220\n  33099   33063 RN         41:06 00:31:15 1860904\n  34539       1 SNs        31:12 00:00:02 12928\n  34540   34539 RN         31:10 00:24:06 387084\n  36136       1 SNs        20:23 00:00:09 13224\n  36146   36136 RN         20:13 00:14:32 1855548\n  38321       1 SNs        05:22 00:00:02 12952\n  38323   38321 RN         05:17 00:03:29 414132\n"
+}

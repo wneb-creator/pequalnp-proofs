@@ -1,0 +1,29 @@
+Job: pequalnp-pilot-21
+Acknowledged: msg-d6f3c373d145b7479ffe5c8c
+Gap: L-meta-1024
+Branch: pnp/pilot-21; pushed only to fork origin.
+Recorded: 2026-11-24T05:31:45.267487+00:00
+Sub-agents: formal_baseline, fresh_proof, lower_bound, counterexample_search, toolchain_setup, special_status, lease_timer
+TIMING total=243 subagents=7
+
+Outcome: STOPPED because the desk withdrew this step at2026-11-24 05:27:38UTC. Initial response says the attack no longer needs it. Required same-call curl-si diagnostic returned HTTP410/no live lease; full headers/body and empty stderr are preserved under validation/desk-withdrawal-*. No new gap or lease was requested and no release was attempted on the already-dead lease. Only this job's search processes were stopped.
+
+No exact posted proof or valid full-gap counterexample was obtained. No PR or issue was opened. No acceptance occurred.
+
+Named file: lean/PEqualNP/Outside/L_meta_1024.lean
+SHA256:35f1a1f50f8b9520a1d1a2aa0b5442af9c98ea4b357283dfadb3bc62f1fc4a6e
+Final named file:10204lines,475886bytes; reviewed compiled partial, exact theorem absent.
+Latest named lake build:exit0.
+Exact final build line: Build completed successfully (18395 jobs).
+Full output:validation/integrated-named-build-001.log
+Standalone integration:exit0; full output:validation/integrated-build-002.log
+
+Checker: Earlier partial was REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_1024 (one lemma, one file: the theorem carries the module's name). Full output:validation/checker-partial.log. A later earlier-partial retry failed after verifier OOM exit137. The final consolidated partial was not submitted to the checker because the exact theorem remains absent. No checker pass is claimed.
+
+Line counts: preliminary resource cleanup4455->4041; later consolidation10204. The prescribed final cleanup after exact build+checker success was never reached.
+
+The newest GeneralCost and NormalResidualFast wrappers compiled with exit0 and were independently reviewed; their complete successful logs are archived. Uncompiled NormalCost/maximal-selection assemblies and mathematical outlines are explicitly marked frozen/unproved in research/frozen-withdrawal.
+
+All five active solvers terminated UNKNOWN after withdrawal; no full-gap witness or UNSAT verdict. Complete stdout/stderr/progress records and trace integrity metadata are in search/withdrawal-0530. The previously archived restricted2+3 UNSAT certificate passed independent external RUP replay but is not a Lean proof of this gap. No live Lean build or search remains.
+
+Every preserved proof/encoding/archive change was independently reviewed before push. The current branch contains authorized orchestration archives alongside the named file; it is not a single-file proof PR.

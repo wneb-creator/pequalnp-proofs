@@ -1,0 +1,81 @@
+
+namespace PEqualNP.Outside.L_meta_1024_aux.NormalResidual
+open PEqualNP.CircuitLowerBounds
+
+lemma maximal_exists (budget : ℕ) (gs : List Gate) (out : Fin 13 → ℕ)
+    (hg : Allowed gs) (hlen : gs.length ≤ budget)
+    (hcorrect : Correct gs out id) (hnormal : Normal gs out id) :
+    ∃ (cs : List Gate) (co : Fin 13 → ℕ) (W : Finset (Fin 13)),
+      Allowed cs ∧ cs.length ≤ budget ∧ Correct cs co id ∧ Normal cs co id ∧
+      (∀ w ∈ W, Ordinary cs (co w) w) ∧ Maximal budget W := by
+  classical
+  let Realizable : Finset (Fin 13) → Prop := fun W =>
+    ∃ (cs : List Gate) (co : Fin 13 → ℕ), Allowed cs ∧ cs.length ≤ budget ∧
+      Correct cs co id ∧ Normal cs co id ∧ ∀ w ∈ W, Ordinary cs (co w) w
+  let choices : Finset (Finset (Fin 13)) := Finset.univ.filter Realizable
+  have hempty : (∅ : Finset (Fin 13)) ∈ choices := by
+    apply Finset.mem_filter.mpr
+    exact ⟨Finset.mem_univ _, gs, out, hg, hlen, hcorrect, hnormal, by simp⟩
+  obtain ⟨W, hW, hgreatest⟩ := Finset.exists_max_image choices Finset.card ⟨∅, hempty⟩
+  obtain ⟨cs, co, hcg, hclen, hcc, hcn, hcW⟩ := (Finset.mem_filter.mp hW).2
+  refine ⟨cs, co, W, hcg, hclen, hcc, hcn, hcW, ?_⟩
+  intro ds dout hdg hdlen hdc hdn hdW w hw hwexact
+  have hm : insert w W ∈ choices := by
+    apply Finset.mem_filter.mpr
+    refine ⟨Finset.mem_univ _, ds, dout, hdg, hdlen, hdc, hdn, ?_⟩
+    intro v hv
+    rcases Finset.mem_insert.mp hv with rfl | hv
+    · exact hwexact
+    · exact hdW v hv
+  have hh := hgreatest (insert w W) hm
+  rw [Finset.card_insert_of_notMem hw] at hh
+  omega
+
+lemma complement_enumeration (W : Finset (Fin 13)) :
+    ∃ lineId : Fin (13 - W.card) → Fin 13,
+      Function.Injective lineId ∧ Finset.univ.image lineId = Finset.univ \ W := by
+  classical
+  let V : Finset (Fin 13) := Finset.univ \ W
+  have hc : Fintype.card {w // w ∈ V} = 13 - W.card := by
+    rw [Fintype.card_coe, Finset.card_sdiff_of_subset (Finset.subset_univ W)]
+    rfl
+  let e : {w // w ∈ V} ≃ Fin (13 - W.card) := Fintype.equivFinOfCardEq hc
+  let lineId : Fin (13 - W.card) → Fin 13 := fun u => (e.symm u).val
+  have hinj : Function.Injective lineId := by
+    intro a b hab
+    exact e.symm.injective (Subtype.ext hab)
+  refine ⟨lineId, hinj, ?_⟩
+  ext w
+  constructor
+  · intro hw
+    obtain ⟨u, _, rfl⟩ := Finset.mem_image.mp hw
+    exact (e.symm u).property
+  · intro hw
+    refine Finset.mem_image.mpr ⟨e ⟨w, hw⟩, Finset.mem_univ _, ?_⟩
+    change (e.symm (e ⟨w, hw⟩)).val = w
+    rw [e.symm_apply_apply]
+
+lemma counterexample_has_extremal_residual (gs : List Gate) (out : Fin 13 → ℕ)
+    (hg : Allowed gs) (hcorrect : Correct gs out id) (hnormal : Normal gs out id)
+    (hsmall : gs.length < 39) :
+    ∃ (k : ℕ) (cs : List Gate) (co : Fin k → ℕ) (lineId : Fin k → Fin 13),
+      5 ≤ k ∧ k ≤ 13 ∧ Function.Injective lineId ∧ cs.length < 3 * k ∧
+      Allowed cs ∧ Correct cs co lineId ∧ Normal cs co lineId ∧
+      (∀ (ds : List Gate) (dout : Fin k → ℕ), ds.length ≤ cs.length →
+        Allowed ds → Correct ds dout lineId → Normal ds dout lineId →
+        ∀ u, ¬ Ordinary ds (dout u) (lineId u)) := by
+  obtain ⟨bs, bo, W, hbg, hblen, hbc, hbn, hbW, hmax⟩ :=
+    maximal_exists gs.length gs out hg (Nat.le_refl _) hcorrect hnormal
+  have hWsmall : W.card ≤ 8 := by
+    by_contra hh
+    have hbound := FourReduction.nine_ordinary_bound bs bo hbg hbc W (by omega) hbW
+    omega
+  obtain ⟨lineId, hinj, himage⟩ := complement_enumeration W
+  have hmax' : Maximal bs.length W := by
+    intro ds dout hdg hdlen hdc hdn hdW
+    exact hmax ds dout hdg (hdlen.trans hblen) hdc hdn hdW
+  obtain ⟨cs, co, hcslen, hcg, hcc, hcn, hno⟩ :=
+    maximal_normal_residual bs bo hbg hbc hbn (by omega) W hbW hmax' lineId hinj himage
+  exact ⟨13 - W.card, cs, co, lineId, by omega, by omega, hinj, hcslen, hcg, hcc, hcn, hno⟩
+
+end PEqualNP.Outside.L_meta_1024_aux.NormalResidual

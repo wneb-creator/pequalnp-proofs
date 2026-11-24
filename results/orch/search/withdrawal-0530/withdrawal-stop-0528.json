@@ -1,0 +1,31 @@
+{
+  "utc": "2026-11-24T05:28:57.668134+00:00",
+  "reason": "desk withdrew gap; root reportedHTTP410/no livelease",
+  "actions": [
+    {
+      "pid": 29366,
+      "status": "SIGINT_sent",
+      "cnf": "/tmp/oec/pequalnp-pilot-21/search/collective-diagnostic533/continuous-000.cnf"
+    },
+    {
+      "pid": 33099,
+      "status": "SIGINT_sent",
+      "cnf": "/tmp/oec/pequalnp-pilot-21/search/full-abnormal-or-sinks-stream/case--1/continuous-000.cnf"
+    },
+    {
+      "pid": 34540,
+      "status": "SIGINT_sent",
+      "cnf": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/query.cnf"
+    },
+    {
+      "pid": 36146,
+      "status": "SIGINT_sent",
+      "cnf": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/continuous-000.cnf"
+    },
+    {
+      "pid": 38323,
+      "status": "SIGINT_sent",
+      "cnf": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/query.cnf"
+    }
+  ]
+}

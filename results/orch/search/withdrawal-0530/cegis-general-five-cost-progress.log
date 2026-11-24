@@ -1,0 +1,39 @@
+PREPARED {"variables": 129565, "clauses": 2680081, "band_rows": 3003} elapsed 2
+RUNNING elapsed 2 freeGiB 11.5 proofMiB 0
+RUNNING elapsed 62 freeGiB 11.49 proofMiB 2.5
+RUNNING elapsed 122 freeGiB 11.43 proofMiB 3.8
+RUNNING elapsed 182 freeGiB 11.34 proofMiB 5.8
+RUNNING elapsed 242 freeGiB 11.31 proofMiB 7.5
+RUNNING elapsed 302 freeGiB 11.3 proofMiB 9.2
+RUNNING elapsed 362 freeGiB 11.29 proofMiB 10.8
+RUNNING elapsed 422 freeGiB 11.29 proofMiB 12.8
+RUNNING elapsed 482 freeGiB 11.28 proofMiB 13.8
+RUNNING elapsed 542 freeGiB 11.27 proofMiB 15.2
+RUNNING elapsed 602 freeGiB 11.25 proofMiB 17.2
+RUNNING elapsed 662 freeGiB 11.0 proofMiB 19.5
+RUNNING elapsed 722 freeGiB 10.99 proofMiB 21.2
+RUNNING elapsed 782 freeGiB 10.98 proofMiB 22.5
+RUNNING elapsed 842 freeGiB 10.97 proofMiB 24.2
+RUNNING elapsed 902 freeGiB 10.95 proofMiB 25.8
+RUNNING elapsed 962 freeGiB 10.94 proofMiB 27.8
+RUNNING elapsed 1022 freeGiB 10.93 proofMiB 29.0
+RUNNING elapsed 1082 freeGiB 10.92 proofMiB 31.2
+RUNNING elapsed 1142 freeGiB 10.92 proofMiB 32.8
+RUNNING elapsed 1202 freeGiB 10.91 proofMiB 34.5
+RUNNING elapsed 1262 freeGiB 10.9 proofMiB 35.8
+RUNNING elapsed 1322 freeGiB 10.89 proofMiB 37.2
+RUNNING elapsed 1382 freeGiB 10.87 proofMiB 37.5
+RUNNING elapsed 1442 freeGiB 10.86 proofMiB 38.8
+RUNNING elapsed 1502 freeGiB 10.85 proofMiB 39.8
+RUNNING elapsed 1562 freeGiB 10.8 proofMiB 41.2
+RUNNING elapsed 1622 freeGiB 10.79 proofMiB 43.0
+RUNNING elapsed 1682 freeGiB 10.77 proofMiB 45.0
+RUNNING elapsed 1742 freeGiB 10.76 proofMiB 45.8
+RUNNING elapsed 1802 freeGiB 10.74 proofMiB 47.0
+RUNNING elapsed 1862 freeGiB 10.74 proofMiB 47.8
+RUNNING elapsed 1922 freeGiB 10.73 proofMiB 49.0
+RUNNING elapsed 1983 freeGiB 10.72 proofMiB 50.5
+RUNNING elapsed 2043 freeGiB 10.71 proofMiB 52.0
+RUNNING elapsed 2103 freeGiB 10.7 proofMiB 53.5
+RESULT unknown exit -2 elapsed 2123
+FINISHED

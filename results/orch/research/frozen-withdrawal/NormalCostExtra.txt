@@ -1,0 +1,59 @@
+
+namespace PEqualNP.Outside.L_meta_1024_aux.NormalResidual
+open PEqualNP.CircuitLowerBounds
+
+lemma maximal_exotic_cost (gs : List Gate) (out : Fin 13 → ℕ)
+    (hg : Allowed gs) (hcorrect : Correct gs out id) (hnormal : Normal gs out id)
+    (W : Finset (Fin 13)) (hW : ∀ w ∈ W, Ordinary gs (out w) w)
+    (hmax : Maximal gs.length W) :
+    ∀ w ∉ W, 5 ≤ FalsePruning.cost gs (out w) := by
+  intro w hw
+  by_contra hh
+  have hc : FalsePruning.cost gs (out w) ≤ 4 := by omega
+  obtain ⟨P, hcard, hP, hcontexts⟩ := Certificate.three_contexts gs hg w (out w) (hcorrect w) hc
+  have hprivate : ∀ i ∈ P, ∀ v : Fin 13, v ≠ w →
+      Global.val gs (Global.Zof (Global.line v)) i = true := by
+    intro i hi v hv
+    obtain ⟨C, hC, hCc, hctx⟩ := hcontexts i hi
+    exact PrivateSurgery.context_private gs (out w) i w (fun g hm => (hg g hm).1)
+      (hcorrect w) C hC hCc (fun x hx hf => hctx x hf hx) v hv
+  obtain ⟨cs, co, hlen, hcg, hcc, hcn, hcw, hpreserve⟩ :=
+    PrivateSurgery.rebuild_normal 13 gs out id w hg hcorrect hnormal P hP hcard hprivate
+  exact hmax cs co hcg hlen hcc hcn (fun v hv => hpreserve v (hW v hv)) w hw hcw
+
+lemma counterexample_has_cost_normal_form (gs : List Gate) (out : Fin 13 → ℕ)
+    (hg : Allowed gs) (hcorrect : Correct gs out id) (hnormal : Normal gs out id)
+    (hsmall : gs.length < 39) :
+    ∃ (cs : List Gate) (co : Fin 13 → ℕ) (W : Finset (Fin 13)),
+      cs.length ≤ gs.length ∧ Allowed cs ∧ Correct cs co id ∧ Normal cs co id ∧
+      W.card ≤ 8 ∧ (∀ w ∈ W, Ordinary cs (co w) w) ∧
+      (∀ w ∉ W, ¬ Ordinary cs (co w) w) ∧
+      (∀ w ∉ W, 5 ≤ FalsePruning.cost cs (co w)) := by
+  obtain ⟨cs, co, W, hcg, hlen, hcc, hcn, hW, hmax⟩ :=
+    maximal_exists gs.length gs out hg (Nat.le_refl _) hcorrect hnormal
+  have hmax' : Maximal cs.length W := by
+    intro ds dout hdg hdlen hdc hdn hdW
+    exact hmax ds dout hdg (hdlen.trans hlen) hdc hdn hdW
+  have hcard : W.card ≤ 8 := by
+    by_contra hh
+    have hb := FourReduction.nine_ordinary_bound cs co hcg hcc W (by omega) hW
+    omega
+  exact ⟨cs, co, W, hlen, hcg, hcc, hcn, hcard, hW,
+    hmax' cs co hcg (Nat.le_refl _) hcc hcn hW,
+    maximal_exotic_cost cs co hcg hcc hcn W hW hmax'⟩
+
+lemma counterexample_has_cost_residual (gs : List Gate) (out : Fin 13 → ℕ)
+    (hg : Allowed gs) (hcorrect : Correct gs out id) (hnormal : Normal gs out id)
+    (hsmall : gs.length < 39) :
+    ∃ (k : ℕ) (cs : List Gate) (co : Fin k → ℕ) (lineId : Fin k → Fin 13),
+      5 ≤ k ∧ k ≤ 13 ∧ Function.Injective lineId ∧ cs.length < 3 * k ∧
+      Allowed cs ∧ Correct cs co lineId ∧ Normal cs co lineId ∧
+      (∀ u, ¬ Ordinary cs (co u) (lineId u)) ∧
+      (∀ u, 5 ≤ FalsePruning.cost cs (co u)) := by
+  obtain ⟨k, cs, co, lineId, hklo, hkhi, hinj, hlen, hcg, hcc, hcn, hno⟩ :=
+    counterexample_has_extremal_residual gs out hg hcorrect hnormal hsmall
+  refine ⟨k, cs, co, lineId, hklo, hkhi, hinj, hlen, hcg, hcc, hcn,
+    hno cs co (Nat.le_refl _) hcg hcc hcn, ?_⟩
+  exact PrivateSurgery.every_cost_large_of_no_improvement k cs hcg lineId hinj co hcc hcn hno
+
+end PEqualNP.Outside.L_meta_1024_aux.NormalResidual

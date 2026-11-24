@@ -1,0 +1,13 @@
+PREPARED {"variables": 129594, "clauses": 2680570, "band_rows": 3003} elapsed 5
+RUNNING elapsed 5 freeGiB 10.8 proofMiB 0
+RUNNING elapsed 65 freeGiB 10.79 proofMiB 2.8
+RUNNING elapsed 125 freeGiB 10.77 proofMiB 4.0
+RUNNING elapsed 185 freeGiB 10.77 proofMiB 4.5
+RUNNING elapsed 245 freeGiB 10.75 proofMiB 5.2
+RUNNING elapsed 305 freeGiB 10.74 proofMiB 7.8
+RUNNING elapsed 365 freeGiB 10.73 proofMiB 9.8
+RUNNING elapsed 425 freeGiB 10.72 proofMiB 10.5
+RUNNING elapsed 485 freeGiB 10.71 proofMiB 12.2
+RUNNING elapsed 545 freeGiB 10.7 proofMiB 15.2
+RESULT unknown exit -2 elapsed 570
+FINISHED

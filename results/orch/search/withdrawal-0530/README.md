@@ -1,0 +1,7 @@
+# Withdrawal shutdown checkpoint
+
+Root reported that the desk withdrew L-meta-1024 and that its required diagnostic retry returned HTTP410/no live lease. All five owned SAT solvers were identified by their exact CNF arguments and sent SIGINT at05:28:57UTC. They exited UNKNOWN with code−2; all five solver processes are gone. Only inert zombie runner entries awaiting parent reaping remain. No new desk request, build or query was started.
+
+The final elapsed times were4253seconds for the auxiliary533-row diagnostic,2727 for abnormal-full,2123 for the earlier general-five-cost query,1471 for normal-full-cost, and570 for canonical-five-allcost. No counterexample or UNSAT result files exist for these runs. Complete solver/progress logs are preserved here. All five compressed partial traces (511480576bytes total) passed gzipCRC and complete compressed/decompressed SHA256 checks; their full CNFs and traces remain in scratch, with exact paths/sizes/hashes recorded. These UNKNOWN traces are not UNSAT certificates.
+
+No proof or counterexample to the posted39-gate statement was found. The earlier restricted disconnected2+3 template UNSAT result and complete original certificate are preserved in../disconnected-0434, and its successful independent external RUP replay in../rup-0459. That is a restricted auxiliary result, not Lean-kernel verification or a full-gap solution. Reviewed source/dependency snapshots and launch/test records for the stopped searches are in earlier search archives, including0457,0506 and0520.

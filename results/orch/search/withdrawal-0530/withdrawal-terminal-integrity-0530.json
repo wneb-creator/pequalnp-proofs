@@ -1,0 +1,169 @@
+{
+  "utc": "2026-11-24T05:29:42.090111+00:00",
+  "reason": "Root reported desk withdrew gap; mandatory retry returnedHTTP410/no livelease",
+  "all_five_solver_processes_gone": true,
+  "remaining_runner_states": "    PID    PPID STAT     ELAPSED   RSS COMMAND\n  29365       1 ZNs     01:11:33     0 [python] <defunct>\n  33063       1 ZNs        46:08     0 [python] <defunct>\n  34539       1 ZNs        36:04     0 [python] <defunct>\n  36136       1 ZNs        25:15     0 [python] <defunct>\n  38321       1 ZNs        10:13     0 [python] <defunct>\n",
+  "scope": "All five searches stopped UNKNOWN; no new witness or UNSAT result",
+  "queries": [
+    {
+      "name": "diagnostic533",
+      "status": "UNKNOWN_WITHDRAWAL_INTERRUPT",
+      "terminal_progress": "RESULT unknown exit -2 elapsed 4253",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/collective-diagnostic533/continuous-000.cnf",
+          "bytes": 42532506,
+          "sha256": "b2a3a47f0eab0691f2f90bb58febed703a7ec64a8f2f2e4293f8c8f43a10d49a"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/collective-diagnostic533/continuous-000.log",
+          "bytes": 33969,
+          "sha256": "690e12feff842ef316a9c021f92e1d96f5a5677e2c150093856a2e3d0e93e4ac"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/collective-diagnostic533/continuous-000.lrat.gz",
+          "bytes": 356302172,
+          "sha256": "4d0f361fcdf5d712e183ebff915921eb369aea30b7d05fab37c50fcfb0602b7a",
+          "gzip_crc_verified": true,
+          "uncompressed_bytes": 751759360,
+          "uncompressed_sha256": "dae224d8fc9037ae24f0c182ccca45a99791f38832e1c64094fad5cc4f545f36"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/cegis-collective-diagnostic-progress.log",
+          "bytes": 3623,
+          "sha256": "8c98a7f7c9bdd43cd58d18171579b16660dbcc72234b870da0ff297c14292b19"
+        }
+      ],
+      "counterexample_file_exists": false,
+      "unsat_file_exists": false
+    },
+    {
+      "name": "abnormal-full",
+      "status": "UNKNOWN_WITHDRAWAL_INTERRUPT",
+      "terminal_progress": "RESULT unknown exit -2 elapsed 2727",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/full-abnormal-or-sinks-stream/case--1/continuous-000.cnf",
+          "bytes": 259229746,
+          "sha256": "42c71c4042916885c9f1069bd623e79c91c190a8754f9e1e03fcb77aa6c108b4"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/full-abnormal-or-sinks-stream/case--1/continuous-000.log",
+          "bytes": 11797,
+          "sha256": "1f47c3cc15274269022663d5351710d62b986a1499f4c30fd38473c2fe44a61f"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/full-abnormal-or-sinks-stream/case--1/continuous-000.lrat.gz",
+          "bytes": 52802752,
+          "sha256": "88de09c8012e26da2f424f4e6c70e1b041c21096208a6a49398351fddf031466",
+          "gzip_crc_verified": true,
+          "uncompressed_bytes": 180699136,
+          "uncompressed_sha256": "8b53dda2601c15face6f6a284c12a5a761986dcbbb974d9fb5f6a730fe13bc0b"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/cegis-abnormal-or-sinks-stream-progress.log",
+          "bytes": 2351,
+          "sha256": "4befdd998ba6bd20eb2b9e40cdf30d8fe30fb8ed62a7b5b3f6ca764e89feb6e4"
+        }
+      ],
+      "counterexample_file_exists": false,
+      "unsat_file_exists": false
+    },
+    {
+      "name": "general-five-cost",
+      "status": "UNKNOWN_WITHDRAWAL_INTERRUPT",
+      "terminal_progress": "RESULT unknown exit -2 elapsed 2123",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/query.cnf",
+          "bytes": 45967370,
+          "sha256": "d5653b47acab488c8b28ffcb22fc82a75a1ca7cc1929c61ac2e7ed7633a4f9a3"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/query.log",
+          "bytes": 12198,
+          "sha256": "ae9e756e6bb30900a800ee1ba7c6879eba7f86263a1d9b1c568de919b21e0b77"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/query.lrat.gz",
+          "bytes": 56506924,
+          "sha256": "ee31e869f1658a959012a15010ce16a6c52e62fce40d1653fc585b89379aca13",
+          "gzip_crc_verified": true,
+          "uncompressed_bytes": 159887360,
+          "uncompressed_sha256": "abf689232a082a8acf2dd85d388d6bc112b10925029bf71382ef94ffc88fb80a"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/cegis-general-five-cost-progress.log",
+          "bytes": 1855,
+          "sha256": "b160be1722517291c2da28c8491aafd653be069413963a96383c8cba9d55f015"
+        }
+      ],
+      "counterexample_file_exists": false,
+      "unsat_file_exists": false
+    },
+    {
+      "name": "normal-full-cost",
+      "status": "UNKNOWN_WITHDRAWAL_INTERRUPT",
+      "terminal_progress": "RESULT unknown exit -2 elapsed 1471",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/continuous-000.cnf",
+          "bytes": 259771714,
+          "sha256": "c1bbb2d42d70f2d2674b9956de30682bf0adb6c5dd6730568c54660d08e6e103"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/continuous-000.log",
+          "bytes": 10173,
+          "sha256": "2c9476c2dba0dcc955f2cc30935d7c226fff45f9ead9a7fb284704f1ecf4fb1d"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/continuous-000.lrat.gz",
+          "bytes": 28319427,
+          "sha256": "7c653d87db37cf6517b57e0726f79b7425c280c81e4b88f7f83e4a08cd97c3f6",
+          "gzip_crc_verified": true,
+          "uncompressed_bytes": 100024320,
+          "uncompressed_sha256": "fcf67bcd08c8caade9a1210183164d62f269c48fbbb95a35dcf3e19958d0d567"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/cegis-normal-or-sinks-cost-stream-progress.log",
+          "bytes": 1325,
+          "sha256": "fe99ea59bf5a44e60843a1ae33b6bc99cfd802e60a830d698e4fce1f684dd235"
+        }
+      ],
+      "counterexample_file_exists": false,
+      "unsat_file_exists": false
+    },
+    {
+      "name": "canonical-five-allcost",
+      "status": "UNKNOWN_WITHDRAWAL_INTERRUPT",
+      "terminal_progress": "RESULT unknown exit -2 elapsed 570",
+      "files": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/query.cnf",
+          "bytes": 45977808,
+          "sha256": "ac3076a3146f9c8c38a19f13b6e77e2067ea9ef7b16fcb67fd95c8bdf2f1d257"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/query.log",
+          "bytes": 9206,
+          "sha256": "5275dea7941b7c10c217f972d29f0ce63bd836d30638f8907865fc4b27463733"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/query.lrat.gz",
+          "bytes": 17549301,
+          "sha256": "5213d3162280be86e17ba0a01ef7f43b3cc5bd23bc2807ac4286aebe5b46af19",
+          "gzip_crc_verified": true,
+          "uncompressed_bytes": 53145600,
+          "uncompressed_sha256": "b564f3883bcfee9fe478c04304f2d0f761088b55458e3b24310df9fc1cc57b15"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-21/search/cegis-general-five-canonical-allcost-progress.log",
+          "bytes": 590,
+          "sha256": "606996c520fd4f543d424cabf3faf348001ddfff109ef510e385e1b043b8255f"
+        }
+      ],
+      "counterexample_file_exists": false,
+      "unsat_file_exists": false
+    }
+  ]
+}

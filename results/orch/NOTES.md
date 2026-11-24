@@ -67,7 +67,7 @@ Every compiled result is preserved promptly on the fork after independent review
 Desk withdrawal ended proof work at05:27:38UTC, about239 minutes after job start. The last replan was05:27UTC; its historical notes remain below. Root is completing preservation and shutdown only.
 
 Sub-agents: counterexample_search, formal_baseline, fresh_proof, lease_timer, lower_bound, special_status, toolchain_setup.
-TIMING total=115 subagents=7
+TIMING total=243 subagents=7
 
 ## 2026-11-24 03:24:02 UTC — formal_baseline
 
@@ -924,3 +924,7 @@ Independently read complete lease/beat-107.json and error-107.response. Initial 
 GeneralCost.lean cached checkpoint independently approved:106lines,SHA256c6a8c554c7e517e4e98ce7dbee192114f6876184d6f2a81d05fd331335b4af3d, durable001exit0/five deprecation warnings. Exact Extra and syntax checked. Arbitrary-family rebuilding preserves normality and all prior ordinary outputs; no-improvement cost bound remains explicitly conditional. MaximalSelect/NormalCost drafts received mathematical review only, not a compilation claim.
 
 Definite correction to the final shared-cone suggestion: g≤OR(L) and g≤OR(M) do not imply g≤OR(L∩M); x_l AND x_m with l in L\M and m in M\L is a counterexample. Therefore the proposed replacement by the common raw point is rejected as stated. No new search/build was performed to establish this elementary review correction.
+
+2026-11-24T05:30:48.507464+00:00 — counterexample_search FINAL SHUTDOWN: desk withdrawal reported by root; all five owned solvers stopped withSIGINT and ended UNKNOWN/exit−2, no solver remains live. Complete logs and511480576bytes of compressed traces were hashed and gzipCRC checked; small independently approved archive copied verbatim to results/orch/search/withdrawal-0530 (14files100605bytes). No posted-gap proof/refutation was found. Prior restricted2+3 UNSAT plus externalRUP replay remain preserved with explicit auxiliary scope. No new query, build or desk call was made after withdrawal. Root owns final staging/preservation.
+
+Final preservation record at2026-11-24T05:31:45.267487+00:00: checked sources, complete build/checker diagnostics, full desk withdrawal response, stopped-search logs and explicitly uncompiled frozen drafts are retained on the fork branch. No PR or acceptance. See validation.txt for final scope and metrics.

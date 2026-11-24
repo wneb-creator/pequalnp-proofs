@@ -1,0 +1,89 @@
+{
+  "utc": "2026-11-24T05:30:03.167370+00:00",
+  "files": [
+    {
+      "path": "withdrawal-stop-0528.json",
+      "bytes": 938,
+      "sha256": "86e09255abab9056b63d09e71a1bc3b24686880a27b407218d506b91da6c3b93",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/withdrawal-stop-0528.json"
+    },
+    {
+      "path": "withdrawal-terminal-integrity-0530.json",
+      "bytes": 7631,
+      "sha256": "f397650f81c315c4023c1e426e9be725cbcab37ee165a77abed98494fc2ddc25",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/withdrawal-terminal-integrity-0530.json"
+    },
+    {
+      "path": "resources-0527.json",
+      "bytes": 3421,
+      "sha256": "61e8a1f5afacfa9470d28571a6fceb92e7454802eeb8d10890554301ed8f84a2",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/resources-0527.json"
+    },
+    {
+      "path": "cegis-collective-diagnostic-progress.log",
+      "bytes": 3623,
+      "sha256": "8c98a7f7c9bdd43cd58d18171579b16660dbcc72234b870da0ff297c14292b19",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-collective-diagnostic-progress.log"
+    },
+    {
+      "path": "collective-diagnostic533/continuous-000.log",
+      "bytes": 33969,
+      "sha256": "690e12feff842ef316a9c021f92e1d96f5a5677e2c150093856a2e3d0e93e4ac",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/collective-diagnostic533/continuous-000.log"
+    },
+    {
+      "path": "cegis-abnormal-or-sinks-stream-progress.log",
+      "bytes": 2351,
+      "sha256": "4befdd998ba6bd20eb2b9e40cdf30d8fe30fb8ed62a7b5b3f6ca764e89feb6e4",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-abnormal-or-sinks-stream-progress.log"
+    },
+    {
+      "path": "full-abnormal-or-sinks-stream/case--1/continuous-000.log",
+      "bytes": 11797,
+      "sha256": "1f47c3cc15274269022663d5351710d62b986a1499f4c30fd38473c2fe44a61f",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-abnormal-or-sinks-stream/case--1/continuous-000.log"
+    },
+    {
+      "path": "cegis-general-five-cost-progress.log",
+      "bytes": 1855,
+      "sha256": "b160be1722517291c2da28c8491aafd653be069413963a96383c8cba9d55f015",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-general-five-cost-progress.log"
+    },
+    {
+      "path": "general-five-reduced-cost/query.log",
+      "bytes": 12198,
+      "sha256": "ae9e756e6bb30900a800ee1ba7c6879eba7f86263a1d9b1c568de919b21e0b77",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/query.log"
+    },
+    {
+      "path": "cegis-normal-or-sinks-cost-stream-progress.log",
+      "bytes": 1325,
+      "sha256": "fe99ea59bf5a44e60843a1ae33b6bc99cfd802e60a830d698e4fce1f684dd235",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-normal-or-sinks-cost-stream-progress.log"
+    },
+    {
+      "path": "full-normal-or-sinks-cost-stream/case--1/continuous-000.log",
+      "bytes": 10173,
+      "sha256": "2c9476c2dba0dcc955f2cc30935d7c226fff45f9ead9a7fb284704f1ecf4fb1d",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/continuous-000.log"
+    },
+    {
+      "path": "cegis-general-five-canonical-allcost-progress.log",
+      "bytes": 590,
+      "sha256": "606996c520fd4f543d424cabf3faf348001ddfff109ef510e385e1b043b8255f",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-general-five-canonical-allcost-progress.log"
+    },
+    {
+      "path": "general-five-canonical-allcost/query.log",
+      "bytes": 9206,
+      "sha256": "5275dea7941b7c10c217f972d29f0ce63bd836d30638f8907865fc4b27463733",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/query.log"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1528,
+      "sha256": "f6d5f36f93d0b19f8696d9f679182067952972ec7a37f08d8436e8f3edc97cf5",
+      "source": "generated final scope note"
+    }
+  ]
+}
