@@ -1,0 +1,8 @@
+Independent second checkpoint review: PASS
+UTC: 2026-11-24T23:21:06.593197+00:00
+lean/PEqualNP/Outside/R_meta_4340_47.lean SHA256=005034889b8f6e7cd78a71a1f35e8d1a72ba5e72b6fb3362f5961c0c956b63ec
+results/orch/lemmas/TightUpper.lean SHA256=7181c0a04ff7bdca58224683bf367134af9d5377215e21418923712aa95e3f99
+Reduction diff reviewed: stage-specific forward references normalized to24, arity padding retained, output clipping retained, eval induction sound.
+Reduction conclusion byte-for-byte matches desk statement; format scans and independent outside-guard reduce pass.
+Upper circuit independently parsed and checked on every one of512 assignments; exactly15 binary gates, original leaf restriction, correct target function.
+No build launched. Full checker and final single-file PR diff remain required.
