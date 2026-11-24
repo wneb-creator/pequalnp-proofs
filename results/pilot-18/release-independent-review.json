@@ -1,0 +1,183 @@
+{
+  "utc": "2026-11-24T06:12:08.415753+00:00",
+  "verdict": "PASS_EXACT_12_RELEASE_METADATA_INDEX_AND_WAVE10_COMMIT",
+  "staged_diff_sha256": "eaa17f8b68d35978d14b9c709b4c8beb36778b265bb35731ac08983f00a21a49",
+  "staged_files": 12,
+  "index_bindings": {
+    "results/orch/NOTES.md": {
+      "bytes": 279933,
+      "sha256": "742d54c418e66a4aeeaa9c74bc0f47db3e3870808d58084f14cfba8ce5fc68ee"
+    },
+    "results/orch/TIMELINE.md": {
+      "bytes": 17579,
+      "sha256": "99dfe2c61594f269875a5eddb8b8dc4225e6a97c72b4ea03c5929ead1edb1c67"
+    },
+    "results/orch/lemmas/S08-integration-review.md": {
+      "bytes": 82523,
+      "sha256": "cfa18b8f190144511a6dd140ca56385ebd41c52efa692a0a7979fae040bd2cde"
+    },
+    "results/pilot-18/HANDOFF.md": {
+      "bytes": 4890,
+      "sha256": "546fb6859e5ba6e1f479b928074b191e4bcb0acd0042113c425b2fb2937017ab"
+    },
+    "results/pilot-18/final-status-wave10/manifest.json": {
+      "bytes": 704,
+      "sha256": "9cc10ae5b8fef655df12af60ca36d27dd1baec9840657086bc5b93a783158f54"
+    },
+    "results/pilot-18/final-status-wave10/status.json": {
+      "bytes": 1338,
+      "sha256": "89b145f189d4554759eb117017f021ec04aa906fcb87b5e21a3bd318444c8852"
+    },
+    "results/pilot-18/lease-release/manifest.json": {
+      "bytes": 795,
+      "sha256": "143847d11cb20140c9233cd9c21ff28a64c94d2727bead84144561137cedfd82"
+    },
+    "results/pilot-18/lease-release/own-release-summary.json": {
+      "bytes": 321,
+      "sha256": "f1f4094bb406e96e188dbeffa53822db689f6b10eff5940a6d8c2b7690078039"
+    },
+    "results/pilot-18/lease-release/own-release.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/pilot-18/lease-release/own-release.stdout": {
+      "bytes": 57,
+      "sha256": "17f56632ae2fed8f36e8f0c4818babb9d0cea13ac3e51394017970751698bb22"
+    },
+    "results/pilot-18/lease-release/wave10-pushed.json": {
+      "bytes": 323,
+      "sha256": "fde36b781cadbf22c1a13921d3ad99d954daa180c2b34ed0e15876320d5a8790"
+    },
+    "results/pilot-18/validation.txt": {
+      "bytes": 13072,
+      "sha256": "9bd5e6ec904b0913968d1373edc81ae556f1ee64e224805340a30aa4dc977d22"
+    }
+  },
+  "bindings": {
+    "/tmp/oec/pequalnp-pilot-18/release-stage.json": {
+      "bytes": 849,
+      "sha256": "81cdf4f02bb6c6fd943aae7d83afac60c80b877c81676866e8ec20eb094b92c5"
+    },
+    "INDEX:results/orch/NOTES.md": {
+      "bytes": 279933,
+      "sha256": "742d54c418e66a4aeeaa9c74bc0f47db3e3870808d58084f14cfba8ce5fc68ee"
+    },
+    "INDEX:results/orch/TIMELINE.md": {
+      "bytes": 17579,
+      "sha256": "99dfe2c61594f269875a5eddb8b8dc4225e6a97c72b4ea03c5929ead1edb1c67"
+    },
+    "INDEX:results/orch/lemmas/S08-integration-review.md": {
+      "bytes": 82523,
+      "sha256": "cfa18b8f190144511a6dd140ca56385ebd41c52efa692a0a7979fae040bd2cde"
+    },
+    "INDEX:results/pilot-18/HANDOFF.md": {
+      "bytes": 4890,
+      "sha256": "546fb6859e5ba6e1f479b928074b191e4bcb0acd0042113c425b2fb2937017ab"
+    },
+    "INDEX:results/pilot-18/final-status-wave10/manifest.json": {
+      "bytes": 704,
+      "sha256": "9cc10ae5b8fef655df12af60ca36d27dd1baec9840657086bc5b93a783158f54"
+    },
+    "INDEX:results/pilot-18/final-status-wave10/status.json": {
+      "bytes": 1338,
+      "sha256": "89b145f189d4554759eb117017f021ec04aa906fcb87b5e21a3bd318444c8852"
+    },
+    "INDEX:results/pilot-18/lease-release/manifest.json": {
+      "bytes": 795,
+      "sha256": "143847d11cb20140c9233cd9c21ff28a64c94d2727bead84144561137cedfd82"
+    },
+    "INDEX:results/pilot-18/lease-release/own-release-summary.json": {
+      "bytes": 321,
+      "sha256": "f1f4094bb406e96e188dbeffa53822db689f6b10eff5940a6d8c2b7690078039"
+    },
+    "INDEX:results/pilot-18/lease-release/own-release.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "INDEX:results/pilot-18/lease-release/own-release.stdout": {
+      "bytes": 57,
+      "sha256": "17f56632ae2fed8f36e8f0c4818babb9d0cea13ac3e51394017970751698bb22"
+    },
+    "INDEX:results/pilot-18/lease-release/wave10-pushed.json": {
+      "bytes": 323,
+      "sha256": "fde36b781cadbf22c1a13921d3ad99d954daa180c2b34ed0e15876320d5a8790"
+    },
+    "INDEX:results/pilot-18/validation.txt": {
+      "bytes": 13072,
+      "sha256": "9bd5e6ec904b0913968d1373edc81ae556f1ee64e224805340a30aa4dc977d22"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S08/final-release-stage-review/index-bindings.json": {
+      "bytes": 1847,
+      "sha256": "366824172bbce44bc4058cc03556212b38d5ace2b39bd489291c34e99c6e3dc3"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S08/wave10-stage-final-review/review.json": {
+      "bytes": 21120,
+      "sha256": "84f028ceba10849e390fa8b3ebc45d06dce9074576cb5f7b42d099a297ef39e7"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S08/wave10-stage-final-review/index-bindings.json": {
+      "bytes": 14624,
+      "sha256": "bde4779a6a126046d5fa64613deeea05c9a9708f2d2d69b673d19a13ff276202"
+    },
+    "/tmp/oec/pequalnp-pilot-18/own-release-summary.json": {
+      "bytes": 321,
+      "sha256": "f1f4094bb406e96e188dbeffa53822db689f6b10eff5940a6d8c2b7690078039"
+    },
+    "/tmp/oec/pequalnp-pilot-18/own-release.stdout": {
+      "bytes": 57,
+      "sha256": "17f56632ae2fed8f36e8f0c4818babb9d0cea13ac3e51394017970751698bb22"
+    },
+    "/tmp/oec/pequalnp-pilot-18/own-release.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/wave10-pushed.json": {
+      "bytes": 323,
+      "sha256": "fde36b781cadbf22c1a13921d3ad99d954daa180c2b34ed0e15876320d5a8790"
+    },
+    "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1342.lean": {
+      "bytes": 100418,
+      "sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S08/review_final_release_stage.py": {
+      "bytes": 9117,
+      "sha256": "6056e16b0cb7f7a8fdc870f059207573168acdf407beb7d8dc0c63e2bfb2f414"
+    }
+  },
+  "checks": {
+    "all_index_modes": "100644",
+    "diff_check_exit": 0,
+    "credential_indicators": 0,
+    "lease_identifier_or_secret_included": false,
+    "wave10_commit": "3ad99392e7055a64dae134a37b819adcb7250090",
+    "wave10_exact78blobs_and_parentdiff_match": true,
+    "release_response": {
+      "released": "L-meta-1342",
+      "reason": "out_of_time"
+    },
+    "release_utc": "2026-11-24T06:10:06.745403+00:00",
+    "push_record_utc": "2026-11-24T06:09:56.568661+00:00",
+    "push_precedes_release": true,
+    "own_release_curl_exit": 0,
+    "release_stderr_empty": true,
+    "renewal_stopped": "True in retained main release summary; S08 made no renewal/desk call.",
+    "final_status_only_release_timing_fields_changed": [
+      "final_research_commit",
+      "lease_release_response",
+      "lease_released_utc",
+      "lease_status",
+      "timing_minutes",
+      "utc"
+    ],
+    "named_Lean_unchanged": true,
+    "named_Lean_lines": 2069,
+    "result": "UNPROVED",
+    "posted_checker": "REJECTED(no-theorem)",
+    "PR": null,
+    "research_scope_unchanged": true,
+    "index_stable_at_completion": true,
+    "publication_freeze_respected": "S08 writes confined to own scratch; no NOTES/report/repository append, no git writes/network/desk/credentials."
+  },
+  "scope": "PASS exact12 frozen release-metadata files. The retained desk response confirms release of L-meta-1342 as out_of_time after the recorded successful research push. Independent read-only git confirms all78 reviewed wave10 commit blobs/diff; network push and release are checked against preserved main evidence, not repeated. No proof or global-refutation claim. Main may copy this JSON unmodified as13th file, independently verify that sole addition and unchanged12bindings, then commit/push. This review does not claim a hash for the resulting13-file diff.",
+  "full_diagnostics_directory": "/tmp/oec/pequalnp-pilot-18/orch/S08/final-release-stage-review",
+  "no_solver_Lean_gitwrite_desk_network": true
+}

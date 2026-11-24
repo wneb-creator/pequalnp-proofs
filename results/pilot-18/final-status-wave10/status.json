@@ -1,5 +1,5 @@
 {
-  "utc": "2026-11-24T06:08:00.736665+00:00",
+  "utc": "2026-11-24T06:10:48.179428+00:00",
   "gap": "L-meta-1342",
   "job_id": "msg-0b0439aeec8fdfde3e2102c4",
   "result": "UNPROVED",
@@ -17,8 +17,14 @@
   "final_search_status": "All UNKNOWN at600s wall limits; noSAT indication",
   "remaining_running_final_search_workers": 0,
   "wrapper_process_note": "Fourfinishedwrapperzombies areawaitingPID1reaping; no runningdescendants. Initialabsence-onlycheckwasinappropriate, correctedstatecheckretained.",
-  "lease_status": "Held; release out_of_time after independentlyreviewedfinalpush",
+  "lease_status": "RELEASED(out_of_time)",
   "subagents": 6,
-  "timing_minutes": 350.5,
-  "scope": "No exact21 circuit, globalrefutation, assignedshardexhaustion or acceptedproof."
+  "timing_minutes": 353.3,
+  "scope": "No exact21 circuit, globalrefutation, assignedshardexhaustion or acceptedproof.",
+  "lease_released_utc": "2026-11-24T06:10:06.745403+00:00",
+  "lease_release_response": {
+    "released": "L-meta-1342",
+    "reason": "out_of_time"
+  },
+  "final_research_commit": "3ad99392e7055a64dae134a37b819adcb7250090"
 }

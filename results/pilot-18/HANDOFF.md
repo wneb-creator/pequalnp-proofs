@@ -1,6 +1,6 @@
 # L-meta-1342 research handoff
 
-Status at 2026-11-24 06:08:00 UTC: the posted theorem is unproved. No exact circuit with at most21 gates and no global refutation has been found. No PR has been opened. The pilot owns one lease; final release status will be recorded in TIMELINE.md.
+Status at 2026-11-24 06:10:48 UTC: the posted theorem is unproved. No exact circuit with at most21 gates and no global refutation has been found. No PR has been opened. The pilot released only its own lease as out_of_time at2026-11-24 06:10:06UTC, after pushing all final research results. The desk confirmed the release; see lease-release.
 
 The branch is pnp/pilot-18 on wneb-creator/pequalnp-proofs. The named Lean file is lean/PEqualNP/Outside/L_meta_1342.lean,2069lines, SHA256 0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c. It builds successfully, but the required module-named theorem is absent. The actual posted checker ran at05:56UTC and exited1 after79.97seconds with REJECTED(no-theorem). Fulloutput is in posted-checker-wave9. Full build/axiom output and exact commands are in validation.txt and scaffold-* artifacts. No cleanup of a finished proof applies.
 

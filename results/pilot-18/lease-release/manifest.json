@@ -1,0 +1,26 @@
+{
+  "utc": "2026-11-24T06:10:48.179428+00:00",
+  "files": [
+    {
+      "file": "own-release-summary.json",
+      "bytes": 321,
+      "sha256": "f1f4094bb406e96e188dbeffa53822db689f6b10eff5940a6d8c2b7690078039"
+    },
+    {
+      "file": "own-release.stdout",
+      "bytes": 57,
+      "sha256": "17f56632ae2fed8f36e8f0c4818babb9d0cea13ac3e51394017970751698bb22"
+    },
+    {
+      "file": "own-release.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "wave10-pushed.json",
+      "bytes": 323,
+      "sha256": "fde36b781cadbf22c1a13921d3ad99d954daa180c2b34ed0e15876320d5a8790"
+    }
+  ],
+  "scope": "Own-gapreleaseonly; no leaseidentifier or credential retained. Finalresearchcommit pushedbefore release."
+}
