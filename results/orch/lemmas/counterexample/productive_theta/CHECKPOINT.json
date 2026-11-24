@@ -1,0 +1,49 @@
+{
+  "at": "2026-11-24T19:05:27.919605+00:00",
+  "files": {
+    "g59731_free_atmost11_kissat.cnf": {
+      "bytes": 1576150,
+      "sha256": "634470c78aeca8a04560b9e41f3b378ebfade492397e4ab427a626140986afca"
+    },
+    "run.log": {
+      "bytes": 228,
+      "sha256": "33f5cbf9375fc93a99ce867cf8c25098cd1714f74504a8f6f1320e227b011fd1"
+    },
+    "README.md": {
+      "bytes": 304,
+      "sha256": "fb3907283dcd56494b94497e21ff8dfad79a740478eb758cd94267ae4aa8c2bb"
+    },
+    "SUMMARY.json": {
+      "bytes": 235,
+      "sha256": "abc9bcec7c79aaa547d0eeab25513e3e12c9d9a3be69c8215157efd597fd965f"
+    },
+    "g59731_free_atmost11_kissat.json": {
+      "bytes": 250,
+      "sha256": "566c8823c421704edc9104d871a460dcad8b75d0ae470ed4430d35ab028be179"
+    },
+    "g59731_free_atmost11_kissat.stdout": {
+      "bytes": 74533,
+      "sha256": "3ec715046cd3c3c419aaadfaba1d487586eefa014215b8c7873bf029b9a7999d"
+    },
+    "kissat_probe.py": {
+      "bytes": 4357,
+      "sha256": "ed4fcf6adaf283585ec7558b2823ff9e605f0d86dd64ed18c778deb42d5dd72a"
+    },
+    "g59731_free_atmost11_kissat.atoms.json": {
+      "bytes": 58733,
+      "sha256": "ea455e3eb69eeba88495a6034a46d137b731ff62aa23b6207616d894d2697514"
+    },
+    "g59731_free_atmost11.smt2": {
+      "bytes": 42696,
+      "sha256": "26b6e368cd93895784f839c133cf164234384c8cb65cf442e2d452dfa7eccdd6"
+    },
+    "NORMALIZATION.md": {
+      "bytes": 571,
+      "sha256": "d4b0c5956c0bcde9111304b96d2b6a8cafcce97022e65d37256ff773a206723d"
+    },
+    "classes.json": {
+      "bytes": 42101,
+      "sha256": "934087ee26ebae0fef80d54098626e7fd41edfda5fffe9f1b28b8ba2f9645568"
+    }
+  }
+}

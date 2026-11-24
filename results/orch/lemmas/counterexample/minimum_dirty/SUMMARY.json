@@ -1,0 +1,9 @@
+{
+  "at": "2026-11-24T19:05:27.862996+00:00",
+  "queries": 5,
+  "counts": {
+    "unknown": 5
+  },
+  "normalization": "Every active gate accepts some positive edge minterm; independently reviewed necessary condition for a minimum circuit. Strict propagation lemma not Lean checked in this task.",
+  "formal_status": "All five queries timed out. No minimum dirty witness or local cleanup obstruction obtained."
+}

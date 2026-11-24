@@ -1,0 +1,117 @@
+{
+  "at": "2026-11-24T19:05:27.907620+00:00",
+  "files": {
+    "results.json": {
+      "bytes": 3421,
+      "sha256": "7ffd4b52e4cd05060e8466fa00360dccb95d1963e441d2973920898ef654cddc"
+    },
+    "g51809.run.log": {
+      "bytes": 373,
+      "sha256": "332a1564b3f70753423c9c88fe2b5496ec4e60cf135dbd571bf83566b95ec729"
+    },
+    "g58129_dirty_atmost9.json": {
+      "bytes": 579,
+      "sha256": "ace9df6160dba878e9434acc36666ea8bd51d57fa7a659f3c335d1ebb4237188"
+    },
+    "g62497_dirty_atmost10.log": {
+      "bytes": 1066,
+      "sha256": "a34259a5e31102cb87af36d1afb94b640c356ce7376245fdc234bbd59dd57269"
+    },
+    "g62497_dirty_atmost10.smt2": {
+      "bytes": 36117,
+      "sha256": "c61ca83dfd4452bfba994ddb9ba16972e905a98c354675f5fa1112398ec779a1"
+    },
+    "g58129_dirty_atmost9.log": {
+      "bytes": 1062,
+      "sha256": "a88367a3c1ce6df3c0138239c639734c1a295fc72291e703c24b40abde5b9a05"
+    },
+    "g62497.run.log": {
+      "bytes": 371,
+      "sha256": "bf52cae94e0bd63b03002f7105d3deca26e458de20976060c5f39066892b1e0b"
+    },
+    "g61969_dirty_atmost9.log": {
+      "bytes": 1064,
+      "sha256": "f3757b0ddf09e12e55636cb65414b11ec5fd829bc9f16b8b81f2f31de25901ae"
+    },
+    "g58129.run.log": {
+      "bytes": 369,
+      "sha256": "7ccf89492e2b8289d307a6a4a0ca1ff22722e09602ee1430b64303788d0882ba"
+    },
+    "README.md": {
+      "bytes": 434,
+      "sha256": "676bdfb1d4aec9edb595d350b3bc86947443396b06e14b8dcead9964872ead01"
+    },
+    "diagnose.py": {
+      "bytes": 1913,
+      "sha256": "c3df1a1182bf16dafde1924c70d6f1ea8ba7c3bd68bd1f85add17441e587d5e8"
+    },
+    "g58129_dirty_atmost9.smt2": {
+      "bytes": 31540,
+      "sha256": "0fa9747ead6c31f8c550910a4bc112c71f596ba877311cb595f46d0aca6d76c1"
+    },
+    "g62497_dirty_atmost10.json": {
+      "bytes": 581,
+      "sha256": "451a1d01e9aea720704b1f6403cb81383a8a42c89b83d09d9501afe95c2f8d15"
+    },
+    "g58672_dirty_atmost9.smt2": {
+      "bytes": 32048,
+      "sha256": "e2093a5e6ad54ab76b8a7598481b9d1958c416a48070c4677b2615248a5d63e4"
+    },
+    "g58672_dirty_atmost9.log": {
+      "bytes": 1067,
+      "sha256": "6cdcae3e2ec0cd43452181314eef2b0b798558f4efba6bc233427f9b86a717d7"
+    },
+    "SUMMARY.json": {
+      "bytes": 411,
+      "sha256": "6743c6507420ea43cea12d7ac42fdc20b1dee80f2c6775d419c9a0144e211b1c"
+    },
+    "g58672_dirty_atmost9.json": {
+      "bytes": 580,
+      "sha256": "da4feaaa842b3747b7caca9ff6b264d71e592db43a487a11cd3eb22985ab5475"
+    },
+    "g58672.run.log": {
+      "bytes": 370,
+      "sha256": "9ddc056d4d94cae250f932a77d940757f1b0afbb513ee755e703fc388a47334b"
+    },
+    "g61969_dirty_atmost9.smt2": {
+      "bytes": 32004,
+      "sha256": "99c2fdbc53f123329c5ceed8bd85171cd95dc8367bcf066e1ad3c101b913a3fb"
+    },
+    "solve_dirty.py": {
+      "bytes": 5733,
+      "sha256": "6b0e480a154c21b58da613808062bb44e9560085c2e5780e1d5f37d6176185af"
+    },
+    "g61969.run.log": {
+      "bytes": 370,
+      "sha256": "27441ea1430115493c5327deadcf9c1e6755ec734648d1a66b3c32f5a139e907"
+    },
+    "g51809_dirty_atmost10.log": {
+      "bytes": 1066,
+      "sha256": "3bfb907d87eae246b9035c83c9dee413bbeb4b6260e2b818b51af25c6318f5c9"
+    },
+    "g61969_dirty_atmost9.json": {
+      "bytes": 580,
+      "sha256": "64eac79aed3c73313f50ddace867f224370282c8b05178b866d0e8ba83a485e8"
+    },
+    "classes.json": {
+      "bytes": 42101,
+      "sha256": "934087ee26ebae0fef80d54098626e7fd41edfda5fffe9f1b28b8ba2f9645568"
+    },
+    "g51809_dirty_atmost10.smt2": {
+      "bytes": 36168,
+      "sha256": "626beb7146c19c62b2eda39afc0450a4b7c5000c5c4efbc6e55e2e6567c4e7a5"
+    },
+    "run_dirty.py": {
+      "bytes": 1138,
+      "sha256": "9a1c9cac3e9631bf8130937b4dc8ba61a3e87e40cbfa5044676dec7ea15180c5"
+    },
+    "batch.log": {
+      "bytes": 1895,
+      "sha256": "99b6b0879ed721812bae047b322a0b271a3c9354d288d2adbd9ab9ecd57dbbb0"
+    },
+    "g51809_dirty_atmost10.json": {
+      "bytes": 583,
+      "sha256": "39b7425235cff52057791950947950b0db834ed4870a3f4ce83d6596431a9b18"
+    }
+  }
+}

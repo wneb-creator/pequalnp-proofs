@@ -1,0 +1,12 @@
+{
+  "tag": "",
+  "replayed": false,
+  "at": "2026-11-24T19:04:57.003613+00:00",
+  "smt": "g59731_free_atmost11.smt2",
+  "solver": "kissat4.0.4",
+  "exit_code": 0,
+  "result": "unknown",
+  "seconds": 120.003,
+  "variables": 5983,
+  "clauses": 65482
+}

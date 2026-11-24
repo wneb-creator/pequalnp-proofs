@@ -1,0 +1,1 @@
+One whole-theta(3,3,3) query for a circuit of size at most11, adding edge-productivity normalization. Kissat4.0.4 returned unknown after120seconds. Full normalized SMT, generated DIMACS, atom mapping, and stdout/stderr retained. No finite lower bound or counterexample follows. This directory is frozen.

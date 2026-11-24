@@ -53,3 +53,13 @@
 2026-11-24T18:58:14.881122+00:00 normal_form: latest-unsafe binary-reader partner ordering checked.
 
 - 2026-11-24T19:01:06.795512+00:00: named5245line build16 passes with strict minimum-safe-operand and binary frontier-reader corollaries. Exact composition and generic OR-expansion helper independently reviewed. Theta81-file checkpoint all12unknown, independently audited.
+
+2026-11-24T19:02:28.554336+00:00 normal_form: prefix tail factoring builder and post-frontier AND scheduling checked.
+
+2026-11-24T19:05:05.647027+00:00 normal_form: minimum valid-output helper checked.
+2026-11-24T18:35:00Z — full4x4 census completed; environment restart interrupted initial theta branches.
+2026-11-24T18:38:11Z — restarted only interrupted/pending theta first-gate branches.
+2026-11-24T18:58:33Z — all12 theta branches unknown; checkpoint frozen.
+2026-11-24T19:04:57Z — five dirty-minimum probes and one productive-theta probe finished, all unknown; counterexample search stopped with no candidate.
+
+- 2026-11-24T19:09:13.919040+00:00: named5958line build20 passes. OR-tail extraction, prefix reconstruction, valid-output and actual shared-reader factoring count independently reviewed. Reader-root cardinality≤1 proved; full normalization remains unproved. Final solver checkpoints allunknown, independently audited, workersstopped.
