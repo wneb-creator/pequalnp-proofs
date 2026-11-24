@@ -14,15 +14,18 @@ All project-specific dependencies are from `PEqualNP.Defs`; Mathlib is pinned by
 - `lcReplacement` gives sufficient conditions for replacing one gate at the same cost: its new value is pointwise below the old value, and agrees on every incident pair. The full edge function is preserved and every wire decreases.
 - `lcZeroSupport` and `lcOneSupport` clean gates accepting zero or one incident edge, respectively.
 - The `md` lemmas minimize the count of AND gates that accept a nonincident pair. In the resulting no-larger equivalent circuit, every remaining such AND accepts at least two distinct incident edges. This part does not require C4-freeness.
+- `minimum_dirty_essential` strengthens the previous invariant: each residual dirty AND is essential for two distinct incident edges, meaning zeroing the gate makes the circuit reject those edges. Output-level replacement preserves the full function without requiring every internal wire to agree on every edge.
 - `lcStarSupport` cleans a gate whose supported incident edges form a star, **provided an earlier wire already computes their exact neighborhood OR**. That wire's availability is not proved merely from star support.
 
-The principal forest and padding lemmas were audited with Lean's axiom printer and use only `propext`, `Classical.choice`, and `Quot.sound`. Their full output is retained in `axiom-audit.log`. Further helpers have independently reviewed source and successful kernel compilation.
+The principal forest and padding lemmas were audited with Lean's axiom printer and use only `propext`, `Classical.choice`, and `Quot.sound`. Their full output is retained in `axiom-audit.log`. Further helpers have independently reviewed source and successful kernel compilation. The eight-helper audit is also retained in `axiom-audit-current.log`.
 
 `fsNormalize` also proves singleton cleanup for positive binary-tree formulas, with unchanged full semantics and no larger leaf count. It does not handle sharing or nonincident-pair cleanup, and no formula-to-circuit translation theorem is included.
 
 ## Strategies ruled out or still incomplete
 
 `route_obstruction.lean` checks a seven-gate circuit for a two-edge matching. It has one nonedge-dirty AND, but bypassing that AND to either operand changes the output. A clean three-gate circuit is also checked. This disproves a local bypass rule for arbitrary circuits; it does **not** disprove a rule restricted to minimum-size circuits or the posted statement.
+
+`uncrossing_local_obstruction.lean` and `star_essential_obstruction.lean` strengthen the local obstruction: in their fixed nonminimal contexts, every one-gate replacement using earlier wires that preserves the full output remains dirty. These do not refute normalization of a globally minimum circuit. The formula filter rewrite works at no larger leaf cost, but preserving all shared intermediate interfaces can require another gate; `formula_fanout_probe.py` checks a multioutput example, not a counterexample to the posted single-output statement.
 
 Extracting all neighborhood-OR functions simultaneously from a single-output circuit may duplicate shared gates. Neither the forest proof, the star replacement, nor the input-restriction transformation establishes this at unchanged cost.
 

@@ -26,4 +26,9 @@
 - 2026-11-24 18:29 UTC: named partial3993lines passes build and axiom audit; exact checker honestly rejects missing final theorem. Reviewed formula singleton normalization ready for preservation. Automatic renewal18:27 expires18:47:16Z.
 2026-11-24T18:29:50.311744+00:00 — all3 minimum-dirty census finished (14UNSAT; cycle6 first UNKNOWN then symmetric UNSAT); stronger single-gate obstruction Lean-checked.
 
-- 2026-11-24 18:34 UTC: independent review approved local formula filter identity, exhaustive one-gate context obstruction, and minimum-dirty 3x3 computational symmetry. Preserving artifacts; no full proof claim.
+- 2026-11-24 18:31 UTC: independent review approved local formula filter identity, exhaustive one-gate context obstruction, and minimum-dirty 3x3 computational symmetry. Preserving artifacts; no full proof claim.
+2026-11-24T18:33:55.146083+00:00 — normal_form: kernel-checked star-essential one-gate cleanup obstruction.
+
+- 2026-11-24T18:36:29.849608+00:00: machine restarted around18:35; files survived, running build and lease timer did not. Restarted timer and resumed named build, which passed4257lines. Essential-edge strengthening independently reviewed. Latest manual renewal expires18:54:44.029Z.
+2026-11-24T18:38:20.873430+00:00 — normal_form: lcLiteralEssential compiled, positive singleton-center essential-star branch.
+2026-11-24T18:38:33.675736+00:00 — universal_vertex focused uncrossing attempt: complete3x3 minimum-dirty evidence, checked one-gate rigidity, samecost private-OR partition template; shared rectangle-filter charge remains open.

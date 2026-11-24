@@ -1,0 +1,4 @@
+F = (a OR b) AND (c OR d) AND (a OR c), mask 0xeae0.
+Given all inputs plus required A,B,H outputs for free and constants, no at-most-two-gate circuit reaches F while all ANDs vanish on all four singletons and pair {b,d}. Checked 4888 two-gate sequences.
+Thus preserving all three OR values A,B,H while cleaning the original five-gate cone needs at least six gates; a six-gate construction preserves A,B,H and computes (a AND B) OR (b AND c).
+This is a multioutput/context-interface obstruction, not a refutation of the singleoutput target.
