@@ -1,0 +1,4 @@
+{"event": "last_or_build", "or_count": 1, "states": 54, "elapsed": 0.0001697540283203125}
+{"event": "last_or_build", "or_count": 2, "states": 2589, "elapsed": 0.01378941535949707}
+{"event": "last_or_build", "or_count": 3, "states": 136023, "elapsed": 1.1876487731933594}
+{"event": "last_or_complete", "states_checked": 136023, "full_edge_contexts": 137271, "or_budget": 4, "counterexamples": 0, "elapsed": 2.0257558822631836}

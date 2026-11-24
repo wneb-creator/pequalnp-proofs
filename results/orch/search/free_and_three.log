@@ -1,0 +1,8 @@
+{"event": "free_and_depth", "n": 2, "m": 3, "or_count": 0, "states": 1, "total": 1, "next_states": 28, "elapsed": 0.00014591217041015625}
+{"event": "free_and_depth", "n": 2, "m": 3, "or_count": 1, "states": 28, "total": 29, "next_states": 753, "elapsed": 0.005185604095458984}
+{"event": "free_and_depth", "n": 2, "m": 3, "or_count": 2, "states": 753, "total": 782, "next_states": 22936, "elapsed": 0.3802468776702881}
+{"event": "free_and_depth", "n": 2, "m": 3, "or_count": 3, "states": 22936, "total": 23718, "next_states": 0, "elapsed": 0.6374950408935547}
+{"event": "free_and_depth", "n": 3, "m": 3, "or_count": 0, "states": 1, "total": 1, "next_states": 54, "elapsed": 0.00025343894958496094}
+{"event": "free_and_depth", "n": 3, "m": 3, "or_count": 1, "states": 54, "total": 55, "next_states": 2589, "elapsed": 0.030080318450927734}
+{"event": "free_and_depth", "n": 3, "m": 3, "or_count": 2, "states": 2589, "total": 2644, "next_states": 136023, "elapsed": 2.8274283409118652}
+{"event": "free_and_depth", "n": 3, "m": 3, "or_count": 3, "states": 136023, "total": 138667, "next_states": 0, "elapsed": 5.353585481643677}
