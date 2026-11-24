@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "file": "results/orch/lemmas/SearchPhysicalRepairMacro.py",
+  "sha256": "9eaca42d89c263b1f549d869604b7ba40ee0a4d38a340789b8e05591a326d2ab",
+  "review": "Independent incremental source and Boolean/topology review against reviewed Dirty version.",
+  "findings": "Associative rotations require the rewritten child have one fanout and the newly moved other input precede it; same-operation associativity preserves the parent value and all other users. Both distributive directions require exclusive opposite-operation children, an identical shared input, and both nonshared inputs before the earlier child; the later child holds the factored expression and the parent duplicates it through an idempotent gate. This preserves exact Boolean semantics, backward references and physical gate count. Every emitted macro also replays the complete extremal signature. Existing admission restrictions and complete raw witness verification are unchanged."
+}

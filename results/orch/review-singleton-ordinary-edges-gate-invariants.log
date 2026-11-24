@@ -1,0 +1,4 @@
+2026-11-24T11:26:16.302935+00:00
+Independent source/math/provenance/format review: PASS
+SingletonOrdinaryEdges.lean SHA2569ca904bbaa7b6551052f4aa82626bbb5d732c5bfa805af90f6ac1d5fe0931611
+Exact reviewed SingletonSameColorActive prefix and exact SingletonCommonFilterGeneral namespace verified. The new ordinary-edge injection assigns a genuine mixing witness to each unowned, undropped masked edge. Same-owner collisions with distinct cleaners force a shared raw input equal to the pivot by C4; shared_reader_owned then contradicts the explicit unowned-edge premise. Opposite-owner collisions carry both dirty products to one reader; its cleaner must clean the other product too, and the opposite-color bad leaf forces the selected owner-zero edge into the explicitly excluded drop set. Both Fin2 orientations are handled. No unproved privacy or support-disjointness claim. Author build001 EXIT0 accepted; full log has no errors; forbidden mechanisms absent.

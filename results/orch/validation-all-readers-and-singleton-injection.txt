@@ -1,0 +1,27 @@
+PARTIAL RESULTS ONLY. Exact gap L-meta-1477 remains unproved.
+Named-file checker remains REJECTED (no-theorem); no proof PR opened.
+Several selfcontained assembled results exceed512KiB and are preservation artifacts only. All restricted circuit hypotheses remain explicit.
+SharedFilterEdgeCover is finite accounting only; its actual circuit/component bridge remains open.
+
+CentrelessSingleDirtyActual.lean lines=10936 bytes=540787 SHA256=1d4f16f95afe32612d37661c640091d2bb92b3625c8cf6697a6b3ada39a8e1df; author build EXIT0; independent review PASS by status_audit; full log=results/orch/centreless-single-dirty-actual-build-002.log
+TwoProductAllReaders.lean lines=13343 bytes=650636 SHA256=e761b9c3a3e350b385665195d1401792cc661030ed828ea67f92b04eb24b943b; author build EXIT0; independent review PASS by status_audit; full log=results/orch/two-product-all-readers-build-001.log
+TwoProductCenters.lean lines=13394 bytes=653478 SHA256=3b08946824b173062d6032d464669b712b217d3551b166e21da7576e89212984; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/two-product-centers-build-002.log
+PlaneTwoProductAllReaders.lean lines=13599 bytes=662192 SHA256=dce28796b0a80877e30ba3140bae788482fc3ebada07c9f3f8a0aabcf17c6e2f; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/plane-two-product-all-readers-build-001.log
+SingletonSameColorActive.lean lines=10627 bytes=526824 SHA256=6044c403d0dc2808c3c31e579dcf65e4b79935bdfb51ae34b8ce83847d51a605; author build EXIT0; independent review PASS by root; full log=results/orch/singleton-same-color-active-build-001.log
+SingletonPairOneCleanColor.lean lines=10689 bytes=530138 SHA256=a689a429bb396057b658521233e6572eb9a2f04c6461507e49fa5b7b8e732f58; author build EXIT0; independent review PASS by root; full log=results/orch/singleton-pair-one-clean-color-build-001.log
+SharedFilterEdgeCover.lean lines=79 bytes=3987 SHA256=7992493dc4b9f2c03e99b13f5e2d9d39357adbb26bd59a9177d30b0902cd08fd; author build EXIT0; independent review PASS by root; full log=results/orch/shared-filter-edge-cover-build-002.log
+SingletonCommonFilterAutomatic.lean lines=6208 bytes=297614 SHA256=efb0cde95c70e9928933d3fdb59de7e664c59caf4ebb63094cf7a6f230300fd1; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/singleton-common-filter-actual-build-006.log
+SingletonOrdinaryEdges.lean lines=10839 bytes=537997 SHA256=9ca904bbaa7b6551052f4aa82626bbb5d732c5bfa805af90f6ac1d5fe0931611; author build EXIT0; independent review PASS by gate_invariants; full log=results/orch/singleton-ordinary-edges-build-001.log
+CentrelessSingleDirtyActualWork.assembly.json: historical provenance only; final compiled-file hashes/counts verified; transient sources are not represented as a reproducible archive recipe.
+TwoProductAllReadersWork.assembly.json: historical provenance only; final compiled-file hashes/counts verified; transient sources are not represented as a reproducible archive recipe.
+OrdinaryJointFullWork.assembly.json: historical provenance only; final compiled-file hashes/counts verified; transient sources are not represented as a reproducible archive recipe.
+MaskedSingleCrossedActualWork.assembly.json: historical provenance only; final compiled-file hashes/counts verified; transient sources are not represented as a reproducible archive recipe.
+plane-pairs: 8 manifest entries hash/bytechecked; independent package review PASS by status_audit; no target witness and invalid labels retained.
+physical-macro-pairs: 15 manifest entries hash/bytechecked; independent package review PASS by status_audit; no target witness and invalid labels retained.
+physical-pairs-008009: 6 manifest entries hash/bytechecked; independent package review PASS by status_audit; no target witness and invalid labels retained.
+
+Cleanup: exact theorem unavailable; capped cleanup pass not triggered. Named-file lines unchanged10143 before/after.
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=318.3 subagents=6
+SingletonCommonFilterActual.lean lines=6136 bytes=293688 SHA256=7acc035da0c3a857341bb2fe97c69d93138f150348b2e88eb7fb43f82866b5d7; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/singleton-common-filter-actual-build-004.log
+SingletonSameColorPairs.lean lines=6243 bytes=299431 SHA256=fec8fcf8187a3edf8abcfc0a9bd2574b5ce17a1d0df836394b1079bf65cccf86; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/singleton-common-filter-actual-build-007.log

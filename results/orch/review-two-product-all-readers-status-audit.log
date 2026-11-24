@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "file": "results/orch/lemmas/TwoProductAllReaders.lean",
+  "sha256": "e761b9c3a3e350b385665195d1401792cc661030ed828ea67f92b04eb24b943b",
+  "review": "Independent source, mathematics, provenance and format; author build exit0; no duplicate build.",
+  "findings": "Independent reassembly matches the complete prefix up to whitespace after removing exactly two byte-identical repeated leading-space OrdinaryActive definitions, the documented assembler limitation; no other token changes. Sources are reviewed OrdinaryJointFull, newly reviewed CentrelessSingleDirtyActual and independently reviewed SingleCommonFilterAutomatic. Final centreless-count split is exhaustive: zero ordinary-joint; one empty operand seeing both dirty gates or missing one; at least two all-masked family bound. Exact two junk, first-layer purity, disjoint large operands and two clean centers remain explicit; no nojoint/allmasked premise.",
+  "author_log": "two-product-all-readers-build-001.log"
+}

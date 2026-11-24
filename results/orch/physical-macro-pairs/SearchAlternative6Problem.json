@@ -1,0 +1,211 @@
+{
+  "points": [
+    0,
+    1,
+    2,
+    3,
+    8,
+    15
+  ],
+  "groups": [
+    {
+      "input": 6,
+      "point_mask": 3,
+      "global_lines": [
+        21
+      ]
+    },
+    {
+      "input": 7,
+      "point_mask": 38,
+      "global_lines": [
+        22
+      ]
+    },
+    {
+      "input": 8,
+      "point_mask": 12,
+      "global_lines": [
+        23
+      ]
+    },
+    {
+      "input": 9,
+      "point_mask": 8,
+      "global_lines": [
+        24,
+        31
+      ]
+    },
+    {
+      "input": 10,
+      "point_mask": 16,
+      "global_lines": [
+        25,
+        34
+      ]
+    },
+    {
+      "input": 11,
+      "point_mask": 1,
+      "global_lines": [
+        26,
+        38
+      ]
+    },
+    {
+      "input": 12,
+      "point_mask": 2,
+      "global_lines": [
+        27,
+        39
+      ]
+    },
+    {
+      "input": 13,
+      "point_mask": 21,
+      "global_lines": [
+        28
+      ]
+    },
+    {
+      "input": 14,
+      "point_mask": 26,
+      "global_lines": [
+        29
+      ]
+    },
+    {
+      "input": 15,
+      "point_mask": 4,
+      "global_lines": [
+        30,
+        40
+      ]
+    },
+    {
+      "input": 16,
+      "point_mask": 32,
+      "global_lines": [
+        32,
+        35
+      ]
+    },
+    {
+      "input": 17,
+      "point_mask": 48,
+      "global_lines": [
+        36
+      ]
+    },
+    {
+      "input": 18,
+      "point_mask": 41,
+      "global_lines": [
+        41
+      ]
+    }
+  ],
+  "core_edges": [
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      1,
+      12
+    ],
+    [
+      0,
+      13
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      4,
+      13
+    ],
+    [
+      1,
+      14
+    ],
+    [
+      3,
+      14
+    ],
+    [
+      4,
+      14
+    ],
+    [
+      2,
+      15
+    ],
+    [
+      5,
+      16
+    ],
+    [
+      4,
+      17
+    ],
+    [
+      5,
+      17
+    ],
+    [
+      0,
+      18
+    ],
+    [
+      3,
+      18
+    ],
+    [
+      5,
+      18
+    ]
+  ],
+  "inputs": 19,
+  "target": 28,
+  "outside_or_cost": 6,
+  "remaining_star_cost": 90
+}

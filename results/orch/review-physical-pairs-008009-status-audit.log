@@ -1,0 +1,3 @@
+physical-pairs-008009 physical-repair-alternative6-008/improved-10.json gates 28 wrong 46 dirty 4
+physical-pairs-008009 physical-repair-alternative6-009/improved-8.json gates 28 wrong 43 dirty 2
+PASS physical-pairs-008009 manifest 6 circuits 2 scalar_cases 176 valid 0 INVALID 2

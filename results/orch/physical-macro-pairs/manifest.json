@@ -1,0 +1,80 @@
+{
+  "frozen_at": "2026-11-24T11:18:28.770655+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "926d4a07b6b88080a8948983dc15a4244718fc9c963862f049ee5ef819febc44",
+      "bytes": 2176
+    },
+    {
+      "file": "SearchAlternative6PairProblem.py",
+      "sha256": "c269a4cef111f5e47f64a6db3f8a4de880cf94c683c1f9421732580b0a4b3563",
+      "bytes": 926
+    },
+    {
+      "file": "SearchAlternative6Problem.json",
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+      "bytes": 2275
+    },
+    {
+      "file": "SearchAlternative6Problem.py",
+      "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+      "bytes": 925
+    },
+    {
+      "file": "SearchPhysicalRepairMacro.py",
+      "sha256": "9eaca42d89c263b1f549d869604b7ba40ee0a4d38a340789b8e05591a326d2ab",
+      "bytes": 11555
+    },
+    {
+      "file": "SearchPhysicalRepairPairs.py",
+      "sha256": "090562fa8447d109911cca22626c09302053a8e7def837c88cc61e1f56bdc38a",
+      "bytes": 11588
+    },
+    {
+      "file": "physical-pairs-calibration-001.log",
+      "sha256": "86206729f418acb8d5edc84a0878fbc0dbf6a00d2e4744952e10fdf28298730b",
+      "bytes": 89
+    },
+    {
+      "file": "physical-pairs-calibration-002.log",
+      "sha256": "ab6f0769cc020043ad79b95a6784d7826e4288aa3f9533cdf37a220f0118176f",
+      "bytes": 241
+    },
+    {
+      "file": "physical-repair-alternative6-007.log",
+      "sha256": "8dac784493008f8c1d542a35019d41a7fba2f0280bc5605802f569304c354540",
+      "bytes": 3811
+    },
+    {
+      "file": "physical-repair-macro-calibration-002.log",
+      "sha256": "7cc385250908648bb1596d9a6106cc4d8d0b0fd88155176ae0bd1e3076639db0",
+      "bytes": 156
+    },
+    {
+      "file": "physical-repair-macro-calibration.log",
+      "sha256": "0ec371fd8600ed040abc5828c0fbbcd21252319abff947e9a81e618f1888560e",
+      "bytes": 421
+    },
+    {
+      "file": "review-physical-pairs-status-audit.log",
+      "sha256": "f3674111cb6eb7d429af81d08aea71a6c77dd89a5d3f71905a95256114590f98",
+      "bytes": 335
+    },
+    {
+      "file": "review-physical-repair-macro-status-audit.log",
+      "sha256": "c74a7465c129e5b612503d44ce4a97858dc5a7288aa591ae70881668ac77e53f",
+      "bytes": 970
+    },
+    {
+      "file": "run007-improved-2.json",
+      "sha256": "c225c8a49c770c1f2c157bf2a11529d1cc1dbe0e9f4e3f0c245ae53f5837d54c",
+      "bytes": 5860
+    },
+    {
+      "file": "seed006-49-errors.json",
+      "sha256": "016bd9606fb3f4bd883e00163f89506f1c03d991b815a14e0207d6d26a73ee92",
+      "bytes": 5942
+    }
+  ]
+}

@@ -1,0 +1,452 @@
+{
+  "inputs": 19,
+  "gates": [
+    [
+      "or",
+      [
+        2,
+        3
+      ]
+    ],
+    [
+      "or",
+      [
+        7,
+        8
+      ]
+    ],
+    [
+      "or",
+      [
+        9,
+        20
+      ]
+    ],
+    [
+      "or",
+      [
+        13,
+        21
+      ]
+    ],
+    [
+      "or",
+      [
+        14,
+        22
+      ]
+    ],
+    [
+      "or",
+      [
+        15,
+        23
+      ]
+    ],
+    [
+      "or",
+      [
+        18,
+        24
+      ]
+    ],
+    [
+      "and",
+      [
+        19,
+        25
+      ]
+    ],
+    [
+      "or",
+      [
+        0,
+        1
+      ]
+    ],
+    [
+      "or",
+      [
+        6,
+        7
+      ]
+    ],
+    [
+      "or",
+      [
+        11,
+        28
+      ]
+    ],
+    [
+      "or",
+      [
+        12,
+        29
+      ]
+    ],
+    [
+      "or",
+      [
+        13,
+        18
+      ]
+    ],
+    [
+      "or",
+      [
+        14,
+        31
+      ]
+    ],
+    [
+      "or",
+      [
+        30,
+        32
+      ]
+    ],
+    [
+      "and",
+      [
+        27,
+        33
+      ]
+    ],
+    [
+      "or",
+      [
+        5,
+        5
+      ]
+    ],
+    [
+      "or",
+      [
+        10,
+        17
+      ]
+    ],
+    [
+      "or",
+      [
+        32,
+        36
+      ]
+    ],
+    [
+      "or",
+      [
+        7,
+        7
+      ]
+    ],
+    [
+      "or",
+      [
+        16,
+        38
+      ]
+    ],
+    [
+      "or",
+      [
+        17,
+        39
+      ]
+    ],
+    [
+      "or",
+      [
+        18,
+        40
+      ]
+    ],
+    [
+      "and",
+      [
+        35,
+        41
+      ]
+    ],
+    [
+      "or",
+      [
+        26,
+        34
+      ]
+    ],
+    [
+      "and",
+      [
+        4,
+        37
+      ]
+    ],
+    [
+      "or",
+      [
+        43,
+        44
+      ]
+    ],
+    [
+      "or",
+      [
+        42,
+        45
+      ]
+    ]
+  ],
+  "size": 28,
+  "output": 46,
+  "wrong_tests": [
+    {
+      "input": 567,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 1575,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 2110,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 2614,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 3118,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 3622,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 4157,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 4661,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 5165,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 6772,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 22053,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 24164,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 32827,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 33835,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 34874,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 35634,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 36921,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 37681,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 37929,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 39032,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 44074,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 44834,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 48232,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 55073,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 66071,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 67614,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 69661,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 70165,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 98331,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 100378,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 102553,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 103313,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 104664,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 198151,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 199694,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 201741,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 218629,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 230411,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 234633,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 240650,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 244936,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 251777,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 330262,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 334420,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 363282,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 367568,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 462342,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 482884,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 503554,
+      "actual": true,
+      "expected": false
+    }
+  ],
+  "wrong_raw_tests": 49,
+  "proof_status": "INVALID positive-complete physical repair seed"
+}

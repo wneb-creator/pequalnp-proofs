@@ -1,0 +1,35 @@
+{
+  "frozen_at": "2026-11-24T11:24:56.190227+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "10839a8e4a9a3af249fa23dbd25e9f4492e52d1e629d8aaa5977ede05e8fe7d1",
+      "bytes": 1179
+    },
+    {
+      "file": "full-artifact-diagnostic.log",
+      "sha256": "496c3042c446d59400e64a7f2f12752ba79b4a8008589404f5556e5f6e94ee49",
+      "bytes": 594
+    },
+    {
+      "file": "physical-repair-alternative6-008/complete-run.log",
+      "sha256": "48f32de981f55d49f1df1ccf53e4c5b750521072c14c4cf902cda794a569f2d9",
+      "bytes": 3597
+    },
+    {
+      "file": "physical-repair-alternative6-008/improved-10.json",
+      "sha256": "af2b12e60acf68511041d7bb6e73ee7a77bc5b3b9d292c0681397db1e68b203a",
+      "bytes": 5701
+    },
+    {
+      "file": "physical-repair-alternative6-009/complete-run.log",
+      "sha256": "9ca37d5d3b707e97662bef3c9f261fe2379516b765d361af925188c03581af17",
+      "bytes": 2941
+    },
+    {
+      "file": "physical-repair-alternative6-009/improved-8.json",
+      "sha256": "36deee95e5cfb88884dc8366422f977dc06a27be4d1394e6b230fb0312d03edc",
+      "bytes": 5458
+    }
+  ]
+}

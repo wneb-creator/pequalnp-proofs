@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "file": "results/orch/lemmas/CentrelessSingleDirtyActual.lean",
+  "sha256": "1d4f16f95afe32612d37661c640091d2bb92b3625c8cf6697a6b3ada39a8e1df",
+  "review": "Independent source, mathematics, provenance and format; author build exit0; no duplicate build.",
+  "findings": "Exact reviewed MaskedSingleCrossedActual prefix. Generalized exceptional-top accounting excludes both special-top and dirty-joint pairs by choosing residual edges avoiding R; ordinary and eligible coverage then applies without nojoint. Empty raw operand has a true AND leaf; TopForm forces it dirty, and absence of one of the two possible dirty paths forces the other. Its two clean centers cover every accepted host pair, thus both special-top and every joint pair. Generic automatic mask coverage matches the independently checked actual two-center adapter.",
+  "author_log": "centreless-single-dirty-actual-build-002.log"
+}

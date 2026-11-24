@@ -1,0 +1,45 @@
+{
+  "frozen_at": "2026-11-24T11:22:04.425432+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "14cd982d9a432155010b620424ecb42ec6da80c4f3cea0ec5be54baeb3f70dc2",
+      "bytes": 1911
+    },
+    {
+      "file": "SearchPlanePairProblem.py",
+      "sha256": "f8b1a2848334df617ef613f20446e4bc5066ac546e150321b6854fb6b891a742",
+      "bytes": 1033
+    },
+    {
+      "file": "SearchPlaneProblem.json",
+      "sha256": "f13c8c17d8d2e3842d6a2a9ac736b17c7bf831d801a54ca07345907352ae1017",
+      "bytes": 358849
+    },
+    {
+      "file": "SearchPlaneProblem.py",
+      "sha256": "9c9369995311971fef919af1a75364f091b9b6b77552c2e66bef85648e83f865",
+      "bytes": 693
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticPlanePairs.py",
+      "sha256": "70bab33443fa2b6b8d5c85d2165bdcad66ce3c0e82b4cc9729967aef646ffbab",
+      "bytes": 30811
+    },
+    {
+      "file": "plane-pairs-calibration-001.log",
+      "sha256": "86206729f418acb8d5edc84a0878fbc0dbf6a00d2e4744952e10fdf28298730b",
+      "bytes": 89
+    },
+    {
+      "file": "plane-pairs-calibration-002.log",
+      "sha256": "f284ffe64f042836fe23c3f88d0f0223669b7ca800882dfa244c257b919df43f",
+      "bytes": 324
+    }
+  ]
+}

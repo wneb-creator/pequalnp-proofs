@@ -1,0 +1,9 @@
+# Plane search with separately weighted small false inputs
+
+This variant retains the complete105positive+25,237maximal-negative basis and adds42singleton+756nonedge-pair negatives. The augmented fitness basis contains26,140assignments; the two negative masks are disjoint and cover every negative test. RAW_NEGATIVES remains the original25,237maximal assignments. Every saved computational witness still receives independent scalar verification on all25,342original extremal cases and would need Lean verification.
+
+The score charges each maximal-negative mistake105/25,237 and each small-negative mistake105/798, then applies the existing per-epoch negative multiplier. The archive uses the same combined weighted cost. Positive penalties, gate costs, warm starts, mutations and raw verification are unchanged from reviewed PlaneBalancedMultiCleanRecord. The separate multi-dirty recorder continues to reject all output singleton leakage. The target remains124 and the standard baseline125. No result is claimed from preparing this model.
+
+Author calibration checked48baselines (36valid,12explicitlyINVALID),144physical expansions,101,368raw scalar cases and38,304small-input scalar cases. The first calibration harness incorrectly demanded exact floating-point equality between differently associated expressions; the corrected002 harness uses1e-10tolerance. This did not require changing the score. A subsequent source edit only renames the reporting key to wrong_augmented_negatives, reflecting that its raw bit count includes small tests.
+
+Run from this directory: `python3 SearchStochasticPlanePairs.py --seed 14772952 --seconds 1200 --output-dir /tmp/oec/pequalnp-pilot-29/stochastic-plane-011`, with complete stdout/stderr redirected separately. This replaces the previous global worker after its cap, within the existing CPU allocation. A timeout or exhausted heuristic run establishes no lower bound.

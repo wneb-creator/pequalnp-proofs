@@ -1,0 +1,4 @@
+  File "<stdin>", line 7
+    fixtures=[(('or',(0,1)),('or',(2,6))), (('and',(0,1)),('and',(2,6))), (('and',(0,1)),('and',(0,2)),('or',(6,7))), (('or',(0,1)),('or',(0,2)),('and',(6,7))]
+                                                                                                                                                              ^
+SyntaxError: closing parenthesis ']' does not match opening parenthesis '('

@@ -1,0 +1,5 @@
+{
+  "verdict": "PASS",
+  "sha256": "090562fa8447d109911cca22626c09302053a8e7def837c88cc61e1f56bdc38a",
+  "review": "Only parser allowlist adds independently reviewed SearchAlternative6PairProblem; algorithm unchanged from reviewed Macro. Augmented fitness includes complete original basis; full raw88 witness verification retained."
+}
