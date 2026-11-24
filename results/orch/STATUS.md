@@ -18,6 +18,8 @@ All project-specific dependencies are from `PEqualNP.Defs`; Mathlib is pinned by
 
 The principal forest and padding lemmas were audited with Lean's axiom printer and use only `propext`, `Classical.choice`, and `Quot.sound`. Their full output is retained in `axiom-audit.log`. Further helpers have independently reviewed source and successful kernel compilation.
 
+`fsNormalize` also proves singleton cleanup for positive binary-tree formulas, with unchanged full semantics and no larger leaf count. It does not handle sharing or nonincident-pair cleanup, and no formula-to-circuit translation theorem is included.
+
 ## Strategies ruled out or still incomplete
 
 `route_obstruction.lean` checks a seven-gate circuit for a two-edge matching. It has one nonedge-dirty AND, but bypassing that AND to either operand changes the output. A clean three-gate circuit is also checked. This disproves a local bypass rule for arbitrary circuits; it does **not** disprove a rule restricted to minimum-size circuits or the posted statement.
