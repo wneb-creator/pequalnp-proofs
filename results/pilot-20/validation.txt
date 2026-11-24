@@ -76,4 +76,10 @@ Interrupted work is explicitly UNKNOWN and excluded from completed totals;
 finite local censuses are separate from nonexhaustive heuristic searches.
 Archive SHA256ea36c3063b19098cee0cb103f0ad90530b7deea9e33e266938f04eb589edb586.
 
-TIMING total=84.2 subagents=9
+
+Second witness explicit axiom audit: PASS, exit0. Both the full65 existential
+and bounded coverage soundness use exactly propext, Classical.choice,
+and Quot.sound. The separate audit source is the frozen proof plus only two
+axiom-print commands; complete stdout/stderr and status are preserved.
+
+TIMING total=88.0 subagents=9

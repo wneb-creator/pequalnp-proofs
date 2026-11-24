@@ -1,0 +1,2 @@
+'PEqualNP.Outside.L_meta_1482.coreBoundary_exists_at_65' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1482.termFamilyCovers_sound' depends on axioms: [propext, Classical.choice, Quot.sound]

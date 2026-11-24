@@ -1,0 +1,13 @@
+PASSED exit0: explicit three-axiom audit.
+Command: source /tmp/oec/pequalnp-pilot-20/lean-env.sh && lake env lean --memory=12000 --threads=1 /tmp/oec/pequalnp-pilot-20/core-boundary/CoreBoundaryAxiomAudit.lean
+Working directory: /workspace/pequalnp-proofs/lean
+Diagnostic source SHA256: b18e2e36789bb0f3a6c9ccf683c375ce7d0aace8abaa69cc634ea0582e2816be
+Frozen proof SHA256: 8acbf7db8dd8828b6149d3e8ea2c8fd1e2fea3730b8cf2504698f5f5f1a580e2
+Frozen proof unchanged. Complete stdout follows; stderr is empty.
+
+'PEqualNP.Outside.L_meta_1482.coreBoundary_exists_at_65' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1482.termFamilyCovers_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Both audited declarations depend exactly on propext, Classical.choice, and
+Quot.sound, with no additional axioms. The final existential is a65-gate boundary
+witness; this audit does not prove or refute the posted64-gate statement.
