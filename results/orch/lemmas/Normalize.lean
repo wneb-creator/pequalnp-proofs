@@ -1,4 +1,5 @@
-import Lean
+import Mathlib.Data.List.GetD
+import Mathlib.Tactic
 
 namespace PEqualNP.Outside.L_meta_5112_aux
 
@@ -62,5 +63,72 @@ theorem clipProgram_sources (n : Nat) (gs : List (Bool × Nat × Nat)) :
       · exact Nat.lt_of_le_of_lt (Nat.min_le_right _ _) (by omega)
     · have h := ih (n + 1) a ha
       simpa [List.length_cons, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using h
+
+theorem gateStep_repeat (xs : List Nat) (i : Nat) :
+    gateStep xs (true, i, i) = xs ++ [xs.getD i 0] := by
+  simp [gateStep]
+
+theorem eval_length (xs : List Nat) (gs : List (Bool × Nat × Nat)) :
+    (gs.foldl gateStep xs).length = xs.length + gs.length := by
+  induction gs generalizing xs with
+  | nil => simp
+  | cons g gs ih =>
+    simp only [List.foldl_cons, ih, gateStep_length, List.length_cons]
+    omega
+
+theorem foldl_replicate_repeat (xs : List Nat) (i k : Nat) (hi : i < xs.length) :
+    (List.replicate k (true, i, i)).foldl gateStep xs =
+      xs ++ List.replicate k (xs.getD i 0) := by
+  induction k generalizing xs with
+  | zero => simp
+  | succ k ih =>
+    rw [List.replicate_succ, List.foldl_cons, gateStep_repeat,
+      ih (xs ++ [xs.getD i 0]) (by simpa using Nat.lt_succ_of_lt hi)]
+    rw [List.getD_append xs [xs.getD i 0] 0 i hi]
+    simp [List.replicate_succ, List.append_assoc]
+
+theorem getD_extend_last (xs : List Nat) (k : Nat) (hx : 0 < xs.length) :
+    (xs ++ List.replicate k (xs.getD (xs.length - 1) 0)).getD
+      (xs.length + k - 1) 0 = xs.getD (xs.length - 1) 0 := by
+  cases k with
+  | zero => simp
+  | succ k =>
+    rw [List.getD_append_right xs _ 0 _ (by omega)]
+    exact List.getD_replicate (x := xs.getD (xs.length - 1) 0) (by omega)
+
+theorem padded_output (xs : List Nat) (gs : List (Bool × Nat × Nat)) (k : Nat)
+    (h : 0 < xs.length + gs.length) :
+    let ys := gs.foldl gateStep xs
+    let more := List.replicate k (true, xs.length + gs.length - 1,
+      xs.length + gs.length - 1)
+    ((gs ++ more).foldl gateStep xs).getD
+      (xs.length + (gs ++ more).length - 1) 0 =
+        ys.getD (xs.length + gs.length - 1) 0 := by
+  dsimp only
+  rw [List.foldl_append, List.length_append, List.length_replicate]
+  rw [foldl_replicate_repeat _ _ _ (by rw [eval_length]; omega)]
+  have he : (gs.foldl gateStep xs).length = xs.length + gs.length := eval_length xs gs
+  have ht := getD_extend_last (gs.foldl gateStep xs) k (by rw [he]; exact h)
+  simpa only [he, Nat.add_assoc] using ht
+
+theorem bounded_pad (xs : List Nat) (gs : List (Bool × Nat × Nat)) (s : Nat)
+    (hpos : 0 < xs.length + gs.length) (hlen : gs.length ≤ s) :
+    ∃ hs : List (Bool × Nat × Nat), hs.length = s ∧
+      (∀ g ∈ hs, g.2.1 < xs.length + s + 1 ∧ g.2.2 < xs.length + s + 1) ∧
+      (hs.foldl gateStep xs).getD (xs.length + s - 1) 0 =
+        (gs.foldl gateStep xs).getD (xs.length + gs.length - 1) 0 := by
+  let more := List.replicate (s - gs.length)
+    (true, xs.length + gs.length - 1, xs.length + gs.length - 1)
+  let raw := gs ++ more
+  have hraw : raw.length = s := by
+    simp only [raw, more, List.length_append, List.length_replicate]
+    omega
+  refine ⟨clipProgram xs.length raw, ?_, ?_, ?_⟩
+  · rw [clipProgram_length, hraw]
+  · simpa only [hraw] using clipProgram_sources xs.length raw
+  · rw [eval_clipProgram]
+    have ho := padded_output xs gs (s - gs.length) hpos
+    change (raw.foldl gateStep xs).getD (xs.length + raw.length - 1) 0 = _ at ho
+    simpa only [hraw] using ho
 
 end PEqualNP.Outside.L_meta_5112_aux

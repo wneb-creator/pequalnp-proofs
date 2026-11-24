@@ -4,3 +4,7 @@ Independent reviewer:status_check; red-team partial review passed.
 NoPR opened. Exact posted14-gate statement not yet checked.
 Sub-agents: status_check, circuit_search, exact_sat, structural, lower_bound, lower_bound_library (6 total)
 TIMING total=6 subagents=6
+
+Named-file build: PASS for partial15-gate witness,1267jobs,3.8s file time.
+Normalize.lean: bounded_pad preserves output at exact requested length with bounded selectors; compiled with pinned Lean, exit0; root independently inspected extension.
+Gap checker: NOT RUN (partial theorem intentionally not the posted14-gate theorem).
