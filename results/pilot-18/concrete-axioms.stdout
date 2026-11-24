@@ -1,0 +1,5 @@
+'PEqualNP.Outside.L_meta_1342_aux.target_c4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.target_edge_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.target_cover_seven' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.target_min_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.clean_target_size' depends on axioms: [propext, Classical.choice, Quot.sound]

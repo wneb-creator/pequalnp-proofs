@@ -1130,4 +1130,65 @@ theorem circuit_partial_edge_bound (n : ℕ)
   · exact cross_support K gs ops hc
   · exact gate_partition_count n gs.length (andPos n gs) (supports gs)
 
+
+def targetEdges : List (Fin 11 × Fin 11) :=
+  [(0,9),(0,10),(1,4),(1,8),(2,5),(2,10),(3,6),(3,7),
+   (4,8),(4,10),(5,8),(5,9),(6,7),(6,10),(7,9),(8,9)]
+
+def targetGraph : SimpleGraph (Fin 11) where
+  Adj u v := (u,v) ∈ targetEdges ∨ (v,u) ∈ targetEdges
+  symm := ⟨fun _ _ h => h.symm⟩
+  loopless := ⟨by decide⟩
+
+def targetEdgeSet : Finset (Sym2 (Fin 11)) := by
+  letI : DecidableRel targetGraph.Adj := fun _ _ => inferInstanceAs (Decidable (_ ∨ _))
+  exact targetGraph.edgeFinset
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 5000000 in
+lemma target_c4 : ∀ a b c d : Fin 11, a ≠ c → b ≠ d →
+    ¬ (targetGraph.Adj a b ∧ targetGraph.Adj b c ∧ targetGraph.Adj c d ∧ targetGraph.Adj d a) := by
+  let : DecidableRel targetGraph.Adj := fun _ _ => inferInstanceAs (Decidable (_ ∨ _))
+  decide
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 5000000 in
+lemma target_edge_count [DecidableRel targetGraph.Adj] : targetGraph.edgeFinset.card = 16 := by
+  have he : targetGraph.edgeFinset = targetEdgeSet := by
+    ext e
+    simp [targetEdgeSet]
+  rw [he]
+  decide
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 5000000 in
+lemma target_cover_seven : ∀ T : Finset (Fin 11),
+    ((1 ∈ T ∨ 4 ∈ T) ∧ (1 ∈ T ∨ 8 ∈ T) ∧ (4 ∈ T ∨ 8 ∈ T) ∧
+     (3 ∈ T ∨ 6 ∈ T) ∧ (3 ∈ T ∨ 7 ∈ T) ∧ (6 ∈ T ∨ 7 ∈ T) ∧
+     (0 ∈ T ∨ 9 ∈ T) ∧ (9 ∈ T ∨ 5 ∈ T) ∧ (5 ∈ T ∨ 2 ∈ T) ∧
+     (2 ∈ T ∨ 10 ∈ T) ∧ (10 ∈ T ∨ 0 ∈ T)) → 7 ≤ T.card := by
+  decide
+
+lemma target_min_cover (T : Finset (Fin 11))
+    (hc : ∀ u v, targetGraph.Adj u v → u ∈ T ∨ v ∈ T) : 7 ≤ T.card := by
+  let : DecidableRel targetGraph.Adj := fun _ _ => inferInstanceAs (Decidable (_ ∨ _))
+  apply target_cover_seven T
+  exact ⟨hc 1 4 (by decide), hc 1 8 (by decide), hc 4 8 (by decide),
+    hc 3 6 (by decide), hc 3 7 (by decide), hc 6 7 (by decide),
+    hc 0 9 (by decide), hc 9 5 (by decide), hc 5 2 (by decide),
+    hc 2 10 (by decide), hc 10 0 (by decide)⟩
+
+lemma clean_target_size (C : PEqualNP.CircuitLowerBounds.Circuit)
+    (ops : binaryOps C.gates) (clean : cleanOn targetGraph C.gates)
+    (singletons : ∀ u : Fin 11, C.eval (List.ofFn (singletonBits u)) = false)
+    (edges : ∀ u v : Fin 11, targetGraph.Adj u v →
+      C.eval (List.ofFn (pairBits u v)) = true) : 22 ≤ C.size := by
+  let : DecidableRel targetGraph.Adj := fun _ _ => inferInstanceAs (Decidable (_ ∨ _))
+  obtain ⟨T, hT, hsize⟩ := circuit_partial_edge_bound 11 targetGraph targetGraph
+    target_c4 C ops clean singletons edges
+  have hcard := target_min_cover T hT
+  rw [target_edge_count] at hsize
+  change 22 ≤ C.gates.length
+  omega
+
 end PEqualNP.Outside.L_meta_1342_aux

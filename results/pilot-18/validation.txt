@@ -2,8 +2,8 @@ gap: L-meta-1342
 shard: 17 of 19
 status: PARTIAL; no proof or refutation of the posted at-most-21 statement.
 file: lean/PEqualNP/Outside/L_meta_1342.lean
-lines: 1133
-sha256: 4c04b9af4adc59a183616886cdabf8385b9ba35757d96c9320fcbc1ce004a2b1
+lines: 1194
+sha256: 26d5ab36bf060fd5099ede949652c8b6dff5d45051eda713f4f7d01c2d28ba29
 
 The file retains the complete 22-gate circuit and its exact full-input
 specification proof. It also proves abstract and actual-Circuit empty-support
@@ -17,12 +17,14 @@ Build: lake build +PEqualNP.Outside.L_meta_1342
 Lean: 4.36.0; pinned Mathlib cache fetched; no lake update or Mathlib source build.
 Build exit: 0
 Build output: Build completed successfully (5109 jobs).
-Named module: 31 seconds. Full stdout/stderr in circuit-partial-build.*.
+Latest named module: 44 seconds. Full stdout/stderr in concrete-named-build2.*.
 Axiom audit for baseline: propext and Quot.sound; size uses no axioms.
 New abstract-lemma axiom audit: propext, Classical.choice, Quot.sound only.
 Full audit output is preserved in partial-bound-axioms.*.
 Concrete circuit theorem audit: propext, Classical.choice, Quot.sound only;
 full output in circuit-partial-axioms.*.
+Concrete graph/cover/circuit-size audits use only propext, Classical.choice,
+and Quot.sound; full output in concrete-axioms.*.
 
 Checker: NOT RUN for the posted gap; the module-named theorem is absent.
 Main independently reviewed the sub-agent-authored added proof.
@@ -31,7 +33,13 @@ Cleanup: not applicable to unfinished gap.
 Line counts: original partial38; complete baseline201; baseline plus lower-bound
 helpers715; narrower imports716. All proof bodies are unchanged by the import
 reduction. The measured scratch build used 2943984 KiB maximum child RSS.
-Adding the concrete circuit connection brings the file to 1133 lines.
+Adding the concrete circuit connection brought the file to 1133 lines.
+The target graph facts and clean-circuit bound bring it to 1194 lines.
+Kernel-checked finite facts: no four-cycle, 16 edges, every vertex cover has
+at least seven vertices. The cover bound uses two triangles and a five-cycle.
+Consequently every clean circuit using only AND/OR gates of fan-in at most two,
+accepting the target edges and rejecting singletons, has size at least 22.
+This does not cover circuits with junk ANDs.
 
 Search: seven independently reviewed formula-tail overapproximations, with
 strict-OR, residual-edge and exact-ancestor cost restrictions. No production
@@ -42,4 +50,4 @@ SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 2 inherited-model agents for mathematical search and independent validation/proof engineering
-TIMING total=129.2 subagents=2
+TIMING total=135.5 subagents=2

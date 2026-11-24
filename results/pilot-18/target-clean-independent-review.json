@@ -1,0 +1,151 @@
+{
+  "verdict": "PASS_FOR_PARTIAL_PUSH",
+  "timestamp_utc": "2026-11-24T02:36:04.027255+00:00",
+  "base_commit": "b28c1778768bb6f858db31c356592cd0bf286927",
+  "source_sha256": "26d5ab36bf060fd5099ede949652c8b6dff5d45051eda713f4f7d01c2d28ba29",
+  "source_lines": 1194,
+  "source_bytes": 58447,
+  "previous_source_lines": 1133,
+  "added_lines": 61,
+  "changed_relative_paths": [
+    "lean/PEqualNP/Outside/L_meta_1342.lean",
+    "results/pilot-18/validation.txt"
+  ],
+  "untracked_relative_paths": [
+    "results/pilot-18/concrete-axioms.stderr",
+    "results/pilot-18/concrete-axioms.stdout",
+    "results/pilot-18/concrete-named-build2.stderr",
+    "results/pilot-18/concrete-named-build2.stdout"
+  ],
+  "artifacts": [
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_1342.lean",
+      "sha256": "26d5ab36bf060fd5099ede949652c8b6dff5d45051eda713f4f7d01c2d28ba29",
+      "bytes": 58447
+    },
+    {
+      "path": "results/pilot-18/concrete-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/pilot-18/concrete-axioms.stdout",
+      "sha256": "991498b61fa02460546086d46a40f94670afa85ef322060671ee7b7978dd7cdc",
+      "bytes": 552
+    },
+    {
+      "path": "results/pilot-18/concrete-named-build2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/pilot-18/concrete-named-build2.stdout",
+      "sha256": "ae912d458cc191e0d9da9eb256ea065a06f2043364027a1d46a5cd8d1167d15e",
+      "bytes": 53744
+    },
+    {
+      "path": "results/pilot-18/validation.txt",
+      "sha256": "80f11194dec8a6baa61e74894c24febaf6ccc923d3e66bf6e0d1d1c411f2ba54",
+      "bytes": 3081
+    }
+  ],
+  "full_diff_sha256": "a1dcd0733b3e45f04d8f2cc954b3d3dfe003bf414e26e289ac6673a5e0fec08e",
+  "preservation": {
+    "all_previous_bytes_preserved": true,
+    "baseline_unchanged": true,
+    "circuit_and_abstract_bounds_unchanged": true,
+    "new_declarations_in_existing_aux_namespace": true,
+    "one_line_fix": "Adds a local DecidableRel targetGraph.Adj binding inside target_min_cover before its finite edge checks.",
+    "prior_reviewed_1193_line_sha256": "6a745b7e5f281d254ca2386e0d66b0b11ddc19cf71572b744a573291ffe47ea1",
+    "only_change_since_1193_review_is_local_decidability_binding": true
+  },
+  "proof_review": {
+    "targetEdges": "Byte-level numeric pair list matches baseline_spec exactly: 16 distinct undirected edges.",
+    "targetGraph": "Adjacency symmetrizes the same list; looplessness is proved by kernel decide.",
+    "targetEdgeSet": "Finite edge set with a local decidability instance; no exported/global instance.",
+    "target_c4": "Matches the C4-free premise used in the actual-circuit bound; independent enumeration found no cycle.",
+    "target_edge_count": "Proves cardinality 16 independently of the caller decidability instance by extensional equality with targetEdgeSet, followed by kernel decide.",
+    "target_cover_seven": "Two vertex-disjoint triangles {1,4,8}, {3,6,7}, and C5 0-9-5-2-10-0 partition the 11 vertices and force 2+2+3 cover vertices; finite decide verifies the stated implication.",
+    "target_min_cover": "Extracts precisely those eleven true target edges from an arbitrary graph cover. The new local decidability binding supports these edge checks without changing the statement.",
+    "clean_target_size": "Applies circuit_partial_edge_bound with K=G=targetGraph. Cover size at least 7 and edge count 16 imply C.gates.length >=22, definitionally C.size.",
+    "essential_hypotheses": [
+      "binaryOps C.gates",
+      "cleanOn targetGraph C.gates",
+      "singleton rejection",
+      "acceptance of each target edge pair"
+    ],
+    "no_exact_F_equivalence_assumed": true
+  },
+  "independent_finite_math": {
+    "vertices": 11,
+    "undirected_edges": 16,
+    "ordered_distinct_quadruples_checked": 7920,
+    "four_cycles": 0,
+    "vertex_subsets_checked": 2048,
+    "minimum_cover_cardinality": 7,
+    "triangle_and_cycle_vertex_sets_disjoint_and_exhaustive": true
+  },
+  "red_team": {
+    "imports_unchanged_and_allowed": true,
+    "no_forbidden_tokens_commands_strings_attributes": true,
+    "limit_options_valid": true,
+    "no_global_instance_or_new_axiom": true,
+    "only_named_Lean_file_changed": true,
+    "standard_decide_only_not_native_decide": true,
+    "credential_and_lease_value_scan_passed": true,
+    "additional_changes": "Only validation and four related build/axiom logs."
+  },
+  "validation": {
+    "standalone_helpers": "Main reports compiled; not independently rerun.",
+    "named_module": {
+      "status": "PASS",
+      "exit_code_reported_by_main": 0,
+      "module_seconds": 44,
+      "output": "Build completed successfully (5109 jobs).",
+      "stderr_bytes": 0,
+      "rerun_by_reviewer": false
+    },
+    "new_axiom_audit": {
+      "status": "PASS",
+      "exit_code_reported_by_main": 0,
+      "theorems": [
+        "target_c4",
+        "target_edge_count",
+        "target_cover_seven",
+        "target_min_cover",
+        "clean_target_size"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "exact_stdout_verified": true,
+      "stderr_bytes": 0,
+      "rerun_by_reviewer": false
+    },
+    "posted_gap_checker": "NOT RUN; final module-named theorem absent"
+  },
+  "limitations": [
+    "This is a partial clean-circuit lower bound, not a refutation of the posted size-21 statement, which permits junk AND gates.",
+    "Formal constant elimination and proper-support lifting remain separate obligations.",
+    "Two pre-existing helper namespace blocks remain; consolidate before a final single-file proof PR."
+  ],
+  "actions": {
+    "repository_mutated": false,
+    "build_started": false,
+    "workers_touched": false,
+    "lease_called": false
+  },
+  "Sub-agents": "none",
+  "TIMING": {
+    "total_minutes": 137.3,
+    "subagents": 0
+  },
+  "documentation_scope": {
+    "binary_AND_OR_hypothesis_explicit": true,
+    "finding": "The new validation sentence must retain the binary AND/OR hypothesis. Without it, sixteen binary edge ANDs followed by one 16-input OR form a clean 17-gate circuit for the target. The Lean theorem itself has the correct hypothesis.",
+    "finding_resolved": true,
+    "resolution": "Validation now explicitly says using only AND/OR gates of fan-in at most two. Source theorem already had that hypothesis."
+  }
+}
