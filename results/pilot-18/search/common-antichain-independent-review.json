@@ -1,0 +1,35 @@
+{
+  "verdict": "PASS",
+  "reviewer": "main agent independent of Jason author",
+  "timestamp_utc": "2026-11-24T02:38:06.108025+00:00",
+  "source_sha256": "9fafad3a37af662bdec2df9ddf1c66b25c248d71d44ab696a860780728312a94",
+  "math": "Common outer-AND proper-support factors equal F OR OR(S). Comparable supersets can be replaced by free TRUE while retaining the minimal factors. Reapply reviewed pruning/padding and leaf ordering; universal costs and exact ancestry apply to the resulting circuit. Full support is exempt.",
+  "encoding": "Read entire source. Selected-support muxes use forced one-hot prefix leaves. Full-support flags are exact. Two directional witnesses exist iff proper supports are incomparable. Original clauses and IDs are preserved; independently reconstructed every appended clause for three original and three combined cases.",
+  "cases": {
+    "tail3-common-antichain/meet5": {
+      "sha256": "5c83b79bff666190f795590b60a4395569b01fdd284cf294fac270d8943f7cb0",
+      "exact_append_clauses": 3820
+    },
+    "tail3-common-antichain/meet3or2": {
+      "sha256": "6a1f29a4dc63efb08c496a94f895e7c4527e8e176a46f37b137aed128c34877d",
+      "exact_append_clauses": 2154
+    },
+    "tail3-common-antichain/meet2or1meet2": {
+      "sha256": "caae61715611f86d8629ef78bbcf39d68e895a2c95f57e5b5992039891a2f02f",
+      "exact_append_clauses": 1390
+    },
+    "tail7-ancestor-support-antichain/meet5": {
+      "sha256": "b68c52e95293fa1a0ebdc2cc8e07eb7b4b0bbd2b58a42cab8cf2226b2c84bc1b",
+      "exact_append_clauses": 3820
+    },
+    "tail7-ancestor-support-antichain/meet3or2": {
+      "sha256": "b8e80d84e8add90c1938b0a3962f8c12c191d7d520dcd3bd3d218a2e2d6abcd1",
+      "exact_append_clauses": 2154
+    },
+    "tail7-ancestor-support-antichain/meet2or1meet2": {
+      "sha256": "3828ce99ea004b382a33fe9f0afd4bbe9482ad866f2271a5fa8a272c4e6ac365",
+      "exact_append_clauses": 1390
+    }
+  },
+  "limits": "No production verdict or Lean formalization of this normalization. Combined variant still awaits separate ancestor-support review."
+}

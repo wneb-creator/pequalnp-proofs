@@ -1,0 +1,52 @@
+{
+  "tail7-ancestor-support/meet5": {
+    "sha256": "8be358c55ed2e7c2a04e671cc409c6a9c11df343997b3269b8ebe12d7b476960",
+    "variables": 11968,
+    "clauses": 116312
+  },
+  "tail7-ancestor-support/or1meet4": {
+    "sha256": "b7d761f8e02aff800c996d7743f46a746088f965de66242e2d4df400338e83e6",
+    "variables": 11968,
+    "clauses": 115877
+  },
+  "tail7-ancestor-support/or2meet3": {
+    "sha256": "cd8f6b2f8cb6b8b70de7798e0e83350aa3bab8bd2025faae2fe7d93808bce759",
+    "variables": 11968,
+    "clauses": 115875
+  },
+  "tail7-ancestor-support/meet1or1meet3": {
+    "sha256": "42e6a84e0379fb80e861603b74dbded601336f5f892585119da8d7a92b9d7a87",
+    "variables": 11968,
+    "clauses": 115442
+  },
+  "tail7-ancestor-support/meet1or2meet2": {
+    "sha256": "0a85f1d35ccd2c9565bb4ae8174e890e4e771517a10491b8e6fc0636d80b508c",
+    "variables": 11968,
+    "clauses": 115876
+  },
+  "tail7-ancestor-support/meet2or1meet2": {
+    "sha256": "4aa7f3bb7192c65e026655a7cabf45be0f333ba7e2b5d7ccaf2425a32a50fc3c",
+    "variables": 11968,
+    "clauses": 115441
+  },
+  "tail7-ancestor-support/meet3or2": {
+    "sha256": "bbdd91e118ae138d9c3d37ac865f93f8f9bc2f8011c225d212df7643e9cb8038",
+    "variables": 11968,
+    "clauses": 115875
+  },
+  "tail7-ancestor-support-antichain/meet5": {
+    "sha256": "b68c52e95293fa1a0ebdc2cc8e07eb7b4b0bbd2b58a42cab8cf2226b2c84bc1b",
+    "variables": 12248,
+    "clauses": 120132
+  },
+  "tail7-ancestor-support-antichain/meet3or2": {
+    "sha256": "b8e80d84e8add90c1938b0a3962f8c12c191d7d520dcd3bd3d218a2e2d6abcd1",
+    "variables": 12070,
+    "clauses": 118029
+  },
+  "tail7-ancestor-support-antichain/meet2or1meet2": {
+    "sha256": "3828ce99ea004b382a33fe9f0afd4bbe9482ad866f2271a5fa8a272c4e6ac365",
+    "variables": 12014,
+    "clauses": 116831
+  }
+}

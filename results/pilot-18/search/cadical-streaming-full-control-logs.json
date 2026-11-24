@@ -1,0 +1,387 @@
+{
+  "small-sat": {
+    "result": {
+      "accepted_CNF_UNSAT": false,
+      "checker_exit": 0,
+      "checker_may_stop_after_verified_empty_clause": false,
+      "checker_pid": 16947,
+      "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+      "checker_verdicts": [
+        "s VALID"
+      ],
+      "children_maxrss_kib": 9072,
+      "children_system_cpu_seconds": 0.002519,
+      "children_user_cpu_seconds": 0.003859,
+      "cnf_sha256": "c723087c6c5f7c739aa6f938795f888f96ddff55f6ff620953f14fb726660296",
+      "elapsed_seconds": 0.134246,
+      "error_detail": null,
+      "limits": {
+        "checker_address_space_mb": 512,
+        "max_proof_zero_bytes": 100000000,
+        "max_seconds": 30.0,
+        "min_free_mb": 64,
+        "solver_address_space_mb": 512
+      },
+      "logs": {
+        "checker.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "checker.stdout.txt": {
+          "bytes": 436,
+          "sha256": "e12f3a370f15c33c9c7e31f4c53a830e0da752b4c959396ff8eef8f63c190a2a"
+        },
+        "solver.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "solver.stdout.txt": {
+          "bytes": 3473,
+          "sha256": "31743189e70fd00cb88a40e7b9c8d5e9ff1451590ebdb68afb7fdf60734a1ac7"
+        }
+      },
+      "max_pending_bytes": 0,
+      "proof_bytes_forwarded_to_checker_pipe": 0,
+      "proof_bytes_not_forwarded": 0,
+      "proof_bytes_read": 0,
+      "proof_retained": false,
+      "proof_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof_stream_complete": true,
+      "reason": null,
+      "relay_buffer_limit_bytes": 1048576,
+      "runner_cpu_seconds": 0.056346883,
+      "sampled_peak_rss_kib": {
+        "checker": 816,
+        "solver": 20
+      },
+      "scope": "Online CNF certificate checking only; no retained replayable certificate or Lean acceptance.",
+      "solver_exit": 10,
+      "solver_options": [
+        "--unsat"
+      ],
+      "solver_pid": 16948,
+      "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+      "solver_verdicts": [
+        "s SATISFIABLE"
+      ],
+      "status": "SAT_UNVALIDATED",
+      "zero_bytes_counted": 0
+    },
+    "logs": {
+      "checker.stderr.txt": "",
+      "checker.stdout.txt": "c CNF file path: /tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/instance.cnf\nc No DSR file path provided, using stdin.\nc Using a STREAMING parsing strategy.\nc Doing FORWARDS proof checking.\nc The CNF formula has 2 clauses and 2 variables.\nc Parsing the CNF took 0.000 secs\nc Checking proof...\nc Proof checking took 0.000 secs\ns VALID\nc A valid proof, without an empty clause.\nc Total runtime took 0.055 secs\n",
+      "solver.stderr.txt": "",
+      "solver.stdout.txt": "c --- [ banner ] -------------------------------------------------------------\nc \nc CaDiCaL SAT Solver\nc Copyright (c) 2016-2024\nc A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller\nc JKU Linz, University of Freiburg, TU Wien\nc \nc Version 2.1.2\nc clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)\nc Jan  1 1980 00:00:00\nc \nc --- [ proof tracing ] ------------------------------------------------------\nc \nc opening file to write '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/proof.fifo'\nc writing binary proof trace to '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/proof.fifo'\nc \nc --- [ parsing input ] ------------------------------------------------------\nc \nc reading DIMACS file from '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/instance.cnf'\nc opening file to read '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/instance.cnf'\nc found 'p cnf 2 2' header\nc parsed 2 clauses in 0.00 seconds process time\nc \nc --- [ options ] ------------------------------------------------------------\nc \nc   --stabilize=false              (different from default 'true')\nc   --walk=false                   (different from default 'true')\nc \nc --- [ solving ] ------------------------------------------------------------\nc \nc time measured in process time since initialization\nc \nc  seconds  reductions  redundant irredundant\nc         MB    restarts       trail    variables\nc          level   conflicts       glue     remaining\nc \nc *  0.00  3  0 0   0    0    0  0% 0    2   2 100%\nc l  0.00  3  0 0   0    0    0  0% 0    2   2 100%\nc 1  0.00  3  0 0   0    0    0  0% 0    2   2 100%\nc \nc --- [ closing proof ] ------------------------------------------------------\nc \nc DRAT proof file '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/proof.fifo' closed\nc DRAT 0 added clauses 0.00%\nc DRAT 0 deleted clauses 0.00%\nc DRAT 0 bytes (0.00 MB)\nc \nc --- [ result ] -------------------------------------------------------------\nc \ns SATISFIABLE\nv 1 2 0\nc \nc --- [ run-time profiling ] -------------------------------------------------\nc \nc process time taken by individual solving procedures\nc (percentage relative to process time for solving)\nc \nc         0.00   54.67% parse\nc         0.00   20.00% lucky\nc         0.00   20.00% search\nc         0.00    0.00% simplify\nc   =================================\nc         0.00   22.19% solve\nc \nc last line shows process time for solving\nc (percentage relative to total process time)\nc \nc --- [ statistics ] ---------------------------------------------------------\nc \nc lucky:                         1       100.00 %  of tried\nc minimized:                     0         0.00 %  learned literals\nc shrunken:                      0         0.00 %  learned literals\nc minishrunken:                  0         0.00 %  learned literals\nc propagations:                  0         0.00 M  per second\nc \nc seconds are measured in process time for solving\nc \nc --- [ resources ] ----------------------------------------------------------\nc \nc total process time since initialization:         0.00    seconds\nc total real time since initialization:            0.00    seconds\nc maximum resident set size of process:            8.86    MB\nc \nc --- [ shutting down ] ------------------------------------------------------\nc \nc exit 10\n"
+    },
+    "cnf": "p cnf 2 2\n1 2 0\n-1 2 0\n"
+  },
+  "clique4-colors3": {
+    "result": {
+      "accepted_CNF_UNSAT": true,
+      "checker_exit": 0,
+      "checker_may_stop_after_verified_empty_clause": true,
+      "checker_pid": 16950,
+      "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+      "checker_verdicts": [
+        "s VERIFIED UNSAT"
+      ],
+      "children_maxrss_kib": 9072,
+      "children_system_cpu_seconds": 0.0,
+      "children_user_cpu_seconds": 0.0060409999999999995,
+      "cnf_sha256": "d6c1e87ef8bd3ecabeaf431a002d9357093a6699eaec69b23e2e23efecff76d2",
+      "elapsed_seconds": 0.010598,
+      "error_detail": null,
+      "limits": {
+        "checker_address_space_mb": 512,
+        "max_proof_zero_bytes": 100000000,
+        "max_seconds": 30.0,
+        "min_free_mb": 64,
+        "solver_address_space_mb": 512
+      },
+      "logs": {
+        "checker.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "checker.stdout.txt": {
+          "bytes": 462,
+          "sha256": "a9dd2fa4bd1c3c6d533a30fd4d5cf4a63735298425bdd188e4259f16ffc3f90b"
+        },
+        "solver.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "solver.stdout.txt": {
+          "bytes": 4032,
+          "sha256": "079d7b0d2ebad5d524c537d64d6e3147348566f2730cec39bb1e7dfefa27e802"
+        }
+      },
+      "max_pending_bytes": 50,
+      "proof_bytes_forwarded_to_checker_pipe": 50,
+      "proof_bytes_not_forwarded": 0,
+      "proof_bytes_read": 50,
+      "proof_retained": false,
+      "proof_sha256": "9f3f852cfea85e72b8fb32ad3e8b8f95db87f4f926c4b9661f2c6d158b2ed923",
+      "proof_stream_complete": true,
+      "reason": null,
+      "relay_buffer_limit_bytes": 1048576,
+      "runner_cpu_seconds": 0.046019116,
+      "sampled_peak_rss_kib": {
+        "checker": 824,
+        "solver": 20
+      },
+      "scope": "Online CNF certificate checking only; no retained replayable certificate or Lean acceptance.",
+      "solver_exit": 20,
+      "solver_options": [
+        "--unsat"
+      ],
+      "solver_pid": 16951,
+      "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+      "solver_verdicts": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "VERIFIED_UNSAT",
+      "zero_bytes_counted": 16
+    },
+    "logs": {
+      "checker.stderr.txt": "",
+      "checker.stdout.txt": "c CNF file path: /tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/instance.cnf\nc No DSR file path provided, using stdin.\nc Using a STREAMING parsing strategy.\nc Doing FORWARDS proof checking.\nc The CNF formula has 34 clauses and 12 variables.\nc Parsing the CNF took 0.000 secs\nc Detected that the DSR proof is in binary format.\nc Checking proof...\nc Proof checking took 0.000 secs\ns VERIFIED UNSAT\nc Total runtime took 0.004 secs\n",
+      "solver.stderr.txt": "",
+      "solver.stdout.txt": "c --- [ banner ] -------------------------------------------------------------\nc \nc CaDiCaL SAT Solver\nc Copyright (c) 2016-2024\nc A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller\nc JKU Linz, University of Freiburg, TU Wien\nc \nc Version 2.1.2\nc clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)\nc Jan  1 1980 00:00:00\nc \nc --- [ proof tracing ] ------------------------------------------------------\nc \nc opening file to write '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/proof.fifo'\nc writing binary proof trace to '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/proof.fifo'\nc \nc --- [ parsing input ] ------------------------------------------------------\nc \nc reading DIMACS file from '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/instance.cnf'\nc opening file to read '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/instance.cnf'\nc found 'p cnf 12 34' header\nc parsed 34 clauses in 0.00 seconds process time\nc \nc --- [ options ] ------------------------------------------------------------\nc \nc   --stabilize=false              (different from default 'true')\nc   --walk=false                   (different from default 'true')\nc \nc --- [ solving ] ------------------------------------------------------------\nc \nc time measured in process time since initialization\nc \nc  seconds  reductions  redundant irredundant\nc         MB    restarts       trail    variables\nc          level   conflicts       glue     remaining\nc \nc *  0.00  3  0 0   0    0    0  0% 0   34  12 100%\nc {  0.00  3  0 0   0    0    0  0% 0   34  12 100%\nc i  0.00  3  0 0   0    2    1 100% 0   34  11 92%\nc }  0.00  3  1 0   0    6    3 100% 1   34   0  0%\nc 0  0.00  3  1 0   0    6    3 100% 1   34   0  0%\nc \nc --- [ closing proof ] ------------------------------------------------------\nc \nc DRAT proof file '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/proof.fifo' closed\nc DRAT 16 added clauses 100.00%\nc DRAT 0 deleted clauses 0.00%\nc DRAT 50 bytes (0.00 MB)\nc \nc --- [ result ] -------------------------------------------------------------\nc \ns UNSATISFIABLE\nc \nc --- [ run-time profiling ] -------------------------------------------------\nc \nc process time taken by individual solving procedures\nc (percentage relative to process time for solving)\nc \nc         0.00   43.02% search\nc         0.00   31.40% unstable\nc         0.00   30.81% parse\nc         0.00    5.23% lucky\nc         0.00    0.00% simplify\nc   =================================\nc         0.00   40.95% solve\nc \nc last line shows process time for solving\nc (percentage relative to total process time)\nc \nc --- [ statistics ] ---------------------------------------------------------\nc \nc chronological:                 1        16.67 %  of conflicts\nc conflicts:                     6     34883.72    per second\nc decisions:                     5     29069.77    per second\nc fixed:                        12       100.00 %  of all variables\nc learned:                       5        83.33 %  per conflict\nc learned_lits:                  9       100.00 %  learned literals\nc minimized:                     0         0.00 %  learned literals\nc shrunken:                      1        11.11 %  learned literals\nc minishrunken:                  0         0.00 %  learned literals\nc otfs:                          0         0.00 %  of conflict\nc propagations:                 54         0.31 M  per second\nc \nc seconds are measured in process time for solving\nc \nc --- [ resources ] ----------------------------------------------------------\nc \nc total process time since initialization:         0.00    seconds\nc total real time since initialization:            0.00    seconds\nc maximum resident set size of process:            8.86    MB\nc \nc --- [ shutting down ] ------------------------------------------------------\nc \nc exit 20\n"
+    },
+    "cnf": "p cnf 12 34\n1 2 3 0\n4 5 6 0\n7 8 9 0\n10 11 12 0\n-1 -2 0\n-1 -3 0\n-2 -3 0\n-4 -5 0\n-4 -6 0\n-5 -6 0\n-7 -8 0\n-7 -9 0\n-8 -9 0\n-10 -11 0\n-10 -12 0\n-11 -12 0\n-1 -4 0\n-2 -5 0\n-3 -6 0\n-1 -7 0\n-2 -8 0\n-3 -9 0\n-1 -10 0\n-2 -11 0\n-3 -12 0\n-4 -7 0\n-5 -8 0\n-6 -9 0\n-4 -10 0\n-5 -11 0\n-6 -12 0\n-7 -10 0\n-8 -11 0\n-9 -12 0\n"
+  },
+  "pigeons7-holes6": {
+    "result": {
+      "accepted_CNF_UNSAT": true,
+      "checker_exit": 0,
+      "checker_may_stop_after_verified_empty_clause": true,
+      "checker_pid": 16953,
+      "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+      "checker_verdicts": [
+        "s VERIFIED UNSAT"
+      ],
+      "children_maxrss_kib": 9072,
+      "children_system_cpu_seconds": 0.006882999999999999,
+      "children_user_cpu_seconds": 0.004504,
+      "cnf_sha256": "025c015d04a706c3f6c2156a9513958ba8ef62a6fbf613109d6efd0c858fbe02",
+      "elapsed_seconds": 0.065252,
+      "error_detail": null,
+      "limits": {
+        "checker_address_space_mb": 512,
+        "max_proof_zero_bytes": 100000000,
+        "max_seconds": 30.0,
+        "min_free_mb": 64,
+        "solver_address_space_mb": 512
+      },
+      "logs": {
+        "checker.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "checker.stdout.txt": {
+          "bytes": 463,
+          "sha256": "013466738884660c18a8ee624fb0e785e860baa07faa5eddc23326c7cfee3ac3"
+        },
+        "solver.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "solver.stdout.txt": {
+          "bytes": 4902,
+          "sha256": "fe98d7cc3f0241131f6b6a36b109a56e03e0604ec85ef6ea31d2ec7d187aa581"
+        }
+      },
+      "max_pending_bytes": 8192,
+      "proof_bytes_forwarded_to_checker_pipe": 14870,
+      "proof_bytes_not_forwarded": 0,
+      "proof_bytes_read": 14870,
+      "proof_retained": false,
+      "proof_sha256": "4fbf745955ef2efe29c318bc7d5d2386661ce5bf85a0ff35982a9de0819095b1",
+      "proof_stream_complete": true,
+      "reason": null,
+      "relay_buffer_limit_bytes": 1048576,
+      "runner_cpu_seconds": 0.034874413,
+      "sampled_peak_rss_kib": {
+        "checker": 828,
+        "solver": 24
+      },
+      "scope": "Online CNF certificate checking only; no retained replayable certificate or Lean acceptance.",
+      "solver_exit": 20,
+      "solver_options": [
+        "--unsat"
+      ],
+      "solver_pid": 16954,
+      "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+      "solver_verdicts": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "VERIFIED_UNSAT",
+      "zero_bytes_counted": 1959
+    },
+    "logs": {
+      "checker.stderr.txt": "",
+      "checker.stdout.txt": "c CNF file path: /tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/instance.cnf\nc No DSR file path provided, using stdin.\nc Using a STREAMING parsing strategy.\nc Doing FORWARDS proof checking.\nc The CNF formula has 133 clauses and 42 variables.\nc Parsing the CNF took 0.000 secs\nc Detected that the DSR proof is in binary format.\nc Checking proof...\nc Proof checking took 0.004 secs\ns VERIFIED UNSAT\nc Total runtime took 0.010 secs\n",
+      "solver.stderr.txt": "",
+      "solver.stdout.txt": "c --- [ banner ] -------------------------------------------------------------\nc \nc CaDiCaL SAT Solver\nc Copyright (c) 2016-2024\nc A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller\nc JKU Linz, University of Freiburg, TU Wien\nc \nc Version 2.1.2\nc clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)\nc Jan  1 1980 00:00:00\nc \nc --- [ proof tracing ] ------------------------------------------------------\nc \nc opening file to write '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/proof.fifo'\nc writing binary proof trace to '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/proof.fifo'\nc \nc --- [ parsing input ] ------------------------------------------------------\nc \nc reading DIMACS file from '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/instance.cnf'\nc opening file to read '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/instance.cnf'\nc found 'p cnf 42 133' header\nc parsed 133 clauses in 0.00 seconds process time\nc \nc --- [ options ] ------------------------------------------------------------\nc \nc   --stabilize=false              (different from default 'true')\nc   --walk=false                   (different from default 'true')\nc \nc --- [ solving ] ------------------------------------------------------------\nc \nc time measured in process time since initialization\nc \nc  seconds  reductions  redundant irredundant\nc         MB    restarts       trail    variables\nc          level   conflicts       glue     remaining\nc \nc *  0.00  3  0 0   0    0    0  0% 0  133  42 100%\nc {  0.00  3  0 0   0    0    0  0% 0  133  42 100%\nc i  0.00  3  5 0   5  172   47 98% 4  133  41 98%\nc i  0.00  3  6 0  23  299  100 98% 4  133  40 95%\nc -  0.00  3  6 1  23  300    6 98% 4  121  40 95%\nc i  0.00  3  6 1  36  455   78 97% 4  121  39 93%\nc i  0.00  3  6 1  36  529   93 97% 4  121  38 90%\nc i  0.00  3  6 1  43  663  176 97% 4  121  37 88%\nc i  0.00  3  6 1  51  731  201 97% 4  121  36 86%\nc -  0.00  3  6 2  69  901  154 97% 4   98  36 86%\nc i  0.00  3  6 2  72  982  192 97% 4   98  29 69%\nc I  0.00  3  6 2  72 1002  205 97% 4   98  29 69%\nc i  0.00  3  6 2  72 1028  219 97% 4   98  23 55%\nc i  0.00  3  6 2  72 1039  225 97% 4   98  21 50%\nc i  0.00  3  6 2  72 1042  227 97% 4   98  14 33%\nc }  0.00  3  6 2  72 1044  227 97% 4   98   4 10%\nc 0  0.00  3  6 2  72 1044  227 97% 4   98   4 10%\nc \nc --- [ closing proof ] ------------------------------------------------------\nc \nc DRAT proof file '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/proof.fifo' closed\nc DRAT 1095 added clauses 55.90%\nc DRAT 864 deleted clauses 44.10%\nc DRAT 14870 bytes (0.01 MB)\nc \nc --- [ result ] -------------------------------------------------------------\nc \ns UNSATISFIABLE\nc \nc --- [ run-time profiling ] -------------------------------------------------\nc \nc process time taken by individual solving procedures\nc (percentage relative to process time for solving)\nc \nc         0.00   98.92% search\nc         0.00   98.48% unstable\nc         0.00    1.28% parse\nc         0.00    0.24% lucky\nc         0.00    0.00% simplify\nc   =================================\nc         0.00   95.71% solve\nc \nc last line shows process time for solving\nc (percentage relative to total process time)\nc \nc --- [ statistics ] ---------------------------------------------------------\nc \nc chronological:               227        21.74 %  of conflicts\nc conflicts:                  1044    251626.90    per second\nc decisions:                  1356    326825.74    per second\nc fixed:                        38        90.48 %  of all variables\nc learned:                    1024        98.08 %  per conflict\nc learned_lits:              10594       100.00 %  learned literals\nc minimized:                     0         0.00 %  learned literals\nc shrunken:                   4662        44.01 %  learned literals\nc minishrunken:                 73         0.69 %  learned literals\nc otfs:                         14         1.34 %  of conflict\nc propagations:              13760         3.32 M  per second\nc rephased:                      1      1044.00    interval\nc restarts:                     72        14.50    interval\nc subsumed:                    560        48.87 %  of all clauses\nc strengthened:                 14         1.22 %  of all clauses\nc \nc seconds are measured in process time for solving\nc \nc --- [ resources ] ----------------------------------------------------------\nc \nc total process time since initialization:         0.00    seconds\nc total real time since initialization:            0.01    seconds\nc maximum resident set size of process:            8.86    MB\nc \nc --- [ shutting down ] ------------------------------------------------------\nc \nc exit 20\n"
+    },
+    "cnf": "p cnf 42 133\n1 2 3 4 5 6 0\n7 8 9 10 11 12 0\n13 14 15 16 17 18 0\n19 20 21 22 23 24 0\n25 26 27 28 29 30 0\n31 32 33 34 35 36 0\n37 38 39 40 41 42 0\n-1 -7 0\n-1 -13 0\n-1 -19 0\n-1 -25 0\n-1 -31 0\n-1 -37 0\n-7 -13 0\n-7 -19 0\n-7 -25 0\n-7 -31 0\n-7 -37 0\n-13 -19 0\n-13 -25 0\n-13 -31 0\n-13 -37 0\n-19 -25 0\n-19 -31 0\n-19 -37 0\n-25 -31 0\n-25 -37 0\n-31 -37 0\n-2 -8 0\n-2 -14 0\n-2 -20 0\n-2 -26 0\n-2 -32 0\n-2 -38 0\n-8 -14 0\n-8 -20 0\n-8 -26 0\n-8 -32 0\n-8 -38 0\n-14 -20 0\n-14 -26 0\n-14 -32 0\n-14 -38 0\n-20 -26 0\n-20 -32 0\n-20 -38 0\n-26 -32 0\n-26 -38 0\n-32 -38 0\n-3 -9 0\n-3 -15 0\n-3 -21 0\n-3 -27 0\n-3 -33 0\n-3 -39 0\n-9 -15 0\n-9 -21 0\n-9 -27 0\n-9 -33 0\n-9 -39 0\n-15 -21 0\n-15 -27 0\n-15 -33 0\n-15 -39 0\n-21 -27 0\n-21 -33 0\n-21 -39 0\n-27 -33 0\n-27 -39 0\n-33 -39 0\n-4 -10 0\n-4 -16 0\n-4 -22 0\n-4 -28 0\n-4 -34 0\n-4 -40 0\n-10 -16 0\n-10 -22 0\n-10 -28 0\n-10 -34 0\n-10 -40 0\n-16 -22 0\n-16 -28 0\n-16 -34 0\n-16 -40 0\n-22 -28 0\n-22 -34 0\n-22 -40 0\n-28 -34 0\n-28 -40 0\n-34 -40 0\n-5 -11 0\n-5 -17 0\n-5 -23 0\n-5 -29 0\n-5 -35 0\n-5 -41 0\n-11 -17 0\n-11 -23 0\n-11 -29 0\n-11 -35 0\n-11 -41 0\n-17 -23 0\n-17 -29 0\n-17 -35 0\n-17 -41 0\n-23 -29 0\n-23 -35 0\n-23 -41 0\n-29 -35 0\n-29 -41 0\n-35 -41 0\n-6 -12 0\n-6 -18 0\n-6 -24 0\n-6 -30 0\n-6 -36 0\n-6 -42 0\n-12 -18 0\n-12 -24 0\n-12 -30 0\n-12 -36 0\n-12 -42 0\n-18 -24 0\n-18 -30 0\n-18 -36 0\n-18 -42 0\n-24 -30 0\n-24 -36 0\n-24 -42 0\n-30 -36 0\n-30 -42 0\n-36 -42 0\n"
+  },
+  "pigeons6-holes6": {
+    "result": {
+      "accepted_CNF_UNSAT": false,
+      "checker_exit": 0,
+      "checker_may_stop_after_verified_empty_clause": false,
+      "checker_pid": 16956,
+      "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+      "checker_verdicts": [
+        "s VALID"
+      ],
+      "children_maxrss_kib": 9072,
+      "children_system_cpu_seconds": 0.006728,
+      "children_user_cpu_seconds": 0.0016569999999999998,
+      "cnf_sha256": "1fc24b354b2f02e48b16c96dba4b5d4c2bbb34072ecbe8c8e510421660a58d09",
+      "elapsed_seconds": 0.10839,
+      "error_detail": null,
+      "limits": {
+        "checker_address_space_mb": 512,
+        "max_proof_zero_bytes": 100000000,
+        "max_seconds": 30.0,
+        "min_free_mb": 64,
+        "solver_address_space_mb": 512
+      },
+      "logs": {
+        "checker.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "checker.stdout.txt": {
+          "bytes": 444,
+          "sha256": "591f3be6ff4de630be6a3220b08bb86dcafe9f4cfd4267d668ec0f92fdc90eae"
+        },
+        "solver.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "solver.stdout.txt": {
+          "bytes": 3633,
+          "sha256": "f156452fdbb59b5f2580719d13cf6a1f499625dbe7a508075afb926cab67edae"
+        }
+      },
+      "max_pending_bytes": 0,
+      "proof_bytes_forwarded_to_checker_pipe": 0,
+      "proof_bytes_not_forwarded": 0,
+      "proof_bytes_read": 0,
+      "proof_retained": false,
+      "proof_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof_stream_complete": true,
+      "reason": null,
+      "relay_buffer_limit_bytes": 1048576,
+      "runner_cpu_seconds": 0.036622974,
+      "sampled_peak_rss_kib": {
+        "checker": 828,
+        "solver": 20
+      },
+      "scope": "Online CNF certificate checking only; no retained replayable certificate or Lean acceptance.",
+      "solver_exit": 10,
+      "solver_options": [
+        "--unsat"
+      ],
+      "solver_pid": 16957,
+      "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+      "solver_verdicts": [
+        "s SATISFIABLE"
+      ],
+      "status": "SAT_UNVALIDATED",
+      "zero_bytes_counted": 0
+    },
+    "logs": {
+      "checker.stderr.txt": "",
+      "checker.stdout.txt": "c CNF file path: /tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/instance.cnf\nc No DSR file path provided, using stdin.\nc Using a STREAMING parsing strategy.\nc Doing FORWARDS proof checking.\nc The CNF formula has 96 clauses and 36 variables.\nc Parsing the CNF took 0.000 secs\nc Checking proof...\nc Proof checking took 0.000 secs\ns VALID\nc A valid proof, without an empty clause.\nc Total runtime took 0.053 secs\n",
+      "solver.stderr.txt": "",
+      "solver.stdout.txt": "c --- [ banner ] -------------------------------------------------------------\nc \nc CaDiCaL SAT Solver\nc Copyright (c) 2016-2024\nc A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller\nc JKU Linz, University of Freiburg, TU Wien\nc \nc Version 2.1.2\nc clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)\nc Jan  1 1980 00:00:00\nc \nc --- [ proof tracing ] ------------------------------------------------------\nc \nc opening file to write '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/proof.fifo'\nc writing binary proof trace to '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/proof.fifo'\nc \nc --- [ parsing input ] ------------------------------------------------------\nc \nc reading DIMACS file from '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/instance.cnf'\nc opening file to read '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/instance.cnf'\nc found 'p cnf 36 96' header\nc parsed 96 clauses in 0.00 seconds process time\nc \nc --- [ options ] ------------------------------------------------------------\nc \nc   --stabilize=false              (different from default 'true')\nc   --walk=false                   (different from default 'true')\nc \nc --- [ solving ] ------------------------------------------------------------\nc \nc time measured in process time since initialization\nc \nc  seconds  reductions  redundant irredundant\nc         MB    restarts       trail    variables\nc          level   conflicts       glue     remaining\nc \nc *  0.00  3  0 0   0    0    0  0% 0   96  36 100%\nc l  0.00  3  0 0   0    0    0  0% 0   96  36 100%\nc 1  0.00  3  0 0   0    0    0  0% 0   96  36 100%\nc \nc --- [ closing proof ] ------------------------------------------------------\nc \nc DRAT proof file '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/proof.fifo' closed\nc DRAT 0 added clauses 0.00%\nc DRAT 0 deleted clauses 0.00%\nc DRAT 0 bytes (0.00 MB)\nc \nc --- [ result ] -------------------------------------------------------------\nc \ns SATISFIABLE\nv -1 -2 -3 -4 -5 6 -7 -8 -9 -10 11 -12 -13 -14 -15 16 -17 -18 -19 -20 21 -22\nv -23 -24 -25 26 -27 -28 -29 -30 31 -32 -33 -34 -35 -36 0\nc \nc --- [ run-time profiling ] -------------------------------------------------\nc \nc process time taken by individual solving procedures\nc (percentage relative to process time for solving)\nc \nc         0.00  127.94% parse\nc         0.00   22.06% search\nc         0.00   20.59% lucky\nc         0.00    0.00% simplify\nc   =================================\nc         0.00   23.53% solve\nc \nc last line shows process time for solving\nc (percentage relative to total process time)\nc \nc --- [ statistics ] ---------------------------------------------------------\nc \nc lucky:                         1       100.00 %  of tried\nc minimized:                     0         0.00 %  learned literals\nc shrunken:                      0         0.00 %  learned literals\nc minishrunken:                  0         0.00 %  learned literals\nc propagations:                  0         0.00 M  per second\nc \nc seconds are measured in process time for solving\nc \nc --- [ resources ] ----------------------------------------------------------\nc \nc total process time since initialization:         0.00    seconds\nc total real time since initialization:            0.00    seconds\nc maximum resident set size of process:            8.86    MB\nc \nc --- [ shutting down ] ------------------------------------------------------\nc \nc exit 10\n"
+    },
+    "cnf": "p cnf 36 96\n1 2 3 4 5 6 0\n7 8 9 10 11 12 0\n13 14 15 16 17 18 0\n19 20 21 22 23 24 0\n25 26 27 28 29 30 0\n31 32 33 34 35 36 0\n-1 -7 0\n-1 -13 0\n-1 -19 0\n-1 -25 0\n-1 -31 0\n-7 -13 0\n-7 -19 0\n-7 -25 0\n-7 -31 0\n-13 -19 0\n-13 -25 0\n-13 -31 0\n-19 -25 0\n-19 -31 0\n-25 -31 0\n-2 -8 0\n-2 -14 0\n-2 -20 0\n-2 -26 0\n-2 -32 0\n-8 -14 0\n-8 -20 0\n-8 -26 0\n-8 -32 0\n-14 -20 0\n-14 -26 0\n-14 -32 0\n-20 -26 0\n-20 -32 0\n-26 -32 0\n-3 -9 0\n-3 -15 0\n-3 -21 0\n-3 -27 0\n-3 -33 0\n-9 -15 0\n-9 -21 0\n-9 -27 0\n-9 -33 0\n-15 -21 0\n-15 -27 0\n-15 -33 0\n-21 -27 0\n-21 -33 0\n-27 -33 0\n-4 -10 0\n-4 -16 0\n-4 -22 0\n-4 -28 0\n-4 -34 0\n-10 -16 0\n-10 -22 0\n-10 -28 0\n-10 -34 0\n-16 -22 0\n-16 -28 0\n-16 -34 0\n-22 -28 0\n-22 -34 0\n-28 -34 0\n-5 -11 0\n-5 -17 0\n-5 -23 0\n-5 -29 0\n-5 -35 0\n-11 -17 0\n-11 -23 0\n-11 -29 0\n-11 -35 0\n-17 -23 0\n-17 -29 0\n-17 -35 0\n-23 -29 0\n-23 -35 0\n-29 -35 0\n-6 -12 0\n-6 -18 0\n-6 -24 0\n-6 -30 0\n-6 -36 0\n-12 -18 0\n-12 -24 0\n-12 -30 0\n-12 -36 0\n-18 -24 0\n-18 -30 0\n-18 -36 0\n-24 -30 0\n-24 -36 0\n-30 -36 0\n"
+  },
+  "direct-unmodified-runner": {
+    "result": {
+      "accepted_CNF_UNSAT": true,
+      "checker_exit": 0,
+      "checker_may_stop_after_verified_empty_clause": true,
+      "checker_pid": 16889,
+      "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+      "checker_verdicts": [
+        "s VERIFIED UNSAT"
+      ],
+      "children_maxrss_kib": 9064,
+      "children_system_cpu_seconds": 0.0,
+      "children_user_cpu_seconds": 0.006756,
+      "cnf_sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8",
+      "elapsed_seconds": 0.072782,
+      "error_detail": null,
+      "limits": {
+        "checker_address_space_mb": 256,
+        "max_proof_zero_bytes": 100000000,
+        "max_seconds": 10.0,
+        "min_free_mb": 64,
+        "solver_address_space_mb": 256
+      },
+      "logs": {
+        "checker.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "checker.stdout.txt": {
+          "bytes": 469,
+          "sha256": "0ace68f7ccc43a7fb6c013d1129bd889410f9d7f699cd04922ff126b7786f8f0"
+        },
+        "solver.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "solver.stdout.txt": {
+          "bytes": 3417,
+          "sha256": "54eb01b62fe51a652aa5a4188edd6059f31888b3f3a2aa1d29a49ff07e151a31"
+        }
+      },
+      "max_pending_bytes": 5,
+      "proof_bytes_forwarded_to_checker_pipe": 5,
+      "proof_bytes_not_forwarded": 0,
+      "proof_bytes_read": 5,
+      "proof_retained": false,
+      "proof_sha256": "6d00de2f06e17322854c6df199187830e5332b5fc26e6406561235508478161a",
+      "proof_stream_complete": true,
+      "reason": null,
+      "relay_buffer_limit_bytes": 1048576,
+      "runner_cpu_seconds": 0.062759134,
+      "sampled_peak_rss_kib": {
+        "checker": 816,
+        "solver": 92
+      },
+      "scope": "Online CNF certificate checking only; no retained replayable certificate or Lean acceptance.",
+      "solver_exit": 20,
+      "solver_options": [
+        "--unsat"
+      ],
+      "solver_pid": 16890,
+      "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+      "solver_verdicts": [
+        "s UNSATISFIABLE"
+      ],
+      "status": "VERIFIED_UNSAT",
+      "zero_bytes_counted": 2
+    },
+    "logs": {
+      "solver.stdout.txt": "c --- [ banner ] -------------------------------------------------------------\nc \nc CaDiCaL SAT Solver\nc Copyright (c) 2016-2024\nc A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller\nc JKU Linz, University of Freiburg, TU Wien\nc \nc Version 2.1.2\nc clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)\nc Jan  1 1980 00:00:00\nc \nc --- [ proof tracing ] ------------------------------------------------------\nc \nc opening file to write '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/proof.fifo'\nc writing binary proof trace to '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/proof.fifo'\nc \nc --- [ parsing input ] ------------------------------------------------------\nc \nc reading DIMACS file from '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/instance.cnf'\nc opening file to read '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/instance.cnf'\nc found 'p cnf 1 2' header\nc parsed 2 clauses in 0.00 seconds process time\nc \nc --- [ options ] ------------------------------------------------------------\nc \nc   --stabilize=false              (different from default 'true')\nc   --walk=false                   (different from default 'true')\nc \nc --- [ solving ] ------------------------------------------------------------\nc \nc time measured in process time since initialization\nc \nc  seconds  reductions  redundant irredundant\nc         MB    restarts       trail    variables\nc          level   conflicts       glue     remaining\nc \nc 0  0.00  3  0 0   0    0    0  0% 0    0   0  0%\nc \nc --- [ closing proof ] ------------------------------------------------------\nc \nc DRAT proof file '/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/proof.fifo' closed\nc DRAT 1 added clauses 50.00%\nc DRAT 1 deleted clauses 50.00%\nc DRAT 5 bytes (0.00 MB)\nc \nc --- [ result ] -------------------------------------------------------------\nc \ns UNSATISFIABLE\nc \nc --- [ run-time profiling ] -------------------------------------------------\nc \nc process time taken by individual solving procedures\nc (percentage relative to process time for solving)\nc \nc         0.00   87.18% parse\nc         0.00    0.00% search\nc         0.00    0.00% simplify\nc   =================================\nc         0.00   10.96% solve\nc \nc last line shows process time for solving\nc (percentage relative to total process time)\nc \nc --- [ statistics ] ---------------------------------------------------------\nc \nc fixed:                         1       100.00 %  of all variables\nc minimized:                     0         0.00 %  learned literals\nc shrunken:                      0         0.00 %  learned literals\nc minishrunken:                  0         0.00 %  learned literals\nc propagations:                  1         0.03 M  per second\nc \nc seconds are measured in process time for solving\nc \nc --- [ resources ] ----------------------------------------------------------\nc \nc total process time since initialization:         0.00    seconds\nc total real time since initialization:            0.00    seconds\nc maximum resident set size of process:            8.85    MB\nc \nc --- [ shutting down ] ------------------------------------------------------\nc \nc exit 20\n",
+      "solver.stderr.txt": "",
+      "checker.stdout.txt": "c CNF file path: /tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/instance.cnf\nc No DSR file path provided, using stdin.\nc Using a STREAMING parsing strategy.\nc Doing FORWARDS proof checking.\nc The CNF formula has 2 clauses and 1 variables.\nc Parsing the CNF took 0.000 secs\nc Detected that the DSR proof is in binary format.\nc Checking proof...\nc Proof checking took 0.000 secs\ns VERIFIED UNSAT\nc Total runtime took 0.008 secs\n",
+      "checker.stderr.txt": ""
+    },
+    "cnf": "p cnf 1 2\n1 0\n-1 0\n"
+  },
+  "invalid-empty-claim": {
+    "checker.stdout": "c CNF file path: /tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3.cnf\nc No DSR file path provided, using stdin.\nc Using a STREAMING parsing strategy.\nc Doing FORWARDS proof checking.\nc The CNF formula has 34 clauses and 12 variables.\nc Parsing the CNF took 0.000 secs\nc Detected that the DSR proof is in binary format.\nc Checking proof...\n",
+    "checker.stderr": "Fatal error: Didn't UP refute the empty clause.\n",
+    "scope": "Negative checker control, not a production case."
+  }
+}

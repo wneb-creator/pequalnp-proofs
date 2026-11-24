@@ -1,0 +1,22 @@
+{
+  "status": "PASS_SELF_CONTROLS_AWAITING_INDEPENDENT_REVIEW",
+  "source_sha256": "6bd7f7a2120d7d5446d9609a0551308b224d91d23463354514cefe631803e38b",
+  "support_masks": 2048,
+  "wrong_helper_output_rejections": 24576,
+  "random_prefixes": 1024,
+  "random_gates": 17408,
+  "productive_ANDs": 5896,
+  "no_common_neighbor_ancestor_pairs": 3071,
+  "added_variables": 204,
+  "added_clauses": 3536,
+  "cases": {
+    "meet5": "8be358c55ed2e7c2a04e671cc409c6a9c11df343997b3269b8ebe12d7b476960",
+    "or1meet4": "b7d761f8e02aff800c996d7743f46a746088f965de66242e2d4df400338e83e6",
+    "or2meet3": "cd8f6b2f8cb6b8b70de7798e0e83350aa3bab8bd2025faae2fe7d93808bce759",
+    "meet1or1meet3": "42e6a84e0379fb80e861603b74dbded601336f5f892585119da8d7a92b9d7a87",
+    "meet1or2meet2": "0a85f1d35ccd2c9565bb4ae8174e890e4e771517a10491b8e6fc0636d80b508c",
+    "meet2or1meet2": "4aa7f3bb7192c65e026655a7cabf45be0f333ba7e2b5d7ccaf2425a32a50fc3c",
+    "meet3or2": "bbdd91e118ae138d9c3d37ac865f93f8f9bc2f8011c225d212df7643e9cb8038"
+  },
+  "claim": "Necessary encoding consequence; no production SAT/UNSAT verdict."
+}

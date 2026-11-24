@@ -1,0 +1,13 @@
+{
+  "read_date_utc": "2026-11-24",
+  "source": "https://web.vu.lt/mif/s.jukna/ftp/single1.pdf",
+  "title": "Disproving the Single Level Conjecture",
+  "author": "Stasys Jukna",
+  "observations": [
+    "The paper distinguishes single-level monotone circuits from unrestricted monotone circuits.",
+    "Its K(t,t)-free lower-bound discussion and Lemma3.13 explicitly concern single-level circuits, so this source does not justify a general clean-gate normalization for the present target."
+  ],
+  "scope": "Research orientation only; no theorem from this paper is used as a Lean axiom or as an unproved premise of the target proof.",
+  "quote": "single level circuits",
+  "inference": "An unrestricted 22-gate lower bound for this graph still needs an independent argument; the checked clean-circuit bound does not settle it."
+}

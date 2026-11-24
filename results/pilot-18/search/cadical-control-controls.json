@@ -1,0 +1,13 @@
+{
+  "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+  "controls": {
+    "sat": {
+      "exit": 10,
+      "status": "s SATISFIABLE"
+    },
+    "unsat": {
+      "exit": 20,
+      "status": "s UNSATISFIABLE"
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "verdict": "PASS_MATHEMATICAL_REVIEW_WITH_EXPLICIT_SCOPE",
+  "timestamp_utc": "2026-11-24T02:25:34.836971+00:00",
+  "source_sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+  "audit_script_sha256": "1e7498652d585e60ed3f153257f5a81d1ff5ab91255dd020888989dc3a6e1ef2",
+  "common_outer_AND_leaves": {
+    "meet5": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "meet3or2": [
+      "A",
+      "B",
+      "C"
+    ],
+    "meet2or1meet2": [
+      "A",
+      "B"
+    ],
+    "meet1or1meet3": [
+      "A"
+    ],
+    "meet1or2meet2": [
+      "A"
+    ],
+    "or1meet4": [],
+    "or2meet3": []
+  },
+  "ports": {
+    "meet5": {
+      "A": {
+        "gate": 17,
+        "side": "left"
+      },
+      "B": {
+        "gate": 17,
+        "side": "right"
+      },
+      "C": {
+        "gate": 18,
+        "side": "left"
+      },
+      "D": {
+        "gate": 19,
+        "side": "left"
+      },
+      "E": {
+        "gate": 20,
+        "side": "left"
+      }
+    },
+    "or1meet4": {},
+    "or2meet3": {},
+    "meet1or1meet3": {
+      "A": {
+        "gate": 20,
+        "side": "left"
+      }
+    },
+    "meet1or2meet2": {
+      "A": {
+        "gate": 20,
+        "side": "left"
+      }
+    },
+    "meet2or1meet2": {
+      "A": {
+        "gate": 19,
+        "side": "left"
+      },
+      "B": {
+        "gate": 19,
+        "side": "right"
+      }
+    },
+    "meet3or2": {
+      "A": {
+        "gate": 17,
+        "side": "left"
+      },
+      "B": {
+        "gate": 17,
+        "side": "right"
+      },
+      "C": {
+        "gate": 19,
+        "side": "left"
+      }
+    }
+  },
+  "proper_comparable_support_pairs_checked_on_all2048_inputs": 175099,
+  "formula_controls_checked_on_all2048_inputs": 384,
+  "controls_already_equal_to_target": 192,
+  "dominated_factors_replaced": 379,
+  "full_support_leaves_exempt": true,
+  "constant_TRUE_and_OR_all_inputs_exempt_controls": true,
+  "encoding_implemented": false,
+  "solver_started": false,
+  "CNFs_modified": false,
+  "important_scope": "Only root-to-leaf paths containing no OR node qualify. Other commutative leaf groups do not.",
+  "limitations": [
+    "Finite controls are truth-function controls, not realizable 17-prefix or 21-gate witnesses.",
+    "No new Lean proof or CNF gadget audit; mathematical normalization only.",
+    "Main independent review required before any future implementation."
+  ],
+  "Sub-agents": "none",
+  "review_markdown_sha256": "15ea785b7dcdd48c914ee701b074b4568c13e851f5956ee812dc4bfe1754c76c",
+  "TIMING": {
+    "total_minutes": 127.1,
+    "subagents": 0
+  }
+}

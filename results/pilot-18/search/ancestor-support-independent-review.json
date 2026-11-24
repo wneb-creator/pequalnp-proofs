@@ -1,0 +1,105 @@
+{
+  "verdict": "PASS",
+  "source": "/tmp/oec/pequalnp-pilot-18/add_ancestor_support.py",
+  "source_sha256": "6bd7f7a2120d7d5446d9609a0551308b224d91d23463354514cefe631803e38b",
+  "scope": "Independent mathematics, helper projection, parent semantic guards, and all seven generated CNF deltas.",
+  "mathematics": "Along an ancestry path from support S with no common neighbor, each OR retains S. The first AND would have a nonempty other-operand support by productivity; cleanliness makes each of its vertices adjacent to every element of S, contradiction. Hence every prefix descendant is an OR and retains S.",
+  "assumptions": [
+    "All 17 prefix ANDs are clean for the stated graph",
+    "Every prefix AND operand has nonempty singleton support",
+    "Ancestry flags are exact transitive dependency flags; suffix gates are excluded"
+  ],
+  "needs_C4_free": false,
+  "allows_repeated_operands": true,
+  "allows_free_constants": true,
+  "needs_liveness": false,
+  "source_self_controls_reviewed": true,
+  "self_controls_source_hash_matches": true,
+  "exhaustive_support_masks": 2048,
+  "forced_helper_bits": 24576,
+  "support_superset_pairs": 177147,
+  "guard_truth_table_assignments": 25024,
+  "added_variables": 204,
+  "added_clauses": 3536,
+  "all_parent_clauses_parsed": 785946,
+  "case_audits": {
+    "meet5": {
+      "sha256": "8be358c55ed2e7c2a04e671cc409c6a9c11df343997b3269b8ebe12d7b476960",
+      "parent_sha256": "03ab94c59d6fa7b3e6df9ce21168042073e4021db6c0c4b00167424574704fb6",
+      "variables": 11968,
+      "clauses": 116312,
+      "old_body_preserved_exactly": true,
+      "delta_matches_independent_reconstruction": true,
+      "parent_semantic_clauses_verified": 5695
+    },
+    "or1meet4": {
+      "sha256": "b7d761f8e02aff800c996d7743f46a746088f965de66242e2d4df400338e83e6",
+      "parent_sha256": "b10bf17a564d314b434a273d146a501de70b0b7b0f76e9c9df38d5fd35e1c1c9",
+      "variables": 11968,
+      "clauses": 115877,
+      "old_body_preserved_exactly": true,
+      "delta_matches_independent_reconstruction": true,
+      "parent_semantic_clauses_verified": 5695
+    },
+    "or2meet3": {
+      "sha256": "cd8f6b2f8cb6b8b70de7798e0e83350aa3bab8bd2025faae2fe7d93808bce759",
+      "parent_sha256": "ff276b2a4c41f08229a7fe6c159ded09361bb1c22456b8a7c88c8a03d4d8c42a",
+      "variables": 11968,
+      "clauses": 115875,
+      "old_body_preserved_exactly": true,
+      "delta_matches_independent_reconstruction": true,
+      "parent_semantic_clauses_verified": 5695
+    },
+    "meet1or1meet3": {
+      "sha256": "42e6a84e0379fb80e861603b74dbded601336f5f892585119da8d7a92b9d7a87",
+      "parent_sha256": "8b3d3993133ee35abb4c1b3616b8cca0fed564e4bef424c1f5e3b460e1624124",
+      "variables": 11968,
+      "clauses": 115442,
+      "old_body_preserved_exactly": true,
+      "delta_matches_independent_reconstruction": true,
+      "parent_semantic_clauses_verified": 5695
+    },
+    "meet1or2meet2": {
+      "sha256": "0a85f1d35ccd2c9565bb4ae8174e890e4e771517a10491b8e6fc0636d80b508c",
+      "parent_sha256": "c001aeac40cf0716bd4803462f5ed00494874cab941e7db8774c80a3a844e7dd",
+      "variables": 11968,
+      "clauses": 115876,
+      "old_body_preserved_exactly": true,
+      "delta_matches_independent_reconstruction": true,
+      "parent_semantic_clauses_verified": 5695
+    },
+    "meet2or1meet2": {
+      "sha256": "4aa7f3bb7192c65e026655a7cabf45be0f333ba7e2b5d7ccaf2425a32a50fc3c",
+      "parent_sha256": "1aeaa1986ddec4a4d12b95eecf1a6e2d66d1108e767b9b6a255df172d19f859f",
+      "variables": 11968,
+      "clauses": 115441,
+      "old_body_preserved_exactly": true,
+      "delta_matches_independent_reconstruction": true,
+      "parent_semantic_clauses_verified": 5695
+    },
+    "meet3or2": {
+      "sha256": "bbdd91e118ae138d9c3d37ac865f93f8f9bc2f8011c225d212df7643e9cb8038",
+      "parent_sha256": "377320e652fee718147563545de2924fc56fd40c64c59948898e5779175970bd",
+      "variables": 11968,
+      "clauses": 115875,
+      "old_body_preserved_exactly": true,
+      "delta_matches_independent_reconstruction": true,
+      "parent_semantic_clauses_verified": 5695
+    }
+  },
+  "issues": [],
+  "repository_modified": false,
+  "source_modified": false,
+  "CNF_files_written": false,
+  "solver_started": false,
+  "lease_calls": false,
+  "claim": "Necessary consequence only; no SAT/UNSAT, exhaustion, acceptance or runtime-improvement claim.",
+  "seconds": 5.143883270000515,
+  "subagents": "none",
+  "review_script": "/tmp/oec/pequalnp-pilot-18/math-analysis/review_ancestor_support.py",
+  "review_script_sha256": "ae2be78ba1b04a6280474fa1fd9bb05e80dfca4a01fa71c7a1548deced8fdcd9",
+  "stdout_file": "/tmp/oec/pequalnp-pilot-18/math-analysis/ancestor-support-review.stdout.txt",
+  "stderr_file": "/tmp/oec/pequalnp-pilot-18/math-analysis/ancestor-support-review.stderr.txt",
+  "stderr_bytes": 0,
+  "combined_antichain_variant_review": "Not part of this review; main and Jason handle that composition."
+}

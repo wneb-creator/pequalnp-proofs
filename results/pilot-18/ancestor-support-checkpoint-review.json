@@ -1,0 +1,282 @@
+{
+  "verdict": "PASS",
+  "scope": "Authorized fork-branch partial Lean/research checkpoint only; not a proof PR or posted-gap acceptance.",
+  "comparison_base": "65ceeeed3ec7d11b171bf30eca6b66b344f042e9",
+  "HEAD": "65ceeeed3ec7d11b171bf30eca6b66b344f042e9",
+  "files": [
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_1342.lean",
+      "status": " M",
+      "sha256": "f4bd1991b5602c241151fac9e8a2279df1a4ae9b6f4b6aa44782a27c0f4d6ea5",
+      "bytes": 89387,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/ancestor-support-axioms.stderr",
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/ancestor-support-axioms.stdout",
+      "status": "??",
+      "sha256": "7a30c2a19a390958f283fc46c8a06ead71a613269576cba6e018ccc77044baa0",
+      "bytes": 126,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/ancestor-support-lean-independent-review.json",
+      "status": "??",
+      "sha256": "889bf0501c5a878755514ba6b5281e5470868888d451b9814b8047a29d6c3f1e",
+      "bytes": 2704,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/ancestor-support-named-build.stderr",
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/ancestor-support-named-build.stdout",
+      "status": "??",
+      "sha256": "0c3c0b368580a411eca367599ee993b4bb8cb8d94640230310f3674ab93b75d6",
+      "bytes": 53744,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/README.md",
+      "status": " M",
+      "sha256": "eacfa2f7c0ecbd2cd536e1e45f2425b5e21ec1a9524bd668878be02e703f2632",
+      "bytes": 6902,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/add_ancestor_support.py",
+      "status": "??",
+      "sha256": "6bd7f7a2120d7d5446d9609a0551308b224d91d23463354514cefe631803e38b",
+      "bytes": 4249,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/add_common_and_antichain.py",
+      "status": "??",
+      "sha256": "9fafad3a37af662bdec2df9ddf1c66b25c248d71d44ab696a860780728312a94",
+      "bytes": 6366,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-support-independent-review.json",
+      "status": "??",
+      "sha256": "338497442cdec954780fa36f6a7c714922d12c4f09b795e27ea451df707e02fb",
+      "bytes": 4917,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/ancestor-support-self-controls.json",
+      "status": "??",
+      "sha256": "d1cf8aa9a6f9eb352494ef7d3294eb8dbf39baf0ac23f9a3cf52eed82b68d07b",
+      "bytes": 1091,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/build_original_strong.py",
+      "status": "??",
+      "sha256": "9e5ae318f33ff8fea98dd8c4a201c82674023102340fdbe86bd69083419e33f1",
+      "bytes": 3554,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/cadical-control-controls.json",
+      "status": "??",
+      "sha256": "b22301d2740f31fae50f8c30291e625117e65afbca1eb808f788c79ddcf4a5a9",
+      "bytes": 254,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/cadical-control-sat.stderr",
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/cadical-control-sat.stdout",
+      "status": "??",
+      "sha256": "97fe41a2fbd461754e084a118eea30e35a4459621d996d5dc0c13a5c7371c463",
+      "bytes": 3014,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/cadical-control-unsat.stderr",
+      "status": "??",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/cadical-control-unsat.stdout",
+      "status": "??",
+      "sha256": "0802ffc0694ba6daab9b1b6877fc562599056e3fa5023125d00f2a58cfa85322",
+      "bytes": 2885,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/cadical-streaming-full-control-logs.json",
+      "status": "??",
+      "sha256": "df1e8efafb614a9f24dc3427cda08b6555852d6705829e01a6892834de27ecfe",
+      "bytes": 38615,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/cadical-streaming-review.json",
+      "status": "??",
+      "sha256": "93156a8872793bad1c6611f696058229ccf7e69d774a2733a147025442fc08ee",
+      "bytes": 34700,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/cadical-streaming-review.md",
+      "status": "??",
+      "sha256": "64f1bef3175920b3d3ca52a4b716e58be275031979bfc705c393385a6048b05b",
+      "bytes": 3705,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/cadical-version.stdout",
+      "status": "??",
+      "sha256": "9f6271951edca02e0c8a669a79930626717b77f0443ad8a327b93a52e4194829",
+      "bytes": 6,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/combined-cuts-reproducibility.json",
+      "status": "??",
+      "sha256": "51fc743e9f15eba455933e312ff0dda054c1bdf18d6e423af3c9c93b433d5053",
+      "bytes": 1767,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/common-and-antichain-review.json",
+      "status": "??",
+      "sha256": "5858a4bdb245fee93867caa913a5a08e0e9d4eaa7bad1031f831bac1bf097091",
+      "bytes": 2575,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/common-and-antichain-review.md",
+      "status": "??",
+      "sha256": "15ea785b7dcdd48c914ee701b074b4568c13e851f5956ee812dc4bfe1754c76c",
+      "bytes": 4566,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/common-antichain-encoding-review.json",
+      "status": "??",
+      "sha256": "587a8effea7f7b8a3506824ccced8b640acfb03c3638f144777595af8ed58d68",
+      "bytes": 2438,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/common-antichain-independent-review.json",
+      "status": "??",
+      "sha256": "f4b01cae698f726bf3d9a34da5666b21b9779b2755cca994d017f64b88a4ba2b",
+      "bytes": 2051,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/original-dag-independent-review.json",
+      "status": "??",
+      "sha256": "eb0acb5f34c44253e0d1605e39b04461b82911cb84898c2cbbaf9f39b0bc7290",
+      "bytes": 4772,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/research-c4-scope.json",
+      "status": "??",
+      "sha256": "bc001b1437cc08d22a233b93c810ae43fa2f871459bb3dbb9689c4c2aa84563b",
+      "bytes": 827,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/run_cadical_combined_candidates.py",
+      "status": "??",
+      "sha256": "94a52a05c0d6f7cd6eff111aa02257438d268a5b77c82e3f5b8451a673ef7eb7",
+      "bytes": 3316,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/test_ancestor_support.py",
+      "status": "??",
+      "sha256": "b176498dd67f8d02e3adb3ca8d5d35d5801af7467d2c5003ecf0cb8970bc7a4f",
+      "bytes": 3941,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/search/test_cadical_streaming.py",
+      "status": "??",
+      "sha256": "ceb973c4337d37a6a526e87ef17b381e9483463489823c4874782351f635cfe1",
+      "bytes": 6924,
+      "mode": "0o600"
+    },
+    {
+      "path": "results/pilot-18/validation.txt",
+      "status": " M",
+      "sha256": "6251b18e3d1084e7561f1082fee408cb1bf873e8972878124f6b6f669bc64af4",
+      "bytes": 4104,
+      "mode": "0o600"
+    }
+  ],
+  "file_count": 32,
+  "lean_sha256": "f4bd1991b5602c241151fac9e8a2279df1a4ae9b6f4b6aa44782a27c0f4d6ea5",
+  "lean_lines": 1859,
+  "lean_delta": "Exactly 39 inserted lines containing the independently reviewed ancestry lemma; all earlier lines unchanged.",
+  "lean_format_scan": "PASS",
+  "named_build": "PASS: complete copied logs, 80s, 5109 jobs, empty stderr",
+  "successful_axiom_log": "Exact copy of scratch axioms2.stdout/stderr; only propext, Classical.choice, Quot.sound",
+  "failed_wrong_cwd_axiom_log_packaged": false,
+  "posted_gap_checker": "NOT RUN; accurately disclosed",
+  "packaged_source_and_review_copies_verified": [
+    "add_ancestor_support.py",
+    "test_ancestor_support.py",
+    "build_original_strong.py",
+    "add_common_and_antichain.py",
+    "test_cadical_streaming.py",
+    "run_cadical_combined_candidates.py",
+    "ancestor-support-independent-review.json",
+    "ancestor-support-self-controls.json",
+    "original-dag-independent-review.json",
+    "common-antichain-independent-review.json",
+    "common-antichain-encoding-review.json",
+    "common-and-antichain-review.json",
+    "common-and-antichain-review.md",
+    "cadical-streaming-review.json",
+    "cadical-streaming-review.md",
+    "research-c4-scope.json"
+  ],
+  "combined_CNF_hashes_verified": 10,
+  "streaming_controls": {
+    "small-sat": "SAT_UNVALIDATED",
+    "clique4-colors3": "VERIFIED_UNSAT",
+    "pigeons7-holes6": "VERIFIED_UNSAT",
+    "pigeons6-holes6": "SAT_UNVALIDATED",
+    "direct-unmodified-runner": "VERIFIED_UNSAT"
+  },
+  "streaming_log_hashes_verified": 20,
+  "streaming_manifest_artifacts_verified": 64,
+  "SAT_control_clauses_independently_checked": 98,
+  "invalid_proof_negative_control": "Rejected; exit1, no verified-UNSAT verdict",
+  "candidate_controller_review": "PASS: full exclusive logs, fixed solver hash, input hash checks, memory/time limits, child process group cleanup. SAT is only a candidate requiring validation; no unchecked UNSAT is accepted.",
+  "candidate_controller_portability": "Job-local operational artifact: hardcoded scratch layout and an external renew.py helper. It was not executed during review.",
+  "documentation_scope": "Latest validation and README explicitly describe unfinished search, mathematical normalizations, tiny test controls and no production verdict. Earlier README paragraphs retain chronological search snapshots.",
+  "external_research_note": "Orientation-only paper note has no Lean or search-soundness premise; external paper content was not revalidated in this packaging review.",
+  "credential_or_lease_material_scan": "No credential/private-key/token/lease-query material detected; matching values are never emitted by audit code.",
+  "issues": [],
+  "repository_modified": false,
+  "solver_started": false,
+  "lease_calls": false,
+  "seconds": 0.3666985060008301,
+  "subagents": "none"
+}

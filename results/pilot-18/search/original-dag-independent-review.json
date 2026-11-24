@@ -1,0 +1,99 @@
+{
+  "verdict": "PASS",
+  "scope": "Original-DAG shard completeness, three-AND consequence, pinned builder, and both fresh CNF artifacts.",
+  "parent": "/tmp/oec/pequalnp-pilot-18/tail7-ancestorreverse/prefix-distinct.cnf",
+  "parent_sha256": "811937a8a658d01fac36418e9fb3087218820a9f9dc571ef09246f936df8168e",
+  "parent_metadata_sha256": "3ea4b2b3f1e20386d8540970404c9599d6a01976db97a3df0576fe25a48ef502",
+  "parent_generator_sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+  "builder_source": "/tmp/oec/pequalnp-pilot-18/build_original_strong.py",
+  "builder_source_sha256": "9e5ae318f33ff8fea98dd8c4a201c82674023102340fdbe86bd69083419e33f1",
+  "CN_helper_sha256": "6bd7f7a2120d7d5446d9609a0551308b224d91d23463354514cefe631803e38b",
+  "original_junk17_unit_preserved": true,
+  "original_second_junk_clause_preserved": true,
+  "all_twenty_liveness_clauses_preserved": true,
+  "output_last_unit_preserved": true,
+  "no_fixed_tail_constraints_in_parent": true,
+  "suffix_port_widths": [
+    30,
+    31,
+    32,
+    33
+  ],
+  "fixed_tail_transformation_occurs_after_parent_save": true,
+  "historical_normalization_functions_AST_identical": [
+    "add_prefix_dominance",
+    "add_prefix_copy_chain",
+    "add_prefix_strict_or",
+    "prefix_ancestor_flags",
+    "add_prefix_constant_canonical"
+  ],
+  "three_AND_proof": "Choose the latest junk AND and a maximal independent input on which it is true. Liveness supplies a path to the false output. If that path had only OR gates the output would be true. A later AND therefore exists and is clean by maximality of the junk index; together with the two junk ANDs it gives three distinct suffix AND gates.",
+  "prefix_normalization_scope": "No fixed-tail assumption: productivity/dominance preserve independent-input values; strict OR/duplicate/alias removal preserve boundary values; full-support substitution preserves all nonempty inputs. Every surviving suffix operation and MIS truth value stays unchanged. Prune only prefix nodes, stabilize the core, pad a final OR-copy chain to 17, and renumber the retained four suffix gates.",
+  "universal_prefix_bounds_scope": "Cover, partial-edge and ancestor costs constrain each clean prefix cone independently of suffix shape; full support remains exempt for free TRUE. Reverse totalizer clauses preserve existential projection.",
+  "all_live_prerequisite": "Previously reviewed output-last/all-live normalization using the clean lower bound 22. Constants can be propagated away in a nonconstant clean counterexample without increasing gate count.",
+  "three_AND_clauses": [
+    [
+      2807,
+      3072
+    ],
+    [
+      2807,
+      3341
+    ],
+    [
+      2807,
+      3614
+    ],
+    [
+      3072,
+      3341
+    ],
+    [
+      3072,
+      3614
+    ],
+    [
+      3341,
+      3614
+    ]
+  ],
+  "operation_assignments_checked": 16,
+  "CN_added_variables": 204,
+  "CN_added_clauses": 3536,
+  "total_added_clauses": 3542,
+  "artifacts": {
+    "original-dag-proposed": {
+      "cnf_sha256": "38d93ec59a86378a8434b232d19b2b53e8cbc3c715e81432ee94db59ca6ace08",
+      "metadata_sha256": "91278a338c1a2d511f2b577e4e7866b8a64bcd192ef65ae62bbcdaab894a5dcd",
+      "variables": 11968,
+      "clauses": 114566,
+      "exact_parent_plus_reviewed_delta": true
+    },
+    "original-dag-strong": {
+      "cnf_sha256": "38d93ec59a86378a8434b232d19b2b53e8cbc3c715e81432ee94db59ca6ace08",
+      "metadata_sha256": "5a430e86affc12584f964af39920201684505bafca4d34c1d30e6a10de3b9f51",
+      "variables": 11968,
+      "clauses": 114566,
+      "exact_parent_plus_reviewed_delta": true
+    }
+  },
+  "issues": [],
+  "conclusion": "A verified UNSAT of this single original-DAG strengthened parent excludes the assigned firstjunk17/two-junk shard under the reviewed normalizations; seven-template exhaustion is unnecessary.",
+  "limitations": [
+    "No solver was started and no SAT/UNSAT verdict is claimed.",
+    "This audit does not itself formalize the normalizations or translate a solver certificate into the posted Lean theorem.",
+    "The builder checks parent CNF and generator provenance; this report additionally binds the reviewed parent and output metadata files by SHA256."
+  ],
+  "repository_modified": false,
+  "source_modified": false,
+  "CNF_files_written": false,
+  "lease_calls": false,
+  "solver_started": false,
+  "seconds": 1.2475428660000034,
+  "subagents": "none",
+  "audit_script": "/tmp/oec/pequalnp-pilot-18/math-analysis/review_original_strong.py",
+  "audit_script_sha256": "2961efc5170da35abb7dc78ef04f32fac8638e660c6dbd410fda31a309e929af",
+  "stdout_file": "/tmp/oec/pequalnp-pilot-18/math-analysis/original-dag-review.stdout.txt",
+  "stderr_file": "/tmp/oec/pequalnp-pilot-18/math-analysis/original-dag-review.stderr.txt",
+  "stderr_bytes": 0
+}

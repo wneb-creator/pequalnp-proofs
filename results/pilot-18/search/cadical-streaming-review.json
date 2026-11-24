@@ -1,0 +1,853 @@
+{
+  "verdict": "PASS_UNCHANGED_RUNNER_COMPATIBLE",
+  "runner_sha256": "535ff6e32a68a31eefa1545f031483d0e9b73acd79066d1bbb2a2f42c86685bb",
+  "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+  "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+  "solver_args": [
+    "--unsat"
+  ],
+  "hardcoded_no_color_accepted": true,
+  "controls": {
+    "small-sat": {
+      "runner_argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/pequalnp-proofs/results/pilot-18/search/run_checked_kissat.py",
+        "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat.cnf",
+        "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat",
+        "--solver",
+        "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/cadical",
+        "--checker",
+        "/tmp/oec/pequalnp-pilot-18/solver/dsr-trim/bin/dsr-trim",
+        "--checker-sha256",
+        "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+        "--cnf-sha256",
+        "c723087c6c5f7c739aa6f938795f888f96ddff55f6ff620953f14fb726660296",
+        "--solver-arg=--unsat",
+        "--max-seconds",
+        "30",
+        "--solver-memory-mb",
+        "512",
+        "--checker-memory-mb",
+        "512",
+        "--min-free-mb",
+        "64"
+      ],
+      "runner_exit": 10,
+      "wall_seconds": 0.2267413099998521,
+      "cnf_sha256": "c723087c6c5f7c739aa6f938795f888f96ddff55f6ff620953f14fb726660296",
+      "variables": 2,
+      "clauses": 2,
+      "runner_result": {
+        "accepted_CNF_UNSAT": false,
+        "checker_exit": 0,
+        "checker_may_stop_after_verified_empty_clause": false,
+        "checker_pid": 16947,
+        "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+        "checker_verdicts": [
+          "s VALID"
+        ],
+        "children_maxrss_kib": 9072,
+        "children_system_cpu_seconds": 0.002519,
+        "children_user_cpu_seconds": 0.003859,
+        "cnf_sha256": "c723087c6c5f7c739aa6f938795f888f96ddff55f6ff620953f14fb726660296",
+        "elapsed_seconds": 0.134246,
+        "error_detail": null,
+        "limits": {
+          "checker_address_space_mb": 512,
+          "max_proof_zero_bytes": 100000000,
+          "max_seconds": 30.0,
+          "min_free_mb": 64,
+          "solver_address_space_mb": 512
+        },
+        "logs": {
+          "checker.stderr.txt": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "checker.stdout.txt": {
+            "bytes": 436,
+            "sha256": "e12f3a370f15c33c9c7e31f4c53a830e0da752b4c959396ff8eef8f63c190a2a"
+          },
+          "solver.stderr.txt": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "solver.stdout.txt": {
+            "bytes": 3473,
+            "sha256": "31743189e70fd00cb88a40e7b9c8d5e9ff1451590ebdb68afb7fdf60734a1ac7"
+          }
+        },
+        "max_pending_bytes": 0,
+        "proof_bytes_forwarded_to_checker_pipe": 0,
+        "proof_bytes_not_forwarded": 0,
+        "proof_bytes_read": 0,
+        "proof_retained": false,
+        "proof_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "proof_stream_complete": true,
+        "reason": null,
+        "relay_buffer_limit_bytes": 1048576,
+        "runner_cpu_seconds": 0.056346883,
+        "sampled_peak_rss_kib": {
+          "checker": 816,
+          "solver": 20
+        },
+        "scope": "Online CNF certificate checking only; no retained replayable certificate or Lean acceptance.",
+        "solver_exit": 10,
+        "solver_options": [
+          "--unsat"
+        ],
+        "solver_pid": 16948,
+        "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+        "solver_verdicts": [
+          "s SATISFIABLE"
+        ],
+        "status": "SAT_UNVALIDATED",
+        "zero_bytes_counted": 0
+      },
+      "result_sha256": "5b3727c75dd9a829bf000a39a391cc417ee962a76906cc8bc6fd49302629dc0c"
+    },
+    "clique4-colors3": {
+      "runner_argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/pequalnp-proofs/results/pilot-18/search/run_checked_kissat.py",
+        "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3.cnf",
+        "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3",
+        "--solver",
+        "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/cadical",
+        "--checker",
+        "/tmp/oec/pequalnp-pilot-18/solver/dsr-trim/bin/dsr-trim",
+        "--checker-sha256",
+        "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+        "--cnf-sha256",
+        "d6c1e87ef8bd3ecabeaf431a002d9357093a6699eaec69b23e2e23efecff76d2",
+        "--solver-arg=--unsat",
+        "--max-seconds",
+        "30",
+        "--solver-memory-mb",
+        "512",
+        "--checker-memory-mb",
+        "512",
+        "--min-free-mb",
+        "64"
+      ],
+      "runner_exit": 0,
+      "wall_seconds": 0.1145504379983322,
+      "cnf_sha256": "d6c1e87ef8bd3ecabeaf431a002d9357093a6699eaec69b23e2e23efecff76d2",
+      "variables": 12,
+      "clauses": 34,
+      "runner_result": {
+        "accepted_CNF_UNSAT": true,
+        "checker_exit": 0,
+        "checker_may_stop_after_verified_empty_clause": true,
+        "checker_pid": 16950,
+        "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+        "checker_verdicts": [
+          "s VERIFIED UNSAT"
+        ],
+        "children_maxrss_kib": 9072,
+        "children_system_cpu_seconds": 0.0,
+        "children_user_cpu_seconds": 0.0060409999999999995,
+        "cnf_sha256": "d6c1e87ef8bd3ecabeaf431a002d9357093a6699eaec69b23e2e23efecff76d2",
+        "elapsed_seconds": 0.010598,
+        "error_detail": null,
+        "limits": {
+          "checker_address_space_mb": 512,
+          "max_proof_zero_bytes": 100000000,
+          "max_seconds": 30.0,
+          "min_free_mb": 64,
+          "solver_address_space_mb": 512
+        },
+        "logs": {
+          "checker.stderr.txt": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "checker.stdout.txt": {
+            "bytes": 462,
+            "sha256": "a9dd2fa4bd1c3c6d533a30fd4d5cf4a63735298425bdd188e4259f16ffc3f90b"
+          },
+          "solver.stderr.txt": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "solver.stdout.txt": {
+            "bytes": 4032,
+            "sha256": "079d7b0d2ebad5d524c537d64d6e3147348566f2730cec39bb1e7dfefa27e802"
+          }
+        },
+        "max_pending_bytes": 50,
+        "proof_bytes_forwarded_to_checker_pipe": 50,
+        "proof_bytes_not_forwarded": 0,
+        "proof_bytes_read": 50,
+        "proof_retained": false,
+        "proof_sha256": "9f3f852cfea85e72b8fb32ad3e8b8f95db87f4f926c4b9661f2c6d158b2ed923",
+        "proof_stream_complete": true,
+        "reason": null,
+        "relay_buffer_limit_bytes": 1048576,
+        "runner_cpu_seconds": 0.046019116,
+        "sampled_peak_rss_kib": {
+          "checker": 824,
+          "solver": 20
+        },
+        "scope": "Online CNF certificate checking only; no retained replayable certificate or Lean acceptance.",
+        "solver_exit": 20,
+        "solver_options": [
+          "--unsat"
+        ],
+        "solver_pid": 16951,
+        "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+        "solver_verdicts": [
+          "s UNSATISFIABLE"
+        ],
+        "status": "VERIFIED_UNSAT",
+        "zero_bytes_counted": 16
+      },
+      "result_sha256": "3a8b233920820dc7efc05feac97adcba19233c0dffb79f53244d6cd02a754ada"
+    },
+    "pigeons7-holes6": {
+      "runner_argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/pequalnp-proofs/results/pilot-18/search/run_checked_kissat.py",
+        "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6.cnf",
+        "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6",
+        "--solver",
+        "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/cadical",
+        "--checker",
+        "/tmp/oec/pequalnp-pilot-18/solver/dsr-trim/bin/dsr-trim",
+        "--checker-sha256",
+        "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+        "--cnf-sha256",
+        "025c015d04a706c3f6c2156a9513958ba8ef62a6fbf613109d6efd0c858fbe02",
+        "--solver-arg=--unsat",
+        "--max-seconds",
+        "30",
+        "--solver-memory-mb",
+        "512",
+        "--checker-memory-mb",
+        "512",
+        "--min-free-mb",
+        "64"
+      ],
+      "runner_exit": 0,
+      "wall_seconds": 0.11676148100013961,
+      "cnf_sha256": "025c015d04a706c3f6c2156a9513958ba8ef62a6fbf613109d6efd0c858fbe02",
+      "variables": 42,
+      "clauses": 133,
+      "runner_result": {
+        "accepted_CNF_UNSAT": true,
+        "checker_exit": 0,
+        "checker_may_stop_after_verified_empty_clause": true,
+        "checker_pid": 16953,
+        "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+        "checker_verdicts": [
+          "s VERIFIED UNSAT"
+        ],
+        "children_maxrss_kib": 9072,
+        "children_system_cpu_seconds": 0.006882999999999999,
+        "children_user_cpu_seconds": 0.004504,
+        "cnf_sha256": "025c015d04a706c3f6c2156a9513958ba8ef62a6fbf613109d6efd0c858fbe02",
+        "elapsed_seconds": 0.065252,
+        "error_detail": null,
+        "limits": {
+          "checker_address_space_mb": 512,
+          "max_proof_zero_bytes": 100000000,
+          "max_seconds": 30.0,
+          "min_free_mb": 64,
+          "solver_address_space_mb": 512
+        },
+        "logs": {
+          "checker.stderr.txt": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "checker.stdout.txt": {
+            "bytes": 463,
+            "sha256": "013466738884660c18a8ee624fb0e785e860baa07faa5eddc23326c7cfee3ac3"
+          },
+          "solver.stderr.txt": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "solver.stdout.txt": {
+            "bytes": 4902,
+            "sha256": "fe98d7cc3f0241131f6b6a36b109a56e03e0604ec85ef6ea31d2ec7d187aa581"
+          }
+        },
+        "max_pending_bytes": 8192,
+        "proof_bytes_forwarded_to_checker_pipe": 14870,
+        "proof_bytes_not_forwarded": 0,
+        "proof_bytes_read": 14870,
+        "proof_retained": false,
+        "proof_sha256": "4fbf745955ef2efe29c318bc7d5d2386661ce5bf85a0ff35982a9de0819095b1",
+        "proof_stream_complete": true,
+        "reason": null,
+        "relay_buffer_limit_bytes": 1048576,
+        "runner_cpu_seconds": 0.034874413,
+        "sampled_peak_rss_kib": {
+          "checker": 828,
+          "solver": 24
+        },
+        "scope": "Online CNF certificate checking only; no retained replayable certificate or Lean acceptance.",
+        "solver_exit": 20,
+        "solver_options": [
+          "--unsat"
+        ],
+        "solver_pid": 16954,
+        "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+        "solver_verdicts": [
+          "s UNSATISFIABLE"
+        ],
+        "status": "VERIFIED_UNSAT",
+        "zero_bytes_counted": 1959
+      },
+      "result_sha256": "db84417366ef0e2739e33adcc6ab697f29b6c36bdf54cf8d0da68901c75c423a"
+    },
+    "pigeons6-holes6": {
+      "runner_argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/pequalnp-proofs/results/pilot-18/search/run_checked_kissat.py",
+        "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6.cnf",
+        "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6",
+        "--solver",
+        "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/cadical",
+        "--checker",
+        "/tmp/oec/pequalnp-pilot-18/solver/dsr-trim/bin/dsr-trim",
+        "--checker-sha256",
+        "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+        "--cnf-sha256",
+        "1fc24b354b2f02e48b16c96dba4b5d4c2bbb34072ecbe8c8e510421660a58d09",
+        "--solver-arg=--unsat",
+        "--max-seconds",
+        "30",
+        "--solver-memory-mb",
+        "512",
+        "--checker-memory-mb",
+        "512",
+        "--min-free-mb",
+        "64"
+      ],
+      "runner_exit": 10,
+      "wall_seconds": 0.17286189200058288,
+      "cnf_sha256": "1fc24b354b2f02e48b16c96dba4b5d4c2bbb34072ecbe8c8e510421660a58d09",
+      "variables": 36,
+      "clauses": 96,
+      "runner_result": {
+        "accepted_CNF_UNSAT": false,
+        "checker_exit": 0,
+        "checker_may_stop_after_verified_empty_clause": false,
+        "checker_pid": 16956,
+        "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+        "checker_verdicts": [
+          "s VALID"
+        ],
+        "children_maxrss_kib": 9072,
+        "children_system_cpu_seconds": 0.006728,
+        "children_user_cpu_seconds": 0.0016569999999999998,
+        "cnf_sha256": "1fc24b354b2f02e48b16c96dba4b5d4c2bbb34072ecbe8c8e510421660a58d09",
+        "elapsed_seconds": 0.10839,
+        "error_detail": null,
+        "limits": {
+          "checker_address_space_mb": 512,
+          "max_proof_zero_bytes": 100000000,
+          "max_seconds": 30.0,
+          "min_free_mb": 64,
+          "solver_address_space_mb": 512
+        },
+        "logs": {
+          "checker.stderr.txt": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "checker.stdout.txt": {
+            "bytes": 444,
+            "sha256": "591f3be6ff4de630be6a3220b08bb86dcafe9f4cfd4267d668ec0f92fdc90eae"
+          },
+          "solver.stderr.txt": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "solver.stdout.txt": {
+            "bytes": 3633,
+            "sha256": "f156452fdbb59b5f2580719d13cf6a1f499625dbe7a508075afb926cab67edae"
+          }
+        },
+        "max_pending_bytes": 0,
+        "proof_bytes_forwarded_to_checker_pipe": 0,
+        "proof_bytes_not_forwarded": 0,
+        "proof_bytes_read": 0,
+        "proof_retained": false,
+        "proof_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "proof_stream_complete": true,
+        "reason": null,
+        "relay_buffer_limit_bytes": 1048576,
+        "runner_cpu_seconds": 0.036622974,
+        "sampled_peak_rss_kib": {
+          "checker": 828,
+          "solver": 20
+        },
+        "scope": "Online CNF certificate checking only; no retained replayable certificate or Lean acceptance.",
+        "solver_exit": 10,
+        "solver_options": [
+          "--unsat"
+        ],
+        "solver_pid": 16957,
+        "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+        "solver_verdicts": [
+          "s SATISFIABLE"
+        ],
+        "status": "SAT_UNVALIDATED",
+        "zero_bytes_counted": 0
+      },
+      "result_sha256": "e8f889295b72f7d839e14e4e88962ae262f0c3a756397848f6ac0292f9808f66"
+    }
+  },
+  "direct_control_proof": {
+    "sha256": "9f3f852cfea85e72b8fb32ad3e8b8f95db87f4f926c4b9661f2c6d158b2ed923",
+    "bytes": 50,
+    "matches_stream_hash": true
+  },
+  "direct_checker_positive_negative_controls": {
+    "valid": {
+      "exit": 0,
+      "verdicts": [
+        "s VERIFIED UNSAT"
+      ],
+      "proof_sha256": "9f3f852cfea85e72b8fb32ad3e8b8f95db87f4f926c4b9661f2c6d158b2ed923",
+      "proof_bytes": 50
+    },
+    "invalid-empty-claim": {
+      "exit": 1,
+      "verdicts": [],
+      "proof_sha256": "ffe9aaeaa2a2d5048174df0b80599ef0197ec024c4b051bc9860cff58ef7f9f3",
+      "proof_bytes": 2
+    }
+  },
+  "no_runner_or_checker_modification": true,
+  "no_real_search_or_lease_actions": true,
+  "tiny_unsat_direct_unmodified_control": {
+    "accepted_CNF_UNSAT": true,
+    "checker_exit": 0,
+    "checker_may_stop_after_verified_empty_clause": true,
+    "checker_pid": 16889,
+    "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+    "checker_verdicts": [
+      "s VERIFIED UNSAT"
+    ],
+    "children_maxrss_kib": 9064,
+    "children_system_cpu_seconds": 0.0,
+    "children_user_cpu_seconds": 0.006756,
+    "cnf_sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8",
+    "elapsed_seconds": 0.072782,
+    "error_detail": null,
+    "limits": {
+      "checker_address_space_mb": 256,
+      "max_proof_zero_bytes": 100000000,
+      "max_seconds": 10.0,
+      "min_free_mb": 64,
+      "solver_address_space_mb": 256
+    },
+    "logs": {
+      "checker.stderr.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "checker.stdout.txt": {
+        "bytes": 469,
+        "sha256": "0ace68f7ccc43a7fb6c013d1129bd889410f9d7f699cd04922ff126b7786f8f0"
+      },
+      "solver.stderr.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "solver.stdout.txt": {
+        "bytes": 3417,
+        "sha256": "54eb01b62fe51a652aa5a4188edd6059f31888b3f3a2aa1d29a49ff07e151a31"
+      }
+    },
+    "max_pending_bytes": 5,
+    "proof_bytes_forwarded_to_checker_pipe": 5,
+    "proof_bytes_not_forwarded": 0,
+    "proof_bytes_read": 5,
+    "proof_retained": false,
+    "proof_sha256": "6d00de2f06e17322854c6df199187830e5332b5fc26e6406561235508478161a",
+    "proof_stream_complete": true,
+    "reason": null,
+    "relay_buffer_limit_bytes": 1048576,
+    "runner_cpu_seconds": 0.062759134,
+    "sampled_peak_rss_kib": {
+      "checker": 816,
+      "solver": 92
+    },
+    "scope": "Online CNF certificate checking only; no retained replayable certificate or Lean acceptance.",
+    "solver_exit": 20,
+    "solver_options": [
+      "--unsat"
+    ],
+    "solver_pid": 16890,
+    "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+    "solver_verdicts": [
+      "s UNSATISFIABLE"
+    ],
+    "status": "VERIFIED_UNSAT",
+    "zero_bytes_counted": 2
+  },
+  "version": "2.1.2",
+  "timestamp_utc": "2026-11-24T02:45:54.562050+00:00",
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/cadical-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/cadical-help.stdout",
+      "bytes": 14905,
+      "sha256": "3130f29128ff982dbf028386f6af7e99342bde5f9dd10db4a65ab0b91a7da23c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/cadical-version.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/cadical-version.stdout.txt",
+      "bytes": 6,
+      "sha256": "9f6271951edca02e0c8a669a79930626717b77f0443ad8a327b93a52e4194829"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3.cnf",
+      "bytes": 302,
+      "sha256": "d6c1e87ef8bd3ecabeaf431a002d9357093a6699eaec69b23e2e23efecff76d2"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3.direct.drat",
+      "bytes": 50,
+      "sha256": "9f3f852cfea85e72b8fb32ad3e8b8f95db87f4f926c4b9661f2c6d158b2ed923"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3.runner.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3.runner.stdout.txt",
+      "bytes": 163,
+      "sha256": "695de87f4a8b63cd19142dd73d192a03a28b4165c8caa2bc36e8b1d6b2ff5055"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/checker.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/checker.stdout.txt",
+      "bytes": 462,
+      "sha256": "a9dd2fa4bd1c3c6d533a30fd4d5cf4a63735298425bdd188e4259f16ffc3f90b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/instance.cnf",
+      "bytes": 302,
+      "sha256": "d6c1e87ef8bd3ecabeaf431a002d9357093a6699eaec69b23e2e23efecff76d2"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/progress.json",
+      "bytes": 2108,
+      "sha256": "3a8b233920820dc7efc05feac97adcba19233c0dffb79f53244d6cd02a754ada"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/result.json",
+      "bytes": 2108,
+      "sha256": "3a8b233920820dc7efc05feac97adcba19233c0dffb79f53244d6cd02a754ada"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/solver.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/clique4-colors3/solver.stdout.txt",
+      "bytes": 4032,
+      "sha256": "079d7b0d2ebad5d524c537d64d6e3147348566f2730cec39bb1e7dfefa27e802"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/compatibility-controls.json",
+      "bytes": 14458,
+      "sha256": "f46024452e332a93fee7b5275c91cc59266e171eebc2e03eb0986dad9b57d8f7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/compatibility-summary.json",
+      "bytes": 16352,
+      "sha256": "98ce752180e4e8601f1d05b00ae76f589353d43eb2ae13120367325194c7be73"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-proof-solver.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-proof-solver.stdout.txt",
+      "bytes": 4017,
+      "sha256": "d521b22b7a4c0af662a738c28851d56cb9cddad01da459d7a71e94aca6ae3aa9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-command.json",
+      "bytes": 831,
+      "sha256": "8fa9d9ddb423084041982337a6132f409203faa2d7af335bf33da574985ba95d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner.stdout.txt",
+      "bytes": 172,
+      "sha256": "9894f23f705a25c3279335e4dc52250f9d0d0799605a5169c7931886fa915436"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/checker.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/checker.stdout.txt",
+      "bytes": 469,
+      "sha256": "0ace68f7ccc43a7fb6c013d1129bd889410f9d7f699cd04922ff126b7786f8f0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/instance.cnf",
+      "bytes": 19,
+      "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/progress.json",
+      "bytes": 2091,
+      "sha256": "0348bb67e94bea0a598bd93309d9f84fdbf24f299635d9b6dc1a6adfb0828c97"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/result.json",
+      "bytes": 2091,
+      "sha256": "0348bb67e94bea0a598bd93309d9f84fdbf24f299635d9b6dc1a6adfb0828c97"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/solver.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/direct-unmodified-runner/solver.stdout.txt",
+      "bytes": 3417,
+      "sha256": "54eb01b62fe51a652aa5a4188edd6059f31888b3f3a2aa1d29a49ff07e151a31"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/invalid-empty-claim.checker.stderr.txt",
+      "bytes": 48,
+      "sha256": "b428e7aa111f6895a761c8d3796b1e4bcd4a06aa06823ba39c05adb5d72c4768"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/invalid-empty-claim.checker.stdout.txt",
+      "bytes": 371,
+      "sha256": "e6a0c34523bd7218b4a6c205ccdc1e04622406ce9324070707be9c9d65d624c9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6.cnf",
+      "bytes": 978,
+      "sha256": "1fc24b354b2f02e48b16c96dba4b5d4c2bbb34072ecbe8c8e510421660a58d09"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6.runner.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6.runner.stdout.txt",
+      "bytes": 165,
+      "sha256": "da4d6d33beccdb41d9e0ae9a00c1d2b6b295323acce3096ef4cbfa78658db146"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/checker.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/checker.stdout.txt",
+      "bytes": 444,
+      "sha256": "591f3be6ff4de630be6a3220b08bb86dcafe9f4cfd4267d668ec0f92fdc90eae"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/instance.cnf",
+      "bytes": 978,
+      "sha256": "1fc24b354b2f02e48b16c96dba4b5d4c2bbb34072ecbe8c8e510421660a58d09"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/progress.json",
+      "bytes": 2100,
+      "sha256": "e8f889295b72f7d839e14e4e88962ae262f0c3a756397848f6ac0292f9808f66"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/result.json",
+      "bytes": 2100,
+      "sha256": "e8f889295b72f7d839e14e4e88962ae262f0c3a756397848f6ac0292f9808f66"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/solver.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons6-holes6/solver.stdout.txt",
+      "bytes": 3633,
+      "sha256": "f156452fdbb59b5f2580719d13cf6a1f499625dbe7a508075afb926cab67edae"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6.cnf",
+      "bytes": 1350,
+      "sha256": "025c015d04a706c3f6c2156a9513958ba8ef62a6fbf613109d6efd0c858fbe02"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6.runner.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6.runner.stdout.txt",
+      "bytes": 163,
+      "sha256": "153563a241835e89d2e10c9f0eb206af31f02260f27e0baecfaf977dacaa753b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/checker.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/checker.stdout.txt",
+      "bytes": 463,
+      "sha256": "013466738884660c18a8ee624fb0e785e860baa07faa5eddc23326c7cfee3ac3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/instance.cnf",
+      "bytes": 1350,
+      "sha256": "025c015d04a706c3f6c2156a9513958ba8ef62a6fbf613109d6efd0c858fbe02"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/progress.json",
+      "bytes": 2122,
+      "sha256": "db84417366ef0e2739e33adcc6ab697f29b6c36bdf54cf8d0da68901c75c423a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/result.json",
+      "bytes": 2122,
+      "sha256": "db84417366ef0e2739e33adcc6ab697f29b6c36bdf54cf8d0da68901c75c423a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/solver.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/pigeons7-holes6/solver.stdout.txt",
+      "bytes": 4902,
+      "sha256": "fe98d7cc3f0241131f6b6a36b109a56e03e0604ec85ef6ea31d2ec7d187aa581"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat.cnf",
+      "bytes": 23,
+      "sha256": "c723087c6c5f7c739aa6f938795f888f96ddff55f6ff620953f14fb726660296"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat.runner.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat.runner.stdout.txt",
+      "bytes": 159,
+      "sha256": "eadd86989c25cc959663fd785f174267b494a5dfb87ce330b7906c0914aa1783"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/checker.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/checker.stdout.txt",
+      "bytes": 436,
+      "sha256": "e12f3a370f15c33c9c7e31f4c53a830e0da752b4c959396ff8eef8f63c190a2a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/instance.cnf",
+      "bytes": 23,
+      "sha256": "c723087c6c5f7c739aa6f938795f888f96ddff55f6ff620953f14fb726660296"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/progress.json",
+      "bytes": 2088,
+      "sha256": "5b3727c75dd9a829bf000a39a391cc417ee962a76906cc8bc6fd49302629dc0c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/result.json",
+      "bytes": 2088,
+      "sha256": "5b3727c75dd9a829bf000a39a391cc417ee962a76906cc8bc6fd49302629dc0c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/solver.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/small-sat/solver.stdout.txt",
+      "bytes": 3473,
+      "sha256": "31743189e70fd00cb88a40e7b9c8d5e9ff1451590ebdb68afb7fdf60734a1ac7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/tiny-unsat.cnf",
+      "bytes": 19,
+      "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/valid.checker.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/cadical-streaming-controls/valid.checker.stdout.txt",
+      "bytes": 453,
+      "sha256": "be6daffb982ff39d35a3d272fba369512d37043940222ab871d542540dbfa1fa"
+    }
+  ],
+  "exact_solver_argv": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/cadical",
+    "--unsat",
+    "--no-color",
+    "SNAPSHOT.cnf",
+    "PROOF_FIFO"
+  ],
+  "runner_solver_arguments": [
+    "--solver",
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/cadical",
+    "--solver-arg=--unsat"
+  ],
+  "controls_scope": {
+    "UNSAT_cases": 3,
+    "SAT_cases": 2,
+    "negative_checker_controls": 1,
+    "nontrivial_unsat_proof_bytes": [
+      50,
+      14870
+    ],
+    "control_certificate_only_not_assigned_case_exhaustion": true
+  },
+  "limitations": [
+    "Use the runner wall-time limit; CaDiCaL documents -t SECONDS, not Kissat --time=SECONDS, and the runner does not accept that short-option pair.",
+    "No runner/checker modification or format override is needed. The tested binary accepts --no-color although help lists --no-colors.",
+    "Proof mode defaults to binary DRAT and was detected by the unchanged checker; do not enable LRAT/IDRUP/LIDRUP or embed option comments in generated CNFs.",
+    "Default-width checker record/memory limits and no-retained-proof limitation remain unchanged.",
+    "Fast controls do not predict production memory, CPU overhead, or runtime.",
+    "No active search, lease, repository or credential action was performed."
+  ],
+  "Sub-agents": "none",
+  "TIMING": {
+    "total_minutes": 147.1,
+    "subagents": 0
+  }
+}

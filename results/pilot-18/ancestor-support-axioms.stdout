@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_1342_aux.no_common_neighbor_descendant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

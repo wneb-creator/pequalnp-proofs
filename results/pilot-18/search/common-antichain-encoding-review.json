@@ -1,0 +1,57 @@
+{
+  "verdict": "PASS_SELF_AUDIT_READY_FOR_MAIN_INDEPENDENT_REVIEW",
+  "timestamp_utc": "2026-11-24T02:35:04.035300+00:00",
+  "postprocessor": "/tmp/oec/pequalnp-pilot-18/lean-setup/add_common_and_antichain.py",
+  "postprocessor_sha256": "9fafad3a37af662bdec2df9ddf1c66b25c248d71d44ab696a860780728312a94",
+  "audit_script_sha256": "922b5a0e365fc9a7ea20b425092d43b03b49f0ff0ee708e9f011852659af52c3",
+  "full_flag_boolean_controls": 4096,
+  "small_pair_input_assignments": 340,
+  "small_pair_all_auxiliary_assignments": 279616,
+  "actual_width_pair_controls": 12288,
+  "actual_mux_controls": 1200,
+  "case_audits": {
+    "meet5": {
+      "variables": 12044,
+      "clauses": 116596,
+      "sha256": "5c83b79bff666190f795590b60a4395569b01fdd284cf294fac270d8943f7cb0",
+      "parent_sha256": "03ab94c59d6fa7b3e6df9ce21168042073e4021db6c0c4b00167424574704fb6",
+      "added_variables": 280,
+      "added_clauses": 3820,
+      "old_body_preserved": true,
+      "exact_independent_clause_reconstruction": true
+    },
+    "meet3or2": {
+      "variables": 11866,
+      "clauses": 114493,
+      "sha256": "6a1f29a4dc63efb08c496a94f895e7c4527e8e176a46f37b137aed128c34877d",
+      "parent_sha256": "377320e652fee718147563545de2924fc56fd40c64c59948898e5779175970bd",
+      "added_variables": 102,
+      "added_clauses": 2154,
+      "old_body_preserved": true,
+      "exact_independent_clause_reconstruction": true
+    },
+    "meet2or1meet2": {
+      "variables": 11810,
+      "clauses": 113295,
+      "sha256": "caae61715611f86d8629ef78bbcf39d68e895a2c95f57e5b5992039891a2f02f",
+      "parent_sha256": "1aeaa1986ddec4a4d12b95eecf1a6e2d66d1108e767b9b6a255df172d19f859f",
+      "added_variables": 46,
+      "added_clauses": 1390,
+      "old_body_preserved": true,
+      "exact_independent_clause_reconstruction": true
+    }
+  },
+  "old_variables_unchanged": true,
+  "new_variables_fresh_and_contiguous": true,
+  "full_support_exact": true,
+  "both_directional_differences_required_only_for_two_proper_supports": true,
+  "one_junk_clause_preserved_without_stronger_junk_requirements": true,
+  "mathematics": "common-and-antichain-review.md; main independently agreed before implementation.",
+  "scope": [
+    "Only the three common-outer-AND template groups are constrained.",
+    "No solver was started or running CNF modified.",
+    "No runtime benefit or search verdict claimed.",
+    "No new Lean formalization claimed."
+  ],
+  "Sub-agents": "none"
+}

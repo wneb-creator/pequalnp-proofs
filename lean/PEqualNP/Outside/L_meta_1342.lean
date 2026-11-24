@@ -1817,4 +1817,43 @@ theorem circuit_support_partial_edge_bound (n : ℕ)
     simp only [D,matchingCircuit_length,Finset.length_toList]
   exact matchingLiftGraph_bound_extract S G hout T' hT' (by omega)
 
+
+lemma no_common_neighbor_descendant {α : Type*} [DecidableEq α]
+    (K : SimpleGraph α) (S : ℕ → Finset α) (a b : ℕ → ℕ) (A : ℕ → Bool)
+    (R : ℕ → ℕ → Prop)
+    (parents : ∀ u v, R u v → u = a v ∨ u = b v)
+    (unions : ∀ v, A v = false → S (a v) ∪ S (b v) ⊆ S v)
+    (products : ∀ v, A v = true →
+      (S (a v)).Nonempty ∧ (S (b v)).Nonempty ∧
+      ∀ x ∈ S (a v), ∀ y ∈ S (b v), K.Adj x y)
+    (U : Finset α) (bad : ¬ ∃ c, ∀ x ∈ U, K.Adj c x)
+    (r g : ℕ) (start : U ⊆ S r) (path : Relation.TransGen R r g) :
+    A g = false ∧ U ⊆ S g := by
+  have step (u v : ℕ) (edge : R u v) (hs : U ⊆ S u) :
+      A v = false ∧ U ⊆ S v := by
+    cases hop : A v with
+    | false =>
+      refine ⟨rfl, ?_⟩
+      apply Finset.Subset.trans hs
+      apply Finset.Subset.trans _ (unions v hop)
+      rcases parents u v edge with h | h
+      · rw [h]
+        exact Finset.subset_union_left
+      · rw [h]
+        exact Finset.subset_union_right
+    | true =>
+      obtain ⟨ha,hb,hcross⟩ := products v hop
+      apply False.elim
+      apply bad
+      rcases parents u v edge with h | h
+      · obtain ⟨c,hc⟩ := hb
+        refine ⟨c,fun x hx => ?_⟩
+        exact (hcross x (h ▸ hs hx) c hc).symm
+      · obtain ⟨c,hc⟩ := ha
+        refine ⟨c,fun x hx => ?_⟩
+        exact hcross c hc x (h ▸ hs hx)
+  induction path with
+  | single h => exact step _ _ h start
+  | tail _ edge ih => exact step _ _ edge ih.2
+
 end PEqualNP.Outside.L_meta_1342_aux

@@ -2,8 +2,8 @@ gap: L-meta-1342
 shard: 17 of 19
 status: PARTIAL; no proof or refutation of the posted at-most-21 statement.
 file: lean/PEqualNP/Outside/L_meta_1342.lean
-lines: 1820
-sha256: 5b93f6c260f648d24c1d69a3a31f0561316632e3b6833a4fb2a01a4bc9a3e03e
+lines: 1859
+sha256: f4bd1991b5602c241151fac9e8a2279df1a4ae9b6f4b6aa44782a27c0f4d6ea5
 
 The file retains the complete 22-gate circuit and its exact full-input
 specification proof. It also proves abstract and actual-Circuit empty-support
@@ -19,7 +19,7 @@ Build: lake build +PEqualNP.Outside.L_meta_1342
 Lean: 4.36.0; pinned Mathlib cache fetched; no lake update or Mathlib source build.
 Build exit: 0
 Build output: Build completed successfully (5109 jobs).
-Latest named module: 49 seconds. Full stdout/stderr in matching-lift-named-build.*.
+Latest named module: 80 seconds. Full stdout/stderr in ancestor-support-named-build.*.
 Axiom audit for baseline: propext and Quot.sound; size uses no axioms.
 New abstract-lemma axiom audit: propext, Classical.choice, Quot.sound only.
 Full audit output is preserved in partial-bound-axioms.*.
@@ -46,14 +46,20 @@ The matching-lift construction adds 626 lines, bringing the file to 1820 lines.
 Its complete proof was independently reviewed by the main agent. Its final
 bound, wire-renaming and cleanliness axiom audits use only the permitted three
 standard axioms; complete output is in matching-lift-axioms.*.
+An additional 39-line generic ancestry lemma proves that a support with no common
+neighbor propagates through productive clean descendants, all of which must be
+OR gates. The file now has 1859 lines. Its independent proof/format review
+and permitted-axiom audit pass; full output is in ancestor-support-axioms.*.
 
 Search: seven independently reviewed formula-tail overapproximations, with
 strict-OR, residual-edge and exact-ancestor cost restrictions. No production
-SAT/UNSAT verdict yet. Two online solver/checker pairs run, four weaker states
-are paused, and short candidate-only runs cover the seven stronger reverse-counter shapes.
+SAT/UNSAT verdict yet. The original-DAG variant is independently reviewed and runs with CaDiCaL and
+an online certificate checker. Two older formula cases finish their existing
+one-hour limits; their queue is paused. Four weaker states remain paused.
+Candidate-only runs cover stronger reverse-counter and antichain shapes.
 A prior 1,200-second candidate run returned UNKNOWN; its complete logs are saved.
 SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 2 inherited-model agents for mathematical search and independent validation/proof engineering
-TIMING total=141.3 subagents=2
+TIMING total=150.4 subagents=2
