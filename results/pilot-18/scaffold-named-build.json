@@ -1,0 +1,13 @@
+{
+  "source_sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+  "source_unchanged": true,
+  "argv": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "build",
+    "+PEqualNP.Outside.L_meta_1342"
+  ],
+  "cwd": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-24T03:36:42.844447+00:00",
+  "elapsed_seconds": 57.955104609000045,
+  "exit_code": 0
+}

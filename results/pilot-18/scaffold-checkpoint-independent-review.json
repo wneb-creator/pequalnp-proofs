@@ -1,0 +1,78 @@
+{
+  "verdict": "PASS_INDEPENDENT_INTEGRATION_AND_METADATA_FOR_PARTIAL_PUSH",
+  "reviewed_utc": "2026-11-24T03:39:57.008074+00:00",
+  "named_source_sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+  "named_source_lines": 2069,
+  "byte_identical_to_S03_ProjectedScaffold": true,
+  "checkpoint_sha256": "91304f3b2654a79db6971b6e76dd21008ec394f1a915f29800637746212a6aac",
+  "validation_sha256": "bc82ca26279266d5ab4322294d2f775fdf5f93af2a6c91d2b056743f52f9040f",
+  "copied_checkpoint_artifacts": 9,
+  "build_exit": 0,
+  "build_elapsed_seconds": 57.955104609000045,
+  "integrated_axiom_audit_exit": 0,
+  "audited_lemmas": [
+    "baseline_boundary_check",
+    "baseline_boundary_positive_control",
+    "targetBoundaryCheck_iff",
+    "target_edge_iff_posted",
+    "target_spec_of_boundary_check",
+    "target_witness_of_boundary_check"
+  ],
+  "axioms_allowed_only": true,
+  "posted_checker": "NOT RUN; exact theorem absent",
+  "scope": "Compiled partial with exact posted-predicate bridge and22-only positive control; no21 witness/refutation.",
+  "artifacts": {
+    "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1342.lean": {
+      "sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+      "bytes": 100418
+    },
+    "/workspace/pequalnp-proofs/results/pilot-18/scaffold-checkpoint.json": {
+      "sha256": "91304f3b2654a79db6971b6e76dd21008ec394f1a915f29800637746212a6aac",
+      "bytes": 1355
+    },
+    "/workspace/pequalnp-proofs/results/pilot-18/scaffold-named-build.stdout": {
+      "sha256": "dde2f44fc0a022e8bf9cb3842bb23250fa93863af7374fc6f0933c9a31cc5e09",
+      "bytes": 53744
+    },
+    "/workspace/pequalnp-proofs/results/pilot-18/scaffold-named-build.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/workspace/pequalnp-proofs/results/pilot-18/scaffold-named-build.json": {
+      "sha256": "57c1863ab649ee0abc3d990354f845b910cd9c9f7e677893495ac1e4a026df43",
+      "bytes": 401
+    },
+    "/workspace/pequalnp-proofs/results/pilot-18/scaffold-axioms.stdout": {
+      "sha256": "fc8ca04bbee08a57af679ea541541c1feb31218ba4addddcfdd761e75f6eaa75",
+      "bytes": 739
+    },
+    "/workspace/pequalnp-proofs/results/pilot-18/scaffold-axioms.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/workspace/pequalnp-proofs/results/pilot-18/scaffold-axioms.json": {
+      "sha256": "9551233aae37d3e1d6915eef9146195f7c7d5369189d8c758041c2c1f76072f9",
+      "bytes": 268
+    },
+    "/workspace/pequalnp-proofs/results/pilot-18/scaffold-proof-review.json": {
+      "sha256": "bb184550986d93b84dc4fb078fc34219f9247b292e8dab83941b2231c7c26ff5",
+      "bytes": 1181
+    },
+    "/workspace/pequalnp-proofs/results/pilot-18/scaffold-fragment.lean.txt": {
+      "sha256": "80802f27b96a4e01e5c4b2d54fe4aa4276adb84fe83a664d96e6ee5092cdbd53",
+      "bytes": 3811
+    },
+    "/workspace/pequalnp-proofs/results/pilot-18/scaffold-fragment-build.json": {
+      "sha256": "8e717d896ef9fc399b4602a8767719abf2a788fe2bfcf0baa676ba4e04bfaa68",
+      "bytes": 1101
+    },
+    "/workspace/pequalnp-proofs/results/pilot-18/validation.txt": {
+      "sha256": "bc82ca26279266d5ab4322294d2f775fdf5f93af2a6c91d2b056743f52f9040f",
+      "bytes": 6589
+    }
+  },
+  "concurrent_changes": false,
+  "blockers": [],
+  "new_build_started": false,
+  "named_source_modified": false
+}

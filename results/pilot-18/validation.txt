@@ -2,8 +2,8 @@ gap: L-meta-1342
 shard: 17 of 19
 status: PARTIAL; no proof or refutation of the posted at-most-21 statement.
 file: lean/PEqualNP/Outside/L_meta_1342.lean
-lines: 2000
-sha256: f872b394be5f8fdcfd20fe735e26856aebdcc88b17a305f35a49a85d8a8fcfdb
+lines: 2069
+sha256: 0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c
 
 The file retains the complete 22-gate circuit and its exact full-input
 specification proof. It also proves abstract and actual-Circuit empty-support
@@ -19,7 +19,7 @@ Build: lake build +PEqualNP.Outside.L_meta_1342
 Lean: 4.36.0; pinned Mathlib cache fetched; no lake update or Mathlib source build.
 Build exit: 0
 Build output: Build completed successfully (5109 jobs).
-Latest named module: 50.3 seconds. Full stdout/stderr in boundary-named-build.*.
+Latest named module: 58.0 seconds. Full stdout/stderr in scaffold-named-build.*.
 Axiom audit for baseline: propext and Quot.sound; size uses no axioms.
 New abstract-lemma axiom audit: propext, Classical.choice, Quot.sound only.
 Full audit output is preserved in partial-bound-axioms.*.
@@ -63,7 +63,7 @@ SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 6 inherited-model agents, ultra effort: structural proof, SAT repairs, finite Lean certificates, CNF red-team review, solver performance, integration review
-TIMING total=193.8 subagents=6
+TIMING total=201.6 subagents=6
 
 Candidate neighborhoods: 144 independently reviewed formulas preserve prefixes
 of exact 22-gate cover constructions and search arbitrary shorter completions.
@@ -91,3 +91,10 @@ proof and integration reviews pass. The full new transitive axiom audit uses
 only propext, Classical.choice and Quot.sound; boundary_cover_bool uses none.
 No size21 witness, global refutation, or posted-checker acceptance is claimed.
 Cleanup remains inapplicable; this is preservation of a compiled partial.
+
+The next69lines provide a Boolean boundary check, its exact conjunction
+interpretation, a bridge to the posted oriented-edge existential, and a witness
+wrapper preserving a supplied size bound k. The known22gate baseline passes
+this check as a positive control. The named file now has2069lines; build exit0,
+integrated six-helper axiom audit exit0, permittedaxiomsonly. Main independently
+reviewed the agent-authored proof and exact insertion; no21gate result is implied.

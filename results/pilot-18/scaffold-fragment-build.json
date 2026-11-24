@@ -1,0 +1,33 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/BoundaryFix.lean",
+  "source_sha256": "80802f27b96a4e01e5c4b2d54fe4aa4276adb84fe83a664d96e6ee5092cdbd53",
+  "source_unchanged": true,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S03/BoundaryFix.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-24T03:31:40.065667+00:00",
+  "finished_utc": "2026-11-24T03:31:45.858457+00:00",
+  "lock_wait_seconds": 0.00012626999887288548,
+  "elapsed_seconds": 5.792566678001094,
+  "exit_code": 0,
+  "timeout": false,
+  "child_maxrss_kib": 3267476,
+  "logs": {
+    "stdout": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-second.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-second.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

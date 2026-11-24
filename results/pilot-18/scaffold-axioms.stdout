@@ -1,0 +1,12 @@
+'PEqualNP.Outside.L_meta_1342_aux.targetBoundaryCheck_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.target_edge_iff_posted' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.target_spec_of_boundary_check' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.target_witness_of_boundary_check' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.baseline_boundary_check' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.baseline_boundary_positive_control' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

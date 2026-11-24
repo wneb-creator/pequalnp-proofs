@@ -1,0 +1,20 @@
+{
+  "verdict": "PASS_MAIN_INDEPENDENT_PROOF_REVIEW",
+  "utc": "2026-11-24T03:36:42.390570+00:00",
+  "fragment_sha256": "80802f27b96a4e01e5c4b2d54fe4aa4276adb84fe83a664d96e6ee5092cdbd53",
+  "base_sha256": "f872b394be5f8fdcfd20fe735e26856aebdcc88b17a305f35a49a85d8a8fcfdb",
+  "integrated_sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+  "lines_before": 2000,
+  "lines_after": 2069,
+  "changes": "Exact compiled fragment declarations inserted before final auxiliary end; scratch import/namespace/open/end omitted",
+  "proof_checks": [
+    "Bool all/and/not equivalence gives exactly16positive and24negative premises",
+    "Symmetric graph adjacency is mapped to oriented posted edges by swapping existential endpoints in reverse-adjacency case",
+    "Specification follows by transitivity from reviewed boundary sufficiency",
+    "Witness wrapper preserves supplied gate bound k and requires both monotonicity and actual boundary check",
+    "Known baseline control proves onlybound22, not21"
+  ],
+  "axioms": "Six new helper audits exit0, onlypropext/Classical.choice/Quot.sound",
+  "posted_checker": "NOT RUN: exact theorem absent",
+  "blockers": []
+}
