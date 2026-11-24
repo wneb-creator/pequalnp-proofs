@@ -1,0 +1,135 @@
+L-meta-670 finite progress, full gap still unproved.
+Case159Prefixes:50 immediate child exclusions kernel-checked, EXIT0,19.1s kernel/24.39s total.
+Case159OtherChildren:7 nontrivial child exclusions kernel-checked, EXIT0,66.3s kernel/71.59s total.
+Together with already checked child11,58 of59 children are proved; child56 and parent assembly remain.
+sat-proof/Case159Prefixes.lean SHA256 7747e9ca1095e4cfdca1cb7197b6bead65744bdbb05b2b59306394162e5fd6a5
+sat-proof/Case159OtherChildren.lean SHA256 9355ed2ae326a44cb45d22b23e51cc05e6e66e7b8f012da10cdc919dde0981eb
+
+COMPLETE LOG sat-proof/case159-prefixes.log
+import took 3.58s
+type checking took 203ms
+type checking took 207ms
+type checking took 262ms
+type checking took 213ms
+type checking took 246ms
+type checking took 329ms
+type checking took 190ms
+type checking took 187ms
+type checking took 198ms
+type checking took 159ms
+type checking took 382ms
+type checking took 213ms
+type checking took 322ms
+type checking took 241ms
+type checking took 211ms
+type checking took 221ms
+type checking took 249ms
+type checking took 222ms
+type checking took 120ms
+type checking took 247ms
+type checking took 362ms
+type checking took 278ms
+type checking took 320ms
+type checking took 143ms
+type checking took 374ms
+type checking took 350ms
+type checking took 422ms
+type checking took 416ms
+type checking took 391ms
+type checking took 514ms
+type checking took 527ms
+type checking took 426ms
+type checking took 403ms
+type checking took 411ms
+type checking took 397ms
+type checking took 459ms
+type checking took 501ms
+type checking took 625ms
+type checking took 495ms
+type checking took 612ms
+type checking took 613ms
+type checking took 709ms
+type checking took 591ms
+type checking took 768ms
+type checking took 497ms
+type checking took 659ms
+type checking took 621ms
+type checking took 580ms
+type checking took 528ms
+type checking took 528ms
+cumulative profiling times:
+	.olean serialization 7.96ms
+	attribute application 0.514ms
+	blocked (unaccounted) 367s
+	declTypeLinter 23.9ms
+	elaboration 83.3ms
+	fix level params 0.742ms
+	import 3.58s
+	initialization 26.2ms
+	instantiate metavars 0.652ms
+	interpretation 439ms
+	let-to-have transformation 0.355ms
+	linting 37.2ms
+	module linting 0.12ms
+	parsing 6.2ms
+	process pre-definitions 21.6ms
+	share common exprs 0.796ms
+	tactic execution 48.8ms
+	tacticAnalysis 10.7ms
+	type checking 19.1s
+	typeclass inference 23ms
+real 24.39
+user 21.78
+sys 2.88
+
+COMPLETE LOG sat-proof/case159-other-children.log
+import took 3.57s
+type checking took 5.63s
+type checking took 10.1s
+type checking took 9.53s
+type checking took 9.52s
+type checking took 9.78s
+type checking took 10.8s
+type checking took 11s
+cumulative profiling times:
+	.olean serialization 8.34ms
+	attribute application 0.0835ms
+	blocked (unaccounted) 181s
+	declTypeLinter 11ms
+	elaboration 22.4ms
+	fix level params 0.548ms
+	import 3.57s
+	initialization 25.2ms
+	instantiate metavars 0.569ms
+	interpretation 329ms
+	let-to-have transformation 0.0482ms
+	linting 13.3ms
+	module linting 0.164ms
+	parsing 1.2ms
+	process pre-definitions 20.8ms
+	share common exprs 0.194ms
+	tactic execution 11ms
+	tacticAnalysis 4.9ms
+	type checking 66.3s
+	typeclass inference 2.44ms
+real 71.59
+user 67.63
+sys 3.77
+
+COMPLETE LOG lower-bound/case159-children-independent-audit.txt
+Independent source review: PASS
+Reviewer: /root/lower_bound
+
+/tmp/oec/pequalnp-pilot-14/sat-proof/Case159Common.lean
+SHA256: bbb23a93c5caec2537c6fda5a306a4976144215c4fe6d0799dfe975fc99c80d1
+/tmp/oec/pequalnp-pilot-14/sat-proof/Case159Prefixes.lean
+SHA256: 7747e9ca1095e4cfdca1cb7197b6bead65744bdbb05b2b59306394162e5fd6a5
+/tmp/oec/pequalnp-pilot-14/sat-proof/Case159OtherChildren.lean
+SHA256: 9355ed2ae326a44cb45d22b23e51cc05e6e66e7b8f012da10cdc919dde0981eb
+
+The exact parent state is nine raw inputs plus AND(raw2,raw0) and AND(raw3,raw1). The supplied postfix codes encode those same wires; prefix gate programs remain checked semantic hints. Initial cached values have FastRecipe.initial_valid, and every child context uses the checked update invariant.
+The common soundness wrappers require actual closed checker equality and use previously proved oracle/target soundness. All new child declarations are closed decide +kernel facts; no new axiom, sorry, native_decide, or hidden hypothesis occurs.
+Index census independently verified: 50 prefix lemmas cover range(59) except {10,11,16,17,41,43,53,55,56}; seven full child lemmas cover {10,16,17,41,43,53,55}. Together with previously reported checked child11, exactly child56 remains. The actual proposal length is checked by the common child_count theorem. The getD default cannot replace any in-range child in a final all-Fin-index assembly.
+Builds for these two new lemma batches were still running at review time. This review does not claim their compilation or the complete parent exclusion yet. Full target lower bound remains pending.
+
+Author build update: BOTH batches PASSED EXIT0. Case159Prefixes contains 50 closed checked lemmas (19.1s kernel; 24.39s real), and Case159OtherChildren contains seven (66.3s kernel; 71.59s real). This establishes checked results for 58 of 59 children counting the previously checked child11. Child56 and final parent assembly remain pending. No duplicate build by reviewer.
