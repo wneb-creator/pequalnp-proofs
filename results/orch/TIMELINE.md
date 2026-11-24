@@ -53,3 +53,7 @@
 - 2026-11-24 08:12:17 UTC: gate_invariants completed SensitiveTop and SensitiveMask; arbitrary sensitive-edge effective-mask theorem Lean-checked, frozen and sent for independent review/push.
 
 2026-11-24T08:12:51.922651+00:00 status_audit: OneJunkProduct independent source+Lean review completed PASS; stochastic original still running.
+
+- 2026-11-24T08:15:28.496520+00:00 Root replanned: concrete one-junk elimination/count plus full-plane witness search; reviewed partial batch pushed6178427.
+
+- 2026-11-24T08:17:06.834600+00:00 Actual one-effective-cleaner elimination compiled; all AND gates of resulting circuit clean, graph function and gate count preserved.

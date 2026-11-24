@@ -1,0 +1,8 @@
+Independent stochastic implementation review: PASS (counterexample_search).
+Plain source SHA256 ca0f7842afc40bae7d223297bb5146e684580aec3e973f93377e696577cb71f1
+Shared source SHA256 dec5aa912c4496faf82476353950c6e057dbbe13645f75a81a4ac350cea335b9
+Reviewed active backward-cone pruning; exact emitted gate cost; topology; nonempty-row mutation invariants;94-case witness recheck.
+Independent random check:400 genomes per model, seed14772999, scalar88-case semantics and physical gate counts all passed (reviewer message).
+Warm-start check:200 shared/dirty baselines, seed14772902, decoded size matches and all94 cases pass; sizes35/37/39.
+Smoke: seed14772901, one second, exit0,72000mutations, best valid35.
+Current result: no circuit of size<=34; no lower-bound claim.

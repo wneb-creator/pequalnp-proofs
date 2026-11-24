@@ -1,0 +1,3 @@
+{"event": "start", "seed": 14772901, "seconds": 1.0, "tests": 88, "positive": 30, "closed_negative": 58, "raw_negative": 64, "model": "7 or 8 ANDs over unshared OR-selected preceding sources"}
+{"event": "valid", "size": 35, "file": "/tmp/oec/pequalnp-pilot-29/stochastic-smoke/best-valid-35.json", "steps": 0}
+{"event": "finished", "seconds": 1.0026095399998667, "steps": 72000, "epochs": 6, "best_valid": 35, "conclusion": "heuristic search only; no lower-bound conclusion"}
