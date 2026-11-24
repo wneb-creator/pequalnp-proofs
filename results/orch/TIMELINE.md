@@ -7,3 +7,4 @@
 2026-11-24T17:16:29.114991+00:00 least-circuit, descent, edgeless, and small-circuit helpers compiled and independently reviewed.
 2026-11-24T17:17:01.550840+00:00 named module L_meta_3678 built successfully with partial helpers only.
 2026-11-24T17:19:53.930638+00:00 Tarjan candidate size/AO2/bipartition and flat operand lemmas compiled and independently reviewed.
+2026-11-24T17:21:29.592695+00:00 union-program projection compressor checked and independently reviewed.

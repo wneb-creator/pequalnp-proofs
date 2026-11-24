@@ -7,3 +7,4 @@ Sub-agents: 6 (normalization, restriction, counterexample search, lemma search, 
 TIMING total=9 subagents=6
 TarjanGraph.lean: size 58, AO2, bipartition checked, exit 0. Semantic equality and lower bound unfinished.
 Flat.lean: flat operand, BelowF, and biclique color lemmas compiled exit 0.
+PrivateUnion.lean: projected union-program compressor compiled exit 0; reviewed frozen snapshot.
