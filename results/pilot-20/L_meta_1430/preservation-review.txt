@@ -51,3 +51,19 @@ statement is still byte-identical to its archived desk copy. Current validation
 correctly records this local refutation acceptance and pending cleanup, with
 no ordinary PR acceptance claim. Historical1482 validation remains preserved
 separately. Approved for immediate checker-result preservation push.
+
+Final cleanup artifact review: PASS. The752-line source differs from the
+accepted753-line version only by replacing intro/apply with apply not_not_intro;
+its exact type, every certificate, and all remaining proof bytes are unchanged.
+SHA256a0d9f161cb601bdea37e906864cbdab50a9cc3efdccd5a25e15304efd4025753 matches
+the final checker MANIFEST and archived refutation.lean.txt. The original
+accepted source remains preserved at hash7a55d83530793ac6da4707885b7aef6bdaf0c54ba1d19fc10049820e6bf432ed.
+Both complete cleanup build and checker logs match scratch; both passed,
+checker final verdict ACCEPTED(refute), only the permitted3axioms,1524constants
+replayed, no rejection, and empty stderr. The current plain-file/import/own-
+namespace guard independently passes again. No Lean process was run by this
+reviewer. Source and statement restrictions remain satisfied; the result is
+a local exact refutation, not a new site verdict or ordinary proof PR.
+Both current validation records now mark final artifact review PASS and retain
+the explicit no-PR distinction. Final renewal is recorded; release is pending.
+Approved for immediate final-result preservation push.

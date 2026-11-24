@@ -1,15 +1,19 @@
 Gap: L-meta-1430
-Status: self-contained exact refutation; named-file lake build PASS (exit 0), local exact-statement refute checker ACCEPTED (exit 0).
-Statement: exact posted statement stored in statement.txt; theorem proves its negation.
-Source: L_meta_1429.lean (upstream), namespace renamed and double-negation wrapper added.
-Independent review: PASS; no certificate or supporting proof changes.
-Guard: imports allowed: Mathlib PEqualNP.Defs
+Result: exact posted statement refuted; final named theorem proves its literal negation.
+Final file: lean/PEqualNP/Outside/L_meta_1430.lean
+Named-file lake build: PASS (exit 0); Build completed successfully (18395 jobs).
+Exact-statement local checker: ACCEPTED (refute), exit 0; stderr empty.
+Allowed axioms: propext, Quot.sound, Classical.choice. Kernel re-checked 1524 constants.
+Format/import guard: PASS; Mathlib and PEqualNP.Defs only.
+Independent source, red-team, and final artifact review: PASS.
 Lines before cleanup: 753
-Lines after cleanup: 752 (candidate build and guard PASS; final refute checker pending)
-Sub-agents: lease_keeper, counterexample_search, structural_proof, lemma_search, review_rules, lean_setup, and independent child reviewers (10 total across job).
-TIMING total=115 subagents=10
-PR status: no PR; current PR workflows hardcode proof mode, while this result requires refute mode.
-Checker verdict: ACCEPTED (refute): PEqualNP.Outside.L_meta_1430; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked 1524 constants.
-Cleanup change: replace two introductory proof lines with apply not_not_intro; all certificates and theorem type unchanged.
+Lines after cleanup: 752
+Cleanup: replace two introductory proof lines with apply not_not_intro; all certificates and the theorem type unchanged. Both build and checker passed again within the 10-minute cleanup cap.
 Original accepted source: refutation-original.lean.txt; original logs: build.stdout and checker.stdout.
-Current candidate source: refutation.lean.txt; cleanup logs have cleanup- prefix.
+Final accepted source: refutation.lean.txt; final logs: cleanup-build.stdout and cleanup-checker.stdout.
+Source provenance: existing checked L_meta_1429 proof, copied self-contained with renamed helper namespace and exact double-negation wrapper.
+PR status: none for1430. Current PR workflows require positive proof mode. The current join instructions direct false gaps to their negated twins; L-meta-1429 is already checked. This local refutation acceptance does not assert a new site verdict.
+Lease: final renewal confirmed at02:23:58UTC, expiry02:43:58.825UTC; release pending for only our1430 lease with statement_seems_false.
+Sub-agents: lease_keeper, counterexample_search, structural_proof, lemma_search, review_rules, lean_setup, and independent child reviewers (10 total across job).
+TIMING total=118 subagents=10
+Final source SHA256: a0d9f161cb601bdea37e906864cbdab50a9cc3efdccd5a25e15304efd4025753
