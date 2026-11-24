@@ -1,0 +1,12 @@
+L-meta-2028 partial checkpoint
+
+File: lean/PEqualNP/Outside/L_meta_2028.lean
+Partial lemma: size_pos_of_nonempty_edge_function
+The posted negation remains unproved; no proof PR opened.
+Build: lake build PEqualNP.Outside.L_meta_2028
+Result: Build completed successfully (18419 jobs).
+Checker: not run for this helper-only checkpoint; main theorem absent.
+Independent red-team review: status_review PASS as partial, SHA256 e45deaa7684f69bc3146f9b0cfe8bdde06fc710c07025fae3d7076b2e628cadc.
+Line count:37; cleanup not yet run.
+Sub-agents:6 (status/library/reviewer, theory, SAT search, definition audit, toolchain, random circuits).
+TIMING total=7.7 subagents=6
