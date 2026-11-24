@@ -31,3 +31,11 @@ Singleton restriction at anchor u propagates neighbors through ORs and AND gates
 The reduction has passed independent source review by repository_review and reduction_design. Final exact conclusion confirmed against gap.json. No Lean build or checker success is claimed yet.
 
 Delivery archive plan: preserve notes, experiments and complete validation outputs in an early commit on pnp/pilot-45, then remove results from the final PR tree. The PR diff will add exactly the reduction Lean file, while earlier branch commits keep all results accessible.
+
+## Validation status
+- Named module build PASSED (18421 jobs); source guard PASSED. First checked-build archive pushed to2854ee5909896fdd245a696790a45c9c83d50790.
+- Initial reduction checker built verifier, then FAULT with exit137 during import/verification. This is not a proof rejection. Full logs retained.
+- Toolchain setup has exact complete cached artifacts; Mathlib --no-build freshness check passed. Files backed by4GiB anonymousRAM cause memory pressure; transitioning to compressed disk storage is under investigation, checker unchanged.
+- Publicdesk22:01Z showed2 checked reductions (1,417), leavingone slot; pending233 differs from our graph3core cut. Recheck immediately beforePR submission.
+
+FUSE capability was refused by the environment, and no bypass was attempted. Native toolchain artifacts are being archived reversibly to free disk and reduce anonymousRAM. Actual checklemma binary confirms mimalloc3.4.5 accepts MIMALLOC_PURGE_DELAY=0 and MIMALLOC_ALLOW_THP=0; these runtime-only allocator settings will be used for retry. No proof,checker,or importedlibrary bytes are changed by them.
