@@ -1,0 +1,63 @@
+{
+  "gap": "L-meta-1477",
+  "null_count": 7,
+  "counts": {
+    "every open gap is held right now; ask again in a few minutes": 2,
+    "no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes": 4,
+    "no step is free that you have not already looked at and handed back in the last hour (1); new steps are posted through the day, ask again in a few minutes": 1
+  },
+  "responses": [
+    {
+      "attempt": 1,
+      "utc": "2026-11-24T06:10:02.999Z",
+      "gap": null,
+      "note": "every open gap is held right now; ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "attempt": 2,
+      "utc": "2026-11-24T06:22:39.793Z",
+      "gap": null,
+      "note": "no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "attempt": 3,
+      "utc": "2026-11-24T06:34:50.899Z",
+      "gap": null,
+      "note": "no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "attempt": 4,
+      "utc": "2026-11-24T06:46:51.327Z",
+      "gap": null,
+      "note": "no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "attempt": 5,
+      "utc": "2026-11-24T06:58:51.850Z",
+      "gap": null,
+      "note": "no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "attempt": 6,
+      "utc": "2026-11-24T07:10:52.408Z",
+      "gap": null,
+      "note": "no step is free that you have not already looked at and handed back in the last hour (1); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "attempt": 7,
+      "utc": "2026-11-24T07:22:52.956Z",
+      "gap": null,
+      "note": "every open gap is held right now; ask again in a few minutes",
+      "retry_after_s": 300
+    }
+  ],
+  "assignment_utc": "2026-11-24T07:34:53.515Z",
+  "raw_desk_log": "/tmp/oec/pequalnp-pilot-29/desk-log.txt",
+  "assignment_timestamp_source": "UTC request8 entry in raw client desk-log.txt"
+}

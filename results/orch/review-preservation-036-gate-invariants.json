@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-24T12:04:32.833120+00:00",
+  "manifest": "/tmp/oec/pequalnp-pilot-29/preservation-036-manifest.json",
+  "manifest_sha256": "675e78a628b2bedc7a4b316c0d70337be7b970db9dcfb0d728a881dfa929214d",
+  "verdict": "PASS",
+  "hashed_unique_paths": 100,
+  "snapshots": 5,
+  "search_packages": 2,
+  "errors": [],
+  "scope": "Independent frozen-file hashes, bytes, line counts, reported author exit0, independent reviewer identity/PASS, complete build logs, source-format scan and partial-only status checked; no redundant Lean builds."
+}

@@ -1,0 +1,4 @@
+2026-11-24T12:04:18.597109+00:00
+INDEPENDENT FINAL VALIDATION REVIEW: PASS
+validation.txt SHA256 921d7c8ffedadf745acdf637fcd3ce8b75862054de6e427edc2800de9c0d98e8
+Named file hash,10145lines470482bytes, build003EXIT0 and final checker003EXIT1/no-theorem match directly inspected full artifacts. Earlier002FAULT is distinguished from final genuine rejection. Formatting10143→10145 and no-cleanup10145→10145 are accurate. Unproved/unrefuted status, no proof PR, conditional/oversized snapshots and UNCOMPILED actual1/any wrapper are explicit. Required job id, subagents and timing lines included. Lease disposition is explicitly pending, so no unperformed release is claimed; root may update that line after actual release. final-job-lean-diff.txt lists exactly lean/PEqualNP/Outside/L_meta_1477.lean as the only changed Lean-project file. Desk/search summaries are separately independently reviewed by status_audit.

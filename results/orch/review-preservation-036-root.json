@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "manifest_sha256": "675e78a628b2bedc7a4b316c0d70337be7b970db9dcfb0d728a881dfa929214d",
+  "paths": 104,
+  "hashed_records": 102,
+  "snapshots": 5,
+  "search_packages": 2
+}

@@ -1,0 +1,25 @@
+Job: pequalnp-pilot-29
+KIT-MESSAGE-ID: msg-50e19dcfb6177e5de3ab2ba0
+Gap: L-meta-1477
+Status: PARTIAL RESULTS ONLY. Exact posted statement remains unproved and unrefuted. No proof PR was opened.
+Branch: pnp/pilot-29 on fork origin (wneb-creator/pequalnp-proofs).
+Named file: lean/PEqualNP/Outside/L_meta_1477.lean
+Named file SHA256: ed19693d5db6a6eb7fab5296b0fe0c79402e35673f3fd08d7b7b444d1f98c739
+Named file lines/bytes: 10145/470482
+Latest named build: lake build PEqualNP.Outside.L_meta_1477, EXIT0.
+Build output: Build completed successfully (18407 jobs).
+Full build output: results/orch/named-partial-build-003.log
+Latest checker: command EXIT1; REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_1477 (one lemma, one file: the theorem carries the module's name)
+Full checker output: results/orch/named-partial-checker-003.log
+Previous checker002 ended with CHECKER FAULT (verifier exit137); final standalone retry003 above returned a real rejection. No acceptance is claimed.
+Formatting repair: 10143 lines before, 10145 after; namespace wrapper only, helper declaration type and proof unchanged. Independent root review and named build passed.
+Cleanup pass: not triggered because the exact theorem/checker never passed. Cleanup line counts: 10145 before and 10145 after (no cleanup).
+Independent reviews: each preserved checked snapshot has an author EXIT0 build and an independent source/math/provenance/format review in preservation manifests. Final named file was independently audited by gate_invariants. Final preservation manifest and summaries have separate reviews.
+Strongest checked restricted results and exact remaining hypotheses: results/orch/HANDOFF.md. Arbitrary dirty-gate count, genuinely dependent dirty gates, general overlapping operands and other uncovered profiles remain unresolved. Restricted lemmas do not establish the posted theorem.
+Search outcomes: no valid counterexample. Full search evidence and explicitly invalid candidates: results/orch/SEARCH_HANDOFF.md and package manifests. Timeouts and restricted searches are not lower-bound proofs.
+The actual one-center/any-center plane wrapper is explicitly UNCOMPILED and preserved separately; its generic budget backend compiled. Oversized assembled lemmas are results-only, not submission files.
+Desk polling: seven null answers before assignment. Exact note texts, UTC timestamps and multiplicities are in results/orch/desk-null-summary.json. Full local raw desk log is /tmp/oec/pequalnp-pilot-29/desk-log.txt.
+Lease disposition: pending final preservation push; only this job's lease will be released with reason out_of_time. Final release summary will supersede this line.
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=354.7 subagents=6
+Validation recorded UTC: 2026-11-24T12:03:14.403118+00:00

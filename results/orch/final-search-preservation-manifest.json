@@ -1,0 +1,154 @@
+{
+  "status": "Final completed heuristic searches only; no target witness, UNSAT or exact lower-bound claim",
+  "plane_run_012": {
+    "manifest_entries": 24,
+    "physical_circuits": 21,
+    "raw_scalar_cases": 532182,
+    "additional_small_cases": 16758,
+    "independent_reviewer": "status_audit",
+    "review_verdict": "PASS"
+  },
+  "search_handoff_sha256": "027c4d40132903b8422810df129c6ea319f12030a328ed1084125c1be0246496",
+  "files": [
+    {
+      "path": "results/orch/SEARCH_HANDOFF.md",
+      "sha256": "027c4d40132903b8422810df129c6ea319f12030a328ed1084125c1be0246496",
+      "bytes": 7542
+    },
+    {
+      "path": "results/orch/plane-run-012/README.md",
+      "sha256": "cecb059a9310c3ff9147e2106f0d17507abeba457ccddd4b41ca47954fac56d7",
+      "bytes": 1608
+    },
+    {
+      "path": "results/orch/plane-run-012/best-valid-125.json",
+      "sha256": "4452501ac09681aba310fb70f35b40f5bb79284a208dfb2d92274a13ea37bd10",
+      "bytes": 12809
+    },
+    {
+      "path": "results/orch/plane-run-012/complete-run.log",
+      "sha256": "0e0769411787581d562131f09b9cc5a59645eddbf41238ff5065d09b53afc604",
+      "bytes": 26216
+    },
+    {
+      "path": "results/orch/plane-run-012/frontier.json",
+      "sha256": "eff4f1efc6ded0a40f3570404f775f8431aa27cf38c84a923a7d60f79372face",
+      "bytes": 90659
+    },
+    {
+      "path": "results/orch/plane-run-012/manifest.json",
+      "sha256": "0f9d2ff42ce63f3ac71a6db58e78f3d86613dbfe7b7f9c189f21479a7243520b",
+      "bytes": 3864
+    },
+    {
+      "path": "results/orch/plane-run-012/multi-dirty-overapprox-2.json",
+      "sha256": "7ea769b50009c5d126e160392f7f1c8f24392125b544e10eed37b535cae6c7bf",
+      "bytes": 2049871
+    },
+    {
+      "path": "results/orch/plane-run-012/multi-dirty-overapprox-3.json",
+      "sha256": "91987d2b45e4dff9a164e1175bce21408ea131760ceb125e62065f52e2e94567",
+      "bytes": 1551873
+    },
+    {
+      "path": "results/orch/plane-run-012/multi-dirty-overapprox-4.json",
+      "sha256": "16ca58af0d56e92ab816aefe21f32f7b52769b6e0f29d2550cf65e5892338572",
+      "bytes": 2102415
+    },
+    {
+      "path": "results/orch/plane-run-012/near-4-1.json",
+      "sha256": "fc5ab91867d9cbc8efbfa29bff9808767cfbf08ea816c3e4becba4a9e90fbcbc",
+      "bytes": 13260
+    },
+    {
+      "path": "results/orch/plane-run-012/near-4-2.json",
+      "sha256": "4cd02eb9ac5388ac8f001eb7564fd10ee4fcea886ab89c8119dc73158a9b944d",
+      "bytes": 13549
+    },
+    {
+      "path": "results/orch/plane-run-012/near-4-3.json",
+      "sha256": "3b6b3e25f882bb350614b742646efbf1b59b226eb71226b4f0bba9fee15488c3",
+      "bytes": 13632
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-1.json",
+      "sha256": "92970317e3819246e1505f725f06dbe3ab71430ec23b0d1a294eea518a2a567f",
+      "bytes": 2232981
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-10.json",
+      "sha256": "dd2f2f6692ac38fd720e998c975561fb717751f2e5d99204416c2808e1531533",
+      "bytes": 2232039
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-11.json",
+      "sha256": "d04943e3067675446c7180d8275e6bb86ae926dafa724153892a1c096e835739",
+      "bytes": 2231837
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-12.json",
+      "sha256": "31d48ce2e6764fa675381127f622cdca4a8c932fcf314d8d6a23c486a443912b",
+      "bytes": 2231769
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-13.json",
+      "sha256": "692a91f67c26b61b4562d79c8778e9f3316c155bb198f49e2a81dd75551b3ce7",
+      "bytes": 1555862
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-14.json",
+      "sha256": "a34833503d97b62388a9bf9bebe3736f6aec54ce1d4c4852d0b465f09ae00041",
+      "bytes": 1288064
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-2.json",
+      "sha256": "e00cf2b20651681f631f0bb03521a4b29f34739cd6b197bc755b3bc65bbe7cbf",
+      "bytes": 2232486
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-3.json",
+      "sha256": "b0f4d7969c0b955b906652fe1b97eee40e011b0924d003aef4dbfeeb9f43fb4b",
+      "bytes": 2232342
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-4.json",
+      "sha256": "a25cf11d26fbf3508131929e49b4b2f3411d1e48b9f0f9da506057f3d2c1c72a",
+      "bytes": 2232325
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-5.json",
+      "sha256": "524bbce47d2f84dfc40016c7b40b6cb6bda88ddeab11ae1d03988972e64296ef",
+      "bytes": 2232332
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-6.json",
+      "sha256": "a0052b07d818ddc82a44ce104eb23fc1d0c362891520b0346c90a23e711281f4",
+      "bytes": 2232202
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-7.json",
+      "sha256": "69fda11e177b8a398e8e28811b59b5aa506cd7cddf357f7ae40ef4bdbca25d1e",
+      "bytes": 2232093
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-8.json",
+      "sha256": "7c27aeb37c7ad189ccd7d5132cbafb89da8ab5ed3856da08adb35a40b1270578",
+      "bytes": 2232131
+    },
+    {
+      "path": "results/orch/plane-run-012/overapprox-best-9.json",
+      "sha256": "387673aa1be9d70b8c47a7fd29aaa769d66923778bfb13e2b0547642e0bc896b",
+      "bytes": 2232055
+    },
+    {
+      "path": "results/orch/review-plane-run012-status-audit.log",
+      "sha256": "707a47fa5f97c640f22510eba1f68eb8c6359157ba5e8cb2043830070650937a",
+      "bytes": 3206
+    },
+    {
+      "path": "results/orch/review-search-handoff-final-status-audit.log",
+      "sha256": "1c873ef7df99a84a0e0bcd4971c95faf61f6b0e62cf0b4438ecc625b50a1c537",
+      "bytes": 443
+    }
+  ]
+}
