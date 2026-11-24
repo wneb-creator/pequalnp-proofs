@@ -1,0 +1,13 @@
+../results/orch/lemmas/TwoEdges.lean:74:40: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/TwoEdges.lean:241:11: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hgs] at ha
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
