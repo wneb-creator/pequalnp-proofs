@@ -9,3 +9,4 @@
 2026-11-24T17:19:53.930638+00:00 Tarjan candidate size/AO2/bipartition and flat operand lemmas compiled and independently reviewed.
 2026-11-24T17:21:29.592695+00:00 union-program projection compressor checked and independently reviewed.
 2026-11-24T17:23:18.600985+00:00 private-step cardinality and transposition primitives compiled and reviewed.
+2026-11-24T17:26:44.877781+00:00 independently built pmatos PR7597 full refutation; reviewed baseline preserved before plain-file adaptation.

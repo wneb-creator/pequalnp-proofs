@@ -9,3 +9,4 @@ TarjanGraph.lean: size 58, AO2, bipartition checked, exit 0. Semantic equality a
 Flat.lean: flat operand, BelowF, and biclique color lemmas compiled exit 0.
 PrivateUnion.lean: projected union-program compressor compiled exit 0; reviewed frozen snapshot.
 PrivateUnion v2, Cardinality, Transpose v1 compiled exit0; independently reviewed.
+pmatos PR7597 baseline L_meta_3679: lake build exit0 (65 seconds). Local checker still running. Attributed reference only; adaptation underway.
