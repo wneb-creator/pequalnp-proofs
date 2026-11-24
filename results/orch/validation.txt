@@ -1,0 +1,11 @@
+PARTIAL checkpoint for L-meta-5282; assigned theorem remains open.
+
+Lean v4.36.0; pinned Mathlib cache obtained with lake exe cache get.
+PEqualNP.Defs build: PASS.
+Existence.lean: lake env lean succeeded, exit 0; no diagnostics.
+ReductionDesign.lean: lake env lean succeeded, exit 0; deprecation warnings only.
+Local statement checker: not run for these partial lemma files.
+Independent review: status_review PASS for partial preservation.
+
+Sub-agents: 6 (status/review, normalization, counterexample, existence, Lean setup, reduction design)
+TIMING total=7.0 subagents=6
