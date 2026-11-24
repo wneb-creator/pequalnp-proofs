@@ -1,0 +1,12 @@
+L-meta-1477 PARTIALS ONLY. Exact unrestricted statement remains unproved.
+Named file unchanged; lake build passed, exact checker REJECTED (no-theorem).
+PlaneFourClause proves the125 bound conditionally: all Ustar edges must be covered by one globally clean four-clause conjunction at four actual OR roots, with leastAO/TopForm, at least2junk and at least1centreless top. This full-coverage assumption has not been derived for arbitrary circuits. Arbitrary external OR sharing IS handled within these explicit hypotheses.
+Triangle9DNFBaseline certifies an actual53-gate core circuit, not a52-gate counterexample. Its symbolic table has80 rows and exact45-edge output.
+
+FourClauseResidual 5462 lines SHA256 ce52a48df1488f82ea9e45e07d9e74a24d7e150abde8212d018b99e64d0b32d9; author build exit0; independent review PASS
+PlaneFourClause 5762 lines SHA256 a348bd206fe56ea867d35f3afea7fd32f10287c308bc184499aabd65f5427d04; author build exit0; independent review PASS
+Triangle9DNFBaseline 463 lines SHA256 fa21026f91cdaede745b51e7fa610dca1893fa6b7bca8e06655bae82126a5cf6; author build exit0; independent review PASS
+PositiveBypass 1397 lines SHA256 0d51e5c684ec09d3e08f3a44b248607bdc79f7c443309a060dddb4276892d974; author build exit0; independent review PASS
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=198.1 subagents=6

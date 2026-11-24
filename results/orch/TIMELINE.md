@@ -141,3 +141,9 @@
 2026-11-24T09:19:51.476436+00:00 normal_form: PrivateGraphSavings compiled/reviewed, strict circuit replacement permits other dirty gates. status_audit integrated PrivateFourClauseLeast; normal_form reviewed final corollary PASS. GeneralDirtyPairs compiled/reviewed unrestricted Ustar mask-or-clean-dirty-pair decomposition. FirstTwoJunk compiled/reviewed OR-plus-one-dirty-leaf semantics and dependent joint reduction g*h=g*OR(other). Structural deriving dependent endpoint-mask corollary. Remaining full-gap obstacle is arbitrary many dirty gates and masked/joint sharing, not proof infrastructure.
 
 2026-11-24T09:21:43.415665+00:00 Root: preserved checked Triangle9 finite basis and+72 lift, dependent two-junk semantics/mask reduction, complete cover-location split and shared-root counting. Still no exact proof/refutation.
+
+2026-11-24 09:21:57 UTC gate_invariants: arbitrary-sharing four-clause residual bound compiled (FourClauseResidual).
+
+- 2026-11-24 09:22:20 UTC: triangle9 baseline53 verified via80-row DNF certificate and independently reviewed PASS; all geometry/basis/lift/calibration components ready,52gate witness absent.
+
+2026-11-24T09:26:38.680775+00:00 Root: preserved first conditional125-gate plane bound handling arbitrary OR sharing, exact Triangle9 symbolic baseline, and positive-only minimality witness. All independently reviewed.

@@ -1,0 +1,39 @@
+../results/orch/lemmas/PositiveBypass.lean:49:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/PositiveBypass.lean:50:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/PositiveBypass.lean:313:31: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/PositiveBypass.lean:314:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/PositiveBypass.lean:639:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/PositiveBypass.lean:640:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/PositiveBypass.lean:791:37: warning: This simp argument is unused:
+  List.length_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.length_append, List.length_cons, List.length_nil] at hm ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/PositiveBypass.lean:1350:43: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲

@@ -1,0 +1,6 @@
+PASS independent source/math/provenance review
+SHA256 0d51e5c684ec09d3e08f3a44b248607bdc79f7c443309a060dddb4276892d974
+Exact reviewed QuadraticProjection prefix and GateBypass block.
+An earlier wire globally below gatej replaces it by a permitted unary OR alias. Absence of a positive-pair strict difference implies pair preservation; global decrease preserves negative inputs.
+The actual alias deletion then saves one gate, contradicting IsMinimalMonoCircuit. All backward-wire bounds and fixed-circuit semantics explicit.
+Forbidden scan clean; author first compile exit0 accepted without duplicate build.

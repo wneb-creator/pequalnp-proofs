@@ -1,0 +1,42 @@
+../results/orch/lemmas/FourClauseResidualWork.lean:64:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/FourClauseResidualWork.lean:66:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/FourClauseResidualWork.lean:127:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/FourClauseResidualWork.lean:128:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/FourClauseResidualWork.lean:130:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/FourClauseResidualWork.lean:141:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/FourClauseResidualWork.lean:142:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/FourClauseResidualWork.lean:144:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/FourClauseResidualWork.lean:1837:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/FourClauseResidualWork.lean:4542:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [orient, hh]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
