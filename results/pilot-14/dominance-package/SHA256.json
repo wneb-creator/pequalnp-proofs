@@ -1,0 +1,10 @@
+{
+  "README.txt": "23c8df1ac1af70c2c81b2757d99fe0ebc49308b54af9094025507364a5ff8efe",
+  "live_theta_dominance.cpp": "d3e56a9a264563c6f2a515cab7bad094ce60184f9b2bf7e4b6c3f93d6c3f6af9",
+  "theta-dominance-boundary.err": "10a31a3b31e403ade5d6874ed5421ddc27114d89e4390de304d9d777f525f9a8",
+  "theta-dominance-boundary.out": "a62be1a50ade81144e706f258eaf4be6dab446dd813e5ec3e98a223f7ac5e8c8",
+  "theta-dominance-compile.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "theta-dominance-compile.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "theta-dominance-full.err": "b82916be66f1cd5d65c21f5bf64ee45c14ea4fe7f0e25163c31d1bce69b0b238",
+  "theta-dominance-full.out": "ebcddd34d81ebbd6a02ed0130472f707d36d04de2fa5560fdd5bbcb2d23b93f3"
+}

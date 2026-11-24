@@ -1,0 +1,18 @@
+Verdict: PASS, independent source and conditional-soundness review. Author reports all four builds EXIT0; logs inspected. No reviewer compiler rerun or finite subtree search.
+MetadataMarker terminal requires exact budget=markerlevel, valid index, enabled row and full List.isPerm; terminal_sound explicitly requires all corresponding leaf Impossible facts and transports via Finset equality. RootSeven.restricted only disables unlisted rows; inherited transport/terminal/cuts remain valid because enabled data is untrusted lookup selection.
+RootSeven.config_valid remains conditional on all12 exact listed leaves. From count bound it derives t+8=12, hence t=4, and enabled list membership yields an actual Fin index; no arbitrary missing/out-of-range row is assumed impossible. FiniteCore kernel-decides complete enabled enumeration, each nodeCheck and rootlink, with only approved recursion/heartbeat limits. Finite bridge handles count0 levels trivially and reduces all remaining k≤15,t≤7 to exact diagonal cases12/4,...15/7. Thus excluded is conditional on12 leaves, not a closed t7 exclusion.
+Leaf helper retains actual child nots/wires and exact original context. Its default getD proposal cannot supply a missing required child: excluded quantifies all actual Fin indices and uses checked parentCheck_fin_sound. Soundness explicitly uses checked oracleSound and target projection.
+No hidden axiom, unsafe computation, trust shortcut, restricted theorem statement or omitted leaf condition found. Empty logs provide no separate axioms print; source is ordinary proofs and decide+kernel only.
+
+Hashes:
+{
+  "replay/RootSevenBase.lean": "d6246f5f9c8ed771fe3ec0af4cccc19f23d04fecd113a6abb5558e982ba9bd34",
+  "replay/RootSevenFiniteCore.lean": "356279be50fcb48e007bbbfc22f05269d7c49e8764768c3a8243d400b682e4ba",
+  "replay/RootSevenFinite.lean": "7c1d96454228f0fb11f08f0180310a2e9763cc4f311fbc3a895bb13fd322d973",
+  "replay/RootSevenLeafBody.lean": "26fa97b2715bc68ab2f41d0c6fa1793c76718cfd32a563e6be890e0323140072",
+  "replay/RootSevenLeafTest.lean": "4dcb268be6bd76a52f5c1859a76cf7e4838a9515c5c645817d8c17dddaca6313",
+  "replay/root-seven-base-2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "replay/root-seven-finite-core.log": "c566a852c00726d54f8d81508597742dbe992b608eba73840f4b33a0f498180e",
+  "replay/root-seven-finite-bridge.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "replay/root-seven-leaf-common.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

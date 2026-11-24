@@ -1,0 +1,12 @@
+result=EXCLUDED k=15 t=0 sec=12.6483 nodes=1073813 hits=259001 branches=1073812 failed=131651 signals=124274 bins=206930 expressions=493537 mode=1 domConstants=369 domNew=1246087 domRetain=121463
+depth 5 nodes 24 unique 11 prefix 1 cached 12
+depth 6 nodes 425 unique 127 prefix 95 cached 203
+depth 7 nodes 3734 unique 894 prefix 1540 cached 1300
+depth 8 nodes 39408 unique 6172 prefix 23747 cached 9489
+depth 9 nodes 261410 unique 31144 prefix 170206 cached 60060
+depth 10 nodes 513955 unique 61918 prefix 323342 cached 128695
+depth 11 nodes 235543 unique 28822 prefix 151909 cached 54812
+depth 12 nodes 18328 unique 2411 prefix 11771 cached 4146
+depth 13 nodes 913 unique 142 prefix 529 cached 242
+depth 14 nodes 72 unique 9 prefix 21 cached 42
+depth 15 nodes 1 unique 1 prefix 0 cached 0

@@ -1,0 +1,13 @@
+/tmp/oec/pequalnp-pilot-14/replay/RootSevenAssemblyTest.lean:14:2: error: Type mismatch: After simplification, term
+  children jj
+ has type
+  Impossible 11 ((some (proposals ↑i)[↑j]).getD { nots := 0, wires := [], move := MemoChildren.Move.unary zero }).nots
+    ((some (proposals ↑i)[↑j]).getD { nots := 0, wires := [], move := MemoChildren.Move.unary zero }).wires
+but is expected to have type
+  Impossible 11 (proposals ↑i)[↑j].nots (proposals ↑i)[↑j].wires
+/tmp/oec/pequalnp-pilot-14/replay/RootSevenAssemblyTest.lean:22:2: error: Type mismatch: After simplification, term
+  leaves ii
+ has type
+  Impossible 12 4 (Cut12StrictReplay.state 12 4 ((some RootSeven.nodes12[↑i]).getD 0))
+but is expected to have type
+  Impossible 12 4 (Cut12StrictReplay.state 12 4 RootSeven.nodes12[↑i])

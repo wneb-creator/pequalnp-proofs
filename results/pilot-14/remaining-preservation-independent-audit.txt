@@ -1,0 +1,29 @@
+Verdict: PASS for preserving the reviewed artifacts with their statuses below. No reviewer compiler or native engine run.
+RootSeven Counts kernel-checks exact9 children for each of12 actual leaves. Prefixes kernel-checks children6/7/8 for all12 leaves (36 exclusions). Children0 kernel-checks only child0 for all12 leaves (12 exclusions). These48 child facts are partial; no completion of the remaining60 child obligations or all parent checks is inferred. All finite source uses decide+kernel and approved limits.
+RootSevenAssemblyBody is exactly included in current Test and remains explicitly conditional: leaf_from_children requires all9 child exclusions plus parentCheck, raw_from_leaves requires all12 leaf exclusions. getD defaults are discharged through actual bounded Fin indices and checked counts. Source is mathematically sound. Author red_team explicitly confirmed current Body/Test corresponds to successful third compile and existing .olean; root-seven-assembly-3.log is empty. Initial log and -2 preserve failed API simplifications and must not be mistaken for final results. No separate axiom diagnostic is in these logs.
+This incomplete7NOT pipeline is superseded by the independently checked LiteralBinary.high_nots, but its checked partials are preserved without inflating their scope.
+Dominance package: all8 listed file hashes and complete manifest coverage verified; both modes run only global t0, full log counts/depth totals agree,1,073,813/651,835calls and12.6483/7.44117seconds match README. Source says new gate/retention pruning uses unproved normalization; README explicitly declares UNVERIFIED and no formal dominance/minimality/constant-elimination theorem. Native EXCLUDED is not a Lean lower bound. Baseline1,159,421calls/25.059seconds and derived reduction figures are UNVERIFIED by this package audit because its baseline log is not included. No mathematical soundness of new omissions is asserted.
+
+Exact reviewed file hashes:
+{
+  "replay/RootSevenCounts.lean": "e2164b668a7d9c8191f39effc35382a17eef8c92ada701f5097192a0899effa6",
+  "replay/RootSevenPrefixes.lean": "dc76c186e5a4e6cef14e989f305c3219d47e4143a8a00568e4b547f5706eeb40",
+  "replay/RootSevenChildren0.lean": "485b09a9bb5c259e487dc7c353fd6984c30673eeeed73b99fa8cc698bf352498",
+  "replay/RootSevenAssemblyBody.lean": "445a726f974c4bec5d9c2f4693ab30984edc33633f1f1d98f6c00156f4122f44",
+  "replay/RootSevenAssemblyTest.lean": "b45caac1ed4f4928675a52e3b8ff8082f8726232e409cea65c605e8d8f9e6713",
+  "replay/root-seven-counts.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "replay/RootSevenPrefixes-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "replay/RootSevenChildren0-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "replay/root-seven-assembly.log": "a7075730919dba3d04cce1e028fbf8c2f2b07de8e185a981f47460746adce2fa",
+  "replay/root-seven-assembly-2.log": "055be65a993a153d6d5ac2147cc008b6b5b6dc49957595aa89d3888b5d2dabc8",
+  "replay/root-seven-assembly-3.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status-review/dominance-package/README.txt": "23c8df1ac1af70c2c81b2757d99fe0ebc49308b54af9094025507364a5ff8efe",
+  "status-review/dominance-package/live_theta_dominance.cpp": "d3e56a9a264563c6f2a515cab7bad094ce60184f9b2bf7e4b6c3f93d6c3f6af9",
+  "status-review/dominance-package/theta-dominance-boundary.err": "10a31a3b31e403ade5d6874ed5421ddc27114d89e4390de304d9d777f525f9a8",
+  "status-review/dominance-package/theta-dominance-boundary.out": "a62be1a50ade81144e706f258eaf4be6dab446dd813e5ec3e98a223f7ac5e8c8",
+  "status-review/dominance-package/theta-dominance-compile.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status-review/dominance-package/theta-dominance-compile.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status-review/dominance-package/theta-dominance-full.err": "b82916be66f1cd5d65c21f5bf64ee45c14ea4fe7f0e25163c31d1bce69b0b238",
+  "status-review/dominance-package/theta-dominance-full.out": "ebcddd34d81ebbd6a02ed0130472f707d36d04de2fa5560fdd5bbcb2d23b93f3",
+  "status-review/dominance-package/SHA256.json": "49c4a571c241e2c20f0fb86b67b0be3bfd8552995d6ae670c6628c4165393880"
+}

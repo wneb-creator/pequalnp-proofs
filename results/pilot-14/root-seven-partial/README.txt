@@ -1,0 +1,1 @@
+Checked partial seven-NOT pipeline.48 of108 child facts checked; assembly theorems conditional on missing facts. Initial Assembly logs record failed attempts; third attempt passed. Superseded by fully checked LiteralBinary.high_nots. This directory does NOT prove the full gap or independently complete its seven-NOT branch. Independent source audits and exact hashes included.

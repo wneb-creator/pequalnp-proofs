@@ -1,0 +1,6 @@
+/tmp/oec/pequalnp-pilot-14/replay/RootSevenBase.lean:74:2: error: Type mismatch: After simplification, term
+  leaves ⟨i, hi⟩
+ has type
+  Impossible 12 4 (Cut12StrictReplay.state 12 4 j)
+but is expected to have type
+  Impossible 12 4 (restricted.state 12 4 j)
