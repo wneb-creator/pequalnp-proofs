@@ -1,0 +1,30 @@
+import took 1.37s
+/tmp/oec/pequalnp-pilot-14/status-review/FreshCodeChild11Native.lean:1:0: error: unknown module prefix 'FreshCodeSearchTest'
+
+No directory 'FreshCodeSearchTest' or file 'FreshCodeSearchTest.olean' in the search path entries:
+/tmp/oec/pequalnp-pilot-14/sat-proof
+/tmp/oec/pequalnp-pilot-14/replay
+/tmp/oec/pequalnp-pilot-14/counterexample
+/tmp/oec/pequalnp-pilot-14/lower-bound
+/workspace/pequalnp-proofs/lean/.lake/packages/Cli/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/batteries/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/Qq/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/aesop/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/proofwidgets/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/importGraph/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/plausible/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/build/lib/lean
+/tmp/oec/pequalnp-pilot-14/toolchain/lean-4.36.0-linux/lib/lean
+/tmp/oec/pequalnp-pilot-14/toolchain
+/tmp/oec/pequalnp-pilot-14/force-context
+/tmp/oec/pequalnp-pilot-14/assembly
+
+/tmp/oec/pequalnp-pilot-14/toolchain/lean-4.36.0-linux/lib/lean
+cumulative profiling times:
+	import 1.37s
+	initialization 51.6ms
+real 3.06
+user 1.10
+sys 1.96

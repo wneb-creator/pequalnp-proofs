@@ -1,0 +1,9 @@
+Verdict: PASS, independent source review. Exact body included in successful test; log reports propext, Classical.choice, Quot.sound only.
+This is a thin wrapper around previously audited MemoInvariant.solve_sound, with retain=false and sound empty memo. Dropping persistent entries affects reuse only; parent-local entries remain authenticated by complete_sound. Valid context, Oracle.Sound and project-target hypotheses remain explicit, and resultBool=false is recovered from check=true. No new finite exclusion or performance claim. No compiler rerun.
+
+Hashes:
+{
+  "toolchain/DynamicRawTransientBody.lean": "7eb10fddd976882822e517376dcb48461912c68fa9b0a7c6cb5cc5793088879f",
+  "toolchain/DynamicRawTransientTest.lean": "214a75b18523b9a9f4ca707ff27f1b6fb541769d04cd0a17f5254d7c7843699e",
+  "toolchain/dynamic-raw-transient-test.log": "0ac901a35d0fbc6c199417a5bfe3ebe86d869241a715ed0a7c3131755133148d"
+}

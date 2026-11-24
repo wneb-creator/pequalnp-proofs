@@ -1,0 +1,40 @@
+import took 3.51s
+/tmp/oec/pequalnp-pilot-14/status-review/FreshCodeSearchTest.lean:105:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/status-review/FreshCodeSearchTest.lean:118:22: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/status-review/FreshCodeSearchTest.lean:134:28: error(lean.unknownIdentifier): Unknown constant `Bool.not_eq_true'.mp`
+'PEqualNP.Outside.L_meta_670_aux.FreshCodeSearch.leafCheck_sound' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	attribute application 0.144ms
+	blocked (unaccounted) 51.6ms
+	compilation (IR) 0.577ms
+	compilation (LCNF base) 9.15ms
+	compilation (LCNF impure) 2.76ms
+	compilation (LCNF mono) 4.71ms
+	congr simp thm 1.57ms
+	declTypeLinter 4.21ms
+	elaboration 39.9ms
+	fix level params 0.547ms
+	import 3.51s
+	initialization 25.7ms
+	instantiate metavars 0.359ms
+	interpretation 294ms
+	let-to-have transformation 0.389ms
+	linting 9ms
+	module linting 0.0311ms
+	parsing 6.86ms
+	process pre-definitions 6.78ms
+	share common exprs 1.07ms
+	simp 23ms
+	tactic execution 50.7ms
+	tacticAnalysis 2.45ms
+	type checking 6.69ms
+	typeclass inference 18.2ms

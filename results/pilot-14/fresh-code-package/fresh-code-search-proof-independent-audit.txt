@@ -1,0 +1,12 @@
+Verdict: PASS, independent generic proof/source review. Author EXIT0 log inspected, exact runtime/proof bodies included in test; no reviewer compile. Final leafCheck_sound has only propext, Classical.choice, Quot.sound.
+This supersedes the source-only compilation-status caveat in fresh-code-search-source-audit.txt. Runtime fragment is unchanged. cut_sound explicitly constructs Valid via FastRecipe.initial_valid with correct rho, so it permits arbitrary code lists and ProgramBuilder without silently requiring codes to describe wires. Coverage uses actual t and exact cached projections; prefix prune keeps Oracle.Sound and Nodup.
+search_sound is structural induction on k with arbitrary codes; both normalization identities restore v and codes, exclude_step_nodup supplies each child Nodup, and induction covers either arbitrary nextCodes list. Base case is exactly existing exclude_search; t underflow does not bypass original stepTest. leafCheck_sound extracts checked top Nodup and false search. All oracle/target/rho hypotheses remain explicit.
+No concrete leaf exclusion or runtime memory/performance claim is made.
+
+Hashes:
+{
+  "status-review/FreshCodeSearchBody.lean": "8982e592de3b3bb31ceb7daffe6051dfc7c1f1a4d79fe8b479fc6555f60d8de1",
+  "status-review/FreshCodeSearchProofBody.lean": "7f9d6afc3431b3bd2dc22ca9118a91199ffe54d05919946d1e853879dbb60fda",
+  "status-review/FreshCodeSearchTest.lean": "3aeeaf844be768d7669146afe567e028d0cb4dcf1622bcc7279e4c1a099802d6",
+  "status-review/fresh-code-search-test.log": "7f6571ed7b654ddabdf241154749e31eaa606b25dc8ccab9e91b9f83cb3285dc"
+}

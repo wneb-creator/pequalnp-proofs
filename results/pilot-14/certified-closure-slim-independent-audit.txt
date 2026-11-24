@@ -1,0 +1,14 @@
+Verdict: PASS, independent source/conditional-soundness and delta-manifest review. CertifiedClosureTest author reports EXIT0 and its existing empty log inspected; no reviewer build. Entire assembled slim Candidate has not been compiled by reviewer; it remains a conditional proof scaffold.
+CertifiedFrontier closes Oracle.Sound from previously checked noSmallSubset/noThetaSubset hypotheses. baseConfig only disables t>5 counts, preserves authenticated transport/cuts, and its false terminal is vacuously sound. MetadataMarker makes terminal states conditional on every enabled actual budget12 leaf fact. certified explicitly still requires leaves, every levelCheck for k≤15,t≤5, and rootlink checks0..5; t6/7 use independently checked LiteralBinary.high_nots. No finite claim is assumed silently, and finish remains conditional on full cert rather than asserting posted theorem.
+Every37 component hash and base source hash matches Candidate after exact assembly separators. Compiled closure source matches Candidate CertificateInterfaces namespace after namespace rename; finish retains exact posted graph edges and HasCircuitSize9(... )15.
+Only five slim deltas found, exactly as changes.json: delete unused XOR-coverage helpers; delete unused rootOf/recipeGate; replace RawNoMemo cut_sound proof with existing DynamicCovered.cut_sound under checked context; compress nine separately checked literal-obstruction lemmas into fin_cases+decide+kernel; delete unused ChildReplay.check_fin_sound. No computations/statements weakened. No dangling reference to the removed declarations was found; same-basename rootOf/recipeGate definitions remain independently inside StrictPrefix. Recombined obstruction proof still needs assembly compilation even though same nine cases previously passed.
+Candidate format scan: no forbidden root text, string literals, sorry/new axioms/native_decide/bv_decide/unsafe or attributes. Only approved limit options appear. Size519754B leaves4534B below512KiB before the still-missing finite certificate/theorem. This size headroom is a limitation, not a claim that full proof fits.
+
+Exact hashes:
+{
+  "replay/CertifiedClosureTest.lean": "837d190ff8944c01b32393e47bd39d41392add36361d7eb227bfc23496ab7b6d",
+  "replay/certified-closure.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "assembly-slim-certified/Candidate.lean": "117f01430097ce47ad8c1226a6e8a0a5f1fbadd7b7462ffb70175f67eb2c280f",
+  "assembly-slim-certified/manifest.json": "bf4366b5d21f4365fa82683f2f81199d4f172968241ccb98fbc0d0b1e05f54b7",
+  "assembly-slim-certified/changes.json": "878c6dbc1a21fdd8acc4307f8e5b912883d6901b0ecda028ac4c9a2e6f6748fb"
+}

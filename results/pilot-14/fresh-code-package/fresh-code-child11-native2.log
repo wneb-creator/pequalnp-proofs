@@ -1,0 +1,32 @@
+import took 3.92s
+interpretation of _private.FreshCodeChild11Native.0._eval took 465ms
+true
+interpretation of _private.FreshCodeChild11Native.0._eval took 383ms
+37
+cumulative profiling times:
+	.olean serialization 3.06ms
+	attribute application 0.037ms
+	blocked (unaccounted) 9.09ms
+	compilation (IR) 0.315ms
+	compilation (LCNF base) 4.53ms
+	compilation (LCNF impure) 1.3ms
+	compilation (LCNF mono) 2.38ms
+	declTypeLinter 1.71ms
+	elaboration 14.2ms
+	fix level params 0.0297ms
+	import 3.92s
+	initialization 38.6ms
+	instantiate metavars 0.109ms
+	interpretation 1.15s
+	let-to-have transformation 0.0994ms
+	linting 3.42ms
+	module linting 0.0262ms
+	parsing 1.48ms
+	process pre-definitions 2.94ms
+	share common exprs 0.168ms
+	tacticAnalysis 1.52ms
+	type checking 1.51ms
+	typeclass inference 4.35ms
+real 7.03
+user 4.95
+sys 2.08

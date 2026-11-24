@@ -1,0 +1,22 @@
+Verdict: PASS for preservation as an explicitly UNVERIFIED native diagnostic package. No C++ or Lean rerun.
+Independent checks: all package hashes, exact11365seed stdout/census/metadata alignment, complete seedtext parse with12exactcontexts per seed, per-level counts and complete t4 logs.
+90 UNKNOWN are all t0 with5001 calls, not excluded claims;11275 native EXCLUDED are not Lean proofs.1933 records exceed1000calls across1662globalrows; t4no-memo50cases min1/max568/sum9086.
+Source cap/reset review: nodes++ then immediate maxnodes check sets stopped; stopped propagates out of attempt/search, result rendering prioritizes UNKNOWN. Wall/RSS sampling occurs only every65536nodes, so5000nodecap is effective control for this run. Perseed clears failed, bins, expressions, marks, expressionIDs, evalcache, counters, stopped; resizes signalintern state to base and resets negation caches. Prefix contexts are reloaded from exact seed programs and sorted alongside wires. No new checked theorem, universality or performance extrapolation is asserted.
+Total measured native seconds 82.756478625
+Hashes:
+{
+  "Cut12CostCensus.json.gz": "7d298ea21b6157cdfe6f5dfd70682e4a6183006eed3ca5f58b06df442948b66a",
+  "Cut12T4NoMemoCosts.json": "681c02c925a6d005395bfe1a233f764f149e85a8314a15e503286cb3ccac91c8",
+  "README.txt": "df0ee71cd27cd2c4b199d8f8ddb83f4259e27d68c53eff3da293b08631df6f6d",
+  "SeedMetadata.json.gz": "facba597bfba890536cc89814bd2753f480a1799d06fda949d9987919326f036",
+  "cut12-batch-compile.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "cut12-batch-compile.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "cut12-batch0000-1000.err": "c0d73a18b5fe28b2dee505fdf0d353f1423de3016d1963cabed9fc4f395d4044",
+  "cut12-batch0000-1000.out.gz": "d7be11c2ca1bb16f40d4be7552a93a7ae8352c7681440f3707d06b2f49ac46a9",
+  "cut12-batch1000-11365.err": "f2d5fc28b300458351ff2df63199430e911cc166a835e36fae4cae4989df531c",
+  "cut12-batch1000-11365.out.gz": "ed6ae7e92be7d9a5ef0989528db9e3ed6b66f6c6f8a42e5c15bff27f8705357b",
+  "cut12-t4-nomemo.err": "4b741a3799252a9574c8e211df49c309c29d85992614719372046c50c6f90ce5",
+  "cut12-t4-nomemo.out.gz": "400d720dab57410690bb47e062d906cb71375177dcf23c443057c9e8fd642ea8",
+  "cut12_seed_data.txt.gz": "4c54ddae3aaa1eeb4688e1e126cda69a6b71ae10c0081015e4e43cdc0ba5b75f",
+  "live_cut12_batch.cpp": "fe6c74469f5c09b9328084a0ad2b957ced1d54b7cea9363a5976f23ad0061cbd"
+}

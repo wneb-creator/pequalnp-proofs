@@ -1,0 +1,32 @@
+import took 3.52s
+/tmp/oec/pequalnp-pilot-14/status-review/FreshCodeChild11.lean:15:56: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) excessive memory consumption detected
+type checking took 22.3s
+cumulative profiling times:
+	attribute application 0.0269ms
+	blocked (unaccounted) 0.334ms
+	compilation (IR) 0.107ms
+	compilation (LCNF base) 1.24ms
+	compilation (LCNF impure) 0.508ms
+	compilation (LCNF mono) 0.992ms
+	declTypeLinter 4.96ms
+	elaboration 12ms
+	fix level params 0.222ms
+	import 3.52s
+	initialization 29.4ms
+	instantiate metavars 0.093ms
+	interpretation 274ms
+	let-to-have transformation 0.021ms
+	linting 4.57ms
+	module linting 0.051ms
+	parsing 0.769ms
+	process pre-definitions 1.58ms
+	share common exprs 10.8ms
+	tactic execution 2.38ms
+	tacticAnalysis 0.771ms
+	type checking 22.3s
+	typeclass inference 0.689ms
+real 66.70
+user 63.58
+sys 3.04

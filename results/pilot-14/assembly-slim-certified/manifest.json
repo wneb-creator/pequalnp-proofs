@@ -1,0 +1,192 @@
+[
+  {
+    "source": "toolchain/SlimCompact1007.lean",
+    "bytes": 306244,
+    "sha256": "21069a8982b627c2f8d2c916edf7b70c2224b9be12f590f72acd097fb7c0a97f"
+  },
+  {
+    "component": "LiveSearch414",
+    "bytes": 38737,
+    "sha256": "e7f0b78558d44fdaf40427674bfb5959b0b5345cf9578fd76250e6d62737886c"
+  },
+  {
+    "component": "CompactSymmetry414",
+    "bytes": 25148,
+    "sha256": "da7a72a1c579cd5378747a87371f6c1b9a4d61253a0bb1ed069bf5af796a0e94"
+  },
+  {
+    "component": "ProjectionCore",
+    "bytes": 5246,
+    "sha256": "38679cbb565985fd42297d606a110f96d0af8011465d0db3785ff65a928fe6f6"
+  },
+  {
+    "component": "ProjectionCount",
+    "bytes": 4835,
+    "sha256": "5178a2a69a1caa069ae1d9074079f23bee0f4c5635097ccc97ad0e1582ebd6eb"
+  },
+  {
+    "component": "PrefixExtraction",
+    "bytes": 959,
+    "sha256": "d12e4354fac09b310e34c99e0419fd3368bfbca62c0d6830d46d2e86fbbec907"
+  },
+  {
+    "component": "GeneralPrefix",
+    "bytes": 2297,
+    "sha256": "62bc22885db77d435d4ec5250a9ba6fdf8051b3574ae49ef217b957ff947db65"
+  },
+  {
+    "component": "ConcreteProjection",
+    "bytes": 10403,
+    "sha256": "e66ea83ba8f8deee140c0920aeb2e04108ac5d4cda1909bc342d7d528c94f9e6"
+  },
+  {
+    "component": "PrefixLegality",
+    "bytes": 728,
+    "sha256": "cf608a2b96accffd5ad0048114d09d3585d48d5c2a89b99b9a131959c3d0b08d"
+  },
+  {
+    "component": "CachedCounting",
+    "bytes": 593,
+    "sha256": "277697730f225dcf734dad73c3e742cc743e3230f5f512579f119f485f11926d"
+  },
+  {
+    "component": "GeneralCachedPrefix",
+    "bytes": 2482,
+    "sha256": "60bd7f727850989ee01a3e61a6465e4f9ae7a43fddf525db2eb2382a51fc5ee6"
+  },
+  {
+    "component": "ProjectedCoverage",
+    "bytes": 2606,
+    "sha256": "662c342c57a366e5cdfc106f045b0b222412edb7021f49838daba79fd65b8a27"
+  },
+  {
+    "component": "ProjectionDomains12",
+    "bytes": 1764,
+    "sha256": "a3260f999c2342859c2ef944e05cc15dabb03859eadbed770e97afaa6e30fad9"
+  },
+  {
+    "component": "CachedRawProjection",
+    "bytes": 2818,
+    "sha256": "25a643c94cba88393bcd8445d33b65c1f9a09fb1e4ac19071f4dd7a3f3a94b78"
+  },
+  {
+    "component": "CachedRawIntegration",
+    "bytes": 1948,
+    "sha256": "eee1840bc95e9f28c2508ff2a3446676e97f1c5ba82713551e5f5a6c0cd06f18"
+  },
+  {
+    "component": "DynamicClosedCore",
+    "bytes": 3871,
+    "sha256": "f79cb5dd699dc97c0d98582cc700bb9ffbe5ecda75a93aeb79a80d53a7abcb32"
+  },
+  {
+    "component": "DynamicPruning",
+    "bytes": 613,
+    "sha256": "49d13c015f60bc28832c0c87fc827eed60f9b0ba366e8e9fd7a440194df82c17"
+  },
+  {
+    "component": "ClosedDomains12",
+    "bytes": 1582,
+    "sha256": "5a1703cfbed30e8d3021cdfc166011513087373358c9699df20ff94bec3c6617"
+  },
+  {
+    "component": "ClosedThetaBridge",
+    "bytes": 1164,
+    "sha256": "b8a97367d29e1d0cad48b9a559df26b2f71499f426ec0ec2c3fa75e5df8cbc4a"
+  },
+  {
+    "component": "BoolNodup",
+    "bytes": 454,
+    "sha256": "07a862cb01682aa8f77c6ca36cb38378db5fb71341e30052b7be2150ab75e665"
+  },
+  {
+    "component": "MemoBoolFastFoundation",
+    "bytes": 5547,
+    "sha256": "86298bcd646fc0e6395b6861b0a618d77bc19cb5481165d1f5b0b1ab38d2b566"
+  },
+  {
+    "component": "MemoChildren",
+    "bytes": 2638,
+    "sha256": "f435131dce3ccd935bb6b396527c4e3aea4bef68291c4d4943c73ae73f56ccc3"
+  },
+  {
+    "component": "DynamicCoveredCut",
+    "bytes": 1391,
+    "sha256": "823bc53257ed5976f771b4ce3e7ba952751c585c4d7a7f99d986db027b74f462"
+  },
+  {
+    "component": "FastRecipe",
+    "bytes": 5375,
+    "sha256": "66435404006683c17d733b9abfce497b5fe2e3af4700e5ffd3392449b9cc632e"
+  },
+  {
+    "component": "StrictPrefix",
+    "bytes": 3857,
+    "sha256": "735f0b6849c190ac27d64198e21e752f814b31168816a04e3771816b4717c6a8"
+  },
+  {
+    "component": "ExcludeStepNodup",
+    "bytes": 839,
+    "sha256": "9b35758d3de35e83ce6dbe6dc2da13e5e5d7c7866a26bff9cb2307e771643431"
+  },
+  {
+    "component": "DynamicRawNoMemo",
+    "bytes": 4259,
+    "sha256": "d612ae648246bf79275b812dd35f6637ce35cc571543693ffcc93cde19ea3e9f"
+  },
+  {
+    "component": "AutoContext",
+    "bytes": 3361,
+    "sha256": "d91b6b91d760bc9eef4882b7c93b83135ebb3ae400ad00dc346783f779ce4011"
+  },
+  {
+    "component": "MetadataReplay",
+    "bytes": 8742,
+    "sha256": "b5e12edb6b9b77dee2e9e9305965fd6b90483a071c2eb8ddb539b3fdb4fa4e5d"
+  },
+  {
+    "component": "MetadataStrictEdges",
+    "bytes": 3149,
+    "sha256": "879af24bbb127f413c7b9e19747f566bd8f36f65ad44e0f0c0843d6571898c18"
+  },
+  {
+    "component": "Cut12Codec",
+    "bytes": 22110,
+    "sha256": "0c4c7debc0d9481dde8e65d37e858907ded8f62fb2ad527bfc38e760f3cfcc73"
+  },
+  {
+    "component": "Cut12Lookup",
+    "bytes": 27279,
+    "sha256": "ffa48e5b8c3d2f4f1906f1566e9a6cc4b2edc9a0dc41e784d69bccfb366fed15"
+  },
+  {
+    "component": "Cut12Runtime",
+    "bytes": 3490,
+    "sha256": "ea55e62f6c9f2324eb0666a5488eff247f1aec41273eeb7f62214e99ad17e1d1"
+  },
+  {
+    "component": "LiteralBinary",
+    "bytes": 4446,
+    "sha256": "e51a3f084b80d4cf86003cf9f935958152bd88de19920e168b6cc5d426c296a1"
+  },
+  {
+    "component": "ChildReplay",
+    "bytes": 1502,
+    "sha256": "fb4c4983262b373a019fe1dafc98fd1a9ee87c10a683917d9b73f721c316c378"
+  },
+  {
+    "component": "ProjectedChild",
+    "bytes": 2885,
+    "sha256": "c06f50f5648260ad7c27e5a155e739397e800cc71756428d6369bb6b54fc71cb"
+  },
+  {
+    "component": "MetadataMarker",
+    "bytes": 1291,
+    "sha256": "ea5accecc970c5180a1fe6c48f475ade46d81b2b6088c888a84b2a54c7de9fdf"
+  },
+  {
+    "component": "CertificateInterfaces",
+    "bytes": 2360,
+    "sha256": "848c35749899026d6c5565a41435e1495eba8b187c8643ab312a347e9242c237"
+  }
+]

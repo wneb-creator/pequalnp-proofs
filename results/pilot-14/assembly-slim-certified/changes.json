@@ -1,0 +1,27 @@
+[
+  [
+    "ProjectedCoverage",
+    3439,
+    2606
+  ],
+  [
+    "DynamicClosedCore",
+    4150,
+    3871
+  ],
+  [
+    "DynamicRawNoMemo",
+    4628,
+    4259
+  ],
+  [
+    "LiteralBinary",
+    5599,
+    4446
+  ],
+  [
+    "ChildReplay",
+    1849,
+    1502
+  ]
+]

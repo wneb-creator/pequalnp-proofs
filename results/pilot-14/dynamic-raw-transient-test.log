@@ -1,0 +1,30 @@
+import took 4.14s
+'PEqualNP.Outside.L_meta_670_aux.DynamicRawTransient.check_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	.olean serialization 2.6ms
+	attribute application 0.015ms
+	blocked (unaccounted) 16.6ms
+	compilation (IR) 0.0662ms
+	compilation (LCNF base) 1.2ms
+	compilation (LCNF impure) 0.272ms
+	compilation (LCNF mono) 0.593ms
+	congr simp thm 0.247ms
+	declTypeLinter 2.22ms
+	elaboration 7.12ms
+	fix level params 0.0257ms
+	import 4.14s
+	initialization 30.7ms
+	instantiate metavars 0.0324ms
+	interpretation 328ms
+	let-to-have transformation 0.0149ms
+	linting 3.36ms
+	module linting 0.0348ms
+	parsing 1.23ms
+	process pre-definitions 0.434ms
+	share common exprs 0.114ms
+	simp 1.17ms
+	tactic execution 6.26ms
+	tacticAnalysis 1.11ms
+	type checking 0.827ms

@@ -1,0 +1,11 @@
+{
+  "README.txt": "4b1f265cccaf86e80569677eb22c5b063013d470919b2daa605dabeb5a964861",
+  "cut12-adaptive-children.err": "cc42a4e8d3ad97e44b99981c4a56d64a64356afe8a80957776b52793dd5ef046",
+  "cut12-adaptive-children.out.gz": "3393ddf9a5408e6ae6a37e3a5671038e5c0f31a2c8a11a6b70f761c3d908740a",
+  "cut12-children-compile.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "cut12-children-compile.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "cut12_adaptive_child_rows.txt.gz": "3f5b592ef6b8ac70a093137d361946651a7f419000c1914cffd5782edb43700e",
+  "cut12_bad_seeds.txt": "9b97539114b90831368f14e369884ddff4c2c6aee4dc9c584d0308129c8f1db3",
+  "cut12_existing_rows.txt.gz": "cd4ec218088368d58a82a9faa131969b1b5f7840592bdb63fe3e3c03b3f40805",
+  "live_cut12_children.cpp": "f8499dde3464a27039316d30c402ad49a1d77cc11b6135e458b0177dc19703fe"
+}
