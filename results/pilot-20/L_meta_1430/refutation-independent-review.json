@@ -1,5 +1,5 @@
 {
-  "verdict": "PASS for preservation push after root confirms its running Lean build; source review itself is complete",
+  "verdict": "PASS for preservation push; exact source and successful lake build independently confirmed",
   "reviewer": "/root/counterexample_search",
   "file": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1430.lean",
   "sha256": "7a55d83530793ac6da4707885b7aef6bdaf0c54ba1d19fc10049820e6bf432ed",
@@ -15,7 +15,7 @@
   "plain_file_scan": "PASS",
   "file_regular_nonexecutable_utf8_under512KiB": true,
   "new_axioms_or_forbidden_shortcuts": false,
-  "kernel_compilation_and_axiom_closure": "root owns running build/audit; reviewer did not run Lean",
+  "kernel_compilation_and_axiom_closure": "Root lake build completed successfully (18395 jobs), with empty stderr; local checker/axiom audit still pending at review update.",
   "old_staged_deletion": {
     "path": "lean/PEqualNP/Outside/L_meta_1482.lean",
     "owned_by_this_job": true,
@@ -24,5 +24,6 @@
     "preserved_at_pushed_commit": "801e114",
     "last_source_change_commit": "bd8cec71a06c80481ff443a429f69a253811dbe8"
   },
-  "source_trust_notes": "Original action_spec/gate_reach handle all posted arities and default-false reads. Existing finite rejection certificates use decide +kernel. Added proof is constructive application of the assumed negation; no new trust dependency."
+  "source_trust_notes": "Original action_spec/gate_reach handle all posted arities and default-false reads. Existing finite rejection certificates use decide +kernel. Added proof is constructive application of the assumed negation; no new trust dependency.",
+  "build_log_verified": "gap1430/build.stdout and build.stderr"
 }

@@ -1,0 +1,53 @@
+Independent preservation review: PASS, conditional on successful root build before push.
+Reviewer: /root/review_rules
+Target: lean/PEqualNP/Outside/L_meta_1430.lean
+SHA256: 7a55d83530793ac6da4707885b7aef6bdaf0c54ba1d19fc10049820e6bf432ed
+Lines: 753; bytes: 46589; regular nonexecutable UTF8 file below512KiB.
+
+The target is exactly the upstream L_meta_1429 source with namespace1429
+renamed to1430, the final theorem type replaced by the negation of the unchanged
+posted1430 statement, and only intro h_refute/apply h_refute added to its proof.
+The posted1430 statement is byte-exactly the negation of the original1429
+theorem type. Every original certificate, datum, supporting proof and final
+positive proof byte is otherwise unchanged. No provenance discrepancy found.
+
+The current outside-guard imports/plain-file/own-namespace check passes with
+only Mathlib and the permitted PEqualNP.Defs dependency. The numeric bit-vector
+literal0#512 is ordinary existing proof syntax, not an execution command.
+No prohibited source constructs, additional axiom declarations or credential
+signatures were found. The archived refutation source matches the named target.
+Archived gap/statement/imports/adaptation/guard/review copies match scratch.
+
+The removed705-line L_meta_1482 source belongs to this job and is preserved in
+pushed history, SHA256d59770007b5ea5e1498b1345b6735666d5a93d3999a7a85bfc44917857e042cf.
+Its separate validation snapshot differs from the previous validation only by
+an appended release/provenance note. Its64-gate target remains unresolved.
+
+At review time the new1430 validation accurately says root build is running
+and the local refute checker is pending. This reviewer did not run Lean.
+Successful compilation and an ACCEPTED(refute) verdict must be reported only
+after they finish. The current PR workflows use check mode, so no ordinary
+proof PR acceptance is claimed. This is an authorized refutation-preservation
+checkpoint, not a normal single-file proof PR.
+
+Working-tree and staged whitespace checks pass. All current new1430 archived
+text artifacts were scanned without credential-signature matches.
+
+Post-push addendum: root recorded successful named-file compilation and pushed
+commit859a97ebc54a60e2ff2f89c4ff1e6e9dea970b10. The archived full build stdout
+and stderr exactly match scratch; stdout ends with Build completed successfully,
+and stderr is empty. Updated validation accurately records build PASS with
+refute checker still pending. Added build artifacts also pass credential scan.
+The preservation condition above is now met; this report remains separate
+from the named Lean file and must be included in the next archival commit.
+
+Checker-pass addendum: independent archived-log review PASS. The source remains
+unchanged at SHA2567a55d83530793ac6da4707885b7aef6bdaf0c54ba1d19fc10049820e6bf432ed,
+which exactly matches the single checker MANIFEST target entry. Complete
+checker stdout/stderr match scratch; stderr is empty, no REJECTED line occurs,
+and the final verdict is ACCEPTED(refute), with only propext, Quot.sound, and
+Classical.choice after1524 project constants were kernel re-checked. The posted
+statement is still byte-identical to its archived desk copy. Current validation
+correctly records this local refutation acceptance and pending cleanup, with
+no ordinary PR acceptance claim. Historical1482 validation remains preserved
+separately. Approved for immediate checker-result preservation push.

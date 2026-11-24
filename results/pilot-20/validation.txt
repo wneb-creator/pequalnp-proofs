@@ -1,98 +1,12 @@
-L-meta-1482 PARTIAL RESULT — posted theorem NOT proved or refuted.
-File: lean/PEqualNP/Outside/L_meta_1482.lean
-Base upstream commit: 5c49e86
-Current named-file lake build: PASS (exit 0), complete build.stdout/stderr.
-Exact-statement checker on current 705-line file: REJECTED (no-theorem).
-Plain-file guard: REFUSED: the file holds no theorem (expected for partial).
-No PR opened for an incomplete proof.
-
-The named file includes a complete 65-gate double-re-read witness, proved in
-Lean with the exact posted existential body and only size replaced by C.size=65.
-It proves all-input incidence correctness, distinct backward binary gates,
-and both exact v/w recurrence certificates at p=l=0. This is an upper bound
-at 65 only; the assigned nonexistence statement at 64 remains unresolved.
-Independent review also recomputed the 52 minterms and both derivative tables.
-Full standalone source and empty compile logs: full-boundary.lean.txt and
-full-boundary.stdout/stderr. The original statement is preserved in statement.txt.
-
-Other checked helpers establish finite plane facts, 13-center cover rigidity,
-wire semantics, output validity, recurrence uniqueness, monotonicity,
-first-loss AND witnesses, and critical-input correctness.
-Independent review approved both source and preservation snapshots. The current
-named source is the exact prior 465-line file plus the two reviewed helper bodies.
-Forbidden-text scan: no matches (rg status 1).
-Line counts: prior 465, current 705; complete witness component 206.
-Cleanup pass not started: the checker has not accepted the posted theorem.
-
-Sub-agents: independent review, structural proof, counterexample/SAT search,
-lemma search/formalization, lease keeper, Lean environment setup, OR-bound lookup,
-shared-cover search, and replacement archive review, and counterexample archive review (10 total).
-Research process note: earlier read-only academic paper lookups exceeded the
-allowed-host list. Those requests were stopped; no credentials/private data
-were sent and no external writes occurred.
-
-Term-family certificate helpers compiled in the self-contained combined file
-(exit0), with three kernel checks for absorption and rejection of invalid
-containment. The161-line helper alone depends on existing wire lemmas.
-Independent review PASS; stored source and complete stdout/stderr accompany it.
-This prepares checking arbitrary search witnesses; it does not prove the target.
-
-
-Axiom audit of boundary_exists_at_65, cover_eq_one_side, and
-circuit_critical_inputs_correct: PASS, only propext, Classical.choice, Quot.sound.
-Complete audit source and output are preserved.
-The plane permutation and all52 flag reductions were independently checked
-computationally; this is a search symmetry fact, not a Lean theorem.
-The independently reviewed normal-form note states mathematical safe-wire
-reductions and the unresolved unsafe-intermediate obstacle. It does not prove
-the target and explicitly says those reductions can destroy double reread.
-
-
-The original second65-gate source snapshot remains core-boundary-pending.lean.txt.
-Its initial compile was interrupted. The corrected bounded successor is now
-checked and preserved as core-boundary.lean.txt (1033 lines, exit0).
-The first65-gate witness and705-line named module remain compiled and pushed.
-A reviewed addendum records the existing conditional all-AND-safe lower bound,
-and resource-counts.json independently checks both65 candidates and the68
-unsafe-AND research seed on8,192 point-derived false closures.
-
-
-Second complete65-gate witness:14AND+51OR, double reread at p=0,l=4.
-All-input incidence correctness, legal distinct earlier operands, and both
-posted recurrence certificates are proved. Full independent review PASS;
-source SHA2568acbf7db8dd8828b6149d3e8ea2c8fd1e2fea3730b8cf2504698f5f5f1a580e2.
-The fixed coverage predicate avoids the confirmed2^26-subset instance choice;
-its equivalence to the original bounded coverage meaning is proved in Lean.
-Complete successful compile logs and diagnostic evidence accompany the source.
-This second witness is an artifact; named file remains705 lines and unchanged.
-Neither65-gate witness proves or refutes the assigned64-gate statement.
-
-
-Algebraic research archive frozen and independently reviewed PASS:727 hashed
-artifacts plus embedded manifest,66 completed main runs,15,088,673 rewrite
-attempts. All300 candidate circuits were checked against their applicable
-critical inputs and direct derivative conditions. No target-budget witness.
-Interrupted work is explicitly UNKNOWN and excluded from completed totals;
-finite local censuses are separate from nonexhaustive heuristic searches.
-Archive SHA256ea36c3063b19098cee0cb103f0ad90530b7deea9e33e266938f04eb589edb586.
-
-
-Second witness explicit axiom audit: PASS, exit0. Both the full65 existential
-and bounded coverage soundness use exactly propext, Classical.choice,
-and Quot.sound. The separate audit source is the frozen proof plus only two
-axiom-print commands; complete stdout/stderr and status are preserved.
-
-
-Counterexample-search research archive frozen and independently reviewed PASS.
-All1,073 manifested files and the embedded manifest match;139 stored physical
-or symbolic models were independently recomputed and their recorded semantics,
-derivative metadata, and limitations confirmed. Invalid near-seeds remain
-explicitly invalid. No qualifying64-gate global witness was found.
-The compressed local SAT census finished with2 restricted UNSAT and7 UNKNOWN;
-9 pair-only rounds made534,642,688 mutations without a64-gate pair model.
-Final unsafe-AND SAT: UNKNOWN after700seconds, no model. Interrupted original
-global/free-OR runs are UNKNOWN/interrupted, with full partial logs retained.
-All research searches are stopped; no stale RUNNING status is claimed.
-Archive SHA256a1f71b42ec3f05bbc065e3629f8429a1cae30f20ba644316f4bcc46e419bd2d8.
-
-TIMING total=97.4 subagents=10
+Gap: L-meta-1430
+Status: self-contained exact refutation; named-file lake build PASS (exit 0), local exact-statement refute checker ACCEPTED (exit 0).
+Statement: exact posted statement stored in statement.txt; theorem proves its negation.
+Source: L_meta_1429.lean (upstream), namespace renamed and double-negation wrapper added.
+Independent review: PASS; no certificate or supporting proof changes.
+Guard: imports allowed: Mathlib PEqualNP.Defs
+Lines before cleanup: 753
+Lines after cleanup: pending (original accepted version preserved)
+Sub-agents: lease_keeper, counterexample_search, structural_proof, lemma_search, review_rules, lean_setup, and independent child reviewers (10 total across job).
+TIMING total=112 subagents=10
+PR status: no PR; current PR workflows hardcode proof mode, while this result requires refute mode.
+Checker verdict: ACCEPTED (refute): PEqualNP.Outside.L_meta_1430; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked 1524 constants.
