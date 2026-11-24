@@ -469,4 +469,60 @@ lemma automorphism_ordered_pair_adjacent (p q : Fin 10) (hpq : p ≠ q) :
     simpa [hoff] using hq
 
 
+
+def kwNeighbor (v : Fin 10) (j : Fin 3) : Fin 10 :=
+  (([[1,4,5],
+    [0,2,6],
+    [1,3,7],
+    [2,4,8],
+    [0,3,9],
+    [0,7,8],
+    [1,8,9],
+    [2,5,9],
+    [3,5,6],
+    [4,6,7]] : List (List (Fin 10))).getD v []).getD j 0
+
+def kwNegativeMask (v : Fin 10) (i : Fin 3) : ℕ :=
+  (([[116,554,402],
+    [116,201,773],
+    [201,402,554],
+    [402,773,116],
+    [554,773,201],
+    [402,773,201],
+    [773,554,402],
+    [554,773,116],
+    [116,201,554],
+    [201,402,116]] : List (List ℕ)).getD v []).getD i 0
+
+lemma kw_negative : ∀ v i, edgeFn (maskRow (kwNegativeMask v i)) = false := by decide
+
+lemma kw_center_absent : ∀ v i, maskRow (kwNegativeMask v i) v = false := by decide
+
+lemma kw_positive : ∀ v j, edgeFn (pair v (kwNeighbor v j)) = true := by decide
+
+lemma kw_neighbor_injective : ∀ v, Function.Injective (kwNeighbor v) := by
+  unfold Function.Injective
+  decide
+
+lemma kw_masks_injective : ∀ v, Function.Injective (kwNegativeMask v) := by
+  unfold Function.Injective
+  decide
+
+lemma kw_neighbor_symmetric : ∀ v i, ∃ j, kwNeighbor (kwNeighbor v i) j = v := by decide
+
+lemma kw_mask_weight : ∀ v i,
+    (List.ofFn (maskRow (kwNegativeMask v i))).count true = 4 := by decide
+
+lemma kw_neighbor_incidence : ∀ v i j,
+    maskRow (kwNegativeMask v i) (kwNeighbor v j) = decide (i ≠ j) := by decide
+
+lemma kw_only_difference : ∀ (v : Fin 10) (i j : Fin 3) (k : Fin 10),
+    pair v (kwNeighbor v j) k = true → maskRow (kwNegativeMask v i) k = false →
+      k = v ∨ (i = j ∧ k = kwNeighbor v j) := by decide
+
+lemma kw_opposite_diagonal : ∀ (u v : Fin 10) (i j : Fin 3),
+    kwNeighbor u i = v → kwNeighbor v j = u →
+      kwNegativeMask u i = kwNegativeMask v j := by decide
+
+
 end PEqualNP.Outside.L_meta_3821_aux
