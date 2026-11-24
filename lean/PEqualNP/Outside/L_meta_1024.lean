@@ -3386,3 +3386,1070 @@ lemma raw_support_exists {n : ℕ} (P : Finset ℕ) (gs : List Gate) (o b : ℕ)
     (rawSupport_card _ hraw).trans hcard, raw_essential_support P gs o hraw⟩
 
 end PEqualNP.Outside.L_meta_1024_aux.Cut
+
+
+namespace PEqualNP.Outside.L_meta_1024_aux.Clamp9
+
+set_option maxHeartbeats 2000000 in
+lemma positive_frontier_impossible {m : ℕ} (w : Fin 13)
+    (E : Finset (Fin m)) (F : (Fin m → Bool) → Bool)
+    (leaf : Fin m → (Fin 13 → Bool) → Bool)
+    (hmono : ∀ a b, (∀ i, a i = true → b i = true) → F a = true → F b = true)
+    (hsupport : ∀ a b, (∀ i ∈ E, a i = b i) → F a = F b)
+    (hleaf : ∀ i ∈ E, ∀ x y, (∀ q, x q = true → y q = true) →
+      leaf i x = true → leaf i y = true)
+    (hcorrect : ∀ x, Support.Band x → F (fun i => leaf i x) = Support.target w x)
+    (x : Fin 13 → Bool) (hx : Support.Band x) (hpos : Support.target w x = true)
+    (hcount : (E.filter (fun i => leaf i x = true)).card ≤ 8)
+    (hforeign : ∀ i ∈ E, leaf i x = true →
+      ∃ q : Fin 13, q ∉ Support.line w ∧ leaf i (Clamp.singleton q) = true) : False := by
+  classical
+  let T := E.filter (fun i => leaf i x = true)
+  let q : Fin m → Fin 13 := fun i => if h : i ∈ T then
+    Classical.choose (hforeign i (Finset.mem_filter.mp h).1 (Finset.mem_filter.mp h).2) else 0
+  have q_spec (i : Fin m) (hi : i ∈ T) :
+      q i ∉ Support.line w ∧ leaf i (Clamp.singleton (q i)) = true := by
+    simpa only [q, dite_eq_left hi] using Classical.choose_spec
+      (hforeign i (Finset.mem_filter.mp hi).1 (Finset.mem_filter.mp hi).2)
+  let Q := T.image q
+  have hQcard : Q.card ≤ 8 := Finset.card_image_le.trans hcount
+  have hQ : Q ⊆ Finset.univ \ Support.line w := by
+    intro v hv
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hv
+    exact Finset.mem_sdiff.mpr ⟨Finset.mem_univ _, (q_spec i hi).1⟩
+  obtain ⟨Y, hQY, hY, hYcard⟩ := Clamp.extend_eight w Q hQ hQcard
+  have hptrue : F (fun i => leaf i x) = true := (hcorrect x hx).trans hpos
+  have hyfalse : F (fun i => leaf i (Clamp.fromTrue Y)) = false :=
+    (hcorrect _ (Clamp.fromTrue_band Y hYcard)).trans (Clamp.fromTrue_misses w Y hY)
+  have hcompare : ∀ i ∈ E, leaf i x = true → leaf i (Clamp.fromTrue Y) = true := by
+    intro i hi hix
+    have hiT : i ∈ T := Finset.mem_filter.mpr ⟨hi, hix⟩
+    have hqi : q i ∈ Y := hQY (Finset.mem_image.mpr ⟨i, hiT, rfl⟩)
+    apply hleaf i hi (Clamp.singleton (q i)) (Clamp.fromTrue Y) _ (q_spec i hiT).2
+    intro r hr
+    have he : r = q i := by simpa [Clamp.singleton] using hr
+    subst r
+    simp [Clamp.fromTrue, hqi]
+  have hytrue := Clamp.supported_mono F E hmono hsupport _ _ hcompare hptrue
+  rw [hyfalse] at hytrue
+  exact Bool.noConfusion hytrue
+
+set_option maxHeartbeats 2000000 in
+lemma missing_raw_impossible {m : ℕ} (w p : Fin 13) (hp : p ∈ Support.line w)
+    (E : Finset (Fin m)) (hE : E.card ≤ 9) (F : (Fin m → Bool) → Bool)
+    (leaf : Fin m → (Fin 13 → Bool) → Bool)
+    (hmono : ∀ a b, (∀ i, a i = true → b i = true) → F a = true → F b = true)
+    (hsupport : ∀ a b, (∀ i ∈ E, a i = b i) → F a = F b)
+    (hleaf : ∀ i ∈ E, ∀ x y, (∀ q, x q = true → y q = true) →
+      leaf i x = true → leaf i y = true)
+    (hcorrect : ∀ x, Support.Band x → F (fun i => leaf i x) = Support.target w x)
+    (hclass : ∀ i ∈ E,
+      (∃ q ∈ Support.line w, q ≠ p ∧ ∀ x, leaf i x = x q) ∨
+      ∃ q : Fin 13, q ∉ Support.line w ∧ leaf i (Clamp.singleton q) = true)
+    (hnotabove : ∀ i ∈ E, ∃ x : Fin 13 → Bool,
+      Support.Band x ∧ Support.target w x = true ∧ leaf i x = false) : False := by
+  classical
+  let x := Support.flip w p
+  have hx : Support.Band x := Or.inl (Support.flip_spec w p hp).1
+  have hxpos : Support.target w x = true := (Support.flip_spec w p hp).2
+  have hforeign (i : Fin m) (hi : i ∈ E) (hit : leaf i x = true) :
+      ∃ q : Fin 13, q ∉ Support.line w ∧ leaf i (Clamp.singleton q) = true := by
+    rcases hclass i hi with ⟨q, hq, hqp, hraw⟩ | hforeign
+    · have hfalse : leaf i x = false := by
+        rw [hraw]
+        exact (ite_eq_right hqp).trans (Clamp.row_line_false w q hq)
+      rw [hfalse] at hit
+      exact Bool.noConfusion hit
+    · exact hforeign
+  let T := E.filter (fun i => leaf i x = true)
+  by_cases hT : T.card ≤ 8
+  · exact positive_frontier_impossible w E F leaf hmono hsupport hleaf hcorrect x hx hxpos hT hforeign
+  have hTE : T = E := Finset.eq_of_subset_of_card_le (Finset.filter_subset _ _) (by omega)
+  have hE9 : E.card = 9 := by rw [hTE] at hT; omega
+  have hEpos : E.Nonempty := Finset.card_pos.mp (by omega)
+  obtain ⟨i, hi⟩ := hEpos
+  obtain ⟨y, hy, hypos, hiy⟩ := hnotabove i hi
+  have hforeignall (j : Fin m) (hj : j ∈ E) :
+      ∃ q : Fin 13, q ∉ Support.line w ∧ leaf j (Clamp.singleton q) = true := by
+    apply hforeign j hj
+    have hjT : j ∈ T := hTE.symm ▸ hj
+    exact (Finset.mem_filter.mp hjT).2
+  have hcount : (E.filter (fun j => leaf j y = true)).card ≤ 8 := by
+    have hs : E.filter (fun j => leaf j y = true) ⊆ E.erase i := by
+      intro j hj
+      obtain ⟨hjE, hjtrue⟩ := Finset.mem_filter.mp hj
+      apply Finset.mem_erase.mpr
+      refine ⟨?_, hjE⟩
+      intro he
+      subst j
+      rw [hiy] at hjtrue
+      exact Bool.noConfusion hjtrue
+    have hh := Finset.card_le_card hs
+    rw [Finset.card_erase_of_mem hi, hE9] at hh
+    exact hh
+  exact positive_frontier_impossible w E F leaf hmono hsupport hleaf hcorrect y hy hypos hcount
+    (fun j hj _ => hforeignall j hj)
+
+end PEqualNP.Outside.L_meta_1024_aux.Clamp9
+
+namespace PEqualNP.Outside.L_meta_1024_aux.Charges
+
+open PEqualNP.CircuitLowerBounds
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 4000000 in
+lemma line_difference : ∀ w a : Fin 13, a ≠ w →
+    ∃ p ∈ Global.line w, p ∉ Global.line a := by decide +kernel
+
+lemma charge_not_above (gs : List Gate)
+    (hg : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (w a : Fin 13) (hwa : a ≠ w) (i : ℕ) (hi : i ∈ Global.D (Global.line a) gs) :
+    ∃ x : Fin 13 → Bool, Support.Band x ∧ Support.target w x = true ∧
+      Global.val gs x i = false := by
+  classical
+  obtain ⟨p, hpw, hpa⟩ := line_difference w a hwa
+  have hsub : ({p} : Finset (Fin 13)) ⊆ Finset.univ \ Support.line a := by
+    intro q hq
+    have he : q = p := Finset.mem_singleton.mp hq
+    subst q
+    exact Finset.mem_sdiff.mpr ⟨Finset.mem_univ _, hpa⟩
+  obtain ⟨Y, hpY, hY, hYcard⟩ := Clamp.extend_eight a {p} hsub (by simp)
+  refine ⟨Clamp.fromTrue Y, Clamp.fromTrue_band Y hYcard, ?_, ?_⟩
+  · apply decide_eq_true_iff.mpr
+    exact ⟨p, hpw, by simp [Clamp.fromTrue, hpY (Finset.mem_singleton_self p)]⟩
+  · have hz : Global.val gs (Global.Zof (Global.line a)) i = false :=
+      (Finset.mem_filter.mp hi).2.1
+    cases he : Global.val gs (Clamp.fromTrue Y) i
+    · rfl
+    · have ht := Bridge.val_mono gs hg (Clamp.fromTrue Y) (Global.Zof (Global.line a))
+        (by
+          intro q hq
+          have hqY : q ∈ Y := by simpa [Clamp.fromTrue] using hq
+          simpa [Global.Zof, Global.line, Support.line] using (Finset.mem_sdiff.mp (hY hqY)).2) i he
+      rw [hz] at ht
+      exact Bool.noConfusion ht
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 4000000 in
+lemma raw_not_above : ∀ w q : Fin 13, ∃ r : Fin 13,
+    Support.target w (Support.row r) = true ∧ Support.row r q = false := by
+  decide +kernel
+
+end PEqualNP.Outside.L_meta_1024_aux.Charges
+
+namespace PEqualNP.Outside.L_meta_1024_aux.Charges
+open PEqualNP.CircuitLowerBounds
+open PEqualNP.Outside.L_meta_1024_aux.Global
+lemma ordinary_charge_family_strong (gs : List Gate) (out : Fin 13 → ℕ) (W : Finset (Fin 13))
+    (hg : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hordinary : ∀ a ∈ W, ∀ x : Fin 13 → Bool,
+      Circuit.eval ⟨gs, out a⟩ (List.ofFn x) = decide (∃ p ∈ Global.line a, x p = true)) :
+    ∃ P : Finset ℕ, P ⊆ Finset.Ico 13 (13 + gs.length) ∧ 3 * W.card ≤ P.card ∧
+      ∀ w ∉ W, ∀ i ∈ P, (∃ q : Fin 13, q ∉ Global.line w ∧ Global.val gs (Global.eof q) i = true) ∧
+      (∃ x : Fin 13 → Bool, Support.Band x ∧ Support.target w x = true ∧ Global.val gs x i = false) := by
+  classical
+  let P := W.biUnion (fun a => Global.D (Global.line a) gs)
+  have hsubset : P ⊆ Finset.Ico 13 (13 + gs.length) := by
+    intro i hi
+    obtain ⟨a, _, hai⟩ := Finset.mem_biUnion.mp hi
+    exact (Finset.mem_filter.mp hai).1
+  have hcount : 3 * W.card ≤ P.card := by
+    have hd : ∀ a ∈ W, ∀ b ∈ W, a ≠ b → Disjoint (Global.D (Global.line a) gs) (Global.D (Global.line b) gs) := by
+      intro a _ b _ hab
+      exact disjoint_charges gs hg a b hab
+    have hsum : (∑ _a ∈ W, (3 : ℕ)) ≤ ∑ a ∈ W, (Global.D (Global.line a) gs).card := by
+      apply Finset.sum_le_sum
+      intro a ha
+      exact ordinary_charge_count gs (out a) a hg (hordinary a ha)
+    rw [← Finset.card_biUnion hd] at hsum
+    simpa [P, Nat.mul_comm] using hsum
+  refine ⟨P, hsubset, hcount, ?_⟩
+  intro w hw i hi
+  obtain ⟨a, ha, hai⟩ := Finset.mem_biUnion.mp hi
+  have hne : a ≠ w := fun he => hw (he ▸ ha)
+  exact ⟨charge_outside gs hg w a hne i hai,
+    charge_not_above gs (fun g hm => (hg g hm).1) w a hne i hai⟩
+
+end PEqualNP.Outside.L_meta_1024_aux.Charges
+
+namespace PEqualNP.Outside.L_meta_1024_aux.Bridge
+open PEqualNP.CircuitLowerBounds
+lemma raw_line_members9 (gs : List Gate) (o : ℕ) (w : Fin 13)
+    (hg : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hcorrect : ∀ x : Fin 13 → Bool, Support.Band x →
+      Global.val gs x o = Support.target w x)
+    (P : Finset ℕ)
+    (hPoutside : ∀ i ∈ P, ∃ q : Fin 13,
+      q ∉ Global.line w ∧ Global.val gs (Global.eof q) i = true)
+    (hPnotabove : ∀ i ∈ P, ∃ x : Fin 13 → Bool, Support.Band x ∧
+      Support.target w x = true ∧ Global.val gs x i = false)
+    (F : (Fin (13 + gs.length) → Bool) → Bool)
+    (E : Finset (Fin (13 + gs.length))) (hEcard : E.card ≤ 9)
+    (hallowed : ∀ i ∈ E, i.val < 13 ∨ i.val ∈ P)
+    (hmono : ∀ a b, (∀ i, a i = true → b i = true) → F a = true → F b = true)
+    (hsupport : ∀ a b, (∀ i ∈ E, a i = b i) → F a = F b)
+    (hfactor : ∀ x : Fin 13 → Bool, F (fun i => Global.val gs x i.val) = Global.val gs x o)
+    (p : Fin 13) (hp : p ∈ Global.line w) : rawIndex gs p ∈ E := by
+  classical
+  by_contra hpnot
+  apply Clamp9.missing_raw_impossible w p hp E hEcard F
+    (fun i x => Global.val gs x i.val) hmono hsupport
+  · intro i _ x y hxy hx
+    exact val_mono gs hg x y hxy i.val hx
+  · intro x hx
+    rw [hfactor]
+    exact hcorrect x hx
+  · intro i hi
+    rcases hallowed i hi with hiraw | hipaid
+    · let q : Fin 13 := ⟨i.val, hiraw⟩
+      have hraw : ∀ x : Fin 13 → Bool, Global.val gs x i.val = x q := fun x => val_input gs x q
+      by_cases hql : q ∈ Global.line w
+      · left
+        refine ⟨q, hql, ?_, hraw⟩
+        intro hqp
+        have hie : i = rawIndex gs p := by
+          apply Fin.ext
+          exact congrArg (fun t : Fin 13 => t.val) hqp
+        exact hpnot (hie ▸ hi)
+      · right
+        refine ⟨q, hql, ?_⟩
+        rw [hraw]
+        simp [Clamp.singleton]
+    · obtain ⟨q, hq, hqtrue⟩ := hPoutside i.val hipaid
+      exact Or.inr ⟨q, hq, hqtrue⟩
+  · intro i hi
+    rcases hallowed i hi with hiraw | hipaid
+    · let q : Fin 13 := ⟨i.val, hiraw⟩
+      obtain ⟨r, hrt, hrq⟩ := Charges.raw_not_above w q
+      refine ⟨Support.row r, Or.inr (Support.row_spec r).1, hrt, ?_⟩
+      exact (val_input gs (Support.row r) q).trans hrq
+    · exact hPnotabove i.val hipaid
+
+lemma output_index (gs : List Gate) (o : ℕ) (w : Fin 13)
+    (hcorrect : ∀ x : Fin 13 → Bool, Support.Band x →
+      Global.val gs x o = Support.target w x) : 13 ≤ o ∧ o < 13 + gs.length := by
+  constructor
+  · by_contra! ho
+    let q : Fin 13 := ⟨o, ho⟩
+    obtain ⟨r, hrt, hrq⟩ := Charges.raw_not_above w q
+    have hval := hcorrect (Support.row r) (Or.inr (Support.row_spec r).1)
+    have hi : Global.val gs (Support.row r) o = false :=
+      (val_input gs (Support.row r) q).trans hrq
+    rw [hi, hrt] at hval
+    exact Bool.noConfusion hval
+  · by_contra! ho
+    have hne : (Global.line w).Nonempty := Finset.card_pos.mp (by rw [Global.line_card]; decide)
+    obtain ⟨p, hp⟩ := hne
+    have hv : Global.val gs (Support.flip w p) o = false := by
+      unfold Global.val
+      apply List.getD_eq_default
+      rw [Global.fold_length, List.length_ofFn]
+      exact ho
+    have hh := hcorrect (Support.flip w p) (Or.inl (Support.flip_spec w p hp).1)
+    rw [hv, (Support.flip_spec w p hp).2] at hh
+    exact Bool.noConfusion hh
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 4000000 in
+lemma row_targets : ∀ a b : Fin 13, a ≠ b → Support.target b (Support.row a) = true := by
+  decide +kernel
+
+lemma output_distinct (gs : List Gate) (out : Fin 13 → ℕ)
+    (hcorrect : ∀ (w : Fin 13) (x : Fin 13 → Bool), Support.Band x →
+      Global.val gs x (out w) = Support.target w x) : Function.Injective out := by
+  intro a b hab
+  by_contra hne
+  have ha := hcorrect a (Support.row a) (Or.inr (Support.row_spec a).1)
+  have hb := hcorrect b (Support.row a) (Or.inr (Support.row_spec a).1)
+  rw [hab, hb, (Support.row_spec a).2, row_targets a b hne] at ha
+  exact Bool.noConfusion ha
+
+end PEqualNP.Outside.L_meta_1024_aux.Bridge
+
+
+
+
+namespace PEqualNP.Outside.L_meta_1024_aux.Bridge
+open PEqualNP.CircuitLowerBounds
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 4000000 in
+lemma triple_geometry : ∀ a b c : Fin 13, a ≠ b → a ≠ c → b ≠ c →
+    9 ≤ ((Global.line a ∪ Global.line b) ∪ Global.line c).card := by
+  decide +kernel
+
+set_option maxHeartbeats 4000000 in
+lemma three_exotic_core (gs : List Gate) (out : Fin 13 → ℕ)
+    (a b c : Fin 13) (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c)
+    (hg : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hcorrect : ∀ (w : Fin 13) (x : Fin 13 → Bool), Support.Band x →
+      Circuit.eval ⟨gs, out w⟩ (List.ofFn x) = Support.target w x)
+    (hordinary : ∀ w : Fin 13, w ≠ a → w ≠ b → w ≠ c → ∀ x : Fin 13 → Bool,
+      Circuit.eval ⟨gs, out w⟩ (List.ofFn x) = Support.target w x)
+    (hnona : ¬ ∀ x : Fin 13 → Bool, Circuit.eval ⟨gs, out a⟩ (List.ofFn x) = Support.target a x)
+    (hminb : out a ≤ out b) (hminc : out a ≤ out c) : 39 ≤ gs.length := by
+  classical
+  by_contra! hsmall
+  let T : Finset (Fin 13) := {a, b, c}
+  let W : Finset (Fin 13) := Finset.univ \ T
+  have hT : T.card = 3 := by simp [T, hab, hac, hbc]
+  have hW : W.card = 10 := by
+    rw [Finset.card_sdiff_of_subset (Finset.subset_univ _), hT]
+    decide
+  have hord : ∀ w ∈ W, ∀ x : Fin 13 → Bool,
+      Circuit.eval ⟨gs, out w⟩ (List.ofFn x) = decide (∃ p ∈ Global.line w, x p = true) := by
+    intro w hw
+    have hnt := (Finset.mem_sdiff.mp hw).2
+    have hwa : w ≠ a := fun h => hnt (by simp [T, h])
+    have hwb : w ≠ b := fun h => hnt (by simp [T, h])
+    have hwc : w ≠ c := fun h => hnt (by simp [T, h])
+    exact hordinary w hwa hwb hwc
+  obtain ⟨P, hP, hPcard, hPprops⟩ := Charges.ordinary_charge_family_strong gs out W hg hord
+  have hP30 : 30 ≤ P.card := by simpa [hW] using hPcard
+  have hPupper : P.card ≤ gs.length := by simpa using Finset.card_le_card hP
+  have hbudget : Cut.unpaid 13 P gs ≤ 8 := by
+    rw [Cut.unpaid_eq_sub 13 P gs hP]
+    omega
+  have hnotW (w : Fin 13) (hw : w ∈ T) : w ∉ W := by
+    intro hh
+    exact (Finset.mem_sdiff.mp hh).2 hw
+  let E (w : Fin 13) := Cut.essential (M := 13 + gs.length) 13 P gs (out w)
+  have hraw (w : Fin 13) (hw : w ∈ T) (p : Fin 13) (hp : p ∈ Global.line w) :
+      rawIndex gs p ∈ E w := by
+    apply raw_line_members9 gs (out w) w (fun g hm => (hg g hm).1) (hcorrect w) P
+      (fun i hi => (hPprops w (hnotW w hw) i hi).1)
+      (fun i hi => (hPprops w (hnotW w hw) i hi).2)
+      (fun x => Cut.cutVal 13 P gs x (out w)) (E w)
+    · have hh := Cut.essential_card (M := 13 + gs.length) 13 P gs (out w)
+        (fun g hm => (hg g hm).2)
+      change (E w).card ≤ _ at hh
+      omega
+    · exact Cut.essential_sources 13 P gs (out w)
+    · intro x y hxy hx
+      exact Cut.cutVal_mono 13 P gs (fun g hm => (hg g hm).1) x y hxy (out w) hx
+    · exact Cut.essential_supports 13 P gs (out w)
+    · intro x
+      exact Cut.factor P gs x (out w)
+    · exact hp
+  let S := (E a ∪ E b) ∪ E c
+  obtain ⟨label, wire, hcomponents, hdepends⟩ := Cut.components 13 P S gs (fun g hm => (hg g hm).2)
+  have hlabel (w : Fin 13) (i : Fin (13 + gs.length)) (hi : i ∈ E w) :
+      label i = wire (out w) :=
+    hdepends (out w) i (Finset.mem_filter.mp hi).2
+  have habwire : wire (out a) = wire (out b) := by
+    obtain ⟨p, hpa, hpb⟩ := (pair_geometry a b hab).2
+    exact (hlabel a _ (hraw a (by simp [T]) p hpa)).symm.trans
+      (hlabel b _ (hraw b (by simp [T]) p hpb))
+  have hacwire : wire (out a) = wire (out c) := by
+    obtain ⟨p, hpa, hpc⟩ := (pair_geometry a c hac).2
+    exact (hlabel a _ (hraw a (by simp [T]) p hpa)).symm.trans
+      (hlabel c _ (hraw c (by simp [T]) p hpc))
+  have himg : S.image label ⊆ {wire (out a)} := by
+    intro v hv
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hv
+    apply Finset.mem_singleton.mpr
+    rcases Finset.mem_union.mp hi with hiab | hic
+    · rcases Finset.mem_union.mp hiab with hia | hib
+      · exact hlabel a i hia
+      · exact (hlabel b i hib).trans habwire.symm
+    · exact (hlabel c i hic).trans hacwire.symm
+  have himgcard : (S.image label).card ≤ 1 := by simpa using Finset.card_le_card himg
+  have hS9 : S.card ≤ 9 := by omega
+  let R := ((Global.line a ∪ Global.line b) ∪ Global.line c).image (rawIndex gs)
+  have hinj : Function.Injective (rawIndex gs) := by
+    intro p q hpq
+    apply Fin.ext
+    exact congrArg (fun t : Fin (13 + gs.length) => t.val) hpq
+  have hR9 : 9 ≤ R.card := by
+    rw [Finset.card_image_of_injective _ hinj]
+    exact triple_geometry a b c hab hac hbc
+  have hRS : R ⊆ S := by
+    intro i hi
+    obtain ⟨p, hp, rfl⟩ := Finset.mem_image.mp hi
+    rcases Finset.mem_union.mp hp with hpab | hpc
+    · rcases Finset.mem_union.mp hpab with hpa | hpb
+      · exact Finset.mem_union_left _ (Finset.mem_union_left _ (hraw a (by simp [T]) p hpa))
+      · exact Finset.mem_union_left _ (Finset.mem_union_right _ (hraw b (by simp [T]) p hpb))
+    · exact Finset.mem_union_right _ (hraw c (by simp [T]) p hpc)
+  have hReq : R = S := Finset.eq_of_subset_of_card_le hRS (by omega)
+  have hrawonly : ∀ i ∈ E a, i.val < 13 := by
+    intro i hi
+    have hiS : i ∈ S := Finset.mem_union_left _ (Finset.mem_union_left _ hi)
+    have hiR : i ∈ R := hReq.symm ▸ hiS
+    obtain ⟨p, _, he⟩ := Finset.mem_image.mp hiR
+    rw [← he]
+    exact p.isLt
+  have hE8 : 8 ≤ (E a).card := by
+    by_contra! hlt
+    have hE7 : (E a).card ≤ 7 := by omega
+    obtain ⟨Q, hQcard, hQsupport⟩ := Cut.raw_support_exists (n := 13) P gs (out a) 7 hrawonly hE7
+    exact hnona (Support.circuit_support_exact gs (out a) a (fun g hm => (hg g hm).1)
+      (hcorrect a) Q hQcard hQsupport)
+  have hindices (w : Fin 13) := output_index gs (out w) w (hcorrect w)
+  have houtinj := output_distinct gs out hcorrect
+  have houtab : out a ≠ out b := fun he => hab (houtinj he)
+  have houtac : out a ≠ out c := fun he => hac (houtinj he)
+  have houtbc : out b ≠ out c := fun he => hbc (houtinj he)
+  have hnotpaid (w : Fin 13) (hw : w ∈ T) : out w ∉ P := by
+    intro hi
+    obtain ⟨x, hx, hxt, hxf⟩ := (hPprops w (hnotW w hw) (out w) hi).2
+    have hh := hcorrect w x hx
+    change Global.val gs x (out w) = _ at hh
+    rw [hxf, hxt] at hh
+    exact Bool.noConfusion hh
+  let k := out a + 1 - 13
+  have hk : k ≤ gs.length := by have := hindices a; omega
+  have hka : out a < 13 + k := by have := hindices a; omega
+  have hkb : 13 + k ≤ out b := by have := hindices a; omega
+  have hkc : 13 + k ≤ out c := by have := hindices a; omega
+  have hprefix := Cut.essential_card (M := 13 + gs.length) 13 P (gs.take k) (out a)
+    (fun g hm => (hg g (List.mem_of_mem_take hm)).2)
+  rw [← Cut.essential_take 13 P gs k (out a) hk hka] at hprefix
+  change (E a).card ≤ Cut.unpaid 13 P (gs.take k) + 1 at hprefix
+  have hlater := Cut.unpaid_two_later 13 P gs k (out b) (out c) hk hkb hkc
+    (hindices b).2 (hindices c).2 (hnotpaid b (by simp [T])) (hnotpaid c (by simp [T])) houtbc
+  omega
+
+end PEqualNP.Outside.L_meta_1024_aux.Bridge
+
+namespace PEqualNP.Outside.L_meta_1024_aux.Bridge
+open PEqualNP.CircuitLowerBounds
+
+lemma three_exotic_bound (gs : List Gate) (out : Fin 13 → ℕ)
+    (a b c : Fin 13) (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c)
+    (hg : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hcorrect : ∀ (w : Fin 13) (x : Fin 13 → Bool), Support.Band x →
+      Circuit.eval ⟨gs, out w⟩ (List.ofFn x) = Support.target w x)
+    (hordinary : ∀ w : Fin 13, w ≠ a → w ≠ b → w ≠ c → ∀ x : Fin 13 → Bool,
+      Circuit.eval ⟨gs, out w⟩ (List.ofFn x) = Support.target w x) : 39 ≤ gs.length := by
+  classical
+  by_cases ha : ∀ x : Fin 13 → Bool, Circuit.eval ⟨gs, out a⟩ (List.ofFn x) = Support.target a x
+  · apply two_exotic_bound gs out b c hbc hg hcorrect
+    intro w hwb hwc x
+    by_cases hwa : w = a
+    · subst w
+      exact ha x
+    · exact hordinary w hwa hwb hwc x
+  by_cases hb : ∀ x : Fin 13 → Bool, Circuit.eval ⟨gs, out b⟩ (List.ofFn x) = Support.target b x
+  · apply two_exotic_bound gs out a c hac hg hcorrect
+    intro w hwa hwc x
+    by_cases hwb : w = b
+    · subst w
+      exact hb x
+    · exact hordinary w hwa hwb hwc x
+  by_cases hc : ∀ x : Fin 13 → Bool, Circuit.eval ⟨gs, out c⟩ (List.ofFn x) = Support.target c x
+  · apply two_exotic_bound gs out a b hab hg hcorrect
+    intro w hwa hwb x
+    by_cases hwc : w = c
+    · subst w
+      exact hc x
+    · exact hordinary w hwa hwb hwc x
+  rcases Nat.le_total (out a) (out b) with habo | hbao
+  · rcases Nat.le_total (out a) (out c) with haco | hcao
+    · exact three_exotic_core gs out a b c hab hac hbc hg hcorrect hordinary ha habo haco
+    · exact three_exotic_core gs out c a b hac.symm hbc.symm hab hg hcorrect
+        (fun w hwc hwa hwb => hordinary w hwa hwb hwc) hc hcao (hcao.trans habo)
+  · rcases Nat.le_total (out b) (out c) with hbco | hcbo
+    · exact three_exotic_core gs out b a c hab.symm hbc hac hg hcorrect
+        (fun w hwb hwa hwc => hordinary w hwa hwb hwc) hb hbao hbco
+    · exact three_exotic_core gs out c a b hac.symm hbc.symm hab hg hcorrect
+        (fun w hwc hwa hwb => hordinary w hwa hwb hwc) hc (hcbo.trans hbao) hcbo
+
+end PEqualNP.Outside.L_meta_1024_aux.Bridge
+
+
+
+namespace PEqualNP.Outside.L_meta_1024_aux.Bridge
+open PEqualNP.CircuitLowerBounds
+
+lemma ten_ordinary_bound (gs : List Gate) (out : Fin 13 → ℕ)
+    (hg : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hcorrect : ∀ (w : Fin 13) (x : Fin 13 → Bool), Support.Band x →
+      Circuit.eval ⟨gs, out w⟩ (List.ofFn x) = Support.target w x)
+    (W : Finset (Fin 13)) (hW : 10 ≤ W.card)
+    (hordinary : ∀ w ∈ W, ∀ x : Fin 13 → Bool,
+      Circuit.eval ⟨gs, out w⟩ (List.ofFn x) = Support.target w x) : 39 ≤ gs.length := by
+  classical
+  obtain ⟨V, hVW, hVcard⟩ := Finset.exists_subset_card_eq hW
+  have hcomp : (Finset.univ \ V).card = 3 := by
+    rw [Finset.card_sdiff_of_subset (Finset.subset_univ _), hVcard]
+    decide
+  obtain ⟨a, b, c, hab, hac, hbc, hC⟩ := Finset.card_eq_three.mp hcomp
+  apply three_exotic_bound gs out a b c hab hac hbc hg hcorrect
+  intro w hwa hwb hwc x
+  apply hordinary w (hVW ?_) x
+  by_contra hwV
+  have hh : w ∈ Finset.univ \ V := Finset.mem_sdiff.mpr ⟨Finset.mem_univ _, hwV⟩
+  rw [hC] at hh
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hh
+  rcases hh with h | h | h
+  · exact hwa h
+  · exact hwb h
+  · exact hwc h
+
+noncomputable def exoticSet (gs : List Gate) (out : Fin 13 → ℕ) : Finset (Fin 13) := by
+  classical
+  exact Finset.univ.filter (fun w => ¬ ∀ x : Fin 13 → Bool,
+    Circuit.eval ⟨gs, out w⟩ (List.ofFn x) = Support.target w x)
+
+lemma four_exotic_outputs (gs : List Gate) (out : Fin 13 → ℕ)
+    (hg : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hcorrect : ∀ (w : Fin 13) (x : Fin 13 → Bool), Support.Band x →
+      Circuit.eval ⟨gs, out w⟩ (List.ofFn x) = Support.target w x)
+    (hsmall : gs.length < 39) : 4 ≤ (exoticSet gs out).card := by
+  classical
+  by_contra! hfew
+  let W := Finset.univ \ exoticSet gs out
+  have hW : 10 ≤ W.card := by
+    rw [Finset.card_sdiff_of_subset (Finset.subset_univ _)]
+    have hu : (Finset.univ : Finset (Fin 13)).card = 13 := by decide
+    rw [hu]
+    omega
+  have hord : ∀ w ∈ W, ∀ x : Fin 13 → Bool,
+      Circuit.eval ⟨gs, out w⟩ (List.ofFn x) = Support.target w x := by
+    intro w hw
+    have hn := (Finset.mem_sdiff.mp hw).2
+    simpa [exoticSet] using hn
+  have hh := ten_ordinary_bound gs out hg hcorrect W hW hord
+  omega
+
+end PEqualNP.Outside.L_meta_1024_aux.Bridge
+
+
+
+namespace PEqualNP.Outside.L_meta_1024_aux.OneAndCircuit
+
+open PEqualNP.CircuitLowerBounds
+
+abbrev Form := Finset (Fin 13) × Bool
+
+def emptyForm : Form := (∅, false)
+
+def join (a b : Form) : Form := (a.1 ∪ b.1, a.2 || b.2)
+
+def evalForm (x : Fin 13 → Bool) (h : Bool) (f : Form) : Bool :=
+  decide (∃ p ∈ f.1, x p = true) || (f.2 && h)
+
+def readForm (ws : List Form) (i : ℕ) : Form := ws.getD i emptyForm
+
+def collect (ws : List Form) (ins : List ℕ) : Form :=
+  ins.foldr (fun i f => join (readForm ws i) f) emptyForm
+
+def formStep (ws : List Form) (g : Gate) : List Form :=
+  ws ++ [collect ws g.inputs]
+
+def runForms (gs : List Gate) (ws : List Form) : List Form := gs.foldl formStep ws
+
+def initial : List Form := List.ofFn (fun p : Fin 13 => ({p}, false))
+
+lemma eval_empty (x : Fin 13 → Bool) (h : Bool) : evalForm x h emptyForm = false := by
+  simp [evalForm, emptyForm]
+
+lemma eval_join (x : Fin 13 → Bool) (h : Bool) (a b : Form) :
+    evalForm x h (join a b) = (evalForm x h a || evalForm x h b) := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [evalForm, join, Bool.or_eq_true, Bool.and_eq_true,
+    decide_eq_true_eq, Finset.mem_union]
+  constructor
+  · rintro (⟨p, hp | hp, hx⟩ | ⟨ha | hb, hh⟩)
+    · exact Or.inl (Or.inl ⟨p, hp, hx⟩)
+    · exact Or.inr (Or.inl ⟨p, hp, hx⟩)
+    · exact Or.inl (Or.inr ⟨ha, hh⟩)
+    · exact Or.inr (Or.inr ⟨hb, hh⟩)
+  · rintro ((⟨p, hp, hx⟩ | ⟨ha, hh⟩) | (⟨p, hp, hx⟩ | ⟨hb, hh⟩))
+    · exact Or.inl ⟨p, Or.inl hp, hx⟩
+    · exact Or.inr ⟨Or.inl ha, hh⟩
+    · exact Or.inl ⟨p, Or.inr hp, hx⟩
+    · exact Or.inr ⟨Or.inr hb, hh⟩
+
+lemma read_map (ws : List Form) (x : Fin 13 → Bool) (h : Bool) (i : ℕ) :
+    (ws.map (evalForm x h)).getD i false = evalForm x h (readForm ws i) := by
+  by_cases hi : i < ws.length
+  · simp [readForm, hi]
+  · simp [readForm, Nat.le_of_not_lt hi, eval_empty]
+
+lemma eval_collect (ws : List Form) (ins : List ℕ) (x : Fin 13 → Bool) (h : Bool) :
+    evalForm x h (collect ws ins) =
+      (ins.map (fun i => evalForm x h (readForm ws i))).any id := by
+  induction ins with
+  | nil => simp [collect, eval_empty]
+  | cons i ins ih => simpa only [collect, List.foldr_cons, eval_join, List.map_cons,
+      List.any_cons, id_eq] using congrArg (fun b => evalForm x h (readForm ws i) || b) ih
+
+lemma map_step (ws : List Form) (g : Gate) (hop : g.op = GateOp.or)
+    (x : Fin 13 → Bool) (h : Bool) :
+    (formStep ws g).map (evalForm x h) = Global.step (ws.map (evalForm x h)) g := by
+  simp only [formStep, List.map_append, List.map_cons, List.map_nil,
+    Global.step, hop, GateOp.eval, eval_collect, read_map]
+
+lemma map_run (gs : List Gate) (ws : List Form)
+    (hg : ∀ g ∈ gs, g.op = GateOp.or) (x : Fin 13 → Bool) (h : Bool) :
+    (runForms gs ws).map (evalForm x h) =
+      gs.foldl Global.step (ws.map (evalForm x h)) := by
+  induction gs generalizing ws with
+  | nil => rfl
+  | cons g gs ih =>
+    have hg0 := hg g (by simp)
+    have hgs : ∀ a ∈ gs, a.op = GateOp.or := fun a ha => hg a (by simp [ha])
+    change (runForms gs (formStep ws g)).map (evalForm x h) = _
+    rw [ih _ hgs, map_step ws g hg0]
+    rfl
+
+lemma read_run (gs : List Gate) (ws : List Form)
+    (hg : ∀ g ∈ gs, g.op = GateOp.or) (x : Fin 13 → Bool) (h : Bool) (i : ℕ) :
+    evalForm x h (readForm (runForms gs ws) i) =
+      (gs.foldl Global.step (ws.map (evalForm x h))).getD i false := by
+  rw [← map_run gs ws hg x h, read_map]
+
+lemma run_length (gs : List Gate) (ws : List Form) :
+    (runForms gs ws).length = ws.length + gs.length := by
+  induction gs generalizing ws with
+  | nil => simp [runForms]
+  | cons g gs ih =>
+    change (runForms gs (formStep ws g)).length = _
+    rw [ih]
+    simp [formStep]
+    omega
+
+lemma initial_eval (x : Fin 13 → Bool) (h : Bool) :
+    initial.map (evalForm x h) = List.ofFn x := by
+  simp [initial, evalForm]
+
+lemma collect_closed (ws : List Form) (hc : ∀ f ∈ ws, f.2 = false) (ins : List ℕ) :
+    (collect ws ins).2 = false := by
+  have hread (i : ℕ) : (readForm ws i).2 = false := by
+    by_cases hi : i < ws.length
+    · rw [readForm, List.getD_eq_getElem _ _ hi]
+      exact hc _ (List.getElem_mem hi)
+    · unfold readForm
+      rw [List.getD_eq_default _ _ (Nat.le_of_not_lt hi)]
+      rfl
+  induction ins with
+  | nil => rfl
+  | cons i ins ih =>
+    change (join (readForm ws i) (collect ws ins)).2 = false
+    simp only [join, hread, ih, Bool.false_or]
+
+lemma run_closed (gs : List Gate) (ws : List Form) (hc : ∀ f ∈ ws, f.2 = false) :
+    ∀ f ∈ runForms gs ws, f.2 = false := by
+  induction gs generalizing ws with
+  | nil => exact hc
+  | cons g gs ih =>
+    apply ih
+    intro f hf
+    simp only [formStep, List.mem_append, List.mem_singleton] at hf
+    rcases hf with hf | rfl
+    · exact hc f hf
+    · exact collect_closed ws hc g.inputs
+
+lemma initial_closed : ∀ f ∈ initial, f.2 = false := by
+  intro f hf
+  simp only [initial, List.mem_ofFn] at hf
+  obtain ⟨p, rfl⟩ := hf
+  rfl
+
+lemma read_closed (gs : List Gate) (i : ℕ) :
+    (readForm (runForms gs initial) i).2 = false := by
+  by_cases hi : i < (runForms gs initial).length
+  · rw [readForm, List.getD_eq_getElem _ _ hi]
+    exact run_closed gs initial initial_closed _ (List.getElem_mem hi)
+  · unfold readForm
+    rw [List.getD_eq_default _ _ (Nat.le_of_not_lt hi)]
+    rfl
+
+end PEqualNP.Outside.L_meta_1024_aux.OneAndCircuit
+
+
+namespace PEqualNP.Outside.L_meta_1024_aux.OneAndCircuit
+
+open PEqualNP.CircuitLowerBounds
+
+def freeForm : Form := (∅, true)
+
+def suffixForms (pre post : List Gate) : List Form :=
+  runForms post (runForms pre initial ++ [freeForm])
+
+lemma prefix_map (pre : List Gate) (hg : ∀ g ∈ pre, g.op = GateOp.or)
+    (x : Fin 13 → Bool) (h : Bool) :
+    (runForms pre initial).map (evalForm x h) =
+      pre.foldl Global.step (List.ofFn x) := by
+  rw [map_run pre initial hg, initial_eval]
+
+lemma prefix_read (pre : List Gate) (hg : ∀ g ∈ pre, g.op = GateOp.or)
+    (x : Fin 13 → Bool) (i : ℕ) :
+    decide (∃ p ∈ (readForm (runForms pre initial) i).1, x p = true) =
+      (pre.foldl Global.step (List.ofFn x)).getD i false := by
+  simpa only [evalForm, Bool.and_false, Bool.or_false, initial_eval] using
+    read_run pre initial hg x false i
+
+lemma eval_split (pre post : List Gate) (g : Gate)
+    (hpre : ∀ a ∈ pre, a.op = GateOp.or)
+    (hpost : ∀ a ∈ post, a.op = GateOp.or) (x : Fin 13 → Bool) (o : ℕ) :
+    Circuit.eval ⟨pre ++ g :: post, o⟩ (List.ofFn x) =
+      evalForm x
+        (g.op.eval (g.inputs.map fun i =>
+          (pre.foldl Global.step (List.ofFn x)).getD i false))
+        (readForm (suffixForms pre post) o) := by
+  let W := pre.foldl Global.step (List.ofFn x)
+  let h := g.op.eval (g.inputs.map fun i => W.getD i false)
+  have hm : (runForms pre initial ++ [freeForm]).map (evalForm x h) = W ++ [h] := by
+    simp only [List.map_append, List.map_cons, List.map_nil, prefix_map pre hpre]
+    simp [freeForm, evalForm, W]
+  have hr := read_run post (runForms pre initial ++ [freeForm]) hpost x h o
+  rw [hm] at hr
+  change ((pre ++ g :: post).foldl Global.step (List.ofFn x)).getD o false = _
+  rw [List.foldl_append, List.foldl_cons]
+  change (post.foldl Global.step (W ++ [h])).getD o false = _
+  exact hr.symm
+
+lemma eval_split_binary (pre post : List Gate) (a b : ℕ)
+    (hpre : ∀ g ∈ pre, g.op = GateOp.or)
+    (hpost : ∀ g ∈ post, g.op = GateOp.or) (x : Fin 13 → Bool) (o : ℕ) :
+    Circuit.eval ⟨pre ++ ⟨GateOp.and, [a, b]⟩ :: post, o⟩ (List.ofFn x) =
+      evalForm x
+        (decide (∃ p ∈ (readForm (runForms pre initial) a).1, x p = true) &&
+          decide (∃ p ∈ (readForm (runForms pre initial) b).1, x p = true))
+        (readForm (suffixForms pre post) o) := by
+  rw [eval_split pre post _ hpre hpost]
+  simp only [GateOp.eval, List.map_cons, List.map_nil, List.all_cons,
+    List.all_nil, id_eq, Bool.and_true]
+  rw [prefix_read pre hpre x a, prefix_read pre hpre x b]
+
+lemma eval_split_copy (pre post : List Gate) (a : ℕ)
+    (hpre : ∀ g ∈ pre, g.op = GateOp.or)
+    (hpost : ∀ g ∈ post, g.op = GateOp.or) (x : Fin 13 → Bool) (o : ℕ) :
+    Circuit.eval ⟨pre ++ ⟨GateOp.or, [a]⟩ :: post, o⟩ (List.ofFn x) =
+      evalForm x
+        (decide (∃ p ∈ (readForm (runForms pre initial) a).1, x p = true))
+        (readForm (suffixForms pre post) o) := by
+  rw [eval_split pre post _ hpre hpost]
+  simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons,
+    List.any_nil, id_eq, Bool.or_false]
+  rw [prefix_read pre hpre x a]
+
+lemma eval_split_zero (pre post : List Gate)
+    (hpre : ∀ g ∈ pre, g.op = GateOp.or)
+    (hpost : ∀ g ∈ post, g.op = GateOp.or) (x : Fin 13 → Bool) (o : ℕ) :
+    Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, o⟩ (List.ofFn x) =
+      evalForm x false (readForm (suffixForms pre post) o) := by
+  rw [eval_split pre post _ hpre hpost]
+  rfl
+
+end PEqualNP.Outside.L_meta_1024_aux.OneAndCircuit
+
+
+namespace PEqualNP.Outside.L_meta_1024_aux.OneAndCircuit
+
+open PEqualNP.CircuitLowerBounds
+
+lemma eval_substitution (x : Fin 13 → Bool) (f : Form) (R : Finset (Fin 13)) :
+    evalForm x (decide (∃ p ∈ R, x p = true)) f =
+      decide (∃ p ∈ f.1 ∪ (if f.2 then R else ∅), x p = true) := by
+  rcases f with ⟨S, u⟩
+  cases u with
+  | false => simp [evalForm]
+  | true =>
+    apply Bool.eq_iff_iff.mpr
+    simp only [evalForm, Bool.true_and, Bool.or_eq_true, decide_eq_true_eq,
+      ite_true, Finset.mem_union]
+    constructor
+    · rintro (⟨p, hp, hx⟩ | ⟨p, hp, hx⟩)
+      · exact ⟨p, Or.inl hp, hx⟩
+      · exact ⟨p, Or.inr hp, hx⟩
+    · rintro ⟨p, hp | hp, hx⟩
+      · exact Or.inl ⟨p, hp, hx⟩
+      · exact Or.inr ⟨p, hp, hx⟩
+
+lemma replacement_gate (pre : List Gate) (hpre : ∀ g ∈ pre, g.op = GateOp.or)
+    (a b : ℕ) (R : Finset (Fin 13))
+    (hR : R = ∅ ∨ R = (readForm (runForms pre initial) a).1 ∨
+      R = (readForm (runForms pre initial) b).1 ∨ ∃ p, R = {p}) :
+    ∃ g : Gate, g.op = GateOp.or ∧ g.inputs.length ≤ 2 ∧
+      ∀ x : Fin 13 → Bool,
+        g.op.eval (g.inputs.map fun i =>
+          (pre.foldl Global.step (List.ofFn x)).getD i false) =
+            decide (∃ p ∈ R, x p = true) := by
+  rcases hR with rfl | rfl | rfl | ⟨p, rfl⟩
+  · refine ⟨⟨GateOp.or, []⟩, rfl, by simp, ?_⟩
+    intro x
+    simp [GateOp.eval]
+  · refine ⟨⟨GateOp.or, [a]⟩, rfl, by simp, ?_⟩
+    intro x
+    simpa [GateOp.eval] using (prefix_read pre hpre x a).symm
+  · refine ⟨⟨GateOp.or, [b]⟩, rfl, by simp, ?_⟩
+    intro x
+    simpa [GateOp.eval] using (prefix_read pre hpre x b).symm
+  · refine ⟨⟨GateOp.or, [p.val]⟩, rfl, by simp, ?_⟩
+    intro x
+    simpa [GateOp.eval, Global.val] using Bridge.val_input pre x p
+
+lemma binary_normalization (pre post : List Gate) (a b : ℕ) (out : Fin 13 → ℕ)
+    (hpre : ∀ g ∈ pre, g.op = GateOp.or)
+    (hpost : ∀ g ∈ post, g.op = GateOp.or)
+    (hc : ∀ (w : Fin 13) (x : Fin 13 → Bool),
+      PEqualNP.Outside.L_meta_1024.OrOnly.band x →
+      Circuit.eval ⟨pre ++ ⟨GateOp.and, [a, b]⟩ :: post, out w⟩ (List.ofFn x) =
+        decide (∃ p ∈ OneAnd.line w, x p = true)) :
+    ∃ g : Gate, g.op = GateOp.or ∧ g.inputs.length ≤ 2 ∧
+      ∀ (w : Fin 13) (x : Fin 13 → Bool),
+        Circuit.eval ⟨pre ++ g :: post, out w⟩ (List.ofFn x) =
+          decide (∃ p ∈ OneAnd.line w, x p = true) := by
+  let S : Fin 13 → Finset (Fin 13) := fun w =>
+    (readForm (suffixForms pre post) (out w)).1
+  let u : Fin 13 → Bool := fun w =>
+    (readForm (suffixForms pre post) (out w)).2
+  let A := (readForm (runForms pre initial) a).1
+  let B := (readForm (runForms pre initial) b).1
+  have hsem : OneAnd.Correct S A B u := by
+    intro w X hX
+    let x : Fin 13 → Bool := fun p => decide (p ∈ X)
+    have hz : (Finset.univ.filter (fun p : Fin 13 => x p = false)) = Finset.univ \ X := by
+      ext p
+      simp [x]
+    have hb : PEqualNP.Outside.L_meta_1024.OrOnly.band x := by
+      apply Or.inr
+      rw [hz]
+      simp [Finset.card_sdiff, hX]
+    have he := hc w x hb
+    rw [eval_split_binary pre post a b hpre hpost] at he
+    simpa [OneAnd.output, OneAnd.hit, evalForm, S, A, B, u, x] using he
+  obtain ⟨R, hR, hnormal⟩ := OneAnd.normalize_supports S A B u hsem
+  obtain ⟨g, hgo, hgl, hge⟩ := replacement_gate pre hpre a b R hR
+  refine ⟨g, hgo, hgl, ?_⟩
+  intro w x
+  rw [eval_split pre post g hpre hpost, hge, eval_substitution]
+  change decide (∃ p ∈ S w ∪ (if u w then R else ∅), x p = true) = _
+  rw [hnormal w]
+
+lemma oneAnd_line_eq : ∀ w : Fin 13,
+    OneAnd.line w = PEqualNP.Outside.L_meta_1024.OrOnly.line w := by
+  decide +kernel
+
+lemma binary_lower (pre post : List Gate) (a b : ℕ) (out : Fin 13 → ℕ)
+    (hpre : ∀ g ∈ pre, g.op = GateOp.or ∧ g.inputs.length ≤ 2)
+    (hpost : ∀ g ∈ post, g.op = GateOp.or ∧ g.inputs.length ≤ 2)
+    (hc : ∀ (w : Fin 13) (x : Fin 13 → Bool),
+      PEqualNP.Outside.L_meta_1024.OrOnly.band x →
+      Circuit.eval ⟨pre ++ ⟨GateOp.and, [a, b]⟩ :: post, out w⟩ (List.ofFn x) =
+        decide (∃ p ∈ OneAnd.line w, x p = true)) :
+    39 ≤ (pre ++ ⟨GateOp.and, [a, b]⟩ :: post).length := by
+  obtain ⟨g, hgo, hgl, hge⟩ := binary_normalization pre post a b out
+    (fun g hg => (hpre g hg).1) (fun g hg => (hpost g hg).1) hc
+  have hor : ∀ q ∈ pre ++ g :: post, q.op = GateOp.or ∧ q.inputs.length ≤ 2 := by
+    intro q hq
+    rcases List.mem_append.mp hq with hq | hq
+    · exact hpre q hq
+    · rcases List.mem_cons.mp hq with rfl | hq
+      · exact ⟨hgo, hgl⟩
+      · exact hpost q hq
+  have hbound := PEqualNP.Outside.L_meta_1024.OrOnly.band_lower (pre ++ g :: post) out hor
+    (fun w x _ => by simpa only [oneAnd_line_eq] using hge w x)
+  simpa using hbound
+
+end PEqualNP.Outside.L_meta_1024_aux.OneAndCircuit
+
+
+namespace PEqualNP.Outside.L_meta_1024_aux.OneAndCircuit
+
+open PEqualNP.CircuitLowerBounds
+
+lemma replacement_lower (pre post : List Gate) (g q : Gate) (out : Fin 13 → ℕ)
+    (hpre : ∀ g ∈ pre, g.op = GateOp.or ∧ g.inputs.length ≤ 2)
+    (hpost : ∀ g ∈ post, g.op = GateOp.or ∧ g.inputs.length ≤ 2)
+    (hq : q.op = GateOp.or ∧ q.inputs.length ≤ 2)
+    (hc : ∀ (w : Fin 13) (x : Fin 13 → Bool),
+      PEqualNP.Outside.L_meta_1024.OrOnly.band x →
+      Circuit.eval ⟨pre ++ q :: post, out w⟩ (List.ofFn x) =
+        decide (∃ p ∈ OneAnd.line w, x p = true)) : 39 ≤ (pre ++ g :: post).length := by
+  have hor : ∀ a ∈ pre ++ q :: post, a.op = GateOp.or ∧ a.inputs.length ≤ 2 := by
+    intro a ha
+    rcases List.mem_append.mp ha with ha | ha
+    · exact hpre a ha
+    · rcases List.mem_cons.mp ha with rfl | ha
+      · exact hq
+      · exact hpost a ha
+  have hbound := PEqualNP.Outside.L_meta_1024.OrOnly.band_lower (pre ++ q :: post) out hor
+    (fun w x hx => by simpa only [oneAnd_line_eq] using hc w x hx)
+  simpa using hbound
+
+lemma unary_lower (pre post : List Gate) (a : ℕ) (out : Fin 13 → ℕ)
+    (hpre : ∀ g ∈ pre, g.op = GateOp.or ∧ g.inputs.length ≤ 2)
+    (hpost : ∀ g ∈ post, g.op = GateOp.or ∧ g.inputs.length ≤ 2)
+    (hc : ∀ (w : Fin 13) (x : Fin 13 → Bool),
+      PEqualNP.Outside.L_meta_1024.OrOnly.band x →
+      Circuit.eval ⟨pre ++ ⟨GateOp.and, [a]⟩ :: post, out w⟩ (List.ofFn x) =
+        decide (∃ p ∈ OneAnd.line w, x p = true)) :
+    39 ≤ (pre ++ ⟨GateOp.and, [a]⟩ :: post).length := by
+  apply replacement_lower pre post _ ⟨GateOp.or, [a]⟩ out hpre hpost ⟨rfl, by simp⟩
+  intro w x hx
+  have he := hc w x hx
+  rw [eval_split pre post _ (fun g hg => (hpre g hg).1)
+    (fun g hg => (hpost g hg).1)] at he ⊢
+  simpa [GateOp.eval] using he
+
+lemma nullary_lower (pre post : List Gate) (out : Fin 13 → ℕ)
+    (hpre : ∀ g ∈ pre, g.op = GateOp.or ∧ g.inputs.length ≤ 2)
+    (hpost : ∀ g ∈ post, g.op = GateOp.or ∧ g.inputs.length ≤ 2)
+    (hc : ∀ (w : Fin 13) (x : Fin 13 → Bool),
+      PEqualNP.Outside.L_meta_1024.OrOnly.band x →
+      Circuit.eval ⟨pre ++ ⟨GateOp.and, []⟩ :: post, out w⟩ (List.ofFn x) =
+        decide (∃ p ∈ OneAnd.line w, x p = true)) :
+    39 ≤ (pre ++ ⟨GateOp.and, []⟩ :: post).length := by
+  have hu (w : Fin 13) : (readForm (suffixForms pre post) (out w)).2 = false := by
+    have hb : PEqualNP.Outside.L_meta_1024.OrOnly.band (Support.row w) :=
+      Or.inr (Support.row_spec w).1
+    have hz : decide (∃ p ∈ OneAnd.line w, Support.row w p = true) = false := by
+      exact (Support.row_spec w).2
+    have he := hc w (Support.row w) hb
+    rw [hz, eval_split pre post _ (fun g hg => (hpre g hg).1)
+      (fun g hg => (hpost g hg).1)] at he
+    simp only [GateOp.eval, List.map_nil, List.all_nil, evalForm,
+      Bool.and_true, Bool.or_eq_false_iff] at he
+    exact he.2
+  apply replacement_lower pre post _ ⟨GateOp.or, []⟩ out hpre hpost ⟨rfl, by simp⟩
+  intro w x hx
+  have he := hc w x hx
+  rw [eval_split pre post _ (fun g hg => (hpre g hg).1)
+    (fun g hg => (hpost g hg).1)] at he ⊢
+  simpa [GateOp.eval, evalForm, hu w] using he
+
+def isAnd (g : Gate) : Bool := match g.op with
+  | GateOp.and => true
+  | _ => false
+
+lemma isAnd_true (g : Gate) : isAnd g = true ↔ g.op = GateOp.and := by
+  rcases g with ⟨op, ins⟩
+  cases op <;> simp [isAnd]
+
+lemma at_most_one_and_lower (gs : List Gate) (out : Fin 13 → ℕ)
+    (hg : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hcount : (gs.filter isAnd).length ≤ 1)
+    (hc : ∀ (w : Fin 13) (x : Fin 13 → Bool),
+      PEqualNP.Outside.L_meta_1024.OrOnly.band x →
+      Circuit.eval ⟨gs, out w⟩ (List.ofFn x) =
+        decide (∃ p ∈ OneAnd.line w, x p = true)) : 39 ≤ gs.length := by
+  by_cases he : ∃ g ∈ gs, g.op = GateOp.and
+  · obtain ⟨g, hmem, hop⟩ := he
+    obtain ⟨pre, post, rfl⟩ := List.append_of_mem hmem
+    have hgAnd : isAnd g = true := (isAnd_true g).mpr hop
+    have hcounts : (pre.filter isAnd).length + (post.filter isAnd).length ≤ 0 := by
+      simp only [List.filter_append, List.length_append, List.filter_cons, hgAnd,
+        ite_true, List.length_cons] at hcount
+      omega
+    have hpre : ∀ q ∈ pre, q.op = GateOp.or ∧ q.inputs.length ≤ 2 := by
+      intro q hq
+      obtain ⟨hopq, hlen⟩ := hg q (by simp [hq])
+      refine ⟨?_, hlen⟩
+      rcases hopq with hopq | hopq
+      · have hm : q ∈ pre.filter isAnd := by
+          simp [hq, (isAnd_true q).mpr hopq]
+        have hh := List.length_pos_of_mem hm
+        omega
+      · exact hopq
+    have hpost : ∀ q ∈ post, q.op = GateOp.or ∧ q.inputs.length ≤ 2 := by
+      intro q hq
+      obtain ⟨hopq, hlen⟩ := hg q (by simp [hq])
+      refine ⟨?_, hlen⟩
+      rcases hopq with hopq | hopq
+      · have hm : q ∈ post.filter isAnd := by
+          simp [hq, (isAnd_true q).mpr hopq]
+        have hh := List.length_pos_of_mem hm
+        omega
+      · exact hopq
+    have hlen := (hg g (by simp)).2
+    rcases g with ⟨op, ins⟩
+    change op = GateOp.and at hop
+    subst op
+    match ins, hlen with
+    | [], _ => exact nullary_lower pre post out hpre hpost hc
+    | [a], _ => exact unary_lower pre post a out hpre hpost hc
+    | [a, b], _ => exact binary_lower pre post a b out hpre hpost hc
+    | _ :: _ :: _ :: _, h => simp at h
+  · apply PEqualNP.Outside.L_meta_1024.OrOnly.band_lower gs out
+    · intro g hmem
+      refine ⟨?_, (hg g hmem).2⟩
+      rcases (hg g hmem).1 with h | h
+      · exact (he ⟨g, hmem, h⟩).elim
+      · exact h
+    · intro w x hx
+      simpa only [oneAnd_line_eq] using hc w x hx
+
+end PEqualNP.Outside.L_meta_1024_aux.OneAndCircuit
+
+
+
+namespace PEqualNP.Outside.L_meta_1024_aux.Bridge
+open PEqualNP.CircuitLowerBounds
+
+lemma ordinary_iff_extremes (gs : List Gate) (o : ℕ) (w : Fin 13)
+    (hg : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or) :
+    (∀ x : Fin 13 → Bool, Global.val gs x o = Support.target w x) ↔
+      Global.val gs (Global.Zof (Global.line w)) o = false ∧
+      ∀ p ∈ Global.line w, Global.val gs (Global.eof p) o = true := by
+  constructor
+  · intro he
+    constructor
+    · rw [he]
+      simp [Support.target, Support.line, Global.line, Global.Zof]
+    · intro p hp
+      rw [he]
+      apply decide_eq_true_iff.mpr
+      exact ⟨p, hp, by simp [Global.eof]⟩
+  · rintro ⟨hz, he⟩ x
+    cases ht : Support.target w x
+    · cases hv : Global.val gs x o
+      · rfl
+      · have hm := val_mono gs hg x (Global.Zof (Global.line w)) (by
+          intro q hqx
+          have hnot : q ∉ Global.line w := by
+            intro hq
+            have hh : Support.target w x = true := decide_eq_true_iff.mpr ⟨q, hq, hqx⟩
+            rw [ht] at hh
+            exact Bool.noConfusion hh
+          simpa [Global.Zof] using hnot) o hv
+        rw [hz] at hm
+        exact Bool.noConfusion hm
+    · have hex : ∃ p ∈ Global.line w, x p = true := decide_eq_true_iff.mp ht
+      obtain ⟨p, hp, hpx⟩ := hex
+      exact val_mono gs hg (Global.eof p) x (by
+        intro q hq
+        have hqp : q = p := by simpa [Global.eof] using hq
+        simpa [hqp] using hpx) o (he p hp)
+
+lemma exotic_iff_extremes (gs : List Gate) (o : ℕ) (w : Fin 13)
+    (hg : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or) :
+    (¬ ∀ x : Fin 13 → Bool, Global.val gs x o = Support.target w x) ↔
+      Global.val gs (Global.Zof (Global.line w)) o = true ∨
+      ∃ p ∈ Global.line w, Global.val gs (Global.eof p) o = false := by
+  rw [ordinary_iff_extremes gs o w hg]
+  simp only [not_and_or, not_forall, Bool.not_eq_false, Bool.not_eq_true, exists_prop]
+
+lemma mem_exoticSet_iff (gs : List Gate) (out : Fin 13 → ℕ) (w : Fin 13)
+    (hg : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or) :
+    w ∈ exoticSet gs out ↔
+      Global.val gs (Global.Zof (Global.line w)) (out w) = true ∨
+      ∃ p ∈ Global.line w, Global.val gs (Global.eof p) (out w) = false := by
+  classical
+  simp only [exoticSet, Finset.mem_filter, Finset.mem_univ, true_and]
+  change (¬ ∀ x : Fin 13 → Bool, Global.val gs x (out w) = Support.target w x) ↔ _
+  exact exotic_iff_extremes gs (out w) w hg
+
+lemma four_exotic_witnesses (gs : List Gate) (out : Fin 13 → ℕ)
+    (hg : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hcorrect : ∀ (w : Fin 13) (x : Fin 13 → Bool), Support.Band x →
+      Circuit.eval ⟨gs, out w⟩ (List.ofFn x) = Support.target w x)
+    (hsmall : gs.length < 39) :
+    4 ≤ (Finset.univ.filter (fun w : Fin 13 =>
+      Global.val gs (Global.Zof (Global.line w)) (out w) = true ∨
+      ∃ p ∈ Global.line w, Global.val gs (Global.eof p) (out w) = false)).card := by
+  classical
+  have he : exoticSet gs out = Finset.univ.filter (fun w : Fin 13 =>
+      Global.val gs (Global.Zof (Global.line w)) (out w) = true ∨
+      ∃ p ∈ Global.line w, Global.val gs (Global.eof p) (out w) = false) := by
+    ext w
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+    exact mem_exoticSet_iff gs out w (fun g hm => (hg g hm).1)
+  rw [← he]
+  exact four_exotic_outputs gs out hg hcorrect hsmall
+
+end PEqualNP.Outside.L_meta_1024_aux.Bridge
