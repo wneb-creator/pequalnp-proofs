@@ -3030,3 +3030,359 @@ lemma two_exotic_bound (gs : List Gate) (out : Fin 13 → ℕ)
   omega
 
 end PEqualNP.Outside.L_meta_1024_aux.Bridge
+
+
+
+namespace PEqualNP.Outside.L_meta_1024_aux.OneAnd
+
+def line (w : Fin 13) : Finset (Fin 13) :=
+  ({0, 1, 3, 9} : Finset (Fin 13)).image (fun u => u + w)
+
+def hit (S X : Finset (Fin 13)) : Bool := decide (∃ p ∈ S, p ∈ X)
+
+lemma hit_true (S X : Finset (Fin 13)) (p : Fin 13) (hp : p ∈ S) (hx : p ∈ X) :
+    hit S X = true := decide_eq_true ⟨p, hp, hx⟩
+
+lemma hit_false (S X : Finset (Fin 13)) (h : Disjoint S X) : hit S X = false := by
+  simp only [hit, decide_eq_false_iff_not]
+  rintro ⟨p, hp, hx⟩
+  exact Finset.disjoint_left.mp h hp hx
+
+lemma line_card : ∀ w : Fin 13, (line w).card = 4 := by decide +kernel
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 4000000 in
+lemma line_meet : ∀ w u : Fin 13, w ≠ u → (line w ∩ line u).card = 1 := by decide +kernel
+
+lemma outside_card (w : Fin 13) : (Finset.univ \ line w).card = 9 := by
+  simp [Finset.card_sdiff, line_card]
+
+lemma outside_row (w : Fin 13) (T : Finset (Fin 13)) (hT : Disjoint T (line w))
+    (hc : T.card ≤ 7) :
+    ∃ X, T ⊆ X ∧ X.card = 7 ∧ Disjoint (line w) X := by
+  have hsub : T ⊆ Finset.univ \ line w := by
+    intro p hp
+    exact Finset.mem_sdiff.mpr ⟨Finset.mem_univ p,
+      fun h => Finset.disjoint_left.mp hT hp h⟩
+  obtain ⟨X, hTX, hX, hcard⟩ := Finset.exists_subsuperset_card_eq hsub hc
+    (by rw [outside_card]; omega)
+  refine ⟨X, hTX, hcard, Finset.disjoint_left.mpr ?_⟩
+  intro p hp hx
+  exact (Finset.mem_sdiff.mp (hX hx)).2 hp
+
+lemma one_point_row (w : Fin 13) (p : Fin 13) (hp : p ∈ line w) :
+    ∃ X : Finset (Fin 13), X.card = 7 ∧ p ∈ X ∧
+      ∀ q ∈ line w, q ∈ X → q = p := by
+  obtain ⟨T, hT, hcard⟩ := Finset.exists_subset_card_eq
+    (show 6 ≤ (Finset.univ \ line w).card by rw [outside_card]; omega)
+  have hn : p ∉ T := fun h => (Finset.mem_sdiff.mp (hT h)).2 hp
+  refine ⟨insert p T, by simp [hn, hcard], Finset.mem_insert_self _ _, ?_⟩
+  intro q hq hX
+  rcases Finset.mem_insert.mp hX with h | h
+  · exact h
+  · exact ((Finset.mem_sdiff.mp (hT h)).2 hq).elim
+
+def separatingRow (w u : Fin 13) (p : Fin 13) : Finset (Fin 13) :=
+  insert p (Finset.univ \ (line w ∪ line u))
+
+lemma separating_row (w u : Fin 13) (hwu : w ≠ u) (p : Fin 13)
+    (hp : p ∈ line w) (hpu : p ∉ line u) :
+    (separatingRow w u p).card = 7 ∧ p ∈ separatingRow w u p ∧
+      Disjoint (line u) (separatingRow w u p) ∧
+      ∀ q ∈ line w, q ∈ separatingRow w u p → q = p := by
+  have hu : (line w ∪ line u).card = 7 := by
+    have hc := Finset.card_union_add_card_inter (line w) (line u)
+    rw [line_card, line_card, line_meet w u hwu] at hc
+    omega
+  have hn : p ∉ Finset.univ \ (line w ∪ line u) := by simp [hp]
+  refine ⟨?_, Finset.mem_insert_self _ _, ?_, ?_⟩
+  · simp [separatingRow, hn, Finset.card_sdiff, hu]
+  · apply Finset.disjoint_left.mpr
+    intro q hq hX
+    rcases Finset.mem_insert.mp hX with h | h
+    · exact hpu (h ▸ hq)
+    · exact (Finset.mem_sdiff.mp h).2 (Finset.mem_union_right _ hq)
+  · intro q hq hX
+    rcases Finset.mem_insert.mp hX with h | h
+    · exact h
+    · exact ((Finset.mem_sdiff.mp h).2 (Finset.mem_union_left _ hq)).elim
+
+def output (S A B X : Finset (Fin 13)) (u : Bool) : Bool :=
+  hit S X || (u && (hit A X && hit B X))
+
+abbrev Correct (S : Fin 13 → Finset (Fin 13)) (A B : Finset (Fin 13))
+    (u : Fin 13 → Bool) : Prop :=
+  ∀ w X, X.card = 7 → output (S w) A B X (u w) = hit (line w) X
+
+lemma support_subset (S : Fin 13 → Finset (Fin 13)) (A B : Finset (Fin 13))
+    (u : Fin 13 → Bool) (hcorrect : Correct S A B u) (w : Fin 13) : S w ⊆ line w := by
+  intro p hp
+  by_contra hn
+  obtain ⟨X, hPX, hc, hd⟩ := outside_row w {p} (by simpa using hn) (by simp)
+  have hs : hit (S w) X = true := hit_true _ _ p hp (hPX (by simp))
+  have h := hcorrect w X hc
+  rw [hit_false _ _ hd] at h
+  simp [output, hs] at h
+
+lemma unused_complete (S : Fin 13 → Finset (Fin 13)) (A B : Finset (Fin 13))
+    (u : Fin 13 → Bool) (hcorrect : Correct S A B u) (w : Fin 13) (hu : u w = false) :
+    S w = line w := by
+  apply Finset.Subset.antisymm (support_subset S A B u hcorrect w)
+  intro p hp
+  by_contra hn
+  obtain ⟨X, hc, hpX, hrow⟩ := one_point_row w p hp
+  have hs : hit (S w) X = false := hit_false _ _ (Finset.disjoint_left.mpr (by
+    intro q hq hX
+    have he := hrow q (support_subset S A B u hcorrect w hq) hX
+    exact hn (he ▸ hq)))
+  have h := hcorrect w X hc
+  rw [hit_true _ _ p hp hpX] at h
+  simp [output, hu, hs] at h
+
+lemma parent_subset (S : Fin 13 → Finset (Fin 13)) (A B : Finset (Fin 13))
+    (u : Fin 13 → Bool) (hcorrect : Correct S A B u) (w : Fin 13) (hu : u w = true) :
+    A ⊆ line w ∨ B ⊆ line w := by
+  by_contra hn
+  obtain ⟨a, ha, hna⟩ := Finset.not_subset.mp (show ¬ A ⊆ line w from fun h => hn (Or.inl h))
+  obtain ⟨b, hb, hnb⟩ := Finset.not_subset.mp (show ¬ B ⊆ line w from fun h => hn (Or.inr h))
+  have hd : Disjoint ({a, b} : Finset (Fin 13)) (line w) := by
+    simp [hna, hnb]
+  obtain ⟨X, hPX, hc, hd⟩ := outside_row w {a, b} hd (by
+    have h := Finset.card_insert_le a ({b} : Finset (Fin 13))
+    simp only [Finset.card_singleton] at h
+    omega)
+  have hA : hit A X = true := hit_true _ _ a ha (hPX (by simp))
+  have hB : hit B X = true := hit_true _ _ b hb (hPX (by simp))
+  have h := hcorrect w X hc
+  rw [hit_false _ _ hd] at h
+  simp [output, hu, hA, hB] at h
+
+lemma parent_complete_left (S : Fin 13 → Finset (Fin 13)) (A B : Finset (Fin 13))
+    (u : Fin 13 → Bool) (hcorrect : Correct S A B u) (w : Fin 13)
+    (hA : A ⊆ line w) : S w ∪ A = line w := by
+  apply Finset.Subset.antisymm (Finset.union_subset (support_subset S A B u hcorrect w) hA)
+  intro p hp
+  by_contra hn
+  obtain ⟨X, hc, hpX, hrow⟩ := one_point_row w p hp
+  have hzero : ∀ T ⊆ line w, p ∉ T → hit T X = false := by
+    intro T hT hpT
+    apply hit_false
+    apply Finset.disjoint_left.mpr
+    intro q hq hX
+    exact hpT ((hrow q (hT hq) hX) ▸ hq)
+  have hs := hzero (S w) (support_subset S A B u hcorrect w)
+    (fun h => hn (Finset.mem_union_left _ h))
+  have ha := hzero A hA (fun h => hn (Finset.mem_union_right _ h))
+  have h := hcorrect w X hc
+  rw [hit_true _ _ p hp hpX] at h
+  simp [output, hs, ha] at h
+
+lemma residual_subset_user (S : Fin 13 → Finset (Fin 13)) (A B : Finset (Fin 13))
+    (u : Fin 13 → Bool) (hcorrect : Correct S A B u) (w v : Fin 13)
+    (hw : u w = true) (hv : u v = true) : line w \ S w ⊆ line v := by
+  intro p hp
+  obtain ⟨hpw, hps⟩ := Finset.mem_sdiff.mp hp
+  by_cases hwv : w = v
+  · simpa [hwv] using hpw
+  by_contra hpv
+  obtain ⟨hc, hpX, hd, hrow⟩ := separating_row w v hwv p hpw hpv
+  have hvzero := hcorrect v (separatingRow w v p) hc
+  rw [hit_false _ _ hd] at hvzero
+  have hh : (hit A (separatingRow w v p) && hit B (separatingRow w v p)) = false := by
+    simp only [output, hv, Bool.true_and, Bool.or_eq_false_iff] at hvzero
+    exact hvzero.2
+  have hs : hit (S w) (separatingRow w v p) = false := hit_false _ _
+    (Finset.disjoint_left.mpr (by
+      intro q hq hX
+      exact hps ((hrow q (support_subset S A B u hcorrect w hq) hX) ▸ hq)))
+  have h := hcorrect w (separatingRow w v p) hc
+  rw [hit_true _ _ p hpw hpX] at h
+  simp [output, hw, hs, hh] at h
+
+
+lemma normalize_supports (S : Fin 13 → Finset (Fin 13)) (A B : Finset (Fin 13))
+    (u : Fin 13 → Bool) (hcorrect : Correct S A B u) :
+    ∃ R : Finset (Fin 13),
+      (R = ∅ ∨ R = A ∨ R = B ∨ ∃ p, R = {p}) ∧
+      ∀ w, S w ∪ (if u w then R else ∅) = line w := by
+  classical
+  by_cases hpair : ∃ a b : Fin 13, u a = true ∧ u b = true ∧ a ≠ b
+  · obtain ⟨a, b, ha, hb, hab⟩ := hpair
+    by_cases hres : ∃ w : Fin 13, u w = true ∧ ∃ p, p ∈ line w \ S w
+    · obtain ⟨w, hw, p, hp⟩ := hres
+      have hpall : ∀ v, u v = true → p ∈ line v := by
+        intro v hv
+        exact residual_subset_user S A B u hcorrect w v hw hv hp
+      refine ⟨{p}, Or.inr (Or.inr (Or.inr ⟨p, rfl⟩)), ?_⟩
+      intro v
+      cases hv : u v with
+      | false => simpa [hv] using unused_complete S A B u hcorrect v hv
+      | true =>
+        simp only [ite_true]
+        apply Finset.Subset.antisymm
+        · exact Finset.union_subset (support_subset S A B u hcorrect v)
+            (Finset.singleton_subset_iff.mpr (hpall v hv))
+        · intro q hq
+          by_cases hqs : q ∈ S v
+          · exact Finset.mem_union_left _ hqs
+          · have hqr : q ∈ line v \ S v := Finset.mem_sdiff.mpr ⟨hq, hqs⟩
+            have hqa := residual_subset_user S A B u hcorrect v a hv ha hqr
+            have hqb := residual_subset_user S A B u hcorrect v b hv hb hqr
+            have hqp : q = p := Finset.card_le_one.mp (line_meet a b hab).le q
+              (Finset.mem_inter.mpr ⟨hqa, hqb⟩) p
+              (Finset.mem_inter.mpr ⟨hpall a ha, hpall b hb⟩)
+            exact Finset.mem_union_right _ (by simpa using hqp)
+    · refine ⟨∅, Or.inl rfl, ?_⟩
+      intro v
+      cases hv : u v with
+      | false => simpa [hv] using unused_complete S A B u hcorrect v hv
+      | true =>
+        simp only [ite_true, Finset.union_empty]
+        apply Finset.Subset.antisymm (support_subset S A B u hcorrect v)
+        intro p hp
+        by_contra hn
+        exact hres ⟨v, hv, p, Finset.mem_sdiff.mpr ⟨hp, hn⟩⟩
+  · by_cases huser : ∃ w : Fin 13, u w = true
+    · obtain ⟨w, hw⟩ := huser
+      have unique : ∀ v, u v = true → v = w := by
+        intro v hv
+        by_contra hvw
+        exact hpair ⟨v, w, hv, hw, hvw⟩
+      rcases parent_subset S A B u hcorrect w hw with hA | hB
+      · refine ⟨A, Or.inr (Or.inl rfl), ?_⟩
+        intro v
+        cases hv : u v with
+        | false => simpa [hv] using unused_complete S A B u hcorrect v hv
+        | true =>
+          have he := unique v hv
+          subst v
+          simpa [hw] using parent_complete_left S A B u hcorrect w hA
+      · have hswap : Correct S B A u := by
+          intro v X hc
+          simpa [output, Bool.and_comm] using hcorrect v X hc
+        refine ⟨B, Or.inr (Or.inr (Or.inl rfl)), ?_⟩
+        intro v
+        cases hv : u v with
+        | false => simpa [hv] using unused_complete S A B u hcorrect v hv
+        | true =>
+          have he := unique v hv
+          subst v
+          simpa [hw] using parent_complete_left S B A u hswap w hB
+    · refine ⟨∅, Or.inl rfl, ?_⟩
+      intro v
+      cases hv : u v with
+      | false => simpa [hv] using unused_complete S A B u hcorrect v hv
+      | true => exact (huser ⟨v, hv⟩).elim
+
+end PEqualNP.Outside.L_meta_1024_aux.OneAnd
+
+
+namespace PEqualNP.Outside.L_meta_1024_aux.Cut
+
+open PEqualNP.CircuitLowerBounds
+
+lemma cutVal_append_old {M : ℕ} (n : ℕ) (P : Finset ℕ) (gs hs : List Gate)
+    (x : Fin M → Bool) (i : ℕ) (hi : i < n + gs.length) :
+    cutVal n P (gs ++ hs) x i = cutVal n P gs x i := by
+  induction hs using List.reverseRecOn with
+  | nil => simp
+  | append_singleton hs g ih =>
+    rw [← List.append_assoc, cutVal_snoc,
+      ite_eq_right (show i ≠ n + (gs ++ hs).length by simp; omega)]
+    exact ih
+
+lemma cutVal_take {M : ℕ} (n : ℕ) (P : Finset ℕ) (gs : List Gate)
+    (x : Fin M → Bool) (k i : ℕ) (hk : k ≤ gs.length) (hi : i < n + k) :
+    cutVal n P gs x i = cutVal n P (gs.take k) x i := by
+  have hlen : (gs.take k).length = k := by simp [List.length_take, Nat.min_eq_left hk]
+  have h := cutVal_append_old n P (gs.take k) (gs.drop k) x i (by rw [hlen]; exact hi)
+  simpa only [List.take_append_drop] using h
+
+lemma essential_take {M : ℕ} (n : ℕ) (P : Finset ℕ) (gs : List Gate)
+    (k i : ℕ) (hk : k ≤ gs.length) (hi : i < n + k) :
+    essential (M := M) n P gs i = essential n P (gs.take k) i := by
+  classical
+  ext t
+  simp only [essential, Finset.mem_filter, Finset.mem_univ, true_and, Depends]
+  constructor
+  · rintro ⟨x, y, hxy, hne⟩
+    refine ⟨x, y, hxy, ?_⟩
+    rwa [cutVal_take n P gs x k i hk hi, cutVal_take n P gs y k i hk hi] at hne
+  · rintro ⟨x, y, hxy, hne⟩
+    refine ⟨x, y, hxy, ?_⟩
+    rwa [cutVal_take n P gs x k i hk hi, cutVal_take n P gs y k i hk hi]
+
+lemma unpaid_two_later (n : ℕ) (P : Finset ℕ) (gs : List Gate) (k i j : ℕ)
+    (hk : k ≤ gs.length) (hi : n + k ≤ i) (hj : n + k ≤ j)
+    (hiend : i < n + gs.length) (hjend : j < n + gs.length)
+    (hip : i ∉ P) (hjp : j ∉ P) (hij : i ≠ j) :
+    unpaid n P (gs.take k) + 2 ≤ unpaid n P gs := by
+  classical
+  let D := (Finset.Ico n (n + (gs.take k).length)) \ P
+  let F := (Finset.Ico n (n + gs.length)) \ P
+  have hlen : (gs.take k).length = k := by simp [List.length_take, Nat.min_eq_left hk]
+  have hD : D ⊆ F := by
+    intro a ha
+    simp only [D, F, Finset.mem_sdiff, Finset.mem_Ico] at ha ⊢
+    exact ⟨⟨ha.1.1, by rw [hlen] at ha; omega⟩, ha.2⟩
+  have hiD : i ∉ D := by
+    simp only [D, Finset.mem_sdiff, Finset.mem_Ico, hlen]
+    omega
+  have hjD : j ∉ D := by
+    simp only [D, Finset.mem_sdiff, Finset.mem_Ico, hlen]
+    omega
+  have hiF : i ∈ F := by
+    simp only [F, Finset.mem_sdiff, Finset.mem_Ico]
+    exact ⟨⟨by omega, hiend⟩, hip⟩
+  have hjF : j ∈ F := by
+    simp only [F, Finset.mem_sdiff, Finset.mem_Ico]
+    exact ⟨⟨by omega, hjend⟩, hjp⟩
+  have hsub : insert i (insert j D) ⊆ F :=
+    Finset.insert_subset_iff.mpr ⟨hiF, Finset.insert_subset_iff.mpr ⟨hjF, hD⟩⟩
+  have hc := Finset.card_le_card hsub
+  have hnot : i ∉ insert j D := by simp [hij, hiD]
+  rw [Finset.card_insert_of_notMem hnot, Finset.card_insert_of_notMem hjD] at hc
+  change D.card + 2 ≤ F.card
+  omega
+
+def rawSupport {M n : ℕ} (E : Finset (Fin M)) (hraw : ∀ t ∈ E, t.val < n) :
+    Finset (Fin n) :=
+  E.attach.image fun t => (⟨t.val.val, hraw t.val t.property⟩ : Fin n)
+
+lemma rawSupport_card {M n : ℕ} (E : Finset (Fin M)) (hraw : ∀ t ∈ E, t.val < n) :
+    (rawSupport E hraw).card ≤ E.card := by
+  exact (Finset.card_image_le).trans_eq Finset.card_attach
+
+lemma actualSources_raw {n : ℕ} (gs : List Gate) (x : Fin n → Bool)
+    (t : Fin (n + gs.length)) (ht : t.val < n) :
+    actualSources gs x t = x ⟨t.val, ht⟩ := by
+  unfold actualSources
+  rw [← cut_empty]
+  have h := cutVal_append_old n ∅ [] gs x t.val (by simpa using ht)
+  simp only [List.nil_append] at h
+  rw [h, cutVal_nil]
+  simp [ht, source_eq]
+
+lemma raw_essential_support {n : ℕ} (P : Finset ℕ) (gs : List Gate) (o : ℕ)
+    (hraw : ∀ t ∈ essential (M := n + gs.length) n P gs o, t.val < n) :
+    ∀ x y : Fin n → Bool,
+      (∀ p ∈ rawSupport (essential n P gs o) hraw, x p = y p) →
+      Circuit.eval ⟨gs, o⟩ (List.ofFn x) = Circuit.eval ⟨gs, o⟩ (List.ofFn y) := by
+  intro x y hxy
+  rw [← factor P gs x o, ← factor P gs y o]
+  apply essential_supports n P gs o
+  intro t ht
+  rw [actualSources_raw gs x t (hraw t ht), actualSources_raw gs y t (hraw t ht)]
+  apply hxy
+  exact Finset.mem_image.mpr ⟨⟨t, ht⟩, by simp, rfl⟩
+
+lemma raw_support_exists {n : ℕ} (P : Finset ℕ) (gs : List Gate) (o b : ℕ)
+    (hraw : ∀ t ∈ essential (M := n + gs.length) n P gs o, t.val < n)
+    (hcard : (essential (M := n + gs.length) n P gs o).card ≤ b) :
+    ∃ S : Finset (Fin n), S.card ≤ b ∧
+      ∀ x y : Fin n → Bool, (∀ p ∈ S, x p = y p) →
+        Circuit.eval ⟨gs, o⟩ (List.ofFn x) = Circuit.eval ⟨gs, o⟩ (List.ofFn y) := by
+  exact ⟨rawSupport (essential n P gs o) hraw,
+    (rawSupport_card _ hraw).trans hcard, raw_essential_support P gs o hraw⟩
+
+end PEqualNP.Outside.L_meta_1024_aux.Cut
