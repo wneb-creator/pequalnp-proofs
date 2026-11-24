@@ -13,3 +13,12 @@ Updated direct.lean partial: 136 lines; SHA256 434896871cbdd2be074183041c5479914
 Added meet-closed safe-predicate and covered-edge cardinality lemmas.
 Final exact contents compiled with pinned Lean; exit 0; complete stdout/stderr empty.
 Timestamp: 2026-11-24T23:28:26.275080+00:00
+
+Named reduction candidate: lean/PEqualNP/Outside/R_meta_5324_49.lean
+Lines before cleanup: 68
+Build: lake build PEqualNP.Outside.R_meta_5324_49
+Exit: 0; Build completed successfully (5147 jobs).
+Mathlib source modules built during this successful run: 0.
+Local reduction checker: pending.
+Independent red-team review: PASS, SHA256 9c23581614a91da87096edd357ef6719c6a094a36d73fdd3574f92276748febe.
+Timestamp: 2026-11-24T23:30:57.686596+00:00
