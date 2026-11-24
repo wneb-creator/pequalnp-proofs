@@ -1,0 +1,7 @@
+remaining=5 states=1 candidates=0 rejected=0 seconds=0.000177998
+remaining=4 states=8 candidates=65 rejected=58 seconds=0.00032327
+remaining=3 states=6 candidates=245 rejected=226 seconds=0.000457259
+remaining=2 states=2 candidates=317 rejected=296 seconds=0.000597356
+remaining=1 states=0 candidates=329 rejected=308 seconds=0.000719073
+remaining=0 states=0 candidates=329 rejected=308 seconds=0.000814865
+EXHAUSTED

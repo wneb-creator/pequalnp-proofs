@@ -1,0 +1,28 @@
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/FormalTightGrouped1425.lean:1211:10: warning: This simp argument is unused:
+  hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hj, Nat.testBit_xor, hm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/FormalTightGrouped1425.lean:1219:62: warning: This simp argument is unused:
+  hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/FormalTightGrouped1425.lean:1227:19: warning: This simp argument is unused:
+  hm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/FormalTightGrouped1425.lean:1228:18: warning: This simp argument is unused:
+  hm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h j hm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

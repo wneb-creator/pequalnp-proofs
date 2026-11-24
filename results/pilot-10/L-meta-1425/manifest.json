@@ -30,6 +30,15 @@
       "exit": 0,
       "scope": "Generic arbitrary AND/OR/NOT circuit normalization to live-wire runs and soundness of finite barrier certificates. No target-specific lower bound yet.",
       "review": "Independent root review PASS; normalization handles circuit simplification and sublist inputs; finite lookup checks index bounds and actual multiset equality; barrier descent is well founded. Permitted imports and source syntax."
+    },
+    {
+      "file": "FormalTightGrouped1425.lean",
+      "sha256": "9024d1c15acc7adc72281149172ceda54a68d4c815b5b83550fd87b59a47d68a",
+      "bytes": 56856,
+      "lines": 1295,
+      "exit": 0,
+      "scope": "Generic tight-budget monotonicity and grouped bitset coverage helpers; no target-specific lower bound yet.",
+      "review": "Independent Single_not and root review PASS; tight-run lemma rules out unary/retention by length; directional coverage reverses the bit implication correctly; group bounds validate every mask bit. Four unused-simp warnings only."
     }
   ],
   "lrat_probe_axioms": [

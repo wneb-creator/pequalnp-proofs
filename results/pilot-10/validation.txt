@@ -7,7 +7,7 @@ Repository checker acceptance: not obtained; checker executable build succeeded.
 All source hashes and successful full diagnostics are in L-meta-951/manifest.json.
 No final-proof cleanup pass applies yet. Exact compiled source bytes are preserved.
 Sub-agents: independent_search; literal_not_restriction; independent_theory; proof_strategy; single_not_reduction; toolchain_setup; fresh_full_proof.
-TIMING total=272 subagents=7
+TIMING total=275 subagents=7
 
 L-meta-951 released reason other;32 compiled partials preserved.
 L-meta-984 assigned shard28; generic Formal984 certificate machinery compiles.
@@ -39,3 +39,4 @@ Desk withdrew L-meta-984 as proved at23:52UTC; required diagnostic returnedHTTP4
 L-meta-1425 assigned; first compiled artifact is a small LRAT capability probe only. Full posted theorem/checker remain pending.
 L-meta-1425 now2 compiled mathematical artifacts; all ten explicit monotone upper bounds pass. LRAT diagnostic confirms only the three allowed axioms. Lower bounds and full checker pending.
 L-meta-1425 now3 compiled artifacts; unrestricted circuit normalization and finite barrier soundness pass. Target-specific certificates and full checker pending.
+L-meta-1425 now4 compiled artifacts; tight-budget and grouped coverage soundness pass. Independently audited finite search data (16611 states,594642 successor occurrences) preserved; concrete Lean certificates and full checker pending.

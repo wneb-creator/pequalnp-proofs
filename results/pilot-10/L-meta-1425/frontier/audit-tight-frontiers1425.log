@@ -1,0 +1,12 @@
+PASS target 0 0xe8a8a8a8 cap 5 states 23 pairs 10 candidates 417 elapsed 0.0
+PASS target 1 0xe8a8e888 cap 6 states 128 pairs 21 candidates 3166 elapsed 0.02
+PASS target 2 0xe8e8e880 cap 7 states 1165 pairs 37 candidates 30940 elapsed 0.15
+PASS target 3 0xeaa8a888 cap 8 states 5603 pairs 54 candidates 200154 elapsed 0.89
+PASS target 4 0xeaa8c888 cap 6 states 74 pairs 21 candidates 2140 elapsed 0.89
+PASS target 5 0xeaa8e880 cap 8 states 5061 pairs 52 candidates 187768 elapsed 1.25
+PASS target 6 0xeaaac880 cap 6 states 102 pairs 21 candidates 2605 elapsed 1.25
+PASS target 7 0xeac0e8c0 cap 5 states 17 pairs 12 candidates 329 elapsed 1.25
+PASS target 8 0xeac8e0c0 cap 4 states 1 pairs 8 candidates 20 elapsed 1.26
+PASS target 9 0xeac8e880 cap 8 states 4437 pairs 54 candidates 167103 elapsed 1.56
+PASS all10 exact tight frontiers; 16611 states; 594642 literal successor occurrences; all selected pairs semantically valid, all proper input sublists rejected, each successor closure and next layer equality verified.
+Scope: independent finite computation audit, not Lean compilation or repository checker acceptance.
