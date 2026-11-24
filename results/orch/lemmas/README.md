@@ -52,3 +52,5 @@ Put new stable, compiled components here only after review. Work in an individua
 - `ParentRankGeometry.lean`: checked/reviewed five-line union cardinality at least11 and impossibility of five distinct lines through one point; exact finite Singer geometry, not a circuit bound. Full log: `../validation/parent-rank-geometry-build-001.log`.
 
 - `ConnectedCore.lean`: checked/reviewed rank at least10 for connected minimum-degree-two parent graphs and five-edge stars, plus common labels for nonleaf vertices. General connected graphs with leaves and circuit application remain open. Full log: `../validation/connected-core-build-002.log`.
+
+- `FalsePruning.lean`: checked/reviewed 39-gate bound when every output has capped minimum formal false-certificate cost at most4; any smaller correct circuit has an output with formal cost at least5. Additive cost counts repeated occurrences; no assumption follows from semantic support alone. Full log: `../validation/false-pruning-build-003.log`.
