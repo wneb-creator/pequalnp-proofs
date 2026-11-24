@@ -11,3 +11,6 @@
 2026-11-24T18:08:18.812163+00:00 — forest bridge partial Lean-check complete; root notified for push.
 2026-11-24T18:09:07.814923+00:00 — normal_form: CleanUpper.clean_upper compiled; new safe/read-back vertex-cover construction checked by Lean.
 2026-11-24T18:09:58.328396+00:00 — preserving checked clean upper construction, forest proof support and independently audited finite census
+2026-11-24T18:11:39.271302+00:00 — checked exact target for acyclic incidence graphs; checked padding implication reducing general target to nonedge-only normalization
+2026-11-24T18:12:53.844162+00:00 — normal_form: complete forest and universal-vertex cases compiled; standard Sum representation cleanup also compiled.
+2026-11-24T18:13:41.460320+00:00 — push4 checkpoint: named660-line padding partial plus checked forest theorem snapshot
