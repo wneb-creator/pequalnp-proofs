@@ -1,0 +1,326 @@
+import Mathlib.Data.Fintype.Pi
+import Mathlib.Data.Fin.Tuple.Basic
+import Mathlib.Data.List.FinRange
+import Mathlib.Tactic.Tauto
+
+namespace PEqualNP.Outside.L_meta_3821_aux
+
+def edgeFn (x : Fin 10 → Bool) : Bool :=
+  (List.finRange 5).any fun i =>
+    (x (Fin.castAdd 5 i) && x (Fin.castAdd 5 (i + 1))) ||
+    (x (Fin.castAdd 5 i) && x (Fin.natAdd 5 i)) ||
+    (x (Fin.natAdd 5 i) && x (Fin.natAdd 5 (i + 2)))
+
+def edges : List (Fin 10 × Fin 10) :=
+  [(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),
+    (3,8),(4,9),(5,7),(7,9),(9,6),(6,8),(8,5)]
+
+set_option maxHeartbeats 2000000 in
+lemma edgeFn_true (x : Fin 10 → Bool) :
+    edgeFn x = true ↔ ∃ e ∈ edges, x e.1 = true ∧ x e.2 = true := by
+  change (((x 0 && x 1) || (x 0 && x 5) || (x 5 && x 7)) ||
+    (((x 1 && x 2) || (x 1 && x 6) || (x 6 && x 8)) ||
+    (((x 2 && x 3) || (x 2 && x 7) || (x 7 && x 9)) ||
+    (((x 3 && x 4) || (x 3 && x 8) || (x 8 && x 5)) ||
+    (((x 4 && x 0) || (x 4 && x 9) || (x 9 && x 6)) || false))))) = true ↔ _
+  simp only [edges, List.mem_cons, List.not_mem_nil, or_false,
+    or_and_right, exists_or, exists_eq_left, Bool.or_eq_true, Bool.and_eq_true,
+    Bool.false_eq_true]
+  apply Iff.of_eq
+  ac_rfl
+
+def singleton (i : Fin 10) : Fin 10 → Bool := fun k => decide (k = i)
+
+def pair (i j : Fin 10) : Fin 10 → Bool := fun k => decide (k = i ∨ k = j)
+
+def Adj (i j : Fin 10) : Prop := (i, j) ∈ edges ∨ (j, i) ∈ edges
+
+def PartialCorrect (U : (Fin 10 → Bool) → Bool) : Prop :=
+  ∀ x, edgeFn x = false ∨ (List.ofFn x).count true ≤ 2 → U x = edgeFn x
+
+def Essential (U : (Fin 10 → Bool) → Bool) (i : Fin 10) : Prop :=
+  ∃ x y, (∀ k, k ≠ i → x k = y k) ∧ U x ≠ U y
+
+lemma singleton_false : ∀ i, edgeFn (singleton i) = false := by decide
+
+lemma pair_count : ∀ i j, (List.ofFn (pair i j)).count true ≤ 2 := by decide
+
+lemma pair_edge : ∀ i j, edgeFn (pair i j) = true ↔ Adj i j := by
+  unfold Adj
+  decide
+
+lemma neighbor_exists : ∀ i : Fin 10, ∃ j, i ≠ j ∧ Adj i j := by
+  unfold Adj
+  decide
+
+set_option synthInstance.maxSize 1000 in
+lemma private_neighbors : ∀ i j : Fin 10, i ≠ j →
+    ∃ a b, a ≠ i ∧ a ≠ j ∧ b ≠ i ∧ b ≠ j ∧
+      Adj i a ∧ ¬ Adj j a ∧ Adj j b ∧ ¬ Adj i b := by
+  unfold Adj
+  decide
+
+set_option synthInstance.maxSize 1000 in
+lemma neighbor_avoiding : ∀ r i : Fin 10, ∃ j, j ≠ r ∧ Adj i j := by
+  unfold Adj
+  decide
+
+lemma partial_singleton {U : (Fin 10 → Bool) → Bool} (h : PartialCorrect U)
+    (i : Fin 10) : U (singleton i) = false :=
+  (h _ (Or.inl (singleton_false i))).trans (singleton_false i)
+
+lemma partial_pair {U : (Fin 10 → Bool) → Bool} (h : PartialCorrect U)
+    (i j : Fin 10) : U (pair i j) = edgeFn (pair i j) :=
+  h _ (Or.inr (pair_count i j))
+
+lemma partial_essential {U : (Fin 10 → Bool) → Bool} (h : PartialCorrect U)
+    (i : Fin 10) : Essential U i := by
+  obtain ⟨j, _, hij⟩ := neighbor_exists i
+  refine ⟨singleton j, pair i j, ?_, ?_⟩
+  · intro k hk
+    simp [singleton, pair, hk]
+  · rw [partial_singleton h, partial_pair h, (pair_edge i j).mpr hij]
+    decide
+
+lemma partial_essential_with_zero {U : (Fin 10 → Bool) → Bool} (h : PartialCorrect U)
+    (r i : Fin 10) (hir : i ≠ r) :
+    ∃ x y, x r = false ∧ y r = false ∧
+      (∀ k, k ≠ i → x k = y k) ∧ U x ≠ U y := by
+  obtain ⟨j, hjr, hij⟩ := neighbor_avoiding r i
+  refine ⟨singleton j, pair i j, ?_, ?_, ?_, ?_⟩
+  · simp [singleton, Ne.symm hjr]
+  · simp [pair, Ne.symm hir, Ne.symm hjr]
+  · intro k hk
+    simp [singleton, pair, hk]
+  · rw [partial_singleton h, partial_pair h, (pair_edge i j).mpr hij]
+    decide
+
+lemma partial_or_off {A B : (Fin 10 → Bool) → Bool}
+    (h : PartialCorrect fun x => A x || B x) (x : Fin 10 → Bool)
+    (hx : edgeFn x = false) : A x = false ∧ B x = false := by
+  have hh := (h x (Or.inl hx)).trans hx
+  exact Bool.or_eq_false_iff.mp hh
+
+lemma partial_or_edge {A B : (Fin 10 → Bool) → Bool}
+    (h : PartialCorrect fun x => A x || B x) (i j : Fin 10) (hij : Adj i j) :
+    A (pair i j) = true ∨ B (pair i j) = true := by
+  have hh := (partial_pair h i j).trans ((pair_edge i j).mpr hij)
+  simpa only [Bool.or_eq_true] using hh
+
+lemma partial_or_wire_essential {A B : (Fin 10 → Bool) → Bool}
+    (h : PartialCorrect fun x => A x || B x) (i j : Fin 10)
+    (ha : A (pair i j) = true) : Essential A i := by
+  refine ⟨singleton j, pair i j, ?_, ?_⟩
+  · intro k hk
+    simp [singleton, pair, hk]
+  · rw [(partial_or_off h _ (singleton_false j)).1, ha]
+    decide
+
+def symmetryTable (i j : Fin 10) : Fin 10 :=
+  (([[9,6,8,3,4,7,1,5,2,0],
+    [4,9,7,5,0,3,6,2,8,1],
+    [0,4,9,6,1,5,3,7,8,2],
+    [0,1,6,9,4,5,2,8,7,3],
+    [6,1,2,7,9,8,0,3,5,4],
+    [4,3,2,1,0,9,8,7,6,5],
+    [0,4,3,2,1,5,9,8,7,6],
+    [0,1,6,8,5,4,2,9,3,7],
+    [0,1,2,7,5,4,6,3,9,8],
+    [0,1,2,3,4,5,6,7,8,9]] : List (List (Fin 10))).getD i []).getD j 0
+
+lemma symmetry_involutive : ∀ i, Function.Involutive (symmetryTable i) := by
+  unfold Function.Involutive
+  decide
+
+lemma symmetry_last : ∀ i, symmetryTable i i = 9 := by decide
+
+lemma symmetry_edges : ∀ i e, e ∈ edges →
+    (symmetryTable i e.1, symmetryTable i e.2) ∈ edges ∨
+    (symmetryTable i e.2, symmetryTable i e.1) ∈ edges := by decide
+
+def symmetry (i : Fin 10) : Equiv.Perm (Fin 10) :=
+  ⟨symmetryTable i, symmetryTable i, symmetry_involutive i, symmetry_involutive i⟩
+
+lemma symmetry_preserves (i : Fin 10) (x : Fin 10 → Bool) :
+    edgeFn (x ∘ symmetry i) = edgeFn x := by
+  apply Bool.eq_iff_iff.mpr
+  rw [edgeFn_true, edgeFn_true]
+  constructor
+  · rintro ⟨e, he, hx, hy⟩
+    rcases symmetry_edges i e he with hforward | hreverse
+    · exact ⟨_, hforward, hx, hy⟩
+    · exact ⟨_, hreverse, hy, hx⟩
+  · rintro ⟨e, he, hx, hy⟩
+    rcases symmetry_edges i e he with hforward | hreverse
+    · refine ⟨_, hforward, ?_, ?_⟩
+      · change x (symmetryTable i (symmetryTable i e.1)) = true
+        rw [symmetry_involutive]
+        exact hx
+      · change x (symmetryTable i (symmetryTable i e.2)) = true
+        rw [symmetry_involutive]
+        exact hy
+    · refine ⟨_, hreverse, ?_, ?_⟩
+      · change x (symmetryTable i (symmetryTable i e.2)) = true
+        rw [symmetry_involutive]
+        exact hy
+      · change x (symmetryTable i (symmetryTable i e.1)) = true
+        rw [symmetry_involutive]
+        exact hx
+
+lemma symmetry_sends_to_last (i : Fin 10) : symmetry i i = Fin.last 9 :=
+  symmetry_last i
+
+lemma automorphism_to_last (i : Fin 10) : ∃ s : Equiv.Perm (Fin 10),
+    s i = Fin.last 9 ∧ ∀ x : Fin 10 → Bool, edgeFn (x ∘ s) = edgeFn x :=
+  ⟨symmetry i, symmetry_sends_to_last i, symmetry_preserves i⟩
+
+
+def cpSingle {α : Type} [DecidableEq α] (a : α) : α → Bool :=
+  fun i => decide (i = a)
+
+def cpPair {α : Type} [DecidableEq α] (a b : α) : α → Bool :=
+  fun i => decide (i = a ∨ i = b)
+
+def cpNoCompression {α : Type} [DecidableEq α]
+    (U : (α → Bool) → Bool) (p q : α) : Prop :=
+  ∀ code : Bool → Bool → Bool, ∃ x y : α → Bool,
+    (∀ i, i ≠ p → i ≠ q → x i = y i) ∧
+    code (x p) (x q) = code (y p) (y q) ∧ U x ≠ U y
+
+def cpNoCompressionAtZero {α : Type} [DecidableEq α]
+    (U : (α → Bool) → Bool) (r p q : α) : Prop :=
+  ∀ code : Bool → Bool → Bool, ∃ x y : α → Bool,
+    x r = false ∧ y r = false ∧
+    (∀ i, i ≠ p → i ≠ q → x i = y i) ∧
+    code (x p) (x q) = code (y p) (y q) ∧ U x ≠ U y
+
+lemma cp_three_pattern_collision (code : Bool → Bool → Bool) :
+    code false false = code true false ∨
+    code false false = code false true ∨
+    code true false = code false true := by
+  cases h0 : code false false <;>
+    cases h1 : code true false <;>
+    cases h2 : code false true <;> simp_all
+
+lemma cp_noCompression_of_five_rows {α : Type} [DecidableEq α]
+    (U : (α → Bool) → Bool) (p q a b : α)
+    (hpq : p ≠ q) (hap : a ≠ p) (haq : a ≠ q)
+    (hbp : b ≠ p) (hbq : b ≠ q)
+    (ha0 : U (cpSingle a) = false)
+    (hap1 : U (cpPair a p) = true)
+    (haq0 : U (cpPair a q) = false)
+    (hb0 : U (cpSingle b) = false)
+    (hbq1 : U (cpPair b q) = true) : cpNoCompression U p q := by
+  intro code
+  rcases cp_three_pattern_collision code with h | h | h
+  · refine ⟨cpSingle a, cpPair a p, ?_, ?_, ?_⟩
+    · intro i hip hiq
+      simp [cpSingle, cpPair, hip]
+    · simpa [cpSingle, cpPair, Ne.symm hap, Ne.symm haq, Ne.symm hpq] using h
+    · simp [ha0, hap1]
+  · refine ⟨cpSingle b, cpPair b q, ?_, ?_, ?_⟩
+    · intro i hip hiq
+      simp [cpSingle, cpPair, hiq]
+    · simpa [cpSingle, cpPair, Ne.symm hbp, Ne.symm hbq, hpq] using h
+    · simp [hb0, hbq1]
+  · refine ⟨cpPair a p, cpPair a q, ?_, ?_, ?_⟩
+    · intro i hip hiq
+      simp [cpPair, hip, hiq]
+    · simpa [cpPair, Ne.symm hap, Ne.symm haq, hpq, Ne.symm hpq] using h
+    · simp [hap1, haq0]
+
+lemma cp_noCompressionAtZero_of_five_rows {α : Type} [DecidableEq α]
+    (U : (α → Bool) → Bool) (r p q a b : α)
+    (hpq : p ≠ q) (hap : a ≠ p) (haq : a ≠ q)
+    (hbp : b ≠ p) (hbq : b ≠ q)
+    (hpr : p ≠ r) (hqr : q ≠ r) (har : a ≠ r) (hbr : b ≠ r)
+    (ha0 : U (cpSingle a) = false)
+    (hap1 : U (cpPair a p) = true)
+    (haq0 : U (cpPair a q) = false)
+    (hb0 : U (cpSingle b) = false)
+    (hbq1 : U (cpPair b q) = true) : cpNoCompressionAtZero U r p q := by
+  intro code
+  rcases cp_three_pattern_collision code with h | h | h
+  · refine ⟨cpSingle a, cpPair a p, ?_, ?_, ?_, ?_, ?_⟩
+    · simp [cpSingle, Ne.symm har]
+    · simp [cpPair, Ne.symm har, Ne.symm hpr]
+    · intro i hip hiq
+      simp [cpSingle, cpPair, hip]
+    · simpa [cpSingle, cpPair, Ne.symm hap, Ne.symm haq, Ne.symm hpq] using h
+    · simp [ha0, hap1]
+  · refine ⟨cpSingle b, cpPair b q, ?_, ?_, ?_, ?_, ?_⟩
+    · simp [cpSingle, Ne.symm hbr]
+    · simp [cpPair, Ne.symm hbr, Ne.symm hqr]
+    · intro i hip hiq
+      simp [cpSingle, cpPair, hiq]
+    · simpa [cpSingle, cpPair, Ne.symm hbp, Ne.symm hbq, hpq] using h
+    · simp [hb0, hbq1]
+  · refine ⟨cpPair a p, cpPair a q, ?_, ?_, ?_, ?_, ?_⟩
+    · simp [cpPair, Ne.symm har, Ne.symm hpr]
+    · simp [cpPair, Ne.symm har, Ne.symm hqr]
+    · intro i hip hiq
+      simp [cpPair, hip, hiq]
+    · simpa [cpPair, Ne.symm hap, Ne.symm haq, hpq, Ne.symm hpq] using h
+    · simp [hap1, haq0]
+
+def cpEdge (x : Fin 10 → Bool) : Bool :=
+  (List.finRange 5).any fun i : Fin 5 =>
+    x (Fin.castAdd 5 i) && x (Fin.castAdd 5 (i + 1)) ||
+    x (Fin.castAdd 5 i) && x (Fin.natAdd 5 i) ||
+    x (Fin.natAdd 5 i) && x (Fin.natAdd 5 (i + 2))
+
+lemma cp_single_zero : ∀ a : Fin 10, cpEdge (cpSingle a) = false := by
+  decide
+
+lemma cp_pair_count : ∀ a b : Fin 10, (List.ofFn (cpPair a b)).count true ≤ 2 := by
+  decide
+
+lemma cp_private_neighbor : ∀ p q : Fin 10, p ≠ q →
+    ∃ a : Fin 10, a ≠ p ∧ a ≠ q ∧
+      cpEdge (cpPair a p) = true ∧ cpEdge (cpPair a q) = false := by
+  decide
+
+lemma cp_private_neighbor_avoid : ∀ p q r : Fin 10, p ≠ q →
+    ∃ a : Fin 10, a ≠ p ∧ a ≠ q ∧ a ≠ r ∧
+      cpEdge (cpPair a p) = true ∧ cpEdge (cpPair a q) = false := by
+  decide
+
+lemma cp_petersen_noCompression (U : (Fin 10 → Bool) → Bool)
+    (hU : ∀ x, cpEdge x = false ∨ (List.ofFn x).count true ≤ 2 → U x = cpEdge x)
+    (p q : Fin 10) (hpq : p ≠ q) : cpNoCompression U p q := by
+  obtain ⟨a, hap, haq, hap1, haq0⟩ := cp_private_neighbor p q hpq
+  obtain ⟨b, hbq, hbp, hbq1, _⟩ := cp_private_neighbor q p (Ne.symm hpq)
+  have hsingle (v : Fin 10) : U (cpSingle v) = false :=
+    (hU _ (Or.inl (cp_single_zero v))).trans (cp_single_zero v)
+  have hpair (v w : Fin 10) : U (cpPair v w) = cpEdge (cpPair v w) :=
+    hU _ (Or.inr (cp_pair_count v w))
+  exact cp_noCompression_of_five_rows U p q a b hpq hap haq hbp hbq
+    (hsingle a) ((hpair a p).trans hap1) ((hpair a q).trans haq0)
+    (hsingle b) ((hpair b q).trans hbq1)
+
+lemma cp_petersen_noCompression_of_pairs (U : (Fin 10 → Bool) → Bool)
+    (hsingle : ∀ a : Fin 10, U (cpSingle a) = false)
+    (hpair : ∀ a b : Fin 10, U (cpPair a b) = cpEdge (cpPair a b))
+    (p q : Fin 10) (hpq : p ≠ q) : cpNoCompression U p q := by
+  obtain ⟨a, hap, haq, hap1, haq0⟩ := cp_private_neighbor p q hpq
+  obtain ⟨b, hbq, hbp, hbq1, _⟩ := cp_private_neighbor q p (Ne.symm hpq)
+  exact cp_noCompression_of_five_rows U p q a b hpq hap haq hbp hbq
+    (hsingle a) ((hpair a p).trans hap1) ((hpair a q).trans haq0)
+    (hsingle b) ((hpair b q).trans hbq1)
+
+lemma cp_petersen_noCompressionAtZero (U : (Fin 10 → Bool) → Bool)
+    (hU : ∀ x, cpEdge x = false ∨ (List.ofFn x).count true ≤ 2 → U x = cpEdge x)
+    (r p q : Fin 10) (hpq : p ≠ q) (hpr : p ≠ r) (hqr : q ≠ r) :
+    cpNoCompressionAtZero U r p q := by
+  obtain ⟨a, hap, haq, har, hap1, haq0⟩ := cp_private_neighbor_avoid p q r hpq
+  obtain ⟨b, hbq, hbp, hbr, hbq1, _⟩ := cp_private_neighbor_avoid q p r (Ne.symm hpq)
+  have hsingle (v : Fin 10) : U (cpSingle v) = false :=
+    (hU _ (Or.inl (cp_single_zero v))).trans (cp_single_zero v)
+  have hpair (v w : Fin 10) : U (cpPair v w) = cpEdge (cpPair v w) :=
+    hU _ (Or.inr (cp_pair_count v w))
+  exact cp_noCompressionAtZero_of_five_rows U r p q a b hpq hap haq hbp hbq
+    hpr hqr har hbr (hsingle a) ((hpair a p).trans hap1) ((hpair a q).trans haq0)
+    (hsingle b) ((hpair b q).trans hbq1)
+
+
+end PEqualNP.Outside.L_meta_3821_aux
