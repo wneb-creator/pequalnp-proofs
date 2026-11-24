@@ -50,3 +50,5 @@ Put new stable, compiled components here only after review. Work in an individua
 - `FiveOwned.lean`: checked/reviewed eight-ordinary reduction discharging all paid/raw/root/sink assumptions; returns five nonordinary globally bounded OR pairs over at most nine internal gates. This is a reduction, not the five-output impossibility. Full log: `../validation/five-owned-build-002.log`.
 
 - `ParentRankGeometry.lean`: checked/reviewed five-line union cardinality at least11 and impossibility of five distinct lines through one point; exact finite Singer geometry, not a circuit bound. Full log: `../validation/parent-rank-geometry-build-001.log`.
+
+- `ConnectedCore.lean`: checked/reviewed rank at least10 for connected minimum-degree-two parent graphs and five-edge stars, plus common labels for nonleaf vertices. General connected graphs with leaves and circuit application remain open. Full log: `../validation/connected-core-build-002.log`.

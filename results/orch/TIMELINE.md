@@ -44,3 +44,5 @@
 - 2026-11-24T04:22:55.283978+00:00: Preserving independently approved FiveOwned reduction and reviewed auxiliary packing/search archives; no full theorem or valid counterexample. Previous push7419c81 confirmed.
 
 - 2026-11-24T04:24:49.472423+00:00: ParentRankGeometry compiled and independently approved; preserving exact source and complete successful log.
+
+- 2026-11-24T04:27:18.960790+00:00: ConnectedCore compiled and independently approved; preserving source, full log and reviewed disconnected-search preparation.

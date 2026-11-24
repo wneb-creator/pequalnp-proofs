@@ -516,3 +516,32 @@ ParentRankGeometry.lean compiled exit0 first attempt with an empty parent-rank-g
 ## 2026-11-24 04:24:34 UTC — special_status: parent geometry approved
 
 Approved ParentRankGeometry.lean, SHA2567b775801a98741f6ce81e703eeed3c5f850660aa7ffb7bed4ac05891627de6c4, empty successful log. The exact Singer line definition is used. Kernel finite checks establish four lines through each point and at most four lines avoiding three distinct points; injectivity then proves five lines cannot share a point and their union has at least eleven points. Imports/options/format are permitted, with no new axioms or prohibited constructs. Integrate only ParentRankGeometryExtra, omitting the scratch Global.line redefinition. This is finite geometry for the pending parent-rank argument, not a circuit lower bound.
+
+## 2026-11-24 04:25:03 UTC — special_status: disconnected archive preservation review
+
+Approved search/orch-package-0424:11 manifest entries/30,883bytes exactly match hashes and scratch originals; dependency hashes match the actual archived0326/0349 sources. Safe paths, Python syntax and credential-pattern checks pass. The README accurately scopes the disconnected template, preparation-only state and tests. Fanout1 transition records explicitly retain UNKNOWN after authorized interruption; diagnostic533 launch records retain auxiliary scope. The large trace integrity figures are preserved as the prior checker record, not a new independent trace replay. Ready for verbatim copy and metadata preservation.
+
+## 2026-11-24T04:25:47.386859+00:00 — lower_bound: connected parent core checkpoint
+
+ConnectedCore.lean compiled exit0 on attempt2, with empty complete log lower-bound/connected-core-build-002.log. Frozen SHA256 d53f3858d16ba6fd9e774c8beb877447bcae6b920b7df05851cf9b0e8f08f43a. It contains the exact ParentRankGeometryExtra plus new ConnectedCoreExtra, proving rank at least10 for connected five-edge parent graphs with every endpoint nonleaf, and for all five-edge stars. Its generic nonleaf_values_equal lemma shows that every nonleaf parent vertex has the same dependency-component value. Assumptions are injective line IDs and the explicit shared-parent forced-label equations; graph connectivity uses ReflTransGen edge adjacency. General connected graphs with leaves, especially the one-core-edge double-star case, remain to be formalized. Root and reviewer notified; build slot released for FalsePruning.
+
+
+## 2026-11-24 04:25:52 UTC — fresh_proof: disconnected five-parent diagnostic
+
+A ten-second pure-Python necessary-geometry diagnostic tested57,496 random disconnected parent patterns. It combined the forced difference-set component ranks with up to two additional raw-component merges, mandatory four-line-point support, support size at least8, and arc consistency of parent-component choices. All sampled (4+1) rank8 patterns were eliminated, but many (2+3), (3+1+1), and (2+2+1) patterns remain. This is not a Boolean circuit search, finite proof, or counterexample. Source and complete artifacts: scratch fresh/five_mixed_geometry.py and five-mixed-geometry.{json,log}.
+
+The first published (2+3) survivor has a mathematical equality-case contradiction: nine required joins force an internal tree on ten raw points, the common low parent is the missing raw intersection point, and the first two high gates must each depend on seven raw points. Consecutive positions plus tree equality force a common six-leaf parent with distinct raw side leaves; AND is ruled out by a positive band row, while two OR branches violate the three-point shared-parent requirement. This local argument is not yet formalized and does not cover all disconnected patterns.
+
+Current next target is the conjectured sharp10-total-gate bound for two globally bounded, globally nonordinary band-correct OR-root outputs; it remains unproved. lower_bound owns connected five-parent rank, formal_baseline owns its finite geometry. No new Lean build or heavy solver was launched.
+
+## 2026-11-24 04:26:00 UTC — counterexample_search: disconnected template ready, fanout2 retired
+
+The exact disconnected2+3 source passed independent mathematical/code and operational review, SHA2569158b00ea814781659f5f58a4539803c5eba2bde6ac75d90b142521ebf4270b8. Constants/repeated inputs preserve the exact reduced evaluator cases; low coalescence enlarges the class safely. Prefix5 ordering leaves fixed high positions intact. All156 ordered-line-pair maps were independently verified. Reconstruction tests passed64networks on8192inputs each,144CNF row checks,37constant-output rejections. The full source/dependency/test snapshot is preserved; reviewed11-file archive copied verbatim to results/orch/search/0424. No child commit/push.
+
+By root authorization, fanout2 solver20171 stopped at04:24:48; monitor20166 closed UNKNOWN after3789seconds. Complete trace integrity passed:215,587,038compressed bytes;444,149,760uncompressed; SHA256deb2a38afcf6c39098ca6201f6af2a7c35ffb16b9f25c1f1fcff103b2a55eae2. Complete logs and trace remain unchanged, with strategy-replacement-fanout2-0425.json.
+
+The disconnected encoder remains unlaunched until root grants a memory slot and renewal after queued Lean builds. Fanout0, normal-dual, full OR-sink, and diagnostic533 remain live without verdicts/models.
+
+## 2026-11-24 04:26:34 UTC — special_status: connected-core partial approved
+
+Approved ConnectedCore.lean, SHA256d53f3858d16ba6fd9e774c8beb877447bcae6b920b7df05851cf9b0e8f08f43a, empty successful log. Composition is exactly target import plus reviewed ParentRankGeometryExtra and new211-line ConnectedCoreExtra. Under its explicit shared-parent force relation, connected DegreeTwo endpoints have a common component label; propagating any differently labeled point would put it in all five lines, impossible. Union cardinality at least11 then gives rank at least10. The star and generic nonleaf-agreement arguments also check out. Format uses allowed limits only. Connected leaf/double-star coverage and the circuit-to-force application remain separate.

@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-24T04:15:11.285705+00:00",
+  "reason": "root Replan2 replacement of fanout1 by auxiliary533-row diagnostic after memory clearance",
+  "old_solver_pid": 20169,
+  "old_runner_pid": 20165,
+  "signal": "SIGINT",
+  "old_artifacts": "/tmp/oec/pequalnp-pilot-21/search/full-strong-resume-0321/case-1",
+  "complete_progress_log": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-resume-1-progress.log",
+  "result_before_signal": "no verdict/model",
+  "preserve_complete_logs_and_trace": true,
+  "completed_utc": "2026-11-24T04:15:26.614404+00:00",
+  "monitor_completion": [
+    "RESULT unknown exit -2 elapsed 3214",
+    "FINISHED elapsed 3214"
+  ],
+  "gzip_crc_valid": true,
+  "compressed_bytes": 178169083,
+  "uncompressed_bytes": 362606592,
+  "uncompressed_sha256": "593cddb1726a4df45ed5df55ea5a7ccbc2f91bdf57ff580eec656fd04f0ab1fb"
+}

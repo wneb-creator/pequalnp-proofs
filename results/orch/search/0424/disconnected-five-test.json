@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "constant_copy_rebuild_networks": 64,
+  "rebuild_input_rows_each": 8192,
+  "fixed_network_CNF_rows": 144,
+  "constant_output_models_rejected": 37,
+  "ordered_line_pair_maps_checked": 156,
+  "source_sha256": "9158b00ea814781659f5f58a4539803c5eba2bde6ac75d90b142521ebf4270b8",
+  "elapsed_seconds": 8.295093770000676
+}
