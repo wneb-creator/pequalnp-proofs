@@ -60,3 +60,11 @@ The two already-checked support/raw lemmas are retained as independent hypothese
 `R_meta_5349_48_v3.lean` compiles,147 lines (V2:160). It drops the rich-fiber premise from the existential-d local child. This has equivalent mathematical burden: a rich-only version with d extends to arbitrary nonempty T using max(d,2), since a failure of richness directly supplies an occupied role fiber of size at most two. The reverse direction is restriction. Thus the stronger pointwise statement under an existential constant does not impose a stronger existence claim.
 
 The induction now invokes the local child directly at every nonempty residual, pays d per erased role label, and concludes with constant27+5*d. It retains all posted semantic, leastness, top-form, and opposite-side-disjointness assumptions in the local child. The original conclusion is unchanged byte-for-byte.
+
+## Continued direct-proof attempt after reduction compiled
+
+Minimal-label strategy: in a raw-free family, an assigned junk gate g has a smaller true AND ancestor on its witness pair; bottommost is internally raw (L_meta_4005). Choosing minimum assigned g only puts this ancestor outside the image of the chosen g labels. AND masks destroy the OrReaches relation from the top operand, so one cannot simply reassign the witness to the smaller gate. Shared smaller ancestors do not provide an injection to role labels.
+
+Singleton-support split: let S_g={v | g(1_v)=true}. Any assigned u is in wmax(g), so every v in S_g is adjacent to u. If S_g has two distinct vertices, no four-cycle implies all assigned u for g coincide. If S_g={v0}, then for any v!=v0, at most one u adjacent to v can occur among all assigned gates with this singleton center, again by no four-cycle. These are rigorous graph consequences, but they do not bound fibers by themselves.
+
+The unresolved semantic issue is circuit reuse outside T. Replacing a masked junk gate by a simpler operand may preserve all chosen one-sided top contexts while changing other readers, notably tops with two junk operands. Leastness applies to a replacement preserving the complete graph function, not merely the selected witness family. A proof of the local-degeneracy child must control those other readers or use a transformation that is safe for them.

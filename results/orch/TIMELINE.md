@@ -7,3 +7,4 @@
 - 2026-11-24T23:20:20.964477+00:00: V2 local bounded-fiber reduction compiled and passed independent review; provisional coefficient 27+5*(d+2).
 - 2026-11-24T23:22:03.464813+00:00: cleanup V3 compiled and independently approved; 160 to 147 lines; final local checker running.
 - 2026-11-24T23:23:38.664450+00:00: V3 named lake build and local checker ACCEPTED (reduce); 1654 project constants rechecked; only propext, Quot.sound, Classical.choice.
+- 2026-11-24T23:27:05.299485+00:00: SingletonCenters partial compiled; root independently checked the biclique and common-neighbor proof before pushing.

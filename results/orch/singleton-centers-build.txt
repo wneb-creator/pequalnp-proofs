@@ -1,0 +1,2 @@
+lake env lean results/orch/lemmas/SingletonCenters.lean
+Exit 0; no warnings
