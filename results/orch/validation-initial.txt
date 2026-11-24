@@ -1,0 +1,12 @@
+L-meta-1477 partial result: exact posted edge list has length 105 and no duplicates.
+This is not a proof of the posted circuit lower bound.
+
+Lean 4.36.0; Mathlib pinned by repository.
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/GeometryInitial.lean
+Agent build exit status: 0; complete agent output was empty.
+Root independent build exit status: 0; complete output in geometry-initial-lean.log.
+Independent red-team review: status_audit PASS. Exact edge list matches statement; kernel decide only; no forbidden constructs.
+Local gap checker: not run on partial; no full gap theorem yet.
+
+Sub-agents: six (status_audit, lean_setup, structural_lower_bound, counterexample_search, gate_invariants, normal_form)
+TIMING total=89.9 subagents=6
