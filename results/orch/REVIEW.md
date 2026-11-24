@@ -12,3 +12,5 @@ Independent cleanup review PASS: SHA256 dcfb1f881d85e3de3b276e05993c1aaaeff7c5b9
 Independent rules_review PASS for direct_minimal.lean: SHA256 b8370f99c862a2ee6bc8df308888a11140a5504147e0d70213ba675184527901, 91 lines. Exact minimal-support characterization under q>=1; no hidden geometry; no prohibited axioms/commands.
 
 Root independent review PASS for masking_obstruction.lean: explicit legal seven-gate circuit, exhaustive Boolean cases prove matching output, kernel decide proves internal nonedge false positive. This is an obstruction to a charging strategy, not a counterexample to the gap.
+
+Independent direct_proof review PASS for library_context.lean: SHA256 556f38eff54a8a67b753081081a9bfcaa7b907e78f2f524e885c7f2e4b596df6, 82 lines. Full proof inspected; q>=2 sparse soundness forces useful contexts of mixed-singleton gate families to contain the entire designated pair; no incidence premise on that pair needed; no prohibited commands. Lean exit 0, empty logs.

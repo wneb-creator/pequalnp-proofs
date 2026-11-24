@@ -12,3 +12,5 @@
 - 2026-11-24T17:19:39.988181+00:00: renewed lease; expiry 2026-11-24T17:39:39.481Z.
 - 2026-11-24T17:21:04.987782+00:00: direct_proof Lean-checked exact sparse minimal-support characterization.
 - 2026-11-24T17:21:42.071701+00:00: cleaned reduction checker accepted; cleanup finished. Minimal-support and masking lemmas compiled and independently reviewed; preserving now.
+- 2026-11-24T17:22:44.706427+00:00: checked mixed-singleton context lemma (library_context.lean), independent review requested.
+- 2026-11-24T17:23:34.843815+00:00: mixed-singleton context lemma compiled and independently reviewed; preserving now.

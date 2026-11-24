@@ -18,3 +18,5 @@ Cleaned local checker: ACCEPTED (reduce), two children, only propext, Quot.sound
 Cleanup retained: 53 to 51 lines.
 Minimal sparse output support lemma: Lean exit 0, independently reviewed, 91 lines.
 Seven-gate masking obstruction: Lean exit 0, independently reviewed.
+
+Mixed-singleton context lemma: Lean exit 0, independently reviewed, 82 lines.

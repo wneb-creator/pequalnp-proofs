@@ -69,3 +69,9 @@ Lean checked results/orch/lemmas/masking_obstruction.lean with exit 0 and empty 
 ## Root — point derivatives as a possible lower-bound route
 
 Fixing one point input to true and all other point inputs false leaves a line function agreeing with that point's neighborhood OR on assignments of at most q lines. Each raw output support is therefore either a neighbor singleton or requires more than q lines. A possible route is a simultaneous derivative-to-OR-circuit conversion, charging shared AND masks. No such conversion or quantitative bound has been proved. The masking example explains why naive gate-by-gate linearization is insufficient.
+
+## Checked mixed-singleton context lemma
+
+`results/orch/lemmas/library_context.lean` compiles with Lean 4.36.0 (exit 0, empty output). If q≥2, output supports are sound whenever they contain at most q lines, a family A contains both a point singleton and a line singleton, and every union of an A-term with a B-term lies in the output family, then every B-term contained in a point-line pair equals that whole pair. The pair need not be incident. Proof: if the context omits the point, multiply by A's line singleton to get a line-only output with at most two lines; if it omits the line, multiply by A's point singleton to get a point-only output. Both contradict soundness.
+
+This is a precise re-read obstruction: an internally mixed singleton gate cannot supply a genuinely new endpoint to an output pair through such a context. The missing global step is to bound how often edge-carrying contexts can be shared. The q≥2 assumption is necessary: q=1 permits a two-line-only term outside the soundness promise.
