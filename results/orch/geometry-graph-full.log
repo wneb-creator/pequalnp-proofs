@@ -1,0 +1,5 @@
+/tmp/oec/pequalnp-pilot-29/GeometryGraphFull.lean:141:6: warning: The instance assumption `[Fintype ↑planeGraph.edgeSet]` does not contain free variables.
+Instead of assuming it locally, please add a global instance with
+`instance : Fintype ↑planeGraph.edgeSet := ...`
+
+Note: This linter can be disabled with `set_option linter.concreteInstances false`

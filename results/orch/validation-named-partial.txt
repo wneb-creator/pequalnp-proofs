@@ -1,0 +1,16 @@
+L-meta-1477 NAMED MODULE PARTIAL. The posted lower bound is still unproved.
+
+lean/PEqualNP/Outside/L_meta_1477.lean:1165lines,55524bytes.
+Command: lake build PEqualNP.Outside.L_meta_1477
+Exit0; complete output named-partial-build-001.log.
+New lemma short_plane_circuit_has_dirty_pair: any <=124-gate monotone circuit computing the exact posted function has an internal AND accepting a nonedge pair. This is a necessary condition on a hypothetical counterexample, not its exclusion.
+Independent root review PASS: finite graph and conditional bound already separately reviewed; new contradiction uses105+21>124+1, preserves exact input semantics, and contains no prohibited constructs.
+Final theorem PEqualNP.Outside.L_meta_1477 is deliberately undeclared. Posted-gap checker not run because no full proof is claimed.
+
+GeometryGraph.lean: all finite geometry plus graph adapter, reviewed normal_form PASS.
+Hyperoval.lean: six-point K6-incidence subgraph, reviewed root and normal_form PASS.
+Structural.lean: C4-free common-neighbor and clean-center bounds, reviewed root PASS. The clean-center set only counts centers in A or B; no claim that it captures every cleaner without additional hypotheses.
+Full compile logs for these snapshots retained alongside this file.
+
+Sub-agents: six (status_audit, lean_setup, structural_lower_bound, counterexample_search, gate_invariants, normal_form)
+TIMING total=100.2 subagents=6
