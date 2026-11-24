@@ -8,3 +8,5 @@ TIMING total=6 subagents=6
 Named-file build: PASS for partial15-gate witness,1267jobs,3.8s file time.
 Normalize.lean: bounded_pad preserves output at exact requested length with bounded selectors; compiled with pinned Lean, exit0; root independently inspected extension.
 Gap checker: NOT RUN (partial theorem intentionally not the posted14-gate theorem).
+
+AndBound.lean: pinned Lean compilation PASS, exit0. Root independent proof inspection PASS. Generic bound only; numerical AND>=4 instantiation in progress.
