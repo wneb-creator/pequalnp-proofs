@@ -1,17 +1,15 @@
 L-meta-1434 is false: its posted statement is exactly the negation of accepted L-meta-1433.
-Source reuses upstream PR2928, merged2026-11-24T00:31:50Z; only auxiliary namespaces and the final exact negation wrapper changed, then broad Mathlib was replaced by FinCases+Tauto imports. No new circuit lower bound is claimed.
-Build: lake build +PEqualNP.Outside.L_meta_1434, exit0 (118seconds).
-Checker: node tools/check-lean.mjs lean/PEqualNP/Outside/L_meta_1434.lean statement.txt refute, exit0.
-ACCEPTED (refute): PEqualNP.Outside.L_meta_1434; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked2084constants.
-Full checker output and source/Defs manifests are saved in checker-narrow.log.
-Independent exacttype/axiom check PASS; independent source/format/namespace review PASS.
-Earlier broad-import checker runs faulted(exit137); isolatedretry hit16GiBcgroupOOM. No checker or resource limit was modified. Narrow imports resolved this infrastructure failure.
-Ordinary PR workflows hardcode check mode; the positive twin1433 is already merged. No invalid duplicatePR will be opened.
-SourceSHA256: 750cf08e65d1aa107c0bd39bf9f805f526dbbe143145ad41765140f0f8c73a09
-Lines before cleanup:3722; cleanup pending.
+Source reuses upstream PR2928, merged2026-11-24T00:31:50Z. Helpers were renamed into this file's own namespace, and the final theorem proves exactly Not(posted1434). No new circuit lower bound is claimed.
+Final file: lean/PEqualNP/Outside/L_meta_1434.lean
+Final source SHA256: d3a887210747952c1eadcfcd22d36476bc80a0da691f13561b128ab9d565d828
+Build: lake build +PEqualNP.Outside.L_meta_1434, EXIT0. Complete stdout/stderr in build-cleanup.log.
+Checker: node tools/check-lean.mjs lean/PEqualNP/Outside/L_meta_1434.lean statement.txt refute, EXIT0.
+ACCEPTED (refute): PEqualNP.Outside.L_meta_1434; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked2083constants.
+Complete output and source/Defs manifests in checker-final.log; manifest source hash matches the final file exactly.
+Independent source, statement, namespace, format and cleanup reviews PASS. No forbidden forms, new axioms, native_decide or unproved declarations.
+Earlier broad Mathlib imports caused two verifier infrastructure faults(exit137). The isolated retry hit the16GiBcgroupOOM limit. Narrowing to Mathlib.Tactic.FinCases+Mathlib.Tactic.Tauto resolved the problem without changing the proof, checker or resource limits. Both subsequent narrow-import checker runs accepted.
+Cleanup started2026-11-24T01:13:54Z and finished01:18:54Z:3722→3718lines,208410→207124bytes. Removed only the redundant positive wrapper theorem. Fresh build and checker passed. No further cleanup attempted.
+Ordinary PR workflows hardcode check mode. This refutation cannot be submitted as an ordinary1434proof; its positive twin1433 was already accepted in https://github.com/brilliant-hq/pequalnp-proofs/pull/2928 . No invalid duplicatePR was opened.
 Sub-agents: counterexample, lower_bound, red_team, sat_proof, status_review, toolchain
-TIMING total=209 subagents=6
-
-Cleanup checkpoint:3722→3718lines; removed1286bytes by inlining redundantpositivehelper.
-Cleaned sourcebuild PASS; final refute recheck pending.
-Cleaned sourceSHA256 d3a887210747952c1eadcfcd22d36476bc80a0da691f13561b128ab9d565d828
+TIMING total=215.1 subagents=6
+KIT-MESSAGE-ID msg-9360ebd1ae31d491ec6165ff

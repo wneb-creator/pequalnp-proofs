@@ -1,0 +1,13 @@
+{
+  "verdict": "ACCEPTED (refute): PEqualNP.Outside.L_meta_1434; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked 2083 constants of [PEqualNP.Defs.Base, PEqualNP.Defs.Classes, PEqualNP.Defs.CircuitLowerBounds, PEqualNP.Defs.MetaComplexity, PEqualNP.Defs.MetaComplexityLocal, PEqualNP.Defs.MetaComplexitySparse, PEqualNP.Defs.MetaComplexityMinimal, PEqualNP.Defs.MetaComplexityLgp, PEqualNP.Defs.MetaComplexityLgpMono, PEqualNP.Defs.BinaryCircuit, PEqualNP.Defs.MetaComplexityCoverCircuit, PEqualNP.Defs.ProofComplexity, PEqualNP.Defs.ProofComplexityLin, PEqualNP.Defs.ProofComplexityLinK, PEqualNP.Defs.ProofComplexityLift, PEqualNP.Defs.ProofComplexityResK, PEqualNP.Defs.ProofComplexityRestrict, PEqualNP.Defs.ProofComplexityBit, PEqualNP.Defs.ProofComplexityPC, PEqualNP.Defs.ProofComplexityMoment, PEqualNP.Defs.ProofComplexityChain, PEqualNP.Defs.ProofComplexityGeneral, PEqualNP.Defs.Search, PEqualNP.Defs.SearchQ, PEqualNP.Defs.SearchQTree, PEqualNP.Defs.SearchCP, PEqualNP.Defs.SearchRUP, PEqualNP.Defs.SearchQSyn, PEqualNP.Defs.SearchSoS, PEqualNP.Defs.Gct, PEqualNP.Defs.Oracle, PEqualNP.Defs.Algebraic, PEqualNP.Defs.Expanders, PEqualNP.Defs.RiffleRank, PEqualNP.Defs.TimeAlt, PEqualNP.Defs.CoverPromise, PEqualNP.Defs.SingleLevel, PEqualNP.Defs.DeMorganFormula, PEqualNP.Defs.MetaComplexityTypedRank, PEqualNP.Defs.Pebble, PEqualNP.Defs.Subdivision, PEqualNP.Defs.AndCountCircuit, PEqualNP.Defs.PebbleThreeWay, PEqualNP.Defs.CoLevel, PEqualNP.Defs.Peelable, PEqualNP.Defs.NestedCoverCircuit, PEqualNP.Defs.LiteralPartition, PEqualNP.Defs.MinimumComplex, PEqualNP.Defs.PendantBit, PEqualNP.Defs.BorrowedCoverCircuit, PEqualNP.Defs.LineDegree, PEqualNP.Defs.CircuitMoves, PEqualNP.Defs.LowMerge, PEqualNP.Defs.NewLowMerge, PEqualNP.Defs.AffinePlane, PEqualNP.Defs.EdgeOwnership, PEqualNP.Defs.PencilGate, PEqualNP.Defs.BlindGate, PEqualNP.Defs.BicliqueBlockCost, PEqualNP.Defs.SharingOrder, PEqualNP.Defs.NotPremium, PEqualNP.Defs.NotBracket, PEqualNP.Defs.PairShadow, PEqualNP.Defs.InvisibleWire, PEqualNP.Defs.SharedOr, PEqualNP.Defs, PEqualNP.Outside.L_meta_1434]",
+  "memory_limit_bytes": 17179869184,
+  "samples": 65,
+  "started_utc": "2026-11-24T01:16:35.126710+00:00",
+  "finished_utc": "2026-11-24T01:18:43.926318+00:00",
+  "max_sampled_cgroup_memory_bytes": 17179742208,
+  "max_sampled_checklemma_rss_kib": 15107044,
+  "first_memory_events": "low 0\nhigh 0\nmax 1463348\noom 6\noom_kill 4\noom_group_kill 0",
+  "last_memory_events": "low 0\nhigh 0\nmax 1466742\noom 6\noom_kill 4\noom_group_kill 0",
+  "checker_log_sha256": "fb3ae53137547930ef804134688eede9cce8af27c73df948b46f46dc8fa2dd1f",
+  "resource_log_sha256": "b2c76fe81cdf08db6f7df8ad600b9e4d26783f9be21d0a5d83b3dc0591e62bd5"
+}

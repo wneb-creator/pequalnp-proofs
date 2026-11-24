@@ -1,0 +1,48 @@
+Read-only special-task and nearby-upstream status review,2026-11-24
+
+Initial special L-meta-1035 check recovered from startup artifacts:
+- status-review/pr2811.json captured PR2811 OPEN, created2026-11-23T21:35:12Z.
+  Its proposed refutation used5 inputs,17 monotone outputs,19 gates with oneNOT
+  and claimed every monotone circuit needs20 gates. These are PR claims.
+- Related1036 PR2113 was CLOSED and merged=false; it must not be called accepted.
+- No local1035 theorem or matching commit was found by repository history search.
+
+Latest GitHub API read:
+- PR2811 is CLOSED, mergedAt=null, lastupdated2026-11-23T22:43:08Z.
+- Base guard comment refused before build because local hypothesis `admit` was
+  lexically forbidden. A later commenter reports renaming the hypothesis+two
+  uses to `admitMono` gave an independent local ACCEPTED(refute), plus an
+  exhaustive32input witness/monotonicity check. This is an attributed public
+  report, not a merged result or a check performed by this worker.
+  https://github.com/brilliant-hq/pequalnp-proofs/pull/2811
+  https://github.com/brilliant-hq/pequalnp-proofs/pull/2811#issuecomment-7116097924
+
+Current1434 assignment:
+- Independent exact source-string comparison confirms statement1434 is literally
+  the negation of the final theorem type in upstream L_meta_1433.lean.
+- GitHub PR2928 for1433 is MERGED at2026-11-24T00:31:50Z, before this assignment.
+  https://github.com/brilliant-hq/pequalnp-proofs/pull/2928
+- Nearby upstream positive statements1431(PR2977),1435(PR2956),1437(PR2981)
+  are present in merged local history. Their merge commits/times are below.
+- Complete targeted GitHub title searches (limit100,each returned0 results)
+  found no PR titled with1432,1434,1436,1438. The exact statements of the other
+  even-number candidates were not fetched; their presumed pairing is UNVERIFIED.
+
+No desk request, branch change, computation/proof for1434, or network write
+was performed. Parent owns the checked refutation and lease.
+
+Local merged-history evidence:
+c24725f 2026-11-24T03:31:50+03:00 Prove five-input circuit bounds for L-meta-1433 (#2928)
+5c49e86 2026-11-23T19:20:24-05:00 L-meta-1437 (#2981)
+6fe0d10 2026-11-24T08:17:07+08:00 L-meta-1435 (#2956)
+d03a9cc 2026-11-23T19:16:54-05:00 L-meta-1431 (#2977)
+
+Exact saved API evidence hashes:
+pr2811-latest.json 690898d155ddad2b99f4d0b470c866a2fa02eae4894d715eb9ee5557191b46a6
+pr2928-latest.json b1e3d1a29d47c653a27d0da8633e1d02b92eb6a875ca051cb253a833df35abed
+pr2811-checks-latest.json 0a8cfb466a22b7592d2750a5c080dc32c1efeeef72e1d44c1e3d199b3a8b10d1
+pr1432-census.json 37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570
+pr1434-census.json 37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570
+pr1436-census.json 37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570
+pr1438-census.json 37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570
+statement1434 7e654092e1acb791ba44ed84537dba556d252614e20e59ec79b0cbd9c6199615
