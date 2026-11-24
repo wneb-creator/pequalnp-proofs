@@ -1,0 +1,18 @@
+targets 7983 seed 2028 rounds 100000000
+new equality 1 edges 1 tau 1 graph 8192 trial 0
+new equality 2 edges 2 tau 1 graph 4104 trial 6
+new equality 4 edges 3 tau 2 graph 4105 trial 6
+new equality 7 edges 5 tau 3 graph 20868 trial 39
+new equality 8 edges 6 tau 3 graph 25416 trial 1902
+new equality 9 edges 7 tau 3 graph 29834 trial 1411341
+progress 10000000 hits 27037877 equalities 22777076 seconds 6.44979
+progress 20000000 hits 54068655 equalities 45551082 seconds 11.9482
+progress 30000000 hits 81100292 equalities 68325792 seconds 17.6195
+progress 40000000 hits 108142259 equalities 91112524 seconds 23.1861
+progress 50000000 hits 135181198 equalities 113885432 seconds 29.0373
+new equality 10 edges 7 tau 4 graph 17287 trial 51543598
+progress 60000000 hits 162210645 equalities 136653542 seconds 34.7985
+progress 70000000 hits 189244868 equalities 159429967 seconds 40.6206
+progress 80000000 hits 216276801 equalities 182202606 seconds 46.2614
+progress 90000000 hits 243307724 equalities 204975803 seconds 51.8427
+DONE rounds 100000000 hits 270332661 equalities 227739904 largestEquality 10 graph 17287 seconds 57.355

@@ -1,0 +1,111 @@
+n 8 seed 612 rounds 100000000
+new equality 2 edges 2 tau 1 graph 24576 trial 0
+new equality 3 edges 3 tau 1 graph 38273024 trial 0
+new equality 4 edges 3 tau 2 graph 2178 trial 11
+new equality 5 edges 4 tau 2 graph 8405632 trial 13
+new equality 6 edges 5 tau 2 graph 55051264 trial 45
+new equality 7 edges 6 tau 2 graph 3276 trial 98
+new equality 8 edges 6 tau 3 graph 134223496 trial 851
+new equality 9 edges 7 tau 3 graph 2887948 trial 8098
+new equality 11 edges 8 tau 4 graph 6160395 trial 19344
+progress 1000000 hits 3035385 equalities 2504708 graphs 37865 seconds 2.30966
+progress 2000000 hits 6064423 equalities 5006625 graphs 53266 seconds 4.97293
+progress 3000000 hits 9096486 equalities 7509742 graphs 64491 seconds 7.6602
+progress 4000000 hits 12129498 equalities 10013311 graphs 73734 seconds 11.1618
+progress 5000000 hits 15163279 equalities 12515984 graphs 81961 seconds 15.2689
+progress 6000000 hits 18195681 equalities 15019352 graphs 89226 seconds 20.5442
+new equality 12 edges 9 tau 4 graph 218533984 trial 6363966
+progress 7000000 hits 21227113 equalities 17522073 graphs 95855 seconds 25.4133
+progress 8000000 hits 24262585 equalities 20027819 graphs 101911 seconds 31.36
+progress 9000000 hits 27290708 equalities 22528697 graphs 107451 seconds 36.148
+progress 10000000 hits 30324938 equalities 25034394 graphs 112739 seconds 40.2572
+progress 11000000 hits 33359683 equalities 27540930 graphs 117745 seconds 43.1023
+progress 12000000 hits 36387326 equalities 30040786 graphs 122339 seconds 49.0994
+progress 13000000 hits 39420708 equalities 32544653 graphs 126836 seconds 55.5081
+progress 14000000 hits 42453426 equalities 35048608 graphs 131056 seconds 59.76
+progress 15000000 hits 45479886 equalities 37547417 graphs 135164 seconds 62.3881
+progress 16000000 hits 48507150 equalities 40047195 graphs 138919 seconds 68.2565
+progress 17000000 hits 51537154 equalities 42548664 graphs 142606 seconds 75.6524
+progress 18000000 hits 54571642 equalities 45053630 graphs 146188 seconds 80.2812
+progress 19000000 hits 57602332 equalities 47556145 graphs 149532 seconds 84.6076
+progress 20000000 hits 60635120 equalities 50061250 graphs 152833 seconds 88.939
+progress 21000000 hits 63668074 equalities 52564197 graphs 156101 seconds 93.3824
+progress 22000000 hits 66702604 equalities 55068598 graphs 159231 seconds 98.1481
+progress 23000000 hits 69737030 equalities 57572745 graphs 162209 seconds 102.761
+progress 24000000 hits 72771751 equalities 60076554 graphs 165226 seconds 107.363
+progress 25000000 hits 75804582 equalities 62578934 graphs 168123 seconds 111.853
+progress 26000000 hits 78838289 equalities 65082751 graphs 170942 seconds 116.312
+progress 27000000 hits 81873384 equalities 67589097 graphs 173669 seconds 121.101
+progress 28000000 hits 84901544 equalities 70089833 graphs 176333 seconds 125.75
+progress 29000000 hits 87931686 equalities 72591112 graphs 178985 seconds 130.547
+progress 30000000 hits 90963656 equalities 75092902 graphs 181554 seconds 135.28
+progress 31000000 hits 93990669 equalities 77591977 graphs 184077 seconds 139.586
+progress 32000000 hits 97022459 equalities 80095167 graphs 186638 seconds 143.888
+progress 33000000 hits 100054363 equalities 82598525 graphs 189146 seconds 148.469
+progress 34000000 hits 103081522 equalities 85098014 graphs 191512 seconds 153.253
+progress 35000000 hits 106115159 equalities 87603347 graphs 193870 seconds 157.902
+progress 36000000 hits 109145661 equalities 90105886 graphs 196175 seconds 162.862
+progress 37000000 hits 112180206 equalities 92610800 graphs 198433 seconds 167.781
+progress 38000000 hits 115213239 equalities 95115434 graphs 200664 seconds 173.098
+progress 39000000 hits 118243713 equalities 97616964 graphs 202901 seconds 179.09
+progress 40000000 hits 121275726 equalities 100121168 graphs 205085 seconds 183.81
+progress 41000000 hits 124305684 equalities 102623034 graphs 207133 seconds 188.055
+progress 42000000 hits 127338235 equalities 105126932 graphs 209266 seconds 192.313
+progress 43000000 hits 130370710 equalities 107630037 graphs 211326 seconds 196.909
+progress 44000000 hits 133404132 equalities 110133833 graphs 213314 seconds 201.273
+progress 45000000 hits 136436443 equalities 112637782 graphs 215323 seconds 206.085
+progress 46000000 hits 139468441 equalities 115140182 graphs 217413 seconds 210.87
+progress 47000000 hits 142499441 equalities 117642240 graphs 219453 seconds 215.571
+progress 48000000 hits 145532187 equalities 120146537 graphs 221322 seconds 220.141
+progress 49000000 hits 148564644 equalities 122651070 graphs 223307 seconds 224.895
+progress 50000000 hits 151595950 equalities 125153966 graphs 225197 seconds 229.341
+progress 51000000 hits 154630188 equalities 127657708 graphs 227049 seconds 233.763
+progress 52000000 hits 157663474 equalities 130161453 graphs 228869 seconds 238.776
+progress 53000000 hits 160694515 equalities 132662825 graphs 230652 seconds 243.777
+progress 54000000 hits 163724657 equalities 135164174 graphs 232451 seconds 248.501
+progress 55000000 hits 166754350 equalities 137665590 graphs 234232 seconds 253.169
+progress 56000000 hits 169784752 equalities 140168545 graphs 236031 seconds 257.759
+progress 57000000 hits 172814522 equalities 142670200 graphs 237749 seconds 262.44
+progress 58000000 hits 175851098 equalities 145177109 graphs 239470 seconds 265.877
+progress 59000000 hits 178879779 equalities 147678631 graphs 241133 seconds 270.184
+progress 60000000 hits 181907530 equalities 150178506 graphs 242883 seconds 274.612
+progress 61000000 hits 184940973 equalities 152683268 graphs 244564 seconds 279.07
+progress 62000000 hits 187973020 equalities 155185694 graphs 246186 seconds 283.795
+progress 63000000 hits 191003188 equalities 157687768 graphs 247741 seconds 288.811
+progress 64000000 hits 194030041 equalities 160186406 graphs 249358 seconds 293.884
+progress 65000000 hits 197060217 equalities 162687314 graphs 250939 seconds 298.966
+progress 66000000 hits 200093704 equalities 165191693 graphs 252476 seconds 305.147
+progress 67000000 hits 203125167 equalities 167693818 graphs 254001 seconds 310.082
+progress 68000000 hits 206154987 equalities 170195045 graphs 255520 seconds 315.14
+progress 69000000 hits 209186294 equalities 172699055 graphs 257037 seconds 319.756
+progress 70000000 hits 212215453 equalities 175200373 graphs 258525 seconds 324.311
+progress 71000000 hits 215248685 equalities 177703987 graphs 260008 seconds 328.951
+progress 72000000 hits 218281121 equalities 180207006 graphs 261511 seconds 333.879
+progress 73000000 hits 221313422 equalities 182711234 graphs 262960 seconds 340.307
+progress 74000000 hits 224342925 equalities 185212307 graphs 264465 seconds 347.503
+progress 75000000 hits 227375186 equalities 187716068 graphs 265841 seconds 351.999
+progress 76000000 hits 230406290 equalities 190219062 graphs 267287 seconds 354.175
+progress 77000000 hits 233438676 equalities 192721479 graphs 268684 seconds 356.686
+progress 78000000 hits 236471008 equalities 195225363 graphs 270071 seconds 358.972
+progress 79000000 hits 239504858 equalities 197730145 graphs 271493 seconds 361.276
+progress 80000000 hits 242537523 equalities 200233716 graphs 272918 seconds 363.687
+progress 81000000 hits 245566980 equalities 202735845 graphs 274244 seconds 366.156
+progress 82000000 hits 248599460 equalities 205240750 graphs 275592 seconds 368.374
+progress 83000000 hits 251628405 equalities 207741554 graphs 276994 seconds 370.545
+progress 84000000 hits 254659759 equalities 210244836 graphs 278268 seconds 372.544
+progress 85000000 hits 257692041 equalities 212747938 graphs 279661 seconds 376.36
+progress 86000000 hits 260722302 equalities 215250160 graphs 280991 seconds 382.802
+progress 87000000 hits 263751409 equalities 217751203 graphs 282261 seconds 388.847
+progress 88000000 hits 266781509 equalities 220254530 graphs 283581 seconds 393.547
+progress 89000000 hits 269809660 equalities 222754782 graphs 284931 seconds 398.18
+progress 90000000 hits 272839301 equalities 225255397 graphs 286196 seconds 402.268
+progress 91000000 hits 275870589 equalities 227757826 graphs 287486 seconds 407.115
+progress 92000000 hits 278901583 equalities 230260697 graphs 288773 seconds 410.382
+progress 93000000 hits 281933299 equalities 232764006 graphs 290000 seconds 412.541
+progress 94000000 hits 284967370 equalities 235267728 graphs 291191 seconds 414.84
+progress 95000000 hits 288000808 equalities 237773405 graphs 292455 seconds 416.997
+progress 96000000 hits 291034545 equalities 240278205 graphs 293683 seconds 419.315
+progress 97000000 hits 294064866 equalities 242780215 graphs 294915 seconds 422.502
+progress 98000000 hits 297096276 equalities 245282786 graphs 296128 seconds 425.017
+progress 99000000 hits 300133083 equalities 247789088 graphs 297411 seconds 427.841
+DONE rounds 100000000 hits 303162629 equalities 250289851 largestEquality 12 graph 218533984 graphs 298591 seconds 430.696

@@ -1,0 +1,14 @@
+initial 2
+DONE best 2 seconds 0.327743
+score 2
+5 and 0 1
+6 or 1 3
+7 and 2 6
+8 and 3 4
+9 or 5 7
+10 or 9 8
+11 or 0 1
+12 or 2 3
+output 0
+output 1 11
+output 2 12

@@ -1,0 +1,4 @@
+{"model": "/tmp/oec/pequalnp-pilot-31/toolchain/er3-factor31.json", "gates": 31, "safe_pairs": 12, "original_safe_or_wires": []}
+{"attempts": 22227, "equal_main_rewrites": 0, "elapsed": 0.31756578400018043}
+{"model": "/tmp/oec/pequalnp-pilot-31/toolchain/er3-shared-control-witness.json", "gates": 31, "safe_pairs": 12, "original_safe_or_wires": []}
+{"attempts": 21482, "equal_main_rewrites": 0, "elapsed": 0.6962728490002519}

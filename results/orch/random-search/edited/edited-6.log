@@ -1,0 +1,42 @@
+compressed constraints 35
+Edited graph tau 6 minimum covers 6 seed 2033 rounds 1000000
+initial best 1
+score 1 output 28
+11 and 10 1
+12 or 10 3
+13 and 4 12
+14 or 9 1
+15 or 14 3
+16 and 2 15
+17 or 4 3
+18 or 17 0
+19 and 5 18
+20 or 2 9
+21 and 7 20
+22 or 6 1
+23 and 8 22
+24 or 21 11
+25 or 23 16
+26 or 24 13
+27 or 26 19
+28 or 27 25
+DONE best 1 seconds 0.321407
+score 1 output 28
+11 and 10 1
+12 or 10 3
+13 and 4 12
+14 or 9 1
+15 or 14 3
+16 and 2 15
+17 or 4 3
+18 or 17 0
+19 and 5 18
+20 or 2 9
+21 and 7 20
+22 or 6 1
+23 and 8 22
+24 or 21 11
+25 or 23 16
+26 or 24 13
+27 or 26 19
+28 or 27 25

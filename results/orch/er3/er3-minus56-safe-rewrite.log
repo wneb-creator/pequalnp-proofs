@@ -1,0 +1,2 @@
+{"model": "/tmp/oec/pequalnp-pilot-31/toolchain/er3-minus56.json", "gates": 30, "safe_pairs": 18, "original_safe_or_wires": []}
+{"attempts": 20240, "equal_main_rewrites": 0, "elapsed": 0.3480515779997404}

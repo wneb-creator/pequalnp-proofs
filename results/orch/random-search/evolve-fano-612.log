@@ -1,0 +1,152 @@
+Fano orthogonality tau 4 minimum covers 4 seed 612 rounds 100000000
+initial best 3
+score 3 output 17
+7 or 2 4
+8 and 6 7
+9 or 4 3
+10 and 1 9
+11 or 5 1
+12 and 0 11
+13 or 0 2
+14 and 3 13
+15 or 12 10
+16 or 14 15
+17 or 16 8
+progress 1000000 best 3 seconds 0.354853
+progress 2000000 best 3 seconds 0.710772
+progress 3000000 best 3 seconds 1.14821
+progress 4000000 best 3 seconds 1.39846
+progress 5000000 best 3 seconds 1.67603
+progress 6000000 best 3 seconds 1.90031
+progress 7000000 best 3 seconds 2.16996
+progress 8000000 best 3 seconds 2.46111
+progress 9000000 best 3 seconds 2.74628
+progress 10000000 best 3 seconds 3.03945
+progress 11000000 best 3 seconds 3.29294
+BEST 2 trial 11796884 seconds 3.48844
+score 2 output 17
+7 or 0 3
+8 or 0 6
+9 or 3 6
+10 or 7 4
+11 and 8 5
+12 or 1 6
+13 or 0 2
+14 and 12 10
+15 and 13 9
+16 or 11 15
+17 or 14 16
+progress 12000000 best 2 seconds 3.55611
+progress 13000000 best 2 seconds 3.85499
+progress 14000000 best 2 seconds 4.1133
+progress 15000000 best 2 seconds 4.38761
+progress 16000000 best 2 seconds 4.64359
+progress 17000000 best 2 seconds 4.91212
+progress 18000000 best 2 seconds 5.27216
+progress 19000000 best 2 seconds 5.67496
+progress 20000000 best 2 seconds 6.1557
+progress 21000000 best 2 seconds 6.59849
+progress 22000000 best 2 seconds 7.01579
+progress 23000000 best 2 seconds 7.45322
+progress 24000000 best 2 seconds 7.8442
+progress 25000000 best 2 seconds 8.29439
+progress 26000000 best 2 seconds 8.6743
+progress 27000000 best 2 seconds 9.08517
+progress 28000000 best 2 seconds 9.50228
+progress 29000000 best 2 seconds 9.88389
+progress 30000000 best 2 seconds 10.2599
+progress 31000000 best 2 seconds 10.6046
+progress 32000000 best 2 seconds 10.9686
+progress 33000000 best 2 seconds 11.2769
+progress 34000000 best 2 seconds 11.5157
+progress 35000000 best 2 seconds 11.7707
+progress 36000000 best 2 seconds 12.048
+progress 37000000 best 2 seconds 12.3527
+progress 38000000 best 2 seconds 12.6078
+progress 39000000 best 2 seconds 12.9038
+progress 40000000 best 2 seconds 13.1846
+progress 41000000 best 2 seconds 13.4738
+progress 42000000 best 2 seconds 13.7568
+progress 43000000 best 2 seconds 14.0075
+progress 44000000 best 2 seconds 14.265
+progress 45000000 best 2 seconds 14.5124
+progress 46000000 best 2 seconds 14.777
+progress 47000000 best 2 seconds 15.046
+progress 48000000 best 2 seconds 15.3089
+progress 49000000 best 2 seconds 15.5944
+progress 50000000 best 2 seconds 15.8787
+progress 51000000 best 2 seconds 16.1691
+progress 52000000 best 2 seconds 16.3984
+progress 53000000 best 2 seconds 16.6451
+progress 54000000 best 2 seconds 16.8655
+progress 55000000 best 2 seconds 17.0983
+progress 56000000 best 2 seconds 17.3981
+progress 57000000 best 2 seconds 17.6616
+progress 58000000 best 2 seconds 17.9517
+BEST 1 trial 58806926 seconds 18.1375
+score 1 output 17
+7 or 4 2
+8 or 0 2
+9 or 5 3
+10 and 9 8
+11 or 5 7
+12 and 6 11
+13 or 0 4
+14 or 3 13
+15 or 10 1
+16 and 14 15
+17 or 16 12
+progress 59000000 best 1 seconds 18.1717
+progress 60000000 best 1 seconds 18.3939
+progress 61000000 best 1 seconds 18.6622
+progress 62000000 best 1 seconds 18.967
+progress 63000000 best 1 seconds 19.265
+progress 64000000 best 1 seconds 19.5075
+progress 65000000 best 1 seconds 19.7593
+progress 66000000 best 1 seconds 19.9798
+progress 67000000 best 1 seconds 20.2572
+progress 68000000 best 1 seconds 20.5101
+progress 69000000 best 1 seconds 20.8032
+progress 70000000 best 1 seconds 21.0592
+progress 71000000 best 1 seconds 21.3008
+progress 72000000 best 1 seconds 21.5169
+progress 73000000 best 1 seconds 21.7575
+progress 74000000 best 1 seconds 21.9781
+progress 75000000 best 1 seconds 22.2002
+progress 76000000 best 1 seconds 22.4434
+progress 77000000 best 1 seconds 22.6648
+progress 78000000 best 1 seconds 22.9722
+progress 79000000 best 1 seconds 23.2159
+progress 80000000 best 1 seconds 23.4983
+progress 81000000 best 1 seconds 23.7742
+progress 82000000 best 1 seconds 24.0165
+progress 83000000 best 1 seconds 24.3018
+progress 84000000 best 1 seconds 24.5133
+progress 85000000 best 1 seconds 24.7902
+progress 86000000 best 1 seconds 25.0469
+progress 87000000 best 1 seconds 25.3051
+progress 88000000 best 1 seconds 25.5708
+progress 89000000 best 1 seconds 25.8633
+progress 90000000 best 1 seconds 26.1584
+progress 91000000 best 1 seconds 26.4055
+progress 92000000 best 1 seconds 26.6966
+progress 93000000 best 1 seconds 26.9911
+progress 94000000 best 1 seconds 27.2533
+progress 95000000 best 1 seconds 27.5584
+progress 96000000 best 1 seconds 27.7829
+progress 97000000 best 1 seconds 28.006
+progress 98000000 best 1 seconds 28.2427
+progress 99000000 best 1 seconds 28.4728
+DONE best 1 seconds 28.6966
+score 1 output 17
+7 or 4 2
+8 or 0 2
+9 or 5 3
+10 and 9 8
+11 or 5 7
+12 and 6 11
+13 or 0 4
+14 or 3 13
+15 or 10 1
+16 and 14 15
+17 or 16 12

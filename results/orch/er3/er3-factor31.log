@@ -1,0 +1,37 @@
+{
+  "A": [
+    8,
+    9,
+    11,
+    12
+  ],
+  "B": [
+    0,
+    1,
+    4
+  ],
+  "C": [
+    2,
+    3,
+    5,
+    6,
+    7,
+    10
+  ],
+  "gates": 31,
+  "exact_truth_rows": 8192,
+  "core_edges": 15,
+  "core_degrees": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+  ],
+  "removable_by_single_wire_substitution": []
+}

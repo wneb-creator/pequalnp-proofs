@@ -1,0 +1,163 @@
+Petersen tau 6 minimum covers 5 seed 2028 rounds 100000000
+initial best 9
+score 9 output 28
+10 and 5 8
+11 or 0 2
+12 and 1 11
+13 or 5 2
+14 or 13 9
+15 and 7 14
+16 or 9 0
+17 and 4 16
+18 or 8 2
+19 or 18 4
+20 and 3 19
+21 or 9 8
+22 or 21 1
+23 and 6 22
+24 or 23 15
+25 or 20 24
+26 or 17 12
+27 or 25 10
+28 or 27 26
+progress 1000000 best 9 seconds 0.341256
+progress 2000000 best 9 seconds 0.733204
+progress 3000000 best 9 seconds 1.10335
+progress 4000000 best 9 seconds 1.42238
+progress 5000000 best 9 seconds 1.74904
+progress 6000000 best 9 seconds 2.09518
+progress 7000000 best 9 seconds 2.42534
+progress 8000000 best 9 seconds 2.80013
+progress 9000000 best 9 seconds 3.18144
+BEST 6 trial 9224841 seconds 3.28851
+score 6 output 28
+10 or 4 2
+11 or 5 4
+12 or 1 9
+13 and 6 12
+14 or 6 5
+15 or 1 11
+16 and 15 12
+17 or 14 3
+18 or 2 5
+19 or 8 13
+20 or 16 3
+21 and 15 0
+22 or 18 9
+23 and 7 22
+24 and 19 17
+25 and 10 20
+26 or 24 21
+27 or 26 25
+28 or 23 27
+progress 10000000 best 6 seconds 3.58263
+progress 11000000 best 6 seconds 3.91153
+progress 12000000 best 6 seconds 4.25053
+progress 13000000 best 6 seconds 4.7075
+progress 14000000 best 6 seconds 5.05247
+progress 15000000 best 6 seconds 5.43186
+progress 16000000 best 6 seconds 5.78534
+progress 17000000 best 6 seconds 6.14705
+progress 18000000 best 6 seconds 6.49543
+progress 19000000 best 6 seconds 6.8971
+progress 20000000 best 6 seconds 7.31197
+progress 21000000 best 6 seconds 7.72711
+progress 22000000 best 6 seconds 8.05413
+progress 23000000 best 6 seconds 8.44271
+progress 24000000 best 6 seconds 8.84968
+progress 25000000 best 6 seconds 9.25017
+progress 26000000 best 6 seconds 9.62601
+progress 27000000 best 6 seconds 9.93778
+progress 28000000 best 6 seconds 10.2949
+progress 29000000 best 6 seconds 10.6811
+progress 30000000 best 6 seconds 11.128
+progress 31000000 best 6 seconds 11.5176
+progress 32000000 best 6 seconds 11.8366
+progress 33000000 best 6 seconds 12.2242
+progress 34000000 best 6 seconds 12.6155
+progress 35000000 best 6 seconds 13.0112
+progress 36000000 best 6 seconds 13.4414
+progress 37000000 best 6 seconds 13.828
+progress 38000000 best 6 seconds 14.1565
+progress 39000000 best 6 seconds 14.6033
+progress 40000000 best 6 seconds 14.9517
+progress 41000000 best 6 seconds 15.3468
+progress 42000000 best 6 seconds 15.6929
+progress 43000000 best 6 seconds 16.0154
+progress 44000000 best 6 seconds 16.3398
+progress 45000000 best 6 seconds 16.6618
+progress 46000000 best 6 seconds 17.0109
+progress 47000000 best 6 seconds 17.3366
+progress 48000000 best 6 seconds 17.6926
+progress 49000000 best 6 seconds 18.1102
+progress 50000000 best 6 seconds 18.4861
+progress 51000000 best 6 seconds 18.9079
+progress 52000000 best 6 seconds 19.3359
+progress 53000000 best 6 seconds 19.7217
+progress 54000000 best 6 seconds 20.0434
+progress 55000000 best 6 seconds 20.3832
+progress 56000000 best 6 seconds 20.7084
+progress 57000000 best 6 seconds 21.0344
+progress 58000000 best 6 seconds 21.4461
+progress 59000000 best 6 seconds 21.7942
+progress 60000000 best 6 seconds 22.1563
+progress 61000000 best 6 seconds 22.5062
+progress 62000000 best 6 seconds 22.9312
+progress 63000000 best 6 seconds 23.2836
+progress 64000000 best 6 seconds 23.6064
+progress 65000000 best 6 seconds 23.9275
+progress 66000000 best 6 seconds 24.3447
+progress 67000000 best 6 seconds 24.7239
+progress 68000000 best 6 seconds 25.1088
+progress 69000000 best 6 seconds 25.5112
+progress 70000000 best 6 seconds 25.913
+progress 71000000 best 6 seconds 26.2414
+progress 72000000 best 6 seconds 26.5652
+progress 73000000 best 6 seconds 26.922
+progress 74000000 best 6 seconds 27.2461
+progress 75000000 best 6 seconds 27.6142
+progress 76000000 best 6 seconds 27.9897
+progress 77000000 best 6 seconds 28.3545
+progress 78000000 best 6 seconds 28.7
+progress 79000000 best 6 seconds 29.0811
+progress 80000000 best 6 seconds 29.4846
+progress 81000000 best 6 seconds 29.8567
+progress 82000000 best 6 seconds 30.2988
+progress 83000000 best 6 seconds 30.7397
+progress 84000000 best 6 seconds 31.2389
+progress 85000000 best 6 seconds 31.7076
+progress 86000000 best 6 seconds 32.1199
+progress 87000000 best 6 seconds 32.5305
+progress 88000000 best 6 seconds 32.9892
+progress 89000000 best 6 seconds 33.4343
+progress 90000000 best 6 seconds 33.8961
+progress 91000000 best 6 seconds 34.3099
+progress 92000000 best 6 seconds 34.9324
+progress 93000000 best 6 seconds 35.5994
+progress 94000000 best 6 seconds 36.2572
+progress 95000000 best 6 seconds 36.8921
+progress 96000000 best 6 seconds 37.7362
+progress 97000000 best 6 seconds 38.5416
+progress 98000000 best 6 seconds 39.2229
+progress 99000000 best 6 seconds 39.8826
+DONE best 6 seconds 40.5493
+score 6 output 28
+10 or 4 2
+11 or 5 4
+12 or 1 9
+13 and 6 12
+14 or 6 5
+15 or 1 11
+16 and 15 12
+17 or 14 3
+18 or 2 5
+19 or 8 13
+20 or 16 3
+21 and 15 0
+22 or 18 9
+23 and 7 22
+24 and 19 17
+25 and 10 20
+26 or 24 21
+27 or 26 25
+28 or 23 27

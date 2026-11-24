@@ -1,0 +1,1113 @@
+compressed constraints 276
+Line Heawood tau 14 minimum covers 24 seed 612 rounds 1000000000
+initial best 1
+score 1 output 74
+21 or 12 13
+22 or 21 7
+23 and 18 22
+24 or 1 13
+25 or 24 19
+26 and 0 25
+27 or 19 2
+28 or 27 15
+29 and 1 28
+30 or 15 20
+31 or 30 3
+32 and 2 31
+33 or 4 6
+34 or 33 14
+35 or 34 17
+36 and 5 35
+37 or 4 20
+38 and 3 37
+39 or 8 15
+40 and 7 39
+41 or 0 13
+42 or 41 4
+43 and 14 42
+44 or 19 10
+45 or 44 8
+46 and 9 45
+47 or 19 17
+48 and 10 47
+49 or 7 15
+50 or 49 17
+51 and 6 50
+52 or 20 13
+53 or 52 11
+54 and 12 53
+55 or 10 17
+56 or 55 20
+57 and 11 56
+58 or 9 3
+59 or 58 8
+60 or 59 4
+61 and 16 60
+62 or 29 54
+63 or 36 48
+64 or 26 62
+65 or 46 51
+66 or 63 65
+67 or 23 40
+68 or 66 43
+69 or 67 61
+70 or 68 32
+71 or 70 69
+72 or 71 38
+73 or 72 64
+74 or 73 57
+progress 1000000 best 1 seconds 0.83821
+progress 2000000 best 1 seconds 1.66613
+progress 3000000 best 1 seconds 2.40112
+progress 4000000 best 1 seconds 3.20806
+progress 5000000 best 1 seconds 3.96902
+progress 6000000 best 1 seconds 4.66931
+progress 7000000 best 1 seconds 5.42683
+progress 8000000 best 1 seconds 6.19787
+progress 9000000 best 1 seconds 6.94578
+progress 10000000 best 1 seconds 7.72296
+progress 11000000 best 1 seconds 8.4296
+progress 12000000 best 1 seconds 9.10113
+progress 13000000 best 1 seconds 9.8385
+progress 14000000 best 1 seconds 10.6973
+progress 15000000 best 1 seconds 11.471
+progress 16000000 best 1 seconds 12.2933
+progress 17000000 best 1 seconds 13.0063
+progress 18000000 best 1 seconds 13.7522
+progress 19000000 best 1 seconds 14.5134
+progress 20000000 best 1 seconds 15.2569
+progress 21000000 best 1 seconds 16.0461
+progress 22000000 best 1 seconds 16.7394
+progress 23000000 best 1 seconds 17.448
+progress 24000000 best 1 seconds 18.258
+progress 25000000 best 1 seconds 19.0431
+progress 26000000 best 1 seconds 19.8229
+progress 27000000 best 1 seconds 20.7062
+progress 28000000 best 1 seconds 21.3658
+progress 29000000 best 1 seconds 22.1307
+progress 30000000 best 1 seconds 22.8299
+progress 31000000 best 1 seconds 23.5255
+progress 32000000 best 1 seconds 24.2355
+progress 33000000 best 1 seconds 24.9969
+progress 34000000 best 1 seconds 25.7311
+progress 35000000 best 1 seconds 26.4969
+progress 36000000 best 1 seconds 27.3132
+progress 37000000 best 1 seconds 28.0633
+progress 38000000 best 1 seconds 28.8337
+progress 39000000 best 1 seconds 29.6593
+progress 40000000 best 1 seconds 30.5537
+progress 41000000 best 1 seconds 31.2627
+progress 42000000 best 1 seconds 32.0295
+progress 43000000 best 1 seconds 32.7228
+progress 44000000 best 1 seconds 33.4318
+progress 45000000 best 1 seconds 34.1307
+progress 46000000 best 1 seconds 34.8355
+progress 47000000 best 1 seconds 35.6416
+progress 48000000 best 1 seconds 36.4443
+progress 49000000 best 1 seconds 37.2545
+progress 50000000 best 1 seconds 38.1461
+progress 51000000 best 1 seconds 39.0351
+progress 52000000 best 1 seconds 39.826
+progress 53000000 best 1 seconds 40.6265
+progress 54000000 best 1 seconds 41.5592
+progress 55000000 best 1 seconds 42.467
+progress 56000000 best 1 seconds 43.4046
+progress 57000000 best 1 seconds 44.3225
+progress 58000000 best 1 seconds 45.2498
+progress 59000000 best 1 seconds 45.8579
+progress 60000000 best 1 seconds 46.3017
+progress 61000000 best 1 seconds 46.8206
+progress 62000000 best 1 seconds 47.2958
+progress 63000000 best 1 seconds 47.7234
+progress 64000000 best 1 seconds 48.1055
+progress 65000000 best 1 seconds 48.8011
+progress 66000000 best 1 seconds 49.6393
+progress 67000000 best 1 seconds 50.5356
+progress 68000000 best 1 seconds 51.4056
+progress 69000000 best 1 seconds 52.2199
+progress 70000000 best 1 seconds 53.0126
+progress 71000000 best 1 seconds 53.7442
+progress 72000000 best 1 seconds 54.5243
+progress 73000000 best 1 seconds 55.3089
+progress 74000000 best 1 seconds 56.0121
+progress 75000000 best 1 seconds 56.9004
+progress 76000000 best 1 seconds 57.6235
+progress 77000000 best 1 seconds 58.4267
+progress 78000000 best 1 seconds 59.2173
+progress 79000000 best 1 seconds 60.1017
+progress 80000000 best 1 seconds 60.8449
+progress 81000000 best 1 seconds 61.6125
+progress 82000000 best 1 seconds 62.4674
+progress 83000000 best 1 seconds 63.208
+progress 84000000 best 1 seconds 63.918
+progress 85000000 best 1 seconds 64.6727
+progress 86000000 best 1 seconds 65.5074
+progress 87000000 best 1 seconds 66.2354
+progress 88000000 best 1 seconds 67.0084
+progress 89000000 best 1 seconds 67.815
+progress 90000000 best 1 seconds 68.5373
+progress 91000000 best 1 seconds 69.247
+progress 92000000 best 1 seconds 70.0602
+progress 93000000 best 1 seconds 70.8149
+progress 94000000 best 1 seconds 71.5575
+progress 95000000 best 1 seconds 72.3191
+progress 96000000 best 1 seconds 72.7237
+progress 97000000 best 1 seconds 73.4304
+progress 98000000 best 1 seconds 74.1676
+progress 99000000 best 1 seconds 74.9537
+progress 100000000 best 1 seconds 75.6489
+progress 101000000 best 1 seconds 76.4533
+progress 102000000 best 1 seconds 77.2025
+progress 103000000 best 1 seconds 77.9019
+progress 104000000 best 1 seconds 78.6064
+progress 105000000 best 1 seconds 79.3954
+progress 106000000 best 1 seconds 80.3256
+progress 107000000 best 1 seconds 81.0685
+progress 108000000 best 1 seconds 81.8185
+progress 109000000 best 1 seconds 82.707
+progress 110000000 best 1 seconds 83.4209
+progress 111000000 best 1 seconds 84.1266
+progress 112000000 best 1 seconds 84.8732
+progress 113000000 best 1 seconds 85.5943
+progress 114000000 best 1 seconds 86.3054
+progress 115000000 best 1 seconds 86.9958
+progress 116000000 best 1 seconds 87.6941
+progress 117000000 best 1 seconds 88.4642
+progress 118000000 best 1 seconds 89.3119
+progress 119000000 best 1 seconds 90.2273
+progress 120000000 best 1 seconds 91.0463
+progress 121000000 best 1 seconds 91.9544
+progress 122000000 best 1 seconds 92.6496
+progress 123000000 best 1 seconds 93.0134
+progress 124000000 best 1 seconds 93.3974
+progress 125000000 best 1 seconds 93.847
+progress 126000000 best 1 seconds 94.3132
+progress 127000000 best 1 seconds 94.7542
+progress 128000000 best 1 seconds 95.1569
+progress 129000000 best 1 seconds 95.5152
+progress 130000000 best 1 seconds 96.0437
+progress 131000000 best 1 seconds 96.7129
+progress 132000000 best 1 seconds 97.4433
+progress 133000000 best 1 seconds 98.1377
+progress 134000000 best 1 seconds 98.8504
+progress 135000000 best 1 seconds 99.665
+progress 136000000 best 1 seconds 100.441
+progress 137000000 best 1 seconds 100.939
+progress 138000000 best 1 seconds 101.733
+progress 139000000 best 1 seconds 102.126
+progress 140000000 best 1 seconds 102.527
+progress 141000000 best 1 seconds 102.866
+progress 142000000 best 1 seconds 103.232
+progress 143000000 best 1 seconds 103.666
+progress 144000000 best 1 seconds 104.038
+progress 145000000 best 1 seconds 104.493
+progress 146000000 best 1 seconds 104.906
+progress 147000000 best 1 seconds 105.331
+progress 148000000 best 1 seconds 105.733
+progress 149000000 best 1 seconds 106.156
+progress 150000000 best 1 seconds 106.625
+progress 151000000 best 1 seconds 106.962
+progress 152000000 best 1 seconds 107.321
+progress 153000000 best 1 seconds 107.729
+progress 154000000 best 1 seconds 108.077
+progress 155000000 best 1 seconds 108.428
+progress 156000000 best 1 seconds 108.797
+progress 157000000 best 1 seconds 109.169
+progress 158000000 best 1 seconds 109.559
+progress 159000000 best 1 seconds 109.912
+progress 160000000 best 1 seconds 110.247
+progress 161000000 best 1 seconds 110.607
+progress 162000000 best 1 seconds 111.016
+progress 163000000 best 1 seconds 111.364
+progress 164000000 best 1 seconds 111.759
+progress 165000000 best 1 seconds 112.124
+progress 166000000 best 1 seconds 112.472
+progress 167000000 best 1 seconds 112.906
+progress 168000000 best 1 seconds 113.366
+progress 169000000 best 1 seconds 113.813
+progress 170000000 best 1 seconds 114.222
+progress 171000000 best 1 seconds 114.624
+progress 172000000 best 1 seconds 115.031
+progress 173000000 best 1 seconds 115.446
+progress 174000000 best 1 seconds 115.952
+progress 175000000 best 1 seconds 116.919
+progress 176000000 best 1 seconds 117.348
+progress 177000000 best 1 seconds 117.756
+progress 178000000 best 1 seconds 118.419
+progress 179000000 best 1 seconds 118.822
+progress 180000000 best 1 seconds 119.21
+progress 181000000 best 1 seconds 119.614
+progress 182000000 best 1 seconds 120.06
+progress 183000000 best 1 seconds 120.544
+progress 184000000 best 1 seconds 120.97
+progress 185000000 best 1 seconds 121.348
+progress 186000000 best 1 seconds 121.746
+progress 187000000 best 1 seconds 122.11
+progress 188000000 best 1 seconds 122.464
+progress 189000000 best 1 seconds 122.83
+progress 190000000 best 1 seconds 123.207
+progress 191000000 best 1 seconds 123.612
+progress 192000000 best 1 seconds 124.04
+progress 193000000 best 1 seconds 124.446
+progress 194000000 best 1 seconds 124.798
+progress 195000000 best 1 seconds 125.135
+progress 196000000 best 1 seconds 125.54
+progress 197000000 best 1 seconds 125.935
+progress 198000000 best 1 seconds 126.3
+progress 199000000 best 1 seconds 126.697
+progress 200000000 best 1 seconds 127.05
+progress 201000000 best 1 seconds 127.439
+progress 202000000 best 1 seconds 127.837
+progress 203000000 best 1 seconds 128.297
+progress 204000000 best 1 seconds 128.744
+progress 205000000 best 1 seconds 129.144
+progress 206000000 best 1 seconds 129.62
+progress 207000000 best 1 seconds 130.113
+progress 208000000 best 1 seconds 130.529
+progress 209000000 best 1 seconds 130.918
+progress 210000000 best 1 seconds 131.32
+progress 211000000 best 1 seconds 131.753
+progress 212000000 best 1 seconds 132.133
+progress 213000000 best 1 seconds 132.517
+progress 214000000 best 1 seconds 132.911
+progress 215000000 best 1 seconds 133.308
+progress 216000000 best 1 seconds 133.756
+progress 217000000 best 1 seconds 134.138
+progress 218000000 best 1 seconds 134.496
+progress 219000000 best 1 seconds 134.832
+progress 220000000 best 1 seconds 135.197
+progress 221000000 best 1 seconds 135.532
+progress 222000000 best 1 seconds 135.895
+progress 223000000 best 1 seconds 136.256
+progress 224000000 best 1 seconds 136.63
+progress 225000000 best 1 seconds 137.044
+progress 226000000 best 1 seconds 137.421
+progress 227000000 best 1 seconds 137.813
+progress 228000000 best 1 seconds 138.218
+progress 229000000 best 1 seconds 138.61
+progress 230000000 best 1 seconds 139.02
+progress 231000000 best 1 seconds 139.428
+progress 232000000 best 1 seconds 139.848
+progress 233000000 best 1 seconds 140.271
+progress 234000000 best 1 seconds 140.71
+progress 235000000 best 1 seconds 141.138
+progress 236000000 best 1 seconds 141.61
+progress 237000000 best 1 seconds 142.04
+progress 238000000 best 1 seconds 142.424
+progress 239000000 best 1 seconds 142.823
+progress 240000000 best 1 seconds 143.245
+progress 241000000 best 1 seconds 143.697
+progress 242000000 best 1 seconds 144.123
+progress 243000000 best 1 seconds 144.53
+progress 244000000 best 1 seconds 144.995
+progress 245000000 best 1 seconds 145.36
+progress 246000000 best 1 seconds 145.735
+progress 247000000 best 1 seconds 146.098
+progress 248000000 best 1 seconds 146.43
+progress 249000000 best 1 seconds 146.762
+progress 250000000 best 1 seconds 147.12
+progress 251000000 best 1 seconds 147.501
+progress 252000000 best 1 seconds 147.896
+progress 253000000 best 1 seconds 148.254
+progress 254000000 best 1 seconds 148.651
+progress 255000000 best 1 seconds 149.133
+progress 256000000 best 1 seconds 149.52
+progress 257000000 best 1 seconds 149.924
+progress 258000000 best 1 seconds 150.304
+progress 259000000 best 1 seconds 150.667
+progress 260000000 best 1 seconds 151.032
+progress 261000000 best 1 seconds 151.413
+progress 262000000 best 1 seconds 151.8
+progress 263000000 best 1 seconds 152.146
+progress 264000000 best 1 seconds 152.54
+progress 265000000 best 1 seconds 152.914
+progress 266000000 best 1 seconds 153.262
+progress 267000000 best 1 seconds 153.646
+progress 268000000 best 1 seconds 154.125
+progress 269000000 best 1 seconds 154.526
+progress 270000000 best 1 seconds 154.908
+progress 271000000 best 1 seconds 155.327
+progress 272000000 best 1 seconds 155.738
+progress 273000000 best 1 seconds 156.136
+progress 274000000 best 1 seconds 156.494
+progress 275000000 best 1 seconds 156.835
+progress 276000000 best 1 seconds 157.222
+progress 277000000 best 1 seconds 157.597
+progress 278000000 best 1 seconds 157.999
+progress 279000000 best 1 seconds 158.428
+progress 280000000 best 1 seconds 158.813
+progress 281000000 best 1 seconds 159.315
+progress 282000000 best 1 seconds 159.955
+progress 283000000 best 1 seconds 160.35
+progress 284000000 best 1 seconds 160.719
+progress 285000000 best 1 seconds 161.127
+progress 286000000 best 1 seconds 161.52
+progress 287000000 best 1 seconds 161.953
+progress 288000000 best 1 seconds 162.333
+progress 289000000 best 1 seconds 162.736
+progress 290000000 best 1 seconds 163.228
+progress 291000000 best 1 seconds 163.645
+progress 292000000 best 1 seconds 164.058
+progress 293000000 best 1 seconds 164.434
+progress 294000000 best 1 seconds 164.771
+progress 295000000 best 1 seconds 165.124
+progress 296000000 best 1 seconds 165.463
+progress 297000000 best 1 seconds 165.822
+progress 298000000 best 1 seconds 166.163
+progress 299000000 best 1 seconds 166.526
+progress 300000000 best 1 seconds 166.872
+progress 301000000 best 1 seconds 167.241
+progress 302000000 best 1 seconds 167.603
+progress 303000000 best 1 seconds 167.962
+progress 304000000 best 1 seconds 168.321
+progress 305000000 best 1 seconds 168.66
+progress 306000000 best 1 seconds 169.035
+progress 307000000 best 1 seconds 169.438
+progress 308000000 best 1 seconds 169.859
+progress 309000000 best 1 seconds 170.304
+progress 310000000 best 1 seconds 170.639
+progress 311000000 best 1 seconds 171.029
+progress 312000000 best 1 seconds 171.467
+progress 313000000 best 1 seconds 171.851
+progress 314000000 best 1 seconds 172.218
+progress 315000000 best 1 seconds 172.571
+progress 316000000 best 1 seconds 172.954
+progress 317000000 best 1 seconds 173.31
+progress 318000000 best 1 seconds 173.669
+progress 319000000 best 1 seconds 174.096
+progress 320000000 best 1 seconds 174.473
+progress 321000000 best 1 seconds 174.863
+progress 322000000 best 1 seconds 175.328
+progress 323000000 best 1 seconds 175.761
+progress 324000000 best 1 seconds 176.226
+progress 325000000 best 1 seconds 176.642
+progress 326000000 best 1 seconds 177.055
+progress 327000000 best 1 seconds 177.44
+progress 328000000 best 1 seconds 177.772
+progress 329000000 best 1 seconds 178.135
+progress 330000000 best 1 seconds 178.594
+progress 331000000 best 1 seconds 178.94
+progress 332000000 best 1 seconds 179.306
+progress 333000000 best 1 seconds 179.811
+progress 334000000 best 1 seconds 180.258
+progress 335000000 best 1 seconds 180.74
+progress 336000000 best 1 seconds 181.128
+progress 337000000 best 1 seconds 181.508
+progress 338000000 best 1 seconds 181.872
+progress 339000000 best 1 seconds 182.244
+progress 340000000 best 1 seconds 182.628
+progress 341000000 best 1 seconds 182.967
+progress 342000000 best 1 seconds 183.356
+progress 343000000 best 1 seconds 183.74
+progress 344000000 best 1 seconds 184.107
+progress 345000000 best 1 seconds 184.541
+progress 346000000 best 1 seconds 185.147
+progress 347000000 best 1 seconds 186.002
+progress 348000000 best 1 seconds 186.824
+progress 349000000 best 1 seconds 187.53
+progress 350000000 best 1 seconds 188.334
+progress 351000000 best 1 seconds 189.101
+progress 352000000 best 1 seconds 189.938
+progress 353000000 best 1 seconds 190.772
+progress 354000000 best 1 seconds 191.635
+progress 355000000 best 1 seconds 192.512
+progress 356000000 best 1 seconds 193.273
+progress 357000000 best 1 seconds 194.093
+progress 358000000 best 1 seconds 194.851
+progress 359000000 best 1 seconds 195.604
+progress 360000000 best 1 seconds 196.441
+progress 361000000 best 1 seconds 197.155
+progress 362000000 best 1 seconds 198.016
+progress 363000000 best 1 seconds 198.93
+progress 364000000 best 1 seconds 199.819
+progress 365000000 best 1 seconds 200.819
+progress 366000000 best 1 seconds 201.565
+progress 367000000 best 1 seconds 202.467
+progress 368000000 best 1 seconds 203.435
+progress 369000000 best 1 seconds 204.372
+progress 370000000 best 1 seconds 205.206
+progress 371000000 best 1 seconds 205.956
+progress 372000000 best 1 seconds 206.821
+progress 373000000 best 1 seconds 207.633
+progress 374000000 best 1 seconds 208.342
+progress 375000000 best 1 seconds 209.076
+progress 376000000 best 1 seconds 209.934
+progress 377000000 best 1 seconds 210.794
+progress 378000000 best 1 seconds 211.908
+progress 379000000 best 1 seconds 212.603
+progress 380000000 best 1 seconds 213.313
+progress 381000000 best 1 seconds 214.194
+progress 382000000 best 1 seconds 214.901
+progress 383000000 best 1 seconds 215.706
+progress 384000000 best 1 seconds 216.436
+progress 385000000 best 1 seconds 217.207
+progress 386000000 best 1 seconds 218.041
+progress 387000000 best 1 seconds 219.006
+progress 388000000 best 1 seconds 219.962
+progress 389000000 best 1 seconds 220.997
+progress 390000000 best 1 seconds 221.967
+progress 391000000 best 1 seconds 222.95
+progress 392000000 best 1 seconds 223.92
+progress 393000000 best 1 seconds 224.858
+progress 394000000 best 1 seconds 225.71
+progress 395000000 best 1 seconds 226.442
+progress 396000000 best 1 seconds 227.21
+progress 397000000 best 1 seconds 227.868
+progress 398000000 best 1 seconds 228.615
+progress 399000000 best 1 seconds 229.328
+progress 400000000 best 1 seconds 230.108
+progress 401000000 best 1 seconds 230.933
+progress 402000000 best 1 seconds 231.662
+progress 403000000 best 1 seconds 232.428
+progress 404000000 best 1 seconds 233.298
+progress 405000000 best 1 seconds 234.109
+progress 406000000 best 1 seconds 234.853
+progress 407000000 best 1 seconds 235.625
+progress 408000000 best 1 seconds 236.323
+progress 409000000 best 1 seconds 237.03
+progress 410000000 best 1 seconds 237.729
+progress 411000000 best 1 seconds 238.615
+progress 412000000 best 1 seconds 239.504
+progress 413000000 best 1 seconds 240.367
+progress 414000000 best 1 seconds 241.241
+progress 415000000 best 1 seconds 242.064
+progress 416000000 best 1 seconds 242.823
+progress 417000000 best 1 seconds 243.665
+progress 418000000 best 1 seconds 244.404
+progress 419000000 best 1 seconds 245.147
+progress 420000000 best 1 seconds 245.914
+progress 421000000 best 1 seconds 246.654
+progress 422000000 best 1 seconds 247.409
+progress 423000000 best 1 seconds 248.325
+progress 424000000 best 1 seconds 249.261
+progress 425000000 best 1 seconds 250.201
+progress 426000000 best 1 seconds 251.015
+progress 427000000 best 1 seconds 251.934
+progress 428000000 best 1 seconds 252.727
+progress 429000000 best 1 seconds 253.513
+progress 430000000 best 1 seconds 254.263
+progress 431000000 best 1 seconds 254.798
+progress 432000000 best 1 seconds 255.161
+progress 433000000 best 1 seconds 255.551
+progress 434000000 best 1 seconds 255.945
+progress 435000000 best 1 seconds 256.419
+progress 436000000 best 1 seconds 256.869
+progress 437000000 best 1 seconds 257.338
+progress 438000000 best 1 seconds 257.845
+progress 439000000 best 1 seconds 258.371
+progress 440000000 best 1 seconds 258.914
+progress 441000000 best 1 seconds 259.427
+progress 442000000 best 1 seconds 259.945
+progress 443000000 best 1 seconds 260.497
+progress 444000000 best 1 seconds 261.011
+progress 445000000 best 1 seconds 261.545
+progress 446000000 best 1 seconds 262.04
+progress 447000000 best 1 seconds 262.556
+progress 448000000 best 1 seconds 263.068
+progress 449000000 best 1 seconds 263.596
+progress 450000000 best 1 seconds 264.048
+progress 451000000 best 1 seconds 264.525
+progress 452000000 best 1 seconds 265.009
+progress 453000000 best 1 seconds 265.461
+progress 454000000 best 1 seconds 266.201
+progress 455000000 best 1 seconds 267.12
+progress 456000000 best 1 seconds 268.077
+progress 457000000 best 1 seconds 268.908
+progress 458000000 best 1 seconds 269.822
+progress 459000000 best 1 seconds 270.569
+progress 460000000 best 1 seconds 271.426
+progress 461000000 best 1 seconds 272.121
+progress 462000000 best 1 seconds 272.911
+progress 463000000 best 1 seconds 273.853
+progress 464000000 best 1 seconds 274.702
+progress 465000000 best 1 seconds 275.664
+progress 466000000 best 1 seconds 276.444
+progress 467000000 best 1 seconds 277.141
+progress 468000000 best 1 seconds 277.867
+progress 469000000 best 1 seconds 278.651
+progress 470000000 best 1 seconds 279.513
+progress 471000000 best 1 seconds 280.277
+progress 472000000 best 1 seconds 281.009
+progress 473000000 best 1 seconds 281.795
+progress 474000000 best 1 seconds 282.538
+progress 475000000 best 1 seconds 283.329
+progress 476000000 best 1 seconds 284.066
+progress 477000000 best 1 seconds 284.76
+progress 478000000 best 1 seconds 285.562
+progress 479000000 best 1 seconds 286.334
+progress 480000000 best 1 seconds 287.058
+progress 481000000 best 1 seconds 287.829
+progress 482000000 best 1 seconds 288.602
+progress 483000000 best 1 seconds 289.343
+progress 484000000 best 1 seconds 290.136
+progress 485000000 best 1 seconds 290.93
+progress 486000000 best 1 seconds 291.708
+progress 487000000 best 1 seconds 292.438
+progress 488000000 best 1 seconds 293.154
+progress 489000000 best 1 seconds 293.939
+progress 490000000 best 1 seconds 294.819
+progress 491000000 best 1 seconds 295.554
+progress 492000000 best 1 seconds 296.352
+progress 493000000 best 1 seconds 297.144
+progress 494000000 best 1 seconds 297.852
+progress 495000000 best 1 seconds 298.621
+progress 496000000 best 1 seconds 299.351
+progress 497000000 best 1 seconds 300.143
+progress 498000000 best 1 seconds 300.868
+progress 499000000 best 1 seconds 301.613
+progress 500000000 best 1 seconds 302.349
+progress 501000000 best 1 seconds 303.216
+progress 502000000 best 1 seconds 304.021
+progress 503000000 best 1 seconds 304.917
+progress 504000000 best 1 seconds 305.728
+progress 505000000 best 1 seconds 306.431
+progress 506000000 best 1 seconds 307.21
+progress 507000000 best 1 seconds 308.059
+progress 508000000 best 1 seconds 308.905
+progress 509000000 best 1 seconds 309.82
+progress 510000000 best 1 seconds 310.713
+progress 511000000 best 1 seconds 311.456
+progress 512000000 best 1 seconds 312.222
+progress 513000000 best 1 seconds 312.938
+progress 514000000 best 1 seconds 313.658
+progress 515000000 best 1 seconds 314.444
+progress 516000000 best 1 seconds 315.335
+progress 517000000 best 1 seconds 316.035
+progress 518000000 best 1 seconds 316.73
+progress 519000000 best 1 seconds 317.522
+progress 520000000 best 1 seconds 318.364
+progress 521000000 best 1 seconds 319.155
+progress 522000000 best 1 seconds 319.944
+progress 523000000 best 1 seconds 320.768
+progress 524000000 best 1 seconds 321.726
+progress 525000000 best 1 seconds 322.464
+progress 526000000 best 1 seconds 323.347
+progress 527000000 best 1 seconds 324.054
+progress 528000000 best 1 seconds 324.762
+progress 529000000 best 1 seconds 325.512
+progress 530000000 best 1 seconds 326.328
+progress 531000000 best 1 seconds 327.265
+progress 532000000 best 1 seconds 328.026
+progress 533000000 best 1 seconds 328.8
+progress 534000000 best 1 seconds 329.66
+progress 535000000 best 1 seconds 330.44
+progress 536000000 best 1 seconds 331.228
+progress 537000000 best 1 seconds 332.008
+progress 538000000 best 1 seconds 332.726
+progress 539000000 best 1 seconds 333.426
+progress 540000000 best 1 seconds 334.506
+progress 541000000 best 1 seconds 335.404
+progress 542000000 best 1 seconds 336.271
+progress 543000000 best 1 seconds 337.163
+progress 544000000 best 1 seconds 338.033
+progress 545000000 best 1 seconds 339.012
+progress 546000000 best 1 seconds 340.494
+progress 547000000 best 1 seconds 341.847
+progress 548000000 best 1 seconds 343.133
+progress 549000000 best 1 seconds 344.268
+progress 550000000 best 1 seconds 345.32
+progress 551000000 best 1 seconds 346.544
+progress 552000000 best 1 seconds 347.804
+progress 553000000 best 1 seconds 349.11
+progress 554000000 best 1 seconds 350.329
+progress 555000000 best 1 seconds 351.631
+progress 556000000 best 1 seconds 352.919
+progress 557000000 best 1 seconds 354.171
+progress 558000000 best 1 seconds 355.267
+progress 559000000 best 1 seconds 356.51
+progress 560000000 best 1 seconds 357.635
+progress 561000000 best 1 seconds 358.849
+progress 562000000 best 1 seconds 360.302
+progress 563000000 best 1 seconds 361.611
+progress 564000000 best 1 seconds 362.929
+progress 565000000 best 1 seconds 363.95
+progress 566000000 best 1 seconds 364.72
+progress 567000000 best 1 seconds 365.569
+progress 568000000 best 1 seconds 366.351
+progress 569000000 best 1 seconds 367.099
+progress 570000000 best 1 seconds 367.86
+progress 571000000 best 1 seconds 368.634
+progress 572000000 best 1 seconds 369.458
+progress 573000000 best 1 seconds 370.337
+progress 574000000 best 1 seconds 371.202
+progress 575000000 best 1 seconds 372.129
+progress 576000000 best 1 seconds 372.976
+progress 577000000 best 1 seconds 373.824
+progress 578000000 best 1 seconds 374.712
+progress 579000000 best 1 seconds 375.597
+progress 580000000 best 1 seconds 376.41
+progress 581000000 best 1 seconds 377.148
+progress 582000000 best 1 seconds 377.954
+progress 583000000 best 1 seconds 378.835
+progress 584000000 best 1 seconds 379.561
+progress 585000000 best 1 seconds 380.467
+progress 586000000 best 1 seconds 381.354
+progress 587000000 best 1 seconds 382.155
+progress 588000000 best 1 seconds 382.946
+progress 589000000 best 1 seconds 383.723
+progress 590000000 best 1 seconds 384.532
+progress 591000000 best 1 seconds 384.902
+progress 592000000 best 1 seconds 385.305
+progress 593000000 best 1 seconds 385.725
+progress 594000000 best 1 seconds 386.121
+progress 595000000 best 1 seconds 386.514
+progress 596000000 best 1 seconds 386.908
+progress 597000000 best 1 seconds 387.254
+progress 598000000 best 1 seconds 387.641
+progress 599000000 best 1 seconds 388.027
+progress 600000000 best 1 seconds 388.416
+progress 601000000 best 1 seconds 388.811
+progress 602000000 best 1 seconds 389.22
+progress 603000000 best 1 seconds 390.067
+progress 604000000 best 1 seconds 390.836
+progress 605000000 best 1 seconds 391.517
+progress 606000000 best 1 seconds 392.199
+progress 607000000 best 1 seconds 392.996
+progress 608000000 best 1 seconds 393.814
+progress 609000000 best 1 seconds 394.569
+progress 610000000 best 1 seconds 395.257
+progress 611000000 best 1 seconds 396.138
+progress 612000000 best 1 seconds 396.917
+progress 613000000 best 1 seconds 397.705
+progress 614000000 best 1 seconds 398.466
+progress 615000000 best 1 seconds 399.352
+progress 616000000 best 1 seconds 400.118
+progress 617000000 best 1 seconds 400.811
+progress 618000000 best 1 seconds 401.556
+progress 619000000 best 1 seconds 402.509
+progress 620000000 best 1 seconds 403.409
+progress 621000000 best 1 seconds 404.204
+progress 622000000 best 1 seconds 404.922
+progress 623000000 best 1 seconds 405.594
+progress 624000000 best 1 seconds 406.439
+progress 625000000 best 1 seconds 407.338
+progress 626000000 best 1 seconds 408.22
+progress 627000000 best 1 seconds 409.044
+progress 628000000 best 1 seconds 409.925
+progress 629000000 best 1 seconds 410.865
+progress 630000000 best 1 seconds 411.669
+progress 631000000 best 1 seconds 412.418
+progress 632000000 best 1 seconds 413.145
+progress 633000000 best 1 seconds 414.025
+progress 634000000 best 1 seconds 414.95
+progress 635000000 best 1 seconds 415.81
+progress 636000000 best 1 seconds 416.665
+progress 637000000 best 1 seconds 417.43
+progress 638000000 best 1 seconds 418.147
+progress 639000000 best 1 seconds 418.944
+progress 640000000 best 1 seconds 419.763
+progress 641000000 best 1 seconds 420.698
+progress 642000000 best 1 seconds 421.614
+progress 643000000 best 1 seconds 422.499
+progress 644000000 best 1 seconds 423.211
+progress 645000000 best 1 seconds 424.013
+progress 646000000 best 1 seconds 424.798
+progress 647000000 best 1 seconds 425.659
+progress 648000000 best 1 seconds 426.411
+progress 649000000 best 1 seconds 427.16
+progress 650000000 best 1 seconds 428.029
+progress 651000000 best 1 seconds 428.761
+progress 652000000 best 1 seconds 429.52
+progress 653000000 best 1 seconds 430.228
+progress 654000000 best 1 seconds 431.038
+progress 655000000 best 1 seconds 431.794
+progress 656000000 best 1 seconds 432.602
+progress 657000000 best 1 seconds 433.457
+progress 658000000 best 1 seconds 434.238
+progress 659000000 best 1 seconds 434.967
+progress 660000000 best 1 seconds 435.908
+progress 661000000 best 1 seconds 436.712
+progress 662000000 best 1 seconds 437.51
+progress 663000000 best 1 seconds 438.44
+progress 664000000 best 1 seconds 439.47
+progress 665000000 best 1 seconds 440.418
+progress 666000000 best 1 seconds 441.197
+progress 667000000 best 1 seconds 441.96
+progress 668000000 best 1 seconds 442.902
+progress 669000000 best 1 seconds 443.713
+progress 670000000 best 1 seconds 444.438
+progress 671000000 best 1 seconds 445.14
+progress 672000000 best 1 seconds 445.917
+progress 673000000 best 1 seconds 446.609
+progress 674000000 best 1 seconds 447.41
+progress 675000000 best 1 seconds 448.265
+progress 676000000 best 1 seconds 449.029
+progress 677000000 best 1 seconds 449.912
+progress 678000000 best 1 seconds 450.732
+progress 679000000 best 1 seconds 451.446
+progress 680000000 best 1 seconds 452.215
+progress 681000000 best 1 seconds 453.016
+progress 682000000 best 1 seconds 453.935
+progress 683000000 best 1 seconds 454.862
+progress 684000000 best 1 seconds 455.829
+progress 685000000 best 1 seconds 456.736
+progress 686000000 best 1 seconds 457.62
+progress 687000000 best 1 seconds 458.567
+progress 688000000 best 1 seconds 459.522
+progress 689000000 best 1 seconds 460.444
+progress 690000000 best 1 seconds 461.327
+progress 691000000 best 1 seconds 462.265
+progress 692000000 best 1 seconds 463.203
+progress 693000000 best 1 seconds 464.093
+progress 694000000 best 1 seconds 465.021
+progress 695000000 best 1 seconds 465.952
+progress 696000000 best 1 seconds 466.83
+progress 697000000 best 1 seconds 467.663
+progress 698000000 best 1 seconds 468.524
+progress 699000000 best 1 seconds 469.35
+progress 700000000 best 1 seconds 470.108
+progress 701000000 best 1 seconds 471.095
+progress 702000000 best 1 seconds 471.946
+progress 703000000 best 1 seconds 472.814
+progress 704000000 best 1 seconds 473.633
+progress 705000000 best 1 seconds 474.339
+progress 706000000 best 1 seconds 475.098
+progress 707000000 best 1 seconds 475.896
+progress 708000000 best 1 seconds 476.608
+progress 709000000 best 1 seconds 477.434
+progress 710000000 best 1 seconds 478.266
+progress 711000000 best 1 seconds 479.072
+progress 712000000 best 1 seconds 479.901
+progress 713000000 best 1 seconds 480.772
+progress 714000000 best 1 seconds 481.527
+progress 715000000 best 1 seconds 482.307
+progress 716000000 best 1 seconds 483.111
+progress 717000000 best 1 seconds 483.965
+progress 718000000 best 1 seconds 484.771
+progress 719000000 best 1 seconds 485.501
+progress 720000000 best 1 seconds 486.216
+progress 721000000 best 1 seconds 486.945
+progress 722000000 best 1 seconds 487.699
+progress 723000000 best 1 seconds 488.598
+progress 724000000 best 1 seconds 489.371
+progress 725000000 best 1 seconds 490.203
+progress 726000000 best 1 seconds 490.92
+progress 727000000 best 1 seconds 491.635
+progress 728000000 best 1 seconds 492.466
+progress 729000000 best 1 seconds 493.323
+progress 730000000 best 1 seconds 494.352
+progress 731000000 best 1 seconds 495.248
+progress 732000000 best 1 seconds 496.153
+progress 733000000 best 1 seconds 496.909
+progress 734000000 best 1 seconds 497.629
+progress 735000000 best 1 seconds 498.375
+progress 736000000 best 1 seconds 499.127
+progress 737000000 best 1 seconds 499.925
+progress 738000000 best 1 seconds 500.714
+progress 739000000 best 1 seconds 501.552
+progress 740000000 best 1 seconds 502.294
+progress 741000000 best 1 seconds 503.044
+progress 742000000 best 1 seconds 503.769
+progress 743000000 best 1 seconds 504.538
+progress 744000000 best 1 seconds 505.248
+progress 745000000 best 1 seconds 506.07
+progress 746000000 best 1 seconds 506.897
+progress 747000000 best 1 seconds 507.748
+progress 748000000 best 1 seconds 508.544
+progress 749000000 best 1 seconds 509.333
+progress 750000000 best 1 seconds 510.095
+progress 751000000 best 1 seconds 510.96
+progress 752000000 best 1 seconds 511.76
+progress 753000000 best 1 seconds 512.54
+progress 754000000 best 1 seconds 513.248
+progress 755000000 best 1 seconds 514.012
+progress 756000000 best 1 seconds 514.796
+progress 757000000 best 1 seconds 515.671
+progress 758000000 best 1 seconds 516.127
+progress 759000000 best 1 seconds 516.549
+progress 760000000 best 1 seconds 517.551
+progress 761000000 best 1 seconds 518.37
+progress 762000000 best 1 seconds 519.206
+progress 763000000 best 1 seconds 520.095
+progress 764000000 best 1 seconds 520.902
+progress 765000000 best 1 seconds 521.754
+progress 766000000 best 1 seconds 522.663
+progress 767000000 best 1 seconds 523.622
+progress 768000000 best 1 seconds 524.559
+progress 769000000 best 1 seconds 525.407
+progress 770000000 best 1 seconds 526.254
+progress 771000000 best 1 seconds 527.037
+progress 772000000 best 1 seconds 527.825
+progress 773000000 best 1 seconds 528.544
+progress 774000000 best 1 seconds 529.344
+progress 775000000 best 1 seconds 530.096
+progress 776000000 best 1 seconds 530.87
+progress 777000000 best 1 seconds 531.621
+progress 778000000 best 1 seconds 532.426
+progress 779000000 best 1 seconds 533.308
+progress 780000000 best 1 seconds 534.161
+progress 781000000 best 1 seconds 534.948
+progress 782000000 best 1 seconds 535.768
+progress 783000000 best 1 seconds 536.639
+progress 784000000 best 1 seconds 537.372
+progress 785000000 best 1 seconds 538.271
+progress 786000000 best 1 seconds 539.107
+progress 787000000 best 1 seconds 540.016
+progress 788000000 best 1 seconds 540.773
+progress 789000000 best 1 seconds 541.617
+progress 790000000 best 1 seconds 542.366
+progress 791000000 best 1 seconds 543.057
+progress 792000000 best 1 seconds 543.828
+progress 793000000 best 1 seconds 544.597
+progress 794000000 best 1 seconds 545.338
+progress 795000000 best 1 seconds 546.165
+progress 796000000 best 1 seconds 546.967
+progress 797000000 best 1 seconds 547.73
+progress 798000000 best 1 seconds 548.505
+progress 799000000 best 1 seconds 549.306
+progress 800000000 best 1 seconds 550.14
+progress 801000000 best 1 seconds 551.003
+progress 802000000 best 1 seconds 551.893
+progress 803000000 best 1 seconds 552.849
+progress 804000000 best 1 seconds 553.639
+progress 805000000 best 1 seconds 554.46
+progress 806000000 best 1 seconds 555.238
+progress 807000000 best 1 seconds 556.126
+progress 808000000 best 1 seconds 556.856
+progress 809000000 best 1 seconds 557.596
+progress 810000000 best 1 seconds 558.356
+progress 811000000 best 1 seconds 559.121
+progress 812000000 best 1 seconds 559.829
+progress 813000000 best 1 seconds 560.535
+progress 814000000 best 1 seconds 561.423
+progress 815000000 best 1 seconds 562.168
+progress 816000000 best 1 seconds 562.954
+progress 817000000 best 1 seconds 563.731
+progress 818000000 best 1 seconds 564.46
+progress 819000000 best 1 seconds 565.229
+progress 820000000 best 1 seconds 566.056
+progress 821000000 best 1 seconds 566.895
+progress 822000000 best 1 seconds 567.627
+progress 823000000 best 1 seconds 568.337
+progress 824000000 best 1 seconds 569.069
+progress 825000000 best 1 seconds 569.847
+progress 826000000 best 1 seconds 570.694
+progress 827000000 best 1 seconds 571.432
+progress 828000000 best 1 seconds 572.156
+progress 829000000 best 1 seconds 572.871
+progress 830000000 best 1 seconds 573.562
+progress 831000000 best 1 seconds 574.264
+progress 832000000 best 1 seconds 574.97
+progress 833000000 best 1 seconds 575.753
+progress 834000000 best 1 seconds 576.631
+progress 835000000 best 1 seconds 577.414
+progress 836000000 best 1 seconds 578.123
+progress 837000000 best 1 seconds 578.833
+progress 838000000 best 1 seconds 579.603
+progress 839000000 best 1 seconds 580.35
+progress 840000000 best 1 seconds 581.216
+progress 841000000 best 1 seconds 582.064
+progress 842000000 best 1 seconds 582.863
+progress 843000000 best 1 seconds 583.627
+progress 844000000 best 1 seconds 584.393
+progress 845000000 best 1 seconds 585.117
+progress 846000000 best 1 seconds 585.833
+progress 847000000 best 1 seconds 586.542
+progress 848000000 best 1 seconds 587.265
+progress 849000000 best 1 seconds 588.019
+progress 850000000 best 1 seconds 588.763
+progress 851000000 best 1 seconds 589.523
+progress 852000000 best 1 seconds 590.234
+progress 853000000 best 1 seconds 590.942
+progress 854000000 best 1 seconds 591.714
+progress 855000000 best 1 seconds 592.519
+progress 856000000 best 1 seconds 593.3
+progress 857000000 best 1 seconds 594.13
+progress 858000000 best 1 seconds 594.975
+progress 859000000 best 1 seconds 595.843
+progress 860000000 best 1 seconds 596.648
+progress 861000000 best 1 seconds 597.439
+progress 862000000 best 1 seconds 598.242
+progress 863000000 best 1 seconds 599.05
+progress 864000000 best 1 seconds 599.915
+progress 865000000 best 1 seconds 600.738
+progress 866000000 best 1 seconds 601.606
+progress 867000000 best 1 seconds 602.403
+progress 868000000 best 1 seconds 603.225
+progress 869000000 best 1 seconds 603.999
+progress 870000000 best 1 seconds 604.726
+progress 871000000 best 1 seconds 605.529
+progress 872000000 best 1 seconds 606.335
+progress 873000000 best 1 seconds 607.139
+progress 874000000 best 1 seconds 608.025
+progress 875000000 best 1 seconds 608.907
+progress 876000000 best 1 seconds 609.775
+progress 877000000 best 1 seconds 610.562
+progress 878000000 best 1 seconds 611.34
+progress 879000000 best 1 seconds 612.153
+progress 880000000 best 1 seconds 613.007
+progress 881000000 best 1 seconds 613.713
+progress 882000000 best 1 seconds 614.529
+progress 883000000 best 1 seconds 615.331
+progress 884000000 best 1 seconds 616.16
+progress 885000000 best 1 seconds 616.93
+progress 886000000 best 1 seconds 617.731
+progress 887000000 best 1 seconds 618.555
+progress 888000000 best 1 seconds 619.347
+progress 889000000 best 1 seconds 620.244
+progress 890000000 best 1 seconds 621.036
+progress 891000000 best 1 seconds 621.822
+progress 892000000 best 1 seconds 622.644
+progress 893000000 best 1 seconds 623.415
+progress 894000000 best 1 seconds 624.228
+progress 895000000 best 1 seconds 624.959
+progress 896000000 best 1 seconds 625.794
+progress 897000000 best 1 seconds 626.559
+progress 898000000 best 1 seconds 627.32
+progress 899000000 best 1 seconds 628.053
+progress 900000000 best 1 seconds 628.747
+progress 901000000 best 1 seconds 629.528
+progress 902000000 best 1 seconds 630.321
+progress 903000000 best 1 seconds 631.065
+progress 904000000 best 1 seconds 631.993
+progress 905000000 best 1 seconds 632.762
+progress 906000000 best 1 seconds 633.622
+progress 907000000 best 1 seconds 634.405
+progress 908000000 best 1 seconds 635.154
+progress 909000000 best 1 seconds 635.963
+progress 910000000 best 1 seconds 636.827
+progress 911000000 best 1 seconds 637.707
+progress 912000000 best 1 seconds 638.493
+progress 913000000 best 1 seconds 639.22
+progress 914000000 best 1 seconds 640.002
+progress 915000000 best 1 seconds 640.701
+progress 916000000 best 1 seconds 641.395
+progress 917000000 best 1 seconds 642.316
+progress 918000000 best 1 seconds 643.158
+progress 919000000 best 1 seconds 643.853
+progress 920000000 best 1 seconds 644.662
+progress 921000000 best 1 seconds 645.445
+progress 922000000 best 1 seconds 646.318
+progress 923000000 best 1 seconds 647.213
+progress 924000000 best 1 seconds 648.03
+progress 925000000 best 1 seconds 648.929
+progress 926000000 best 1 seconds 649.722
+progress 927000000 best 1 seconds 650.546
+progress 928000000 best 1 seconds 651.403
+progress 929000000 best 1 seconds 652.348
+progress 930000000 best 1 seconds 653.232
+progress 931000000 best 1 seconds 654.025
+progress 932000000 best 1 seconds 654.805
+progress 933000000 best 1 seconds 655.599
+progress 934000000 best 1 seconds 656.337
+progress 935000000 best 1 seconds 657.127
+progress 936000000 best 1 seconds 657.949
+progress 937000000 best 1 seconds 658.715
+progress 938000000 best 1 seconds 659.427
+progress 939000000 best 1 seconds 660.415
+progress 940000000 best 1 seconds 661.169
+progress 941000000 best 1 seconds 661.907
+progress 942000000 best 1 seconds 662.651
+progress 943000000 best 1 seconds 663.403
+progress 944000000 best 1 seconds 664.233
+progress 945000000 best 1 seconds 664.961
+progress 946000000 best 1 seconds 665.74
+progress 947000000 best 1 seconds 666.537
+progress 948000000 best 1 seconds 667.425
+progress 949000000 best 1 seconds 668.13
+progress 950000000 best 1 seconds 668.96
+progress 951000000 best 1 seconds 669.865
+progress 952000000 best 1 seconds 670.663
+progress 953000000 best 1 seconds 671.424
+progress 954000000 best 1 seconds 672.307
+progress 955000000 best 1 seconds 673.219
+progress 956000000 best 1 seconds 674.135
+progress 957000000 best 1 seconds 675.059
+progress 958000000 best 1 seconds 675.993
+progress 959000000 best 1 seconds 676.772
+progress 960000000 best 1 seconds 677.672
+progress 961000000 best 1 seconds 678.549
+progress 962000000 best 1 seconds 679.396
+progress 963000000 best 1 seconds 680.214
+progress 964000000 best 1 seconds 681.025
+progress 965000000 best 1 seconds 681.827
+progress 966000000 best 1 seconds 682.662
+progress 967000000 best 1 seconds 683.544
+progress 968000000 best 1 seconds 684.432
+progress 969000000 best 1 seconds 685.236
+progress 970000000 best 1 seconds 686.051
+progress 971000000 best 1 seconds 686.845
+progress 972000000 best 1 seconds 687.793
+progress 973000000 best 1 seconds 688.647
+progress 974000000 best 1 seconds 689.45
+progress 975000000 best 1 seconds 690.247
+progress 976000000 best 1 seconds 691.051
+progress 977000000 best 1 seconds 691.834
+progress 978000000 best 1 seconds 692.598
+progress 979000000 best 1 seconds 693.3
+progress 980000000 best 1 seconds 694.141
+progress 981000000 best 1 seconds 694.929
+progress 982000000 best 1 seconds 695.662
+progress 983000000 best 1 seconds 696.398
+progress 984000000 best 1 seconds 697.35
+progress 985000000 best 1 seconds 698.351
+progress 986000000 best 1 seconds 699.294
+progress 987000000 best 1 seconds 700.243
+progress 988000000 best 1 seconds 701.203
+progress 989000000 best 1 seconds 702.141
+progress 990000000 best 1 seconds 703.058
+progress 991000000 best 1 seconds 703.939
+progress 992000000 best 1 seconds 704.794
+progress 993000000 best 1 seconds 705.697
+progress 994000000 best 1 seconds 706.614
+progress 995000000 best 1 seconds 707.552
+progress 996000000 best 1 seconds 708.531
+progress 997000000 best 1 seconds 709.456
+progress 998000000 best 1 seconds 710.331
+progress 999000000 best 1 seconds 711.145
+DONE best 1 seconds 712.034
+score 1 output 74
+21 or 12 13
+22 or 21 7
+23 and 18 22
+24 or 1 13
+25 or 24 19
+26 and 0 25
+27 or 19 2
+28 or 27 15
+29 and 1 28
+30 or 15 20
+31 or 30 3
+32 and 2 31
+33 or 4 6
+34 or 33 14
+35 or 34 17
+36 and 5 35
+37 or 4 20
+38 and 3 37
+39 or 8 15
+40 and 7 39
+41 or 0 13
+42 or 41 4
+43 and 14 42
+44 or 19 10
+45 or 44 8
+46 and 9 45
+47 or 19 17
+48 and 10 47
+49 or 7 15
+50 or 49 17
+51 and 6 50
+52 or 20 13
+53 or 52 11
+54 and 12 53
+55 or 10 17
+56 or 55 20
+57 and 11 56
+58 or 9 3
+59 or 58 8
+60 or 59 4
+61 and 16 60
+62 or 29 54
+63 or 36 48
+64 or 26 62
+65 or 46 51
+66 or 63 65
+67 or 23 40
+68 or 66 43
+69 or 67 61
+70 or 68 32
+71 or 70 69
+72 or 71 38
+73 or 72 64
+74 or 73 57

@@ -1,0 +1,13 @@
+graph 0 n 8 edges 11 tau 5 gates 14 initial 3 best 3 seconds 0.408918
+graph 1 n 8 edges 11 tau 5 gates 14 initial 3 best 3 seconds 0.853655
+graph 2 n 8 edges 11 tau 5 gates 14 initial 3 best 3 seconds 1.2223
+graph 3 n 8 edges 11 tau 5 gates 14 initial 4 best 4 seconds 1.59995
+graph 4 n 8 edges 10 tau 4 gates 12 initial 2 best 2 seconds 2.07624
+graph 5 n 8 edges 11 tau 5 gates 14 initial 3 best 3 seconds 2.43152
+graph 6 n 8 edges 11 tau 4 gates 13 initial 2 best 2 seconds 2.85365
+graph 7 n 8 edges 11 tau 5 gates 14 initial 3 best 3 seconds 3.32074
+graph 8 n 8 edges 11 tau 5 gates 14 initial 4 best 3 seconds 3.68836
+graph 9 n 8 edges 11 tau 5 gates 14 initial 3 best 3 seconds 4.0735
+graph 10 n 8 edges 11 tau 4 gates 13 initial 3 best 3 seconds 4.44375
+graph 11 n 8 edges 11 tau 4 gates 13 initial 2 best 2 seconds 4.84623
+DONE graphs 12 mutations each 1000000 seconds 4.84632

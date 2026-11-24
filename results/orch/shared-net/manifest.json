@@ -1,0 +1,66 @@
+[
+  {
+    "id": "shared-net-k2",
+    "n": 10,
+    "e": 15,
+    "tau": 6,
+    "bound": 20,
+    "target_gates": 19,
+    "maximal_independent_count": 19,
+    "near_size": 19,
+    "near_errors": [
+      [
+        7,
+        true
+      ]
+    ]
+  },
+  {
+    "id": "shared-net-k2-cross",
+    "n": 10,
+    "e": 16,
+    "tau": 6,
+    "bound": 21,
+    "target_gates": 20,
+    "maximal_independent_count": 19,
+    "near_size": 21,
+    "near_errors": [
+      [
+        7,
+        true
+      ]
+    ]
+  },
+  {
+    "id": "shared-net-k3",
+    "n": 13,
+    "e": 21,
+    "tau": 8,
+    "bound": 28,
+    "target_gates": 27,
+    "maximal_independent_count": 49,
+    "near_size": 27,
+    "near_errors": [
+      [
+        7,
+        true
+      ]
+    ]
+  },
+  {
+    "id": "shared-net-k3-cross",
+    "n": 13,
+    "e": 24,
+    "tau": 9,
+    "bound": 32,
+    "target_gates": 31,
+    "maximal_independent_count": 40,
+    "near_size": 33,
+    "near_errors": [
+      [
+        7,
+        true
+      ]
+    ]
+  }
+]

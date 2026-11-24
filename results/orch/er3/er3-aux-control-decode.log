@@ -1,0 +1,1 @@
+{"original_gates": 32, "aux_pair": [11, 7], "extended_n": 15, "extended_edges": 27, "extended_gates": 35, "tau": 9, "bound": 35, "full_truth_rows": 32768, "is_counterexample": false}

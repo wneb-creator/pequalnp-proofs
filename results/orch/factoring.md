@@ -27,3 +27,13 @@ Prepared new structured synthesis: five shared AND/OR gates on A alone, then six
 At 15:46 UTC, the seven-AND query reached its 600-second wall cap with UNKNOWN, after 5,608,367 conflicts and 480.37 CPU seconds. It found no witness and established no impossibility result.
 
 The shared-A 31-gate positive control solved SAT in 0.09 seconds. The independent decoder verified its output on all 8192 inputs, checked C4-freeness, and recomputed minimum cover 8 and bound 31. It is a control, not a counterexample. Saved as toolchain/er3-shared-control-witness.json, with solver and decoder logs alongside it.
+
+The independently reviewed 30-gate shared-A target was UNSAT in 2.25 CPU seconds (93,502 conflicts). This excludes only five A-only helper gates followed by six gates per local piece and the fixed final combination.
+
+Alternative safe-OR gadget: an ER3 circuit with 31 gates that also exposes OR(a,c) on an adjacent A-C pair would yield a counterexample after adding a new center adjacent to a,c and a new private leaf. Such pairs have zero common neighbors, so the extension remains C4-free. The edge count rises from 24 to 27 and minimum cover from 8 to 9; the private center-leaf edge forces one new cover vertex, and the new center achieves that bound. Reusing the auxiliary OR takes three new gates, giving 34 versus the bound 35.
+
+Prepared the safe-OR template with five shared A gates, local budgets 7/6/6, and seven final gates: 31 total. The first local piece selects both its main output and OR(11,7) from any of its gates. The encoder/decoder passed independent review. Its positive control uses six fixed shared pair ORs: 32 gates before the extension, 35 after, verified on all 32768 enlarged inputs. The target has not yet run while the parent's renewal response is pending.
+
+Neither exact 31-gate model contains a useful safe-pair OR. Exhaustive single-gate semantic rewrites checked 22,227 and 21,482 alternatives respectively without finding any that preserve the main function and change the selected gate's function. The 30-gate evolutionary near miss computes the graph with edge {5,6} deleted exactly; that graph has 23 edges and minimum cover 8. Its 18 safe pairs also yield no exposed OR or successful single-gate rewrite among 20,240 alternatives.
+
+Completed evidence is preserved in results/orch/er3/ (programs, input data, controls, metadata, and complete logs). Distance-3 and distance-5 repairs of the evolutionary 30-gate near miss are prepared in scratch but have not run.

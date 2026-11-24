@@ -1,0 +1,82 @@
+[
+  {
+    "id": "edited-6-core",
+    "started_at": "2026-11-24T15:44:11.596352+00:00",
+    "seed": 612,
+    "rounds": 1000000,
+    "returncode": 0,
+    "log": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-6-core.log",
+    "near": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-6-core-near.json",
+    "score": 1
+  },
+  {
+    "id": "edited-3-core",
+    "started_at": "2026-11-24T15:44:11.827143+00:00",
+    "seed": 613,
+    "rounds": 1000000,
+    "returncode": 0,
+    "log": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-3-core.log",
+    "near": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-3-core-near.json",
+    "score": 1
+  },
+  {
+    "id": "edited-4-core",
+    "started_at": "2026-11-24T15:44:12.091674+00:00",
+    "seed": 614,
+    "rounds": 1000000,
+    "returncode": 0,
+    "log": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-4-core.log",
+    "near": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-4-core-near.json",
+    "score": 1
+  },
+  {
+    "id": "edited-5-core",
+    "started_at": "2026-11-24T15:44:12.321283+00:00",
+    "seed": 615,
+    "rounds": 1000000,
+    "returncode": 0,
+    "log": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-5-core.log",
+    "near": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-5-core-near.json",
+    "score": 1
+  },
+  {
+    "id": "edited-10-core",
+    "started_at": "2026-11-24T15:44:12.620153+00:00",
+    "seed": 616,
+    "rounds": 1000000,
+    "returncode": 0,
+    "log": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-10-core.log",
+    "near": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-10-core-near.json",
+    "score": 1
+  },
+  {
+    "id": "edited-2-core",
+    "started_at": "2026-11-24T15:44:12.947515+00:00",
+    "seed": 617,
+    "rounds": 1000000,
+    "returncode": 0,
+    "log": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-2-core.log",
+    "near": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-2-core-near.json",
+    "score": 1
+  },
+  {
+    "id": "edited-8-core",
+    "started_at": "2026-11-24T15:44:13.247290+00:00",
+    "seed": 618,
+    "rounds": 1000000,
+    "returncode": 0,
+    "log": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-8-core.log",
+    "near": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-8-core-near.json",
+    "score": 1
+  },
+  {
+    "id": "edited-7-core",
+    "started_at": "2026-11-24T15:44:13.521827+00:00",
+    "seed": 619,
+    "rounds": 1000000,
+    "returncode": 0,
+    "log": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-7-core.log",
+    "near": "/tmp/oec/pequalnp-pilot-31/random/cores/edited-7-core-near.json",
+    "score": 1
+  }
+]

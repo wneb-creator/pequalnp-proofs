@@ -1,0 +1,204 @@
+Truncated tetrahedron tau 8 minimum covers 30 seed 651 rounds 100000000
+initial best 15
+score 15 output 35
+12 or 6 7
+13 and 8 12
+14 or 3 2
+15 or 14 1
+16 and 0 15
+17 or 5 4
+18 and 3 17
+19 or 10 9
+20 and 11 19
+21 or 2 10
+22 and 9 21
+23 or 6 2
+24 and 1 23
+25 or 6 4
+26 and 7 25
+27 or 10 4
+28 and 5 27
+29 or 26 20
+30 or 16 29
+31 or 13 24
+32 or 31 22
+33 or 18 32
+34 or 33 28
+35 or 34 30
+progress 1000000 best 15 seconds 2.7523
+progress 2000000 best 15 seconds 5.67735
+progress 3000000 best 15 seconds 7.87498
+progress 4000000 best 15 seconds 10.7749
+progress 5000000 best 15 seconds 13.0589
+progress 6000000 best 15 seconds 15.6464
+progress 7000000 best 15 seconds 17.9683
+progress 8000000 best 15 seconds 20.4217
+progress 9000000 best 15 seconds 22.7045
+progress 10000000 best 15 seconds 24.9783
+progress 11000000 best 15 seconds 27.8123
+progress 12000000 best 15 seconds 30.6756
+progress 13000000 best 15 seconds 33.0996
+progress 14000000 best 15 seconds 35.6124
+progress 15000000 best 15 seconds 39.0061
+progress 16000000 best 15 seconds 41.2872
+progress 17000000 best 15 seconds 44.3511
+progress 18000000 best 15 seconds 47.6792
+progress 19000000 best 15 seconds 50.6008
+progress 20000000 best 15 seconds 53.5505
+progress 21000000 best 15 seconds 57.087
+progress 22000000 best 15 seconds 58.7953
+progress 23000000 best 15 seconds 61.1778
+progress 24000000 best 15 seconds 63.6186
+progress 25000000 best 15 seconds 64.8934
+progress 26000000 best 15 seconds 66.3618
+progress 27000000 best 15 seconds 67.9027
+progress 28000000 best 15 seconds 70.4989
+progress 29000000 best 15 seconds 72.1695
+progress 30000000 best 15 seconds 73.225
+progress 31000000 best 15 seconds 74.4641
+progress 32000000 best 15 seconds 75.6159
+progress 33000000 best 15 seconds 76.5987
+progress 34000000 best 15 seconds 77.6738
+progress 35000000 best 15 seconds 79.3463
+progress 36000000 best 15 seconds 81.4697
+progress 37000000 best 15 seconds 83.6193
+progress 38000000 best 15 seconds 86.0112
+progress 39000000 best 15 seconds 89.5765
+progress 40000000 best 15 seconds 91.8019
+progress 41000000 best 15 seconds 93.4557
+progress 42000000 best 15 seconds 94.4909
+progress 43000000 best 15 seconds 95.6575
+progress 44000000 best 15 seconds 96.6855
+progress 45000000 best 15 seconds 97.8992
+progress 46000000 best 15 seconds 98.9785
+progress 47000000 best 15 seconds 99.9675
+progress 48000000 best 15 seconds 101.313
+progress 49000000 best 15 seconds 102.373
+progress 50000000 best 15 seconds 103.593
+progress 51000000 best 15 seconds 104.885
+progress 52000000 best 15 seconds 107.16
+progress 53000000 best 15 seconds 109.481
+progress 54000000 best 15 seconds 111.985
+progress 55000000 best 15 seconds 113.412
+progress 56000000 best 15 seconds 114.702
+progress 57000000 best 15 seconds 115.919
+progress 58000000 best 15 seconds 117.209
+progress 59000000 best 15 seconds 118.347
+progress 60000000 best 15 seconds 119.548
+progress 61000000 best 15 seconds 120.918
+progress 62000000 best 15 seconds 122.82
+progress 63000000 best 15 seconds 124.271
+progress 64000000 best 15 seconds 125.575
+progress 65000000 best 15 seconds 126.876
+progress 66000000 best 15 seconds 128.016
+progress 67000000 best 15 seconds 129.1
+progress 68000000 best 15 seconds 130.187
+progress 69000000 best 15 seconds 131.172
+progress 70000000 best 15 seconds 132.184
+progress 71000000 best 15 seconds 133.268
+progress 72000000 best 15 seconds 134.381
+progress 73000000 best 15 seconds 135.322
+progress 74000000 best 15 seconds 136.499
+BEST 14 trial 74106259 seconds 136.596
+score 14 output 35
+12 and 6 8
+13 or 9 8
+14 and 11 13
+15 or 9 0
+16 or 15 1
+17 and 2 16
+18 or 5 9
+19 or 18 11
+20 and 10 19
+21 or 6 4
+22 or 21 8
+23 and 7 22
+24 or 0 21
+25 or 24 5
+26 and 1 24
+27 or 12 20
+28 and 4 5
+29 or 17 23
+30 and 3 25
+31 or 30 26
+32 or 31 27
+33 or 14 29
+34 or 33 28
+35 or 32 34
+progress 75000000 best 14 seconds 137.663
+progress 76000000 best 14 seconds 138.683
+progress 77000000 best 14 seconds 139.68
+progress 78000000 best 14 seconds 140.958
+progress 79000000 best 14 seconds 142.155
+progress 80000000 best 14 seconds 143.372
+progress 81000000 best 14 seconds 144.546
+progress 82000000 best 14 seconds 145.773
+progress 83000000 best 14 seconds 146.852
+progress 84000000 best 14 seconds 147.907
+progress 85000000 best 14 seconds 148.909
+progress 86000000 best 14 seconds 149.949
+progress 87000000 best 14 seconds 150.999
+progress 88000000 best 14 seconds 152
+progress 89000000 best 14 seconds 153.205
+progress 90000000 best 14 seconds 154.284
+progress 91000000 best 14 seconds 155.549
+BEST 7 trial 91291734 seconds 155.879
+score 7 output 35
+12 or 10 3
+13 or 8 1
+14 or 3 1
+15 and 6 13
+16 or 10 8
+17 or 8 6
+18 or 5 3
+19 or 4 17
+20 and 0 14
+21 or 9 1
+22 or 0 21
+23 and 4 18
+24 or 9 5
+25 and 12 24
+26 or 16 9
+27 and 26 11
+28 or 15 27
+29 and 19 7
+30 and 22 2
+31 or 25 28
+32 or 30 29
+33 or 32 20
+34 or 23 31
+35 or 33 34
+progress 92000000 best 7 seconds 156.69
+progress 93000000 best 7 seconds 157.811
+progress 94000000 best 7 seconds 159.089
+progress 95000000 best 7 seconds 161.26
+progress 96000000 best 7 seconds 162.588
+progress 97000000 best 7 seconds 163.971
+progress 98000000 best 7 seconds 165.798
+progress 99000000 best 7 seconds 168.35
+DONE best 7 seconds 170.659
+score 7 output 35
+12 or 10 3
+13 or 8 1
+14 or 3 1
+15 and 6 13
+16 or 10 8
+17 or 8 6
+18 or 5 3
+19 or 4 17
+20 and 0 14
+21 or 9 1
+22 or 0 21
+23 and 4 18
+24 or 9 5
+25 and 12 24
+26 or 16 9
+27 and 26 11
+28 or 15 27
+29 and 19 7
+30 and 22 2
+31 or 25 28
+32 or 30 29
+33 or 32 20
+34 or 23 31
+35 or 33 34

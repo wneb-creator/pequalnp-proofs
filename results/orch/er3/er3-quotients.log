@@ -1,0 +1,5 @@
+{"merges": 0, "partitions": 1, "eligible": 1, "best_excess": 0, "elapsed": 0.0477417049999076}
+{"merges": 1, "partitions": 54, "eligible": 0, "best_excess": null, "elapsed": 0.049595160000080796}
+{"merges": 2, "partitions": 1119, "eligible": 0, "best_excess": null, "elapsed": 0.11823374300001888}
+{"merges": 3, "partitions": 11429, "eligible": 0, "best_excess": null, "elapsed": 1.0546778929999618}
+{"total": 12603, "eligible": 1, "best": [24, 8, 31, 31], "elapsed": 1.0547486890000073}

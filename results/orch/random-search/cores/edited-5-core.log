@@ -1,0 +1,32 @@
+compressed constraints 20
+Edited core tau 4 minimum covers 1 seed 615 rounds 1000000
+initial best 1
+score 1 output 21
+9 or 2 8
+10 and 1 9
+11 or 4 7
+12 and 8 11
+13 or 4 6
+14 or 13 0
+15 and 5 14
+16 or 5 4
+17 or 16 2
+18 and 3 17
+19 or 10 12
+20 or 19 18
+21 or 15 20
+DONE best 1 seconds 0.278504
+score 1 output 21
+9 or 2 8
+10 and 1 9
+11 or 4 7
+12 and 8 11
+13 or 4 6
+14 or 13 0
+15 and 5 14
+16 or 5 4
+17 or 16 2
+18 and 3 17
+19 or 10 12
+20 or 19 18
+21 or 15 20
