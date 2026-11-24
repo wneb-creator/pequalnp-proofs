@@ -41,3 +41,10 @@
 
 - 2026-11-24T18:30:55.300672+00:00: circuit_route completed reader-specific factor erasure and leastness wrapper; independently reviewed DoubleStar for checkpoint007b (PASS).
 - 2026-11-24T18:31:12.402133+00:00: checkpoint7 central semantic and size-preserving transformations built; split independent review passed. Seventh subagent added for forced-gate semantics.
+
+- 2026-11-24T18:31:31+00:00 combinatorial_route: singleton sharing, monotone prime cover, same-side false-gate application, and reader factor-choice adapter compiled; child forced_semantics completed forcing-value and exact-target equality proofs.
+
+- 2026-11-24T18:31:43.114029+00:00: counterexample_search compiled complete false-gate AO2 elimination with strict size saving and exact forced-output semantics; root notified immediately.
+- 2026-11-24T18:32:53.244345+00:00: checked three-point-factor line-cover/cardinality obstruction for two-dirty core.
+- 2026-11-24T18:38:29.159664+00:00: prior toolsession/agent handles disappeared; files and all seven pushed checkpoints intact. Renewed ownlease and restarted timer as detached process with PIDfile. New recoveryworkers review_recovery, structure_recovery, composition_recovery, full_gap_challenge; composition child or_context added. Total subagentsused12.
+- 2026-11-24T18:39:18.379173+00:00: checkpoint8 build and recovered independent review passed; total13subagents after literature child.

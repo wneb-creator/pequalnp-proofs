@@ -1,0 +1,76 @@
+Independent checkpoint008 review
+UTC: 2026-11-24 18:38:44
+Reviewer: /root/review_recovery (independent from implementation)
+Source: lean/PEqualNP/Outside/L_meta_2584.lean
+SHA256: c2f9a622a371d707bc7281632460230d3dbb38696ca5d68e0986e8a8f743cd71
+Size: 5144 lines; 227815 bytes; below the 512 KiB limit.
+Scope: all 1098 added lines in the current source diff against HEAD
+(checkpoint007), plus full-file lexical and namespace/import/option checks.
+Full reviewed diff is saved at
+/tmp/oec/pequalnp-pilot-39/review-recovery-008.diff.
+
+Verdict: CHECKPOINT PUSH READY; partial result only; NOT PR READY.
+No mathematical or source-format blocker was found in this diff. The exact
+posted final theorem is absent. This review does not certify a proof or a
+refutation of gap L-meta-2584 and does not supersede the main checker.
+
+Mathematical review:
+- FlatRead.vector_decodes_word is a genuine inverse for encoded support,
+  by strong induction on wire index and AO2 predecessor bounds. The read-two
+  equivalence correctly uses min(count,3) <= 2 to recover count <= 2.
+- The read-two simulation lemmas use supported sublist witnesses and count
+  monotonicity. Whole IsReadK preservation includes functional equivalence;
+  the per-list version correctly requires only witness preservation.
+- Rotation wrappers use the existing well-formedness, semantic-dominance,
+  private-wire avoidance and word-simulation hypotheses explicitly.
+- Pure-OR tracing/semantics and side-restricted pair support handle input,
+  absent-wire and OR-gate cases. Disjoint point supports cannot both hold on
+  a point-line pair. The factor-choice argument tests two non-neighbor points
+  together with one line and handles empty factors correctly.
+- Shared-context center uniqueness invokes the existing no-four-cycle bound
+  after exhibiting two distinct singleton-supported points.
+- forcedCircuit replaces a valid gate by false. Its output is pointwise
+  below the original for AND/OR circuits, and agrees on an input where the
+  old gate was false. The graph/incidence preservation wrappers use pair
+  cover and monotonicity with their explicit premises.
+- FalsePropagation uses none exclusively as false and some j as an actual
+  wire. Simplification is justified for binary AND/OR and nullary false OR.
+  Its invariant includes valid remapped wires and exact values, including
+  default reads beyond the current prefix. The output sentinel is beyond
+  the completed wire list and therefore false. Strict gate-count decrease
+  is justified by the explicit removed nullary gate. The generated circuit
+  is AO2, so the minimum-size contradictions are within the original class.
+- Minimum-gate productivity follows from pair-cover preservation and strict
+  false-gate elimination; it does not assume the desired posted theorem.
+- ChoiceErase.least_no_choice_and is a direct minimum-size contradiction
+  under the existing explicit reader-selection and soundness hypotheses.
+- The point-factor classification is valid: for each line one full factor
+  must lie in its neighborhood; a factor of size at least two can serve at
+  most one line in a four-cycle-free incidence relation; three factors
+  therefore cover at most three lines. The shared point premise correctly
+  converts a factor of cardinality at most one into that singleton.
+
+Format/red-team checks:
+- git --no-pager diff --check passed.
+- Imports are exactly Mathlib and PEqualNP.Defs, on import lines.
+- All helpers remain under PEqualNP.Outside.L_meta_2584 and its children.
+- No sorry, new axioms, native_decide, unsafe, initialize, macros, syntax,
+  notation, elab, attribute, implemented_by, run_tac, _root_, string literal
+  quotes, hash commands, or attribute annotations were found.
+- No new structures, inductives, classes or instances were found.
+- The only set_option commands are the previously present maxRecDepth and
+  maxHeartbeats limits, each scoped with in.
+- There are no theorem declarations; in particular the required last
+  top-level exact-statement theorem is not present.
+
+Validation evidence:
+- Root supplied successful build-011 result for this source.
+- Independently inspected saved complete log metadata: build-011.stdout is
+  63074 bytes and ends: Build completed successfully (18419 jobs).
+- build-011.stderr exists and is empty.
+- No additional build or main-checker run was needed for this review.
+- Main checker is NOT accepted: the existing reported baseline is
+  REJECTED (no-theorem). The checkpoint must remain labeled partial.
+
+No source changes were made by this reviewer. The hash above was rechecked
+after reviewing the entire diff and before writing this report.

@@ -56,3 +56,10 @@ Build010: exit0; Build completed successfully (18419 jobs).
 Independent review: review-007a.txt plus review-007b.txt cover entire new diff.
 Sub-agents: status_review, toolchain_setup, combinatorial_route, circuit_route, counterexample_search, structural_route, combinatorial_route/forced_semantics
 TIMING total=34.0 subagents=7
+
+Checkpoint 8: exact read-vector/word correspondence, actual read-2-preserving rotation, false-gate elimination, forced-input semantics, minimum-gate productivity, pure-factor choices.
+Target: 5144 lines, 227815 bytes.
+Build011: exit0; Build completed successfully (18419 jobs).
+Independent review: review-008.txt passed. Main checker remains not accepted (no final theorem).
+Sub-agents: previous7 plus review_recovery, structure_recovery, composition_recovery, composition_recovery/or_context, full_gap_challenge, full_gap_challenge/literature_challenge (13 total).
+TIMING total=42.1 subagents=13
