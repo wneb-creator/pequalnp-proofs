@@ -20,3 +20,5 @@
 - 2026-11-24T23:42:24.753396+00:00: J checker replay interrupted after 72.45 seconds at peak 12279684 KiB to avoid exhausting memory with the parallel build. Verdict was CHECKER FAULT (verifier exit 130), not ACCEPTED or a mathematical rejection. Bit-parallel K is the main validation path.
 
 - 2026-11-24T23:45:03.049411+00:00: Environment restart interrupted scratch K compilation. Files and pushed commits survived. Named K build restarted with source hash b0dda0134cc46b4294732aed75e0eb8efbeaac5cc6c489657066b131950cfeba, 6516 lines, 518892 bytes. Independent static review and guard pass. No full K compile claim yet.
+
+- 2026-11-24T23:55:19.943820+00:00: FULL NAMED K BUILD PASSED: 704.02 seconds, peak 6093164 KiB. Source b0dda0134cc46b4294732aed75e0eb8efbeaac5cc6c489657066b131950cfeba. Checker will run alone. L balanced-chunk and M pointwise alternatives are guarded but uncompiled and not adopted.

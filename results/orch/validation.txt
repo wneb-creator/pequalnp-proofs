@@ -45,3 +45,7 @@ TIMING total=110 subagents=6
 2026-11-24T23:45:03.049411+00:00: Named variant K pending full build/checker. Source SHA256 b0dda0134cc46b4294732aed75e0eb8efbeaac5cc6c489657066b131950cfeba, 6516 lines, 518892 bytes; static independent review and guard PASS. Its bit-parallel evaluator comes from zakpgrove PR10495 head 570ca4aa3bd1085ad0944150ae27a1f236c276bb, with individual kernel checks retained.
 Sub-agents: six.
 TIMING total=116 subagents=6
+
+2026-11-24T23:55:19.943820+00:00: FULL BUILD K PASS: lake build PEqualNP.Outside.L_meta_1677, exit 0, 704.02 seconds, peak 6093164 KiB. Source b0dda0134cc46b4294732aed75e0eb8efbeaac5cc6c489657066b131950cfeba, 6516 lines. Checker still pending.
+Sub-agents: six.
+TIMING total=127 subagents=6

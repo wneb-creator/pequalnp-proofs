@@ -1,0 +1,14 @@
+{
+  "started_at": "2026-11-24T23:43:18.840137+00:00",
+  "finished_at": "2026-11-24T23:55:02.860638+00:00",
+  "elapsed_seconds": 704.0205371729999,
+  "exit_code": 0,
+  "user_cpu_seconds": 736.691916,
+  "system_cpu_seconds": 35.015446,
+  "peak_rss_kib": 6093164,
+  "command": [
+    "lake",
+    "build",
+    "PEqualNP.Outside.L_meta_1677"
+  ]
+}
