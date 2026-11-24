@@ -1,0 +1,10 @@
+Independent third checkpoint review: PASS
+UTC: 2026-11-24T23:24:39.101132+00:00
+File: lean/PEqualNP/Outside/R_meta_4340_47.lean
+SHA256: f02dd54994a998de634c860028a07276266a9874f8389dc06ce71d2572d364e5
+Lines: 242
+Exact conclusion comparison and plain-file scan passed.
+Reviewed full change: primary outputs use singleton witnesses; missing outputs use edge01 witness; all witness values independently checked in Python.
+Trimming to take(output+1-10) preserves the existing output value because later gate evaluation only appends wires. Bounds and last-output equation are correct.
+Stage-specific normalization remains sound and transfers both restrictions. Child statements are smaller, distinct, independent; no parent statement embedded.
+No Lean build launched; fullchecker result and finalsingle-file diff remain required.

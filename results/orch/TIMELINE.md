@@ -7,3 +7,4 @@
 - 2026-11-24T23:20:33.094736+00:00: topological exact-two-input reduction and 15-gate upper-bound component compile.
 
 - 2026-11-24T23:20:38.943347+00:00: counterexample strategy finished five300-second stochastic searches without witness; completed kernel-checked15-gate tight upper bound component.
+- 2026-11-24T23:24:15.020746+00:00: last-output normal form compiles without warnings (242 lines).

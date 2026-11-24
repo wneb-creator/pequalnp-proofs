@@ -1,6 +1,6 @@
-Compiled normalization reduction checkpoint.
-Lean: topological exact-two-input reduction, lake env lean, exit 0.
-Additional kernel-checked component: explicit 15-gate tail for OR(0,6), all512 input rows.
-Full local checker: pending.
+Compiled last-output normalization reduction checkpoint (242 lines).
+Lean: lake env lean, exit 0, no warnings.
+Independent review and outside format guard: PASS.
+Full local checker: running.
 Sub-agents: 5 (status/review, toolchain, structural proof, counterexample search, reduction)
-TIMING total=10 subagents=5
+TIMING total=15 subagents=5
