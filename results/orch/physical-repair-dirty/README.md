@@ -1,0 +1,9 @@
+# Physical repair with explicit diagnostic restrictions
+
+This independently reviewed delta adds --reject-singletons and --min-nontrivial-dirty to SearchPhysicalRepairDiverse. Singleton behavior is computed exactly by evaluating the circuit over one bit per input singleton. The diagnostic dirty count uses the complete extremal test basis: anAND accepts apositive andnegative test, and its operand signatures are incomparable. These counts also refine the diversity key. The initial seed is checked against both requested restrictions.
+
+The restrictions apply only to heuristic beam admission. The unchanged zero-error witness path still independently checks the full raw basis before accepting a computational circuit; subsequent Lean verification is required. No necessity theorem for arbitrary raw circuits or general UNSAT conclusion is claimed. Mutation enumeration, fixed physical size and scalar semantics are unchanged.
+
+The included three-dirty seed has26original gates padded to28 by absorption and rejects every singleton. Its full88case replay still finds56negative errors, so it is explicitly INVALID. A one-round author calibration and independent source review are preserved. Run005 uses this source with --min-nontrivial-dirty 2 --reject-singletons, width256/40rounds/120seconds, seed14772943; that ongoing run is not part of this completed snapshot.
+
+For transparency, the completed earlier unrestricted Diverse run004 is also preserved:9,773,056neighbors/120.0408seconds reduced the recorded positive-complete errorcount45→25. Its latest state had only one nontrivialdirtyAND and accepted singleton inputs13,14,17. This is explicitly INVALID and motivated the new admission restrictions; it is not evidence of a target28circuit. Two intermediate INVALID artifacts and the complete run log are included.

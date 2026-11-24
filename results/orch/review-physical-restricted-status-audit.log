@@ -1,0 +1,5 @@
+physical-restricted-005006 physical-repair-alternative6-005/improved-5.json gates 28 wrong 55 dirty 4
+physical-restricted-005006 physical-repair-alternative6-005/improved-6.json gates 28 wrong 53 dirty 4
+physical-restricted-005006 physical-repair-alternative6-005/improved-9.json gates 28 wrong 52 dirty 3
+physical-restricted-005006 physical-repair-alternative6-006/improved-1.json gates 28 wrong 49 dirty 3
+PASS physical-restricted-005006 manifest 8 circuits 4 scalar_cases 352 valid 0 INVALID 4

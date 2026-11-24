@@ -1,0 +1,4 @@
+{"file": "/tmp/oec/pequalnp-pilot-29/physical-repair-alternative6-005/improved-5.json", "size": 28, "wrong_raw": 55, "nontrivial_dirty_gates": [7, 15, 23, 25], "accepted_singletons": 0, "all_positive_tests": true, "full88_replay": "PASS"}
+{"file": "/tmp/oec/pequalnp-pilot-29/physical-repair-alternative6-005/improved-6.json", "size": 28, "wrong_raw": 53, "nontrivial_dirty_gates": [7, 15, 23, 25], "accepted_singletons": 0, "all_positive_tests": true, "full88_replay": "PASS"}
+{"file": "/tmp/oec/pequalnp-pilot-29/physical-repair-alternative6-005/improved-9.json", "size": 28, "wrong_raw": 52, "nontrivial_dirty_gates": [7, 15, 25], "accepted_singletons": 0, "all_positive_tests": true, "full88_replay": "PASS"}
+{"file": "/tmp/oec/pequalnp-pilot-29/physical-repair-alternative6-006/improved-1.json", "size": 28, "wrong_raw": 49, "nontrivial_dirty_gates": [7, 15, 25], "accepted_singletons": 0, "all_positive_tests": true, "full88_replay": "PASS"}

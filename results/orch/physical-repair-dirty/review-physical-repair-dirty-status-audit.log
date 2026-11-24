@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "file": "results/orch/lemmas/SearchPhysicalRepairDirty.py",
+  "sha256": "1878670e3b01d20f117c697d6337eb2e39636814c55332bf6ac19811c06fffa4",
+  "review": "Independent incremental source/math review against previously reviewed source.",
+  "findings": "Exact delta adds optional minimum nontrivial-dirty count and singleton-rejection admission filters plus diagnostic diversity key. Singleton bitsets evaluate exactly all primary singleton assignments; dirty count is explicitly basis-signature diagnostic. Initial seed checked. Zero-error candidate still receives full raw scalar verification before heuristic filters. No witness or impossibility claim is added."
+}

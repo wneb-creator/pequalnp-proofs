@@ -1,0 +1,22 @@
+PARTIAL RESULTS ONLY. Exact gap L-meta-1477 remains unproved.
+Named-file checker remains REJECTED (no-theorem); no proof PR opened.
+All results retain their stated restricted circuit hypotheses. Large assembled results are preservation artifacts only.
+
+OrdinaryJointCoverage.lean lines=9036 bytes=446855 SHA256=72dfc8971665bd9adc168ce3216cee67d0c60494019f5a69c345c43c279f4ddf; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/ordinary-joint-coverage-build-002.log
+LabeledFrontier.lean lines=8198 bytes=399764 SHA256=2360db4d0545cf7d91428170279fe6f6cc7b28f0687d0cda3eb42c903f55a35b; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/labeled-frontier-build-001.log
+SharedMaskCollisionTwo.lean lines=381 bytes=18208 SHA256=c9ea352feb1635f5ca2c026e4580de4186c925e1d66d632297b1b3e282f7c703; author build EXIT0; independent review PASS by root; full log=results/orch/shared-mask-collision-two-build-001.log
+SingletonPairSpokes.lean lines=9527 bytes=470729 SHA256=a1bdb4548f630a79789e1d26603769a430a05448baef3f97e5038e5e430729aa; author build EXIT0; independent review PASS by root; full log=results/orch/singleton-pair-spokes-build-001.log
+PlaneSingletonMinimum.lean lines=12505 bytes=606272 SHA256=9327b00584889504f55ad3f23448b3f1393fbc5cb2b596a348bb58612db0834e; author build EXIT0; independent review PASS by gate_invariants; full log=results/orch/plane-singleton-minimum-build-001.log
+TwoCentersValidPair.lean lines=515 bytes=25870 SHA256=7210f98205883f9639cc3664ba277928f0de8a6226ddb32fe4c9ab1f8850c783; author build EXIT0; independent review PASS by normal_form; full log=results/orch/two-centers-valid-pair-build-001.log
+ActualMaskCollision.lean lines=8423 bytes=411838 SHA256=41510bb339a0717d80570ccb8205df5e9e5cab468878761bf4dd54a80029a779; author build EXIT0; independent review PASS by status_audit; full log=results/orch/actual-mask-collision-build-001.log
+GeneralJointCoverage.lean lines=9129 bytes=452341 SHA256=cf84e7c63daabcd7f47a54f18083a6f046cc20aa215b52a30d98dcf64157cb47; author build EXIT0; independent review PASS by normal_form; full log=results/orch/general-joint-coverage-build-001.log
+OrdinaryJointFull.lean lines=9929 bytes=489150 SHA256=2ff69e1c4fed8123d7c36460357f3ac8749ea23d0c6263e4097245206144c98a; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/ordinary-joint-full-build-002.log
+SharedMaskCoverExchange.lean lines=436 bytes=20579 SHA256=76ce5ede4c52dedd0e010658129388177e84541e93d07be5c6d100875fe44098; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/shared-mask-cover-exchange-build-002.log
+SingletonCommonFilterCover.lean lines=202 bytes=10213 SHA256=a7e51ceb3953e86f82698b86a43c3687d0f77e91e385c72e9232a13036852e99; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/singleton-common-filter-cover-build-001.log
+SingleCommonFilter.lean lines=9502 bytes=472032 SHA256=8babcf8b762e2dba6ab9d013b6238ead2371a1c9f16a34e44c07fa477bad9ea7; author build EXIT0; independent review PASS by gate_invariants; full log=results/orch/single-common-filter-build-001.log
+physical-repair-dirty: 14 manifest entries hash/bytechecked; independent package review PASS by status_audit; INVALID candidates remain explicitly labeled; no target witness.
+physical-restricted-005006: 8 manifest entries hash/bytechecked; independent package review PASS by status_audit; INVALID candidates remain explicitly labeled; no target witness.
+
+Cleanup: exact theorem unavailable; capped cleanup pass not triggered. Named-file lines unchanged 10143 before/after.
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=306.7 subagents=6

@@ -1,0 +1,3254 @@
+{
+  "output": "results/orch/lemmas/SingleCommonFilter.lean",
+  "bytes": 472032,
+  "lines": 9502,
+  "sha256": "8babcf8b762e2dba6ab9d013b6238ead2371a1c9f16a34e44c07fa477bad9ea7",
+  "sources": [
+    {
+      "path": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "sha256": "cf84e7c63daabcd7f47a54f18083a6f046cc20aa215b52a30d98dcf64157cb47"
+    },
+    {
+      "path": "results/orch/lemmas/ProductJointCover.lean",
+      "sha256": "174778182b01b7f776ba5c7c4753b35985f36868d92de21d524c51223fc4d25c"
+    },
+    {
+      "path": "results/orch/assembly/MaskedUstarCoverOnly.lean",
+      "sha256": "b28e1b72456e58fb3437f1351f47c5f4eb0dbcd61850946ee4392da0bc274851"
+    },
+    {
+      "path": "results/orch/assembly/SingleCommonFilterWrapper.lean",
+      "sha256": "962b424e8a718e551b6cf4468f7d60f04e688c381d548f8980fd997d4a8abf82"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.stepWire",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 15,
+      "kind": "def",
+      "sha256": "c1cb155ae82ea40b39e70de89253cab6d431349b77839ca0b0e21148ee07bd23"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.wires_eq_foldl",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 18,
+      "kind": "lemma",
+      "sha256": "861a90b5d64faf98ad05c021468709a42d887c3963281ca05f44f63bb80b7715"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.foldl_length",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 21,
+      "kind": "lemma",
+      "sha256": "fccce381c79cc9ee76ce8f873a6d03686b6caea064cbe617dd62debdd9cda22b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.foldl_getD_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 30,
+      "kind": "lemma",
+      "sha256": "0e5a955ec971240428cd6f683b7e54587be7586144083ee12dbce958fb3d2260"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.getD_ge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 40,
+      "kind": "lemma",
+      "sha256": "17867b0c424a790937baf025cb3cb26f89d7ae5f17e86652a39ecb02231aaddf"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.foldl_getD_gate",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 43,
+      "kind": "lemma",
+      "sha256": "2b79d64db880b459b2f9dc237e455a7144aa418e2ca1f9bb199b67f1ebe276d6"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.val",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 77,
+      "kind": "def",
+      "sha256": "33f181778036f46851dfd20931dd9ff92c3f564ef44f3b5927b490ff5464110c"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.eval_eq_val",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 79,
+      "kind": "lemma",
+      "sha256": "cee7abe7c77ab56927901621509cfcc03c67e5ba5a8a3a369079b5e004539e95"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.gateAt_eq",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 81,
+      "kind": "lemma",
+      "sha256": "ae7b89e0d2dae469c090f0fd9683a9dba1ed86ab3bc3fc7866c9c82d44965e26"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.gateAt_mem",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 84,
+      "kind": "lemma",
+      "sha256": "2d586bd7fbd468a3ec617df863e3c9aab1bb69cf79626901f41f86016c7df581"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.val_input",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 87,
+      "kind": "lemma",
+      "sha256": "0940f5ba8db49c5f8a082e64313cf3362468d2068377a5f2c01300a87008ef69"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.val_ge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 91,
+      "kind": "lemma",
+      "sha256": "565ec01ff3a67d43443b4701126657b3573e0f2ccb41bbd892602ec1c24a74d0"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.val_gate",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 95,
+      "kind": "lemma",
+      "sha256": "581049d5e29c8678b4832efb879d40d458af0f3c00dbb91c0eea9f1bdc1d14a4"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.OpMono",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 103,
+      "kind": "def",
+      "sha256": "b321beec829b58e581f937c6581c20113ba9f0ead6ce5bc1492d3e88b91f9231"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.opMono_eq",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 107,
+      "kind": "lemma",
+      "sha256": "ff8b36ec8f26b592f0796754658a7b85d7b1eeb2a3afe211daed573366441674"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.opMono_imp",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 111,
+      "kind": "lemma",
+      "sha256": "615e52e8856e735d2ab7e1d24cfa38fc96544ceab035b27e0a7bd13424c38116"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.val_or",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 119,
+      "kind": "lemma",
+      "sha256": "4d4e2fffd786c2bff49fb304707756150314bb054cda4d533f12af2cfa5457c5"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.val_and",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 132,
+      "kind": "lemma",
+      "sha256": "ed886f14411148ca64f9e9fb44281769002e9772330f3b125b2400972db739b1"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.biclique_star",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 146,
+      "kind": "lemma",
+      "sha256": "071c6e3d39b199e78bf95ed652adb07bac7748633b05780acd85c6e065a73f77"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.val_ofFn",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 158,
+      "kind": "lemma",
+      "sha256": "75a9a5c1b9576d41e0fa0f728ef91e78e771baa596e39803754edb74a3f1b3dc"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.gateVal_eq_val",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 163,
+      "kind": "lemma",
+      "sha256": "7590cb61a8bcc3f98f916a868b08045fe3dbfa8cf75a82208f49ff15636ba34f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.OrStep",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 166,
+      "kind": "def",
+      "sha256": "208c9bd3d45d9c369d99188beeed9b149baa56ec83741e697f4b214575ac4166"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.orStep_up",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 170,
+      "kind": "lemma",
+      "sha256": "6324cd2e26c17706dca5d9c349c45c6eaff499a79cf19462e419c94145c818a3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.or_trace",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 179,
+      "kind": "lemma",
+      "sha256": "641fd7b409892d8c366d6e5f1f6b10d5281edbee7edb7489cb0f029b1650ab3b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.pairInput_left",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 200,
+      "kind": "lemma",
+      "sha256": "fcd1fd6080391fe6cc42bc4b522bce45201cfdd80b3cde5389fc42380cbc0fa0"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.pairInput_right",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 204,
+      "kind": "lemma",
+      "sha256": "69fda0130a00bbe02331a29b345108d3901339a5e225683a2ace5064c792465e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.pairInput_true",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 208,
+      "kind": "lemma",
+      "sha256": "b0f05b716ef7df3bcec65c63eef225c36f86cda15414a9e7d461190ebf09920d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.graphFun_pair",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 212,
+      "kind": "lemma",
+      "sha256": "33d72e0b2f02acd54154f783c4cd02b8fdd605bcfde9ca420523455da6e126e3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.operand_trace",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 227,
+      "kind": "lemma",
+      "sha256": "79d6b8fefc21fd5e656e3f2703bc2a990dbc204a5aa1b86c8177203880cd7eb2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.reach_var_val",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 245,
+      "kind": "lemma",
+      "sha256": "1c528c13a529b1dde6ec6d299eb16eb2401d816a6041e8c03126a0e261ec290a"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.side_adj",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 251,
+      "kind": "lemma",
+      "sha256": "672146b1379a11ae160b6071a543b21e0c6738bae4cd36f1588a8c96e8733d56"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.edge_trace",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 268,
+      "kind": "lemma",
+      "sha256": "afc967be0c38b93685bd301eb682a5ded29b3ff0dc89c1601446c8108e36938a"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.below_of_reach",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 283,
+      "kind": "lemma",
+      "sha256": "7d27711348c93f4f3cb8b802bd33b7b2e7b5f2fdcc5e261405b8196dd4b12a58"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.cones_len",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 292,
+      "kind": "lemma",
+      "sha256": "ab4f31e0001254a0a73d343216d06b7c2f0d6c46c42a3ab0570a5bd55c98efa9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.cones_char",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 301,
+      "kind": "lemma",
+      "sha256": "0a8db656ec55f75b5852c4ea775558b561361bd20aed5eaef34e3f0d769062c2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.inCone_iff",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 362,
+      "kind": "lemma",
+      "sha256": "d362375c831f4d2e7ed95ed8dc14c19a0220bc4f6326b64a9930bb6ab6e0ff97"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.orStep_le",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 380,
+      "kind": "lemma",
+      "sha256": "933ea3f2662699e810548d3b1d830a1e8874b626ad9d601f11f464024f91e4af"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.orStep_cone",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 388,
+      "kind": "lemma",
+      "sha256": "508cb85db32acfa7beb0d961a0593a3419bc84c199944974c736e36d5e01aa79"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.operand_cone",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 405,
+      "kind": "lemma",
+      "sha256": "cf2320644bed269af954f4a1180fa9bc1c8cb39a099e806887c262925120344b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.orSets_len",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 415,
+      "kind": "lemma",
+      "sha256": "27770cb622b323a5471eac6b17ba150a298864eab38db109d03f786839c80bde"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.orSets_char",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 424,
+      "kind": "lemma",
+      "sha256": "a03f8a74124ba17b41e8622191c53544dfef366cb70da52b7d1064ec2fa0935b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.orReaches_iff",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 507,
+      "kind": "lemma",
+      "sha256": "a1643b8858595cea84f768b2c4fabe482565147a2210c132d0815b04dbf44cc0"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.reach_orReaches",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 526,
+      "kind": "lemma",
+      "sha256": "c195a13f983930f17915ce383ecf0aaeada848bab9f3fbc3f0d35ca216520c6e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.orReaches_reach",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 539,
+      "kind": "lemma",
+      "sha256": "e7a8fffd549af306ccd2849406c715254fefdd4ce82f51f1ab56ff5a62508056"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.mem_orIn_reach",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 554,
+      "kind": "lemma",
+      "sha256": "bd3870a5ed4b1d3e4aef77431128f88416a04759d0562b88241ed8e35afb16ab"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.reach_mem_orIn",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 562,
+      "kind": "lemma",
+      "sha256": "f5b0deb2e9cb2d325f6323c74986152a695279bde59874234a1a055ea5de07d3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.top_facts",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 572,
+      "kind": "lemma",
+      "sha256": "81bd76d394a6021fc32b9cf48f2541323b726c34c03ff3fed1dc1d833da6a01d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S90.off_star",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 607,
+      "kind": "lemma",
+      "sha256": "09a1fbdcb160dad7322cc70f124bf30ed14a3f1511b178eca44fd6694acd8382"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.stepWire",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 697,
+      "kind": "def",
+      "sha256": "c1cb155ae82ea40b39e70de89253cab6d431349b77839ca0b0e21148ee07bd23"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.wires_eq_foldl",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 700,
+      "kind": "lemma",
+      "sha256": "861a90b5d64faf98ad05c021468709a42d887c3963281ca05f44f63bb80b7715"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.foldl_stepWire_length",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 703,
+      "kind": "lemma",
+      "sha256": "e4d8a16006a2b1a8f7d9bcf14eb44019cf4faf802671dabb4d02c812680161da"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.foldl_stepWire_getD_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 712,
+      "kind": "lemma",
+      "sha256": "62d62b8145173eedc8e3115c85f3ae23936bb8fad702bf38cfecbde21910fbb9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.getD_ge_length",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 722,
+      "kind": "lemma",
+      "sha256": "15bbc2e81c6136ef9a38b58261a40f7c6d225a929d5c24a55a920ca3a4691f97"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.wires_length",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 726,
+      "kind": "lemma",
+      "sha256": "b3c4a203014b81669befc0f81efbc5073d0594522d9c77884f064d6bdb0aac02"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.shiftDown",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 730,
+      "kind": "def",
+      "sha256": "b18ba315c81797f976e5443c129e04703d28c52128877f5d14f45915011b9ef2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.wiresMatch",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 733,
+      "kind": "def",
+      "sha256": "de709f295fa3e2724dc2a1903271f2f93f0a7c79a9972662f9b7f3926f48fd02"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.wiresMatch_init",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 741,
+      "kind": "lemma",
+      "sha256": "880579509ffcdefb8a2ada5e014a3b10205753cb430447df65bd52803df5e0dc"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.wiresMatch_step",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 752,
+      "kind": "lemma",
+      "sha256": "84c298448394af1fd3938eb20bd5b2b4f7ea19853b0e89f4c814bc9a24f50b26"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.wiresMatch_getD_shiftDown",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 783,
+      "kind": "lemma",
+      "sha256": "ec67ae6f0794dd627a6df94bd6a4be7202dd92fa3dfae5e847ba3550b5b685f7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.foldl_wiresMatch",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 793,
+      "kind": "lemma",
+      "sha256": "1c031820a4303b1ec40a2f50c8c8a968951750a8fd167229343b96027feefd7f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.split_gates",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 822,
+      "kind": "lemma",
+      "sha256": "e0904b34551d24a797317f0f023036b0e194e9bb9419de28e84e2762c3e5f3fe"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.aliasWire",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 828,
+      "kind": "def",
+      "sha256": "d9899e59eadfd949141ac20deccb761cf00ce1f1aca6160d37df27946ea66cdf"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.aliasGate",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 831,
+      "kind": "def",
+      "sha256": "39f162747389954bae8f63fadc37a9a647e3bbf5ef690065c768bf28f3b8a716"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.W",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 834,
+      "kind": "def",
+      "sha256": "85d6f1d0da993e63c0bed57a1f50760fe96ab2cbc4aabaa16097328adf352b4d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.eraseC",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 837,
+      "kind": "def",
+      "sha256": "18a96d796bdb9bc46e323679b915b775920cc480681a5bc8922062d118d64f83"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.appOr",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 841,
+      "kind": "def",
+      "sha256": "23f448dcd033768f8a97556573b471da5a308f48f0cf7d45387d8c1279cc06b7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.truncC",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 844,
+      "kind": "def",
+      "sha256": "e8d4dc3fa8a2975d2f44f1bc4e9fae1b760d66b8ccc9a47d1269623468d02f04"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.gateAt_eq",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 847,
+      "kind": "lemma",
+      "sha256": "f5e742dcb01fa37f8d444f70d93dda74f91e29064a7280ac31917689f3dcec84"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.erase_wires",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 850,
+      "kind": "lemma",
+      "sha256": "498a01a15dc6c8e60d3c18416e87fa1f0cb972ca7d39bce45f41362197bf0d44"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.erase_length",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 915,
+      "kind": "lemma",
+      "sha256": "135953ffcdc63e7347dcf2cd35227b86f6c7522278a1cc356f3c8835c126764d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.erase_gateAt_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 919,
+      "kind": "lemma",
+      "sha256": "76b4a2cc53ac621811d1a0f98249d5140b56e710046122a8faecc7f9bcf73f27"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.erase_gateAt_ge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 925,
+      "kind": "lemma",
+      "sha256": "6c4298c952d164776ac142231b1a46e460e7f6a2ecbc9e58275741275e366762"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.prefix_W",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 935,
+      "kind": "lemma",
+      "sha256": "e686e88d02de59a221da0d2a4a79d0ba1dafe5bf4a5f00be3fb48306e05072ff"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.erase_W_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 944,
+      "kind": "lemma",
+      "sha256": "28989b3839b5a87192bf1496632664eb7d0a854344ab72530a565ac9c4ae6808"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.appOr_W_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 954,
+      "kind": "lemma",
+      "sha256": "160f9c76cc4fe7e2b429210330d183a34001385a490eb6c605cb9ceae3afe63c"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.W_gate",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 962,
+      "kind": "lemma",
+      "sha256": "cbd7890a4a44de068c4e9d8fbc9b13603c730bd396e2b9510f030bbbf4d2a53e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.W_input",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 987,
+      "kind": "lemma",
+      "sha256": "0d93033fa5ad7af9e66876e7cdecbfd4c07dd395c56b838203bb4fb8a4a28f9e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.W_or",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 993,
+      "kind": "lemma",
+      "sha256": "bfb6aab3eab6f17a49e329b55714207dd93ea749d5b676cb374f0ae7ff87bacd"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.W_and",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1000,
+      "kind": "lemma",
+      "sha256": "5226e5e2aba05e8dd4b65113eed6c52496a2f6ea996eeb3c7819f54334f2f692"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.appOr_gateAt_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1007,
+      "kind": "lemma",
+      "sha256": "b76fc3d6703931d0966317078e3d056f9f5ee887112a0584d8aaf6b220d90a3f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.appOr_gateAt_last",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1011,
+      "kind": "lemma",
+      "sha256": "815e7d786d4f6507f649c464c15a1b18ccfaf3998a552e6d8097da49b01570e1"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.appOr_eval",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1015,
+      "kind": "lemma",
+      "sha256": "98885d53f5061dd7a2570f79cb7243962ece9aef27ddeb46664d9128312dc677"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.AO",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1023,
+      "kind": "def",
+      "sha256": "248bcc6e4b1f669f4c5d43258971927d85076be2a0b974673e3dff53896c6fab"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.Least",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1027,
+      "kind": "def",
+      "sha256": "dae787b38abc1a904ba3824dd2cbd3c4702cc852e5e7f0dcc111402b63317962"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.Bel",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1032,
+      "kind": "def",
+      "sha256": "84653967bfad96073779c27bb120e5254e35c812dad21bdedcc792590990a169"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.alias_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1035,
+      "kind": "lemma",
+      "sha256": "4f625c77ed6891edfa417efac8301d343748e24e24211703c34883c4d8338011"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.erase_AO",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1040,
+      "kind": "lemma",
+      "sha256": "5aee8166bb68de9e95f85cb76810fd916acb40ac097d54f0700844985c4e74f3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.appOr_AO",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1052,
+      "kind": "lemma",
+      "sha256": "346742fa357953828edb1bc83e50435691b8b8bd22d24a94465967ea3af3c361"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.trunc_AO",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1063,
+      "kind": "lemma",
+      "sha256": "6f1db78f84cb21c499143ec9f61ddfdbd8a506b6bfb896d38086a5ef37bbd8cb"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.trunc_W",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1071,
+      "kind": "lemma",
+      "sha256": "6d8163906a377db332b909d2e5b46d9a71bea3f75c33abb685eda9e4a709b5c3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.least_out",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1081,
+      "kind": "lemma",
+      "sha256": "91e5d8804515b917d4f14809ef1e6ba174ab77f0e0184ef497e19e6bda0577c9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.least_read",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1110,
+      "kind": "lemma",
+      "sha256": "1fe0de2822a1ca3160a02f96855e37bf2f6cb03d82f538b8b52fd74b476c726e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.least_nodup",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1123,
+      "kind": "lemma",
+      "sha256": "53506deb0506ef56fa9a756efaf854242290333500742d21a76b2e817f822b42"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.red",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1134,
+      "kind": "lemma",
+      "sha256": "493a24a44fbc8846cf66241d0cc1efe02b2c40ac2182457ec297fa4c3c889580"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.two_readers",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1153,
+      "kind": "lemma",
+      "sha256": "da7ad254d4357aabe3f3155c4150e1929cb09322a2f7fba3d295b55158b8e832"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.one_reader",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1201,
+      "kind": "lemma",
+      "sha256": "df69e7dbea61bd93a2c6048941dea3ec6e546e8271473b3e538746eba96172b5"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.or_children",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1287,
+      "kind": "lemma",
+      "sha256": "4484ec63a6abef4b978558f41ea10c03759edb97c6c3b5db7e654925195c3d61"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.has_top",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1320,
+      "kind": "lemma",
+      "sha256": "f6deaa2e7fc7317ce5c335818ce7daaab4518bbcfa732e56b5f7855a00bc026e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.up",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1341,
+      "kind": "lemma",
+      "sha256": "5d0fa06b7a029a63abd6f159d3efc8cec20ebea0d1fb33944b5c4c1deff4c33f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.main_abs",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1371,
+      "kind": "lemma",
+      "sha256": "79ad8d4791e1efc194160c3474166bf10adba26d413fd46fdc79773ebb7611fb"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.coneFold_length",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1474,
+      "kind": "lemma",
+      "sha256": "f58e0a4074968f27389b0b1a36e725d61f478aac09be81c3544f72741e0e2059"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.coneStep_getD_last",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1483,
+      "kind": "lemma",
+      "sha256": "8c70a367e82b3ef9fe57d6b7b513236a3dcb8b3679ad61a90b0df90c857fa518"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.coneStep_getD_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1489,
+      "kind": "lemma",
+      "sha256": "fa330157a93980d02423d617095df0cad927737b6cd678f4bfa3238db2d34ee8"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.coneFold_getD_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1493,
+      "kind": "lemma",
+      "sha256": "cc58d6bc24a4d12dbdd80695755e19e6caee1f05614f831e25204f5d02721f76"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.inCone_iff",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1503,
+      "kind": "lemma",
+      "sha256": "7d139a8f7ccf89268f90f5d3eecd069f4a239e850757c1b33bb10c17d7b96055"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.inCone_c1",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1546,
+      "kind": "lemma",
+      "sha256": "8b12a99e337481af075b32e139bf83a9198416fd9104296088b8b03e6aa2fedf"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.inCone_c2",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1556,
+      "kind": "lemma",
+      "sha256": "0776a0c2407568ddb93bd720fe123c14e5b47c98bf49b3df199cb954a1f0629e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.edge_true",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1567,
+      "kind": "lemma",
+      "sha256": "cf248a28ac1feba91c6624215d47e396cfb2a87172967c9a6af9b942b0ca612e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.edge_var",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1576,
+      "kind": "lemma",
+      "sha256": "8b2732062cacc3faf449a052744bb84289c8e65091d8e2fc584fb72c648fff66"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.gf_true",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1585,
+      "kind": "lemma",
+      "sha256": "857adcd071e08904f6c7af1c71e8cee7e233a39e1dd00fa6986131f8cd5db8e2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.gf_var",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1590,
+      "kind": "lemma",
+      "sha256": "d286ddb128598cde32d9c013f0e6f65fad9195588f3259b6d04a8d8d87087417"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.AO_of_IsAO2",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1597,
+      "kind": "lemma",
+      "sha256": "a3b9698ed191788ad7cdc79dc62324081de11aa6cca4c5e121bfae43078258c7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.IsAO2_of_AO",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1608,
+      "kind": "lemma",
+      "sha256": "53526b4bd78f01918d4afa54622cdce6a22ec1a4941deec2ac2372f6784238a6"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.S98.main_real",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1627,
+      "kind": "lemma",
+      "sha256": "558189bf08dd8a079c336533172b65584a3f6e148a89414abe63f25ed328810e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.cover_g",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1680,
+      "kind": "lemma",
+      "sha256": "1680de0272e4e87772bb4326632187510bc337363b6b88e48a4921620f296e4f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.cover_bound",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1725,
+      "kind": "lemma",
+      "sha256": "433b019148c93934f098a175ddf760372a963882b019040b968a29d0d18b790a"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.four_split",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1739,
+      "kind": "lemma",
+      "sha256": "6b3a6220a4a13dbbc0243d2724f38ff48209c4314062cab00b6d572520b62d8d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.TwoNe",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1790,
+      "kind": "def",
+      "sha256": "0e421cdf8a062f827dc3d2ada94468b794c4d977e954875d755d3ad1ddbfbd91"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.cone_count2",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1793,
+      "kind": "lemma",
+      "sha256": "56462b98f9368139fc877d03ab2368e759cc839b747dda37debbe2a4d73442db"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.top_step2",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 1900,
+      "kind": "lemma",
+      "sha256": "ef4e655b33e61af0eade77404fc4f24167e76cf0d4beae0c05e08b9000bb9f14"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.star_count2",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2031,
+      "kind": "lemma",
+      "sha256": "12e67da881e1e1f4f0d607108ba0bcda201f703e14f3dea0b91669d5853fbd5f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.assemble2",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2097,
+      "kind": "lemma",
+      "sha256": "866d21cf8f691e08e9a4e0b149bd86afc6f1cb9a55c78659fc589dbf88c459a7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.gateAt_ge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2232,
+      "kind": "lemma",
+      "sha256": "5946cd00eefb0b8482962acf9eecb6a20ecc1cf18b23505fc3f8a7890ce153e4"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.orIn_iff_reach",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2237,
+      "kind": "lemma",
+      "sha256": "9e7afb94b392a5de60a8cf23f2bf9a6e47c60f64aae07a67753e7bd6da06c90e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.orIn_input",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2241,
+      "kind": "lemma",
+      "sha256": "a3d0e228f91c3a62712c18bfc374d34953cf9de57811853fb1b9efcab16bd13f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.orIn_gate",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2254,
+      "kind": "lemma",
+      "sha256": "fbdf1eb5c1f035105f93748f68320fce5a6b195b3da15f9450898db249d45283"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.junk_iff",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2271,
+      "kind": "lemma",
+      "sha256": "62aca77b96a1537b7bb1b8661143b56a50981f521882cb3abb4dbfe8694f4ea8"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.opnd_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2291,
+      "kind": "lemma",
+      "sha256": "8e097241bf7b248eaa203e2081718d753c64de33bc0f33863aee56c28f3ed307"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.rtg_conv",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2301,
+      "kind": "lemma",
+      "sha256": "eecbc1a8b54c6ade8ce7dc5aaa17fb89808e059a0031ad57ecc86163f1acf513"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.two_facts",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2313,
+      "kind": "lemma",
+      "sha256": "b38e2e8239947983010d6ec6e1237a3b06779bbfede22074832b01b417712e21"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P1.main",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2349,
+      "kind": "lemma",
+      "sha256": "b5a9f87bb0a38a0f7ed0135030c2910f58f2196168a35cdb68b86cc5de96830e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.prev1",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2499,
+      "kind": "lemma",
+      "sha256": "c5bfb26643e59f27ebec7d755d27eec9c966752e69d6001e51628e8a93b82af5"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.fin2_sub",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2518,
+      "kind": "lemma",
+      "sha256": "7dde44cb37150b5053942858bc35ec76008b5a6235c9f793be17bbc019ce1335"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.fin2_ne",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2520,
+      "kind": "lemma",
+      "sha256": "f9950f55a02e453fa7c297910d4915adff6522a9a070373c926ce2f7b34c05fe"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.fin2_ne'",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2522,
+      "kind": "lemma",
+      "sha256": "4bc642a8fbd8a0051618110a42953a07a8dfb89acad5e7a7294be08d43a506b8"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.fin2_both",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2524,
+      "kind": "lemma",
+      "sha256": "596389c24f8ab743a46208b7b114c7b0900b74ffd30165cc3796ec1814cf1b47"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.count_fibres",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2529,
+      "kind": "lemma",
+      "sha256": "e0946958a8a35143c2bc97d49f4e1a18c560dc415ce720cd4c8c2ea84c596d6d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.core",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2558,
+      "kind": "lemma",
+      "sha256": "1b34dd8366289a13b1d12c50c595e9aa68aba92a2a4705bef93beb907c2e1214"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.stepWire",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2685,
+      "kind": "def",
+      "sha256": "c1cb155ae82ea40b39e70de89253cab6d431349b77839ca0b0e21148ee07bd23"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.wires_eq_foldl",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2688,
+      "kind": "lemma",
+      "sha256": "861a90b5d64faf98ad05c021468709a42d887c3963281ca05f44f63bb80b7715"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.foldl_stepWire_length",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2691,
+      "kind": "lemma",
+      "sha256": "e4d8a16006a2b1a8f7d9bcf14eb44019cf4faf802671dabb4d02c812680161da"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.foldl_stepWire_getD_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2700,
+      "kind": "lemma",
+      "sha256": "62d62b8145173eedc8e3115c85f3ae23936bb8fad702bf38cfecbde21910fbb9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.getD_ge_length",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2710,
+      "kind": "lemma",
+      "sha256": "15bbc2e81c6136ef9a38b58261a40f7c6d225a929d5c24a55a920ca3a4691f97"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.wires_length",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2714,
+      "kind": "lemma",
+      "sha256": "b3c4a203014b81669befc0f81efbc5073d0594522d9c77884f064d6bdb0aac02"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.split_gates",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2718,
+      "kind": "lemma",
+      "sha256": "e0904b34551d24a797317f0f023036b0e194e9bb9419de28e84e2762c3e5f3fe"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.W",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2724,
+      "kind": "def",
+      "sha256": "85d6f1d0da993e63c0bed57a1f50760fe96ab2cbc4aabaa16097328adf352b4d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.gateAt_eq",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2727,
+      "kind": "lemma",
+      "sha256": "f5e742dcb01fa37f8d444f70d93dda74f91e29064a7280ac31917689f3dcec84"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.W_gate",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2730,
+      "kind": "lemma",
+      "sha256": "cbd7890a4a44de068c4e9d8fbc9b13603c730bd396e2b9510f030bbbf4d2a53e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.W_input",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2755,
+      "kind": "lemma",
+      "sha256": "0d93033fa5ad7af9e66876e7cdecbfd4c07dd395c56b838203bb4fb8a4a28f9e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.W_or",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2761,
+      "kind": "lemma",
+      "sha256": "bfb6aab3eab6f17a49e329b55714207dd93ea749d5b676cb374f0ae7ff87bacd"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.W_and",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2768,
+      "kind": "lemma",
+      "sha256": "5226e5e2aba05e8dd4b65113eed6c52496a2f6ea996eeb3c7819f54334f2f692"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.AO",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2775,
+      "kind": "def",
+      "sha256": "248bcc6e4b1f669f4c5d43258971927d85076be2a0b974673e3dff53896c6fab"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.coneFold_length",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2780,
+      "kind": "lemma",
+      "sha256": "3cd77a9eadcc595bc6e6e20e683a41cc3fd40e22810a79d1d16bc9b206c32605"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.coneStep_getD_last",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2790,
+      "kind": "lemma",
+      "sha256": "598757461487bbea4a2bb79748964f6dd426d7e6a3fdae5fe53460598d399421"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.coneStep_getD_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2797,
+      "kind": "lemma",
+      "sha256": "f98f1a24b7afb35794fb4bc5462efb7d28fd182109b4cc3e4a7ffdc8a74b0ac2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.coneFold_getD_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2802,
+      "kind": "lemma",
+      "sha256": "7a5e93d83e9cc0979eca4dde69497c4113816d780e7f54e3efddde5f28de374e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.inCone_iff",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2813,
+      "kind": "lemma",
+      "sha256": "c0bff13c408b2fe9d3eb8138c121a73acc86cd6cf304c2058bfc9f058841ff91"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.inCone_c1",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2857,
+      "kind": "lemma",
+      "sha256": "1f67bffe6ed335e7f3dbc7638ff71979ae1f0588ba2783752153a37f1da41845"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.inCone_c2",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2868,
+      "kind": "lemma",
+      "sha256": "ca83195c98e0c83e0aec7d1ac36c49f0073858afc7700d3f5dc573e1635c237a"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.OrStep",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2879,
+      "kind": "def",
+      "sha256": "c4025e973a47b7606d7358262d05c7761261041db3754836470e870a3025c60b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.OrR",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2882,
+      "kind": "def",
+      "sha256": "b34260335aab38567160376349240c5d4db28e5a28260e43dc83cd755c9d12a4"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.Leaf",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2884,
+      "kind": "def",
+      "sha256": "396cba578a770d1b6213fbb5da07f0831e959891add113e513363603247dbae2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orStep_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2887,
+      "kind": "lemma",
+      "sha256": "2415e01b079b1c01029f3715ab350bdb9bc16840f54a5a613a3bb4167a22f758"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orR_le",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2894,
+      "kind": "lemma",
+      "sha256": "bf9e1123e7241de52e5a2974b3fc6fdf36a507fbf26c169544283c4b8219b3dd"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orStep_mono",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2899,
+      "kind": "lemma",
+      "sha256": "daf4f687387f904ed81586844ceee206a89da7df3b80f8c37a42940066221faf"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orR_mono",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2910,
+      "kind": "lemma",
+      "sha256": "7eb9c0b9c0aff0ea811aa8ffba8df2dc0ea709e71468f1884ef5ba46bc44b4bd"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orR_leaf_true",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2916,
+      "kind": "lemma",
+      "sha256": "8e8287765a0cb063f1cc09adf906c9dde51e7cef1f30adc719b2a8e603592bb7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orR_leaf",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2938,
+      "kind": "lemma",
+      "sha256": "83f2355c0578d0919af9ea8fb110dc51de908cb695e5ceefaff2eae4f6f321cc"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orR_cone",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2955,
+      "kind": "lemma",
+      "sha256": "66d6eebdd127e95a373f440e91e9520150cb6e1d8e58e5612a403344724798db"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orIn_bridge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 2978,
+      "kind": "lemma",
+      "sha256": "942974e8982b0873b49c38c04533be822c1c2820cdf3af430bcbc14c0b7dce2c"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.biclique_star",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3028,
+      "kind": "lemma",
+      "sha256": "071c6e3d39b199e78bf95ed652adb07bac7748633b05780acd85c6e065a73f77"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.opnd_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3040,
+      "kind": "lemma",
+      "sha256": "53461d35de7006f6dc2b0d42e6211934d914c145b9405e293eb1a587914fcbc7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.top_true",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3048,
+      "kind": "lemma",
+      "sha256": "d7293dfdc684ad42b600cb6750b7f87e0ade71df22f24995a2ee5eede0012d83"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.sem_both",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3056,
+      "kind": "lemma",
+      "sha256": "b229d97ba007091528431947a6963fc9e653d833158f4dca6567768729ce0bd6"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.sem_mixed",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3067,
+      "kind": "lemma",
+      "sha256": "02d936f604095f04b43c0fa918043447481aec0b6bdf52d47cbbd7e525f0500e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.sem_adj",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3081,
+      "kind": "lemma",
+      "sha256": "a580eb0edfa9d2cf449c484809dfdf6aececd7f085f58cc43107b020b653239a"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.opnd_leaf",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3095,
+      "kind": "lemma",
+      "sha256": "962502ef9ccbaa05ee4e377aa5d7b231a22b09b71d1281015fabaed5e3847a49"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.pairInput_true",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3119,
+      "kind": "lemma",
+      "sha256": "0bf3f76cee30c3891222ecea08fb77f66784ba1e0ccd1a38b0afc635b7438e6e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.graphFun_pair",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3123,
+      "kind": "lemma",
+      "sha256": "33d72e0b2f02acd54154f783c4cd02b8fdd605bcfde9ca420523455da6e126e3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.main_abs",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3137,
+      "kind": "lemma",
+      "sha256": "f9c46568d8516a72eeacdd02ed31cbeb61b985556758e0a350a228a2dfcb7579"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.mem_filter'",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3197,
+      "kind": "lemma",
+      "sha256": "80289bd3124cd86e90202c9da23039e9c48881be4f724510a8800d9cf5e37187"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orFold_length",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3200,
+      "kind": "lemma",
+      "sha256": "12cf723e60e4adcf27df39cbe7497ebcfe987ed46d1d87dde59a826d203e6879"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orStep_mem_last",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3209,
+      "kind": "lemma",
+      "sha256": "08472f130910e3d9c86c6e4f150520ee909b7d843694cfdd6cc771e76f48b59b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orStep_getD_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3216,
+      "kind": "lemma",
+      "sha256": "58d5b2e0f6996887d27724f3d3377fc67835a7ccfba2de85b997a26c8370258b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orFold_getD_lt",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3220,
+      "kind": "lemma",
+      "sha256": "a1156ed22cf9618c6c13b5e43302278dc64f8d3375fd466acb1af0a0068da15b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orReaches_iff",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3230,
+      "kind": "lemma",
+      "sha256": "0678a8860a3634bcfb7215a9eeb500973cae9bc16eb318658693d21b11355279"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orReaches_orR",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3271,
+      "kind": "lemma",
+      "sha256": "8ccbd79552e58be0954736e3494841690a41e473f292f9720f43d0c9de1d45ce"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.orR_orReaches",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3285,
+      "kind": "lemma",
+      "sha256": "f48fcc77a464e91ce7d368e320be25a295223355286f96924c8e7372cdebbd05"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.mem_orIn",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3304,
+      "kind": "lemma",
+      "sha256": "32b5fd3c9dd2ece747d1abc817e1b63448ee604c8e3408f2fb89d639daa6dcd3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.ao_of",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3319,
+      "kind": "lemma",
+      "sha256": "2d9593dff6bc9f123803761b0010a363fa845464382ada09a2bb83f5ed550617"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.opnd_eq",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3328,
+      "kind": "lemma",
+      "sha256": "18996051a36a7620574d47274d41a8258dffcb737ee782e9f350441ecba3ffdf"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.nfc",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3333,
+      "kind": "lemma",
+      "sha256": "8f6cf4d0ba2391c4eb1f7ee2b272f474d126cdbcaee1932bc8e0c79796656395"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.P2.final",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3342,
+      "kind": "lemma",
+      "sha256": "222b524df587d25f8aabc667e58c83956f02b009a463ccfbb73a8ca48d30cdc7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.prev2",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3432,
+      "kind": "lemma",
+      "sha256": "6e50f21caa07de10c90ac76459e4fbbb1cbd09a447ad9da246b9bdbeb671e16f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.oneJunkBound",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3453,
+      "kind": "lemma",
+      "sha256": "7324771b95b9019f82e6b9c65463e6064f0950e3b9385168d7b63ff8ca5b5983"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.dirty_ancestor_eq",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3502,
+      "kind": "lemma",
+      "sha256": "4ae4ba569401dda532968e4adbc206575913d716f98ed28c0b135258133761d7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.top_not_both_junk",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3522,
+      "kind": "lemma",
+      "sha256": "967c4cffe825704e992f7e0271a050ce8a6abdccdd3390ff2b85908e05f1d520"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.top_pair_mask",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3540,
+      "kind": "lemma",
+      "sha256": "d3ab647fe9a63c513e0bc6e6731751d46d8adbd54655fa7d6864ba3591efaae1"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.off_star_mask",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3593,
+      "kind": "lemma",
+      "sha256": "342cbbcb1da5c4a979d7c476fc83a5a1f8df095666ff847718ce436c950e110c"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.operand_orR_inCone",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3603,
+      "kind": "lemma",
+      "sha256": "4787b118e33987d46fcad5e2c059a4da8471fc25ef5364a4a4fcfa29f494aadc"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.junk_operand_no_and",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3621,
+      "kind": "lemma",
+      "sha256": "e9e16b19de7a77bd88cce4092713ae7291a2fcbb1d13395ac3db0fecb270e604"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.pure_wire_value",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3648,
+      "kind": "lemma",
+      "sha256": "2226502b1eba712b5ae3ad15275b6a3cb0c9787773b56b78da109906b8f02ee7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.junk_value_product",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3666,
+      "kind": "lemma",
+      "sha256": "9c0a5cb0fa7c526667e46210bddbc8804183edb97e944a00d87cf915dcd0323b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.junk_sides_nonempty",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3684,
+      "kind": "lemma",
+      "sha256": "4188bc5b70d81884bbf2da8466fad6e5789807aa1a464ca4adf27471e682f5c9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.orIn_subset_of_orR",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3696,
+      "kind": "lemma",
+      "sha256": "60a007f506fc3e8c7bde21b3d3182a5691ec694e79c637e1b73f24874acdcb54"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.pure_gate_support_large",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3703,
+      "kind": "lemma",
+      "sha256": "2a77fedca0f78c3b4890d65fee4cbb71d6951add5c271e0585eab7e4f59d1437"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.lambda_support_star",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3731,
+      "kind": "lemma",
+      "sha256": "3183893ba25e21d9dd8ce72e01721c675b4189af7a73d586b0068d483400b4b0"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.mixing_on_junk_path",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3780,
+      "kind": "lemma",
+      "sha256": "4eb85bc7db17e932cc42b20a1c9e8c6cd165363d9d09ba4371cc04fbc9b2c1cc"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.off_star_reader_overhead",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3827,
+      "kind": "lemma",
+      "sha256": "7ae9b943ee1e9024bd53285d7864935ece71931f237c735214e3c2bcaba84f97"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.lambda_filtered_support_star",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3851,
+      "kind": "lemma",
+      "sha256": "3491bd49ea588fbcd5cdc7903e1ecc45b3876bc9492bd4810230e666360ce66b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphSupport.Assoc",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3899,
+      "kind": "def",
+      "sha256": "1397564a5f694d3c66016651c54e54988e184c9b1119753b3439c20dc5012f81"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphSupport.gates",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3903,
+      "kind": "def",
+      "sha256": "470ec1be78ec3d6e408b5a733541e1ecbdec51e3dce076bb67fb4fbe142a9319"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphSupport.edges",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3909,
+      "kind": "def",
+      "sha256": "8b417ca36e32616e8128a879b723a369c7af08b0aa1e8ec8ee4a8e0411f9fd91"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphSupport.assoc_bound",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3914,
+      "kind": "lemma",
+      "sha256": "3ee135e808a1783bd508579bf9c1d1dcb3d40c8c9ea69713943ea727f8c99218"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphSupport.assoc_no_and",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3921,
+      "kind": "lemma",
+      "sha256": "ddb230a83584405dd6a09475c2984d40f2bac5ee99fa005be180dbdf3e8aa099"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphSupport.assoc_nonempty",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3930,
+      "kind": "lemma",
+      "sha256": "a9be9d5c8081409ba1f51211fd63cb5130bca75ff1e8f3c8c02cbe4d54f9dfb9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphSupport.assoc_adj",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3942,
+      "kind": "lemma",
+      "sha256": "9a91a95884bf7c3f7f65d8677c0eaa515d6ab11376e74a46537d2b254e25ec3d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphSupport.assoc_center_unique",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3952,
+      "kind": "lemma",
+      "sha256": "dfbdb530852f13a29cc784933b5d201c06a87dc02a6cf7d8f63774181aa60319"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphSupport.assoc_or",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3968,
+      "kind": "lemma",
+      "sha256": "0fcbb5aa65104060cc6e33c8c433ad18945bac8d6a194ba02a650c0ea8e3e7b3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphSupport.assoc_child",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3980,
+      "kind": "lemma",
+      "sha256": "29c4cf65dadc2291922a75e549a79c51d6fd007362e785b2c3c492d043c281d3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphSupport.assoc_edge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 3987,
+      "kind": "lemma",
+      "sha256": "e24e839dc83d5a8060391fdf9fbd93257aa3122b97fc5f234e58aeabfc1d9a2f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphNetwork.Vertex",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4006,
+      "kind": "abbrev",
+      "sha256": "b91900306689b3c8b3200e2a7cf482ec7099a673d35ce69e3da4417a345c5e0b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphNetwork.assoc_large",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4009,
+      "kind": "lemma",
+      "sha256": "fed95ee698cd0822df441ca1467a67783b6393f6376faa757718be4a1845a9cf"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphNetwork.assoc_gate_mem",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4019,
+      "kind": "lemma",
+      "sha256": "898078395da151d448dffdbb2e23776b79d909a68bdc5d1142b54bf7164ee49e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphNetwork.node",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4030,
+      "kind": "def",
+      "sha256": "ff143f43b1b1844aaebebacd2f899eeaf8b0f5a9b19593e9c7876b0bfc4ae1d5"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphNetwork.node_gate",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4045,
+      "kind": "lemma",
+      "sha256": "34d61a83ca17e66e6f4ad78ab85f089f645f6d8b1f0e66f095c6ab3e650ebf1e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphNetwork.gateCenter",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4054,
+      "kind": "def",
+      "sha256": "94330af37ee21c04af9907ffb6e148f84b793af645483175129ee7e23e0ac0c9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphNetwork.gateCenter_assoc",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4059,
+      "kind": "lemma",
+      "sha256": "e3225e69bdeb3d19ba0f8152b8c7e4030ab8c3b33e80d2517086880e01539d98"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphNetwork.gate_child_assoc",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4065,
+      "kind": "lemma",
+      "sha256": "35b9bab149feb11fc496940eb33c44ecd5e7ea61f26f7db320d41b8da96ed34d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphNetwork.links",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4080,
+      "kind": "def",
+      "sha256": "1b8c3cbb6398fc982a6b3f901feda2816460ca4f6926bd2cc1d198ba2ddfc880"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphNetwork.network",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4090,
+      "kind": "def",
+      "sha256": "6eef66346a43db8eb1d3b373e93f35f23efe50479010437c1057fee42bb6c8a5"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphNetwork.network_edge_bound",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4097,
+      "kind": "lemma",
+      "sha256": "29c3dfd64cd91c46debd6eebac6a0a8a4da27cbb83d43de5b36e9515722cc5df"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphReach.node_input",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4135,
+      "kind": "lemma",
+      "sha256": "8f33e57b0ccab8ed41eed6bfa4038b38032bf88e23b5795478a1b16b1992e0ce"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphReach.parent_child",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4141,
+      "kind": "lemma",
+      "sha256": "407028ff8443846fdbe1e7b2624a1a602e7677a6e9c440d6c834160b39b15a09"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphReach.path_nodes",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4164,
+      "kind": "lemma",
+      "sha256": "3ea2dc74fafa239f2e2b08dc998ef8996859bbded31dca9ecae8f7eef89f3c2b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphReach.rootNode",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4184,
+      "kind": "def",
+      "sha256": "1de04cb1aadd1cf5a6df1b9891182b201a8a0fa37c21b50b5cc9d7a949018726"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphReach.all_reach_roots",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4188,
+      "kind": "lemma",
+      "sha256": "b64ec2ee17bade4ee49528327bfd0a2317ad160683096e30d594849eaf855530"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphReach.roots_meet",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4216,
+      "kind": "lemma",
+      "sha256": "a3e939f5859e3469a071367094f139eee72ef5cefd797c9b23d373c66afec0fb"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.GraphRootCharge.card_le_edges_add_roots",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4242,
+      "kind": "lemma",
+      "sha256": "d287eba4f551921709c11c1df73c40b2acff662cd15e9f1caf31e7e57bba06be"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.GraphRootCharge.label_charge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4288,
+      "kind": "lemma",
+      "sha256": "f7b300a6dacf8397d844453396be6b1456fef997a95d8ccb1698041808289271"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.GraphRootCharge.card_le_edges_add_groups",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4301,
+      "kind": "lemma",
+      "sha256": "8565be35fca830b183bc7d330ef64d2eec5691b0c4e285a5a12316844a8e1102"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.GraphRootCharge.grouped_label_charge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4323,
+      "kind": "lemma",
+      "sha256": "b4057d8cb23641adb1355ead5521391825ccc2f574088d9946dc2926b73f3648"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphCharge.grouped_roots_charge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4339,
+      "kind": "lemma",
+      "sha256": "df9d33ea26cc49d8cbf47e9cb6fd7ff759056073743b8b3a500b4470a9161415"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphCharge.active_gates_or",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4362,
+      "kind": "lemma",
+      "sha256": "74275e813251ed7e20fbebc516a031cabf177fde6294167f8d5d99c7440dc91c"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.live",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4388,
+      "kind": "def",
+      "sha256": "e61973666b3bdb2795e9b1615fe3120ba0013fb008dd9f4b6d9717f10aeac209"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.Pruned",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4394,
+      "kind": "abbrev",
+      "sha256": "c6b1b2d5c47302d5c04588b6c87118d4baab9f67e476ea970d1f8b199035acc7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.project",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4398,
+      "kind": "def",
+      "sha256": "0f7fb31a670981e7616610637a956de690fc6e885e8fb86e55f56c864cf7ed09"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.dead_node",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4418,
+      "kind": "lemma",
+      "sha256": "74e3fca3c6df64f875b197e37796f5e89bae7038fcd0e0b0f8c71a4f6f2d9315"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.dead_child",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4446,
+      "kind": "lemma",
+      "sha256": "d5cac65340830459fe67f8e977fcddbc2e5928f95bea831655323e5287b717ab"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.links",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4472,
+      "kind": "def",
+      "sha256": "c7bae3d7f9cdd28191768d4511d1f643e1f1c478cd3b89bb9ad25f3cc0e7822d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.network",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4480,
+      "kind": "def",
+      "sha256": "c8506f58b1498f025f98cfa59ce94aa4a1a055087379ec8651056f7f96dd0ea9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.child_connected",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4484,
+      "kind": "lemma",
+      "sha256": "52363d88fd14a01326687861cb0136cb1e8b17b7c8b0d3c897a31ab17af91a3d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.map_adj",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4521,
+      "kind": "lemma",
+      "sha256": "e00995fadfba31721270b01fb988d277bac0ab38818b552329dc08f4c36b173f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.map_path",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4534,
+      "kind": "lemma",
+      "sha256": "db07baf07739f03faa96206db727f4d85b771a3691f9d2e6bd9e3a6235222e31"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.retained_reach",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4544,
+      "kind": "lemma",
+      "sha256": "b593a6d612862704f5ae333e3958aab79ccb6e68324e112f4628638a060da70e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.pruned_edge_bound",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4561,
+      "kind": "lemma",
+      "sha256": "5e8f136d0fb1eca16ce87b162ed8ca79c8c995c2c78f367c164d5893750b19bd"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphPrune.live_outside_lambda",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4582,
+      "kind": "lemma",
+      "sha256": "cef36f8dce77d40f714e9532e7e35e16d93190d61c326966e337706bd3c525a0"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.GraphRootCharge.boundary_grouped_label_charge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4601,
+      "kind": "lemma",
+      "sha256": "ee1cd065b518a61ebe1ec8f606ea1f15284311d22a1ee4fceced45da1cc41e90"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphResidual.pruned_grouped_charge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4646,
+      "kind": "lemma",
+      "sha256": "141cf4960755a9d4618fb566a61dfb03c4616f1afab3538a4e8996fdaf740854"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphResidual.residual_grouped_charge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4671,
+      "kind": "lemma",
+      "sha256": "32a21348b370dd4a3bc054d5220bfae5456cc0925c9354d0f339c14d66fd8728"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphBoundary.root_boundary",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4692,
+      "kind": "lemma",
+      "sha256": "3c21c2565ad919bc6bd2782d8accaa06572caf0a1c195b1a5d04c42acebb7e82"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.GraphRootCharge.boundary_group_credit",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4720,
+      "kind": "lemma",
+      "sha256": "acf6b1807e6df97d8a91d72c45cf7416be4289b807a97c832bf7ccaa9ac896e4"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGraphBoundary.pruned_grouped_credit",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4767,
+      "kind": "lemma",
+      "sha256": "e53f0194f152298a0a8e4bf88a999f8c7b536d7ecb04a7b4e959ab2d813e9436"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.orValue",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4805,
+      "kind": "def",
+      "sha256": "7f4cfc34c6a6d8114f74f232fac321cf00abbeedd44eb3eb46d1d77319410a29"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.productValue",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4808,
+      "kind": "def",
+      "sha256": "12d0a6ae28ca32a76feefa6cced107a546a8f050ee296325550b7e2a8d70f466"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.CleanMask",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4811,
+      "kind": "def",
+      "sha256": "0da3a87d6982f6e65623c32229efaec8aedd89dba02806572a009e42d1b28a28"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.EffectiveMask",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4816,
+      "kind": "def",
+      "sha256": "73ac9c821a59bb0db7ef6cf71070afd243f4a934f132edd5bd7963500ce238b2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.graph_pair_iff",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4822,
+      "kind": "lemma",
+      "sha256": "a220ca30213759267f0792ff785eea26c36017f5b70d73afb2ef53201cec3f08"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.cleanMask_of_mem_left_iff",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4837,
+      "kind": "lemma",
+      "sha256": "4bca0da0e506f477e7d3150099acb08e304f9dbc329582e716f942e9bb24948b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.cleanMask_of_mem_right_iff",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4853,
+      "kind": "lemma",
+      "sha256": "b676a66fefcd55dd2e501b8ef7c8afc12ea937180e0357f918933cf5e0954fb0"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.cleanMask_adj_overlap",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4861,
+      "kind": "lemma",
+      "sha256": "7324a183d66eecce21b84d329b8d5a0516ddb1a1c683b00284f331529118a18c"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.effectiveMask_mem_union",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4871,
+      "kind": "lemma",
+      "sha256": "09747fcaa64549d6f5be0133a02e90508d973911d1ca25b45e39a9dd8b17d250"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.Structural.cleanCenters",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4891,
+      "kind": "def",
+      "sha256": "c09196ef1ff30db310878d68881f2cc3dfa96acf9be9f65abb877da7608b7a28"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.Structural.commonNeighbors_card_le_one",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4896,
+      "kind": "lemma",
+      "sha256": "17a3a4a368daf4acf062b8a8dae6ffcd22f8496f3e5c6bf31eafcd3eb1acf554"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.Structural.cleanCenters_card_le_two",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4918,
+      "kind": "lemma",
+      "sha256": "907e0e1b343e168492a0942a6c7f94fcf7fc042ce349f80cda1949cd2f6df14a"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.Structural.opposite_centers_no_shared_neighbors",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4937,
+      "kind": "lemma",
+      "sha256": "2dc4f33aa9a809115613376dd743b454e841e382007c31643a55a9c16b7014e9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.Structural.common_mask_inputs_empty",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4948,
+      "kind": "lemma",
+      "sha256": "4b58db36c86a0bf3aec3e6856ac38d269fda0d2c9fb4e0c758cea0483947a2aa"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.neighbors",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4963,
+      "kind": "def",
+      "sha256": "371bd15f73172850e154493b180eaaa9cc35c02386a608b1b1b1aeceb6368685"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.starEdges",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4966,
+      "kind": "def",
+      "sha256": "6371cdd3125e8276a9464574e930435020e2d062b4c8747748cff6c1747cb7a7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.mem_centers_iff",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4969,
+      "kind": "lemma",
+      "sha256": "7372413f1cb8896ecb3638d5dfa111ec65ea2cfa4eb1fc3dffe0d4daab0794a8"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.center_neighbors_clean",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4981,
+      "kind": "lemma",
+      "sha256": "20d933f0c63463ec10bd701e6bb0d33855e1f56405bdbeb95f1fe689ecfcd7eb"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.neighbors_nonempty",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4993,
+      "kind": "lemma",
+      "sha256": "57edc34b0fb9b7f2855b28acc910e0ed8ab94f24c658c56bf78767e5aa495032"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.center_effective",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 4999,
+      "kind": "lemma",
+      "sha256": "24c298e1a009d4913c39e6400697aeb9b3a2a1058dd9f97035cb0c6e89c48fc9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.centers_exact_effective",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5013,
+      "kind": "lemma",
+      "sha256": "091f63a8966e0bf5ffda998f3c761b9a9f991cb36f68308e132b584b7edd0c45"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.same_side_equal",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5023,
+      "kind": "lemma",
+      "sha256": "7af9e8ee27bc85f2e8229101ef907638d1778620217cc8eb835cdf1fb61b1aef"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.different_centers_cross",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5033,
+      "kind": "lemma",
+      "sha256": "bcb81d7ebcc832a43802b84657559dfc719b770d0e961608ae02f6472a2f40b2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.centers_shared_edge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5049,
+      "kind": "lemma",
+      "sha256": "45806419a8f7e280e263f5582b4c1ac6bff1e7b5c5bd8cbbe89a229c83f386cc"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.centers_stars_intersect",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5067,
+      "kind": "lemma",
+      "sha256": "62ae618c0b7c5ae345c256b2e06920eaabb7a94f3fd947e5d7779d4c0a994d57"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskAllCenters.allStars",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5086,
+      "kind": "def",
+      "sha256": "3b1ba302a0a4d92de21f87a3d59b48fdba4e06403cbf371ffb62e11bbc904ae1"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskAllCenters.all_centers_residual_credit",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5092,
+      "kind": "lemma",
+      "sha256": "466abc5fd9df4d628cd021b082cad44306e280d43b6e296fcff635b975b17902"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.PrivateConeBudget.binary_support_card_le",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5194,
+      "kind": "lemma",
+      "sha256": "7de9bb65ed8dedda5d61c2f2f4a854b4b4e6d8473a34f267ab5b6d3ec2493f84"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrConeCredit.gates",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5290,
+      "kind": "def",
+      "sha256": "f28329b2f79cc7ad0016c78daa08a055079c8228ae793df53f8c27fdc118eb08"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrConeCredit.pure_roots_credit",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5295,
+      "kind": "lemma",
+      "sha256": "1bd316f5b9c1b835bd866292aba6654ab18b45bc5e2acdb75296dacaa1d17bd2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrConeCredit.two_roots_credit",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5351,
+      "kind": "lemma",
+      "sha256": "90a13052115884088f1576e91a3ffe0d19d506a99e419c1d5a8a938b5ed1af48"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrConeCredit.two_roots_private_credit",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5371,
+      "kind": "lemma",
+      "sha256": "1a18a2bb5839148239aa34dfef2b5aaf396bcb958b687c2ac32b1ba8f8e70d29"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskFilterCommon.mask_inter_left_small",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5409,
+      "kind": "lemma",
+      "sha256": "1bcbcc4aaaab72c9dd44e4de1b3a77363d5412f85fc8384b3cf6e89b96fd359f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskFilterCommon.mask_inter_right_small",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5418,
+      "kind": "lemma",
+      "sha256": "af98561aa6c32ef34f0f0d8242846800a8128dc8610b48d422e7846276f515a2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskFilterCommon.mask_inter_neighbors_small",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5425,
+      "kind": "lemma",
+      "sha256": "59a6d3f2bea6834740b4ad9cf30cf9648c0d204368c1b62af95c0ceb319ac942"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskFilterCommon.filter_cone_disjoint",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5434,
+      "kind": "lemma",
+      "sha256": "634c2b80cdd02d1e1aaf1e9e550804116056721a5d64a9ca60d5539ba8e93a12"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskFilterCommon.filter_cone_cost",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5456,
+      "kind": "lemma",
+      "sha256": "5bc10c1da786aa66b43f484ad3862b20d1d3a754ac92353c865fc63da5d67901"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.FilterConeCount.filtered_root",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5477,
+      "kind": "lemma",
+      "sha256": "34c0436e6086be212721e45fe59d380c98e104fd8a8ac65ae0ca1ded2396c0de"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.BoundaryProduct.mask_triple",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5569,
+      "kind": "lemma",
+      "sha256": "cd2f80bdb97d24ed27c14662fe04fde18a4a5f474a91b0dbe6ace08582b51ef0"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.BoundaryProduct.common_neighbor_unique",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5589,
+      "kind": "lemma",
+      "sha256": "860ec86b5c18ea603c91f3de8b9ad423a6d7c06aa12cd5db720b97937fc8e3c8"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.BoundaryProduct.opposite_clean_away_boundary",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5603,
+      "kind": "lemma",
+      "sha256": "5277c3336062b2e32dcef25d23a9cc99e0ff27c1477b1652878563cacacc7a0c"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.BoundaryProduct.opposite_support_boundary",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5615,
+      "kind": "lemma",
+      "sha256": "875203d841fb6d608416d2123f5d77b0b9be22e70ca0674fc5caa1449257c2ad"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.BoundaryProduct.no_adj_four_path",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5648,
+      "kind": "lemma",
+      "sha256": "6dd43a259dab6a41fed580be85deda9d12cdb42046bc87a6ca8b327740874f29"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.BoundaryProduct.opposite_support_boundary_bipartite",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5660,
+      "kind": "lemma",
+      "sha256": "6053edc3e2ff1f3c153d6154455978faf1bd2b54b807d8e0c6ad9b8e6421ef55"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.BoundaryProduct.boundary_mask_cover",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5674,
+      "kind": "lemma",
+      "sha256": "23268b2e6b3661b7f9a2dc4971cfa44936cf0e86ae9f307e4131518e69e492e2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.LambdaMaskBoundary.lambda_center",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5705,
+      "kind": "lemma",
+      "sha256": "a3df43dcc550e9813782eb181bfd664c11437cafd6bb2c8b20ae4f98fb3f6484"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.LambdaMaskBoundary.effective_in_lambda_has_owned_edge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5743,
+      "kind": "lemma",
+      "sha256": "86563afc12c460edc8d59dd5df1ac27a671a08012d9e139234309d30b7e325c0"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.UncreditedFilterCount.uncredited_centers_count",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5787,
+      "kind": "lemma",
+      "sha256": "ce71f4299c7492c33d15370b12f16e7a59c31950c6d7da13e61b1737f0b52c2e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFilterBudget.liveIndices",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5829,
+      "kind": "def",
+      "sha256": "939edb86642aa3bb7d9f382650d85b8a473caa7f05eaa1ad068293ae80e2e470"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFilterBudget.live_indices_card",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5833,
+      "kind": "lemma",
+      "sha256": "22fcc429e7f752f818804dbde2dc27f0b2d466b42c7ec00f2a25cf75f7aabced"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFilterBudget.live_indices_subset",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5839,
+      "kind": "lemma",
+      "sha256": "e6cc917563e137b38131afa98c585d7466d4f2b2e2af7d5b1d4a25210160b820"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFilterBudget.common_filter_budget",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5859,
+      "kind": "lemma",
+      "sha256": "82e4e5239ad10f3b7ea60158c47d78163093f0044b7f2583739594ed0e243325"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.ActualCommonMasks.pure_product_value",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5910,
+      "kind": "lemma",
+      "sha256": "0f68047a662e69c81dc431bb9af7643bbd5e04b4dfcf5c6eb0c59a8eead7e1b8"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.ActualCommonMasks.top_common_masks",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5923,
+      "kind": "lemma",
+      "sha256": "c94c0b6d072251bec1f1924fadf9a984f3e4e90ca20dcc42f1dba64044e804dc"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.LambdaMaskBoundary.effective_in_lambda_large_has_owned_edge",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5954,
+      "kind": "lemma",
+      "sha256": "cb81b59df7d68b71bf78532920da847076349b82d73fb53e088300c9e847eb23"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.UncreditedFilterCount.uncredited_centers_count_general",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 5995,
+      "kind": "lemma",
+      "sha256": "a166ace6566191ddea145a82b1daec7c37172e8c39f61e34a54b697e43efdb05"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFilterBudget.common_filter_budget_general",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6037,
+      "kind": "lemma",
+      "sha256": "5819910dffbbd93ab3b4c2d927158b39f73e897ad411428df36f4f668bb0c829"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFamilyBudget.boundaryProducts",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6087,
+      "kind": "def",
+      "sha256": "d63bb22a0793c5601e1e22ed789a528cad54c912ed36186758a830a29b44a926"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFamilyBudget.activeCenters",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6093,
+      "kind": "def",
+      "sha256": "8a2abb09790fe111751fbd7b5c20d0099d6c52012aaa209479a7fd4b22d0b72e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFamilyBudget.opposite_center",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6099,
+      "kind": "lemma",
+      "sha256": "0c13758f3a3bcae327f9beae13635317d10cc5c8b418409d277ca3ceb90fd01a"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFamilyBudget.common_family_budget",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6124,
+      "kind": "lemma",
+      "sha256": "e17bc8529d5bb73601b6b8dd8b7707459f8d6eba08976c1dfa18c2469dd9e384"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleBoundary.Certificate",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6276,
+      "kind": "def",
+      "sha256": "b2dd7e02b755fa6f7f8ca536d6fe8fa1905e724bdaf130f658194d5060dc9529"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleBoundary.centers_comm",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6281,
+      "kind": "lemma",
+      "sha256": "d83e6f759573ea09e043d3476dc4230e353c893189e7bc3db38e314c31eb3aed"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleBoundary.neighbors_comm",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6287,
+      "kind": "lemma",
+      "sha256": "5c00f893ced71ee9baaa954f93a9277d2a6e7c79f8c6beb5dc66eea372f577bd"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleBoundary.certificate_swap",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6297,
+      "kind": "lemma",
+      "sha256": "33c01992810c596a37a201de715d19cd912ed5b712bac648b5499018d8d03f99"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleBoundary.lambda_certificate",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6309,
+      "kind": "lemma",
+      "sha256": "5db4b180dcc949d636ba0ba1be605c430b1a0e712bf0b5ff12bb0dcccaaec547"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFilterCount.eligible_centers_count",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6352,
+      "kind": "lemma",
+      "sha256": "5d2e853c26111dd218ac93ba994cb102b42de8bf244e7f404944ea56a867b268"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFilterBudget.eligible_filter_budget",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6394,
+      "kind": "lemma",
+      "sha256": "9940708aa8c5c5a9cc28071dfa01cc50ea70bd0bf540bd65af1ac073ee59c6cc"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFamilyBudget.boundaryProducts",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6444,
+      "kind": "def",
+      "sha256": "8970ed2460d68ccf1aae78467863621aab964545b6ba99ac47a47ac05dce646b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFamilyBudget.activeCenters",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6449,
+      "kind": "def",
+      "sha256": "8a2abb09790fe111751fbd7b5c20d0099d6c52012aaa209479a7fd4b22d0b72e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFamilyBudget.opposite_center",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6455,
+      "kind": "lemma",
+      "sha256": "0c13758f3a3bcae327f9beae13635317d10cc5c8b418409d277ca3ceb90fd01a"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFamilyBudget.eligible_family_budget",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6480,
+      "kind": "lemma",
+      "sha256": "b5b25cf9379f5680b71142299e0b8c30492b67ab3b4767078970c9a5841c347b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFamilyBudget.filteredStars",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6633,
+      "kind": "def",
+      "sha256": "a2de0003ddf370cc79237d0e1ce054f55906e59a7f991617163d7cdab905e34b"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFamilyBudget.eligible_filter_cover",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6639,
+      "kind": "lemma",
+      "sha256": "c6c2d6f4a6fa6a5c5e05739cc09e08864aa8629241104290a1efbbf896064217"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFamilyBudget.filtered_stars_subset",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6674,
+      "kind": "lemma",
+      "sha256": "1692d891e87c00a7e84b8de460d46f683b447c56000f7eb9382da1bc557edf85"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.center_not_neighbors",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6688,
+      "kind": "lemma",
+      "sha256": "1b5084a0efe65a39a4e04bd3acfea84a1fddd1408cef9c0c544ff8cf7c621ff1"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.masked_pair_in_star",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6694,
+      "kind": "lemma",
+      "sha256": "1d6c94336c205ff6ec1cd3f543b7a17a5a716c63ccd791d848786068d73db219"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.star_pair_masked",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6714,
+      "kind": "lemma",
+      "sha256": "386321dd9777aaa62c7c8d99294d5b794d51845d9efb21a4ec82b55f3114e825"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.effective_mask_pair_covered",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6736,
+      "kind": "lemma",
+      "sha256": "e74dc851fa7d2d30ed0dc136ff148008fc0e7b2757275f9bd57fc3964e8a64e7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFamilyAccounting.exists_min_cover",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6752,
+      "kind": "lemma",
+      "sha256": "a061d05b38497d6365c0bdb047984fff99ab84e285745d3df3e3486e4838405d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFamilyAccounting.accounting_paid_cover",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6766,
+      "kind": "lemma",
+      "sha256": "cec9780df93d9d49826a11eb5901c4734a42863ea8078f69e3b120ad38631c84"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFamilyAccounting.filtered_pair_covered",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6796,
+      "kind": "lemma",
+      "sha256": "72d634fa89955694cca5ebfa64bc5a3412ff02462d1039e6109c5b333af96ea7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFamilyAccounting.common_family_lower_bound",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6809,
+      "kind": "lemma",
+      "sha256": "9a02f7d93abaac8f12811fd82432623cdd7db5f16e02b944a78c96090d4bfd22"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.mixing_on_junk_path_witness",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6858,
+      "kind": "lemma",
+      "sha256": "65278a71566debe983eb32a15a7c72ba63640255c5b078f4fc6d2979d67fd67c"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.mixing_subset_outside_lambda",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6909,
+      "kind": "lemma",
+      "sha256": "b6da65acb8f6d46fe680cbac95caace047c34a0b3d5b0bdbac51962a18b8143a"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OneJunk.paired_dirty_reader_overhead",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6919,
+      "kind": "lemma",
+      "sha256": "83a34a02b01ddb4ee4ed219e2daba5e9e5db4989bf8ca313344cb2dbb547ae9c"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryMaskReaders.mixing_support_nonempty",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6966,
+      "kind": "lemma",
+      "sha256": "f1f9fa33e0612db3e9f9c04ff053aebf3c77bb744490c875486e64bb00a0ed6e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryMaskReaders.shared_reader_adj",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 6987,
+      "kind": "lemma",
+      "sha256": "140f0a672afa0f32462104df9a686ed12d95c55fcd0776fdced0fb2a0ae8e9d5"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryMaskReaders.adjacent_readers_two_credits",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7009,
+      "kind": "lemma",
+      "sha256": "871ddee05a1d3faf73ecce72511fc81d83187b65b1303cf1cfe02c8f04fbe98d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryMaskReaders.common_neighbor_certificate",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7072,
+      "kind": "lemma",
+      "sha256": "b73f1e4e13d429add44439f65547e04dd331603b9b72da1cb4bba4da68069351"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryMaskReaders.shared_reader_owned",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7088,
+      "kind": "lemma",
+      "sha256": "5434e44121a3d9bc953e485403b9c464f64b56bd1133584df110bccf57f5321e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryMaskReaders.product_path_mask",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7110,
+      "kind": "lemma",
+      "sha256": "9c44cfc58adc161837b4760635cee8e1faee6865cba5503f0cd20654a87a5825"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryMaskReaders.shared_mixing_certificate",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7128,
+      "kind": "lemma",
+      "sha256": "f9f05d7ef47fc7eb0378c9376a0a446232bf6b832edfa5204bf5e6f87201e24d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryMaskReaders.uncredited_ordinary_centers_count",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7157,
+      "kind": "lemma",
+      "sha256": "f5e341c330e9ca3d812c1415beb9327cbcae67c916c307350b6701ae657108a3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryMaskReaders.uncredited_ordinary_mixing_count",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7215,
+      "kind": "lemma",
+      "sha256": "ff68656d6e13b9698418cef2e99db5e1f7db6f366804df7d5724216eec815acd"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryMaskReaders.two_ne_not_mixing",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7267,
+      "kind": "lemma",
+      "sha256": "10d20fb06813d3646917a6ce26fe5786724dd183955e40485e36fe188de18710"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.FilterConeCount.filtered_rt_nonmixing",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7299,
+      "kind": "lemma",
+      "sha256": "0c3abc26ad6ece61635298dc958b865af67987b6c1e9a831e5c5f40fd55f08dc"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFilterCount.eligible_centers_count_nonmixing",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7405,
+      "kind": "lemma",
+      "sha256": "2e4a8fececa4af97b14777584952532aa5bdf7bb456b5e1f2868b6fc65e6b826"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryFilterBudget.live_no_junk",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7456,
+      "kind": "lemma",
+      "sha256": "b85e0c720a83dd258caa76e7062d96be732a5b7f834ea4e3dcc36eb220f8bcac"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryFilterBudget.ordinary_mask_budget",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7469,
+      "kind": "lemma",
+      "sha256": "c90fa72d0516b57781bca52cd543210f3760b7c9e6968d91e21bda0f20821542"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryFilterBudget.common_filter_ordinary_budget",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7504,
+      "kind": "lemma",
+      "sha256": "492691084fdea18c5c4d719b6866237cc925f91e054854b53fb8812cd74af2f2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.GeneralDirtyPairs.JointClean",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7565,
+      "kind": "def",
+      "sha256": "3f3655c2f20fe8195a207947b5071f425204baca32559717371f7342f399aaec"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.FirstLayerEffective.effectiveCenters",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7575,
+      "kind": "def",
+      "sha256": "af5f53aee6f692968a8c3bd0cf3e6943c9bafe6f5f4426efaf699c1bdb280e7c"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.ActualFilterCoverage.top_pair_raw_mask_or_joint",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7588,
+      "kind": "lemma",
+      "sha256": "00506c6381f648d886bbffb80a679525b2cd7ed690365a9235d54480c02dea6d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.ActualFilterCoverage.top_path_common_wmax",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7643,
+      "kind": "lemma",
+      "sha256": "31969e521d2dd81050013185c8bd45002787f4777a3fe174e87d4f63602eb4c0"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.ActualFilterCoverage.off_star_common_filter",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7658,
+      "kind": "lemma",
+      "sha256": "ebe70b099e424215a73affec5778021eb107c1de96b592cf028fee1156eba755"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.ActualFilterCoverage.two_junk_common_filter",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7685,
+      "kind": "lemma",
+      "sha256": "e5b9a5ab1d038f0189bfae6720b27cab8c0601493116f2a6a2efb15c1a5245fc"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryFamilyCoverage.no_centreless_mask_cover",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7724,
+      "kind": "lemma",
+      "sha256": "70bed011640bb9573325cb4ecb8ac4bf6a8a8e34ada9aeed768af72134fc9e34"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFamilyBudget.ordinary_all_centers_budget",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7811,
+      "kind": "lemma",
+      "sha256": "44cedce05c9549415e1ecbb604d89b9d20caa687d10c91ea9517e78b11dd3b75"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFamilyBudget.common_all_centers_ordinary_budget",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 7916,
+      "kind": "lemma",
+      "sha256": "222e6e88e62f77f25678ccbb8eb1ae11e8197bd3410718ee4733a4b918627be7"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.CommonFamilyAccounting.accounting_paid_cover_general",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8073,
+      "kind": "lemma",
+      "sha256": "029c01e9c076b17845938bdc3571416a518e618c01d6368b5ebd0621aadc1c6c"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFamilyBudget.eligible_cover_from_centers",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8110,
+      "kind": "lemma",
+      "sha256": "10487665652c8e3c8879ed0f84313b6a9f33bbe245795cecb7361bdda12379bc"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.EligibleFamilyBudget.lower_bound_from_center_budget",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8139,
+      "kind": "lemma",
+      "sha256": "69cd54e1106e9103accfc5f748ac684ae893d6e0add08fd5f2d79f0cfeb405fb"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryFamilyLowerBound.no_centreless_lower_bound",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8161,
+      "kind": "lemma",
+      "sha256": "26a458e7ab5e1bdced449cc84eea79f4b8d2c5f25462b7de794c5fcf895c6b28"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryFamilyCoverage.mask_cover_or_centreless",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8215,
+      "kind": "lemma",
+      "sha256": "c284c112ee1759ee3f0568523346a871e7da2bf9a5e72bbac709291ddafb4f5f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.TwoProductCentreless.two_centreless_lower_bound",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8303,
+      "kind": "lemma",
+      "sha256": "37bc7b15a3174be1972749a0aa2176f6245487997e8ac3c153686b1fe710732e"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.TwoProductCentreless.one_centreless_lower_bound",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8367,
+      "kind": "lemma",
+      "sha256": "f9dbbfbd5a37fcaead6f37642fda89392c2e02451e9a3efe20fdfa88c576af3f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.TwoProductCentreless.two_product_lower_bound",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8520,
+      "kind": "lemma",
+      "sha256": "bffd4fea76a270103d195a1a7f453e4f242d351fb0b9653380ecfcdb9315dc88"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskedFamilyLowerBound.masked_ustar_cover",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8554,
+      "kind": "lemma",
+      "sha256": "567bef9a8531edf83d60edd9023c0c9e9a6b9c134e351cb9940dd597e7571bef"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskedFamilyLowerBound.many_centreless_lower_bound",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8591,
+      "kind": "lemma",
+      "sha256": "3de3328ca4cc2fb03048422d52507663185a6ba432eb0d9d83ae3c69161e92c3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.AdjacentCentersCover.adjacent_pair_cover",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8654,
+      "kind": "lemma",
+      "sha256": "e5bdc351136812c502b17b065e1a70f0491a7378327c40c2f8e3088c758ef861"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.AdjacentCentersCover.center_adjacent_pair_endpoint",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8680,
+      "kind": "lemma",
+      "sha256": "fcb9b469a682d15da1a2617f2dd4880518cb1e0f507b3adc6c47661aebb8b374"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.AdjacentCentersCover.adjacent_centers_cover_joint_pair",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8691,
+      "kind": "lemma",
+      "sha256": "6c46ad1c16786378cca92c092570229fc217fa5192aa350e6811b6a8fd79497f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryJointCredit.bool_color_proper",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8711,
+      "kind": "lemma",
+      "sha256": "fab41bfe2890070f3bdaa119bca16676f27261371acc2b221c7686e9712a40f2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryJointCredit.paired_reader_fresh_mixing",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8727,
+      "kind": "lemma",
+      "sha256": "09aa9453c8e197a739c5110ec7487502d5826af8e03987386019284c6f4c8c97"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryJointCoverage.top_pair_raw_mask_or_joint_paths",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8869,
+      "kind": "lemma",
+      "sha256": "3b7b7ac96dd585fcea2d5159e1b23586358e26f386cd1c11bcb3964c8dfa1be9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryJointCoverage.eligible_cover_including_centers",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8924,
+      "kind": "lemma",
+      "sha256": "434fc41e43c40141d62136ff17cff52da60f482444459af7606e468b2508c700"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryJointCoverage.ordinary_eligible_or_joint",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 8951,
+      "kind": "lemma",
+      "sha256": "2b52f759b830cf605e237b73e6e5fb37b89c405d1d96f9dd8d183e4130471a9f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.OrdinaryJointCoverage.eligible_or_centreless_or_joint",
+      "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+      "line": 9042,
+      "kind": "lemma",
+      "sha256": "7a916e48514de9c54eedf1a75b20dab78c0d88a2e2f411065109fcf043b94508"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.JointCentersStar.crossEdges",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 288,
+      "kind": "def",
+      "sha256": "d538e5de57c3539e4a8d96e1e9572195fee77198d85d4c6e12395b0423de450f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.JointCentersStar.jointEdges",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 291,
+      "kind": "def",
+      "sha256": "1cceb3424c3f42cc7c2b4f625d77428215846b7f825a618039b87a6c7d5001e4"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.JointCentersStar.SideCenter",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 294,
+      "kind": "def",
+      "sha256": "ad9d237982d8bb1f149e0b4e0af7319cec45e470b5a980560560cd918074dc2f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.JointCentersStar.bipartite_five_edges_absurd",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 297,
+      "kind": "lemma",
+      "sha256": "9a6c788e52975dacc46e3ce67c2210e6c3672610b50892275fadd07fd0ee8817"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.JointCentersStar.opposite_rectangles_incompatible",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 309,
+      "kind": "lemma",
+      "sha256": "07218b137444e0b14b0ccf7abf74431087da82406ded57b56825f50a8a0f7cd1"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.JointCentersStar.rectangle_cover_one",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 328,
+      "kind": "lemma",
+      "sha256": "e05867a7403c423fba41484aec07fcdb73c98a0f2399a7480d1d4bc92f87d8f1"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.JointCentersStar.joint_cover_one",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 347,
+      "kind": "lemma",
+      "sha256": "41323ffa95e1bca3214ece13d7a0feb97c66bad4a828737cf56a7a8989ab7fa3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.ProductJointCover.pair_cross",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 394,
+      "kind": "lemma",
+      "sha256": "e72be68d67c488b9c20eb8581d41ce2a6b9371780d702443b3b64bf6917d13d6"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.ProductJointCover.pair_true_of_cross",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 407,
+      "kind": "lemma",
+      "sha256": "b27b603ec1fde74db2b90e2340d75bb7e38f6ed693e7eb03e59f5ae60fc4366f"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.ProductJointCover.pair_mem_joint",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 415,
+      "kind": "lemma",
+      "sha256": "2110f4e05c288c1b10a08d40bec60aca7434b36e65f610eda4cb14343b9a5f98"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.ProductJointCover.product_joint_cover_one",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 435,
+      "kind": "lemma",
+      "sha256": "6c6a9a60c8c9f64e6d316a96002e865d441b0e42021a22d291859479cdf9ef3d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.SingleCommonFilter.actual_joint_cover_one",
+      "source": "results/orch/assembly/SingleCommonFilterWrapper.lean",
+      "line": 6,
+      "kind": "lemma",
+      "sha256": "64a94b49347e300534cf88f04a632f8088b208bed50a59deede3bf900e30d58c"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.SingleCommonFilter.single_common_filter_lower_bound",
+      "source": "results/orch/assembly/SingleCommonFilterWrapper.lean",
+      "line": 46,
+      "kind": "lemma",
+      "sha256": "0314d3ca632abf159371845510170f1000de6be3183b5410508a26043e0fc2d6"
+    }
+  ],
+  "duplicates": [
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.orValue",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 6,
+      "kind": "def",
+      "sha256": "7f4cfc34c6a6d8114f74f232fac321cf00abbeedd44eb3eb46d1d77319410a29",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.orValue",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4805,
+        "kind": "def",
+        "sha256": "7f4cfc34c6a6d8114f74f232fac321cf00abbeedd44eb3eb46d1d77319410a29"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.productValue",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 9,
+      "kind": "def",
+      "sha256": "12d0a6ae28ca32a76feefa6cced107a546a8f050ee296325550b7e2a8d70f466",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.productValue",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4808,
+        "kind": "def",
+        "sha256": "12d0a6ae28ca32a76feefa6cced107a546a8f050ee296325550b7e2a8d70f466"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.CleanMask",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 12,
+      "kind": "def",
+      "sha256": "0da3a87d6982f6e65623c32229efaec8aedd89dba02806572a009e42d1b28a28",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.CleanMask",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4811,
+        "kind": "def",
+        "sha256": "0da3a87d6982f6e65623c32229efaec8aedd89dba02806572a009e42d1b28a28"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.EffectiveMask",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 17,
+      "kind": "def",
+      "sha256": "73ac9c821a59bb0db7ef6cf71070afd243f4a934f132edd5bd7963500ce238b2",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.EffectiveMask",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4816,
+        "kind": "def",
+        "sha256": "73ac9c821a59bb0db7ef6cf71070afd243f4a934f132edd5bd7963500ce238b2"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.graph_pair_iff",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 23,
+      "kind": "lemma",
+      "sha256": "a220ca30213759267f0792ff785eea26c36017f5b70d73afb2ef53201cec3f08",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.graph_pair_iff",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4822,
+        "kind": "lemma",
+        "sha256": "a220ca30213759267f0792ff785eea26c36017f5b70d73afb2ef53201cec3f08"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.cleanMask_of_mem_left_iff",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 38,
+      "kind": "lemma",
+      "sha256": "4bca0da0e506f477e7d3150099acb08e304f9dbc329582e716f942e9bb24948b",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.cleanMask_of_mem_left_iff",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4837,
+        "kind": "lemma",
+        "sha256": "4bca0da0e506f477e7d3150099acb08e304f9dbc329582e716f942e9bb24948b"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.cleanMask_of_mem_right_iff",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 54,
+      "kind": "lemma",
+      "sha256": "b676a66fefcd55dd2e501b8ef7c8afc12ea937180e0357f918933cf5e0954fb0",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.cleanMask_of_mem_right_iff",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4853,
+        "kind": "lemma",
+        "sha256": "b676a66fefcd55dd2e501b8ef7c8afc12ea937180e0357f918933cf5e0954fb0"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.cleanMask_adj_overlap",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 62,
+      "kind": "lemma",
+      "sha256": "7324a183d66eecce21b84d329b8d5a0516ddb1a1c683b00284f331529118a18c",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.cleanMask_adj_overlap",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4861,
+        "kind": "lemma",
+        "sha256": "7324a183d66eecce21b84d329b8d5a0516ddb1a1c683b00284f331529118a18c"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.effectiveMask_mem_union",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 72,
+      "kind": "lemma",
+      "sha256": "09747fcaa64549d6f5be0133a02e90508d973911d1ca25b45e39a9dd8b17d250",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.StructuralMasks.effectiveMask_mem_union",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4871,
+        "kind": "lemma",
+        "sha256": "09747fcaa64549d6f5be0133a02e90508d973911d1ca25b45e39a9dd8b17d250"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.Structural.cleanCenters",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 92,
+      "kind": "def",
+      "sha256": "c09196ef1ff30db310878d68881f2cc3dfa96acf9be9f65abb877da7608b7a28",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.Structural.cleanCenters",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4891,
+        "kind": "def",
+        "sha256": "c09196ef1ff30db310878d68881f2cc3dfa96acf9be9f65abb877da7608b7a28"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.Structural.commonNeighbors_card_le_one",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 97,
+      "kind": "lemma",
+      "sha256": "17a3a4a368daf4acf062b8a8dae6ffcd22f8496f3e5c6bf31eafcd3eb1acf554",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.Structural.commonNeighbors_card_le_one",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4896,
+        "kind": "lemma",
+        "sha256": "17a3a4a368daf4acf062b8a8dae6ffcd22f8496f3e5c6bf31eafcd3eb1acf554"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.Structural.cleanCenters_card_le_two",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 119,
+      "kind": "lemma",
+      "sha256": "907e0e1b343e168492a0942a6c7f94fcf7fc042ce349f80cda1949cd2f6df14a",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.Structural.cleanCenters_card_le_two",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4918,
+        "kind": "lemma",
+        "sha256": "907e0e1b343e168492a0942a6c7f94fcf7fc042ce349f80cda1949cd2f6df14a"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.Structural.opposite_centers_no_shared_neighbors",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 138,
+      "kind": "lemma",
+      "sha256": "2dc4f33aa9a809115613376dd743b454e841e382007c31643a55a9c16b7014e9",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.Structural.opposite_centers_no_shared_neighbors",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4937,
+        "kind": "lemma",
+        "sha256": "2dc4f33aa9a809115613376dd743b454e841e382007c31643a55a9c16b7014e9"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.Structural.common_mask_inputs_empty",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 149,
+      "kind": "lemma",
+      "sha256": "4b58db36c86a0bf3aec3e6856ac38d269fda0d2c9fb4e0c758cea0483947a2aa",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.Structural.common_mask_inputs_empty",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4948,
+        "kind": "lemma",
+        "sha256": "4b58db36c86a0bf3aec3e6856ac38d269fda0d2c9fb4e0c758cea0483947a2aa"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.neighbors",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 164,
+      "kind": "def",
+      "sha256": "371bd15f73172850e154493b180eaaa9cc35c02386a608b1b1b1aeceb6368685",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.neighbors",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4963,
+        "kind": "def",
+        "sha256": "371bd15f73172850e154493b180eaaa9cc35c02386a608b1b1b1aeceb6368685"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.starEdges",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 167,
+      "kind": "def",
+      "sha256": "6371cdd3125e8276a9464574e930435020e2d062b4c8747748cff6c1747cb7a7",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.starEdges",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4966,
+        "kind": "def",
+        "sha256": "6371cdd3125e8276a9464574e930435020e2d062b4c8747748cff6c1747cb7a7"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.mem_centers_iff",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 170,
+      "kind": "lemma",
+      "sha256": "7372413f1cb8896ecb3638d5dfa111ec65ea2cfa4eb1fc3dffe0d4daab0794a8",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.mem_centers_iff",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4969,
+        "kind": "lemma",
+        "sha256": "7372413f1cb8896ecb3638d5dfa111ec65ea2cfa4eb1fc3dffe0d4daab0794a8"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.center_neighbors_clean",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 182,
+      "kind": "lemma",
+      "sha256": "20d933f0c63463ec10bd701e6bb0d33855e1f56405bdbeb95f1fe689ecfcd7eb",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.center_neighbors_clean",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4981,
+        "kind": "lemma",
+        "sha256": "20d933f0c63463ec10bd701e6bb0d33855e1f56405bdbeb95f1fe689ecfcd7eb"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.neighbors_nonempty",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 194,
+      "kind": "lemma",
+      "sha256": "57edc34b0fb9b7f2855b28acc910e0ed8ab94f24c658c56bf78767e5aa495032",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.neighbors_nonempty",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4993,
+        "kind": "lemma",
+        "sha256": "57edc34b0fb9b7f2855b28acc910e0ed8ab94f24c658c56bf78767e5aa495032"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.center_effective",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 200,
+      "kind": "lemma",
+      "sha256": "24c298e1a009d4913c39e6400697aeb9b3a2a1058dd9f97035cb0c6e89c48fc9",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.center_effective",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 4999,
+        "kind": "lemma",
+        "sha256": "24c298e1a009d4913c39e6400697aeb9b3a2a1058dd9f97035cb0c6e89c48fc9"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.centers_exact_effective",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 214,
+      "kind": "lemma",
+      "sha256": "091f63a8966e0bf5ffda998f3c761b9a9f991cb36f68308e132b584b7edd0c45",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.centers_exact_effective",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 5013,
+        "kind": "lemma",
+        "sha256": "091f63a8966e0bf5ffda998f3c761b9a9f991cb36f68308e132b584b7edd0c45"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.same_side_equal",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 224,
+      "kind": "lemma",
+      "sha256": "7af9e8ee27bc85f2e8229101ef907638d1778620217cc8eb835cdf1fb61b1aef",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.same_side_equal",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 5023,
+        "kind": "lemma",
+        "sha256": "7af9e8ee27bc85f2e8229101ef907638d1778620217cc8eb835cdf1fb61b1aef"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.different_centers_cross",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 234,
+      "kind": "lemma",
+      "sha256": "bcb81d7ebcc832a43802b84657559dfc719b770d0e961608ae02f6472a2f40b2",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.different_centers_cross",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 5033,
+        "kind": "lemma",
+        "sha256": "bcb81d7ebcc832a43802b84657559dfc719b770d0e961608ae02f6472a2f40b2"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.centers_shared_edge",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 250,
+      "kind": "lemma",
+      "sha256": "45806419a8f7e280e263f5582b4c1ac6bff1e7b5c5bd8cbbe89a229c83f386cc",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.centers_shared_edge",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 5049,
+        "kind": "lemma",
+        "sha256": "45806419a8f7e280e263f5582b4c1ac6bff1e7b5c5bd8cbbe89a229c83f386cc"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.centers_stars_intersect",
+      "source": "results/orch/lemmas/ProductJointCover.lean",
+      "line": 268,
+      "kind": "lemma",
+      "sha256": "62ae618c0b7c5ae345c256b2e06920eaabb7a94f3fd947e5d7779d4c0a994d57",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.MaskGrouping.centers_stars_intersect",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 5067,
+        "kind": "lemma",
+        "sha256": "62ae618c0b7c5ae345c256b2e06920eaabb7a94f3fd947e5d7779d4c0a994d57"
+      },
+      "identical_normalized": true
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_1477.MaskedFamilyLowerBound.masked_ustar_cover",
+      "source": "results/orch/assembly/MaskedUstarCoverOnly.lean",
+      "line": 6,
+      "kind": "lemma",
+      "sha256": "567bef9a8531edf83d60edd9023c0c9e9a6b9c134e351cb9940dd597e7571bef",
+      "kept": {
+        "name": "PEqualNP.Outside.L_meta_1477.MaskedFamilyLowerBound.masked_ustar_cover",
+        "source": "results/orch/lemmas/GeneralJointCoverage.lean",
+        "line": 8554,
+        "kind": "lemma",
+        "sha256": "567bef9a8531edf83d60edd9023c0c9e9a6b9c134e351cb9940dd597e7571bef"
+      },
+      "identical_normalized": true
+    }
+  ],
+  "conflicts": []
+}

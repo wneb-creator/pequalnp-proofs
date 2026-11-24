@@ -1,0 +1,75 @@
+{
+  "frozen_at": "2026-11-24T11:07:11.076174+00:00",
+  "files": [
+    {
+      "file": "INVALID-three-dirty-input28.json",
+      "sha256": "f727a50863ced0a675f42015da23432b734106198909b6cab7df27e464d4591d",
+      "bytes": 6566
+    },
+    {
+      "file": "README.md",
+      "sha256": "c20c37f3000ed0856d098064bd36611fdec9886a6d273ff0f8f225bd7db3aa15",
+      "bytes": 1823
+    },
+    {
+      "file": "SearchAlternative6Problem.json",
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+      "bytes": 2275
+    },
+    {
+      "file": "SearchAlternative6Problem.py",
+      "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+      "bytes": 925
+    },
+    {
+      "file": "SearchComplement12Problem.json",
+      "sha256": "1a3302c5297d676a1dd00bd697538a0bcb09b0802f3ff0e1100ecf92c83fe540",
+      "bytes": 2300
+    },
+    {
+      "file": "SearchComplement12Problem.py",
+      "sha256": "c0aecd88761752cf16d7599e9432e8dd61c1fba1355673d589bd6ede888d1c28",
+      "bytes": 1094
+    },
+    {
+      "file": "SearchPhysicalRepairDirty.py",
+      "sha256": "1878670e3b01d20f117c697d6337eb2e39636814c55332bf6ac19811c06fffa4",
+      "bytes": 9541
+    },
+    {
+      "file": "SearchPlaneProblem.json",
+      "sha256": "f13c8c17d8d2e3842d6a2a9ac736b17c7bf831d801a54ca07345907352ae1017",
+      "bytes": 358849
+    },
+    {
+      "file": "SearchPlaneProblem.py",
+      "sha256": "9c9369995311971fef919af1a75364f091b9b6b77552c2e66bef85648e83f865",
+      "bytes": 693
+    },
+    {
+      "file": "completed004/complete-run.log",
+      "sha256": "29559fa0b76a0ce1ed4f8676053ff23fbd7be6918561bf18d59d376cf59ec361",
+      "bytes": 5285
+    },
+    {
+      "file": "completed004/improved-12.json",
+      "sha256": "12bbf4b89b679a09075df8787b6373618aeff16772f6c9021e7f593eae5456a5",
+      "bytes": 4008
+    },
+    {
+      "file": "completed004/improved-4.json",
+      "sha256": "e55c2a666e769f7064fb6efea78e458e56281e117574bb5e0b39e612234504c3",
+      "bytes": 4980
+    },
+    {
+      "file": "physical-repair-dirty-calibration.log",
+      "sha256": "736cfc6b107a8b515f756905c10f3776e60ca94049e2148e68f412ac22a29ff4",
+      "bytes": 544
+    },
+    {
+      "file": "review-physical-repair-dirty-status-audit.log",
+      "sha256": "f06d2b0d7de55cfa4e5c327c47ac9b4a5a60cd6dbb5dd085a6519e2d4cc5de78",
+      "bytes": 688
+    }
+  ]
+}

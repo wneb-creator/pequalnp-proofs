@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "file": "results/orch/lemmas/ActualMaskCollision.lean",
+  "sha256": "41510bb339a0717d80570ccb8205df5e9e5cab468878761bf4dd54a80029a779",
+  "review": "Independent incremental source/math/provenance/format; author build001 exit0; no duplicate build.",
+  "findings": "Exact MultiFilterBudget prefix and SharedMaskCollision namespace confirmed. C4 ensures large operand sides have a missing cross pair. Actual shared OR support transports two distinct cleaner inputs through the filter path and gives both adjacencies to the mask center; the checked finite collision lemma returns the opposite operand membership and shared edge. An enumerated owner root containing that operand shares the undirected edge with the associated root; roots_meet then provides actual network connectivity. All purity/bounds/support hypotheses remain explicit."
+}

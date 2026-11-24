@@ -1,0 +1,5 @@
+Independent incremental source/math/provenance/format review PASS
+File: results/orch/lemmas/SharedMaskCollisionTwo.lean
+SHA256: c9ea352feb1635f5ca2c026e4580de4186c925e1d66d632297b1b3e282f7c703
+Exact reviewed prefix SharedMaskCollision confirmed. Reviewed32newlines. Bad-column lemma forces every erased-q pair to be adjacent, so B.erase q lies in common neighborhood of two distinct A vertices. C4 bounds itscard<=1; erase cardinal arithmetic gives Bcard<=2, also when q absent. No added dirty-product conclusion claimed.
+Author firstbuild001 EXIT0 reported. Forbidden scan PASS.

@@ -1,0 +1,5 @@
+Independent incremental source/math/provenance/format review PASS
+File: results/orch/lemmas/SingletonPairSpokes.lean
+SHA256: a1bdb4548f630a79789e1d26603769a430a05448baef3f97e5038e5e430729aa
+Exact reviewed prefix SingletonOtherLowerBound confirmed. Reviewed89newlines. Unowned spokes under a lambda cleaner vanish at samepivot or have<=1 common-neighbor leaf byC4. Uniform bipartite support cannot contain neighbors of two adjacent pivots; equalpivot labels duplicate. Actual Lambda center supplies adjacency/ownership and uniform support, yielding union<=1. Explicit equal-or-adjacent condition retained; no same-side-distinct claim.
+Author firstbuild001 EXIT0 reported. Forbidden scan PASS.

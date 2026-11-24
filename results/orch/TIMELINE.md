@@ -313,3 +313,9 @@
 - 2026-11-24T11:07:41.646365+00:00 [counterexample_search] Complement12Balanced009 completed22,740,992mutations/1200.0286s, best71. Full-planeMultiCleanRecord010 launched seed14772942/session81598 for1200s in sameglobalCPU. FocusedDirty005 session50588 uses120s exactsingleton-filtered physicalrepair. All new source deltas independently reviewed; completed packages awaiting/passing parent preservation029.
 
 - 2026-11-24T11:07:42.996042+00:00 root preserved13 checked/refereed partials including all-c singleton/nontrivial bound, exact2-overlap elimination, fresh joint reader credit and conditional shared-filter count;4 reviewed search packages preserved.
+
+2026-11-24T11:10:45+00:00 lean_setup: ActualMaskCollision frozen SHA41510bb339a0717d80570ccb8205df5e9e5cab468878761bf4dd54a80029a779 build001 exit0. LabeledFrontier SHA2360db4d0545cf7d91428170279fe6f6cc7b28f0687d0cda3eb42c903f55a35b independently reviewed.
+2026-11-24T11:12:14.481786+00:00 gate_invariants: SingletonCommonFilterCover compiled build001 exit0. Same-color distinct singleton pivots with opposite-monochromatic supports and bad leaves: common effective filter inputs are common neighbors,card<=1; actual filtered common-reader positive-pair shadow covered by <=1 vertex. Stronger version requiring only one opposite-color bad leaf per operand now building.
+2026-11-24T11:13:53.586508+00:00 gate_invariants: SingletonCommonFilterGeneral FIRST TRY build001 exit0. Strengthened same-color singleton common-filter<=1 and reader pair-cover<=1: only one opposite-color nonneighbor leaf in each operand is needed, not global support monochromaticity. Effective dirty-singleton cleaner is automatically adjacent to its own pivot; triple with other bad opposite leaf forces adjacency to other pivot.
+
+2026-11-24T11:15:15.973906+00:00 root: Preservation030: 12 reviewed Lean snapshots and two complete invalid-search packages ready for push.

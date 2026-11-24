@@ -1,0 +1,4 @@
+physical-repair-dirty INVALID-three-dirty-input28.json gates 28 wrong 56 dirty 3
+physical-repair-dirty completed004/improved-12.json gates 28 wrong 25 dirty 1
+physical-repair-dirty completed004/improved-4.json gates 28 wrong 37 dirty 5
+PASS physical-repair-dirty manifest 14 circuits 3 scalar_cases 264 valid 0 INVALID 3
