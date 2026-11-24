@@ -1,0 +1,11 @@
+Gap: L-meta-5349
+Status: compiled conditional reduction draft; not submitted
+Command: lake env lean results/orch/lemmas/R_meta_5349_48.lean
+Result: exit 0 (only unused instance warning)
+Mathlib cache get: exit 0, 9117 files
+Project definitions and checker executable build: exit 0
+Independent review: pending reduction; helper-only WmaxPartial approved conditional on build
+Sub-agents: 6 (setup, status/review, combinatorial proof, circuit geometry, counterexample checks, wmax lemma)
+Named build: lake build PEqualNP.Outside.R_meta_5349_48; exit 0
+Independent review: APPROVED FOR PUSH-EARLY AS CONDITIONAL REDUCTION
+Draft lines: 142

@@ -1,0 +1,7 @@
+Finite candidate check (ordinary Python; not a Lean proof):
+5 inputs x,a,b,c,y; graph edges x-c,x-y.
+g=(x or a) and (x or b) and (c or y); output=x and g.
+6 gates, exact edge function on all 32 inputs.
+Junk gate g is dirty, but every dirty activating input has at least 3 true vertices.
+The 2-gate circuit x and (c or y) computes the same function, so original is not least.
+Consequence: no claim that every dirty gate has a dirty pair may drop IsLeastAO.
