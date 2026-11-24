@@ -1,0 +1,5 @@
+PASS independent incremental source/math/provenance/format reviews
+FirstLayerSensitive.lean SHA256 77db3760492a9e60a44ca66e8737a156f5a01c149ad40fddb1f49bd9ad733bb6
+GeneralDirtyPaths.lean SHA256 c79b4ce9439bd945d8a9f55e4a2419fa68e8ec6fa26bd71fe7bb34014b2b9db4
+FirstLayerSensitive: pure OR wires cannot change when one dirtyAND is zeroed, by backward induction; hence every other first-layer dirtyAND stays unchanged. Changed path before first cleanAND contains onlyOR steps, yielding actual top/operand path and original gate firing. Existing opposite-leaf classification gives effective endpoint mask or productive full JointClean seconddirty gate. Explicit no-productive-joint hypothesis removes only that second case. No uniquejunk/C4/minimality inferred. Author build002 exit0.
+GeneralDirtyPaths: exact existing top mask-or-joint proof retains its actual opposite operand OrR path. TopForm excludes a clean opposite AND leaf and same dirtygate on both sides. No-mask Ustar hypothesis then gives a paired actual top path and full JointClean with positive firing. Author firstbuild exit0.

@@ -1,0 +1,7 @@
+PASS independent incremental source/math/provenance/format
+LambdaMaskBoundary.lean SHA256 0e7e5edf28a16ec585adb186976c4deceafd5dbbe8b02a86794b035e58acb34c
+UncreditedFilterCount.lean SHA256 e044fd3d02cf1cb3b56911a5a98e893865b10bca2f5bc1ca28c9293edbecced6
+TwoJunkCostReader.lean SHA256 cc1518c61aee9d0d769504fac0ba3438dad5de60b774e526b17cb39a85156ea9
+LambdaMaskBoundary extracts actual ordinary-top center and every owned spoke from Lambda membership. Pure descendant support has>=2 leaves; a second common clean-mask leaf plus explicit bipartite/C4 two-center geometry forces an owned edge incident to the selected effective center.
+UncreditedFilterCount uses that contradiction to make every Lambda stop intersection with uncredited R empty; arbitrary filtered cone count then yields R<=outside-filter-OR+1, with emptyR handled separately. All product/two-center/purity/color premises retained.
+TwoJunkCostReader: failure of AllMasked gives an actual top with distinct dirty leaves on both sides. Exactly two junk gates identifies those leaves with g/h and yields productive full JointClean. Four-root pure ancestors reach no dirtygate, so actual paired-reader overhead is disjoint from them. Fin2 orientation cases preserve both paths. Final dichotomy correctly retains AllMasked alternative and raw Ustar/reader bounds; no125 claim. Author builds001/001/003 exit0 respectively.

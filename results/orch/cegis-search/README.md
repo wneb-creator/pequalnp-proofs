@@ -1,0 +1,13 @@
+# Partial-test SAT refinement and dirty-count search
+
+The reviewed SearchSubset encoder permits a nonempty subset of the complete finite test basis, requires every positive edge test, and records that the basis is incomplete. The initial Triangle9 basis has45positive tests and14maximal negative assignments covering all306nonedge pairs. Pair coverage is not full function verification.
+
+SearchCegis runs a fixed52-gate nearby edit neighborhood. Every SAT model is decoded to explicit strict binary gates, replayed on the encoded tests, then independently scalar-checked on all557raw extremal cases. Failed models are explicitly INVALID; up to12 failing maximal negatives are added per round. Only a model passing every raw case is saved as a computational witness, still requiring Lean checking. Complete generation and solver stdout/stderr is retained per round. The neighborhood counts changed ordered fan-ins and operations, and stays centered on the original invalid seed.
+
+Reproduction: `python3 SearchCegis.py --solver <cadical-path> --statement statement.txt --tests triangle9-pair-test-cover.json --nearby triangle9-invalid-near1.json --output-dir <scratch-directory> --edits 8 --round-seconds 90 --rounds 8`. Run001 stopped after its first90-second solver cap with no verdict and no candidate. Its complete logs are preserved. No UNSAT or target witness is claimed for that run.
+
+The standalone SearchDirtyCount source adds a heuristic requirement of at leastone or two distinct dirty AND gates. A gate is dirty exactly when it is AND and true on at leastone encoded negative test. This is an explicit search restriction, not an established necessary condition for every raw local circuit. The separate full404-test nearby8edit search with at leasttwo dirty gates timed out180seconds with no verdict. A prior unrestricted full404-test4edit neighborhood was UNSAT at158.56process seconds. These are neighborhood results only.
+
+Calibration: a known53-gate baseline with zero edits solvedSAT on59selected tests, decoded exactly, and passed all557scalar cases. This verifies the candidate pipeline at53gates, not the52-gate target. Dirty-count calibration checked all11814clauses of a concrete12gate C6 circuit withtwo dirty ANDs, plus every aggregation assignment for1–5gates. Independent source/math reviews are preserved. The older Diverse hash mentioned in the dirty-count review covers only an earlier archive-key delta and is unrelated to the sources in this package.
+
+No52-gate target circuit is present. The included near seed is explicitly INVALID; the12- and53-gate circuits are calibration fixtures. All conclusions remain computational until an appropriate Lean certificate is checked.

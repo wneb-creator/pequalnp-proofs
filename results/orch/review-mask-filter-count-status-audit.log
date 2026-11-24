@@ -1,0 +1,5 @@
+PASS independent incremental source/math/provenance/format
+MaskFilterCommon.lean SHA256 ee197eede212865c1dbddd4ec37b58d205c7dc537e8f849c2e5d7158a8d21fca
+FilterConeCount.lean SHA256 7114cfc05111b363fe062004111e393510bbd86ca2ff049a7c14d9ea1cefc601
+MaskFilterCommon: C4 common-neighbor uniqueness bounds clean-mask intersection with each product side by1. A shared filter/mask OR gate would have support>=2 included in a size<=1 root-support intersection, contradiction. Pure filter cost is the checked single-root OR credit; all purity/bounds explicit. Author build002 exit0.
+FilterConeCount: arbitrary filtered support function obeys input singleton/nonOR empty/OR union recurrences. Lambda stops are restricted to the actual root cone and use explicit filtered-card<=1 premise. top_step2 returns two-live-child gates, which are outside graph and outside Lambda; path conversion retains actual OR cone. Fixed-center unordered-pair labeling is injective even at the center itself. Final |filtered support|<=B.card+1 and both subset bounds sound; no root purity assumption silently introduced. Author firstbuild exit0.

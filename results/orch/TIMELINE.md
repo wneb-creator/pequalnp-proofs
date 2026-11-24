@@ -201,3 +201,15 @@
 2026-11-24T09:57:34.552991+00:00 gate_invariants: Arbitrary first-layer dirty-count output-sensitive mask-or-productive-joint bridge compiled; frozen for review.
 
 2026-11-24T09:58:27.746617+00:00 Root preserving singleton-general static bounds, automatic actual OR roots, owned-boundary credit and actual joint-reader overhead. Exact theorem still open.
+
+2026-11-24 09:59:40 UTC status_audit: GenericMaskReplacementAO.lean frozen5037lines SHA256 481ad2080af9daa8e419561b3f09ed1fa0ffc8ac794d5c33bd86168b19258849; generic-mask-replacement-ao-build-001.log FIRST TRY EXIT0. Exact GenericMaskReplacement prefix plus44line syntactic replaceGate_ao2 and input_mask_replacement_ao2, preserving AND/ORonly, exactfanin2 andstrictbackwardreads. Pending independent review.
+
+2026-11-24T10:02:25.817978+00:00 gate_invariants: Minimum-junk first-layer one-mask exclusion compiled firsttry, frozen.
+
+2026-11-24 10:02:29 UTC status_audit: FirstLayerEffective.lean compiled FIRST TRY exit0 (first-layer-effective-build-001.log), frozen 5357lines SHA256 c82988f98ec726176d04f225bf6662eeb35ba85f6de8836265cc593d34533b43. Exact FirstLayerSensitive, GateSensitivityZero andA1527 prefixes; least_is_minimal_mono normalizes arbitraryMonotone2 competitors; effective_mask_exists uses true minimum-size positive-pair sensitivity and no-joint first-layer mask bridge. Thus zero effectivecenters excluded withactual leastAO, without graphC4 oruniquejunk. Pending independent review.
+
+- 2026-11-24T10:03:25.307806+00:00 normal_form: Minimum-junk TopForm representative COMPLETE; actual two-junk raw-cost/reader dichotomy COMPLETE.
+
+2026-11-24 10:05:23 UTC status_audit: FirstLayerTwoCenters.lean compiled FIRST TRY exit0 (first-layer-two-centers-build-001.log), frozen 6310lines SHA256 c3f7a73cfab134d0fe89c810d962079850c21bd3fcda7e5a997c6b3385e1cc7b. ExactFirstLayerMinimum plusGateSensitivityZero/A1527/Effective blocks. Newactualpure-disjoint-side pairendpointplacement andeffectiveCenters finitecard>=2 inminimumjunk leastAO TopForm underfirst-layer/no-productiveJointClean. Zero-center excludedbysensitivity, singletonexcludedbyactualsame-sizeAOreplacement+junkdecrease. Pending independent review.
+
+2026-11-24T10:06:39.439867+00:00 Replan: arbitrary first-layer masks via minimum-junk representative/common-filter counting; independent two-junk case via private-joint cover and Lambda-safe residual cones; complementary12-point core queued for next search round. Root preserves all reviewed intermediates; exact theorem remains open.

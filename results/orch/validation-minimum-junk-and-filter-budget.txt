@@ -1,0 +1,29 @@
+UTC 2026-11-24T10:06:39.439867+00:00
+Gap L-meta-1477
+PARTIAL RESULTS ONLY. The exact posted statement is not proved or refuted.
+Named-file lake build passed previously; exact checker remains REJECTED (no-theorem).
+No PR opened. No final proof cleanup claimed.
+
+MinimumJunk.lean: 1510 lines; sha256 598ea16d14faf97785bccd883e8494a31b1ef698e8b1ff8bc2ca49433ce4eb8d; author minimum-junk-build-002.log exit0; independent review PASS.
+FirstLayerElimination.lean: 5327 lines; sha256 51a0347e971ae7a4a8defd4f3fe45fb0b3bd1daf66c2ca8a8fb052858a4aaafd; author first-layer-elimination-build-001.log exit0; independent review PASS.
+FirstLayerMinimum.lean: 5423 lines; sha256 3a65c32f187ca785a26a3ef8d7de77cc419e0324a9d2c52ecdf6e25fc30623ee; author first-layer-minimum-build-001.log exit0; independent review PASS.
+FirstLayerEffective.lean: 5357 lines; sha256 c82988f98ec726176d04f225bf6662eeb35ba85f6de8836265cc593d34533b43; author first-layer-effective-build-001.log exit0; independent review PASS.
+GenericMaskReplacementAO.lean: 5037 lines; sha256 481ad2080af9daa8e419561b3f09ed1fa0ffc8ac794d5c33bd86168b19258849; author generic-mask-replacement-ao-build-001.log exit0; independent review PASS.
+TwoJunkRawCostAutomatic.lean: 6780 lines; sha256 337e394c12ddd898374cfee318073ef8ea80f7dbc266d3a109ea17235fb69b7a; author two-junk-raw-auto-build-001.log exit0; independent review PASS.
+TwoJunkCostReader.lean: 7199 lines; sha256 cc1518c61aee9d0d769504fac0ba3438dad5de60b774e526b17cb39a85156ea9; author two-junk-cost-reader-build-003.log exit0; independent review PASS.
+MaskFilterCommon.lean: 5471 lines; sha256 ee197eede212865c1dbddd4ec37b58d205c7dc537e8f849c2e5d7158a8d21fca; author mask-filter-common-build-002.log exit0; independent review PASS.
+FilterConeCount.lean: 5564 lines; sha256 7114cfc05111b363fe062004111e393510bbd86ca2ff049a7c14d9ea1cefc601; author filter-cone-count-build-001.log exit0; independent review PASS.
+LambdaMaskBoundary.lean: 5781 lines; sha256 0e7e5edf28a16ec585adb186976c4deceafd5dbbe8b02a86794b035e58acb34c; author lambda-mask-boundary-build-001.log exit0; independent review PASS.
+UncreditedFilterCount.lean: 5823 lines; sha256 e044fd3d02cf1cb3b56911a5a98e893865b10bca2f5bc1ca28c9293edbecced6; author uncredited-filter-count-build-001.log exit0; independent review PASS.
+CommonFilterBudget.lean: 5904 lines; sha256 def1eff8d027dd8b9b093f143e43da10649d6cc24a1b7a83e80627861f3871c3; author common-filter-budget-build-001.log exit0; independent review PASS.
+JointLambdaGeometry.lean: 114 lines; sha256 9deff7e31caa367319090278a4e2794a07f00c16993f1b7fbf4a1582189b994d; author joint-lambda-geometry-build-002.log exit0; independent review PASS.
+SearchTriangle9SharedDNF.lean: 469 lines; sha256 b6e6dfeb1fd78a7dcc3cf722e012f7a274cbc6007161a9632a1490e239c578bc; author search-triangle9-shared-dnf-build-001.log exit0; independent review PASS.
+JointCentersStar.lean: 108 lines; sha256 5232c002310054d6a8f741493c42e9cc3b76d349ce224709cfb7fde15e0606b1; author joint-centers-star-build-004.log exit0; independent review PASS.
+cegis-search: 26 manifest files; all hashes confirmed; independent source/results review PASS.
+triangle9-diverse-shared: 9 manifest files; all hashes confirmed; independent source/results review PASS.
+
+A minimum-junk least-AO TopForm representative exists without increasing input circuit size. Under first-layer/no-productive-joint hypotheses, effective-mask and sole-mask elimination results apply. Common pure mask filters have an explicit separate OR budget. Two-junk raw bounds now allow singleton operands; actual unmasked edges yield reader overhead. Subtraction of Lambda-owned ancestors and unrestricted circuit structure remain open.
+The two-centers joint-star lemma uses explicit bipartite and pair-clean premises. Shared Triangle9 DNF certifies a 56-gate calibration circuit, not the target52. Search packages contain no target counterexample; restricted timeouts are not UNSAT results.
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=238.1 subagents=6

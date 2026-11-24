@@ -1,0 +1,4 @@
+PASS independent source/math review
+SearchSubset.py SHA256 d127ab38a426cbd38655c36a099c435d91478300b2c8724af804437db9310fd2
+SearchCegis.py SHA256 ed86e0124512450ded9353a3083397a7630f88eff1993cb2a0b5fe4e6dfcdcde
+Subset validates nonempty exact complete-basis subset and inclusion of every positive minterm. Independently verified selected45positive+14negative tests cover all306 nonedge pairs. CEGIS keeps fixed52gate nearby edit neighborhood, saves complete generator/solver output per round, and decodes only SAT return10. Every candidate is physically replayed on selected tests and all557raw extremal cases before witness labeling; invalid candidates remain explicitlyINVALID. Refinement adds only new failed maximal negatives, so no false final acceptance is possible. UNSAT is scoped to selected-test nearby constraints, no general lowerbound. Round cap/timeouts return no verdict; no network or credential access.

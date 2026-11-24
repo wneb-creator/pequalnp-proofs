@@ -1,0 +1,6 @@
+PASS independent incremental source/math/provenance/format
+FirstLayerElimination.lean SHA256 51a0347e971ae7a4a8defd4f3fe45fb0b3bd1daf66c2ca8a8fb052858a4aaafd
+FirstLayerMinimum.lean SHA256 3a65c32f187ca785a26a3ef8d7de77cc419e0324a9d2c52ecdf6e25fc30623ee
+MinimumJunk.lean SHA256 598ea16d14faf97785bccd883e8494a31b1ef698e8b1ff8bc2ca49433ce4eb8d
+Elimination composes positive-edge output sensitivity with unique effective mask, yielding exact endpointcondition for previously reviewed generic replacement. Minimum wrapper uses verified AO preservation; same size+same function transfers leastAO, so strictly smaller junk contradicts explicit global minjunk. No TopForm preservation of replacement is asserted.
+MinimumJunk chooses least junk cardinal among the nonempty set of leastAO circuits via Nat.find; all least sizes equal. Existing A1501.main_ind preserves exact size and junk count while producing TopForm, so minimumjunk property survives. Final normalization starts from arbitrary Monotone2 graph circuit and keeps size<=original. Graph nonempty remains explicit. Author builds001/001/002 respectively exit0.

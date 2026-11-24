@@ -1,0 +1,6 @@
+PASS independent incremental source/math review
+SearchDirtyCount.py SHA256 135115183aea3ea39abe55247dd5e54d2915b59de6cec3ec1277bc221d92b904
+SearchCalibrateDirty.py SHA256 6f6378631128c8d8c6f9ddc3fe0cab565c349dcfd304a6b428accc7576b8666c
+SearchStochasticTriangle9Diverse.py SHA256 ccbd2173a93aba377c25998208ca0305c81a65102c120042bf3f7692cd137051
+Dirty equivalence and at-least1/2 aggregation independently exhaustively checked on 270 Boolean assignments, including zero-gate and one-gate edge cases. min_dirty=max(legacy --dirty, new minimum) preserves old meaning. Definition uses all complete maximal negatives; an AND true on any negative is dirty. This is a witness-search restriction only, not a proven necessary bound. Calibrator computes same per-gate property directly.
+Diverse delta adds active AND count to archive identity and updates only key destructuring; exact evaluation, decoder, near recorder, reducer, and target checks unchanged. Active bitmask counts only backward-reachable rows with two operands.

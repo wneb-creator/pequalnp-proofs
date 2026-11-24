@@ -1,0 +1,135 @@
+{
+  "frozen_at": "2026-11-24T10:00:47.142392+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "112a63cd050c711fa43feb22262f5402273e47d515c625207ff69e483edc2dec",
+      "bytes": 2706
+    },
+    {
+      "file": "SearchCalibrateDirty.py",
+      "sha256": "6f6378631128c8d8c6f9ddc3fe0cab565c349dcfd304a6b428accc7576b8666c",
+      "bytes": 4349
+    },
+    {
+      "file": "SearchCegis.py",
+      "sha256": "ed86e0124512450ded9353a3083397a7630f88eff1993cb2a0b5fe4e6dfcdcde",
+      "bytes": 6011
+    },
+    {
+      "file": "SearchDirtyCount.py",
+      "sha256": "135115183aea3ea39abe55247dd5e54d2915b59de6cec3ec1277bc221d92b904",
+      "bytes": 10083
+    },
+    {
+      "file": "SearchNearby.py",
+      "sha256": "85968fa00ad5e45ebd7981dec901a1bf320c4b2519eaaaa7e533e083000abdb6",
+      "bytes": 4775
+    },
+    {
+      "file": "SearchSubset.py",
+      "sha256": "d127ab38a426cbd38655c36a099c435d91478300b2c8724af804437db9310fd2",
+      "bytes": 10538
+    },
+    {
+      "file": "SearchTriangle9Problem.json",
+      "sha256": "57dd768796981145fd4968a0f86d75af756037be7d40bf4ca2eddedb7620b505",
+      "bytes": 1871
+    },
+    {
+      "file": "SearchTriangle9Problem.py",
+      "sha256": "c0aecd88761752cf16d7599e9432e8dd61c1fba1355673d589bd6ede888d1c28",
+      "bytes": 1094
+    },
+    {
+      "file": "c6-two-dirty12.json",
+      "sha256": "7533a02641a8b421fd6eabda76031e849f2398fb4402d8fa76242b2ce522b256",
+      "bytes": 900
+    },
+    {
+      "file": "cegis-triangle9-001.log",
+      "sha256": "8a82ebe1d1faf21c396c560e3e99a35c0beef9ad4a4ecfe39e936443685ef49b",
+      "bytes": 201
+    },
+    {
+      "file": "cegis001-round0.generate.log",
+      "sha256": "e7218da46242984c9e9aa1abbd5df46ed7f9cdef856fd5fb7e0ff8b103e63300",
+      "bytes": 551
+    },
+    {
+      "file": "cegis001-round0.solver.log",
+      "sha256": "ae66197d8299a3f7af3c6276ed8b250b35f9358f8735741f967feb850e4430db",
+      "bytes": 12594
+    },
+    {
+      "file": "cegis001-round0.tests.json",
+      "sha256": "26d46147587a05898d84e06b580716932adc3521c56950036b39feea45b39d40",
+      "bytes": 477
+    },
+    {
+      "file": "review-dirtycount-diverse-status-audit.log",
+      "sha256": "356507c80bddb6ce3a95f080aa82e040df27c15fabd53c91929b91bb9d3539de",
+      "bytes": 1018
+    },
+    {
+      "file": "review-subset-cegis-status-audit.log",
+      "sha256": "c612e755064a687b7380bab0b21b610bf0a81d2741802d7abd780782e6476898",
+      "bytes": 920
+    },
+    {
+      "file": "search-cegis-calibration53-generate.log",
+      "sha256": "a794b82f9f6c8bf8e3589db6add14157cd52e5f24faa1de29dd2c46e80826f87",
+      "bytes": 551
+    },
+    {
+      "file": "search-cegis-calibration53-replay.log",
+      "sha256": "7b8d77aaac379a1410045a5ad3d78750edd9c330c0001c49ff86108e99de118e",
+      "bytes": 160
+    },
+    {
+      "file": "search-cegis-calibration53.log",
+      "sha256": "308f9271ab8dbb6a3d77f72a38858bedf3cfadba195fb01f27f429ab5f72934e",
+      "bytes": 99579
+    },
+    {
+      "file": "search-dirtycount-calibration.log",
+      "sha256": "03becbd6727e942bb1cdf006d9f980ffe7791883399b595ce091c22c0dac4dd8",
+      "bytes": 633
+    },
+    {
+      "file": "search-dirtycount-calibration12-generate.log",
+      "sha256": "6dfd7ab8604174a00af36528e94a457d1c9278bc9d0c0e1638ef11aa3bd5a460",
+      "bytes": 93
+    },
+    {
+      "file": "search-triangle9-dirty2-near1-edits8.log",
+      "sha256": "79c377f817d6454263f5e6eb9c45ff3ad7ab106fc598dc24be8bbf02f78fc8a8",
+      "bytes": 7993
+    },
+    {
+      "file": "search-triangle9-near1-edits4.log",
+      "sha256": "2d09a268786913a28532c5831d7bc5898e7c2e171096ddc1672f1cd9cbad6fa6",
+      "bytes": 8963
+    },
+    {
+      "file": "statement.txt",
+      "sha256": "d962214a09d1adf8b5837468e4d94e19c895b742875d55870d08ebcd0fe6fda0",
+      "bytes": 1260
+    },
+    {
+      "file": "triangle9-invalid-near1.json",
+      "sha256": "27fc741ad3d4eee811d3448bf4ba99a945da8282d2774870eee23f87ef4e864b",
+      "bytes": 5865
+    },
+    {
+      "file": "triangle9-pair-test-cover.json",
+      "sha256": "5ab7636a19e2f643389b9731ad553de1d4e756a0beb1077ae926ffe86bb74f65",
+      "bytes": 597
+    },
+    {
+      "file": "triangle9-pair-test-cover.log",
+      "sha256": "277978d2be4e894dfd9ff6f4fc4db3d288e6c9d2d1899c34032530a992e87742",
+      "bytes": 606
+    }
+  ]
+}

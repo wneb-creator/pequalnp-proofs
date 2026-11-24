@@ -1,0 +1,3 @@
+triangle9-diverse-shared: all9 manifest hashes and bytes match
+singleton-joint-search: all4 manifest hashes and bytes match
+Exact independently reviewed DiverseShared source retained; README accurately scopes valid56gate two-dirty warmstarts, baseline53/target52, unchanged correctness checks, and no witness claim. Singleton finite diagnostic README/manifest reviewed; mathematical source/result independent review was performed by counterexample_search, not duplicated here.
