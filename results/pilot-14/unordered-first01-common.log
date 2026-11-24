@@ -1,0 +1,29 @@
+/tmp/oec/pequalnp-pilot-14/sat-proof/UnorderedFirst01Common.lean:1:0: error: unknown module prefix 'UnorderedEmbeddingTest'
+
+No directory 'UnorderedEmbeddingTest' or file 'UnorderedEmbeddingTest.olean' in the search path entries:
+/tmp/oec/pequalnp-pilot-14/sat-proof
+/tmp/oec/pequalnp-pilot-14/replay
+/tmp/oec/pequalnp-pilot-14/counterexample
+/tmp/oec/pequalnp-pilot-14/lower-bound
+/workspace/pequalnp-proofs/lean/.lake/packages/Cli/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/batteries/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/Qq/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/aesop/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/proofwidgets/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/importGraph/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/plausible/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean
+/workspace/pequalnp-proofs/lean/.lake/build/lib/lean
+/tmp/oec/pequalnp-pilot-14/toolchain/lean-4.36.0-linux/lib/lean
+/tmp/oec/pequalnp-pilot-14/toolchain
+/tmp/oec/pequalnp-pilot-14/force-context
+/tmp/oec/pequalnp-pilot-14/assembly
+
+/tmp/oec/pequalnp-pilot-14/toolchain/lean-4.36.0-linux/lib/lean
+cumulative profiling times:
+	import 67.8ms
+	initialization 26.3ms
+real 1.75
+user 1.05
+sys 0.70

@@ -1,0 +1,80 @@
+import took 3.99s
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 355ms
+type checking took 1.01s
+type checking took 1.23s
+type checking took 1.17s
+type checking took 1.11s
+type checking took 1.02s
+type checking took 387ms
+type checking took 310ms
+type checking took 1.07s
+type checking took 1.11s
+type checking took 1.64s
+type checking took 1.18s
+type checking took 1.55s
+type checking took 1.57s
+type checking took 1.17s
+type checking took 1.07s
+type checking took 1.55s
+type checking took 1.28s
+type checking took 1.57s
+type checking took 1.09s
+type checking took 1.63s
+type checking took 1.25s
+type checking took 1.54s
+type checking took 1.11s
+type checking took 348ms
+type checking took 359ms
+type checking took 1.14s
+type checking took 1.14s
+type checking took 1.57s
+type checking took 1.31s
+type checking took 1.43s
+type checking took 1.58s
+type checking took 1.15s
+type checking took 1.15s
+type checking took 1.83s
+type checking took 1.23s
+type checking took 1.55s
+type checking took 201ms
+type checking took 1.31s
+type checking took 1.89s
+type checking took 1.29s
+type checking took 1.5s
+type checking took 5.59s
+type checking took 318ms
+type checking took 216ms
+type checking took 222ms
+type checking took 266ms
+type checking took 191ms
+cumulative profiling times:
+	.olean serialization 81.1ms
+	attribute application 0.0332ms
+	blocked (unaccounted) 67.2s
+	compilation (IR) 0.0386ms
+	compilation (LCNF base) 0.489ms
+	compilation (LCNF impure) 0.134ms
+	compilation (LCNF mono) 0.266ms
+	congr simp thm 0.169ms
+	declTypeLinter 4ms
+	dsimp 0.528ms
+	elaboration 30.4ms
+	fix level params 4.11ms
+	import 3.99s
+	initialization 31.2ms
+	instantiate metavars 76.3ms
+	interpretation 710ms
+	let-to-have transformation 0.0401ms
+	linting 8.32ms
+	module linting 0.0236ms
+	parsing 1.17ms
+	process pre-definitions 68.8ms
+	share common exprs 32.6ms
+	simp 0.461ms
+	tactic execution 306ms
+	tacticAnalysis 3.54ms
+	type checking 66.3s
+	typeclass inference 148ms
+real 73.31
+user 69.02
+sys 4.10

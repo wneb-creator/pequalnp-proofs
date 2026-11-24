@@ -1,0 +1,48 @@
+import took 3.97s
+.olean serialization took 202ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 331ms
+type checking took 1.81s
+type checking took 1.71s
+type checking took 1.75s
+type checking took 1.87s
+type checking took 1.82s
+type checking took 1.75s
+type checking took 1.98s
+type checking took 1.88s
+type checking took 1.95s
+type checking took 2.13s
+type checking took 1.77s
+type checking took 2.18s
+type checking took 1.88s
+type checking took 1.94s
+type checking took 1.77s
+type checking took 1.92s
+type checking took 6.01s
+type checking took 127ms
+type checking took 138ms
+cumulative profiling times:
+	.olean serialization 202ms
+	attribute application 0.017ms
+	congr simp thm 0.162ms
+	declTypeLinter 4.35ms
+	dsimp 0.562ms
+	elaboration 21ms
+	fix level params 3.29ms
+	import 3.97s
+	initialization 37.2ms
+	instantiate metavars 61.7ms
+	interpretation 633ms
+	let-to-have transformation 0.0284ms
+	linting 5.67ms
+	module linting 0.0284ms
+	parsing 0.6ms
+	process pre-definitions 52.6ms
+	share common exprs 24.2ms
+	simp 0.41ms
+	tactic execution 165ms
+	tacticAnalysis 2.81ms
+	type checking 43.7s
+	typeclass inference 84.3ms
+real 50.32
+user 46.53
+sys 3.68

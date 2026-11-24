@@ -1,0 +1,8 @@
+PASS: independent complete first01 finite aggregation review. keep checks all360 actual retained-input child positions. duplicates quantifies over the actual ten-element parent list: index0 uses the separately checked220-child split, and all nine other positions are individually kernel checked. first01_excluded applies the exact checked recurrence decomposition to all duplicate, consume and keep branches plus the false short-list guard. The separate kernel equality authenticates the conversion from phase(AND(raw0,raw1)) with raw.map phase to representative pair(0,1), ops index2, and canonical inputs. Thus pair01_sign2 is a closed one-of24 representative finite result, not the full family or full gap. All checked sources use allowed limits and ordinary kernel decisions.
+
+8a12ce3404ca614d48fe2cba057480ed54a3045b65743f46679d2b798ec0f00e  sat-proof/UnorderedFirst01Keep.lean
+7b4c5bf5380de25ec44b5c75be4f3c91598923a069a12661d155015c80bc69b9  sat-proof/UnorderedFirst01Duplicates.lean
+b8d30584995603ef602feb875442917fbc26fd96a39d0ece91dbaf1465579f91  sat-proof/UnorderedFirst01Closed.lean
+5a9aedb42cec304c31e6d4affc89533231e289b146bb06097377ade01d7d4a76  sat-proof/unordered-first01-keep.log
+18a7e42e37aa6eced2cb3b5ff580adfeaad5105d96a7e52229bf8ca2dcb205d7  sat-proof/unordered-first01-duplicates.log
+302740ac73d77e10182710b66361142759976ffef2baca7b0285d1b6d08d95c6  sat-proof/unordered-first01-closed.log

@@ -1,0 +1,8 @@
+PASS: independent finite-component review. first01 is exactly phase(AND(raw0,raw1)) followed by all nine phase-normalized inputs. The three cardinality facts are kernel checked. Consume checks quantify over Fin of the actual unordered step list length, covering all180 genuine child positions without a manually guessed bound. The duplicate0 component likewise checks every actual unordered step of the eleven-element duplicate list, covering220 positions, and test_succ_false combines those facts with the checked length>1 guard. Both finite recurrences use depth3 to establish the intended depth4 parent branch. These results cover consumption and duplicate position0 only; the keep and other duplicate branches remain separate and no complete first01 or gap result is claimed here. Source files have only allowed resource options and kernel decisions. Logs contain no errors; compiled artifacts are present.
+
+46f7bf5cc3da9fd1df8afc3299e33b17807c2b5c498b0a5ea8aaf2321908e88f  sat-proof/UnorderedFirst01Common.lean
+ccecaa687a98a64301da489873b060a8c8ec09ebcccbfc4df84a752e19195bc8  sat-proof/UnorderedFirst01Consume.lean
+0452ff511ce0288d41736e39230c431ad7e02df552627fc29f3d1f4ed2397b49  sat-proof/UnorderedFirst01Dup0.lean
+fb1ed17d20beed749d687374c5ab4b91b0ef922b180f7d16c9e5179607587676  sat-proof/unordered-first01-common2.log
+6a2c628fd93ddeb8b485bf465c40cc09b37e6a607a946453e70f1844e197a5b5  sat-proof/unordered-first01-consume.log
+98776f41d22a4e50b63adc9fa4189264712cdf0b430e579acd351dd43ebd390d  sat-proof/unordered-first01-dup0.log
