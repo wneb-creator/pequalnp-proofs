@@ -1,0 +1,6 @@
+k 4 subsets 5985 histograms 3
+k 5 subsets 20349 histograms 5
+k 6 subsets 54264 histograms 7
+k 7 subsets 116280 histograms 9
+k 8 subsets 203490 histograms 11
+PASS all histogram counts, representative data, exact alternative6 map, and conditional costs

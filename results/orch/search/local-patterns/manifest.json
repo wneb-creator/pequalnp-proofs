@@ -1,0 +1,31 @@
+{
+  "frozen_at": "2026-11-24T08:23:17.969532+00:00",
+  "no_witness_found": true,
+  "files": [
+    {
+      "file": "LocalPatternCensus.py",
+      "sha256": "bb0e114f91a1ac7acfc54626657af0994e2c4adf864d2ba7a902585c527a567c",
+      "bytes": 2614
+    },
+    {
+      "file": "README.md",
+      "sha256": "01a4051d922d7e14f84fbbffffe7e0af30719aee3b0dee47841146995d92ba76",
+      "bytes": 1609
+    },
+    {
+      "file": "alternative6-core.json",
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+      "bytes": 2275
+    },
+    {
+      "file": "census.json",
+      "sha256": "d6a747b0a11caa47af680f9c5169939246a6caed2bb99063895920ef0b51ea0b",
+      "bytes": 12825
+    },
+    {
+      "file": "census.log",
+      "sha256": "1f41225291c25ee1939c6f52deb4cd4a557bf790ea1eebd0db5567efa182f16d",
+      "bytes": 8004
+    }
+  ]
+}

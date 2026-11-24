@@ -1,0 +1,76 @@
+{
+  "frozen_at": "2026-11-24T08:31:13.807655+00:00",
+  "no_smaller_witness": true,
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "da850eb60c4bd7da614f203e098a093c1968ef63ba28a2a91cf6bd853b110e30",
+      "bytes": 3237
+    },
+    {
+      "file": "Search.py",
+      "sha256": "97bf42d623f30a076ad4bb1637376d73b672df484424f1ffa56714efa696068a",
+      "bytes": 9612
+    },
+    {
+      "file": "SearchCalibrate.py",
+      "sha256": "ea5f80014cecba4046b0084c22dbdf845e6b9d38b4b6c2e54d80a9e9d2d291ff",
+      "bytes": 4134
+    },
+    {
+      "file": "SearchDecode.py",
+      "sha256": "ff8014645d78a88662f0f29bb49a8dfa572bc179454d131fd6b0f8d6b0a280b9",
+      "bytes": 3018
+    },
+    {
+      "file": "SearchFactored.py",
+      "sha256": "0fe372831e8bc01cd6b5bc208ec18f7cab0e3665cd561ff228f30ddf5c947259",
+      "bytes": 7817
+    },
+    {
+      "file": "alternative6-automorphisms.json",
+      "sha256": "111e4ee3bfb371a33dfa4c1d94d32cd94c3ef98b633dd944fdeda4c50e3dc693",
+      "bytes": 6223
+    },
+    {
+      "file": "local-pattern-independent-review.log",
+      "sha256": "a9dd53346da642ff44691c6c2179f09139238a6b9cd994cec0a128845fb21464",
+      "bytes": 251
+    },
+    {
+      "file": "search-factored-shared-calibration-witness.json",
+      "sha256": "fc967bfc5ab2b6fc642eeed1b7e644afa1000f4c5fa5e756de61bc61650cc8fd",
+      "bytes": 710
+    },
+    {
+      "file": "search-k6-34.log",
+      "sha256": "58685cdb868dc04494bf27395d2b7f90232e63a0fbad4b4ac9764aa1e6cc3823",
+      "bytes": 44628
+    },
+    {
+      "file": "search-one-junk-calibration36-witness.json",
+      "sha256": "2d4680eccaed081101b2d520ab2e8ea424e2d23ef45f28606250a3ff476396f9",
+      "bytes": 640
+    },
+    {
+      "file": "search-one-junk-size34.log",
+      "sha256": "ceb2d5d5174aa4082bba40cecb792049736dc8f708c169983b93ea508a134596",
+      "bytes": 7110
+    },
+    {
+      "file": "search-two-junk-and7-size34.log",
+      "sha256": "d37811da596f110406637a2f18416453059909ac6705533973c097e3c2ed60eb",
+      "bytes": 15576
+    },
+    {
+      "file": "search-two-junk-and8-size34.log",
+      "sha256": "f105d4a6ca3e9069a899d0ad81455a4a854073ab4b85acd1a8a2182bad05f396",
+      "bytes": 24343
+    },
+    {
+      "file": "search-v3-calibration.log",
+      "sha256": "3294682b77f61f5afadccd28d8ec911486d4310f58e53c1e348998f19619d1e5",
+      "bytes": 947
+    }
+  ]
+}

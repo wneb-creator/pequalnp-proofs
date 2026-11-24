@@ -67,3 +67,17 @@
 2026-11-24T08:25:58.626648+00:00 status_audit: Alternative core found and prefix lift compiled; global-search and latest one-junk reviews completed PASS. Plain local stochastic nearing1200s cap, best35.
 
 2026-11-24 08:28:10 UTC Independent source reviews and rebuilds of GateReplacementStar, StructuralIsolation, OneCenterEliminationFull, OneCenterPlane all PASS; root notified.
+
+- 2026-11-24T08:29:09.084070+00:00 counterexample_search: DNF certificate and local-pattern census independent reviews PASS; global SLS125 best, alternative6 SAT ongoing; no smaller witness.
+
+- 2026-11-24 08:29:12 UTC: normal_form compiled OverlapAlias singleton-overlap/no-internal-cleaner elimination (exit0).
+
+2026-11-24 08:35:36 UTC Alternative6 geometry,88-test certificate,and29-gate baseline all compiled; compiler override independently reviewed/rebuilt PASS. Root notified.
+
+- 2026-11-24T08:35:43.970663+00:00 OneCenterPlane concrete125 restricted bounds verified; private-cone privacy and skip/emit compiler verified; actual rotation adapter building.
+
+2026-11-24 08:35:50 UTC gate_invariants: PlaneOneCleaner compiled, completing sole-effective-mask and singleton-side quantitative cases.
+
+- 2026-11-24T08:36:49.342498+00:00 Root replan: concrete plane bounds now cover two disjoint effective centers and centered off-star edges; singleton-overlap rotation is being connected to a checked private-gate compiler. This should isolate the multiple-dirty-gate frontier, but no reduction of all124-gate circuits to one dirty gate is known. Counterexample search continues on the alternative six-point core and full plane; next search diversification should permit shared nonlinear OR nodes. Direct DNF and per-gate DNF table certificate soundness are checked. A125-gate table calibration is building. No unrestricted proof, refutation, or proof PR exists.
+
+2026-11-24 08:37:22 UTC gate_invariants: all disjoint-support one-junk circuits excluded at124 (PlaneDisjoint).

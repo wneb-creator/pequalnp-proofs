@@ -1,0 +1,9 @@
+2026-11-24T08:37:31.677970+00:00
+L-meta-1477 partial work only. Exact posted theorem remains unproved; no checker acceptance claimed.
+DNFTable verifies an explicit per-gate DNF table against exact evaluator semantics. PrivateRotationCompilerOverride assumes explicit semantic and privacy conditions and constructs a same-or-smaller clean circuit. Alternative6CertificateChecked proves24 positive and64 negative tests certify the grouped19-input core.
+Frozen search-v3 and local-patterns independently reviewed. Broad K6 SAT34 timed out; restricted one-/two-junk UNSAT is scoped in README; no short witness or unrestricted lower-bound conclusion.
+DNFTable: independent source review/rebuild PASS, 263 lines, SHA256 195b6f19dfd95d47dd0f626bf9784cd1d4b550058255e365de8f8d7a6e8ddd99. Complete log dnf-table-build-003.log.
+PrivateRotationCompilerOverride: independent source review/rebuild PASS, 263 lines, SHA256 7360caea72227a30df6768488dd70bab426c01fecc3da3dc75450b7b6f7a3bbc. Complete log private-rotation-compiler-override-build-001.log.
+Alternative6CertificateChecked: independent source review/rebuild PASS, 231 lines, SHA256 84ede49e99d38f8c92a6460877072fddb80fbd2b051864aa588032caf55c1050. Complete log alternative6-certificate-build.log.
+Sub-agents: status_audit, lean_setup, structural_lower_bound, counterexample_search, gate_invariants, normal_form
+TIMING total=149.0 subagents=6
