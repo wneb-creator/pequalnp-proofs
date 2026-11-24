@@ -1,0 +1,2 @@
+PASS triangle9-run-006: manifest hashes/bytes and README scopes checked; independently scalar replayed 52 concrete circuits (3 valid, 49 explicitly INVALID) on 28964 raw cases, exact wrong assignments/topology/size verified. No smaller target witness claimed.
+PASS complement12-search: manifest hashes/bytes and README scopes checked; independently scalar replayed 4 concrete circuits (4 valid, 0 explicitly INVALID) on 16624 raw cases, exact wrong assignments/topology/size verified. No smaller target witness claimed.

@@ -1,0 +1,2 @@
+PASS independent source/math review and48 physical baseline replays on4156raw cases each; SHA 28d996af042493470d6ae7d8171571bc63687d2d25d73772e4c6021cf09057e4 sizes {71: 8, 72: 5, 73: 5, 75: 6, 77: 9, 74: 3, 79: 4, 87: 3, 95: 5}
+Mixed-cover replaces each selected line incidence in all left stars by one right star; adds exactly1 gate, preserves exact function, uses only dormant helper earlier than rewritten stars. Target70,baseline71,shared74,matching77 and reducer73 thresholds correct; full4156raw witness replay retained. No targetwitness claim.

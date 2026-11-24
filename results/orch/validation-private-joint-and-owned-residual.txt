@@ -1,0 +1,40 @@
+UTC 2026-11-24T10:20:27.008739+00:00
+Gap L-meta-1477
+PARTIAL RESULTS ONLY. The exact posted statement is not proved or refuted.
+Named-file lake build passed previously; exact checker remains REJECTED (no-theorem).
+No PR opened. No final proof cleanup claimed.
+
+FirstLayerTwoCenters.lean: 6310 lines; sha256 c3f7a73cfab134d0fe89c810d962079850c21bd3fcda7e5a997c6b3385e1cc7b; author first-layer-two-centers-build-001.log exit0; independent review PASS.
+Complement12Geometry.lean: 88 lines; sha256 f6dc89d4b49d03147637d2b1d8850e790990ac45bf735a96b3ca5118885ae911; author complement12-geometry-build-001.log exit0; independent review PASS.
+Complement12Certificate.lean: 235 lines; sha256 0af087224bfef5e6f1a42f8919e70f8cc190b9dc6daa155fc6ed285fc2a5f56d; author complement12-certificate-build-002.log exit0; independent review PASS.
+Complement12DNFBaseline.lean: 505 lines; sha256 a01beaf94686889ed2c18dabe486fb9fc15497648a0a3ae5aaad3f4f2552189a; author complement12-dnf-baseline-build-001.log exit0; independent review PASS.
+Complement12LiftComplete.lean: 440 lines; sha256 e5de1b2667c977af7b68ac7a9fc451d1bd5a4239e5c54201e817750144947e16; author complement12-lift-build-001.log exit0; independent review PASS.
+OwnedResidualRootCone.lean: 4057 lines; sha256 51626eb41cdfabab65f6e6f409d0c875c0d0b9d971a762ff1537e934b74e86db; author owned-residual-root-cone-build-001.log exit0; independent review PASS.
+OwnedResidualStarStops.lean: 4107 lines; sha256 8cb5cb92843029b6d7e083df3744ae37b34f74503bb780452668611a8eda14dd; author owned-residual-star-stops-build-002.log exit0; independent review PASS.
+OwnedSharedResidualRoots.lean: 4192 lines; sha256 cc2e56cbafc63f99c2e2226d9c679bdc9245e72cf7002071ab902b6b853f6239; author owned-shared-residual-roots-build-001.log exit0; independent review PASS.
+OwnedResidualPairCover.lean: 4340 lines; sha256 509d8d05687e19b86fd5cb53477591b67a2575d00d527dbc70720fac3d44d0b6; author owned-residual-pair-cover-build-001.log exit0; independent review PASS.
+JointOwnedStop.lean: 140 lines; sha256 398bb8931872736a92c590a7d99341fb63a102f3a5b3a6cac238c5ed2f8e0a0e; author joint-owned-stop-build-002.log exit0; independent review PASS.
+MaskJointStop.lean: 4262 lines; sha256 27fbb5e4b2522bd882167d2e88b0035abe4595909e5b2b89fb19b0c1779e318b; author mask-joint-stop-build-002.log exit0; independent review PASS.
+MaskJointStar.lean: 4324 lines; sha256 599a7c6fcc215f4747553814f88873cc09bfdabde7ce1d95258344df817cf566; author mask-joint-star-build-001.log exit0; independent review PASS.
+MaskJointBudget.lean: 6283 lines; sha256 4e74bc148e0637d1770e4c48775ea994df13c3226531cc6ff2e2beb93149e32e; author mask-joint-budget-build-001.log exit0; independent review PASS.
+ActualCommonMasks.lean: 5948 lines; sha256 e54a7ffc7fb31920fd4a77f3f8bc587df603253560ee733a06f883f69c928031; author actual-common-masks-build-001.log exit0; independent review PASS.
+CommonFilterGeneral.lean: 6081 lines; sha256 dbf884e3f7c5392f7158c751128c2d4fd51ec75ba69c08b418f12d0f6a398371; author common-filter-general-build-001.log exit0; independent review PASS.
+CommonFamilyBudget.lean: 6270 lines; sha256 d9129b1c0580757df08b72d2d80c1d737fe25eab69d354f6fce93bf36beb4018; author common-family-budget-build-002.log exit0; independent review PASS.
+EligibleBoundary.lean: 6346 lines; sha256 85218fa6420979432d2dc7c6adb51af40b5e5e8f74f3c03457614ee0ffa03f72; author eligible-boundary-build-001.log exit0; independent review PASS.
+EligibleFamilyBudget.lean: 6627 lines; sha256 225f180b14ead123856a98f886d87a54e38bd22efda8e23700707276c14b62c2; author eligible-family-budget-build-001.log exit0; independent review PASS.
+PrivateJointCover.lean: 690 lines; sha256 2cc892ce53a51e0f1a1069b2b63fc35eadf1fc5c80a8a561184b41ff6bc94373; author private-joint-cover-build-001.log exit0; independent review PASS.
+PrivateJointSemantics.lean: 1192 lines; sha256 f3cef976b36263791d0a6c315e146837401bc7f4206b169e4194b8f85174a549; author private-joint-semantics-build-002.log exit0; independent review PASS.
+TwoJunkPrivateCover.lean: 5418 lines; sha256 43311c6b4a8cd22be8c32b52e54e3dc56f302b74c626af2cf3e4c5b63cb637ac; author two-junk-private-cover-build-001.log exit0; independent review PASS.
+SplitReaderCover.lean: 1130 lines; sha256 b4a7636f4ce8fffd08d9e42cb39f2a21f8e8189c635a16fc5e20b08f43d7065a; author split-reader-cover-build-002.log exit0; independent review PASS.
+PlaneResidualRefund.lean: 5814 lines; sha256 74ca459579f325b034a3305e7004b77e44ec8d68ec1b7046867e79b71cbc6505; author plane-residual-refund-build-001.log exit0; independent review PASS.
+PrivateJointOrientation.lean: 536 lines; sha256 f83a3b146dc2acb98b0ac3f437d08ff2d023ecfcf4a1353b6083af1fef2ce0d7; author private-joint-orientation-build-001.log exit0; independent review PASS.
+complement12-search: 13 manifest files; all hashes confirmed; independent source/results review PASS.
+triangle9-run-006: 55 manifest files; all hashes confirmed; independent source/results review PASS.
+alternative6-run-006: 53 manifest files; all hashes confirmed; independent source/results review PASS.
+alternative6-diverse: 7 manifest files; all hashes confirmed; independent source/results review PASS.
+
+Owned residual cones now exclude arbitrary mask stops, and two-root charges remain disjoint. The concrete mask-plus-one-joint-star count has constant t+1; for t=2 this leaves two credits unresolved with the existing reader budget. No two-centreless-gate inference is made. Private joint semantic cover<=3 and opposite-center orientation are checked. The plane125 wrapper retains the exact refund U+1<=outsideLambda+2*centreless as a premise.
+Common family boundaries include an explicit residual one-vertex cover certificate where required. Split-reader full-clean four-clause pair shadow has cover<=2. Complement12 certifies71baseline and conditional70-to124 lift; no70 witness exists in this package. Near circuits remain INVALID; search caps do not prove lower bounds.
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=251.9 subagents=6

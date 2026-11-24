@@ -1,0 +1,40 @@
+{
+  "frozen_at": "2026-11-24T10:12:11.299738+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "835d73233a77bd11e30a841c16ac0ba8b59947a855a792dd0aa7643233748a2b",
+      "bytes": 1335
+    },
+    {
+      "file": "SearchAlternative6Problem.json",
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+      "bytes": 2275
+    },
+    {
+      "file": "SearchAlternative6Problem.py",
+      "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+      "bytes": 925
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticAlternative6Diverse.py",
+      "sha256": "054ee471e5a0be3e46762812732c4061611b9992378790e5a14f2c73634f175f",
+      "bytes": 23261
+    },
+    {
+      "file": "alternative6-diverse-calibration-004.log",
+      "sha256": "a56b1a94c0430fe5d82bd79dd99f6902ff179b8a4e60f4f61b40333ea4ff4c4b",
+      "bytes": 247
+    },
+    {
+      "file": "review-alternative6-diverse-counterexample.log",
+      "sha256": "ee326c6c62f76f697ad0d07df18ecf94aad30c01623b6d0d3e98074f1344f185",
+      "bytes": 527
+    }
+  ]
+}

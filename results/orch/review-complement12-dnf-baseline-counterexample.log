@@ -1,0 +1,2 @@
+SHA256 a01beaf94686889ed2c18dabe486fb9fc15497648a0a3ae5aaad3f4f2552189a lines 505 gates 71 table_rows 104 pairs 60
+PASS independent concrete gate/data/table recomputation including absorption; genericDNFcertificate prefix byte-identical to reviewedTriangle9 baseline. Exactly60edge terms checked on33inputs. Finalfunction bridge retainsallinputs, not merelyfinite tests. Authorbuildexit0empty; format noforbiddenmechanisms. Thisprovesbaseline71, nottarget70 orpostedgap.

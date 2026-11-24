@@ -1,0 +1,9 @@
+# Complement12 core and search
+
+The selected12 points are [6,7,8,9,11,13,14,15,16,17,18,20], the complement of the Triangle9 points. All21global lines remain. Local variables0–11 name those points in the listed order; variables12–32 name global lines21–41. The exact induced graph has33inputs and60edges; each point hasdegree5, and column degrees are nine2s, nine3s, and three5s. There is no aggregation of inputs. Baseline71, target70; extending by the remainingnine point stars costs54gates, yielding a full124gate circuit if a target witness is found.
+
+The complete monotone test basis has60positive edge pairs and1902maximal negative assignments. The raw left-subset basis has4096negative assignments, so concrete saved circuits are scalar-replayed on4156raw cases. The standard71gate baseline has been independently Lean-checked using a104-row symbolic DNF table; no70gate witness is present here.
+
+The reviewed search adapts the active-AND-diverse archive and bounded INVALID near recorder. It uses three families of warm starts: a clean right-star substitution at72gates, shared(a∨b) two-dirty starts at74, and interacting matching starts at77. The clean substitution removes the chosen right incidence from each affected left-star sum, adds the complete right star, and costs exactlyone extra gate. All warm fixtures are valid but larger than the target.
+
+Author calibration:384valid baselines on4156raw cases,1152baseline/mutant physical expansions, with52mixed72/34shared74/19matching77starts. Independent review checked48full physical baselines onall4156cases and the source delta. Complete logs and four concrete fixtures are preserved. Planned same-slot command: `python3 SearchStochasticComplement12.py --seed 14772924 --seconds 1200 --output-dir <scratch-directory>`. No heuristic run result is claimed in this package.

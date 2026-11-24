@@ -213,3 +213,25 @@
 2026-11-24 10:05:23 UTC status_audit: FirstLayerTwoCenters.lean compiled FIRST TRY exit0 (first-layer-two-centers-build-001.log), frozen 6310lines SHA256 c3f7a73cfab134d0fe89c810d962079850c21bd3fcda7e5a997c6b3385e1cc7b. ExactFirstLayerMinimum plusGateSensitivityZero/A1527/Effective blocks. Newactualpure-disjoint-side pairendpointplacement andeffectiveCenters finitecard>=2 inminimumjunk leastAO TopForm underfirst-layer/no-productiveJointClean. Zero-center excludedbysensitivity, singletonexcludedbyactualsame-sizeAOreplacement+junkdecrease. Pending independent review.
 
 2026-11-24T10:06:39.439867+00:00 Replan: arbitrary first-layer masks via minimum-junk representative/common-filter counting; independent two-junk case via private-joint cover and Lambda-safe residual cones; complementary12-point core queued for next search round. Root preserves all reviewed intermediates; exact theorem remains open.
+
+2026-11-24T10:07:03.495758+00:00 gate_invariants OwnedResidualRootCone.lean frozen FIRST TRY build001 EXIT0, SHA 51626eb41cdfabab65f6e6f409d0c875c0d0b9d971a762ff1537e934b74e86db, 4057lines. Exact ResidualRootCone prefix plus59line root_cone_owned: arbitrary E containing starEdges; extra stops require at most1 unowned filtered spoke. Returns unchanged outsideLambda/disjointZ/reach/nonempty/full-support-subset API. Proof filters leaves by nonownership and reuses checked root_cone.
+
+- 2026-11-24 10:07:26 UTC: lean_setup completed Complement12 geometry/certificate/DNF calibration, author Lean exit0 on allthree.
+
+2026-11-24T10:07:32.235234+00:00 status_audit: Complement12LiftComplete.lean frozen440lines SHA256 e5de1b2667c977af7b68ac7a9fc451d1bd5a4239e5c54201e817750144947e16; complement12-lift-build-001.log FIRST TRY EXIT0. ExactComplement12geometry plusnamespace-renamedreviewedgenericlift;33inputlocal<=70 yields exact42inputplane<=124 usingnine remainingstars, exact+54 gates. Conditionalonly, no70witness. Pending independent review.
+
+2026-11-24T10:08:33.620127+00:00 counterexample_search: Triangle9Near006 completed34269184mutations,best53,no52; frozenallJSON/full log. DiverseShared007 active at10:03 withseed14772921; two-dirty56warm nowLeanchecked andindependentlyreviewed. Complement12 baseline71 symbolicDNF Leanchecked, source geometry/cert/lift preparation underway; nextglobaltarget70 with54gateextension.
+
+2026-11-24T10:09:02.201218+00:00 gate_invariants OwnedResidualStarStops.lean frozen build002 EXIT0, SHA 8cb5cb92843029b6d7e083df3744ae37b34f74503bb780452668611a8eda14dd, 4107lines. Exact reviewed OwnedResidualRootCone prefix plus owned_star_stop and root_cone_owned_stars. If each stop support lies in a paid star at q, filtered residual c-spokes have at most1 edge by C4 (zero if q=c). This directly handles maskliveOR stop nodes for arbitrary ownedE containing their mask edges and starEdges.
+
+- 2026-11-24 10:10:38 UTC normal_form: PrivateJointCover.lean compiled (build001 exit0), SHA2cc892ce53a51e0f1a1069b2b63fc35eadf1fc5c80a8a561184b41ff6bc94373. A joint edge outside both mask families forces combined mask+joint cover at most3; singleton operands included. Root and status reviewer notified.
+
+2026-11-24T10:15:23.442218+00:00 gate_invariants OwnedSharedResidualRoots.lean frozen FIRST TRY build001 EXIT0, SHA cc2e56cbafc63f99c2e2226d9c679bdc9245e72cf7002071ab902b6b853f6239, 4192lines. Exact OwnedResidualStarStops prefix plus generic disjoint two-charge theorem and +2 residual count. Both charge sets avoid arbitrary external owned-star stops Z; common OR ancestors are separately stopped whenever each unowned filtered spoke set has≤1 edge. Charge sets retain root reach/full-support provenance.
+
+2026-11-24T10:17:25.376972+00:00 gate_invariants OwnedResidualPairCover.lean frozen FIRST TRY build001 EXIT0, SHA 509d8d05687e19b86fd5cb53477591b67a2575d00d527dbc70720fac3d44d0b6, 4340lines. Exact reviewed OwnedSharedResidualRoots prefix plus same-side pair-signature and disjoint-support split-cover wrappers. Arbitrary residual edge set F is bounded by ((orN\lam)\externalZ).card+2; E contains starEdges and external stops each carry a fully owned star. Missing signature membership/C4 supplies same-side shared-ancestor bound. No unrestricted circuit claim.
+
+- 2026-11-24 10:19:29 UTC: lean_setup compiled MaskJointStop, MaskJointStar, and MaskJointBudget; owned-mask/joint OR charges now disjoint outside Lambda.
+
+2026-11-24 10:19:56 UTC structural: EligibleFamilyCover and CommonMaskCounterexample compiled; independent review requested.
+
+2026-11-24T10:20:27.008739+00:00 Root preserves24 further reviewed components including opposite-center exclusion and Complement12 calibration/lift. Exact theorem not yet proved/refuted; constant gap explicitly recorded.

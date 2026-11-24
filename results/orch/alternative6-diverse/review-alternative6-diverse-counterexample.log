@@ -1,0 +1,2 @@
+{"PASS": true, "SHA256": "054ee471e5a0be3e46762812732c4061611b9992378790e5a14f2c73634f175f", "full88valid_baselines": 72, "physical_expansions": 216, "mixed30": 9, "shared32": 3, "matching35": 3, "seed": 14772923}
+PASS incremental source: exact data19/6, both-side neighbors, degree-aware linear sampling, mixed1/2/4 positions, target/baseline/warm costs consistent. One-neighbor private columns remain valid mixed-cover starts (+1cost). Other semantics/recording/activeANDdiversity unchanged from reviewedComplement12 source.

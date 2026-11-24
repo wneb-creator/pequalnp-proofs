@@ -1,0 +1,1 @@
+PASS incremental source, math, exact60-edge data, permitted options, format. Generic monotonicity unchanged; 12left/21right/33inputs correct. Positive60+4096negative basis complete by explicit monotone sandwich proof. FrozenSHA 0af087224bfef5e6f1a42f8919e70f8cc190b9dc6daa155fc6ed285fc2a5f56d. Author build002 exit0 accepted; no duplicate build.

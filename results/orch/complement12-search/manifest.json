@@ -1,0 +1,70 @@
+{
+  "frozen_at": "2026-11-24T10:10:25.114525+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "0b72a65b21e567ea628c28c337a458805dd62b36743c6986998b0daafd8e41a0",
+      "bytes": 1843
+    },
+    {
+      "file": "SearchComplement12Problem.json",
+      "sha256": "1a3302c5297d676a1dd00bd697538a0bcb09b0802f3ff0e1100ecf92c83fe540",
+      "bytes": 2300
+    },
+    {
+      "file": "SearchComplement12Problem.py",
+      "sha256": "c0aecd88761752cf16d7599e9432e8dd61c1fba1355673d589bd6ede888d1c28",
+      "bytes": 1094
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticComplement12.py",
+      "sha256": "28d996af042493470d6ae7d8171571bc63687d2d25d73772e4c6021cf09057e4",
+      "bytes": 23153
+    },
+    {
+      "file": "complement12-baseline71-calibration.log",
+      "sha256": "5604deadf149ca5c190ed1c4862c877a2f18988ec1fe9639d6fa0743d1f99bc1",
+      "bytes": 69
+    },
+    {
+      "file": "complement12-baseline71.json",
+      "sha256": "f89b866f59de84e401cff43872ca83ef7a6d613998e9b0cbdc625b1939901f89",
+      "bytes": 6609
+    },
+    {
+      "file": "complement12-core-census.log",
+      "sha256": "69b70bc4c5fd4bd5d3ebc5160dcae291f3c7c4a66dcad9ddd95f6afdfec5edfa",
+      "bytes": 317
+    },
+    {
+      "file": "complement12-matching77.json",
+      "sha256": "e70721ee1f4240947938b0815f9717ab807ab2736ae1829ae58cd56a513c7b24",
+      "bytes": 7704
+    },
+    {
+      "file": "complement12-mixed72.json",
+      "sha256": "8adc1837ba8872bb6a625f2184fde5ec8401122c31ab31008614b18a4686d037",
+      "bytes": 7320
+    },
+    {
+      "file": "complement12-search-calibration.log",
+      "sha256": "19078aa72c453969372cb66cc2f062c3b9f79f864161cc8ffb5b514fd0ffde1f",
+      "bytes": 253
+    },
+    {
+      "file": "complement12-shared74.json",
+      "sha256": "e722d9908cf5073b4bf9b8e321d48ca875ef93a90624512e96cdd73df07d3a56",
+      "bytes": 7566
+    },
+    {
+      "file": "review-complement12-search-status-audit.log",
+      "sha256": "4b064cdca914ff756bab79b755d4d9b17e801cf45edd1b099e922e7a69893a17",
+      "bytes": 552
+    }
+  ]
+}
