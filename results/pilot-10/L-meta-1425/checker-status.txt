@@ -1,1 +1,1 @@
-NOT RUN: no full posted theorem candidate exists yet.
+NOT RUN: desk withdrew gap as proved before full candidate compiled. No full1425 local proof or checker acceptance.

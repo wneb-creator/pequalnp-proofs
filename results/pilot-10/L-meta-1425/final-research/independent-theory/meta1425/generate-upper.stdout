@@ -1,0 +1,18 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425.lean",
+  "sha256": "a6c9f48dd5d641d2937fced008500c827e691ab081c920bb6dd19b31bb04110b",
+  "lines": 116,
+  "bytes": 6679,
+  "budgets": [
+    6,
+    7,
+    8,
+    9,
+    7,
+    10,
+    7,
+    6,
+    5,
+    9
+  ]
+}

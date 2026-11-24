@@ -1,0 +1,17 @@
+{
+  "status": "WITHDRAWN BY DESK AS PROVED",
+  "utc": "2026-11-24T00:10:37Z",
+  "first_response": {
+    "error": "this step was withdrawn: proved. Stop work on it and ask /desk/next for a step the attack is waiting on.",
+    "withdrawn": true
+  },
+  "diagnostic_http_status": 410,
+  "previous_renewal_expiry": "2026-11-24T00:29:07.088Z",
+  "compiled_mathematical_artifacts": 4,
+  "full_candidate_status": "UNCOMPILED",
+  "full_candidate_sha256": "9980e6a19faf9bbbe03ce9fc9729f1ff6563092006ce7286ed9b54b16ec5d382",
+  "independent_full_candidate_review": "PASS static/source/data review only; no build/checker verdict",
+  "checker": "NOT RUN",
+  "live_builds": "NONE",
+  "action": "Preserve and push all results before replacement request; do not renew or release invalid lease."
+}

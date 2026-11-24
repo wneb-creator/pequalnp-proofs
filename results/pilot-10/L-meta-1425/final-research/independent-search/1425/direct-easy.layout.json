@@ -1,0 +1,26 @@
+{
+  "target": "0xe8a8a8a8",
+  "budget": 5,
+  "basis": "and/or/not",
+  "at_most_one_not": true,
+  "base_wires": "0..4 inputs,5=false,6=true",
+  "wire_truth": "W(w,r)=1+32*w+r",
+  "A": "astart+7*j+j*(j-1)//2+i",
+  "B": "bstart+7*j+j*(j-1)//2+i",
+  "op": "opstart+3*j+t where0and1or2not",
+  "Aval": "avstart+32*j+r",
+  "Bval": "bvstart+32*j+r",
+  "output": "ostart+i",
+  "offsets": {
+    "astart": 385,
+    "bstart": 430,
+    "opstart": 475,
+    "avstart": 490,
+    "bvstart": 650,
+    "ostart": 810
+  },
+  "variables": 821,
+  "clauses": 8125,
+  "dimacs_bytes": 123659,
+  "scope": "Fixed k slots, freeconstants, arbitrary bounded A/B selectors, onehot output overall wires, no duplicate/live/order constraints."
+}

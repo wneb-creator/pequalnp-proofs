@@ -1,0 +1,389 @@
+[
+  {
+    "target": "0xeaa8a888",
+    "budget": 9,
+    "mode": "mono",
+    "result": "sat",
+    "seconds": 22.23261486499905,
+    "used": 9,
+    "gates_with_relaxed_indices": [
+      [
+        0,
+        2,
+        4
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        1,
+        2,
+        4
+      ],
+      [
+        0,
+        3,
+        9
+      ],
+      [
+        0,
+        8,
+        10
+      ],
+      [
+        1,
+        0,
+        11
+      ],
+      [
+        1,
+        1,
+        10
+      ],
+      [
+        1,
+        7,
+        13
+      ],
+      [
+        0,
+        12,
+        14
+      ]
+    ],
+    "gates": [
+      {
+        "op": "and",
+        "inputs": [
+          2,
+          4
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          1,
+          5
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          2,
+          4
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          3,
+          7
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          6,
+          8
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          0,
+          9
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          1,
+          8
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          5,
+          11
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          10,
+          12
+        ]
+      }
+    ],
+    "output": 13,
+    "full_assignments_verified": 32
+  },
+  {
+    "target": "0xeaa8e880",
+    "budget": 9,
+    "mode": "mono",
+    "result": "sat",
+    "seconds": 21.507764877998852,
+    "used": 9,
+    "gates_with_relaxed_indices": [
+      [
+        0,
+        0,
+        4
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        0,
+        0,
+        8
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        7,
+        10
+      ],
+      [
+        0,
+        3,
+        11
+      ],
+      [
+        1,
+        3,
+        11
+      ],
+      [
+        0,
+        9,
+        13
+      ],
+      [
+        1,
+        12,
+        14
+      ]
+    ],
+    "gates": [
+      {
+        "op": "and",
+        "inputs": [
+          0,
+          4
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          1,
+          2
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          0,
+          6
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          1,
+          2
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          5,
+          8
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          3,
+          9
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          3,
+          9
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          7,
+          11
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          10,
+          12
+        ]
+      }
+    ],
+    "output": 13,
+    "full_assignments_verified": 32
+  },
+  {
+    "target": "0xeac8e880",
+    "budget": 9,
+    "mode": "mono",
+    "result": "sat",
+    "seconds": 2.9191679209998256,
+    "used": 9,
+    "gates_with_relaxed_indices": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        3,
+        4
+      ],
+      [
+        0,
+        8,
+        10
+      ],
+      [
+        1,
+        2,
+        4
+      ],
+      [
+        0,
+        9,
+        12
+      ],
+      [
+        0,
+        0,
+        13
+      ],
+      [
+        1,
+        11,
+        14
+      ]
+    ],
+    "gates": [
+      {
+        "op": "or",
+        "inputs": [
+          0,
+          2
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          1,
+          5
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          1,
+          3
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          3,
+          4
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          6,
+          8
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          2,
+          4
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          7,
+          10
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          0,
+          11
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          9,
+          12
+        ]
+      }
+    ],
+    "output": 13,
+    "full_assignments_verified": 32
+  },
+  {
+    "target": "0xeaa8a888",
+    "budget": 8,
+    "mode": "one",
+    "result": "unsat",
+    "seconds": 44.99932506299956
+  },
+  {
+    "target": "0xeaa8e880",
+    "budget": 8,
+    "mode": "one",
+    "result": "unsat",
+    "seconds": 37.00846162800008
+  },
+  {
+    "target": "0xeac8e880",
+    "budget": 8,
+    "mode": "one",
+    "result": "unsat",
+    "seconds": 56.145912099998895
+  }
+]

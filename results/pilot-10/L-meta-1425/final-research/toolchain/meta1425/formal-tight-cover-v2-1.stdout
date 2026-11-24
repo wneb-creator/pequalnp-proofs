@@ -1,0 +1,14 @@
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/FormalTightCover1425V2.lean:1150:26: error: Function expected at
+  hb
+but this term has type
+  ((if false = true then a✝ &&& b✝ else a✝ ||| b✝) :: kept false a✝ (kept false b✝ r✝)).length ≤ s✝ + 1
+
+Note: Expected a function because this term is being applied to the argument
+  ht
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/FormalTightCover1425V2.lean:1153:25: error: Function expected at
+  hb
+but this term has type
+  ((if true = true then a✝ &&& b✝ else a✝ ||| b✝) :: kept false a✝ (kept false b✝ r✝)).length ≤ s✝ + 1
+
+Note: Expected a function because this term is being applied to the argument
+  ht.2

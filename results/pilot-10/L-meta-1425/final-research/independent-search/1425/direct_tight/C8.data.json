@@ -1,0 +1,46 @@
+{
+  "graph": 8,
+  "name": "C8",
+  "word_bits": 32,
+  "dictionary_index_bits": 1,
+  "initial": [
+    2863311530,
+    3435973836,
+    4042322160,
+    4278255360,
+    4294901760
+  ],
+  "noninputs": [],
+  "packed_values_hex": "0x0",
+  "pattern_codes": [],
+  "packed_patterns_hex": "0x0",
+  "groups": 1,
+  "record_block_size": 256,
+  "source_prefix": "t8-final-tight",
+  "target": 3939033280,
+  "budget": 4,
+  "source_mode": "tight",
+  "layers": {
+    "4": {
+      "N": 1,
+      "packed_counts_hex": "0x1",
+      "packed_specs_hex": "0x101",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 5,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x1f"
+          ]
+        }
+      }
+    }
+  }
+}

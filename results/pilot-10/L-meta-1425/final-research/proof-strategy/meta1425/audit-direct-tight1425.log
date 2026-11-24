@@ -1,0 +1,35 @@
+PASS grouped direct 0 states 23 maxgroups 2
+PASS grouped direct 1 states 128 maxgroups 3
+PASS grouped direct 2 states 1165 maxgroups 5
+PASS grouped direct 3 states 5603 maxgroups 4
+PASS grouped direct 4 states 74 maxgroups 3
+PASS grouped direct 5 states 5061 maxgroups 5
+PASS grouped direct 6 states 102 maxgroups 4
+PASS grouped direct 7 states 17 maxgroups 3
+PASS grouped direct 8 states 1 maxgroups 1
+PASS grouped direct 9 states 4437 maxgroups 5
+PASS all10 actual grouped fragments: exact multiset decoding, group classifier, offsets andCHDslots; same fullstatecollections as independently audited final-tight source layers
+TOTAL states 16611 nonemptygroups 114
+Scope: computational source/data audit, not a completed Lean theorem or checker verdict.
+SOURCE SHA256 manifest
+4eec151c982a5b0d7cd698ebd2c2a6d41cf57687cca1ec6b5c9cb0280e73291d C0.data.fragment.lean
+af20f1719308c5c967d4c49dea1064877b24c69067a71b0a8eeec7ab924d6197 C0.decoder.fragment.lean
+bb20eb23ca38b7928163fd25a014b20798c42854ad557b6f9a3bd01a473611b1 C1.data.fragment.lean
+6e0dae9438f3088e2267e09d764547a090030cc09fa467b5309b1606490a3fc6 C1.decoder.fragment.lean
+f6dfb80c78e15949b6315ecace4c67de604aec28048ca3b3fddfe52edaaeb587 C2.data.fragment.lean
+d54c739518d1af47ca7341bff515f238d2ec2c93b80cd032e3719c3019e46000 C2.decoder.fragment.lean
+7e21522503b54cc81ff5b70fe9b8e67abf07ba8cbdc927b99ed29bb32a6ff43f C3.data.fragment.lean
+d3fbd2507bad224b5b3f553c0488cdde2c956bf90e00e026c40f241249f22867 C3.decoder.fragment.lean
+dac21b76e8f664a0b9180a837cf91106ef75902db2cc90fa9d2997319a504142 C4.data.fragment.lean
+2d38c8e0d9b50463339c524c81cd8f3ec74aa7434023389b634a2f9cb6442adb C4.decoder.fragment.lean
+d268efd6f9262cc0c69aea006501a52ccf88f76b0df2d8832492c5fc96eadaa3 C5.data.fragment.lean
+26af6270b135de219496d33b58166a93d4c92ccb2dc043816588225b95b68d35 C5.decoder.fragment.lean
+daec6896d81daa5ea59769d90c93a93c47e8341531ead5110fd82ca1aead3182 C6.data.fragment.lean
+97135200549d7a0b226693f7d5114f90f7198706992c0fb1fa9ead53262ebf89 C6.decoder.fragment.lean
+80d0003f2f2549067820e32708f18773b4c963dba7218cfb96bb601ddb2cb8ee C7.data.fragment.lean
+70117a52c4c88f2b32972a30338811cc47d2aa6c875693589631575c2ef09926 C7.decoder.fragment.lean
+759014f9d08aeb44b2a8f92d3f2b4313b03e0093d2ab67d5d5fdbec3da8a24d1 C8.data.fragment.lean
+573a91db31c005cd1ff54d44cf46d2b77477023b343522ceee995b4bb26be317 C8.decoder.fragment.lean
+902098cdd17ab28f20ee25dc8b55f7f76ed095fc4f55d96d39234a3d497145b3 C9.data.fragment.lean
+65311ea4966c8a905557386e208f6eed3684604106ade1e322f243d706d82627 C9.decoder.fragment.lean
+a218e12852f25643b75bb307492ee29f329ba7b429a996a1363fc2b68efb0338 helpers.fragment.lean

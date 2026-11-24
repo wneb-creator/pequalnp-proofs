@@ -1,0 +1,234 @@
+{
+  "gap": "L-meta-1425",
+  "desk_status": "withdrawn as proved elsewhere; root reported HTTP410 at2026-11-24T00:10:37Z",
+  "full1425_proved_here": false,
+  "actual_counterexample": null,
+  "local_acceptance_checker_run_for1425": false,
+  "artifacts": [
+    {
+      "scope": "tiny LRAT capability",
+      "source": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/TinyLRAT1425.lean",
+      "sha256": "c126a5913795afd8766707ff6fc8b1354e6cea65a29de41d0fd24333e99c293f",
+      "lines": 10,
+      "bytes": 606,
+      "observed_exit": 0,
+      "logs": {
+        "stdout": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/tiny-lrat-1.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/tiny-lrat-1.stderr",
+          "bytes": 32,
+          "sha256": "b9aab7ad0064f60f6f16b4dcc2605b11da0a3b8c9a53accfb0d7ef4dbf8b7173"
+        },
+        "status": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/tiny-lrat-1.status",
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      }
+    },
+    {
+      "scope": "tiny LRAT axiom diagnostic",
+      "source": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/TinyLRATAudit1425.lean",
+      "sha256": "a8b6a4a645a73387505a8a3cef0916480aa6fdb94c7aedc5afc2489be9a811a2",
+      "lines": 13,
+      "bytes": 706,
+      "observed_exit": 0,
+      "logs": {
+        "stdout": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/tiny-lrat-audit-1.stdout",
+          "bytes": 208,
+          "sha256": "b18467be204065cc160bc6576358fa060d8368af5f1c78ee5d484d0446de64cb"
+        },
+        "stderr": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/tiny-lrat-audit-1.stderr",
+          "bytes": 29,
+          "sha256": "bfe62a4e7d59ffadcb6496cc1150d90d0b7796f7c0864c1e8286e146aa5d293a"
+        },
+        "status": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/tiny-lrat-audit-1.status",
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      }
+    },
+    {
+      "scope": "all ten explicit monotone upper bounds",
+      "source": "/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425V2.lean",
+      "sha256": "cb8c0b319ff704333e7b0a8913c0d0042dec478b3ac9f6e6efc5256ccc7df344",
+      "lines": 126,
+      "bytes": 6888,
+      "observed_exit": 0,
+      "logs": {
+        "stdout": {
+          "path": "/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/upper-build-v2-1.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/upper-build-v2-1.stderr",
+          "bytes": 31,
+          "sha256": "de9c1012bc17969d5eeb27fb3f636dbac97e7db12f39dc2d483b8d53da5512c5"
+        },
+        "status": {
+          "path": "/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/upper-build-v2-1.status",
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      }
+    },
+    {
+      "scope": "generic unrestricted circuit normalization and barrier",
+      "source": "/tmp/oec/pequalnp-pilot-10/fresh-full-proof/meta1425/FormalNatRun1425.lean",
+      "sha256": "4d63fd4ee1f2b820ed0351857ffaa1dd331650c48db2880d7cd6594f1bfb7c1a",
+      "lines": 1117,
+      "bytes": 50134,
+      "observed_exit": 0,
+      "logs": {
+        "stdout": {
+          "path": "/tmp/oec/pequalnp-pilot-10/fresh-full-proof/meta1425/formal-natrun-build-1.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/tmp/oec/pequalnp-pilot-10/fresh-full-proof/meta1425/formal-natrun-build-1.stderr",
+          "bytes": 31,
+          "sha256": "5d24de8115b433c5721fe309f156ab09dd0c629e4263212fbe5398c6b48b3be2"
+        },
+        "status": {
+          "path": "/tmp/oec/pequalnp-pilot-10/fresh-full-proof/meta1425/formal-natrun-build-1.status",
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      }
+    },
+    {
+      "scope": "generic tight and grouped coverage",
+      "source": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/FormalTightGrouped1425.lean",
+      "sha256": "9024d1c15acc7adc72281149172ceda54a68d4c815b5b83550fd87b59a47d68a",
+      "lines": 1295,
+      "bytes": 56856,
+      "observed_exit": 0,
+      "logs": {
+        "stdout": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/formal-tight-grouped-1.stdout",
+          "bytes": 1108,
+          "sha256": "da9c46e49bee7ef5315b1cea58f80f723770ba95e144233cf6d888113e87f070"
+        },
+        "stderr": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/formal-tight-grouped-1.stderr",
+          "bytes": 31,
+          "sha256": "144c7249e1e4acec52962c018d6e6715648b78d090dff704d5828660891a4066"
+        },
+        "status": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/formal-tight-grouped-1.status",
+          "bytes": 2,
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      }
+    },
+    {
+      "scope": "initial upper witness syntax attempt",
+      "source": "/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425.lean",
+      "sha256": "a6c9f48dd5d641d2937fced008500c827e691ab081c920bb6dd19b31bb04110b",
+      "lines": 116,
+      "bytes": 6679,
+      "observed_exit": 1,
+      "logs": {
+        "stdout": {
+          "path": "/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/upper-build-1.stdout",
+          "bytes": 2720,
+          "sha256": "1a8835bfa7ad8a8858c792cdfb70b6eed361ed1958eed4adcef458702c102606"
+        },
+        "stderr": {
+          "path": "/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/upper-build-1.stderr",
+          "bytes": 30,
+          "sha256": "e2dc8307ad179a5d8d792c2c65fda7bd7d19702a4c3aef02fd0b5020e44e6b75"
+        },
+        "status": {
+          "path": "/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/upper-build-1.status",
+          "bytes": 2,
+          "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+        }
+      }
+    },
+    {
+      "scope": "initial tight coverage syntax attempt",
+      "source": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/FormalTightCover1425.lean",
+      "sha256": "2fbef952045b54b464fa4cb4f8ad7cdea2940aefad299a809162b009781925f7",
+      "lines": 1186,
+      "bytes": 52753,
+      "observed_exit": 1,
+      "logs": {
+        "stdout": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/formal-tight-cover-1.stdout",
+          "bytes": 664,
+          "sha256": "8e981be627da62762aeebf4aa873f39980a71aad7cfc262b1e91f355ed493c9a"
+        },
+        "stderr": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/formal-tight-cover-1.stderr",
+          "bytes": 31,
+          "sha256": "4f3cab75f71d73659d2d734212a5770790a0926211f6bb4265b54d21a7c8333e"
+        },
+        "status": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/formal-tight-cover-1.status",
+          "bytes": 2,
+          "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+        }
+      }
+    },
+    {
+      "scope": "second tight coverage syntax attempt",
+      "source": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/FormalTightCover1425V2.lean",
+      "sha256": "dc537dc390edcc6e7fca5312bcb60c87887dffd35294eab685f2a6901c6bf685",
+      "lines": 1188,
+      "bytes": 52711,
+      "observed_exit": 1,
+      "logs": {
+        "stdout": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/formal-tight-cover-v2-1.stdout",
+          "bytes": 689,
+          "sha256": "ec34514c94caa4b7f1de4e20806edcd79fa91288512cff2674a37e6cf4189575"
+        },
+        "stderr": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/formal-tight-cover-v2-1.stderr",
+          "bytes": 31,
+          "sha256": "ee2e9fecbce29f68888170349157bdcd5663a62320f3a6fe3f4518277a564871"
+        },
+        "status": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/formal-tight-cover-v2-1.status",
+          "bytes": 2,
+          "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+        }
+      }
+    },
+    {
+      "scope": "T8 certificate and wrapper attempt",
+      "source": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/CompleteT8Grouped1425.lean",
+      "sha256": "456cc35d7f91df8459b0934a7778a6ff48f845aa6d648d8730813a45d5147ad3",
+      "lines": 1645,
+      "bytes": 76090,
+      "observed_exit": 1,
+      "logs": {
+        "stdout": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/complete-t8-grouped-1.stdout",
+          "bytes": 2401,
+          "sha256": "394118fa0b5d454be177903c0b7a9c4a06a462b501970cfccf385cc664062ccb"
+        },
+        "stderr": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/complete-t8-grouped-1.stderr",
+          "bytes": 705,
+          "sha256": "8de96029915c9b66fc3ae460c997acac78b2e921dfa9db81f5f7edaebd06a74f"
+        },
+        "status": {
+          "path": "/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/complete-t8-grouped-1.status",
+          "bytes": 2,
+          "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+        }
+      }
+    }
+  ]
+}

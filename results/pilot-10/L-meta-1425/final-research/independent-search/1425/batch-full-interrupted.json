@@ -1,0 +1,46 @@
+{
+  "utc": "2026-11-24T00:08:02.659631+00:00",
+  "reason": "Root instructed stop remaining unrestricted SAT batch; NatRun certificates suffice and Lean needs resources.",
+  "batch_pid": 48905,
+  "child_pids": [
+    49953
+  ],
+  "signals": "batch SIGSTOP, children SIGTERM, batch SIGTERM thenSIGCONT; noSIGKILL",
+  "queries": [
+    {
+      "target_index": 2,
+      "budget": 7,
+      "status": "unsat"
+    },
+    {
+      "target_index": 3,
+      "budget": 8,
+      "status": "unknown"
+    },
+    {
+      "target_index": 5,
+      "budget": 8,
+      "status": "interrupted_without_verdict"
+    },
+    {
+      "target_index": 9,
+      "budget": 8,
+      "status": "not_started"
+    },
+    {
+      "target_index": 1,
+      "budget": 6,
+      "status": "not_started"
+    },
+    {
+      "target_index": 4,
+      "budget": 6,
+      "status": "not_started"
+    },
+    {
+      "target_index": 6,
+      "budget": 6,
+      "status": "not_started"
+    }
+  ]
+}

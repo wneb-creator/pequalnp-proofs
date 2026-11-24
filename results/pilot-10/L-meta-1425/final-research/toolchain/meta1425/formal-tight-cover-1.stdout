@@ -1,0 +1,9 @@
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/FormalTightCover1425.lean:1147:17: error: Invalid projection: Projections cannot be used on functions, and
+  Bool.or_eq_true
+has function type
+  ∀ (a b : Bool), ((a || b) = true) = (a = true ∨ b = true)
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/FormalTightCover1425.lean:1147:43: error: Tactic `rcases` failed: `x✝ : ?m.381` is not an inductive datatype
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/FormalTightCover1425.lean:1151:16: error: Invalid projection: Projections cannot be used on functions, and
+  Bool.and_eq_true
+has function type
+  ∀ (a b : Bool), ((a && b) = true) = (a = true ∧ b = true)

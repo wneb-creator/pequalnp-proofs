@@ -1,0 +1,40 @@
+/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425.lean:20:2: error: failed to synthesize
+  Decidable (upperComputes upperCircuit0 3903367336)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425.lean:26:2: error: failed to synthesize
+  Decidable (upperComputes upperCircuit1 3903383688)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425.lean:32:2: error: failed to synthesize
+  Decidable (upperComputes upperCircuit2 3907577984)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425.lean:38:2: error: failed to synthesize
+  Decidable (upperComputes upperCircuit3 3936921736)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425.lean:44:2: error: failed to synthesize
+  Decidable (upperComputes upperCircuit4 3936929928)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425.lean:50:2: error: failed to synthesize
+  Decidable (upperComputes upperCircuit5 3936938112)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425.lean:56:2: error: failed to synthesize
+  Decidable (upperComputes upperCircuit6 3937060992)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425.lean:62:2: error: failed to synthesize
+  Decidable (upperComputes upperCircuit7 3938511040)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425.lean:68:2: error: failed to synthesize
+  Decidable (upperComputes upperCircuit8 3939033280)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-10/independent-theory/meta1425/MonotoneUpper1425.lean:74:2: error: failed to synthesize
+  Decidable (upperComputes upperCircuit9 3939035264)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

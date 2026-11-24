@@ -1,0 +1,20 @@
+{"i": 0, "T": "0xe8a8a8a8", "budget": 6, "mode": "mono", "exit": 0, "result": "sat", "seconds": 0.1396787329995277, "used": 6}
+{"i": 1, "T": "0xe8a8e888", "budget": 6, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 1.2523779869989085}
+{"i": 2, "T": "0xe8e8e880", "budget": 6, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 1.0675452889990993}
+{"i": 3, "T": "0xeaa8a888", "budget": 6, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 1.156383248999191}
+{"i": 4, "T": "0xeaa8c888", "budget": 6, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 1.4929163239994523}
+{"i": 5, "T": "0xeaa8e880", "budget": 6, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 0.7394033689997741}
+{"i": 7, "T": "0xeac0e8c0", "budget": 6, "mode": "mono", "exit": 0, "result": "sat", "seconds": 0.3784278359999007, "used": 6}
+{"i": 8, "T": "0xeac8e0c0", "budget": 6, "mode": "mono", "exit": 0, "result": "sat", "seconds": 0.2685594899994612, "used": 6}
+{"i": 6, "T": "0xeaaac880", "budget": 6, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 1.578641374999279}
+{"i": 0, "T": "0xe8a8a8a8", "budget": 5, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.21779579899884993}
+{"i": 1, "T": "0xe8a8e888", "budget": 5, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.1946085480012698}
+{"i": 2, "T": "0xe8e8e880", "budget": 5, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.3548503639995033}
+{"i": 9, "T": "0xeac8e880", "budget": 6, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 1.5297293730000092}
+{"i": 3, "T": "0xeaa8a888", "budget": 5, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.27019805899908533}
+{"i": 4, "T": "0xeaa8c888", "budget": 5, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.2499984210007824}
+{"i": 5, "T": "0xeaa8e880", "budget": 5, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.2148152250010753}
+{"i": 6, "T": "0xeaaac880", "budget": 5, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.2524123219991452}
+{"i": 7, "T": "0xeac0e8c0", "budget": 5, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.16928654799994547}
+{"i": 8, "T": "0xeac8e0c0", "budget": 5, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.17588363600043522}
+{"i": 9, "T": "0xeac8e880", "budget": 5, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.14076617499995336}

@@ -1,0 +1,261 @@
+{
+  "graph": 6,
+  "name": "C6",
+  "word_bits": 32,
+  "dictionary_index_bits": 6,
+  "initial": [
+    2863311530,
+    3435973836,
+    4042322160,
+    4278255360,
+    4294901760
+  ],
+  "noninputs": [
+    43690,
+    65535,
+    13369548,
+    16711935,
+    202116108,
+    252645135,
+    858993459,
+    872363007,
+    1061109567,
+    1431655765,
+    1431699455,
+    2290649224,
+    2694881440,
+    2852170240,
+    2863267840,
+    2863302792,
+    3233857728,
+    3368077504,
+    3368601800,
+    3422604288,
+    3430993024,
+    3431517320,
+    3435187392,
+    3435921408,
+    3772834016,
+    3941253312,
+    3993038336,
+    4004170752,
+    4008574976,
+    4008627404,
+    4008636142,
+    4026593280,
+    4037079200,
+    4039176384,
+    4042260480,
+    4042309824,
+    4092851187,
+    4194368000,
+    4210096880,
+    4210688000,
+    4210749680,
+    4210752250,
+    4227922944,
+    4244438268,
+    4278190080,
+    4278242304,
+    4281597747,
+    4288741280,
+    4289331200,
+    4289396480,
+    4289396650,
+    4291624908,
+    4293984240,
+    4294923605,
+    4294945450,
+    4294951104,
+    4294953984,
+    4294954188,
+    4294963440,
+    4294967040
+  ],
+  "packed_values_hex": "0xffffff00fffff0f0ffffccccffffcc00ffffc0c0ffffaaaaffff5555fff0fff0ffccffccffaaffaaffaaff00ffaa0000ffa0ffa0ff33ff33ff00cc00ff000000fcfcfcfcfc00fc00fafafafafafaf0f0fafa0000faf0faf0fa00fa00f3f3f3f3f0f0c0c0f0f00000f0c0f0c0f0a0f0a0f000f000eeeeeeeeeeeecccceeee0000eeaacc00ee00ee00eaeac0c0e0e0e0e0cccc0000ccc0ccc0cc88cc88cc80cc80cc00cc00c8c8c8c8c8c0c8c0c0c0c0c0aaaa8888aaaa0000aa00aa00a0a0a0a0888888885555ffff555555553f3f3f3f33ff33ff333333330f0f0f0f0c0c0c0c00ff00ff00cc00cc0000ffff0000aaaa",
+  "pattern_codes": [],
+  "packed_patterns_hex": "0x0",
+  "groups": 4,
+  "record_block_size": 256,
+  "source_prefix": "t6-all-eq",
+  "target": 3937060992,
+  "budget": 6,
+  "source_mode": "eq",
+  "layers": {
+    "2": {
+      "N": 2,
+      "packed_counts_hex": "0x2000000",
+      "packed_specs_hex": "0x201000000",
+      "groups": {
+        "2": {
+          "N": 2,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 17,
+          "seedBits": 4,
+          "flag": 8,
+          "buckets": 1,
+          "seeds_hex": "0x4",
+          "record_blocks_hex": [
+            "0x1c442d281"
+          ]
+        }
+      }
+    },
+    "3": {
+      "N": 23,
+      "packed_counts_hex": "0x700c004000",
+      "packed_specs_hex": "0x401381201000",
+      "groups": {
+        "1": {
+          "N": 4,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 11,
+          "seedBits": 4,
+          "flag": 8,
+          "buckets": 1,
+          "seeds_hex": "0x4",
+          "record_blocks_hex": [
+            "0x70e9655ab4b"
+          ]
+        },
+        "2": {
+          "N": 12,
+          "offset": 4,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 17,
+          "seedBits": 7,
+          "flag": 64,
+          "buckets": 3,
+          "seeds_hex": "0x21881",
+          "record_blocks_hex": [
+            "0x510a284c605e2a2319148e4f17850bca29b918a286297928911"
+          ]
+        },
+        "3": {
+          "N": 7,
+          "offset": 16,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 23,
+          "seedBits": 8,
+          "flag": 128,
+          "buckets": 2,
+          "seeds_hex": "0x25b",
+          "record_blocks_hex": [
+            "0xa2254385110a8798451108289e62395110a889e1"
+          ]
+        }
+      }
+    },
+    "4": {
+      "N": 82,
+      "packed_counts_hex": "0x2a027001",
+      "packed_specs_hex": "0x481581101",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 5,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x1f"
+          ]
+        },
+        "1": {
+          "N": 39,
+          "offset": 1,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 11,
+          "seedBits": 11,
+          "flag": 1024,
+          "buckets": 10,
+          "seeds_hex": "0xb1213a024010020026ac0e8f0",
+          "record_blocks_hex": [
+            "0x185efbafd7ba7bc4bc9be5e2ed3e877476cef87cd705e5bc7e84fa770ee87cbbaee45dd78dbbae8796ee576ef16f17cfbd9e5789da97"
+          ]
+        },
+        "2": {
+          "N": 42,
+          "offset": 40,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 17,
+          "seedBits": 9,
+          "flag": 256,
+          "buckets": 11,
+          "seeds_hex": "0x2bc2201413684ee534030020c",
+          "record_blocks_hex": [
+            "0xf1dbc22b50f38e3651126a233511a943f251f3b14e1023a212d432af1ed3cc71436af1ea309344f5e479c712a78cb44ccf4a57950e794e5023a8558f10ea231d609a834d11f349eb511cf48e541ea384d44ad14258a09c304b"
+          ]
+        }
+      }
+    },
+    "5": {
+      "N": 34,
+      "packed_counts_hex": "0x21001",
+      "packed_specs_hex": "0x401101",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 5,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x1f"
+          ]
+        },
+        "1": {
+          "N": 33,
+          "offset": 1,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 11,
+          "seedBits": 8,
+          "flag": 128,
+          "buckets": 9,
+          "seeds_hex": "0x10a1058e4850018b0b",
+          "record_blocks_hex": [
+            "0x1ff83fdff4f8fd53ea5d1fc7f12e6fcf7f9f3bec7c6dd9fabe8ec6f89fcfe57c7fbff09f6ffafebfdfe17ccf95e"
+          ]
+        }
+      }
+    },
+    "6": {
+      "N": 1,
+      "packed_counts_hex": "0x1",
+      "packed_specs_hex": "0x101",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 5,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x1f"
+          ]
+        }
+      }
+    }
+  }
+}

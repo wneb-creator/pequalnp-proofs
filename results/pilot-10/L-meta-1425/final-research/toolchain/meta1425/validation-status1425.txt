@@ -1,0 +1,9 @@
+L-meta-1425 validation status at withdrawal
+
+Observed successful Lean exits: TinyLRAT1425 (tautology capability only); TinyLRATAudit1425 (diagnostic only; axioms propext/Classical.choice/Quot.sound); MonotoneUpper1425V2 (ten explicit monotone upper bounds [6,7,8,9,7,9,7,6,5,9]); FormalNatRun1425 (generic normalization and barrier soundness); FormalTightGrouped1425 (generic tight and grouped coverage).
+
+Full L-meta-1425: NOT PROVED HERE. No counterexample. No local acceptance-checker run for1425.
+
+CompleteT8Grouped1425 exited1: the finite certificate and helpers emitted no errors, but its final wrapper failed because Circuit.size was not unfolded. This is NOT a completed proof. Corrected CompleteT8Grouped1425V2, Fresh CompleteT8Tight1425-v1, Hard32Tight1425-v1 and full candidate remain UNCOMPILED unless a later independent report states otherwise.
+
+All stdout, stderr and status files are complete and preserved; exact sources/hashes/logs are in validation-status1425.json. Work stopped on root instruction after desk withdrew the gap as proved at00:10:37Z. No live compile remains. No desk or GitHub writes performed by this agent.

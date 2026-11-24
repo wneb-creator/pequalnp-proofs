@@ -1,0 +1,6 @@
+{"i": 5, "T": "0xeaa8e880", "budget": 9, "mode": "mono", "exit": 0, "result": "sat", "seconds": 21.507764877998852, "used": 9}
+{"i": 3, "T": "0xeaa8a888", "budget": 9, "mode": "mono", "exit": 0, "result": "sat", "seconds": 22.23261486499905, "used": 9}
+{"i": 9, "T": "0xeac8e880", "budget": 9, "mode": "mono", "exit": 0, "result": "sat", "seconds": 2.9191679209998256, "used": 9}
+{"i": 5, "T": "0xeaa8e880", "budget": 8, "mode": "one", "exit": 0, "result": "unsat", "seconds": 37.00846162800008}
+{"i": 3, "T": "0xeaa8a888", "budget": 8, "mode": "one", "exit": 0, "result": "unsat", "seconds": 44.99932506299956}
+{"i": 9, "T": "0xeac8e880", "budget": 8, "mode": "one", "exit": 0, "result": "unsat", "seconds": 56.145912099998895}

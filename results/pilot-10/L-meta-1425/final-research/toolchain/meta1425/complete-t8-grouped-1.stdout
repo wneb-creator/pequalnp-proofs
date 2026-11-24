@@ -1,0 +1,69 @@
+tactic execution of Lean.Parser.Tactic.simp took 140ms
+simp took 120ms
+simp took 101ms
+simp took 120ms
+simp took 131ms
+simp took 100ms
+simp took 175ms
+simp took 116ms
+simp took 248ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 105ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 149ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 106ms
+simp took 209ms
+simp took 119ms
+type checking took 282ms
+simp took 105ms
+type checking took 288ms
+simp took 210ms
+type checking took 391ms
+simp took 242ms
+type checking took 336ms
+type checking took 242ms
+simp took 183ms
+type checking took 453ms
+simp took 194ms
+type checking took 254ms
+type checking took 288ms
+simp took 124ms
+type checking took 251ms
+simp took 222ms
+type checking took 400ms
+elaboration took 401ms
+type checking took 333ms
+type checking took 117ms
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/CompleteT8Grouped1425.lean:1376:29: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  b ≥ 5
+  0 ≤ a ≤ 4
+where
+ a := ↑gates.length
+ b := ↑{ gates := gates, output := o }.size
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/CompleteT8Grouped1425.lean:1473:10: warning: This simp argument is unused:
+  hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hj, Nat.testBit_xor, hm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/CompleteT8Grouped1425.lean:1481:62: warning: This simp argument is unused:
+  hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/CompleteT8Grouped1425.lean:1489:19: warning: This simp argument is unused:
+  hm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-10/toolchain/meta1425/CompleteT8Grouped1425.lean:1490:18: warning: This simp argument is unused:
+  hm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h j hm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

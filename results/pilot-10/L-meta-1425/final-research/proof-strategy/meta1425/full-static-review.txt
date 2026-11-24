@@ -1,0 +1,11 @@
+Independent static review: PASS
+Artifact: fresh-full-proof/meta1425/Full1425-tight-v1.lean
+SHA256: 9980e6a19faf9bbbe03ce9fc9729f1ff6563092006ce7286ed9b54b16ec5d382
+Bytes: 291236
+Exact posted solution statement matches statement-meta-1425.txt byte for byte.
+All ten truth table constants and lower caps [5,6,7,8,6,8,6,5,4,8] match the statement and monotone upper witnesses.
+All ten independently audited grouped data fragments copied unchanged. All reduced-pair masks match selected negative/positive pairs.
+All 16611 states covered exactly once by 266 chunks of at most64 states; join leaves in the exact chunk order.
+Budget-aware barrier invokes coverage at the child budget; soundness uses smaller-budget induction. Tight and grouped coverage fragments match reviewed sources.
+Only Mathlib and PEqualNP.Defs imports; no forbidden proof tokens, double quotes, or forbidden namespace prefix. Under512KiB.
+Scope: static source review ONLY. Full candidate UNCOMPILED; repository checker NOT RUN. Gap withdrawn as proved before final validation.

@@ -1,0 +1,152 @@
+{
+  "graph": 7,
+  "name": "C7",
+  "word_bits": 32,
+  "dictionary_index_bits": 4,
+  "initial": [
+    2863311530,
+    3435973836,
+    4042322160,
+    4278255360,
+    4294901760
+  ],
+  "noninputs": [
+    65535,
+    16711935,
+    252645135,
+    858993459,
+    1431655765,
+    1442797055,
+    2852126720,
+    2852170240,
+    2863267840,
+    4006399180,
+    4210094320,
+    4278190080,
+    4294954188,
+    4294963440
+  ],
+  "packed_values_hex": "0xfffff0f0ffffccccff000000faf0f0f0eeccccccaaaa0000aa00aa00aa00000055ff55ff55555555333333330f0f0f0f00ff00ff0000ffff",
+  "pattern_codes": [],
+  "packed_patterns_hex": "0x0",
+  "groups": 3,
+  "record_block_size": 256,
+  "source_prefix": "t7-all-eq",
+  "target": 3938511040,
+  "budget": 5,
+  "source_mode": "eq",
+  "layers": {
+    "2": {
+      "N": 2,
+      "packed_counts_hex": "0x2000000",
+      "packed_specs_hex": "0x181000000",
+      "groups": {
+        "2": {
+          "N": 2,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 13,
+          "seedBits": 3,
+          "flag": 4,
+          "buckets": 1,
+          "seeds_hex": "0x1",
+          "record_blocks_hex": [
+            "0x2e05504"
+          ]
+        }
+      }
+    },
+    "3": {
+      "N": 10,
+      "packed_counts_hex": "0x8002000",
+      "packed_specs_hex": "0x401181000",
+      "groups": {
+        "1": {
+          "N": 2,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 9,
+          "seedBits": 3,
+          "flag": 4,
+          "buckets": 1,
+          "seeds_hex": "0x3",
+          "record_blocks_hex": [
+            "0x1ad16"
+          ]
+        },
+        "2": {
+          "N": 8,
+          "offset": 2,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 13,
+          "seedBits": 8,
+          "flag": 128,
+          "buckets": 2,
+          "seeds_hex": "0x7102",
+          "record_blocks_hex": [
+            "0x813641ba0d07284a6c1a60d0e6"
+          ]
+        }
+      }
+    },
+    "4": {
+      "N": 13,
+      "packed_counts_hex": "0xc001",
+      "packed_specs_hex": "0x481101",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 5,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x1f"
+          ]
+        },
+        "1": {
+          "N": 12,
+          "offset": 1,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 9,
+          "seedBits": 9,
+          "flag": 256,
+          "buckets": 3,
+          "seeds_hex": "0x3800c02",
+          "record_blocks_hex": [
+            "0x8b1ef1f1797c785e9d5f15f5fcf"
+          ]
+        }
+      }
+    },
+    "5": {
+      "N": 1,
+      "packed_counts_hex": "0x1",
+      "packed_specs_hex": "0x101",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 5,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x1f"
+          ]
+        }
+      }
+    }
+  }
+}

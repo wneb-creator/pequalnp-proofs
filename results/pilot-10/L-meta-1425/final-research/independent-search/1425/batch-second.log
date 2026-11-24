@@ -1,0 +1,17 @@
+{"i": 1, "T": "0xe8a8e888", "budget": 7, "mode": "mono", "exit": 0, "result": "sat", "seconds": 0.7139872330008075, "used": 7}
+{"i": 2, "T": "0xe8e8e880", "budget": 7, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 6.738553070999842}
+{"i": 3, "T": "0xeaa8a888", "budget": 7, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 6.184900944999754}
+{"i": 4, "T": "0xeaa8c888", "budget": 7, "mode": "mono", "exit": 0, "result": "sat", "seconds": 0.5379557510004815, "used": 7}
+{"i": 6, "T": "0xeaaac880", "budget": 7, "mode": "mono", "exit": 0, "result": "sat", "seconds": 1.4900502219988994, "used": 7}
+{"i": 5, "T": "0xeaa8e880", "budget": 7, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 6.748431195001103}
+{"i": 0, "T": "0xe8a8a8a8", "budget": 5, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 0.2072288360013772}
+{"i": 7, "T": "0xeac0e8c0", "budget": 5, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 0.23692339899935178}
+{"i": 8, "T": "0xeac8e0c0", "budget": 5, "mode": "mono", "exit": 0, "result": "sat", "seconds": 0.15731887400033884, "used": 5}
+{"i": 1, "T": "0xe8a8e888", "budget": 6, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.957692023999698}
+{"i": 2, "T": "0xe8e8e880", "budget": 6, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.7228447010002128}
+{"i": 3, "T": "0xeaa8a888", "budget": 6, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.9749681190005504}
+{"i": 9, "T": "0xeac8e880", "budget": 7, "mode": "mono", "exit": 0, "result": "unsat", "seconds": 9.372724078000829}
+{"i": 4, "T": "0xeaa8c888", "budget": 6, "mode": "one", "exit": 0, "result": "unsat", "seconds": 1.297478880998824}
+{"i": 5, "T": "0xeaa8e880", "budget": 6, "mode": "one", "exit": 0, "result": "unsat", "seconds": 1.0233380800000305}
+{"i": 6, "T": "0xeaaac880", "budget": 6, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.7946225039995625}
+{"i": 9, "T": "0xeac8e880", "budget": 6, "mode": "one", "exit": 0, "result": "unsat", "seconds": 0.644235039000705}

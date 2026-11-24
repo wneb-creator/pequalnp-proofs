@@ -1,0 +1,74 @@
+{
+  "target": "0xeac8e0c0",
+  "budget": 5,
+  "mode": "mono",
+  "result": "sat",
+  "seconds": 0.15731887400033884,
+  "used": 5,
+  "gates_with_relaxed_indices": [
+    [
+      0,
+      0,
+      3
+    ],
+    [
+      0,
+      0,
+      4
+    ],
+    [
+      1,
+      1,
+      7
+    ],
+    [
+      1,
+      2,
+      8
+    ],
+    [
+      0,
+      9,
+      10
+    ]
+  ],
+  "gates": [
+    {
+      "op": "and",
+      "inputs": [
+        0,
+        3
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        0,
+        4
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        1,
+        5
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        2,
+        6
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        7,
+        8
+      ]
+    }
+  ],
+  "output": 9,
+  "full_assignments_verified": 32
+}

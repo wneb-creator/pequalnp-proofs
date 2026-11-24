@@ -1,0 +1,102 @@
+[
+  {
+    "graph": 0,
+    "bytes": 1277,
+    "states": 32,
+    "groups": 6,
+    "max_groups_per_layer": 3,
+    "patterns": 0,
+    "dictionary_words": 24,
+    "sha256": "7f3f63a4f45c41b976e29ca68dfeead906b2442f4d2fe94a50fb9775e48d8a6d"
+  },
+  {
+    "graph": 1,
+    "bytes": 2692,
+    "states": 195,
+    "groups": 11,
+    "max_groups_per_layer": 4,
+    "patterns": 0,
+    "dictionary_words": 84,
+    "sha256": "d38e92e17d60b595dae9d82f14032b7dbaaa27e01aaead2c2b2cf45db60578db"
+  },
+  {
+    "graph": 2,
+    "bytes": 16433,
+    "states": 1873,
+    "groups": 16,
+    "max_groups_per_layer": 5,
+    "patterns": 17,
+    "dictionary_words": 367,
+    "sha256": "5aa92d35062f3847886d9d2ff942c478b4b18289d3d59051ebe9a29f3f6fe9a5"
+  },
+  {
+    "graph": 3,
+    "bytes": 85333,
+    "states": 9585,
+    "groups": 19,
+    "max_groups_per_layer": 5,
+    "patterns": 31,
+    "dictionary_words": 1280,
+    "sha256": "cedfb91b13c6e28107a7bc880e294710957bd414ac23654e66ef26b64ce65300"
+  },
+  {
+    "graph": 4,
+    "bytes": 1847,
+    "states": 107,
+    "groups": 8,
+    "max_groups_per_layer": 3,
+    "patterns": 0,
+    "dictionary_words": 55,
+    "sha256": "2e8d70733986ecda148be2d09ece006d4e25134b0810a5d25bcbd5525bbc89f8"
+  },
+  {
+    "graph": 5,
+    "bytes": 80670,
+    "states": 8823,
+    "groups": 20,
+    "max_groups_per_layer": 5,
+    "patterns": 44,
+    "dictionary_words": 1237,
+    "sha256": "24d44d76927298a159a07db84be60a1c437a7027b35ab190df0349f3b823327a"
+  },
+  {
+    "graph": 6,
+    "bytes": 2202,
+    "states": 142,
+    "groups": 10,
+    "max_groups_per_layer": 4,
+    "patterns": 0,
+    "dictionary_words": 60,
+    "sha256": "5f70956f98ff79571020aa8bab65fb09abaceb3a68471abbd475c8c1b914fd76"
+  },
+  {
+    "graph": 7,
+    "bytes": 1187,
+    "states": 26,
+    "groups": 6,
+    "max_groups_per_layer": 3,
+    "patterns": 0,
+    "dictionary_words": 14,
+    "sha256": "3e62936d6551bd5f729187ab45c7315b9384c2809c3eee72f18946d102dcef60"
+  },
+  {
+    "graph": 8,
+    "bytes": 682,
+    "states": 1,
+    "groups": 1,
+    "max_groups_per_layer": 1,
+    "patterns": 0,
+    "dictionary_words": 0,
+    "sha256": "759014f9d08aeb44b2a8f92d3f2b4313b03e0093d2ab67d5d5fdbec3da8a24d1"
+  },
+  {
+    "graph": 9,
+    "bytes": 69860,
+    "states": 7845,
+    "groups": 21,
+    "max_groups_per_layer": 5,
+    "patterns": 31,
+    "dictionary_words": 1201,
+    "sha256": "289fb816a758bc1aaaec52976bb479395d7517370fc3e924ec0014c156a85359"
+  }
+]

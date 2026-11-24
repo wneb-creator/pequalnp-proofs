@@ -1,0 +1,52 @@
+[
+  {
+    "table": "0xe8a8a8a8",
+    "formula_size": 6,
+    "formula": "((0&1)|(2&(0|(3&(4&1)))))"
+  },
+  {
+    "table": "0xe8a8e888",
+    "formula_size": 7,
+    "formula": "((0&1)|(2&((3|4)&(0|(3&1)))))"
+  },
+  {
+    "table": "0xe8e8e880",
+    "formula_size": 9,
+    "formula": "((0|1)&((0&(1&2))|((3|4)&(2|(0&1)))))"
+  },
+  {
+    "table": "0xeaa8a888",
+    "formula_size": 9,
+    "formula": "((0|(3&1))&((4&2)|(0&(1|(3&(4|2))))))"
+  },
+  {
+    "table": "0xeaa8c888",
+    "formula_size": 7,
+    "formula": "((3&(1&2))|(0&(1|(4&(3|2)))))"
+  },
+  {
+    "table": "0xeaa8e880",
+    "formula_size": 10,
+    "formula": "((3|0)&((1&2)|(0&((3&4)|((3|4)&(1|2))))))"
+  },
+  {
+    "table": "0xeaaac880",
+    "formula_size": 7,
+    "formula": "((4&0)|(1&((3&0)|(2&(3|0)))))"
+  },
+  {
+    "table": "0xeac0e8c0",
+    "formula_size": 6,
+    "formula": "((1&2)|(3&(0&(4|(1|2)))))"
+  },
+  {
+    "table": "0xeac8e0c0",
+    "formula_size": 5,
+    "formula": "((1|(3&0))&(2|(4&0)))"
+  },
+  {
+    "table": "0xeac8e880",
+    "formula_size": 9,
+    "formula": "((3|1)&((0&2)|((4|(3&1))&(0|(1&2)))))"
+  }
+]

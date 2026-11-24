@@ -1,0 +1,8 @@
+{
+  "target": "0xeaa8a888",
+  "budget": 8,
+  "mode": "full",
+  "result": "unknown",
+  "seconds": 180.03125508099947,
+  "reason": "(:reason-unknown \"canceled\")\n"
+}

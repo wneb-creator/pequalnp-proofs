@@ -1,0 +1,299 @@
+{
+  "graph": 1,
+  "name": "C1",
+  "word_bits": 32,
+  "dictionary_index_bits": 7,
+  "initial": [
+    2863311530,
+    3435973836,
+    4042322160,
+    4278255360,
+    4294901760
+  ],
+  "noninputs": [
+    255,
+    13107,
+    43690,
+    61680,
+    65535,
+    5570815,
+    15728880,
+    16711680,
+    16711935,
+    252645135,
+    252645375,
+    252706815,
+    257888255,
+    268374015,
+    858980352,
+    858993459,
+    1431655765,
+    1431699455,
+    2290649224,
+    2694840320,
+    2694881440,
+    2829625512,
+    2852170240,
+    2863267840,
+    2863302792,
+    2863311360,
+    2863311496,
+    3233857728,
+    3368601800,
+    3422604288,
+    3431517320,
+    3435921408,
+    3435986943,
+    3772834016,
+    3974941900,
+    3993038336,
+    4008574976,
+    4008627404,
+    4008636142,
+    4026593280,
+    4029739008,
+    4037079040,
+    4037079168,
+    4037079200,
+    4042260480,
+    4042309824,
+    4042321920,
+    4042322112,
+    4177066232,
+    4194368000,
+    4205506560,
+    4210688000,
+    4210752250,
+    4227922944,
+    4244373504,
+    4244425932,
+    4244438268,
+    4278190080,
+    4278251520,
+    4278255615,
+    4279238415,
+    4281597696,
+    4287168392,
+    4288741120,
+    4289331200,
+    4289396480,
+    4289396616,
+    4289396650,
+    4291624908,
+    4293918720,
+    4293984000,
+    4293984240,
+    4294905615,
+    4294923605,
+    4294936712,
+    4294945280,
+    4294945450,
+    4294951104,
+    4294953984,
+    4294954188,
+    4294963200,
+    4294963440,
+    4294967040,
+    4294967244
+  ],
+  "packed_values_hex": "0xffffffccffffff00fffff0f0fffff000ffffccccffffcc00ffffc0c0ffffaaaaffffaa00ffff8888ffff5555ffff0f0ffff0fff0fff0ff00fff00000ffccffccffaaffaaffaaff88ffaaff00ffaa0000ffa0ff00ff88ff88ff33ff00ff0fff0fff00ffffff00f000ff000000fcfcfcfcfcfcccccfcfc0000fc00fc00fafafafafafa0000faaaf000fa00fa00f8f8f8f8f0f0f0c0f0f0f000f0f0c0c0f0f00000f0a0f0a0f0a0f080f0a0f000f030f000f000f000eeeeeeeeeeeecccceeee0000ee00ee00ececcccce0e0e0e0ccccffffcccc0000cc88cc88cc00cc00c8c8c8c8c0c0c0c0aaaaaa88aaaaaa00aaaa8888aaaa0000aa00aa00a8a8a8a8a0a0a0a0a0a00000888888885555ffff5555555533333333333300000fff0fff0f5f0fff0f0fffff0f0f0fff0f0f0f0f00ff00ff00ff000000f000f0005500ff0000ffff0000f0f00000aaaa00003333000000ff",
+  "pattern_codes": [],
+  "packed_patterns_hex": "0x0",
+  "groups": 4,
+  "record_block_size": 256,
+  "source_prefix": "t1-all-eq",
+  "target": 3903383688,
+  "budget": 6,
+  "source_mode": "eq",
+  "layers": {
+    "2": {
+      "N": 9,
+      "packed_counts_hex": "0x5004000",
+      "packed_specs_hex": "0x201281000",
+      "groups": {
+        "1": {
+          "N": 4,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 12,
+          "seedBits": 5,
+          "flag": 16,
+          "buckets": 1,
+          "seeds_hex": "0xf",
+          "record_blocks_hex": [
+            "0x5235631a3543"
+          ]
+        },
+        "2": {
+          "N": 5,
+          "offset": 4,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 19,
+          "seedBits": 4,
+          "flag": 8,
+          "buckets": 2,
+          "seeds_hex": "0xc1",
+          "record_blocks_hex": [
+            "0x2a2015e7c2a88894230a9201"
+          ]
+        }
+      }
+    },
+    "3": {
+      "N": 39,
+      "packed_counts_hex": "0x201600f000",
+      "packed_specs_hex": "0x181701581000",
+      "groups": {
+        "1": {
+          "N": 15,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 12,
+          "seedBits": 11,
+          "flag": 1024,
+          "buckets": 4,
+          "seeds_hex": "0x4720040d001",
+          "record_blocks_hex": [
+            "0x54346d54b5478478070c75eb7c716b60b55336e667867"
+          ]
+        },
+        "2": {
+          "N": 22,
+          "offset": 15,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 19,
+          "seedBits": 14,
+          "flag": 8192,
+          "buckets": 6,
+          "seeds_hex": "0x49d000f805802b0004001",
+          "record_blocks_hex": [
+            "0x1c281af1238440ab540d7904ad1c35ea074cf969ac1c21435e454b940d416937503505070950e11132a3037c40aa060d79e1c45e3"
+          ]
+        },
+        "3": {
+          "N": 2,
+          "offset": 37,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 26,
+          "seedBits": 3,
+          "flag": 4,
+          "buckets": 1,
+          "seeds_hex": "0x3",
+          "record_blocks_hex": [
+            "0x5aa08056a8222"
+          ]
+        }
+      }
+    },
+    "4": {
+      "N": 110,
+      "packed_counts_hex": "0x3103c001",
+      "packed_specs_hex": "0x681581101",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 5,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x1f"
+          ]
+        },
+        "1": {
+          "N": 60,
+          "offset": 1,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 12,
+          "seedBits": 11,
+          "flag": 1024,
+          "buckets": 15,
+          "seeds_hex": "0x7e0ba01c00612c0080901401c078067b6116140fa",
+          "record_blocks_hex": [
+            "0xa2f8cf3fd18f7775af30f5ef63b6ef98f2de0af7b794fa0f06f68f6d71ef32f15b02f59b7f742f5cf04f10f78f49723e28f4cf9ef0f796fa6f8ef08f82f857a8f24f3bd34f1d784770f4af6575fb13792f9cf21d51784f45b5eb"
+          ]
+        },
+        "2": {
+          "N": 49,
+          "offset": 61,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 19,
+          "seedBits": 13,
+          "flag": 4096,
+          "buckets": 13,
+          "seeds_hex": "0x78001a2fc026004000800c52e0b601e82600f6075",
+          "record_blocks_hex": [
+            "0x10135202b2442b880f6911365a41a448716a81d35075aa174c49cc106a80a7222b508c1c5055d33c75042ab48b8c0a5d022e5060f4052c8056b95131214eb452cc1172d127a641b40834c093bd1535046d4541e51172d507a6bd6284cd6a89d3887505674141e8093a8153a62962441e48a5d322e"
+          ]
+        }
+      }
+    },
+    "5": {
+      "N": 36,
+      "packed_counts_hex": "0x23001",
+      "packed_specs_hex": "0x601101",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 5,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x1f"
+          ]
+        },
+        "1": {
+          "N": 35,
+          "offset": 1,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 12,
+          "seedBits": 12,
+          "flag": 2048,
+          "buckets": 9,
+          "seeds_hex": "0x66382308880301015f008025010",
+          "record_blocks_hex": [
+            "0x4ffa5f21d89fa1f23e27f3df8bf13f39f41f31f75f9bf5af6bf15f5bf0af0bfa6f15b23f30f21f91f51f1372bf73f517a0f2ffa7f"
+          ]
+        }
+      }
+    },
+    "6": {
+      "N": 1,
+      "packed_counts_hex": "0x1",
+      "packed_specs_hex": "0x101",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 5,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x1f"
+          ]
+        }
+      }
+    }
+  }
+}

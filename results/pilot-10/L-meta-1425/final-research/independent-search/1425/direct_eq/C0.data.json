@@ -1,0 +1,162 @@
+{
+  "graph": 0,
+  "name": "C0",
+  "word_bits": 32,
+  "dictionary_index_bits": 5,
+  "initial": [
+    2863311530,
+    3435973836,
+    4042322160,
+    4278255360,
+    4294901760
+  ],
+  "noninputs": [
+    65535,
+    16711935,
+    16777215,
+    252645135,
+    858993459,
+    1431655765,
+    3422552064,
+    3422604288,
+    3431499912,
+    3431517320,
+    3435921408,
+    3435956360,
+    4026531840,
+    4026593280,
+    4037058720,
+    4037079200,
+    4042260480,
+    4042301600,
+    4278190080,
+    4278233600,
+    4289331200,
+    4289374890,
+    4289396650,
+    4294945450
+  ],
+  "packed_values_hex": "0xffffaaaaffaaffaaffaaaaaaffaa0000ff00aa00ff000000f0f0a0a0f0f00000f0a0f0a0f0a0a0a0f000f000f0000000cccc8888cccc0000cc88cc88cc888888cc00cc00cc00000055555555333333330f0f0f0f00ffffff00ff00ff0000ffff",
+  "pattern_codes": [],
+  "packed_patterns_hex": "0x0",
+  "groups": 3,
+  "record_block_size": 256,
+  "source_prefix": "t0-all-eq",
+  "target": 3903367336,
+  "budget": 5,
+  "source_mode": "eq",
+  "layers": {
+    "2": {
+      "N": 2,
+      "packed_counts_hex": "0x2000",
+      "packed_specs_hex": "0x181000",
+      "groups": {
+        "1": {
+          "N": 2,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 10,
+          "seedBits": 3,
+          "flag": 4,
+          "buckets": 1,
+          "seeds_hex": "0x3",
+          "record_blocks_hex": [
+            "0x78d25"
+          ]
+        }
+      }
+    },
+    "3": {
+      "N": 14,
+      "packed_counts_hex": "0x300b000",
+      "packed_specs_hex": "0x181501000",
+      "groups": {
+        "1": {
+          "N": 11,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 10,
+          "seedBits": 10,
+          "flag": 512,
+          "buckets": 3,
+          "seeds_hex": "0x743801",
+          "record_blocks_hex": [
+            "0x287635a784e4b99ce7a9d5519ec7"
+          ]
+        },
+        "2": {
+          "N": 3,
+          "offset": 11,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 15,
+          "seedBits": 3,
+          "flag": 4,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x13296641ccc6"
+          ]
+        }
+      }
+    },
+    "4": {
+      "N": 15,
+      "packed_counts_hex": "0xe001",
+      "packed_specs_hex": "0x381101",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 5,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x1f"
+          ]
+        },
+        "1": {
+          "N": 14,
+          "offset": 1,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 10,
+          "seedBits": 7,
+          "flag": 64,
+          "buckets": 4,
+          "seeds_hex": "0x212537",
+          "record_blocks_hex": [
+            "0x15dd79de6f37917c3cbd26c2f5be2f99ef7"
+          ]
+        }
+      }
+    },
+    "5": {
+      "N": 1,
+      "packed_counts_hex": "0x1",
+      "packed_specs_hex": "0x101",
+      "groups": {
+        "0": {
+          "N": 1,
+          "offset": 0,
+          "countBits": 1,
+          "patternBits": 0,
+          "recordBits": 5,
+          "seedBits": 2,
+          "flag": 2,
+          "buckets": 1,
+          "seeds_hex": "0x2",
+          "record_blocks_hex": [
+            "0x1f"
+          ]
+        }
+      }
+    }
+  }
+}
