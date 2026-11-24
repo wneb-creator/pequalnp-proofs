@@ -1,0 +1,14 @@
+../results/orch/lemmas/GateInvariant.lean:158:22: warning: This simp argument is unused:
+  hop
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [hl, GateOp.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/GateInvariant.lean:158:27: warning: This simp argument is unused:
+  hl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [hop, GateOp.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

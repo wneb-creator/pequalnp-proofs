@@ -1,0 +1,11 @@
+L-meta-1477 PARTIAL COMPONENTS, not a proof of the posted lower bound.
+All commands used pinned Lean4.36.0 and prebuilt Mathlib.
+
+GeometryC4.lean: exact105edges, no4cycles,5-regularity,21vertex-cover lower bound. Lean exit0; geometry-full.log. Independent review normal_form PASS.
+NormalForm.lean: arbitrary Monotone2 graph circuit normalizes to IsAO2 without size increase. Lean exit0; normal-form-build.log. Independent review counterexample_search PASS.
+Library.lean: |E|+|vertex cover|<=size+1 under every internal AND rejecting nonedge pairs. Lean exit0; library-build.log. Independent review structural_lower_bound PASS, including independent build.
+GateInvariant.lean: first mixing wire yields an actual binary AND with crossed operand values. Lean exit0; gate-invariant-build-004.log. Independent review status_audit PASS.
+
+Local posted-gap checker: not run; the unconditional lower bound remains unresolved.
+Sub-agents: six (status_audit, lean_setup, structural_lower_bound, counterexample_search, gate_invariants, normal_form)
+TIMING total=96.0 subagents=6
