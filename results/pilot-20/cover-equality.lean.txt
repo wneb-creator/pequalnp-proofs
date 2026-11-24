@@ -1,0 +1,45 @@
+import Mathlib
+
+namespace PEqualNP.Outside.L_meta_1482
+
+lemma cover_eq_one_side (points lines : Finset (Fin 13))
+    (hcover : ∀ p l : Fin 13,
+      (p = l ∨ p = l + 1 ∨ p = l + 3 ∨ p = l + 9) → p ∈ points ∨ l ∈ lines)
+    (hcard : points.card + lines.card = 13) :
+    points = Finset.univ ∨ lines = Finset.univ := by
+  have hu : points ∪ lines = Finset.univ := by
+    apply Finset.eq_univ_of_forall
+    intro p
+    exact Finset.mem_union.mpr (hcover p p (Or.inl rfl))
+  have hc : (points ∩ lines).card = 0 := by
+    have hh := Finset.card_union_add_card_inter points lines
+    rw [hu] at hh
+    simp only [Finset.card_univ, Fintype.card_fin] at hh
+    omega
+  have hd : Disjoint points lines :=
+    Finset.disjoint_iff_inter_eq_empty.mpr (Finset.card_eq_zero.mp hc)
+  by_cases hp : points.Nonempty
+  · left
+    obtain ⟨p, hp⟩ := hp
+    have hstep (q : Fin 13) (hq : q ∈ points) : q + 1 ∈ points := by
+      rcases hcover (q + 1) q (Or.inr (Or.inl rfl)) with h | h
+      · exact h
+      · exact False.elim (Finset.disjoint_left.mp hd hq h)
+    have hall : ∀ k : ℕ, (fun z : Fin 13 => z + 1)^[k] p ∈ points := by
+      intro k
+      induction k with
+      | zero => exact hp
+      | succ k ih =>
+        simpa only [Function.iterate_succ_apply'] using
+          hstep ((fun z : Fin 13 => z + 1)^[k] p) ih
+    apply Finset.eq_univ_of_forall
+    intro q
+    have hreach : ∀ p q : Fin 13, ∃ k : Fin 13,
+        (fun z : Fin 13 => z + 1)^[k.val] p = q := by decide
+    obtain ⟨k, hk⟩ := hreach p q
+    simpa only [hk] using hall k.val
+  · right
+    have hpoints : points = ∅ := Finset.not_nonempty_iff_eq_empty.mp hp
+    simpa [hpoints] using hu
+
+end PEqualNP.Outside.L_meta_1482

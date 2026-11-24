@@ -1,17 +1,23 @@
 L-meta-1482 PARTIAL CHECKPOINT — posted theorem NOT proved.
 File: lean/PEqualNP/Outside/L_meta_1482.lean
 Base upstream commit: 5c49e86
-lake build PEqualNP.Outside.L_meta_1482: PASS (exit 0).
-lake env lean PEqualNP/Outside/L_meta_1482.lean: PASS (exit 0).
+Current named-file lake build: PASS (exit 0), complete output in build.stdout/stderr.
 Plain-file guard: REFUSED: the file holds no theorem (expected for partial).
-Exact-statement checker: not yet run; the posted theorem is absent.
-No PR opened for this partial checkpoint.
-Independent review: review_rules agent approved partial helper correctness, scope,
-namespace, permitted tactics/imports, and absence of prohibited commands/axioms.
-Partial helpers: finite plane facts; first-loss AND witness; critical-input correctness.
-Main lower bound remains unresolved. A computational 65-gate double-re-read
-construction has been found; it does not refute the posted 64-gate bound.
-Line count: 167. Cleanup pass for an accepted final proof has not started.
+Exact-statement checker on first checkpoint: REJECTED (no-theorem).
+Current file still contains no posted theorem. No PR opened for a partial.
+Independent review: review_rules approved helper correctness, scope, namespace,
+permitted tactics/imports and absence of prohibited commands/axioms.
+Helpers: finite plane facts; recurrence uniqueness; actual-wire semantics;
+output bounds; monotonicity; first-loss AND witness; critical-input correctness.
+A 65-gate double-re-read construction is being formalized. Its symbolic
+all-input evaluation, legal gates and exact v/w recurrence certificates compile.
+Frozen compiled source components are preserved as boundary-*.lean.txt.
+The full incidence-correctness proof for the 65-gate construction is pending.
+A compiled finite-cover lemma shows that any 13-center vertex cover consists
+of all points or all lines; its source is preserved as cover-equality.lean.txt.
+The 64-gate lower bound remains unresolved; 65 gates do not refute it.
+Line count: 465; previous checkpoint 167. Cleanup pass for an accepted final proof
+has not started; these are added helpers, not a cleanup reduction.
 Sub-agents: independent review, structural proof, counterexample/SAT search,
 lemma search/formalization, lease keeper, Lean environment setup (6 total).
-TIMING total=14.4 subagents=6
+TIMING total=22.3 subagents=6

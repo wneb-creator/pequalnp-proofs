@@ -1,0 +1,97 @@
+import Mathlib
+import PEqualNP.Defs
+
+namespace PEqualNP.Outside.L_meta_1482
+
+open PEqualNP.CircuitLowerBounds
+
+def boundaryCircuit : Circuit :=
+  { gates := [
+      ⟨GateOp.or, [13, 17]⟩,
+      ⟨GateOp.or, [26, 23]⟩,
+      ⟨GateOp.or, [27, 25]⟩,
+      ⟨GateOp.and, [0, 28]⟩,
+      ⟨GateOp.or, [13, 14]⟩,
+      ⟨GateOp.or, [30, 18]⟩,
+      ⟨GateOp.or, [31, 24]⟩,
+      ⟨GateOp.and, [1, 32]⟩,
+      ⟨GateOp.or, [13, 15]⟩,
+      ⟨GateOp.or, [34, 16]⟩,
+      ⟨GateOp.or, [35, 20]⟩,
+      ⟨GateOp.and, [3, 36]⟩,
+      ⟨GateOp.or, [14, 16]⟩,
+      ⟨GateOp.or, [38, 17]⟩,
+      ⟨GateOp.or, [39, 21]⟩,
+      ⟨GateOp.and, [4, 40]⟩,
+      ⟨GateOp.or, [15, 17]⟩,
+      ⟨GateOp.or, [42, 18]⟩,
+      ⟨GateOp.or, [43, 22]⟩,
+      ⟨GateOp.and, [5, 44]⟩,
+      ⟨GateOp.or, [16, 18]⟩,
+      ⟨GateOp.or, [46, 19]⟩,
+      ⟨GateOp.or, [47, 23]⟩,
+      ⟨GateOp.and, [6, 48]⟩,
+      ⟨GateOp.or, [17, 19]⟩,
+      ⟨GateOp.or, [50, 20]⟩,
+      ⟨GateOp.or, [51, 24]⟩,
+      ⟨GateOp.and, [7, 52]⟩,
+      ⟨GateOp.or, [18, 20]⟩,
+      ⟨GateOp.or, [54, 21]⟩,
+      ⟨GateOp.or, [55, 25]⟩,
+      ⟨GateOp.and, [8, 56]⟩,
+      ⟨GateOp.or, [13, 19]⟩,
+      ⟨GateOp.or, [58, 21]⟩,
+      ⟨GateOp.or, [59, 22]⟩,
+      ⟨GateOp.and, [9, 60]⟩,
+      ⟨GateOp.or, [14, 20]⟩,
+      ⟨GateOp.or, [62, 22]⟩,
+      ⟨GateOp.or, [63, 23]⟩,
+      ⟨GateOp.and, [10, 64]⟩,
+      ⟨GateOp.or, [15, 21]⟩,
+      ⟨GateOp.or, [66, 23]⟩,
+      ⟨GateOp.or, [67, 24]⟩,
+      ⟨GateOp.and, [11, 68]⟩,
+      ⟨GateOp.or, [16, 22]⟩,
+      ⟨GateOp.or, [70, 24]⟩,
+      ⟨GateOp.or, [71, 25]⟩,
+      ⟨GateOp.and, [12, 72]⟩,
+      ⟨GateOp.or, [29, 33]⟩,
+      ⟨GateOp.or, [74, 37]⟩,
+      ⟨GateOp.or, [75, 41]⟩,
+      ⟨GateOp.or, [76, 45]⟩,
+      ⟨GateOp.or, [77, 49]⟩,
+      ⟨GateOp.or, [78, 53]⟩,
+      ⟨GateOp.or, [79, 57]⟩,
+      ⟨GateOp.or, [80, 61]⟩,
+      ⟨GateOp.or, [81, 65]⟩,
+      ⟨GateOp.or, [82, 69]⟩,
+      ⟨GateOp.or, [83, 73]⟩,
+      ⟨GateOp.or, [14, 15]⟩,
+      ⟨GateOp.or, [85, 19]⟩,
+      ⟨GateOp.or, [86, 25]⟩,
+      ⟨GateOp.or, [84, 2]⟩,
+      ⟨GateOp.or, [84, 87]⟩,
+      ⟨GateOp.and, [88, 89]⟩],
+    output := 90 }
+
+def boundaryBase (x : Fin 26 → Bool) : Bool :=
+  ((((((((((((x 0 && (((x 13 || x 17) || x 23) || x 25)) || (x 1 && (((x 13 || x 14) || x 18) || x 24))) || (x 3 && (((x 13 || x 15) || x 16) || x 20))) || (x 4 && (((x 14 || x 16) || x 17) || x 21))) || (x 5 && (((x 15 || x 17) || x 18) || x 22))) || (x 6 && (((x 16 || x 18) || x 19) || x 23))) || (x 7 && (((x 17 || x 19) || x 20) || x 24))) || (x 8 && (((x 18 || x 20) || x 21) || x 25))) || (x 9 && (((x 13 || x 19) || x 21) || x 22))) || (x 10 && (((x 14 || x 20) || x 22) || x 23))) || (x 11 && (((x 15 || x 21) || x 23) || x 24))) || (x 12 && (((x 16 || x 22) || x 24) || x 25)))
+
+def boundaryNeighbor (x : Fin 26 → Bool) : Bool :=
+  (((x 14 || x 15) || x 19) || x 25)
+
+lemma boundaryCircuit_size : boundaryCircuit.size = 65 := rfl
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma boundaryCircuit_eval (x : Fin 26 → Bool) :
+    boundaryCircuit.eval (List.ofFn x) =
+      ((boundaryBase x || x 2) && (boundaryBase x || boundaryNeighbor x)) := by
+  have hx : List.ofFn x = [x 0, x 1, x 2, x 3, x 4, x 5, x 6, x 7, x 8, x 9, x 10, x 11, x 12, x 13, x 14, x 15, x 16, x 17, x 18, x 19, x 20, x 21, x 22, x 23, x 24, x 25] := rfl
+  simp [boundaryCircuit, Circuit.eval, Circuit.wires, GateOp.eval, hx, boundaryBase, boundaryNeighbor]
+
+lemma factorization (f r n : Bool) :
+    ((f || r) && (f || n)) = (f || (r && n)) := by
+  cases f <;> cases r <;> cases n <;> rfl
+
+end PEqualNP.Outside.L_meta_1482
