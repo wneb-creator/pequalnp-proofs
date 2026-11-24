@@ -21,3 +21,7 @@ Lean exit:0; elapsed113.03seconds; peak RSS5081968KiB.
 Scope: certificate infrastructure plus seedChecked9, not final lowerbound.
 Sub-agents:6 (includes nested seed cost review)
 TIMING total=41 subagents=6
+
+Revised complete candidateE: SHA25661b3876e17d42b35f9b6eda40519fad0380ca4b724b88fb9db33675c1df3ce9b;4427lines515105bytes.
+Guard:PASS. Independent staticreview:PASS. Python11370states,266columns,12automorphisms:PASS (not a substitute for Lean).
+Namedlakebuild:active; checker:notyetstarted.

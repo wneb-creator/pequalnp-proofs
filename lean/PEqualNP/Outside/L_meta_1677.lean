@@ -1,7 +1,7 @@
 import PEqualNP.Defs
 namespace PEqualNP.Outside.L_meta_1677
 
--- Adapted from jfsantoropereira, project PR 6642; only comment and operator spacing were changed.
+-- Adapted from jfsantoropereira, project PR 6642; certificate checks use smaller normalization blocks.
 -- The live-wire extraction and restriction checker are adapted from L-meta-1667.
 open PEqualNP.CircuitLowerBounds
 abbrev Sig := BitVec 512
@@ -2820,16 +2820,11 @@ theorem quickAt_good {c i j op ka kb} (hi : i<c.2.2.1.length) (hj : j<c.2.2.1.le
   all_goals rfl
 
 def fallbackAt (c : NodeContext) (i j op : Nat) (ka kb : Bool) :=
-  (if i<c.2.2.1.length ∧ j<c.2.2.1.length then quickAt c i j op ka kb else false) ||
-    checkAt c i j op ka kb
+  checkAt c i j op ka kb
+
 theorem fallback_sound {c i j op ka kb} (h : fallbackAt c i j op ka kb=true) :
-    checkAt c i j op ka kb=true := by
-  simp only [fallbackAt,Bool.or_eq_true] at h
-  rcases h with h | h
-  · split at h
-    next yes => exact quickAt_good yes.1 yes.2 h
-    next => contradiction
-  · exact h
+    checkAt c i j op ka kb=true := h
+
 def batchMove (b : Batch) (xs : List NodeContext) (i j op : Nat) (ka kb : Bool) :=
   let (k,n,r,_,u,v) := b
   let un := op==2
@@ -4332,49 +4327,55 @@ theorem seedPlanCovers (k : Nat) (hk : k≤14) : planCovers k=true := by
 set_option maxRecDepth 30000 in
 set_option maxHeartbeats 0 in
 theorem seedChecked9 : (seedPlan 9).all (seedChunk 9) = true := by
-  apply listPieces_all (d:=2)
-  simp only [listPieces, seedPlan]
+  simp only [seedPlan, List.all_cons, List.all_nil, Bool.and_eq_true]
   repeat' apply And.intro
+  all_goals try simp only [seedChunk, Nat.reduceDiv, Nat.reduceMod, seedBatchSpan, seedSpan, Bool.and_eq_true]
+  all_goals repeat' apply And.intro
   all_goals decide +kernel
 
 set_option maxRecDepth 30000 in
 set_option maxHeartbeats 0 in
 theorem seedChecked10 : (seedPlan 10).all (seedChunk 10) = true := by
-  apply listPieces_all (d:=5)
-  simp only [listPieces, seedPlan]
+  simp only [seedPlan, List.all_cons, List.all_nil, Bool.and_eq_true]
   repeat' apply And.intro
+  all_goals try simp only [seedChunk, Nat.reduceDiv, Nat.reduceMod, seedBatchSpan, seedSpan, Bool.and_eq_true]
+  all_goals repeat' apply And.intro
   all_goals decide +kernel
 
 set_option maxRecDepth 30000 in
 set_option maxHeartbeats 0 in
 theorem seedChecked11 : (seedPlan 11).all (seedChunk 11) = true := by
-  apply listPieces_all (d:=6)
-  simp only [listPieces, seedPlan]
+  simp only [seedPlan, List.all_cons, List.all_nil, Bool.and_eq_true]
   repeat' apply And.intro
+  all_goals try simp only [seedChunk, Nat.reduceDiv, Nat.reduceMod, seedBatchSpan, seedSpan, Bool.and_eq_true]
+  all_goals repeat' apply And.intro
   all_goals decide +kernel
 
 set_option maxRecDepth 30000 in
 set_option maxHeartbeats 0 in
 theorem seedChecked12 : (seedPlan 12).all (seedChunk 12) = true := by
-  apply listPieces_all (d:=4)
-  simp only [listPieces, seedPlan]
+  simp only [seedPlan, List.all_cons, List.all_nil, Bool.and_eq_true]
   repeat' apply And.intro
+  all_goals try simp only [seedChunk, Nat.reduceDiv, Nat.reduceMod, seedBatchSpan, seedSpan, Bool.and_eq_true]
+  all_goals repeat' apply And.intro
   all_goals decide +kernel
 
 set_option maxRecDepth 30000 in
 set_option maxHeartbeats 0 in
 theorem seedChecked13 : (seedPlan 13).all (seedChunk 13) = true := by
-  apply listPieces_all (d:=2)
-  simp only [listPieces, seedPlan]
+  simp only [seedPlan, List.all_cons, List.all_nil, Bool.and_eq_true]
   repeat' apply And.intro
+  all_goals try simp only [seedChunk, Nat.reduceDiv, Nat.reduceMod, seedBatchSpan, seedSpan, Bool.and_eq_true]
+  all_goals repeat' apply And.intro
   all_goals decide +kernel
 
 set_option maxRecDepth 30000 in
 set_option maxHeartbeats 0 in
 theorem seedChecked14 : (seedPlan 14).all (seedChunk 14) = true := by
-  apply listPieces_all (d:=1)
-  simp only [listPieces, seedPlan]
+  simp only [seedPlan, List.all_cons, List.all_nil, Bool.and_eq_true]
   repeat' apply And.intro
+  all_goals try simp only [seedChunk, Nat.reduceDiv, Nat.reduceMod, seedBatchSpan, seedSpan, Bool.and_eq_true]
+  all_goals repeat' apply And.intro
   all_goals decide +kernel
 
 theorem allSeedChecked (k : Nat) (h : k≤14) :
