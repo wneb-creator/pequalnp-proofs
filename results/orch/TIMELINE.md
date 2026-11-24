@@ -9,3 +9,5 @@
 
 - 2026-11-24T23:20:43.609686+00:00 sibling_proof: generic2194-line type-free prefix and optional balanced IndexTree subtype definitions compiled successfully.
 2026-11-24T23:21:50.052719+00:00 — generic framework and rank-checking conversions compile separately. Full pass found two missing induction eliminators and an indentation issue; fixing before next pass.
+2026-11-24T23:25:50.916374+00:00 — v2 static delta review passed; full named-module build in progress. Balanced IndexTree lookup restored; all custom datatypes represented by library types. Cleanup candidate: remove14lines of unused search helpers after acceptance.
+2026-11-24T23:40:56.512884+00:00 — certificate partition helper independently compiled and reviewed; optimized full candidate prepared for evaluation after baseline build.

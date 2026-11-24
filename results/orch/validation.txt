@@ -5,3 +5,4 @@ Sub-agents:6 (checker review, sibling adaptation, counterexample search, structu
 TIMING total=8.1 subagents=6
 Core2194-line prefix: Lean exit0. Grouping/Rule487-line extraction: Lean exit0. Independent source-extraction review: PASS.
 Full lower-bound certificate remains pending.
+AuditParts generic partition helper: Lean exit0; independent recompile/review: PASS. Optimized full certificate remains pending.
