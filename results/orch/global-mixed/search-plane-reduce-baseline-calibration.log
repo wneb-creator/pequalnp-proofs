@@ -1,0 +1,9 @@
+PASS 1 1 source_size 127 reduced_size 127
+PASS 1 2 source_size 129 reduced_size 129
+PASS 1 4 source_size 125 reduced_size 125
+PASS 1 8 source_size 125 reduced_size 125
+PASS 2 1 source_size 125 reduced_size 125
+PASS 2 2 source_size 129 reduced_size 129
+PASS 2 4 source_size 133 reduced_size 133
+PASS 2 8 source_size 141 reduced_size 141
+PASS all8 source-set expansions exactly match independently scalarchecked decoder outputs

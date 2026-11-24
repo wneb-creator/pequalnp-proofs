@@ -1,0 +1,81 @@
+{
+  "frozen_at": "2026-11-24T08:40:21.105828+00:00",
+  "no_smaller_witness": true,
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "4b1f3a0a850ae34175873ab85683100e79af492a3971ee571b8339f6bcf48900",
+      "bytes": 2529
+    },
+    {
+      "file": "SearchPlaneProblem.json",
+      "sha256": "f13c8c17d8d2e3842d6a2a9ac736b17c7bf831d801a54ca07345907352ae1017",
+      "bytes": 358849
+    },
+    {
+      "file": "SearchPlaneProblem.py",
+      "sha256": "9c9369995311971fef919af1a75364f091b9b6b77552c2e66bef85648e83f865",
+      "bytes": 693
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticPlaneMixed.py",
+      "sha256": "4ef230cf9fbda8ca4923ab1b624ba6a7f9b5a25814b62d7fdd1fa4fc5bed6721",
+      "bytes": 14845
+    },
+    {
+      "file": "c6-automorphisms.json",
+      "sha256": "ae3fc254a56a58d68abcefcee376dd446b6f62561d0a37781062ac425cb7931b",
+      "bytes": 1114
+    },
+    {
+      "file": "review-plane-mixed-status-audit.log",
+      "sha256": "1e5ccb124d13e2b2764632ceb269827f37594a673543bea1ba39b2ddeed7fd71",
+      "bytes": 388
+    },
+    {
+      "file": "review-reducer-status-audit.log",
+      "sha256": "bb23e5978d330abb8cef2a128e11962faefa4166180f94fffcb7aaf9a730eb29",
+      "bytes": 240
+    },
+    {
+      "file": "search-alternative6-28.log",
+      "sha256": "768344e6586b24450449b267005dde3e8475decf709933fe2bc8c3096d910862",
+      "bytes": 36478
+    },
+    {
+      "file": "search-c6-dirty8-generate.log",
+      "sha256": "1de160fa95bf050fb7f1f7a4864f3c4fdeace1fb0256cb8d2424946a8644c4cc",
+      "bytes": 113
+    },
+    {
+      "file": "search-c6-dirty8.log",
+      "sha256": "4ea5f0176a13136e2f68efb36e1983d46550418efe5511a73115502cfba1e46d",
+      "bytes": 10559
+    },
+    {
+      "file": "search-plane-mixed-calibration.log",
+      "sha256": "e6e42d441e0fe7263dbe06098e9bdf8e04977f2c1c9c8c0d0a9461cb390d4b7e",
+      "bytes": 372
+    },
+    {
+      "file": "search-plane-reduce-baseline-calibration.log",
+      "sha256": "8af5e7b8b30bbeec477a6016da989068130f55df90c16489c5632fbd3a872dc5",
+      "bytes": 426
+    },
+    {
+      "file": "search-plane-reduce-linear4-calibration.log",
+      "sha256": "eae18fb5eb2f7899a633059cc5c20381bafdf6f9b28ef1c1dda8d25faa56a8b7",
+      "bytes": 192
+    },
+    {
+      "file": "search-reduce-calibration.log",
+      "sha256": "bb8c79c837d65d727bad256c4e510572b7aa9f1169558ea3139780e078b61555",
+      "bytes": 224
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+PASS 1000 random circuits, all64 assignments, seed14772905
+PASS padded global126 reduced125, all25342 tests scalarchecked
+All reductions preserve only the supplied test signatures; graph completeness is provided separately.

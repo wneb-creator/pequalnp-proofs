@@ -1,0 +1,9 @@
+SCALAR_PASS 1 1 1 physical_size 127
+SCALAR_PASS 2 2 2 physical_size 125
+SCALAR_PASS 4 4 4 physical_size 133
+SCALAR_PASS 4 8 8 physical_size 141
+SCALAR_PASS 1 8 1 physical_size 125
+SCALAR_PASS 1 1 8 physical_size 127
+SCALAR_PASS 4 1 8 physical_size 127
+SCALAR_PASS 2 4 8 physical_size 125
+PASS 4000 varied baseline/mutant expansion,topology,cost,semantics,reduction checks

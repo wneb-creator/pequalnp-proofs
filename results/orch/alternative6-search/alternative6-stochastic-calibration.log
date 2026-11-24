@@ -1,0 +1,4 @@
+PASS120 baseline scalar checks on88tests; costs [29, 31, 33] and 1200 mutant topology/cost/signature expansions, seed14772910
+SearchAlternative6Problem.py 4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121
+SearchAlternative6Problem.json 9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1
+SearchStochasticAlternative6.py 0ecae63da9868b9f5c4d3e92ce46d16b13c9664fc3ae09520428089375a12910

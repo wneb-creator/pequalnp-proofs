@@ -1,0 +1,104 @@
+build queue: waiting 60s for one of 3 slots
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:328:86: warning: This simp argument is unused:
+  List.all_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_nil, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:328:101: warning: This simp argument is unused:
+  List.all_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:328:137: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    id_eq, Bool.or_false, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:331:86: warning: This simp argument is unused:
+  List.all_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_nil, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:331:101: warning: This simp argument is unused:
+  List.all_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:331:137: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    id_eq, Bool.or_false, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:334:86: warning: This simp argument is unused:
+  List.all_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_nil, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:334:101: warning: This simp argument is unused:
+  List.all_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:334:137: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    id_eq, Bool.or_false, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:337:57: warning: This simp argument is unused:
+  List.any_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_nil, List.all_cons, List.all_nil, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:337:72: warning: This simp argument is unused:
+  List.any_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.all_cons, List.all_nil, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:337:122: warning: This simp argument is unused:
+  Bool.or_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    id_eq, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/AlternativeLiftCompleteWork.lean:428:39: warning: This simp argument is unused:
+  List.getD_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [prefixGates, run, GateOp.eval, List.ofFn_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

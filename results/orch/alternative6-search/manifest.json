@@ -1,0 +1,38 @@
+{
+  "frozen_at": "2026-11-24T08:43:20.967207+00:00",
+  "run_status": "queued after shared-local run002",
+  "planned_seed": 14772911,
+  "no_smaller_witness": true,
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "4eec1154418c402db88266654296a86890867b8cbe6c26db3542190b07b86110",
+      "bytes": 1737
+    },
+    {
+      "file": "SearchAlternative6Problem.json",
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+      "bytes": 2275
+    },
+    {
+      "file": "SearchAlternative6Problem.py",
+      "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+      "bytes": 925
+    },
+    {
+      "file": "SearchStochasticAlternative6.py",
+      "sha256": "0ecae63da9868b9f5c4d3e92ce46d16b13c9664fc3ae09520428089375a12910",
+      "bytes": 12268
+    },
+    {
+      "file": "alternative6-stochastic-calibration.log",
+      "sha256": "1f9e01e69f7b2d12a1d5e1868c9f959d57cac467c1bc5899266385823dc24ad2",
+      "bytes": 413
+    },
+    {
+      "file": "review-alternative6-stochastic-counterexample.log",
+      "sha256": "016f24d3f266c289d74c339e42d0b11665c53c5082f2df03ce6f3823d8365c69",
+      "bytes": 403
+    }
+  ]
+}

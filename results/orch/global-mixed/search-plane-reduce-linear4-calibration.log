@@ -1,0 +1,4 @@
+PASS linear4 1 source_size 127 reduced_size 127
+PASS linear4 2 source_size 125 reduced_size 125
+PASS linear4 4 source_size 133 reduced_size 133
+PASS linear4 8 source_size 141 reduced_size 141

@@ -1,0 +1,14 @@
+2026-11-24T08:47:21.427588+00:00
+L-meta-1477 partial only; unrestricted theorem remains unproved and no exact-statement checker acceptance is claimed.
+OneJunkSingleton normalizes the singleton-overlap case, retaining explicit one-junk/TopForm/C4-free/bipartite/support hypotheses. PlaneOverlap proves a short least-AO TopForm circuit with exactly one dirty gate must have singleton operand overlap; final one-junk case split is still building.
+AlternativeLiftComplete is conditional: a correct local19-input <=28-gate circuit gives exact posted full42-input <=124 circuit, with96-gate overhead. No such local witness found. Alternative6Baseline is29gates.
+DNFTableBaseline is a checked125-gate UPPER bound only. This results-only snapshot has two unscoped limit options; a scoped-limit derivative is building for final-file reuse. All167 rows and exact105 target edges independently checked.
+Global run002 completed1200.18s,7325696mutations,best125. SharedK6 completed1200.03s,71161856mutations,best35; no lower-bound conclusions. Reviewed mixed/global and alternative6 heuristic models are now active.
+DNFTableBaseline: author build exit0 and independent source review PASS; 581 lines; SHA256 7e01b7b9345d798a7b31051121da9a0d80379f50c8cb940d63d1dc5d5fdb2baf; complete log dnf-table-baseline-build-001.log.
+AlternativeLiftComplete: author build exit0 and independent source review PASS; 521 lines; SHA256 9bb59e4220470e6466438ffe55681ac0d931e8e98708e816aaaa5ce13f0b3f86; complete log alternative-lift-complete-build-002.log.
+Alternative6GeometryChecked: author build exit0 and independent source review PASS; 91 lines; SHA256 0e8e1b0c13b5480a549f8926916d82927886c8350c5c949820388eca8d066c48; complete log alternative6-geometry-fast.log.
+Alternative6Baseline: author build exit0 and independent source review PASS; 288 lines; SHA256 fb7a0738bc677d836ad41d3258df8d2d370707b739330693a9fabc460a78478b; complete log alternative6-baseline-build.log.
+OneJunkSingleton: author build exit0 and independent source review PASS; 6137 lines; SHA256 503b47b5610a9eaf71f80b3a15a83fe08b0ab3622e2f76d25cefc4cee498bd07; complete log one-junk-singleton-build-001.log.
+PlaneOverlap: author build exit0 and independent source review PASS; 5258 lines; SHA256 df759b7b7ce8d718ec1fb80ff7aa8189b8ede6fd14e115388ba7c633ccbaa195; complete log plane-overlap-build-001.log.
+Sub-agents: status_audit, lean_setup, structural_lower_bound, counterexample_search, gate_invariants, normal_form
+TIMING total=158.8 subagents=6

@@ -1,0 +1,3 @@
+PASS 300 randomized30-gate circuits, all64inputs, seed14772905
+SearchReduce.py 25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef
+SearchStochasticPlaneReduce.py e5eecfcd21b1fd8fbdb46373cfd34019b9e75133183f5dae79837c25fd8934cf

@@ -81,3 +81,17 @@
 - 2026-11-24T08:36:49.342498+00:00 Root replan: concrete plane bounds now cover two disjoint effective centers and centered off-star edges; singleton-overlap rotation is being connected to a checked private-gate compiler. This should isolate the multiple-dirty-gate frontier, but no reduction of all124-gate circuits to one dirty gate is known. Counterexample search continues on the alternative six-point core and full plane; next search diversification should permit shared nonlinear OR nodes. Direct DNF and per-gate DNF table certificate soundness are checked. A125-gate table calibration is building. No unrestricted proof, refutation, or proof PR exists.
 
 2026-11-24 08:37:22 UTC gate_invariants: all disjoint-support one-junk circuits excluded at124 (PlaneDisjoint).
+
+2026-11-24 08:39:47 UTC PrivateCone, PrivateRotationAdapter, PlaneOneCleaner independent reviews and rebuilds PASS; root notified.
+
+- 2026-11-24T08:40:02.739534+00:00 Root DNF table calibration compiled exit0, empty dnf-table-baseline-build-001.log. Frozen DNFTableBaseline.lean (filename DNFTableBaseline.lean),581lines,SHA2567e01b7b9345d798a7b31051121da9a0d80379f50c8cb940d63d1dc5d5fdb2baf. Exact105-edge target, concrete125-gate circuit, and167-row table with1591 terms checked by kernel decide plus generic evaluator theorem. This is an upper-bound baseline, not the requested lower bound or a refutation.
+
+2026-11-24T08:40:23.541972+00:00 status_audit: Alternative6 full conditional lift finished and compiled; independent review/push requested. Plain local stochastic strategy completed without improvement; shared/mixed local variant active.
+
+2026-11-24 08:40:27 UTC gate_invariants: singleton-intersection necessity for every short one-junk circuit compiled (PlaneOverlap).
+
+- 2026-11-24T08:40:46.014925+00:00 counterexample_search: alternative6 SATtimeout; dirtyC6 optimum8 restrictedUNSAT; newmixedOR globalmodel reviewed/calibrated; DNFTable independentLeanbuildPASS.
+
+- 2026-11-24 08:43:48 UTC: lean_setup completed independent AlternativeLiftComplete and DNFTableBaseline mathematical/build reviews; flagged two baseline option-format issues. Started InternalMaskUniqueness and OneJunkSingleton independent rebuilds.
+
+- 2026-11-24 08:44:47 UTC: lean_setup completed independent InternalMaskUniqueness and OneJunkSingleton reviews and rebuilds, both PASS.
