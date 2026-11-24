@@ -1,3 +1,0 @@
-PinnedLean4.36.0 compilation exit0.
-Command (cwdlean): /tmp/oec/pequalnp-pilot-42/lean-dist/lean-4.36.0-linux/bin/lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/Monotone.lean
-stdout/stderr: empty.

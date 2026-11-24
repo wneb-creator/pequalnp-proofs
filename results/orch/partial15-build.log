@@ -1,5 +1,0 @@
-⚠ [1266/1267] Built PEqualNP.Outside.L_meta_5112 (3.8s)
-warning: PEqualNP/Outside/L_meta_5112.lean: imports `Mathlib.Data.Nat.Bitwise` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [1267/1267] Ran PEqualNP.Outside.L_meta_5112:irArts
-warning: PEqualNP/Outside/L_meta_5112.lean: imports `Mathlib.Data.Nat.Bitwise` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-Build completed successfully (1267 jobs).
