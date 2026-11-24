@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_3451.acyclic_incidence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451.universal_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451.universal_column' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451.padSuffices' depends on axioms: [propext, Classical.choice, Quot.sound]

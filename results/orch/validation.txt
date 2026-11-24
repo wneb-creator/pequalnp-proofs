@@ -13,3 +13,4 @@ Combined helper build2: exit 0; Build completed successfully (18419 jobs). Inclu
 Independent review passed for clean upper construction, forest bridge, universal incidence acyclicity and copied forest lower bound. All compiled in Lean; full gap not proved. Finite census334 cases independently recomputed (not a Lean proof).
 Padding theorem checked: universal nonedge-only normalization implies the exact posted statement. Its hypothesis remains unproved. Named file build4 passed (660 lines).
 Forest case checked: acyclic incidence graphs satisfy the exact target conclusion; C4free universal-row and universal-column instances are corollaries.
+Integrated named partial:3199lines149260bytes, lake build exit0. Universal forest proof uses standard Bool+Nat types; no custom datatype. Independent exact-composition review passed.

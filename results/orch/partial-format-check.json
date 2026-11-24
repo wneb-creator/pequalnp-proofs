@@ -1,0 +1,4 @@
+{
+  "accepted": false,
+  "error": "the file holds no theorem\nthe theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_3451 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_3451` ... `end PEqualNP.Outside.L_meta_3451`; only the imports and the theorem stay outside"
+}
