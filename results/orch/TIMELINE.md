@@ -57,3 +57,13 @@
 - 2026-11-24T08:15:28.496520+00:00 Root replanned: concrete one-junk elimination/count plus full-plane witness search; reviewed partial batch pushed6178427.
 
 - 2026-11-24T08:17:06.834600+00:00 Actual one-effective-cleaner elimination compiled; all AND gates of resulting circuit clean, graph function and gate count preserved.
+
+- 2026-11-24 08:19:24 UTC: normal_form compiled ReaderCharge general-junk overhead lemma (exit0).
+
+- 2026-11-24T08:24:28.289593+00:00 Root DNF certificate compiled exit0, empty full log dnf-certificate-build-004.log. Frozen DNFCertificate.lean 195 lines SHA256 1747af0877d9ca327145dc3681c9b2dba1d747ff889cdc588d8caa68d6c5c4d2. Defines kernel-computable absorbed DNF evaluator and proves exact Circuit.eval equivalence for any Monotone2 circuit, including empty gates and forward/OOB reads. No candidate witness assumed. Independent review requested before push.
+
+- 2026-11-24 08:24:51 UTC: gate_invariants completed checked concrete125 lower bound for disjoint two-center single-junk circuits in PlaneTwoCenters.lean; frozen for independent review/push.
+
+2026-11-24T08:25:58.626648+00:00 status_audit: Alternative core found and prefix lift compiled; global-search and latest one-junk reviews completed PASS. Plain local stochastic nearing1200s cap, best35.
+
+2026-11-24 08:28:10 UTC Independent source reviews and rebuilds of GateReplacementStar, StructuralIsolation, OneCenterEliminationFull, OneCenterPlane all PASS; root notified.

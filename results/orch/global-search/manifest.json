@@ -1,0 +1,30 @@
+{
+  "frozen_at": "2026-11-24T08:22:07.398165+00:00",
+  "problem": "L-meta-1477 exact42-input plane incidence function",
+  "positive_tests": 105,
+  "maximal_negative_tests": 25237,
+  "source_files": {
+    "SearchStochasticPlane-v1.py": "1fbd0844ae6ff66abb8d0e574afcd496b96f6fd7d07016e0a5828430460f8b18",
+    "SearchStochasticPlane-v2.py": "f73f92eb57e5d5e75aa3be073aaced69c0a87a0f80355930e5a7446d5928b732",
+    "SearchPlaneProblem.py": "9c9369995311971fef919af1a75364f091b9b6b77552c2e66bef85648e83f865",
+    "SearchPlaneProblem.json": "f13c8c17d8d2e3842d6a2a9ac736b17c7bf831d801a54ca07345907352ae1017"
+  },
+  "run001": {
+    "seed": 14772903,
+    "status": "terminated to broaden latent helper counts; best valid125, no witness<=124",
+    "source": "SearchStochasticPlane-v1.py"
+  },
+  "run002": {
+    "seed": 14772904,
+    "seconds": 1200,
+    "status": "running",
+    "source": "SearchStochasticPlane-v2.py",
+    "latent_helpers_cycle": [
+      1,
+      2,
+      4,
+      8
+    ]
+  },
+  "validation": "independent exhaustive2^21 left-subset regeneration by status_audit matches25237 maximalfalse tests;12randomized baseline fixtures checkedall25342tests; allsavedwitnesses rechecked scalar"
+}

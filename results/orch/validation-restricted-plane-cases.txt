@@ -1,0 +1,13 @@
+2026-11-24T08:28:12.420777+00:00
+L-meta-1477 partial results only. The unrestricted posted theorem is not proved; no exact-statement checker acceptance claimed.
+OneCenterPlane proves125<=size under IsAO2, TopForm, unique dirty AND, exact plane semantics, and either zero effective masks or disjoint operand supports with at most one effective mask.
+PlaneTwoCenters proves125<=size under least-AO/TopForm, unique dirty AND, disjoint supports of size at least2, and opposite supported effective mask centers. These assumptions are not known for every <=124 circuit.
+DNFCertificate provides exact absorbed-DNF semantics and a kernel-computable equivalence certificate, with no candidate witness assumed.
+Global search has no124 witness. Completed local stochastic run:1200.03s,92647424mutations,7721restarts,best35. This gives no lower bound.
+DNFCertificate: independent source review and rebuild PASS; 195 lines; SHA256 1747af0877d9ca327145dc3681c9b2dba1d747ff889cdc588d8caa68d6c5c4d2; complete log dnf-certificate-build-004.log.
+PlaneTwoCenters: independent source review and rebuild PASS; 4731 lines; SHA256 0d39b8ede6b7061b31d4e93768480d035dc34ed15a9b7b881555782fee30f55e; complete log plane-two-centers-build-002.log.
+OneCenterPlane: independent source review and rebuild PASS; 6384 lines; SHA256 2c658fa83680fe437f6e9a4362cea8d693b0ef817cda329eada59c139504ee36; complete log one-center-plane-build-002.log.
+OneJunkFiltered: independent source review and rebuild PASS; 3892 lines; SHA256 8d7b1fdb7db7821d616d7185bea2e117abd1b06aea2f8e39eff5e633e3167b3c; complete log one-junk-filtered-build-001.log.
+StructuralIsolation: independent source review and rebuild PASS; 44 lines; SHA256 040cb33d69d3801f8b3f19893b50aabd55a00a0cd8293fce5ff2a88e2cbb213a; complete log structural-isolation-build-001.log.
+Sub-agents: status_audit, lean_setup, structural_lower_bound, counterexample_search, gate_invariants, normal_form
+TIMING total=139.7 subagents=6

@@ -1,0 +1,22 @@
+{
+  "frozen_at": "2026-11-24T08:26:50.442676+00:00",
+  "run_status": "running",
+  "seed": 14772902,
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "5fa6be79b8bdbb3f4e516a96807d53f3b1bc90f7c70b013dadbbf968471df457",
+      "bytes": 1076
+    },
+    {
+      "file": "code/SearchStochastic.py",
+      "sha256": "ca0f7842afc40bae7d223297bb5146e684580aec3e973f93377e696577cb71f1",
+      "bytes": 9164
+    },
+    {
+      "file": "code/SearchStochasticSharedDirty.py",
+      "sha256": "3e1a2df8538e8a22e5abe08a41106ecaa922ab5cbe1b7f9c65cdb762e72cadcb",
+      "bytes": 12190
+    }
+  ]
+}
