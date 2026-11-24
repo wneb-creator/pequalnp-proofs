@@ -224,4 +224,23 @@ lemma extendIncidence_monotone (c : Circuit) (n : ℕ) (hc : Monotone2 c) :
   · exact incidenceExtension_monotone _ _ g h
 
 
+lemma extendIncidence_eval (c : Circuit) (x : List Bool)
+    (hx : 26 ≤ x.length) (ho : c.output < x.length + c.size) :
+    (extendIncidence c x.length).eval x =
+      (c.eval x || incidenceFormula (fun i => x.getD i false)) := by
+  have hlen : (c.gates.foldl incidenceStep x).length = x.length + c.size :=
+    incidenceRun_length c.gates x
+  have hw : 26 ≤ (c.gates.foldl incidenceStep x).length := by omega
+  have ha : c.output < (c.gates.foldl incidenceStep x).length := by omega
+  have he := incidenceExtension_eval (c.gates.foldl incidenceStep x) c.output hw ha
+  rw [hlen] at he
+  change ((c.gates ++ incidenceExtension (x.length + c.size) c.output).foldl
+      incidenceStep x).getD (x.length + c.size + 19) false = _
+  rw [List.foldl_append, he]
+  apply congrArg (fun b => c.eval x || b)
+  obtain ⟨t, ht, _⟩ := incidenceRun_prefix c.gates x
+  rw [ht]
+  simp (disch := omega) [-List.getD_eq_getElem?_getD, incidenceFormula, List.getD_append]
+
+
 end PEqualNP.Outside.L_meta_3787
