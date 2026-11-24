@@ -1,0 +1,14 @@
+/tmp/oec/pequalnp-pilot-32/reduction_design/R_meta_670_32_full.lean:258:20: warning: This simp argument is unused:
+  ho
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-32/reduction_design/R_meta_670_32_full.lean:261:18: warning: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ho]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
