@@ -1,0 +1,10 @@
+L-meta-3451 PARTIAL RESULTS ONLY
+The named file currently contains helper lemmas, not the posted theorem.
+Full posted statement remains unproved; no proof PR is ready.
+Mathlib cache download passed; PEqualNP.Defs build passed.
+Decomposition helper file compiled with lake env lean (exit 0, no diagnostics).
+Independent review: conditionally approved for preservation push only.
+Sub-agents: direct normalization, counterexample search, decomposition, independent review, universal-vertex forest proof, generic input restriction
+TIMING total=8 subagents=6
+Named build: lake build PEqualNP.Outside.L_meta_3451 — exit 0, Build completed successfully (18419 jobs).
+Local exact-statement checker pending; helper-only file cannot prove the posted target.
