@@ -703,3 +703,226 @@ prefixes, or a whole AAAA exhaustion. The262 retained entries are abstract
 necessary-condition witnesses, not shared-prefix constructions. The proposed
 separate +2 deletion extension is outside this review. No solver, Lean build,
 production CNF, active worker, named proof, or other agent output was changed.
+
+## Disjoint and hitting-number charges: independent mathematical PASS
+
+Reviewed S01's disjoint proof SHA
+`29b58a47659e054062fe81a2c98b3a0832fe8bf8feb00d31d3a3071b5f87d475`
+and hitting proof SHA
+`f0af499ec1028b8093ec953d6654d286f20c9ddd035b19fbb485ad0b9ecb2ae6`.
+The six-file disjoint handoff is
+`c4ec0d309a0a8c7702629d51ab617138f59c5d663d4e80e972cd17cd7573582c`.
+Both pass, with the proper-support, productive, ambient-clean hypotheses
+of the earlier partial-edge theorem retained. If I consists of actual raw
+ancestors v outside singleton support S with N(v) contained in S, and eta(I)
+is the minimum size of a set meeting every N(v), then
+
+    M >= |S| + |E(H)| + cover(H) - 1 + eta(I).
+
+Here M counts the exact gate ancestor cone, including the output; H can be
+any chosen accepted ambient edge set disjoint from S. It need not be the
+whole residual graph. Pairwise-disjoint neighborhoods give eta(I)=|I|.
+
+Each chosen raw path has a first AND because v is absent from S. All inputs
+in I are independent. Inputs assigned to the same first AND enter the same
+operand: entering opposite operands would make that clean AND true on an
+independent pair. Its other operand has nonempty singleton support, by
+productivity, contained in every assigned N(v), by cleanliness. Choosing one
+vertex from each such other support hits all neighborhoods. Thus at least
+eta(I) distinct original AND nodes are identified; sharing a first AND is
+permitted and counted only once. For disjoint neighborhoods the same argument
+forces distinct first ANDs individually.
+
+After restricting S to zero, bypass those original ANDs in topological order
+by their designated other operands. Every retained independent-input value
+is unchanged, because the designated operand has support contained in S;
+all other restricted values can only increase. This invariant applies also
+when charged cones overlap or a designated operand contains an earlier
+charged node. A named gate already pruned is already a deletion, never a
+second charge. These AND deletions are disjoint from the support-OR deletions.
+For nonempty H the earlier reduction supplies |S| OR deletions and applies
+the ambient-clean partial-edge theorem to the remainder. For empty H and
+nonempty S, |S|-1 OR support nodes plus the charged ANDs prove the bound
+directly. For empty S the AND count is already stronger than the displayed
+bound; in this concrete minimum-degree-two graph no nonempty I then exists.
+Constants and copy ORs do not invalidate the counts. Full support remains
+outside the proper-support theorem and cannot have a genuine input witness.
+
+The independent disjoint review is
+`multi-irrelevant-review.json`, SHA
+`8c299b8b5a9128d1e9e740606adaf180d42aa157917bcb81b270d7536335b3b1`;
+source `review_multi_irrelevant.py`, SHA
+`2d243d222f6393534ad782fe90800117b34989547af4fda4f2ef74e27b7bb88a`.
+It verifies all six source bindings, all2048 support rows,14 eligible pairs,
+three triples,202 potentially +2 supports (132 with residual edges),nine
+potentially +3 supports, and6392 threshold-arithmetic cases. Its51 actual
+clean DAG controls include overlapping cones, constants, repeated operands,
+and empty/partial/full chosen residual edge sets. They preserve30256 negative
+wire values, satisfy64256 pointwise nondecreases, and include192 strict edge
+gains. A shared-first-AND overlapping-neighborhood control explains why raw
+input count alone is not the distinct-deletion count.
+
+The independent hitting review is `hitting-charge-review.json`, SHA
+`e4df03fa7c9077847bf16e2850b67b0a0331b79559dd0ca718829c3cb8b50609`;
+source `review_hitting_charge.py`, SHA
+`32b0c9797728a77ef37dc14ec93f0c8c7db2e9367b65251ef78d1e3365158138`.
+An owner-cover dynamic program independently reproduces all125 hitting
+numbers and canonical minimum witnesses. All680 input partitions are checked;
+379 admit owners and their minimum group counts equal eta. Every2048 support
+row and9512 actual-input-subset threshold tests agree. There are24 minimal
++2 triggers (14 pairs,10 triples) and five minimal +3 triggers (three triples,
+two quartets). Potential coverage is224 supports for +2,11 for +3,143 for +2
+with residual edges, and24 strict improvements over disjoint packing. This
+counts possible input witnesses, not established circuit ancestry.
+
+The12 additional overlapping-neighborhood trigger patterns have24 actual
+DAG controls with shared first ANDs within groups and overlapping group
+cones. They preserve7384 negative wire values, satisfy10192 pointwise
+nondecreases, and include40 strict edge gains. Full circuits, restrictions,
+bypass maps, scalar results, sources, and complete stdout/stderr are retained
+in the review artifacts. Both bounded review scripts exit0 with empty stderr;
+these controls support the proof review and are not circuit exhaustion.
+
+The unimplemented hitting outline also passes: beyond the existing +1 cut,
+187 input-witness bits and34 rank bits give221 variables. The3366 input
+triggers,408 rank-two triggers,85 rank-three triggers and34 unconditional
+counter links give3893 clauses;11 full-support guards per link give4233.
+For gate g and rank k, use threshold `overflow-k` only when g+2-k is
+nonnegative. Gate0/rank3 instead requires a negative rank-bit unit (or its
+proper-support guarded version). The implications impose separate ranks;
+never sum the +1,+2,+3 flags as a penalty of six. Exact genuine witness bits,
+minimum covers and exact threshold assignments establish existential
+completeness. No claim that every old auxiliary assignment extends, or that
+these mathematical cuts are RUP consequences, is made. An actual generator
+and emitted CNF require a separate delta review.
+
+No stronger bound on the262 remaining common-neighbor families follows.
+If S has common neighbor u and v outside S has N(v) contained in S, then
+N(v) is contained in S contained in N(u). Minimum degree two and C4-freeness
+force v=u and S=N(u), so there is at most one such v. A no-common-neighbor
+wire cannot reach such a factor through a productive AND; an OR-only path
+would preserve its support and also contradict the factor's common neighbor.
+Thus no wire in the union of those factor ancestor cones admits +2. This
+statement does not concern unrelated prefix outputs outside that union.
+The charge may strengthen broader cases; search speed or success is unknown.
+This is mathematical/finite/specification PASS only, with no Lean theorem,
+global lower-bound conclusion, accepted generated cut, or solver run here.
+
+## Four/five common-neighbor factors: mathematical and finite PASS
+
+S01's27-artifact `five-factor-closure-handoff.json`, SHA
+`c0dbd623da51cb86717098177a867eabe3399fc1880d3fe8659a44e4152073b1`,
+passes independent source binding, mathematics and finite coverage review.
+This concerns minimal families of four/five distinct proper full-cover
+outputs of a17-gate productive ambient-clean prefix, with a common neighbor
+for every selected support. It supplies no result for r>0, meaning families
+containing a support with no common neighbor. The three-factor remainder
+stays262; the four-factor remainder becomes115 abstract support patterns.
+
+The five-factor two-spare argument, SHA
+`18f85d2797a8d83bbde12d9d7a1d8ba5413db30d835f1b75b497379e2336fa24`,
+passes. Every candidate has cost at least11, so five selected OR outputs
+occupy five of positions10..16. Only two unselected gates remain there.
+For r selected ancestors of another selected output W, follow chosen paths
+to their first ANDs. Incomparable supports prevent another selected OR from
+being an intermediate OR-only node. OR nodes merge at most two source
+components; a first AND cannot accept two unmerged selected components on
+opposite operands, because every selected pair product is dirty. Thus OR
+merges plus distinct first-AND boundaries number at least r. This counts
+actual nodes once and remains valid with fan-out, shared paths and ancestry
+among selected sources: an earlier AND ends that source's OR component.
+Consequently r<=2, and every selected cone has at most10 core gates, two
+spares, its own output, and two selected ancestors: at most15 gates.
+
+For the five remaining maximum-cost15 families with distinct owners and a
+unique cost11 factor, the stronger contradiction also passes. A cost15
+cone requires two selected ancestors. One spare AND plus one spare OR
+cannot carry them: opposite operands are dirty, while same-side merging
+would force the other productive operand into the intersection of their
+distinct singleton owner sets. Thus both spare gates must be ANDs carrying
+selected ancestry. Neither can be spent before all selected sources. The
+earliest selected output A consequently has no spare ancestor, has cost11,
+and uses all ten core gates. The first spare must descend from A; the second
+must also carry a selected ancestor and hence is downstream of A, directly
+or via an intervening selected output using the first spare.
+
+Every other selected C has cost>11 and therefore uses a spare AND. Its OR
+must be q OR P_C: two clean AND operands have empty support, and another
+selected output as operand would violate support incomparability. P_C has
+support S_C, so it is a core gate rather than a raw input or constant, since
+the candidate supports have size at least two. All core gates are ancestors
+of A. If C's unique owner lies in S_A, the reviewed arbitrary-supported-
+ancestor charge applied to P_C raises A's lower bound from11 to12, a
+contradiction. This proof permits shared core gates, copy operands, and
+constants; it never assumes that the selected outputs form an antichain.
+
+The generalized one-spare argument is also valid. For k factors all with
+L>=17-k, the last k+1 positions have at most one spare. Ancestry is either
+absent, giving cone upper bound18-k, or a star through that spare AND.
+Source and nonchildren have exact17-k cones containing all16-k core gates;
+children have19-k cones. The earlier owner and raw-operand charges apply.
+When the source support is its owner's full neighborhood, distinct partial
+child operands must fit before the last core gate. Their sorted cost
+capacities are16-k-j through15-k for j children. The independent reviewer
+checked these allocations through explicit distinct-position assignments.
+
+The general position proof, SHA
+`0e96d0c0804148f390a9b474e36be3219f18f70968fcdc1e7dd5eecdbc91f436`,
+and its additional cone inequalities pass. An ancestry chain of ell earlier
+selected outputs excluded from W supplies ell-1 distinct excluded ANDs in
+disjoint chronological intervals. For an antichain of r selected ancestors,
+their cone union contains at least max(M_j)+r-1 gates. At least r further
+OR/first-AND boundary nodes lie outside the entire union: each descends from
+a selected source and cannot be ancestral to another antichain member.
+Adding W gives M_W>=max(M_j)+2*r. For one ancestor the corresponding bound
+is M_W>=M_j+2. Propagating these lower bounds is sound. The owner and raw
+input charges are combined by maximum, not sum, to avoid overlapping AND
+deletions. These are necessary conditions on actual ancestry relations,
+not assertions that abstract surviving patterns are circuits.
+
+Independent source `review_four_five.py`, SHA
+`6635dbae88e2fccb23ae6bb5754c0d86cc4cfb5ea16f98ccb4a13b2e2b41f4d9`,
+uses an edge-branching cover recurrence, independently derives all49 eligible
+supports from all2047 proper masks, and verifies the full211876 four-factor
+and1906884 five-factor combination censuses. Every slot, minimality, joint
+cost, and one-spare decision matches. The known k3 counts515/233 serve as a
+control. The four-factor joint-feasible1502 reduce by1190 one-spare exclusions
+to312; the five-factor331 reduce by290 to41. All2348 stored joint-feasible
+families are bound and checked.
+
+The position review independently generates the40/357 transitive relations
+from edge subsets and reverses position traversal. It checks1112320 choices,
+validates every supplied surviving witness, and reproduces all197 additional
+k4 exclusions, leaving115, and40 additional k5 exclusions, leaving one.
+The bespoke five-factor argument independently excludes330/331, also leaving
+one, but the two single survivors are DIFFERENT:
+
+- The position filter leaves supports417,562,772,584,1152 with costs11,12,13,
+  14,15; the unique-cost11/reverse-owner argument excludes it.
+- The bespoke argument leaves417,560,1282,84,1160 with costs11,13,13,14,14;
+  the position filter excludes it.
+
+Thus their exclusion union covers all331 k5/r0 joint-feasible families:
+290 one-spare,40 position, and one reverse-owner exclusion; zero remain.
+Every other support family fails an earlier independently checked necessary
+pool, position-capacity, minimality or joint-cost condition. This is a finite
+mathematical exclusion of the stated support-family class.
+
+Review result `four-five-review.json`, SHA
+`5f7b5661a938c9c05c21cae52644a0beb139484526e695aebe32be2029ff16a7`,
+records all source hashes, per-family decisions, witnesses and closure counts.
+Final review exits0 in6.64s with empty stderr. The first review harness
+incorrectly asserted equality of the two sole survivors after successfully
+checking all individual families. Its source and full diagnostics are
+preserved as `review_four_five.initial.py` and `four-five-initial.*.log`.
+The correction checks the exclusion union explicitly; producer files were
+unchanged. This was a reviewer aggregation error, not a producer proof error.
+
+For an AAAA five-leaf representation whose minimal retained factors all have
+common neighbors, the result permits an existence normalization to at most
+four distinct minimal factors, followed by the already reviewed repeated-leaf
+padding and prefix normalization. It does not justify forbidding every
+nonminimal original five-leaf representation without that normalization.
+An implemented cut or changed generator requires a separate projection/delta
+review. No r>0 family, whole AAAA/shard, Lean theorem, or global21-gate lower
+bound is concluded. No solver, Lean build or production file was changed.

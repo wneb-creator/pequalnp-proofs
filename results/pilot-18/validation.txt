@@ -63,7 +63,7 @@ SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 6 inherited-model agents, ultra effort: structural proof, SAT repairs, finite Lean certificates, CNF red-team review, solver performance, integration review
-TIMING total=264.2 subagents=6
+TIMING total=282.9 subagents=6
 
 Candidate neighborhoods: 144 independently reviewed formulas preserve prefixes
 of exact 22-gate cover constructions and search arbitrary shorter completions.
@@ -114,3 +114,15 @@ T1throughT4 all ended UNKNOWN at600seconds; no exhaustion is claimed. Broader
 local repairs and strengthened searches are running. The new research packages
 preserve complete logs, code, exact hashes, and CNF reconstruction recipes.
 Named Lean source/build/axiom results remain unchanged; posted checker NOT RUN.
+
+Research checkpoint near05:00UTC: the latest scalar-checked21gate circuit
+computes the target OR x2*x4*(x0 OR x7). It differs on exactlyfive of2048
+inputs and is NOT a witness. All completed run logs and best-circuit snapshots
+are preserved in completed-wave6. The stronger hitting-number +2/+3 constraints
+passed independent mathematical and emitted-CNF reviews; three normalized
+case searches currently run. All prior +1 pilots ended UNKNOWN. Independent
+mathematical/finite review excludes all331 five-factor/r0 families;115four-factor
+and262three-factor patterns remain, and mixed cases remain open. These are
+research exclusions, not Lean refutations or a claim of full-shard exhaustion.
+The named2069line Lean source/build remains unchanged; cleanup inapplicable,
+posted checker NOT RUN, noPR.

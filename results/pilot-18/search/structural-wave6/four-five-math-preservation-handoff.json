@@ -1,0 +1,10 @@
+{
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/four-five-math-preservation-v1.tar.gz",
+  "archive_bytes": 138319,
+  "archive_sha256": "e4651887edba4dfe3556dab2789944408402011bfdb9d3bf5a8773209b6b3fa9",
+  "manifest_sha256": "4d118abc45404e5c2895cffc495356a7d4f149db0a49878638f4b8f876541e21",
+  "regular_members": 45,
+  "review_sha256": "5f7b5661a938c9c05c21cae52644a0beb139484526e695aebe32be2029ff16a7",
+  "scope": "Independent math+finite k5/r0 support-family closure; k4/r0 leaves115, all r>0 open; no CNF/Lean/SAT/global acceptance.",
+  "verdict": "PASS_FOUR_FIVE_MATH_REVIEW_PRESERVATION"
+}

@@ -1,0 +1,62 @@
+{
+  "main_review_sha256": "eb5f48887e3e69b10abc51ea64b337fd97de88c0ee1f138b2474b4387c6df015",
+  "launches": [
+    {
+      "seed": 134226,
+      "weight": 16,
+      "pid": 31072,
+      "utc": "2026-11-24T04:46:02.182914+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/stochastic_tools.py",
+        "run",
+        "--engine",
+        "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-v1/circuit_anneal_direct21",
+        "--pack",
+        "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/direct-seeds.txt",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-18/triangle589-candidate-134226",
+        "--seed",
+        "134226",
+        "--seconds",
+        "300",
+        "--iterations",
+        "2000000000",
+        "--restart",
+        "200000",
+        "--weight",
+        "16"
+      ]
+    },
+    {
+      "seed": 134227,
+      "weight": 4,
+      "pid": 31073,
+      "utc": "2026-11-24T04:46:02.183450+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/stochastic_tools.py",
+        "run",
+        "--engine",
+        "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-v1/circuit_anneal_direct21",
+        "--pack",
+        "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/direct-seeds.txt",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-18/triangle589-candidate-134227",
+        "--seed",
+        "134227",
+        "--seconds",
+        "300",
+        "--iterations",
+        "2000000000",
+        "--restart",
+        "200000",
+        "--weight",
+        "4"
+      ]
+    }
+  ],
+  "scope": "Onlycandidate searches withunchangedreviewedengine/fullrawvalidator; noexhaustion"
+}

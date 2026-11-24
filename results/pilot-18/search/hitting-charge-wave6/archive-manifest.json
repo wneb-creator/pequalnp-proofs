@@ -1,0 +1,1594 @@
+{
+  "CNF_recipes": 30,
+  "archived_bytes": 21500525,
+  "compiled_payloads": 0,
+  "created_utc": "2026-11-24T04:52:43.412345+00:00",
+  "files": [
+    {
+      "bytes": 3568,
+      "path": "README.md",
+      "sha256": "4303fb2e108a7d1053fa5707b93ad1d6f431c70f3185be8593f79bdf63099199",
+      "source_path": "generated archive documentation"
+    },
+    {
+      "bytes": 296462,
+      "path": "cnf-deltas/01003ff614e1ab0c6774d2881a007c0c7ccb3c597bcb8ed2a2102b5253faba7a.clauses",
+      "sha256": "01003ff614e1ab0c6774d2881a007c0c7ccb3c597bcb8ed2a2102b5253faba7a",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 308731,
+      "path": "cnf-deltas/0ae24e6c0350ff06e5e654b43592ea294603c089ac5c8e1845a49ee7b3058bd8.clauses",
+      "sha256": "0ae24e6c0350ff06e5e654b43592ea294603c089ac5c8e1845a49ee7b3058bd8",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 438377,
+      "path": "cnf-deltas/18c28bac42c8db046fcbc4b99920555ab2a9dd9d10fb417cdea702759bbbcc0f.clauses",
+      "sha256": "18c28bac42c8db046fcbc4b99920555ab2a9dd9d10fb417cdea702759bbbcc0f",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 438377,
+      "path": "cnf-deltas/21570b4eabe251e71b5dfa29ae2445bd109d61c2b88b0ed3316695010e44eb2d.clauses",
+      "sha256": "21570b4eabe251e71b5dfa29ae2445bd109d61c2b88b0ed3316695010e44eb2d",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 314829,
+      "path": "cnf-deltas/23d1ae503e9bee57eda24ac5943d5f8f4c0002e2c4642bc96953038d12aea891.clauses",
+      "sha256": "23d1ae503e9bee57eda24ac5943d5f8f4c0002e2c4642bc96953038d12aea891",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 139954,
+      "path": "cnf-deltas/2c69ea99739a06d291dbbc9ee3a26d1f4411f25645bc07a04805bb860ee279dc.clauses",
+      "sha256": "2c69ea99739a06d291dbbc9ee3a26d1f4411f25645bc07a04805bb860ee279dc",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 314829,
+      "path": "cnf-deltas/4bd089757fb00b296171f7a4b59f1f2f5af248be43f4c1e138916580c96299c0.clauses",
+      "sha256": "4bd089757fb00b296171f7a4b59f1f2f5af248be43f4c1e138916580c96299c0",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 281854,
+      "path": "cnf-deltas/54715b11d77d2f407f06c1df50204803de467413e030f76505ad93596b5c014a.clauses",
+      "sha256": "54715b11d77d2f407f06c1df50204803de467413e030f76505ad93596b5c014a",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 281869,
+      "path": "cnf-deltas/7ef3dcd7193b31a0f2098a1daf5a0c106fe543647a60d65336490b8b6ce50346.clauses",
+      "sha256": "7ef3dcd7193b31a0f2098a1daf5a0c106fe543647a60d65336490b8b6ce50346",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 321773,
+      "path": "cnf-deltas/8d88c18a054c2535eb6e2d72a3a2bf6d87d016eb5f0455578fbf02c18baa5df1.clauses",
+      "sha256": "8d88c18a054c2535eb6e2d72a3a2bf6d87d016eb5f0455578fbf02c18baa5df1",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 438362,
+      "path": "cnf-deltas/8df774d548520f19b2842f1243579ad005719acc7e7cf788790899b8bef31ab6.clauses",
+      "sha256": "8df774d548520f19b2842f1243579ad005719acc7e7cf788790899b8bef31ab6",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 158321,
+      "path": "cnf-deltas/a81f434d81ee88fa822f704000df8904d11c48394a7123f78e25f2a81d63f397.clauses",
+      "sha256": "a81f434d81ee88fa822f704000df8904d11c48394a7123f78e25f2a81d63f397",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 152239,
+      "path": "cnf-deltas/b2b7fcd8a9910d6b3da232ef7b1c6460f18e9c23b9cd0c1492a39449bc4c007c.clauses",
+      "sha256": "b2b7fcd8a9910d6b3da232ef7b1c6460f18e9c23b9cd0c1492a39449bc4c007c",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 315685,
+      "path": "cnf-deltas/ba3b54cf353ed526e7e2211097023c7dca2da1696de31d10da3ffca94ed75603.clauses",
+      "sha256": "ba3b54cf353ed526e7e2211097023c7dca2da1696de31d10da3ffca94ed75603",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 159177,
+      "path": "cnf-deltas/bf2a4ccd5283258bb50c69c54b26a57b43c7f5d27f5882c5a68d0955f4bce2cf.clauses",
+      "sha256": "bf2a4ccd5283258bb50c69c54b26a57b43c7f5d27f5882c5a68d0955f4bce2cf",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 158321,
+      "path": "cnf-deltas/bf9c7e57d3c5316b0aee2d8918535369dac4eeb9d36b4ff341ebfc6eb5a9b5f4.clauses",
+      "sha256": "bf9c7e57d3c5316b0aee2d8918535369dac4eeb9d36b4ff341ebfc6eb5a9b5f4",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 165265,
+      "path": "cnf-deltas/d1a6c287b862af03dadad4c62ca783f2a022bf3bad6196094f5d925ed2836f9c.clauses",
+      "sha256": "d1a6c287b862af03dadad4c62ca783f2a022bf3bad6196094f5d925ed2836f9c",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 308747,
+      "path": "cnf-deltas/d20a0c46b8e2a0844a722b8454ac44250a0afc258572ab99ce0026e6fd7341bf.clauses",
+      "sha256": "d20a0c46b8e2a0844a722b8454ac44250a0afc258572ab99ce0026e6fd7341bf",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 152223,
+      "path": "cnf-deltas/ea2ec51443be2686a45b2ff426fcff944d187625f3cd9e6d5c0fbff549ed7182.clauses",
+      "sha256": "ea2ec51443be2686a45b2ff426fcff944d187625f3cd9e6d5c0fbff549ed7182",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 281869,
+      "path": "cnf-deltas/fbc802e70e17183969f5d554db877f414110b1ee2946cde48752d898941c69da.clauses",
+      "sha256": "fbc802e70e17183969f5d554db877f414110b1ee2946cde48752d898941c69da",
+      "source_path": "deduplicated suffix of pinned original CNF"
+    },
+    {
+      "bytes": 16890,
+      "path": "cnf-recipes.json",
+      "sha256": "dfb3d9d8d9fa54857ba919c5e2548c34e0a9bcfb776718636a9b57a64c37b7d9",
+      "source_path": "generated archive metadata"
+    },
+    {
+      "bytes": 39740,
+      "path": "repo/results/orch/lemmas/S06-solver-performance.md",
+      "sha256": "e316fc18e2fdc156b2cb43de7550825f48d785be93690c53f995a58cac920785",
+      "source_path": "/workspace/pequalnp-proofs/results/orch/lemmas/S06-solver-performance.md"
+    },
+    {
+      "bytes": 22665,
+      "path": "scratch/lean-setup/validate_sat_candidate.py",
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/lean-setup/validate_sat_candidate.py"
+    },
+    {
+      "bytes": 743,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-handoff.json",
+      "sha256": "089e7febda5c88f833d11bab19956e73ed433a7ae81e28f6fb670747630a013c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-handoff.json"
+    },
+    {
+      "bytes": 2018,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/README.md",
+      "sha256": "2fa75a6a37940db90b1e3df99d51b28c7d8b41ce42c978e2e02201b4d9fb2929",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/README.md"
+    },
+    {
+      "bytes": 7658,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/manifest.json",
+      "sha256": "88085fb21fa5049e422e2e8e71d5a129f8612a2ad31041c29a51dce4f2aae292",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/manifest.json"
+    },
+    {
+      "bytes": 69180,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/repo/results/orch/lemmas/S04-redteam.md",
+      "sha256": "cff8033f780371673245cde89d5fa4b0443c5df0decdbef5ec2242ec80f6ef48",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/repo/results/orch/lemmas/S04-redteam.md"
+    },
+    {
+      "bytes": 6404,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/math-analysis/partial-edge-cost-review.md",
+      "sha256": "0219c49b09ccc2af09c325798c27c8eeed22b26289b75023c96ca79a9fb64bc1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/math-analysis/partial-edge-cost-review.md"
+    },
+    {
+      "bytes": 5768,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/math-analysis/support-cost-math-review.md",
+      "sha256": "57f25816f5fd29399312fcf6c1f74110aac0e0eb5214ae24288fe50d26483a0b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/math-analysis/support-cost-math-review.md"
+    },
+    {
+      "bytes": 3594,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/count_disjoint_input_charges.py",
+      "sha256": "7c6930d27ca2db20777bce75d51a7f3e24e80f23129f61e424ec08f5900170f9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/count_disjoint_input_charges.py"
+    },
+    {
+      "bytes": 3075,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/count_hitting_input_charges.py",
+      "sha256": "a6c35817311cff2075e09888fda084bb95a8e9c504113c95f7fe6b573217bd84",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/count_hitting_input_charges.py"
+    },
+    {
+      "bytes": 2760,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/disjoint-charge-encoding-outline.md",
+      "sha256": "81b5f44377e24510c2822ab6a3f7d62bb85120683bc2fa2b0551c76611f63ac4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/disjoint-charge-encoding-outline.md"
+    },
+    {
+      "bytes": 1533,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/disjoint-charge-handoff.json",
+      "sha256": "c4ec0d309a0a8c7702629d51ab617138f59c5d663d4e80e972cd17cd7573582c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/disjoint-charge-handoff.json"
+    },
+    {
+      "bytes": 885210,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/disjoint-input-charge-coverage.json",
+      "sha256": "35860e0cda240ca584fa5209864ad76609e810c038958ec2346ad4732a0f014b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/disjoint-input-charge-coverage.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/disjoint-input-charge-coverage.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/disjoint-input-charge-coverage.stderr.txt"
+    },
+    {
+      "bytes": 643,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/disjoint-input-charge-coverage.stdout.txt",
+      "sha256": "ccf500dd26692e8b07cf9723abcfdcbcfb8c8574fa999d0726734527d898db5e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/disjoint-input-charge-coverage.stdout.txt"
+    },
+    {
+      "bytes": 4315,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/disjoint-neighborhood-input-charge.md",
+      "sha256": "29b58a47659e054062fe81a2c98b3a0832fe8bf8feb00d31d3a3071b5f87d475",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/disjoint-neighborhood-input-charge.md"
+    },
+    {
+      "bytes": 501719,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/hitting-input-charge-coverage.json",
+      "sha256": "9b6c33623fa75e9c1a7796cd5e2c589b5e7bdb01d04488b31b183007f72e553f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/hitting-input-charge-coverage.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/hitting-input-charge-coverage.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/hitting-input-charge-coverage.stderr.txt"
+    },
+    {
+      "bytes": 568,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/hitting-input-charge-coverage.stdout.txt",
+      "sha256": "46b6cf64b424f9482eb90494d70d442aa2f96130f36f638f7b47bb29429f98c0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/hitting-input-charge-coverage.stdout.txt"
+    },
+    {
+      "bytes": 3911,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/irrelevant-input-charge.md",
+      "sha256": "951fd0d38db513a2fcfa98ddad5ef9c9dbc8c5d58acc4ba37867d0bc564af48f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/irrelevant-input-charge.md"
+    },
+    {
+      "bytes": 3631,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/neighborhood-hitting-charge.md",
+      "sha256": "f0af499ec1028b8093ec953d6654d286f20c9ddd035b19fbb485ad0b9ecb2ae6",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/neighborhood-hitting-charge.md"
+    },
+    {
+      "bytes": 632762,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/three-factor-position-classification.json",
+      "sha256": "83e0d4e9c8ee73fbc2bd2480a5a3cb5dc8ffdb1fb6a577618d902ddfc8ee651d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S01/three-factor-position-classification.json"
+    },
+    {
+      "bytes": 37716,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/hitting-charge-review.json",
+      "sha256": "e4df03fa7c9077847bf16e2850b67b0a0331b79559dd0ca718829c3cb8b50609",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/hitting-charge-review.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/hitting-charge-review.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/hitting-charge-review.stderr.log"
+    },
+    {
+      "bytes": 673,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/hitting-charge-review.stdout.log",
+      "sha256": "0e010668e50946af10c1d01ce216f0b6c9e1ae981e9907f9fc79e91f0b811063",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/hitting-charge-review.stdout.log"
+    },
+    {
+      "bytes": 369715,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/irrelevant-input-review.json",
+      "sha256": "73ae23f8a5df0ba581d85ffbbd0572424e522dd8672d8c2dc348a15f2c8b5bf6",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/irrelevant-input-review.json"
+    },
+    {
+      "bytes": 171524,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/multi-irrelevant-review.json",
+      "sha256": "8c299b8b5a9128d1e9e740606adaf180d42aa157917bcb81b270d7536335b3b1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/multi-irrelevant-review.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/multi-irrelevant-review.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/multi-irrelevant-review.stderr.log"
+    },
+    {
+      "bytes": 772,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/multi-irrelevant-review.stdout.log",
+      "sha256": "9513ff13c0eb89275e5a577ee2786248093be1249e6f00be73bed09e7a39cde9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/multi-irrelevant-review.stdout.log"
+    },
+    {
+      "bytes": 8245,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/preserve_multi_hitting_review.py",
+      "sha256": "055f31a2cd4b5ce367073fe5ac55047affa769731da09726b6f7441700558e7c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/preserve_multi_hitting_review.py"
+    },
+    {
+      "bytes": 8188,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/review_hitting_charge.py",
+      "sha256": "32b0c9797728a77ef37dc14ec93f0c8c7db2e9367b65251ef78d1e3365158138",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/review_hitting_charge.py"
+    },
+    {
+      "bytes": 10211,
+      "path": "scratch/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/review_multi_irrelevant.py",
+      "sha256": "2d243d222f6393534ad782fe90800117b34989547af4fda4f2ef74e27b7bb88a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1/scratch/orch/S04/review_multi_irrelevant.py"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S04/multi-hitting-preservation.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-preservation.stderr.log"
+    },
+    {
+      "bytes": 1032,
+      "path": "scratch/orch/S04/multi-hitting-preservation.stdout.log",
+      "sha256": "0fef3bce07842f5e4fb7579eff3e6244e0a6a6a0b06b20e683b1c9928a437767",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-preservation.stdout.log"
+    },
+    {
+      "bytes": 10658,
+      "path": "scratch/orch/S06/add_hitting_input_charge.py",
+      "sha256": "58bc217a57c3bb8a7819925e17f86b4c13435e006b9f3028731e4d1e10533398",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/add_hitting_input_charge.py"
+    },
+    {
+      "bytes": 8574,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/README.md",
+      "sha256": "27a74ae7499065bf39ac9f17d499dcd39bbc6d2b6bcedda1c5da5b93b43f2737",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/README.md"
+    },
+    {
+      "bytes": 4249,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/add_ancestor_support.py",
+      "sha256": "6bd7f7a2120d7d5446d9609a0551308b224d91d23463354514cefe631803e38b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/add_ancestor_support.py"
+    },
+    {
+      "bytes": 3554,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/build_original_strong.py",
+      "sha256": "9e5ae318f33ff8fea98dd8c4a201c82674023102340fdbe86bd69083419e33f1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/build_original_strong.py"
+    },
+    {
+      "bytes": 3705,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/cadical-streaming-review.md",
+      "sha256": "64f1bef3175920b3d3ca52a4b716e58be275031979bfc705c393385a6048b05b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/cadical-streaming-review.md"
+    },
+    {
+      "bytes": 17043,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/run_checked_kissat.py",
+      "sha256": "535ff6e32a68a31eefa1545f031483d0e9b73acd79066d1bbb2a2f42c86685bb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/run_checked_kissat.py"
+    },
+    {
+      "bytes": 17118,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17.py",
+      "sha256": "e227e161f9ac776d099d6fd20194d4e8047ba69a881b605a61763ea04f962a96",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17.py"
+    },
+    {
+      "bytes": 29861,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_ancestorconstant.py",
+      "sha256": "b4ebb9509ecd7278f417ee2f0c4ebfc1c15288006942fcf90006e63d88ce8720",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_ancestorconstant.py"
+    },
+    {
+      "bytes": 28662,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_ancestorcost.py",
+      "sha256": "60a37d85580f1190e3dac3793610a6d90197c90f2cde08520ec79269be3f5997",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_ancestorcost.py"
+    },
+    {
+      "bytes": 30356,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_ancestorreverse.py",
+      "sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_ancestorreverse.py"
+    },
+    {
+      "bytes": 19248,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_copychain.py",
+      "sha256": "10c61b79e145de7a08066408124f752c1c82ea8ef9b19871382bc484132a378b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_copychain.py"
+    },
+    {
+      "bytes": 22712,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_cost.py",
+      "sha256": "f3236024e27aed9aa90356e442d4644e5f8920609a3f922cac9ddab5387a5d06",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_cost.py"
+    },
+    {
+      "bytes": 18283,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_dominance.py",
+      "sha256": "b8ab4bcdc08c7da501a15bed2978ffa9e6c2b3203a72564e6e7a938c23ce6ce2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_dominance.py"
+    },
+    {
+      "bytes": 27213,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_partialcost.py",
+      "sha256": "b7aca3bb4fedf7dbe12d3e86416576f1e0bfc2612ae9d140b6a0be149c250d80",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_partialcost.py"
+    },
+    {
+      "bytes": 24563,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_strict.py",
+      "sha256": "514e55125469e00cec874c847d8ed2c7e02fc6caefa07312e0c24f0442336777",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_strict.py"
+    },
+    {
+      "bytes": 6983,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/streaming-checker-source-manifest.json",
+      "sha256": "4413150845ebb73c9200f5d50d562723b317346cd77363cfd2b440cb61f9a7d3",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/streaming-checker-source-manifest.json"
+    },
+    {
+      "bytes": 6559,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/streaming-runner.md",
+      "sha256": "cbc088f3f28d216a58ba1f8a23799980402c0836e41880704a2abc12e2a9d495",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/streaming-runner.md"
+    },
+    {
+      "bytes": 22665,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/validate_sat_candidate.py",
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/validate_sat_candidate.py"
+    },
+    {
+      "bytes": 12232,
+      "path": "scratch/orch/S06/control_hitting_input_charge.py",
+      "sha256": "93f2feed9d2f3effbcc1bda0f08ac0305833acaf2e684f4588dcf26b1998c4f7",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/control_hitting_input_charge.py"
+    },
+    {
+      "bytes": 39164,
+      "path": "scratch/orch/S06/hitting-charge-handoff.json",
+      "sha256": "88556b6479b8b1ab2676ba63d376df475eab7d6401692af7516a30fe59391351",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-handoff.json"
+    },
+    {
+      "bytes": 4451,
+      "path": "scratch/orch/S06/hitting-charge-plan.md",
+      "sha256": "5f3ebbeda418c40c1d918dce41b7002038c969bda4393d4908d0065ea22fd942",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-plan.md"
+    },
+    {
+      "bytes": 3631,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/00-neighborhood-hitting-charge.md",
+      "sha256": "f0af499ec1028b8093ec953d6654d286f20c9ddd035b19fbb485ad0b9ecb2ae6",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/00-neighborhood-hitting-charge.md"
+    },
+    {
+      "bytes": 3075,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/01-count_hitting_input_charges.py",
+      "sha256": "a6c35817311cff2075e09888fda084bb95a8e9c504113c95f7fe6b573217bd84",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/01-count_hitting_input_charges.py"
+    },
+    {
+      "bytes": 501719,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/02-hitting-input-charge-coverage.json",
+      "sha256": "9b6c33623fa75e9c1a7796cd5e2c589b5e7bdb01d04488b31b183007f72e553f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/02-hitting-input-charge-coverage.json"
+    },
+    {
+      "bytes": 568,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/03-hitting-input-charge-coverage.stdout.txt",
+      "sha256": "46b6cf64b424f9482eb90494d70d442aa2f96130f36f638f7b47bb29429f98c0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/03-hitting-input-charge-coverage.stdout.txt"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/04-hitting-input-charge-coverage.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/04-hitting-input-charge-coverage.stderr.txt"
+    },
+    {
+      "bytes": 4315,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/05-disjoint-neighborhood-input-charge.md",
+      "sha256": "29b58a47659e054062fe81a2c98b3a0832fe8bf8feb00d31d3a3071b5f87d475",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/05-disjoint-neighborhood-input-charge.md"
+    },
+    {
+      "bytes": 2760,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/06-disjoint-charge-encoding-outline.md",
+      "sha256": "81b5f44377e24510c2822ab6a3f7d62bb85120683bc2fa2b0551c76611f63ac4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/06-disjoint-charge-encoding-outline.md"
+    },
+    {
+      "bytes": 8188,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/07-review_hitting_charge.py",
+      "sha256": "32b0c9797728a77ef37dc14ec93f0c8c7db2e9367b65251ef78d1e3365158138",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/07-review_hitting_charge.py"
+    },
+    {
+      "bytes": 37716,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/08-hitting-charge-review.json",
+      "sha256": "e4df03fa7c9077847bf16e2850b67b0a0331b79559dd0ca718829c3cb8b50609",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/08-hitting-charge-review.json"
+    },
+    {
+      "bytes": 673,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/09-hitting-charge-review.stdout.log",
+      "sha256": "0e010668e50946af10c1d01ce216f0b6c9e1ae981e9907f9fc79e91f0b811063",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/09-hitting-charge-review.stdout.log"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/10-hitting-charge-review.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/10-hitting-charge-review.stderr.log"
+    },
+    {
+      "bytes": 10211,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/11-review_multi_irrelevant.py",
+      "sha256": "2d243d222f6393534ad782fe90800117b34989547af4fda4f2ef74e27b7bb88a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/11-review_multi_irrelevant.py"
+    },
+    {
+      "bytes": 171524,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/12-multi-irrelevant-review.json",
+      "sha256": "8c299b8b5a9128d1e9e740606adaf180d42aa157917bcb81b270d7536335b3b1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/12-multi-irrelevant-review.json"
+    },
+    {
+      "bytes": 772,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/13-multi-irrelevant-review.stdout.log",
+      "sha256": "9513ff13c0eb89275e5a577ee2786248093be1249e6f00be73bed09e7a39cde9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/13-multi-irrelevant-review.stdout.log"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/14-multi-irrelevant-review.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/14-multi-irrelevant-review.stderr.log"
+    },
+    {
+      "bytes": 25455,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/15-review.json",
+      "sha256": "b0af769b67da5f0b2f42aa1d4e341e217556b56cf17ea3a7a7aa5ffe9a0a2d7b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/15-review.json"
+    },
+    {
+      "bytes": 9085,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/16-add_irrelevant_input_charge.py",
+      "sha256": "56da4e9f313a18cabbcb582dffd999b212f8858e110c43c9f5dd7fb2c778b27d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/16-add_irrelevant_input_charge.py"
+    },
+    {
+      "bytes": 27440,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/17-irrelevant-charge-handoff.json",
+      "sha256": "9b9adf9f84a8e1321f55d936b5c9d091ee80edf0347750d0aefda7020b9084f2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/17-irrelevant-charge-handoff.json"
+    },
+    {
+      "bytes": 22665,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/18-validate_sat_candidate.py",
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/18-validate_sat_candidate.py"
+    },
+    {
+      "bytes": 30356,
+      "path": "scratch/orch/S06/hitting-charge-review-evidence/19-search_l1342_shard17_ancestorreverse.py",
+      "sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-review-evidence/19-search_l1342_shard17_ancestorreverse.py"
+    },
+    {
+      "bytes": 4158,
+      "path": "scratch/orch/S06/hitting-charge-v1-README.md",
+      "sha256": "e4fed5acac9e2679e20c6c1d80d9f261d095eb8fee4fb6203ceae9565d993051",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1-README.md"
+    },
+    {
+      "bytes": 645,
+      "path": "scratch/orch/S06/hitting-charge-v1.execution.json",
+      "sha256": "6237fbe05a2181fac5ce9727037588f432187d90497d92b37760f5bf1a3ac8c7",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1.execution.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/hitting-charge-v1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1.stderr"
+    },
+    {
+      "bytes": 11784,
+      "path": "scratch/orch/S06/hitting-charge-v1.stdout",
+      "sha256": "e8c84c61ad506c3b595c140e56c948db97fded48756bd11fea880dd004ceb398",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1.stdout"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAA-chain/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAA-chain/delta.clauses"
+    },
+    {
+      "bytes": 826,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAA-chain/generation.json",
+      "sha256": "a4928048d3dd44c6673c3369beaa1e84d695c907734b8799b8ffa6134c61e4e0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAA-chain/generation.json"
+    },
+    {
+      "bytes": 259359,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAA-chain/instance.json",
+      "sha256": "e98dd6a6dbdfa0a9135352a146261841ec607b5b32a815a7eb0a0b9fdfddb499",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAA-chain/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAA-chain/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAA-chain/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAA-chain/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAA-chain/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-P-RUP/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-P-RUP/delta.clauses"
+    },
+    {
+      "bytes": 831,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-P-RUP/generation.json",
+      "sha256": "58cae373dc04991dd0913f8169e76f18ca253fd0770a236d2638b1625ca3c523",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-P-RUP/generation.json"
+    },
+    {
+      "bytes": 243068,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-P-RUP/instance.json",
+      "sha256": "110e8560527ee9d246b7acb97dffaaae260b352ba004d8bd4c104f42b73f8f61",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-P-RUP/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-P-RUP/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-P-RUP/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-P-RUP/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-P-RUP/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-RUP/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-RUP/delta.clauses"
+    },
+    {
+      "bytes": 829,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-RUP/generation.json",
+      "sha256": "e820e01084977dce36dd041d69d954aec1c4a47dd533116153fcdc4e371761c4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-RUP/generation.json"
+    },
+    {
+      "bytes": 243027,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-RUP/instance.json",
+      "sha256": "0508fb3946c969a243ec5160ad9caed77839360a1c2f87ca63aa4cad398832ca",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-RUP/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-RUP/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-RUP/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-RUP/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-RUP/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-chain/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-chain/delta.clauses"
+    },
+    {
+      "bytes": 826,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-chain/generation.json",
+      "sha256": "c754aea242253e6bfcdaff71781328c2b9c1b70ef076c6b787af172218cebc6c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-chain/generation.json"
+    },
+    {
+      "bytes": 242836,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-chain/instance.json",
+      "sha256": "b25c0c004d756979c2226132914b9436ea3fef0f06a0ad9b1e2c8395af78c81e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-chain/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-chain/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-chain/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-chain/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-chain/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-d-RUP/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-d-RUP/delta.clauses"
+    },
+    {
+      "bytes": 831,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-d-RUP/generation.json",
+      "sha256": "69deff842038a47f1360bdbf80d3ab5939f542e33af235bfa955716aded3f1b9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-d-RUP/generation.json"
+    },
+    {
+      "bytes": 243068,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-d-RUP/instance.json",
+      "sha256": "dc6aaa267821763c3df46af956c2c0d98b2bd5419ced64ff74229f9d9b84a0d2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-d-RUP/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-d-RUP/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-d-RUP/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-d-RUP/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-d-RUP/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S06/hitting-charge-v1/T1/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T1/delta.clauses"
+    },
+    {
+      "bytes": 818,
+      "path": "scratch/orch/S06/hitting-charge-v1/T1/generation.json",
+      "sha256": "7e1f8ef1349f3705a4c46e4d7e586705ed3476457a64edfc0e42efea16957bcd",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T1/generation.json"
+    },
+    {
+      "bytes": 224655,
+      "path": "scratch/orch/S06/hitting-charge-v1/T1/instance.json",
+      "sha256": "c66909b3acf118ba604d0221bc2625afb67e4181d8c2f6ef583545ed3010a6ed",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T1/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S06/hitting-charge-v1/T1/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T1/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S06/hitting-charge-v1/T1/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T1/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S06/hitting-charge-v1/T2/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T2/delta.clauses"
+    },
+    {
+      "bytes": 818,
+      "path": "scratch/orch/S06/hitting-charge-v1/T2/generation.json",
+      "sha256": "acab23aaf55a429d147d4956db7cb933dbe47b19b32f584c870aa708ce879aa1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T2/generation.json"
+    },
+    {
+      "bytes": 241210,
+      "path": "scratch/orch/S06/hitting-charge-v1/T2/instance.json",
+      "sha256": "3cbde9b1599a21a55cc31dda07fc4307213d8a155b8060a2cbe13952c5bc100b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T2/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S06/hitting-charge-v1/T2/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T2/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S06/hitting-charge-v1/T2/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T2/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S06/hitting-charge-v1/T3/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T3/delta.clauses"
+    },
+    {
+      "bytes": 818,
+      "path": "scratch/orch/S06/hitting-charge-v1/T3/generation.json",
+      "sha256": "e46d92dd0793fd2e02b306c0ab45b26539102e4cef48dc39c14330db27d7913a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T3/generation.json"
+    },
+    {
+      "bytes": 224605,
+      "path": "scratch/orch/S06/hitting-charge-v1/T3/instance.json",
+      "sha256": "54f5aeaf0fc83bd3ba00f40cf25481848a4d21710e61321450fb02ff917ed4b5",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T3/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S06/hitting-charge-v1/T3/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T3/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S06/hitting-charge-v1/T3/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T3/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S06/hitting-charge-v1/T4/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T4/delta.clauses"
+    },
+    {
+      "bytes": 818,
+      "path": "scratch/orch/S06/hitting-charge-v1/T4/generation.json",
+      "sha256": "5f2e533708eddc256d7f065587865b74e7b332b69e05d32c926bced5acb45ec4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T4/generation.json"
+    },
+    {
+      "bytes": 241210,
+      "path": "scratch/orch/S06/hitting-charge-v1/T4/instance.json",
+      "sha256": "163bee95f8eb66773e987cb0b990d60a87fe0a76348e4d8c05fc6acdcdc07b10",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T4/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S06/hitting-charge-v1/T4/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T4/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S06/hitting-charge-v1/T4/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T4/witness-patterns.json"
+    },
+    {
+      "bytes": 11784,
+      "path": "scratch/orch/S06/hitting-charge-v1/controls.json",
+      "sha256": "e8c84c61ad506c3b595c140e56c948db97fded48756bd11fea880dd004ceb398",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/controls.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S06/hitting-charge-v1/original/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/original/delta.clauses"
+    },
+    {
+      "bytes": 824,
+      "path": "scratch/orch/S06/hitting-charge-v1/original/generation.json",
+      "sha256": "b6e19c6e991ba71f15d7df22033dbc293e93de6f11ba55f2866e9cb45db9d11e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/original/generation.json"
+    },
+    {
+      "bytes": 189683,
+      "path": "scratch/orch/S06/hitting-charge-v1/original/instance.json",
+      "sha256": "b99e3e2571d107f6f2b79285de3de54e326566ca9c61a7a3f089be14c7970ad0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/original/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S06/hitting-charge-v1/original/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/original/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S06/hitting-charge-v1/original/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/original/witness-patterns.json"
+    },
+    {
+      "bytes": 443,
+      "path": "scratch/orch/S06/hitting-commands.execution.json",
+      "sha256": "886a9efb4f96e651ce5a39e6f3e20f420a9b94a890581a29d425ea66747d7353",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-commands.execution.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/hitting-commands.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-commands.stderr"
+    },
+    {
+      "bytes": 322,
+      "path": "scratch/orch/S06/hitting-commands.stdout",
+      "sha256": "9a51ef44a0ebf4e131a2bdb4c1793ad7258750ca7487afbdcd3db92c549d7d41",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-commands.stdout"
+    },
+    {
+      "bytes": 403,
+      "path": "scratch/orch/S06/hitting-handoff.execution.json",
+      "sha256": "de06411cf18caf8394253a0a1977c48157016acbd4013d7649e8cd281186ab9a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-handoff.execution.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/hitting-handoff.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-handoff.stderr"
+    },
+    {
+      "bytes": 290,
+      "path": "scratch/orch/S06/hitting-handoff.stdout",
+      "sha256": "4dd9689cb45e5250990957b09c30c4df9e5b04555096a57e6074e342d52b2bc4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-handoff.stdout"
+    },
+    {
+      "bytes": 8960,
+      "path": "scratch/orch/S06/hitting-offline-plan/commands-manifest.json",
+      "sha256": "948ac6c2a8d186f1bfdc1b2e8473bb41df28bf6922a6e291bdf005a618454a06",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-offline-plan/commands-manifest.json"
+    },
+    {
+      "bytes": 218972,
+      "path": "scratch/orch/S06/irrelevant-charge-AAAO-v1/AAAO-P-RUP/instance.json",
+      "sha256": "cdb6226e61f31ab291db8c6a6d0eec3d645a80db99d1b640f6dacf30b8b1b3d2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-AAAO-v1/AAAO-P-RUP/instance.json"
+    },
+    {
+      "bytes": 218931,
+      "path": "scratch/orch/S06/irrelevant-charge-AAAO-v1/AAAO-RUP/instance.json",
+      "sha256": "a6abfed6f12ea12b9706ce79708074885d57b167af867376cc5692b93ec96963",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-AAAO-v1/AAAO-RUP/instance.json"
+    },
+    {
+      "bytes": 218972,
+      "path": "scratch/orch/S06/irrelevant-charge-AAAO-v1/AAAO-d-RUP/instance.json",
+      "sha256": "5508aca86e2821262123c4a837b8bc68b23c9e62098911ef2c5bf8886b7d8924",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-AAAO-v1/AAAO-d-RUP/instance.json"
+    },
+    {
+      "bytes": 235263,
+      "path": "scratch/orch/S06/irrelevant-charge-v1/AAAA-chain/instance.json",
+      "sha256": "6a765f58a0f13255776240f174228436ce448c6029c8ca82d72cedfd2fd31f2d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-v1/AAAA-chain/instance.json"
+    },
+    {
+      "bytes": 218740,
+      "path": "scratch/orch/S06/irrelevant-charge-v1/AAAO-chain/instance.json",
+      "sha256": "bef40bd13a5b49b39fdaa14a13dda4849a4297e3c0ff7931ed4411ba3988195e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-v1/AAAO-chain/instance.json"
+    },
+    {
+      "bytes": 200559,
+      "path": "scratch/orch/S06/irrelevant-charge-v1/T1/instance.json",
+      "sha256": "75df8be647c5827ea2697850c8682918b2f5bf80eea276f04832888d626fe156",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-v1/T1/instance.json"
+    },
+    {
+      "bytes": 217114,
+      "path": "scratch/orch/S06/irrelevant-charge-v1/T2/instance.json",
+      "sha256": "15d483d2d4ed99bb385e82f71ce6524eb0ecd97f9e322115c0737cef1d263512",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-v1/T2/instance.json"
+    },
+    {
+      "bytes": 200509,
+      "path": "scratch/orch/S06/irrelevant-charge-v1/T3/instance.json",
+      "sha256": "b6a83137597e7cc24e03a651652eb107b9fde12e793f02158e60d271d2ee9801",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-v1/T3/instance.json"
+    },
+    {
+      "bytes": 217114,
+      "path": "scratch/orch/S06/irrelevant-charge-v1/T4/instance.json",
+      "sha256": "5a8d47b9a6db64514163caf5eb63761a2aecff5e78be06033c735042ddf30a84",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-v1/T4/instance.json"
+    },
+    {
+      "bytes": 165587,
+      "path": "scratch/orch/S06/irrelevant-charge-v1/original/instance.json",
+      "sha256": "c08a829dc430fd31e045843314bb2ef3c29a9c7797c32063f40fbd97c41e6781",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-v1/original/instance.json"
+    },
+    {
+      "bytes": 14034,
+      "path": "scratch/orch/S06/offline_checked_cadical.py",
+      "sha256": "aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/offline_checked_cadical.py"
+    },
+    {
+      "bytes": 13807,
+      "path": "scratch/orch/S06/package_hitting_archive.py",
+      "sha256": "00a41e52e5a2ef58947761c99f46f78cffc58eaac2c78f460221b2e3275ef0b1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/package_hitting_archive.py"
+    },
+    {
+      "bytes": 5276,
+      "path": "scratch/orch/S06/prepare_hitting_commands.py",
+      "sha256": "756bf1cdec6279ceb29be9c2b8a7647932d05f7543126e44004b403d2555dadc",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/prepare_hitting_commands.py"
+    },
+    {
+      "bytes": 5270,
+      "path": "scratch/orch/S06/prepare_hitting_handoff.py",
+      "sha256": "1649baa35c97398268cbb901de6796df160ae0ee0c520d35bd9f606bce892b57",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/prepare_hitting_handoff.py"
+    },
+    {
+      "bytes": 2590,
+      "path": "scratch/orch/S06/restore_archive2_cnfs.py",
+      "sha256": "cf9868554bc46e398ab97a66183b1983615df17ce7338f2e1f0f1d575b3ffdf5",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/restore_archive2_cnfs.py"
+    },
+    {
+      "bytes": 358918,
+      "path": "scratch/orch/S08/charge-wave5-delivery-review/review.json",
+      "sha256": "3a6dc7d48ed62dde7f0df4ac9ee14eb7cc592fc52adc0f9c52a9b4b6fb3fd7d5",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/charge-wave5-delivery-review/review.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S08/hitting-charge-review.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review.stderr"
+    },
+    {
+      "bytes": 240,
+      "path": "scratch/orch/S08/hitting-charge-review.stdout",
+      "sha256": "7a44c07be2cac8e8516bfd0a6a20fa9e52a0c26d4046dfe37afaffd2650e251d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review.stdout"
+    },
+    {
+      "bytes": 39164,
+      "path": "scratch/orch/S08/hitting-charge-review/handoff.json",
+      "sha256": "88556b6479b8b1ab2676ba63d376df475eab7d6401692af7516a30fe59391351",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/handoff.json"
+    },
+    {
+      "bytes": 33504,
+      "path": "scratch/orch/S08/hitting-charge-review/review.json",
+      "sha256": "0ed0ac84baea1a88bf665fea4e6b78aff41b41c3993f1044d84f3665537a417d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/review.json"
+    },
+    {
+      "bytes": 10658,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/add_hitting_input_charge.py",
+      "sha256": "58bc217a57c3bb8a7819925e17f86b4c13435e006b9f3028731e4d1e10533398",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/add_hitting_input_charge.py"
+    },
+    {
+      "bytes": 12232,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/control_hitting_input_charge.py",
+      "sha256": "93f2feed9d2f3effbcc1bda0f08ac0305833acaf2e684f4588dcf26b1998c4f7",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/control_hitting_input_charge.py"
+    },
+    {
+      "bytes": 4451,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-plan.md",
+      "sha256": "5f3ebbeda418c40c1d918dce41b7002038c969bda4393d4908d0065ea22fd942",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-plan.md"
+    },
+    {
+      "bytes": 3631,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/00-neighborhood-hitting-charge.md",
+      "sha256": "f0af499ec1028b8093ec953d6654d286f20c9ddd035b19fbb485ad0b9ecb2ae6",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/00-neighborhood-hitting-charge.md"
+    },
+    {
+      "bytes": 3075,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/01-count_hitting_input_charges.py",
+      "sha256": "a6c35817311cff2075e09888fda084bb95a8e9c504113c95f7fe6b573217bd84",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/01-count_hitting_input_charges.py"
+    },
+    {
+      "bytes": 501719,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/02-hitting-input-charge-coverage.json",
+      "sha256": "9b6c33623fa75e9c1a7796cd5e2c589b5e7bdb01d04488b31b183007f72e553f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/02-hitting-input-charge-coverage.json"
+    },
+    {
+      "bytes": 568,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/03-hitting-input-charge-coverage.stdout.txt",
+      "sha256": "46b6cf64b424f9482eb90494d70d442aa2f96130f36f638f7b47bb29429f98c0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/03-hitting-input-charge-coverage.stdout.txt"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/04-hitting-input-charge-coverage.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/04-hitting-input-charge-coverage.stderr.txt"
+    },
+    {
+      "bytes": 4315,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/05-disjoint-neighborhood-input-charge.md",
+      "sha256": "29b58a47659e054062fe81a2c98b3a0832fe8bf8feb00d31d3a3071b5f87d475",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/05-disjoint-neighborhood-input-charge.md"
+    },
+    {
+      "bytes": 2760,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/06-disjoint-charge-encoding-outline.md",
+      "sha256": "81b5f44377e24510c2822ab6a3f7d62bb85120683bc2fa2b0551c76611f63ac4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/06-disjoint-charge-encoding-outline.md"
+    },
+    {
+      "bytes": 8188,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/07-review_hitting_charge.py",
+      "sha256": "32b0c9797728a77ef37dc14ec93f0c8c7db2e9367b65251ef78d1e3365158138",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/07-review_hitting_charge.py"
+    },
+    {
+      "bytes": 37716,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/08-hitting-charge-review.json",
+      "sha256": "e4df03fa7c9077847bf16e2850b67b0a0331b79559dd0ca718829c3cb8b50609",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/08-hitting-charge-review.json"
+    },
+    {
+      "bytes": 673,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/09-hitting-charge-review.stdout.log",
+      "sha256": "0e010668e50946af10c1d01ce216f0b6c9e1ae981e9907f9fc79e91f0b811063",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/09-hitting-charge-review.stdout.log"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/10-hitting-charge-review.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/10-hitting-charge-review.stderr.log"
+    },
+    {
+      "bytes": 10211,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/11-review_multi_irrelevant.py",
+      "sha256": "2d243d222f6393534ad782fe90800117b34989547af4fda4f2ef74e27b7bb88a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/11-review_multi_irrelevant.py"
+    },
+    {
+      "bytes": 171524,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/12-multi-irrelevant-review.json",
+      "sha256": "8c299b8b5a9128d1e9e740606adaf180d42aa157917bcb81b270d7536335b3b1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/12-multi-irrelevant-review.json"
+    },
+    {
+      "bytes": 772,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/13-multi-irrelevant-review.stdout.log",
+      "sha256": "9513ff13c0eb89275e5a577ee2786248093be1249e6f00be73bed09e7a39cde9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/13-multi-irrelevant-review.stdout.log"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/14-multi-irrelevant-review.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/14-multi-irrelevant-review.stderr.log"
+    },
+    {
+      "bytes": 25455,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/15-review.json",
+      "sha256": "b0af769b67da5f0b2f42aa1d4e341e217556b56cf17ea3a7a7aa5ffe9a0a2d7b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/15-review.json"
+    },
+    {
+      "bytes": 9085,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/16-add_irrelevant_input_charge.py",
+      "sha256": "56da4e9f313a18cabbcb582dffd999b212f8858e110c43c9f5dd7fb2c778b27d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/16-add_irrelevant_input_charge.py"
+    },
+    {
+      "bytes": 27440,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/17-irrelevant-charge-handoff.json",
+      "sha256": "9b9adf9f84a8e1321f55d936b5c9d091ee80edf0347750d0aefda7020b9084f2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/17-irrelevant-charge-handoff.json"
+    },
+    {
+      "bytes": 22665,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/18-validate_sat_candidate.py",
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/18-validate_sat_candidate.py"
+    },
+    {
+      "bytes": 30356,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/19-search_l1342_shard17_ancestorreverse.py",
+      "sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-review-evidence/19-search_l1342_shard17_ancestorreverse.py"
+    },
+    {
+      "bytes": 4158,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1-README.md",
+      "sha256": "e4fed5acac9e2679e20c6c1d80d9f261d095eb8fee4fb6203ceae9565d993051",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1-README.md"
+    },
+    {
+      "bytes": 645,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1.execution.json",
+      "sha256": "6237fbe05a2181fac5ce9727037588f432187d90497d92b37760f5bf1a3ac8c7",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1.execution.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1.stderr"
+    },
+    {
+      "bytes": 11784,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1.stdout",
+      "sha256": "e8c84c61ad506c3b595c140e56c948db97fded48756bd11fea880dd004ceb398",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1.stdout"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAA-chain/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAA-chain/delta.clauses"
+    },
+    {
+      "bytes": 826,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAA-chain/generation.json",
+      "sha256": "a4928048d3dd44c6673c3369beaa1e84d695c907734b8799b8ffa6134c61e4e0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAA-chain/generation.json"
+    },
+    {
+      "bytes": 259359,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAA-chain/instance.json",
+      "sha256": "e98dd6a6dbdfa0a9135352a146261841ec607b5b32a815a7eb0a0b9fdfddb499",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAA-chain/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAA-chain/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAA-chain/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAA-chain/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAA-chain/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-P-RUP/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-P-RUP/delta.clauses"
+    },
+    {
+      "bytes": 831,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-P-RUP/generation.json",
+      "sha256": "58cae373dc04991dd0913f8169e76f18ca253fd0770a236d2638b1625ca3c523",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-P-RUP/generation.json"
+    },
+    {
+      "bytes": 243068,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-P-RUP/instance.json",
+      "sha256": "110e8560527ee9d246b7acb97dffaaae260b352ba004d8bd4c104f42b73f8f61",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-P-RUP/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-P-RUP/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-P-RUP/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-P-RUP/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-P-RUP/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-RUP/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-RUP/delta.clauses"
+    },
+    {
+      "bytes": 829,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-RUP/generation.json",
+      "sha256": "e820e01084977dce36dd041d69d954aec1c4a47dd533116153fcdc4e371761c4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-RUP/generation.json"
+    },
+    {
+      "bytes": 243027,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-RUP/instance.json",
+      "sha256": "0508fb3946c969a243ec5160ad9caed77839360a1c2f87ca63aa4cad398832ca",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-RUP/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-RUP/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-RUP/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-RUP/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-RUP/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-chain/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-chain/delta.clauses"
+    },
+    {
+      "bytes": 826,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-chain/generation.json",
+      "sha256": "c754aea242253e6bfcdaff71781328c2b9c1b70ef076c6b787af172218cebc6c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-chain/generation.json"
+    },
+    {
+      "bytes": 242836,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-chain/instance.json",
+      "sha256": "b25c0c004d756979c2226132914b9436ea3fef0f06a0ad9b1e2c8395af78c81e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-chain/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-chain/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-chain/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-chain/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-chain/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-d-RUP/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-d-RUP/delta.clauses"
+    },
+    {
+      "bytes": 831,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-d-RUP/generation.json",
+      "sha256": "69deff842038a47f1360bdbf80d3ab5939f542e33af235bfa955716aded3f1b9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-d-RUP/generation.json"
+    },
+    {
+      "bytes": 243068,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-d-RUP/instance.json",
+      "sha256": "dc6aaa267821763c3df46af956c2c0d98b2bd5419ced64ff74229f9d9b84a0d2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-d-RUP/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-d-RUP/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-d-RUP/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-d-RUP/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/AAAO-d-RUP/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T1/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T1/delta.clauses"
+    },
+    {
+      "bytes": 818,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T1/generation.json",
+      "sha256": "7e1f8ef1349f3705a4c46e4d7e586705ed3476457a64edfc0e42efea16957bcd",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T1/generation.json"
+    },
+    {
+      "bytes": 224655,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T1/instance.json",
+      "sha256": "c66909b3acf118ba604d0221bc2625afb67e4181d8c2f6ef583545ed3010a6ed",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T1/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T1/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T1/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T1/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T1/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T2/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T2/delta.clauses"
+    },
+    {
+      "bytes": 818,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T2/generation.json",
+      "sha256": "acab23aaf55a429d147d4956db7cb933dbe47b19b32f584c870aa708ce879aa1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T2/generation.json"
+    },
+    {
+      "bytes": 241210,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T2/instance.json",
+      "sha256": "3cbde9b1599a21a55cc31dda07fc4307213d8a155b8060a2cbe13952c5bc100b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T2/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T2/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T2/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T2/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T2/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T3/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T3/delta.clauses"
+    },
+    {
+      "bytes": 818,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T3/generation.json",
+      "sha256": "e46d92dd0793fd2e02b306c0ab45b26539102e4cef48dc39c14330db27d7913a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T3/generation.json"
+    },
+    {
+      "bytes": 224605,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T3/instance.json",
+      "sha256": "54f5aeaf0fc83bd3ba00f40cf25481848a4d21710e61321450fb02ff917ed4b5",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T3/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T3/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T3/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T3/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T3/witness-patterns.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T4/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T4/delta.clauses"
+    },
+    {
+      "bytes": 818,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T4/generation.json",
+      "sha256": "5f2e533708eddc256d7f065587865b74e7b332b69e05d32c926bced5acb45ec4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T4/generation.json"
+    },
+    {
+      "bytes": 241210,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T4/instance.json",
+      "sha256": "163bee95f8eb66773e987cb0b990d60a87fe0a76348e4d8c05fc6acdcdc07b10",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T4/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T4/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T4/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T4/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/T4/witness-patterns.json"
+    },
+    {
+      "bytes": 11784,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/controls.json",
+      "sha256": "e8c84c61ad506c3b595c140e56c948db97fded48756bd11fea880dd004ceb398",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/controls.json"
+    },
+    {
+      "bytes": 156508,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/original/delta.clauses",
+      "sha256": "3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/original/delta.clauses"
+    },
+    {
+      "bytes": 824,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/original/generation.json",
+      "sha256": "b6e19c6e991ba71f15d7df22033dbc293e93de6f11ba55f2866e9cb45db9d11e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/original/generation.json"
+    },
+    {
+      "bytes": 189683,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/original/instance.json",
+      "sha256": "b99e3e2571d107f6f2b79285de3de54e326566ca9c61a7a3f089be14c7970ad0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/original/instance.json"
+    },
+    {
+      "bytes": 13677,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/original/thresholds.json",
+      "sha256": "c226f495d6f9e51e5f22fb75a39a79f2eddc1a88e2b097668f4357ad09bf943a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/original/thresholds.json"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/original/witness-patterns.json",
+      "sha256": "4168822c9687ebd639c8273c995924a288d0fa2ab9d4302b5578b511667d0dcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/hitting-charge-v1/original/witness-patterns.json"
+    },
+    {
+      "bytes": 5270,
+      "path": "scratch/orch/S08/hitting-charge-review/snapshot/prepare_hitting_handoff.py",
+      "sha256": "1649baa35c97398268cbb901de6796df160ae0ee0c520d35bd9f606bce892b57",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/snapshot/prepare_hitting_handoff.py"
+    },
+    {
+      "bytes": 5781,
+      "path": "scratch/orch/S08/offline-real-case13-review/review.json",
+      "sha256": "c1a22439752d28b1a1640d87553de7ae14246a8ab697fd80775f6495a9534f99",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/offline-real-case13-review/review.json"
+    },
+    {
+      "bytes": 84769,
+      "path": "scratch/orch/S08/offline-runner-review/review.json",
+      "sha256": "e3a1dfb01fe24acf900e34ae15012c78b3ab15a574240334de0fdfc535ac7b03",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/offline-runner-review/review.json"
+    },
+    {
+      "bytes": 12852,
+      "path": "scratch/orch/S08/review_hitting_charge.py",
+      "sha256": "7f82965b06e881ba738ec22b4c2a95cfb7785fee1e3bf2a8748eaa41f6b14a38",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/review_hitting_charge.py"
+    },
+    {
+      "bytes": 136917,
+      "path": "scratch/original-dag-strong/original.json",
+      "sha256": "5a430e86affc12584f964af39920201684505bafca4d34c1d30e6a10de3b9f51",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/original-dag-strong/original.json"
+    },
+    {
+      "bytes": 96035,
+      "path": "source-map.json",
+      "sha256": "1f99876229662b02457fcc6cd33f8b31e69d05a3739b74d4921c36223dfaa69c",
+      "source_path": "generated archive metadata"
+    },
+    {
+      "bytes": 1222,
+      "path": "summary.json",
+      "sha256": "7dc7e70b9889b5b0e056138a69f50716d4ceae8a7d6bbba3aae61549b7cf45c7",
+      "source_path": "generated archive metadata"
+    }
+  ],
+  "raw_CNF_payloads": 0,
+  "runtime_outputs": 0
+}

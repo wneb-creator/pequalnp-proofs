@@ -1,0 +1,159 @@
+{
+  "scope": "Candidate-only neighborhoods; no global or assigned-shard exhaustion.",
+  "started": "2026-11-24T04:37:56.898406+00:00",
+  "cases": {
+    "p18-h05-a": {
+      "pid": 30013,
+      "cnf_sha256": "93fb19a901efbc5c36daf2c9ee35a5e9f31813ae47e6bf6085ff11d29066d529",
+      "free_gates": [
+        1,
+        4,
+        10,
+        14,
+        15
+      ],
+      "started": "2026-11-24T04:37:56.901438+00:00",
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--sat",
+        "--time=90",
+        "/tmp/oec/pequalnp-pilot-18/orch/S02/context-window-family/p18-h05-a.cnf"
+      ],
+      "exit_code": 20,
+      "status_lines": [
+        "s UNSATISFIABLE"
+      ],
+      "elapsed_seconds": 0.6022605660000409
+    },
+    "p18-h08": {
+      "pid": 30014,
+      "cnf_sha256": "ca7913f704a9ab7473f9a92ce0103b1c3fd73ccbb53a5903e3c82e40662a0d97",
+      "free_gates": [
+        4,
+        6,
+        10,
+        14,
+        15,
+        16,
+        17,
+        20
+      ],
+      "started": "2026-11-24T04:37:57.709805+00:00",
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--sat",
+        "--time=90",
+        "/tmp/oec/pequalnp-pilot-18/orch/S02/context-window-family/p18-h08.cnf"
+      ],
+      "exit_code": 0,
+      "status_lines": [
+        "s UNKNOWN"
+      ],
+      "elapsed_seconds": 90.05006791999949
+    },
+    "d08-h10": {
+      "pid": 30269,
+      "cnf_sha256": "9fe79c0d8ffab47e387f923ebca0fa4fc66c3e1c752311a3a2b84e750d6fbada",
+      "free_gates": [
+        4,
+        5,
+        6,
+        7,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20
+      ],
+      "started": "2026-11-24T04:39:27.963905+00:00",
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--sat",
+        "--time=90",
+        "/tmp/oec/pequalnp-pilot-18/orch/S02/context-window-family/d08-h10.cnf"
+      ],
+      "exit_code": 0,
+      "status_lines": [
+        "s UNKNOWN"
+      ],
+      "elapsed_seconds": 90.07655637000062
+    },
+    "p18-h05-b": {
+      "pid": 30552,
+      "cnf_sha256": "01ab27b0375a115a533b269ad8ec75fc1ded641ce3b6cd11c7c6744d052fcdbe",
+      "free_gates": [
+        2,
+        4,
+        10,
+        14,
+        15
+      ],
+      "started": "2026-11-24T04:40:58.244121+00:00",
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--sat",
+        "--time=90",
+        "/tmp/oec/pequalnp-pilot-18/orch/S02/context-window-family/p18-h05-b.cnf"
+      ],
+      "exit_code": 20,
+      "status_lines": [
+        "s UNSATISFIABLE"
+      ],
+      "elapsed_seconds": 0.6014069590000872
+    },
+    "d08-h08-a": {
+      "pid": 30553,
+      "cnf_sha256": "430b74954e55050e6c3391727db67929ee6ef64e552f97d0bd4fbb1ff38e9d96",
+      "free_gates": [
+        5,
+        6,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20
+      ],
+      "started": "2026-11-24T04:40:59.049219+00:00",
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--sat",
+        "--time=90",
+        "/tmp/oec/pequalnp-pilot-18/orch/S02/context-window-family/d08-h08-a.cnf"
+      ],
+      "exit_code": 0,
+      "status_lines": [
+        "s UNKNOWN"
+      ],
+      "elapsed_seconds": 90.09237756599941
+    },
+    "d08-h08-b": {
+      "pid": 30694,
+      "cnf_sha256": "a8a5e57fcbb716369dd9cdc32f1cdb339fb083b6575787b6eee863e6a8f9c24d",
+      "free_gates": [
+        5,
+        7,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20
+      ],
+      "started": "2026-11-24T04:42:29.350869+00:00",
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--sat",
+        "--time=90",
+        "/tmp/oec/pequalnp-pilot-18/orch/S02/context-window-family/d08-h08-b.cnf"
+      ],
+      "exit_code": 0,
+      "status_lines": [
+        "s UNKNOWN"
+      ],
+      "elapsed_seconds": 90.02500651300033
+    }
+  },
+  "finished": "2026-11-24T04:43:59.576971+00:00"
+}

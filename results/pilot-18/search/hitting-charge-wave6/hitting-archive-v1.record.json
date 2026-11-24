@@ -1,0 +1,29 @@
+{
+  "CNF_recipes": 30,
+  "actual_code_review_sha256": "0ed0ac84baea1a88bf665fea4e6b78aff41b41c3993f1044d84f3665537a417d",
+  "commands_manifest_sha256": "948ac6c2a8d186f1bfdc1b2e8473bb41df28bf6922a6e291bdf005a618454a06",
+  "manifest_files": 264,
+  "manifest_sha256": "b13a156feccad31add4704016d8f6f93e415545b0f83c5ee162746ca6736280a",
+  "restore_command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-archive-v1/scratch/orch/S06/restore_archive2_cnfs.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-archive-v1",
+    "/tmp/oec/pequalnp-pilot-18/original-dag-strong/original.cnf",
+    "--verify-only"
+  ],
+  "restore_exit_code": 0,
+  "restore_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "restore_stdout_sha256": "04935a1957a046aa2bbef69c19b72ee6d21532bba444fb6a5a9c39e08bdae815",
+  "running_directories_read": false,
+  "runtime_outputs_included": false,
+  "solver_checker_Lean_launch": false,
+  "source_sha256": "00a41e52e5a2ef58947761c99f46f78cffc58eaac2c78f460221b2e3275ef0b1",
+  "status": "PASS_LOCAL_PACKAGING_RECONSTRUCTION_PENDING_INDEPENDENT_DELIVERY_REVIEW",
+  "tar_bytes": 2471021,
+  "tar_members": 265,
+  "tar_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-archive-v1.tar.gz",
+  "tar_sha256": "1b35774d63977b6e9f6660d2e011ab47316c690d1f0ff61585b85141b27af0ec",
+  "utc": "2026-11-24T04:52:45.969915+00:00",
+  "wall_seconds": 2.947999937001441
+}

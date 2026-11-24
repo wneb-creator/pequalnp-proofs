@@ -212,3 +212,37 @@ Archive `orch/S06/charge-archive-v1.tar.gz` is3,753,740bytes, SHA256 `aeb918872f
 All four completed AAOA T1..T4 runs are UNKNOWN/solverwalllimit, exit2, with full result/progress/inputmetadata/solverstdoutstderr/outerstdoutstderr and launch records. No checker phase ran. Four incomplete DRAT streams remain in scratch, omitted from archive with independently recomputed sizes/hashes totaling1,278,861,312bytes; none is an accepted certificate. No exhaustion claim follows.
 
 First packaging attempt rejected a historical checker executable snapshot; its full source/diagnostics are retained. Final package omits it with exact size/hash. Cached bytecode is excluded from payload and selection expectations. No reviewed producer source or input was edited. Final build/restore/log records are bound by `charge-archive-v1-handoff.json` SHA256 `29be436c4c78c47632e987d0df17f5b25357e00f407067f2933817c6bfae4677`. Package is ready for main/S08 independent delivery review and preservation; no solver/checker/Lean/git/desk activity by S06.
+
+
+## 2026-11-24T04:48:01.088634+00:00 — +2/+3 hitting-charge children ready for actual review
+
+S04 mathematical/finite review PASS `e4df03fa7c9077847bf16e2850b67b0a0331b79559dd0ca718829c3cb8b50609` supersedes the planning-only status. On main's implementation instruction, prepared10 fresh children of the independently reviewed +1 inputs, prioritizing AAAO-RUP and T1..T4. No old source/input or running directory was changed. No running directory was read; no solver, checker or Lean was launched.
+
+Generator `orch/S06/add_hitting_input_charge.py` SHA256 `58bc217a57c3bb8a7819925e17f86b4c13435e006b9f3028731e4d1e10533398`; control source `93f2feed9d2f3effbcc1bda0f08ac0305833acaf2e684f4588dcf26b1998c4f7`. Every child appends221 variables11986..12206 and4233 clauses:3366 actual-raw-ancestor witness implications,408 rank2 pattern implications,85 rank3 pattern implications and374 full-support guarded threshold clauses. Shared delta SHA256 `3f5cc4b71971641479dfb1e6c418fd7dfbd26c375421f0047e732cf2a5eb6a5d`. All old variable meanings/metadata fields and clause bytes are preserved, including +1 and any old RUP additions.
+
+For rank k, T<=g+2-k forbids the old totalizer root threshold g+3-k. The literal is old_overflow-k except gate0/rank3, which explicitly emits11 clauses (-p3 OR support[v]) and has no threshold literal. Both +2/+3 retain the same full-support exemption as +1. Ranks constrain separate absolute bounds; they are never added. The generator pins S04 mathematics/coverage, the prior S08 parent review and old source, and reconstructs the old counter blocks/+1 suffix before appending. All ten CNF/metadata pairs must match the prior actual review.
+
+Bounded controls exited0 in1.920338s under10CPU/30wall seconds and1GiBAS. Passed4233 independent clause-shape comparisons,8192 actual rank-clause truth checks,113 signed-counter boundary models/146039 counter-clause evaluations,38352 guard truth checks,34 wrong-threshold negative checks, the summed-rank negative control and7 rejection controls. All10 fresh-child body/hash/metadata checks passed the pinned validator parser and decoder-shape checks. These parser checks are not full SAT validation.
+
+Actual implementation review remains pending; minimum-cover/counter reselection is existential, with no every-old-auxiliary-assignment extension or RUP claim for the new math restriction. Parent +1/RUP compatibility review is retained and new restrictions preserve parent clause bytes. Main owns review admission and any launch.
+
+Handoff `orch/S06/hitting-charge-handoff.json` SHA256 `88556b6479b8b1ab2676ba63d376df475eab7d6401692af7516a30fe59391351` binds89 artifacts,20 frozen math/source/review snapshots, all full controls/logs and10 portable CNF recipes. Each recipe replaces the parent's header and appends the shared ASCII delta; the frozen charge archive supplies exact +1 parent recipes. No large CNF needs repository storage. See hitting-charge-v1-README.md for source/dependency pins, boundary details and reproduction interface.
+
+Priority input hashes:
+
+- AAAO-RUP: `d47a48153e4b268587b8c3330c2e57d1756c554848f4cdfe50c2337cb0be5ec2`; metadata `0508fb3946c969a243ec5160ad9caed77839360a1c2f87ca63aa4cad398832ca`.
+- T1: `d3c29af1b433b79402dc57029a6ccc57b2f501760f4dbb8ac0e419dcb825a0f6`; metadata `c66909b3acf118ba604d0221bc2625afb67e4181d8c2f6ef583545ed3010a6ed`.
+- T2: `4f87858e5c68842218222a7afbebc292cc7dc1a797477701bfbb3586d8ae78b3`; metadata `3cbde9b1599a21a55cc31dda07fc4307213d8a155b8060a2cbe13952c5bc100b`.
+- T3: `056b756b54c21093cbbedb4f64694593987e502ce4d7e14594266c605a0521dc`; metadata `54f5aeaf0fc83bd3ba00f40cf25481848a4d21710e61321450fb02ff917ed4b5`.
+- T4: `d3a169889af5938186c02e44453679abf8f856aa3d0f57b927deb6b0e5e56fbe`; metadata `163bee95f8eb66773e987cb0b990d60a87fe0a76348e4d8c05fc6acdcdc07b10`.
+
+
+## 2026-11-24T04:53:16.235194+00:00 — hitting command manifest and compact preservation complete
+
+Four commands are ready, ordered AAAO-RUP,T2,T3,T4, in `hitting-offline-plan/commands-manifest.json`, SHA256 `948ac6c2a8d186f1bfdc1b2e8473bb41df28bf6922a6e291bdf005a618454a06`. All input/metadata/tool/runner pins were independently read and checked; no runner preflight or production command was executed. The unchanged retained-proof runner is `aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a`; each proposed case uses600s solver plus600s checker,512MiB proof cap,1536MiB solver/3072MiB checkerAS. Hold each slot through checking/validation/finalization; stop further admissions on any SAT indication. Fresh output names are offline-hitting-CASE-wave1. Free disk at preparation was9,748,189,184bytes; no reservation is made.
+
+S08 actual-code/delta review nowPASS `0ed0ac84baea1a88bf665fea4e6b78aff41b41c3993f1044d84f3665537a417d` covers all10children and controls. Historical pending-review metadata/command fields remain unchanged; this final review supersedes them. Main owns resource admission and any launches.
+
+Compact archive `hitting-archive-v1.tar.gz` is2,471,021bytes, SHA256 `1b35774d63977b6e9f6660d2e011ab47316c690d1f0ff61585b85141b27af0ec`; manifest `b13a156feccad31add4704016d8f6f93e415545b0f83c5ee162746ca6736280a`. It contains264boundpayloads/265regularmembers and30portableCNFrecipes: ten +1parents, tennewchildren and tenindependentreview snapshots. Allpayload/tarhashes and allrecipe reconstructions passed using the unchanged standard-library restorer. Full S04disjoint/hitting math preservation, S08actualcode/review/snapshots/fulloutputs, allnewproducercontrols/source/logs/metadata, pinnedrunner+fourcommands, and originalgenerator dependencies are retained. There are no raw CNFs, compiled payloads or runtime outputs. No active output directory was read. Previouschargearchiveaeb918... remainsunchanged as older normalization/RUP/runner-control provenance.
+
+Package generation exited0 in3.026088s under10CPU/30wall/1GiB caps. Fullbuild/restore stdout/stderr, execution and package records are external delivery artifacts to avoid self-referential manifests. Handoff `hitting-archive-v1-handoff.json` SHA256 `d6d8e539b18ed7368c54052f35785300f7e481399d040281e4f9ee4d9a0584ec` binds all8 delivery files. Main/S08 independent delivery review and preservation are the remaining step; no solver/checker/Lean/production/git/desk action by S06.

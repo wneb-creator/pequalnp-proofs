@@ -1,0 +1,66 @@
+{
+  "verdict": "PASS_MAIN_INDEPENDENT_BINDINGS_COMMANDS_RESOURCE_ADMISSION",
+  "verified_review_bindings": 131,
+  "review_sha256": "0ed0ac84baea1a88bf665fea4e6b78aff41b41c3993f1044d84f3665537a417d",
+  "manifest_sha256": "948ac6c2a8d186f1bfdc1b2e8473bb41df28bf6922a6e291bdf005a618454a06",
+  "launches": [
+    {
+      "case": "AAAO-RUP",
+      "pid": 32473,
+      "utc": "2026-11-24T04:53:02.355556+00:00",
+      "command": [
+        "python3",
+        "-B",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/offline_checked_cadical.py",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-RUP/instance.cnf",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/offline-hitting-AAAO-RUP-wave1",
+        "--cnf-sha256",
+        "d47a48153e4b268587b8c3330c2e57d1756c554848f4cdfe50c2337cb0be5ec2",
+        "--metadata-sha256",
+        "0508fb3946c969a243ec5160ad9caed77839360a1c2f87ca63aa4cad398832ca",
+        "--solver-seconds",
+        "600",
+        "--checker-seconds",
+        "600",
+        "--proof-mib",
+        "512",
+        "--max-records",
+        "100000000",
+        "--min-free-mib",
+        "1024",
+        "--abort-file",
+        "/tmp/oec/pequalnp-pilot-18/DESK_ERROR.response"
+      ],
+      "cnf_sha256": "d47a48153e4b268587b8c3330c2e57d1756c554848f4cdfe50c2337cb0be5ec2"
+    },
+    {
+      "case": "T2",
+      "pid": 32474,
+      "utc": "2026-11-24T04:53:02.357719+00:00",
+      "command": [
+        "python3",
+        "-B",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/offline_checked_cadical.py",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T2/instance.cnf",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/offline-hitting-T2-wave1",
+        "--cnf-sha256",
+        "4f87858e5c68842218222a7afbebc292cc7dc1a797477701bfbb3586d8ae78b3",
+        "--metadata-sha256",
+        "3cbde9b1599a21a55cc31dda07fc4307213d8a155b8060a2cbe13952c5bc100b",
+        "--solver-seconds",
+        "600",
+        "--checker-seconds",
+        "600",
+        "--proof-mib",
+        "512",
+        "--max-records",
+        "100000000",
+        "--min-free-mib",
+        "1024",
+        "--abort-file",
+        "/tmp/oec/pequalnp-pilot-18/DESK_ERROR.response"
+      ],
+      "cnf_sha256": "4f87858e5c68842218222a7afbebc292cc7dc1a797477701bfbb3586d8ae78b3"
+    }
+  ]
+}

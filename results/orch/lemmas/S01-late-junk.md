@@ -477,3 +477,43 @@ counter thresholds: relative to+1, +2needs204variables/3621clauses; supporting
 not a sum of1+2+3penalties. Exact graph witnesses, full logs, source hashes,
 proof and encoding caveats are bound by `orch/S01/disjoint-charge-handoff.json`,
 SHA `c4ec0d309a0a8c7702629d51ab617138f59c5d663d4e80e972cd17cd7573582c`.
+
+## Reviewed k5 common-neighbor closure and new r-positive relaxation
+
+S04 independently passed all331 k5/r0 exclusions; reviewed remaining counts
+are115 k4/r0 and262 k3/r0. The exact combined proof and finite results are
+bound by five-factor-closure-handoff.json SHA c0dbd623da51cb86717098177a867eabe3399fc1880d3fe8659a44e4152073b1.
+All-common-neighbor k5 is closed only within the stated productive17-prefix
+minimal-full-factor scope; there is no global AAAA or shard conclusion.
+
+The stronger irrelevant-input neighborhood-hitting charge also passed S04
+math review and S08 actual S06 delta review. Hitting rank, rather than only
+disjoint neighborhoods, yields24 minimal rank2 patterns and5 rank3 patterns.
+The proof/coverage is preserved in the same27-file closure handoff.
+
+New r-positive work is bound by no-common-cover-handoff.json SHA a4f80666a2c3de18353fbc10a24ec0bcf6a035a7b027f31854086baf15aa4a76.
+A no-common-neighbor factor lies outside every other minimal selected-output
+cone. Hence costs are at most18-r for such outputs and17-r for common-neighbor
+outputs. Across all958 supports,382 exact MIS-rejection patterns retain their
+minimum costs. A complete scalar relaxation excludes k3/r3; an independent
+edge-branch-cover/bitset-triple enumeration confirms no three CN-empty
+patterns of cost at most15 cover all24MIS. Eleven other(k,r)classes have
+explicit abstract support-family witnesses. No shared-prefix circuit follows.
+This new exclusion awaits independent review; all other r-positive classes
+remain open. Sources, complete results and full stdout/stderr stay in orch/S01.
+
+## Exact mixed triples and pending two-spare extension
+
+The complete exact958-support census now leaves800 triples with one no-CN
+factor,68 with two, and none with three. This uses the existing cone caps,
+nonempty-residual joint charge and reviewed position conditions with the
+no-CN ancestry prohibition. All868 survivors have concrete abstract
+position/ancestry patterns; none is a circuit claim. Handoff mixed-triple-handoff.json SHA 159ca97f5b0d24fec9f727e8a58d93648f23cec92b6ef6e323ab7f754b570b8d.
+Independent review remains pending. S04 proposed gamma-region refinement
+removes none here because every surviving no-CN factor has gamma2.
+
+A separate generic two-spare forest argument rejects4 additional k3/r0
+families and3 k4/r0 families. Its handoff two-spare-forest-handoff.json SHA 5bcf4d6d1127b8a631b248073a6ce3b2bb9d51fa97e2aa4e4cd046aa6e7bb36a preserves proof/source/complete tables/logs.
+Pending review, these would reduce262/115 to258/112; until review the older
+reviewed counts remain authoritative. No new k5 work is needed: its r0
+case already passed independent review.

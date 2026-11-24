@@ -1,0 +1,53 @@
+{
+  "status": "READY_MAIN_S08_PORTABLE_PRESERVATION_REVIEW",
+  "created_utc": "2026-11-24T04:58:57.049634+00:00",
+  "exact21_found": false,
+  "production_launched_by_S05": false,
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-preservation-v1.tar.gz",
+      "sha256": "6e927788b52cf15f0769a7cb73d95739ee84cf6e23039d39655bff1b4cef0bdf",
+      "bytes": 123567
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-preservation-manifest.json",
+      "sha256": "a497065fbc8126c1ef3a60163c5e38767d372dfd904339444e1ee7a59df6612d",
+      "bytes": 78211
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-preservation-verification.json",
+      "sha256": "2252bb02e5e4814c68d1d241cf11d4a11a421477ce20c27a072944c17fdc0509",
+      "bytes": 878
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-preservation-build.stdout",
+      "sha256": "9b835a318b92a62b997e722f921a9a5b5daaadcfdc9caaaf45554c64916933cf",
+      "bytes": 284
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-preservation-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-preservation-verify.stdout",
+      "sha256": "2d1c59eb150aa544e2cf7c9420e2eb862a06f60908208281ba3fd270ea2ab098",
+      "bytes": 768
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-preservation-verify.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/preserve_triangle589.py",
+      "sha256": "d3ee1b73a65e2b40b1aee7456c71e92d2d22a00f8b772c3071c760779302903b",
+      "bytes": 5617
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/verify_triangle589_archive.py",
+      "sha256": "e7c430ea900620280192abed7133218ff59d2333cc448b3d0a0c69e97fd28ba5",
+      "bytes": 4184
+    }
+  ]
+}

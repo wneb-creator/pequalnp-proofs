@@ -1,0 +1,7 @@
+BEST_FILE /tmp/oec/pequalnp-pilot-18/direct21-candidate-134225/engine-result.json.best-0.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/direct21-candidate-134225/engine-result.json.best-1.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/direct21-candidate-134225/engine-result.json.best-2.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/direct21-candidate-134225/engine-result.json.best-3.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/direct21-candidate-134225/engine-result.json.best-4.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/direct21-candidate-134225/engine-result.json.best-5.json
+UNKNOWN iterations=2000000000 restarts=9999 elapsed=294.318

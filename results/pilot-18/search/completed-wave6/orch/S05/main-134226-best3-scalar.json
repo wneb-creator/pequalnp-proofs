@@ -1,0 +1,30 @@
+{
+  "utc": "2026-11-24T04:48:05.767387+00:00",
+  "source": "/tmp/oec/pequalnp-pilot-18/triangle589-candidate-134226/engine-result.json.best-3.json",
+  "source_sha256": "9a743d5d43f651198f908fd086b3307e036697ee9d9990f5c0edfcce6ff3fe96",
+  "full_FN": [],
+  "full_FP": [
+    21,
+    29,
+    85,
+    148,
+    149
+  ],
+  "minimal_extra_masks": [
+    21,
+    148
+  ],
+  "minimal_extra_inputs": [
+    [
+      0,
+      2,
+      4
+    ],
+    [
+      2,
+      4,
+      7
+    ]
+  ],
+  "exact_target": false
+}

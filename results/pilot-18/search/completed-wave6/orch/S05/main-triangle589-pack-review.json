@@ -1,0 +1,108 @@
+{
+  "utc": "2026-11-24T04:45:51.461144+00:00",
+  "verdict": "PASS_MAIN_INDEPENDENT_TRIANGLE589_PACK_ALL_INPUTS",
+  "handoff_sha256": "909978e953b3c6a2b775bb62e7cf7fbd314c5f5709d295f21603396880cfdd0d",
+  "pack_sha256": "a7b9083ef7737ffedc1e35cafb46bdbbb6c74ca909d7550b0633174dc4315fdc",
+  "bindings_checked": 30,
+  "scalar_checks": 32768,
+  "reviewed_engine_wrapper_validator_unchanged": true,
+  "source_formula": "F OR x2(x0 OR x7)(x1 OR x4)",
+  "counts": [
+    {
+      "seed": 0,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 1,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 2,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 3,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 4,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 5,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 6,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 7,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 8,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 9,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 10,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 11,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 12,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 13,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 14,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    },
+    {
+      "seed": 15,
+      "full_FN": 0,
+      "full_FP": 10,
+      "fingerprint": 2256087560541301996
+    }
+  ]
+}

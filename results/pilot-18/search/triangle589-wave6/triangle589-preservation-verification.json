@@ -1,0 +1,29 @@
+{
+  "status": "PASS_PORTABLE_TRIANGLE589_ARCHIVE",
+  "archive_sha256": "6e927788b52cf15f0769a7cb73d95739ee84cf6e23039d39655bff1b4cef0bdf",
+  "manifest_sha256": "a497065fbc8126c1ef3a60163c5e38767d372dfd904339444e1ee7a59df6612d",
+  "members": 249,
+  "bound_payloads": 248,
+  "all_regular": true,
+  "no_compiled_binaries": true,
+  "packed_input_checks": 49152,
+  "intermediate_checks": 1032192,
+  "packs": [
+    {
+      "pack": "triangle589-direct21-v1",
+      "count": 16,
+      "sha256": "a7b9083ef7737ffedc1e35cafb46bdbbb6c74ca909d7550b0633174dc4315fdc",
+      "full_fn": 0,
+      "full_fp": 10
+    },
+    {
+      "pack": "triangle589-best3-direct21-v1",
+      "count": 8,
+      "sha256": "6c60f7617f1b797fd8408ddbf5f08d94a148c2c49eb66d9821d7f35e68606e9b",
+      "full_fn": 0,
+      "full_fp": 5
+    }
+  ],
+  "engine_executed": false,
+  "elapsed_seconds": 0.33078153699898394
+}

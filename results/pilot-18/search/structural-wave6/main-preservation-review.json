@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-24T04:54:33.085333+00:00",
+  "verdict": "PASS_SAFE_ARCHIVE_FULL_INVENTORY_AND_HASHES",
+  "archives": [
+    {
+      "archive": "multi-hitting-math-preservation-v1.tar.gz",
+      "sha256": "7a226c25c345d6b640bf83af1b4e114bc9fa4c551ddfee6284ac33350b8ba0f7",
+      "payloads_verified": 28,
+      "scope": "Mathematical, finite, actual-DAG and unimplemented-outline PASS only; no stronger bound on262 common-neighbor families, no actual-cut/CNF/Lean/global claim."
+    },
+    {
+      "archive": "four-five-math-preservation-v1.tar.gz",
+      "sha256": "e4651887edba4dfe3556dab2789944408402011bfdb9d3bf5a8773209b6b3fa9",
+      "payloads_verified": 44,
+      "scope": "Independent math+finite k5/r0 support-family closure; k4/r0 leaves115, all r>0 open; no CNF/Lean/SAT/global acceptance."
+    }
+  ]
+}

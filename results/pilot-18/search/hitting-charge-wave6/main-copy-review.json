@@ -1,0 +1,61 @@
+{
+  "utc": "2026-11-24T04:57:41.903358+00:00",
+  "verdict": "PASS_COPY_HASH_BINDINGS_PENDING_DELIVERY_REVIEW",
+  "files": [
+    {
+      "path": "hitting-archive-v1-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hitting-archive-v1-build.stdout",
+      "bytes": 1435,
+      "sha256": "2d7605bd3e659b33896bcc90dda6e8ee76093d91fb7b4846d05df8ffb2e1fcb1"
+    },
+    {
+      "path": "hitting-archive-v1-restore.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "hitting-archive-v1-restore.stdout",
+      "bytes": 121,
+      "sha256": "04935a1957a046aa2bbef69c19b72ee6d21532bba444fb6a5a9c39e08bdae815"
+    },
+    {
+      "path": "hitting-archive-v1.execution.json",
+      "bytes": 623,
+      "sha256": "3bca4cf0f06f014f70c7eb0c0530f89ae26efca6bc71d52f62a9e09f9fb18a5c"
+    },
+    {
+      "path": "hitting-archive-v1.record.json",
+      "bytes": 1435,
+      "sha256": "2d7605bd3e659b33896bcc90dda6e8ee76093d91fb7b4846d05df8ffb2e1fcb1"
+    },
+    {
+      "path": "hitting-archive-v1.tar.gz",
+      "bytes": 2471021,
+      "sha256": "1b35774d63977b6e9f6660d2e011ab47316c690d1f0ff61585b85141b27af0ec"
+    },
+    {
+      "path": "archive-manifest.json",
+      "bytes": 86230,
+      "sha256": "b13a156feccad31add4704016d8f6f93e415545b0f83c5ee162746ca6736280a"
+    },
+    {
+      "path": "hitting-archive-v1-handoff.json",
+      "bytes": 2687,
+      "sha256": "d6d8e539b18ed7368c54052f35785300f7e481399d040281e4f9ee4d9a0584ec"
+    },
+    {
+      "path": "main-hitting-wave1-launch.json",
+      "bytes": 2279,
+      "sha256": "f585c7bea2084cf955f08b70252b940009a8ee52508b6954ce5f3e4dc92ba8e1"
+    },
+    {
+      "path": "main-hitting-T3-launch.json",
+      "bytes": 951,
+      "sha256": "b34eb155223df1b37c9694e74e1027e70ccdb0b9f9486092f2a37d4a6bdc7eec"
+    }
+  ]
+}

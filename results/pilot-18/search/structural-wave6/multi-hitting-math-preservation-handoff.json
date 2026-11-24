@@ -1,0 +1,11 @@
+{
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/multi-hitting-math-preservation-v1.tar.gz",
+  "archive_bytes": 128082,
+  "archive_sha256": "7a226c25c345d6b640bf83af1b4e114bc9fa4c551ddfee6284ac33350b8ba0f7",
+  "disjoint_review_sha256": "8c299b8b5a9128d1e9e740606adaf180d42aa157917bcb81b270d7536335b3b1",
+  "hitting_review_sha256": "e4df03fa7c9077847bf16e2850b67b0a0331b79559dd0ca718829c3cb8b50609",
+  "manifest_sha256": "88085fb21fa5049e422e2e8e71d5a129f8612a2ad31041c29a51dce4f2aae292",
+  "regular_members": 29,
+  "scope": "Mathematical, finite, actual-DAG and unimplemented-outline PASS only; no stronger bound on262 common-neighbor families, no actual-cut/CNF/Lean/global claim.",
+  "verdict": "PASS_MULTI_HITTING_REVIEW_PRESERVATION"
+}

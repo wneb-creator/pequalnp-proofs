@@ -1,0 +1,1496 @@
+{
+  "status": "RESEARCH_PRESERVATION_ONLY_NO_WITNESS",
+  "created_utc": "2026-11-24T04:58:43.318463+00:00",
+  "engine_archive_sha256": "70858a65855a12f1345980afbfd2c490bec7963fcf3c1c3aa58847108b441323",
+  "compiled_binaries_included": false,
+  "files": [
+    {
+      "member": "README.md",
+      "sha256": "39b5572df29759654498dcdab030eb6aa4ae8f4a1f80b6084b2d6e3b34ee8eb0",
+      "bytes": 2691,
+      "origin": "generated preservation README"
+    },
+    {
+      "member": "reports/S05-algebraic-construction.md",
+      "sha256": "f40fd7b7b3617ebaa2df2f0a6a239e38f5fc7e3bd75057520e3cf4641ace2fe0",
+      "bytes": 27938,
+      "origin": "/workspace/pequalnp-proofs/results/orch/lemmas/S05-algebraic-construction.md historical snapshot"
+    },
+    {
+      "member": "reviewed-engine/README.md",
+      "sha256": "5f2cc5b7b997a6a37ee69847f42b4d6a84b160e5b89cafd081dabb019dce5115",
+      "bytes": 1219,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!README.md"
+    },
+    {
+      "member": "reviewed-engine/manifest.json",
+      "sha256": "6c838e8d549437e34a6bac8d2b6ac8ebea1035469a4a963d2b79cd45d501353b",
+      "bytes": 23275,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!manifest.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-controls.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-controls.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-controls.stdout",
+      "sha256": "06f2657f5ee9b6ffbc1aa6b0efa05bcfcde15be4cd10d7a1826700f72f3e7f63",
+      "bytes": 1124,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-controls.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-engine-handoff.json",
+      "sha256": "eb264a58371c14e63fc679545dc270b515973506da017ef82ee502b036ee17fa",
+      "bytes": 25057,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-engine-handoff.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-generation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-generation.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-generation.stdout",
+      "sha256": "adb53eac383cc023234dc468ed58995760c76f69331f13b126794e382e85c1e3",
+      "bytes": 254,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-generation.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/README.md",
+      "sha256": "5d9f0a22d82b88d5e83cb3a32ee5e551e5f19d7cb62509fce68b2b17606e6ba8",
+      "bytes": 4089,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/README.md"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/build-result.json",
+      "sha256": "5494d8e89df5e9b5d7a1d9ba75c10bbd952b7dd35ce88a3732616d64a8c800c6",
+      "bytes": 749,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/build-result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/build.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/build.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/circuit_anneal_direct21.cpp",
+      "sha256": "e1a686c19d09439595cdfbf89baf42ff5d1dbfff8949e505b53b999d683ec077",
+      "bytes": 16115,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/circuit_anneal_direct21.cpp"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/compiler-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/compiler-version.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/compiler-version.stdout",
+      "sha256": "5f6798e87440f1e8b88bf6822c33bebe434f83374640a7f8ba967902ee1ea098",
+      "bytes": 232,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/compiler-version.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/bad-operation.pack",
+      "sha256": "6c91e03ee1bd43fdae7a0519317f051faf132ba4dcfca1b6aa081307ce4f2cfd",
+      "bytes": 734,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/bad-operation.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/bad-operation.result.json",
+      "sha256": "c87afb6560a062eee5ade23433fd30e25375ab6270e3ca222c166e10fc2e5ea9",
+      "bytes": 585,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/bad-operation.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/bad-operation.stderr",
+      "sha256": "5262013d59cd212f540caf808e40da13de55360702ec1c1fbd2f88766766985e",
+      "bytes": 39,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/bad-operation.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/bad-operation.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/bad-operation.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/direct-selftest.json",
+      "sha256": "9ae350f5af1d4f4d9ec51567e49b58455032a89dee799564e8511bcf969f344f",
+      "bytes": 124,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/direct-selftest.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/direct-selftest.result.json",
+      "sha256": "764ca7aa34c03989c0dd814c591042de35554aac2e65b38b0a06323ed2a884dd",
+      "bytes": 598,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/direct-selftest.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/direct-selftest.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/direct-selftest.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/direct-selftest.stdout",
+      "sha256": "cca8412fecea2fdbcbf26c4b794a7b9ed5df04b7ff1c33c0d3193a4fe08532d0",
+      "bytes": 57,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/direct-selftest.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/fake_candidate.py",
+      "sha256": "31e2eec3ffce67d645bc87d1b82bcdbc3c4b8b4dcb4b2540631f44b6503dce6c",
+      "bytes": 337,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/fake_candidate.py"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/forward-wire.pack",
+      "sha256": "b0f023cc579c7b233d17934f8a24943da90f549968c52981684491a1d19f3e8b",
+      "bytes": 735,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/forward-wire.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/forward-wire.result.json",
+      "sha256": "251e545d83d25b63b9e3be97c064f8581fe3a82f7da3ada6aea6fdd054475438",
+      "bytes": 582,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/forward-wire.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/forward-wire.stderr",
+      "sha256": "5262013d59cd212f540caf808e40da13de55360702ec1c1fbd2f88766766985e",
+      "bytes": 39,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/forward-wire.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/forward-wire.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/forward-wire.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/large-count.pack",
+      "sha256": "636c6aa2a59dd0a49aa83acbbd24bf156fc87ae43f9cf03f2975ebfa3265fc65",
+      "bytes": 738,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/large-count.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/large-count.result.json",
+      "sha256": "267f485c33978b74685f841414a417db9606ea32c88ae98988867170a12af44b",
+      "bytes": 578,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/large-count.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/large-count.stderr",
+      "sha256": "a2b829c7c64f25fc93a86be425c65b73b22880aa998ffe4d3d94847d78ca1f3a",
+      "bytes": 36,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/large-count.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/large-count.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/large-count.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/legacy-selftest.json",
+      "sha256": "fef07d3bf11aa99b2be1776c815cb90e8555e7f6b0908f27c67d16280553bb58",
+      "bytes": 90,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/legacy-selftest.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/legacy-selftest.result.json",
+      "sha256": "2a255e2277affce3fba2871b6bf57037b9714e09f17b4b9d6578b7835e7db391",
+      "bytes": 597,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/legacy-selftest.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/legacy-selftest.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/legacy-selftest.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/legacy-selftest.stdout",
+      "sha256": "2880fcb4e62318b7aa4e44fc370de7430c131e5cfd3864c7154af96477823740",
+      "bytes": 71,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/legacy-selftest.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/negative-output.pack",
+      "sha256": "92755e3b723de74c3292228a39ed3e49bb93657ceb585039b24c6c5e77c8a83a",
+      "bytes": 734,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/negative-output.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/negative-output.result.json",
+      "sha256": "d921aa6e73ff99739d8f52e8653cee77edf0794194d4459d4c734b45e1c239ac",
+      "bytes": 592,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/negative-output.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/negative-output.stderr",
+      "sha256": "8255d98e7a428a85f2086687831778a62a658eee0fa1924c322f47795de6f618",
+      "bytes": 36,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/negative-output.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/negative-output.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/negative-output.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/negative-wire.pack",
+      "sha256": "cc899728d1a274adffd86779e3cf27eac21de167665e41f6828ebb8c22e8f0ea",
+      "bytes": 735,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/negative-wire.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/negative-wire.result.json",
+      "sha256": "ac36d7c9cad60a2e672b5570c039552adf7b92fbb20b984febdc1841b25e607f",
+      "bytes": 584,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/negative-wire.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/negative-wire.stderr",
+      "sha256": "5262013d59cd212f540caf808e40da13de55360702ec1c1fbd2f88766766985e",
+      "bytes": 39,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/negative-wire.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/negative-wire.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/negative-wire.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/old-engine-rejects-direct.result.json",
+      "sha256": "85f35a352836fb1fda0c6ac0bf7b46671f81a35c788caa7f28afac1611fc4904",
+      "bytes": 568,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/old-engine-rejects-direct.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/old-engine-rejects-direct.stderr",
+      "sha256": "4287be0ed8675d25fe474c8a59198fbb5dd490d096dee39a2ab2f7dd10af4248",
+      "bytes": 32,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/old-engine-rejects-direct.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/old-engine-rejects-direct.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/old-engine-rejects-direct.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/out-of-range-output.pack",
+      "sha256": "6af13f7a80e60bf014e6c3e9e0b17b334f296458dba0b9a243f2a0d904f8bc1a",
+      "bytes": 734,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/out-of-range-output.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/out-of-range-output.result.json",
+      "sha256": "27e98bc6612b3b2b2c8a141a9340ac07f7a7e489936c03c867c4b0d403cc3426",
+      "bytes": 603,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/out-of-range-output.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/out-of-range-output.stderr",
+      "sha256": "8255d98e7a428a85f2086687831778a62a658eee0fa1924c322f47795de6f618",
+      "bytes": 36,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/out-of-range-output.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/out-of-range-output.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/out-of-range-output.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/review.json",
+      "sha256": "0f5dedc53817870abdedd10aa145ab4ee91739dd6d3b3c2681eb00ce98200764",
+      "bytes": 14779,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/review.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/tampered.json",
+      "sha256": "3323d0c9a2564e12b5fe464d25eb751d2264f51ec5505272d30b33f99ac78d64",
+      "bytes": 3353,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/tampered.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/tampered.txt",
+      "sha256": "8cd731ecca212c56b6a779bb90c4e744194dbfaaf5a1082d4a18d2376e0f1db1",
+      "bytes": 740,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/tampered.txt"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/trailing.pack",
+      "sha256": "bb297253fb674013bf594d9e78b29a6faf2101bf108c2a67f75e3cf1c502d81f",
+      "bytes": 742,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/trailing.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/trailing.result.json",
+      "sha256": "a0ce0c0ef60d7e49def616ca65ab425ecd99aa8698c41493ceb23b160fddb961",
+      "bytes": 570,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/trailing.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/trailing.stderr",
+      "sha256": "ff38d4ea4590d2b7ea21e28b529832638fff89b9db52a819b52ab07ff4179baa",
+      "bytes": 33,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/trailing.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/trailing.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/trailing.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/truncated.pack",
+      "sha256": "5fd742e83c5e0098b728a6abb6248602a8ad17e8a9093c023b323b92dce7678c",
+      "bytes": 731,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/truncated.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/truncated.result.json",
+      "sha256": "b26a8b19c0b922367e8522c7a7765db1fa54893a642e18630e68a399cb47e411",
+      "bytes": 573,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/truncated.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/truncated.stderr",
+      "sha256": "5262013d59cd212f540caf808e40da13de55360702ec1c1fbd2f88766766985e",
+      "bytes": 39,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/truncated.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/truncated.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/truncated.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/unsorted-wire.pack",
+      "sha256": "eb3f9c7b79b80b7a00a8144e626d8fda614eb72073de4ce576975b462e465bc3",
+      "bytes": 734,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/unsorted-wire.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/unsorted-wire.result.json",
+      "sha256": "9524b3642a0b9b78381fd3289311ac9ffd02b234568abb98e7bb48c3679b4bb9",
+      "bytes": 585,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/unsorted-wire.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/unsorted-wire.stderr",
+      "sha256": "5262013d59cd212f540caf808e40da13de55360702ec1c1fbd2f88766766985e",
+      "bytes": 39,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/unsorted-wire.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/unsorted-wire.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/unsorted-wire.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-pack-hash-block.result.json",
+      "sha256": "eeaf6102660aa27f071f7e1995401a8c7f488c68a040dc53a51879506b0e4000",
+      "bytes": 870,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-pack-hash-block.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-pack-hash-block.stderr",
+      "sha256": "4c35ad53af8c16b9e6849bbbec11e61f9ca13d83e00cb3b7dc5b49a0f71a021e",
+      "bytes": 330,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-pack-hash-block.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-pack-hash-block.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-pack-hash-block.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact.result.json",
+      "sha256": "71904a44a62768682449c3bb4acbe89b929ee0bf985d7cea738451c8dbbe9e01",
+      "bytes": 868,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact.stderr",
+      "sha256": "f255b47c6168527de9bf325981d24aff6a46a6e87b20552f52aa164af804e167",
+      "bytes": 384,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact.stdout",
+      "sha256": "f28297dfa35a16ae462244d4a29aaa94d89234e2cf5adfe1002e3b8776219ec0",
+      "bytes": 126,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/command.json",
+      "sha256": "1c987c9dc417fc6312c4780b5ff00c23e6b899c9f4f915defbcb81e6bfba3c5d",
+      "bytes": 1045,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/command.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/engine-result.json",
+      "sha256": "906c58e4af70f59eae2d4375263f82217d1ec7bcf667b2827f881abb29e5d399",
+      "bytes": 448,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/engine-result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/engine.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/engine.stderr.txt"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/engine.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/engine.stdout.txt"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/result.json",
+      "sha256": "eaea24c5b41ca6eb16668522da9c6970725d5a635abea92d3534eabba40430bb",
+      "bytes": 1838,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/validation.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/validation.stderr.txt"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/validation.stdout.txt",
+      "sha256": "b6411ec71fffa516e2fadb7314c01b9f390765e72ed02c8c163fd8385fbb1996",
+      "bytes": 37,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrapper-rejects-inexact/validation.stdout.txt"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-fn.pack",
+      "sha256": "c6fe8e5ca78329f827b5ed8beb270ef493129ab768e56b8b83086c0741caf08f",
+      "bytes": 734,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-fn.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-fn.result.json",
+      "sha256": "e96c30186873c688ff6011ee4dac7ccf950022fd97a9f26e8ad9c40c325c8663",
+      "bytes": 569,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-fn.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-fn.stderr",
+      "sha256": "23ecbc43c0dd8c9a20eba0c4ba82d932126e28e353996fccc8a8be35ff49ab85",
+      "bytes": 51,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-fn.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-fn.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-fn.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-fp.pack",
+      "sha256": "2a515120c6053598b6be2c3aeac882d53ab1e5c6b4874144c0f7d31bdc6dc4a1",
+      "bytes": 734,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-fp.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-fp.result.json",
+      "sha256": "b6e27a3b811723b2a74964963c7b5981f77f48ab2b086d933df08819f247bdb9",
+      "bytes": 568,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-fp.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-fp.stderr",
+      "sha256": "23ecbc43c0dd8c9a20eba0c4ba82d932126e28e353996fccc8a8be35ff49ab85",
+      "bytes": 51,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-fp.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-fp.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-fp.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-gate-count.pack",
+      "sha256": "e35a17a89daa1051197392ec3feabd1d4cc1f259330b84ba736a300d0256c4c1",
+      "bytes": 734,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-gate-count.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-gate-count.result.json",
+      "sha256": "69f7376f110928df5b49563650e941f4e7ea7ca6592370f0dd970c6527028728",
+      "bytes": 594,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-gate-count.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-gate-count.stderr",
+      "sha256": "8255d98e7a428a85f2086687831778a62a658eee0fa1924c322f47795de6f618",
+      "bytes": 36,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-gate-count.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-gate-count.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-gate-count.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-truth.pack",
+      "sha256": "5778bbd69bd9810fdf30f86921776de878b66de2413577935028599633e10850",
+      "bytes": 716,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-truth.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-truth.result.json",
+      "sha256": "eb2876131b1c811b381ef7d94ebafdf2e41bebda3c1795ed0d4078477b54e9d5",
+      "bytes": 579,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-truth.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-truth.stderr",
+      "sha256": "23ecbc43c0dd8c9a20eba0c4ba82d932126e28e353996fccc8a8be35ff49ab85",
+      "bytes": 51,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-truth.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-truth.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-truth.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-version.pack",
+      "sha256": "5e97b305264f20f684a4d14ad5a99fc4c94841dac256f5979e96353df2863286",
+      "bytes": 734,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-version.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-version.result.json",
+      "sha256": "15b2d0bb5fd3684b8a6d4d70b842f2ba04d5af0af54e45fb711134df8b8161e0",
+      "bytes": 585,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-version.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-version.stderr",
+      "sha256": "a2b829c7c64f25fc93a86be425c65b73b22880aa998ffe4d3d94847d78ca1f3a",
+      "bytes": 36,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-version.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/wrong-version.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/wrong-version.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/zero-count.pack",
+      "sha256": "16e620084665af7e42be9d996758916530a38bc42b00ea44d4e318f4c141a723",
+      "bytes": 734,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/zero-count.pack"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/zero-count.result.json",
+      "sha256": "cc74e69889871b7f48cb4734277abeb1b38f7bbf9ed88fe08372e931ac5493f3",
+      "bytes": 576,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/zero-count.result.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/zero-count.stderr",
+      "sha256": "a2b829c7c64f25fc93a86be425c65b73b22880aa998ffe4d3d94847d78ca1f3a",
+      "bytes": 36,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/zero-count.stderr"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/controls/zero-count.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/controls/zero-count.stdout"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/direct-seeds.json",
+      "sha256": "3323d0c9a2564e12b5fe464d25eb751d2264f51ec5505272d30b33f99ac78d64",
+      "bytes": 3353,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/direct-seeds.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/direct-seeds.txt",
+      "sha256": "90d8ddfed015eb49461188a8f10f07d84d3e46d938470ff840356aab551867bd",
+      "bytes": 734,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/direct-seeds.txt"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/engine.diff",
+      "sha256": "7a72528286f6e621550a3f167678defb40478ca18159905e2ad694afaad078b3",
+      "bytes": 6583,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/engine.diff"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/generation.json",
+      "sha256": "cebd1ec4fabe6c86f55cbb7dd5981823c229080868993c9edcc79215fd4acdda",
+      "bytes": 745,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/generation.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/parent-circuit_anneal.cpp",
+      "sha256": "a82e670373e5f0048df004efbcb0f417949ce0255545c0767b647cb7207068b3",
+      "bytes": 12338,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/parent-circuit_anneal.cpp"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/proposed-command.json",
+      "sha256": "a80a1a3f1065a685841e790146906c559b1f81e4850a331bf73a9140bc9e29bd",
+      "bytes": 716,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/proposed-command.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/reviewed-stochastic_tools.py",
+      "sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+      "bytes": 10521,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/reviewed-stochastic_tools.py"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/reviewed-validate_raw_candidate.py",
+      "sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+      "bytes": 4085,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/reviewed-validate_raw_candidate.py"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/seed-0.json",
+      "sha256": "90aaa03dd1ad7f701b2c7e7fd2b89595df759ec36bfb1c14f48de4df90cc43bd",
+      "bytes": 1000,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/seed-0.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/seed-1.json",
+      "sha256": "9a9f0666b8fcb551d43306e50734c502924b4ae769839cac514b73343f31c844",
+      "bytes": 1000,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/seed-1.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/seed-2.json",
+      "sha256": "55f04c947db7c550f1175ef97f588b9f97c2d41c63e162edecbe9126d59f1ac2",
+      "bytes": 1000,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/seed-2.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/seed-3.json",
+      "sha256": "1375097f2e859f0b6d1dd46224be185564cecf403cc8a1908eee0297acee12c1",
+      "bytes": 1000,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/seed-3.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/direct21-v1/source-nonlinear18.json",
+      "sha256": "f54738c35881deea8ba24b6f15cc533042e7db6342e6c31e481528868bc0b8cd",
+      "bytes": 1221,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/direct21-v1/source-nonlinear18.json"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/prepare_direct21_engine.py",
+      "sha256": "37dfc323354e7646d85f732b5d7efaa7fbdc3bb9fe37adf33eda6e5c6f0282b0",
+      "bytes": 9560,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/prepare_direct21_engine.py"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/preserve_direct21.py",
+      "sha256": "287fc49c28e1312df915d81ff56ccab41bcb48594e30c8e3b969a17a7195cae4",
+      "bytes": 3922,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/preserve_direct21.py"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S05/test_direct21_controls.py",
+      "sha256": "5dc66ccdd3a19ad7a802a6fd62d3d29f1e058832eaf24ac10851648f4d930d5b",
+      "bytes": 7571,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S05/test_direct21_controls.py"
+    },
+    {
+      "member": "reviewed-engine/scratch/orch/S08/direct21-engine-review/review.json",
+      "sha256": "925c50536a390fe063fccc4d59f08d1f6db6e7a2026ff0efe7d648060bc88719",
+      "bytes": 32343,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-preservation-v1.tar.gz!scratch/orch/S08/direct21-engine-review/review.json"
+    },
+    {
+      "member": "scratch/orch/S05/analyze_triangle_best3.py",
+      "sha256": "3ef8b5f5769fe93e149b52a5e88f6dbf6a22e18d477f87aa62cb4af861ead15e",
+      "bytes": 4548,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/analyze_triangle_best3.py"
+    },
+    {
+      "member": "scratch/orch/S05/complete_positive_context.py",
+      "sha256": "8038b4c8690277418494deaaaf04b94eb7efba76e7e5d294a789a3a0273c7875",
+      "bytes": 5273,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/complete_positive_context.py"
+    },
+    {
+      "member": "scratch/orch/S05/complete_triangle589_context.py",
+      "sha256": "baee2c77cea507912c29d5b5868d0907c3c1d255dc78f588c65d296f4a8ea9ba",
+      "bytes": 5506,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/complete_triangle589_context.py"
+    },
+    {
+      "member": "scratch/orch/S05/enumerate_guarded_component.py",
+      "sha256": "702218aa676c305a4f99943cac23f9a8708f36d73c66f68dc1ffe4a422f4248e",
+      "bytes": 3132,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/enumerate_guarded_component.py"
+    },
+    {
+      "member": "scratch/orch/S05/enumerate_shared_guarded_component.py",
+      "sha256": "a103bcd41554934cf26ca242a963669290b0c4c019c52aad2188b00b3138bfaa",
+      "bytes": 4224,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/enumerate_shared_guarded_component.py"
+    },
+    {
+      "member": "scratch/orch/S05/guarded-component-costs.json",
+      "sha256": "f35cd63b8bf5ee3a829589897b62091f5903e46bb556f21f4a6abd1480357bd0",
+      "bytes": 8499,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/guarded-component-costs.json"
+    },
+    {
+      "member": "scratch/orch/S05/guarded-component-handoff.json",
+      "sha256": "421e70e8867e085ddab761c6da9cd66c76bbc2916297f1a1621832637913ec94",
+      "bytes": 1922,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/guarded-component-handoff.json"
+    },
+    {
+      "member": "scratch/orch/S05/guarded-component-result.json",
+      "sha256": "f9c6d87a3efaf7bb65afa81af17887edce4b0eafaa3b384be5f4a6b448e58847",
+      "bytes": 17313,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/guarded-component-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/guarded-component.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/guarded-component.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/guarded-component.stdout",
+      "sha256": "9c049633c91ea72cb837483ed659a875beaa12b15b45e6d753937ff5b385f3ee",
+      "bytes": 439,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/guarded-component.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/main-134226-best3-scalar.json",
+      "sha256": "77130a3260dd2996c9c7daf16f024bf1174eee861a5cc863380b7b173524ad96",
+      "bytes": 498,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/main-134226-best3-scalar.json"
+    },
+    {
+      "member": "scratch/orch/S05/main-best3-pack-review.json",
+      "sha256": "1b6a8c7b2b3791f71fce2510c9dbf97b37c3565bd27c7f81468a48e3709c4fa2",
+      "bytes": 944,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/main-best3-pack-review.json"
+    },
+    {
+      "member": "scratch/orch/S05/main-triangle589-pack-review.json",
+      "sha256": "eb5f48887e3e69b10abc51ea64b337fd97de88c0ee1f138b2474b4387c6df015",
+      "bytes": 2261,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/main-triangle589-pack-review.json"
+    },
+    {
+      "member": "scratch/orch/S05/prepare_triangle589.py",
+      "sha256": "5337d40dcc52881101b97a0a7be132c02d0e7b328ec933d05e4df59a558ad2aa",
+      "bytes": 6764,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/prepare_triangle589.py"
+    },
+    {
+      "member": "scratch/orch/S05/prepare_triangle589_best3_pack.py",
+      "sha256": "efc7594207a0fad97e49d6e9b5c12ce14f0478dae2ea4ac0ad808e84c635e8f1",
+      "bytes": 5241,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/prepare_triangle589_best3_pack.py"
+    },
+    {
+      "member": "scratch/orch/S05/preserve_triangle589.py",
+      "sha256": "d3ee1b73a65e2b40b1aee7456c71e92d2d22a00f8b772c3071c760779302903b",
+      "bytes": 5617,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/preserve_triangle589.py"
+    },
+    {
+      "member": "scratch/orch/S05/shared-guarded-component-result.json",
+      "sha256": "a572186bbe1ee3087fa8930eea74105e71de4e4163af9b045c860ea472422b15",
+      "bytes": 11729,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/shared-guarded-component-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/shared-guarded-component.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/shared-guarded-component.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/shared-guarded-component.stdout",
+      "sha256": "53e216ebe2c74f84948d23d433db659e9b19280f3fa18a357fc23e37115d3d8b",
+      "bytes": 434,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/shared-guarded-component.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-analysis.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-analysis.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-analysis.stdout",
+      "sha256": "58e2f4df330e47d5e10a28b22281a4c9096454940d4a0d08dfa391d7b6fa2c36",
+      "bytes": 1094,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-analysis.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-analysis/original-offset11.json",
+      "sha256": "f3c2bacb85a0ce0e080072ad39b0a695f90affb6f7204880c44acdf496195790",
+      "bytes": 1119,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-analysis/original-offset11.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-analysis/report.json",
+      "sha256": "f58772ef9cc6d8b617492da4b46db4c30276853a3cbf73035e93f53948ae1c2a",
+      "bytes": 18620,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-analysis/report.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-analysis/source.json",
+      "sha256": "9a743d5d43f651198f908fd086b3307e036697ee9d9990f5c0edfcce6ff3fe96",
+      "bytes": 822,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-analysis/source.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-context-derivation.diff",
+      "sha256": "6ce9835f557aa7b5160c46655436107cedf5ce9b42c191854ec09cd0a38d7e72",
+      "bytes": 3305,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-context-derivation.diff"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-coupled-batch.json",
+      "sha256": "81d5e2438e0ee5c2408d76b82249b4fa2c03473ed95e763f9bb35fbe1403e187",
+      "bytes": 12451,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-coupled-batch.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-coupled-derivation.diff",
+      "sha256": "c6a2a39d56e5f186c75708f9df555722b95da2eb1292c931419611abe27433d2",
+      "bytes": 4812,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-coupled-derivation.diff"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/direct-seeds.json",
+      "sha256": "c6b4f5b90cfc656f9c1466da3ed5a33dd1e4fe950d073adde5b2f414f034cd66",
+      "bytes": 6885,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/direct-seeds.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/direct-seeds.txt",
+      "sha256": "6c60f7617f1b797fd8408ddbf5f08d94a148c2c49eb66d9821d7f35e68606e9b",
+      "bytes": 1442,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/direct-seeds.txt"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/seed-00.json",
+      "sha256": "d4a464f75de6f499d105071d0f4472796523130e1636c3b537c6f911cb093a06",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/seed-00.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/seed-01.json",
+      "sha256": "422875a55919b0913c765240919ab15aabe6b545796405e5d8c897758b57dc5d",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/seed-01.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/seed-02.json",
+      "sha256": "847ce4d7151c21979bf06b5d110198040abf9e524bf3630cd0a05f94b7b9da56",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/seed-02.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/seed-03.json",
+      "sha256": "a29092b0cfee4592b93e0ec7b13607aa6e3734cecd8466d5838a6597f60ec068",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/seed-03.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/seed-04.json",
+      "sha256": "0c9069d981e2c04105923e3a6d03c5f38ffd43f2d03e51e05e2572047d2347ed",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/seed-04.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/seed-05.json",
+      "sha256": "41b09f6227150ddf8abeab56ecd44606571343921f6dc5731b08b58c8b249754",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/seed-05.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/seed-06.json",
+      "sha256": "b7e3defc4bf2a67db462dee6a24e37db9bc7332d088d7463605f7619339e0aa3",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/seed-06.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/seed-07.json",
+      "sha256": "537185b4e7d05d10f34d1f0070d272f65734b2875fcc34d265930c7d3f0485b9",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/seed-07.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/selftest-result.json",
+      "sha256": "8584d12feb1edbfaba2646b62ac96b0274e3adee45f9203987ae64c3d9362c3d",
+      "bytes": 792,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/selftest-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/selftest.json",
+      "sha256": "9fa31588afe1bd8d8fc19cb60900911836e75445940a0e5b17adc07249a98fff",
+      "bytes": 125,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/selftest.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/selftest.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/selftest.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/selftest.stdout",
+      "sha256": "1cffb4bbc214b616888e224e87706fc0b72888cd82cebc6bcfc6b166e31819c8",
+      "bytes": 58,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/selftest.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-direct21-v1/source.json",
+      "sha256": "9a743d5d43f651198f908fd086b3307e036697ee9d9990f5c0edfcce6ff3fe96",
+      "bytes": 822,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/source.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-handoff.json",
+      "sha256": "a8e23c84e1004ea91411b821d2e28de76d4af39caa644aa387e0a6acd5fb8aac",
+      "bytes": 2207,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-handoff.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-internal-context-result.json",
+      "sha256": "179a36989117c990eafc7bfa3bd8bd9025647958331984eb181a3ab474f8cb1b",
+      "bytes": 7522,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-internal-context-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-internal-context.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-internal-context.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-internal-context.stdout",
+      "sha256": "56250232d8afd446062ac923924504c5195816d1ae96cb96d8156578a353e7ca",
+      "bytes": 454,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-internal-context.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-pack-handoff.json",
+      "sha256": "00844934f079b463147a46fc6f42a57a2ec90052b981c262b54f0f0745e5051b",
+      "bytes": 4508,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-pack-handoff.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-pack.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-pack.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-pack.stdout",
+      "sha256": "87564b8dbed615af3f6ac910a743764f8f448f13e450207bc6dba083878f0065",
+      "bytes": 304,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-pack.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-pair-context-result.json",
+      "sha256": "b626cfc75a799242fed9e23a467ffdb486ba51797f128421a6501c051014018d",
+      "bytes": 885,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-pair-context-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-pair-context.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-pair-context.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-best3-pair-context.stdout",
+      "sha256": "62147dc7265f808e9370bf3346c2bd4a53305dfd10affe7f197c9b670c281603",
+      "bytes": 747,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-pair-context.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-context-completion.json",
+      "sha256": "c26f8da3b88a74f728d70a28d423064de4485c05085776d1e92839bb8b497cb1",
+      "bytes": 621,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-context-completion.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-context-derivation.diff",
+      "sha256": "bc126bd9515b74a340c6383c27c628bf0f15ab1b19bccfaceb13e2e7566a619e",
+      "bytes": 6290,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-context-derivation.diff"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-context-handoff.json",
+      "sha256": "596bf7a0f09c9833c31cea36d72670a7a46043eb82f04bf4fcfaae3b2537cad0",
+      "bytes": 1528,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-context-handoff.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-context.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-context.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-context.stdout",
+      "sha256": "0a14e5c2cf86187ae49a7b7c27f832ec028b8680b256fa0b36d8dc35a4760651",
+      "bytes": 576,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-context.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-06-17-result.json",
+      "sha256": "fb57537f06936b97bda3c59069f3a89354251cd1b78df54a3de60ecb0df92733",
+      "bytes": 885,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-06-17-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-06-17.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-06-17.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-06-17.stdout",
+      "sha256": "2eabba755d65e63ddb59705b01f518cfb2c24953a9ad553e767efd89c4fd18f2",
+      "bytes": 747,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-06-17.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-06-19-result.json",
+      "sha256": "f82084580ee65f6990b974ba34b4d8d0e59af113f4efd3842281ceed1275332a",
+      "bytes": 902,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-06-19-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-06-19.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-06-19.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-06-19.stdout",
+      "sha256": "5614d3138ce47d90fdc50894335123e1d0519900885c174065c6d2c819db7872",
+      "bytes": 756,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-06-19.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-08-17-result.json",
+      "sha256": "83c748c6c0b768a2e47abca59b55d6ce5c9d723da51f345a7e0fed68a986ef81",
+      "bytes": 885,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-08-17-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-08-17.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-08-17.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-08-17.stdout",
+      "sha256": "53e3258360aa96516b625dfd9765ca2a32f93adf95e87e41febd1eee26f4582c",
+      "bytes": 747,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-08-17.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-08-19-result.json",
+      "sha256": "890d149a84cdd85d9997911d30801f0fd8c876d04dc7f8a721c48f66887cd7de",
+      "bytes": 902,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-08-19-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-08-19.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-08-19.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-08-19.stdout",
+      "sha256": "500800543b229005f46edd36135b592bfe09fd149e34a7464a8e30e31ccc6cc1",
+      "bytes": 756,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-08-19.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-09-17-result.json",
+      "sha256": "d6444a368f38b769bf1affc02a618b7c89fa053f057c18cacab897c9a498f7b9",
+      "bytes": 894,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-09-17-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-09-17.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-09-17.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-09-17.stdout",
+      "sha256": "576bb7ae82c8154de1cf18c7a533dd488c96f2a79101036a9ca1ea1fc5668d7b",
+      "bytes": 752,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-09-17.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-09-19-result.json",
+      "sha256": "2c966c8396a2eb6b83778e7cfc119da8e0b9df7f87a754ca02a1d3e47412bf95",
+      "bytes": 910,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-09-19-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-09-19.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-09-19.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-09-19.stdout",
+      "sha256": "17eab5da910f0a75fa3bb48e5f36bdf39c91459c0f660c681c2b228d41478039",
+      "bytes": 760,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-09-19.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-13-17-result.json",
+      "sha256": "0f181a2746b5e03c2744a24e44f1027ee4db111f7633b88aeffa86367b476108",
+      "bytes": 902,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-13-17-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-13-17.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-13-17.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-13-17.stdout",
+      "sha256": "ff0584d5f9252569de7b2e1a55a8ebaf6a7c8a1559526aee68d21bb8a4d7c178",
+      "bytes": 756,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-13-17.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-13-19-result.json",
+      "sha256": "4574674c6fed86c9c0c939ea21bcce5c2e2ead6570a885a66e0cbe1700cf8a1d",
+      "bytes": 918,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-13-19-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-13-19.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-13-19.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-coupled-13-19.stdout",
+      "sha256": "7db49f1554b98edbb8ac0a0f0d0d8f6a2873e8bd78e8edf007556cb9b72cd839",
+      "bytes": 764,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-coupled-13-19.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/centers-589-original.json",
+      "sha256": "a4217d23db1ba6f39bd8aa1c1ce7fe6d760014aaabd70d190a010ba31b6a1440",
+      "bytes": 1007,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/centers-589-original.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/centers-598-original.json",
+      "sha256": "28939b27999f2ca0876dde0ea8a208b13881f1d27adfb10ad052d26801e72fa9",
+      "bytes": 1007,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/centers-598-original.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/centers-895-original.json",
+      "sha256": "22fab224e853e2e0cbdd737d4349f0d02a97914f35e27d21e8c96fcc3992bc1d",
+      "bytes": 1007,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/centers-895-original.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/direct-seeds.json",
+      "sha256": "a0057bac1267575111e6d4b134bfafd41a22f72878cee7b706b37dde5820d3e4",
+      "bytes": 12459,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/direct-seeds.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/direct-seeds.txt",
+      "sha256": "a7b9083ef7737ffedc1e35cafb46bdbbb6c74ca909d7550b0633174dc4315fdc",
+      "bytes": 2875,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/direct-seeds.txt"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/original-original.json",
+      "sha256": "2d99849c19f69c76b232e4d55ce487638721291dac4faea3e82dc3274414bfbe",
+      "bytes": 1489,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/original-original.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-00.json",
+      "sha256": "e5306aed955246a17957df3acf76d38049205535d3afc282c4445e458f66ec94",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-00.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-01.json",
+      "sha256": "9420526786ad630e47fd0b61e397823e51fc7cc2c91cc2f3c5cf301f223a8b3a",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-01.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-02.json",
+      "sha256": "e5306aed955246a17957df3acf76d38049205535d3afc282c4445e458f66ec94",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-02.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-03.json",
+      "sha256": "3de600ac88ecf8027068983973b158ec77f71680b11fe78de1c2cd8b3f65644a",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-03.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-04.json",
+      "sha256": "6bf5d7884c555ec717025153e55ad54f92a79ce2102f7b76c0906230af7e486f",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-04.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-05.json",
+      "sha256": "c47cfb8fc8d6ecbd5cdbe4276732d8fc8ff9b4563d0b2da9e7c69a3dc089d448",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-05.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-06.json",
+      "sha256": "6bf5d7884c555ec717025153e55ad54f92a79ce2102f7b76c0906230af7e486f",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-06.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-07.json",
+      "sha256": "0a0f8833f12bf6233baab178dfd466dac3fb756594187bd3d293106544829998",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-07.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-08.json",
+      "sha256": "2b4ea6dd69aed48fcde37ef7315293e87813009f51ef7ec67c8f0ef695f2e687",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-08.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-09.json",
+      "sha256": "021715c9ceabb098a2426629fa2b46fa6efa6db58c0ef1e808c8392f307ab6e6",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-09.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-10.json",
+      "sha256": "2b4ea6dd69aed48fcde37ef7315293e87813009f51ef7ec67c8f0ef695f2e687",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-10.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-11.json",
+      "sha256": "07b71882ab3d63888f673aae8d3aa31be911d1637ff35c3d566d59990e7bbe17",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-11.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-12.json",
+      "sha256": "f0fcf867b97d6e23a818ecc0498263fb2d0932e9515ccf63c4e62dbe57204569",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-12.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-13.json",
+      "sha256": "edd72fbee363ee17694c2f35240c5a604e4323855faf7f45e052df9037851a50",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-13.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-14.json",
+      "sha256": "f0fcf867b97d6e23a818ecc0498263fb2d0932e9515ccf63c4e62dbe57204569",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-14.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/seed-15.json",
+      "sha256": "16729295def654bf3f001f557bd31a2b8b3731be1655db17977d19134afe5339",
+      "bytes": 1001,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/seed-15.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/selftest-result.json",
+      "sha256": "e6471dffc60c8d6f743872e615e67404d3d1543f50743003a6a68b45353bd4eb",
+      "bytes": 780,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/selftest-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/selftest.json",
+      "sha256": "a5195cae2f8473458e5e2a35bb392a9cf638b3a128602fe8ae9c026046a5d92c",
+      "bytes": 126,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/selftest.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/selftest.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/selftest.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-direct21-v1/selftest.stdout",
+      "sha256": "11e2a62846a6deded71f84aeb0f9ff42d826b0521f24b129ab2adf0392459c89",
+      "bytes": 59,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-direct21-v1/selftest.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-free-E-core-result.json",
+      "sha256": "fb6b11e0c7d3a6fcc5ca3d181bd90d5a32be3367291e5d0b730b807b86b5b12a",
+      "bytes": 1931,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-free-E-core-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-free-E-core.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-free-E-core.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-free-E-core.stdout",
+      "sha256": "d1e4b167fb5104d70901d455a93f4b7f49d6ed17009358c8579459ca67ad93e0",
+      "bytes": 1277,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-free-E-core.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-generation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-generation.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-generation.stdout",
+      "sha256": "bd6bd5bba7c718581c0d8436345c9d661051679d8a86269851ce80c4dda8e99c",
+      "bytes": 344,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-generation.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-handoff.json",
+      "sha256": "909978e953b3c6a2b775bb62e7cf7fbd314c5f5709d295f21603396880cfdd0d",
+      "bytes": 6897,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-handoff.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-internal-context-result.json",
+      "sha256": "876197f7de3304d53f80ad0061fb08c56e9f5885f7ba52462a80b29253ab87ca",
+      "bytes": 7933,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-internal-context-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-internal-context.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-internal-context.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-internal-context.stdout",
+      "sha256": "4c139f4aa221aa67a011c50fc39802eee75587c35e3aeb66cb364e2501b11e3c",
+      "bytes": 454,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-internal-context.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-positive21.json",
+      "sha256": "2d99849c19f69c76b232e4d55ce487638721291dac4faea3e82dc3274414bfbe",
+      "bytes": 1489,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-positive21.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-shared-free-E-core-result.json",
+      "sha256": "490fa811e08b4612039dca2e7a1789e183bb4f0319db5ebf602083047ad9b99f",
+      "bytes": 54316,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-shared-free-E-core-result.json"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-shared-free-E-core.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-shared-free-E-core.stderr"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589-shared-free-E-core.stdout",
+      "sha256": "f202d14ba2490f462e15eb8672ba427bdbec6be33f01ab5ec9766dbe9fb5e490",
+      "bytes": 478,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-shared-free-E-core.stdout"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589_best3_coupled_context.py",
+      "sha256": "8a7ec5587a0f6645900095be514f7c06320713257569ecbf1e8e583dd3232b97",
+      "bytes": 7602,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589_best3_coupled_context.py"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589_best3_internal_context.py",
+      "sha256": "e7b8100a8a679f4f10c59c25348a2014daad67a950909a7395f37f918f62c7e2",
+      "bytes": 7536,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589_best3_internal_context.py"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589_best3_pair_context.py",
+      "sha256": "35d56e2fb73cce3c3f3e0ba5a024a85185c9281353be0e029bd025558d87c3a4",
+      "bytes": 7322,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589_best3_pair_context.py"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589_free_E_core.py",
+      "sha256": "ace612e1315ec8367fa7303eb309477ffd3105cf77986b613469c137539f84d6",
+      "bytes": 2120,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589_free_E_core.py"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589_internal_context.py",
+      "sha256": "19946c4b1909351f35fa29b336fba9036fd581b68aeea032c332af9f19b3478a",
+      "bytes": 7503,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589_internal_context.py"
+    },
+    {
+      "member": "scratch/orch/S05/triangle589_shared_free_E_core.py",
+      "sha256": "e9be6b750c4f36c6000769710390812feea60b0e62f0ea09613cbfb4851f8b8c",
+      "bytes": 4222,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589_shared_free_E_core.py"
+    },
+    {
+      "member": "scratch/orch/S05/verify_triangle589_archive.py",
+      "sha256": "e7c430ea900620280192abed7133218ff59d2333cc448b3d0a0c69e97fd28ba5",
+      "bytes": 4184,
+      "origin": "/tmp/oec/pequalnp-pilot-18/orch/S05/verify_triangle589_archive.py"
+    }
+  ]
+}

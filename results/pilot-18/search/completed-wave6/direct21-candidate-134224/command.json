@@ -1,0 +1,27 @@
+{
+  "scope": "Candidate-only stochastic optimization; no exhaustion claim.",
+  "started_utc": "2026-11-24T04:38:48.532281+00:00",
+  "engine_sha256": "cace36645bc4a5c827f5a221965ccdef78c554e6d940d69645da292be6c0b51a",
+  "pack_sha256": "90d8ddfed015eb49461188a8f10f07d84d3e46d938470ff840356aab551867bd",
+  "pack_metadata_sha256": "3323d0c9a2564e12b5fe464d25eb751d2264f51ec5505272d30b33f99ac78d64",
+  "wrapper_sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+  "validator_sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-v1/circuit_anneal_direct21",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-v1/direct-seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/direct21-candidate-134224/engine-result.json",
+    "--seed",
+    "134224",
+    "--seconds",
+    "60.0",
+    "--iterations",
+    "100000000",
+    "--restart",
+    "100000",
+    "--weight",
+    "16"
+  ],
+  "status": "RUNNING"
+}

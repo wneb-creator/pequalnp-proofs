@@ -1,0 +1,50 @@
+{
+  "CNF_recipes": 30,
+  "actual_code_delta_review_sha256": "0ed0ac84baea1a88bf665fea4e6b78aff41b41c3993f1044d84f3665537a417d",
+  "archive_bytes": 2471021,
+  "archive_sha256": "1b35774d63977b6e9f6660d2e011ab47316c690d1f0ff61585b85141b27af0ec",
+  "command_manifest_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-offline-plan/commands-manifest.json",
+  "command_manifest_sha256": "948ac6c2a8d186f1bfdc1b2e8473bb41df28bf6922a6e291bdf005a618454a06",
+  "delivery_files": {
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-archive-v1-build.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-archive-v1-build.stdout": {
+      "bytes": 1435,
+      "sha256": "2d7605bd3e659b33896bcc90dda6e8ee76093d91fb7b4846d05df8ffb2e1fcb1"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-archive-v1-restore.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-archive-v1-restore.stdout": {
+      "bytes": 121,
+      "sha256": "04935a1957a046aa2bbef69c19b72ee6d21532bba444fb6a5a9c39e08bdae815"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-archive-v1.execution.json": {
+      "bytes": 623,
+      "sha256": "3bca4cf0f06f014f70c7eb0c0530f89ae26efca6bc71d52f62a9e09f9fb18a5c"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-archive-v1.record.json": {
+      "bytes": 1435,
+      "sha256": "2d7605bd3e659b33896bcc90dda6e8ee76093d91fb7b4846d05df8ffb2e1fcb1"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-archive-v1.tar.gz": {
+      "bytes": 2471021,
+      "sha256": "1b35774d63977b6e9f6660d2e011ab47316c690d1f0ff61585b85141b27af0ec"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-archive-v1/manifest.json": {
+      "bytes": 86230,
+      "sha256": "b13a156feccad31add4704016d8f6f93e415545b0f83c5ee162746ca6736280a"
+    }
+  },
+  "manifest_files": 264,
+  "manifest_sha256": "b13a156feccad31add4704016d8f6f93e415545b0f83c5ee162746ca6736280a",
+  "math_review_sha256": "e4df03fa7c9077847bf16e2850b67b0a0331b79559dd0ca718829c3cb8b50609",
+  "scope": "Reviewed10hitting-charge encodings, math/source/controls/fullreviewlogs, portable parent/child recipes and four unexecuted command recipes. No runtime outputs, raw CNFs, binaries, solver/Lean launch, global/shard/exhaustion or Lean acceptance. Main owns review/copy/push/launch.",
+  "source_sha256": "00a41e52e5a2ef58947761c99f46f78cffc58eaac2c78f460221b2e3275ef0b1",
+  "status": "READY_MAIN_S08_DELIVERY_REVIEW_NO_LAUNCH",
+  "tar_members": 265,
+  "utc": "2026-11-24T04:53:16.235194+00:00"
+}

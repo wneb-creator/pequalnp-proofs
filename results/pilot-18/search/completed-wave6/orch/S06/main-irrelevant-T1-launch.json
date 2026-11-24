@@ -1,0 +1,23 @@
+{
+  "utc": "2026-11-24T04:44:38.588830+00:00",
+  "pid": 30923,
+  "command": [
+    "python",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/offline_checked_cadical.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/irrelevant-charge-v1/T1/instance.cnf",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/offline-irrelevant-T1-wave1",
+    "--cnf-sha256",
+    "1789ef10b1fa199a9090c29cd1a7a10e55c0a03c7b3709c8ee6666400c9ed05b",
+    "--metadata-sha256",
+    "75df8be647c5827ea2697850c8682918b2f5bf80eea276f04832888d626fe156",
+    "--solver-seconds",
+    "300",
+    "--checker-seconds",
+    "600",
+    "--proof-mib",
+    "512"
+  ],
+  "independent_review_sha256": "b0af769b67da5f0b2f42aa1d4e341e217556b56cf17ea3a7a7aa5ffe9a0a2d7b",
+  "resource_admission": "FourthCPU aftercontextrepaircompleted;300secsolverpilot"
+}
