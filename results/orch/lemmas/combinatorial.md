@@ -46,3 +46,17 @@ Circuit_geometry independently sharpened the fixed-v picture: any w in B(e) is p
 Proof removes all raw-exposed graph edges, peels fibers of size at most two, pays at most 2 per erased role label (two vertex labels + two oriented-top labels + one junk label, budget 5*(size+1)), then invokes obstruction to force survivor empty. Concludes exactly posted statement using witness constant 37. First compile produced only the posted implicit instance x4 unused-variable warning. Full log is `/tmp/oec/pequalnp-pilot-48/reduction-draft.log`.
 
 Counterexample stress reported by root: Heawood nested circuit with 55 gates has raw exposed set empty and meets all other assumptions except leastness; standard 27-gate circuit shows it is not least. Thus leastness is essential to the new obstruction, which is a semantic normal-form claim, not a pure combinatorial theorem.
+
+## Weakened local-degeneracy version
+
+`R_meta_5349_48_v2.lean` compiles,160 lines. The third child now asserts existence of a uniform d such that every nonempty four-rich core has either a raw exposed edge or some role fiber of size at most d. This avoids the unsupported fixed threshold two obstruction. The theorem removes all raw edges and recursively deletes one whole fiber: nonrich cores have a fiber of size at most two; rich ones invoke the new local child. Each step erases one occupied label and costs at most d+2 edges. Final constant is 27+5*(d+2).
+
+The child is local: it asks only for one edge-bearing removable fiber in each core. Existing PR10461 instead assumes a global linear cardinal bound for the entire raw-free rich core. Our proof supplies the missing global induction from this stronger-structured but smaller local task.
+
+The two already-checked support/raw lemmas are retained as independent hypotheses because the desk allows only PEqualNP.Defs as project import. No implication between hypotheses is assumed.
+
+## Cleanup candidate V3
+
+`R_meta_5349_48_v3.lean` compiles,147 lines (V2:160). It drops the rich-fiber premise from the existential-d local child. This has equivalent mathematical burden: a rich-only version with d extends to arbitrary nonempty T using max(d,2), since a failure of richness directly supplies an occupied role fiber of size at most two. The reverse direction is restriction. Thus the stronger pointwise statement under an existential constant does not impose a stronger existence claim.
+
+The induction now invokes the local child directly at every nonempty residual, pays d per erased role label, and concludes with constant27+5*d. It retains all posted semantic, leastness, top-form, and opposite-side-disjointness assumptions in the local child. The original conclusion is unchanged byte-for-byte.
