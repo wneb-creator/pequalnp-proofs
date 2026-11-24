@@ -256,4 +256,68 @@ lemma fixed_bounded_pair (n s : ℕ) (C : Circuit) (a b : ℕ) (legal : FanInTwo
     exact ⟨((heval x hx).1).trans (padCircuit_read s C x a),
       ((heval x hx).2).trans (padCircuit_read s C x b)⟩
 
+lemma gateChoices_inputs_bound (bound : ℕ) (g : Gate) (hg : g ∈ gateChoices bound) :
+    ∀ i ∈ g.inputs, i ≤ bound := by
+  obtain ⟨op, _, hg⟩ := List.mem_flatMap.mp hg
+  rcases List.mem_cons.mp hg with rfl | hg
+  · simp
+  · rcases List.mem_append.mp hg with hg | hg
+    · obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hg
+      intro i hi
+      have hi' : i = a := List.mem_singleton.mp hi
+      subst i
+      have := List.mem_range.mp ha
+      omega
+    · obtain ⟨a, ha, hg⟩ := List.mem_flatMap.mp hg
+      obtain ⟨b, hb, rfl⟩ := List.mem_map.mp hg
+      intro i hi
+      have ha' := List.mem_range.mp ha
+      have hb' := List.mem_range.mp hb
+      rcases List.mem_cons.mp hi with rfl | hi
+      · omega
+      · have hi' : i = b := List.mem_singleton.mp hi
+        omega
+
+lemma wire_true_lt (n : ℕ) (C : Circuit) (i : ℕ)
+    (h : ∃ x : Fin n → Bool, (C.wires (List.ofFn x)).getD i false = true) :
+    i < n + C.size := by
+  obtain ⟨x, hx⟩ := h
+  by_contra hi
+  have hlen : (C.wires (List.ofFn x)).length ≤ i := by
+    rw [wires_length, List.length_ofFn]
+    change n + C.size ≤ i
+    omega
+  rw [List.getD_eq_default _ _ hlen] at hx
+  contradiction
+
+lemma finite_source_pair (n s : ℕ) (C : Circuit) (a b : ℕ) (legal : FanInTwo C)
+    (budget : C.size ≤ s)
+    (ha : ∃ x : Fin n → Bool, (C.wires (List.ofFn x)).getD a false = true)
+    (hb : ∃ x : Fin n → Bool, (C.wires (List.ofFn x)).getD b false = true) :
+    ∃ (D : Circuit) (a' b' : Fin (n + s)),
+      D.output = 0 ∧ FanInTwo D ∧ D.size = s ∧
+      (∀ g ∈ D.gates, ∀ i ∈ g.inputs, i ≤ n + s) ∧
+      ∀ x : Fin n → Bool,
+        (D.wires (List.ofFn x)).getD a'.val false =
+          (C.wires (List.ofFn x)).getD a false ∧
+        (D.wires (List.ofFn x)).getD b'.val false =
+          (C.wires (List.ofFn x)).getD b false := by
+  obtain ⟨D, a', b', hD, hsize, _, hchoices, _, _, heval⟩ :=
+    fixed_bounded_pair n s C a b legal budget
+  have ha' : a' < n + s := by
+    rw [← hsize]
+    apply wire_true_lt
+    obtain ⟨x, hx⟩ := ha
+    exact ⟨x, ((heval _ (by simp)).1).trans hx⟩
+  have hb' : b' < n + s := by
+    rw [← hsize]
+    apply wire_true_lt
+    obtain ⟨x, hx⟩ := hb
+    exact ⟨x, ((heval _ (by simp)).2).trans hx⟩
+  refine ⟨⟨D.gates, 0⟩, ⟨a', ha'⟩, ⟨b', hb'⟩, rfl, hD, hsize, ?_, ?_⟩
+  · intro g hg
+    exact gateChoices_inputs_bound (n + s) g (hchoices g hg)
+  · intro x
+    exact heval _ (by simp)
+
 end PEqualNP.Outside.L_meta_3821_aux
