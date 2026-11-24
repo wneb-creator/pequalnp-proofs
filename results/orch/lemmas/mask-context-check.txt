@@ -1,0 +1,4 @@
+Checked all 32 inputs: 8-gate AO circuit computes star edges (0,1),(0,4).
+Selected junk g=gate4 has center 0 cleaning context. Its raw-exposed junk ancestor h=gate2 does not.
+Counterexample to context transfer: input (True, False, True, True, False).
+This circuit is not least (same graph has 2-gate AO circuit). It only refutes context-transfer claims omitting leastness.

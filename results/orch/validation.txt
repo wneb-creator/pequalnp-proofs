@@ -1,11 +1,15 @@
 Gap: L-meta-5349
-Status: compiled conditional reduction draft; not submitted
-Command: lake env lean results/orch/lemmas/R_meta_5349_48.lean
-Result: exit 0 (only unused instance warning)
-Mathlib cache get: exit 0, 9117 files
-Project definitions and checker executable build: exit 0
-Independent review: pending reduction; helper-only WmaxPartial approved conditional on build
-Sub-agents: 6 (setup, status/review, combinatorial proof, circuit geometry, counterexample checks, wmax lemma)
-Named build: lake build PEqualNP.Outside.R_meta_5349_48; exit 0
-Independent review: APPROVED FOR PUSH-EARLY AS CONDITIONAL REDUCTION
-Draft lines: 142
+Final file: lean/PEqualNP/Outside/R_meta_5349_48.lean
+Deliverable: reduction, not a full proof of the gap
+Build: lake build PEqualNP.Outside.R_meta_5349_48; exit 0
+Checker: node tools/check-lean.mjs lean/PEqualNP/Outside/R_meta_5349_48.lean statement.txt reduce; exit 0
+Verdict: ACCEPTED (reduce): PEqualNP.Outside.R_meta_5349_48
+Allowed axioms: propext, Quot.sound, Classical.choice
+Kernel rechecked 1654 project constants
+Printed children: 181, 770, 1828 characters
+Cleanup: 160 lines before, 147 after; simpler local fiber deletion; build and checker still pass
+Independent red-team review: APPROVED conditional reduction
+Sub-agents: 6 (setup; status/review; combinatorial proof; circuit geometry; counterexample checks; wmax lemma)
+TIMING total=12.0 subagents=6 (checkpoint)
+Desk null answers: 0
+Kit message: msg-2058d5a2e923e4075507828c

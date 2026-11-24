@@ -29,3 +29,17 @@ Counterexample to context transfer: input (True, False, True, True, False).
 This circuit is not least (same graph has 2-gate AO circuit). It only refutes context-transfer claims omitting leastness.
 
 Circuit gates, inputs 0=u,1=v,2=x,3=y,4=z: [('or', 1, 2), ('or', 1, 3), ('and', 5, 6), ('or', 1, 4), ('and', 7, 8), ('and', 0, 9), ('and', 0, 4), ('or', 10, 11)].
+
+## Correction: avoid duplicate raw split
+
+R_meta_1768_1 already splits L4322 raw exposure from the globally non-raw witness set. The simple raw/masked split above is not a useful new reduction on its own. A new cut should preserve the rich/disjoint core or expose a strictly more local nested-mask frontier.
+
+## Exhaustive small circuit checks
+
+The scratch script circuit-small.py enumerated every nonduplicate AO gate sequence through depth4 on four inputs (81,985 circuits), and depth5 on five inputs (27,160,961 circuits). Every nonempty forest target was reached at optimum: 37 girth-five graphs on four vertices; 290 forests on five vertices. No least circuit enumerated had a dirty AND. The 12 labeled C5 functions were not reached through depth5. These are computational checks, not Lean proofs.
+
+The original rich core itself is vacuous on at most13 original vertices: the directed incidence graph of its u/v labels is bipartite, C4-free, and minimum degree at least3, so each shore has at least7 vertices. If the shores overlap, that original vertex has at least6 neighbors; their other neighbors are distinct by girth5 and each neighbor has degree at least3, forcing at least19 original vertices. Thus a smallest core uses at least14 vertices and at least21 edges. This is a paper argument, not yet formalized.
+
+## Review of bounded-degeneracy reduction
+
+The existential bounded-degeneracy premise in V3 omits V2's minimum-three-fiber assumption. This is equivalent after increasing its unknown constant: V2 implies V3 with `max d 2`, since a subset failing richness already has a fiber of size at most2. Conversely V3 directly implies V2. Thus V3 is a cleaner, shorter formulation, without materially strengthening V2. The premise is still unproved and must retain leastness. It cannot be inferred from a global bound in terms of the full circuit size alone, because a subset may use only a few of the circuit labels.
