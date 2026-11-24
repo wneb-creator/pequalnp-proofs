@@ -1,0 +1,16 @@
+Independent final pre-push red-team review: PASS (source/mathematics; build and authoritative checker remain separate checks).
+Reviewer: structural_strategy
+UTC: 2026-11-24T18:17:35.424463+00:00
+File: lean/PEqualNP/Outside/R_meta_2215_37.lean
+SHA256: 48654647364f5593afb8cfe113765f9289ae28308aca572a60432e1a216fff51
+Exact posted conclusion: matches after trimming external whitespace.
+One top-level theorem with exactly two independent proposition hypotheses; no other declarations, namespaces, or sections.
+Only project import PEqualNP.Defs, which is desk-authorized. No extra import word elsewhere.
+No forbidden raw text, string quotes, attributes, placeholders, new axioms, executable commands, or unauthorized options. Regular non-executable UTF-8 file, 13437 bytes.
+Coordinate translation p=u+1 and l=v-12 is correct modulo13. Missing point0 is excluded from the actual input representation. Replacing finite table enumeration by arithmetic changes no statement or meaning.
+Every wire is monotone by fold induction, including default-value references. Circuit-output and auxiliary-wire boundary arguments correctly use this monotonicity.
+Four-point geometry is independently Lean-proved in the checkpoint; it entails every independent rectangle has a side of size at most3.
+The search hypothesis consists of genuine finite boundary constraints. Independent enumeration verified48 edge positives,4 auxiliary singleton positives,756 output-negative test occurrences(704unique), and756 auxiliary-negative occurrences(553unique). All negative tests are valid; they dominate all29854 independent inputs and all8876 independent inputs with the desired auxiliary OR false.
+No circular hypotheses or known false extra requirements. The auxiliary upper bound is used only when circuit output is false; the singleton lower bound correctly handles desired auxiliary OR true.
+The two hypothesis headers have1028 source characters in total; formal printed-length verification is delegated to tools/check-lean.mjs.
+No mathematical or format issue found in this revision. Final build/checker result and single-file PR diff must still be verified by root.
