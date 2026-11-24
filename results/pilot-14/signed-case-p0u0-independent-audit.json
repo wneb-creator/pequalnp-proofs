@@ -1,0 +1,67 @@
+{
+  "verdict": "PASS",
+  "scope": "Closed canonical pair(0,1), ops position0, one of24 cases only",
+  "review": "Direct canonical state definition; actual Fin-length domains cover all consume/keep children and ten duplicate positions. Every case is a kernel proof. Final split uses checked complete recurrence and short-list guard. All source hashes match successful runner records and artifacts exist.",
+  "records": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/cases/SignedCaseP0U0Closed.lean",
+      "source_sha256": "2e717df7d2b131a84240d014d3f2c67b92e9daa1bbfe4e4904181e11eabc3312",
+      "log_sha256": "ba51d568ef1a5e112efb945b3eb5622b3740e1749bf3e533f8396c3be02b7afd",
+      "result": {
+        "module": "SignedCaseP0U0Closed",
+        "exit_code": 0,
+        "seconds": 5.425731729999825,
+        "source_sha256": "2e717df7d2b131a84240d014d3f2c67b92e9daa1bbfe4e4904181e11eabc3312",
+        "log": "/tmp/oec/pequalnp-pilot-14/sat-proof/cases/SignedCaseP0U0Closed.log"
+      }
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/cases/SignedCaseP0U0Common.lean",
+      "source_sha256": "59df40195b8e73fb51c831ee197a36569d062fe33cf989bc65816c7de356592a",
+      "log_sha256": "b14319d71ed0f97a734ec4c3d2b5607783014a6d542ba42059b34d9a2109c104",
+      "result": {
+        "module": "SignedCaseP0U0Common",
+        "exit_code": 0,
+        "seconds": 6.30715612899985,
+        "source_sha256": "59df40195b8e73fb51c831ee197a36569d062fe33cf989bc65816c7de356592a",
+        "log": "/tmp/oec/pequalnp-pilot-14/sat-proof/cases/SignedCaseP0U0Common.log"
+      }
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/cases/SignedCaseP0U0Consume.lean",
+      "source_sha256": "4c9ff5d1e9e988eb43375c7d217c3e228dbd837e9d6ba2143b07861c44f7da22",
+      "log_sha256": "894e6dcee7fcb28cb89f0eec7f0aa2606ee53aa0eb753380651a3306c07de419",
+      "result": {
+        "module": "SignedCaseP0U0Consume",
+        "exit_code": 0,
+        "seconds": 17.299404454000978,
+        "source_sha256": "4c9ff5d1e9e988eb43375c7d217c3e228dbd837e9d6ba2143b07861c44f7da22",
+        "log": "/tmp/oec/pequalnp-pilot-14/sat-proof/cases/SignedCaseP0U0Consume.log"
+      }
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/cases/SignedCaseP0U0Duplicates.lean",
+      "source_sha256": "bc50e2655e7f83ff94aac51cd8a727aa2301eecee1897697ad0f73ea5083f5b1",
+      "log_sha256": "3978601094798d8cd49c9373c9af7d11bed0e586bee86d3167c4420ac2a5dcf6",
+      "result": {
+        "module": "SignedCaseP0U0Duplicates",
+        "exit_code": 0,
+        "seconds": 43.101394565999726,
+        "source_sha256": "bc50e2655e7f83ff94aac51cd8a727aa2301eecee1897697ad0f73ea5083f5b1",
+        "log": "/tmp/oec/pequalnp-pilot-14/sat-proof/cases/SignedCaseP0U0Duplicates.log"
+      }
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/cases/SignedCaseP0U0Keep.lean",
+      "source_sha256": "fa44ffcb6ca8aabc6e9026cc76a8d3e7b212edc856d3f2ef3e4315fb8ff07ad5",
+      "log_sha256": "1d1f5d87a9885774065a398d4d941c742bff2bd2c2b965e07a6d7893bc819468",
+      "result": {
+        "module": "SignedCaseP0U0Keep",
+        "exit_code": 0,
+        "seconds": 66.10243682299915,
+        "source_sha256": "fa44ffcb6ca8aabc6e9026cc76a8d3e7b212edc856d3f2ef3e4315fb8ff07ad5",
+        "log": "/tmp/oec/pequalnp-pilot-14/sat-proof/cases/SignedCaseP0U0Keep.log"
+      }
+    }
+  ]
+}
