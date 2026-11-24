@@ -10,7 +10,7 @@
 - 2026-11-24 18:12:56 UTC: helper-7 first result: reusable same-suffix reindexing lemma.
 - 2026-11-24 18:12:58 UTC: helper-4 first result: independent incidence and gate-count computation.
 - 2026-11-24 18:13:01 UTC: helper-1 first result: malformed-reference-safe remapping interface.
-- 2026-11-24 18:13:26 UTC: helper-9 first result: statement and checker review begun.
+- 2026-11-24 18:13:56 UTC: helper-9 first result: static statement, checker, and malformed-reference review.
 - 2026-11-24 18:13:28 UTC: helper-5 first result: generic append toolkit draft.
 - 2026-11-24 18:13:33 UTC: helper-6 first result: all-index evaluation invariant.
 - 2026-11-24 18:13:29 UTC: Orchestrator model check passed all 131072 relevant incidence assignments and 1000 arbitrary old circuits; Lean verdict still pending.
@@ -21,3 +21,9 @@
 - 2026-11-24 18:19:11 UTC: Orchestrator full prefix-route source compiled.
 - 2026-11-24 18:19:43 UTC: Final-file named build passed; partial proof commit ddbebe57a569e7690a1bfe8cdfb219fc3537db88 pushed after independent red-team PASS.
 - 2026-11-24 18:21:21 UTC: Official repository checker ACCEPTED (check), standard three axioms, 1696 project constants re-checked. Exact source SHA256 85f14170af5d3d8cb920d49abb91ca55234a6cd4b8308cf356059c4b2b7c43d3.
+- 2026-11-24 18:21:51 UTC: Clean final branch pnp/swarm-L-meta-3787 pushed to origin at 3c5b3eb8265d1dd9b8386f372e438d6ec0363776 after independent exact-diff PASS; remote SHA verified.
+- Final source independently reviewed by local reviewer and bus helpers 1, 4, and 9; official checker ACCEPTED.
+- Final proof branch adds only lean/PEqualNP/Outside/L_meta_3787.lean. Timeline stays on orchestration branch. PR handoff remains with the Mac under the swarm-specific brief; no desk release performed.
+
+Sub-agents: 9 external bus helpers and 1 local toolchain/review agent (10 direct).
+TIMING total=11.1 subagents=10
