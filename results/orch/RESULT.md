@@ -60,4 +60,7 @@ Sub-agents: 20 total across proof strategies, combinatorial and circuit
 semantics, finite searches, toolchain recovery, and independent reviews
 (including replacements after runtime restarts). Exact identities and
 checkpoint timing are recorded in validation.txt and TIMELINE.md.
-TIMING total=91.0 subagents=20
+TIMING total=94 subagents=20
+
+Own lease was released with reason `other` after pushing all checked results;
+renewal timer stopped. Desk confirmation is saved in desk-release.json.
