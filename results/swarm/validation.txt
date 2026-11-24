@@ -1,0 +1,43 @@
+gap: L-meta-3821
+result: reduced; original gap and both reduction children remain unproved
+file: lean/PEqualNP/Outside/R_meta_3821_1.lean
+module: PEqualNP.Outside.R_meta_3821_1
+source sha256: 46c2dc04b8a69c98cff298c842542213a98b44a97a2640de326e4a85898a7dcd
+functional commit: cd696c83422a55848081185c2b2464f770a42793
+branch: pnp/swarm-L-meta-3821-orch
+remote: origin (wneb-creator/pequalnp-proofs fork)
+
+Validation recorded: 2026-11-24 18:30:16 UTC
+- Named module build: passed with Lean 4.36.0 and pinned Mathlib cache.
+- No Mathlib source build; lake exe cache get completed before builds.
+- Gap still posted; exact statement/file/module/imports unchanged on final refresh.
+- Gap/import/plain-file guards in reduce mode: passed.
+- Official checker: ACCEPTED (reduce): PEqualNP.Outside.R_meta_3821_1
+- Allowed axioms only: propext, Quot.sound, Classical.choice.
+- Kernel rechecked 1660 constants.
+- Two closed, nondependent reduction children printed and read back successfully.
+- Independent local staged-diff review: PASS; exactly one added functional file.
+- helper-9 independent source/compilation/axiom review: PASS for exact source hash.
+- helper-5 independent reduction source/compilation/axiom review: PASS for exact source hash.
+- Whitespace check: passed.
+
+The reduction normalizes source circuits to exactly 18 gates, output field 0,
+selected outputs in Fin 28, and bounded gate references, preserving both wire
+functions on all inputs. It separates AND/OR sources (using full correctness
+from the promise) from sources containing NOT. It does not prove either child.
+The bounded source space is finite but is not claimed practical for brute force.
+
+The first checker attempt exposed missing elan setup; proper elan was installed.
+Candidate v1 was rejected for lazily generated imported equation declarations.
+Candidate v2 needed an explicit Gate type annotation. Candidate v3 is the
+accepted artifact; the checker and repository definitions were not modified.
+
+Complete checker stdout/stderr: /tmp/oec/pnp-swarm-3821-orch/reduction-checker-v3.log
+Complete build logs are retained in the same job scratch directory.
+No PR opened: the specific swarm instructions assign PR creation to the Mac.
+No desk lease requested or released. A heartbeat was sent during work.
+For a one-file PR, extract functional commit cd696c83422a55848081185c2b2464f770a42793; do not submit the
+orchestration timeline/support files from the surrounding branch.
+
+Sub-agents: nine external bus helpers (helper-1 through helper-9), plus one local toolchain/review helper; count is direct helpers.
+TIMING total=20.6 subagents=10
