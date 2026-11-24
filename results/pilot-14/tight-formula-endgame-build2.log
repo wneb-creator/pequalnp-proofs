@@ -1,0 +1,31 @@
+/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaEndgameTest.lean:48:62: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  inputs.length
+in the target expression
+  w.length = (List.map phase U.toList).length
+
+k t : ℕ
+U : Finset Sig
+a b : Sig
+d : Bool
+ha : a ∈ literals
+hb : b ∈ literals
+hne : a ≠ b
+hu : ∀ z ∈ U, z ∈ literals
+h : Live k t (insert (bin d a b) U)
+hc : U.card = 9
+sub : inputs ⊆ List.map phase U.toList
+hl : inputs.length = (List.map phase U.toList).length
+w : List Sig
+pw : w.Perm inputs
+hw : w.Sublist (List.map phase U.toList)
+⊢ w.length = (List.map phase U.toList).length
+/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaEndgameTest.lean:49:8: error: Type mismatch
+  List.Perm.symm (he ▸ pw)
+has type
+  inputs.Perm (List.map phase U.toList)
+but is expected to have type
+  (List.map phase U.toList).Perm inputs
+/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaEndgameTest.lean:90:4: warning: exponent 414 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaEndgameTest.lean:90:4: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information

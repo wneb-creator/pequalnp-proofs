@@ -1,0 +1,37 @@
+import took 4.36s
+type checking took 169ms
+type checking took 167ms
+type checking took 281ms
+type checking took 215ms
+'PEqualNP.Outside.L_meta_670_aux.FiniteProofTree.four_prefixes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_670_aux.FiniteProofTree.of_children' depends on axioms: [propext, Classical.choice, Quot.sound]
+cumulative profiling times:
+	.olean serialization 3.91ms
+	attribute application 0.0386ms
+	blocked (unaccounted) 848ms
+	compilation (IR) 0.0424ms
+	compilation (LCNF base) 0.62ms
+	compilation (LCNF impure) 0.244ms
+	compilation (LCNF mono) 0.225ms
+	congr simp thm 0.25ms
+	declTypeLinter 2.88ms
+	dsimp 0.48ms
+	elaboration 17.2ms
+	fix level params 0.11ms
+	import 4.36s
+	initialization 24.8ms
+	instantiate metavars 1.22ms
+	interpretation 291ms
+	let-to-have transformation 0.263ms
+	linting 5.45ms
+	module linting 0.0234ms
+	parsing 1.99ms
+	process pre-definitions 1.66ms
+	share common exprs 0.561ms
+	simp 0.798ms
+	tactic execution 38.5ms
+	tacticAnalysis 1.97ms
+	type checking 842ms
+	typeclass inference 24ms

@@ -1,0 +1,10 @@
+Verdict: PASS, independent generic source/soundness review. Author reports EXIT0; exactbody inclusion and successful existing log inspected, no reviewer compile.
+Phase canonicalizes complementary signatures by one arbitrary fixed bit, preserves XOR separation, and quotient operations enumerate all four signed AND cases, covering OR through DeMorgan+phase_neg. No injectivity or no-duplicate assumption is used: singles/step_mem track positions through list permutations, so duplicate phased literals retain multiplicity.
+Tightness S.card+t=k+1 plus the actual Live_size tail bound forces a unary step to replace its operand and a binary step to consume both distinct operands; fresh output ensures precise tail cardinality. Unary phase flips cost no test depth; binary steps consume one depth and preserve the tight equality. test0=true and length≤1=true deliberately overapproximate reachability, so false finite tests would be sound exclusions. tight_test proves only that every bounded test succeeds for genuine tight Live; no closed stronger lower bound is claimed here.
+
+Exact hashes:
+{
+  "lower-bound/TightFormulaBody.lean": "1b2448cc36c1d74210213dcaef126e874e98941b06255e451b3a23f76404a844",
+  "lower-bound/TightFormulaTest.lean": "13faa5269e86ecb0ac07134f857b0ea0f7389d89384b18c6938489a281184cfa",
+  "lower-bound/tight-formula-build2.log": "679f29269a33e2114345aaca63f379109becd31138a497aefd4a6ea7ebdf5f95"
+}

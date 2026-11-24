@@ -1,0 +1,30 @@
+/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaTest.lean:9:37: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaTest.lean:16:20: error(lean.unknownIdentifier): Unknown constant `BitVec.not_xor_not`
+/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaTest.lean:16:2: error: unsolved goals
+case isTrue
+a : Sig
+h✝ : BitVec.getLsbD a.1 63 = true
+⊢ ~~~a.1 ^^^ ~~~a.2 = a.1 ^^^ a.2
+/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaTest.lean:77:2: error: Type mismatch: After simplification, term
+  hu
+ has type
+  (unionSep true v)[j] = true
+but is expected to have type
+  (unionSep true v)[j] =
+    (42307582002575910332922579714097346549017899709713998034217522897561970639123926132812109468141778230245837569601494931472383#414)[j]
+/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaTest.lean:102:67: error: Application type mismatch: The argument
+  List.Perm.symm p₂
+has type
+  (List.map phase (neg a :: U.toList)).Perm (List.map phase (insert (neg a) U).toList)
+but is expected to have type
+  (List.map phase (a :: U.toList)).Perm ?m.220
+in the application
+  List.Perm.trans p₁ (List.Perm.symm p₂)
+/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaTest.lean:132:12: error(lean.unknownIdentifier): Unknown constant `Bool.or_eq_true.mpr`
+/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaTest.lean:133:6: error: No goals to be solved

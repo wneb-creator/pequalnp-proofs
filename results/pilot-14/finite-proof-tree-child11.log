@@ -1,0 +1,86 @@
+import took 3.83s
+type checking took 311ms
+type checking took 344ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 314ms
+type checking took 634ms
+type checking took 658ms
+type checking took 606ms
+type checking took 862ms
+type checking took 843ms
+type checking took 857ms
+type checking took 726ms
+type checking took 1.15s
+type checking took 511ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 337ms
+type checking took 959ms
+type checking took 918ms
+type checking took 2.12s
+type checking took 800ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 351ms
+type checking took 1.21s
+type checking took 1.51s
+type checking took 954ms
+type checking took 724ms
+type checking took 1.47s
+type checking took 726ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 399ms
+type checking took 1.09s
+type checking took 1.09s
+type checking took 2.05s
+type checking took 702ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 378ms
+type checking took 1.22s
+type checking took 1.52s
+type checking took 655ms
+type checking took 639ms
+type checking took 354ms
+type checking took 1.41s
+type checking took 620ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 473ms
+type checking took 2.19s
+type checking took 640ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 783ms
+type checking took 3.08s
+type checking took 647ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 717ms
+type checking took 2.03s
+type checking took 1.92s
+type checking took 746ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 479ms
+type checking took 2.54s
+type checking took 667ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 375ms
+type checking took 1.4s
+type checking took 1.28s
+type checking took 1.77s
+type checking took 587ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 511ms
+type checking took 1.11s
+type checking took 592ms
+type checking took 613ms
+tactic execution of Lean.Parser.Tactic.repeat' took 492ms
+type checking took 1.85s
+'PEqualNP.Outside.L_meta_670_aux.FiniteProofTree.child11_closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	.olean serialization 10.6ms
+	attribute application 0.0156ms
+	blocked (unaccounted) 60.1s
+	declTypeLinter 3.73ms
+	elaboration 15.1ms
+	fix level params 0.581ms
+	import 3.83s
+	initialization 29.5ms
+	instantiate metavars 19.8ms
+	interpretation 5.49s
+	let-to-have transformation 0.0139ms
+	linting 7.91ms
+	module linting 0.117ms
+	parsing 1.3ms
+	process pre-definitions 12.3ms
+	share common exprs 4.31ms
+	tactic execution 895ms
+	tacticAnalysis 2.35ms
+	type checking 53.9s
+	typeclass inference 106ms
