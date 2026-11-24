@@ -45,3 +45,5 @@
 2026-11-24T18:52:25.289562+00:00 normal_form: safe operand bypass checked; exit0, empty log.
 
 - 2026-11-24T18:52:57.299141+00:00: named4630line build14 passes with latest-globally-unsafe frontier theorem; exact composition independently reviewed for preservation.
+
+- 2026-11-24T18:55:17.067511+00:00: safe-operand increasing replacement and strict unary deletion integrated; named5109line build15 passes and exact composition independently reviewed.
