@@ -1,15 +1,13 @@
-L-meta-1434 refutation of a stale negative search statement.
-Build: lake build +PEqualNP.Outside.L_meta_1434, exit 0.
-Local checker refute: pending.
-Source: copied accepted L-meta-1433 proof from upstream PR2928, with namespaced helpers and an exact negation wrapper; no new circuit result is claimed.
-The posted1434 statement is exactly Not(1433).
-Ordinary PR workflows require check mode; the positive twin1433 was already merged at2026-11-24T00:31:50Z. No invalid duplicatePR will be opened.
-SourceSHA256: 9b5eb61fe75dcbbbf3a6071d2cd4255a41f50ac58c5c320a7a6457749d1373a8
-Lines before cleanup:3721; cleanup pending.
+L-meta-1434 is false: its posted statement is exactly the negation of accepted L-meta-1433.
+Source reuses upstream PR2928, merged2026-11-24T00:31:50Z; only auxiliary namespaces and the final exact negation wrapper changed, then broad Mathlib was replaced by FinCases+Tauto imports. No new circuit lower bound is claimed.
+Build: lake build +PEqualNP.Outside.L_meta_1434, exit0 (118seconds).
+Checker: node tools/check-lean.mjs lean/PEqualNP/Outside/L_meta_1434.lean statement.txt refute, exit0.
+ACCEPTED (refute): PEqualNP.Outside.L_meta_1434; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked2084constants.
+Full checker output and source/Defs manifests are saved in checker-narrow.log.
+Independent exacttype/axiom check PASS; independent source/format/namespace review PASS.
+Earlier broad-import checker runs faulted(exit137); isolatedretry hit16GiBcgroupOOM. No checker or resource limit was modified. Narrow imports resolved this infrastructure failure.
+Ordinary PR workflows hardcode check mode; the positive twin1433 is already merged. No invalid duplicatePR will be opened.
+SourceSHA256: 750cf08e65d1aa107c0bd39bf9f805f526dbbe143145ad41765140f0f8c73a09
+Lines before cleanup:3722; cleanup pending.
 Sub-agents: counterexample, lower_bound, red_team, sat_proof, status_review, toolchain
-TIMING total=198 subagents=6
-
-Narrow imports checkpoint: build PASS, exit0; source3722lines 750cf08e65d1aa107c0bd39bf9f805f526dbbe143145ad41765140f0f8c73a09.
-Original broad-import local checker attempts both FAULT(exit137), not rejection/acceptance. Isolatedretryhit16GiBcgroupOOM; fullsamplesanddiagnosissaved.
-Independent compiled exacttype/axiom check PASS with only propext,Classical.choice,Quot.sound.
-Narrow officialchecker pending.
+TIMING total=209 subagents=6
