@@ -21,6 +21,15 @@
       "exit": 0,
       "scope": "All ten explicit monotone upper bounds [6,7,8,9,7,9,7,6,5,9], and equivalent-circuit conclusion conditional on this size bound. No lower bounds or full posted theorem.",
       "review": "Independent root source/diff/log review PASS; all truth tables use kernel decide and exact posted evaluation."
+    },
+    {
+      "file": "FormalNatRun1425.lean",
+      "sha256": "4d63fd4ee1f2b820ed0351857ffaa1dd331650c48db2880d7cd6594f1bfb7c1a",
+      "bytes": 50134,
+      "lines": 1117,
+      "exit": 0,
+      "scope": "Generic arbitrary AND/OR/NOT circuit normalization to live-wire runs and soundness of finite barrier certificates. No target-specific lower bound yet.",
+      "review": "Independent root review PASS; normalization handles circuit simplification and sublist inputs; finite lookup checks index bounds and actual multiset equality; barrier descent is well founded. Permitted imports and source syntax."
     }
   ],
   "lrat_probe_axioms": [
