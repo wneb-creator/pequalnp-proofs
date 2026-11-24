@@ -8,3 +8,8 @@ Complete stdout/stderr: empty (successful compilation).
 Checker: not applicable to helper-only partial.
 Sub-agents: 6 (direct proof, counterexample, reduction, status/review, Lean setup, OR-only proof).
 TIMING total=11.0 subagents=6
+
+Updated direct.lean partial: 136 lines; SHA256 434896871cbdd2be074183041c547991431f021e0bbbded443a7a8a5f7a553f4.
+Added meet-closed safe-predicate and covered-edge cardinality lemmas.
+Final exact contents compiled with pinned Lean; exit 0; complete stdout/stderr empty.
+Timestamp: 2026-11-24T23:28:26.275080+00:00
