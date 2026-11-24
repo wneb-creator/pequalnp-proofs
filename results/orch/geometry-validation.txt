@@ -1,0 +1,5 @@
+L-meta-2215 geometry checkpoint
+Command: lake env lean ../results/orch/lemmas/Geometry.lean
+Result: exit 0; stdout and stderr empty.
+Independent review: root inspected both theorem statements and complete proofs; kernel decide only, no axioms/sorry/native evaluation, no credentials.
+Compiler: Lean 4.36.0; pinned Mathlib cache.
