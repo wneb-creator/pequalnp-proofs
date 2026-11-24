@@ -1,6 +1,6 @@
 # L-meta-1024 orchestration notes
 
-Status summary updated 2026-11-24 03:48:05 UTC. Owner: root. Branch: pnp/pilot-21.
+Status summary updated 2026-11-24 04:37:54 UTC. Owner: root. Branch: pnp/pilot-21.
 
 ## Read before starting
 
@@ -16,24 +16,28 @@ The current 4,041-line target passes the named-module lake build; its source is 
 
 ## Checked results
 
-- Arbitrary band-correct circuits require at least 13 gates.
-- OR-only circuits, globally correct circuits, and circuits with at most one AND gate require 39 gates.
-- Any globally nonordinary output has at least eight essential raw inputs. Ordinary means globally equal to its line OR, beyond the required band.
-- The 39-gate bound holds when at most three outputs are nonordinary. Thus a sub-39-gate counterexample must have at least four nonordinary outputs.
-- Nonordinary outputs have finite witnesses among line complements and line singletons. These witnesses support independently reviewed SAT constraints.
-- Paid-gate charging, cut semantics, component/source counting, Clamp and Clamp9, and prefix lemmas are available in the main module.
-- `Sink.lean` compiles and has independent approval. It replaces valid earlier output references by true, preserving length, permitted gate operations, fan-in, band correctness, and ordinary outputs. It does not erase invalid future references syntactically. This source is preserved in the lemmas folder.
+- Arbitrary band-correct circuits require at least13 gates. OR-only, globally correct, and at-most-one-AND circuits require39.
+- Nine globally ordinary outputs imply39 gates; therefore every smaller counterexample has at least five globally nonordinary outputs. Each nonordinary output has at least eight essential raw inputs.
+- OR-sink normalization preserves any specified ordinary family without increasing gate count. Paid-source clamping and dead-gate deletion handle invalid/forward reads exactly.
+- Eight ordinary outputs in a circuit of at most38 gates reduce to five distinct band-correct, globally line-bounded, globally nonordinary OR pairs over at most nine internal gates. This is a reduction, not an impossibility theorem.
+- Every connected abstract five-edge parent graph satisfying the shared-parent dependence equations has raw-component rank at least10. Its direct circuit application is being compiled separately.
+- Two distinct nonordinary band-correct OR pairs cannot use at most six internal gates. Consequently at least four of five reduced outputs read one of the last three internal gates.
+- An abnormal output, true at its own line complement, requires at least eight AND gates and all thirteen raw inputs in its support.
+- If every output has minimum formal false-certificate cost at most four, pruning proves39. Repeated occurrences make this cost condition stronger than a semantic four-point false certificate.
+- Stable compiled components and complete successful logs are in `lemmas/` and `validation/`; each was independently reviewed before preservation.
 
 ## Active strategies and ownership
 
-1. **formal_baseline — compiler and decomposition.** Connect Sink transformation to cut semantics, delete paid gates with correct index remapping, and formalize the four-exotic reduction. Preserve invalid/forward reads as false.
-2. **fresh_proof — high-gate structural proof.** Formalize the reduced four-output, eleven-gate contradiction: four OR sink outputs, seven internal gates, each output with at least eight essential raw inputs. Three low partners force three triples requiring six gates among the first five internal gates.
-3. **lower_bound — independent mathematics and extension.** Review the four-output proof and seek a route for five or more nonordinary outputs. Four-output success alone does not prove the posted statement.
-4. **counterexample_search — finite search.** Five detached 90-minute SAT searches restarted after the external interruption: three low-fanout cases, the full 3,003-row problem, and a normalized dual problem. Preserve complete logs and proof streams. Only a fully checked assignment is a counterexample; interrupted/UNKNOWN runs prove nothing.
-5. **special_status — independent red-team review.** Review every proposed push, semantic normalization, solver restriction, and exact theorem claim. Sink currently approved. Review orchestration records before their first push.
-6. **toolchain_setup — global total-gate proof.** Investigate collective selected-DAG avoidance and charge AND routing costs; the weaker individual-domination OR-packing inference is disproved. The passive resource watcher prepared by lease_timer continues; root owns renewals and build admission.
+1. **fresh_proof — disconnected reduced circuits.** Use the checked ancestry/TwoPairs tools to prove the early-common-parent obstruction, then cover the remaining disconnected five-parent patterns. The proposed ten-gate two-output bound was disproved; the checked nine-gate bound for two OR-pair outputs is sharp.
+2. **lower_bound — exact connected circuit bridge.** Apply the complete connected rank theorem directly to FiveOwned and preserve the resulting disconnected-only reduction. Parent indices may be repeated or invalid; no canonicalization hypothesis is needed.
+3. **formal_baseline — global graph counting.** Investigate whether fixed selected false-DAG collective avoidance forces the incidence cycle rank; challenge the actual graph statement and assess stronger three-foreign-zero resilience if pairwise avoidance is insufficient.
+4. **toolchain_setup — semantic global bridge.** Formalize fixed selected-DAG collective avoidance with prefix-valid edges, and investigate charging repeated certificates under the extremal private-gate normal form. The full global count remains open.
+5. **counterexample_search — exact finite models.** Preserve the restricted disconnected2+3 UNSAT result and complete proof/CNF streams. Keep existing long searches; prepare the complementary abnormal class and a general five-output reduced query with checked structural guards. A solver verdict is not a Lean theorem.
+6. **special_status — independent review.** Review every compiled checkpoint, encoding change, archive and proposed push. Auxiliary counterexamples and restricted UNSAT results must remain explicitly scoped.
 
-## Four-exotic route: reviewed mathematics, not yet fully formalized
+Root alone owns lease renewals, build/encoder admission, pushes and submission. One Lean build or large encoder runs at a time. The passive resource watcher continues.
+
+## Historical four-exotic route (now compiled; see NineOrdinary)
 
 Nine ordinary outputs pay for 27 distinct gates. Sink normalization and the budget of at most eleven unpaid gates give each exceptional cone at most eight unpaid gates and nine essential cut sources. Clamp9 forces all four raw line coordinates. Clamp paid sources to true, delete their network, and independently rebuild the nine ordinary outputs in 27 gates. This yields a raw-only four-output circuit with at most eleven gates. A globally ordinary reduced output would reduce to the checked three-exotic case.
 
@@ -56,7 +60,7 @@ Every compiled result is preserved promptly on the fork after independent review
 
 ## Next replan
 
-Next review at 04:39 UTC. The first 25-minute review completed at 2026-11-24 03:48:05 UTC. Continue 20–30 minute replanning thereafter. Overall job started at 01:28:21 UTC; the approximate six-hour budget ends at 07:28 UTC.
+Next review at 05:02 UTC. The third review completed at 2026-11-24 04:37:54 UTC. Continue 20–30 minute replanning thereafter. Overall job started at 01:28:21 UTC; the approximate six-hour budget ends at 07:28 UTC.
 
 Sub-agents: counterexample_search, formal_baseline, fresh_proof, lease_timer, lower_bound, special_status, toolchain_setup.
 TIMING total=115 subagents=7
@@ -575,3 +579,38 @@ Approved ConnectedLeaves.lean, SHA256042b00189191d78030ee60947bd13844db61546103e
 ## 2026-11-24T04:32:43.217274+00:00 — lower_bound: full connected parent rank compiled
 
 ConnectedDouble.lean compiled exit0 on attempt2 with an empty complete connected-double-build-002.log. Frozen SHA256 63b26eb04d4346a68689dd69e9c81756f67043c57b028e12c9c6ffdb0603bc3f. The exact ConnectedLeaves prefix plus ConnectedDoubleExtra proves ParentRankCore.connected_rank for every connected five-edge parent graph satisfying injective projective-line IDs and the explicit forced-label equations. No simple-graph or nonloop hypotheses are needed. The one-core-edge case reduces to two Bool groups; a noncore value forces distinct central pencils, outside values agree, and a three-point kernel-checked pencil lemma proves union size at least12. Thus rank is at least10 in all connected cases. Root/reviewer/fresh notified; build slot released for Fresh Ancestry. This closes the connected combinatorial obstruction only; disconnected parent graphs and the unrestricted posted theorem remain open. A direct Cut.components gate-count bridge is being drafted separately.
+
+
+## 2026-11-24 04:35:11 UTC — fresh_proof: sharp two-output bound compiled
+
+Ancestry.lean compiled exit0 on attempt2 and was independently approved. It records syntactic wire ancestry, bounds/transitivity, membership of arbitrary paid-cut dependencies, and the component-label invariant constant along all ancestor chains. Source SHA b47f08af28dde41f96a5881d64f6bbb138439a51a17166df7bf8650e7b768356; complete successful log ancestry-build-002.log.
+
+TwoPairs.lean then compiled exit0 on attempt2, SHA 3bea61d4419cb785d60cd0631e99ffacc1e0a3b4d098fe39d0f7e15fa76c58a8. Main two_pairs_impossible excludes two distinct band-correct, globally nonordinary OR-pair outputs over at most6 internal gates. Global upper bounds and first-occurrence assumptions are unnecessary. Every internal gate must occur in each nonordinary output's ancestry; both roots read the last gate; another generated parent in its ancestry would force support at most7. The two remaining generated parents must coincide by topological order, contradicting distinct targets. Raw/invalid parents are excluded by the checked three-point shared-parent dependence. low_pair_unique and four_use_last_three derive that at least4 of5 nonordinary OR-pair outputs over at most9 internal gates read wire19,20,or21. Exact assembly: FourPairs plus AncestryExtra, TwoPairsExtra, TwoPairsPrefixExtra. Complete successful log two-pairs-build-002.log. Root/reviewer notified, source frozen, build slot released; independent wrapper review pending.
+
+The stronger proposed10-total-gate two-output bound is false. For lines A=pabc,B=pdef and q outside their union, compute U=OR(a,b,c), V=OR(d,e,f), H=p AND (U OR V OR q), then outputs U OR H and V OR H. Cost9 total gates,7 internal. Each effective guard has four foreign points. Scalar checking all3003 band rows and all8192 upper-bound rows found no errors; both outputs miss singleton p. Artifacts fresh/two_nonordinary_nine.py and two-nonordinary-nine.json/.log were independently recomputed and approved. This is an auxiliary counterexample to the stronger bound, not a counterexample to the posted39-gate claim.
+
+## Replan 3 — 2026-11-24 04:37:54 UTC
+
+- Reviewed the new notes and independent verdicts after23minutes. Exact posted theorem remains open; no valid full-gap counterexample or proof PR exists.
+- Preserve immediately: Ancestry, sharp TwoPairs, full connected rank, and the independently reviewed complete restricted-UNSAT archive. The brief environment transition left the lease timer and files intact; process checks are underway.
+- Continue Fresh's ancestry-only early-common-parent argument and lower's exact connected-circuit bridge. Disconnected2+3 computational UNSAT supports this local route but does not replace Lean coverage of all patterns.
+- Keep a separate global route: fixed-DAG collective avoidance is mathematically established, while the graph-rank/uncrossing count remains a conjecture. Pure65-row, individual-bypass and abstract-subspace shortcuts are disproved. Formal will test the real graph statement; toolchain will formalize its semantic bridge.
+- Launch the reviewed abnormal full-band query after the current build, using the solver slot freed by restricted UNSAT. Let existing long queries reach their budgets. Prepare a general five-output/nine-internal query with the checked last-three guard, independently review it, then consider it for the next freed slot.
+- The main4041-line file still has only partial results. Do not rerun the expensive full checker before the exact theorem exists. Maintain one build/encoder admission and immediate reviewed pushes.
+- Next strategy review:05:02UTC. Overall approximate deadline:07:28UTC.
+
+## 2026-11-24T04:40:21.115087+00:00 — lower_bound: circuit bridge validation interrupted by environment transition
+
+ConnectedCircuit.lean is the exact unchanged FiveOwned standalone followed by the reviewed connected-rank fragments and a new124-line bridge. It proves a direct ten-gate lower bound for connected five band-correct OR pairs and strengthens the eight-ordinary reduction with disconnectedness, without parent canonicalization. The first build session became unavailable during the environment transition; explicit process inspection found no remaining compiler, and the complete preserved log has31 existing warnings and no errors. The exit status was not delivered, so no compilation success is claimed yet. Root was asked to renew before an unchanged-source validation retry using a new complete log and durable exit-status file. Replan3 and the latest lemma index were reread.
+
+## 2026-11-24 04:40:29 UTC — special_status: connected, ancestry, search and preservation reviews
+
+Approved ConnectedDouble.lean, SHA25663b26eb04d4346a68689dd69e9c81756f67043c57b028e12c9c6ffdb0603bc3f,728lines, empty successful log. Exact ConnectedLeaves+231-line Extra. Pencil geometry gives union at least12 in the two-center case; grouped labels have at most2 values, hence rank10. unique_core_rank derives grouping without graph simplicity; connected_rank covers star, two-core and unique-core cases under explicit force equations.
+
+Approved Ancestry.lean (SHAb47f08af28dde41f96a5881d64f6bbb138439a51a17166df7bf8650e7b768356) and TwoPairs.lean (SHA3bea61d4419cb785d60cd0631e99ffacc1e0a3b4d098fe39d0f7e15fa76c58a8), with complete successful logs containing27 and29 harmless warnings respectively. Both exact source compositions were checked. Paid-cut dependence implies prefix-valid ancestry; one merge per gate bounds component deficit. In at most6internals, each nonordinary OR pair uses every generated ancestor and the last gate; the two distinct-target opposite parents must then coincide, contradiction. Prefix corollaries force at least4of5 pairs to use wire19,20or21. No global-upper or first-occurrence premise is added. Fresh's9gate auxiliary was independently recomputed over8192-bit truth tables: both outputs have0band/uppererrors and32globaldifferences, so only the proposed10gate strengthening is refuted.
+
+Approved abnormal OR-sink runner SHA2566b4331c94a2184cd09f409380aaedae1320a01e37d0955d61241d4644c9d047e for preparation. Own-complement signs, at-least8AND threshold, output support indexing and minimum5nonordinary guards are correct;400integrated guard cases agree196accepted/204rejected. Partition is applied AFTER normalization; original abnormality need not persist through all normalization steps. The all-normal normalized class is covered by the complementary normal query.
+
+Independently checked restricted disconnected UNSAT: full solver/progress logs report UNSATexit20 in77seconds; frozen encoder/dependency hashes match. CNF has129309variables and2676975clauses, independently counted with exact maximum variable. RawCNFSHAeeece5579f5229e12082d7a0137a490eea422b5b7f9deb73872fb7dca24bacf0 matches45908886bytes. Complete LRATgzip CRC and decompressed hash match15170664bytes/SHA456609c3b82a7aeb42c1c0f256b9bcf04d721165344fbf0b37ce4fb908c303b9. Approved full20-file/15745532-byte archive0434; all manifest hashes/source copies and both lossless gzip streams verified. No maintained standaloneLRAT replay CLI was found onPATH or bundledLeanbin; CaDiCaLhelp shows internal checking only. Custom RUP-only checker adaptation awaits independent review/resource admission. This remains templateUNSAT, not a Lean theorem or full-gap result.
+
+Reviewed staged Replan3/header/index/timeline: source hashes and mathematical scopes are accurate. Root was notified of the stale04:39 next-review header, to be replaced by05:02. Fixed-DAG collective avoidance is mathematically established but its formal bridge and total graphic count remain distinct pending tasks.

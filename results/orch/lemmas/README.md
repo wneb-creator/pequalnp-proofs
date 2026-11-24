@@ -57,3 +57,6 @@ Put new stable, compiled components here only after review. Work in an individua
 
 - `ConnectedLeaves.lean`: checked/reviewed connected rank bound with at least two core edges.
 - `ConnectedDouble.lean`: checked/reviewed double-star case and full connected parent-graph rank theorem, allowing arbitrary parent indices, loops and repeated pairs. Actual circuit application remains separate. Full logs are the corresponding `connected-*-build-*.log` files in `../validation/`.
+
+- `Ancestry.lean`: checked/reviewed prefix-valid syntactic ancestry and component-label invariant.
+- `TwoPairs.lean`: checked/reviewed impossibility of two distinct nonordinary OR outputs over at most six internals, and at least four of five outputs using one of the last three internals. Full logs: `../validation/ancestry-build-002.log` and `../validation/two-pairs-build-002.log`.
