@@ -3,11 +3,19 @@ import Mathlib.Data.Nat.Bitwise
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 2000000 in
 theorem PEqualNP.Outside.R_meta_5112_42
-    (h1 : ∃ gs : List (Bool × Nat × Nat), 1 ≤ gs.length ∧ gs.length ≤ 14 ∧ (List.foldl (fun (xs : List Nat) (g : Bool × Nat × Nat) => xs ++ [if g.1 = true then xs.getD g.2.1 0 ||| xs.getD g.2.2 0 else xs.getD g.2.1 0 &&& xs.getD g.2.2 0]) [251137, 817232, 3224100, 5542026, 11018243, 9060364, 12746800, 10682560, 13370112, 15731712, 15376435, 16403468, 15664064] gs).getD (13 + gs.length - 1) 0 = 4095)
+    (h1 : ∃ gs : List (Bool × Fin 28 × Fin 28), gs.length = 14 ∧ (List.foldl (fun (xs : List Nat) (g : Bool × Fin 28 × Fin 28) => xs ++ [if g.1 = true then xs.getD g.2.1.val 0 ||| xs.getD g.2.2.val 0 else xs.getD g.2.1.val 0 &&& xs.getD g.2.2.val 0]) [251137, 817232, 3224100, 5542026, 11018243, 9060364, 12746800, 10682560, 13370112, 15731712, 15376435, 16403468, 15664064] gs).getD 26 0 = 4095)
     (h2 : ∀ (xs ys : List Nat) (gs : List (Bool × Nat × Nat)) (r s k : Nat), xs.length = ys.length → (∀ i, (xs.getD i 0).testBit r = true → (ys.getD i 0).testBit s = true) → ((List.foldl (fun (xs : List Nat) (g : Bool × Nat × Nat) => xs ++ [if g.1 = true then xs.getD g.2.1 0 ||| xs.getD g.2.2 0 else xs.getD g.2.1 0 &&& xs.getD g.2.2 0]) xs gs).getD k 0).testBit r = true → ((List.foldl (fun (xs : List Nat) (g : Bool × Nat × Nat) => xs ++ [if g.1 = true then xs.getD g.2.1 0 ||| xs.getD g.2.2 0 else xs.getD g.2.1 0 &&& xs.getD g.2.2 0]) ys gs).getD k 0).testBit s = true) :
     ∃ (x1 : List (Bool × ℕ × ℕ)), (1 : ℕ) ≤ x1.length ∧ x1.length ≤ (14 : ℕ) ∧ (List.foldl (fun (x2 : List ℕ) (x3 : Bool × ℕ × ℕ) => x2 ++ [if x3.1 = Bool.true then x2.getD x3.2.1 (0 : ℕ) ||| x2.getD x3.2.2 (0 : ℕ) else x2.getD x3.2.1 (0 : ℕ) &&& x2.getD x3.2.2 (0 : ℕ)]) [(256463372304 : ℕ), (8521482511360 : ℕ), (14003410187716736 : ℕ), (55389823206179104 : ℕ), (155696362464215096 : ℕ), (218994303131713984 : ℕ), (183565875465424384 : ℕ), (229736628136996864 : ℕ), (270286071508729856 : ℕ), (288160007409369088 : ℕ), (192860064594267704 : ℕ), (288166778660192704 : ℕ), (283797140973809664 : ℕ)] x1).getD ((13 : ℕ) + x1.length - (1 : ℕ)) (0 : ℕ) = (1764784 : ℕ) := by
-  obtain ⟨gs, hlo, hhi, hout⟩ := h1
-  refine ⟨gs, hlo, hhi, ?_⟩
+  obtain ⟨fgs, hlen, houtFin⟩ := h1
+  let gs : List (Bool × Nat × Nat) := fgs.map (fun g => (g.1, g.2.1.val, g.2.2.val))
+  have hlenN : gs.length = 14 := by simp only [gs, List.length_map, hlen]
+  have hout : (List.foldl (fun (xs : List Nat) (g : Bool × Nat × Nat) => xs ++
+      [if g.1 = true then xs.getD g.2.1 0 ||| xs.getD g.2.2 0
+       else xs.getD g.2.1 0 &&& xs.getD g.2.2 0])
+      [251137, 817232, 3224100, 5542026, 11018243, 9060364, 12746800, 10682560, 13370112, 15731712, 15376435, 16403468, 15664064]
+      gs).getD (13 + gs.length - 1) 0 = 4095 := by
+    simpa only [gs, List.length_map, List.foldl_map, hlen] using houtFin
+  refine ⟨gs, (by omega), (by omega), ?_⟩
   let original : List Nat := [256463372304, 8521482511360, 14003410187716736, 55389823206179104, 155696362464215096, 218994303131713984, 183565875465424384, 229736628136996864, 270286071508729856, 288160007409369088, 192860064594267704, 288166778660192704, 283797140973809664]
   let compressed : List Nat := [251137, 817232, 3224100, 5542026, 11018243, 9060364, 12746800, 10682560, 13370112, 15731712, 15376435, 16403468, 15664064]
   let step := (fun (xs : List Nat) (g : Bool × Nat × Nat) => xs ++ [if g.1 = true then xs.getD g.2.1 0 ||| xs.getD g.2.2 0 else xs.getD g.2.1 0 &&& xs.getD g.2.2 0])

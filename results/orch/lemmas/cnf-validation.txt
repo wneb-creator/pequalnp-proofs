@@ -1,0 +1,7 @@
+Pinned Lean4.36.0; lake env lean CnfBridge.lean exit0. Full58-rowCNF definitions and generic clause-soundness lemmas compiled. Full circuit-to-CNF assembly pending.
+/tmp/oec/pequalnp-pilot-42/lower_bound/CnfBridge.lean:89:52: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
