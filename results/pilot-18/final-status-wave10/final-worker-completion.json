@@ -1,0 +1,37 @@
+{
+  "utc": "2026-11-24T06:04:09.829301+00:00",
+  "final_worker_launch_pids": [
+    39346,
+    39349,
+    39416,
+    39419
+  ],
+  "process_records": [
+    {
+      "pid": 39346,
+      "ppid": 1,
+      "state": "Zs",
+      "comm": "python3"
+    },
+    {
+      "pid": 39349,
+      "ppid": 1,
+      "state": "Zs",
+      "comm": "python3"
+    },
+    {
+      "pid": 39416,
+      "ppid": 1,
+      "state": "Zs",
+      "comm": "python3"
+    },
+    {
+      "pid": 39419,
+      "ppid": 1,
+      "state": "Zs",
+      "comm": "python3"
+    }
+  ],
+  "remaining_running_final_workers_or_descendants": [],
+  "all_finished_UNKNOWN": true
+}

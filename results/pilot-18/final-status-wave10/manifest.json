@@ -1,0 +1,25 @@
+{
+  "utc": "2026-11-24T06:08:00.736665+00:00",
+  "files": [
+    {
+      "file": "final-worker-completion.json",
+      "bytes": 623,
+      "sha256": "aa49b5b3a151994d4cc856bec70ad420f20be681e3a4946c974a13b52e19a011"
+    },
+    {
+      "file": "final-worker-processes-v2.stdout",
+      "bytes": 5407,
+      "sha256": "4fae96e6bfae256244d77572c2856748eff175e22ea108ed470ed551b4efe19b"
+    },
+    {
+      "file": "final-worker-processes-v2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "status.json",
+      "bytes": 1154,
+      "sha256": "f27ea507e86d5eedaac12ba1b4b5f32ad5e3826720d94237169d74eb50655cbf"
+    }
+  ]
+}

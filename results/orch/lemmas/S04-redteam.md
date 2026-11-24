@@ -1486,3 +1486,103 @@ its frozen historical pending-review archive remains unchanged.
 
 
 05:54 dated addendum: S01 peer review7c6f5bc3390f9ce80c7673ce1e49d0c20233113d13484400991845c208cf7b13 independently passed S04 selected-birth proofs/source and1878stored relations/13146union bounds. No second full absent-position census by S01 is claimed. The historical pending-status archive stays unchanged; receipt and four peer artifacts are in copy-cover-delivery-v1. Stronger independently reviewed S01 copy-cover closure supersedes these weaker supplied-family counts.
+
+
+# S04 extensions review: mathematical/source-audit PASS
+
+Reviewed copy-cover-extensions.md8295b1fd4871c71a3049c9dcb00deeb67f2e9ca063196049ed1b83ec1959b28c,
+pure-copy-assembly-bound.md9511604aa7e0572a736fc7f1c43bafe5ed14b46605f86773b081323a38ddfcda,
+and pure-copy-assembly-slack.md6be6376d9e42cea4d66d27cffe80da85883ccdd9b2407342892fb531aed6093b.
+The accepted scope is the fixed graph and reviewed17-gate productive clean
+prefix, with minimal proper full-cover factors. Mixed k4/k5 remain OPEN.
+No Lean theorem, CNF cut or global/shard refutation is claimed.
+
+The pure bound requires supports of size AT LEAST TWO, not just nonempty,
+when stated abstractly. This is automatic for every actual no-CN support
+here because the fixed graph has minimum degree2. The proof itself invokes
+this guard when excluding redirection to a raw input. Without it, in a graph
+with edge01 and isolated2, the two-gate factor (0 AND1) OR2 has singleton
+support{2}, empty CN and tau=1, contradicting the unqualified k=1 bound3.
+This is a local guard countercontrol, NOT a minimal-product family or a
+counterexample in the actual11-vertex graph. Properness also excludes TRUE;
+empty support is excluded. These guards must accompany a future abstract
+formal statement.
+
+The terminal-minus-one removal is sound. If the chosen max-tau root is
+noncopy, its cone retains all t copies after deleting selected terminals.
+If it is copy, redirecting core copies leaves a gate of the same proper
+support of size>=2, not a raw/constant/AND signal. All supports, productivity
+and joins are unchanged. Since CN is empty, this gate has no AND descendant;
+pruning to all AND ancestors removes it in addition to at least t-1 copies.
+No Boolean equality or minimum-size-circuit assumption is used. For t=0 use
+the basic bound directly.
+
+An equivalent, cleaner simultaneous proof redirects ALL copy ORs in the
+original selected ancestor union. At least t=max residual cover copies go.
+The k distinct incomparable pure supports survive at k distinct noncopy ORs
+outside every AND ancestor cone. The latter subcircuit needs at least |B|
+gates, where B is the unchanged actual birth graph. Hence m>=t+|B|+k.
+H remains contained in B even though positive functions can change under
+support redirection; the edge births themselves were preserved.
+
+With m<=17, at most d=17-t-|B|-k additional ORs exist outside that subcircuit.
+For each chosen support its outside ancestor DAG contains at most d+1 ORs:
+no other chosen pure support can be an ancestor because its OR-only support
+would be contained in this one. A connected binary DAG with l gates has at
+most l+1 distinct boundary sources, even with sharing or repeated operands.
+Thus each output is a union of at most d+2 useful boundary supports. A large
+support in an AND ancestor cone has a unique common owner, and its complete
+owner star lies in B by the first-AND argument. Empty/singleton boundaries
+are admitted without a star requirement. No functional equality of boundary
+signals is needed for this necessary support condition.
+
+The final source bd53508cfdd2cfba0a2de41151227a428e73606906cf76debe0bdcc112949e0f
+handles the dangerous slack distinction correctly. For d=0,1,2 it enumerates
+EXACT B of size17-k-t-d and permits2/3/4 useful leaves. For d>=3 it pads actual
+B to size17-k-t-3 and imposes NO assembly restriction. Every smaller B can be
+padded within the16 ambient edges. It never applies tight two-piece assembly
+to a padded birth graph. The earlier caution about that unsound shortcut is
+retained, and historical relaxed survivors are not claimed as circuits.
+
+Useful-support enumeration is complete; C4-freeness makes the owner unique
+for supports of size>=2. Combinations with replacement enumerate unordered
+useful leaves; the empty leaf pads every smaller number of leaves. Support
+and required-star unions commute. The subset-zeta OR transform therefore
+marks exactly the supports obtainable with the specified leaf allowance for
+each B. The fullgraph tau=7 bound covers every t=0,...,7; admitting tau<=t
+only enlarges the search at the actual maximum-tau level.
+
+The pure finite reduction also safely enlarges minimal families: it admits
+at most k supports, drops distinctness/minimality, groups identical rejection
+sets, and replaces dominated sets only by eligible supersets at the same
+B,t and slack. Union-coverage precheck, maximum-gain pruning, uncovered-row
+branching and memoization are exact for that set-cover relaxation. Timeout
+returns UNKNOWN. Recorded completion includes every required level/subset.
+
+Independent checks do NOT rerun the full pure DFS. They verify all eligible
+pool sizes and8 pure-k4 plus32 pure-k5 levels against independently computed
+residual covers (maximum independent subsets), all binomial subset counts,
+65 useful support types and quick assembly comparisons using separate
+minimum-leaf and union-layer calculations. Recorded runs complete with99117
+and58044 recursive calls respectively; the final pure-k5 run takes15.1425s.
+Its proof/source audit and completion checks, not producer controls alone,
+support acceptance of the pure exclusions. No independent second full pure
+exhaustion is claimed.
+
+For k4/r0, the stored219 orders per112 families were independently audited
+(24528 lower bounds).111 have none feasible. The last family417,560,772,546
+admits only the antichain. Support546 has cost14 and therefore contains all13
+nonselected gates in its cone. The reviewed supported-ancestor condition
+forbids every nonsingleton operand subset of417 or772: their unique owners9
+and5 are in546, while each support intersects546 in only one vertex. Two raw
+singletons cannot assemble these size4/size3 supports. Explicit pair counts
+are0,14,0,14. Thus the last family is excluded without a new liveness/WLOG cut.
+
+Quick historical witnesses have old/strong bounds19/20,18/19 and17/18. The
+last was only a weaker-relaxation survivor and is correctly removed by the
+new bound. No contradiction with the historical records is asserted.
+
+Independent review b3613cd880d5898ff18e5871e2d45dea9bb6fa621de9554bf2f97327ba6ac037;
+source df56e08acb25ec9087a948529b528ad504c7a9cf640650193733b8d6feefbdca.
+Exit0 in0.548s, empty stderr. An initial review-harness syntax error occurred
+before execution; its full source/logs are preserved. No producer was edited.

@@ -1,0 +1,17 @@
+{
+  "status": "PASS_MAIN_ALL_ARCHIVE_PAYLOAD_HASHES",
+  "utc": "2026-11-24T06:03:18.140342+00:00",
+  "checks": [
+    {
+      "archive": "copy-cover-mixed-preservation.tar.gz",
+      "members": 6,
+      "payloads": 5
+    },
+    {
+      "archive": "copy-cover-extension-preservation-v1.tar.gz",
+      "members": 31,
+      "payloads": 30
+    }
+  ],
+  "scope": "Newpurek4/k5+k4r0mathproposalsPENDINGpeerreview; allsevenmixedprobesTIME_LIMIT_UNKNOWN. No whole-shard/Leanclaim."
+}

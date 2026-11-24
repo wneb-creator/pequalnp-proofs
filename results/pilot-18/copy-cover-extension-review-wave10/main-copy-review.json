@@ -1,0 +1,8 @@
+{
+  "status": "PASS_MAIN_ALL_DELIVERY_AND_ARCHIVE_HASHES",
+  "utc": "2026-11-24T06:06:59.232639+00:00",
+  "archive_sha256": "dc4e0372a59073fbb6cbe325dbef3a17db3735ae1f020cd892e0adb2efa7e717",
+  "payloads": 39,
+  "peer_review_sha256": "b3613cd880d5898ff18e5871e2d45dea9bb6fa621de9554bf2f97327ba6ac037",
+  "scope": "PeerPASS math/sourceaudit,112k4r0 recordchecks; pureDFSnotindependentlyrerun. Propercardinality>=2guard. MixedcasesOPEN, noLean/globalclaim."
+}

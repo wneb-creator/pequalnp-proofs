@@ -64,7 +64,7 @@ SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 6 inherited-model agents, ultra effort: structural proof, SAT repairs, finite Lean certificates, CNF red-team review, solver performance, integration review
-TIMING total=341.2 subagents=6
+TIMING total=350.5 subagents=6
 
 Candidate neighborhoods: 144 independently reviewed formulas preserve prefixes
 of exact 22-gate cover constructions and search arbitrary shorter completions.
@@ -172,3 +172,15 @@ This is research mathematics, not a Lean globalrefutation or fullshardcertificat
 Four final600-second construction searches runreviewedlive7/8 andcandidate-only
 rootOR7/8 encodings until06:03UTC. Earliergeneric7/8andtwoannealers allended
 UNKNOWN600; complete logs/source/controls/reviews are preserved inwave9.
+
+Final research status near06:07UTC: allfour last live/rootOR searches ended
+UNKNOWN at600second walllimits, with noSATindication. Complete final logs
+and inputmetadata are in completed-wave10; no finalsearchprocess is running.
+Peerreviewb3613cd passes extensionproof/sourceaudit and112k4/r0records, accepting
+recordedpurek4/r4+k5/r5exclusions withproper|S|>=2guard; completepureDFS was
+not independentlyrerun. Mixedk4/r1..3 andk5/r1..4 remainOPEN; sevenbounded
+mixedprobes allTIME_LIMIT_UNKNOWN. This isnotLean/globalrefutation orshard
+exhaustion. The lastalgebraidentity uses12gadget/22fullgates, not21.
+NamedLean2069lines unchanged; helperbuildPASS, actualpostedchecker
+REJECTED(no-theorem), exit1,79.968637s. NoPR, noacceptedproof, nofinished-proof
+cleanup;2069before/after. Ownleasewillbe releasedout_of_time afterfinalpush.

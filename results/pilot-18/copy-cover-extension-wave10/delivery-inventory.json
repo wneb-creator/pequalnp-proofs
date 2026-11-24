@@ -1,0 +1,45 @@
+{
+  "utc": "2026-11-24T06:03:18.139946+00:00",
+  "copied": [
+    {
+      "file": "copy-cover-extension-preservation-handoff.json",
+      "bytes": 849,
+      "sha256": "a29cb0d7715b2696e3d49a9ff3a986d6eecc38b65ccbb7d5608e5e19e7a08c90"
+    },
+    {
+      "file": "copy-cover-extension-preservation-v1.tar.gz",
+      "bytes": 362741,
+      "sha256": "22ae80f5dff7f3c1ceede0880e9104be997004fa40133d946bc51b00b767b3eb"
+    },
+    {
+      "file": "copy-cover-extension-preservation.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "copy-cover-extension-preservation.stdout.txt",
+      "bytes": 849,
+      "sha256": "a29cb0d7715b2696e3d49a9ff3a986d6eecc38b65ccbb7d5608e5e19e7a08c90"
+    },
+    {
+      "file": "copy-cover-mixed-handoff.json",
+      "bytes": 1059,
+      "sha256": "18dbc6defdd2307062ac5cf5115535a023ad1f214e70004060524ae5431c33eb"
+    },
+    {
+      "file": "copy-cover-mixed-manifest.json",
+      "bytes": 919,
+      "sha256": "325627d6de5bd6fa949cf5240f743c18f6d9949b8bdd4d28d960214d8ba49a32"
+    },
+    {
+      "file": "copy-cover-mixed-preservation.tar.gz",
+      "bytes": 4125,
+      "sha256": "e4dee7cbf4a6dfe6bb1a18ff7960635bdfb5b79213f4c8b8466ff4173c1824a5"
+    },
+    {
+      "file": "extension-manifest.json",
+      "bytes": 5558,
+      "sha256": "1400469d5fecaa7822773a4cba0474052c9360122ad86e83ae688ecedba93e52"
+    }
+  ]
+}

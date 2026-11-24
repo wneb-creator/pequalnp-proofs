@@ -1,0 +1,32 @@
+{
+  "verdict": "PRESERVATION_HASH_PASS",
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-mixed-preservation.tar.gz",
+  "sha256": "e4dee7cbf4a6dfe6bb1a18ff7960635bdfb5b79213f4c8b8466ff4173c1824a5",
+  "files": [
+    {
+      "path": "probe_copy_cover_mixed.py",
+      "sha256": "2c283828007cd823a5085e1b79f8622c224e9d898b3602b7299ff74fefb080dc",
+      "bytes": 5315
+    },
+    {
+      "path": "mixed-copy-cover-relaxation.md",
+      "sha256": "47157288ba8f8706fff6d22f269b633f72e594a5c8a15584d6cd64f0f1bcb574",
+      "bytes": 1852
+    },
+    {
+      "path": "copy-cover-mixed-extension.json",
+      "sha256": "88821df12f1259baa5eb1cca9b02c9baadb946e75167fcfc5a92c0743023b650",
+      "bytes": 1208
+    },
+    {
+      "path": "copy-cover-mixed-extension.stdout.txt",
+      "sha256": "ea82a589614c5852e18832de96e3e275aa3d29e2467f06aa25a14de5d0e0764c",
+      "bytes": 581
+    },
+    {
+      "path": "copy-cover-mixed-extension.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ]
+}

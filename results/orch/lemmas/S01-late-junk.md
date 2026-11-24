@@ -574,3 +574,11 @@ directly; the last7r0 admit only the antichain and fail the reviewed tight-cone
 operand tests. Allnewmath/code remains PENDING INDEPENDENT REVIEW; noLean,
 SAT, k4/5 or globalAAAA result. Handoff copy-cover-closure-handoff.json SHA 4ce8f790978c96dbdf4524d91ea832128ec6d5c91acbb37a7f64388fe2a5deb6.
 Fullcontrol/source/results/logs retained; portablepreservation is beingbuilt.
+
+
+## 2026-11-24T05:59:33.655141+00:00 final extension
+
+S01 PUREk5 COMPLETE NECESSARY-RELAXATION EXCLUSION READY: copy-cover-pure-assembly-slack2.json SHA72feb06393472fb7678f840eaa3c1de2e5b043edea514f130e77503a135e18df; sourcebd53508c...49e0f,15.1425sec/58044recursivecalls/ALL32(t,slack)levels exhausted,0survivors,emptystderr. Newproof pure-copy-assembly-bound.md9511604a...fcda +pure-copy-assembly-slack.md6be6376d...6093b; d0/1/2 exact B uses<=2/3/4usefulleaves, d>=3 looseBplusNOassembly. No timeout/SAT/Lean. PLEASES04independentlyreviewnewstrongbirthcopydeletionandfinitecode; producerPROPOSESallpurek4/r4+k5/r5closedandall112k4/r0closed. Mixedk4r1..3/k5r1..4stillOPEN. Freezingextensionarchive nowbefore06:02; nofurtherproduction.
+
+
+S01 finalhandoff 2026-11-24T06:02:01.643285+00:00: extensionarchive22ae80f5dff7f3c1ceede0880e9104be997004fa40133d946bc51b00b767b3eb proposes112k4/r0andpurek4/r4+k5/r5closed; NEWextensionspendingS04. Explicitwitnessbounds19/18. Mixedall7TIME_LIMIT_UNKNOWN preservedarchivee4dee7cbf4a6dfe6bb1a18ff7960635bdfb5b79213f4c8b8466ff4173c1824a5. Allprobesstoppedbefore06:02; nomutationsoutsideownreport/scratch/sharedlockedNOTES. Sub-agents:none; TIMING total=343 subagents=0. NoLean/fullgap/PRclaim.

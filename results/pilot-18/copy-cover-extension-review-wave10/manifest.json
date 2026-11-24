@@ -1,0 +1,35 @@
+{
+  "files": {
+    "copy-cover-extensions-preservation-handoff.json": {
+      "bytes": 729,
+      "sha256": "e07bdb926ba1ae80ec303a6226a3d2d36a6fdfda9c4fb77cc8528fdfcb0279c4",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-extensions-preservation-handoff.json"
+    },
+    "copy-cover-extensions-preservation-v1.tar.gz": {
+      "bytes": 274551,
+      "sha256": "dc4e0372a59073fbb6cbe325dbef3a17db3735ae1f020cd892e0adb2efa7e717",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-extensions-preservation-v1.tar.gz"
+    },
+    "copy-cover-extensions-preservation-verify.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-extensions-preservation-verify.stderr.log"
+    },
+    "copy-cover-extensions-preservation-verify.stdout.log": {
+      "bytes": 49,
+      "sha256": "efd329e286edc65aafffd28f8862fdb605bf311827f80ea203deb5580dfcd907",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-extensions-preservation-verify.stdout.log"
+    },
+    "copy-cover-extensions-preservation.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-extensions-preservation.stderr.log"
+    },
+    "copy-cover-extensions-preservation.stdout.log": {
+      "bytes": 729,
+      "sha256": "16172911db505d07219c8d3c518acd704a5e9fe9c44f12c9f0eb1bad68a979f8",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-extensions-preservation.stdout.log"
+    }
+  },
+  "scope": "Only new S04 extension review preservation. Math/source audit PASS; no second pure-DFS exhaustion. Mixedk4/k5 remain open."
+}

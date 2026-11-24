@@ -1,0 +1,155 @@
+{
+  "verdict": "PRESERVED_NEW_EXTENSIONS_PENDING_INDEPENDENT_REVIEW",
+  "files": [
+    {
+      "path": "scratch/orch/S01/copy-cover-extensions.md",
+      "sha256": "8295b1fd4871c71a3049c9dcb00deeb67f2e9ca063196049ed1b83ec1959b28c",
+      "bytes": 4893
+    },
+    {
+      "path": "scratch/orch/S01/pure-copy-assembly-bound.md",
+      "sha256": "9511604aa7e0572a736fc7f1c43bafe5ed14b46605f86773b081323a38ddfcda",
+      "bytes": 2377
+    },
+    {
+      "path": "scratch/orch/S01/pure-copy-assembly-slack.md",
+      "sha256": "6be6376d9e42cea4d66d27cffe80da85883ccdd9b2407342892fb531aed6093b",
+      "bytes": 2394
+    },
+    {
+      "path": "scratch/orch/S01/extend_copy_cover.py",
+      "sha256": "3d3d1edbf3db6a997ee0abf5d245f2456991c15f5891c648f3570021e5421f4b",
+      "bytes": 8536
+    },
+    {
+      "path": "scratch/orch/S01/extend_copy_cover_strong_pure.py",
+      "sha256": "825460e6d88061a0003e8c465a3ef1e8725d17ce545ffd9ee7bddf83b2955c01",
+      "bytes": 8626
+    },
+    {
+      "path": "scratch/orch/S01/probe_pure_copy_assembly.py",
+      "sha256": "7dd80b04a6308097d78c0b7cabf3d9c6d8b11aea04bdbb9823ff566e7510e0a8",
+      "bytes": 5875
+    },
+    {
+      "path": "scratch/orch/S01/probe_pure_copy_assembly_slack2.py",
+      "sha256": "bd53508cfdd2cfba0a2de41151227a428e73606906cf76debe0bdcc112949e0f",
+      "bytes": 6184
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-four-extension.json",
+      "sha256": "3a29613ff5e86b5da22cc3c1f04f888e785441872ed20f2fda5fe7dad666f436",
+      "bytes": 10420419
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-pure-extension.json",
+      "sha256": "f5f450d5cc687fd8ec67bacd78763aaba5a01514a7d82d76efe0fe242f80be20",
+      "bytes": 4195
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-strong-four-extension.json",
+      "sha256": "00c08b096b5c67d226a0f71301e8da686825d85cc3b1faa9dc1b393a1b8f7590",
+      "bytes": 10420419
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-strong-pure-extension.json",
+      "sha256": "aa0fdb4f0d2c1a10889f5bc5ee8719087e3e19699e180a55f1e332b7004e598c",
+      "bytes": 4453
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-pure-assembly.json",
+      "sha256": "8db1bb8339eec114affa0208115074fcf47181259f6e58bcd884cd735d376c54",
+      "bytes": 3737
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-pure-assembly-slack2.json",
+      "sha256": "72feb06393472fb7678f840eaa3c1de2e5b043edea514f130e77503a135e18df",
+      "bytes": 6911
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-extension.stdout.txt",
+      "sha256": "389b5e341144eadce9a1b91348c443ccff3f527c755a20d9381b1b3f66dc6b9a",
+      "bytes": 2328
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-extension.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-strong-extension.stdout.txt",
+      "sha256": "1a67cc5038731e73d6c1c0644dfa8f2b239e17e6044bbd209346c8b231a2e6ae",
+      "bytes": 2440
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-strong-extension.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-pure-assembly.stdout.txt",
+      "sha256": "4a8514e55de5273810e1f7da0843c276d2c8e18f38a8c3569a9234722edebd8f",
+      "bytes": 2281
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-pure-assembly.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-pure-assembly-slack2.stdout.txt",
+      "sha256": "da432f24432194336fc3f573aed229a2911e6c7990739af434cb8675f3707432",
+      "bytes": 4425
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-pure-assembly-slack2.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "scratch/orch/S01/two-spare-forest-filter.json",
+      "sha256": "ed1f80054ef9cbd0e6803fbf0dc934fffb689f4c2e724d90116333d44dda28a4",
+      "bytes": 150639
+    },
+    {
+      "path": "scratch/orch/S01/support-copy-cover-bound.md",
+      "sha256": "415f845c6add7f6ec9ef00ad2512517c0ff59696a92ed23e5a14f4547fcaeb7d",
+      "bytes": 8119
+    },
+    {
+      "path": "scratch/orch/S01/support-copy-terminal-charge.md",
+      "sha256": "cae2a38ed701f38a5669fb4dd08cd33873a2ce6ba35535c3507aa035df4c89a2",
+      "bytes": 3407
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-closure-handoff.json",
+      "sha256": "4ce8f790978c96dbdf4524d91ea832128ec6d5c91acbb37a7f64388fe2a5deb6",
+      "bytes": 3520
+    },
+    {
+      "path": "scratch/orch/S01/copy-cover-preservation-handoff.json",
+      "sha256": "5478ee3812a9de2eb67a0d8d7b4753ec8f4ab843e141a7f59fdde5b0cbcdf84e",
+      "bytes": 2188
+    },
+    {
+      "path": "scratch/orch/S01/preserve_copy_extensions.py",
+      "sha256": "fc74e75156978eee0a681cc56ddabe1ecfc46eb6df164c61d6f82a9b2a3aad6a",
+      "bytes": 4834
+    },
+    {
+      "path": "scratch/orch/S04/copy-cover-math-review.md",
+      "sha256": "48835f853cf34b3d0ae4764139a69572de1b79d8b30a00d6bd69cd7af6f6e2eb",
+      "bytes": 6622
+    },
+    {
+      "path": "scratch/orch/S04/copy-cover-closure-review.json",
+      "sha256": "a598a661731287f9c3a3b586fc594484464ce60d2a92b6e197e070e1536feff6",
+      "bytes": 1836931
+    },
+    {
+      "path": "README.md",
+      "sha256": "9ddff1435bae03a349bfa4ca24ad8d7a643941f65d7ea0719f47adf8446c4173",
+      "bytes": 1401
+    }
+  ]
+}

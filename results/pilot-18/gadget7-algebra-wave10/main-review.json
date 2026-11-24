@@ -1,0 +1,9 @@
+{
+  "status": "PASS_MAIN_INDEPENDENT_768_ALGEBRA_CHECKS",
+  "utc": "2026-11-24T06:05:37.462700+00:00",
+  "handoff_sha256": "16fecfbd1237b1b14e6a0d9a2297fd196cfacf425c26294563a62d028f2a6f8e",
+  "input_permutation_checks": 768,
+  "local_gates": 12,
+  "full_extension_gates": 22,
+  "scope": "Exact12gatelocalidentity only; no11gadget/21fullwitness orLeanclaim."
+}

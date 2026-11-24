@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-24T05:53:05.539562+00:00",
+  "pid": 39419,
+  "command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat_only_gadget_kissat.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S02/gadget-live-rootor-v1/gadget8-generic12-live-rootor.cnf",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-rootor-gadget8-600-v1",
+    "--gadget",
+    "8",
+    "--cnf-sha256",
+    "fd93e97cb5a45e8bb71f4f926aee78a901ca5e5f7688051e4680b9cac49dc531",
+    "--metadata-sha256",
+    "bd1ab1cd5b04dcc7da5599a989cb0768ce6c3039274e0444dff90f6dcc3be022",
+    "--solver-seconds",
+    "600",
+    "--abort-file",
+    "/tmp/oec/pequalnp-pilot-18/DESK_ERROR.response"
+  ],
+  "S06_review_sha256": "0c9d2cc855a20e2015d342d26859ef7083a271644f901b825a82db6258cf1354",
+  "main_review_sha256": "2ce5bbbeebc5c225a14313f1adc27ff56f284b0263d16c76f90744bb6bb868e2",
+  "scope": "Candidate-only rootORrestriction. EveryUNSATuncertifiedUNKNOWN; no globalgapclaim."
+}

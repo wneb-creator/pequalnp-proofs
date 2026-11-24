@@ -1,0 +1,10 @@
+{
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-extensions-preservation-v1.tar.gz",
+  "archive_sha256": "dc4e0372a59073fbb6cbe325dbef3a17db3735ae1f020cd892e0adb2efa7e717",
+  "archive_bytes": 274551,
+  "regular_members": 40,
+  "manifest_sha256": "9a697d7881f90db01e0f6ce719f8fc80642828e2494fb16a758ef81c32a1bcec",
+  "review_sha256": "b3613cd880d5898ff18e5871e2d45dea9bb6fa621de9554bf2f97327ba6ac037",
+  "source_sha256": "df56e08acb25ec9087a948529b528ad504c7a9cf640650193733b8d6feefbdca",
+  "scope": "PASS extension math/source audit;112k4r0 directrecord checks; purek4r4/purek5r5 recordedcompleteexclusions accepted without duplicatepureDFS. Proper|S|>=2 guard explicit. Mixedk4/k5 OPEN; noCNF/Lean/globalclaim."
+}

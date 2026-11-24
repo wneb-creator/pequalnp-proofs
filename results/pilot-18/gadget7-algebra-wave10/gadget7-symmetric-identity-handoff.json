@@ -1,0 +1,21 @@
+{
+  "status": "SIMPLE_ALGEBRA_12_GATES_ONLY",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7_symmetric_identity.py",
+      "sha256": "15d91275d0ac0cc0647da15a4fcf4ad44282c4331cd6384af5fa5fd800bc5fc6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-symmetric-identity-result.json",
+      "sha256": "e3da35605c57c7d05f19e9fd7503712505b722d5ee5af23caa1be7c38ced482d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-symmetric-identity.stdout",
+      "sha256": "dc87c3840cf82e922f55c5aafaaa47421e59a5a5a67d0e34154d9fc6dc7571fe"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-symmetric-identity.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

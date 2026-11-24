@@ -1,0 +1,76 @@
+{
+  "SAT_indication": false,
+  "accepted_CNF_UNSAT": false,
+  "cnf_sha256": "41d9653eb06d023d91e332beb083fc76d66433c297fee8c9c4aebe6a9c09ef30",
+  "exit_code": 2,
+  "finished_utc": "2026-11-24T06:02:00.672571+00:00",
+  "gadget": 8,
+  "limits": {
+    "active_children_at_most": 1,
+    "address_space_mib": 1536,
+    "log_bytes_per_file": 67108864,
+    "min_free_bytes": 268435456,
+    "solver_wall_seconds": 600.0,
+    "validator_wall_seconds": 30
+  },
+  "logs": {
+    "solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "solver.stdout": {
+      "bytes": 115209,
+      "sha256": "e6ac737810172ac7da2706ad3f5e99d938dac7adc40a34126dc720f5073c1c2e"
+    }
+  },
+  "metadata_sha256": "c91c7e045e51024d69a2bd1e846de5bd54f897fd25e689871cb56f307eb9044f",
+  "phases": {
+    "solver": {
+      "address_space_mib": 1536,
+      "child_system_cpu_seconds": 2.578907,
+      "child_user_cpu_seconds": 561.074607,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--sat",
+        "--no-color",
+        "--statistics",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-live-gadget8-600-v1/instance.cnf"
+      ],
+      "elapsed_seconds": 599.008318,
+      "exit_code": -15,
+      "finished_utc": "2026-11-24T06:02:00.666949+00:00",
+      "pid": 39350,
+      "reason": "wall_time_limit",
+      "sampled_peak_rss_kib": 55516,
+      "started_utc": "2026-11-24T05:52:01.658667+00:00",
+      "wall_limit_seconds": 600.0
+    }
+  },
+  "pins": {
+    "lifecycle": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S06/offline_checked_cadical.py",
+      "sha256": "aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a"
+    },
+    "runner": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S06/sat_only_gadget_kissat.py",
+      "sha256": "fd05c03210c7d815ec81f0f3a292ef5d7eeb92f4380c8f4c5fde18d10aaa6bcd"
+    },
+    "solver": {
+      "path": "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+      "sha256": "21da5d984e38b74f620f14c62442f834f27b9158decdb722540d97f98aac93a1"
+    },
+    "validator": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S06/validate_gadget8.py",
+      "sha256": "60e877fd3bdb11d134633519482b67ca82478c55a00350e34a935ddd194054cb"
+    }
+  },
+  "proof_generation": false,
+  "reason": "ValueError: solver wall_time_limit",
+  "scope": "Witness search only. No proof generation/checker. Solver UNSAT remains UNCERTIFIED/UNKNOWN and never establishes exhaustion. SAT requires pinned full gadget/full2048 validator and both gate limits. Lean acceptance remains separate.",
+  "solver_verdicts": [],
+  "source_sha256": "fd05c03210c7d815ec81f0f3a292ef5d7eeb92f4380c8f4c5fde18d10aaa6bcd",
+  "started_utc": "2026-11-24T05:52:01.653345+00:00",
+  "state": "FINISHED",
+  "status": "UNKNOWN",
+  "validated_SAT": false
+}

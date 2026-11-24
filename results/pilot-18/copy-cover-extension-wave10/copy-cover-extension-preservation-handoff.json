@@ -1,0 +1,19 @@
+{
+  "verdict": "ARCHIVE_HASH_ROUNDTRIP_PASS_MATH_EXTENSIONS_PENDING_REVIEW",
+  "archive": {
+    "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-extension-preservation-v1.tar.gz",
+    "sha256": "22ae80f5dff7f3c1ceede0880e9104be997004fa40133d946bc51b00b767b3eb",
+    "bytes": 362741
+  },
+  "manifest": {
+    "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-extension-preservation-v1/manifest.json",
+    "sha256": "1400469d5fecaa7822773a4cba0474052c9360122ad86e83ae688ecedba93e52"
+  },
+  "payloads": 30,
+  "regular_members": 31,
+  "prior_archive": {
+    "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-preservation-v1.tar.gz",
+    "sha256": "878a7ddc709da2fa50c969ec00fed9a892ba01ff0185af3c27b497b91d01664d"
+  },
+  "scope": "No whole-shard claim. New k4/r0,purek4,purek5 proposals require independent review; mixedk4/k5 OPEN."
+}
