@@ -1,6 +1,6 @@
-Compiled last-output normalization reduction checkpoint (242 lines).
+Compiled fixed-size reduction checkpoint (294 lines).
 Lean: lake env lean, exit 0, no warnings.
-Independent review and outside format guard: PASS.
-Full local checker: running.
+Full local checker first attempt: CHECKER FAULT, exit137 from cgroup memory limit, no proof verdict.
+Retry preparation in progress.
 Sub-agents: 5 (status/review, toolchain, structural proof, counterexample search, reduction)
-TIMING total=15 subagents=5
+TIMING total=20 subagents=5

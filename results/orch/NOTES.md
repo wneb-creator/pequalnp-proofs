@@ -28,3 +28,14 @@ Reduction agent: 2026-11-24T23:15:40.058472+00:00 exact-arity2 canonicalization:
 Reduction agent: 2026-11-24T23:20:34.462204+00:00 topological exact-arity2 canonicalization: 2000 random legal circuits, 20000 Boolean-input evaluations. Evaluation equality, direct restriction, exact2 pins and each pin<10+i or=24 all pass. Computational sanity check supplements Lean compile, not a proof of either finite lower-bound child.
 
 2026-11-24T23:20:38.943347+00:00 counterexample strategy complete: pair06 exactly-one-NOT search finished1,257,620,000 mutation attempts, best6 erroneous rows; requiring the NOT wire in the output dependency cone finished1,152,620,000 attempts, best10 erroneous rows. No counterexample. Searches omit explicit missing-wire constants, so neither exhaustive nor a complete basis census. One checked component delivered: TightUpper.lean (34 lines,1193 bytes), Lean exit0; source and validation file in scratch counterexample/.
+
+Reduction agent: 2026-11-24T23:24:50.387458+00:00 exhaustive finite canonical circuit checks (0,1,2 gates; exact2 pins; output last; backward pins or24; direct-gate restriction):
+{'pair': (0, 1), 'one_gate_circuits': 201, 'two_gate_circuits': 54270, 'target_matches': 0}
+{'pair': (0, 2), 'one_gate_circuits': 201, 'two_gate_circuits': 54270, 'target_matches': 0}
+{'pair': (0, 3), 'one_gate_circuits': 201, 'two_gate_circuits': 54270, 'target_matches': 0}
+{'pair': (0, 4), 'one_gate_circuits': 201, 'two_gate_circuits': 54270, 'target_matches': 0}
+{'pair': (0, 6), 'one_gate_circuits': 201, 'two_gate_circuits': 54270, 'target_matches': 0}
+{'pair': (4, 6), 'one_gate_circuits': 201, 'two_gate_circuits': 54270, 'target_matches': 0}
+All512 truth-table rows evaluated exactly with Python integer bitsets. This does not prove the14-gate child statements.
+
+2026-11-24T23:30:11.705226+00:00 Reduction strategy completed: fixed14/output23 variant compiles without warnings. Source /tmp/oec/pequalnp-pilot-47/reduction/R_meta_4340_47_fixed.lean,294lines; full saved stdout/stderr fixed-build-002.log (empty), tool exit0. Exact posted conclusion follows from2 finite children: five OR-seed pairs and remaining OR(0,6). Proved primary/missing-output witnesses, tail truncation, OR-copy padding to14, exact2pin normalization, topological pin clamping to sentinel24. No full14gate lower bound claimed. All own Lean processes stopped; root handles checker fault137 and independent prepush review. Cleanup candidate removes unused hcb line,294→293.

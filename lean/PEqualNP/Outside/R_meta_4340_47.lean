@@ -4,14 +4,14 @@ open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
 theorem PEqualNP.Outside.R_meta_4340_47
     (h1 : ∀ p ∈ ([(0,1),(0,2),(0,3),(0,4),(4,6)] : List (Fin 9 × Fin 9)), ∀ C : Circuit,
-      FanInTwo C → C.size ≤ 14 → C.output + 1 = 10 + C.size →
+      FanInTwo C → C.size = 14 → C.output = 23 →
       (∀ i : Fin C.size, let g := C.gates.get i
         g.inputs.length = 2 ∧ ∀ j ∈ g.inputs, j < 10 + i.val ∨ j = 24) →
       (∀ g ∈ C.gates, (∀ j ∈ g.inputs, j < 9) → g.op ≠ .and ∧ g.op ≠ .not) →
       ∃ x : Fin 9 → Bool, C.eval (List.ofFn x ++ [x p.1 || x p.2]) ≠
         (fun (x8 : Fin (9 : ℕ) → Bool) => x8 (0 : Fin (9 : ℕ)) && x8 (1 : Fin (9 : ℕ)) || x8 (1 : Fin (9 : ℕ)) && x8 (2 : Fin (9 : ℕ)) || x8 (2 : Fin (9 : ℕ)) && x8 (3 : Fin (9 : ℕ)) || x8 (3 : Fin (9 : ℕ)) && x8 (4 : Fin (9 : ℕ)) || x8 (4 : Fin (9 : ℕ)) && x8 (0 : Fin (9 : ℕ)) || x8 (0 : Fin (9 : ℕ)) && x8 (5 : Fin (9 : ℕ)) || x8 (1 : Fin (9 : ℕ)) && x8 (6 : Fin (9 : ℕ)) || x8 (2 : Fin (9 : ℕ)) && x8 (7 : Fin (9 : ℕ)) || x8 (3 : Fin (9 : ℕ)) && x8 (8 : Fin (9 : ℕ)) || x8 (5 : Fin (9 : ℕ)) && x8 (7 : Fin (9 : ℕ)) || x8 (6 : Fin (9 : ℕ)) && x8 (8 : Fin (9 : ℕ)) || x8 (8 : Fin (9 : ℕ)) && x8 (5 : Fin (9 : ℕ))) x)
     (h2 : ∀ p ∈ ([(0,6)] : List (Fin 9 × Fin 9)), ∀ C : Circuit,
-      FanInTwo C → C.size ≤ 14 → C.output + 1 = 10 + C.size →
+      FanInTwo C → C.size = 14 → C.output = 23 →
       (∀ i : Fin C.size, let g := C.gates.get i
         g.inputs.length = 2 ∧ ∀ j ∈ g.inputs, j < 10 + i.val ∨ j = 24) →
       (∀ g ∈ C.gates, (∀ j ∈ g.inputs, j < 9) → g.op ≠ .and ∧ g.op ≠ .not) →
@@ -22,7 +22,7 @@ theorem PEqualNP.Outside.R_meta_4340_47
   let f : (Fin 9 → Bool) → Bool := (fun (x8 : Fin (9 : ℕ) → Bool) => x8 (0 : Fin (9 : ℕ)) && x8 (1 : Fin (9 : ℕ)) || x8 (1 : Fin (9 : ℕ)) && x8 (2 : Fin (9 : ℕ)) || x8 (2 : Fin (9 : ℕ)) && x8 (3 : Fin (9 : ℕ)) || x8 (3 : Fin (9 : ℕ)) && x8 (4 : Fin (9 : ℕ)) || x8 (4 : Fin (9 : ℕ)) && x8 (0 : Fin (9 : ℕ)) || x8 (0 : Fin (9 : ℕ)) && x8 (5 : Fin (9 : ℕ)) || x8 (1 : Fin (9 : ℕ)) && x8 (6 : Fin (9 : ℕ)) || x8 (2 : Fin (9 : ℕ)) && x8 (7 : Fin (9 : ℕ)) || x8 (3 : Fin (9 : ℕ)) && x8 (8 : Fin (9 : ℕ)) || x8 (5 : Fin (9 : ℕ)) && x8 (7 : Fin (9 : ℕ)) || x8 (6 : Fin (9 : ℕ)) && x8 (8 : Fin (9 : ℕ)) || x8 (8 : Fin (9 : ℕ)) && x8 (5 : Fin (9 : ℕ)))
   have core (C : Circuit) (hfan : FanInTwo C) (hsize : C.size ≤ 14)
       (hdir : ∀ g ∈ C.gates, (∀ j ∈ g.inputs, j < 9) → g.op ≠ .and ∧ g.op ≠ .not)
-      (houtput : C.output + 1 = 10 + C.size) :
+      (houtput : C.output + 1 = 10 + C.size) (hfixed : C.size = 14) :
       ∃ x : Fin 9 → Bool, C.eval (List.ofFn x ++ [x p.1 || x p.2]) ≠ f x := by
     let cg : ℕ → Gate → Gate := fun n g => ⟨g.op,
       [if g.inputs.getD 0 24 < n then g.inputs.getD 0 24 else 24,
@@ -142,12 +142,12 @@ theorem PEqualNP.Outside.R_meta_4340_47
       simp only [List.length_append, List.length_ofFn, List.length_singleton] at hf
       rw [hf]
       exact hmin _ (by rw [hlen]; exact hw) C.output
-    have hsmall : D.size ≤ 14 := by omega
+    have hsmall : D.size = 14 := hDsize.trans hfixed
     have hcb : C.output ≤ 24 := by omega
-    have hout : D.output + 1 = 10 + D.size := by
-      change min C.output 24 + 1 = 10 + D.size
-      rw [min_eq_left hcb, hDsize]
-      exact houtput
+    have hout : D.output = 23 := by
+      change min C.output 24 = 23
+      have hc : C.output = 23 := by omega
+      simp [hc]
     have hp' : p ∈ ([(0,1),(0,2),(0,3),(0,4),(4,6)] : List (Fin 9 × Fin 9)) ∨
         p ∈ ([(0,6)] : List (Fin 9 × Fin 9)) := by
       simp only [List.mem_cons, List.mem_nil_iff, or_false] at hp ⊢
@@ -238,5 +238,57 @@ theorem PEqualNP.Outside.R_meta_4340_47
     simp only [List.length_append, List.length_ofFn, List.length_singleton,
       List.length_take, min_eq_left hm]
     omega
-  obtain ⟨x, hx⟩ := core E hEfan hEsize hEdir hElast
-  exact ⟨x, by simpa only [hEval] using hx⟩
+  let pad : Gate := ⟨.or, [E.output, E.output]⟩
+  let r := 14 - E.size
+  let F : Circuit := ⟨E.gates ++ List.replicate r pad, 23⟩
+  have hFsize : F.size = 14 := by
+    change (E.gates ++ List.replicate r pad).length = 14
+    rw [List.length_append, List.length_replicate]
+    change E.size + (14 - E.size) = 14
+    omega
+  have hFfan : FanInTwo F := by
+    intro g hg
+    rcases List.mem_append.mp hg with hg | hg
+    · exact hEfan g hg
+    · have hg' : g = pad := List.eq_of_mem_replicate hg
+      subst g
+      simp [pad]
+  have hFdir : ∀ g ∈ F.gates, (∀ j ∈ g.inputs, j < 9) → g.op ≠ .and ∧ g.op ≠ .not := by
+    intro g hg hj
+    rcases List.mem_append.mp hg with hg | hg
+    · exact hEdir g hg hj
+    · have hg' : g = pad := List.eq_of_mem_replicate hg
+      subst g
+      simp [pad]
+  have hFlast : F.output + 1 = 10 + F.size := by
+    change 24 = 10 + F.size
+    omega
+  have hpad (n : ℕ) (w : List Bool) (hw : E.output < w.length) :
+      ((List.replicate n pad).foldl (fun w g =>
+        w ++ [g.op.eval (g.inputs.map (fun j => w.getD j false))]) w) =
+      w ++ List.replicate n (w.getD E.output false) := by
+    induction n generalizing w with
+    | zero => simp
+    | succ n ih =>
+      rw [List.replicate_succ, List.foldl_cons]
+      have hv : pad.op.eval (pad.inputs.map (fun j => w.getD j false)) = w.getD E.output false := by
+        simp [pad, GateOp.eval]
+      rw [hv, ih _ (by simp; omega)]
+      rw [List.getD_append _ _ _ _ hw]
+      simp [List.replicate_succ, List.append_assoc]
+  have hFval (x : Fin 9 → Bool) :
+      F.eval (List.ofFn x ++ [x p.1 || x p.2]) = E.eval (List.ofFn x ++ [x p.1 || x p.2]) := by
+    have hwl : (E.gates.foldl (fun w g =>
+        w ++ [g.op.eval (g.inputs.map (fun j => w.getD j false))])
+        (List.ofFn x ++ [x p.1 || x p.2])).length = 10 + E.size := by
+      rw [hlen]
+      simp [Circuit.size]
+    simp only [Circuit.eval, Circuit.wires, F]
+    rw [List.foldl_append, hpad _ _ (by rw [hwl]; omega)]
+    by_cases hz : E.size = 14
+    · have hout : E.output = 23 := by omega
+      simp only [r, hz, Nat.sub_self, List.replicate_zero, List.append_nil, hout]
+    · rw [List.getD_append_right _ _ _ _ (by rw [hwl]; omega)]
+      exact List.getD_replicate _ (by dsimp [r]; rw [hwl]; omega)
+  obtain ⟨x, hx⟩ := core F hFfan hFsize.le hFdir hFlast hFsize
+  exact ⟨x, by simpa only [hFval, hEval] using hx⟩
