@@ -1,0 +1,1 @@
+{"variables": 3916, "clauses": 92671, "case": "plane_local", "gates": 18, "tests": 32, "metadata": {"points": [2, 3, 8, 15], "groups": [[9, [22]], [3, [23]], [2, [24, 31]], [4, [25, 34]], [5, [28]], [6, [29]], [1, [30, 40]], [8, [32, 35]], [12, [36]], [10, [41]]], "outside_or_cost": 4, "standard_core": 19, "first_pair_orbits": 10}}

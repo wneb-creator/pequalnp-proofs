@@ -1,0 +1,10 @@
+2026-11-24T11:58:16.425948+00:00
+PROVISIONAL SOURCE/MATHEMATICAL REVIEW ONLY — UNCOMPILED
+Draft: results/orch/assembly/UniqueAnyCenterPlaneWrapper.lean
+SHA256d8efdd874ff0a3eacbaf0a83e10a187d0998d2adcb3fe9e80d815f3f729d8137;107lines. No Lean build was run or claimed for this wrapper. Its generic backend UniqueAnyProductBudgetWork was not compiled when this review began; future compilation of the backend alone does not compile this wrapper.
+
+The visible composition is mathematically consistent with its explicit premises. Oriented pure-product semantics and disjointness are transported through Fin2 operand permutations. If no productive joint exists, the checked minimum-junk effective-center bound contradicts the target product's singleton clean-center set. Actual UniqueCenterActual connector exclusion supplies an outside-Lambda OR root. Under size≤124 the checked private-pair theorem gives all-Ustar mask coverage. Each dirty gate has a real clean-top reader by checked FirstLayerReader; the two-distinct-reader bound then discharges the generic reader overhead for any excluded pure cone. The final generic unique/any cost inequality plus105edges and cover≥21 would contradict size≤124.
+
+Premises remain: leastAO, TopForm, global minimum junk, exactly two distinct dirty gates, every dirty operand pure along OR paths, disjoint operand supports, all four supports cardinal≥2, and a unique internal clean center for product0 in the selected side. No arbitrary dirty count, overlap/dependence, singleton-side, or unrestricted posted-gap result is established here. Source hygiene scan clean.
+
+Status: suitable draft for future assembly/type checking; NOT a checked theorem and NOT proof-PR evidence. Preserve explicit UNCOMPILED label in manifests and HANDOFF until the complete assembled wrapper succeeds under Lean.

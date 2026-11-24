@@ -1,0 +1,46 @@
+README.md 598d248524531172a411f1031ada43feddffc3ee7e818d21570f6ed812f00bfb
+Search.py f7f740c1bcd1626062013c6d5a582375ec1b4915cf04ecf8db28a15dad32c2f7
+SearchDirtyCount.py 135115183aea3ea39abe55247dd5e54d2915b59de6cec3ec1277bc221d92b904
+k4private-automorphisms.json 83baf4a06b2a07945f9df5090a30b0a2d69aa8cb1ea33b68b78688642a86bc4b
+k4private-baseline19.json 9825d68cd8e2a888d86ed16959b5bc5b4849086a5e22c81f4de81f7c31538644
+k4private-core.json 7ba7ee1d2f813ae2c760731d9453ec4ffbc5b38a909b349db83b6b5b2c5b2be1
+search-k4private18-and6-generation.log 2e930e20d1ffce82f803ac2c143066c9cf8dfd3ceda697516ac0e01a7286c07c
+search-k4private18-and6-solver.log 3167835bbae83113fd1a0da286538d061aa6bfa6d88548eacba5ed1864607025
+search-k4private18-and6.metadata.json 87508016a221616dae9a63cfe9d64e32bce404b3335dd78170c34a330fb6bbed
+search-k4private18-and7-dirty2-generation.log d3c1c88659c11945ad59298bcd6b987ff1fd7ea027d0116e342b1ed43215468b
+search-k4private18-and7-dirty2-solver.log cfb0259fd6e8505f9893ba32dbd462585a9842fe79f528f2d68ec44bb2b3adc7
+search-k4private18-and7-dirty2.metadata.json 3e519ce23f8352cc0e4eca82bc7e6e90ece23ee3085259a791f3e06a9600237a
+search-k4private18-and8-dirty2-generation.log ae47e7fa8dedbd0052e74504e4063a79d3c02d4733ae27401c5bd9b610a918df
+search-k4private18-and8-dirty2-solver.log 59ac6e06c23ef6f906ff2d63af085949181ff667002744b848f8f92b02b8a1e5
+search-k4private18-and8-dirty2.metadata.json c28ce0212d908f4458dd5ce922c5b70448cba7483e37c887926ccbd147b858b3
+statement.txt d962214a09d1adf8b5837468e4d94e19c895b742875d55870d08ebcd0fe6fda0
+# Final K4-private counted-AND SAT trials
+
+All three trials target the independently audited14input16edge core from global points2,3,8,15 at exactly18gates, on its complete16positive+16maximal-negative basis, with24input automorphisms and ten first-gate pair orbits. They use distinct backward binary fan-ins, every nonfinal gate used, positive-firing/negative-failure pruning, operand incomparability and topological ordering. The fixed AND counts and minimum-dirty requirements are explicit search restrictions, not proven necessary conditions for every raw local circuit.
+
+Completed outcomes:
+- Exactly6AND gates:180second wall cap, UNKNOWN,127.93process seconds.
+- Exactly7AND gates and at least2dirty ANDs:150second cap, UNKNOWN,121.79process seconds.
+- Exactly8AND gates and at least2dirty ANDs:150second cap, UNKNOWN,133.14process seconds.
+
+No model, target witness or UNSAT result was produced. These timeouts establish no lower bound. No additional solver was launched after the8AND trial, reserving memory for final Lean verification. An unpruned query was generated but never run and is not counted as a trial.
+
+Full generation/solver stdout and stderr, exact problem metadata, source and baseline/core/automorphism data are retained. Large generated CNFs/maps are reproducible and omitted. Baseline19 and finite geometry/basis/lift-overhead audit are documented in sibling k4private-search/; the106gate lift cost is computationally audited, but no target18witness or Lean lift is claimed.
+
+With CaDiCaL available on PATH, reproduce the7AND trial from this snapshot directory using separate option/value arguments:
+
+```
+python3 SearchDirtyCount.py --case plane_local --points '2,3,8,15' --statement statement.txt --gates 18 --and-count 7 --min-dirty 2 --first-pair-orbits k4private-automorphisms.json --output /tmp/oec/pequalnp-pilot-29/reproduce-k4private-counted.cnf
+cadical -t 150 /tmp/oec/pequalnp-pilot-29/reproduce-k4private-counted.cnf
+```
+
+Save complete stdout/stderr. The6AND variant uses Search.py, --and-count 6 as separate option/value tokens, no minimum-dirty flag and180seconds; the8AND variant changes 7 to 8. The original executable path under /tmp/oec/pequalnp-pilot-29/lean-4.36.0-linux/bin was current-container-only.
+
+search-k4private18-and6 {'n': 14, 'k': 18, 'edges': [[0, 4], [3, 4], [0, 5], [1, 5], [1, 6], [2, 7], [0, 8], [2, 8], [1, 9], [2, 9], [0, 10], [3, 11], [2, 12], [3, 12], [1, 13], [3, 13]], 'tests': [15, 17, 24, 33, 34, 66, 77, 132, 139, 257, 260, 514, 516, 713, 1025, 1038, 1132, 1418, 2024, 2055, 2056, 3094, 4100, 4104, 6275, 7570, 8194, 8200, 10309, 11380, 15041, 16368], 'metadata': {'points': [2, 3, 8, 15], 'groups': [[9, [22]], [3, [23]], [2, [24, 31]], [4, [25, 34]], [5, [28]], [6, [29]], [1, [30, 40]], [8, [32, 35]], [12, [36]], [10, [41]]], 'outside_or_cost': 4, 'standard_core': 19, 'first_pair_orbits': 10}, 'and_count': 6, 'dirty': False, 'ordering': True, 'pruning': True, 'incomparability': True, 'encoded_variables': 3860}
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+AssertionError: []
+search-k4private18-and6 UNKNOWN comment, exit0, exact metadata verified
+search-k4private18-and7-dirty2 UNKNOWN comment, exit0, exact metadata verified
+search-k4private18-and8-dirty2 UNKNOWN comment, exit0, exact metadata verified
+FINAL PASS16manifest entries; prior harness expected an s-line but CaDiCaL reports UNKNOWN in comments, corrected inspection confirms all three capped trials had no SAT/UNSAT verdict. No source/data changes.

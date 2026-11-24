@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-24T11:52:55.024685+00:00",
+  "manifest_sha256": "67b1ff7b7b2321e13e96e4c4d28e1b9df51a70fc09f22c34463ea55d4afa746a",
+  "snapshots": 5,
+  "packages": 3,
+  "unique_hashed_paths": 66,
+  "issues": [],
+  "verdict": "PASS",
+  "scope": "Final preservation evidence/hash/format audit; mathematical reviews remain named independent reviewers. HANDOFF latest scope fixes included."
+}

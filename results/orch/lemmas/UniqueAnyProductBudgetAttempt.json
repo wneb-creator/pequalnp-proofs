@@ -1,0 +1,28 @@
+{
+  "status": "CHECKED: corrected source compiled successfully in author attempt002",
+  "source": "results/orch/lemmas/UniqueAnyProductBudgetWork.lean",
+  "source_sha256": "92a54582f63794dfb2aaf764b8a74b7fd5e690b4f9a293bf9c276512da429e33",
+  "author_attempt_001": {
+    "exit_code": 1,
+    "full_log": "/tmp/oec/pequalnp-pilot-29/unique-any-product-budget-build-001.log",
+    "log_sha256": "a795203f5ee7c082e40fbd2448c6a7178cd3055aaf6553704113ae36e08a224a",
+    "errors": "Three Fin2-indexed conditional simplification mismatches. Corrected by explicit change at hr in the two fin_cases branches; corrected source has not yet been recompiled."
+  },
+  "checked_dependencies": [
+    "UniqueProductBudget.lean",
+    "MaskReaderRefund.lean",
+    "AllCentersReaderRefund.lean"
+  ],
+  "last_update_utc": "2026-11-24T12:00:52.919542+00:00",
+  "final_compiled_file": {
+    "path": "results/orch/lemmas/UniqueAnyProductBudget.lean",
+    "sha256": "92a54582f63794dfb2aaf764b8a74b7fd5e690b4f9a293bf9c276512da429e33",
+    "lines": 9272,
+    "bytes": 460043
+  },
+  "author_attempt_002": {
+    "exit_code": 0,
+    "full_log": "/tmp/oec/pequalnp-pilot-29/unique-any-product-budget-build-002.log",
+    "log_sha256": "89cd54fafed768df554db98bf52ed0cedeb6ac130b938371ed54fe33a9a7688f"
+  }
+}

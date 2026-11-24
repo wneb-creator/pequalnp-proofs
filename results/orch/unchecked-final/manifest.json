@@ -1,0 +1,47 @@
+{
+  "status": "UNCHECKED actual one/any plane wrapper; no successful combined Lean build",
+  "frozen_utc": "2026-11-24T12:02:03.353299+00:00",
+  "author": "structural_lower_bound",
+  "source_original": "results/orch/assembly/UniqueAnyCenterPlaneWrapper.lean",
+  "source_sha256": "d8efdd874ff0a3eacbaf0a83e10a187d0998d2adcb3fe9e80d815f3f729d8137",
+  "provisional_source_reviewer": "gate_invariants",
+  "dependencies": [
+    {
+      "path": "results/orch/lemmas/PlaneTwoJunkPrivate.lean",
+      "sha256": "23c37958d3660f05d2c98d94ea12d55e4bbc4caa5c3a6023e3498b2875b997b2"
+    },
+    {
+      "path": "results/orch/lemmas/UniqueCenterActual.lean",
+      "sha256": "2bcd0b0667c187830e919a17669b6dd9708164204f86c14e3e0d239a696eb8b3"
+    },
+    {
+      "path": "results/orch/lemmas/FirstLayerTwoCenters.lean",
+      "sha256": "c3f7a73cfab134d0fe89c810d962079850c21bd3fcda7e5a997c6b3385e1cc7b"
+    },
+    {
+      "path": "results/orch/lemmas/FirstLayerReader.lean",
+      "sha256": "57e4373519f908afb588c7d7df109a403773014b83d3b2c567b827cabfef5b99"
+    },
+    {
+      "path": "results/orch/lemmas/UniqueAnyProductBudget.lean",
+      "sha256": "92a54582f63794dfb2aaf764b8a74b7fd5e690b4f9a293bf9c276512da429e33"
+    }
+  ],
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "b4f9c56548bc04a6a1eacac0e0dea896d55c85599c4d7be343f749d8ad743db2",
+      "bytes": 1846
+    },
+    {
+      "file": "UniqueAnyCenterPlaneWrapper.lean",
+      "sha256": "d8efdd874ff0a3eacbaf0a83e10a187d0998d2adcb3fe9e80d815f3f729d8137",
+      "bytes": 6240
+    },
+    {
+      "file": "review-unique-any-plane-draft-gate-invariants.log",
+      "sha256": "b0986e2491e8581b7afbf0dcdd226b1376d3839ce62924a289d5511d4de0dd7a",
+      "bytes": 1838
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+2026-11-24T11:55:48.873796+00:00
+Final named-partial independent audit (current checker outcome recorded exactly)
+
+File: lean/PEqualNP/Outside/L_meta_1477.lean
+Before formatting: SHA256 f408091252e506221d0925b5e467731ddaa33f05c40ab20a3bc60931a85e9518; 10143 lines; 470431 bytes.
+After formatting: SHA256 ed19693d5db6a6eb7fab5296b0fe0c79402e35673f3fd08d7b7b444d1f98c739; 10145 lines; 470482 bytes.
+
+Formatting repair: one fully qualified helper oneJunkBound previously stood outside all namespace blocks. Wrapped it in namespace PEqualNP.Outside.L_meta_1477.OneJunk and used its local name. Actual declaration fullname, complete type and proof body preserved. Exact diff saved as named-partial-format.diff; independent root review PASS recorded in review-named-format-root.log. No mathematical change or cleanup claim.
+
+Static source and plain-file hygiene: PASS after repair, apart from the deliberately absent required final theorem. Regular UTF-8 file, not a symlink or executable, below 512KiB. Exactly two imports at the start: Mathlib and PEqualNP.Defs. No later import word. No double quotes, hash commands, forbidden root identifier, sorry/admit/axiom/native_decide/bv_decide, unsafe/opaque declarations, execution/metaprogramming commands, new data types or instance declarations. No attributes. Eight options are solely maxRecDepth/maxHeartbeats numeric declarations with in, immediately serving declarations. All 578 helper declarations lie in matching named allowed namespace blocks; all end commands are named and at column0. Both finite planeEdges definitions contain exactly the same ordered105 edge pairs as statement.txt (statement SHA256 d962214a09d1adf8b5837468e4d94e19c895b742875d55870d08ebcd0fe6fda0). This is a source-level no-new-axiom/bypass audit; absent required theorem means there is no final theorem dependency closure to certify.
+
+Fresh named build command (prepared toolchain): lake build PEqualNP.Outside.L_meta_1477
+Result: EXIT0. Full stdout/stderr named-partial-build-003.log, 636 lines/71574 bytes, SHA25627c0acaf9314959af614e7ee000a01d2dddbc70186af34c94b9dbee25d18be0a. Completion: Build completed successfully (18407 jobs). No Lean errors.
+
+Fresh local checker command: node tools/check-lean.mjs lean/PEqualNP/Outside/L_meta_1477.lean /tmp/oec/pequalnp-pilot-29/statement.txt check
+Latest run002: outer EXIT3, no proof verdict. Complete output:
+CHECKER FAULT: the verifier ended without a verdict (exit 137).
+Full log named-partial-checker-002.log,65 bytes,SHA2560ccc7bb1344550f47fcdaa7d260acc1ec4b93c6a878bbe2e7b978deb503847b7. No rejection or acceptance inferred from the process fault. Root requested one serialized retry after active large proof builds finish; pending. The checker verifier runs outside the queue by its own implementation, so resource pressure is plausible but not conclusively diagnosed.
+
+Historical checker001 (before formatting, unchanged theorem absence): REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_1477 (one lemma, one file: the theorem carries the module's name). Full log148 bytes,SHA2569b18effa1f045d3713e2d6351c644eff63dc2f1666b10c93f1cd212379089279.
+
+Scope verdict: EXACT POSTED THEOREM UNPROVED; NOT A REFUTATION; NO PROOF PR WARRANTED. The final named helper posted_short_circuit_two_junk only constructs an equivalent least-AO TopForm circuit with at least two dirty ANDs from a hypothetical posted short circuit. It does not contradict the existence of that circuit. There is no declaration named exactly PEqualNP.Outside.L_meta_1477. Neither successful compilation nor source-hygiene PASS is an accepted proof of the gap.
+
+HANDOFF scope/status independently reviewed at SHA8b7e43c7e09798bfc2141aa82e8fef6370833dea2ad09ca11f7d7a3bed303dbb; full review-handoff-final-gate-invariants.log records retained restrictions and open cases. New conditional result updates require their own frozen build/review evidence.
+
+2026-11-24T12:02:48.866310+00:00
+FINAL STANDALONE CHECKER RETRY003 COMPLETED: command EXIT1. Same unchanged named source SHAed19693d5db6a6eb7fab5296b0fe0c79402e35673f3fd08d7b7b444d1f98c739. No concurrent proof builds. Full log named-partial-checker-003.log; SHA256 9b18effa1f045d3713e2d6351c644eff63dc2f1666b10c93f1cd212379089279; 148bytes.
+REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_1477 (one lemma, one file: the theorem carries the module's name)
+
+This is a genuine final verifier rejection, distinct from prior002FAULT. The exact posted theorem is absent. Source format repair and lake build003 passed; there is no checker acceptance and no proof PR is warranted. No further checker retry needed.

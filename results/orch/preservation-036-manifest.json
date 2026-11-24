@@ -1,0 +1,626 @@
+{
+  "batch": "036",
+  "created_utc": "2026-11-24T12:03:51.350654+00:00",
+  "base_preservation_commit": "68dede4ef9060e036988fb825bea13302fda26e0",
+  "gap": "L-meta-1477",
+  "status": "PARTIAL RESULTS ONLY; exact posted theorem unproved; no proof PR",
+  "named_file_checker": "Final isolated checker003: EXIT1, REJECTED (no-theorem), full148-byte log preserved. Named build003 EXIT0. Historical checker002 faulted (outer3/verifier137) without a verdict; checker001 was an earlier no-theorem rejection. No exact theorem, refutation or proof PR.",
+  "snapshots": [
+    {
+      "path": "results/orch/lemmas/MaskReaderRefund.lean",
+      "sha256": "263037f1ea88981c138aabcbfaacc1af05a7eae0b42da08c5f9715c246a13ee2",
+      "bytes": 447206,
+      "name": "MaskReaderRefund",
+      "lines": 9037,
+      "author": "normal_form",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/mask-reader-refund-build-001.log",
+        "sha256": "3402e4a4ad1f8c3095f4e75fe12d7587ff2707edc39bd4a050baf271dee56031",
+        "bytes": 20079
+      },
+      "review_log": {
+        "path": "results/orch/review-mask-reader-refund-lean-setup.log",
+        "sha256": "dddb72d41ff567a752bd0a7379aee8743aa5348e594bc5aa33fb13b7ccbe02d8",
+        "bytes": 695
+      },
+      "reviewer": "lean_setup",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Conditional two-group mask counting with explicit reserved gates disjoint from mask cones and supplied two-credit reader inequality; no unrestricted lower-bound claim.",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/AllCentersReaderRefund.lean",
+      "sha256": "957d2f5bdad559c2c27affcc4324c8e7378cfa921937bbda74b2c9817e89da37",
+      "bytes": 452212,
+      "name": "AllCentersReaderRefund",
+      "lines": 9140,
+      "author": "normal_form",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/all-centers-reader-refund-build-001.log",
+        "sha256": "5e82336c6adf196ba4b5dbc0cd6d378662b768757ed9193cdf1d181f3f17c642",
+        "bytes": 22093
+      },
+      "review_log": {
+        "path": "results/orch/review-all-centers-reader-refund-lean-setup.log",
+        "sha256": "eab9c62d55074562575799a6be5f47e4862bca36939084c35b81a8a6bc04d0ab",
+        "bytes": 770
+      },
+      "reviewer": "lean_setup",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Conditional all-center adapter for two disjoint product families with supports of size at least two, actual pure roots, explicit reserved-gate avoidance and supplied reader inequality.",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/FirstLayerReader.lean",
+      "sha256": "57e4373519f908afb588c7d7df109a403773014b83d3b2c567b827cabfef5b99",
+      "bytes": 247783,
+      "name": "FirstLayerReader",
+      "lines": 5384,
+      "author": "gate_invariants",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/first-layer-reader-build-001.log",
+        "sha256": "fe501a02cb4bc84231a0959ecd0d26b815889fe326cfcac2b14b4670a032de4f",
+        "bytes": 4110
+      },
+      "review_log": {
+        "path": "results/orch/review-first-layer-reader-normal.log",
+        "sha256": "e2eca5b41a81c03cf62900ea5824890c0b01ed5b8285a3b101c90a22bd2ff5c4",
+        "bytes": 448
+      },
+      "reviewer": "normal_form",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "In a least AO circuit with pure operands for every dirty gate, each dirty gate has an actual clean top reader. No TopForm or no-joint premise.",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/UniqueCenterPlane.lean",
+      "sha256": "7aa17db35b7936c2b9f02f763f6e587d0a530e5a535a29083543f9660d4fbb77",
+      "bytes": 987745,
+      "name": "UniqueCenterPlane",
+      "lines": 20440,
+      "author": "structural_lower_bound",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/unique-center-plane-build-004.log",
+        "sha256": "2b775adcfc5ba226578f930ece96fbcea9ca5a0f239c2763aba451da2104e948",
+        "bytes": 25888
+      },
+      "review_log": {
+        "path": "results/orch/review-unique-center-plane-lean-setup.log",
+        "sha256": "fa1fa7e133c8cdad5e7eb682918139c759638f8f4bba9a684b712f970ae06cc9",
+        "bytes": 1032
+      },
+      "reviewer": "lean_setup",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Concrete plane125 under global minimum junk, exactly two pure/disjoint dirty products, all four supports of size at least two, and one internal cleaner per product. No productive-joint, masking or connector premise remains.",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/UniqueAnyProductBudget.lean",
+      "sha256": "92a54582f63794dfb2aaf764b8a74b7fd5e690b4f9a293bf9c276512da429e33",
+      "bytes": 460043,
+      "name": "UniqueAnyProductBudget",
+      "lines": 9272,
+      "author": "normal_form",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/unique-any-product-budget-build-002.log",
+        "sha256": "89cd54fafed768df554db98bf52ed0cedeb6ac130b938371ed54fe33a9a7688f",
+        "bytes": 22093
+      },
+      "review_log": {
+        "path": "results/orch/review-unique-any-product-budget-lean-setup.log",
+        "sha256": "2c1aff0c956c07a6e4faa5d7646cece5f908c0dd5a3890c730cdce8934166bc8",
+        "bytes": 886
+      },
+      "reviewer": "lean_setup",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Conditional one-unique-center/other-arbitrary-center product lower bound with pure/disjoint large supports, actual outside-Lambda connector, productive clean joint, all residual pairs masked and supplied uniform reader inequality.",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    }
+  ],
+  "search_packages": [
+    {
+      "name": "alternative6-run-011",
+      "reviewer": "counterexample_search",
+      "manifest_entries": 47,
+      "physical_circuits": 44,
+      "scalar_cases": 3872,
+      "augmented_scalar_cases": 11176,
+      "result": "Completed final local heuristic run; best valid size29 and no28-gate target. Two valid and42INVALID circuits independently replayed; no lower-bound claim.",
+      "path": "results/orch/alternative6-run-011",
+      "manifest": {
+        "path": "results/orch/alternative6-run-011/manifest.json",
+        "sha256": "994f6d1d7e4f4da2f513b6efe789c9cb8a2e7f88d1a89e2b8bd671f6ff28867e",
+        "bytes": 7004
+      },
+      "review_log": {
+        "path": "results/orch/review-alternative6-run011-counterexample.log",
+        "sha256": "0bd2c3be9af0c3d812b075ef0792d595f195f79481f89f8039aee5dc6a29e719",
+        "bytes": 1084
+      },
+      "review_verdict": "PASS",
+      "files": [
+        {
+          "path": "results/orch/alternative6-run-011/README.md",
+          "sha256": "c7f6edf014980caf3a74d99397cedf1b85fbe170c8427d72ced977bcbe55c929",
+          "bytes": 1414
+        },
+        {
+          "path": "results/orch/alternative6-run-011/best-valid-29.json",
+          "sha256": "e3673f5d47c8471d9fa9c80568090477be6dbb095e9349aafb06514ff2bc3652",
+          "bytes": 3328
+        },
+        {
+          "path": "results/orch/alternative6-run-011/best-valid-31.json",
+          "sha256": "b8c15a96c016a6e62b66f1771126934ee4c2582513db6503a12826dbb5ae4851",
+          "bytes": 3391
+        },
+        {
+          "path": "results/orch/alternative6-run-011/complete-run.log",
+          "sha256": "6c41ad251f73c85f9a36ceff7b45c3c4408074dfe9c3520333d423b18f94233b",
+          "bytes": 39152
+        },
+        {
+          "path": "results/orch/alternative6-run-011/frontier.json",
+          "sha256": "6c100fa6c47870111d54736fb178ff288218cb8a0ec37d0ca3648b29fbc86cce",
+          "bytes": 2623
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-1-1.json",
+          "sha256": "78340451e2be60b158c9ac15cfd97b591f555180d90607d48246e1d9da4c31b3",
+          "bytes": 3355
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-1-2.json",
+          "sha256": "ed7027c43fa8bb223a02aa9f13e719b60b96450ee6404b7d69d3368e9e385910",
+          "bytes": 3613
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-1-3.json",
+          "sha256": "52630a25c0b4ee4c3c21a3c02a12b17d5e1988e993f457fceae505e7f17f0d0c",
+          "bytes": 3348
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-1-4.json",
+          "sha256": "6d9c4395f3cc568bb3126a2f8aeae61ed73d2d335b48d41dacdff31cb21ccf11",
+          "bytes": 3790
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-1-5.json",
+          "sha256": "1d4d84ac26a490e0233c8e715a4a1fb7f271e99d20f921c4414fb5e0f1e40ced",
+          "bytes": 3469
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-2-1.json",
+          "sha256": "2165e864447870b83c4a8426eb2d6336868531c398cba970ee2e30e574b47cb7",
+          "bytes": 3958
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-2-10.json",
+          "sha256": "167af17eeaf80ed6cd7bd0713d12a342097cc5d9b76ea570ad77c9bf9b59b3f4",
+          "bytes": 3409
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-2-11.json",
+          "sha256": "b18f4a8729c392cb10d01517076c87725bc1feee631cdf010cff744345f1640e",
+          "bytes": 3472
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-2-12.json",
+          "sha256": "a8ee37e941e78f1840adae6cedfa4e59473fa8b7410117fa29981ee977d2c261",
+          "bytes": 3413
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-2-2.json",
+          "sha256": "40470b7d7db14329dee4e7d89ed0a8619117681843b029678af39ce0adea899c",
+          "bytes": 3929
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-2-3.json",
+          "sha256": "990b98f60b66a33ac26d9c916530e6c4279a6485d36612009cc39ce07b1f46c2",
+          "bytes": 3853
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-2-4.json",
+          "sha256": "64f0383ab5b8cd06fc6ae094033730a5fa92061242a160b3145e031dfad3baeb",
+          "bytes": 3674
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-2-5.json",
+          "sha256": "0e3c18b6cb271baa9d13448b14740751b7556a5f7cc14a197f441a3cce0deba5",
+          "bytes": 3537
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-2-6.json",
+          "sha256": "dc2550021684d0f13d03ffb375db379c40ec59f1f5800847e0967f5bdf9a51a1",
+          "bytes": 3428
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-2-7.json",
+          "sha256": "56d485648410573d6bd081efbc70a3832dc27bc35319ade44a7565844d56e77e",
+          "bytes": 3372
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-2-8.json",
+          "sha256": "694a57aa350394d7cbbeaaaae1eb3247a8ba48bf0252a6b5b6345544753e416b",
+          "bytes": 3621
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-2-9.json",
+          "sha256": "146e14bdc78717dae457086a3c6567632eaf8bfa692977c3e4a15a407d4161f1",
+          "bytes": 3696
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-3-1.json",
+          "sha256": "9dad5b0e503121502585a897d702bdecb6a5903200a8c4b6a94ecec09f85512c",
+          "bytes": 3547
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-3-10.json",
+          "sha256": "7021bd7eb406a6e5d15fad4eaf41b345ad8dde4bfd3e5cddd3ab272770f05987",
+          "bytes": 3408
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-3-11.json",
+          "sha256": "e1f349f381605e87b9214bd3c497a1756b0dd46db2a3d20b14dc8685268dd475",
+          "bytes": 3496
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-3-12.json",
+          "sha256": "55007f2d02a5d01cfefdf6f75267c9d2c2318b8f1df10ca53779375c9ba70bcd",
+          "bytes": 3558
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-3-2.json",
+          "sha256": "226e8953d7a8d583e31be5e92830f3eccceb45cf6344fb63d82d279c95d9f482",
+          "bytes": 3757
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-3-3.json",
+          "sha256": "343b3f3c403328f250dc10bf114b0ef8a4fe2a11670ea45965ee43bcac71b58e",
+          "bytes": 3831
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-3-4.json",
+          "sha256": "3440fb22bbabb2c91593a3341f3d3334347be12642b2ac6111d694b6692edd46",
+          "bytes": 3795
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-3-5.json",
+          "sha256": "f1fe96bd0562a0756df758cd0437216795a0ce4999613570dfd019df55ba4971",
+          "bytes": 3950
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-3-6.json",
+          "sha256": "f451850a2a2adbc31759dac04a3e525b748bd96efdf47af4ab7f9b2700eb7c70",
+          "bytes": 3535
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-3-7.json",
+          "sha256": "0ec6c06fecc16405473cd377d7644055cc177cd0eaf5af60392ba8e117512544",
+          "bytes": 3782
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-3-8.json",
+          "sha256": "4281cae8894f90a1474a105388a6bf9133a3931bcfb49c387c6ac8757ae1b81d",
+          "bytes": 3354
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-3-9.json",
+          "sha256": "897fdf85807ee5fc5af4c806300df233d06aff7173a4f4e6e04c461abc874b40",
+          "bytes": 3451
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-4-1.json",
+          "sha256": "f425207025bbec22baa58eb29451355b2294fad4a3f568bbfb46515f3f4cd937",
+          "bytes": 3624
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-4-10.json",
+          "sha256": "0ef7d884b686e9594e90c0c986822d9b1cd367895d7beedbef1d3fff2a0b18d3",
+          "bytes": 3766
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-4-11.json",
+          "sha256": "3afab8d1fe6c5ac812e6cbf1af042a1a4492ed3d55205b8b7ccb2af66ddb6f71",
+          "bytes": 3620
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-4-12.json",
+          "sha256": "161c25ac80165459c9de65819dc694b3f08178864ecd22a3c7a18f57d8787cbf",
+          "bytes": 3477
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-4-2.json",
+          "sha256": "05ccb1304e5dfc2d205aabeaea348503cd01bdabce467bd6017e2be7f75fa9ca",
+          "bytes": 3310
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-4-3.json",
+          "sha256": "8a7a4f7b7ce441145c5459cdde886617f22f239f1b091be24430f9059c1dfa12",
+          "bytes": 3488
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-4-4.json",
+          "sha256": "68ca71ade35ee9af0a455fcd941e5b057b2b6abf81e393204eb65cc2dc2b4308",
+          "bytes": 3563
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-4-5.json",
+          "sha256": "1eec808f20230a2edaa9a474206af27631c4fd625ff06472f7a1f7609b77147e",
+          "bytes": 3570
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-4-6.json",
+          "sha256": "4cd650fbcdf699adf5f2202762fe881d6de4e5995ac92bd00e00ba0122468bc4",
+          "bytes": 3530
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-4-7.json",
+          "sha256": "b3f411057a179c06b883208c4cfa7beb3ef99895b39c19acdd93caf3c19db17c",
+          "bytes": 3814
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-4-8.json",
+          "sha256": "96227905863bb88e20a1901eb6d887b7b5e1a1caaa1146a439d9d69178fc6e80",
+          "bytes": 3881
+        },
+        {
+          "path": "results/orch/alternative6-run-011/near-4-9.json",
+          "sha256": "b8ba7dabbd56571ceaa599954a496a8fe4139b992e58c3d5449c610847c0b319",
+          "bytes": 3702
+        },
+        {
+          "path": "results/orch/alternative6-run-011/overapprox-best-1.json",
+          "sha256": "e642436ec8f79d848c1ffe0570ba13434df060ba1428564bb280681307d5b8ce",
+          "bytes": 5941
+        },
+        {
+          "path": "results/orch/alternative6-run-011/manifest.json",
+          "sha256": "994f6d1d7e4f4da2f513b6efe789c9cb8a2e7f88d1a89e2b8bd671f6ff28867e",
+          "bytes": 7004
+        }
+      ]
+    },
+    {
+      "name": "k4private-counted-searches",
+      "reviewer": "status_audit",
+      "manifest_entries": 16,
+      "physical_circuits": 0,
+      "scalar_cases": 0,
+      "result": "Three restricted counted SAT trials ended UNKNOWN. Reviewed source/core metadata and complete solver logs; no target witness, UNSAT or general lower-bound claim.",
+      "path": "results/orch/k4private-counted-searches",
+      "manifest": {
+        "path": "results/orch/k4private-counted-searches/manifest.json",
+        "sha256": "34a4730febf249920e8d0eb0c6d2a39146063b1597f15777f184f5a498211ecd",
+        "bytes": 2723
+      },
+      "review_log": {
+        "path": "results/orch/review-k4private-counted-package-status-audit.log",
+        "sha256": "19b5b264f2ed7a8823e9dcabd3d621a937b5a88e3500f727120e2349d18ce062",
+        "bytes": 5066
+      },
+      "review_verdict": "PASS",
+      "files": [
+        {
+          "path": "results/orch/k4private-counted-searches/README.md",
+          "sha256": "598d248524531172a411f1031ada43feddffc3ee7e818d21570f6ed812f00bfb",
+          "bytes": 2248
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/Search.py",
+          "sha256": "f7f740c1bcd1626062013c6d5a582375ec1b4915cf04ecf8db28a15dad32c2f7",
+          "bytes": 9686
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/SearchDirtyCount.py",
+          "sha256": "135115183aea3ea39abe55247dd5e54d2915b59de6cec3ec1277bc221d92b904",
+          "bytes": 10083
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/k4private-automorphisms.json",
+          "sha256": "83baf4a06b2a07945f9df5090a30b0a2d69aa8cb1ea33b68b78688642a86bc4b",
+          "bytes": 4333
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/k4private-baseline19.json",
+          "sha256": "9825d68cd8e2a888d86ed16959b5bc5b4849086a5e22c81f4de81f7c31538644",
+          "bytes": 1383
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/k4private-core.json",
+          "sha256": "7ba7ee1d2f813ae2c760731d9453ec4ffbc5b38a909b349db83b6b5b2c5b2be1",
+          "bytes": 1755
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/search-k4private18-and6-generation.log",
+          "sha256": "2e930e20d1ffce82f803ac2c143066c9cf8dfd3ceda697516ac0e01a7286c07c",
+          "bytes": 334
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/search-k4private18-and6-solver.log",
+          "sha256": "3167835bbae83113fd1a0da286538d061aa6bfa6d88548eacba5ed1864607025",
+          "bytes": 23332
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/search-k4private18-and6.metadata.json",
+          "sha256": "87508016a221616dae9a63cfe9d64e32bce404b3335dd78170c34a330fb6bbed",
+          "bytes": 1828
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/search-k4private18-and7-dirty2-generation.log",
+          "sha256": "d3c1c88659c11945ad59298bcd6b987ff1fd7ea027d0116e342b1ed43215468b",
+          "bytes": 334
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/search-k4private18-and7-dirty2-solver.log",
+          "sha256": "cfb0259fd6e8505f9893ba32dbd462585a9842fe79f528f2d68ec44bb2b3adc7",
+          "bytes": 24331
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/search-k4private18-and7-dirty2.metadata.json",
+          "sha256": "3e519ce23f8352cc0e4eca82bc7e6e90ece23ee3085259a791f3e06a9600237a",
+          "bytes": 1846
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/search-k4private18-and8-dirty2-generation.log",
+          "sha256": "ae47e7fa8dedbd0052e74504e4063a79d3c02d4733ae27401c5bd9b610a918df",
+          "bytes": 334
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/search-k4private18-and8-dirty2-solver.log",
+          "sha256": "59ac6e06c23ef6f906ff2d63af085949181ff667002744b848f8f92b02b8a1e5",
+          "bytes": 24493
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/search-k4private18-and8-dirty2.metadata.json",
+          "sha256": "c28ce0212d908f4458dd5ce922c5b70448cba7483e37c887926ccbd147b858b3",
+          "bytes": 1846
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/statement.txt",
+          "sha256": "d962214a09d1adf8b5837468e4d94e19c895b742875d55870d08ebcd0fe6fda0",
+          "bytes": 1260
+        },
+        {
+          "path": "results/orch/k4private-counted-searches/manifest.json",
+          "sha256": "34a4730febf249920e8d0eb0c6d2a39146063b1597f15777f184f5a498211ecd",
+          "bytes": 2723
+        }
+      ]
+    }
+  ],
+  "extra_evidence": [
+    {
+      "path": "results/orch/review-preservation-035-gate-invariants.json",
+      "sha256": "8431c0da78ea84b54cb2b8e9e057cb0a4cdc9605b92964b4a1cb91ce01ffbaae",
+      "bytes": 393
+    },
+    {
+      "path": "results/orch/review-preservation-035-status-audit.log",
+      "sha256": "b0d6a490cb702f726bfa383ac30155c59db6015821be275adc0ba49d983d1ece",
+      "bytes": 177
+    },
+    {
+      "path": "results/orch/named-partial-checker-002.log",
+      "sha256": "0ccc7bb1344550f47fcdaa7d260acc1ec4b93c6a878bbe2e7b978deb503847b7",
+      "bytes": 65
+    },
+    {
+      "path": "results/orch/review-final-named-partial-gate-invariants.log",
+      "sha256": "26bd891d07cb351adb6ed7cb76fe9b810ec85fa05828effdb1f284a3c6e0438d",
+      "bytes": 4664
+    },
+    {
+      "path": "results/orch/unique-center-plane-build-001.log",
+      "sha256": "9ae99a6ac8ec3de6094cae35a7f0d25509c97505eb8c334f477969da74323e77",
+      "bytes": 27638
+    },
+    {
+      "path": "results/orch/unique-center-plane-build-002.log",
+      "sha256": "d66bfceff2f331394a598f934bade4fb9fa634feeb04f970a18ab177586501df",
+      "bytes": 4096
+    },
+    {
+      "path": "results/orch/unique-center-plane-build-003.log",
+      "sha256": "980d89bf4f875d69e3b3312ec60535be04b88044fc0e336a7258cfd988dcf0d8",
+      "bytes": 28432
+    },
+    {
+      "path": "results/orch/unique-any-product-budget-build-001.log",
+      "sha256": "a795203f5ee7c082e40fbd2448c6a7178cd3055aaf6553704113ae36e08a224a",
+      "bytes": 22938
+    },
+    {
+      "path": "results/orch/named-partial-checker-003.log",
+      "sha256": "9b18effa1f045d3713e2d6351c644eff63dc2f1666b10c93f1cd212379089279",
+      "bytes": 148
+    },
+    {
+      "path": "results/orch/review-handoff-036-gate-invariants.log",
+      "sha256": "febbb0d32fcc75d9d72c083025e936f92b47030478375214662b214baf588ef8",
+      "bytes": 1219
+    },
+    {
+      "path": "results/orch/review-handoff-final-036-lean-setup.log",
+      "sha256": "85787485a1513d1e5a4579344bf6a0e087817f4beb991930043f167b1dd771bb",
+      "bytes": 511
+    },
+    {
+      "path": "results/orch/lemmas/UniqueCenterPlane.assembly.json",
+      "sha256": "64c42dc4aaf6df6dcc623aaed254b0ada29e8c743b345aa51e3a91029f905c58",
+      "bytes": 835792
+    },
+    {
+      "path": "results/orch/lemmas/UniqueAnyProductBudgetAttempt.json",
+      "sha256": "4011c9e5460557ed4405cebbb0430ab63a1bd74678cbf8da2bfb6e5248e02e92",
+      "bytes": 1273
+    },
+    {
+      "path": "results/orch/unchecked-final/README.md",
+      "sha256": "b4f9c56548bc04a6a1eacac0e0dea896d55c85599c4d7be343f749d8ad743db2",
+      "bytes": 1846
+    },
+    {
+      "path": "results/orch/unchecked-final/UniqueAnyCenterPlaneWrapper.lean",
+      "sha256": "d8efdd874ff0a3eacbaf0a83e10a187d0998d2adcb3fe9e80d815f3f729d8137",
+      "bytes": 6240
+    },
+    {
+      "path": "results/orch/unchecked-final/manifest.json",
+      "sha256": "2b2a1834e3e791e841dd335e6c25ce328a58f1ae15cc7b88facf8446dd31c2fb",
+      "bytes": 1726
+    },
+    {
+      "path": "results/orch/unchecked-final/review-unique-any-plane-draft-gate-invariants.log",
+      "sha256": "b0986e2491e8581b7afbf0dcdd226b1376d3839ce62924a289d5511d4de0dd7a",
+      "bytes": 1838
+    },
+    {
+      "path": "results/orch/HANDOFF.md",
+      "sha256": "29e2f01d95e1ffa5d1a715f665ab1c49f7fea86470bb15f2ec66aa501ecf5207",
+      "bytes": 10397
+    }
+  ],
+  "unchecked_work": {
+    "path": "results/orch/unchecked-final",
+    "status": "UNCHECKED actual one/any plane wrapper; no successful combined Lean build",
+    "files": [
+      "results/orch/unchecked-final/README.md",
+      "results/orch/unchecked-final/UniqueAnyCenterPlaneWrapper.lean",
+      "results/orch/unchecked-final/manifest.json",
+      "results/orch/unchecked-final/review-unique-any-plane-draft-gate-invariants.log"
+    ],
+    "manifest_sha256": "2b2a1834e3e791e841dd335e6c25ce328a58f1ae15cc7b88facf8446dd31c2fb"
+  },
+  "verification": "Exact frozen hashes, full author logs without errors, independent source/math/provenance/format reviews, forbidden-source filter scan, package manifest hashes and byte counts. This preservation validation reused reported author build results and did not rerun Lean.",
+  "sub_agents": [
+    "counterexample_search",
+    "gate_invariants",
+    "lean_setup",
+    "normal_form",
+    "status_audit",
+    "structural_lower_bound"
+  ],
+  "timing_total_min": 355.3,
+  "subagents_count": 6
+}

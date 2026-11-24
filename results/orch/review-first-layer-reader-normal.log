@@ -1,0 +1,3 @@
+PASS independent source/math/provenance/format review
+SHA256 57e4373519f908afb588c7d7df109a403773014b83d3b2c567b827cabfef5b99
+Exact FirstLayerEffective prefix. Minimal-monotone zero sensitivity gives positive pair lost after gate erasure; first-layer changed-output theorem gives an actual clean top reader, converted using bounded OR-reach equivalence. No nojoint/TopForm assumption hidden. Author firstbuild exit0 accepted; no redundant rebuild.
