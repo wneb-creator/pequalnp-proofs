@@ -1,0 +1,5 @@
+Independent review011e by root
+UTC: 2026-11-24T18:55:19.884440+00:00
+Scope: all 128 lines of empty-operand-fragment.txt. SHA256 da0c5428aff6fbad6bc907475476b15e669366b3e6d6af8968448c0874fe2c8c
+PASS for partial component; not final gap acceptance.
+The all-true lemma uses AO2 and valid wire bounds, so each gate has true inputs. The empty top operand proof excludes primary singleton witnesses and the supported dirty gate; TopForm excludes every clean AND frontier. All-true evaluation supplies a real frontier, yielding exact function equality to the remaining dirty gate. The mixed-region exclusions explicitly require a shared false input or semantic domination by that remaining gate; no unsupported inference from singleton supports is made. Conditions are preserved in the interface. No prohibited declarations, comments, imports, root markers, quotes or attributes found. Root did not author this component. Combined lake build pending.

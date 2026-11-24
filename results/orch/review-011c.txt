@@ -1,0 +1,69 @@
+Independent DoublePoint / overwrite review
+UTC: 2026-11-24 18:55:18
+Reviewer: /root/review_recovery, independent of implementation.
+Scope: all 395 lines of the frozen fragment
+/tmp/oec/pequalnp-pilot-39/full-gap-challenge/double-point-complete-fragment.txt
+SHA256: d0c4cb1f8a4670d5129bf3b3f7d7df9569c96a82dc90ec368a66970cbcd680dd
+Size: 17679 bytes.
+
+Verdict: APPROVED FOR COMPILED PARTIAL CHECKPOINT, subject to the root's
+combined-module build and namespace audit. No semantic or source-format
+blocker found. This fragment does not contain the posted final theorem and
+is not a complete proof of L-meta-2584.
+
+Mathematical review:
+- overwriteCircuit preserves gate count and changes exactly the specified
+  in-range gate. The value-before and value-at helpers correctly account
+  for forward/out-of-range references by false defaults. replacementVal
+  evaluates the replacement against the unchanged old prefix.
+- The pointwise comparison assumes only that the replacement's value is
+  below the old gate value on the given assignment, then propagates through
+  the original AND/OR suffix. The equality version propagates exact local
+  equality and does not unnecessarily assume monotonicity. Missing gates
+  and indices outside the circuit are handled explicitly.
+- The AO2 preservation wrapper checks replacement operator, binary arity
+  and backward references. It does not silently assume those properties.
+- exists_least_size_and first chooses minimum size, then minimizes AND
+  count among circuits of that same minimum size. Nat.find is applied to a
+  nonempty natural-valued property with a correctly witnessed competitor.
+- A pure point-side AND is true on a point-line pair exactly when the point
+  lies in the intersection of its OR-factor supports. If this intersection
+  is {u,v}, its pair values equal input u OR input v, including u=v.
+- Replacing that AND by OR(u,v) is globally pointwise below the old gate,
+  since each common input implies both factors. It agrees on all incidence
+  pairs. Monotonicity plus pair coverage therefore gives exactly the old
+  incidence function, with unchanged total size and one fewer AND.
+- The countP update lemma accounts for precisely the replaced AND-to-OR
+  gate and leaves every other gate unchanged.
+- The final intersection-cardinality lemma combines the already checked
+  minimum-size lower bound of two with the new AND-count contradiction at
+  cardinality two, giving cardinality at least three under both explicit
+  optimality premises.
+
+Boundary for future composition:
+The lexicographic minimizer lemma does not claim preservation of TopForm,
+a bound on junk count, or read-k. Those properties need separate arguments
+when applying these helpers to the posted statement. The reviewed fragment
+makes no such unsupported conclusion.
+
+Format checks on the complete fragment:
+No sorry, new axioms, native_decide, unsafe, initialization, macro/syntax/
+notation/elab commands, attribute commands, implemented_by, run_tac,
+_root_, string quotes, hash commands, attribute annotations, imports,
+set_option commands, structures, inductives, classes or instances found.
+All declarations lie in the intended module namespace and its Sharing or
+DoublePoint child namespaces. The fragment uses full namespace paths;
+integration must place them at top level or adjust them consistently.
+
+Validation evidence:
+- Implementer reports double-point-006 exit0. Independently inspected its
+  complete stdout/stderr files; both are empty.
+- Independently inspected double-point-007 axiom output: the replacement,
+  final cardinality, minimizer, overwrite comparison and overwrite equality
+  lemmas depend only on propext, Classical.choice and Quot.sound. Stderr is
+  empty. The temporary diagnostic commands are absent from the fragment.
+- Root is responsible for compiling the combined final source and its
+  full-file namespace/format audit. No main-checker acceptance is asserted.
+
+No source changes were made by this reviewer. Hash was rechecked after
+reading the entire fragment.

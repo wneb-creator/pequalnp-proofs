@@ -1,0 +1,35 @@
+Independent review 011b by composition_recovery
+Verdict: PASS for all six partial structure components. No source-level semantic or format defect found. The full posted theorem is not proved by these fragments.
+
+Reviewed source files under /tmp/oec/pequalnp-pilot-39/structure-recovery:
+coverage-frontier-fragment.txt (75 lines)
+cone-frontier-fragment.txt (74 lines)
+forced-avoid-fragment.txt (90 lines)
+pair-preservation-fragment.txt (50 lines)
+star-sound-fragment.txt (43 lines)
+alias-cover-fragment.txt (67 lines)
+
+Independent validation:
+All six fragments were composed against an independent checkpoint10 snapshot and compiled successfully in /tmp/oec/pequalnp-pilot-39/composition-recovery/Review011bAll.lean. review011b-002 exited 0; complete stdout/stderr saved beside that source. Output contains inherited warnings and no errors. Printed axioms of eight key exports, including two_dirty_alias_or_star_pair, contain only propext, Classical.choice, Quot.sound. The source uses only Mathlib and PEqualNP.Defs dependencies.
+
+Semantic review:
+1. OR frontier decomposition splits a true wire into a real input OR leaf or a true AND frontier; absent wire indices are handled as false. The cone frontier bridge explicitly excludes an intervening AND. Its two-dirty specialization uses TopForm plus the stated h-not-in-cone-g orientation, rather than assuming both incomparability directions implicitly.
+2. forcedCircuit_val_eq_of_no_ancestor handles arbitrary indices, including out-of-bounds inputs, using the same backward-value semantics as Circuit evaluation. Original OR paths survive forcing an AND gate false because the modified gate was not an OR-step source. Output preservation obtains a true clean top from exact graph-function semantics and preserves an actual OR path from it.
+3. top_pair_through_dirty_centres applies the C4 bound only after establishing the four required adjacencies. The hypotheses Adj(u,y), Adj(u,v), not Adj(y,v), singleton support of v at h, and the conditional g-value classification are all explicit. It does not silently infer symmetric centre assumptions.
+4. two_dirty_forced_pair_away_centres promises preservation only for the stated oriented edge pair away from both centres. It retains the neighbour and non-neighbour assumptions required by the coverage lemma. It is not a claim that forcing h preserves every edge or the whole function.
+5. Pure-star soundness uses an actual input witness from the pure-OR region and the explicit all-neighbours hypothesis. The pair-neighbour helper explicitly excludes x from that OR shadow before identifying the witness as y.
+6. two_dirty_alias_or_star_pair handles all cases: if old h is false, singleton monotonicity makes the alias input false, so the alias equality premise applies; if y is the alias centre, both are true; if x is the star centre, the pure d operand supplies the star; away from both centres, forced-false preservation supplies f. The g-value classification is conditional on h being true, and is used only in that branch. The conclusion is precisely f OR star accepts this pair.
+
+Caller obligations retained:
+The alias-cover theorem does not assert f is below the target, that f is realized by an AO2 circuit, or that the final construction meets the gate budget. Those remain surgery/caller obligations. General undirected-edge coverage requires the caller to establish the stated orientation assumptions or use pair symmetry. No result here proves the arbitrary-dirty-gate case or the final L-meta-2584 theorem.
+
+Format scan:
+All six exact fragments have no forbidden proof constructs, forbidden root text, string literals, attributes, options, or import text. Declarations remain inside the Sharing subnamespace. No final target edit was made by this reviewer.
+
+SHA256 of reviewed exact files:
+db4932d4514853293bf0b5587378817aabe7dadab2e7183efbc7e29c0a0bd97f  coverage-frontier-fragment.txt
+91a67dba71245d85ea77db032468ad6be4dac02049f6c402ee55e068ec28b0a1  cone-frontier-fragment.txt
+f9f11963d0562e05b375a887a7435ed9d37d19ea41294ea73468b9e4a9e97097  forced-avoid-fragment.txt
+dad90db3fa8913453bfaf8624ad564f256891395b0b17f3ea859353141a54b40  pair-preservation-fragment.txt
+3509e1f4441b5c6393e693789b41a02dc403671dbf14ee201438bf6bb59be763  star-sound-fragment.txt
+6f019c1ba62951b40823e3f69bf9fbb015abd42f11d9bd187209ea763185e850  alias-cover-fragment.txt

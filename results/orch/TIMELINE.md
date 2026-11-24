@@ -56,3 +56,7 @@
 - 2026-11-24T18:47:17.251527+00:00: checkpoint9 combined6387line helper source built, all344 public declarations axiom-audited, split independent review passed. Public feed still has no reductions flag for L-meta-2584.
 
 - 2026-11-24T18:52:48.058202+00:00: checkpoint10 build+review passed; nonadjacent witness-preserving rotation and strengthened local obstruction preserved. Existing checked L-meta-1501 top-form normalization adapted successfully in scratch, with a composed one-dirty minimum-circuit replacement result.
+
+- 2026-11-24T18:56:08.699150+00:00 structure_recovery checked complete alias-output OR lifted-star edge coverage (six stable fragments).
+
+- 2026-11-24T18:58:11.305059+00:00: checkpoint11 complete9043line helper file built, allnewcomponents independently reviewed, size407971bytes below512KiB. Full theorem still open; continuing beyond firsthour.

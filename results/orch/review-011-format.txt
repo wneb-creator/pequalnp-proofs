@@ -1,0 +1,30 @@
+Independent checkpoint011 full-source namespace and format audit
+Reviewer: /root/composition_recovery/or_context.
+UTC: 2026-11-24T18:56:31.687723+00:00
+Frozen source: lean/PEqualNP/Outside/L_meta_2584.lean
+SHA256: 5c562cba84a2473598f2fba737a22151861454c4c4aa3f527937d1f758a3fb5e
+Size: 9043 lines, 407971 UTF-8 bytes, below the 524288-byte limit.
+
+Verdict: PASS for the complete checkpoint011 source-format / namespace diff. Partial checkpoint only: the file still declares zero theorems and does not establish the exact posted L-meta-2584 statement. This review is not a checker ACCEPTED verdict or authorization to describe the gap as solved.
+
+Diff and manifest checks:
+- The HEAD version's entire source body is preserved byte-for-byte; only its final outer namespace end is moved after the new additions.
+- Git reports 2376 added target-file lines and zero deleted lines. git --no-pager diff --check passes.
+- The additions exactly match the ten entries in /tmp/oec/pequalnp-pilot-39/checkpoint-011-fragments.txt after removing blank-line/indent spacing differences and converting fully qualified child namespace/end commands to equivalent relative child scopes.
+- No missing fragment, duplicate integration, unexpected target edit, foreign import, or inserted theorem was found. In particular the complete DoublePoint file already includes Overwrite, and this block occurs only once in the manifest integration.
+- Complete target diff and diagnostic stderr are retained at /tmp/oec/pequalnp-pilot-39/composition-recovery/or-context/checkpoint-011-full.diff and checkpoint-011-full.stderr. The stderr file is empty.
+
+Whole-file format checks:
+- The source is a regular non-symlink UTF-8 file and is not executable (filesystem mode 0600).
+- Its only import lines are the initial `import Mathlib` and `import PEqualNP.Defs`; there is no later occurrence of import text.
+- All namespace/section/end commands are at column zero, every end matches its named scope, and all scopes close correctly.
+- All 551 helper declarations are inside the single outer PEqualNP.Outside.L_meta_2584 namespace, possibly in child namespaces. No helper is exposed outside that block.
+- No forbidden root marker, double quote, sorry/admit/axiom/native_decide, unsafe/metaprogramming/initialization command, custom instance/data type, attribute, or hash command appears anywhere in the source.
+- All 24 options use one of the four allowed limits, include scoped `in`, and immediately precede another scoped allowed limit or the declaration they serve.
+- Structured audit output, including exact option locations and manifest entries, is retained at checkpoint-011-format.json in the same scratch directory.
+
+Scope and validation boundary:
+- This review checks complete-file integration, file format, namespace boundaries, and the exact diff. Separate independent reviews 011a/011b/011c/011d and root's 011e review cover the respective mathematical additions.
+- The reviewer authored the earlier OR-context and liveness helpers, which are unchanged from HEAD and were independently reviewed in checkpoint009c. This is not a new independent semantic review of those earlier helpers.
+- No further compilation was requested or performed during this audit; root's combined build014 validates elaboration. Review011a separately recompiled the new recovered normalization body and wrappers.
+- No target edits, git mutations, or desk calls were performed. The results/orch reports on the work branch are checkpoint artifacts; a future proof PR must still have the required single Lean file and exact final theorem.

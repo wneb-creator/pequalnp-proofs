@@ -1,0 +1,19 @@
+/tmp/oec/pequalnp-pilot-39/full-gap-challenge/Review011d.lean:88:48: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'PEqualNP.Outside.L_meta_2584.AliasSurgeryReview011d.alias_spec' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.AliasSurgeryReview011d.forced_alias_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.AliasSurgeryReview011d.repair_private_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.AliasSurgeryReview011d.appendOr_ao2' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.AliasSurgeryReview011d.appendOr_value' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

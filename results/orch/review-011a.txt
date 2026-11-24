@@ -1,0 +1,30 @@
+Independent checkpoint011a review
+Reviewer: /root/composition_recovery/or_context, independent of the adaptation and wrappers.
+UTC: 2026-11-24T18:54:16.757795+00:00
+Scope: /tmp/oec/pequalnp-pilot-39/topform-recovery/top-normalization-fragment.txt, 1143 lines, SHA256 d196110f0e2a43981dcdb1278a42243b93099c9dda0e24df02eca1c051fa844a.
+Original source: lean/PEqualNP/Outside/L_meta_1501.lean, 1123 lines, SHA256 d59441b3eaa88603ebbc72ee6b4f59d1a0512ab559a39cc2f53b1430af608dcc.
+
+Verdict: PASS for checkpoint push of this partial normalization component. No semantic or format defect found. This is not an acceptance verdict for L-meta-2584.
+
+Mechanical recovery review:
+- Removed the original initial imports and outer L_meta_1501 namespace boundary, renamed all old module qualifications to PEqualNP.Outside.L_meta_2584.TopNormalize, and changed the original final theorem declaration to the helper lemma least_to_topForm.
+- Compared the entire recovered prefix against that mechanically transformed source. The only additional difference is deletion of one blank line immediately before least_to_topForm. No old proof statement, hypothesis, proof body, or construction was otherwise changed.
+- Full comparison artifact: /tmp/oec/pequalnp-pilot-39/composition-recovery/or-context/review-011a-mechanical.diff.
+- The recovered theorem still explicitly requires a nonempty graph edge set and an IsLeastAO circuit. Its output preserves leastness, exact gate count, exact dirty-AND count, and reaches TopForm. No four-cycle hypothesis was silently added or dropped.
+
+New wrapper review:
+- exists_least_topForm first invokes the existing general least-circuit existence lemma using the actual AO2 and exact graph-function hypotheses. It feeds all three leastness components to least_to_topForm, then composes exact size equality with the original least circuit's nonincrease bound. Thus the output remains least and no larger than the supplied circuit.
+- least_one_dirty_replacement starts from explicit leastness and a dirty-AND count at most one. It transports that bound using the normalization's exact dirty-count equality, then invokes FlatRead.at_most_one_junk_isReadTwo with the resulting AO2, TopForm, and exact function equality. It returns exact size equality and joint IsReadK 2, not separate coordinatewise witness bounds.
+- Scope limitations: the nonempty-edge assumption is retained. The wrappers do not address arbitrary numbers of dirty AND gates and do not establish the full posted normalization statement.
+
+Red-team / source-format review:
+- Exact-fragment scan found no sorry/admit/axiom/native_decide, forbidden root text, double quote, executable/metaprogramming commands, import text, custom instance/data type, attribute, or other forbidden marker.
+- All helper declarations stay inside the relative TopNormalize namespace, to be inserted within the target module's auxiliary namespace. The old final theorem is now a lemma; no second theorem declaration was introduced.
+- The actual target must still retain only allowed initial imports and place the exact posted theorem last when that theorem exists.
+
+Independent validation:
+- Recompiled the full fragment under namespace Review011TopNormalize, including both new wrappers, against the current built target module. Only namespace names/qualified references were changed in this scratch audit.
+- /tmp/oec/pequalnp-pilot-39/composition-recovery/or-context/Review011Top.lean compiled with exit 0; stderr empty; 30 inherited if_pos/if_neg deprecation warnings, no errors.
+- Complete stdout/stderr saved as review-011a.stdout and review-011a.stderr in the same scratch directory.
+- Axiom audits for least_to_topForm, exists_least_topForm, and least_one_dirty_replacement each report exactly propext, Classical.choice, Quot.sound.
+- Audit-only import/printing commands remain in scratch and are not target content. This reviewer made no target-file changes, desk calls, or git mutations.

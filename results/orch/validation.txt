@@ -77,3 +77,11 @@ Build013: exit0; Build completed successfully (18419 jobs).
 Independent review010 passed, including independent Lean and axiom audits.
 Main checker currently running; final theorem still absent. Prior verdict REJECTED (no-theorem).
 TIMING total=55.6 subagents=13
+
+Checkpoint 11: recovered prior TopForm normalization, one-dirty least-circuit replacement, two-dirty alias/star edge coverage, explicit same-size surgery, empty-opposite semantics, zero-overhead intersection-two replacement and lexicographic leastness.
+Target: 9043 lines, 407971 bytes.
+Build014: exit0; Build completed successfully (18419 jobs).
+Independent semantic reviews011a/b/c/d/e plus full format/integration review011-format passed.
+Actual main checker on checkpoint010: exit1, REJECTED (no-theorem). Required final theorem remains absent. No proof/refutation accepted and no PR opened.
+Sub-agents: status_review, toolchain_setup, combinatorial_route, circuit_route, counterexample_search, structural_route, combinatorial_route/forced_semantics, review_recovery, structure_recovery, composition_recovery, composition_recovery/or_context, full_gap_challenge, full_gap_challenge/literature_challenge.
+TIMING total=61.0 subagents=13

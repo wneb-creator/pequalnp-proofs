@@ -1,0 +1,29 @@
+Independent checkpoint011 surgery review
+Reviewer: /root/full_gap_challenge, independent of the implementation.
+UTC: 2026-11-24T18:56:37.598249+00:00
+Frozen scope: surgery-007.fragment, all 308 lines, 14979 bytes.
+SHA256: cc71e126dee19181d215fea74e38e3f2c3d66fd7cec47a23058173528d09275c
+
+Verdict: CHECKPOINT PUSH READY for the reviewed surgery fragment; partial result only. No mathematical or source-format blocker found. This does not certify the posted L-meta-2584 theorem or checker acceptance.
+
+Mathematical review:
+- aliasCircuit explicitly deletes one gate and renumbers suffix operands and output, with the chosen alias strictly earlier than the deleted gate.
+- alias_spec proves exact one-gate saving and preserves AO2. Its output implication needs the explicit alias-to-old-gate dominance premise; its equality assertion correctly requires equality on the chosen assignment. Output at the deleted gate is redirected to the alias. A missing output stays missing after the shift, and the getD identities explicitly cover that case.
+- forced_alias_lower has the correct direction: forced-false old output implies aliased output. It uses only monotonicity of the suffix, since false is below every alias. It does not illegitimately reuse the opposite dominance premise from alias_spec.
+- replace_built / replace_ao2 preserve all old gate positions, checking the replacement operation, binary arity, and earlier references at the replaced position. Suffix bounds remain unchanged.
+- replace_unused_semantics excludes both direct suffix readers and the output from observing the replaced private gate. AgreeExcept is propagated through the suffix, so no semantic equality of the old/new private gate is assumed.
+- appendOr_value reads the appended gate at exactly n+oldsize. appendOr_ao2 separately requires both operands already valid; the value lemma itself also handles default false values.
+- repair_private_pair first deletes the second gate using the earlier alias l, then overwrites the now-private first gate with AND(p,d), then appends one OR. Its privacy proof checks that renumbering cannot introduce a reference to the first gate: a deleted-gate reference becomes l<k, and all larger wires shift to at least k+1.
+- The output condition o != k remains valid after aliasing because the original output differs from k and l<k. The separate original output-validity premise is genuinely needed for the appended OR's operand bound; the theorem does not silently assume all AO2 outputs are valid. If output equals the removed second gate, it is correctly redirected to l.
+- The returned circuit has exactly the old gate count: one deletion plus one appended OR. Its stated function is precisely alias-output OR prefix(p)*prefix(d), with both p,d before the overwritten first gate. The theorem does not claim this repaired star is below the target or covers all target pairs; those remain explicit obligations for the caller.
+
+Format/integration:
+- No forbidden proof shortcuts, new axioms, strings, special attributes/options, commands, or new instances/types in the fragment.
+- The relative AliasSurgery namespace must remain inside the main auxiliary namespace.
+- surgery-007 supersedes surgery-002/004. If the old160-line surgery-002 block is already integrated, use surgery-007-after-002.fragment; do not add duplicate declarations.
+
+Independent validation:
+- Recompiled the full fragment under fresh namespace PEqualNP.Outside.L_meta_2584.AliasSurgeryReview011d, importing the already-built main module only in the scratch audit.
+- Exit0; stderr empty; one harmless pre-existing unused-binder warning for ha in alias_false_surg.
+- alias_spec, forced_alias_lower, repair_private_pair, appendOr_ao2, appendOr_value all report only the allowed axioms propext/Classical.choice/Quot.sound (appendOr_ao2 uses only propext/Quot.sound).
+- Complete source/logs: /tmp/oec/pequalnp-pilot-39/full-gap-challenge/Review011d.lean, review-011d.stdout.txt, review-011d.stderr.txt.
