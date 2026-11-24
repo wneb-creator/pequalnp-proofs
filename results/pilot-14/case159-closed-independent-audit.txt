@@ -1,0 +1,6 @@
+Independent source review: PASS. Final compiled Case159Closed.olean exists and full case159-closed.log records successful serialization/type checking with no errors (8.07s total).
+Source: /tmp/oec/pequalnp-pilot-14/sat-proof/Case159Closed.lean
+SHA256: 41de837631acab52a3162146a0ef5b875b905f39be6f9407cd5f37aaa17514b7
+Bytes: 3703
+
+all44 covers each exact grandchild index0..43 once, with the appropriate previously checked prefix/search fact. grandchildren_sound uses the actual generator cardinality44 and an in-range getD/getElem equality, not a fallback element. grand_parent_checked authenticates the actual child56 parent transitions using only the certified-child cache. child56_excluded therefore discharges the sole remaining prerequisite of case159_excluded_of_child56. The resulting case159_excluded is a CLOSED exclusion at exact continuation budget13, NOTcount2 and case159State; it is one frontier state, not the full gap theorem. No remaining user hypothesis, sorry, new axiom, native_decide or prohibited option/attribute. All finite steps use decide +kernel.

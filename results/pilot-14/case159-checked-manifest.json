@@ -1,0 +1,64 @@
+{
+  "verdict": "Kernel-checked closed continuation only; not the complete gap statement",
+  "theorem": "PEqualNP.Outside.L_meta_670_aux.FiniteCase159.case159_excluded",
+  "type": "LiveCheck.Impossible 13 2 case159State",
+  "actual_children": 59,
+  "nested_children_for_child56": 44,
+  "finite_check_lemmas": 106,
+  "files": [
+    {
+      "file": "Case159Common.lean",
+      "bytes": 2790,
+      "lines": 57,
+      "sha256": "bbb23a93c5caec2537c6fda5a306a4976144215c4fe6d0799dfe975fc99c80d1"
+    },
+    {
+      "file": "Case159Child11.lean",
+      "bytes": 369,
+      "lines": 8,
+      "sha256": "819ff754dc120f62e8e0c6d786283bd159d2508eb5645b1584240c356ea7670d"
+    },
+    {
+      "file": "Case159Prefixes.lean",
+      "bytes": 3564,
+      "lines": 55,
+      "sha256": "7747e9ca1095e4cfdca1cb7197b6bead65744bdbb05b2b59306394162e5fd6a5"
+    },
+    {
+      "file": "Case159OtherChildren.lean",
+      "bytes": 611,
+      "lines": 12,
+      "sha256": "9355ed2ae326a44cb45d22b23e51cc05e6e66e7b8f012da10cdc919dde0981eb"
+    },
+    {
+      "file": "Case159Combine.lean",
+      "bytes": 4018,
+      "lines": 88,
+      "sha256": "25e0cad519a1f186724a06e5cf34859f1f6e99cd1058bd32b0fb0f374ad634ac"
+    },
+    {
+      "file": "Case159GrandCommon.lean",
+      "bytes": 1464,
+      "lines": 34,
+      "sha256": "13f3a3248bd8c00745625d3eef8d5b94e4607a25a25748a8a85603a86e35bb01"
+    },
+    {
+      "file": "Case159GrandPrefixes.lean",
+      "bytes": 2981,
+      "lines": 41,
+      "sha256": "065f635b0dce5edb1a465f9b71a8a29958db2c93e4f679ffc3156c78f35717bb"
+    },
+    {
+      "file": "Case159GrandOthers.lean",
+      "bytes": 713,
+      "lines": 13,
+      "sha256": "716d1fa3dcfd03baf74019e4ffe047f1ba815f7af8070050b7250b4e70cd3b34"
+    },
+    {
+      "file": "Case159Closed.lean",
+      "bytes": 3703,
+      "lines": 74,
+      "sha256": "41de837631acab52a3162146a0ef5b875b905f39be6f9407cd5f37aaa17514b7"
+    }
+  ]
+}

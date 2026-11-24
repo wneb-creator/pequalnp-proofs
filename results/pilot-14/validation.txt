@@ -11,3 +11,7 @@ TIMING total=131.73 subagents=6
 latest: checked local-prefix memo and projected-coverage soundness; complete logs and independent reviews archived
 latest: Boolean cache checks, precomputed update routes, and context materialization are checked; full finite proof remains pending
 finite progress: case159 child11 closed exclusion kernel-checked; full gap and local final checker remain pending
+
+Checkpoint 2026-11-24T00:12Z: Complete case159_excluded is kernel checked (all 59 first children; child56 split into44 grandchildren). Exact theorem Impossible13 2case159State; this is only one frontier case. Axiom audit: propext, Classical.choice, Quot.sound. LiteralBinary.high_nots is kernel checked and closes normalized Live search branches with at least6NOTs. Full gap theorem and final repository checker remain PENDING. Independent audits included.
+Sub-agents: counterexample, lower_bound, red_team, sat_proof, status_review, toolchain
+TIMING total=149 subagents=6

@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_670_aux.FiniteCase159.case159_excluded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+real 4.92
+user 2.85
+sys 2.04

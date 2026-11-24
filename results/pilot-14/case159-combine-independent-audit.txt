@@ -1,0 +1,6 @@
+Independent source review: PASS.
+Source: /tmp/oec/pequalnp-pilot-14/sat-proof/Case159Combine.lean
+SHA256: 25e0cad519a1f186724a06e5cf34859f1f6e99cd1058bd32b0fb0f374ad634ac
+Bytes: 4018
+
+all59 exhaustively eliminates Fin59 and uses exact previously checked child/prefix facts at each matching index; index56 is retained as an explicit Impossible hypothesis. children_sound uses actual List membership, proven child_count=59 and the in-range getD/getElem equality, so fallback children cannot replace omitted proposals. parent_checked runs only ChildReplay cache/stepTest authentication, never subtree checking, and the final conditional exclusion calls parentCheck_sound with every actual proposal covered. Budget13/NOTcount2/state are exact. No new axiom, sorry, native_decide, hidden assumption or full-gap claim. Only child56 remains an explicit prerequisite. Author reports EXIT0.

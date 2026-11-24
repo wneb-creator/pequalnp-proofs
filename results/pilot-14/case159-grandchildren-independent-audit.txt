@@ -1,0 +1,9 @@
+Independent source review: PASS.
+/tmp/oec/pequalnp-pilot-14/sat-proof/Case159GrandCommon.lean
+SHA256 13f3a3248bd8c00745625d3eef8d5b94e4607a25a25748a8a85603a86e35bb01
+/tmp/oec/pequalnp-pilot-14/sat-proof/Case159GrandPrefixes.lean
+SHA256 065f635b0dce5edb1a465f9b71a8a29958db2c93e4f679ffc3156c78f35717bb
+/tmp/oec/pequalnp-pilot-14/sat-proof/Case159GrandOthers.lean
+SHA256 716d1fa3dcfd03baf74019e4ffe047f1ba815f7af8070050b7250b4e70cd3b34
+
+The nested context is obtained by checked childContext from the exact original child56, retaining the full cached projection invariant. proposals56 is generated at budget12 with the actual child56 NOTcount/wires; grandchild checks use budget11 and the actual resulting NOTcounts/wires. Its cardinality44 is a closed kernel equality. Prefix indices (36) and nonprefix indices (8) are disjoint and cover exactly0..43; all computation uses decide +kernel. Their two global options are permitted recursion/heartbeat limits only; final assembly may scope them if desired. GetD fallbacks cannot replace actual in-range proposals when the cardinality bridge is used. Common compiled EXIT0; the two finite batches were still running when requested, so this is a source audit pending each final compiler result. No full-gap theorem is claimed.

@@ -1,0 +1,12 @@
+Independent source review: PASS (finite obstruction compilation remains owned by lower_bound).
+Source: /tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryBody.lean
+SHA256: 39d647f342eddf291f1ec725b6279d171e376f0569152fb4a619335900606d2c
+Bytes: 5599
+
+The finite obstruction is universal over all18 actual raw/complemented signals and all unequal pairs, for each of9 indices. No assumed index injectivity or raw-literal distinctness is needed: outside_mask is checked directly and the cardinality argument uses the actual image of index. binary_missing checks both AND and OR with actual414-bit separation masks.
+
+retained_count is sound: Live coverage and sep_weaken give XOR separation for every row. If U omits an index, every retained literal separation lies in missing(index), so the new binary signal plus missing(index) would cover all rows, contradicting the corresponding finite obstruction. Consequently U.image(index)=Fin9.univ and card U>=9.
+
+lower inducts through any number of unary gates, using closure of raw/complemented literals under negation. At the first binary gate, both operands and retained U are literals. The checked obstruction forces at least9 retained signals; freshness makes the new output a tenth distinct signal, and live_size of the continuation gives the final binary-gate lower bound. Stop is excluded by the closed target-not-literal check. Thus t+10<=k is exact, and high_nots correctly excludes budget15 when t>=6. It does not claim the full gap for t<=5.
+
+No sorry, new axiom, native_decide, forbidden substring, string literal, unauthorized attribute or non-limit option. All computations use decide +kernel.

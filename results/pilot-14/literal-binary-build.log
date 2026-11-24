@@ -1,0 +1,67 @@
+import took 3.84s
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryTest.lean:24:183: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryTest.lean:24:183: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryTest.lean:34:204: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryTest.lean:34:204: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryTest.lean:40:177: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryTest.lean:40:177: warning: Unused tactic linter: `exact h` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryTest.lean:48:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryTest.lean:48:81: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryTest.lean:67:112: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryTest.lean:67:108: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryTest.lean:67:112: warning: Unused tactic linter: `aesop` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+type checking took 114ms
+type checking took 116ms
+type checking took 114ms
+type checking took 115ms
+type checking took 180ms
+type checking took 111ms
+cumulative profiling times:
+	.olean serialization 17.3ms
+	attribute application 0.328ms
+	blocked (unaccounted) 8.2s
+	compilation (IR) 0.334ms
+	compilation (LCNF base) 9.15ms
+	compilation (LCNF impure) 2.18ms
+	compilation (LCNF mono) 3ms
+	congr simp thm 8.26ms
+	declTypeLinter 7.99ms
+	elaboration 57.7ms
+	fix level params 0.928ms
+	import 3.84s
+	initialization 26ms
+	instantiate metavars 12.1ms
+	interpretation 401ms
+	let-to-have transformation 0.214ms
+	linting 39.2ms
+	module linting 0.0436ms
+	parsing 8.96ms
+	process pre-definitions 19.8ms
+	share common exprs 11.5ms
+	simp 450ms
+	tactic execution 336ms
+	tacticAnalysis 8.3ms
+	type checking 1.12s
+	typeclass inference 89.3ms
