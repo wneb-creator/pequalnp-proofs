@@ -14,3 +14,5 @@
 - 2026-11-24T23:18:26.027492+00:00: Adapted public PR10495 rank/NOT-bound prefix compiled in 108.59 seconds. Original full candidate exceeded 6000 MB after 278.86 seconds. Splitting the first two certificate states compiled in 2.92 seconds. Variant J splits individual state conditions; static review passed, representative tests running.
 
 - 2026-11-24T23:19:51.977199+00:00: Switched named source to variant J after independently reviewed 90-state kernel benchmarks passed in 46.05 seconds. Full named J build started. Source SHA256 bfa9e492bd382f3fed3ae9f3933670ff22cc9b5fc94fcf47954655c6ac3a6b8c; 6349 lines, 510912 bytes. H interrupted after 815.88 seconds without completion.
+
+- 2026-11-24T23:39:18.561843+00:00: FIRST FULL NAMED BUILD PASSED: variant J, 1164.41 seconds, peak 5666620 KiB. Exact posted theorem compiled. Local checker next.
