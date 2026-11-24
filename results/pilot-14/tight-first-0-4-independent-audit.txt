@@ -1,0 +1,8 @@
+Independent parent-agent source review: PASS for the five compiled first-input batches0..4. Each quantifies all9 second indices and all4 signed operations with separate decide+kernel auxiliary declarations. Data definition is exactly TightFormula.test3 on the selected first-gate phase and9 raw phases.180 finite cases are checked; the rest of the family remains pending. No claim of closed five-NOT exclusion yet. Existing compiled oleans and full logs verified present.
+{
+  "TightFirst0.lean": "6a157eee6de904c3b2f4512c129afc09e5171234dac484ef284ed8576302c19f",
+  "TightFirst1.lean": "1a10598e37864879f73d77ce5ddd1a18fe0f92d9399ffb906060f1a2010584d8",
+  "TightFirst2.lean": "cd5fe1817e84dd232365a58b6c55616f667f38e4a1d946161b94f410570b637d",
+  "TightFirst3.lean": "4bd3c595d7ec44860fc2682ad7d2debdfbf139a9e7f8cda6fce64ab4eaa8cea9",
+  "TightFirst4.lean": "97b6896bbff7c1363f72a5f504ab07db425c1a736de5849dee81b80e32fed3f0"
+}

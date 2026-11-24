@@ -1,0 +1,6 @@
+PASS: independent recurrence and induction review. one_test assumes actual Live k t S and exact one-slack equation S.card+t=k; it proves the permissive Boolean test returns true, so false is a sound exclusion. Unary replacement preserves phase; retaining its input introduces exactly one phase duplicate and enters already checked tight_test. Binary consumption of both operands preserves one slack and recurses with n decreased; retaining exactly one operand consumes slack and calls tight_test. Retaining both contradicts live_size plus fresh output. keep_step_mem handles multiplicity using List.Perm rather than assuming distinct phase representatives. Coverage is derived from actual tail Live. Base depth zero is permissive, not an exclusion. No new assumptions, banned forms, or final-gap claim. Source wrapper equals body plus the expected import; compiler and axiom logs support the checked generic result.
+
+ba0ec6b1b6607e22e613f67db0c4e256497fb360e9ac2cc6ed2aa07a5ad363c0  sat-proof/SlackOneBody.lean
+9e279852363836e189dbffef2693a39e8418a7350c17fa610d12fcc77128a6a6  sat-proof/SlackOneTest.lean
+0e5a561b60fdb8911f52579f571e4b83b86552d3f53771536cdf85c8d2b773db  sat-proof/slack-one-build.log
+887fc66e23c710054af2ef19e207be23bfde2cf2fc8b9564699eff21a9898fd0  sat-proof/slack-one-axioms.log

@@ -1,0 +1,10 @@
+Verdict: PASS, independent source/conditional-soundness review. Existing final author EXIT0 log inspected and exact body in test verified; no reviewer compiler run.
+Three small literal/phase facts use decide+kernel. every_class repeats already checked missing-class obstruction argument. retained_perm correctly uses coverage of all9 phase classes pluscard U=9 and checked Nodup inputs to obtain a true list permutation; it does not silently deduplicate phase collisions.
+lower_eleven keeps the full finite first-gate assumption explicit for every signed literal pair and either binary operator. If fewer11 binary gates existed, retained_count≥9 and tail Live_size force exactly9 retained literal wires and tight cardinality; retained_perm puts tail into the exact initial family, and tight_test contradicts the supplied depth3false check. Unary prefixes preserve the literals invariant. No full family check or closed t5 exclusion is claimed by this module.
+
+Exact hashes:
+{
+  "lower-bound/TightFormulaEndgame.lean": "0cc3bd5c9dca28b35b85f4ed36844341389935121ae05cfaa91ddd56e17a9485",
+  "lower-bound/TightFormulaEndgameTest.lean": "f949c27d30d46a1bad4ff028e5b2d4eef41969fe22d53da2379f6b883901ee63",
+  "lower-bound/tight-formula-endgame-build3.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

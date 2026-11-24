@@ -1,0 +1,30 @@
+Independent source review: PASS (conditional theorem)
+
+Reviewed lower-bound/SlackEndgameBody.lean, its exact inclusion in
+SlackEndgameTest.lean, the existing TightFormulaEndgame and retained_extension
+proofs, and the empty successful build log with the produced olean present.
+No reviewer compiler rerun was performed.
+
+Body SHA256 bd663fa22903b2d58b10b94794d3f65ab9d4b7a7b904f117563fa01308ad38c3
+Test SHA256 af0bf0b008fdc7a2ab82417096ba685d4aae91ca73628957a91e14e15a6a3e62
+
+The conclusion is t+12 <= k for a Live k t S whose signals are literals.
+It retains both explicit finite-check premises: all first binary literal
+outputs fail the depth-three tight test and the depth-four one-slack test.
+This review does not claim either family has been fully discharged.
+
+At the first binary step, lower_eleven plus the contrary bound fixes the
+remaining budget k=t+10. Live size and freshness give retained cardinality
+at most10. retained_extension supplies the nine input phase classes and at
+most one extra phase, with multiplicity preserved.
+
+With no extra phase, the tail has exactly one slack and one_test contradicts
+the second finite-check premise. With one extra phase, the tail is tight;
+the extra is one of the input phases, so the duplicate branch of testOne
+contains the tight-test result. Unary steps preserve the literal hypothesis
+via neg_literal and increment both budget and NOT count. The stop case is
+excluded by target_not_literal.
+
+All permutations and duplicate handling follow the checked explicit proofs.
+No missing cardinality case, weakened claim, new assumption, or forbidden
+source construct was found.

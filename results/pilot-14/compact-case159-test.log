@@ -1,0 +1,155 @@
+import took 3.63s
+type checking took 223ms
+type checking took 210ms
+type checking took 237ms
+type checking took 213ms
+type checking took 263ms
+type checking took 341ms
+type checking took 236ms
+type checking took 202ms
+type checking took 166ms
+type checking took 139ms
+type checking took 10.2s
+type checking took 5.67s
+type checking took 304ms
+type checking took 269ms
+type checking took 308ms
+type checking took 209ms
+type checking took 10.5s
+type checking took 5.54s
+type checking took 181ms
+type checking took 186ms
+type checking took 192ms
+type checking took 198ms
+type checking took 227ms
+type checking took 361ms
+type checking took 248ms
+type checking took 238ms
+type checking took 114ms
+type checking took 315ms
+type checking took 271ms
+type checking took 268ms
+type checking took 339ms
+type checking took 330ms
+type checking took 416ms
+type checking took 334ms
+type checking took 378ms
+type checking took 393ms
+type checking took 360ms
+type checking took 311ms
+type checking took 361ms
+type checking took 373ms
+type checking took 10.3s
+type checking took 393ms
+type checking took 10.8s
+type checking took 417ms
+type checking took 423ms
+type checking took 561ms
+type checking took 490ms
+type checking took 420ms
+type checking took 528ms
+type checking took 592ms
+type checking took 554ms
+type checking took 427ms
+type checking took 10.1s
+type checking took 426ms
+type checking took 10.7s
+type checking took 479ms
+type checking took 635ms
+type checking took 10.4s
+type checking took 850ms
+type checking took 820ms
+type checking took 662ms
+type checking took 649ms
+type checking took 856ms
+type checking took 835ms
+type checking took 798ms
+type checking took 653ms
+type checking took 631ms
+type checking took 613ms
+type checking took 624ms
+type checking took 4.72s
+type checking took 3.15s
+type checking took 817ms
+type checking took 619ms
+type checking took 801ms
+type checking took 754ms
+type checking took 4.33s
+type checking took 3.01s
+type checking took 659ms
+type checking took 688ms
+type checking took 677ms
+type checking took 607ms
+type checking took 625ms
+type checking took 700ms
+type checking took 701ms
+type checking took 708ms
+type checking took 614ms
+type checking took 774ms
+type checking took 893ms
+type checking took 3.43s
+type checking took 764ms
+type checking took 693ms
+type checking took 662ms
+type checking took 946ms
+type checking took 987ms
+type checking took 3.74s
+type checking took 443ms
+type checking took 699ms
+type checking took 932ms
+type checking took 429ms
+type checking took 891ms
+type checking took 807ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CompactCase159Test.lean:32:66: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/CompactCase159Test.lean:33:72: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+type checking took 872ms
+/tmp/oec/pequalnp-pilot-14/toolchain/CompactCase159Test.lean:60:55: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/CompactCase159Test.lean:60:65: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/CompactCase159Test.lean:61:61: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-14/toolchain/CompactCase159Test.lean:61:71: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+'PEqualNP.Outside.L_meta_670_aux.CompactCase159.excluded' depends on axioms: [propext, Classical.choice, Quot.sound]
+cumulative profiling times:
+	.olean serialization 25.4ms
+	attribute application 0.111ms
+	blocked (unaccounted) 391s
+	compilation (IR) 0.207ms
+	compilation (LCNF base) 2.1ms
+	compilation (LCNF impure) 0.75ms
+	compilation (LCNF mono) 1.27ms
+	congr simp thm 1.19ms
+	declTypeLinter 8.25ms
+	elaboration 41.7ms
+	fix level params 1.03ms
+	import 3.63s
+	initialization 31.8ms
+	instantiate metavars 98.8ms
+	interpretation 551ms
+	let-to-have transformation 0.0849ms
+	linting 13.8ms
+	module linting 0.0198ms
+	parsing 4.64ms
+	process pre-definitions 22.7ms
+	share common exprs 6.68ms
+	simp 18.1ms
+	tactic execution 255ms
+	tacticAnalysis 3.71ms
+	type checking 150s
+	typeclass inference 158ms

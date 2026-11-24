@@ -23,3 +23,5 @@ Preserved incomplete RootSeven pipeline:48 checked child facts, conditional asse
 Checkpoint2026-11-24T00:22Z: TightFormula generic signed merger theorem, conditional lower_eleven endgame, and one finite first-gate obstruction are checked. Full first-gate family is still pending, so five-NOT exclusion is not yet claimed. FiniteProofTree generic rules and compact full child11 proof checked; only standard three axioms. Independent audits included.
 Sub-agents: counterexample, lower_bound, red_team, sat_proof, status_review, toolchain
 TIMING total=158 subagents=6
+
+Checkpoint2026-11-24T00:31Z: CompactCase159 fully checked (same closed frontier case,2968B proof body), generic SlackOne and retained-extension classification checked, lower_twelve remains explicitly conditional. First-input Tight batches0..4 check180/324 cases; remaining batches pending. Independent audits and full output preserved. Full gap0..5 and final repository checker remain pending.

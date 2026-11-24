@@ -1,0 +1,9 @@
+Verdict: PASS, independent exact classification/source review. Author EXIT0 log and exact test inclusion inspected; no reviewer compiler run.
+Every original raw phase occurs among retained U using every_class. Checked Nodup inputs gives a subpermutation even though U phases can collide; sublist decomposition explicitly preserves extra multiplicity. U.card≤10 and inputs.length9 imply extra.length≤1. Every leftover is a phase of an actual retained literal and therefore belongs to inputs. No unproved uniqueness, silently removed duplicates, finite endgame assumption or closed t4 lower bound is introduced.
+
+Exact hashes:
+{
+  "lower-bound/RetainedExtensionBody.lean": "c566d9c8ed2b3d800d48e7f2186c2478ff367ea3036d74ff2fdb0ade7fdc3608",
+  "lower-bound/RetainedExtensionTest.lean": "ec367e6224e93d3f4e52fa02be57f01ab3409784030c814f78ad58a571fe5f95",
+  "lower-bound/retained-extension-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
