@@ -54,3 +54,5 @@
 - 2026-11-24T18:43:07.782814+00:00 structure_recovery checked private-reader bridge from unique AND frontier and generic OR liveness.
 
 - 2026-11-24T18:47:17.251527+00:00: checkpoint9 combined6387line helper source built, all344 public declarations axiom-audited, split independent review passed. Public feed still has no reductions flag for L-meta-2584.
+
+- 2026-11-24T18:52:48.058202+00:00: checkpoint10 build+review passed; nonadjacent witness-preserving rotation and strengthened local obstruction preserved. Existing checked L-meta-1501 top-form normalization adapted successfully in scratch, with a composed one-dirty minimum-circuit replacement result.

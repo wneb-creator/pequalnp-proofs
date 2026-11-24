@@ -1,0 +1,12 @@
+'PEqualNP.Outside.L_meta_2584.Review010Reorder.nonadjacent_rotation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Review010DirtyOpposite.all_gates_productive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Review010DirtyOpposite.block_below' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Review010DirtyOpposite.block_four_cycle_free' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

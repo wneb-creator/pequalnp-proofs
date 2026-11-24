@@ -70,3 +70,10 @@ Build012: exit0; Build completed successfully (18419 jobs).
 Independent reviews009a/009b/009c passed; all344 public declaration axioms audited (standard allowed axioms only).
 Checker remains REJECTED (no-theorem); no final theorem and no PR.
 TIMING total=50.1 subagents=13
+
+Checkpoint 10: nonadjacent private-OR rotation, exact vector-preserving reordering, productive dirty-context local obstruction.
+Target: 6667 lines, 300678 bytes.
+Build013: exit0; Build completed successfully (18419 jobs).
+Independent review010 passed, including independent Lean and axiom audits.
+Main checker currently running; final theorem still absent. Prior verdict REJECTED (no-theorem).
+TIMING total=55.6 subagents=13

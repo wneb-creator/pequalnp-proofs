@@ -6384,4 +6384,284 @@ lemma adjacent_isReadK_iff (n : ℕ) (pre post : List Gate) (a b : Gate) (o : �
 
 end Reorder
 
+namespace Reorder
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def Same (n : ℕ) (C D : Circuit) : Prop :=
+  circuitFun n D = circuitFun n C ∧ D.size = C.size ∧
+    ∀ S k, PEqualNP.ReadK.readsAtMost D n S k = PEqualNP.ReadK.readsAtMost C n S k
+
+lemma same_refl (n : ℕ) (C : Circuit) : Same n C C := ⟨rfl, rfl, fun _ _ => rfl⟩
+
+lemma same_trans {n : ℕ} {C D E : Circuit} (h : Same n C D) (h' : Same n D E) :
+    Same n C E := ⟨h'.1.trans h.1, h'.2.1.trans h.2.1,
+      fun S k => (h'.2.2 S k).trans (h.2.2 S k)⟩
+
+lemma adjacent_same (n : ℕ) (pre post : List Gate) (a b : Gate) (o : ℕ)
+    (ha : ∀ i ∈ a.inputs, i < n + pre.length)
+    (hb : ∀ i ∈ b.inputs, i < n + pre.length) :
+    Same n ⟨pre ++ [a, b] ++ post, o⟩
+      ⟨pre ++ [b, a] ++ post.map (rename (n + pre.length)), sw (n + pre.length) o⟩ :=
+  ⟨adjacent_semantics n pre post a b o ha hb, adjacent_size n pre post a b o,
+    adjacent_readsAtMost n pre post a b o ha hb⟩
+
+lemma sw_self (k : ℕ) : sw k k = k + 1 := by simp [sw]
+
+lemma sw_ne_succ (k i : ℕ) (hi : i ≠ k) : sw k i ≠ k + 1 := by
+  unfold sw
+  split_ifs <;> omega
+
+lemma rename_avoids (k : ℕ) (gs : List Gate)
+    (h : ∀ g ∈ gs, ∀ i ∈ g.inputs, i ≠ k) :
+    ∀ g ∈ gs.map (rename k), ∀ i ∈ g.inputs, i ≠ k + 1 := by
+  intro g hg i hi
+  obtain ⟨g', hg', rfl⟩ := List.mem_map.mp hg
+  obtain ⟨i', hi', rfl⟩ := List.mem_map.mp hi
+  exact sw_ne_succ k i' (h g' hg' i' hi')
+
+def shape (n : ℕ) (pre : List Gate) (a : Gate) (mid : List Gate) (b : ℕ)
+    (post : List Gate) (o : ℕ) : Circuit :=
+  ⟨pre ++ a :: (mid ++ [⟨.and, [n + pre.length, b]⟩] ++ post), o⟩
+
+lemma bubble_private (n : ℕ) (pre : List Gate) (a : Gate) (mid : List Gate) (b : ℕ)
+    (post : List Gate) (o : ℕ)
+    (ha : ∀ i ∈ a.inputs, i < n + pre.length)
+    (hb : b < n + pre.length + 1 + mid.length) (hbne : b ≠ n + pre.length)
+    (ho : o ≠ n + pre.length)
+    (hprivate : ∀ g ∈ mid ++ post, ∀ i ∈ g.inputs, i ≠ n + pre.length)
+    (hC : PEqualNP.TopForm.IsAO2 n (shape n pre a mid b post o)) :
+    ∃ pre' post' b' o',
+      pre'.length = pre.length + mid.length ∧
+      PEqualNP.TopForm.IsAO2 n (shape n pre' a [] b' post' o') ∧
+      Same n (shape n pre a mid b post o) (shape n pre' a [] b' post' o') ∧
+      b' < n + pre'.length ∧ o' ≠ n + pre'.length ∧
+      (∀ g ∈ post', ∀ i ∈ g.inputs, i ≠ n + pre'.length) ∧
+      (∀ i, i < n + pre.length →
+        circuitFun n ⟨(shape n pre' a [] b' post' o').gates, i⟩ =
+          circuitFun n ⟨(shape n pre a mid b post o).gates, i⟩) ∧
+      circuitFun n ⟨(shape n pre' a [] b' post' o').gates, b'⟩ =
+        circuitFun n ⟨(shape n pre a mid b post o).gates, b⟩ := by
+  generalize hm : mid.length = m
+  induction m using Nat.strong_induction_on generalizing pre mid b post o with
+  | _ m ih =>
+    cases mid with
+    | nil =>
+      refine ⟨pre, post, b, o, by simp at hm; omega, hC, same_refl _ _, ?_, ho, ?_,
+        fun _ _ => rfl, rfl⟩
+      · simp only [List.length_nil] at hb
+        omega
+      · simpa only [List.nil_append] using hprivate
+    | cons g mid =>
+      let k := n + pre.length
+      have hg : ∀ i ∈ g.inputs, i < k := by
+        intro i hi
+        have hidx : pre.length + 1 < (shape n pre a (g :: mid) b post o).gates.length := by
+          simp [shape]
+        have he : NestedCover.gateAt (shape n pre a (g :: mid) b post o) (pre.length + 1) = g := by
+          simp [shape, NestedCover.gateAt, List.append_assoc, List.getD_eq_getElem?_getD]
+        have hlt := hC.2.1 (pre.length + 1) hidx i (by simpa only [he] using hi)
+        have hne := hprivate g (by simp) i hi
+        dsimp [k]
+        omega
+      let tail := mid ++ [⟨.and, [k, b]⟩] ++ post
+      let pre1 := pre ++ [g]
+      let mid1 := mid.map (rename k)
+      let post1 := post.map (rename k)
+      let b1 := sw k b
+      let o1 := sw k o
+      have hsource : shape n pre a (g :: mid) b post o = ⟨pre ++ [a, g] ++ tail, o⟩ := by
+        simp [shape, tail, k, List.append_assoc]
+      have hdest : (⟨pre ++ [g, a] ++ tail.map (rename k), o1⟩ : Circuit) =
+          shape n pre1 a mid1 b1 post1 o1 := by
+        simp [shape, tail, pre1, mid1, post1, b1, rename, sw_self, k, List.map_append,
+          List.append_assoc, Nat.add_assoc]
+      have hao1 : PEqualNP.TopForm.IsAO2 n (shape n pre1 a mid1 b1 post1 o1) := by
+        rw [← hdest]
+        exact adjacent_ao2 n pre tail a g o ha hg (by rw [← hsource]; exact hC)
+      have hs1 : Same n (shape n pre a (g :: mid) b post o)
+          (shape n pre1 a mid1 b1 post1 o1) := by
+        rw [hsource, ← hdest]
+        exact adjacent_same n pre tail a g o ha hg
+      have ha1 : ∀ i ∈ a.inputs, i < n + pre1.length := by
+        intro i hi
+        have := ha i hi
+        simp [pre1]
+        omega
+      have hb1 : b1 < n + pre1.length + 1 + mid1.length := by
+        have h := sw_lt k (n + pre.length + 2 + mid.length) b (by dsimp [k]; omega)
+          (by simp only [List.length_cons] at hb; omega)
+        simpa [b1, pre1, mid1, Nat.add_assoc] using h
+      have hbne1 : b1 ≠ n + pre1.length := by
+        simpa [b1, pre1, k, Nat.add_assoc] using sw_ne_succ k b hbne
+      have ho1 : o1 ≠ n + pre1.length := by
+        simpa [o1, pre1, k, Nat.add_assoc] using sw_ne_succ k o ho
+      have hp1 : ∀ h ∈ mid1 ++ post1, ∀ i ∈ h.inputs, i ≠ n + pre1.length := by
+        have hp : ∀ h ∈ mid ++ post, ∀ i ∈ h.inputs, i ≠ k := by
+          intro h hh i hi
+          apply hprivate h _ i hi
+          simp only [List.mem_append, List.mem_cons] at hh ⊢
+          tauto
+        simpa [mid1, post1, pre1, k, List.map_append, Nat.add_assoc] using rename_avoids k (mid ++ post) hp
+      have hvs (i : ℕ) :
+          circuitFun n ⟨(shape n pre1 a mid1 b1 post1 o1).gates, sw k i⟩ =
+            circuitFun n ⟨(shape n pre a (g :: mid) b post o).gates, i⟩ := by
+        rw [congrArg Circuit.gates hsource, ← congrArg Circuit.gates hdest]
+        exact adjacent_semantics n pre tail a g i ha hg
+      obtain ⟨pre', post', b', o', hlen, hAO, hs, hb', ho', hp', hvals, hvalb⟩ :=
+        ih mid.length (by simp only [List.length_cons] at hm; omega)
+          pre1 mid1 b1 post1 o1 ha1 hb1 hbne1 ho1 hp1 hao1 (by simp [mid1])
+      refine ⟨pre', post', b', o', ?_, hAO, same_trans hs1 hs, hb', ho', hp', ?_, ?_⟩
+      · simp only [pre1, List.length_append, List.length_cons, List.length_nil] at hlen
+        simp only [List.length_cons] at hm
+        omega
+      · intro i hi
+        have hi1 : i < n + pre1.length := by simp [pre1]; omega
+        exact (hvals i hi1).trans (by simpa only [sw_below k i hi] using hvs i)
+      · exact hvalb.trans (hvs b)
+
+lemma prefix_value (n : ℕ) (pre post : List Gate) (i : ℕ)
+    (hi : i < n + pre.length) (z : Fin n → Bool) :
+    circuitFun n ⟨pre ++ post, i⟩ z = (Rotation.run pre (List.ofFn z)).getD i false := by
+  obtain ⟨E, he⟩ := GuardedErase.wf_ext post (GuardedErase.wf pre (List.ofFn z))
+  change (GuardedErase.wf (pre ++ post) (List.ofFn z)).getD i false = _
+  rw [GuardedErase.wf_append, he]
+  exact List.getD_append _ _ _ _ (by simpa [GuardedErase.wf_len] using hi)
+
+def rotated (n : ℕ) (pre : List Gate) (x a b : ℕ) (post : List Gate) (o : ℕ) : Circuit :=
+  ⟨pre ++ [⟨.and, [a, b]⟩, ⟨.or, [x, n + pre.length]⟩] ++ post, o⟩
+
+lemma nonadjacent_rotation (n : ℕ) (pre mid post : List Gate) (x a b o : ℕ)
+    (hx : x < n + pre.length) (ha : a < n + pre.length)
+    (hb : b < n + pre.length + 1 + mid.length) (hbne : b ≠ n + pre.length)
+    (ho : o ≠ n + pre.length)
+    (hprivate : ∀ g ∈ mid ++ post, ∀ i ∈ g.inputs, i ≠ n + pre.length)
+    (hC : PEqualNP.TopForm.IsAO2 n (shape n pre ⟨.or, [x, a]⟩ mid b post o))
+    (hdom : ∀ z : Fin n → Bool,
+      circuitFun n ⟨(shape n pre ⟨.or, [x, a]⟩ mid b post o).gates, x⟩ z = true →
+        circuitFun n ⟨(shape n pre ⟨.or, [x, a]⟩ mid b post o).gates, b⟩ z = true) :
+    ∃ pre' post' b' o',
+      pre'.length = pre.length + mid.length ∧
+      PEqualNP.TopForm.IsAO2 n (rotated n pre' x a b' post' o') ∧
+      (rotated n pre' x a b' post' o').size = (shape n pre ⟨.or, [x, a]⟩ mid b post o).size ∧
+      circuitFun n (rotated n pre' x a b' post' o') =
+        circuitFun n (shape n pre ⟨.or, [x, a]⟩ mid b post o) ∧
+      (∀ S, PEqualNP.ReadK.readsAtMost (shape n pre ⟨.or, [x, a]⟩ mid b post o) n S 2 = true →
+        PEqualNP.ReadK.readsAtMost (rotated n pre' x a b' post' o') n S 2 = true) ∧
+      (PEqualNP.ReadK.IsReadK n (shape n pre ⟨.or, [x, a]⟩ mid b post o) 2 →
+        PEqualNP.ReadK.IsReadK n (rotated n pre' x a b' post' o') 2) := by
+  have hgate : ∀ i ∈ (⟨GateOp.or, [x, a]⟩ : Gate).inputs, i < n + pre.length := by
+    intro i hi
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+    rcases hi with rfl | rfl <;> assumption
+  obtain ⟨pre', post', b', o', hlen, hAO, hs, hb', ho', hp', hvals, hvalb⟩ :=
+    bubble_private n pre ⟨.or, [x, a]⟩ mid b post o hgate hb hbne ho hprivate hC
+  have hx' : x < n + pre'.length := by omega
+  have ha' : a < n + pre'.length := by omega
+  let C' := shape n pre' ⟨.or, [x, a]⟩ [] b' post' o'
+  have hdom' (z : Fin n → Bool) :
+      (Rotation.run pre' (List.ofFn z)).getD x false = true →
+        (Rotation.run pre' (List.ofFn z)).getD b' false = true := by
+    have hpx : circuitFun n ⟨C'.gates, x⟩ z = (Rotation.run pre' (List.ofFn z)).getD x false := by
+      simpa [C', shape, List.append_assoc, List.cons_append, List.nil_append] using
+        prefix_value n pre' (⟨.or, [x, a]⟩ :: ⟨.and, [n + pre'.length, b']⟩ :: post') x hx' z
+    have hpb : circuitFun n ⟨C'.gates, b'⟩ z = (Rotation.run pre' (List.ofFn z)).getD b' false := by
+      simpa [C', shape, List.append_assoc, List.cons_append, List.nil_append] using
+        prefix_value n pre' (⟨.or, [x, a]⟩ :: ⟨.and, [n + pre'.length, b']⟩ :: post') b' hb' z
+    intro hz
+    rw [← hpb]
+    rw [hvalb]
+    apply hdom z
+    rw [← hvals x hx]
+    exact hpx.trans hz
+  have hAO' : PEqualNP.TopForm.IsAO2 n
+      ⟨pre' ++ [⟨.or, [x, a]⟩, ⟨.and, [n + pre'.length, b']⟩] ++ post', o'⟩ := by
+    simpa [shape, List.append_assoc] using hAO
+  have hdAO : PEqualNP.TopForm.IsAO2 n (rotated n pre' x a b' post' o') :=
+    Rotation.adjacent_ao2 n pre' post' x a b' o' hx' ha' hb' hAO'
+  have hsize : (rotated n pre' x a b' post' o').size =
+      (shape n pre ⟨.or, [x, a]⟩ mid b post o).size := by
+    have hr := Rotation.adjacent_size n pre' post' x a b' o'
+    have hr' : (rotated n pre' x a b' post' o').size = C'.size := by
+      simpa [C', shape, rotated, List.append_assoc] using hr.symm
+    exact hr'.trans hs.2.1
+  have hfun : circuitFun n (rotated n pre' x a b' post' o') =
+      circuitFun n (shape n pre ⟨.or, [x, a]⟩ mid b post o) := by
+    have hr := Rotation.adjacent_semantics n pre' post' x a b' o' hx' ha' hb' ho' hp' hdom'
+    have hr' : circuitFun n (rotated n pre' x a b' post' o') = circuitFun n C' := by
+      simpa [C', shape, rotated, List.append_assoc] using hr.symm
+    exact hr'.trans hs.1
+  have hreads (S : List ℕ)
+      (hr : PEqualNP.ReadK.readsAtMost (shape n pre ⟨.or, [x, a]⟩ mid b post o) n S 2 = true) :
+      PEqualNP.ReadK.readsAtMost (rotated n pre' x a b' post' o') n S 2 = true := by
+    apply Rotation.adjacent_preserves_reads_two n pre' post' x a b' o' hx' ha' hb' ho' hp' hAO'
+    simpa [shape, List.append_assoc] using (hs.2.2 S 2).trans hr
+  refine ⟨pre', post', b', o', hlen, hdAO, hsize, hfun, hreads, ?_⟩
+  intro hr S hS
+  apply hreads (PEqualNP.ReadK.setList S)
+  exact hr S (by simpa only [PEqualNP.ReadK.IsPrimeImplicant, hfun] using hS)
+
+end Reorder
+
+namespace DirtyOpposite
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.EdgeOwnership
+open PEqualNP.MetaComplexity.NestedCover
+
+def blockCircuit : Circuit :=
+  ⟨[⟨.or, [0, 1]⟩, ⟨.or, [7, 2]⟩, ⟨.or, [7, 3]⟩,
+    ⟨.and, [8, 9]⟩, ⟨.or, [6, 0]⟩, ⟨.and, [5, 11]⟩,
+    ⟨.or, [4, 12]⟩, ⟨.and, [10, 13]⟩], 14⟩
+
+abbrev blockGraph : SimpleGraph (Fin 7) :=
+  edgeGraph 7 [(0, 4), (0, 5), (1, 4), (1, 6), (2, 4), (3, 5), (3, 6)]
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma block_ao : PEqualNP.TopForm.IsAO2 7 blockCircuit := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma block_four_cycle_free : PEqualNP.TopForm.NoFourCycle blockGraph := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma block_bipartite : ∀ u v : Fin 7, blockGraph.Adj u v →
+    (u.val < 4 ∧ 4 ≤ v.val) ∨ (v.val < 4 ∧ 4 ≤ u.val) := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma block_below : ∀ x : Fin 7 → Bool,
+    circuitFun 7 blockCircuit x = true → graphFun blockGraph ∅ x = true := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma source_singletons : ∀ u : Fin 7,
+    gateVal 7 blockCircuit 3 (pairInput u u) = true ↔ u = 0 ∨ u = 1 := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma opposite_singletons : ∀ u : Fin 7,
+    gateVal 7 blockCircuit 6 (pairInput u u) = true ↔ u = 4 := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma first_factor_unsound : ∃ x : Fin 7 → Bool,
+    gateVal 7 blockCircuit 1 x = true ∧ gateVal 7 blockCircuit 6 x = true ∧
+      graphFun blockGraph ∅ x = false := by
+  exact ⟨fun i => decide (i = 2 ∨ i = 5 ∨ i = 6), by decide⟩
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma second_factor_unsound : ∃ x : Fin 7 → Bool,
+    gateVal 7 blockCircuit 2 x = true ∧ gateVal 7 blockCircuit 6 x = true ∧
+      graphFun blockGraph ∅ x = false := by
+  exact ⟨fun i => decide (i = 3 ∨ i = 4), by decide⟩
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma all_gates_productive : ∀ j : Fin 8, ∃ u v : Fin 7,
+    blockGraph.Adj u v ∧ gateVal 7 blockCircuit j.val (pairInput u v) = true := by decide
+
+end DirtyOpposite
+
 end PEqualNP.Outside.L_meta_2584
