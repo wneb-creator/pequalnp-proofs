@@ -1,0 +1,9 @@
+2026-11-24T10:37:13.176916+00:00
+PASS PrivateOneMaskRefund.lean
+554ea56c9bd81e2ae4c6fdf7c6e11102bb4247ff5420ed8111f453acbea9bb2e
+Author build002 exit0 reported; full log checked, inherited warnings only.
+Exact MaskJointTwoBudget prefix confirmed. Added localization, private connector and reader components were independently reviewed frozen sources.
+Final PrivateOneMask namespace source/math reviewed: rootCones membership, outside bound, singleton A connector outside mask rootB and joint rootsD/E, reservedT={k} union outsideO, actual mask-owned stops, localized split cover across disjointD/E, live-mask aggregate t1, and two-reader overhead.
+Critical arithmetic: combinedU +1+outsideO <= outside+3; reader2<=outsideO+2c implies U<=outside+2c.
+All quantitative premises are derived. Explicit semantic premises remain hU coverage, hpair graph/cross representation, hcover masked-residual split, private pair, root purity/bounds, and actual paired top. No unrestricted/full gap claim.
+Source format scan clear: no forbidden identifiers/strings/axioms/tactics/instances/commands.

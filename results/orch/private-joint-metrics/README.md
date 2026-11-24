@@ -1,0 +1,11 @@
+# Bounded private-joint diagnostics
+
+These finite diagnostics extend the independently reviewed SearchJointUnion and SearchJointCriteria sources. They inspect two dirty products of pure input ORs, with disjoint operands within each product and every operand containing at leasttwo variables. Effective input masks are tested on every Boolean assignment. Private joint means an accepted edge pair lies outside both effective-mask edge unions. All host graphs are explicit bipartite C4-free graphs on eight vertices; these are selected examples, not a census of all graphs.
+
+SearchJointPrivateMetrics exhaustively computes the minimum vertex cover of the combined mask-and-joint edge union U, then records maxima of |U|+cover(U)−O, separated by whether both mask-edge families are nonempty. O is the shared-quadrant OR construction cost, not an asserted global minimum. The Refund variant records |U|−O; Cover records cover(U). Every qualifying pair is inspected; no early stop occurs when a new maximum is recorded. The inherited counterexample_found:false field is only legacy output, not a universal theorem.
+
+Five-host complete runs inspect2,073,666 pairs per host, from2037 distinct disjoint product forms. The largest |U|+cover−O was3 with both mask families nonempty and1 otherwise. The largest |U|−O was0 and−1 respectively. Maximum cover was3 and2 respectively. Adding the theta333 host (three length-three paths) retained maximum cover3/2; its full run covers six hosts. These bounded findings informed later independent Lean arguments and are not themselves formal proofs.
+
+The separate SearchJointCriteria pair-only forest run weakens joint cleanliness to rejection of every nonedge pair, while retaining full cleanliness of each effective mask. It found no cyclic U on all six hosts; each host inspected all2,073,666pairs. This does not establish a universal forest theorem.
+
+Commands: python3 SearchJointPrivateMetrics.py --vertices 8 --disjoint-min-two --private-joint --edge-budget --output <json>; replace the program with Refund/Cover/CoverTheta for its metric. For the pair-only forest run use SearchJointCriteria.py --vertices 8 --disjoint-min-two --criterion forest --pair-only --output <json>. Pass --vertices and8 as separate arguments. Full stdout/stderr and exact extrema are preserved.

@@ -1,0 +1,45 @@
+{
+  "frozen_at": "2026-11-24T10:31:29.230364+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "e6151ad6b0eb82fabebf9821e36e8f6b7588501a59a0e1fc9b35260ec9dd0a36",
+      "bytes": 2141
+    },
+    {
+      "file": "SearchComplement12Problem.json",
+      "sha256": "1a3302c5297d676a1dd00bd697538a0bcb09b0802f3ff0e1100ecf92c83fe540",
+      "bytes": 2300
+    },
+    {
+      "file": "SearchComplement12Problem.py",
+      "sha256": "c0aecd88761752cf16d7599e9432e8dd61c1fba1355673d589bd6ede888d1c28",
+      "bytes": 1094
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticComplement12Balanced.py",
+      "sha256": "8b2249cda2eb7e13641c4c0415534790e400bd1cb863928c4779c2ebe8cd123e",
+      "bytes": 27150
+    },
+    {
+      "file": "complement12-balanced-calibration.log",
+      "sha256": "d0cf0fde1d69f5fa830d75a7a2775edfafd833c7e7e2852273c2423f4fc026b7",
+      "bytes": 282
+    },
+    {
+      "file": "complement12-invalid-biclique-start.json",
+      "sha256": "719824473c021afbed331b350eccb615ee2ca8872432dbe04186eed551d5c90d",
+      "bytes": 134710
+    },
+    {
+      "file": "review-complement12-balanced-status-audit.log",
+      "sha256": "3c006dc056f57933685877015547c0e79bae1f99b83fef2bfca559cf6fed41d4",
+      "bytes": 484
+    }
+  ]
+}

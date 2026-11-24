@@ -1,0 +1,9 @@
+{"event": "start", "initial_tests": 25, "complete_tests": 88, "edits": 8, "round_seconds": 60, "rounds": 24, "refine_count": 2}
+{"event": "solver", "round": 0, "tests": 25, "exit": 10}
+{"event": "INVALID_REFINED", "round": 0, "wrong_raw": 56, "added_maximal_negatives": 2, "elapsed": 0.32811919300002046}
+{"event": "solver", "round": 1, "tests": 27, "exit": 10}
+{"event": "INVALID_REFINED", "round": 1, "wrong_raw": 32, "added_maximal_negatives": 2, "elapsed": 3.352997318001144}
+{"event": "solver", "round": 2, "tests": 29, "exit": 10}
+{"event": "INVALID_REFINED", "round": 2, "wrong_raw": 32, "added_maximal_negatives": 2, "elapsed": 26.35907472100007}
+{"event": "solver", "round": 3, "tests": 31, "exit": 0}
+{"event": "NO_VERDICT", "round": 3}

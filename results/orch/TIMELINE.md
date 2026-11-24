@@ -263,3 +263,11 @@
 2026-11-24 10:35:46 UTC lean_setup: ZeroMaskRefund frozen/compiled build003 exit0. Actual least-AO TopForm circuit with exactly two independent dirty ANDs, disjoint operand supports, and both finite mask families empty satisfies Ustar.card≤outsideLambdaOR.card+2*centreless.card and has Ustar cover≤2. Uses automatic bipartite clause selection, localized real OR charges, and paired-reader overhead. Concrete plane125 wrapper building next.
 
 - 2026-11-24T10:36:53.111529+00:00 root preserved15 checked/refereed partials: localized joint counts, private antichains, ordinary reader separation, eligible cover and both-mask plane bound; exact unrestricted gap remains open.
+
+- 2026-11-24T10:37:44.033479+00:00 [counterexample_search] Adaptive CEGIS004/005 timed out at31selected tests (8/24edit neighborhoods). Polarity-renaming SAT heuristic passed known29 full-clause and full88 scalar calibration; independent review pending. Private-joint-metrics preservation package independently reviewed PASS by normal_form.
+
+2026-11-24 10:38:02 UTC lean_setup: PlaneZeroMask frozen FIRST-TRY compile EXIT0,9002lines/436727bytes. Concrete theorem plane_zero_masks_size proves125≤C.size for exact2 independentdirty ANDs, disjoint operand supports, both maskEdges families empty, leastAO andTopForm. No cost/reader/coverage premises. Exact checked105-edge geometry+21cover and root residual accounting included; full posted gap remains open outside this branch.
+
+2026-11-24T10:38:14.628483+00:00 gate_invariants PrivateBothMaskFull.lean frozen FIRST TRY build001 EXIT0, SHA 0c85e3701665d3db616889919115fdca40e6ebb0dc43c95ce92f492a80ecfb91, 9221lines. Exact ActualPlane prefix plus checked opposite-orientation namespace/mask_swap; new center selection and all product-side/input-order cases yield plane125 whenever both mask families nonempty. No chosen center/orientation premise remains. Reader orientation0/1 and JointClean/product-fire assumptions still explicit here; symmetric reader and actual paired-top extraction follow separately.
+
+- 2026-11-24T10:40:06.609067+00:00 root preserved8 checked/refereed actual restricted bounds and6 reviewed search packages; no unrestricted proof or target witness.

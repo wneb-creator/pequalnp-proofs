@@ -1,0 +1,4 @@
+Independent incremental review PASS
+File: results/orch/lemmas/OrdinaryFamilyLowerBound.lean
+SHA256: 0470e48272b73d5c2d226afe6c1d495222a7f8ec054dc4d4f9365de4937557ea
+Reviewed final no_centreless_lower_bound wrapper against reviewed OrdinaryFamilyCoverage, OrdinaryFamilyBudget and EligibleCenterCover APIs. Actual roots bounded via opnd_lt. Derived coverage implies Ustar subset allStars minus starEdges. Actual ordinary reader budget pays residual plus boundary plus S within outsideOR+t. Paid-cover accounting and t<=junk.card cancel exactly to E+tau<=size+1. First-layer/disjoint/large/two-center/nojoint hypotheses explicit. Author build001 EXIT0 reported. Forbidden scan PASS; this is a restricted result, not the posted theorem.

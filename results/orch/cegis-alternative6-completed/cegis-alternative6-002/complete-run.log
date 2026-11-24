@@ -1,0 +1,5 @@
+{"event": "start", "initial_tests": 25, "complete_tests": 88, "edits": 8, "round_seconds": 120, "rounds": 8}
+{"event": "solver", "round": 0, "tests": 25, "exit": 10}
+{"event": "INVALID_REFINED", "round": 0, "wrong_raw": 48, "added_maximal_negatives": 12, "elapsed": 0.3048936169998342}
+{"event": "solver", "round": 1, "tests": 37, "exit": 0}
+{"event": "NO_VERDICT", "round": 1}

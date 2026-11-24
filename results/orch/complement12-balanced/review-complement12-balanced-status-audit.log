@@ -1,0 +1,3 @@
+PASS independent48 full4156 baselines: 40 valid 8 explicitly INVALID, 199488 scalar cases, 144 physical mutants
+SOURCE_SHA 8b2249cda2eb7e13641c4c0415534790e400bd1cb863928c4779c2ebe8cd123e
+Source delta reviewed: exact compressed biclique positive coverage/cost, weighted fitness/archive only, explicitly INVALID overapprox recorder with physical and fullraw replay, final valid witness path unchanged. Negative scale60/1902 with exploratory multipliers. No proof or lower-bound claim.

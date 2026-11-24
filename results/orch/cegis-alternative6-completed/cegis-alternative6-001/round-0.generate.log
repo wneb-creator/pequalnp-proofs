@@ -1,0 +1,2 @@
+{"variables": 4536, "clauses": 134571, "case": "plane_local", "gates": 28, "tests": 32, "metadata": {"points": [0, 1, 2, 3, 8, 15], "groups": [[3, [21]], [38, [22]], [12, [23]], [8, [24, 31]], [16, [25, 34]], [1, [26, 38]], [2, [27, 39]], [21, [28]], [26, [29]], [4, [30, 40]], [32, [32, 35]], [48, [36]], [41, [41]]], "outside_or_cost": 6, "standard_core": 29, "complete_test_count": 88, "test_subset": true}}
+{"variables": 5386, "clauses": 137690, "maximum_edits": 8, "positions": 84}

@@ -1,0 +1,4 @@
+Independent review PASS
+File: results/orch/lemmas/OrdinaryFamilyCoverage.lean
+SHA256: af418bde88cc00b54b742420c519ce52c1f693a6c6ecef6a3e09a41c0972c171
+Exact reviewed OrdinaryFilterBudget prefix confirmed. Reviewed final no_centreless_mask_cover proof: actual off-star common-filter extraction and pure product equation give an internal clean center and its star edge. Eligible products use their boundary certificate. For an ineligible product the top reading side is nonempty because centreless is empty; opposite internal clean center supplies precisely OrdinaryActive. Both operand orientations handled using certificate_swap. All first-layer, no-productive-joint, disjoint, cardinality, and two-center hypotheses remain explicit. Author build003 EXIT0 reported; no claim of unrestricted result. Forbidden scan PASS.

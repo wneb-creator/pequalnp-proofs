@@ -1,0 +1,20 @@
+PARTIAL RESULTS ONLY. Exact gap L-meta-1477 remains unproved.
+Named-file checker remains REJECTED (no-theorem); no proof PR opened.
+
+PrivateBothMaskActualPlane.lean lines=8970 bytes=431973 SHA256=0804420032c65563c06e0dd80e1c2c5d8a7baafe68ea18382bf817b7f0884d3a; author build EXIT0; independent review PASS by status_audit; full log=results/orch/private-both-mask-actual-plane-build-001.log
+PrivateBothMaskFull.lean lines=9221 bytes=446376 SHA256=0c85e3701665d3db616889919115fdca40e6ebb0dc43c95ce92f492a80ecfb91; author build EXIT0; independent review PASS by status_audit; full log=results/orch/private-both-mask-full-build-001.log
+ZeroMaskRefund.lean lines=8701 bytes=422860 SHA256=8830b295eccedc3c21c3c1cdce6431cea53105f6ef941be920e5f3780c6e01b1; author build EXIT0; independent review PASS by status_audit; full log=results/orch/zero-mask-refund-build-003.log
+PlaneZeroMask.lean lines=9002 bytes=436727 SHA256=a8e6d33e86bcb589cb00113de237a292aa91b4fb7e4555495de49c0d27efebad; author build EXIT0; independent review PASS by status_audit; full log=results/orch/plane-zero-mask-build-001.log
+PrivateOneMaskRefund.lean lines=8540 bytes=416035 SHA256=554ea56c9bd81e2ae4c6fdf7c6e11102bb4247ff5420ed8111f453acbea9bb2e; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/private-one-mask-refund-build-002.log
+OrdinaryFamilyBudget.lean lines=7820 bytes=381533 SHA256=55d48121b1f920648120b49d302fabf686750be91c6feed6e995556724e98448; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/ordinary-family-budget-build-001.log
+OrdinaryFamilyCoverage.lean lines=7803 bytes=380941 SHA256=af418bde88cc00b54b742420c519ce52c1f693a6c6ecef6a3e09a41c0972c171; author build EXIT0; independent review PASS by root; full log=results/orch/ordinary-family-coverage-build-003.log
+OrdinaryFamilyLowerBound.lean lines=8208 bytes=401975 SHA256=0470e48272b73d5c2d226afe6c1d495222a7f8ec054dc4d4f9365de4937557ea; author build EXIT0; independent review PASS by root; full log=results/orch/ordinary-family-lower-bound-build-001.log
+complement12-balanced: 8 manifest entries independently reviewed, every hash and byte count rechecked; no target counterexample. SAT scopes and invalid candidate labels retained.
+triangle9-run-007: 56 manifest entries independently reviewed, every hash and byte count rechecked; no target counterexample. SAT scopes and invalid candidate labels retained.
+cegis-alternative6-completed: 45 manifest entries independently reviewed, every hash and byte count rechecked; no target counterexample. SAT scopes and invalid candidate labels retained.
+alternative6-run-007: 62 manifest entries independently reviewed, every hash and byte count rechecked; no target counterexample. SAT scopes and invalid candidate labels retained.
+alternative6-balanced: 8 manifest entries independently reviewed, every hash and byte count rechecked; no target counterexample. SAT scopes and invalid candidate labels retained.
+private-joint-metrics: 16 manifest entries independently reviewed, every hash and byte count rechecked; no target counterexample. SAT scopes and invalid candidate labels retained.
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=271.59 subagents=6

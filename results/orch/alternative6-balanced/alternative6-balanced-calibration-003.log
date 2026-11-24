@@ -1,0 +1,3 @@
+PASS144 full88 baselines: 122 valid 22 explicitly INVALID, 12672 scalar cases, 432 physical mutants
+SOURCE_SHA f29293d985b3c263682d04c6ecae47b12cb4e02d90a671c0ea2ecc1c6f433989
+NEGATIVE_SCALE 0.375 BICLIQUE_STARTS 22

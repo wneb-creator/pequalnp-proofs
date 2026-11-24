@@ -1,0 +1,467 @@
+{
+  "inputs": 19,
+  "gates": [
+    [
+      "or",
+      [
+        6,
+        13
+      ]
+    ],
+    [
+      "or",
+      [
+        18,
+        19
+      ]
+    ],
+    [
+      "or",
+      [
+        6,
+        7
+      ]
+    ],
+    [
+      "or",
+      [
+        14,
+        21
+      ]
+    ],
+    [
+      "or",
+      [
+        4,
+        5
+      ]
+    ],
+    [
+      "or",
+      [
+        7,
+        16
+      ]
+    ],
+    [
+      "or",
+      [
+        17,
+        24
+      ]
+    ],
+    [
+      "or",
+      [
+        18,
+        25
+      ]
+    ],
+    [
+      "and",
+      [
+        23,
+        26
+      ]
+    ],
+    [
+      "or",
+      [
+        10,
+        13
+      ]
+    ],
+    [
+      "or",
+      [
+        14,
+        28
+      ]
+    ],
+    [
+      "or",
+      [
+        17,
+        29
+      ]
+    ],
+    [
+      "and",
+      [
+        23,
+        30
+      ]
+    ],
+    [
+      "or",
+      [
+        11,
+        20
+      ]
+    ],
+    [
+      "and",
+      [
+        0,
+        32
+      ]
+    ],
+    [
+      "and",
+      [
+        5,
+        27
+      ]
+    ],
+    [
+      "or",
+      [
+        33,
+        34
+      ]
+    ],
+    [
+      "or",
+      [
+        12,
+        22
+      ]
+    ],
+    [
+      "and",
+      [
+        1,
+        36
+      ]
+    ],
+    [
+      "and",
+      [
+        4,
+        31
+      ]
+    ],
+    [
+      "or",
+      [
+        7,
+        8
+      ]
+    ],
+    [
+      "or",
+      [
+        13,
+        39
+      ]
+    ],
+    [
+      "or",
+      [
+        15,
+        40
+      ]
+    ],
+    [
+      "and",
+      [
+        2,
+        41
+      ]
+    ],
+    [
+      "or",
+      [
+        35,
+        37
+      ]
+    ],
+    [
+      "or",
+      [
+        38,
+        42
+      ]
+    ],
+    [
+      "or",
+      [
+        3,
+        44
+      ]
+    ],
+    [
+      "or",
+      [
+        43,
+        45
+      ]
+    ]
+  ],
+  "output": 46,
+  "size": 28,
+  "edge_list": [
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      1,
+      12
+    ],
+    [
+      0,
+      13
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      4,
+      13
+    ],
+    [
+      1,
+      14
+    ],
+    [
+      3,
+      14
+    ],
+    [
+      4,
+      14
+    ],
+    [
+      2,
+      15
+    ],
+    [
+      5,
+      16
+    ],
+    [
+      4,
+      17
+    ],
+    [
+      5,
+      17
+    ],
+    [
+      0,
+      18
+    ],
+    [
+      3,
+      18
+    ],
+    [
+      5,
+      18
+    ]
+  ],
+  "round": 2,
+  "selected_tests": 29,
+  "wrong_raw_tests": 32,
+  "wrong_tests": [
+    {
+      "input": 63,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 1071,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 2110,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 3118,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 4157,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 5165,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 6268,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 7276,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 32827,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 33835,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 34874,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 36921,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 37929,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 39032,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 44074,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 48232,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 65567,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 67614,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 69661,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 71772,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 98331,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 100378,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 102553,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 104664,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 197647,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 199694,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 201741,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 203852,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 230411,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 234633,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 240650,
+      "actual": true,
+      "expected": false
+    },
+    {
+      "input": 244936,
+      "actual": true,
+      "expected": false
+    }
+  ],
+  "proof_status": "INVALID partial-test model"
+}
