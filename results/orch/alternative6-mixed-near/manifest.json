@@ -1,0 +1,45 @@
+{
+  "frozen_at": "2026-11-24T09:46:20.480860+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "fa5d7731f95e516d599d14c03e25f41f9fa1babe3e895d982a4f9e1b16a2adc8",
+      "bytes": 1040
+    },
+    {
+      "file": "SearchAlternative6Problem.json",
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+      "bytes": 2275
+    },
+    {
+      "file": "SearchAlternative6Problem.py",
+      "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+      "bytes": 925
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticAlternative6MixedNear.py",
+      "sha256": "9a5e1c7b28f4e909de1e75698869f026fb1ac7e726a1bdeaa8f9835709287108",
+      "bytes": 19497
+    },
+    {
+      "file": "alternative6-mixed-near-calibration-2.log",
+      "sha256": "b7c839b6932072dc71851b788712760866201f86e82bf553db9c0684f1aad020",
+      "bytes": 695
+    },
+    {
+      "file": "alternative6-mixed-near-calibration-review.log",
+      "sha256": "86dc19e5a34f40a771e26dd15bc56c0eba47cb852ef98e94407ef12732c9ffca",
+      "bytes": 181
+    },
+    {
+      "file": "review-alternative6-mixed-near-counterexample.log",
+      "sha256": "1c91f2b8a147cd24be5f35d14caafea27dc2b76867c4ed6917922908f4100781",
+      "bytes": 4593
+    }
+  ]
+}

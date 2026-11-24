@@ -1,0 +1,3 @@
+PASS independent incremental source/math/provenance/format review
+SHA256 ebe3f14a29094b8ed92a5029fdce3fdb7001bfbc45683dad87546ab405b48b93
+Exact reviewed JointCellGeometry, UnpairedCell and MaskJointForestUndirected bodies found after import removal. New237line JointUnion bridge handles unordered pair orientation, exact joint/intersection identity, active support and empty-opposite-cell singleton bounds. Four operand swaps in the shared-active refund preserve the two disjointness hypotheses. Productive joint makes each pair-edge set nonempty. Forest budgets plus exact intersection refund give union.card+3<=unionSupports.card+four min1 cell counts. No global circuit or Lambda-sharing assertion. Forbidden scan clean; author final log empty.

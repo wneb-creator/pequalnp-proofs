@@ -1,0 +1,3 @@
+PASS incremental source/math/provenance/format
+SHA256 8d59407bd584ca380b3c3253600be3fce7877d8c3fd244e30663f480b871efe8
+Exact reviewed PruneReach prefix and GraphBoundaryCharge suffix. Applies boundary grouped Euler to retained-label/live-gate graph, projects original same-group root paths, and uses proved2links/live bound. Final owned=starEdges specialization composes live-outsideLambda count. No assumption loss; empty groups and collapsed roots are covered by boundary helper. Author build002 exit0.

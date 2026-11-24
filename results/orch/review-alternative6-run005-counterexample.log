@@ -1,0 +1,8 @@
+README.md c82e8361dc544a17ac82f6f0df14b5287718a6920e48822f0a5cfb724e901b13
+best-valid-29.json 1d67cb30495f5abcc4c95c09ce38c534bfd30640e5cccf51ead0e7f436268a87
+best-valid-31.json c669ea4285bc214c19602e41e25d17fa4aa1d5eb94c1b6237e4747c011fdaa9d
+frontier.json 3aa1fda3d899b1dc28e546f350d73d5e6d251cb4b01163c86056d43598e9afb0
+stochastic-alternative6-run-005.log 1a9970281c8afb276c35f723eb9cea6a26b2def308393bebdf4c6fbd8a84dbe3
+LOG_FIRST {"event": "start", "seed": 14772917, "seconds": 1200.0, "tests": 88, "model": "alternative6 core:mixedOR/AND helpers plus interacting two-dirty matching warm starts of cost35; target28; complete-test signature reduction"}
+LOG_LAST {"event": "finished", "seconds": 1200.029379567999, "steps": 66899968, "epochs": 3717, "best_valid": 29, "matching_starts": 452, "conclusion": "heuristic search only; no lower-bound conclusion"}
+PASS 5 manifestfiles 2 concretevalidfixtures scalar88cases; no target28witness. Full logs preserved.

@@ -1,0 +1,60 @@
+SHA256 4226cc940ee1bb4e6339692884cfe9d046a62a21e61d6068cd5755d3ea5b79a5 delta_lines 57 author_build003_bytes 3635 warnings_only True
+
+namespace PEqualNP.Outside.L_meta_1477.FourRootNetwork
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover OneJunk
+
+lemma inputs_eq_four_union {n : ℕ} (C : Circuit) (root : Fin 4 → ℕ) :
+    inputs (n := n) C root = orIn n C (root 0) ∪ orIn n C (root 1) ∪
+      orIn n C (root 2) ∪ orIn n C (root 3) := by
+  classical
+  ext u
+  simp only [inputs, roots, Finset.mem_biUnion, Finset.mem_image,
+    Finset.mem_univ, true_and, Finset.mem_union]
+  constructor
+  · rintro ⟨w, ⟨i, rfl⟩, hu⟩
+    fin_cases i <;> tauto
+  · intro hu
+    rcases hu with ((h | h) | h) | h
+    · exact ⟨root 0, ⟨0, rfl⟩, h⟩
+    · exact ⟨root 1, ⟨1, rfl⟩, h⟩
+    · exact ⟨root 2, ⟨2, rfl⟩, h⟩
+    · exact ⟨root 3, ⟨3, rfl⟩, h⟩
+
+lemma cells_card_four {n : ℕ} (C : Circuit) (root : Fin 4 → ℕ) :
+    (cells (n := n) C root).card =
+      (if (orIn n C (root 0) ∩ orIn n C (root 2)).Nonempty then 1 else 0) +
+      (if (orIn n C (root 0) ∩ orIn n C (root 3)).Nonempty then 1 else 0) +
+      (if (orIn n C (root 1) ∩ orIn n C (root 2)).Nonempty then 1 else 0) +
+      (if (orIn n C (root 1) ∩ orIn n C (root 3)).Nonempty then 1 else 0) := by
+  classical
+  rw [cells, Finset.card_filter, Fintype.sum_prod_type]
+  simp only [Fin.sum_univ_two]
+  rw [show (0 : Fin 2).castAdd 2 = (0 : Fin 4) by decide,
+    show (1 : Fin 2).castAdd 2 = (1 : Fin 4) by decide,
+    show (0 : Fin 2).natAdd 2 = (2 : Fin 4) by decide,
+    show (1 : Fin 2).natAdd 2 = (3 : Fin 4) by decide]
+  omega
+
+lemma four_roots_explicit_cost {n : ℕ} (C : Circuit) (hA : P2.AO n C) (root : Fin 4 → ℕ)
+    (hbound : ∀ i, root i < n + C.gates.length)
+    (hpure : ∀ i k, k < C.gates.length → (gateAt C k).op = GateOp.and →
+      ¬ P2.OrR n C (root i) (n + k))
+    (A B D F : Finset (Fin n))
+    (h0 : orIn n C (root 0) = A) (h1 : orIn n C (root 1) = B)
+    (h2 : orIn n C (root 2) = D) (h3 : orIn n C (root 3) = F)
+    (h01 : Disjoint A B) (h23 : Disjoint D F) :
+    (A ∪ B ∪ D ∪ F).card +
+      (if (A ∩ D).Nonempty then 1 else 0) + (if (A ∩ F).Nonempty then 1 else 0) +
+      (if (B ∩ D).Nonempty then 1 else 0) + (if (B ∩ F).Nonempty then 1 else 0) ≤
+      (gates (n := n) C root).card + 4 := by
+  classical
+  have hd0 : Disjoint (orIn n C (root 0)) (orIn n C (root 1)) := by simpa [h0, h1] using h01
+  have hd1 : Disjoint (orIn n C (root 2)) (orIn n C (root 3)) := by simpa [h2, h3] using h23
+  have h := four_roots_cost C hA root hbound hpure hd0 hd1
+  rw [inputs_eq_four_union, cells_card_four, h0, h1, h2, h3] at h
+  omega
+
+end PEqualNP.Outside.L_meta_1477.FourRootNetwork
+
+PASS independent wrapper review: finite four-root union and exact four cross-cell cardinalities are expanded without extra hypotheses. Wrapper retains AO, root bounds, OR-cone purity, and both operand-pair disjointness assumptions, substitutes the four support equalities into reviewed four_roots_cost, and reassociates Nat addition. No stronger unproved circuit bound or posted-gap claim introduced. Author reported build exit0; complete3635-byte log contains only inherited warnings, frozen file byte-identical to compiled Work source. No redundant rebuild needed under root policy.

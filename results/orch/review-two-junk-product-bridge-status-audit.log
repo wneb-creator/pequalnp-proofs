@@ -1,0 +1,3 @@
+PASS incremental source/math/provenance/format
+SHA256 58b11360a7e19fb6f5a5cbecc840db5eb5d5235452bb43e475b59755fdfc19c7
+Exact reviewed Classification+MaskJointSemantics prefixes. wmax converts actual below-graph masking into CleanMask via exact gate/product equality. Every Ustar classification branch enters the corresponding static mask/joint set; disjoint operand supports are explicit. Independent-product equations reuse exact proved no-path premises. JointClean evaluated on pair inputs gives static adjacency, including diagonals excluded by graph irreflexivity. No unstated independence, disjointness, or all-circuit lower bound claim. Author first build exit0.

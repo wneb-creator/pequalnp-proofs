@@ -1,0 +1,5 @@
+PASS independent source/math/provenance/format review by root.
+TaggedNetwork SHA256 0cea411c52c904c0657e85a6e948b0481f96a1d4d739045a1e0236befc0a721f
+TaggedComponents SHA256 8cac9553e76bd6794509c6b24af3c6c79db8268a332a8ddb7cba40695fa147e4
+TaggedBudget SHA256 8ca8c3cc72d0f975f453f404a5abe7fa672bec5f816ecf6129e8a665c5030c52
+Exact reviewed SharedTagExit and GraphPartitionCharge prefixes verified. Shared components are actual induced graph components; labels are constant along their edges by equal-cardinality inclusion. Distinct realized tags inject into distinct components. Monotone labels keep private paths private, giving private roots. Directed shared-to-private exits inject into undirected cross edges because orientation is unique. Edge-image cardinality bounds all undirected edges. Partition Euler then gives V+components<=arrows+roots; replacing components by realized tags is valid. Empty/unused-root cases retained; all labeling/path hypotheses remain explicit. Author builds confirmed exit0; complete logs inspected for errors, no redundant build.

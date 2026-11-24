@@ -1,0 +1,3 @@
+PASS independent source/math/provenance/format review by root.
+SHA256 b0602a32437761527530ee94fbb3619ade29b33e243861a603cf9a257266b6b6
+Exact independently reviewed FourRootNetwork and TaggedBudget bodies verified. A nonempty cross quadrant supplies an actual input node with its two distinct root labels; disjoint paired supports exclude all other labels. Finite kernel checks establish cell-tag cardinality2 and injectivity. Tagged realized budget plus exact vertex count N+OR+4 and arrow bound2OR+4 gives N+r<=OR+4. All actual bounded pure-root and disjointness hypotheses remain explicit. No circuit minimality, graph-function, or lower-bound claim added. Author build001 exit0, full inherited-warning log inspected; no redundant rebuild.

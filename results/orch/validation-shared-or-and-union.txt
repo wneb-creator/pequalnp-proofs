@@ -1,0 +1,28 @@
+UTC 2026-11-24T09:51:53.177271+00:00
+Gap L-meta-1477
+PARTIAL RESULTS ONLY. The exact posted statement is not proved or refuted.
+Named-file lake build passed previously; exact checker remains REJECTED (no-theorem).
+No PR opened. No claim of final proof cleanup.
+
+FourRootNetwork.lean: 4206 lines; sha256 cb6187910222e0538940b798e230c3acf89843003698ecbce255f648d9c32551; author four-root-network-build-003.log exit0; independent review PASS.
+FourRootCost.lean: 4807 lines; sha256 b0602a32437761527530ee94fbb3619ade29b33e243861a603cf9a257266b6b6; author four-root-cost-build-001.log exit0; independent review PASS.
+TaggedNetwork.lean: 193 lines; sha256 0cea411c52c904c0657e85a6e948b0481f96a1d4d739045a1e0236befc0a721f; author tagged-network-build-002.log exit0; independent review PASS.
+TaggedComponents.lean: 302 lines; sha256 8cac9553e76bd6794509c6b24af3c6c79db8268a332a8ddb7cba40695fa147e4; author tagged-network-build-004.log exit0; independent review PASS.
+TaggedBudget.lean: 523 lines; sha256 8ca8c3cc72d0f975f453f404a5abe7fa672bec5f816ecf6129e8a665c5030c52; author tagged-budget-build-002.log exit0; independent review PASS.
+MaskJointForestUndirected.lean: 297 lines; sha256 011cfe79f325da2bb24c882af08873724c98daa944044fc4cdc308964cb8438f; author mask-joint-forest-undirected-build-001.log exit0; independent review PASS.
+MaskJointSemantics.lean: 477 lines; sha256 720d97340569d4de8035a45840f2cd5eb31b31f43306941dfeec24eb69205495; author mask-joint-semantics-build-002.log exit0; independent review PASS.
+JointUnionProductive.lean: 804 lines; sha256 ebe3f14a29094b8ed92a5029fdce3fdb7001bfbc45683dad87546ab405b48b93; author joint-union-build-002.log exit0; independent review PASS.
+MaskGraphResidual.lean: 4685 lines; sha256 8d59407bd584ca380b3c3253600be3fce7877d8c3fd244e30663f480b871efe8; author mask-graph-residual-build-002.log exit0; independent review PASS.
+MaskAllCenters.lean: 5061 lines; sha256 14b4ebdef361bd93bff4b31bf17b74e3ac4e7cc03457438dd5e6c4761a79dd8f; author mask-all-centers-build-002.log exit0; independent review PASS.
+BoundaryProduct.lean: 423 lines; sha256 688bc5dad56d98b0c1c9b8ebfd831444e6dbf3cdb7951e85158325287bca88a5; author boundary-product-build-002.log exit0; independent review PASS.
+TwoJunkProductBridge.lean: 4598 lines; sha256 58b11360a7e19fb6f5a5cbecc840db5eb5d5235452bb43e475b59755fdfc19c7; author two-junk-product-bridge-build-001.log exit0; independent review PASS.
+alternative6-mixed-near: 8 manifest files; all hashes confirmed; independent package review PASS.
+triangle9-run-005: 5 manifest files; all hashes confirmed; independent package review PASS.
+alternative6-run-005: 5 manifest files; all hashes confirmed; independent package review PASS.
+
+New results count actual four-root OR sharing and joint/product masked edges; masks-only counting covers all clean centers under explicit pure disjoint nontrivial product hypotheses. General circuit ownership/reader accounting remains open.
+Search packages contain baseline circuits and incomplete searches, no counterexample.
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=223.4 subagents=6
+FourRootLabels: SHA256 148bca8626625283f4df94a9e2493226ce48c2dd6866dc8f1014241e645bc06c, author four-root-network-build-002.log exit0, independent review PASS.
+FourRootCostExplicit: SHA256 4226cc940ee1bb4e6339692884cfe9d046a62a21e61d6068cd5755d3ea5b79a5, author four-root-cost-explicit-build-003.log exit0, independent review PASS.

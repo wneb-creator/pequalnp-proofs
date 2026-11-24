@@ -175,3 +175,17 @@
 2026-11-24 09:43:45 UTC status_audit: MaskProductCharge.lean frozen, 4719 lines SHA256 3141eefb9227f37be4be04484bc650c15a7313e88489ae80ef5064f86524684b; mask-product-charge-build-002.log exit0 (inherited warnings). Exact reviewed MaskGraphCharge + MaskGrouping prefixes; product_roots_charge derives center-root grouping from clean centers for disjoint product sides of size>=2; product_roots_or_charge gives U.card<=orN.card+numberProducts for any covered edge subset. Explicit pure roots, support equality and leastness retained; no automatic masks-only circuit decomposition claim. Pending independent review.
 
 2026-11-24T09:45:10.671569+00:00 Root preserved shared-OR mask accounting, residual pruning, finite component partition and static joint-cell/forest proof components, all independently reviewed. Still no exact result.
+
+2026-11-24T09:45:51.277854+00:00 gate_invariants: Exact four-root overlap OR-cost N+r<=K+4 compiled firsttry, frozen for review/push.
+
+- 2026-11-24T09:47:26.230401+00:00 normal_form: Single-product mask+joint forest active-vertex bound COMPLETE, Sym2 version checked.
+
+- 2026-11-24 09:47:35 UTC: lean_setup froze JointUnionProductive.lean after author Lean exit0; two-product static edge budget checked.
+
+2026-11-24 09:48:58 UTC status_audit: Alternative6 mixed run005 completed at66,899,968 steps,452matching starts,best29; full artifacts frozen alternative6-run-005. Same CPU slot now runs frozen MixedNear seed14772918 for1200s, preserving bounded INVALID repair candidates. Root renewed09:47:31 expiry10:07:31 before launch.
+
+2026-11-24 09:49:17 UTC status_audit: MaskAllCenters.lean compiled exit0 (mask-all-centers-build-002.log), frozen 5061 lines SHA256 14b4ebdef361bd93bff4b31bf17b74e3ac4e7cc03457438dd5e6c4761a79dd8f. Enumerates every clean center of every product via finite Sigma and chooses the opposite actual pure-OR operand root. Derives entire union of masked stars minus owned starEdges <=outsideLambdaOR+numberProducts; no center/root enumeration or covered-subset premise remains. Actual disjoint supports/card>=2 and pure bounded operand roots remain explicit. Pending independent review.
+
+2026-11-24 09:51:31 UTC status_audit: GraphBoundaryCredit.lean compiled FIRST TRY exit0 (graph-boundary-credit-build-001.log), frozen 184lines SHA256 a9162462d254b92cfced2ff4e8365102c8e8d63254d6b6a6218dd5835d95e55e. Grouped-root Euler with all roots of B groups connected to boundary gives labels+B.card<=gates+m. Chooses representatives only for uncredited groups, boundary handles B; unused groups and empty types allowed. Pending independent review.
+
+2026-11-24T09:52:13.728928+00:00 Root preserving reviewed four-root shared-OR cost, productive union bound, all-center masked residual count, and actual two-junk coverage. Exact theorem still open; no PR.

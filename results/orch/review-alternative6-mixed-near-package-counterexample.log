@@ -1,0 +1,17 @@
+README.md 1040 fa5d7731f95e516d599d14c03e25f41f9fa1babe3e895d982a4f9e1b16a2adc8
+SearchAlternative6Problem.json 2275 9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1
+SearchAlternative6Problem.py 925 4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121
+SearchReduce.py 2888 25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef
+SearchStochasticAlternative6MixedNear.py 19497 9a5e1c7b28f4e909de1e75698869f026fb1ac7e726a1bdeaa8f9835709287108
+alternative6-mixed-near-calibration-2.log 695 b7c839b6932072dc71851b788712760866201f86e82bf553db9c0684f1aad020
+alternative6-mixed-near-calibration-review.log 181 86dc19e5a34f40a771e26dd15bc56c0eba47cb852ef98e94407ef12732c9ffca
+review-alternative6-mixed-near-counterexample.log 4593 1c91f2b8a147cd24be5f35d14caafea27dc2b76867c4ed6917922908f4100781
+# Alternative6 mixed helpers with invalid near recording
+
+This is the reviewed mixed OR/AND search for the exact19-input24-edge core, with a recording-only extension copied from the reviewed Triangle9Near model. Baseline29, target28, matching warm starts35. Helper cycles, objective, mutation and random choices are unchanged.
+
+At most12 distinct near misses per1–4 errors and24 multi-dirty near misses with at most6 errors are preserved. They are explicitly INVALID repair seeds. Every record expands to physical gates, checks exact cost and topology, replays all88 complete extremal tests, and records every scalar wrong assignment. Valid witnesses retain full scalar checking and require Lean verification. No28-gate witness has been found by the calibration.
+
+Independent source-delta review passed. The short author execution calibration and its separately scripted88-test artifact replay are preserved in full. Run: `python3 SearchStochasticAlternative6MixedNear.py --seed 14772918 --seconds 1200 --output-dir <scratch-directory>`.
+
+PASS manifest/source identity. README scope inspected against reviewed recorder; artifacts labeled invalid; valid baseline29 only. Author execution and full88test replay logs preserved.

@@ -1,0 +1,4 @@
+{"event": "start", "seed": 14772918, "seconds": 1.0, "tests": 88, "model": "alternative6 core:mixedOR/AND helpers; matching starts35; target28; bounded INVALID near recording; complete-test signature reduction"}
+{"event": "valid", "size": 29, "file": "/tmp/oec/pequalnp-pilot-29/alternative6-mixed-near-calibration-2/best-valid-29.json", "steps": 0}
+{"event": "invalid_near", "file": "/tmp/oec/pequalnp-pilot-29/alternative6-mixed-near-calibration-2/near-1-1.json", "size": 28, "wrong": 1, "dirty_ands": 0}
+{"event": "finished", "seconds": 1.0444714009991003, "steps": 38912, "epochs": 3, "best_valid": 29, "matching_starts": 0, "conclusion": "heuristic search only; no lower-bound conclusion"}

@@ -1,0 +1,3 @@
+PASS independent incremental source/math/provenance/format
+SHA256688bc5dad56d98b0c1c9b8ebfd831444e6dbf3cdb7951e85158325287bca88a5
+Exact MaskGroupingPairs prefix verified. CleanMask on triple gives one of three graph edges. Explicit q-nonadjacency to all A eliminates a-q, C4 unique common neighbor of c,q eliminates b-q away from p. Consequently every B vertex away from p is universal to A; |A|>=2 permits at most one such universal B vertex. Given designated b universal, B subset{p,b}; |B|>=2 forces p in B. Explicit q-nonadjacency retained; no false support-purity inference. Author build002 exit0 accepted.

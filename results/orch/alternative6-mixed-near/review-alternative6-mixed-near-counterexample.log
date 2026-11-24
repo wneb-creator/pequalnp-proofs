@@ -1,0 +1,72 @@
+SHA256 9a5e1c7b28f4e909de1e75698869f026fb1ac7e726a1bdeaa8f9835709287108
+--- reviewed_base
+
++++ recording_only_variant
+
+@@ -243,8 +243,10 @@
+
+     archive = {}
+     reduced_seen = set()
+     dirty_seen = set()
++    near_seen = {1:set(),2:set(),3:set(),4:set()}
++    multi_near_seen = set()
+     print(json.dumps({'event': 'start', 'seed': args.seed, 'seconds': args.seconds,
+-                      'tests': len(TESTS), 'model': 'alternative6 core:mixedOR/AND helpers plus interacting two-dirty matching warm starts of cost35; target28; complete-test signature reduction'}), flush=True)
++                      'tests': len(TESTS), 'model': 'alternative6 core:mixedOR/AND helpers; matching starts35; target28; bounded INVALID near recording; complete-test signature reduction'}), flush=True)
+ 
+     def record(rows, out, ev, linear):
+         nonlocal best_valid
+@@ -253,6 +255,51 @@
+
+         previous = best_by_wrong.get(wrong)
+         if previous is None or size < previous:
+             best_by_wrong[wrong] = size
++        near_key=(size,output)
++        save_near=(size<=28 and 1<=wrong<=4 and len(near_seen[wrong])<12
++                   and near_key not in near_seen[wrong])
++        maybe_multi=(steps%256==0 and size<=28 and 1<=wrong<=6 and len(multi_near_seen)<24
++                     and near_key not in multi_near_seen)
++        if save_near or maybe_multi:
++            gates,output_wire=expand_rows(N,rows,out,active)
++            assert len(gates)==size
++            values=list(INPUT_MASKS)
++            dirty_count=0
++            for operation,(a,b) in gates:
++                assert 0<=a<len(values) and 0<=b<len(values)
++                value=values[a]&values[b] if operation=='and' else values[a]|values[b]
++                values.append(value)
++                dirty_count+=int(operation=='and' and bool(value&(ALL_TESTS^TARGET)))
++            assert values[output_wire]==output
++            save_multi=maybe_multi and dirty_count>=2
++            if save_near or save_multi:
++                mistakes=[]
++                for x in sorted(POSITIVES|RAW_NEGATIVES):
++                    scalar=[bool(x>>j&1) for j in range(N)]
++                    for operation,(a,b) in gates:
++                        scalar.append(scalar[a] and scalar[b] if operation=='and' else scalar[a] or scalar[b])
++                    expected=any(x>>a&1 and x>>b&1 for a,b in EDGES)
++                    if scalar[output_wire]!=expected:
++                        mistakes.append({'input':x,'actual':scalar[output_wire],'expected':expected})
++                assert mistakes
++                artifact={'inputs':N,'gates':gates,'output':output_wire,'size':size,
++                          'rows':rows,'selected_outputs':out,'linear_helpers':linear,
++                          'edge_list':EDGES,'seed':args.seed,'steps':steps,
++                          'wrong_search_tests':wrong,'wrong_raw_tests':len(mistakes),
++                          'wrong_tests':mistakes,'active_dirty_ands':dirty_count,
++                          'proof_status':'INVALID near miss; not a circuit for the target function'}
++                if save_near:
++                    near_seen[wrong].add(near_key)
++                    path=args.output_dir/('near-'+str(wrong)+'-'+str(len(near_seen[wrong]))+'.json')
++                    path.write_text(json.dumps(artifact,indent=2)+'\n')
++                    print(json.dumps({'event':'invalid_near','file':str(path),'size':size,
++                                      'wrong':wrong,'dirty_ands':dirty_count}),flush=True)
++                if save_multi:
++                    multi_near_seen.add(near_key)
++                    path=args.output_dir/('multi-dirty-near-'+str(len(multi_near_seen))+'.json')
++                    path.write_text(json.dumps(artifact,indent=2)+'\n')
++                    print(json.dumps({'event':'invalid_multi_dirty_near','file':str(path),
++                                      'size':size,'wrong':wrong,'dirty_ands':dirty_count}),flush=True)
+         # Keep semantic diversity at the low-error frontier, including ties.
+         key = (linear, len(rows), output)
+         previous = archive.get(key)
+PASS source: delta adds only bounded INVALID near recorder and model metadata. Threshold28 matches this problem; 88raw extremal assignments are scalar replayed. Physical gate topology, count and signature are independently asserted. Active dirty AND count uses physical gates and complete negative tests. No RNG, objective, helper cycle, mutation, archive, or valid-witness logic changes. Source review is independent; author will calibrate execution.

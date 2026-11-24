@@ -1,0 +1,30 @@
+{
+  "frozen_at": "2026-11-24T09:43:36.829959+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "c92522b920399f6a4a26e888b4e4e504b4c3ad3db4a8a89e97b91eb41bc01fa9",
+      "bytes": 908
+    },
+    {
+      "file": "best-valid-53.json",
+      "sha256": "f4d3d512be9d4efb28f4e94a224ea995d6169a99ba0489e0f3fa5f8ff8886921",
+      "bytes": 5629
+    },
+    {
+      "file": "best-valid-55.json",
+      "sha256": "de500b14a4248801264a67521780c6a701fd76acafc4f856c525b3f6c8d3d63f",
+      "bytes": 5725
+    },
+    {
+      "file": "frontier.json",
+      "sha256": "e426866aff1a935d8f789e6232fdf7ae37e68beffe90f6ac2da70e571830c33a",
+      "bytes": 1618
+    },
+    {
+      "file": "stochastic-triangle9-run-005.log",
+      "sha256": "fd0c593a0cd1ccc517baf53dab66fdd94d6e24df797f8be717c2838805df02fa",
+      "bytes": 21878
+    }
+  ]
+}
