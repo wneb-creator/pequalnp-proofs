@@ -1,0 +1,41 @@
+{
+  "utc": "2026-11-24T04:46:12.050951+00:00",
+  "status": "reviewed_prepared_no_CNF_or_solver",
+  "files": [
+    {
+      "path": "cegis-general-five.py",
+      "bytes": 11192,
+      "sha256": "1f5681ea29f2396715f91f4bacbd35b1b2bb3f6cb94a749c850d790549ea2385"
+    },
+    {
+      "path": "cegis-full.py",
+      "bytes": 4397,
+      "sha256": "5c2f4ada8822c2d14e84fb3e7b16a0d8a47b842e04c94ec93621408c353cd3a0"
+    },
+    {
+      "path": "cegis.py",
+      "bytes": 5041,
+      "sha256": "a51bc1d6a37ec0af2ddb7a77192d2a47fe6dce4f97edaba336589ffec6e05910"
+    },
+    {
+      "path": "cegis-symbolic.py",
+      "bytes": 5274,
+      "sha256": "683cb5e4e32aa3a07bac88ec22adede7fd535b79d208526d3607c5c11a0fc665"
+    },
+    {
+      "path": "cegis-symbolic-five.py",
+      "bytes": 11795,
+      "sha256": "5bff952410bcb19350674bccc4b65997ec79b349ac64662561ad0cddac1793bb"
+    },
+    {
+      "path": "streaming_cnf.py",
+      "bytes": 1572,
+      "sha256": "5c93998e77af73b0bb9d3f457d086153ac4e281776eb247daba51314ac056aab"
+    },
+    {
+      "path": "line-pair-maps.json",
+      "bytes": 8029,
+      "sha256": "b0f50cbb2b9f5f43643aac39d0ea383c7170a9bff8dbc9ba74756a8c52c3d633"
+    }
+  ]
+}

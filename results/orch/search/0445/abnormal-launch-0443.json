@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-24T04:43:33.235996+00:00",
+  "runner_pid": 33063,
+  "argv": [
+    "python",
+    "/tmp/oec/pequalnp-pilot-21/search/cegis-abnormal-or-sinks-stream.py",
+    "--case",
+    "-1",
+    "--all-rows",
+    "--sat",
+    "--seconds",
+    "5400"
+  ],
+  "progress_log": "/tmp/oec/pequalnp-pilot-21/search/cegis-abnormal-or-sinks-stream-progress.log",
+  "artifacts": "/tmp/oec/pequalnp-pilot-21/search/full-abnormal-or-sinks-stream/case--1",
+  "budget_seconds": 5400,
+  "nice": 15,
+  "scope": "abnormal subset of OR-sink normalized full-band candidates; complementary normal query remains live",
+  "source_sha256": "6b4331c94a2184cd09f409380aaedae1320a01e37d0955d61241d4644c9d047e"
+}

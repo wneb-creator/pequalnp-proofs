@@ -1,0 +1,46 @@
+{
+  "utc": "2026-11-24T04:43:33.222367+00:00",
+  "status": "reviewed_launch_snapshot",
+  "files": [
+    {
+      "path": "cegis-abnormal-or-sinks-stream.py",
+      "bytes": 9017,
+      "sha256": "6b4331c94a2184cd09f409380aaedae1320a01e37d0955d61241d4644c9d047e"
+    },
+    {
+      "path": "cegis-full.py",
+      "bytes": 4397,
+      "sha256": "5c2f4ada8822c2d14e84fb3e7b16a0d8a47b842e04c94ec93621408c353cd3a0"
+    },
+    {
+      "path": "cegis.py",
+      "bytes": 5041,
+      "sha256": "a51bc1d6a37ec0af2ddb7a77192d2a47fe6dce4f97edaba336589ffec6e05910"
+    },
+    {
+      "path": "cegis-symbolic.py",
+      "bytes": 5274,
+      "sha256": "683cb5e4e32aa3a07bac88ec22adede7fd535b79d208526d3607c5c11a0fc665"
+    },
+    {
+      "path": "cegis-symbolic-five.py",
+      "bytes": 11795,
+      "sha256": "5bff952410bcb19350674bccc4b65997ec79b349ac64662561ad0cddac1793bb"
+    },
+    {
+      "path": "streaming_cnf.py",
+      "bytes": 1572,
+      "sha256": "5c93998e77af73b0bb9d3f457d086153ac4e281776eb247daba51314ac056aab"
+    },
+    {
+      "path": "guarded_and_count.py",
+      "bytes": 1552,
+      "sha256": "20cb437f685fff9e3d9bb779f104d7c3ee9c420731b43eb14c9a9b6d0f8e8954"
+    },
+    {
+      "path": "point-pair-maps.json",
+      "bytes": 8029,
+      "sha256": "594cf1e3022a5de11f57103516e2187b41b817535d3961f212f2ee6694db38f9"
+    }
+  ]
+}

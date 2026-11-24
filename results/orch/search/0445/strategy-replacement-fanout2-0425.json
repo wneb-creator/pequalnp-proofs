@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-24T04:24:48.855029+00:00",
+  "reason": "root-authorized Replan2 replacement of fanout2 by reviewed disconnected2+3 reduced full-band template after Lean slot clearance",
+  "old_solver_pid": 20171,
+  "old_runner_pid": 20166,
+  "signal": "SIGINT",
+  "old_artifacts": "/tmp/oec/pequalnp-pilot-21/search/full-strong-resume-0321/case-2",
+  "complete_progress_log": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-resume-2-progress.log",
+  "result_before_signal": "no verdict/model",
+  "preserve_complete_logs_and_trace": true,
+  "completed_utc": "2026-11-24T04:24:57.804299+00:00",
+  "monitor_completion": [
+    "RESULT unknown exit -2 elapsed 3789",
+    "FINISHED elapsed 3789"
+  ],
+  "gzip_crc_valid": true,
+  "compressed_bytes": 215587038,
+  "uncompressed_bytes": 444149760,
+  "uncompressed_sha256": "deb2a38afcf6c39098ca6201f6af2a7c35ffb16b9f25c1f1fcff103b2a55eae2"
+}

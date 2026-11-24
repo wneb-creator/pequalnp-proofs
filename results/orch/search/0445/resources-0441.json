@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-24T04:41:10.180238+00:00",
+  "sample_seconds": 5.002843027999916,
+  "cgroup_cpu_equivalent_cores": 4.003548759755398,
+  "cpu_max": "400000 100000",
+  "memory_current_GiB": 13.96127700805664,
+  "anon_GiB": 4.689579010009766,
+  "memory_max": "17179869184",
+  "disk_free_GiB": 11.939422607421875,
+  "memory_events": "low 0\nhigh 0\nmax 674816\noom 1\noom_kill 1\noom_group_kill 0",
+  "processes": "    PID STAT  NI     ELAPSED     TIME %CPU   RSS COMMAND\n  20167 RN    15    01:19:26 01:01:46 77.7 504252 cadical\n  20458 RN    15    01:18:31 01:00:43 77.3 1015320 cadical\n  24948 RN    15       52:03 00:41:10 79.1 1783996 cadical\n  29366 RN    15       22:59 00:19:43 85.8 396316 cadical\n"
+}

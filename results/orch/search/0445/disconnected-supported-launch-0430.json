@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-24T04:29:59.380744+00:00",
+  "runner_pid": 30924,
+  "argv": [
+    "python",
+    "/tmp/oec/pequalnp-pilot-21/search/cegis-disconnected-five-supported.py",
+    "--seconds",
+    "5400"
+  ],
+  "progress_log": "/tmp/oec/pequalnp-pilot-21/search/cegis-disconnected-five-supported-progress.log",
+  "artifacts": "/tmp/oec/pequalnp-pilot-21/search/disconnected-five-supported",
+  "budget_seconds": 5400,
+  "nice": 15,
+  "scope": "restricted disconnected2+3 five-output full-band template; candidate reconstructed to at most38gates and fully validated",
+  "replaces": "full-strong-resume-0321/case-2",
+  "source_sha256": "1d5fa0b215a8cde4c7277cd348e3fc2481473317fd39205b489a77eeb11f52f2"
+}

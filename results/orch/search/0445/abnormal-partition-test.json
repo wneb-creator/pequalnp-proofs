@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "integrated_fixed_cases": 400,
+  "accepted": 196,
+  "rejected": 204,
+  "threshold_auxiliary_variables": 276,
+  "integrated_partition_clauses": 1242,
+  "signed_own_complement_literals_checked": true,
+  "cases_include": [
+    "fewer than eight ANDs",
+    "no abnormal output",
+    "missing abnormal support point",
+    "valid guards"
+  ],
+  "source_sha256": "6b4331c94a2184cd09f409380aaedae1320a01e37d0955d61241d4644c9d047e",
+  "elapsed_seconds": 0.31930191699939314
+}

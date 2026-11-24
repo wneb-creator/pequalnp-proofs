@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "last_three_truth_patterns": 32,
+  "patterns_accepted": 6,
+  "earlier_output_rejections": 4,
+  "AND_root_rejections": 5,
+  "count_only_no_CNF_or_solver": true,
+  "variables": 129243,
+  "clauses": 2674158,
+  "exact_DIMACS_bytes": 45849405,
+  "band_rows": 3003,
+  "elapsed_seconds": 1.5559684249983547,
+  "max_RSS_KiB": 12672,
+  "source_sha256": "1f5681ea29f2396715f91f4bacbd35b1b2bb3f6cb94a749c850d790549ea2385"
+}
