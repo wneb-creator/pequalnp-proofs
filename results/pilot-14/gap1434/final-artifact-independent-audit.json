@@ -1,0 +1,20 @@
+{
+  "verdict": "PASS final archived artifact consistency review",
+  "source_sha256": "d3a887210747952c1eadcfcd22d36476bc80a0da691f13561b128ab9d565d828",
+  "source_bytes": 207124,
+  "source_lines": 3718,
+  "checker_log_sha256": "fb3ae53137547930ef804134688eede9cce8af27c73df948b46f46dc8fa2dd1f",
+  "validation_sha256": "60dadc6dbcbaf65e074bc97d20e9e91cc21060795846fbc930ab36ec6badd704",
+  "checked_claim": "ACCEPTED(refute),2083constants,only propext/Quot.sound/Classical.choice",
+  "checks": [
+    "Archived Lean source and named source are byte-identical.",
+    "Final theorem type is exactly Not(posted1434), not the posted statement.",
+    "Checker rests_on source manifest contains exactly the final named module and matching source hash.",
+    "Final checker verdict is ACCEPTED(refute), with no rejection/fault in final log.",
+    "Validation matches3718lines/207124bytes and the final hash; cleanup source hashes/line counts agree.",
+    "Validation explicitly credits reused accepted1433/PR2928 and disclaims a new circuit lower bound.",
+    "Validation clearly states ordinary PR check mode cannot accept thisrefutation and that no duplicatePR was opened.",
+    "Required subagent/timing and kit message ID fields are present."
+  ],
+  "limits": "No new build, verifier run, network request, or remote-history verification performed in this final consistency audit."
+}
