@@ -5,8 +5,8 @@ Partial lemmas: size_pos_of_nonempty_edge_function; has_and_of_nonempty_edge_fun
 The posted negation remains unproved; no proof PR opened.
 Build: lake build PEqualNP.Outside.L_meta_2028
 Result: Build completed successfully (18419 jobs).
-Checker: not run for this helper-only checkpoint; main theorem absent.
+Checker: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2028. This is the expected verdict for the preserved helper-only partial; the posted statement is not proved.
 Independent reviews: status_review reviewed initial helper; definition_audit reviewed HasAnd.
 Line count:459; cleanup not yet run.
 Sub-agents:6 (status/library/reviewer, theory, SAT search, definition audit, toolchain, random circuits).
-TIMING total=16.0 subagents=6
+TIMING total=20.0 subagents=6

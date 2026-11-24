@@ -1,0 +1,7 @@
+{"n": 14, "size": 23, "bound": 12, "margin": 11, "verified": true, "elapsed": 0.09532403945922852, "counts": {"trials": 20, "initial_c4free": 2, "repaired": 1}}
+{"n": 14, "size": 23, "bound": 13, "margin": 10, "verified": true, "elapsed": 0.18623018264770508, "counts": {"trials": 21, "initial_c4free": 3, "repaired": 2}}
+{"n": 10, "size": 23, "bound": 15, "margin": 8, "verified": true, "elapsed": 0.209031343460083, "counts": {"trials": 62, "initial_c4free": 5, "repaired": 3}}
+{"n": 8, "size": 12, "bound": 8, "margin": 4, "verified": true, "elapsed": 0.24217462539672852, "counts": {"trials": 195, "initial_c4free": 16, "repaired": 7}}
+{"n": 13, "size": 13, "bound": 10, "margin": 3, "verified": true, "elapsed": 2.6934709548950195, "counts": {"trials": 8488, "initial_c4free": 690, "repaired": 275}}
+{"n": 14, "size": 14, "bound": 12, "margin": 2, "verified": true, "elapsed": 19.497573375701904, "counts": {"trials": 79150, "initial_c4free": 6465, "repaired": 2583}}
+{"final": true, "counts": {"trials": 300000, "initial_c4free": 24485, "repaired": 9698}, "best": 2, "elapsed": 83.21997666358948}
