@@ -1,0 +1,26 @@
+{
+ "gap": {
+  "id": "L-meta-1425",
+  "title": "One NOT gate saves nothing on 10 monotone functions of five inputs (shard 06 of 18), fan-in-two AND/OR/NOT lists",
+  "statement": "∀ T ∈ ({0xe8a8a8a8, 0xe8a8e888, 0xe8e8e880, 0xeaa8a888, 0xeaa8c888, 0xeaa8e880, 0xeaaac880, 0xeac0e8c0, 0xeac8e0c0, 0xeac8e880} : Finset ℕ), ∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (o : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.not) ∧ g.inputs.length ≤ 2) → (∀ i j : Fin gates.length, (gates.get i).op = PEqualNP.CircuitLowerBounds.GateOp.not → (gates.get j).op = PEqualNP.CircuitLowerBounds.GateOp.not → i = j) → (∀ x : Fin 5 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, o⟩ (List.ofFn x) = Nat.testBit T (∑ i : Fin 5, if x i then 2 ^ (i : ℕ) else 0)) → ∃ (gates' : List PEqualNP.CircuitLowerBounds.Gate) (o' : ℕ), (∀ g ∈ gates', (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) ∧ gates'.length ≤ gates.length ∧ ∀ x : Fin 5 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates', o'⟩ (List.ofFn x) = Nat.testBit T (∑ i : Fin 5, if x i then 2 ^ (i : ℕ) else 0)",
+  "file": "lean/PEqualNP/Outside/L_meta_1425.lean",
+  "module": "PEqualNP.Outside.L_meta_1425",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "One shard of the single-output question at 5 inputs: does one NOT gate save a gate on a single monotone output; a saving would show one output already pays for the NOT gate; size 30 to 60 minutes with a SAT solver.",
+  "context": "SKETCH: the shard; the route, the classes and the generator are in routes/lgp/own/filing/one-output-5/ (SKETCH.md); work from the row's own sentence. Namespace: PEqualNP.MetaComplexity. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 45,
+  "parallel": 3,
+  "lane": "main",
+  "pr_open": 0,
+  "pr_numbers": []
+ },
+ "lease": {
+  "id": "6a460a08-844b-44a8-a0e1-0be7859600fa",
+  "expires_at": "2026-11-24T00:16:04.424Z",
+  "renew": "POST /desk/beat?lease=6a460a08-844b-44a8-a0e1-0be7859600fa",
+  "release": "POST /desk/release?lease=6a460a08-844b-44a8-a0e1-0be7859600fa&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}

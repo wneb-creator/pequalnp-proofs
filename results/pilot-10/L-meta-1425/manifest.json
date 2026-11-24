@@ -1,0 +1,17 @@
+{
+  "gap": "L-meta-1425",
+  "status": "PARTIAL",
+  "full_posted_theorem": "NOT PROVED",
+  "checker": "NOT RUN",
+  "compiled_artifacts": [
+    {
+      "file": "TinyLRAT1425.lean",
+      "sha256": "c126a5913795afd8766707ff6fc8b1354e6cea65a29de41d0fd24333e99c293f",
+      "bytes": 606,
+      "lines": 10,
+      "exit": 0,
+      "scope": "Two-variable propositional tautology testing the kernel LRAT proof importer; no circuit bound yet.",
+      "review": "Independent root review of toolchain-authored source and successful complete compile logs; no forbidden syntax, permitted imports, correct tautology."
+    }
+  ]
+}
