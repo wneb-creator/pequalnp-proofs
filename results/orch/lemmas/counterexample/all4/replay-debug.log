@@ -1,0 +1,1 @@
+{"at": "2026-11-24T18:29:14.189482+00:00", "smt": "g12544_free_atmost5.smt2", "solver": "kissat4.0.4", "exit_code": 10, "result": "sat", "seconds": 0.0, "variables": 1721, "clauses": 17503, "id": "g12544", "bound": 5, "active_gates": 5, "circuit": [["and", 2, 4], ["and", 3, 4], ["and", 3, 5], ["or", 9, 10], ["or", 8, 11]]}

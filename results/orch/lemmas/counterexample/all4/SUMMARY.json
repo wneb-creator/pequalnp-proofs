@@ -1,0 +1,371 @@
+{
+  "matrices": 18521,
+  "classes": 59,
+  "counts": {
+    "unknown": 9,
+    "unsat": 34,
+    "essential_input_bound": 16
+  },
+  "matrix_counts": {
+    "essential_input_bound": 1441,
+    "unsat": 12592,
+    "unknown": 4488
+  },
+  "details": [
+    {
+      "id": "g59731",
+      "result": "unknown",
+      "upper": 12,
+      "orbit_size": 96
+    },
+    {
+      "id": "g54833",
+      "result": "unknown",
+      "upper": 11,
+      "orbit_size": 576
+    },
+    {
+      "id": "g58673",
+      "result": "unknown",
+      "upper": 11,
+      "orbit_size": 288
+    },
+    {
+      "id": "g55905",
+      "result": "unknown",
+      "upper": 11,
+      "orbit_size": 576
+    },
+    {
+      "id": "g51795",
+      "result": "unknown",
+      "upper": 11,
+      "orbit_size": 72
+    },
+    {
+      "id": "g46369",
+      "result": "unknown",
+      "upper": 10,
+      "orbit_size": 576
+    },
+    {
+      "id": "g46609",
+      "result": "unsat",
+      "upper": 9,
+      "orbit_size": 576
+    },
+    {
+      "id": "g58129",
+      "result": "unsat",
+      "upper": 9,
+      "orbit_size": 144
+    },
+    {
+      "id": "g61713",
+      "result": "unsat",
+      "upper": 8,
+      "orbit_size": 16
+    },
+    {
+      "id": "g61969",
+      "result": "unsat",
+      "upper": 9,
+      "orbit_size": 288
+    },
+    {
+      "id": "g50977",
+      "result": "unknown",
+      "upper": 10,
+      "orbit_size": 576
+    },
+    {
+      "id": "g58657",
+      "result": "unknown",
+      "upper": 10,
+      "orbit_size": 1152
+    },
+    {
+      "id": "g62497",
+      "result": "unsat",
+      "upper": 10,
+      "orbit_size": 192
+    },
+    {
+      "id": "g50737",
+      "result": "unknown",
+      "upper": 10,
+      "orbit_size": 576
+    },
+    {
+      "id": "g58672",
+      "result": "unsat",
+      "upper": 9,
+      "orbit_size": 576
+    },
+    {
+      "id": "g51809",
+      "result": "unsat",
+      "upper": 10,
+      "orbit_size": 96
+    },
+    {
+      "id": "g25904",
+      "result": "unsat",
+      "upper": 8,
+      "orbit_size": 96
+    },
+    {
+      "id": "g53777",
+      "result": "unsat",
+      "upper": 8,
+      "orbit_size": 144
+    },
+    {
+      "id": "g54032",
+      "result": "unsat",
+      "upper": 8,
+      "orbit_size": 576
+    },
+    {
+      "id": "g57617",
+      "result": "essential_input_bound",
+      "upper": 7,
+      "orbit_size": 16
+    },
+    {
+      "id": "g61712",
+      "result": "unsat",
+      "upper": 7,
+      "orbit_size": 96
+    },
+    {
+      "id": "g28944",
+      "result": "unsat",
+      "upper": 6,
+      "orbit_size": 144
+    },
+    {
+      "id": "g38192",
+      "result": "unsat",
+      "upper": 8,
+      "orbit_size": 192
+    },
+    {
+      "id": "g46113",
+      "result": "unsat",
+      "upper": 9,
+      "orbit_size": 576
+    },
+    {
+      "id": "g46608",
+      "result": "unsat",
+      "upper": 8,
+      "orbit_size": 1152
+    },
+    {
+      "id": "g57873",
+      "result": "unsat",
+      "upper": 8,
+      "orbit_size": 288
+    },
+    {
+      "id": "g58128",
+      "result": "unsat",
+      "upper": 8,
+      "orbit_size": 576
+    },
+    {
+      "id": "g61968",
+      "result": "unsat",
+      "upper": 8,
+      "orbit_size": 288
+    },
+    {
+      "id": "g29200",
+      "result": "unsat",
+      "upper": 7,
+      "orbit_size": 576
+    },
+    {
+      "id": "g53776",
+      "result": "unsat",
+      "upper": 7,
+      "orbit_size": 576
+    },
+    {
+      "id": "g54016",
+      "result": "unsat",
+      "upper": 6,
+      "orbit_size": 288
+    },
+    {
+      "id": "g57616",
+      "result": "essential_input_bound",
+      "upper": 6,
+      "orbit_size": 96
+    },
+    {
+      "id": "g61696",
+      "result": "unsat",
+      "upper": 6,
+      "orbit_size": 96
+    },
+    {
+      "id": "g28928",
+      "result": "unsat",
+      "upper": 5,
+      "orbit_size": 288
+    },
+    {
+      "id": "g57600",
+      "result": "essential_input_bound",
+      "upper": 5,
+      "orbit_size": 96
+    },
+    {
+      "id": "g61440",
+      "result": "essential_input_bound",
+      "upper": 4,
+      "orbit_size": 8
+    },
+    {
+      "id": "g28672",
+      "result": "essential_input_bound",
+      "upper": 3,
+      "orbit_size": 32
+    },
+    {
+      "id": "g42273",
+      "result": "unsat",
+      "upper": 9,
+      "orbit_size": 288
+    },
+    {
+      "id": "g42288",
+      "result": "unsat",
+      "upper": 8,
+      "orbit_size": 576
+    },
+    {
+      "id": "g42513",
+      "result": "unsat",
+      "upper": 8,
+      "orbit_size": 288
+    },
+    {
+      "id": "g50465",
+      "result": "unsat",
+      "upper": 9,
+      "orbit_size": 576
+    },
+    {
+      "id": "g25360",
+      "result": "unsat",
+      "upper": 7,
+      "orbit_size": 576
+    },
+    {
+      "id": "g37921",
+      "result": "unsat",
+      "upper": 8,
+      "orbit_size": 288
+    },
+    {
+      "id": "g42512",
+      "result": "unsat",
+      "upper": 7,
+      "orbit_size": 576
+    },
+    {
+      "id": "g49681",
+      "result": "essential_input_bound",
+      "upper": 7,
+      "orbit_size": 144
+    },
+    {
+      "id": "g49936",
+      "result": "unsat",
+      "upper": 7,
+      "orbit_size": 576
+    },
+    {
+      "id": "g21008",
+      "result": "unsat",
+      "upper": 6,
+      "orbit_size": 576
+    },
+    {
+      "id": "g21248",
+      "result": "unsat",
+      "upper": 5,
+      "orbit_size": 288
+    },
+    {
+      "id": "g24848",
+      "result": "essential_input_bound",
+      "upper": 5,
+      "orbit_size": 144
+    },
+    {
+      "id": "g33825",
+      "result": "essential_input_bound",
+      "upper": 7,
+      "orbit_size": 24
+    },
+    {
+      "id": "g49680",
+      "result": "essential_input_bound",
+      "upper": 6,
+      "orbit_size": 288
+    },
+    {
+      "id": "g49920",
+      "result": "essential_input_bound",
+      "upper": 5,
+      "orbit_size": 72
+    },
+    {
+      "id": "g12544",
+      "result": "unsat",
+      "upper": 4,
+      "orbit_size": 144
+    },
+    {
+      "id": "g16912",
+      "result": "essential_input_bound",
+      "upper": 5,
+      "orbit_size": 96
+    },
+    {
+      "id": "g24832",
+      "result": "essential_input_bound",
+      "upper": 4,
+      "orbit_size": 288
+    },
+    {
+      "id": "g12288",
+      "result": "essential_input_bound",
+      "upper": 2,
+      "orbit_size": 48
+    },
+    {
+      "id": "g8448",
+      "result": "essential_input_bound",
+      "upper": 3,
+      "orbit_size": 72
+    },
+    {
+      "id": "g4096",
+      "result": "essential_input_bound",
+      "upper": 1,
+      "orbit_size": 16
+    },
+    {
+      "id": "g0",
+      "result": "essential_input_bound",
+      "upper": 0,
+      "orbit_size": 1
+    }
+  ],
+  "formal_status": "Computational evidence only. Unknown results are inconclusive."
+}

@@ -1,0 +1,3039 @@
+{
+  "N": 4,
+  "matrices": 18521,
+  "classes": [
+    {
+      "rows": [
+        3,
+        5,
+        9,
+        14
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 9,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 2,
+      "hubs": 2,
+      "degrees": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        2
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 12,
+      "orbit_size": 96,
+      "id": "g59731"
+    },
+    {
+      "rows": [
+        1,
+        3,
+        6,
+        13
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 8,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 1,
+      "hubs": 2,
+      "degrees": [
+        1,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        1
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 11,
+      "orbit_size": 576,
+      "id": "g54833"
+    },
+    {
+      "rows": [
+        1,
+        3,
+        5,
+        14
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 8,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 1,
+      "hubs": 2,
+      "degrees": [
+        1,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        1
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 11,
+      "orbit_size": 288,
+      "id": "g58673"
+    },
+    {
+      "rows": [
+        1,
+        6,
+        10,
+        13
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 8,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 1,
+      "hubs": 1,
+      "degrees": [
+        1,
+        2,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 11,
+      "orbit_size": 576,
+      "id": "g55905"
+    },
+    {
+      "rows": [
+        3,
+        5,
+        10,
+        12
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 8,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 1,
+      "hubs": 0,
+      "degrees": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 11,
+      "orbit_size": 72,
+      "id": "g51795"
+    },
+    {
+      "rows": [
+        1,
+        2,
+        5,
+        11
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 7,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 2,
+      "degrees": [
+        1,
+        1,
+        2,
+        3,
+        3,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 10,
+      "orbit_size": 576,
+      "id": "g46369"
+    },
+    {
+      "rows": [
+        1,
+        1,
+        6,
+        11
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 7,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 2,
+      "degrees": [
+        1,
+        1,
+        2,
+        3,
+        3,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 28,
+      "clean_upper": 9,
+      "orbit_size": 576,
+      "id": "g46609"
+    },
+    {
+      "rows": [
+        1,
+        1,
+        3,
+        14
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 7,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 2,
+      "degrees": [
+        1,
+        1,
+        2,
+        3,
+        3,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 28,
+      "clean_upper": 9,
+      "orbit_size": 144,
+      "id": "g58129"
+    },
+    {
+      "rows": [
+        1,
+        1,
+        1,
+        15
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 7,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 2,
+      "degrees": [
+        1,
+        1,
+        1,
+        4,
+        4,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 24,
+      "clean_upper": 8,
+      "orbit_size": 16,
+      "id": "g61713"
+    },
+    {
+      "rows": [
+        1,
+        1,
+        2,
+        15
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 7,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 2,
+      "degrees": [
+        1,
+        1,
+        1,
+        4,
+        3,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 28,
+      "clean_upper": 9,
+      "orbit_size": 288,
+      "id": "g61969"
+    },
+    {
+      "rows": [
+        1,
+        2,
+        7,
+        12
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 7,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        1,
+        1,
+        3,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 10,
+      "orbit_size": 576,
+      "id": "g50977"
+    },
+    {
+      "rows": [
+        1,
+        2,
+        5,
+        14
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 7,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        1,
+        1,
+        2,
+        3,
+        2,
+        2,
+        2,
+        1
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 10,
+      "orbit_size": 1152,
+      "id": "g58657"
+    },
+    {
+      "rows": [
+        1,
+        2,
+        4,
+        15
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 7,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        1,
+        1,
+        1,
+        4,
+        2,
+        2,
+        2,
+        1
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 10,
+      "orbit_size": 192,
+      "id": "g62497"
+    },
+    {
+      "rows": [
+        1,
+        3,
+        6,
+        12
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 7,
+      "active_vertices": 8,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 10,
+      "orbit_size": 576,
+      "id": "g50737"
+    },
+    {
+      "rows": [
+        0,
+        3,
+        5,
+        14
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 7,
+      "active_vertices": 7,
+      "components": 1,
+      "cycle_rank": 1,
+      "hubs": 1,
+      "degrees": [
+        0,
+        2,
+        2,
+        3,
+        2,
+        2,
+        2,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 9,
+      "orbit_size": 576,
+      "id": "g58672"
+    },
+    {
+      "rows": [
+        1,
+        6,
+        10,
+        12
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 7,
+      "active_vertices": 8,
+      "components": 2,
+      "cycle_rank": 1,
+      "hubs": 0,
+      "degrees": [
+        1,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 10,
+      "orbit_size": 96,
+      "id": "g51809"
+    },
+    {
+      "rows": [
+        0,
+        3,
+        5,
+        6
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 6,
+      "components": 1,
+      "cycle_rank": 1,
+      "hubs": 0,
+      "degrees": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 8,
+      "orbit_size": 96,
+      "id": "g25904"
+    },
+    {
+      "rows": [
+        1,
+        1,
+        2,
+        13
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 8,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 2,
+      "degrees": [
+        1,
+        1,
+        1,
+        3,
+        3,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 28,
+      "clean_upper": 8,
+      "orbit_size": 144,
+      "id": "g53777"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        3,
+        13
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 7,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 2,
+      "degrees": [
+        0,
+        1,
+        2,
+        3,
+        3,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 8,
+      "orbit_size": 576,
+      "id": "g54032"
+    },
+    {
+      "rows": [
+        1,
+        1,
+        1,
+        14
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 8,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 2,
+      "degrees": [
+        1,
+        1,
+        1,
+        3,
+        3,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 24,
+      "clean_upper": 7,
+      "orbit_size": 16,
+      "id": "g57617"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        1,
+        15
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 7,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 2,
+      "degrees": [
+        0,
+        1,
+        1,
+        4,
+        3,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 24,
+      "clean_upper": 7,
+      "orbit_size": 96,
+      "id": "g61712"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        1,
+        7
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "edge_count": 5,
+      "active_vertices": 6,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 2,
+      "degrees": [
+        0,
+        1,
+        1,
+        3,
+        3,
+        1,
+        1,
+        0
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 24,
+      "clean_upper": 6,
+      "orbit_size": 144,
+      "id": "g28944"
+    },
+    {
+      "rows": [
+        0,
+        3,
+        5,
+        9
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 7,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        2,
+        2,
+        2,
+        3,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 8,
+      "orbit_size": 192,
+      "id": "g38192"
+    },
+    {
+      "rows": [
+        1,
+        2,
+        4,
+        11
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 8,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        1,
+        1,
+        1,
+        3,
+        2,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 9,
+      "orbit_size": 576,
+      "id": "g46113"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        6,
+        11
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 7,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        1,
+        2,
+        3,
+        2,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 8,
+      "orbit_size": 1152,
+      "id": "g46608"
+    },
+    {
+      "rows": [
+        1,
+        1,
+        2,
+        14
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 8,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        1,
+        1,
+        1,
+        3,
+        2,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 28,
+      "clean_upper": 8,
+      "orbit_size": 288,
+      "id": "g57873"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        3,
+        14
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 7,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        1,
+        2,
+        3,
+        2,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 8,
+      "orbit_size": 576,
+      "id": "g58128"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        2,
+        15
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 7,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        1,
+        1,
+        4,
+        2,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 8,
+      "orbit_size": 288,
+      "id": "g61968"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "edge_count": 5,
+      "active_vertices": 6,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        1,
+        1,
+        3,
+        2,
+        2,
+        1,
+        0
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 7,
+      "orbit_size": 576,
+      "id": "g29200"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        2,
+        13
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 5,
+      "active_vertices": 7,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        1,
+        1,
+        3,
+        2,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 7,
+      "orbit_size": 576,
+      "id": "g53776"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        3,
+        13
+      ],
+      "edges": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 5,
+      "active_vertices": 6,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        0,
+        2,
+        3,
+        2,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 12,
+      "clean_upper": 6,
+      "orbit_size": 288,
+      "id": "g54016"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        1,
+        14
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 5,
+      "active_vertices": 7,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        1,
+        1,
+        3,
+        2,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 24,
+      "clean_upper": 6,
+      "orbit_size": 96,
+      "id": "g57616"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        1,
+        15
+      ],
+      "edges": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 5,
+      "active_vertices": 6,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        0,
+        1,
+        4,
+        2,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 12,
+      "clean_upper": 6,
+      "orbit_size": 96,
+      "id": "g61696"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        1,
+        7
+      ],
+      "edges": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "edge_count": 4,
+      "active_vertices": 5,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        0,
+        1,
+        3,
+        2,
+        1,
+        1,
+        0
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 12,
+      "clean_upper": 5,
+      "orbit_size": 288,
+      "id": "g28928"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        1,
+        14
+      ],
+      "edges": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 4,
+      "active_vertices": 6,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        0,
+        1,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 12,
+      "clean_upper": 5,
+      "orbit_size": 96,
+      "id": "g57600"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        0,
+        15
+      ],
+      "edges": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 4,
+      "active_vertices": 5,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        0,
+        0,
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 1,
+      "vertex_cover_mask": 8,
+      "clean_upper": 4,
+      "orbit_size": 8,
+      "id": "g61440"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        0,
+        7
+      ],
+      "edges": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "edge_count": 3,
+      "active_vertices": 4,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 1,
+      "degrees": [
+        0,
+        0,
+        0,
+        3,
+        1,
+        1,
+        1,
+        0
+      ],
+      "vertex_cover_size": 1,
+      "vertex_cover_mask": 8,
+      "clean_upper": 3,
+      "orbit_size": 32,
+      "id": "g28672"
+    },
+    {
+      "rows": [
+        1,
+        2,
+        5,
+        10
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 8,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 9,
+      "orbit_size": 288,
+      "id": "g42273"
+    },
+    {
+      "rows": [
+        0,
+        3,
+        5,
+        10
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 7,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 8,
+      "orbit_size": 576,
+      "id": "g42288"
+    },
+    {
+      "rows": [
+        1,
+        1,
+        6,
+        10
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 8,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 28,
+      "clean_upper": 8,
+      "orbit_size": 288,
+      "id": "g42513"
+    },
+    {
+      "rows": [
+        1,
+        2,
+        5,
+        12
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "active_vertices": 8,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 9,
+      "orbit_size": 576,
+      "id": "g50465"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        3,
+        6
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "edge_count": 5,
+      "active_vertices": 6,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 7,
+      "orbit_size": 576,
+      "id": "g25360"
+    },
+    {
+      "rows": [
+        1,
+        2,
+        4,
+        9
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 5,
+      "active_vertices": 8,
+      "components": 3,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 8,
+      "orbit_size": 288,
+      "id": "g37921"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        6,
+        10
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 5,
+      "active_vertices": 7,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 7,
+      "orbit_size": 576,
+      "id": "g42512"
+    },
+    {
+      "rows": [
+        1,
+        1,
+        2,
+        12
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 5,
+      "active_vertices": 8,
+      "components": 3,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 28,
+      "clean_upper": 7,
+      "orbit_size": 144,
+      "id": "g49681"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        3,
+        12
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 5,
+      "active_vertices": 7,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 7,
+      "orbit_size": 576,
+      "id": "g49936"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "edge_count": 4,
+      "active_vertices": 6,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        0
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 6,
+      "orbit_size": 576,
+      "id": "g21008"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        3,
+        5
+      ],
+      "edges": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "edge_count": 4,
+      "active_vertices": 5,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        0,
+        2,
+        2,
+        2,
+        1,
+        1,
+        0
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 12,
+      "clean_upper": 5,
+      "orbit_size": 288,
+      "id": "g21248"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        1,
+        6
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "edge_count": 4,
+      "active_vertices": 6,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        0
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 24,
+      "clean_upper": 5,
+      "orbit_size": 144,
+      "id": "g24848"
+    },
+    {
+      "rows": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 4,
+      "active_vertices": 8,
+      "components": 4,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 4,
+      "vertex_cover_mask": 15,
+      "clean_upper": 7,
+      "orbit_size": 24,
+      "id": "g33825"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        2,
+        12
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 4,
+      "active_vertices": 7,
+      "components": 3,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 6,
+      "orbit_size": 288,
+      "id": "g49680"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        3,
+        12
+      ],
+      "edges": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "edge_count": 4,
+      "active_vertices": 6,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 12,
+      "clean_upper": 5,
+      "orbit_size": 72,
+      "id": "g49920"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        1,
+        3
+      ],
+      "edges": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "edge_count": 3,
+      "active_vertices": 4,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        0,
+        0
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 12,
+      "clean_upper": 4,
+      "orbit_size": 144,
+      "id": "g12544"
+    },
+    {
+      "rows": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "edges": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "edge_count": 3,
+      "active_vertices": 6,
+      "components": 3,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "vertex_cover_size": 3,
+      "vertex_cover_mask": 14,
+      "clean_upper": 5,
+      "orbit_size": 96,
+      "id": "g16912"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        1,
+        6
+      ],
+      "edges": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "edge_count": 3,
+      "active_vertices": 5,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 12,
+      "clean_upper": 4,
+      "orbit_size": 288,
+      "id": "g24832"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "edges": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "edge_count": 2,
+      "active_vertices": 3,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "vertex_cover_size": 1,
+      "vertex_cover_mask": 8,
+      "clean_upper": 2,
+      "orbit_size": 48,
+      "id": "g12288"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        1,
+        2
+      ],
+      "edges": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "edge_count": 2,
+      "active_vertices": 4,
+      "components": 2,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "vertex_cover_size": 2,
+      "vertex_cover_mask": 12,
+      "clean_upper": 3,
+      "orbit_size": 72,
+      "id": "g8448"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "edges": [
+        [
+          3,
+          0
+        ]
+      ],
+      "edge_count": 1,
+      "active_vertices": 2,
+      "components": 1,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "vertex_cover_size": 1,
+      "vertex_cover_mask": 8,
+      "clean_upper": 1,
+      "orbit_size": 16,
+      "id": "g4096"
+    },
+    {
+      "rows": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edges": [],
+      "edge_count": 0,
+      "active_vertices": 0,
+      "components": 0,
+      "cycle_rank": 0,
+      "hubs": 0,
+      "degrees": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "vertex_cover_size": 0,
+      "vertex_cover_mask": 0,
+      "clean_upper": 0,
+      "orbit_size": 1,
+      "id": "g0"
+    }
+  ]
+}

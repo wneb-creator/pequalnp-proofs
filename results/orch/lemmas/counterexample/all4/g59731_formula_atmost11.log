@@ -1,0 +1,25 @@
+(:added-eqs           35793416
+ :binary-propagations 65476332
+ :bv-bit2core         47751614
+ :bv-diseqs           1920
+ :bv-dynamic-diseqs   5553552
+ :bv-dynamic-eqs      3024
+ :bv->core-eq         839320
+ :conflicts           347988
+ :decisions           927062
+ :del-clause          62960872
+ :max-memory          30.39
+ :memory              20.02
+ :minimized-lits      6647550
+ :mk-bool-var         23120150
+ :mk-clause           63049868
+ :mk-clause-binary    14424
+ :num-allocs          8901989014.00
+ :num-checks          2
+ :propagations        219302254
+ :restarts            1034
+ :rlimit-count        206578074
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 18
+ :solve-eqs-steps     1358
+ :time                60.01)

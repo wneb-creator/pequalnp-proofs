@@ -1,0 +1,2307 @@
+[
+  {
+    "at": "2026-11-24T18:10:52.073191+00:00",
+    "id": "g59731",
+    "result": "started",
+    "bound": 11,
+    "timeout_seconds": 300
+  },
+  {
+    "at": "2026-11-24T18:10:52.073399+00:00",
+    "id": "g54833",
+    "result": "started",
+    "bound": 10,
+    "timeout_seconds": 300
+  },
+  {
+    "at": "2026-11-24T18:15:52.252998+00:00",
+    "id": "g54833",
+    "rows": [
+      1,
+      3,
+      6,
+      13
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 10,
+    "clean": false,
+    "result": "unknown",
+    "seconds": 300.018,
+    "boundary_rows": 31,
+    "automorphisms": 2,
+    "reason": "timeout"
+  },
+  {
+    "at": "2026-11-24T18:15:52.280167+00:00",
+    "id": "g58673",
+    "result": "started",
+    "bound": 10,
+    "timeout_seconds": 300
+  },
+  {
+    "at": "2026-11-24T18:15:52.257552+00:00",
+    "id": "g59731",
+    "rows": [
+      3,
+      5,
+      9,
+      14
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 11,
+    "clean": false,
+    "result": "unknown",
+    "seconds": 300.012,
+    "boundary_rows": 32,
+    "automorphisms": 12,
+    "reason": "timeout"
+  },
+  {
+    "at": "2026-11-24T18:15:52.284821+00:00",
+    "id": "g55905",
+    "result": "started",
+    "bound": 10,
+    "timeout_seconds": 300
+  },
+  {
+    "encoding_version": 3,
+    "at": "2026-11-24T18:20:52.401365+00:00",
+    "id": "g58673",
+    "rows": [
+      1,
+      3,
+      5,
+      14
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 10,
+    "clean": false,
+    "result": "unknown",
+    "seconds": 300.022,
+    "boundary_rows": 30,
+    "automorphisms": 4,
+    "reason": "timeout"
+  },
+  {
+    "encoding_version": 3,
+    "at": "2026-11-24T18:20:52.401292+00:00",
+    "id": "g55905",
+    "rows": [
+      1,
+      6,
+      10,
+      13
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 10,
+    "clean": false,
+    "result": "unknown",
+    "seconds": 300.017,
+    "boundary_rows": 33,
+    "automorphisms": 2,
+    "reason": "timeout"
+  },
+  {
+    "at": "2026-11-24T18:20:52.434947+00:00",
+    "id": "g51795",
+    "result": "started",
+    "bound": 10,
+    "timeout_seconds": 300
+  },
+  {
+    "at": "2026-11-24T18:20:52.435851+00:00",
+    "id": "g46369",
+    "result": "started",
+    "bound": 9,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:22:52.590275+00:00",
+    "id": "g46369",
+    "rows": [
+      1,
+      2,
+      5,
+      11
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 9,
+    "clean": false,
+    "result": "unknown",
+    "seconds": 120.017,
+    "boundary_rows": 32,
+    "automorphisms": 2,
+    "reason": "timeout"
+  },
+  {
+    "at": "2026-11-24T18:22:52.627903+00:00",
+    "id": "g46609",
+    "result": "started",
+    "bound": 8,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:23:12.090455+00:00",
+    "id": "g46609",
+    "rows": [
+      1,
+      1,
+      6,
+      11
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 8,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 19.362,
+    "boundary_rows": 30,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:23:12.116654+00:00",
+    "id": "g58129",
+    "result": "started",
+    "bound": 8,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:23:24.628024+00:00",
+    "id": "g58129",
+    "rows": [
+      1,
+      1,
+      3,
+      14
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 8,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 12.424,
+    "boundary_rows": 28,
+    "automorphisms": 8,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:09:58.334860+00:00",
+    "id": "g61713",
+    "rows": [
+      1,
+      1,
+      1,
+      15
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 7,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 1.074,
+    "boundary_rows": 27,
+    "automorphisms": 72,
+    "reason": null,
+    "reused": true
+  },
+  {
+    "at": "2026-11-24T18:23:24.659656+00:00",
+    "id": "g61969",
+    "result": "started",
+    "bound": 8,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:23:41.995710+00:00",
+    "id": "g61969",
+    "rows": [
+      1,
+      1,
+      2,
+      15
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 8,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 17.239,
+    "boundary_rows": 29,
+    "automorphisms": 4,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:23:42.021782+00:00",
+    "id": "g50977",
+    "result": "started",
+    "bound": 9,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:25:42.162409+00:00",
+    "id": "g50977",
+    "rows": [
+      1,
+      2,
+      7,
+      12
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 9,
+    "clean": false,
+    "result": "unknown",
+    "seconds": 120.009,
+    "boundary_rows": 33,
+    "automorphisms": 2,
+    "reason": "timeout"
+  },
+  {
+    "at": "2026-11-24T18:25:42.188114+00:00",
+    "id": "g58657",
+    "result": "started",
+    "bound": 9,
+    "timeout_seconds": 120
+  },
+  {
+    "at": "2026-11-24T18:27:48.023361+00:00",
+    "id": "g58657",
+    "result": "process_error",
+    "returncode": 1
+  },
+  {
+    "at": "2026-11-24T18:27:48.024896+00:00",
+    "id": "g62497",
+    "result": "started",
+    "bound": 9,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:25:53.071026+00:00",
+    "id": "g51795",
+    "rows": [
+      3,
+      5,
+      10,
+      12
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 10,
+    "clean": false,
+    "result": "unknown",
+    "seconds": 300.51,
+    "boundary_rows": 34,
+    "automorphisms": 16,
+    "reason": "timeout"
+  },
+  {
+    "at": "2026-11-24T18:27:54.168767+00:00",
+    "id": "g50737",
+    "result": "started",
+    "bound": 9,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:29:18.453268+00:00",
+    "id": "g62497",
+    "rows": [
+      1,
+      2,
+      4,
+      15
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 9,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 90.344,
+    "boundary_rows": 33,
+    "automorphisms": 6,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:29:18.481967+00:00",
+    "id": "g58672",
+    "result": "started",
+    "bound": 8,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:29:54.300441+00:00",
+    "id": "g50737",
+    "rows": [
+      1,
+      3,
+      6,
+      12
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 9,
+    "clean": false,
+    "result": "unknown",
+    "seconds": 120.036,
+    "boundary_rows": 33,
+    "automorphisms": 2,
+    "reason": "timeout"
+  },
+  {
+    "at": "2026-11-24T18:29:54.343186+00:00",
+    "id": "g51809",
+    "result": "started",
+    "bound": 9,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:23.365205+00:00",
+    "id": "g51809",
+    "rows": [
+      1,
+      6,
+      10,
+      12
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 9,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 88.897,
+    "boundary_rows": 34,
+    "automorphisms": 12,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:23.408593+00:00",
+    "id": "g25904",
+    "result": "started",
+    "bound": 7,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:24.312401+00:00",
+    "id": "g25904",
+    "rows": [
+      0,
+      3,
+      5,
+      6
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "bound": 7,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.789,
+    "boundary_rows": 29,
+    "automorphisms": 12,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:24.330887+00:00",
+    "id": "g53777",
+    "result": "started",
+    "bound": 7,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:25.117160+00:00",
+    "id": "g53777",
+    "rows": [
+      1,
+      1,
+      2,
+      13
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 7,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.712,
+    "boundary_rows": 30,
+    "automorphisms": 8,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:25.135854+00:00",
+    "id": "g54032",
+    "result": "started",
+    "bound": 7,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:27.056692+00:00",
+    "id": "g54032",
+    "rows": [
+      0,
+      1,
+      3,
+      13
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 7,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 1.839,
+    "boundary_rows": 29,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:27.089632+00:00",
+    "id": "g57617",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 7,
+    "active_vertices": 8
+  },
+  {
+    "at": "2026-11-24T18:31:27.090332+00:00",
+    "id": "g61712",
+    "result": "started",
+    "bound": 6,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:27.386235+00:00",
+    "id": "g61712",
+    "rows": [
+      0,
+      1,
+      1,
+      15
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 6,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.213,
+    "boundary_rows": 27,
+    "automorphisms": 12,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:27.405178+00:00",
+    "id": "g28944",
+    "result": "started",
+    "bound": 5,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:27.592367+00:00",
+    "id": "g28944",
+    "rows": [
+      0,
+      1,
+      1,
+      7
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "bound": 5,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.111,
+    "boundary_rows": 27,
+    "automorphisms": 8,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:27.622572+00:00",
+    "id": "g38192",
+    "result": "started",
+    "bound": 7,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:28.816803+00:00",
+    "id": "g38192",
+    "rows": [
+      0,
+      3,
+      5,
+      9
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 7,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 1.093,
+    "boundary_rows": 32,
+    "automorphisms": 6,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:28.835666+00:00",
+    "id": "g46113",
+    "result": "started",
+    "bound": 8,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:45.512366+00:00",
+    "id": "g46113",
+    "rows": [
+      1,
+      2,
+      4,
+      11
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 8,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 16.574,
+    "boundary_rows": 34,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:45.536728+00:00",
+    "id": "g46608",
+    "result": "started",
+    "bound": 7,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:48.330788+00:00",
+    "id": "g46608",
+    "rows": [
+      0,
+      1,
+      6,
+      11
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 7,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 2.708,
+    "boundary_rows": 30,
+    "automorphisms": 1,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:48.353337+00:00",
+    "id": "g57873",
+    "result": "started",
+    "bound": 7,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:50.095658+00:00",
+    "id": "g57873",
+    "rows": [
+      1,
+      1,
+      2,
+      14
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 7,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 1.66,
+    "boundary_rows": 30,
+    "automorphisms": 4,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:50.117360+00:00",
+    "id": "g58128",
+    "result": "started",
+    "bound": 7,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:52.769831+00:00",
+    "id": "g58128",
+    "rows": [
+      0,
+      1,
+      3,
+      14
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 7,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 2.542,
+    "boundary_rows": 29,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:52.789621+00:00",
+    "id": "g61968",
+    "result": "started",
+    "bound": 7,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:54.875656+00:00",
+    "id": "g61968",
+    "rows": [
+      0,
+      1,
+      2,
+      15
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 7,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 1.763,
+    "boundary_rows": 29,
+    "automorphisms": 4,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:54.923256+00:00",
+    "id": "g29200",
+    "result": "started",
+    "bound": 6,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:55.311965+00:00",
+    "id": "g29200",
+    "rows": [
+      0,
+      1,
+      2,
+      7
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "bound": 6,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.269,
+    "boundary_rows": 29,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:55.338721+00:00",
+    "id": "g53776",
+    "result": "started",
+    "bound": 6,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:55.663597+00:00",
+    "id": "g53776",
+    "rows": [
+      0,
+      1,
+      2,
+      13
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 6,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.227,
+    "boundary_rows": 30,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:55.682002+00:00",
+    "id": "g54016",
+    "result": "started",
+    "bound": 5,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:55.862539+00:00",
+    "id": "g54016",
+    "rows": [
+      0,
+      0,
+      3,
+      13
+    ],
+    "edges": [
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 5,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.078,
+    "boundary_rows": 28,
+    "automorphisms": 4,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:55.880233+00:00",
+    "id": "g57616",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 6,
+    "active_vertices": 7
+  },
+  {
+    "at": "2026-11-24T18:31:55.881097+00:00",
+    "id": "g61696",
+    "result": "started",
+    "bound": 5,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:56.028349+00:00",
+    "id": "g61696",
+    "rows": [
+      0,
+      0,
+      1,
+      15
+    ],
+    "edges": [
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 5,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.07,
+    "boundary_rows": 27,
+    "automorphisms": 12,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:56.046474+00:00",
+    "id": "g28928",
+    "result": "started",
+    "bound": 4,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:31:56.134197+00:00",
+    "id": "g28928",
+    "rows": [
+      0,
+      0,
+      1,
+      7
+    ],
+    "edges": [
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "bound": 4,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.02,
+    "boundary_rows": 27,
+    "automorphisms": 4,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:31:56.151199+00:00",
+    "id": "g57600",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 5,
+    "active_vertices": 6
+  },
+  {
+    "at": "2026-11-24T18:31:56.152356+00:00",
+    "id": "g61440",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 4,
+    "active_vertices": 5
+  },
+  {
+    "at": "2026-11-24T18:31:56.153656+00:00",
+    "id": "g28672",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 3,
+    "active_vertices": 4
+  },
+  {
+    "at": "2026-11-24T18:31:56.154791+00:00",
+    "id": "g42273",
+    "result": "started",
+    "bound": 8,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:32:07.883164+00:00",
+    "id": "g42273",
+    "rows": [
+      1,
+      2,
+      5,
+      10
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 8,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 11.65,
+    "boundary_rows": 33,
+    "automorphisms": 4,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:32:07.922711+00:00",
+    "id": "g42288",
+    "result": "started",
+    "bound": 7,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:32:09.558850+00:00",
+    "id": "g42288",
+    "rows": [
+      0,
+      3,
+      5,
+      10
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 7,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 1.525,
+    "boundary_rows": 31,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:32:09.578141+00:00",
+    "id": "g42513",
+    "result": "started",
+    "bound": 7,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:32:10.416978+00:00",
+    "id": "g42513",
+    "rows": [
+      1,
+      1,
+      6,
+      10
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 7,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.761,
+    "boundary_rows": 32,
+    "automorphisms": 4,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:32:10.441042+00:00",
+    "id": "g50465",
+    "result": "started",
+    "bound": 8,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:32:23.112691+00:00",
+    "id": "g50465",
+    "rows": [
+      1,
+      2,
+      5,
+      12
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 8,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 12.584,
+    "boundary_rows": 34,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:32:23.142369+00:00",
+    "id": "g25360",
+    "result": "started",
+    "bound": 6,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:32:23.460036+00:00",
+    "id": "g25360",
+    "rows": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "bound": 6,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.217,
+    "boundary_rows": 29,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:32:23.485062+00:00",
+    "id": "g37921",
+    "result": "started",
+    "bound": 7,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:32:24.871865+00:00",
+    "id": "g37921",
+    "rows": [
+      1,
+      2,
+      4,
+      9
+    ],
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 7,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 1.303,
+    "boundary_rows": 36,
+    "automorphisms": 4,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:32:24.894882+00:00",
+    "id": "g42512",
+    "result": "started",
+    "bound": 6,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:32:25.206708+00:00",
+    "id": "g42512",
+    "rows": [
+      0,
+      1,
+      6,
+      10
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 6,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.214,
+    "boundary_rows": 32,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:32:25.224830+00:00",
+    "id": "g49681",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 7,
+    "active_vertices": 8
+  },
+  {
+    "at": "2026-11-24T18:32:25.226002+00:00",
+    "id": "g49936",
+    "result": "started",
+    "bound": 6,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:32:25.482904+00:00",
+    "id": "g49936",
+    "rows": [
+      0,
+      1,
+      3,
+      12
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 6,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.185,
+    "boundary_rows": 30,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:32:25.500730+00:00",
+    "id": "g21008",
+    "result": "started",
+    "bound": 5,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:32:25.666819+00:00",
+    "id": "g21008",
+    "rows": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "bound": 5,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.075,
+    "boundary_rows": 30,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:32:25.686338+00:00",
+    "id": "g21248",
+    "result": "started",
+    "bound": 4,
+    "timeout_seconds": 120
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:32:25.794503+00:00",
+    "id": "g21248",
+    "rows": [
+      0,
+      0,
+      3,
+      5
+    ],
+    "edges": [
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "bound": 4,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.026,
+    "boundary_rows": 28,
+    "automorphisms": 4,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:32:25.811128+00:00",
+    "id": "g24848",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 5,
+    "active_vertices": 6
+  },
+  {
+    "at": "2026-11-24T18:32:25.812208+00:00",
+    "id": "g33825",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 7,
+    "active_vertices": 8
+  },
+  {
+    "at": "2026-11-24T18:32:25.813342+00:00",
+    "id": "g49680",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 6,
+    "active_vertices": 7
+  },
+  {
+    "at": "2026-11-24T18:32:25.814409+00:00",
+    "id": "g49920",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 5,
+    "active_vertices": 6
+  },
+  {
+    "at": "2026-11-24T18:10:17.772864+00:00",
+    "id": "g12544",
+    "rows": [
+      0,
+      0,
+      1,
+      3
+    ],
+    "edges": [
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "bound": 3,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 0.044,
+    "boundary_rows": 27,
+    "automorphisms": 8,
+    "reason": null,
+    "reused": true
+  },
+  {
+    "at": "2026-11-24T18:32:25.816725+00:00",
+    "id": "g16912",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 5,
+    "active_vertices": 6
+  },
+  {
+    "at": "2026-11-24T18:32:25.817651+00:00",
+    "id": "g24832",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 4,
+    "active_vertices": 5
+  },
+  {
+    "at": "2026-11-24T18:32:25.818553+00:00",
+    "id": "g12288",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 2,
+    "active_vertices": 3
+  },
+  {
+    "at": "2026-11-24T18:32:25.819508+00:00",
+    "id": "g8448",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 3,
+    "active_vertices": 4
+  },
+  {
+    "at": "2026-11-24T18:32:25.820444+00:00",
+    "id": "g4096",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 1,
+    "active_vertices": 2
+  },
+  {
+    "at": "2026-11-24T18:32:25.821341+00:00",
+    "id": "g0",
+    "result": "no_smaller_by_essential_inputs",
+    "clean_upper": 0,
+    "active_vertices": 0
+  },
+  {
+    "encoding_version": 4,
+    "formula": false,
+    "at": "2026-11-24T18:29:39.630809+00:00",
+    "id": "g58672",
+    "rows": [
+      0,
+      3,
+      5,
+      14
+    ],
+    "edges": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "bound": 8,
+    "clean": false,
+    "result": "unsat",
+    "seconds": 21.008,
+    "boundary_rows": 30,
+    "automorphisms": 2,
+    "reason": null
+  },
+  {
+    "at": "2026-11-24T18:34:10.254448+00:00",
+    "result": "batch_complete",
+    "seconds": 1398.2,
+    "candidate": false
+  }
+]

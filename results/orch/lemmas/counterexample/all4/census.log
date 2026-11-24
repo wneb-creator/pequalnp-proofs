@@ -1,0 +1,15 @@
+matrices 18521 classes 59 connected_spanning 14
+g59731 (3, 5, 9, 14) E 9 hubs 2 rank 2 upper 12
+g54833 (1, 3, 6, 13) E 8 hubs 2 rank 1 upper 11
+g58673 (1, 3, 5, 14) E 8 hubs 2 rank 1 upper 11
+g55905 (1, 6, 10, 13) E 8 hubs 1 rank 1 upper 11
+g51795 (3, 5, 10, 12) E 8 hubs 0 rank 1 upper 11
+g46369 (1, 2, 5, 11) E 7 hubs 2 rank 0 upper 10
+g46609 (1, 1, 6, 11) E 7 hubs 2 rank 0 upper 9
+g58129 (1, 1, 3, 14) E 7 hubs 2 rank 0 upper 9
+g61713 (1, 1, 1, 15) E 7 hubs 2 rank 0 upper 8
+g61969 (1, 1, 2, 15) E 7 hubs 2 rank 0 upper 9
+g50977 (1, 2, 7, 12) E 7 hubs 1 rank 0 upper 10
+g58657 (1, 2, 5, 14) E 7 hubs 1 rank 0 upper 10
+g62497 (1, 2, 4, 15) E 7 hubs 1 rank 0 upper 10
+g50737 (1, 3, 6, 12) E 7 hubs 0 rank 0 upper 10

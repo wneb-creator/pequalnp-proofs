@@ -1,0 +1,49 @@
+{
+  "encoding_version": 4,
+  "formula": false,
+  "at": "2026-11-24T18:25:42.162409+00:00",
+  "id": "g50977",
+  "rows": [
+    1,
+    2,
+    7,
+    12
+  ],
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      3
+    ]
+  ],
+  "bound": 9,
+  "clean": false,
+  "result": "unknown",
+  "seconds": 120.009,
+  "boundary_rows": 33,
+  "automorphisms": 2,
+  "reason": "timeout"
+}

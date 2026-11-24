@@ -1,0 +1,167 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0 -W -Wall -O3 -DNDEBUG
+c Thu Oct 16 19:30:34 CEST 2025 Linux abryzen9 6.8.0-85-generic x86_64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   /workspace/pequalnp-proofs/results/orch/lemmas/counterexample/all4/g12544_free_atmost3_kissat.cnf
+c
+c parsed 'p cnf 871 9216' header
+c closing input after reading 168783 bytes (165 KB)
+c finished parsing after 0.00 seconds
+c
+c ---- [ options ] -----------------------------------------------------------
+c
+c --statistics=true                (different from default 'false')
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds switched rate     size/glue tier1  binary      remaining
+c        MB reductions conflicts size  tier2   irredundant
+c         level restarts redundant glue  trail       variables
+c
+c *  0.00  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1954 6793 792 91%
+c lucky 1 units
+c l  0.00  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1954 6793 791 91%
+c (  0.00  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1954 6793 791 91%
+c .  0.00  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1653 6382 791 91%
+c c  0.01  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 2002 6187 680 78%
+c d  0.01  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1776 6187 680 78%
+c b  0.01  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1776 6187 670 77%
+c =  0.04  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 2324 4093 476 55%
+c d  0.04  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1867 4020 476 55%
+c d  0.04  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1861 4020 473 54%
+c f  0.05  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1379 2101 653 75%
+c )  0.05  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1379 2101 653 75%
+c {  0.05  3 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 1379 2101 653 75%
+c i  0.05  3 7 0 0  0 3  12   7 2.1 3 2 2 6 46% 1382 2101 635 73%
+c i  0.05  3 7 0 0  0 2  26  16 2.1 4 2 2 2 47% 1385 2100 549 63%
+c }  0.05  3 5 0 0  0 2  50  27 2.2 4 2 2 2 53% 1395 2100 456 52%
+c 0  0.05  3 5 0 0  0 2  50  27 2.2 4 2 2 2 53% 1395 2100 456 52%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s UNSATISFIABLE
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           0.04   88.94 %  preprocess
+c           0.04   88.47 %  probe
+c           0.03   68.21 %  sweep
+c           0.01   12.37 %  factor
+c           0.00    7.69 %  parse
+c           0.00    3.98 %  congruence
+c           0.00    2.41 %  substitute
+c           0.00    1.89 %  lucky
+c           0.00    1.48 %  backbone
+c           0.00    1.16 %  search
+c           0.00    1.15 %  focused
+c           0.00    0.00 %  simplify
+c =============================================
+c           0.05  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c backbone_computations:                    1               50    interval
+c backbone_ticks:                        9539 
+c chronological:                            0                0 %  conflicts
+c clauses_added:                        12124              100 %  added
+c clauses_binary:                        1395               12 %  added
+c clauses_irredundant:                   2100               17 %  added
+c clauses_learned:                         47               94 %  conflicts
+c clauses_original:                      8747               72 %  added
+c clauses_redundant:                       27 
+c clauses_used:                            25               53 %  learned
+c clauses_used_focused:                    25              100 %  used
+c clauses_used_stable:                      0                0 %  used
+c closures:                                 1               50    interval
+c conflicts:                               50              987.75 per second
+c congruent:                              111               13 %  variables
+c congruent_gates:                        347              347.00 per closure
+c congruent_gates_ands:                   114               33 %  gates
+c congruent_gates_ites:                   110               32 %  gates
+c congruent_gates_xors:                   123               35 %  gates
+c congruent_matched:                        1                1 %  congruent
+c congruent_matched_ands:                   1              100 %  matched
+c congruent_matched_ites:                   0                0 %  matched
+c congruent_matched_xors:                   0                0 %  matched
+c decisions:                               88                1.76 per conflict
+c eliminated:                               0                0 %  variables
+c eliminate_resolutions:                    0                0.00 per second
+c eliminations:                             0                0    interval
+c factored:                               180               21 %  variables
+c factorizations:                           1               50    interval
+c factor_ticks:                        388159 
+c fast_eliminated:                          0                0 %  eliminated
+c fast_strengthened:                        0                0 %  per strengthened
+c fast_subsumed:                            0                0 %  per subsumed
+c forward_checks:                           0 
+c forward_steps:                            0                0.00 per check
+c iterations:                               3                0 %  variables
+c kitten_propagations:                 290320              147.30 per solved
+c kitten_solved:                         1971 
+c kitten_ticks:                       1000007                3.44 per prop
+c literals_factor:                       2507                2.88 per variable
+c probings:                                 1               50    interval
+c probing_ticks:                        68782 
+c propagations:                         16233           320684    per second
+c random_sequences:                         0                0    interval
+c reductions:                               0                0    interval
+c reordered:                                0                0    interval
+c rephased:                                 0                0    interval
+c restarts:                                 0                0    interval
+c retiered:                                 1               50    interval
+c searches:                                 1               50    interval
+c search_ticks:                         31610 
+c strengthened:                             0                0 %  checks
+c substituted:                            256               29 %  variables
+c substitute_ticks:                     19880 
+c subsumed:                                 0                0 %  checks
+c subsumption_checks:                       0 
+c sweep:                                    1               50    interval
+c sweep_completed:                          0                0.00 sweeps
+c sweep_equivalences:                     143               16 %  variables
+c sweep_solved:                          1971              100 %  kitten_solved
+c sweep_units:                             39                4 %  variables
+c switched:                                 0                0    interval
+c transitive_ticks:                         0 
+c units:                                  339               39 %  variables
+c variables_activated:                   1051                1.21 per variable
+c variables_eliminate:                   1051                1.21 variables
+c variables_extension:                    180                0.21 per variable
+c variables_factor:                         0                0.00 per variable
+c variables_original:                     871                1.00 per variable
+c variables_subsume:                     1051                1.21 per variable
+c vivifications:                            0                0    interval
+c vivified:                                 0                0 %  checks
+c vivify_checks:                            0                0    per vivify
+c vivify_probes:                            0                0.00 per check
+c vivify_reused:                            0                0 %  probes
+c walks:                                    0                0    interval
+c walk_steps:                               0 
+c warming_decisions:                        0                0.00 per walk
+c warming_propagations:                     0                0 %  propagations
+c warmups:                                  0                0 %  walks
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 1 used 12 clauses 48.00% accumulated 48.00% tier1
+c focused glue 2 used 11 clauses 44.00% accumulated 92.00% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:         51118080 bytes         49 MB
+c process-time:                                              0.05 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 20

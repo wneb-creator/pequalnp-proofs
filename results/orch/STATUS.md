@@ -15,6 +15,7 @@ All project-specific dependencies are from `PEqualNP.Defs`; Mathlib is pinned by
 - `lcZeroSupport` and `lcOneSupport` clean gates accepting zero or one incident edge, respectively.
 - The `md` lemmas minimize the count of AND gates that accept a nonincident pair. In the resulting no-larger equivalent circuit, every remaining such AND accepts at least two distinct incident edges. This part does not require C4-freeness.
 - `minimum_dirty_essential` strengthens the previous invariant: each residual dirty AND is essential for two distinct incident edges, meaning zeroing the gate makes the circuit reject those edges. Output-level replacement preserves the full function without requiring every internal wire to agree on every edge.
+- `lcLiteralEssential` replaces a gate by a unary OR of a raw input if that input is accepted alone and belongs to every output-essential edge. The condition is explicit; its existence is not established in general.
 - `lcStarSupport` cleans a gate whose supported incident edges form a star, **provided an earlier wire already computes their exact neighborhood OR**. That wire's availability is not proved merely from star support.
 
 The principal forest and padding lemmas were audited with Lean's axiom printer and use only `propext`, `Classical.choice`, and `Quot.sound`. Their full output is retained in `axiom-audit.log`. Further helpers have independently reviewed source and successful kernel compilation. The eight-helper audit is also retained in `axiom-audit-current.log`.
@@ -35,7 +36,7 @@ The remaining main difficulty is normalization on cyclic C4-free incidence graph
 
 The scripts and complete outputs under `lemmas/counterexample/` are computational evidence, not Lean certificates. All 334 C4-free 3-by-3 matrices were classified into 16 row/column/transpose classes. Their unrestricted and requested-clean minimum sizes agree (0 through 8); all stored witnesses were independently checked on all inputs.
 
-The 4-by-4 census has 18,521 matrices and 59 classes, with 14 connected classes using all eight vertices. All 59 explicit clean upper circuits were independently evaluated on all 256 inputs each. Bounded lower-size synthesis continues separately; a timeout establishes no lower bound. Consult its complete results for the final status of each query.
+The 4-by-4 census has 18,521 matrices and 59 classes, with 14 connected classes using all eight vertices. All 59 explicit clean upper circuits were independently evaluated on all 256 inputs each. The frozen checkpoint establishes matching bounds computationally for50/59classes:34 solver UNSAT results below the upper and16 elementary input-count cases, covering14,033/18,521 matrices. Nine classes remain inconclusive. Separate first-gate branch searches continue under `theta_split`; a timeout establishes no lower bound.
 
 ## Submission boundary
 

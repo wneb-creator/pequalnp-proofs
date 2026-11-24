@@ -32,3 +32,5 @@
 - 2026-11-24T18:36:29.849608+00:00: machine restarted around18:35; files survived, running build and lease timer did not. Restarted timer and resumed named build, which passed4257lines. Essential-edge strengthening independently reviewed. Latest manual renewal expires18:54:44.029Z.
 2026-11-24T18:38:20.873430+00:00 — normal_form: lcLiteralEssential compiled, positive singleton-center essential-star branch.
 2026-11-24T18:38:33.675736+00:00 — universal_vertex focused uncrossing attempt: complete3x3 minimum-dirty evidence, checked one-gate rigidity, samecost private-OR partition template; shared rectangle-filter charge remains open.
+
+- 2026-11-24T18:41:18.348188+00:00: named4321line build12 passes, independent exact-composition review approved. Frozen4x4 checkpoint independently audited:240hashes,50/59classes resolved computationally,9unknown, all59upperwitnesses rechecked. Latest renewal expires19:00:27.173Z.

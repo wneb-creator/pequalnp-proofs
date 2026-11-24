@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-24T18:34:10.173584+00:00",
+  "smt": "g54833_free_atmost10.smt2",
+  "solver": "kissat4.0.4",
+  "exit_code": 0,
+  "result": "unknown",
+  "seconds": 120.004,
+  "variables": 5067,
+  "clauses": 55865
+}

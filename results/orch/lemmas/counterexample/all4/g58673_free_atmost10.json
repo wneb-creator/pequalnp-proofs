@@ -1,0 +1,52 @@
+{
+  "encoding_version": 3,
+  "at": "2026-11-24T18:20:52.401365+00:00",
+  "id": "g58673",
+  "rows": [
+    1,
+    3,
+    5,
+    14
+  ],
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      3
+    ]
+  ],
+  "bound": 10,
+  "clean": false,
+  "result": "unknown",
+  "seconds": 300.022,
+  "boundary_rows": 30,
+  "automorphisms": 4,
+  "reason": "timeout"
+}

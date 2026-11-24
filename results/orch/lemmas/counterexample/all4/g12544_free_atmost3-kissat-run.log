@@ -1,0 +1,1 @@
+{"at": "2026-11-24T18:29:41.423667+00:00", "smt": "g12544_free_atmost3.smt2", "solver": "kissat4.0.4", "exit_code": 20, "result": "unsat", "seconds": 0.052, "variables": 871, "clauses": 9216}

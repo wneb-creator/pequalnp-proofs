@@ -1,0 +1,1 @@
+{"encoding_version": 4, "formula": false, "at": "2026-11-24T18:31:28.816803+00:00", "id": "g38192", "rows": [0, 3, 5, 9], "edges": [[1, 0], [1, 1], [2, 0], [2, 2], [3, 0], [3, 3]], "bound": 7, "clean": false, "result": "unsat", "seconds": 1.093, "boundary_rows": 32, "automorphisms": 6, "reason": null}
