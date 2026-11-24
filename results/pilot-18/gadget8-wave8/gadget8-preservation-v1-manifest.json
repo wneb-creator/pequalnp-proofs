@@ -1,0 +1,1965 @@
+{
+  "active_production_included": false,
+  "created_utc": "2026-11-24T05:33:46.826218+00:00",
+  "format": "s06-gadget8-preservation-v1",
+  "historical_handoff_bindings": 208,
+  "omitted_cnfs": {
+    "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/instance.cnf": {
+      "bytes": 192219,
+      "sha256": "0b39eb1f59ceb336bd99edcb902d6216a9e189c19319376a64cb711c0325e1ab"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12-pinned.cnf": {
+      "bytes": 192219,
+      "sha256": "0b39eb1f59ceb336bd99edcb902d6216a9e189c19319376a64cb711c0325e1ab"
+    },
+    "scratch/orch/S06/gadget8-v1/generic12.cnf": {
+      "bytes": 189611,
+      "sha256": "dae54c6f20435a53be3a34b09da9310e85df61823b382caa2837817a441b8bfb"
+    },
+    "scratch/orch/S06/gadget8-v1/generic13.cnf": {
+      "bytes": 220710,
+      "sha256": "2977fd8b5ea8bdcfa3879d8a8f97bbcd4c54c541eedab33a0530fabca02aad93"
+    },
+    "scratch/orch/S06/gadget8-v1/positive13-pinned.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    }
+  },
+  "payload": {
+    "CNF_RECIPES.json": {
+      "bytes": 3482,
+      "sha256": "38cb3847203612c9597a787c4c21012947ed43647423123635439beb1748cdad"
+    },
+    "README.md": {
+      "bytes": 2590,
+      "sha256": "888ecc85563b1fe9510d5376614401e44b2e4ca7e3729101be85c825c801e35d"
+    },
+    "scratch/orch/MAIN/gadget8-runner-v1/derivation.json": {
+      "bytes": 425,
+      "sha256": "fe5ad061fbbcdd8c96f733cb164303683b39949d5ddf3ab545ff0878aec6cfea"
+    },
+    "scratch/orch/MAIN/gadget8-runner-v1/offline_gadget8_cadical.py": {
+      "bytes": 14349,
+      "sha256": "5c196750473896225cb414458a150bccfc5dff3d68ecbeceec2aaf1c7f088b34"
+    },
+    "scratch/orch/MAIN/gadget8-runner-v1/source.diff": {
+      "bytes": 4416,
+      "sha256": "65f92a4195d390ca7a44cbf0ab9509c685a495e8571c53145c8b4f031c757afb"
+    },
+    "scratch/orch/MAIN/main-gadget8-review.json": {
+      "bytes": 591,
+      "sha256": "e5470a04eb581b9bf06ced3423e432ce6a436ea679e67ce3d509d93e63d77e5d"
+    },
+    "scratch/orch/S06/build_gadget8.py": {
+      "bytes": 6959,
+      "sha256": "3ca5274e1a394aff25e8f633bfc07ca5dd9ed2163b43db321dfba218e6b1ac17"
+    },
+    "scratch/orch/S06/control_gadget8.py": {
+      "bytes": 8708,
+      "sha256": "d08d46bac760773620707aff8e1c020f837f904f297b56b8b5bab028a993f923"
+    },
+    "scratch/orch/S06/gadget8-handoff.json": {
+      "bytes": 7739,
+      "sha256": "680c4d01926307c859940f8b1ac2f1247b74d878302ff8a2c0e04cd5d26889ed"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/bad12-pinned.execution.json": {
+      "bytes": 927,
+      "sha256": "d292d0e968592711ecb8338e6f3da26a71fafddb199acbe298feb03f6dbe1d8d"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/bad12-pinned.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/bad12-pinned.outer.stdout": {
+      "bytes": 115,
+      "sha256": "867dc8b3f634177e57c9204517e06408fbe90cdecc1281713c1eb8d19b2c9cf8"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/checker.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/checker.stdout": {
+      "bytes": 517,
+      "sha256": "968a8854ccde8d3f714cd6707f697aeac0a1433618c208b023efc728a5c65b57"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/instance.json": {
+      "bytes": 17730,
+      "sha256": "d87690333106529e8c91c88c7fb0d9f789336528c58beaeee7255b10a8558eb3"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/progress.json": {
+      "bytes": 4140,
+      "sha256": "dfa5745f54282a5ae1115482c074b943a08801f57d5eed9377e2e1d1f1387f93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/proof.drat": {
+      "bytes": 4198,
+      "sha256": "d30c629d500b1e3d6b3b907f7078ff00716e2dce9946d749c15fde52ce1284f5"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/result.json": {
+      "bytes": 4140,
+      "sha256": "dfa5745f54282a5ae1115482c074b943a08801f57d5eed9377e2e1d1f1387f93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/solver.stdout": {
+      "bytes": 3608,
+      "sha256": "a539558f78f87a5ac8fafa0544851de06d078127a37a3086d43bcd3ad1e24360"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned.execution.json": {
+      "bytes": 937,
+      "sha256": "dc8406e96b5d6dab60f03ec835ac2d4d9c26ff80a185b723569001bf4aa775fe"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned.outer.stdout": {
+      "bytes": 120,
+      "sha256": "f236241d9903c6f9a5f5192031f99219a8c59e64c1cc0a8f1ec40648ac8b5600"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/gadget.validated.json": {
+      "bytes": 2911,
+      "sha256": "46daa00c547bd2e8b29ec53823f6febffe34e4d4c4c23bf94543b160569cae8d"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/progress.json": {
+      "bytes": 7728,
+      "sha256": "c6824c98839d99c23028b24dade470238d9d156d2d1593013c4214d95d3c2677"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/proof.drat": {
+      "bytes": 4632,
+      "sha256": "1f17f0e700e26918f6f67416353ca97ed222567205e5032c9bd798b26b51b874"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/result.json": {
+      "bytes": 7728,
+      "sha256": "c6824c98839d99c23028b24dade470238d9d156d2d1593013c4214d95d3c2677"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/solver.stdout": {
+      "bytes": 8952,
+      "sha256": "851a3308b9ec5857d413e289a8fad6ebb60fc548fcbc7e523d7009ab6b384de2"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/validator.stdout": {
+      "bytes": 739,
+      "sha256": "59fa8af839ec86f9badfd2bfff650c7bb628066fcead85e4fdfae02980856728"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/review.json": {
+      "bytes": 8049,
+      "sha256": "b7f773d1c2e2bc5a651a562875989d1027f37b1c6b744b676da12f10a6870744"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/source-audit.json": {
+      "bytes": 2434,
+      "sha256": "c8d1968798404a171878af420ce4e26fc917b9d3159105527ae954fd96842cba"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/source/derivation.json": {
+      "bytes": 425,
+      "sha256": "fe5ad061fbbcdd8c96f733cb164303683b39949d5ddf3ab545ff0878aec6cfea"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/source/offline_checked_cadical.py": {
+      "bytes": 14034,
+      "sha256": "aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/source/offline_gadget8_cadical.py": {
+      "bytes": 14349,
+      "sha256": "5c196750473896225cb414458a150bccfc5dff3d68ecbeceec2aaf1c7f088b34"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/source/source.diff": {
+      "bytes": 4416,
+      "sha256": "65f92a4195d390ca7a44cbf0ab9509c685a495e8571c53145c8b4f031c757afb"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/source/validate_gadget8.py": {
+      "bytes": 6952,
+      "sha256": "60e877fd3bdb11d134633519482b67ca82478c55a00350e34a935ddd194054cb"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/README.md": {
+      "bytes": 254,
+      "sha256": "9cb7e3575ea668431a3b50dfcf719706529e182fcdc1cb3c6dc74a6dac377edc"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/gadget.validated.json": {
+      "bytes": 582,
+      "sha256": "2a0fc8f178869e55c8b16d7750e5ad8d06fdbf7ba7459185e52b9d78d1fb3f56"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/progress.json": {
+      "bytes": 4197,
+      "sha256": "c50778d66df031ea0deadc460122a41a5b46d5a9be129f3a7342997fe359e68c"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/result.json": {
+      "bytes": 4197,
+      "sha256": "c50778d66df031ea0deadc460122a41a5b46d5a9be129f3a7342997fe359e68c"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/gadget.validated.json": {
+      "bytes": 556,
+      "sha256": "43c349b9001cd1b7950e7f0d331145be749863a1211cbbe5bd54b8bec9c6983c"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/progress.json": {
+      "bytes": 4188,
+      "sha256": "9a8da9e3e8a6d6da75a8074dd9fc54a04afe3e8968e62ebcd7d7d2da11f4a2a1"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/result.json": {
+      "bytes": 4188,
+      "sha256": "9a8da9e3e8a6d6da75a8074dd9fc54a04afe3e8968e62ebcd7d7d2da11f4a2a1"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/gadget.validated.json": {
+      "bytes": 552,
+      "sha256": "d5e0fc506ef341baf6e631b0d07b2eb7cbf214c09925ac0c1d448f857397b384"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/progress.json": {
+      "bytes": 4194,
+      "sha256": "a1e448fcdcb0685a82a338367219842588f0a4555144a616a7592d88227af226"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/result.json": {
+      "bytes": 4194,
+      "sha256": "a1e448fcdcb0685a82a338367219842588f0a4555144a616a7592d88227af226"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/gadget.validated.json": {
+      "bytes": 552,
+      "sha256": "c462b988d62cbe71e033176c0646b9bc637af2604e1b06a3ee3de5775e154686"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/progress.json": {
+      "bytes": 4204,
+      "sha256": "fb5dd98a1220e283a03174e13906802d54f855da2db4a8eafad7e206d318fe48"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/result.json": {
+      "bytes": 4204,
+      "sha256": "fb5dd98a1220e283a03174e13906802d54f855da2db4a8eafad7e206d318fe48"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/gadget.validated.json": {
+      "bytes": 70,
+      "sha256": "ea18914b524928f044085d629c917f715a517208f6fccaf4e5c92eaa387a42f8"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/progress.json": {
+      "bytes": 3982,
+      "sha256": "fd222ddcf9fdef46b32905229b9d5f836ba9fe66957f4d7c7ada260cc95489d9"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/result.json": {
+      "bytes": 3982,
+      "sha256": "fd222ddcf9fdef46b32905229b9d5f836ba9fe66957f4d7c7ada260cc95489d9"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/validator.stdout": {
+      "bytes": 64,
+      "sha256": "b75a43a1d8ff33352593ab9461bbb2397677f3e8a42932b7fad3d2ed955f68ee"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/gadget.validated.json": {
+      "bytes": 517,
+      "sha256": "7bbf55d372f5f8ff96d2d1f598efa236206bce147f463aa05e149026d55f0963"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/progress.json": {
+      "bytes": 4167,
+      "sha256": "f8f1d3fd1a97eed5e19c3baac8f97f74d8082867a17c6d5e4bfb01d273e3b75c"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/result.json": {
+      "bytes": 4167,
+      "sha256": "f8f1d3fd1a97eed5e19c3baac8f97f74d8082867a17c6d5e4bfb01d273e3b75c"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/gadget.validated.json": {
+      "bytes": 168,
+      "sha256": "19a4bf6101324badfad59795daec6cb8d29f7c6705bb844a31766115c53a9e8a"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/progress.json": {
+      "bytes": 3779,
+      "sha256": "522a9c0e054598f65c324ba6dc4f3b7bba4fd69213ee94aa30e03a3d317b9607"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/result.json": {
+      "bytes": 3779,
+      "sha256": "522a9c0e054598f65c324ba6dc4f3b7bba4fd69213ee94aa30e03a3d317b9607"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/gadget.validated.json": {
+      "bytes": 523,
+      "sha256": "002ef06c976871d69f27ed08a9a37c0f80e13c1650c4a69daa2909ebac1ea37a"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/progress.json": {
+      "bytes": 4143,
+      "sha256": "fe696d03c75aaa16513251d91f7987809f864a6cd28f2c1f02ee7fd8a57bdb0d"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/result.json": {
+      "bytes": 4143,
+      "sha256": "fe696d03c75aaa16513251d91f7987809f864a6cd28f2c1f02ee7fd8a57bdb0d"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/gadget.validated.json": {
+      "bytes": 555,
+      "sha256": "4d5583c5dd9cf88d0d1f279ef9c4d0a0ab18ac245697840f8f5daa090d1866c5"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/progress.json": {
+      "bytes": 3556,
+      "sha256": "d4445131041de36071588def758d653b8798697c500f507fefa998625daababb"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/result.json": {
+      "bytes": 3556,
+      "sha256": "d4445131041de36071588def758d653b8798697c500f507fefa998625daababb"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/gadget.validated.json": {
+      "bytes": 555,
+      "sha256": "cc555da49c5742c9e77f00d5104151b02edc0fe317a7c352ed1e096adbf83001"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/progress.json": {
+      "bytes": 4157,
+      "sha256": "bb825bf82b6909873570aebb09873647da9145946a3ae7df9167ad18fe954beb"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/result.json": {
+      "bytes": 4157,
+      "sha256": "bb825bf82b6909873570aebb09873647da9145946a3ae7df9167ad18fe954beb"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/gadget.validated.json": {
+      "bytes": 555,
+      "sha256": "d5460f6f34d6bd832d8be7f0d5780ecf5cf6099a31c05b98f59bdd83a52a28dd"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/progress.json": {
+      "bytes": 4152,
+      "sha256": "2698d89566418d70c7398ea47dadd67b0be7041d5e1991145d6520cf23466e0d"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/result.json": {
+      "bytes": 4152,
+      "sha256": "2698d89566418d70c7398ea47dadd67b0be7041d5e1991145d6520cf23466e0d"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/gadget.validated.json": {
+      "bytes": 555,
+      "sha256": "c9bfff20cf876e7b84d88e165b46aaf564488b29be6e31856ff91c397f966cd0"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/progress.json": {
+      "bytes": 4168,
+      "sha256": "b0e97402fc1835f41bb87188d6a5fa986e4ea357430d6e96f2b9d71844ec7d35"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/result.json": {
+      "bytes": 4168,
+      "sha256": "b0e97402fc1835f41bb87188d6a5fa986e4ea357430d6e96f2b9d71844ec7d35"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/gadget.validated.json": {
+      "bytes": 555,
+      "sha256": "50426873238848b4a31221cadbc69fa7d4eaee76c9dafad78bf31f1d53accaea"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/progress.json": {
+      "bytes": 4193,
+      "sha256": "09bb1296e6068d00d94342fcb897a312de83e64e30cd7e1621c1176258855297"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/result.json": {
+      "bytes": 4193,
+      "sha256": "09bb1296e6068d00d94342fcb897a312de83e64e30cd7e1621c1176258855297"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/gadget.validated.json": {
+      "bytes": 555,
+      "sha256": "71809171052ae483043a4d5c6e205bfc28b35c209b1f3061fb35d9edd81d5a49"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/progress.json": {
+      "bytes": 4218,
+      "sha256": "a37a07d3ac8876c14685f7ce40773190ff184392e8b344210231b6919bc086d9"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/result.json": {
+      "bytes": 4218,
+      "sha256": "a37a07d3ac8876c14685f7ce40773190ff184392e8b344210231b6919bc086d9"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/gadget.validated.json": {
+      "bytes": 555,
+      "sha256": "b5f9e11a5ed27ee30a9f67ab59770235ea1ee82fc243984d4718e1478374e094"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/progress.json": {
+      "bytes": 4198,
+      "sha256": "d199da4f952b3f2ff938dd4380132245aa6af411bf9bff5b950e85f7aea790b4"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/result.json": {
+      "bytes": 4198,
+      "sha256": "d199da4f952b3f2ff938dd4380132245aa6af411bf9bff5b950e85f7aea790b4"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/solver.stdout": {
+      "bytes": 20,
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/validator.stdout": {
+      "bytes": 50,
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "scratch/orch/S06/gadget8-runner-review-handoff.json": {
+      "bytes": 32497,
+      "sha256": "4b24936c148500cfd88d2d43a0232b4ad22c383d78844d88959f22a284fd5b89"
+    },
+    "scratch/orch/S06/gadget8-runner-review.execution.json": {
+      "bytes": 251,
+      "sha256": "0889ea5f3284d2d60b06138979cabe1421b361efc7174e1a39a4e2fdba80ffb3"
+    },
+    "scratch/orch/S06/gadget8-runner-review.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-runner-review.stdout": {
+      "bytes": 284,
+      "sha256": "da542c5dd799b6523339199614e234cdc0c626873e095e76b230e31a8614626f"
+    },
+    "scratch/orch/S06/gadget8-search-plan.json": {
+      "bytes": 2617,
+      "sha256": "652591c4dc2e571d8b6454b5fd18fd4d177e95bd38e0872d466a905f99ed1e6f"
+    },
+    "scratch/orch/S06/gadget8-v1-README.md": {
+      "bytes": 4047,
+      "sha256": "49c187f0bd46600409498dcaeb5a0c54863cd430ae60470f0a8ed6d98c19201b"
+    },
+    "scratch/orch/S06/gadget8-v1.execution.json": {
+      "bytes": 509,
+      "sha256": "9df6bcb2060dc892228610b1281b22cf57ba7e7ac257064364a89d1c9b1ec62f"
+    },
+    "scratch/orch/S06/gadget8-v1.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-v1.stdout": {
+      "bytes": 3362,
+      "sha256": "552f3d58865ee4dcd552824e5bccef47e433ef5c52b8c85f9da0c80be6d2f321"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12-checker.execution.json": {
+      "bytes": 1132,
+      "sha256": "9055e0ec5a4fa0ea8cb1826ff31c9049b61426ef12ef0379644f562dfba7c61e"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12-checker.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12-checker.stdout": {
+      "bytes": 424,
+      "sha256": "45f6a9bc0101c444b68e7b12346eec837123de6ea90cc7f9449bdc662b9f1c39"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12-cli.validation.json": {
+      "bytes": 79,
+      "sha256": "558255453b2b7738bf49eb35a9d774a6ebc6fd3d01871ee96675b42c0b41dae8"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12-pinned.json": {
+      "bytes": 17730,
+      "sha256": "d87690333106529e8c91c88c7fb0d9f789336528c58beaeee7255b10a8558eb3"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12-pinned.rup": {
+      "bytes": 6492,
+      "sha256": "b3396378431d05464519a893cc3d70f58b2ccfeb97b0244d7b108a651a2724c6"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12-validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12-validator.stdout": {
+      "bytes": 73,
+      "sha256": "0a8f81a25edfd077881642ca49875ad69b59e08c76061fb8d5c4ae7a1ac77112"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12.full-errors.json": {
+      "bytes": 522,
+      "sha256": "50aa4839f6b83e703827d4c91928742d89e8c7d34957055d3b5f97aa667b6b7d"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12.model.stdout": {
+      "bytes": 4635,
+      "sha256": "35b222625bce3e42a89ccb4005665955daeffe83574ace78be2566e9f059f121"
+    },
+    "scratch/orch/S06/gadget8-v1/circuits.json": {
+      "bytes": 1220,
+      "sha256": "a770469b24b3c4291f5e02c907757f2ad199e9cd8f0ce2d56d1cbee729bb120a"
+    },
+    "scratch/orch/S06/gadget8-v1/controls.json": {
+      "bytes": 3362,
+      "sha256": "552f3d58865ee4dcd552824e5bccef47e433ef5c52b8c85f9da0c80be6d2f321"
+    },
+    "scratch/orch/S06/gadget8-v1/family.json": {
+      "bytes": 1427,
+      "sha256": "3707fa19fe2b08e5a845834ed4c65fdc23a7ad424fd9e585ba67d7697da4484a"
+    },
+    "scratch/orch/S06/gadget8-v1/generic12.json": {
+      "bytes": 17250,
+      "sha256": "20ca64f5caae894c1b144c8f4de2ab5e7905ce0044447c326272d3c218f5022d"
+    },
+    "scratch/orch/S06/gadget8-v1/generic13.json": {
+      "bytes": 18747,
+      "sha256": "fa6b902669049404bf7d474534ad4565f77ac5e82a4084dd1c8d0dbdcc4218d6"
+    },
+    "scratch/orch/S06/gadget8-v1/positive13-clean-control.json": {
+      "bytes": 144,
+      "sha256": "3eeb7498d021373805a2815cc12443387bf600c28d40261bb99b79ee5537c994"
+    },
+    "scratch/orch/S06/gadget8-v1/positive13-cli.validation.json": {
+      "bytes": 2911,
+      "sha256": "7d28394936b34fe8044a552daf6017066c57862c203dc12adc844838fb630b44"
+    },
+    "scratch/orch/S06/gadget8-v1/positive13-pinned.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/gadget8-v1/positive13-validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/gadget8-v1/positive13-validator.stdout": {
+      "bytes": 739,
+      "sha256": "67a568f0f2c4fe836ea929f6cf4986c3389bcfaaad478c45ae7846dfd90a7a07"
+    },
+    "scratch/orch/S06/gadget8-v1/positive13.model.stdout": {
+      "bytes": 5231,
+      "sha256": "f2a686e258991f6e76040aca723705927f1e6eda6c4ec5d4e8dbcbb21ca22f50"
+    },
+    "scratch/orch/S06/gadget8-v1/positive13.validation.json": {
+      "bytes": 2911,
+      "sha256": "7d28394936b34fe8044a552daf6017066c57862c203dc12adc844838fb630b44"
+    },
+    "scratch/orch/S06/gadget8-v1/row-completeness.json": {
+      "bytes": 16617,
+      "sha256": "9683c6f1df10c20fb1744dbaff28fff343784756b53d4ee09f32c77f7ebbaec4"
+    },
+    "scratch/orch/S06/gadget8-v1/validator-cli-controls.json": {
+      "bytes": 2125,
+      "sha256": "bbe767cfc007afb0eff0d05b0882d3963935587e27fdfe22c8914fbaa4ab5576"
+    },
+    "scratch/orch/S06/package_gadget8_archive.py": {
+      "bytes": 8093,
+      "sha256": "230cdfffb99de69ceed772aefa72eaf8ea342bbeed10618db5ce0c997d6ffe06"
+    },
+    "scratch/orch/S06/restore_gadget8_archive.py": {
+      "bytes": 4007,
+      "sha256": "f6968e3223ee14c6bb626e332ed162a52f5847f77a64973dbb9c7ab0bded4487"
+    },
+    "scratch/orch/S06/review_gadget8_runner.py": {
+      "bytes": 14924,
+      "sha256": "054454c1c51a25ca06d51a58d8682e82e4f340713ae8bbafafd89921df295099"
+    },
+    "scratch/orch/S06/validate_gadget8.py": {
+      "bytes": 6952,
+      "sha256": "60e877fd3bdb11d134633519482b67ca82478c55a00350e34a935ddd194054cb"
+    }
+  },
+  "scope": "All generic8 preparation/finite controls/reviews only. Four unique CNFs reconstructed; no runtime or global/Lean claim.",
+  "source_map": {
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/gadget8-runner-v1/derivation.json": {
+      "bytes": 425,
+      "path": "scratch/orch/MAIN/gadget8-runner-v1/derivation.json",
+      "sha256": "fe5ad061fbbcdd8c96f733cb164303683b39949d5ddf3ab545ff0878aec6cfea"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/gadget8-runner-v1/offline_gadget8_cadical.py": {
+      "bytes": 14349,
+      "path": "scratch/orch/MAIN/gadget8-runner-v1/offline_gadget8_cadical.py",
+      "sha256": "5c196750473896225cb414458a150bccfc5dff3d68ecbeceec2aaf1c7f088b34"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/gadget8-runner-v1/source.diff": {
+      "bytes": 4416,
+      "path": "scratch/orch/MAIN/gadget8-runner-v1/source.diff",
+      "sha256": "65f92a4195d390ca7a44cbf0ab9509c685a495e8571c53145c8b4f031c757afb"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/main-gadget8-review.json": {
+      "bytes": 591,
+      "path": "scratch/orch/MAIN/main-gadget8-review.json",
+      "sha256": "e5470a04eb581b9bf06ced3423e432ce6a436ea679e67ce3d509d93e63d77e5d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/build_gadget8.py": {
+      "bytes": 6959,
+      "path": "scratch/orch/S06/build_gadget8.py",
+      "sha256": "3ca5274e1a394aff25e8f633bfc07ca5dd9ed2163b43db321dfba218e6b1ac17"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/control_gadget8.py": {
+      "bytes": 8708,
+      "path": "scratch/orch/S06/control_gadget8.py",
+      "sha256": "d08d46bac760773620707aff8e1c020f837f904f297b56b8b5bab028a993f923"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-handoff.json": {
+      "bytes": 7739,
+      "path": "scratch/orch/S06/gadget8-handoff.json",
+      "sha256": "680c4d01926307c859940f8b1ac2f1247b74d878302ff8a2c0e04cd5d26889ed"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/bad12-pinned.execution.json": {
+      "bytes": 927,
+      "path": "scratch/orch/S06/gadget8-runner-controls/bad12-pinned.execution.json",
+      "sha256": "d292d0e968592711ecb8338e6f3da26a71fafddb199acbe298feb03f6dbe1d8d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/bad12-pinned.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/bad12-pinned.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/bad12-pinned.outer.stdout": {
+      "bytes": 115,
+      "path": "scratch/orch/S06/gadget8-runner-controls/bad12-pinned.outer.stdout",
+      "sha256": "867dc8b3f634177e57c9204517e06408fbe90cdecc1281713c1eb8d19b2c9cf8"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/bad12-pinned/checker.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/checker.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/bad12-pinned/checker.stdout": {
+      "bytes": 517,
+      "path": "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/checker.stdout",
+      "sha256": "968a8854ccde8d3f714cd6707f697aeac0a1433618c208b023efc728a5c65b57"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/bad12-pinned/instance.cnf": {
+      "bytes": 192219,
+      "path": "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/instance.cnf",
+      "sha256": "0b39eb1f59ceb336bd99edcb902d6216a9e189c19319376a64cb711c0325e1ab"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/bad12-pinned/instance.json": {
+      "bytes": 17730,
+      "path": "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/instance.json",
+      "sha256": "d87690333106529e8c91c88c7fb0d9f789336528c58beaeee7255b10a8558eb3"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/bad12-pinned/progress.json": {
+      "bytes": 4140,
+      "path": "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/progress.json",
+      "sha256": "dfa5745f54282a5ae1115482c074b943a08801f57d5eed9377e2e1d1f1387f93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/bad12-pinned/proof.drat": {
+      "bytes": 4198,
+      "path": "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/proof.drat",
+      "sha256": "d30c629d500b1e3d6b3b907f7078ff00716e2dce9946d749c15fde52ce1284f5"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/bad12-pinned/result.json": {
+      "bytes": 4140,
+      "path": "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/result.json",
+      "sha256": "dfa5745f54282a5ae1115482c074b943a08801f57d5eed9377e2e1d1f1387f93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/bad12-pinned/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/bad12-pinned/solver.stdout": {
+      "bytes": 3608,
+      "path": "scratch/orch/S06/gadget8-runner-controls/bad12-pinned/solver.stdout",
+      "sha256": "a539558f78f87a5ac8fafa0544851de06d078127a37a3086d43bcd3ad1e24360"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned.execution.json": {
+      "bytes": 937,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned.execution.json",
+      "sha256": "dc8406e96b5d6dab60f03ec835ac2d4d9c26ff80a185b723569001bf4aa775fe"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned.outer.stdout": {
+      "bytes": 120,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned.outer.stdout",
+      "sha256": "f236241d9903c6f9a5f5192031f99219a8c59e64c1cc0a8f1ec40648ac8b5600"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned/gadget.validated.json": {
+      "bytes": 2911,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/gadget.validated.json",
+      "sha256": "46daa00c547bd2e8b29ec53823f6febffe34e4d4c4c23bf94543b160569cae8d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned/progress.json": {
+      "bytes": 7728,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/progress.json",
+      "sha256": "c6824c98839d99c23028b24dade470238d9d156d2d1593013c4214d95d3c2677"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned/proof.drat": {
+      "bytes": 4632,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/proof.drat",
+      "sha256": "1f17f0e700e26918f6f67416353ca97ed222567205e5032c9bd798b26b51b874"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned/result.json": {
+      "bytes": 7728,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/result.json",
+      "sha256": "c6824c98839d99c23028b24dade470238d9d156d2d1593013c4214d95d3c2677"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned/solver.stdout": {
+      "bytes": 8952,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/solver.stdout",
+      "sha256": "851a3308b9ec5857d413e289a8fad6ebb60fc548fcbc7e523d7009ab6b384de2"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/positive13-pinned/validator.stdout": {
+      "bytes": 739,
+      "path": "scratch/orch/S06/gadget8-runner-controls/positive13-pinned/validator.stdout",
+      "sha256": "59fa8af839ec86f9badfd2bfff650c7bb628066fcead85e4fdfae02980856728"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/review.json": {
+      "bytes": 8049,
+      "path": "scratch/orch/S06/gadget8-runner-controls/review.json",
+      "sha256": "b7f773d1c2e2bc5a651a562875989d1027f37b1c6b744b676da12f10a6870744"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/source-audit.json": {
+      "bytes": 2434,
+      "path": "scratch/orch/S06/gadget8-runner-controls/source-audit.json",
+      "sha256": "c8d1968798404a171878af420ce4e26fc917b9d3159105527ae954fd96842cba"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/source/derivation.json": {
+      "bytes": 425,
+      "path": "scratch/orch/S06/gadget8-runner-controls/source/derivation.json",
+      "sha256": "fe5ad061fbbcdd8c96f733cb164303683b39949d5ddf3ab545ff0878aec6cfea"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/source/offline_checked_cadical.py": {
+      "bytes": 14034,
+      "path": "scratch/orch/S06/gadget8-runner-controls/source/offline_checked_cadical.py",
+      "sha256": "aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/source/offline_gadget8_cadical.py": {
+      "bytes": 14349,
+      "path": "scratch/orch/S06/gadget8-runner-controls/source/offline_gadget8_cadical.py",
+      "sha256": "5c196750473896225cb414458a150bccfc5dff3d68ecbeceec2aaf1c7f088b34"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/source/source.diff": {
+      "bytes": 4416,
+      "path": "scratch/orch/S06/gadget8-runner-controls/source/source.diff",
+      "sha256": "65f92a4195d390ca7a44cbf0ab9509c685a495e8571c53145c8b4f031c757afb"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/source/validate_gadget8.py": {
+      "bytes": 6952,
+      "path": "scratch/orch/S06/gadget8-runner-controls/source/validate_gadget8.py",
+      "sha256": "60e877fd3bdb11d134633519482b67ca82478c55a00350e34a935ddd194054cb"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/README.md": {
+      "bytes": 254,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/README.md",
+      "sha256": "9cb7e3575ea668431a3b50dfcf719706529e182fcdc1cb3c6dc74a6dac377edc"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/gadget.validated.json": {
+      "bytes": 582,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/gadget.validated.json",
+      "sha256": "2a0fc8f178869e55c8b16d7750e5ad8d06fdbf7ba7459185e52b9d78d1fb3f56"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/progress.json": {
+      "bytes": 4197,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/progress.json",
+      "sha256": "c50778d66df031ea0deadc460122a41a5b46d5a9be129f3a7342997fe359e68c"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/result.json": {
+      "bytes": 4197,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/result.json",
+      "sha256": "c50778d66df031ea0deadc460122a41a5b46d5a9be129f3a7342997fe359e68c"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/extra-provenance/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/gadget.validated.json": {
+      "bytes": 556,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/gadget.validated.json",
+      "sha256": "43c349b9001cd1b7950e7f0d331145be749863a1211cbbe5bd54b8bec9c6983c"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/progress.json": {
+      "bytes": 4188,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/progress.json",
+      "sha256": "9a8da9e3e8a6d6da75a8074dd9fc54a04afe3e8968e62ebcd7d7d2da11f4a2a1"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/result.json": {
+      "bytes": 4188,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/result.json",
+      "sha256": "9a8da9e3e8a6d6da75a8074dd9fc54a04afe3e8968e62ebcd7d7d2da11f4a2a1"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-false/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/gadget.validated.json": {
+      "bytes": 552,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/gadget.validated.json",
+      "sha256": "d5e0fc506ef341baf6e631b0d07b2eb7cbf214c09925ac0c1d448f857397b384"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/progress.json": {
+      "bytes": 4194,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/progress.json",
+      "sha256": "a1e448fcdcb0685a82a338367219842588f0a4555144a616a7592d88227af226"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/result.json": {
+      "bytes": 4194,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/result.json",
+      "sha256": "a1e448fcdcb0685a82a338367219842588f0a4555144a616a7592d88227af226"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/full-limit-int-one/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/gadget.validated.json": {
+      "bytes": 552,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/gadget.validated.json",
+      "sha256": "c462b988d62cbe71e033176c0646b9bc637af2604e1b06a3ee3de5775e154686"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/progress.json": {
+      "bytes": 4204,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/progress.json",
+      "sha256": "fb5dd98a1220e283a03174e13906802d54f855da2db4a8eafad7e206d318fe48"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/result.json": {
+      "bytes": 4204,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/result.json",
+      "sha256": "fb5dd98a1220e283a03174e13906802d54f855da2db4a8eafad7e206d318fe48"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/gadget-limit-int-one/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/gadget.validated.json": {
+      "bytes": 70,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/gadget.validated.json",
+      "sha256": "ea18914b524928f044085d629c917f715a517208f6fccaf4e5c92eaa387a42f8"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/progress.json": {
+      "bytes": 3982,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/progress.json",
+      "sha256": "fd222ddcf9fdef46b32905229b9d5f836ba9fe66957f4d7c7ada260cc95489d9"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/result.json": {
+      "bytes": 3982,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/result.json",
+      "sha256": "fd222ddcf9fdef46b32905229b9d5f836ba9fe66957f4d7c7ada260cc95489d9"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/validator.stdout": {
+      "bytes": 64,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/incomplete-model-real-validator/validator.stdout",
+      "sha256": "b75a43a1d8ff33352593ab9461bbb2397677f3e8a42932b7fad3d2ed955f68ee"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/gadget.validated.json": {
+      "bytes": 517,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/gadget.validated.json",
+      "sha256": "7bbf55d372f5f8ff96d2d1f598efa236206bce147f463aa05e149026d55f0963"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/progress.json": {
+      "bytes": 4167,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/progress.json",
+      "sha256": "f8f1d3fd1a97eed5e19c3baac8f97f74d8082867a17c6d5e4bfb01d273e3b75c"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/result.json": {
+      "bytes": 4167,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/result.json",
+      "sha256": "f8f1d3fd1a97eed5e19c3baac8f97f74d8082867a17c6d5e4bfb01d273e3b75c"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-gadget-limit/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/gadget.validated.json": {
+      "bytes": 168,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/gadget.validated.json",
+      "sha256": "19a4bf6101324badfad59795daec6cb8d29f7c6705bb844a31766115c53a9e8a"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/progress.json": {
+      "bytes": 3779,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/progress.json",
+      "sha256": "522a9c0e054598f65c324ba6dc4f3b7bba4fd69213ee94aa30e03a3d317b9607"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/result.json": {
+      "bytes": 3779,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/result.json",
+      "sha256": "522a9c0e054598f65c324ba6dc4f3b7bba4fd69213ee94aa30e03a3d317b9607"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-provenance/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-status/gadget.validated.json": {
+      "bytes": 523,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/gadget.validated.json",
+      "sha256": "002ef06c976871d69f27ed08a9a37c0f80e13c1650c4a69daa2909ebac1ea37a"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-status/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-status/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-status/progress.json": {
+      "bytes": 4143,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/progress.json",
+      "sha256": "fe696d03c75aaa16513251d91f7987809f864a6cd28f2c1f02ee7fd8a57bdb0d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-status/result.json": {
+      "bytes": 4143,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/result.json",
+      "sha256": "fe696d03c75aaa16513251d91f7987809f864a6cd28f2c1f02ee7fd8a57bdb0d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-status/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-status/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-status/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/missing-status/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/missing-status/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/gadget.validated.json": {
+      "bytes": 555,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/gadget.validated.json",
+      "sha256": "4d5583c5dd9cf88d0d1f279ef9c4d0a0ab18ac245697840f8f5daa090d1866c5"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/progress.json": {
+      "bytes": 3556,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/progress.json",
+      "sha256": "d4445131041de36071588def758d653b8798697c500f507fefa998625daababb"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/result.json": {
+      "bytes": 3556,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/result.json",
+      "sha256": "d4445131041de36071588def758d653b8798697c500f507fefa998625daababb"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/validator-exit2/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/gadget.validated.json": {
+      "bytes": 555,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/gadget.validated.json",
+      "sha256": "cc555da49c5742c9e77f00d5104151b02edc0fe317a7c352ed1e096adbf83001"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/progress.json": {
+      "bytes": 4157,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/progress.json",
+      "sha256": "bb825bf82b6909873570aebb09873647da9145946a3ae7df9167ad18fe954beb"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/result.json": {
+      "bytes": 4157,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/result.json",
+      "sha256": "bb825bf82b6909873570aebb09873647da9145946a3ae7df9167ad18fe954beb"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-2048/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-256/gadget.validated.json": {
+      "bytes": 555,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/gadget.validated.json",
+      "sha256": "d5460f6f34d6bd832d8be7f0d5780ecf5cf6099a31c05b98f59bdd83a52a28dd"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-256/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-256/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-256/progress.json": {
+      "bytes": 4152,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/progress.json",
+      "sha256": "2698d89566418d70c7398ea47dadd67b0be7041d5e1991145d6520cf23466e0d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-256/result.json": {
+      "bytes": 4152,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/result.json",
+      "sha256": "2698d89566418d70c7398ea47dadd67b0be7041d5e1991145d6520cf23466e0d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-256/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-256/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-256/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-256/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-256/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/gadget.validated.json": {
+      "bytes": 555,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/gadget.validated.json",
+      "sha256": "c9bfff20cf876e7b84d88e165b46aaf564488b29be6e31856ff91c397f966cd0"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/progress.json": {
+      "bytes": 4168,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/progress.json",
+      "sha256": "b0e97402fc1835f41bb87188d6a5fa986e4ea357430d6e96f2b9d71844ec7d35"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/result.json": {
+      "bytes": 4168,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/result.json",
+      "sha256": "b0e97402fc1835f41bb87188d6a5fa986e4ea357430d6e96f2b9d71844ec7d35"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-cnf_sha256/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/gadget.validated.json": {
+      "bytes": 555,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/gadget.validated.json",
+      "sha256": "50426873238848b4a31221cadbc69fa7d4eaee76c9dafad78bf31f1d53accaea"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/progress.json": {
+      "bytes": 4193,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/progress.json",
+      "sha256": "09bb1296e6068d00d94342fcb897a312de83e64e30cd7e1621c1176258855297"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/result.json": {
+      "bytes": 4193,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/result.json",
+      "sha256": "09bb1296e6068d00d94342fcb897a312de83e64e30cd7e1621c1176258855297"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-metadata_sha256/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/gadget.validated.json": {
+      "bytes": 555,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/gadget.validated.json",
+      "sha256": "71809171052ae483043a4d5c6e205bfc28b35c209b1f3061fb35d9edd81d5a49"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/progress.json": {
+      "bytes": 4218,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/progress.json",
+      "sha256": "a37a07d3ac8876c14685f7ce40773190ff184392e8b344210231b6919bc086d9"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/result.json": {
+      "bytes": 4218,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/result.json",
+      "sha256": "a37a07d3ac8876c14685f7ce40773190ff184392e8b344210231b6919bc086d9"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-solver_stdout_sha256/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/gadget.validated.json": {
+      "bytes": 555,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/gadget.validated.json",
+      "sha256": "b5f9e11a5ed27ee30a9f67ab59770235ea1ee82fc243984d4718e1478374e094"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/progress.json": {
+      "bytes": 4198,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/progress.json",
+      "sha256": "d199da4f952b3f2ff938dd4380132245aa6af411bf9bff5b950e85f7aea790b4"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/result.json": {
+      "bytes": 4198,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/result.json",
+      "sha256": "d199da4f952b3f2ff938dd4380132245aa6af411bf9bff5b950e85f7aea790b4"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/solver.stdout": {
+      "bytes": 20,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/solver.stdout",
+      "sha256": "f5d108e5be9ea122e069a928413aa296c08f42bb1856e95e7ae85eb63fcf6431"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/validator.stdout": {
+      "bytes": 50,
+      "path": "scratch/orch/S06/gadget8-runner-controls/synthetic/wrong-validator_sha256/validator.stdout",
+      "sha256": "fc7c9923764cf1a10144337aab500cb9a28c1683597781a38791c7ab760fcf93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-review-handoff.json": {
+      "bytes": 32497,
+      "path": "scratch/orch/S06/gadget8-runner-review-handoff.json",
+      "sha256": "4b24936c148500cfd88d2d43a0232b4ad22c383d78844d88959f22a284fd5b89"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-review.execution.json": {
+      "bytes": 251,
+      "path": "scratch/orch/S06/gadget8-runner-review.execution.json",
+      "sha256": "0889ea5f3284d2d60b06138979cabe1421b361efc7174e1a39a4e2fdba80ffb3"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-review.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-runner-review.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-runner-review.stdout": {
+      "bytes": 284,
+      "path": "scratch/orch/S06/gadget8-runner-review.stdout",
+      "sha256": "da542c5dd799b6523339199614e234cdc0c626873e095e76b230e31a8614626f"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-search-plan.json": {
+      "bytes": 2617,
+      "path": "scratch/orch/S06/gadget8-search-plan.json",
+      "sha256": "652591c4dc2e571d8b6454b5fd18fd4d177e95bd38e0872d466a905f99ed1e6f"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1-README.md": {
+      "bytes": 4047,
+      "path": "scratch/orch/S06/gadget8-v1-README.md",
+      "sha256": "49c187f0bd46600409498dcaeb5a0c54863cd430ae60470f0a8ed6d98c19201b"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1.execution.json": {
+      "bytes": 509,
+      "path": "scratch/orch/S06/gadget8-v1.execution.json",
+      "sha256": "9df6bcb2060dc892228610b1281b22cf57ba7e7ac257064364a89d1c9b1ec62f"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-v1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1.stdout": {
+      "bytes": 3362,
+      "path": "scratch/orch/S06/gadget8-v1.stdout",
+      "sha256": "552f3d58865ee4dcd552824e5bccef47e433ef5c52b8c85f9da0c80be6d2f321"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12-checker.execution.json": {
+      "bytes": 1132,
+      "path": "scratch/orch/S06/gadget8-v1/bad12-checker.execution.json",
+      "sha256": "9055e0ec5a4fa0ea8cb1826ff31c9049b61426ef12ef0379644f562dfba7c61e"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12-checker.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-v1/bad12-checker.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12-checker.stdout": {
+      "bytes": 424,
+      "path": "scratch/orch/S06/gadget8-v1/bad12-checker.stdout",
+      "sha256": "45f6a9bc0101c444b68e7b12346eec837123de6ea90cc7f9449bdc662b9f1c39"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12-cli.validation.json": {
+      "bytes": 79,
+      "path": "scratch/orch/S06/gadget8-v1/bad12-cli.validation.json",
+      "sha256": "558255453b2b7738bf49eb35a9d774a6ebc6fd3d01871ee96675b42c0b41dae8"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12-pinned.cnf": {
+      "bytes": 192219,
+      "path": "scratch/orch/S06/gadget8-v1/bad12-pinned.cnf",
+      "sha256": "0b39eb1f59ceb336bd99edcb902d6216a9e189c19319376a64cb711c0325e1ab"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12-pinned.json": {
+      "bytes": 17730,
+      "path": "scratch/orch/S06/gadget8-v1/bad12-pinned.json",
+      "sha256": "d87690333106529e8c91c88c7fb0d9f789336528c58beaeee7255b10a8558eb3"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12-pinned.rup": {
+      "bytes": 6492,
+      "path": "scratch/orch/S06/gadget8-v1/bad12-pinned.rup",
+      "sha256": "b3396378431d05464519a893cc3d70f58b2ccfeb97b0244d7b108a651a2724c6"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12-validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-v1/bad12-validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12-validator.stdout": {
+      "bytes": 73,
+      "path": "scratch/orch/S06/gadget8-v1/bad12-validator.stdout",
+      "sha256": "0a8f81a25edfd077881642ca49875ad69b59e08c76061fb8d5c4ae7a1ac77112"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12.full-errors.json": {
+      "bytes": 522,
+      "path": "scratch/orch/S06/gadget8-v1/bad12.full-errors.json",
+      "sha256": "50aa4839f6b83e703827d4c91928742d89e8c7d34957055d3b5f97aa667b6b7d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12.model.stdout": {
+      "bytes": 4635,
+      "path": "scratch/orch/S06/gadget8-v1/bad12.model.stdout",
+      "sha256": "35b222625bce3e42a89ccb4005665955daeffe83574ace78be2566e9f059f121"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/circuits.json": {
+      "bytes": 1220,
+      "path": "scratch/orch/S06/gadget8-v1/circuits.json",
+      "sha256": "a770469b24b3c4291f5e02c907757f2ad199e9cd8f0ce2d56d1cbee729bb120a"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/controls.json": {
+      "bytes": 3362,
+      "path": "scratch/orch/S06/gadget8-v1/controls.json",
+      "sha256": "552f3d58865ee4dcd552824e5bccef47e433ef5c52b8c85f9da0c80be6d2f321"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/family.json": {
+      "bytes": 1427,
+      "path": "scratch/orch/S06/gadget8-v1/family.json",
+      "sha256": "3707fa19fe2b08e5a845834ed4c65fdc23a7ad424fd9e585ba67d7697da4484a"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/generic12.cnf": {
+      "bytes": 189611,
+      "path": "scratch/orch/S06/gadget8-v1/generic12.cnf",
+      "sha256": "dae54c6f20435a53be3a34b09da9310e85df61823b382caa2837817a441b8bfb"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/generic12.json": {
+      "bytes": 17250,
+      "path": "scratch/orch/S06/gadget8-v1/generic12.json",
+      "sha256": "20ca64f5caae894c1b144c8f4de2ab5e7905ce0044447c326272d3c218f5022d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/generic13.cnf": {
+      "bytes": 220710,
+      "path": "scratch/orch/S06/gadget8-v1/generic13.cnf",
+      "sha256": "2977fd8b5ea8bdcfa3879d8a8f97bbcd4c54c541eedab33a0530fabca02aad93"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/generic13.json": {
+      "bytes": 18747,
+      "path": "scratch/orch/S06/gadget8-v1/generic13.json",
+      "sha256": "fa6b902669049404bf7d474534ad4565f77ac5e82a4084dd1c8d0dbdcc4218d6"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/positive13-clean-control.json": {
+      "bytes": 144,
+      "path": "scratch/orch/S06/gadget8-v1/positive13-clean-control.json",
+      "sha256": "3eeb7498d021373805a2815cc12443387bf600c28d40261bb99b79ee5537c994"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/positive13-cli.validation.json": {
+      "bytes": 2911,
+      "path": "scratch/orch/S06/gadget8-v1/positive13-cli.validation.json",
+      "sha256": "7d28394936b34fe8044a552daf6017066c57862c203dc12adc844838fb630b44"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/positive13-pinned.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-v1/positive13-pinned.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/positive13-pinned.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-v1/positive13-pinned.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/positive13-validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/gadget8-v1/positive13-validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/positive13-validator.stdout": {
+      "bytes": 739,
+      "path": "scratch/orch/S06/gadget8-v1/positive13-validator.stdout",
+      "sha256": "67a568f0f2c4fe836ea929f6cf4986c3389bcfaaad478c45ae7846dfd90a7a07"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/positive13.model.stdout": {
+      "bytes": 5231,
+      "path": "scratch/orch/S06/gadget8-v1/positive13.model.stdout",
+      "sha256": "f2a686e258991f6e76040aca723705927f1e6eda6c4ec5d4e8dbcbb21ca22f50"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/positive13.validation.json": {
+      "bytes": 2911,
+      "path": "scratch/orch/S06/gadget8-v1/positive13.validation.json",
+      "sha256": "7d28394936b34fe8044a552daf6017066c57862c203dc12adc844838fb630b44"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/row-completeness.json": {
+      "bytes": 16617,
+      "path": "scratch/orch/S06/gadget8-v1/row-completeness.json",
+      "sha256": "9683c6f1df10c20fb1744dbaff28fff343784756b53d4ee09f32c77f7ebbaec4"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/validator-cli-controls.json": {
+      "bytes": 2125,
+      "path": "scratch/orch/S06/gadget8-v1/validator-cli-controls.json",
+      "sha256": "bbe767cfc007afb0eff0d05b0882d3963935587e27fdfe22c8914fbaa4ab5576"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/package_gadget8_archive.py": {
+      "bytes": 8093,
+      "path": "scratch/orch/S06/package_gadget8_archive.py",
+      "sha256": "230cdfffb99de69ceed772aefa72eaf8ea342bbeed10618db5ce0c997d6ffe06"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/restore_gadget8_archive.py": {
+      "bytes": 4007,
+      "path": "scratch/orch/S06/restore_gadget8_archive.py",
+      "sha256": "f6968e3223ee14c6bb626e332ed162a52f5847f77a64973dbb9c7ab0bded4487"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/review_gadget8_runner.py": {
+      "bytes": 14924,
+      "path": "scratch/orch/S06/review_gadget8_runner.py",
+      "sha256": "054454c1c51a25ca06d51a58d8682e82e4f340713ae8bbafafd89921df295099"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/validate_gadget8.py": {
+      "bytes": 6952,
+      "path": "scratch/orch/S06/validate_gadget8.py",
+      "sha256": "60e877fd3bdb11d134633519482b67ca82478c55a00350e34a935ddd194054cb"
+    }
+  }
+}

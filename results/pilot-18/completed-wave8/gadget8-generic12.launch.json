@@ -1,0 +1,31 @@
+{
+  "utc": "2026-11-24T05:32:24.126543+00:00",
+  "pid": 37016,
+  "command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/gadget8-runner-v1/offline_gadget8_cadical.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/generic12.cnf",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-generic12-offline-wave1",
+    "--cnf-sha256",
+    "dae54c6f20435a53be3a34b09da9310e85df61823b382caa2837817a441b8bfb",
+    "--metadata-sha256",
+    "20ca64f5caae894c1b144c8f4de2ab5e7905ce0044447c326272d3c218f5022d",
+    "--solver-seconds",
+    "600",
+    "--checker-seconds",
+    "600",
+    "--proof-mib",
+    "256",
+    "--max-records",
+    "100000000",
+    "--min-free-mib",
+    "1024",
+    "--abort-file",
+    "/tmp/oec/pequalnp-pilot-18/DESK_ERROR.response"
+  ],
+  "main_encoder_review_sha256": "e5470a04eb581b9bf06ced3423e432ce6a436ea679e67ce3d509d93e63d77e5d",
+  "S06_runner_review_sha256": "b7f773d1c2e2bc5a651a562875989d1027f37b1c6b744b676da12f10a6870744",
+  "runner_handoff_sha256": "4b24936c148500cfd88d2d43a0232b4ad22c383d78844d88959f22a284fd5b89",
+  "scope": "Generic8input12gategadgetonly; SATfull21extensionrequiresfull2048rawvalidatorandLean; UNSATnotglobal/shardproof"
+}

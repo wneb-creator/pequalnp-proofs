@@ -78,3 +78,12 @@ New141row134230best-1 frozenorch/MAIN/allnegative-best4/source.json SHAb6da8ac69
 ### 2026-11-24T05:23:38.814025+00:00 MAIN mixed-three-factor closure and targetedrepair launch
 S04guardedforced-birthreview/preservation82210c9635ef465d1a31a26c09f41508d0d98de300373ff36bce79205c807a21 closesremaining17k3/r2, henceall68inthatclass underproductive17-prefix/minimalproperfull-coverhypotheses. OriginalgenericlemmawithoutHnonemptyisfalse; countermodelretained, correctedguardholdsforall17. NotLean/global/shardrefutation. k3r0=258,k4r0=112,othermixedclassesremain.
 S02best4corefamilyremainder-first ordering independentlychecked2048outputs43008intermediatesandtwofullCNFs. Mainlaunchedone120sworkerpercaseat05:23PID35964. Two141rowbest4starts134232/134233active05:21–05:26. StableAAAOended05:18:39UNKNOWN proof512MiBcap; noacceptedcertificate. Earlier141rowpilotsbothUNKNOWN300, bestfour-errorcandidatepreserved. Lease05:23:10expiry05:43:10.704Z.
+
+### 2026-11-24T05:29:05.664079+00:00 MAIN newboundedroutes andindependentchecks
+Combined141row/topologicalshuffle source6717226e0fb1e0ed3a260e23aa0f162d2f8b3591a425798528194878d5f32bf7 passedS08review5146eb7ac9871706deee49391118489790dfaedd3ad7113a73b9d5e256826de3. Two300sbest4pilots134234/134235started05:27:51 PIDs36540/36541 usingexactreviewedwrapper99c843... andbest4packf13160...; noexactwitness. Bothpriorbest4startsUNKNOWN300 andcoreh8/h12UNKNOWN120.
+S06smaller8input12gategadgetCNF996vars14093clauses17boundaryrows independentlyrebuiltbyteexactbymain;all36artifacts/positive13completeCNFmodel/full256andfull2048extensionchecked. Mainrevieworch/MAIN/main-gadget8-review.jsonPASS. A12gateSATgadgetyieldsfull21byadding9gates; UNSATonlyexcludesthisgadgetroute. Freshretainedrunner5c196750473896225cb414458a150bccfc5dff3d68ecbeceec2aaf1c7f088b34 awaitS06independentcontrols; no genericproductionyet.
+Wave7exact174fileindex frozenhash5ef5a49089f59e4f7589e02fe58bc1e21cce528e920456cba6f2455c6402c6da pendingS08finalreview; namedLeanunchanged. Lease05:27:51expiry05:47:51.926Z.
+
+- 2026-11-24 05:38 UTC: Replan; generic8 proof-cap UNKNOWN. Independent generic7 encoding and full2048 extension review passed. SAT-only witness searches planned; no acceptance. Four wave8 source/archive packages copied with all payload hashes checked.
+
+- 2026-11-24 05:41 UTC: Two independently reviewed bounded SAT-only gadget searches launched. No acceptance. Lease expiry06:01:27.313Z.

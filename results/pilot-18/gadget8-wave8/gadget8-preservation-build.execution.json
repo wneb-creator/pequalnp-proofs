@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/package_gadget8_archive.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 0.3204054689995246,
+  "wall_limit_seconds": 15,
+  "solver_or_checker_launched": false
+}

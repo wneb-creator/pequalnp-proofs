@@ -1,0 +1,43 @@
+{
+  "active_production_read_or_included": false,
+  "archive": {
+    "bytes": 163023,
+    "sha256": "a261356299baa8fc7f987a4fb89d96c03e742c0ea7f4fd30ee573768bb9f1b2b"
+  },
+  "execution": {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-restore-v1/scratch/orch/S06/restore_gadget8_archive.py",
+      "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-restore-v1"
+    ],
+    "exit_code": 0,
+    "solver_or_checker_launched": false,
+    "wall_limit_seconds": 15,
+    "wall_seconds": 0.26483850500153494
+  },
+  "full_fixture_drat": {
+    "bytes": 4198,
+    "sha256": "d30c629d500b1e3d6b3b907f7078ff00716e2dce9946d749c15fde52ce1284f5"
+  },
+  "full_fixture_rup": {
+    "bytes": 6492,
+    "sha256": "b3396378431d05464519a893cc3d70f58b2ccfeb97b0244d7b108a651a2724c6"
+  },
+  "manifest_sha256": "8202ccf2dfb057ef35a7390bcc7b4c39d2e201202160b85fec12d979eded7e76",
+  "members": 198,
+  "payloads": 197,
+  "portable_restore": {
+    "historical_handoff_bindings": 208,
+    "payloads": 197,
+    "restored_cnf_aliases": 21,
+    "solver_or_checker_launched": false,
+    "source_map_bindings": 216,
+    "status": "PASS_ARCHIVE_PAYLOADS_FOUR_CNFS_AND_ALL_HISTORICAL_BINDINGS",
+    "unique_cnf_recipes": 4
+  },
+  "solver_or_checker_launched": false,
+  "source_map_bindings": 216,
+  "status": "PASS_FRESH_DELIVERY_198_MEMBERS_4_RECIPES_208_HANDOFF_BINDINGS",
+  "verifier_source_sha256": "c7aafa720f4888979cddfd37c61ee63328afe70e561643db8846d41d0c299362"
+}

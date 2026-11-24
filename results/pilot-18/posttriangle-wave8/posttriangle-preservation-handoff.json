@@ -1,0 +1,52 @@
+{
+  "status": "READY_MAIN_REVIEW_NO_PRODUCTION",
+  "archive_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/posttriangle-preservation-v1.tar.gz",
+  "archive_sha256": "572ffe05a24e4f1408c2990e6c06ce6320416ce029155c67ee541873a223aa4a",
+  "archive_bytes": 153531,
+  "manifest_sha256": "098c08e6750738f7871afeb3260c8e02dd144959012deddbdca9cf981632355c",
+  "members": 241,
+  "verification": {
+    "status": "PASS_HASHES_AND_SCALAR_CONTROLS",
+    "archive_sha256": "572ffe05a24e4f1408c2990e6c06ce6320416ce029155c67ee541873a223aa4a",
+    "members": 241,
+    "pack_input_checks": 32768,
+    "intermediate_comparisons": 688128,
+    "source_input_checks": 8192,
+    "gadget_input_checks": 384,
+    "elapsed_seconds": 0.29569716999685625,
+    "engine_or_search_executed": false
+  },
+  "verification_command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/verify_posttriangle_archive.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/posttriangle-preservation-v1.tar.gz"
+  ],
+  "engine_archive_sha256": "edfb85398c9f9522470de2e782a75fca862b034e7726b16fcd7216ac7050c6f0",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/posttriangle-preservation-v1.tar.gz",
+      "sha256": "572ffe05a24e4f1408c2990e6c06ce6320416ce029155c67ee541873a223aa4a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/posttriangle-preservation-manifest.json",
+      "sha256": "098c08e6750738f7871afeb3260c8e02dd144959012deddbdca9cf981632355c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/posttriangle-verification.stdout",
+      "sha256": "29d62559df518f83332f33753b953dee952aefa45f4d9e7c078f8b41484170be"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/posttriangle-verification.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/verify_posttriangle_archive.py",
+      "sha256": "03f7c3f43a87a79d70dbfc6dd876bd3da159c1ad01dca8d808be00e584ff10c7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/preserve_posttriangle.py",
+      "sha256": "cbcabbc87214e4e786e053a20d08b119ac2fbb24a6fbdfa514b6172b6ddfadea"
+    }
+  ]
+}

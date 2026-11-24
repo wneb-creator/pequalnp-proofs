@@ -1,0 +1,82 @@
+{
+  "status": "READY_MAIN_COPY_REVIEW_COMBINED_SHUFFLE_SOURCE_CONTROLS",
+  "utc": "2026-11-24T05:40:30.763117+00:00",
+  "archive_validation": {
+    "verdict": "PASS_SOURCE_INVENTORY_HASHES_ROUNDTRIP_AND_PORTABLE_VERIFIER",
+    "archive_sha256": "b86b83dd2b4a1e22aa95210195b86c9e0fb1429d10686716b5d5fdfd20f67065",
+    "archive_bytes": 122785,
+    "manifest_sha256": "6dc1da65dff8b55746514edbacf85eea582f3e46b16d89568675ec345b387b65",
+    "regular_members": 206,
+    "payloads": 205,
+    "review_bindings": 199,
+    "omitted_ELF_count": 8,
+    "portable_verifier": {
+      "verdict": "PASS_PORTABLE_HASH_INVENTORY_DIRECT_REVIEW_BINDINGS_AND_EXACT_SOURCE_PORT",
+      "payloads": 205,
+      "review_bindings": 199,
+      "engine_blocks": 6,
+      "wrapper_insertions": 2,
+      "workers_started": false
+    },
+    "verify_exit_code": 0,
+    "active_outputs_read": false,
+    "new_build_solver_checker_Lean_run": false
+  },
+  "review_sha256": "5146eb7ac9871706deee49391118489790dfaedd3ad7113a73b9d5e256826de3",
+  "source_sha256": "6717226e0fb1e0ed3a260e23aa0f162d2f8b3591a425798528194878d5f32bf7",
+  "binary_sha256": "e67583803d64fcf68d585e58833eb2b9c13b246d420385e2cf0dd8cbac8eac6d",
+  "wrapper_sha256": "99c843f9a450c37c1c283d00684015269bd2eca091da3488e8d5811b6d934944",
+  "scope": "Companion to S02archive6fa866; full combined141/S08finitecontrols+directreviewbindings. Sourceonly, active and completed production outputs excluded. No new test/build/search/Lean or exact21 claim.",
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-preservation-v1/S08-combined-141-shuffle-v1.tar.gz",
+      "bytes": 122785,
+      "sha256": "b86b83dd2b4a1e22aa95210195b86c9e0fb1429d10686716b5d5fdfd20f67065"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-preservation-v1/manifest.json",
+      "bytes": 68580,
+      "sha256": "6dc1da65dff8b55746514edbacf85eea582f3e46b16d89568675ec345b387b65"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-preservation-v1/validation.json",
+      "bytes": 737,
+      "sha256": "95720586ef390a41a8d13d6178f892504cb3d84ea0170d7be55cac38fd7fd2ae"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-preservation-v1/README.md",
+      "bytes": 3645,
+      "sha256": "823841e6ad273c5f00fd3b01d47efa3363f6587af9853faadfa24b9a7a3c8102"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-preservation-v1/verify_package.py",
+      "bytes": 2084,
+      "sha256": "d7b097ec1ec0d29c8cc0597d7e58b761a72fd246faadbffbf7c88a4cc4d9e3d1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-preservation-v1/verify.stdout",
+      "bytes": 201,
+      "sha256": "c6c2125bc6be3b10fd24726e751ec579bece00c2964e5fb8c1e6c3d82f5c7b83"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-preservation-v1/verify.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/preserve_combined_shuffle.py",
+      "bytes": 12532,
+      "sha256": "695e1706b2bb25979bf79d482103e3ceb7757f97d1818e9d247fde2c9c5e8848"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-shuffle-preservation-build.stdout",
+      "bytes": 737,
+      "sha256": "95720586ef390a41a8d13d6178f892504cb3d84ea0170d7be55cac38fd7fd2ae"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-shuffle-preservation-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

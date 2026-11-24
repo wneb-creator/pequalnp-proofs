@@ -1,0 +1,387 @@
+{
+  "utc": "2026-11-24T05:39:14.364869+00:00",
+  "included": [
+    {
+      "file": "best4-candidate-134232.launch.json",
+      "bytes": 986,
+      "sha256": "efb96dd6b83bc5ba1248838d8ebc2ea3df9e327382d1188859260e25f2602648"
+    },
+    {
+      "file": "best4-candidate-134232.supervisor.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "best4-candidate-134232.supervisor.stdout",
+      "bytes": 97,
+      "sha256": "ff35858c4d377147ce09aed73265d5e9c27747ba44720ff9c0ac5c2b392c02e0"
+    },
+    {
+      "file": "best4-candidate-134232/command.json",
+      "bytes": 1059,
+      "sha256": "6e47457a01612a08953d456a5017aa20156771b88723e8f3be8f5c7ef08af5db"
+    },
+    {
+      "file": "best4-candidate-134232/engine-result.json",
+      "bytes": 859,
+      "sha256": "5acc0e0950f734cacb22039c5a7f19230404e4eb8c63784bfecbe93f5fb273a1"
+    },
+    {
+      "file": "best4-candidate-134232/engine-result.json.best-0.json",
+      "bytes": 874,
+      "sha256": "938c1ceb3789cebf552e1f2de125888169c5efb9da7c82eeb9e0f8203f9e74c4"
+    },
+    {
+      "file": "best4-candidate-134232/engine-result.json.best-1.json",
+      "bytes": 877,
+      "sha256": "f90b3cbd42f6a7938e842fa20bb62d0c05760c9041d989f51ff23e0a37b9ec37"
+    },
+    {
+      "file": "best4-candidate-134232/engine.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "best4-candidate-134232/engine.stdout.txt",
+      "bytes": 242,
+      "sha256": "7be4b6fc2664853f0b779d3a37458760f936bae650a0d77a84f573ecdeff9193"
+    },
+    {
+      "file": "best4-candidate-134232/result.json",
+      "bytes": 1736,
+      "sha256": "371adf19af0776c2457d77b60bf0d9b2874a4c36d976a4dbc3cee7b976eb0c7e"
+    },
+    {
+      "file": "best4-candidate-134233.launch.json",
+      "bytes": 987,
+      "sha256": "bf6d4a3005dfb55f829e4f4482cff42debffa584a412dfdb678c4fdb05648f7e"
+    },
+    {
+      "file": "best4-candidate-134233.supervisor.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "best4-candidate-134233.supervisor.stdout",
+      "bytes": 97,
+      "sha256": "9ca35265da639437e52e081028d99c75a7a24c9d81f50f23eb6f63eeb4d98998"
+    },
+    {
+      "file": "best4-candidate-134233/command.json",
+      "bytes": 1060,
+      "sha256": "049ab9141b533b43a969d61fc97244e357151d087e832aa16a16ecc7cd01d5a2"
+    },
+    {
+      "file": "best4-candidate-134233/engine-result.json",
+      "bytes": 862,
+      "sha256": "97010f33027b38c03f2472f42b74046dc69cf3e3c01a4e6ae99de3d8d3487cc1"
+    },
+    {
+      "file": "best4-candidate-134233/engine-result.json.best-0.json",
+      "bytes": 875,
+      "sha256": "ae599f6dce5f8abd9039b68fcb2fde43abf0580965458d5fff9102364278173f"
+    },
+    {
+      "file": "best4-candidate-134233/engine.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "best4-candidate-134233/engine.stdout.txt",
+      "bytes": 148,
+      "sha256": "5ffe887df24d40d872e58e522944fade2407c1f466ba10691a341440a3a3f428"
+    },
+    {
+      "file": "best4-candidate-134233/result.json",
+      "bytes": 1630,
+      "sha256": "051311bc8287d3c6246eea7bab3cd5a8a149cc63c695dad3a19ddeb75592db64"
+    },
+    {
+      "file": "best4-core-pilot.launch.json",
+      "bytes": 387,
+      "sha256": "6e631d09a2acf2f68a271df5c03da571251e0ff2d0fa875ff10897263d694e46"
+    },
+    {
+      "file": "best4-core-pilot.supervisor.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "best4-core-pilot.supervisor.stdout",
+      "bytes": 116,
+      "sha256": "a555037faa2a5426c27df9e00ffededbc63fb81f5848cb35e79b89af5a47663f"
+    },
+    {
+      "file": "best4-core-pilot/core-h08.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "best4-core-pilot/core-h08.stdout",
+      "bytes": 67338,
+      "sha256": "d37745ebb7992aede614e2f79bac8d06b043ff39aec9708de7903faa4eb23677"
+    },
+    {
+      "file": "best4-core-pilot/core-star-h12.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "best4-core-pilot/core-star-h12.stdout",
+      "bytes": 69262,
+      "sha256": "493e64363ef060cfee8759964d7113beac57bbd9434372715d5f720e23687121"
+    },
+    {
+      "file": "best4-core-pilot/portfolio.json",
+      "bytes": 1650,
+      "sha256": "af770eee5f42657ec637d7a591f8b61872c8a8a09a207b14ad1fc3f75b4ba7a4"
+    },
+    {
+      "file": "best4-core-pilot/worker-limit.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "file": "gadget8-generic12.launch.json",
+      "bytes": 1195,
+      "sha256": "31abe8df2d4413a96e777ba639316bdf48b4bde2ec92303ecb0f4a5513911ee3"
+    },
+    {
+      "file": "gadget8-generic12.supervisor.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "gadget8-generic12.supervisor.stdout",
+      "bytes": 110,
+      "sha256": "2d5fdc161cf0593fa4724a549f86ef7d3c6cdd8d2ed6825a92b3d1083bcd099f"
+    },
+    {
+      "file": "orch/S06/gadget8-generic12-offline-wave1/instance.json",
+      "bytes": 17250,
+      "sha256": "20ca64f5caae894c1b144c8f4de2ab5e7905ce0044447c326272d3c218f5022d"
+    },
+    {
+      "file": "orch/S06/gadget8-generic12-offline-wave1/progress.json",
+      "bytes": 2947,
+      "sha256": "c7b852bf0031c35f474cddda62d7f46c723dcb658c9564d55184b01961f18de6"
+    },
+    {
+      "file": "orch/S06/gadget8-generic12-offline-wave1/result.json",
+      "bytes": 2947,
+      "sha256": "c7b852bf0031c35f474cddda62d7f46c723dcb658c9564d55184b01961f18de6"
+    },
+    {
+      "file": "orch/S06/gadget8-generic12-offline-wave1/solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "orch/S06/gadget8-generic12-offline-wave1/solver.stdout",
+      "bytes": 17137,
+      "sha256": "a11e3b63e5b85dd55a90076c630577df445e8ffe961e7e6031e114eb7dfb130b"
+    },
+    {
+      "file": "shuffle-best4-candidate-134234.launch.json",
+      "bytes": 1039,
+      "sha256": "3414cc52855362f9dc0debb1a160d80dc0d75f21fa3b619a2d977ccec6c9e3e7"
+    },
+    {
+      "file": "shuffle-best4-candidate-134234.supervisor.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "shuffle-best4-candidate-134234.supervisor.stdout",
+      "bytes": 105,
+      "sha256": "5a0ae19efcf59bbf72dcf123b766cb9790d97b88c0e92361a9667ad0d6b322e1"
+    },
+    {
+      "file": "shuffle-best4-candidate-134234/command.json",
+      "bytes": 1102,
+      "sha256": "afd01cd27bf2523dfdad6135728ce78fcadce331b59c4bf09713e5ac4ff04224"
+    },
+    {
+      "file": "shuffle-best4-candidate-134234/engine-result.json",
+      "bytes": 863,
+      "sha256": "6fdf7d3f3cf25c68b9b7cee1cd0176552c19e9c9d3bd7da2367155b7880fedf2"
+    },
+    {
+      "file": "shuffle-best4-candidate-134234/engine-result.json.best-0.json",
+      "bytes": 875,
+      "sha256": "42fc9b3546e7a8acdc7e71198a550ec4936c67cd8b43b42f64b256c1b4457aa7"
+    },
+    {
+      "file": "shuffle-best4-candidate-134234/engine.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "shuffle-best4-candidate-134234/engine.stdout.txt",
+      "bytes": 157,
+      "sha256": "a4cd700a65524b84fafae767d3026bd5fc96e4ab4feb6851c6a437404631b401"
+    },
+    {
+      "file": "shuffle-best4-candidate-134234/result.json",
+      "bytes": 1672,
+      "sha256": "1bfb302238bf12bcd3539cb9de63bb75d0a5accb55bbe7e91efc431888f620a8"
+    },
+    {
+      "file": "shuffle-best4-candidate-134235.launch.json",
+      "bytes": 1039,
+      "sha256": "a2dc42a026d51c8e621552ed4a394183de52c00c61f4b2aa0bfaefb53f8a76cd"
+    },
+    {
+      "file": "shuffle-best4-candidate-134235.supervisor.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "shuffle-best4-candidate-134235.supervisor.stdout",
+      "bytes": 105,
+      "sha256": "d1095d12725e52e9bc8b653915e955272b414a74e5fdddd5c1a947593dbc9341"
+    },
+    {
+      "file": "shuffle-best4-candidate-134235/command.json",
+      "bytes": 1102,
+      "sha256": "bba7454e0f8a431b78e01cd04c09b80aa12779497688db1c00f57e9e16f7e8bc"
+    },
+    {
+      "file": "shuffle-best4-candidate-134235/engine-result.json",
+      "bytes": 860,
+      "sha256": "64af4a71d9d5e33327799b9d0f2153e572c012b5c90e6a2b404b83d3363858e1"
+    },
+    {
+      "file": "shuffle-best4-candidate-134235/engine-result.json.best-0.json",
+      "bytes": 873,
+      "sha256": "b598cb694e872f65a55a6f3beb99c95b3718312cf42dbd3bec87bba7364191bf"
+    },
+    {
+      "file": "shuffle-best4-candidate-134235/engine.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "shuffle-best4-candidate-134235/engine.stdout.txt",
+      "bytes": 155,
+      "sha256": "0336b71c370caa0b8ad620ce8d0d0801f6f5fabf682b7eede48a283291597bd2"
+    },
+    {
+      "file": "shuffle-best4-candidate-134235/result.json",
+      "bytes": 1672,
+      "sha256": "5d7902fb38c491138ca691bed15097aab4ae0f1d4aae05500e988cb5ef55a64d"
+    }
+  ],
+  "omitted": [
+    {
+      "source": "orch/S06/gadget8-generic12-offline-wave1/instance.cnf",
+      "bytes": 189611,
+      "sha256": "dae54c6f20435a53be3a34b09da9310e85df61823b382caa2837817a441b8bfb",
+      "reason": "Reproducible CNF or unaccepted incomplete proof; never accepted UNSAT."
+    },
+    {
+      "source": "orch/S06/gadget8-generic12-offline-wave1/proof.drat",
+      "bytes": 268435456,
+      "sha256": "d88e7c5f643b95d14152199f18e3b45a59f16b27b8565a0d6e5a0eb77f139131",
+      "reason": "Reproducible CNF or unaccepted incomplete proof; never accepted UNSAT."
+    }
+  ],
+  "statuses": [
+    {
+      "run": "best4-candidate-134232",
+      "status": "UNKNOWN",
+      "reason": null
+    },
+    {
+      "run": "best4-candidate-134233",
+      "status": "UNKNOWN",
+      "reason": null
+    },
+    {
+      "run": "shuffle-best4-candidate-134234",
+      "status": "UNKNOWN",
+      "reason": null
+    },
+    {
+      "run": "shuffle-best4-candidate-134235",
+      "status": "UNKNOWN",
+      "reason": null
+    },
+    {
+      "run": "best4-core-pilot",
+      "portfolio": {
+        "scope": "Candidate-only neighborhoods; no global or assigned-shard exhaustion.",
+        "started": "2026-11-24T05:23:10.911724+00:00",
+        "cases": {
+          "core-h08": {
+            "pid": 35965,
+            "cnf_sha256": "c838479a6b7c8d2e3a1093efe1d347cc70f5a8df8cdaa8aba03eeed6180c76c2",
+            "free_gates": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ],
+            "budget": null,
+            "repair_kind": "local",
+            "started": "2026-11-24T05:23:10.914818+00:00",
+            "command": [
+              "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+              "--sat",
+              "--time=120",
+              "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-core-family/core-h08.cnf"
+            ],
+            "exit_code": 0,
+            "status_lines": [
+              "s UNKNOWN"
+            ],
+            "elapsed_seconds": 120.18776131400227
+          },
+          "core-star-h12": {
+            "pid": 36168,
+            "cnf_sha256": "ee54d0b3040424c96c25ce32694c2cd4376624930c72df3af037f49e72b124de",
+            "free_gates": [
+              6,
+              7,
+              8,
+              9,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ],
+            "budget": null,
+            "repair_kind": "local",
+            "started": "2026-11-24T05:25:11.308409+00:00",
+            "command": [
+              "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+              "--sat",
+              "--time=120",
+              "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-core-family/core-star-h12.cnf"
+            ],
+            "exit_code": 0,
+            "status_lines": [
+              "s UNKNOWN"
+            ],
+            "elapsed_seconds": 120.1774311879999
+          }
+        },
+        "finished": "2026-11-24T05:27:11.686446+00:00"
+      }
+    },
+    {
+      "run": "orch/S06/gadget8-generic12-offline-wave1",
+      "status": "UNKNOWN",
+      "reason": "ValueError: solver file_size_limit"
+    }
+  ],
+  "scope": "Completed unsuccessful construction searches only. No exact21 witness, accepted UNSAT or Lean theorem."
+}

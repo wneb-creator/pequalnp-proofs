@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-restore-v1/scratch/orch/S06/restore_gadget8_archive.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-restore-v1"
+  ],
+  "exit_code": 0,
+  "solver_or_checker_launched": false,
+  "wall_limit_seconds": 15,
+  "wall_seconds": 0.26483850500153494
+}

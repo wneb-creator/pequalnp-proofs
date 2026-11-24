@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS_SOURCE_INVENTORY_HASHES_ROUNDTRIP_AND_PORTABLE_VERIFIER",
+  "archive_sha256": "b86b83dd2b4a1e22aa95210195b86c9e0fb1429d10686716b5d5fdfd20f67065",
+  "archive_bytes": 122785,
+  "manifest_sha256": "6dc1da65dff8b55746514edbacf85eea582f3e46b16d89568675ec345b387b65",
+  "regular_members": 206,
+  "payloads": 205,
+  "review_bindings": 199,
+  "omitted_ELF_count": 8,
+  "portable_verifier": {
+    "verdict": "PASS_PORTABLE_HASH_INVENTORY_DIRECT_REVIEW_BINDINGS_AND_EXACT_SOURCE_PORT",
+    "payloads": 205,
+    "review_bindings": 199,
+    "engine_blocks": 6,
+    "wrapper_insertions": 2,
+    "workers_started": false
+  },
+  "verify_exit_code": 0,
+  "active_outputs_read": false,
+  "new_build_solver_checker_Lean_run": false
+}

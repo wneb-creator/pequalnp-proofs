@@ -1,0 +1,8 @@
+PASS scoped package/control validation; main independent preservation review required.
+244 exact source copies; 268 regular archive members; all267 payload hashes and archive roundtrip pass.
+Two CNFs/seven family files reconstructed byte-exact; two fail-closed reconstruction controls pass.
+All completed 1000-DAG fulltruth, eight CLI and eight wrapper controls preserved.
+No active outputs, best4 pilot runtime, production141 integration, raw CNFs or binaries included.
+No exact21 witness, certified UNSAT, global exhaustion, Lean build or posted-checker acceptance claimed.
+Sub-agents: none
+TIMING total=307.2 subagents=0

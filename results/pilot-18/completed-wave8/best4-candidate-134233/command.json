@@ -1,0 +1,27 @@
+{
+  "scope": "Candidate-only stochastic optimization; no exhaustion claim.",
+  "started_utc": "2026-11-24T05:21:25.483730+00:00",
+  "engine_sha256": "7d802a63b218449bd58178785a917a363edecedace5f65201344804dec3a3870",
+  "pack_sha256": "f1316079fdd1c50eab3387c00ed7460130da5c6b862937241fa41b9ff13742a6",
+  "pack_metadata_sha256": "0b3c2a8eed20aeb355be47e632689c70a1a7bd3d1d1c6d742fd2c17f29847642",
+  "wrapper_sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+  "validator_sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/all-negative-engine-v1/circuit_anneal_allnegative",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/allnegative-best4-direct21-v1/direct-seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/best4-candidate-134233/engine-result.json",
+    "--seed",
+    "134233",
+    "--seconds",
+    "300.0",
+    "--iterations",
+    "2000000000",
+    "--restart",
+    "100000",
+    "--weight",
+    "16"
+  ],
+  "status": "RUNNING"
+}

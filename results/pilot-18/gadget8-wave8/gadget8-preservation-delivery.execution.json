@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/verify_gadget8_delivery.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 0.36511018500095815,
+  "wall_limit_seconds": 20,
+  "solver_or_checker_launched": false
+}

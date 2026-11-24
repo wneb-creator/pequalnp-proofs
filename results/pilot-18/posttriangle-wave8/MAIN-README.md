@@ -1,0 +1,1 @@
+L-meta-1342 research checkpoint. Sources and completed controls only. No exact21 witness or global refutation. File hashes and every archive payload were independently checked before this copy. See handoff and original README for scope and reconstruction.

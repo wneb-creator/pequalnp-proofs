@@ -1,0 +1,67 @@
+{
+  "status": "READY_MAIN_INDEPENDENT_PRESERVATION_REVIEW",
+  "directory": "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-shuffle-preservation-v1",
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-shuffle-preservation-v1/README.md",
+      "sha256": "0cfdcdf815a64057b73bad072eaae6201a5897157d7bd5f0658e9d678037f795",
+      "bytes": 3203
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-shuffle-preservation-v1/S02-best4-shuffle.tar.gz",
+      "sha256": "6fa86672bdf0b3eb7e909d995f6d5fda13475c5085187eb759ac32ddd8c6da42",
+      "bytes": 153382
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-shuffle-preservation-v1/best4-shuffle-seal.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-shuffle-preservation-v1/best4-shuffle-seal.stdout",
+      "sha256": "ee3b25367883e2198909126e4aec3b4fe3568c2e5552978b61b8e37dead8d0d4",
+      "bytes": 1183
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-shuffle-preservation-v1/best4-shuffle-verify.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-shuffle-preservation-v1/best4-shuffle-verify.stdout",
+      "sha256": "0bc20898ae57f40e70be1da37579a888fbc2a86f3ae59e78774736ef469ac54c",
+      "bytes": 87
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-shuffle-preservation-v1/manifest.json",
+      "sha256": "ce5bcc4c46dcc31fe09ac1a272c8bd67bfe7d84951b6adc482b553c85d62e4b6",
+      "bytes": 49164
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-shuffle-preservation-v1/validation.json",
+      "sha256": "661c86eb6ec7f367bb23e8965f5b5ee2329465c06aeeeb084d24fbf853822619",
+      "bytes": 1239
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-shuffle-preservation-v1/validation.txt",
+      "sha256": "084ea063017cdefdddbafe4fe4273ed775b0b4594e65781a01a6fc6e40aacf35",
+      "bytes": 624
+    }
+  ],
+  "archive_sha256": "6fa86672bdf0b3eb7e909d995f6d5fda13475c5085187eb759ac32ddd8c6da42",
+  "archive_regular_members": 268,
+  "exact_source_copies": 244,
+  "reconstruction_CNF_files": 2,
+  "reconstruction_total_files": 7,
+  "all_payload_hashes_verified": 267,
+  "best4_runtime_included": false,
+  "production141_integration_included": false,
+  "active_outputs_read": false,
+  "solver_launched": false,
+  "scope": "Frozen sources and completed finite controls only.",
+  "Sub-agents": "none",
+  "TIMING": {
+    "total_minutes": 307.2,
+    "subagents": 0
+  }
+}

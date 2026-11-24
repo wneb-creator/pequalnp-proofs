@@ -1,0 +1,87 @@
+{
+  "status": "PASS_MAIN_DELIVERY_COPY_AND_ARCHIVE_HASH_REVIEW",
+  "utc": "2026-11-24T05:38:32.943893+00:00",
+  "handoff_sha256": "d05475ca6803c16dc9bbc243cec7577fcc9a6a5f3c23c03707097a5edee2e9b8",
+  "copied": [
+    {
+      "file": "gadget7-lift-handoff.json",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-lift-handoff.json",
+      "bytes": 1465,
+      "sha256": "9b39fa156228c21bff211ee19f2d7298846732690a1211fbb0de99773e70901c"
+    },
+    {
+      "file": "lift_gadget7.py",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/lift_gadget7.py",
+      "bytes": 2623,
+      "sha256": "8162c923d7ae3bfbdaa3c9cc8dc4bcea2070934f2536c5fc126381cd6e2d0eb9"
+    },
+    {
+      "file": "gadget7_lift.md",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7_lift.md",
+      "bytes": 1011,
+      "sha256": "3c5bb07ca199627d4217982c4617cd04432935c277090a98d93c68ad340d1cc2"
+    },
+    {
+      "file": "gadget7-lift-result.json",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-lift-result.json",
+      "bytes": 1237,
+      "sha256": "d8c33043a512f9d667b5b685ca4e57264a008d00d4ee2402f5790e99eeecf0a1"
+    },
+    {
+      "file": "gadget7-lift.stdout",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-lift.stdout",
+      "bytes": 833,
+      "sha256": "3ec3114253d19778b94e33c264257e62d023ef48a525b0f641f564ba2da04365"
+    },
+    {
+      "file": "gadget7-lift.stderr",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "gadget7-lift-exact22-control.json",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-lift-exact22-control.json",
+      "bytes": 1046,
+      "sha256": "490b0ddf77f2c9722fe84b752a74c0bc126405c75ac1539fc369f7cd41ebb075"
+    },
+    {
+      "file": "gadget7-contributor-candidate.json",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-contributor-candidate.json",
+      "bytes": 711,
+      "sha256": "5060f170350f5c2ec26c00f7fbb89f74ce13a33f915b90bf6c05bb17d12026e5"
+    },
+    {
+      "file": "free_E_scan_completion_addendum.md",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/free_E_scan_completion_addendum.md",
+      "bytes": 1574,
+      "sha256": "1b333bd4aa67ecc25b87ab9206c35f70cd602f67731038be3e767b3331e3cc35"
+    },
+    {
+      "file": "check_free_E_scan.py",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/check_free_E_scan.py",
+      "bytes": 2772,
+      "sha256": "e8a3b1a00cde0da1b8c6e2d0e723a9d57566bde9b11d9abfb4c3899c90d6546a"
+    },
+    {
+      "file": "free-E-scan-independent-result.json",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/free-E-scan-independent-result.json",
+      "bytes": 24681,
+      "sha256": "34f2552c613e07ffb9a1c729b6e6998f96ae7f73ca28060ba4d75700bec613a1"
+    },
+    {
+      "file": "free-E-scan-independent.stdout",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/free-E-scan-independent.stdout",
+      "bytes": 558,
+      "sha256": "fba53ae5bd93ff91a7b424c07bcbebec619bb18a1f1f72f3e9de341ff49b6a7c"
+    },
+    {
+      "file": "free-E-scan-independent.stderr",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/free-E-scan-independent.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "tar_checks": [],
+  "scope": "Research partials only; no posted theorem, witness or global refutation."
+}

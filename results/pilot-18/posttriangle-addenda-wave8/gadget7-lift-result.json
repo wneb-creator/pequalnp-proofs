@@ -1,0 +1,86 @@
+{
+  "status": "PASS_EXACT_LIFT_IDENTITY_AND_22_GATE_CONTROL",
+  "source_sha256": "8162c923d7ae3bfbdaa3c9cc8dc4bcea2070934f2536c5fc126381cd6e2d0eb9",
+  "local_candidate_sha256": "5060f170350f5c2ec26c00f7fbb89f74ce13a33f915b90bf6c05bb17d12026e5",
+  "control_sha256": "490b0ddf77f2c9722fe84b752a74c0bc126405c75ac1539fc369f7cd41ebb075",
+  "gadget_edges": [
+    [
+      0,
+      9
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      8,
+      9
+    ]
+  ],
+  "residual_edges": [
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      6,
+      10
+    ],
+    [
+      7,
+      9
+    ]
+  ],
+  "residual_expression": "6*(3 OR7 OR10) OR7*(3 OR9) OR1*(4 OR8)",
+  "residual_gates": 9,
+  "final_OR": 1,
+  "local_size": 12,
+  "full_size": 22,
+  "checks": {
+    "local128": 128,
+    "global2048": 2048
+  },
+  "theoretical_lift": "ANY exact seven-input circuit of size<=11 yields fullsize<=21; no interface condition",
+  "exact21_found": false,
+  "Lean_proof": false
+}

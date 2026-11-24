@@ -1,0 +1,29 @@
+{
+  "utc": "2026-11-24T05:21:25.442317+00:00",
+  "pid": 35841,
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/stochastic_tools.py",
+    "run",
+    "--engine",
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/all-negative-engine-v1/circuit_anneal_allnegative",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/allnegative-best4-direct21-v1/direct-seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/best4-candidate-134232",
+    "--seed",
+    "134232",
+    "--seconds",
+    "300",
+    "--iterations",
+    "2000000000",
+    "--restart",
+    "200000",
+    "--weight",
+    "4"
+  ],
+  "main_pack_review_sha256": "3f0d68b87045b9a1bb42fe9a15d9d2c1aa4e25e0bffca93f4008b233f2563707",
+  "S08_engine_review_sha256": "23a3c36f8a714214fbe4df4cff142820cfef6d091d9401793f74c255442253c2",
+  "scope": "Freshinexactbest4starts, candidate-only, unchangedfull2048independentvalidator"
+}

@@ -1,0 +1,67 @@
+{
+  "scope": "Candidate-only neighborhoods; no global or assigned-shard exhaustion.",
+  "started": "2026-11-24T05:23:10.911724+00:00",
+  "cases": {
+    "core-h08": {
+      "pid": 35965,
+      "cnf_sha256": "c838479a6b7c8d2e3a1093efe1d347cc70f5a8df8cdaa8aba03eeed6180c76c2",
+      "free_gates": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "budget": null,
+      "repair_kind": "local",
+      "started": "2026-11-24T05:23:10.914818+00:00",
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--sat",
+        "--time=120",
+        "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-core-family/core-h08.cnf"
+      ],
+      "exit_code": 0,
+      "status_lines": [
+        "s UNKNOWN"
+      ],
+      "elapsed_seconds": 120.18776131400227
+    },
+    "core-star-h12": {
+      "pid": 36168,
+      "cnf_sha256": "ee54d0b3040424c96c25ce32694c2cd4376624930c72df3af037f49e72b124de",
+      "free_gates": [
+        6,
+        7,
+        8,
+        9,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "budget": null,
+      "repair_kind": "local",
+      "started": "2026-11-24T05:25:11.308409+00:00",
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--sat",
+        "--time=120",
+        "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-core-family/core-star-h12.cnf"
+      ],
+      "exit_code": 0,
+      "status_lines": [
+        "s UNKNOWN"
+      ],
+      "elapsed_seconds": 120.1774311879999
+    }
+  },
+  "finished": "2026-11-24T05:27:11.686446+00:00"
+}

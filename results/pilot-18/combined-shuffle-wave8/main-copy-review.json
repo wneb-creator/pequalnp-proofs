@@ -1,0 +1,8 @@
+{
+  "status": "PASS_MAIN_ALL_ARCHIVE_PAYLOADS_AND_SOURCE_ROUNDTRIP",
+  "utc": "2026-11-24T05:41:11.200937+00:00",
+  "archive_sha256": "b86b83dd2b4a1e22aa95210195b86c9e0fb1429d10686716b5d5fdfd20f67065",
+  "payloads": 205,
+  "source_roundtrips": 205,
+  "scope": "Independent preservation check; existing combined-engine validation applies, no new production/witness claim."
+}

@@ -1,0 +1,18 @@
+Combined141-row engine, optional shuffle and wrapper: frozen independent review
+
+This source/control companion is separate from S02 archive6fa86672bdf0b3eb7e909d995f6d5fda13475c5085187eb759ac32ddd8c6da42, which excludes main's141-row integration and S08's combined review. Preserve that earlier package for S02's full repair-family/40-row-engine provenance. This package preserves the exact integrated141 engine, wrapper, all finite main and S08 control logs/snapshots, inherited wrapper controls, source diffs/parents, and every direct binding of review5146eb7ac9871706deee49391118489790dfaedd3ad7113a73b9d5e256826de3. source-bindings.json maps duplicate evidence to exact payload aliases; executable binaries are omitted with hashes and byte counts.
+
+Engine source6717226e0fb1e0ed3a260e23aa0f162d2f8b3591a425798528194878d5f32bf7, binarye67583803d64fcf68d585e58833eb2b9c13b246d420385e2cf0dd8cbac8eac6d, wrapper99c843f9a450c37c1c283d00684015269bd2eca091da3488e8d5811b6d934944. Six exact S02 engine blocks ported into the reviewed141 parent; two wrapper insertions parse/forward the optional default-off flag. All141 fitness masks/scoring, scalar acceptance and independent validator/lifecycle are unchanged. Flag provenance is command argv; it is not a separate result boolean.
+
+Main1000-DAG controls checked43,008,000 intermediate and2,048,000 output values, plus2,048,000 random scalar/vector comparisons. Independent S08 UBSan264-DAG control checked11,354,112 intermediate truth bits,540,672 output bits,37,224 fitness bits, bijection/liveness/determinism and10 malformed inputs. Three finite301-iteration wrapper controls cross three restart boundaries; default-off results/snapshots match the parent except clock. Enabled snapshots receive independent full2048 evaluation, and the actual new wrapper rejects a deliberately falsely labelled candidate via the unchanged validator. Its expected error traceback and full stdout/stderr are retained.
+
+Only completed finite controls are included. No production output directory or launch/result stream was read for this package. Historical pending/not-launched fields describe the prelaunch snapshots and do not deny later main launches. No exact21 witness, runtime result, performance gain, exhaustive search, Lean proof or posted acceptance is claimed. Generic --self-test returns before shuffle, so the dedicated independent control is the relevant shuffle test.
+
+Extract this archive and run the standard-library verifier from anywhere:
+  python -B PATH_TO_EXTRACTED_ROOT/verify_package.py
+It checks every payload, every direct review binding, and exact engine/wrapper derivations; it starts no worker and needs no old scratch paths.
+
+For an optional finite C++ replay, from the extracted root, build into a separate output directory so verification inventory remains unchanged:
+  g++ -std=c++17 -O1 -g -fsanitize=undefined -fno-sanitize-recover=all -Wall -Wextra -Werror review/independent_shuffle.cpp -o /tmp/oec/pequalnp-pilot-18/orch/S08/replayed-shuffle-control
+  /tmp/oec/pequalnp-pilot-18/orch/S08/replayed-shuffle-control dependencies/packs/best3/direct-seeds.txt
+The output path must be fresh. This package did not rerun those already completed tests. Rebuilding the optimized engine uses the same C++17/O3/Wall/Wextra/Werror flags and source in review/snapshot/main. Binary identity across different compilers is not promised. Original wrapper/review-driver scripts retain historical absolute workspace paths; logs and the independent C++ test are portable. Parent141 full preservation archiveedfb85398c9f9522470de2e782a75fca862b034e7726b16fcd7216ac7050c6f0 is retained separately.

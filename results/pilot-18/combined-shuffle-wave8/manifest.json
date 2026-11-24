@@ -1,0 +1,1085 @@
+{
+  "utc": "2026-11-24T05:40:14.925733+00:00",
+  "scope": "Source/finite-control companion; no production runtime outputs or proof/exhaustion claim.",
+  "prefix": "S08-combined-141-shuffle-v1",
+  "files": {
+    "README.md": {
+      "bytes": 3645,
+      "sha256": "823841e6ad273c5f00fd3b01d47efa3363f6587af9853faadfa24b9a7a3c8102",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-preservation-v1/README.md"
+    },
+    "bound/orch/S02/shuffle-engine-handoff.json": {
+      "bytes": 1446,
+      "sha256": "45b4057773a7a679d94eebff166395c14fe070c150db77fba922f3c3ccbba993",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/shuffle-engine-handoff.json"
+    },
+    "bound/orch/S02/shuffle-engine-v1/review.json": {
+      "bytes": 15874,
+      "sha256": "760c9d5a02e6ef5fb62ce67513c448b25e13cc873667a9ab18ca68aec05841fd",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/shuffle-engine-v1/review.json"
+    },
+    "bound/orch/S08/all-negative-engine-review/fake_claimed_candidate.py": {
+      "bytes": 310,
+      "sha256": "0f295b190a5f5276c1aacf1db348a639e6684ba0e11c550b3bbb5b964bf24602",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/fake_claimed_candidate.py"
+    },
+    "bound/orch/S08/all-negative-engine-review/review.json": {
+      "bytes": 16205,
+      "sha256": "23a3c36f8a714214fbe4df4cff142820cfef6d091d9401793f74c255442253c2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/review.json"
+    },
+    "bound/orch/S08/review_combined_shuffle.py": {
+      "bytes": 13779,
+      "sha256": "49e644482f73920df6ea8f498856eb16f7bd20569008846feb7971bf2e66a1fe",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/review_combined_shuffle.py"
+    },
+    "companions/S02-best4-shuffle-preservation-handoff.json": {
+      "bytes": 2703,
+      "sha256": "420ff61378468c4fd3909037263616ccc475f466fee19fced61184e3e44cdbc1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/best4-shuffle-preservation-handoff.json"
+    },
+    "dependencies/circuit_anneal_allnegative.cpp": {
+      "bytes": 17262,
+      "sha256": "18efdd149487dfee83693dd0781a17316ba0fda9d68c43c6c70c73f96a77250b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/MAIN/all-negative-engine-v1/circuit_anneal_allnegative.cpp"
+    },
+    "dependencies/circuit_anneal_shuffle.cpp": {
+      "bytes": 17735,
+      "sha256": "755a6b0ac780b1d4df8241be425726657547a50e679e5afad4cf3d9d0d511d9b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/shuffle-engine-v1/circuit_anneal_shuffle.cpp"
+    },
+    "dependencies/lean-setup/validate_sat_candidate.py": {
+      "bytes": 22665,
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/lean-setup/validate_sat_candidate.py"
+    },
+    "dependencies/packs/best3/direct-seeds.json": {
+      "bytes": 6885,
+      "sha256": "c6b4f5b90cfc656f9c1466da3ed5a33dd1e4fe950d073adde5b2f414f034cd66",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/direct-seeds.json"
+    },
+    "dependencies/packs/best3/direct-seeds.txt": {
+      "bytes": 1442,
+      "sha256": "6c60f7617f1b797fd8408ddbf5f08d94a148c2c49eb66d9821d7f35e68606e9b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/direct-seeds.txt"
+    },
+    "dependencies/parent40.cpp": {
+      "bytes": 16115,
+      "sha256": "e1a686c19d09439595cdfbf89baf42ff5d1dbfff8949e505b53b999d683ec077",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/MAIN/all-negative-engine-v1/parent.cpp"
+    },
+    "dependencies/stochastic_tools.py": {
+      "bytes": 10521,
+      "sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/stochastic_tools.py"
+    },
+    "dependencies/validate_raw_candidate.py": {
+      "bytes": 4085,
+      "sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/validate_raw_candidate.py"
+    },
+    "portable-reproduction.json": {
+      "bytes": 863,
+      "sha256": "d91e61874eb75c254da08d7babeaf87f3eda6891fe86440a8da7b0e249f946cb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-preservation-v1/portable-reproduction.json"
+    },
+    "preserve_combined_shuffle.py": {
+      "bytes": 12532,
+      "sha256": "695e1706b2bb25979bf79d482103e3ceb7757f97d1818e9d247fde2c9c5e8848",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/preserve_combined_shuffle.py"
+    },
+    "review-driver/combined-141-shuffle-review-run.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review-run.stderr"
+    },
+    "review-driver/combined-141-shuffle-review-run.stdout": {
+      "bytes": 235,
+      "sha256": "52a698150687ca92d860a056cb9878d70f25a242eaa42c1e71b5b79021116d58",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review-run.stdout"
+    },
+    "review-driver/review_combined_shuffle.py": {
+      "bytes": 13779,
+      "sha256": "49e644482f73920df6ea8f498856eb16f7bd20569008846feb7971bf2e66a1fe",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/review_combined_shuffle.py"
+    },
+    "review-driver/wave5_delivery_helpers.py": {
+      "bytes": 2729,
+      "sha256": "8eb609316143388dac61dc1b254fa6d9833b2c9aca42835d8d643bff82e848a8",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/wave5_delivery_helpers.py"
+    },
+    "review/combined-off.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/combined-off.stderr"
+    },
+    "review/combined-off.stdout": {
+      "bytes": 115,
+      "sha256": "a760abddf2d19673183eef886efb690e8f6832093a757d567c0355943f956bb7",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/combined-off.stdout"
+    },
+    "review/combined-on.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/combined-on.stderr"
+    },
+    "review/combined-on.stdout": {
+      "bytes": 114,
+      "sha256": "fa78a1ae8f8225f4bffa2c04560b2618f1ab5f88f2d90ec7e1f2e9ca1b8c1532",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/combined-on.stdout"
+    },
+    "review/combined-parent.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/combined-parent.stderr"
+    },
+    "review/combined-parent.stdout": {
+      "bytes": 118,
+      "sha256": "a0f76fde10c379bf22fa5daeb5e35e7f208c7a03461e1b85efa1f5ec4d24a8a8",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/combined-parent.stdout"
+    },
+    "review/executions.json": {
+      "bytes": 4857,
+      "sha256": "972d8f2db11c2dda88d27962d939e4772cbf6aeb1693810b672d029b89bca423",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/executions.json"
+    },
+    "review/forgery/command.json": {
+      "bytes": 1095,
+      "sha256": "7c30f013793f8b6a395b31338958de12f91ee2fa350d860aa2db6d5b65112064",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/forgery/command.json"
+    },
+    "review/forgery/engine-result.json": {
+      "bytes": 1391,
+      "sha256": "282300a505b2acd04fa5d1917f16ea288a1ad4789ba7a8fcb2d47fed6f7bd058",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/forgery/engine-result.json"
+    },
+    "review/forgery/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/forgery/engine.stderr.txt"
+    },
+    "review/forgery/engine.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/forgery/engine.stdout.txt"
+    },
+    "review/forgery/result.json": {
+      "bytes": 1887,
+      "sha256": "0f9d81af56ad68b2b67e9990ca35fe218e551d7468ddb8fa11864864f7a74b8e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/forgery/result.json"
+    },
+    "review/forgery/validation.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/forgery/validation.stderr.txt"
+    },
+    "review/forgery/validation.stdout.txt": {
+      "bytes": 38,
+      "sha256": "cef4c97cb9e7f77cd3e6147490f8aa1d3d19fe65ad75f05aeb5246a9398b2891",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/forgery/validation.stdout.txt"
+    },
+    "review/independent-build.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/independent-build.stderr"
+    },
+    "review/independent-build.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/independent-build.stdout"
+    },
+    "review/independent-controls.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/independent-controls.stderr"
+    },
+    "review/independent-controls.stdout": {
+      "bytes": 154,
+      "sha256": "15b1672a66fb76bf37893126f046431c54d25688fa840181ed6a565325f99074",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/independent-controls.stdout"
+    },
+    "review/independent_shuffle.cpp": {
+      "bytes": 3526,
+      "sha256": "cddf19ad5121f854d5e6d80c960b5c662cadf66cd57137c9cb50440ba3581173",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/independent_shuffle.cpp"
+    },
+    "review/integrated-wrapper-controls.json": {
+      "bytes": 521,
+      "sha256": "9e54f7ec1724d1e8ef6bf5cbab38ae0dae31bea58815054f9a9e8cae8ec5f944",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/integrated-wrapper-controls.json"
+    },
+    "review/new-wrapper-forgery.stderr": {
+      "bytes": 410,
+      "sha256": "5d84ada9ff36adefb2e809229fc8fcec497c39b07d6fa8476daec9749389be9e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/new-wrapper-forgery.stderr"
+    },
+    "review/new-wrapper-forgery.stdout": {
+      "bytes": 117,
+      "sha256": "49ccafca6344283764f700d69b37e9e41b08e37df008354a3344f6c214842a66",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/new-wrapper-forgery.stdout"
+    },
+    "review/off/command.json": {
+      "bytes": 1074,
+      "sha256": "d3a8111429e6ed68c8c4619084744d5474a3bbb42483afbe97dc45593c896c2b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/off/command.json"
+    },
+    "review/off/engine-result.json": {
+      "bytes": 857,
+      "sha256": "d8c68c0911b3ca75b9f719c7d2e103131e9d7a6bbfae67e6bec5108cfb1cf28b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/off/engine-result.json"
+    },
+    "review/off/engine-result.json.best-0.json": {
+      "bytes": 874,
+      "sha256": "1ac9d4ad5d29f3130a295ad724553c2b7e698c4f4a1659da9f35e6fbc06bbcdd",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/off/engine-result.json.best-0.json"
+    },
+    "review/off/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/off/engine.stderr.txt"
+    },
+    "review/off/engine.stdout.txt": {
+      "bytes": 162,
+      "sha256": "69d3d6e8ecd3ec4c1c92e5178f9e388272887ff98b20fb2402a1123bc916ed46",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/off/engine.stdout.txt"
+    },
+    "review/off/result.json": {
+      "bytes": 1646,
+      "sha256": "074f56f3406784c5633e6490bb8b597b525f3b18e3661077ac3a117f85207ca0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/off/result.json"
+    },
+    "review/on/command.json": {
+      "bytes": 1099,
+      "sha256": "9243b04394d54d82b651b315444a959acd16e18c3d3b259b6577bc5f693c52a9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/on/command.json"
+    },
+    "review/on/engine-result.json": {
+      "bytes": 855,
+      "sha256": "fcb6ee783ba88507414a534b0a2f08377487690b25f7db94655ccf3758b8f6ba",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/on/engine-result.json"
+    },
+    "review/on/engine-result.json.best-0.json": {
+      "bytes": 874,
+      "sha256": "53edc1f8e677c6e5c9031e2397b0ed56d67a84f09214f38319c1733355afafb2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/on/engine-result.json.best-0.json"
+    },
+    "review/on/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/on/engine.stderr.txt"
+    },
+    "review/on/engine.stdout.txt": {
+      "bytes": 161,
+      "sha256": "a63b7523b1f3050d3cad361f542ebf981e9ff4578bf98302075f1bd91ea85e90",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/on/engine.stdout.txt"
+    },
+    "review/on/result.json": {
+      "bytes": 1671,
+      "sha256": "ef168b2004e4f9012fae3579fbb92e40ec5e8c104913ef464012150ad36ac410",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/on/result.json"
+    },
+    "review/parent/command.json": {
+      "bytes": 1068,
+      "sha256": "147e72b73c4aae9b4043677ad3139437a553b48fd766ffd5a4c591faa836cdd0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/parent/command.json"
+    },
+    "review/parent/engine-result.json": {
+      "bytes": 857,
+      "sha256": "e459a9788f21426ba117f0fe87d05a7cc514ba66ab2320f9c11cb0a1c82d2350",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/parent/engine-result.json"
+    },
+    "review/parent/engine-result.json.best-0.json": {
+      "bytes": 874,
+      "sha256": "fc007efa19c4f4aadcbc5d38261baa0e45b2fc39b87142cf8dcdd987f45a4b1c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/parent/engine-result.json.best-0.json"
+    },
+    "review/parent/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/parent/engine.stderr.txt"
+    },
+    "review/parent/engine.stdout.txt": {
+      "bytes": 164,
+      "sha256": "104e5fa8c169fcf722e22d160883f4fdd09f9528f268f166ce1417d26c8d36f9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/parent/engine.stdout.txt"
+    },
+    "review/parent/result.json": {
+      "bytes": 1640,
+      "sha256": "4fe123bf086c9f2cb6a559704cbeb6077c7726961b5a2684aa27dea8af9aefe0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/parent/result.json"
+    },
+    "review/review.json": {
+      "bytes": 45787,
+      "sha256": "5146eb7ac9871706deee49391118489790dfaedd3ad7113a73b9d5e256826de3",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/review.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/abort-before-start.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/abort-before-start.stderr"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/abort-before-start.stdout": {
+      "bytes": 150,
+      "sha256": "4bbf65082fc01161bafb00d3f203706c41c30e3205d2de457e70bd0370c001a0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/abort-before-start.stdout"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/abort-before-start/command.json": {
+      "bytes": 1105,
+      "sha256": "48b56760ed19a11c5791684a9a21d246463f2fb75f3de27b1c1012edddb8a431",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/abort-before-start/command.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/abort-before-start/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/abort-before-start/engine.stderr.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/abort-before-start/engine.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/abort-before-start/engine.stdout.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/abort-before-start/result.json": {
+      "bytes": 1468,
+      "sha256": "10e767b868b607b1021b6d0257dbfba2ec70231fa0675fc09858a281edaad14a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/abort-before-start/result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/abort-sentinel": {
+      "bytes": 15,
+      "sha256": "259bb7efe557c8960ba5359455540ce516cae41bf8172fa4b7d781eafd48e1a0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/abort-sentinel"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-default-off.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-default-off.stderr"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-default-off.stdout": {
+      "bytes": 137,
+      "sha256": "fc35680bb396ba002bd1873fe20f1ef2cdd681b68d8370a58f798d7d506302c1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-default-off.stdout"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-default-off/command.json": {
+      "bytes": 1079,
+      "sha256": "5c0c80a19d4ffb888339d59afdfe767a43dbf2cf25189086dc30930f71a13690",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-default-off/command.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-default-off/engine-result.json": {
+      "bytes": 800,
+      "sha256": "37e16e96e748614181c41f87fb3041bbbf3955bc66840fe416522649490a37df",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-default-off/engine-result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-default-off/engine-result.json.best-0.json": {
+      "bytes": 815,
+      "sha256": "0d851b87421119e338047f2c08f1f839014969f85c26b2ba5b8773d7b1d15f71",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-default-off/engine-result.json.best-0.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-default-off/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-default-off/engine.stderr.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-default-off/engine.stdout.txt": {
+      "bytes": 187,
+      "sha256": "2b27d6932e983262303145d46e19e8df638eb914c03933ff8f96d7da3730e51e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-default-off/engine.stdout.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-default-off/result.json": {
+      "bytes": 1651,
+      "sha256": "b9af7c2450ae2702a0460a45ce1716c1498b3ff2c64d9aac04d903a46710709b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-default-off/result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-enabled.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-enabled.stderr"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-enabled.stdout": {
+      "bytes": 133,
+      "sha256": "fadcab4724dfd6751d03e38b0712be2500f5075bac3ef88d6495143f0b8692cd",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-enabled.stdout"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-enabled/command.json": {
+      "bytes": 1101,
+      "sha256": "92796157eab6f97627a80cfc8c030256d27e4213d07c3a8b5497eca8f28df0ec",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-enabled/command.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-enabled/engine-result.json": {
+      "bytes": 800,
+      "sha256": "ddacd48d6b79f7edb9b6cc7c283a9cf6b0cf4a42022398af487304881d1fa019",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-enabled/engine-result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-enabled/engine-result.json.best-0.json": {
+      "bytes": 814,
+      "sha256": "e8d14e54277c23526f22549b8d63698e25caa4bdc7666a092af62c9015dbfd4c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-enabled/engine-result.json.best-0.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-enabled/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-enabled/engine.stderr.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-enabled/engine.stdout.txt": {
+      "bytes": 183,
+      "sha256": "5b2f7fe9a0194a9bab993539293d4757fdb2dc3c6fce259e519a643b76b26476",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-enabled/engine.stdout.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-enabled/result.json": {
+      "bytes": 1673,
+      "sha256": "960f32d6108f933277d1d47bd80a16ddde3507d1240336794cca64f2a30c2788",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-enabled/result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-parent.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-parent.stderr"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-parent.stdout": {
+      "bytes": 132,
+      "sha256": "023453e1844d3e9d0c4e3917e7528f49c70509fad77bc6532165a0e8065be6e6",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-parent.stdout"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-parent/command.json": {
+      "bytes": 1074,
+      "sha256": "8930fb50eb7f8f3e8684f8015807ace837b5ccb3f0caf6a278b43d69686bdfcd",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-parent/command.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-parent/engine-result.json": {
+      "bytes": 800,
+      "sha256": "a5e62988c4e791e9e82568913185c07db34ef8620950eba669f8c0ae795dc810",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-parent/engine-result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-parent/engine-result.json.best-0.json": {
+      "bytes": 815,
+      "sha256": "d208082078a5ecc0e2af8359da55c965a46896c71576ef704d7f5220e33e64c2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-parent/engine-result.json.best-0.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-parent/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-parent/engine.stderr.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-parent/engine.stdout.txt": {
+      "bytes": 182,
+      "sha256": "452c8db76ef5d2ce85fe7acaddc1a1e7cd157032acc894726c9364b044b693e3",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-parent/engine.stdout.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct-parent/result.json": {
+      "bytes": 1646,
+      "sha256": "54ab698e59279ac884fb784554f0bd8d7862f1cf53197b73e040295f38de780b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct-parent/result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct.json": {
+      "bytes": 126,
+      "sha256": "d2295722ae85ca6ab391dc7c5ae0c01657056f6a7d09a7d0d4ef4efe0a7b9983",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/direct.pack": {
+      "bytes": 203,
+      "sha256": "bcef46efc3048299b35f5cab376be49bb7bd5bc60fe274db6301e0e1a8578a50",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/direct.pack"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected.stderr": {
+      "bytes": 410,
+      "sha256": "5d84ada9ff36adefb2e809229fc8fcec497c39b07d6fa8476daec9749389be9e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected.stderr"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected.stdout": {
+      "bytes": 142,
+      "sha256": "892ae6a1be291bea3df902fe89e45af04f32a52984d25d16b8246f5bf4140dff",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected.stdout"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/command.json": {
+      "bytes": 1123,
+      "sha256": "454cf8a2e5020afa27cce3b07134ff05ce1714b5ad28c314f37998d41dd5d105",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/command.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/engine-result.json": {
+      "bytes": 710,
+      "sha256": "ca63a88d9bb5dc00d60a6d73950d2ddd4d786faf57614dfdb7e1ec35c6d5c871",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/engine-result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/engine.stderr.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/engine.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/engine.stdout.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/result.json": {
+      "bytes": 1916,
+      "sha256": "447f3aba655832fab39ec6c2596e2be95487c696cca0cb6c8e6040c6ca7492a1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/validation.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/validation.stderr.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/validation.stdout.txt": {
+      "bytes": 38,
+      "sha256": "cef4c97cb9e7f77cd3e6147490f8aa1d3d19fe65ad75f05aeb5246a9398b2891",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/forged-candidate-rejected/validation.stdout.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/forged-engine.py": {
+      "bytes": 307,
+      "sha256": "01309a6ed02041af89568942e55ed9166655f008a4e36a0828ba62f5eab99390",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/forged-engine.py"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/forged-inexact-source.json": {
+      "bytes": 710,
+      "sha256": "ca63a88d9bb5dc00d60a6d73950d2ddd4d786faf57614dfdb7e1ec35c6d5c871",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/forged-inexact-source.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off.stderr"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off.stdout": {
+      "bytes": 137,
+      "sha256": "7cd1d1d8e38d1e7476567f20c737fb9cc5d8309a2b14499cf01369756e7ede31",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off.stdout"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/command.json": {
+      "bytes": 1079,
+      "sha256": "4448347732bf09ff866d011a3671b79d4aeefb5931fed88afdd574534e99e8e8",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/command.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json": {
+      "bytes": 800,
+      "sha256": "5df697ccd3873e4d641093db9980537d948581bfa07463a12e7fbdd62969f96a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-0.json": {
+      "bytes": 817,
+      "sha256": "0357cadaac8d1a6a76d30b6a0444b0346ce306c3ebc9045946914fc055d3ad63",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-0.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-1.json": {
+      "bytes": 819,
+      "sha256": "3b05cab31dcae9e497c00c03f8e358bc96c42bb183c3a9fe4165d373a4908b92",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-1.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-10.json": {
+      "bytes": 818,
+      "sha256": "59c432edbf836c8688635f50228d65da2c9f2cf13f7251cee4733abd88fa04f4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-10.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-11.json": {
+      "bytes": 816,
+      "sha256": "d0f8c9a3b4667c1fc9f5533109a8c07eef210bf0571cd0fb66723ab6e428d6bb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-11.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-2.json": {
+      "bytes": 820,
+      "sha256": "08b83b1b3b3a3b97a8689e239b7a5b6274f3cf4567457e319faca84d5a893f36",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-2.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-3.json": {
+      "bytes": 824,
+      "sha256": "b5b3e190399574833cc492c7946f303a136840a31d77a44ee8877d6a714de5e0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-3.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-4.json": {
+      "bytes": 822,
+      "sha256": "8bb40ef403ea23ab368e2a7b4c46c3947cb9912baf677f2bf16fe8675e14b36f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-4.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-5.json": {
+      "bytes": 821,
+      "sha256": "b1ebd337c87ef7755e8afe2f0ec89b2f9ff7a91d7a3f40f04fcbb4297d5dff87",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-5.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-6.json": {
+      "bytes": 819,
+      "sha256": "9768297b58c45e07bb87cef9ead0ae76baa14a0ea10f1c3ecbc718c280e5180b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-6.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-7.json": {
+      "bytes": 818,
+      "sha256": "9389ae0eb559ec459c1c742124f9aee7c4f93011f17358209302a02dfe2179b5",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-7.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-8.json": {
+      "bytes": 818,
+      "sha256": "a223194a5e2f0eb2444ab84007705a6446f3cfba1354e139010b14ad56ef3d67",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-8.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-9.json": {
+      "bytes": 817,
+      "sha256": "a8cdaf372cd50227cdfcd3be9eb0d8c172bba8ec2c59ba68a20b38cd0f1cc8b2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine-result.json.best-9.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine.stderr.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine.stdout.txt": {
+      "bytes": 1629,
+      "sha256": "7ac32b48e27e9114230495f9548eee9b33dd967449f5056dc47a3fe1619f02cb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/engine.stdout.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-default-off/result.json": {
+      "bytes": 2819,
+      "sha256": "26ff51f2c2c2a711df647b493d37cad10cb7e36917128b0091231ad663ab87d1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-default-off/result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled.stderr"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled.stdout": {
+      "bytes": 133,
+      "sha256": "99f6e3e95dc29691bf386536801e2e2ba4147a89f87dcb6822bbff5147660699",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled.stdout"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/command.json": {
+      "bytes": 1101,
+      "sha256": "d07375f365b3ba1b2f8f6df7353a6a9b73617c669ba71bfddb1029cabd6a7e42",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/command.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json": {
+      "bytes": 800,
+      "sha256": "721d836470b0e188bb4b9a1546bcdfed5f62f13e8213a317613cdfe656386ec9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-0.json": {
+      "bytes": 817,
+      "sha256": "71abb45f9957e2fb177508939d244b4b3e76190d31fdb55cdd2faed6f1b20224",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-0.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-1.json": {
+      "bytes": 819,
+      "sha256": "9cb8a45dbba2a21bc5aca7c57f315a1e389009e752e9237f6a993e24ead2febd",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-1.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-2.json": {
+      "bytes": 820,
+      "sha256": "c8c682a77478d0b11eaf9d8702170724f54774d2dc5590de1ea4844bb7cbd423",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-2.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-3.json": {
+      "bytes": 819,
+      "sha256": "8614badd7a569d3e60524b53c0587ac5148be1e7e94dc2aebcbfa4e3c7691171",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-3.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-4.json": {
+      "bytes": 819,
+      "sha256": "431fc0dd028252b80dfee3b237fea47f2537c3de4ca67d5222b20b9e1cd859dc",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-4.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-5.json": {
+      "bytes": 820,
+      "sha256": "6582719adadc7e31a1b93265e6c41f254db5754f792984676e64f73fadb48085",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-5.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-6.json": {
+      "bytes": 820,
+      "sha256": "497d4fdf377af5333be08b4e68e56d4dd246e07a3fcd85cfdea18e8cbb62faf1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-6.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-7.json": {
+      "bytes": 817,
+      "sha256": "afcc3ad60e8e0545acd371edd997711e3a601a724bbbd0f576c467a61af4c629",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-7.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-8.json": {
+      "bytes": 819,
+      "sha256": "3b802a4d3b47fe6497dd31755b80b9f33418d5ce99bf80f6bf8b0ff62899b93a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine-result.json.best-8.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine.stderr.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine.stdout.txt": {
+      "bytes": 1198,
+      "sha256": "ac5a556ee8ef3d0ec20bc696d9d80b0772bb04b507876e3bfb2a8166d61783be",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/engine.stdout.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-enabled/result.json": {
+      "bytes": 2522,
+      "sha256": "1c109c05277a49e2c484f1c0abe54943397c218f14888f5f84d98fc25b1a5165",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-enabled/result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent.stderr"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent.stdout": {
+      "bytes": 132,
+      "sha256": "1ced7ed90ba9b61ea4a2ac579ecb28f519e13a0818c1fa344e730f15e0703fcb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent.stdout"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/command.json": {
+      "bytes": 1074,
+      "sha256": "d76a079be61409fc7919b633c1b0cff40ea614fc907c5fed32581cef9bd2b36c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/command.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json": {
+      "bytes": 800,
+      "sha256": "aa0c64315e5918362f09f814a9fc0e153636e87164b8cb234b82e87738f4b7d2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-0.json": {
+      "bytes": 816,
+      "sha256": "ff6302efeb8f17996b0f993d4d27c7e27437df69bbc0faa2b0b3691584be339e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-0.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-1.json": {
+      "bytes": 820,
+      "sha256": "684b468131934c7173713d54e67d01000d597eb2d28fd4c54a5473471e3db79d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-1.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-10.json": {
+      "bytes": 818,
+      "sha256": "3513e3fa9bc21e603626d31b78f33234c2cc893382e28d0160848d3d7a6e0e70",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-10.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-11.json": {
+      "bytes": 817,
+      "sha256": "567f832507132c727b6e990f289cd9d7789ab2bbcc71f9a67ef6fa77d2b3a447",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-11.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-2.json": {
+      "bytes": 820,
+      "sha256": "8de0f2bbe6df0253b0b3fd38933f31fce92e05448a31cd0fbb13adb423d43166",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-2.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-3.json": {
+      "bytes": 824,
+      "sha256": "020344292133222ea0c13f8adeb820a5bc8d95465597d31770697f72321bcc82",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-3.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-4.json": {
+      "bytes": 823,
+      "sha256": "3d999ed7c0b6dd691a1783a70da89c009b480e3bcdf59ab38450ad38a7e0ad8b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-4.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-5.json": {
+      "bytes": 822,
+      "sha256": "895ec318a2d7188c555cb97df90e3355f103eb4d5229c16a1b44aacd90ff204c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-5.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-6.json": {
+      "bytes": 820,
+      "sha256": "6e63798b8d6b11e73e27ae9275cd2ae33adaafafbf73894f1622b748f979351d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-6.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-7.json": {
+      "bytes": 818,
+      "sha256": "db30ade9e8ceea0936856fee45b1ec939d03f4f362fbf34290292951b16e0492",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-7.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-8.json": {
+      "bytes": 818,
+      "sha256": "1b535f7b1c2f233f9fc260abab7690f7cf8300976f1deb3ca28d8aca4f51baca",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-8.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-9.json": {
+      "bytes": 818,
+      "sha256": "e4b80f7c7cf18ebbe01390834f326c68a39255dd55dbbdba9186439467e852e1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine-result.json.best-9.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine.stderr.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine.stdout.txt": {
+      "bytes": 1569,
+      "sha256": "44412511e4e39763b1b2cc5cf8c240f4c384613375963e0a382d2f297d98aa3a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/engine.stdout.txt"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy-parent/result.json": {
+      "bytes": 2813,
+      "sha256": "4fc24c6cfeaad39b27ef23b2adc1774ad0456560a0eef56d904cd73baccf29a1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy-parent/result.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy.json": {
+      "bytes": 126,
+      "sha256": "f978bc8f96bac1501a7bf22d5093b54d23396bf77c07764b5025ff78c3f114da",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy.json"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/legacy.pack": {
+      "bytes": 179,
+      "sha256": "0ef4590a3199ba1400d67ce9c31cdaf9f34294faadfd59f5b6fe4661a4558f15",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/legacy.pack"
+    },
+    "review/snapshot/S02-controls/wrapper-controls/review.json": {
+      "bytes": 9841,
+      "sha256": "65d98ea6bfd0378008f402a686773689a8b9c36c1b3668dd7f7bb8a0a8031392",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/S02-controls/wrapper-controls/review.json"
+    },
+    "review/snapshot/main/circuit_anneal_allnegative_shuffle-build.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/circuit_anneal_allnegative_shuffle-build.stderr"
+    },
+    "review/snapshot/main/circuit_anneal_allnegative_shuffle-build.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/circuit_anneal_allnegative_shuffle-build.stdout"
+    },
+    "review/snapshot/main/circuit_anneal_allnegative_shuffle.cpp": {
+      "bytes": 18882,
+      "sha256": "6717226e0fb1e0ed3a260e23aa0f162d2f8b3591a425798528194878d5f32bf7",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/circuit_anneal_allnegative_shuffle.cpp"
+    },
+    "review/snapshot/main/control-results.json": {
+      "bytes": 564,
+      "sha256": "25bc8b6c0c08b3c50c9e2dc444e5072960d788130c42f2a7d6f6e684cab31598",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/control-results.json"
+    },
+    "review/snapshot/main/integrated-wrapper-controls.json": {
+      "bytes": 521,
+      "sha256": "9e54f7ec1724d1e8ef6bf5cbab38ae0dae31bea58815054f9a9e8cae8ec5f944",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/integrated-wrapper-controls.json"
+    },
+    "review/snapshot/main/integration.json": {
+      "bytes": 910,
+      "sha256": "fd9c443477d1d40c7fb6d1fca66f057a032aaf695f942b78e0d026d166c5d659",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/integration.json"
+    },
+    "review/snapshot/main/source.diff": {
+      "bytes": 4034,
+      "sha256": "a0bf8d5e84929fd21690afa11e86267b538a6508eae7703b9c77aebf42805d26",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/source.diff"
+    },
+    "review/snapshot/main/test_shuffle-build.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/test_shuffle-build.stderr"
+    },
+    "review/snapshot/main/test_shuffle-build.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/test_shuffle-build.stdout"
+    },
+    "review/snapshot/main/test_shuffle.cpp": {
+      "bytes": 5571,
+      "sha256": "eede0cc28a00e9ad53c4b337f4bb59cd68484344e467e74f5fb9274135eaf12c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/test_shuffle.cpp"
+    },
+    "review/snapshot/main/test_shuffle.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/test_shuffle.stderr"
+    },
+    "review/snapshot/main/test_shuffle.stdout": {
+      "bytes": 363,
+      "sha256": "e09b3163b2ea6c5da7ffdfed6e6dab2b4009d5e50f701b068f93fba6878b6e35",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/test_shuffle.stdout"
+    },
+    "review/snapshot/main/test_vectors-build.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/test_vectors-build.stderr"
+    },
+    "review/snapshot/main/test_vectors-build.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/test_vectors-build.stdout"
+    },
+    "review/snapshot/main/test_vectors.cpp": {
+      "bytes": 1192,
+      "sha256": "f34369c5f6ce8993dcdddbf7c18aa35747c5163ddfae190e125ba92784a727ec",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/test_vectors.cpp"
+    },
+    "review/snapshot/main/test_vectors.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/test_vectors.stderr"
+    },
+    "review/snapshot/main/test_vectors.stdout": {
+      "bytes": 110,
+      "sha256": "6c7e2f75f42088b7da28f7ba2119fc8009bb1f8a737097aa62bc8b3ab57adb2a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/test_vectors.stdout"
+    },
+    "review/snapshot/main/wrapper-integrated-off/command.json": {
+      "bytes": 1092,
+      "sha256": "468cb9f51425fb4f463e1647c9132aeec7a04721d8c489405e793847706e8501",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-integrated-off/command.json"
+    },
+    "review/snapshot/main/wrapper-integrated-off/engine-result.json": {
+      "bytes": 859,
+      "sha256": "79dc99a97f756cac292a15ab96a632c25c1e3722d96014c57d3a089763f565db",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-integrated-off/engine-result.json"
+    },
+    "review/snapshot/main/wrapper-integrated-off/engine-result.json.best-0.json": {
+      "bytes": 875,
+      "sha256": "bd9d1f92bb52464a2f7200266c78df57bdc518ba40bbcb02ca783560ca08dc39",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-integrated-off/engine-result.json.best-0.json"
+    },
+    "review/snapshot/main/wrapper-integrated-off/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-integrated-off/engine.stderr.txt"
+    },
+    "review/snapshot/main/wrapper-integrated-off/engine.stdout.txt": {
+      "bytes": 179,
+      "sha256": "915cc80133f7eae9c744ac7a6943d98a10fbde75fddbeffe7e8884e934daf428",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-integrated-off/engine.stdout.txt"
+    },
+    "review/snapshot/main/wrapper-integrated-off/result.json": {
+      "bytes": 1664,
+      "sha256": "f1c9e31c135a762cdf2646ddcef262d93c68fca03a90bd3be55192422d9af65b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-integrated-off/result.json"
+    },
+    "review/snapshot/main/wrapper-integrated-on/command.json": {
+      "bytes": 1117,
+      "sha256": "6fc35771cf744b5d1b8914f6ff4e42ca7233a6d207ebfa18d02a6c08566df50b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-integrated-on/command.json"
+    },
+    "review/snapshot/main/wrapper-integrated-on/engine-result.json": {
+      "bytes": 859,
+      "sha256": "be6da4b518f21aae3aa5b977d293b8a2c5b793d28cdb9e40a4c295393536d6e5",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-integrated-on/engine-result.json"
+    },
+    "review/snapshot/main/wrapper-integrated-on/engine-result.json.best-0.json": {
+      "bytes": 875,
+      "sha256": "70b135deecc26abd8f44eb4cfa67e3c24c41b0de4411d8e3abfe74491534259e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-integrated-on/engine-result.json.best-0.json"
+    },
+    "review/snapshot/main/wrapper-integrated-on/engine.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-integrated-on/engine.stderr.txt"
+    },
+    "review/snapshot/main/wrapper-integrated-on/engine.stdout.txt": {
+      "bytes": 177,
+      "sha256": "3e9c7d97b6456143f7c506f0601d2d9df91b306623201986929bb176e3e6f41f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-integrated-on/engine.stdout.txt"
+    },
+    "review/snapshot/main/wrapper-integrated-on/result.json": {
+      "bytes": 1689,
+      "sha256": "78f96a82f8298db7c4fcd7ce95347c0bad1336b54c06d474eabc90d61d8e6665",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-integrated-on/result.json"
+    },
+    "review/snapshot/main/wrapper-off.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-off.stderr"
+    },
+    "review/snapshot/main/wrapper-off.stdout": {
+      "bytes": 131,
+      "sha256": "4e7b33b969e4d406cd8533b379f077185565df508c50db73adab41bda1822b43",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-off.stdout"
+    },
+    "review/snapshot/main/wrapper-on.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-on.stderr"
+    },
+    "review/snapshot/main/wrapper-on.stdout": {
+      "bytes": 130,
+      "sha256": "ee83cfc39e301d5ff78eba7724fcbc7356bc0b71599d1aba1826ac07ec8bd04e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/wrapper-on.stdout"
+    },
+    "review/snapshot/wrapper/review.json": {
+      "bytes": 9841,
+      "sha256": "65d98ea6bfd0378008f402a686773689a8b9c36c1b3668dd7f7bb8a0a8031392",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/wrapper/review.json"
+    },
+    "review/snapshot/wrapper/stochastic_tools_shuffle.derivation.json": {
+      "bytes": 1090,
+      "sha256": "4b8cfe11b124068108950d4d5a8146bb9b260d00c91ff938aa5b93f23d1e1cff",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/wrapper/stochastic_tools_shuffle.derivation.json"
+    },
+    "review/snapshot/wrapper/stochastic_tools_shuffle.diff": {
+      "bytes": 1116,
+      "sha256": "5624ce5c5f8a2f7836c7665ff49a70ab1df12b8094c63c19683ab3b3ee99d3ee",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/wrapper/stochastic_tools_shuffle.diff"
+    },
+    "review/snapshot/wrapper/stochastic_tools_shuffle.py": {
+      "bytes": 10663,
+      "sha256": "99c843f9a450c37c1c283d00684015269bd2eca091da3488e8d5811b6d934944",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/wrapper/stochastic_tools_shuffle.py"
+    },
+    "review/snapshot/wrapper/test_wrapper.py": {
+      "bytes": 5161,
+      "sha256": "d56ccba6dcdc57e6ce3f0d0243e3e437a5e52e230c6d64bb69132159f6fa8b2a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/wrapper/test_wrapper.py"
+    },
+    "review/snapshot/wrapper/wrapper-review.json": {
+      "bytes": 1652,
+      "sha256": "1c5f15d3a7f2f5a7b1d478d01d62cf58b43a4d3027804018d51e91dde3493157",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/wrapper/wrapper-review.json"
+    },
+    "review/wrapper-handoff.json": {
+      "bytes": 25907,
+      "sha256": "10043518f32118d067b0802cb8af64a752299b7db247f30a402d9759477efd4c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/wrapper-handoff.json"
+    },
+    "source-bindings.json": {
+      "bytes": 63034,
+      "sha256": "002da438600f7cc8ce432c42eba7b6ede627b10ae8b1f2cdca95b614e4441c01",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-preservation-v1/source-bindings.json"
+    },
+    "verify_package.py": {
+      "bytes": 2084,
+      "sha256": "d7b097ec1ec0d29c8cc0597d7e58b761a72fd246faadbffbf7c88a4cc4d9e3d1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-preservation-v1/verify_package.py"
+    }
+  },
+  "omitted_ELF_binaries": {
+    "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/independent_shuffle": {
+      "bytes": 875944,
+      "sha256": "44e9df5140775bcbc939d449192a192c6d6d08908d4f93a0753a52c95aa7df48",
+      "disposition": "omitted_ELF",
+      "reason": "Executable excluded; source/build logs/commands and exact reviewed binary hashes retained."
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/circuit_anneal_allnegative_shuffle": {
+      "bytes": 69448,
+      "sha256": "e67583803d64fcf68d585e58833eb2b9c13b246d420385e2cf0dd8cbac8eac6d",
+      "disposition": "omitted_ELF",
+      "reason": "Executable excluded; source/build logs/commands and exact reviewed binary hashes retained."
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/test_shuffle": {
+      "bytes": 241200,
+      "sha256": "14163613707e00fc0faa09d0390d60b66769336f801e1a98a6ef48d5bc152a35",
+      "disposition": "omitted_ELF",
+      "reason": "Executable excluded; source/build logs/commands and exact reviewed binary hashes retained."
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S08/combined-141-shuffle-review/snapshot/main/test_vectors": {
+      "bytes": 230288,
+      "sha256": "cc0f8774848e3a73cf31b71d78e9a9e93018648fe40eb2c59d6a67258e114969",
+      "disposition": "omitted_ELF",
+      "reason": "Executable excluded; source/build logs/commands and exact reviewed binary hashes retained."
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/all-negative-shuffle-v1/circuit_anneal_allnegative_shuffle": {
+      "bytes": 69448,
+      "sha256": "e67583803d64fcf68d585e58833eb2b9c13b246d420385e2cf0dd8cbac8eac6d",
+      "disposition": "omitted_ELF",
+      "reason": "Executable excluded; source/build logs/commands and exact reviewed binary hashes retained."
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/all-negative-shuffle-v1/test_shuffle": {
+      "bytes": 241200,
+      "sha256": "14163613707e00fc0faa09d0390d60b66769336f801e1a98a6ef48d5bc152a35",
+      "disposition": "omitted_ELF",
+      "reason": "Executable excluded; source/build logs/commands and exact reviewed binary hashes retained."
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/all-negative-shuffle-v1/test_vectors": {
+      "bytes": 230288,
+      "sha256": "cc0f8774848e3a73cf31b71d78e9a9e93018648fe40eb2c59d6a67258e114969",
+      "disposition": "omitted_ELF",
+      "reason": "Executable excluded; source/build logs/commands and exact reviewed binary hashes retained."
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/all-negative-engine-v1/circuit_anneal_allnegative": {
+      "bytes": 69312,
+      "sha256": "7d802a63b218449bd58178785a917a363edecedace5f65201344804dec3a3870",
+      "disposition": "omitted_ELF",
+      "reason": "Executable excluded; source/build logs/commands and exact reviewed binary hashes retained."
+    }
+  },
+  "direct_review_bindings": 199,
+  "active_output_read": false,
+  "solver_or_Lean_run": false
+}

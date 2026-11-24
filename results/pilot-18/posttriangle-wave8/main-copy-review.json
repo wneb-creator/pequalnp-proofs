@@ -1,0 +1,51 @@
+{
+  "status": "PASS_MAIN_DELIVERY_COPY_AND_ARCHIVE_HASH_REVIEW",
+  "utc": "2026-11-24T05:38:32.940980+00:00",
+  "handoff_sha256": "1107051b6b1d4f7e8d4c391ee6a3bde0fe6774ee1b2a64021d5253b9c8d51dbc",
+  "copied": [
+    {
+      "file": "posttriangle-preservation-v1.tar.gz",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/posttriangle-preservation-v1.tar.gz",
+      "bytes": 153531,
+      "sha256": "572ffe05a24e4f1408c2990e6c06ce6320416ce029155c67ee541873a223aa4a"
+    },
+    {
+      "file": "posttriangle-preservation-manifest.json",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/posttriangle-preservation-manifest.json",
+      "bytes": 74508,
+      "sha256": "098c08e6750738f7871afeb3260c8e02dd144959012deddbdca9cf981632355c"
+    },
+    {
+      "file": "posttriangle-verification.stdout",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/posttriangle-verification.stdout",
+      "bytes": 345,
+      "sha256": "29d62559df518f83332f33753b953dee952aefa45f4d9e7c078f8b41484170be"
+    },
+    {
+      "file": "posttriangle-verification.stderr",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/posttriangle-verification.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "verify_posttriangle_archive.py",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/verify_posttriangle_archive.py",
+      "bytes": 4166,
+      "sha256": "03f7c3f43a87a79d70dbfc6dd876bd3da159c1ad01dca8d808be00e584ff10c7"
+    },
+    {
+      "file": "preserve_posttriangle.py",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/preserve_posttriangle.py",
+      "bytes": 5700,
+      "sha256": "cbcabbc87214e4e786e053a20d08b119ac2fbb24a6fbdfa514b6172b6ddfadea"
+    }
+  ],
+  "tar_checks": [
+    {
+      "archive": "posttriangle-preservation-v1.tar.gz",
+      "members": 241,
+      "payload_hashes_checked": 240
+    }
+  ],
+  "scope": "Research partials only; no posted theorem, witness or global refutation."
+}

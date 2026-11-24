@@ -1,0 +1,30 @@
+{
+  "utc": "2026-11-24T05:27:52.098844+00:00",
+  "pid": 36540,
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S02/shuffle-engine-v1/stochastic_tools_shuffle.py",
+    "run",
+    "--engine",
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/all-negative-shuffle-v1/circuit_anneal_allnegative_shuffle",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/allnegative-best4-direct21-v1/direct-seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/shuffle-best4-candidate-134234",
+    "--seed",
+    "134234",
+    "--seconds",
+    "300",
+    "--iterations",
+    "2000000000",
+    "--restart",
+    "10000",
+    "--weight",
+    "16",
+    "--shuffle-restarts"
+  ],
+  "S08_review_sha256": "5146eb7ac9871706deee49391118489790dfaedd3ad7113a73b9d5e256826de3",
+  "pack_review_sha256": "3f0d68b87045b9a1bb42fe9a15d9d2c1aa4e25e0bffca93f4008b233f2563707",
+  "scope": "Reviewed141row/topologicalshuffle candidate-only pilot; full2048validator+Lean required"
+}

@@ -1,0 +1,105 @@
+{
+  "status": "PASS_MAIN_DELIVERY_COPY_AND_ARCHIVE_HASH_REVIEW",
+  "utc": "2026-11-24T05:38:32.962975+00:00",
+  "handoff_sha256": "9c1aeafad3facf190b6fda2fc7b9eb326c3c43768c9e994df1fbba30c0772a15",
+  "copied": [
+    {
+      "file": "gadget8-preservation-build.execution.json",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-build.execution.json",
+      "bytes": 240,
+      "sha256": "c06db5fb6175cd82a6294e14e5c8f743dd9ad0f03d29782d62744e696fe9b4a0"
+    },
+    {
+      "file": "gadget8-preservation-build.stderr",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "gadget8-preservation-build.stdout",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-build.stdout",
+      "bytes": 436,
+      "sha256": "7556c0cd9a0deffad520749333ab4f7b8147771c613bd18115d1ac8ece24464f"
+    },
+    {
+      "file": "gadget8-preservation-delivery-review.json",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-delivery-review.json",
+      "bytes": 1569,
+      "sha256": "3b754569dfe2f06c8680abfc6b2ce9fa3f5767d9e18f9bfdea9b902a43ff1072"
+    },
+    {
+      "file": "gadget8-preservation-delivery.execution.json",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-delivery.execution.json",
+      "bytes": 241,
+      "sha256": "bc125ce619b3e74bb61f1c818b771c85c55e78ccfb957a750bb602108f76570a"
+    },
+    {
+      "file": "gadget8-preservation-delivery.stderr",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-delivery.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "gadget8-preservation-delivery.stdout",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-delivery.stdout",
+      "bytes": 1569,
+      "sha256": "3b754569dfe2f06c8680abfc6b2ce9fa3f5767d9e18f9bfdea9b902a43ff1072"
+    },
+    {
+      "file": "gadget8-preservation-restore.execution.json",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-restore.execution.json",
+      "bytes": 431,
+      "sha256": "97424c497aaf5863c43d99c6a85488d6d99646d630848a31634a5605443850c4"
+    },
+    {
+      "file": "gadget8-preservation-restore.stderr",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-restore.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "gadget8-preservation-restore.stdout",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-restore.stdout",
+      "bytes": 261,
+      "sha256": "48297f9882b5db8bf3f526ffbb8c19bd0513372e9a68fffe057a202cf14a6a67"
+    },
+    {
+      "file": "gadget8-preservation-v1-manifest.json",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-v1-manifest.json",
+      "bytes": 108133,
+      "sha256": "8202ccf2dfb057ef35a7390bcc7b4c39d2e201202160b85fec12d979eded7e76"
+    },
+    {
+      "file": "gadget8-preservation-v1.tar.gz",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-preservation-v1.tar.gz",
+      "bytes": 163023,
+      "sha256": "a261356299baa8fc7f987a4fb89d96c03e742c0ea7f4fd30ee573768bb9f1b2b"
+    },
+    {
+      "file": "package_gadget8_archive.py",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/package_gadget8_archive.py",
+      "bytes": 8093,
+      "sha256": "230cdfffb99de69ceed772aefa72eaf8ea342bbeed10618db5ce0c997d6ffe06"
+    },
+    {
+      "file": "restore_gadget8_archive.py",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/restore_gadget8_archive.py",
+      "bytes": 4007,
+      "sha256": "f6968e3223ee14c6bb626e332ed162a52f5847f77a64973dbb9c7ab0bded4487"
+    },
+    {
+      "file": "verify_gadget8_delivery.py",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S06/verify_gadget8_delivery.py",
+      "bytes": 3942,
+      "sha256": "c7aafa720f4888979cddfd37c61ee63328afe70e561643db8846d41d0c299362"
+    }
+  ],
+  "tar_checks": [
+    {
+      "archive": "gadget8-preservation-v1.tar.gz",
+      "members": 198,
+      "payload_hashes_checked": 197
+    }
+  ],
+  "scope": "Research partials only; no posted theorem, witness or global refutation."
+}

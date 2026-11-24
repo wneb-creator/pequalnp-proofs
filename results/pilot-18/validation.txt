@@ -63,7 +63,7 @@ SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 6 inherited-model agents, ultra effort: structural proof, SAT repairs, finite Lean certificates, CNF red-team review, solver performance, integration review
-TIMING total=306.9 subagents=6
+TIMING total=325.5 subagents=6
 
 Candidate neighborhoods: 144 independently reviewed formulas preserve prefixes
 of exact 22-gate cover constructions and search arbitrary shorter completions.
@@ -145,3 +145,16 @@ are retained. k3/r0=258,k4/r0=112 and other mixed cases remain open. These
 finite/mathematical exclusions are not a Lean global refutation or shard
 exhaustion. NamedLean2069lines/hashunchanged, buildPASS remainsvalid,
 postedcheckerNOTRUN, cleanupinapplicable, noPR.
+
+Research checkpoint near05:43UTC: all completed best4 core repairs and shuffled
+141-row runs remainUNKNOWN. The generic8/g12 retained-proof search endedUNKNOWN
+after74.4seconds at256MiB proof cap with no solver verdict; the incomplete
+trace is not a certificate. Complete finished logs, source archives and
+portable reconstruction recipes are preserved in wave8.
+Generic7 encoding and its10-gate full11 extension passed independent full128/
+full2048 checks. Independently reviewed SAT-only Kissat searches now run on
+generic7/g11 andgeneric8/g12 without proof generation; UNSAT would remain
+uncertifiedUNKNOWN. Two fresh low-positive-weight shuffled annealers also run.
+No exact21 witness or global refutation exists. NamedLean2069lines unchanged;
+buildPASS and standard-axiom audits remain valid. PostedcheckerNOTRUN because
+the module-named theorem is absent; cleanupinapplicable, noPR.
