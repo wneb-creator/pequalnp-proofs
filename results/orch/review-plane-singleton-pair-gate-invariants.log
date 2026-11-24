@@ -1,0 +1,4 @@
+2026-11-24T11:17:54.430818+00:00 Independent incremental source/math/provenance/format review by gate_invariants: PASS.
+PlaneSingletonPair.lean SHA17b746d4482e90f298e7b6fec2f7bd10a791e979ee286c35c4805aa4c0875b35,10455lines516343bytes.
+All3source hashes verified; exact reviewed SingletonPairColorLowerBound prefix, checked geometry substring,and25line wrapper suffix. Manifest445declarations0duplicates0conflicts. Wrapper directly specializes E+tau<=size+1 with planeE105,cover21,C4 andcheckedFin2color to125<=size. It retains exact2 distinct dirty gates,firstlayer,disjoint sides,bothsingleton side0,equal/opposite-color pivots,and no productive joint. No assumption removed implicitly.
+Forbidden scan clean. Author001exit0 accepted,log0errors92inherited warnings,no rebuild.

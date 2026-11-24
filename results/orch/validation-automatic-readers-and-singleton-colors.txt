@@ -1,0 +1,17 @@
+PARTIAL RESULTS ONLY. Exact gap L-meta-1477 remains unproved.
+Named-file checker remains REJECTED (no-theorem); no proof PR opened.
+All bounds retain their explicit restricted circuit hypotheses. Shared-mask local exchange is not a simultaneous exchange theorem.
+
+SingleCommonFilterAutomatic.lean lines=9619 bytes=478556 SHA256=7e42c2a1f8cdbbb35c887eec613c1db0734d061bfdedb66fab0dfdee0e506ec8; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/single-common-filter-automatic-build-001.log
+SingletonCommonFilterGeneral.lean lines=201 bytes=10104 SHA256=89c9a1c5db9c7e96a9ce53b24cdd9b0f62d9e247a12166d3f8cc029c97d867ab; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/singleton-common-filter-general-build-001.log
+SingletonPairColorLowerBound.lean lines=10200 bytes=504526 SHA256=93085602802ac1a222866b49dffe03fb658254a5aeb22bba0584212db3257e48; author build EXIT0; independent review PASS by gate_invariants; full log=results/orch/singleton-pair-color-lower-bound-build-002.log
+SingletonPairAccounting.lean lines=10377 bytes=513924 SHA256=147d7b3216abdf9d6caf80fa3d671cbaf339011309e96ce3d9c07901a1bfba21; author build EXIT0; independent review PASS by gate_invariants; full log=results/orch/singleton-pair-accounting-build-001.log
+PlaneSingletonPair.lean lines=10455 bytes=516343 SHA256=17b746d4482e90f298e7b6fec2f7bd10a791e979ee286c35c4805aa4c0875b35; author build EXIT0; independent review PASS by gate_invariants; full log=results/orch/plane-singleton-pair-build-001.log
+TwoCentersDisjoint.lean lines=542 bytes=27216 SHA256=6bf9905a2e9b44d710ca4f613bcea430a3a142bb720cb4bee50fd8ff88567858; author build EXIT0; independent review PASS by root; full log=results/orch/two-centers-disjoint-build-001.log
+SingletonSameColorDrop.lean lines=157 bytes=7174 SHA256=2523bf585cef56a9061639ced0563df36b4e58c1098cf51c97a34f9dc6143bba; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/singleton-same-color-drop-build-003.log
+alternative6-run-009: 57 manifest entries rechecked; independent review PASS by counterexample_search; no target witness. Completed009 best29, not28; Pairs package contains source/calibration only.
+alternative6-pairs: 8 manifest entries rechecked; independent review PASS by status_audit; no target witness. Completed009 best29, not28; Pairs package contains source/calibration only.
+
+Cleanup: exact theorem unavailable; capped cleanup pass not triggered. Named-file lines unchanged10143 before/after.
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=311.6 subagents=6

@@ -1,0 +1,3 @@
+PASS basis254/raw88,48baselines 41 valid 7 INVALID;144physical expansions 36576 augmented scalar checks; exact dynamic negative weight24/230
+source 21805314884f9dfdd10b2b3940c8efc8e549392ac33ef69d8fe3bb0d28506525
+problem c269a4cef111f5e47f64a6db3f8a4de880cf94c683c1f9421732580b0a4b3563

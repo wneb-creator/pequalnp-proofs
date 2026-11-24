@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "package": "results/orch/alternative6-pairs",
+  "manifest_files": 8,
+  "review": "All manifest hashes/bytes, exact reviewed sources, self-contained imports and README/calibration scopes checked. Source21805314884f9dfdd10b2b3940c8efc8e549392ac33ef69d8fe3bb0d28506525, problemc269a4cef111f5e47f64a6db3f8a4de880cf94c683c1f9421732580b0a4b3563. Independent144physical/36576augmented scalar calibration passed; full raw88 witness verification unchanged."
+}

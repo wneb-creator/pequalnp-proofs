@@ -1,0 +1,45 @@
+{
+  "frozen_at": "2026-11-24T11:17:34.555012+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "bc0e28e6f800c60af09afa848ccde474539941c73b0ee6092f7233d1478199ee",
+      "bytes": 1551
+    },
+    {
+      "file": "SearchAlternative6PairProblem.py",
+      "sha256": "c269a4cef111f5e47f64a6db3f8a4de880cf94c683c1f9421732580b0a4b3563",
+      "bytes": 926
+    },
+    {
+      "file": "SearchAlternative6Problem.json",
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+      "bytes": 2275
+    },
+    {
+      "file": "SearchAlternative6Problem.py",
+      "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+      "bytes": 925
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticAlternative6Pairs.py",
+      "sha256": "21805314884f9dfdd10b2b3940c8efc8e549392ac33ef69d8fe3bb0d28506525",
+      "bytes": 27712
+    },
+    {
+      "file": "alternative6-pairs-calibration-001.log",
+      "sha256": "5d748b695acec84b04403d309dfbd65153d482931b9352538ef86b3593885a4d",
+      "bytes": 374
+    },
+    {
+      "file": "review-alternative6-pairs-status-audit.log",
+      "sha256": "a6a270a3ccf7d7c11a7acc79c8d2f8fe3f4d3ceecf6f0e8528c3d31f73161931",
+      "bytes": 286
+    }
+  ]
+}

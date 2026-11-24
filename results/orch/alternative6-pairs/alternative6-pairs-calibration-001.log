@@ -1,0 +1,3 @@
+{"counts": {"invalid": 13, "physical": 384, "raw_scalar": 8448, "search_scalar": 97536, "valid": 83}, "negative_scale": 0.10434782608695652, "tests": 254, "verdict": "PASS"}
+SearchAlternative6PairProblem.py c269a4cef111f5e47f64a6db3f8a4de880cf94c683c1f9421732580b0a4b3563
+SearchStochasticAlternative6Pairs.py 21805314884f9dfdd10b2b3940c8efc8e549392ac33ef69d8fe3bb0d28506525
