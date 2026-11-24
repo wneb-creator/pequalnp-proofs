@@ -36,3 +36,7 @@
 - 2026-11-24 03:57:26 UTC — FirstAnd normalization and PairSurcharge compiled, independently approved, and copied for preservation. No exact39-gate theorem yet.
 
 - 2026-11-24 04:05:24 UTC — Preserving reviewed NineOrdinary/FourBound/MissingRawWitness: a hypothetical circuit below39 gates must have at least five nonordinary outputs. Exact statement remains open.
+
+- 2026-11-24 04:14:35 UTC — Second replan: focus complete five-output incidence proof; schedule diagnostic533 for fanout1 and prepare disconnected-template replacement for fanout2. Exact theorem remains open. Next review 04:39 UTC.
+
+- 2026-11-24 04:15:45 UTC — Preserving reviewed abnormal-output restrictions, Clamp11, and five-output compiler components. Exact statement remains unproved.

@@ -56,7 +56,7 @@ Every compiled result is preserved promptly on the fork after independent review
 
 ## Next replan
 
-Next review at 04:13 UTC. The first 25-minute review completed at 2026-11-24 03:48:05 UTC. Continue 20–30 minute replanning thereafter. Overall job started at 01:28:21 UTC; the approximate six-hour budget ends at 07:28 UTC.
+Next review at 04:39 UTC. The first 25-minute review completed at 2026-11-24 03:48:05 UTC. Continue 20–30 minute replanning thereafter. Overall job started at 01:28:21 UTC; the approximate six-hour budget ends at 07:28 UTC.
 
 Sub-agents: counterexample_search, formal_baseline, fresh_proof, lease_timer, lower_bound, special_status, toolchain_setup.
 TIMING total=115 subagents=7
@@ -387,3 +387,90 @@ At root's request, prepared but did not encode or launch search/cegis-collective
 ## 2026-11-24T04:02:47.613184+00:00 — formal_baseline: five-output compiler draft
 
 Read refreshed notes/index and followed root's next assignment. ResidualFamily.lean now drafts the generic append-complement induction step and small_five_nonordinary (<=14-gate five-output residual). FiveReduction.lean drafts general deleted-OR-pair extraction with dynamic false padding, the generic other-sink cut cardinal bound, and a conditional compiler reduction to five globally nonordinary OR pairs over<=9 internal gates. The crucial raw-line-in-essential-set premise remains explicit; lower_bound's fixed-P/E surcharge/Clamp11 proof will supply it. Both drafts are uncompiled and await the serialized slot after Fresh/toolchain. The full five-parent-incidence impossibility theorem remains separate and unproved.
+
+## 2026-11-24 04:05:54 UTC — fresh_proof
+
+AbnormalAnd.lean compiled exit0 with an empty abnormal-and-build-003.log. Source SHA256 8391004979ba1caf01a54eb04e9cdbde4b294a4dbf9fb8d1b128f4210ee6e53a. Root, reviewer, and the next build owner were notified immediately. PositiveCertificate.positive_components is a weighted component invariant charging only AND gates; small_positive_certificate gives a true support contained in any supplied true input, with cardinal at most the global AND count plus1. abnormal_and_lower proves that a band-correct output true at Global.Zof(Global.line w) requires at least8 AND gates. It handles shared DAGs, repeated/invalid reads, and nullary/unary gates. This is a checked structural restriction, not the39-gate theorem. The single build slot is released for ExcessSupport, then Clamp11.
+
+## 2026-11-24 04:06:42 UTC — special_status: witness, certificate and diagnostic reviews
+
+Approved MissingRawWitness.lean (SHA2560d0f456a691d97fd685cddcedccff30a49bbd1387099e08cd29a78707b64e1ae): under its explicit fixed P/E hypotheses, E cardinality at most11 and a missing raw line coordinate imply at most two raw coordinates and nine distinct paid pair-core witnesses. Positive seven-true and negative eight-outside rows, exact two-point core extraction, and injectivity are correct. Neither P nor E is changed. This remains the witness component of the five-exception argument, not the full bound.
+
+Approved AbnormalAnd.lean (SHA2568391004979ba1caf01a54eb04e9cdbde4b294a4dbf9fb8d1b128f4210ee6e53a), empty successful log. Its generic positive-component invariant yields a certificate of cardinality at most ANDcount+1, and an output true at its own line complement therefore needs at least eight AND gates. Constants, unary gates, repeated operands and invalid reads are covered; format checks pass. The posted39-gate theorem remains absent.
+
+Approved collective533 diagnostic preparation (SHA256915e245b1e6be575c4449e4999494f61bfdd507a5be90eff89b12768fb193aad). Actual diff removes all full-band-only guards and off-band additions. Dual first-AND roots, sink normalization, live padding, first-pair/order symmetry and four essential raw inputs hold on the explicit533-row domain. Scalar checks cover the diagnostic,65 derivative rows,8192 global-upper rows and3003 actual-band rows; only zero actual-band errors produce counterexample.json. Scope is a restricted auxiliary/global-upper problem, not an unrestricted gap encoding. No encoding or solver was launched for this review.
+
+## 2026-11-24 04:06:48 UTC — toolchain_setup: ExcessSupport compiled
+
+Scratch research2/ExcessSupport.lean compiled exit0 with an empty excess-support-build-002.log. Band correctness plus truth at the line-complement forces every support set to be all13 raw inputs; APIs expose support_univ, mem_support, support_card, and raw_essential for Cut.essential with13 independent raw sources. Binary circuits and valid prefixes computing such an output have at least12 gates. Conversely, support size at most12 forces falsity at the line-complement, and monotonicity then gives a global upper bound by the line OR. No finite enumeration was added. Source frozen and root/reviewer notified immediately; independent review is pending. Build slot released to lower_bound.
+
+## 2026-11-24 04:07:09 UTC — counterexample_search: both replacement options reviewed and frozen
+
+The533-row collective diagnostic passed independent review, including its restricted-domain AND-root/sink/live/order/first-pair normalizations. Source hash remains915e245b1e6be575c4449e4999494f61bfdd507a5be90eff89b12768fb193aad. It retains no full-band-only guards.
+
+The strengthened graph-five source also passed independent review, SHA25671d9145fdc694745f1090acdec636a15efee5a27aed61edc103cbbe1c03ceb84. Checked NineOrdinary plus eight fixed direct ordinary outputs forces all five residual outputs nonordinary. Exact complement/singleton clauses enforce this, and exact syntactic support clauses require at least8points for each. Forty independent fixed-network CNF/scalar tests passed (20accepted,20rejected). Original graph-five remains frozen unchanged.
+
+Both options now have immutable dependency snapshots/manifests under their unique scratch artifact directories, collective-diagnostic533/encoding-source and symbolic-graph-five-strong/encoding-source. Neither encoder nor solver has launched; root will decide at04:13. Current five long queries remain unchanged.
+
+## 2026-11-24 04:07:21 UTC — special_status: strengthened template and excess support
+
+Approved strengthened graph-five preparation, SHA25671d9145fdc694745f1090acdec636a15efee5a27aed61edc103cbbe1c03ceb84. Eight fixed ordinary outputs plus NineOrdinary force all five residual outputs nonordinary; the support theorem then gives at least eight raw support points. Added support clauses, exact own-complement/singleton evaluations (including prepared OR ports), and nonglobal disjunction signs are correct. Forty fixed-network propagation/scalar checks agree:20accepted and20rejected. Existing graph-template restrictions remain explicit; no encoding or solver launch occurred.
+
+Approved ExcessSupport.lean, SHA2560db4fa811a95dc9866c8aedc5266638ce7d929a86a1ded46a7b990b587d7bc42, empty successful log. An abnormal own-complement value forces every outside raw point essential by comparison with the corresponding five-zero band row; the four line points are already necessary by band correctness. Thus every genuine support is all13 points, with no monotonicity assumption needed for this necessity. The cardinality and circuit/prefix lower bounds of12 correctly use the checked cut-component support bound. Monotonicity is added explicitly only to derive the global upper bound from a false own-complement value. Format checks pass; this remains a necessary-condition component, not the full39 theorem.
+
+## 2026-11-24 04:07:45 UTC — special_status: upstream status refresh
+
+Fully paginated read-only GitHub searches found zero PR titles matching exact L-meta-1024 or broader1024, zero corresponding commit-message matches, and zero default-branch commits touching lean/PEqualNP/Outside/L_meta_1024.lean. Structured JSON shapes, complete total counts and incomplete_results were checked; all five calls exited0 with empty stderr. Full stdout/stderr/status files are under scratch status-review-0408. These checks found no accepted proof/refutation; no lease or repository state was changed.
+
+## 2026-11-24 04:08:08 UTC — special_status: replacement-query archive review
+
+Approved search/orch-package-0410 for metadata preservation: all8 manifest entries and23,795bytes match hashes and scratch originals; both frozen dependency manifests match actual archived0326/0349 sources byte-for-byte. Safe paths, Python syntax and credential-pattern checks pass. README correctly distinguishes prepared/no-result state, the restricted K4-minus-edge template, and the auxiliary533-row/global-upper diagnostic. No complete-gap result is claimed.
+
+2026-11-24 04:08:14 UTC — counterexample_search: the independently approved8-file preparation supplement was copied verbatim to results/orch/search/0410. Root can stage its manifest-listed paths plus manifest.json. No child commit/push. All five current queries remain unresolved; no replacement launched yet.
+
+## 2026-11-24T04:08:24.873195+00:00 — formal_baseline: five-parent rank diagnostics
+
+Short random diagnostics sampled connected five-edge parent graphs, using four ordered high vertices and up to five distinct low vertices, with repeated actual low wires represented by the same vertex. For vertex v, required T_v is the union of L\M over an incident output edge(v,u,L) and every other output edge at u carrying M. Making every T_v a raw-variable clique gives a necessary component rank. No survivor occurred in169,152 connected samples against the global bound9 (prefix bounds were unnecessary). This is empirical support only, not a finite theorem.
+
+Disconnected2+3 shapes do survive all prefix bounds: edges[(2,4),(3,4),(0,8),(1,8),(3,5)], lineIds[8,4,2,12,11], required masks[2088,4353,2816,161,49,6146,0,0,0], ranks[4,6,7,8,9] at capacities[5,6,7,8,9]. Ten such survivors appeared among453 samples. No Boolean functions or band-correct circuit were constructed; this only shows the necessary rank constraints are insufficient. Sources and complete JSON/logs are baseline/five_rank*_diagnostic.py and five-rank-*-diagnostic.* in scratch. Fresh/root/lower were informed.
+
+Tree saturation alone also cannot force ordinary behavior: OR of three line inputs, ORed with (fourth line input AND OR of four foreign inputs), is a7-gate read-once nonordinary output matching the band. The missed assignments have at least7false bits. Additional multi-output constraints are required.
+
+## 2026-11-24 04:09:27 UTC — lower_bound: fixed-budget Clamp11 compiled
+
+Clamp11.lean compiled exit0 on attempt2, with an empty complete success log lower-bound/clamp11-build-002.log. Frozen source SHA256 153c44a359d4d618daa2327c7d375404a1629c61cb04b6f2a5cb5e5f45322b0b; the added fragment is lower-bound/Clamp11Extra.txt, following unchanged reviewed PairSurcharge and MissingRawWitness prefixes. Main missing_raw_impossible and raw_line_members assume eight globally ordinary owner lines, target outside that family, P equal to their full charge-family union, the SAME E/P satisfying card E + card P <=35, and explicit cut-function monotonicity/support/band-correctness/source-classification hypotheses. The proof obtains P>=24/E<=11, nine injective paid pair-core witnesses, a repeated owner, surcharge P>=25/E<=10, and a second missing raw point whose six-zero separating row kills both owner witnesses. The eight-positive-frontier contradiction proves every raw target-line coordinate lies in E. Root and reviewer were notified immediately; the single build slot is released to formal_baseline. This completes the paid-source tightening, not the remaining five-output parent-incidence obstruction or the posted theorem.
+
+## 2026-11-24 04:10:22 UTC — counterexample_search: next replan snapshot
+
+- fanout0: solver20167 stateR; RUNNING elapsed 2884 freeGiB 12.46 proofMiB 156.5; events=[].
+- fanout1: solver20169 stateR; RUNNING elapsed 2884 freeGiB 12.46 proofMiB 152.8; events=[].
+- fanout2: solver20171 stateR; RUNNING elapsed 2884 freeGiB 12.46 proofMiB 154.5; events=[].
+- normal: solver20458 stateR; RUNNING elapsed 2829 freeGiB 12.46 proofMiB 65.8; events=[].
+- ORfull: solver24948 stateR; RUNNING elapsed 1272 freeGiB 12.46 proofMiB 22.8; events=[].
+
+Cgroup current=13.37GiB/16GiB, anonymous=4.35GiB; diskfree=12.45GiB. OOM counters unchanged. Both reviewed, snapshotted replacement options are ready (strong graph-five and diagnostic533); neither has launched. Root owns authorization, fresh renewal, and memory-slot sequencing.
+
+## 2026-11-24 04:13:12 UTC — special_status: Clamp11 approval and replan assessment
+
+Approved Clamp11.lean (SHA256153c44a359d4d618daa2327c7d375404a1629c61cb04b6f2a5cb5e5f45322b0b),710lines, empty successful log. Prior reviewed PairSurcharge and MissingRawWitness bodies are exact unchanged substrings; new suffix exactly matches Clamp11Extra. The SAME P/E are retained through P>=24/E<=11, nine paid witnesses, owner collision, shared-core surcharge P>=25/E<=10, and the second missing raw point. Its seven-true separating row kills the two distinct owner coordinates, yielding the checked eight-positive-frontier contradiction. Assumptions are explicit; only the permitted heartbeat limit is added.
+
+Replan assessment: the k5 paid-source bridge is now checked. The remaining k5 obstruction is complete parent-incidence coverage and impossibility for five nonordinary, globally bounded, band-correct OR pairs over at most nine internal gates. The K4-minus-edge template is not all cases. Completing this step would force at least six nonordinary outputs in any circuit below39 gates, still short of the unrestricted theorem. The separate collective-avoidance/cycle-space route still lacks its rank/uncrossing bridge; individual shared-gate bypass alone is known insufficient. Reviewed archives preserve these scopes accurately.
+
+## 2026-11-24 04:13:40 UTC — special_status: residual and five-output compiler review
+
+Approved ResidualFamily.lean (SHA256d39073702c89824659f8ca5f5f1b6000bd3cb7e7281c45818aa344a562c50d47) and FiveReduction.lean (SHA2565e2aa822520458324ae9387089af094cbf951157294335eb2454616f6e19bb6d). Each is exactly its reviewed prefix plus the named new suffix; successful logs contain31 harmless warnings and no errors. ResidualFamily correctly appends the complement family, preserves valid old outputs, and applies its explicit previous-bound premise; the five-output specialization uses NineOrdinary. FiveReduction correctly handles invalid/self/forward reads through dynamic false padding, bounds essential support after cutting other sinks, clamps paid sources, preserves OR roots, and deletes at least29 gates to leave at most9 internal gates. Its five residual OR-pair functions remain band-correct, globally bounded and globally nonordinary. Paid-family count/outside witnesses/disjointness and raw-line membership are still explicit hypotheses, pending the owner-family wrapper. Allowed heartbeat option only; no exact theorem claim.
+
+## Replan 2 — 2026-11-24 04:14:35 UTC
+
+Reviewed the shared notes and independent assessment.
+
+- Completed since the previous review: unrestricted nine-ordinary bound (at least five nonordinary outputs in any smaller counterexample), general OR-sink normalization, fixed-set Clamp11, generic positive-certificate bound, abnormal-output eight-AND bound, and abnormal-output thirteen-input support. These are compiled partial results; exact statement remains open.
+- formal_baseline will finish the unconditional eight-ordinary reduction to five nonordinary, globally bounded OR pairs over at most nine internal gates. fresh_proof handles all remaining five-parent incidence shapes, including disconnected cases and forest-saturation guards. lower_bound supports the connected-shape and fixed-budget lemmas. The five-output impossibility theorem is still missing.
+- Keep the global normal-output route separate. Individual nondomination/OR packing and abstract pairwise rank conditions are insufficient. toolchain_setup is checking primary literature and actual gate/graph realization constraints; no global-to-band normalization may be assumed.
+- Retire fanout case1 in favor of the reviewed 533-row diagnostic after the current Lean build batch; preserve the interrupted run completely. Keep fanout0, fanout2, normal-dual, and full OR-sink queries for now. Prepare a new disconnected2+3 parent-template search matching the proof obstruction, then independently review it before replacing fanout2. The already reviewed K4-minus-edge query remains unlaunched because that connected template is mathematically excluded by the new reduction plus rank counting.
+- Keep one Lean build or large encoder admitted at a time. Root owns renewals and submission. Continue immediate reviewed preservation of successful sources and complete logs.
+- Next review: 04:39 UTC. Approximate overall deadline remains07:28UTC.
+
+## 2026-11-24 04:15:39 UTC — toolchain_setup: bounded primary-source research
+
+Completed the requested bounded built-in-web literature check; no shell fetches or writes to external sites. Exact source URLs, read date2026-11-24, short quotes, verified claims, and proposed applications are in scratch research2/literature_2026-11-24.md. Read primary papers by Sokolov, Jukna, Wegener, and Grigor'ev. No ready theorem closes the normal-output selected-DAG inequality. Proposed next restricted case is global minimum-formal-degree pruning under squarefree four-leaf certificates; arbitrary repeated certificates remain unresolved. Normal-output scope is explicit.

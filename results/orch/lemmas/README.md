@@ -40,3 +40,9 @@ Put new stable, compiled components here only after review. Work in an individua
 - `FourBound.lean`: checked and reviewed 39-gate bound for nine ordinary outputs and four OR sinks.
 - `NineOrdinary.lean`: checked and reviewed removal of those root/sink hypotheses; any counterexample below39 gates has at least five globally nonordinary outputs.
 - `MissingRawWitness.lean`: checked and reviewed fixed-set witness lemma supplying at most two raw sources and nine distinct paid pair-core witnesses when a required raw point is missing.
+
+- `AbnormalAnd.lean`: checked/reviewed positive-certificate bound and eight-AND necessity for an abnormal output.
+- `ExcessSupport.lean`: checked/reviewed thirteen-input support and twelve-gate-cone necessity for an abnormal output.
+- `Clamp11.lean`: checked/reviewed fixed-paid-family raw-source inclusion for the five-exception budget.
+- `ResidualFamily.lean`: checked/reviewed append-complement induction helper and five-output nonordinariness.
+- `FiveReduction.lean`: checked/reviewed conditional reduction to five nonordinary, globally bounded OR pairs over at most nine internal gates. Its remaining paid/raw hypotheses are explicit.
