@@ -3,3 +3,5 @@ Lean4.36.0 compile: exit0. Independent recompile/review: PASS.
 Full candidate still compiling.
 Sub-agents:6 (checker review, sibling adaptation, counterexample search, structural audit, toolchain setup, certificate optimization)
 TIMING total=8.1 subagents=6
+Core2194-line prefix: Lean exit0. Grouping/Rule487-line extraction: Lean exit0. Independent source-extraction review: PASS.
+Full lower-bound certificate remains pending.

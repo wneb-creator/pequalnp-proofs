@@ -58,3 +58,29 @@ Scratch convert_core.py ports Live, Reach, Run to Church encodings borrowed from
 ## checker_review — 2026-11-24T23:18:46.102662+00:00 — partial artifact review
 
 Mask.lean SHA256 `4d0b357bc4e1ff983584f84de5127c072abb4ca73c256d49d2f4bcea8b88bbc3` independently compiled under Lean 4.36.0 with exit 0. It proves the optimized mask-cons equation by eight Boolean cases; no proof holes or kernel bypass. Its compile log has only an exponentiation-threshold warning. Mask source/log and notes/timeline passed credential-pattern inspection. Approved only for clearly labeled partial artifact preservation, not as the posted gap proof or PR.
+
+## Certificate optimization (2026-11-24 23:20:27 UTC)
+
+Decoded all 3,442 rank checks in public PR10495; Python confirms each explicit constraint set is unsatisfiable. Existing rank variable order explores213,690 labels; greedy order181,008, but extra ordering cost makes this unlikely useful.
+
+A checked helper proves skipping identity bitwise intersections in FrontRanks.mask preserves semantics. Isolated512-row interleaved benchmarks: [{"name": "maskOld", "exit": 0, "cpu": 4.479641, "system": 0.490508, "wall": 8.002898591999951}, {"name": "mask", "exit": 0, "cpu": 3.162993, "system": 0.21117199999999997, "wall": 6.321900516999904}, {"name": "mask", "exit": 0, "cpu": 4.093433, "system": 0.382578, "wall": 10.321932280000055}, {"name": "maskOld", "exit": 0, "cpu": 4.523508000000001, "system": 0.3358460000000001, "wall": 7.104607616000067}]
+
+Optional patch: /tmp/oec/pequalnp-pilot-46/optimization/skip_identity.py; not applied to full candidate. No full-proof runtime claim. Core helper Mask.lean compiles with Init using Lean4.36; this is only a partial lemma, not gap1677.
+
+## checker_review — 2026-11-24T23:20:35.575552+00:00 — adapted full source
+
+Independent source review PASS for SHA256 `330e4b55a2d556c1acb6dccc58952a95c09e5e2c701a46c348b40ac44f48501a` (522178 bytes,5995 lines). Entire normalized diff reviewed: Church eliminators, tuple/subtype/Sum encodings and projections, constructor rewrites, duplicate-proof aliases. All249 hexadecimal certificate literals unchanged; final posted statement exact; full guard PASS; no custom datatypes, attributes, prohibited shortcuts, declaration shadowing, or credentials found. IndexTree changes to flat-list lookup, so concrete certificate evaluation must validate the new lookup behavior; its generic soundness still rests on read_mem. Full build and kernel checker acceptance remain pending. Any source hash change requires incremental review.
+
+## Structural conversion verification — 2026-11-24T23:20:36.758118+00:00
+
+Grouping/Rule conversion passed isolated Lean compile (exit0) of actual Grouping, Rule, checksRule_sound, Digits.compile_sound, rankCheck_sound, rankHuffCheck_sound and their prerequisites; only existing unused-simp warnings. No corrective patch needed. Full main candidate build remains authoritative. Log: `/tmp/oec/pequalnp-pilot-46/structural/GroupingRuleTest.log`.
+
+## sibling_proof — 2026-11-24T23:20:43.609686+00:00 — generic prefix compiled
+
+The transformed 2194-line generic prefix compiled successfully (exit 0) with the pinned Lean toolchain and built Defs. This validates Church Live/Reach/Run, their updated induction/elimination proofs, BoundPool products, and Forest Sigma/subtype representation before certificate data. Full stdout/stderr is sibling/prefix.log under the job scratch directory. Separately, a balanced IndexTree implementation using only a subtype of List × lookup function compiled successfully; optional snippet sibling/index_tree.txt preserves original pivot lookup semantics and avoids linear list lookup. Root owns integration and full-file validation.
+
+## checker_review — 2026-11-24T23:21:29.679991+00:00 — second checkpoint
+
+GO for preservation checkpoint. Prefix.lean (`75fa93700d2e416b53a8b1748b8f99e6fdf6c9dde9a617fb1536e8c5e0ecf496`) is exact full-source prefix plus namespace closure. GroupingRuleTest.lean (`7e4399da35697eaae66791f6f318e1e7fb9e032eac57e9d2839b4d8589f2ee62`) is an ordered extraction of reviewed source with only the broader Mathlib dependency added. Both logs contain warnings and no errors, consistent with reported exit0. No prohibited proof holes or credentials found. Full source hash unchanged from previous review; preserve it explicitly as pending certificate, not a checked full proof.
+- Counterexample search completed without a result: Z3 returned UNKNOWN at its five-minute limit; CaDiCaL reached its five-minute wall-time limit without SAT or UNSAT. Both solver processes have exited. These runs do not justify an exhaustion claim. Complete generated formulas and solver logs remain under /tmp/oec/pequalnp-pilot-46/counterexample/.
+- The tight 16-gate witness was independently revalidated with a second Boolean-tuple enumeration implementation over all 512 assignments, also checking gate indices and the shard-6 prefix. No counterexample to the posted lower bound was found.

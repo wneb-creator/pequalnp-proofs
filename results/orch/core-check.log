@@ -1,0 +1,220 @@
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:22:5: warning: Variable name `P` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _P
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:22:10: warning: Variable name `f1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:22:13: warning: Variable name `f2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:86:82: warning: This simp argument is unused:
+  BitVec.or_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, Bool.false_eq_true, ite_false, ite_true, BitVec.and_allOnes, BitVec.and_zero,
+    BitVec.or_allOnes, BitVec.and_self, BitVec.or_self, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:86:97: warning: This simp argument is unused:
+  BitVec.and_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, Bool.false_eq_true, ite_false, ite_true, BitVec.and_allOnes, BitVec.or_zero,
+    BitVec.or_allOnes, BitVec.and_self, BitVec.or_self, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:86:172: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:86:172: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:264:5: warning: Variable name `P` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _P
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:264:10: warning: Variable name `f1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:264:13: warning: Variable name `f2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:291:5: warning: Variable name `P` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _P
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:291:10: warning: Variable name `f1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:291:13: warning: Variable name `f2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:291:16: warning: Variable name `f3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _f3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:473:5: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [eqv]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:523:59: warning: This simp argument is unused:
+  er
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:716:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:878:5: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [column, ite_true, BitVec.getLsbD_and, BitVec.getLsbD_not, i.isLt, decide_true, (correct.2 a i).1,
+    (correct.2 a i).2, hp, hn, Bool.not_false, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:947:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:952:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:1235:26: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:1237:26: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:1235:14: warning: This simp argument is unused:
+  colCheck
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_true, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:1237:14: warning: This simp argument is unused:
+  colCheck
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_false, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:1264:15: warning: Variable name `raw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _raw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:1423:13: warning: This simp argument is unused:
+  List.length_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:1689:9: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:1779:31: warning: This simp argument is unused:
+  or_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [opKeep, Bool.false_eq_true, ite_false, ite_true, delTwo, List.mem_map, mem_delone wn,
+    mem_delone dn, false_or, true_or, and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:1954:70: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [chart_bit, hp, hq, BitVec.getLsbD_allOnes, i.isLt, decide_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:1965:11: warning: `List.Sublist.cons₂` has been deprecated: Use `List.Sublist.cons_cons` instead
+
+Hint: Replace the deprecated name:
+  List.Sublist.cons₂̵_̲c̲o̲n̲s̲
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:2029:19: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:2029:22: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:2035:5: warning: Variable name `nl` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _nl
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:2062:92: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:2091:14: warning: This simp argument is unused:
+  Nat.add_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [block, Bool.and_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:2165:19: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:2165:22: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-46/sibling/Prefix.lean:2170:5: warning: Variable name `nl` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _nl
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
