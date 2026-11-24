@@ -1,0 +1,75 @@
+{
+  "frozen_at": "2026-11-24T11:49:42.824974+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "3c0765f61adaa279d7e56b1012d95df870e76cdca7cb1f795df91bedd62f627f",
+      "bytes": 2785
+    },
+    {
+      "file": "Search.py",
+      "sha256": "f7f740c1bcd1626062013c6d5a582375ec1b4915cf04ecf8db28a15dad32c2f7",
+      "bytes": 9686
+    },
+    {
+      "file": "SearchCalibrate.py",
+      "sha256": "ea5f80014cecba4046b0084c22dbdf845e6b9d38b4b6c2e54d80a9e9d2d291ff",
+      "bytes": 4134
+    },
+    {
+      "file": "SearchK4PrivatePrepare.py",
+      "sha256": "eaaa3070fde7455d1e5f33ea84bde3c2e4b39b78da43fa6baa998d3710dcd742",
+      "bytes": 3666
+    },
+    {
+      "file": "k4private-automorphisms.json",
+      "sha256": "83baf4a06b2a07945f9df5090a30b0a2d69aa8cb1ea33b68b78688642a86bc4b",
+      "bytes": 4333
+    },
+    {
+      "file": "k4private-baseline19.json",
+      "sha256": "9825d68cd8e2a888d86ed16959b5bc5b4849086a5e22c81f4de81f7c31538644",
+      "bytes": 1383
+    },
+    {
+      "file": "k4private-calibration-001.log",
+      "sha256": "ebce945cedaad95e907eba0ea72cbc631464f78ff4f5be5381fc2173518ab606",
+      "bytes": 611
+    },
+    {
+      "file": "k4private-core.json",
+      "sha256": "7ba7ee1d2f813ae2c760731d9453ec4ffbc5b38a909b349db83b6b5b2c5b2be1",
+      "bytes": 1755
+    },
+    {
+      "file": "k4private-first-pair-calibration.log",
+      "sha256": "2dcc76d889b25c93291f9bf158934d6a8c3407b2c0eb58997cf3f4d713ff963d",
+      "bytes": 78
+    },
+    {
+      "file": "review-k4private-status-audit.log",
+      "sha256": "3b47aa0566ff52fd344a8fb3677deda927bab50a5f701228866803e62257a2ca",
+      "bytes": 285
+    },
+    {
+      "file": "search-k4private18-generation.log",
+      "sha256": "e8739ab27bf061370491ac4d76b18cec6dbb68045463041bba8d459f5528b381",
+      "bytes": 334
+    },
+    {
+      "file": "search-k4private18-solver.log",
+      "sha256": "1492a7a54fc34109dcfc638ff9fbd38d84c08b948f8e5e7294f5f4e9afa97dd6",
+      "bytes": 24038
+    },
+    {
+      "file": "search-k4private19-generation.log",
+      "sha256": "799e218644871edf9ffd4e677cc1f256bdf304f8a178f50c95edb218d2e5e116",
+      "bytes": 310
+    },
+    {
+      "file": "statement.txt",
+      "sha256": "d962214a09d1adf8b5837468e4d94e19c895b742875d55870d08ebcd0fe6fda0",
+      "bytes": 1260
+    }
+  ]
+}

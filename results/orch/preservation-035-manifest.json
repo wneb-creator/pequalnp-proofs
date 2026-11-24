@@ -1,0 +1,462 @@
+{
+  "batch": "035",
+  "created_utc": "2026-11-24T11:52:20.536942+00:00",
+  "base_preservation_commit": "ffd6ae3fa396a36dcd4519d0041d839e2ab9c7b6",
+  "gap": "L-meta-1477",
+  "status": "PARTIAL RESULTS ONLY; exact posted theorem unproved; no proof PR",
+  "named_file_checker": "REJECTED (no-theorem), unchanged from prior checker run; not rerun for results-only batch",
+  "snapshots": [
+    {
+      "path": "results/orch/lemmas/SingletonPureDisjoint.lean",
+      "sha256": "ef5602540374f5d236d610088f442ba321f2101dc35bf053614afca323e70194",
+      "bytes": 285930,
+      "name": "SingletonPureDisjoint",
+      "lines": 5995,
+      "author": "structural_lower_bound",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/singleton-pure-disjoint-build-002.log",
+        "sha256": "961a9b916057364c31df6db887d4544d68200fb1856714af04df966d206bead9",
+        "bytes": 6668
+      },
+      "review_log": {
+        "path": "results/orch/review-singleton-pure-disjoint-gate-invariants.log",
+        "sha256": "4b5fc7350df229a3460f23c137a7ce62867916134aa372e150088e22c47dc93c",
+        "bytes": 710
+      },
+      "reviewer": "gate_invariants",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "A least AO circuit pure AND gate with one singleton operand has disjoint operand supports; both operand orientations handled, no junk or TopForm premise.",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/UniqueCenterConnector.lean",
+      "sha256": "e853dead5ade1cc6ab571cfd0f387329d3792c39674ec4e44e655fda17476f71",
+      "bytes": 26211,
+      "name": "UniqueCenterConnector",
+      "lines": 523,
+      "author": "normal_form",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/unique-center-connector-build-001.log",
+        "sha256": "7f9b71f7a03f57630d6ef6ad56a2b3ec0b49e5499841c2a233196b86f8a24275",
+        "bytes": 1752
+      },
+      "review_log": {
+        "path": "results/orch/review-unique-center-connector-root.log",
+        "sha256": "f9c1a56abbd3d1798e995785b2b10a32089580440e654fa41b4ebe8c7612df18",
+        "bytes": 567
+      },
+      "reviewer": "root",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Finite support exclusions from a productive fully clean joint and a unique internal cleaner; explicit disjoint supports and pair orientation retained, no unrestricted circuit claim.",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/UniqueCenterActual.lean",
+      "sha256": "2bcd0b0667c187830e919a17669b6dd9708164204f86c14e3e0d239a696eb8b3",
+      "bytes": 474477,
+      "name": "UniqueCenterActual",
+      "lines": 9822,
+      "author": "root",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/unique-center-actual-build-001.log",
+        "sha256": "26361502257cd933c81ba25cfd8140a9afd3040f7d1ea969ca4b1218fb0e3ecf",
+        "bytes": 17318
+      },
+      "review_log": {
+        "path": "results/orch/review-unique-center-actual-structural.log",
+        "sha256": "7948b0cf6f22fbe92b4e58f34ade772b6f19c244b1df0c3242950a2cad1234c9",
+        "bytes": 1159
+      },
+      "reviewer": "structural_lower_bound",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Actual unique-center connector lies outside Lambda; deriving a connector gate uses explicit support size, product semantics, disjointness and minimum-junk hypotheses.",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/PlaneSingletonPairPure.lean",
+      "sha256": "e7fef67c635050d18426cc7e65473dabae464fd47bcd0fbef9c681b210d2a0ea",
+      "bytes": 692104,
+      "name": "PlaneSingletonPairPure",
+      "lines": 14316,
+      "author": "status_audit",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/plane-singleton-pair-pure-build-001.log",
+        "sha256": "a1d1c1c91f30ab392c8c0498334a9399fc2079df8ae5fab76818d25b889a02f2",
+        "bytes": 24866
+      },
+      "review_log": {
+        "path": "results/orch/review-plane-singleton-pair-pure-structural.log",
+        "sha256": "f83ee0a22f7cff4de7bb085fe152d3a73c146db1ae99531a3b5349137684c111",
+        "bytes": 898
+      },
+      "reviewer": "structural_lower_bound",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Generic and concrete plane lower bounds for exactly two first-layer dirty gates with singleton first operands. Disjointness derived; no no-joint, minimum-junk or pivot-color premise.",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/UniqueProductBudget.lean",
+      "sha256": "89249ca18e7dd7014c3254646620341a5fdb9ffd23e0e9e7166fca43f50da009",
+      "bytes": 444150,
+      "name": "UniqueProductBudget",
+      "lines": 8976,
+      "author": "normal_form",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/unique-product-budget-compact-build-004.log",
+        "sha256": "3e83d299e0a47d8646e2057c8b2a49f1ed2bd1dab97c323fce414ed9bd63f468",
+        "bytes": 20919
+      },
+      "review_log": {
+        "path": "results/orch/review-unique-product-budget-lean-setup.log",
+        "sha256": "f632e558d153e196001efaaf15900c1286ec980bab675d6b9d54e542e5ed3a41",
+        "bytes": 988
+      },
+      "reviewer": "lean_setup",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Conditional unique-center two-product lower bound with actual reserved connectors outside Lambda, productive clean joint, all residual pairs masked, pure/disjoint operands and explicit unique-center hypotheses.",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    }
+  ],
+  "search_packages": [
+    {
+      "name": "physical-jump-014015",
+      "reviewer": "status_audit",
+      "manifest_entries": 7,
+      "physical_circuits": 3,
+      "scalar_cases": 264,
+      "result": "Three28-gate circuits remain INVALID. Final exact DNF has24target terms plus10bad pairs; all28gates active and no singleton acceptance. Completed014/015 logs only; no target witness.",
+      "path": "results/orch/physical-jump-014015",
+      "manifest": {
+        "path": "results/orch/physical-jump-014015/manifest.json",
+        "sha256": "8cefbfca38a5fb12dd2706f4fa0f3fcc5dc2685dc141d06da776bf355b126ba1",
+        "bytes": 1294
+      },
+      "review_log": {
+        "path": "results/orch/review-physical-jump-014015-status-audit.log",
+        "sha256": "f7bef0205cf0228e126b0aeab3d905cb1b5d73fc5afd53dd30c231798c983d0c",
+        "bytes": 1768
+      },
+      "review_verdict": "PASS",
+      "files": [
+        {
+          "path": "results/orch/physical-jump-014015/README.md",
+          "sha256": "54730c51f513ea8e8b710318253d2884729910f49ac4b3c11979fa5a5098371c",
+          "bytes": 1244
+        },
+        {
+          "path": "results/orch/physical-jump-014015/physical-repair-alternative6-014/complete-run.log",
+          "sha256": "85e4a02999a3e6ac6341f91aa98f742b34f383fdf9ae4b4741fcd1d5f22cdede",
+          "bytes": 5123
+        },
+        {
+          "path": "results/orch/physical-jump-014015/physical-repair-alternative6-014/improved-10.json",
+          "sha256": "4c4ed59a1b8ca6b64a94b024758b4ef3d26aae2b07a70f4a1206b3442893861a",
+          "bytes": 5302
+        },
+        {
+          "path": "results/orch/physical-jump-014015/physical-repair-alternative6-014/improved-18.json",
+          "sha256": "7d0e65e0ca3bb93b4e1f713625a0e89df478bf4d93f4d9cd0464ba7e27f0d93a",
+          "bytes": 4733
+        },
+        {
+          "path": "results/orch/physical-jump-014015/physical-repair-alternative6-014/improved-19.json",
+          "sha256": "402d5bf982e425708779d90c554f31fff5fbe05267540d18e7ab1a901b680403",
+          "bytes": 4652
+        },
+        {
+          "path": "results/orch/physical-jump-014015/physical-repair-alternative6-015/complete-run.log",
+          "sha256": "dce04990329ca22f073d321ea540e6e8f5909f8f56e590a286945a4c385116ea",
+          "bytes": 3360
+        },
+        {
+          "path": "results/orch/physical-jump-014015/structure-diagnostic.log",
+          "sha256": "2d7a22693aa8e4d2a929512c9bead9feab731d9e750653e3f5f23e32a8526c56",
+          "bytes": 1050
+        },
+        {
+          "path": "results/orch/physical-jump-014015/manifest.json",
+          "sha256": "8cefbfca38a5fb12dd2706f4fa0f3fcc5dc2685dc141d06da776bf355b126ba1",
+          "bytes": 1294
+        }
+      ]
+    },
+    {
+      "name": "plane-run-011",
+      "reviewer": "status_audit",
+      "manifest_entries": 18,
+      "physical_circuits": 15,
+      "scalar_cases": 380130,
+      "small_scalar_cases": 11970,
+      "result": "Completed heuristic run only. Reviewed error fields and singleton rejection; no124-gate correct target witness, invalid candidates retain their labels.",
+      "path": "results/orch/plane-run-011",
+      "manifest": {
+        "path": "results/orch/plane-run-011/manifest.json",
+        "sha256": "6ea1b2e187c942653743180a743214eccc8885a2fe9e84e9d6ff0b8fc487882f",
+        "bytes": 2836
+      },
+      "review_log": {
+        "path": "results/orch/review-plane-run011-status-audit.log",
+        "sha256": "92d4a0d96fb2faf8fd74d4936a0af2a02e1c14596f0d29805e3fec643be0230d",
+        "bytes": 2421
+      },
+      "review_verdict": "PASS",
+      "files": [
+        {
+          "path": "results/orch/plane-run-011/README.md",
+          "sha256": "e847857688214c46116813f846c4042f869907f0dabfe39a02e84f058e105658",
+          "bytes": 1291
+        },
+        {
+          "path": "results/orch/plane-run-011/best-valid-125.json",
+          "sha256": "08452370b529bf6137b6d94c2114cd16d56af6cafd17a9d5381ecc404e270598",
+          "bytes": 12812
+        },
+        {
+          "path": "results/orch/plane-run-011/complete-run.log",
+          "sha256": "93b9a3da91a0b9d46ff35d4e96b3585635508e3ad128b7c5b4075afde00ac4bd",
+          "bytes": 34169
+        },
+        {
+          "path": "results/orch/plane-run-011/frontier.json",
+          "sha256": "d464afc84243a94ab16273c3eca5b3b466585f9a9f0072352054a68efa1230b8",
+          "bytes": 85194
+        },
+        {
+          "path": "results/orch/plane-run-011/multi-dirty-overapprox-3.json",
+          "sha256": "a4282a309ef32132a74e38b22a36fff54309fba7f7f587834239088f6adbef8a",
+          "bytes": 1842976
+        },
+        {
+          "path": "results/orch/plane-run-011/multi-dirty-overapprox-4.json",
+          "sha256": "571d2c8e5115b326f55af0ee34a2cd93e20df14f09ba64cf517017e965aec57b",
+          "bytes": 2182436
+        },
+        {
+          "path": "results/orch/plane-run-011/near-1-1.json",
+          "sha256": "0bae915d45f5629a759b63449fbcb990b1f807121b7632be8aec04018b73bd35",
+          "bytes": 12814
+        },
+        {
+          "path": "results/orch/plane-run-011/near-1-2.json",
+          "sha256": "cf2dbdc7cfdb25919e709eb2ac89be6e2346872b88508680c94a637fe50d0c81",
+          "bytes": 12842
+        },
+        {
+          "path": "results/orch/plane-run-011/near-4-1.json",
+          "sha256": "85f50effdc58ede0d721e3fe4bc4cc82467888b08d2e635d9ae1e96dd001605d",
+          "bytes": 13213
+        },
+        {
+          "path": "results/orch/plane-run-011/near-4-2.json",
+          "sha256": "a3864cc3492e0bb1526c95ba6149ce998863122ddd272ec7e177fbb17fd528e9",
+          "bytes": 12917
+        },
+        {
+          "path": "results/orch/plane-run-011/near-4-3.json",
+          "sha256": "ecf8201f16587f65fb3a859a3e5c8521d460bbdcc37ba6fccdcb33e3eb4b9fb9",
+          "bytes": 13001
+        },
+        {
+          "path": "results/orch/plane-run-011/near-4-4.json",
+          "sha256": "3efb4a31c7d6270f5e5ea75183ea0fedf3ba197ce766019dc10389b96c2679d1",
+          "bytes": 13001
+        },
+        {
+          "path": "results/orch/plane-run-011/near-4-5.json",
+          "sha256": "ddeb0b317db1c37b4ec73f5fac7bd42f2f54834aa833fe1f5f011131486c750d",
+          "bytes": 13216
+        },
+        {
+          "path": "results/orch/plane-run-011/near-4-6.json",
+          "sha256": "764566de4f7279f39d4f1ffbb8b191781222861f2499f811c9f1c21cc1adb8c2",
+          "bytes": 13662
+        },
+        {
+          "path": "results/orch/plane-run-011/overapprox-best-1.json",
+          "sha256": "c850996918cc2b52271da4f02bb5560003da201835e46aa8117531eb03ca4787",
+          "bytes": 1907483
+        },
+        {
+          "path": "results/orch/plane-run-011/overapprox-best-2.json",
+          "sha256": "261f98bb8f238fb6a46bb11bd6e1a44c1de2fdd82374ff5f2907026dae6d3032",
+          "bytes": 1558737
+        },
+        {
+          "path": "results/orch/plane-run-011/overapprox-best-3.json",
+          "sha256": "8d14579c381cefe15347aae515ad00cb1832a32faea9d4bf1dc58b66c922cef3",
+          "bytes": 1402048
+        },
+        {
+          "path": "results/orch/plane-run-011/overapprox-best-4.json",
+          "sha256": "397f6bcfa9dea8d7d15816358f3998ba27b12db7c1f2d9c908ebfc82d706d210",
+          "bytes": 861765
+        },
+        {
+          "path": "results/orch/plane-run-011/manifest.json",
+          "sha256": "6ea1b2e187c942653743180a743214eccc8885a2fe9e84e9d6ff0b8fc487882f",
+          "bytes": 2836
+        }
+      ]
+    },
+    {
+      "name": "k4private-search",
+      "reviewer": "status_audit",
+      "manifest_entries": 14,
+      "physical_circuits": 1,
+      "scalar_cases": 16384,
+      "result": "Audited14-input16-edge core and19-gate baseline, complete finite basis and symbolic106-gate lift overhead only. Target18 SAT trial ended UNKNOWN; no target witness or Lean lift claimed.",
+      "path": "results/orch/k4private-search",
+      "manifest": {
+        "path": "results/orch/k4private-search/manifest.json",
+        "sha256": "2d6bca2e5e36ac491739e40d9c4c76558d6847a53b75d4c36682bc632a5a0cf6",
+        "bytes": 2295
+      },
+      "review_log": {
+        "path": "results/orch/review-k4private-package-status-audit.log",
+        "sha256": "4f704881b29e88ce66d6700bce0edfd137fd44b62c8e2520e9e534b227a6aaf9",
+        "bytes": 3958
+      },
+      "review_verdict": "PASS",
+      "files": [
+        {
+          "path": "results/orch/k4private-search/README.md",
+          "sha256": "3c0765f61adaa279d7e56b1012d95df870e76cdca7cb1f795df91bedd62f627f",
+          "bytes": 2785
+        },
+        {
+          "path": "results/orch/k4private-search/Search.py",
+          "sha256": "f7f740c1bcd1626062013c6d5a582375ec1b4915cf04ecf8db28a15dad32c2f7",
+          "bytes": 9686
+        },
+        {
+          "path": "results/orch/k4private-search/SearchCalibrate.py",
+          "sha256": "ea5f80014cecba4046b0084c22dbdf845e6b9d38b4b6c2e54d80a9e9d2d291ff",
+          "bytes": 4134
+        },
+        {
+          "path": "results/orch/k4private-search/SearchK4PrivatePrepare.py",
+          "sha256": "eaaa3070fde7455d1e5f33ea84bde3c2e4b39b78da43fa6baa998d3710dcd742",
+          "bytes": 3666
+        },
+        {
+          "path": "results/orch/k4private-search/k4private-automorphisms.json",
+          "sha256": "83baf4a06b2a07945f9df5090a30b0a2d69aa8cb1ea33b68b78688642a86bc4b",
+          "bytes": 4333
+        },
+        {
+          "path": "results/orch/k4private-search/k4private-baseline19.json",
+          "sha256": "9825d68cd8e2a888d86ed16959b5bc5b4849086a5e22c81f4de81f7c31538644",
+          "bytes": 1383
+        },
+        {
+          "path": "results/orch/k4private-search/k4private-calibration-001.log",
+          "sha256": "ebce945cedaad95e907eba0ea72cbc631464f78ff4f5be5381fc2173518ab606",
+          "bytes": 611
+        },
+        {
+          "path": "results/orch/k4private-search/k4private-core.json",
+          "sha256": "7ba7ee1d2f813ae2c760731d9453ec4ffbc5b38a909b349db83b6b5b2c5b2be1",
+          "bytes": 1755
+        },
+        {
+          "path": "results/orch/k4private-search/k4private-first-pair-calibration.log",
+          "sha256": "2dcc76d889b25c93291f9bf158934d6a8c3407b2c0eb58997cf3f4d713ff963d",
+          "bytes": 78
+        },
+        {
+          "path": "results/orch/k4private-search/review-k4private-status-audit.log",
+          "sha256": "3b47aa0566ff52fd344a8fb3677deda927bab50a5f701228866803e62257a2ca",
+          "bytes": 285
+        },
+        {
+          "path": "results/orch/k4private-search/search-k4private18-generation.log",
+          "sha256": "e8739ab27bf061370491ac4d76b18cec6dbb68045463041bba8d459f5528b381",
+          "bytes": 334
+        },
+        {
+          "path": "results/orch/k4private-search/search-k4private18-solver.log",
+          "sha256": "1492a7a54fc34109dcfc638ff9fbd38d84c08b948f8e5e7294f5f4e9afa97dd6",
+          "bytes": 24038
+        },
+        {
+          "path": "results/orch/k4private-search/search-k4private19-generation.log",
+          "sha256": "799e218644871edf9ffd4e677cc1f256bdf304f8a178f50c95edb218d2e5e116",
+          "bytes": 310
+        },
+        {
+          "path": "results/orch/k4private-search/statement.txt",
+          "sha256": "d962214a09d1adf8b5837468e4d94e19c895b742875d55870d08ebcd0fe6fda0",
+          "bytes": 1260
+        },
+        {
+          "path": "results/orch/k4private-search/manifest.json",
+          "sha256": "2d6bca2e5e36ac491739e40d9c4c76558d6847a53b75d4c36682bc632a5a0cf6",
+          "bytes": 2295
+        }
+      ]
+    }
+  ],
+  "extra_evidence": [
+    {
+      "path": "results/orch/review-preservation-034-gate-invariants.json",
+      "sha256": "bb0828baa8a991698c78ca6b09b1ca70d15892073f717b861162d6113d1af92b",
+      "bytes": 419
+    },
+    {
+      "path": "results/orch/review-preservation-034-status-audit.log",
+      "sha256": "626290df2670dc3d2e01bf3a827ce5bc6b0e3acbf76fff3dd7464bfd50b51fd7",
+      "bytes": 179
+    },
+    {
+      "path": "results/orch/unique-center-actual-assembly.log",
+      "sha256": "d9f2eefbd4707e0ca7a1f1c1cece7d70315d2eb0f5143f1d327097b6cdc62f73",
+      "bytes": 222
+    },
+    {
+      "path": "results/orch/review-handoff-final-gate-invariants.log",
+      "sha256": "8ee46d4f1adb4a986ee1ab9779bee44bf92caf3f063e1f1432efd9dc3219baf2",
+      "bytes": 1290
+    },
+    {
+      "path": "results/orch/lemmas/UniqueCenterActual.assembly.json",
+      "sha256": "9891a50b6d8379b214e8479506eaa62ec668d9ce6093177b9bfc755de29e2689",
+      "bytes": 269051
+    },
+    {
+      "path": "results/orch/HANDOFF.md",
+      "sha256": "8b7e43c7e09798bfc2141aa82e8fef6370833dea2ad09ca11f7d7a3bed303dbb",
+      "bytes": 8978
+    }
+  ],
+  "verification": "Exact frozen hashes, full author logs without errors, independent source/math/provenance/format reviews, forbidden-source filter scan, package manifest hashes and byte counts. This preservation validation reused reported author build results and did not rerun Lean.",
+  "sub_agents": [
+    "counterexample_search",
+    "gate_invariants",
+    "lean_setup",
+    "normal_form",
+    "status_audit",
+    "structural_lower_bound"
+  ],
+  "timing_total_min": 343.8,
+  "subagents_count": 6
+}

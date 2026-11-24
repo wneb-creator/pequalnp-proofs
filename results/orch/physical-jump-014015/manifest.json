@@ -1,0 +1,40 @@
+{
+  "frozen_at": "2026-11-24T11:45:46.293303+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "54730c51f513ea8e8b710318253d2884729910f49ac4b3c11979fa5a5098371c",
+      "bytes": 1244
+    },
+    {
+      "file": "physical-repair-alternative6-014/complete-run.log",
+      "sha256": "85e4a02999a3e6ac6341f91aa98f742b34f383fdf9ae4b4741fcd1d5f22cdede",
+      "bytes": 5123
+    },
+    {
+      "file": "physical-repair-alternative6-014/improved-10.json",
+      "sha256": "4c4ed59a1b8ca6b64a94b024758b4ef3d26aae2b07a70f4a1206b3442893861a",
+      "bytes": 5302
+    },
+    {
+      "file": "physical-repair-alternative6-014/improved-18.json",
+      "sha256": "7d0e65e0ca3bb93b4e1f713625a0e89df478bf4d93f4d9cd0464ba7e27f0d93a",
+      "bytes": 4733
+    },
+    {
+      "file": "physical-repair-alternative6-014/improved-19.json",
+      "sha256": "402d5bf982e425708779d90c554f31fff5fbe05267540d18e7ab1a901b680403",
+      "bytes": 4652
+    },
+    {
+      "file": "physical-repair-alternative6-015/complete-run.log",
+      "sha256": "dce04990329ca22f073d321ea540e6e8f5909f8f56e590a286945a4c385116ea",
+      "bytes": 3360
+    },
+    {
+      "file": "structure-diagnostic.log",
+      "sha256": "2d7a22693aa8e4d2a929512c9bead9feab731d9e750653e3f5f23e32a8526c56",
+      "bytes": 1050
+    }
+  ]
+}

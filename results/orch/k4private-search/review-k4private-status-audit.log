@@ -1,0 +1,3 @@
+PASS exact plane grouping,16edges/14inputs,16positive+16negative complete monotone basis, baseline19 all16384assignments,24automorphisms, symbolic plane lift overhead106
+No18gate witness and no Lean lift claimed.
+Source eaaa3070fde7455d1e5f33ea84bde3c2e4b39b78da43fa6baa998d3710dcd742

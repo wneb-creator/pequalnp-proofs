@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-24T11:42:46.818262+00:00",
+  "manifest_sha256": "ff10deda4d3544ef36ef0deb0d1049308891ed6b4ddcdb961ba52c10627bdf6f",
+  "snapshots": 10,
+  "packages": 4,
+  "unique_hashed_paths": 159,
+  "issues": [],
+  "verdict": "PASS",
+  "scope": "Final preservation evidence/hash/format audit only. Each mathematical review remains its named independent reviewer. Status explicitly partial/unproved/no proof PR."
+}

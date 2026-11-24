@@ -1,0 +1,25 @@
+plane-run-011 best-valid-125.json gates 125 wrong 0 dirty 0
+plane-run-011 multi-dirty-overapprox-3.json gates 121 wrong 20813 dirty 3
+plane-run-011 multi-dirty-overapprox-4.json gates 118 wrong 24664 dirty 6
+plane-run-011 near-1-1.json gates 124 wrong 1 dirty 0
+plane-run-011 near-1-2.json gates 124 wrong 1 dirty 0
+plane-run-011 near-4-1.json gates 121 wrong 4 dirty 0
+plane-run-011 near-4-2.json gates 121 wrong 4 dirty 0
+plane-run-011 near-4-3.json gates 122 wrong 4 dirty 0
+plane-run-011 near-4-4.json gates 122 wrong 4 dirty 0
+plane-run-011 near-4-5.json gates 121 wrong 4 dirty 0
+plane-run-011 near-4-6.json gates 124 wrong 4 dirty 2
+plane-run-011 overapprox-best-1.json gates 120 wrong 21494 dirty 3
+plane-run-011 overapprox-best-2.json gates 119 wrong 17550 dirty 1
+plane-run-011 overapprox-best-3.json gates 123 wrong 15746 dirty 2
+plane-run-011 overapprox-best-4.json gates 124 wrong 9644 dirty 1
+PASS plane-run-011 manifest 18 circuits 15 scalar_cases 380130 valid 1 INVALID 14
+# Completed plane separately weighted small-input run011
+
+Seed14772952 ran1200.163757seconds, completing5,287,936mutations/294epochs. Best valid size remained125; no target124circuit was found. Warm starts counted9matching,21shared-sum,28mixed-cover and39INVALIDbiclique starts. Frozen source is sibling plane-pairs/. Complete stdout/stderr and every artifact are preserved.
+
+Fitness uses26,140assignments:105positive edges,25,237maximal negatives,42singletons and756nonedge pairs. Maximal and small false assignments have separately normalized penalties. Raw mistake lists still use the original25,342complete basis. There are15physical circuits: one valid125gate baseline and14INVALID candidates. Eight ordinary near misses fail1or4raw positive cases. Four positive-complete ordinary overapproximations fail21,494/17,550/15,746/9,644raw negative cases; their augmented counts are21,531/17,586/15,762/9,652. Two separately recorded singleton-rejecting multi-dirty candidates have121/118gates and20,813/24,664raw errors, respectively. None is a target witness.
+
+Every saved circuit was independently scalar-replayed on the complete raw basis by the recorder. This heuristic run establishes no lower bound or UNSAT result. Final nested-helper Low run012 is separate and is not included here.
+
+PASS augmented error metadata for 15 circuits; 11970 additional small-input scalar cases; recorded multi-dirty seeds reject every singleton

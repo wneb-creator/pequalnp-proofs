@@ -1,0 +1,4 @@
+2026-11-24T11:42:18.773456+00:00
+Independent source/math/provenance/format review: PASS
+SingletonPureDisjoint.lean SHA256ef5602540374f5d236d610088f442ba321f2101dc35bf053614afca323e70194
+Exact reviewed ActualCommonMasks prefix. New pure AND with one singleton operand cannot contain that input on the other operand: otherwise full gate value equals the earlier input on every assignment, contradicting least_nodup. Both operand orientations are handled; explicit hs0/hs1 transport only fixes rewriting after Fin2 cases. The side0 disjoint-support corollary follows directly. No junk/TopForm premise or unjustified minimality strengthening. Author build002 EXIT0 accepted; no log errors or forbidden mechanisms.

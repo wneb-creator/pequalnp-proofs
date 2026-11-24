@@ -1,0 +1,33 @@
+19 and 5 16 terms 1
+20 or 6 11 terms 2
+21 or 13 20 terms 3
+22 or 18 21 terms 4
+23 and 2 15 terms 1
+24 or 6 7 terms 2
+25 or 12 24 terms 3
+26 or 14 25 terms 4
+27 and 1 26 terms 4
+28 and 0 22 terms 4
+29 or 23 28 terms 5
+30 or 2 3 terms 2
+31 or 4 30 terms 3
+32 or 5 31 terms 4
+33 or 8 9 terms 2
+34 and 14 31 terms 3
+35 and 30 33 terms 4
+36 or 13 35 terms 5
+37 or 34 36 terms 8
+38 or 19 37 terms 9
+39 or 7 17 terms 2
+40 or 18 38 terms 10
+41 or 39 40 terms 12
+42 and 32 41 terms 24
+43 or 27 29 terms 9
+44 or 42 43 terms 33
+45 and 4 10 terms 1
+46 or 44 45 terms 34
+final prime terms 34 bad 10 bad sets [[3, 7], [4, 7], [2, 9], [3, 13], [5, 13], [2, 14], [2, 17], [3, 17], [2, 18], [4, 18]]
+gate 15 prime sets [[2, 14], [3, 14], [4, 14]]
+gate 16 prime sets [[2, 8], [3, 8], [2, 9], [3, 9]]
+gate 23 prime sets [[2, 7], [3, 7], [4, 7], [5, 7], [2, 8], [3, 8], [2, 9], [3, 9], [2, 13], [3, 13], [4, 13], [5, 13], [2, 14], [3, 14], [4, 14], [5, 16], [2, 17], [3, 17], [4, 17], [5, 17], [2, 18], [3, 18], [4, 18], [5, 18]]
+PASSexactDNFmatchesall254cases; INVALID
