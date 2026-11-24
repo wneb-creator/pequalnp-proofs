@@ -8,3 +8,8 @@ SourceSHA256: 9b5eb61fe75dcbbbf3a6071d2cd4255a41f50ac58c5c320a7a6457749d1373a8
 Lines before cleanup:3721; cleanup pending.
 Sub-agents: counterexample, lower_bound, red_team, sat_proof, status_review, toolchain
 TIMING total=198 subagents=6
+
+Narrow imports checkpoint: build PASS, exit0; source3722lines 750cf08e65d1aa107c0bd39bf9f805f526dbbe143145ad41765140f0f8c73a09.
+Original broad-import local checker attempts both FAULT(exit137), not rejection/acceptance. Isolatedretryhit16GiBcgroupOOM; fullsamplesanddiagnosissaved.
+Independent compiled exacttype/axiom check PASS with only propext,Classical.choice,Quot.sound.
+Narrow officialchecker pending.

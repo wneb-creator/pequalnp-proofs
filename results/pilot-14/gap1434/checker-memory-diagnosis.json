@@ -1,0 +1,21 @@
+{
+  "verdict": "isolated checker verifier killed by cgroup OOM; not a proof rejection",
+  "memory_limit_bytes": 17179869184,
+  "samples": 46,
+  "started_utc": "2026-11-24T01:05:41.404506+00:00",
+  "finished_utc": "2026-11-24T01:07:12.081263+00:00",
+  "max_sampled_cgroup_memory_bytes": 17179856896,
+  "max_sampled_checklemma_rss_kib": 15882908,
+  "first_memory_events": "low 0\nhigh 0\nmax 1379140\noom 5\noom_kill 3\noom_group_kill 0",
+  "last_memory_events": "low 0\nhigh 0\nmax 1460078\noom 6\noom_kill 4\noom_group_kill 0",
+  "checker_retry_log": "\nCHECKER FAULT: the verifier ended without a verdict (exit 137).\n",
+  "resource_log_sha256": "14b5c98ad6d8bf462a970129b3c9322c81b260bbfc1533a5cd99d37d991a0442",
+  "checklemma_source_notes": [
+    "Official verifier imports Mathlib+Defs, full judged module, then defsBase.",
+    "Kernel.Environment.replay rechecks every project constant, including unused declarations.",
+    "Replay invokes addDeclCore 0 0 and checks constants sequentially.",
+    "Wrapper timeout is30minutes; observed verifier lifetime~90seconds.",
+    "No other live Lean/checklemma jobs overlapped this retry."
+  ],
+  "recommendation": "Do not repeat unchanged run; investigate source dependency pruning or split finite computational proofs. Do not raise limits or change official checker."
+}

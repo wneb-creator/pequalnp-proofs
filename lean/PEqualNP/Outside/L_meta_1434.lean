@@ -1,4 +1,5 @@
-import Mathlib
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.Tauto
 import PEqualNP.Defs
 
 -- Live-wire normalization and search follow the public L-meta-517 proof.
