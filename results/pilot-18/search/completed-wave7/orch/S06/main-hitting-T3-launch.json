@@ -1,0 +1,30 @@
+{
+  "utc": "2026-11-24T04:54:49.183064+00:00",
+  "pid": 32651,
+  "case": "T3",
+  "command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/offline_checked_cadical.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T3/instance.cnf",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/offline-hitting-T3-wave1",
+    "--cnf-sha256",
+    "056b756b54c21093cbbedb4f64694593987e502ce4d7e14594266c605a0521dc",
+    "--metadata-sha256",
+    "54f5aeaf0fc83bd3ba00f40cf25481848a4d21710e61321450fb02ff917ed4b5",
+    "--solver-seconds",
+    "600",
+    "--checker-seconds",
+    "600",
+    "--proof-mib",
+    "512",
+    "--max-records",
+    "100000000",
+    "--min-free-mib",
+    "1024",
+    "--abort-file",
+    "/tmp/oec/pequalnp-pilot-18/DESK_ERROR.response"
+  ],
+  "review_sha256": "0ed0ac84baea1a88bf665fea4e6b78aff41b41c3993f1044d84f3665537a417d",
+  "manifest_sha256": "948ac6c2a8d186f1bfdc1b2e8473bb41df28bf6922a6e291bdf005a618454a06"
+}

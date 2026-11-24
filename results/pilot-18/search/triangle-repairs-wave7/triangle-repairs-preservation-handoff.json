@@ -1,0 +1,93 @@
+{
+  "status": "READY_MAIN_INDEPENDENT_PRESERVATION_REVIEW",
+  "utc": "2026-11-24T05:02:24.359197+00:00",
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-repairs-preservation-v1/README.md",
+      "sha256": "8b3b9f3217fd659ae61359384837df9c6050a84f4625f4a1eb858e128de350b4",
+      "bytes": 2149
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-repairs-preservation-v1/S02-triangle-repairs.tar.gz",
+      "sha256": "5448d8e09646c9de7a4a025081707e599a8b032c825e9a801307c8ab1f9e313b",
+      "bytes": 130000
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-repairs-preservation-v1/manifest.json",
+      "sha256": "d2a5da77d9cf2756cbcdc430956b00e9c3c25211a2f4cc1251ecd91559f8ac2c",
+      "bytes": 21399
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-repairs-preservation-v1/validation.json",
+      "sha256": "61c44858c0424e69835992d8c19bc26fadcbe7dfa8507b6a129bcafe61b99f81",
+      "bytes": 1242
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/assemble_triangle_repair_archive.py",
+      "sha256": "c4cb5d18916b3bd431d956ab60ad788b57ccf55777d91c95d405e53c259cd240",
+      "bytes": 10018
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/seal_triangle_repair_archive.py",
+      "sha256": "ef7dd22e47d118c8828cd82decf8027dbc634ad9ee6d15caa31814feaf7a1843",
+      "bytes": 5464
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/reconstruct_triangle_repairs.py",
+      "sha256": "98f9d2861094a6965859d2fd24a36c7d2d4c448155bcb37eadd8c936ad2b594a",
+      "bytes": 3227
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-repairs-assembly.stdout.txt",
+      "sha256": "baaea6bcbfc01d4ed2f0c198a72315421383fe5d6fcf38e33cb4fa65814ecd60",
+      "bytes": 204
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-repairs-assembly.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-repairs-package-reconstruction.stdout.txt",
+      "sha256": "7da6c74b137111b4b6b3296334287fdf7753e43f53c24f42ffdb3813ca0c0ece",
+      "bytes": 80
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-repairs-package-reconstruction.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-repairs-seal.stdout.txt",
+      "sha256": "401c38b243be1337d59aa0cdc44d406ff051d1bbcdd0bcfc586493e7ccda8b16",
+      "bytes": 1176
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-repairs-seal.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "archive_sha256": "5448d8e09646c9de7a4a025081707e599a8b032c825e9a801307c8ab1f9e313b",
+  "archive_regular_members": 119,
+  "archive_bytes": 130000,
+  "reproduced_CNF_files": 8,
+  "reproduced_total_files": 26,
+  "prepared_families": [
+    "original triangle589",
+    "immutable best3",
+    "rescheduled best3"
+  ],
+  "completed_runtime_outcomes": {
+    "UNKNOWN": 3
+  },
+  "rescheduled_runtime_included": false,
+  "original_family_runtime_included": false,
+  "one_gate_controls": 2,
+  "one_gate_exact_candidates": 0,
+  "active_outputs_read_or_copied": false,
+  "no_raw_CNF_or_solver_binary": true,
+  "scope": "No exact21 witness or global/shard exhaustion. Mathematical and Lean acceptance are not claimed.",
+  "subagents": "none",
+  "timing_total_minutes": 283.6
+}

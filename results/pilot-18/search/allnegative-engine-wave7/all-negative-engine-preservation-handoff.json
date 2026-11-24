@@ -1,0 +1,69 @@
+{
+  "status": "READY_MAIN_COPY_REVIEW_FROZEN_ENGINE_AND_INEXACT_BEST4",
+  "created_utc": "2026-11-24T05:17:03.209530+00:00",
+  "source_sha256": "18efdd149487dfee83693dd0781a17316ba0fda9d68c43c6c70c73f96a77250b",
+  "binary_sha256": "7d802a63b218449bd58178785a917a363edecedace5f65201344804dec3a3870",
+  "engine_review_sha256": "23a3c36f8a714214fbe4df4cff142820cfef6d091d9401793f74c255442253c2",
+  "production_plan_review_sha256": "62f416117e7717595e76c3db9d054f4754d01c5aa1ee25be92f2f1fbd784ba40",
+  "archive_validation": {
+    "verdict": "PASS_REGULAR_ARCHIVE_EXACT_INVENTORY_HASHES_AND_SOURCE_ROUNDTRIP",
+    "archive": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-v1/S08-all-negative-engine-v1.tar.gz",
+    "archive_sha256": "edfb85398c9f9522470de2e782a75fca862b034e7726b16fcd7216ac7050c6f0",
+    "archive_bytes": 54639,
+    "manifest_sha256": "2035f0449f3d87e91a3a19fcc9fd6c756700955dd1fece0b07717dc26c03394e",
+    "regular_members": 73,
+    "payloads": 72,
+    "source_copies": 72,
+    "omitted_ELF_count": 3,
+    "best4_independent_all_inputs": 2048,
+    "runtime_outputs_included": "Only explicitly supplied immutable best4 snapshot; no active directories read.",
+    "solver_production_or_Lean_run": false
+  },
+  "exact21_found": false,
+  "production_launched_by_S08": false,
+  "active_output_directories_read": false,
+  "immutable_production_snapshot_sha256": "b6da8ac6962d7836f2e5546423f5ed3846b7165fbe1ae47e58b8e470955101b0",
+  "scope": "Engine correctness and frozen preservation only. One explicitly authorized immutable snapshot computes F OR x0x2x4; four errors remain. Runtime remains main-owned; no final runtime verdict inferred.",
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-v1/S08-all-negative-engine-v1.tar.gz",
+      "bytes": 54639,
+      "sha256": "edfb85398c9f9522470de2e782a75fca862b034e7726b16fcd7216ac7050c6f0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-v1/manifest.json",
+      "bytes": 22403,
+      "sha256": "2035f0449f3d87e91a3a19fcc9fd6c756700955dd1fece0b07717dc26c03394e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-v1/validation.json",
+      "bytes": 695,
+      "sha256": "0feb73a615d46c7788db6079f34d0913176754ff6993cf9623dd545f49356a52"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-v1/README.md",
+      "bytes": 3324,
+      "sha256": "9f6d59e9a389b3d950ce568acabcc9b5c956076d870b47d7f532373e9939cfda"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-v1/best4-independent-review.json",
+      "bytes": 635,
+      "sha256": "c1ac12aaec36213e318c8db42ab4b29df7f84d5c20bee9990ac6828fbd04ac85"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/preserve_all_negative_engine.py",
+      "bytes": 10512,
+      "sha256": "f8af0e5ad049173ca70b0681577f6b49c21070ad1bd0953ecccdf4b9d83c95d9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-build.stdout",
+      "bytes": 695,
+      "sha256": "0feb73a615d46c7788db6079f34d0913176754ff6993cf9623dd545f49356a52"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

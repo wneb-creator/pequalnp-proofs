@@ -1,0 +1,29 @@
+{
+  "utc": "2026-11-24T05:05:07.885991+00:00",
+  "pid": 33806,
+  "command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/offline_checked_cadical.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/T4/instance.cnf",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/offline-hitting-T4-wave1",
+    "--cnf-sha256",
+    "d3a169889af5938186c02e44453679abf8f856aa3d0f57b927deb6b0e5e56fbe",
+    "--metadata-sha256",
+    "163bee95f8eb66773e987cb0b990d60a87fe0a76348e4d8c05fc6acdcdc07b10",
+    "--solver-seconds",
+    "600",
+    "--checker-seconds",
+    "600",
+    "--proof-mib",
+    "512",
+    "--max-records",
+    "100000000",
+    "--min-free-mib",
+    "1024",
+    "--abort-file",
+    "/tmp/oec/pequalnp-pilot-18/DESK_ERROR.response"
+  ],
+  "cpu_slots": 1,
+  "scope": "Reviewed inputs; no result implied by launch"
+}

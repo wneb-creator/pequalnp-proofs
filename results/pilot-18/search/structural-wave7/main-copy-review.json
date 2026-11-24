@@ -1,0 +1,35 @@
+{
+  "utc": "2026-11-24T05:23:38.734743+00:00",
+  "verdict": "PASS_MAIN_FOUR_ARCHIVE_HASHES_AND_HANDOFF_COPIES",
+  "archives": [
+    {
+      "archive": "no-common-math-preservation-v1.tar.gz",
+      "bytes": 163973,
+      "sha256": "b3a29dd40ad20043b4ed1bfbeb8a8985174ce0b8d7a88be4740d0a711763b638",
+      "scope": "Mixed/no-CN math+finite PASS k3/r3 excluded,r1/r2=800/68; new region derivation and33 DAG controls; explicit purek4/k5 relaxation witnesses. No CNF/Lean/global claim.",
+      "handoff_sha256": "a8258195ff125bb6f8dd3089730f4350780e4f8718f8169ce403f28caa5d9a92"
+    },
+    {
+      "archive": "forest-sinks-math-preservation-v1.tar.gz",
+      "bytes": 138153,
+      "sha256": "71519fb50dbdb38c1f0804151a3702c614bbf83d275da8b7b549433d33cbb94a",
+      "scope": "Forest258k3r0/112k4r0;51/68k3r2excluded,17remain. Mathematical/finite/actual-DAG review only; no later birth claim/CNF/Lean/global result.",
+      "handoff_sha256": "b8eac3e888085d264eb2a0d069a9f405b3f26661d469842896eec294716e914d"
+    },
+    {
+      "archive": "forced-birth-math-preservation-v1.tar.gz",
+      "bytes": 119200,
+      "sha256": "82210c9635ef465d1a31a26c09f41508d0d98de300373ff36bce79205c807a21",
+      "scope": "Guarded forced-birth proof and finite review closes17remaining/68total k3r2 families; original generic lemma needsHnonempty, explicitcountermodel retained. No CNF/Lean/global claim.",
+      "handoff_sha256": "82e0e46837dd6d4affad24bbec1e8a51ab3d0262fa96ecd1fb4a7edd3e7ca7ba"
+    },
+    {
+      "archive": "candidate134227-analysis-preservation-v1.tar.gz",
+      "bytes": 20264,
+      "sha256": "85f85f4274357bb2f316b3074c65a2c98f797c49448becef7730207ae18e6d46",
+      "scope": "Historical scalar/pruning analysis; inexact candidates, no repair search, no Lean/global claim.",
+      "handoff_sha256": "d5e42722991a82816fc8e8d718d6929abb90c9d8fd9593d11d3bea4c75f9776c"
+    }
+  ],
+  "independent_delivery_review": "S08 pending"
+}

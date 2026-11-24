@@ -1,0 +1,10 @@
+{
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/forced-birth-math-preservation-v1.tar.gz",
+  "archive_bytes": 119200,
+  "archive_sha256": "82210c9635ef465d1a31a26c09f41508d0d98de300373ff36bce79205c807a21",
+  "manifest_sha256": "ba5fbef3548e468e7237b4824111086cb6106426161a38bbd0012c1cba19cc58",
+  "regular_members": 27,
+  "review_sha256": "8ccc9ad77b0a23d8c91c7141cf7627e26b2f0d64589a994cd35a21f1f26fa500",
+  "scope": "Guarded forced-birth proof and finite review closes17remaining/68total k3r2 families; original generic lemma needsHnonempty, explicitcountermodel retained. No CNF/Lean/global claim.",
+  "verdict": "PASS_GUARDED_FORCED_BIRTH_REVIEW_PRESERVATION"
+}

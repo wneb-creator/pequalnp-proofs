@@ -1,0 +1,10 @@
+{
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/forest-sinks-math-preservation-v1.tar.gz",
+  "archive_bytes": 138153,
+  "archive_sha256": "71519fb50dbdb38c1f0804151a3702c614bbf83d275da8b7b549433d33cbb94a",
+  "manifest_sha256": "016ffd1d6c11d20440ce990e4413f2553be327f105865051cdb71ca16bfdbb36",
+  "regular_members": 44,
+  "review_sha256": "b57049af7a3c7e56f8bf964357e9ef5451876dd98483589be529be22599dad8c",
+  "scope": "Forest258k3r0/112k4r0;51/68k3r2excluded,17remain. Mathematical/finite/actual-DAG review only; no later birth claim/CNF/Lean/global result.",
+  "verdict": "PASS_FOREST_SINKS_REVIEW_PRESERVATION"
+}

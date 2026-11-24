@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS_INDEPENDENT_FULL2048_INEXACT_BEST4",
+  "source_sha256": "b6da8ac6962d7836f2e5546423f5ed3846b7165fbe1ae47e58b8e470955101b0",
+  "main_review_sha256": "1f67a432613e7238960bc3cb6284b9912aaeef7922cc77831c860d158ae271df",
+  "full_input_checks": 2048,
+  "false_negatives": [],
+  "false_positives": [
+    21,
+    29,
+    85,
+    149
+  ],
+  "minimal_extras": [
+    21
+  ],
+  "boundary_false_positives": [
+    29,
+    85,
+    149
+  ],
+  "live_gates": 21,
+  "function": "F OR (x0 AND x2 AND x4)",
+  "exact_target": false,
+  "scope": "Immutable snapshot only. No active run output read or final production result inferred."
+}

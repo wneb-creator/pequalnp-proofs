@@ -1,0 +1,13 @@
+{
+  "utc": "2026-11-24T05:19:36.065441+00:00",
+  "verdict": "PASS_MAIN_BEST4_PACK_ALL_ARTIFACTS_16384_SCALAR_AND_CHECKSUM",
+  "handoff_sha256": "fb31cdf24db5e8964831f158ee1aa281589e361a709c59ea0e2cef8c08d3841c",
+  "artifacts": 23,
+  "schedules": 8,
+  "scalar_input_checks": 16384,
+  "pack_sha256": "f1316079fdd1c50eab3387c00ed7460130da5c6b862937241fa41b9ff13742a6",
+  "metadata_sha256": "0b3c2a8eed20aeb355be47e632689c70a1a7bd3d1d1c6d742fd2c17f29847642",
+  "exact": false,
+  "function": "F OR x0*x2*x4",
+  "production_launched": false
+}

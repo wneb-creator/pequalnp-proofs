@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/all-negative-engine-v1/circuit_anneal_allnegative",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/allnegative-best4-direct21-v1/direct-seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/allnegative-best4-direct21-v1/selftest.json",
+    "--seed",
+    "134230",
+    "--self-test"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.5668405899996287,
+  "limits": {
+    "cpu_seconds": 3,
+    "address_space_MiB": 256,
+    "wall_seconds": 8
+  },
+  "binary_sha256": "7d802a63b218449bd58178785a917a363edecedace5f65201344804dec3a3870",
+  "pack_sha256": "f1316079fdd1c50eab3387c00ed7460130da5c6b862937241fa41b9ff13742a6",
+  "script_sha256": "2bc8cc64c8bb9d67eee559424eb5c4f81ed12e26a03654d3937b084d1c3431b0",
+  "production_search": false
+}

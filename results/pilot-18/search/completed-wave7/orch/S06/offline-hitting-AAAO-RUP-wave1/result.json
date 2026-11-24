@@ -1,0 +1,79 @@
+{
+  "accepted_CNF_UNSAT": false,
+  "cnf_sha256": "d47a48153e4b268587b8c3330c2e57d1756c554848f4cdfe50c2337cb0be5ec2",
+  "exit_code": 2,
+  "finished_utc": "2026-11-24T05:03:01.757111+00:00",
+  "limits": {
+    "active_children_at_most": 1,
+    "checker_address_space_mib": 3072,
+    "checker_wall_seconds": 600.0,
+    "max_proof_zero_bytes": 100000000,
+    "min_free_bytes": 1073741824,
+    "proof_bytes": 536870912,
+    "solver_address_space_mib": 1536,
+    "solver_wall_seconds": 600.0,
+    "validator_wall_seconds": 30
+  },
+  "logs": {
+    "solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "solver.stdout": {
+      "bytes": 39735,
+      "sha256": "04320967826279e56bf67e48203442cfac340471a6287e028dac8edc2e4ee1df"
+    }
+  },
+  "metadata_sha256": "0508fb3946c969a243ec5160ad9caed77839360a1c2f87ca63aa4cad398832ca",
+  "phases": {
+    "solver": {
+      "address_space_mib": 1536,
+      "child_system_cpu_seconds": 2.88726,
+      "child_user_cpu_seconds": 590.593628,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/cadical",
+        "--unsat",
+        "--binary=true",
+        "--no-color",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/offline-hitting-AAAO-RUP-wave1/instance.cnf",
+        "/tmp/oec/pequalnp-pilot-18/orch/S06/offline-hitting-AAAO-RUP-wave1/proof.drat"
+      ],
+      "elapsed_seconds": 599.008548,
+      "exit_code": -15,
+      "finished_utc": "2026-11-24T05:03:01.439984+00:00",
+      "pid": 32476,
+      "proof_bytes_so_far": 331669504,
+      "reason": "wall_time_limit",
+      "sampled_peak_rss_kib": 115500,
+      "started_utc": "2026-11-24T04:53:02.431477+00:00",
+      "wall_limit_seconds": 600.0
+    }
+  },
+  "pins": {
+    "checker": {
+      "path": "/tmp/oec/pequalnp-pilot-18/solver/dsr-trim/bin/dsr-trim",
+      "sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b"
+    },
+    "solver": {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/cadical",
+      "sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647"
+    },
+    "validator": {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/validate_sat_candidate.py",
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529"
+    }
+  },
+  "reason": "ValueError: solver wall_time_limit",
+  "retained_proof_file": {
+    "bytes": 331767808,
+    "is_accepted_complete_certificate": false,
+    "sha256": "9d9136177a106b234651090e69bef2c2a2357fb9fc994f002212017e5f67bbd8"
+  },
+  "scope": "Exact input CNF only; normalization/preprocessing provenance and Lean acceptance remain separate.",
+  "solver_verdicts": [],
+  "source_sha256": "aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a",
+  "started_utc": "2026-11-24T04:53:02.410289+00:00",
+  "state": "FINISHED",
+  "status": "UNKNOWN",
+  "validated_SAT": false
+}

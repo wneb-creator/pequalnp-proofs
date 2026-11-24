@@ -1,0 +1,1 @@
+Eight topological schedules of the21-gate inexact circuit computingF OR(x0 ANDx2 ANDx4). All2048 inputs independently checked for every schedule; false positives remain21,29,85,149. Generator, seed metadata, controls, full logs, main review, and two actual bounded pilot launch records are preserved. No active runtime output or exact witness is claimed.

@@ -1,0 +1,2 @@
+BEST_FILE /tmp/oec/pequalnp-pilot-18/best3-candidate-134228/engine-result.json.best-0.json
+UNKNOWN iterations=1965708288 restarts=196570 elapsed=300.001

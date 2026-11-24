@@ -1,0 +1,8 @@
+{
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/candidate134227-analysis-preservation-v1.tar.gz",
+  "archive_sha256": "85f85f4274357bb2f316b3074c65a2c98f797c49448becef7730207ae18e6d46",
+  "bytes": 20264,
+  "members": 15,
+  "manifest_sha256": "f8d71570fd879024705c4323737e3af47af57733b7014719f6d7afd216075a91",
+  "scope": "Historical scalar/pruning analysis; inexact candidates, no repair search, no Lean/global claim."
+}

@@ -1,0 +1,465 @@
+{
+  "created_utc": "2026-11-24T05:16:43.500175+00:00",
+  "scope": "Frozen engine/controls/reviews and one explicitly immutable inexact best4 snapshot; no active runtime outputs.",
+  "prefix": "S08-all-negative-engine-v1",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3324,
+      "sha256": "9f6d59e9a389b3d950ce568acabcc9b5c956076d870b47d7f532373e9939cfda",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-v1/README.md"
+    },
+    {
+      "path": "candidate-improvement/S08-independent-review.json",
+      "bytes": 635,
+      "sha256": "c1ac12aaec36213e318c8db42ab4b29df7f84d5c20bee9990ac6828fbd04ac85",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-v1/best4-independent-review.json"
+    },
+    {
+      "path": "candidate-improvement/scalar-review.json",
+      "bytes": 508,
+      "sha256": "1f67a432613e7238960bc3cb6284b9912aaeef7922cc77831c860d158ae271df",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/MAIN/allnegative-best4/scalar-review.json"
+    },
+    {
+      "path": "candidate-improvement/source.json",
+      "bytes": 882,
+      "sha256": "b6da8ac6962d7836f2e5546423f5ed3846b7165fbe1ae47e58b8e470955101b0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/MAIN/allnegative-best4/source.json"
+    },
+    {
+      "path": "dependencies/lean-setup/stochastic/stochastic_tools.py",
+      "bytes": 10521,
+      "sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/stochastic_tools.py"
+    },
+    {
+      "path": "dependencies/lean-setup/validate_sat_candidate.py",
+      "bytes": 22665,
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/lean-setup/validate_sat_candidate.py"
+    },
+    {
+      "path": "dependencies/packs/best3/direct-seeds.json",
+      "bytes": 6885,
+      "sha256": "c6b4f5b90cfc656f9c1466da3ed5a33dd1e4fe950d073adde5b2f414f034cd66",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/direct-seeds.json"
+    },
+    {
+      "path": "dependencies/packs/best3/direct-seeds.txt",
+      "bytes": 1442,
+      "sha256": "6c60f7617f1b797fd8408ddbf5f08d94a148c2c49eb66d9821d7f35e68606e9b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/direct-seeds.txt"
+    },
+    {
+      "path": "dependencies/packs/legacy/seeds.json",
+      "bytes": 1000,
+      "sha256": "de74224be43990e581638e3233e885df66b5de1a156a5f02796670a087d2d981",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-seed-pack/seeds.json"
+    },
+    {
+      "path": "dependencies/packs/legacy/seeds.txt",
+      "bytes": 657,
+      "sha256": "7545d43b161bb5d1fab2cbf3e517c56a40dab5e8e26bdaff4bc4649760dbfe0a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-seed-pack/seeds.txt"
+    },
+    {
+      "path": "dependencies/parent-engine-independent-review.json",
+      "bytes": 32343,
+      "sha256": "925c50536a390fe063fccc4d59f08d1f6db6e7a2026ff0efe7d648060bc88719",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/direct21-engine-review/review.json"
+    },
+    {
+      "path": "dependencies/validate_raw_candidate.py",
+      "bytes": 4085,
+      "sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/validate_raw_candidate.py"
+    },
+    {
+      "path": "preserve_all_negative_engine.py",
+      "bytes": 10512,
+      "sha256": "f8af0e5ad049173ca70b0681577f6b49c21070ad1bd0953ecccdf4b9d83c95d9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/preserve_all_negative_engine.py"
+    },
+    {
+      "path": "production-plan-review/engine-review.json",
+      "bytes": 16205,
+      "sha256": "23a3c36f8a714214fbe4df4cff142820cfef6d091d9401793f74c255442253c2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-production-plan-review/engine-review.json"
+    },
+    {
+      "path": "production-plan-review/production-plan.json",
+      "bytes": 2985,
+      "sha256": "5ae17b9e4600645238b69835abeb232b95cd311e3baad9fbaaa273729e592ff3",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-production-plan-review/production-plan.json"
+    },
+    {
+      "path": "production-plan-review/review.json",
+      "bytes": 2617,
+      "sha256": "62f416117e7717595e76c3db9d054f4754d01c5aa1ee25be92f2f1fbd784ba40",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-production-plan-review/review.json"
+    },
+    {
+      "path": "review-driver/all-negative-engine-review-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review-run.stderr"
+    },
+    {
+      "path": "review-driver/all-negative-engine-review-run.stdout",
+      "bytes": 239,
+      "sha256": "dce9c6a8cd59dadd3700ef67ea8f6416a7271f7428ddc31af953a7fee393a5db",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review-run.stdout"
+    },
+    {
+      "path": "review-driver/review_all_negative_engine.py",
+      "bytes": 14714,
+      "sha256": "21b9233208c31a38e318fb8fd0dadc70f1fa63e28fdafa47f717ff2231642bc0",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/review_all_negative_engine.py"
+    },
+    {
+      "path": "review-driver/wave5_delivery_helpers.py",
+      "bytes": 2729,
+      "sha256": "8eb609316143388dac61dc1b254fa6d9833b2c9aca42835d8d643bff82e848a8",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/wave5_delivery_helpers.py"
+    },
+    {
+      "path": "review/binary-selftest.json",
+      "bytes": 125,
+      "sha256": "9fa31588afe1bd8d8fc19cb60900911836e75445940a0e5b17adc07249a98fff",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/binary-selftest.json"
+    },
+    {
+      "path": "review/binary-selftest.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/binary-selftest.stderr"
+    },
+    {
+      "path": "review/binary-selftest.stdout",
+      "bytes": 58,
+      "sha256": "1cffb4bbc214b616888e224e87706fc0b72888cd82cebc6bcfc6b166e31819c8",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/binary-selftest.stdout"
+    },
+    {
+      "path": "review/commands.json",
+      "bytes": 2659,
+      "sha256": "ea744dec7f9e757f0c23e715bba0775d131c7b7594511f35c89c08f803cfe669",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/commands.json"
+    },
+    {
+      "path": "review/controls-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/controls-build.stderr"
+    },
+    {
+      "path": "review/controls-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/controls-build.stdout"
+    },
+    {
+      "path": "review/deliberately_inexact_candidate.json",
+      "bytes": 1391,
+      "sha256": "282300a505b2acd04fa5d1917f16ea288a1ad4789ba7a8fcb2d47fed6f7bd058",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/deliberately_inexact_candidate.json"
+    },
+    {
+      "path": "review/fake_claimed_candidate.py",
+      "bytes": 310,
+      "sha256": "0f295b190a5f5276c1aacf1db348a639e6684ba0e11c550b3bbb5b964bf24602",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/fake_claimed_candidate.py"
+    },
+    {
+      "path": "review/independent-controls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/independent-controls.stderr"
+    },
+    {
+      "path": "review/independent-controls.stdout",
+      "bytes": 198,
+      "sha256": "376f21839c6acb8b10c7b5b95fb87b3e4dde97a77fe0b1ff9910fa7b5521099e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/independent-controls.stdout"
+    },
+    {
+      "path": "review/independent_review_controls.cpp",
+      "bytes": 4492,
+      "sha256": "a98074d06f87416f168cc84fab9ca4e9a40744b7b18fcbb488f3097ab1b4c467",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/independent_review_controls.cpp"
+    },
+    {
+      "path": "review/review.json",
+      "bytes": 16205,
+      "sha256": "23a3c36f8a714214fbe4df4cff142820cfef6d091d9401793f74c255442253c2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/review.json"
+    },
+    {
+      "path": "review/snapshot/main/build.json",
+      "bytes": 457,
+      "sha256": "26ba1ecb9488ae61ac8cc93e2c227c6e394e6753855e273a9d0756342504baf5",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/build.json"
+    },
+    {
+      "path": "review/snapshot/main/build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/build.stderr"
+    },
+    {
+      "path": "review/snapshot/main/build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/build.stdout"
+    },
+    {
+      "path": "review/snapshot/main/circuit_anneal_allnegative.cpp",
+      "bytes": 17262,
+      "sha256": "18efdd149487dfee83693dd0781a17316ba0fda9d68c43c6c70c73f96a77250b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/circuit_anneal_allnegative.cpp"
+    },
+    {
+      "path": "review/snapshot/main/controls-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/controls-build.stderr"
+    },
+    {
+      "path": "review/snapshot/main/controls-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/controls-build.stdout"
+    },
+    {
+      "path": "review/snapshot/main/help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/help.stderr"
+    },
+    {
+      "path": "review/snapshot/main/help.stdout",
+      "bytes": 209,
+      "sha256": "fb8006b36cf4a4bf4e7cf53559beac58cc685173798dbcc5d67fdd58cdfa3122",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/help.stdout"
+    },
+    {
+      "path": "review/snapshot/main/independent-controls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/independent-controls.stderr"
+    },
+    {
+      "path": "review/snapshot/main/independent-controls.stdout",
+      "bytes": 110,
+      "sha256": "6c7e2f75f42088b7da28f7ba2119fc8009bb1f8a737097aa62bc8b3ab57adb2a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/independent-controls.stdout"
+    },
+    {
+      "path": "review/snapshot/main/independent_controls.cpp",
+      "bytes": 1184,
+      "sha256": "1db42e8bedee6319704e748a8860e59769ea1155eafcf526b614bdc91f7ec524",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/independent_controls.cpp"
+    },
+    {
+      "path": "review/snapshot/main/main-review.json",
+      "bytes": 1217,
+      "sha256": "ee9262f1fd594ce2e96615e111fe14fceed9b4ae82fbacdf8bf8e473bd78dbde",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/main-review.json"
+    },
+    {
+      "path": "review/snapshot/main/parent.cpp",
+      "bytes": 16115,
+      "sha256": "e1a686c19d09439595cdfbf89baf42ff5d1dbfff8949e505b53b999d683ec077",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/parent.cpp"
+    },
+    {
+      "path": "review/snapshot/main/production-plan.json",
+      "bytes": 2985,
+      "sha256": "5ae17b9e4600645238b69835abeb232b95cd311e3baad9fbaaa273729e592ff3",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/production-plan.json"
+    },
+    {
+      "path": "review/snapshot/main/selftest-best3.json",
+      "bytes": 125,
+      "sha256": "9fa31588afe1bd8d8fc19cb60900911836e75445940a0e5b17adc07249a98fff",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/selftest-best3.json"
+    },
+    {
+      "path": "review/snapshot/main/selftest-best3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/selftest-best3.stderr"
+    },
+    {
+      "path": "review/snapshot/main/selftest-best3.stdout",
+      "bytes": 58,
+      "sha256": "1cffb4bbc214b616888e224e87706fc0b72888cd82cebc6bcfc6b166e31819c8",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/selftest-best3.stdout"
+    },
+    {
+      "path": "review/snapshot/main/selftest-legacy.json",
+      "bytes": 90,
+      "sha256": "fef07d3bf11aa99b2be1776c815cb90e8555e7f6b0908f27c67d16280553bb58",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/selftest-legacy.json"
+    },
+    {
+      "path": "review/snapshot/main/selftest-legacy.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/selftest-legacy.stderr"
+    },
+    {
+      "path": "review/snapshot/main/selftest-legacy.stdout",
+      "bytes": 71,
+      "sha256": "2880fcb4e62318b7aa4e44fc370de7430c131e5cfd3864c7154af96477823740",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/selftest-legacy.stdout"
+    },
+    {
+      "path": "review/snapshot/main/source.diff",
+      "bytes": 7029,
+      "sha256": "062dace4b6f820faf51b4b404c6ddb9ed4e9a7f44c6b928df5ca8935cdba5a90",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/source.diff"
+    },
+    {
+      "path": "review/snapshot/main/wrapper-control.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/wrapper-control.stderr"
+    },
+    {
+      "path": "review/snapshot/main/wrapper-control.stdout",
+      "bytes": 137,
+      "sha256": "1190ce4d10f96336dc383fe0781f368ff96cf9cdf21679ab62d06945eecad31e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/wrapper-control.stdout"
+    },
+    {
+      "path": "review/snapshot/main/wrapper-one-iteration-control/command.json",
+      "bytes": 1086,
+      "sha256": "7d9544e1d1c265e4fb6ccb6b87b0122793687bc8e455bd91c01c5e64a52d626f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/wrapper-one-iteration-control/command.json"
+    },
+    {
+      "path": "review/snapshot/main/wrapper-one-iteration-control/engine-result.json",
+      "bytes": 856,
+      "sha256": "228be2bf610698bf1342f7c060740e0de71be06a75626c0650904fef45382cff",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/wrapper-one-iteration-control/engine-result.json"
+    },
+    {
+      "path": "review/snapshot/main/wrapper-one-iteration-control/engine-result.json.best-0.json",
+      "bytes": 874,
+      "sha256": "0b8a924350897d88495915c584eff06cb0f1ee116c37a2d22627658b85f0ea87",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/wrapper-one-iteration-control/engine-result.json.best-0.json"
+    },
+    {
+      "path": "review/snapshot/main/wrapper-one-iteration-control/engine.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/wrapper-one-iteration-control/engine.stderr.txt"
+    },
+    {
+      "path": "review/snapshot/main/wrapper-one-iteration-control/engine.stdout.txt",
+      "bytes": 182,
+      "sha256": "8c0b5a0523ba22750a1236c9a80f7ef962511a81b87fc9311eaf0239480b2ba4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/wrapper-one-iteration-control/engine.stdout.txt"
+    },
+    {
+      "path": "review/snapshot/main/wrapper-one-iteration-control/result.json",
+      "bytes": 1658,
+      "sha256": "325b49d917992bd7a29ed273f22851f4abe750253df67cce925392d6d0cfbb84",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/wrapper-one-iteration-control/result.json"
+    },
+    {
+      "path": "review/wrapper-reject.stderr",
+      "bytes": 384,
+      "sha256": "f255b47c6168527de9bf325981d24aff6a46a6e87b20552f52aa164af804e167",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/wrapper-reject.stderr"
+    },
+    {
+      "path": "review/wrapper-reject.stdout",
+      "bytes": 123,
+      "sha256": "d67864827cf5795217328d8d86b1e917f1397d58a7fab3edb677cea294b72173",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/wrapper-reject.stdout"
+    },
+    {
+      "path": "review/wrapper-reject/command.json",
+      "bytes": 1075,
+      "sha256": "279b93296e507b342cddfa970474c528a2016cd8a00bbf5643008a1193b301cd",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/wrapper-reject/command.json"
+    },
+    {
+      "path": "review/wrapper-reject/engine-result.json",
+      "bytes": 1391,
+      "sha256": "282300a505b2acd04fa5d1917f16ea288a1ad4789ba7a8fcb2d47fed6f7bd058",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/wrapper-reject/engine-result.json"
+    },
+    {
+      "path": "review/wrapper-reject/engine.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/wrapper-reject/engine.stderr.txt"
+    },
+    {
+      "path": "review/wrapper-reject/engine.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/wrapper-reject/engine.stdout.txt"
+    },
+    {
+      "path": "review/wrapper-reject/result.json",
+      "bytes": 1868,
+      "sha256": "507e3c3f34ecd11a014e1b4c5e563cf334496de631e04fd989184619dc79771d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/wrapper-reject/result.json"
+    },
+    {
+      "path": "review/wrapper-reject/validation.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/wrapper-reject/validation.stderr.txt"
+    },
+    {
+      "path": "review/wrapper-reject/validation.stdout.txt",
+      "bytes": 38,
+      "sha256": "cef4c97cb9e7f77cd3e6147490f8aa1d3d19fe65ad75f05aeb5246a9398b2891",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/wrapper-reject/validation.stdout.txt"
+    },
+    {
+      "path": "toolchain/compiler-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-v1/compiler-version.stderr"
+    },
+    {
+      "path": "toolchain/compiler-version.stdout",
+      "bytes": 232,
+      "sha256": "5f6798e87440f1e8b88bf6822c33bebe434f83374640a7f8ba967902ee1ea098",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-v1/compiler-version.stdout"
+    }
+  ],
+  "omitted_ELF_binaries": [
+    {
+      "archive_path_if_included": "review/independent_review_controls",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/independent_review_controls",
+      "bytes": 861736,
+      "sha256": "dd95cbfb51332b54ef9cc59b3eae21b5ab1a18233bdf474b77fa70968b026f00",
+      "reason": "Compiled binary excluded; source/build commands/binary hash retained."
+    },
+    {
+      "archive_path_if_included": "review/snapshot/main/circuit_anneal_allnegative",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/circuit_anneal_allnegative",
+      "bytes": 69312,
+      "sha256": "7d802a63b218449bd58178785a917a363edecedace5f65201344804dec3a3870",
+      "reason": "Compiled binary excluded; source/build commands/binary hash retained."
+    },
+    {
+      "archive_path_if_included": "review/snapshot/main/independent_controls",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-review/snapshot/main/independent_controls",
+      "bytes": 64888,
+      "sha256": "b528970a71ddd6952fd7dc1613f77b7323ecb7bd51f7b908221a2cf652e39d1c",
+      "reason": "Compiled binary excluded; source/build commands/binary hash retained."
+    }
+  ],
+  "active_outputs_read": false,
+  "exact21_found": false,
+  "compiled_Lean_or_posted_checker_run": false
+}

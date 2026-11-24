@@ -1,0 +1,32 @@
+{
+  "verdict": "PASS_SELF_PORTABLE_PACKAGE_EXACT_RECONSTRUCTION_AND_ROUNDTRIP",
+  "archive_sha256": "5448d8e09646c9de7a4a025081707e599a8b032c825e9a801307c8ab1f9e313b",
+  "archive_bytes": 130000,
+  "archive_regular_members": 119,
+  "manifest_sha256": "d2a5da77d9cf2756cbcdc430956b00e9c3c25211a2f4cc1251ecd91559f8ac2c",
+  "exact_copies": 94,
+  "reconstruction_CNF_files": 8,
+  "reconstruction_files": 26,
+  "reconstruction_generator_exit0": 3,
+  "reconstruction_negative_controls": 2,
+  "one_gate_exhaustive_controls": 2,
+  "gate_descriptions_per_control": 12362,
+  "output_checks_per_control": 420308,
+  "exact_candidates_found": 0,
+  "finished_best3_pilots": 3,
+  "finished_outcomes": {
+    "UNKNOWN": 3
+  },
+  "full_solver_stdout_stderr_pairs": 3,
+  "full_controller_stdout_stderr_pairs": 1,
+  "original_family_runtime_included": false,
+  "rescheduled_runtime_included": false,
+  "raw_CNF_members": 0,
+  "credential_value_indicators": 0,
+  "lease_value_indicators": 0,
+  "active_outputs_read": false,
+  "solver_launched": false,
+  "repository_artifacts_changed": false,
+  "blocking_findings": [],
+  "scope": "Main independent preservation review remains required. No exact21 witness, global/shard exhaustion or posted-checker acceptance."
+}

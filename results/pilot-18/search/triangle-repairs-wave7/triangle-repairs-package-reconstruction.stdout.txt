@@ -1,0 +1,1 @@
+{"verdict": "PASS_EXACT_EIGHT_CNF_RECONSTRUCTION", "file_count": 26, "CNFs": 8}

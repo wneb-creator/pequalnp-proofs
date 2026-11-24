@@ -1,0 +1,82 @@
+{
+  "scope": "Candidate-only neighborhoods; no global or assigned-shard exhaustion.",
+  "started": "2026-11-24T05:05:07.913036+00:00",
+  "cases": {
+    "dirty-early-h14": {
+      "pid": 33808,
+      "cnf_sha256": "8fb42b982614b2c61ad6c01e39a11217e370f75cd4a1f258754c095497342639",
+      "free_gates": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "budget": null,
+      "repair_kind": "local14",
+      "started": "2026-11-24T05:05:07.916324+00:00",
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--sat",
+        "--time=180",
+        "/tmp/oec/pequalnp-pilot-18/orch/S02/best3-rescheduled-family/dirty-early-h14.cnf"
+      ],
+      "exit_code": 0,
+      "status_lines": [
+        "s UNKNOWN"
+      ],
+      "elapsed_seconds": 180.1859152979996
+    },
+    "reverse-ready-k06": {
+      "pid": 33809,
+      "cnf_sha256": "f6b7b7f1d90e46abc8a3cd8d9d2300cdd9b8b6b11a48d37cdcad57c64dcde392",
+      "free_gates": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "budget": 6,
+      "repair_kind": "distance6",
+      "started": "2026-11-24T05:05:07.920094+00:00",
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--sat",
+        "--time=180",
+        "/tmp/oec/pequalnp-pilot-18/orch/S02/best3-rescheduled-family/reverse-ready-k06.cnf"
+      ],
+      "exit_code": 0,
+      "status_lines": [
+        "s UNKNOWN"
+      ],
+      "elapsed_seconds": 180.18310920600197
+    }
+  },
+  "finished": "2026-11-24T05:08:08.303646+00:00"
+}

@@ -246,3 +246,31 @@ S08 actual-code/delta review nowPASS `0ed0ac84baea1a88bf665fea4e6b78aff41b41c399
 Compact archive `hitting-archive-v1.tar.gz` is2,471,021bytes, SHA256 `1b35774d63977b6e9f6660d2e011ab47316c690d1f0ff61585b85141b27af0ec`; manifest `b13a156feccad31add4704016d8f6f93e415545b0f83c5ee162746ca6736280a`. It contains264boundpayloads/265regularmembers and30portableCNFrecipes: ten +1parents, tennewchildren and tenindependentreview snapshots. Allpayload/tarhashes and allrecipe reconstructions passed using the unchanged standard-library restorer. Full S04disjoint/hitting math preservation, S08actualcode/review/snapshots/fulloutputs, allnewproducercontrols/source/logs/metadata, pinnedrunner+fourcommands, and originalgenerator dependencies are retained. There are no raw CNFs, compiled payloads or runtime outputs. No active output directory was read. Previouschargearchiveaeb918... remainsunchanged as older normalization/RUP/runner-control provenance.
 
 Package generation exited0 in3.026088s under10CPU/30wall/1GiB caps. Fullbuild/restore stdout/stderr, execution and package records are external delivery artifacts to avoid self-referential manifests. Handoff `hitting-archive-v1-handoff.json` SHA256 `d6d8e539b18ed7368c54052f35785300f7e481399d040281e4f9ee4d9a0584ec` binds all8 delivery files. Main/S08 independent delivery review and preservation are the remaining step; no solver/checker/Lean/production/git/desk action by S06.
+
+
+## 2026-11-24T05:11:55.016687+00:00 — one stable-mode route independently audited
+
+Recommend exactly one 600-second retained-proof run of the unchanged, reviewed hitting AAAO-RUP CNF using S05's CaDiCaL --sat preset runner. This enables stable-only search and the default random-walk machinery; it also lowers elimination/subsumption effort. Keep the same pinned solver, exact CNF, DRAT checker and full SAT validator. Allow the checker its separate600-second cap only after a complete solver UNSAT; keep one CPU slot through checker/validator/finalization. Main/S08 review and main admission remain required. Do not repeat all four cases before assessing this one result.
+
+The completed three runs all explicitly selected --stabilize=false and --walk=false through --unsat. Independent full-log parsing agrees with S05's counts:
+
+| Case | Conflicts | Restarts | Conflicts/restart | Unstable CPU | Peak RSS MiB | Retained partial proof MiB |
+|---|---:|---:|---:|---:|---:|---:|
+| AAAO-RUP | 2912372 | 274314 | 10.62 | 95.87% | 112.79 | 316.40 |
+| T2 | 2908346 | 251139 | 11.58 | 95.13% | 112.91 | 308.01 |
+| T3 | 2831325 | 253115 | 11.19 | 95.09% | 113.36 | 324.31 |
+
+Each completed run was UNKNOWN at its wall limit, with only the solver phase present. Peak RSS is about7.4% of the1536MiB address-space cap; incomplete DRAT occupies60–64% of the512MiB file cap. Thus more memory or a larger proof cap does not address the observed termination. The statistics establish an untried mode, not that short restarts caused the difficulty or that stable mode will finish. New CEGAR/decomposition would require additional projection/coverage and proof integration; the one preset experiment fits the remaining deadline with an already checked acceptance path.
+
+The supplied runner is byte-exactly the reviewed S06 runner after three unique replacements: OWN S06→S05, --unsat→--sat, and the output-ownership error label. No lifecycle, abort, pin, memory, proof, checker, SAT validation or acceptance logic changes. Independent audit rehashed all50 S05 handoff artifacts and verified the supplied toy solver20/checker0 result, exactlyfour full log keys/byte counts/hashes, input/proof/tool pins, and the intended preset options. The toy was not rerun and does not predict performance on the real CNF. Large incomplete proof files were not rehashed or replayed here; their recorded sizes are used only for performance analysis and remain unaccepted.
+
+Use the exact command already in S05's solver-mode-review/recommendation.json, bound by its stable-mode-handoff.json SHA c2a1358bb7f0c1090fb1e36ad6d1916c8525a4148228e9c2a5369c9ee84c1015. Runner SHA64958a6d0ef8eaa1e072547ade244cdb2de156815fca6545b4fcf829d331f7da; CNF d47a48153e4b268587b8c3330c2e57d1756c554848f4cdfe50c2337cb0be5ec2; metadata0508fb3946c969a243ec5160ad9caed77839360a1c2f87ca63aa4cad398832ca. Fresh output/admission is main's responsibility; this audit did not inspect any proposed/active output directory.
+
+S06 independent review stable-route-review/review.json SHA b75936e6798fc79508b451888bd612c1d21b9f89ae863f468740723fbbf9bbf4, source review_stable_route.py SHA bf7686c2036049fcd526ea5418b66920a7a9f397d520e5668327d28bf040e849. Full source, frozen evidence copies and stdout/stderr/execution records are retained. The audit exited0 in0.115471s; no solver/checker/Lean, production, or active-directory read/mutation.
+
+S06 durable handoff stable-route-handoff.json SHA `9203f9e9819d44df01121e5f44404d67394a7453e6e176522cd00a193c1a10d9` binds all6 own result/source/full-log/recommendation files and the unexecuted command. The existing S05 implementation is reused; no duplicate runner/portfolio was created.
+
+
+## 2026-11-24T05:15:52.027720+00:00 — stable route frozen preservation complete
+
+Archive `stable-route-archive-v1.tar.gz`, SHA256 `cd26624aad04e41af18bd4480ea3e031a21c44644486b7a28f21d3384230e1c2`, is297495bytes/141regularmembers/140payloads. Manifest `000362199926cc613ec98ef60d1820980cebeda84f7ea67a775ca7e11dccaafd` binds exact S05stable runner/source/diff/full50-artifact handoff, alltoycontrol logs/eight-byte proof and historicalfailedcontrol, independentS06audit/fullfrozencopies/logs and originalgenerator dependencies. OneportableCNFrecipe reconstructs exact reviewedhittingAAAO-RUP. Allpayload/tarhashes and standard-library reconstruction passed; packageexecution0/0.470315s. Handoff `stable-route-archive-v1-handoff.json` SHA `dc50a32bad234162af0b0156f941f114dd4907c811ce1695e36047e1570ee182` binds8externaldeliveryfiles includingfullbuild/restorelogs. Noactive stable/T4output was read or copied; inputs/runner unchanged. Main separately preserves launchmanifest andfinalruntime. No newsolver/checker/Lean/productionrun byS06.

@@ -1,0 +1,45 @@
+{
+  "CNF_recipes": 1,
+  "archive_bytes": 297495,
+  "archive_sha256": "cd26624aad04e41af18bd4480ea3e031a21c44644486b7a28f21d3384230e1c2",
+  "delivery_files": {
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-archive-v1-build.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-archive-v1-build.stdout": {
+      "bytes": 1200,
+      "sha256": "0548c6103056f4ac3e4266f046e161c577e014c4de4762a3d5674de65d4eec3f"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-archive-v1-restore.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-archive-v1-restore.stdout": {
+      "bytes": 120,
+      "sha256": "773aae9f177aa2ac5152f93e82b01e518eceb4163f1c0e563bad6c2d02e2b76b"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-archive-v1.execution.json": {
+      "bytes": 559,
+      "sha256": "8a13a28d0e0916d323654fc611fcc038af9e3c7c59632d8f7ca6738b34fc745c"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-archive-v1.record.json": {
+      "bytes": 1200,
+      "sha256": "0548c6103056f4ac3e4266f046e161c577e014c4de4762a3d5674de65d4eec3f"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-archive-v1.tar.gz": {
+      "bytes": 297495,
+      "sha256": "cd26624aad04e41af18bd4480ea3e031a21c44644486b7a28f21d3384230e1c2"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-archive-v1/manifest.json": {
+      "bytes": 44192,
+      "sha256": "000362199926cc613ec98ef60d1820980cebeda84f7ea67a775ca7e11dccaafd"
+    }
+  },
+  "manifest_files": 140,
+  "manifest_sha256": "000362199926cc613ec98ef60d1820980cebeda84f7ea67a775ca7e11dccaafd",
+  "scope": "Frozen reviewed stable runner/source/diff/fulltoyproof+logs/50S05artifacts/S06audit and exact real-CNF recipe. No active runtime outputs or launch manifest; main preserves runtime separately. No production or input/runner mutation.",
+  "status": "READY_MAIN_DELIVERY_REVIEW_RUNTIME_EXCLUDED",
+  "tar_members": 141,
+  "utc": "2026-11-24T05:15:52.027720+00:00"
+}

@@ -1,0 +1,33 @@
+{
+  "utc": "2026-11-24T05:14:31.620021+00:00",
+  "pid": 35048,
+  "seed": 134230,
+  "weight": 16,
+  "restart": 10000,
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/stochastic_tools.py",
+    "run",
+    "--engine",
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/all-negative-engine-v1/circuit_anneal_allnegative",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/direct-seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/allnegative-candidate-134230",
+    "--seed",
+    "134230",
+    "--seconds",
+    "300",
+    "--iterations",
+    "2000000000",
+    "--restart",
+    "10000",
+    "--weight",
+    "16"
+  ],
+  "output": "/tmp/oec/pequalnp-pilot-18/allnegative-candidate-134230",
+  "plan_sha256": "5ae17b9e4600645238b69835abeb232b95cd311e3baad9fbaaa273729e592ff3",
+  "S08_review_sha256": "23a3c36f8a714214fbe4df4cff142820cfef6d091d9401793f74c255442253c2",
+  "scope": "Reviewed candidate-only pilot; mandatory full2048 validator then Lean if candidate found"
+}

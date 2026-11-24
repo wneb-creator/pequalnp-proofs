@@ -1,0 +1,598 @@
+{
+  "scope": "Prepared original/best3/rescheduled candidate families; only three finished best3 UNKNOWN pilots have runtime records.",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2149,
+      "sha256": "8b3b9f3217fd659ae61359384837df9c6050a84f4625f4a1eb858e128de350b4"
+    },
+    {
+      "path": "assemble_triangle_repair_archive.py",
+      "bytes": 10018,
+      "sha256": "c4cb5d18916b3bd431d956ab60ad788b57ccf55777d91c95d405e53c259cd240"
+    },
+    {
+      "path": "completed-best3-pilot/best3-h12.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "completed-best3-pilot/best3-h12.stdout",
+      "bytes": 71701,
+      "sha256": "6e144abdc18221f4774d0afd7027514cfa982fd44d355360efe827da04e46283"
+    },
+    {
+      "path": "completed-best3-pilot/best3-k04.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "completed-best3-pilot/best3-k04.stdout",
+      "bytes": 66852,
+      "sha256": "553942fdb5bdbec0cbd15e00c899e4778342f3ab09a354601fb8bbb743977229"
+    },
+    {
+      "path": "completed-best3-pilot/best3-k06.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "completed-best3-pilot/best3-k06.stdout",
+      "bytes": 70529,
+      "sha256": "4820f4a10b2e85d9d95579b8d16eb6c81817a1ebba4c0b44259c7e589278f6cb"
+    },
+    {
+      "path": "completed-best3-pilot/portfolio.json",
+      "bytes": 2698,
+      "sha256": "6ab9b7ec6ca1ff683a7f6a0819930bad1a9642366e1c52b4cc3f5359fe4d056f"
+    },
+    {
+      "path": "completed-best3-pilot/triangle589-best3-repair-controller.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "completed-best3-pilot/triangle589-best3-repair-controller.stdout",
+      "bytes": 165,
+      "sha256": "3181f475666af63a62ded711b2c8f3d047f770e01abfad7d7214dd47bdee2dd5"
+    },
+    {
+      "path": "completed-best3-pilot/triangle589-best3-repair-launch.json",
+      "bytes": 243,
+      "sha256": "86e1e7f2a87c4644585f8e50f395cccb7c762b905c272614d4b42c32b71c5619"
+    },
+    {
+      "path": "completed-best3-pilot/worker-limit.txt",
+      "bytes": 2,
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3"
+    },
+    {
+      "path": "controllers/run_best3_rescheduled_pilot.py",
+      "bytes": 5019,
+      "sha256": "d53ddabc30e36fd2e210f886adf85be7bef82092c027a3097a73994c8950e4ec"
+    },
+    {
+      "path": "controllers/run_context_window_pilot.py",
+      "bytes": 4962,
+      "sha256": "7e3b17c14552b652e8789489e0c889c8fdd0c1af0db43a04a6edc7bdffcfd478"
+    },
+    {
+      "path": "controllers/run_triangle589_best3_repair_pilot.py",
+      "bytes": 5019,
+      "sha256": "d812c9cca0821e31e02cdc32b8c32307123ca406d22fa77ebd4f376adaf438b4"
+    },
+    {
+      "path": "copy-bindings.json",
+      "bytes": 25951,
+      "sha256": "6eedde3d3b6f32b5c61f87571ef44acd887500ce5250a13c6f01da9dcd62633f"
+    },
+    {
+      "path": "logs/best3-rescheduled-audit.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/best3-rescheduled-audit.stdout.txt",
+      "bytes": 275,
+      "sha256": "ec7817c77556898621428fca7cfa9068fef5ec1a8cf19410ac02481289050382"
+    },
+    {
+      "path": "logs/best3-rescheduled-generation.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/best3-rescheduled-generation.stdout.txt",
+      "bytes": 127,
+      "sha256": "c138792014fcff071f53e1cf9505090744836d6d1423bd6ce6f09b2d866a1693"
+    },
+    {
+      "path": "logs/best3-rescheduled-help.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/best3-rescheduled-help.stdout.txt",
+      "bytes": 220,
+      "sha256": "e0fe854bf69d3a53cb64cc4f51824951a0783f7b1267aea0956608b1eb258877"
+    },
+    {
+      "path": "logs/triangle589-best3-repairs-generation.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/triangle589-best3-repairs-generation.stdout.txt",
+      "bytes": 127,
+      "sha256": "701a56aaa34d44d05668ca6bfc0a0ba43477e84e4b530b3821a44006740101cf"
+    },
+    {
+      "path": "logs/triangle589-best3-repairs-help.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/triangle589-best3-repairs-help.stdout.txt",
+      "bytes": 238,
+      "sha256": "1a15296ac76774a46155698f945f805276b0d4d9496f68d08a6a96b37d2b0178"
+    },
+    {
+      "path": "logs/triangle589-repairs-audit.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/triangle589-repairs-audit.stdout.txt",
+      "bytes": 582,
+      "sha256": "d358a7d9dbfbf940d81277071d19dd450908038f0f9eb5965daac15baef588fb"
+    },
+    {
+      "path": "logs/triangle589-repairs-generation.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/triangle589-repairs-generation.stdout.txt",
+      "bytes": 127,
+      "sha256": "2e072cab5ceac0d3c3e490e08a2d6f9476e238d591d473c6323c031aef8de05f"
+    },
+    {
+      "path": "logs/triangle589-repairs-help.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/triangle589-repairs-help.stdout.txt",
+      "bytes": 217,
+      "sha256": "ead39d5889d9abb14443a4dd23cf1c60efdb0fe5ec5f211d902ffa63b6c3d9a6"
+    },
+    {
+      "path": "metadata/best3-rescheduled-family/dirty-early-h14.json",
+      "bytes": 20399,
+      "sha256": "36cbecdd1429165b1b0f00e32f6aff23ca3435123817c290a4237ce29b4533e3"
+    },
+    {
+      "path": "metadata/best3-rescheduled-family/dirty-early-source.json",
+      "bytes": 1001,
+      "sha256": "0ba07fc10ba045c30cdb542e225c4bf26755f1eda76ff4e241c16176f6bdb171"
+    },
+    {
+      "path": "metadata/best3-rescheduled-family/family.json",
+      "bytes": 5563,
+      "sha256": "535eaeeca76df0f52b37abd6f6a3b58e6ed8175ed7a8a16220cdd2ee6123049f"
+    },
+    {
+      "path": "metadata/best3-rescheduled-family/original-source.json",
+      "bytes": 822,
+      "sha256": "9a743d5d43f651198f908fd086b3307e036697ee9d9990f5c0edfcce6ff3fe96"
+    },
+    {
+      "path": "metadata/best3-rescheduled-family/reverse-ready-k06.json",
+      "bytes": 22200,
+      "sha256": "cc36bd704bcd707961bbbe118efeeea27b643471c5ba081c6867f42e776e972f"
+    },
+    {
+      "path": "metadata/best3-rescheduled-family/reverse-ready-source.json",
+      "bytes": 1001,
+      "sha256": "422875a55919b0913c765240919ab15aabe6b545796405e5d8c897758b57dc5d"
+    },
+    {
+      "path": "metadata/triangle589-best3-repair-family/best3-h12.json",
+      "bytes": 20214,
+      "sha256": "0cfc724377fd3d06c2e99c7adfeb4a21bd362bc5b25292ad38ebbc50cb97cc89"
+    },
+    {
+      "path": "metadata/triangle589-best3-repair-family/best3-k04.json",
+      "bytes": 21765,
+      "sha256": "515c2a3a4abcbdbcd4feac88e724e609e79324b0abb5264ac4595e4d2e327173"
+    },
+    {
+      "path": "metadata/triangle589-best3-repair-family/best3-k06.json",
+      "bytes": 21785,
+      "sha256": "a6a743a8aa32f85e5b7839f8be2c6623480c298fd9eb4514e71256c17969a127"
+    },
+    {
+      "path": "metadata/triangle589-best3-repair-family/family.json",
+      "bytes": 2258,
+      "sha256": "f8f6974c02f12dff0a772e9ce5f7166cd7632d9c2e0ee8945a7ce80f10bf9329"
+    },
+    {
+      "path": "metadata/triangle589-best3-repair-family/source-summary.json",
+      "bytes": 647,
+      "sha256": "b99d5a93adae44b644a32dcc1b4b1e4cba2b63824769c0d0348b0cfb0f9091fe"
+    },
+    {
+      "path": "metadata/triangle589-best3-repair-family/source.json",
+      "bytes": 822,
+      "sha256": "9a743d5d43f651198f908fd086b3307e036697ee9d9990f5c0edfcce6ff3fe96"
+    },
+    {
+      "path": "metadata/triangle589-repair-family/family.json",
+      "bytes": 2256,
+      "sha256": "251ead3c373707b7811a740058352b606e24587b6802281d89790c0930694b61"
+    },
+    {
+      "path": "metadata/triangle589-repair-family/source-summary.json",
+      "bytes": 698,
+      "sha256": "92c558505d8122eec3b08bc928c7254892f0348f7fcc6d501945e6d9ce317ac3"
+    },
+    {
+      "path": "metadata/triangle589-repair-family/source.json",
+      "bytes": 1001,
+      "sha256": "e5306aed955246a17957df3acf76d38049205535d3afc282c4445e458f66ec94"
+    },
+    {
+      "path": "metadata/triangle589-repair-family/triangle589-h11.json",
+      "bytes": 20320,
+      "sha256": "83a54b29699a9e7cae30080da61c7f45761cdacbb9fb0e4e07bf31de69b77f1d"
+    },
+    {
+      "path": "metadata/triangle589-repair-family/triangle589-k04.json",
+      "bytes": 21760,
+      "sha256": "24b84daa804f22f9bd017259005f8b1bd79425e7e8781a4fc64c31eef262cd27"
+    },
+    {
+      "path": "metadata/triangle589-repair-family/triangle589-k06.json",
+      "bytes": 21780,
+      "sha256": "70c0382402140f29b1dbbff92dba5882c7862442db26c1eab661be3e389980d6"
+    },
+    {
+      "path": "one-gate-controls/enumerate_triangle589_best3_one_gate.py",
+      "bytes": 4852,
+      "sha256": "50187980b4b1bc80ddb13bddf0555e753803a4bc0e28cc60064d07ece38a8605"
+    },
+    {
+      "path": "one-gate-controls/enumerate_triangle589_one_gate.py",
+      "bytes": 4866,
+      "sha256": "18e3f7ca59d046b72661c114e507a6f82aea7e646551e078c4d32a843e776081"
+    },
+    {
+      "path": "one-gate-controls/old-seed-improvement-scalar.json",
+      "bytes": 501,
+      "sha256": "8d305a3ceb2ab38c45b5aaa527c9eca75a054a25bd2dba34339e733065244cec"
+    },
+    {
+      "path": "one-gate-controls/triangle589/positive-improvement-00.json",
+      "bytes": 1001,
+      "sha256": "ec97e48a330197d9fd6c460232bab1c6b2ffa01e75801253c9003349d12aabe4"
+    },
+    {
+      "path": "one-gate-controls/triangle589/report.json",
+      "bytes": 1372,
+      "sha256": "34e1461408b44130068c122b5f8c5987764954649e5fbbbb3318115777ab8f5f"
+    },
+    {
+      "path": "one-gate-controls/triangle589-best3/report.json",
+      "bytes": 1068,
+      "sha256": "2aadb8a7707d66ef33f11c4ec95a7515d18a5105295e9ab7d630e6cbe3844774"
+    },
+    {
+      "path": "one-gate-controls/triangle589-best3.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "one-gate-controls/triangle589-best3.stdout.txt",
+      "bytes": 182,
+      "sha256": "eaebe30d97f86abd8030ba3b1e1eff1a8422a3a00b12ca9562ce82f45cac6585"
+    },
+    {
+      "path": "one-gate-controls/triangle589.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "one-gate-controls/triangle589.stdout.txt",
+      "bytes": 182,
+      "sha256": "fcbf2903c4d6d158357e7cc1d74d27d14cf95120b569a4deb0cc18f95bbbd356"
+    },
+    {
+      "path": "reconstruct_triangle_repairs.py",
+      "bytes": 3227,
+      "sha256": "98f9d2861094a6965859d2fd24a36c7d2d4c448155bcb37eadd8c936ad2b594a"
+    },
+    {
+      "path": "reconstruction.json",
+      "bytes": 5933,
+      "sha256": "491b1301d467fc5f4c39f0b2f48d259e373d68e6cf67af4fda7d25b3ad718ce8"
+    },
+    {
+      "path": "reviews/analyze_triangle589_repairs.py",
+      "bytes": 4606,
+      "sha256": "2e7df4fa8786a133ebe4ed1ed2087d899ae7a4629072537657f0e64f0527bff1"
+    },
+    {
+      "path": "reviews/audit_best3_rescheduled.py",
+      "bytes": 8085,
+      "sha256": "ed86f74563a7f65f68e58fbbbae845bf8b095f521224d38609d6ecf7db7acb2f"
+    },
+    {
+      "path": "reviews/audit_triangle589_repairs.py",
+      "bytes": 9185,
+      "sha256": "bff3822d2ed5bf3fd77fa668879b6a1be332c2d151d16a8e5a2c4d6ae8771d76"
+    },
+    {
+      "path": "reviews/best3-rescheduled-controller-review.json",
+      "bytes": 1984,
+      "sha256": "7a9e147c68b099a96f09348acdff68b06ea631dc6b8d9511de70767aca085570"
+    },
+    {
+      "path": "reviews/best3-rescheduled-controller.diff",
+      "bytes": 3179,
+      "sha256": "6674db00c963a90e98f4b030d6ac8a15267c6d2b0758a1ecba609e7ae80cb777"
+    },
+    {
+      "path": "reviews/best3-rescheduled-handoff.json",
+      "bytes": 10419,
+      "sha256": "d35933f652dcad1331fc2f7b1a7caa6434202f44ffbcbfd41a2154cc26f01731"
+    },
+    {
+      "path": "reviews/best3-rescheduled-review.json",
+      "bytes": 3606,
+      "sha256": "e6007256dded7094a3cd8e17c9a35d870f23f058d68a06c7d8896cb846dca195"
+    },
+    {
+      "path": "reviews/main-best3-controller.diff",
+      "bytes": 3693,
+      "sha256": "27f93c6ae628d2353a09be3cff7c58a391534837dc4a1beb1f7469deb872f878"
+    },
+    {
+      "path": "reviews/main-best3-repair-review.json",
+      "bytes": 1233,
+      "sha256": "18df565d57941aeff47e8e4f629314ee31419a2a0806d186d952d294256dfe1c"
+    },
+    {
+      "path": "reviews/main-best3-rescheduled-review.json",
+      "bytes": 970,
+      "sha256": "156d1d70dbf277f5e4da1705bfb5140bb6c3373f299afc7fc4cdfb61ed948a9a"
+    },
+    {
+      "path": "reviews/triangle589-best3-controller-review.json",
+      "bytes": 2377,
+      "sha256": "fb0069d10d94f7fbe2590059ece5331497957b909a419171d86b62f547155732"
+    },
+    {
+      "path": "reviews/triangle589-best3-controller.diff",
+      "bytes": 3693,
+      "sha256": "27f93c6ae628d2353a09be3cff7c58a391534837dc4a1beb1f7469deb872f878"
+    },
+    {
+      "path": "reviews/triangle589-best3-generator-delta.json",
+      "bytes": 1524,
+      "sha256": "b28aeffa94a1baf356cfdce632370241217438ae83794e639d33c6348546756c"
+    },
+    {
+      "path": "reviews/triangle589-best3-generator.diff",
+      "bytes": 2584,
+      "sha256": "85b2323a36b97d9f052f308047961ec09263af9accb2dfb6d4082897420e3814"
+    },
+    {
+      "path": "reviews/triangle589-best3-repair-handoff.json",
+      "bytes": 10589,
+      "sha256": "95e7a377e3f513be6fa6de225b9fa5929843b1e521c8417de5025bc2e0c20cf6"
+    },
+    {
+      "path": "reviews/triangle589-best3-repair-review.json",
+      "bytes": 3106,
+      "sha256": "47a286f20100822a41d9dee9534af15d573d69c2bf29175504b325d0f04df58e"
+    },
+    {
+      "path": "reviews/triangle589-repair-analysis/report.json",
+      "bytes": 7016,
+      "sha256": "4aa69674efad56f1614bb6f90dd90d638f96206dfc0b304f0d9d9eb910215f60"
+    },
+    {
+      "path": "reviews/triangle589-repair-analysis.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reviews/triangle589-repair-analysis.stdout.txt",
+      "bytes": 374,
+      "sha256": "a39d78014ed3e74596c683327be0e697b58ab4c1786ad68951316cef64219325"
+    },
+    {
+      "path": "reviews/triangle589-repair-control-totals.json",
+      "bytes": 300,
+      "sha256": "a355b7a17672155bf409c9e3a2ee8ac16df5c477655abbba18036431914d7761"
+    },
+    {
+      "path": "reviews/triangle589-repair-review.json",
+      "bytes": 3139,
+      "sha256": "b32cff19846ad13c3f8b8397f6784e190dae776dbabef9593f74d8cbfc0f15d3"
+    },
+    {
+      "path": "scratch/lean-setup/generate_distance_repairs.py",
+      "bytes": 5330,
+      "sha256": "39e65cae78a5bd8dd6417cf1132fb77187867d6765f20d62e10fd51bcedc9da1"
+    },
+    {
+      "path": "scratch/lean-setup/generate_local_repairs.py",
+      "bytes": 10481,
+      "sha256": "857f7082cb81bda879891aba76a84e59f0a1b030f6c6c0eccf08f507cf96cd97"
+    },
+    {
+      "path": "scratch/lean-setup/validate_sat_candidate.py",
+      "bytes": 22665,
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529"
+    },
+    {
+      "path": "scratch/orch/S02/generate_best3_rescheduled.py",
+      "bytes": 6115,
+      "sha256": "526d4ff2625b801ec283a144714484dbf70b541cee9644eac97d0b55182552c8"
+    },
+    {
+      "path": "scratch/orch/S02/generate_rescheduled_repairs.py",
+      "bytes": 9647,
+      "sha256": "9276816606eb7ab1738b277bcf4c34f128b63e5158a23d54debbaadfaf88fd8c"
+    },
+    {
+      "path": "scratch/orch/S02/generate_triangle589_best3_repairs.py",
+      "bytes": 4657,
+      "sha256": "a32140b75f8c5d47a24cd8b05f0b25c3e9b3b0a239abdc857d5bc67f1108a598"
+    },
+    {
+      "path": "scratch/orch/S02/generate_triangle589_repairs.py",
+      "bytes": 4670,
+      "sha256": "3b6c85f1db84752a095757b315088d5781551c6304c41d48eddb6e1292b017d9"
+    },
+    {
+      "path": "scratch/orch/S02/prepare_positive_repairs.py",
+      "bytes": 8253,
+      "sha256": "7552f3d344d4e34a6f681b116b5ec748e032b2000315dfc9527c77f8de2bdb6b"
+    },
+    {
+      "path": "scratch/orch/S02/triangle589-best3-source.json",
+      "bytes": 822,
+      "sha256": "9a743d5d43f651198f908fd086b3307e036697ee9d9990f5c0edfcce6ff3fe96"
+    },
+    {
+      "path": "scratch/orch/S02/triangle589-repair-analysis/source-augmented.json",
+      "bytes": 1001,
+      "sha256": "e5306aed955246a17957df3acf76d38049205535d3afc282c4445e458f66ec94"
+    },
+    {
+      "path": "scratch/search_l1342_shard17_ancestorreverse.py",
+      "bytes": 30356,
+      "sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f"
+    },
+    {
+      "path": "scratch/validate_raw_candidate.py",
+      "bytes": 4085,
+      "sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401"
+    },
+    {
+      "path": "seal_triangle_repair_archive.py",
+      "bytes": 5464,
+      "sha256": "ef7dd22e47d118c8828cd82decf8027dbc634ad9ee6d15caa31814feaf7a1843"
+    },
+    {
+      "path": "snapshot-status.json",
+      "bytes": 1016,
+      "sha256": "4af08953082dee1c02601c7fdf8a97fccefa73b3e6d4b87c4e7fa88f787037b6"
+    },
+    {
+      "path": "source-provenance/main-134226-best3-scalar.json",
+      "bytes": 498,
+      "sha256": "77130a3260dd2996c9c7daf16f024bf1174eee861a5cc863380b7b173524ad96"
+    },
+    {
+      "path": "source-provenance/triangle589-positive21.json",
+      "bytes": 1489,
+      "sha256": "2d99849c19f69c76b232e4d55ce487638721291dac4faea3e82dc3274414bfbe"
+    },
+    {
+      "path": "validation/best3-rescheduled-family.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/best3-rescheduled-family.stdout",
+      "bytes": 127,
+      "sha256": "c138792014fcff071f53e1cf9505090744836d6d1423bd6ce6f09b2d866a1693"
+    },
+    {
+      "path": "validation/negative-controls/bad-source-hash.stderr",
+      "bytes": 576,
+      "sha256": "e8d86717a0cf014a23daa10ce6adbc70be28890dd954320e7a23db229c48566b"
+    },
+    {
+      "path": "validation/negative-controls/bad-source-hash.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/negative-controls/existing-output.stderr",
+      "bytes": 677,
+      "sha256": "c035ff4e754655610bba67140866d4ff4d82c4d64621f27c1852f8ef73ca0cd8"
+    },
+    {
+      "path": "validation/negative-controls/existing-output.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/negative-controls/validation.json",
+      "bytes": 922,
+      "sha256": "bddeeb6ef5782dddd00246cb14b6fb4446b3701cda82b6b9d5fbd10f73439539"
+    },
+    {
+      "path": "validation/triangle-repairs-assembly.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/triangle-repairs-assembly.stdout.txt",
+      "bytes": 204,
+      "sha256": "baaea6bcbfc01d4ed2f0c198a72315421383fe5d6fcf38e33cb4fa65814ecd60"
+    },
+    {
+      "path": "validation/triangle-repairs-package-reconstruction.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/triangle-repairs-package-reconstruction.stdout.txt",
+      "bytes": 80,
+      "sha256": "7da6c74b137111b4b6b3296334287fdf7753e43f53c24f42ffdb3813ca0c0ece"
+    },
+    {
+      "path": "validation/triangle-repairs-reconstruct-help.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/triangle-repairs-reconstruct-help.stdout.txt",
+      "bytes": 212,
+      "sha256": "2384386478ff00edf93db32dbbb7184f78a0230fc8f60eba4c74a4fdb85aa6c3"
+    },
+    {
+      "path": "validation/triangle589-best3-repair-family.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/triangle589-best3-repair-family.stdout",
+      "bytes": 127,
+      "sha256": "701a56aaa34d44d05668ca6bfc0a0ba43477e84e4b530b3821a44006740101cf"
+    },
+    {
+      "path": "validation/triangle589-repair-family.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/triangle589-repair-family.stdout",
+      "bytes": 127,
+      "sha256": "2e072cab5ceac0d3c3e490e08a2d6f9476e238d591d473c6323c031aef8de05f"
+    },
+    {
+      "path": "validation/validation.json",
+      "bytes": 5968,
+      "sha256": "e6ec86eda3215091bbb429663d728faa39af34050c022609ac19c1243cb71603"
+    }
+  ],
+  "raw_CNF_members": 0,
+  "solver_binaries": 0,
+  "rescheduled_runtime_included": false
+}

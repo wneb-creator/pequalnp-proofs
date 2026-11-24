@@ -1,0 +1,26 @@
+{
+  "CNF_recipes": 1,
+  "active_output_read": false,
+  "elapsed_seconds": 0.3775099530030275,
+  "manifest_files": 140,
+  "manifest_sha256": "000362199926cc613ec98ef60d1820980cebeda84f7ea67a775ca7e11dccaafd",
+  "restore_command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-archive-v1/scratch/orch/S06/restore_archive2_cnfs.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-archive-v1",
+    "/tmp/oec/pequalnp-pilot-18/original-dag-strong/original.cnf",
+    "--verify-only"
+  ],
+  "restore_exit_code": 0,
+  "restore_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "restore_stdout_sha256": "773aae9f177aa2ac5152f93e82b01e518eceb4163f1c0e563bad6c2d02e2b76b",
+  "solver_checker_Lean_launch": false,
+  "source_sha256": "392d619523b8bb7eb7c7dca1dc963ad3e968c2358465d272e558dceb1cac376a",
+  "status": "PASS_LOCAL_PACKAGING_RECONSTRUCTION_PENDING_DELIVERY_REVIEW",
+  "tar_bytes": 297495,
+  "tar_members": 141,
+  "tar_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-archive-v1.tar.gz",
+  "tar_sha256": "cd26624aad04e41af18bd4480ea3e031a21c44644486b7a28f21d3384230e1c2",
+  "utc": "2026-11-24T05:15:35.476159+00:00"
+}

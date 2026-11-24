@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-24T05:20:50.589788+00:00",
+  "verdict": "PASS_MAIN_ALL72_TAR_PAYLOADS_EXACT_SOURCE_ROUNDTRIP_AND8DELIVERIES",
+  "archive_sha256": "edfb85398c9f9522470de2e782a75fca862b034e7726b16fcd7216ac7050c6f0",
+  "payloads": 72,
+  "exact21_found": false,
+  "scope": "Source/control correctness package and immutablefour-error candidate; activeproductionlogs excluded"
+}

@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS_REGULAR_ARCHIVE_EXACT_INVENTORY_HASHES_AND_SOURCE_ROUNDTRIP",
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S08/all-negative-engine-preservation-v1/S08-all-negative-engine-v1.tar.gz",
+  "archive_sha256": "edfb85398c9f9522470de2e782a75fca862b034e7726b16fcd7216ac7050c6f0",
+  "archive_bytes": 54639,
+  "manifest_sha256": "2035f0449f3d87e91a3a19fcc9fd6c756700955dd1fece0b07717dc26c03394e",
+  "regular_members": 73,
+  "payloads": 72,
+  "source_copies": 72,
+  "omitted_ELF_count": 3,
+  "best4_independent_all_inputs": 2048,
+  "runtime_outputs_included": "Only explicitly supplied immutable best4 snapshot; no active directories read.",
+  "solver_production_or_Lean_run": false
+}

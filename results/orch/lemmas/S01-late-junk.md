@@ -517,3 +517,42 @@ families and3 k4/r0 families. Its handoff two-spare-forest-handoff.json SHA 5bcf
 Pending review, these would reduce262/115 to258/112; until review the older
 reviewed counts remain authoritative. No new k5 work is needed: its r0
 case already passed independent review.
+
+## Two-sink tight cones: new50-of68 proposal
+
+Within the68 k3/r2 support families, a common-neighbor source needs at least
+three new gates to reach a no-CN selected sink. Thus common-factor cost>=14
+forces all three selected outputs into an ancestry antichain. Any output of
+cost15 then contains all14 unselected gates. Applying the reviewed arbitrary
+supported-ancestor charge to every such tight cone constrains both operands
+of every selected OR output; the latest shared-core gate also directly feeds
+every tight output. This symmetric finite test excludes42 families.
+
+Eight additional low-common-cost families admit a short ancestry case split
+and clean-AND deletion, reducing their prefix to16 while the reviewed joint
+charge requires17. The detailed proof preserves raw singleton exceptions,
+fan-out, repeated operands and restores productivity after FALSE deletion.
+Combined50 excluded/18remaining is PENDING independent review, not a Lean
+or SAT result. All prior artifacts remain unchanged. Handoff
+two-sink-v2-handoff.json SHA 453ca7d9720bccaf8edfc681ed8308c7becd1a2e20f324a967f3ed7ff72ea984 binds12complete files.
+
+## Proposed closure of all68 k3/r2 families
+
+New simultaneous forced-birth accounting closes the18 remaining families:
+H consists of edges missed by at least one selected support. For selected
+output ancestry antichains, remove their k terminal OR gates; every H edge
+is born in the remaining core. Existing edge_finset_gate_bound_partial gives
+|H|<=m-k. At equality, every core gate must serve a birth AND and B=H.
+If every star using an entire selected support would birth an edge outsideH,
+no core signal may have that support. The last core gate must be AND and
+directly feed a terminal OR, whose other operand has exactly that forbidden
+support. Hence the strict bound m>=|H|+k+1.
+
+One remaining r2family hasH16, immediately too many for14coregates. The other
+17haveH14 and satisfy the terminal-star condition because the unique common
+owner belongs to both no-CN supports. They need18prefix gates. Combined with
+the earlier50 exclusions, all68 are PROPOSED excluded pending independent
+review of the census and new proofs. Exact proof forced-birth-terminal-bound.md
+SHA ce4af7f97ca5ac57c10f10d85467daa6f9e9e33ec79a66f461769dfbc55c980a; result SHA b5757c889fd7c426ba3a24b472043cf87d60104230c01db61dd514d431ae06f1.
+No SAT/Lean or global AAAA/shard exhaustion is claimed. No archive packaging
+was performed after the instruction to prioritize mathematics.

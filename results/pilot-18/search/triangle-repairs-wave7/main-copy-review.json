@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-24T05:08:16.054708+00:00",
+  "verdict": "PASS_MAIN_ALL13_HANDOFF_BYTES_AND_HASHES",
+  "handoff_sha256": "d23d815703a469320000967d8a0c06854972673c921a1aae654a6a245375c06b",
+  "independent_content_review": "S08 pending/see report",
+  "scope": "Archive froze before rescheduled pilot launch; runtime preserved separately"
+}

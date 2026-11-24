@@ -1,0 +1,849 @@
+{
+  "CNF_recipes": 1,
+  "active_runtime_outputs": 0,
+  "compiled_payloads": 0,
+  "created_utc": "2026-11-24T05:15:35.181465+00:00",
+  "files": [
+    {
+      "bytes": 2986,
+      "path": "README.md",
+      "sha256": "573632f09b8cce4112f7eae11297b2e415f0147ecc2bbbba5539cf5997bc5411",
+      "source_path": "generated archive documentation"
+    },
+    {
+      "bytes": 438362,
+      "path": "cnf-deltas/8df774d548520f19b2842f1243579ad005719acc7e7cf788790899b8bef31ab6.clauses",
+      "sha256": "8df774d548520f19b2842f1243579ad005719acc7e7cf788790899b8bef31ab6",
+      "source_path": "exact clause suffix of pinned original CNF"
+    },
+    {
+      "bytes": 574,
+      "path": "cnf-recipes.json",
+      "sha256": "199811057ecb5b1c9c9d7b6a5f9370ae1cc461895eb6a6e9a6ac83c2007dfeff",
+      "source_path": "generated archive metadata"
+    },
+    {
+      "bytes": 22665,
+      "path": "scratch/lean-setup/validate_sat_candidate.py",
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/lean-setup/validate_sat_candidate.py"
+    },
+    {
+      "bytes": 4555,
+      "path": "scratch/orch/S05/analyze_hitting_modes.py",
+      "sha256": "2103a341b83fb8a8649e81ece535920bb4f3c0e90176d8987a559ae11ebf57fa",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/analyze_hitting_modes.py"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S05/cadical-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/cadical-help.stderr"
+    },
+    {
+      "bytes": 14905,
+      "path": "scratch/orch/S05/cadical-help.stdout",
+      "sha256": "3130f29128ff982dbf028386f6af7e99342bde5f9dd10db4a65ab0b91a7da23c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/cadical-help.stdout"
+    },
+    {
+      "bytes": 14032,
+      "path": "scratch/orch/S05/offline_stable_cadical.py",
+      "sha256": "64958a6d0ef8eaa1e072547ade244cdb2de156815fca6545b4fcf829d331f7da",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/offline_stable_cadical.py"
+    },
+    {
+      "bytes": 5257,
+      "path": "scratch/orch/S05/package_stable_mode.py",
+      "sha256": "aef8c8d371ed46735898de231135883508e0581e460d74933500f2bd0919a69c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/package_stable_mode.py"
+    },
+    {
+      "bytes": 2889,
+      "path": "scratch/orch/S05/solver-mode-review/AAAO-RUP/result.json",
+      "sha256": "08b3a4c2af5971b79b8b5d4d750ab37e70e37a20eec0237123936fb314e2a2ae",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/AAAO-RUP/result.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S05/solver-mode-review/AAAO-RUP/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/AAAO-RUP/solver.stderr"
+    },
+    {
+      "bytes": 39735,
+      "path": "scratch/orch/S05/solver-mode-review/AAAO-RUP/solver.stdout",
+      "sha256": "04320967826279e56bf67e48203442cfac340471a6287e028dac8edc2e4ee1df",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/AAAO-RUP/solver.stdout"
+    },
+    {
+      "bytes": 2878,
+      "path": "scratch/orch/S05/solver-mode-review/T2/result.json",
+      "sha256": "04da4cc137e5e1cd9bdbdca7cd761e187e57358bdf5ab67ff8e991fddf7a49b6",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/T2/result.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S05/solver-mode-review/T2/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/T2/solver.stderr"
+    },
+    {
+      "bytes": 40918,
+      "path": "scratch/orch/S05/solver-mode-review/T2/solver.stdout",
+      "sha256": "721a0ff8afdc9aeb6a5d44e0cc61cff356733692f5e82d8629c48d80797b5edb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/T2/solver.stdout"
+    },
+    {
+      "bytes": 2876,
+      "path": "scratch/orch/S05/solver-mode-review/T3/result.json",
+      "sha256": "f4220dfcf75956424ccf31ecdd41dbf5b8e6aab35b323f5ce5e93873826abe57",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/T3/result.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S05/solver-mode-review/T3/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/T3/solver.stderr"
+    },
+    {
+      "bytes": 41484,
+      "path": "scratch/orch/S05/solver-mode-review/T3/solver.stdout",
+      "sha256": "4538d2c1906d0cb0becea0f4b708be7f7c52bfdb237f3bfd4f0515ab17f74f41",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/T3/solver.stdout"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S05/solver-mode-review/analysis.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/analysis.stderr"
+    },
+    {
+      "bytes": 647,
+      "path": "scratch/orch/S05/solver-mode-review/analysis.stdout",
+      "sha256": "70ff626f683a4182da21eb720dc0639cd367d39b7c49a4fd40f76381030687e5",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/analysis.stdout"
+    },
+    {
+      "bytes": 147,
+      "path": "scratch/orch/S05/solver-mode-review/packaging-initial-note.txt",
+      "sha256": "80cb777df0e0c5c2b79d37b93c8a8b2ca4d7936418500bfe73a7e10d61174f41",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/packaging-initial-note.txt"
+    },
+    {
+      "bytes": 81,
+      "path": "scratch/orch/S05/solver-mode-review/packaging-initial.stderr",
+      "sha256": "848ed16cb3d3d2eb5714bf4f698c47a27afce52a83905faa76a887b2331a7a30",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/packaging-initial.stderr"
+    },
+    {
+      "bytes": 14034,
+      "path": "scratch/orch/S05/solver-mode-review/parent-offline_checked_cadical.py",
+      "sha256": "aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/parent-offline_checked_cadical.py"
+    },
+    {
+      "bytes": 755,
+      "path": "scratch/orch/S05/solver-mode-review/preflight.execution.json",
+      "sha256": "5efd66e9fcc4af36a18a0ac46f90b3e9b34a6ff9dd9179dc3043873bb867b29e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/preflight.execution.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S05/solver-mode-review/preflight.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/preflight.stderr"
+    },
+    {
+      "bytes": 166,
+      "path": "scratch/orch/S05/solver-mode-review/preflight.stdout",
+      "sha256": "3f869e951d44f3203a6e135ba8ab6c529d0d1a82bae464b77deb1b2b0e72f5b1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/preflight.stdout"
+    },
+    {
+      "bytes": 5988,
+      "path": "scratch/orch/S05/solver-mode-review/recommendation.json",
+      "sha256": "633322334758756b2ce655c695575d12d5d21d784ef164b9395c62d12e80ed8f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/recommendation.json"
+    },
+    {
+      "bytes": 531,
+      "path": "scratch/orch/S05/solver-mode-review/runner-preparation.json",
+      "sha256": "38208f16c694f96afee4f07c7c659e628fccaf48a4abe8e7dad4efeead7101fd",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/runner-preparation.json"
+    },
+    {
+      "bytes": 1944,
+      "path": "scratch/orch/S05/solver-mode-review/runner.diff",
+      "sha256": "cf3d8a2b858b124b506f969e51cf1bedc70d7f55367079b7903f9eeba74acbf2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/runner.diff"
+    },
+    {
+      "bytes": 89,
+      "path": "scratch/orch/S05/solver-mode-review/toy-initial-control-assert.stderr",
+      "sha256": "3bfdaafe80d862585b09b4e6fc6328343cf7377712163a8a26bcf5c8e42da47a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-initial-control-assert.stderr"
+    },
+    {
+      "bytes": 229,
+      "path": "scratch/orch/S05/solver-mode-review/toy-initial-control-note.txt",
+      "sha256": "9d56c3f4842fc21ad1560dda81bf7671ac75a1078fd8087e6e4d6c2aeaa81063",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-initial-control-note.txt"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S05/solver-mode-review/toy-runner-v2.execution.json",
+      "sha256": "6cbf3ba081467c2ec4d8bd47da831121ae72beb12c27f6074a77bde3c8e8afbc",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-runner-v2.execution.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S05/solver-mode-review/toy-runner-v2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-runner-v2.stderr"
+    },
+    {
+      "bytes": 115,
+      "path": "scratch/orch/S05/solver-mode-review/toy-runner-v2.stdout",
+      "sha256": "b84d683d41dabc5b11c5b0620f39b12b86e632e7907b66c70e6187e7c1c479f5",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-runner-v2.stdout"
+    },
+    {
+      "bytes": 1053,
+      "path": "scratch/orch/S05/solver-mode-review/toy-runner.execution.json",
+      "sha256": "17eac2efef796f9b7fcb9a207e43a7709c6c9bc3cb9bd3ed006bce8cb999e42f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-runner.execution.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S05/solver-mode-review/toy-runner.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-runner.stderr"
+    },
+    {
+      "bytes": 112,
+      "path": "scratch/orch/S05/solver-mode-review/toy-runner.stdout",
+      "sha256": "2d2f4a945e5530baeeed42016218378a1124c75d8b552ce9f6556ee7b8f35036",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-runner.stdout"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run-v2/checker.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run-v2/checker.stderr"
+    },
+    {
+      "bytes": 511,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run-v2/checker.stdout",
+      "sha256": "90b28a3ff51907a8d8986ca072c37bc41d892f4edfc11727c3c9eb3e50fc0237",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run-v2/checker.stdout"
+    },
+    {
+      "bytes": 38,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run-v2/instance.cnf",
+      "sha256": "bdcfed14408fb3f368fe82437336d283a9dedc953677460e9c7317724c5e1e58",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run-v2/instance.cnf"
+    },
+    {
+      "bytes": 68,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run-v2/instance.json",
+      "sha256": "c191cd23e5a0432895bae8c2e754a2a723d5ddd873ed4aeb7be672e00c35d32d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run-v2/instance.json"
+    },
+    {
+      "bytes": 4053,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run-v2/progress.json",
+      "sha256": "2d4760d90fd4169d83166e9e9a88a5b8ff0bdd9dd304c7a97335319117d91fac",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run-v2/progress.json"
+    },
+    {
+      "bytes": 8,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run-v2/proof.drat",
+      "sha256": "714cbdecbf39f0c88b5eda2b2b693fd7f7b9297f8aeee1cecbcdd38c19d89fe8",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run-v2/proof.drat"
+    },
+    {
+      "bytes": 4053,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run-v2/result.json",
+      "sha256": "2d4760d90fd4169d83166e9e9a88a5b8ff0bdd9dd304c7a97335319117d91fac",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run-v2/result.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run-v2/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run-v2/solver.stderr"
+    },
+    {
+      "bytes": 3935,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run-v2/solver.stdout",
+      "sha256": "f4cc827fc7fb2007fcc7019298622242c65994406e8da287f88b486dbe501b8d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run-v2/solver.stdout"
+    },
+    {
+      "bytes": 38,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run/instance.cnf",
+      "sha256": "bdcfed14408fb3f368fe82437336d283a9dedc953677460e9c7317724c5e1e58",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run/instance.cnf"
+    },
+    {
+      "bytes": 68,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run/instance.json",
+      "sha256": "c191cd23e5a0432895bae8c2e754a2a723d5ddd873ed4aeb7be672e00c35d32d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run/instance.json"
+    },
+    {
+      "bytes": 2612,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run/progress.json",
+      "sha256": "9eddce4191ee98a0a532d136b65bf2ea9132871ca83e7241731566687e26b6ff",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run/progress.json"
+    },
+    {
+      "bytes": 2612,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run/result.json",
+      "sha256": "9eddce4191ee98a0a532d136b65bf2ea9132871ca83e7241731566687e26b6ff",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run/result.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run/solver.stderr"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S05/solver-mode-review/toy-stable-run/solver.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy-stable-run/solver.stdout"
+    },
+    {
+      "bytes": 38,
+      "path": "scratch/orch/S05/solver-mode-review/toy/instance.cnf",
+      "sha256": "bdcfed14408fb3f368fe82437336d283a9dedc953677460e9c7317724c5e1e58",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy/instance.cnf"
+    },
+    {
+      "bytes": 68,
+      "path": "scratch/orch/S05/solver-mode-review/toy/instance.json",
+      "sha256": "c191cd23e5a0432895bae8c2e754a2a723d5ddd873ed4aeb7be672e00c35d32d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/toy/instance.json"
+    },
+    {
+      "bytes": 10815,
+      "path": "scratch/orch/S05/stable-mode-handoff.json",
+      "sha256": "c2a1358bb7f0c1090fb1e36ad6d1916c8525a4148228e9c2a5369c9ee84c1015",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/stable-mode-handoff.json"
+    },
+    {
+      "bytes": 8574,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/README.md",
+      "sha256": "27a74ae7499065bf39ac9f17d499dcd39bbc6d2b6bcedda1c5da5b93b43f2737",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/README.md"
+    },
+    {
+      "bytes": 4249,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/add_ancestor_support.py",
+      "sha256": "6bd7f7a2120d7d5446d9609a0551308b224d91d23463354514cefe631803e38b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/add_ancestor_support.py"
+    },
+    {
+      "bytes": 3554,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/build_original_strong.py",
+      "sha256": "9e5ae318f33ff8fea98dd8c4a201c82674023102340fdbe86bd69083419e33f1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/build_original_strong.py"
+    },
+    {
+      "bytes": 3705,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/cadical-streaming-review.md",
+      "sha256": "64f1bef3175920b3d3ca52a4b716e58be275031979bfc705c393385a6048b05b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/cadical-streaming-review.md"
+    },
+    {
+      "bytes": 17043,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/run_checked_kissat.py",
+      "sha256": "535ff6e32a68a31eefa1545f031483d0e9b73acd79066d1bbb2a2f42c86685bb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/run_checked_kissat.py"
+    },
+    {
+      "bytes": 17118,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17.py",
+      "sha256": "e227e161f9ac776d099d6fd20194d4e8047ba69a881b605a61763ea04f962a96",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17.py"
+    },
+    {
+      "bytes": 29861,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_ancestorconstant.py",
+      "sha256": "b4ebb9509ecd7278f417ee2f0c4ebfc1c15288006942fcf90006e63d88ce8720",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_ancestorconstant.py"
+    },
+    {
+      "bytes": 28662,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_ancestorcost.py",
+      "sha256": "60a37d85580f1190e3dac3793610a6d90197c90f2cde08520ec79269be3f5997",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_ancestorcost.py"
+    },
+    {
+      "bytes": 30356,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_ancestorreverse.py",
+      "sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_ancestorreverse.py"
+    },
+    {
+      "bytes": 19248,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_copychain.py",
+      "sha256": "10c61b79e145de7a08066408124f752c1c82ea8ef9b19871382bc484132a378b",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_copychain.py"
+    },
+    {
+      "bytes": 22712,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_cost.py",
+      "sha256": "f3236024e27aed9aa90356e442d4644e5f8920609a3f922cac9ddab5387a5d06",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_cost.py"
+    },
+    {
+      "bytes": 18283,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_dominance.py",
+      "sha256": "b8ab4bcdc08c7da501a15bed2978ffa9e6c2b3203a72564e6e7a938c23ce6ce2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_dominance.py"
+    },
+    {
+      "bytes": 27213,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_partialcost.py",
+      "sha256": "b7aca3bb4fedf7dbe12d3e86416576f1e0bfc2612ae9d140b6a0be149c250d80",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_partialcost.py"
+    },
+    {
+      "bytes": 24563,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/search_l1342_shard17_strict.py",
+      "sha256": "514e55125469e00cec874c847d8ed2c7e02fc6caefa07312e0c24f0442336777",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/search_l1342_shard17_strict.py"
+    },
+    {
+      "bytes": 6983,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/streaming-checker-source-manifest.json",
+      "sha256": "4413150845ebb73c9200f5d50d562723b317346cd77363cfd2b440cb61f9a7d3",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/streaming-checker-source-manifest.json"
+    },
+    {
+      "bytes": 6559,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/streaming-runner.md",
+      "sha256": "cbc088f3f28d216a58ba1f8a23799980402c0836e41880704a2abc12e2a9d495",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/streaming-runner.md"
+    },
+    {
+      "bytes": 22665,
+      "path": "scratch/orch/S06/archive-wave1/reproduction/validate_sat_candidate.py",
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1/reproduction/validate_sat_candidate.py"
+    },
+    {
+      "bytes": 829,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-RUP/generation.json",
+      "sha256": "e820e01084977dce36dd041d69d954aec1c4a47dd533116153fcdc4e371761c4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-RUP/generation.json"
+    },
+    {
+      "bytes": 243027,
+      "path": "scratch/orch/S06/hitting-charge-v1/AAAO-RUP/instance.json",
+      "sha256": "0508fb3946c969a243ec5160ad9caed77839360a1c2f87ca63aa4cad398832ca",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-RUP/instance.json"
+    },
+    {
+      "bytes": 14034,
+      "path": "scratch/orch/S06/offline_checked_cadical.py",
+      "sha256": "aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/offline_checked_cadical.py"
+    },
+    {
+      "bytes": 10927,
+      "path": "scratch/orch/S06/package_stable_route.py",
+      "sha256": "392d619523b8bb7eb7c7dca1dc963ad3e968c2358465d272e558dceb1cac376a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/package_stable_route.py"
+    },
+    {
+      "bytes": 2590,
+      "path": "scratch/orch/S06/restore_archive2_cnfs.py",
+      "sha256": "cf9868554bc46e398ab97a66183b1983615df17ce7338f2e1f0f1d575b3ffdf5",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/restore_archive2_cnfs.py"
+    },
+    {
+      "bytes": 10040,
+      "path": "scratch/orch/S06/review_stable_route.py",
+      "sha256": "bf7686c2036049fcd526ea5418b66920a7a9f397d520e5668327d28bf040e849",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/review_stable_route.py"
+    },
+    {
+      "bytes": 2149,
+      "path": "scratch/orch/S06/stable-route-handoff.json",
+      "sha256": "9203f9e9819d44df01121e5f44404d67394a7453e6e176522cd00a193c1a10d9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-handoff.json"
+    },
+    {
+      "bytes": 3337,
+      "path": "scratch/orch/S06/stable-route-recommendation.md",
+      "sha256": "9ee430690020b3a55e8dc26ac2f8ddfa05b821bdc57dffe8a41e8a9d804a1cf4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-recommendation.md"
+    },
+    {
+      "bytes": 608,
+      "path": "scratch/orch/S06/stable-route-review.execution.json",
+      "sha256": "e498786a8d387a0e0cdbaa29b21b9b6ad1f7203c36ae7cc5b21428f7cb3eb9c9",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review.execution.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review.stderr"
+    },
+    {
+      "bytes": 370,
+      "path": "scratch/orch/S06/stable-route-review.stdout",
+      "sha256": "550b525e55b8a20c635eaa6fdb0c41627c7d015d406991c214e527d5182b98a6",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review.stdout"
+    },
+    {
+      "bytes": 4555,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/analyze_hitting_modes.py",
+      "sha256": "2103a341b83fb8a8649e81ece535920bb4f3c0e90176d8987a559ae11ebf57fa",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/analyze_hitting_modes.py"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/cadical-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/cadical-help.stderr"
+    },
+    {
+      "bytes": 14905,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/cadical-help.stdout",
+      "sha256": "3130f29128ff982dbf028386f6af7e99342bde5f9dd10db4a65ab0b91a7da23c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/cadical-help.stdout"
+    },
+    {
+      "bytes": 14032,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/offline_stable_cadical.py",
+      "sha256": "64958a6d0ef8eaa1e072547ade244cdb2de156815fca6545b4fcf829d331f7da",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/offline_stable_cadical.py"
+    },
+    {
+      "bytes": 5257,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/package_stable_mode.py",
+      "sha256": "aef8c8d371ed46735898de231135883508e0581e460d74933500f2bd0919a69c",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/package_stable_mode.py"
+    },
+    {
+      "bytes": 2889,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/AAAO-RUP/result.json",
+      "sha256": "08b3a4c2af5971b79b8b5d4d750ab37e70e37a20eec0237123936fb314e2a2ae",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/AAAO-RUP/result.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/AAAO-RUP/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/AAAO-RUP/solver.stderr"
+    },
+    {
+      "bytes": 39735,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/AAAO-RUP/solver.stdout",
+      "sha256": "04320967826279e56bf67e48203442cfac340471a6287e028dac8edc2e4ee1df",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/AAAO-RUP/solver.stdout"
+    },
+    {
+      "bytes": 2878,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/T2/result.json",
+      "sha256": "04da4cc137e5e1cd9bdbdca7cd761e187e57358bdf5ab67ff8e991fddf7a49b6",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/T2/result.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/T2/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/T2/solver.stderr"
+    },
+    {
+      "bytes": 40918,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/T2/solver.stdout",
+      "sha256": "721a0ff8afdc9aeb6a5d44e0cc61cff356733692f5e82d8629c48d80797b5edb",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/T2/solver.stdout"
+    },
+    {
+      "bytes": 2876,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/T3/result.json",
+      "sha256": "f4220dfcf75956424ccf31ecdd41dbf5b8e6aab35b323f5ce5e93873826abe57",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/T3/result.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/T3/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/T3/solver.stderr"
+    },
+    {
+      "bytes": 41484,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/T3/solver.stdout",
+      "sha256": "4538d2c1906d0cb0becea0f4b708be7f7c52bfdb237f3bfd4f0515ab17f74f41",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/T3/solver.stdout"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/analysis.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/analysis.stderr"
+    },
+    {
+      "bytes": 647,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/analysis.stdout",
+      "sha256": "70ff626f683a4182da21eb720dc0639cd367d39b7c49a4fd40f76381030687e5",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/analysis.stdout"
+    },
+    {
+      "bytes": 147,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/packaging-initial-note.txt",
+      "sha256": "80cb777df0e0c5c2b79d37b93c8a8b2ca4d7936418500bfe73a7e10d61174f41",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/packaging-initial-note.txt"
+    },
+    {
+      "bytes": 81,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/packaging-initial.stderr",
+      "sha256": "848ed16cb3d3d2eb5714bf4f698c47a27afce52a83905faa76a887b2331a7a30",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/packaging-initial.stderr"
+    },
+    {
+      "bytes": 14034,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/parent-offline_checked_cadical.py",
+      "sha256": "aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/parent-offline_checked_cadical.py"
+    },
+    {
+      "bytes": 755,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/preflight.execution.json",
+      "sha256": "5efd66e9fcc4af36a18a0ac46f90b3e9b34a6ff9dd9179dc3043873bb867b29e",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/preflight.execution.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/preflight.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/preflight.stderr"
+    },
+    {
+      "bytes": 166,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/preflight.stdout",
+      "sha256": "3f869e951d44f3203a6e135ba8ab6c529d0d1a82bae464b77deb1b2b0e72f5b1",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/preflight.stdout"
+    },
+    {
+      "bytes": 5988,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/recommendation.json",
+      "sha256": "633322334758756b2ce655c695575d12d5d21d784ef164b9395c62d12e80ed8f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/recommendation.json"
+    },
+    {
+      "bytes": 531,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/runner-preparation.json",
+      "sha256": "38208f16c694f96afee4f07c7c659e628fccaf48a4abe8e7dad4efeead7101fd",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/runner-preparation.json"
+    },
+    {
+      "bytes": 1944,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/runner.diff",
+      "sha256": "cf3d8a2b858b124b506f969e51cf1bedc70d7f55367079b7903f9eeba74acbf2",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/runner.diff"
+    },
+    {
+      "bytes": 89,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-initial-control-assert.stderr",
+      "sha256": "3bfdaafe80d862585b09b4e6fc6328343cf7377712163a8a26bcf5c8e42da47a",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-initial-control-assert.stderr"
+    },
+    {
+      "bytes": 229,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-initial-control-note.txt",
+      "sha256": "9d56c3f4842fc21ad1560dda81bf7671ac75a1078fd8087e6e4d6c2aeaa81063",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-initial-control-note.txt"
+    },
+    {
+      "bytes": 1057,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-runner-v2.execution.json",
+      "sha256": "6cbf3ba081467c2ec4d8bd47da831121ae72beb12c27f6074a77bde3c8e8afbc",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-runner-v2.execution.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-runner-v2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-runner-v2.stderr"
+    },
+    {
+      "bytes": 115,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-runner-v2.stdout",
+      "sha256": "b84d683d41dabc5b11c5b0620f39b12b86e632e7907b66c70e6187e7c1c479f5",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-runner-v2.stdout"
+    },
+    {
+      "bytes": 1053,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-runner.execution.json",
+      "sha256": "17eac2efef796f9b7fcb9a207e43a7709c6c9bc3cb9bd3ed006bce8cb999e42f",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-runner.execution.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-runner.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-runner.stderr"
+    },
+    {
+      "bytes": 112,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-runner.stdout",
+      "sha256": "2d2f4a945e5530baeeed42016218378a1124c75d8b552ce9f6556ee7b8f35036",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-runner.stdout"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/checker.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/checker.stderr"
+    },
+    {
+      "bytes": 511,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/checker.stdout",
+      "sha256": "90b28a3ff51907a8d8986ca072c37bc41d892f4edfc11727c3c9eb3e50fc0237",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/checker.stdout"
+    },
+    {
+      "bytes": 38,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/instance.cnf",
+      "sha256": "bdcfed14408fb3f368fe82437336d283a9dedc953677460e9c7317724c5e1e58",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/instance.cnf"
+    },
+    {
+      "bytes": 68,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/instance.json",
+      "sha256": "c191cd23e5a0432895bae8c2e754a2a723d5ddd873ed4aeb7be672e00c35d32d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/instance.json"
+    },
+    {
+      "bytes": 4053,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/progress.json",
+      "sha256": "2d4760d90fd4169d83166e9e9a88a5b8ff0bdd9dd304c7a97335319117d91fac",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/progress.json"
+    },
+    {
+      "bytes": 8,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/proof.drat",
+      "sha256": "714cbdecbf39f0c88b5eda2b2b693fd7f7b9297f8aeee1cecbcdd38c19d89fe8",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/proof.drat"
+    },
+    {
+      "bytes": 4053,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/result.json",
+      "sha256": "2d4760d90fd4169d83166e9e9a88a5b8ff0bdd9dd304c7a97335319117d91fac",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/result.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/solver.stderr"
+    },
+    {
+      "bytes": 3935,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/solver.stdout",
+      "sha256": "f4cc827fc7fb2007fcc7019298622242c65994406e8da287f88b486dbe501b8d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run-v2/solver.stdout"
+    },
+    {
+      "bytes": 38,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run/instance.cnf",
+      "sha256": "bdcfed14408fb3f368fe82437336d283a9dedc953677460e9c7317724c5e1e58",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run/instance.cnf"
+    },
+    {
+      "bytes": 68,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run/instance.json",
+      "sha256": "c191cd23e5a0432895bae8c2e754a2a723d5ddd873ed4aeb7be672e00c35d32d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run/instance.json"
+    },
+    {
+      "bytes": 2612,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run/progress.json",
+      "sha256": "9eddce4191ee98a0a532d136b65bf2ea9132871ca83e7241731566687e26b6ff",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run/progress.json"
+    },
+    {
+      "bytes": 2612,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run/result.json",
+      "sha256": "9eddce4191ee98a0a532d136b65bf2ea9132871ca83e7241731566687e26b6ff",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run/result.json"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run/solver.stderr"
+    },
+    {
+      "bytes": 0,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run/solver.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy-stable-run/solver.stdout"
+    },
+    {
+      "bytes": 38,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy/instance.cnf",
+      "sha256": "bdcfed14408fb3f368fe82437336d283a9dedc953677460e9c7317724c5e1e58",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy/instance.cnf"
+    },
+    {
+      "bytes": 68,
+      "path": "scratch/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy/instance.json",
+      "sha256": "c191cd23e5a0432895bae8c2e754a2a723d5ddd873ed4aeb7be672e00c35d32d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-evidence/solver-mode-review/toy/instance.json"
+    },
+    {
+      "bytes": 10815,
+      "path": "scratch/orch/S06/stable-route-review/S05-handoff.json",
+      "sha256": "c2a1358bb7f0c1090fb1e36ad6d1916c8525a4148228e9c2a5369c9ee84c1015",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/S05-handoff.json"
+    },
+    {
+      "bytes": 15215,
+      "path": "scratch/orch/S06/stable-route-review/review.json",
+      "sha256": "b75936e6798fc79508b451888bd612c1d21b9f89ae863f468740723fbbf9bbf4",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/stable-route-review/review.json"
+    },
+    {
+      "bytes": 33504,
+      "path": "scratch/orch/S08/hitting-charge-review/review.json",
+      "sha256": "0ed0ac84baea1a88bf665fea4e6b78aff41b41c3993f1044d84f3665537a417d",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/hitting-charge-review/review.json"
+    },
+    {
+      "bytes": 5781,
+      "path": "scratch/orch/S08/offline-real-case13-review/review.json",
+      "sha256": "c1a22439752d28b1a1640d87553de7ae14246a8ab697fd80775f6495a9534f99",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/offline-real-case13-review/review.json"
+    },
+    {
+      "bytes": 84769,
+      "path": "scratch/orch/S08/offline-runner-review/review.json",
+      "sha256": "e3a1dfb01fe24acf900e34ae15012c78b3ab15a574240334de0fdfc535ac7b03",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/offline-runner-review/review.json"
+    },
+    {
+      "bytes": 46767,
+      "path": "source-map.json",
+      "sha256": "cdbad6a0be8cb88785038c89e9f6aeac4e0a26fbe31c31870f8ae569f47a1612",
+      "source_path": "generated archive metadata"
+    },
+    {
+      "bytes": 1035,
+      "path": "summary.json",
+      "sha256": "d4d59f50f5b4883ac211311ca763deef6b86c28e253966f353155fe9654d798f",
+      "source_path": "generated archive metadata"
+    }
+  ],
+  "large_raw_CNFs": 0
+}

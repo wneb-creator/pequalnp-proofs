@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-24T05:17:19.753686+00:00",
+  "verdict": "PASS_MAIN_EIGHT_DELIVERY_HASHES_AND_BYTES",
+  "archive_sha256": "cd26624aad04e41af18bd4480ea3e031a21c44644486b7a28f21d3384230e1c2",
+  "payloads": 140,
+  "independent_content_review": "S08 pending",
+  "scope": "Frozenreviewedsource/control package; active runtime excluded; separate mainlaunch included"
+}

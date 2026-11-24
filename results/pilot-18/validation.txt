@@ -63,7 +63,7 @@ SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 6 inherited-model agents, ultra effort: structural proof, SAT repairs, finite Lean certificates, CNF red-team review, solver performance, integration review
-TIMING total=282.9 subagents=6
+TIMING total=306.9 subagents=6
 
 Candidate neighborhoods: 144 independently reviewed formulas preserve prefixes
 of exact 22-gate cover constructions and search arbitrary shorter completions.
@@ -126,3 +126,22 @@ and262three-factor patterns remain, and mixed cases remain open. These are
 research exclusions, not Lean refutations or a claim of full-shard exhaustion.
 The named2069line Lean source/build remains unchanged; cleanup inapplicable,
 posted checker NOT RUN, noPR.
+Research checkpoint near05:24UTC: independent all2048 checking validates a
+new21-gate inexact circuit computingF OR(x0 ANDx2 ANDx4), with exactlyfour
+false-positive masks21,29,85,149 and no false negatives. It is NOT a witness.
+The reviewed141-row candidate engine scores all125negative inputs plus the16
+positive edges; full2048candidate validation and the Lean requirement remain.
+Both initial141-row runs returnedUNKNOWN after300seconds; two freshbest4
+starts and two targetedcore repairs are running. The optional topology-shuffle
+engine is under independent review and has not yet entered production.
+All four strengthened hitting runs endedUNKNOWN at600seconds. The different
+stable-onlyAAAO run endedUNKNOWN at its512MiBproof-file cap; no certificate was
+accepted. Complete finished logs, sources, reviews, reconstruction recipes,
+and immutable candidate snapshots are preserved in the newwave7packages.
+Independent guarded forced-birth analysis excludes all68 mixedk3/r2 support
+families in the productive17-prefix/minimalproperfull-cover scope. The
+unguarded proposed lemma was false; its counterexample and corrected guard
+are retained. k3/r0=258,k4/r0=112 and other mixed cases remain open. These
+finite/mathematical exclusions are not a Lean global refutation or shard
+exhaustion. NamedLean2069lines/hashunchanged, buildPASS remainsvalid,
+postedcheckerNOTRUN, cleanupinapplicable, noPR.

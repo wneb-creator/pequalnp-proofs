@@ -1,0 +1,65 @@
+{
+  "parent_sha256": "efc7594207a0fad97e49d6e9b5c12ce14f0478dae2ea4ac0ad808e84c635e8f1",
+  "edits": [
+    [
+      "Fresh direct21 pack of the exact immutable best3 inexact function; no search.",
+      "Fresh direct21 pack of immutable one-extra-triple source; no search."
+    ],
+    [
+      "R/'triangle589-candidate-134226/engine-result.json.best-3.json'",
+      "R/'orch/MAIN/allnegative-best4/source.json'"
+    ],
+    [
+      "9a743d5d43f651198f908fd086b3307e036697ee9d9990f5c0edfcce6ff3fe96",
+      "b6da8ac6962d7836f2e5546423f5ed3846b7165fbe1ae47e58b8e470955101b0"
+    ],
+    [
+      "triangle589-best3-direct21-v1",
+      "allnegative-best4-direct21-v1"
+    ],
+    [
+      "bool(m>>2&1 and m>>4&1 and (m&129))",
+      "bool(m>>2&1 and m>>4&1 and m&1)"
+    ],
+    [
+      "[21,29,85,148,149]",
+      "[21,29,85,149]"
+    ],
+    [
+      "junk=[17,19]",
+      "junk=[5,7]"
+    ],
+    [
+      "589134226",
+      "589134230"
+    ],
+    [
+      "full_fp=5",
+      "full_fp=4"
+    ],
+    [
+      " 0 5 {truth}",
+      " 0 4 {truth}"
+    ],
+    [
+      "(21,0,5)",
+      "(21,0,4)"
+    ],
+    [
+      "inexact_positive21_best3_direct_seed",
+      "inexact_positive21_one_extra_triple_direct_seed"
+    ],
+    [
+      "e1a686c19d09439595cdfbf89baf42ff5d1dbfff8949e505b53b999d683ec077",
+      "18efdd149487dfee83693dd0781a17316ba0fda9d68c43c6c70c73f96a77250b"
+    ],
+    [
+      "cace36645bc4a5c827f5a221965ccdef78c554e6d940d69645da292be6c0b51a",
+      "7d802a63b218449bd58178785a917a363edecedace5f65201344804dec3a3870"
+    ],
+    [
+      "F OR (x2 AND x4 AND (x0 OR x7))",
+      "F OR (x0 AND x2 AND x4)"
+    ]
+  ]
+}

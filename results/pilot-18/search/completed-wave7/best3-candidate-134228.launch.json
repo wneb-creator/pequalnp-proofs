@@ -1,0 +1,28 @@
+{
+  "utc": "2026-11-24T04:56:57.958235+00:00",
+  "pid": 32842,
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/stochastic_tools.py",
+    "run",
+    "--engine",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-v1/circuit_anneal_direct21",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/direct-seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/best3-candidate-134228",
+    "--seed",
+    "134228",
+    "--seconds",
+    "300",
+    "--iterations",
+    "2000000000",
+    "--restart",
+    "10000",
+    "--weight",
+    "16"
+  ],
+  "main_review_sha256": "1b6a8c7b2b3791f71fce2510c9dbf97b37c3565bd27c7f81468a48e3709c4fa2",
+  "scope": "Inexactbest3directrestartcandidateonly; mandatoryfullrawvalidatorandLeanproof"
+}

@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-24T05:05:07.885481+00:00",
+  "pid": 33805,
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/run_best3_rescheduled_pilot.py"
+  ],
+  "cpu_slots": 2,
+  "scope": "Reviewed inputs; no result implied by launch"
+}

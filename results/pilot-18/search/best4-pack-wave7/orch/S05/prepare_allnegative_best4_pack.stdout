@@ -1,0 +1,1 @@
+{"count": 8, "pack_sha256": "f1316079fdd1c50eab3387c00ed7460130da5c6b862937241fa41b9ff13742a6", "full_false_positive_masks": [21, 29, 85, 149], "boundary_false_positive_masks": [29, 85, 149], "intermediate_comparisons": 344064, "decoded_input_checks": 16384, "elapsed_seconds": 0.08725076500195428}

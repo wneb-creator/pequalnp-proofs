@@ -1,0 +1,1 @@
+{"stage": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-repairs-preservation-stage/S02-triangle-repairs", "exact_copies": 94, "families": 3, "CNFs": 8, "finished_pilots": 3, "active_outputs_read": false}

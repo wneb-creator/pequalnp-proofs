@@ -1,0 +1,31 @@
+{
+  "utc": "2026-11-24T05:13:47.189661+00:00",
+  "pid": 34920,
+  "command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/offline_stable_cadical.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/hitting-charge-v1/AAAO-RUP/instance.cnf",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/solver-mode-review/AAAO-stable-600",
+    "--cnf-sha256",
+    "d47a48153e4b268587b8c3330c2e57d1756c554848f4cdfe50c2337cb0be5ec2",
+    "--metadata-sha256",
+    "0508fb3946c969a243ec5160ad9caed77839360a1c2f87ca63aa4cad398832ca",
+    "--solver-seconds",
+    "600",
+    "--checker-seconds",
+    "600",
+    "--proof-mib",
+    "512",
+    "--max-records",
+    "100000000",
+    "--min-free-mib",
+    "1024",
+    "--abort-file",
+    "/tmp/oec/pequalnp-pilot-18/DESK_ERROR.response"
+  ],
+  "main_review": "PASS_ALL50_ARTIFACTS_S06_REVIEW_AND_EXACT3_LINE_DELTA",
+  "S06_review_sha256": "b75936e6798fc79508b451888bd612c1d21b9f89ae863f468740723fbbf9bbf4",
+  "handoff_sha256": "9203f9e9819d44df01121e5f44404d67394a7453e6e176522cd00a193c1a10d9",
+  "scope": "Previouslyunusedstablemode; noresultimplied; standardindependentchecker/full2048validator required"
+}

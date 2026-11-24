@@ -1,0 +1,43 @@
+{
+  "scope": "Candidate-only stochastic optimization; no exhaustion claim.",
+  "started_utc": "2026-11-24T05:05:07.919990+00:00",
+  "engine_sha256": "cace36645bc4a5c827f5a221965ccdef78c554e6d940d69645da292be6c0b51a",
+  "pack_sha256": "6c60f7617f1b797fd8408ddbf5f08d94a148c2c49eb66d9821d7f35e68606e9b",
+  "pack_metadata_sha256": "c6b4f5b90cfc656f9c1466da3ed5a33dd1e4fe950d073adde5b2f414f034cd66",
+  "wrapper_sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+  "validator_sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/direct21-v1/circuit_anneal_direct21",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/triangle589-best3-direct21-v1/direct-seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/best3-candidate-134229/engine-result.json",
+    "--seed",
+    "134229",
+    "--seconds",
+    "300.0",
+    "--iterations",
+    "2000000000",
+    "--restart",
+    "200000",
+    "--weight",
+    "4"
+  ],
+  "status": "UNKNOWN",
+  "engine_exit": 0,
+  "engine_result_sha256": "de837e366bc445ee7a47b0f36c67072194cd274b8b96f178e8d4af98f94aa21c",
+  "elapsed_seconds": 292.1005923970006,
+  "logs": {
+    "engine.stdout.txt": {
+      "sha256": "93bf5b02f6a00e71a10cd66f65e49d30ca40be22c9081f83ee0851a93beb9dca",
+      "bytes": 151
+    },
+    "engine.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "best_files": {
+    "engine-result.json.best-0.json": "ebed23731967d4abef23bafde04b6a7066055f843e32713dab653a038069e504"
+  }
+}

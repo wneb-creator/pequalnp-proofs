@@ -926,3 +926,415 @@ nonminimal original five-leaf representation without that normalization.
 An implemented cut or changed generator requires a separate projection/delta
 review. No r>0 family, whole AAAA/shard, Lean theorem, or global21-gate lower
 bound is concluded. No solver, Lean build or production file was changed.
+
+## New no-common-neighbor region obstruction
+
+Own derivation `orch/S04/no-common-neighbor/no-common-regions.md`, SHA
+`3f659429b0dd706d4c3099dc33bdfc8f8b15914cf43b8fa0de50e47adbbf203d`,
+supplies a stronger joint lower bound. S01's initial review of the precise
+description agreed; full source/control review was requested separately.
+This is a new mathematical derivation, not a Lean theorem or generated cut.
+
+A wire whose singleton support has no common neighbor can have only OR
+descendants in a productive clean prefix. A first AND would require a
+nonempty other support contained in that empty common-neighbor set. Thus
+its support is contained in every descendant support, and incomparability
+prevents its being an ancestor of another selected minimal full-cover factor.
+
+Let gamma(S) be the minimum number of open graph neighborhoods covering S.
+For a proper no-common-neighbor output, its region of no-common-neighbor
+gate ancestors consists of t OR gates with at most t+1 boundary occurrences.
+Each boundary wire has support in a single neighborhood; the boundary
+supports cover S. Hence t>=gamma(S)-1. TRUE cannot occur in this OR region
+of a proper output; FALSE, copies and shared operands do not break the count.
+
+If the intersection of two factor supports has a common neighbor, their
+no-common-neighbor regions are disjoint. The same condition puts one such
+region outside the entire ancestor cone of the other output. For fixed i,
+let z_i be the number of other no-common-neighbor factors. Choose J among
+them with common-neighbor intersections both against S_i and pairwise
+within J. The outside-cone count improves to
+
+    B_i = z_i + max_J sum_(j in J)(gamma(S_j)-2).
+
+Combining with the earlier distinct owner charge d_i gives
+
+    m >= L(S_i) + d_i + B_i.
+
+The sum only counts disjoint regions; arbitrary region overlap does not
+justify adding bonuses. The formula also holds when the distinguished
+residual graph is empty: |S_i|-1 OR support nodes plus the distinct charged
+ANDs directly bound the cone, and the outside-cone counts remain disjoint.
+Thus the previous joint-cost theorem's empty-residual restriction can be
+removed by this separate counting argument. In terms of the number r of
+no-common-neighbor factors, the bound is
+
+    r <= m-L_i-d_i+indicator(C(S_i)=empty)
+         - max_J sum_(j in J)(gamma(S_j)-2).
+
+It is a family-dependent bound, not a uniform cap on r. Different supports
+with the same MIS rejection pattern need not have the same gamma, owners
+or intersection compatibility, so pattern compression alone cannot carry
+these stronger predicates.
+
+Two independent gamma methods agree on all2048 supports. Of909 eligible
+no-common-neighbor supports,568 have gamma2 and341 gamma3. Of24 relevant
+pure-OR vertex-cover supports,22 have gamma3 despite their low individual
+costs. Each of those24 factors rejects exactly one MIS: its independent
+complement must equal a maximal independent input to be nonredundant.
+
+The concrete minimal support family [1280,85,1160,584,1778] demonstrates
+strict improvement. Factor1160 has L=14 and two distinct other owners7,10
+in its support. Pure-OR factor1778 has L=6 but gamma3, requiring at least two
+no-common-neighbor OR gates outside that cone. The lower bound rises from
+14+2+1=17 to14+2+2=18. The families [1280,85,1722,584,1778] and
+[1408,592,176,1870,1898] likewise pass the old joint bound but need18 under
+the new count. These exclude specific support families, not their entire
+(k,r) classes or all alternative supports with the same row patterns.
+
+Source `check_no_common_regions.py`, SHA
+`3d62462bc32aadc614edffc3caa70b2cb504d6ea8468df853fb1a1e04bead8a8`,
+and validation SHA
+`3ce60572b6c763507f926f85105f4e4d943f736228af0c7b16b0b3f8a9bd9a9d`
+retain all gamma witnesses,67 explicit obstructions to covering1778 with
+at most two neighborhoods, and33 actual shared/copy/constant DAG controls.
+Each control verifies its full product on all2048 inputs and the actual
+region, boundary, disjointness and outside-cone counts. The scalar check
+exits0 in0.039s with empty stderr. No solver or production change occurred.
+
+## No-common-neighbor and mixed-triple census: independent PASS
+
+Both S01 handoffs pass source binding, mathematical completeness review,
+and independent finite verification: `no-common-cover-handoff.json`, SHA
+`a4f80666a2c3de18353fbc10a24ec0bcf6a035a7b027f31854086baf15aa4a76`,
+and `mixed-triple-handoff.json`, SHA
+`159ca97f5b0d24fec9f727e8a58d93648f23cec92b6ef6e323ab7f754b570b8d`.
+
+Since every no-common-neighbor selected output lies outside every other
+selected cone, a17-gate prefix requires L_i<=18-r for such a factor and
+L_i<=17-r for a factor having a common neighbor. This includes empty
+residuals without the stronger owner charge. Distinct output positions
+impose the usual sorted last-k capacities. The958 exact eligible supports
+compress to382 rejection-pattern/status groups (339 no-common-neighbor,
+43 with a common neighbor). Taking minimum cost within a group is safe for
+this necessary relaxation, since no owner/ancestry predicates are transferred.
+Equal rejection patterns cannot occur in a minimal family.
+
+The independent checker rebuilds all2047 proper-support costs by both
+maximum independent sets and edge-branch recursion, checks all958 source
+records and382 groups, and verifies the eleven reported feasible (k,r)
+representative witnesses. It independently finds zero no-common-neighbor
+pattern triples at cost cap15 (328 patterns), one at16 (334 patterns), and
+four at17 (339 patterns). Therefore k3/r3 is excluded under the precise
+17-gate productive clean, proper full-cover, minimal-family hypotheses.
+The eleven other probe results are explicit relaxation witnesses only.
+
+For the complete mixed census, the reviewer enumerates rejection-pattern
+triples first and then expands actual support representatives with their
+exact costs. This differs from the producer's958-support pair enumeration.
+No eligible pair of patterns covers all24 MIS, so every covering triple
+has three distinct patterns and is minimal. The4217 exact covered-triple
+expansions reproduce every count and every stored support family:
+
+|r|exact-r covers|slot pass|joint pass|position pass|
+|--|--:|--:|--:|--:|
+|1|2046|2008|923|800|
+|2|114|114|68|68|
+|3|0|0|0|0|
+
+The independent position checker enumerates chronological transitive
+relations and reverses the position traversal. All16208 tested choices,
+all saved witnesses and all accept/reject decisions match. The no-common-
+neighbor ancestry prohibition, intervening-AND counts, outside-chain
+subtraction and nonempty-residual owner charges are sound necessary tests.
+Optional stronger cone-union/raw-input inequalities are omitted here.
+
+All936 no-common-neighbor occurrences in the868 surviving families have
+gamma2. Three r1 survivors have an edgeless-residual factor; no r2 survivor
+does. The separately marked gamma/empty-residual column removes none and
+is unnecessary for the accepted800/68/0 counts. Every surviving position
+pattern remains an abstract necessary-condition witness, not a circuit.
+
+Own `review_mixed_triples.py`, SHA
+`64515af1a216ca0aec1a9b15993c19e0b2bcd7e13eea660bca0cd81e803e0b55`,
+produces `mixed-triple-review.json`, SHA
+`53fc2b6320a335c37abe9472894fff9a8ebea3ab812b6ede8dce9dc81eac016a`,
+with full per-family results and independent witnesses. It exits0 in1.258s
+with empty stderr. S01's pre-census NameError source/logs are preserved;
+the corrected completed run alone supplies the reviewed result. There is
+no whole AAAA/shard, Lean or arbitrary21-gate lower-bound conclusion.
+
+## Pure four/five-factor cost-cover obstruction
+
+The proposed pure-case caps L_i<=14 for k=r=4 and L_i<=13 for k=r=5 do
+not exclude these classes. A separate bounded scalar search finds explicit
+minimal full-cover function families with gamma2 throughout:
+
+|k=r|support masks|individual costs|joint/region costs|
+|--|--|--|--|
+|4|1408,592,1546,501|11,12,10,6|14,15,13,9|
+|5|1408,592,1866,501,1722|11,12,7,6,6|15,16,11,10,10|
+
+All factors lack a common neighbor. Private MIS witnesses establish exact
+minimality; all4096 input rows across the two families verify product F.
+The selected-output antichain and distinct-slot relaxations also pass.
+Because every gamma is2, the new outside-region bonus vanishes. These are
+precise obstructions to closing either class using only the proposed cost,
+MIS-cover, slot and current region conditions. They are not shared17-gate
+prefix constructions and do not show that either pure case is realizable.
+
+Source `no-common-neighbor/check_pure_four_five.py`, SHA
+`6400a3b0c69bbcf525c893dfb973184d3c223f9101a95c3e6e208b48fd47d038`,
+result `pure-four-five-validation.json`, SHA
+`9bb0dc01ef29cae8ca9f70ff226ce8a7633fcab607cc7432cd4629b2f627bc3b`,
+and full logs retain both families and every truth row. The search uses129
+DFS nodes and0.0175 CPU seconds, well below the requested30-second limit.
+S01 retains the separate68-r2 tight-layout analysis; it was not duplicated.
+
+
+# S04 independent forest / two-sink / partial-twins review
+
+Verdict: mathematical and finite PASS for the exact producer versions pinned
+by forest-sinks-review.json (b57049af7a3c7e56f8bf964357e9ef5451876dd98483589be529be22599dad8c).
+This is research evidence about minimal proper full-cover selected factors of
+a 17-gate productive clean prefix for the fixed 11-vertex graph. It is not a
+Lean proof, generated CNF cut, SAT certificate, or arbitrary circuit lower bound.
+
+The independent script review_forest_sinks.py has SHA256
+147af92a65bc8d07a1c370aa429be0c4cc1082219647008dd00d4f300a93d30e.
+It checks all producer bindings, computes residual covers by edge branching,
+enumerates the possible level partitions independently, and checks every
+stored support family, operand split, shared-core obstruction and witness.
+Its full stdout/stderr are preserved. It completed in 0.081 seconds with no
+solver or Lean invocation. The four counted forest assignments are the ones
+remaining after valid level/root/owner filters; this is not a claim that only
+four total level assignments exist.
+
+## Two-spare forests
+
+With k selected outputs, c=15-k core gates and two additional nonselected
+gates, min L>=c+1 and max L>=c+5 force a high-cost output to have two selected
+ancestors. Distinct common-neighbor owners rule out merging these ancestors
+at a single clean productive AND: on the same side their possible opposite
+supports have empty intersection, and opposite sides would be dirty.
+Two independent AND branches require another OR to form the proper final
+support. Also an empty-support AND cannot directly feed another productive
+AND. Thus the two spare ANDs form the chain A -> q1 -> B -> q2 -> C, with
+selected outputs at levels zero, one and two. The corresponding cone limits
+are c+1, c+3 and c+5. Level-zero outputs are tight and contain all c core gates.
+The other operand forming a nonroot proper support is a core gate, not a raw
+input or a different selected output. Its owner cannot belong to any root
+support without forcing an extra gate in that tight root cone. All charged
+gates are counted in the exact ancestor cones; no gate-minimality assumption
+or global ancestry antichain has been inserted.
+
+The independent finite enumeration reproduces four new exclusions among262
+k3/r0 families and three among115 k4/r0 families, leaving258 and112. It also
+excludes the last position-filter k5/r0 family, already covered by the earlier
+k5/r0 closure. This does not address any r>0 class by itself.
+
+## Two-sink tight cones
+
+Let A,B have no common neighbors and let C have a common neighbor. Every
+descendant of A or B is OR-only, so selected support incomparability makes
+them terminal among the three. C -> A requires at least three gates outside
+the C cone: the first AND must erase support, and an AND plus a single final
+OR cannot create a no-common-neighbor support from a raw or C-cone operand.
+Thus L_C>=14 forces an ancestry antichain in17 gates.
+
+Each selected cone then has at most15 gates. An L=15 cone contains every one
+of the14 nonselected gates. For every such tight support S, any core operand
+support U of size at least2 must satisfy U subset S or CN(U) not subset S;
+otherwise the supported-ancestor extra-gate charge contradicts tightness.
+Raw singletons remain explicit exceptions. These Allowed tables are downward
+closed. Each selected OR support must split into two allowed operand supports.
+The chronologically last shared core gate directly feeds each tight output,
+so its support lies in their intersection; the complementary operand test
+then gives the shared-core obstruction. All statements apply symmetrically
+to tight outputs, not just to C.
+
+The finite checks independently reproduce23 v1 exclusions and42 symmetric
+v2 exclusions across all68 mixed-r2 families. All21 distinct Allowed tables,
+1979 immediate downward-closure checks, and all operand decompositions and
+shared-core tests match the producers.
+
+## Eight absorption cases
+
+These have A support{6,8}, L_A=15; C support{4,5,9} or N(8), L_C=13 or12;
+and B one of{3,7,8},{3,8,10},{7,8,10},{3,7,8,10}. The unique owner8 belongs
+to A and B. Joint cost is17. If C is not an ancestor of A, any C->B path
+removes C, B and its first AND from A's cone, contradicting L_A=15. The
+remaining antichain case makes all C operands lie in A's tight core, where
+each nonsingleton subset of C's support triggers the owner charge; two raw
+singletons cannot cover C's support.
+
+If C is ancestral to A, the A cone has16 gates and C has12 or13. The first
+AND q below C has other support{8}. For a13-gate C cone the only AND outside
+it is q. Replacing q=C AND R by R preserves all positive values because C
+covers every edge; on independent inputs R=x8, already accepted by A and B,
+and all descendants are OR. It deletes one gate and contradicts joint17.
+
+For a12-gate C cone, C=N(8). A gate R inside C's cone would give actual raw8
+ancestry and contradict the irrelevant-input charge. If R is raw8, then
+q<=x8 and A,B have unaffected OR-only raw8 paths, so q->FALSE preserves their
+full functions. Since q is clean, it was already FALSE on every independent
+input. Consequently EVERY retained wire value on those inputs, and hence all
+singleton supports, remains unchanged: retained ANDs stay clean and productive
+without any restoration. If R is a gate outside C, the fourth outside gate
+must be OR, returning to the q-only-AND argument. No uncounted overlap or
+constant/copy exception is used.
+
+These eight cases are disjoint from the42 symmetric cases. Sixteen actual
+DAG controls cover q->FALSE and q->R, including AND descendants in the FALSE
+case, and materialize the one-gate deletion. They verify98304 selected-output
+equalities and49000 negative-wire equalities. The controls are not17-gate
+search results and do not replace the budget proof.
+
+## Partial twins
+
+Family[276,518,1056] has L=[14,14,15], C=N(2), and raw2 cannot be ancestral
+to tight C. Thus A=2 OR P and B=2 OR Q with core supports P={4,8}, Q={1,9}.
+Both accept all required edges not incident to2. Each residual graph has
+eight edges and cover number4, witnessed independently by triangle{3,6,7}
+plus two disjoint edges and a size-four cover. The partial-edge cone bound
+is13. P and Q cannot be ancestral to one another without requiring at least
+15 core gates. Their13-gate cones therefore share all12 remaining core gates.
+The last shared core signal has empty support, forcing P's other operand to
+have support{4,8}. This operand is ancestral to Q, and CN({4,8})={1} lies in
+Q's support, while {4,8} is not contained there. The partial supported-ancestor
+charge forces Q>=14, a contradiction. This excludes one additional family.
+
+Thus this frozen package leaves17 of68 k3/r2 families. Any later birth-count
+closure is separate and is NOT included in this PASS. k3/r1 remains800 here;
+pure k4/r4 and k5/r5 remain open with explicit relaxation witnesses.
+
+
+# S04 forced-birth review: PASS with an explicit nonempty-H guard
+
+The new argument closes the previously reviewed17 remaining k3/r2 support
+families, conditional on the already reviewed17-gate productive-clean-prefix
+normalization and complete mixed census. One family needs at least19 gates;
+the other16 need at least18. With51 earlier exclusions, all68 surviving
+mixed-r2 families are excluded. This is a mathematical and finite review,
+not a Lean proof, implemented CNF restriction, SAT result or whole-shard claim.
+
+The producer proof reviewed is forced-birth-terminal-bound.md, SHA256
+ce4af7f97ca5ac57c10f10d85467daa6f9e9e33ec79a66f461769dfbc55c980a.
+Its unrestricted strict statement has a genuine degenerate counterexample:
+in the triangle on0,1,2, the three terminal OR gates(0,1),(0,2),(1,2) are
+proper full-cover factors, have supports of size2, form an ancestry antichain,
+and their product is the triangle edge function. H is empty, the core is
+empty, and the terminal-star condition holds. The proposed bound says3>=4.
+The failed step is choosing a last gate in the empty core.
+
+Repair: require |E(H)|>0 for the strict bonus, or separately require a
+nonempty retained core. Every application here has14 or16 edges in H, so the
+repair does not change any exclusion. The independent finite source applies
+the explicit nonempty-H guard. The original producer text and finite output
+are retained unchanged as reviewed historical artifacts, with this correction.
+
+## Exact helper interface and pruning
+
+The existing edge_finset_gate_bound and edge_finset_gate_bound_partial were
+read in the named Lean file without editing or compiling it. Their support
+interfaces need only topologically earlier parents, singleton-or-empty raw
+supports, empty AND support, OR support union, complete joins at ANDs, the
+C4-free one-small-side property, and a birth cover for the graph being counted.
+Neither helper requires a designated output or an exact function at a core
+wire. A read-only snapshot and the original file hash are retained.
+
+Pruning to the ancestor union of the k selected outputs makes those outputs
+terminal because they are a syntactic ancestry antichain. Their nonempty
+supports imply OR gates. Deleting them therefore retains every AND and all
+its operand computations. Remove unused TRUE and reindex the remaining
+inputs/gates in topological order before applying hsmall. TRUE cannot occur
+on a retained path: its full support has no common neighbor in a loopless
+graph, so productivity precludes a first AND descendant, while an OR-only
+path would make a selected support full. FALSE and copies cause no problem.
+
+For each edge of H, an output accepts that edge despite rejecting both
+singleton endpoints. The edge-birth lemma yields a cross-support AND birth
+in its core cone. Let B be the union of cross-support edges over every core
+AND. Cleanliness gives B subset G, so B is C4-free. The counting helper gives
+
+    |H| <= |B| <= #core AND + #core OR with support size>1
+                     <= #core gates <= m-k.
+
+Repeated births and shared ancestors are counted by the existing helper;
+this argument does not sum individual output costs or count distinct ANDs
+as distinct graph edges.
+
+## Equality contradiction with H nonempty
+
+Assume |H|=m-k. Then every inequality is equality, the core is nonempty, and
+B=H. Pruning to the ancestor union of all core ANDs preserves all AND operand
+computations and B. If it deletes any core gate, the same helper contradicts
+|H|=m-k. Thus each core gate is ancestral to an AND (including itself).
+
+Suppose a core gate has the exact support S_i of a selected output. Follow
+it to a first AND q. The OR-only segment before q puts S_i in one operand.
+Productivity supplies an element u of the other operand, and cleanliness
+puts u in CN(S_i). If CN(S_i) is empty there is an immediate contradiction.
+Otherwise every edge u-v for v in S_i is born at q. The terminal-star
+condition says these edges are outside H, contradicting B=H.
+
+The last core gate must itself be AND, since it is ancestral to one. It is
+live after initial pruning and has no later core gate, so it directly feeds
+a selected terminal OR. Its support is empty, forcing the other operand to
+have exact support S_i. Since |S_i|>=2 and S_i is proper, that operand is a
+gate rather than a raw input, FALSE or TRUE. It cannot be another selected
+output by ancestry incomparability. Thus it is a forbidden core gate. This
+proves m>=|H|+k+1 under the nonempty-H and terminal-star hypotheses. No
+minimum-size or no-dead-gate assumption was inserted into the original prefix.
+
+## Finite application and scope
+
+All18 v2 survivors have one common-neighbor support of cost at least14.
+The independently reviewed three-new-gates lemma therefore makes the three
+selected outputs an ancestry antichain in17 gates. One family[384,592,1034]
+has16 forced edges and the basic count already requires19 gates. The other17
+have14 forced edges. Their common support has a unique owner belonging to
+both no-common-neighbor supports, so every terminal star edge intersects all
+three supports and lies outside H. The strict count requires18 gates.
+
+One of those17 was already excluded by partial twins. The exact current
+remaining set therefore splits into ONE basic and SIXTEEN strict exclusions.
+The independent script verifies the exact17 binding, all18 edge sets and
+owner conditions, individual costs by a separate brute-force cover calculation,
+36864 complete truth rows, full-factor product and proper-subproduct witnesses,
+and the exact disjoint union51+17=68. It also retains the triangle countermodel
+and a sharp nonempty-H control: G consists of disjoint edges01 and23; the
+single factor(0 OR1) OR(2 AND3) has m=3, k=1, |H|=1 and attains the repaired
+strict bound. These controls verify concrete edge cases, not the general proof.
+
+Independent source review_forced_birth.py SHA256
+624c39cbebd076ec2e4925200d44396366c42ae2a275264f39a567f5261a41a9;
+result forced-birth-review.json SHA256
+8ccc9ad77b0a23d8c91c7141cf7627e26b2f0d64589a994cd35a21f1f26fa500.
+The run exited0 in0.057 seconds with empty stderr. The named Lean file remains
+SHA256 0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c.
+
+The surviving common-neighbor counts remain258 k3/r0 and112 k4/r0; k3/r1
+remains800 at this checkpoint. Pure k4/r4 and k5/r5 remain open. This review
+does not convert support-family exclusions into unreviewed CNF clauses or
+claim that the full21-gate proof gap has been closed.
+
+
+## Final scope checks and routing-correction preservation
+
+The new guarded simultaneous birth inequality alone also leaves the two
+previous pure-case relaxation witnesses alive: k4 family[1408,592,1546,501]
+has12 forced edges and lower bound17; k5 family[1408,592,1866,501,1722] has10
+forced edges and lower bound16. This is a direct check of two existing
+families, not a repeated cover search. A useful next condition must charge
+additional terminal-support assembly or characterize equality; repeating
+the previous cost/MIS relaxation cannot close these classes.
+
+The misrouted134227 work was only full scalar evaluation, pruning and merging
+repeated expressions. No S04 repair search was run. Best1 is F OR x9 with22
+full false positives,20 live gates reduced to19 by merging duplicate8 OR9.
+Best3 is F with edge(2,5) deleted,24 full false negatives,0 false positives,
+and20 clean live gates. Full sources,4096 truth rows, copies and logs are in
+candidate134227-analysis-preservation-v1.tar.gz, SHA256
+85f85f4274357bb2f316b3074c65a2c98f797c49448becef7730207ae18e6d46,
+20264bytes/15regular members. S05 owns all later candidate work.

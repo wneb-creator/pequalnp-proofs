@@ -1,0 +1,14 @@
+{
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/no-common-math-preservation-v1.tar.gz",
+  "archive_bytes": 163973,
+  "archive_sha256": "b3a29dd40ad20043b4ed1bfbeb8a8985174ce0b8d7a88be4740d0a711763b638",
+  "manifest_sha256": "b72659a99fdbc41268e82f1997b8a627d3fc6d15e60dca3d82eab71b56e09526",
+  "regular_members": 41,
+  "review_hashes": {
+    "mixed-triple-review.json": "53fc2b6320a335c37abe9472894fff9a8ebea3ab812b6ede8dce9dc81eac016a",
+    "no-common-neighbor/no-common-regions-validation.json": "3ce60572b6c763507f926f85105f4e4d943f736228af0c7b16b0b3f8a9bd9a9d",
+    "no-common-neighbor/pure-four-five-validation.json": "9bb0dc01ef29cae8ca9f70ff226ce8a7633fcab607cc7432cd4629b2f627bc3b"
+  },
+  "scope": "Mixed/no-CN math+finite PASS k3/r3 excluded,r1/r2=800/68; new region derivation and33 DAG controls; explicit purek4/k5 relaxation witnesses. No CNF/Lean/global claim.",
+  "verdict": "PASS_NO_COMMON_MATH_REVIEW_PRESERVATION"
+}
