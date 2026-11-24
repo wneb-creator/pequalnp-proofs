@@ -17,3 +17,5 @@
 2026-11-24T18:15:37.626921+00:00 — integrated forest, restriction and padding partials compiled; independent review approved SHA25612e53199ee701f7c1460839b56b2ec56f3ca2d8002eac8c8e80bac0b784cf742
 2026-11-24T18:15:58.349672+00:00 — route-obstruction Lean-check complete; root notified for push.
 2026-11-24T18:16:27.721806+00:00 — local operand-bypass strategy refuted for nonminimal circuits by checked7gate matching example; minimum-circuit strategy remains open
+2026-11-24T18:17:29.067583+00:00 — 20-minute replan: forest case completed; singleton clause removed globally by padding; simple operand bypass ruled out for arbitrary circuits; continue safe0/1-supported gate replacement and4x4 synthesis; reductions not individually enabled
+2026-11-24T18:19:44.490202+00:00 — checked size-preserving monotone gate replacement and0/1-incident-edge-support cleanup integrated into named file3482lines

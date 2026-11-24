@@ -14,3 +14,4 @@ Independent review passed for clean upper construction, forest bridge, universal
 Padding theorem checked: universal nonedge-only normalization implies the exact posted statement. Its hypothesis remains unproved. Named file build4 passed (660 lines).
 Forest case checked: acyclic incidence graphs satisfy the exact target conclusion; C4free universal-row and universal-column instances are corollaries.
 Integrated named partial:3199lines149260bytes, lake build exit0. Universal forest proof uses standard Bool+Nat types; no custom datatype. Independent exact-composition review passed.
+Local replacement helpers compiled in named file3482lines: zero/one supported incident edge cleanup, all-wire decrease, incident-pair vector equality and full edge-function preservation. Full gap still unproved.
