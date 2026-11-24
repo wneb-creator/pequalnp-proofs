@@ -43,3 +43,17 @@ The original rich core itself is vacuous on at most13 original vertices: the dir
 ## Review of bounded-degeneracy reduction
 
 The existential bounded-degeneracy premise in V3 omits V2's minimum-three-fiber assumption. This is equivalent after increasing its unknown constant: V2 implies V3 with `max d 2`, since a subset failing richness already has a fiber of size at most2. Conversely V3 directly implies V2. Thus V3 is a cleaner, shorter formulation, without materially strengthening V2. The premise is still unproved and must retain leastness. It cannot be inferred from a global bound in terms of the full circuit size alone, because a subset may use only a few of the circuit labels.
+
+## Continued direct attempt, 23:22–23:28 UTC
+
+A sound local surgery principle: if a dirty AND gate has exactly one direct reader, which is a top AND, and replacing that gate by one of its operands keeps the new top below the graph function, then deleting the dirty gate produces a smaller valid circuit. The reader can be modified at its original position, so its other operand need not precede the deleted gate. Leastness therefore forces an independent-set counterexample to each such replacement. This principle alone does not bound role fibers: the reader contexts may differ, and a gate can have multiple readers. No uniform d was obtained.
+
+A checked intermediate is now in DirtyWitnessPartial.lean (68 lines; lake env lean exit0, no warnings). It proves:
+
+1. In a C4-free graph, if every u in A is adjacent to v and to some member of S, with v outside S, then |A| <= |S|. Choosing the second neighbor gives an injection into S.
+2. For a monotone gate g accepting an independent support S, every center in wmax(g) has a neighbor in S.
+3. Therefore a fixed-(g,v) family of selected centers has cardinality at most |S| whenever g has an independent dirty witness S omitting v.
+
+The remaining barriers are concrete: independent dirty witnesses can be large (nested ANDs), they may necessarily contain v, and bounds on joint (g,v) fibers do not bound one of the four individual role fibers. A uniform d requires a further amortization or circuit-surgery argument.
+
+Checked L_meta_563 gives a possible normalization direction in the AndCountCircuit model: singleton-true ANDs can be stripped while preserving the function and AND count. OR supports are free in that model. Translating it back to root AO circuits can add many OR gates, so it does not yet bound the total size needed here.

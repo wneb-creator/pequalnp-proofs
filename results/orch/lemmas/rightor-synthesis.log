@@ -1,0 +1,4 @@
+turn 0 tests 78 vars 5640 clauses 129793
+solver_exit 0 elapsed 70.2
+No model found; status is UNSAT only if solver_exit=20, otherwise unknown.
+total_seconds 70.2

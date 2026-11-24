@@ -9,3 +9,4 @@
 - 2026-11-24T23:23:38.664450+00:00: V3 named lake build and local checker ACCEPTED (reduce); 1654 project constants rechecked; only propext, Quot.sound, Classical.choice.
 - 2026-11-24T23:27:05.299485+00:00: SingletonCenters partial compiled; root independently checked the biclique and common-neighbor proof before pushing.
 - 2026-11-24T23:27:40.597502+00:00: DirtyWitnessPartial compiled and independently approved; dirty-witness fiber bound preserved.
+- 2026-11-24T23:29:17.787424+00:00: archived four capped synthesis runs (all UNKNOWN), final direct-attempt notes, and complete accepted reduction output; no full proof found.
