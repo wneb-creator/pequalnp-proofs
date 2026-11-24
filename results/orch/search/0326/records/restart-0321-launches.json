@@ -1,0 +1,37 @@
+[
+  {
+    "case": 0,
+    "runner_pid": 20164,
+    "progress": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-resume-0-progress.log",
+    "launched_utc": "2026-11-24T03:21:40.716858+00:00",
+    "budget_seconds": 5400
+  },
+  {
+    "case": 1,
+    "runner_pid": 20165,
+    "progress": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-resume-1-progress.log",
+    "launched_utc": "2026-11-24T03:21:40.718868+00:00",
+    "budget_seconds": 5400
+  },
+  {
+    "case": 2,
+    "runner_pid": 20166,
+    "progress": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-resume-2-progress.log",
+    "launched_utc": "2026-11-24T03:21:40.720156+00:00",
+    "budget_seconds": 5400
+  },
+  {
+    "case": "full",
+    "runner_pid": 20210,
+    "progress": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-resume-full-progress.log",
+    "launched_utc": "2026-11-24T03:21:57.903660+00:00",
+    "budget_seconds": 5400
+  },
+  {
+    "case": "normal",
+    "runner_pid": 20436,
+    "progress": "/tmp/oec/pequalnp-pilot-21/search/cegis-normal-strong-resume-progress.log",
+    "launched_utc": "2026-11-24T03:22:29.812832+00:00",
+    "budget_seconds": 5400
+  }
+]

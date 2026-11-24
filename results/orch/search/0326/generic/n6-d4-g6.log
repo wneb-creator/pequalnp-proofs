@@ -1,0 +1,138 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 15 seconds real time (due to '-t 15')
+c 
+c --- [ proof tracing ] ------------------------------------------------------
+c 
+c writing through command 'gzip -c' to '/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n6-d4-g6.lrat.gz'
+c writing binary proof trace to '/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n6-d4-g6.lrat.gz'
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n6-d4-g6.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n6-d4-g6.cnf'
+c found 'p cnf 666 5017' header
+c parsed 5017 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c   --lrat=true                    (different from default 'false')
+c   --stabilize=false              (different from default 'true')
+c   --walk=false                   (different from default 'true')
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0 4989 565 85%
+c {  0.00  4  0 0   0    0    0  0% 0 4989 565 85%
+c i  0.00  4 52 0   3   72   66 56% 11 4989 564 85%
+c i  0.00  4 51 0   3   74   67 56% 11 4989 563 85%
+c i  0.00  4 50 0   3   76   67 55% 11 4989 562 84%
+c i  0.00  4 37 0   6  140  122 57% 10 4989 561 84%
+c -  0.00  4 31 1   6  302  261 65% 8 4259 561 84%
+c -  0.01  4 19 2   7  906  695 67% 7 4259 561 84%
+c I  0.01  4 19 2   7 1002  777 67% 7 4259 561 84%
+c i  0.02  4 19 2   7 1111  866 66% 7 4259 560 84%
+c i  0.02  4 18 2   9 1132  884 66% 7 4259 559 84%
+c i  0.02  4 18 2  12 1148  892 66% 7 4259 558 84%
+c i  0.02  4 18 2  17 1261  949 65% 7 4259 557 84%
+c i  0.02  4 18 2  19 1295  981 65% 7 4259 556 83%
+c i  0.02  4 17 2  29 1437 1089 65% 7 4259 555 83%
+c i  0.02  4 17 2  29 1460 1109 65% 7 4259 554 83%
+c i  0.02  4 17 2  29 1512 1154 66% 7 4259 553 83%
+c -  0.03  4 17 3  38 1806 1206 65% 7 4066 553 83%
+c i  0.03  4 15 3  40 2359 1593 64% 7 4066 552 83%
+c i  0.03  4 15 3  40 2419 1639 64% 7 4066 551 83%
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c i  0.04  4 14 3  41 2802 1889 63% 6 4066 550 83%
+c i  0.04  4 14 3  45 2891 1316 60% 6 3990 549 82%
+c i  0.04  4 14 3  45 2981 1374 60% 6 3990 548 82%
+c B  0.04  4 14 3  45 3005 1398 61% 6 3990 548 82%
+c -  0.04  4 14 4  45 3010 1141 62% 6 3966 548 82%
+c i  0.05  4 14 4  48 3085 1200 59% 6 3966 545 82%
+c i  0.05  4 14 4  48 3116 1219 57% 6 3966 544 82%
+c i  0.05  4 14 4  48 3237 1288 57% 6 3966 543 82%
+c i  0.05  4 13 4  48 3451 1456 58% 6 3966 542 81%
+c i  0.06  4 13 4  48 3674 1571 57% 6 3966 516 77%
+c i  0.06  4 13 4  51 4049 1783 55% 6 3966 498 75%
+c i  0.06  4 12 4  51 4238 1911 56% 6 3966 471 71%
+c }  0.07  4 12 4  51 4284 1935 55% 6 3966 369 55%
+c 0  0.07  4 12 4  51 4284 1935 55% 6 3966 369 55%
+c 
+c --- [ closing proof ] ------------------------------------------------------
+c 
+c LRAT proof file '/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n6-d4-g6.lrat.gz' closed
+c LRAT 4930 added clauses 56.81%
+c LRAT 3748 deleted clauses 43.19%
+c LRAT 426802 bytes (0.41 MB)
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+s UNSATISFIABLE
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.06   99.88% search
+c         0.06   99.33% unstable
+c         0.00    1.65% parse
+c         0.00    0.44% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.06   97.76% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:              1180        27.54 %  of conflicts
+c conflicts:                  4284     67263.31    per second
+c decisions:                  6130     96247.45    per second
+c fixed:                       297        44.59 %  of all variables
+c learned:                    4061        94.79 %  per conflict
+c learned_lits:              72952       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                  22285        30.55 %  learned literals
+c minishrunken:               7159         9.81 %  learned literals
+c otfs:                         43         1.00 %  of conflict
+c propagations:             372387         5.85 M  per second
+c reduced:                     513        11.97 %  per conflict
+c rephased:                      2      2142.00    interval
+c restarts:                     51        84.00    interval
+c subsumed:                    942        10.44 %  of all clauses
+c strengthened:                 42         0.47 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.07    seconds
+c total real time since initialization:            0.16    seconds
+c maximum resident set size of process:            7.69    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 20

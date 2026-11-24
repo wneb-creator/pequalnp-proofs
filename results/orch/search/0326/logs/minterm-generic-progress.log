@@ -1,0 +1,10 @@
+SOLVE n4-d3-g4 rows 10 vars 204 clauses 1010
+RESULT {"n": 4, "required_degree": 3, "gates_bound": 4, "status": "unsat", "exit": 20, "elapsed": 0.01}
+SOLVE n5-d3-g4 rows 15 vars 280 clauses 1594
+RESULT {"n": 5, "required_degree": 3, "gates_bound": 4, "status": "unsat", "exit": 20, "elapsed": 0.015}
+SOLVE n5-d4-g6 rows 15 vars 444 clauses 2865
+RESULT {"n": 5, "required_degree": 4, "gates_bound": 6, "status": "unsat", "exit": 20, "elapsed": 0.098}
+SOLVE n6-d4-g6 rows 26 vars 666 clauses 5017
+RESULT {"n": 6, "required_degree": 4, "gates_bound": 6, "status": "unsat", "exit": 20, "elapsed": 0.189}
+SOLVE n6-d5-g8 rows 21 vars 800 clauses 6427
+RESULT {"n": 6, "required_degree": 5, "gates_bound": 8, "status": "unsat", "exit": 20, "elapsed": 5.28}

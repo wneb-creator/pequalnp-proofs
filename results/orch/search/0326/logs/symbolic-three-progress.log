@@ -1,0 +1,11 @@
+solve 0 0 rows 76 vars 5644 clauses 238010 elapsed 0
+result sat exit 10
+errors [120, 36, 36]
+solve 0 1 rows 171 vars 7924 clauses 425255 elapsed 2
+result unsat exit 20
+solve 1 0 rows 77 vars 5668 clauses 239981 elapsed 43
+result sat exit 10
+errors [120, 120, 0]
+solve 1 1 rows 141 vars 7204 clauses 366125 elapsed 43
+result unsat exit 20
+FINISHED elapsed 103

@@ -18,3 +18,9 @@ Put new stable, compiled components here only after review. Work in an individua
 - `SharedParent.lean`: compiled semantic dependence lemma for shared high parents; independently reviewed and approved. Full log: `../validation/shared-parent-build-001.log`.
 
 - `DeadCore.lean`: compiled paid-cut bridge and dead-gate compiler structure/count/index lemmas; evaluation preservation is still being developed separately. Independently reviewed and approved. Full log: `../validation/dead-core-build-002.log`.
+
+- `Ownership.lean`: compiled and independently reviewed finite high-parent ownership selector. Full log: `../validation/ownership-build-003.log`.
+- `HighNetwork.lean`: compiled and independently reviewed conditional six-gate bound for the common low prefix of four OR outputs; not the full circuit theorem. Full log: `../validation/high-network-build-002.log`.
+
+- `Dead.lean`: compiled and independently reviewed semantic preservation and operation-tag preservation for dead-gate deletion under NoReads. Full log: `../validation/dead-build-002.log`.
+- `Compiler.lean`: compiled and independently reviewed deleted-root formula and paid-cut compiler wrappers. Full log: `../validation/compiler-build-002.log`.

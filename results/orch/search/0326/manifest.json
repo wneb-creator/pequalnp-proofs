@@ -1,0 +1,286 @@
+{
+  "created_utc": "2026-11-24T03:26:33.369982+00:00",
+  "gap": "L-meta-1024",
+  "posted_gap_counterexample_found": false,
+  "exact_posted_theorem_proved": false,
+  "files": [
+    {
+      "file": "source/cegis.py",
+      "bytes": 5041,
+      "sha256": "a51bc1d6a37ec0af2ddb7a77192d2a47fe6dce4f97edaba336589ffec6e05910",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis.py"
+    },
+    {
+      "file": "source/cegis-full.py",
+      "bytes": 4397,
+      "sha256": "5c2f4ada8822c2d14e84fb3e7b16a0d8a47b842e04c94ec93621408c353cd3a0",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-full.py"
+    },
+    {
+      "file": "source/cegis-symbolic.py",
+      "bytes": 5274,
+      "sha256": "683cb5e4e32aa3a07bac88ec22adede7fd535b79d208526d3607c5c11a0fc665",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-symbolic.py"
+    },
+    {
+      "file": "source/cegis-symbolic-five.py",
+      "bytes": 11795,
+      "sha256": "5bff952410bcb19350674bccc4b65997ec79b349ac64662561ad0cddac1793bb",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-symbolic-five.py"
+    },
+    {
+      "file": "source/cegis-strong-resume.py",
+      "bytes": 6658,
+      "sha256": "6cdaa29d84b7d9022af998ee19edcc391b1eb051e1ab82ef91d8bd67e86c260d",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-resume.py"
+    },
+    {
+      "file": "source/cegis-normal-strong-resume.py",
+      "bytes": 6562,
+      "sha256": "e9c5b48c9d2c89e38d7d8cad480dd9278881751a31cad96861b18306da28e8fd",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-normal-strong-resume.py"
+    },
+    {
+      "file": "source/minterm-generic.py",
+      "bytes": 2769,
+      "sha256": "dc0046bd7d5701e39c605462c12fa71b48a7356a8d93721bdc40a18e5de41a53",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic.py"
+    },
+    {
+      "file": "source/automorphisms.py",
+      "bytes": 2385,
+      "sha256": "69cdff198ef1acbac929e7a4710969225cdb83dbf9d1cc03974c2064652f6a7b",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/automorphisms.py"
+    },
+    {
+      "file": "source/diagnostic_construct.py",
+      "bytes": 1718,
+      "sha256": "445c5acf251c67d0a9fb60df72cb18c56f423dc67a3d007741fa14ce7f32c2cc",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/diagnostic_construct.py"
+    },
+    {
+      "file": "records/normalization-notes.txt",
+      "bytes": 7314,
+      "sha256": "679ad553cd2767e80aafb3facc5b28a98c60616dfda3bac35da1f08c00a77b48",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/normalization-notes.txt"
+    },
+    {
+      "file": "records/restart-0321-launches.json",
+      "bytes": 1123,
+      "sha256": "48439f514f9b1b0a5a706f7275fce432b0b4a2d6e7ed2eb9484befa655956d40",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/restart-0321-launches.json"
+    },
+    {
+      "file": "records/interruption-0320.json",
+      "bytes": 2429,
+      "sha256": "4939a89beb05c928bbce9e21a08b97636775388cc18f181832f3f493a40bcd59",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/interruption-0320.json"
+    },
+    {
+      "file": "records/automorphisms.json",
+      "bytes": 1217,
+      "sha256": "d2a64f46378d4362356a2ace532e22fbb7e9de9e61268c0154dbb994739c9b94",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/automorphisms.json"
+    },
+    {
+      "file": "records/point-pair-maps.json",
+      "bytes": 8029,
+      "sha256": "594cf1e3022a5de11f57103516e2187b41b817535d3961f212f2ee6694db38f9",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/point-pair-maps.json"
+    },
+    {
+      "file": "records/fanout-stabilizer-maps.json",
+      "bytes": 75739,
+      "sha256": "c03e2d86b0450ff52af4a62a4d999ab1601b31883ae149fdfeb2085860a88202",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/fanout-stabilizer-maps.json"
+    },
+    {
+      "file": "generic/majority-three-triples-counterexample.json",
+      "bytes": 968,
+      "sha256": "818a3267283f804914c9384ae4c0bced102adb5acf82376a4752e8b13762a3d2",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/majority-three-triples-counterexample.json"
+    },
+    {
+      "file": "generic/results.json",
+      "bytes": 646,
+      "sha256": "787a9804c2c866afebcc32da8e011b47bdc7aee2c333087f74e0797c6a6d03ca",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/results.json"
+    },
+    {
+      "file": "generic/n4-d3-g4.cnf",
+      "bytes": 12347,
+      "sha256": "377e64924daebb812024949cda034b61084882f2c31eef9acbb9fa6ebfef597a",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n4-d3-g4.cnf"
+    },
+    {
+      "file": "generic/n4-d3-g4.log",
+      "bytes": 4516,
+      "sha256": "0b03dd57891c710220f4c9cf6b71245adce330a5e3b82d95c1c6601f4d7e69a5",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n4-d3-g4.log"
+    },
+    {
+      "file": "generic/n4-d3-g4.lrat.gz",
+      "bytes": 6161,
+      "sha256": "588d155ab3d53207c51783cc7446d848bbc8d604deeded87d7b9bc1ac612f44b",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n4-d3-g4.lrat.gz"
+    },
+    {
+      "file": "generic/n5-d3-g4.cnf",
+      "bytes": 19686,
+      "sha256": "d9e1d81fd5481f50a4dffd52cbb9f9aaf0934e37864ec7323a9a6330f1458d56",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n5-d3-g4.cnf"
+    },
+    {
+      "file": "generic/n5-d3-g4.log",
+      "bytes": 4415,
+      "sha256": "c619ae460b8388505c50769c2913c4db1703569f5af02faa164ed46fad6f80be",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n5-d3-g4.log"
+    },
+    {
+      "file": "generic/n5-d3-g4.lrat.gz",
+      "bytes": 7401,
+      "sha256": "fc4d3bca55b5850be4386ca25996ff561f3796aefd4eeabeef0a4fbe47516935",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n5-d3-g4.lrat.gz"
+    },
+    {
+      "file": "generic/n5-d4-g6.cnf",
+      "bytes": 37388,
+      "sha256": "f4386db2f1c39a6db8b15c49425dc721165583f7fddd4e11b6819d12d82ad274",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n5-d4-g6.cnf"
+    },
+    {
+      "file": "generic/n5-d4-g6.log",
+      "bytes": 5731,
+      "sha256": "e989b4ee8dcc8c963fc7a66ad89fee8d73e5f101c2891180ff925695cef15daa",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n5-d4-g6.log"
+    },
+    {
+      "file": "generic/n5-d4-g6.lrat.gz",
+      "bytes": 131828,
+      "sha256": "3d5fe68ceffb0dec0215a53a5284eb7225ce987cc95334521461a6ff1e0ec1dd",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n5-d4-g6.lrat.gz"
+    },
+    {
+      "file": "generic/n6-d4-g6.cnf",
+      "bytes": 65664,
+      "sha256": "5f90fc6efa0a717c58b04d7c2abea7cd74e68588dd04207567f834eb0a78e4fd",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n6-d4-g6.cnf"
+    },
+    {
+      "file": "generic/n6-d4-g6.log",
+      "bytes": 6089,
+      "sha256": "9b370373b9f98b10056f955fd1c48de705d3712064cfc8d5adf63ff798dd0ba5",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n6-d4-g6.log"
+    },
+    {
+      "file": "generic/n6-d4-g6.lrat.gz",
+      "bytes": 220855,
+      "sha256": "10c13b613664db3b06fa10eabd5c47f745a0434bb53a33842e93e30e4cc8247c",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n6-d4-g6.lrat.gz"
+    },
+    {
+      "file": "generic/n6-d5-g8.cnf",
+      "bytes": 86174,
+      "sha256": "984fcf64466fb2acda93c4b553b93545b9ab742f8d7872358ebe4434ac06e99f",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n6-d5-g8.cnf"
+    },
+    {
+      "file": "generic/n6-d5-g8.log",
+      "bytes": 12658,
+      "sha256": "d8d70ac10ae2761d757bbe5ff28184cd4553995b3445a4b104b0d25d816dd5c8",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n6-d5-g8.log"
+    },
+    {
+      "file": "logs/minterm-generic-progress.log",
+      "bytes": 748,
+      "sha256": "6e49cfe919725302d6e7bfb1062c13ee57c31509d3e1fdcf0f6d54b405dc1300",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic-progress.log"
+    },
+    {
+      "file": "logs/symbolic-three-progress.log",
+      "bytes": 359,
+      "sha256": "deb58da676ee1d285726d5bbf1f0fc2f6203f514939bf645665fba04b2e406c5",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-symbolic-progress.log"
+    },
+    {
+      "file": "logs/symbolic-0-00.log",
+      "bytes": 31301,
+      "sha256": "226cd332e41d9400b9382f4a8707b0538097cc72101f34f0d04bc72ec68de773",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/symbolic/symbolic-0-00.log"
+    },
+    {
+      "file": "logs/symbolic-0-01.log",
+      "bytes": 16,
+      "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/symbolic/symbolic-0-01.log"
+    },
+    {
+      "file": "logs/symbolic-1-00.log",
+      "bytes": 31181,
+      "sha256": "bb163b6cf6bb2fb4355b43c4d8ebae7faad42dc4feb60f521766f0cb71279825",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/symbolic/symbolic-1-00.log"
+    },
+    {
+      "file": "logs/symbolic-1-01.log",
+      "bytes": 16,
+      "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/symbolic/symbolic-1-01.log"
+    },
+    {
+      "file": "logs/full-original.log",
+      "bytes": 39496,
+      "sha256": "47cde94e48f34c6dafbb3e1c3990edb944baf93ed574ff3a1d0bd0e1e41a99e7",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-continuous/continuous-000.log"
+    },
+    {
+      "file": "logs/normal-original.log",
+      "bytes": 35418,
+      "sha256": "270660af2b028b77113df7eeaa277ea67ee8ab044b8d454390965df648bb5cac",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-normal/continuous-000.log"
+    },
+    {
+      "file": "logs/fanout0-original.log",
+      "bytes": 34755,
+      "sha256": "cbd8790af250d39abfa586efc11b40516d7b0a83f314ccbc6c0dbe5703c22ca6",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-fanout/case-0/continuous-000.log"
+    },
+    {
+      "file": "logs/fanout1-original.log",
+      "bytes": 33568,
+      "sha256": "9d9ea6dc533920bd883e8c0d87eaab417436879e0296788bda0ef5c5702c647a",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-fanout/case-1/continuous-000.log"
+    },
+    {
+      "file": "logs/fanout2-original.log",
+      "bytes": 32247,
+      "sha256": "5deae1605bf6a91ee978b194922f2b105b95c829a356a777f2cc61cdd34fd2e6",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-fanout/case-2/continuous-000.log"
+    },
+    {
+      "file": "logs/symbolic-five.log",
+      "bytes": 42024,
+      "sha256": "40b41742aa9d5f52e0de756ea53cf642daae05b0883ea038eebfcaa199c33bce",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/symbolic-five/continuous-000.log"
+    },
+    {
+      "file": "diagnostics/explicit29-diagnostic.json",
+      "bytes": 1823,
+      "sha256": "794acfe500c3977906c66bf0fa192dcd46257cf4cb965dfe8425aa20e503de5d",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/diagnostic157/explicit29-diagnostic.json"
+    },
+    {
+      "file": "diagnostics/repair-best-approximation.json",
+      "bytes": 3565,
+      "sha256": "001bab13099f588faeaf74170a9c04760fab7c3eccebd14ecb9f5a43e70266e6",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/repair-best-approximation.json"
+    },
+    {
+      "file": "README.md",
+      "bytes": 4899,
+      "sha256": "5732b453cd6f62415102a5c3a134e8e31c4efb8fdb36216e183b0c6bcba13e67",
+      "source": "archive description prepared for review"
+    }
+  ],
+  "omitted_large_completed_artifact": "/tmp/oec/pequalnp-pilot-21/search/minterm-generic/n6-d5-g8.lrat.gz",
+  "ongoing_and_interrupted_large_artifacts": "retained under scratch paths listed in records; not copied"
+}

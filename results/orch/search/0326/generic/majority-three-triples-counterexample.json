@@ -1,0 +1,87 @@
+{
+  "scope": "counterexample to auxiliary generic gate bound, NOT L-meta-1024",
+  "inputs": 9,
+  "gates": [
+    [
+      0,
+      1,
+      true
+    ],
+    [
+      9,
+      2,
+      true
+    ],
+    [
+      3,
+      4,
+      true
+    ],
+    [
+      11,
+      5,
+      true
+    ],
+    [
+      6,
+      7,
+      true
+    ],
+    [
+      13,
+      8,
+      true
+    ],
+    [
+      10,
+      12,
+      true
+    ],
+    [
+      10,
+      12,
+      false
+    ],
+    [
+      14,
+      16,
+      true
+    ],
+    [
+      15,
+      17,
+      false
+    ]
+  ],
+  "out": 18,
+  "minimum_satisfying_support": 6,
+  "mandatory_variables": [],
+  "proposed_lower_bound": 11,
+  "actual_gate_count": 10,
+  "verified_assignments": 512,
+  "satisfying_input_count": 22,
+  "satisfying_inputs": [
+    63,
+    127,
+    191,
+    255,
+    319,
+    383,
+    447,
+    455,
+    463,
+    471,
+    479,
+    487,
+    495,
+    503,
+    504,
+    505,
+    506,
+    507,
+    508,
+    509,
+    510,
+    511
+  ]
+}

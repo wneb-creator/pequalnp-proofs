@@ -1,0 +1,52 @@
+[
+  {
+    "run": "case-0",
+    "status": "EXTERNALLY_INTERRUPTED_NO_SOLVER_VERDICT",
+    "progress": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-0-progress.log",
+    "last_progress": "RUNNING elapsed 1624 freeGiB 13.86 proofMiB 83.0",
+    "proof": "/tmp/oec/pequalnp-pilot-21/search/full-strong/case-0/continuous-000.lrat.gz",
+    "proof_bytes": 87293952,
+    "gzip_stream_complete": false,
+    "gzip_error": "Compressed file ended before the end-of-stream marker was reached"
+  },
+  {
+    "run": "case-1",
+    "status": "EXTERNALLY_INTERRUPTED_NO_SOLVER_VERDICT",
+    "progress": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-1-progress.log",
+    "last_progress": "RUNNING elapsed 1625 freeGiB 13.86 proofMiB 82.8",
+    "proof": "/tmp/oec/pequalnp-pilot-21/search/full-strong/case-1/continuous-000.lrat.gz",
+    "proof_bytes": 87293952,
+    "gzip_stream_complete": false,
+    "gzip_error": "Compressed file ended before the end-of-stream marker was reached"
+  },
+  {
+    "run": "case-2",
+    "status": "EXTERNALLY_INTERRUPTED_NO_SOLVER_VERDICT",
+    "progress": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-2-progress.log",
+    "last_progress": "RUNNING elapsed 1624 freeGiB 13.86 proofMiB 83.5",
+    "proof": "/tmp/oec/pequalnp-pilot-21/search/full-strong/case-2/continuous-000.lrat.gz",
+    "proof_bytes": 89128960,
+    "gzip_stream_complete": false,
+    "gzip_error": "Compressed file ended before the end-of-stream marker was reached"
+  },
+  {
+    "run": "full",
+    "status": "EXTERNALLY_INTERRUPTED_NO_SOLVER_VERDICT",
+    "progress": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-full-progress.log",
+    "last_progress": "RUNNING elapsed 1094 freeGiB 13.86 proofMiB 30.8",
+    "proof": "/tmp/oec/pequalnp-pilot-21/search/full-strong/case--1/continuous-000.lrat.gz",
+    "proof_bytes": 32505856,
+    "gzip_stream_complete": false,
+    "gzip_error": "Compressed file ended before the end-of-stream marker was reached"
+  },
+  {
+    "run": "normal",
+    "status": "EXTERNALLY_INTERRUPTED_NO_SOLVER_VERDICT",
+    "progress": "/tmp/oec/pequalnp-pilot-21/search/cegis-normal-strong-progress.log",
+    "last_progress": "RUNNING elapsed 429 freeGiB 13.86 proofMiB 13.8",
+    "proof": "/tmp/oec/pequalnp-pilot-21/search/full-normal-strong/continuous-000.lrat.gz",
+    "proof_bytes": 14680064,
+    "gzip_stream_complete": false,
+    "gzip_error": "Compressed file ended before the end-of-stream marker was reached"
+  }
+]

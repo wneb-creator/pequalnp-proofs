@@ -1,0 +1,112 @@
+L-meta-1024 SAT search normalizations
+
+These are computational search encodings. A solver UNSAT verdict or LRAT trace
+alone is NOT a Lean proof of the posted lower bound. The full circuit-to-CNF
+translation and certificate reconstruction would still require formal checking.
+All final SAT candidates are independently scalar-tested on all 3003 required
+inputs before being called counterexamples.
+
+Domain and orientation
+  Original rows: thirteen-bit inputs of Hamming weight seven or eight.
+  Output w: OR of points {w,w+1,w+3,w+9}, modulo thirteen.
+  Dual rows: Hamming weight five or six, with AND of each line as target.
+  Gates use two distinct predecessor indices, op=true AND and op=false OR.
+
+Output sinks and padding
+  Two different original target zero regions on the band are disjoint. Replace
+  outgoing uses of an earlier target output by true; when that output is false,
+  every other target is true, and monotonicity preserves the latter's truth.
+  Constant-propagate, delete copy and dead gates, then place output sinks last.
+  To reach exactly 38 live gates from fewer, replace one sink f_L by OR(f_L,p)
+  for p in L. This preserves band correctness and makes the old sink internal.
+  Choose p != 0 when preserving a low fanout for input 0. The dual padding is AND.
+  Thus every internal gate may be required to feed a later gate, and output
+  gates may be forbidden as sources. The directed graph then ends at outputs.
+
+Ordering and point symmetry
+  Among ready internal gates, greedy Kahn ordering chooses the smallest key
+  (maximum predecessor, minimum predecessor, operation), OR before AND. Any
+  newly ready gate reads the just-created wire, so its maximum predecessor is
+  larger than the previous selected maximum. Weak lexicographic order is sound.
+  The 5616 explicit projective-plane permutations were checked against the exact
+  thirteen Singer lines. point-pair-maps.json supplies every ordered-pair map to
+  (0,1). After removing constants and copies, the first gate has two inputs, so
+  unrestricted search may fix its pair to (0,1), with operation left free.
+
+Low input fanout partition
+  For s live gates and 13 distinct output sinks, at least s-13 predecessor edges
+  start at gates. At most s+13 <= 51 edges start at the thirteen inputs, so some
+  input has fanout at most three. Map it to input 0; live padding avoids input 0.
+  Priority first-layer pair cases are: (0,1) if any pair contains 0; otherwise
+  (1,2) if any pair is noncollinear with 0; otherwise (1,3). These have minimum
+  maximum predecessor 1,2,3 in their respective remaining classes. All 1014
+  center/pair permutations are in fanout-stabilizer-maps.json and were audited.
+  All THREE cases must be UNSAT for an exhaustive computational partition.
+
+Syntactic support and operation count
+  Each line input is essential on the band: use six zeros consisting of its line
+  plus two outside points, then flip that line point to obtain five zeros.
+  Exact syntactic reachability is the union of both predecessor supports, so
+  every output must syntactically reach its four line inputs.
+  Support.circuit_support_exact also proves that any band-correct output with
+  global input support <=7 is globally ordinary. The future normal-strong query
+  therefore guards an at-least-eight syntactic-input-support constraint by each
+  exact nonordinary flag. It requires a true support bit outside every excluded
+  seven-point subset. Running earlier queries are not changed.
+  The checked OR-only lower bound excludes zero AND gates. A separately reviewed
+  mathematical single-AND normalization excludes one AND. OneAndWork.lean later
+  compiled the full <=1 actual-AND lower bound, including nullary/unary gates and
+  invalid/future wire reads. Strong runs therefore
+  require at least two AND gates (at least two OR gates in dual orientation).
+
+Redundant boundary rows and global ordinary outputs
+  At complement(L), every other output is forced true; own L is free.
+  At complement(L union M), outputs L and M are forced false; other outputs free.
+  At singleton p, outputs whose lines exclude p are forced false; others free.
+  These give 104 distinct input rows (13+78+13). Values follow from monotonicity
+  and suitable seven/eight-point band extensions or restrictions.
+  A globally ordinary output equals OR(L) on ALL inputs exactly when its own
+  complement(L) value is false and all four line-singleton values are true.
+  Nonordinary is the disjunction of own-complement true and any missing singleton
+  positive. It is NOT equivalent to just own-complement true.
+  OneExotic.lean was independently checked: with at least twelve globally ordinary
+  outputs, every band-correct circuit has >=39 gates. Strong runs therefore require
+  at least two nonordinary outputs. The subsequently compiled and independently
+  reviewed TwoExotic.lean proves that eleven ordinary outputs already force >=39,
+  so the launched strong runs require at least THREE nonordinary outputs.
+  The count is encoded by requiring a true flag outside every excluded pair.
+  ThreeExotic.lean subsequently compiled and passed final independent review:
+  ten ordinary outputs already force >=39. The unrestricted all-3003-row run
+  launched at 02:59:51 UTC therefore requires at least FOUR nonordinary outputs,
+  using a true flag outside every excluded triple. Existing fanout runs retain
+  their minimum of three and their encoding-source snapshots.
+  ExoticWitnessExtra.lean then compiled and passed review, proving the exact
+  five-literal ordinary-output iff and the >=4 cardinality condition on these
+  precise flags. The mathematical-to-flag characterization is thus Lean checked.
+  Strong-normal runs still allow missing singleton
+  positives even though all own-complement values are false.
+
+Normal dual subclass
+  If each dual output is true on its exact four-point line, it equals AND(line)
+  on all supports of size <=6. It suffices to constrain all 1716 six-point inputs
+  and the thirteen line inputs. An OR output root is redundant: a child true on
+  the line is already true on every line superset and below the correct output.
+  Thus normal dual roots may be forced AND. Any resulting witness is converted
+  by swapping AND/OR, then checked on all 3003 ORIGINAL band inputs.
+
+Local symbolic search
+  Fixed outputs are direct three-gate OR trees. Every line offers six pair and
+  four triple OR signals. Used signals must fit one of its fifteen direct trees:
+  two disjoint pairs, or a pair contained in a triple. The compatibility graph
+  allows no larger mutually compatible family. Reconstructing chosen trees gives
+  an actual network, checked independently after full bitset validation.
+  The finished three-output searches cover both projective triple orbits and
+  all 15^10 direct-tree choices for the other ten outputs. They are computational
+  local UNSAT results, not an unrestricted lower bound.
+
+Independent audit
+  Agent special_status reviewed selector/Tseitin/cardinality clauses, scalar
+  validation, tree reconstruction, finite automorphism witnesses, every added
+  normalization above, support/live/sink/lex clauses, the off-band signed dual
+  translation, and the five-literal nonordinary flags. No encoding defect found.
+  Active queries are never modified; stronger variants start after prior budgets.

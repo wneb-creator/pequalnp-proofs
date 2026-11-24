@@ -1,0 +1,42 @@
+[
+  {
+    "n": 4,
+    "required_degree": 3,
+    "gates_bound": 4,
+    "status": "unsat",
+    "exit": 20,
+    "elapsed": 0.01
+  },
+  {
+    "n": 5,
+    "required_degree": 3,
+    "gates_bound": 4,
+    "status": "unsat",
+    "exit": 20,
+    "elapsed": 0.015
+  },
+  {
+    "n": 5,
+    "required_degree": 4,
+    "gates_bound": 6,
+    "status": "unsat",
+    "exit": 20,
+    "elapsed": 0.098
+  },
+  {
+    "n": 6,
+    "required_degree": 4,
+    "gates_bound": 6,
+    "status": "unsat",
+    "exit": 20,
+    "elapsed": 0.189
+  },
+  {
+    "n": 6,
+    "required_degree": 5,
+    "gates_bound": 8,
+    "status": "unsat",
+    "exit": 20,
+    "elapsed": 5.28
+  }
+]

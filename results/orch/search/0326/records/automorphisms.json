@@ -1,0 +1,91 @@
+{
+  "automorphisms": 5616,
+  "ordered_point_pair_orbit": 156,
+  "source_quadrangle": [
+    0,
+    1,
+    2,
+    5
+  ],
+  "orbits": {
+    "3": [
+      {
+        "representative": [
+          0,
+          1,
+          2
+        ],
+        "size": 234
+      },
+      {
+        "representative": [
+          0,
+          1,
+          5
+        ],
+        "size": 52
+      }
+    ],
+    "4": [
+      {
+        "representative": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "size": 468
+      },
+      {
+        "representative": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "size": 234
+      },
+      {
+        "representative": [
+          0,
+          1,
+          5,
+          11
+        ],
+        "size": 13
+      }
+    ],
+    "5": [
+      {
+        "representative": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "size": 702
+      },
+      {
+        "representative": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "size": 117
+      },
+      {
+        "representative": [
+          0,
+          1,
+          2,
+          3,
+          9
+        ],
+        "size": 468
+      }
+    ]
+  }
+}
