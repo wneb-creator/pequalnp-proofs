@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_2584.PureColorFactor.choose_shared_factor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.PureColorFactor.choose_wire_factor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,45 @@
+Independent review: pure-color factor selection and actual-wire mapping
+Reviewer: global_second
+UTC: 2026-11-24 19:26:46 UTC
+Verdict: PASS for these conditional components, not for full L-meta-2584.
+
+Frozen sources, each reviewed completely:
+pure-color-factor-fragment.txt: 54 lines, 2277 bytes
+SHA256 74193c863a31a252cd7a34ff51c7a327a86f65a98632cdd3fcccd8aa9ab04ce5
+pure-color-wire-fragment.txt: 105 lines, 5465 bytes
+SHA256 1f4ddd5ad61643891c073c1ab4f5c93fe7e49a8898804b5d5d1f8acbe4d2bbd5
+
+Combinatorial argument: a nonadjacent C-by-D pair at line m rules out full
+C coverage there, so soundness forces all of A or all of B adjacent to m.
+The chosen side E is fixed once. Two distinct members of A intersect B make
+m the unique common neighbor under NoFourCycle. Therefore at every d in D,
+either C is fully adjacent to d or full A/B coverage forces d=m, where E is
+fully adjacent. The final common-neighbor guard uses precisely the same
+uniqueness argument. The cardinality and dirty-pair hypotheses handle the
+required nonemptiness; there is no unsupported choice varying with d.
+
+Actual-wire mapping: pair_gate_true uses legal backward operands and exact
+binary AND evaluation. Full assignment soundness of g AND h yields coverage
+on an assignment supported by three S-colored inputs and one complementary
+input. Same-color adjacency exclusions leave exactly the required three
+cross edges. OR purity is used in both directions where necessary: dirtiness
+of h yields a nonadjacent c/d pair; the selected finite factor is exactly
+orIn(p) or orIn(q), hence an actual existing wire; any true value on that wire
+provides a true singleton witness. The selected-wire block and common-neighbor
+guard follow without asserting circuit rewiring or a gate-count improvement.
+
+All four helper declarations were independently compiled in a fresh namespace
+using the byte-identical fragments. Compile exit0, stdout/stderr empty.
+Independent axiom audit exit0; all four declarations use only propext,
+Classical.choice, Quot.sound. Harnesses and complete logs are:
+pure-color-factors-independent.lean/.stdout/.stderr
+pure-color-factors-independent-audit.lean/.stdout/.stderr
+
+Fragment format scan clean: no forbidden root marker, strings, sorry, axioms,
+native_decide, attributes, options, or executable commands. No main-source
+edits were made. Review_second received the exact factor/wire scope for its
+separate PureColorAlias frontier/composition review. These lemmas assume the
+pure supports, color separation, large common support, dirty h, and full
+g-AND-h block. They do not establish existence of this configuration in every
+two-dirty circuit or arbitrary-chain normalization. The full posted-statement
+checker remains REJECTED (no-theorem).

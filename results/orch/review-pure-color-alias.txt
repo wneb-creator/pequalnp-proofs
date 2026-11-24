@@ -1,0 +1,118 @@
+Independent PureColorAlias actual-frontier and final-composition review
+Reviewer: /root/review_second, independent of implementation.
+Parallel factor/wire review: /root/global_second.
+UTC: 2026-11-24T19:28:01.628346+00:00
+Frozen source: /tmp/oec/pequalnp-pilot-39/color-special/PureColorAlias.lean
+All 482 lines / 22491 bytes read.
+SHA256: 4518980ee4ed024eef1f75894ea71ffe85ac16d1e1c18aca1a87dd3cb8d09805
+
+Verdict: PASS FOR CHECKED LOCAL RESULT ARCHIVE.
+No semantic blocker found. All TEN lemmas independently compile and have
+only the standard three axioms. The final result constructs an actual
+strictly smaller exact AO2 circuit in the stated pure-color two-dirty case.
+It does not prove the unrestricted posted gap or discharge its global
+structural extraction. No local-checker acceptance is claimed.
+
+Actual-frontier review:
+- For every AND gate j with an actual input w that OR-reaches dirty g,
+  backward-wire bounds prove g<j. If j were dirty, honly leaves g or h.
+  Equality with g is impossible by order; equality with h contradicts the
+  explicit OR purity of all h inputs, because g is an AND. Thus j is clean.
+- The proof selects the actual opposite operand v from the binary input
+  list. It handles either list position and does not silently assume the
+  two inputs are distinct. If v also OR-reached g, any assignment making
+  g true would make both actual inputs of clean j true, proving g below
+  graphFun and contradicting hgdirty. This proves exactly the no-OR-path
+  condition required for the upward erasure theorem, with shared wires
+  permitted throughout.
+- To establish e AND v implies graphFun on an ARBITRARY full assignment,
+  val_true_or_frontier decomposes a true v into either an actual true input
+  u in its OR shadow or a true AND gate k reached through its OR shadow.
+- In the input case, every t in the intersection of g's two operand shadows
+  makes g true on pairInput t u. The original OR path makes w true, u makes
+  v true, and clean j therefore forces adjacency t-u. This includes
+  degenerate/overlapping supports correctly: graphFun_pair and the simple
+  graph rule reject a loop if t=u. The selected factor's common-neighbor
+  property yields adjacency from every e-shadow input to u. OR purity of e
+  extracts an input true on the ORIGINAL arbitrary assignment, producing
+  a real graph edge on that assignment. The finite pair tests are used
+  only to derive adjacency, not as a substitute for global circuit equality.
+- In the reached-AND case, k is an actual strict ancestor of j: the proof
+  converts the OR path into the stated InCone relation using actual operand
+  membership and backward bounds. TopForm excludes a clean AND ancestor
+  below the AND j, so k is dirty. honly leaves g or h; g contradicts the
+  previously proved no-OR-path property of v; h is handled by the supplied
+  all-assignment e AND h implies graphFun bound. This explicitly covers
+  guards with AND-mediated dependencies and sharing.
+- dirty_not_output_or_path is exact: any OR path from output to g would
+  propagate g's truth to the exact graph function on every assignment,
+  contradicting g's dirtiness. No singleton or output-validity assumption
+  is silently substituted for that functional argument.
+
+Final composition and dependency review:
+- choose_wire_factor supplies ONE existing wire e, equal to p or q, an
+  all-assignment e AND h bound, and the common-neighbor property used above.
+  global_second independently reviewed its full factor/wire derivation
+  and compiled/audited all four exports; report:
+  results/orch/review-pure-color-factors.txt.
+- The final wrapper correctly transports e=p or e=q to actual membership
+  in g's stated input list and to e's pure OR ancestry. It also transports
+  the stated inputs [c,d] and their separate purity to the universal h-input
+  purity needed in the frontier proof. No wire-order or private-fanout
+  assumption is introduced in this transport.
+- The actual-frontier guard and no-output-path result now discharge both
+  central hypotheses of the previously reviewed generic UpwardErase lemma.
+  That lemma overwrites g with OR[e,e], proves exact global functionality
+  using its upward-context induction, and deletes the resulting redundant
+  gate with all later consumers/output renamed. The new result therefore
+  gives an actual AO2 circuit D with D.size<C.size and exact graphFun.
+  It is more than a local truth-table substitution or a selected factor.
+- The included 152-line UpwardErase fragment matches byte for byte the
+  already independently reviewed a1faaf67...37670c06 frozen fragment.
+  All local definitions used here are included; the standalone file has
+  exactly ONE import, PEqualNP.Outside.L_meta_2584, at the top. It has no
+  dependency on other scratch files, generated solver output, plugins,
+  external hypotheses, additional imports, or hidden mutable declarations.
+
+Explicit remaining assumptions and scope:
+The theorem assumes exact graph functionality, IsAO2, TopForm, NoFourCycle,
+valid binary AND gates g/h with the given input lists, both gates dirty and
+all other ANDs clean, four OR-pure operand shadows, p/q/c on one independent
+color side and d on the opposite independent side, at least two common
+inputs in p/q's shadows, and a sound g AND h block on EVERY assignment.
+No leastness is assumed: a caller with leastness can derive a contradiction
+from the strict saving. No unrestricted read-two theorem follows without
+showing these structural hypotheses or treating the remaining cases.
+In particular, this file does not establish purity of arbitrary dirty-gate
+operands or derive the all-assignment block condition from pair acceptance.
+The conclusion is a strict size improvement, not an equal-size replacement
+statement or a proof that the original circuit itself is read-two.
+
+Independent compilation, axioms, and archival format:
+- Constructed a fresh harness by consistently renaming all three local
+  namespaces, preserving all statements and proof bodies, and appending
+  axiom-print commands only to the scratch harness. It imports exactly
+  the same checked current main artifact. Renaming prevents reuse of the
+  author's new declarations during validation.
+- lake env lean completed exit 0. Stderr is empty. Stdout consists only of
+  the requested axiom reports for ALL TEN exported lemmas. Every list is
+  exactly propext, Classical.choice, Quot.sound; no sorryAx appears.
+- Frozen source and current main hashes were rechecked after compilation.
+  Main remains SHA256
+  3d8e330ca362daf97df9e541cc1403a8a98b2fdb6cdcca15b922b912e165a6b2.
+- The archival source contains no forbidden root marker, double quotes,
+  sorry/admit, added axioms, native/executable/meta commands, custom types,
+  instances, options, attributes, or theorem declaration. All namespace
+  blocks close correctly. The only import is the current main helper file.
+- This standalone import of an Outside module makes this an archival local
+  result, not a compliant submission file for the posted gap. It belongs in
+  the authorized results branch archive; any eventual proof PR must still
+  contain only its named file, allowed imports, and exact final theorem.
+
+Complete evidence:
+results/orch/review-pure-color-alias.stdout
+results/orch/review-pure-color-alias.stderr
+/tmp/oec/pequalnp-pilot-39/color-special/ReviewPureColorAlias.lean
+/tmp/oec/pequalnp-pilot-39/color-special/review-pure-color-alias-metadata.json
+
+No main-file edit, Git mutation, desk call, or credential access occurred.

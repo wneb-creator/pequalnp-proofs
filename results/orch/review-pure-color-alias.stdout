@@ -1,0 +1,28 @@
+'PEqualNP.Outside.L_meta_2584.ReviewPureUpward.overwrite_val_ge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewPureUpward.upward_or_context_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewPureUpward.erase_and_with_frontier_guard' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewPureFactor.choose_shared_factor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewPureFactor.pair_gate_true' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewPureFactor.graph_of_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewPureFactor.choose_wire_factor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewPureFrontier.selected_factor_frontier_guard' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewPureFrontier.dirty_not_output_or_path' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewPureFrontier.erase_two_dirty_pure_colors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
