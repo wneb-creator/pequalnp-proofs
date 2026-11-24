@@ -1,0 +1,1 @@
+{"automorphisms": 5616, "covered_subsets": 1287, "orbit_sizes": {"0,1,2,3,4": 702, "0,1,2,3,7": 117, "0,1,2,3,9": 468}, "all_point_maps_directly_verified": true, "scope": "finite input/output symmetry certificate, not a circuit lower bound"}

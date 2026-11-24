@@ -1,0 +1,1 @@
+{"status": "PASS", "fixed_full38_networks": 64, "accepted": 30, "rejected": 34, "full_variables": 361953, "full_clauses": 12693968, "full_band_rows": 3003, "solver_launched": false, "runner_sha256": "575e2cc3d3b1320489115307e55d62b608485af0ae41ae76823a6fb9b558acff", "elapsed_seconds": 3.6357799470006285}

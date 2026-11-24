@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "tested_remaining_label_assignments": 2197,
+  "accepted_label_assignments": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      7
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      9
+    ]
+  ],
+  "verified_five_subset_maps": 1287,
+  "full_variables": 129594,
+  "full_clauses": 2680566,
+  "solver_launched": false,
+  "runner_sha256": "6edd3479ebe61e07ecf849c16be9a81a1e3bc4a975bdd50f432f01d9aaa3ec5a"
+}

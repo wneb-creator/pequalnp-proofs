@@ -1,0 +1,40 @@
+{
+  "status": "Dependencies preserved in ../0457/general-five-reduced-cost/encoding-source and ../0502",
+  "files": [
+    {
+      "path": "cegis-full.py",
+      "bytes": 4397,
+      "sha256": "5c2f4ada8822c2d14e84fb3e7b16a0d8a47b842e04c94ec93621408c353cd3a0"
+    },
+    {
+      "path": "cegis.py",
+      "bytes": 5041,
+      "sha256": "a51bc1d6a37ec0af2ddb7a77192d2a47fe6dce4f97edaba336589ffec6e05910"
+    },
+    {
+      "path": "cegis-symbolic.py",
+      "bytes": 5274,
+      "sha256": "683cb5e4e32aa3a07bac88ec22adede7fd535b79d208526d3607c5c11a0fc665"
+    },
+    {
+      "path": "cegis-symbolic-five.py",
+      "bytes": 11795,
+      "sha256": "5bff952410bcb19350674bccc4b65997ec79b349ac64662561ad0cddac1793bb"
+    },
+    {
+      "path": "streaming_cnf.py",
+      "bytes": 1572,
+      "sha256": "5c93998e77af73b0bb9d3f457d086153ac4e281776eb247daba51314ac056aab"
+    },
+    {
+      "path": "formal_cost.py",
+      "bytes": 1387,
+      "sha256": "ffd395881df9460e64bd3a17f17381926301009b3baa22a1849492a5a22ee936"
+    },
+    {
+      "path": "disconnected_parent_colors.py",
+      "bytes": 674,
+      "sha256": "b7dbd4e1fdf8c8b16dea08d8a1d2e172392220d8660c9e5d2f85ed9a0f9fc688"
+    }
+  ]
+}

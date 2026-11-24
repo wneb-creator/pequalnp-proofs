@@ -1,0 +1,5 @@
+# Full normal OR-sink query launch
+
+The independently reviewed original-orientation full normal query launched05:04:26 UTC, detached at nice15 with a90minute budget. It constrains all3003 posted band rows, all thirteen own-complement outputs false, at least five globally nonordinary outputs and at least one capped formal false-certificate cost5. Existing OR-sink, two-AND, syntax-support, order and first-pair normalization guards remain. This is the all-normal class after normalization; the existing abnormal query covers its complementary class. No claim is made that normality persists through arbitrary normalization.
+
+Exact source/dependency snapshots, full small-test log/results and launch metadata are preserved. Sixty-four fixed38-gate guard tests passed (30accepted,34rejected); count-only full generation has361953variables and12693968clauses. Any SAT model must independently pass all8192 global-upper rows and all3003 band rows. No SAT/UNSAT result is claimed at this launch checkpoint, and the other four running queries were unchanged.

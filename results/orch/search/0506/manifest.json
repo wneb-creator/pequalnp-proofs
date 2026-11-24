@@ -1,0 +1,89 @@
+{
+  "utc": "2026-11-24T05:04:43.355518+00:00",
+  "files": [
+    {
+      "path": "full-normal-or-sinks-cost-stream/case--1/encoding-source/cegis-full.py",
+      "bytes": 4397,
+      "sha256": "5c2f4ada8822c2d14e84fb3e7b16a0d8a47b842e04c94ec93621408c353cd3a0",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/encoding-source/cegis-full.py"
+    },
+    {
+      "path": "full-normal-or-sinks-cost-stream/case--1/encoding-source/cegis.py",
+      "bytes": 5041,
+      "sha256": "a51bc1d6a37ec0af2ddb7a77192d2a47fe6dce4f97edaba336589ffec6e05910",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/encoding-source/cegis.py"
+    },
+    {
+      "path": "full-normal-or-sinks-cost-stream/case--1/encoding-source/cegis-symbolic.py",
+      "bytes": 5274,
+      "sha256": "683cb5e4e32aa3a07bac88ec22adede7fd535b79d208526d3607c5c11a0fc665",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/encoding-source/cegis-symbolic.py"
+    },
+    {
+      "path": "full-normal-or-sinks-cost-stream/case--1/encoding-source/cegis-symbolic-five.py",
+      "bytes": 11795,
+      "sha256": "5bff952410bcb19350674bccc4b65997ec79b349ac64662561ad0cddac1793bb",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/encoding-source/cegis-symbolic-five.py"
+    },
+    {
+      "path": "full-normal-or-sinks-cost-stream/case--1/encoding-source/streaming_cnf.py",
+      "bytes": 1572,
+      "sha256": "5c93998e77af73b0bb9d3f457d086153ac4e281776eb247daba51314ac056aab",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/encoding-source/streaming_cnf.py"
+    },
+    {
+      "path": "full-normal-or-sinks-cost-stream/case--1/encoding-source/point-pair-maps.json",
+      "bytes": 8029,
+      "sha256": "594cf1e3022a5de11f57103516e2187b41b817535d3961f212f2ee6694db38f9",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/encoding-source/point-pair-maps.json"
+    },
+    {
+      "path": "full-normal-or-sinks-cost-stream/case--1/encoding-source/cegis-normal-or-sinks-cost-stream.py",
+      "bytes": 9094,
+      "sha256": "575e2cc3d3b1320489115307e55d62b608485af0ae41ae76823a6fb9b558acff",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/encoding-source/cegis-normal-or-sinks-cost-stream.py"
+    },
+    {
+      "path": "full-normal-or-sinks-cost-stream/case--1/encoding-source/formal_cost.py",
+      "bytes": 1387,
+      "sha256": "ffd395881df9460e64bd3a17f17381926301009b3baa22a1849492a5a22ee936",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/encoding-source/formal_cost.py"
+    },
+    {
+      "path": "full-normal-or-sinks-cost-stream/case--1/encoding-source/manifest.json",
+      "bytes": 1342,
+      "sha256": "cec033a6fe6a4a2c10f6c2bc20b80c6c14657e35d61c7375f6088722450095fc",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1/encoding-source/manifest.json"
+    },
+    {
+      "path": "normal-or-cost-test.py",
+      "bytes": 2995,
+      "sha256": "fa0ba1f83b1ceb3ae2ee8cd3fd165b5db865562e3d63b10d3f4940124c855794",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/normal-or-cost-test.py"
+    },
+    {
+      "path": "normal-or-cost-test.log",
+      "bytes": 306,
+      "sha256": "71da4d7dfa15eaa5f4ec32dc933eafbaba02fc2aa8d8a6d0c268cea6246290f7",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/normal-or-cost-test.log"
+    },
+    {
+      "path": "normal-or-cost-test.json",
+      "bytes": 328,
+      "sha256": "4f16cefad7078cf40b24d00e40d0f69f3f5a2b1332d54e7bebb44bbaed74e869",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/normal-or-cost-test.json"
+    },
+    {
+      "path": "normal-or-cost-launch-0506.json",
+      "bytes": 691,
+      "sha256": "e8c527109013b2cf75a0e5731e1a6482b640c4798d933874e570d629410b73c4",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/normal-or-cost-launch-0506.json"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1054,
+      "sha256": "80ea30ee9e06869b75b8195c995cab2176e3c130c5b096fdc30a75324bc395a9",
+      "source": "generated scope note"
+    }
+  ]
+}

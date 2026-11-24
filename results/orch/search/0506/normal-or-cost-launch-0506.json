@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-24T05:04:26.722075+00:00",
+  "runner_pid": 36136,
+  "argv": [
+    "python",
+    "/tmp/oec/pequalnp-pilot-21/search/cegis-normal-or-sinks-cost-stream.py",
+    "--case",
+    "-1",
+    "--all-rows",
+    "--sat",
+    "--seconds",
+    "5400"
+  ],
+  "progress_log": "/tmp/oec/pequalnp-pilot-21/search/cegis-normal-or-sinks-cost-stream-progress.log",
+  "artifacts": "/tmp/oec/pequalnp-pilot-21/search/full-normal-or-sinks-cost-stream/case--1",
+  "budget_seconds": 5400,
+  "nice": 15,
+  "scope": "all-normal OR-sink normalized full-band candidates; complementary abnormal query stays live",
+  "source_sha256": "575e2cc3d3b1320489115307e55d62b608485af0ae41ae76823a6fb9b558acff"
+}

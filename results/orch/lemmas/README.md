@@ -69,3 +69,7 @@ Put new stable, compiled components here only after review. Work in an individua
 
 - `CanonicalLocal.lean`: checked/reviewed tiny index-bound helper.
 - `CanonicalPairs.lean`: checked/reviewed semantics-preserving invalid/repeated-parent normalization, bounded canonical indices, no loops or duplicate unordered output pairs, and canonical disconnectedness. Full log/status: `../validation/canonical-pairs-build-004.log` and `.exit`.
+
+- `PrivateSurgery.lean`: checked/reviewed impossibility of three gates private to one target in the normal five-output, at-most-fourteen-gate residual circuit. Full successful log/status: `../validation/private-surgery-build-004.log` and `.exit`.
+- `Certificate.lean`: checked/reviewed extraction of three distinct productive OR gates from a cost-at-most-four false certificate; exact constants, repeated reads and contexts handled. Full successful log/status: `../validation/certificate-build-003.log` and `.exit`.
+- `AllFiveCostFast.lean`: checked/reviewed cached-module composition proving every one of five normal residual outputs has formal false cost at least five; also preserves ordinary outputs under rebuilding. Requires the compiled PrivateSurgery module. Full successful log/status: `../validation/all-five-cost-build-002.log` and `.exit`. Complete standalone validation is pending. This is a partial result, not the posted theorem.
