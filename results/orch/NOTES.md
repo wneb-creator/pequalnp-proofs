@@ -49,3 +49,9 @@ Exact path-sensitive enumeration also found no bad AND in **any** minimum circui
 Naive local bypass is false outside minimum circuits, even with one reader and a forest target. Example: `d ∧ ((a∨b)∧(a∨c)) ∨ bc = ad∨bc`; replacing the middle AND by either operand introduces bd or cd, while replacing it by a works. Stronger example: let A=(a∨c)∨b, B=(b∨d)∨a with no earlier a∨b wire, h=A∧B, and output e∧h∨cd = ae∨be∨cd. No earlier wire may replace h correctly; a new OR(a,b) gate can. Any bypass-only hypothesis needs minimum/stronger structural assumptions.
 
 C5 path-sensitive search is now complete: no optimum seven-gate circuit has a visible AND. Depth-6 frontier has 1,423,242 symmetry classes, 172,305 admitting a bad realization; no seven-gate extension computes C5 while retaining badness. Therefore the stronger EVERY-minimum-circuit claim survives all 352 labelled graphs on 0–5 vertices. Full source/log: `cycle5_bad_search.cpp`, `cycle5_bad_search.log`.
+
+### Checked generic erasure components
+
+`ReductionDesign.lean` compiles: deleting an existing gate lowers size by exactly one and preserves Monotone2. `CopyErasure.lean` compiles without diagnostics: if gate k computes exactly an earlier wire p<n+k on all n-inputs, CircuitMoves.eraseGate n C k p preserves output. No ReadsBack premise is needed because this definition leaves the prefix untouched. Generic redundant/comparable-operand erasure can therefore be supplied as an actual proof in a reduction, not left conjectural. Files import only PEqualNP.Defs.
+
+Finite agent reports every minimum circuit is clean on all 352 labelled eligible graphs through five vertices. Stronger all-minima-clean conjecture remains unrefuted there. Still avoid arbitrary-circuit deletion hypotheses: forest example e*[(a∨b∨c)∧(a∨b∨d)]∨cd = ae∨be∨cd can need a new OR(a,b) wire; neither operand nor any existing earlier wire is a valid replacement when a∨b was never built.
