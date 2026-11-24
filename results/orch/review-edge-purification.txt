@@ -1,0 +1,12 @@
+Independent source review of EdgePurification
+Reviewer: global_second (implementation by child witness_descent).
+UTC: 2026-11-24T19:14:12.631461+00:00
+Scope: all 119 lines, 5334 bytes. SHA256 25ca8857a6abbe962fa34579f7307690ce5b686b41b61d9aa64067559bda5ecf
+
+Verdict: PASS for this partial component; not a proof of L-meta-2584.
+
+The selected gate must be a valid AND gate accepting an actual graph edge uv, and every graph edge accepted by it must be that same unoriented edge. The replacement AND[u,v] is globally below the old gate by monotonicity from its uv value. Equality is established only on positive graph pairs, which is sufficient together with global decrease and monotonicity of the replacement circuit via the existing graph pair-sandwich lemma. No correctness-on-pairs-only inference is made without that decrease. Both input indices are strictly before the selected gate and exact binary arity/op legality are retained. Overwriting an AND with an AND preserves the AND count exactly. The new selected gate is BelowF because uv is an actual graph edge. Every other new dirty gate gives an old dirty witness by pointwise decrease and unchanged operator; thus the precise junk subset after erasing g is justified. Strict junk-count decrease additionally requires g to belong to old junk; the supplied theorem correctly does not claim that unconditionally.
+
+No C4, privacy, TopForm, leastness, or witness-bound assumption is hidden. These are not needed for this local transformation. The remaining global difficulty is finding an eligible gate or a more general cheap projection in arbitrary minimum circuits.
+
+Plain-file scan is clean: no forbidden root marker, quotes, proof shortcuts, axioms, executable commands, custom types/instances, attributes, options, or extra imports. Relative EdgePurification namespace is suitable inside the target namespace. Author compile edge-003 exit0 with empty stdout/stderr was inspected. Root must still perform combined integration/build before pushing the new main source.

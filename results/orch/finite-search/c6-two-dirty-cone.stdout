@@ -1,0 +1,32 @@
+{"graph": "cycle", "side": 3, "gates": 8, "forbidden_read_bound": null, "distinguished_edge": null, "two_dirty_cone": true, "truth_rows": 11, "critical_rows": true, "timeout_ms": 240000, "solver": "5.3.3", "engine": "smt", "clauses": 592}
+result unsat seconds 70.34406739799999
+(:added-eqs           34313879
+ :arith-make-feasible 1
+ :arith-max-columns   4
+ :binary-propagations 144813278
+ :bv-bit2core         63507751
+ :bv-diseqs           516
+ :bv-dynamic-diseqs   277798
+ :bv-dynamic-eqs      3063
+ :bv->core-eq         815545
+ :conflicts           227128
+ :decisions           298830
+ :del-clause          4824573
+ :max-memory          29.16
+ :memory              20.92
+ :minimized-lits      3828215
+ :mk-bool-var         2354588
+ :mk-clause           4834731
+ :mk-clause-binary    15618
+ :num-allocs          5187296616.00
+ :num-checks          1
+ :pb-conflicts        2519
+ :pb-predicates       78
+ :pb-propagations     1070662
+ :pb-resolves         2462
+ :propagations        243622687
+ :restarts            592
+ :rlimit-count        429082409
+ :solve-eqs-elim-vars 36
+ :solve-eqs-steps     560
+ :time                70.34)

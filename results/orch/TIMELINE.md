@@ -66,3 +66,11 @@
 - 2026-11-24T19:04:31.034069+00:00: checkpoint12 complete9632line source built and independently reviewed. CommonLine explicit two-dirty ReadK2 replacement separately compiled/reviewed, pending next integration.
 
 - 2026-11-24T19:09:01.927967+00:00: checkpoint13 full9983line helperfile built and reviewed; CommonLine actual conditional ReadK2 replacement preserved. Runtimeworkerhandles lost afterenvironmentrestart19:06, files+heartbeat survived; recoveryworkers started fromsavedfiles. Total20subagents includesnewglobalchallengechild and colourrestrictionroute.
+
+- 2026-11-24T19:10:53.429662+00:00: structure_second recovered draft after runtime loss, fixed final Boolean conversion, and checked actual explicit-block ReadK-to-3:1-signature bridge.
+
+- 2026-11-24T19:12:27.970202+00:00: repair_second completed explicit private-star junk<=1 accounting and same-size read2 wrapper; recovered task frozen008, compile and axiom audit passed.
+
+- 2026-11-24T19:13:17.921362+00:00: structure_second independently approved repair-junk-008 (271 lines); combined same-file compile and five axiom audits passed. Review: review-014b.txt.
+
+- 2026-11-24T19:17:43.943280+00:00: checkpoint14 compiled10827line helperfile and independent reviews passed. Archived88 finite-search artifacts with exact hashes and complete diagnostics; no full-gap acceptance.

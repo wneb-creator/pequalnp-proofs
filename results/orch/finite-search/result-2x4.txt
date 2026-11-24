@@ -1,0 +1,7 @@
+P=2 L=4 max_depth=5 four_cycle_free_graphs=189 lower_bound_verified=189 counterexamples=0 insufficient_depth=0
+sequences_depth_1=30
+sequences_depth_2=1110
+sequences_depth_3=50040
+sequences_depth_4=2711160
+sequences_depth_5=174325200
+Method: all commutative fan-in-two AND/OR straight-line programs through depth, omitting gates semantically equal to earlier wires (eliminable in any minimum circuit). Missing output realizes false at zero gates. The bound is |E| + minimum vertex-cover size - 1 for nonempty graphs. A verified case has no smaller circuit; this executable does not formalize the bound in Lean.

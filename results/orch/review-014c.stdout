@@ -1,0 +1,15 @@
+'PEqualNP.Outside.L_meta_2584.ReviewColorErase.overwrite_eq_of_or_frontiers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColorErase.overwrite_eq_of_false_unique_frontier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColorErase.erase_or_with_false_frontier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColorErase.disjoint_or_false_on_independent_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewColorErase.erase_or_disjoint_guard' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

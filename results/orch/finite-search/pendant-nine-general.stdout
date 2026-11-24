@@ -1,0 +1,8 @@
+{"graph": "pendant", "P": 3, "L": 4, "gates": 9, "forbidden_read_bound": 2, "distinguished_edge": "any", "two_dirty_cone": false, "topform": false, "max_dirty": null, "local_irred": false, "truth_rows": 13, "critical_rows": true, "timeout_ms": 1, "solver": "5.3.3", "engine": "smt", "clauses": 844}
+result unknown seconds 0.014089832000081515
+(:max-memory   17.68
+ :memory       17.68
+ :num-allocs   32339
+ :rlimit-count 12917
+ :time         0.01)
+reason_unknown timeout

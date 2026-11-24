@@ -1,0 +1,32 @@
+{"side": 3, "gates": 8, "forbidden_read_bound": 1, "distinguished_edge": [0, 3], "truth_rows": 11, "critical_rows": true, "timeout_ms": 240000, "solver": "5.3.3", "clauses": 600}
+result unsat seconds 71.51433816899998
+(:added-eqs           33460931
+ :arith-make-feasible 1
+ :arith-max-columns   4
+ :binary-propagations 182989410
+ :bv-bit2core         72215654
+ :bv-diseqs           474
+ :bv-dynamic-diseqs   187711
+ :bv-dynamic-eqs      2070
+ :bv->core-eq         561829
+ :conflicts           303176
+ :decisions           402063
+ :del-clause          5289596
+ :max-memory          30.09
+ :memory              21.85
+ :minimized-lits      5416998
+ :mk-bool-var         2245257
+ :mk-clause           5295428
+ :mk-clause-binary    14763
+ :num-allocs          6253389176.00
+ :num-checks          1
+ :pb-conflicts        2750
+ :pb-predicates       48
+ :pb-propagations     1325821
+ :pb-resolves         2676
+ :propagations        315455568
+ :restarts            694
+ :rlimit-count        527769435
+ :solve-eqs-elim-vars 72
+ :solve-eqs-steps     1895
+ :time                71.51)

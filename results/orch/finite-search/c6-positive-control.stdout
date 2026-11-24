@@ -1,0 +1,35 @@
+{"side": 3, "gates": 8, "no_read2_on_edge": null, "timeout_ms": 60000, "solver": "5.3.3", "clauses": 535}
+result sat seconds 4.252816215000053
+(:added-eqs           417609
+ :arith-make-feasible 2
+ :arith-max-columns   4
+ :binary-propagations 7442551
+ :bv-bit2core         5785875
+ :bv-diseqs           1536
+ :bv-dynamic-diseqs   5690
+ :bv-dynamic-eqs      2
+ :bv->core-eq         10711
+ :conflicts           9779
+ :decisions           83800
+ :del-clause          669183
+ :final-checks        1
+ :max-memory          35.11
+ :memory              20.14
+ :minimized-lits      95240
+ :mk-bool-var         307357
+ :mk-clause           701983
+ :mk-clause-binary    41780
+ :num-allocs          691976815
+ :num-checks          1
+ :pb-conflicts        167
+ :pb-predicates       48
+ :pb-propagations     41960
+ :pb-resolves         167
+ :propagations        15431718
+ :restarts            64
+ :rlimit-count        28994874
+ :solve-eqs-elim-vars 8
+ :solve-eqs-steps     365
+ :time                4.25)
+gates [["or", 3, 5], ["or", 4, 5], ["and", 1, 7], ["and", 2, 6], ["or", 8, 9], ["or", 3, 4], ["and", 0, 11], ["or", 10, 12]]
+independent_function_check True edge_read2 True vectors [(1, 1)]

@@ -1,0 +1,1 @@
+{"graph": "pendant", "P": 3, "L": 4, "gates": 9, "forbidden_read_bound": 2, "distinguished_edge": "any", "two_dirty_cone": false, "topform": true, "max_dirty": 2, "local_irred": true, "truth_rows": 13, "critical_rows": true, "timeout_ms": 600000, "solver": "5.3.3", "engine": "smt", "clauses": 1061}

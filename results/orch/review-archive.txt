@@ -1,0 +1,77 @@
+Independent finite-search archive preservation review
+Reviewer: /root/review_second, independent of archive copying.
+UTC: 2026-11-24T19:14:53.105806+00:00
+Scope: results/orch/finite-search
+
+Verdict: PRESERVATION AND SECURITY CHECKS PASS.
+One documentation qualification is recommended below; no corrupt or missing
+manifest artifact was found. No solver was rerun and no Lean acceptance is
+claimed by this review.
+
+Integrity and completeness:
+- The manifest is a list of88 distinct basename-only records, each with
+  file, bytes, and sha256 fields. All88 files match both their recorded
+  byte counts/SHA256 and the complete corresponding scratch originals in
+  /tmp/oec/pequalnp-pilot-39/counterexample byte for byte.
+- Data artifacts total2676977 bytes. With README and manifest there are
+  exactly90 files totaling2690808 bytes, with no unlisted extra files.
+- Manifest SHA256:
+  eb207de14329cffb570e76c3b04ce06861e16c9688311cf74ba994212fe136ca
+- All five hashes recorded in second-pass-source-sha256.txt independently
+  match the archived source files.
+- Full stdout/stderr files are preserved exactly, including empty stderr;
+  no output was replaced by an excerpt. Control model JSON and independent
+  validator JSON are present along with source generators and SMT queries.
+
+Security and repository hygiene:
+- All90 files are regular, non-executable, non-symlink text files without
+  embedded NUL bytes. The archive contains no solver binaries, downloaded
+  distributions, Python cache, credential files, or nested directories.
+- git check-ignore on all90 exact paths returned1 with empty stdout/stderr,
+  meaning no archived file is ignored.
+- Entire contents were scanned without printing any possible secret values
+  for token-variable identifiers, common GitHub token prefixes, HTTP
+  authorization/bearer credentials, private-key headers, and credentialed
+  URLs. There were no matches. No environment or credential store was read.
+  This is a concrete pattern/content review, not a claim that arbitrary
+  secret material can be recognized perfectly.
+
+Evidence scope and report accuracy:
+- README explicitly distinguishes computational experiments from Lean
+  proofs, limits SAT/UNSAT to the stated encodings, rejects timeout or
+  termination as a solver conclusion, and says the full gap is unproved.
+- Both pendant CaDiCaL logs contain s UNSATISFIABLE and exit20, with empty
+  stderr. The broader Z3 run explicitly says unknown/timeout. The C8
+  CaDiCaL log has no SAT/UNSAT verdict. No claim here treats those unfinished
+  runs as proof. Stored control verification JSON agrees with the report's
+  assignment counts, sizes, read vectors, and private-deletion checks.
+- The random and four-clause summary figures agree with their full output
+  logs. Solver evidence and sampled searches do not establish the posted
+  existential statement or a universal lower bound.
+
+Documentation qualification sent to root:
+second-pass-report.txt calls43359 and302844 sampled live subcircuits
+"distinct". In random_local.cpp, the distinct counter increments after
+rejecting duplicate wire truth functions WITHIN a sampled live circuit;
+there is no set deduplicating entire circuits across trials. The counts
+therefore mean qualifying samples whose live wire functions are pairwise
+distinct, not necessarily mutually distinct circuits. Preserve the original
+artifact byte-for-byte and add that qualification to README. This does not
+change the no-counterexample observation or the mathematical status.
+
+Machine-readable audit evidence:
+/tmp/oec/pequalnp-pilot-39/review-second-archive-audit.json
+
+No solver rerun, source mutation, Git mutation, desk call, or credential
+access occurred during this audit.
+
+Supplemental README verification, 2026-11-24T19:16:51.708734+00:00
+The recommended random-sample counting clarification is now in README:
+counts are qualifying samples with distinct live wire functions within
+that sample; entire circuits are not deduplicated across trials. This
+resolves the documentation qualification above. All 88 original artifacts
+were rechecked against scratch and their manifest and remain unchanged.
+The manifest hash is unchanged. README is now 1163 bytes, SHA256
+69e10532f40975c593607cce7c7ebd61340efc67baad6598106af58fb4e312cc.
+The archive remains 90 files and now totals 2691176 bytes. Preservation
+and scope review PASS after this clarification. No solver was rerun.

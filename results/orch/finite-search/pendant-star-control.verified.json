@@ -1,0 +1,97 @@
+{
+  "function_correct_all_assignments": true,
+  "assignments": 128,
+  "size": 9,
+  "dead_gates": [],
+  "semantic_duplicates": [],
+  "topform": true,
+  "dirty_and_gates": [],
+  "local_private_same_operation_deletions": [],
+  "failed_read2_edges": [],
+  "edge_vectors": [
+    {
+      "edge": [
+        0,
+        3
+      ],
+      "vectors": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "edge": [
+        0,
+        4
+      ],
+      "vectors": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "edge": [
+        1,
+        4
+      ],
+      "vectors": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "edge": [
+        1,
+        5
+      ],
+      "vectors": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "edge": [
+        2,
+        3
+      ],
+      "vectors": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "edge": [
+        2,
+        5
+      ],
+      "vectors": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "edge": [
+        0,
+        6
+      ],
+      "vectors": [
+        [
+          1,
+          1
+        ]
+      ]
+    }
+  ]
+}

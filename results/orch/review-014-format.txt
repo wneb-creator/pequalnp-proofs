@@ -1,0 +1,81 @@
+Independent checkpoint014 full-source format and integration review
+Reviewer: /root/review_second, independent of integration.
+UTC: 2026-11-24T19:16:51.708734+00:00
+Scope: lean/PEqualNP/Outside/L_meta_2584.lean
+
+Verdict: READY FOR COMPILED PARTIAL CHECKPOINT PUSH.
+No integration or source-format blocker found. The final posted theorem is
+still absent, so this is not a submission-ready proof and no checker
+acceptance is claimed. CONTRIBUTING.md and README.md were reread.
+
+Frozen source:
+10827 lines; 494817 bytes; 29471 bytes below the 512 KiB ceiling.
+SHA256: cb046523b4da53a642b4c49b037942b3fc3395872a1b0c850ccd744f062429e5
+Base HEAD: 4f0d87aaf9a94750b7a037bc8f9e984882085a67
+Base source SHA256:
+a4f0361a2f5c15d83c77b546e4311928902ee0bac80a4340094dd57dd67def01
+
+Exact integration:
+The entire source is byte-for-byte the 9983-line checkpoint013 base, with
+its final outer end temporarily removed, followed by exactly the four
+manifest fragments in order, then the restored outer end. Only intended
+full-to-relative namespace normalization and joining blank lines differ
+from the frozen fragments. No base text was edited. Git reports 844 added
+lines, zero deletions; git diff --check succeeds with no output.
+
+Manifest: /tmp/oec/pequalnp-pilot-39/checkpoint-014-fragments.txt
+- read-block-complete-fragment.txt: 266 lines / 13026 bytes;
+  c2a94dd317986873ea021e6e764af1198a251eae1b5fd8ff68971a2130434fd5
+- repair-junk-008.fragment: 271 lines / 13793 bytes;
+  420d4e94123f613f5b677a22877d9db6020e8e7c2c9eda6de2aeb21e21e09829
+- color-erase-fragment.txt: 184 lines / 8824 bytes;
+  cabd5057eb311f777e19eeb3de5d86b1ed7cf9829d827725214adaa8f4adb85e
+- edge-purification-fragment.txt: 119 lines / 5334 bytes;
+  25ca8857a6abbe962fa34579f7307690ce5b686b41b61d9aa64067559bda5ecf
+Each fragment occurs exactly once in the intended new portion. Superseded
+repair-junk fragments were not added. Existing reviewed declarations were
+not renamed, removed, reordered, or shadowed by duplicate full names.
+
+Whole-source checks:
+- Plain regular UTF-8 text, not executable, not a symlink; under 512 KiB.
+- Exactly the original two initial imports: Mathlib and PEqualNP.Defs.
+  No import text occurs later in the file.
+- All 616 helper declarations (530 lemmas, 81 definitions, 5 abbreviations)
+  remain inside the single outer module namespace and its subnamespaces.
+  Every namespace/end starts at column zero and names its matching block;
+  the full namespace stack closes. No duplicate qualified helper name.
+- No theorem declaration yet; the posted exact final theorem remains work.
+- No root-escape marker, quotes, comments, proof shortcuts, added axioms,
+  native decision shortcut, unsafe/executable/meta commands, hash commands,
+  custom data types, instances, syntax/notation changes, or attributes.
+- All 26 existing option lines are scoped maxRecDepth/maxHeartbeats limits
+  directly above the declaration they serve (or another scoped limit for
+  that same declaration). No new options were introduced.
+- Every column-zero command has an allowed, understood form. Namespaced
+  open lines remain ordinary name resolution, with no syntax changes.
+
+Independent semantic review coverage:
+Read review-014a/b/c/d and the additional review-edge-purification report.
+All hashes match the exact integrated fragments. The first three include
+independent Lean compilation and standard-axiom checks; EdgePurification
+has independent parent/root source reviews and the author's successful
+compile. All reports explicitly preserve their structural hypotheses and
+identify the unrestricted normalization bridge as still missing.
+
+Combined build evidence:
+Complete build-017.stdout is 72126 bytes and ends exactly:
+Build completed successfully (18419 jobs).
+Complete build-017.stderr is empty. No error diagnostic occurs. Existing
+warnings do not claim or establish the missing final theorem. This audit
+did not repeat the already completed combined build.
+
+Audit data:
+/tmp/oec/pequalnp-pilot-39/review-second-014-format-audit.json
+Complete build logs:
+/tmp/oec/pequalnp-pilot-39/build-017.stdout
+/tmp/oec/pequalnp-pilot-39/build-017.stderr
+
+Only the Lean file belongs in any eventual proof PR. Research archives,
+review logs, and notes remain checkpoint-branch artifacts, as authorized
+by the push-early instructions. No main-file edit, Git mutation, desk call,
+solver rerun, or credential access occurred in this review.

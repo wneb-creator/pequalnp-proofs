@@ -1,0 +1,134 @@
+Independent color-erasure review
+Reviewer: /root/repair_second, independent of implementation.
+UTC: 2026-11-24T19:14:33.578676+00:00
+Frozen scope: all 184 lines / 8824 bytes of
+/tmp/oec/pequalnp-pilot-39/color-special/color-erase-fragment.txt
+SHA256: cabd5057eb311f777e19eeb3de5d86b1ed7cf9829d827725214adaa8f4adb85e
+
+Verdict: APPROVED FOR COMPILED PARTIAL CHECKPOINT.
+No semantic or format blocker found. This is a strict circuit-saving lemma
+under explicit structural assumptions, not a proof of the unrestricted gap.
+
+Mathematical review:
+- overwrite_eq_of_or_frontiers uses strong induction on actual wire indices.
+  Inputs and invalid wires have unchanged semantics. At unchanged OR gates,
+  absence of an OR path to c passes to each operand. At AND gates, either
+  no operand has that path and induction applies, or the explicit frontier
+  equality hypothesis applies. The overwritten slot itself is excluded by
+  the OR-reachability reflexive case. All recursive operands are earlier by
+  IsAO2; this does not infer functional equality from graph reachability alone.
+- overwrite_eq_of_false_unique_frontier reduces every affected AND frontier
+  to the designated h. The replacement is pointwise decreasing, so false
+  at the old h implies false at the new h. This is the correct direction
+  of monotone comparison. The output is explicitly outside the OR path cone.
+- erase_or_with_false_frontier changes c=OR[a,b] to OR[a,a]. Both operands
+  are earlier wires, so the new gate remains valid AO2. The replacement is
+  globally decreasing. On each edge pair, either b is false and replacement
+  has exactly the old local value, or h is false and the frontier argument
+  preserves the output. The existing monotone pair-cover theorem combines
+  all-edge coverage with global soundness to prove exact graphFun equality
+  on ALL assignments. It does not silently treat edge-pair testing as enough.
+- In the overwritten circuit the c gate equals earlier wire a on every
+  assignment. MinimumPure.erase_equivalent_wire deletes that redundant
+  gate, preserves AO2 and the exact function, and gives a strict size saving.
+  Overwrite preserves gate count, so the strict saving is relative to C.
+- disjoint_or_false_on_independent_pair extracts a true input from each
+  pure OR shadow. If these are different endpoints, both endpoints lie in
+  S, contradicting pair independence. If they are the same endpoint, shadow
+  disjointness is contradicted. Thus b or d is false. This proof explicitly
+  requires pure OR ancestry for BOTH wires and does not use singleton
+  support as a substitute for arbitrary circuit semantics.
+- erase_or_disjoint_guard turns d=false into h=false using d's explicit
+  membership among the valid AND gate h's inputs, then applies the strict
+  erasure theorem. The graph's independence condition is required only for
+  adjacent pairs, exactly where it is used.
+
+Scope boundary:
+The original circuit must already compute graphFun exactly. The designated
+OR gate, its two operands, unique affected AND frontier, absence of a direct
+OR path from output to c, valid AND guard with d as input, both pure OR
+ancestries, common independent side, and disjoint OR shadows are all explicit.
+This fragment does not extract these hypotheses from an arbitrary bad
+witness, prove they always occur, or close the posted normalization theorem.
+The least-circuit contradiction is available to callers but is not asserted
+without their leastness premise.
+
+Independent validation:
+- Inspected the supporting contracts orReaches_iff, pure_or_value_iff,
+  overwriteCircuit_val_le, overwriteCircuit_val_eq,
+  circuit_graphFun_eq_of_pair_cover, and erase_equivalent_wire in main.
+- Independently compiled a copy of the frozen fragment against the checked
+  main artifact in a renamed ReviewColorErase subnamespace, avoiding any
+  possible reuse of declarations with the author's original names.
+- lake env lean completed exit 0. Full stderr is empty. Full stdout contains
+  only the independent axiom reports for ALL FIVE new exported lemmas;
+  every list is exactly propext, Classical.choice, Quot.sound.
+- Author's build-003 stdout/stderr are also empty, and the frozen hash was
+  checked before and after independent compilation.
+- Forbidden-marker scan is clean: no root-escape marker, strings, attributes,
+  options, sorry, native_decide, unsafe declarations, axioms, theorem/import,
+  custom types/instances, or metaprogramming commands. The fragment is five
+  lemmas inside relative ColorErase; insert under the target outer namespace.
+- Audit import and print commands exist only in the scratch review harness,
+  not the proposed fragment. No local-checker acceptance or final theorem
+  is claimed for this partial component.
+
+Preserved evidence:
+results/orch/review-014c.stdout
+results/orch/review-014c.stderr
+/tmp/oec/pequalnp-pilot-39/color-special/ReviewColorErase014c.lean
+
+No main-file edits, Git mutations, desk calls, or credential access occurred.
+
+
+Independent addendum: mixed-guard application
+UTC: 2026-11-24T19:16:13.439144+00:00
+Frozen scope: all 70 lines / 3234 bytes of
+/tmp/oec/pequalnp-pilot-39/color-special/color-guard-fragment.txt
+SHA256: 1f7013da9f8eedccc4e83aef7cc24ed5d18359fb5313b8f32a742a75c98bce7f
+Verdict: APPROVED FOR COMPILED PARTIAL CHECKPOINT.
+
+The mixed_guard_unique_frontier lemma discharges the unique AND-frontier
+and no-output-OR-path premises in the erasure API from explicit mixed-guard
+structure. It does not discharge the remaining disjoint-shadow assumptions.
+
+- f in c's OR shadow and l in d's OR shadow make c and d true on pairInput
+  f l. The stated OR path from a to c transports c's truth to a. Valid AND
+  h with inputs [a,d] is therefore true on that pair. Nonadjacency f,l makes
+  the target graph function false on the same assignment.
+- If an AND frontier j were clean, it would be a top. The existing
+  mixed_region_not_top_of_shared_false_input lemma then excludes its OR
+  path to c: p and f are singleton inputs of c with no common graph neighbor,
+  while both c and the other dirty guard h are true on a false assignment.
+  I read that helper's contract and proof; the use supplies all premises.
+- The two-dirty-gates hypothesis reduces each remaining frontier to g or h.
+  In the g case, f's singleton truth propagates along the asserted OR path
+  into one of g's operands. Explicit pure OR ancestry makes that singleton
+  an actual OR-shadow member, hence S f. This contradicts the supplied
+  not-S f. Therefore every such frontier is h.
+- The singleton p of c rules out an output OR path because it would make
+  the exact graph circuit accept singleton p, contradicting graph irreflexivity.
+- All purity, side, no-common-neighbor, dirty-gate classification, TopForm,
+  guard-input and nonadjacency conditions remain explicit. The lemma does
+  not silently infer them from the unrestricted posted statement.
+
+Independent validation:
+- Author's guard-001 completed exit0 with empty stdout/stderr.
+- My first import-based attempt stopped only because the concurrent main
+  rebuild had removed its .olean. I then compiled a frozen complete main
+  source snapshot plus the exact guard fragment in a renamed namespace.
+- This independent source compilation completed exit0; stderr is empty.
+  Stdout contains inherited style/deprecation warnings and one axiom report:
+  mixed_guard_unique_frontier uses exactly propext, Classical.choice,
+  Quot.sound. No sorryAx or additional axiom occurs.
+- Base snapshot: 10827 lines, 494817 bytes;
+  SHA256 cb046523b4da53a642b4c49b037942b3fc3395872a1b0c850ccd744f062429e5.
+- The full fragment passes the same forbidden-marker scan as the erasure
+  fragment. It introduces only one lemma in relative ColorErase.
+- Frozen hash rechecked after compilation. No main-file edit occurred.
+
+Full preserved guard evidence:
+results/orch/review-014c-guard.stdout
+results/orch/review-014c-guard.stderr
+results/orch/review-014c-guard.json
+/tmp/oec/pequalnp-pilot-39/color-special/ReviewColorGuard014cSnapshot.lean

@@ -99,3 +99,10 @@ Build016: exit0; Build completed successfully (18419 jobs).
 Independent reviews013a/013b plus recovered013-format passed. Mainchecker remains REJECTED(no-theorem); exact posted theorem absent. No PR.
 Sub-agents: previous13 plus global_final, review_second, repair_second, structure_second, global_second, global_second/witness_descent, color_special (20 total).
 TIMING total=71.8 subagents=20
+
+Checkpoint 14: actual four-clause read failure signature, private-star repair yielding ReadK2 from pair coverage, strict color-branch erasure, and unique accepted-edge gate purification.
+Target: 10827 lines, 494817 bytes (below512KiB).
+Build017: exit0; Build completed successfully (18419 jobs).
+Independent reviews014a/b/c/d, edge-purification, full014-format, and finite-search archive review passed.
+Main checker remains REJECTED(no-theorem), full theorem absent. Finite search outputs are empirical evidence only; random counts are qualifying samples, not globally deduplicated circuits.
+TIMING total=80.5 subagents=20

@@ -1,0 +1,72 @@
+{
+  "function_correct_all_assignments": true,
+  "assignments": 16,
+  "size": 6,
+  "dead_gates": [],
+  "semantic_duplicates": [],
+  "topform": true,
+  "dirty_and_gates": [
+    2,
+    4
+  ],
+  "local_private_same_operation_deletions": [
+    {
+      "parent": 5,
+      "private_child": 2,
+      "replacement_input": 4
+    },
+    {
+      "parent": 5,
+      "private_child": 4,
+      "replacement_input": 7
+    }
+  ],
+  "failed_read2_edges": [
+    [
+      0,
+      2
+    ]
+  ],
+  "edge_vectors": [
+    {
+      "edge": [
+        0,
+        2
+      ],
+      "vectors": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "edge": [
+        1,
+        2
+      ],
+      "vectors": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "edge": [
+        1,
+        3
+      ],
+      "vectors": [
+        [
+          2,
+          2
+        ]
+      ]
+    }
+  ]
+}

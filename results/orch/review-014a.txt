@@ -1,0 +1,71 @@
+Independent checkpoint014a proof-word / read-signature review
+Reviewer: /root/review_second, independent of implementation.
+UTC: 2026-11-24T19:13:04.416552+00:00
+Frozen scope: structure-recovery/read-block-complete-fragment.txt
+All266 lines /13026 bytes reviewed.
+SHA256: c2a94dd317986873ea021e6e764af1198a251eae1b5fd8ff68971a2130434fd5
+
+Verdict: CHECKPOINT PUSH READY for this partial component.
+No semantic or format blocker found. This is not a proof or refutation of
+the unrestricted posted gap.
+
+Semantic review:
+- words_gate_pair uses exact AO2 arity and the previously checked gate
+  semantics. AND concatenation and OR union are the actual proof-word
+  operations, not an approximation based on singleton truth.
+- OR-step/path lifting follows the declared reachability direction from
+  the output-side wire down to its operand, then transports the chosen word
+  back upward. singleton_word_of_orIn starts from a genuine Fin n input.
+- explicit_four_clause_word concatenates four separately selected singleton
+  words through two stated AND gates, the stated top AND, and an output OR
+  path. No unspoken disjointness or independence of the clause wires is
+  assumed. Shared clause wires can be used with different OR choices in
+  separate occurrences of the unfolded proof tree, which is exactly what
+  the library wordOp and joint read-vector semantics permit.
+- balanced_four_choice_counts uses a cardinality-two subset of Fin4 and
+  distinct endpoint indices. It bounds both counts in the SAME four-letter
+  word. explicit_four_clause_balanced_read proves the whole word is supported
+  on the two endpoints and uses reads_two_iff_word to obtain one joint
+  readsAtMost witness; it does not substitute separate coordinate minima.
+- explicit_four_clause_signature derives a missing clause for each endpoint
+  from actual singleton rejection: if an endpoint occurred in all four OR
+  shadows, the constructed four-copy word would make that singleton input
+  true via value_eq_terms. A balanced choice contradicts the given actual
+  readsAtMost=false. The existing finite classification then proves exact
+  complementary coverage and the one-versus-three count.
+- The final pure-clause wrapper derives coverage of each clause from actual
+  truth of the two lower AND gates, using explicit OR-only ancestry. Exact
+  graph-function semantics rejects singleton inputs because SimpleGraph has
+  no loops. Adjacency supplies distinct endpoints.
+
+Scope boundary:
+The result assumes an explicit two-AND/four-clause block routed through a
+stated top AND and OR path to the output. It does not prove that every bad
+prime witness in an arbitrary circuit has this configuration. It establishes
+an actual joint-read failure to signature bridge only within that stated
+configuration. No gate-count improvement or full normalization follows from
+this fragment alone.
+
+Independent validation:
+- Rebuilt an exact same-file snapshot of the9983-line checkpoint013 base
+  plus this frozen fragment, with only intended namespace normalization.
+  Same-file compilation is necessary because the existing FlatRead word
+  infrastructure is private. The proposed target gains no Outside import.
+- lake env lean completed exit0. Stderr is empty; stdout contains inherited
+  style/deprecation warnings plus the independent axiom reports.
+- Independently printed axioms of ALL11 new exported lemmas. Every list is
+  contained in propext, Classical.choice, Quot.sound; no sorryAx or other
+  axiom occurs.
+- Exact-fragment forbidden-marker scan is clean: no sorry/admit/axiom,
+  native_decide, root marker, strings, attributes/options, executable or
+  metaprogramming commands, new types/instances, import text, or theorem.
+- The four namespace blocks are all the module's FlatRead subnamespace.
+  Root must insert them below its single outer namespace exactly once.
+
+Complete independent evidence:
+/tmp/oec/pequalnp-pilot-39/review-second-readblock-014.lean
+/tmp/oec/pequalnp-pilot-39/review-second-readblock-014.stdout
+/tmp/oec/pequalnp-pilot-39/review-second-readblock-014.stderr
+/tmp/oec/pequalnp-pilot-39/review-second-readblock-014.json
+
+No main-file edits, Git mutations, desk calls, or credential access occurred.

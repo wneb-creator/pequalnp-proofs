@@ -1,0 +1,2 @@
+P=3 L=4 normalized_signature_assignments=32768 C4free_graphs_with_bad_edge=766 below_target_cases=3330266 pure_center_stars=3070881 off_center_cases=259385 double_star_violations=0 center_all_lines_violations=0
+Normalization: distinguished point signature7, distinguished line8; last clause contains no points; clause bit2 contains no lines. Every below-target four-clause block with a forced3+1 bad edge admits this normalization by permuting its first three clauses. Exact truth tables use all2^(P+L) assignments.

@@ -1,0 +1,76 @@
+Independent repair-junk review
+UTC: 2026-11-24T19:13:17.921362+00:00
+Reviewer: /root/structure_second, independent of implementation.
+Scope: all 271 lines of
+/tmp/oec/pequalnp-pilot-39/reorder-recovery/repair-junk-008.fragment
+SHA256: 420d4e94123f613f5b677a22877d9db6020e8e7c2c9eda6de2aeb21e21e09829
+Size: 13793 bytes.
+
+Verdict: APPROVED FOR COMPILED PARTIAL CHECKPOINT.
+The final wrapper proves an actual equal-size least read-two replacement
+from its explicit private-pair surgery and edge-pair coverage assumptions.
+It does not prove that every circuit in the posted gap has this structure.
+
+Mathematical review:
+- repairBody and repair_eq_append expose precisely the existing repair:
+  reuse the private slot as AND(p,d), delete its immediate AND consumer by
+  aliasing to earlier l, and append OR of the old aliased output and star.
+- repair_gateOp matches every surviving nonstar gate to its old index via
+  rho. The proof splits prefix and shifted suffix explicitly. The appended
+  final gate is an OR, so it cannot become junk. Default getD values do not
+  enter the junk argument because all candidate indices are bounded.
+- repair_renamed_private proves aliasing creates no reads of the reused
+  slot: l is strictly earlier, and later indices cannot rename onto it.
+  repairBody_gate_le therefore first undoes the private overwrite away
+  from that slot and then invokes downward alias semantics. Its omission
+  of a j bound is intentional: circuit output semantics permits arbitrary
+  natural-number wires; the junk application separately proves bounds.
+- repair_star_below establishes soundness of the reused AND from hstar,
+  using exact prefix semantics and the two Boolean conjuncts. Any dirty
+  repaired gate is consequently neither the reused slot nor final OR.
+  Its true-on-a-nonedge witness transfers to its old gate. honly restricts
+  that old dirty AND to g or the deleted gate; rho never hits the deleted
+  gate. Injectivity of rho proves at most one repaired junk gate. This
+  direction of witness transfer is correct and does not assume equality
+  of all old and repaired values.
+- least_repair_read_two uses exact unchanged size and the supplied exact
+  graph function to preserve global leastness. Existing normalization for
+  at most one dirty gate then supplies IsReadK 2 with exactly C.size gates.
+- The final 42-line pair-cover wrapper removes the exact-function premise.
+  Global soundness follows by cases on the repaired output OR: the aliased
+  output is below the old exact circuit, and the new star is below graphFun
+  by hstar. AO2 supplies monotonicity; hcover supplies acceptance of every
+  graph edge pair. The monotone graph-function sandwich then derives exact
+  equality for all assignments before invoking the replacement lemma.
+
+Explicit scope boundaries:
+- The source must be globally least and the graph nonempty.
+- The adjacent private-slot/AND decomposition, earlier l/p/d wires, valid
+  output distinct from the reused slot, absence of later slot readers,
+  alias domination, star soundness, two-old-dirty-gate restriction, and
+  pair coverage remain explicit hypotheses. None is silently discharged.
+- No distinctness assumption on g and the removed index is needed; if they
+  coincide, the resulting junk set is empty. The deleted gate may be the
+  original output because rn correctly aliases that output to l.
+- No final posted theorem or local-checker acceptance is claimed here.
+
+Independent validation:
+- Recompiled a frozen full main-file snapshot plus the independently
+  developed four-clause fragment and exact repair-junk-008 fragment in
+  their module namespaces. This checks the two proposed additions together.
+- Lean completed exit 0. Complete logs are preserved in
+  results/orch/review-014b.stdout and results/orch/review-014b.stderr.
+  Stderr is empty; stdout has inherited/style warnings and axiom reports.
+- Audited repairBody_gate_le, repair_star_below, repair_junk_card_le_one,
+  least_repair_read_two, and least_repair_read_two_of_pair_cover. Each uses
+  only propext, Classical.choice and Quot.sound.
+- Inspected contracts of replace_unused_semantics, alias_spec,
+  repair_private_pair_spec, circuit_graphFun_eq_of_pair_cover, and
+  TopNormalize.least_one_dirty_replacement against their new uses.
+- Full-fragment forbidden-token scan returned exit 1 (no matches): no
+  root-escape token, string literals, sorry, axiom, native_decide, custom
+  types/instances, attributes, options, unsafe declarations or theorem.
+  The fragment adds only a definition and lemmas in relative AliasSurgery.
+- First 228 lines match frozen006 exactly; final008 supersedes006, so the
+  two must not be integrated together. No main-file edits or git mutations
+  were performed by the reviewer. Frozen hash rechecked after review.
