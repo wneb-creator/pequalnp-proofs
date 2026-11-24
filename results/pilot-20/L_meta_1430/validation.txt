@@ -5,8 +5,11 @@ Source: L_meta_1429.lean (upstream), namespace renamed and double-negation wrapp
 Independent review: PASS; no certificate or supporting proof changes.
 Guard: imports allowed: Mathlib PEqualNP.Defs
 Lines before cleanup: 753
-Lines after cleanup: pending (original accepted version preserved)
+Lines after cleanup: 752 (candidate build and guard PASS; final refute checker pending)
 Sub-agents: lease_keeper, counterexample_search, structural_proof, lemma_search, review_rules, lean_setup, and independent child reviewers (10 total across job).
-TIMING total=112 subagents=10
+TIMING total=115 subagents=10
 PR status: no PR; current PR workflows hardcode proof mode, while this result requires refute mode.
 Checker verdict: ACCEPTED (refute): PEqualNP.Outside.L_meta_1430; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked 1524 constants.
+Cleanup change: replace two introductory proof lines with apply not_not_intro; all certificates and theorem type unchanged.
+Original accepted source: refutation-original.lean.txt; original logs: build.stdout and checker.stdout.
+Current candidate source: refutation.lean.txt; cleanup logs have cleanup- prefix.
