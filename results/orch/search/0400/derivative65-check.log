@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "gates": 29,
+  "derivative_rows": 65,
+  "global_upper_rows": 8192,
+  "band_errors_per_output": [
+    0,
+    213,
+    213,
+    213,
+    0,
+    213,
+    213,
+    213,
+    213,
+    213,
+    0,
+    213,
+    0
+  ],
+  "source_sha256": "794acfe500c3977906c66bf0fa192dcd46257cf4cb965dfe8425aa20e503de5d"
+}

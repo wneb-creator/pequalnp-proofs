@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-24T03:48:55.011992+00:00",
+  "runner_pid": 24940,
+  "argv": [
+    "python",
+    "/tmp/oec/pequalnp-pilot-21/search/cegis-or-sinks-stream.py",
+    "--case",
+    "-1",
+    "--all-rows",
+    "--sat",
+    "--seconds",
+    "5400"
+  ],
+  "progress_log": "/tmp/oec/pequalnp-pilot-21/search/cegis-or-sinks-stream-progress.log",
+  "artifacts": "/tmp/oec/pequalnp-pilot-21/search/full-or-sinks-stream/case--1",
+  "budget_seconds": 5400,
+  "replaces": "full-strong-resume-0321/case--1",
+  "nice": 15,
+  "streamed_cnf": true
+}

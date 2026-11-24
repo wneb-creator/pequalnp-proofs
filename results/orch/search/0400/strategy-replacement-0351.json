@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-24T03:48:35.051463+00:00",
+  "reason": "root-authorized strategy replacement by mathematically reviewed all-OR-output-sink query",
+  "old_solver_pid": 20248,
+  "old_runner_pid": 20210,
+  "signal": "SIGINT",
+  "old_artifacts": "/tmp/oec/pequalnp-pilot-21/search/full-strong-resume-0321/case--1",
+  "complete_progress_log": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-resume-full-progress.log",
+  "preserve_logs_and_trace": true,
+  "result_before_signal": "no SAT model or UNSAT verdict",
+  "completed_utc": "2026-11-24T03:48:43.004741+00:00",
+  "monitor_completion": [
+    "RESULT unknown exit -2 elapsed 1601",
+    "FINISHED elapsed 1601"
+  ],
+  "gzip_crc_valid": true,
+  "gzip_bytes": 43927006,
+  "uncompressed_bytes": 154103808,
+  "uncompressed_sha256": "cffda41575bc674a55d9dc807a35633578871f96ee78ef212d180747c676b13a"
+}

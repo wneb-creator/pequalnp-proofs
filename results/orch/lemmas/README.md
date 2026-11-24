@@ -46,3 +46,5 @@ Put new stable, compiled components here only after review. Work in an individua
 - `Clamp11.lean`: checked/reviewed fixed-paid-family raw-source inclusion for the five-exception budget.
 - `ResidualFamily.lean`: checked/reviewed append-complement induction helper and five-output nonordinariness.
 - `FiveReduction.lean`: checked/reviewed conditional reduction to five nonordinary, globally bounded OR pairs over at most nine internal gates. Its remaining paid/raw hypotheses are explicit.
+
+- `FiveOwned.lean`: checked/reviewed eight-ordinary reduction discharging all paid/raw/root/sink assumptions; returns five nonordinary globally bounded OR pairs over at most nine internal gates. This is a reduction, not the five-output impossibility. Full log: `../validation/five-owned-build-002.log`.

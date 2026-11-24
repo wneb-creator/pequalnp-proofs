@@ -1,0 +1,7 @@
+# Prepared replacement queries
+
+These two independently reviewed runners were prepared and snapshotted before launch. Neither has a SAT or UNSAT result in this package. The complete dependency hashes are included; source dependencies are preserved in0326 and0349. Paths retain the original scratch layout and require relocation before reuse.
+
+cegis-graph-five-strong.py restricts five selected outputs to a K4-minus-edge decoder over four generated high signals in a nine-gate residual network, with eight other outputs computed by direct OR trees. Checked NineOrdinary and the small-support theorem justify requiring all five residual outputs to be globally nonordinary and to have at least eight syntactic raw dependencies. Exact complement/singleton clauses and forty independent fixed-network tests are included. This remains a restricted template search; it does not cover all38gate circuits.
+
+cegis-collective-diagnostic.py is a separate auxiliary problem on533dual rows:468sixsets containing a projective line,13lines,52deleted-point triples. It deliberately omits full-band-only guards. Any SAT model is scalar-checked on those rows, all65original derivative rows, global upper bounds on8192assignments, and all3003actual-band inputs. Only a model with zero actual-band errors is labeled a posted-gap counterexample. An UNSAT verdict for this encoding would still need independently checked encoding/normalization and certificate before constituting a Lean theorem.

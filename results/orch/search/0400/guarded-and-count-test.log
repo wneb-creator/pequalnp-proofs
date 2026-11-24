@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "complete_threshold_assignments_and_guard_cases": 4098,
+  "full38_inputs_plus13_guards_variables": 327,
+  "full38_clauses": 1071,
+  "source_sha256": "20cb437f685fff9e3d9bb779f104d7c3ee9c420731b43eb14c9a9b6d0f8e8954",
+  "elapsed_seconds": 0.6963653729999351
+}

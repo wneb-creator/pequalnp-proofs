@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "fixed_networks": 40,
+  "rejected_networks": 20,
+  "accepted_networks": 20,
+  "elapsed_seconds": 0.4523210349998408
+}

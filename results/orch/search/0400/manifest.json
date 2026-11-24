@@ -1,0 +1,71 @@
+{
+  "created_utc": "2026-11-24T04:00:02.102736+00:00",
+  "files": [
+    {
+      "path": "cegis-graph-five.py",
+      "bytes": 3671,
+      "sha256": "703f062a279a52965bdf82e22958ae0b6d41b10ac1996f5dac6f8c1eaa2cbd8e",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-graph-five.py"
+    },
+    {
+      "path": "guarded_and_count.py",
+      "bytes": 1552,
+      "sha256": "20cb437f685fff9e3d9bb779f104d7c3ee9c420731b43eb14c9a9b6d0f8e8954",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/guarded_and_count.py"
+    },
+    {
+      "path": "guarded-and-count-test.py",
+      "bytes": 3679,
+      "sha256": "55c8dace7d5b89089874928d481f08ec5cf60234fd23564098e08546d895995d",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/guarded-and-count-test.py"
+    },
+    {
+      "path": "guarded-and-count-test.log",
+      "bytes": 283,
+      "sha256": "9618b9ad452894cf9122d768ec73da0ba89007e7f2de7d2bbb35197f009121fc",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/guarded-and-count-test.log"
+    },
+    {
+      "path": "guarded-and-count-test.json",
+      "bytes": 283,
+      "sha256": "9618b9ad452894cf9122d768ec73da0ba89007e7f2de7d2bbb35197f009121fc",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/guarded-and-count-test.json"
+    },
+    {
+      "path": "derivative65-check.py",
+      "bytes": 1564,
+      "sha256": "827e8980fc70272ac685ec6543e38ccaade54343a4fd1596d6c7c3a07f77c8b4",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/derivative65-check.py"
+    },
+    {
+      "path": "derivative65-check.log",
+      "bytes": 322,
+      "sha256": "c61cbc8b5c409913e962bedae40e9bd68ce31aa2cae4624c7ee5b1348f043adb",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/derivative65-check.log"
+    },
+    {
+      "path": "diagnostic157/derivative65-original29.json",
+      "bytes": 1845,
+      "sha256": "dbe5cc7472fccebe58a56da1b88f23652b1f742ac5fe1575f75b02b1250d5f69",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/diagnostic157/derivative65-original29.json"
+    },
+    {
+      "path": "strategy-replacement-0351.json",
+      "bytes": 849,
+      "sha256": "1fecd3ce13ef2219d2a7a7678bf624887e44fb607985a82a63edc3d777e06192",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/strategy-replacement-0351.json"
+    },
+    {
+      "path": "or-stream-launch-0348.json",
+      "bytes": 535,
+      "sha256": "463be270c2f806c717c8fa33db172a29314b895dc0696ec8e11228c859723e2f",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/or-stream-launch-0348.json"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1521,
+      "sha256": "eb2d469b718fc07fc6acf028642e789e8a24c535d6403ca515dba458c0fce097",
+      "source": "generated scope note"
+    }
+  ]
+}

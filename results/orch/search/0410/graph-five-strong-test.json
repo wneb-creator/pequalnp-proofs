@@ -1,0 +1,209 @@
+{
+  "status": "PASS",
+  "fixed_networks": 40,
+  "rejected_networks": 20,
+  "accepted_networks": 20,
+  "elapsed_seconds": 0.4523210349998408,
+  "cases": [
+    {
+      "trial": 0,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 1,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 2,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 3,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 4,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 5,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 6,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 7,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 8,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 9,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 10,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 11,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 12,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 13,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 14,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 15,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 16,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 17,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 18,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 19,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 20,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 21,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 22,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 23,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 24,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 25,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 26,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 27,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 28,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 29,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 30,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 31,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 32,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 33,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 34,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 35,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 36,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 37,
+      "all_five_nonordinary": true,
+      "rejected": false
+    },
+    {
+      "trial": 38,
+      "all_five_nonordinary": false,
+      "rejected": true
+    },
+    {
+      "trial": 39,
+      "all_five_nonordinary": true,
+      "rejected": false
+    }
+  ]
+}

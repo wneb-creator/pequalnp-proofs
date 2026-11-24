@@ -1,0 +1,36 @@
+{
+  "utc": "2026-11-24T04:07:09.665937+00:00",
+  "status": "reviewed_prepared_not_launched",
+  "files": [
+    {
+      "path": "cegis-collective-diagnostic.py",
+      "sha256": "915e245b1e6be575c4449e4999494f61bfdd507a5be90eff89b12768fb193aad",
+      "bytes": 7352
+    },
+    {
+      "path": "cegis-full.py",
+      "sha256": "5c2f4ada8822c2d14e84fb3e7b16a0d8a47b842e04c94ec93621408c353cd3a0",
+      "bytes": 4397
+    },
+    {
+      "path": "cegis.py",
+      "sha256": "a51bc1d6a37ec0af2ddb7a77192d2a47fe6dce4f97edaba336589ffec6e05910",
+      "bytes": 5041
+    },
+    {
+      "path": "cegis-symbolic.py",
+      "sha256": "683cb5e4e32aa3a07bac88ec22adede7fd535b79d208526d3607c5c11a0fc665",
+      "bytes": 5274
+    },
+    {
+      "path": "cegis-symbolic-five.py",
+      "sha256": "5bff952410bcb19350674bccc4b65997ec79b349ac64662561ad0cddac1793bb",
+      "bytes": 11795
+    },
+    {
+      "path": "streaming_cnf.py",
+      "sha256": "5c93998e77af73b0bb9d3f457d086153ac4e281776eb247daba51314ac056aab",
+      "bytes": 1572
+    }
+  ]
+}

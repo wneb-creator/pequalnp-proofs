@@ -1,0 +1,37 @@
+{
+  "created_utc": "2026-11-24T03:58:19.241514+00:00",
+  "files": [
+    {
+      "bytes": 2055,
+      "path": "README.md",
+      "sha256": "03fd00f4dfa8782090cdd0b90c3f5deec70e0b49aef22f3efe1e436c0c9cd6f8",
+      "source": "generated archival scope description"
+    },
+    {
+      "bytes": 2021,
+      "path": "independent-validation.log",
+      "sha256": "5fce3690aad24b3f27b013bb67d766d131cc25e94eb6552b1ada64f55853b028",
+      "source": "/tmp/oec/pequalnp-pilot-21/packing-review/independent-validation.log"
+    },
+    {
+      "bytes": 5429,
+      "path": "independent_validate.py",
+      "sha256": "88694cb0e2e48b5cb63533f9187128d2f8a161f08f49cba2c02514752b290ed9",
+      "source": "/tmp/oec/pequalnp-pilot-21/packing-review/independent_validate.py"
+    },
+    {
+      "bytes": 1387,
+      "path": "selected-packing-check.log",
+      "sha256": "1178ad8d545de2a2a3779f5ea2e44989607f2ba77735f46624109607bd00ac00",
+      "source": "/tmp/oec/pequalnp-pilot-21/packing-review/selected-packing-check.log"
+    },
+    {
+      "bytes": 4470,
+      "path": "selected-packing-counterexample.json",
+      "sha256": "7daf51974c7b497595cd04e6a3ef40bcba75424ffa0639cbbf7e6e46f2880c98",
+      "source": "/tmp/oec/pequalnp-pilot-21/packing-review/selected-packing-counterexample.json"
+    }
+  ],
+  "independent_verdict": "PASS",
+  "scope": "Auxiliary individual-nondomination/OR-packing counterexample only; not band-correct and not a posted-gap refutation."
+}
