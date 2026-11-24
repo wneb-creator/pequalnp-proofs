@@ -900,3 +900,273 @@ lemma minterm_dichotomy (f : Finset (Fin 13) → Bool) (L : Finset (Fin 13))
     exact Or.inl ⟨rfl, low_exact_of_true f L hmono hband hfL⟩
 
 end PEqualNP.Outside.L_meta_1024_aux.Minterms
+
+namespace PEqualNP.Outside.L_meta_1024_aux.AndFirst26
+
+open PEqualNP.CircuitLowerBounds
+
+abbrev Row := Fin 13 × Fin 2
+abbrev Mask := Finset Row
+
+def row (r : Row) (p : Fin 13) : Bool :=
+  decide (p ∉ ((if r.2 = 0 then ({0, 1, 2, 3, 4, 9} : Finset (Fin 13))
+    else {0, 1, 2, 3, 5, 9}).image (fun u => u + r.1)))
+
+def inputMask (p : Fin 13) : Mask := Finset.univ.filter (fun r => row r p = true)
+def targetMask (w : Fin 13) : Mask := Finset.univ.filter (fun r => r.1 ≠ w)
+
+def initial : List Mask := List.ofFn inputMask
+
+def val (xs : List Mask) (i : ℕ) : Mask := xs.getD i ∅
+def gateMask (xs : List Mask) (g : Gate) : Mask :=
+  Finset.univ.filter (fun r => g.op.eval (g.inputs.map (fun i => decide (r ∈ val xs i))))
+def next (xs : List Mask) (g : Gate) : List Mask := xs ++ [gateMask xs g]
+def run (gs : List Gate) (xs : List Mask) : List Mask := gs.foldl next xs
+
+def pool (xs : List Mask) : Finset Mask := insert ∅ (insert Finset.univ xs.toFinset)
+
+lemma available (xs : List Mask) (i : ℕ) : val xs i ∈ pool xs := by
+  by_cases h : i < xs.length
+  · unfold val
+    rw [List.getD_eq_getElem _ _ h]
+    simp [pool, List.getElem_mem]
+  · unfold val
+    rw [List.getD_eq_default _ _ (by omega : xs.length ≤ i)]
+    simp [pool]
+
+lemma run_split (gs : List Gate) (xs : List Mask) :
+    ∃ ys : List Mask, run gs xs = xs ++ ys ∧ ys.length = gs.length := by
+  induction gs generalizing xs with
+  | nil => exact ⟨[], by simp [run]⟩
+  | cons g gs ih =>
+    obtain ⟨ys, hys, hlen⟩ := ih (next xs g)
+    refine ⟨gateMask xs g :: ys, ?_, by simp [hlen]⟩
+    change run gs (next xs g) = _
+    rw [hys]
+    simp [next, List.append_assoc]
+
+lemma run_includes (gs : List Gate) (xs : List Mask) {s : Mask} (hs : s ∈ xs) :
+    s ∈ run gs xs := by
+  obtain ⟨ys, he, _⟩ := run_split gs xs
+  rw [he]
+  exact List.mem_append_left ys hs
+
+lemma pool_mono_run (gs : List Gate) (xs : List Mask) : pool xs ⊆ pool (run gs xs) := by
+  intro s hs
+  simp only [pool, Finset.mem_insert, List.mem_toFinset] at hs ⊢
+  rcases hs with rfl | rfl | hs
+  · exact Or.inl rfl
+  · exact Or.inr (Or.inl rfl)
+  · exact Or.inr (Or.inr (run_includes gs xs hs))
+
+lemma pool_mono_next (xs : List Mask) (g : Gate) : pool xs ⊆ pool (next xs g) := by
+  simpa only [run, List.foldl_cons, List.foldl_nil] using pool_mono_run [g] xs
+
+lemma target_next (xs : List Mask) (g : Gate) : gateMask xs g ∈ pool (next xs g) := by
+  simp [pool, next]
+
+lemma and_parents (xs : List Mask) (g : Gate) (w : Fin 13)
+    (hop : g.op = GateOp.and) (hlen : g.inputs.length ≤ 2)
+    (hfresh : targetMask w ∉ pool xs) (he : gateMask xs g = targetMask w) :
+    ∃ s t : Mask, s ∈ pool xs ∧ t ∈ pool xs ∧ s ≠ targetMask w ∧
+      t ≠ targetMask w ∧ s ∩ t = targetMask w := by
+  obtain ⟨op, ins⟩ := g
+  change op = GateOp.and at hop
+  subst op
+  change ins.length ≤ 2 at hlen
+  match ins, hlen with
+  | [], _ =>
+    have h : (Finset.univ : Mask) = targetMask w := by
+      simpa [gateMask, GateOp.eval] using he
+    exact (hfresh (h ▸ (by simp [pool]))).elim
+  | [a], _ =>
+    have h : val xs a = targetMask w := by
+      simpa [gateMask, GateOp.eval] using he
+    exact (hfresh (h ▸ available xs a)).elim
+  | [a, b], _ =>
+    refine ⟨val xs a, val xs b, available xs a, available xs b,
+      fun h => hfresh (h ▸ available xs a), fun h => hfresh (h ▸ available xs b), ?_⟩
+    rw [← he]
+    ext r
+    simp [gateMask, GateOp.eval]
+  | _ :: _ :: _ :: _, h => simp at h
+
+lemma row_band : ∀ r : Row,
+    (Finset.univ.filter (fun p : Fin 13 => row r p = false)).card = 6 := by
+  decide +kernel
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 4000000 in
+lemma row_target : ∀ (w : Fin 13) (r : Row),
+    decide (∃ p ∈ (({0, 1, 3, 9} : Finset (Fin 13)).image (fun u => u + w)),
+      row r p = true) = decide (w ≠ r.1) := by
+  decide +kernel
+
+lemma target_separated : ∀ w v : Fin 13, w ≠ v →
+    targetMask w ∪ targetMask v = Finset.univ := by
+  decide +kernel
+
+lemma target_nonempty : ∀ w : Fin 13, targetMask w ≠ ∅ := by decide +kernel
+
+set_option maxRecDepth 8000 in
+set_option maxHeartbeats 4000000 in
+lemma input_not_above : ∀ w p : Fin 13, ¬ targetMask w ⊆ inputMask p := by
+  decide +kernel
+
+lemma initial_not_above (w : Fin 13) (s : Mask) (hs : s ∈ initial) :
+    ¬ targetMask w ⊆ s := by
+  simp only [initial, List.mem_ofFn] at hs
+  obtain ⟨p, rfl⟩ := hs
+  exact input_not_above w p
+
+lemma pool_to_list (w : Fin 13) (s : Mask) (xs : List Mask)
+    (hsub : targetMask w ⊆ s) (hnot : s ≠ Finset.univ) (hm : s ∈ pool xs) :
+    s ∈ xs := by
+  simp only [pool, Finset.mem_insert, List.mem_toFinset] at hm
+  rcases hm with rfl | he | hm
+  · exact (target_nonempty w (Finset.Subset.antisymm hsub (Finset.empty_subset _))).elim
+  · exact (hnot he).elim
+  · exact hm
+
+def AndFirst (gs : List Gate) : Prop :=
+  ∀ w : Fin 13, ∃ (pre post : List Gate) (g : Gate),
+    gs = pre ++ g :: post ∧ g.op = GateOp.and ∧
+      targetMask w ∉ pool (run pre initial) ∧
+      gateMask (run pre initial) g = targetMask w
+
+lemma and_first_bound (gs : List Gate)
+    (hfanin : ∀ g ∈ gs, g.inputs.length ≤ 2) (hfirst : AndFirst gs) : 39 ≤ gs.length := by
+  classical
+  have pairs (w : Fin 13) : ∃ s t : Mask,
+      s ∩ t = targetMask w ∧ s ≠ targetMask w ∧ t ≠ targetMask w ∧
+      targetMask w ∈ pool (run gs initial) ∧ s ∈ pool (run gs initial) ∧
+      t ∈ pool (run gs initial) := by
+    obtain ⟨pre, post, g, hgs, hop, hfresh, he⟩ := hfirst w
+    have hlen := hfanin g (by simp [hgs])
+    obtain ⟨s, t, hs, ht, hsf, htf, hst⟩ := and_parents _ g w hop hlen hfresh he
+    have hrun : run gs initial = run post (next (run pre initial) g) := by
+      simp only [hgs, run, List.foldl_append, List.foldl_cons]
+    have hp : pool (run pre initial) ⊆ pool (run gs initial) := by
+      rw [hrun]
+      exact (pool_mono_next _ _).trans (pool_mono_run _ _)
+    refine ⟨s, t, hst, hsf, htf, ?_, hp hs, hp ht⟩
+    rw [hrun]
+    apply pool_mono_run post _
+    rw [← he]
+    exact target_next _ _
+  choose s t he hs ht hm using pairs
+  obtain ⟨ys, hys, hlen⟩ := run_split gs initial
+  have mem_generated (w : Fin 13) (u : Mask) (hu : targetMask w ⊆ u)
+      (hnot : u ≠ Finset.univ) (hmem : u ∈ pool (run gs initial)) : u ∈ ys.toFinset := by
+    have h := pool_to_list w u _ hu hnot hmem
+    rw [hys, List.mem_append] at h
+    rcases h with hi | hi
+    · exact (initial_not_above w u hi hu).elim
+    · exact List.mem_toFinset.mpr hi
+  have allmem (w : Fin 13) : targetMask w ∈ ys.toFinset ∧
+      s w ∈ ys.toFinset ∧ t w ∈ ys.toFinset := by
+    have hp := AndRoot.intersection_triple (targetMask w) (s w) (t w) (he w) (hs w) (ht w)
+    have hf := hp.2 (targetMask w) (by simp)
+    have hss := hp.2 (s w) (by simp)
+    have htt := hp.2 (t w) (by simp)
+    exact ⟨mem_generated w _ hf.1 hf.2 (hm w).1,
+      mem_generated w _ hss.1 hss.2 (hm w).2.1,
+      mem_generated w _ htt.1 htt.2 (hm w).2.2⟩
+  have hc := AndRoot.count_triples targetMask s t ys.toFinset target_separated he hs ht allmem
+  have hcard : ys.toFinset.card ≤ ys.length := List.toFinset_card_le ys
+  simp only [Fintype.card_fin] at hc
+  omega
+
+
+def witnessGates : List Gate :=
+  [⟨GateOp.or, [0, 3]⟩,
+   ⟨GateOp.or, [13, 4]⟩,
+   ⟨GateOp.or, [0, 1]⟩,
+   ⟨GateOp.or, [15, 5]⟩,
+   ⟨GateOp.or, [1, 4]⟩,
+   ⟨GateOp.or, [17, 5]⟩,
+   ⟨GateOp.or, [1, 2]⟩,
+   ⟨GateOp.or, [19, 6]⟩,
+   ⟨GateOp.or, [2, 5]⟩,
+   ⟨GateOp.or, [21, 6]⟩,
+   ⟨GateOp.or, [2, 3]⟩,
+   ⟨GateOp.or, [23, 7]⟩,
+   ⟨GateOp.or, [3, 6]⟩,
+   ⟨GateOp.or, [25, 7]⟩,
+   ⟨GateOp.or, [3, 4]⟩,
+   ⟨GateOp.or, [27, 8]⟩,
+   ⟨GateOp.or, [0, 5]⟩,
+   ⟨GateOp.or, [29, 8]⟩,
+   ⟨GateOp.or, [0, 6]⟩,
+   ⟨GateOp.or, [31, 9]⟩,
+   ⟨GateOp.or, [1, 6]⟩,
+   ⟨GateOp.or, [33, 9]⟩,
+   ⟨GateOp.or, [1, 7]⟩,
+   ⟨GateOp.or, [35, 10]⟩,
+   ⟨GateOp.or, [2, 7]⟩,
+   ⟨GateOp.or, [37, 10]⟩,
+   ⟨GateOp.or, [2, 8]⟩,
+   ⟨GateOp.or, [39, 11]⟩,
+   ⟨GateOp.or, [3, 8]⟩,
+   ⟨GateOp.or, [41, 11]⟩,
+   ⟨GateOp.or, [3, 9]⟩,
+   ⟨GateOp.or, [43, 12]⟩,
+   ⟨GateOp.or, [4, 9]⟩,
+   ⟨GateOp.or, [45, 12]⟩,
+   ⟨GateOp.or, [0, 4]⟩,
+   ⟨GateOp.or, [47, 10]⟩,
+   ⟨GateOp.or, [0, 5]⟩,
+   ⟨GateOp.or, [49, 10]⟩,
+   ⟨GateOp.or, [1, 5]⟩,
+   ⟨GateOp.or, [51, 11]⟩,
+   ⟨GateOp.or, [0, 1]⟩,
+   ⟨GateOp.or, [53, 6]⟩,
+   ⟨GateOp.or, [0, 2]⟩,
+   ⟨GateOp.or, [55, 6]⟩,
+   ⟨GateOp.or, [0, 2]⟩,
+   ⟨GateOp.or, [57, 7]⟩,
+   ⟨GateOp.or, [0, 3]⟩,
+   ⟨GateOp.or, [59, 7]⟩,
+   ⟨GateOp.or, [0, 3]⟩,
+   ⟨GateOp.or, [61, 8]⟩,
+   ⟨GateOp.or, [0, 4]⟩,
+   ⟨GateOp.or, [63, 12]⟩,
+   ⟨GateOp.and, [14, 16]⟩,
+   ⟨GateOp.and, [18, 20]⟩,
+   ⟨GateOp.and, [22, 24]⟩,
+   ⟨GateOp.and, [26, 28]⟩,
+   ⟨GateOp.and, [30, 32]⟩,
+   ⟨GateOp.and, [34, 36]⟩,
+   ⟨GateOp.and, [38, 40]⟩,
+   ⟨GateOp.and, [42, 44]⟩,
+   ⟨GateOp.and, [46, 48]⟩,
+   ⟨GateOp.and, [50, 52]⟩,
+   ⟨GateOp.and, [54, 56]⟩,
+   ⟨GateOp.and, [58, 60]⟩,
+   ⟨GateOp.and, [62, 64]⟩]
+
+set_option maxRecDepth 12000 in
+set_option maxHeartbeats 12000000 in
+lemma witness_certificate : ∀ w : Fin 13,
+    targetMask w ∉ pool (run (witnessGates.take (52 + w.val)) initial) ∧
+    gateMask (run (witnessGates.take (52 + w.val)) initial)
+      ⟨GateOp.and, [14 + 4 * w.val, 16 + 4 * w.val]⟩ = targetMask w := by
+  decide +kernel
+
+lemma witness_first : AndFirst witnessGates := by
+  intro w
+  refine ⟨witnessGates.take (52 + w.val), witnessGates.drop (53 + w.val),
+    ⟨GateOp.and, [14 + 4 * w.val, 16 + 4 * w.val]⟩, ?_, rfl,
+    (witness_certificate w).1, (witness_certificate w).2⟩
+  fin_cases w <;> rfl
+
+lemma witness_fanin : ∀ g ∈ witnessGates, g.inputs.length ≤ 2 := by
+  have h : witnessGates.all (fun g => decide (g.inputs.length ≤ 2)) = true := by decide
+  intro g hg
+  simpa only [decide_eq_true_eq] using (List.all_eq_true.mp h g hg)
+
+lemma condition_realized : ∃ gs : List Gate, AndFirst gs ∧
+    (∀ g ∈ gs, g.inputs.length ≤ 2) ∧ gs.length = 65 := by
+  exact ⟨witnessGates, witness_first, witness_fanin, rfl⟩
+
+end PEqualNP.Outside.L_meta_1024_aux.AndFirst26
