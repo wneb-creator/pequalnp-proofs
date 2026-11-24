@@ -1,0 +1,3 @@
+Command: lake env lean results/orch/lemmas/WmaxPartial.lean
+Exit: 0
+Output: empty
