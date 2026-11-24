@@ -1,0 +1,106 @@
+{
+  "created_utc": "2026-11-24T04:35:12.800556+00:00",
+  "status": "restricted_UNSAT_solver_result_full_certificate_preserved",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1538,
+      "sha256": "2bf7d5f9708ee41667f1f536584d75cc6f75316a80fa3f3f8dad8a14aff19559"
+    },
+    {
+      "path": "cegis-disconnected-five-supported-progress.log",
+      "bytes": 210,
+      "sha256": "b57d8435fe6a6322dd1f3ffdea3c8603cb405e2dc0fae440075a129b5576fb4e"
+    },
+    {
+      "path": "disconnected-support-test.json",
+      "bytes": 423,
+      "sha256": "f8331462aea6ac216152b8574743576ef045b389db30449138f3ccda37844a50"
+    },
+    {
+      "path": "disconnected-support-test.log",
+      "bytes": 423,
+      "sha256": "f8331462aea6ac216152b8574743576ef045b389db30449138f3ccda37844a50"
+    },
+    {
+      "path": "disconnected-support-test.py",
+      "bytes": 4332,
+      "sha256": "dbed01ed67e19154196314232d040f2e2bb172088531c312da21f97ebb53402f"
+    },
+    {
+      "path": "disconnected-supported-launch-0430.json",
+      "bytes": 700,
+      "sha256": "fbb21ab2b4df0ad763b5a462c12c420c3d1ce1bdf7c8fb7f191206eb0084a39b"
+    },
+    {
+      "path": "encoding-source/cegis-disconnected-five-supported.py",
+      "bytes": 12510,
+      "sha256": "1d5fa0b215a8cde4c7277cd348e3fc2481473317fd39205b489a77eeb11f52f2"
+    },
+    {
+      "path": "encoding-source/cegis-full.py",
+      "bytes": 4397,
+      "sha256": "5c2f4ada8822c2d14e84fb3e7b16a0d8a47b842e04c94ec93621408c353cd3a0"
+    },
+    {
+      "path": "encoding-source/cegis-symbolic-five.py",
+      "bytes": 11795,
+      "sha256": "5bff952410bcb19350674bccc4b65997ec79b349ac64662561ad0cddac1793bb"
+    },
+    {
+      "path": "encoding-source/cegis-symbolic.py",
+      "bytes": 5274,
+      "sha256": "683cb5e4e32aa3a07bac88ec22adede7fd535b79d208526d3607c5c11a0fc665"
+    },
+    {
+      "path": "encoding-source/cegis.py",
+      "bytes": 5041,
+      "sha256": "a51bc1d6a37ec0af2ddb7a77192d2a47fe6dce4f97edaba336589ffec6e05910"
+    },
+    {
+      "path": "encoding-source/line-pair-maps.json",
+      "bytes": 8029,
+      "sha256": "b0f50cbb2b9f5f43643aac39d0ea383c7170a9bff8dbc9ba74756a8c52c3d633"
+    },
+    {
+      "path": "encoding-source/manifest.json",
+      "bytes": 1183,
+      "sha256": "0de99b6fdfc24ae58bb5e9946101a391d52ac115ee43bcde8ec364d35a35e86b"
+    },
+    {
+      "path": "encoding-source/streaming_cnf.py",
+      "bytes": 1572,
+      "sha256": "5c93998e77af73b0bb9d3f457d086153ac4e281776eb247daba51314ac056aab"
+    },
+    {
+      "path": "query.cnf.gz",
+      "bytes": 8856856,
+      "sha256": "fd80f65a06ea9f6f2c5fd32a64a59b6cd7f1d2d7dd31ea2473cdec11d48ac96c"
+    },
+    {
+      "path": "query.log",
+      "bytes": 7168,
+      "sha256": "e50a049903b97fb9d73695f692caf3c8e50a74fdc334ad46abebf7ae50d95be6"
+    },
+    {
+      "path": "query.lrat.gz",
+      "bytes": 6821232,
+      "sha256": "8c506da83aec13e672ac7e03c66624d6c3af2012f9e17a926521b2b00348fef1"
+    },
+    {
+      "path": "result-integrity.json",
+      "bytes": 892,
+      "sha256": "cd952d9d118df5ffef18e1602bbb72cd59cd4a067eb14a1622146ed30a5a6d7a"
+    },
+    {
+      "path": "strategy-replacement-fanout2-0425.json",
+      "bytes": 887,
+      "sha256": "e52dd0e3fc07c62717b5aa5dff61a847567a5b6788cb0cd1055a14e83e15fae0"
+    },
+    {
+      "path": "unsat.json",
+      "bytes": 1070,
+      "sha256": "10cd3f5bf7bd4c008ce257f7b69a4b3ccb67241fe58d7c1fab57134b911e815e"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "utc": "2026-11-24T04:33:46.170329+00:00",
+  "status": "UNSAT_TEMPLATE_SOLVER_RESULT",
+  "scope": "reviewed disconnected2+3 template only; not yet Lean-certificate verified",
+  "gzip_crc_valid": true,
+  "uncompressed_lrat_bytes": 15170664,
+  "uncompressed_lrat_sha256": "456609c3b82a7aeb42c1c0f256b9bcf04d721165344fbf0b37ce4fb908c303b9",
+  "files": {
+    "query.cnf": {
+      "bytes": 45908886,
+      "sha256": "eeece5579f5229e12082d7a0137a490eea422b5b7f9deb73872fb7dca24bacf0"
+    },
+    "query.log": {
+      "bytes": 7168,
+      "sha256": "e50a049903b97fb9d73695f692caf3c8e50a74fdc334ad46abebf7ae50d95be6"
+    },
+    "query.lrat.gz": {
+      "bytes": 6821232,
+      "sha256": "8c506da83aec13e672ac7e03c66624d6c3af2012f9e17a926521b2b00348fef1"
+    },
+    "unsat.json": {
+      "bytes": 1070,
+      "sha256": "10cd3f5bf7bd4c008ce257f7b69a4b3ccb67241fe58d7c1fab57134b911e815e"
+    }
+  }
+}

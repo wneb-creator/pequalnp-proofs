@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "fixed_label_support_models": 400,
+  "accepted": 247,
+  "rejected": 153,
+  "additional_support_variables": 39,
+  "clauses": 3783,
+  "cases_include": [
+    "coalesced low selectors",
+    "raw low selectors",
+    "false/true constants",
+    "generated low selectors"
+  ],
+  "source_sha256": "1d5fa0b215a8cde4c7277cd348e3fc2481473317fd39205b489a77eeb11f52f2",
+  "elapsed_seconds": 0.7077267739987292
+}

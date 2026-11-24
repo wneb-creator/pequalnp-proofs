@@ -1,0 +1,46 @@
+{
+  "status": "UNSAT_REDUCED_TEMPLATE_ENCODING",
+  "edges": [
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      3,
+      5
+    ]
+  ],
+  "high_gate_indices": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "low_selectors": "raw inputs, constants, or first5internals; coalescence allowed",
+  "line_labels": "all injective assignments modulo explicit ordered-line-pair symmetry",
+  "constants_and_repeated_operands": true,
+  "prefix5_order_only": true,
+  "shared_parent_essential_support_guards": true,
+  "full_band_only_global_statement": false,
+  "counts": {
+    "variables": 129309,
+    "clauses": 2676975,
+    "band_rows": 3003
+  },
+  "cnf": "/tmp/oec/pequalnp-pilot-21/search/disconnected-five-supported/query.cnf",
+  "cnf_sha256": "eeece5579f5229e12082d7a0137a490eea422b5b7f9deb73872fb7dca24bacf0",
+  "proof": "/tmp/oec/pequalnp-pilot-21/search/disconnected-five-supported/query.lrat.gz",
+  "scope": "one disconnected2+3 parent template, not all five-output circuits or the full posted theorem"
+}

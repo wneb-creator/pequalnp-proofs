@@ -1,0 +1,5 @@
+PREPARED {"variables": 129309, "clauses": 2676975, "band_rows": 3003} elapsed 2
+RUNNING elapsed 2 freeGiB 12.11 proofMiB 0
+RUNNING elapsed 62 freeGiB 12.09 proofMiB 6.0
+RESULT unsat exit 20 elapsed 77
+FINISHED
