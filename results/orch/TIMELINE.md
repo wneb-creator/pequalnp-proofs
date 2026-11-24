@@ -14,3 +14,14 @@
 - 2026-11-24T22:13:49.793839+00:00: compressed FUSE mount refused by environment (Operation not permitted); no artifact migration performed and no bypass attempted. Using reversible archive of unused native build tools to reclaimdisk and reducepinnedRAM.
 - 2026-11-24T22:17:32Z: renewedlease until22:37:32Z; all18426 cache targets up-to-date after moving800MiBfromRAMtodisk; checkerretry used confirmedmimalloc allocator settings.
 - 2026-11-24T22:23:18Z: secondchecker also FAULT137 beforeverdict; no Lean rejection. Preparing supportedlauncher storagephase with exact artifactrestoration beforefinalaudit.
+- 2026-11-24T22:32:02.525000+00:00: environment reconnection terminated anonymous-RAM holders; source and build results remained preserved on GitHub. Restoring missing artifacts with durable compressed backups. The thin storage wrapper passed nine tests and independent review; production phases pending.
+
+- 2026-11-24T23:01:41.061846+00:00 Root resumed after compaction; checker003 exited137 and fully restored storage. Preparing extra build-metadata evacuation and32MiB permanent verified core migration. Beat013 expires23:21:04Z. Public feed still shows two live reductions.
+
+- 2026-11-24T23:02:07.355399+00:00 counterexample independently re-reviewed final98-line source: PASS exact conclusion, theorem shape, independent/smaller premises, graph peeling argument and forbidden-token scan. Remaining checker obligations: printed-premise length and axiom traversal.
+
+- 2026-11-24T23:04:45.183812+00:00 Revised storage phase independently reviewed:100760 build-only files and1259 Mathlib backings; exact conservative VERIFY free148639776B and pinned target2133220976B. Nine transaction tests passed. Migration/smoke authorized; no changes to verifier, imports, proof, arguments or streams.
+
+- 2026-11-24T23:10:13.667897+00:00 Enlarged phase live smoke and independent restoration audit PASS:102019 files/2306968399 bytes, exact SHA256/size/mode/mtime and original runtime links. Preparing nativechecker004 with unchanged verifier/environment.
+
+- 2026-11-24T23:17:38.397184+00:00 Checker004 completed exit3: native137, no verdict; full storage restoration completed. Preserving all logs before further resource work.

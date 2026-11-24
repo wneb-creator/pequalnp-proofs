@@ -1,0 +1,10 @@
+checker stage: started t=0s
+checker stage: build lock taken t=0s
+checker stage: building the verifier t=0s
+checker stage: building the file and the definitions root t=2s
+checker stage: verifier reading the built file t=10s
+{"storage_phase": "prepared", "files": 100760, "compressed_added": 0, "pending_backups": 0, "disk_free": 142929920}
+{"storage_phase": "planned", "build_files": 100760, "build_bytes": 997602671, "ram_files": 1259, "pinned_before": 3442586704, "evacuation_bytes": 1309365728}
+{"storage_phase": "entered", "pinned_after": 2133220976, "disk_free": 138641408}
+{"storage_phase": "restored", "ram_files": 1259, "build_files": 100760, "disk_free": 104439808}
+CHECKER FAULT: the verifier ended without a verdict (exit 137).

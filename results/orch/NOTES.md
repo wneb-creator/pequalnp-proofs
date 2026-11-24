@@ -39,3 +39,6 @@ Delivery archive plan: preserve notes, experiments and complete validation outpu
 - Publicdesk22:01Z showed2 checked reductions (1,417), leavingone slot; pending233 differs from our graph3core cut. Recheck immediately beforePR submission.
 
 FUSE capability was refused by the environment, and no bypass was attempted. Native toolchain artifacts are being archived reversibly to free disk and reduce anonymousRAM. Actual checklemma binary confirms mimalloc3.4.5 accepts MIMALLOC_PURGE_DELAY=0 and MIMALLOC_ALLOW_THP=0; these runtime-only allocator settings will be used for retry. No proof,checker,or importedlibrary bytes are changed by them.
+
+## Checker resource investigation
+The third and fourth original-checker attempts also ended with native exit137 before a verdict. Storage was restored exactly after each. The enlarged phase passed independent auditing of102019 files/2306968399 bytes. The fourth attempt reduced pinned storage to2133220976 bytes but still exhausted8GiB memory. The next bounded approaches are retiring redundant RAM-holder processes and encouraging the Node launcher to collect its temporary verifier-binary hash buffer. Neither changes the proof, verifier, library data or sanitized Lean environment.
