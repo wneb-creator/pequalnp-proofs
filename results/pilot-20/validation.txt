@@ -1,0 +1,17 @@
+L-meta-1482 PARTIAL CHECKPOINT — posted theorem NOT proved.
+File: lean/PEqualNP/Outside/L_meta_1482.lean
+Base upstream commit: 5c49e86
+lake build PEqualNP.Outside.L_meta_1482: PASS (exit 0).
+lake env lean PEqualNP/Outside/L_meta_1482.lean: PASS (exit 0).
+Plain-file guard: REFUSED: the file holds no theorem (expected for partial).
+Exact-statement checker: not yet run; the posted theorem is absent.
+No PR opened for this partial checkpoint.
+Independent review: review_rules agent approved partial helper correctness, scope,
+namespace, permitted tactics/imports, and absence of prohibited commands/axioms.
+Partial helpers: finite plane facts; first-loss AND witness; critical-input correctness.
+Main lower bound remains unresolved. A computational 65-gate double-re-read
+construction has been found; it does not refute the posted 64-gate bound.
+Line count: 167. Cleanup pass for an accepted final proof has not started.
+Sub-agents: independent review, structural proof, counterexample/SAT search,
+lemma search/formalization, lease keeper, Lean environment setup (6 total).
+TIMING total=14.4 subagents=6
