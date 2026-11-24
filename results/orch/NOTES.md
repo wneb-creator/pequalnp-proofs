@@ -116,3 +116,25 @@ Stable integration fragment: /tmp/oec/pequalnp-pilot-39/circuit-route/guarded-er
 - Proof: distinguished point is universal to block lines. C4-freeness makes cross edges between two noncentre point/line pairs false. The two mixed-clause signatures must complement each other; then those two points with the distinguished line satisfy the block. C4-freeness forbids either target incidence, contradiction.
 - Independent counterexample agent enumerated normalized4-clause blocks below C4-free targets, confirming classification on3x3,3x4,4x3.
 - Remaining size issue: a double-star edge set has a read2 construction, but extracting the point-star side may require intersection of two existing OR regions. Naive reconstruction can add a gate; deleting or reusing a private guard is still necessary for no-size-increase.
+
+## Counterexample route, second pass
+
+C6 plus pendant line (P=3,L=4), 9 gates:
+- CaDiCaL UNSAT 61.59s with TopForm, at most2 dirty ANDs, no private same-operation child deletion, and failure of read2 on any edge.
+- CaDiCaL UNSAT 71.04s after removing all three extra restrictions.
+- Both queries keep minimum-circuit reductions: no dead gates, no equal critical-row wire functions, ordered commutative operands, canonical adjacent-independent gate order. Critical rows are all7 positive edge assignments plus6 maximal independent sets. Results are solver evidence, not Lean proofs.
+- Redundant Z3 constrained query was terminated deliberately after CaDiCaL solved that exact CNF; exit143 is not a solver verdict.
+
+Controls: explicit9gate star witness computes target on all128 inputs, is read2, has no dead/duplicate gates, is TopForm, and passes local irreducibility detector. Prior6gate path obstruction computes its graph on all16 inputs and is correctly identified as having2 possible private-child deletions. Full models and independent verification JSON saved.
+
+Random sampling: 1,000,000 seven-input,9gate samples yielded43,359 distinct live subcircuits at their graph's star-cover budget, across269 C4-free graphs; no read2 failure. A separate10,000,000 samples up to12 generated gates yielded302,844 such subcircuits across474 graphs, again no read2 failure. Dead gates were pruned for size accounting. These samples are not exhaustive.
+
+Four-clause block exhaustive check: normalized forced3+1 edge signatures, complete truth tables, every C4-free target with that edge.
+3x3:139,078 below-target cases, zero double-star or center-line violations.
+3x4:3,330,266 cases, zero violations.
+4x3:3,932,080 cases, zero violations.
+Structural agent was notified and is independently formalizing the double-star statement in Lean.
+
+No running search processes remain. No general proof or refutation is claimed.
+
+- 2026-11-24T18:30:55.300672+00:00 circuit_route: reader-specific AND-factor erasure checked (ChoiceErase-checked-v1.lean, choice-003 exit0). Each later reader chooses either earlier operand; rewritten readers must remain below the target on false inputs, and their other operands precede the removed AND. Preserves AO2/function and saves one gate. Stable 207-line fragment choice-erase-fragment-v1.txt. least_no_choice_and wrapper also checked (ChoiceLeast.lean, choice-least-003 exit0; 29-line choice-least-fragment.txt). Full arbitrary-junk gap remains open.

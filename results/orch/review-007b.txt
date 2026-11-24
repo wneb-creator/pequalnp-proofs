@@ -1,0 +1,17 @@
+Independent red-team review 007b: four-clause double-star structural lemma
+UTC: 2026-11-24T18:30:32.547244+00:00
+Reviewer: circuit_route (did not author this section)
+File: lean/PEqualNP/Outside/L_meta_2584.lean
+Scope: the complete TwoJunkStructure section (99 lines including its boundaries), independently inspected from the integrated frozen source.
+Section SHA256: 0a7cee19de4f36fb8a8418338b4f4d6e686d91b02fb1783ea2f1087b5aaef829
+Verdict: PASS for the stated partial structural result; main integrated build010 remains root's separate validation.
+
+The definition fourClauseEdge is exactly the acceptance condition of a four-clause pattern on a point-line pair: A(p), D(l), B(p) or E(l), C(p) or F(l). The hypotheses explicitly demand pair soundness and the particular two-point/one-line triple soundness used by the proof. They do not assert a circuit-normalization theorem or silently discharge those semantic assumptions. The distinguished point satisfies all three point clauses, while the distinguished line satisfies D and neither mixed-clause line part.
+
+The first lemma assumes two accepted noncentral edges on distinct lines. Pair soundness gives both actual edges and makes the distinguished point adjacent to both lines. NoFourCycle therefore excludes both crossed edges. Boolean clause reasoning then forces the two noncentral points collectively to meet B and C. Neither edge line can equal the distinguished line: that would force its point to meet B and C individually and hence produce one of the forbidden crosses. NoFourCycle consequently excludes both noncentral points from the distinguished line. Triple soundness on those two points and that line now contradicts both exclusions. All inequalities needed by NoFourCycle are explicitly supplied, including point-vs-center and line-vs-distinguished-line inequalities.
+
+The wrapper chooses the line of any noncentral accepted edge; the first lemma then places every other noncentral edge on that line. If there is no noncentral edge it chooses the already existing distinguished line. Thus empty Fin domains are not used unsafely, and the conclusion is exactly containment in a double star, not equality with the original incidence relation. It does not assert a cheaper circuit or any read-2 conclusion.
+
+The assumptions are consistent and support noncentral edges. An example has two points and two lines, distinguished p0/l0, A=C=D universally true, B true only at p0, E true only at l1, F false, and incidence edges (p0,l0),(p0,l1),(p1,l1). All pair/triple assumptions hold. As an independent finite check, exhaustive 2x2 incidence relations and all twelve clause-membership bits yielded 1128 complete models satisfying the assumptions, 68 with a noncentral accepted edge, and zero failures of the displayed conclusion. Full finite result: /tmp/oec/pequalnp-pilot-39/circuit-route/review-007b-finite.json.
+
+The reviewed section contains only one definition and two lemmas in the owning nested namespace. It has no theorem declaration claiming the original gap, axiom, sorry, native_decide, string literal, attribute, option, import, prohibited root qualification, or unsafe execution command. The proof is ordinary kernel-checked reasoning using tauto for propositional consequences. No findings require source changes. This review does not cover the ChoiceErase or Rotation sections, which have separate independent reviewers.

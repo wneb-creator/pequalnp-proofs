@@ -36,3 +36,8 @@
 - 2026-11-24T18:21:52.877877+00:00 circuit_route: generic guarded-AND erasure and syntactic shared-factor leastness exclusion compiled exit0; root sent stable fragment.
 - 2026-11-24T18:24:02.513117+00:00: structural route checked double-star classification of four-clause bad-read2 block.
 - 2026-11-24T18:25:46.089257+00:00: checkpoint6 central sharing and guarded-erasure components built/reviewed; auxiliary counterexamples independently rebuilt and archived.
+
+- 2026-11-24T18:25:58.791964+00:00: counterexample_search finished C6+pendant any-edge nonread2 UNSAT checks,11million random samples, and exhaustive four-clause double-star checks through7 inputs; no counterexample.
+
+- 2026-11-24T18:30:55.300672+00:00: circuit_route completed reader-specific factor erasure and leastness wrapper; independently reviewed DoubleStar for checkpoint007b (PASS).
+- 2026-11-24T18:31:12.402133+00:00: checkpoint7 central semantic and size-preserving transformations built; split independent review passed. Seventh subagent added for forced-gate semantics.

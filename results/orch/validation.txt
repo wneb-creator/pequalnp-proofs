@@ -49,3 +49,10 @@ Independent review: review-006.txt passed, including two finite auxiliary artifa
 TwoJunk and CnfSix root recompiles: exit0, empty stdout/stderr.
 Actual posted-statement checker remains REJECTED (no-theorem), not rerun without a final theorem.
 TIMING total=28.6 subagents=6
+
+Checkpoint 7: semantic singleton sharing, prime-pair pruning principle, reader-specific erasure, witness-improving rotation, four-clause double-star classification.
+Target: 4046 lines, 178438 bytes.
+Build010: exit0; Build completed successfully (18419 jobs).
+Independent review: review-007a.txt plus review-007b.txt cover entire new diff.
+Sub-agents: status_review, toolchain_setup, combinatorial_route, circuit_route, counterexample_search, structural_route, combinatorial_route/forced_semantics
+TIMING total=34.0 subagents=7

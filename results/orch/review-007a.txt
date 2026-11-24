@@ -1,0 +1,13 @@
+Checkpoint007 independent review by structural_route
+UTC: 2026-11-24T18:30:12.273135+00:00
+Target SHA256: a5e405fefb61cb6e788a401410c58c366b8f69865a6b15b6831e7cf3c01a0a90
+Diff SHA256: a8cfcc3442bd9a9f06b5bb41943f4df7b89be1290ad6936019970bc48de0dfb6
+Verdict: PASS for reviewed partials, conditional on successful build010 and independent review of excluded DoubleStar section.
+
+Reviewed scope: CURRENT target diff against HEAD, excluding own TwoJunkStructure99-line section. Reviewed new Sharing semantic singleton propagation, center uniqueness, pair-cover reconstruction, mixed-support exclusion; ChoiceErase monotone surgery and erase_choice_and; Rotation Boolean block rotation, model preservation, word-sublist simulation and suffix propagation. Full 834-line diff retained in scratch structural/review-007.diff.
+
+Semantic checks: Sharing uses real singleton acceptance and AO monotonicity, not merely OR shadows. Pair-cover reconstruction correctly needs monotonicity and soundness. ChoiceErase explicitly requires all direct readers to depend only on the pre-removal prefix and the removed wire, and requires chosen-reader falsehood on original false inputs; these hypotheses suffice for its equality claim. Rotation explicitly requires semantic domination x=>b, an unobserved private intermediate wire, and earlier operands. Word simulation is intentionally one-way and does not itself assert semantic equivalence; downstream proof words shrink by sublist. No hypothesis was silently omitted in these statements.
+
+Format checks on entire target: forbidden substrings=[]; attributes=[]; invalid limit options=[]; later import text=[]. Declarations remain inside the owned L_meta_2584 namespace. No new data types, instances, macros, axioms, runtime commands, or unchecked decision tactics were introduced by reviewed diff. Helper theorem keywords normalized to lemma.
+
+Limitations: no claim that posted L-meta-2584 is proved; target is still a partial checkpoint. I did not independently review my own TwoJunkStructure contribution. Build010 was in progress at review time; this review does not substitute for its result or the checker.
