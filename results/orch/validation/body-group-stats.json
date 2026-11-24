@@ -1,0 +1,18 @@
+{
+  "exit": 143,
+  "seconds": 93.81504466699971,
+  "maxrss_kib": 6146360,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-j1",
+    "-M6000",
+    "--profile",
+    "--json",
+    "--root=/tmp/oec/pequalnp-pilot-44/finite-search",
+    "-o",
+    "/tmp/oec/pequalnp-pilot-44/finite-search/BodyGroupProbe.olean",
+    "/tmp/oec/pequalnp-pilot-44/finite-search/BodyGroupProbe.lean"
+  ]
+}
