@@ -1338,3 +1338,151 @@ and20 clean live gates. Full sources,4096 truth rows, copies and logs are in
 candidate134227-analysis-preservation-v1.tar.gz, SHA256
 85f85f4274357bb2f316b3074c65a2c98f797c49448becef7730207ae18e6d46,
 20264bytes/15regular members. S05 owns all later candidate work.
+
+
+## 05:47 selected-ancestry birth progress, peer review pending
+
+New general bound: for an arbitrary selected ancestry relation, delete only
+its t maximal selected OR outputs. Let K be the union of all edges missed by
+some selected support and the owner stars of nonmaximal selected outputs.
+First-AND paths force these stars into the remaining birth graph, so m>=|K|+t.
+The strict bonus requires K NONEMPTY and, for every selected maximum with an
+owner, at least one edge of its whole support star outside K. No unguarded
+empty-core argument is reused. Constants/copies/fan-out are included.
+
+Applying the same guarded lemma to every nonempty selected subfamily gives
+a cone-union lower bound, compared with the previous position upper bound
+minus excluded selected gates and at most one excluded outside-chain AND.
+Three bounded scalar versions give r0/r1 remaining counts163/571,161/571,
+and finally159/570. The strongest version excludes99 of the258 previousr0
+survivors and230 of800 r1 survivors. This is NOT a whole-class closure.
+
+Every version has a second scalar enumeration; strongest checks220517
+position/relation choices, with50 actual shared DAG controls,307200 selected
+truth checks,150 individual cones and350 subfamily unions. Full code, tables,
+proofs and stdout/stderr are retained. The existing triangle counterexample
+to the unguarded statement remains explicit.
+
+The new generic lemma and union-upper corollary were sent to S01 via NOTES
+for independent mathematical review. At archive freeze no second-agent PASS
+had arrived; the count is therefore PROPOSED with S04 implementation/control
+checks, not peer-accepted mathematics, a CNF cut, Lean theorem or global claim.
+Strongest source712f3bd35f26832f6900875a8f8fcf35fed9817dce8b19c3f234fe7c9aee23b2;
+result2cda8c5b1a0bbdcb46fd4f372b3da88d756b60f0f6f9fc0a89ff5d1aae5e5645;
+control1b728b551ef741c20e7302eea7e5b7bee76b773774426e8d923bc1eccc0f4010.
+No solver, production worker, named Lean file, lease or Git write was used.
+
+
+# S04 independent copy-cover and terminal-charge review: PASS
+
+Reviewed producer proofs: support-copy-cover-bound.md
+415f845c6add7f6ec9ef00ad2512517c0ff59696a92ed23e5a14f4547fcaeb7d
+and support-copy-terminal-charge.md
+cae2a38ed701f38a5669fb4dd08cd33873a2ce6ba35535c3507aa035df4c89a2.
+The final handoff4ce8f790978c96dbdf4524d91ea832128ec6d5c91acbb37a7f64388fe2a5deb6
+binds16 producer proof/source/full-table/control/stdout/stderr artifacts.
+All bytes were verified before the independent finite review.
+
+## Component argument
+
+Clean productive ANDs in a C4-free graph have a singleton-support operand.
+Retain one such parent at every AND and both parents at every OR, and then
+keep the routed ancestor graph of W. An accepted edge input still has a true
+parent at each retained backward step: OR chooses one true operand and AND
+has its chosen operand true. The path ends at a true raw endpoint, not FALSE.
+Thus the ordinary raw inputs F in this routed graph cover every accepted edge.
+For an accepted edge with endpoints outside S_W, F minus S_W covers it.
+
+Every routed gate with support size>1 has only OR descendants: a first AND
+would have been entered via a retained singleton-support parent, contradicting
+the OR-only propagation of the larger support. Hence its support is contained
+in S_W. Removing those large gates leaves small-support components that are
+parent-closed for retained ANDs and small ORs. In each connected component,
+d input vertices, a ANDs and q ORs have at most a+2q parent-edge occurrences
+and at least d+a+q-1 distinct undirected edges. Therefore d<=q+1. Repeated
+operand edges do not invalidate the inequality.
+
+A good component contains a raw vertex of S_W. Subtracting those vertices
+gives |F minus S_W|<=q_small+number_bad_components. Shared raw vertices are
+single graph vertices, so one cannot be assigned to two components. Counting
+FALSE as an input only weakens the bound. TRUE cannot appear in a proper
+productive clean ancestor cone and must be omitted/reindexed before applying
+the later small-input birth helper.
+
+If S_W is a singleton, the routed graph is one small component and is good:
+the singleton's OR-only path to its raw input is retained. Here NONEMPTY S_W
+is essential. For larger S_W every small component attaches to a large OR.
+A nonempty boundary support would have its singleton in S_W and an OR-only
+raw-input path within the same component, making it good. Thus a bad component
+attaches through an empty-support operand. The receiving large OR is a
+support-copy gate. Distinct bad components cannot attach to the same large
+binary OR, since two empty operands would yield empty support. This proves
+
+    tau(H) <= |F minus S_W| <= q_small+q_large <= copy_ORs(cone W).
+
+The proof handles arbitrary partial accepted residual H, including H empty.
+It neither assumes W equals the full edge function nor treats support copies
+as Boolean copies. The empty-support extension without an extra allowance is
+false: AND(0,9) accepts an edge with tau=1 and has no OR gate. The nonempty
+guard is explicit in every application here.
+
+## Support redirection and terminal charge
+
+Redirect each support-copy OR to a parent with identical singleton support.
+All retained singleton supports remain unchanged topologically, so every
+AND birth set and the whole birth graph B remain unchanged. The original
+copy/noncopy classifications also remain unchanged. Exactly c copy gates
+are removed; AND nodes may be retained even if dead. The birth-count helper
+uses support recurrences, joins and birth coverage, not preservation of
+positive truth rows. Thus |B|<=core_gate_count-c is valid. Boolean functions
+may change under this reduction; our controls explicitly allow and record
+that, rather than asserting an invalid semantic normalization.
+
+Prune to the selected ancestor union and delete its maximal selected ORs T.
+A nonterminal selected cone loses no selected maximum; a terminal selected
+cone loses only its own root, at most one copy OR. The common core therefore
+contains at least max(0,max_i(tau(G-S_i)-indicator(i in T))) copies. Taking a
+MAXIMUM avoids charging shared copy gates twice. Adding this to the forced
+birth union (residual edges plus nonterminal support-owner stars) and |T|
+gives the claimed bound(D). Constant/copy exceptions and overlapping cones
+are accounted for. No minimum-size circuit assumption is used.
+
+## Complete supplied-list application
+
+Independent source review_copy_cover_closure.py uses a different64-mask
+enumeration of all19 labeled partial orders and computes residual cover
+numbers through maximum independent subsets, rather than the producer's
+edge-branch recurrence. All20102 ancestry cases match exactly. All800 r1
+families and251 of258 r0 families exceed17 gates directly. The other seven
+allow only the ancestry antichain. The previously reviewed tight-core proof
+then applies: a cost15 selected cone contains all14 nonselected gates;
+arbitrary-supported-ancestor charges restrict their supports. Every allowed
+operand pair and shared-last-core test for all seven was independently
+recomputed, including581 immediate downward checks. All seven are excluded.
+
+The guarded strict-terminal bonus is needed in ZERO cases: the copy charge
+always dominates it. The finite closure therefore does not depend on any
+unguarded or repaired strict-birth bonus. It uses the copy-cover/terminal
+charge, forced-star basic birth count, and the seven reviewed tight tests.
+
+Different concrete controls reuse50 saved shared DAGs, not the producer's
+random generator. They evaluate all2048 inputs, route1702 proper nonempty
+intermediate outputs (1472 nonempty residuals), check10004 small components
+and their distinct bad-component attachments, and perform50 actual support
+redirections preserving every AND birth. FALSE, duplicates/copies and dead
+TRUE gates are included. These controls are not17-gate circuit constructions
+and do not replace the general proof.
+
+Independent review result a598a661731287f9c3a3b586fc594484464ce60d2a92b6e197e070e1536feff6;
+source7f60805083520278bf35cc964da7f8dba24ef57212bd6ef99bedf4c3bc8c5da8.
+Exit0 in0.764 seconds, full stdout/stderr retained. No Lean or solver run.
+
+Scope: all supplied800 r1 and258 r0 families are mathematically excluded
+under the prior reviewed17-gate productive-clean, minimal proper full-cover
+normalization and complete-census pipeline. This is not a k4/mixed exclusion,
+whole-shard result, implemented CNF cut, Lean theorem or global refutation.
+The earlier S04 birth-only filter is redundant for these particular lists;
+its frozen historical pending-review archive remains unchanged.
+
+
+05:54 dated addendum: S01 peer review7c6f5bc3390f9ce80c7673ce1e49d0c20233113d13484400991845c208cf7b13 independently passed S04 selected-birth proofs/source and1878stored relations/13146union bounds. No second full absent-position census by S01 is claimed. The historical pending-status archive stays unchanged; receipt and four peer artifacts are in copy-cover-delivery-v1. Stronger independently reviewed S01 copy-cover closure supersedes these weaker supplied-family counts.

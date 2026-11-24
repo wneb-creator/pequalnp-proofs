@@ -1,0 +1,80 @@
+{
+  "status": "READY_FINAL_PREPARATION_PRESERVATION_MAIN_REVIEW",
+  "directory": "/tmp/oec/pequalnp-pilot-18/orch/S02/live-gadget-repair-preservation-v1",
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/live-gadget-repair-preservation-v1/MANIFEST.json",
+      "sha256": "5f8bb73682bad79597d0778f893d67ebcbe51e5d8362b6fcb0cd92f31f3e18d0",
+      "bytes": 19088
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/live-gadget-repair-preservation-v1/README.md",
+      "sha256": "f67af9dc6edb454ba332623ce5f0fe1ee709838a3ad2aa9b75008892458d23db",
+      "bytes": 2340
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/live-gadget-repair-preservation-v1/S02-live-gadget-repairs.tar.gz",
+      "sha256": "bfe94aa86b5403aa0c0613e274916a24e11b5828f387ddebc98621737b04ec37",
+      "bytes": 134948
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/live-gadget-repair-preservation-v1/live-gadget-repair-package.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/live-gadget-repair-preservation-v1/live-gadget-repair-package.stdout",
+      "sha256": "91d1bbb2a6dad854695dc744871765589abd0a28ee81a9f09c9d3aadebb5930d",
+      "bytes": 718
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/live-gadget-repair-preservation-v1/reconstruction.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/live-gadget-repair-preservation-v1/reconstruction.stdout",
+      "sha256": "37d89855d61b7dade78c30a389463e1c11df3f4a144e0026205a4e182568d44a",
+      "bytes": 127
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/live-gadget-repair-preservation-v1/validation.json",
+      "sha256": "6fb82e1b404da1e2ba342fe9e5fc7fd45d6cad164eb2a97b9f6b92a7a0612d26",
+      "bytes": 756
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/live-gadget-repair-preservation-v1/validation.txt",
+      "sha256": "a5745bab84cc30de8736e062091843291b7c4287cc367a7f5a54433091300816",
+      "bytes": 728
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/live-gadget-repair-preservation-v1/verification.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/live-gadget-repair-preservation-v1/verification.stdout",
+      "sha256": "acdeb26a2b4dfe87341bf8a6daf38d67a380d633b9aac4e49c040f734bb7b30f",
+      "bytes": 87
+    }
+  ],
+  "archive_sha256": "bfe94aa86b5403aa0c0613e274916a24e11b5828f387ddebc98621737b04ec37",
+  "archive_bytes": 134948,
+  "archive_regular_members": 104,
+  "exact_source_copies": 100,
+  "reconstructed_CNFs": 8,
+  "reconstructed_files": 18,
+  "positive_models_replayed": 4,
+  "repair134232_complete": true,
+  "repair134232_exact21_found": false,
+  "repair134232_smallest_exact": 22,
+  "active_outputs_read": false,
+  "production_runtime_included": false,
+  "solver_launched": false,
+  "scope": "Preparedlive andcandidate-onlyrootORinputs pluscompletedfinite134232checks; no solveroutcome/21witness/globalclaim.",
+  "Sub-agents": "none",
+  "TIMING": {
+    "total_minutes": 333.5,
+    "subagents": 0
+  }
+}

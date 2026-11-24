@@ -1,0 +1,30 @@
+{
+  "verdict": "ARCHIVE_HASH_ROUNDTRIP_AND_PORTABLE_REPRODUCTION_PASS_NEW_MATH_PENDING_REVIEW",
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-preservation-v1.tar.gz",
+  "archive_sha256": "878a7ddc709da2fa50c969ec00fed9a892ba01ff0185af3c27b497b91d01664d",
+  "archive_bytes": 755754,
+  "manifest_sha256": "9c3735ca5638525b27b4ad3b03656d8993b845b19448d395980b34b6f3a43421",
+  "payload_count": 28,
+  "regular_members": 29,
+  "producer_handoff_sha256": "4ce8f790978c96dbdf4524d91ea832128ec6d5c91acbb37a7f64388fe2a5deb6",
+  "runs": [
+    {
+      "script": "filter_terminal_copy_birth.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.595404661999055,
+      "stdout_sha256": "68e0572ed8f7ece771f82cf15ea355ba46d08805ee651ba096216ddb74f08535",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "script": "check_support_copy_cover.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.28905281600236776,
+      "stdout_sha256": "085d342ace85ccd3bc9d1bed5f92dad4016a41c6e8cc0b01f1a1031456469bee",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "final_family_records_identical": true,
+  "all_deterministic_DAG_controls_identical": true,
+  "solver_run": false,
+  "Lean_build": false
+}

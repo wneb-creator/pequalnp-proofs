@@ -1,0 +1,50 @@
+{
+  "verdict": "PASS_MATHEMATICAL_PROOFS_SOURCE_REVIEW_AND_STORED_WITNESS_AUDIT",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S04/selected-ancestry-birth-bound.md",
+      "sha256": "33af587541442e209a871bbf6b6935aafaf3ec9a8240259e4c5dfbb82e8c81da"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S04/selected-birth-subfamily-corollary.md",
+      "sha256": "31578144ffb03cb48b12a083bd7c3954aa12cbf5c6787b5e4e71f0274685e9a8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S04/filter_selected_birth_patterns_v3.py",
+      "sha256": "712f3bd35f26832f6900875a8f8fcf35fed9817dce8b19c3f234fe7c9aee23b2"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S04/selected-birth-patterns-v3.json",
+      "sha256": "2cda8c5b1a0bbdcb46fd4f372b3da88d756b60f0f6f9fc0a89ff5d1aae5e5645"
+    }
+  ],
+  "reviewer_source_sha256": "951ae05672793780a41e52b33c8d2527851dd8a204618144d0305d026e43e90e",
+  "relations_independently_rechecked": 1878,
+  "subfamily_unions_independently_rechecked": 13146,
+  "mathematical_findings": [
+    "Nonterminal firstAND forces the entire unique-owner star; edge sets must be unioned.",
+    "Only selected ancestry maxima are deleted; other selected outputs remain ordinary core gates.",
+    "NonemptyK plus at least one missing terminal-star edge is sufficient for strictness, and correctly guarded.",
+    "Subfamily proof does not require that a subfamily itself be a minimal product; fullcover and incomparable supports suffice.",
+    "Union upper bound subtracts only selected outputs outside every chosen cone and the one possible distinct outside firstAND.",
+    "v3 code uses these exact guards, set unions, chronological inequalities and previous conservative owner/raw conventions."
+  ],
+  "limitations": [
+    "Stored successful relations and all seven union bounds independently recomputed; no second full absent-position census run by S01.",
+    "Exhaustiveness follows reviewed finite loop structure and S04 separate recomputation; no new solver/Lean/global result."
+  ],
+  "proposed_counts": [
+    {
+      "r": 0,
+      "excluded": 99,
+      "remaining": 159
+    },
+    {
+      "r": 1,
+      "excluded": 230,
+      "remaining": 570
+    }
+  ],
+  "solver_run": false,
+  "Lean_build": false
+}

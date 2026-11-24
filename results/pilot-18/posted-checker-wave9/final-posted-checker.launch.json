@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-24T05:56:21.352287+00:00",
+  "pid": 39672,
+  "command": [
+    "node",
+    "tools/check-lean.mjs",
+    "lean/PEqualNP/Outside/L_meta_1342.lean",
+    "/tmp/oec/pequalnp-pilot-18/statement.txt",
+    "check"
+  ],
+  "scope": "Expected unfinished-file rejection; no postedtheoremclaimed."
+}

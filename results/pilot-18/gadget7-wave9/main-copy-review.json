@@ -1,0 +1,12 @@
+{
+  "status": "PASS_MAIN_ALL_DELIVERY_AND_ARCHIVE_HASHES",
+  "utc": "2026-11-24T05:46:15.962585+00:00",
+  "checks": [
+    {
+      "archive": "gadget7-preservation-v2.tar.gz",
+      "members": 81,
+      "payloads_checked": 80
+    }
+  ],
+  "scope": "Preparation and controls only; active runtime excluded; no exact21 result or posted theorem."
+}

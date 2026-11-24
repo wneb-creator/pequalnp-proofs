@@ -1,0 +1,5 @@
+BEST_FILE /tmp/oec/pequalnp-pilot-18/shuffle-best4-candidate-134237/engine-result.json.best-0.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/shuffle-best4-candidate-134237/engine-result.json.best-1.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/shuffle-best4-candidate-134237/engine-result.json.best-2.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/shuffle-best4-candidate-134237/engine-result.json.best-3.json
+UNKNOWN iterations=3068218368 restarts=306821 elapsed=600.001

@@ -1,0 +1,9 @@
+PASS scoped source/control/finite-repair preservation; main independent deliveryreview required.
+8CNFs+8metadata+2families reconstructedbyte-exact;4positiveSATassignmentmodels replayed withoutsolver.
+Genericlive clauses have pruning/padding normalization; rootORchildren are candidate-only, notcomplete.
+400randomDAGs/76800fulloutputs checked. Positivefixtures are22wholegates andnot21witnesses.
+134232 finitefamilies completed9168901full-bitsetcontextchecks; minimumexact22, no21candidate.
+100exactsourcecopies/104regulararchive members/42S06bindings/payloadhashes/tarroundtripPASS.
+No rawCNFs,binaries,activeoutputs,productionruntime,globalrefutation orpostedcheckeracceptance.
+Sub-agents: none
+TIMING total=333.5 subagents=0

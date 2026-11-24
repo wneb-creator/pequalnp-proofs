@@ -1,0 +1,52 @@
+{
+  "status": "READY_MAIN_PRESERVATION_PENDING_NEW_MATH_PEER_REVIEW",
+  "archive_sha256": "878a7ddc709da2fa50c969ec00fed9a892ba01ff0185af3c27b497b91d01664d",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-preservation-v1.tar.gz",
+      "sha256": "878a7ddc709da2fa50c969ec00fed9a892ba01ff0185af3c27b497b91d01664d",
+      "bytes": 755754
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-preservation-v1/manifest.json",
+      "sha256": "9c3735ca5638525b27b4ad3b03656d8993b845b19448d395980b34b6f3a43421",
+      "bytes": 7207
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-preservation-v1/verification.json",
+      "sha256": "5d6797099cccd6a2e15d8f43341f2b6ca4d7b6b8f58d4d667c7fe885f9c7ea25",
+      "bytes": 1306
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-preservation.stdout.txt",
+      "sha256": "fa948f105ba3c69e3361e37b5a7ed501524fdf41172c3e533f0d832a94f497c8",
+      "bytes": 1194
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-preservation.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-preservation-v1/final-filter.stdout.txt",
+      "sha256": "68e0572ed8f7ece771f82cf15ea355ba46d08805ee651ba096216ddb74f08535",
+      "bytes": 591
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-preservation-v1/final-filter.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-preservation-v1/dag-controls.stdout.txt",
+      "sha256": "085d342ace85ccd3bc9d1bed5f92dad4016a41c6e8cc0b01f1a1031456469bee",
+      "bytes": 544
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S01/copy-cover-preservation-v1/dag-controls.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "claim": "Portableproposed800r1+258r0closure; newproofreviewpending; noLean/SAT/globalclaim."
+}

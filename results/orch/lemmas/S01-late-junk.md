@@ -556,3 +556,21 @@ review of the census and new proofs. Exact proof forced-birth-terminal-bound.md
 SHA ce4af7f97ca5ac57c10f10d85467daa6f9e9e33ec79a66f461769dfbc55c980a; result SHA b5757c889fd7c426ba3a24b472043cf87d60104230c01db61dd514d431ae06f1.
 No SAT/Lean or global AAAA/shard exhaustion is claimed. No archive packaging
 was performed after the instruction to prioritize mathematics.
+
+## 05:49 new copy-cover proposal closes supplied k3/r0 and r1 lists
+
+For a proper nonempty-support wire, the residual accepted-edge cover number
+is at most the number of ancestor OR gates whose support equals an operand.
+This is a support-only copy property, not Boolean redundancy. The proof routes
+each AND through a singleton-support operand and counts connected components
+of the small-support part; every bad component attaches to a large copy OR.
+Removing copy ORs in the abstract support model preserves all AND birth sets.
+Thus mandatory births plus the largest residual-cover charge constrain the
+whole shared prefix. A terminal output loses at most one of its copy gates
+when terminal selected outputs are removed, giving the terminal-minus1 bound.
+
+All19partialorders checked per suppliedfamily:800/800r1 and251/258r0 fail
+directly; the last7r0 admit only the antichain and fail the reviewed tight-cone
+operand tests. Allnewmath/code remains PENDING INDEPENDENT REVIEW; noLean,
+SAT, k4/5 or globalAAAA result. Handoff copy-cover-closure-handoff.json SHA 4ce8f790978c96dbdf4524d91ea832128ec6d5c91acbb37a7f64388fe2a5deb6.
+Fullcontrol/source/results/logs retained; portablepreservation is beingbuilt.

@@ -1,0 +1,29 @@
+{
+  "utc": "2026-11-24T05:42:36.363459+00:00",
+  "pid": 38107,
+  "command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S02/shuffle-engine-v1/stochastic_tools_shuffle.py",
+    "run",
+    "--engine",
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/all-negative-shuffle-v1/circuit_anneal_allnegative_shuffle",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/allnegative-best4-direct21-v1/direct-seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/shuffle-best4-candidate-134237",
+    "--seed",
+    "134237",
+    "--seconds",
+    "600",
+    "--iterations",
+    "4000000000",
+    "--restart",
+    "10000",
+    "--weight",
+    "2",
+    "--shuffle-restarts"
+  ],
+  "review_sha256": "5146eb7ac9871706deee49391118489790dfaedd3ad7113a73b9d5e256826de3",
+  "scope": "Same reviewed combined141shuffle engine and full2048validator; fresh low-positive-weight restart schedules, candidate only."
+}

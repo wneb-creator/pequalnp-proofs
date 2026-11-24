@@ -1,0 +1,29 @@
+{
+  "verdict": "PRESERVATION_HASH_PASS_NEW_MATH_PEER_REVIEW_PENDING",
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/selected-birth-math-preservation-v1.tar.gz",
+  "archive_sha256": "e8cee9c9aa91950632bd3e84ed8711be8ed134995303d1c59d010568c29cce03",
+  "archive_bytes": 1314484,
+  "regular_members": 51,
+  "manifest_sha256": "f682c69889edf153e9a01a329a8e8f5d14ee9121a56c6a0e3ea9b3f6c5252c3d",
+  "strongest_summary": [
+    {
+      "r": 0,
+      "input": 258,
+      "excluded": 99,
+      "remaining": 159
+    },
+    {
+      "r": 1,
+      "input": 800,
+      "excluded": 230,
+      "remaining": 570
+    }
+  ],
+  "scope": "NEW proposed guarded selected-ancestry/star and subfamily-cone mathematics; v3 proposes99/258r0 and230/800r1 exclusions,159/570 remain; two scalar implementations+actualDAG controls, second-agent proof review PENDING. No CNF/Lean/global claim.",
+  "proof_sha256": "33af587541442e209a871bbf6b6935aafaf3ec9a8240259e4c5dfbb82e8c81da",
+  "corollary_sha256": "31578144ffb03cb48b12a083bd7c3954aa12cbf5c6787b5e4e71f0274685e9a8",
+  "strongest_source_sha256": "712f3bd35f26832f6900875a8f8fcf35fed9817dce8b19c3f234fe7c9aee23b2",
+  "strongest_result_sha256": "2cda8c5b1a0bbdcb46fd4f372b3da88d756b60f0f6f9fc0a89ff5d1aae5e5645",
+  "second_implementation_sha256": "34105705bc7e5774e922b3abf176e093306e006f445625ffd375e7b25e336373",
+  "controls_sha256": "1b728b551ef741c20e7302eea7e5b7bee76b773774426e8d923bc1eccc0f4010"
+}

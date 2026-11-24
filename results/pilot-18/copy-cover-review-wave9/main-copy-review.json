@@ -1,0 +1,12 @@
+{
+  "status": "PASS_MAIN_ALL_DELIVERY_AND_ARCHIVE_HASHES",
+  "utc": "2026-11-24T05:55:13.127381+00:00",
+  "checks": [
+    {
+      "archive": "copy-cover-closure-preservation-v1.tar.gz",
+      "members": 39,
+      "checked_payloads": 38
+    }
+  ],
+  "scope": "Researchpreparation/reviewonly; no exact21/global/Leanclaim."
+}

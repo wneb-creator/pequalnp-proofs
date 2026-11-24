@@ -1,0 +1,53 @@
+{
+  "active_production_read_or_included": false,
+  "archive": {
+    "bytes": 139694,
+    "sha256": "19f1f5f8fe47cb98c5d440b608fc49eca6753867ef1397c9705e58bc65cfb3d5"
+  },
+  "manifest_sha256": "9a805be008e5f89f43bdce650544ac618229ce804c4e140af3806c0b25317220",
+  "members": 144,
+  "payloads": 143,
+  "portable_restore": {
+    "S05_handoff_bindings": 65,
+    "S06_handoff_bindings": 72,
+    "payloads": 143,
+    "restored_cnf_aliases": 14,
+    "retained_positive_model_replays": [
+      {
+        "accepted_as21": false,
+        "full_gate_count": 22,
+        "full_inputs": 2048,
+        "gadget_inputs": 128,
+        "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7"
+      },
+      {
+        "accepted_as21": false,
+        "full_gate_count": 22,
+        "full_inputs": 2048,
+        "gadget_inputs": 256,
+        "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8"
+      },
+      {
+        "accepted_as21": false,
+        "full_gate_count": 22,
+        "full_inputs": 2048,
+        "gadget_inputs": 128,
+        "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-positive"
+      },
+      {
+        "accepted_as21": false,
+        "full_gate_count": 22,
+        "full_inputs": 2048,
+        "gadget_inputs": 256,
+        "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-positive"
+      }
+    ],
+    "solver_or_checker_launched": false,
+    "source_map_bindings": 154,
+    "status": "PASS_PORTABLE_SAT_ONLY_PACKAGE",
+    "unique_cnf_recipes": 6
+  },
+  "solver_or_checker_launched": false,
+  "source_map_bindings": 154,
+  "status": "PASS_SAT_ONLY_PORTABLE_ARCHIVE_AND_FULL_BINDING_RESTORE"
+}

@@ -1,0 +1,34 @@
+{
+  "utc": "2026-11-24T05:58:21.201709+00:00",
+  "files": [
+    {
+      "file": "final-posted-checker.stdout",
+      "bytes": 148,
+      "sha256": "a224376e6f9718af535aa1d836d8626a39d9faf323aa1539ecd2ad9621e15c21"
+    },
+    {
+      "file": "final-posted-checker.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "final-posted-checker.execution.json",
+      "bytes": 422,
+      "sha256": "7f27441ac7f84edb2c27e420edc0ed7d8e82a36c9be284207c4bbaf73b15d579"
+    },
+    {
+      "file": "final-posted-checker.launch.json",
+      "bytes": 305,
+      "sha256": "9956d81267abe8c8c524a134adcc650cb790b7ac297e5ade45efa3d175efa43f"
+    },
+    {
+      "file": "statement.txt",
+      "bytes": 386,
+      "sha256": "f9c59d248dd671d0762637e4171007c1ea5dc33a8e76af3872f72b52dde2b2d5"
+    }
+  ],
+  "verdict": "REJECTED (no-theorem)",
+  "named_Lean_sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+  "named_Lean_lines": 2069,
+  "scope": "Actual postedcheckerfailure onunfinishedpartial. No acceptedprooforrefutation. ExistinghelperbuildPASS remainsvalid; checkerbuildphasecompleted."
+}

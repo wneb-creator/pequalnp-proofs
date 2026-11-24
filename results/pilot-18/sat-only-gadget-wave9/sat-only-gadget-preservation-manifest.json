@@ -1,0 +1,1410 @@
+{
+  "active_production_read_or_included": false,
+  "format": "s06-sat-only-gadget-preservation-v1",
+  "omitted_cnfs": {
+    "scratch/orch/S05/gadget7-v1/bad11-pinned.cnf": {
+      "bytes": 149717,
+      "sha256": "7c32d43326f46fe562c84ddb6cfc98d6f23a563061b7468d692c1c1c895b3d9d"
+    },
+    "scratch/orch/S05/gadget7-v1/generic11.cnf": {
+      "bytes": 147558,
+      "sha256": "186d15c94182fb9cd0cee60484dbab636419e267cf0980b00dcfed6bbcbc86a1"
+    },
+    "scratch/orch/S05/gadget7-v1/positive12-pinned.cnf": {
+      "bytes": 173189,
+      "sha256": "6046f9b7560950cbd399e20860da1c8344c97eba2322eefeb9cd08cf0f1dc235"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-bad/instance.cnf": {
+      "bytes": 149717,
+      "sha256": "7c32d43326f46fe562c84ddb6cfc98d6f23a563061b7468d692c1c1c895b3d9d"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/instance.cnf": {
+      "bytes": 173189,
+      "sha256": "6046f9b7560950cbd399e20860da1c8344c97eba2322eefeb9cd08cf0f1dc235"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-bad/instance.cnf": {
+      "bytes": 192219,
+      "sha256": "0b39eb1f59ceb336bd99edcb902d6216a9e189c19319376a64cb711c0325e1ab"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12-pinned.cnf": {
+      "bytes": 192219,
+      "sha256": "0b39eb1f59ceb336bd99edcb902d6216a9e189c19319376a64cb711c0325e1ab"
+    },
+    "scratch/orch/S06/gadget8-v1/generic12.cnf": {
+      "bytes": 189611,
+      "sha256": "dae54c6f20435a53be3a34b09da9310e85df61823b382caa2837817a441b8bfb"
+    },
+    "scratch/orch/S06/gadget8-v1/positive13-pinned.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/instance.cnf": {
+      "bytes": 149717,
+      "sha256": "7c32d43326f46fe562c84ddb6cfc98d6f23a563061b7468d692c1c1c895b3d9d"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/instance.cnf": {
+      "bytes": 192219,
+      "sha256": "0b39eb1f59ceb336bd99edcb902d6216a9e189c19319376a64cb711c0325e1ab"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/instance.cnf": {
+      "bytes": 173189,
+      "sha256": "6046f9b7560950cbd399e20860da1c8344c97eba2322eefeb9cd08cf0f1dc235"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/instance.cnf": {
+      "bytes": 223672,
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    }
+  },
+  "payload": {
+    "BINARY_PINS.json": {
+      "bytes": 436,
+      "sha256": "3e540f4a10f3879d359e1f665c75645148730d4cb7dbedb996a8f713e50f6010"
+    },
+    "CNF_RECIPES.json": {
+      "bytes": 4066,
+      "sha256": "b3a336a35c72b8c753cdcd5a5ae0a569159cfb1cca3134f33dfcc534bb873a80"
+    },
+    "README.md": {
+      "bytes": 2533,
+      "sha256": "72320a69e94456d8f234456b4af7afa1893fcfca2ea194645b2e083caaee0ccb"
+    },
+    "scratch/orch/MAIN/main-gadget7-review.json": {
+      "bytes": 590,
+      "sha256": "af69f66387be6371d6d04e09b48f86b44b2ef48b04ef2c83c140e3ed30dc8fed"
+    },
+    "scratch/orch/MAIN/main-gadget8-review.json": {
+      "bytes": 591,
+      "sha256": "e5470a04eb581b9bf06ced3423e432ce6a436ea679e67ce3d509d93e63d77e5d"
+    },
+    "scratch/orch/MAIN/main-sat-only-gadget-review.json": {
+      "bytes": 689,
+      "sha256": "2f12788ef60cf9d0a3feb1fdcc134b468d388cc6a277afecced4e5b64a3ab74c"
+    },
+    "scratch/orch/MAIN/review_gadget7.py": {
+      "bytes": 4099,
+      "sha256": "f6578f452af0d3c8c5d73db4dc632071964a0927a707b3790e608761a4132405"
+    },
+    "scratch/orch/S05/build_gadget7.py": {
+      "bytes": 6886,
+      "sha256": "6bc53c66e01a9f7a3fbcede34ddba0893209636be60d4a1ea18505970b5b1c16"
+    },
+    "scratch/orch/S05/gadget7-v1/bad11-pinned.json": {
+      "bytes": 15465,
+      "sha256": "dedb82e39e32e364c62c7b78640a585b9a093e36f7795f48a145d3b77c5b21fc"
+    },
+    "scratch/orch/S05/gadget7-v1/family.json": {
+      "bytes": 1425,
+      "sha256": "650853df0e83e43ccce7bc7a2f88962aaa01ced2d294e711951c5ac5557b4201"
+    },
+    "scratch/orch/S05/gadget7-v1/generic11.json": {
+      "bytes": 15029,
+      "sha256": "8a67efc064d7ff414a573e439bc4eb4e18ac5fa51a9fd81134ffaff5f720ebd5"
+    },
+    "scratch/orch/S05/gadget7-v1/positive12-pinned.json": {
+      "bytes": 16821,
+      "sha256": "aec9be499fe24b18b04fb785bdd9e794fdc1797237070749a078d18291fbad19"
+    },
+    "scratch/orch/S05/kissat-sat-only-review-handoff.json": {
+      "bytes": 14765,
+      "sha256": "a7442833708c0264e301ab11336eac87c5660d77aad8dc9ab3a6fbc0cb3d08a8"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/abort-before-start.abort": {
+      "bytes": 14,
+      "sha256": "ae1a6cca564e0ae954aa6735f83050fe6d1881a345a3a2ca3301ad2f95d79620"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/abort-before-start.execution.json": {
+      "bytes": 905,
+      "sha256": "28aa956d74edea1f0845113a0e63070bdc35abbb32543b82957f8aad8bb094b2"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/abort-before-start.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/abort-before-start.outer.stdout": {
+      "bytes": 125,
+      "sha256": "e49e0f0aede2f2c2a93e59c81b6afbb805150dbd8de9a5502393e2817e2a211e"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/g7-bad.execution.json": {
+      "bytes": 858,
+      "sha256": "aa86af6d4505c87bfde51de2518746fab04daf53715c4820275528125ca7a515"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/g7-bad.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/g7-bad.outer.stdout": {
+      "bytes": 113,
+      "sha256": "e7615766b9ce68e58abae8ff706a68cd53a2be9c981a392879c8d7624ccf2936"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/g7-positive.execution.json": {
+      "bytes": 901,
+      "sha256": "ee7b753a34dcdfa8b9a190c36106de2662f700bb0390ffc07a9a7b82a6c7d095"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/g7-positive.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/g7-positive.outer.stdout": {
+      "bytes": 118,
+      "sha256": "91d09c99dd64c5816de6c913776e540eccf0b1764294cb4e8ea4089e014d8227"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/g8-bad.execution.json": {
+      "bytes": 858,
+      "sha256": "eb8f00e421b766639cfd506f5a0eb790fa931af8108e331f441c2ba69f5dcd40"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/g8-bad.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/g8-bad.outer.stdout": {
+      "bytes": 113,
+      "sha256": "a00caa601760c8e8f3081c481be6db05f7f68c152b5d39c20468588fbe82fe52"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/g8-positive.execution.json": {
+      "bytes": 901,
+      "sha256": "956015c372ecd0d38cd2d3388887364f59ced3e95f7647a022d8f63b07ee42cc"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/g8-positive.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/g8-positive.outer.stdout": {
+      "bytes": 118,
+      "sha256": "e3665c9d56543a7e6a95d8efb14779fc313da51279c6eeaf89333761d8f39dbd"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/abort-before-start/progress.json": {
+      "bytes": 1857,
+      "sha256": "0e810f729cd38a3ed668fd9775ea1df6efee6c30cf7c18c777edaa21abf06d56"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/abort-before-start/result.json": {
+      "bytes": 1857,
+      "sha256": "0e810f729cd38a3ed668fd9775ea1df6efee6c30cf7c18c777edaa21abf06d56"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-bad/instance.json": {
+      "bytes": 15465,
+      "sha256": "dedb82e39e32e364c62c7b78640a585b9a093e36f7795f48a145d3b77c5b21fc"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-bad/progress.json": {
+      "bytes": 2875,
+      "sha256": "4bff178e6218335c5e46d1b7861bbd7844b264c03c88029155c9ebcdb34d9332"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-bad/result.json": {
+      "bytes": 2875,
+      "sha256": "4bff178e6218335c5e46d1b7861bbd7844b264c03c88029155c9ebcdb34d9332"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-bad/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-bad/solver.stdout": {
+      "bytes": 8042,
+      "sha256": "ae12e5d66b970268e3df874915f62676045921cfd17c54d52b765043df368704"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/gadget.validated.json": {
+      "bytes": 2848,
+      "sha256": "0034e784ba0334a114e87193cd8c554ffa4adc9271f3a90b975c34fa8d3b00a7"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/instance.json": {
+      "bytes": 16821,
+      "sha256": "aec9be499fe24b18b04fb785bdd9e794fdc1797237070749a078d18291fbad19"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/progress.json": {
+      "bytes": 7572,
+      "sha256": "b527dd293c8135ac12b2455510b03dc587ee19d835e27fcade13fd599fbd9e2e"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/result.json": {
+      "bytes": 7572,
+      "sha256": "b527dd293c8135ac12b2455510b03dc587ee19d835e27fcade13fd599fbd9e2e"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/solver.stdout": {
+      "bytes": 12638,
+      "sha256": "d19267404b319977c84bac3f050fd83a8ca9e8bd8ed266d525c0146d6dd553f6"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/validator.stdout": {
+      "bytes": 739,
+      "sha256": "59f0072ce4263b21685e3e43f16f5e4f5212961b2d17439a7b83d2646e227722"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-bad/instance.json": {
+      "bytes": 17730,
+      "sha256": "d87690333106529e8c91c88c7fb0d9f789336528c58beaeee7255b10a8558eb3"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-bad/progress.json": {
+      "bytes": 2893,
+      "sha256": "39b1f057b9b5ce73d00da11a7bb751cc11829d6cac56bbe38a4ae6d9df0afab7"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-bad/result.json": {
+      "bytes": 2893,
+      "sha256": "39b1f057b9b5ce73d00da11a7bb751cc11829d6cac56bbe38a4ae6d9df0afab7"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-bad/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-bad/solver.stdout": {
+      "bytes": 8042,
+      "sha256": "b30aba30429ebf1ecb9475e46a5c92f9522fc4e2e5b0e58506de72e478e944d8"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/gadget.validated.json": {
+      "bytes": 2911,
+      "sha256": "276b25076d04319075c6ebe6ffa46f45691b1a2762f52e71ce73ab7c6297316f"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/progress.json": {
+      "bytes": 7648,
+      "sha256": "4f6a09318499db042006493e65790da8a80f515aec6296b302978180c7c1d0c8"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/result.json": {
+      "bytes": 7648,
+      "sha256": "4f6a09318499db042006493e65790da8a80f515aec6296b302978180c7c1d0c8"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/solver.stdout": {
+      "bytes": 13503,
+      "sha256": "0a48cd402521fef9d0b717137f3f5a3bf53ae423cc60f099cae57bef22e18b9d"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/validator.stdout": {
+      "bytes": 739,
+      "sha256": "a53955a6201f8f556c140b6feddf2f2993e02529acb1f4f46c2531852a6acdd0"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/wrong-CNF-hash/progress.json": {
+      "bytes": 1863,
+      "sha256": "5d15833ff5ab9891e2dd6068574a88783fae04a8dbb05d188f2ee7861d3c3bcd"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/real/wrong-CNF-hash/result.json": {
+      "bytes": 1863,
+      "sha256": "5d15833ff5ab9891e2dd6068574a88783fae04a8dbb05d188f2ee7861d3c3bcd"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/review.json": {
+      "bytes": 7912,
+      "sha256": "f4d43dbd70113ab47b70de1eb3fa59bd7cf14b34db33ee309be82a72da2b969a"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/schema/7/controls.json": {
+      "bytes": 4137,
+      "sha256": "ff2f60347b85196c24223c222c2aacbfecccd1adfa616d486584b03a62eb92df"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/schema/7/solver.stdout": {
+      "bytes": 41,
+      "sha256": "f55820cf52cc5ca86275d3751d08f0827a944c22e5ff0bd96c2449dcf960b149"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/schema/8/controls.json": {
+      "bytes": 4137,
+      "sha256": "c63ab5028bba1a320e247bc5f0aca98d3bf2a6eb7c0fe7e9d8abf3f902c3bbc2"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/schema/8/solver.stdout": {
+      "bytes": 41,
+      "sha256": "f55820cf52cc5ca86275d3751d08f0827a944c22e5ff0bd96c2449dcf960b149"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/source/offline_checked_cadical.py": {
+      "bytes": 14034,
+      "sha256": "aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/source/sat_only_gadget_kissat.py": {
+      "bytes": 8906,
+      "sha256": "fd05c03210c7d815ec81f0f3a292ef5d7eeb92f4380c8f4c5fde18d10aaa6bcd"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/source/validate_gadget7.py": {
+      "bytes": 6906,
+      "sha256": "1eeceaaf05207387246634a12238389ba4059a5bf3cc43739edcf0173e8141bb"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/source/validate_gadget8.py": {
+      "bytes": 6952,
+      "sha256": "60e877fd3bdb11d134633519482b67ca82478c55a00350e34a935ddd194054cb"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/wrong-CNF-hash.execution.json": {
+      "bytes": 899,
+      "sha256": "60970e9ae2108eaf4b70ad37e7c1a6ea7e84e50d58032262a5f46e9fac861828"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/wrong-CNF-hash.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/kissat-sat-only-review/wrong-CNF-hash.outer.stdout": {
+      "bytes": 121,
+      "sha256": "e51c1a34a22c7544701cadfbb9a0ad5baf672f6e4c03aa8a682f172f8609e925"
+    },
+    "scratch/orch/S05/review_sat_only_kissat.py": {
+      "bytes": 7715,
+      "sha256": "539e03f1e942cf0e0703e7dee4fec4d34bf7aadf506f973035851f8f2cde0fe0"
+    },
+    "scratch/orch/S05/review_sat_only_kissat.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S05/review_sat_only_kissat.stdout": {
+      "bytes": 624,
+      "sha256": "0da5b8bbbc3c1f0c0e3309bce476e2734e92a21edd695a524da4a4dbbd27d054"
+    },
+    "scratch/orch/S05/validate_gadget7.py": {
+      "bytes": 6906,
+      "sha256": "1eeceaaf05207387246634a12238389ba4059a5bf3cc43739edcf0173e8141bb"
+    },
+    "scratch/orch/S06/build_gadget8.py": {
+      "bytes": 6959,
+      "sha256": "3ca5274e1a394aff25e8f633bfc07ca5dd9ed2163b43db321dfba218e6b1ac17"
+    },
+    "scratch/orch/S06/control_sat_only_gadget_kissat.py": {
+      "bytes": 6859,
+      "sha256": "cc66e51a903a941e5c7e5d379ea48f3ada1f6c6bf5598e92fdf8a1cf878ddb98"
+    },
+    "scratch/orch/S06/gadget8-v1/bad12-pinned.json": {
+      "bytes": 17730,
+      "sha256": "d87690333106529e8c91c88c7fb0d9f789336528c58beaeee7255b10a8558eb3"
+    },
+    "scratch/orch/S06/gadget8-v1/family.json": {
+      "bytes": 1427,
+      "sha256": "3707fa19fe2b08e5a845834ed4c65fdc23a7ad424fd9e585ba67d7697da4484a"
+    },
+    "scratch/orch/S06/gadget8-v1/generic12.json": {
+      "bytes": 17250,
+      "sha256": "20ca64f5caae894c1b144c8f4de2ab5e7905ce0044447c326272d3c218f5022d"
+    },
+    "scratch/orch/S06/gadget8-v1/positive13-pinned.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/offline_checked_cadical.py": {
+      "bytes": 14034,
+      "sha256": "aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a"
+    },
+    "scratch/orch/S06/package_sat_only_gadget_archive.py": {
+      "bytes": 10568,
+      "sha256": "9a54dcea75e0c020f9ec91614c2401f187a5868fa118dc164e6b1990f78415f9"
+    },
+    "scratch/orch/S06/restore_sat_only_gadget_archive.py": {
+      "bytes": 5338,
+      "sha256": "0f64cc87d7f32aafa74f9d457ac93df73b76a922068e6cfd16161808a2d9aa94"
+    },
+    "scratch/orch/S06/sat-only-gadget-commands.json": {
+      "bytes": 3860,
+      "sha256": "a8e237e872f0430f7f6ae094bdafb9b04a5e80a4b1293cebefd6bb9583562e9c"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/abort-present.execution.json": {
+      "bytes": 916,
+      "sha256": "5fb70d2986cbd5ec278bae63d3a64ed25fe62f18aea14423eb5d82d806d1c9ea"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/abort-present.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/abort-present.outer.stdout": {
+      "bytes": 120,
+      "sha256": "39e47456f9bfddb5af6255b83f56671a9067d74c579b4e731c45c194b2433117"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/abort-present/progress.json": {
+      "bytes": 1857,
+      "sha256": "34e077960a04b6d714d25286bf3624e51d7cd65388d3ab2e142dcbe44f973328"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/abort-present/result.json": {
+      "bytes": 1857,
+      "sha256": "34e077960a04b6d714d25286bf3624e51d7cd65388d3ab2e142dcbe44f973328"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7.execution.json": {
+      "bytes": 812,
+      "sha256": "c6a59d078915e03723388df6b7ba246c4622ec3320625c8f0b660661ec658f35"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7.outer.stdout": {
+      "bytes": 120,
+      "sha256": "b61a0e2fedd43eb521476f4400f5577e0c5ddd23a8beba23decffd195144994f"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/instance.json": {
+      "bytes": 15465,
+      "sha256": "dedb82e39e32e364c62c7b78640a585b9a093e36f7795f48a145d3b77c5b21fc"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/progress.json": {
+      "bytes": 2899,
+      "sha256": "9e76be6f7acbc90c1a5d35f42845ff0ac0daaa82e2589e2a0e7b00e973df796d"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/result.json": {
+      "bytes": 2899,
+      "sha256": "9e76be6f7acbc90c1a5d35f42845ff0ac0daaa82e2589e2a0e7b00e973df796d"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/solver.stdout": {
+      "bytes": 8049,
+      "sha256": "531f96f2cf706e24eb9063a483f7ac7008c374f48fc1abaecf94633b816399a6"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8.execution.json": {
+      "bytes": 812,
+      "sha256": "58c2c2caa2a1b979b0bb5c15522fde93b214dcf9fcc670d4cb2a63bfcafa3b0e"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8.outer.stdout": {
+      "bytes": 120,
+      "sha256": "07254ac227488d73a17914238038800f042a8673933b70771f29e2f4222788b6"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/instance.json": {
+      "bytes": 17730,
+      "sha256": "d87690333106529e8c91c88c7fb0d9f789336528c58beaeee7255b10a8558eb3"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/progress.json": {
+      "bytes": 2882,
+      "sha256": "8deffea5b0310d20d706ed1a074a6dad6a5196e9619331f6d7b2373aee015ec8"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/result.json": {
+      "bytes": 2882,
+      "sha256": "8deffea5b0310d20d706ed1a074a6dad6a5196e9619331f6d7b2373aee015ec8"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/solver.stdout": {
+      "bytes": 8049,
+      "sha256": "9dd0bc52a63b607f9e0f8bac2066d4d41e409fb4914fbcb81fbe29be827feb7b"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/control-abort": {
+      "bytes": 22,
+      "sha256": "bcccfe718eba181aa9c531c8de55b0f17ecb692573bc26752d1fe217c0df9802"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/controls.json": {
+      "bytes": 11357,
+      "sha256": "7123c4f2c68436553c3f80aac7d98fbd625821dae454b0100e3e3a23995acb33"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7.execution.json": {
+      "bytes": 821,
+      "sha256": "8b2bfc1e0bbfa779c06836cf8261f6d49f2d329abada569b9fb734b5b17ce64a"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7.outer.stdout": {
+      "bytes": 125,
+      "sha256": "8fc0402a5d2c389c7666b4002d8aa403169edba5ec60873c30fb94cf5a3f3dd9"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/gadget.validated.json": {
+      "bytes": 2848,
+      "sha256": "43ef80ec5735924ced6de66b3c2edfd7e420e7b50939106a72602ccd55a4313f"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/instance.json": {
+      "bytes": 16821,
+      "sha256": "aec9be499fe24b18b04fb785bdd9e794fdc1797237070749a078d18291fbad19"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/progress.json": {
+      "bytes": 7588,
+      "sha256": "0b69a1172368a5080a468fc520d6538af8cbf7428f483071e1957f5ccb1030fc"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/result.json": {
+      "bytes": 7588,
+      "sha256": "0b69a1172368a5080a468fc520d6538af8cbf7428f483071e1957f5ccb1030fc"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/solver.stdout": {
+      "bytes": 12645,
+      "sha256": "a141653806338465b41032bd12c97c12db467df0fe5e274029f60a286cb4b607"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/validator.stdout": {
+      "bytes": 739,
+      "sha256": "ab80006dc1377a9d89d03da9d855ac806447cf9d81b7a8526a7b5ce54386cea8"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8.execution.json": {
+      "bytes": 822,
+      "sha256": "314b5f6b3f23acec94b14660ec04c2a7c0c57c319a17ad956b2fe64cfdf61136"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8.outer.stdout": {
+      "bytes": 125,
+      "sha256": "5329b1dbe0fe3b160c305599328d6790c1274abc2a504fec5e404a2700574d20"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/gadget.validated.json": {
+      "bytes": 2911,
+      "sha256": "21739208c70f0ea9a3760ceee477b56b8ff900ec5ba819c4ddce8d46b3a5de58"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/instance.json": {
+      "bytes": 19271,
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/progress.json": {
+      "bytes": 7661,
+      "sha256": "7501ac68d2a3be704dccb07874229b44f940f124578bb996f5842e2a93c1dda6"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/result.json": {
+      "bytes": 7661,
+      "sha256": "7501ac68d2a3be704dccb07874229b44f940f124578bb996f5842e2a93c1dda6"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/solver.stdout": {
+      "bytes": 13510,
+      "sha256": "3a86698d409252dc22b0a8821576168362952760b1c2522eff52da3f08fb91d4"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/validator.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/validator.stdout": {
+      "bytes": 739,
+      "sha256": "878c9b48d8b4e19c5c1f4126f2a7792719535a591520840ef2c0c5eeb70526e7"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/report-schema-7/solver.stdout": {
+      "bytes": 51,
+      "sha256": "593690912322b5e10649e98e610bd5ee42c2a7583fea342787e8da9c748235db"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/report-schema-8/solver.stdout": {
+      "bytes": 51,
+      "sha256": "593690912322b5e10649e98e610bd5ee42c2a7583fea342787e8da9c748235db"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash.execution.json": {
+      "bytes": 907,
+      "sha256": "765b42e1f976628c52799277ffc38a3fcb9b1f1c1c350eb8ea4e998ae573268e"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash.outer.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash.outer.stdout": {
+      "bytes": 123,
+      "sha256": "1870303eecb3e94a598c778bb54e33b9cb785be7628a1b8320309aef01c8e7f9"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash/progress.json": {
+      "bytes": 1863,
+      "sha256": "ddd4808599fde7499297fab7d498d38a25fa915a7f4fe40f2763c46868c2953e"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash/result.json": {
+      "bytes": 1863,
+      "sha256": "ddd4808599fde7499297fab7d498d38a25fa915a7f4fe40f2763c46868c2953e"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls.execution.json": {
+      "bytes": 207,
+      "sha256": "a91b777a3f9ad818503b4ce628eaef7e77404c51a58b0cf81412089c27f663e7"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scratch/orch/S06/sat-only-gadget-controls.stdout": {
+      "bytes": 242,
+      "sha256": "cb0ffb2b47b98f4feb6b94f5f786fdad64badeaad17b0f8bc377b203d2d7fd5f"
+    },
+    "scratch/orch/S06/sat-only-gadget-handoff.json": {
+      "bytes": 13709,
+      "sha256": "2a00340c4181f01e3c9a705cfe1871b33639ef208402dcbcf72016b02f578567"
+    },
+    "scratch/orch/S06/sat_only_gadget_kissat.py": {
+      "bytes": 8906,
+      "sha256": "fd05c03210c7d815ec81f0f3a292ef5d7eeb92f4380c8f4c5fde18d10aaa6bcd"
+    },
+    "scratch/orch/S06/validate_gadget8.py": {
+      "bytes": 6952,
+      "sha256": "60e877fd3bdb11d134633519482b67ca82478c55a00350e34a935ddd194054cb"
+    }
+  },
+  "scope": "Frozen exact runner/lifecycle/validators/controls/reviews only; no production or accepted global/Lean result.",
+  "source_map": {
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/main-gadget7-review.json": {
+      "bytes": 590,
+      "path": "scratch/orch/MAIN/main-gadget7-review.json",
+      "sha256": "af69f66387be6371d6d04e09b48f86b44b2ef48b04ef2c83c140e3ed30dc8fed"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/main-gadget8-review.json": {
+      "bytes": 591,
+      "path": "scratch/orch/MAIN/main-gadget8-review.json",
+      "sha256": "e5470a04eb581b9bf06ced3423e432ce6a436ea679e67ce3d509d93e63d77e5d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/main-sat-only-gadget-review.json": {
+      "bytes": 689,
+      "path": "scratch/orch/MAIN/main-sat-only-gadget-review.json",
+      "sha256": "2f12788ef60cf9d0a3feb1fdcc134b468d388cc6a277afecced4e5b64a3ab74c"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/MAIN/review_gadget7.py": {
+      "bytes": 4099,
+      "path": "scratch/orch/MAIN/review_gadget7.py",
+      "sha256": "f6578f452af0d3c8c5d73db4dc632071964a0927a707b3790e608761a4132405"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/build_gadget7.py": {
+      "bytes": 6886,
+      "path": "scratch/orch/S05/build_gadget7.py",
+      "sha256": "6bc53c66e01a9f7a3fbcede34ddba0893209636be60d4a1ea18505970b5b1c16"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-pinned.cnf": {
+      "bytes": 149717,
+      "path": "scratch/orch/S05/gadget7-v1/bad11-pinned.cnf",
+      "sha256": "7c32d43326f46fe562c84ddb6cfc98d6f23a563061b7468d692c1c1c895b3d9d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-pinned.json": {
+      "bytes": 15465,
+      "path": "scratch/orch/S05/gadget7-v1/bad11-pinned.json",
+      "sha256": "dedb82e39e32e364c62c7b78640a585b9a093e36f7795f48a145d3b77c5b21fc"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/family.json": {
+      "bytes": 1425,
+      "path": "scratch/orch/S05/gadget7-v1/family.json",
+      "sha256": "650853df0e83e43ccce7bc7a2f88962aaa01ced2d294e711951c5ac5557b4201"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/generic11.cnf": {
+      "bytes": 147558,
+      "path": "scratch/orch/S05/gadget7-v1/generic11.cnf",
+      "sha256": "186d15c94182fb9cd0cee60484dbab636419e267cf0980b00dcfed6bbcbc86a1"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/generic11.json": {
+      "bytes": 15029,
+      "path": "scratch/orch/S05/gadget7-v1/generic11.json",
+      "sha256": "8a67efc064d7ff414a573e439bc4eb4e18ac5fa51a9fd81134ffaff5f720ebd5"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-pinned.cnf": {
+      "bytes": 173189,
+      "path": "scratch/orch/S05/gadget7-v1/positive12-pinned.cnf",
+      "sha256": "6046f9b7560950cbd399e20860da1c8344c97eba2322eefeb9cd08cf0f1dc235"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-pinned.json": {
+      "bytes": 16821,
+      "path": "scratch/orch/S05/gadget7-v1/positive12-pinned.json",
+      "sha256": "aec9be499fe24b18b04fb785bdd9e794fdc1797237070749a078d18291fbad19"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review-handoff.json": {
+      "bytes": 14765,
+      "path": "scratch/orch/S05/kissat-sat-only-review-handoff.json",
+      "sha256": "a7442833708c0264e301ab11336eac87c5660d77aad8dc9ab3a6fbc0cb3d08a8"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/abort-before-start.abort": {
+      "bytes": 14,
+      "path": "scratch/orch/S05/kissat-sat-only-review/abort-before-start.abort",
+      "sha256": "ae1a6cca564e0ae954aa6735f83050fe6d1881a345a3a2ca3301ad2f95d79620"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/abort-before-start.execution.json": {
+      "bytes": 905,
+      "path": "scratch/orch/S05/kissat-sat-only-review/abort-before-start.execution.json",
+      "sha256": "28aa956d74edea1f0845113a0e63070bdc35abbb32543b82957f8aad8bb094b2"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/abort-before-start.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/kissat-sat-only-review/abort-before-start.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/abort-before-start.outer.stdout": {
+      "bytes": 125,
+      "path": "scratch/orch/S05/kissat-sat-only-review/abort-before-start.outer.stdout",
+      "sha256": "e49e0f0aede2f2c2a93e59c81b6afbb805150dbd8de9a5502393e2817e2a211e"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/g7-bad.execution.json": {
+      "bytes": 858,
+      "path": "scratch/orch/S05/kissat-sat-only-review/g7-bad.execution.json",
+      "sha256": "aa86af6d4505c87bfde51de2518746fab04daf53715c4820275528125ca7a515"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/g7-bad.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/kissat-sat-only-review/g7-bad.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/g7-bad.outer.stdout": {
+      "bytes": 113,
+      "path": "scratch/orch/S05/kissat-sat-only-review/g7-bad.outer.stdout",
+      "sha256": "e7615766b9ce68e58abae8ff706a68cd53a2be9c981a392879c8d7624ccf2936"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/g7-positive.execution.json": {
+      "bytes": 901,
+      "path": "scratch/orch/S05/kissat-sat-only-review/g7-positive.execution.json",
+      "sha256": "ee7b753a34dcdfa8b9a190c36106de2662f700bb0390ffc07a9a7b82a6c7d095"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/g7-positive.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/kissat-sat-only-review/g7-positive.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/g7-positive.outer.stdout": {
+      "bytes": 118,
+      "path": "scratch/orch/S05/kissat-sat-only-review/g7-positive.outer.stdout",
+      "sha256": "91d09c99dd64c5816de6c913776e540eccf0b1764294cb4e8ea4089e014d8227"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/g8-bad.execution.json": {
+      "bytes": 858,
+      "path": "scratch/orch/S05/kissat-sat-only-review/g8-bad.execution.json",
+      "sha256": "eb8f00e421b766639cfd506f5a0eb790fa931af8108e331f441c2ba69f5dcd40"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/g8-bad.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/kissat-sat-only-review/g8-bad.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/g8-bad.outer.stdout": {
+      "bytes": 113,
+      "path": "scratch/orch/S05/kissat-sat-only-review/g8-bad.outer.stdout",
+      "sha256": "a00caa601760c8e8f3081c481be6db05f7f68c152b5d39c20468588fbe82fe52"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/g8-positive.execution.json": {
+      "bytes": 901,
+      "path": "scratch/orch/S05/kissat-sat-only-review/g8-positive.execution.json",
+      "sha256": "956015c372ecd0d38cd2d3388887364f59ced3e95f7647a022d8f63b07ee42cc"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/g8-positive.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/kissat-sat-only-review/g8-positive.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/g8-positive.outer.stdout": {
+      "bytes": 118,
+      "path": "scratch/orch/S05/kissat-sat-only-review/g8-positive.outer.stdout",
+      "sha256": "e3665c9d56543a7e6a95d8efb14779fc313da51279c6eeaf89333761d8f39dbd"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/abort-before-start/progress.json": {
+      "bytes": 1857,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/abort-before-start/progress.json",
+      "sha256": "0e810f729cd38a3ed668fd9775ea1df6efee6c30cf7c18c777edaa21abf06d56"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/abort-before-start/result.json": {
+      "bytes": 1857,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/abort-before-start/result.json",
+      "sha256": "0e810f729cd38a3ed668fd9775ea1df6efee6c30cf7c18c777edaa21abf06d56"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-bad/instance.cnf": {
+      "bytes": 149717,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-bad/instance.cnf",
+      "sha256": "7c32d43326f46fe562c84ddb6cfc98d6f23a563061b7468d692c1c1c895b3d9d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-bad/instance.json": {
+      "bytes": 15465,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-bad/instance.json",
+      "sha256": "dedb82e39e32e364c62c7b78640a585b9a093e36f7795f48a145d3b77c5b21fc"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-bad/progress.json": {
+      "bytes": 2875,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-bad/progress.json",
+      "sha256": "4bff178e6218335c5e46d1b7861bbd7844b264c03c88029155c9ebcdb34d9332"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-bad/result.json": {
+      "bytes": 2875,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-bad/result.json",
+      "sha256": "4bff178e6218335c5e46d1b7861bbd7844b264c03c88029155c9ebcdb34d9332"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-bad/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-bad/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-bad/solver.stdout": {
+      "bytes": 8042,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-bad/solver.stdout",
+      "sha256": "ae12e5d66b970268e3df874915f62676045921cfd17c54d52b765043df368704"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-positive/gadget.validated.json": {
+      "bytes": 2848,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/gadget.validated.json",
+      "sha256": "0034e784ba0334a114e87193cd8c554ffa4adc9271f3a90b975c34fa8d3b00a7"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-positive/instance.cnf": {
+      "bytes": 173189,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/instance.cnf",
+      "sha256": "6046f9b7560950cbd399e20860da1c8344c97eba2322eefeb9cd08cf0f1dc235"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-positive/instance.json": {
+      "bytes": 16821,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/instance.json",
+      "sha256": "aec9be499fe24b18b04fb785bdd9e794fdc1797237070749a078d18291fbad19"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-positive/progress.json": {
+      "bytes": 7572,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/progress.json",
+      "sha256": "b527dd293c8135ac12b2455510b03dc587ee19d835e27fcade13fd599fbd9e2e"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-positive/result.json": {
+      "bytes": 7572,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/result.json",
+      "sha256": "b527dd293c8135ac12b2455510b03dc587ee19d835e27fcade13fd599fbd9e2e"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-positive/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-positive/solver.stdout": {
+      "bytes": 12638,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/solver.stdout",
+      "sha256": "d19267404b319977c84bac3f050fd83a8ca9e8bd8ed266d525c0146d6dd553f6"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-positive/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g7-positive/validator.stdout": {
+      "bytes": 739,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g7-positive/validator.stdout",
+      "sha256": "59f0072ce4263b21685e3e43f16f5e4f5212961b2d17439a7b83d2646e227722"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-bad/instance.cnf": {
+      "bytes": 192219,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-bad/instance.cnf",
+      "sha256": "0b39eb1f59ceb336bd99edcb902d6216a9e189c19319376a64cb711c0325e1ab"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-bad/instance.json": {
+      "bytes": 17730,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-bad/instance.json",
+      "sha256": "d87690333106529e8c91c88c7fb0d9f789336528c58beaeee7255b10a8558eb3"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-bad/progress.json": {
+      "bytes": 2893,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-bad/progress.json",
+      "sha256": "39b1f057b9b5ce73d00da11a7bb751cc11829d6cac56bbe38a4ae6d9df0afab7"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-bad/result.json": {
+      "bytes": 2893,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-bad/result.json",
+      "sha256": "39b1f057b9b5ce73d00da11a7bb751cc11829d6cac56bbe38a4ae6d9df0afab7"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-bad/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-bad/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-bad/solver.stdout": {
+      "bytes": 8042,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-bad/solver.stdout",
+      "sha256": "b30aba30429ebf1ecb9475e46a5c92f9522fc4e2e5b0e58506de72e478e944d8"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-positive/gadget.validated.json": {
+      "bytes": 2911,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/gadget.validated.json",
+      "sha256": "276b25076d04319075c6ebe6ffa46f45691b1a2762f52e71ce73ab7c6297316f"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-positive/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-positive/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-positive/progress.json": {
+      "bytes": 7648,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/progress.json",
+      "sha256": "4f6a09318499db042006493e65790da8a80f515aec6296b302978180c7c1d0c8"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-positive/result.json": {
+      "bytes": 7648,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/result.json",
+      "sha256": "4f6a09318499db042006493e65790da8a80f515aec6296b302978180c7c1d0c8"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-positive/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-positive/solver.stdout": {
+      "bytes": 13503,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/solver.stdout",
+      "sha256": "0a48cd402521fef9d0b717137f3f5a3bf53ae423cc60f099cae57bef22e18b9d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-positive/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/g8-positive/validator.stdout": {
+      "bytes": 739,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/g8-positive/validator.stdout",
+      "sha256": "a53955a6201f8f556c140b6feddf2f2993e02529acb1f4f46c2531852a6acdd0"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/wrong-CNF-hash/progress.json": {
+      "bytes": 1863,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/wrong-CNF-hash/progress.json",
+      "sha256": "5d15833ff5ab9891e2dd6068574a88783fae04a8dbb05d188f2ee7861d3c3bcd"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/real/wrong-CNF-hash/result.json": {
+      "bytes": 1863,
+      "path": "scratch/orch/S05/kissat-sat-only-review/real/wrong-CNF-hash/result.json",
+      "sha256": "5d15833ff5ab9891e2dd6068574a88783fae04a8dbb05d188f2ee7861d3c3bcd"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/review.json": {
+      "bytes": 7912,
+      "path": "scratch/orch/S05/kissat-sat-only-review/review.json",
+      "sha256": "f4d43dbd70113ab47b70de1eb3fa59bd7cf14b34db33ee309be82a72da2b969a"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/schema/7/controls.json": {
+      "bytes": 4137,
+      "path": "scratch/orch/S05/kissat-sat-only-review/schema/7/controls.json",
+      "sha256": "ff2f60347b85196c24223c222c2aacbfecccd1adfa616d486584b03a62eb92df"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/schema/7/solver.stdout": {
+      "bytes": 41,
+      "path": "scratch/orch/S05/kissat-sat-only-review/schema/7/solver.stdout",
+      "sha256": "f55820cf52cc5ca86275d3751d08f0827a944c22e5ff0bd96c2449dcf960b149"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/schema/8/controls.json": {
+      "bytes": 4137,
+      "path": "scratch/orch/S05/kissat-sat-only-review/schema/8/controls.json",
+      "sha256": "c63ab5028bba1a320e247bc5f0aca98d3bf2a6eb7c0fe7e9d8abf3f902c3bbc2"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/schema/8/solver.stdout": {
+      "bytes": 41,
+      "path": "scratch/orch/S05/kissat-sat-only-review/schema/8/solver.stdout",
+      "sha256": "f55820cf52cc5ca86275d3751d08f0827a944c22e5ff0bd96c2449dcf960b149"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/source/offline_checked_cadical.py": {
+      "bytes": 14034,
+      "path": "scratch/orch/S05/kissat-sat-only-review/source/offline_checked_cadical.py",
+      "sha256": "aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/source/sat_only_gadget_kissat.py": {
+      "bytes": 8906,
+      "path": "scratch/orch/S05/kissat-sat-only-review/source/sat_only_gadget_kissat.py",
+      "sha256": "fd05c03210c7d815ec81f0f3a292ef5d7eeb92f4380c8f4c5fde18d10aaa6bcd"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/source/validate_gadget7.py": {
+      "bytes": 6906,
+      "path": "scratch/orch/S05/kissat-sat-only-review/source/validate_gadget7.py",
+      "sha256": "1eeceaaf05207387246634a12238389ba4059a5bf3cc43739edcf0173e8141bb"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/source/validate_gadget8.py": {
+      "bytes": 6952,
+      "path": "scratch/orch/S05/kissat-sat-only-review/source/validate_gadget8.py",
+      "sha256": "60e877fd3bdb11d134633519482b67ca82478c55a00350e34a935ddd194054cb"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/wrong-CNF-hash.execution.json": {
+      "bytes": 899,
+      "path": "scratch/orch/S05/kissat-sat-only-review/wrong-CNF-hash.execution.json",
+      "sha256": "60970e9ae2108eaf4b70ad37e7c1a6ea7e84e50d58032262a5f46e9fac861828"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/wrong-CNF-hash.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/kissat-sat-only-review/wrong-CNF-hash.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/kissat-sat-only-review/wrong-CNF-hash.outer.stdout": {
+      "bytes": 121,
+      "path": "scratch/orch/S05/kissat-sat-only-review/wrong-CNF-hash.outer.stdout",
+      "sha256": "e51c1a34a22c7544701cadfbb9a0ad5baf672f6e4c03aa8a682f172f8609e925"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/review_sat_only_kissat.py": {
+      "bytes": 7715,
+      "path": "scratch/orch/S05/review_sat_only_kissat.py",
+      "sha256": "539e03f1e942cf0e0703e7dee4fec4d34bf7aadf506f973035851f8f2cde0fe0"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/review_sat_only_kissat.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S05/review_sat_only_kissat.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/review_sat_only_kissat.stdout": {
+      "bytes": 624,
+      "path": "scratch/orch/S05/review_sat_only_kissat.stdout",
+      "sha256": "0da5b8bbbc3c1f0c0e3309bce476e2734e92a21edd695a524da4a4dbbd27d054"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/validate_gadget7.py": {
+      "bytes": 6906,
+      "path": "scratch/orch/S05/validate_gadget7.py",
+      "sha256": "1eeceaaf05207387246634a12238389ba4059a5bf3cc43739edcf0173e8141bb"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/build_gadget8.py": {
+      "bytes": 6959,
+      "path": "scratch/orch/S06/build_gadget8.py",
+      "sha256": "3ca5274e1a394aff25e8f633bfc07ca5dd9ed2163b43db321dfba218e6b1ac17"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/control_sat_only_gadget_kissat.py": {
+      "bytes": 6859,
+      "path": "scratch/orch/S06/control_sat_only_gadget_kissat.py",
+      "sha256": "cc66e51a903a941e5c7e5d379ea48f3ada1f6c6bf5598e92fdf8a1cf878ddb98"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12-pinned.cnf": {
+      "bytes": 192219,
+      "path": "scratch/orch/S06/gadget8-v1/bad12-pinned.cnf",
+      "sha256": "0b39eb1f59ceb336bd99edcb902d6216a9e189c19319376a64cb711c0325e1ab"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/bad12-pinned.json": {
+      "bytes": 17730,
+      "path": "scratch/orch/S06/gadget8-v1/bad12-pinned.json",
+      "sha256": "d87690333106529e8c91c88c7fb0d9f789336528c58beaeee7255b10a8558eb3"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/family.json": {
+      "bytes": 1427,
+      "path": "scratch/orch/S06/gadget8-v1/family.json",
+      "sha256": "3707fa19fe2b08e5a845834ed4c65fdc23a7ad424fd9e585ba67d7697da4484a"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/generic12.cnf": {
+      "bytes": 189611,
+      "path": "scratch/orch/S06/gadget8-v1/generic12.cnf",
+      "sha256": "dae54c6f20435a53be3a34b09da9310e85df61823b382caa2837817a441b8bfb"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/generic12.json": {
+      "bytes": 17250,
+      "path": "scratch/orch/S06/gadget8-v1/generic12.json",
+      "sha256": "20ca64f5caae894c1b144c8f4de2ab5e7905ce0044447c326272d3c218f5022d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/positive13-pinned.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/gadget8-v1/positive13-pinned.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/positive13-pinned.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/gadget8-v1/positive13-pinned.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/offline_checked_cadical.py": {
+      "bytes": 14034,
+      "path": "scratch/orch/S06/offline_checked_cadical.py",
+      "sha256": "aa5d13bb83ab79e47b9794809c3c06dc153544975cd1131afbdeaef7c18d484a"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/package_sat_only_gadget_archive.py": {
+      "bytes": 10568,
+      "path": "scratch/orch/S06/package_sat_only_gadget_archive.py",
+      "sha256": "9a54dcea75e0c020f9ec91614c2401f187a5868fa118dc164e6b1990f78415f9"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/restore_sat_only_gadget_archive.py": {
+      "bytes": 5338,
+      "path": "scratch/orch/S06/restore_sat_only_gadget_archive.py",
+      "sha256": "0f64cc87d7f32aafa74f9d457ac93df73b76a922068e6cfd16161808a2d9aa94"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-commands.json": {
+      "bytes": 3860,
+      "path": "scratch/orch/S06/sat-only-gadget-commands.json",
+      "sha256": "a8e237e872f0430f7f6ae094bdafb9b04a5e80a4b1293cebefd6bb9583562e9c"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/abort-present.execution.json": {
+      "bytes": 916,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/abort-present.execution.json",
+      "sha256": "5fb70d2986cbd5ec278bae63d3a64ed25fe62f18aea14423eb5d82d806d1c9ea"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/abort-present.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/abort-present.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/abort-present.outer.stdout": {
+      "bytes": 120,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/abort-present.outer.stdout",
+      "sha256": "39e47456f9bfddb5af6255b83f56671a9067d74c579b4e731c45c194b2433117"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/abort-present/progress.json": {
+      "bytes": 1857,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/abort-present/progress.json",
+      "sha256": "34e077960a04b6d714d25286bf3624e51d7cd65388d3ab2e142dcbe44f973328"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/abort-present/result.json": {
+      "bytes": 1857,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/abort-present/result.json",
+      "sha256": "34e077960a04b6d714d25286bf3624e51d7cd65388d3ab2e142dcbe44f973328"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7.execution.json": {
+      "bytes": 812,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7.execution.json",
+      "sha256": "c6a59d078915e03723388df6b7ba246c4622ec3320625c8f0b660661ec658f35"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7.outer.stdout": {
+      "bytes": 120,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7.outer.stdout",
+      "sha256": "b61a0e2fedd43eb521476f4400f5577e0c5ddd23a8beba23decffd195144994f"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/instance.cnf": {
+      "bytes": 149717,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/instance.cnf",
+      "sha256": "7c32d43326f46fe562c84ddb6cfc98d6f23a563061b7468d692c1c1c895b3d9d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/instance.json": {
+      "bytes": 15465,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/instance.json",
+      "sha256": "dedb82e39e32e364c62c7b78640a585b9a093e36f7795f48a145d3b77c5b21fc"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/progress.json": {
+      "bytes": 2899,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/progress.json",
+      "sha256": "9e76be6f7acbc90c1a5d35f42845ff0ac0daaa82e2589e2a0e7b00e973df796d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/result.json": {
+      "bytes": 2899,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/result.json",
+      "sha256": "9e76be6f7acbc90c1a5d35f42845ff0ac0daaa82e2589e2a0e7b00e973df796d"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/solver.stdout": {
+      "bytes": 8049,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad11-gadget7/solver.stdout",
+      "sha256": "531f96f2cf706e24eb9063a483f7ac7008c374f48fc1abaecf94633b816399a6"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8.execution.json": {
+      "bytes": 812,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8.execution.json",
+      "sha256": "58c2c2caa2a1b979b0bb5c15522fde93b214dcf9fcc670d4cb2a63bfcafa3b0e"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8.outer.stdout": {
+      "bytes": 120,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8.outer.stdout",
+      "sha256": "07254ac227488d73a17914238038800f042a8673933b70771f29e2f4222788b6"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/instance.cnf": {
+      "bytes": 192219,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/instance.cnf",
+      "sha256": "0b39eb1f59ceb336bd99edcb902d6216a9e189c19319376a64cb711c0325e1ab"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/instance.json": {
+      "bytes": 17730,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/instance.json",
+      "sha256": "d87690333106529e8c91c88c7fb0d9f789336528c58beaeee7255b10a8558eb3"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/progress.json": {
+      "bytes": 2882,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/progress.json",
+      "sha256": "8deffea5b0310d20d706ed1a074a6dad6a5196e9619331f6d7b2373aee015ec8"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/result.json": {
+      "bytes": 2882,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/result.json",
+      "sha256": "8deffea5b0310d20d706ed1a074a6dad6a5196e9619331f6d7b2373aee015ec8"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/solver.stdout": {
+      "bytes": 8049,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/bad12-gadget8/solver.stdout",
+      "sha256": "9dd0bc52a63b607f9e0f8bac2066d4d41e409fb4914fbcb81fbe29be827feb7b"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/control-abort": {
+      "bytes": 22,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/control-abort",
+      "sha256": "bcccfe718eba181aa9c531c8de55b0f17ecb692573bc26752d1fe217c0df9802"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/controls.json": {
+      "bytes": 11357,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/controls.json",
+      "sha256": "7123c4f2c68436553c3f80aac7d98fbd625821dae454b0100e3e3a23995acb33"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7.execution.json": {
+      "bytes": 821,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7.execution.json",
+      "sha256": "8b2bfc1e0bbfa779c06836cf8261f6d49f2d329abada569b9fb734b5b17ce64a"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7.outer.stdout": {
+      "bytes": 125,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7.outer.stdout",
+      "sha256": "8fc0402a5d2c389c7666b4002d8aa403169edba5ec60873c30fb94cf5a3f3dd9"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/gadget.validated.json": {
+      "bytes": 2848,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/gadget.validated.json",
+      "sha256": "43ef80ec5735924ced6de66b3c2edfd7e420e7b50939106a72602ccd55a4313f"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/instance.cnf": {
+      "bytes": 173189,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/instance.cnf",
+      "sha256": "6046f9b7560950cbd399e20860da1c8344c97eba2322eefeb9cd08cf0f1dc235"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/instance.json": {
+      "bytes": 16821,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/instance.json",
+      "sha256": "aec9be499fe24b18b04fb785bdd9e794fdc1797237070749a078d18291fbad19"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/progress.json": {
+      "bytes": 7588,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/progress.json",
+      "sha256": "0b69a1172368a5080a468fc520d6538af8cbf7428f483071e1957f5ccb1030fc"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/result.json": {
+      "bytes": 7588,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/result.json",
+      "sha256": "0b69a1172368a5080a468fc520d6538af8cbf7428f483071e1957f5ccb1030fc"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/solver.stdout": {
+      "bytes": 12645,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/solver.stdout",
+      "sha256": "a141653806338465b41032bd12c97c12db467df0fe5e274029f60a286cb4b607"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/validator.stdout": {
+      "bytes": 739,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive12-gadget7/validator.stdout",
+      "sha256": "ab80006dc1377a9d89d03da9d855ac806447cf9d81b7a8526a7b5ce54386cea8"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8.execution.json": {
+      "bytes": 822,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8.execution.json",
+      "sha256": "314b5f6b3f23acec94b14660ec04c2a7c0c57c319a17ad956b2fe64cfdf61136"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8.outer.stdout": {
+      "bytes": 125,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8.outer.stdout",
+      "sha256": "5329b1dbe0fe3b160c305599328d6790c1274abc2a504fec5e404a2700574d20"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/gadget.validated.json": {
+      "bytes": 2911,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/gadget.validated.json",
+      "sha256": "21739208c70f0ea9a3760ceee477b56b8ff900ec5ba819c4ddce8d46b3a5de58"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/instance.cnf": {
+      "bytes": 223672,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/instance.cnf",
+      "sha256": "e3cf28df73e0e141d78745ab77b4607ffd8e25e4e4766210d5c03b9ff0deaf90"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/instance.json": {
+      "bytes": 19271,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/instance.json",
+      "sha256": "f29d7f8ed55ebecea956d80a4e5830258e5cb9534da3c8dd4695efdd10f605aa"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/progress.json": {
+      "bytes": 7661,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/progress.json",
+      "sha256": "7501ac68d2a3be704dccb07874229b44f940f124578bb996f5842e2a93c1dda6"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/result.json": {
+      "bytes": 7661,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/result.json",
+      "sha256": "7501ac68d2a3be704dccb07874229b44f940f124578bb996f5842e2a93c1dda6"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/solver.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/solver.stdout": {
+      "bytes": 13510,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/solver.stdout",
+      "sha256": "3a86698d409252dc22b0a8821576168362952760b1c2522eff52da3f08fb91d4"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/validator.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/validator.stdout": {
+      "bytes": 739,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/positive13-gadget8/validator.stdout",
+      "sha256": "878c9b48d8b4e19c5c1f4126f2a7792719535a591520840ef2c0c5eeb70526e7"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/report-schema-7/solver.stdout": {
+      "bytes": 51,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/report-schema-7/solver.stdout",
+      "sha256": "593690912322b5e10649e98e610bd5ee42c2a7583fea342787e8da9c748235db"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/report-schema-8/solver.stdout": {
+      "bytes": 51,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/report-schema-8/solver.stdout",
+      "sha256": "593690912322b5e10649e98e610bd5ee42c2a7583fea342787e8da9c748235db"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash.execution.json": {
+      "bytes": 907,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash.execution.json",
+      "sha256": "765b42e1f976628c52799277ffc38a3fcb9b1f1c1c350eb8ea4e998ae573268e"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash.outer.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash.outer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash.outer.stdout": {
+      "bytes": 123,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash.outer.stdout",
+      "sha256": "1870303eecb3e94a598c778bb54e33b9cb785be7628a1b8320309aef01c8e7f9"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash/progress.json": {
+      "bytes": 1863,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash/progress.json",
+      "sha256": "ddd4808599fde7499297fab7d498d38a25fa915a7f4fe40f2763c46868c2953e"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash/result.json": {
+      "bytes": 1863,
+      "path": "scratch/orch/S06/sat-only-gadget-controls-v1/wrong-input-hash/result.json",
+      "sha256": "ddd4808599fde7499297fab7d498d38a25fa915a7f4fe40f2763c46868c2953e"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls.execution.json": {
+      "bytes": 207,
+      "path": "scratch/orch/S06/sat-only-gadget-controls.execution.json",
+      "sha256": "a91b777a3f9ad818503b4ce628eaef7e77404c51a58b0cf81412089c27f663e7"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls.stderr": {
+      "bytes": 0,
+      "path": "scratch/orch/S06/sat-only-gadget-controls.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-controls.stdout": {
+      "bytes": 242,
+      "path": "scratch/orch/S06/sat-only-gadget-controls.stdout",
+      "sha256": "cb0ffb2b47b98f4feb6b94f5f786fdad64badeaad17b0f8bc377b203d2d7fd5f"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-handoff.json": {
+      "bytes": 13709,
+      "path": "scratch/orch/S06/sat-only-gadget-handoff.json",
+      "sha256": "2a00340c4181f01e3c9a705cfe1871b33639ef208402dcbcf72016b02f578567"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat_only_gadget_kissat.py": {
+      "bytes": 8906,
+      "path": "scratch/orch/S06/sat_only_gadget_kissat.py",
+      "sha256": "fd05c03210c7d815ec81f0f3a292ef5d7eeb92f4380c8f4c5fde18d10aaa6bcd"
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/validate_gadget8.py": {
+      "bytes": 6952,
+      "path": "scratch/orch/S06/validate_gadget8.py",
+      "sha256": "60e877fd3bdb11d134633519482b67ca82478c55a00350e34a935ddd194054cb"
+    }
+  },
+  "utc": "2026-11-24T05:43:33.954020+00:00"
+}

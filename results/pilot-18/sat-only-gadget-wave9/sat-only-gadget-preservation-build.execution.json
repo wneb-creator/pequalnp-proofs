@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/package_sat_only_gadget_archive.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 1.6873323879990494,
+  "wall_limit_seconds": 20,
+  "solver_or_checker_launched": false
+}

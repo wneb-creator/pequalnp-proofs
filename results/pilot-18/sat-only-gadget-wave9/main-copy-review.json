@@ -1,0 +1,12 @@
+{
+  "status": "PASS_MAIN_ALL_DELIVERY_AND_ARCHIVE_HASHES",
+  "utc": "2026-11-24T05:46:15.996129+00:00",
+  "checks": [
+    {
+      "archive": "sat-only-gadget-preservation-v1.tar.gz",
+      "members": 144,
+      "payloads_checked": 143
+    }
+  ],
+  "scope": "Preparation and controls only; active runtime excluded; no exact21 result or posted theorem."
+}

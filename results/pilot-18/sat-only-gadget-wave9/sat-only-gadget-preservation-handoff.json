@@ -1,0 +1,65 @@
+{
+  "active_production_read_or_included": false,
+  "archive_bytes": 139694,
+  "archive_sha256": "19f1f5f8fe47cb98c5d440b608fc49eca6753867ef1397c9705e58bc65cfb3d5",
+  "cnf_recipes": 6,
+  "delivery_review_sha256": "f532cd71f663c3368910255ae495222e49f7435b5ff9ae1bfc68e1074a1d280e",
+  "files": {
+    "package_sat_only_gadget_archive.py": {
+      "bytes": 10568,
+      "sha256": "9a54dcea75e0c020f9ec91614c2401f187a5868fa118dc164e6b1990f78415f9"
+    },
+    "restore_sat_only_gadget_archive.py": {
+      "bytes": 5338,
+      "sha256": "0f64cc87d7f32aafa74f9d457ac93df73b76a922068e6cfd16161808a2d9aa94"
+    },
+    "sat-only-gadget-preservation-build.execution.json": {
+      "bytes": 248,
+      "sha256": "17b23c922b255522e2663797b0eaa3e075949d285397eb1151bfd776d6b5b43e"
+    },
+    "sat-only-gadget-preservation-build.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "sat-only-gadget-preservation-build.stdout": {
+      "bytes": 1650,
+      "sha256": "f532cd71f663c3368910255ae495222e49f7435b5ff9ae1bfc68e1074a1d280e"
+    },
+    "sat-only-gadget-preservation-manifest.json": {
+      "bytes": 73254,
+      "sha256": "9a805be008e5f89f43bdce650544ac618229ce804c4e140af3806c0b25317220"
+    },
+    "sat-only-gadget-preservation-restore.execution.json": {
+      "bytes": 454,
+      "sha256": "aa01a4de2abf25ffc08b2ccdbcda47ad60dcca0d69f32d4115af82641e81ab87"
+    },
+    "sat-only-gadget-preservation-restore.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "sat-only-gadget-preservation-restore.stdout": {
+      "bytes": 1111,
+      "sha256": "ce7dbc910c820eeca407351334ee778adf782e5e47ee699672f9740464eb4e3a"
+    },
+    "sat-only-gadget-preservation-review.json": {
+      "bytes": 1650,
+      "sha256": "f532cd71f663c3368910255ae495222e49f7435b5ff9ae1bfc68e1074a1d280e"
+    },
+    "sat-only-gadget-preservation-v1.tar.gz": {
+      "bytes": 139694,
+      "sha256": "19f1f5f8fe47cb98c5d440b608fc49eca6753867ef1397c9705e58bc65cfb3d5"
+    }
+  },
+  "historical_handoff_bindings": 137,
+  "manifest_sha256": "9a805be008e5f89f43bdce650544ac618229ce804c4e140af3806c0b25317220",
+  "members": 144,
+  "payloads": 143,
+  "restored_cnf_aliases": 14,
+  "retained_positive_model_replays": 4,
+  "scope": "Exact reviewed SAT-only runner/parent lifecycle/validators and all S06/S05 tinycontrols/reviews/mainreview. Portable source and CNF restoration only. Production launch/runtime excluded; main preserves finished runs separately. No accepted21 witness/global/Lean result.",
+  "solver_or_checker_launched": false,
+  "source_map_bindings": 154,
+  "source_sha256": "fd05c03210c7d815ec81f0f3a292ef5d7eeb92f4380c8f4c5fde18d10aaa6bcd",
+  "status": "READY_MAIN_S08_INDEPENDENT_PORTABLE_DELIVERY_REVIEW",
+  "utc": "2026-11-24T05:43:57.218852+00:00"
+}

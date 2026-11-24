@@ -1,0 +1,96 @@
+{
+  "status": "READY_MAIN_REVIEW",
+  "main_review_sha256": "af69f66387be6371d6d04e09b48f86b44b2ef48b04ef2c83c140e3ed30dc8fed",
+  "active_runtime_included": false,
+  "source_control_handoff_sha256": "f57e1bfe20a7b5355d851076c6ab07e510086950a306c845e8adbb034f9e39e8",
+  "archive_sha256": "acca2f81671907cfd6c32ff252ff351445023df5f4ebbc00d015205c29e6476d",
+  "archive_bytes": 77159,
+  "members": 81,
+  "manifest_sha256": "feb9b212fd4741bf56805fe38761cd48116bfe6c9f9dab72bf0728c65c027db3",
+  "verification_command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/verify_gadget7_archive.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-preservation-v2.tar.gz",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-preservation-restore-v2"
+  ],
+  "verification": {
+    "status": "PASS_ALL_HASHES_FOUR_CNF_RECONSTRUCTIONS_AND_MODELS",
+    "archive_sha256": "acca2f81671907cfd6c32ff252ff351445023df5f4ebbc00d015205c29e6476d",
+    "members": 81,
+    "restored": [
+      {
+        "path": "gadget7-v1/bad11-pinned.cnf",
+        "sha256": "7c32d43326f46fe562c84ddb6cfc98d6f23a563061b7468d692c1c1c895b3d9d",
+        "bytes": 149717
+      },
+      {
+        "path": "gadget7-v1/generic11.cnf",
+        "sha256": "186d15c94182fb9cd0cee60484dbab636419e267cf0980b00dcfed6bbcbc86a1",
+        "bytes": 147558
+      },
+      {
+        "path": "gadget7-v1/generic12.cnf",
+        "sha256": "bdd86735d944a20395a378cf2478265ed8bfddfc76a87444e3264ac18bf62b4a",
+        "bytes": 170746
+      },
+      {
+        "path": "gadget7-v1/positive12-pinned.cnf",
+        "sha256": "6046f9b7560950cbd399e20860da1c8344c97eba2322eefeb9cd08cf0f1dc235",
+        "bytes": 173189
+      }
+    ],
+    "historical_handoff_bindings": 66,
+    "positive_validations": [
+      {
+        "model": "positive12.model.stdout",
+        "local_inputs": 128,
+        "full_inputs": 2048,
+        "gates": 12,
+        "full_gates": 22
+      },
+      {
+        "model": "positive12-pinned-solver.stdout",
+        "local_inputs": 128,
+        "full_inputs": 2048,
+        "gates": 12,
+        "full_gates": 22
+      }
+    ],
+    "bad11_rejection": "CNF clause 10944 violated",
+    "elapsed_seconds": 0.16481868099799613,
+    "solver_or_checker_started": false
+  },
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-preservation-v2.tar.gz",
+      "sha256": "acca2f81671907cfd6c32ff252ff351445023df5f4ebbc00d015205c29e6476d",
+      "bytes": 77159
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-preservation-v2-manifest.json",
+      "sha256": "feb9b212fd4741bf56805fe38761cd48116bfe6c9f9dab72bf0728c65c027db3",
+      "bytes": 21920
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-preservation-v2-verify.stdout",
+      "sha256": "d18c39ca39e5b6e576572a90aba611f2f2fb7070e66305ded6d59f992a70388f",
+      "bytes": 1139
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-preservation-v2-verify.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/verify_gadget7_archive.py",
+      "sha256": "28a547fcda9115384f99bba45006eb3d23448bf22085e4c4f65c2886418c9bb8",
+      "bytes": 3993
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/preserve_gadget7_v2.py",
+      "sha256": "144a472124eb3c20d68e901e40c8530c5a19870c9bb56d1052789eb0ffac1f27",
+      "bytes": 5059
+    }
+  ]
+}

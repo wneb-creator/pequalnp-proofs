@@ -1,0 +1,12 @@
+{
+  "status": "PASS_MAIN_ALL_DELIVERY_AND_ARCHIVE_HASHES",
+  "utc": "2026-11-24T05:55:12.824335+00:00",
+  "checks": [
+    {
+      "archive": "S02-live-gadget-repairs.tar.gz",
+      "members": 104,
+      "checked_payloads": 103
+    }
+  ],
+  "scope": "Researchpreparation/reviewonly; no exact21/global/Leanclaim."
+}

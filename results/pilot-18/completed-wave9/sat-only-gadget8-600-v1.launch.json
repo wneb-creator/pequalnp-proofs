@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-24T05:41:40.139740+00:00",
+  "pid": 37975,
+  "command": [
+    "python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat_only_gadget_kissat.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/gadget8-v1/generic12.cnf",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget8-600-v1",
+    "--gadget",
+    "8",
+    "--cnf-sha256",
+    "dae54c6f20435a53be3a34b09da9310e85df61823b382caa2837817a441b8bfb",
+    "--metadata-sha256",
+    "20ca64f5caae894c1b144c8f4de2ab5e7905ce0044447c326272d3c218f5022d",
+    "--solver-seconds",
+    "600",
+    "--abort-file",
+    "/tmp/oec/pequalnp-pilot-18/DESK_ERROR.response"
+  ],
+  "S05_review_sha256": "f4d43dbd70113ab47b70de1eb3fa59bd7cf14b34db33ee309be82a72da2b969a",
+  "main_review_sha256": "2f12788ef60cf9d0a3feb1fdcc134b468d388cc6a277afecced4e5b64a3ab74c",
+  "scope": "Candidate-only no proof; all UNSAT UNKNOWN; exact21 full2048 and Lean required."
+}

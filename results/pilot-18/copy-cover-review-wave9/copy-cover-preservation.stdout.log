@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS_COPY_COVER_CLOSURE_REVIEW_PRESERVATION",
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-closure-preservation-v1.tar.gz",
+  "archive_sha256": "1dc6a0372c06f06b5cff7c6900b21baca3f8971bb15b23e61f2b4b8d2786874e",
+  "archive_bytes": 861877,
+  "regular_members": 39,
+  "manifest_sha256": "0e73db1c538768ef7bc2482101d1db40811995a61a20ac0f56c6f362e80a5d58",
+  "review_sha256": "a598a661731287f9c3a3b586fc594484464ce60d2a92b6e197e070e1536feff6",
+  "source_sha256": "7f60805083520278bf35cc964da7f8dba24ef57212bd6ef99bedf4c3bc8c5da8",
+  "scope": "Independent S04 math/finite PASS: S01 copy-cover+terminal charge excludes800r1 and251r0, seven prior-tight tests exclude rest of258r0. Explicit nonempty-support guard; strict-bonus needed zero cases. No k4/mixed, CNF, Lean/global claim."
+}

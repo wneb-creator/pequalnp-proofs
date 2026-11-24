@@ -1,0 +1,35 @@
+{
+  "files": {
+    "selected-birth-math-preservation-handoff.json": {
+      "bytes": 1429,
+      "sha256": "0e5e00114e153e7d7bd22c4f9e61eed965863d5e033a04df8dfc7f8296841afe",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/selected-birth-math-preservation-handoff.json"
+    },
+    "selected-birth-math-preservation-v1.tar.gz": {
+      "bytes": 1314484,
+      "sha256": "e8cee9c9aa91950632bd3e84ed8711be8ed134995303d1c59d010568c29cce03",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/selected-birth-math-preservation-v1.tar.gz"
+    },
+    "selected-birth-preservation-verify.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/selected-birth-preservation-verify.stderr.log"
+    },
+    "selected-birth-preservation-verify.stdout.log": {
+      "bytes": 59,
+      "sha256": "f3e72f1253f612f4e503a6e00bcb634ff830cebaa6c7b34b18b53eea9a645e6b",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/selected-birth-preservation-verify.stdout.log"
+    },
+    "selected-birth-preservation.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/selected-birth-preservation.stderr.log"
+    },
+    "selected-birth-preservation.stdout.log": {
+      "bytes": 1429,
+      "sha256": "646d65f2b7775733ac5b9d89758096e9cc7745d31d2ac2f7d8aef054780a20bf",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/selected-birth-preservation.stdout.log"
+    }
+  },
+  "scope": "Only new proposed selected-birth research archive and preservation evidence; peer proof review pending."
+}

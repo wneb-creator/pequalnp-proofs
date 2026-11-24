@@ -87,3 +87,9 @@ Wave7exact174fileindex frozenhash5ef5a49089f59e4f7589e02fe58bc1e21cce528e920456c
 - 2026-11-24 05:38 UTC: Replan; generic8 proof-cap UNKNOWN. Independent generic7 encoding and full2048 extension review passed. SAT-only witness searches planned; no acceptance. Four wave8 source/archive packages copied with all payload hashes checked.
 
 - 2026-11-24 05:41 UTC: Two independently reviewed bounded SAT-only gadget searches launched. No acceptance. Lease expiry06:01:27.313Z.
+
+- 2026-11-24 05:51 UTC: Both genericSAT-only600s searches endedUNKNOWN atwalllimit. Launched independently reviewed live-gate7/8variants for600s. No acceptance.
+
+- 2026-11-24 05:54 UTC: Independent copy-cover reviewa598a661 closes remaining800k3/r1 and258k3/r0 finitefamilies in statedclean-prefixscope; notLean/globalrefutation. Finalfourconstructionsearchesrununtil06:03. Wave8push9ef9f123confirmed. No acceptance.
+
+- 2026-11-24 05:57:41 UTC: Actual repositorychecker finished in79.968637s, exit1: REJECTED(no-theorem), namedmodule theoremabsent. Fulloutput and exactstatement preserved. No acceptance.

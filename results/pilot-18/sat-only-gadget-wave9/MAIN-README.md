@@ -1,0 +1,1 @@
+L-meta-1342 construction-search preparation only. No exact21 witness or Lean acceptance. Full sources, finite controls and reviews preserved; CNFs have exact reconstruction recipes. Active runtime is excluded and will be preserved separately when finished.

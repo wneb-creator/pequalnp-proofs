@@ -1,0 +1,60 @@
+{
+  "files": {
+    "copy-cover-closure-preservation-handoff.json": {
+      "bytes": 811,
+      "sha256": "66678fce4d5138be71313f8dab87f2f62e733336a9f3c5f11d025cc48f00f66c",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-closure-preservation-handoff.json"
+    },
+    "copy-cover-closure-preservation-v1.tar.gz": {
+      "bytes": 861877,
+      "sha256": "1dc6a0372c06f06b5cff7c6900b21baca3f8971bb15b23e61f2b4b8d2786874e",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-closure-preservation-v1.tar.gz"
+    },
+    "copy-cover-preservation-verify.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-preservation-verify.stderr.log"
+    },
+    "copy-cover-preservation-verify.stdout.log": {
+      "bytes": 49,
+      "sha256": "c0f0f68f201a91a2ea3f74b7fbf5c4b809d6c3aa6ebbcab2ced320a49fc6c6a6",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-preservation-verify.stdout.log"
+    },
+    "copy-cover-preservation.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-preservation.stderr.log"
+    },
+    "copy-cover-preservation.stdout.log": {
+      "bytes": 811,
+      "sha256": "d4f073fb40055009626635ac98efb6a34181fa0406c7a92b694cc967cfe13859",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/copy-cover-preservation.stdout.log"
+    },
+    "review-status-addendum.json": {
+      "bytes": 3524,
+      "sha256": "885550729764d2af91dec6578abf264bbc8c36c2f42f6e9b177905ab32557156",
+      "source": "generated receipt for new peer review"
+    },
+    "review_s04_selected_birth.py": {
+      "bytes": 4993,
+      "sha256": "951ae05672793780a41e52b33c8d2527851dd8a204618144d0305d026e43e90e",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S01/review_s04_selected_birth.py"
+    },
+    "s04-selected-birth-peer-review.json": {
+      "bytes": 2267,
+      "sha256": "7c6f5bc3390f9ce80c7673ce1e49d0c20233113d13484400991845c208cf7b13",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S01/s04-selected-birth-peer-review.json"
+    },
+    "s04-selected-birth-peer-review.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S01/s04-selected-birth-peer-review.stderr.txt"
+    },
+    "s04-selected-birth-peer-review.stdout.txt": {
+      "bytes": 419,
+      "sha256": "9e8c5ba1312e5eeb81e1b48a70cd8a68f91e186ca74275b626b655c6b78c2a4f",
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S01/s04-selected-birth-peer-review.stdout.txt"
+    }
+  },
+  "scope": "Only NEW S04 copy-cover closure archive+preservation evidence and S01 peer-review addendum for earlier new selected-birth archive. No older archive copies or production artifacts."
+}

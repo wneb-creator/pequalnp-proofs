@@ -1,0 +1,82 @@
+{
+  "status": "READY_FINAL_FOUR_INPUT_PORTABLE_DELIVERY_MAIN_S08_REVIEW",
+  "directory": "/tmp/oec/pequalnp-pilot-18/orch/S02/final-live-gadget-preservation-v1",
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/final-live-gadget-preservation-v1/MANIFEST.json",
+      "sha256": "02d7e18e25f5cc90417978b07a81f9b406f61cc5b3b12dfae43a3b6576c7c96b",
+      "bytes": 28928
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/final-live-gadget-preservation-v1/README.md",
+      "sha256": "229d2dae1d8717852679abb037ae5fd343a51e4d1700c0ccbde697799bd2796c",
+      "bytes": 2210
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/final-live-gadget-preservation-v1/S02-final-live-gadgets.tar.gz",
+      "sha256": "9838a410dd7c73271e3c6a135d758979940e3731cf1fe37f829d27f9b46adc0d",
+      "bytes": 187171
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/final-live-gadget-preservation-v1/final-live-gadget-package.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/final-live-gadget-preservation-v1/final-live-gadget-package.stdout",
+      "sha256": "4da8ec3f2d10155811c405e4d1defc9991d81db9e48dfccb5a6bdc14dabc99b1",
+      "bytes": 768
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/final-live-gadget-preservation-v1/reconstruction.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/final-live-gadget-preservation-v1/reconstruction.stdout",
+      "sha256": "37d89855d61b7dade78c30a389463e1c11df3f4a144e0026205a4e182568d44a",
+      "bytes": 127
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/final-live-gadget-preservation-v1/validation.json",
+      "sha256": "ce2f5a28e774ade5ac435d4abd288bd2695fd6a440356521efc2efb7d904bcd4",
+      "bytes": 808
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/final-live-gadget-preservation-v1/validation.txt",
+      "sha256": "959901e068e7b9255dd368297b072fb3e7f224784765e85eefe3944a32a9890d",
+      "bytes": 645
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/final-live-gadget-preservation-v1/verification.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/final-live-gadget-preservation-v1/verification.stdout",
+      "sha256": "a7e462784df163ed874a9c1c47112a5dcab6de2859b316417bdce6a43dbf2c03",
+      "bytes": 87
+    }
+  ],
+  "archive_sha256": "9838a410dd7c73271e3c6a135d758979940e3731cf1fe37f829d27f9b46adc0d",
+  "archive_bytes": 187171,
+  "archive_regular_members": 150,
+  "exact_source_copies": 147,
+  "contains_all_main_S06_reviews": true,
+  "production_input_recipes": 4,
+  "positive_fixture_recipes": 4,
+  "reconstructed_CNFs": 8,
+  "reconstructed_files": 18,
+  "positive_models_replayed": 4,
+  "finite134232_work_included": true,
+  "active_outputs_read": false,
+  "production_runtime_included": false,
+  "no_new_search": true,
+  "earlier_handoffs_unchanged": true,
+  "scope": "Finalpreparationpackage; currentfourworkersruntime mustbe preservedseparately aftercompletion.",
+  "Sub-agents": "none",
+  "TIMING": {
+    "total_minutes": 336.1,
+    "subagents": 0
+  }
+}

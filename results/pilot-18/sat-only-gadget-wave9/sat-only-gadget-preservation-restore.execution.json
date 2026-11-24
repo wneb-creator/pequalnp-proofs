@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-preservation-restore-v1/scratch/orch/S06/restore_sat_only_gadget_archive.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/sat-only-gadget-preservation-restore-v1"
+  ],
+  "exit_code": 0,
+  "solver_or_checker_launched": false,
+  "wall_limit_seconds": 15,
+  "wall_seconds": 1.0686373869975796
+}

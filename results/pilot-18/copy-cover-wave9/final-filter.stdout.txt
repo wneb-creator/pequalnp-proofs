@@ -1,0 +1,3 @@
+{"r": 1, "input": 800, "direct_copy_birth_excluded": 800, "antichain_tight_excluded": 0, "total_excluded": 800, "remaining": 0}
+{"r": 0, "input": 258, "direct_copy_birth_excluded": 251, "antichain_tight_excluded": 7, "total_excluded": 258, "remaining": 0}
+{"source_sha256": "c49052648a7424ff5a139a17c28e81c49931483b0efb43e4525d9a7904635434", "proof_sha256": "415f845c6add7f6ec9ef00ad2512517c0ff59696a92ed23e5a14f4547fcaeb7d", "terminal_extension_sha256": "cae2a38ed701f38a5669fb4dd08cd33873a2ce6ba35535c3507aa035df4c89a2", "relations_checked": 20102, "elapsed_seconds": 0.17974103600136004}

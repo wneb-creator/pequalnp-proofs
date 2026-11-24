@@ -1,0 +1,8 @@
+{
+  "status": "PASS_MAIN_COMPLETE_FINAL_PREPARATION_DELIVERY_HASHES",
+  "utc": "2026-11-24T05:57:50.558963+00:00",
+  "archive_sha256": "9838a410dd7c73271e3c6a135d758979940e3731cf1fe37f829d27f9b46adc0d",
+  "members": 150,
+  "payloads": 149,
+  "scope": "Supersedes earlierpreparationarchive withallMAIN/S06live/rootORreviews. Productionexcluded; no21/global/Leanclaim."
+}

@@ -1,0 +1,516 @@
+{
+  "created_utc": "2026-11-24T05:42:29.720846+00:00",
+  "scope": "Frozen seven-input source/control data only; no production or global proof claim.",
+  "files": [
+    {
+      "path": "PRESERVATION.txt",
+      "sha256": "2eb5985edec543c3af309206bfd4ec43318a8c221c3ee63017d92fb25637f79b",
+      "bytes": 1077,
+      "source_path": "generated documentation"
+    },
+    {
+      "path": "archive-parent/preserve_gadget7.py",
+      "sha256": "f91a940f8c0506c403bd845e79fd6e57590f1fefd0e82ddbb534b2ed03cdf472",
+      "bytes": 4314,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/preserve_gadget7.py"
+    },
+    {
+      "path": "build_gadget7.py",
+      "sha256": "6bc53c66e01a9f7a3fbcede34ddba0893209636be60d4a1ea18505970b5b1c16",
+      "bytes": 6886,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/build_gadget7.py"
+    },
+    {
+      "path": "cnf-recipes.json",
+      "sha256": "e708f3c69a977deb0dea33a274896aeffeba953585f8f5bb123960b57621f6a3",
+      "bytes": 777,
+      "source_path": "generated from exact pinned handoff"
+    },
+    {
+      "path": "control_gadget7.py",
+      "sha256": "8a28d7dd69410d65f9c9349df93b4a55040f03d07824d25d79ccf5113e1bb490",
+      "bytes": 8705,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/control_gadget7.py"
+    },
+    {
+      "path": "derive_gadget7.py",
+      "sha256": "02a3581bf94e4ab3dcca4610712bf079845294b544adc4f25e1ee33040773662",
+      "bytes": 5001,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/derive_gadget7.py"
+    },
+    {
+      "path": "derive_gadget7.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/derive_gadget7.stderr"
+    },
+    {
+      "path": "derive_gadget7.stdout",
+      "sha256": "655370b73c8d80639f525ef7ba99ff622202de8498bcb2ef70486535de7799a7",
+      "bytes": 707,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/derive_gadget7.stdout"
+    },
+    {
+      "path": "derive_gadget7_archive_v2.py",
+      "sha256": "5164835c204e205cea595b7a2c0d7f77dd87b6b83fba497e23b110c5b2ce9a7c",
+      "bytes": 2408,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/derive_gadget7_archive_v2.py"
+    },
+    {
+      "path": "gadget7-README.md",
+      "sha256": "24cd990d2d77bc476c34b72b60eed0d87774e0c49367e70867b8627357bece8a",
+      "bytes": 3090,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-README.md"
+    },
+    {
+      "path": "gadget7-contributor-candidate.json",
+      "sha256": "5060f170350f5c2ec26c00f7fbb89f74ce13a33f915b90bf6c05bb17d12026e5",
+      "bytes": 711,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-contributor-candidate.json"
+    },
+    {
+      "path": "gadget7-controls.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-controls.stderr"
+    },
+    {
+      "path": "gadget7-controls.stdout",
+      "sha256": "88c4f782eefb0a6f73326c80874e07e16f368b175b60286860097dc049e30c30",
+      "bytes": 3196,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-controls.stdout"
+    },
+    {
+      "path": "gadget7-handoff.json",
+      "sha256": "f57e1bfe20a7b5355d851076c6ab07e510086950a306c845e8adbb034f9e39e8",
+      "bytes": 13161,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-handoff.json"
+    },
+    {
+      "path": "gadget7-lift-exact22-control.json",
+      "sha256": "490b0ddf77f2c9722fe84b752a74c0bc126405c75ac1539fc369f7cd41ebb075",
+      "bytes": 1046,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-lift-exact22-control.json"
+    },
+    {
+      "path": "gadget7-lift-handoff.json",
+      "sha256": "9b39fa156228c21bff211ee19f2d7298846732690a1211fbb0de99773e70901c",
+      "bytes": 1465,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-lift-handoff.json"
+    },
+    {
+      "path": "gadget7-lift-result.json",
+      "sha256": "d8c33043a512f9d667b5b685ca4e57264a008d00d4ee2402f5790e99eeecf0a1",
+      "bytes": 1237,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-lift-result.json"
+    },
+    {
+      "path": "gadget7-lift.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-lift.stderr"
+    },
+    {
+      "path": "gadget7-lift.stdout",
+      "sha256": "3ec3114253d19778b94e33c264257e62d023ef48a525b0f641f564ba2da04365",
+      "bytes": 833,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-lift.stdout"
+    },
+    {
+      "path": "gadget7-preservation-v2-derivation.json",
+      "sha256": "92d46a381b0278781175caba0dd9b6c52665860d0476b7b40378221293b66fff",
+      "bytes": 2065,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-preservation-v2-derivation.json"
+    },
+    {
+      "path": "gadget7-source-derivation/build_gadget7.py.diff",
+      "sha256": "fc2c85ec42452a10dead3d7a5a9304159ad2f758e9dd07b4f0c5b95ae79a86cf",
+      "bytes": 7681,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-source-derivation/build_gadget7.py.diff"
+    },
+    {
+      "path": "gadget7-source-derivation/build_gadget8.py",
+      "sha256": "3ca5274e1a394aff25e8f633bfc07ca5dd9ed2163b43db321dfba218e6b1ac17",
+      "bytes": 6959,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-source-derivation/build_gadget8.py"
+    },
+    {
+      "path": "gadget7-source-derivation/control_gadget7.py.diff",
+      "sha256": "45eabc40db4e98f816c6c4cbfc0a3d40194830e4f9e9120ae7aa2d5329b5e588",
+      "bytes": 10338,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-source-derivation/control_gadget7.py.diff"
+    },
+    {
+      "path": "gadget7-source-derivation/control_gadget8.py",
+      "sha256": "d08d46bac760773620707aff8e1c020f837f904f297b56b8b5bab028a993f923",
+      "bytes": 8708,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-source-derivation/control_gadget8.py"
+    },
+    {
+      "path": "gadget7-source-derivation/derivation.json",
+      "sha256": "a6cfd3079f3f4b001fdef8c9708ddd28915d097b77e39dbd8424c2447d1a6e24",
+      "bytes": 8233,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-source-derivation/derivation.json"
+    },
+    {
+      "path": "gadget7-source-derivation/validate_gadget7.py.diff",
+      "sha256": "30650addb6657092825d37131911cd12fb1f9bc3b2c2a318087de716cba53264",
+      "bytes": 6142,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-source-derivation/validate_gadget7.py.diff"
+    },
+    {
+      "path": "gadget7-source-derivation/validate_gadget8.py",
+      "sha256": "60e877fd3bdb11d134633519482b67ca82478c55a00350e34a935ddd194054cb",
+      "bytes": 6952,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-source-derivation/validate_gadget8.py"
+    },
+    {
+      "path": "gadget7-tiny-controls.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-tiny-controls.stderr"
+    },
+    {
+      "path": "gadget7-tiny-controls.stdout",
+      "sha256": "090223dbef7b16ce8b0ab0d7ec88147d8648b2d17845d780ae6b6cf123898f1c",
+      "bytes": 6132,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-tiny-controls.stdout"
+    },
+    {
+      "path": "gadget7-v1/bad11-bcp-checker.execution.json",
+      "sha256": "9c42a291a01e8f5d88f88176dd0ef7aa34823b2e0d86881d4a807a4ffccee1af",
+      "bytes": 733,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-bcp-checker.execution.json"
+    },
+    {
+      "path": "gadget7-v1/bad11-bcp-checker.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-bcp-checker.stderr"
+    },
+    {
+      "path": "gadget7-v1/bad11-bcp-checker.stdout",
+      "sha256": "98e2e5a63c914783d937f83b50c4cf87f251b4ace5ffbaf3408f3c85c158787a",
+      "bytes": 424,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-bcp-checker.stdout"
+    },
+    {
+      "path": "gadget7-v1/bad11-constructed-cli.validation.json",
+      "sha256": "c6d931d4ea9c049e0452b7209df0083287fbdccfd05ac8d2ed6b719dc1904964",
+      "bytes": 79,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-constructed-cli.validation.json"
+    },
+    {
+      "path": "gadget7-v1/bad11-constructed-model-validator.execution.json",
+      "sha256": "09ea2bc2b88429d8601a5162b07d80eb8067467829c5e40a5a315104d294c0c2",
+      "bytes": 1020,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-constructed-model-validator.execution.json"
+    },
+    {
+      "path": "gadget7-v1/bad11-constructed-model-validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-constructed-model-validator.stderr"
+    },
+    {
+      "path": "gadget7-v1/bad11-constructed-model-validator.stdout",
+      "sha256": "694610f27279805f42829142dc9d6b1cde56132e4244bad58a279426e724b408",
+      "bytes": 73,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-constructed-model-validator.stdout"
+    },
+    {
+      "path": "gadget7-v1/bad11-drat-checker.execution.json",
+      "sha256": "65b8ae3ec51070237c9a694558c7955d4029c999c61455416b25b2b6c9d3382b",
+      "bytes": 715,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-drat-checker.execution.json"
+    },
+    {
+      "path": "gadget7-v1/bad11-drat-checker.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-drat-checker.stderr"
+    },
+    {
+      "path": "gadget7-v1/bad11-drat-checker.stdout",
+      "sha256": "0ccfd8c50abe6e752fba7027b34c9721d77dbe2aeaa98ab194a37d1dd52ab4f9",
+      "bytes": 474,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-drat-checker.stdout"
+    },
+    {
+      "path": "gadget7-v1/bad11-pinned-solver.execution.json",
+      "sha256": "dc5fc95363e28c78d97cfec337ec830ff8d274b6a7ab3c218a0f00ec5e52d375",
+      "bytes": 754,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-pinned-solver.execution.json"
+    },
+    {
+      "path": "gadget7-v1/bad11-pinned-solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-pinned-solver.stderr"
+    },
+    {
+      "path": "gadget7-v1/bad11-pinned-solver.stdout",
+      "sha256": "b8a88078ba58cabc11d7d8cf1fdba51657dff39200be9f6f9a57a548a6b05282",
+      "bytes": 3501,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-pinned-solver.stdout"
+    },
+    {
+      "path": "gadget7-v1/bad11-pinned.json",
+      "sha256": "dedb82e39e32e364c62c7b78640a585b9a093e36f7795f48a145d3b77c5b21fc",
+      "bytes": 15465,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-pinned.json"
+    },
+    {
+      "path": "gadget7-v1/bad11-pinned.rup",
+      "sha256": "a1c902204cc7e77ee0de82e13d6dea01a1d66e73079ce0a01fc4e54e7a099e18",
+      "bytes": 5482,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-pinned.rup"
+    },
+    {
+      "path": "gadget7-v1/bad11-tiny.drat",
+      "sha256": "5761b8330bfb2f68a71c8c817b94412979eb0a06738ec71b94bbd6c28aa8c149",
+      "bytes": 3576,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11-tiny.drat"
+    },
+    {
+      "path": "gadget7-v1/bad11.full-errors.json",
+      "sha256": "4712c4e7b14e00d51b3114e51d734f870b3e7fddadf659e24c67ff304827562f",
+      "bytes": 360,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11.full-errors.json"
+    },
+    {
+      "path": "gadget7-v1/bad11.model.stdout",
+      "sha256": "515a5939ec6171e273c04b18329339b34ac0a73274a9684cf3d3db1b19d07a57",
+      "bytes": 3919,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/bad11.model.stdout"
+    },
+    {
+      "path": "gadget7-v1/circuits.json",
+      "sha256": "4de73ff105ffbf6ea29e963c6296d4e9691eb960261697233b7b61347476510c",
+      "bytes": 1124,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/circuits.json"
+    },
+    {
+      "path": "gadget7-v1/controls.json",
+      "sha256": "88c4f782eefb0a6f73326c80874e07e16f368b175b60286860097dc049e30c30",
+      "bytes": 3196,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/controls.json"
+    },
+    {
+      "path": "gadget7-v1/family.json",
+      "sha256": "650853df0e83e43ccce7bc7a2f88962aaa01ced2d294e711951c5ac5557b4201",
+      "bytes": 1425,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/family.json"
+    },
+    {
+      "path": "gadget7-v1/generic11.json",
+      "sha256": "8a67efc064d7ff414a573e439bc4eb4e18ac5fa51a9fd81134ffaff5f720ebd5",
+      "bytes": 15029,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/generic11.json"
+    },
+    {
+      "path": "gadget7-v1/generic12.json",
+      "sha256": "0e9d1371a1f58fd431e2e13be46f5c29724d847ba6628c0cd734a91d73faf300",
+      "bytes": 16341,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/generic12.json"
+    },
+    {
+      "path": "gadget7-v1/positive12-actual-cli.validation.json",
+      "sha256": "69d72009ec71d63e744aee2d23fddee590493e4785a3365aa1ab52066a438dbd",
+      "bytes": 2848,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-actual-cli.validation.json"
+    },
+    {
+      "path": "gadget7-v1/positive12-actual-model-validator.execution.json",
+      "sha256": "596f581b70beb5a335c070f3a7bbe532dea212093c50f6e1f816e389a4b9639b",
+      "bytes": 1039,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-actual-model-validator.execution.json"
+    },
+    {
+      "path": "gadget7-v1/positive12-actual-model-validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-actual-model-validator.stderr"
+    },
+    {
+      "path": "gadget7-v1/positive12-actual-model-validator.stdout",
+      "sha256": "2e1ca848380010b9145dbbe60bbcf4d6e740c3d080184f624197b8e87c6da32d",
+      "bytes": 739,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-actual-model-validator.stdout"
+    },
+    {
+      "path": "gadget7-v1/positive12-constructed-cli.validation.json",
+      "sha256": "8ccc1db002c246b8a5f119ab7e394a772df3b1364f6f17705391c1245a79d5f4",
+      "bytes": 2848,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-constructed-cli.validation.json"
+    },
+    {
+      "path": "gadget7-v1/positive12-constructed-model-validator.execution.json",
+      "sha256": "83e16896ff2e133378a9cf203bd48a11e1a4d6f6c2cc05ffa038b9389f11a7be",
+      "bytes": 1039,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-constructed-model-validator.execution.json"
+    },
+    {
+      "path": "gadget7-v1/positive12-constructed-model-validator.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-constructed-model-validator.stderr"
+    },
+    {
+      "path": "gadget7-v1/positive12-constructed-model-validator.stdout",
+      "sha256": "c472f4b8418ec4d0b6a97ce9df44dffd2ece9f96c1a2ef21169f9da13ebafbbe",
+      "bytes": 739,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-constructed-model-validator.stdout"
+    },
+    {
+      "path": "gadget7-v1/positive12-pinned-solver.execution.json",
+      "sha256": "f029ebef8676e4e2a77d372bbca751dcabcbde1cfccf1312d9551d72e2e23735",
+      "bytes": 770,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-pinned-solver.execution.json"
+    },
+    {
+      "path": "gadget7-v1/positive12-pinned-solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-pinned-solver.stderr"
+    },
+    {
+      "path": "gadget7-v1/positive12-pinned-solver.stdout",
+      "sha256": "da4ecf51f2ee1335ca436d1ffe5aaebafd37f53746ed759ad84be5d5205aba38",
+      "bytes": 7980,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-pinned-solver.stdout"
+    },
+    {
+      "path": "gadget7-v1/positive12-pinned.json",
+      "sha256": "aec9be499fe24b18b04fb785bdd9e794fdc1797237070749a078d18291fbad19",
+      "bytes": 16821,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-pinned.json"
+    },
+    {
+      "path": "gadget7-v1/positive12-tiny.drat",
+      "sha256": "fcd96bc563a5f0af5c3a1fb908230fcef14676b4a5a25ce1976028ac5091b562",
+      "bytes": 3962,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12-tiny.drat"
+    },
+    {
+      "path": "gadget7-v1/positive12.model.stdout",
+      "sha256": "e42a0c73f231624da937fc139ecfc8fcb28863080ca7769a3dc1ac3d2d14fd02",
+      "bytes": 4387,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12.model.stdout"
+    },
+    {
+      "path": "gadget7-v1/positive12.validation.json",
+      "sha256": "8ccc1db002c246b8a5f119ab7e394a772df3b1364f6f17705391c1245a79d5f4",
+      "bytes": 2848,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/positive12.validation.json"
+    },
+    {
+      "path": "gadget7-v1/row-completeness.json",
+      "sha256": "b0e7af932a9186a5a631d1ee28e56ece6cee964b819ff9a7669e990ac042cd44",
+      "bytes": 8229,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/row-completeness.json"
+    },
+    {
+      "path": "gadget7-v1/tiny-controls.json",
+      "sha256": "e6aaf6da6f28ae49ae681e445dfbd583e768abad89a119b99a1cd50839b75f32",
+      "bytes": 7710,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7-v1/tiny-controls.json"
+    },
+    {
+      "path": "gadget7_lift.md",
+      "sha256": "3c5bb07ca199627d4217982c4617cd04432935c277090a98d93c68ad340d1cc2",
+      "bytes": 1011,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/gadget7_lift.md"
+    },
+    {
+      "path": "lift_gadget7.py",
+      "sha256": "8162c923d7ae3bfbdaa3c9cc8dc4bcea2070934f2536c5fc126381cd6e2d0eb9",
+      "bytes": 2623,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/lift_gadget7.py"
+    },
+    {
+      "path": "main-review/main-gadget7-review.json",
+      "sha256": "af69f66387be6371d6d04e09b48f86b44b2ef48b04ef2c83c140e3ed30dc8fed",
+      "bytes": 590,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/MAIN/main-gadget7-review.json"
+    },
+    {
+      "path": "package_gadget7.py",
+      "sha256": "58259c459bc4c8d4e05694d511e69a9152eaa676c9ad9cd1b273bc7a84b86f1c",
+      "bytes": 4201,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/package_gadget7.py"
+    },
+    {
+      "path": "package_gadget7.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/package_gadget7.stderr"
+    },
+    {
+      "path": "package_gadget7.stdout",
+      "sha256": "48f22f2c3bcb059fec70c08a3cf89420b05c691a7a23f78be65fbc669c1008f2",
+      "bytes": 550,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/package_gadget7.stdout"
+    },
+    {
+      "path": "prepare_triangle589.py",
+      "sha256": "5337d40dcc52881101b97a0a7be132c02d0e7b328ec933d05e4df59a558ad2aa",
+      "bytes": 6764,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/prepare_triangle589.py"
+    },
+    {
+      "path": "preserve_gadget7_v2.py",
+      "sha256": "144a472124eb3c20d68e901e40c8530c5a19870c9bb56d1052789eb0ffac1f27",
+      "bytes": 5059,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/preserve_gadget7_v2.py"
+    },
+    {
+      "path": "run_gadget7_tiny_controls.py",
+      "sha256": "1bcaf648ce1f0cdecc6dd58d7139b42e71279bccd5daed243e8c0b8062291c72",
+      "bytes": 3759,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/run_gadget7_tiny_controls.py"
+    },
+    {
+      "path": "validate_gadget7.py",
+      "sha256": "1eeceaaf05207387246634a12238389ba4059a5bf3cc43739edcf0173e8141bb",
+      "bytes": 6906,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/validate_gadget7.py"
+    },
+    {
+      "path": "verify_gadget7_archive.py",
+      "sha256": "28a547fcda9115384f99bba45006eb3d23448bf22085e4c4f65c2886418c9bb8",
+      "bytes": 3993,
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S05/verify_gadget7_archive.py"
+    }
+  ],
+  "omitted_CNFs": [
+    {
+      "path": "gadget7-v1/bad11-pinned.cnf",
+      "sha256": "7c32d43326f46fe562c84ddb6cfc98d6f23a563061b7468d692c1c1c895b3d9d",
+      "bytes": 149717,
+      "gates": 11,
+      "pinned": "bad11"
+    },
+    {
+      "path": "gadget7-v1/generic11.cnf",
+      "sha256": "186d15c94182fb9cd0cee60484dbab636419e267cf0980b00dcfed6bbcbc86a1",
+      "bytes": 147558,
+      "gates": 11,
+      "pinned": null
+    },
+    {
+      "path": "gadget7-v1/generic12.cnf",
+      "sha256": "bdd86735d944a20395a378cf2478265ed8bfddfc76a87444e3264ac18bf62b4a",
+      "bytes": 170746,
+      "gates": 12,
+      "pinned": null
+    },
+    {
+      "path": "gadget7-v1/positive12-pinned.cnf",
+      "sha256": "6046f9b7560950cbd399e20860da1c8344c97eba2322eefeb9cd08cf0f1dc235",
+      "bytes": 173189,
+      "gates": 12,
+      "pinned": "positive12"
+    }
+  ]
+}

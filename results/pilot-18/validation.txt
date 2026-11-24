@@ -28,7 +28,8 @@ full output in circuit-partial-axioms.*.
 Concrete graph/cover/circuit-size audits use only propext, Classical.choice,
 and Quot.sound; full output in concrete-axioms.*.
 
-Checker: NOT RUN for the posted gap; the module-named theorem is absent.
+Checker: REJECTED(no-theorem), exit1,79.968637s at05:57:41UTC.
+The required module-named theorem is absent; fulloutput is in posted-checker-wave9.
 Main independently reviewed the sub-agent-authored added proof.
 PR: none. No acceptance or global refutation is claimed.
 Cleanup: not applicable to unfinished gap.
@@ -63,7 +64,7 @@ SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 6 inherited-model agents, ultra effort: structural proof, SAT repairs, finite Lean certificates, CNF red-team review, solver performance, integration review
-TIMING total=325.5 subagents=6
+TIMING total=341.2 subagents=6
 
 Candidate neighborhoods: 144 independently reviewed formulas preserve prefixes
 of exact 22-gate cover constructions and search arbitrary shorter completions.
@@ -158,3 +159,16 @@ uncertifiedUNKNOWN. Two fresh low-positive-weight shuffled annealers also run.
 No exact21 witness or global refutation exists. NamedLean2069lines unchanged;
 buildPASS and standard-axiom audits remain valid. PostedcheckerNOTRUN because
 the module-named theorem is absent; cleanupinapplicable, noPR.
+
+Research checkpoint near05:59UTC: the actualpostedchecker now records
+REJECTED(no-theorem); earlierNOTRUN checkpointnotes are historical. The
+unchanged2069-line partial builds, but no theorem has the required module name.
+NoPR or acceptedproof/refutation is claimed. Cleanup remainsinapplicable;
+currentlinecount2069before/after(no finished-proof cleanup).
+Independentcopy-cover mathematical/finite reviewa598a661 eliminates all800
+remainingk3/r1 and258k3/r0 families under the statedproductiveclean-prefix
+hypotheses. Together withpriorr2/r3results the analyzedk3classesareclosed.
+This is research mathematics, not a Lean globalrefutation or fullshardcertificate.
+Four final600-second construction searches runreviewedlive7/8 andcandidate-only
+rootOR7/8 encodings until06:03UTC. Earliergeneric7/8andtwoannealers allended
+UNKNOWN600; complete logs/source/controls/reviews are preserved inwave9.
