@@ -17,3 +17,4 @@ Timeline (UTC)
 
 2026-11-24T18:21:19.648949+00:00 circuit_search: all three runs completed without witness; total387260000 mutations,206790 exhaustive single-gate repair candidates.
 2026-11-24T18:21:31.196266+00:00 cleanup267lines builds with default limits; independent reviewPASS; checker rerun
+2026-11-24T18:22:57.391896+00:00 cleanup checker ACCEPTED(reduce); final artifacts preserved for one-file submission

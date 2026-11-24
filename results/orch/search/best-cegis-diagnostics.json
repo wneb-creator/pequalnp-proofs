@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-24T18:21:19.648692+00:00",
+  "f_wire": 85,
+  "q_wire": 31,
+  "errors": {
+    "fpos": [
+      {
+        "input_support": [
+          11,
+          16
+        ],
+        "row": 67584,
+        "actual": false
+      }
+    ],
+    "fneg": [],
+    "qpos": [],
+    "qneg": []
+  }
+}
