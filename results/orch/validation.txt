@@ -8,3 +8,5 @@ Sub-agents: direct normalization, counterexample search, decomposition, independ
 TIMING total=8 subagents=6
 Named build: lake build PEqualNP.Outside.L_meta_3451 — exit 0, Build completed successfully (18419 jobs).
 Local exact-statement checker pending; helper-only file cannot prove the posted target.
+Exact statement checker: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_3451. This is expected for partial helper preservation.
+Combined helper build2: exit 0; Build completed successfully (18419 jobs). Includes arbitrary zero restriction/embedding, unchanged gate count, ReadsBack, output/wire semantics and complete N=1 case.
