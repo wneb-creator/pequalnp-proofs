@@ -41,4 +41,37 @@ lemma witness_of_suffix (xs : List (BitVec 58)) (target : BitVec 58)
   · simpa only [List.length_append] using hlen
   · simpa only [run_append] using heval
 
+lemma mem_run {xs : List (BitVec 58)} {target : BitVec 58}
+    (gs : List Gate) (h : target ∈ xs) : target ∈ run xs gs := by
+  induction gs generalizing xs with
+  | nil => simpa [run] using h
+  | cons g gs ih =>
+    simp only [run, List.foldl_cons]
+    apply ih
+    exact List.mem_append_left _ h
+
+lemma valid_padding {n : ℕ} (hn : 2 ≤ n) (k : ℕ) :
+    valid n (List.replicate k (false, 0, 1)) := by
+  intro i
+  rw [List.getD_eq_getElem _ _ i.isLt]
+  simp only [List.getElem_replicate]
+  omega
+
+lemma witness_of_short (xs : List (BitVec 58)) (target : BitVec 58)
+    (p : List Gate) {n k : ℕ} (hn : 2 ≤ n) (hlen : p.length ≤ k)
+    (hp : valid n p) (heval : target ∈ run xs p) :
+    ∃ gs : List Gate, gs.length = k ∧ valid n gs ∧ target ∈ run xs gs := by
+  refine ⟨p ++ List.replicate (k - p.length) (false, 0, 1), ?_, ?_, ?_⟩
+  · simp only [List.length_append, List.length_replicate]
+    omega
+  · exact valid_append hp (valid_padding (by omega) _)
+  · rw [run_append]
+    exact mem_run _ heval
+
+lemma witness_of_short26 (xs : List (BitVec 58)) (target : BitVec 58)
+    (p : List Gate) (hlen : p.length ≤ 26)
+    (hp : valid 14 p) (heval : target ∈ run xs p) :
+    ∃ gs : List Gate, gs.length = 26 ∧ valid 14 gs ∧ target ∈ run xs gs := by
+  exact witness_of_short xs target p (by decide) hlen hp heval
+
 end PEqualNP.Outside.L_meta_4930
