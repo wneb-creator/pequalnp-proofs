@@ -1,3 +1,4 @@
+import Mathlib.Data.Fintype.Powerset
 import PEqualNP.Defs
 
 namespace PEqualNP.Outside.L_meta_3821
@@ -388,5 +389,56 @@ lemma no_two_wins (wins : Fin 10 → Finset (Fin 3))
       (fun v _ => hmany v)
     simpa using hh
   omega
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 2000000 in
+set_option synthInstance.maxSize 4096 in
+lemma two_disjoint_rectangles_diagonal :
+    ∀ A B C D : Finset (Fin 3),
+      Disjoint (A ×ˢ B) (C ×ˢ D) →
+      (∀ i j : Fin 3, i ≠ j → (i ∈ A ∧ j ∈ B) ∨ (i ∈ C ∧ j ∈ D)) →
+      2 ≤ ((A ∩ B) ∪ (C ∩ D)).card := by
+  decide
+
+
+lemma no_two_rectangle_labeling {X Y : Type}
+    (negative : Fin 10 → Fin 3 → X) (positive : Fin 10 → Fin 3 → Y)
+    (edge : Fin 10 → Fin 3 → Fin 15) (label : Y → X → Fin 10)
+    (hedge : ∀ (v w : Fin 10) (i j : Fin 3), edge v i = edge w j →
+      negative v i = negative w j ∧ positive v i = positive w j)
+    (hinj : ∀ v, Function.Injective (edge v))
+    (hoff : ∀ (v : Fin 10) (i j : Fin 3), i ≠ j →
+      label (positive v j) (negative v i) = v)
+    (hrect : ∀ v : Fin 10, ∃ A B C D : Finset (Fin 3),
+      Disjoint (A ×ˢ B) (C ×ˢ D) ∧
+      ∀ i j : Fin 3, label (positive v j) (negative v i) = v ↔
+        (i ∈ A ∧ j ∈ B) ∨ (i ∈ C ∧ j ∈ D)) : False := by
+  classical
+  let wins (v : Fin 10) : Finset (Fin 3) :=
+    Finset.univ.filter fun i => label (positive v i) (negative v i) = v
+  apply no_two_wins wins edge
+  · intro v
+    obtain ⟨A, B, C, D, hd, he⟩ := hrect v
+    have hcover : ∀ i j : Fin 3, i ≠ j →
+        (i ∈ A ∧ j ∈ B) ∨ (i ∈ C ∧ j ∈ D) := by
+      intro i j hij
+      exact (he i j).mp (hoff v i j hij)
+    have hcount := two_disjoint_rectangles_diagonal A B C D hd hcover
+    have hsub : (A ∩ B) ∪ (C ∩ D) ⊆ wins v := by
+      intro i hi
+      apply Finset.mem_filter.mpr
+      refine ⟨Finset.mem_univ _, (he i i).mpr ?_⟩
+      simpa only [Finset.mem_union, Finset.mem_inter] using hi
+    exact hcount.trans (Finset.card_le_card hsub)
+  · intro v w i j hi hj he
+    have hvi := (Finset.mem_filter.mp hi).2
+    have hwj := (Finset.mem_filter.mp hj).2
+    obtain ⟨hn, hp⟩ := hedge v w i j he
+    have hvw : v = w := calc
+      v = label (positive v i) (negative v i) := hvi.symm
+      _ = label (positive w j) (negative w j) := by rw [hn, hp]
+      _ = w := hwj
+    subst w
+    exact ⟨rfl, hinj v he⟩
 
 end PEqualNP.Outside.L_meta_3821
