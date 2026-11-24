@@ -1,7 +1,5 @@
 import PEqualNP.Defs
 
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 2000000 in
 theorem PEqualNP.Outside.R_meta_5112_42
     (h1 : ∃ gs : List (Bool × Fin 28 × Fin 28), gs.length = 14 ∧ (List.foldl (fun (xs : List Nat) (g : Bool × Fin 28 × Fin 28) => xs ++ [if g.1 = true then xs.getD g.2.1.val 0 ||| xs.getD g.2.2.val 0 else xs.getD g.2.1.val 0 &&& xs.getD g.2.2.val 0]) [251137, 817232, 3224100, 5542026, 11018243, 9060364, 12746800, 10682560, 13370112, 15731712, 15376435, 16403468, 15664064] gs).getD 26 0 = 4095)
     (h2 : ∀ (xs ys : List Nat) (gs : List (Bool × Nat × Nat)) (r s k : Nat), xs.length = ys.length → (∀ i, (xs.getD i 0).testBit r = true → (ys.getD i 0).testBit s = true) → ((List.foldl (fun (xs : List Nat) (g : Bool × Nat × Nat) => xs ++ [if g.1 = true then xs.getD g.2.1 0 ||| xs.getD g.2.2 0 else xs.getD g.2.1 0 &&& xs.getD g.2.2 0]) xs gs).getD k 0).testBit r = true → ((List.foldl (fun (xs : List Nat) (g : Bool × Nat × Nat) => xs ++ [if g.1 = true then xs.getD g.2.1 0 ||| xs.getD g.2.2 0 else xs.getD g.2.1 0 &&& xs.getD g.2.2 0]) ys gs).getD k 0).testBit s = true) :

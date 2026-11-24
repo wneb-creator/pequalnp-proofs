@@ -20,3 +20,6 @@ Normalize.lean: prefix stability/source recurrence extension compiled and root r
 R_meta_5112_42 final-path build: PASS;101lines before cleanup; only PEqualNP.Defs imported; outside-guard PASS. Exact14-slot Fin28/24-row hypothesis and generic row-monotonicity hypothesis. Full gap checker pending.
 CnfBridge: compiled clause soundness research, complete circuit-to-CNF assembly pending; independently reviewed by status_check.
 OrNormal: compiled canonical OR-count normalization; independently reviewed and rebuilt by status_check.
+
+Baseline local checker: ACCEPTED (reduce); child lengths534 and693; axioms[propext,Quot.sound].
+Cleanup:101→99lines, removed only two resource-limit options. Rebuild PASS4.9s, independent review PASS; repeated checker pending.
