@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "original_clause_sequence_unchanged": true,
+  "support_bounds_match_independent_enumeration": true,
+  "full_support_unrestricted": true,
+  "new_variables": 17,
+  "new_clauses": 1287,
+  "program_sha256": "f3236024e27aed9aa90356e442d4644e5f8920609a3f922cac9ddab5387a5d06",
+  "scope": "Generation and structural checks; mathematical and independent CNF reviews pending."
+}

@@ -1,0 +1,228 @@
+{
+  "actions_not_taken": [
+    "repository_edit",
+    "stage",
+    "commit",
+    "push",
+    "build",
+    "solve",
+    "desk_or_lease_call"
+  ],
+  "case_checks": {
+    "meet1or1meet3": {
+      "actual_artifact_and_review_match": true,
+      "clauses": 82755,
+      "sha256": "7c08b6d65ce6484e0bffb03d5875aa573acf90bacd7524334a0f5681f6c487b4",
+      "variables": 6182
+    },
+    "meet1or2meet2": {
+      "actual_artifact_and_review_match": true,
+      "clauses": 83189,
+      "sha256": "af007d9972491bb5f9fc2f4d2670344983da2da21249d590f72e5e51404e2b61",
+      "variables": 6182
+    },
+    "meet2or1meet2": {
+      "actual_artifact_and_review_match": true,
+      "clauses": 82754,
+      "sha256": "b3e77ca6fbbf7102955feff30843c8744db53333cdf927bad10a7275109769a7",
+      "variables": 6182
+    },
+    "meet3or2": {
+      "actual_artifact_and_review_match": true,
+      "clauses": 83188,
+      "sha256": "ae577686e8cc8dc4b8ede2c787ad1cf99491343bdf283af8a63f19e0f6899bbf",
+      "variables": 6182
+    },
+    "meet5": {
+      "actual_artifact_and_review_match": true,
+      "clauses": 83625,
+      "sha256": "50e995b3f99495d2681ae3881d80a164df321bc18ace426dcfef7f2b2545e6fb",
+      "variables": 6182
+    },
+    "or1meet4": {
+      "actual_artifact_and_review_match": true,
+      "clauses": 83190,
+      "sha256": "e1afc7b9f35521597df41659bf67a59d55d64d7bc7046c97b55131e3eafbd2af",
+      "variables": 6182
+    },
+    "or2meet3": {
+      "actual_artifact_and_review_match": true,
+      "clauses": 83188,
+      "sha256": "079ac0e5ae76e2646cdb5bfc7fabf49d79a8af625741533073a398f16d3a1410",
+      "variables": 6182
+    },
+    "prefix-base": {
+      "actual_artifact_and_review_match": true,
+      "clauses": 77802,
+      "sha256": "316808e63b35867f85bb1149bf342625699ae100a5ad5c30efe2052ab81031f7",
+      "variables": 6150
+    },
+    "prefix-distinct": {
+      "actual_artifact_and_review_match": true,
+      "clauses": 81874,
+      "sha256": "9384582fce901692738e734a2c28500f3d49a5a4841c3330ae76a9a0d42555c8",
+      "variables": 6182
+    },
+    "prefix-lex": {
+      "actual_artifact_and_review_match": true,
+      "clauses": 81842,
+      "sha256": "7bef29c48bdbddff0584963b3b470d001c3412ebfd973f022b4b131384a1a62a",
+      "variables": 6182
+    }
+  },
+  "copies_checked": [
+    {
+      "byte_identical": true,
+      "packaged_path": "cost-encoding-review.json",
+      "scratch_path": "lean-setup/cost-encoding-review.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "cost-encoding-review.md",
+      "scratch_path": "lean-setup/cost-encoding-review.md"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "cost-generation-validation.json",
+      "scratch_path": "cost-generation-validation.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "environment-recovery.json",
+      "scratch_path": "environment-recovery.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "search_l1342_shard17_cost.py",
+      "scratch_path": "search_l1342_shard17_cost.py"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "support-cost-math-review.json",
+      "scratch_path": "math-analysis/support-cost-math-review.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "support-cost-math-review.md",
+      "scratch_path": "math-analysis/support-cost-math-review.md"
+    }
+  ],
+  "gap": "L-meta-1342",
+  "head_commit": "0ce6709a62eabd1b391a01e8ebf34ba9a0412ad8",
+  "intended_source_sha256": "f3236024e27aed9aa90356e442d4644e5f8920609a3f922cac9ddab5387a5d06",
+  "nonblocking_notes": [
+    "The generation-validation record retains its historical statement that reviews were pending; the separately included completed reviews and README correctly state PASS.",
+    "Running/queued and recovery descriptions are operational reports from main; this review did not inspect or control solver processes.",
+    "The verdict applies to the exact recorded file hashes before staging."
+  ],
+  "red_team_checklist": {
+    "Lean_import_attribute_option_and_single_proof_file_rules": "No Lean changes; checkpoint artifacts are not a proof PR",
+    "Lean_tracked_and_untracked_unchanged": true,
+    "all_new_JSON_objects_parse": true,
+    "bound_and_encoding_PASS_not_claimed_as_Lean_formalization": true,
+    "diff_check_passed": true,
+    "free_TRUE_exception_preserved": true,
+    "index_empty": true,
+    "interrupted_traces_explicitly_not_certificates": true,
+    "no_SAT_UNSAT_exhaustion_or_acceptance_claim": true,
+    "no_binary_or_symlink_additions": true,
+    "no_new_Lean_axioms_sorry_native_decide_or_statement_changes": "No Lean changes",
+    "only_expected_results_pilot18_paths_changed": true,
+    "subagent_and_timing_measurement_lines_present": true,
+    "twenty_two_gate_baseline_not_claimed_to_meet_twenty_one_goal": true
+  },
+  "review_and_reproducibility_bindings": {
+    "encoding_review_source": "PASS",
+    "generation_source_and_delta": "PASS",
+    "mathematical_review_table_bytes_and_all_2048_bound_entries": "PASS",
+    "recovery_last_pushed_commit_matches_HEAD": "PASS",
+    "reproducibility_equals_encoding_case_manifest": "PASS",
+    "ten_saved_CNF_hashes_counts_tables_and_source_hashes": "PASS"
+  },
+  "reviewed_at_utc": "2026-11-24T01:42:58.536473+00:00",
+  "scope": "Checkpoint3 result-artifact push review; not a proof PR or gap-acceptance verdict",
+  "sensitive_data_review": {
+    "findings": 0,
+    "manual_review": "No credential values or lease identifiers found. Recovery contains only a renewal-restarted Boolean, not a lease identifier.",
+    "patterns": [
+      "github_token",
+      "authorization_value",
+      "private_key",
+      "url_userinfo",
+      "secret_assignment",
+      "lease_identifier",
+      "uuid"
+    ],
+    "pending_files_scanned": 10
+  },
+  "snapshots": [
+    {
+      "bytes": 2753,
+      "path": "results/pilot-18/search/README.md",
+      "sha256": "f847690d194dcf00235f3e39b20ff674deb99aae341194abd5083095f464c775",
+      "status": " M"
+    },
+    {
+      "bytes": 1996,
+      "path": "results/pilot-18/validation.txt",
+      "sha256": "f8ed53bfa2a32981af416791a39f38f06fdf358dd05001c4060934349ec5239c",
+      "status": " M"
+    },
+    {
+      "bytes": 7351,
+      "path": "results/pilot-18/search/cost-encoding-review.json",
+      "sha256": "8c35861a737e8dac5bf0a2d4ba04b9fed6049e7861ca24fed37ee334e05d1f63",
+      "status": "??"
+    },
+    {
+      "bytes": 4510,
+      "path": "results/pilot-18/search/cost-encoding-review.md",
+      "sha256": "92072a6f3021dcc345e66cddb1424c7f29f85c64ae46f45182b5abc11ca6aab7",
+      "status": "??"
+    },
+    {
+      "bytes": 394,
+      "path": "results/pilot-18/search/cost-generation-validation.json",
+      "sha256": "dba9eb348d8deeef9e2b174d96c3efc2ca46b72c3addb0635d544d011c6994e8",
+      "status": "??"
+    },
+    {
+      "bytes": 2377,
+      "path": "results/pilot-18/search/cost-reproducibility.json",
+      "sha256": "f14711cac15f5a51ad26434033c2070b4998379d56872631aeec050ec7fd0aea",
+      "status": "??"
+    },
+    {
+      "bytes": 547,
+      "path": "results/pilot-18/search/environment-recovery.json",
+      "sha256": "6a3fe03ff5ffd5a1cc1a815be50b65a892a3277fec9d791cbb91764e6595f40e",
+      "status": "??"
+    },
+    {
+      "bytes": 22712,
+      "path": "results/pilot-18/search/search_l1342_shard17_cost.py",
+      "sha256": "f3236024e27aed9aa90356e442d4644e5f8920609a3f922cac9ddab5387a5d06",
+      "status": "??"
+    },
+    {
+      "bytes": 1816,
+      "path": "results/pilot-18/search/support-cost-math-review.json",
+      "sha256": "f2b8b27d18208ce45a2817de762890d24e9379a3c4728e2b9a73168c35d3a2d2",
+      "status": "??"
+    },
+    {
+      "bytes": 5768,
+      "path": "results/pilot-18/search/support-cost-math-review.md",
+      "sha256": "57f25816f5fd29399312fcf6c1f74110aac0e0eb5214ae24288fe50d26483a0b",
+      "status": "??"
+    }
+  ],
+  "staged_changes": false,
+  "staging_note": "No staged source exists yet. The pending worktree source intended for staging exactly matches the independently reviewed SHA.",
+  "subagent_count": 0,
+  "subagents": "none",
+  "total_session_minutes": 84.19,
+  "tracked_files_modified": 2,
+  "untracked_files": 8,
+  "verdict": "PASS"
+}

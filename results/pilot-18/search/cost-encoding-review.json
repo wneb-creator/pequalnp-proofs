@@ -1,0 +1,248 @@
+{
+  "CNF_files_written": false,
+  "added_clauses": 1287,
+  "added_variables": 17,
+  "budget_rows": [
+    {
+      "all_2048_supports_checked": true,
+      "budget": 1,
+      "clauses": 28,
+      "cubes": 11,
+      "forbidden_patterns": 2047,
+      "gate": 0
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 2,
+      "clauses": 28,
+      "cubes": 11,
+      "forbidden_patterns": 2047,
+      "gate": 1
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 3,
+      "clauses": 28,
+      "cubes": 11,
+      "forbidden_patterns": 2047,
+      "gate": 2
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 4,
+      "clauses": 28,
+      "cubes": 11,
+      "forbidden_patterns": 2047,
+      "gate": 3
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 5,
+      "clauses": 28,
+      "cubes": 11,
+      "forbidden_patterns": 2047,
+      "gate": 4
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 6,
+      "clauses": 45,
+      "cubes": 28,
+      "forbidden_patterns": 2025,
+      "gate": 5
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 7,
+      "clauses": 91,
+      "cubes": 74,
+      "forbidden_patterns": 1927,
+      "gate": 6
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 8,
+      "clauses": 155,
+      "cubes": 138,
+      "forbidden_patterns": 1689,
+      "gate": 7
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 9,
+      "clauses": 168,
+      "cubes": 151,
+      "forbidden_patterns": 1355,
+      "gate": 8
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 10,
+      "clauses": 164,
+      "cubes": 147,
+      "forbidden_patterns": 997,
+      "gate": 9
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 11,
+      "clauses": 130,
+      "cubes": 113,
+      "forbidden_patterns": 702,
+      "gate": 10
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 12,
+      "clauses": 112,
+      "cubes": 95,
+      "forbidden_patterns": 461,
+      "gate": 11
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 13,
+      "clauses": 92,
+      "cubes": 75,
+      "forbidden_patterns": 276,
+      "gate": 12
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 14,
+      "clauses": 64,
+      "cubes": 47,
+      "forbidden_patterns": 168,
+      "gate": 13
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 15,
+      "clauses": 58,
+      "cubes": 41,
+      "forbidden_patterns": 84,
+      "gate": 14
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 16,
+      "clauses": 37,
+      "cubes": 20,
+      "forbidden_patterns": 47,
+      "gate": 15
+    },
+    {
+      "all_2048_supports_checked": true,
+      "budget": 17,
+      "clauses": 31,
+      "cubes": 14,
+      "forbidden_patterns": 23,
+      "gate": 16
+    }
+  ],
+  "build_started": false,
+  "case_audits": {
+    "meet1or1meet3": {
+      "clauses": 82755,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "7c08b6d65ce6484e0bffb03d5875aa573acf90bacd7524334a0f5681f6c487b4",
+      "variables": 6182
+    },
+    "meet1or2meet2": {
+      "clauses": 83189,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "af007d9972491bb5f9fc2f4d2670344983da2da21249d590f72e5e51404e2b61",
+      "variables": 6182
+    },
+    "meet2or1meet2": {
+      "clauses": 82754,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "b3e77ca6fbbf7102955feff30843c8744db53333cdf927bad10a7275109769a7",
+      "variables": 6182
+    },
+    "meet3or2": {
+      "clauses": 83188,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "ae577686e8cc8dc4b8ede2c787ad1cf99491343bdf283af8a63f19e0f6899bbf",
+      "variables": 6182
+    },
+    "meet5": {
+      "clauses": 83625,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "50e995b3f99495d2681ae3881d80a164df321bc18ace426dcfef7f2b2545e6fb",
+      "variables": 6182
+    },
+    "or1meet4": {
+      "clauses": 83190,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "e1afc7b9f35521597df41659bf67a59d55d64d7bc7046c97b55131e3eafbd2af",
+      "variables": 6182
+    },
+    "or2meet3": {
+      "clauses": 83188,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "079ac0e5ae76e2646cdb5bfc7fabf49d79a8af625741533073a398f16d3a1410",
+      "variables": 6182
+    },
+    "prefix-base": {
+      "clauses": 77802,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "316808e63b35867f85bb1149bf342625699ae100a5ad5c30efe2052ab81031f7",
+      "variables": 6150
+    },
+    "prefix-distinct": {
+      "clauses": 81874,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "9384582fce901692738e734a2c28500f3d49a5a4841c3330ae76a9a0d42555c8",
+      "variables": 6182
+    },
+    "prefix-lex": {
+      "clauses": 81842,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "7bef29c48bdbddff0584963b3b470d001c3412ebfd973f022b4b131384a1a62a",
+      "variables": 6182
+    }
+  },
+  "companion_math_review": "Main reports independent PASS for the mathematical bound and all 2048 table entries; not re-proved in this encoding audit.",
+  "cover_false_unrestricted_for_all_supports": true,
+  "cover_flag_clauses": 289,
+  "cover_flag_projection_assignments": 131072,
+  "desk_calls": false,
+  "elapsed_review_script_seconds": 7.854,
+  "empty_support_bound": 22,
+  "encoding_review": "PASS",
+  "existing_clauses_preserved_modulo_lex_flag_renumbering": true,
+  "forbidden_cube_clauses": 998,
+  "full_support_sentinel": 0,
+  "full_support_unrestricted_at_every_budget": true,
+  "generator_modified": false,
+  "helper_empty_and_universal_forbidden_sets": "PASS",
+  "independent_table_method": "Memoized vertex-cover branching directly on each induced graph; all 2048 supports compared",
+  "lex_flag_allocation_disjoint": true,
+  "mathematical_bound_review": "Not performed here; supplied bound remains a separate required justification",
+  "minimum_proper_support_bound": 6,
+  "new_functions": [
+    "add_prefix_cover_cost",
+    "forbidden_cubes",
+    "support_cost_bounds"
+  ],
+  "prior_common_definitions_AST_identical": 11,
+  "repository_modified": false,
+  "reviewed_at_utc": "2026-11-24T01:39:34.244128+00:00",
+  "risks_and_scope": [
+    "Encoding correctness is conditional on the stated proper-support gate lower bound; this is not a proof of that lower bound.",
+    "The full-support zero entry is an exemption sentinel, not a claim that every full-support function needs zero gates.",
+    "Generator internal assertions are disabled under python -O; this audit ran with assertions enabled and checked saved artifacts independently.",
+    "No SAT, UNSAT, exhaustion, Lean-proof, or posted-gap checker acceptance verdict is established.",
+    "The SAT validator checks these restrictions through every CNF clause; it does not yet report prefix_cover_cost as a separate semantic flag."
+  ],
+  "solver_started": false,
+  "source": "/tmp/oec/pequalnp-pilot-18/search_l1342_shard17_cost.py",
+  "source_sha256": "f3236024e27aed9aa90356e442d4644e5f8920609a3f922cac9ddab5387a5d06",
+  "subagent_count": 0,
+  "subagents": "none",
+  "support_budget_projections": 34816,
+  "table_sha256": "40d8a21d7a67499955200884476066cbccb5f9577baf741fcebed5d29bcea7a4",
+  "total_session_minutes": 80.79,
+  "verdict": "PASS"
+}

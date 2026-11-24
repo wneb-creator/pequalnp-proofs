@@ -1,0 +1,13 @@
+{
+  "event": "execution environment restarted; filesystem persisted, active and paused solver processes did not",
+  "observed_utc": "2026-11-24T01:37:29.437077+00:00",
+  "all_prior_searches": "Interrupted with no SAT/UNSAT verdict; incomplete traces are not certificates",
+  "last_pushed_commit": "0ce6709a62eabd1b391a01e8ebf34ba9a0412ad8",
+  "lean_proof_preserved": "22-gate upper bound only; posted at-most-21 statement unproved",
+  "lease_renewal_restarted": true,
+  "subagents_resumed": [
+    "Boyle",
+    "Jason"
+  ],
+  "subagent_count": 2
+}

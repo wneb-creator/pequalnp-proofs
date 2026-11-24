@@ -15,7 +15,7 @@ They are deliberately broader after formula normalization: tail junk flags
 are no longer required. Repeated leaves and free constants remain allowed.
 The mathematical reductions and encoding reviews are included. They are not
 Lean formalizations. Exhausting this range would not refute the global statement.
-The optional distinct-prefix flag was reviewed but is not used in this run.
+The current cost variant uses the reviewed distinct-prefix restriction.
 
 Reviewer scratch paths identify the files actually examined. The combined
 program here contains those components and reproduces the running CNFs exactly.
@@ -25,8 +25,8 @@ Sub-agents: 2 inherited-model agents for mathematical search and independent val
 
 The dominance and copy-chain variants add independently reviewed restrictions.
 Invoke either script with `--distinct-prefix OUTPUT_DIRECTORY` to reproduce its
-seven cases. Four weaker solver states were paused while four stronger cases
-run; a pause or interruption is not an UNSAT verdict.
+seven cases. The environment restarted at approximately 01:36 UTC, interrupting all old
+solver processes without a verdict. Their incomplete traces are not certificates.
 
 `validate_sat_candidate.py INSTANCE.cnf KISSAT.stdout` checks the complete model,
 every clause, both full truth tables, and constant/alias elimination. Its report
@@ -37,3 +37,9 @@ https://github.com/ccodel/dsr-trim (read 2026-11-24). Source blob hashes, build
 logs, and positive/negative controls are included. It must return the explicit
 UNSAT verdict; exit zero with `s VALID` does not establish unsatisfiability.
 No assigned-shard certificate has yet been checked.
+
+The cost variant adds the reviewed proper-support lower bound when a prefix
+wire covers all graph edges. Free TRUE remains exempt. Run
+`python search_l1342_shard17_cost.py --distinct-prefix OUTPUT_DIRECTORY`.
+Both mathematical and encoding reviews passed; the seven new cases are running
+or queued. No SAT/UNSAT verdict has been obtained.

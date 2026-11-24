@@ -1,0 +1,69 @@
+{
+  "generator_sha256": "f3236024e27aed9aa90356e442d4644e5f8920609a3f922cac9ddab5387a5d06",
+  "cases": {
+    "meet1or1meet3": {
+      "clauses": 82755,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "7c08b6d65ce6484e0bffb03d5875aa573acf90bacd7524334a0f5681f6c487b4",
+      "variables": 6182
+    },
+    "meet1or2meet2": {
+      "clauses": 83189,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "af007d9972491bb5f9fc2f4d2670344983da2da21249d590f72e5e51404e2b61",
+      "variables": 6182
+    },
+    "meet2or1meet2": {
+      "clauses": 82754,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "b3e77ca6fbbf7102955feff30843c8744db53333cdf927bad10a7275109769a7",
+      "variables": 6182
+    },
+    "meet3or2": {
+      "clauses": 83188,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "ae577686e8cc8dc4b8ede2c787ad1cf99491343bdf283af8a63f19e0f6899bbf",
+      "variables": 6182
+    },
+    "meet5": {
+      "clauses": 83625,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "50e995b3f99495d2681ae3881d80a164df321bc18ace426dcfef7f2b2545e6fb",
+      "variables": 6182
+    },
+    "or1meet4": {
+      "clauses": 83190,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "e1afc7b9f35521597df41659bf67a59d55d64d7bc7046c97b55131e3eafbd2af",
+      "variables": 6182
+    },
+    "or2meet3": {
+      "clauses": 83188,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "079ac0e5ae76e2646cdb5bfc7fabf49d79a8af625741533073a398f16d3a1410",
+      "variables": 6182
+    },
+    "prefix-base": {
+      "clauses": 77802,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "316808e63b35867f85bb1149bf342625699ae100a5ad5c30efe2052ab81031f7",
+      "variables": 6150
+    },
+    "prefix-distinct": {
+      "clauses": 81874,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "9384582fce901692738e734a2c28500f3d49a5a4841c3330ae76a9a0d42555c8",
+      "variables": 6182
+    },
+    "prefix-lex": {
+      "clauses": 81842,
+      "exact_old_sequence_plus_cost_delta": true,
+      "sha256": "7bef29c48bdbddff0584963b3b470d001c3412ebfd973f022b4b131384a1a62a",
+      "variables": 6182
+    }
+  },
+  "math_review": "PASS",
+  "encoding_review": "PASS",
+  "search_result": "PENDING; no SAT/UNSAT verdict",
+  "interrupted_previous_searches": "No verdict; not certificates"
+}
