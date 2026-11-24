@@ -1,0 +1,27 @@
+{
+  "scope": "Candidate-only stochastic optimization; no exhaustion claim.",
+  "started_utc": "2026-11-24T04:19:31.438730+00:00",
+  "engine_sha256": "31620eae27eed733fe22f94965a215394e3fc6bd2a313f566335a3eb30dd4f00",
+  "pack_sha256": "7545d43b161bb5d1fab2cbf3e517c56a40dab5e8e26bdaff4bc4649760dbfe0a",
+  "pack_metadata_sha256": "de74224be43990e581638e3233e885df66b5de1a156a5f02796670a087d2d981",
+  "wrapper_sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+  "validator_sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/circuit_anneal",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-seed-pack/seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json",
+    "--seed",
+    "134223",
+    "--seconds",
+    "60.0",
+    "--iterations",
+    "2000000000",
+    "--restart",
+    "200000",
+    "--weight",
+    "16"
+  ],
+  "status": "RUNNING"
+}

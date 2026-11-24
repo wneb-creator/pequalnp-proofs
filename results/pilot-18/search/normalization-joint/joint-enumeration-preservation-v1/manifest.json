@@ -1,0 +1,70 @@
+{
+  "scope": "Independent positive-survivor/pruning review and complete k3/r0 support-relaxation traversal only; no circuit construction or global exhaustion.",
+  "created_utc": "2026-11-24T04:14:59.411087+00:00",
+  "base_archive_sha256": "ab76bf72819cac52f98c13d133b94fceedc2dc7fa4952ef06f825d19081beea4",
+  "files": [
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/enumerate_joint_supports.py",
+      "archive_path": "scratch/orch/S01/enumerate_joint_supports.py",
+      "sha256": "1fa83032ddea490b4c7909362d9bd3e3b7b40e99f306cafc20845c2a220567a0",
+      "bytes": 7084
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/joint-support-enumeration.json",
+      "archive_path": "scratch/orch/S01/joint-support-enumeration.json",
+      "sha256": "0feea158ba303d7019b18bfbabd22a383703bda48d7d90a6aa77c9b6634089ef",
+      "bytes": 1872
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/joint-support-enumeration.stdout.txt",
+      "archive_path": "scratch/orch/S01/joint-support-enumeration.stdout.txt",
+      "sha256": "ccccbb70b31e17d80f6ac85a07f8a55b1292c1a3ddf22bd43d9d76ae704bc8ea",
+      "bytes": 507
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/joint-support-enumeration.stderr.txt",
+      "archive_path": "scratch/orch/S01/joint-support-enumeration.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/review_joint_enumeration.py",
+      "archive_path": "scratch/orch/S04/review_joint_enumeration.py",
+      "sha256": "132e6055ae70e65929d62513b091f32f34550d373d81b6b380a4b4796765f389",
+      "bytes": 4815
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/joint-enumeration-review.json",
+      "archive_path": "scratch/orch/S04/joint-enumeration-review.json",
+      "sha256": "88e668c2c060ffe4efc40c849a7aac11573c4542191bba5b090f9d8489df1017",
+      "bytes": 285272
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/joint-enumeration-review.stdout.log",
+      "archive_path": "scratch/orch/S04/joint-enumeration-review.stdout.log",
+      "sha256": "10a232f6fe8fe1476a80dbf309c97eb0d05d325f6e7b9c50a7cdc3330c532687",
+      "bytes": 591
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/joint-enumeration-review.stderr.log",
+      "archive_path": "scratch/orch/S04/joint-enumeration-review.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/preserve_enumeration_review.py",
+      "archive_path": "scratch/orch/S04/preserve_enumeration_review.py",
+      "sha256": "097bdd5a568ea2b69b1cfc3115c93e6a41c35bd2ae54025f34d410c92a89e7d1",
+      "bytes": 2720
+    },
+    {
+      "source_path": "/workspace/pequalnp-proofs/results/orch/lemmas/S04-redteam.md",
+      "archive_path": "repo/results/orch/lemmas/S04-redteam.md",
+      "sha256": "6aac3b734acfa7f7ecbf7ae0f34d43f3b3942b0c310f03b64c26a2a3af815038",
+      "bytes": 43396
+    }
+  ],
+  "raw_CNF_count": 0,
+  "solver_run": false,
+  "Lean_build": false
+}

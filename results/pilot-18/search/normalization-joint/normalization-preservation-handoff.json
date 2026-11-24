@@ -1,0 +1,43 @@
+{
+  "status": "READY_FOR_MAIN_PRESERVATION_REVIEW_AND_PUSH",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S04/normalization-preservation-v1.tar.gz",
+      "bytes": 735815,
+      "sha256": "ab76bf72819cac52f98c13d133b94fceedc2dc7fa4952ef06f825d19081beea4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S04/normalization-preservation-validation.json",
+      "bytes": 866,
+      "sha256": "b3f2e9f7380dc7d579a41cd3b922c1dd1928e325a9f7734b33e1c9d689dc4e0f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S04/normalization-preservation-v1/manifest.json",
+      "bytes": 59452,
+      "sha256": "cb20dfacd44f6d62ebb3ea77773ce7b6b2237cfcb2ea078b072f4a4a18243a05"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S04/normalization-preservation-v1/README.md",
+      "bytes": 3493,
+      "sha256": "d88329caaeb7b467945f5f08d3440438a1e718231b39585bd7fa904779b0af1c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S04/preservation-finalization.stdout.log",
+      "bytes": 866,
+      "sha256": "b3f2e9f7380dc7d579a41cd3b922c1dd1928e325a9f7734b33e1c9d689dc4e0f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S04/preservation-finalization.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "scope": "Six-case normalization and joint-cost mathematical/source/delta preservation; no solver or Lean global verdict.",
+  "recommended_repository_payload": [
+    "normalization-preservation-v1.tar.gz",
+    "normalization-preservation-validation.json",
+    "normalization-preservation-v1/manifest.json",
+    "normalization-preservation-v1/README.md"
+  ],
+  "followup": "S01 finite joint-support enumeration will be reviewed separately; this immutable archive excludes that newer work."
+}

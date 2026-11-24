@@ -1,0 +1,111 @@
+{
+  "utc": "2026-11-24T04:16:01.561328+00:00",
+  "archive_sha256": "ab76bf72819cac52f98c13d133b94fceedc2dc7fa4952ef06f825d19081beea4",
+  "regular_members": 164,
+  "manifest_verified_files": 163,
+  "command": [
+    "python",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/main-normalization-review/normalization-preservation-v1/scratch/orch/S04/reproduce_six_cases.py",
+    "/tmp/oec/pequalnp-pilot-18/main-normalization-review/normalization-preservation-v1",
+    "/tmp/oec/pequalnp-pilot-18/main-normalization-review/reproduced"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 4.83451516400055,
+  "source_hashes_verified": true,
+  "verdict": "PASS_MAIN_ARCHIVE_AND_14_EXACT_RECONSTRUCTIONS",
+  "reproduction": {
+    "verdict": "PASS_EXACT_REPRODUCTION",
+    "CNFs": [
+      {
+        "file": "prefix/prefix-base.cnf",
+        "sha256": "7c8cdd78f24e0de8ec143d4c5801d1481c9d5f336c1e9bf79d9b461c9e3c127d",
+        "bytes": 1808534,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "prefix/prefix-lex.cnf",
+        "sha256": "741a81093f40bcbbb28f10514bf1e9d609b046c9fa711e5d086548f3cc4a64cf",
+        "bytes": 1890720,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "prefix/prefix-distinct.cnf",
+        "sha256": "811937a8a658d01fac36418e9fb3087218820a9f9dc571ef09246f936df8168e",
+        "bytes": 1891554,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "original/original.cnf",
+        "sha256": "38d93ec59a86378a8434b232d19b2b53e8cbc3c715e81432ee94db59ca6ace08",
+        "bytes": 1965437,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "consecutive-junk-v2/AAAA-chain.cnf",
+        "sha256": "41995c72708a950daa154eb3dfa50447b4a4f6ce6199082f14a28a8cfdda1730",
+        "bytes": 1990748,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "consecutive-junk-v2/AAAA.cnf",
+        "sha256": "f50627e82144e04dd204302967e5d95b21e7fb6504cf964a35657173eacc3d02",
+        "bytes": 1965472,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "consecutive-junk-v2/AAAO-chain.cnf",
+        "sha256": "a8e94b6cfeaafb8b6c4e01d33e6f552a984e395d224dc3d6281d99cc49850753",
+        "bytes": 1984660,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "consecutive-junk-v2/AAAO.cnf",
+        "sha256": "af8cf38d730b3ffaa1245321ce87d3e2dcec43b2a64f180f7962a6f255a4bf29",
+        "bytes": 1965473,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "consecutive-junk-v2/AAOA.cnf",
+        "sha256": "70308894ffc6f4c3b682140c7df3d17ed3035c79dc66f56dc51bd47020004e91",
+        "bytes": 1965473,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "consecutive-junk-v2/normalized.cnf",
+        "sha256": "3fefefe3949bc703fc2b9f023be12bc42f1afe7619e8ed5ed63be2f8e7648812",
+        "bytes": 1965444,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "aaoa-four-v1/T1.cnf",
+        "sha256": "422b20c5d9fd5c7eff0ec8a4d7283c70750686da38e3bc3e1dc68e7a1dd5353c",
+        "bytes": 1977722,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "aaoa-four-v1/T2.cnf",
+        "sha256": "a295babc305737a921da6bb5c0e990f6c91b2a4c200544d57bcd3abc3e574c3b",
+        "bytes": 1983804,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "aaoa-four-v1/T3.cnf",
+        "sha256": "0ab8fcacbcfe9fa8e094d8db4d0a52eb5d885a032313992ac7c02f312eaffbdf",
+        "bytes": 1977706,
+        "metadata_byte_equal": true
+      },
+      {
+        "file": "aaoa-four-v1/T4.cnf",
+        "sha256": "661f44876da7e7f8d24d9a06f64ae3708037fc19048e9e20153c47e6a49ea5e3",
+        "bytes": 1983804,
+        "metadata_byte_equal": true
+      }
+    ],
+    "CNF_count": 14,
+    "metadata_byte_matches": 14,
+    "family_byte_matches": 2,
+    "solver_launched": false,
+    "Lean_build": false
+  }
+}

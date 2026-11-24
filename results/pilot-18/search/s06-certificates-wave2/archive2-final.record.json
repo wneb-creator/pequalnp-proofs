@@ -1,0 +1,21 @@
+{
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive2-final",
+  "compiled_binary_count": 0,
+  "files_in_manifest": 1783,
+  "large_cnfs_reconstructed": 95,
+  "manifest_sha256": "005189a6921f0d52b442d5e26703b05b86482010e7ab5dc0247a77297fe98519",
+  "production_launched": false,
+  "real_control": {
+    "cnf_sha256": "f131cf70c0ba2ab234ccebbdab41a11fa156d01dae915ccba57f06563d94f1af",
+    "directory": "scratch/orch/S06/offline-real-case13",
+    "executed_by_packager": false,
+    "proof_bytes": 417878,
+    "proof_sha256": "8125b968b7872be6b0c65d3d9fce9231364fd6e1e06a19c951b7752d730c320d",
+    "result_sha256": "88366278322d06c5030f1da8e8c58162ad912b5deec80120475baf78f23a0873",
+    "status": "MAIN_CONTROL_VERIFIED_UNSAT"
+  },
+  "small_fixture_cnfs": 137,
+  "tar_bytes": 3239216,
+  "tar_path": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive2-final.tar.gz",
+  "tar_sha256": "de4ba452cf2b996aa8fe89987bf4c61711eca8e8c92175cb6df1be5586e2b373"
+}

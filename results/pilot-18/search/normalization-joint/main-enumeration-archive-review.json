@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-24T04:17:17.060149+00:00",
+  "verdict": "PASS_MAIN_REGULAR_ARCHIVE_HASHES_AND_SCOPE",
+  "archive_sha256": "136bc083a89edf8e5ff08e146f131fa3c094b90ca1d22f6748f0c7ef0332bffa",
+  "regular_members": 11,
+  "entries_verified": 10,
+  "finite_scope": "18424triples from49common-neighbor supports,515survive; no circuit/exhaustion",
+  "independent_review_sha256": "88e668c2c060ffe4efc40c849a7aac11573c4542191bba5b090f9d8489df1017"
+}

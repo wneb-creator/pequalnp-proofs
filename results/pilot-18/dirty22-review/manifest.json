@@ -1,0 +1,518 @@
+{
+  "utc": "2026-11-24T04:19:31.645903+00:00",
+  "scope": "Exactdirty22partialcheckpointreview, notposted21acceptance",
+  "final_review_sha256": "5dd16dd2426ebe30ab881f831abd4e04ae268f3b8b9cebeae75bf30d55b0c3ea",
+  "staged_diff_sha256": "568fd8716980c267fb10acfe72f1477f9c974d1986efedf39d8df755b304fa04",
+  "files": [
+    {
+      "path": "README.md",
+      "source_path": "generated preservation scope",
+      "bytes": 857,
+      "sha256": "ac7aeafc237160c195b24b93d3d66aaac3ffb6b6ffb61d7088b48ffe824bbcc5"
+    },
+    {
+      "path": "final/diff-check.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/diff-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/diff-check.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/diff-check.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/review.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/review.json",
+      "bytes": 23062,
+      "sha256": "5dd16dd2426ebe30ab881f831abd4e04ae268f3b8b9cebeae75bf30d55b0c3ea"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/README.md",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/README.md",
+      "bytes": 1089,
+      "sha256": "2690f973d18b2495a42f809f9746ad54f7fed2d289d03cd15f4112e1ef94dbc5"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/Dirty22Audit.lean.txt",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/Dirty22Audit.lean.txt",
+      "bytes": 1980,
+      "sha256": "ba8e9e9ce9dab920ad7bc391f32fd22500bd00cf6ecbdd6004e60166fa64d35e"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/Dirty22Control.generation.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/Dirty22Control.generation.json",
+      "bytes": 967,
+      "sha256": "dbdd0c16acf111a169772a2b4827c4858a705b98c992fc4d8b43af95f767b8d7"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/Dirty22Control.lean.txt",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/Dirty22Control.lean.txt",
+      "bytes": 1696,
+      "sha256": "9a7014c902546881f3653782c4dbcc62213e91a6fe67f7faa6e7645029423969"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-audit-runner.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-audit-runner.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-audit-runner.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-audit-runner.stdout",
+      "bytes": 986,
+      "sha256": "c550bfa6bdb8744bb70bccaa2cc818140414015178118afc81c951f893f6f006"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-axioms.result.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-axioms.result.json",
+      "bytes": 1102,
+      "sha256": "55df4804ff6d1b15697f8af2498bdd8a7872df8d92038fd3eea96d91767a66c8"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-axioms.running.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-axioms.running.json",
+      "bytes": 460,
+      "sha256": "6e0706136ad7e950eb0bc54f16b4f6cf1f213b50472dfbd01efef6445284d772"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-axioms.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-axioms.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-axioms.stdout",
+      "bytes": 424,
+      "sha256": "3a340ea498cdba01b077d85549ec4d1e19ab3caa0dd26e99e3c59015a9e001d8"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-build.result.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-build.result.json",
+      "bytes": 1103,
+      "sha256": "cad6d5e8d6c7e9ca98d31600e2fd49207daceb2c08b60995f3772b3a0acf6c39"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-build.running.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-build.running.json",
+      "bytes": 464,
+      "sha256": "295ca3cafc8ff27459eb2eb37b802af96bbef175b886dea6f0b6690f934a3490"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-build.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-build.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-certificate-handoff.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-certificate-handoff.json",
+      "bytes": 6529,
+      "sha256": "361cd610b831905c5ef95185878101faf2a3d11d2a6f54d5a954df9a05b10b61"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-exact-statement.txt",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-exact-statement.txt",
+      "bytes": 408,
+      "sha256": "cd7fb88a03bf9323862d34684f3b8a0c58f13b958d3a082d3beaf2ade9e146de"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-generation-review.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-generation-review.json",
+      "bytes": 462,
+      "sha256": "3dde64e7f043622e0e41754f007461c1b2113bfef2f6256ae68bf29d368fe25e"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-generation.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-generation.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-generation.stdout",
+      "bytes": 291,
+      "sha256": "fe1c725f995f312fe2a3512b0e89cecb38c6045fe5f437f84499cc0f0ba2193c"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-runner.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-runner.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-runner.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/dirty22-runner.stdout",
+      "bytes": 987,
+      "sha256": "621237573d3461d6192304da61a8d0dc61e34965c1f4e79186ded243c2900c08"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/emit_candidate.py",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/emit_candidate.py",
+      "bytes": 7116,
+      "sha256": "f0df2b3fbd6aaec3745c390f629022818e1c083c5824e05e31c59a528b492fd0"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S03/run_lean.py",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S03/run_lean.py",
+      "bytes": 2414,
+      "sha256": "f0ca0bfcc71424068e29aa50f2fb6aef72582492f5d80c7d7cb85beb62ce60e0"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/checks.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/checks.json",
+      "bytes": 3058,
+      "sha256": "1ea9f1b69bb08b3653f2ed7972803c88da7f1727c625e41b1fbea98f840dcd48"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/engine-self-test-not-run.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/engine-self-test-not-run.json",
+      "bytes": 375,
+      "sha256": "d84c0b7052a3502095f83faa98576a53349c1e1dc68d6a1462addbee4c1972db"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/false-output-rejection.result.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/false-output-rejection.result.json",
+      "bytes": 629,
+      "sha256": "e15e6d9a2f581ec33cd4c0c0fc46987b48cdbe3bfb70df16cd5e0b04e2405221"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/false-output-rejection.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/false-output-rejection.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/false-output-rejection.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/false-output-rejection.stdout",
+      "bytes": 38,
+      "sha256": "d039f7158c2d3948ec98e5c91cfe54d3c53c651598fe5ab5ae2c517e844406c4"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/false-output.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/false-output.json",
+      "bytes": 1689,
+      "sha256": "13509a0ec6acd9abff01d62386f4e285122e74f18e5a0b12fb2d05d05e44029b"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-0.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-0.json",
+      "bytes": 1653,
+      "sha256": "39ededbea473e2c6c4aad452303c95675d692b18ff767bde7e2d4cc403f6c864"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-0.result.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-0.result.json",
+      "bytes": 611,
+      "sha256": "4b232a5010885afcf3748388ed8724e7c9e30e9085500420b31204941dfd3fe0"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-0.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-0.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-0.stdout",
+      "bytes": 49,
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-1.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-1.json",
+      "bytes": 1653,
+      "sha256": "b42a9145f5e587e29beeb6ef206a67ac8ea8ca79361bbeff03768d3330ea7f18"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-1.result.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-1.result.json",
+      "bytes": 616,
+      "sha256": "e0b8933bdf5c755c226ba6305b100353ff22a21d373596ecfed2680a9c6df0f4"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-1.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-1.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-1.stdout",
+      "bytes": 49,
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-2.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-2.json",
+      "bytes": 1653,
+      "sha256": "765ae6bb317e31627e2a21634a1b26deb31ea60c659612fcb62303c86b05cbc1"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-2.result.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-2.result.json",
+      "bytes": 616,
+      "sha256": "7321d4ffd9bc3c5a63c6afba48dfeb8142bb170d40431c632268a3ea634ad98b"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-2.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-2.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-2.stdout",
+      "bytes": 49,
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-3.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-3.json",
+      "bytes": 1653,
+      "sha256": "52debe236f3707294d8cafa4a71a1377825376e7358c15e3b3cf58c23caa7af8"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-3.result.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-3.result.json",
+      "bytes": 615,
+      "sha256": "97201fc5f0808ed6864c71536973aa1ce899a7b953dc111eb10d9facd40163ed"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-3.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-3.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-3.stdout",
+      "bytes": 49,
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-4.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-4.json",
+      "bytes": 1653,
+      "sha256": "8f37bb024e10b8b6f092549c140ccfcc94caac6984809106bef58ae961b32684"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-4.result.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-4.result.json",
+      "bytes": 616,
+      "sha256": "29bee50e151737d0e90e353f4f8de66a4e8d73b6d8844a64f4bf151db82cb664"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-4.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-4.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-4.stdout",
+      "bytes": 49,
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/prepare.result.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/prepare.result.json",
+      "bytes": 605,
+      "sha256": "8fa4adf1d9091e2744d917da4d5b835acb8030ad699efb8388df65b48b24a6d0"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/prepare.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/prepare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/prepare.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/prepare.stdout",
+      "bytes": 170,
+      "sha256": "3983a93566385c428a7ae6b7982bb2128ada5dfc246f57179e330b5564f539db"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/unshifted-offset-rejection.result.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/unshifted-offset-rejection.result.json",
+      "bytes": 637,
+      "sha256": "fe129d54e1e371a3a3a0040a75e5237da68d20387bd255984415f6953cfeed68"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/unshifted-offset-rejection.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/unshifted-offset-rejection.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/unshifted-offset-rejection.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/unshifted-offset-rejection.stdout",
+      "bytes": 38,
+      "sha256": "d039f7158c2d3948ec98e5c91cfe54d3c53c651598fe5ab5ae2c517e844406c4"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/unshifted-offset.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/unshifted-offset.json",
+      "bytes": 1232,
+      "sha256": "64a9e2d91b214b9883e2647d67f6ee17e8c4b6525478ad72e7408c795ed2d303"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-delivery-manifest.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-delivery-manifest.json",
+      "bytes": 10080,
+      "sha256": "74aa51ec266ec31be63503b4a68c73982383ccb4ec4249e8be59476f992ac678"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-family/c0000-k22.baseline22.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-family/c0000-k22.baseline22.json",
+      "bytes": 1689,
+      "sha256": "a023ba6635d5c4c7dff8de198941c2271efa3e4758794b6d9c7c90d9789eb56a"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-family/c0001-k22.baseline22.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-family/c0001-k22.baseline22.json",
+      "bytes": 1694,
+      "sha256": "7dec09e55cf2866a7a13fcd784ebf667d3a01465dcdee1fb6ce7a93bacfd2c55"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-family/c0002-k22.baseline22.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-family/c0002-k22.baseline22.json",
+      "bytes": 1693,
+      "sha256": "3ed1082a77fd97acf4d553b2a491ece57c3dc7211b21991b2dd47c3f8b1d8cc4"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-family/c0003-k22.baseline22.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-family/c0003-k22.baseline22.json",
+      "bytes": 1692,
+      "sha256": "50d84a9b20f12a4b0e9aed53b0a12d698729e9895572c062d7bcaf57758f705f"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-family/family.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-family/family.json",
+      "bytes": 992,
+      "sha256": "bf548bea651ed134b2cd5b3e2c0507f98cb2a7d5b2d8e4c671b5358ceadf5002"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-family/source-original.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-family/source-original.json",
+      "bytes": 1218,
+      "sha256": "0cd2e6eaa92e2a5cd95d1bd20728ad9157e80b9e88a728ad7033f8af420c1299"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-seed-handoff.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-seed-handoff.json",
+      "bytes": 10485,
+      "sha256": "2b3503280a6413d8a2a1a79404559f8966380388e27e63a3d16a0c8a0279f9c7"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-seed-pack/seeds.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-seed-pack/seeds.json",
+      "bytes": 1000,
+      "sha256": "de74224be43990e581638e3233e885df66b5de1a156a5f02796670a087d2d981"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-seed-pack/seeds.txt",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/dirty22-seed-pack/seeds.txt",
+      "bytes": 657,
+      "sha256": "7545d43b161bb5d1fab2cbf3e517c56a40dab5e8e26bdaff4bc4649760dbfe0a"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/main-dirty22-pack-review.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/main-dirty22-pack-review.json",
+      "bytes": 748,
+      "sha256": "3484d9270fa6542cc981328b1e292dc1238a8261c3bd34a38f6408edf51d8180"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/prepare_dirty22_seeds.py",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/prepare_dirty22_seeds.py",
+      "bytes": 10984,
+      "sha256": "93942a4932f954116b45dfe21ab26ad812b3998f0a684925625126613b3d0bc1"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/S05/shared-factor-compact-complete.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/S05/shared-factor-compact-complete.json",
+      "bytes": 1218,
+      "sha256": "0cd2e6eaa92e2a5cd95d1bd20728ad9157e80b9e88a728ad7033f8af420c1299"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/dirty22-checkpoint/source-manifest.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/dirty22-checkpoint/source-manifest.json",
+      "bytes": 17640,
+      "sha256": "30e2012bf8fa4c6c808e15468d85ce7411abee771ec23c92a9bf2f3069929906"
+    },
+    {
+      "path": "final/snapshot/results/pilot-18/validation.txt",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/snapshot/results/pilot-18/validation.txt",
+      "bytes": 7061,
+      "sha256": "31a3718e0017246e5ae0c5e9433e2d3c8b45566bb8f76c9445be20dd52abc297"
+    },
+    {
+      "path": "final/staged.diff",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/staged.diff",
+      "bytes": 136420,
+      "sha256": "568fd8716980c267fb10acfe72f1477f9c974d1986efedf39d8df755b304fa04"
+    },
+    {
+      "path": "final/summary.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-final-review/summary.json",
+      "bytes": 642,
+      "sha256": "194fdbcb000c04f6af235f6e59ba0657c7a90d7af76886d79abdaeb59feb89a2"
+    },
+    {
+      "path": "prior/dirty22-staged-review-v2.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-review-v2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prior/dirty22-staged-review-v2.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-review-v2.stdout",
+      "bytes": 319,
+      "sha256": "42649c4e5d4c13b8cab5db14bddf091f50afdad3f10e433612c9ad4510a332e7"
+    },
+    {
+      "path": "prior/dirty22-staged-review.stderr",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-review.stderr",
+      "bytes": 577,
+      "sha256": "61c45c7e1a7e6343318c3b9d3de83af1db94f17e4097f019138d6f1917e0b0a3"
+    },
+    {
+      "path": "prior/dirty22-staged-review.stdout",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-review.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "prior/eof-fix-expectation.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-review-v2/eof-fix-expectation.json",
+      "bytes": 19885,
+      "sha256": "30d9e2b2a79b1d759bd5a76f4d58d0fe7fe109b43c78eb9b2d5e34b6e2ba7d5b"
+    },
+    {
+      "path": "prior/review.json",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-staged-review-v2/review.json",
+      "bytes": 22745,
+      "sha256": "b7232bda0aadc24431bbb34f5abbf6d8c759f88a2d1915d69112e0a155346297"
+    },
+    {
+      "path": "prior/review_dirty22_staged.initial.py",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/review_dirty22_staged.initial.py",
+      "bytes": 10862,
+      "sha256": "f385b963fdf58ad2444be575af23f5e28555d53e015bb430b4fbc9f60fff16a2"
+    },
+    {
+      "path": "prior/review_dirty22_staged.py",
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S08/review_dirty22_staged.py",
+      "bytes": 11321,
+      "sha256": "23cd47b9e19f1cb14ec9d4183ddce901e61415fe80aef34ff437544ca32361a3"
+    }
+  ]
+}

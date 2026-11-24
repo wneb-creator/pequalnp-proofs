@@ -1,0 +1,510 @@
+{
+  "utc": "2026-11-24T04:13:46.863786+00:00",
+  "verdict": "PASS_EXACT_STAGED_71_FILE_DIRTY22_PARTIAL_CHECKPOINT",
+  "diff_check_exit_code": 0,
+  "diff_check_output": "",
+  "base_HEAD": "148e49cf15eabef82647ea3ee1ca86053d493654",
+  "staged_diff_sha256": "568fd8716980c267fb10acfe72f1477f9c974d1986efedf39d8df755b304fa04",
+  "staged_files": {
+    "results/pilot-18/dirty22-checkpoint/README.md": {
+      "git_blob": "4716a1faecfc21a75dc3acfdbf8224e78532dc39",
+      "sha256": "2690f973d18b2495a42f809f9746ad54f7fed2d289d03cd15f4112e1ef94dbc5",
+      "bytes": 1089,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/Dirty22Audit.lean.txt": {
+      "git_blob": "dca7a365505915aa60e276dfd490d4c498012830",
+      "sha256": "ba8e9e9ce9dab920ad7bc391f32fd22500bd00cf6ecbdd6004e60166fa64d35e",
+      "bytes": 1980,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/Dirty22Control.generation.json": {
+      "git_blob": "44bb46e8a8928b97bb4b7c0469f2f8be7928ace0",
+      "sha256": "dbdd0c16acf111a169772a2b4827c4858a705b98c992fc4d8b43af95f767b8d7",
+      "bytes": 967,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/Dirty22Control.lean.txt": {
+      "git_blob": "d1db654f01ae7b9c4c615099b47c3d1c164973c8",
+      "sha256": "9a7014c902546881f3653782c4dbcc62213e91a6fe67f7faa6e7645029423969",
+      "bytes": 1696,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-audit-runner.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-audit-runner.stdout": {
+      "git_blob": "954da7dd5bb0bed0124d238d85db899f6e7eaefe",
+      "sha256": "c550bfa6bdb8744bb70bccaa2cc818140414015178118afc81c951f893f6f006",
+      "bytes": 986,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-axioms.result.json": {
+      "git_blob": "91b5ee55e6a999f4af9be4c07dd4a5adffbaf7fd",
+      "sha256": "55df4804ff6d1b15697f8af2498bdd8a7872df8d92038fd3eea96d91767a66c8",
+      "bytes": 1102,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-axioms.running.json": {
+      "git_blob": "671b90c2f500783a81d29ab32c0385063412ba43",
+      "sha256": "6e0706136ad7e950eb0bc54f16b4f6cf1f213b50472dfbd01efef6445284d772",
+      "bytes": 460,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-axioms.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-axioms.stdout": {
+      "git_blob": "dbd3cd4d3d4933faefadbf73c07fb481e13da73c",
+      "sha256": "3a340ea498cdba01b077d85549ec4d1e19ab3caa0dd26e99e3c59015a9e001d8",
+      "bytes": 424,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-build.result.json": {
+      "git_blob": "d2963f88043d1e15fe9d181b78246b7d8d8c7c5a",
+      "sha256": "cad6d5e8d6c7e9ca98d31600e2fd49207daceb2c08b60995f3772b3a0acf6c39",
+      "bytes": 1103,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-build.running.json": {
+      "git_blob": "a244072ce147e4ad89d01fce6664ed778777e519",
+      "sha256": "295ca3cafc8ff27459eb2eb37b802af96bbef175b886dea6f0b6690f934a3490",
+      "bytes": 464,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-build.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-build.stdout": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-certificate-handoff.json": {
+      "git_blob": "06b2491ca9366b0f290f0504eed50ca772a98db8",
+      "sha256": "361cd610b831905c5ef95185878101faf2a3d11d2a6f54d5a954df9a05b10b61",
+      "bytes": 6529,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-exact-statement.txt": {
+      "git_blob": "542102cea80ec483798e906aacc7ebbc90b12715",
+      "sha256": "cd7fb88a03bf9323862d34684f3b8a0c58f13b958d3a082d3beaf2ade9e146de",
+      "bytes": 408,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-generation-review.json": {
+      "git_blob": "728acc3cda945db387d632a3cb6f162a98e8c222",
+      "sha256": "3dde64e7f043622e0e41754f007461c1b2113bfef2f6256ae68bf29d368fe25e",
+      "bytes": 462,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-generation.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-generation.stdout": {
+      "git_blob": "608844450c95d4b39acd14aba08d67274ecc97dc",
+      "sha256": "fe1c725f995f312fe2a3512b0e89cecb38c6045fe5f437f84499cc0f0ba2193c",
+      "bytes": 291,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-runner.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/dirty22-runner.stdout": {
+      "git_blob": "b5c23f6ff7bb286d7ed4f32cfd7ae0646b4d6616",
+      "sha256": "621237573d3461d6192304da61a8d0dc61e34965c1f4e79186ded243c2900c08",
+      "bytes": 987,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/emit_candidate.py": {
+      "git_blob": "6764d06c6f26b5232a73f5327e2e2a1d3598e5c1",
+      "sha256": "f0df2b3fbd6aaec3745c390f629022818e1c083c5824e05e31c59a528b492fd0",
+      "bytes": 7116,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S03/run_lean.py": {
+      "git_blob": "a73be4c87345b90908032d769c0e6491fa2ab9a5",
+      "sha256": "f0ca0bfcc71424068e29aa50f2fb6aef72582492f5d80c7d7cb85beb62ce60e0",
+      "bytes": 2414,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/checks.json": {
+      "git_blob": "be49b6541ffd66e589ad4658ea63e8f6b4c6e9d8",
+      "sha256": "1ea9f1b69bb08b3653f2ed7972803c88da7f1727c625e41b1fbea98f840dcd48",
+      "bytes": 3058,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/engine-self-test-not-run.json": {
+      "git_blob": "00073a478a57028ad5e0c72039d906e0156018d2",
+      "sha256": "d84c0b7052a3502095f83faa98576a53349c1e1dc68d6a1462addbee4c1972db",
+      "bytes": 375,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/false-output-rejection.result.json": {
+      "git_blob": "8a28d4fd03487ea5914053e91b5555f780665621",
+      "sha256": "e15e6d9a2f581ec33cd4c0c0fc46987b48cdbe3bfb70df16cd5e0b04e2405221",
+      "bytes": 629,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/false-output-rejection.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/false-output-rejection.stdout": {
+      "git_blob": "b916197b46303ae9b37afbcef5941c1680bf16dc",
+      "sha256": "d039f7158c2d3948ec98e5c91cfe54d3c53c651598fe5ab5ae2c517e844406c4",
+      "bytes": 38,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/false-output.json": {
+      "git_blob": "c5e9ae4bf7aad716fbd55f7dc27284a53aa02d4b",
+      "sha256": "13509a0ec6acd9abff01d62386f4e285122e74f18e5a0b12fb2d05d05e44029b",
+      "bytes": 1689,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-0.json": {
+      "git_blob": "3c735b2b003cdf8887479e982018e2dbf24794f8",
+      "sha256": "39ededbea473e2c6c4aad452303c95675d692b18ff767bde7e2d4cc403f6c864",
+      "bytes": 1653,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-0.result.json": {
+      "git_blob": "d0dae048a692a61e10e089d4c4bb87ae760a64b3",
+      "sha256": "4b232a5010885afcf3748388ed8724e7c9e30e9085500420b31204941dfd3fe0",
+      "bytes": 611,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-0.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-0.stdout": {
+      "git_blob": "c01f57d90ae72afc089111cd5a1221bfc8e46666",
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a",
+      "bytes": 49,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-1.json": {
+      "git_blob": "30b0cac6573448db9adb2d589d8174137f85158e",
+      "sha256": "b42a9145f5e587e29beeb6ef206a67ac8ea8ca79361bbeff03768d3330ea7f18",
+      "bytes": 1653,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-1.result.json": {
+      "git_blob": "757a18690bfabce6656b60a1e4277832c88e25e8",
+      "sha256": "e0b8933bdf5c755c226ba6305b100353ff22a21d373596ecfed2680a9c6df0f4",
+      "bytes": 616,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-1.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-1.stdout": {
+      "git_blob": "c01f57d90ae72afc089111cd5a1221bfc8e46666",
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a",
+      "bytes": 49,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-2.json": {
+      "git_blob": "f44a9f9eb79dc6d80871931d51d439a78221f698",
+      "sha256": "765ae6bb317e31627e2a21634a1b26deb31ea60c659612fcb62303c86b05cbc1",
+      "bytes": 1653,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-2.result.json": {
+      "git_blob": "037c37117f98f7a266b957201450d7a46dde3f67",
+      "sha256": "7321d4ffd9bc3c5a63c6afba48dfeb8142bb170d40431c632268a3ea634ad98b",
+      "bytes": 616,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-2.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-2.stdout": {
+      "git_blob": "c01f57d90ae72afc089111cd5a1221bfc8e46666",
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a",
+      "bytes": 49,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-3.json": {
+      "git_blob": "073533471bfb9cf1ba00499cb2c7176cca9635ef",
+      "sha256": "52debe236f3707294d8cafa4a71a1377825376e7358c15e3b3cf58c23caa7af8",
+      "bytes": 1653,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-3.result.json": {
+      "git_blob": "7f0fb4bef0fee1b31296c1b26752e22f4f4feb4f",
+      "sha256": "97201fc5f0808ed6864c71536973aa1ce899a7b953dc111eb10d9facd40163ed",
+      "bytes": 615,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-3.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-3.stdout": {
+      "git_blob": "c01f57d90ae72afc089111cd5a1221bfc8e46666",
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a",
+      "bytes": 49,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-4.json": {
+      "git_blob": "dd435a8eb6c5356100ee61cb31387cc02ca37bca",
+      "sha256": "8f37bb024e10b8b6f092549c140ccfcc94caac6984809106bef58ae961b32684",
+      "bytes": 1653,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-4.result.json": {
+      "git_blob": "6e14aece021e15b1de08903fb7c7e3cb99e26254",
+      "sha256": "29bee50e151737d0e90e353f4f8de66a4e8d73b6d8844a64f4bf151db82cb664",
+      "bytes": 616,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-4.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/normalize-4.stdout": {
+      "git_blob": "c01f57d90ae72afc089111cd5a1221bfc8e46666",
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a",
+      "bytes": 49,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/prepare.result.json": {
+      "git_blob": "c362e50cff4517b689aebd06e7d1563051310933",
+      "sha256": "8fa4adf1d9091e2744d917da4d5b835acb8030ad699efb8388df65b48b24a6d0",
+      "bytes": 605,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/prepare.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/prepare.stdout": {
+      "git_blob": "20f7e065a9bbb19c6ef63918808bd8906a51644f",
+      "sha256": "3983a93566385c428a7ae6b7982bb2128ada5dfc246f57179e330b5564f539db",
+      "bytes": 170,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/unshifted-offset-rejection.result.json": {
+      "git_blob": "a8a2b4d7945a88272f6b7234f7bc368974327623",
+      "sha256": "fe129d54e1e371a3a3a0040a75e5237da68d20387bd255984415f6953cfeed68",
+      "bytes": 637,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/unshifted-offset-rejection.stderr": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/unshifted-offset-rejection.stdout": {
+      "git_blob": "b916197b46303ae9b37afbcef5941c1680bf16dc",
+      "sha256": "d039f7158c2d3948ec98e5c91cfe54d3c53c651598fe5ab5ae2c517e844406c4",
+      "bytes": 38,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-controls/unshifted-offset.json": {
+      "git_blob": "332d3955e0add100c8f1219a475ef306a5596492",
+      "sha256": "64a9e2d91b214b9883e2647d67f6ee17e8c4b6525478ad72e7408c795ed2d303",
+      "bytes": 1232,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-delivery-manifest.json": {
+      "git_blob": "8c19e7626cf5686743ace5f40e75cebc7e5223dc",
+      "sha256": "74aa51ec266ec31be63503b4a68c73982383ccb4ec4249e8be59476f992ac678",
+      "bytes": 10080,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-family/c0000-k22.baseline22.json": {
+      "git_blob": "e1af82588dfe9676db87590c92505fb20bb20f0c",
+      "sha256": "a023ba6635d5c4c7dff8de198941c2271efa3e4758794b6d9c7c90d9789eb56a",
+      "bytes": 1689,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-family/c0001-k22.baseline22.json": {
+      "git_blob": "167e2814fce66cc8be6742d859c71ee5a77d3b5c",
+      "sha256": "7dec09e55cf2866a7a13fcd784ebf667d3a01465dcdee1fb6ce7a93bacfd2c55",
+      "bytes": 1694,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-family/c0002-k22.baseline22.json": {
+      "git_blob": "0eea700ba6bcaca460b1e90803eec95800757196",
+      "sha256": "3ed1082a77fd97acf4d553b2a491ece57c3dc7211b21991b2dd47c3f8b1d8cc4",
+      "bytes": 1693,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-family/c0003-k22.baseline22.json": {
+      "git_blob": "dc4f44d0e3cbf044086d678a1eb938b49d15e394",
+      "sha256": "50d84a9b20f12a4b0e9aed53b0a12d698729e9895572c062d7bcaf57758f705f",
+      "bytes": 1692,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-family/family.json": {
+      "git_blob": "2e9836de3386c9831b8460e0c64fa19d22d4d0ea",
+      "sha256": "bf548bea651ed134b2cd5b3e2c0507f98cb2a7d5b2d8e4c671b5358ceadf5002",
+      "bytes": 992,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-family/source-original.json": {
+      "git_blob": "78e060525946aafb78ef745f948c644ee996a4b0",
+      "sha256": "0cd2e6eaa92e2a5cd95d1bd20728ad9157e80b9e88a728ad7033f8af420c1299",
+      "bytes": 1218,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-seed-handoff.json": {
+      "git_blob": "89303af2e808b4be1caddcfe3a5ef55a1d1543a1",
+      "sha256": "2b3503280a6413d8a2a1a79404559f8966380388e27e63a3d16a0c8a0279f9c7",
+      "bytes": 10485,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-seed-pack/seeds.json": {
+      "git_blob": "d4333ea5af43e7347e0eb7413367a3c350dd337f",
+      "sha256": "de74224be43990e581638e3233e885df66b5de1a156a5f02796670a087d2d981",
+      "bytes": 1000,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/dirty22-seed-pack/seeds.txt": {
+      "git_blob": "77ff0274333a472671d15bfbabab53b1d75480c3",
+      "sha256": "7545d43b161bb5d1fab2cbf3e517c56a40dab5e8e26bdaff4bc4649760dbfe0a",
+      "bytes": 657,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/main-dirty22-pack-review.json": {
+      "git_blob": "c2d6d99ebeee7cd31a2f72d1b118cf01f94801e6",
+      "sha256": "3484d9270fa6542cc981328b1e292dc1238a8261c3bd34a38f6408edf51d8180",
+      "bytes": 748,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/prepare_dirty22_seeds.py": {
+      "git_blob": "8afc83e4f98158c0930aafbc6fe057b29863a23d",
+      "sha256": "93942a4932f954116b45dfe21ab26ad812b3998f0a684925625126613b3d0bc1",
+      "bytes": 10984,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/S05/shared-factor-compact-complete.json": {
+      "git_blob": "78e060525946aafb78ef745f948c644ee996a4b0",
+      "sha256": "0cd2e6eaa92e2a5cd95d1bd20728ad9157e80b9e88a728ad7033f8af420c1299",
+      "bytes": 1218,
+      "mode": "100644"
+    },
+    "results/pilot-18/dirty22-checkpoint/source-manifest.json": {
+      "git_blob": "f5e0377c76b33678f8f54e99108296a95830d1c6",
+      "sha256": "30e2012bf8fa4c6c808e15468d85ce7411abee771ec23c92a9bf2f3069929906",
+      "bytes": 17640,
+      "mode": "100644"
+    },
+    "results/pilot-18/validation.txt": {
+      "git_blob": "d60db8d7ee16eb2835c27074508e0875f148f036",
+      "sha256": "31a3718e0017246e5ae0c5e9433e2d3c8b45566bb8f76c9445be20dd52abc297",
+      "bytes": 7061,
+      "mode": "100644"
+    }
+  },
+  "source_manifest_sha256": "30e2012bf8fa4c6c808e15468d85ce7411abee771ec23c92a9bf2f3069929906",
+  "handoff_sha256": "361cd610b831905c5ef95185878101faf2a3d11d2a6f54d5a954df9a05b10b61",
+  "copied_files": 68,
+  "copied_bytes": 91594,
+  "all_copies_match_original_sources": true,
+  "compiled_Lean_sha256": "9a7014c902546881f3653782c4dbcc62213e91a6fe67f7faa6e7645029423969",
+  "exact_statement": "    \u2203 C : Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227\n      (\u2200 x : Fin 11 \u2192 Bool, C.eval (List.ofFn x) = true \u2194\n        \u2203 u v : Fin 11, (u.val, v.val) \u2208\n          ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7),\n            (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] :\n            List (\u2115 \u00d7 \u2115)) \u2227 x u = true \u2227 x v = true) \u2227 C.size \u2264 22\n",
+  "bound": 22,
+  "original_gate_offset": 11,
+  "output_wire": 32,
+  "gate_count": 22,
+  "source_and_four_schedules_scalar_inputs": 10240,
+  "schedule_checks": [
+    {
+      "case": 0,
+      "junk": [
+        14
+      ],
+      "all2048_inputs": true
+    },
+    {
+      "case": 1,
+      "junk": [
+        13
+      ],
+      "all2048_inputs": true
+    },
+    {
+      "case": 2,
+      "junk": [
+        4
+      ],
+      "all2048_inputs": true
+    },
+    {
+      "case": 3,
+      "junk": [
+        18
+      ],
+      "all2048_inputs": true
+    }
+  ],
+  "axioms": {
+    "PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_monotone": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_size": [],
+    "PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_boundary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build_exit_code": 0,
+  "audit_exit_code": 0,
+  "full_logs_verified": true,
+  "helper_import_scope": "Scratch import of unchanged named2069module. Archive .lean.txt only, not finalPR-import approval. No helper redeclaration; exact existing target_witness bridge used.",
+  "named_sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+  "named_matches_HEAD": true,
+  "validation_change": "Main timing metadata201.6->233.6 and explicitdirty22partial paragraph only. Timing total is reported main metadata, not independently derived elapsed time.",
+  "credential_indicators": [],
+  "posted_checker": "NOT_RUN",
+  "posted21_proved": false,
+  "new_Lean_or_solver_or_gitwrite": false,
+  "scope": "Exactstagedresearchsnapshot only; unchangednamedproof remains partial; no PR or acceptance claim.",
+  "prior_content_review_sha256": "b7232bda0aadc24431bbb34f5abbf6d8c759f88a2d1915d69112e0a155346297",
+  "final_followup": "Only editable validation EOF blank removed. All70archivalINDEXblobs unchanged. No exceptions; all prior source/statement/axiom/scalarchecks retained.",
+  "validation_sha256": "31a3718e0017246e5ae0c5e9433e2d3c8b45566bb8f76c9445be20dd52abc297"
+}

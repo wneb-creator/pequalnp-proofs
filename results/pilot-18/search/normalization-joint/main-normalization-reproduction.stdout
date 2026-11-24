@@ -1,0 +1,4 @@
+{"size": 21, "first_junk": 17, "second_junk": true, "prefix_sort": true, "last_output": true, "last_op": null, "live": true, "variables": 11732, "clauses": 106952, "sha256": "7c8cdd78f24e0de8ec143d4c5801d1481c9d5f336c1e9bf79d9b461c9e3c127d", "program_sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f"}
+{"variables": 11764, "clauses": 110992, "sha256": "741a81093f40bcbbb28f10514bf1e9d609b046c9fa711e5d086548f3cc4a64cf"}
+{"sha256": "38d93ec59a86378a8434b232d19b2b53e8cbc3c715e81432ee94db59ca6ace08", "variables": 11968, "clauses": 114566, "original_DAG_generator_sha256": "9e5ae318f33ff8fea98dd8c4a201c82674023102340fdbe86bd69083419e33f1"}
+{"verdict": "PASS_EXACT_REPRODUCTION", "CNF_count": 14, "metadata_byte_matches": 14, "family_byte_matches": 2, "solver_launched": false}

@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-24T04:23:03.629531+00:00",
+  "verdict": "PASS_MAIN_BOUND_ARCHIVE_HASHES",
+  "archive_sha256": "5d1b92e94cc448168d5563a9e035d4ae1113a52ac3428708c5026354e603d727",
+  "regular_members": 31,
+  "verified_files": 30,
+  "scope": "Independent mathematical proof review of one productive clean prefix lower bound18, plus original S01 handoff and bounded scalar controls."
+}

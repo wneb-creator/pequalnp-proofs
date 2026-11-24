@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-24T04:19:31.703263+00:00",
+  "status": "READY_FOR_MAIN_RESEARCH_SNAPSHOT",
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-review-preservation-v1.tar.gz",
+  "archive_bytes": 64530,
+  "archive_sha256": "2e90007fadcafbb7d09db44e95616f3b3e06763fcc3e5c9a670d6d3424da572a",
+  "manifest": "/tmp/oec/pequalnp-pilot-18/orch/S08/dirty22-review-preservation-v1/manifest.json",
+  "manifest_sha256": "9500a4fcffe302999414ee6305f326e45bb73212dc6ca787e986484fcf4fa34c",
+  "payload_files": 85,
+  "regular_tar_members": 86,
+  "final_review_sha256": "5dd16dd2426ebe30ab881f831abd4e04ae268f3b8b9cebeae75bf30d55b0c3ea",
+  "final_index_blobs": 71,
+  "source_or_git_mutation": false
+}

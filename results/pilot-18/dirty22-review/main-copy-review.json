@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-24T04:22:18.741371+00:00",
+  "verdict": "PASS_ARCHIVE_REGULAR_PATHS_AND_BOUND_COPY",
+  "archive_sha256": "2e90007fadcafbb7d09db44e95616f3b3e06763fcc3e5c9a670d6d3424da572a",
+  "regular_members": 86,
+  "scope": "Independentdirty22reviewpreservation; no newtheorem"
+}

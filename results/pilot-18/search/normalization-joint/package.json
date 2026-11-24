@@ -1,0 +1,66 @@
+{
+  "utc": "2026-11-24T04:17:17.060149+00:00",
+  "files": [
+    {
+      "path": "normalization-preservation-v1.tar.gz",
+      "sha256": "ab76bf72819cac52f98c13d133b94fceedc2dc7fa4952ef06f825d19081beea4",
+      "bytes": 735815
+    },
+    {
+      "path": "normalization-preservation-validation.json",
+      "sha256": "b3f2e9f7380dc7d579a41cd3b922c1dd1928e325a9f7734b33e1c9d689dc4e0f",
+      "bytes": 866
+    },
+    {
+      "path": "normalization-preservation-handoff.json",
+      "sha256": "77c256f44e4fbcdb68fcf15de8930bd20eeb2c5d63ae6f88f6eb7d845555b805",
+      "bytes": 1827
+    },
+    {
+      "path": "normalization-preservation-v1/manifest.json",
+      "sha256": "cb20dfacd44f6d62ebb3ea77773ce7b6b2237cfcb2ea078b072f4a4a18243a05",
+      "bytes": 59452
+    },
+    {
+      "path": "normalization-preservation-v1/README.md",
+      "sha256": "d88329caaeb7b467945f5f08d3440438a1e718231b39585bd7fa904779b0af1c",
+      "bytes": 3493
+    },
+    {
+      "path": "joint-enumeration-preservation-v1.tar.gz",
+      "sha256": "136bc083a89edf8e5ff08e146f131fa3c094b90ca1d22f6748f0c7ef0332bffa",
+      "bytes": 33922
+    },
+    {
+      "path": "joint-enumeration-preservation-handoff.json",
+      "sha256": "d6953eec7e0bf78349107b31d6f9630e402d2070ffecf2b3588a60f482af0fae",
+      "bytes": 3231
+    },
+    {
+      "path": "joint-enumeration-preservation-v1/manifest.json",
+      "sha256": "9bf73cbad8391a3c6bb748b0d3b16d9d5db3185750b4d60c4b3195e70e959ae8",
+      "bytes": 3215
+    },
+    {
+      "path": "main-enumeration-archive-review.json",
+      "sha256": "76ffe7dfcdb4c560a0b5e15505938639866a97d8d2a9998365a42dedb2404177",
+      "bytes": 444
+    },
+    {
+      "path": "main-normalization-review.json",
+      "sha256": "a7e42a8c245233a45bf15d076954ed6d930df8375caddfa4ab229db36fd0f683",
+      "bytes": 3851
+    },
+    {
+      "path": "main-normalization-reproduction.stdout",
+      "sha256": "ef5492a9e738ea9021e677d137c3d87c7106f51846988943db95d8ee7f56fe57",
+      "bytes": 802
+    },
+    {
+      "path": "main-normalization-reproduction.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "scope": "Reviewed mathematical normalizations/jointcosts and finite positive supportrelaxation; no proof ofposted21 or shardexhaustion"
+}

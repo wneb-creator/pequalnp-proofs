@@ -1,0 +1,19 @@
+{
+  "verdict": "PASS_PRESERVATION_AND_EXACT_REPRODUCTION",
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/normalization-preservation-v1.tar.gz",
+  "archive_sha256": "ab76bf72819cac52f98c13d133b94fceedc2dc7fa4952ef06f825d19081beea4",
+  "archive_bytes": 735815,
+  "manifest_sha256": "cb20dfacd44f6d62ebb3ea77773ce7b6b2237cfcb2ea078b072f4a4a18243a05",
+  "regular_members": 164,
+  "bound_artifacts": 163,
+  "uncompressed_bytes": 4648193,
+  "raw_CNF_count": 0,
+  "exact_reproduced_CNF_count": 14,
+  "exact_reproduced_metadata_count": 14,
+  "exact_reproduced_families": 2,
+  "historical_report_binding_resolved": true,
+  "solver_run": false,
+  "Lean_build": false,
+  "git_write": false,
+  "scope": "Research preservation: complete six-case existence normalization under stated mathematics, plus joint factor cost mathematical PASS. No CNF UNSAT/global/Lean verdict."
+}

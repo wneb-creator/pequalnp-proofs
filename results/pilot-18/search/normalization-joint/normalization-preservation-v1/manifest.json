@@ -1,0 +1,1252 @@
+{
+  "format": "S04_six_normal_forms_and_joint_cost_v1",
+  "created_utc": "2026-11-24T04:11:31.460175+00:00",
+  "scope": "Research preservation: complete six-case existence normalization under stated mathematics, plus joint factor cost mathematical PASS. No CNF UNSAT/global/Lean verdict.",
+  "raw_CNF_files_in_archive": 0,
+  "historical_bindings": {
+    "six-case-review-manifest.json original S04 report": "scratch/orch/S04/S04-six-case-reviewed.md"
+  },
+  "files": [
+    {
+      "source_path": "generated preservation README",
+      "archive_path": "README.md",
+      "category": "preservation_scope_and_recipe",
+      "bytes": 3493,
+      "sha256": "d88329caaeb7b467945f5f08d3440438a1e718231b39585bd7fa904779b0af1c"
+    },
+    {
+      "source_path": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1407.lean",
+      "archive_path": "repo/lean/PEqualNP/Outside/L_meta_1407.lean",
+      "category": "existing_clean_bound_reference",
+      "bytes": 40944,
+      "sha256": "24ba7b58eb791f970ead4d330e4a3adc6305915883584cc64b6c8670d86e1e2e"
+    },
+    {
+      "source_path": "/workspace/pequalnp-proofs/results/orch/NOTES.md",
+      "archive_path": "repo/results/orch/NOTES.md",
+      "category": "shared_notes_snapshot",
+      "bytes": 77646,
+      "sha256": "865de5e5141026d93a607b4e0c478a93b41fa7ac3acaca11d7c7d78e3a05215d"
+    },
+    {
+      "source_path": "/workspace/pequalnp-proofs/results/orch/lemmas/S01-late-junk.md",
+      "archive_path": "repo/results/orch/lemmas/S01-late-junk.md",
+      "category": "current_mathematical_reviews_snapshot",
+      "bytes": 19296,
+      "sha256": "8b75ed168c4987f8e5a9ec3200e4f086f2772f70800a726337cf6fdea89566ea"
+    },
+    {
+      "source_path": "/workspace/pequalnp-proofs/results/orch/lemmas/S04-redteam.md",
+      "archive_path": "repo/results/orch/lemmas/S04-redteam.md",
+      "category": "current_mathematical_reviews_snapshot",
+      "bytes": 38848,
+      "sha256": "b6f675c32d46722753b84891d5f550d7af15d4c9e988cbdbdb302673cbc038dc"
+    },
+    {
+      "source_path": "/workspace/pequalnp-proofs/results/pilot-18/search/add_ancestor_support.py",
+      "archive_path": "repo/results/pilot-18/search/add_ancestor_support.py",
+      "category": "reproduction_source",
+      "bytes": 4249,
+      "sha256": "6bd7f7a2120d7d5446d9609a0551308b224d91d23463354514cefe631803e38b"
+    },
+    {
+      "source_path": "/workspace/pequalnp-proofs/results/pilot-18/search/build_original_strong.py",
+      "archive_path": "repo/results/pilot-18/search/build_original_strong.py",
+      "category": "reproduction_source",
+      "bytes": 3554,
+      "sha256": "9e5ae318f33ff8fea98dd8c4a201c82674023102340fdbe86bd69083419e33f1"
+    },
+    {
+      "source_path": "/workspace/pequalnp-proofs/results/pilot-18/search/search_l1342_shard17_ancestorreverse.py",
+      "archive_path": "repo/results/pilot-18/search/search_l1342_shard17_ancestorreverse.py",
+      "category": "reproduction_source",
+      "bytes": 30356,
+      "sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/preservation-reproduction-v1/reproduction-result.json",
+      "archive_path": "reproduction-result.json",
+      "category": "exact_reconstruction_validation",
+      "bytes": 2962,
+      "sha256": "0c9fd4a7a67245f2bb101a3b69d7543028dd331aa28fc9007f259d5f1a598c8e"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/ancestor-cost-math-review.json",
+      "archive_path": "scratch/math-analysis/ancestor-cost-math-review.json",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 670,
+      "sha256": "e1a32f9031341fdd3089884e04094d77dba68ea6cdfe06bf94f63efcddd4989d"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/ancestor-cost-math-review.md",
+      "archive_path": "scratch/math-analysis/ancestor-cost-math-review.md",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 2203,
+      "sha256": "7b7a73434c4f027550fa9342b47948669b858d10ba4cb45c48f1d7784808a184"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/ancestor-support-independent-review.json",
+      "archive_path": "scratch/math-analysis/ancestor-support-independent-review.json",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 4917,
+      "sha256": "338497442cdec954780fa36f6a7c714922d12c4f09b795e27ea451df707e02fb"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/ancestor-support-review.stderr.txt",
+      "archive_path": "scratch/math-analysis/ancestor-support-review.stderr.txt",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/ancestor-support-review.stdout.txt",
+      "archive_path": "scratch/math-analysis/ancestor-support-review.stdout.txt",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 339,
+      "sha256": "73adb04f158096349581eecffcb89ca13f1b29d5ce110ea562df5ea04318a9fb"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/junk-preserving-chain-validation.json",
+      "archive_path": "scratch/math-analysis/junk-preserving-chain-validation.json",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 1783,
+      "sha256": "c11fdc7f186ef7c5f7679b7fa01a862722ac66096bd70622a9141501c908573b"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/junk-preserving-chain-validation.stderr.txt",
+      "archive_path": "scratch/math-analysis/junk-preserving-chain-validation.stderr.txt",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/junk-preserving-chain-validation.stdout.txt",
+      "archive_path": "scratch/math-analysis/junk-preserving-chain-validation.stdout.txt",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 217,
+      "sha256": "5b69cba2edcbddf416b9ca9828c2fc2b7f84f52146f55c84ebee24a22e0af87f"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/junk_preserving_chain_normal_forms.md",
+      "archive_path": "scratch/math-analysis/junk_preserving_chain_normal_forms.md",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 7126,
+      "sha256": "38e154acfecd64b13a442d848ec6a73900ee5148a6a96e125ed285a10075fd64"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/original-dag-independent-review.json",
+      "archive_path": "scratch/math-analysis/original-dag-independent-review.json",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 4772,
+      "sha256": "eb0acb5f34c44253e0d1605e39b04461b82911cb84898c2cbbaf9f39b0bc7290"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/original-dag-review.stderr.txt",
+      "archive_path": "scratch/math-analysis/original-dag-review.stderr.txt",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/original-dag-review.stdout.txt",
+      "archive_path": "scratch/math-analysis/original-dag-review.stdout.txt",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 923,
+      "sha256": "ad94a3b377a471216a8a4c96640f98c6ec350f5287c8ff78d8218ef4979f6d46"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/partial-edge-cost-review.json",
+      "archive_path": "scratch/math-analysis/partial-edge-cost-review.json",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 1955,
+      "sha256": "5d3c0c615d4a822b3a819fe4361bcf25ccae33514cc2aa240de864d7d8a7f4a5"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/partial-edge-cost-review.md",
+      "archive_path": "scratch/math-analysis/partial-edge-cost-review.md",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 6404,
+      "sha256": "0219c49b09ccc2af09c325798c27c8eeed22b26289b75023c96ca79a9fb64bc1"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/prefix-copychain-review.json",
+      "archive_path": "scratch/math-analysis/prefix-copychain-review.json",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 2302,
+      "sha256": "e533929d0f150eacf1c1ec4b1d41eedcfd6ad2e7b70817dddc2267e7ba836e9e"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/prefix-copychain-review.md",
+      "archive_path": "scratch/math-analysis/prefix-copychain-review.md",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 5356,
+      "sha256": "dfa8f3131895d064fae05158f271d378c041c7606fdf239bd308e3215f6a1180"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/prefix-dominance-review.json",
+      "archive_path": "scratch/math-analysis/prefix-dominance-review.json",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 2489,
+      "sha256": "3aeb7a67b4779ad0f7fde0c1cd69cf229902c1d23ab53470f9748b0e8f3721de"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/prefix-dominance-review.md",
+      "archive_path": "scratch/math-analysis/prefix-dominance-review.md",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 5457,
+      "sha256": "84a56f312aea4109be50b802b9927befdcbd17075ae562a4a586546fff335591"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/review_ancestor_support.py",
+      "archive_path": "scratch/math-analysis/review_ancestor_support.py",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 10451,
+      "sha256": "ae2be78ba1b04a6280474fa1fd9bb05e80dfca4a01fa71c7a1548deced8fdcd9"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/review_original_strong.py",
+      "archive_path": "scratch/math-analysis/review_original_strong.py",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 9575,
+      "sha256": "2961efc5170da35abb7dc78ef04f32fac8638e660c6dbd410fda31a309e929af"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/sat_mono_prefix17_assumptions.md",
+      "archive_path": "scratch/math-analysis/sat_mono_prefix17_assumptions.md",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 8370,
+      "sha256": "e52d85c960f7f190993c2ddb0b8962ac07495b482f760d48dce52de6d46f9c96"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/strict-or-review.json",
+      "archive_path": "scratch/math-analysis/strict-or-review.json",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 2271,
+      "sha256": "a944f1f4668c6c00018ced1451153271766101ed2170f386d2f6c5aaf12d3a24"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/strict-or-review.md",
+      "archive_path": "scratch/math-analysis/strict-or-review.md",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 2732,
+      "sha256": "a9f2eae2107868dd3fecd89d8db039e7d91a54b4ff711df2ddf8b7c5d5650950"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/support-cost-math-review.json",
+      "archive_path": "scratch/math-analysis/support-cost-math-review.json",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 1816,
+      "sha256": "f2b8b27d18208ce45a2817de762890d24e9379a3c4728e2b9a73168c35d3a2d2"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/support-cost-math-review.md",
+      "archive_path": "scratch/math-analysis/support-cost-math-review.md",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 5768,
+      "sha256": "57f25816f5fd29399312fcf6c1f74110aac0e0eb5214ae24288fe50d26483a0b"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/math-analysis/validate_junk_preserving_chains.py",
+      "archive_path": "scratch/math-analysis/validate_junk_preserving_chains.py",
+      "category": "normalization_dependencies_and_reviews",
+      "bytes": 3779,
+      "sha256": "9f1b011d4706b4b809de9b611189b1231686cc7f7c9d1eb9e4c847a24737dad8"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/LateJunkBool.lean",
+      "archive_path": "scratch/orch/S01/LateJunkBool.lean",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 1368,
+      "sha256": "cbc7bcfab33a9595038592bd3115552df26b723d886ae51c4cb6fd79ab4c9843"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/LateJunkBoolAxioms.lean",
+      "archive_path": "scratch/orch/S01/LateJunkBoolAxioms.lean",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 1789,
+      "sha256": "d013ff5f99e56350c7ce0b05b465222c980aab82896853309e905b1aebd7a354"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-bad-parent.stderr.txt",
+      "archive_path": "scratch/orch/S01/aaoa-bad-parent.stderr.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 578,
+      "sha256": "89dc194a7ab79f785353e7c0e25159c0de7d0360b5c821a27688d0c348eaed8b"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-bad-parent.stdout.txt",
+      "archive_path": "scratch/orch/S01/aaoa-bad-parent.stdout.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-encoding-validation.json",
+      "archive_path": "scratch/orch/S01/aaoa-encoding-validation.json",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 4368,
+      "sha256": "2eccaa540195e0734a604debe2a3dfe7052a27431f6abe5f17906a92c5a439e9"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-encoding-validation.stderr.txt",
+      "archive_path": "scratch/orch/S01/aaoa-encoding-validation.stderr.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-encoding-validation.stdout.txt",
+      "archive_path": "scratch/orch/S01/aaoa-encoding-validation.stdout.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 357,
+      "sha256": "948e2cb19fae05f44642a382fcf7998a19a9f2d0383d6355491f05ae4d03b585"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-existing-output.stderr.txt",
+      "archive_path": "scratch/orch/S01/aaoa-existing-output.stderr.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 594,
+      "sha256": "a66509f9f8abe746b15e9b17a8ddf83859ffd8860482da4822f3e17d09feeb8a"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-existing-output.stdout.txt",
+      "archive_path": "scratch/orch/S01/aaoa-existing-output.stdout.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-four-v1/T1.json",
+      "archive_path": "scratch/orch/S01/aaoa-four-v1/T1.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 171889,
+      "sha256": "8925809ed282165430b24ff29d0dfe855a8a201caee9f4f89d644460b1644b43"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-four-v1/T2.json",
+      "archive_path": "scratch/orch/S01/aaoa-four-v1/T2.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 188444,
+      "sha256": "32645cb4ecbf1930eac6a4d472de4c3894e72c68ee73c29193030ec06a5ca91a"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-four-v1/T3.json",
+      "archive_path": "scratch/orch/S01/aaoa-four-v1/T3.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 171839,
+      "sha256": "e52df0ccce39250ad98e3d9053d0585ae1cdcab85a330db75e7596de6f4a058a"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-four-v1/T4.json",
+      "archive_path": "scratch/orch/S01/aaoa-four-v1/T4.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 188444,
+      "sha256": "b5471b3ac9514a8b02dd6090d8329c6eddbfd012914875dcd47e973d06c5e9b7"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-four-v1/family.json",
+      "archive_path": "scratch/orch/S01/aaoa-four-v1/family.json",
+      "category": "exact_family_manifest",
+      "bytes": 1800,
+      "sha256": "b05805738736e9b04257657dd8bd39d0fe1c6c31428f191a9fa727fb32109401"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-generation.stderr.txt",
+      "archive_path": "scratch/orch/S01/aaoa-generation.stderr.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-generation.stdout.txt",
+      "archive_path": "scratch/orch/S01/aaoa-generation.stdout.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 234,
+      "sha256": "c32d563f83c765847560ed2ffd7e80fa70948ca210f0b2e7eddd5cbf1ee7d1d3"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/audit_aaoa_shapes.py",
+      "archive_path": "scratch/orch/S01/audit_aaoa_shapes.py",
+      "category": "normalization_source_and_self_audit",
+      "bytes": 5223,
+      "sha256": "25b9373a3f7ad23f775eb24b3ce4b846986aaccc674fa4ccecbca2c96d9dafaf"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/audit_consecutive_junk_encoding.py",
+      "archive_path": "scratch/orch/S01/audit_consecutive_junk_encoding.py",
+      "category": "normalization_source_and_self_audit",
+      "bytes": 6404,
+      "sha256": "3cd6cf7a8c3d3ce223d3c0fc30785bcd06e87e180b6004fdd12b2cc8c6c716e5"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/bad-parent.stderr.txt",
+      "archive_path": "scratch/orch/S01/bad-parent.stderr.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 538,
+      "sha256": "963f7f9f65f0f30c1f5ad0f3380f6043b81fd2e83bf25f01ad603e5e1a92956e"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/bad-parent.stdout.txt",
+      "archive_path": "scratch/orch/S01/bad-parent.stdout.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/build_aaoa_shapes.py",
+      "archive_path": "scratch/orch/S01/build_aaoa_shapes.py",
+      "category": "normalization_source_and_self_audit",
+      "bytes": 5307,
+      "sha256": "6bcb7e1abdb2c65ffdc9a6a1ced8554509ed2f96a40a756f30d718708256ae63"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/build_consecutive_junk.py",
+      "archive_path": "scratch/orch/S01/build_consecutive_junk.py",
+      "category": "normalization_source_and_self_audit",
+      "bytes": 7137,
+      "sha256": "3802650c1492cb267a8f8ae5e44715b9b86fe88e642617b85ffbbe857184bb71"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/check_common_neighbor_family.py",
+      "archive_path": "scratch/orch/S01/check_common_neighbor_family.py",
+      "category": "joint_cost_source_and_controls",
+      "bytes": 2890,
+      "sha256": "1c7c9bfcf72570c710177e75c9607c4898503d650dd04acb6dd8e780b8c2e2d6"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/check_triangle_joint_cost.py",
+      "archive_path": "scratch/orch/S01/check_triangle_joint_cost.py",
+      "category": "joint_cost_source_and_controls",
+      "bytes": 5257,
+      "sha256": "896a8b5ae7da878f47d664c20b9758f4c7b481db220b76959be95c3446cb0c2e"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/common-neighbor-family-counterexample.json",
+      "archive_path": "scratch/orch/S01/common-neighbor-family-counterexample.json",
+      "category": "joint_cost_source_and_controls",
+      "bytes": 3197,
+      "sha256": "702249e5aa5c0190c9cf068bbe20d7e01baec6fed0f2a0d66fe11a0431200194"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/common-neighbor-family-validation.json",
+      "archive_path": "scratch/orch/S01/common-neighbor-family-validation.json",
+      "category": "joint_cost_source_and_controls",
+      "bytes": 2762,
+      "sha256": "30db927da4916f20cb6f05a973cb42387d13f126b8f650b45068fdb5072a313d"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/common-neighbor-family.stderr.txt",
+      "archive_path": "scratch/orch/S01/common-neighbor-family.stderr.txt",
+      "category": "joint_cost_source_and_controls",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/common-neighbor-family.stdout.txt",
+      "archive_path": "scratch/orch/S01/common-neighbor-family.stdout.txt",
+      "category": "joint_cost_source_and_controls",
+      "bytes": 193,
+      "sha256": "ab5a1b84625c7df19bb1ef4f50010facce6f4fa86329ad7a8577f044517c9159"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/AAAA-chain.json",
+      "archive_path": "scratch/orch/S01/consecutive-junk-v2/AAAA-chain.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 206593,
+      "sha256": "08f6c2cc53b0b943291eaa59c664461d0c18b4b318c887865a1bec92392cabb3"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/AAAA.json",
+      "archive_path": "scratch/orch/S01/consecutive-junk-v2/AAAA.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 137762,
+      "sha256": "65fd3c368f09d685c3147e048fb1058af6f30ad90e1fe6b929934b591c073cc4"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/AAAO-chain.json",
+      "archive_path": "scratch/orch/S01/consecutive-junk-v2/AAAO-chain.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 190070,
+      "sha256": "88b777c3060b404d4be4d8dffd2f7ddda979be7bc0e29966eb858195cebcdfd1"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/AAAO.json",
+      "archive_path": "scratch/orch/S01/consecutive-junk-v2/AAAO.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 137763,
+      "sha256": "add2511a3bbe9a007bc3c4bfec9e32020b498841e954a7f958ccc8facd1e712e"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/AAOA.json",
+      "archive_path": "scratch/orch/S01/consecutive-junk-v2/AAOA.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 137763,
+      "sha256": "0f530e106a5811be95fb87df8802be78bd6a45f91c4ef548acf1d4688c00857f"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/family.json",
+      "archive_path": "scratch/orch/S01/consecutive-junk-v2/family.json",
+      "category": "exact_family_manifest",
+      "bytes": 2511,
+      "sha256": "fad819eb7f39b301255cb2cedfcadd7d616dd80be15f591b1beea69b4faafb76"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/normalized.json",
+      "archive_path": "scratch/orch/S01/consecutive-junk-v2/normalized.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 137664,
+      "sha256": "a7425759cf64d1eef6ccd281dedf0c2e67049b88ce335a4ac166fcc0d077e19b"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/encoding-validation.json",
+      "archive_path": "scratch/orch/S01/encoding-validation.json",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 9290,
+      "sha256": "af0db0f7be92f9f7cf07f3d4c3be35a2bfa2cdc650e691f973bbe9fd91b7047b"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/encoding-validation.stderr.txt",
+      "archive_path": "scratch/orch/S01/encoding-validation.stderr.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/encoding-validation.stdout.txt",
+      "archive_path": "scratch/orch/S01/encoding-validation.stdout.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 324,
+      "sha256": "92dd79a9b38d89d78b049116c9cb61ceb27ea4cf0a45574be292cad849834539"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/existing-output.stderr.txt",
+      "archive_path": "scratch/orch/S01/existing-output.stderr.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 546,
+      "sha256": "6986d46d8684eaeb592d74a351c925187adcf4c88848a981ed7453a9691fbe51"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/existing-output.stdout.txt",
+      "archive_path": "scratch/orch/S01/existing-output.stdout.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/generation-v2.stderr.txt",
+      "archive_path": "scratch/orch/S01/generation-v2.stderr.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/generation-v2.stdout.txt",
+      "archive_path": "scratch/orch/S01/generation-v2.stdout.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 266,
+      "sha256": "e6e1f1bae92b3e2687541612f44c507043d251d573882580f6457df9e77fc033"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/generation.stderr.txt",
+      "archive_path": "scratch/orch/S01/generation.stderr.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/generation.stdout.txt",
+      "archive_path": "scratch/orch/S01/generation.stdout.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 263,
+      "sha256": "820f774678f82e8859279b58d0730b780d6923d8f8d5bba6a72d9c61778d162c"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/joint-factor-cost.md",
+      "archive_path": "scratch/orch/S01/joint-factor-cost.md",
+      "category": "joint_cost_source_and_controls",
+      "bytes": 5503,
+      "sha256": "78070f3939d1ac081e67f1b4f18e1655e1aaaed7e4efa4b0d9fa3a4cf24d865f"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-axioms-validation.json",
+      "archive_path": "scratch/orch/S01/late-junk-bool-axioms-validation.json",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 812,
+      "sha256": "2e52d2c795cf9f19675c615d76ff4091405730a13a9be8ae8154e5fae09dd3c1"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-axioms.stderr.txt",
+      "archive_path": "scratch/orch/S01/late-junk-bool-axioms.stderr.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-axioms.stdout.txt",
+      "archive_path": "scratch/orch/S01/late-junk-bool-axioms.stdout.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 528,
+      "sha256": "fc5adf45a548ebfc9e081c46abbb5ab0d9160e83629ebcc4c47dfd061599f6ac"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-handoff.json",
+      "archive_path": "scratch/orch/S01/late-junk-bool-handoff.json",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 2156,
+      "sha256": "d17db50ff41b096d12caab34ffbcb7c7898397aa9e17fc070279d17b450ff437"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-second-validation.json",
+      "archive_path": "scratch/orch/S01/late-junk-bool-second-validation.json",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 511,
+      "sha256": "70a4edda110d2690126939a6a209f5bd653423dc8cf5ac3feafd3cabb74bb7e9"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-second.stderr.txt",
+      "archive_path": "scratch/orch/S01/late-junk-bool-second.stderr.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-second.stdout.txt",
+      "archive_path": "scratch/orch/S01/late-junk-bool-second.stdout.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 266,
+      "sha256": "fee52a14943e1859911cf63a0a447cbbaf0a29fbc6a3f8af0cf92474c97b70fe"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-third-validation.json",
+      "archive_path": "scratch/orch/S01/late-junk-bool-third-validation.json",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 511,
+      "sha256": "7d82878337fab88938d2323fe40e8fe043897832a5ffb96c4ab9189544242f86"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-third.stderr.txt",
+      "archive_path": "scratch/orch/S01/late-junk-bool-third.stderr.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-third.stdout.txt",
+      "archive_path": "scratch/orch/S01/late-junk-bool-third.stdout.txt",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/late-junk-bool-validation.json",
+      "archive_path": "scratch/orch/S01/late-junk-bool-validation.json",
+      "category": "self_audit_and_partial_logs",
+      "bytes": 513,
+      "sha256": "1a6c2bc095479e59278fc80c36148e983b0ccc1c03c317622d109a5f19b98eb5"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/triangle-joint-cost-validation.json",
+      "archive_path": "scratch/orch/S01/triangle-joint-cost-validation.json",
+      "category": "joint_cost_source_and_controls",
+      "bytes": 9201,
+      "sha256": "4f9bf578ffb7d32818e0e1b04d753a03d3d7fb4e87e960605d70c8818c1680a8"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/triangle-joint-cost.stderr.txt",
+      "archive_path": "scratch/orch/S01/triangle-joint-cost.stderr.txt",
+      "category": "joint_cost_source_and_controls",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/triangle-joint-cost.stdout.txt",
+      "archive_path": "scratch/orch/S01/triangle-joint-cost.stdout.txt",
+      "category": "joint_cost_source_and_controls",
+      "bytes": 226,
+      "sha256": "4c999444d8fbead6e55593705e43d177f7f7040740ef1f31d976fe7a198e83e5"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/generate_triangle_factors.py",
+      "archive_path": "scratch/orch/S02/generate_triangle_factors.py",
+      "category": "retired_triangle_provenance_not_S04_delta_PASS",
+      "bytes": 8711,
+      "sha256": "e24f9c066ab8a37fa9dbe0d028acb594b8d6d8bc83e9f482fd62e8a390920538"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-factor-handoff.json",
+      "archive_path": "scratch/orch/S02/triangle-factor-handoff.json",
+      "category": "retired_triangle_provenance_not_S04_delta_PASS",
+      "bytes": 8195,
+      "sha256": "643c5f4025d175a4fdb759d1062c1078592ff27728199c180c1f977625cff01f"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-factor-review.json",
+      "archive_path": "scratch/orch/S02/triangle-factor-review.json",
+      "category": "retired_triangle_provenance_not_S04_delta_PASS",
+      "bytes": 5473,
+      "sha256": "006965e4cedc6bc6264b56b52df76ae97dd5893837713a62d04766a3db13deeb"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/family.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/family.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 9997,
+      "sha256": "be2632ca05664313c19becd3f11e7525d827ddb133400e89a27dd1762beba9ad"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-1-4-8.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/tri-1-4-8-order-1-4-8.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 144410,
+      "sha256": "2d92563b906cac02d6076113518a37de88a8f02b8c4a4ab906f36a2c26c22b93"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-1-8-4.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/tri-1-4-8-order-1-8-4.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 144410,
+      "sha256": "2414ecbc344cadb96cbddaa94567c3e35589bfc8cb5a1ba71b1be8ba8e28c652"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-4-1-8.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/tri-1-4-8-order-4-1-8.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 144408,
+      "sha256": "544b42c0780ff26e9ab736facccf948d668c3b91f8de3cc7f747b728a7b82c2e"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-4-8-1.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/tri-1-4-8-order-4-8-1.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 144408,
+      "sha256": "69638c7f332bced709c669b50aa6fae4cca01f682d64470b12c486766822df9c"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-8-1-4.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/tri-1-4-8-order-8-1-4.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 144408,
+      "sha256": "1e357878addae7861863e2f27d1597d5179f9cd629c99e43bc65f752e673a600"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-1-4-8-order-8-4-1.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/tri-1-4-8-order-8-4-1.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 144408,
+      "sha256": "be5d4a68ac294be1637d1d7bc758944adc7f5c1432d7c98745ed44274c4265f2"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-3-6-7.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/tri-3-6-7-order-3-6-7.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 144584,
+      "sha256": "a769571f1534c7783d12b6c6f19cb26e8c9228150d1113d6877684e18b347d7c"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-3-7-6.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/tri-3-6-7-order-3-7-6.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 144584,
+      "sha256": "eb395101644733885f051907c8b5c0fe00fe6364ac6dab5d6cb810878a111483"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-6-3-7.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/tri-3-6-7-order-6-3-7.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 144584,
+      "sha256": "95995b94f5c71bf16781f995d9095c240c959f8289d91aa90fa556dee2f1e5cf"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-6-7-3.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/tri-3-6-7-order-6-7-3.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 144582,
+      "sha256": "d10ff5c48b4a5d2d416d1285bc5c0f1b7dc7f0428614052c1a17291736868d41"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-7-3-6.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/tri-3-6-7-order-7-3-6.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 144584,
+      "sha256": "beb72f95e0c16f6bb31f8368d2ee98d887635dd8e2dbd0c8a7c5e3fcf98f0bef"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S02/triangle-upper-factors/tri-3-6-7-order-7-6-3.json",
+      "archive_path": "scratch/orch/S02/triangle-upper-factors/tri-3-6-7-order-7-6-3.json",
+      "category": "retired_triangle_metadata_for_joint_hypotheses",
+      "bytes": 144582,
+      "sha256": "b4122e22796330d9177bc067b0c4bdf2dced428fb7f0aaf612ef679ec2e7ff77"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/S01-reviewed-snapshot.md",
+      "archive_path": "scratch/orch/S04/S01-reviewed-snapshot.md",
+      "category": "historical_review_snapshots",
+      "bytes": 7272,
+      "sha256": "26f17ec6c2b3bc13411f42143d3a94b358e627e8fdad64725d9e4742bf4cfbc7"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/S04-six-case-reviewed.md",
+      "archive_path": "scratch/orch/S04/S04-six-case-reviewed.md",
+      "category": "historical_review_snapshots",
+      "bytes": 32389,
+      "sha256": "a284417b0fbc8f81557c7796c5725c1750f3ca311cafc7f13e3c4d206c4c42ef"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/aaOA-review.json",
+      "archive_path": "scratch/orch/S04/aaOA-review.json",
+      "category": "independent_source_and_results",
+      "bytes": 7825,
+      "sha256": "43c372c7bf7ce40f262a907323708c182e5e67b58b660ab8ff03922ce4a27b48"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/aaOA-review.stderr.log",
+      "archive_path": "scratch/orch/S04/aaOA-review.stderr.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/aaOA-review.stdout.log",
+      "archive_path": "scratch/orch/S04/aaOA-review.stdout.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 1353,
+      "sha256": "3a7df29c5cb7c62be38c1f6342e3b826d09e6d6e216337fe6e5cd96c08c5e3b0"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/aaoa-delta-review.json",
+      "archive_path": "scratch/orch/S04/aaoa-delta-review.json",
+      "category": "independent_source_and_results",
+      "bytes": 1929,
+      "sha256": "d7ba2eb9f1dec7206aa7c6c9a440dc135482b1b13ddc9085c9cac804b2c40704"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/aaoa-delta.stderr.log",
+      "archive_path": "scratch/orch/S04/aaoa-delta.stderr.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/aaoa-delta.stdout.log",
+      "archive_path": "scratch/orch/S04/aaoa-delta.stdout.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 1929,
+      "sha256": "d7ba2eb9f1dec7206aa7c6c9a440dc135482b1b13ddc9085c9cac804b2c40704"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/audit_composition.py",
+      "archive_path": "scratch/orch/S04/audit_composition.py",
+      "category": "independent_source_and_results",
+      "bytes": 15789,
+      "sha256": "742d75ca6cde0e8601616dd4d9e9eaefab67eb8bb248275b8f789c40c817be5d"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/chain-review.json",
+      "archive_path": "scratch/orch/S04/chain-review.json",
+      "category": "independent_source_and_results",
+      "bytes": 1681,
+      "sha256": "299f6bdc23ac20e8f9b54cae7eb3a787c1aacf951ab08b8314be212c67f1472d"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/chain-review.stderr.log",
+      "archive_path": "scratch/orch/S04/chain-review.stderr.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/chain-review.stdout.log",
+      "archive_path": "scratch/orch/S04/chain-review.stdout.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 1681,
+      "sha256": "299f6bdc23ac20e8f9b54cae7eb3a787c1aacf951ab08b8314be212c67f1472d"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/composition-result.json",
+      "archive_path": "scratch/orch/S04/composition-result.json",
+      "category": "independent_source_and_results",
+      "bytes": 1644,
+      "sha256": "13745e1ce044a791246730732c40571cbafa0d0ac2b766ea2468a0998ca5e8ee"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/composition.stderr.log",
+      "archive_path": "scratch/orch/S04/composition.stderr.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 531,
+      "sha256": "49b3032e4ea2a0d75d6ba8fec578ba9174a5d024a856658ab4aea70e3b039f46"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/composition.stdout.log",
+      "archive_path": "scratch/orch/S04/composition.stdout.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/composition2.stderr.log",
+      "archive_path": "scratch/orch/S04/composition2.stderr.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 761,
+      "sha256": "738790883ebf6d98d0e63bdf85bd8bb9cc35e838df643efcb8bc71ca9f239486"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/composition2.stdout.log",
+      "archive_path": "scratch/orch/S04/composition2.stdout.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/composition3.stderr.log",
+      "archive_path": "scratch/orch/S04/composition3.stderr.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/composition3.stdout.log",
+      "archive_path": "scratch/orch/S04/composition3.stdout.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 1521,
+      "sha256": "9b43dc4783fb4f9bc6544e46f43af74f5effd47150d3b9e87dd0456309395bc0"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/composition4.stderr.log",
+      "archive_path": "scratch/orch/S04/composition4.stderr.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/composition4.stdout.log",
+      "archive_path": "scratch/orch/S04/composition4.stdout.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 1644,
+      "sha256": "13745e1ce044a791246730732c40571cbafa0d0ac2b766ea2468a0998ca5e8ee"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/consecutive-junk-final.stderr.log",
+      "archive_path": "scratch/orch/S04/consecutive-junk-final.stderr.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/consecutive-junk-final.stdout.log",
+      "archive_path": "scratch/orch/S04/consecutive-junk-final.stdout.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 1009,
+      "sha256": "0f480b0749e1dfd1d01d18efc43480f4ae78bebad1e0d48414ed280fb635f694"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/consecutive-junk-result.json",
+      "archive_path": "scratch/orch/S04/consecutive-junk-result.json",
+      "category": "independent_source_and_results",
+      "bytes": 8394,
+      "sha256": "2894eb8eb52bc65ef5233eecfb2d4667452c1fcebb7fcc05191e789f20309f31"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/consecutive-junk.stderr.log",
+      "archive_path": "scratch/orch/S04/consecutive-junk.stderr.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/consecutive-junk.stdout.log",
+      "archive_path": "scratch/orch/S04/consecutive-junk.stdout.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 1009,
+      "sha256": "b81498e6108d6ae1dfd170a0373d2a3733cc790ff19a08ca7d17373690ab7d6d"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/finalize_normalization_package.py",
+      "archive_path": "scratch/orch/S04/finalize_normalization_package.py",
+      "category": "preservation_full_diagnostics_and_source",
+      "bytes": 6977,
+      "sha256": "fa6ba6efd7173b0286f82e4a3e558b68b16d6e5ac572bc0593ac9c16f4d71ea2"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/initial-metadata-summary.json",
+      "archive_path": "scratch/orch/S04/initial-metadata-summary.json",
+      "category": "independent_source_and_results",
+      "bytes": 1896,
+      "sha256": "1275fd803ac1d5d47db32dac19bf9240dc8e6828bcda0d5371c2e6c29592f9d0"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/j18-delta-review.json",
+      "archive_path": "scratch/orch/S04/j18-delta-review.json",
+      "category": "independent_source_and_results",
+      "bytes": 2619,
+      "sha256": "a12ddf32ac70dc5a84f50982bbd7c76b56a6a27b262c937c8ac4cb110c58a599"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/j18-delta.stderr.log",
+      "archive_path": "scratch/orch/S04/j18-delta.stderr.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/j18-delta.stdout.log",
+      "archive_path": "scratch/orch/S04/j18-delta.stdout.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 2619,
+      "sha256": "a12ddf32ac70dc5a84f50982bbd7c76b56a6a27b262c937c8ac4cb110c58a599"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/joint-factor-review.json",
+      "archive_path": "scratch/orch/S04/joint-factor-review.json",
+      "category": "independent_source_and_results",
+      "bytes": 71100,
+      "sha256": "a5ba83161105f5b0b4baec2823da1f9cc06b10c0e871a3b5c14612e812d0b691"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/joint-factor-review.stderr.log",
+      "archive_path": "scratch/orch/S04/joint-factor-review.stderr.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/joint-factor-review.stdout.log",
+      "archive_path": "scratch/orch/S04/joint-factor-review.stdout.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 445,
+      "sha256": "aa5727ca73b952c8f07c8f4c2f4c1f19c0be44d9ea8991e2d79bd59d24806c87"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/prefix-base.json",
+      "archive_path": "scratch/orch/S04/prefix-base.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 132488,
+      "sha256": "09244ed860587b4312d29766c0f59a38e6a9963ab8332a582e974ef08e103b82"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/prefix-distinct.json",
+      "archive_path": "scratch/orch/S04/prefix-distinct.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 133265,
+      "sha256": "3ea4b2b3f1e20386d8540970404c9599d6a01976db97a3df0576fe25a48ef502"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/prefix-lex.json",
+      "archive_path": "scratch/orch/S04/prefix-lex.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 133238,
+      "sha256": "bf77a684ec4b19d369ca7c9d3e77eef7a0309b555910b0729c9d806277c11a4e"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/prepare_normalization_package.py",
+      "archive_path": "scratch/orch/S04/prepare_normalization_package.py",
+      "category": "preservation_builder",
+      "bytes": 6246,
+      "sha256": "7e3975368e2e30b9af0ab38f617bd095d157ed2cb014917301775d467d977d74"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/preservation-preparation.stderr.log",
+      "archive_path": "scratch/orch/S04/preservation-preparation.stderr.log",
+      "category": "preservation_full_diagnostics_and_source",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/preservation-preparation.stdout.log",
+      "archive_path": "scratch/orch/S04/preservation-preparation.stdout.log",
+      "category": "preservation_full_diagnostics_and_source",
+      "bytes": 169,
+      "sha256": "09d72c57d974e6de20f485f739b640d69f6ac748f73d8a18cd8595910808f166"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/preservation-reproduction.stderr.log",
+      "archive_path": "scratch/orch/S04/preservation-reproduction.stderr.log",
+      "category": "preservation_full_diagnostics_and_source",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/preservation-reproduction.stdout.log",
+      "archive_path": "scratch/orch/S04/preservation-reproduction.stdout.log",
+      "category": "preservation_full_diagnostics_and_source",
+      "bytes": 802,
+      "sha256": "ef5492a9e738ea9021e677d137c3d87c7106f51846988943db95d8ee7f56fe57"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/recreation.log",
+      "archive_path": "scratch/orch/S04/recreation.log",
+      "category": "full_independent_diagnostics",
+      "bytes": 665,
+      "sha256": "1cf6022382f03da69a87d25b3e057407d323237f51abcad610858b799d37918f"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/reproduce_six_cases.py",
+      "archive_path": "scratch/orch/S04/reproduce_six_cases.py",
+      "category": "portable_exact_recipe",
+      "bytes": 3069,
+      "sha256": "87ba8fdd026531ed163854d5c4a926da7eb2c158bdb006844e6e4f05dcca4cd6"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/review_aaOA_forms.py",
+      "archive_path": "scratch/orch/S04/review_aaOA_forms.py",
+      "category": "independent_source_and_results",
+      "bytes": 6056,
+      "sha256": "ef6dfe937175278d68c9b8583e14034055d8ae9fa69669fb81ea823bc2da4fdd"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/review_aaoa_deltas.py",
+      "archive_path": "scratch/orch/S04/review_aaoa_deltas.py",
+      "category": "independent_source_and_results",
+      "bytes": 4931,
+      "sha256": "56fb0f205bbb25fd9d248caed7e13d300636f2dcf8373fac885b571080c5a0e1"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/review_chain_variants.py",
+      "archive_path": "scratch/orch/S04/review_chain_variants.py",
+      "category": "independent_source_and_results",
+      "bytes": 6525,
+      "sha256": "c0059c6e170b5ff5a8c3c55ca82ba5bd8e0148bbccb4e5f5fa972f15a3e15345"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/review_consecutive_junk.py",
+      "archive_path": "scratch/orch/S04/review_consecutive_junk.py",
+      "category": "independent_source_and_results",
+      "bytes": 5578,
+      "sha256": "2572b8402d419ed6b9fd637bcbe53c64de9b5ca471eaa9e0697e7e449c145c57"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/review_j18_delta.py",
+      "archive_path": "scratch/orch/S04/review_j18_delta.py",
+      "category": "independent_source_and_results",
+      "bytes": 3963,
+      "sha256": "9618d90f26c6da74cdee407e3a6ef374f8d0ea1343f8210f883b4eefc7e9d56f"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/review_joint_factor.py",
+      "archive_path": "scratch/orch/S04/review_joint_factor.py",
+      "category": "independent_source_and_results",
+      "bytes": 6593,
+      "sha256": "411d45e3f0e0cd6de9e3fe5838ffdad0bdb3346dd4be022ed0eece571c0c10dc"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/semantic-caveats.json",
+      "archive_path": "scratch/orch/S04/semantic-caveats.json",
+      "category": "independent_source_and_results",
+      "bytes": 1005,
+      "sha256": "b7db36d8fc5990761cc398c28fce01a0ce3d97cd16b29be96a9ca202c49ab3d1"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/six-case-review-manifest.json",
+      "archive_path": "scratch/orch/S04/six-case-review-manifest.json",
+      "category": "historical_review_snapshots",
+      "bytes": 2209,
+      "sha256": "96286c7bc5424c199bf5a1336e9d52e2f016c1a726403af0959ca4ebd8d8f39b"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/original-dag-strong/original.json",
+      "archive_path": "scratch/original-dag-strong/original.json",
+      "category": "exact_CNF_metadata",
+      "bytes": 136917,
+      "sha256": "5a430e86affc12584f964af39920201684505bafca4d34c1d30e6a10de3b9f51"
+    }
+  ],
+  "omitted_raw_CNF_recipes": [
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/prefix-base.cnf",
+      "reproduced_path": "prefix/prefix-base.cnf",
+      "sha256": "7c8cdd78f24e0de8ec143d4c5801d1481c9d5f336c1e9bf79d9b461c9e3c127d",
+      "bytes": 1808534,
+      "metadata_archive_path": "scratch/orch/S04/prefix-base.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/prefix-lex.cnf",
+      "reproduced_path": "prefix/prefix-lex.cnf",
+      "sha256": "741a81093f40bcbbb28f10514bf1e9d609b046c9fa711e5d086548f3cc4a64cf",
+      "bytes": 1890720,
+      "metadata_archive_path": "scratch/orch/S04/prefix-lex.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S04/prefix-distinct.cnf",
+      "reproduced_path": "prefix/prefix-distinct.cnf",
+      "sha256": "811937a8a658d01fac36418e9fb3087218820a9f9dc571ef09246f936df8168e",
+      "bytes": 1891554,
+      "metadata_archive_path": "scratch/orch/S04/prefix-distinct.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/original-dag-strong/original.cnf",
+      "reproduced_path": "original/original.cnf",
+      "sha256": "38d93ec59a86378a8434b232d19b2b53e8cbc3c715e81432ee94db59ca6ace08",
+      "bytes": 1965437,
+      "metadata_archive_path": "scratch/original-dag-strong/original.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/AAAA-chain.cnf",
+      "reproduced_path": "consecutive-junk-v2/AAAA-chain.cnf",
+      "sha256": "41995c72708a950daa154eb3dfa50447b4a4f6ce6199082f14a28a8cfdda1730",
+      "bytes": 1990748,
+      "metadata_archive_path": "scratch/orch/S01/consecutive-junk-v2/AAAA-chain.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/AAAA.cnf",
+      "reproduced_path": "consecutive-junk-v2/AAAA.cnf",
+      "sha256": "f50627e82144e04dd204302967e5d95b21e7fb6504cf964a35657173eacc3d02",
+      "bytes": 1965472,
+      "metadata_archive_path": "scratch/orch/S01/consecutive-junk-v2/AAAA.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/AAAO-chain.cnf",
+      "reproduced_path": "consecutive-junk-v2/AAAO-chain.cnf",
+      "sha256": "a8e94b6cfeaafb8b6c4e01d33e6f552a984e395d224dc3d6281d99cc49850753",
+      "bytes": 1984660,
+      "metadata_archive_path": "scratch/orch/S01/consecutive-junk-v2/AAAO-chain.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/AAAO.cnf",
+      "reproduced_path": "consecutive-junk-v2/AAAO.cnf",
+      "sha256": "af8cf38d730b3ffaa1245321ce87d3e2dcec43b2a64f180f7962a6f255a4bf29",
+      "bytes": 1965473,
+      "metadata_archive_path": "scratch/orch/S01/consecutive-junk-v2/AAAO.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/AAOA.cnf",
+      "reproduced_path": "consecutive-junk-v2/AAOA.cnf",
+      "sha256": "70308894ffc6f4c3b682140c7df3d17ed3035c79dc66f56dc51bd47020004e91",
+      "bytes": 1965473,
+      "metadata_archive_path": "scratch/orch/S01/consecutive-junk-v2/AAOA.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/consecutive-junk-v2/normalized.cnf",
+      "reproduced_path": "consecutive-junk-v2/normalized.cnf",
+      "sha256": "3fefefe3949bc703fc2b9f023be12bc42f1afe7619e8ed5ed63be2f8e7648812",
+      "bytes": 1965444,
+      "metadata_archive_path": "scratch/orch/S01/consecutive-junk-v2/normalized.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-four-v1/T1.cnf",
+      "reproduced_path": "aaoa-four-v1/T1.cnf",
+      "sha256": "422b20c5d9fd5c7eff0ec8a4d7283c70750686da38e3bc3e1dc68e7a1dd5353c",
+      "bytes": 1977722,
+      "metadata_archive_path": "scratch/orch/S01/aaoa-four-v1/T1.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-four-v1/T2.cnf",
+      "reproduced_path": "aaoa-four-v1/T2.cnf",
+      "sha256": "a295babc305737a921da6bb5c0e990f6c91b2a4c200544d57bcd3abc3e574c3b",
+      "bytes": 1983804,
+      "metadata_archive_path": "scratch/orch/S01/aaoa-four-v1/T2.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-four-v1/T3.cnf",
+      "reproduced_path": "aaoa-four-v1/T3.cnf",
+      "sha256": "0ab8fcacbcfe9fa8e094d8db4d0a52eb5d885a032313992ac7c02f312eaffbdf",
+      "bytes": 1977706,
+      "metadata_archive_path": "scratch/orch/S01/aaoa-four-v1/T3.json"
+    },
+    {
+      "source_path": "/tmp/oec/pequalnp-pilot-18/orch/S01/aaoa-four-v1/T4.cnf",
+      "reproduced_path": "aaoa-four-v1/T4.cnf",
+      "sha256": "661f44876da7e7f8d24d9a06f64ae3708037fc19048e9e20153c47e6a49ea5e3",
+      "bytes": 1983804,
+      "metadata_archive_path": "scratch/orch/S01/aaoa-four-v1/T4.json"
+    }
+  ]
+}

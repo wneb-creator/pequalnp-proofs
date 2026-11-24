@@ -1,0 +1,45 @@
+{
+  "scope": "Candidate-only stochastic optimization; no exhaustion claim.",
+  "started_utc": "2026-11-24T03:33:34.078112+00:00",
+  "engine_sha256": "31620eae27eed733fe22f94965a215394e3fc6bd2a313f566335a3eb30dd4f00",
+  "pack_sha256": "e65e3d1a9f6524b0e2cb6eab49042b87be412812e66d6239875b845572e41ba2",
+  "pack_metadata_sha256": "62ce6b6be8915bcd3e93bb1b21a3fb88b335f07f4c5b71960bdbe598313ef5e6",
+  "wrapper_sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+  "validator_sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/circuit_anneal",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/seed-pack-ready/seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134221/engine-result.json",
+    "--seed",
+    "134221",
+    "--seconds",
+    "300.0",
+    "--iterations",
+    "2000000000",
+    "--restart",
+    "200000",
+    "--weight",
+    "2"
+  ],
+  "status": "UNKNOWN",
+  "engine_exit": 0,
+  "engine_result_sha256": "86740c0cff6ebdb1dab0d477cc960ffca9c7a9e089034b3233cbf434adef5474",
+  "elapsed_seconds": 300.0843820930004,
+  "logs": {
+    "engine.stdout.txt": {
+      "sha256": "5dfc7b1beb7cf9367fcb42a8a16b094d0fc7a7955bf0dd74e61fd521f8afc119",
+      "bytes": 348
+    },
+    "engine.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "best_files": {
+    "engine-result.json.best-0.json": "fd29b702ad65742cb4204f11d8c70a33fc33c4388bd2d4bf78f347323524714f",
+    "engine-result.json.best-1.json": "eb32ef0c599fcf896356e16e9d957633ada3d8ad55c34a7b05b08844658d0786",
+    "engine-result.json.best-2.json": "a11a4961734773211fad24f3d6c3332b5c0b45f904993c01162e7a9c7d25926e"
+  }
+}

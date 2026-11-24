@@ -1,0 +1,61 @@
+{
+  "scope": "Candidate-only stochastic optimization; no exhaustion claim.",
+  "started_utc": "2026-11-24T04:19:31.438730+00:00",
+  "engine_sha256": "31620eae27eed733fe22f94965a215394e3fc6bd2a313f566335a3eb30dd4f00",
+  "pack_sha256": "7545d43b161bb5d1fab2cbf3e517c56a40dab5e8e26bdaff4bc4649760dbfe0a",
+  "pack_metadata_sha256": "de74224be43990e581638e3233e885df66b5de1a156a5f02796670a087d2d981",
+  "wrapper_sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+  "validator_sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/circuit_anneal",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-seed-pack/seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json",
+    "--seed",
+    "134223",
+    "--seconds",
+    "60.0",
+    "--iterations",
+    "2000000000",
+    "--restart",
+    "200000",
+    "--weight",
+    "16"
+  ],
+  "status": "UNKNOWN",
+  "engine_exit": 0,
+  "engine_result_sha256": "18365635661c4df122798c5370f9e3047e9df52dee9bd89795a90ed731b82800",
+  "elapsed_seconds": 60.01331363499958,
+  "logs": {
+    "engine.stdout.txt": {
+      "sha256": "104c452e1e6e0118264e807d9e09278cf2af5b524f3bae251fb2b48d15ed9999",
+      "bytes": 1854
+    },
+    "engine.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "best_files": {
+    "engine-result.json.best-0.json": "977fcb83d98ffad1d08ca9f23c480b9cbb09fa1db405571b1ff540b0c9a1a47d",
+    "engine-result.json.best-1.json": "cfef7484dd0512495af659c6c494e09049cff3ca0d3369f1fb7698a34c10e0de",
+    "engine-result.json.best-10.json": "bbf264b11a992a1d943da737695818413fa366a64a2f62dc886aca1c5cbd4c23",
+    "engine-result.json.best-11.json": "ff59873f2c1f922872729da169aae4133c8aeb8a2351632169417a1781bd0c1c",
+    "engine-result.json.best-12.json": "08c5ec738b721d9d894d022d950fd72733fc3d89725ee88fbccfbfa443581f79",
+    "engine-result.json.best-13.json": "feb7217506f9fdcb2ac04414b80715b02f29eab22241b625d6ea949e3e5bb6d6",
+    "engine-result.json.best-14.json": "7c619e0356a8328bd740905fe955a8f7782955e0f41aaa663d533d37f2f1f646",
+    "engine-result.json.best-15.json": "326d364000eb6da5c09bd265d0ebd9afff72429e813c24c7e5f87a3419b669fe",
+    "engine-result.json.best-16.json": "eb78c57cbb7dd79bee659f63134eaa5d5687b95fff62b2f6342ea9b6ad943a9f",
+    "engine-result.json.best-17.json": "9d8d84b28106ca0602c646c07a1254204f7db4126064de512a808ef383645ca2",
+    "engine-result.json.best-18.json": "663d414ee9165eb34d33ada0e24d66c6b6f08f30147fb7b88274277ad1790fd7",
+    "engine-result.json.best-2.json": "30a2574630dfc2b06c5774e66c5e042f26a68080ed1ca9a8c0400136163f7d10",
+    "engine-result.json.best-3.json": "2aee67358fcb18c9802c9a96f8e6faa38bdac08c2b278aeab4fc3988d67fc06f",
+    "engine-result.json.best-4.json": "72b3f552b7d44294dd8b8c9ec8b2e127a2f68273e6706763107c0c1eb2d17b84",
+    "engine-result.json.best-5.json": "52c8f8da6c15d05d4cc7e46b1759569d6bf10277c8141465d1f77da54160bbb9",
+    "engine-result.json.best-6.json": "a83095862109b65dc5c32b97ea345923e1af5c72e10b83aa1a3f83bb6462b359",
+    "engine-result.json.best-7.json": "859f7111f84ffa9956660d389ca44059359e90a2485163b34c2de28e7b5a849a",
+    "engine-result.json.best-8.json": "4aa4b4a0ae0a402a123bf9666ebdf6d3a40572b22082cf2db61529f293b20643",
+    "engine-result.json.best-9.json": "b1cb1dde69c7b9629edb06893679fe0ab4da304d92542987b574f3cbf82a9262"
+  }
+}

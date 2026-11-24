@@ -1,0 +1,25 @@
+{
+  "utc": "2026-11-24T04:12:17.114731+00:00",
+  "status": "PASS",
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/restore_archive2_cnfs.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S06/archive2-final",
+    "/tmp/oec/pequalnp-pilot-18/original-dag-strong/original.cnf",
+    "--verify-only"
+  ],
+  "exit_code": 0,
+  "source_sha256": "6ec3e29485e5618d3ca5df1d62816e6d98c998f6359d32be5460affef5bdc470",
+  "manifest_sha256": "005189a6921f0d52b442d5e26703b05b86482010e7ab5dc0247a77297fe98519",
+  "tar_sha256": "de4ba452cf2b996aa8fe89987bf4c61711eca8e8c92175cb6df1be5586e2b373",
+  "tar_members": 1784,
+  "all_tar_members_regular_and_hash_bound": true,
+  "reconstructed_large_cnfs": 95,
+  "small_fixture_cnfs": 137,
+  "large_raw_cnfs": 0,
+  "compiled_binaries": 0,
+  "real_control_independent_review_sha256": "c1a22439752d28b1a1640d87553de7ae14246a8ab697fd80775f6495a9534f99",
+  "stdout_sha256": "4d063d6e20103f4cf533de74b0bc75539b8e1195fb99dc9b4aed27d99047dd49",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "worker_launch": false
+}

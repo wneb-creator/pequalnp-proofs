@@ -1,0 +1,27 @@
+{
+  "scope": "Candidate-only stochastic optimization; no exhaustion claim.",
+  "started_utc": "2026-11-24T03:33:34.076964+00:00",
+  "engine_sha256": "31620eae27eed733fe22f94965a215394e3fc6bd2a313f566335a3eb30dd4f00",
+  "pack_sha256": "e65e3d1a9f6524b0e2cb6eab49042b87be412812e66d6239875b845572e41ba2",
+  "pack_metadata_sha256": "62ce6b6be8915bcd3e93bb1b21a3fb88b335f07f4c5b71960bdbe598313ef5e6",
+  "wrapper_sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+  "validator_sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/circuit_anneal",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/seed-pack-ready/seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134220/engine-result.json",
+    "--seed",
+    "134220",
+    "--seconds",
+    "300.0",
+    "--iterations",
+    "2000000000",
+    "--restart",
+    "200000",
+    "--weight",
+    "1"
+  ],
+  "status": "RUNNING"
+}

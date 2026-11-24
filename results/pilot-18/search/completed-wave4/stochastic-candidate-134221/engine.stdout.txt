@@ -1,0 +1,4 @@
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-candidate-134221/engine-result.json.best-0.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-candidate-134221/engine-result.json.best-1.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-candidate-134221/engine-result.json.best-2.json
+UNKNOWN iterations=1772326912 restarts=8861 elapsed=300.001

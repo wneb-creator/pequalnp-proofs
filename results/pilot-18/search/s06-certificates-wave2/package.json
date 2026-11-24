@@ -1,0 +1,81 @@
+{
+  "utc": "2026-11-24T04:20:37.528995+00:00",
+  "files": [
+    {
+      "file": "archive2-final-build.result.json",
+      "bytes": 1561,
+      "sha256": "020f91acac07523bc684b3881ceaaf4d49e71b3db3b7f199965f4f05066db2c9"
+    },
+    {
+      "file": "archive2-final-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "archive2-final-build.stdout",
+      "bytes": 947,
+      "sha256": "67a31b2bec5ecbe7b97fbc963462bc9a5966bb744eda0a9675e8379a5356ccd6"
+    },
+    {
+      "file": "archive2-final-validation-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "archive2-final-validation-driver.stdout",
+      "bytes": 1091,
+      "sha256": "82ac1b90fa520f1ccf87abd40805abcbf4be8587c7a50e18f3cb4f4ddf433fef"
+    },
+    {
+      "file": "archive2-final-validation.json",
+      "bytes": 1091,
+      "sha256": "82ac1b90fa520f1ccf87abd40805abcbf4be8587c7a50e18f3cb4f4ddf433fef"
+    },
+    {
+      "file": "archive2-final-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "archive2-final-validation.stdout",
+      "bytes": 122,
+      "sha256": "4d063d6e20103f4cf533de74b0bc75539b8e1195fb99dc9b4aed27d99047dd49"
+    },
+    {
+      "file": "archive2-final.record.json",
+      "bytes": 947,
+      "sha256": "42f9de397231b2ef1ef0600b6eda321edcc7e8bead11791747922cca3877de1f"
+    },
+    {
+      "file": "archive2-final.tar.gz",
+      "bytes": 3239216,
+      "sha256": "de4ba452cf2b996aa8fe89987bf4c61711eca8e8c92175cb6df1be5586e2b373"
+    },
+    {
+      "file": "validate_archive2_delivery.py",
+      "bytes": 2821,
+      "sha256": "6ec3e29485e5618d3ca5df1d62816e6d98c998f6359d32be5460affef5bdc470"
+    },
+    {
+      "file": "handoff.json",
+      "bytes": 2874,
+      "sha256": "adb6a85c3c83fa6b1b5cb58c544b91f717ed755f9c2a73dd81b9649f966b4b25"
+    },
+    {
+      "file": "manifest.json",
+      "bytes": 668303,
+      "sha256": "005189a6921f0d52b442d5e26703b05b86482010e7ab5dc0247a77297fe98519"
+    },
+    {
+      "file": "README.md",
+      "bytes": 3771,
+      "sha256": "ee964d5ec2854adc8fe4dbce7520e18dccd0725f1b960a32b8d6d7b201f71b88"
+    },
+    {
+      "file": "independent-delivery-review.json",
+      "bytes": 919818,
+      "sha256": "c7af9386a329d8af7c4049167ff5b0b7a087f417e939d772c1ec9d55e279d329"
+    }
+  ],
+  "scope": "AAAO3895RUP/exact2partition, reviewed bounded runner, main real case13 compatibility and independent replay. No AAAO production run result/global/shard/Lean claim."
+}

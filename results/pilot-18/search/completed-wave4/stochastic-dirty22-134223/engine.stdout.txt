@@ -1,0 +1,20 @@
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-0.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-1.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-2.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-3.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-4.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-5.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-6.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-7.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-8.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-9.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-10.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-11.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-12.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-13.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-14.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-15.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-16.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-17.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-dirty22-134223/engine-result.json.best-18.json
+UNKNOWN iterations=391029760 restarts=1955 elapsed=60.0004

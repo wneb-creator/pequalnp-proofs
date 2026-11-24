@@ -1,0 +1,12 @@
+{
+  "verdict": "PASS_TIGHT_REVIEW_PRESERVATION",
+  "archive": "/tmp/oec/pequalnp-pilot-18/orch/S04/tight-survivor-preservation-v1.tar.gz",
+  "archive_sha256": "5d1b92e94cc448168d5563a9e035d4ae1113a52ac3428708c5026354e603d727",
+  "archive_bytes": 45107,
+  "regular_members": 31,
+  "manifest_sha256": "ab5fc24e18524f48b51b796de1424e8bc01d0306ad891f235c5dc02387b3c2c2",
+  "review_json_sha256": "7cb42784636f86b29e9ea3afca5484bdc5ca04a581a9198f7e7c880a6c056fb7",
+  "source_math_sha256": "69bb5f1587acceb0fd5ecebf3ed4a525919c439eef62c70a7c11e9ae149a1acc",
+  "shorter_proof_in": "repo/results/orch/lemmas/S04-redteam.md",
+  "scope": "Independent mathematical proof review of one productive clean prefix lower bound18, plus original S01 handoff and bounded scalar controls."
+}
