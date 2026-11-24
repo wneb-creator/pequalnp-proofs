@@ -1,29 +1,33 @@
-L-meta-1482 PARTIAL CHECKPOINT — posted theorem NOT proved.
+L-meta-1482 PARTIAL RESULT — posted theorem NOT proved or refuted.
 File: lean/PEqualNP/Outside/L_meta_1482.lean
 Base upstream commit: 5c49e86
-Last completed named-file lake build: PASS (exit 0), complete output in build.stdout/stderr.
+Current named-file lake build: PASS (exit 0), complete build.stdout/stderr.
+Exact-statement checker on current 705-line file: REJECTED (no-theorem).
 Plain-file guard: REFUSED: the file holds no theorem (expected for partial).
-Exact-statement checker on first checkpoint: REJECTED (no-theorem).
-Current file still contains no posted theorem. No PR opened for a partial.
-Independent review: review_rules approved helper correctness, scope, namespace,
-permitted tactics/imports and absence of prohibited commands/axioms.
-Helpers: finite plane facts; recurrence uniqueness; actual-wire semantics;
-output bounds; monotonicity; first-loss AND witness; critical-input correctness.
-The complete 65-gate double-re-read witness compiles with exit 0 and empty
-stdout/stderr. Full source is preserved as full-boundary.lean.txt; it proves
-all-input incidence correctness, legal gates, and both exact v/w certificates.
-Independent review confirmed the exact posted existential body with only the
-size condition replaced by C.size=65, and independently recomputed semantics.
-This is an upper-bound witness only. Its integration into the named file is
-currently building; the last completed named-file build covered 465 lines.
-A compiled finite-cover lemma shows that any 13-center vertex cover consists
-of all points or all lines; its source is preserved as cover-equality.lean.txt.
-The 64-gate lower bound remains unresolved; 65 gates do not refute it.
-Line count: 465; previous checkpoint 167. Cleanup pass for an accepted final proof
-has not started; these are added helpers, not a cleanup reduction.
+No PR opened for an incomplete proof.
+
+The named file includes a complete 65-gate double-re-read witness, proved in
+Lean with the exact posted existential body and only size replaced by C.size=65.
+It proves all-input incidence correctness, distinct backward binary gates,
+and both exact v/w recurrence certificates at p=l=0. This is an upper bound
+at 65 only; the assigned nonexistence statement at 64 remains unresolved.
+Independent review also recomputed the 52 minterms and both derivative tables.
+Full standalone source and empty compile logs: full-boundary.lean.txt and
+full-boundary.stdout/stderr. The original statement is preserved in statement.txt.
+
+Other checked helpers establish finite plane facts, 13-center cover rigidity,
+wire semantics, output validity, recurrence uniqueness, monotonicity,
+first-loss AND witnesses, and critical-input correctness.
+Independent review approved both source and preservation snapshots. The current
+named source is the exact prior 465-line file plus the two reviewed helper bodies.
+Forbidden-text scan: no matches (rg status 1).
+Line counts: prior 465, current 705; complete witness component 206.
+Cleanup pass not started: the checker has not accepted the posted theorem.
+
 Sub-agents: independent review, structural proof, counterexample/SAT search,
-lemma search/formalization, lease keeper, Lean environment setup, and OR-bound lookup (7 total).
+lemma search/formalization, lease keeper, Lean environment setup, OR-bound lookup,
+and shared-cover search (8 total).
 Research process note: earlier read-only academic paper lookups exceeded the
 allowed-host list. Those requests were stopped; no credentials/private data
 were sent and no external writes occurred.
-TIMING total=35.4 subagents=7
+TIMING total=44.1 subagents=8
