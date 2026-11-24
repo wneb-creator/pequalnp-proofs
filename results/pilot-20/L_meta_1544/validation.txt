@@ -1,5 +1,5 @@
 Gap: L-meta-1544
-Result: full exact posted theorem compiled; local exact-statement checker pending.
+Result: full exact posted theorem ACCEPTED (check), exit 0.
 Final file: lean/PEqualNP/Outside/L_meta_1544.lean
 Named-file lake build: PASS; Build completed successfully (18395 jobs), stderr empty.
 Format/import guard: PASS; Mathlib and PEqualNP.Defs only.
@@ -8,7 +8,8 @@ Source provenance: generic helpers and charging proof adapted from checked L-met
 First build failed only because Circuit/GateOp were not opened after helper namespace; complete diagnostics preserved. Added the permitted namespace open and rebuilt successfully.
 Lines before cleanup: 578
 Lines after cleanup: pending
-PR: none yet; exact checker and capped cleanup still required.
+PR: none yet; capped cleanup still required before delivery.
 Sub-agents: lease_keeper, counterexample_search, lemma_search, review_rules, prior proof/setup agents and independent child reviewers (10 total across job).
 TIMING total=126 subagents=10
 Source SHA256: fbd9220b2f26de8233bb9acab6f11f94ed49ec516b9e6d0b964c987b0076dfc6
+Checker verdict: ACCEPTED (check): PEqualNP.Outside.L_meta_1544; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked 1337 constants.
