@@ -48,3 +48,5 @@ Put new stable, compiled components here only after review. Work in an individua
 - `FiveReduction.lean`: checked/reviewed conditional reduction to five nonordinary, globally bounded OR pairs over at most nine internal gates. Its remaining paid/raw hypotheses are explicit.
 
 - `FiveOwned.lean`: checked/reviewed eight-ordinary reduction discharging all paid/raw/root/sink assumptions; returns five nonordinary globally bounded OR pairs over at most nine internal gates. This is a reduction, not the five-output impossibility. Full log: `../validation/five-owned-build-002.log`.
+
+- `ParentRankGeometry.lean`: checked/reviewed five-line union cardinality at least11 and impossibility of five distinct lines through one point; exact finite Singer geometry, not a circuit bound. Full log: `../validation/parent-rank-geometry-build-001.log`.
