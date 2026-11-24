@@ -3712,11 +3712,7 @@ theorem solveWithMajority (majorityLower : ∀ s, HasCircuitSize 5 (Live.targetF
 end PEqualNP.Outside.L_meta_1434_aux
 
 
-namespace PEqualNP.Outside.L_meta_1434_aux
-theorem positive : ∀ T ∈ ({0xeaeaea80, 0xeee0e8e0, 0xeee0eac0, 0xeee8e888, 0xeee8e8a0, 0xfee8e880, 0xeaaaaaaa, 0xeaaaeaa8, 0xeae8e8e8, 0xeae8eaa8} : Finset ℕ), ∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (o : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.not) ∧ g.inputs.length ≤ 2) → (∀ i j : Fin gates.length, (gates.get i).op = PEqualNP.CircuitLowerBounds.GateOp.not → (gates.get j).op = PEqualNP.CircuitLowerBounds.GateOp.not → i = j) → (∀ x : Fin 5 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, o⟩ (List.ofFn x) = Nat.testBit T (∑ i : Fin 5, if x i then 2 ^ (i : ℕ) else 0)) → ∃ (gates' : List PEqualNP.CircuitLowerBounds.Gate) (o' : ℕ), (∀ g ∈ gates', (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) ∧ gates'.length ≤ gates.length ∧ ∀ x : Fin 5 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates', o'⟩ (List.ofFn x) = Nat.testBit T (∑ i : Fin 5, if x i then 2 ^ (i : ℕ) else 0) :=
-  PEqualNP.Outside.L_meta_1434_aux.solveWithMajority PEqualNP.Outside.L_meta_1434_aux.Live.bound_fee8e880
-end PEqualNP.Outside.L_meta_1434_aux
-
 theorem PEqualNP.Outside.L_meta_1434 : ¬ (¬ (∀ T ∈ ({0xeaeaea80, 0xeee0e8e0, 0xeee0eac0, 0xeee8e888, 0xeee8e8a0, 0xfee8e880, 0xeaaaaaaa, 0xeaaaeaa8, 0xeae8e8e8, 0xeae8eaa8} : Finset ℕ), ∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (o : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.not) ∧ g.inputs.length ≤ 2) → (∀ i j : Fin gates.length, (gates.get i).op = PEqualNP.CircuitLowerBounds.GateOp.not → (gates.get j).op = PEqualNP.CircuitLowerBounds.GateOp.not → i = j) → (∀ x : Fin 5 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, o⟩ (List.ofFn x) = Nat.testBit T (∑ i : Fin 5, if x i then 2 ^ (i : ℕ) else 0)) → ∃ (gates' : List PEqualNP.CircuitLowerBounds.Gate) (o' : ℕ), (∀ g ∈ gates', (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) ∧ gates'.length ≤ gates.length ∧ ∀ x : Fin 5 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates', o'⟩ (List.ofFn x) = Nat.testBit T (∑ i : Fin 5, if x i then 2 ^ (i : ℕ) else 0))) := by
   intro h
-  exact h PEqualNP.Outside.L_meta_1434_aux.positive
+  exact h (PEqualNP.Outside.L_meta_1434_aux.solveWithMajority
+    PEqualNP.Outside.L_meta_1434_aux.Live.bound_fee8e880)

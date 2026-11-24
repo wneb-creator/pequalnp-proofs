@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS independent cleanup review; final fresh build/refute verdict still required",
+  "before_sha256": "750cf08e65d1aa107c0bd39bf9f805f526dbbe143145ad41765140f0f8c73a09",
+  "after_sha256": "d3a887210747952c1eadcfcd22d36476bc80a0da691f13561b128ab9d565d828",
+  "before_lines": 3722,
+  "after_lines": 3718,
+  "before_bytes": 208410,
+  "after_bytes": 207124,
+  "exact_diff": "Only two changed hunks: remove the five-line auxiliary positive theorem block (including its namespace wrapper/blank separator); replace final h(aux.positive) argument with the exact previous helper proof expression, formatted over two lines. Whitespace-normalized expected transformation matches entire output; every other source line is identical.",
+  "semantics": "positive had exactly the proof solveWithMajority Live.bound_fee8e880, so direct substitution supplies the same positive statement to h. No certificate, hypothesis, option, import, namespace of retained helpers, or recorded statement changed. Final theorem type remains byte-for-byte Not(posted1434). No aux.positive references remain.",
+  "format_guard": "imports allowed: Mathlib.Tactic.FinCases Mathlib.Tactic.Tauto PEqualNP.Defs",
+  "forbidden_scan": "No sorry, axioms, native_decide, forbidden root substring, string literals, or attributes. Only maxRecDepth/maxHeartbeats options. Three allowed narrow imports retained.",
+  "lines_saved": 4,
+  "bytes_saved": 1286
+}
