@@ -1,0 +1,17 @@
+Independent red-team review: partial progress only
+UTC: 2026-11-24T18:04:17.780426+00:00
+Reviewer: status_review
+File: lean/PEqualNP/Outside/L_meta_2584.lean
+SHA256: 9ff1db4ccabf4dc87c8bf67a1dc23b1a31dca04069bf8b9b8e11055f809da573
+Lines: 45
+Verdict: EARLY-PUSH READY CONDITIONAL ON SUCCESSFUL COMPILATION; NOT PR-READY.
+
+Semantics: exists_least_circuit minimizes natural-number circuit size among AO2 circuits computing the given function. Its witness cannot exceed the supplied circuit size.
+Semantics: false_circuit_read eliminates the impossible true output in any purported prime implicant of a constant-false circuit; cases htrue correctly closes the arbitrary goal.
+Semantics: normalize_of_least_read applies the explicit hread premise to a minimum-size witness. The premise is not proved or claimed: every least circuit for the given function must be read-2. This remains a conditional helper, not a solution of L-meta-2584.
+Format: no sorry, added axiom, native_decide, _root_, double quote, attribute, option, compilation command, or later import. Helpers are inside the proper explicitly closed namespace.
+Scope: final exact posted theorem is deliberately absent. File must never be reported as a completed proof or sent as the proof PR in this state.
+Prior review checked notes distinguish finite computational evidence from Lean checking and identify the unresolved lower bound.
+Transport: previously verified fetch and push origin match the authorized fork and branch matches pnp/pilot-39. Git push and gh pr create capabilities checked. Reviewer performed no push or lease request.
+Before pushing: root must verify successful build, preserve full logs, stage explicit named files, inspect git status, and commit with an explicit message.
+Before final PR: final diff must add exactly one named Lean file; auxiliary results may remain in previously pushed history.
