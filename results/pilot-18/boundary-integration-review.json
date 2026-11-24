@@ -1,0 +1,222 @@
+{
+  "verdict": "PASS_FORMAT_AND_EXACT_INTEGRATION_FOR_PARTIAL_CHECKPOINT",
+  "timestamp_utc": "2026-11-24T03:27:33.200393+00:00",
+  "base_commit": "8e0afb4ffd85b79f12c20cdabd4b16cc2ba26274",
+  "base_source_sha256": "f4bd1991b5602c241151fac9e8a2279df1a4ae9b6f4b6aa44782a27c0f4d6ea5",
+  "source_sha256": "f872b394be5f8fdcfd20fe735e26856aebdcc88b17a305f35a49a85d8a8fcfdb",
+  "source_lines": 2000,
+  "fragment_sha256": "cfc466912c36549c3d1538d646ae9f1a5748e4e2f95dd8a70487d997cf957021",
+  "all_prior_source_bytes_preserved_except_moving_final_end": true,
+  "inserted_fragment_body_byte_identical": true,
+  "imports_unchanged": true,
+  "new_project_imports": false,
+  "no_forbidden_plain_text": true,
+  "final_theorem_present": false,
+  "posted_checker": "NOT RUN; exact module-named theorem absent",
+  "named_build": {
+    "exit_code": 0,
+    "source_binding": "integration.json plus exact source/body comparison; result record itself omits source hash",
+    "stdout_success_line": true,
+    "full_logs": {
+      "/tmp/oec/pequalnp-pilot-18/boundary-lean/seventh-result.json": {
+        "sha256": "1de296f4329808fdfa62a97300ffd0d772359079a50732346d54b153298a6ea8",
+        "bytes": 479
+      },
+      "/tmp/oec/pequalnp-pilot-18/boundary-lean/seventh.stdout": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "/tmp/oec/pequalnp-pilot-18/boundary-lean/seventh.stderr": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "/tmp/oec/pequalnp-pilot-18/boundary-lean/integration.json": {
+        "sha256": "80ea7be6c5cf30df1be77b5553a14f500454b6ad852ef862bef85cceec9acffd",
+        "bytes": 282
+      },
+      "/tmp/oec/pequalnp-pilot-18/boundary-lean/named-result.json": {
+        "sha256": "9c699860396865fab484d9adb4ee63fcb74dc9686a914ae65fecc79aae3d0470",
+        "bytes": 55
+      },
+      "/tmp/oec/pequalnp-pilot-18/boundary-lean/named.stdout": {
+        "sha256": "fe21362cf92b26e91364449fe9fb99f18dd2fe89214aa5d1b9b5377f1fa07aa2",
+        "bytes": 53744
+      },
+      "/tmp/oec/pequalnp-pilot-18/boundary-lean/named.stderr": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    }
+  },
+  "axiom_audit": "PENDING main audit; S08 has not seen new transitive audit yet",
+  "proof_review": "S03 separately reviewing; S08 inspected statement scope and finite set inventory",
+  "statement_scope": "Monotone2 plus acceptance of 16 target edges and rejection of 24 maximal independent inputs implies exact all-input target behavior; no circuit-existence or size theorem is added.",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "--no-pager",
+        "diff",
+        "--no-ext-diff",
+        "--binary",
+        "8e0afb4ffd85b79f12c20cdabd4b16cc2ba26274",
+        "--",
+        "lean/PEqualNP/Outside/L_meta_1342.lean"
+      ],
+      "cwd": "/workspace/pequalnp-proofs",
+      "exit_code": 0,
+      "stdout_file": "/tmp/oec/pequalnp-pilot-18/orch/S08/boundary-integration.diff",
+      "stdout_sha256": "cb1c8c4e974dfbc722e46b3ab478b57c1aab9d69ad9b59c736d44c3c99f82839",
+      "stderr_file": "/tmp/oec/pequalnp-pilot-18/orch/S08/boundary-integration.diff.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "--no-pager",
+        "diff",
+        "--check",
+        "--",
+        "lean/PEqualNP/Outside/L_meta_1342.lean"
+      ],
+      "cwd": "/workspace/pequalnp-proofs",
+      "exit_code": 0,
+      "stdout_file": "/tmp/oec/pequalnp-pilot-18/orch/S08/boundary-diff-check.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_file": "/tmp/oec/pequalnp-pilot-18/orch/S08/boundary-diff-check.log.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "node",
+        "/tmp/oec/pequalnp-pilot-18/orch/S08/static_guard.mjs",
+        "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1342.lean"
+      ],
+      "cwd": "/workspace/pequalnp-proofs",
+      "exit_code": 0,
+      "stdout_file": "/tmp/oec/pequalnp-pilot-18/orch/S08/boundary-static-guard.json",
+      "stdout_sha256": "ecccfc07ee891802ae5545cccfa53ee09705f57a15826d6659eab0a77278b26e",
+      "stderr_file": "/tmp/oec/pequalnp-pilot-18/orch/S08/boundary-static-guard.json.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "guard_source_sha256": "89e13f561708e577bca39140b45c8c3ad09ce72f316e90f6b8182fcc687f31a7",
+  "static_result": {
+    "scope": "Static repository guard and inventory only; no Lean build or posted statement checker.",
+    "source_sha256": "f872b394be5f8fdcfd20fe735e26856aebdcc88b17a305f35a49a85d8a8fcfdb",
+    "imports_and_plain": {
+      "pass": true,
+      "result": [
+        "Mathlib.Combinatorics.SimpleGraph.Finite",
+        "Mathlib.Tactic.ByContra",
+        "Mathlib.Tactic.Tauto",
+        "PEqualNP.Defs"
+      ]
+    },
+    "own_namespace_and_final_theorem": {
+      "pass": false,
+      "diagnostic": "the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_1342 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_1342` ... `end PEqualNP.Outside.L_meta_1342`; only the imports and the theorem stay outside"
+    },
+    "exact_named_theorem_present": false,
+    "options": [
+      {
+        "line": 73,
+        "text": "set_option maxHeartbeats 1000000 in"
+      },
+      {
+        "line": 74,
+        "text": "set_option maxRecDepth 8000 in"
+      },
+      {
+        "line": 190,
+        "text": "set_option maxHeartbeats 1000000 in"
+      },
+      {
+        "line": 191,
+        "text": "set_option maxRecDepth 8000 in"
+      },
+      {
+        "line": 1147,
+        "text": "set_option maxRecDepth 100000 in"
+      },
+      {
+        "line": 1148,
+        "text": "set_option maxHeartbeats 5000000 in"
+      },
+      {
+        "line": 1154,
+        "text": "set_option maxRecDepth 100000 in"
+      },
+      {
+        "line": 1155,
+        "text": "set_option maxHeartbeats 5000000 in"
+      },
+      {
+        "line": 1163,
+        "text": "set_option maxRecDepth 100000 in"
+      },
+      {
+        "line": 1164,
+        "text": "set_option maxHeartbeats 5000000 in"
+      },
+      {
+        "line": 1885,
+        "text": "set_option maxRecDepth 100000 in"
+      },
+      {
+        "line": 1886,
+        "text": "set_option maxHeartbeats 5000000 in"
+      },
+      {
+        "line": 1887,
+        "text": "set_option synthInstance.maxSize 100000 in"
+      },
+      {
+        "line": 1888,
+        "text": "set_option synthInstance.maxHeartbeats 1000000 in"
+      },
+      {
+        "line": 1932,
+        "text": "set_option maxRecDepth 100000 in"
+      },
+      {
+        "line": 1933,
+        "text": "set_option maxHeartbeats 5000000 in"
+      },
+      {
+        "line": 1948,
+        "text": "set_option maxRecDepth 100000 in"
+      },
+      {
+        "line": 1949,
+        "text": "set_option maxHeartbeats 5000000 in"
+      }
+    ],
+    "attributes": [],
+    "exported_instance_or_datatype_declarations": [],
+    "scope_lines": [
+      {
+        "line": 6,
+        "text": "namespace PEqualNP.Outside.L_meta_1342"
+      },
+      {
+        "line": 203,
+        "text": "end PEqualNP.Outside.L_meta_1342"
+      },
+      {
+        "line": 205,
+        "text": "namespace PEqualNP.Outside.L_meta_1342_aux"
+      },
+      {
+        "line": 2000,
+        "text": "end PEqualNP.Outside.L_meta_1342_aux"
+      }
+    ],
+    "limits": "Multiple permitted own namespace blocks pass the implementation; CONTRIBUTING asks for one. This static inventory does not establish proof correctness or transitive axioms."
+  },
+  "limitations": [
+    "No proof PR readiness.",
+    "CONTRIBUTING one-block wording is stricter than guard implementation, which permits multiple own-prefixed blocks.",
+    "Main should hash-bind axiom audit to this exact source before publishing completed validation."
+  ]
+}

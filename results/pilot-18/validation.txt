@@ -2,8 +2,8 @@ gap: L-meta-1342
 shard: 17 of 19
 status: PARTIAL; no proof or refutation of the posted at-most-21 statement.
 file: lean/PEqualNP/Outside/L_meta_1342.lean
-lines: 1859
-sha256: f4bd1991b5602c241151fac9e8a2279df1a4ae9b6f4b6aa44782a27c0f4d6ea5
+lines: 2000
+sha256: f872b394be5f8fdcfd20fe735e26856aebdcc88b17a305f35a49a85d8a8fcfdb
 
 The file retains the complete 22-gate circuit and its exact full-input
 specification proof. It also proves abstract and actual-Circuit empty-support
@@ -19,7 +19,7 @@ Build: lake build +PEqualNP.Outside.L_meta_1342
 Lean: 4.36.0; pinned Mathlib cache fetched; no lake update or Mathlib source build.
 Build exit: 0
 Build output: Build completed successfully (5109 jobs).
-Latest named module: 80 seconds. Full stdout/stderr in ancestor-support-named-build.*.
+Latest named module: 50.3 seconds. Full stdout/stderr in boundary-named-build.*.
 Axiom audit for baseline: propext and Quot.sound; size uses no axioms.
 New abstract-lemma axiom audit: propext, Classical.choice, Quot.sound only.
 Full audit output is preserved in partial-bound-axioms.*.
@@ -56,14 +56,14 @@ strict-OR, residual-edge and exact-ancestor cost restrictions. No production
 SAT/UNSAT verdict yet. The original-DAG variant is independently reviewed and runs with CaDiCaL and
 an online certificate checker. The two older formula cases both reached their one-hour wall limit without a
 verdict (ABORTED); complete solver/checker logs and result records are preserved.
-Their queue was stopped without starting the five remaining cases. Four weaker states remain paused.
+Their queue was stopped without starting the five remaining cases. Four weaker states were interrupted during environment recovery, with no verdict.
 Candidate-only runs cover stronger reverse-counter and antichain shapes.
 A prior 1,200-second candidate run returned UNKNOWN; its complete logs are saved.
 SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
-Sub-agents: 2 inherited-model agents for mathematical search and independent validation/proof engineering
-TIMING total=175.3 subagents=2
+Sub-agents: 6 inherited-model agents, ultra effort: structural proof, SAT repairs, finite Lean certificates, CNF red-team review, solver performance, integration review
+TIMING total=193.8 subagents=6
 
 Candidate neighborhoods: 144 independently reviewed formulas preserve prefixes
 of exact 22-gate cover constructions and search arbitrary shorter completions.
@@ -82,3 +82,12 @@ is explicitly not a witness. All initial best circuits, logs, source, seed pack,
 full controls and independent reviews are preserved. The independently
 reviewed scalar validator requires all 2048 inputs before and after normalization
 and a normalized size at most21; exact22 controls correctly fail that limit.
+
+A further 141-line integration brings the file from1859 to2000 lines. The new
+target_boundary_spec proves that a Monotone2 circuit accepting all16 target
+edge-pairs and rejecting the24 listed maximal independent inputs computes
+the target on all inputs. It requires no cleanliness assumption. Independent
+proof and integration reviews pass. The full new transitive axiom audit uses
+only propext, Classical.choice and Quot.sound; boundary_cover_bool uses none.
+No size21 witness, global refutation, or posted-checker acceptance is claimed.
+Cleanup remains inapplicable; this is preservation of a compiled partial.

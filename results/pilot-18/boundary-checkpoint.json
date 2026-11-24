@@ -1,0 +1,47 @@
+{
+  "timestamp_utc": "2026-11-24T03:30:35.945436+00:00",
+  "source_sha256": "f872b394be5f8fdcfd20fe735e26856aebdcc88b17a305f35a49a85d8a8fcfdb",
+  "lines": 2000,
+  "build": {
+    "exit_code": 0,
+    "elapsed_seconds": 50.30354190199978
+  },
+  "axiom_audit_exit_code": 0,
+  "axiom_audit_harness_sha256": "cbfd379f5b8cd2bb860293e13773c8654566dc288d79ad3781cca261a8f95963",
+  "checker": "NOT RUN: posted theorem absent",
+  "scope": "Partial 40-row boundary sufficiency lemma; no witness or refutation",
+  "files": {
+    "boundary-named-build.stdout": {
+      "bytes": 53744,
+      "sha256": "fe21362cf92b26e91364449fe9fb99f18dd2fe89214aa5d1b9b5377f1fa07aa2"
+    },
+    "boundary-named-build.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "boundary-axioms.stdout": {
+      "bytes": 552,
+      "sha256": "31003a47b97be1bb36067b33d2c0f6464d13bc4d3405c922bc15d02ad0938db7"
+    },
+    "boundary-axioms.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "boundary-proof-review.json": {
+      "bytes": 7700,
+      "sha256": "76571d29fa29fba47eecd301abac8bfbb6848c5097da2684c584e98ab9c0aaa1"
+    },
+    "boundary-integration-review.json": {
+      "bytes": 8159,
+      "sha256": "31396590b44a78eb9fbb2afa3782ff3d36b109419904ccc54b6cc3249d87ac63"
+    },
+    "boundary-fragment-build.json": {
+      "bytes": 479,
+      "sha256": "1de296f4329808fdfa62a97300ffd0d772359079a50732346d54b153298a6ea8"
+    },
+    "boundary-integration.json": {
+      "bytes": 282,
+      "sha256": "80ea7be6c5cf30df1be77b5553a14f500454b6ad852ef862bef85cceec9acffd"
+    }
+  }
+}

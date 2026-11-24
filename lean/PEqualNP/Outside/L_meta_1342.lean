@@ -1856,4 +1856,145 @@ lemma no_common_neighbor_descendant {α : Type*} [DecidableEq α]
   | single h => exact step _ _ h start
   | tail _ edge ih => exact step _ _ edge ih.2
 
+def targetNegativeSets : List (Finset (Fin 11)) :=
+  [{0, 1, 2, 3},
+   {0, 2, 3, 4},
+   {0, 1, 3, 5},
+   {0, 3, 4, 5},
+   {0, 1, 2, 6},
+   {0, 2, 4, 6},
+   {0, 1, 5, 6},
+   {0, 4, 5, 6},
+   {0, 1, 2, 7},
+   {0, 2, 4, 7},
+   {0, 1, 5, 7},
+   {0, 4, 5, 7},
+   {0, 2, 3, 8},
+   {0, 2, 6, 8},
+   {0, 2, 7, 8},
+   {1, 2, 3, 9},
+   {2, 3, 4, 9},
+   {1, 2, 6, 9},
+   {2, 4, 6, 9},
+   {1, 3, 5, 10},
+   {1, 5, 7, 10},
+   {3, 8, 10},
+   {7, 8, 10},
+   {1, 3, 9, 10}]
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 5000000 in
+set_option synthInstance.maxSize 100000 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma boundary_cover_bool : ∀ (a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 : Bool),
+    (¬ (a0 = true ∧ a9 = true) ∧
+     ¬ (a0 = true ∧ a10 = true) ∧
+     ¬ (a1 = true ∧ a4 = true) ∧
+     ¬ (a1 = true ∧ a8 = true) ∧
+     ¬ (a2 = true ∧ a5 = true) ∧
+     ¬ (a2 = true ∧ a10 = true) ∧
+     ¬ (a3 = true ∧ a6 = true) ∧
+     ¬ (a3 = true ∧ a7 = true) ∧
+     ¬ (a4 = true ∧ a8 = true) ∧
+     ¬ (a4 = true ∧ a10 = true) ∧
+     ¬ (a5 = true ∧ a8 = true) ∧
+     ¬ (a5 = true ∧ a9 = true) ∧
+     ¬ (a6 = true ∧ a7 = true) ∧
+     ¬ (a6 = true ∧ a10 = true) ∧
+     ¬ (a7 = true ∧ a9 = true) ∧
+     ¬ (a8 = true ∧ a9 = true)) →
+    ((a4 = false ∧ a5 = false ∧ a6 = false ∧ a7 = false ∧ a8 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a1 = false ∧ a5 = false ∧ a6 = false ∧ a7 = false ∧ a8 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a2 = false ∧ a4 = false ∧ a6 = false ∧ a7 = false ∧ a8 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a1 = false ∧ a2 = false ∧ a6 = false ∧ a7 = false ∧ a8 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a3 = false ∧ a4 = false ∧ a5 = false ∧ a7 = false ∧ a8 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a1 = false ∧ a3 = false ∧ a5 = false ∧ a7 = false ∧ a8 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a2 = false ∧ a3 = false ∧ a4 = false ∧ a7 = false ∧ a8 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a1 = false ∧ a2 = false ∧ a3 = false ∧ a7 = false ∧ a8 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a3 = false ∧ a4 = false ∧ a5 = false ∧ a6 = false ∧ a8 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a1 = false ∧ a3 = false ∧ a5 = false ∧ a6 = false ∧ a8 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a2 = false ∧ a3 = false ∧ a4 = false ∧ a6 = false ∧ a8 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a1 = false ∧ a2 = false ∧ a3 = false ∧ a6 = false ∧ a8 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a1 = false ∧ a4 = false ∧ a5 = false ∧ a6 = false ∧ a7 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a1 = false ∧ a3 = false ∧ a4 = false ∧ a5 = false ∧ a7 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a1 = false ∧ a3 = false ∧ a4 = false ∧ a5 = false ∧ a6 = false ∧ a9 = false ∧ a10 = false) ∨
+     (a0 = false ∧ a4 = false ∧ a5 = false ∧ a6 = false ∧ a7 = false ∧ a8 = false ∧ a10 = false) ∨
+     (a0 = false ∧ a1 = false ∧ a5 = false ∧ a6 = false ∧ a7 = false ∧ a8 = false ∧ a10 = false) ∨
+     (a0 = false ∧ a3 = false ∧ a4 = false ∧ a5 = false ∧ a7 = false ∧ a8 = false ∧ a10 = false) ∨
+     (a0 = false ∧ a1 = false ∧ a3 = false ∧ a5 = false ∧ a7 = false ∧ a8 = false ∧ a10 = false) ∨
+     (a0 = false ∧ a2 = false ∧ a4 = false ∧ a6 = false ∧ a7 = false ∧ a8 = false ∧ a9 = false) ∨
+     (a0 = false ∧ a2 = false ∧ a3 = false ∧ a4 = false ∧ a6 = false ∧ a8 = false ∧ a9 = false) ∨
+     (a0 = false ∧ a1 = false ∧ a2 = false ∧ a4 = false ∧ a5 = false ∧ a6 = false ∧ a7 = false ∧ a9 = false) ∨
+     (a0 = false ∧ a1 = false ∧ a2 = false ∧ a3 = false ∧ a4 = false ∧ a5 = false ∧ a6 = false ∧ a9 = false) ∨
+     (a0 = false ∧ a2 = false ∧ a4 = false ∧ a5 = false ∧ a6 = false ∧ a7 = false ∧ a8 = false) ) := by
+  decide
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 5000000 in
+lemma target_negative_cover_check : ∀ S : Finset (Fin 11),
+    (∀ e ∈ targetEdges, ¬ (e.1 ∈ S ∧ e.2 ∈ S)) →
+    targetNegativeSets.any (fun T => decide (S ⊆ T)) = true := by
+  intro S hs
+  simp [targetEdges] at hs
+  have hb := boundary_cover_bool (decide ((0 : Fin 11) ∈ S)) (decide ((1 : Fin 11) ∈ S)) (decide ((2 : Fin 11) ∈ S)) (decide ((3 : Fin 11) ∈ S)) (decide ((4 : Fin 11) ∈ S)) (decide ((5 : Fin 11) ∈ S)) (decide ((6 : Fin 11) ∈ S)) (decide ((7 : Fin 11) ∈ S)) (decide ((8 : Fin 11) ∈ S)) (decide ((9 : Fin 11) ∈ S)) (decide ((10 : Fin 11) ∈ S)) (by simpa using hs)
+  simpa [targetNegativeSets, Finset.subset_iff, Fin.forall_fin_succ] using hb
+
+lemma target_negative_cover (S : Finset (Fin 11))
+    (hs : ∀ e ∈ targetEdges, ¬ (e.1 ∈ S ∧ e.2 ∈ S)) :
+    ∃ T ∈ targetNegativeSets, S ⊆ T := by
+  obtain ⟨T, hT, h⟩ := List.any_eq_true.mp (target_negative_cover_check S hs)
+  exact ⟨T, hT, of_decide_eq_true h⟩
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 5000000 in
+lemma target_negative_independent : ∀ T ∈ targetNegativeSets,
+    ∀ e ∈ targetEdges, ¬ (e.1 ∈ T ∧ e.2 ∈ T) := by
+  decide
+
+def boundaryBits {n : ℕ} (S : Finset (Fin n)) : Fin n → Bool :=
+  fun i => decide (i ∈ S)
+
+lemma circuit_eval_mono {n : ℕ} (C : Circuit)
+    (hm : PEqualNP.MetaComplexity.Monotone2 C) (x y : Fin n → Bool)
+    (hxy : ∀ i, x i = true → y i = true) :
+    C.eval (List.ofFn x) = true → C.eval (List.ofFn y) = true := by
+  have ops : ∀ g ∈ C.gates, g.op = GateOp.and ∨ g.op = GateOp.or := by
+    intro g hg
+    simpa only [Set.mem_insert_iff, Set.mem_singleton_iff] using (hm g hg).1
+  exact pos_mono C.gates ops (C.output + 1) x y hxy
+
+lemma target_boundary_spec (C : Circuit)
+    (hm : PEqualNP.MetaComplexity.Monotone2 C)
+    (positive : ∀ e ∈ targetEdges, C.eval (List.ofFn (pairBits e.1 e.2)) = true)
+    (negative : ∀ T ∈ targetNegativeSets, C.eval (List.ofFn (boundaryBits T)) = false)
+    (x : Fin 11 → Bool) :
+    C.eval (List.ofFn x) = true ↔ edgeTrue targetGraph x := by
+  constructor
+  · intro hx
+    by_contra hn
+    let S : Finset (Fin 11) := Finset.univ.filter (fun i => x i = true)
+    have hs : ∀ e ∈ targetEdges, ¬ (e.1 ∈ S ∧ e.2 ∈ S) := by
+      intro e he h
+      apply hn
+      exact ⟨e.1, e.2, Or.inl he, (Finset.mem_filter.mp h.1).2,
+        (Finset.mem_filter.mp h.2).2⟩
+    obtain ⟨T, hT, hST⟩ := target_negative_cover S hs
+    have hle : ∀ i, x i = true → boundaryBits T i = true := by
+      intro i hi
+      apply decide_eq_true
+      exact hST (Finset.mem_filter.mpr ⟨Finset.mem_univ _, hi⟩)
+    have ht := circuit_eval_mono C hm x (boundaryBits T) hle hx
+    rw [negative T hT] at ht
+    contradiction
+  · rintro ⟨u, v, huv, hu, hv⟩
+    have step (a b : Fin 11) (hab : (a,b) ∈ targetEdges)
+        (ha : x a = true) (hb : x b = true) : C.eval (List.ofFn x) = true := by
+      apply circuit_eval_mono C hm (pairBits a b) x _ (positive (a,b) hab)
+      intro i hi
+      have he : i = a ∨ i = b := of_decide_eq_true hi
+      rcases he with rfl | rfl
+      · exact ha
+      · exact hb
+    exact huv.elim (fun h => step u v h hu hv) (fun h => step v u h hv hu)
+
 end PEqualNP.Outside.L_meta_1342_aux

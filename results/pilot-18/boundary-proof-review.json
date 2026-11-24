@@ -1,0 +1,172 @@
+{
+  "verdict": "PASS_INDEPENDENT_REVIEW_AND_RECORDED_BUILD",
+  "reviewed_utc": "2026-11-24T03:27:41.068983+00:00",
+  "source": "/tmp/oec/pequalnp-pilot-18/boundary-lean/Boundary.lean",
+  "source_sha256": "cfc466912c36549c3d1538d646ae9f1a5748e4e2f95dd8a70487d997cf957021",
+  "source_lines": 148,
+  "source_bytes": 7524,
+  "repository_dependency": {
+    "path": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1342.lean",
+    "source_sha256": "f4bd1991b5602c241151fac9e8a2279df1a4ae9b6f4b6aa44782a27c0f4d6ea5"
+  },
+  "integration_review": {
+    "path": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1342.lean",
+    "source_sha256": "f872b394be5f8fdcfd20fe735e26856aebdcc88b17a305f35a49a85d8a8fcfdb",
+    "source_lines": 2000,
+    "exact_body_preserved": true,
+    "only_change_from_reviewed_base": "Insert scratch declarations before final auxiliary namespace end; omit scratch harness import/namespace/open/end.",
+    "named_build_record": "/tmp/oec/pequalnp-pilot-18/boundary-lean/named-result.json",
+    "named_build_record_sha256": "9c699860396865fab484d9adb4ee63fcb74dc9686a914ae65fecc79aae3d0470",
+    "named_build_source_binding": "Orchestrator explicitly confirmed this source hash for the named build; named-result.json itself records exit code and elapsed time only. Current bytes match the confirmed hash.",
+    "named_build_exit_code": 0,
+    "logs": {
+      "stdout": {
+        "path": "/tmp/oec/pequalnp-pilot-18/boundary-lean/named.stdout",
+        "bytes": 53744,
+        "sha256": "fe21362cf92b26e91364449fe9fb99f18dd2fe89214aa5d1b9b5377f1fa07aa2"
+      },
+      "stderr": {
+        "path": "/tmp/oec/pequalnp-pilot-18/boundary-lean/named.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "posted_statement_sha256": "f9c59d248dd671d0762637e4171007c1ea5dc33a8e76af3872f72b52dde2b2d5",
+  "build_record": {
+    "path": "/tmp/oec/pequalnp-pilot-18/boundary-lean/seventh-result.json",
+    "sha256": "1de296f4329808fdfa62a97300ffd0d772359079a50732346d54b153298a6ea8",
+    "exit_code": 0,
+    "command": "lake env lean -M4000 -j1 /tmp/oec/pequalnp-pilot-18/boundary-lean/Boundary.lean",
+    "workdir": "/workspace/pequalnp-proofs/lean",
+    "logs": {
+      "stdout_file": {
+        "path": "/tmp/oec/pequalnp-pilot-18/boundary-lean/seventh.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_file": {
+        "path": "/tmp/oec/pequalnp-pilot-18/boundary-lean/seventh.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "exact_statement": "lemma target_boundary_spec (C : Circuit)\n    (hm : PEqualNP.MetaComplexity.Monotone2 C)\n    (positive : \u2200 e \u2208 targetEdges, C.eval (List.ofFn (pairBits e.1 e.2)) = true)\n    (negative : \u2200 T \u2208 targetNegativeSets, C.eval (List.ofFn (boundaryBits T)) = false)\n    (x : Fin 11 \u2192 Bool) :\n    C.eval (List.ofFn x) = true \u2194 edgeTrue targetGraph x",
+  "finite_checks": {
+    "inputs_checked": 2048,
+    "independent_inputs": 125,
+    "positive_inputs": 1923,
+    "positive_edges": 16,
+    "listed_negative_sets": 24,
+    "maximal_independent_sets": 24,
+    "set_size_histogram": {
+      "4": 22,
+      "3": 2
+    },
+    "distinct_boundary_inputs": 40,
+    "ordered_edges_equal_posted_statement": true,
+    "helper_antecedent_matches_all_edges": true,
+    "helper_dnf_matches_ordered_negative_set_complements": true,
+    "all_assignments_satisfy_exact_helper_implication": true,
+    "all_independent_inputs_covered": true,
+    "negative_list_equals_all_maximal_independent_sets": true,
+    "negative_masks": [
+      15,
+      29,
+      43,
+      57,
+      71,
+      85,
+      99,
+      113,
+      135,
+      149,
+      163,
+      177,
+      269,
+      325,
+      389,
+      526,
+      540,
+      582,
+      596,
+      1066,
+      1186,
+      1288,
+      1408,
+      1546
+    ]
+  },
+  "cross_checks": {
+    "old_boyle_review": "/tmp/oec/pequalnp-pilot-18/math-analysis/boundary-lean-independent-review.json",
+    "old_review_sha256": "52a440b84c2f51c0bbfa47cba54f09a0bb2c3a173577aef636eb6a49eb9a3b01",
+    "old_review_source_sha256": "27737a1aff388cea4821de87a4847c7b2f0e3db6312d34ada6634c556603a945",
+    "old_review_source_differs": true,
+    "finite_results_agree": true,
+    "graph_metadata_sha256": "68f625a57609944478ce72506a30d6b6d6d22629fb39554c7d7a1dbc725e4114",
+    "ordered_40_rows_match_graph_metadata": true
+  },
+  "proof_review": [
+    "boundary_cover_bool is the exact 11-Bool implication with 16 negative edge constraints and 24 independent-set complements; ordinary decide supplies a kernel-checked proof.",
+    "target_negative_cover_check instantiates the 11 Boolean variables with membership in S, and simplification converts the complement clauses to subset tests. List.any_eq_true and of_decide_eq_true supply an actual covering listed set.",
+    "target_negative_independent separately checks all listed negative sets; the sufficiency direction only needs their coverage and the candidate negative evaluations.",
+    "circuit_eval_mono reads only the AND/OR operation component of Monotone2, then invokes existing pos_mono at C.output+1, definitionally the actual Circuit.eval read.",
+    "In the forward direction, failure of edgeTrue makes the true-coordinate support independent. A covering listed set dominates the input, contradicting its stipulated false evaluation.",
+    "In the backward direction, a true target edge pair is below x; monotonicity raises its stipulated true evaluation. Both orientations of targetGraph.Adj are handled explicitly.",
+    "There is no clean-AND, gate-count, index-validity, exact-two-input, or nonempty-input premise. Existing evaluator monotonicity handles default-false reads and constants.",
+    "The symmetric targetGraph edge predicate matches the posted oriented natural-number edge list existential, since swapping existential vertices preserves the two true-coordinate conjuncts; final assembly must still use the exact posted statement."
+  ],
+  "format": {
+    "body_passes_static_rules": true,
+    "options": [
+      [
+        "maxRecDepth",
+        100000
+      ],
+      [
+        "maxHeartbeats",
+        5000000
+      ],
+      [
+        "synthInstance.maxSize",
+        100000
+      ],
+      [
+        "synthInstance.maxHeartbeats",
+        1000000
+      ],
+      [
+        "maxRecDepth",
+        100000
+      ],
+      [
+        "maxHeartbeats",
+        5000000
+      ],
+      [
+        "maxRecDepth",
+        100000
+      ],
+      [
+        "maxHeartbeats",
+        5000000
+      ]
+    ],
+    "scratch_harness_import_requires_removal": true,
+    "integration": "Paste only the declarations inside the already-open PEqualNP.Outside.L_meta_1342_aux namespace; omit scratch import and duplicate namespace/open/end wrapper. Existing imports suffice for this fragment.",
+    "helper_name_collisions_in_reviewed_base": [],
+    "axiom_audit": "Pending orchestrator audit after named-file integration; no new axioms or unsafe proof mechanisms occur in this source."
+  },
+  "limitations": [
+    "Independent review reuses the orchestrator exit-zero build record and does not launch a duplicate build.",
+    "The integrated named-file build is recorded exit zero; transitive axiom audit remains orchestrator work.",
+    "This is a boundary-sufficiency helper, not a proof or refutation of the posted 21-gate existential."
+  ],
+  "source_modified": false,
+  "named_file_modified": false,
+  "lean_worker_started": false,
+  "solver_started": false,
+  "lease_calls": false,
+  "blockers": []
+}

@@ -1,0 +1,7 @@
+'PEqualNP.Outside.L_meta_1342_aux.boundary_cover_bool' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1342_aux.target_negative_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.target_negative_independent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.circuit_eval_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.target_boundary_spec' depends on axioms: [propext, Classical.choice, Quot.sound]

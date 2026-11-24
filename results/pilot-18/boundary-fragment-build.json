@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "source_sha256": "cfc466912c36549c3d1538d646ae9f1a5748e4e2f95dd8a70487d997cf957021",
+  "command": "lake env lean -M4000 -j1 /tmp/oec/pequalnp-pilot-18/boundary-lean/Boundary.lean",
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "exit_code": 0,
+  "stdout_file": "seventh.stdout",
+  "stderr_file": "seventh.stderr",
+  "timestamp_utc": "2026-11-24T03:25:15.958958+00:00",
+  "scope": "Partial boundary sufficiency lemma only; posted theorem not proved."
+}

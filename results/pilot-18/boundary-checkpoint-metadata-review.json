@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS_FOR_COMPILED_PARTIAL_CHECKPOINT_PUSH",
+  "reviewed_utc": "2026-11-24T03:34:15.004274+00:00",
+  "scope": "ONLY validation.txt and boundary-checkpoint.json against copied boundary evidence; named source already independently reviewed",
+  "validation_sha256": "16c0a24d28b966c182eb1e87da1897ed8ce9c68f60494090970d8083ce5cbcd8",
+  "checkpoint_sha256": "52aca950205e2f888e5c25f2de97fd781bb1c6ac09f917563bb3ace39eb5213d",
+  "source_sha256": "f872b394be5f8fdcfd20fe735e26856aebdcc88b17a305f35a49a85d8a8fcfdb",
+  "lines": 2000,
+  "copied_artifacts_all_8_hashes_match": true,
+  "named_build_exit_code": 0,
+  "axiom_audit_exit_code": 0,
+  "axioms": "All five expected declarations present; permitted axioms only; boundary_cover_bool none",
+  "claims": "PARTIAL; no <=21 witness/refutation; posted checker NOT RUN",
+  "blockers": [],
+  "new_build_run": false
+}
