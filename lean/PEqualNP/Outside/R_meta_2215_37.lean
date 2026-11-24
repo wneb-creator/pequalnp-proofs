@@ -6,7 +6,8 @@ theorem PEqualNP.Outside.R_meta_2215_37
 (geometry :
   let D : Finset (Fin 13) := {0, 1, 3, 9}
   ∀ s : Finset (Fin 13), s.card = 4 →
-    (Finset.univ.filter fun l : Fin 13 => ∀ p ∈ s, p + l ∉ D).card ≤ 3)
+    let t : Finset (Fin 13) := Finset.univ.filter fun l : Fin 13 => ∀ p ∈ s, p + l ∉ D
+    t.card ≤ 3)
 (search :
   let D : Finset (Fin 13) := {0, 1, 3, 9}
   let vec := fun (s t : Finset (Fin 13)) (i : Fin 25) =>

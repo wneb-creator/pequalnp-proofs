@@ -12,3 +12,4 @@ Timeline (UTC)
 2026-11-24T18:06:56.208315+00:00 algebraic coordinate lemma compiled; replaces memory-heavy finite enumeration
 2026-11-24T18:12:52.781714+00:00 targetMeaning partial compiled and independently reviewed
 2026-11-24T18:17:26.987386+00:00 complete reduction compiled: build successful,268lines; local checker started
+2026-11-24T18:19:32.420129+00:00 typed finite-set child representation compiled; same geometry statement, checker rerun
