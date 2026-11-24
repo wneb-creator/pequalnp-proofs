@@ -1,0 +1,13 @@
+{
+  "statement_comparison": "EXACT: postedL1430 is negation of the complete checkedL1429 theorem type after whitespace normalization only",
+  "source": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1429.lean",
+  "source_sha256": "bf5b3e96f389cc163ff3ab791855759c4539282c70baf46e07a91527595a0ece",
+  "permitted_imports": [
+    "Mathlib",
+    "PEqualNP.Defs"
+  ],
+  "forbidden_source_keywords_found": false,
+  "one_NOT_hypothesis_is_ignored_by_final_proof": true,
+  "semantics_audit": "action_spec/gate_reach model empty and unary gates, repeated inputs, invalid and forward reads aszero, and arbitrary output; binaryCost excludesNOT, allowing arbitrary numbers of NOTs in the stronger argument",
+  "kernel_axiom_audit": "pending compilation/printaxioms; no new axiom declaration or native_decide in source"
+}

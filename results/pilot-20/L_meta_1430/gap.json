@@ -1,0 +1,18 @@
+{
+  "id": "L-meta-1430",
+  "title": "Search: a monotone function of five inputs (shard 08 of 18) where a fan-in-two list with one NOT gate beats every NOT-free list",
+  "statement": "\u00ac (\u2200 T \u2208 ({0xeee0e880, 0xaaaaaaa8, 0xe8e8e8a8, 0xeaa8aaa8, 0xeaa8e8a8, 0xeaaae888, 0xeac8e8c8, 0xeac8eac0, 0xeae8e888, 0xeae8e8c0} : Finset \u2115), \u2200 (gates : List PEqualNP.CircuitLowerBounds.Gate) (o : \u2115), (\u2200 g \u2208 gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2228 g.op = PEqualNP.CircuitLowerBounds.GateOp.or \u2228 g.op = PEqualNP.CircuitLowerBounds.GateOp.not) \u2227 g.inputs.length \u2264 2) \u2192 (\u2200 i j : Fin gates.length, (gates.get i).op = PEqualNP.CircuitLowerBounds.GateOp.not \u2192 (gates.get j).op = PEqualNP.CircuitLowerBounds.GateOp.not \u2192 i = j) \u2192 (\u2200 x : Fin 5 \u2192 Bool, PEqualNP.CircuitLowerBounds.Circuit.eval \u27e8gates, o\u27e9 (List.ofFn x) = Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) \u2192 \u2203 (gates' : List PEqualNP.CircuitLowerBounds.Gate) (o' : \u2115), (\u2200 g \u2208 gates', (g.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2228 g.op = PEqualNP.CircuitLowerBounds.GateOp.or) \u2227 g.inputs.length \u2264 2) \u2227 gates'.length \u2264 gates.length \u2227 \u2200 x : Fin 5 \u2192 Bool, PEqualNP.CircuitLowerBounds.Circuit.eval \u27e8gates', o'\u27e9 (List.ofFn x) = Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0))",
+  "file": "lean/PEqualNP/Outside/L_meta_1430.lean",
+  "module": "PEqualNP.Outside.L_meta_1430",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "unlocks": "One shard of the single-output question at 5 inputs: does one NOT gate save a gate on a single monotone output; a saving would show one output already pays for the NOT gate; size 30 to 60 minutes with a SAT solver.",
+  "context": "SKETCH: the negation search of the shard before it; the route, the classes and the generator are in routes/lgp/own/filing/one-output-5/ (SKETCH.md); work from the row's own sentence. Namespace: PEqualNP.MetaComplexity. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 45,
+  "parallel": 3,
+  "lane": "main",
+  "pr_open": 0,
+  "pr_numbers": []
+}

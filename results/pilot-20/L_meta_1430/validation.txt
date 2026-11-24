@@ -1,0 +1,11 @@
+Gap: L-meta-1430
+Status: self-contained exact refutation; named-file lake build PASS (exit 0), local refute checker pending.
+Statement: exact posted statement stored in statement.txt; theorem proves its negation.
+Source: L_meta_1429.lean (upstream), namespace renamed and double-negation wrapper added.
+Independent review: PASS; no certificate or supporting proof changes.
+Guard: imports allowed: Mathlib PEqualNP.Defs
+Lines before cleanup: 753
+Lines after cleanup: pending
+Sub-agents: lease_keeper, counterexample_search, structural_proof, lemma_search, review_rules, lean_setup, and independent child reviewers (10 total across job).
+TIMING total=110 subagents=10
+PR status: no PR; current PR workflows hardcode proof mode, while this result requires refute mode.

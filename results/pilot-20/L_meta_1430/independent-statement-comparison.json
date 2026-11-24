@@ -1,0 +1,24 @@
+{
+  "verdict": "EXACT NEGATION MATCH",
+  "positive_source": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1429.lean",
+  "positive_theorem": "PEqualNP.Outside.L_meta_1429",
+  "source_line": 738,
+  "posted_statement": "/tmp/oec/pequalnp-pilot-20/gap1430/statement.txt",
+  "whitespace_normalized_inner_matches": true,
+  "table_constants_in_identical_order": [
+    "0xeee0e880",
+    "0xaaaaaaa8",
+    "0xe8e8e8a8",
+    "0xeaa8aaa8",
+    "0xeaa8e8a8",
+    "0xeaaae888",
+    "0xeac8e8c8",
+    "0xeac8eac0",
+    "0xeae8e888",
+    "0xeae8e8c0"
+  ],
+  "quantifier_match": "Universal over same T Finset, gate list, output; same AND/OR/NOT arity\u22642 condition; same at-most-one-NOT indexed premise; same5input truth evaluation; same existential AND/OR replacement with arity\u22642 and no greater gate count.",
+  "consequence": "If the existing1429 theorem is Lean-checked in the pinned environment, its conclusion is exactly P while posted1430 is\u00acP;1430 is false. This comparison does not itself rebuild1429.",
+  "source_sha256": "bf5b3e96f389cc163ff3ab791855759c4539282c70baf46e07a91527595a0ece",
+  "posted_sha256": "bd163fa0476bd4d35292aba2fbf4fbaaed8ded0408a5ef9e2101b003eb33ee33"
+}

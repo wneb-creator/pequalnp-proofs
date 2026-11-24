@@ -1,0 +1,14 @@
+{
+  "source": "lean/PEqualNP/Outside/L_meta_1429.lean",
+  "source_sha256": "bf5b3e96f389cc163ff3ab791855759c4539282c70baf46e07a91527595a0ece",
+  "target": "lean/PEqualNP/Outside/L_meta_1430.lean",
+  "target_sha256": "7a55d83530793ac6da4707885b7aef6bdaf0c54ba1d19fc10049820e6bf432ed",
+  "source_lines": 751,
+  "target_lines": 753,
+  "claim": "Exact negation of the posted statement; checker mode refute.",
+  "changes": [
+    "Rename module namespace1429 to1430",
+    "Negate the posted1430 statement",
+    "Introduce the alleged1430 proof and apply it to unchanged1429 proof body"
+  ]
+}

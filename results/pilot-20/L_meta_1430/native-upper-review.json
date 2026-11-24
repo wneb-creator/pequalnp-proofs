@@ -1,0 +1,62 @@
+[
+  {
+    "table": "0xeee0e880",
+    "monotone_upper_bound": 8,
+    "output": 12,
+    "all32_evaluations_passed": true
+  },
+  {
+    "table": "0xaaaaaaa8",
+    "monotone_upper_bound": 4,
+    "output": 8,
+    "all32_evaluations_passed": true
+  },
+  {
+    "table": "0xe8e8e8a8",
+    "monotone_upper_bound": 6,
+    "output": 10,
+    "all32_evaluations_passed": true
+  },
+  {
+    "table": "0xeaa8aaa8",
+    "monotone_upper_bound": 7,
+    "output": 11,
+    "all32_evaluations_passed": true
+  },
+  {
+    "table": "0xeaa8e8a8",
+    "monotone_upper_bound": 7,
+    "output": 11,
+    "all32_evaluations_passed": true
+  },
+  {
+    "table": "0xeaaae888",
+    "monotone_upper_bound": 6,
+    "output": 10,
+    "all32_evaluations_passed": true
+  },
+  {
+    "table": "0xeac8e8c8",
+    "monotone_upper_bound": 6,
+    "output": 10,
+    "all32_evaluations_passed": true
+  },
+  {
+    "table": "0xeac8eac0",
+    "monotone_upper_bound": 5,
+    "output": 9,
+    "all32_evaluations_passed": true
+  },
+  {
+    "table": "0xeae8e888",
+    "monotone_upper_bound": 8,
+    "output": 12,
+    "all32_evaluations_passed": true
+  },
+  {
+    "table": "0xeae8e8c0",
+    "monotone_upper_bound": 8,
+    "output": 12,
+    "all32_evaluations_passed": true
+  }
+]

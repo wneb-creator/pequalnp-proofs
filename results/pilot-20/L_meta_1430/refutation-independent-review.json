@@ -1,0 +1,28 @@
+{
+  "verdict": "PASS for preservation push after root confirms its running Lean build; source review itself is complete",
+  "reviewer": "/root/counterexample_search",
+  "file": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1430.lean",
+  "sha256": "7a55d83530793ac6da4707885b7aef6bdaf0c54ba1d19fc10049820e6bf432ed",
+  "lines": 753,
+  "bytes": 46589,
+  "exact_refutation_type": "Negation of the unchanged posted statement; exactly double negation of L_meta_1429 universal proposition",
+  "exact_diff": "Only helper/module namespace1429\u21921430, outer theorem type replaced by negated posted statement, and two proof lines intro h_refute/apply h_refute; every prior proof/certificate/data byte otherwise unchanged",
+  "logical_scope": "Formal refutation, not a proof of the posted false proposition",
+  "imports": [
+    "Mathlib",
+    "PEqualNP.Defs"
+  ],
+  "plain_file_scan": "PASS",
+  "file_regular_nonexecutable_utf8_under512KiB": true,
+  "new_axioms_or_forbidden_shortcuts": false,
+  "kernel_compilation_and_axiom_closure": "root owns running build/audit; reviewer did not run Lean",
+  "old_staged_deletion": {
+    "path": "lean/PEqualNP/Outside/L_meta_1482.lean",
+    "owned_by_this_job": true,
+    "unchanged_since_review": true,
+    "sha256": "d59770007b5ea5e1498b1345b6735666d5a93d3999a7a85bfc44917857e042cf",
+    "preserved_at_pushed_commit": "801e114",
+    "last_source_change_commit": "bd8cec71a06c80481ff443a429f69a253811dbe8"
+  },
+  "source_trust_notes": "Original action_spec/gate_reach handle all posted arities and default-false reads. Existing finite rejection certificates use decide +kernel. Added proof is constructive application of the assumed negation; no new trust dependency."
+}
