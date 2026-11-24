@@ -16,3 +16,5 @@
 - 2026-11-24T22:03:18.762359+00:00: weaker minimal-circuit count reduction compiled successfully, 508 lines.
 
 - 2026-11-24T22:05:38.589300+00:00: preserving independently reviewed minimum-only count reduction; checker cache repair in progress.
+
+- 2026-11-24T22:21:47.416597+00:00: second full local checker OOM; preserving complete diagnostics, skipping cleanup, preparing single-file PR for authoritative verification.

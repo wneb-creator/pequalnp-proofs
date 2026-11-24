@@ -15,3 +15,16 @@ Additional separately checked partials: Normalization.lean, StarUpper.lean, Copy
 Conditional reduction R_meta_5282_43: named lake build PASS (5147 jobs); plain/import guard PASS; independent source review PASS. Full checker pending cache prerequisite/runtime setup; initial fault saved. Neither child bound is claimed proved.
 
 Preferred reduction: count hypotheses weakened to minimum circuits only. Standalone Lean compilation PASS and independent review PASS, 508 lines. Full checker pending authentic full runtime cache. A concurrent cache cleanup caused Mathlib source rebuilds during a named build; that build was stopped. Official cache artifacts are being restored before final verification.
+
+FINAL SOURCE FOR AUTHORITATIVE CHECK
+File: lean/PEqualNP/Outside/R_meta_5282_43.lean
+SHA256: 700bf91868a30f60c06c0edd0bfa179a60995c3a4818bf15d65670f9b3b203f2
+Named lake build: Build completed successfully (5147 jobs). Final build used official cached Mathlib artifacts.
+Format/import guard: imports allowed: PEqualNP.Defs
+Independent source review: PASS. Exact posted conclusion, one theorem, two independent minimum-circuit count hypotheses.
+Local full checker: CHECKER FAULT: the verifier ended without a verdict (exit 137). Two attempts were killed at the 8 GiB container memory limit, confirmed by cgroup OOM events. No ACCEPTED or REJECTED verdict was produced locally.
+Cleanup: skipped because the full local checker cannot complete; 508 lines before and after.
+Authoritative PR checker: pending submission.
+Desk null answers: 0; first request assigned L-meta-5282.
+Sub-agents: 6 (review, normalization/construction, counterexamples, existence/integration, Lean setup, reduction design/search).
+TIMING total=33.5 subagents=6
