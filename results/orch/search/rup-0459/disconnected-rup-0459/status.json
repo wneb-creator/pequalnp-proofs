@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-24T04:55:56.395051+00:00",
+  "argv": [
+    "python",
+    "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py",
+    "--cnf",
+    "/tmp/oec/pequalnp-pilot-21/search/disconnected-five-supported/query.cnf",
+    "--proof",
+    "/tmp/oec/pequalnp-pilot-21/search/disconnected-five-supported/query.lrat.gz",
+    "--outdir",
+    "/tmp/oec/pequalnp-pilot-21/search/disconnected-rup-0459/checked",
+    "--max-address-space-mib",
+    "1024"
+  ],
+  "wall_budget_seconds": 120,
+  "nice": 10,
+  "source_sha256": "0f1aba1fe39efaed530fcbff6c0ef71ba0ba9a7ec8e5097c8ba7b26f63c10ab6",
+  "scope": "external RUP-only replay of restricted disconnected2+3 template, not Lean or full-gap proof",
+  "pid": 34877,
+  "exit_code": 0,
+  "wall_timeout": false,
+  "elapsed_seconds": 6.897529593999934,
+  "status": "PASSED"
+}

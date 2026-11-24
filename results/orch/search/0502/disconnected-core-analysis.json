@@ -1,0 +1,7660 @@
+{
+  "scope": "Clause-dependency statistics only; no new satisfiability claim",
+  "needed_originals": 36618,
+  "counts_by_phase": {
+    "structure": 3342,
+    "shared_parent_support": 153,
+    "band": 31705,
+    "extreme": 1401,
+    "extreme_output_conditions": 17
+  },
+  "distinct_band_rows": 516,
+  "distinct_extreme_rows": 25,
+  "rows": [
+    {
+      "kind": "band",
+      "mask": 223,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+      ],
+      "needed_clauses": 212
+    },
+    {
+      "kind": "band",
+      "mask": 239,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ],
+      "needed_clauses": 165
+    },
+    {
+      "kind": "band",
+      "mask": 351,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        8
+      ],
+      "needed_clauses": 89
+    },
+    {
+      "kind": "band",
+      "mask": 381,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "needed_clauses": 165
+    },
+    {
+      "kind": "band",
+      "mask": 415,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        8
+      ],
+      "needed_clauses": 70
+    },
+    {
+      "kind": "band",
+      "mask": 446,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "needed_clauses": 177
+    },
+    {
+      "kind": "band",
+      "mask": 463,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7,
+        8
+      ],
+      "needed_clauses": 81
+    },
+    {
+      "kind": "band",
+      "mask": 471,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        7,
+        8
+      ],
+      "needed_clauses": 65
+    },
+    {
+      "kind": "band",
+      "mask": 475,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "needed_clauses": 90
+    },
+    {
+      "kind": "band",
+      "mask": 477,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "needed_clauses": 82
+    },
+    {
+      "kind": "band",
+      "mask": 478,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "needed_clauses": 108
+    },
+    {
+      "kind": "band",
+      "mask": 479,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "needed_clauses": 44
+    },
+    {
+      "kind": "band",
+      "mask": 631,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        9
+      ],
+      "needed_clauses": 167
+    },
+    {
+      "kind": "band",
+      "mask": 637,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9
+      ],
+      "needed_clauses": 51
+    },
+    {
+      "kind": "band",
+      "mask": 702,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9
+      ],
+      "needed_clauses": 56
+    },
+    {
+      "kind": "band",
+      "mask": 762,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+      ],
+      "needed_clauses": 171
+    },
+    {
+      "kind": "band",
+      "mask": 829,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9
+      ],
+      "needed_clauses": 38
+    },
+    {
+      "kind": "band",
+      "mask": 830,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9
+      ],
+      "needed_clauses": 34
+    },
+    {
+      "kind": "band",
+      "mask": 861,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9
+      ],
+      "needed_clauses": 58
+    },
+    {
+      "kind": "band",
+      "mask": 877,
+      "true_points": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9
+      ],
+      "needed_clauses": 69
+    },
+    {
+      "kind": "band",
+      "mask": 885,
+      "true_points": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "needed_clauses": 37
+    },
+    {
+      "kind": "band",
+      "mask": 889,
+      "true_points": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "needed_clauses": 81
+    },
+    {
+      "kind": "band",
+      "mask": 892,
+      "true_points": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "needed_clauses": 64
+    },
+    {
+      "kind": "band",
+      "mask": 893,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "needed_clauses": 50
+    },
+    {
+      "kind": "band",
+      "mask": 926,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9
+      ],
+      "needed_clauses": 46
+    },
+    {
+      "kind": "band",
+      "mask": 935,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        8,
+        9
+      ],
+      "needed_clauses": 145
+    },
+    {
+      "kind": "band",
+      "mask": 942,
+      "true_points": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9
+      ],
+      "needed_clauses": 73
+    },
+    {
+      "kind": "band",
+      "mask": 950,
+      "true_points": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        9
+      ],
+      "needed_clauses": 51
+    },
+    {
+      "kind": "band",
+      "mask": 954,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9
+      ],
+      "needed_clauses": 86
+    },
+    {
+      "kind": "band",
+      "mask": 956,
+      "true_points": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9
+      ],
+      "needed_clauses": 90
+    },
+    {
+      "kind": "band",
+      "mask": 958,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9
+      ],
+      "needed_clauses": 53
+    },
+    {
+      "kind": "band",
+      "mask": 979,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        7,
+        8,
+        9
+      ],
+      "needed_clauses": 170
+    },
+    {
+      "kind": "band",
+      "mask": 1001,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "needed_clauses": 252
+    },
+    {
+      "kind": "band",
+      "mask": 1087,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        10
+      ],
+      "needed_clauses": 2
+    },
+    {
+      "kind": "band",
+      "mask": 1135,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        10
+      ],
+      "needed_clauses": 60
+    },
+    {
+      "kind": "band",
+      "mask": 1149,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 1199,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        7,
+        10
+      ],
+      "needed_clauses": 35
+    },
+    {
+      "kind": "band",
+      "mask": 1231,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7,
+        10
+      ],
+      "needed_clauses": 36
+    },
+    {
+      "kind": "band",
+      "mask": 1255,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        7,
+        10
+      ],
+      "needed_clauses": 38
+    },
+    {
+      "kind": "band",
+      "mask": 1259,
+      "true_points": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        7,
+        10
+      ],
+      "needed_clauses": 73
+    },
+    {
+      "kind": "band",
+      "mask": 1261,
+      "true_points": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        7,
+        10
+      ],
+      "needed_clauses": 73
+    },
+    {
+      "kind": "band",
+      "mask": 1262,
+      "true_points": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        10
+      ],
+      "needed_clauses": 53
+    },
+    {
+      "kind": "band",
+      "mask": 1263,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        10
+      ],
+      "needed_clauses": 43
+    },
+    {
+      "kind": "band",
+      "mask": 1274,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10
+      ],
+      "needed_clauses": 69
+    },
+    {
+      "kind": "band",
+      "mask": 1339,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        8,
+        10
+      ],
+      "needed_clauses": 146
+    },
+    {
+      "kind": "band",
+      "mask": 1341,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        8,
+        10
+      ],
+      "needed_clauses": 7
+    },
+    {
+      "kind": "band",
+      "mask": 1401,
+      "true_points": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "needed_clauses": 25
+    },
+    {
+      "kind": "band",
+      "mask": 1404,
+      "true_points": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "needed_clauses": 20
+    },
+    {
+      "kind": "band",
+      "mask": 1405,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "needed_clauses": 44
+    },
+    {
+      "kind": "band",
+      "mask": 1447,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        8,
+        10
+      ],
+      "needed_clauses": 55
+    },
+    {
+      "kind": "band",
+      "mask": 1491,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        7,
+        8,
+        10
+      ],
+      "needed_clauses": 64
+    },
+    {
+      "kind": "band",
+      "mask": 1524,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+      ],
+      "needed_clauses": 171
+    },
+    {
+      "kind": "band",
+      "mask": 1645,
+      "true_points": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        9,
+        10
+      ],
+      "needed_clauses": 8
+    },
+    {
+      "kind": "band",
+      "mask": 1653,
+      "true_points": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        9,
+        10
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 1657,
+      "true_points": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10
+      ],
+      "needed_clauses": 18
+    },
+    {
+      "kind": "band",
+      "mask": 1658,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10
+      ],
+      "needed_clauses": 56
+    },
+    {
+      "kind": "band",
+      "mask": 1660,
+      "true_points": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10
+      ],
+      "needed_clauses": 53
+    },
+    {
+      "kind": "band",
+      "mask": 1661,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10
+      ],
+      "needed_clauses": 68
+    },
+    {
+      "kind": "band",
+      "mask": 1693,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        9,
+        10
+      ],
+      "needed_clauses": 190
+    },
+    {
+      "kind": "band",
+      "mask": 1703,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        9,
+        10
+      ],
+      "needed_clauses": 34
+    },
+    {
+      "kind": "band",
+      "mask": 1722,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10
+      ],
+      "needed_clauses": 67
+    },
+    {
+      "kind": "band",
+      "mask": 1747,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        7,
+        9,
+        10
+      ],
+      "needed_clauses": 54
+    },
+    {
+      "kind": "band",
+      "mask": 1754,
+      "true_points": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10
+      ],
+      "needed_clauses": 56
+    },
+    {
+      "kind": "band",
+      "mask": 1770,
+      "true_points": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "needed_clauses": 71
+    },
+    {
+      "kind": "band",
+      "mask": 1778,
+      "true_points": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "needed_clauses": 67
+    },
+    {
+      "kind": "band",
+      "mask": 1784,
+      "true_points": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "needed_clauses": 86
+    },
+    {
+      "kind": "band",
+      "mask": 1786,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "needed_clauses": 51
+    },
+    {
+      "kind": "band",
+      "mask": 1831,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 33
+    },
+    {
+      "kind": "band",
+      "mask": 1849,
+      "true_points": [
+        0,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 25
+    },
+    {
+      "kind": "band",
+      "mask": 1852,
+      "true_points": [
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 9
+    },
+    {
+      "kind": "band",
+      "mask": 1853,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 62
+    },
+    {
+      "kind": "band",
+      "mask": 1870,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 188
+    },
+    {
+      "kind": "band",
+      "mask": 1875,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 51
+    },
+    {
+      "kind": "band",
+      "mask": 1881,
+      "true_points": [
+        0,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 23
+    },
+    {
+      "kind": "band",
+      "mask": 1884,
+      "true_points": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 19
+    },
+    {
+      "kind": "band",
+      "mask": 1885,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 93
+    },
+    {
+      "kind": "band",
+      "mask": 1897,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 40
+    },
+    {
+      "kind": "band",
+      "mask": 1900,
+      "true_points": [
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 9
+    },
+    {
+      "kind": "band",
+      "mask": 1901,
+      "true_points": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 56
+    },
+    {
+      "kind": "band",
+      "mask": 1905,
+      "true_points": [
+        0,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 36
+    },
+    {
+      "kind": "band",
+      "mask": 1908,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 15
+    },
+    {
+      "kind": "band",
+      "mask": 1909,
+      "true_points": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 54
+    },
+    {
+      "kind": "band",
+      "mask": 1912,
+      "true_points": [
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 27
+    },
+    {
+      "kind": "band",
+      "mask": 1913,
+      "true_points": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 79
+    },
+    {
+      "kind": "band",
+      "mask": 1916,
+      "true_points": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 150
+    },
+    {
+      "kind": "band",
+      "mask": 1927,
+      "true_points": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 43
+    },
+    {
+      "kind": "band",
+      "mask": 1939,
+      "true_points": [
+        0,
+        1,
+        4,
+        7,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 55
+    },
+    {
+      "kind": "band",
+      "mask": 1955,
+      "true_points": [
+        0,
+        1,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 69
+    },
+    {
+      "kind": "band",
+      "mask": 1957,
+      "true_points": [
+        0,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 76
+    },
+    {
+      "kind": "band",
+      "mask": 1958,
+      "true_points": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 63
+    },
+    {
+      "kind": "band",
+      "mask": 1959,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 46
+    },
+    {
+      "kind": "band",
+      "mask": 1987,
+      "true_points": [
+        0,
+        1,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 61
+    },
+    {
+      "kind": "band",
+      "mask": 2001,
+      "true_points": [
+        0,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 140
+    },
+    {
+      "kind": "band",
+      "mask": 2002,
+      "true_points": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 91
+    },
+    {
+      "kind": "band",
+      "mask": 2003,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 67
+    },
+    {
+      "kind": "band",
+      "mask": 2143,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        11
+      ],
+      "needed_clauses": 54
+    },
+    {
+      "kind": "band",
+      "mask": 2167,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        11
+      ],
+      "needed_clauses": 82
+    },
+    {
+      "kind": "band",
+      "mask": 2207,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "needed_clauses": 21
+    },
+    {
+      "kind": "band",
+      "mask": 2255,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7,
+        11
+      ],
+      "needed_clauses": 23
+    },
+    {
+      "kind": "band",
+      "mask": 2263,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        7,
+        11
+      ],
+      "needed_clauses": 30
+    },
+    {
+      "kind": "band",
+      "mask": 2267,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        11
+      ],
+      "needed_clauses": 22
+    },
+    {
+      "kind": "band",
+      "mask": 2269,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7,
+        11
+      ],
+      "needed_clauses": 25
+    },
+    {
+      "kind": "band",
+      "mask": 2270,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        11
+      ],
+      "needed_clauses": 29
+    },
+    {
+      "kind": "band",
+      "mask": 2271,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        11
+      ],
+      "needed_clauses": 68
+    },
+    {
+      "kind": "band",
+      "mask": 2298,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        11
+      ],
+      "needed_clauses": 44
+    },
+    {
+      "kind": "band",
+      "mask": 2335,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8,
+        11
+      ],
+      "needed_clauses": 8
+    },
+    {
+      "kind": "band",
+      "mask": 2363,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        8,
+        11
+      ],
+      "needed_clauses": 86
+    },
+    {
+      "kind": "band",
+      "mask": 2383,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        8,
+        11
+      ],
+      "needed_clauses": 20
+    },
+    {
+      "kind": "band",
+      "mask": 2395,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        8,
+        11
+      ],
+      "needed_clauses": 46
+    },
+    {
+      "kind": "band",
+      "mask": 2397,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        8,
+        11
+      ],
+      "needed_clauses": 25
+    },
+    {
+      "kind": "band",
+      "mask": 2398,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        11
+      ],
+      "needed_clauses": 18
+    },
+    {
+      "kind": "band",
+      "mask": 2399,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        11
+      ],
+      "needed_clauses": 46
+    },
+    {
+      "kind": "band",
+      "mask": 2447,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 24
+    },
+    {
+      "kind": "band",
+      "mask": 2459,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 44
+    },
+    {
+      "kind": "band",
+      "mask": 2461,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 25
+    },
+    {
+      "kind": "band",
+      "mask": 2462,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 21
+    },
+    {
+      "kind": "band",
+      "mask": 2463,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 64
+    },
+    {
+      "kind": "band",
+      "mask": 2471,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 35
+    },
+    {
+      "kind": "band",
+      "mask": 2503,
+      "true_points": [
+        0,
+        1,
+        2,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 27
+    },
+    {
+      "kind": "band",
+      "mask": 2507,
+      "true_points": [
+        0,
+        1,
+        3,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 77
+    },
+    {
+      "kind": "band",
+      "mask": 2509,
+      "true_points": [
+        0,
+        2,
+        3,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 63
+    },
+    {
+      "kind": "band",
+      "mask": 2510,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 23
+    },
+    {
+      "kind": "band",
+      "mask": 2511,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 75
+    },
+    {
+      "kind": "band",
+      "mask": 2515,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 51
+    },
+    {
+      "kind": "band",
+      "mask": 2517,
+      "true_points": [
+        0,
+        2,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 33
+    },
+    {
+      "kind": "band",
+      "mask": 2518,
+      "true_points": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 18
+    },
+    {
+      "kind": "band",
+      "mask": 2519,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 43
+    },
+    {
+      "kind": "band",
+      "mask": 2521,
+      "true_points": [
+        0,
+        3,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 68
+    },
+    {
+      "kind": "band",
+      "mask": 2522,
+      "true_points": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 31
+    },
+    {
+      "kind": "band",
+      "mask": 2523,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 92
+    },
+    {
+      "kind": "band",
+      "mask": 2524,
+      "true_points": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 35
+    },
+    {
+      "kind": "band",
+      "mask": 2525,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 132
+    },
+    {
+      "kind": "band",
+      "mask": 2526,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 176
+    },
+    {
+      "kind": "band",
+      "mask": 2537,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 180
+    },
+    {
+      "kind": "band",
+      "mask": 2548,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 103
+    },
+    {
+      "kind": "band",
+      "mask": 2615,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        9,
+        11
+      ],
+      "needed_clauses": 69
+    },
+    {
+      "kind": "band",
+      "mask": 2647,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        9,
+        11
+      ],
+      "needed_clauses": 144
+    },
+    {
+      "kind": "band",
+      "mask": 2663,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        9,
+        11
+      ],
+      "needed_clauses": 73
+    },
+    {
+      "kind": "band",
+      "mask": 2675,
+      "true_points": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        9,
+        11
+      ],
+      "needed_clauses": 86
+    },
+    {
+      "kind": "band",
+      "mask": 2677,
+      "true_points": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        9,
+        11
+      ],
+      "needed_clauses": 90
+    },
+    {
+      "kind": "band",
+      "mask": 2678,
+      "true_points": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        9,
+        11
+      ],
+      "needed_clauses": 91
+    },
+    {
+      "kind": "band",
+      "mask": 2679,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        9,
+        11
+      ],
+      "needed_clauses": 54
+    },
+    {
+      "kind": "band",
+      "mask": 2682,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        9,
+        11
+      ],
+      "needed_clauses": 35
+    },
+    {
+      "kind": "band",
+      "mask": 2717,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        9,
+        11
+      ],
+      "needed_clauses": 71
+    },
+    {
+      "kind": "band",
+      "mask": 2746,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        9,
+        11
+      ],
+      "needed_clauses": 35
+    },
+    {
+      "kind": "band",
+      "mask": 2778,
+      "true_points": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11
+      ],
+      "needed_clauses": 35
+    },
+    {
+      "kind": "band",
+      "mask": 2793,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        9,
+        11
+      ],
+      "needed_clauses": 191
+    },
+    {
+      "kind": "band",
+      "mask": 2794,
+      "true_points": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        9,
+        11
+      ],
+      "needed_clauses": 70
+    },
+    {
+      "kind": "band",
+      "mask": 2802,
+      "true_points": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11
+      ],
+      "needed_clauses": 40
+    },
+    {
+      "kind": "band",
+      "mask": 2808,
+      "true_points": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11
+      ],
+      "needed_clauses": 66
+    },
+    {
+      "kind": "band",
+      "mask": 2810,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11
+      ],
+      "needed_clauses": 85
+    },
+    {
+      "kind": "band",
+      "mask": 2894,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        9,
+        11
+      ],
+      "needed_clauses": 75
+    },
+    {
+      "kind": "band",
+      "mask": 2921,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        8,
+        9,
+        11
+      ],
+      "needed_clauses": 157
+    },
+    {
+      "kind": "band",
+      "mask": 2951,
+      "true_points": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        9,
+        11
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 2979,
+      "true_points": [
+        0,
+        1,
+        5,
+        7,
+        8,
+        9,
+        11
+      ],
+      "needed_clauses": 72
+    },
+    {
+      "kind": "band",
+      "mask": 2981,
+      "true_points": [
+        0,
+        2,
+        5,
+        7,
+        8,
+        9,
+        11
+      ],
+      "needed_clauses": 59
+    },
+    {
+      "kind": "band",
+      "mask": 2982,
+      "true_points": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        11
+      ],
+      "needed_clauses": 26
+    },
+    {
+      "kind": "band",
+      "mask": 2983,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        11
+      ],
+      "needed_clauses": 61
+    },
+    {
+      "kind": "band",
+      "mask": 2985,
+      "true_points": [
+        0,
+        3,
+        5,
+        7,
+        8,
+        9,
+        11
+      ],
+      "needed_clauses": 148
+    },
+    {
+      "kind": "band",
+      "mask": 3017,
+      "true_points": [
+        0,
+        3,
+        6,
+        7,
+        8,
+        9,
+        11
+      ],
+      "needed_clauses": 147
+    },
+    {
+      "kind": "band",
+      "mask": 3041,
+      "true_points": [
+        0,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+      ],
+      "needed_clauses": 151
+    },
+    {
+      "kind": "band",
+      "mask": 3048,
+      "true_points": [
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+      ],
+      "needed_clauses": 204
+    },
+    {
+      "kind": "band",
+      "mask": 3049,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+      ],
+      "needed_clauses": 134
+    },
+    {
+      "kind": "band",
+      "mask": 3131,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        10,
+        11
+      ],
+      "needed_clauses": 46
+    },
+    {
+      "kind": "band",
+      "mask": 3194,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11
+      ],
+      "needed_clauses": 5
+    },
+    {
+      "kind": "band",
+      "mask": 3229,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        10,
+        11
+      ],
+      "needed_clauses": 45
+    },
+    {
+      "kind": "band",
+      "mask": 3306,
+      "true_points": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        10,
+        11
+      ],
+      "needed_clauses": 28
+    },
+    {
+      "kind": "band",
+      "mask": 3314,
+      "true_points": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 3316,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11
+      ],
+      "needed_clauses": 96
+    },
+    {
+      "kind": "band",
+      "mask": 3320,
+      "true_points": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11
+      ],
+      "needed_clauses": 33
+    },
+    {
+      "kind": "band",
+      "mask": 3322,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11
+      ],
+      "needed_clauses": 55
+    },
+    {
+      "kind": "band",
+      "mask": 3355,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 55
+    },
+    {
+      "kind": "band",
+      "mask": 3371,
+      "true_points": [
+        0,
+        1,
+        3,
+        5,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 67
+    },
+    {
+      "kind": "band",
+      "mask": 3379,
+      "true_points": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 53
+    },
+    {
+      "kind": "band",
+      "mask": 3385,
+      "true_points": [
+        0,
+        3,
+        4,
+        5,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 85
+    },
+    {
+      "kind": "band",
+      "mask": 3386,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 75
+    },
+    {
+      "kind": "band",
+      "mask": 3387,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 54
+    },
+    {
+      "kind": "band",
+      "mask": 3406,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 57
+    },
+    {
+      "kind": "band",
+      "mask": 3444,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 11
+    },
+    {
+      "kind": "band",
+      "mask": 3491,
+      "true_points": [
+        0,
+        1,
+        5,
+        7,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 26
+    },
+    {
+      "kind": "band",
+      "mask": 3493,
+      "true_points": [
+        0,
+        2,
+        5,
+        7,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 26
+    },
+    {
+      "kind": "band",
+      "mask": 3495,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 40
+    },
+    {
+      "kind": "band",
+      "mask": 3540,
+      "true_points": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 11
+    },
+    {
+      "kind": "band",
+      "mask": 3572,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+      ],
+      "needed_clauses": 25
+    },
+    {
+      "kind": "band",
+      "mask": 3613,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 37
+    },
+    {
+      "kind": "band",
+      "mask": 3623,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 3662,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 52
+    },
+    {
+      "kind": "band",
+      "mask": 3690,
+      "true_points": [
+        1,
+        3,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 21
+    },
+    {
+      "kind": "band",
+      "mask": 3698,
+      "true_points": [
+        1,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 3704,
+      "true_points": [
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 25
+    },
+    {
+      "kind": "band",
+      "mask": 3706,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 52
+    },
+    {
+      "kind": "band",
+      "mask": 3725,
+      "true_points": [
+        0,
+        2,
+        3,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 70
+    },
+    {
+      "kind": "band",
+      "mask": 3733,
+      "true_points": [
+        0,
+        2,
+        4,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 38
+    },
+    {
+      "kind": "band",
+      "mask": 3737,
+      "true_points": [
+        0,
+        3,
+        4,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 56
+    },
+    {
+      "kind": "band",
+      "mask": 3740,
+      "true_points": [
+        2,
+        3,
+        4,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 83
+    },
+    {
+      "kind": "band",
+      "mask": 3741,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 82
+    },
+    {
+      "kind": "band",
+      "mask": 3747,
+      "true_points": [
+        0,
+        1,
+        5,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 26
+    },
+    {
+      "kind": "band",
+      "mask": 3749,
+      "true_points": [
+        0,
+        2,
+        5,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 19
+    },
+    {
+      "kind": "band",
+      "mask": 3750,
+      "true_points": [
+        1,
+        2,
+        5,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 9
+    },
+    {
+      "kind": "band",
+      "mask": 3751,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 71
+    },
+    {
+      "kind": "band",
+      "mask": 3754,
+      "true_points": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 27
+    },
+    {
+      "kind": "band",
+      "mask": 3762,
+      "true_points": [
+        1,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 3768,
+      "true_points": [
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 25
+    },
+    {
+      "kind": "band",
+      "mask": 3770,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 85
+    },
+    {
+      "kind": "band",
+      "mask": 3786,
+      "true_points": [
+        1,
+        3,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 21
+    },
+    {
+      "kind": "band",
+      "mask": 3794,
+      "true_points": [
+        1,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 3800,
+      "true_points": [
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 27
+    },
+    {
+      "kind": "band",
+      "mask": 3802,
+      "true_points": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 103
+    },
+    {
+      "kind": "band",
+      "mask": 3810,
+      "true_points": [
+        1,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 26
+    },
+    {
+      "kind": "band",
+      "mask": 3816,
+      "true_points": [
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 78
+    },
+    {
+      "kind": "band",
+      "mask": 3818,
+      "true_points": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 72
+    },
+    {
+      "kind": "band",
+      "mask": 3824,
+      "true_points": [
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 37
+    },
+    {
+      "kind": "band",
+      "mask": 3826,
+      "true_points": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 93
+    },
+    {
+      "kind": "band",
+      "mask": 3832,
+      "true_points": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 187
+    },
+    {
+      "kind": "band",
+      "mask": 3854,
+      "true_points": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 55
+    },
+    {
+      "kind": "band",
+      "mask": 3875,
+      "true_points": [
+        0,
+        1,
+        5,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 26
+    },
+    {
+      "kind": "band",
+      "mask": 3877,
+      "true_points": [
+        0,
+        2,
+        5,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 3878,
+      "true_points": [
+        1,
+        2,
+        5,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 9
+    },
+    {
+      "kind": "band",
+      "mask": 3879,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 45
+    },
+    {
+      "kind": "band",
+      "mask": 3910,
+      "true_points": [
+        1,
+        2,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 61
+    },
+    {
+      "kind": "band",
+      "mask": 3914,
+      "true_points": [
+        1,
+        3,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 78
+    },
+    {
+      "kind": "band",
+      "mask": 3916,
+      "true_points": [
+        2,
+        3,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 82
+    },
+    {
+      "kind": "band",
+      "mask": 3918,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 37
+    },
+    {
+      "kind": "band",
+      "mask": 3971,
+      "true_points": [
+        0,
+        1,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 31
+    },
+    {
+      "kind": "band",
+      "mask": 3973,
+      "true_points": [
+        0,
+        2,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 3974,
+      "true_points": [
+        1,
+        2,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 19
+    },
+    {
+      "kind": "band",
+      "mask": 3975,
+      "true_points": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 102
+    },
+    {
+      "kind": "band",
+      "mask": 4001,
+      "true_points": [
+        0,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 57
+    },
+    {
+      "kind": "band",
+      "mask": 4002,
+      "true_points": [
+        1,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 27
+    },
+    {
+      "kind": "band",
+      "mask": 4003,
+      "true_points": [
+        0,
+        1,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 66
+    },
+    {
+      "kind": "band",
+      "mask": 4004,
+      "true_points": [
+        2,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 34
+    },
+    {
+      "kind": "band",
+      "mask": 4005,
+      "true_points": [
+        0,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 113
+    },
+    {
+      "kind": "band",
+      "mask": 4006,
+      "true_points": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 155
+    },
+    {
+      "kind": "band",
+      "mask": 4080,
+      "true_points": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 5
+    },
+    {
+      "kind": "band",
+      "mask": 4207,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        12
+      ],
+      "needed_clauses": 24
+    },
+    {
+      "kind": "band",
+      "mask": 4215,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        12
+      ],
+      "needed_clauses": 31
+    },
+    {
+      "kind": "band",
+      "mask": 4271,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        7,
+        12
+      ],
+      "needed_clauses": 15
+    },
+    {
+      "kind": "band",
+      "mask": 4286,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        12
+      ],
+      "needed_clauses": 42
+    },
+    {
+      "kind": "band",
+      "mask": 4327,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        7,
+        12
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 4331,
+      "true_points": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        7,
+        12
+      ],
+      "needed_clauses": 65
+    },
+    {
+      "kind": "band",
+      "mask": 4333,
+      "true_points": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        7,
+        12
+      ],
+      "needed_clauses": 62
+    },
+    {
+      "kind": "band",
+      "mask": 4334,
+      "true_points": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        12
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 4335,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        12
+      ],
+      "needed_clauses": 58
+    },
+    {
+      "kind": "band",
+      "mask": 4411,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        8,
+        12
+      ],
+      "needed_clauses": 64
+    },
+    {
+      "kind": "band",
+      "mask": 4414,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        12
+      ],
+      "needed_clauses": 19
+    },
+    {
+      "kind": "band",
+      "mask": 4510,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        12
+      ],
+      "needed_clauses": 28
+    },
+    {
+      "kind": "band",
+      "mask": 4526,
+      "true_points": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        12
+      ],
+      "needed_clauses": 29
+    },
+    {
+      "kind": "band",
+      "mask": 4534,
+      "true_points": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        12
+      ],
+      "needed_clauses": 35
+    },
+    {
+      "kind": "band",
+      "mask": 4538,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        12
+      ],
+      "needed_clauses": 26
+    },
+    {
+      "kind": "band",
+      "mask": 4540,
+      "true_points": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        12
+      ],
+      "needed_clauses": 44
+    },
+    {
+      "kind": "band",
+      "mask": 4542,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        12
+      ],
+      "needed_clauses": 50
+    },
+    {
+      "kind": "band",
+      "mask": 4563,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        7,
+        8,
+        12
+      ],
+      "needed_clauses": 41
+    },
+    {
+      "kind": "band",
+      "mask": 4585,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        8,
+        12
+      ],
+      "needed_clauses": 168
+    },
+    {
+      "kind": "band",
+      "mask": 4596,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        12
+      ],
+      "needed_clauses": 92
+    },
+    {
+      "kind": "band",
+      "mask": 4670,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        12
+      ],
+      "needed_clauses": 13
+    },
+    {
+      "kind": "band",
+      "mask": 4711,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        9,
+        12
+      ],
+      "needed_clauses": 38
+    },
+    {
+      "kind": "band",
+      "mask": 4723,
+      "true_points": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        9,
+        12
+      ],
+      "needed_clauses": 52
+    },
+    {
+      "kind": "band",
+      "mask": 4725,
+      "true_points": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        9,
+        12
+      ],
+      "needed_clauses": 71
+    },
+    {
+      "kind": "band",
+      "mask": 4727,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        9,
+        12
+      ],
+      "needed_clauses": 44
+    },
+    {
+      "kind": "band",
+      "mask": 4765,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        9,
+        12
+      ],
+      "needed_clauses": 45
+    },
+    {
+      "kind": "band",
+      "mask": 4782,
+      "true_points": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        9,
+        12
+      ],
+      "needed_clauses": 30
+    },
+    {
+      "kind": "band",
+      "mask": 4790,
+      "true_points": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        9,
+        12
+      ],
+      "needed_clauses": 33
+    },
+    {
+      "kind": "band",
+      "mask": 4794,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        9,
+        12
+      ],
+      "needed_clauses": 25
+    },
+    {
+      "kind": "band",
+      "mask": 4796,
+      "true_points": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        12
+      ],
+      "needed_clauses": 30
+    },
+    {
+      "kind": "band",
+      "mask": 4798,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        12
+      ],
+      "needed_clauses": 81
+    },
+    {
+      "kind": "band",
+      "mask": 4819,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        7,
+        9,
+        12
+      ],
+      "needed_clauses": 24
+    },
+    {
+      "kind": "band",
+      "mask": 4841,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        9,
+        12
+      ],
+      "needed_clauses": 151
+    },
+    {
+      "kind": "band",
+      "mask": 4910,
+      "true_points": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 4918,
+      "true_points": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 20
+    },
+    {
+      "kind": "band",
+      "mask": 4922,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 26
+    },
+    {
+      "kind": "band",
+      "mask": 4924,
+      "true_points": [
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 30
+    },
+    {
+      "kind": "band",
+      "mask": 4926,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 54
+    },
+    {
+      "kind": "band",
+      "mask": 4942,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 42
+    },
+    {
+      "kind": "band",
+      "mask": 4947,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 24
+    },
+    {
+      "kind": "band",
+      "mask": 4969,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 122
+    },
+    {
+      "kind": "band",
+      "mask": 5006,
+      "true_points": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 17
+    },
+    {
+      "kind": "band",
+      "mask": 5011,
+      "true_points": [
+        0,
+        1,
+        4,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 19
+    },
+    {
+      "kind": "band",
+      "mask": 5014,
+      "true_points": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 20
+    },
+    {
+      "kind": "band",
+      "mask": 5018,
+      "true_points": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 28
+    },
+    {
+      "kind": "band",
+      "mask": 5020,
+      "true_points": [
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 30
+    },
+    {
+      "kind": "band",
+      "mask": 5022,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 108
+    },
+    {
+      "kind": "band",
+      "mask": 5030,
+      "true_points": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 35
+    },
+    {
+      "kind": "band",
+      "mask": 5033,
+      "true_points": [
+        0,
+        3,
+        5,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 119
+    },
+    {
+      "kind": "band",
+      "mask": 5034,
+      "true_points": [
+        1,
+        3,
+        5,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 62
+    },
+    {
+      "kind": "band",
+      "mask": 5036,
+      "true_points": [
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 61
+    },
+    {
+      "kind": "band",
+      "mask": 5038,
+      "true_points": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 71
+    },
+    {
+      "kind": "band",
+      "mask": 5042,
+      "true_points": [
+        1,
+        4,
+        5,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 38
+    },
+    {
+      "kind": "band",
+      "mask": 5044,
+      "true_points": [
+        2,
+        4,
+        5,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 43
+    },
+    {
+      "kind": "band",
+      "mask": 5046,
+      "true_points": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 69
+    },
+    {
+      "kind": "band",
+      "mask": 5048,
+      "true_points": [
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 63
+    },
+    {
+      "kind": "band",
+      "mask": 5050,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 113
+    },
+    {
+      "kind": "band",
+      "mask": 5052,
+      "true_points": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 170
+    },
+    {
+      "kind": "band",
+      "mask": 5059,
+      "true_points": [
+        0,
+        1,
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 54
+    },
+    {
+      "kind": "band",
+      "mask": 5065,
+      "true_points": [
+        0,
+        3,
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 137
+    },
+    {
+      "kind": "band",
+      "mask": 5073,
+      "true_points": [
+        0,
+        4,
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 93
+    },
+    {
+      "kind": "band",
+      "mask": 5074,
+      "true_points": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 29
+    },
+    {
+      "kind": "band",
+      "mask": 5075,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 81
+    },
+    {
+      "kind": "band",
+      "mask": 5089,
+      "true_points": [
+        0,
+        5,
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 121
+    },
+    {
+      "kind": "band",
+      "mask": 5096,
+      "true_points": [
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 146
+    },
+    {
+      "kind": "band",
+      "mask": 5097,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 134
+    },
+    {
+      "kind": "band",
+      "mask": 5179,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        10,
+        12
+      ],
+      "needed_clauses": 36
+    },
+    {
+      "kind": "band",
+      "mask": 5227,
+      "true_points": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        10,
+        12
+      ],
+      "needed_clauses": 29
+    },
+    {
+      "kind": "band",
+      "mask": 5230,
+      "true_points": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        10,
+        12
+      ],
+      "needed_clauses": 17
+    },
+    {
+      "kind": "band",
+      "mask": 5231,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        10,
+        12
+      ],
+      "needed_clauses": 41
+    },
+    {
+      "kind": "band",
+      "mask": 5263,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 5277,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 27
+    },
+    {
+      "kind": "band",
+      "mask": 5287,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 5291,
+      "true_points": [
+        0,
+        1,
+        3,
+        5,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 29
+    },
+    {
+      "kind": "band",
+      "mask": 5293,
+      "true_points": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 13
+    },
+    {
+      "kind": "band",
+      "mask": 5294,
+      "true_points": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 5295,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 61
+    },
+    {
+      "kind": "band",
+      "mask": 5323,
+      "true_points": [
+        0,
+        1,
+        3,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 33
+    },
+    {
+      "kind": "band",
+      "mask": 5326,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 22
+    },
+    {
+      "kind": "band",
+      "mask": 5327,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 83
+    },
+    {
+      "kind": "band",
+      "mask": 5331,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 18
+    },
+    {
+      "kind": "band",
+      "mask": 5347,
+      "true_points": [
+        0,
+        1,
+        5,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 41
+    },
+    {
+      "kind": "band",
+      "mask": 5349,
+      "true_points": [
+        0,
+        2,
+        5,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 30
+    },
+    {
+      "kind": "band",
+      "mask": 5350,
+      "true_points": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 18
+    },
+    {
+      "kind": "band",
+      "mask": 5351,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 47
+    },
+    {
+      "kind": "band",
+      "mask": 5353,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 55
+    },
+    {
+      "kind": "band",
+      "mask": 5354,
+      "true_points": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 29
+    },
+    {
+      "kind": "band",
+      "mask": 5355,
+      "true_points": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 63
+    },
+    {
+      "kind": "band",
+      "mask": 5356,
+      "true_points": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 44
+    },
+    {
+      "kind": "band",
+      "mask": 5357,
+      "true_points": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 113
+    },
+    {
+      "kind": "band",
+      "mask": 5358,
+      "true_points": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 142
+    },
+    {
+      "kind": "band",
+      "mask": 5364,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 80
+    },
+    {
+      "kind": "band",
+      "mask": 5403,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 36
+    },
+    {
+      "kind": "band",
+      "mask": 5419,
+      "true_points": [
+        0,
+        1,
+        3,
+        5,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 39
+    },
+    {
+      "kind": "band",
+      "mask": 5427,
+      "true_points": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 41
+    },
+    {
+      "kind": "band",
+      "mask": 5433,
+      "true_points": [
+        0,
+        3,
+        4,
+        5,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 46
+    },
+    {
+      "kind": "band",
+      "mask": 5434,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 38
+    },
+    {
+      "kind": "band",
+      "mask": 5435,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 52
+    },
+    {
+      "kind": "band",
+      "mask": 5454,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 8
+    },
+    {
+      "kind": "band",
+      "mask": 5459,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 18
+    },
+    {
+      "kind": "band",
+      "mask": 5492,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 5523,
+      "true_points": [
+        0,
+        1,
+        4,
+        7,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 9
+    },
+    {
+      "kind": "band",
+      "mask": 5556,
+      "true_points": [
+        2,
+        4,
+        5,
+        7,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 10
+    },
+    {
+      "kind": "band",
+      "mask": 5571,
+      "true_points": [
+        0,
+        1,
+        6,
+        7,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 32
+    },
+    {
+      "kind": "band",
+      "mask": 5585,
+      "true_points": [
+        0,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 65
+    },
+    {
+      "kind": "band",
+      "mask": 5586,
+      "true_points": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 22
+    },
+    {
+      "kind": "band",
+      "mask": 5587,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 73
+    },
+    {
+      "kind": "band",
+      "mask": 5588,
+      "true_points": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 20
+    },
+    {
+      "kind": "band",
+      "mask": 5620,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12
+      ],
+      "needed_clauses": 19
+    },
+    {
+      "kind": "band",
+      "mask": 5661,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 21
+    },
+    {
+      "kind": "band",
+      "mask": 5715,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 5773,
+      "true_points": [
+        0,
+        2,
+        3,
+        7,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 31
+    },
+    {
+      "kind": "band",
+      "mask": 5779,
+      "true_points": [
+        0,
+        1,
+        4,
+        7,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 9
+    },
+    {
+      "kind": "band",
+      "mask": 5781,
+      "true_points": [
+        0,
+        2,
+        4,
+        7,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 22
+    },
+    {
+      "kind": "band",
+      "mask": 5785,
+      "true_points": [
+        0,
+        3,
+        4,
+        7,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 36
+    },
+    {
+      "kind": "band",
+      "mask": 5788,
+      "true_points": [
+        2,
+        3,
+        4,
+        7,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 24
+    },
+    {
+      "kind": "band",
+      "mask": 5789,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 78
+    },
+    {
+      "kind": "band",
+      "mask": 5827,
+      "true_points": [
+        0,
+        1,
+        6,
+        7,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 26
+    },
+    {
+      "kind": "band",
+      "mask": 5841,
+      "true_points": [
+        0,
+        4,
+        6,
+        7,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 65
+    },
+    {
+      "kind": "band",
+      "mask": 5842,
+      "true_points": [
+        1,
+        4,
+        6,
+        7,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 22
+    },
+    {
+      "kind": "band",
+      "mask": 5843,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        7,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 88
+    },
+    {
+      "kind": "band",
+      "mask": 5902,
+      "true_points": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 9
+    },
+    {
+      "kind": "band",
+      "mask": 5907,
+      "true_points": [
+        0,
+        1,
+        4,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 9
+    },
+    {
+      "kind": "band",
+      "mask": 5955,
+      "true_points": [
+        0,
+        1,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 23
+    },
+    {
+      "kind": "band",
+      "mask": 5962,
+      "true_points": [
+        1,
+        3,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 49
+    },
+    {
+      "kind": "band",
+      "mask": 5964,
+      "true_points": [
+        2,
+        3,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 33
+    },
+    {
+      "kind": "band",
+      "mask": 5966,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 41
+    },
+    {
+      "kind": "band",
+      "mask": 5969,
+      "true_points": [
+        0,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 64
+    },
+    {
+      "kind": "band",
+      "mask": 5970,
+      "true_points": [
+        1,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 22
+    },
+    {
+      "kind": "band",
+      "mask": 5971,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 68
+    },
+    {
+      "kind": "band",
+      "mask": 6019,
+      "true_points": [
+        0,
+        1,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 28
+    },
+    {
+      "kind": "band",
+      "mask": 6033,
+      "true_points": [
+        0,
+        4,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 70
+    },
+    {
+      "kind": "band",
+      "mask": 6034,
+      "true_points": [
+        1,
+        4,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 28
+    },
+    {
+      "kind": "band",
+      "mask": 6035,
+      "true_points": [
+        0,
+        1,
+        4,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 73
+    },
+    {
+      "kind": "band",
+      "mask": 6081,
+      "true_points": [
+        0,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 86
+    },
+    {
+      "kind": "band",
+      "mask": 6082,
+      "true_points": [
+        1,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 29
+    },
+    {
+      "kind": "band",
+      "mask": 6083,
+      "true_points": [
+        0,
+        1,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 108
+    },
+    {
+      "kind": "band",
+      "mask": 6096,
+      "true_points": [
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 71
+    },
+    {
+      "kind": "band",
+      "mask": 6097,
+      "true_points": [
+        0,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 170
+    },
+    {
+      "kind": "band",
+      "mask": 6098,
+      "true_points": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 215
+    },
+    {
+      "kind": "band",
+      "mask": 6199,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        11,
+        12
+      ],
+      "needed_clauses": 17
+    },
+    {
+      "kind": "band",
+      "mask": 6203,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        11,
+        12
+      ],
+      "needed_clauses": 59
+    },
+    {
+      "kind": "band",
+      "mask": 6231,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        11,
+        12
+      ],
+      "needed_clauses": 17
+    },
+    {
+      "kind": "band",
+      "mask": 6247,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        11,
+        12
+      ],
+      "needed_clauses": 21
+    },
+    {
+      "kind": "band",
+      "mask": 6259,
+      "true_points": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        11,
+        12
+      ],
+      "needed_clauses": 34
+    },
+    {
+      "kind": "band",
+      "mask": 6261,
+      "true_points": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        11,
+        12
+      ],
+      "needed_clauses": 64
+    },
+    {
+      "kind": "band",
+      "mask": 6263,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        11,
+        12
+      ],
+      "needed_clauses": 47
+    },
+    {
+      "kind": "band",
+      "mask": 6301,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        11,
+        12
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 6377,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        11,
+        12
+      ],
+      "needed_clauses": 153
+    },
+    {
+      "kind": "band",
+      "mask": 6388,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        11,
+        12
+      ],
+      "needed_clauses": 17
+    },
+    {
+      "kind": "band",
+      "mask": 6427,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 50
+    },
+    {
+      "kind": "band",
+      "mask": 6443,
+      "true_points": [
+        0,
+        1,
+        3,
+        5,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 79
+    },
+    {
+      "kind": "band",
+      "mask": 6451,
+      "true_points": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 53
+    },
+    {
+      "kind": "band",
+      "mask": 6457,
+      "true_points": [
+        0,
+        3,
+        4,
+        5,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 61
+    },
+    {
+      "kind": "band",
+      "mask": 6458,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 54
+    },
+    {
+      "kind": "band",
+      "mask": 6459,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 92
+    },
+    {
+      "kind": "band",
+      "mask": 6478,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 18
+    },
+    {
+      "kind": "band",
+      "mask": 6505,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 112
+    },
+    {
+      "kind": "band",
+      "mask": 6569,
+      "true_points": [
+        0,
+        3,
+        5,
+        7,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 124
+    },
+    {
+      "kind": "band",
+      "mask": 6601,
+      "true_points": [
+        0,
+        3,
+        6,
+        7,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 118
+    },
+    {
+      "kind": "band",
+      "mask": 6612,
+      "true_points": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 6
+    },
+    {
+      "kind": "band",
+      "mask": 6625,
+      "true_points": [
+        0,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 123
+    },
+    {
+      "kind": "band",
+      "mask": 6632,
+      "true_points": [
+        3,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 131
+    },
+    {
+      "kind": "band",
+      "mask": 6633,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 181
+    },
+    {
+      "kind": "band",
+      "mask": 6644,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12
+      ],
+      "needed_clauses": 34
+    },
+    {
+      "kind": "band",
+      "mask": 6679,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 6695,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 24
+    },
+    {
+      "kind": "band",
+      "mask": 6707,
+      "true_points": [
+        0,
+        1,
+        4,
+        5,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 37
+    },
+    {
+      "kind": "band",
+      "mask": 6709,
+      "true_points": [
+        0,
+        2,
+        4,
+        5,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 57
+    },
+    {
+      "kind": "band",
+      "mask": 6711,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 48
+    },
+    {
+      "kind": "band",
+      "mask": 6727,
+      "true_points": [
+        0,
+        1,
+        2,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 22
+    },
+    {
+      "kind": "band",
+      "mask": 6734,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 21
+    },
+    {
+      "kind": "band",
+      "mask": 6739,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 25
+    },
+    {
+      "kind": "band",
+      "mask": 6741,
+      "true_points": [
+        0,
+        2,
+        4,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 55
+    },
+    {
+      "kind": "band",
+      "mask": 6743,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 85
+    },
+    {
+      "kind": "band",
+      "mask": 6755,
+      "true_points": [
+        0,
+        1,
+        5,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 65
+    },
+    {
+      "kind": "band",
+      "mask": 6757,
+      "true_points": [
+        0,
+        2,
+        5,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 88
+    },
+    {
+      "kind": "band",
+      "mask": 6758,
+      "true_points": [
+        1,
+        2,
+        5,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 6759,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 60
+    },
+    {
+      "kind": "band",
+      "mask": 6761,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 125
+    },
+    {
+      "kind": "band",
+      "mask": 6769,
+      "true_points": [
+        0,
+        4,
+        5,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 83
+    },
+    {
+      "kind": "band",
+      "mask": 6770,
+      "true_points": [
+        1,
+        4,
+        5,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 37
+    },
+    {
+      "kind": "band",
+      "mask": 6771,
+      "true_points": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 81
+    },
+    {
+      "kind": "band",
+      "mask": 6772,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 71
+    },
+    {
+      "kind": "band",
+      "mask": 6773,
+      "true_points": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 111
+    },
+    {
+      "kind": "band",
+      "mask": 6774,
+      "true_points": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 174
+    },
+    {
+      "kind": "band",
+      "mask": 6797,
+      "true_points": [
+        0,
+        2,
+        3,
+        7,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 35
+    },
+    {
+      "kind": "band",
+      "mask": 6805,
+      "true_points": [
+        0,
+        2,
+        4,
+        7,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 6809,
+      "true_points": [
+        0,
+        3,
+        4,
+        7,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 51
+    },
+    {
+      "kind": "band",
+      "mask": 6812,
+      "true_points": [
+        2,
+        3,
+        4,
+        7,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 31
+    },
+    {
+      "kind": "band",
+      "mask": 6813,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 133
+    },
+    {
+      "kind": "band",
+      "mask": 6825,
+      "true_points": [
+        0,
+        3,
+        5,
+        7,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 131
+    },
+    {
+      "kind": "band",
+      "mask": 6857,
+      "true_points": [
+        0,
+        3,
+        6,
+        7,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 170
+    },
+    {
+      "kind": "band",
+      "mask": 6881,
+      "true_points": [
+        0,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 119
+    },
+    {
+      "kind": "band",
+      "mask": 6888,
+      "true_points": [
+        3,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 145
+    },
+    {
+      "kind": "band",
+      "mask": 6889,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 185
+    },
+    {
+      "kind": "band",
+      "mask": 6926,
+      "true_points": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 18
+    },
+    {
+      "kind": "band",
+      "mask": 6953,
+      "true_points": [
+        0,
+        3,
+        5,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 115
+    },
+    {
+      "kind": "band",
+      "mask": 6982,
+      "true_points": [
+        1,
+        2,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 29
+    },
+    {
+      "kind": "band",
+      "mask": 6985,
+      "true_points": [
+        0,
+        3,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 114
+    },
+    {
+      "kind": "band",
+      "mask": 6986,
+      "true_points": [
+        1,
+        3,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 73
+    },
+    {
+      "kind": "band",
+      "mask": 6988,
+      "true_points": [
+        2,
+        3,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 52
+    },
+    {
+      "kind": "band",
+      "mask": 6990,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 66
+    },
+    {
+      "kind": "band",
+      "mask": 7009,
+      "true_points": [
+        0,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 118
+    },
+    {
+      "kind": "band",
+      "mask": 7016,
+      "true_points": [
+        3,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 119
+    },
+    {
+      "kind": "band",
+      "mask": 7017,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 189
+    },
+    {
+      "kind": "band",
+      "mask": 7049,
+      "true_points": [
+        0,
+        3,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 129
+    },
+    {
+      "kind": "band",
+      "mask": 7073,
+      "true_points": [
+        0,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 121
+    },
+    {
+      "kind": "band",
+      "mask": 7080,
+      "true_points": [
+        3,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 121
+    },
+    {
+      "kind": "band",
+      "mask": 7081,
+      "true_points": [
+        0,
+        3,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 174
+    },
+    {
+      "kind": "band",
+      "mask": 7105,
+      "true_points": [
+        0,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 138
+    },
+    {
+      "kind": "band",
+      "mask": 7112,
+      "true_points": [
+        3,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 137
+    },
+    {
+      "kind": "band",
+      "mask": 7113,
+      "true_points": [
+        0,
+        3,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 197
+    },
+    {
+      "kind": "band",
+      "mask": 7136,
+      "true_points": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 120
+    },
+    {
+      "kind": "band",
+      "mask": 7137,
+      "true_points": [
+        0,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 194
+    },
+    {
+      "kind": "band",
+      "mask": 7144,
+      "true_points": [
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 202
+    },
+    {
+      "kind": "band",
+      "mask": 7211,
+      "true_points": [
+        0,
+        1,
+        3,
+        5,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 7219,
+      "true_points": [
+        0,
+        1,
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 29
+    },
+    {
+      "kind": "band",
+      "mask": 7225,
+      "true_points": [
+        0,
+        3,
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 27
+    },
+    {
+      "kind": "band",
+      "mask": 7226,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 23
+    },
+    {
+      "kind": "band",
+      "mask": 7227,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 88
+    },
+    {
+      "kind": "band",
+      "mask": 7284,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 30
+    },
+    {
+      "kind": "band",
+      "mask": 7309,
+      "true_points": [
+        0,
+        2,
+        3,
+        7,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 17
+    },
+    {
+      "kind": "band",
+      "mask": 7317,
+      "true_points": [
+        0,
+        2,
+        4,
+        7,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 7321,
+      "true_points": [
+        0,
+        3,
+        4,
+        7,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 41
+    },
+    {
+      "kind": "band",
+      "mask": 7324,
+      "true_points": [
+        2,
+        3,
+        4,
+        7,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 17
+    },
+    {
+      "kind": "band",
+      "mask": 7325,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 66
+    },
+    {
+      "kind": "band",
+      "mask": 7408,
+      "true_points": [
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 18
+    },
+    {
+      "kind": "band",
+      "mask": 7412,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 108
+    },
+    {
+      "kind": "band",
+      "mask": 7435,
+      "true_points": [
+        0,
+        1,
+        3,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 7443,
+      "true_points": [
+        0,
+        1,
+        4,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 7449,
+      "true_points": [
+        0,
+        3,
+        4,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 16
+    },
+    {
+      "kind": "band",
+      "mask": 7450,
+      "true_points": [
+        1,
+        3,
+        4,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 33
+    },
+    {
+      "kind": "band",
+      "mask": 7451,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 104
+    },
+    {
+      "kind": "band",
+      "mask": 7459,
+      "true_points": [
+        0,
+        1,
+        5,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 20
+    },
+    {
+      "kind": "band",
+      "mask": 7465,
+      "true_points": [
+        0,
+        3,
+        5,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 87
+    },
+    {
+      "kind": "band",
+      "mask": 7466,
+      "true_points": [
+        1,
+        3,
+        5,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 39
+    },
+    {
+      "kind": "band",
+      "mask": 7467,
+      "true_points": [
+        0,
+        1,
+        3,
+        5,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 77
+    },
+    {
+      "kind": "band",
+      "mask": 7473,
+      "true_points": [
+        0,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 42
+    },
+    {
+      "kind": "band",
+      "mask": 7474,
+      "true_points": [
+        1,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 34
+    },
+    {
+      "kind": "band",
+      "mask": 7475,
+      "true_points": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 57
+    },
+    {
+      "kind": "band",
+      "mask": 7480,
+      "true_points": [
+        3,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 86
+    },
+    {
+      "kind": "band",
+      "mask": 7481,
+      "true_points": [
+        0,
+        3,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 132
+    },
+    {
+      "kind": "band",
+      "mask": 7482,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 165
+    },
+    {
+      "kind": "band",
+      "mask": 7494,
+      "true_points": [
+        1,
+        2,
+        6,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 16
+    },
+    {
+      "kind": "band",
+      "mask": 7498,
+      "true_points": [
+        1,
+        3,
+        6,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 40
+    },
+    {
+      "kind": "band",
+      "mask": 7500,
+      "true_points": [
+        2,
+        3,
+        6,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 26
+    },
+    {
+      "kind": "band",
+      "mask": 7502,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 34
+    },
+    {
+      "kind": "band",
+      "mask": 7604,
+      "true_points": [
+        2,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 83
+    },
+    {
+      "kind": "band",
+      "mask": 7632,
+      "true_points": [
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 20
+    },
+    {
+      "kind": "band",
+      "mask": 7636,
+      "true_points": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 127
+    },
+    {
+      "kind": "band",
+      "mask": 7648,
+      "true_points": [
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 7652,
+      "true_points": [
+        2,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 81
+    },
+    {
+      "kind": "band",
+      "mask": 7664,
+      "true_points": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 108
+    },
+    {
+      "kind": "band",
+      "mask": 7693,
+      "true_points": [
+        0,
+        2,
+        3,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 20
+    },
+    {
+      "kind": "band",
+      "mask": 7701,
+      "true_points": [
+        0,
+        2,
+        4,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 7705,
+      "true_points": [
+        0,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 35
+    },
+    {
+      "kind": "band",
+      "mask": 7708,
+      "true_points": [
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 17
+    },
+    {
+      "kind": "band",
+      "mask": 7709,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 71
+    },
+    {
+      "kind": "band",
+      "mask": 7750,
+      "true_points": [
+        1,
+        2,
+        6,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 14
+    },
+    {
+      "kind": "band",
+      "mask": 7754,
+      "true_points": [
+        1,
+        3,
+        6,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 40
+    },
+    {
+      "kind": "band",
+      "mask": 7756,
+      "true_points": [
+        2,
+        3,
+        6,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 19
+    },
+    {
+      "kind": "band",
+      "mask": 7758,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 72
+    },
+    {
+      "kind": "band",
+      "mask": 7813,
+      "true_points": [
+        0,
+        2,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 24
+    },
+    {
+      "kind": "band",
+      "mask": 7817,
+      "true_points": [
+        0,
+        3,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 42
+    },
+    {
+      "kind": "band",
+      "mask": 7820,
+      "true_points": [
+        2,
+        3,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 19
+    },
+    {
+      "kind": "band",
+      "mask": 7821,
+      "true_points": [
+        0,
+        2,
+        3,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 93
+    },
+    {
+      "kind": "band",
+      "mask": 7825,
+      "true_points": [
+        0,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 57
+    },
+    {
+      "kind": "band",
+      "mask": 7828,
+      "true_points": [
+        2,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 24
+    },
+    {
+      "kind": "band",
+      "mask": 7829,
+      "true_points": [
+        0,
+        2,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 87
+    },
+    {
+      "kind": "band",
+      "mask": 7832,
+      "true_points": [
+        3,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 32
+    },
+    {
+      "kind": "band",
+      "mask": 7833,
+      "true_points": [
+        0,
+        3,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 133
+    },
+    {
+      "kind": "band",
+      "mask": 7836,
+      "true_points": [
+        2,
+        3,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 200
+    },
+    {
+      "kind": "band",
+      "mask": 7946,
+      "true_points": [
+        1,
+        3,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 40
+    },
+    {
+      "kind": "band",
+      "mask": 7948,
+      "true_points": [
+        2,
+        3,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "band",
+      "mask": 7950,
+      "true_points": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 61
+    },
+    {
+      "kind": "band",
+      "mask": 8002,
+      "true_points": [
+        1,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 47
+    },
+    {
+      "kind": "band",
+      "mask": 8004,
+      "true_points": [
+        2,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 30
+    },
+    {
+      "kind": "band",
+      "mask": 8006,
+      "true_points": [
+        1,
+        2,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 28
+    },
+    {
+      "kind": "band",
+      "mask": 8008,
+      "true_points": [
+        3,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 55
+    },
+    {
+      "kind": "band",
+      "mask": 8010,
+      "true_points": [
+        1,
+        3,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 91
+    },
+    {
+      "kind": "band",
+      "mask": 8012,
+      "true_points": [
+        2,
+        3,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 161
+    },
+    {
+      "kind": "extreme",
+      "mask": 1,
+      "true_points": [
+        0
+      ],
+      "needed_clauses": 8
+    },
+    {
+      "kind": "extreme",
+      "mask": 2,
+      "true_points": [
+        1
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "extreme",
+      "mask": 4,
+      "true_points": [
+        2
+      ],
+      "needed_clauses": 5
+    },
+    {
+      "kind": "extreme",
+      "mask": 8,
+      "true_points": [
+        3
+      ],
+      "needed_clauses": 7
+    },
+    {
+      "kind": "extreme",
+      "mask": 16,
+      "true_points": [
+        4
+      ],
+      "needed_clauses": 7
+    },
+    {
+      "kind": "extreme",
+      "mask": 32,
+      "true_points": [
+        5
+      ],
+      "needed_clauses": 8
+    },
+    {
+      "kind": "extreme",
+      "mask": 64,
+      "true_points": [
+        6
+      ],
+      "needed_clauses": 13
+    },
+    {
+      "kind": "extreme",
+      "mask": 128,
+      "true_points": [
+        7
+      ],
+      "needed_clauses": 12
+    },
+    {
+      "kind": "extreme",
+      "mask": 512,
+      "true_points": [
+        9
+      ],
+      "needed_clauses": 8
+    },
+    {
+      "kind": "extreme",
+      "mask": 1024,
+      "true_points": [
+        10
+      ],
+      "needed_clauses": 8
+    },
+    {
+      "kind": "extreme",
+      "mask": 1917,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "needed_clauses": 48
+    },
+    {
+      "kind": "extreme",
+      "mask": 2048,
+      "true_points": [
+        11
+      ],
+      "needed_clauses": 18
+    },
+    {
+      "kind": "extreme",
+      "mask": 2527,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        11
+      ],
+      "needed_clauses": 68
+    },
+    {
+      "kind": "extreme",
+      "mask": 3834,
+      "true_points": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 53
+    },
+    {
+      "kind": "extreme",
+      "mask": 4007,
+      "true_points": [
+        0,
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "needed_clauses": 50
+    },
+    {
+      "kind": "extreme",
+      "mask": 4096,
+      "true_points": [
+        12
+      ],
+      "needed_clauses": 40
+    },
+    {
+      "kind": "extreme",
+      "mask": 5054,
+      "true_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        12
+      ],
+      "needed_clauses": 49
+    },
+    {
+      "kind": "extreme",
+      "mask": 5359,
+      "true_points": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        10,
+        12
+      ],
+      "needed_clauses": 62
+    },
+    {
+      "kind": "extreme",
+      "mask": 6099,
+      "true_points": [
+        0,
+        1,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "needed_clauses": 74
+    },
+    {
+      "kind": "extreme",
+      "mask": 6775,
+      "true_points": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 100
+    },
+    {
+      "kind": "extreme",
+      "mask": 7145,
+      "true_points": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "needed_clauses": 152
+    },
+    {
+      "kind": "extreme",
+      "mask": 7483,
+      "true_points": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 104
+    },
+    {
+      "kind": "extreme",
+      "mask": 7668,
+      "true_points": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 194
+    },
+    {
+      "kind": "extreme",
+      "mask": 7837,
+      "true_points": [
+        0,
+        2,
+        3,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 150
+    },
+    {
+      "kind": "extreme",
+      "mask": 8014,
+      "true_points": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "needed_clauses": 151
+    }
+  ]
+}

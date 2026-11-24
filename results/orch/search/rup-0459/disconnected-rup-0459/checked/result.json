@@ -1,0 +1,18 @@
+{
+  "status": "INDEPENDENT_RUP_REPLAY_PASSED",
+  "scope": "external computational certificate replay, not Lean-kernel verification",
+  "original_variables": 129309,
+  "original_clauses": 2676975,
+  "proof_bytes": 15170664,
+  "proof_sha256": "456609c3b82a7aeb42c1c0f256b9bcf04d721165344fbf0b37ce4fb908c303b9",
+  "additions": 262506,
+  "deletions": 1457000,
+  "needed_originals": 36618,
+  "replayed_additions": 25837,
+  "final_empty_id": 2939481,
+  "trimmed_bytes": 3992631,
+  "temporal_hint_availability_checked": true,
+  "max_address_space_mib": 1024,
+  "max_RSS_KiB": 211296,
+  "elapsed_seconds": 6.714732877999268
+}

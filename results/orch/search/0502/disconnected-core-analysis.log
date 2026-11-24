@@ -1,0 +1,1 @@
+{"scope": "Clause-dependency statistics only; no new satisfiability claim", "needed_originals": 36618, "counts_by_phase": {"structure": 3342, "shared_parent_support": 153, "band": 31705, "extreme": 1401, "extreme_output_conditions": 17}, "distinct_band_rows": 516, "distinct_extreme_rows": 25}

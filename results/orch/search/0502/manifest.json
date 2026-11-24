@@ -1,0 +1,71 @@
+{
+  "utc": "2026-11-24T05:01:19.693722+00:00",
+  "files": [
+    {
+      "path": "disconnected_parent_colors.py",
+      "bytes": 674,
+      "sha256": "b7dbd4e1fdf8c8b16dea08d8a1d2e172392220d8660c9e5d2f85ed9a0f9fc688",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/disconnected_parent_colors.py"
+    },
+    {
+      "path": "cegis-general-five-cost-disconnected.py",
+      "bytes": 12188,
+      "sha256": "9239d9002a6d80d47fc9cc2083f5335aa7f20d2cdedef33415b6ee822fb723fd",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-general-five-cost-disconnected.py"
+    },
+    {
+      "path": "disconnected-parent-colors-test.py",
+      "bytes": 2938,
+      "sha256": "a525d1687ea1b2104e22a106614c5ff82ac3e47c72aabf876cf2d455adb8a9e3",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/disconnected-parent-colors-test.py"
+    },
+    {
+      "path": "disconnected-parent-colors-test.log",
+      "bytes": 225,
+      "sha256": "4356cc4501e96b7df90e88fdb252b51816ed4625f2cb8de36897e995ebc53c34",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/disconnected-parent-colors-test.log"
+    },
+    {
+      "path": "disconnected-parent-colors-test.json",
+      "bytes": 245,
+      "sha256": "548e8bb14145f6e2d503f0d901683868ba28b9cf2bd09ddd1f3a9989660aa2a8",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/disconnected-parent-colors-test.json"
+    },
+    {
+      "path": "disconnected-core-analysis.py",
+      "bytes": 2183,
+      "sha256": "d7e9e80f4ff6ef8479afa832a87eff3deb44233c565f992cb5cadd9e0940a1ff",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/disconnected-core-analysis.py"
+    },
+    {
+      "path": "disconnected-core-analysis.log",
+      "bytes": 294,
+      "sha256": "364973c4fb2b53d5dd4b1502ed453bf214a5257464e54d13e597243a9ae9583c",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/disconnected-core-analysis.log"
+    },
+    {
+      "path": "disconnected-core-analysis.json",
+      "bytes": 104878,
+      "sha256": "3d6ef3eee8b8b675d61b0dbeeb57edf97c594b6413d951fa1abc0db4bb937d1b",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/disconnected-core-analysis.json"
+    },
+    {
+      "path": "resources-0502.json",
+      "bytes": 4723,
+      "sha256": "9a8554cdd9a48260fdbd3d8713e8c3dbbb00b2a19a85d81354fc8a66e4899d0c",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/resources-0502.json"
+    },
+    {
+      "path": "dependencies.json",
+      "bytes": 1266,
+      "sha256": "0c92a6a77c3c79a658dddf81c98030bfab20ddb284f12ce7c444599f28d97d35",
+      "source": "generated from reviewed existing launch snapshot"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1221,
+      "sha256": "5b6861d98157260a00b641b07efcb8ff2ebb32b810f22b678d6b7bc3bb01a21f",
+      "source": "generated scope note"
+    }
+  ]
+}

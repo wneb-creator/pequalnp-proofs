@@ -66,3 +66,6 @@ Put new stable, compiled components here only after review. Work in an individua
 - `Collective.lean`: checked/reviewed directed path inside the original fixed selected cone while avoiding every node of another selected cone, using exact prefix-valid edges. The global graph-count inequality remains open. Full log/status: `../validation/collective-build-002.log` and `.exit`.
 
 - `EarlyCommon.lean`: checked/reviewed exclusion of two distinct globally bounded/nonordinary band-correct OR outputs sharing an early parent while their private parents are the sixth and seventh internal gates. Includes a prefix wrapper for the nine-internal reduced model; other disconnected patterns remain open. Full log/status: `../validation/early-common-build-003.log` and `.exit`.
+
+- `CanonicalLocal.lean`: checked/reviewed tiny index-bound helper.
+- `CanonicalPairs.lean`: checked/reviewed semantics-preserving invalid/repeated-parent normalization, bounded canonical indices, no loops or duplicate unordered output pairs, and canonical disconnectedness. Full log/status: `../validation/canonical-pairs-build-004.log` and `.exit`.

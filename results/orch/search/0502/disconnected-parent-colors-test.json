@@ -1,0 +1,11 @@
+{
+  "graphs": 500,
+  "guard_variables": 29,
+  "guard_clauses": 482,
+  "connected_rejected": 201,
+  "disconnected_models": 299,
+  "full_variables": 129594,
+  "full_clauses": 2680563,
+  "exact_DIMACS_bytes": 45977769,
+  "solver_launched": false
+}
