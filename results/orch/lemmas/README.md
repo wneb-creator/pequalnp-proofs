@@ -54,3 +54,6 @@ Put new stable, compiled components here only after review. Work in an individua
 - `ConnectedCore.lean`: checked/reviewed rank at least10 for connected minimum-degree-two parent graphs and five-edge stars, plus common labels for nonleaf vertices. General connected graphs with leaves and circuit application remain open. Full log: `../validation/connected-core-build-002.log`.
 
 - `FalsePruning.lean`: checked/reviewed 39-gate bound when every output has capped minimum formal false-certificate cost at most4; any smaller correct circuit has an output with formal cost at least5. Additive cost counts repeated occurrences; no assumption follows from semantic support alone. Full log: `../validation/false-pruning-build-003.log`.
+
+- `ConnectedLeaves.lean`: checked/reviewed connected rank bound with at least two core edges.
+- `ConnectedDouble.lean`: checked/reviewed double-star case and full connected parent-graph rank theorem, allowing arbitrary parent indices, loops and repeated pairs. Actual circuit application remains separate. Full logs are the corresponding `connected-*-build-*.log` files in `../validation/`.
