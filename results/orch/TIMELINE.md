@@ -20,3 +20,14 @@
 - 2026-11-24T18:09:08.629267+00:00: counterexample_search kernel-checked explicit C6 eight-gate circuit, exact incidence function, AO2, C4-free relation, and full read2; root notified for integration/push.
 - 2026-11-24T18:10:14.746961+00:00: structural route checked TopForm + exactly one dirty AND => read-2.
 - 2026-11-24T18:11:32.378946+00:00: checkpoint4 integrated graph/support/certificate/C6 components; build005 and independent review passed.
+- 2026-11-24T18:11:36.601444+00:00: combinatorial_route checked graph bridge, generic support lower bound, both one-star degree bounds and active-input lower bound.
+- 2026-11-24T18:12:01.256934+00:00: structural route extended checked theorem to at most one dirty AND.
+
+- 2026-11-24T18:12:51.696195+00:00: counterexample_search excluded two-dirty-AND top cones in minimum C6 circuits by SMT; confirmed no dirty AND among all471 optimal2x3 cases; larger searches timed out without conclusions.
+- 2026-11-24T18:14:14.646837+00:00: combinatorial_route checked full replacement theorem for arbitrary disjoint point-star forests.
+- 2026-11-24T18:14:29.730474+00:00: structural route checked sharp two-dirty auxiliary obstruction and smaller read2 replacement.
+
+- 2026-11-24T18:15:57.613710+00:00: counterexample_search closed larger finite search after CaDiCaL time cap; delivered checked C6 component and finite evidence, no general proof/refutation.
+- 2026-11-24T18:16:10.511951+00:00 circuit_route: checked general star-cover certificate, both singleton-side constructors, and6-gate structural counterexample; per-top leastness route remains unresolved.
+- 2026-11-24T18:17:32.137743+00:00: structural route checked local one-dirty-per-top criterion for read-2.
+- 2026-11-24T18:17:39.850163+00:00: checkpoint5 builds/review passed. Replanned around private common-factor gate surgery, pure-OR sharing restrictions, and per-edge joint witness repair; stopped bulk known-subcase copying.

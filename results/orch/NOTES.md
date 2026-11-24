@@ -66,3 +66,39 @@ The explicit eight-gate C6 circuit found by SMT has now compiled in pinned Lean 
 - Key induction: a wire whose only possible AND ancestor is g has proof words of length one, or length two plus implication g => wire. If both operands of a below-function AND have length-two words, g implies the function, contradicting dirtiness. Thus all output words have at most three leaves. Singleton rejection bounds each variable multiplicity by two.
 - Standalone candidate scratch structural/OneJunk.lean (compilation build-005, exit 0; no output). Integration fragment structural/one-junk-fragment.txt uses stable circuit_route FlatRead word machinery and its short_isReadTwo lemma.
 - This does not prove general normalization: circuits with two or more dirty AND gates remain open.
+
+### combinatorial_route checked helpers 2026-11-24T18:11:36.601397+00:00
+
+Prime.lean (Defs only) checked: incident pairs exactly prime implicants, pair/cardinality/read equivalences, C4-free complete bipartite block is a star with |A||B|=|A|+|B|−1.
+Graph.lean checked: incidenceBit and incidenceGraph encoding, posted C4-free premise implies TopForm.NoFourCycle, exact graphFun equality to incidence target.
+Essential.lean checked: generic Support.essential_count for any fanin≤2 circuit; singleton rejection and both incident endpoints essential; point_star_size_bound and line_star_size_bound; generic incidence_active_size_bound (#active points + #active lines ≤ gates+1). Checked with Lean4.36.0, empty stdout/stderr. Integration fragment: scratch combinatorial/essential-fragment.txt.
+Next bridge: if every line belongs to at most one point, point rows are disjoint stars and canonical cover budget is exactly #active points+#active lines−1. Circuit agent packages this full special case.
+
+- Extension 2026-11-24T18:12:01.256934+00:00: also checked `no_junk_isReadTwo` and `at_most_one_junk_isReadTwo` (junk.card ≤ 1) in structural/build-007, exit 0. Additional74-line integration fragment structural/zero-junk-fragment.txt.
+
+### Least/top-form structural hypothesis tests
+
+Exhaustive optimal 2-by-3 circuits: all 471 have zero dirty AND gates (an AND is dirty if true on some input rejected by the target). The stronger per-cone condition therefore holds throughout those cases. For C6, a separate exact synthesis query required eight gates, top form, and one top AND cone containing at least two dirty AND ancestors. It returned UNSAT in70.34s. Below-target tests use maximal independent sets, and cone ancestry uses actual circuit wiring. Circuit-route agent notified.
+
+Larger searches were inconclusive: C8 size9 and size10, and theta(3,3,3) size12 with a failed read2 edge, hit240s solver timeouts. C8 size11 positive synthesis also timed out at120s despite its known canonical witness, showing the search limit is substantial; no lower-bound or counterexample claim follows from those unknown results. A separate CaDiCaL CNF run on C8size10 is underway. Complete sources, SMT2, CNF, stdout, stderr remain in scratch/counterexample.
+
+### combinatorial_route full star-forest subcase 2026-11-24T18:14:14.646729+00:00
+
+Checked star_forest_replacement: arbitrary P,L and incidence I with every line incident to at most one point; every exact AO2 circuit C has a no-larger read2 replacement. Proof combines all nonempty point rows as canonical owners with active-input lower bound. Double-count identity star_forest_edge_count converts row-degree sum to active-line count. Includes empty incidence and isolated vertices. Addition-only fragment: scratch combinatorial/starforest-fragment.txt. Combined candidate StarForest.lean exits0; warnings only inherited CoverCertificate deprecations.
+
+- 2026-11-24T18:14:29.730474+00:00: checked auxiliary counterexample structural/TwoJunk.lean (two-junk-003 exit0): five inputs/eight gates, C4-free two-edge star function, AO2+TopForm+exactly two dirty ANDs+pairwise distinct gate functions, but not read-2. Also checked explicit two-gate AO2 read-2 replacement. This refutes only automatic read2 from TopForm/semantic distinctness, NOT the posted existential replacement statement.
+- Finite semantic check: all C4-free bipartite graphs on 3x3,3x4,4x4 inputs having at most four maximal independent sets have each nonisolated vertex in at most two of these sets. Counts:214/728/2249 eligible graphs. This supports a separate four-clause CNF read2 lemma via concept-lattice classification; not Lean checked. Full program/logs structural/four_clauses.py and four-clauses.stdout.
+
+### Search closure
+
+The independent CaDiCaL run on bit-blasted C8 size10 also reached its wall-time cap without a SAT/UNSAT conclusion. No running counterexample-search process remains. Deliverables: kernel-checked CycleSix.lean; exhaustive small-case source/logs; exact SMT queries and models; C8 CNF and both solver logs. Main logical conclusion remains only finite positive evidence. The general L-meta-2584 normalization has not been proved or refuted by this route.
+
+### circuit_route central obstruction — 2026-11-24T18:16:10.511951+00:00
+Compiled TopFormCounterexample.lean: 4-input 6-gate circuit for a 3-edge path, AO2 and C4-free and TopForm, but not read2. Gates (points a,c; lines b,d): g0=a OR c; g1=b OR d; g2=g0 AND g1; g3=b OR c; g4=g3 AND g1; g5=g2 AND g4. The two dirty gates are g2,g4; edge ab necessarily reads b three times. This is not least (a four-gate star cover computes it), so it does not refute L-meta-2584. It rules out deriving read2 merely from TopForm or from two nonnested dirty gates. Counterexample_search reports all471 optimum2x3 circuits have zero dirty gates and C6 optimum8g with≥2dirty below a top is UNSAT; no general leastness proof yet.
+Checked synthesis fragments: cover-fragment.txt packages exact size/function + read2 into replacement_of_star_cover; star-fragment.txt and line-star-fragment.txt specialize to P=1/L=1 from degree budget. Combinatorial_route supplied both lowerbounds and starforest generalization.
+
+### status_review fresh route assessment 2026-11-24T18:16:45.507434+00:00
+
+Checked prime_short_isReadTwo (one short supported witness per prime implicant, not all words). Checked CnfSix:15gate C6 prime-CNF, TopForm,3dirtyANDs, jointread2false but scalarbounds2 true onpair{0,3}; not a refutation since8gate read2replacement exists. Scratch files status-review/prime-short-fragment.txt and CnfSix.lean; full successful logs retained. Strongest useful target is per-edge joint witness, allowing(2,2); global shortword/starcover normalization is stronger. Primary-literature scope checks and exact URLs/date in results/orch/status-research-001.md. Generic single-level normalization is false, but published saturated-graph examples do not meet our bipartite C4-free premise.
+
+- 2026-11-24T18:17:32.137743+00:00: checked stronger `one_junk_per_top_isReadTwo`: TopForm+exact graph function, and each top AND strict cone contains at most one dirty AND, imply read-2. Dirty gates may be arbitrarily numerous globally. Scratch ConeJunk.lean, cone-junk-003 exit0 (one style warning); fragment cone-junk-fragment.txt.

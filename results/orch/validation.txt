@@ -32,3 +32,12 @@ Build completed successfully (18419 jobs).
 Independent review: review-004.txt passed.
 No final theorem; NOT a proof of posted gap.
 TIMING total=14.3 subagents=6
+
+Checkpoint 5: star-forest specialcase, at-most-one-dirty-AND read2, prime-short criterion, star certificates, and auxiliary counterexample.
+Target: 2236 lines.
+Build007: exit 0; Build completed successfully (18419 jobs).
+Independent review: review-005.txt passed.
+Actual checker baseline: REJECTED (no-theorem); required final theorem absent.
+78-declaration axiom audit passed on preceding1509-line checkpoint.
+No full-gap proof; no PR opened.
+TIMING total=20.4 subagents=6

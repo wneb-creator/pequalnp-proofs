@@ -1,0 +1,4 @@
+PASS: 78 public declaration axiom closures checked; all use only propext, Classical.choice, Quot.sound.
+Source SHA256: 44826c108b87c75f4be6981200809e995e90455812f889ebc7cd5b38320b15ca
+Source lines: 1509
+This audit does not establish the posted theorem.
