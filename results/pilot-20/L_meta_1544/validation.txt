@@ -16,5 +16,6 @@ Source provenance: generic helpers and charging proof adapted from checked L-met
 First build failed only on missing namespace opens; complete failed-build diagnostics retained separately.
 PR status: no PR opened. The desk withdrew the step as proved during the final renewal; the checked result is preserved on the fork.
 Sub-agents: proof adaptation and lemma search, counterexample analysis, independent source/artifact review, lease keeping, toolchain setup, and prior proof agents (10 total across the job).
-TIMING total=133.4 subagents=10
+TIMING total=145.9 subagents=10
 Final delivery update: renewal at 2026-11-24 02:40 UTC reported the step withdrawn as proved; prescribed diagnostic retry returned HTTP 410 (no live lease). No duplicate PR was opened and no release was attempted on the expired lease. The final accepted proof and all checker logs were pushed in 5a883d6afb072051e42eba8515779c33bee03ec8 before requesting another gap under the explicit 410 rule.
+Final desk status: two timed retries after the initial gap:null reply both returned the same no-free-unseen-step note and retry_after_s=300. Retry limit reached; no live lease and no PR opened by this job.

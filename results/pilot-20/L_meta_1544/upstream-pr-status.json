@@ -1,0 +1,38 @@
+{
+  "total_prs": 3230,
+  "matching_titles": [
+    {
+      "number": 3210,
+      "title": "L-meta-1544",
+      "html_url": "https://github.com/brilliant-hq/pequalnp-proofs/pull/3210",
+      "state": "closed",
+      "merged_at": null,
+      "updated_at": "2026-11-24T02:37:16Z"
+    },
+    {
+      "number": 3209,
+      "title": "L-meta-1544",
+      "html_url": "https://github.com/brilliant-hq/pequalnp-proofs/pull/3209",
+      "state": "closed",
+      "merged_at": null,
+      "updated_at": "2026-11-24T02:37:13Z"
+    },
+    {
+      "number": 3208,
+      "title": "L-meta-1544",
+      "html_url": "https://github.com/brilliant-hq/pequalnp-proofs/pull/3208",
+      "state": "closed",
+      "merged_at": null,
+      "updated_at": "2026-11-24T02:37:09Z"
+    },
+    {
+      "number": 3199,
+      "title": "L-meta-1544",
+      "html_url": "https://github.com/brilliant-hq/pequalnp-proofs/pull/3199",
+      "state": "closed",
+      "merged_at": "2026-11-24T02:36:26Z",
+      "updated_at": "2026-11-24T02:36:27Z"
+    }
+  ],
+  "json_documents": 1
+}
