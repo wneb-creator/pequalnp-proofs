@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS",
+  "reviewer": "main agent independent of Boyle author",
+  "timestamp_utc": "2026-11-24T02:35:50.217571+00:00",
+  "bundle_sha256": "a293b749f3301af3bf98ab6024364e9a05226d05e37bae55add6381f36c39a02",
+  "bundle_lines": 628,
+  "reviewed_all_lines": true,
+  "proof_review": [
+    "Clean AND rejection at empty input plus OR induction proves every circuit wire is false at empty input.",
+    "The 2n-input lift replaces each selected singleton variable by a private matching conjunction. Lifted graph is the residual ambient graph plus disjoint selected matching edges; all degree-two paths stay in the residual graph, preserving C4-freeness.",
+    "Injective edge images and disjoint matching edges give |E_lift|=|E|+|S|. Cover extraction keeps outside-S left endpoints and reserves one endpoint per matching edge, giving |T|+|S|<=|T_lift|.",
+    "Wire renaming is proved for all natural indices, including forward and invalid reads. Prepended gates are exactly S.card; gate operations and fan-in remain unchanged.",
+    "Evaluation and cleanliness are proved for the translated actual Circuit, not assumed as abstract premises. Lifted singleton rejection follows from exact singleton support and empty rejection; edge acceptance covers both residual edges and matching edges.",
+    "Applying the actual circuit partial-edge theorem and subtracting the added matching gate count proves |S|+|E(G)|+|T|<=gates+1 with T a cover of G."
+  ],
+  "scope": "Clean binary AND/OR actual circuits; target residual edges lie outside S. Does not prove the posted size-21 existence statement or refute arbitrary junk-AND circuits.",
+  "remaining": "Named integrated build and axiom audit required. Virtual constant elimination and ancestor-cone normalization are not included in this new Lean theorem."
+}

@@ -1191,4 +1191,630 @@ lemma clean_target_size (C : PEqualNP.CircuitLowerBounds.Circuit)
   change 22 ≤ C.gates.length
   omega
 
+
+open PEqualNP.CircuitLowerBounds
+
+lemma pos_empty_false {n : ℕ} (K : SimpleGraph (Fin n)) (gs : List Gate)
+    (ops : binaryOps gs) (clean : cleanOn K gs) (w : ℕ) :
+    posRead gs w (fun _ : Fin n => false) = false := by
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    by_cases hv : w < n+1+gs.length
+    · by_cases hb : w < n+1
+      · cases w with
+        | zero => rfl
+        | succ i => exact pos_input gs i (by omega) _
+      · have lo : n+1 ≤ w := by omega
+        cases ha : andPos n gs w with
+        | false =>
+          rw [pos_gate K gs ops clean w lo hv, ha]
+          simp only [Bool.false_eq_true, ite_false]
+          rw [ih (firstWire n gs w) (clamp_lt w _ (by omega)),
+            ih (secondWire n gs w) (clamp_lt w _ (by omega))]
+          rfl
+        | true =>
+          cases he : posRead gs w (fun _ : Fin n => false) with
+          | false => rfl
+          | true =>
+            obtain ⟨u,v,_,hu,_⟩ := pos_clean K gs clean w lo hv ha _ he
+            contradiction
+    · cases w with
+      | zero => rfl
+      | succ i =>
+        change (wiresFrom gs (List.ofFn (fun _ : Fin n => false))).getD i false = false
+        apply List.getD_eq_default
+        rw [length_wiresFrom, List.length_ofFn]
+        omega
+
+lemma circuit_empty_false {n : ℕ} (K : SimpleGraph (Fin n)) (C : Circuit)
+    (ops : binaryOps C.gates) (clean : cleanOn K C.gates) :
+    C.eval (List.ofFn (fun _ : Fin n => false)) = false := by
+  rcases C with ⟨gs,out⟩
+  rw [← root_read]
+  exact pos_empty_false K gs ops clean _
+
+def liftLeft {n : ℕ} (v : Fin n) : Fin (n+n) := ⟨v.val, by omega⟩
+
+def liftRight {n : ℕ} (v : Fin n) : Fin (n+n) := ⟨n+v.val, by omega⟩
+
+lemma liftLeft_inj {n : ℕ} (u v : Fin n) : liftLeft u = liftLeft v ↔ u = v := by
+  constructor
+  · intro h
+    apply Fin.ext
+    exact congrArg (fun z : Fin (n+n) => z.val) h
+  · exact congrArg liftLeft
+
+lemma liftRight_inj {n : ℕ} (u v : Fin n) : liftRight u = liftRight v ↔ u = v := by
+  constructor
+  · intro h
+    apply Fin.ext
+    have hh := congrArg Fin.val h
+    dsimp [liftRight] at hh
+    omega
+  · exact congrArg liftRight
+
+lemma liftLeft_ne_right {n : ℕ} (u v : Fin n) : liftLeft u ≠ liftRight v := by
+  intro h
+  have hh := congrArg Fin.val h
+  dsimp [liftLeft,liftRight] at hh
+  omega
+
+lemma liftRight_ne_left {n : ℕ} (u v : Fin n) : liftRight u ≠ liftLeft v :=
+  Ne.symm (liftLeft_ne_right v u)
+
+lemma lift_cases {n : ℕ} (x : Fin (n+n)) :
+    (∃ v : Fin n, x = liftLeft v) ∨ (∃ v : Fin n, x = liftRight v) := by
+  by_cases h : x.val < n
+  · exact Or.inl ⟨⟨x.val,h⟩,rfl⟩
+  · refine Or.inr ⟨⟨x.val-n,by omega⟩,?_⟩
+    apply Fin.ext
+    dsimp [liftRight]
+    omega
+
+def matchingLiftBits {n : ℕ} (S : Finset (Fin n))
+    (x : Fin (n+n) → Bool) (v : Fin n) : Bool :=
+  if v ∈ S then x (liftLeft v) && x (liftRight v) else x (liftLeft v)
+
+lemma matchingLiftBits_empty {n : ℕ} (S : Finset (Fin n)) :
+    matchingLiftBits S (fun _ => false) = (fun _ => false) := by
+  funext v
+  simp [matchingLiftBits]
+
+lemma matchingLiftBits_left_single {n : ℕ} (S : Finset (Fin n)) (v : Fin n) :
+    matchingLiftBits S (singletonBits (liftLeft v)) =
+      if v ∈ S then (fun _ => false) else singletonBits v := by
+  funext u
+  by_cases hv : v ∈ S <;> by_cases he : u = v <;>
+    simp [matchingLiftBits,singletonBits,liftLeft_inj,liftRight_ne_left,hv,he]
+
+lemma matchingLiftBits_right_single {n : ℕ} (S : Finset (Fin n)) (v : Fin n) :
+    matchingLiftBits S (singletonBits (liftRight v)) = (fun _ => false) := by
+  funext u
+  simp [matchingLiftBits,singletonBits,liftLeft_ne_right]
+
+lemma matchingLiftBits_matching_pair {n : ℕ} (S : Finset (Fin n)) (v : Fin n) :
+    matchingLiftBits S (pairBits (liftLeft v) (liftRight v)) = singletonBits v := by
+  funext u
+  simp [matchingLiftBits,pairBits,singletonBits,liftLeft_inj,liftRight_inj,
+    liftLeft_ne_right,liftRight_ne_left]
+
+lemma matchingLiftBits_outside_pair {n : ℕ} (S : Finset (Fin n))
+    (u v : Fin n) (hu : u ∉ S) (hv : v ∉ S) :
+    matchingLiftBits S (pairBits (liftLeft u) (liftLeft v)) = pairBits u v := by
+  funext z
+  by_cases hz : z ∈ S
+  · have hzu : z ≠ u := by intro h; subst z; contradiction
+    have hzv : z ≠ v := by intro h; subst z; contradiction
+    simp [matchingLiftBits,pairBits,liftLeft_inj,liftRight_ne_left,hz,hzu,hzv]
+  · simp [matchingLiftBits,pairBits,liftLeft_inj,hz]
+
+def matchingLiftGraph {n : ℕ} (S : Finset (Fin n))
+    (K : SimpleGraph (Fin n)) : SimpleGraph (Fin (n+n)) where
+  Adj a b :=
+    (∃ u v, u ∉ S ∧ v ∉ S ∧ K.Adj u v ∧ a = liftLeft u ∧ b = liftLeft v) ∨
+    (∃ v ∈ S, (a = liftLeft v ∧ b = liftRight v) ∨
+      (a = liftRight v ∧ b = liftLeft v))
+  symm := ⟨by
+    intro a b h
+    rcases h with ⟨u,v,hu,hv,hK,ha,hb⟩ | ⟨v,hv,h⟩
+    · exact Or.inl ⟨v,u,hv,hu,hK.symm,hb,ha⟩
+    · exact Or.inr ⟨v,hv,h.elim (fun h => Or.inr ⟨h.2,h.1⟩)
+        (fun h => Or.inl ⟨h.2,h.1⟩)⟩⟩
+  loopless := ⟨by
+    intro a h
+    rcases h with ⟨u,v,hu,hv,hK,ha,hb⟩ | ⟨v,hv,h⟩
+    · have huv := (liftLeft_inj u v).mp (ha.symm.trans hb)
+      subst v
+      exact K.loopless.irrefl u hK
+    · rcases h with ⟨ha,hb⟩ | ⟨ha,hb⟩
+      · exact liftLeft_ne_right v v (ha.symm.trans hb)
+      · exact liftRight_ne_left v v (ha.symm.trans hb)⟩
+
+lemma matchingLiftGraph_left_left {n : ℕ} (S : Finset (Fin n))
+    (K : SimpleGraph (Fin n)) (u v : Fin n) :
+    (matchingLiftGraph S K).Adj (liftLeft u) (liftLeft v) ↔
+      u ∉ S ∧ v ∉ S ∧ K.Adj u v := by
+  simp [matchingLiftGraph,liftLeft_inj,liftLeft_ne_right]
+
+lemma matchingLiftGraph_left_right {n : ℕ} (S : Finset (Fin n))
+    (K : SimpleGraph (Fin n)) (u v : Fin n) :
+    (matchingLiftGraph S K).Adj (liftLeft u) (liftRight v) ↔ u = v ∧ u ∈ S := by
+  simp [matchingLiftGraph,liftLeft_inj,liftRight_inj,liftLeft_ne_right,
+    liftRight_ne_left]
+  constructor
+  · rintro ⟨hv,rfl⟩; exact ⟨rfl,hv⟩
+  · rintro ⟨rfl,hu⟩; exact ⟨hu,rfl⟩
+
+lemma matchingLiftGraph_right_left {n : ℕ} (S : Finset (Fin n))
+    (K : SimpleGraph (Fin n)) (u v : Fin n) :
+    (matchingLiftGraph S K).Adj (liftRight u) (liftLeft v) ↔ u = v ∧ u ∈ S := by
+  rw [SimpleGraph.adj_comm,matchingLiftGraph_left_right]
+  constructor
+  · rintro ⟨h,hv⟩; exact ⟨h.symm,h ▸ hv⟩
+  · rintro ⟨h,hu⟩; exact ⟨h.symm,h ▸ hu⟩
+
+lemma matchingLiftGraph_right_right {n : ℕ} (S : Finset (Fin n))
+    (K : SimpleGraph (Fin n)) (u v : Fin n) :
+    ¬ (matchingLiftGraph S K).Adj (liftRight u) (liftRight v) := by
+  simp [matchingLiftGraph,liftRight_ne_left]
+
+lemma matchingLiftGraph_selected_neighbor {n : ℕ} (S : Finset (Fin n))
+    (K : SimpleGraph (Fin n)) (u : Fin n) (hu : u ∈ S)
+    (b : Fin (n+n)) (h : (matchingLiftGraph S K).Adj (liftLeft u) b) :
+    b = liftRight u := by
+  rcases lift_cases b with ⟨v,rfl⟩ | ⟨v,rfl⟩
+  · exact ((matchingLiftGraph_left_left S K u v).mp h).1 hu |>.elim
+  · have hv := ((matchingLiftGraph_left_right S K u v).mp h).1
+    exact congrArg liftRight hv.symm
+
+lemma matchingLiftGraph_private_neighbor {n : ℕ} (S : Finset (Fin n))
+    (K : SimpleGraph (Fin n)) (u : Fin n) (b : Fin (n+n))
+    (h : (matchingLiftGraph S K).Adj (liftRight u) b) : b = liftLeft u := by
+  rcases lift_cases b with ⟨v,rfl⟩ | ⟨v,rfl⟩
+  · exact congrArg liftLeft ((matchingLiftGraph_right_left S K u v).mp h).1.symm
+  · exact (matchingLiftGraph_right_right S K u v h).elim
+
+lemma matchingLiftGraph_fork_left {n : ℕ} (S : Finset (Fin n))
+    (K : SimpleGraph (Fin n)) (a b c : Fin (n+n)) (hbc : b ≠ c)
+    (hab : (matchingLiftGraph S K).Adj a b)
+    (hac : (matchingLiftGraph S K).Adj a c) :
+    ∃ u : Fin n, u ∉ S ∧ a = liftLeft u := by
+  rcases lift_cases a with ⟨u,rfl⟩ | ⟨u,rfl⟩
+  · by_cases hu : u ∈ S
+    · exact (hbc ((matchingLiftGraph_selected_neighbor S K u hu b hab).trans
+        (matchingLiftGraph_selected_neighbor S K u hu c hac).symm)).elim
+    · exact ⟨u,hu,rfl⟩
+  · exact (hbc ((matchingLiftGraph_private_neighbor S K u b hab).trans
+      (matchingLiftGraph_private_neighbor S K u c hac).symm)).elim
+
+lemma matchingLiftGraph_c4free {n : ℕ} (S : Finset (Fin n))
+    (K : SimpleGraph (Fin n))
+    (hc4 : ∀ a b c d : Fin n, a ≠ c → b ≠ d →
+      ¬ (K.Adj a b ∧ K.Adj b c ∧ K.Adj c d ∧ K.Adj d a)) :
+    ∀ a b c d : Fin (n+n), a ≠ c → b ≠ d →
+      ¬ ((matchingLiftGraph S K).Adj a b ∧ (matchingLiftGraph S K).Adj b c ∧
+        (matchingLiftGraph S K).Adj c d ∧ (matchingLiftGraph S K).Adj d a) := by
+  intro a b c d hac hbd h
+  obtain ⟨a,_,rfl⟩ := matchingLiftGraph_fork_left S K a b d hbd h.1 h.2.2.2.symm
+  obtain ⟨b,_,rfl⟩ := matchingLiftGraph_fork_left S K b (liftLeft a) c hac h.1.symm h.2.1
+  obtain ⟨c,_,rfl⟩ := matchingLiftGraph_fork_left S K c (liftLeft b) d hbd h.2.1.symm h.2.2.1
+  obtain ⟨d,_,rfl⟩ := matchingLiftGraph_fork_left S K d (liftLeft a) (liftLeft c) hac h.2.2.2 h.2.2.1.symm
+  have hac' : a ≠ c := fun he => hac (congrArg liftLeft he)
+  have hbd' : b ≠ d := fun he => hbd (congrArg liftLeft he)
+  simp only [matchingLiftGraph_left_left] at h
+  exact hc4 a b c d hac' hbd' ⟨h.1.2.2,h.2.1.2.2,h.2.2.1.2.2,h.2.2.2.2.2⟩
+
+lemma matchingLiftBits_edge {n : ℕ} (S : Finset (Fin n))
+    (K : SimpleGraph (Fin n)) (x : Fin (n+n) → Bool)
+    (h : edgeTrue K (matchingLiftBits S x)) : edgeTrue (matchingLiftGraph S K) x := by
+  obtain ⟨u,v,hK,hu,hv⟩ := h
+  by_cases hs : u ∈ S
+  · have hh : x (liftLeft u) = true ∧ x (liftRight u) = true := by
+      simpa only [matchingLiftBits,ite_eq_left hs,Bool.and_eq_true] using hu
+    exact ⟨liftLeft u,liftRight u,
+      (matchingLiftGraph_left_right S K u u).mpr ⟨rfl,hs⟩,hh.1,hh.2⟩
+  · by_cases ht : v ∈ S
+    · have hh : x (liftLeft v) = true ∧ x (liftRight v) = true := by
+        simpa only [matchingLiftBits,ite_eq_left ht,Bool.and_eq_true] using hv
+      exact ⟨liftLeft v,liftRight v,
+        (matchingLiftGraph_left_right S K v v).mpr ⟨rfl,ht⟩,hh.1,hh.2⟩
+    · exact ⟨liftLeft u,liftLeft v,
+        (matchingLiftGraph_left_left S K u v).mpr ⟨hs,ht,hK⟩,
+        by simpa only [matchingLiftBits,ite_eq_right hs] using hu,
+        by simpa only [matchingLiftBits,ite_eq_right ht] using hv⟩
+
+lemma matchingLiftGraph_edge_count {n : ℕ} (S : Finset (Fin n))
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    [DecidableRel (matchingLiftGraph S G).Adj]
+    (hout : ∀ u v, G.Adj u v → u ∉ S ∧ v ∉ S) :
+    (matchingLiftGraph S G).edgeFinset.card = G.edgeFinset.card + S.card := by
+  classical
+  let E := G.edgeFinset.image (Sym2.map liftLeft)
+  let M := S.image (fun v => s(liftLeft v,liftRight v))
+  have hiL : Function.Injective (liftLeft (n:=n)) := fun u v h => (liftLeft_inj u v).mp h
+  have hiM : Function.Injective (fun v : Fin n => s(liftLeft v,liftRight v)) := by
+    intro u v h
+    rcases Sym2.eq_iff.mp h with ⟨h,_⟩ | ⟨h,_⟩
+    · exact hiL h
+    · exact (liftLeft_ne_right u v h).elim
+  have he : (matchingLiftGraph S G).edgeFinset = E ∪ M := by
+    ext e
+    constructor
+    · intro he
+      induction e using Sym2.inductionOn with
+      | _ a b =>
+        have h := (matchingLiftGraph S G).mem_edgeFinset.mp he
+        rcases h with ⟨u,v,hu,hv,hG,rfl,rfl⟩ | ⟨v,hv,h⟩
+        · exact Finset.mem_union_left M (Finset.mem_image.mpr
+            ⟨s(u,v),G.mem_edgeFinset.mpr hG,rfl⟩)
+        · apply Finset.mem_union_right E
+          rcases h with ⟨rfl,rfl⟩ | ⟨rfl,rfl⟩
+          · exact Finset.mem_image.mpr ⟨v,hv,rfl⟩
+          · exact Finset.mem_image.mpr ⟨v,hv,Sym2.eq_swap⟩
+    · intro he
+      rcases Finset.mem_union.mp he with he | hm
+      · change e ∈ G.edgeFinset.image (Sym2.map liftLeft) at he
+        obtain ⟨e,hOrig,rfl⟩ := Finset.mem_image.mp he
+        induction e using Sym2.inductionOn with
+        | _ u v =>
+          have hG := G.mem_edgeFinset.mp hOrig
+          exact (matchingLiftGraph S G).mem_edgeFinset.mpr
+            (Or.inl ⟨u,v,(hout u v hG).1,(hout u v hG).2,hG,rfl,rfl⟩)
+      · obtain ⟨v,hv,rfl⟩ := Finset.mem_image.mp hm
+        exact (matchingLiftGraph S G).mem_edgeFinset.mpr
+          (Or.inr ⟨v,hv,Or.inl ⟨rfl,rfl⟩⟩)
+  have hd : Disjoint E M := by
+    apply Finset.disjoint_left.mpr
+    intro e he hm
+    obtain ⟨e,he,rfl⟩ := Finset.mem_image.mp he
+    obtain ⟨v,hv,h⟩ := Finset.mem_image.mp hm
+    induction e using Sym2.inductionOn with
+    | _ u w =>
+      change s(liftLeft v,liftRight v) = s(liftLeft u,liftLeft w) at h
+      rcases Sym2.eq_iff.mp h with ⟨_,h⟩ | ⟨_,h⟩
+      · exact liftRight_ne_left v w h
+      · exact liftRight_ne_left v u h
+  rw [he,Finset.card_union_of_disjoint hd]
+  exact congrArg₂ (· + ·)
+    (Finset.card_image_of_injective _ (Sym2.map.injective hiL))
+    (Finset.card_image_of_injective _ hiM)
+
+lemma matchingLiftGraph_cover_extract {n : ℕ} (S : Finset (Fin n))
+    (G : SimpleGraph (Fin n))
+    (hout : ∀ u v, G.Adj u v → u ∉ S ∧ v ∉ S)
+    (T' : Finset (Fin (n+n)))
+    (hcover : ∀ a b, (matchingLiftGraph S G).Adj a b → a ∈ T' ∨ b ∈ T') :
+    ∃ T : Finset (Fin n), (∀ u v, G.Adj u v → u ∈ T ∨ v ∈ T) ∧
+      T.card + S.card ≤ T'.card := by
+  classical
+  let T := Finset.univ.filter (fun v : Fin n => v ∉ S ∧ liftLeft v ∈ T')
+  let pick := fun v : Fin n => if liftLeft v ∈ T' then liftLeft v else liftRight v
+  let E := T.image liftLeft
+  let M := S.image pick
+  have hiL : Function.Injective (liftLeft (n:=n)) := fun u v h => (liftLeft_inj u v).mp h
+  have hiP : Function.Injective pick := by
+    intro u v h
+    by_cases hu : liftLeft u ∈ T' <;> by_cases hv : liftLeft v ∈ T'
+    · simp only [pick,ite_eq_left hu,ite_eq_left hv] at h
+      exact (liftLeft_inj u v).mp h
+    · simp only [pick,ite_eq_left hu,ite_eq_right hv] at h
+      exact (liftLeft_ne_right u v h).elim
+    · simp only [pick,ite_eq_right hu,ite_eq_left hv] at h
+      exact (liftRight_ne_left u v h).elim
+    · simp only [pick,ite_eq_right hu,ite_eq_right hv] at h
+      exact (liftRight_inj u v).mp h
+  have hE : E ⊆ T' := by
+    intro x hx
+    obtain ⟨v,hv,rfl⟩ := Finset.mem_image.mp hx
+    exact (Finset.mem_filter.mp hv).2.2
+  have hM : M ⊆ T' := by
+    intro x hx
+    obtain ⟨v,hv,rfl⟩ := Finset.mem_image.mp hx
+    have hc := hcover (liftLeft v) (liftRight v)
+      ((matchingLiftGraph_left_right S G v v).mpr ⟨rfl,hv⟩)
+    by_cases h : liftLeft v ∈ T'
+    · simpa only [pick,ite_eq_left h] using h
+    · simpa only [pick,ite_eq_right h] using hc.resolve_left h
+  have hd : Disjoint E M := by
+    apply Finset.disjoint_left.mpr
+    intro x hx hy
+    obtain ⟨u,hu,rfl⟩ := Finset.mem_image.mp hx
+    obtain ⟨v,hv,h⟩ := Finset.mem_image.mp hy
+    by_cases hl : liftLeft v ∈ T'
+    · simp only [pick,ite_eq_left hl] at h
+      have he := (liftLeft_inj v u).mp h
+      exact (Finset.mem_filter.mp hu).2.1 (he ▸ hv)
+    · simp only [pick,ite_eq_right hl] at h
+      exact liftRight_ne_left v u h
+  refine ⟨T,?_,?_⟩
+  · intro u v hG
+    rcases hcover (liftLeft u) (liftLeft v)
+      ((matchingLiftGraph_left_left S G u v).mpr ⟨(hout u v hG).1,(hout u v hG).2,hG⟩)
+      with hu | hv
+    · exact Or.inl (Finset.mem_filter.mpr ⟨Finset.mem_univ _,(hout u v hG).1,hu⟩)
+    · exact Or.inr (Finset.mem_filter.mpr ⟨Finset.mem_univ _,(hout u v hG).2,hv⟩)
+  · have hh := Finset.card_le_card (Finset.union_subset hE hM)
+    rw [Finset.card_union_of_disjoint hd] at hh
+    have he : E.card = T.card := Finset.card_image_of_injective _ hiL
+    have hm : M.card = S.card := Finset.card_image_of_injective _ hiP
+    omega
+
+theorem matchingLiftGraph_bound_extract {n m : ℕ} (S : Finset (Fin n))
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    [DecidableRel (matchingLiftGraph S G).Adj]
+    (hout : ∀ u v, G.Adj u v → u ∉ S ∧ v ∉ S)
+    (T' : Finset (Fin (n+n)))
+    (hcover : ∀ a b, (matchingLiftGraph S G).Adj a b → a ∈ T' ∨ b ∈ T')
+    (hbound : (matchingLiftGraph S G).edgeFinset.card + T'.card ≤ m + S.card + 1) :
+    ∃ T : Finset (Fin n), (∀ u v, G.Adj u v → u ∈ T ∨ v ∈ T) ∧
+      S.card + G.edgeFinset.card + T.card ≤ m + 1 := by
+  obtain ⟨T,hT,hsize⟩ := matchingLiftGraph_cover_extract S G hout T' hcover
+  have he := matchingLiftGraph_edge_count S G hout
+  exact ⟨T,hT,by omega⟩
+
+def renameGate (ρ : ℕ → ℕ) (g : Gate) : Gate := ⟨g.op,g.inputs.map ρ⟩
+
+lemma wiresFrom_rename (ρ : ℕ → ℕ) (gs : List Gate) :
+    ∀ (w w' : List Bool), w.length ≤ w'.length →
+      (∀ i < w.length, ρ i < w'.length) →
+      (∀ i, w.length ≤ i → ρ i = i + (w'.length - w.length)) →
+      (∀ i, w'.getD (ρ i) false = w.getD i false) →
+      ∀ i, (wiresFrom (gs.map (renameGate ρ)) w').getD (ρ i) false =
+        (wiresFrom gs w).getD i false := by
+  induction gs with
+  | nil => intro w w' _ _ _ hr i; exact hr i
+  | cons g gs ih =>
+    intro w w' hl hb hs hr i
+    let v := g.op.eval (g.inputs.map fun j => w.getD j false)
+    have hv : (renameGate ρ g).op.eval
+        ((renameGate ρ g).inputs.map fun j => w'.getD j false) = v := by
+      change g.op.eval ((g.inputs.map ρ).map fun j => w'.getD j false) = v
+      rw [List.map_map]
+      congr 1
+      apply List.map_congr_left
+      intro j _
+      exact hr j
+    have ht : ρ w.length = w'.length := by
+      have h := hs w.length (Nat.le_refl _)
+      omega
+    change (wiresFrom (gs.map (renameGate ρ))
+      (w' ++ [(renameGate ρ g).op.eval
+        ((renameGate ρ g).inputs.map fun j => w'.getD j false)])).getD (ρ i) false =
+      (wiresFrom gs (w ++ [v])).getD i false
+    rw [hv]
+    apply ih (w ++ [v]) (w' ++ [v]) (by simp; omega) _ _ _ i
+    · intro j hj
+      simp only [List.length_append,List.length_singleton] at hj ⊢
+      by_cases hj' : j < w.length
+      · have hh := hb j hj'; omega
+      · have he : j = w.length := by omega
+        rw [he,ht]
+        omega
+    · intro j hj
+      have hh := hs j (by simp only [List.length_append,List.length_singleton] at hj; omega)
+      simpa only [List.length_append,List.length_singleton,Nat.add_sub_add_right] using hh
+    · intro j
+      by_cases hj : j < w.length
+      · rw [List.getD_append _ _ _ _ (hb j hj),List.getD_append _ _ _ _ hj]
+        exact hr j
+      · by_cases he : j = w.length
+        · rw [he,ht,getD_snoc_eq,getD_snoc_eq]
+        · have hh := hs j (by omega)
+          rw [List.getD_eq_default _ _ (by simp only [List.length_append,List.length_singleton]; omega),
+            List.getD_eq_default _ _ (by simp only [List.length_append,List.length_singleton]; omega)]
+
+def matchingPrep {n : ℕ} (vs : List (Fin n)) : List Gate :=
+  vs.map (fun v => ⟨GateOp.and,[v.val,n+v.val]⟩)
+
+def matchingWire {n : ℕ} (vs : List (Fin n)) (i : ℕ) : ℕ :=
+  if hi : i < n then
+    if (⟨i,hi⟩ : Fin n) ∈ vs then n+n+vs.idxOf ⟨i,hi⟩ else i
+  else i+n+vs.length
+
+def matchingCircuit {n : ℕ} (vs : List (Fin n)) (C : Circuit) : Circuit :=
+  ⟨matchingPrep vs ++ C.gates.map (renameGate (matchingWire vs)), matchingWire vs C.output⟩
+
+lemma matchingWire_gate {n : ℕ} (vs : List (Fin n)) (i : ℕ) (hi : n ≤ i) :
+    matchingWire vs i = i+n+vs.length := by
+  simp [matchingWire,show ¬ i < n by omega]
+
+lemma matchingWire_input_lt {n : ℕ} (vs : List (Fin n)) (i : ℕ) (hi : i < n) :
+    matchingWire vs i < n+n+vs.length := by
+  unfold matchingWire
+  rw [dite_eq_left hi]
+  split_ifs with h
+  · have hh := List.idxOf_lt_length_of_mem h
+    omega
+  · omega
+
+lemma matchingPrep_input {n : ℕ} (vs : List (Fin n)) (x : Fin (n+n) → Bool)
+    (i : ℕ) (hi : i < n+n) :
+    (wiresFrom (matchingPrep vs) (List.ofFn x)).getD i false = x ⟨i,hi⟩ := by
+  rw [getD_wiresFrom_lt _ _ _ (by simpa using hi),
+    List.getD_eq_getElem _ _ (by simpa using hi),List.getElem_ofFn]
+
+lemma matchingPrep_gate {n : ℕ} (vs : List (Fin n)) (x : Fin (n+n) → Bool)
+    (j : ℕ) (hj : j < vs.length) :
+    (wiresFrom (matchingPrep vs) (List.ofFn x)).getD (n+n+j) false =
+      (x (liftLeft vs[j]) && x (liftRight vs[j])) := by
+  have h := getD_wiresFrom_gate (matchingPrep vs) (List.ofFn x) j (by simpa [matchingPrep] using hj)
+  have hL : vs[j].val < n+n+j := by have := vs[j].isLt; omega
+  have hR : n+vs[j].val < n+n+j := by have := vs[j].isLt; omega
+  have hL' : vs[j].val < n+n := by have := vs[j].isLt; omega
+  have hR' : n+vs[j].val < n+n := by have := vs[j].isLt; omega
+  simp only [List.length_ofFn,matchingPrep,List.getElem_map,GateOp.eval,
+    List.map_cons,List.map_nil,List.all_cons,List.all_nil,id_eq,
+    ite_eq_left hL,ite_eq_left hR,Bool.and_true] at h
+  change (wiresFrom (matchingPrep vs) (List.ofFn x)).getD (n+n+j) false =
+    ((wiresFrom (matchingPrep vs) (List.ofFn x)).getD vs[j].val false &&
+      (wiresFrom (matchingPrep vs) (List.ofFn x)).getD (n+vs[j].val) false) at h
+  rw [matchingPrep_input vs x _ hL',matchingPrep_input vs x _ hR'] at h
+  exact h
+
+lemma matchingPrep_read {n : ℕ} (vs : List (Fin n)) (x : Fin (n+n) → Bool) (i : ℕ) :
+    (wiresFrom (matchingPrep vs) (List.ofFn x)).getD (matchingWire vs i) false =
+      (List.ofFn (matchingLiftBits vs.toFinset x)).getD i false := by
+  by_cases hi : i < n
+  · rw [List.getD_eq_getElem (List.ofFn (matchingLiftBits vs.toFinset x)) false
+      (by simpa using hi),List.getElem_ofFn]
+    unfold matchingWire
+    rw [dite_eq_left hi]
+    by_cases hm : (⟨i,hi⟩ : Fin n) ∈ vs
+    · have hidx := List.idxOf_lt_length_of_mem hm
+      rw [ite_eq_left hm,matchingPrep_gate vs x _ hidx]
+      have he : vs[vs.idxOf ⟨i,hi⟩]'hidx = (⟨i,hi⟩ : Fin n) := List.getElem_idxOf hidx
+      rw [he]
+      simp [matchingLiftBits,hm]
+    · rw [ite_eq_right hm,matchingPrep_input vs x i (by omega)]
+      simp [matchingLiftBits,hm,liftLeft]
+  · rw [matchingWire_gate vs i (by omega)]
+    rw [List.getD_eq_default _ _ (by simp only [length_wiresFrom,List.length_ofFn,matchingPrep,List.length_map]; omega),
+      List.getD_eq_default _ _ (by simp; omega)]
+
+lemma matchingCircuit_wires {n : ℕ} (vs : List (Fin n)) (C : Circuit)
+    (x : Fin (n+n) → Bool) (i : ℕ) :
+    ((matchingCircuit vs C).wires (List.ofFn x)).getD (matchingWire vs i) false =
+      (C.wires (List.ofFn (matchingLiftBits vs.toFinset x))).getD i false := by
+  change (wiresFrom (matchingPrep vs ++ C.gates.map (renameGate (matchingWire vs)))
+    (List.ofFn x)).getD (matchingWire vs i) false = _
+  rw [wiresFrom_append]
+  apply wiresFrom_rename (matchingWire vs) C.gates
+    (List.ofFn (matchingLiftBits vs.toFinset x)) (wiresFrom (matchingPrep vs) (List.ofFn x))
+  · simp only [length_wiresFrom,List.length_ofFn,matchingPrep,List.length_map]
+    omega
+  · intro j hj
+    simpa only [length_wiresFrom,List.length_ofFn,matchingPrep,List.length_map]
+      using matchingWire_input_lt vs j (by simpa using hj)
+  · intro j hj
+    have hh := matchingWire_gate vs j (by simpa using hj)
+    simp only [length_wiresFrom,List.length_ofFn,matchingPrep,List.length_map]
+    omega
+  · exact matchingPrep_read vs x
+
+lemma matchingCircuit_eval {n : ℕ} (vs : List (Fin n)) (C : Circuit)
+    (x : Fin (n+n) → Bool) :
+    (matchingCircuit vs C).eval (List.ofFn x) =
+      C.eval (List.ofFn (matchingLiftBits vs.toFinset x)) :=
+  matchingCircuit_wires vs C x C.output
+
+lemma matchingCircuit_length {n : ℕ} (vs : List (Fin n)) (C : Circuit) :
+    (matchingCircuit vs C).gates.length = vs.length + C.gates.length := by
+  simp [matchingCircuit,matchingPrep]
+
+lemma matchingCircuit_binary {n : ℕ} (vs : List (Fin n)) (C : Circuit)
+    (ops : binaryOps C.gates) : binaryOps (matchingCircuit vs C).gates := by
+  intro g hg
+  change g ∈ matchingPrep vs ++ C.gates.map (renameGate (matchingWire vs)) at hg
+  rcases List.mem_append.mp hg with hp | ho
+  · obtain ⟨v,hv,rfl⟩ := List.mem_map.mp hp
+    simp
+  · obtain ⟨g,hOrig,rfl⟩ := List.mem_map.mp ho
+    exact ⟨(ops g hOrig).1,by simpa [renameGate] using (ops g hOrig).2⟩
+
+lemma matchingCircuit_clean {n : ℕ} (vs : List (Fin n))
+    (K : SimpleGraph (Fin n)) (C : Circuit) (clean : cleanOn K C.gates) :
+    cleanOn (matchingLiftGraph vs.toFinset K) (matchingCircuit vs C).gates := by
+  intro j x ha hv
+  change ((matchingCircuit vs C).wires (List.ofFn x)).getD (n+n+j.val) false = true at hv
+  by_cases hj : j.val < vs.length
+  · have he : ((matchingCircuit vs C).wires (List.ofFn x)).getD (n+n+j.val) false =
+        (wiresFrom (matchingPrep vs) (List.ofFn x)).getD (n+n+j.val) false := by
+      change (wiresFrom (matchingPrep vs ++ C.gates.map (renameGate (matchingWire vs)))
+        (List.ofFn x)).getD (n+n+j.val) false = _
+      rw [wiresFrom_append]
+      apply getD_wiresFrom_lt
+      simp only [length_wiresFrom,List.length_ofFn,matchingPrep,List.length_map]
+      omega
+    rw [he,matchingPrep_gate vs x j.val hj] at hv
+    have hh : x (liftLeft vs[j.val]) = true ∧ x (liftRight vs[j.val]) = true := by
+      simpa only [Bool.and_eq_true] using hv
+    exact ⟨liftLeft vs[j.val],liftRight vs[j.val],
+      (matchingLiftGraph_left_right vs.toFinset K _ _).mpr
+        ⟨rfl,List.mem_toFinset.mpr (List.getElem_mem hj)⟩,hh.1,hh.2⟩
+  · let t := j.val-vs.length
+    have ht : t < C.gates.length := by
+      have h : j.val < vs.length + C.gates.length := by
+        simpa only [matchingCircuit_length] using j.isLt
+      dsimp [t]
+      omega
+    have hshift : n+t+n+vs.length = n+n+j.val := by dsimp [t]; omega
+    have he := matchingCircuit_wires vs C x (n+t)
+    rw [matchingWire_gate vs (n+t) (by omega),hshift] at he
+    have hval : (C.wires (List.ofFn (matchingLiftBits vs.toFinset x))).getD (n+t) false = true :=
+      he.symm.trans hv
+    change ((matchingPrep vs ++ C.gates.map (renameGate (matchingWire vs)))[j.val]).op = GateOp.and at ha
+    rw [List.getElem_append_right (by simpa [matchingPrep] using Nat.le_of_not_lt hj),
+      List.getElem_map] at ha
+    have hop : (C.gates.get ⟨t,ht⟩).op = GateOp.and := by
+      simpa only [matchingPrep,List.length_map,renameGate,List.get_eq_getElem] using ha
+    exact matchingLiftBits_edge vs.toFinset K x
+      (clean ⟨t,ht⟩ (matchingLiftBits vs.toFinset x) hop hval)
+
+theorem circuit_support_partial_edge_bound (n : ℕ)
+    (K G : SimpleGraph (Fin n)) [DecidableRel K.Adj] [DecidableRel G.Adj]
+    (hc4 : ∀ a b c d : Fin n, a ≠ c → b ≠ d →
+      ¬ (K.Adj a b ∧ K.Adj b c ∧ K.Adj c d ∧ K.Adj d a))
+    (C : Circuit)
+    (ops : ∀ g ∈ C.gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (clean : ∀ (i : Fin C.gates.length) (x : Fin n → Bool),
+      (C.gates.get i).op = GateOp.and →
+      (C.wires (List.ofFn x)).getD (n+i.val) false = true →
+      ∃ u v, K.Adj u v ∧ x u = true ∧ x v = true)
+    (S : Finset (Fin n))
+    (hsupport : ∀ v : Fin n,
+      C.eval (List.ofFn (fun z : Fin n => decide (z = v))) = true ↔ v ∈ S)
+    (hout : ∀ u v, G.Adj u v → u ∉ S ∧ v ∉ S)
+    (haccept : ∀ u v : Fin n, G.Adj u v →
+      C.eval (List.ofFn (fun z : Fin n => decide (z = u ∨ z = v))) = true) :
+    ∃ T : Finset (Fin n), (∀ u v, G.Adj u v → u ∈ T ∨ v ∈ T) ∧
+      S.card + G.edgeFinset.card + T.card ≤ C.gates.length + 1 := by
+  classical
+  let D := matchingCircuit S.toList C
+  have hvs : S.toList.toFinset = S := by simp
+  have hc : cleanOn K C.gates := clean
+  have hz := circuit_empty_false K C ops hc
+  have hev (x : Fin (n+n) → Bool) :
+      D.eval (List.ofFn x) = C.eval (List.ofFn (matchingLiftBits S x)) := by
+    simpa only [D,hvs] using matchingCircuit_eval S.toList C x
+  have hdclean : cleanOn (matchingLiftGraph S K) D.gates := by
+    simpa only [D,hvs] using matchingCircuit_clean S.toList K C hc
+  have hdsingle (a : Fin (n+n)) :
+      D.eval (List.ofFn (fun z : Fin (n+n) => decide (z = a))) = false := by
+    change D.eval (List.ofFn (singletonBits a)) = false
+    rw [hev]
+    rcases lift_cases a with ⟨v,rfl⟩ | ⟨v,rfl⟩
+    · rw [matchingLiftBits_left_single]
+      by_cases hv : v ∈ S
+      · rw [ite_eq_left hv]
+        exact hz
+      · rw [ite_eq_right hv]
+        cases h : C.eval (List.ofFn (singletonBits v)) with
+        | false => rfl
+        | true => exact (hv ((hsupport v).mp h)).elim
+    · rw [matchingLiftBits_right_single]
+      exact hz
+  have hdedge (a b : Fin (n+n)) (h : (matchingLiftGraph S G).Adj a b) :
+      D.eval (List.ofFn (fun z : Fin (n+n) => decide (z = a ∨ z = b))) = true := by
+    change D.eval (List.ofFn (pairBits a b)) = true
+    rw [hev]
+    rcases h with ⟨u,v,hu,hv,hG,rfl,rfl⟩ | ⟨v,hv,h⟩
+    · rw [matchingLiftBits_outside_pair S u v hu hv]
+      exact haccept u v hG
+    · rcases h with ⟨rfl,rfl⟩ | ⟨rfl,rfl⟩
+      · rw [matchingLiftBits_matching_pair]
+        exact (hsupport v).mpr hv
+      · have he : pairBits (liftRight v) (liftLeft v) = pairBits (liftLeft v) (liftRight v) := by
+          funext z
+          simp only [pairBits,or_comm]
+        rw [he,matchingLiftBits_matching_pair]
+        exact (hsupport v).mpr hv
+  obtain ⟨T',hT',hsize⟩ := circuit_partial_edge_bound (n+n)
+    (matchingLiftGraph S K) (matchingLiftGraph S G)
+    (matchingLiftGraph_c4free S K hc4) D (matchingCircuit_binary S.toList C ops)
+    hdclean hdsingle hdedge
+  have hlen : D.gates.length = S.card + C.gates.length := by
+    simp only [D,matchingCircuit_length,Finset.length_toList]
+  exact matchingLiftGraph_bound_extract S G hout T' hT' (by omega)
+
 end PEqualNP.Outside.L_meta_1342_aux

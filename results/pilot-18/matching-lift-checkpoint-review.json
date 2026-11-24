@@ -1,0 +1,179 @@
+{
+  "verdict": "PASS_FOR_PARTIAL_PUSH",
+  "timestamp_utc": "2026-11-24T02:39:53.599643+00:00",
+  "base_commit": "ad90d10ac1b26345aed6f8dc3e3ba680632a9c37",
+  "source_sha256": "5b93f6c260f648d24c1d69a3a31f0561316632e3b6833a4fb2a01a4bc9a3e03e",
+  "source_lines": 1820,
+  "source_bytes": 87882,
+  "changed_relative_paths": [
+    "lean/PEqualNP/Outside/L_meta_1342.lean",
+    "results/pilot-18/validation.txt"
+  ],
+  "untracked_relative_paths": [
+    "results/pilot-18/matching-lift-axioms.stderr",
+    "results/pilot-18/matching-lift-axioms.stdout",
+    "results/pilot-18/matching-lift-independent-review.json",
+    "results/pilot-18/matching-lift-named-build.stderr",
+    "results/pilot-18/matching-lift-named-build.stdout"
+  ],
+  "artifacts": [
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_1342.lean",
+      "sha256": "5b93f6c260f648d24c1d69a3a31f0561316632e3b6833a4fb2a01a4bc9a3e03e",
+      "bytes": 87882
+    },
+    {
+      "path": "results/pilot-18/matching-lift-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/pilot-18/matching-lift-axioms.stdout",
+      "sha256": "18497dba5d5a6a73ff64a9c4eae8c514fd1a5d90dec7dbafa62c36b6c8bd600e",
+      "bytes": 363
+    },
+    {
+      "path": "results/pilot-18/matching-lift-independent-review.json",
+      "sha256": "e4f7b9dfb7362afb6151798b058cef8bf727f88c3f1f747930ab090f7fbf91fa",
+      "bytes": 1808
+    },
+    {
+      "path": "results/pilot-18/matching-lift-named-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/pilot-18/matching-lift-named-build.stdout",
+      "sha256": "c2e1069450c822bc9c82f30963afe662a22e0fb199f739464d768f91587f78ad",
+      "bytes": 53744
+    },
+    {
+      "path": "results/pilot-18/validation.txt",
+      "sha256": "f87a744c585ba292e96d46f6af93d57840d2ba4dcb620f1beb9856679c4dea1d",
+      "bytes": 3634
+    }
+  ],
+  "exact_scratch_copies": [
+    {
+      "path": "results/pilot-18/matching-lift-axioms.stderr",
+      "original": "/tmp/oec/pequalnp-pilot-18/matching-lift-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pilot-18/matching-lift-axioms.stdout",
+      "original": "/tmp/oec/pequalnp-pilot-18/matching-lift-axioms.stdout",
+      "sha256": "18497dba5d5a6a73ff64a9c4eae8c514fd1a5d90dec7dbafa62c36b6c8bd600e"
+    },
+    {
+      "path": "results/pilot-18/matching-lift-independent-review.json",
+      "original": "/tmp/oec/pequalnp-pilot-18/matching-lift-independent-review.json",
+      "sha256": "e4f7b9dfb7362afb6151798b058cef8bf727f88c3f1f747930ab090f7fbf91fa"
+    },
+    {
+      "path": "results/pilot-18/matching-lift-named-build.stderr",
+      "original": "/tmp/oec/pequalnp-pilot-18/matching-lift-named-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/pilot-18/matching-lift-named-build.stdout",
+      "original": "/tmp/oec/pequalnp-pilot-18/matching-lift-named-build.stdout",
+      "sha256": "c2e1069450c822bc9c82f30963afe662a22e0fb199f739464d768f91587f78ad"
+    }
+  ],
+  "full_diff_sha256": "aaefe0cee49c786e60936bdd7ebb68ea44537ff8f1fe043998c54446dd075b57",
+  "integration": {
+    "previous_source_lines": 1194,
+    "previous_source_sha256": "26d5ab36bf060fd5099ede949652c8b6dff5d45051eda713f4f7d01c2d28ba29",
+    "added_lines": 626,
+    "bundle_lines": 628,
+    "bundle_sha256": "a293b749f3301af3bf98ab6024364e9a05226d05e37bae55add6381f36c39a02",
+    "only_opening_and_closing_namespace_lines_removed": true,
+    "all_prior_bytes_preserved": true,
+    "all_existing_baseline_concrete_and_abstract_proofs_preserved": true,
+    "new_helper_namespace_blocks": 0,
+    "exact_bundle_in_successfully_compiled_standalone_source": true
+  },
+  "proof_review": {
+    "reviewed_all_added_lines": true,
+    "theorem": "PEqualNP.Outside.L_meta_1342_aux.circuit_support_partial_edge_bound",
+    "conclusion": "There exists a cover T of G with |S| + |E(G)| + |T| <= C.gates.length + 1.",
+    "hypotheses": [
+      "Actual Circuit gates are AND/OR of fan-in at most two.",
+      "All ANDs are clean for an ambient C4-free graph K.",
+      "S is exactly the singleton support of the output.",
+      "Every edge of G has both endpoints outside S and its pair input is accepted."
+    ],
+    "checks": [
+      "Empty-input rejection is derived from actual circuit semantics and cleanliness, not assumed.",
+      "The lifted graph is the residual ambient graph plus a disjoint matching on selected vertices; vertices participating in a four-cycle must all lie in the residual graph.",
+      "Injective Sym2 edge images and disjoint matching edges establish the exact edge count.",
+      "Cover extraction separately reserves one distinct endpoint for each matching edge, disjoint from the residual cover.",
+      "Wire renaming preserves values for every natural index, including arbitrary forward/out-of-range reads; shifted gate outputs remain correctly positioned.",
+      "The actual lifted circuit prepends exactly |S| matching ANDs, preserves fan-in/operations, evaluation, and ambient cleanliness.",
+      "Lifted singleton rejection uses exact singleton support; residual edges and matching edges are both shown accepted.",
+      "Applying the earlier checked concrete partial-edge bound and canceling the added |S| gates yields the stated support-cost bound."
+    ],
+    "no_exact_target_output_assumption": true,
+    "no_assumed_abstract_model_or_lift_semantics": true,
+    "full_S_note": "No proper-support restriction is needed for the actual Circuit theorem because there is no free TRUE input. This does not remove the SAT model full-support exemption."
+  },
+  "validation": {
+    "standalone": {
+      "exit_code_recorded": 0,
+      "wall_seconds": 32.60344378100035,
+      "source_sha256": "90f368d788913301729060a060ab7f34f286101b71cefc5873f794d7c5c9effd",
+      "reviewer_rerun": false
+    },
+    "named_build": {
+      "exit_code_reported_by_main": 0,
+      "module_seconds": 49,
+      "output": "Build completed successfully (5109 jobs).",
+      "stderr_bytes": 0,
+      "reviewer_rerun": false
+    },
+    "axiom_audit": {
+      "exit_code_reported_by_main": 0,
+      "theorems": [
+        "circuit_support_partial_edge_bound",
+        "matchingCircuit_wires",
+        "matchingCircuit_clean"
+      ],
+      "only_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "complete_stdout_checked": true,
+      "stderr_bytes": 0
+    },
+    "posted_gap_checker": "NOT RUN; final module-named theorem absent"
+  },
+  "red_team": {
+    "allowed_imports_unchanged": true,
+    "no_forbidden_commands_tokens_strings_attributes": true,
+    "limit_options_valid": true,
+    "no_global_instances_or_added_axioms": true,
+    "only_named_Lean_and_related_validation_artifacts_changed": true,
+    "source_and_log_hash_bindings_pass": true,
+    "credential_and_lease_value_scan_passed": true,
+    "claims_match_explicit_binary_clean_circuit_hypotheses": true,
+    "no_acceptance_or_exhaustion_claims": true
+  },
+  "limitations": [
+    "Partial checkpoint, not an at-most-21 witness or refutation for circuits with junk ANDs.",
+    "Virtual-constant elimination and ancestor-cone/search normalization remain outside this new Lean theorem.",
+    "Two pre-existing helper namespace blocks remain; consolidate for a final proof PR.",
+    "Main independent-review JSON records its historical pre-build remaining tasks; the packaged completed build/axiom evidence now resolves those tasks."
+  ],
+  "actions": {
+    "repository_mutated": false,
+    "build_started": false,
+    "worker_actions": false,
+    "lease_calls": false
+  },
+  "Sub-agents": "none",
+  "TIMING": {
+    "total_minutes": 141.1,
+    "subagents": 0
+  }
+}

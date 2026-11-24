@@ -2,22 +2,24 @@ gap: L-meta-1342
 shard: 17 of 19
 status: PARTIAL; no proof or refutation of the posted at-most-21 statement.
 file: lean/PEqualNP/Outside/L_meta_1342.lean
-lines: 1194
-sha256: 26d5ab36bf060fd5099ede949652c8b6dff5d45051eda713f4f7d01c2d28ba29
+lines: 1820
+sha256: 5b93f6c260f648d24c1d69a3a31f0561316632e3b6833a4fb2a01a4bc9a3e03e
 
 The file retains the complete 22-gate circuit and its exact full-input
 specification proof. It also proves abstract and actual-Circuit empty-support
 partial-edge lower bounds in a C4-free ambient graph. The accepted edge graph
 need not equal the whole output function; cleanliness is required only for the
-ambient graph. The proper-support
-restriction/gate-deletion argument and search normalizations remain mathematical
-reviews, not Lean formalizations.
+ambient graph. The matching-variable lift now proves the stronger actual-Circuit support-cost
+bound: for exact singleton support S and accepted target edges outside S, there
+is a target vertex cover T with |S| + |E| + |T| <= gates + 1. It requires clean
+binary AND/OR gates and a C4-free ambient graph. Virtual-constant elimination
+and ancestor-cone/search normalizations remain mathematical reviews.
 
 Build: lake build +PEqualNP.Outside.L_meta_1342
 Lean: 4.36.0; pinned Mathlib cache fetched; no lake update or Mathlib source build.
 Build exit: 0
 Build output: Build completed successfully (5109 jobs).
-Latest named module: 44 seconds. Full stdout/stderr in concrete-named-build2.*.
+Latest named module: 49 seconds. Full stdout/stderr in matching-lift-named-build.*.
 Axiom audit for baseline: propext and Quot.sound; size uses no axioms.
 New abstract-lemma axiom audit: propext, Classical.choice, Quot.sound only.
 Full audit output is preserved in partial-bound-axioms.*.
@@ -40,6 +42,10 @@ at least seven vertices. The cover bound uses two triangles and a five-cycle.
 Consequently every clean circuit using only AND/OR gates of fan-in at most two,
 accepting the target edges and rejecting singletons, has size at least 22.
 This does not cover circuits with junk ANDs.
+The matching-lift construction adds 626 lines, bringing the file to 1820 lines.
+Its complete proof was independently reviewed by the main agent. Its final
+bound, wire-renaming and cleanliness axiom audits use only the permitted three
+standard axioms; complete output is in matching-lift-axioms.*.
 
 Search: seven independently reviewed formula-tail overapproximations, with
 strict-OR, residual-edge and exact-ancestor cost restrictions. No production
@@ -50,4 +56,4 @@ SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 2 inherited-model agents for mathematical search and independent validation/proof engineering
-TIMING total=135.5 subagents=2
+TIMING total=141.3 subagents=2
