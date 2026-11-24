@@ -1,0 +1,46 @@
+{
+  "scope": "Session support and no-gap desk responses; no new proof result.",
+  "runner_review": "Independent Proof_strategy static review PASS, exact runner SHA45ae81210005180015a7f0ebf4db369db6d9be41e8d37f79915bd8c8a7bdaa86. Syntax/help checks only; no end-to-end build/checker launch or survival guarantee.",
+  "records": [
+    {
+      "file": "detached-runner/README.txt",
+      "sha256": "3680f5b615882ea003e442b9e5f22fbc842474188066253a919b8a0db42e5fc0",
+      "bytes": 3473
+    },
+    {
+      "file": "detached-runner/command.sh",
+      "sha256": "4e67b21c3730092bc4da9ac7c3aeab866093af33bed8a8e485f227dd3f77b667",
+      "bytes": 129
+    },
+    {
+      "file": "detached-runner/driver-syntax.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "detached-runner/driver-syntax.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "detached-runner/runner-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "detached-runner/runner-help.stdout",
+      "sha256": "80257df1b2cba2c1d6f88592e4b0e1834f90588edebc09159b7c1d03496eb436",
+      "bytes": 363
+    },
+    {
+      "file": "detached-runner/runner.py",
+      "sha256": "45ae81210005180015a7f0ebf4db369db6d9be41e8d37f79915bd8c8a7bdaa86",
+      "bytes": 8440
+    },
+    {
+      "file": "detached-runner/validation.json",
+      "sha256": "fbaf9b4defbaf6ab71df3ee1116edd29223bd75232f4b02e66eed7d38d46e10b",
+      "bytes": 648
+    }
+  ]
+}

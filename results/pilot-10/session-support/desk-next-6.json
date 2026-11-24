@@ -1,0 +1,5 @@
+{
+ "gap": null,
+ "note": "every open gap is held right now; ask again in a few minutes",
+ "retry_after_s": 300
+}

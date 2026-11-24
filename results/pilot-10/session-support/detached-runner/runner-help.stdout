@@ -1,0 +1,11 @@
+usage: runner.py [-h] {launch,status,cancel,_worker} ...
+
+Detached, observable runner for this job's ordinary build and checker only.
+
+positional arguments:
+  {launch,status,cancel,_worker}
+    launch              launch one authorized normal build or checker
+    _worker             ==SUPPRESS==
+
+options:
+  -h, --help            show this help message and exit

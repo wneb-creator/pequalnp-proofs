@@ -1,0 +1,25 @@
+[
+  {
+    "check": "runner-help",
+    "exit": 0
+  },
+  {
+    "check": "driver-syntax",
+    "exit": 0
+  },
+  {
+    "file": "/tmp/oec/pequalnp-pilot-10/toolchain/detached/runner.py",
+    "sha256": "45ae81210005180015a7f0ebf4db369db6d9be41e8d37f79915bd8c8a7bdaa86",
+    "bytes": 8440
+  },
+  {
+    "file": "/tmp/oec/pequalnp-pilot-10/toolchain/detached/command.sh",
+    "sha256": "4e67b21c3730092bc4da9ac7c3aeab866093af33bed8a8e485f227dd3f77b667",
+    "bytes": 129
+  },
+  {
+    "file": "/tmp/oec/pequalnp-pilot-10/toolchain/detached/README.txt",
+    "sha256": "3680f5b615882ea003e442b9e5f22fbc842474188066253a919b8a0db42e5fc0",
+    "bytes": 3473
+  }
+]

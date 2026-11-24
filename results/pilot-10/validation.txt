@@ -1,43 +1,20 @@
-Research snapshot at 2026-11-23T22:15:32.440234+00:00
-Branch: pnp/pilot-10. Authorized partial-results preservation.
-L-meta-904 shard1: exhausted 8,388,608 orientations; no counterexample; not a universal Lean proof.
-L-meta-951: 32 compiled Lean research artifacts with explicit scope restrictions.
-Full posted proof: not obtained. Full posted refutation: not obtained.
-Repository checker acceptance: not obtained; checker executable build succeeded.
-All source hashes and successful full diagnostics are in L-meta-951/manifest.json.
-No final-proof cleanup pass applies yet. Exact compiled source bytes are preserved.
+Final session status at 2026-11-24T00:23:03.295373+00:00
+Job: msg-5649d59baed2b4bd8474d0c4
+Branch: pnp/pilot-10; only origin fork was pushed.
 Sub-agents: independent_search; literal_not_restriction; independent_theory; proof_strategy; single_not_reduction; toolchain_setup; fresh_full_proof.
-TIMING total=277 subagents=7
+TIMING total=289 subagents=7
 
-L-meta-951 released reason other;32 compiled partials preserved.
-L-meta-984 assigned shard28; generic Formal984 certificate machinery compiles.
-No full984 proof/refutation or checker acceptance yet.
-L-meta-984 now3 compiled artifacts, including exact conjuncts6 and8 only.
-L-meta-984 now4 compiled artifacts; graph-facts addition has no circuit bound.
-L-meta-984 now6 compiled artifacts, including a certificate benchmark covering four distinct states.
-L-meta-984 now7 compiled artifacts; all31 finite-computation inputs and logs archived.
-L-meta-984 now10 compiled artifacts, including generic orbit/fast-score helpers.
-L-meta-984 now17 compiled artifacts; full posted theorem remains pending.
-L-meta-984 now26 compiled artifacts; full posted theorem remains pending.
-L-meta-984 now27 compiled artifacts; all31 quotient computations also archived.
-L-meta-984 now30 compiled artifacts, including compact-coverage soundness.
-L-meta-984 now34 compiled artifacts, including the complete cached certificate for conjunct8.
-L-meta-984 now35 compiled artifacts. Full cached build interrupted by environment restart; no full build/checker verdict.
-L-meta-984 now36 compiled artifacts, including fixed-score evaluation equivalence.
-L-meta-984 now42 compiled artifacts; complete compact conjunct8 passes, full31 build pending.
-L-meta-984 now45 compiled artifacts; full31 compact build remains pending.
-L-meta-984 now48 compiled artifacts; full31 grouped/pattern v5 build pending.
-Grouped computation and final source-format audit preserved; full v5 build pending.
-Second environment restart interrupted full v5 before a verdict; unchanged candidate restarted. All48 compiled984artifacts remain preserved.
-L-meta-984 now49 compiled artifacts; generic early-score barrier passes. Candidate v7b source and complete raw-score measurements preserved; full posted proof still pending.
-L-meta-984 now50 compiled artifacts; complete early-score conjunct8 passes. Full v7b build started22:44:49Z; checker not run. Previous v5 build deliberately interrupted for this reviewed optimization.
-Audited uncompiled v8/v9 fallback sources preserved. Full v7b continues without a verdict; compiled984artifact count remains50.
-Full v7b build ended with Lake1/Lean137 (killed) after1562s, following high memory use. No full theorem or checker verdict. Smaller-chunk literal-route v9 is prepared; complete literal G8 integration is now compiling.
-L-meta-984 now51 compiled artifacts; literal-route G8 integration passes. Third environment restart interrupted full v9 shortly after launch; no full theorem or checker verdict.
-Independently audited uncompiled v10 Gray-walk/reordered-score fallback preserved. Full v9 continues; compiled984artifact count remains51 and checker has not run.
-Desk withdrew L-meta-984 as proved at23:52UTC; required diagnostic returnedHTTP410. Own timer/build stopped. All51 compiled components and final candidates preserved; no local full proof/checker success claimed.
-L-meta-1425 assigned; first compiled artifact is a small LRAT capability probe only. Full posted theorem/checker remain pending.
-L-meta-1425 now2 compiled mathematical artifacts; all ten explicit monotone upper bounds pass. LRAT diagnostic confirms only the three allowed axioms. Lower bounds and full checker pending.
-L-meta-1425 now3 compiled artifacts; unrestricted circuit normalization and finite barrier soundness pass. Target-specific certificates and full checker pending.
-L-meta-1425 now4 compiled artifacts; tight-budget and grouped coverage soundness pass. Independently audited finite search data (16611 states,594642 successor occurrences) preserved; concrete Lean certificates and full checker pending.
-Desk withdrew L-meta-1425 as proved at00:10:37UTC; diagnosticHTTP410. All4 compiled mathematical artifacts, audited finite data, and full uncompiled291236byte candidate preserved. No full checker verdict.
+No complete posted proof or refutation was accepted locally. No proof PR was opened.
+No active lease or Lean build remains.
+
+L-meta-904: searched 8,388,608 orientations; no counterexample; not a universal Lean proof. Released exhausted.
+L-meta-951:32 compiled research artifacts preserved with explicit scope restrictions. Full posted statement not proved/refuted; released other.
+L-meta-984:51 compiled research artifacts preserved. Desk withdrew the gap as proved at23:52UTC. Final whole-file v9 build was interrupted after withdrawal; no complete local build/checker verdict. Earlier v7b ended Lake1/Lean137. All complete outputs, source variants and withdrawal diagnostics are preserved under L-meta-984/.
+L-meta-1425:4 compiled mathematical artifacts plus one separate diagnostic passed (exit0): tiny LRAT tautology, ten explicit monotone upper bounds, generic circuit/finite-barrier framework, and tight/grouped coverage. The diagnostic confirms only propext, Classical.choice, Quot.sound.
+L-meta-1425 full candidate: UNCOMPILED. No local acceptance-checker run, full proof, or refutation. Desk withdrew it as proved at2026-11-24T00:10:37Z despite renewal through00:29:07.088Z; required diagnostic returnedHTTP410.
+Full1425-tight-v1.lean:291236bytes,3544lines,SHA2569980e6a19faf9bbbe03ce9fc9729f1ff6563092006ce7286ed9b54b16ec5d382. Independent static source/data review PASS only. Cleanup not run because the full build/checker gate was not met; candidate lines before/after remain3544/3544 unchanged.
+All1425source variants, successful/failed compile outputs, exact statuses and uncompiled candidates are preserved under L-meta-1425/. The corrected T8 probes also remain uncompiled.
+
+After preserving/pushing the withdrawn1425 work, the desk returned no gap. Two retries respected the requested300-second intervals. Final exact note: every open gap is held right now; ask again in a few minutes
+All three no-gap responses are preserved under session-support/. No other pilot lease was used or released.
+The session-support detached runner passed syntax and independent static review only; no build/checker was launched with it, and disconnect survival is not guaranteed.
