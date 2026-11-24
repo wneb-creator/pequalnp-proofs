@@ -1,0 +1,378 @@
+{
+  "actions_not_taken": [
+    "stage",
+    "commit",
+    "push",
+    "build",
+    "solve",
+    "desk_or_lease_call",
+    "repository_edit"
+  ],
+  "advisories": [
+    "Validator test archive retains absolute scratch fixture paths; it is retained validation evidence, not a self-contained fresh-clone test harness.",
+    "Control exit codes are recorded evidence checked against their logs; this review did not rerun the checker or tests.",
+    "Upstream source provenance was checked against saved GitHub API blob records, without making a fresh network request."
+  ],
+  "claims_review": {
+    "22_gate_control_not_claimed_to_meet_21_bound": true,
+    "PASS_reviews_describe_encoding_and_tool_controls_only": true,
+    "mathematical_normalization_not_Lean_certified_is_explicit": true,
+    "no_assigned_shard_certificate_checked_is_explicit": true,
+    "no_posted_gap_acceptance_claim": true,
+    "no_search_SAT_UNSAT_or_exhaustion_claim": true
+  },
+  "copies_checked": [
+    {
+      "byte_identical": true,
+      "packaged_path": "dominance-review.json",
+      "scratch_path": "math-analysis/prefix-dominance-review.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "dominance-review.md",
+      "scratch_path": "math-analysis/prefix-dominance-review.md"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "dominance-validation.json",
+      "scratch_path": "dominance-validation.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "search_l1342_shard17_dominance.py",
+      "scratch_path": "search_l1342_shard17_dominance.py"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "copychain-review.json",
+      "scratch_path": "math-analysis/prefix-copychain-review.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "copychain-review.md",
+      "scratch_path": "math-analysis/prefix-copychain-review.md"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "copychain-validation.json",
+      "scratch_path": "copychain-validation.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "search_l1342_shard17_copychain.py",
+      "scratch_path": "search_l1342_shard17_copychain.py"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-checker-build.stdout.txt",
+      "scratch_path": "dsr-default-build.stdout"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-checker-valid.stdout.txt",
+      "scratch_path": "dsr-valid.stdout"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-checker-negative.stdout.txt",
+      "scratch_path": "dsr-negative.stdout"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-checker-empty-sat.stdout.txt",
+      "scratch_path": "dsr-empty-sat.stdout"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-checker-rat-prefix.stdout.txt",
+      "scratch_path": "dsr-rat-prefix.stdout"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-checker-build.stderr.txt",
+      "scratch_path": "dsr-default-build.stderr"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-checker-valid.stderr.txt",
+      "scratch_path": "dsr-valid.stderr"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-checker-negative.stderr.txt",
+      "scratch_path": "dsr-negative.stderr"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-checker-empty-sat.stderr.txt",
+      "scratch_path": "dsr-empty-sat.stderr"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-checker-rat-prefix.stderr.txt",
+      "scratch_path": "dsr-rat-prefix.stderr"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-checker-source-manifest.json",
+      "scratch_path": "dsr-source-manifest.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-checker-validation.json",
+      "scratch_path": "dsr-validation.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "validate_sat_candidate.py",
+      "scratch_path": "lean-setup/validate_sat_candidate.py"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "validator-tests.py",
+      "scratch_path": "lean-setup/test_validate_sat_candidate.py"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "validator-tests.stdout.txt",
+      "scratch_path": "lean-setup/validator-tests.stdout.txt"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "validator-tests.stderr.txt",
+      "scratch_path": "lean-setup/validator-tests.stderr.txt"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "validator-validation.json",
+      "scratch_path": "lean-setup/validator-validation.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "validator.md",
+      "scratch_path": "lean-setup/VALIDATE-SAT-CANDIDATE.md"
+    }
+  ],
+  "diff_check": "PASS",
+  "dsr_check": {
+    "Makefile_matches_saved_upstream_API_blob": true,
+    "all_source_blobs_match_saved_upstream_API_responses": true,
+    "binary_matches_validation_sha256": true,
+    "build_log_uses_default_width": true,
+    "build_stderr_empty": true,
+    "control_logs_match_recorded_verdicts": true,
+    "manifest_sources": 34,
+    "negative_control": "exit 1 recorded; empty-clause rejection in stderr",
+    "positive_controls": "s VERIFIED UNSAT",
+    "source_or_binary_executed_by_this_review": false,
+    "source_sha256_and_git_blob_sha1_match": true,
+    "valid_without_empty_clause_correctly_not_UNSAT": true
+  },
+  "gap": "L-meta-1342",
+  "head_commit": "69ccc05169cf30a5911d8f5a38dbe44b46de6721",
+  "lean_changes": false,
+  "reviewed_at_utc": "2026-11-24T01:33:01.413569+00:00",
+  "reviewed_source_bindings": {
+    "copychain": "PASS",
+    "dominance": "PASS",
+    "validator_main_independent_review": "PASS"
+  },
+  "scope": "Independent review of checkpoint2 tracked diff and untracked artifacts; permitted checkpoint push, not a proof PR or acceptance verdict",
+  "sensitive_data_review": {
+    "findings": 0,
+    "manual_artifact_review": "No credential values or lease identifiers found; no sensitive matches were printed or saved.",
+    "patterns": [
+      "github_token",
+      "authorization_value",
+      "private_key",
+      "url_userinfo",
+      "secret_assignment",
+      "lease_identifier",
+      "uuid"
+    ],
+    "pending_files_scanned": 29
+  },
+  "snapshots": [
+    {
+      "bytes": 2378,
+      "path": "results/pilot-18/search/README.md",
+      "sha256": "c7fc714183f7e507029439e985724b9eac16186800a40eda240add22f1902d55",
+      "status": " M"
+    },
+    {
+      "bytes": 1764,
+      "path": "results/pilot-18/validation.txt",
+      "sha256": "f344b305ccbce99fbea7131684dac2ff456f8236e6cce77ab9e75e3e1ca343b2",
+      "status": " M"
+    },
+    {
+      "bytes": 2302,
+      "path": "results/pilot-18/search/copychain-review.json",
+      "sha256": "e533929d0f150eacf1c1ec4b1d41eedcfd6ad2e7b70817dddc2267e7ba836e9e",
+      "status": "??"
+    },
+    {
+      "bytes": 5356,
+      "path": "results/pilot-18/search/copychain-review.md",
+      "sha256": "dfa8f3131895d064fae05158f271d378c041c7606fdf239bd308e3215f6a1180",
+      "status": "??"
+    },
+    {
+      "bytes": 201,
+      "path": "results/pilot-18/search/copychain-validation.json",
+      "sha256": "6183885aff14ffbff44c45e6f440e55f0c96263557c2f7ab1994edfc2cbb330f",
+      "status": "??"
+    },
+    {
+      "bytes": 2489,
+      "path": "results/pilot-18/search/dominance-review.json",
+      "sha256": "3aeb7a67b4779ad0f7fde0c1cd69cf229902c1d23ab53470f9748b0e8f3721de",
+      "status": "??"
+    },
+    {
+      "bytes": 5457,
+      "path": "results/pilot-18/search/dominance-review.md",
+      "sha256": "84a56f312aea4109be50b802b9927befdcbd17075ae562a4a586546fff335591",
+      "status": "??"
+    },
+    {
+      "bytes": 280,
+      "path": "results/pilot-18/search/dominance-validation.json",
+      "sha256": "7ead1594a3805ed9868a4b111fffce9de9703c9d5e8c767629b40428b0a24481",
+      "status": "??"
+    },
+    {
+      "bytes": 19248,
+      "path": "results/pilot-18/search/search_l1342_shard17_copychain.py",
+      "sha256": "10c61b79e145de7a08066408124f752c1c82ea8ef9b19871382bc484132a378b",
+      "status": "??"
+    },
+    {
+      "bytes": 18283,
+      "path": "results/pilot-18/search/search_l1342_shard17_dominance.py",
+      "sha256": "b8ab4bcdc08c7da501a15bed2978ffa9e6c2b3203a72564e6e7a938c23ce6ce2",
+      "status": "??"
+    },
+    {
+      "bytes": 0,
+      "path": "results/pilot-18/search/streaming-checker-build.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "??"
+    },
+    {
+      "bytes": 2114,
+      "path": "results/pilot-18/search/streaming-checker-build.stdout.txt",
+      "sha256": "89867e3490cfee95a882057d0ac1c3e0a012967c5b99c747145916413744af1f",
+      "status": "??"
+    },
+    {
+      "bytes": 0,
+      "path": "results/pilot-18/search/streaming-checker-empty-sat.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "??"
+    },
+    {
+      "bytes": 404,
+      "path": "results/pilot-18/search/streaming-checker-empty-sat.stdout.txt",
+      "sha256": "7993b366e88646ecacda1903d807542e5ab8c557c567dde9956d024a65d4b4c6",
+      "status": "??"
+    },
+    {
+      "bytes": 48,
+      "path": "results/pilot-18/search/streaming-checker-negative.stderr.txt",
+      "sha256": "b428e7aa111f6895a761c8d3796b1e4bcd4a06aa06823ba39c05adb5d72c4768",
+      "status": "??"
+    },
+    {
+      "bytes": 340,
+      "path": "results/pilot-18/search/streaming-checker-negative.stdout.txt",
+      "sha256": "0d14a5fcc07485450ccd1ccca9df86fe318f0671c15412145376824f08452f2e",
+      "status": "??"
+    },
+    {
+      "bytes": 0,
+      "path": "results/pilot-18/search/streaming-checker-rat-prefix.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "??"
+    },
+    {
+      "bytes": 413,
+      "path": "results/pilot-18/search/streaming-checker-rat-prefix.stdout.txt",
+      "sha256": "3a672fe594ed09f29acab7e59aef47018976493234c02dab02f9e3a0b61c0420",
+      "status": "??"
+    },
+    {
+      "bytes": 6983,
+      "path": "results/pilot-18/search/streaming-checker-source-manifest.json",
+      "sha256": "4413150845ebb73c9200f5d50d562723b317346cd77363cfd2b440cb61f9a7d3",
+      "status": "??"
+    },
+    {
+      "bytes": 0,
+      "path": "results/pilot-18/search/streaming-checker-valid.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "??"
+    },
+    {
+      "bytes": 413,
+      "path": "results/pilot-18/search/streaming-checker-valid.stdout.txt",
+      "sha256": "3a672fe594ed09f29acab7e59aef47018976493234c02dab02f9e3a0b61c0420",
+      "status": "??"
+    },
+    {
+      "bytes": 1107,
+      "path": "results/pilot-18/search/streaming-checker-validation.json",
+      "sha256": "7f5d900e5a49cab77515e3e57f65b5662cb1811eb8971ab8f27dcee273cdba1f",
+      "status": "??"
+    },
+    {
+      "bytes": 22665,
+      "path": "results/pilot-18/search/validate_sat_candidate.py",
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+      "status": "??"
+    },
+    {
+      "bytes": 1156,
+      "path": "results/pilot-18/search/validator-independent-review.json",
+      "sha256": "8fa526289399c94e13447caa5ed46c2b8f11be24eeca3ab9547b6428c3ff5352",
+      "status": "??"
+    },
+    {
+      "bytes": 21664,
+      "path": "results/pilot-18/search/validator-tests.py",
+      "sha256": "c6bd9c45a66b94cd3b7056aaae8892a8b373a716952303565f453ed5a0ab8bff",
+      "status": "??"
+    },
+    {
+      "bytes": 3843,
+      "path": "results/pilot-18/search/validator-tests.stderr.txt",
+      "sha256": "2e2b46b34821b2710a865cf9a7c102bb46a91cb3d8eeeb6797c58080411156ec",
+      "status": "??"
+    },
+    {
+      "bytes": 0,
+      "path": "results/pilot-18/search/validator-tests.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "??"
+    },
+    {
+      "bytes": 3317,
+      "path": "results/pilot-18/search/validator-validation.json",
+      "sha256": "4ee501aa642f09e5b5256b6e77ff119d2421d17eaf19f13f6f84604dd5d0a9c4",
+      "status": "??"
+    },
+    {
+      "bytes": 4572,
+      "path": "results/pilot-18/search/validator.md",
+      "sha256": "3bba45fc8edf0d3339cec80d3018c75d366b778c72ddb4ac3e3a01602689d74d",
+      "status": "??"
+    }
+  ],
+  "staged_changes": false,
+  "subagent_count": 0,
+  "subagents": "none",
+  "total_session_minutes": 74.24,
+  "tracked_files_modified": 2,
+  "untracked_files": 27,
+  "verdict": "PASS"
+}

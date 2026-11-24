@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "mathematical_review": "PASS",
+  "implementation_review": "PASS",
+  "source": "/tmp/oec/pequalnp-pilot-18/search_l1342_shard17_copychain.py",
+  "source_sha256": "10c61b79e145de7a08066408124f752c1c82ea8ef9b19871382bc484132a378b",
+  "prior_dominance_functions_AST_identical": true,
+  "added_variables": 0,
+  "added_clauses": 412,
+  "forbidden_source_clauses": 328,
+  "forward_copy_clauses": 84,
+  "original_base_clauses_unchanged": true,
+  "generated_clause_sequence_exact": true,
+  "copy_patterns_checked": 131072,
+  "permitted_final_chain_patterns": 18,
+  "suffix_gate17_unrestricted_by_copy_cut": true,
+  "lex_and_distinct_integration_checked": true,
+  "case_audits": {
+    "meet5": {
+      "variables": 6165,
+      "clauses": 82338,
+      "sha256": "996523c52275ec59e1004d3797d20fd73692e33b3d1afc88c771e5483acbe4b6"
+    },
+    "or1meet4": {
+      "variables": 6165,
+      "clauses": 81903,
+      "sha256": "a00417e1b2085482b4e216dd3f09f039ecb2666efecc03ea038b216c2d5afe27"
+    },
+    "or2meet3": {
+      "variables": 6165,
+      "clauses": 81901,
+      "sha256": "3e386e8f583b1da2c40ea444e0dd27db76c532ce805ffcd9ff2b5a06c1505682"
+    },
+    "meet1or1meet3": {
+      "variables": 6165,
+      "clauses": 81468,
+      "sha256": "cf6d75bf17e962cb12c005ac0273ccf3997a6e616a9300cd63835308eecca7c0"
+    },
+    "meet1or2meet2": {
+      "variables": 6165,
+      "clauses": 81902,
+      "sha256": "ab8d4f1772f2e4820812c87861fbce81221ce0122865d4297cf6c70621ac362c"
+    },
+    "meet2or1meet2": {
+      "variables": 6165,
+      "clauses": 81467,
+      "sha256": "bdea53260c420b62dfeaa510e81b57a35ca4d785f8f626d57b5ef66356dbd78a"
+    },
+    "meet3or2": {
+      "variables": 6165,
+      "clauses": 81901,
+      "sha256": "87f1b080bd0839940284e6ba4f510fa4c13c2d252d5b9e76c088f2ab8d2bed40"
+    }
+  },
+  "normalization": "Delete aliases/duplicates and normalize/prune/sort the noncopy core; append a live OR-copy chain from its highest gate, or an input/constant when empty. Padding preserves productivity, description distinctness, lex order and dominance.",
+  "solver_started": false,
+  "CNF_generated_or_modified": false,
+  "repository_modified": false,
+  "limitations": [
+    "Mathematical normalization is not Lean-certified.",
+    "No runtime benefit or SAT/UNSAT verdict claimed."
+  ]
+}

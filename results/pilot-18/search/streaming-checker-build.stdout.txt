@@ -1,0 +1,26 @@
+make: Entering directory '/tmp/oec/pequalnp-pilot-18/solver/dsr-trim'
+gcc -O3 -flto -MMD -MP -c src/bitmask.c -o bin/bitmask.o
+gcc -O3 -flto -MMD -MP -c src/cli.c -o bin/cli.o
+gcc -O3 -flto -MMD -MP -c src/cnf_parser.c -o bin/cnf_parser.o
+gcc -O3 -flto -MMD -MP -c src/global_data.c -o bin/global_data.o
+gcc -O3 -flto -MMD -MP -c src/global_parsing.c -o bin/global_parsing.o
+gcc -O3 -flto -MMD -MP -c src/hash_table.c -o bin/hash_table.o
+gcc -O3 -flto -MMD -MP -c src/lit_occ.c -o bin/lit_occ.o
+gcc -O3 -flto -MMD -MP -c src/logger.c -o bin/logger.o
+gcc -O3 -flto -MMD -MP -c src/range_array.c -o bin/range_array.o
+gcc -O3 -flto -MMD -MP -c src/sr_parser.c -o bin/sr_parser.o
+gcc -O3 -flto -MMD -MP -c src/timer.c -o bin/timer.o
+gcc -O3 -flto -MMD -MP -c src/xio.c -o bin/xio.o
+gcc -O3 -flto -MMD -MP -c src/xmalloc.c -o bin/xmalloc.o
+gcc -O3 -flto -MMD -MP -c src/lsr-check/lsr_data.c -o bin/lsr_data.o
+gcc -O3 -flto -MMD -MP -c src/lsr-check/lsr_err.c -o bin/lsr_err.o
+gcc -O3 -flto -MMD -MP -c src/dsr-trim.c -o bin/dsr-trim.o
+gcc -O3 -flto -MMD -MP -c src/lsr-check.c -o bin/lsr-check.o
+gcc -O3 -flto -MMD -MP -c src/compress.c -o bin/compress.o
+gcc -O3 -flto bin/lsr-check.o bin/bitmask.o bin/cli.o bin/cnf_parser.o bin/global_data.o bin/global_parsing.o bin/hash_table.o bin/lit_occ.o bin/logger.o bin/range_array.o bin/sr_parser.o bin/timer.o bin/xio.o bin/xmalloc.o bin/lsr_data.o bin/lsr_err.o -o bin/lsr-check
+gcc -O3 -flto bin/compress.o bin/bitmask.o bin/cli.o bin/cnf_parser.o bin/global_data.o bin/global_parsing.o bin/hash_table.o bin/lit_occ.o bin/logger.o bin/range_array.o bin/sr_parser.o bin/timer.o bin/xio.o bin/xmalloc.o bin/lsr_data.o bin/lsr_err.o -o bin/compress
+gcc -O3 -flto bin/dsr-trim.o bin/bitmask.o bin/cli.o bin/cnf_parser.o bin/global_data.o bin/global_parsing.o bin/hash_table.o bin/lit_occ.o bin/logger.o bin/range_array.o bin/sr_parser.o bin/timer.o bin/xio.o bin/xmalloc.o bin/lsr_data.o bin/lsr_err.o -o bin/dsr-trim
+ln -sf bin/compress compress
+ln -sf bin/lsr-check lsr-check
+ln -sf bin/dsr-trim dsr-trim
+make: Leaving directory '/tmp/oec/pequalnp-pilot-18/solver/dsr-trim'

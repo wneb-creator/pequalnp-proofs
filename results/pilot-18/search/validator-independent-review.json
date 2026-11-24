@@ -1,0 +1,19 @@
+{
+  "verdict": "PASS",
+  "reviewer": "main agent, independent of Jason who authored the validator",
+  "source_sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+  "checks": [
+    "Read the complete model parser, full clause check, gate decoder, truth tables, requested-constraint checks, constant propagation and dead-gate renumbering.",
+    "Signed complete models and exact CNF hashes are required; every clause is checked.",
+    "Original and normalized outputs independently match all 2048 target rows.",
+    "Tagged constant references avoid Boolean/integer aliasing; normalized gate count never increases.",
+    "All prefix flags including cleanliness, productivity, dominance and copy-chain shape are checked semantically.",
+    "A validated 22-gate fixture is explicitly marked as failing the posted 21-gate limit.",
+    "Validator does not run Lean and does not claim checker acceptance."
+  ],
+  "tests": "Authored test suite reports 30 passed; exact test stdout/stderr retained.",
+  "limitations": [
+    "SAT witness validation is not Lean kernel checking.",
+    "The posted existence statement remains unproved."
+  ]
+}

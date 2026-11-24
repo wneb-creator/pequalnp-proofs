@@ -27,5 +27,9 @@ No SAT or UNSAT verdict yet; full generator and reviews are in search/.
 Checker executable build: PASS; posted-gap checker remains NOT RUN.
 Axiom audit: only propext and Quot.sound (size lemma uses no axioms).
 
+Strong-search checkpoint: dominance/copy-chain variants and full SAT validator reviewed.
+SAT validator tests: 30 passed. Streaming certificate checker controls: 4 passed.
+No SAT/UNSAT search verdict and no posted-gap checker acceptance yet.
+
 Sub-agents: 2 inherited-model agents for mathematical search and independent validation/proof engineering
-TIMING total=60.0 subagents=2
+TIMING total=73.0 subagents=2

@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "mathematical_review": "PASS",
+  "implementation_review": "PASS",
+  "source": "/tmp/oec/pequalnp-pilot-18/search_l1342_shard17_dominance.py",
+  "source_sha256": "b8ab4bcdc08c7da501a15bed2978ffa9e6c2b3203a72564e6e7a938c23ce6ce2",
+  "base_build_delta": "Only exposes prefix tables; existing functions otherwise AST-identical",
+  "original_base_clauses_unchanged": true,
+  "added_variables": 2176,
+  "added_clauses": 4488,
+  "earlier_gate_pairs": 136,
+  "exact_new_clause_sequence_checked": true,
+  "projected_four_row_assignments": 1024,
+  "lex_flag_reallocation_checked": true,
+  "optional_distinct_prefix_integration_checked": true,
+  "case_audits": {
+    "meet5": {
+      "variables": 6165,
+      "clauses": 81926,
+      "sha256": "5fdc7d0eba2456a9cf7e974a6635a6fa2c2dba34b6e059048982067eab302b14"
+    },
+    "or1meet4": {
+      "variables": 6165,
+      "clauses": 81491,
+      "sha256": "f3fbd0e474910915848a3d4fffbb3e6e357ab2b9cc7d711764bea71e812964cf"
+    },
+    "or2meet3": {
+      "variables": 6165,
+      "clauses": 81489,
+      "sha256": "ceab02ff342fb5f850d411cb937b5bc8cee89865e604301ab7d3f6bbec3d3eac"
+    },
+    "meet1or1meet3": {
+      "variables": 6165,
+      "clauses": 81056,
+      "sha256": "2e4590c4dd7e7ed278e94fc3958ab5e297380d92c96d3cbe7cad97bba8db84ed"
+    },
+    "meet1or2meet2": {
+      "variables": 6165,
+      "clauses": 81490,
+      "sha256": "f7b871e22d687de44da28697456ec837ac979facea45b909b163ab3191b2e003"
+    },
+    "meet2or1meet2": {
+      "variables": 6165,
+      "clauses": 81055,
+      "sha256": "bfffc94bc1373a285ce68000eecfb7b0c1a8c7b0425e36ae256a9270c0008726"
+    },
+    "meet3or2": {
+      "variables": 6165,
+      "clauses": 81489,
+      "sha256": "632d4d491c4bcb766c3bffe6ac05831266169e6e1301e4a170250e794d03ad9e"
+    }
+  },
+  "normalization": "Replace dominated prefix AND by an OR copy of the earlier clean wire; edge-row values only increase, independent-input values stay unchanged; prune/OR-pad/re-sort; prefix-AND count strictly decreases.",
+  "scope": "Only clean prefix; boundary correctness preserves full monotone target. No pointwise equality of intermediate positive values is claimed.",
+  "performance": "Expected to remove semantic edge-coverage redundancy; runtime benefit unmeasured.",
+  "solver_started": false,
+  "CNF_generated_or_modified": false,
+  "repository_modified": false,
+  "limitations": [
+    "Mathematical normalization is not Lean-certified.",
+    "No SAT/UNSAT or exhaustion verdict."
+  ]
+}

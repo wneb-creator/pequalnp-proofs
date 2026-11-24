@@ -1,0 +1,11 @@
+c CNF file path: /tmp/oec/pequalnp-pilot-18/drat-satisfiable-control.cnf
+c No DSR file path provided, using stdin.
+c Using a STREAMING parsing strategy.
+c Doing FORWARDS proof checking.
+c The CNF formula has 3 clauses and 2 variables.
+c Parsing the CNF took 0.000 secs
+c Checking proof...
+c Proof checking took 0.000 secs
+s VALID
+c A valid proof, without an empty clause.
+c Total runtime took 0.000 secs

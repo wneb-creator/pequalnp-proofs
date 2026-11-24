@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "checker": "dsr-trim, unchanged upstream default-width build",
+  "binary_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+  "mode": "--forward; confirmed streaming in source and runtime output",
+  "cases": [
+    {
+      "case": "valid",
+      "exit": 0,
+      "verdicts": [
+        "s VERIFIED UNSAT"
+      ],
+      "expected_UNSAT_acceptance": true,
+      "result": "PASS"
+    },
+    {
+      "case": "negative",
+      "exit": 1,
+      "verdicts": [],
+      "expected_UNSAT_acceptance": false,
+      "result": "PASS"
+    },
+    {
+      "case": "empty-sat",
+      "exit": 0,
+      "verdicts": [
+        "s VALID"
+      ],
+      "expected_UNSAT_acceptance": false,
+      "result": "PASS"
+    },
+    {
+      "case": "rat-prefix",
+      "exit": 0,
+      "verdicts": [
+        "s VERIFIED UNSAT"
+      ],
+      "expected_UNSAT_acceptance": true,
+      "result": "PASS"
+    }
+  ],
+  "unused_build": "long mode was not used because compiler reported truncation of deletion markers",
+  "scope": "Tool validation only; no assigned-shard proof has been checked."
+}

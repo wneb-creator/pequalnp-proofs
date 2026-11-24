@@ -1,0 +1,35 @@
+test_absorption_and_dead_subgraph (__main__.ValidatorTests.test_absorption_and_dead_subgraph) ... ok
+test_all_constant_normalization_and_target_rejection (__main__.ValidatorTests.test_all_constant_normalization_and_target_rejection) ... ok
+test_check_last_clause_and_signed_tautology (__main__.ValidatorTests.test_check_last_clause_and_signed_tautology) ... ok
+test_cli_failure_saves_no_candidate_even_under_optimized_python (__main__.ValidatorTests.test_cli_failure_saves_no_candidate_even_under_optimized_python) ... ok
+test_constant_alias_gadgets_around_exact_target (__main__.ValidatorTests.test_constant_alias_gadgets_around_exact_target) ... ok
+test_dimacs_comments_multiline_and_multiple_clauses (__main__.ValidatorTests.test_dimacs_comments_multiline_and_multiple_clauses) ... ok
+test_full_negative_literals_and_consistent_duplicates (__main__.ValidatorTests.test_full_negative_literals_and_consistent_duplicates) ... ok
+test_identity_alias_chain_and_boolean_integer_separation (__main__.ValidatorTests.test_identity_alias_chain_and_boolean_integer_separation) ... ok
+test_junk_default_true_and_tail7_override (__main__.ValidatorTests.test_junk_default_true_and_tail7_override) ... ok
+test_last_output_live_and_last_operation (__main__.ValidatorTests.test_last_output_live_and_last_operation) ... ok
+test_new_prefix_flags_need_boundary_and_boolean_values (__main__.ValidatorTests.test_new_prefix_flags_need_boundary_and_boolean_values) ... ok
+test_prefix_clean_even_when_junk_enforcement_disabled (__main__.ValidatorTests.test_prefix_clean_even_when_junk_enforcement_disabled) ... ok
+test_prefix_copy_chain_positive_including_gate_zero (__main__.ValidatorTests.test_prefix_copy_chain_positive_including_gate_zero) ... ok
+test_prefix_copy_chain_reject_wrong_source_or_interruption (__main__.ValidatorTests.test_prefix_copy_chain_reject_wrong_source_or_interruption) ... ok
+test_prefix_dominance_positive_and_skip_unclean_earlier_wires (__main__.ValidatorTests.test_prefix_dominance_positive_and_skip_unclean_earlier_wires) ... ok
+test_prefix_dominance_reject_and_or_and_minimal_edge_failures (__main__.ValidatorTests.test_prefix_dominance_reject_and_or_and_minimal_edge_failures) ... ok
+test_reject_bad_missing_and_duplicate_status (__main__.ValidatorTests.test_reject_bad_missing_and_duplicate_status) ... ok
+test_reject_cnf_hash_and_metadata_shape (__main__.ValidatorTests.test_reject_cnf_hash_and_metadata_shape) ... ok
+test_reject_conflicting_model (__main__.ValidatorTests.test_reject_conflicting_model) ... ok
+test_reject_header_mismatch_and_unterminated_clause (__main__.ValidatorTests.test_reject_header_mismatch_and_unterminated_clause) ... ok
+test_reject_invalid_and_empty_clause (__main__.ValidatorTests.test_reject_invalid_and_empty_clause) ... ok
+test_reject_lex_left_and_operation_order (__main__.ValidatorTests.test_reject_lex_left_and_operation_order) ... ok
+test_reject_missing_out_of_range_and_unterminated_models (__main__.ValidatorTests.test_reject_missing_out_of_range_and_unterminated_models) ... ok
+test_reject_prefix_sort (__main__.ValidatorTests.test_reject_prefix_sort) ... ok
+test_reject_selector_domain_and_ambiguity (__main__.ValidatorTests.test_reject_selector_domain_and_ambiguity) ... ok
+test_reject_unproductive_and_duplicate_prefix (__main__.ValidatorTests.test_reject_unproductive_and_duplicate_prefix) ... ok
+test_second_junk_requirement (__main__.ValidatorTests.test_second_junk_requirement) ... ok
+test_sorted_lex_live_productive_positive (__main__.ValidatorTests.test_sorted_lex_live_productive_positive) ... ok
+test_suffix_shape (__main__.ValidatorTests.test_suffix_shape) ... ok
+test_verified_v2_real_model_and_artifacts (__main__.ValidatorTests.test_verified_v2_real_model_and_artifacts) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.842s
+
+OK

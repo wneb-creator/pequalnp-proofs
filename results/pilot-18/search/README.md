@@ -22,3 +22,18 @@ program here contains those components and reproduces the running CNFs exactly.
 No lease identifiers or authentication data are included.
 
 Sub-agents: 2 inherited-model agents for mathematical search and independent validation/proof engineering
+
+The dominance and copy-chain variants add independently reviewed restrictions.
+Invoke either script with `--distinct-prefix OUTPUT_DIRECTORY` to reproduce its
+seven cases. Four weaker solver states were paused while four stronger cases
+run; a pause or interruption is not an UNSAT verdict.
+
+`validate_sat_candidate.py INSTANCE.cnf KISSAT.stdout` checks the complete model,
+every clause, both full truth tables, and constant/alias elimination. Its report
+separately says whether the normalized circuit meets the 21-gate limit.
+
+The streaming certificate checker is the unchanged default-width C build from
+https://github.com/ccodel/dsr-trim (read 2026-11-24). Source blob hashes, build
+logs, and positive/negative controls are included. It must return the explicit
+UNSAT verdict; exit zero with `s VALID` does not establish unsatisfiability.
+No assigned-shard certificate has yet been checked.

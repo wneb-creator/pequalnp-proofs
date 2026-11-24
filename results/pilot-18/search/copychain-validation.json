@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "local_gate_description_and_implication_checks": 17264,
+  "new_variables": 0,
+  "new_clauses": 412,
+  "scope": "Exact CNF-clause relation; normalization reviewed separately."
+}

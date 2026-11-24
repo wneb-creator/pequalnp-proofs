@@ -1,0 +1,91 @@
+{
+  "files": {
+    "VALIDATE-SAT-CANDIDATE.md": {
+      "bytes": 4572,
+      "sha256": "3bba45fc8edf0d3339cec80d3018c75d366b778c72ddb4ac3e3a01602689d74d"
+    },
+    "test_validate_sat_candidate.py": {
+      "bytes": 21664,
+      "sha256": "c6bd9c45a66b94cd3b7056aaae8892a8b373a716952303565f453ed5a0ab8bff"
+    },
+    "validate_sat_candidate.py": {
+      "bytes": 22665,
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529"
+    },
+    "validator-tests.stderr.txt": {
+      "bytes": 3843,
+      "sha256": "2e2b46b34821b2710a865cf9a7c102bb46a91cb3d8eeeb6797c58080411156ec"
+    },
+    "validator-tests.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "gap": "L-meta-1342",
+  "kit_message_id": "msg-0b0439aeec8fdfde3e2102c4",
+  "lean_or_gap_checker_run": false,
+  "new_checks": [
+    "prefix_dominance",
+    "prefix_copy_chain",
+    "prefix_clean_even_if_enforce_junk_false"
+  ],
+  "normalization_fixture": {
+    "aliases": 14,
+    "constant_folded": 4,
+    "dead_pruned": 1,
+    "normalized_size": 22,
+    "original_size": 41
+  },
+  "real_fixture_report": {
+    "artifacts": {
+      "normalized_candidate": "/tmp/oec/pequalnp-pilot-18/lean-setup/validator-tests/real/fixed-cover22.validated.normalized.json",
+      "original_candidate": "/tmp/oec/pequalnp-pilot-18/lean-setup/validator-tests/real/fixed-cover22.validated.original.json",
+      "validation_report": "/tmp/oec/pequalnp-pilot-18/lean-setup/validator-tests/real/fixed-cover22.validated.json"
+    },
+    "assigned_variables": 4800,
+    "clauses_checked": 99415,
+    "consistent_duplicate_model_literals": 0,
+    "gap": "L-meta-1342",
+    "lean_checked": false,
+    "meets_posted_gate_limit": false,
+    "normalized_gate_count": 22,
+    "original_gate_count": 22,
+    "posted_gate_limit": 21,
+    "provenance": {
+      "cnf_sha256": "edecf18f569456ed2f28a234045f50f4e39a550edda3a4ec0da9535688016788",
+      "kissat_stdout_sha256": "5df7c17af586960911bf34e7c6c45c6b0fb0a6d572732b057647d3c541f8162a",
+      "metadata_sha256": "9f8da76d950404155aad023fcddf18310215781a3fb066bd390daeeef6b17ec0"
+    },
+    "requested_constraints": {
+      "enforce_junk": true,
+      "first_junk": -1,
+      "junk_check": "skipped: enforce_junk=false or first_junk=-1",
+      "last_op": null,
+      "last_output": false,
+      "live": false,
+      "prefix_clean_check": "skipped: first_junk=-1",
+      "prefix_copy_chain": false,
+      "prefix_distinct": false,
+      "prefix_dominance": false,
+      "prefix_lex": false,
+      "prefix_sort": false,
+      "productive_prefix": false,
+      "second_junk": false
+    },
+    "sat_status": "SATISFIABLE",
+    "scope": "SAT model and circuit validation only; not gap-checker acceptance",
+    "status": "VALIDATED",
+    "verified_inputs_per_circuit": 2048
+  },
+  "recorded_at_utc": "2026-11-24T01:26:26.404635+00:00",
+  "scope": "SAT witness validator implementation and tests only; no claim of a 21-gate witness or global refutation",
+  "solver_run": false,
+  "status": "PASS",
+  "subagent_count": 0,
+  "subagents": "none",
+  "test_command": "python3 /tmp/oec/pequalnp-pilot-18/lean-setup/test_validate_sat_candidate.py",
+  "test_exit_code": 0,
+  "test_seconds": 0.842,
+  "tests_passed": 30,
+  "total_session_minutes": 67.66
+}

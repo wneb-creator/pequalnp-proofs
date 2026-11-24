@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "projected_support_edge_assignments": 1024,
+  "original_base_clause_sequence_unchanged": true,
+  "additional_variables": 2176,
+  "additional_clauses": 4488,
+  "scope": "CNF cut projection and integration; mathematical normalization separately reviewed."
+}

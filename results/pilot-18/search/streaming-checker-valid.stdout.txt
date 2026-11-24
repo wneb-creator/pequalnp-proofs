@@ -1,0 +1,11 @@
+c CNF file path: /tmp/oec/pequalnp-pilot-18/drat-nontrivial.cnf
+c No DSR file path provided, using stdin.
+c Using a STREAMING parsing strategy.
+c Doing FORWARDS proof checking.
+c The CNF formula has 4 clauses and 2 variables.
+c Parsing the CNF took 0.000 secs
+c Detected that the DSR proof is in binary format.
+c Checking proof...
+c Proof checking took 0.000 secs
+s VERIFIED UNSAT
+c Total runtime took 0.000 secs
