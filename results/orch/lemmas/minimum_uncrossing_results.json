@@ -1,0 +1,384 @@
+[
+  {
+    "at": "2026-11-24T18:25:19.040117+00:00",
+    "case": "iso3_1",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        0
+      ]
+    ],
+    "size": 1,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 0.001
+  },
+  {
+    "at": "2026-11-24T18:25:19.110973+00:00",
+    "case": "iso3_3",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "size": 2,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 0.033
+  },
+  {
+    "at": "2026-11-24T18:25:19.177868+00:00",
+    "case": "iso3_7",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "size": 3,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 0.033
+  },
+  {
+    "at": "2026-11-24T18:25:19.234780+00:00",
+    "case": "iso3_10",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "size": 3,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 0.025
+  },
+  {
+    "at": "2026-11-24T18:25:19.331378+00:00",
+    "case": "iso3_11",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "size": 4,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 0.058
+  },
+  {
+    "at": "2026-11-24T18:25:19.425214+00:00",
+    "case": "iso3_14",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "size": 4,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 0.055
+  },
+  {
+    "at": "2026-11-24T18:25:19.589604+00:00",
+    "case": "iso3_15",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "size": 5,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 0.132
+  },
+  {
+    "at": "2026-11-24T18:25:19.787268+00:00",
+    "case": "iso3_29",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "size": 5,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 0.159
+  },
+  {
+    "at": "2026-11-24T18:25:19.942271+00:00",
+    "case": "iso3_78",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "size": 5,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 0.113
+  },
+  {
+    "at": "2026-11-24T18:25:20.777696+00:00",
+    "case": "iso3_79",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "size": 6,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 0.79
+  },
+  {
+    "at": "2026-11-24T18:25:21.058768+00:00",
+    "case": "iso3_84",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "size": 5,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 0.248
+  },
+  {
+    "at": "2026-11-24T18:25:21.940518+00:00",
+    "case": "iso3_85",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "size": 6,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 0.847
+  },
+  {
+    "at": "2026-11-24T18:25:29.770408+00:00",
+    "case": "iso3_87",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "size": 7,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 7.794
+  },
+  {
+    "at": "2026-11-24T18:25:37.874790+00:00",
+    "case": "iso3_94",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "size": 7,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unsat",
+    "seconds": 8.05
+  },
+  {
+    "at": "2026-11-24T18:25:57.968626+00:00",
+    "case": "iso3_238",
+    "N": 3,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "size": 8,
+    "query": "some nonedge-dirty AND in minimum circuit",
+    "result": "unknown",
+    "seconds": 20.01,
+    "reason": "timeout"
+  }
+]

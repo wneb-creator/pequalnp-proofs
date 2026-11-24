@@ -24,3 +24,6 @@
 2026-11-24T18:21:57.416966+00:00 — minimum-dirty normal form and conditional star cleanup integrated; named build3763lines passed
 
 - 2026-11-24 18:29 UTC: named partial3993lines passes build and axiom audit; exact checker honestly rejects missing final theorem. Reviewed formula singleton normalization ready for preservation. Automatic renewal18:27 expires18:47:16Z.
+2026-11-24T18:29:50.311744+00:00 — all3 minimum-dirty census finished (14UNSAT; cycle6 first UNKNOWN then symmetric UNSAT); stronger single-gate obstruction Lean-checked.
+
+- 2026-11-24 18:34 UTC: independent review approved local formula filter identity, exhaustive one-gate context obstruction, and minimum-dirty 3x3 computational symmetry. Preserving artifacts; no full proof claim.

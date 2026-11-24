@@ -1,0 +1,21 @@
+(:max-memory              28.20
+ :memory                  18.50
+ :num-allocs              15243707
+ :rlimit-count            601307
+ :sat-backjumps           360
+ :sat-conflicts           361
+ :sat-decisions           792
+ :sat-del-clause          4816
+ :sat-elim-clauses        3267
+ :sat-elim-literals       3447
+ :sat-minimized-lits      1954
+ :sat-mk-clause-2ary      6995
+ :sat-mk-clause-nary      6808
+ :sat-mk-var              2978
+ :sat-propagations-2ary   138705
+ :sat-propagations-nary   113383
+ :sat-subs-resolution-dyn 47
+ :sat-units               1469
+ :solve-eqs-elim-vars     10
+ :solve-eqs-steps         249
+ :time                    0.06)

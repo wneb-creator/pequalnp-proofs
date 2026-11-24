@@ -1,0 +1,598 @@
+; benchmark generated from python API
+(set-info :status unknown)
+(declare-fun b0 () (_ BitVec 4))
+(declare-fun a0 () (_ BitVec 4))
+(declare-fun and0 () Bool)
+(declare-fun w0 () (_ BitVec 64))
+(declare-fun b1 () (_ BitVec 4))
+(declare-fun a1 () (_ BitVec 4))
+(declare-fun and1 () Bool)
+(declare-fun w1 () (_ BitVec 64))
+(declare-fun b2 () (_ BitVec 4))
+(declare-fun a2 () (_ BitVec 4))
+(declare-fun and2 () Bool)
+(declare-fun w2 () (_ BitVec 64))
+(declare-fun b3 () (_ BitVec 4))
+(declare-fun a3 () (_ BitVec 4))
+(declare-fun and3 () Bool)
+(declare-fun w3 () (_ BitVec 64))
+(declare-fun b4 () (_ BitVec 4))
+(declare-fun a4 () (_ BitVec 4))
+(declare-fun and4 () Bool)
+(declare-fun w4 () (_ BitVec 64))
+(declare-fun b5 () (_ BitVec 4))
+(declare-fun a5 () (_ BitVec 4))
+(declare-fun and5 () Bool)
+(declare-fun w5 () (_ BitVec 64))
+(declare-fun b6 () (_ BitVec 4))
+(declare-fun a6 () (_ BitVec 4))
+(declare-fun and6 () Bool)
+(declare-fun w6 () (_ BitVec 64))
+(declare-fun b7 () (_ BitVec 4))
+(declare-fun a7 () (_ BitVec 4))
+(declare-fun and7 () Bool)
+(declare-fun w7 () (_ BitVec 64))
+(assert
+ (bvult a0 b0))
+(assert
+ (bvult b0 (_ bv6 4)))
+(assert
+ (let (($x52 (= b0 (_ bv4 4))))
+ (let ((?x53 (ite $x52 (_ bv18446462603027742720 64) (_ bv18446744069414584320 64))))
+ (let (($x51 (= b0 (_ bv3 4))))
+ (let ((?x54 (ite $x51 (_ bv18374966859414961920 64) ?x53)))
+ (let (($x50 (= b0 (_ bv2 4))))
+ (let ((?x55 (ite $x50 (_ bv17361641481138401520 64) ?x54)))
+ (let (($x49 (= b0 (_ bv1 4))))
+ (let ((?x56 (ite $x49 (_ bv14757395258967641292 64) ?x55)))
+ (let (($x48 (= b0 (_ bv0 4))))
+ (let ((?x57 (ite $x48 (_ bv12297829382473034410 64) ?x56)))
+ (let (($x40 (= a0 (_ bv4 4))))
+ (let ((?x43 (ite $x40 (_ bv18446462603027742720 64) (_ bv18446744069414584320 64))))
+ (let (($x37 (= a0 (_ bv3 4))))
+ (let ((?x44 (ite $x37 (_ bv18374966859414961920 64) ?x43)))
+ (let (($x34 (= a0 (_ bv2 4))))
+ (let ((?x45 (ite $x34 (_ bv17361641481138401520 64) ?x44)))
+ (let (($x31 (= a0 (_ bv1 4))))
+ (let ((?x46 (ite $x31 (_ bv14757395258967641292 64) ?x45)))
+ (let (($x28 (= a0 (_ bv0 4))))
+ (let ((?x47 (ite $x28 (_ bv12297829382473034410 64) ?x46)))
+ (let ((?x61 (bvor ?x47 ?x57)))
+ (= w0 (ite and0 (bvand ?x47 ?x57) ?x61))))))))))))))))))))))))
+(assert
+ (bvult a1 b1))
+(assert
+ (bvult b1 (_ bv7 4)))
+(assert
+ (let (($x87 (= b1 (_ bv5 4))))
+ (let ((?x88 (ite $x87 (_ bv18446744069414584320 64) w0)))
+ (let (($x86 (= b1 (_ bv4 4))))
+ (let ((?x89 (ite $x86 (_ bv18446462603027742720 64) ?x88)))
+ (let (($x85 (= b1 (_ bv3 4))))
+ (let ((?x90 (ite $x85 (_ bv18374966859414961920 64) ?x89)))
+ (let (($x84 (= b1 (_ bv2 4))))
+ (let ((?x91 (ite $x84 (_ bv17361641481138401520 64) ?x90)))
+ (let (($x83 (= b1 (_ bv1 4))))
+ (let ((?x92 (ite $x83 (_ bv14757395258967641292 64) ?x91)))
+ (let (($x82 (= b1 (_ bv0 4))))
+ (let ((?x93 (ite $x82 (_ bv12297829382473034410 64) ?x92)))
+ (let (($x75 (= a1 (_ bv5 4))))
+ (let ((?x76 (ite $x75 (_ bv18446744069414584320 64) w0)))
+ (let (($x73 (= a1 (_ bv4 4))))
+ (let ((?x77 (ite $x73 (_ bv18446462603027742720 64) ?x76)))
+ (let (($x72 (= a1 (_ bv3 4))))
+ (let ((?x78 (ite $x72 (_ bv18374966859414961920 64) ?x77)))
+ (let (($x71 (= a1 (_ bv2 4))))
+ (let ((?x79 (ite $x71 (_ bv17361641481138401520 64) ?x78)))
+ (let (($x70 (= a1 (_ bv1 4))))
+ (let ((?x80 (ite $x70 (_ bv14757395258967641292 64) ?x79)))
+ (let (($x69 (= a1 (_ bv0 4))))
+ (let ((?x81 (ite $x69 (_ bv12297829382473034410 64) ?x80)))
+ (let ((?x97 (bvor ?x81 ?x93)))
+ (= w1 (ite and1 (bvand ?x81 ?x93) ?x97))))))))))))))))))))))))))))
+(assert
+ (bvult a2 b2))
+(assert
+ (bvult b2 (_ bv8 4)))
+(assert
+ (let (($x125 (= b2 (_ bv6 4))))
+ (let ((?x126 (ite $x125 w0 w1)))
+ (let (($x124 (= b2 (_ bv5 4))))
+ (let ((?x127 (ite $x124 (_ bv18446744069414584320 64) ?x126)))
+ (let (($x123 (= b2 (_ bv4 4))))
+ (let ((?x128 (ite $x123 (_ bv18446462603027742720 64) ?x127)))
+ (let (($x122 (= b2 (_ bv3 4))))
+ (let ((?x129 (ite $x122 (_ bv18374966859414961920 64) ?x128)))
+ (let (($x121 (= b2 (_ bv2 4))))
+ (let ((?x130 (ite $x121 (_ bv17361641481138401520 64) ?x129)))
+ (let (($x120 (= b2 (_ bv1 4))))
+ (let ((?x131 (ite $x120 (_ bv14757395258967641292 64) ?x130)))
+ (let (($x119 (= b2 (_ bv0 4))))
+ (let ((?x132 (ite $x119 (_ bv12297829382473034410 64) ?x131)))
+ (let (($x111 (= a2 (_ bv6 4))))
+ (let ((?x112 (ite $x111 w0 w1)))
+ (let (($x110 (= a2 (_ bv5 4))))
+ (let ((?x113 (ite $x110 (_ bv18446744069414584320 64) ?x112)))
+ (let (($x109 (= a2 (_ bv4 4))))
+ (let ((?x114 (ite $x109 (_ bv18446462603027742720 64) ?x113)))
+ (let (($x108 (= a2 (_ bv3 4))))
+ (let ((?x115 (ite $x108 (_ bv18374966859414961920 64) ?x114)))
+ (let (($x107 (= a2 (_ bv2 4))))
+ (let ((?x116 (ite $x107 (_ bv17361641481138401520 64) ?x115)))
+ (let (($x106 (= a2 (_ bv1 4))))
+ (let ((?x117 (ite $x106 (_ bv14757395258967641292 64) ?x116)))
+ (let (($x105 (= a2 (_ bv0 4))))
+ (let ((?x118 (ite $x105 (_ bv12297829382473034410 64) ?x117)))
+ (let ((?x136 (bvor ?x118 ?x132)))
+ (= w2 (ite and2 (bvand ?x118 ?x132) ?x136))))))))))))))))))))))))))))))))
+(assert
+ (bvult a3 b3))
+(assert
+ (bvult b3 (_ bv9 4)))
+(assert
+ (let (($x166 (= b3 (_ bv6 4))))
+ (let ((?x169 (ite $x166 w0 (ite (= b3 (_ bv7 4)) w1 w2))))
+ (let (($x165 (= b3 (_ bv5 4))))
+ (let ((?x170 (ite $x165 (_ bv18446744069414584320 64) ?x169)))
+ (let (($x164 (= b3 (_ bv4 4))))
+ (let ((?x171 (ite $x164 (_ bv18446462603027742720 64) ?x170)))
+ (let (($x163 (= b3 (_ bv3 4))))
+ (let ((?x172 (ite $x163 (_ bv18374966859414961920 64) ?x171)))
+ (let (($x162 (= b3 (_ bv2 4))))
+ (let ((?x173 (ite $x162 (_ bv17361641481138401520 64) ?x172)))
+ (let (($x161 (= b3 (_ bv1 4))))
+ (let ((?x174 (ite $x161 (_ bv14757395258967641292 64) ?x173)))
+ (let (($x160 (= b3 (_ bv0 4))))
+ (let ((?x175 (ite $x160 (_ bv12297829382473034410 64) ?x174)))
+ (let (($x150 (= a3 (_ bv6 4))))
+ (let ((?x153 (ite $x150 w0 (ite (= a3 (_ bv7 4)) w1 w2))))
+ (let (($x149 (= a3 (_ bv5 4))))
+ (let ((?x154 (ite $x149 (_ bv18446744069414584320 64) ?x153)))
+ (let (($x148 (= a3 (_ bv4 4))))
+ (let ((?x155 (ite $x148 (_ bv18446462603027742720 64) ?x154)))
+ (let (($x147 (= a3 (_ bv3 4))))
+ (let ((?x156 (ite $x147 (_ bv18374966859414961920 64) ?x155)))
+ (let (($x146 (= a3 (_ bv2 4))))
+ (let ((?x157 (ite $x146 (_ bv17361641481138401520 64) ?x156)))
+ (let (($x145 (= a3 (_ bv1 4))))
+ (let ((?x158 (ite $x145 (_ bv14757395258967641292 64) ?x157)))
+ (let (($x144 (= a3 (_ bv0 4))))
+ (let ((?x159 (ite $x144 (_ bv12297829382473034410 64) ?x158)))
+ (let ((?x179 (bvor ?x159 ?x175)))
+ (= w3 (ite and3 (bvand ?x159 ?x175) ?x179))))))))))))))))))))))))))))))))
+(assert
+ (bvult a4 b4))
+(assert
+ (bvult b4 (_ bv10 4)))
+(assert
+ (let (($x211 (= b4 (_ bv6 4))))
+ (let ((?x216 (ite $x211 w0 (ite (= b4 (_ bv7 4)) w1 (ite (= b4 (_ bv8 4)) w2 w3)))))
+ (let (($x210 (= b4 (_ bv5 4))))
+ (let ((?x217 (ite $x210 (_ bv18446744069414584320 64) ?x216)))
+ (let (($x209 (= b4 (_ bv4 4))))
+ (let ((?x218 (ite $x209 (_ bv18446462603027742720 64) ?x217)))
+ (let (($x208 (= b4 (_ bv3 4))))
+ (let ((?x219 (ite $x208 (_ bv18374966859414961920 64) ?x218)))
+ (let (($x207 (= b4 (_ bv2 4))))
+ (let ((?x220 (ite $x207 (_ bv17361641481138401520 64) ?x219)))
+ (let (($x206 (= b4 (_ bv1 4))))
+ (let ((?x221 (ite $x206 (_ bv14757395258967641292 64) ?x220)))
+ (let (($x205 (= b4 (_ bv0 4))))
+ (let ((?x222 (ite $x205 (_ bv12297829382473034410 64) ?x221)))
+ (let (($x193 (= a4 (_ bv6 4))))
+ (let ((?x198 (ite $x193 w0 (ite (= a4 (_ bv7 4)) w1 (ite (= a4 (_ bv8 4)) w2 w3)))))
+ (let (($x192 (= a4 (_ bv5 4))))
+ (let ((?x199 (ite $x192 (_ bv18446744069414584320 64) ?x198)))
+ (let (($x191 (= a4 (_ bv4 4))))
+ (let ((?x200 (ite $x191 (_ bv18446462603027742720 64) ?x199)))
+ (let (($x190 (= a4 (_ bv3 4))))
+ (let ((?x201 (ite $x190 (_ bv18374966859414961920 64) ?x200)))
+ (let (($x189 (= a4 (_ bv2 4))))
+ (let ((?x202 (ite $x189 (_ bv17361641481138401520 64) ?x201)))
+ (let (($x188 (= a4 (_ bv1 4))))
+ (let ((?x203 (ite $x188 (_ bv14757395258967641292 64) ?x202)))
+ (let (($x187 (= a4 (_ bv0 4))))
+ (let ((?x204 (ite $x187 (_ bv12297829382473034410 64) ?x203)))
+ (let ((?x226 (bvor ?x204 ?x222)))
+ (= w4 (ite and4 (bvand ?x204 ?x222) ?x226))))))))))))))))))))))))))))))))
+(assert
+ (bvult a5 b5))
+(assert
+ (bvult b5 (_ bv11 4)))
+(assert
+ (let (($x261 (= b5 (_ bv7 4))))
+ (let ((?x266 (ite $x261 w1 (ite (= b5 (_ bv8 4)) w2 (ite (= b5 (_ bv9 4)) w3 w4)))))
+ (let (($x260 (= b5 (_ bv6 4))))
+ (let ((?x267 (ite $x260 w0 ?x266)))
+ (let (($x259 (= b5 (_ bv5 4))))
+ (let ((?x268 (ite $x259 (_ bv18446744069414584320 64) ?x267)))
+ (let (($x258 (= b5 (_ bv4 4))))
+ (let ((?x269 (ite $x258 (_ bv18446462603027742720 64) ?x268)))
+ (let (($x257 (= b5 (_ bv3 4))))
+ (let ((?x270 (ite $x257 (_ bv18374966859414961920 64) ?x269)))
+ (let (($x256 (= b5 (_ bv2 4))))
+ (let ((?x271 (ite $x256 (_ bv17361641481138401520 64) ?x270)))
+ (let (($x255 (= b5 (_ bv1 4))))
+ (let ((?x272 (ite $x255 (_ bv14757395258967641292 64) ?x271)))
+ (let (($x254 (= b5 (_ bv0 4))))
+ (let ((?x273 (ite $x254 (_ bv12297829382473034410 64) ?x272)))
+ (let (($x241 (= a5 (_ bv7 4))))
+ (let ((?x246 (ite $x241 w1 (ite (= a5 (_ bv8 4)) w2 (ite (= a5 (_ bv9 4)) w3 w4)))))
+ (let (($x240 (= a5 (_ bv6 4))))
+ (let ((?x247 (ite $x240 w0 ?x246)))
+ (let (($x239 (= a5 (_ bv5 4))))
+ (let ((?x248 (ite $x239 (_ bv18446744069414584320 64) ?x247)))
+ (let (($x238 (= a5 (_ bv4 4))))
+ (let ((?x249 (ite $x238 (_ bv18446462603027742720 64) ?x248)))
+ (let (($x237 (= a5 (_ bv3 4))))
+ (let ((?x250 (ite $x237 (_ bv18374966859414961920 64) ?x249)))
+ (let (($x236 (= a5 (_ bv2 4))))
+ (let ((?x251 (ite $x236 (_ bv17361641481138401520 64) ?x250)))
+ (let (($x235 (= a5 (_ bv1 4))))
+ (let ((?x252 (ite $x235 (_ bv14757395258967641292 64) ?x251)))
+ (let (($x234 (= a5 (_ bv0 4))))
+ (let ((?x253 (ite $x234 (_ bv12297829382473034410 64) ?x252)))
+ (let ((?x277 (bvor ?x253 ?x273)))
+ (= w5 (ite and5 (bvand ?x253 ?x273) ?x277))))))))))))))))))))))))))))))))))))
+(assert
+ (bvult a6 b6))
+(assert
+ (bvult b6 (_ bv12 4)))
+(assert
+ (let (($x315 (= b6 (_ bv8 4))))
+ (let ((?x320 (ite $x315 w2 (ite (= b6 (_ bv9 4)) w3 (ite (= b6 (_ bv10 4)) w4 w5)))))
+ (let (($x314 (= b6 (_ bv7 4))))
+ (let (($x313 (= b6 (_ bv6 4))))
+ (let ((?x322 (ite $x313 w0 (ite $x314 w1 ?x320))))
+ (let (($x312 (= b6 (_ bv5 4))))
+ (let ((?x323 (ite $x312 (_ bv18446744069414584320 64) ?x322)))
+ (let (($x311 (= b6 (_ bv4 4))))
+ (let ((?x324 (ite $x311 (_ bv18446462603027742720 64) ?x323)))
+ (let (($x310 (= b6 (_ bv3 4))))
+ (let ((?x325 (ite $x310 (_ bv18374966859414961920 64) ?x324)))
+ (let (($x309 (= b6 (_ bv2 4))))
+ (let ((?x326 (ite $x309 (_ bv17361641481138401520 64) ?x325)))
+ (let (($x308 (= b6 (_ bv1 4))))
+ (let ((?x327 (ite $x308 (_ bv14757395258967641292 64) ?x326)))
+ (let (($x307 (= b6 (_ bv0 4))))
+ (let ((?x328 (ite $x307 (_ bv12297829382473034410 64) ?x327)))
+ (let (($x293 (= a6 (_ bv8 4))))
+ (let ((?x298 (ite $x293 w2 (ite (= a6 (_ bv9 4)) w3 (ite (= a6 (_ bv10 4)) w4 w5)))))
+ (let (($x292 (= a6 (_ bv7 4))))
+ (let (($x291 (= a6 (_ bv6 4))))
+ (let ((?x300 (ite $x291 w0 (ite $x292 w1 ?x298))))
+ (let (($x290 (= a6 (_ bv5 4))))
+ (let ((?x301 (ite $x290 (_ bv18446744069414584320 64) ?x300)))
+ (let (($x289 (= a6 (_ bv4 4))))
+ (let ((?x302 (ite $x289 (_ bv18446462603027742720 64) ?x301)))
+ (let (($x288 (= a6 (_ bv3 4))))
+ (let ((?x303 (ite $x288 (_ bv18374966859414961920 64) ?x302)))
+ (let (($x287 (= a6 (_ bv2 4))))
+ (let ((?x304 (ite $x287 (_ bv17361641481138401520 64) ?x303)))
+ (let (($x286 (= a6 (_ bv1 4))))
+ (let ((?x305 (ite $x286 (_ bv14757395258967641292 64) ?x304)))
+ (let (($x285 (= a6 (_ bv0 4))))
+ (let ((?x306 (ite $x285 (_ bv12297829382473034410 64) ?x305)))
+ (let ((?x332 (bvor ?x306 ?x328)))
+ (= w6 (ite and6 (bvand ?x306 ?x328) ?x332))))))))))))))))))))))))))))))))))))))
+(assert
+ (bvult a7 b7))
+(assert
+ (bvult b7 (_ bv13 4)))
+(assert
+ (let (($x373 (= b7 (_ bv9 4))))
+ (let ((?x378 (ite $x373 w3 (ite (= b7 (_ bv10 4)) w4 (ite (= b7 (_ bv11 4)) w5 w6)))))
+ (let (($x372 (= b7 (_ bv8 4))))
+ (let (($x371 (= b7 (_ bv7 4))))
+ (let (($x370 (= b7 (_ bv6 4))))
+ (let ((?x381 (ite $x370 w0 (ite $x371 w1 (ite $x372 w2 ?x378)))))
+ (let (($x369 (= b7 (_ bv5 4))))
+ (let ((?x382 (ite $x369 (_ bv18446744069414584320 64) ?x381)))
+ (let (($x368 (= b7 (_ bv4 4))))
+ (let ((?x383 (ite $x368 (_ bv18446462603027742720 64) ?x382)))
+ (let (($x367 (= b7 (_ bv3 4))))
+ (let ((?x384 (ite $x367 (_ bv18374966859414961920 64) ?x383)))
+ (let (($x366 (= b7 (_ bv2 4))))
+ (let ((?x385 (ite $x366 (_ bv17361641481138401520 64) ?x384)))
+ (let (($x365 (= b7 (_ bv1 4))))
+ (let ((?x386 (ite $x365 (_ bv14757395258967641292 64) ?x385)))
+ (let (($x364 (= b7 (_ bv0 4))))
+ (let ((?x387 (ite $x364 (_ bv12297829382473034410 64) ?x386)))
+ (let (($x349 (= a7 (_ bv9 4))))
+ (let ((?x354 (ite $x349 w3 (ite (= a7 (_ bv10 4)) w4 (ite (= a7 (_ bv11 4)) w5 w6)))))
+ (let (($x348 (= a7 (_ bv8 4))))
+ (let (($x347 (= a7 (_ bv7 4))))
+ (let (($x346 (= a7 (_ bv6 4))))
+ (let ((?x357 (ite $x346 w0 (ite $x347 w1 (ite $x348 w2 ?x354)))))
+ (let (($x345 (= a7 (_ bv5 4))))
+ (let ((?x358 (ite $x345 (_ bv18446744069414584320 64) ?x357)))
+ (let (($x344 (= a7 (_ bv4 4))))
+ (let ((?x359 (ite $x344 (_ bv18446462603027742720 64) ?x358)))
+ (let (($x343 (= a7 (_ bv3 4))))
+ (let ((?x360 (ite $x343 (_ bv18374966859414961920 64) ?x359)))
+ (let (($x342 (= a7 (_ bv2 4))))
+ (let ((?x361 (ite $x342 (_ bv17361641481138401520 64) ?x360)))
+ (let (($x341 (= a7 (_ bv1 4))))
+ (let ((?x362 (ite $x341 (_ bv14757395258967641292 64) ?x361)))
+ (let (($x340 (= a7 (_ bv0 4))))
+ (let ((?x363 (ite $x340 (_ bv12297829382473034410 64) ?x362)))
+ (let ((?x391 (bvor ?x363 ?x387)))
+ (= w7 (ite and7 (bvand ?x363 ?x387) ?x391))))))))))))))))))))))))))))))))))))))))
+(assert
+ (let (($x370 (= b7 (_ bv6 4))))
+ (let (($x346 (= a7 (_ bv6 4))))
+ (let (($x313 (= b6 (_ bv6 4))))
+ (let (($x291 (= a6 (_ bv6 4))))
+ (let (($x260 (= b5 (_ bv6 4))))
+ (let (($x240 (= a5 (_ bv6 4))))
+ (let (($x211 (= b4 (_ bv6 4))))
+ (let (($x193 (= a4 (_ bv6 4))))
+ (let (($x166 (= b3 (_ bv6 4))))
+ (let (($x150 (= a3 (_ bv6 4))))
+ (let (($x125 (= b2 (_ bv6 4))))
+ (let (($x111 (= a2 (_ bv6 4))))
+ (let (($x395 (= b1 (_ bv6 4))))
+ (let (($x394 (= a1 (_ bv6 4))))
+ (or $x394 $x395 $x111 $x125 $x150 $x166 $x193 $x211 $x240 $x260 $x291 $x313 $x346 $x370))))))))))))))))
+(assert
+ (let (($x371 (= b7 (_ bv7 4))))
+ (let (($x347 (= a7 (_ bv7 4))))
+ (let (($x314 (= b6 (_ bv7 4))))
+ (let (($x292 (= a6 (_ bv7 4))))
+ (let (($x261 (= b5 (_ bv7 4))))
+ (let (($x241 (= a5 (_ bv7 4))))
+ (let (($x212 (= b4 (_ bv7 4))))
+ (let (($x194 (= a4 (_ bv7 4))))
+ (let (($x167 (= b3 (_ bv7 4))))
+ (let (($x151 (= a3 (_ bv7 4))))
+ (let (($x398 (= b2 (_ bv7 4))))
+ (let (($x397 (= a2 (_ bv7 4))))
+ (or $x397 $x398 $x151 $x167 $x194 $x212 $x241 $x261 $x292 $x314 $x347 $x371))))))))))))))
+(assert
+ (let (($x372 (= b7 (_ bv8 4))))
+ (let (($x348 (= a7 (_ bv8 4))))
+ (let (($x315 (= b6 (_ bv8 4))))
+ (let (($x293 (= a6 (_ bv8 4))))
+ (let (($x262 (= b5 (_ bv8 4))))
+ (let (($x242 (= a5 (_ bv8 4))))
+ (let (($x213 (= b4 (_ bv8 4))))
+ (let (($x195 (= a4 (_ bv8 4))))
+ (let (($x401 (= b3 (_ bv8 4))))
+ (let (($x400 (= a3 (_ bv8 4))))
+ (or $x400 $x401 $x195 $x213 $x242 $x262 $x293 $x315 $x348 $x372))))))))))))
+(assert
+ (let (($x373 (= b7 (_ bv9 4))))
+ (let (($x349 (= a7 (_ bv9 4))))
+ (let (($x316 (= b6 (_ bv9 4))))
+ (let (($x294 (= a6 (_ bv9 4))))
+ (let (($x263 (= b5 (_ bv9 4))))
+ (let (($x243 (= a5 (_ bv9 4))))
+ (let (($x404 (= b4 (_ bv9 4))))
+ (let (($x403 (= a4 (_ bv9 4))))
+ (or $x403 $x404 $x243 $x263 $x294 $x316 $x349 $x373))))))))))
+(assert
+ (let (($x374 (= b7 (_ bv10 4))))
+ (let (($x350 (= a7 (_ bv10 4))))
+ (let (($x317 (= b6 (_ bv10 4))))
+ (let (($x295 (= a6 (_ bv10 4))))
+ (let (($x407 (= b5 (_ bv10 4))))
+ (let (($x406 (= a5 (_ bv10 4))))
+ (or $x406 $x407 $x295 $x317 $x350 $x374))))))))
+(assert
+ (let (($x375 (= b7 (_ bv11 4))))
+ (let (($x351 (= a7 (_ bv11 4))))
+ (let (($x410 (= b6 (_ bv11 4))))
+ (let (($x409 (= a6 (_ bv11 4))))
+ (or $x409 $x410 $x351 $x375))))))
+(assert
+ (let (($x413 (= b7 (_ bv12 4))))
+ (let (($x412 (= a7 (_ bv12 4))))
+ (or $x412 $x413))))
+(assert
+ (and (distinct w0 (_ bv12297829382473034410 64)) true))
+(assert
+ (and (distinct w0 (_ bv14757395258967641292 64)) true))
+(assert
+ (and (distinct w0 (_ bv17361641481138401520 64)) true))
+(assert
+ (and (distinct w0 (_ bv18374966859414961920 64)) true))
+(assert
+ (and (distinct w0 (_ bv18446462603027742720 64)) true))
+(assert
+ (and (distinct w0 (_ bv18446744069414584320 64)) true))
+(assert
+ (and (distinct w1 w0) true))
+(assert
+ (and (distinct w1 (_ bv12297829382473034410 64)) true))
+(assert
+ (and (distinct w1 (_ bv14757395258967641292 64)) true))
+(assert
+ (and (distinct w1 (_ bv17361641481138401520 64)) true))
+(assert
+ (and (distinct w1 (_ bv18374966859414961920 64)) true))
+(assert
+ (and (distinct w1 (_ bv18446462603027742720 64)) true))
+(assert
+ (and (distinct w1 (_ bv18446744069414584320 64)) true))
+(assert
+ (and (distinct w2 w0) true))
+(assert
+ (and (distinct w2 w1) true))
+(assert
+ (and (distinct w2 (_ bv12297829382473034410 64)) true))
+(assert
+ (and (distinct w2 (_ bv14757395258967641292 64)) true))
+(assert
+ (and (distinct w2 (_ bv17361641481138401520 64)) true))
+(assert
+ (and (distinct w2 (_ bv18374966859414961920 64)) true))
+(assert
+ (and (distinct w2 (_ bv18446462603027742720 64)) true))
+(assert
+ (and (distinct w2 (_ bv18446744069414584320 64)) true))
+(assert
+ (and (distinct w3 w0) true))
+(assert
+ (and (distinct w3 w1) true))
+(assert
+ (and (distinct w3 w2) true))
+(assert
+ (and (distinct w3 (_ bv12297829382473034410 64)) true))
+(assert
+ (and (distinct w3 (_ bv14757395258967641292 64)) true))
+(assert
+ (and (distinct w3 (_ bv17361641481138401520 64)) true))
+(assert
+ (and (distinct w3 (_ bv18374966859414961920 64)) true))
+(assert
+ (and (distinct w3 (_ bv18446462603027742720 64)) true))
+(assert
+ (and (distinct w3 (_ bv18446744069414584320 64)) true))
+(assert
+ (and (distinct w4 w0) true))
+(assert
+ (and (distinct w4 w1) true))
+(assert
+ (and (distinct w4 w2) true))
+(assert
+ (and (distinct w4 w3) true))
+(assert
+ (and (distinct w4 (_ bv12297829382473034410 64)) true))
+(assert
+ (and (distinct w4 (_ bv14757395258967641292 64)) true))
+(assert
+ (and (distinct w4 (_ bv17361641481138401520 64)) true))
+(assert
+ (and (distinct w4 (_ bv18374966859414961920 64)) true))
+(assert
+ (and (distinct w4 (_ bv18446462603027742720 64)) true))
+(assert
+ (and (distinct w4 (_ bv18446744069414584320 64)) true))
+(assert
+ (and (distinct w5 w0) true))
+(assert
+ (and (distinct w5 w1) true))
+(assert
+ (and (distinct w5 w2) true))
+(assert
+ (and (distinct w5 w3) true))
+(assert
+ (and (distinct w5 w4) true))
+(assert
+ (and (distinct w5 (_ bv12297829382473034410 64)) true))
+(assert
+ (and (distinct w5 (_ bv14757395258967641292 64)) true))
+(assert
+ (and (distinct w5 (_ bv17361641481138401520 64)) true))
+(assert
+ (and (distinct w5 (_ bv18374966859414961920 64)) true))
+(assert
+ (and (distinct w5 (_ bv18446462603027742720 64)) true))
+(assert
+ (and (distinct w5 (_ bv18446744069414584320 64)) true))
+(assert
+ (and (distinct w6 w0) true))
+(assert
+ (and (distinct w6 w1) true))
+(assert
+ (and (distinct w6 w2) true))
+(assert
+ (and (distinct w6 w3) true))
+(assert
+ (and (distinct w6 w4) true))
+(assert
+ (and (distinct w6 w5) true))
+(assert
+ (and (distinct w6 (_ bv12297829382473034410 64)) true))
+(assert
+ (and (distinct w6 (_ bv14757395258967641292 64)) true))
+(assert
+ (and (distinct w6 (_ bv17361641481138401520 64)) true))
+(assert
+ (and (distinct w6 (_ bv18374966859414961920 64)) true))
+(assert
+ (and (distinct w6 (_ bv18446462603027742720 64)) true))
+(assert
+ (and (distinct w6 (_ bv18446744069414584320 64)) true))
+(assert
+ (and (distinct w7 w0) true))
+(assert
+ (and (distinct w7 w1) true))
+(assert
+ (and (distinct w7 w2) true))
+(assert
+ (and (distinct w7 w3) true))
+(assert
+ (and (distinct w7 w4) true))
+(assert
+ (and (distinct w7 w5) true))
+(assert
+ (and (distinct w7 w6) true))
+(assert
+ (and (distinct w7 (_ bv12297829382473034410 64)) true))
+(assert
+ (and (distinct w7 (_ bv14757395258967641292 64)) true))
+(assert
+ (and (distinct w7 (_ bv17361641481138401520 64)) true))
+(assert
+ (and (distinct w7 (_ bv18374966859414961920 64)) true))
+(assert
+ (and (distinct w7 (_ bv18446462603027742720 64)) true))
+(assert
+ (and (distinct w7 (_ bv18446744069414584320 64)) true))
+(assert
+ (= w7 (_ bv18374403832151735296 64)))
+(assert
+ (or (and and0 (and (distinct (bvand w0 (_ bv68719739392 64)) (_ bv0 64)) true)) (and and1 (and (distinct (bvand w1 (_ bv68719739392 64)) (_ bv0 64)) true)) (and and2 (and (distinct (bvand w2 (_ bv68719739392 64)) (_ bv0 64)) true)) (and and3 (and (distinct (bvand w3 (_ bv68719739392 64)) (_ bv0 64)) true)) (and and4 (and (distinct (bvand w4 (_ bv68719739392 64)) (_ bv0 64)) true)) (and and5 (and (distinct (bvand w5 (_ bv68719739392 64)) (_ bv0 64)) true)) (and and6 (and (distinct (bvand w6 (_ bv68719739392 64)) (_ bv0 64)) true)) (and and7 (and (distinct (bvand w7 (_ bv68719739392 64)) (_ bv0 64)) true))))
+(assert
+ (let (($x1348 (= a0 a1)))
+ (let (($x1355 (and $x1348 (or (bvult b0 b1) (and (= b0 b1) (or and0 (not and1)))))))
+ (let (($x1356 (or (bvult a0 a1) $x1355)))
+ (let (($x1346 (and (and (distinct a1 (_ bv6 4)) true) (and (distinct b1 (_ bv6 4)) true))))
+ (=> $x1346 $x1356))))))
+(assert
+ (let (($x1374 (= a1 a2)))
+ (let (($x1381 (and $x1374 (or (bvult b1 b2) (and (= b1 b2) (or and1 (not and2)))))))
+ (let (($x1382 (or (bvult a1 a2) $x1381)))
+ (let (($x1372 (and (and (distinct a2 (_ bv7 4)) true) (and (distinct b2 (_ bv7 4)) true))))
+ (=> $x1372 $x1382))))))
+(assert
+ (let (($x1400 (= a2 a3)))
+ (let (($x1407 (and $x1400 (or (bvult b2 b3) (and (= b2 b3) (or and2 (not and3)))))))
+ (let (($x1408 (or (bvult a2 a3) $x1407)))
+ (let (($x1398 (and (and (distinct a3 (_ bv8 4)) true) (and (distinct b3 (_ bv8 4)) true))))
+ (=> $x1398 $x1408))))))
+(assert
+ (let (($x1426 (= a3 a4)))
+ (let (($x1433 (and $x1426 (or (bvult b3 b4) (and (= b3 b4) (or and3 (not and4)))))))
+ (let (($x1434 (or (bvult a3 a4) $x1433)))
+ (let (($x1424 (and (and (distinct a4 (_ bv9 4)) true) (and (distinct b4 (_ bv9 4)) true))))
+ (=> $x1424 $x1434))))))
+(assert
+ (let (($x1452 (= a4 a5)))
+ (let (($x1459 (and $x1452 (or (bvult b4 b5) (and (= b4 b5) (or and4 (not and5)))))))
+ (let (($x1460 (or (bvult a4 a5) $x1459)))
+ (let (($x1450 (and (and (distinct a5 (_ bv10 4)) true) (and (distinct b5 (_ bv10 4)) true))))
+ (=> $x1450 $x1460))))))
+(assert
+ (let (($x1478 (= a5 a6)))
+ (let (($x1485 (and $x1478 (or (bvult b5 b6) (and (= b5 b6) (or and5 (not and6)))))))
+ (let (($x1486 (or (bvult a5 a6) $x1485)))
+ (let (($x1476 (and (and (distinct a6 (_ bv11 4)) true) (and (distinct b6 (_ bv11 4)) true))))
+ (=> $x1476 $x1486))))))
+(assert
+ (let (($x1504 (= a6 a7)))
+ (let (($x1511 (and $x1504 (or (bvult b6 b7) (and (= b6 b7) (or and6 (not and7)))))))
+ (let (($x1512 (or (bvult a6 a7) $x1511)))
+ (let (($x1502 (and (and (distinct a7 (_ bv12 4)) true) (and (distinct b7 (_ bv12 4)) true))))
+ (=> $x1502 $x1512))))))
+(assert
+ (let (($x52 (= b0 (_ bv4 4))))
+(let (($x28 (= a0 (_ bv0 4))))
+(let (($x1528 (and $x28 $x52)))
+(let (($x51 (= b0 (_ bv3 4))))
+(let (($x1527 (and $x28 $x51)))
+(let (($x49 (= b0 (_ bv1 4))))
+(let (($x1526 (and $x28 $x49)))
+(or $x1526 $x1527 $x1528)))))))))
+(check-sat)

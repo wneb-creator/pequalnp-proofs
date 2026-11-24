@@ -1,0 +1,9 @@
+{
+  "at": "2026-11-24T18:27:56.765147+00:00",
+  "case": "cycle6",
+  "size": 8,
+  "query": "some nonedge-dirty AND in minimum circuit, lex and input automorphism symmetry",
+  "result": "unsat",
+  "seconds": 16.167,
+  "automorphisms": 12
+}
