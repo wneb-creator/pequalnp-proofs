@@ -14,3 +14,4 @@
 - 2026-11-24T17:21:42.071701+00:00: cleaned reduction checker accepted; cleanup finished. Minimal-support and masking lemmas compiled and independently reviewed; preserving now.
 - 2026-11-24T17:22:44.706427+00:00: checked mixed-singleton context lemma (library_context.lean), independent review requested.
 - 2026-11-24T17:23:34.843815+00:00: mixed-singleton context lemma compiled and independently reviewed; preserving now.
+- 2026-11-24T17:24:08.028122+00:00: unique-line context lemma compiled and independently reviewed; preserving now.

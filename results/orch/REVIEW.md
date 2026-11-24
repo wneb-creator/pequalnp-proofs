@@ -14,3 +14,5 @@ Independent rules_review PASS for direct_minimal.lean: SHA256 b8370f99c862a2ee6b
 Root independent review PASS for masking_obstruction.lean: explicit legal seven-gate circuit, exhaustive Boolean cases prove matching output, kernel decide proves internal nonedge false positive. This is an obstruction to a charging strategy, not a counterexample to the gap.
 
 Independent direct_proof review PASS for library_context.lean: SHA256 556f38eff54a8a67b753081081a9bfcaa7b907e78f2f524e885c7f2e4b596df6, 82 lines. Full proof inspected; q>=2 sparse soundness forces useful contexts of mixed-singleton gate families to contain the entire designated pair; no incidence premise on that pair needed; no prohibited commands. Lean exit 0, empty logs.
+
+Root independent review PASS for library_sharing.lean: SHA256 60bc88b5771deda42fa1acd47f858e3dcc90f1ef8f658fcbbd44f16678539ad5. Full proof derives incidence of each point-line singleton union from sparse soundness, then applies uniqueness of a line through distinct points. No hidden assumptions or prohibited proof commands. Lean exit 0, empty logs; 54 lines.

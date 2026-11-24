@@ -20,3 +20,5 @@ Minimal sparse output support lemma: Lean exit 0, independently reviewed, 91 lin
 Seven-gate masking obstruction: Lean exit 0, independently reviewed.
 
 Mixed-singleton context lemma: Lean exit 0, independently reviewed, 82 lines.
+
+Two-point unique-line context lemma: Lean exit 0, independently reviewed, 54 lines.
