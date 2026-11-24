@@ -1,0 +1,8 @@
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-0.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-1.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-2.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-3.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-4.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-5.json
+BEST_FILE /tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json.best-6.json
+UNKNOWN iterations=100000000 restarts=999 elapsed=21.8167

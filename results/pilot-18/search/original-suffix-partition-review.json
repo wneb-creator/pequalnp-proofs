@@ -1,0 +1,244 @@
+{
+  "verdict": "PASS",
+  "source": "/tmp/oec/pequalnp-pilot-18/split_original_suffix.py",
+  "source_sha256": "4cc3a85b4b4a4fead78fef0403d463c4f267d75aee19fa1e6379d5f887f4d6a4",
+  "parent_sha256": "38d93ec59a86378a8434b232d19b2b53e8cbc3c715e81432ee94db59ca6ace08",
+  "parent_metadata_sha256": "5a430e86affc12584f964af39920201684505bafca4d34c1d30e6a10de3b9f51",
+  "family_metadata_sha256": "8b690331982b60dcd6644e02f078dd548e2087e0175efd5ca515f5f760cc9c0d",
+  "mathematics": "The parent unit junk17 and implication not-junk17 OR op17 force op17=true. Its six positive pair clauses allow at most one OR among four suffix gates. Hence exactly AAAA, AOAA, AAOA, AAAO remain. Four operation units select each assignment, so the cases cover every parent model and are pairwise disjoint.",
+  "required_parent_clauses_present": true,
+  "boolean_assignments_checked": 16,
+  "coverage": [
+    {
+      "AND_bits": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "parent_operation_conditions": false,
+      "cases": []
+    },
+    {
+      "AND_bits": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "parent_operation_conditions": false,
+      "cases": []
+    },
+    {
+      "AND_bits": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "parent_operation_conditions": false,
+      "cases": []
+    },
+    {
+      "AND_bits": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "parent_operation_conditions": false,
+      "cases": []
+    },
+    {
+      "AND_bits": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "parent_operation_conditions": false,
+      "cases": []
+    },
+    {
+      "AND_bits": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "parent_operation_conditions": false,
+      "cases": []
+    },
+    {
+      "AND_bits": [
+        false,
+        true,
+        true,
+        false
+      ],
+      "parent_operation_conditions": false,
+      "cases": []
+    },
+    {
+      "AND_bits": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "parent_operation_conditions": false,
+      "cases": []
+    },
+    {
+      "AND_bits": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "parent_operation_conditions": false,
+      "cases": []
+    },
+    {
+      "AND_bits": [
+        true,
+        false,
+        false,
+        true
+      ],
+      "parent_operation_conditions": false,
+      "cases": []
+    },
+    {
+      "AND_bits": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "parent_operation_conditions": false,
+      "cases": []
+    },
+    {
+      "AND_bits": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "parent_operation_conditions": true,
+      "cases": [
+        "suffix-AOAA"
+      ]
+    },
+    {
+      "AND_bits": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "parent_operation_conditions": false,
+      "cases": []
+    },
+    {
+      "AND_bits": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "parent_operation_conditions": true,
+      "cases": [
+        "suffix-AAOA"
+      ]
+    },
+    {
+      "AND_bits": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "parent_operation_conditions": true,
+      "cases": [
+        "suffix-AAAO"
+      ]
+    },
+    {
+      "AND_bits": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "parent_operation_conditions": true,
+      "cases": [
+        "suffix-AAAA"
+      ]
+    }
+  ],
+  "cases": {
+    "suffix-AOAA": {
+      "units": [
+        2807,
+        -3072,
+        3341,
+        3614
+      ],
+      "cnf_sha256": "a36f76e99623bf280776f772063630572430f005f7e2c364b0f9bbe4d3b94ffc",
+      "metadata_sha256": "24a8a493c6fe646b7e7495d9291f8abc10810fe206afffd167e23cc3f6fcc87b",
+      "variables": 11968,
+      "clauses": 114570,
+      "exact_parent_plus_four_units": true
+    },
+    "suffix-AAOA": {
+      "units": [
+        2807,
+        3072,
+        -3341,
+        3614
+      ],
+      "cnf_sha256": "4e8225fad24e30584ee74b5e25cc529987c9e3ac618e568b86076cb2ba53235c",
+      "metadata_sha256": "26ab1a4de25e60216eb45df0b5f7341d2b911c927fadd3a6bc893d4d9faedbef",
+      "variables": 11968,
+      "clauses": 114570,
+      "exact_parent_plus_four_units": true
+    },
+    "suffix-AAAO": {
+      "units": [
+        2807,
+        3072,
+        3341,
+        -3614
+      ],
+      "cnf_sha256": "6a2875d510b9959922861904ed1bc8ad1bf573839c38144dd4b9b9c08251f537",
+      "metadata_sha256": "01fe1e0c55235dfda28fe0a38cdcf4b38229b3eee3369ebfe0255d9bbe348013",
+      "variables": 11968,
+      "clauses": 114570,
+      "exact_parent_plus_four_units": true
+    },
+    "suffix-AAAA": {
+      "units": [
+        2807,
+        3072,
+        3341,
+        3614
+      ],
+      "cnf_sha256": "50cf70c1b2166020c9ba798606a268ca23a0b660cae16c27388f10bdad611ce4",
+      "metadata_sha256": "d5584da02ba613b43cadde624104532e66deb37e83134dcd16220cb13a79bf83",
+      "variables": 11968,
+      "clauses": 114570,
+      "exact_parent_plus_four_units": true
+    }
+  },
+  "source_review": "Pins the parent CNF and operation IDs, validates original-shard flags and critical clauses, preserves every parent body byte, writes only a fresh directory, and binds each output CNF and metadata file.",
+  "scope": "Exact CNF partition only. No solver run, SAT/UNSAT verdict, certificate or Lean acceptance claim.",
+  "issues": [],
+  "repository_modified": false,
+  "source_modified": false,
+  "CNF_files_written": false,
+  "solver_started": false,
+  "lease_calls": false,
+  "subagents": "none"
+}

@@ -1,0 +1,55 @@
+{
+  "verdict": "PASS",
+  "reviewed_utc": "2026-11-24T03:05:25.621535+00:00",
+  "source": "/tmp/oec/pequalnp-pilot-18/run_original_suffix_candidates.py",
+  "source_sha256": "59e2d583fbcbbd15ce3d266eb09be3f7f40f65d5ffd3b352e0bd11c40405a15c",
+  "source_lines": 73,
+  "prior_controller_sha256": "4cec1277df4e4a4f209eaa5f95021196b7565dbf13dbf0bb1ffe096d08eb5589",
+  "family_sha256": "8b690331982b60dcd6644e02f078dd548e2087e0175efd5ca515f5f760cc9c0d",
+  "solver_sha256": "21da5d984e38b74f620f14c62442f834f27b9158decdb722540d97f98aac93a1",
+  "parent_cnf_sha256": "38d93ec59a86378a8434b232d19b2b53e8cbc3c715e81432ee94db59ca6ace08",
+  "cases": {
+    "suffix-AOAA": {
+      "cnf_sha256": "a36f76e99623bf280776f772063630572430f005f7e2c364b0f9bbe4d3b94ffc",
+      "metadata_sha256": "24a8a493c6fe646b7e7495d9291f8abc10810fe206afffd167e23cc3f6fcc87b"
+    },
+    "suffix-AAOA": {
+      "cnf_sha256": "4e8225fad24e30584ee74b5e25cc529987c9e3ac618e568b86076cb2ba53235c",
+      "metadata_sha256": "26ab1a4de25e60216eb45df0b5f7341d2b911c927fadd3a6bc893d4d9faedbef"
+    },
+    "suffix-AAAO": {
+      "cnf_sha256": "6a2875d510b9959922861904ed1bc8ad1bf573839c38144dd4b9b9c08251f537",
+      "metadata_sha256": "01fe1e0c55235dfda28fe0a38cdcf4b38229b3eee3369ebfe0255d9bbe348013"
+    },
+    "suffix-AAAA": {
+      "cnf_sha256": "50cf70c1b2166020c9ba798606a268ca23a0b660cae16c27388f10bdad611ce4",
+      "metadata_sha256": "d5584da02ba613b43cadde624104532e66deb37e83134dcd16220cb13a79bf83"
+    }
+  },
+  "syntax": "AST parse and compile passed without importing or executing the controller.",
+  "delta_review": "Below the header, the prior reviewed controller is byte-identical except for stronger per-case CNF and metadata hash bindings.",
+  "execution_scope": {
+    "workers": 1,
+    "per_case_solver_seconds": 300,
+    "outer_poll_deadline_seconds": 330,
+    "interrupt_grace_seconds": 10,
+    "memory_limit_mib": 1500,
+    "stdout_stderr": "Separate complete exclusive-created files; no truncation or filtering of stored solver output.",
+    "signals": "SIGTERM/SIGINT set a stop flag; only its own new-session child process group is interrupted and then killed after the grace period if necessary.",
+    "sentinel": "DESK_ERROR.response prevents starting the next case and stops an active solver on the next one-second poll.",
+    "renewal": "Invokes the existing job-local renew.py before each case with check=True. The helper was neither read nor executed for this review.",
+    "status": "Exit 10 or a SAT status stops the portfolio and labels candidate_requires_validation. Exit 20 is recorded only and conveys no accepted UNSAT result.",
+    "state": "Atomic portfolio JSON updates; fresh output directory required; finalizer stops an active child and saves state."
+  },
+  "limitations": [
+    "Candidate discovery only: all four uncertified UNSAT returns would still not establish exhaustion.",
+    "A reported SAT candidate requires the independent original-model validator before any witness claim.",
+    "The outer 330-second limit is followed by up to ten seconds of shutdown grace; this is not a 330-second hard kill limit."
+  ],
+  "blockers": [],
+  "repository_modified": false,
+  "controller_executed": false,
+  "solver_started": false,
+  "lease_calls": false,
+  "subagents": "none"
+}

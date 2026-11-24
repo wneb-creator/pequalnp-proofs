@@ -1,0 +1,49 @@
+{
+  "scope": "Candidate-only stochastic optimization; no exhaustion claim.",
+  "started_utc": "2026-11-24T03:10:46.043682+00:00",
+  "engine_sha256": "31620eae27eed733fe22f94965a215394e3fc6bd2a313f566335a3eb30dd4f00",
+  "pack_sha256": "e65e3d1a9f6524b0e2cb6eab49042b87be412812e66d6239875b845572e41ba2",
+  "pack_metadata_sha256": "62ce6b6be8915bcd3e93bb1b21a3fb88b335f07f4c5b71960bdbe598313ef5e6",
+  "wrapper_sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+  "validator_sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/circuit_anneal",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/seed-pack-ready/seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json",
+    "--seed",
+    "134218",
+    "--seconds",
+    "60.0",
+    "--iterations",
+    "100000000",
+    "--restart",
+    "100000",
+    "--weight",
+    "4"
+  ],
+  "status": "UNKNOWN",
+  "engine_exit": 0,
+  "engine_result_sha256": "3f7e31aa55a515196f4fd7f08905e0a2b08561ab09e6c93a93ae5bc6d202d813",
+  "elapsed_seconds": 21.923304003999874,
+  "logs": {
+    "engine.stdout.txt": {
+      "sha256": "3eeb3b8b55836f6941b8b16f42d11ab59e47df112da1e2a932001c081a8700de",
+      "bytes": 730
+    },
+    "engine.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "best_files": {
+    "engine-result.json.best-0.json": "3188a6be5f157b81de31e3e4e8af411199be4b1d3f5a21ceddb74a123e078bd6",
+    "engine-result.json.best-1.json": "382af9503b26a127548145faa6f4ce312ddbd50987037b61ebdc6073910af118",
+    "engine-result.json.best-2.json": "0cb43fa78d45473c57ac70eb8300285f66e31c04ba1ac6ecfabe0b8e7f16d5f7",
+    "engine-result.json.best-3.json": "a536e70248fe8a12de358e887fc9b913f64b08f462d4f35843da14f93460d6c7",
+    "engine-result.json.best-4.json": "0b42692c78f217f07439194fe726a04553777014a2dc6b9b299d8b759ca479af",
+    "engine-result.json.best-5.json": "ff302c5ffc202e831967eb5294fe3dcafd8f0dcbbef95ba6a7e9cfef22bb26c6",
+    "engine-result.json.best-6.json": "ad8a70ebb3a47ccfe1730be014d70ea86b54c9eabde1957172d3f95e641b45bc"
+  }
+}

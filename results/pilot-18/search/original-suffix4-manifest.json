@@ -1,0 +1,52 @@
+{
+  "parent_sha256": "38d93ec59a86378a8434b232d19b2b53e8cbc3c715e81432ee94db59ca6ace08",
+  "program_sha256": "4cc3a85b4b4a4fead78fef0403d463c4f267d75aee19fa1e6379d5f887f4d6a4",
+  "scope": "Four cases partition the parent CNF; each UNSAT still needs certificate checking.",
+  "complete_partition": true,
+  "cases": [
+    {
+      "case": "suffix-AOAA",
+      "units": [
+        2807,
+        -3072,
+        3341,
+        3614
+      ],
+      "cnf_sha256": "a36f76e99623bf280776f772063630572430f005f7e2c364b0f9bbe4d3b94ffc",
+      "metadata_sha256": "24a8a493c6fe646b7e7495d9291f8abc10810fe206afffd167e23cc3f6fcc87b"
+    },
+    {
+      "case": "suffix-AAOA",
+      "units": [
+        2807,
+        3072,
+        -3341,
+        3614
+      ],
+      "cnf_sha256": "4e8225fad24e30584ee74b5e25cc529987c9e3ac618e568b86076cb2ba53235c",
+      "metadata_sha256": "26ab1a4de25e60216eb45df0b5f7341d2b911c927fadd3a6bc893d4d9faedbef"
+    },
+    {
+      "case": "suffix-AAAO",
+      "units": [
+        2807,
+        3072,
+        3341,
+        -3614
+      ],
+      "cnf_sha256": "6a2875d510b9959922861904ed1bc8ad1bf573839c38144dd4b9b9c08251f537",
+      "metadata_sha256": "01fe1e0c55235dfda28fe0a38cdcf4b38229b3eee3369ebfe0255d9bbe348013"
+    },
+    {
+      "case": "suffix-AAAA",
+      "units": [
+        2807,
+        3072,
+        3341,
+        3614
+      ],
+      "cnf_sha256": "50cf70c1b2166020c9ba798606a268ca23a0b660cae16c27388f10bdad611ce4",
+      "metadata_sha256": "d5584da02ba613b43cadde624104532e66deb37e83134dcd16220cb13a79bf83"
+    }
+  ]
+}

@@ -116,3 +116,17 @@ solver/checker stdout and stderr are retained, including empty files.
 review, and reviewed one-to-two-worker controller are retained here. Any SAT
 model still requires all-input validation and Lean verification. These local
 neighborhoods cannot establish assigned-shard or global exhaustion.
+
+The exact four-case suffix-operation partition is in `split_original_suffix.py`
+and `original-suffix4-manifest.json`, with independent mathematical and byte-level
+reviews. The candidate controller records uncertified outcomes only. Exhausting
+this partition would require all four cases to have checked UNSAT certificates.
+
+The `stochastic/` directory contains a separately reviewed bounded C++ search
+and Python supervisor, complete build/control logs, and the144-circuit seed
+pack. `stochastic-initial-run/` preserves the full first100-million-mutation
+UNKNOWN run. Its best circuit has one false-negative edge; it is not a witness.
+`validate_raw_candidate.py` independently checks every input and the normalized
+circuit. No heuristic outcome establishes a lower bound or assigned-shard
+exhaustion. The ten completed older candidate runs and all20complete logs are in
+`reverse-and-combined-candidate-full-results.json`.

@@ -63,9 +63,22 @@ SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 2 inherited-model agents for mathematical search and independent validation/proof engineering
-TIMING total=161.2 subagents=2
+TIMING total=175.3 subagents=2
 
 Candidate neighborhoods: 144 independently reviewed formulas preserve prefixes
 of exact 22-gate cover constructions and search arbitrary shorter completions.
 The controller validates every SAT candidate against all 2048 inputs. It never
 claims global or assigned-shard exhaustion from a neighborhood UNSAT.
+
+All seven reverse-counter candidate runs returned UNKNOWN. All three combined
+CaDiCaL candidate runs ended without a verdict at their limits. Their full
+stdout/stderr and state records are preserved in a single research artifact.
+Four fixed suffix-operation cases partition the original reviewed shard CNF;
+the partition and candidate-only controller were independently reviewed.
+
+A separate reviewed C++ mutation engine checked 100,000,000 trial mutations
+in its initial run, returning UNKNOWN. Its best circuit misses one edge and
+is explicitly not a witness. All initial best circuits, logs, source, seed pack,
+full controls and independent reviews are preserved. The independently
+reviewed scalar validator requires all 2048 inputs before and after normalization
+and a normalized size at most21; exact22 controls correctly fail that limit.

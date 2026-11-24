@@ -1,0 +1,112 @@
+{
+  "verdict": "PASS_CONTROLS",
+  "validator_sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+  "exact22_controls": [
+    {
+      "fixture": "lean-setup/cover-neighborhood-controls/known22-k08.validated.normalized.json",
+      "offset": 11,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "raw-validator-controls/known22-k08.validated.normalized.offset13.json",
+      "offset": 13,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "lean-setup/cover-neighborhood-controls/known22-k09.validated.normalized.json",
+      "offset": 11,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "raw-validator-controls/known22-k09.validated.normalized.offset13.json",
+      "offset": 13,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "lean-setup/cover-neighborhood-controls/known22-k10.validated.normalized.json",
+      "offset": 11,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "raw-validator-controls/known22-k10.validated.normalized.offset13.json",
+      "offset": 13,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "lean-setup/cover-neighborhood-controls/known22-k11.validated.normalized.json",
+      "offset": 11,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "raw-validator-controls/known22-k11.validated.normalized.offset13.json",
+      "offset": 13,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "lean-setup/cover-neighborhood-controls/known22-k12.validated.normalized.json",
+      "offset": 11,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "raw-validator-controls/known22-k12.validated.normalized.offset13.json",
+      "offset": 13,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "lean-setup/cover-neighborhood-controls/known22-k13.validated.normalized.json",
+      "offset": 11,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "raw-validator-controls/known22-k13.validated.normalized.offset13.json",
+      "offset": 13,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "lean-setup/cover-neighborhood-controls/known22-k14.validated.normalized.json",
+      "offset": 11,
+      "status": "EXACT_BUT_TOO_LARGE"
+    },
+    {
+      "fixture": "raw-validator-controls/known22-k14.validated.normalized.offset13.json",
+      "offset": 13,
+      "status": "EXACT_BUT_TOO_LARGE"
+    }
+  ],
+  "rejected_cases": [
+    {
+      "case": "wrong-output",
+      "rejected": "Target mismatch at input 1"
+    },
+    {
+      "case": "wrong-operation",
+      "rejected": "Only AND and OR are allowed"
+    },
+    {
+      "case": "forward-reference",
+      "rejected": "Operands must refer to earlier wires"
+    },
+    {
+      "case": "boolean-index",
+      "rejected": "Operands must refer to earlier wires"
+    },
+    {
+      "case": "negative-index",
+      "rejected": "Operands must refer to earlier wires"
+    },
+    {
+      "case": "wrong-offset",
+      "rejected": "Wire offset must be 11 or 13"
+    },
+    {
+      "case": "wrong-input-count",
+      "rejected": "Exactly 11 inputs required"
+    },
+    {
+      "case": "changed-gate",
+      "rejected": "Target mismatch at input 18"
+    }
+  ],
+  "cli_normal_and_optimized_exact22_exit2": true,
+  "scope": "No21gatecandidate; all positive controls are known22 circuits."
+}

@@ -1,0 +1,57 @@
+{
+  "verdict": "PASS",
+  "source": "/tmp/oec/pequalnp-pilot-18/validate_raw_candidate.py",
+  "source_sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+  "all_source_lines_reviewed": 82,
+  "normalizer_sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+  "review_script_sha256": "1e18bedad74a89baa35295b2db26516e08bdf6025320f2697c3221dabe173c93",
+  "controls": {
+    "exact22_offsets13_and11": 2,
+    "malformed_or_wrong_function_rejections": [
+      "bool-input-count",
+      "bool-offset",
+      "wrong-offset",
+      "bad-operation",
+      "boolean-source",
+      "negative-source",
+      "self-reference",
+      "float-source",
+      "boolean-output",
+      "out-of-range-output",
+      "false-output",
+      "true-output"
+    ],
+    "wrong_normalizer_hash_rejected_before_import": true,
+    "oversized_CLI_controls": [
+      {
+        "label": "known22-offset13-normal",
+        "exit": 2
+      },
+      {
+        "label": "known22-offset13-optimized",
+        "exit": 2
+      },
+      {
+        "label": "known22-offset11-normal",
+        "exit": 2
+      },
+      {
+        "label": "known22-offset11-optimized",
+        "exit": 2
+      }
+    ]
+  },
+  "reasoning": [
+    "Strict integer type checks reject bools, floats, negative wires and forward/self references.",
+    "Both offset conventions are evaluated on every one of 2048 assignments using scalar Boolean operations.",
+    "Offset-11 gates and output are lifted consistently to the augmented normalizer convention.",
+    "The normalizer source is hash-pinned before import; the normalized offset-11 result is independently scalar-evaluated again.",
+    "Exit zero requires exact target and normalized size at most 21. Exact 22-gate controls exit two, including under python -O.",
+    "No first-junk or two-junk condition is claimed; any accepted candidate still requires Lean verification."
+  ],
+  "blocking_findings": [],
+  "repository_changed": false,
+  "solver_started": false,
+  "scope": "Validator correctness audit, not a 21-gate candidate or Lean proof.",
+  "Sub-agents": "none"
+}

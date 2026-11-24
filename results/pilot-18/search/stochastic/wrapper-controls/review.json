@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "controls": [
+    {
+      "label": "unknown",
+      "status": "UNKNOWN",
+      "real_search_engine_started": false
+    },
+    {
+      "label": "aborted-engine",
+      "status": "ABORTED",
+      "real_search_engine_started": false
+    },
+    {
+      "label": "exit-error",
+      "status": "ERROR",
+      "real_search_engine_started": false
+    },
+    {
+      "label": "exit10-wrong-status",
+      "status": "ERROR",
+      "real_search_engine_started": false
+    },
+    {
+      "label": "known22-never-a-witness",
+      "status": "ERROR",
+      "real_search_engine_started": false
+    },
+    {
+      "label": "wrong21-never-a-witness",
+      "status": "ERROR",
+      "real_search_engine_started": false
+    },
+    {
+      "label": "preexisting-abort-starts-nothing",
+      "status": "ABORTED_BEFORE_START",
+      "real_search_engine_started": false
+    }
+  ],
+  "scope": "Fake completed-engine controls; real raw-validator subprocesses only. No stochastic search."
+}

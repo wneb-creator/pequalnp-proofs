@@ -1,0 +1,8 @@
+{"status": "UNKNOWN", "result": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/wrapper-controls/unknown/result.json"}
+{"status": "ABORTED", "result": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/wrapper-controls/aborted-engine/result.json"}
+{"status": "ERROR", "result": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/wrapper-controls/exit-error/result.json"}
+{"status": "ERROR", "result": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/wrapper-controls/exit10-wrong-status/result.json"}
+{"status": "ERROR", "result": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/wrapper-controls/known22-never-a-witness/result.json"}
+{"status": "ERROR", "result": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/wrapper-controls/wrong21-never-a-witness/result.json"}
+{"status": "ABORTED_BEFORE_START", "result": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/wrapper-controls/preexisting-abort-starts-nothing/result.json"}
+{"status": "PASS", "controls": 7, "real_search_engine_started": false}

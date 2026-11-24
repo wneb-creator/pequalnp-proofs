@@ -1,0 +1,194 @@
+{
+  "verdict": "PASS_SELF_AUDIT_READY_FOR_MAIN_INDEPENDENT_REVIEW",
+  "timestamp_utc": "2026-11-24T03:09:37.669176+00:00",
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/circuit_anneal.cpp",
+      "sha256": "a82e670373e5f0048df004efbcb0f417949ce0255545c0767b647cb7207068b3",
+      "bytes": 12338
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/circuit_anneal",
+      "sha256": "31620eae27eed733fe22f94965a215394e3fc6bd2a313f566335a3eb30dd4f00",
+      "bytes": 56064
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/stochastic_tools.py",
+      "sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+      "bytes": 10521
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/test_wrapper_controls.py",
+      "sha256": "72708450b0b761632458bdafa5ea09b13cae8d2bb01dc5819e9336526e486d02",
+      "bytes": 3610
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/review_raw_validator.py",
+      "sha256": "1e18bedad74a89baa35295b2db26516e08bdf6025320f2697c3221dabe173c93",
+      "bytes": 5008
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/README.md",
+      "sha256": "f2dd395f1a5c24376e8121edc54c069fadf6c64c313de97fed5ec89766c3449a",
+      "bytes": 4752
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/seed-pack-ready/seeds.txt",
+      "sha256": "e65e3d1a9f6524b0e2cb6eab49042b87be412812e66d6239875b845572e41ba2",
+      "bytes": 23227
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/seed-pack-ready/seeds.json",
+      "sha256": "62ce6b6be8915bcd3e93bb1b21a3fb88b335f07f4c5b71960bdbe598313ef5e6",
+      "bytes": 18222
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/selftest-final.json",
+      "sha256": "08d0dbbecc25de96dc9ffc9e269ea5abec8b706ce2a6af6fdeb12883623601fb",
+      "bytes": 96
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/build-final.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/build-final.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/selftest-final.stdout.txt",
+      "sha256": "ac344ca43e9bddb0627ccc5009cce11ea3966509dafec052189749a502517a91",
+      "bytes": 77
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/selftest-final.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/prepare-final.stdout.txt",
+      "sha256": "c180958b37f8ffee87e0d1bbe57203c90e77693ff64a36fcc38faa749858ab89",
+      "bytes": 183
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/prepare-final.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/wrapper-controls/review.json",
+      "sha256": "8ab0e1b5a798666af6d6a12b6f2f219c6a906801bb671c93f223ef2b94ab6b5e",
+      "bytes": 989
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/wrapper-controls.stdout.txt",
+      "sha256": "e20ea42c206923863ebde229f779c17aa90006c383f65df9343ab8a118faf8c2",
+      "bytes": 1002
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/wrapper-controls.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/raw-review.stdout.txt",
+      "sha256": "d9d7c7b6921a82178711cfd281c45d653b7ab3fe171ecee588a2c6b2d06dd110",
+      "bytes": 279
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/raw-review.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "raw_validator_sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+  "raw_validator_independent_review_sha256": "e063dad9863b479d29118239e7439b800d3cf1ef908c043631e893991bf06e5b",
+  "compiler": "/usr/bin/g++",
+  "compiler_flags": [
+    "-std=c++17",
+    "-O3",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic"
+  ],
+  "compiler_version_file": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic-compiler-version.stdout.txt",
+  "build_exit": 0,
+  "compiler_warnings": 0,
+  "controls": {
+    "status": "SELF_TEST_PASS",
+    "baselines": 144,
+    "deletion_controls": 15840,
+    "mutation_controls": 15840
+  },
+  "wrapper_controls": [
+    {
+      "label": "unknown",
+      "status": "UNKNOWN",
+      "real_search_engine_started": false
+    },
+    {
+      "label": "aborted-engine",
+      "status": "ABORTED",
+      "real_search_engine_started": false
+    },
+    {
+      "label": "exit-error",
+      "status": "ERROR",
+      "real_search_engine_started": false
+    },
+    {
+      "label": "exit10-wrong-status",
+      "status": "ERROR",
+      "real_search_engine_started": false
+    },
+    {
+      "label": "known22-never-a-witness",
+      "status": "ERROR",
+      "real_search_engine_started": false
+    },
+    {
+      "label": "wrong21-never-a-witness",
+      "status": "ERROR",
+      "real_search_engine_started": false
+    },
+    {
+      "label": "preexisting-abort-starts-nothing",
+      "status": "ABORTED_BEFORE_START",
+      "real_search_engine_started": false
+    }
+  ],
+  "source_review": {
+    "vector_row_order_16_edges_24_MIS": true,
+    "uint64_all_masks_within_40_bits": true,
+    "constants_FALSE11_TRUE12": true,
+    "acyclic_mutations_only": true,
+    "arbitrary_output_selector": true,
+    "deleted_gate_alias_renumbering_matches_independent_scalar_replacement": true,
+    "all_144_baselines_scalar_checked_on_2048_inputs": true,
+    "weighted_positive_objective_and_restarts": true,
+    "every_strict_best_saved_as_JSON": true,
+    "boundary_exact_stops_and_scalar_checks_2048": true,
+    "iteration_and_time_limits": true,
+    "wrapper_fresh_directory_full_logs_and_256MiB_cap": true,
+    "wrapper_exit10_requires_hash_pinned_external_scalar_validator": true,
+    "exact22_and_wrong21_candidates_fail_wrapper_validation": true,
+    "no_first_junk_or_two_junk_assumption": true,
+    "no_21_gate_result_or_exhaustion_claim": true
+  },
+  "blocking_findings": [],
+  "limitations": [
+    "No stochastic search or runtime throughput benchmark has been launched; performance remains UNVERIFIED.",
+    "No exact 21-gate fixture exists, so a successful end-to-end witness path cannot yet be exercised.",
+    "Best snapshots may be incorrect circuits; only validated.json with the expected status is an accepted computational candidate, and Lean proof is still required.",
+    "A wall cutoff can stop a deterministic seed at different iterations. Fixed iteration limits with the same binary and seed pack reproduce the trajectory.",
+    "An uncatchable supervisor kill bypasses its cleanup, while the engine retains its own wall-time bound.",
+    "The scalar deletion and mutation controls test 40 boundary rows; baseline and any exact candidate are additionally checked on all 2048 inputs."
+  ],
+  "repository_modified": false,
+  "existing_worker_modified": false,
+  "desk_calls": false,
+  "Sub-agents": "none",
+  "TIMING": "total=170.8 subagents=0"
+}
