@@ -30,3 +30,9 @@ Put new stable, compiled components here only after review. Work in an individua
 - `AppendLine.lean`: compiled three-OR-gate constructor with exact output semantics and preservation of earlier wires; independently reviewed and approved. Full log: `../validation/append-line-build-002.log`.
 
 - `Reduction.lean`: compiled and independently reviewed sink-cut invariance and paid-source clamping correctness under the explicit twelve-source/four-raw-input hypotheses. Full log: `../validation/reduction-build-001.log`.
+
+- `FirstAnd.lean`: compiled and independently reviewed first-AND surgery and OR-sink normalization preserving any specified ordinary-output family, without increasing gate count. Full log: `../validation/first-and-build-002.log`.
+- `PairSurcharge.lean`: compiled and independently reviewed four-charge lower bound from two overlapping pair cores in an ordinary four-point output. Full log: `../validation/pair-surcharge-build-001.log`.
+
+- `Assembly.lean`: compiled and independently reviewed append-list and deleted-OR-root interfaces. Full log: `../validation/assembly-build-002.log`.
+- `SmallFamily.lean`: compiled and independently reviewed nonordinariness of all four outputs in a hypothetical eleven-gate residual. Full log: `../validation/small-family-build-001.log`.
