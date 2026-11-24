@@ -1,0 +1,8 @@
+2026-11-24T10:42:01.721242+00:00
+PASS PrivateOneMaskActualPlane.lean
+d1bb2f7e036580505b6311d89991a31b893d3e0034fc36ac208e40a713acc17d
+Exact reviewed PrivateOneMaskRefund prefix; new semantic helper and final plane wrappers inspected.
+one_mask_edges_eq/singleton_cross_eq identify actual Fin1 mask family exactly. Private pair forces large sides then unique center, so every effective mask edge is precisely p-star.
+oriented_private_refund derives graph adjacency, full joint cleanliness, checked residual split signature, and actual Ustar coverage; root purity/bounds, product identities, orientation, exact2junk and actual paired top remain explicit.
+plane_oriented_private_size derives endpoint unmaskedness, cover<=2, exact plane105/cover21 and junk>=2, applies r0 accounting. Numeric conclusion125 is sound.
+Author build001 exit0; full log inherited warnings only. Source forbidden scan clean.

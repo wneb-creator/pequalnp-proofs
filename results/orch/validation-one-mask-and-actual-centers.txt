@@ -1,0 +1,10 @@
+PARTIAL RESULTS ONLY. Exact gap L-meta-1477 remains unproved.
+Named-file checker remains REJECTED (no-theorem); no proof PR opened.
+
+SingletonMaskGeometry.lean lines=351 bytes=16687 SHA256=efde44c325c4cb81247bcaad4ab9543234ad176c0327e11587ff4df21f83d002; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/singleton-mask-geometry-build-003.log
+ActualCleanCenters.lean lines=7935 bytes=388412 SHA256=30438ac53d729db74f30ea7b9343202bea7064af3e2593f83daf87df16142f7c; author build EXIT0; independent review PASS by status_audit; full log=results/orch/actual-clean-centers-build-001.log
+GeneralOrdinaryCoverage.lean lines=7890 bytes=385815 SHA256=33ae3d2a81e75d112e355bbb91f51829b1d24bcbba3b618f2095ff41185f4818; author build EXIT0; independent review PASS by status_audit; full log=results/orch/general-ordinary-coverage-build-001.log
+PrivateOneMaskActualPlane.lean lines=11220 bytes=549139 SHA256=d1bb2f7e036580505b6311d89991a31b893d3e0034fc36ac208e40a713acc17d; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/private-one-mask-actual-plane-build-001.log
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=274.15 subagents=6

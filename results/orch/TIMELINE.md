@@ -271,3 +271,7 @@
 2026-11-24T10:38:14.628483+00:00 gate_invariants PrivateBothMaskFull.lean frozen FIRST TRY build001 EXIT0, SHA 0c85e3701665d3db616889919115fdca40e6ebb0dc43c95ce92f492a80ecfb91, 9221lines. Exact ActualPlane prefix plus checked opposite-orientation namespace/mask_swap; new center selection and all product-side/input-order cases yield plane125 whenever both mask families nonempty. No chosen center/orientation premise remains. Reader orientation0/1 and JointClean/product-fire assumptions still explicit here; symmetric reader and actual paired-top extraction follow separately.
 
 - 2026-11-24T10:40:06.609067+00:00 root preserved8 checked/refereed actual restricted bounds and6 reviewed search packages; no unrestricted proof or target witness.
+
+2026-11-24T10:41:38.036806+00:00 status_audit: OrdinaryFamilyBudget build001/review PASS; Balanced local run008 active, exact-two centreless split builds in progress.
+
+- 2026-11-24T10:42:39.792968+00:00 root preserved4 checked/refereed partials: singleton mask geometry, actual clean-center bridge, general ordinary coverage and canonical one-mask plane bound.
