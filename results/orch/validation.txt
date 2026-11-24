@@ -15,3 +15,9 @@ Independent exact-statement and source review: PASS
 Lean build: still running, no completion verdict yet
 Kernel checker: not yet run
 Resource work: investigating smaller certificate batches after measured transient RSS above 6.5 GB.
+
+Checked certificate prefix: results/orch/lemmas/certificate_seed9.lean
+Lean exit:0; elapsed113.03seconds; peak RSS5081968KiB.
+Scope: certificate infrastructure plus seedChecked9, not final lowerbound.
+Sub-agents:6 (includes nested seed cost review)
+TIMING total=41 subagents=6
