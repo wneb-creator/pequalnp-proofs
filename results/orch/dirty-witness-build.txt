@@ -1,3 +1,0 @@
-lake env lean results/orch/lemmas/DirtyWitnessPartial.lean
-Exit0; no warnings
-Independent review approved SHA256 cc7ef768d429dc2f0f66d9191b37407086da137d8a2b092a6611e8b7ca477111

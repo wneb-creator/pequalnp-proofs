@@ -1,5 +1,0 @@
-inputs 4 girth5_nonempty_targets 37 circuits_enumerated 81985 seconds 0.037
-all_targets_found True
-minimum_sizes {1: 6, 2: 12, 3: 7, 4: 12}
-minimum_circuits_with_dirty_AND 0
-All valid least circuits can omit duplicate or previously computed gate functions; repeated operands and unused gates cannot occur in a least circuit.

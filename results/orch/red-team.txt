@@ -1,8 +1,0 @@
-Independent reviewer: status_review
-V3 approved as a conditional reduction.
-SHA256 0719a1eecd81d1eab3c2b72f6bdf3c54e9cbf2e85475627d5e4e36a3e30d2688
-147 lines, 9179 UTF-8 bytes
-Exact posted conclusion; one theorem; three independent propositions; only allowed imports.
-No forbidden terms, quotes, attributes, options, namespaces or extra declarations.
-Direct label-fiber deletion proves coefficient 27+5*d.
-The local degeneracy hypothesis remains unproved.

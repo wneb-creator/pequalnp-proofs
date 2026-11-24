@@ -1,6 +1,0 @@
-inputs 5 girth5_nonempty_targets 302 circuits_enumerated 27160961 seconds 19.695
-all_targets_found False
-targets_missing [([(0, 3), (0, 4), (1, 2), (1, 4), (2, 3)], 99), ([(0, 2), (0, 4), (1, 3), (1, 4), (2, 3)], 99), ([(0, 3), (0, 4), (1, 2), (1, 3), (2, 4)], 99), ([(0, 2), (0, 3), (1, 3), (1, 4), (2, 4)], 99), ([(0, 1), (0, 4), (1, 3), (2, 3), (2, 4)], 99), ([(0, 1), (0, 3), (1, 4), (2, 3), (2, 4)], 99), ([(0, 2), (0, 4), (1, 2), (1, 3), (3, 4)], 99), ([(0, 2), (0, 3), (1, 2), (1, 4), (3, 4)], 99), ([(0, 1), (0, 4), (1, 2), (2, 3), (3, 4)], 99), ([(0, 1), (0, 2), (1, 4), (2, 3), (3, 4)], 99), ([(0, 1), (0, 3), (1, 2), (2, 4), (3, 4)], 99), ([(0, 1), (0, 2), (1, 3), (2, 4), (3, 4)], 99)]
-minimum_sizes {1: 10, 2: 30, 3: 35, 4: 95, 5: 120, 99: 12}
-minimum_circuits_with_dirty_AND 0
-All valid least circuits can omit duplicate or previously computed gate functions; repeated operands and unused gates cannot occur in a least circuit.

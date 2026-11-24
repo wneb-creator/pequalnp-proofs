@@ -1,7 +1,0 @@
-Nested-only Heawood stress test, exhaustively checked on all 16384 inputs in ordinary Python.
-Graph: 14 vertices, 21 edges, degree 3, no triangles or 4-cycles. Circuit: 55 gates.
-Each point p has h_p=(p OR q_p) AND (p OR r_p), g_p=h_p AND OR(neighbors(p)), then top p AND g_p; final output ORs all tops.
-The circuit computes the graph edge function and satisfies TopForm. All 21 edges are Ustar. The raw-exposed set from L_meta_4322 is EMPTY.
-Choose u=point, v=line, top=point top, junk=g_p. All four role fibers have size 3. Opposite-side sets are empty, so the disjointness condition holds.
-IsLeastAO fails: the ordinary star circuit has 27 gates versus 55 here.
-This is NOT a refutation. It shows the rich-core hypotheses do not force emptiness without using leastness.
