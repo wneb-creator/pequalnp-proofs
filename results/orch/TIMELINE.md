@@ -48,3 +48,9 @@
 - 2026-11-24T18:32:53.244345+00:00: checked three-point-factor line-cover/cardinality obstruction for two-dirty core.
 - 2026-11-24T18:38:29.159664+00:00: prior toolsession/agent handles disappeared; files and all seven pushed checkpoints intact. Renewed ownlease and restarted timer as detached process with PIDfile. New recoveryworkers review_recovery, structure_recovery, composition_recovery, full_gap_challenge; composition child or_context added. Total subagentsused12.
 - 2026-11-24T18:39:18.379173+00:00: checkpoint8 build and recovered independent review passed; total13subagents after literature child.
+
+- 2026-11-24T18:40:43.103244+00:00 structure_recovery checked singleton-frontier bridge (three lemmas; full main goal still open).
+
+- 2026-11-24T18:43:07.782814+00:00 structure_recovery checked private-reader bridge from unique AND frontier and generic OR liveness.
+
+- 2026-11-24T18:47:17.251527+00:00: checkpoint9 combined6387line helper source built, all344 public declarations axiom-audited, split independent review passed. Public feed still has no reductions flag for L-meta-2584.

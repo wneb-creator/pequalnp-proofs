@@ -1,0 +1,24 @@
+Independent review 009a by composition_recovery
+Scope: reorder-recovery/checked-006.fragment (230 lines), structure-recovery/singleton-frontier-fragment.txt (82), unique-frontier-fragment.txt (76), private-reader-fragment.txt (70), least-privacy-fragment.txt (44).
+Verdict: PASS for these partial components; no semantic or format defect found. This does not certify the posted L-meta-2584 theorem, which these components do not prove.
+
+Reorder review:
+- Both adjacent gates are explicitly required to read only wires preceding the two-gate block. This prevents hidden dependence of the second gate on the first.
+- The suffix renaming swaps exactly the two emitted wire indices, and the circuit output is renamed as well. Inputs to the swapped gates are unchanged because their bounds exclude both swapped indices.
+- getD_swap handles every output index, including old input wires, the two exchanged values, later wires, and absent output indices. Thus default false/empty semantics are preserved too.
+- Generic run equality is instantiated separately with Bool semantics, proof-word sets, and the actual ReadK capped-vector operation. It proves equality of the whole joint vector list; it does not confuse coordinatewise minima with a common read witness.
+- Backward-reference legality follows from strict prefix bounds and sw_lt on later gates. Gate op and arity are preserved, and the size equality is explicit.
+- The IsReadK equivalence rewrites both the function/prime-implicant side and readsAtMost. It makes no unjustified statement about improving witnesses.
+
+Structure review:
+- singleton_nonempty_of_and_ancestors explicitly assumes nonempty singleton support for every relevant AND ancestor. OR induction selects a genuine bounded operand from exact fanin two.
+- top_operand_singleton_nonempty uses TopForm to exclude a clean AND ancestor of a top, and the dirty-singleton hypothesis for remaining AND ancestors. It does not assume that all dirty gates automatically have singletons.
+- two_dirty_mixed_unique_frontier keeps all necessary hypotheses visible: only two possible dirty gates, both with singleton support, two source singletons with no common graph neighbor, and exclusion of the first dirty gate from the source cone.
+- unique_frontier_private_reader uses actual liveness of every OR reader. An OR path either reaches output (explicitly forbidden) or reaches the unique AND frontier. The first frontier operand cannot contain a strictly later reader, and the second operand is separately assumed not to reach the source.
+- least_two_dirty_mixed_private_reader derives liveness from the independently checked least-gate frontier lemma and output rejection from exact graph-function semantics. It does not infer global leastness merely from absence of unused gates.
+
+Format scan of all five exact fragment files:
+No sorry/admit/axiom/native_decide/unsafe/initialization/elaboration constructs, forbidden root text, string literals, attributes, options, or import text were found. Definitions and lemmas stay under Reorder or Sharing, which root inserts below the module namespace. No foreign imports or declarations were added by this review.
+
+Validation boundary:
+This review was independent source-level semantic analysis plus an automated format scan. The authors reported successful Lean compilation, and root is running the combined build. No additional target-file edits were made by this reviewer. The final named theorem is still absent, so no ACCEPTED checker verdict or final proof PR is warranted from these helpers alone.

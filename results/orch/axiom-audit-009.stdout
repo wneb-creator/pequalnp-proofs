@@ -1,0 +1,482 @@
+'PEqualNP.Outside.L_meta_2584.exists_least_circuit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.false_circuit_read' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.normalize_of_least_read' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.point_ne_line' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidence_pair_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidence_prime_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidence_prime_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidence_read_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidence_biclique_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidence_biclique_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.flat_isReadTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.separated_isReadTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.short_isReadTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.cones_len' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.cones_char' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.inCone_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.one_junk_isReadTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.no_junk_isReadTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.at_most_one_junk_isReadTwo' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.prime_short_isReadTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.one_junk_per_top_isReadTwo' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.two_dirty_in_some_top_of_not_read' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.vector_decodes_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.reads_two_iff_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.read_two_of_word_sim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FlatRead.reads_two_of_word_sim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.Inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.inv_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.inv_nil' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.app_cases' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.app_left' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.app_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.inv_app' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.cval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.block_get' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.block_chain' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.rest_mem' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.inv_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.block_len' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.inv_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.gates_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.CoverForm_aux.gateAt_get' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.CoverForm.cover_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverRead.canonical_cover_isReadTwo' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidenceBit' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidenceGraph_noFourCycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidenceGraph_function' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.getD_snoc_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.getD_snoc_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.gateSupp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.mem_foldr_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.mem_gateSupp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.suppsFrom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.inputSupps' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.Agree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.agree_wiresFrom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.agree_inputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.Cnt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.cnt_inputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.cnt_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.cnt_suppsFrom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Support.essential_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidence_singleton_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.toggle_singleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidence_point_essential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidence_line_essential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverEval.step' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.CoverEval.read' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.CoverEval.part' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.CoverEval.acc' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.CoverEval.acc_length' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.CoverEval.acc_low' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverEval.acc_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverEval.chain_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverEval.block_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverEval.block_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverEval.hit' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.CoverEval.hit_congr' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverEval.cover_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverEval.cover_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverEval.cover_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverEval.main' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverCertificate.replacement_of_star_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CycleSix.circuit' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.CycleSix.circuit_size' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.CycleSix.circuit_ao2' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.CycleSix.incidence_four_free' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.CycleSix.circuit_computes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CycleSix.circuit_read_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.line_star_size_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidence_active_size_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverCertificate.point_star_replacement_of_degree_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.CoverCertificate.line_star_replacement_of_degree_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.star_forest_edge_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.star_forest_replacement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.TopFormExample.topForm_not_sufficient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.stepWire' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.wires_eq_foldl' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.foldl_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.foldl_getD_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.getD_ge' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.foldl_getD_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.val' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.eval_eq_val' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.gateAt_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.gateAt_mem' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.val_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.val_ge' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.val_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.val_or' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.val_and' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.val_ofFn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.gateVal_eq_val' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.OrStep' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.orStep_up' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.pairInput_left' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.pairInput_right' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.pairInput_true' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.graphFun_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.reach_var_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.side_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.orSets_len' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.orSets_char' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.orReaches_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.reach_orReaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.orReaches_reach' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.mem_orIn_reach' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.reach_mem_orIn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.top_sides_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.orIn_subset_of_orReaches' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.top_opposite_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.shared_or_region_center_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.orIn_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.top_sides_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.top_sides_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.shared_or_region_center_union_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.belowF_orIn_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.belowF_of_orReaches' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.top_orIn_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.output_orIn_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.wf' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.wf_cons' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.wf_append' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.wf_len' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.split_gates' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.gateAt_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.legal_of' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.GuardedErase.sk' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.GuardedErase.rn' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.GuardedErase.sk_lt' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.getD_mid' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.getD_sk' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.getD_rn' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.surg' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.ev' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.Tc' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.GuardedErase.sound_c' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.Tc_legal' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.Tc_rb' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.asm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.getD_left' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.rn_eq_sk' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.erase_guarded_and' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.wf_ext' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.old_wires' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.prefix_and_implies_input' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.erase_shared_factor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.least_no_shared_factor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.val_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.singletonInputs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.singleton_input_pair_value' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.singletonInputs_subset_of_orReaches' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.orIn_subset_singletonInputs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.singleton_sides_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.singleton_opposite_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.shared_singleton_region_center_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.graphFun_eq_of_pair_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.circuit_graphFun_eq_of_pair_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.incidence_eq_of_pair_cover' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.opposite_singletons_empty_of_no_common_neighbor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.shared_region_opposite_empty_of_no_common_neighbor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ChoiceErase.forall₂_getD' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ChoiceErase.forall₂_prefix' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.ChoiceErase.forall₂_snoc' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.ChoiceErase.gate_imp' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ChoiceErase.surg_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ChoiceErase.erase_choice_and' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.step' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Rotation.run' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Rotation.AgreeExcept' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Rotation.snoc_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.snoc_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.agree_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.agree_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.bool_rotate' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Rotation.block' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.run_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.adjacent_semantics' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.adjacent_size' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Rotation.word_rotation' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.Rotation.block_get_other' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.adjacent_ao2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.word_rotation_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.wordOp' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Rotation.wordStep' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Rotation.wordRun' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Rotation.WSim' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.Rotation.WAgreeExcept' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Rotation.wsim_refl' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.Rotation.wsim_op' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Rotation.wsnoc_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.wsnoc_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.wagree_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.wagree_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.word_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.adjacent_word_simulation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.wordRun_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.adjacent_preserves_read_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Rotation.adjacent_preserves_reads_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.TwoJunkStructure.fourClauseEdge' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.TwoJunkStructure.four_clause_noncentre_edges_same_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.TwoJunkStructure.four_clause_double_star' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.incidence_point_line_no_common_neighbor' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.or_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.pure_or_value_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.pure_or_singletons_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.pure_or_pair_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.disjoint_pure_side_and_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.disjoint_point_or_and_false_on_pairs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.choose_incident_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.pure_point_or_times_line_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.and_reader_choose_point_factor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.shared_or_context_center_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.forcedCircuit' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.Sharing.forcedCircuit_length' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.forcedCircuit_gateAt_self' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.forcedCircuit_gateAt_other' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.forcedCircuit_andOrOnly' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Sharing.forcedCircuit_val_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.forcedCircuit_val_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.forcedCircuit_val_eq_of_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.forcedCircuit_fun_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.forcedCircuit_fun_eq_of_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.forcedCircuit_graphFun_eq_of_edge_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.forcedCircuit_incidence_eq_of_pair_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.wiresFrom' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.wiresFrom_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.wiresFrom_append' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.wiresFrom_prefix' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.getD_snoc_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.valid' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.value' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.valid_mono' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.value_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.simplify' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.good' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.simplify_good' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.simplify_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.step' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.run' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.option_toList_length_le' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.run_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.run_length_strict' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.built' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.built_append' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.Inv' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.getD_snoc_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.step_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.run_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.initial' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.initial_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.propagate' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.built_ao2' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.propagate_ao2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.propagate_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.falseGate' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.forcedCircuit' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.good_falseGate' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.good_set' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.falseGate_mem_set' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.FalsePropagation.eliminate_false_gate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.least_gate_productive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.least_incidence_gate_productive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.productive_pure_point_and_intersection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.productive_pure_point_and_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ChoiceErase.least_no_choice_and' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.TwoJunkStructure.point_factors_cover_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.TwoJunkStructure.point_factor_covers_at_most_one_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.TwoJunkStructure.three_point_factors_limit_lines' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.TwoJunkStructure.point_factors_small_line_side_or_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.DirectFactor.prefix_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.DirectFactor.erase_pure_point_and_direct_line_readers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.AliasErase.surg_alias_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.AliasErase.erase_alias' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.common_or_input_implies_and' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.pure_point_and_pair_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.pure_point_and_singleton_pair_value' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.MinimumPure.prefix_input_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.MinimumPure.prefix_gate_value' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.MinimumPure.erase_pure_point_and_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.MinimumPure.least_pure_point_and_intersection_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.MinimumPure.least_pure_point_and_singleton_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.MinimumPure.prefix_wire_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.MinimumPure.erase_equivalent_wire' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.MinimumPure.least_pure_or_and_factors_incomparable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.MinimumPure.least_pure_point_and_four_inputs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.or_context_choose_point_factor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.shared_pure_opposite_value_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.GuardedErase.erase_unused_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.least_gate_used' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.least_gate_or_frontier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.singleton_nonempty_of_and_ancestors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.top_operand_singleton_nonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.mixed_region_not_top_operand' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.orReaches_gate_ancestor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.orReaches_operand_inCone' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.two_dirty_mixed_unique_frontier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.singleton_region_not_output' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.inCone_index_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.orReaches_wire_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.orReaches_trans' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.unique_frontier_private_reader' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.least_gate_or_frontier_operand' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Sharing.least_two_dirty_mixed_private_reader' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.sw' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.Reorder.rename' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2584.Reorder.run' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Reorder.sw_below' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.sw_involutive' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.sw_lt' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.getD_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.run_append' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.run_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.run_renamed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.block' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.adjacent_run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.adjacent_semantics' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.adjacent_wordRun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.adjacent_size' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2584.Reorder.built_of_ao2' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.adjacent_built' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.adjacent_ao2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.adjacent_readsAtMost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.Reorder.adjacent_isReadK_iff' depends on axioms: [propext, Classical.choice, Quot.sound]

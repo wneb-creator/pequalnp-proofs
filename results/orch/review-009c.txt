@@ -1,0 +1,31 @@
+Independent checkpoint009 supplemental review
+Reviewer: /root/full_gap_challenge, independent of the implementation.
+UTC: 2026-11-24T18:47:00.256996+00:00
+Scope: liveness-fragment.txt (120 lines) and or-context-fragment.txt (66 lines), all 186 lines reviewed.
+
+Verdict: CHECKPOINT PUSH READY for these fragments; partial results only; NOT a complete proof or refutation of L-meta-2584.
+
+Mathematical review:
+- erase_unused_gate removes an unread non-output gate, shifts all later wire references and output consistently, and preserves their evaluated values. Its earlier alias is used only to meet renaming well-formedness; no reader or output can observe the deleted value. AO2 is preserved and the size strictly decreases.
+- least_gate_used derives the needed earlier alias from the actual gate's binary input list and backward-read bound, then contradicts leastness using the preceding erasure. It does not assume n is positive or a valid output index.
+- least_gate_or_frontier follows successive readers through OR gates until output or an AND operand. Backward reads give j<k, making the remaining-gate induction strictly decrease. Self OR reachability is used correctly at the endpoints. This is actual syntactic liveness, not a semantic substitution claim.
+- or_context_choose_point_factor tests the pure input shadows on two selected point inputs and one line. OR reachability propagates the AND value through the context, and the opposite operand's actual OR input shadow supplies its line value. The explicit below-target hypothesis then permits the existing factor-choice lemma. No unsupported purity of the whole dirty context is inferred.
+- shared_pure_opposite_value_iff uses both the pure-OR completeness hypothesis and the nonempty OR-shadow condition. It therefore does not confuse singleton support with the full value of a dirty operand. C4-free shared-centre uniqueness supplies the endpoint equality in both directions.
+
+Red-team / source-format review:
+- No sorry, added axiom, native evaluation, unsafe command, code-generating command, special attribute, new instance/type, quote, forbidden root marker, or option occurs in these fragments.
+- Helpers are lemmas in namespaces below PEqualNP.Outside.L_meta_2584; no theorem or import line appears in either fragment.
+- Root must place these blocks consistently inside the final single auxiliary namespace and keep the complete posted theorem last. The fragments themselves do not claim that theorem.
+- git --no-pager diff --check on the current target passed.
+
+Independent validation:
+- Recompiled verbatim fragment contents with only five helper names prefixed review009c_ in a scratch audit file importing the current built main module. This avoids duplicate declaration names without changing statements or proofs.
+- lake env lean audit exit 0; stderr empty.
+- All five audit declarations report exactly the allowed axiom set propext, Classical.choice, Quot.sound.
+- Complete audit file/logs: /tmp/oec/pequalnp-pilot-39/full-gap-challenge/Review009c.lean, review-009c.stdout.txt, review-009c.stderr.txt.
+- The audit import of the existing Outside module is scratch-only. It must not appear in the submitted target, whose only imports remain Mathlib and PEqualNP.Defs.
+- This is supplemental fragment validation, not an independent full main build or checker acceptance. The actual general normalization theorem remains absent.
+
+Reviewed fragment hashes:
+8b482eb02769433302c60d251dc3db37d68366e178e236f95e00db89d4bf9317  /tmp/oec/pequalnp-pilot-39/composition-recovery/or-context/liveness-fragment.txt
+48d06d0c87b6265898aa160e93a74c74a1f4d09b900363db16142555c47d50f0  /tmp/oec/pequalnp-pilot-39/composition-recovery/or-context/or-context-fragment.txt

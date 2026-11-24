@@ -63,3 +63,10 @@ Build011: exit0; Build completed successfully (18419 jobs).
 Independent review: review-008.txt passed. Main checker remains not accepted (no final theorem).
 Sub-agents: previous7 plus review_recovery, structure_recovery, composition_recovery, composition_recovery/or_context, full_gap_challenge, full_gap_challenge/literature_challenge (13 total).
 TIMING total=42.1 subagents=13
+
+Checkpoint 9: minimum pure-factor restrictions, generic liveness, direct-factor deletion, mixed-region privacy, independent gate reordering with exact read vectors.
+Target: 6387 lines, 286452 bytes.
+Build012: exit0; Build completed successfully (18419 jobs).
+Independent reviews009a/009b/009c passed; all344 public declaration axioms audited (standard allowed axioms only).
+Checker remains REJECTED (no-theorem); no final theorem and no PR.
+TIMING total=50.1 subagents=13

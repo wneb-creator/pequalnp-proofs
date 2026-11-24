@@ -1,0 +1,17 @@
+Checkpoint 009b independent review
+UTC: 2026-11-24T18:46:17.177391+00:00
+Reviewer: structure_recovery (not author of reviewed components)
+Verdict: PASS for the five auxiliary fragments below; this is not acceptance of the posted gap.
+
+Read all five fragments and independently compiled them together against the frozen 5143-line checkpoint008 base using pinned Lean4.36.0. Compilation exit0. Full stdout/stderr: scratch structure-recovery/review-009b.stdout and review-009b.stderr. The stdout contains existing style/deprecation warnings plus the axiom audits. All16 reviewed public declarations use only propext, Classical.choice, Quot.sound (or a subset).
+
+Red-team checks: no sorry, added axioms, native_decide, prohibited commands, custom types/instances, string literals, forbidden root-qualified text, or extra imports. Relative MinimumPure namespaces are valid when inserted in the outer module namespace. Other fragments use the full module-child namespaces. No new theorem keyword; these are helpers, and the required final theorem remains absent.
+
+Semantic review: AliasErase explicitly requires an earlier replacement wire and its implication into the removed gate, proves downward function comparison and conditional equality, and keeps AO2/backward reads/strict size decrease. Missing outputs remain handled by generic renumbering. AliasPair requires both operands pure point OR regions and exactly singleton intersection, so its pairwise equality is justified. MinimumPure combines downward simulation with preserved incidence pairs and monotonicity; no claim that pair equality alone preserves arbitrary monotone functions. Incomparable rules correctly use full-function equivalence before invoking leastness; the four-input count follows two common inputs and one exclusive input on each side. DirectFactor requires every actual reader to be a sound primary-line AND reader, excludes output-as-erased-gate, and chooses a sound factor consistently per reader gate. It does not claim arbitrary OR readers are covered.
+
+SHA256:
+alias-erase-fragment.txt 36aaaa6f41af1eedee20538b1b294f182956bfbde0dd1963c3127d567e4bdf71
+alias-pair-fragment.txt 4ccfd116f5e93501e780c29c77552555ae9afe9071c63c980c4eba2e99807cff
+minimum-pure-fragment.txt 6b9a02b863732e4a8b7f35700196da7c2d3a9abf4beaedbd9542fa472e52eae9
+incomparable-fragment.txt cbc05321d832cdae842f2a684c2e92a0cf362f8b02872b7314c77468e0a1986e
+direct-readers-fragment.txt df667cfb709ffa7df7c2c1d800eaa2a2e8cfd34dce1495e12a1f1ea38baa7c93
