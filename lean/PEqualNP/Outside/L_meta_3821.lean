@@ -651,6 +651,194 @@ lemma private_and_or_four (n : ℕ) (C : Circuit) (p q i j w : ℕ) (S : Finset 
     hgp hgq hS hprivate ho hz
   exact ⟨D, hD, by omega, hev⟩
 
+def effectiveGate (g : Gate) : Gate :=
+  match g.op with
+  | .not => ⟨.not, g.inputs.take 1⟩
+  | _ => g
+
+def effectiveCircuit (C : Circuit) : Circuit :=
+  ⟨C.gates.map effectiveGate, C.output⟩
+
+lemma effectiveGate_eval (g : Gate) (v : ℕ → Bool) :
+    (effectiveGate g).op.eval ((effectiveGate g).inputs.map v) = g.op.eval (g.inputs.map v) := by
+  rcases g with ⟨op, ins⟩
+  cases op <;> simp only [effectiveGate]
+  cases ins <;> rfl
+
+lemma effectiveCircuit_wires (C : Circuit) (x : List Bool) :
+    (effectiveCircuit C).wires x = C.wires x := by
+  change d3r1Fold false GateOp.eval (C.gates.map effectiveGate) x =
+    d3r1Fold false GateOp.eval C.gates x
+  generalize C.gates = gs
+  induction gs generalizing x with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [d3r1Fold, List.map_cons, List.foldl_cons]
+    rw [effectiveGate_eval]
+    exact ih _
+
+lemma effectiveCircuit_fanInTwo (C : Circuit) (hfan : FanInTwo C) :
+    FanInTwo (effectiveCircuit C) := by
+  intro g hg
+  change g ∈ C.gates.map effectiveGate at hg
+  obtain ⟨g0, hg0, rfl⟩ := List.mem_map.mp hg
+  have hf := hfan g0 hg0
+  rcases g0 with ⟨op, ins⟩
+  cases op <;> simp only [effectiveGate]
+  all_goals try exact hf
+  exact ⟨hf.1, by simp only [List.length_take]; omega⟩
+
+lemma effectiveCircuit_not_inputs (C : Circuit) :
+    ∀ g ∈ (effectiveCircuit C).gates, g.op = .not → g.inputs.length ≤ 1 := by
+  intro g hg hn
+  change g ∈ C.gates.map effectiveGate at hg
+  obtain ⟨g0, hg0, rfl⟩ := List.mem_map.mp hg
+  rcases g0 with ⟨op, ins⟩
+  cases op <;> simp only [effectiveGate] at hn ⊢
+  all_goals try contradiction
+  simp
+
+lemma prune_not_inputs (n : ℕ) (C : Circuit) (κ : ℕ → Bool)
+    (hnot : ∀ g ∈ C.gates, g.op = .not → g.inputs.length ≤ 1) :
+    ∀ g ∈ d3r1Pruned n κ C.gates, g.op = .not → g.inputs.length ≤ 1 := by
+  intro g hg hn
+  simp only [d3r1Pruned, List.mem_map, List.mem_filter, List.mem_range] at hg
+  obtain ⟨t, ⟨ht, _⟩, rfl⟩ := hg
+  simp only [d3r1PGate, List.getD_eq_getElem _ _ ht, List.length_map] at hn ⊢
+  exact hnot _ (List.getElem_mem ht) hn
+
+lemma prune_pair_certificate (n : ℕ) (C : Circuit) (a b : ℕ) (κ : ℕ → Bool)
+    (hfan : FanInTwo C)
+    (hκ : ∀ t, κ t = true → t < C.gates.length)
+    (hcl : ∀ (t : ℕ) (ht : t < C.gates.length), κ t = true →
+      ∀ z ∈ C.gates[t].inputs, n ≤ z → z < n + t → κ (z - n) = true)
+    (ha : n ≤ a → a < n + C.gates.length → κ (a - n) = true)
+    (hb : n ≤ b → b < n + C.gates.length → κ (b - n) = true) :
+    ∃ (D : Circuit) (a' b' : ℕ), FanInTwo D ∧ D.size = d3r1Top κ C.gates ∧
+      ∀ x : Fin n → Bool,
+        (D.wires (List.ofFn x)).getD a' false = (C.wires (List.ofFn x)).getD a false ∧
+        (D.wires (List.ofFn x)).getD b' false = (C.wires (List.ofFn x)).getD b false := by
+  refine ⟨⟨d3r1Pruned n κ C.gates, d3r1New n κ (d3r1Top κ C.gates) a⟩,
+    d3r1New n κ (d3r1Top κ C.gates) a, d3r1New n κ (d3r1Top κ C.gates) b,
+    ?_, d3r1_pruned_length n κ C.gates, ?_⟩
+  · exact pruned_fanInTwo n C κ hfan
+  · intro x
+    exact ⟨d3r1_prune_out false GateOp.eval (List.ofFn x) n (by simp) C.gates κ a hκ hcl ha,
+      d3r1_prune_out false GateOp.eval (List.ofFn x) n (by simp) C.gates κ b hκ hcl hb⟩
+
+def causalRead (gs : List Gate) (n : ℕ) : ℕ → ℕ → Prop := fun a b =>
+  a < b ∧ ∃ j : Fin gs.length, b = n + j.val ∧ a ∈ (gs.get j).inputs
+
+lemma prune_causal_reach (n : ℕ) (gs : List Gate) (o : ℕ) (κ : ℕ → Bool)
+    (hcone : ∀ t, t < gs.length → Relation.ReflTransGen (causalRead gs n) (n + t) o →
+      κ t = true) :
+    ∀ c, Relation.ReflTransGen (causalRead gs n) c o →
+      Relation.ReflTransGen (causalRead (d3r1Pruned n κ gs) n)
+        (d3r1New n κ (d3r1Top κ gs) c) (d3r1New n κ (d3r1Top κ gs) o) := by
+  intro c hc
+  induction hc using Relation.ReflTransGen.head_induction_on with
+  | refl => exact Relation.ReflTransGen.refl
+  | @head c d hcd hdo ih =>
+    obtain ⟨hlt, j, hd, hmem⟩ := hcd
+    subst hd
+    have hk : κ j = true := hcone j j.isLt hdo
+    have hnew : d3r1New n κ (d3r1Top κ gs) (n + j.val) = n + d3r1Rank κ j := by
+      simp [d3r1New, hk]
+    obtain ⟨hb, hpr⟩ := d3r1_pruned_get n κ gs j j.isLt hk
+    have hA : c < n ∨ κ (c - n) = true := by
+      by_cases hcn : c < n
+      · exact Or.inl hcn
+      · right
+        apply hcone _ (by omega)
+        rw [show n + (c - n) = c by omega]
+        exact Relation.ReflTransGen.head ⟨hlt, j, rfl, hmem⟩ hdo
+    refine Relation.ReflTransGen.head ⟨?_, ⟨d3r1Rank κ j, hb⟩, hnew, ?_⟩ ih
+    · rw [hnew]; exact d3r1_new_lt n κ _ c j hlt hA
+    · simp only [List.get_eq_getElem, hpr, d3r1PGate]
+      rw [List.getD_eq_getElem _ _ j.isLt]
+      exact List.mem_map.mpr ⟨c, by simpa using hmem, ite_eq_left hlt⟩
+
+
+lemma prune_pair_removed_set (n : ℕ) (C : Circuit) (a b : ℕ) (S : Finset ℕ)
+    (hfan : FanInTwo C) (hS : ∀ t ∈ S, t < C.gates.length)
+    (hcl : ∀ (t : ℕ) (ht : t < C.gates.length), t ∉ S →
+      ∀ z ∈ C.gates[t].inputs, n ≤ z → z < n + t → z - n ∉ S)
+    (ha : n ≤ a → a < n + C.gates.length → a - n ∉ S)
+    (hb : n ≤ b → b < n + C.gates.length → b - n ∉ S) :
+    ∃ (D : Circuit) (a' b' : ℕ), FanInTwo D ∧ D.size + S.card = C.size ∧
+      ∀ x : Fin n → Bool,
+        (D.wires (List.ofFn x)).getD a' false = (C.wires (List.ofFn x)).getD a false ∧
+        (D.wires (List.ofFn x)).getD b' false = (C.wires (List.ofFn x)).getD b false := by
+  let κ : ℕ → Bool := fun t => decide (t < C.gates.length ∧ t ∉ S)
+  have hκ (t : ℕ) : κ t = true ↔ t < C.gates.length ∧ t ∉ S := by simp [κ]
+  obtain ⟨D, a', b', hD, hsize, hev⟩ := prune_pair_certificate n C a b κ hfan
+    (fun t ht => ((hκ t).mp ht).1)
+    (by
+      intro t ht hkeep z hz hzn hzt
+      exact (hκ _).mpr ⟨by omega, hcl t ht ((hκ t).mp hkeep).2 z hz hzn hzt⟩)
+    (by intro han hal; exact (hκ _).mpr ⟨by omega, ha han hal⟩)
+    (by intro hbn hbl; exact (hκ _).mpr ⟨by omega, hb hbn hbl⟩)
+  have hlist : ((List.range C.size).filter (fun t => !(κ t))).toFinset = S := by
+    ext t
+    simp only [List.mem_toFinset, List.mem_filter, List.mem_range]
+    constructor
+    · rintro ⟨ht, hk⟩
+      by_contra hn
+      have hk' : κ t = true := (hκ t).mpr ⟨ht, hn⟩
+      simp [hk'] at hk
+    · intro ht
+      refine ⟨hS t ht, ?_⟩
+      simp [κ, ht]
+  have hcount := List.toFinset_card_of_nodup
+    ((List.nodup_range (n := C.size)).filter (fun t => !(κ t)))
+  rw [hlist] at hcount
+  refine ⟨D, a', b', hD, ?_, hev⟩
+  rw [hsize, hcount]
+  exact (List.length_eq_length_filter_add (l := List.range C.size) κ).symm.trans (by simp)
+
+lemma minimal_pair_live (n : ℕ) (C : Circuit) (a b : ℕ) (hfan : FanInTwo C)
+    (hmin : ∀ (D : Circuit) (c d : ℕ), FanInTwo D →
+      (∀ x : Fin n → Bool,
+        (D.wires (List.ofFn x)).getD c false = (C.wires (List.ofFn x)).getD a false ∧
+        (D.wires (List.ofFn x)).getD d false = (C.wires (List.ofFn x)).getD b false) →
+      C.size ≤ D.size) :
+    ∀ (p : ℕ), p < C.gates.length → n + p ≠ a → n + p ≠ b →
+      ∃ (q : ℕ) (hq : q < C.gates.length), p < q ∧ n + p ∈ C.gates[q].inputs := by
+  intro p hp hpa hpb
+  by_contra hnone
+  obtain ⟨D, c, d, hD, hsize, hev⟩ := prune_pair_removed_set n C a b {p} hfan
+    (by intro t ht; have ht' := Finset.mem_singleton.mp ht; subst t; exact hp)
+    (by
+      intro t ht hkeep z hz hzn hzt hremoved
+      have hzp : z - n = p := Finset.mem_singleton.mp hremoved
+      have hz' : z = n + p := by omega
+      exact hnone ⟨t, ht, by omega, hz' ▸ hz⟩)
+    (by intro han _ hm; have := Finset.mem_singleton.mp hm; omega)
+    (by intro hbn _ hm; have := Finset.mem_singleton.mp hm; omega)
+  have hbound := hmin D c d hD hev
+  simp only [Finset.card_singleton] at hsize
+  omega
+
+lemma effectiveGate_eq_of_short_not (g : Gate)
+    (hnot : g.op = .not → g.inputs.length ≤ 1) : effectiveGate g = g := by
+  rcases g with ⟨op, ins⟩
+  cases op <;> simp only [effectiveGate]
+  rw [List.take_of_length_le (hnot rfl)]
+
+lemma minimal_pair_effective_live (n : ℕ) (C : Circuit) (a b : ℕ) (hfan : FanInTwo C)
+    (hnot : ∀ g ∈ C.gates, g.op = .not → g.inputs.length ≤ 1)
+    (hmin : ∀ (D : Circuit) (c d : ℕ), FanInTwo D →
+      (∀ x : Fin n → Bool,
+        (D.wires (List.ofFn x)).getD c false = (C.wires (List.ofFn x)).getD a false ∧
+        (D.wires (List.ofFn x)).getD d false = (C.wires (List.ofFn x)).getD b false) →
+      C.size ≤ D.size) :
+    ∀ (p : ℕ), p < C.gates.length → n + p ≠ a → n + p ≠ b →
+      ∃ (q : ℕ) (hq : q < C.gates.length),
+        p < q ∧ n + p ∈ (effectiveGate C.gates[q]).inputs := by
+  intro p hp hpa hpb
+  obtain ⟨q, hq, hpq, hread⟩ := minimal_pair_live n C a b hfan hmin p hp hpa hpb
+  exact ⟨q, hq, hpq, by rw [effectiveGate_eq_of_short_not _ (hnot _ (List.getElem_mem hq))]; exact hread⟩
+
 
 namespace StarCover
 
@@ -695,5 +883,101 @@ lemma assigned_star_cost (c : Fin 3 × Fin 5 → Fin 10)
   omega
 
 end StarCover
+
+
+namespace InputReaders
+
+open PEqualNP.CircuitLowerBounds
+
+def effectiveInputs (g : Gate) : List ℕ :=
+  match g.op with
+  | .not => g.inputs.take 1
+  | _ => g.inputs
+
+def effectiveSlots (C : Circuit) : List ℕ := C.gates.flatMap effectiveInputs
+
+lemma eval_effectiveInputs (g : Gate) (v : ℕ → Bool) :
+    g.op.eval (g.inputs.map v) = g.op.eval ((effectiveInputs g).map v) := by
+  rcases g with ⟨op, ins⟩
+  cases op <;> try rfl
+  cases ins <;> rfl
+
+lemma append_same_except (i : ℕ) (p q : List Bool) (v : Bool)
+    (hlen : p.length = q.length)
+    (h : ∀ j, j ≠ i → p.getD j false = q.getD j false) :
+    ∀ j, j ≠ i → (p ++ [v]).getD j false = (q ++ [v]).getD j false := by
+  intro j hji
+  by_cases before : j < p.length
+  · rw [List.getD_append _ _ _ _ before,
+      List.getD_append _ _ _ _ (by omega)]
+    exact h j hji
+  · rw [List.getD_append_right _ _ _ _ (by omega),
+      List.getD_append_right _ _ _ _ (by omega), hlen]
+
+lemma fold_same_except (gs : List Gate) (i : ℕ)
+    (hno : ∀ g ∈ gs, i ∉ effectiveInputs g) (p q : List Bool)
+    (hlen : p.length = q.length)
+    (h : ∀ j, j ≠ i → p.getD j false = q.getD j false) :
+    ∀ j, j ≠ i →
+      (gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun k => w.getD k false)]) p).getD j false =
+      (gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun k => w.getD k false)]) q).getD j false := by
+  induction gs generalizing p q with
+  | nil => exact h
+  | cons g gs ih =>
+    have hv : g.op.eval (g.inputs.map fun k => p.getD k false) =
+        g.op.eval (g.inputs.map fun k => q.getD k false) := by
+      rw [eval_effectiveInputs, eval_effectiveInputs]
+      congr 1
+      apply List.map_congr_left
+      intro k hk
+      exact h k (fun e => hno g List.mem_cons_self (e ▸ hk))
+    simp only [List.foldl_cons]
+    rw [hv]
+    apply ih (fun g hg => hno g (List.mem_cons_of_mem _ hg))
+    · simpa using hlen
+    · exact append_same_except i p q _ hlen h
+
+lemma ofFn_same_except {n : ℕ} (i : Fin n) (x y : Fin n → Bool)
+    (h : ∀ j, j ≠ i → x j = y j) :
+    ∀ j, j ≠ i.val → (List.ofFn x).getD j false = (List.ofFn y).getD j false := by
+  intro j hji
+  by_cases hj : j < n
+  · have get (f : Fin n → Bool) : (List.ofFn f).getD j false = f ⟨j, hj⟩ := by
+      rw [List.getD_eq_getElem _ _ (by simpa using hj)]
+      simp
+    rw [get, get]
+    exact h _ (fun e => hji (congrArg Fin.val e))
+  · rw [List.getD_eq_default _ _ (by simpa using Nat.le_of_not_gt hj),
+      List.getD_eq_default _ _ (by simpa using Nat.le_of_not_gt hj)]
+
+lemma essential_pair_input_mem {n : ℕ} (C : Circuit) (a b : ℕ) (i : Fin n)
+    (ha : a ≠ i.val) (hb : b ≠ i.val)
+    (hdep : ∃ x : Fin n → Bool,
+      ((C.wires (List.ofFn (Function.update x i (!x i)))).getD a false ||
+        (C.wires (List.ofFn (Function.update x i (!x i)))).getD b false) ≠
+      ((C.wires (List.ofFn x)).getD a false || (C.wires (List.ofFn x)).getD b false)) :
+    i.val ∈ effectiveSlots C := by
+  by_contra hno
+  obtain ⟨x, hx⟩ := hdep
+  have hn : ∀ g ∈ C.gates, i.val ∉ effectiveInputs g := by
+    intro g hg hi
+    exact hno (List.mem_flatMap.mpr ⟨g, hg, hi⟩)
+  have he := fold_same_except C.gates i.val hn
+    (List.ofFn (Function.update x i (!x i))) (List.ofFn x) (by simp)
+    (ofFn_same_except i _ _ (by
+      intro j hji
+      exact Function.update_of_ne hji _ _))
+  exact hx (congrArg₂ (· || ·) (he a ha) (he b hb))
+
+lemma essential_pair_input_count_pos {n : ℕ} (C : Circuit) (a b : ℕ) (i : Fin n)
+    (ha : a ≠ i.val) (hb : b ≠ i.val)
+    (hdep : ∃ x : Fin n → Bool,
+      ((C.wires (List.ofFn (Function.update x i (!x i)))).getD a false ||
+        (C.wires (List.ofFn (Function.update x i (!x i)))).getD b false) ≠
+      ((C.wires (List.ofFn x)).getD a false || (C.wires (List.ofFn x)).getD b false)) :
+    0 < (effectiveSlots C).count i.val := by
+  exact List.count_pos_iff.mpr (essential_pair_input_mem C a b i ha hb hdep)
+
+end InputReaders
 
 end PEqualNP.Outside.L_meta_3821_aux.Pruning
