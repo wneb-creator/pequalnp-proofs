@@ -24,3 +24,11 @@ Independent review: review-003.txt passed.
 Guard: only missing-final-theorem refusals, no plain-file violations.
 Partial axiom audit and posted statement elaboration also passed (earlier ten-helper version).
 TIMING total=11.6 subagents=6
+
+Checkpoint 4: incidence-graph bridge, support count, short-tree read2, star-cover certificate, C6 witness.
+Target: 1509 lines.
+Build005: lake build PEqualNP.Outside.L_meta_2584; exit 0.
+Build completed successfully (18419 jobs).
+Independent review: review-004.txt passed.
+No final theorem; NOT a proof of posted gap.
+TIMING total=14.3 subagents=6

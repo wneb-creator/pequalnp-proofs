@@ -16,3 +16,7 @@
 - 2026-11-24T18:06:09.348742+00:00: counterexample_search completed C6 optimum/read2 SMT checks; all eight-gate minimum circuits satisfy read2 in solver encoding. Began C8 and stronger read1 tests.
 - 2026-11-24T18:07:13.993006+00:00 circuit_route: first CoverRead component Lean compilation successful; root notified for immediate checkpoint.
 - 2026-11-24T18:08:51.705706+00:00: integrated flat and canonical star-cover read-2 proofs; build and independent review passed; checkpoint 3.
+
+- 2026-11-24T18:09:08.629267+00:00: counterexample_search kernel-checked explicit C6 eight-gate circuit, exact incidence function, AO2, C4-free relation, and full read2; root notified for integration/push.
+- 2026-11-24T18:10:14.746961+00:00: structural route checked TopForm + exactly one dirty AND => read-2.
+- 2026-11-24T18:11:32.378946+00:00: checkpoint4 integrated graph/support/certificate/C6 components; build005 and independent review passed.

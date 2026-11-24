@@ -55,3 +55,14 @@ For larger cycles, synthesis is compressed to minimal-positive inputs (edges) an
 
 ### circuit_route checked component — 2026-11-24T18:07:13.993006+00:00
 CoverRead.lean compiles exit0 with no diagnostics; full logs scratch circuit-route/build-003.stdout and .stderr. 688-line component includes generic flat_isReadTwo, separated_isReadTwo, and canonical_cover_isReadTwo. All statements use only Defs/Mathlib; structural helpers adapted from L_meta_3245 and word semantics from L_meta_2466, under own L_meta_2584 namespace. Root notified immediately for merge/push.
+
+### Lean-checked C6 witness
+
+The explicit eight-gate C6 circuit found by SMT has now compiled in pinned Lean with kernel decide only. Scratch CycleSix.lean defines the cycle incidence relation and circuit, then checks size8, AO2, no4cycle, the exact incidence function on all64 assignments, and the full IsReadK6 circuit2 property. It imports only Mathlib and PEqualNP.Defs and uses namespace PEqualNP.Outside.L_meta_2584.CycleSix. No native evaluation or new axioms. Complete build stdout/stderr are empty and process exit0. This is an existence witness, not the general L-meta-2584 theorem or a Lean lower bound. Root notified for immediate integration/push.
+
+## structural_route 2026-11-24T18:10:14.746961+00:00
+
+- Lean checked `one_junk_isReadTwo`: any TopForm AO2 circuit computing a simple graph edge function and having exactly one dirty AND gate is read-2. No leastness or C4 hypothesis needed.
+- Key induction: a wire whose only possible AND ancestor is g has proof words of length one, or length two plus implication g => wire. If both operands of a below-function AND have length-two words, g implies the function, contradicting dirtiness. Thus all output words have at most three leaves. Singleton rejection bounds each variable multiplicity by two.
+- Standalone candidate scratch structural/OneJunk.lean (compilation build-005, exit 0; no output). Integration fragment structural/one-junk-fragment.txt uses stable circuit_route FlatRead word machinery and its short_isReadTwo lemma.
+- This does not prove general normalization: circuits with two or more dirty AND gates remain open.
