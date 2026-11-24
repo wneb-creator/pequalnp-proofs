@@ -1,0 +1,32 @@
+{
+  "utc": "2026-11-24T05:19:50.588832+00:00",
+  "status": "UNKNOWN_BUDGET_COMPLETED",
+  "exit_code": -2,
+  "elapsed_seconds": 5408,
+  "scope": "No SAT witness or UNSAT certificate",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-21/search/full-or-sinks-stream/case--1/continuous-000.cnf",
+      "bytes": 259179580,
+      "sha256": "75defa89795b7f47901d865e9e3150d425333adba3ce628f2ed9869f5aa662b1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-21/search/full-or-sinks-stream/case--1/continuous-000.log",
+      "bytes": 16074,
+      "sha256": "5d5895dd8c9f1bf5a3ea04c975ba6701a41594abeb7d9f675601016b95431c9d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-21/search/full-or-sinks-stream/case--1/continuous-000.lrat.gz",
+      "bytes": 118639843,
+      "sha256": "4bd9ba2913c60f9f2a1041734873191aba044592e739be65693fa022c65e1ba9",
+      "gzip_crc_verified": true,
+      "uncompressed_bytes": 436584448,
+      "uncompressed_sha256": "eb919cae58db1c3e12a2eb1b71ffa42d082174db0ff04c9d3926d19811696fff"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-21/search/cegis-or-sinks-stream-progress.log",
+      "bytes": 4533,
+      "sha256": "b5542e4153643689541970f936d82cb84bc8b87c641a8bda33072f427e1e839e"
+    }
+  ]
+}

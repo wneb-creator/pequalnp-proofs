@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "tested_output_cost_tuples": 7776,
+  "accepted_tuples": [
+    [
+      5,
+      5,
+      5,
+      5,
+      5
+    ]
+  ],
+  "full_variables": 129594,
+  "full_clauses": 2680570,
+  "solver_launched": false,
+  "runner_sha256": "52252d09e16b29161fc42eb1fe5772acea42285f05d80799a24a02636b689dfc"
+}

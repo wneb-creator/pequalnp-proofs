@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-24T05:19:28.397087+00:00",
+  "runner_pid": 38321,
+  "argv": [
+    "python",
+    "/tmp/oec/pequalnp-pilot-21/search/cegis-general-five-canonical-allcost.py",
+    "--seconds",
+    "5400"
+  ],
+  "progress_log": "/tmp/oec/pequalnp-pilot-21/search/cegis-general-five-canonical-allcost-progress.log",
+  "artifacts": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost",
+  "budget_seconds": 5400,
+  "nice": 15,
+  "source_sha256": "52252d09e16b29161fc42eb1fe5772acea42285f05d80799a24a02636b689dfc",
+  "scope": "canonical reduced five-output class with all5formal cost5 and disconnectedparent graph, not unrestricted thirteen-output theorem",
+  "replaces": "oldOR-full budget completed UNKNOWN at5408seconds"
+}

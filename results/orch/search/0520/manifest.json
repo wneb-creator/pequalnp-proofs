@@ -1,0 +1,113 @@
+{
+  "utc": "2026-11-24T05:20:06.663434+00:00",
+  "files": [
+    {
+      "path": "general-five-canonical-allcost/encoding-source/cegis-full.py",
+      "bytes": 4397,
+      "sha256": "5c2f4ada8822c2d14e84fb3e7b16a0d8a47b842e04c94ec93621408c353cd3a0",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/encoding-source/cegis-full.py"
+    },
+    {
+      "path": "general-five-canonical-allcost/encoding-source/cegis.py",
+      "bytes": 5041,
+      "sha256": "a51bc1d6a37ec0af2ddb7a77192d2a47fe6dce4f97edaba336589ffec6e05910",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/encoding-source/cegis.py"
+    },
+    {
+      "path": "general-five-canonical-allcost/encoding-source/cegis-symbolic.py",
+      "bytes": 5274,
+      "sha256": "683cb5e4e32aa3a07bac88ec22adede7fd535b79d208526d3607c5c11a0fc665",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/encoding-source/cegis-symbolic.py"
+    },
+    {
+      "path": "general-five-canonical-allcost/encoding-source/cegis-symbolic-five.py",
+      "bytes": 11795,
+      "sha256": "5bff952410bcb19350674bccc4b65997ec79b349ac64662561ad0cddac1793bb",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/encoding-source/cegis-symbolic-five.py"
+    },
+    {
+      "path": "general-five-canonical-allcost/encoding-source/streaming_cnf.py",
+      "bytes": 1572,
+      "sha256": "5c93998e77af73b0bb9d3f457d086153ac4e281776eb247daba51314ac056aab",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/encoding-source/streaming_cnf.py"
+    },
+    {
+      "path": "general-five-canonical-allcost/encoding-source/formal_cost.py",
+      "bytes": 1387,
+      "sha256": "ffd395881df9460e64bd3a17f17381926301009b3baa22a1849492a5a22ee936",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/encoding-source/formal_cost.py"
+    },
+    {
+      "path": "general-five-canonical-allcost/encoding-source/cegis-general-five-canonical-allcost.py",
+      "bytes": 12461,
+      "sha256": "52252d09e16b29161fc42eb1fe5772acea42285f05d80799a24a02636b689dfc",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/encoding-source/cegis-general-five-canonical-allcost.py"
+    },
+    {
+      "path": "general-five-canonical-allcost/encoding-source/disconnected_parent_colors.py",
+      "bytes": 674,
+      "sha256": "b7dbd4e1fdf8c8b16dea08d8a1d2e172392220d8660c9e5d2f85ed9a0f9fc688",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/encoding-source/disconnected_parent_colors.py"
+    },
+    {
+      "path": "general-five-canonical-allcost/encoding-source/five-line-orbit-maps.json",
+      "bytes": 139195,
+      "sha256": "5f32321b62871ed9b9bd7b5679d1c670449ab13ccd4c54c338ed7560082cb14b",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/encoding-source/five-line-orbit-maps.json"
+    },
+    {
+      "path": "general-five-canonical-allcost/encoding-source/manifest.json",
+      "bytes": 1514,
+      "sha256": "7f0809696dfd4125306f37c049e49749701a8b1631cdd82ce74001be9cb46d3a",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-canonical-allcost/encoding-source/manifest.json"
+    },
+    {
+      "path": "general-five-allcost-test.py",
+      "bytes": 1412,
+      "sha256": "c354dff8173ecd8c88dd6ab08a031f8810f159f0b7575b9bae08cabbb872a68a",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-allcost-test.py"
+    },
+    {
+      "path": "general-five-allcost-test.log",
+      "bytes": 254,
+      "sha256": "f6d9d665261c0cee991a5d01b98759d2713b8cbcb727d07a8185f40a02046e37",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-allcost-test.log"
+    },
+    {
+      "path": "general-five-allcost-test.json",
+      "bytes": 314,
+      "sha256": "ecbcd260a1e41ba5fb9bda4d9ef9e90e4d3165bd31ce37c04de63d1c0713fcea",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-allcost-test.json"
+    },
+    {
+      "path": "canonical-allcost-launch-0519.json",
+      "bytes": 736,
+      "sha256": "9f4175537051f03163700b1d80030a5860081ca10ef3dd0654cad9963668f9de",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/canonical-allcost-launch-0519.json"
+    },
+    {
+      "path": "or-full-budget-integrity-0519.json",
+      "bytes": 1236,
+      "sha256": "55746367cd630248d88cab67c51efa00792a4a5451b677a98c6c228bc582bf59",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/or-full-budget-integrity-0519.json"
+    },
+    {
+      "path": "full-or-sinks-stream/case--1/continuous-000.log",
+      "bytes": 16074,
+      "sha256": "5d5895dd8c9f1bf5a3ea04c975ba6701a41594abeb7d9f675601016b95431c9d",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-or-sinks-stream/case--1/continuous-000.log"
+    },
+    {
+      "path": "cegis-or-sinks-stream-progress.log",
+      "bytes": 4533,
+      "sha256": "b5542e4153643689541970f936d82cb84bc8b87c641a8bda33072f427e1e839e",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-or-sinks-stream-progress.log"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1447,
+      "sha256": "e5be2e7f2fad4aee50f462167fb7d1862e7f8c0c4b381e388d9c7a5b81be5392",
+      "source": "generated scope note"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Canonical all-five-cost search launch
+
+The independently reviewed canonical reduced five-output query launched05:19:28UTC, detached at nice15 with a90minute budget. It permits nine internal gates plus five OR outputs, constants/copies/repeated operands, three canonical target-line sets, a disconnected parent graph and all five formal false costs equal to the cap5. The all-five guard follows the kernel-checked PrivateSurgery.every_cost_large theorem; in-place constant compilation preserves exact cost. The reconstructed selected prefix remains at most14 gates, which also validates the independent scalar cost assertions after cleanup.
+
+Actual encoding completed with129594variables/2680570clauses on all3003 band rows. The exact guard test exhausts all7776 output-cost tuples and accepts only55555. Exact source/dependency/certificate snapshots and complete small logs are included. Any SAT model must pass all8192 global-upper checks and all3003 band rows. No result is claimed for this running query. Its scope is the reduced five-output class, not the unrestricted thirteen-output gap.
+
+This uses the slot freed by the older full OR-sink search, which completed its90minute budget UNKNOWN (exit-2 after5408seconds). The full old solver/progress logs and successful complete gzip CRC/hash audit are preserved here. The large incomplete trace remains in scratch; it is not an UNSAT certificate. The four other searches remained unchanged.

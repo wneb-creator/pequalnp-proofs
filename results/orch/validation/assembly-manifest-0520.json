@@ -1,0 +1,115 @@
+{
+  "status": "compiled standalone and named lake build; independently reviewed partial; exact theorem absent",
+  "base_named_source_sha256": "fedc8bbbadf14777289c73f9535adf516c8c467fdcd3ecb2c8b00acfcca704aa",
+  "parts": [
+    {
+      "name": "target core with Basic namespace isolation",
+      "bytes": 4650,
+      "sha256": "67fc945bb61072446d7e847b0fe0ebc629cd67b948d384cb02c418b77cae9055"
+    },
+    {
+      "name": "target OrOnly with original surrounding open restored locally",
+      "bytes": 29368,
+      "sha256": "dd795263f98ebfc63c298b4df775e13c5047bb8bd9ca755510177c695fb19a65"
+    },
+    {
+      "name": "CanonicalPairs with reviewed standalone aliases",
+      "bytes": 316975,
+      "sha256": "9ce25eb862cea2e9d3a68a2612770920df9f5ddd74450cd841afe8e7a6b377c3"
+    },
+    {
+      "name": "fresh/AncestryExtra.lean",
+      "bytes": 8336,
+      "sha256": "5afebe7de06c2e437b2274d0e09b8dc4e7fe09c653604a8b95b1e2b73ee191a6"
+    },
+    {
+      "name": "fresh/TwoPairsExtra.lean",
+      "bytes": 11422,
+      "sha256": "4860111a0d86e6f2c2957f841989be96cd76c368148fbb0dc2bc246f4c752c67"
+    },
+    {
+      "name": "fresh/TwoPairsPrefixExtra.lean",
+      "bytes": 4044,
+      "sha256": "c91480dcc7811fb53806b889a4a35d8d5f082f293048ad2c3a39ac38c82be2e6"
+    },
+    {
+      "name": "fresh/EarlyCommonCoreExtra.lean",
+      "bytes": 8797,
+      "sha256": "f4a65404a0b76f7b200aca49d2a5c4d8e2d98d6f42f1cd2c130a6f0c59f5127d"
+    },
+    {
+      "name": "fresh/EarlyCommonSemanticExtra.lean",
+      "bytes": 4580,
+      "sha256": "1bcecf5289f575d5387cf076adf79a5e05989f0aea6f5a3bec35eeef178e852a"
+    },
+    {
+      "name": "fresh/EarlyCommonForkExtra.lean",
+      "bytes": 8376,
+      "sha256": "f43804d784223da8c84ec83a8f0d6fbb576967fc8fa5ae51735c19a2283bdc91"
+    },
+    {
+      "name": "fresh/EarlyCommonWrapperExtra.lean",
+      "bytes": 8682,
+      "sha256": "fbc415c937a61f5db7a544f9105d21751f7a4c837c090b2ea6d1bf738d47546f"
+    },
+    {
+      "name": "fresh/EarlyCommonPrefixExtra.lean",
+      "bytes": 3123,
+      "sha256": "e895f3719d50d72056e05865aefa12cc0023b5ec95b6c6cd2daf5cfc0b3ed8af"
+    },
+    {
+      "name": "target isAnd definition",
+      "bytes": 225,
+      "sha256": "d3640ed21e3e99b8632d772b3b3e3badf0071548e4f09a0c126a4b597c8fe184"
+    },
+    {
+      "name": "fresh/AbnormalAnd.lean",
+      "bytes": 7817,
+      "sha256": "bf8521775f422b549529ae83df98bfe76a966c36f3b64eef81a8a340e582504e"
+    },
+    {
+      "name": "research2/ExcessSupport.lean",
+      "bytes": 6956,
+      "sha256": "694b1b867c96f2067ef9872e596cb90431bd859f03ff8388784ba8dd18520315"
+    },
+    {
+      "name": "baseline/AllFiveCostDeps.txt",
+      "bytes": 616,
+      "sha256": "42022e850707ee40e1f4c0d0465d84f44c93dd802833e43d6e466596dfd9c6ee"
+    },
+    {
+      "name": "research2/FalsePruning.lean",
+      "bytes": 12501,
+      "sha256": "267804ad519fbb7168dad93bd8822620c9ac2ae2b3ca3425f1d88cfa089f4134"
+    },
+    {
+      "name": "research2/Collective.lean",
+      "bytes": 9945,
+      "sha256": "ac0e967fff15f819b90f39d6c1b7002cda86ed91dd12f073c8cfa9064e68754a"
+    },
+    {
+      "name": "baseline/PrivateSurgeryExtra.txt",
+      "bytes": 8410,
+      "sha256": "ee27434bdbfd44c4485870011de54434a50c4e11ae3528b9b2cf20734dac6543"
+    },
+    {
+      "name": "research2/CertificateExtra.txt",
+      "bytes": 16791,
+      "sha256": "e1ea58d200289202f8e23bc1b52b3f2f185ccd0d388477b784821bc7935e5134"
+    },
+    {
+      "name": "baseline/AllFiveCostExtra.txt",
+      "bytes": 1227,
+      "sha256": "703430890ae9263435119cc3421c899cf3c7467fedb5ab96724983c5169739b0"
+    },
+    {
+      "name": "baseline/OrdinaryRebuildExtra.txt",
+      "bytes": 2967,
+      "sha256": "35db424e5e8d71576dbdfb451110794c0b59bae114b745bd1905350df739b86e"
+    }
+  ],
+  "bytes": 475886,
+  "lines": 10204,
+  "sha256": "35f1a1f50f8b9520a1d1a2aa0b5442af9c98ea4b357283dfadb3bc62f1fc4a6e",
+  "checker": "Not rerun on this consolidated partial: exact theorem is absent. Prior partial checker rejection and complete diagnostics remain archived."
+}
