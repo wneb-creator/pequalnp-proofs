@@ -1,0 +1,7 @@
+'PEqualNP.Outside.L_meta_2584.UpwardErase.overwrite_val_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2584.UpwardErase.upward_or_context_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.UpwardErase.erase_and_with_frontier_guard' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,102 @@
+Independent upward-alias / guarded AND erasure review
+Reviewer: /root/review_second, independent of implementation.
+UTC: 2026-11-24T19:25:35.034136+00:00
+Frozen source: upward-erase/upward-erase-001.fragment
+All 152 lines / 7196 bytes reviewed.
+SHA256: a1faaf67c3fcec943a5e0d1577360b5dc569c90d671f92e2f03a615f37670c06
+
+Verdict: PASS FOR COMPILED PARTIAL COMPONENT.
+No semantic or format blocker found. All three lemmas independently compile
+with only standard axioms. This is a conditional guarded erasure result;
+it is not a proof of the unrestricted posted gap.
+
+Unrestricted-assignment semantics:
+- overwrite_val_ge proves the correct upward direction. If the old selected
+  gate implies its replacement value, every old true wire stays true in the
+  overwritten circuit. Its induction follows actual natural-number wire
+  indices. AND propagates all old true operands, OR propagates one witness,
+  and the selected gate uses exact replacementVal semantics. Invalid wires
+  are false, so no validity assumption is silently needed for arbitrary w.
+  AndOrOnly suffices here because the operational semantics itself filters
+  illegal forward operands before the induction hypothesis is used.
+- upward_or_context_bound fixes an arbitrary complete assignment x on which
+  graphFun is false. It proves that a new true wire was already true, or
+  lies on an OR-only path to the selected gate and the old retained input e
+  is true. The selected-gate case follows exact replacement semantics;
+  ordinary OR gates transport the path. At any unchanged AND, a purported
+  newly true child supplies both OR reachability and old e=true. hfront
+  selects another actual operand v with no such OR-only path. Applying the
+  SAME well-founded induction hypothesis to v forces old v=true, because
+  its alternative would contradict the explicit no-OR-path hypothesis.
+  The all-assignment guard implication e AND v implies graphFun then
+  contradicts graphFun=false. Hence the AND cannot acquire a new true value.
+- This is an argument on all assignments, not merely positive edge pairs,
+  singleton assignments, scalar read minima, or independently chosen words.
+  It needs no old-frontier BelowF assumption: the supplied guard implication
+  is exactly the condition used to block a new acceptance.
+
+Sharing and opposite-guard audit:
+- No private fanout, unique consumer, disjoint subcircuit, or tree assumption
+  is used. Each AND frontier is quantified separately, and its chosen guard
+  may be shared. The proof does not claim that the guard's value is globally
+  unchanged merely because it has no OR-only path to g.
+- Instead, on the current graph-false assignment, the induction establishes
+  that a true new guard must already be true. A guard may still depend on g
+  through AND gates; those dependencies are covered recursively by the same
+  quantified frontier assumptions and strictly earlier operand indices.
+- The two indispensable explicit conditions remain visible: each affected
+  AND has an actual opposite operand v with no OR-only reach to g, and
+  old e AND old v implies graphFun on EVERY assignment. Dropping either
+  condition would invalidate this proof; neither is silently discharged.
+- No direct OR-only path may reach g from C.output. The final argument uses
+  that hypothesis exactly to eliminate the remaining changed-output case.
+
+Deletion, AO2, exact function, and size:
+- The selected g must be a valid AND gate and e one of its actual inputs.
+  IsAO2 makes e strictly earlier than g. The overwrite OR[e,e] is a legal
+  binary AO2 gate, has exactly the old value of e, and preserves gate count.
+- Old AND truth implies retained-operand truth, so overwrite_val_ge gives
+  global old-output <= new-output. For the reverse direction on graph-false
+  assignments, the context bound and output no-OR-path condition exclude
+  any new true output. Together with the original exact circuitFun=graphFun,
+  this proves exact equality of the overwritten circuit on ALL assignments.
+- The overwritten g equals the still-unchanged earlier wire e on every
+  assignment. MinimumPure.erase_equivalent_wire therefore applies with
+  its full equality premise, not just one-sided domination. Its underlying
+  AliasErase.erase_alias construction deletes the selected list entry and
+  renames every later gate input AND the circuit output, preserving shared
+  references. The concrete list is pre ++ post.map rename, so exactly the
+  selected gate is removed. The exported lemma promises the required
+  strict inequality D.size < C.size; it does not separately state a numeric
+  equality D.size+1=C.size. Overwrite preserves size before this deletion.
+- No leastness, TopForm, graph nonemptiness, color partition, four-cycle
+  restriction, singleton condition, or assumption about the number of dirty
+  gates is hidden in this local theorem. Callers must establish hfront and
+  hout before applying it to a least-circuit contradiction.
+
+Independent validation and format:
+- The frozen fragment is exactly the author's UpwardErase.lean body with
+  only its audit import removed and full namespace made relative.
+  Author build-001 stdout/stderr are empty (reported exit 0).
+- Independently compiled a fresh ReviewUpward015 namespace against the
+  checked checkpoint015 main artifact. lake env lean exited 0; stderr is
+  empty and stdout contains only the requested axiom reports.
+- All THREE exported lemmas were audited. Each axiom list is exactly
+  propext, Classical.choice, Quot.sound; no sorryAx or extra axiom occurs.
+- Full-fragment scan is clean: no root-escape marker, double quote, proof
+  shortcut, axiom, native/executable/meta command, syntax/notation change,
+  custom type/instance, attributes, options, theorem, or import. The relative
+  UpwardErase namespace belongs inside the existing module namespace.
+  Audit import/print commands remain in scratch only.
+- Fragment hash and main source hash were rechecked after compilation.
+  Main remains SHA256
+  3d8e330ca362daf97df9e541cc1403a8a98b2fdb6cdcca15b922b912e165a6b2.
+  Root must still check final combined size/format/build after integration.
+
+Complete evidence:
+results/orch/review-upward-alias.stdout
+results/orch/review-upward-alias.stderr
+/tmp/oec/pequalnp-pilot-39/upward-erase/ReviewUpward015.lean
+/tmp/oec/pequalnp-pilot-39/upward-erase/review-upward-metadata.json
+
+No main-file edit, Git mutation, desk call, or credential access occurred.

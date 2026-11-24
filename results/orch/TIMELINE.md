@@ -78,3 +78,9 @@
 2026-11-24T19:22:55.918191+00:00 Checkpoint015 combined build018 passed; 11186 lines, 512481 bytes. All582 public declarations passed allowed-axiom audit. Independent color/critical component reviews passed; final integration review and actual posted-statement checker pending.
 
 2026-11-24T19:22:55.918191+00:00 Re-plan: no global descent proof found. Continue one concrete pure-color two-dirty alias route with color_special (composition), structure_second (factor/frontier combinatorics), repair_second (upward alias semantics). Other approaches frozen as research evidence. This local route still does not cover arbitrary dirty chains.
+
+2026-11-24T19:24:15.171569+00:00 Checkpoint015 pushed6b70d8ed99999922803e20281850e575ad187302. Actual checker exit1 REJECTED(no-theorem); exact theorem absent. No PR opened.
+
+- 2026-11-24T19:25:40.168146+00:00: structure_second checked actual-wire pure-color factor choice; compile and axiom audit passed, enabling all-frontier upward erasure composition.
+
+2026-11-24T19:26:11.669541+00:00 UpwardErase standalone helper checked and independently reviewed; preserving source, build/audit logs, and checkpoint015 actual checker output before further composition.

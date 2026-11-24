@@ -111,3 +111,7 @@ Checkpoint15: natural least-circuit mixed-color elimination and unique-critical-
 Target:11186 lines,512481 bytes. Build018 exit0: Build completed successfully (18419 jobs).
 All582 public helper declarations audited: only propext, Classical.choice, Quot.sound. Full posted theorem is absent. Checker running.
 TIMING total=85.7 subagents=20
+Checkpoint15 actual posted-statement checker exit1: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2584 (one lemma, one file: the theorem carries the module's name).
+Independent full integration/format review015 passed. Cleanup pass not triggered because checker did not accept the full statement.
+
+Standalone UpwardErase:154lines7291bytes; author build exit0 with empty logs, independent review-upward-alias PASS and independent compilation. All3 lemmas use standard axioms only. It proves an exact strict circuit deletion under explicit frontier-guard assumptions; not the full posted gap. Main source unchanged.

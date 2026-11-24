@@ -1,0 +1,9 @@
+'PEqualNP.Outside.L_meta_2584.ReviewUpward015.overwrite_val_ge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewUpward015.upward_or_context_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2584.ReviewUpward015.erase_and_with_frontier_guard' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
