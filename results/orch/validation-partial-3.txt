@@ -1,0 +1,7 @@
+L-meta-3821 partial result only; compressor and main theorem unproved.
+Command: lake env lean ../results/orch/lemmas/Compression.lean
+Exit: 0
+Independent red-team review: toolchain agent PASS.
+Line count: 78
+
+Complete build stdout/stderr:
