@@ -1,0 +1,26 @@
+Independent geometry review: PASS (mathematical and source-format review).
+Reviewer: /root/counterexample_search
+Source: /tmp/oec/pequalnp-pilot-20/gap1544/geometry.lean
+SHA256: a11742148c89b23fe9d3f686b8340d78e2f7fabccf100f39b8ca5471a8cd5b6d
+Lines: 59
+Lean execution: none by reviewer; root owns compilation and axiom audit.
+
+The thin-intersection conclusion is exactly the supplied equality weakened to <=1.
+If a distinct line difference were empty, subset inclusion would make its
+intersection equal the whole first line, contradicting card=q+1>=3 versus1.
+Each line is nonempty by card=q+1. Each line has an outside point because
+N=q^2+q+1>q+1 when q>=2.
+For the final property, if v lies on L(t), join v to an outside point; otherwise
+join v to any point of L(t). The pair hypothesis yields a line s containing v,
+and the chosen membership contradiction proves s!=t. The already proved
+nonempty-difference statement supplies L(t)\L(s) nonempty.
+No cyclic indexing, distinguished line/point, or assumption t in L(t) is used.
+Only the stated hypotheses are needed; empty/unary/malformed circuit semantics
+are outside this geometric helper and remain handled by the copied generic API.
+
+Imports are Mathlib and PEqualNP.Defs only. The lemma is inside the correct
+namespace; no forbidden shortcuts, new axioms, commands, attributes, options,
+string literals, or forbidden namespace text appear. Classical reasoning and
+nlinarith/omega are ordinary proof-producing tactics. This is a partial helper,
+not yet the complete posted gate lower bound. Preservation push is approved once
+root confirms the running compilation passed with this hash.

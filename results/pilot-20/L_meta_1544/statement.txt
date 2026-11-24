@@ -1,0 +1,14 @@
+∀ (q N : ℕ) (L : Fin N → Finset (Fin N)),
+    2 ≤ q → N = q ^ 2 + q + 1 → (∀ i : Fin N, (L i).card = q + 1) → (∀ i j : Fin N, i ≠ j → (L i ∩ L j).card = 1) →
+    (∀ p p' : Fin N, p ≠ p' → ∃ i : Fin N, p ∈ L i ∧ p' ∈ L i) →
+    ∀ D : (Fin N → Bool) → Prop,
+    (∀ x y : Fin N → Bool, D x → (∀ v : Fin N, x v = true → y v = true) → D y) →
+    (∀ t : Fin N, D (fun v : Fin N => decide (v ∉ L t))) →
+    ∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (o : Fin N → ℕ),
+    (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) →
+    (∀ (t : Fin N) (x : Fin N → Bool), D x → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, o t⟩ (List.ofFn x) = decide (∃ v ∈ L t, x v = true)) →
+    ∀ (Lam : Finset (Fin N)) (B : Fin N → Fin N → Finset (Fin N)),
+    (∀ t ∈ Lam, ∀ p ∈ L t, B t p ∩ L t = ∅ ∧ D (fun v : Fin N => decide (v = p ∨ v ∈ B t p))) →
+    (∀ t ∈ Lam, ∀ t' ∈ Lam, t ≠ t' → ¬ ((∃ p ∈ L t \ L t', (B t p ∩ L t').Nonempty) ∧ (∃ p ∈ L t' \ L t, (B t' p ∩ L t).Nonempty))) →
+    ∀ I : Finset (Fin gates.length), (∀ g ∈ I, (gates.get g).op = PEqualNP.CircuitLowerBounds.GateOp.and) →
+      q * Lam.card + max (N - Lam.card) I.card ≤ gates.length

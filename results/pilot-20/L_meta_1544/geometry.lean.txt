@@ -1,0 +1,59 @@
+import Mathlib
+import PEqualNP.Defs
+namespace PEqualNP.Outside.L_meta_1544
+lemma geometry (q N : ℕ) (L : Fin N → Finset (Fin N))
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcard : ∀ t : Fin N, (L t).card = q + 1)
+    (hmeet : ∀ t u : Fin N, t ≠ u → (L t ∩ L u).card = 1)
+    (hpair : ∀ p p' : Fin N, p ≠ p' → ∃ i : Fin N, p ∈ L i ∧ p' ∈ L i) :
+    (∀ t u : Fin N, t ≠ u → (L t ∩ L u).card ≤ 1) ∧
+    (∀ t u : Fin N, t ≠ u → (L t \ L u).Nonempty) ∧
+    (∀ t v : Fin N, ∃ s : Fin N, v ∈ L s ∧ (L t \ L s).Nonempty) := by
+  classical
+  have hdiff (t u : Fin N) (hne : t ≠ u) : (L t \ L u).Nonempty := by
+    by_contra h
+    have hs : L t ⊆ L u := Finset.sdiff_eq_empty_iff_subset.mp
+      (Finset.not_nonempty_iff_eq_empty.mp h)
+    have hi : L t ∩ L u = L t := Finset.inter_eq_left.mpr hs
+    have hc := hmeet t u hne
+    rw [hi, hcard t] at hc
+    omega
+  have hpos (t : Fin N) : (L t).Nonempty := by
+    apply Finset.card_pos.mp
+    rw [hcard t]
+    omega
+  have hout (t : Fin N) : ∃ u : Fin N, u ∉ L t := by
+    have hlt : (L t).card < N := by
+      rw [hcard t, hN]
+      nlinarith
+    by_contra h
+    push_neg at h
+    have he : L t = Finset.univ := Finset.eq_univ_iff_forall.mpr h
+    rw [he, Finset.card_univ, Fintype.card_fin] at hlt
+    omega
+  refine ⟨fun t u h => le_of_eq (hmeet t u h), hdiff, ?_⟩
+  intro t v
+  by_cases hv : v ∈ L t
+  · obtain ⟨u, hu⟩ := hout t
+    have hne : v ≠ u := by
+      intro e
+      subst u
+      exact hu hv
+    obtain ⟨s, hvs, hus⟩ := hpair v u hne
+    have hts : t ≠ s := by
+      intro e
+      subst s
+      exact hu hus
+    exact ⟨s, hvs, hdiff t s hts⟩
+  · obtain ⟨p, hp⟩ := hpos t
+    have hne : v ≠ p := by
+      intro e
+      subst p
+      exact hv hp
+    obtain ⟨s, hvs, _⟩ := hpair v p hne
+    have hts : t ≠ s := by
+      intro e
+      subst s
+      exact hv hvs
+    exact ⟨s, hvs, hdiff t s hts⟩
+end PEqualNP.Outside.L_meta_1544

@@ -1,0 +1,18 @@
+{
+  "id": "L-meta-1544",
+  "title": "Plane of order q >= 2, AND/OR lists of fan-in at most two with outputs OR over each line on an up-set D: at least q|Lam| + max(N - |Lam|, a) gates",
+  "statement": "∀ (q N : ℕ) (L : Fin N → Finset (Fin N)),\n    2 ≤ q → N = q ^ 2 + q + 1 → (∀ i : Fin N, (L i).card = q + 1) → (∀ i j : Fin N, i ≠ j → (L i ∩ L j).card = 1) →\n    (∀ p p' : Fin N, p ≠ p' → ∃ i : Fin N, p ∈ L i ∧ p' ∈ L i) →\n    ∀ D : (Fin N → Bool) → Prop,\n    (∀ x y : Fin N → Bool, D x → (∀ v : Fin N, x v = true → y v = true) → D y) →\n    (∀ t : Fin N, D (fun v : Fin N => decide (v ∉ L t))) →\n    ∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (o : Fin N → ℕ),\n    (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) →\n    (∀ (t : Fin N) (x : Fin N → Bool), D x → PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, o t⟩ (List.ofFn x) = decide (∃ v ∈ L t, x v = true)) →\n    ∀ (Lam : Finset (Fin N)) (B : Fin N → Fin N → Finset (Fin N)),\n    (∀ t ∈ Lam, ∀ p ∈ L t, B t p ∩ L t = ∅ ∧ D (fun v : Fin N => decide (v = p ∨ v ∈ B t p))) →\n    (∀ t ∈ Lam, ∀ t' ∈ Lam, t ≠ t' → ¬ ((∃ p ∈ L t \\ L t', (B t p ∩ L t').Nonempty) ∧ (∃ p ∈ L t' \\ L t, (B t' p ∩ L t).Nonempty))) →\n    ∀ I : Finset (Fin gates.length), (∀ g ∈ I, (gates.get g).op = PEqualNP.CircuitLowerBounds.GateOp.and) →\n      q * Lam.card + max (N - Lam.card) I.card ≤ gates.length",
+  "file": "lean/PEqualNP/Outside/L_meta_1544.lean",
+  "module": "PEqualNP.Outside.L_meta_1544",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "unlocks": "One NOT gate on the line-ORs of a plane: the anchor domain, the Z0 domain and the order-4 tests",
+  "context": "SKETCH: The proof is written in routes/lgp/full-basis/desk-952-batch5.md, step A7 (its dependencies are listed there): follow it. Size: 150 minutes. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 85,
+  "parallel": 3,
+  "lane": "main",
+  "pr_open": 0,
+  "pr_numbers": []
+}
