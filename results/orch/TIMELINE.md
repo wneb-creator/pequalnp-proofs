@@ -15,3 +15,5 @@
 - 2026-11-24T17:22:44.706427+00:00: checked mixed-singleton context lemma (library_context.lean), independent review requested.
 - 2026-11-24T17:23:34.843815+00:00: mixed-singleton context lemma compiled and independently reviewed; preserving now.
 - 2026-11-24T17:24:08.028122+00:00: unique-line context lemma compiled and independently reviewed; preserving now.
+- 2026-11-24T17:25:06.231895+00:00: checked unique line-context lemma; isolated sparse-promise obstruction to dual doubleReread bound.
+- 2026-11-24T17:28:16.166611+00:00: final validation summary reconciled; local checker ACCEPTED, 53 to 51 lines. Preparing one-file PR while retaining all archive commits.

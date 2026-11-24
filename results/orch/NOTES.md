@@ -83,3 +83,29 @@ For each gate and selected line set Y, collect points p for which the gate accep
 Checked Fano witness (`results/orch/lemmas/reduction_derivative_obstruction.py`): encode points as nonzero 3-bit vectors. The parity-zero line is {011,101,110}. Precompute coordinate masks for selected point bits, then test whether the masks admit an incident bit pattern. All seven singleton point tests are exact. Yet X={001,010} activates the masks of 011, causing acceptance with this one selected line despite neither actual point lying on it. Thus even a one-line restriction must retain arbitrary point subsets.
 
 Conceptual generalization: dual-rail coordinate masks plus fixed-line field-arithmetic tests produce compact circuits agreeing on every singleton-point input and arbitrary line sets, while allowing synthetic points assembled from several selected points. Any point-derivative proof must explicitly charge or forbid this coordinate mixing; mere additivity in Y is insufficient.
+
+### A local pruning lemma and the unresolved charging step
+
+For a monotone AND/OR circuit computing the disjunction of a variable set S, evaluate at the assignment which is zero on S and one outside S. The output is false. Retain both children at every false OR, and choose a false child at every false AND. The resulting OR-only cone has leaves only in S. Replacing AND by a child only increases the function, so the cone still accepts every singleton in S; hence it computes precisely OR(S), with no additional gates.
+
+Applied after fixing a line set Y with |Y|≤q, this gives a pruned OR computation of the points on the selected lines. For Y={l}, at least q merges are required to join the q+1 incident point leaves. Summing across all lines suggests Nq merge charges, but the same original gate can receive charges under different line-dependent pruning choices. The missing substantive lemma must control this reuse using soundness on multiple points and up to q lines. Counting only singleton point derivatives or only distinct input leaves does not establish that control.
+
+## Quantitative re-read audit (library search)
+
+- Checked geometric consequence `library_sharing.lean`: if A contains two distinct point singletons, sparse soundness q≥1 and product inclusion A×B⊆F permit at most one line singleton in B. This is pair uniqueness applied after establishing soundness of each pair.
+- `L_meta_2672.coreL` bounds line-single accepted edges by `6*C.size`. Its sole soundness use is helper `start`, at the assignment consisting of one line l plus all points not on l (source lines573–593). This assignment fits our sparse promise, so that one-sided counting proof should transfer after weakening its soundness interface.
+- The dual `core2` applies soundness at one point plus all nonincident lines, typically q² lines, outside our promise. Therefore the existing full doubleReread inequality cannot be imported or transplanted unchanged.
+- A precise missing quantitative statement is that incident edges requiring a line re-read number at most `94*C.size` (with the 6*size single-read count, this would prove the requested constant). Counting marked gates does not give it: appending a redundant AND with OR(all line inputs) can make every accepted edge reread its line. Some normalization or amortized charge to prior computation is essential.
+- Raw support families forget multiplicity of variable occurrences. A provenance-based argument would need to track parse multisets (OR=min/union; AND=sum/product) or the `linearParts` recursion, rather than infer single-read behavior from support sets alone.
+
+### Final frozen counting diagnosis
+
+The one-sided transfer is specific: in `L_meta_2672.start`, the test input turns on the selected line l and every point not incident to l. It has exactly one line and no incidence, so the original sparse rejection hypothesis proves it false for q≥1. The only occurrences of the global `hsound` parameter in the underlying `gen`/`img2` counting arguments are calls to `start`. The dual orientation turns on one point and every nonincident line, so its test has q² lines and is unavailable here. No claim is made that the full existing theorem applies without modifying its helper interfaces.
+
+Why raw re-read counts cannot be charged a constant per mixed gate: append a binary OR Q of all N line inputs (N−1 gates), then the gate `C.output AND Q` (one gate). Sparse rejection at zero selected lines already implies C is false whenever all lines are false, for every point assignment; thus C implies Q, and the appended AND preserves the entire Boolean function. On every incident-pair input, C's proof trees must use the selected line at least once (otherwise the point-only input would be accepted), and Q's tree uses it once more. Therefore every incidence is now line-reread. The single new final AND is semantically mixed on the line side and accounts for all N(q+1) such edges. Any constant-per-gate charge must first remove this redundancy or charge previously constructed information; raw marked-cardinality alone cannot do it.
+
+Research files frozen after this note. The verified context and unique-line-context lemmas are local structural progress, not a proof of the remaining extremal lower bound.
+
+## Root — random line restrictions
+
+Restricting to q selected lines makes the promise exact on that restricted incidence graph, which has q(q+1) edges. A generic per-restriction counting argument therefore yields only the quadratic scale. Recovering the missing q factor would require an average pruned-size bound on the order of original size/q. Pure-point subcircuits survive setting line inputs to zero, so that bound needs a new sharing or amortization argument; it does not follow from restriction alone. No quantitative lemma on this route was proved.
