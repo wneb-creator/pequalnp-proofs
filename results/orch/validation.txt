@@ -41,3 +41,11 @@ Actual checker baseline: REJECTED (no-theorem); required final theorem absent.
 78-declaration axiom audit passed on preceding1509-line checkpoint.
 No full-gap proof; no PR opened.
 TIMING total=20.4 subagents=6
+
+Checkpoint 6: local dirty-cone criterion, OR-sharing restriction, guarded gate erasure and leastness consequence.
+Target: 3221 lines.
+Build009: exit0; Build completed successfully (18419 jobs).
+Independent review: review-006.txt passed, including two finite auxiliary artifacts.
+TwoJunk and CnfSix root recompiles: exit0, empty stdout/stderr.
+Actual posted-statement checker remains REJECTED (no-theorem), not rerun without a final theorem.
+TIMING total=28.6 subagents=6

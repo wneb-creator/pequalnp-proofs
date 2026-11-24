@@ -31,3 +31,8 @@
 - 2026-11-24T18:16:10.511951+00:00 circuit_route: checked general star-cover certificate, both singleton-side constructors, and6-gate structural counterexample; per-top leastness route remains unresolved.
 - 2026-11-24T18:17:32.137743+00:00: structural route checked local one-dirty-per-top criterion for read-2.
 - 2026-11-24T18:17:39.850163+00:00: checkpoint5 builds/review passed. Replanned around private common-factor gate surgery, pure-OR sharing restrictions, and per-edge joint witness repair; stopped bulk known-subcase copying.
+
+- 2026-11-24T18:20:53+00:00 combinatorial_route: circuit-side shared-OR unique-center and center-union cardinal bound compiled (Sharing.lean); stable fragment sent to root.
+- 2026-11-24T18:21:52.877877+00:00 circuit_route: generic guarded-AND erasure and syntactic shared-factor leastness exclusion compiled exit0; root sent stable fragment.
+- 2026-11-24T18:24:02.513117+00:00: structural route checked double-star classification of four-clause bad-read2 block.
+- 2026-11-24T18:25:46.089257+00:00: checkpoint6 central sharing and guarded-erasure components built/reviewed; auxiliary counterexamples independently rebuilt and archived.
