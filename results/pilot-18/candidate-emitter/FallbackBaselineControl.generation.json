@@ -1,0 +1,20 @@
+{
+  "input": "/tmp/oec/pequalnp-pilot-18/orch/S03/baseline-control.json",
+  "input_sha256": "7a8d621b17678d3ddd89a59e31e637ae3dce63e804b18a4e85c2345b437ef4f2",
+  "gate_count": 22,
+  "output": 32,
+  "rows_checked": 40,
+  "boundary_failures": [],
+  "inputs_checked": 2048,
+  "full_failure_masks": [],
+  "status": "GENERATED_NOT_COMPILED",
+  "proves_posted_statement": false,
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/FallbackBaselineControl.lean",
+  "source_sha256": "07467993bc2b97175a750381defa9a65191b9c11e5ee225d57326c0b837fb4bc",
+  "scaffold_sha256": "80802f27b96a4e01e5c4b2d54fe4aa4276adb84fe83a664d96e6ee5092cdbd53",
+  "exact_bound": 22,
+  "emitter_sha256": "f0df2b3fbd6aaec3745c390f629022818e1c083c5824e05e31c59a528b492fd0",
+  "helper_mode": "inline",
+  "named_dependency_sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+  "import_scope": "Scratch harness; inline helper/candidate declarations for any final source."
+}

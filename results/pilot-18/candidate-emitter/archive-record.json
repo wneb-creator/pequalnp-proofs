@@ -1,0 +1,272 @@
+{
+  "utc": "2026-11-24T03:50:29.338108+00:00",
+  "scope": "Reviewed emitter and compiled22gatepositivecontrols; not a21gatewitness",
+  "historical_alias": "historical/emit_candidate.py is the preserved pre-integration source matching the historical manifest; current root emitter is the integration fix",
+  "named_dependency": {
+    "sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+    "bytes": 100418
+  },
+  "files": {
+    "emit_candidate.py": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/emit_candidate.py",
+      "sha256": "f0df2b3fbd6aaec3745c390f629022818e1c083c5824e05e31c59a528b492fd0",
+      "bytes": 7116
+    },
+    "emit_candidate.pre-integration.py": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/emit_candidate.pre-integration.py",
+      "sha256": "3a667a145333c7c898ab45c980dace67eab0f60e796a7ac29193de18d6a12e5d",
+      "bytes": 5753
+    },
+    "run_lean.py": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/run_lean.py",
+      "sha256": "f0ca0bfcc71424068e29aa50f2fb6aef72582492f5d80c7d7cb85beb62ce60e0",
+      "bytes": 2414
+    },
+    "BoundaryFix.lean.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/BoundaryFix.lean",
+      "sha256": "80802f27b96a4e01e5c4b2d54fe4aa4276adb84fe83a664d96e6ee5092cdbd53",
+      "bytes": 3811
+    },
+    "baseline-control.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/baseline-control.json",
+      "sha256": "7a8d621b17678d3ddd89a59e31e637ae3dce63e804b18a4e85c2345b437ef4f2",
+      "bytes": 1054
+    },
+    "wrong-output-control.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/wrong-output-control.json",
+      "sha256": "8153de4c406c15dfdb3ec1f7619d55c3a8daeea420dae6f26fc092474fddc6e7",
+      "bytes": 1053
+    },
+    "IntegratedBaselineControl.lean.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/IntegratedBaselineControl.lean",
+      "sha256": "a0bd81e806d52a4ef6ce8ec48380f50b2558151bd487921296a643bbb5e3819e",
+      "bytes": 1842
+    },
+    "IntegratedBaselineControl.generation.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/IntegratedBaselineControl.generation.json",
+      "sha256": "d9448837978d102bd31db6733ad3589dcaf9999ef7a569c1037695bed3339b0e",
+      "bytes": 964
+    },
+    "IntegratedControlAudit.lean.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/IntegratedControlAudit.lean",
+      "sha256": "922bee7ccc7b78171e74559753832f0cbdb44d712efe7360807bcde40c1c263c",
+      "bytes": 2010
+    },
+    "integrated-control-exact-statement.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/integrated-control-exact-statement.txt",
+      "sha256": "17287a28206dbf0d352e2d553c17b6acad21d77d603502143003f6e6ffffee47",
+      "bytes": 454
+    },
+    "integrated-control.result.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/integrated-control.result.json",
+      "sha256": "e848e1a521e2cd3f80df2f29d2ce2859ae2298cc5d0db7fe1d993e0a920e3e62",
+      "bytes": 1135
+    },
+    "integrated-control.stdout": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/integrated-control.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "integrated-control.stderr": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/integrated-control.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "integrated-control-axioms.result.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/integrated-control-axioms.result.json",
+      "sha256": "52b4915e210d1c9c3f6c33fb4a4005f9855478f5223f11666b6b939de4d6a78a",
+      "bytes": 1145
+    },
+    "integrated-control-axioms.stdout": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/integrated-control-axioms.stdout",
+      "sha256": "05dc90d5909be85039581181b020a52dd06852f003c21765e48d1b84d9f1ae33",
+      "bytes": 265
+    },
+    "integrated-control-axioms.stderr": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/integrated-control-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "AutoBaselineControl.lean.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/AutoBaselineControl.lean",
+      "sha256": "bd033ae6762a53267bd94491ddb6541fe7e6eb60e76986249626858bbb37e185",
+      "bytes": 1764
+    },
+    "AutoBaselineControl.generation.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/AutoBaselineControl.generation.json",
+      "sha256": "0e1025d114178e32982b15bf6387b8828a73b2c2fa630d35cbb11428610527c7",
+      "bytes": 958
+    },
+    "FallbackBaselineControl.lean.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/FallbackBaselineControl.lean",
+      "sha256": "07467993bc2b97175a750381defa9a65191b9c11e5ee225d57326c0b837fb4bc",
+      "bytes": 4599
+    },
+    "FallbackBaselineControl.generation.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/FallbackBaselineControl.generation.json",
+      "sha256": "1bcce67b87abaf706fae48d4c19061cda9bcb9debde92d6d79eb03cebf97ac39",
+      "bytes": 960
+    },
+    "GeneratedBaseline.lean.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/GeneratedBaseline.lean",
+      "sha256": "4b51d55d13bb9b36cb131f61a6145469a543448c8baa279e1699e26faa94dbe8",
+      "bytes": 4521
+    },
+    "GeneratedBaseline.generation.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/GeneratedBaseline.generation.json",
+      "sha256": "f0ca0f3573170013bd19ab727a2b477ac99659c06dab62092ab25d8aabbc5fc4",
+      "bytes": 742
+    },
+    "integration-emitter-controls.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/integration-emitter-controls.json",
+      "sha256": "983b4f1e2d5c2a034abaa32a5a29e46a25abeaa52d85fe9a767803665de0e64a",
+      "bytes": 1277
+    },
+    "emitter-negative-controls.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/emitter-negative-controls.json",
+      "sha256": "74c92bec89ac3b67a8a8d2f7f83ff985c3fcb3a7a831854d7ebcab7788ad4e3a",
+      "bytes": 1294
+    },
+    "candidate-scaffold-manifest.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/candidate-scaffold-manifest.json",
+      "sha256": "fa23cf0b30a0c6e395243facf18cee76a0319f1b3c9b5db966e38e7e3879280b",
+      "bytes": 6628
+    },
+    "historical/BoundaryFix.lean.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/BoundaryFix.lean",
+      "sha256": "80802f27b96a4e01e5c4b2d54fe4aa4276adb84fe83a664d96e6ee5092cdbd53",
+      "bytes": 3811
+    },
+    "historical/scaffold-exact-statements.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-exact-statements.txt",
+      "sha256": "f5ebac954ba98b45ec1a76177ebf5a29d4dc25f640103ae0875484ec45e24fb8",
+      "bytes": 2171
+    },
+    "historical/scaffold-second.result.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-second.result.json",
+      "sha256": "8e717d896ef9fc399b4602a8767719abf2a788fe2bfcf0baa676ba4e04bfaa68",
+      "bytes": 1101
+    },
+    "historical/scaffold-second.stdout": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-second.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "historical/scaffold-second.stderr": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-second.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "historical/ScaffoldAudit.lean.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/ScaffoldAudit.lean",
+      "sha256": "b25c53851bb135087dffbfb77abaffdf4972669e87727ad5bcf4d33782a07539",
+      "bytes": 4263
+    },
+    "historical/scaffold-axioms.result.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-axioms.result.json",
+      "sha256": "a09508cad09c6e03e67c7c54918ed7a42dd83bd08b4bcf3e894aae66153f95dc",
+      "bytes": 1106
+    },
+    "historical/scaffold-axioms.stdout": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-axioms.stdout",
+      "sha256": "fc8ca04bbee08a57af679ea541541c1feb31218ba4addddcfdd761e75f6eaa75",
+      "bytes": 739
+    },
+    "historical/scaffold-axioms.stderr": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "historical/emit_candidate.py": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/emit_candidate.pre-integration.py",
+      "sha256": "3a667a145333c7c898ab45c980dace67eab0f60e796a7ac29193de18d6a12e5d",
+      "bytes": 5753
+    },
+    "historical/run_lean.py": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/run_lean.py",
+      "sha256": "f0ca0bfcc71424068e29aa50f2fb6aef72582492f5d80c7d7cb85beb62ce60e0",
+      "bytes": 2414
+    },
+    "historical/baseline-control.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/baseline-control.json",
+      "sha256": "7a8d621b17678d3ddd89a59e31e637ae3dce63e804b18a4e85c2345b437ef4f2",
+      "bytes": 1054
+    },
+    "historical/wrong-output-control.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/wrong-output-control.json",
+      "sha256": "8153de4c406c15dfdb3ec1f7619d55c3a8daeea420dae6f26fc092474fddc6e7",
+      "bytes": 1053
+    },
+    "historical/GeneratedBaseline.lean.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/GeneratedBaseline.lean",
+      "sha256": "4b51d55d13bb9b36cb131f61a6145469a543448c8baa279e1699e26faa94dbe8",
+      "bytes": 4521
+    },
+    "historical/GeneratedBaseline.generation.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/GeneratedBaseline.generation.json",
+      "sha256": "f0ca0f3573170013bd19ab727a2b477ac99659c06dab62092ab25d8aabbc5fc4",
+      "bytes": 742
+    },
+    "historical/generated-exact-statement.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/generated-exact-statement.txt",
+      "sha256": "4c431791b7f7d5ab7bdcc5e274ff5cce537135896cf4712f1809794f36a5c697",
+      "bytes": 446
+    },
+    "historical/generated-baseline.result.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/generated-baseline.result.json",
+      "sha256": "0b49a52c2ef7ffdb17a1a3c90b189ae9fc7e56a3cb457a15c7649e46a35bf617",
+      "bytes": 1119
+    },
+    "historical/generated-baseline.stdout": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/generated-baseline.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "historical/generated-baseline.stderr": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/generated-baseline.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "historical/GeneratedAudit.lean.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/GeneratedAudit.lean",
+      "sha256": "e7a1cab1754cb6bc9fb4b20b56585fe5c336f5e78278c9134f86aae391df9887",
+      "bytes": 4673
+    },
+    "historical/generated-axioms.result.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/generated-axioms.result.json",
+      "sha256": "c81305aa53cd46fbd5e832e48c79d914000d32fd51a0cdb066a5d6be047a0d59",
+      "bytes": 1111
+    },
+    "historical/generated-axioms.stdout": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/generated-axioms.stdout",
+      "sha256": "baeec10570c4071f39a4c4903aaf8c1c1538173ca5f19830850dd61483c6ec30",
+      "bytes": 247
+    },
+    "historical/generated-axioms.stderr": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/generated-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "historical/emitter-negative-controls.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/emitter-negative-controls.json",
+      "sha256": "74c92bec89ac3b67a8a8d2f7f83ff985c3fcb3a7a831854d7ebcab7788ad4e3a",
+      "bytes": 1294
+    },
+    "historical/scaffold-static.json": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-static.json",
+      "sha256": "08fa5b011d557721c298ae12d2669b733822fdce8d1fc35e1191d011c51ae04f",
+      "bytes": 3117
+    },
+    "historical/scaffold-static.stderr": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-static.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "historical/ProjectedScaffold.lean.txt": {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/ProjectedScaffold.lean",
+      "sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+      "bytes": 100418
+    }
+  },
+  "review_sha256": "29a02679c824a104b1bace3246508f51fb1c309dd70ba4ce5de73daa691b6643"
+}

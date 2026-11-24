@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-24T03:45:33.996155+00:00",
+  "pid": 24303,
+  "argv": [
+    "python",
+    "/tmp/oec/pequalnp-pilot-18/run_rescheduled_candidate_pilot.py"
+  ],
+  "source_sha256": "13f485549478c262de70e1dafd34f510490cf2f43db245fa82dc48296cf94d80",
+  "parent_sha256": "e60ae4b64015c74674be737f890fb3cd20ff7b7f12d739ef7625a27a6d2e235a",
+  "exact_changes": {
+    "FAMILY=ROOT/'cover-neighborhoods-144'": "FAMILY=ROOT/'orch/S02/rescheduled-family'",
+    "OUT=ROOT/'cover-candidates'": "OUT=ROOT/'rescheduled-candidate-pilot'",
+    "assert manifest['complete'] and len(manifest['cases'])==manifest['samples']==144": "assert manifest['complete'] and len(manifest['cases'])==24",
+    "91bc4ce8fa0c7ce92bd6a1280cb836ca100729ced9ac1c4b7d6b66fbf97e8f68": "9276816606eb7ab1738b277bcf4c34f128b63e5158a23d54debbaadfaf88fd8c",
+    "r'c[0-9]{4}-k[0-9]{2}'": "r's[0-9]{2}-(original|random)-p[0-9]{2}-k[0-9]{2}'",
+    "'--time=10'": "'--time=20'",
+    "'prefix':item['prefix']": "'budget':item['budget']",
+    "queue=list(manifest['cases']);": "wanted=['s01-random-p20-k05','s00-random-p20-k05','s01-original-p00-k05','s00-original-p00-k05']; byname={item['case']:item for item in manifest['cases']}; queue=[byname[name] for name in wanted];"
+  },
+  "scope": "Four candidate-only neighborhoods,20secpercase,unchangedautomaticSATvalidator; noexhaustionclaim"
+}

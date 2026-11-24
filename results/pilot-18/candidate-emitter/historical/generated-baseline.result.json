@@ -1,0 +1,33 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/GeneratedBaseline.lean",
+  "source_sha256": "4b51d55d13bb9b36cb131f61a6145469a543448c8baa279e1699e26faa94dbe8",
+  "source_unchanged": true,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S03/GeneratedBaseline.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-24T03:33:11.434448+00:00",
+  "finished_utc": "2026-11-24T03:33:17.819934+00:00",
+  "lock_wait_seconds": 0.00013820899948768783,
+  "elapsed_seconds": 6.385251444999085,
+  "exit_code": 0,
+  "timeout": false,
+  "child_maxrss_kib": 3267172,
+  "logs": {
+    "stdout": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/generated-baseline.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/generated-baseline.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

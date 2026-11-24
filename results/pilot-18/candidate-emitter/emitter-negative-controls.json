@@ -1,0 +1,43 @@
+[
+  {
+    "case": "wrong-output",
+    "exit_code": 2,
+    "no_lean_emitted": true,
+    "command": [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-18/orch/S03/emit_candidate.py",
+      "/tmp/oec/pequalnp-pilot-18/orch/S03/wrong-output-control.json",
+      "--name",
+      "WrongOutputControl"
+    ],
+    "stdout": "/tmp/oec/pequalnp-pilot-18/orch/S03/wrong-output.stdout",
+    "stderr": "/tmp/oec/pequalnp-pilot-18/orch/S03/wrong-output.stderr"
+  },
+  {
+    "case": "offset13",
+    "exit_code": 1,
+    "no_lean_emitted": true,
+    "command": [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-18/orch/S03/emit_candidate.py",
+      "/tmp/oec/pequalnp-pilot-18/stochastic-candidate-134218/engine-result.json",
+      "--name",
+      "OffsetControl"
+    ],
+    "stdout": "/tmp/oec/pequalnp-pilot-18/orch/S03/offset13.stdout",
+    "stderr": "/tmp/oec/pequalnp-pilot-18/orch/S03/offset13.stderr"
+  },
+  {
+    "case": "reject-reused-name",
+    "exit_code": 1,
+    "source_unchanged": true,
+    "source_sha256": "4b51d55d13bb9b36cb131f61a6145469a543448c8baa279e1699e26faa94dbe8",
+    "command": [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-18/orch/S03/emit_candidate.py",
+      "/tmp/oec/pequalnp-pilot-18/orch/S03/wrong-output-control.json",
+      "--name",
+      "GeneratedBaseline"
+    ]
+  }
+]

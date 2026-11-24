@@ -1,0 +1,151 @@
+{
+  "utc": "2026-11-24T03:53:55.574943+00:00",
+  "verdict": "PASS_SCOPED_RESEARCH_PACKAGING",
+  "scope": "Only the ten files in results/pilot-18/search/rescheduled-repairs; no repository mutation, solver rerun, or proof acceptance review.",
+  "files": [
+    {
+      "path": "results/pilot-18/search/rescheduled-repairs/README.md",
+      "sha256": "e34eb9635fd80538e1517c070a5f83180367986fa9f3f090321405369b7e69fa",
+      "bytes": 3612,
+      "scratch_source": "/tmp/oec/pequalnp-pilot-18/orch/S02/RESCHEDULED.md",
+      "exact_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/rescheduled-repairs/audit_rescheduled_repairs.py",
+      "sha256": "fdcee1bc8a2301a8827a6db365a32b878aee49deef35f1cf2b37ae1071649aab",
+      "bytes": 9897,
+      "scratch_source": "/tmp/oec/pequalnp-pilot-18/orch/S02/audit_rescheduled_repairs.py",
+      "exact_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/rescheduled-repairs/family.json",
+      "sha256": "5c6e8b0e103808b505b5f4977c5da9432088a67d665bbc1bb67d90b024b8b55f",
+      "bytes": 21943,
+      "scratch_source": "/tmp/oec/pequalnp-pilot-18/orch/S02/rescheduled-family/family.json",
+      "exact_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/rescheduled-repairs/full-results.json",
+      "sha256": "0d0eff3e802eba9bf482845e99cfdfea2dbe17f7343144b407e4a9e342bd3816",
+      "bytes": 138733,
+      "complete_embedded_files": 9
+    },
+    {
+      "path": "results/pilot-18/search/rescheduled-repairs/generate_rescheduled_repairs.py",
+      "sha256": "9276816606eb7ab1738b277bcf4c34f128b63e5158a23d54debbaadfaf88fd8c",
+      "bytes": 9647,
+      "scratch_source": "/tmp/oec/pequalnp-pilot-18/orch/S02/generate_rescheduled_repairs.py",
+      "exact_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/rescheduled-repairs/independent-controller-review.json",
+      "sha256": "585842559e599d8a87a844574ceaa89aba78efed60a3aff1a7868014237799b2",
+      "bytes": 10167,
+      "scratch_source": "/tmp/oec/pequalnp-pilot-18/orch/S02/rescheduled-controller-review.json",
+      "exact_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/rescheduled-repairs/independent-source-review.json",
+      "sha256": "8eadda9fc0ecf6f0ce3cbc0038b216328f4121806c9e9f02e796da51b5385c94",
+      "bytes": 809,
+      "scratch_source": "/tmp/oec/pequalnp-pilot-18/orch/S02/main-rescheduled-review.json",
+      "exact_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/rescheduled-repairs/launch.json",
+      "sha256": "6692c173d40e3d5bd04636e0ed2ae575ea13600099cd817f350516cc04af9688",
+      "bytes": 1344,
+      "scratch_source": "/tmp/oec/pequalnp-pilot-18/rescheduled-candidate-pilot-launch.json",
+      "exact_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/rescheduled-repairs/run_rescheduled_candidate_pilot.py",
+      "sha256": "13f485549478c262de70e1dafd34f510490cf2f43db245fa82dc48296cf94d80",
+      "bytes": 5141,
+      "scratch_source": "/tmp/oec/pequalnp-pilot-18/run_rescheduled_candidate_pilot.py",
+      "exact_copy": true
+    },
+    {
+      "path": "results/pilot-18/search/rescheduled-repairs/self-review.json",
+      "sha256": "0174600253c382dd34328e4a70bff3939d2163892798fd92e1f02d412e6bd4f4",
+      "bytes": 6841,
+      "scratch_source": "/tmp/oec/pequalnp-pilot-18/orch/S02/rescheduled-review.json",
+      "exact_copy": true
+    }
+  ],
+  "exact_direct_copies": 9,
+  "embedded_files": [
+    {
+      "path": "portfolio.json",
+      "sha256": "3d220436af1dd41bf4744cb3de16bbe3e4937b4763a1fbc9f9cd382a86c30e96",
+      "bytes": 2440,
+      "entire_content_equals_scratch": true
+    },
+    {
+      "path": "s00-original-p00-k05.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "entire_content_equals_scratch": true
+    },
+    {
+      "path": "s00-original-p00-k05.stdout",
+      "sha256": "cba5beba8430cdd60cbcd10ca2d10068654d8c4115c5b7ef9ebeaf7d60aa9fcf",
+      "bytes": 34442,
+      "entire_content_equals_scratch": true
+    },
+    {
+      "path": "s00-random-p20-k05.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "entire_content_equals_scratch": true
+    },
+    {
+      "path": "s00-random-p20-k05.stdout",
+      "sha256": "bc474fe2dbe3996e3bc20d363bdcdfb42616f23d04fb51646d2f58dddec9af05",
+      "bytes": 32139,
+      "entire_content_equals_scratch": true
+    },
+    {
+      "path": "s01-original-p00-k05.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "entire_content_equals_scratch": true
+    },
+    {
+      "path": "s01-original-p00-k05.stdout",
+      "sha256": "5466755707d71a3031ba7f23de4657691f87d6da7f0496e121e1d95ed7f39a3a",
+      "bytes": 34471,
+      "entire_content_equals_scratch": true
+    },
+    {
+      "path": "s01-random-p20-k05.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "entire_content_equals_scratch": true
+    },
+    {
+      "path": "s01-random-p20-k05.stdout",
+      "sha256": "0ccf6f21e4dbf70e027c503e327b1b27005577e7c173b7d4055e907e13f9d26a",
+      "bytes": 31635,
+      "entire_content_equals_scratch": true
+    }
+  ],
+  "outcomes": {
+    "UNKNOWN": 4,
+    "SAT": 0,
+    "UNSAT": 0,
+    "certified_UNSAT": 0
+  },
+  "checks": {
+    "exact_complete_file_set": true,
+    "source_and_review_hash_bindings": true,
+    "full_stdout_stderr_and_portfolio_preserved": true,
+    "all4_finished_exit0_UNKNOWN": true,
+    "no_model_or_exhaustion_claim": true,
+    "no_credentials_or_lease_values_detected": true,
+    "no_Lean_file_within_scope": true
+  },
+  "nonblocking_documentation_note": "README retains original scratch-relative family/review names; the archived aliases are family.json and self-review.json. Reproduction depends on the hash-pinned helpers and original seed artifacts already retained elsewhere.",
+  "blocking_findings": [],
+  "Sub-agents": "none"
+}

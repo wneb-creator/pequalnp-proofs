@@ -1,0 +1,262 @@
+{
+  "verdict": "PASS_BOUNDED_CANDIDATE_CONTROLLER_DELTA",
+  "utc": "2026-11-24T03:47:57.016746+00:00",
+  "scope": "Read-only source/configuration/data review; no worker launch or intervention; not a proof or exhaustion review.",
+  "parent_sha256": "e60ae4b64015c74674be737f890fb3cd20ff7b7f12d739ef7625a27a6d2e235a",
+  "controller_sha256": "13f485549478c262de70e1dafd34f510490cf2f43db245fa82dc48296cf94d80",
+  "launch_record_sha256": "6692c173d40e3d5bd04636e0ed2ae575ea13600099cd817f350516cc04af9688",
+  "main_generator_review_sha256": "8eadda9fc0ecf6f0ce3cbc0038b216328f4121806c9e9f02e796da51b5385c94",
+  "manifest_sha256": "5c6e8b0e103808b505b5f4977c5da9432088a67d665bbc1bb67d90b024b8b55f",
+  "exact_literal_changes": [
+    {
+      "old": "FAMILY=ROOT/'cover-neighborhoods-144'",
+      "new": "FAMILY=ROOT/'orch/S02/rescheduled-family'",
+      "occurrences": 1
+    },
+    {
+      "old": "OUT=ROOT/'cover-candidates'",
+      "new": "OUT=ROOT/'rescheduled-candidate-pilot'",
+      "occurrences": 1
+    },
+    {
+      "old": "assert manifest['complete'] and len(manifest['cases'])==manifest['samples']==144",
+      "new": "assert manifest['complete'] and len(manifest['cases'])==24",
+      "occurrences": 1
+    },
+    {
+      "old": "91bc4ce8fa0c7ce92bd6a1280cb836ca100729ced9ac1c4b7d6b66fbf97e8f68",
+      "new": "9276816606eb7ab1738b277bcf4c34f128b63e5158a23d54debbaadfaf88fd8c",
+      "occurrences": 1
+    },
+    {
+      "old": "r'c[0-9]{4}-k[0-9]{2}'",
+      "new": "r's[0-9]{2}-(original|random)-p[0-9]{2}-k[0-9]{2}'",
+      "occurrences": 1
+    },
+    {
+      "old": "'--time=10'",
+      "new": "'--time=20'",
+      "occurrences": 1
+    },
+    {
+      "old": "'prefix':item['prefix']",
+      "new": "'budget':item['budget']",
+      "occurrences": 1
+    },
+    {
+      "old": "queue=list(manifest['cases']);",
+      "new": "wanted=['s01-random-p20-k05','s00-random-p20-k05','s01-original-p00-k05','s00-original-p00-k05']; byname={item['case']:item for item in manifest['cases']}; queue=[byname[name] for name in wanted];",
+      "occurrences": 1
+    }
+  ],
+  "selected_cases": [
+    "s01-random-p20-k05",
+    "s00-random-p20-k05",
+    "s01-original-p00-k05",
+    "s00-original-p00-k05"
+  ],
+  "all_case_hash_checks": [
+    {
+      "case": "s00-original-p00-k04",
+      "cnf_sha256": "7d9bd2194775fb8400f46f3ca4a3c3f073466cbec5856b06e373124ed7b0987a",
+      "metadata_sha256": "0b51133056898fbbbd2036b206549c701570d7d1a631772c24b5192a827c74a9",
+      "selected": false
+    },
+    {
+      "case": "s00-original-p00-k05",
+      "cnf_sha256": "307c01431bf35b82dd7d88c3970987e69b1366fce78122819628bfe1ee3618f3",
+      "metadata_sha256": "fea51bdfaf005727dcebae50708051018f15d245dd4055780338b32d30a22ce9",
+      "selected": true
+    },
+    {
+      "case": "s00-original-p10-k04",
+      "cnf_sha256": "86d9dd04d652635d364c30c97e09936572e6580ef3278798a3a3d96a36f4c4f9",
+      "metadata_sha256": "68d13b6708dc17bf72e90360473472222cd50806537ffd136ee94de816bae270",
+      "selected": false
+    },
+    {
+      "case": "s00-original-p10-k05",
+      "cnf_sha256": "d8bf784e6437617fb39103aa3f615a83e51cf1f16c6a5ebe2b5a235edf5d75a1",
+      "metadata_sha256": "fd00f5dfa0d28825dfe52eb75c8ee46fb0822061d314b3b5586b60b8e64d98fc",
+      "selected": false
+    },
+    {
+      "case": "s00-original-p20-k04",
+      "cnf_sha256": "0063ccbf29f81d552351e82230f0f7379d62b6f2c231af6e763b2416f1826041",
+      "metadata_sha256": "146ba6d382e7507d82a6e1efefc0db1ab85ae7e18f306d1825367cc6b3960610",
+      "selected": false
+    },
+    {
+      "case": "s00-original-p20-k05",
+      "cnf_sha256": "7ab9451fdbaa571b4da2c6e3adcbe75b62f68b2691233dfdae7bd1a0ef18fe6a",
+      "metadata_sha256": "17621e30debb456f03d2e9858dc9fdd8f2f3059c7794d06dab8aa41236c92336",
+      "selected": false
+    },
+    {
+      "case": "s00-random-p00-k04",
+      "cnf_sha256": "aa8c207476a98ca3cb728d9b1aaccb5450bb1d432f592e4b6e095d6ecfaea2cc",
+      "metadata_sha256": "7d5d368c97b2f8d203e3751524c114908fafb98a1172a171848575f5f73e737d",
+      "selected": false
+    },
+    {
+      "case": "s00-random-p00-k05",
+      "cnf_sha256": "9859b8feae0925b28e5f11a142467469f67c2600a58e39dcd60a04494c8d74ba",
+      "metadata_sha256": "f2f8763b421a00629ea4497c3c4b09fb5d327fde637daace8d238f78f11c640b",
+      "selected": false
+    },
+    {
+      "case": "s00-random-p10-k04",
+      "cnf_sha256": "58dd5fe4b80f6f64d7c9ca1d683cf7d2aa38503736b0e5a153aa26a7f1ca4263",
+      "metadata_sha256": "ca4632982666a99411717018c8fa82b198f4d0e9ff3886c2dccae49182cd259c",
+      "selected": false
+    },
+    {
+      "case": "s00-random-p10-k05",
+      "cnf_sha256": "59cec5202bcf57d84e8242a3e9e6e5d15b486fb68155a53625fd67e77371587a",
+      "metadata_sha256": "16a48ec2d60adfa00ae80744d67bd1b4969d4053bbfa2bf12cda4d900b458654",
+      "selected": false
+    },
+    {
+      "case": "s00-random-p20-k04",
+      "cnf_sha256": "7d1f66568e93bbe9f55da2b5b2a864081be41dcd01499d78e1d50fe465c82bf4",
+      "metadata_sha256": "9c103273b223074f3d6b91021e4c615d50bfbc7069a3ec450031af351761f12b",
+      "selected": false
+    },
+    {
+      "case": "s00-random-p20-k05",
+      "cnf_sha256": "67ebd433d25ca7790e6653764f847498eeb3ff6b09e46371b3c6f0fee54cb5ff",
+      "metadata_sha256": "810616a66fe3834ca65e5606f48e24b274d0b4bbc742c1ff73138ac6403da7d3",
+      "selected": true
+    },
+    {
+      "case": "s01-original-p00-k04",
+      "cnf_sha256": "26f2036becb89d53e9d3070d65d092bb72ef4be54fda14a4c492dfc4f480e8f8",
+      "metadata_sha256": "7b6c12c44685c2d1f0fd05df22764de68d74b0501383630cc84b3dbcc3a8cad9",
+      "selected": false
+    },
+    {
+      "case": "s01-original-p00-k05",
+      "cnf_sha256": "55a2c03330dc6b833797ab2c0d924e0ff0101bd66f8f9a87f474c86d8ad761c7",
+      "metadata_sha256": "d2ad4b5ad8f8f09385195adc641bf8df9b49f39c7c9ac7feb5bab84fe8540d26",
+      "selected": true
+    },
+    {
+      "case": "s01-original-p10-k04",
+      "cnf_sha256": "7d0505e44b2139b7950f6d467aa3ce0c5f333c2c2558b76610ab32da5e7f9232",
+      "metadata_sha256": "26ac2ddd831ec3540852615fec33e60189500a31abff85af42d4869e2fdb459e",
+      "selected": false
+    },
+    {
+      "case": "s01-original-p10-k05",
+      "cnf_sha256": "9614ad1cc955c993dcb9f65aadbf127358f90473f1233962b6a2cb87c4fe7d97",
+      "metadata_sha256": "7f961fd99cf0dd90ca7cd9b93682c8f9490b4b7bd9cc313684b73bc0cfbedab2",
+      "selected": false
+    },
+    {
+      "case": "s01-original-p20-k04",
+      "cnf_sha256": "255d490e9771bf394e9c582bd642ac881452751e81b8c0ab210657928a7f311c",
+      "metadata_sha256": "d4c0c2e236263135a7797c151cd573c1244b52d724635700eb9d58c1b7da3b02",
+      "selected": false
+    },
+    {
+      "case": "s01-original-p20-k05",
+      "cnf_sha256": "c36df5df9f65c31f7c8468a92631628bc25e0c1a782a98602730b87e5574afe3",
+      "metadata_sha256": "5b0a12250e1ccc0c70aa559523029d2725c4dc364093e1ca092ca1de104db87f",
+      "selected": false
+    },
+    {
+      "case": "s01-random-p00-k04",
+      "cnf_sha256": "65bdd77dd49a65527a7c99c73d30afb9d8899f53481ea81c064ff70bead88a3f",
+      "metadata_sha256": "85e4025c30ed6798085bd488bce0fe21bcce0655d087bd344893d4f45d8e342c",
+      "selected": false
+    },
+    {
+      "case": "s01-random-p00-k05",
+      "cnf_sha256": "f823b559b1a91e9254134204d672740a3cfbf0428c3250370157cf06b3cc61da",
+      "metadata_sha256": "eec9f8e08f5415455432b5d5c994df24e365535802b86d1464f4bef08dcec4d5",
+      "selected": false
+    },
+    {
+      "case": "s01-random-p10-k04",
+      "cnf_sha256": "b1fbaeab2a0bed32fdb5bf367e38b697e379eee336d2c04202e172e13b79d978",
+      "metadata_sha256": "4c253de7ba90f9e4fbfbafc5b6d62638104f530e9ba5c8e1997f8813838d4dc5",
+      "selected": false
+    },
+    {
+      "case": "s01-random-p10-k05",
+      "cnf_sha256": "4196813d1f180cb476c8222f4117976f75a6e0955c85eff2f26d4fc88b40764a",
+      "metadata_sha256": "8180b3af5535f3a866439be4ee5cad81dd3f718ce361b84ce4cc4712fa5bc812",
+      "selected": false
+    },
+    {
+      "case": "s01-random-p20-k04",
+      "cnf_sha256": "0e6b0e2fa20cf95298b9ba8fffab813c4b460d2083c2cefcccca05685a1c3db3",
+      "metadata_sha256": "41cc0bab4923ecf04d5cae1d976ef72f4566d49eaa2b8412b957e88c351225ae",
+      "selected": false
+    },
+    {
+      "case": "s01-random-p20-k05",
+      "cnf_sha256": "2b855ddb4c90577b538db6a1ec97f6d13819cafa239e64ca886c49dac91f0e6e",
+      "metadata_sha256": "523788522b70f7081503e26e946959ee8d09cd58c763bd8a4a2c83e35a9fcd81",
+      "selected": true
+    }
+  ],
+  "checks": {
+    "exact_parent_text_reconstruction": true,
+    "AST_parse_compile_without_execution": true,
+    "all_24_inputs_hash_bound": true,
+    "exact_four_K5_selection": true,
+    "solver_seconds": 20,
+    "outer_seconds": 30,
+    "default_workers": 1,
+    "worker_limit_range": [
+      1,
+      2
+    ],
+    "solver_address_space_MiB": 1000,
+    "unchanged_full_logs_abort_cleanup_and_candidate_validation": true,
+    "no_exhaustion_or_proof_claim": true
+  },
+  "inherited_nonblocking_limits": [
+    "Worker limit may permit 2 only if coordinator edits it; starts at 1.",
+    "Uncatchable parent termination has no parent-death signal; graceful signals and sentinel perform group cleanup.",
+    "Model validation is synchronous with 120-second timeout and no imposed address-space limit.",
+    "Exit20 is uncertified neighborhood UNSAT only."
+  ],
+  "runtime_snapshot": {
+    "path": "/tmp/oec/pequalnp-pilot-18/orch/S02/rescheduled-pilot-completed-snapshot.json",
+    "sha256": "3d220436af1dd41bf4744cb3de16bbe3e4937b4763a1fbc9f9cd382a86c30e96",
+    "finished": "2026-11-24T03:46:55.061010+00:00",
+    "cases": {
+      "s01-random-p20-k05": {
+        "exit_code": 0,
+        "status_lines": [
+          "s UNKNOWN"
+        ],
+        "elapsed_seconds": 20.0481988800002
+      },
+      "s00-random-p20-k05": {
+        "exit_code": 0,
+        "status_lines": [
+          "s UNKNOWN"
+        ],
+        "elapsed_seconds": 20.043024835000324
+      },
+      "s01-original-p00-k05": {
+        "exit_code": 0,
+        "status_lines": [
+          "s UNKNOWN"
+        ],
+        "elapsed_seconds": 20.064242300000842
+      },
+      "s00-original-p00-k05": {
+        "exit_code": 0,
+        "status_lines": [
+          "s UNKNOWN"
+        ],
+        "elapsed_seconds": 20.05664924300072
+      }
+    }
+  },
+  "blockers": []
+}

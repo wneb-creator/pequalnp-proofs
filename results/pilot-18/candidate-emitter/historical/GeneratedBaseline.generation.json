@@ -1,0 +1,17 @@
+{
+  "input": "/tmp/oec/pequalnp-pilot-18/orch/S03/baseline-control.json",
+  "input_sha256": "7a8d621b17678d3ddd89a59e31e637ae3dce63e804b18a4e85c2345b437ef4f2",
+  "gate_count": 22,
+  "output": 32,
+  "rows_checked": 40,
+  "boundary_failures": [],
+  "inputs_checked": 2048,
+  "full_failure_masks": [],
+  "status": "GENERATED_NOT_COMPILED",
+  "proves_posted_statement": false,
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/GeneratedBaseline.lean",
+  "source_sha256": "4b51d55d13bb9b36cb131f61a6145469a543448c8baa279e1699e26faa94dbe8",
+  "scaffold_sha256": "80802f27b96a4e01e5c4b2d54fe4aa4276adb84fe83a664d96e6ee5092cdbd53",
+  "exact_bound": 22,
+  "import_scope": "Scratch harness; inline helper/candidate declarations for any final source."
+}

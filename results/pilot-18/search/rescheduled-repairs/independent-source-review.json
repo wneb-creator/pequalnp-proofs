@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS_MAIN_INDEPENDENT_SOURCE_SCALAR_AND_CNF_DELTA_REVIEW",
+  "utc": "2026-11-24T03:44:30.426919+00:00",
+  "source_sha256": "9276816606eb7ab1738b277bcf4c34f128b63e5158a23d54debbaadfaf88fd8c",
+  "manifest_sha256": "5c6e8b0e103808b505b5f4977c5da9432088a67d665bbc1bb67d90b024b8b55f",
+  "variants": 12,
+  "independent_full_output_and_live_value_comparisons": 24576,
+  "exact_CNF_reconstructions": 24,
+  "checks": [
+    "Topologicalcorepermutationpreservesall20livevalues",
+    "Unusedmissing-edgeANDslot placed0/10/20withoutchangingseedfunction",
+    "Exactreviewedallfreegateparentminusoneoutputpinplusreviewedsigneddistancegadget",
+    "Outputselectionfreeandnotchargedagainstgate-descriptionbudget",
+    "No firstjunk/cleanprefixrestriction; candidate-onlynotexhaustive"
+  ],
+  "blockers": []
+}

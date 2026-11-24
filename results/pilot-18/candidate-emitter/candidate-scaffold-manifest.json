@@ -1,0 +1,182 @@
+{
+  "status": "COMPILED_SCAFFOLD_AND_GENERATED_22_CONTROL",
+  "created_utc": "2026-11-24T03:34:49.948164+00:00",
+  "source_dependency": {
+    "path": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1342.lean",
+    "sha256": "f872b394be5f8fdcfd20fe735e26856aebdcc88b17a305f35a49a85d8a8fcfdb"
+  },
+  "artifacts": {
+    "BoundaryFix.lean": {
+      "sha256": "80802f27b96a4e01e5c4b2d54fe4aa4276adb84fe83a664d96e6ee5092cdbd53",
+      "bytes": 3811
+    },
+    "scaffold-exact-statements.txt": {
+      "sha256": "f5ebac954ba98b45ec1a76177ebf5a29d4dc25f640103ae0875484ec45e24fb8",
+      "bytes": 2171
+    },
+    "scaffold-second.result.json": {
+      "sha256": "8e717d896ef9fc399b4602a8767719abf2a788fe2bfcf0baa676ba4e04bfaa68",
+      "bytes": 1101
+    },
+    "scaffold-second.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "scaffold-second.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ScaffoldAudit.lean": {
+      "sha256": "b25c53851bb135087dffbfb77abaffdf4972669e87727ad5bcf4d33782a07539",
+      "bytes": 4263
+    },
+    "scaffold-axioms.result.json": {
+      "sha256": "a09508cad09c6e03e67c7c54918ed7a42dd83bd08b4bcf3e894aae66153f95dc",
+      "bytes": 1106
+    },
+    "scaffold-axioms.stdout": {
+      "sha256": "fc8ca04bbee08a57af679ea541541c1feb31218ba4addddcfdd761e75f6eaa75",
+      "bytes": 739
+    },
+    "scaffold-axioms.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "emit_candidate.py": {
+      "sha256": "3a667a145333c7c898ab45c980dace67eab0f60e796a7ac29193de18d6a12e5d",
+      "bytes": 5753
+    },
+    "run_lean.py": {
+      "sha256": "f0ca0bfcc71424068e29aa50f2fb6aef72582492f5d80c7d7cb85beb62ce60e0",
+      "bytes": 2414
+    },
+    "baseline-control.json": {
+      "sha256": "7a8d621b17678d3ddd89a59e31e637ae3dce63e804b18a4e85c2345b437ef4f2",
+      "bytes": 1054
+    },
+    "wrong-output-control.json": {
+      "sha256": "8153de4c406c15dfdb3ec1f7619d55c3a8daeea420dae6f26fc092474fddc6e7",
+      "bytes": 1053
+    },
+    "GeneratedBaseline.lean": {
+      "sha256": "4b51d55d13bb9b36cb131f61a6145469a543448c8baa279e1699e26faa94dbe8",
+      "bytes": 4521
+    },
+    "GeneratedBaseline.generation.json": {
+      "sha256": "f0ca0f3573170013bd19ab727a2b477ac99659c06dab62092ab25d8aabbc5fc4",
+      "bytes": 742
+    },
+    "generated-exact-statement.txt": {
+      "sha256": "4c431791b7f7d5ab7bdcc5e274ff5cce537135896cf4712f1809794f36a5c697",
+      "bytes": 446
+    },
+    "generated-baseline.result.json": {
+      "sha256": "0b49a52c2ef7ffdb17a1a3c90b189ae9fc7e56a3cb457a15c7649e46a35bf617",
+      "bytes": 1119
+    },
+    "generated-baseline.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "generated-baseline.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "GeneratedAudit.lean": {
+      "sha256": "e7a1cab1754cb6bc9fb4b20b56585fe5c336f5e78278c9134f86aae391df9887",
+      "bytes": 4673
+    },
+    "generated-axioms.result.json": {
+      "sha256": "c81305aa53cd46fbd5e832e48c79d914000d32fd51a0cdb066a5d6be047a0d59",
+      "bytes": 1111
+    },
+    "generated-axioms.stdout": {
+      "sha256": "baeec10570c4071f39a4c4903aaf8c1c1538173ca5f19830850dd61483c6ec30",
+      "bytes": 247
+    },
+    "generated-axioms.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "emitter-negative-controls.json": {
+      "sha256": "74c92bec89ac3b67a8a8d2f7f83ff985c3fcb3a7a831854d7ebcab7788ad4e3a",
+      "bytes": 1294
+    },
+    "scaffold-static.json": {
+      "sha256": "08fa5b011d557721c298ae12d2669b733822fdce8d1fc35e1191d011c51ae04f",
+      "bytes": 3117
+    },
+    "scaffold-static.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ProjectedScaffold.lean": {
+      "sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+      "bytes": 100418
+    }
+  },
+  "axioms": {
+    "scaffold-axioms": {
+      "PEqualNP.Outside.L_meta_1342_aux.targetBoundaryCheck_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "PEqualNP.Outside.L_meta_1342_aux.target_edge_iff_posted": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "PEqualNP.Outside.L_meta_1342_aux.target_spec_of_boundary_check": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "PEqualNP.Outside.L_meta_1342_aux.target_witness_of_boundary_check": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "PEqualNP.Outside.L_meta_1342_aux.baseline_boundary_check": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "PEqualNP.Outside.L_meta_1342_aux.baseline_boundary_positive_control": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "generated-axioms": {
+      "PEqualNP.Outside.L_meta_1342_aux.GeneratedBaseline_boundary": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "PEqualNP.Outside.L_meta_1342_aux.GeneratedBaseline_certificate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "static_import_plain_guard": "PASS_ON_PROJECTED_INTEGRATION",
+  "final_theorem_guard": "EXPECTED_MISSING_EXACT_POSTED_THEOREM",
+  "boundary_rows": 40,
+  "full_scalar_inputs": 2048,
+  "negative_controls": [
+    "wrong-output rejected",
+    "raw offset13 numbering rejected",
+    "existing artifact name rejected and source preserved"
+  ],
+  "lean_worker_lock": "/tmp/oec/pequalnp-pilot-18/orch-lean.lock",
+  "generated_control_bound": 22,
+  "posted_21_gate_statement_proved": false,
+  "notes": [
+    "All compiling scratch sources contain the existing Outside import solely as a harness. Inline their declarations and omit wrappers for final-file assembly.",
+    "The projected integration passes repository plain/import guard but was not compiled; actual named integration belongs to orchestrator.",
+    "The emitter accepts original Circuit wire numbering only, with input wires0..10 and first gate wire11. Virtual constants must be normalized upstream.",
+    "The emitter was hardened after the compiled positive control to refuse reused artifact names. Source emission/evaluation logic was unchanged; the fresh-name negative control passed."
+  ]
+}

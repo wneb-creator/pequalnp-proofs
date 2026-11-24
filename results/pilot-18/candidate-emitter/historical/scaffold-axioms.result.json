@@ -1,0 +1,33 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/ScaffoldAudit.lean",
+  "source_sha256": "b25c53851bb135087dffbfb77abaffdf4972669e87727ad5bcf4d33782a07539",
+  "source_unchanged": true,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S03/ScaffoldAudit.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-24T03:32:02.902036+00:00",
+  "finished_utc": "2026-11-24T03:32:08.940054+00:00",
+  "lock_wait_seconds": 7.411200022033881e-05,
+  "elapsed_seconds": 6.037846041999728,
+  "exit_code": 0,
+  "timeout": false,
+  "child_maxrss_kib": 3268220,
+  "logs": {
+    "stdout": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-axioms.stdout",
+      "sha256": "fc8ca04bbee08a57af679ea541541c1feb31218ba4addddcfdd761e75f6eaa75",
+      "bytes": 739
+    },
+    "stderr": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/scaffold-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

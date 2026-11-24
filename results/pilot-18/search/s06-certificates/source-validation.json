@@ -1,0 +1,31 @@
+{
+  "status": "PASS_ARCHIVE_HASHES_RECONSTRUCTION_AND_COMPLETED_WAVE_RECORDS",
+  "manifest_sha256": "5295672a9bbecd26799e6faec664eb349ea040ed84865247d31040080bd3ea3a",
+  "file_count": 1298,
+  "archived_bytes": 14380733,
+  "raw_cnfs": 0,
+  "reconstructed_cnfs": 126,
+  "wave_verified_unsat": [
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "wave_time_limits": [
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    12
+  ],
+  "source_sha256": "bd2366dc9770fe35268092f06cbdbec0511a90585fee54bbd5fbb0b72cfc3e98",
+  "no_new_solver_or_checker_started": true
+}

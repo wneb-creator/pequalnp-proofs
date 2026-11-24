@@ -1,0 +1,33 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/IntegratedControlAudit.lean",
+  "source_sha256": "922bee7ccc7b78171e74559753832f0cbdb44d712efe7360807bcde40c1c263c",
+  "source_unchanged": true,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S03/IntegratedControlAudit.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-24T03:38:54.875763+00:00",
+  "finished_utc": "2026-11-24T03:39:00.911229+00:00",
+  "lock_wait_seconds": 0.00010393699994892813,
+  "elapsed_seconds": 6.035256868999568,
+  "exit_code": 0,
+  "timeout": false,
+  "child_maxrss_kib": 3266596,
+  "logs": {
+    "stdout": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/integrated-control-axioms.stdout",
+      "sha256": "05dc90d5909be85039581181b020a52dd06852f003c21765e48d1b84d9f1ae33",
+      "bytes": 265
+    },
+    "stderr": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/integrated-control-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

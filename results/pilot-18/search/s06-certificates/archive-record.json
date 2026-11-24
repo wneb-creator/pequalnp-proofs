@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-24T03:49:45.802562+00:00",
+  "status": "EXACT_ARCHIVE_ROUNDTRIP_PASS",
+  "source_directory": "/tmp/oec/pequalnp-pilot-18/orch/S06/archive-wave1",
+  "files_including_manifest": 1299,
+  "archive_sha256": "dabc791adb457a29fa704f4c60a9132fa14207d05099ee16f004d4d386e7d299",
+  "archive_bytes": 1926529,
+  "source_manifest_sha256": "5295672a9bbecd26799e6faec664eb349ea040ed84865247d31040080bd3ea3a",
+  "all_complete_source_bytes_preserved": true,
+  "raw_cnf_files": 0,
+  "scope": "ResearcharchiveofpartialRUPandsubcaseevidence; noAAAA/shard/globalexhaustion"
+}

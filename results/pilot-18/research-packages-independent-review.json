@@ -1,0 +1,335 @@
+{
+  "started_utc": "2026-11-24T03:54:13.438888+00:00",
+  "scope": "Exact copied research packages; no new solver/checker/Lean and no acceptance or exhaustion claim",
+  "package_files": {
+    "results/pilot-18/search/s06-certificates/README.md": {
+      "bytes": 3658,
+      "sha256": "cbabc49c16b5039eb0e2577a0c7c8109b0150275ddaf8a54f67383c4e049d662"
+    },
+    "results/pilot-18/search/s06-certificates/S06-wave1.tar.gz": {
+      "bytes": 1926529,
+      "sha256": "dabc791adb457a29fa704f4c60a9132fa14207d05099ee16f004d4d386e7d299"
+    },
+    "results/pilot-18/search/s06-certificates/archive-record.json": {
+      "bytes": 575,
+      "sha256": "96d855334b83e9092dc750adcabd8c65eeff5987ed671ff1693d526406fccff5"
+    },
+    "results/pilot-18/search/s06-certificates/manifest.json": {
+      "bytes": 431228,
+      "sha256": "5295672a9bbecd26799e6faec664eb349ea040ed84865247d31040080bd3ea3a"
+    },
+    "results/pilot-18/search/s06-certificates/source-validation.json": {
+      "bytes": 593,
+      "sha256": "533175d5b22e95fecabb780d9a9fec5988ec7ead766eed9e86f872786cd9167e"
+    },
+    "results/pilot-18/candidate-emitter/AutoBaselineControl.generation.json": {
+      "bytes": 958,
+      "sha256": "0e1025d114178e32982b15bf6387b8828a73b2c2fa630d35cbb11428610527c7"
+    },
+    "results/pilot-18/candidate-emitter/AutoBaselineControl.lean.txt": {
+      "bytes": 1764,
+      "sha256": "bd033ae6762a53267bd94491ddb6541fe7e6eb60e76986249626858bbb37e185"
+    },
+    "results/pilot-18/candidate-emitter/BoundaryFix.lean.txt": {
+      "bytes": 3811,
+      "sha256": "80802f27b96a4e01e5c4b2d54fe4aa4276adb84fe83a664d96e6ee5092cdbd53"
+    },
+    "results/pilot-18/candidate-emitter/FallbackBaselineControl.generation.json": {
+      "bytes": 960,
+      "sha256": "1bcce67b87abaf706fae48d4c19061cda9bcb9debde92d6d79eb03cebf97ac39"
+    },
+    "results/pilot-18/candidate-emitter/FallbackBaselineControl.lean.txt": {
+      "bytes": 4599,
+      "sha256": "07467993bc2b97175a750381defa9a65191b9c11e5ee225d57326c0b837fb4bc"
+    },
+    "results/pilot-18/candidate-emitter/GeneratedBaseline.generation.json": {
+      "bytes": 742,
+      "sha256": "f0ca0f3573170013bd19ab727a2b477ac99659c06dab62092ab25d8aabbc5fc4"
+    },
+    "results/pilot-18/candidate-emitter/GeneratedBaseline.lean.txt": {
+      "bytes": 4521,
+      "sha256": "4b51d55d13bb9b36cb131f61a6145469a543448c8baa279e1699e26faa94dbe8"
+    },
+    "results/pilot-18/candidate-emitter/IntegratedBaselineControl.generation.json": {
+      "bytes": 964,
+      "sha256": "d9448837978d102bd31db6733ad3589dcaf9999ef7a569c1037695bed3339b0e"
+    },
+    "results/pilot-18/candidate-emitter/IntegratedBaselineControl.lean.txt": {
+      "bytes": 1842,
+      "sha256": "a0bd81e806d52a4ef6ce8ec48380f50b2558151bd487921296a643bbb5e3819e"
+    },
+    "results/pilot-18/candidate-emitter/IntegratedControlAudit.lean.txt": {
+      "bytes": 2010,
+      "sha256": "922bee7ccc7b78171e74559753832f0cbdb44d712efe7360807bcde40c1c263c"
+    },
+    "results/pilot-18/candidate-emitter/archive-record.json": {
+      "bytes": 12756,
+      "sha256": "40589cb5b906e2ad941bd0c453f58174d3ad26d5061858309c2590ec25e22cc1"
+    },
+    "results/pilot-18/candidate-emitter/baseline-control.json": {
+      "bytes": 1054,
+      "sha256": "7a8d621b17678d3ddd89a59e31e637ae3dce63e804b18a4e85c2345b437ef4f2"
+    },
+    "results/pilot-18/candidate-emitter/candidate-scaffold-manifest.json": {
+      "bytes": 6628,
+      "sha256": "fa23cf0b30a0c6e395243facf18cee76a0319f1b3c9b5db966e38e7e3879280b"
+    },
+    "results/pilot-18/candidate-emitter/emit_candidate.pre-integration.py": {
+      "bytes": 5753,
+      "sha256": "3a667a145333c7c898ab45c980dace67eab0f60e796a7ac29193de18d6a12e5d"
+    },
+    "results/pilot-18/candidate-emitter/emit_candidate.py": {
+      "bytes": 7116,
+      "sha256": "f0df2b3fbd6aaec3745c390f629022818e1c083c5824e05e31c59a528b492fd0"
+    },
+    "results/pilot-18/candidate-emitter/emitter-negative-controls.json": {
+      "bytes": 1294,
+      "sha256": "74c92bec89ac3b67a8a8d2f7f83ff985c3fcb3a7a831854d7ebcab7788ad4e3a"
+    },
+    "results/pilot-18/candidate-emitter/historical/BoundaryFix.lean.txt": {
+      "bytes": 3811,
+      "sha256": "80802f27b96a4e01e5c4b2d54fe4aa4276adb84fe83a664d96e6ee5092cdbd53"
+    },
+    "results/pilot-18/candidate-emitter/historical/GeneratedAudit.lean.txt": {
+      "bytes": 4673,
+      "sha256": "e7a1cab1754cb6bc9fb4b20b56585fe5c336f5e78278c9134f86aae391df9887"
+    },
+    "results/pilot-18/candidate-emitter/historical/GeneratedBaseline.generation.json": {
+      "bytes": 742,
+      "sha256": "f0ca0f3573170013bd19ab727a2b477ac99659c06dab62092ab25d8aabbc5fc4"
+    },
+    "results/pilot-18/candidate-emitter/historical/GeneratedBaseline.lean.txt": {
+      "bytes": 4521,
+      "sha256": "4b51d55d13bb9b36cb131f61a6145469a543448c8baa279e1699e26faa94dbe8"
+    },
+    "results/pilot-18/candidate-emitter/historical/ProjectedScaffold.lean.txt": {
+      "bytes": 100418,
+      "sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c"
+    },
+    "results/pilot-18/candidate-emitter/historical/ScaffoldAudit.lean.txt": {
+      "bytes": 4263,
+      "sha256": "b25c53851bb135087dffbfb77abaffdf4972669e87727ad5bcf4d33782a07539"
+    },
+    "results/pilot-18/candidate-emitter/historical/baseline-control.json": {
+      "bytes": 1054,
+      "sha256": "7a8d621b17678d3ddd89a59e31e637ae3dce63e804b18a4e85c2345b437ef4f2"
+    },
+    "results/pilot-18/candidate-emitter/historical/emit_candidate.py": {
+      "bytes": 5753,
+      "sha256": "3a667a145333c7c898ab45c980dace67eab0f60e796a7ac29193de18d6a12e5d"
+    },
+    "results/pilot-18/candidate-emitter/historical/emitter-negative-controls.json": {
+      "bytes": 1294,
+      "sha256": "74c92bec89ac3b67a8a8d2f7f83ff985c3fcb3a7a831854d7ebcab7788ad4e3a"
+    },
+    "results/pilot-18/candidate-emitter/historical/generated-axioms.result.json": {
+      "bytes": 1111,
+      "sha256": "c81305aa53cd46fbd5e832e48c79d914000d32fd51a0cdb066a5d6be047a0d59"
+    },
+    "results/pilot-18/candidate-emitter/historical/generated-axioms.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/pilot-18/candidate-emitter/historical/generated-axioms.stdout": {
+      "bytes": 247,
+      "sha256": "baeec10570c4071f39a4c4903aaf8c1c1538173ca5f19830850dd61483c6ec30"
+    },
+    "results/pilot-18/candidate-emitter/historical/generated-baseline.result.json": {
+      "bytes": 1119,
+      "sha256": "0b49a52c2ef7ffdb17a1a3c90b189ae9fc7e56a3cb457a15c7649e46a35bf617"
+    },
+    "results/pilot-18/candidate-emitter/historical/generated-baseline.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/pilot-18/candidate-emitter/historical/generated-baseline.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/pilot-18/candidate-emitter/historical/generated-exact-statement.txt": {
+      "bytes": 446,
+      "sha256": "4c431791b7f7d5ab7bdcc5e274ff5cce537135896cf4712f1809794f36a5c697"
+    },
+    "results/pilot-18/candidate-emitter/historical/run_lean.py": {
+      "bytes": 2414,
+      "sha256": "f0ca0bfcc71424068e29aa50f2fb6aef72582492f5d80c7d7cb85beb62ce60e0"
+    },
+    "results/pilot-18/candidate-emitter/historical/scaffold-axioms.result.json": {
+      "bytes": 1106,
+      "sha256": "a09508cad09c6e03e67c7c54918ed7a42dd83bd08b4bcf3e894aae66153f95dc"
+    },
+    "results/pilot-18/candidate-emitter/historical/scaffold-axioms.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/pilot-18/candidate-emitter/historical/scaffold-axioms.stdout": {
+      "bytes": 739,
+      "sha256": "fc8ca04bbee08a57af679ea541541c1feb31218ba4addddcfdd761e75f6eaa75"
+    },
+    "results/pilot-18/candidate-emitter/historical/scaffold-exact-statements.txt": {
+      "bytes": 2171,
+      "sha256": "f5ebac954ba98b45ec1a76177ebf5a29d4dc25f640103ae0875484ec45e24fb8"
+    },
+    "results/pilot-18/candidate-emitter/historical/scaffold-second.result.json": {
+      "bytes": 1101,
+      "sha256": "8e717d896ef9fc399b4602a8767719abf2a788fe2bfcf0baa676ba4e04bfaa68"
+    },
+    "results/pilot-18/candidate-emitter/historical/scaffold-second.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/pilot-18/candidate-emitter/historical/scaffold-second.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/pilot-18/candidate-emitter/historical/scaffold-static.json": {
+      "bytes": 3117,
+      "sha256": "08fa5b011d557721c298ae12d2669b733822fdce8d1fc35e1191d011c51ae04f"
+    },
+    "results/pilot-18/candidate-emitter/historical/scaffold-static.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/pilot-18/candidate-emitter/historical/wrong-output-control.json": {
+      "bytes": 1053,
+      "sha256": "8153de4c406c15dfdb3ec1f7619d55c3a8daeea420dae6f26fc092474fddc6e7"
+    },
+    "results/pilot-18/candidate-emitter/independent-review.json": {
+      "bytes": 34902,
+      "sha256": "29a02679c824a104b1bace3246508f51fb1c309dd70ba4ce5de73daa691b6643"
+    },
+    "results/pilot-18/candidate-emitter/integrated-control-axioms.result.json": {
+      "bytes": 1145,
+      "sha256": "52b4915e210d1c9c3f6c33fb4a4005f9855478f5223f11666b6b939de4d6a78a"
+    },
+    "results/pilot-18/candidate-emitter/integrated-control-axioms.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/pilot-18/candidate-emitter/integrated-control-axioms.stdout": {
+      "bytes": 265,
+      "sha256": "05dc90d5909be85039581181b020a52dd06852f003c21765e48d1b84d9f1ae33"
+    },
+    "results/pilot-18/candidate-emitter/integrated-control-exact-statement.txt": {
+      "bytes": 454,
+      "sha256": "17287a28206dbf0d352e2d553c17b6acad21d77d603502143003f6e6ffffee47"
+    },
+    "results/pilot-18/candidate-emitter/integrated-control.result.json": {
+      "bytes": 1135,
+      "sha256": "e848e1a521e2cd3f80df2f29d2ce2859ae2298cc5d0db7fe1d993e0a920e3e62"
+    },
+    "results/pilot-18/candidate-emitter/integrated-control.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/pilot-18/candidate-emitter/integrated-control.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/pilot-18/candidate-emitter/integration-emitter-controls.json": {
+      "bytes": 1277,
+      "sha256": "983b4f1e2d5c2a034abaa32a5a29e46a25abeaa52d85fe9a767803665de0e64a"
+    },
+    "results/pilot-18/candidate-emitter/run_lean.py": {
+      "bytes": 2414,
+      "sha256": "f0ca0bfcc71424068e29aa50f2fb6aef72582492f5d80c7d7cb85beb62ce60e0"
+    },
+    "results/pilot-18/candidate-emitter/wrong-output-control.json": {
+      "bytes": 1053,
+      "sha256": "8153de4c406c15dfdb3ec1f7619d55c3a8daeea420dae6f26fc092474fddc6e7"
+    }
+  },
+  "source_mismatches": [],
+  "credential_indicators": [],
+  "checks": {
+    "tar_manifest_sources": {
+      "entries": 1299,
+      "bound_data_files": 1298,
+      "bytes": 14380733,
+      "raw_cnfs": 0,
+      "links_or_specials": 0,
+      "all_archive_snapshot_files_match": true,
+      "live_report_appends_recorded_separately": true
+    },
+    "reconstruction": {
+      "count": 126,
+      "all_source_bytes_and_omission_hashes_match": true,
+      "all_header_clause_counts_match": true,
+      "synthetic_fixture_cnfs_excluded": 126
+    },
+    "prior_replay_evidence": "Both independent reviews and their archived contents byte-match originals;3692RUP and1243473byte directDRAT exact reviewed hashes",
+    "wave": {
+      "verified_unsat": [
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "time_limits": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        12
+      ],
+      "full_logs_verified": 68,
+      "production_proofs_retained": false,
+      "exhaustion": false
+    },
+    "emitter": {
+      "files": 54,
+      "archive_record_files": 52,
+      "historical_artifacts": 27,
+      "exact_current_and_historical_sources": true,
+      "all_source_logs_match": true,
+      "review_copy_hash": "29a02679c824a104b1bace3246508f51fb1c309dd70ba4ce5de73daa691b6643",
+      "named_dependency_unchanged": true,
+      "control_bound": 22,
+      "posted_21_gate_proved": false
+    }
+  },
+  "later_report_appends": [
+    {
+      "path": "S06-report.md",
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/S06-solver-performance.md",
+      "archived": {
+        "bytes": 12331,
+        "sha256": "7a6d13fcb486bfc0d2bd8b3eec7bce043424a3a0e67476e42c5b7af1ab3efd18"
+      },
+      "current": {
+        "bytes": 15577,
+        "sha256": "349b1feb79535200dcd0c8543fa858534e29b9b49ed5007f2e21c7a335d9fad6"
+      },
+      "archived_bytes_exact_prefix": true
+    },
+    {
+      "path": "S08-report.md",
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/S08-integration-review.md",
+      "archived": {
+        "bytes": 28003,
+        "sha256": "694dbb257faa4b9a75605191f7d58ab58db87c9df0643dd12e33e2e188608a45"
+      },
+      "current": {
+        "bytes": 31015,
+        "sha256": "579f6d26aabb3b81c92bca1e74c247fe92fa31152d6452c20589d17372ed25f8"
+      },
+      "archived_bytes_exact_prefix": true
+    }
+  ],
+  "notes": [
+    "Historical packaging stdout retains earlier manifest digest; current final manifest529567... matches compressed bytes and source-validation.",
+    "Production wave certificates were streamed and not retained; retained direct/RUP certificates are separately reviewed.",
+    "No new Lean build, solver, checker, git mutation or remote action.",
+    "Archive filenames and .lean.txt artifacts are research preservation, not final singlefile proof submission."
+  ],
+  "verdict": "PASS_EXACT_S06_AND_EMITTER_RESEARCH_PACKAGES",
+  "completed_utc": "2026-11-24T03:54:16.000726+00:00"
+}

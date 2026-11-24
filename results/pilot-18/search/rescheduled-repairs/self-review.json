@@ -1,0 +1,166 @@
+{
+  "verdict": "PASS_SELF_AUDIT_READY_FOR_MAIN_INDEPENDENT_REVIEW",
+  "generator_sha256": "9276816606eb7ab1738b277bcf4c34f128b63e5158a23d54debbaadfaf88fd8c",
+  "audit_sha256": "fdcee1bc8a2301a8827a6db365a32b878aee49deef35f1cf2b37ae1071649aab",
+  "distance_helper_sha256": "39e65cae78a5bd8dd6417cf1132fb77187867d6765f20d62e10fd51bcedc9da1",
+  "local_helper_sha256": "857f7082cb81bda879891aba76a84e59f0a1b030f6c6c0eccf08f507cf96cd97",
+  "base_generator_sha256": "b10d8832060d1c554fd3daa563b7159d515a3c55adc49718989eaa9bd0c2f24f",
+  "family_manifest_sha256": "5c6e8b0e103808b505b5f4977c5da9432088a67d665bbc1bb67d90b024b8b55f",
+  "source_count": 2,
+  "variant_count": 12,
+  "case_count": 24,
+  "all2048_live_gate_value_comparisons": 491520,
+  "all2048_output_comparisons": 24576,
+  "cases": [
+    {
+      "case": "s00-original-p00-k04",
+      "cnf_sha256": "7d9bd2194775fb8400f46f3ca4a3c3f073466cbec5856b06e373124ed7b0987a",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s00-original-p00-k05",
+      "cnf_sha256": "307c01431bf35b82dd7d88c3970987e69b1366fce78122819628bfe1ee3618f3",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s00-original-p10-k04",
+      "cnf_sha256": "86d9dd04d652635d364c30c97e09936572e6580ef3278798a3a3d96a36f4c4f9",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s00-original-p10-k05",
+      "cnf_sha256": "d8bf784e6437617fb39103aa3f615a83e51cf1f16c6a5ebe2b5a235edf5d75a1",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s00-original-p20-k04",
+      "cnf_sha256": "0063ccbf29f81d552351e82230f0f7379d62b6f2c231af6e763b2416f1826041",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s00-original-p20-k05",
+      "cnf_sha256": "7ab9451fdbaa571b4da2c6e3adcbe75b62f68b2691233dfdae7bd1a0ef18fe6a",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s00-random-p00-k04",
+      "cnf_sha256": "aa8c207476a98ca3cb728d9b1aaccb5450bb1d432f592e4b6e095d6ecfaea2cc",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s00-random-p00-k05",
+      "cnf_sha256": "9859b8feae0925b28e5f11a142467469f67c2600a58e39dcd60a04494c8d74ba",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s00-random-p10-k04",
+      "cnf_sha256": "58dd5fe4b80f6f64d7c9ca1d683cf7d2aa38503736b0e5a153aa26a7f1ca4263",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s00-random-p10-k05",
+      "cnf_sha256": "59cec5202bcf57d84e8242a3e9e6e5d15b486fb68155a53625fd67e77371587a",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s00-random-p20-k04",
+      "cnf_sha256": "7d1f66568e93bbe9f55da2b5b2a864081be41dcd01499d78e1d50fe465c82bf4",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s00-random-p20-k05",
+      "cnf_sha256": "67ebd433d25ca7790e6653764f847498eeb3ff6b09e46371b3c6f0fee54cb5ff",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s01-original-p00-k04",
+      "cnf_sha256": "26f2036becb89d53e9d3070d65d092bb72ef4be54fda14a4c492dfc4f480e8f8",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s01-original-p00-k05",
+      "cnf_sha256": "55a2c03330dc6b833797ab2c0d924e0ff0101bd66f8f9a87f474c86d8ad761c7",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s01-original-p10-k04",
+      "cnf_sha256": "7d0505e44b2139b7950f6d467aa3ce0c5f333c2c2558b76610ab32da5e7f9232",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s01-original-p10-k05",
+      "cnf_sha256": "9614ad1cc955c993dcb9f65aadbf127358f90473f1233962b6a2cb87c4fe7d97",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s01-original-p20-k04",
+      "cnf_sha256": "255d490e9771bf394e9c582bd642ac881452751e81b8c0ab210657928a7f311c",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s01-original-p20-k05",
+      "cnf_sha256": "c36df5df9f65c31f7c8468a92631628bc25e0c1a782a98602730b87e5574afe3",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s01-random-p00-k04",
+      "cnf_sha256": "65bdd77dd49a65527a7c99c73d30afb9d8899f53481ea81c064ff70bead88a3f",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s01-random-p00-k05",
+      "cnf_sha256": "f823b559b1a91e9254134204d672740a3cfbf0428c3250370157cf06b3cc61da",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s01-random-p10-k04",
+      "cnf_sha256": "b1fbaeab2a0bed32fdb5bf367e38b697e379eee336d2c04202e172e13b79d978",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s01-random-p10-k05",
+      "cnf_sha256": "4196813d1f180cb476c8222f4117976f75a6e0955c85eff2f26d4fc88b40764a",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s01-random-p20-k04",
+      "cnf_sha256": "0e6b0e2fa20cf95298b9ba8fffab813c4b460d2083c2cefcccca05685a1c3db3",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    },
+    {
+      "case": "s01-random-p20-k05",
+      "cnf_sha256": "2b855ddb4c90577b538db6a1ec97f6d13819cafa239e64ca886c49dac91f0e6e",
+      "exact_output_pin_removal_and_reviewed_distance_delta": true
+    }
+  ],
+  "free_output_known22_controls": [
+    {
+      "budget": 0,
+      "seed_output": 11,
+      "model_output": 34,
+      "generic_validator_exit": 0,
+      "all_clauses_checked": 90267,
+      "restoring_old_output_pin_rejects_model": true,
+      "meets_posted_gate_limit": false
+    },
+    {
+      "budget": 4,
+      "seed_output": 11,
+      "model_output": 34,
+      "generic_validator_exit": 0,
+      "all_clauses_checked": 90515,
+      "restoring_old_output_pin_rejects_model": true,
+      "meets_posted_gate_limit": false
+    }
+  ],
+  "byte_identical_reproduction_files": 63,
+  "blocking_findings": [],
+  "scope": "Fresh candidate-only multi-source, rescheduled, unrestricted-output local repairs; no global or assigned-shard exhaustion.",
+  "limits": [
+    "No search worker launched and no21-gate exact witness found.",
+    "Output selection is free and is not charged to the gate-description edit budget.",
+    "Topological rescheduling preserves the incomplete seed function, not a claimed WLOG reduction of all target circuits.",
+    "Known22 models are synthetic controls, not discoveries."
+  ],
+  "Sub-agents": "none"
+}

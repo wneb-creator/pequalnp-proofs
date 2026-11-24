@@ -1,0 +1,83 @@
+import PEqualNP.Outside.L_meta_1342
+
+namespace PEqualNP.Outside.L_meta_1342_aux
+
+open PEqualNP.CircuitLowerBounds
+
+def targetBoundaryCheck (C : Circuit) : Bool :=
+  targetEdges.all (fun e => C.eval (List.ofFn (pairBits e.1 e.2))) &&
+  targetNegativeSets.all (fun T => !(C.eval (List.ofFn (boundaryBits T))))
+
+lemma targetBoundaryCheck_iff (C : Circuit) : targetBoundaryCheck C = true ↔
+    (∀ e ∈ targetEdges, C.eval (List.ofFn (pairBits e.1 e.2)) = true) ∧
+    (∀ T ∈ targetNegativeSets, C.eval (List.ofFn (boundaryBits T)) = false) := by
+  simp only [targetBoundaryCheck, Bool.and_eq_true, List.all_eq_true,
+    Bool.not_eq_true_eq_eq_false]
+
+lemma target_edge_iff_posted (x : Fin 11 → Bool) :
+    edgeTrue targetGraph x ↔
+      ∃ u v : Fin 11, (u.val, v.val) ∈
+        ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7),
+          (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] :
+          List (ℕ × ℕ)) ∧ x u = true ∧ x v = true := by
+  change edgeTrue targetGraph x ↔
+    (∃ u v : Fin 11, (u.val, v.val) ∈
+      targetEdges.map (fun p => (p.1.val, p.2.val)) ∧ x u = true ∧ x v = true)
+  rw [PEqualNP.Outside.L_meta_1342.edges_iff]
+  constructor
+  · rintro ⟨u, v, huv, hu, hv⟩
+    rcases huv with huv | hvu
+    · exact List.any_eq_true.mpr ⟨(u, v), huv, Bool.and_eq_true_iff.mpr ⟨hu, hv⟩⟩
+    · exact List.any_eq_true.mpr ⟨(v, u), hvu, Bool.and_eq_true_iff.mpr ⟨hv, hu⟩⟩
+  · intro h
+    obtain ⟨⟨u, v⟩, huv, hval⟩ := List.any_eq_true.mp h
+    exact ⟨u, v, Or.inl huv, (Bool.and_eq_true_iff.mp hval).1,
+      (Bool.and_eq_true_iff.mp hval).2⟩
+
+lemma target_spec_of_boundary_check (C : Circuit)
+    (hm : PEqualNP.MetaComplexity.Monotone2 C)
+    (h : targetBoundaryCheck C = true) (x : Fin 11 → Bool) :
+    C.eval (List.ofFn x) = true ↔
+      ∃ u v : Fin 11, (u.val, v.val) ∈
+        ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7),
+          (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] :
+          List (ℕ × ℕ)) ∧ x u = true ∧ x v = true := by
+  obtain ⟨hp, hn⟩ := (targetBoundaryCheck_iff C).mp h
+  exact (target_boundary_spec C hm hp hn x).trans (target_edge_iff_posted x)
+
+lemma target_witness_of_boundary_check (C : Circuit)
+    (hm : PEqualNP.MetaComplexity.Monotone2 C)
+    (h : targetBoundaryCheck C = true) (k : ℕ) (hk : C.size ≤ k) :
+    ∃ C : Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧
+      (∀ x : Fin 11 → Bool, C.eval (List.ofFn x) = true ↔
+        ∃ u v : Fin 11, (u.val, v.val) ∈
+          ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7),
+            (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] :
+            List (ℕ × ℕ)) ∧ x u = true ∧ x v = true) ∧ C.size ≤ k := by
+  exact ⟨C, hm, target_spec_of_boundary_check C hm h, hk⟩
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+lemma baseline_boundary_check :
+    targetBoundaryCheck PEqualNP.Outside.L_meta_1342.baselineCircuit = true := by
+  decide
+
+lemma baseline_boundary_positive_control :
+    ∃ C : Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧
+      (∀ x : Fin 11 → Bool, C.eval (List.ofFn x) = true ↔
+        ∃ u v : Fin 11, (u.val, v.val) ∈
+          ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7),
+            (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] :
+            List (ℕ × ℕ)) ∧ x u = true ∧ x v = true) ∧ C.size ≤ 22 := by
+  exact target_witness_of_boundary_check PEqualNP.Outside.L_meta_1342.baselineCircuit
+    PEqualNP.Outside.L_meta_1342.baseline_monotone baseline_boundary_check 22
+    (Nat.le_of_eq PEqualNP.Outside.L_meta_1342.baseline_size)
+
+end PEqualNP.Outside.L_meta_1342_aux
+
+#print axioms PEqualNP.Outside.L_meta_1342_aux.targetBoundaryCheck_iff
+#print axioms PEqualNP.Outside.L_meta_1342_aux.target_edge_iff_posted
+#print axioms PEqualNP.Outside.L_meta_1342_aux.target_spec_of_boundary_check
+#print axioms PEqualNP.Outside.L_meta_1342_aux.target_witness_of_boundary_check
+#print axioms PEqualNP.Outside.L_meta_1342_aux.baseline_boundary_check
+#print axioms PEqualNP.Outside.L_meta_1342_aux.baseline_boundary_positive_control

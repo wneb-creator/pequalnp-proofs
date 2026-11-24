@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "AutoBaselineControl",
+      "command": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-18/orch/S03/emit_candidate.py",
+        "/tmp/oec/pequalnp-pilot-18/orch/S03/baseline-control.json",
+        "--name",
+        "AutoBaselineControl"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "FallbackBaselineControl",
+      "command": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-18/orch/S03/emit_candidate.py",
+        "/tmp/oec/pequalnp-pilot-18/orch/S03/baseline-control.json",
+        "--name",
+        "FallbackBaselineControl",
+        "--helpers-inline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "Bad_root_Name",
+      "command": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-18/orch/S03/emit_candidate.py",
+        "/tmp/oec/pequalnp-pilot-18/orch/S03/baseline-control.json",
+        "--name",
+        "Bad_root_Name",
+        "--helpers-existing"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "auto_matches_explicit_existing_modulo_name": true,
+  "fallback_matches_prior_compiled_control_modulo_name": true,
+  "root_name_no_output": true,
+  "integrated_no_helper_redeclarations": true,
+  "emitter_sha256": "f0df2b3fbd6aaec3745c390f629022818e1c083c5824e05e31c59a528b492fd0"
+}

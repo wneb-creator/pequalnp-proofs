@@ -1,0 +1,33 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/GeneratedAudit.lean",
+  "source_sha256": "e7a1cab1754cb6bc9fb4b20b56585fe5c336f5e78278c9134f86aae391df9887",
+  "source_unchanged": true,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S03/GeneratedAudit.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-24T03:33:39.081550+00:00",
+  "finished_utc": "2026-11-24T03:33:45.949768+00:00",
+  "lock_wait_seconds": 4.491700019570999e-05,
+  "elapsed_seconds": 6.8680806909997045,
+  "exit_code": 0,
+  "timeout": false,
+  "child_maxrss_kib": 3268048,
+  "logs": {
+    "stdout": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/generated-axioms.stdout",
+      "sha256": "baeec10570c4071f39a4c4903aaf8c1c1538173ca5f19830850dd61483c6ec30",
+      "bytes": 247
+    },
+    "stderr": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/generated-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

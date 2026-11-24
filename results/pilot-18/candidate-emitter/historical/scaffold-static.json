@@ -1,0 +1,121 @@
+{
+  "scope": "Static repository guard and inventory only; no Lean build or posted statement checker.",
+  "source_sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+  "imports_and_plain": {
+    "pass": true,
+    "result": [
+      "Mathlib.Combinatorics.SimpleGraph.Finite",
+      "Mathlib.Tactic.ByContra",
+      "Mathlib.Tactic.Tauto",
+      "PEqualNP.Defs"
+    ]
+  },
+  "own_namespace_and_final_theorem": {
+    "pass": false,
+    "diagnostic": "the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_1342 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_1342` ... `end PEqualNP.Outside.L_meta_1342`; only the imports and the theorem stay outside"
+  },
+  "exact_named_theorem_present": false,
+  "options": [
+    {
+      "line": 73,
+      "text": "set_option maxHeartbeats 1000000 in"
+    },
+    {
+      "line": 74,
+      "text": "set_option maxRecDepth 8000 in"
+    },
+    {
+      "line": 190,
+      "text": "set_option maxHeartbeats 1000000 in"
+    },
+    {
+      "line": 191,
+      "text": "set_option maxRecDepth 8000 in"
+    },
+    {
+      "line": 1147,
+      "text": "set_option maxRecDepth 100000 in"
+    },
+    {
+      "line": 1148,
+      "text": "set_option maxHeartbeats 5000000 in"
+    },
+    {
+      "line": 1154,
+      "text": "set_option maxRecDepth 100000 in"
+    },
+    {
+      "line": 1155,
+      "text": "set_option maxHeartbeats 5000000 in"
+    },
+    {
+      "line": 1163,
+      "text": "set_option maxRecDepth 100000 in"
+    },
+    {
+      "line": 1164,
+      "text": "set_option maxHeartbeats 5000000 in"
+    },
+    {
+      "line": 1885,
+      "text": "set_option maxRecDepth 100000 in"
+    },
+    {
+      "line": 1886,
+      "text": "set_option maxHeartbeats 5000000 in"
+    },
+    {
+      "line": 1887,
+      "text": "set_option synthInstance.maxSize 100000 in"
+    },
+    {
+      "line": 1888,
+      "text": "set_option synthInstance.maxHeartbeats 1000000 in"
+    },
+    {
+      "line": 1932,
+      "text": "set_option maxRecDepth 100000 in"
+    },
+    {
+      "line": 1933,
+      "text": "set_option maxHeartbeats 5000000 in"
+    },
+    {
+      "line": 1948,
+      "text": "set_option maxRecDepth 100000 in"
+    },
+    {
+      "line": 1949,
+      "text": "set_option maxHeartbeats 5000000 in"
+    },
+    {
+      "line": 2052,
+      "text": "set_option maxRecDepth 10000 in"
+    },
+    {
+      "line": 2053,
+      "text": "set_option maxHeartbeats 1000000 in"
+    }
+  ],
+  "attributes": [],
+  "exported_instance_or_datatype_declarations": [],
+  "scope_lines": [
+    {
+      "line": 6,
+      "text": "namespace PEqualNP.Outside.L_meta_1342"
+    },
+    {
+      "line": 203,
+      "text": "end PEqualNP.Outside.L_meta_1342"
+    },
+    {
+      "line": 205,
+      "text": "namespace PEqualNP.Outside.L_meta_1342_aux"
+    },
+    {
+      "line": 2069,
+      "text": "end PEqualNP.Outside.L_meta_1342_aux"
+    }
+  ],
+  "limits": "Multiple permitted own namespace blocks pass the implementation; CONTRIBUTING asks for one. This static inventory does not establish proof correctness or transitive axioms."
+}

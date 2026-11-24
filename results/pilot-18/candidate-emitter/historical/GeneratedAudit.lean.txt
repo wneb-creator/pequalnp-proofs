@@ -1,0 +1,107 @@
+import PEqualNP.Outside.L_meta_1342
+
+namespace PEqualNP.Outside.L_meta_1342_aux
+
+open PEqualNP.CircuitLowerBounds
+
+def targetBoundaryCheck (C : Circuit) : Bool :=
+  targetEdges.all (fun e => C.eval (List.ofFn (pairBits e.1 e.2))) &&
+  targetNegativeSets.all (fun T => !(C.eval (List.ofFn (boundaryBits T))))
+
+lemma targetBoundaryCheck_iff (C : Circuit) : targetBoundaryCheck C = true ↔
+    (∀ e ∈ targetEdges, C.eval (List.ofFn (pairBits e.1 e.2)) = true) ∧
+    (∀ T ∈ targetNegativeSets, C.eval (List.ofFn (boundaryBits T)) = false) := by
+  simp only [targetBoundaryCheck, Bool.and_eq_true, List.all_eq_true,
+    Bool.not_eq_true_eq_eq_false]
+
+lemma target_edge_iff_posted (x : Fin 11 → Bool) :
+    edgeTrue targetGraph x ↔
+      ∃ u v : Fin 11, (u.val, v.val) ∈
+        ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7),
+          (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] :
+          List (ℕ × ℕ)) ∧ x u = true ∧ x v = true := by
+  change edgeTrue targetGraph x ↔
+    (∃ u v : Fin 11, (u.val, v.val) ∈
+      targetEdges.map (fun p => (p.1.val, p.2.val)) ∧ x u = true ∧ x v = true)
+  rw [PEqualNP.Outside.L_meta_1342.edges_iff]
+  constructor
+  · rintro ⟨u, v, huv, hu, hv⟩
+    rcases huv with huv | hvu
+    · exact List.any_eq_true.mpr ⟨(u, v), huv, Bool.and_eq_true_iff.mpr ⟨hu, hv⟩⟩
+    · exact List.any_eq_true.mpr ⟨(v, u), hvu, Bool.and_eq_true_iff.mpr ⟨hv, hu⟩⟩
+  · intro h
+    obtain ⟨⟨u, v⟩, huv, hval⟩ := List.any_eq_true.mp h
+    exact ⟨u, v, Or.inl huv, (Bool.and_eq_true_iff.mp hval).1,
+      (Bool.and_eq_true_iff.mp hval).2⟩
+
+lemma target_spec_of_boundary_check (C : Circuit)
+    (hm : PEqualNP.MetaComplexity.Monotone2 C)
+    (h : targetBoundaryCheck C = true) (x : Fin 11 → Bool) :
+    C.eval (List.ofFn x) = true ↔
+      ∃ u v : Fin 11, (u.val, v.val) ∈
+        ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7),
+          (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] :
+          List (ℕ × ℕ)) ∧ x u = true ∧ x v = true := by
+  obtain ⟨hp, hn⟩ := (targetBoundaryCheck_iff C).mp h
+  exact (target_boundary_spec C hm hp hn x).trans (target_edge_iff_posted x)
+
+lemma target_witness_of_boundary_check (C : Circuit)
+    (hm : PEqualNP.MetaComplexity.Monotone2 C)
+    (h : targetBoundaryCheck C = true) (k : ℕ) (hk : C.size ≤ k) :
+    ∃ C : Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧
+      (∀ x : Fin 11 → Bool, C.eval (List.ofFn x) = true ↔
+        ∃ u v : Fin 11, (u.val, v.val) ∈
+          ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7),
+            (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] :
+            List (ℕ × ℕ)) ∧ x u = true ∧ x v = true) ∧ C.size ≤ k := by
+  exact ⟨C, hm, target_spec_of_boundary_check C hm h, hk⟩
+
+def GeneratedBaseline : Circuit :=
+  ⟨[
+    ⟨.or, [9, 10]⟩,
+    ⟨.and, [0, 11]⟩,
+    ⟨.or, [5, 10]⟩,
+    ⟨.and, [2, 13]⟩,
+    ⟨.or, [1, 8]⟩,
+    ⟨.or, [15, 10]⟩,
+    ⟨.and, [4, 16]⟩,
+    ⟨.or, [8, 9]⟩,
+    ⟨.and, [5, 18]⟩,
+    ⟨.or, [3, 7]⟩,
+    ⟨.or, [20, 10]⟩,
+    ⟨.and, [6, 21]⟩,
+    ⟨.or, [3, 9]⟩,
+    ⟨.and, [7, 23]⟩,
+    ⟨.or, [1, 9]⟩,
+    ⟨.and, [8, 25]⟩,
+    ⟨.or, [12, 14]⟩,
+    ⟨.or, [27, 17]⟩,
+    ⟨.or, [28, 19]⟩,
+    ⟨.or, [29, 22]⟩,
+    ⟨.or, [30, 24]⟩,
+    ⟨.or, [31, 26]⟩], 32⟩
+
+lemma GeneratedBaseline_monotone : PEqualNP.MetaComplexity.Monotone2 GeneratedBaseline := by
+  simp [PEqualNP.MetaComplexity.Monotone2, GeneratedBaseline]
+
+lemma GeneratedBaseline_size : GeneratedBaseline.size = 22 := rfl
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+lemma GeneratedBaseline_boundary : targetBoundaryCheck GeneratedBaseline = true := by
+  decide
+
+lemma GeneratedBaseline_certificate :
+    ∃ C : Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧
+      (∀ x : Fin 11 → Bool, C.eval (List.ofFn x) = true ↔
+        ∃ u v : Fin 11, (u.val, v.val) ∈
+          ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7),
+            (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] :
+            List (ℕ × ℕ)) ∧ x u = true ∧ x v = true) ∧ C.size ≤ 22 := by
+  exact target_witness_of_boundary_check GeneratedBaseline GeneratedBaseline_monotone GeneratedBaseline_boundary 22
+    (Nat.le_of_eq GeneratedBaseline_size)
+
+end PEqualNP.Outside.L_meta_1342_aux
+
+#print axioms PEqualNP.Outside.L_meta_1342_aux.GeneratedBaseline_boundary
+#print axioms PEqualNP.Outside.L_meta_1342_aux.GeneratedBaseline_certificate

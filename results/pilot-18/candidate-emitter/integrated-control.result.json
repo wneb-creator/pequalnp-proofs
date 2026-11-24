@@ -1,0 +1,33 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/IntegratedBaselineControl.lean",
+  "source_sha256": "a0bd81e806d52a4ef6ce8ec48380f50b2558151bd487921296a643bbb5e3819e",
+  "source_unchanged": true,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S03/IntegratedBaselineControl.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-24T03:38:24.512953+00:00",
+  "finished_utc": "2026-11-24T03:38:30.416872+00:00",
+  "lock_wait_seconds": 4.3836000259034336e-05,
+  "elapsed_seconds": 5.903780710999854,
+  "exit_code": 0,
+  "timeout": false,
+  "child_maxrss_kib": 3264636,
+  "logs": {
+    "stdout": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/integrated-control.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/integrated-control.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}
