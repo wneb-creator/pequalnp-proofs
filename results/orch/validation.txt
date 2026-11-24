@@ -41,3 +41,7 @@ Sub-agents: six.
 TIMING total=110 subagents=6
 
 2026-11-24T23:42:24.753396+00:00: J local checker did NOT reach a verdict: replay was interrupted at 12279684 KiB peak RSS, exit 3 / verifier 130. Full output saved in validation/checker-J.log. The full J lake build still passed, but no checker acceptance is claimed.
+
+2026-11-24T23:45:03.049411+00:00: Named variant K pending full build/checker. Source SHA256 b0dda0134cc46b4294732aed75e0eb8efbeaac5cc6c489657066b131950cfeba, 6516 lines, 518892 bytes; static independent review and guard PASS. Its bit-parallel evaluator comes from zakpgrove PR10495 head 570ca4aa3bd1085ad0944150ae27a1f236c276bb, with individual kernel checks retained.
+Sub-agents: six.
+TIMING total=116 subagents=6

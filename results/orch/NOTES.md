@@ -63,3 +63,6 @@ UTC 2026-11-24T23:35:30+00:00
 - Exact posted target and sole PEqualNP.Defs import preserved. All hexadecimal certificate data unchanged from both older and newer public PR10495 sources. Local changes from newer source are six finite level proof scripts only. Outside guard passed. Ten existing custom types require PR disclosure; no forbidden constructs or new assumptions found.
 - Reviewed newer ColorBits and PackedRows algorithms: enumeration is bounded and conservative outside its bounds; rankCheck includes the required width bound, packed predicates imply original scalar predicates, and their soundness theorems feed the existing rank argument.
 - Additional independent Python diagnostics passed all 4096 spread inputs, 1040 randomized packed/scalar forced-row comparisons across widths 0..12, and all 125 three-color bit-logic triples. These diagnostics supplement static review and are not Lean acceptance.
+
+UTC 2026-11-24T23:44:26+00:00
+Independent review: named K SHA256 b0dda0134cc46b4294732aed75e0eb8efbeaac5cc6c489657066b131950cfeba (518892 bytes, 6516 lines) differs from reviewed K only by two attribution comments and blank lines immediately after the import. Static approval carries over unchanged. Full named K build and checker remain pending; this records no acceptance.

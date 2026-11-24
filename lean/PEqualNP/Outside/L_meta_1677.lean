@@ -2482,8 +2482,6 @@ theorem geom15 : graphValid g15 (boundsBefore known7) = true := by
   all_goals decide +kernel
 set_option maxRecDepth 16384 in
 set_option maxHeartbeats 0 in
-set_option maxHeartbeats 0 in
-set_option maxRecDepth 16384 in
 theorem s15_3_0 : block g15 3 0 1=true := by
   decide +kernel
 theorem bl15_3 : block g15 3 0 1 = true := s15_3_0
@@ -2530,8 +2528,6 @@ theorem geom31 : graphValid g31 (boundsBefore known51) = true := by
   all_goals decide +kernel
 set_option maxRecDepth 16384 in
 set_option maxHeartbeats 0 in
-set_option maxHeartbeats 0 in
-set_option maxRecDepth 16384 in
 theorem s31_5_0 : block g31 5 0 1=true := by
   decide +kernel
 set_option maxHeartbeats 0 in
@@ -2541,8 +2537,6 @@ theorem s31_5_1 : block g31 5 1 2=true := by
 theorem bl31_5 : block g31 5 0 3 = true := (@block_merge g31 5 0 1 2 s31_5_0 s31_5_1)
 set_option maxRecDepth 16384 in
 set_option maxHeartbeats 0 in
-set_option maxHeartbeats 0 in
-set_option maxRecDepth 16384 in
 theorem s31_6_0 : block g31 6 0 1=true := by
   decide +kernel
 theorem bl31_6 : block g31 6 0 1 = true := s31_6_0
@@ -2603,8 +2597,6 @@ theorem geom111 : graphValid g111 (boundsBefore known63) = true := by
   all_goals decide +kernel
 set_option maxRecDepth 16384 in
 set_option maxHeartbeats 0 in
-set_option maxHeartbeats 0 in
-set_option maxRecDepth 16384 in
 theorem s111_6_0 : block g111 6 0 1=true := by
   decide +kernel
 theorem bl111_6 : block g111 6 0 1 = true := s111_6_0
@@ -2647,8 +2639,6 @@ theorem geom189 : graphValid g189 (boundsBefore known119) = true := by
   all_goals decide +kernel
 set_option maxRecDepth 16384 in
 set_option maxHeartbeats 0 in
-set_option maxHeartbeats 0 in
-set_option maxRecDepth 16384 in
 theorem s189_6_0 : block g189 6 0 1=true := by
   decide +kernel
 set_option maxHeartbeats 0 in
@@ -2658,8 +2648,6 @@ theorem s189_6_1 : block g189 6 1 2=true := by
 theorem bl189_6 : block g189 6 0 3 = true := (@block_merge g189 6 0 1 2 s189_6_0 s189_6_1)
 set_option maxRecDepth 16384 in
 set_option maxHeartbeats 0 in
-set_option maxHeartbeats 0 in
-set_option maxRecDepth 16384 in
 theorem s189_7_0 : block g189 7 0 1=true := by
   decide +kernel
 theorem bl189_7 : block g189 7 0 1 = true := s189_7_0
@@ -2711,15 +2699,11 @@ theorem geom191 : graphValid g191 (boundsBefore known127) = true := by
   all_goals decide +kernel
 set_option maxRecDepth 16384 in
 set_option maxHeartbeats 0 in
-set_option maxHeartbeats 0 in
-set_option maxRecDepth 16384 in
 theorem s191_6_0 : block g191 6 0 1=true := by
   decide +kernel
 theorem bl191_6 : block g191 6 0 1 = true := s191_6_0
 set_option maxRecDepth 16384 in
 set_option maxHeartbeats 0 in
-set_option maxHeartbeats 0 in
-set_option maxRecDepth 16384 in
 theorem s191_7_0 : block g191 7 0 13=true := by
   decide +kernel
 set_option maxHeartbeats 0 in
@@ -2729,8 +2713,6 @@ theorem s191_7_1 : block g191 7 13 15=true := by
 theorem bl191_7 : block g191 7 0 28 = true := (@block_merge g191 7 0 13 15 s191_7_0 s191_7_1)
 set_option maxRecDepth 16384 in
 set_option maxHeartbeats 0 in
-set_option maxHeartbeats 0 in
-set_option maxRecDepth 16384 in
 theorem s191_8_0 : block g191 8 0 7=true := by
   decide +kernel
 set_option maxHeartbeats 0 in
@@ -2744,8 +2726,6 @@ theorem s191_8_2 : block g191 8 68 32=true := by
 theorem bl191_8 : block g191 8 0 100 = true := (@block_merge g191 8 0 68 32 (@block_merge g191 8 0 7 61 s191_8_0 s191_8_1) s191_8_2)
 set_option maxRecDepth 16384 in
 set_option maxHeartbeats 0 in
-set_option maxHeartbeats 0 in
-set_option maxRecDepth 16384 in
 theorem s191_9_0 : block g191 9 0 3=true := by
   decide +kernel
 set_option maxHeartbeats 0 in
@@ -2755,8 +2735,6 @@ theorem s191_9_1 : block g191 9 3 9=true := by
 theorem bl191_9 : block g191 9 0 12 = true := (@block_merge g191 9 0 3 9 s191_9_0 s191_9_1)
 set_option maxRecDepth 16384 in
 set_option maxHeartbeats 0 in
-set_option maxHeartbeats 0 in
-set_option maxRecDepth 16384 in
 theorem s191_10_0 : block g191 10 0 1=true := by
   decide +kernel
 theorem bl191_10 : block g191 10 0 1 = true := s191_10_0
@@ -4524,45 +4502,6 @@ theorem checksRule_sound {target : Word} {mono : Bool} {ws : List Word} {r : Nat
         cases sign <;> cases bad
       cases ha : code (row a) <;> cases hb : code (row b) <;> cases hc : code (row c) <;> simp_all
     · exact Or.inl eq
-def checkAssigned {n r : Nat} (labels : Fin n → Option (Fin r)) : Rule n → Bool
-  | .square i j _ _ =>
-    match labels i, labels j with
-    | some a, some b => a != b
-    | _, _ => true
-  | .cube i j k _ _ _ _ _ =>
-    match labels i, labels j, labels k with
-    | some a, some b, some c => (a != b) || decide (c ≤ a)
-    | _, _, _ => true
-
-def seek {n r} : List (Fin n × List (Rule n)) → (Fin n → Option (Fin r)) → Bool
-  | [], _ => true
-  | (i,group)::rest, labels => (List.finRange r).any fun v =>
-    let after := Function.update labels i (some v)
-    group.all (checkAssigned after) && seek rest after
-
-def weight {n : Nat} (u : Fin n) : Rule n → Nat
-  | .square i j _ _ => if u==i || u==j then 6 else 0
-  | .cube i j k _ _ _ _ _ => if u==i || u==j then 2 else if u==k then 1 else 0
-
-def lastPosition {n : Nat} (order : List (Fin n)) : Rule n → Nat
-  | .square i j _ _ => max (order.idxOf i) (order.idxOf j)
-  | .cube i j k _ _ _ _ _ => max (order.idxOf i) (max (order.idxOf j) (order.idxOf k))
-
-def addWeight {n : Nat} (x : Fin n × Nat) : List (Fin n × Nat) → List (Fin n × Nat)
-  | [] => [x]
-  | y::ys => if x.2 ≥ y.2 then x::y::ys else y::addWeight x ys
-
-def sortWeights {n : Nat} : List (Fin n × Nat) → List (Fin n × Nat)
-  | [] => []
-  | x::xs => addWeight x (sortWeights xs)
-
-def weightedOrder {n : Nat} (rules : List (Rule n)) :=
-  (sortWeights ((List.finRange n).map fun i => (i,(rules.map (weight i)).sum))).map Prod.fst
-
-def weightedStages {n : Nat} (rules : List (Rule n)) :=
-  let order := weightedOrder rules
-  order.map fun i => (i,rules.filter fun p => lastPosition order p == order.idxOf i)
-
 def readFin (n x : Nat) : Option (Fin n) :=
   if h : x < n then some ⟨x,h⟩ else none
 
@@ -4585,119 +4524,347 @@ def readRules (n : Nat) : Nat → Nat → List (Rule n)
   | c+1, w =>
     (ruleCode n (w &&& 0xfffffffff)).toList ++ readRules n c (w >>> 36)
 
-namespace Digits
+namespace ColorBits
 
-def field (word offset : Nat) := (word >>> offset) % 16
+def span (w : Nat) (f : Nat → Nat) : Nat → Nat
+  | 0 => 0
+  | n+1 => span w f n ||| (f n <<< (n*w))
 
-def Rep {n r} (label : Fin n → Fin r) (trail : List (Fin n)) (s : Nat) : Prop :=
-  ∀ (j : Nat) (h : j < trail.length), field s (4*j) = (label trail[j]).val
+def Bounded (a w : Nat) := ∀ j, w ≤ j → a.testBit j = false
 
-theorem rep_push {n r s} {label : Fin n → Fin r} {trail : List (Fin n)}
-    (rep : Rep label trail s) (i : Fin n) (size : r ≤ 16) :
-    Rep label (i::trail) (16*s+(label i).val) := by
-  have small := (label i).isLt
-  intro j h
-  cases j with
-  | zero =>
-    simp only [Nat.mul_zero,Nat.shiftRight_zero,field,List.getElem_cons_zero]
+theorem span_out {w f} (hf : ∀ d, Bounded (f d) w) (n : Nat) : Bounded (span w f n) (n*w) := by
+  induction n with
+  | zero => simp [Bounded,span]
+  | succ n ih =>
+    intro j hj
+    simp only [span,Nat.testBit_or,Nat.testBit_shiftLeft]
+    rw [Nat.succ_mul] at hj
+    rw [ih j (by omega),hf n _ (by omega)]
+    simp
+
+theorem span_at {w f} (hf : ∀ d, Bounded (f d) w) {d j} (hj : j < w) :
+    ∀ n, d < n → (span w f n).testBit (d*w+j) = (f d).testBit j := by
+  intro n
+  induction n with
+  | zero => omega
+  | succ n ih =>
+    intro hd
+    simp only [span,Nat.testBit_or,Nat.testBit_shiftLeft]
+    by_cases same : d = n
+    · subst d
+      rw [span_out hf n _ (by omega)]
+      simp
+    · have lt : d < n := by omega
+      have lim := Nat.mul_le_mul_right w (show d+1 ≤ n by omega)
+      rw [Nat.succ_mul] at lim
+      rw [ih lt]
+      simp [show ¬n*w ≤ d*w+j by omega]
+
+def full (w : Nat) := (1 <<< w)-1
+theorem full_bit (w j : Nat) : (full w).testBit j = decide (j < w) := by
+  simp [full,Nat.shiftLeft_eq]
+
+def plane (r bit : Nat) : Nat → Nat → Nat
+  | 0, _ => 0
+  | n+1, i =>
+    let w := r^n
+    if i == n then span w (fun d => if d.testBit bit then full w else 0) r
+    else let v := plane r bit n i; span w (fun _ => v) r
+
+theorem digit_out (w bit d : Nat) : Bounded (if d.testBit bit then full w else 0) w := by
+  intro j hj
+  split <;> simp [full_bit,show ¬j<w by omega]
+
+theorem plane_out (r bit n i : Nat) : Bounded (plane r bit n i) (r^n) := by
+  induction n with
+  | zero => simp [Bounded,plane]
+  | succ n ih =>
+    rw [plane,Nat.pow_succ']
+    split
+    · exact span_out (digit_out _ _) r
+    · exact span_out (fun _ => ih) r
+
+def index (r : Nat) (f : Nat → Nat) : Nat → Nat
+  | 0 => 0
+  | n+1 => f n * r^n + index r f n
+
+theorem index_lt {r f n} (hf : ∀ i < n, f i < r) : index r f n < r^n := by
+  induction n with
+  | zero => simp [index]
+  | succ n ih =>
+    have sm := ih (fun i hi => hf i (by omega))
+    have lim := Nat.mul_le_mul_right (r^n) (show f n + 1 ≤ r from hf n (by omega))
+    rw [Nat.succ_mul] at lim
+    rw [index,Nat.pow_succ']
     omega
-  | succ j =>
-    have div : (16*s+(label i).val) >>> 4 = s := by
-      rw [Nat.shiftRight_eq_div_pow]
-      change (16*s+(label i).val)/16=s
-      omega
-    have off : 4*(j+1)=4+4*j := by omega
-    simp only [field,off,Nat.shiftRight_add,div,List.getElem_cons_succ]
-    exact rep j (by simpa using h)
 
-abbrev Test := Nat × Nat × Nat
+theorem plane_at {r f n i} (bit : Nat) (hf : ∀ j < n, f j < r) (hi : i < n) :
+    (plane r bit n i).testBit (index r f n) = (f i).testBit bit := by
+  induction n with
+  | zero => omega
+  | succ n ih =>
+    have prior (j) (hj : j < n) := hf j (by omega)
+    have ix := index_lt prior
+    have ln := hf n (by omega)
+    rw [plane,index]
+    by_cases eq : i = n
+    · subst i
+      simp only [beq_self_eq_true,ite_true]
+      rw [span_at (digit_out _ _) ix _ ln]
+      cases z : (f n).testBit bit <;> simp [full_bit,ix]
+    · simp only [beq_iff_eq,eq,ite_false]
+      rw [span_at (fun _ => plane_out r bit n i) ix _ ln]
+      exact ih prior (by omega)
 
-def compileTest {n} (trail : List (Fin n)) : Rule n → Option Test
-  | .square i j _ _ =>
-    if trail.idxOf i < trail.length && trail.idxOf j < trail.length then
-      some (4*trail.idxOf i,4*trail.idxOf j,0) else none
-  | .cube i j k _ _ _ _ _ =>
-    if trail.idxOf i < trail.length && trail.idxOf j < trail.length && trail.idxOf k < trail.length then
-      some (4*trail.idxOf i,4*trail.idxOf j,4*trail.idxOf k+1) else none
+def allowed {n} (all : Nat) (cols : List (Nat × Nat × Nat)) : Rule n → Nat
+  | .square i j .. =>
+    let a := cols.getD i (0,0,0); let b := cols.getD j (0,0,0)
+    (a.1 ^^^ b.1) ||| (a.2.1 ^^^ b.2.1) ||| (a.2.2 ^^^ b.2.2)
+  | .cube i j k .. =>
+    let a := cols.getD i (0,0,0); let b := cols.getD j (0,0,0); let c := cols.getD k (0,0,0)
+    let diff := (a.1 ^^^ b.1) ||| (a.2.1 ^^^ b.2.1) ||| (a.2.2 ^^^ b.2.2)
+    let lo := (a.2.1 &&& (all ^^^ c.2.1)) ||| ((all ^^^ (a.2.1 ^^^ c.2.1)) &&& (a.1 ||| (all ^^^ c.1)))
+    let le := (a.2.2 &&& (all ^^^ c.2.2)) ||| ((all ^^^ (a.2.2 ^^^ c.2.2)) &&& lo)
+    diff ||| le
 
-def evaluate (word : Nat) (t : Test) : Bool :=
-  let a := field word t.1
-  a != field word t.2.1 || (t.2.2 != 0 && decide (field word (t.2.2-1) ≤ a))
+def fast {n} (r : Nat) (rs : List (Rule n)) : Bool :=
+  if 1 ≤ r && r ≤ 5 && n ≤ 12 then
+    let all := full (r^n)
+    let cols := (List.range n).map (fun (i : Nat) => (plane r 0 n i,plane r 1 n i,plane r 2 n i))
+    rs.foldl (fun a q => a &&& allowed all cols q) all != 0
+  else true
 
-theorem compile_sound {n r s} {label : Fin n → Fin r} {trail : List (Fin n)}
-    (rep : Rep label trail s) {rule : Rule n} (valid : accepts label rule = true)
-    {t} (compiled : compileTest trail rule = some t) : evaluate s t = true := by
-  have lookup (i : Fin n) (h : trail.idxOf i < trail.length) :
-      field s (4*trail.idxOf i) = (label i).val := by
-    simpa only [List.getElem_idxOf h] using rep (trail.idxOf i) h
-  cases rule with
-  | square i j a o =>
-    simp only [compileTest] at compiled
-    split at compiled
-    next test =>
-      simp only [Bool.and_eq_true,decide_eq_true_eq] at test
-      cases compiled
-      simpa [evaluate,lookup i test.1,lookup j test.2,accepts,Fin.ext_iff] using valid
-    next => contradiction
-  | cube i j k a b c bit sign =>
-    simp only [compileTest] at compiled
-    split at compiled
-    next test =>
-      simp only [Bool.and_eq_true,decide_eq_true_eq] at test
-      cases compiled
-      simpa [evaluate,lookup i test.1.1,lookup j test.1.2,lookup k test.2,accepts,Fin.ext_iff] using valid
-    next => contradiction
+theorem binary_diff : ∀ a b : Fin 5, ((a.val.testBit 0 ^^ b.val.testBit 0) ||
+    (a.val.testBit 1 ^^ b.val.testBit 1) || (a.val.testBit 2 ^^ b.val.testBit 2)) = (a != b) := by decide +kernel
 
-def stages {n} (trail : List (Fin n)) : List (Fin n × List (Rule n)) → List (List Test)
-  | [] => []
-  | (i,rs)::more => rs.filterMap (compileTest (i::trail)) :: stages (i::trail) more
+theorem binary_le : ∀ a c : Fin 5,
+    ((a.val.testBit 2 && !c.val.testBit 2) || (!(a.val.testBit 2 ^^ c.val.testBit 2) &&
+    ((a.val.testBit 1 && !c.val.testBit 1) ||
+    (!(a.val.testBit 1 ^^ c.val.testBit 1) && (a.val.testBit 0 || !c.val.testBit 0))))) = decide (c ≤ a) := by decide +kernel
 
-def search (r : Nat) : List (List Test) → Nat → Bool
-  | [], _ => true
-  | tests::more, word => (List.range r).any fun v =>
-    let next := 16*word+v
-    tests.all (evaluate next) && search r more next
+theorem fold_bit {α} (ok : α → Nat) (j : Nat) (rs : List α)
+    (h : ∀ q ∈ rs, (ok q).testBit j = true) (a : Nat) (ha : a.testBit j = true) :
+    (rs.foldl (fun z q => z &&& ok q) a).testBit j = true := by
+  induction rs generalizing a with
+  | nil => exact ha
+  | cons q qs ih =>
+    apply ih (fun u hu => h u (List.mem_cons_of_mem _ hu))
+    simp [Nat.testBit_and,ha,h q List.mem_cons_self]
 
-theorem search_sound {n r} {label : Fin n → Fin r} (hr : r ≤ 16)
-    (ss : List (Fin n × List (Rule n))) (ok : ∀ stage ∈ ss, ∀ p ∈ stage.2, accepts label p = true)
-    {trail s} (rep : Rep label trail s) : search r (stages trail ss) s = true := by
-  induction ss generalizing trail s with
-  | nil => rfl
-  | cons head rest ih =>
-    obtain ⟨i,rs⟩ := head
-    apply List.any_eq_true.mpr
-    refine ⟨(label i).val, List.mem_range.mpr (label i).isLt, ?_⟩
-    have now := rep_push rep i hr
-    simp only [Bool.and_eq_true]
-    constructor
-    · apply List.all_eq_true.mpr
-      intro t ht
-      obtain ⟨rule,mem,eq⟩ := List.mem_filterMap.mp ht
-      exact compile_sound now (ok (i,rs) List.mem_cons_self rule mem) eq
-    · exact ih (fun stage h p hp => ok stage (List.mem_cons_of_mem _ h) p hp) now
-
-def fast {n} (r : Nat) (rules : List (Rule n)) : Bool :=
-  if r ≤ 16 then search r (stages [] (weightedStages rules)) 0 else true
-
-theorem fast_sound {n r} {label : Fin n → Fin r} {rules : List (Rule n)}
-    (good : ∀ p ∈ rules, accepts label p = true) : fast r rules = true := by
+theorem sound {n r} {label : Fin n → Fin r} {rules : List (Rule n)}
+    (good : ∀ q ∈ rules, accepts label q = true) : fast r rules = true := by
   unfold fast
   split
-  next hr =>
-    apply search_sound (label:=label) hr
-    · intro stage hst p hp
-      unfold weightedStages at hst
-      obtain ⟨_,_,rfl⟩ := List.mem_map.mp hst
-      exact good p (List.mem_filter.mp hp).1
-    · intro j h
-      simp at h
+  next bound =>
+    simp only [Bool.and_eq_true, decide_eq_true_eq] at bound
+    let f (i : Nat) := if h : i < n then (label ⟨i,h⟩).val else 0
+    have hf (i) (hi : i < n) : f i < r := by simp only [f,dite_eq_left hi]; exact (label _).isLt
+    let ix := index r f n
+    let all := full (r^n)
+    let cols := (List.range n).map (fun (i : Nat) => (plane r 0 n i,plane r 1 n i,plane r 2 n i))
+    have ha : all.testBit ix = true := by simp [all,full_bit,ix,index_lt hf]
+    have lookup (i : Fin n) : cols.getD i (0,0,0) = (plane r 0 n i,plane r 1 n i,plane r 2 n i) := by
+      simp [cols,List.getD_eq_getElem?_getD,i.isLt]
+    have val (i : Fin n) (bit) : (plane r bit n i).testBit ix = (label i).val.testBit bit := by
+      simp only [ix,plane_at bit hf i.isLt,f,dite_eq_left i.isLt]
+    let v (i : Fin n) : Fin 5 := ⟨(label i).val,by have := (label i).isLt; omega⟩
+    have hq (q : Rule n) (hq : q ∈ rules) : (allowed all cols q).testBit ix = true := by
+      have g := good q hq
+      cases q with
+      | square i j a o =>
+        simp only [allowed,lookup,Nat.testBit_or,Nat.testBit_xor,val]
+        rw [binary_diff (v i) (v j)]
+        exact g
+      | cube i j k a b c bit sign =>
+        simp only [allowed,lookup,Nat.testBit_or,Nat.testBit_and,Nat.testBit_xor,val,ha,Bool.true_xor]
+        rw [binary_diff (v i) (v j),binary_le (v i) (v k)]
+        exact g
+    have ok := fold_bit (allowed all cols) ix rules hq all ha
+    change (rules.foldl _ all != 0) = true
+    apply bne_iff_ne.mpr
+    intro zero
+    rw [zero] at ok
+    simp at ok
   next => rfl
+end ColorBits
 
-end Digits
+namespace PackedRows
+
+def lane : Nat := (1 <<< 512)-1
+def matrix : List Word → Nat
+  | [] => 0
+  | w::ws => w.toNat ||| (matrix ws <<< 512)
+
+def stride (gap : Nat) := ((1 <<< (16*gap))-1)/((1 <<< gap)-1)
+def spread (x : Nat) := ((x*stride 511) &&& stride 512)*lane
+def collapse (x : Nat) :=
+  let a := x ||| (x >>> 4096)
+  let b := a ||| (a >>> 2048)
+  let c := b ||| (b >>> 1024)
+  (c ||| (c >>> 512)) &&& lane
+
+def force (g active T x : Nat) (mono b : Bool) :=
+  let s := spread (x &&& active)
+  let bad := if mono then
+      if b then g ^^^ (g &&& s) else s ^^^ (g &&& s)
+    else g ^^^ s
+  let want := if b then T else lane ^^^ T
+  (want &&& (lane ^^^ collapse bad)) != 0
+
+def edit (m i : Nat) (b : Bool) :=
+  if m.testBit i == b then m else m ^^^ (1 <<< i)
+
+def check {n : Nat} (g active T : Nat) (mono : Bool) : Rule n → Bool
+  | .square i j a o =>
+    [false,true].all fun u => [false,true].all fun v =>
+      force g active T (edit (edit a j v) i u) mono (u && v) &&
+      force g active T (edit (edit o j v) i u) mono (u || v)
+  | .cube i j k a b c bit sign =>
+    let except := (1 <<< i.val) ||| (1 <<< j.val)
+    let dif := ((a ^^^ b) ||| (b ^^^ c)) &&& active
+    ((dif &&& except)==dif) &&
+      force g active T a mono false && force g active T b mono true &&
+      force g active T (edit a k bit) mono sign && force g active T (edit b k bit) mono sign &&
+      force g active T (edit c k bit) mono (!sign)
+
+
+theorem matrix_bit (ws : List Word) (i j : Nat) (hj : j < 512) :
+ (matrix ws).testBit (i*512+j) = ((ws[i]?).getD 0).getLsbD j := by
+ induction ws generalizing i with
+ | nil => simp [matrix]
+ | cons w ws ih =>
+   cases i with
+   | zero =>
+     simp [matrix,Nat.testBit_or,Nat.testBit_shiftLeft,show ¬512≤j by omega,BitVec.getLsbD]
+   | succ i =>
+     rw [Nat.succ_mul]
+     simp only [matrix,Nat.testBit_or,Nat.testBit_shiftLeft]
+     have upper : w.toNat.testBit (i*512+512+j) = false := by
+       apply Nat.testBit_lt_two_pow
+       exact lt_of_lt_of_le w.isLt (Nat.pow_le_pow_right (by decide) (by omega))
+     rw [upper]
+     simp [show 512 ≤ i*512+512+j by omega, show i*512+512+j-512 = i*512+j by omega,ih]
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+theorem collapse_false (z j : Nat) (hj : j<512) :
+ (collapse z).testBit j = false ↔ ∀ i : Fin 16, z.testBit (i.val*512+j) = false := by
+ simp [collapse,lane,Nat.testBit_and,Nat.testBit_or,Nat.testBit_shiftRight,Nat.shiftLeft_eq,hj,Fin.forall_fin_succ,Nat.add_comm,Nat.add_left_comm,Nat.add_assoc]
+ simp only [and_assoc,and_left_comm,and_comm]
+
+def slowSpread (x : Nat) := ColorBits.span 512 (fun d => if x.testBit d then lane else 0) 16
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 32768 in
+theorem spread_correct : ∀ x : Fin 4096, spread x.val = slowSpread x.val := by decide +kernel
+
+theorem force_sound (ws : List Word) (hn : ws.length ≤ 12) (T : Word) (mono b : Bool) (x : Nat)
+ (h : force (matrix ws) (ColorBits.full ws.length) T.toNat x mono b = true) :
+ forced T mono b ws (RankBase.RankRules.row x) = true := by
+ let y := x &&& ColorBits.full ws.length
+ let s := spread y
+ let g := matrix ws
+ let bad := if mono then if b then g ^^^ (g &&& s) else s ^^^ (g &&& s) else g ^^^ s
+ let want := if b then T.toNat else lane ^^^ T.toNat
+ change (want &&& (lane ^^^ collapse bad) != 0) = true at h
+ obtain ⟨j,hj⟩ := Nat.exists_testBit_of_ne_zero (bne_iff_ne.mp h)
+ rw [Nat.testBit_and,Bool.and_eq_true] at hj
+ have lim : j<512 := by
+   by_contra! large
+   have t := Nat.testBit_lt_two_pow (x:=T.toNat) (i:=j) (lt_of_lt_of_le T.isLt (Nat.pow_le_pow_right (by decide) large))
+   have z := hj.1
+   cases b <;> simp [want,lane,Nat.testBit_xor,Nat.shiftLeft_eq,t,show ¬j<512 by omega] at z
+ have clear := hj.2
+ simp only [Nat.testBit_xor,show lane.testBit j = true by simpa [lane,Nat.shiftLeft_eq] using lim,Bool.true_xor,Bool.not_eq_true'] at clear
+ have bits := (collapse_false bad j lim).mp clear
+ have small : y < 4096 := by
+   apply lt_of_le_of_lt (Nat.and_le_right ..)
+   have pow := Nat.pow_le_pow_right (n:=2) (by decide) hn
+   simp [ColorBits.full,Nat.shiftLeft_eq]
+   omega
+ have matchRows : ∀ i : Fin ws.length, fits mono b ((ws.get i).getLsbD j) (x.testBit i.val) = true := by
+   intro i
+   have r := bits ⟨i.val,by omega⟩
+   have slice : s.testBit (i.val*512+j) = x.testBit i.val := by
+     have eq := spread_correct (⟨y,small⟩ : Fin 4096)
+     change (spread y).testBit _ = _
+     rw [eq,slowSpread,ColorBits.span_at (w:=512) (f:=fun d => if y.testBit d then lane else 0) (fun d => by
+       intro l hl
+       split <;> simp [lane,Nat.shiftLeft_eq,show ¬l<512 by omega]) lim 16 (by omega)]
+     cases e : x.testBit i.val <;> simp [e,y,Nat.testBit_and,ColorBits.full_bit,i.isLt,lane,Nat.shiftLeft_eq,lim]
+   have wire : g.testBit (i.val*512+j) = (ws.get i).getLsbD j := by simpa [g,i.isLt] using matrix_bit ws i.val j lim
+   change bad.testBit (i.val*512+j) = false at r
+   cases mono <;> cases b <;> simp [bad,Nat.testBit_xor,Nat.testBit_and,wire,slice,fits] at r ⊢ <;> grind
+ have gate := (mask_spec mono b ⟨j,lim⟩ ws (RankBase.RankRules.row x)).mpr matchRows
+ simp only [forced,decide_eq_true_eq]
+ intro zero
+ have z := congrArg (fun w : Word => w.getLsbD j) zero
+ have t := hj.1
+ change (_ &&& _ : Word).getLsbD j = (0 : Word).getLsbD j at z
+ rw [BitVec.getLsbD_and,gate] at z
+ cases b
+ · simp [want,lane,Nat.testBit_xor,Nat.shiftLeft_eq,lim] at t
+   change T.getLsbD j = false at t
+   simp only [Bool.false_eq_true,ite_false,BitVec.getLsbD_not,lim,decide_true,Bool.true_and,t,Bool.not_false,BitVec.getLsbD_zero] at z
+   simpa [BitVec.getLsbD] using z
+ · simp [want] at t
+   change T.getLsbD j = true at t
+   simp [t] at z
+
+theorem row_edit {n} (m : Nat) (i : Fin n) (b : Bool) :
+    row (edit m i.val b) = Function.update (row m) i b := by
+  funext j
+  by_cases h : j = i
+  · subst j
+    simp only [Function.update_self,row,edit]
+    split
+    next eq => exact beq_iff_eq.mp eq
+    next ne =>
+      simp [Nat.testBit_xor,Nat.shiftLeft_eq,Nat.testBit_two_pow]
+      cases q : m.testBit i.val <;> cases b <;> simp_all
+  · have hij : i.val ≠ j.val := fun e => h (Fin.ext e.symm)
+    rw [Function.update_of_ne h]
+    simp only [row,edit]
+    split
+    · rfl
+    · simp [Nat.testBit_xor,Nat.shiftLeft_eq,Nat.testBit_two_pow,hij]
+
+theorem edit_pair {n} (m : Nat) (i j : Fin n) (a b : Bool) :
+    row (edit (edit m j.val b) i.val a) = pairInput i j (row m) a b := by
+  rw [row_edit,row_edit]
+  funext k
+  by_cases hi : k = i <;> by_cases hj : k = j <;> simp [pairInput,hi,hj,Function.update]
+
+theorem check_sound (T : Word) (mono : Bool) (ws : List Word) (hn : ws.length ≤ 12) (q : Rule ws.length)
+ (h : check (matrix ws) (ColorBits.full ws.length) T.toNat mono q = true) : checksRule T mono ws q = true := by
+ have F := force_sound ws hn T mono
+ cases q with
+ | square i j a o =>
+   simp only [check,List.all_eq_true,Bool.and_eq_true] at h
+   simp only [checksRule,List.all_eq_true,Bool.and_eq_true]
+   intro u hu v hv
+   obtain ⟨ha,ho⟩ := h u hu v hv
+   exact ⟨edit_pair a i j u v ▸ F _ _ ha,edit_pair o i j u v ▸ F _ _ ho⟩
+ | cube i j k a b c bit sign =>
+   simp only [check,Bool.and_eq_true,beq_iff_eq] at h
+   obtain ⟨⟨⟨⟨⟨dif,fa⟩,fb⟩,fak⟩,fbk⟩,fck⟩ := h
+   simp only [checksRule,Bool.and_eq_true,List.all_eq_true]
+   refine ⟨⟨⟨⟨⟨?_,F _ _ fa⟩,F _ _ fb⟩,row_edit a k bit ▸ F _ _ fak⟩,row_edit b k bit ▸ F _ _ fbk⟩,row_edit c k bit ▸ F _ _ fck⟩
+   intro v hv
+   by_cases vi : v = i
+   · simp [vi]
+   by_cases vj : v = j
+   · simp [vj]
+   have ni : i.val ≠ v.val := fun e => vi (Fin.ext e.symm)
+   have nj : j.val ≠ v.val := fun e => vj (Fin.ext e.symm)
+   have e := congrArg (fun z : Nat => z.testBit v.val) dif
+   simp [Nat.testBit_and,Nat.testBit_or,Nat.testBit_xor,Nat.shiftLeft_eq,Nat.testBit_two_pow,ni,nj,ColorBits.full_bit,v.isLt] at e
+   simp [vi,vj,row]
+   grind
+
+end PackedRows
 
 def rankCheck (target : Word) (mono : Bool) (ws : List Word) (r code count : Nat) : Bool :=
   let rules := readRules ws.length count code
-  rules.all (checksRule target mono ws) && !(Digits.fast (r+1) rules)
+  (ws.length ≤ 12) && rules.all (PackedRows.check (PackedRows.matrix ws) (ColorBits.full ws.length) target.toNat mono) && !(ColorBits.fast (r+1) rules)
 
 theorem rankCheck_sound {target : Word} {mono : Bool} {ws : List Word} {r code count : Nat}
     (F : (Fin ws.length → Bool) → Bool)
@@ -4705,12 +4872,12 @@ theorem rankCheck_sound {target : Word} {mono : Bool} {ws : List Word} {r code c
     (mon : mono = true → Monotone F) (group : Grouping r F)
     (h : rankCheck target mono ws r code count = true) : False := by
   let rules := readRules ws.length count code
-  have pass : rules.all (checksRule target mono ws) = true ∧ Digits.fast (r+1) rules = false := by
-    simpa only [rankCheck, Bool.and_eq_true, Bool.not_eq_true'] using h
+  have pass : (ws.length ≤ 12 ∧ rules.all (PackedRows.check (PackedRows.matrix ws) (ColorBits.full ws.length) target.toNat mono) = true) ∧ ColorBits.fast (r+1) rules = false := by
+    simpa only [rankCheck, Bool.and_eq_true, Bool.not_eq_true',decide_eq_true_eq] using h
   have accept (claim : Rule ws.length) (hc : claim ∈ rules) : accepts group.label claim = true :=
-    checksRule_sound F agree mon group (List.all_eq_true.mp pass.1 _ hc)
-  have found : Digits.fast (r+1) rules = true :=
-    Digits.fast_sound (r:=r+1) (label:=group.label) accept
+    checksRule_sound F agree mon group (PackedRows.check_sound target mono ws pass.1.1 claim (List.all_eq_true.mp pass.1.2 _ hc))
+  have found : ColorBits.fast (r+1) rules = true :=
+    ColorBits.sound (r:=r+1) (label:=group.label) accept
   rw [pass.2] at found
   contradiction
 
