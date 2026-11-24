@@ -10,3 +10,6 @@ Sub-agents: 5 (direct proof/compiler, counterexamples/review, reduction design, 
 TIMING total=8.3 min subagents=5
 
 Generic DNF compiler lemma: Lean exit 0; 170 lines, no warnings. Independent review PASS.
+
+Initial local checker: ACCEPTED (reduce), two children; standard axioms only.
+Cleanup source lines: 53 to 51. Cleaned named lake build: exit 0. Independent cleanup review: PASS. Cleaned checker: running.

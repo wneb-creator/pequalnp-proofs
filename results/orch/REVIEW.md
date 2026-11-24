@@ -6,3 +6,5 @@ Exact posted conclusion; sole fully qualified theorem; permitted import; two ind
 This is a reduction, not a proof of the lower bound. Finite tests validate compilation and output characterization only. The abstract lower-bound hypothesis remains open and omits the mixed-gate premises.
 
 Independent rules_review agent: PASS for generic DNF compiler, source SHA256 7f7a2aa03f5d73c1d1d610421446c348126ecdc64bb80b9e53bffade6806ee9e. Full proof inspected; exactly the reduction compiler hypothesis; no prohibited axioms or commands; own namespace. Lean exit 0, empty output.
+
+Independent cleanup review PASS: SHA256 dcfb1f881d85e3de3b276e05993c1aaaeff7c5b934082b3d86ea616c505cb356. Exact statement and both hypotheses unchanged; proof simplification only. Source lines 53 to 51. Named lake build exit 0. Final reduction checker running.

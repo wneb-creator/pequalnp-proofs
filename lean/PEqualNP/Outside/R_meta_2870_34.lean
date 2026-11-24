@@ -42,12 +42,10 @@ theorem PEqualNP.Outside.R_meta_2870_34
     intro i hi
     simpa only [Finset.mem_insert, Finset.mem_singleton] using of_decide_eq_true (hit i hi)
   · intro t ht small
-    let x : Fin (n+n) → Bool := fun i => decide (i ∈ t)
-    have trueOnTerm : C.eval (List.ofFn x) = true :=
-      (computes x).mpr ⟨t, ht, fun i hi => decide_eq_true hi⟩
     by_contra missing
-    have falseOnTerm : C.eval (List.ofFn x) = false := by
-      apply no x
-      · simpa only [x, decide_eq_true_eq] using small
-      · simpa only [x, decide_eq_true_eq] using missing
+    let x : Fin (n+n) → Bool := fun i => decide (i ∈ t)
+    have falseOnTerm := no x (by simpa only [x, decide_eq_true_eq] using small)
+      (by simpa only [x, decide_eq_true_eq] using missing)
+    have trueOnTerm :=
+      (computes x).mpr ⟨t, ht, fun i hi => decide_eq_true hi⟩
     exact Bool.noConfusion (trueOnTerm.symm.trans falseOnTerm)
