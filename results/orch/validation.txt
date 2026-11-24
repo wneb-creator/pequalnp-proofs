@@ -1,0 +1,5 @@
+Compiled normalization reduction checkpoint.
+Lean: lake env lean, exit 0.
+Full local checker: pending.
+Sub-agents: 5 (status/review, toolchain, structural proof, counterexample search, reduction)
+TIMING total=9 subagents=5
