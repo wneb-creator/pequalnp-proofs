@@ -1,0 +1,20 @@
+{
+  "source_sha256": "6ad525ea19d5cfe09e06e57fa8f418282d1315567f45520ad996f2c4f8e42182",
+  "unchanged": true,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S04/VertexRestrictionAudit.lean"
+  ],
+  "cwd": "/workspace/pequalnp-proofs/lean",
+  "exit_code": 0,
+  "elapsed_seconds": 3.2293451779987663,
+  "fragment_sha256": "df8b3db386502c3c1e17d88fa9cfc66ecf41dca4bf3afb5cfee2774447f0fc20",
+  "logs": {
+    "/tmp/oec/pequalnp-pilot-18/orch/S04/vertex-axioms.stdout.log": "5f056aed9a359c15cc96043e91ad46ad041a2fa2ed2af52a1f2b00108f421953",
+    "/tmp/oec/pequalnp-pilot-18/orch/S04/vertex-axioms.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "started_utc": "2026-11-24T03:24:44.245261+00:00",
+  "active": {
+    "S01": {
+      "id": "6b04d7e1-cbc0-83e9-8482-982e50f350f6",
+      "name": "Boyle",
+      "strategy": "late-junk structural proof"
+    },
+    "S02": {
+      "id": "6b04d7e2-d264-83e9-9fb0-6124cdb360d4",
+      "name": "Jason",
+      "strategy": "local and distance SAT repairs"
+    },
+    "S03": {
+      "id": "6b050362-42a0-83ea-8694-384b21c460d5",
+      "name": "Bohr",
+      "strategy": "finite Lean certificate and build memory"
+    },
+    "S04": {
+      "id": "6b050361-d07c-83ea-a579-fabeaf96b0d9",
+      "name": "Huygens",
+      "strategy": "independent CNF completeness red-team"
+    },
+    "S06": {
+      "id": "6b050360-e6f4-83ea-9b46-df9a5cfba0e3",
+      "name": "Mencius",
+      "strategy": "solver performance and certified partitions"
+    },
+    "S08": {
+      "id": "6b050361-6760-83ea-a2d2-2911b65210c7",
+      "name": "Kuhn",
+      "strategy": "independent integration and format review"
+    }
+  },
+  "count": 6,
+  "backlog": {
+    "S05": "algebraic construction",
+    "S07": "restriction lower bound"
+  },
+  "limit": "Two additional spawns refused by platform agent-thread limit; do not retry concurrently."
+}

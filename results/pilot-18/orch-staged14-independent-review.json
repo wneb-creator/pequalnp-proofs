@@ -1,0 +1,163 @@
+{
+  "verdict": "PASS_FOR_EXACT_STAGED_14_FILE_RESEARCH_SNAPSHOT",
+  "reviewed_utc": "2026-11-24T03:45:28.012290+00:00",
+  "comparison_HEAD": "534e4168b158fcc515d28c79f91050989d3715c9",
+  "review_basis": "Git index blobs, not moving working-tree files; all14 exactly match requested orch-staged-snapshot.json",
+  "snapshot_map_sha256": "69bd37daad42e9cc4c03d931a5f4eeca1fa5f9b9539f2bf1f0e7b9c8c9afdd14",
+  "staged_diff_sha256": "dcd0c07ecdcd167ee0332de8de2eb636b27167df0c062e2febff251f1b2499eb",
+  "files": {
+    "results/orch/NOTES.md": {
+      "sha256": "a3e88bbeb28c826660c1d8f0cfff4f45ca4b9df3ed4fa109129564d83591a4d2",
+      "bytes": 42857,
+      "git_blob": "30129e0a78fa4b72c740293a0121a1b4a673fa74",
+      "mode": "100644"
+    },
+    "results/orch/TIMELINE.md": {
+      "sha256": "45a0d7074d2bc2752f4977178f9cd3e632edfc64a71cf60567028b441f4adf2d",
+      "bytes": 1746,
+      "git_blob": "aa7d3a40b4335962abe885288f3f45331f2992ae",
+      "mode": "100644"
+    },
+    "results/orch/agents.json": {
+      "sha256": "be54fe73cd29e456407d9a941a369c74d7f6bff6ae95b870c364f6f11f3d1f4a",
+      "bytes": 1200,
+      "git_blob": "ccb90e2ed5d46f619e0bd0307197c911a8e04887",
+      "mode": "100644"
+    },
+    "results/orch/lemmas/INDEX.md": {
+      "sha256": "e1d0550db26307ba5d31dd6d13ee0eae1c9dcabcffd4e0ec1549d473b7a37069",
+      "bytes": 2276,
+      "git_blob": "b2e52b0e73f5ddcc49b95033c4f0cb6c05cbcddb",
+      "mode": "100644"
+    },
+    "results/orch/lemmas/S01-late-junk.md": {
+      "sha256": "69052543f94dad6871cf612a56c00367d6562508cb444ac1d08d63d54c00b927",
+      "bytes": 13312,
+      "git_blob": "86a85bb24f304b19f0d2a00311c93ec7a6b88b3b",
+      "mode": "100644"
+    },
+    "results/orch/lemmas/S02-sat-repairs.md": {
+      "sha256": "aec199bea939e78290ea7b03b5fc500cb2852d8d13f72254946b7ea48152e16c",
+      "bytes": 12308,
+      "git_blob": "fd96c4e2cf965f6a591fd1c0905b8532e53b47ab",
+      "mode": "100644"
+    },
+    "results/orch/lemmas/S03-finite-proof.md": {
+      "sha256": "939999cd03ab21508ca4588323f6eabe4f606216739d5cab03feb012048c72fd",
+      "bytes": 10389,
+      "git_blob": "242337992539b6e57bfee7abd29cc5fac59cbc18",
+      "mode": "100644"
+    },
+    "results/orch/lemmas/S04-redteam.md": {
+      "sha256": "1db162d14dfa70709a1fd4adbbc46eecaadb3bab4d40de4490f83da6443635ad",
+      "bytes": 19433,
+      "git_blob": "e6ccd05308dd44692866169e318ac0427c204900",
+      "mode": "100644"
+    },
+    "results/orch/lemmas/S06-solver-performance.md": {
+      "sha256": "5b788875a957e693a62041169ea7c1fd46fef837d8f1bea812c3192c66e3af09",
+      "bytes": 10042,
+      "git_blob": "21cc57c314b9ea3b46426da588d064292b0be13f",
+      "mode": "100644"
+    },
+    "results/orch/lemmas/S08-integration-review.md": {
+      "sha256": "61ee0112b28a1181612d8fee7b33f7b3f48b1251a72da5988605d3cb5fe74f30",
+      "bytes": 26874,
+      "git_blob": "66d40d1815ded1fe32e78debf9e6794b781e83ca",
+      "mode": "100644"
+    },
+    "results/pilot-18/search/cover-candidates-recovery2-full-results.json": {
+      "sha256": "92d19863799b9e566404aaaa8b1cbfa00c2113f08ae4216ec79f7e60c8f31065",
+      "bytes": 666016,
+      "git_blob": "6157ec5ce53af1fecf3cbdbac0f920cef8cc294f",
+      "mode": "100644"
+    },
+    "results/pilot-18/search/original-cadical-online-full-results.json": {
+      "sha256": "a080488e2a271f0db1f69e10d001d3635d58564529ef020c2ee48d5fb1dbb324",
+      "bytes": 49293,
+      "git_blob": "a7606c21b3b4ef6f78d6d6c86cf935fd0e8c0461",
+      "mode": "100644"
+    },
+    "results/pilot-18/search/original-suffix-candidates-recovery2-full-results.json": {
+      "sha256": "7647983e17122d7813202558c5ec51e5d34643ea5a49e65d393959790d112b96",
+      "bytes": 106485,
+      "git_blob": "fc11acbea1f769660e89d7039bb5a34d922f0321",
+      "mode": "100644"
+    },
+    "results/pilot-18/search/research-cardinality-2026.json": {
+      "sha256": "513b5e0c47560f215cfa653f5b03a1681748b1fe68ba268a1ac89c1fb82376bf",
+      "bytes": 744,
+      "git_blob": "11f1d0221a01d3617929f12b86ec1e8e5b698f90",
+      "mode": "100644"
+    }
+  },
+  "git_diff_cached_check": "PASS",
+  "file_modes": "All100644; only14 additions under results/; no Lean/configuration changes",
+  "current_named_source_at_HEAD": {
+    "lines": 2069,
+    "sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+    "recompiled": false
+  },
+  "credential_indicator_scan": {
+    "files": 14,
+    "hits": [],
+    "scope": "Complete staged bytes and embedded archive text; no credential stores read"
+  },
+  "archive_evidence": [
+    {
+      "path": "results/pilot-18/search/cover-candidates-recovery2-full-results.json",
+      "embedded_file_count": 50,
+      "all_content_hashes_match": true,
+      "all_original_source_bytes_match": true,
+      "eligible_files_omitted": [],
+      "status_lines": {
+        "s UNKNOWN": 24
+      },
+      "scope": "Candidate-only completed run; no witness or exhaustion"
+    },
+    {
+      "path": "results/pilot-18/search/original-cadical-online-full-results.json",
+      "embedded_file_count": 5,
+      "all_content_hashes_match": true,
+      "all_original_source_bytes_match": true,
+      "eligible_files_omitted": [],
+      "status_lines": {},
+      "scope": "Interrupted at environment recovery; no certificate or solver verdict"
+    },
+    {
+      "path": "results/pilot-18/search/original-suffix-candidates-recovery2-full-results.json",
+      "embedded_file_count": 3,
+      "all_content_hashes_match": true,
+      "all_original_source_bytes_match": true,
+      "eligible_files_omitted": [],
+      "status_lines": {
+        "s UNKNOWN": 1
+      },
+      "scope": "Candidate-only completed run; no witness or exhaustion"
+    }
+  ],
+  "claims_review": {
+    "no_posted_checker_acceptance_or_global_refutation_claim": true,
+    "partial_compiled_results_distinct_from_final_theorem": true,
+    "uncertified_neighborhood_UNSAT_distinct_from_certified_subcases": true,
+    "S01_chain_variants_and_new_AAOA_classification_not_upgraded_to_independent_PASS": true,
+    "S04_PASS_covers_only_explicit_normalization_and_four_named_CNF_deltas": true,
+    "S06_artifact_claims_match_prior_hash_bound_replay": true,
+    "S03_2069_compilation_and_22_only_controls_consistent_with_prior_published_review": true,
+    "literature_note": "Explicitly unrelated to assigned-graph construction/lower bound; no numerical bound used; inaccessible paper details marked UNVERIFIED. Citation attribution not independently re-fetched in this local packaging review."
+  },
+  "nonblocking_historical_nits": [
+    "NOTES opening calls b855777 latest pushed HEAD, while current localHEAD is534e416; named-source hash remains correct. Treat this as the latest proof-source checkpoint, not the latest research commit.",
+    "The03:41 orchestration event still says S08 RUP review pending, superseded by the included03:37:52 PASS and completed review report.",
+    "Dated strategy reports retain pre-launch/pending language alongside later updates; this clearance preserves the historical snapshot and does not refresh live runtime claims."
+  ],
+  "scope_exclusions": [
+    "Working-tree changes after staging",
+    "Unstaged/new S05/S07 reports and agent appends",
+    "New proof validity review for pending S01 chain/template variants",
+    "Remote push verification and posted theorem acceptance"
+  ],
+  "blockers": [],
+  "new_build_or_solver": false,
+  "git_writes": false
+}

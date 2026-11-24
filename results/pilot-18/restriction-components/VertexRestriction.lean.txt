@@ -1,0 +1,27 @@
+import Mathlib.Data.Bool.Basic
+import Mathlib.Tactic
+
+namespace PEqualNP.Outside.L_meta_1342_aux.S07
+
+lemma vertex_zero_guarded_extension (r x0 x4 x5 x9 x10 : Bool) :
+    (r || (x4 && x10) || (x5 && x9) || (x0 && (x9 || x10))) =
+      (r || (x4 && x10) || (x5 && x9) ||
+        ((x0 || (x4 && x5)) && (x9 || x10))) := by
+  cases r <;> cases x0 <;> cases x4 <;> cases x5 <;>
+    cases x9 <;> cases x10 <;> rfl
+
+lemma first_gate_port_count (gates inputs inputPorts internalPorts : Nat)
+    (hports : 2 * gates = inputPorts + internalPorts)
+    (hinputs : inputs + 2 ≤ inputPorts)
+    (hlive : gates ≤ internalPorts + 1) :
+    inputs + 1 ≤ gates := by
+  omega
+
+lemma cofactor_recurrence_arithmetic (size zeroBound oneBound : Nat)
+    (hzero : zeroBound + 1 ≤ size)
+    (hone : oneBound + 1 ≤ size)
+    (hbranch : zeroBound + 2 ≤ size ∨ oneBound + 2 ≤ size) :
+    max (max zeroBound oneBound + 1) (min zeroBound oneBound + 2) ≤ size := by
+  omega
+
+end PEqualNP.Outside.L_meta_1342_aux.S07

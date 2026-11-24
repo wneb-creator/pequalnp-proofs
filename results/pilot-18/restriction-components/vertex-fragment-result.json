@@ -1,0 +1,29 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S04/VertexRestriction.lean",
+  "source_sha256": "df8b3db386502c3c1e17d88fa9cfc66ecf41dca4bf3afb5cfee2774447f0fc20",
+  "source_unchanged": true,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S04/VertexRestriction.lean"
+  ],
+  "cwd": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-24T03:41:15.912154+00:00",
+  "finished_utc": "2026-11-24T03:41:22.265108+00:00",
+  "exit_code": 0,
+  "lock_wait_seconds": 0.00012127299851272255,
+  "elapsed_seconds": 6.352960279000399,
+  "logs": {
+    "/tmp/oec/pequalnp-pilot-18/orch/S04/vertex-fragment.stdout.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/tmp/oec/pequalnp-pilot-18/orch/S04/vertex-fragment.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

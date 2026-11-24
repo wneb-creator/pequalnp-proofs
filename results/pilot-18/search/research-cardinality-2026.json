@@ -1,0 +1,9 @@
+{
+  "read_date": "2026-11-24",
+  "source": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol377-sat2026/html/LIPIcs.SAT.2026.23/LIPIcs.SAT.2026.23.html",
+  "title": "Near-Optimal Encodings of Cardinality Constraints",
+  "quote": "Our construction also yields a smaller monotone circuit for the threshold-2 function",
+  "scope": "The page discusses threshold-2 and cardinality encodings. This is not a construction or lower bound for the assigned 11-vertex graph. No numerical bound from this paper is used in the search or Lean proof.",
+  "other_source": "https://doi.org/10.1007/s00453-006-0073-0",
+  "other_source_status": "Abstract available in search; full paper fetch failed. Any unexamined construction details remain UNVERIFIED."
+}
