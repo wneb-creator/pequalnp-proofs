@@ -511,4 +511,141 @@ lemma card_le_erasedCount (n : ℕ) (gs : List Gate) (acc : List Stat × List Ga
   have he := elim_size_exact n gs acc
   omega
 
+lemma erasedCount_append (n : ℕ) (gs hs : List Gate) (acc : List Stat × List Gate) :
+    erasedCount n (gs ++ hs) acc =
+      erasedCount n gs acc + erasedCount n hs (elim n gs acc) := by
+  have hfull := elim_size_exact n (gs ++ hs) acc
+  have hpre := elim_size_exact n gs acc
+  have hpost := elim_size_exact n hs (elim n gs acc)
+  have he : elim n (gs ++ hs) acc = elim n hs (elim n gs acc) := by
+    simp [elim, List.foldl_append]
+  rw [he, List.length_append] at hfull
+  omega
+
+lemma restrict_nonconstant_of_erased_set (n : ℕ) (C : Circuit) (b : Bool)
+    (hC : FanInTwo C)
+    (hnc : ∃ y z : Fin n → Bool,
+      C.eval (List.ofFn (Fin.snoc y b : Fin (n + 1) → Bool)) ≠
+      C.eval (List.ofFn (Fin.snoc z b : Fin (n + 1) → Bool)))
+    (S : Finset ℕ)
+    (hS : ∀ p ∈ S, ∃ g, (C.gates.map normGate)[p]? = some g ∧
+      let acc := elim n ((C.gates.map normGate).take p) (initStats n b, [])
+      (simplify g.op (n + acc.2.length)
+        (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1 = none) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + S.card ≤ C.size ∧
+      ∀ y : Fin n → Bool,
+        D.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y b : Fin (n + 1) → Bool)) := by
+  obtain ⟨D, hD, hs, he⟩ := restrict_nonconstant n C b hC hnc
+  have hc := card_le_erasedCount n (C.gates.map normGate) (initStats n b, []) S hS
+  exact ⟨D, hD, by omega, he⟩
+
+def aliasStats (m j : ℕ) : List Stat :=
+  List.ofFn (fun i : Fin m => (Sum.inr (i : ℕ) : Stat)) ++ [Sum.inr j]
+
+lemma inv_alias (n : ℕ) (pre : List Gate) (y : List Bool) (hy : y.length = n)
+    (j : ℕ) (hj : j < n + pre.length) (b : Bool)
+    (hb : b = (wiresFrom pre y).getD j false) :
+    Inv n y (wiresFrom pre y ++ [b]) (aliasStats (n + pre.length) j, pre) := by
+  have lw : (wiresFrom pre y).length = n + pre.length := by
+    rw [length_wiresFrom, hy]
+  have ls : (List.ofFn (fun i : Fin (n + pre.length) =>
+      (Sum.inr (i : ℕ) : Stat))).length = n + pre.length := by simp
+  refine ⟨by simp [aliasStats, lw], ?_⟩
+  intro i
+  change ((aliasStats (n + pre.length) j).getD i (Sum.inl false)).Valid (n + pre.length) ∧
+    ((aliasStats (n + pre.length) j).getD i (Sum.inl false)).val (wiresFrom pre y) =
+      (wiresFrom pre y ++ [b]).getD i false
+  by_cases hi : i = n + pre.length
+  · subst i
+    simp only [aliasStats]
+    rw [getD_snoc_len _ _ _ _ ls, getD_snoc_len _ _ _ _ lw]
+    exact ⟨hj, hb.symm⟩
+  · simp only [aliasStats]
+    rw [getD_snoc_ne _ _ _ _ (by omega), getD_snoc_ne _ _ _ _ (by omega)]
+    by_cases hlt : i < n + pre.length
+    · simp [hlt, Stat.Valid, Stat.val]
+    · rw [List.getD_eq_default _ _ (by omega), List.getD_eq_default _ _ (by omega)]
+      exact ⟨trivial, rfl⟩
+
+lemma remove_semantic_alias (n : ℕ) (C : Circuit) (pre post : List Gate) (g : Gate) (j : ℕ)
+    (hgs : C.gates = pre ++ g :: post) (hC : FanInTwo C) (hj : j < n + pre.length)
+    (halias : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (wiresFrom pre (List.ofFn x)).getD i false) =
+        (wiresFrom pre (List.ofFn x)).getD j false)
+    (hnc : ∃ x y : Fin n → Bool, C.eval (List.ofFn x) ≠ C.eval (List.ofFn y)) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + 1 ≤ C.size ∧
+      ∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x) := by
+  have hokpre : ∀ g' ∈ pre, Ok g' := by
+    intro g' hg'
+    apply hC g'
+    rw [hgs]
+    exact List.mem_append_left _ hg'
+  have hokpost : ∀ g' ∈ post, Ok g' := by
+    intro g' hg'
+    apply hC g'
+    rw [hgs]
+    exact List.mem_append_right _ (List.mem_cons_of_mem _ hg')
+  let acc₀ : List Stat × List Gate := (aliasStats (n + pre.length) j, pre)
+  let acc := elim n post acc₀
+  have hinv : ∀ x : Fin n → Bool, Inv n (List.ofFn x) (C.wires (List.ofFn x)) acc := by
+    intro x
+    change Inv n (List.ofFn x) (wiresFrom C.gates (List.ofFn x)) acc
+    rw [hgs, wiresFrom_append]
+    exact inv_elim n (List.ofFn x) (by simp) post _ acc₀ hokpost
+      (inv_alias n pre (List.ofFn x) (by simp) j hj _ (halias x))
+  have hval : ∀ x : Fin n → Bool,
+      (acc.1.getD C.output (Sum.inl false)).val (wiresFrom acc.2 (List.ofFn x)) =
+        C.eval (List.ofFn x) := by
+    intro x
+    exact ((hinv x).2 C.output).2
+  cases hst : acc.1.getD C.output (Sum.inl false) with
+  | inl c =>
+    exfalso
+    obtain ⟨x, y, hxy⟩ := hnc
+    apply hxy
+    rw [← hval x, ← hval y, hst]
+    rfl
+  | inr k =>
+    refine ⟨⟨acc.2, k⟩, ?_, ?_, ?_⟩
+    · exact elim_ok n post acc₀ hokpre
+    · have hlen : acc.2.length ≤ pre.length + post.length := elim_len n post acc₀
+      have hsize : C.size = pre.length + (post.length + 1) := by
+        simp [Circuit.size, hgs, Nat.add_assoc]
+      change acc.2.length + 1 ≤ C.size
+      omega
+    · intro x
+      have h := hval x
+      rw [hst] at h
+      exact h
+
+lemma duplicate_gate_value (g : Gate) (mid : List Gate) (w : List Bool)
+    (hbound : ∀ i ∈ g.inputs, i < w.length) :
+    g.op.eval (g.inputs.map fun i => (wiresFrom (g :: mid) w).getD i false) =
+      (wiresFrom (g :: mid) w).getD w.length false := by
+  have hin : (g.inputs.map fun i => (wiresFrom (g :: mid) w).getD i false) =
+      g.inputs.map fun i => w.getD i false := by
+    apply List.map_congr_left
+    intro i hi
+    exact getD_wiresFrom _ _ _ (hbound i hi)
+  rw [hin]
+  change _ = (wiresFrom mid (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])).getD
+    w.length false
+  rw [getD_wiresFrom _ _ _ (by simp)]
+  simp
+
+lemma remove_duplicate_gate (n : ℕ) (C : Circuit) (pre mid post : List Gate) (g : Gate)
+    (hgs : C.gates = pre ++ g :: mid ++ g :: post) (hC : FanInTwo C)
+    (hbound : ∀ i ∈ g.inputs, i < n + pre.length)
+    (hnc : ∃ x y : Fin n → Bool, C.eval (List.ofFn x) ≠ C.eval (List.ofFn y)) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + 1 ≤ C.size ∧
+      ∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x) := by
+  apply remove_semantic_alias n C (pre ++ g :: mid) post g (n + pre.length)
+    (by simpa [List.append_assoc] using hgs) hC (by simp) ?_ hnc
+  intro x
+  rw [wiresFrom_append]
+  have hw : (wiresFrom pre (List.ofFn x)).length = n + pre.length := by
+    simp [length_wiresFrom]
+  simpa only [hw] using duplicate_gate_value g mid (wiresFrom pre (List.ofFn x))
+    (by intro i hi; simpa only [hw] using hbound i hi)
+
 end PEqualNP.Outside.L_meta_3821
