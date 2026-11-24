@@ -67,4 +67,13 @@ Complete successful compile logs and diagnostic evidence accompany the source.
 This second witness is an artifact; named file remains705 lines and unchanged.
 Neither65-gate witness proves or refutes the assigned64-gate statement.
 
-TIMING total=82.2 subagents=9
+
+Algebraic research archive frozen and independently reviewed PASS:727 hashed
+artifacts plus embedded manifest,66 completed main runs,15,088,673 rewrite
+attempts. All300 candidate circuits were checked against their applicable
+critical inputs and direct derivative conditions. No target-budget witness.
+Interrupted work is explicitly UNKNOWN and excluded from completed totals;
+finite local censuses are separate from nonexhaustive heuristic searches.
+Archive SHA256ea36c3063b19098cee0cb103f0ad90530b7deea9e33e266938f04eb589edb586.
+
+TIMING total=84.2 subagents=9

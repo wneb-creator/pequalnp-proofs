@@ -1,0 +1,13 @@
+{
+  "archive": "/tmp/oec/pequalnp-pilot-20/algebraic-research-final.zip",
+  "bytes": 537352,
+  "sha256": "ea36c3063b19098cee0cb103f0ad90530b7deea9e33e266938f04eb589edb586",
+  "manifest": "/tmp/oec/pequalnp-pilot-20/algebraic-research.manifest.json",
+  "manifest_sha256": "d889cf982d6d4963544c491f76f20678d6db696d89700a4f38f3602bdd0582ec",
+  "manifest_files": 727,
+  "archive_files": 728,
+  "source_data_log_bytes": 2012035,
+  "main_completed_runs": 66,
+  "main_beam_attempts": 15088673,
+  "result": "No at-most64-gate global counterexample found; verified boundary constructions use65 gates."
+}

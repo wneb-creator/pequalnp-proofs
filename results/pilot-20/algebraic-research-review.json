@@ -1,0 +1,28 @@
+{
+  "verdict": "PASS: independent research-archive review",
+  "reviewed_utc": "2026-11-24T01:49:09.895305+00:00",
+  "archive_sha256": "ea36c3063b19098cee0cb103f0ad90530b7deea9e33e266938f04eb589edb586",
+  "manifest_sha256": "d889cf982d6d4963544c491f76f20678d6db696d89700a4f38f3602bdd0582ec",
+  "archive_entries": 728,
+  "hashed_entries": 727,
+  "completed_main_runs": 66,
+  "main_beam_attempts": 15088673,
+  "candidate_files_independently_validated": 300,
+  "candidate_failures": [],
+  "target_budget_witnesses": [],
+  "checks": [
+    "ZIP and manifest byte-identical to frozen reviewed tree; source hashes and aggregate counts match",
+    "All300 candidate netlists legal and correct on complete applicable critical tests; direct formal derivative recurrences and stored counts match",
+    "All66 successful main-run summaries match final full stdout records; all stderr files empty",
+    "Interrupted221576-last-observed-attempt partial retains UNKNOWN exit status and is excluded from main totals",
+    "All2366 point subsets independently reclassified into9 exact incidence types",
+    "Exact compressed-core loop coverage, depth counts, histogram totals and all4 representative circuits checked independently",
+    "Global64ordinary/no-bad,65boundary,66unsafe-boundary and68CNF-boundary fixtures independently distinguished and checked",
+    "All archived files UTF8 text without NUL; no credential signatures, CNFs or symlinks found"
+  ],
+  "scope_limit": "This archive provides bounded research and boundary examples. It is not a Lean proof, refutation, or checker acceptance of L-meta-1482. Six-core positive witnesses expand to65global gates; no\u226464global counterexample was found.",
+  "resolved_findings": [
+    "Added exact provenance for two one-off main-run invocations and clarified reproduction instructions."
+  ],
+  "unresolved_findings": []
+}
