@@ -323,4 +323,150 @@ lemma cp_petersen_noCompressionAtZero (U : (Fin 10 → Bool) → Bool)
     (hsingle b) ((hpair b q).trans hbq1)
 
 
+
+def maskRow (n : ℕ) (i : Fin 10) : Bool := n.testBit i.val
+
+def maximalMasks : List ℕ :=
+  [50,69,104,116,138,201,208,276,385,402,521,548,554,770,773]
+
+lemma maximal_masks_negative : ∀ n ∈ maximalMasks, edgeFn (maskRow n) = false := by
+  decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 20000000 in
+lemma independent_below_maximal : ∀ x : Fin 10 → Bool, edgeFn x = false →
+    ∃ n ∈ maximalMasks, ∀ i, x i = true → maskRow n i = true := by
+  decide +kernel
+
+def BooleanMonotone (U : (Fin 10 → Bool) → Bool) : Prop :=
+  ∀ x y, (∀ i, x i = true → y i = true) → U x = true → U y = true
+
+lemma monotone_thirty_rows (U : (Fin 10 → Bool) → Bool) (hm : BooleanMonotone U)
+    (negative : ∀ n ∈ maximalMasks, U (maskRow n) = false)
+    (positive : ∀ e ∈ edges, U (pair e.1 e.2) = true) :
+    ∀ x, U x = edgeFn x := by
+  intro x
+  cases hx : edgeFn x with
+  | false =>
+    obtain ⟨n, hn, hxn⟩ := independent_below_maximal x hx
+    cases hu : U x with
+    | false => rfl
+    | true =>
+      have hh := hm x (maskRow n) hxn hu
+      rw [negative n hn] at hh
+      contradiction
+  | true =>
+    obtain ⟨e, he, hi, hj⟩ := (edgeFn_true x).mp hx
+    apply hm (pair e.1 e.2) x _ (positive e he)
+    intro i hpair
+    simp only [pair, decide_eq_true_eq] at hpair
+    rcases hpair with rfl | rfl
+    · exact hi
+    · exact hj
+
+
+
+def orbitTable (i j : Fin 10) : Fin 10 :=
+  (([[0,1,2,3,4,5,6,7,8,9],
+    [1,0,5,8,6,2,4,7,3,9],
+    [2,1,0,5,7,3,6,4,8,9],
+    [3,2,1,0,4,8,7,6,5,9],
+    [0,1,2,3,4,5,6,7,8,9],
+    [5,8,3,2,7,0,6,4,1,9],
+    [1,0,5,8,6,2,4,7,3,9],
+    [2,1,0,5,7,3,6,4,8,9],
+    [8,3,2,1,6,5,4,7,0,9],
+    [0,1,2,3,4,5,6,7,8,9]] : List (List (Fin 10))).getD i []).getD j 0
+
+lemma orbit_involutive : ∀ i, Function.Involutive (orbitTable i) := by
+  unfold Function.Involutive
+  decide
+
+lemma orbit_fixes_last : ∀ i, orbitTable i 9 = 9 := by decide
+
+lemma orbit_target : ∀ i : Fin 10, i ≠ 9 →
+    orbitTable i i = if edgeFn (pair 9 i) then 4 else 0 := by decide
+
+lemma orbit_edges : ∀ i e, e ∈ edges →
+    (orbitTable i e.1, orbitTable i e.2) ∈ edges ∨
+    (orbitTable i e.2, orbitTable i e.1) ∈ edges := by decide
+
+def orbitSymmetry (i : Fin 10) : Equiv.Perm (Fin 10) :=
+  ⟨orbitTable i, orbitTable i, orbit_involutive i, orbit_involutive i⟩
+
+lemma orbit_preserves (i : Fin 10) (x : Fin 10 → Bool) :
+    edgeFn (x ∘ orbitSymmetry i) = edgeFn x := by
+  apply Bool.eq_iff_iff.mpr
+  rw [edgeFn_true, edgeFn_true]
+  constructor
+  · rintro ⟨e, he, hx, hy⟩
+    rcases orbit_edges i e he with hforward | hreverse
+    · exact ⟨_, hforward, hx, hy⟩
+    · exact ⟨_, hreverse, hy, hx⟩
+  · rintro ⟨e, he, hx, hy⟩
+    rcases orbit_edges i e he with hforward | hreverse
+    · refine ⟨_, hforward, ?_, ?_⟩
+      · change x (orbitTable i (orbitTable i e.1)) = true
+        rw [orbit_involutive]
+        exact hx
+      · change x (orbitTable i (orbitTable i e.2)) = true
+        rw [orbit_involutive]
+        exact hy
+    · refine ⟨_, hreverse, ?_, ?_⟩
+      · change x (orbitTable i (orbitTable i e.2)) = true
+        rw [orbit_involutive]
+        exact hy
+      · change x (orbitTable i (orbitTable i e.1)) = true
+        rw [orbit_involutive]
+        exact hx
+
+lemma orbit_first_symmetry_edge : ∀ p q : Fin 10,
+    edgeFn (pair 9 (symmetryTable p q)) = edgeFn (pair p q) := by decide
+
+def pairSymmetry (p q : Fin 10) : Equiv.Perm (Fin 10) :=
+  (symmetry p).trans (orbitSymmetry (symmetry p q))
+
+lemma pairSymmetry_preserves (p q : Fin 10) (x : Fin 10 → Bool) :
+    edgeFn (x ∘ pairSymmetry p q) = edgeFn x := by
+  change edgeFn ((x ∘ orbitSymmetry (symmetry p q)) ∘ symmetry p) = edgeFn x
+  rw [symmetry_preserves, orbit_preserves]
+
+lemma pairSymmetry_first (p q : Fin 10) : pairSymmetry p q p = 9 := by
+  change orbitTable (symmetry p q) (symmetryTable p p) = 9
+  rw [symmetry_last, orbit_fixes_last]
+
+lemma pairSymmetry_second (p q : Fin 10) (hpq : p ≠ q) :
+    pairSymmetry p q q = if edgeFn (pair p q) then 4 else 0 := by
+  have hq : symmetry p q ≠ 9 := by
+    intro h
+    have heq : symmetry p q = symmetry p p := h.trans (symmetry_last p).symm
+    exact hpq ((symmetry p).injective heq).symm
+  change orbitTable (symmetry p q) (symmetry p q) = _
+  rw [orbit_target _ hq]
+  change (if edgeFn (pair 9 (symmetryTable p q)) then 4 else 0) = _
+  rw [orbit_first_symmetry_edge]
+
+lemma automorphism_ordered_pair (p q : Fin 10) (hpq : p ≠ q) :
+    ∃ s : Equiv.Perm (Fin 10),
+      (∀ x : Fin 10 → Bool, edgeFn (x ∘ s) = edgeFn x) ∧
+      s p = 9 ∧ s q = if edgeFn (pair p q) then 4 else 0 := by
+  exact ⟨pairSymmetry p q, pairSymmetry_preserves p q,
+    pairSymmetry_first p q, pairSymmetry_second p q hpq⟩
+
+lemma automorphism_ordered_pair_adjacent (p q : Fin 10) (hpq : p ≠ q) :
+    ∃ s : Equiv.Perm (Fin 10),
+      (∀ x : Fin 10 → Bool, edgeFn (x ∘ s) = edgeFn x) ∧
+      s p = 9 ∧ (Adj p q → s q = 4) ∧ (¬ Adj p q → s q = 0) := by
+  obtain ⟨s, hs, hp, hq⟩ := automorphism_ordered_pair p q hpq
+  refine ⟨s, hs, hp, ?_, ?_⟩
+  · intro hadj
+    simpa [(pair_edge p q).mpr hadj] using hq
+  · intro hnadj
+    have hoff : edgeFn (pair p q) = false := by
+      cases h : edgeFn (pair p q)
+      · rfl
+      · exact False.elim (hnadj ((pair_edge p q).mp h))
+    simpa [hoff] using hq
+
+
 end PEqualNP.Outside.L_meta_3821_aux
