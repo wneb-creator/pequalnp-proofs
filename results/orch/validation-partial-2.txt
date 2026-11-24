@@ -1,0 +1,7 @@
+L-meta-3821 partial result only; main theorem unproved.
+Command: lake env lean ../results/orch/lemmas/OutputBounds.lean
+Exit: 0
+Independent source review: root read entire file and checked output hypotheses, fold invariants, and forbidden constructs. PASS.
+Line count: 97
+
+Complete build stdout/stderr:
