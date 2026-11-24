@@ -88,4 +88,29 @@ lemma compress (φ : Finset α → Finset β)
       · simp only [List.length_cons, projectedCost, ite_eq_right hnew]
         omega
 
+lemma fresh_atom_redundant (φ : Finset α → Finset β)
+    (hunion : ∀ A B, φ (A ∪ B) = φ A ∪ φ B)
+    (initial xs : List (Finset α)) (hprog : UnionProgram initial xs)
+    (i : ℕ) (hi : i < xs.length) (p : α) (hp : p ∈ xs.getD i ∅)
+    (hprior : ∀ A ∈ xs.take i, p ∉ A)
+    (hinit : ∀ A ∈ initial, p ∈ A → φ A = ∅) :
+    φ (xs.getD i ∅) ∈ (initial ++ xs.take i).map φ := by
+  obtain ⟨A, hA, B, hB, hs⟩ := hprog i hi
+  have hp' : p ∈ A ∪ B := hs ▸ hp
+  rcases Finset.mem_union.mp hp' with hpA | hpB
+  · have hzero : φ A = ∅ := by
+      rcases List.mem_append.mp hA with hA | hA
+      · exact hinit A hA hpA
+      · exact False.elim (hprior A hA hpA)
+    have heq : φ (xs.getD i ∅) = φ B := by rw [hs, hunion, hzero, Finset.empty_union]
+    rw [heq]
+    exact List.mem_map.mpr ⟨B, hB, rfl⟩
+  · have hzero : φ B = ∅ := by
+      rcases List.mem_append.mp hB with hB | hB
+      · exact hinit B hB hpB
+      · exact False.elim (hprior B hB hpB)
+    have heq : φ (xs.getD i ∅) = φ A := by rw [hs, hunion, hzero, Finset.union_empty]
+    rw [heq]
+    exact List.mem_map.mpr ⟨A, hA, rfl⟩
+
 end PEqualNP.Outside.L_meta_3678.PrivateUnion
