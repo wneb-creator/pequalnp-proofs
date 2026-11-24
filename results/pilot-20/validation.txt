@@ -1,19 +1,14 @@
-Gap: L-meta-1430
-Result: exact posted statement refuted; final named theorem proves its literal negation.
-Final file: lean/PEqualNP/Outside/L_meta_1430.lean
-Named-file lake build: PASS (exit 0); Build completed successfully (18395 jobs).
-Exact-statement local checker: ACCEPTED (refute), exit 0; stderr empty.
-Allowed axioms: propext, Quot.sound, Classical.choice. Kernel re-checked 1524 constants.
+Gap: L-meta-1544
+Result: full exact posted theorem compiled; local exact-statement checker pending.
+Final file: lean/PEqualNP/Outside/L_meta_1544.lean
+Named-file lake build: PASS; Build completed successfully (18395 jobs), stderr empty.
 Format/import guard: PASS; Mathlib and PEqualNP.Defs only.
-Independent source, red-team, and final artifact review: PASS.
-Lines before cleanup: 753
-Lines after cleanup: 752
-Cleanup: replace two introductory proof lines with apply not_not_intro; all certificates and the theorem type unchanged. Both build and checker passed again within the 10-minute cleanup cap.
-Original accepted source: refutation-original.lean.txt; original logs: build.stdout and checker.stdout.
-Final accepted source: refutation.lean.txt; final logs: cleanup-build.stdout and cleanup-checker.stdout.
-Source provenance: existing checked L_meta_1429 proof, copied self-contained with renamed helper namespace and exact double-negation wrapper.
-PR status: none for1430. Current PR workflows require positive proof mode. The current join instructions direct false gaps to their negated twins; L-meta-1429 is already checked. This local refutation acceptance does not assert a new site verdict.
-Lease: final renewal confirmed at02:23:58UTC, expiry02:43:58.825UTC; release pending for only our1430 lease with statement_seems_false.
-Sub-agents: lease_keeper, counterexample_search, structural_proof, lemma_search, review_rules, lean_setup, and independent child reviewers (10 total across job).
-TIMING total=118 subagents=10
-Final source SHA256: a0d9f161cb601bdea37e906864cbdab50a9cc3efdccd5a25e15304efd4025753
+Independent source/red-team review: PASS; exact statement, generic circuit semantics, arbitrary-plane geometry, and charging counts checked.
+Source provenance: generic helpers and charging proof adapted from checked L-meta-1516; fixed q=3,N=13 geometry replaced by a separately Lean-checked argument for arbitrary q>=2,N=q^2+q+1.
+First build failed only because Circuit/GateOp were not opened after helper namespace; complete diagnostics preserved. Added the permitted namespace open and rebuilt successfully.
+Lines before cleanup: 578
+Lines after cleanup: pending
+PR: none yet; exact checker and capped cleanup still required.
+Sub-agents: lease_keeper, counterexample_search, lemma_search, review_rules, prior proof/setup agents and independent child reviewers (10 total across job).
+TIMING total=126 subagents=10
+Source SHA256: fbd9220b2f26de8233bb9acab6f11f94ed49ec516b9e6d0b964c987b0076dfc6

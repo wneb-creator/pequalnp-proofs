@@ -1,0 +1,45 @@
+{
+  "verdict": "PASS for source/red-team review; preservation push after root confirms successful compilation of this exact source",
+  "reviewer": "/root/review_rules",
+  "file": "lean/PEqualNP/Outside/L_meta_1544.lean",
+  "sha256": "fbd9220b2f26de8233bb9acab6f11f94ed49ec516b9e6d0b964c987b0076dfc6",
+  "lines": 578,
+  "bytes": 27904,
+  "statement_sha256": "53014483c504e649b710144cf9ce7440fb7d747792bdc431edb78492e44faa77",
+  "exact_posted_theorem_type": true,
+  "provenance": {
+    "copied_source": "lean/PEqualNP/Outside/L_meta_1516.lean",
+    "copied_source_sha256": "b042d21b2e90fe7c036643329e0556f70c7ae8b201f34bcf64f93865ddc3636f",
+    "generic_helper_comparison": "All generic helper statements and proofs from wf through val_mono are unchanged modulo theorem-to-lemma spelling and whitespace.",
+    "geometry_comparison": "General geometry proof exactly matches the previously compiled and independently reviewed59-line partial.",
+    "generalization": "Fixed13-point/line and3-cost constants replaced by arbitraryN/L/q with explicit stated geometric hypotheses; no fixed-plane numeric tokens remain."
+  },
+  "mathematical_review": [
+    "Geometry derives thin intersections, nonempty differences, and a line through each point with nonempty difference from any fixed line, using only posted card/intersection/pair hypotheses.",
+    "Colour-merging lemma charges at most one merge per eligible binary OR gate. Existing semantics explicitly preserve default-false invalid/forward reads, zero/unary gates, and arbitrary outputs.",
+    "Each selected line has at leastq paying OR gates by row_bound and line cardinalityq+1.",
+    "Thin intersections plus monotonicity force a forbidden mutual B-intersection if two selected lines share a paying gate; separation hypothesis therefore makes paying sets disjoint.",
+    "Paying OR gates are disjoint from designated AND setI, yielding paid.card+I.card<=gate count.",
+    "All output indices are valid internal gates: geometry rules out input outputs, while the upward domain includes all-true and line nonemptiness rules out out-of-range outputs.",
+    "Distinct complement tests make output indices injective; unselected-line outputs avoid the paying union, yielding paid.card+(N-Lam.card)<=gate count.",
+    "Combining both resource bounds and paid.card>=q*Lam.card gives exactly the posted maximum bound. No extra geometry or circuit-wellformedness assumption was introduced."
+  ],
+  "format_guard": "PASS: node .github/scripts/outside-guard.mjs imports target imports.json target",
+  "imports": [
+    "Mathlib",
+    "PEqualNP.Defs"
+  ],
+  "namespace": "All helpers in PEqualNP.Outside.L_meta_1544; fully qualified main theorem top-level and last. The top-level open additionally names PEqualNP.CircuitLowerBounds to resolve Circuit/GateOp abbreviations in the final proof.",
+  "regular_nonexecutable_utf8_under512KiB": true,
+  "forbidden_constructs_or_new_axioms": false,
+  "credential_signatures": 0,
+  "whitespace_check": "PASS",
+  "lean_execution": "No Lean run by this reviewer; author/root owns current build and checker.",
+  "unresolved_findings": [],
+  "followup_review": {
+    "previous_sha256": "5aac64d489c058dac3068f2245da2dbcce34098fff971947f7a5afbd508abb73",
+    "exact_only_change": "Top-level open line extends to PEqualNP.Outside.L_meta_1544 PEqualNP.CircuitLowerBounds.",
+    "effect": "Permitted name-resolution fix only; all declarations, theorem type, proofs and dependencies otherwise byte-identical. No new import, notation, instance or assumption.",
+    "verdict": "PASS; author rebuild pending."
+  }
+}
