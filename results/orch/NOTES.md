@@ -103,3 +103,13 @@ GO for pending checkpoint of `5439dbcaa6f90064037f257c999c1cb3cc19233ab9dd2deddf
 
 ## Re-plan at30minutes
 The full library-type certificate is the primary route. Structural-only bounds do not close the16gategoal; counterexample searches timed out without a witness or exhaustion. Baseline fullbuild was interrupted by the environment restart after about19minutes, with memory spikes above10GB. Reviewed partition proofs now bound each closed audit to8nodes; all certificate data and the posted statement remain unchanged. Toolchain/cache survived; restarting named build on the partitioned version.
+
+## sibling_proof — 2026-11-24T23:58:12.130611+00:00 — runtime audit
+
+Read-only audit found no convincing speed improvement in datatype conversions or packed-data readers. Balanced IndexTree lookup remains logarithmic and is used by the smaller signed-search tail; the dominant rank path reads only stateSet/readNode, whose unwanted Decor sample fields stay lazy. Forest projection chains are bounded by eight product projections. packedAt/lookupWord already use primitive Nat arithmetic and bitwise operations. A direct Huffman-to-Rule decoder could remove packing/unpacking, but tag lengths are modest and the correctness changes are unlikely justified without profiling. Recommendation: retain current core, focus effort on forced/mask/checksRule and memory-bounded certificate batches. No benchmark or final-file change performed.
+
+## checker_review — 2026-11-24T23:58:41.530833+00:00 — specialized mask helper
+
+MaskSpecialized.lean independently compiled under pinned Lean4.36.0, exit0. Hash `079a47990adde8d200fa2c2ca2e847d8b26117214bf4e3ca9fa6147f93f89210` (1695bytes). Specialized up/down/exact recursion selected once by mono/desired; mask_nil and mask_cons prove original equations. Only exponentiation-threshold warning. No proof holes, axioms, prohibited shortcuts or credentials. GO for partial artifact push; not yet a full-candidate change.
+
+Authoritative workflow enforces1200s TOTAL for our no-Outside-import proof: cold proof build plus serial kernel replay. Trusted Defs/Mathlib/verifier build precedes timer. Default2cores/3Leanthreads. Lean4.36 Replay.lean checks declarations serially using addDeclCore, so replay cannot benefit from compiler task parallelism.

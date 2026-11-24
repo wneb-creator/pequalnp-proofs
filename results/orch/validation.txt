@@ -7,3 +7,4 @@ Core2194-line prefix: Lean exit0. Grouping/Rule487-line extraction: Lean exit0. 
 Full lower-bound certificate remains pending.
 AuditParts generic partition helper: Lean exit0; independent recompile/review: PASS. Optimized full certificate remains pending.
 Baseline full build: INTERRUPTED by execution-environment restart at about19minutes; no olean and no complete verdict. Partitioned candidate5439dbcaa6f90064037f257c999c1cb3cc19233ab9dd2deddf75d6821ec08f54: independent source/guard review PASS; full build pending.
+Specialized mask equations: Lean exit0; independent review/recompile PASS. Full theorem remains pending.
