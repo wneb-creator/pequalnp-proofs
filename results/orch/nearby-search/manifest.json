@@ -1,0 +1,55 @@
+{
+  "frozen_at": "2026-11-24T08:50:52.733290+00:00",
+  "no_repaired_witness": true,
+  "invalid_seed_files": [
+    "near-3-7.json",
+    "near-3-10.json"
+  ],
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "a46d57def8bbf960401c945ca47a538eb75825773bb9faa2f4d8056e3d1a8d40",
+      "bytes": 2090
+    },
+    {
+      "file": "Search.py",
+      "sha256": "f7f740c1bcd1626062013c6d5a582375ec1b4915cf04ecf8db28a15dad32c2f7",
+      "bytes": 9686
+    },
+    {
+      "file": "SearchDecode.py",
+      "sha256": "ff8014645d78a88662f0f29bb49a8dfa572bc179454d131fd6b0f8d6b0a280b9",
+      "bytes": 3018
+    },
+    {
+      "file": "SearchNearby.py",
+      "sha256": "85968fa00ad5e45ebd7981dec901a1bf320c4b2519eaaaa7e533e083000abdb6",
+      "bytes": 4775
+    },
+    {
+      "file": "near-3-10.json",
+      "sha256": "7517c06a013efbccc9ba34b106185d0ad9ff4465e045169a8c36072ef1217aba",
+      "bytes": 2974
+    },
+    {
+      "file": "near-3-7.json",
+      "sha256": "896a49b60ce70b5a0f40037999421cf34174cc73a073ed49401b79d625a69acf",
+      "bytes": 2974
+    },
+    {
+      "file": "search-nearby-calibration.log",
+      "sha256": "cfa479e586063522a5e013f56556bfe78eb77e9f49bee75d632fa841594ec319",
+      "bytes": 738
+    },
+    {
+      "file": "search-nearby-selftest.log",
+      "sha256": "a5c4047f2991a74ee4b2ef9373dc1a110b1449a9f62745da61974d2056c6b254",
+      "bytes": 77
+    },
+    {
+      "file": "statement.txt",
+      "sha256": "d962214a09d1adf8b5837468e4d94e19c895b742875d55870d08ebcd0fe6fda0",
+      "bytes": 1260
+    }
+  ]
+}

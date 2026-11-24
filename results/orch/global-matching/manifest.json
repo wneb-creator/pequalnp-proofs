@@ -1,0 +1,46 @@
+{
+  "frozen_at": "2026-11-24T08:56:57.405954+00:00",
+  "no_smaller_witness": true,
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "deb5b52e9f0769f38c30c5b24cc74eb849331f49cf2bc8581fecab5b58d0befe",
+      "bytes": 1813
+    },
+    {
+      "file": "SearchPlaneProblem.json",
+      "sha256": "f13c8c17d8d2e3842d6a2a9ac736b17c7bf831d801a54ca07345907352ae1017",
+      "bytes": 358849
+    },
+    {
+      "file": "SearchPlaneProblem.py",
+      "sha256": "9c9369995311971fef919af1a75364f091b9b6b77552c2e66bef85648e83f865",
+      "bytes": 693
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticPlaneMatching.py",
+      "sha256": "aa63e7465f5f155bdafd330b268d61af80583d563c34c66926a9565623a39e0c",
+      "bytes": 16663
+    },
+    {
+      "file": "matching-baseline131.json",
+      "sha256": "91756831d5de9694a7aed60d9a135703ee3645a5b6058fb29f9784a56b00e19b",
+      "bytes": 13622
+    },
+    {
+      "file": "review-plane-matching-status-audit-002.log",
+      "sha256": "1079234bddcec9e249646b80a8d462bed69e3f240469f845de787f0d060a94ce",
+      "bytes": 231
+    },
+    {
+      "file": "search-plane-matching-calibration.log",
+      "sha256": "a85d06515b35353f96c3b1243fdfd5a160853597d75fc840bf5f762935b91aa5",
+      "bytes": 661
+    }
+  ]
+}

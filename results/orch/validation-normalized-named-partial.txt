@@ -1,0 +1,20 @@
+2026-11-24T09:03:47.391911+00:00
+L-meta-1477 remains UNPROVED. This is the strongest checked partial, not the posted theorem or a refutation.
+Named module now starts from the exact posted Monotone2,size<=124,and105-edge semantics and constructs least-AO TopForm D with D.size<=C.size and at least2 dirty ANDs. Complete zero/one-dirty classification and cost-preserving normalization are checked.
+lake build PEqualNP.Outside.L_meta_1477 EXIT0: Build completed successfully (18407 jobs). Full stdout/stderr named-partial-build-002.log,636lines with deprecation/import warnings. Exact-statement checker has not accepted: final required theorem intentionally absent.
+Named source470431bytes,10143lines,under512KiB. Previous named partial1165lines; expansion is stronger partial integration, not cleanup. No final cleanup pass yet.
+Search matching131 is only a valid warm-start component; nearby seeds are explicitly invalid. No <=124 witness found.
+PlaneNormalized: independent source/math/format review PASS, author build exit0; 10143lines,SHA256f408091252e506221d0925b5e467731ddaa33f05c40ab20a3bc60931a85e9518; full log plane-normalized-build-002.log.
+NormalizationChecked: independent source/math/format review PASS, author build exit0; 1465lines,SHA2560e346c255d68a67d72d98eec3fcaa76375197151d526dd7f0c5c846cf05f017c; full log normalization-build-002.log.
+MixedShared: independent source/math/format review PASS, author build exit0; 71lines,SHA25621b897f4a862341a1402281581a813cbb4e0af7782aed6796309903fb36e2640; full log mixed-shared-build-002.log.
+PrivateEdgeBlock: independent source/math/format review PASS, author build exit0; 555lines,SHA25641413afd3d9a7bc453cbc3d9878b8e2e4b400381edfc15f81af6d0e7790103a0; full log private-edge-block-build-001.log.
+PrivateConeBudget: independent source/math/format review PASS, author build exit0; 94lines,SHA25630101ee047caf016b189fe04cca4290a821f1192db6d006eac3b0265a88124d1; full log private-cone-budget-build-001.log.
+QuadraticProjection: independent source/math/format review PASS, author build exit0; 671lines,SHA256014efacb6ccc63bdcbee4b0c47566a86f2be5bbfaf73869ab3af4890ebbec429; full log quadratic-projection-build-002.log.
+TwoJunkBudget: independent source/math/format review PASS, author build exit0; 397lines,SHA25661b6af6422ca18d6bdaa6b88947444813cc08627b26cb605af2f6d00b78ef85b; full log two-junk-budget-build-002.log.
+TwoJunkPairCover: independent source/math/format review PASS, author build exit0; 261lines,SHA256c5d67cd3b13fcec1a5981878d5d3f60f81ac6082bf88c480d2f025af878d4b0f; full log two-junk-pair-cover-build-001.log.
+StarDecomposition: independent source/math/format review PASS, author build exit0; 128lines,SHA256ccf41854067beef1175cb3bdeefad13b44f261af4f0d44f08f371ca291887c32; full log star-decomposition-build-002.log.
+ClauseCycleBudget: independent source/math/format review PASS, author build exit0; 170lines,SHA256d0216121b9e1e8351b24e517b4296fd8a458265e4b5c31e235bf607d4f7028d0; full log clause-cycle-build-002.log.
+SearchTwoDirtyMatching: independent source/math/format review PASS, author build exit0; 50lines,SHA256407ef56584c6af2386f8f62d69d0d97d2aa95637d76dea68dd151ddbdfede013; full log search-two-dirty-matching-build.log.
+PairCleanBridge: independent source/math/format review PASS, author build exit0; 3771lines,SHA25693fa925e21d414b434612409814f7be33aab29be276b05c2d920fd02c057a841; full log pair-clean-bridge-build-001.log.
+Sub-agents: status_audit, lean_setup, structural_lower_bound, counterexample_search, gate_invariants, normal_form
+TIMING total=175.3 subagents=6

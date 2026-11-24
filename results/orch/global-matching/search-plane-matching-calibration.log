@@ -1,0 +1,9 @@
+PASS matching_start 1 linear 4 helpers 8 mixed 2 gates 131 dirty_ands 2
+PASS matching_start 2 linear 4 helpers 4 mixed 4 gates 131 dirty_ands 2
+PASS matching_start 3 linear 4 helpers 4 mixed 1 gates 131 dirty_ands 2
+PASS matching_start 4 linear 2 helpers 8 mixed 8 gates 131 dirty_ands 2
+PASS matching_start 5 linear 4 helpers 4 mixed 1 gates 131 dirty_ands 2
+PASS matching_start 6 linear 4 helpers 8 mixed 4 gates 131 dirty_ands 2
+PASS matching_start 7 linear 1 helpers 4 mixed 4 gates 131 dirty_ands 2
+PASS matching_start 8 linear 2 helpers 8 mixed 2 gates 131 dirty_ands 2
+PASS all8matching warmstarts on25342scalarassignments, exactly131gates and2dirtyANDs

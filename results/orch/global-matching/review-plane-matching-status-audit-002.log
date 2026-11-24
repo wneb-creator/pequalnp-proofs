@@ -1,0 +1,3 @@
+PASS 160 random baselines: topology, exact emitted gate count, complete 25342-test semantics; matching warm starts 43
+PASS matching identity all16 assignments
+SHA256 aa63e7465f5f155bdafd330b268d61af80583d563c34c66926a9565623a39e0c

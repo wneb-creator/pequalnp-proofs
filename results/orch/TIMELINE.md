@@ -101,3 +101,21 @@
 2026-11-24T08:48:41.587296+00:00 normal_form MILESTONE: PlaneOneJunkFull.lean build002 EXIT0. Complete one-junk lower bound125; short leastAO TopForm plane circuits require at least two junk ANDs. Frozen8654lines; status_audit reviewed final namespace PASS before successful build. Full posted unrestricted bound remains open.
 
 - 2026-11-24 08:51:07 UTC: lean_setup completed source/math/format reviews of scoped DNF baseline derivative and complete one-junk plane integration, both PASS.
+
+2026-11-24 08:52:18 UTC gate_invariants: four-clause two-junk private replacement numerical budget compiled (TwoJunkBudget).
+
+- 2026-11-24 08:52:58 UTC: lean_setup completed four multiple-junk source/math/format reviews, all PASS; author builds accepted without redundant rebuild.
+
+- 2026-11-24 08:56:26 UTC — NormalizationChecked compiled; arbitrary-input two-junk bridge assembling within the single-file size cap.
+
+- 2026-11-24T08:57:17.918697+00:00 counterexample_search: two-dirtymatching Leancomponentcompiled/reviewed; valid131matching warmstart packagefrozen; nearbySATrepaircalibrated/reviewed; no124witness.
+
+- 2026-11-24T08:57:49.439945+00:00 structural_lower_bound: singleton-overlap normalization independently rebuilt PASS; general clause-signature antichain and sparse-family edge budget compiled and independently reviewed PASS.
+
+- 2026-11-24 08:58:59 UTC — Arbitrary-input two-junk reduction compiled and frozen as PlaneNormalized.lean; independent review requested before early push.
+
+- 2026-11-24 09:00:39 UTC: lean_setup source/math/provenance/format reviews PASS for normalization-only slice and full arbitrary-input two-junk partial.
+
+- 2026-11-24 09:01:22 UTC: lean_setup completed first-dirty/pair-clean equivalence source/math/format review PASS.
+
+2026-11-24T09:03:13.771027+00:00 normal_form: PrivateBlock, PrivateStars, PrivateStarBlock, PrivateEdgeBlock, PrivateConeBudget, QuadraticProjection all compiled and independently source-reviewed. These provide arbitrary private-DAG deletion, exact star module cost, oriented edge-cover realization, shared binary-cone support bound, and semantic quadratic projection. PrivateGraphReplacement actual Circuit adapter build002 after fixing three gateAt/getD simplifications. Structural owns actual two-pure-OR-root cone-credit bridge; gate_invariants owns four-clause semantic budget and stronger ambient-clean cover<=2.
