@@ -1,0 +1,51 @@
+{
+  "frozen_at": "2026-11-24T09:02:23.454372+00:00",
+  "no_smaller_witness": true,
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 2044,
+      "sha256": "80e86b4681d711e924e0f33d500bc0e8b31d54b9d72b59397cbaeca28eb8e894"
+    },
+    {
+      "file": "SearchAlternative6Problem.json",
+      "bytes": 2275,
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1"
+    },
+    {
+      "file": "SearchAlternative6Problem.py",
+      "bytes": 925,
+      "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121"
+    },
+    {
+      "file": "SearchReduce.py",
+      "bytes": 2888,
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef"
+    },
+    {
+      "file": "SearchStochasticAlternative6Matching.py",
+      "bytes": 15740,
+      "sha256": "898ea41edbff59919727b0e8c6d285ac5bfdc2400ae488f9782703f49bbbd420"
+    },
+    {
+      "file": "SearchStochasticAlternative6MatchingNear.py",
+      "bytes": 18027,
+      "sha256": "db4c3533810932aa406876d9163d5f74fb311b977a48cebb28d47aad386f5fc2"
+    },
+    {
+      "file": "alternative6-matching-baseline35.json",
+      "bytes": 3520,
+      "sha256": "1030f84c9c84f5e06e96059e64364e1302372db124e04b9b89920d066759f1c4"
+    },
+    {
+      "file": "alternative6-matching-calibration.log",
+      "bytes": 184,
+      "sha256": "3915e95897eb32c314428d1090b2dceb62f6d7d541e6de56239570637bdea904"
+    },
+    {
+      "file": "review-alternative6-matching-counterexample.log",
+      "bytes": 124,
+      "sha256": "793e982b794cd016d62f8d32efe75870d7be18da502dacb0c2758e9a6a7f3901"
+    }
+  ]
+}

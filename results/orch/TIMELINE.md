@@ -119,3 +119,9 @@
 - 2026-11-24 09:01:22 UTC: lean_setup completed first-dirty/pair-clean equivalence source/math/format review PASS.
 
 2026-11-24T09:03:13.771027+00:00 normal_form: PrivateBlock, PrivateStars, PrivateStarBlock, PrivateEdgeBlock, PrivateConeBudget, QuadraticProjection all compiled and independently source-reviewed. These provide arbitrary private-DAG deletion, exact star module cost, oriented edge-cover realization, shared binary-cone support bound, and semantic quadratic projection. PrivateGraphReplacement actual Circuit adapter build002 after fixing three gateAt/getD simplifications. Structural owns actual two-pure-OR-root cone-credit bridge; gate_invariants owns four-clause semantic budget and stronger ambient-clean cover<=2.
+
+2026-11-24 09:06:24 UTC gate_invariants: full-clean four-clause accepted graph cover<=2 compiled (FourClauseCoverTwo).
+
+2026-11-24 09:08:03 UTC gate_invariants: strict private two-junk clean module budget+semantics compiled (FourClauseStarsStrict).
+
+2026-11-24T09:09:10.005125+00:00 Root: named exact-statement checker exit1, REJECTED (no-theorem); preserved compiled and reviewed private-block strict savings, four-clause cover-two, completed local search. No acceptance claim.

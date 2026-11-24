@@ -1,0 +1,8 @@
+PASS independent source/math/provenance review
+SHA256 9ee3f1e2d10413876dcfca30eeaafc3a027621b117dd8b0a532f40d3b2a2f997
+Exact reviewed PrivateGraphReplacement prefix.
+Accounting theorem retains private-reader/output exclusions and counts all removed M gates.
+Strict compiler uses M nonempty and replacement bound E.card+T.card<=M.card+1 to derive D.size<N.
+F=true legitimately removes retained-AND cleanliness requirements, since this theorem claims same graph function and strict size saving, not all-clean D.
+Quadratic weakening and pair equality establish output function equality; pair graph E need not itself be clean.
+Forbidden source scan clean; author build001 exit0 accepted without duplicate build.

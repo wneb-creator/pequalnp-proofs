@@ -1,0 +1,9 @@
+PASS independent source/math/provenance review
+FourClauseCoverTwo SHA256 47e180cc6e37ae1b7f14324e5a1d296666eea2e036e17d6b119a99518b2fd70a
+FourClauseObstruction SHA256 570f8894e9b655eda3e307df0408e6778bce8cbfe98b7dc394e87144f6fecb7b
+Exact reviewed TwoJunkSemantics and MixedShared blocks; exact Obstruction prefix in final snapshot.
+The obstruction builds a three-vertex independent input: two cross adjacencies are forbidden by C4, and the within-Q pair is excluded by explicit independence. It violates explicit full-input cleanliness.
+The no-both lemma exhausts six empty signature classes and chooses two of three one-vertex rectangle covers.
+The final cover theorem retains independence of P and Q and global four-clause cleanliness; transpose and common-root cases preserve all assumptions.
+No claim of arbitrary four-clause cover-two without these premises. Forbidden source scan clean.
+Author confirms both build002 logs exit0, inherited warning only; no duplicate build.

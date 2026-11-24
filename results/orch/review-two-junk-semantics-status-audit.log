@@ -1,0 +1,8 @@
+PASS independent source/math/provenance review
+SHA256 386a85aab9d34cb5058901d2d7a03273e6873f29e1cbc1e0b85e30c082ab8f83
+All preceding TwoJunk snapshots are exact prefixes; StarDecomposition is an exact reviewed block.
+Reviewed heavy-row classification, degree-sum forest bound, filtered-edge cardinality, oriented-star budget and semantics.
+Disjoint P Q is retained for pair equality; full-input claim is pointwise weakening only.
+Forbidden source scan clean.
+Author confirms two-junk-semantics-build-002.log exit0, inherited warning only.
+No duplicate build performed.

@@ -1,0 +1,8 @@
+PASS independent source/math/provenance review
+SHA256 2727d07e7aa31a18a5b1795abf65690bceb5dd2cbd8d82498a24490ab68de8bd
+Exact reviewed PrivateEdgeBlock prefix and QuadraticProjection block.
+New binary_data retains backward-reference bounds.
+Private graph replacement explicitly requires private readers and output exclusion for removed gates, clean retained AND gates, nonempty accepted pair-edge graph, covering set, and budget E.card+T.card<=M.card+2.
+Quadratic weakening preserves pair outputs and bounds retained wires; compiled star block is fixed and globally below the target graph.
+Conclusion is actual same-graph all-clean circuit D with no larger size under all stated premises.
+Forbidden scan clean; author build002 exit0 accepted without duplicate build.

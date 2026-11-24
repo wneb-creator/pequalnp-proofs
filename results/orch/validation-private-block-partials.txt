@@ -1,0 +1,18 @@
+L-meta-1477 PARTIALS ONLY. Exact unrestricted statement remains unproved.
+The named module builds, but exact checker exit1: REJECTED (no-theorem).
+The strict private-block replacement retains explicit privacy/support-budget premises.
+No 124-gate plane witness or 28-gate alternative6 witness found.
+
+FirstDirtyProduct 3810 lines SHA256 7eefb5d60958490fe1c3f7d0d893417193ff456ff13e7565aad561e2076e2ac9; author build exit0; independent source/math review PASS
+PrivateBlockAccounting 248 lines SHA256 107f038c07e29391ee651754b5d36978a23fd9c7938ff7696671fafd1d654643; author build exit0; independent source/math review PASS
+PrivateGraphReplacement 1324 lines SHA256 2727d07e7aa31a18a5b1795abf65690bceb5dd2cbd8d82498a24490ab68de8bd; author build exit0; independent source/math review PASS
+PrivateGraphSavings 1542 lines SHA256 9ee3f1e2d10413876dcfca30eeaafc3a027621b117dd8b0a532f40d3b2a2f997; author build exit0; independent source/math review PASS
+OrConeCredit 3909 lines SHA256 7c9066ca3c120cfaebdcebc0dfb2055df5fd0fc05323452e2c9da85030e0c07f; author build exit0; independent source/math review PASS
+TwoJunkStars 602 lines SHA256 a9e0c7235d68c02ccf8c37413139cc7dbb252c8ab144e135a6f8fad8abbf24b2; author build exit0; independent source/math review PASS
+TwoJunkSemantics 677 lines SHA256 386a85aab9d34cb5058901d2d7a03273e6873f29e1cbc1e0b85e30c082ab8f83; author build exit0; independent source/math review PASS
+FourClauseObstruction 812 lines SHA256 570f8894e9b655eda3e307df0408e6778bce8cbfe98b7dc394e87144f6fecb7b; author build exit0; independent source/math review PASS
+FourClauseCoverTwo 955 lines SHA256 47e180cc6e37ae1b7f14324e5a1d296666eea2e036e17d6b119a99518b2fd70a; author build exit0; independent source/math review PASS
+FourClauseStarsStrict 1007 lines SHA256 1bb4a7271eb5c9854563749cab097d8696deefc01b6598e18eb5fe876dd2f777; author build exit0; independent source/math review PASS
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=180.7 subagents=6
