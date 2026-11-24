@@ -56,3 +56,5 @@
 - 2026-11-24T04:44:57.868960+00:00: ConnectedCircuit durable exit0 and independent approval; preserving exact disconnected-only reduction, successful diagnostics, and two reviewed auxiliary examples.
 
 - 2026-11-24T04:47:18.895502+00:00: Collective compiled with durable exit0 and passed independent review; preserving the fixed-cone semantic bridge.
+
+- 2026-11-24T04:59:18.449278+00:00: EarlyCommon durable exit0 and independent approval; preserving source and complete successful diagnostics. Restricted external RUP replay also passed, with its reviewed archive queued separately.

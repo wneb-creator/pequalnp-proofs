@@ -64,3 +64,5 @@ Put new stable, compiled components here only after review. Work in an individua
 - `ConnectedCircuit.lean`: checked/reviewed direct application of connected parent rank to arbitrary circuit indices; under the eight-ordinary reduction the actual five-pair parent graph is disconnected. No simple-graph or first-occurrence hypothesis is added. Full log and durable status: `../validation/connected-circuit-build-002.log` and `.exit`.
 
 - `Collective.lean`: checked/reviewed directed path inside the original fixed selected cone while avoiding every node of another selected cone, using exact prefix-valid edges. The global graph-count inequality remains open. Full log/status: `../validation/collective-build-002.log` and `.exit`.
+
+- `EarlyCommon.lean`: checked/reviewed exclusion of two distinct globally bounded/nonordinary band-correct OR outputs sharing an early parent while their private parents are the sixth and seventh internal gates. Includes a prefix wrapper for the nine-internal reduced model; other disconnected patterns remain open. Full log/status: `../validation/early-common-build-003.log` and `.exit`.
