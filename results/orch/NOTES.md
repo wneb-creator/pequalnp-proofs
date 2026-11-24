@@ -15,3 +15,5 @@ Circuit search 2026-11-24T17:59:59.734992+00:00: complete monotone boundary basi
 Root drafted R_meta_2215_37, not yet compiled or submitted. It splits into four-point geometry (715 finite cases) and monotone boundary synthesis, and locally proves all-wire monotonicity. Direct search still active. Existing R_meta_2215_317 by Timothy Tamm deletes three stars; our route is distinct.
 
 Geometry Lean checkpoint: results/orch/lemmas/Geometry.lean compiled successfully via lake env lean, proving four_points by decide +kernel and full rectangles using Finset.exists_subset_card_eq. Full stdout/stderr log is scratch/structural_strategy/geometry-direct-build.log (empty on success). A faster combinatorial proof using13 degree checks and169 pair-intersection checks is also being tested.
+
+2026-11-24T18:03:40.402802+00:00 WireMono compiled successfully with pinned Lean 4.36.0 via lake env lean; exit 0, no output or warnings. It generalizes to all n and all wire indices, not only the distinguished circuit output. Source: results/orch/lemmas/WireMono.lean; complete log: /tmp/oec/pequalnp-pilot-37/wiremono-build.log.
