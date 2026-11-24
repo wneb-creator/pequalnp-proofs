@@ -1,0 +1,72 @@
+2026-11-24T18:09:14.977313+00:00 {
+ "lease": {
+  "id": "713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "expires_at": "2026-11-24T18:29:14.784Z",
+  "renew": "POST /desk/beat?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "release": "POST /desk/release?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+ 
+2026-11-24T18:18:15.880130+00:00 {
+ "lease": {
+  "id": "713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "expires_at": "2026-11-24T18:38:15.651Z",
+  "renew": "POST /desk/beat?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "release": "POST /desk/release?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+ 
+2026-11-24T18:27:16.722949+00:00 {
+ "lease": {
+  "id": "713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "expires_at": "2026-11-24T18:47:16.514Z",
+  "renew": "POST /desk/beat?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "release": "POST /desk/release?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+ 
+2026-11-24T18:44:34.739705+00:00 {
+ "lease": {
+  "id": "713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "expires_at": "2026-11-24T19:04:34.595Z",
+  "renew": "POST /desk/beat?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "release": "POST /desk/release?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+ 
+2026-11-24T18:53:35.967256+00:00 {
+ "lease": {
+  "id": "713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "expires_at": "2026-11-24T19:13:35.726Z",
+  "renew": "POST /desk/beat?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "release": "POST /desk/release?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+ 
+2026-11-24T19:02:37.324296+00:00 {
+ "lease": {
+  "id": "713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "expires_at": "2026-11-24T19:22:37.143Z",
+  "renew": "POST /desk/beat?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "release": "POST /desk/release?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+ 
+2026-11-24T19:11:38.718049+00:00 {
+ "lease": {
+  "id": "713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "expires_at": "2026-11-24T19:31:38.497Z",
+  "renew": "POST /desk/beat?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "release": "POST /desk/release?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+ 
+2026-11-24T19:20:40.066720+00:00 {
+ "lease": {
+  "id": "713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "expires_at": "2026-11-24T19:40:39.888Z",
+  "renew": "POST /desk/beat?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "release": "POST /desk/release?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+ 

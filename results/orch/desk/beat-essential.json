@@ -1,0 +1,8 @@
+{
+ "lease": {
+  "id": "713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "expires_at": "2026-11-24T18:54:44.029Z",
+  "renew": "POST /desk/beat?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658",
+  "release": "POST /desk/release?lease=713ea3ab-8a84-4fa5-8d55-20ad2ff85658&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}

@@ -38,9 +38,11 @@ Solver results are external evidence, not Lean certificates; timeouts remain unk
 Desk: first request assigned L-meta-3451; null count 0.
 No null/no-free-step message occurred; exact first response is in desk-log.txt.
 The step did not enable individual reductions; no reduction PR was opened.
-Lease release: pending, own lease only, reason other (global normalization unresolved).
+Lease released: L-meta-3451 only, reason other (global normalization unresolved).
+Exact response: {"released":"L-meta-3451","reason":"other"}
+Finished: 2026-11-24T19:27:51.623870+00:00
 
 Sub-agents: 7 — normal forms; finite counterexample search; decomposition;
 independent review; false-input restriction; universal-vertex/forest lemmas;
 fresh fixed-pair conceptual review.
-TIMING total=87.1 subagents=7
+TIMING total=90.4 subagents=7
