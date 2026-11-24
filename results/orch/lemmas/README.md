@@ -9,7 +9,7 @@ The integrated source of truth is `lean/PEqualNP/Outside/L_meta_1024.lean` from 
 - `four_sink_review.md`: independent review and normalization bridge, requiring formalization.
 - `four_exotic_reduction.md`: mathematical paid-source reduction, requiring formalization.
 
-Main-file namespaces include Global, Support, Clamp, Clamp9, Charges, Bridge, Cut, OneAnd, OneAndCircuit, and Tables under `PEqualNP.Outside.L_meta_1024_aux`. Parent namespaces already define line/row/val names: qualify Global.line, Global.val, Support.line, and Support.row explicitly to avoid accidental shadowing.
+Main-file namespaces include Global, Support, Clamp, Clamp9, Charges, Bridge, Cut, OneAnd, and OneAndCircuit under `PEqualNP.Outside.L_meta_1024_aux`. Parent namespaces already define line/row/val names: qualify Global.line, Global.val, Support.line, and Support.row explicitly to avoid accidental shadowing.
 
 Put new stable, compiled components here only after review. Work in an individually owned scratch file first. Record assumptions and exact scope in the shared notes; a conditional theorem is not the posted theorem. Do not add sorry, new axioms, native_decide, bv_decide, forbidden options/attributes, strings, or the forbidden root-namespace token to a candidate proof file.
 
@@ -26,3 +26,7 @@ Put new stable, compiled components here only after review. Work in an individua
 - `Compiler.lean`: compiled and independently reviewed deleted-root formula and paid-cut compiler wrappers. Full log: `../validation/compiler-build-002.log`.
 
 - `FourPairs.lean`: compiled reduced four-output impossibility theorem using band correctness alone; independently reviewed and approved. Full log: `../validation/four-pairs-build-003.log`.
+
+- `AppendLine.lean`: compiled three-OR-gate constructor with exact output semantics and preservation of earlier wires; independently reviewed and approved. Full log: `../validation/append-line-build-002.log`.
+
+- `Reduction.lean`: compiled and independently reviewed sink-cut invariance and paid-source clamping correctness under the explicit twelve-source/four-raw-input hypotheses. Full log: `../validation/reduction-build-001.log`.

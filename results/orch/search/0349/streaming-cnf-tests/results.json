@@ -1,0 +1,30 @@
+[
+  {
+    "fixture": "dense4",
+    "variables": 204,
+    "clauses": 1011,
+    "bytes": 12351,
+    "sha256": "87b49e855b1780e60ae1828f6c3dbb39290ca2c794c86aa557626f4505906278",
+    "whole_file_byte_identical": true
+  },
+  {
+    "fixture": "dense6",
+    "variables": 666,
+    "clauses": 5018,
+    "bytes": 65659,
+    "sha256": "de3b8084b0936fdef439e9ad6fcb190d75cbc6c6f9fdd9718846d365e3454ddc",
+    "whole_file_byte_identical": true
+  },
+  {
+    "fixture": "full_shape",
+    "variables": 5092,
+    "clauses": 48300,
+    "bytes": 710393,
+    "sha256": "038b61335d486db88bf254cfc2abcf65182221580ed158aafdc654e37a51568d",
+    "whole_file_byte_identical": true
+  },
+  {
+    "fixture": "empty_clause",
+    "whole_file_byte_identical": true
+  }
+]

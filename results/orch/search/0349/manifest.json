@@ -1,0 +1,48 @@
+{
+  "created_utc": "2026-11-24T03:47:59.578073+00:00",
+  "status": "prepared_reviewed_sources_no_new_solver_result",
+  "files": [
+    {
+      "path": "cegis-or-sinks.py",
+      "bytes": 6838,
+      "sha256": "16c9f86037011b60d2251a65408c8f16e9d1d77a47ee5793daffaa02f8fc9dff",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-or-sinks.py"
+    },
+    {
+      "path": "cegis-or-sinks-stream.py",
+      "bytes": 7128,
+      "sha256": "185cd4fc3e81e0e0e3e022555859a03635e7c4a2ff21b9ae02eb31650fd5a8fe",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-or-sinks-stream.py"
+    },
+    {
+      "path": "streaming_cnf.py",
+      "bytes": 1572,
+      "sha256": "5c93998e77af73b0bb9d3f457d086153ac4e281776eb247daba51314ac056aab",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/streaming_cnf.py"
+    },
+    {
+      "path": "streaming-cnf-test.py",
+      "bytes": 2438,
+      "sha256": "63b06044ae8d568e9489e1029632298af4b6e87237fc7a19d601652bec0377d8",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/streaming-cnf-test.py"
+    },
+    {
+      "path": "streaming-cnf-test.log",
+      "bytes": 599,
+      "sha256": "ed4b017938f2b642f31ad7b94eed11dc3d4d38c020d17c024544f950db157cce",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/streaming-cnf-test.log"
+    },
+    {
+      "path": "streaming-cnf-tests/results.json",
+      "bytes": 739,
+      "sha256": "128cb079f5f8650072e57971515c858a814a40eac71a3c140a55288db1f11eaf",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/streaming-cnf-tests/results.json"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1160,
+      "sha256": "94c4fc65099af4feba38c1df0fe66f03c801a63d658e85ea4ce87de3e2f20e98",
+      "source": "generated archive scope note"
+    }
+  ]
+}

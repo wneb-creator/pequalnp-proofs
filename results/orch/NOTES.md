@@ -1,6 +1,6 @@
 # L-meta-1024 orchestration notes
 
-Updated 2026-11-24 03:23 UTC. Owner: root. Branch: pnp/pilot-21.
+Status summary updated 2026-11-24 03:48:05 UTC. Owner: root. Branch: pnp/pilot-21.
 
 ## Read before starting
 
@@ -12,7 +12,7 @@ Only root controls the single L-meta-1024 lease and publication. Do not acquire,
 
 Prove the exact posted theorem in `lean/PEqualNP/Outside/L_meta_1024.lean`: a fan-in-at-most-two monotone circuit producing the thirteen projective-line ORs on inputs with five or six false coordinates needs at least 39 gates. The line at w is `{0,1,3,9}+w` modulo 13. There are 3,003 required input rows.
 
-The 4,455-line integrated module builds and is pushed at `4f2bed9`. It contains partial results, not the exact named theorem. The local checker previously rejected it with `REJECTED (no-theorem)`; the fresh retry faulted without a verdict after an OOM kill (verifier exit137). No proof PR exists. No valid counterexample to the posted statement has been found.
+The current 4,041-line target passes the named-module lake build; its source is pushed at `0fb15ea`. It contains partial results, not the exact named theorem. The local checker previously rejected it with `REJECTED (no-theorem)`; the fresh retry faulted without a verdict after an OOM kill (verifier exit137). No proof PR exists. No valid counterexample to the posted statement has been found.
 
 ## Checked results
 
@@ -31,7 +31,7 @@ The 4,455-line integrated module builds and is pushed at `4f2bed9`. It contains 
 3. **lower_bound — independent mathematics and extension.** Review the four-output proof and seek a route for five or more nonordinary outputs. Four-output success alone does not prove the posted statement.
 4. **counterexample_search — finite search.** Five detached 90-minute SAT searches restarted after the external interruption: three low-fanout cases, the full 3,003-row problem, and a normalized dual problem. Preserve complete logs and proof streams. Only a fully checked assignment is a counterexample; interrupted/UNKNOWN runs prove nothing.
 5. **special_status — independent red-team review.** Review every proposed push, semantic normalization, solver restriction, and exact theorem claim. Sink currently approved. Review orchestration records before their first push.
-6. **lease_timer, reassigned — build performance and resilience.** Root now owns renewal control. Inspect build/checker memory and detached-process resilience; improve execution without changing theorem meaning or losing diagnostics.
+6. **toolchain_setup — global total-gate proof.** Investigate collective selected-DAG avoidance and charge AND routing costs; the weaker individual-domination OR-packing inference is disproved. The passive resource watcher prepared by lease_timer continues; root owns renewals and build admission.
 
 ## Four-exotic route: reviewed mathematics, not yet fully formalized
 
@@ -56,7 +56,7 @@ Every compiled result is preserved promptly on the fork after independent review
 
 ## Next replan
 
-At 03:47 UTC, review all strategy entries, retire stalled routes, and redistribute work. Continue 20–30 minute replanning thereafter. Overall job started at 01:28:21 UTC; the approximate six-hour budget ends at 07:28 UTC.
+Next review at 04:13 UTC. The first 25-minute review completed at 2026-11-24 03:48:05 UTC. Continue 20–30 minute replanning thereafter. Overall job started at 01:28:21 UTC; the approximate six-hour budget ends at 07:28 UTC.
 
 Sub-agents: counterexample_search, formal_baseline, fresh_proof, lease_timer, lower_bound, special_status, toolchain_setup.
 TIMING total=115 subagents=7
@@ -215,3 +215,93 @@ The detached memory watcher records full process snapshots and cgroup counters e
 For another execution-environment reset, inspect both lock mechanisms: check-lean.mjs uses a PID-less mkdir lock with a 60-minute timeout, while build.sh considers a slot alive whenever kill -0 succeeds. A zombie PID can therefore retain a build slot even though no build remains. Only remove an empty checker lock or queue slot after verifying its former holder is gone/zombie and no live owner exists. Current queue scan found no pid/config files; root is serializing builds by coordination. Root separately replaced the lease timer with a detached exclusive-lock process; only root controls desk operations.
 
 2026-11-24 03:40:47 UTC — root: The reviewed cleanup candidate compiled independently and is now the4041-line target: removed only unused Tables validator/benchmark and AndFirst26 witness demonstration,414lines total. All retained bytes are unchanged. Prior4455-line checkpoint remains committed. A fresh named-module lake build is pending; no new checker pass is claimed.
+
+## 2026-11-24 03:42:25 UTC — lower_bound: overlapping-pair surcharge assignment
+
+Root reassigned this agent to formalize the following charge-family surcharge in an owned scratch Lean file importing the current target: if an ordinary line has two charged gates with distinct overlapping two-point singleton cores, then its charge family has at least four gates. Strategy: under a three-gate charge budget, the first bounded full-four-point-core wire has only the two pair-core gates available earlier. An AND cannot be first, because some false-at-line-complement parent already has the full core. An OR cannot cover four singleton points using two overlapping pairs, or one pair and one singleton.
+
+Potential five-exception continuation: the missing-raw argument gives at most two raw essential cut sources and nine paid pair-core witnesses. Pigeonholing eight ordinary owners gives the overlapping pair, hence one extra paid gate and cut-source bound ten. Pick a raw-missing line point outside the repeated owner line (three candidates, at most two raw sources). The six-zero cross witness kills both repeated-owner paid gates, leaving at most eight positive essential sources, contradicting positive_frontier_impossible. This remains mathematical until the premises and compiler bridge are formalized.
+
+The structured pair-AND/prepared-OR stress test of the surviving cumulative component potential completed 1,153,443 mutations in thirty seconds without a violation. It is evidence only. Complete source/log: lower-bound/stress_pair_guards.py and pair_guard_stress.log in scratch.
+
+## 2026-11-24 03:43:02 UTC — special_status: selected-DAG branch-packing counterexample
+
+The stronger inference to branch-vertex-disjoint selected trees, or to sum(|L|-1) OR gates, is false under the proposed abstract domination condition. An explicit graph for the four concurrent Singer lines0,4,10,12 has18AND gates and10OR gates, while four branch-disjoint four-terminal selected trees need12OR branching vertices. Each line-selected DAG contains exactly its four terminals, selects both OR children and one false-at-complement child at every selected AND, and passes all504 shared-gate/nonintersection-terminal nondomination checks. All8192 assignments confirm every actual output is globally bounded by its designated line. The outputs are not band-correct: each has867 errors on the required band. Thus this is only an auxiliary packing counterexample; its28total gates do not refute the proposed total-gate inequality or L-meta-1024.
+
+Construction: write the lines as {0,a_i,b_i,c_i}. Make two independent AND4 routers for each private-position array (A1,A2,B1,B2,C1,C2). Set u=0 OR A1, v=A2 OR B1, w=B2 OR C1, z=C2 OR0, h=u OR w, k=v OR z, and use four distinct sink gates h OR k. For owner i, route each AND tree to its corresponding private point. Every private terminal has paths through both h and k, so every shared gate has a bypass. The6shared OR gates plus4sink OR gates cannot pack12distinct branching vertices. Explicit graph, selections, finite checks, and precise scope are in scratch packing-review/selected-packing-counterexample.json and selected-packing-check.log. Root, lower_bound, and toolchain_setup were notified. A valid total-gate argument must account for AND routing cost, as in lower_bound's Euler deficit formulation.
+
+## 2026-11-24 03:44:15 UTC — toolchain_setup: collective selected-DAG avoidance
+
+For distinct target lines L and M and p in L minus M, delete simultaneously every selected-L node globally bounded by the M line OR. A selected-L path from its output to p must remain: the six-zero row M union (L minus {p}) makes every deleted node false and every other selected raw leaf false, while band correctness requires the L output true. A false-evaluation induction on the selected DAG proves the contrapositive. In particular deletion of all selected-M nodes is allowed. lower_bound independently confirmed this mathematical premise. It is stronger than individual shared-node nondomination and excludes the duplicate-router example because both high routers are deleted together. It is not yet a formalized Lean lemma or a total-gate packing theorem.
+
+## 2026-11-24 03:44:30 UTC — formal_baseline
+
+Checked append-line constructor: baseline/AppendLine.lean compiled exit0, append-line-build-002.log. AppendLine.appendLine adds exactly3 OR gates, computes the target line OR globally at15+old length, and preserves every earlier valid wire; allowed/length/output_valid checked. Root/reviewer/fresh notified, source frozen. Reduction.lean now builds sequentially: Cut.cutVal_add_sinks/essential_add_sinks and PaidClamp.correct_and_bounded (≤12 support sources with all4 raw line coordinates ⇒ paid-true clamp preserves band correctness). These Reduction lemmas are not yet checked.
+
+## 2026-11-24 03:44:43 UTC — counterexample_search: pre-replan snapshot
+
+0: 23.0min, no verdict/model; 1: 23.0min, no verdict/model; 2: 23.0min, no verdict/model; full: 22.8min, no verdict/model; normal: 22.2min, no verdict/model. All five monitors and solvers are live (SNs/RN), with solver nice15. No SAT model or UNSAT verdict has appeared in these restarted queries.
+
+Cgroup memory.current=13.83GiB of 16GiB, anonymous=5.04GiB; disk free=13.02GiB. No new encoder/build was launched.
+
+The independently reviewed OR-sink replacement is ready in both frozen forms: list writer `cegis-or-sinks.py` SHA16c9f860..., streamed writer `cegis-or-sinks-stream.py` SHA185cd4fc... plus `streaming_cnf.py` SHA5c93998e.... Four small fixtures, including48,300clauses, are whole-file byte-identical. Planned root-authorized replacement interrupts only full solver20248, lets monitor20210 retain a clean UNKNOWN/log/gzip closure, then starts the streamed all-OR-sink full query in a unique directory. No interruption has occurred yet.
+
+A separate k=5 K4-minus-edge-with-ordinary-helpers source is prepared at scratch `search/cegis-graph-five.py`; it is not launched or yet independently reviewed. It allows four arbitrary high signals selected from nine internal gates, all edge-to-target assignments, and all fifteen direct-tree shapes for each of eight other outputs. Unused high-network padding is allowed. Every candidate still receives the existing full3003-row scalar validation.
+
+## 2026-11-24 03:45:33 UTC — fresh_proof
+
+General first-AND normalization is now drafted end to end, but uncompiled: TrueClampExtra defines two-stage true-constant cleanup; AndCostExtra proves a generic retained-tag AND-count bound; SeedPreserveExtra preserves all other targets; SurgeryExtra adds the three direct OR gates; FirstAndParentsExtra extracts two distinct earlier generated parents from a first AND target; FirstAndImprovementExtra packages strict AND decrease without increasing total size. The cleanup uses T=Sink.transform(S,gs), P=generated wires true at T(all-false), then deletes S union P after clamping P. This removes every introduced nullary AND.
+
+A mathematical simplification sent to root: minimum AND count alone suffices. Choose first band-correct occurrences, exclude AND by the surgery, retarget to the OR occurrences, and apply the checked Sink transform. The final normalized circuit need only retain its size bound and OR output tags, so any internal AND-count increase during final sink normalization is irrelevant. No minimum-gate tie-break or unary-copy deletion is needed for this existence statement. These new first-AND claims remain unchecked.
+
+## 2026-11-24 03:46:23 UTC — formal_baseline
+
+Checked reduction helpers: baseline/Reduction.lean compiled exit0, reduction-build-001.log. Cut.cutVal_add_sinks and essential_add_sinks show that adding unread sink outputs to a cut changes no other output or essential set. PaidClamp.correct_and_bounded proves paid-true clamping preserves band correctness (and gives a global line upper bound) when E has≤12 sources, contains all4 raw line inputs, and remaining paid sources have outside singleton witnesses. Its foreign-support count is≤8. Root/reviewer notified, immutable source pending preservation. Current build batch complete and single slot released.
+
+## 2026-11-24 03:46:30 UTC — special_status: AppendLine and replan assessment
+
+Approved AppendLine.lean (SHA25634e63e18eefade3a22274fdd6511b610c9efd063fbee95a8ffa5c9326cc09def). The Boolean grouping is exactly (x_w OR x_(w+1)) OR (x_(w+3) OR x_(w+9)); the new output is15+oldlength, length increases by3, and existing valid wires are unchanged. The new tail exactly matches AppendLineExtra.txt. Seven inherited prefix edits only narrow arithmetic simp calls to explicit list-length lemmas and change no statements/definitions; immutable Compiler.lean itself is unchanged. Integrating only the extra fragment avoids carrying those unrelated proof-local edits. Complete build log has warnings only.
+
+Replan assessment: the four-exotic result now has a concrete formal path through FourPairs plus paid-clamp/rebuild and first-AND normalization, but still does not settle arbitrary exotic count. The unrestricted path needs a global count after OR-sink normalization; collective selected-DAG avoidance is mathematically sound, while individual nondomination does not imply disjoint branching trees or an OR-only bound. For k5, lower_bound's negative-row argument forces distinct exact singleton cores {intersection,q} before pigeonholing; this repairs the otherwise insufficient repeated-owner argument. The paid family P and essential set E must remain fixed when the surcharge tightens the budget. Formal raw-source bounds and the remaining parent-graph cases are still required; K4-minus-edge enumeration is only one case. Current archives accurately separate checked partials, auxiliary counterexamples, restricted/UNKNOWN search outcomes, and unformalized normalization. Minor inventory update needed: Tables is no longer a current main-file namespace.
+
+## 2026-11-24 03:47:49 UTC — formal_baseline:03:47 assignment
+
+Read the refreshed orchestration notes and lemma inventory. Finishing append-list and deleted-OR-root interfaces, then assembling the four-exotic reduction against FourPairs. Assembly.lean now contains uncompiled drafts: appendLines with exact3*length cost, allowed gates, old-wire preservation and generated global line outputs; deleted_or_pair converts each deleted OR root to two fixed internal read indices with20 as false padding. Build queue is root named module, lower surcharge, fresh normalization, then this assembly batch. Existing compiled Reduction/AppendLine remain immutable.
+
+## Replan 1 — 2026-11-24 03:48:05 UTC
+
+Read the accumulated notes and independent assessment. Decisions:
+
+- Keep L-meta-1024 and its sole lease. No exact proof, counterexample, acceptance, or PR exists. Named-module build of the 4041-line source passed; do not repeat the costly checker while the named theorem is absent.
+- Double down on the concrete four-exotic route. formal_baseline assembles the checked compiler, paid clamp, append-list construction, and FourPairs interface. fresh_proof formalizes first-AND surgery, preserving a specified ordinary-output family, then the minimum-AND OR-output normalization.
+- Continue the five-exotic extension: lower_bound formalizes the overlapping-pair charge surcharge, then support-budget tightening; keep the same paid set P and essential set E throughout. Full parent-incidence case coverage is still required beyond the K4-minus-edge case.
+- Retire individual-nondomination branch-disjoint-tree and OR-only counting. toolchain_setup investigates the stronger collective avoidance condition and total cost including AND routers. Auxiliary counterexamples must remain clearly scoped.
+- Replace only the unrestricted full SAT run with the independently reviewed streamed OR-sink query after a fresh renewal. Preserve the old run as a strategy interruption with complete logs; keep the other four runs. Prepare, but do not yet launch, a focused five-output helper-sharing query for a distinct search direction.
+- Keep one Lean build at a time. Root named-module build is complete; after the brief SAT transition, lower_bound has the next slot, then fresh_proof, then formal_baseline. Final checker requires its own memory window.
+- Preserve every reviewed compiled component and complete log promptly. Continue shared notes with file locks. Next replan: 04:13 UTC.
+
+## 2026-11-24 03:48:55 UTC — special_status: reduction and scoped search preparation
+
+Approved Reduction.lean, SHA256907ad5e2a96f83aac768810176252f5e7d22720f42a11cfa5dd9e06770a1e68b: unchanged Compiler prefix plus exactly CutSinksExtra.txt and PaidClampExtra.txt. NoReads makes added sink cuts invisible outsideQ, including invalid indices. PaidClamp removes four distinct raw line sources from E of size<=12, leaving<=8 foreign sources; explicit outside singleton witnesses give one negative eight-true row making all foreign sources true. Support-restricted monotonicity yields both global line upper bound and band correctness after paid clamping. Assumptions and syntax are clean; complete successful log has19prefixwarnings/noerrors.
+
+Approved frozen cegis-graph-five.py (SHA256703f062a279a52965bdf82e22958ae0b6d41b10ac1996f5dac6f8c1eaa2cbd8e) only as the stated restricted template. Four distinct high selectors among nine residual internal gates, a free five-edge/target bijection, sorted endpoint guards, and the two degree-class graph automorphisms are encoded correctly. Internal liveness is omitted solely to permit unused padding; output sinks, lex ordering, compatible direct trees, and scalar validation remain. This is not coverage of all five-output topologies. The generated-high restriction can also be justified within this graph: shared-parent dependence excludes raw high signals, and an ordinary pair/triple OR port cannot be bounded on the band by both distinct incident line targets.
+
+Approved search/orch-package-0349 for metadata copying/preservation: all7manifest entries and20,474bytes match recorded hashes and source copies; only the self-manifest is unlisted. Test source, exact byte-equality evidence, dependency paths, and preparation-only scope are consistent; no unsafe paths, credential-pattern findings, or Python syntax errors were found. No new solver was launched by this reviewer.
+
+## 2026-11-24 03:49:07 UTC — counterexample_search: authorized OR-sink replacement
+
+Root authorized replacing only the old unrestricted full query. Solver20248 received SIGINT at03:48:35; monitor20210 finished cleanly after1601seconds with UNKNOWN, not UNSAT. Complete old logs and gzip trace remain unchanged; gzip integrity passed (43,927,006 compressed bytes;154,103,808 uncompressed; SHA256 cffda41575bc674a55d9dc807a35633578871f96ee78ef212d180747c676b13a). Full strategy-interruption metadata is scratch search/strategy-replacement-0351.json.
+
+The reviewed streamed all-OR-sink full query launched detached at03:48:55, runner24940, budget5400seconds, nice15, all3003bandrows. Its unique artifact directory is scratch search/full-or-sinks-stream/case--1; exact sources were snapshotted with hashes. Other four queries continue unchanged. Encoder completion and solver PID are pending. Root renewal03:48:06 expires04:08:06.414Z.
+
+The independently approved seven-file source/test supplement was copied verbatim to results/orch/search/0349; manifest.json is the staging inventory. No child commit or push was performed. Graph-five also passed independent review and remains unlaunched.
+
+2026-11-24 03:49:49 UTC — counterexample_search: streamed encoder completed in about12seconds; new solver24948 is live under detached runner24940, nice15. CNF has361,079variables and12,667,419clauses. All3003 band rows are encoded. Encoder memory slot released to root; no verdict/model yet.
+
+## 2026-11-24 03:51:13 UTC — lower_bound: PairSurcharge compiled
+
+PairSurcharge.lean compiled successfully on its first attempt (exit 0). Source is frozen at scratch lower-bound/PairSurcharge.lean, SHA256 45ffd7615f2e15eaf7ca2bee0436e0b20596969a7c5c6ea12d613bd3aeb20ca9; complete log lower-bound/pair-surcharge-build-001.log. Generic overlapping_pair_charge and its ordinary-output wrapper prove at least four D charges from a four-point full singleton core and two distinct charged gates with overlapping two-point singleton cores. The proof handles original invalid/self/forward reads with an explicit masked gate formula. It does not assume well-formed input indices or distinct singleton points beyond what charged membership and distinct gate indices already imply. Root was notified immediately and independent review requested. The single build slot has been released. This is a checked surcharge lemma, not the exact posted theorem or a completed five-exception theorem.
+
+## 2026-11-24 03:53:06 UTC — lower_bound: missing-raw witness formalization
+
+Read the refreshed notes/index and began the next primary assignment. Planned standalone witness API keeps the original paid set P and essential set E fixed. First construct a positive band row with one designated line point true and any three other selected raw coordinates false; use positive_frontier_impossible to show a missing raw line input forces at most two raw coordinates in E when card E<=11. Then kill all raw coordinates in one positive row and compare against each of the nine negative rows containing eight outside points. Monotone separation forces a paid essential coordinate for each outside point, with an exact pair singleton core by owner-line intersection. Distinct outside points force distinct paid coordinates. The surcharge and fixed-set cardinal tightening will be connected afterward. This is not a completed five-output graph case split. No new Lean build started; fresh_proof currently owns the slot.
