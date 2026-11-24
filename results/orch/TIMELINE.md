@@ -7,3 +7,6 @@ Timeline (UTC)
 2026-11-24T18:01:29Z pinned Lean and full prebuilt Mathlib cache restored; project definitions building
 2026-11-24T18:03:09.787451+00:00 first Lean success: Geometry.lean, four-point bound and rectangle consequence
 2026-11-24T18:03:51.335954+00:00 WireMono.lean compiled; root independent review passed
+
+2026-11-24T18:06:11.323276+00:00 circuit_search: exhaustive206790 one-gate repairs of best interleaved near miss found no witness.
+2026-11-24T18:06:56.208315+00:00 algebraic coordinate lemma compiled; replaces memory-heavy finite enumeration
