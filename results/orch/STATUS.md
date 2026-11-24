@@ -16,6 +16,7 @@ All project-specific dependencies are from `PEqualNP.Defs`; Mathlib is pinned by
 - The `md` lemmas minimize the count of AND gates that accept a nonincident pair. In the resulting no-larger equivalent circuit, every remaining such AND accepts at least two distinct incident edges. This part does not require C4-freeness.
 - `minimum_dirty_essential` strengthens the previous invariant: each residual dirty AND is essential for two distinct incident edges, meaning zeroing the gate makes the circuit reject those edges. Output-level replacement preserves the full function without requiring every internal wire to agree on every edge.
 - `lcLiteralEssential` replaces a gate by a unary OR of a raw input if that input is accepted alone and belongs to every output-essential edge. The condition is explicit; its existence is not established in general.
+- The `mf` lemmas derive cross-incidences from a globally safe product of two wires. With two accepted singleton points and two accepted singleton lines on one wire, C4-freeness forces every bad pair of every safe partner wire to be the same pair. A rectangle with at most one missing incidence is a star or at most2-by-2. These hypotheses are explicit; no circuit rewrite or size bound follows yet.
 - `lcStarSupport` cleans a gate whose supported incident edges form a star, **provided an earlier wire already computes their exact neighborhood OR**. That wire's availability is not proved merely from star support.
 
 The principal forest and padding lemmas were audited with Lean's axiom printer and use only `propext`, `Classical.choice`, and `Quot.sound`. Their full output is retained in `axiom-audit.log`. Further helpers have independently reviewed source and successful kernel compilation. The eight-helper audit is also retained in `axiom-audit-current.log`.
@@ -42,4 +43,4 @@ The 4-by-4 census has 18,521 matrices and 59 classes, with 14 connected classes 
 
 The live gap row has not enabled reductions: global `reductions_open` is insufficient under the repository guard. No reduction or partial-proof PR has been submitted. A valid proof PR must add only the named Lean file, with the exact fully named theorem last and the public statement unchanged. The preserved `results/` artifacts would have to be removed from the PR's net diff while remaining available in these preservation commits.
 
-Sub-agents: six, covering normal forms, finite counterexample search, decomposition, generic restriction, universal-vertex graph lemmas, and independent review.
+Sub-agents: seven, covering normal forms, finite counterexample search, decomposition, generic restriction, universal-vertex graph lemmas, independent review, and a fresh fixed-pair conceptual review.

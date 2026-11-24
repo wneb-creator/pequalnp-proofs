@@ -34,3 +34,8 @@
 2026-11-24T18:38:33.675736+00:00 — universal_vertex focused uncrossing attempt: complete3x3 minimum-dirty evidence, checked one-gate rigidity, samecost private-OR partition template; shared rectangle-filter charge remains open.
 
 - 2026-11-24T18:41:18.348188+00:00: named4321line build12 passes, independent exact-composition review approved. Frozen4x4 checkpoint independently audited:240hashes,50/59classes resolved computationally,9unknown, all59upperwitnesses rechecked. Latest renewal expires19:00:27.173Z.
+
+- 2026-11-24T18:43:33.571271+00:00: second replan. Retired generic local-gate repair and library-lower-bound lookup; prioritized global shared mixed-OR accounting and forced rectangle constraints, with theta first-gate partition searches running independently. No complete proof/refutation found.
+2026-11-24T18:45:25.905832+00:00 — mixed_filter constraints, shared-reader unique badpair, and rectangle star/2x2 classification Lean-checked.
+
+- 2026-11-24T18:48:00.683764+00:00: mixed-filter constraints integrated; named4515lines build13 passes and exact composition independently reviewed. Added seventh lifetime subagent for independent fixed-pair conceptual review. No full proof/refutation.
