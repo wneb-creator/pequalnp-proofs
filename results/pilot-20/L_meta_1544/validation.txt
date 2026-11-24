@@ -14,6 +14,7 @@ Original accepted source: proof-before-cleanup.lean.txt; original logs: build.st
 Final accepted source: proof.lean.txt; final logs: cleanup-build.stdout and cleanup-checker.stdout.
 Source provenance: generic helpers and charging proof adapted from checked L-meta-1516; fixed order-3 geometry replaced by a separately checked argument from the posted arbitrary-plane axioms.
 First build failed only on missing namespace opens; complete failed-build diagnostics retained separately.
-PR status: final archive and one-file diff preparation pending. Research/validation archives will remain in this branch history, while the PR adds exactly the named Lean file.
+PR status: no PR opened. The desk withdrew the step as proved during the final renewal; the checked result is preserved on the fork.
 Sub-agents: proof adaptation and lemma search, counterexample analysis, independent source/artifact review, lease keeping, toolchain setup, and prior proof agents (10 total across the job).
 TIMING total=133.4 subagents=10
+Final delivery update: renewal at 2026-11-24 02:40 UTC reported the step withdrawn as proved; prescribed diagnostic retry returned HTTP 410 (no live lease). No duplicate PR was opened and no release was attempted on the expired lease. The final accepted proof and all checker logs were pushed in 5a883d6afb072051e42eba8515779c33bee03ec8 before requesting another gap under the explicit 410 rule.
