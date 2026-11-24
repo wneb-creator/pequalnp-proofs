@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py", line 211, in <module>
+    main()
+  File "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py", line 80, in main
+    ident = number()
+            ^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py", line 58, in number
+    assert position < len(data), 'Truncated binary integer'
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: Truncated binary integer

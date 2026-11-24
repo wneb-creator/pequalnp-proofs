@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py", line 211, in <module>
+    main()
+  File "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py", line 87, in main
+    assert source < len(live) and live[source], ('Unavailable hint', ident, hint)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('Unavailable hint', 3, 1)

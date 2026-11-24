@@ -1,0 +1,52 @@
+[
+  {
+    "fixture": "valid_direct",
+    "expected_success": true,
+    "exit_code": 0
+  },
+  {
+    "fixture": "valid_chain",
+    "expected_success": true,
+    "exit_code": 0
+  },
+  {
+    "fixture": "valid_duplicate_unit",
+    "expected_success": true,
+    "exit_code": 0
+  },
+  {
+    "fixture": "deleted_hint",
+    "expected_success": false,
+    "exit_code": 1
+  },
+  {
+    "fixture": "future_hint",
+    "expected_success": false,
+    "exit_code": 1
+  },
+  {
+    "fixture": "missing_empty",
+    "expected_success": false,
+    "exit_code": 1
+  },
+  {
+    "fixture": "nonunit_hint",
+    "expected_success": false,
+    "exit_code": 1
+  },
+  {
+    "fixture": "needed_rat",
+    "expected_success": false,
+    "exit_code": 1
+  },
+  {
+    "fixture": "corrupt_final",
+    "expected_success": false,
+    "exit_code": 1
+  },
+  {
+    "fixture": "truncated_integer",
+    "expected_success": false,
+    "exit_code": 1
+  }
+]

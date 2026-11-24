@@ -1,0 +1,12 @@
+usage: lrat-rup-replay.py [-h] --cnf CNF --proof PROOF --outdir OUTDIR
+                          [--max-address-space-mib MAX_ADDRESS_SPACE_MIB]
+
+Independent memory-capped binary-LRAT dependency trim and RUP-only replay; no
+Lean-kernel claim.
+
+options:
+  -h, --help            show this help message and exit
+  --cnf CNF
+  --proof PROOF
+  --outdir OUTDIR
+  --max-address-space-mib MAX_ADDRESS_SPACE_MIB

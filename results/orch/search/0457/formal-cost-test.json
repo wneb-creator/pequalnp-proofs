@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "complete_operation_table_cases": 72,
+  "whole_network_selector_cases": 40,
+  "constant_and_repeat_cost_identities_checked": true,
+  "helper_sha256": "ffd395881df9460e64bd3a17f17381926301009b3baa22a1849492a5a22ee936",
+  "elapsed_seconds": 0.29736120699999447
+}

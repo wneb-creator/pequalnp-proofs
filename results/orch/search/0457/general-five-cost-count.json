@@ -1,0 +1,9 @@
+{
+  "status": "COUNTED_NO_CNF_OR_SOLVER",
+  "variables": 129565,
+  "clauses": 2680081,
+  "exact_DIMACS_bytes": 45967370,
+  "elapsed_seconds": 1.438842465999187,
+  "max_RSS_KiB": 12672,
+  "source_sha256": "b1e17682eaeb785e853ac287941ec09d43721648953b378cb4a1ce96c5c626a4"
+}

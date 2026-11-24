@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py", line 211, in <module>
+    main()
+  File "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py", line 117, in main
+    assert all(hint > 0 for hint in hints), ('Needed RAT record unsupported', ident)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('Needed RAT record unsupported', 3)

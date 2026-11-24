@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-24T04:54:08.390930+00:00",
+  "reviewer": "counterexample_search",
+  "source_sha256": "7d275bc42d97437f9f2493cab1cadc40dc22476d6c66ce957181de0ab6edd8ae",
+  "cnf_sha256": "a178201af7097f3942352a811d3251e39d2ca8f607269730dce98616e03926e8",
+  "independent_regeneration_byte_equal": true,
+  "variables": 3450,
+  "clauses": 39488,
+  "verdict": "APPROVED for root-authorized bounded pure-AND25 diagnostic only",
+  "scope": "No mixed-circuit theorem or Lean-checked UNSAT claim"
+}

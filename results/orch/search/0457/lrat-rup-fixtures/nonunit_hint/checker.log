@@ -1,0 +1,8 @@
+PARSED {"proof_bytes": 6, "additions": 1, "needed_additions": 1, "needed_originals": 2}
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py", line 211, in <module>
+    main()
+  File "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py", line 182, in main
+    assert len(unit) == 1, ('Nonunit RUP hint', ident, hint)
+           ^^^^^^^^^^^^^^
+AssertionError: ('Nonunit RUP hint', 3, 1)

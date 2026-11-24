@@ -1,0 +1,11 @@
+valid_direct PASS
+valid_chain PASS
+valid_duplicate_unit PASS
+deleted_hint PASS
+future_hint PASS
+missing_empty PASS
+nonunit_hint PASS
+needed_rat PASS
+corrupt_final PASS
+truncated_integer PASS
+ALL10FIXTURESPASSED

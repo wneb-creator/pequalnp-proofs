@@ -1,0 +1,8 @@
+PARSED {"proof_bytes": 5, "additions": 1, "needed_additions": 1, "needed_originals": 1}
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py", line 211, in <module>
+    main()
+  File "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py", line 185, in main
+    assert conflict, ('RUP failed to derive conflict', ident)
+           ^^^^^^^^
+AssertionError: ('RUP failed to derive conflict', 3)

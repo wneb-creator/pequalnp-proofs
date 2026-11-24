@@ -1,0 +1,19 @@
+PARSED {"proof_bytes": 6, "additions": 1, "needed_additions": 1, "needed_originals": 2}
+{
+  "status": "INDEPENDENT_RUP_REPLAY_PASSED",
+  "scope": "external computational certificate replay, not Lean-kernel verification",
+  "original_variables": 1,
+  "original_clauses": 2,
+  "proof_bytes": 6,
+  "proof_sha256": "8cd7608dabe9d3657bb3270cd5a679a5b006f753f4eaf378ab90e9f7dc279370",
+  "additions": 1,
+  "deletions": 0,
+  "needed_originals": 2,
+  "replayed_additions": 1,
+  "final_empty_id": 3,
+  "trimmed_bytes": 6,
+  "temporal_hint_availability_checked": true,
+  "max_address_space_mib": 128,
+  "max_RSS_KiB": 10880,
+  "elapsed_seconds": 0.000328926000292995
+}

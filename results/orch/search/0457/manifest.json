@@ -1,0 +1,419 @@
+{
+  "utc": "2026-11-24T04:55:20.681852+00:00",
+  "files": [
+    {
+      "path": "formal-cost-test.py",
+      "bytes": 4002,
+      "sha256": "4f466cbbf6637661b59b4c665269718339eaef7248aa8d9d4d84dbc434c5c58d",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/formal-cost-test.py"
+    },
+    {
+      "path": "formal-cost-test.log",
+      "bytes": 285,
+      "sha256": "5c725e3d8135fde8eb406e6b1090f10c10c9292ebb7099e5376bba43f7225946",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/formal-cost-test.log"
+    },
+    {
+      "path": "formal-cost-test.json",
+      "bytes": 285,
+      "sha256": "5c725e3d8135fde8eb406e6b1090f10c10c9292ebb7099e5376bba43f7225946",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/formal-cost-test.json"
+    },
+    {
+      "path": "general-five-cost-count.py",
+      "bytes": 966,
+      "sha256": "f364ef7310a1b9505cb1d64d8cb57bace50fe1cb7076db965119e008336a8006",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-cost-count.py"
+    },
+    {
+      "path": "general-five-cost-count.log",
+      "bytes": 273,
+      "sha256": "594d758c9e559b8369c8a0a405bfa1813338a058d55b99206442a6d5e7e9258c",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-cost-count.log"
+    },
+    {
+      "path": "general-five-cost-count.json",
+      "bytes": 273,
+      "sha256": "594d758c9e559b8369c8a0a405bfa1813338a058d55b99206442a6d5e7e9258c",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-cost-count.json"
+    },
+    {
+      "path": "general-five-cost-launch-0453.json",
+      "bytes": 609,
+      "sha256": "d6553f0ce96a2247437882ab25e7600687c50f8f2821302bcdf851c732b311be",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-cost-launch-0453.json"
+    },
+    {
+      "path": "completed-budget-integrity-0456.json",
+      "bytes": 2664,
+      "sha256": "716b1ffe708afb560df1b9cf98d5aecd0f78e1fd2d21a6c09adad9ba13b23132",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/completed-budget-integrity-0456.json"
+    },
+    {
+      "path": "and25-independent-review.json",
+      "bytes": 493,
+      "sha256": "1d5e7d275b46b62fc510b6d349b42eadd55c9d3f7fe7ef58e00b421b4310300c",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/and25-independent-review.json"
+    },
+    {
+      "path": "lrat-rup-replay.py",
+      "bytes": 7999,
+      "sha256": "0f1aba1fe39efaed530fcbff6c0ef71ba0ba9a7ec8e5097c8ba7b26f63c10ab6",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay.py"
+    },
+    {
+      "path": "lrat-rup-replay-help.log",
+      "bytes": 403,
+      "sha256": "6d8d478e53e72b51b5d272b256cd87f4de78a9d243af025e78cd3c2d6fcd15c0",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-replay-help.log"
+    },
+    {
+      "path": "lrat-rup-fixtures.py",
+      "bytes": 1918,
+      "sha256": "63f03d73b3d6e21df38ca7d43e0a9ecc89024335d61f0b130d537a40ef84e6c7",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures.py"
+    },
+    {
+      "path": "lrat-rup-fixtures.log",
+      "bytes": 211,
+      "sha256": "c87d092edf3b4578a44f78393b52b32ecdc49f2d7797a676c913e91d8fa8e4b2",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures.log"
+    },
+    {
+      "path": "general-five-reduced-cost/encoding-source/cegis-symbolic.py",
+      "bytes": 5274,
+      "sha256": "683cb5e4e32aa3a07bac88ec22adede7fd535b79d208526d3607c5c11a0fc665",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/encoding-source/cegis-symbolic.py"
+    },
+    {
+      "path": "general-five-reduced-cost/encoding-source/manifest.json",
+      "bytes": 1322,
+      "sha256": "cbe39cc7bd195cedeb2ca7ac43ba01a9d69e3a6eb44c6270c95a0a5e41922460",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/encoding-source/manifest.json"
+    },
+    {
+      "path": "general-five-reduced-cost/encoding-source/cegis-general-five-cost.py",
+      "bytes": 11946,
+      "sha256": "b1e17682eaeb785e853ac287941ec09d43721648953b378cb4a1ce96c5c626a4",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/encoding-source/cegis-general-five-cost.py"
+    },
+    {
+      "path": "general-five-reduced-cost/encoding-source/formal_cost.py",
+      "bytes": 1387,
+      "sha256": "ffd395881df9460e64bd3a17f17381926301009b3baa22a1849492a5a22ee936",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/encoding-source/formal_cost.py"
+    },
+    {
+      "path": "general-five-reduced-cost/encoding-source/line-pair-maps.json",
+      "bytes": 8029,
+      "sha256": "b0f50cbb2b9f5f43643aac39d0ea383c7170a9bff8dbc9ba74756a8c52c3d633",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/encoding-source/line-pair-maps.json"
+    },
+    {
+      "path": "general-five-reduced-cost/encoding-source/streaming_cnf.py",
+      "bytes": 1572,
+      "sha256": "5c93998e77af73b0bb9d3f457d086153ac4e281776eb247daba51314ac056aab",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/encoding-source/streaming_cnf.py"
+    },
+    {
+      "path": "general-five-reduced-cost/encoding-source/cegis-symbolic-five.py",
+      "bytes": 11795,
+      "sha256": "5bff952410bcb19350674bccc4b65997ec79b349ac64662561ad0cddac1793bb",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/encoding-source/cegis-symbolic-five.py"
+    },
+    {
+      "path": "general-five-reduced-cost/encoding-source/cegis.py",
+      "bytes": 5041,
+      "sha256": "a51bc1d6a37ec0af2ddb7a77192d2a47fe6dce4f97edaba336589ffec6e05910",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/encoding-source/cegis.py"
+    },
+    {
+      "path": "general-five-reduced-cost/encoding-source/cegis-full.py",
+      "bytes": 4397,
+      "sha256": "5c2f4ada8822c2d14e84fb3e7b16a0d8a47b842e04c94ec93621408c353cd3a0",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/general-five-reduced-cost/encoding-source/cegis-full.py"
+    },
+    {
+      "path": "lrat-rup-fixtures/future_hint/input.cnf",
+      "bytes": 19,
+      "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/future_hint/input.cnf"
+    },
+    {
+      "path": "lrat-rup-fixtures/future_hint/checker.log",
+      "bytes": 383,
+      "sha256": "4085ecdb128fce8fedc6649e1a8899d2c3e35b57f08ce1e092b79f3efc600b8e",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/future_hint/checker.log"
+    },
+    {
+      "path": "lrat-rup-fixtures/future_hint/input.lrat",
+      "bytes": 6,
+      "sha256": "ab4cb8a11d9bef4e95f3d113905262eb5e13a27d2fbda82691794b52d9c836bd",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/future_hint/input.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/missing_empty/input.cnf",
+      "bytes": 19,
+      "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/missing_empty/input.cnf"
+    },
+    {
+      "path": "lrat-rup-fixtures/missing_empty/checker.log",
+      "bytes": 351,
+      "sha256": "1739c17ffe8f455d3c02c515c767b453ec3f20048b3308ae6ac36fe6fb03a452",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/missing_empty/checker.log"
+    },
+    {
+      "path": "lrat-rup-fixtures/missing_empty/input.lrat",
+      "bytes": 6,
+      "sha256": "55e1723bb8259dea093596535f496f11bb0d5ebf0cd06eb2e4c7a0f1c4959581",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/missing_empty/input.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/needed_rat/input.cnf",
+      "bytes": 19,
+      "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/needed_rat/input.cnf"
+    },
+    {
+      "path": "lrat-rup-fixtures/needed_rat/checker.log",
+      "bytes": 393,
+      "sha256": "d186093c23195a16996401d3a3c9eb4e4fe574f5af7bbee22f5b005f0cd84cf1",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/needed_rat/checker.log"
+    },
+    {
+      "path": "lrat-rup-fixtures/needed_rat/input.lrat",
+      "bytes": 6,
+      "sha256": "f668cb5a9ad23bc96e8b7add1fce2ddecb803393e6d492bb362898051e00e56e",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/needed_rat/input.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/corrupt_final/input.cnf",
+      "bytes": 19,
+      "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/corrupt_final/input.cnf"
+    },
+    {
+      "path": "lrat-rup-fixtures/corrupt_final/checker.log",
+      "bytes": 435,
+      "sha256": "66594886f1657a843be1835e008660c8bdd494c0ba14ddd07e12500e65c34435",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/corrupt_final/checker.log"
+    },
+    {
+      "path": "lrat-rup-fixtures/corrupt_final/input.lrat",
+      "bytes": 5,
+      "sha256": "a914e712452d636ba0f581bbf5591d468ad6aa5d003ed9be4c2cb7bfecf8c16f",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/corrupt_final/input.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/corrupt_final/checked/needed-original-clauses.txt",
+      "bytes": 6,
+      "sha256": "63e9513edcd96636e7a78d2dc432a9d971f3ca5de1d1bcb4c8ffd2bcac8dd7c2",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/corrupt_final/checked/needed-original-clauses.txt"
+    },
+    {
+      "path": "lrat-rup-fixtures/nonunit_hint/input.cnf",
+      "bytes": 24,
+      "sha256": "035799d046c30d0c9266a0948fafad1a4e9a28a4bdfb1fc00ba648e32016f66a",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/nonunit_hint/input.cnf"
+    },
+    {
+      "path": "lrat-rup-fixtures/nonunit_hint/checker.log",
+      "bytes": 430,
+      "sha256": "38e5ea03246e7c8901f30472936ffff8c0e20586f87000dce0b7d483e74e2836",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/nonunit_hint/checker.log"
+    },
+    {
+      "path": "lrat-rup-fixtures/nonunit_hint/input.lrat",
+      "bytes": 6,
+      "sha256": "8cd7608dabe9d3657bb3270cd5a679a5b006f753f4eaf378ab90e9f7dc279370",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/nonunit_hint/input.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/nonunit_hint/checked/needed-original-clauses.txt",
+      "bytes": 18,
+      "sha256": "167d9a72ae7e4fcf9dc8b6bfcf9a8a4545c5b3b49192be62576941a35e18c83b",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/nonunit_hint/checked/needed-original-clauses.txt"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_duplicate_unit/input.cnf",
+      "bytes": 21,
+      "sha256": "d9b13d6718e2626c28913e215e3804ed996c43060d8d5956c6a56dc69d3b0bf5",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_duplicate_unit/input.cnf"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_duplicate_unit/checker.log",
+      "bytes": 660,
+      "sha256": "dc2ba97035a9167c6852985f951a989d3cbdb3c12604b8ad07e6cd65f9dca890",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_duplicate_unit/checker.log"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_duplicate_unit/input.lrat",
+      "bytes": 6,
+      "sha256": "8cd7608dabe9d3657bb3270cd5a679a5b006f753f4eaf378ab90e9f7dc279370",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_duplicate_unit/input.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_duplicate_unit/checked/trimmed.lrat",
+      "bytes": 6,
+      "sha256": "8cd7608dabe9d3657bb3270cd5a679a5b006f753f4eaf378ab90e9f7dc279370",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_duplicate_unit/checked/trimmed.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_duplicate_unit/checked/result.json",
+      "bytes": 572,
+      "sha256": "2a891796c5903c778a9f12f5dbd525069a59ddd8e471119df55ead12cf19d7e4",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_duplicate_unit/checked/result.json"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_duplicate_unit/checked/needed-original-clauses.txt",
+      "bytes": 15,
+      "sha256": "3b903c63db91d90cc2f0e8c2b3c63ecb63566ecf66d04b40dd6a8833049d3a4c",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_duplicate_unit/checked/needed-original-clauses.txt"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_chain/input.cnf",
+      "bytes": 19,
+      "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_chain/input.cnf"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_chain/checker.log",
+      "bytes": 662,
+      "sha256": "4900839b34e224bbd912cdf47b22c838964140bae828b78cc6f07884621a7e53",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_chain/checker.log"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_chain/input.lrat",
+      "bytes": 12,
+      "sha256": "bfeb72cc42b3e8ef1234599b21dbf3b3a66d23e79f4fa0c3a667e1bfccdcf506",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_chain/input.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_chain/checked/trimmed.lrat",
+      "bytes": 12,
+      "sha256": "bfeb72cc42b3e8ef1234599b21dbf3b3a66d23e79f4fa0c3a667e1bfccdcf506",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_chain/checked/trimmed.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_chain/checked/result.json",
+      "bytes": 573,
+      "sha256": "98bb82b6ec974cb5f56be62bd828332a57e776042bcb301391b57c4874c6e864",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_chain/checked/result.json"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_chain/checked/needed-original-clauses.txt",
+      "bytes": 13,
+      "sha256": "93debb943ec9904a233aca03ed0431d1140927d6397c6ba8222ccaeb1dc79fde",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_chain/checked/needed-original-clauses.txt"
+    },
+    {
+      "path": "lrat-rup-fixtures/truncated_integer/input.cnf",
+      "bytes": 19,
+      "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/truncated_integer/input.cnf"
+    },
+    {
+      "path": "lrat-rup-fixtures/truncated_integer/checker.log",
+      "bytes": 468,
+      "sha256": "efd4bfc5ded5c26d237f9748c14804361b93605b1d03c459f8bb0deec3804d47",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/truncated_integer/checker.log"
+    },
+    {
+      "path": "lrat-rup-fixtures/truncated_integer/input.lrat",
+      "bytes": 2,
+      "sha256": "119792a4ff6ca25186b81fe68e4e9da6870d1d77463da46b2a7497d46dc18a70",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/truncated_integer/input.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/fixtures.json",
+      "bytes": 911,
+      "sha256": "b7b759eee2918aafd6c9aed71deba48a86a3b737ee0a4efd13c91d47f3de8fd2",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/fixtures.json"
+    },
+    {
+      "path": "lrat-rup-fixtures/deleted_hint/input.cnf",
+      "bytes": 19,
+      "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/deleted_hint/input.cnf"
+    },
+    {
+      "path": "lrat-rup-fixtures/deleted_hint/checker.log",
+      "bytes": 383,
+      "sha256": "dc2fc4e4b9c51cfbaa0d7ec609a8d91584a3591d5aca38f6d04e5f9535a712dc",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/deleted_hint/checker.log"
+    },
+    {
+      "path": "lrat-rup-fixtures/deleted_hint/input.lrat",
+      "bytes": 9,
+      "sha256": "950e9258d2ef9854442732359b153c5ff63c9a4778b24d2b3cb11f87bf2f33b9",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/deleted_hint/input.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_direct/input.cnf",
+      "bytes": 19,
+      "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_direct/input.cnf"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_direct/checker.log",
+      "bytes": 658,
+      "sha256": "abc36d2205b7b135787cd37e939464e706e1a19f823e3a44c537c7c101283bd3",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_direct/checker.log"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_direct/input.lrat",
+      "bytes": 6,
+      "sha256": "8cd7608dabe9d3657bb3270cd5a679a5b006f753f4eaf378ab90e9f7dc279370",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_direct/input.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_direct/checked/trimmed.lrat",
+      "bytes": 6,
+      "sha256": "8cd7608dabe9d3657bb3270cd5a679a5b006f753f4eaf378ab90e9f7dc279370",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_direct/checked/trimmed.lrat"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_direct/checked/result.json",
+      "bytes": 570,
+      "sha256": "3dac6762c87e5d6aa2d985f414e5e5b7920bdbbff1295cb5a6d9a30df50181e1",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_direct/checked/result.json"
+    },
+    {
+      "path": "lrat-rup-fixtures/valid_direct/checked/needed-original-clauses.txt",
+      "bytes": 13,
+      "sha256": "93debb943ec9904a233aca03ed0431d1140927d6397c6ba8222ccaeb1dc79fde",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/lrat-rup-fixtures/valid_direct/checked/needed-original-clauses.txt"
+    },
+    {
+      "path": "full-strong-resume-0321/case-0/continuous-000.log",
+      "bytes": 35545,
+      "sha256": "6071ce7b49bc38c19b139ca42cc302d8eb3f1d670d13ea3ae86a9f92f9a07267",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-strong-resume-0321/case-0/continuous-000.log"
+    },
+    {
+      "path": "full-normal-strong-resume-0321/continuous-000.log",
+      "bytes": 26296,
+      "sha256": "598324c472fdbe43b5a146e1f8cc4821da2c7fa6db3097353f32bf5e01caf629",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/full-normal-strong-resume-0321/continuous-000.log"
+    },
+    {
+      "path": "cegis-strong-resume-0-progress.log",
+      "bytes": 4557,
+      "sha256": "a8a90f6d92fe0a82a343255e9d4091d262e07951cc28a2a00ee140cbc5016565",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-strong-resume-0-progress.log"
+    },
+    {
+      "path": "cegis-normal-strong-resume-progress.log",
+      "bytes": 4539,
+      "sha256": "b6c8ab5c0422a92b3bb46793145d14dce605281809bda39243df110605273a36",
+      "source": "/tmp/oec/pequalnp-pilot-21/search/cegis-normal-strong-resume-progress.log"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1305,
+      "sha256": "785cdb2b7d2ef140c85fb4ae7940cff42324a6e010b225a82ac465d6b29fd1da",
+      "source": "generated archive scope note"
+    }
+  ]
+}
