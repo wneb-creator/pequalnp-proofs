@@ -1,0 +1,5 @@
+import PEqualNP.Outside.L_meta_1482
+
+#print axioms PEqualNP.Outside.L_meta_1482.boundary_exists_at_65
+#print axioms PEqualNP.Outside.L_meta_1482.cover_eq_one_side
+#print axioms PEqualNP.Outside.L_meta_1482.circuit_critical_inputs_correct

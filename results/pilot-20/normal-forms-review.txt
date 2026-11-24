@@ -1,0 +1,17 @@
+Independent mathematical review: PASS
+Reviewer: /root/counterexample_search
+Artifact: NormalForms.md
+SHA256: 27a8e473b7295764d2aafdb565549477b1bedc3a2198e05d79cb85d000213ed9
+
+Reviewed the updated 213-line note. The safe-wire cofactor identity and size bound
+size(C) - k + 1 are sound: retain the prefix, eliminate each of the k direct
+readers under symbolic false, propagate aliases/false, append at most one OR.
+Distinct-parent repairs preserve Boolean semantics and acyclicity, with the
+correct explicit warning that they can change formal derivatives. Sections 1
+and 3 similarly preserve f without preserving double re-read. The output=H
+case and safe-but-higher-degree caveat are correct. The reviewer spot-checked
+the cited actual definitions/theorems; the NOT/distinct-parent mismatch is
+accurately described.
+
+Scope: mathematical notes only; not a Lean transformation theorem or a proof
+of the posted 64-gate lower bound.

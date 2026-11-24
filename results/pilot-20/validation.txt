@@ -37,4 +37,14 @@ containment. The161-line helper alone depends on existing wire lemmas.
 Independent review PASS; stored source and complete stdout/stderr accompany it.
 This prepares checking arbitrary search witnesses; it does not prove the target.
 
-TIMING total=48.6 subagents=8
+
+Axiom audit of boundary_exists_at_65, cover_eq_one_side, and
+circuit_critical_inputs_correct: PASS, only propext, Classical.choice, Quot.sound.
+Complete audit source and output are preserved.
+The plane permutation and all52 flag reductions were independently checked
+computationally; this is a search symmetry fact, not a Lean theorem.
+The independently reviewed normal-form note states mathematical safe-wire
+reductions and the unresolved unsafe-intermediate obstacle. It does not prove
+the target and explicitly says those reductions can destroy double reread.
+
+TIMING total=58.4 subagents=8

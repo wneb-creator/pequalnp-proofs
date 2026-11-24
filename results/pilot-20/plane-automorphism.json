@@ -1,0 +1,46 @@
+{
+  "points": [
+    1,
+    0,
+    2,
+    3,
+    8,
+    5,
+    7,
+    6,
+    4,
+    9,
+    12,
+    11,
+    10
+  ],
+  "lines": [
+    0,
+    12,
+    2,
+    7,
+    5,
+    4,
+    6,
+    3,
+    8,
+    9,
+    11,
+    10,
+    1
+  ],
+  "source_frame": [
+    1,
+    0,
+    2,
+    5
+  ],
+  "target_frame": [
+    0,
+    1,
+    2,
+    5
+  ],
+  "checked_incidence_pairs": 169,
+  "explanation": "Maps incident flag (1,0) to (0,0). Together with translations and multiplier3, this gives transitivity on all52 flags."
+}

@@ -1,0 +1,5 @@
+'PEqualNP.Outside.L_meta_1482.boundary_exists_at_65' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1482.cover_eq_one_side' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1482.circuit_critical_inputs_correct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
