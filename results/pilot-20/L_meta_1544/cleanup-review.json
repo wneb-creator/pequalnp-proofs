@@ -1,0 +1,18 @@
+{
+  "verdict": "CONDITIONAL PASS: preservation approved if root cleanup build passes; final retention also requires exact checker acceptance",
+  "reviewer": "/root/counterexample_search",
+  "file": "lean/PEqualNP/Outside/L_meta_1544.lean",
+  "base_commit": "1c6e4ed",
+  "before_lines": 578,
+  "after_lines": 577,
+  "before_sha256": "fbd9220b2f26de8233bb9acab6f11f94ed49ec516b9e6d0b964c987b0076dfc6",
+  "after_sha256": "f33ade18ffbf9222793656cfcbce408c33f3d60f396cb7133eb777c926adefe0",
+  "only_change": "geometry.hout: by_contra h followed by push_neg at h replaced by by_contra! h",
+  "theorem_type_byte_identical": true,
+  "exact_posted_statement_after_whitespace_normalization": true,
+  "all_other_proof_and_data_byte_identical": true,
+  "plain_file_and_redteam_scan": "PASS",
+  "mathematical_reason": "The goal is existence of a point outside a line. Both tactic sequences introduce its negation and normalize it to universal membership, used by the unchanged finite-set equality proof. The enclosing proof already uses classical reasoning; no new assumption or trust mechanism is introduced.",
+  "lean_execution_by_reviewer": false,
+  "root_build_and_checker": "pending at review time"
+}

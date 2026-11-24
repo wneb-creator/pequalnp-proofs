@@ -384,8 +384,7 @@ lemma geometry (q N : ℕ) (L : Fin N → Finset (Fin N))
     have hlt : (L t).card < N := by
       rw [hcard t, hN]
       nlinarith
-    by_contra h
-    push_neg at h
+    by_contra! h
     have he : L t = Finset.univ := Finset.eq_univ_iff_forall.mpr h
     rw [he, Finset.card_univ, Fintype.card_fin] at hlt
     omega

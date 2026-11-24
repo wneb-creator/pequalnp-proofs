@@ -7,9 +7,12 @@ Independent source/red-team review: PASS; exact statement, generic circuit seman
 Source provenance: generic helpers and charging proof adapted from checked L-meta-1516; fixed q=3,N=13 geometry replaced by a separately Lean-checked argument for arbitrary q>=2,N=q^2+q+1.
 First build failed only because Circuit/GateOp were not opened after helper namespace; complete diagnostics preserved. Added the permitted namespace open and rebuilt successfully.
 Lines before cleanup: 578
-Lines after cleanup: pending
+Lines after cleanup: 577 (candidate build and guard PASS; exact checker pending)
 PR: none yet; capped cleanup still required before delivery.
 Sub-agents: lease_keeper, counterexample_search, lemma_search, review_rules, prior proof/setup agents and independent child reviewers (10 total across job).
-TIMING total=126 subagents=10
+TIMING total=131 subagents=10
 Source SHA256: fbd9220b2f26de8233bb9acab6f11f94ed49ec516b9e6d0b964c987b0076dfc6
 Checker verdict: ACCEPTED (check): PEqualNP.Outside.L_meta_1544; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked 1337 constants.
+Cleanup candidate: replace by_contra plus push_neg with by_contra!; exact statement and all other proof bytes unchanged.
+Original accepted source: proof-before-cleanup.lean.txt, original checker.stdout.
+Current source: proof.lean.txt; cleanup diagnostics have cleanup- prefix.
