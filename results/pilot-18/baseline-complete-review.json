@@ -1,0 +1,16 @@
+{
+  "source_sha256": "b8d3c2ae6508190f3ad278c134b60c0f8c7b6a799d22ce93cc8878e25d15ddc6",
+  "lines": 201,
+  "bytes": 12494,
+  "author": "proof sub-agent",
+  "reviewer": "main agent",
+  "verdict": "PASS for partial checkpoint; not ready for a proof PR",
+  "checks": [
+    "same 22-gate circuit as independently checked on all 2048 inputs",
+    "stepwise fold evaluation preserves original Circuit semantics",
+    "edges_iff handles exactly the posted Nat-pair membership",
+    "own namespace, permitted imports, no prohibited markers or extra axioms",
+    "named-file lake build passed"
+  ],
+  "limitation": "No final module-named theorem and no proof of the at-most-21-gate statement"
+}
