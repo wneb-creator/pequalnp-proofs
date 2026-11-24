@@ -1,0 +1,96 @@
+../results/orch/lemmas/HyperovalLiftNext.lean:290:86: warning: This simp argument is unused:
+  List.all_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_nil, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/HyperovalLiftNext.lean:290:101: warning: This simp argument is unused:
+  List.all_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/HyperovalLiftNext.lean:290:137: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    id_eq, Bool.or_false, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/HyperovalLiftNext.lean:293:86: warning: This simp argument is unused:
+  List.all_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_nil, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/HyperovalLiftNext.lean:293:101: warning: This simp argument is unused:
+  List.all_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/HyperovalLiftNext.lean:293:137: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    id_eq, Bool.or_false, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/HyperovalLiftNext.lean:296:86: warning: This simp argument is unused:
+  List.all_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_nil, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/HyperovalLiftNext.lean:296:101: warning: This simp argument is unused:
+  List.all_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/HyperovalLiftNext.lean:296:137: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    id_eq, Bool.or_false, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/HyperovalLiftNext.lean:299:57: warning: This simp argument is unused:
+  List.any_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_nil, List.all_cons, List.all_nil, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/HyperovalLiftNext.lean:299:72: warning: This simp argument is unused:
+  List.any_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.all_cons, List.all_nil, id_eq,
+    Bool.or_false, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/HyperovalLiftNext.lean:299:122: warning: This simp argument is unused:
+  Bool.or_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    id_eq, Bool.and_true, circuit_input, Circuit.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

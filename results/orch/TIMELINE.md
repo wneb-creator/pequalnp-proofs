@@ -29,3 +29,27 @@
 2026-11-24 07:51:42 UTC Generic94-test certificate, Circuit.eval monotonicity bridge,and35-gate concrete baseline all compiled; snapshots frozen.
 
 - 2026-11-24 07:56:14 UTC: normal_form compiled MaskBounds.lean singleton/nonedge cleaner bounds (exit0).
+
+- 2026-11-24 07:58:21 UTC: gate_invariants checked GateSensitivity.lean strengthening minimum-gate edge firing to final-output sensitivity; frozen for review/push. Also independently reviewed MaskBounds.lean, PASS.
+- 2026-11-24T07:58:26.348398+00:00: StructuralMasks reviewed; inputtransport and6-gate appendStar checked; fullhyperoval conditional lift being assembled.
+- 2026-11-24T07:59:24.375722+00:00: complete conditional34->124 hyperoval lift compiled; frozen snapshot sent forindependentreview+push.
+
+- 2026-11-24T07:59:37.778278+00:00 StructuralTwoCenters compiled; independently reviewed MaskBounds and HyperovalLiftAppend PASS.
+
+- 2026-11-24 07:59:50 UTC: gate_invariants completed GateBypass.lean, Lean exit0, froze full complete-test incomparability component for independent review and push.
+
+- 2026-11-24 08:00:14 UTC: normal_form compiled TwoCenters.lean exact two-star cardinal (exit0).
+
+2026-11-24 08:03:35 UTC Robust20matching/cover and retainedcenter21cover results compiled; snapshots frozen.
+
+- 2026-11-24T08:03:44.521824+00:00 Overlap classification compiled; TwoCenters independently reviewed and rebuilt PASS.
+
+2026-11-24T08:06:34.304397+00:00 status_audit: Search package reviewed PASS; stochastic strategy began (oneCPU,seed14772901).
+
+- 2026-11-24 08:08:52 UTC: gate_invariants completed SensitivePathBridge and GateSensitivityZero, freezing checked shared-DAG-sensitive-path and deletion-to-zeroing components. Independently reviewed HyperovalLiftComplete and NormalFormMinimal, PASS.
+
+- 2026-11-24 08:11:37 UTC: normal_form compiled OneJunkProduct exact circuit-to-product bridge (exit0).
+
+- 2026-11-24 08:12:17 UTC: gate_invariants completed SensitiveTop and SensitiveMask; arbitrary sensitive-edge effective-mask theorem Lean-checked, frozen and sent for independent review/push.
+
+2026-11-24T08:12:51.922651+00:00 status_audit: OneJunkProduct independent source+Lean review completed PASS; stochastic original still running.

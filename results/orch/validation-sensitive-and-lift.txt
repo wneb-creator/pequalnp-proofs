@@ -1,0 +1,18 @@
+UTC 2026-11-24T08:12:51.453766+00:00
+Gap L-meta-1477. These are partial results, not a proof of the posted statement.
+Named module lake build previously passed. The required final theorem is still absent; exact-statement checker has not passed.
+Red-team review: no added axioms, sorry, native_decide, bv_decide, strings, forbidden root identifiers, or disallowed attributes. Mathematical hypotheses are retained explicitly.
+Frozen search package independently reviewed by status_audit: restricted/exact-size searches and incomplete runs are labeled; no 34-gate witness found.
+HyperovalLiftComplete.lean: 476 lines, sha256 b750cc871104c98237a4903b9cc31b2b5df24aa08021ffaaa6b5a3743c2890a2, Lean exit 0; independent review PASS; full log hyperoval-lift-build-009.log.
+GateBypass.lean: 654 lines, sha256 f9d3e90535d2411b5e0571fd6e8ecb9d300a65d7a6ec4fc8173982b427060c72, Lean exit 0; independent review PASS; full log gate-bypass-build-009.log.
+GateSensitivity.lean: 416 lines, sha256 be0653fee4a83828bb9f6d3220edb7c17a61b56ea4c54216150caf8226e66a20, Lean exit 0; independent review PASS; full log gate-sensitivity-build-001.log.
+GateSensitivityZero.lean: 442 lines, sha256 18f4365a56fe4544da6a585ecc1f3a22f35d68a395512120f6a1644e3a48f857, Lean exit 0; independent review PASS; full log gate-sensitivity-zero-build-002.log.
+SensitivePath.lean: 386 lines, sha256 1d88d62f8d304bb226bbb7d45884739c429a6423f9218be84e5482a870eb6620, Lean exit 0; independent review PASS; full log sensitive-path-build-006.log.
+NormalFormMinimal.lean: 336 lines, sha256 911fe8f175fb2a7577645c10153927e8cc8b2a3ed6f153dc4cef4fea27db0516, Lean exit 0; independent review PASS; full log normal-form-minimal-build-001.log.
+TwoCenters.lean: 65 lines, sha256 8c526a769f39477451d5690862d49feaf2a357c22a6ccae0813a4b2a68e6c314, Lean exit 0; independent review PASS; full log two-centers-build-002.log.
+StructuralTwoCenters.lean: 31 lines, sha256 9f95c4326b1f6375ac2000e6501151ac4936d982ccb47be3f066b3962bd6ecf0, Lean exit 0; independent review PASS; full log structural-two-centers-build-002.log.
+StructuralClassification.lean: 358 lines, sha256 7fcee985818c8926e895e6a29e0d11c7b8ad92ace3874e47395787cee8151e70, Lean exit 0; independent review PASS; full log structural-classification-build-001.log.
+PlaneRobustCover21.lean: 221 lines, sha256 5170583135cda9ab1fbb993a4efd012af28de7e486bf83aadbd4c4a201c79c21, Lean exit 0; independent review PASS; full log plane-robust-cover-full.log.
+OneJunk.lean: 3593 lines, sha256 0ddcac3702d37f43ea95021b83fedc3005fe24be553d43c2c32b2ea4cf8eb3e5, Lean exit 0; independent review PASS; full log one-junk-build-002.log.
+Sub-agents: status_audit, lean_setup, structural_lower_bound, counterexample_search, gate_invariants, normal_form
+TIMING total=124.3 subagents=6

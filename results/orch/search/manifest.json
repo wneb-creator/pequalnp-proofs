@@ -1,0 +1,29 @@
+{
+  "frozen_at": "2026-11-24T07:57:53.113841+00:00",
+  "code": [
+    {
+      "file": "results/orch/search/code/Search.py",
+      "sha256": "b11fe756af658a6b1a112c163a20296a13a08382cf7c94b517ec398c01f63e3f"
+    },
+    {
+      "file": "results/orch/search/code/SearchFactored.py",
+      "sha256": "d8ab2ca0f716540c8748dc58f84ce55923d44da988372cd2ce9e835c98377487"
+    },
+    {
+      "file": "results/orch/search/code/SearchDecode.py",
+      "sha256": "242d941155efbf308fb50371cc7e44ae5012f7d5bed11a217f5bac813f6239f6"
+    }
+  ],
+  "completed_logs": {
+    "search-c6-7.log": "UNSAT for exact7gate used-gate binary model; computational only",
+    "search-c6-8.log": "SAT; decoded8gate circuit checked on all64 inputs",
+    "search-concurrent3-7.log": "UNSAT for exact7gate used-gate binary local model; computational only",
+    "search-factored-calibration.log": "SAT for forced known35gate baseline; decoded and checked on94 extremal input tests"
+  },
+  "running_snapshots": {
+    "search-k6-34.log": "running, no verdict at snapshot",
+    "search-factored-and7-size34.log": "running, no verdict at snapshot"
+  },
+  "no_lower_bound_claim": true,
+  "baseline_fixture": "baseline35.json"
+}
