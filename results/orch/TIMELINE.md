@@ -9,3 +9,8 @@
 - 2026-11-24T15:26:37.568461+00:00 Global exact-function monotone-normalization reduction rejected on quality review: effectively original bound once monotone optimum is known. Replanned toward bounded-NOT cases plus AND/OR counts, with high-NOT cases solved by essential-input count.
 - 2026-11-24T15:27:53.634173+00:00 Checked all9 essential-input witnesses; independently reviewed; preserving immediately.
 - 2026-11-24T15:28:28.386169+00:00 Generic essential-support bound checked and independently reviewed: n essential inputs require at least n-1 non-NOT gates.
+
+- 2026-11-24T15:29:01.373956+00:00 direct_structural essential-input bound excludingNOT compiled; single-declaration local version also checked.
+
+- 2026-11-24T15:29:37.615779+00:00 graph_bounds: OR-count proof route stalled; finite single-vertex deletion probe search stopped at100019 unresolvedfour-prefixstates (cap100000), no Lean proof.
+- 2026-11-24T15:29:41.170958+00:00 Checked support-count proof with all helpers local to one theorem; checked NOT count assembly facts; independently reviewed and preserving.
