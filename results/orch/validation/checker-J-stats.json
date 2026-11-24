@@ -1,0 +1,16 @@
+{
+  "started_at": "2026-11-24T23:39:33.490400+00:00",
+  "finished_at": "2026-11-24T23:40:45.944879+00:00",
+  "elapsed_seconds": 72.45452321599987,
+  "exit_code": 3,
+  "user_cpu_seconds": 43.957373,
+  "system_cpu_seconds": 18.141016,
+  "peak_rss_kib": 12279684,
+  "command": [
+    "node",
+    "tools/check-lean.mjs",
+    "lean/PEqualNP/Outside/L_meta_1677.lean",
+    "/tmp/oec/pequalnp-pilot-44/statement.txt",
+    "check"
+  ]
+}
