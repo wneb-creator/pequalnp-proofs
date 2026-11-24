@@ -1,0 +1,7 @@
+../results/orch/lemmas/HasAnd.lean:74:40: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
