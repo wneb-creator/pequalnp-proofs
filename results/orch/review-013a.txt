@@ -1,0 +1,70 @@
+Independent CommonLine / D11 special-case review
+UTC: 2026-11-24 19:03:30 UTC
+Reviewer: /root/review_recovery, independent of implementation.
+Scope: all 214 lines of
+/tmp/oec/pequalnp-pilot-39/composition-recovery/common-line-fragment.txt
+SHA256: 3ea1edd4161510d2738751f7c069ea9690c5dcbf79575b7fd116275838d7ca82
+Size: 10602 bytes.
+
+Verdict: APPROVED. This proves an actual same-size read-two replacement
+under the explicitly stated CommonLine hypotheses. It does not prove the
+general posted gap: the structural hypotheses remain essential.
+
+Mathematical review:
+- centres_forced_pair shows that forcing g false preserves an edge input
+  away from u and v. Every true top depending on g would have an empty
+  opposite OR support, since u and v have no common neighbor. The existing
+  two-dirty frontier result then identifies that opposite operand with h,
+  contradicting the assumption that h is false on that edge. The direction
+  of the non-cone assumption and the swapped dirty-gate disjunction match
+  the invoked frontier lemma. A top cannot equal g because g has a true
+  singleton input and a top is below the loop-free graph function.
+- overwrite_centres_properties replaces g by OR(u,v), globally below g
+  because either singleton input forces g true. On edge inputs containing
+  a center, replacement and g both equal true, so output equality follows.
+  Away from both centers, the forced-false argument supplies a true output;
+  forcing the replacement false yields exactly the old forced circuit, and
+  monotonicity lifts that true output to the replacement. Pair coverage and
+  global downward comparison prove exact graph-function equality.
+- pure_operands_cover_by_centres uses pure-OR witnesses a and b from the
+  two operands of h. They are distinct because the two center neighborhoods
+  are disjoint, hence adjacent on the tested edge input. If a is not u,
+  no-four-cycle gives uniqueness of their common neighbor and forces b=v.
+  Thus every productive pair of h contains a center.
+- common_line_neighborhoods derives the center edge and both required
+  neighborhood containments from the explicit global soundness condition
+  g AND h <= graphFun. It tests pairs and uses singleton support of g plus
+  OR reachability in h's operands. No unstated bipartition premise is used.
+- least_common_line_replacement combines those results, preserves exact
+  circuit size and leastness, replaces g's AND by an OR, and uses pointwise
+  downward gate semantics to leave at most the other dirty gate h. The
+  already checked least_one_dirty_replacement then produces an equally
+  sized least circuit satisfying IsReadK 2. The result is a genuine read-two
+  conclusion rather than an assumed read-two premise.
+
+Scope boundaries:
+The final lemma requires a least AO2 source, TopForm, nonempty graph,
+NoFourCycle, only two possible dirty AND gates, no dependency of h on g,
+pure OR operands of h, two singleton centers of g in opposite operands,
+no common neighbor of the centers, and global soundness of g AND h.
+The fragment does not claim every source in L-meta-2584 has this structure.
+
+Independent validation:
+- Constructed CommonLineAudit.lean importing the currently compiled main,
+  adding the exact frozen fragment in the module namespace, then printing
+  axioms of least_common_line_replacement, overwrite_centres_properties
+  and centres_forced_pair.
+- lake env lean completed exit0. Complete logs are
+  /tmp/oec/pequalnp-pilot-39/reorder-recovery/common-line-audit-001.stdout
+  /tmp/oec/pequalnp-pilot-39/reorder-recovery/common-line-audit-001.stderr
+- All three audited lemmas depend only on propext, Classical.choice and
+  Quot.sound. Stderr is empty. Diagnostic commands are scratch-only.
+- Independently checked the contracts and use of overwrite_or_junk_card_le_one
+  and TopNormalize.least_one_dirty_replacement in the current main source.
+- Full-fragment forbidden-token scan is clean: no sorry, new axioms,
+  native_decide, unsafe/elaboration commands, _root_, strings, hash commands,
+  attributes, options or new types. No imports were added.
+- The relative CommonLine namespace is intended for insertion inside the
+  module namespace. Root still owns the combined-module build/checker.
+
+No source changes made by reviewer. Frozen hash rechecked after review.

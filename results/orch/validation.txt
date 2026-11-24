@@ -92,3 +92,10 @@ Build015: exit0; Build completed successfully (18419 jobs).
 Independent reviews012a/b/c/d and012-format passed; only allowed axioms in component audits.
 Main checker remains REJECTED(no-theorem); full arbitrary-dirty statement still open.
 TIMING total=67.3 subagents=13
+
+Checkpoint 13: actual CommonLine two-dirty same-size ReadK2 replacement, bounded-junk minimum-AND normal form, and abstract four-clause3:1 signature.
+Target: 9983 lines, 454068 bytes.
+Build016: exit0; Build completed successfully (18419 jobs).
+Independent reviews013a/013b plus recovered013-format passed. Mainchecker remains REJECTED(no-theorem); exact posted theorem absent. No PR.
+Sub-agents: previous13 plus global_final, review_second, repair_second, structure_second, global_second, global_second/witness_descent, color_special (20 total).
+TIMING total=71.8 subagents=20

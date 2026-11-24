@@ -64,3 +64,5 @@
 - 2026-11-24T19:00:35.900986+00:00 structure_recovery checked actual-OR double-star bridge and OR-overwrite junk bound.
 
 - 2026-11-24T19:04:31.034069+00:00: checkpoint12 complete9632line source built and independently reviewed. CommonLine explicit two-dirty ReadK2 replacement separately compiled/reviewed, pending next integration.
+
+- 2026-11-24T19:09:01.927967+00:00: checkpoint13 full9983line helperfile built and reviewed; CommonLine actual conditional ReadK2 replacement preserved. Runtimeworkerhandles lost afterenvironmentrestart19:06, files+heartbeat survived; recoveryworkers started fromsavedfiles. Total20subagents includesnewglobalchallengechild and colourrestrictionroute.

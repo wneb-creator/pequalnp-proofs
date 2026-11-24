@@ -9629,4 +9629,355 @@ lemma sound_or_factors_have_pure_sides {P L : ℕ}
 
 end Sharing
 
+namespace CommonLine
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2584.Sharing
+
+lemma centres_forced_pair {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hTop : TopForm G C)
+    (hf : circuitFun n C = graphFun G ∅) (g h : ℕ)
+    (hgand : (gateAt C g).op = GateOp.and)
+    (honly : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      ¬ BelowF G C j → j = g ∨ j = h)
+    (hgh : ¬ InCone n C g h) (u v : Fin n)
+    (hu : u ∈ singletonInputs n C (n + g))
+    (hv : v ∈ singletonInputs n C (n + g))
+    (hnone : ∀ w, ¬(G.Adj u w ∧ G.Adj v w))
+    (x y : Fin n) (hxy : G.Adj x y)
+    (hcover : gateVal n C h (pairInput x y) = true →
+      (pairInput x y u || pairInput x y v) = true)
+    (haway : (pairInput x y u || pairInput x y v) = false) :
+    circuitFun n (forcedCircuit C g) (pairInput x y) = true := by
+  apply forcedCircuit_true_of_top_avoid G C hAO hf g hgand (pairInput x y)
+  · intro a ha har hav
+    have ha' := ha
+    simp only [tops, gatesWhere, Finset.mem_filter, Finset.mem_range] at ha'
+    obtain ⟨halen, haand, hbelow⟩ := ha'
+    constructor
+    · intro he
+      subst a
+      have husingle := hu
+      simp only [singletonInputs, Finset.mem_filter, Finset.mem_univ, true_and] at husingle
+      exact G.irrefl ((graphFun_pair G u u).mp (hbelow (pairInput u u) husingle))
+    · intro hga
+      have honly' : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+          ¬ BelowF G C j → j = h ∨ j = g := by
+        intro j hj hjand hjdirty
+        exact (honly j hj hjand hjdirty).symm
+      obtain ⟨b, hr⟩ := two_dirty_cone_or_frontier G C hAO hTop h g honly' hgh halen haand hga
+      have hempty := shared_region_opposite_empty_of_no_common_neighbor G C hAO ha b hr hu hv hnone
+      have heq := (empty_top_operand_eq_other_dirty G C hAO hTop g h honly ⟨u, hu⟩
+        ha b.rev hempty).2
+      have hopposite := and_operand_value hAO halen haand (pairInput x y) hav b.rev
+      rw [heq] at hopposite
+      have hyes := hcover hopposite
+      rw [haway] at hyes
+      cases hyes
+  · rw [hf]
+    exact (graphFun_pair G x y).mpr hxy
+
+lemma overwrite_centres_properties {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hTop : TopForm G C)
+    (hf : circuitFun n C = graphFun G ∅) (g h : ℕ)
+    (hgand : (gateAt C g).op = GateOp.and)
+    (honly : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      ¬ BelowF G C j → j = g ∨ j = h)
+    (hgh : ¬ InCone n C g h) (u v : Fin n)
+    (hu : u ∈ singletonInputs n C (n + g))
+    (hv : v ∈ singletonInputs n C (n + g))
+    (hnone : ∀ w, ¬(G.Adj u w ∧ G.Adj v w))
+    (hcover : ∀ x y : Fin n, G.Adj x y → gateVal n C h (pairInput x y) = true →
+      (pairInput x y u || pairInput x y v) = true) :
+    let D := overwriteCircuit C g ⟨GateOp.or, [u.val, v.val]⟩
+    IsAO2 n D ∧ D.size = C.size ∧ circuitFun n D = graphFun G ∅ := by
+  let r : Gate := ⟨GateOp.or, [u.val, v.val]⟩
+  let D := overwriteCircuit C g r
+  have hD : IsAO2 n D := overwriteCircuit_isAO2 hAO g r (Or.inr rfl) (by
+    intro i hi
+    change i ∈ [u.val, v.val] at hi
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+    rcases hi with rfl | rfl <;> omega) rfl
+  have hrep (x : Fin n → Bool) : replacementVal n C g r x = true →
+      val C (List.ofFn x) (n + g) = true := by
+    rw [replacementVal_or_inputs, Bool.or_eq_true]
+    rintro (hx | hx)
+    · exact singleton_input_value hAO hu x hx
+    · exact singleton_input_value hAO hv x hx
+  refine ⟨hD, overwriteCircuit_size C g r, ?_⟩
+  apply circuit_graphFun_eq_of_pair_cover G D hD.1
+  · intro x hx
+    have hold := overwriteCircuit_fun_le hAO.1 g r hrep x hx
+    simpa only [hf] using hold
+  · intro x y hxy
+    by_cases hc : (pairInput x y u || pairInput x y v) = true
+    · have hnew : replacementVal n C g r (pairInput x y) = true := by
+        rw [replacementVal_or_inputs]; exact hc
+      have hold := hrep (pairInput x y) hnew
+      have heq := overwriteCircuit_fun_eq C g r (pairInput x y) (hnew.trans hold.symm)
+      change circuitFun n (overwriteCircuit C g r) _ = true
+      rw [heq, hf]
+      exact (graphFun_pair G x y).mpr hxy
+    · have haway := Bool.eq_false_iff.mpr hc
+      have hforced := centres_forced_pair G C hAO hTop hf g h hgand honly hgh u v hu hv
+        hnone x y hxy (hcover x y hxy) haway
+      have hsame : forcedCircuit D g = forcedCircuit C g := by
+        simp [D, overwriteCircuit, forcedCircuit, List.set_set]
+      apply forcedCircuit_fun_le hD.1 g (pairInput x y)
+      rw [hsame]
+      exact hforced
+
+lemma pure_operands_cover_by_centres {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C) (hfour : NoFourCycle G)
+    (h c d : ℕ) (hh : h < C.gates.length) (hhand : (gateAt C h).op = GateOp.and)
+    (hinputs : (gateAt C h).inputs = [c, d])
+    (hcpure : ∀ k, OrReaches n C c k → (gateAt C k).op = GateOp.or)
+    (hdpure : ∀ k, OrReaches n C d k → (gateAt C k).op = GateOp.or)
+    (u v : Fin n) (huv : G.Adj u v)
+    (hcneigh : ∀ z ∈ orIn n C c, G.Adj v z)
+    (hdneigh : ∀ z ∈ orIn n C d, G.Adj u z)
+    (hnone : ∀ w, ¬(G.Adj u w ∧ G.Adj v w))
+    (x y : Fin n) (hxy : G.Adj x y) (hhval : gateVal n C h (pairInput x y) = true) :
+    (pairInput x y u || pairInput x y v) = true := by
+  have hcval := and_operand_value hAO hh hhand (pairInput x y) hhval 0
+  have hdval := and_operand_value hAO hh hhand (pairInput x y) hhval 1
+  simp only [opnd, hinputs] at hcval hdval
+  obtain ⟨a, ha, hav⟩ := (pure_or_value_iff hcpure (pairInput x y)).mp hcval
+  obtain ⟨b, hb, hbv⟩ := (pure_or_value_iff hdpure (pairInput x y)).mp hdval
+  have habne : a ≠ b := by
+    intro he
+    subst b
+    exact hnone a ⟨hdneigh a hb, hcneigh a ha⟩
+  have hab : G.Adj a b := by
+    rcases (pairInput_true x y a).mp hav with hax | hay
+    · rcases (pairInput_true x y b).mp hbv with hbx | hby
+      · exact False.elim (habne (hax.trans hbx.symm))
+      · rw [hax, hby]; exact hxy
+    · rcases (pairInput_true x y b).mp hbv with hbx | hby
+      · rw [hay, hbx]; exact hxy.symm
+      · exact False.elim (habne (hay.trans hby.symm))
+  have hcentres : a = u ∨ b = v := by
+    by_cases hau : a = u
+    · exact Or.inl hau
+    · right
+      exact Finset.card_le_one.mp (hfour a u hau) b
+        (by simp only [Finset.mem_filter, Finset.mem_univ, true_and]; exact ⟨hab, hdneigh b hb⟩)
+        v (by simp only [Finset.mem_filter, Finset.mem_univ, true_and]; exact ⟨(hcneigh a ha).symm, huv⟩)
+  rw [Bool.or_eq_true]
+  rcases hcentres with rfl | rfl
+  · exact Or.inl hav
+  · exact Or.inr hbv
+
+lemma common_line_neighborhoods {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (g h c d : ℕ)
+    (hh : h < C.gates.length) (hhand : (gateAt C h).op = GateOp.and)
+    (hinputs : (gateAt C h).inputs = [c, d])
+    (u v : Fin n) (hu : u ∈ singletonInputs n C (n + g))
+    (hv : v ∈ singletonInputs n C (n + g))
+    (huc : u ∈ orIn n C c) (hvd : v ∈ orIn n C d)
+    (hsound : ∀ x : Fin n → Bool, gateVal n C g x = true →
+      gateVal n C h x = true → graphFun G ∅ x = true) :
+    G.Adj u v ∧ (∀ z ∈ orIn n C c, G.Adj v z) ∧ (∀ z ∈ orIn n C d, G.Adj u z) := by
+  have hblock (a b : Fin n) (ha : a ∈ orIn n C c) (hb : b ∈ orIn n C d)
+      (hgv : gateVal n C g (pairInput a b) = true) : G.Adj a b := by
+    apply (graphFun_pair G a b).mp
+    apply hsound (pairInput a b) hgv
+    apply (val_and (by simp) hh hhand).mpr
+    intro w hw
+    refine ⟨hAO.2.1 h hh w hw, ?_⟩
+    rw [hinputs] at hw
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hw
+    rcases hw with rfl | rfl
+    · exact orIn_value ha _ (pairInput_left a b)
+    · exact orIn_value hb _ (pairInput_right a b)
+  refine ⟨hblock u v huc hvd (singleton_input_pair_value hAO.1 hu v), ?_, ?_⟩
+  · intro z hz
+    apply SimpleGraph.Adj.symm
+    apply hblock z v hz hvd
+    exact singleton_input_value hAO hv _ (pairInput_right z v)
+  · intro z hz
+    exact hblock u z huc hz (singleton_input_pair_value hAO.1 hu z)
+
+
+lemma least_common_line_replacement {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hne : G.edgeFinset.Nonempty)
+    (hL : IsLeastAO G C) (hTop : TopForm G C) (hfour : NoFourCycle G)
+    (g h c d : ℕ) (hgand : (gateAt C g).op = GateOp.and)
+    (hh : h < C.gates.length) (hhand : (gateAt C h).op = GateOp.and)
+    (hinputs : (gateAt C h).inputs = [c, d])
+    (honly : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      ¬ BelowF G C j → j = g ∨ j = h)
+    (hgh : ¬ InCone n C g h)
+    (hcpure : ∀ k, OrReaches n C c k → (gateAt C k).op = GateOp.or)
+    (hdpure : ∀ k, OrReaches n C d k → (gateAt C k).op = GateOp.or)
+    (u v : Fin n) (hu : u ∈ singletonInputs n C (n + g))
+    (hv : v ∈ singletonInputs n C (n + g))
+    (huc : u ∈ orIn n C c) (hvd : v ∈ orIn n C d)
+    (hnone : ∀ w, ¬(G.Adj u w ∧ G.Adj v w))
+    (hsound : ∀ x : Fin n → Bool, gateVal n C g x = true →
+      gateVal n C h x = true → graphFun G ∅ x = true) :
+    ∃ E : Circuit, IsLeastAO G E ∧ E.size = C.size ∧ PEqualNP.ReadK.IsReadK n E 2 := by
+  obtain ⟨huv, hcneigh, hdneigh⟩ := common_line_neighborhoods G C hL.1 g h c d hh hhand
+    hinputs u v hu hv huc hvd hsound
+  have hcover := pure_operands_cover_by_centres G C hL.1 hfour h c d hh hhand hinputs
+    hcpure hdpure u v huv hcneigh hdneigh hnone
+  let r : Gate := ⟨GateOp.or, [u.val, v.val]⟩
+  let D := overwriteCircuit C g r
+  obtain ⟨hD, hsize, hfun⟩ := overwrite_centres_properties G C hL.1 hTop hL.2.1 g h hgand
+    honly hgh u v hu hv hnone hcover
+  have hleast : IsLeastAO G D := by
+    refine ⟨hD, hfun, ?_⟩
+    intro E hE hEF
+    have hh := hL.2.2 E hE hEF
+    change D.size ≤ E.size
+    exact (overwriteCircuit_size C g r).le.trans hh
+  have hrep (x : Fin n → Bool) : replacementVal n C g r x = true →
+      val C (List.ofFn x) (n + g) = true := by
+    rw [replacementVal_or_inputs, Bool.or_eq_true]
+    rintro (hx | hx)
+    · exact singleton_input_value hL.1 hu x hx
+    · exact singleton_input_value hL.1 hv x hx
+  have hjunk := overwrite_or_junk_card_le_one G C hL.1.1 g h r rfl hrep honly
+  obtain ⟨E, hE, hES, hread⟩ := TopNormalize.least_one_dirty_replacement G D hne hleast hjunk
+  exact ⟨E, hE, hES.trans hsize, hread⟩
+
+end CommonLine
+
+namespace RestrictedMin
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2584.Sharing
+open PEqualNP.Outside.L_meta_2584.DoublePoint
+open PEqualNP.Outside.L_meta_2584.TopAndCount
+
+lemma least_topForm_min_and_bounded_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C) (hne : G.edgeFinset.Nonempty)
+    (r : ℕ) (hJ : (junk G C).card ≤ r) :
+    ∃ D : Circuit, IsLeastAO G D ∧ D.size = C.size ∧ TopForm G D ∧ (junk G D).card ≤ r ∧
+      ∀ E : Circuit, IsAO2 n E → circuitFun n E = graphFun G ∅ → E.size = D.size →
+        (junk G E).card ≤ r → andCount D ≤ andCount E := by
+  classical
+  let p : ℕ → Prop := fun k => ∃ D : Circuit,
+    IsAO2 n D ∧ circuitFun n D = graphFun G ∅ ∧ D.size = C.size ∧
+      (junk G D).card ≤ r ∧ andCount D = k
+  have hp : ∃ k, p k := ⟨andCount C, C, hC.1, hC.2.1, rfl, hJ, rfl⟩
+  obtain ⟨A, hA, hAf, hAs, hAJ, hAk⟩ := Nat.find_spec hp
+  have hAL : IsLeastAO G A := by
+    refine ⟨hA, hAf, ?_⟩
+    intro E hE hEf
+    rw [hAs]
+    exact hC.2.2 E hE hEf
+  obtain ⟨D, hD, hDS, hDJ, hDA, hDT⟩ := least_to_topForm_andCount G A hne hAL
+  refine ⟨D, hD, hDS.trans hAs, hDT, hDJ.le.trans hAJ, ?_⟩
+  intro E hE hEf hES hEJ
+  rw [hDA, hAk]
+  exact Nat.find_min' hp ⟨E, hE, hEf, hES.trans (hDS.trans hAs), hEJ, rfl⟩
+
+lemma replace_pure_point_and_double_junk {P L : ℕ}
+    (G : SimpleGraph (Fin (P + L))) [DecidableRel G.Adj]
+    (I : Fin P → Fin L → Prop) [DecidableRel I]
+    (C : Circuit) (hAO : IsAO2 (P + L) C)
+    (hf : circuitFun (P + L) C = fun x =>
+      decide (∃ p l, I p l ∧ x (Fin.castAdd L p) = true ∧ x (Fin.natAdd P l) = true))
+    {a p q : ℕ} (ha : a < C.gates.length)
+    (hand : (gateAt C a).op = GateOp.and) (hin : (gateAt C a).inputs = [p, q])
+    (hpure : ∀ g, OrReaches (P + L) C p g → (gateAt C g).op = GateOp.or)
+    (qpure : ∀ g, OrReaches (P + L) C q g → (gateAt C g).op = GateOp.or)
+    (hsidep : ∀ t ∈ orIn (P + L) C p, t.val < P)
+    (hsideq : ∀ t ∈ orIn (P + L) C q, t.val < P)
+    (u v : Fin (P + L))
+    (hmeet : orIn (P + L) C p ∩ orIn (P + L) C q = {u, v}) :
+    ∃ D : Circuit, IsAO2 (P + L) D ∧ D.size = C.size ∧
+      andCount D + 1 = andCount C ∧ (junk G D).card ≤ (junk G C).card ∧
+      circuitFun (P + L) D = fun x =>
+        decide (∃ p l, I p l ∧ x (Fin.castAdd L p) = true ∧ x (Fin.natAdd P l) = true) := by
+  let r : Gate := ⟨GateOp.or, [u.val, v.val]⟩
+  let D := overwriteCircuit C a r
+  have hD : IsAO2 (P + L) D := overwriteCircuit_isAO2 hAO a r (Or.inr rfl) (by
+    intro i hi
+    change i ∈ [u.val, v.val] at hi
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+    rcases hi with rfl | rfl <;> omega) rfl
+  have hu : u ∈ orIn (P + L) C p ∩ orIn (P + L) C q := by rw [hmeet]; simp
+  have hv : v ∈ orIn (P + L) C p ∩ orIn (P + L) C q := by rw [hmeet]; simp
+  have hrep (x : Fin (P + L) → Bool) :
+      replacementVal (P + L) C a r x = true → val C (List.ofFn x) (P + L + a) = true := by
+    rw [replacementVal_point_or, Bool.or_eq_true]
+    intro hx
+    rcases hx with hx | hx
+    · exact common_or_input_implies_and hAO.2.1 ha hand hin hu x hx
+    · exact common_or_input_implies_and hAO.2.1 ha hand hin hv x hx
+  refine ⟨D, hD, overwriteCircuit_size C a r, ?_, ?_, ?_⟩
+  · exact andCount_set_or ha hand r rfl
+  · exact (Finset.card_le_card (overwrite_or_junk_subset G C hAO.1 a r rfl hrep)).trans
+      (Finset.card_le_card (Finset.erase_subset a (junk G C)))
+  · apply incidence_eq_of_pair_cover I (circuitFun (P + L) D)
+    · intro x y hxy
+      exact val_monotone hD.1 x y hxy D.output
+    · intro x hx
+      have h := overwriteCircuit_fun_le hAO.1 a r hrep x hx
+      simpa only [hf] using h
+    · intro x y hxy
+      have hval := pure_point_and_double_pair_value hAO.2.1 ha hand hin hpure qpure
+        hsidep hsideq u v hmeet x y
+      have heq := overwriteCircuit_fun_eq C a r (pairInput (Fin.castAdd L x) (Fin.natAdd P y))
+        (by rw [replacementVal_point_or]; exact hval.symm)
+      change circuitFun (P + L) (overwriteCircuit C a r) _ = true
+      rw [heq, hf]
+      exact decide_eq_true ⟨x, y, hxy, pairInput_left _ _, pairInput_right _ _⟩
+
+lemma least_and_pure_point_intersection_card_bounded_junk {P L : ℕ}
+    (G : SimpleGraph (Fin (P + L))) [DecidableRel G.Adj] (r : ℕ)
+    (I : Fin P → Fin L → Prop) [DecidableRel I]
+    (C : Circuit) (hAO : IsAO2 (P + L) C)
+    (hf : circuitFun (P + L) C = fun x =>
+      decide (∃ p l, I p l ∧ x (Fin.castAdd L p) = true ∧ x (Fin.natAdd P l) = true))
+    (hJ : (junk G C).card ≤ r)
+    (hmin : ∀ D : Circuit, IsAO2 (P + L) D →
+      circuitFun (P + L) D = (fun x =>
+        decide (∃ p l, I p l ∧ x (Fin.castAdd L p) = true ∧ x (Fin.natAdd P l) = true)) →
+      C.size ≤ D.size)
+    (hminAnd : ∀ D : Circuit, IsAO2 (P + L) D →
+      circuitFun (P + L) D = (fun x =>
+        decide (∃ p l, I p l ∧ x (Fin.castAdd L p) = true ∧ x (Fin.natAdd P l) = true)) →
+      D.size = C.size → (junk G D).card ≤ r → andCount C ≤ andCount D)
+    {a p q : ℕ} (ha : a < C.gates.length)
+    (hand : (gateAt C a).op = GateOp.and) (hin : (gateAt C a).inputs = [p, q])
+    (hpure : ∀ g, OrReaches (P + L) C p g → (gateAt C g).op = GateOp.or)
+    (qpure : ∀ g, OrReaches (P + L) C q g → (gateAt C g).op = GateOp.or)
+    (hsidep : ∀ t ∈ orIn (P + L) C p, t.val < P)
+    (hsideq : ∀ t ∈ orIn (P + L) C q, t.val < P) :
+    3 ≤ (orIn (P + L) C p ∩ orIn (P + L) C q).card := by
+  have htwo := MinimumPure.least_pure_point_and_intersection_card I C hAO hf hmin ha hand hin
+    hpure qpure hsidep hsideq
+  by_contra hnot
+  have hcard : (orIn (P + L) C p ∩ orIn (P + L) C q).card = 2 := by omega
+  obtain ⟨u, v, huv, hmeet⟩ := Finset.card_eq_two.mp hcard
+  obtain ⟨D, hD, hsize, hcount, hJD, hfun⟩ := replace_pure_point_and_double_junk G I C hAO hf ha hand hin
+    hpure qpure hsidep hsideq u v hmeet
+  have h := hminAnd D hD hfun hsize (hJD.trans hJ)
+  omega
+
+
+end RestrictedMin
+
+namespace TwoJunkStructure
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 2000000 in
+lemma four_clause_unbalanced_signature (A B : Fin 4 → Bool)
+    (hpair : ∀ i, A i = true ∨ B i = true)
+    (hnopoint : ∃ i, A i = false) (hnoline : ∃ i, B i = false)
+    (hnobalanced : ¬∃ S : Finset (Fin 4), S.card = 2 ∧
+      (∀ i ∈ S, A i = true) ∧ ∀ i ∉ S, B i = true) :
+    (∀ i, A i = !B i) ∧
+      ((Finset.univ.filter fun i => A i = true).card = 1 ∨
+       (Finset.univ.filter fun i => A i = true).card = 3) := by
+  revert A B
+  decide
+
+end TwoJunkStructure
+
 end PEqualNP.Outside.L_meta_2584

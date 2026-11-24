@@ -1,0 +1,29 @@
+Independent checkpoint013b review
+Reviewer: /root/composition_recovery/or_context, independent of the reviewed implementations.
+UTC: 2026-11-24T19:06:07.613161+00:00
+Scope:
+- full-gap-challenge/restricted-min-fragment.txt: 118 lines; SHA256 e91fa5ab69565833626486017411cf143d68968ac8f8488d0e535fe09d3127c7.
+- structure-recovery/four-clause-signature-fragment.txt: 16 lines; SHA256 853118924bdc6a80e054ef3bddd35e4a24514d3116d9a1e2b1ce7edd65248696.
+
+Verdict: PASS for these partial components. No semantic or format defect found. The full posted normalization theorem is not proved by these additions.
+
+Restricted minimization review:
+- least_topForm_min_and_bounded_junk fixes the original globally least gate count and restricts witnesses to circuits with junk cardinality at most r BEFORE minimizing the AND count. The original circuit witnesses nonemptiness of this class.
+- The selected circuit remains globally size-minimal because it has the same size and function as the supplied IsLeastAO circuit.
+- TopAndCount normalization preserves exact size, exact AND count, and the dirty-gate count. Consequently the normalized circuit remains within the bounded-junk class and retains its AND minimality against every exact-size competitor in that class. The proof explicitly composes the size equalities; it does not use unrestricted secondary minimization to infer the dirty bound.
+- replace_pure_point_and_double_junk overwrites the AND by the OR of its two common point inputs. Those inputs imply each original factor, so the replacement shrinks the gate globally. The overwrite monotonicity lemma proves the new whole circuit stays below the original; exact agreement on each target edge pair plus monotonicity gives exact incidence semantics.
+- The new circuit has exactly the same size and one fewer AND. overwrite_or_junk_subset provides the explicit dirty-count nonincrease, so this competitor stays in every old cardinality bound. The auxiliary graph G need not equal the incidence graph I for this monotonic dirty-count fact; the theorem does not incorrectly assume such equality.
+- least_and_pure_point_intersection_card_bounded_junk first invokes the existing global size-minimality bound of at least two common inputs. A hypothetical exactly-two intersection gives the new competitor; its junk nonincrease supplies the restricted minimizer's final hypothesis, yielding the AND-count contradiction. All needed global size and bounded secondary-minimality assumptions remain explicit.
+
+Finite signature review:
+- The finite lemma assumes every clause is covered by A or B, neither side covers all clauses, and no balanced two-plus-two assignment exists. It proves exact complementary coverage and that A covers either one or three clauses.
+- The proof is ordinary kernel decide over Fin 4 -> Bool with scoped allowed limits. It introduces no axiom or evaluator shortcut.
+- Its scope is abstract clause coverage only. It does not mention actual circuit proof trees, wire sharing, or ReadK, and no such unproved bridge is claimed.
+
+Format and independent validation:
+- Exact-fragment scans found no forbidden root text, string literals, sorry/admit/axiom/native_decide, custom type/instance, attribute, executable/metaprogramming command, or later import text.
+- Both scoped options in the finite lemma use allowed names and `in`; all helpers remain in child namespaces of the target module.
+- Independently recompiled all four lemmas with only names prefixed review013_, preserving their statements and proof bodies. Exit 0, stderr empty, no warnings.
+- All four axiom audits report exactly propext, Classical.choice, Quot.sound.
+- Complete scratch audit: /tmp/oec/pequalnp-pilot-39/composition-recovery/or-context/Review013Bounded.lean, review-013b.stdout, review-013b.stderr.
+- Scratch-only Outside import and printing commands are not proposed target contents. No target-file edits, desk calls, or git mutations occurred.

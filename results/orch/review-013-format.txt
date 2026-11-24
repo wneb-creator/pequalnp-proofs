@@ -1,0 +1,63 @@
+Independent checkpoint013 full-source format and integration review
+Reviewer: /root/review_second, independent recovery reviewer.
+UTC: 2026-11-24T19:08:05.151501+00:00
+Source: lean/PEqualNP/Outside/L_meta_2584.lean
+SHA256: a4f0361a2f5c15d83c77b546e4311928902ee0bac80a4340094dd57dd67def01
+Size: 9983 lines; 454068 bytes; below the 512 KiB limit.
+Base: HEAD 4a8423b11695ab145ace288a4c04a588a02d720e (9632 lines).
+
+Verdict: CHECKPOINT PUSH READY; partial result only; NOT PR READY.
+The required final theorem is absent. This audit does not certify a proof
+or refutation of L-meta-2584 and does not supersede the repository checker.
+
+Integration verification:
+- Read CONTRIBUTING.md, README.md, the exact three-fragment manifest, and
+  the existing independent semantic reviews013a and013b.
+- Compared the entire current source against HEAD with only its final
+  namespace close removed, followed by the exact three frozen fragments,
+  namespace normalization, separator whitespace, and final namespace close.
+  The expected and actual source match byte-for-byte. No other source-body
+  changes occurred. Git reports351 inserted lines and0 deleted lines.
+- Manifest components: CommonLine214 lines, RestrictedMin118 lines, and
+  FourClauseSignature16 lines. All fragment statements and proof bodies
+  were inspected; their semantic scope matches the prior independent reviews.
+- CommonLine proves an actual same-size read-two replacement under its
+  explicit two-dirty structural hypotheses. RestrictedMin keeps the dirty
+  bound inside the secondary minimization class. The finite signature lemma
+  only proves a Boolean four-clause classification; it does not claim the
+  still-needed general circuit extraction step.
+
+Full-source red-team / plain-file audit:
+- Exactly two initial imports: Mathlib and PEqualNP.Defs. No later import text.
+- Exactly one outer namespace PEqualNP.Outside.L_meta_2584; all nested
+  namespace/end pairs are named, balanced, and at column0.
+- All582 helper declarations are inside that namespace:497 lemmas,80 defs,
+  and5 abbreviations. No duplicate fully qualified helper names detected.
+- Zero theorem declarations, including no named final target theorem.
+- All26 options use allowed limit names, numeric values, scoped in form,
+  and directly precede the served declaration or another scoped limit.
+- No comments, double quotes, forbidden root marker, attribute annotations,
+  sorry/admit/axiom/native_decide, unsafe/initialization/metaprogramming
+  commands, hash commands, new structures/inductives/classes/instances,
+  or later imports found.
+- Source is regular UTF-8 text, not a symlink and not executable.
+- git --no-pager diff --check passed.
+
+Recovered build evidence:
+- Complete build-016.stdout is70915 bytes and its last line is:
+  Build completed successfully (18419 jobs).
+- build-016.stderr is empty. The complete stdout contains no error lines.
+- Root reported build016 exit0. This reviewer inspected the complete saved
+  diagnostics and did not rerun the build, since no discrepancy or source
+  change justified another run.
+- Existing semantic reviews013a/013b independently recompiled their exact
+  fragments and audited key exports against the three permitted axioms.
+  This format audit did not perform a new all-declaration axiom audit.
+
+Evidence preserved in scratch:
+/tmp/oec/pequalnp-pilot-39/review-second-013.diff
+/tmp/oec/pequalnp-pilot-39/review-second-013.diff.stderr
+/tmp/oec/pequalnp-pilot-39/review-second-013-audit.json
+
+No main-file edits, Git mutations, desk calls, or credential access occurred.
+The source hash above was rechecked immediately before writing this report.
