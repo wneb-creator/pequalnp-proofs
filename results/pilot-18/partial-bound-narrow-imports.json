@@ -1,0 +1,42 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/CombinedNarrow.lean"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 38.78226890499991,
+  "max_child_rss_kib": 2943984,
+  "source_sha256": "d121bcacd6d21cf9267b46a04458bf35a948869cf09aa1d24c7818a6248c82aa",
+  "combined_repo_source_sha256": "47dea301a31cb1aeffbca714f59b7d4f0046f6efbc4c1a1f46255f7b1c6950bb",
+  "only_imports_changed": true,
+  "imports": [
+    "import Mathlib.Combinatorics.SimpleGraph.Finite",
+    "import Mathlib.Tactic.ByContra",
+    "import Mathlib.Tactic.Tauto",
+    "import PEqualNP.Defs"
+  ],
+  "original_helper_immutable": true,
+  "status": "PASS",
+  "source_lines": 716,
+  "proof_body_byte_identical": true,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "source_file": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/CombinedNarrow.lean",
+  "stdout_file": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/CombinedNarrow.stdout.txt",
+  "stderr_file": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/CombinedNarrow.stderr.txt",
+  "diff_file": "/tmp/oec/pequalnp-pilot-18/math-analysis/lean-partial-bound/CombinedNarrow.imports.diff",
+  "build_workdir": "/workspace/pequalnp-proofs/lean",
+  "repository_modified": false,
+  "original_helper_sha256": "5c3626e3f385300bbaabd3146fb97365e720f11b213b0d03aae4b7a24ea2b9be",
+  "posted_gap_checker": "NOT RUN",
+  "note": "Import-only optimization of the 715-line combined checkpoint; no new proof or named final theorem.",
+  "named_module_build_exit": 0,
+  "named_module_build_output": "Build completed successfully (5109 jobs).",
+  "named_module_seconds": 30,
+  "main_independent_review": "PASS: only the four allowed top import lines differ; every proof-body byte is identical to the pushed compiled checkpoint",
+  "prior_pushed_commit": "60c7ce52d9f7acaf4ad79de66fb55769ce46c07f"
+}

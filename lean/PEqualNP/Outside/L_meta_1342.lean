@@ -1,6 +1,7 @@
-import Mathlib
-import PEqualNP.Defs
+import Mathlib.Combinatorics.SimpleGraph.Finite
+import Mathlib.Tactic.ByContra
 import Mathlib.Tactic.Tauto
+import PEqualNP.Defs
 
 namespace PEqualNP.Outside.L_meta_1342
 

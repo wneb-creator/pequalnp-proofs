@@ -1,0 +1,85 @@
+{
+  "verdict": "PASS_FOR_PARTIAL_PUSH",
+  "timestamp_utc": "2026-11-24T02:06:30.398222+00:00",
+  "review_scope": "Entire current narrow-import diff and its new untracked metadata; read-only repository review. No build or worker action.",
+  "head": "60c7ce52d9f7acaf4ad79de66fb55769ce46c07f",
+  "prior_checkpoint": "60c7ce52d9f7acaf4ad79de66fb55769ce46c07f",
+  "changed_files": [
+    "lean/PEqualNP/Outside/L_meta_1342.lean",
+    "results/pilot-18/partial-bound-build.stdout",
+    "results/pilot-18/validation.txt"
+  ],
+  "untracked_files": [
+    "results/pilot-18/partial-bound-narrow-imports.json"
+  ],
+  "artifacts": [
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_1342.lean",
+      "sha256": "d121bcacd6d21cf9267b46a04458bf35a948869cf09aa1d24c7818a6248c82aa",
+      "bytes": 37782
+    },
+    {
+      "path": "results/pilot-18/partial-bound-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/pilot-18/partial-bound-build.stdout",
+      "sha256": "945dfb006fb2e6b5b508167e3811f71abad84f67aa3f67f2da981cc6902471b5",
+      "bytes": 53744
+    },
+    {
+      "path": "results/pilot-18/partial-bound-narrow-imports.json",
+      "sha256": "5f84d0d89ece56bb0185e51243cd62eb6d979a6a860c073e3b5c92a99595aa5e",
+      "bytes": 1967
+    },
+    {
+      "path": "results/pilot-18/validation.txt",
+      "sha256": "75577ae0bb3b0adbfe02816f679ef5ef8d77d547cfca41c4261094990c9d7342",
+      "bytes": 2191
+    }
+  ],
+  "diff_sha256": "daba1b2242afcdbbd02264a0a14977633c56537879cf2be64aefbac5c29e8c29",
+  "source_lines": 716,
+  "proof_body_byte_identical": true,
+  "body_sha256": "c495c1348fa4defc0db9c2643ec5faef9b31511765a5f67e0aa62726cece817e",
+  "previous_imports": [
+    "import Mathlib",
+    "import PEqualNP.Defs",
+    "import Mathlib.Tactic.Tauto"
+  ],
+  "current_imports": [
+    "import Mathlib.Combinatorics.SimpleGraph.Finite",
+    "import Mathlib.Tactic.ByContra",
+    "import Mathlib.Tactic.Tauto",
+    "import PEqualNP.Defs"
+  ],
+  "named_build_evidence": {
+    "exit_code_recorded": 0,
+    "result": "Build completed successfully (5109 jobs).",
+    "module_seconds": 30,
+    "stderr_bytes": 0,
+    "independently_rerun": false
+  },
+  "scratch_compile_evidence": {
+    "source_identical": true,
+    "exit_code_recorded": 0,
+    "max_child_rss_kib": 2943984
+  },
+  "red_team": {
+    "only_expected_files_changed": true,
+    "imports_allowed_at_top_only": true,
+    "baseline_and_all_helper_bodies_unchanged": true,
+    "forbidden_text_commands_attributes_absent": true,
+    "option_lines_valid": true,
+    "no_credential_or_lease_values_detected": true,
+    "accurate_partial_no_acceptance_claims": true,
+    "no_new_axioms_or_new_statements": true
+  },
+  "limits": [
+    "This is a partial research checkpoint, not a valid final proof PR. Posted at-most-21 theorem remains absent.",
+    "Previously noted two helper namespace blocks remain unchanged; consolidate for a final PR.",
+    "Existing component axiom audit predates import reduction; this review relies on byte-identical proof bodies and successful narrow build, not a fresh axiom run."
+  ],
+  "sub_agents": "none"
+}
