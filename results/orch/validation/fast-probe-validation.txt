@@ -1,0 +1,8 @@
+2026-11-24T22:56:42.220145+00:00
+FastProbe helper theorem compiled, exit 0; complete stdout/stderr is fast-probe-build.log (empty).
+Command run from /workspace/pequalnp-proofs/lean:
+ELAN_HOME=/tmp/oec/pequalnp-pilot-44/elan PATH=/workspace/pequalnp-proofs/tools/bin:/tmp/oec/pequalnp-pilot-44/elan/bin:$PATH PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-44/build-state MATHLIB_CACHE_DIR=/tmp/oec/pequalnp-pilot-44/mathlib-cache LEAN_PATH=/tmp/oec/pequalnp-pilot-44/sibling-search lake env lean --root=/tmp/oec/pequalnp-pilot-44/finite-search -o /tmp/oec/pequalnp-pilot-44/finite-search/FastProbe.olean /tmp/oec/pequalnp-pilot-44/finite-search/FastProbe.lean
+This is a diagnostic helper component using the compiled Perf16Small prefix; it is not a complete proof of the posted target. Final proof may not use this diagnostic module as an additional project dependency.
+results/orch/lemmas/FastProbe.lean sha256=b020d037876e070d6e1a87d58390ecd2f2a1c6e91d959f47506d8afa6605a3e2 bytes=850
+results/orch/lemmas/Perf16Small.lean sha256=1283a205f30d639d9f757dae7cc6d1465fbf775360944649bdb57426cef9f0fc bytes=511238
+results/orch/validation/fast-probe-build.log sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 bytes=0
