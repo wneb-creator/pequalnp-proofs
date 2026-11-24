@@ -13,3 +13,6 @@
 - 2026-11-24T22:00:02.042653+00:00: CountReduction candidate compiled successfully, 487 lines, frozen for official-file validation.
 
 - 2026-11-24T22:02:11.492909+00:00: preserving compiled, independently reviewed count reduction while full checker environment is prepared.
+- 2026-11-24T22:03:18.762359+00:00: weaker minimal-circuit count reduction compiled successfully, 508 lines.
+
+- 2026-11-24T22:05:38.589300+00:00: preserving independently reviewed minimum-only count reduction; checker cache repair in progress.

@@ -88,3 +88,22 @@ Both inequalities are substantive structural claims. B correctly fails on exclud
 - Root now owns official file, checker, review, cleanup and push. Do not edit frozen scratch candidate without coordination.
 
 Checker cache prerequisite repaired without altering the checker: `lake exe cache lookup Mathlib` computed pinned root artifact `79da901f0eeeaa4a.ltar`. Downloaded that single official cache artifact from `https://cache.mathlib.org/mathlib4-master/f/79da901f0eeeaa4a.ltar`, extracted with bundled `leantar` at the Mathlib package root, and verified via cache lookup: `git=mathlib4@fc4f59e577feb1a4956671bc04ac18aaaf8cd842`. The resulting authentic `Mathlib.olean` is 803632 bytes. Full root Mathlib dependency closure is still intentionally not downloaded (disk constraint).
+
+### Independent adversarial validation of numerical cut
+
+Proposed children: vertex-cover size ≤ number of AND gates, and edge count ≤ number of OR gates + 1, for triangle-/square-free edge functions.
+
+- Independent exhaustive free-OR normal-form enumeration on six inputs found no violating 2-AND circuit or (dually) 2-OR circuit: 3,424 eligible labelled graphs, 1,415 first-AND functions, 4,465,825 second-AND operand pairs, 8,931,650 tested outputs. Source/log: `countbound_exhaust6.cpp`, `.log` in scratch.
+- Exact dual synthesis for all six nonisomorphic six-vertex trees excluded circuits with ≤3 OR gates and arbitrarily many ANDs. Each tree has five edges, so this verifies its required OR≥4 lower bound. Each run enumerated 2,959,204 first-two-AND states, then 590–751 million possible final factors. Sources/logs: `or3_target6.cpp`, `or3_path6.log`, `or3_star.log`, `or3_broom42.log`, `or3_double33.log`, `or3_arms311.log`, `or3_arms221.log`.
+- Random normalized circuits on 6–9 inputs, 2–9 counted AND gates, arbitrary free ORs (and dual circuits for OR bound): 40,000,000 circuits / 923,981,711 output candidates, with maximal free output completion; no counterexample. Only 32 candidates survived the low-cost and pair-edge girth filters, and none equalled its graph function even after completion. Source/log: `countbound_repair.cpp`, `.log` in scratch.
+- These are ordinary exact/random computations, not Lean proofs. The six-vertex cyclic OR≥5 cases (C6 and C5 with a leaf) were not exhaustively resolved by this agent. No theoretical counterexample found; graph-specific singleton/minterm constraints appear consistent with both bounds.
+
+### Weaker minimal-circuit variant
+
+`results/orch/lemmas/CountReductionMinimal.lean` compiles, 508 lines, SHA-256 `700bf91868a30f60c06c0edd0bfa179a60995c3a4818bf15d65670f9b3b203f2`. Both count children now assume `IsMinimalMonoCircuit n C`, weakening the universal all-Monotone2 children. The constructed clean circuit seeds a Nat.find minimum circuit K; apply both count bounds to K, and compare clean C ≤ K ≤ any competitor. This adds 21 lines and is recommended over the first candidate. Original CountReduction remains frozen. Complete log: `/tmp/oec/pequalnp-pilot-43/count-reduction-minimal-check.log`.
+
+### OR-count follow-up
+
+- 2026-11-24T22:04:08.601663+00:00: proved in Lean that AND-only circuits preserve pointwise Boolean meet. Consequently an AND-only graph edge-function circuit can have at most one edge. Core compiled; short corollary that any graph with ≥2 edges needs an OR was appended, pending cache restoration (Mathlib DirectoryDependency.olean temporarily absent). File: results/orch/lemmas/OrBoundBase.lean.
+- A simple per-gate separated-minterm measure fails on P4: product of edge monomials ab and cd contains a third edge bc. Circuit `(a OR c) AND (b OR d) AND (b OR c)` computes P4 and illustrates later AND filtering of intermediate nonedges, while respecting OR bound.
+- Existing L_meta_1491 charging theorem allows Ustar residual edges to be paid from several gate classes; separate OR lower bound is genuinely stronger than directly available inequality. Weighted finite checks by counterexample agent support it through n=5.

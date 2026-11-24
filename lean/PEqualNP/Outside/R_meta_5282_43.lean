@@ -5,7 +5,7 @@ theorem PEqualNP.Outside.R_meta_5282_43
       (∀ a b c, G.Adj a b → G.Adj b c → ¬ G.Adj c a) →
       (∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d) →
       ∀ C : PEqualNP.CircuitLowerBounds.Circuit,
-        PEqualNP.MetaComplexity.Monotone2 C →
+        PEqualNP.MetaComplexity.IsMinimalMonoCircuit n C →
         PEqualNP.MetaComplexity.circuitFun n C = PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ →
         ∃ T : Finset (Fin n), PEqualNP.MetaComplexity.CoverPromise.IsVertexCover G T ∧
           T.card ≤ C.gates.countP (fun g => match g.op with
@@ -15,7 +15,7 @@ theorem PEqualNP.Outside.R_meta_5282_43
       (∀ a b c, G.Adj a b → G.Adj b c → ¬ G.Adj c a) →
       (∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d) →
       ∀ C : PEqualNP.CircuitLowerBounds.Circuit,
-        PEqualNP.MetaComplexity.Monotone2 C →
+        PEqualNP.MetaComplexity.IsMinimalMonoCircuit n C →
         PEqualNP.MetaComplexity.circuitFun n C = PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ →
         G.edgeFinset.card ≤ C.gates.countP (fun g => match g.op with
           | PEqualNP.CircuitLowerBounds.GateOp.or => true
@@ -442,18 +442,33 @@ theorem PEqualNP.Outside.R_meta_5282_43
       rw [ht]
       exact Nat.find_min' hc ⟨U, hU, rfl⟩
     obtain ⟨C, hC, he, hsize, safe⟩ := clean_cover G T hE hT
-    refine ⟨C, hC, he, ?_, safe⟩
-    intro D hD hd
-    have hd' : PEqualNP.MetaComplexity.circuitFun n D =
+    let Fits : ℕ → Prop := fun k => ∃ K : PEqualNP.CircuitLowerBounds.Circuit,
+      PEqualNP.MetaComplexity.Monotone2 K ∧
+      PEqualNP.MetaComplexity.circuitFun n K = PEqualNP.MetaComplexity.circuitFun n C ∧ K.size = k
+    have hex : ∃ k, Fits k := ⟨C.size, C, hC, rfl, rfl⟩
+    obtain ⟨K, hK, heq, hk⟩ := Nat.find_spec hex
+    have minK : ∀ D : PEqualNP.CircuitLowerBounds.Circuit,
+        PEqualNP.MetaComplexity.Monotone2 D →
+        PEqualNP.MetaComplexity.circuitFun n D = PEqualNP.MetaComplexity.circuitFun n C →
+        K.size ≤ D.size := by
+      intro D hD hd
+      rw [hk]
+      exact Nat.find_min' hex ⟨D, hD, hd, rfl⟩
+    have minimalK : PEqualNP.MetaComplexity.IsMinimalMonoCircuit n K := by
+      refine ⟨hK, ?_⟩
+      intro D hD hd
+      exact minK D hD (hd.trans heq)
+    have heK : PEqualNP.MetaComplexity.circuitFun n K =
         PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ := by
+      rw [heq]
       funext x
-      change D.eval (List.ofFn x) =
+      change C.eval (List.ofFn x) =
         (decide (∃ a ∈ (∅ : Finset (Fin n)), x a = true) ||
          decide (∃ a b : Fin n, G.Adj a b ∧ x a = true ∧ x b = true))
-      simpa using hd x
-    obtain ⟨U, hU, hand⟩ := andBound n G htri hsquare D hD hd'
+      simpa using he x
+    obtain ⟨U, hU, hand⟩ := andBound n G htri hsquare K minimalK heK
     have htU := minCover U hU
-    have hor := orBound n G htri hsquare D hD hd'
+    have hor := orBound n G htri hsquare K minimalK heK
     have partition : ∀ gs : List PEqualNP.CircuitLowerBounds.Gate,
         (∀ g ∈ gs, g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨
           g.op = PEqualNP.CircuitLowerBounds.GateOp.or) →
@@ -469,10 +484,16 @@ theorem PEqualNP.Outside.R_meta_5282_43
         have tail := ih (fun g hg => hall g (by simp [hg]))
         rcases hall g (by simp) with h | h <;>
           simp [List.countP_cons, h] <;> omega
-    have hp := partition D.gates (fun g hg => by simpa using (hD g hg).1)
-    change C.gates.length + 1 ≤ G.edgeFinset.card + T.card at hsize
-    change C.gates.length ≤ D.gates.length
-    omega
+    have hp := partition K.gates (fun g hg => by simpa using (hK g hg).1)
+    have hCK : C.size ≤ K.size := by
+      change C.gates.length + 1 ≤ G.edgeFinset.card + T.card at hsize
+      change C.gates.length ≤ K.gates.length
+      omega
+    refine ⟨C, hC, he, ?_, safe⟩
+    intro D hD hd
+    apply hCK.trans (minK D hD ?_)
+    funext x
+    exact (hd x).trans (he x).symm
   · have hG : ∀ a b : Fin n, ¬ G.Adj a b := by
       intro a b hab
       exact hE ⟨a, b, hab⟩
