@@ -10,3 +10,6 @@ Normalize.lean: bounded_pad preserves output at exact requested length with boun
 Gap checker: NOT RUN (partial theorem intentionally not the posted14-gate theorem).
 
 AndBound.lean: pinned Lean compilation PASS, exit0. Root independent proof inspection PASS. Generic bound only; numerical AND>=4 instantiation in progress.
+
+Monotone.lean: root independent pinned-Lean compilation exit0; row monotonicity proof reviewed.
+AndBoundSpecific.lean: exact posted inputs/target imply at least4AND gates, pinned-Lean exit0; root reviewed finite certificates and arithmetic deduction. Still no total14-gate result.
