@@ -10,3 +10,9 @@ Partial helper file: 45 lines.
 Independent review: review-001.txt; conditional compile requirement fulfilled.
 Sub-agents: status_review, toolchain_setup, combinatorial_route, circuit_route, counterexample_search, structural_route
 TIMING total=7.7 subagents=6
+
+Checkpoint 2: 10 helper lemmas, 168 lines.
+Build: lake build PEqualNP.Outside.L_meta_2584; exit 0.
+Build completed successfully (5145 jobs).
+Independent review: review-002.txt passed; NOT a full proof.
+TIMING total=8.9 subagents=6

@@ -1,0 +1,19 @@
+Independent red-team review 002: seven incidence helpers
+UTC: 2026-11-24T18:05:48.177051+00:00
+Reviewer: status_review
+File: lean/PEqualNP/Outside/L_meta_2584.lean
+SHA256: 8fb61fa645dbe9c4070c007bdd4abff85300b51bd1e9e53bbf78bbf4dfcdc971
+Lines: 168
+Verdict: EARLY-PUSH READY CONDITIONAL ON SUCCESSFUL COMPILATION; NOT PR-READY.
+
+Scope: reviewed the complete new diff against HEAD. Existing helper text is unchanged. Seven new lemmas and a repeated harmless open command lie inside the existing namespace.
+point_ne_line: valid separation of input blocks; finite point values are below P, while line values are P plus a nonnegative index.
+incidence_pair_prime: every incident pair makes the exact incidence function true. A proper subset cannot contain any accepted point-line pair because the two blocks are disjoint; such a pair would force the whole original two-element set back into the subset.
+incidence_prime_iff: the forward direction extracts an incident pair from the true setInput value. It is contained in S. If strict, prime minimality makes that pair false, contradicting incidence_pair_prime. The reverse direction is exactly that helper. No C4-free or AO2 hypothesis is silently needed: this is purely a semantic property of the incidence function.
+incidence_prime_card: follows from the characterization and disjoint input blocks, giving exactly two distinct variables.
+incidence_read_iff: faithfully specializes the joint read-vector definition to those exact prime pairs; it does not substitute the weaker per-variable scalar reading.
+incidence_biclique_star: nonempty complete bipartite sets with both cardinalities above one give two distinct points and lines, contradicting precisely the posted C4-free condition. Nonemptiness is explicit.
+incidence_biclique_cost: substituting the singleton side yields the cardinality product identity; it is only a combinatorial identity, not a circuit lower bound.
+Format: no sorry, new axioms, native_decide, _root_, double quotes, attributes, options, compilation commands, or misplaced imports. All helpers stay within the permitted named namespace.
+Scope limitation: no exact posted theorem is present. These helpers do not establish the unresolved normalization or a lower bound on arbitrary AO2 circuits. Only label this as partial progress.
+Root must confirm build success and preserve the complete output before named-file staging, status inspection, commit, and branch-only checkpoint push.
