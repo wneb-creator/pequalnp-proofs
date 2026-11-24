@@ -1,6 +1,0 @@
-checker stage: started t=0s
-checker stage: build lock taken t=0s
-checker stage: building the verifier t=0s
-checker stage: building the file and the definitions root t=3s
-checker stage: verifier reading the built file t=10s
-REJECTED (reduce-child): child 1 of PEqualNP.Outside.R_meta_2215_37 prints as `have x1 : Finset (Fin (13 : ℕ)) := {(0 : Fin (13 : ℕ)), (1 : Fin (13 : ℕ)), (3 : Fin (13 : ℕ)), (9 : Fin (13 : ℕ))}; ∀ (x2 : Finset (Fin (13 : ℕ))), x2.card = (4 : ℕ) → {x4 : Fin (13 : ℕ) | ∀ x5 ∈ x2, x5 + x4 ∉ x1}.card ≤ (3 : ℕ)`, which does not elaborate again in the statement environment

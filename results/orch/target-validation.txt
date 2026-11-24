@@ -1,1 +1,0 @@
-Target auxiliary OR semantics: pinned Lean compiler exit 0 with only PEqualNP.Defs. Complete compiler output empty. Independently reviewed by root: explicit finite disjunction is equivalent to a true line from {0,1,3,9}.

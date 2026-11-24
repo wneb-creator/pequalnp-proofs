@@ -1,4 +1,0 @@
-L-meta-2215 all-wire monotonicity checkpoint
-Command: lake env lean ../results/orch/lemmas/WireMono.lean
-Result: exit 0; stdout and stderr empty.
-Independent review: root inspected the full fold induction; covers arbitrary finite input widths and every wire, with standard axioms only. No sorry, native evaluation, forbidden source text, or credentials.

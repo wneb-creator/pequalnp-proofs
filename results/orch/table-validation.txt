@@ -1,4 +1,0 @@
-L-meta-2215 coordinate correspondence checkpoint
-Command: lake env lean /tmp/oec/pequalnp-pilot-37/Table.lean
-Result: exit 0; stdout and stderr empty.
-Root independent review: modular arithmetic identity is valid under point/line bounds; finite memberships agree through Fin.ext_iff. No enumeration, axioms, or placeholders.

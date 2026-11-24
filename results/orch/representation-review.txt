@@ -1,7 +1,0 @@
-Independent representation-fix review: PASS.
-UTC: 2026-11-24T18:19:27.499859+00:00
-File: lean/PEqualNP/Outside/R_meta_2215_37.lean
-SHA256: 2e2e8c6ad84774de7cc2f46175bc8005877c64d0e02e71bc215878d6484198f4
-The only diff introduces an explicitly typed local Finset binding in the geometry hypothesis before taking its cardinality. This is definitionally equal to the previous proposition and fixes the expected type for a printed set-builder expression. It introduces no new assumption and preserves the independently checked geometry.
-The search hypothesis, entire proof body, exact posted conclusion, and allowed import/options are unchanged. Static forbidden-text scan passes. The previous mathematical and boundary-coverage review remains applicable.
-Build and checker re-elaboration must confirm this presentation works; no additional mathematical concern.
