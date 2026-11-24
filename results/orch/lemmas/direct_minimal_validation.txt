@@ -1,7 +1,0 @@
-Command: PATH=<Lean 4.36.0 bin>:$PATH lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/direct_minimal.lean
-Working directory: /workspace/pequalnp-proofs/lean
-Result: exit 0
-stdout: empty
-stderr: empty
-Lines: 91
-UTC: 2026-11-24T17:21:04.987782+00:00

@@ -1,7 +1,0 @@
-Command: PATH=<Lean 4.36.0 bin>:$PATH LEAN_NUM_THREADS=2 lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/library_sharing.lean
-Working directory: /workspace/pequalnp-proofs/lean
-Result: exit 0
-stdout: empty
-stderr: empty
-Lines: 54
-UTC: 2026-11-24T17:25:06.231895+00:00

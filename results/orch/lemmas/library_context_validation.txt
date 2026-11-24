@@ -1,7 +1,0 @@
-Command: PATH=<Lean 4.36.0 bin>:$PATH LEAN_NUM_THREADS=2 lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/library_context.lean
-Working directory: /workspace/pequalnp-proofs/lean
-Result: exit 0
-stdout: empty
-stderr: empty
-Lines: 82
-UTC: 2026-11-24T17:22:44.706427+00:00
