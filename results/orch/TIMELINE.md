@@ -15,3 +15,4 @@
 - 2026-11-24T15:29:37.615779+00:00 graph_bounds: OR-count proof route stalled; finite single-vertex deletion probe search stopped at100019 unresolvedfour-prefixstates (cap100000), no Lean proof.
 - 2026-11-24T15:29:41.170958+00:00 Checked support-count proof with all helpers local to one theorem; checked NOT count assembly facts; independently reviewed and preserving.
 - 2026-11-24T15:31:14.204208+00:00 Four-child reduction compiles (304lines); independent review passed. Placed named R_meta_670_32.lean for build and checker.
+- 2026-11-24T15:33:02.019734+00:00 Checked12 graph automorphisms and shortened local-support proof independently reviewed; finite search logs preserved.

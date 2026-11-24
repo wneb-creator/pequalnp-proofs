@@ -1,0 +1,3 @@
+Symmetry.lean: lake env lean completed exit 0. Full stdout and stderr are empty and retained in symmetry7.stdout / symmetry7.stderr. This is a partial symmetry lemma, not a proof or checker verdict for L-meta-670.
+15-gate stochastic search: 31,337,000 candidates; no exact circuit, best 6 mismatching truth-table rows.
+OR<=10 canonical free-op search: 8,575,000 + 12,791,000 candidates; no exact circuit, best 3 mismatching rows. Negative heuristic searches establish no lower bound.
