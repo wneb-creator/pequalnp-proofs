@@ -1,0 +1,5 @@
+PASS independent source/math/provenance review
+Triangle9GeometryChecked SHA256 62bca33497efaf32b0204f8a1f1be1d2aa12fc79523d948cf241d33dd5ebabc1
+All105 ordered posted edges match; local45edges,inputMap27,remaining12stars match independently reviewed triangle9-core data.
+Boolean decomposition expands actual edge/star expressions via distributivity and ac_rfl; no exhaustive whole truth table or unsupported axiom.
+Compiled independently inside Triangle9LiftWork build001 exit0.

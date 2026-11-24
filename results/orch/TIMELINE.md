@@ -133,3 +133,11 @@
 - 2026-11-24 09:14:16 UTC — Private four-clause strict-saving corollary compiled and independently reviewed; triangle9 conditional+72 lift compiled. Local interacting-helper search active, no target witness.
 
 2026-11-24T09:14:49.646896+00:00 Root preserved general dirty-pair decomposition, private four-clause strict replacement, boundary sharing and residual-root counting. Still partial; arbitrary-junk lower bound open.
+
+- 2026-11-24 09:15:37 UTC: triangle9 geometry/certificate compiled and independently reviewed; lean_setup reviewed+72lift and ResidualSplitRoots/CoverConversion; baseline53 kernel checks pending.
+
+- 2026-11-24T09:16:41.708780+00:00 structural_lower_bound: actual shared-OR cone credit and generic residual root/split-cover charge compiled and independently reviewed; dependent-joint endpoint-mask corollary building.
+
+2026-11-24T09:19:51.476436+00:00 normal_form: PrivateGraphSavings compiled/reviewed, strict circuit replacement permits other dirty gates. status_audit integrated PrivateFourClauseLeast; normal_form reviewed final corollary PASS. GeneralDirtyPairs compiled/reviewed unrestricted Ustar mask-or-clean-dirty-pair decomposition. FirstTwoJunk compiled/reviewed OR-plus-one-dirty-leaf semantics and dependent joint reduction g*h=g*OR(other). Structural deriving dependent endpoint-mask corollary. Remaining full-gap obstacle is arbitrary many dirty gates and masked/joint sharing, not proof infrastructure.
+
+2026-11-24T09:21:43.415665+00:00 Root: preserved checked Triangle9 finite basis and+72 lift, dependent two-junk semantics/mask reduction, complete cover-location split and shared-root counting. Still no exact proof/refutation.

@@ -1,0 +1,20 @@
+L-meta-1477 PARTIALS ONLY. Exact unrestricted statement remains unproved.
+Named file unchanged; lake build passed, exact checker REJECTED (no-theorem).
+Triangle9 proves a conditional 52-to-124 circuit lift, not existence of a52-gate witness. The finite complete basis has45positive and512rawnegative tests.
+Two-junk decomposition/replacement/counting components retain all stated hypotheses. Combined masked and joint contributions are not yet bounded.
+Uncompiled raw512-test Triangle9Baseline work excluded (exit137); no success claimed.
+
+Triangle9GeometryChecked 91 lines SHA256 62bca33497efaf32b0204f8a1f1be1d2aa12fc79523d948cf241d33dd5ebabc1; author build exit0; independent review PASS
+Triangle9CertificateChecked 232 lines SHA256 67fb16a399de794e065fd0317a50319579b6b259b78b0d2bcca5ee4983a11a79; author build exit0; independent review PASS
+Triangle9LiftComplete 444 lines SHA256 5f4332097f13142d07bd0758a5746284fc01ab13aa6b36fb35a59a7dc14aab2a; author build exit0; independent review PASS
+PrivateFourClauseLeast 2875 lines SHA256 93067c4005d56098678e9e7e0f67ac8ec56029123a8cb947ba2892732f266bf5; author build exit0; independent review PASS
+FirstTwoJunk 3895 lines SHA256 3cda5e77b42f5605ff91dea058a95ef9ef4b529841582e6c5ab253f38ed0c60c; author build exit0; independent review PASS
+FirstTwoJunkMask 3937 lines SHA256 fca31201b2a7d83027568ce8a1f23d26180b581deaf575d121337eabdf61499c; author build exit0; independent review PASS
+ResidualSplitRoots 4055 lines SHA256 dfb29b3368e7f08bf2644a8cb1276ab734d79308a282645731d5317994c11bd0; author build exit0; independent review PASS
+SharedResidualRoots 4099 lines SHA256 a468b95fe387bf9d65ac04757f863e477575fe583fef4a21f5e7c2552eebdc77; author build exit0; independent review PASS
+SharedResidualPairCover 4132 lines SHA256 a36eec1cd465799b1b59b3bfd12d5403617c80f64868ee0265e49847449fa714; author build exit0; independent review PASS
+SharedResidualHeavyCover 4234 lines SHA256 1b5f6978dbc6395851f2a7e6384db836a5716117384f59865880665720eb26d6; author build exit0; independent review PASS
+CoverLocations 171 lines SHA256 b2c711fc517150576763f8b33d3225ba29788c6bd80c09f5d529af7118b3c58f; author build exit0; independent review PASS
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=193.2 subagents=6

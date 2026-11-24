@@ -1,0 +1,6 @@
+PASS independent incremental source/math/provenance review
+SHA256 67fb16a399de794e065fd0317a50319579b6b259b78b0d2bcca5ee4983a11a79
+Compared full diff against independently reviewed Alternative6CertificateChecked: only dimensions6/13/19 to9/18/27, exact45edge data, namespace and test counts changed; generic circuit monotonicity is unchanged.
+Negative family covers all512 left assignments; positive45edge tests plus these negatives characterize all monotone circuit evaluations.
+New recursion-limit option applies only to kernel-decided finite cardinality512.
+Author build002 exit0, empty log; no duplicate build required.

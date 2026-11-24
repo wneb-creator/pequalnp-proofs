@@ -1,0 +1,14 @@
+PASS README.md
+PASS SearchReduce.py
+PASS SearchStochasticTriangle9.py
+PASS SearchTriangle9Problem.json
+PASS SearchTriangle9Problem.py
+PASS review-triangle9-geometry-status-audit.log
+PASS review-triangle9-search-status-audit.log
+PASS triangle9-baseline-calibration.log
+PASS triangle9-baseline53.json
+PASS triangle9-matching59.json
+PASS triangle9-stochastic-calibration.log
+PASS all11hashes; reviewed source/data and53/59fixture scope, no52witness
+HOLD final README/metadata accuracy: reduced candidate branch scalar loop checked404 maximal-basis tests but claimed557 raw tests. Author notified to expand loop to POSITIVES|RAW_NEGATIVES and update frozen manifest. Correctness basis remains complete.
+FINAL PASS after correction: reduced artifact scalar loop now checks all557raw cases; newsourceSHA4b56c83d0c7258704e2f81ba2a312f3ac1411ae6aa6a6e7dc9f656f962d3f741. All12updatedmanifest hashes/bytes verified. Padded54→53 reducer fixture raw557 calibration passed.

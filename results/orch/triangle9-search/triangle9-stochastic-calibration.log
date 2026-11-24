@@ -1,0 +1,14 @@
+SCALAR_PASS 0 size 59 matching True
+SCALAR_PASS 1 size 59 matching True
+SCALAR_PASS 2 size 59 matching True
+SCALAR_PASS 3 size 59 matching True
+SCALAR_PASS 4 size 59 matching True
+SCALAR_PASS 6 size 59 matching True
+SCALAR_PASS 9 size 59 matching True
+SCALAR_PASS 14 size 59 matching True
+SCALAR_PASS 40 size 59 matching True
+SCALAR_PASS 80 size 53 matching False
+SCALAR_PASS 120 size 61 matching False
+SCALAR_PASS 160 size 53 matching False
+SCALAR_PASS 200 size 59 matching True
+PASS 960baseline/mutant expansion,cost,topology,404testbitmask,reduction checks; 13 full557scalarchecks; 47 matchingstarts

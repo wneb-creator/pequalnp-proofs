@@ -1,0 +1,17 @@
+# Four-clause product investigation
+
+This is a computational diagnostic and an unformalized proof outline. It is not a Lean theorem or a proof of the posted gap.
+
+Candidate lemma: if a monotone function h is a conjunction of four OR clauses and h is pointwise below a bipartite C4-free graph edge function, then the graph of pairs accepted by h has vertex-cover number at most2.
+
+The diagnostic takes six distinct clause-membership masks from1..14. A pair is accepted exactly when its masks union to15. It enumerates the3003 unordered six-mask families and all2416 simple C4-free graphs admitting a balanced3+3 bipartition on those six labeled vertices. Balanced partitions suffice when restricting to the endpoints of a three-edge matching. Only25 mask families have accepted-pair cover number at least3 and fit any such host. They form three orbits under permutation of the four clause coordinates. None of their possible hosts dominates h on all64 assignments. The saved JSON records the nonzero bitmask of failing assignments for every candidate host. The program does not claim that2416 counts every unbalanced bipartite graph on six vertices.
+
+A potential proof avoids the full enumeration. Suppose three disjoint accepted pairs exist. Restrict all other variables to false. No selected mask is0 or15: an accepted pair excludes0, and domination by a loop-free graph excludes15. All six masks are distinct, because two equal masks from different matched pairs would force a C4 using their two distinct partners.
+
+If a mask has one bit, its mate has three bits, so consider a three-bit mask p. Orient the matching so p and the other two vertices m,n are on one bipartition side. Each opposite-side mate contains p's missing bit, hence all three are adjacent to p. The C4 prohibition means m,n can be adjacent only to their own distinct matched partners, so their masks are incomparable subsets of p. Their partners are on the same side and cannot be adjacent; since each partner contains the complement of its matched mask, this forces m and n to intersect. Two incomparable intersecting proper subsets of a three-element set have union p. Thus m,n and p's mate jointly satisfy all four clauses, but form an independent set in the host, a contradiction.
+
+The remaining case has six distinct two-bit masks, hence all six pairs of four coordinates. Their accepted pairs form a perfect matching of three complementary pairs. Each of the four triples of masks containing a fixed coordinate satisfies all clauses. These triples have disjoint sets of variable pairs, and none contains a complementary pair. Domination forces four additional distinct host edges, giving at least7 edges in a bipartite3-by3 C4-free graph. Such a graph has at most6 edges: if every left degree is at most2 this is immediate; a degree3 vertex forces both remaining left degrees to be at most1. This is a contradiction.
+
+To deduce the stated cover bound, the accepted-pair graph is bipartite, so a vertex cover of size at least3 would provide a matching of size3 by Konig's theorem. The above argument excludes it. This last bridge and the set-pattern reasoning still require Lean formalization.
+
+The scope includes crossed independent dirty products: (A OR h0) AND (B OR h1) is a four-clause function when each hi is a product of two pure OR forms. Nested dirty products can yield five or more clauses and are outside this argument.

@@ -1,0 +1,26 @@
+{
+  "frozen_at": "2026-11-24T09:08:22.271006+00:00",
+  "lean_verified": false,
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "548d316ab89866f068ffa1da888baeace4d07192f7f97c86e23f1fec710e6da5",
+      "bytes": 3410
+    },
+    {
+      "file": "SearchFourClause.py",
+      "sha256": "3666b891b5b92fc74d57c75dc5680bbdb1e92d9f2add077eccba380ce2af39b6",
+      "bytes": 3749
+    },
+    {
+      "file": "four-clause-classification.json",
+      "sha256": "4678f77200e41121ed54809bcd84c0ef3fc37ab75079cd79e6d09dbc7f620df1",
+      "bytes": 22302
+    },
+    {
+      "file": "four-clause-classification.log",
+      "sha256": "7065708a9c919f4f65886333eddde6e3043df449eaed4fb26dc97511128e891d",
+      "bytes": 586
+    }
+  ]
+}

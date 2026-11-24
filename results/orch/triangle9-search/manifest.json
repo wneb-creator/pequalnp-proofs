@@ -1,0 +1,66 @@
+{
+  "frozen_at": "2026-11-24T09:14:25.723244+00:00",
+  "no_target_witness": true,
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "3ee6de13b0596446304447362d86848532f4db838bc2e38c4ddf6bd16c04910e",
+      "bytes": 2177
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticTriangle9.py",
+      "sha256": "4b56c83d0c7258704e2f81ba2a312f3ac1411ae6aa6a6e7dc9f656f962d3f741",
+      "bytes": 16405
+    },
+    {
+      "file": "SearchTriangle9Problem.json",
+      "sha256": "57dd768796981145fd4968a0f86d75af756037be7d40bf4ca2eddedb7620b505",
+      "bytes": 1871
+    },
+    {
+      "file": "SearchTriangle9Problem.py",
+      "sha256": "c0aecd88761752cf16d7599e9432e8dd61c1fba1355673d589bd6ede888d1c28",
+      "bytes": 1094
+    },
+    {
+      "file": "review-triangle9-geometry-status-audit.log",
+      "sha256": "b7379361da16335d154a54ae1d227d85a1a33482ac5250ba06f20a7ee1c2e395",
+      "bytes": 315
+    },
+    {
+      "file": "review-triangle9-search-status-audit.log",
+      "sha256": "7c0ee5abed50aafb208c545d120979e9eeea31369d4f0e3024dda435a53c63e6",
+      "bytes": 380
+    },
+    {
+      "file": "triangle9-baseline-calibration.log",
+      "sha256": "d47295f7a08c76545b208422924cf44080e5b82a57616161b1b1f1635345eaa4",
+      "bytes": 93
+    },
+    {
+      "file": "triangle9-baseline53.json",
+      "sha256": "bd6113deb39f3073313085aadd02f0075a1c8a12ad6ed5e6b3354284f52b387e",
+      "bytes": 4986
+    },
+    {
+      "file": "triangle9-matching59.json",
+      "sha256": "6cf35414fc5f295e53c25c2dd65bd8d1f3ed287b2f8a678066d6b0eece9af1e3",
+      "bytes": 5316
+    },
+    {
+      "file": "triangle9-reduced-raw-calibration.log",
+      "sha256": "79fc5d58fefdab0ba8bbabb7095eda2407271e691fe9ab55834f1358de549dd2",
+      "bytes": 55
+    },
+    {
+      "file": "triangle9-stochastic-calibration.log",
+      "sha256": "50bbdb350e7f68926c031202223cb8fd8ea0d1b548bb542d4d8b4309f676bbf7",
+      "bytes": 603
+    }
+  ]
+}

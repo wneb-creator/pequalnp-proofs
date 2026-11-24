@@ -1,0 +1,4 @@
+PASS exact posted105-edge restriction:27inputs45edges,9degree5points,18degree>=2columns, no aggregate ORs
+PASS complete raw negative basis512, maximal negatives 359 positive edge inputs45
+PASS baseline53, target52 plus72 outer gates equals124
+SHA256 57dd768796981145fd4968a0f86d75af756037be7d40bf4ca2eddedb7620b505
