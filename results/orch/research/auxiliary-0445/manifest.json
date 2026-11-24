@@ -1,0 +1,71 @@
+{
+  "status": "independently_validated_auxiliary_examples_only",
+  "files": [
+    {
+      "path": "normal-cost-obstruction.py",
+      "bytes": 1797,
+      "sha256": "688649b6b4703e935564a781c27490fe52cd39a9e55381462b2f897cd2e22846",
+      "source": "/tmp/oec/pequalnp-pilot-21/packing-review/normal-cost-obstruction.py"
+    },
+    {
+      "path": "normal-cost-obstruction.json",
+      "bytes": 873,
+      "sha256": "70254695000f9f087904a763274489ca172b75775c403ea2b3a6b01be26444a2",
+      "source": "/tmp/oec/pequalnp-pilot-21/packing-review/normal-cost-obstruction.json"
+    },
+    {
+      "path": "normal-cost-obstruction.log",
+      "bytes": 873,
+      "sha256": "70254695000f9f087904a763274489ca172b75775c403ea2b3a6b01be26444a2",
+      "source": "/tmp/oec/pequalnp-pilot-21/packing-review/normal-cost-obstruction.log"
+    },
+    {
+      "path": "two-output-independent.py",
+      "bytes": 1749,
+      "sha256": "32d10d229779882dde464cacec6d747a04ae69ddea4f0ebdac442573656b56df",
+      "source": "/tmp/oec/pequalnp-pilot-21/packing-review/two-output-independent.py"
+    },
+    {
+      "path": "two-output-independent.log",
+      "bytes": 420,
+      "sha256": "351da06289f40c030f4bf34fcd7bcc31dc9ad559046b39487b2d25135577945d",
+      "source": "/tmp/oec/pequalnp-pilot-21/packing-review/two-output-independent.log"
+    },
+    {
+      "path": "normal-cost-independent.py",
+      "bytes": 1700,
+      "sha256": "5c6977f73e969a4705ed04333d877efa8bd0232e9a47033558fd34bd3b845df9",
+      "source": "/tmp/oec/pequalnp-pilot-21/research2/normal-cost-independent.py"
+    },
+    {
+      "path": "normal-cost-independent.log",
+      "bytes": 248,
+      "sha256": "7e9e3b43a58c0a88ad77ed852186b8f5171bc06235f7aaecfec2f8beb59369d1",
+      "source": "/tmp/oec/pequalnp-pilot-21/research2/normal-cost-independent.log"
+    },
+    {
+      "path": "two_nonordinary_nine.py",
+      "bytes": 1266,
+      "sha256": "1f41d158c8edc80b0cc02e09d54b7f9327161da2739fa0aec435e10ee1915ea7",
+      "source": "/tmp/oec/pequalnp-pilot-21/fresh/two_nonordinary_nine.py"
+    },
+    {
+      "path": "two-nonordinary-nine.json",
+      "bytes": 1047,
+      "sha256": "f738d3579bd2897c2dd83732a45326b4fe197dee99af432c493ecbe7401dac76",
+      "source": "/tmp/oec/pequalnp-pilot-21/fresh/two-nonordinary-nine.json"
+    },
+    {
+      "path": "two-nonordinary-nine.log",
+      "bytes": 1048,
+      "sha256": "a537ed8aa2671ec9676366155e48cc0e42da15b8a0953c947f115b1f2205c06d",
+      "source": "/tmp/oec/pequalnp-pilot-21/fresh/two-nonordinary-nine.log"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2095,
+      "sha256": "c8d91532f9e2bfdd52db7df53857155b540736f49cf08dd7cab5e181443ae6ec",
+      "source": "generated scope note"
+    }
+  ]
+}

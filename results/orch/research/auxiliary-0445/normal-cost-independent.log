@@ -1,0 +1,2 @@
+INDEPENDENT PASS: all8192 rows,8gates cost5,globalupper,3003bandrows exact,32globaldifferences; equivalent7gatefactorizationcost4.
+Scope: refutes semantic four-zero falsifier implies additive formal cost4; not minimal and not a gap counterexample.

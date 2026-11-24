@@ -1,0 +1,21 @@
+{
+  "status": "INDEPENDENT_PASS",
+  "method": "8192-bit truth columns",
+  "gates": 9,
+  "global_input_rows": 8192,
+  "band_rows": 3003,
+  "band_errors": [
+    0,
+    0
+  ],
+  "global_upper_errors": [
+    0,
+    0
+  ],
+  "global_differences": [
+    32,
+    32
+  ],
+  "nonordinary_witness": 2,
+  "scope": "Refutes only the proposed ten-gate bound for two nonordinary OR outputs; not the thirteen-output posted theorem."
+}
