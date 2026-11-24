@@ -63,3 +63,7 @@
 2026-11-24T19:04:57Z — five dirty-minimum probes and one productive-theta probe finished, all unknown; counterexample search stopped with no candidate.
 
 - 2026-11-24T19:09:13.919040+00:00: named5958line build20 passes. OR-tail extraction, prefix reconstruction, valid-output and actual shared-reader factoring count independently reviewed. Reader-root cardinality≤1 proved; full normalization remains unproved. Final solver checkpoints allunknown, independently audited, workersstopped.
+
+2026-11-24T19:13:03.184241+00:00 Final strategy replan: exact-one contributing reader now checked separately. Continue a focused C4-free single-reader analysis; global normalization is still open. Integrate and preserve this structural lemma, audit final source, and report only established results if no full proof emerges.
+
+2026-11-24T19:13:36.233969+00:00 Named build22 passes6124lines, exact-one frontier reader integrated.
