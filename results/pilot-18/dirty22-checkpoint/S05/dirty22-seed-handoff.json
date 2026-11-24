@@ -1,0 +1,253 @@
+{
+  "status": "READY_FOR_MAIN_REVIEW",
+  "created_utc": "2026-11-24T04:05:52.204071+00:00",
+  "source_sha256": "0cd2e6eaa92e2a5cd95d1bd20728ad9157e80b9e88a728ad7033f8af420c1299",
+  "pack": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-seed-pack/seeds.txt",
+  "pack_sha256": "7545d43b161bb5d1fab2cbf3e517c56a40dab5e8e26bdaff4bc4649760dbfe0a",
+  "metadata_sha256": "de74224be43990e581638e3233e885df66b5de1a156a5f02796670a087d2d981",
+  "checks_sha256": "1ea9f1b69bb08b3653f2ed7972803c88da7f1727c625e41b1fbea98f840dcd48",
+  "gate_count": 22,
+  "all_gates_live": true,
+  "distinct_orders": 4,
+  "search_worker_launched": false,
+  "meets_posted_gate_limit": false,
+  "reviewed_tools": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/stochastic_tools.py",
+      "sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/circuit_anneal",
+      "sha256": "31620eae27eed733fe22f94965a215394e3fc6bd2a313f566335a3eb30dd4f00"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/circuit_anneal.cpp",
+      "sha256": "a82e670373e5f0048df004efbcb0f417949ce0255545c0767b647cb7207068b3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/validate_raw_candidate.py",
+      "sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/lean-setup/validate_sat_candidate.py",
+      "sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/prepare_dirty22_seeds.py",
+      "sha256": "93942a4932f954116b45dfe21ab26ad812b3998f0a684925625126613b3d0bc1",
+      "bytes": 10984
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/shared-factor-compact-complete.json",
+      "sha256": "0cd2e6eaa92e2a5cd95d1bd20728ad9157e80b9e88a728ad7033f8af420c1299",
+      "bytes": 1218
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-family/c0000-k22.baseline22.json",
+      "sha256": "a023ba6635d5c4c7dff8de198941c2271efa3e4758794b6d9c7c90d9789eb56a",
+      "bytes": 1689
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-family/c0001-k22.baseline22.json",
+      "sha256": "7dec09e55cf2866a7a13fcd784ebf667d3a01465dcdee1fb6ce7a93bacfd2c55",
+      "bytes": 1694
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-family/c0002-k22.baseline22.json",
+      "sha256": "3ed1082a77fd97acf4d553b2a491ece57c3dc7211b21991b2dd47c3f8b1d8cc4",
+      "bytes": 1693
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-family/c0003-k22.baseline22.json",
+      "sha256": "50d84a9b20f12a4b0e9aed53b0a12d698729e9895572c062d7bcaf57758f705f",
+      "bytes": 1692
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-family/family.json",
+      "sha256": "bf548bea651ed134b2cd5b3e2c0507f98cb2a7d5b2d8e4c671b5358ceadf5002",
+      "bytes": 992
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-family/source-original.json",
+      "sha256": "0cd2e6eaa92e2a5cd95d1bd20728ad9157e80b9e88a728ad7033f8af420c1299",
+      "bytes": 1218
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-seed-pack/seeds.json",
+      "sha256": "de74224be43990e581638e3233e885df66b5de1a156a5f02796670a087d2d981",
+      "bytes": 1000
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-seed-pack/seeds.txt",
+      "sha256": "7545d43b161bb5d1fab2cbf3e517c56a40dab5e8e26bdaff4bc4649760dbfe0a",
+      "bytes": 657
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/checks.json",
+      "sha256": "1ea9f1b69bb08b3653f2ed7972803c88da7f1727c625e41b1fbea98f840dcd48",
+      "bytes": 3058
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/engine-self-test-not-run.json",
+      "sha256": "d84c0b7052a3502095f83faa98576a53349c1e1dc68d6a1462addbee4c1972db",
+      "bytes": 375
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/false-output-rejection.result.json",
+      "sha256": "e15e6d9a2f581ec33cd4c0c0fc46987b48cdbe3bfb70df16cd5e0b04e2405221",
+      "bytes": 629
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/false-output-rejection.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/false-output-rejection.stdout",
+      "sha256": "d039f7158c2d3948ec98e5c91cfe54d3c53c651598fe5ab5ae2c517e844406c4",
+      "bytes": 38
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/false-output.json",
+      "sha256": "13509a0ec6acd9abff01d62386f4e285122e74f18e5a0b12fb2d05d05e44029b",
+      "bytes": 1689
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-0.json",
+      "sha256": "39ededbea473e2c6c4aad452303c95675d692b18ff767bde7e2d4cc403f6c864",
+      "bytes": 1653
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-0.result.json",
+      "sha256": "4b232a5010885afcf3748388ed8724e7c9e30e9085500420b31204941dfd3fe0",
+      "bytes": 611
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-0.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-0.stdout",
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a",
+      "bytes": 49
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-1.json",
+      "sha256": "b42a9145f5e587e29beeb6ef206a67ac8ea8ca79361bbeff03768d3330ea7f18",
+      "bytes": 1653
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-1.result.json",
+      "sha256": "e0b8933bdf5c755c226ba6305b100353ff22a21d373596ecfed2680a9c6df0f4",
+      "bytes": 616
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-1.stdout",
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a",
+      "bytes": 49
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-2.json",
+      "sha256": "765ae6bb317e31627e2a21634a1b26deb31ea60c659612fcb62303c86b05cbc1",
+      "bytes": 1653
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-2.result.json",
+      "sha256": "7321d4ffd9bc3c5a63c6afba48dfeb8142bb170d40431c632268a3ea634ad98b",
+      "bytes": 616
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-2.stdout",
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a",
+      "bytes": 49
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-3.json",
+      "sha256": "52debe236f3707294d8cafa4a71a1377825376e7358c15e3b3cf58c23caa7af8",
+      "bytes": 1653
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-3.result.json",
+      "sha256": "97201fc5f0808ed6864c71536973aa1ce899a7b953dc111eb10d9facd40163ed",
+      "bytes": 615
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-3.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-3.stdout",
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a",
+      "bytes": 49
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-4.json",
+      "sha256": "8f37bb024e10b8b6f092549c140ccfcc94caac6984809106bef58ae961b32684",
+      "bytes": 1653
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-4.result.json",
+      "sha256": "29bee50e151737d0e90e353f4f8de66a4e8d73b6d8844a64f4bf151db82cb664",
+      "bytes": 616
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-4.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-4.stdout",
+      "sha256": "53290c1029a16f232917625fac469c6a31f8c0b7ca5e8c018e6c4b592d89c43a",
+      "bytes": 49
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/prepare.result.json",
+      "sha256": "8fa4adf1d9091e2744d917da4d5b835acb8030ad699efb8388df65b48b24a6d0",
+      "bytes": 605
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/prepare.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/prepare.stdout",
+      "sha256": "3983a93566385c428a7ae6b7982bb2128ada5dfc246f57179e330b5564f539db",
+      "bytes": 170
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/unshifted-offset-rejection.result.json",
+      "sha256": "fe129d54e1e371a3a3a0040a75e5237da68d20387bd255984415f6953cfeed68",
+      "bytes": 637
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/unshifted-offset-rejection.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/unshifted-offset-rejection.stdout",
+      "sha256": "d039f7158c2d3948ec98e5c91cfe54d3c53c651598fe5ab5ae2c517e844406c4",
+      "bytes": 38
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/unshifted-offset.json",
+      "sha256": "64a9e2d91b214b9883e2647d67f6ee17e8c4b6525478ad72e7408c795ed2d303",
+      "bytes": 1232
+    }
+  ]
+}

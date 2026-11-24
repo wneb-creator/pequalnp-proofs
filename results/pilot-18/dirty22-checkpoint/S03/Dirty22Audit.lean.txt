@@ -1,0 +1,57 @@
+import PEqualNP.Outside.L_meta_1342
+
+namespace PEqualNP.Outside.L_meta_1342_aux
+
+open PEqualNP.CircuitLowerBounds
+
+def Dirty22Control : Circuit :=
+  ⟨[
+    ⟨.or, [0, 2]⟩,
+    ⟨.or, [0, 7]⟩,
+    ⟨.or, [1, 4]⟩,
+    ⟨.or, [6, 7]⟩,
+    ⟨.or, [8, 9]⟩,
+    ⟨.or, [4, 11]⟩,
+    ⟨.or, [8, 12]⟩,
+    ⟨.or, [9, 13]⟩,
+    ⟨.or, [6, 16]⟩,
+    ⟨.and, [1, 4]⟩,
+    ⟨.and, [2, 5]⟩,
+    ⟨.and, [3, 14]⟩,
+    ⟨.and, [6, 7]⟩,
+    ⟨.and, [10, 19]⟩,
+    ⟨.and, [17, 18]⟩,
+    ⟨.or, [5, 25]⟩,
+    ⟨.and, [15, 26]⟩,
+    ⟨.or, [20, 21]⟩,
+    ⟨.or, [22, 28]⟩,
+    ⟨.or, [23, 29]⟩,
+    ⟨.or, [24, 30]⟩,
+    ⟨.or, [27, 31]⟩], 32⟩
+
+lemma Dirty22Control_monotone : PEqualNP.MetaComplexity.Monotone2 Dirty22Control := by
+  simp [PEqualNP.MetaComplexity.Monotone2, Dirty22Control]
+
+lemma Dirty22Control_size : Dirty22Control.size = 22 := rfl
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+lemma Dirty22Control_boundary : targetBoundaryCheck Dirty22Control = true := by
+  decide
+
+lemma Dirty22Control_certificate :
+    ∃ C : Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧
+      (∀ x : Fin 11 → Bool, C.eval (List.ofFn x) = true ↔
+        ∃ u v : Fin 11, (u.val, v.val) ∈
+          ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7),
+            (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] :
+            List (ℕ × ℕ)) ∧ x u = true ∧ x v = true) ∧ C.size ≤ 22 := by
+  exact target_witness_of_boundary_check Dirty22Control Dirty22Control_monotone Dirty22Control_boundary 22
+    (Nat.le_of_eq Dirty22Control_size)
+
+end PEqualNP.Outside.L_meta_1342_aux
+
+#print axioms PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_monotone
+#print axioms PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_size
+#print axioms PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_boundary
+#print axioms PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_certificate

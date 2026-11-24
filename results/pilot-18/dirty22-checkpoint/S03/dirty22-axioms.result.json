@@ -1,0 +1,33 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/Dirty22Audit.lean",
+  "source_sha256": "ba8e9e9ce9dab920ad7bc391f32fd22500bd00cf6ecbdd6004e60166fa64d35e",
+  "source_unchanged": true,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S03/Dirty22Audit.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-24T04:08:20.403172+00:00",
+  "finished_utc": "2026-11-24T04:08:27.229556+00:00",
+  "lock_wait_seconds": 9.336100083601195e-05,
+  "elapsed_seconds": 6.825764384999275,
+  "exit_code": 0,
+  "timeout": false,
+  "child_maxrss_kib": 3245288,
+  "logs": {
+    "stdout": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-axioms.stdout",
+      "sha256": "3a340ea498cdba01b077d85549ec4d1e19ab3caa0dd26e99e3c59015a9e001d8",
+      "bytes": 424
+    },
+    "stderr": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

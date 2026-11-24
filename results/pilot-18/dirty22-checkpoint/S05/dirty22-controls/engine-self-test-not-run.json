@@ -1,0 +1,13 @@
+{
+  "status": "NOT_RUN_USER_NO_ENGINE_LAUNCH",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/circuit_anneal",
+    "--pack",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-seed-pack/seeds.txt",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/engine-self-test-future.json",
+    "--self-test",
+    "--seed",
+    "134222"
+  ]
+}

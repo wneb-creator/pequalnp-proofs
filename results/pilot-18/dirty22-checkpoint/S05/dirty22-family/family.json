@@ -1,0 +1,30 @@
+{
+  "complete": true,
+  "samples": 4,
+  "cases": [
+    {
+      "case": "c0000-k22",
+      "baseline22_sha256": "a023ba6635d5c4c7dff8de198941c2271efa3e4758794b6d9c7c90d9789eb56a"
+    },
+    {
+      "case": "c0001-k22",
+      "baseline22_sha256": "7dec09e55cf2866a7a13fcd784ebf667d3a01465dcdee1fb6ce7a93bacfd2c55"
+    },
+    {
+      "case": "c0002-k22",
+      "baseline22_sha256": "3ed1082a77fd97acf4d553b2a491ece57c3dc7211b21991b2dd47c3f8b1d8cc4"
+    },
+    {
+      "case": "c0003-k22",
+      "baseline22_sha256": "50d84a9b20f12a4b0e9aed53b0a12d698729e9895572c062d7bcaf57758f705f"
+    }
+  ],
+  "kind": "four_equivalent_topological_orders_of_one_exact_dirty22_control",
+  "source_sha256": "0cd2e6eaa92e2a5cd95d1bd20728ad9157e80b9e88a728ad7033f8af420c1299",
+  "generator_sha256": "93942a4932f954116b45dfe21ab26ad812b3998f0a684925625126613b3d0bc1",
+  "source_wire_offset": 11,
+  "packed_wire_offset": 13,
+  "all_gates_live": true,
+  "candidate_only": true,
+  "assigned_shard_exhaustion": false
+}

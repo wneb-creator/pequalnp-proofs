@@ -1,0 +1,20 @@
+{
+  "input": "/tmp/oec/pequalnp-pilot-18/orch/S05/shared-factor-compact-complete.json",
+  "input_sha256": "0cd2e6eaa92e2a5cd95d1bd20728ad9157e80b9e88a728ad7033f8af420c1299",
+  "gate_count": 22,
+  "output": 32,
+  "rows_checked": 40,
+  "boundary_failures": [],
+  "inputs_checked": 2048,
+  "full_failure_masks": [],
+  "status": "GENERATED_NOT_COMPILED",
+  "proves_posted_statement": false,
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/Dirty22Control.lean",
+  "source_sha256": "9a7014c902546881f3653782c4dbcc62213e91a6fe67f7faa6e7645029423969",
+  "scaffold_sha256": "80802f27b96a4e01e5c4b2d54fe4aa4276adb84fe83a664d96e6ee5092cdbd53",
+  "exact_bound": 22,
+  "emitter_sha256": "f0df2b3fbd6aaec3745c390f629022818e1c083c5824e05e31c59a528b492fd0",
+  "helper_mode": "existing",
+  "named_dependency_sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+  "import_scope": "Scratch harness; inline helper/candidate declarations for any final source."
+}

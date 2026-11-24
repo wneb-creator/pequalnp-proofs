@@ -1,0 +1,159 @@
+{
+  "status": "LEAN_BUILD_AND_AXIOM_AUDIT_PASS_BOUND_22_ONLY",
+  "created_utc": "2026-11-24T04:09:03.626074+00:00",
+  "source_json_sha256": "0cd2e6eaa92e2a5cd95d1bd20728ad9157e80b9e88a728ad7033f8af420c1299",
+  "lean_source_sha256": "9a7014c902546881f3653782c4dbcc62213e91a6fe67f7faa6e7645029423969",
+  "named_dependency_sha256": "0e0620c89307cf34be010940037cb187797eea76c85fc8c8a89b9bd1cfc56e5c",
+  "exact_bound": 22,
+  "exact_statement": "    \u2203 C : Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227\n      (\u2200 x : Fin 11 \u2192 Bool, C.eval (List.ofFn x) = true \u2194\n        \u2203 u v : Fin 11, (u.val, v.val) \u2208\n          ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7),\n            (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] :\n            List (\u2115 \u00d7 \u2115)) \u2227 x u = true \u2227 x v = true) \u2227 C.size \u2264 22\n",
+  "axioms": {
+    "PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_monotone": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_size": [],
+    "PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_boundary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build_exit_code": 0,
+  "build_elapsed_seconds": 17.691895710999233,
+  "audit_exit_code": 0,
+  "audit_elapsed_seconds": 6.825764384999275,
+  "kernel_check_method": "Lean decide for exact 40 rows plus previously compiled monotonicity/boundary sufficiency and posted-predicate bridge",
+  "helper_mode": "existing",
+  "lock": "/tmp/oec/pequalnp-pilot-18/orch-lean.lock",
+  "pinned_toolchain": "leanprover/lean4:v4.36.0",
+  "path_prefix": "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin",
+  "memory_limit_mib": 4000,
+  "jobs": 1,
+  "maxRecDepth": 10000,
+  "maxHeartbeats": 1000000,
+  "named_source_edited": false,
+  "final_posted_statement_proved": false,
+  "scratch_harness_only": true,
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/Dirty22Audit.lean",
+      "sha256": "ba8e9e9ce9dab920ad7bc391f32fd22500bd00cf6ecbdd6004e60166fa64d35e",
+      "bytes": 1980
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/Dirty22Control.generation.json",
+      "sha256": "dbdd0c16acf111a169772a2b4827c4858a705b98c992fc4d8b43af95f767b8d7",
+      "bytes": 967
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/Dirty22Control.lean",
+      "sha256": "9a7014c902546881f3653782c4dbcc62213e91a6fe67f7faa6e7645029423969",
+      "bytes": 1696
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-audit-runner.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-audit-runner.stdout",
+      "sha256": "c550bfa6bdb8744bb70bccaa2cc818140414015178118afc81c951f893f6f006",
+      "bytes": 986
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-axioms.result.json",
+      "sha256": "55df4804ff6d1b15697f8af2498bdd8a7872df8d92038fd3eea96d91767a66c8",
+      "bytes": 1102
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-axioms.running.json",
+      "sha256": "6e0706136ad7e950eb0bc54f16b4f6cf1f213b50472dfbd01efef6445284d772",
+      "bytes": 460
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-axioms.stdout",
+      "sha256": "3a340ea498cdba01b077d85549ec4d1e19ab3caa0dd26e99e3c59015a9e001d8",
+      "bytes": 424
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-build.result.json",
+      "sha256": "cad6d5e8d6c7e9ca98d31600e2fd49207daceb2c08b60995f3772b3a0acf6c39",
+      "bytes": 1103
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-build.running.json",
+      "sha256": "295ca3cafc8ff27459eb2eb37b802af96bbef175b886dea6f0b6690f934a3490",
+      "bytes": 464
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-exact-statement.txt",
+      "sha256": "cd7fb88a03bf9323862d34684f3b8a0c58f13b958d3a082d3beaf2ade9e146de",
+      "bytes": 408
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-generation-review.json",
+      "sha256": "3dde64e7f043622e0e41754f007461c1b2113bfef2f6256ae68bf29d368fe25e",
+      "bytes": 462
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-generation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-generation.stdout",
+      "sha256": "fe1c725f995f312fe2a3512b0e89cecb38c6045fe5f437f84499cc0f0ba2193c",
+      "bytes": 291
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-runner.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-runner.stdout",
+      "sha256": "621237573d3461d6192304da61a8d0dc61e34965c1f4e79186ded243c2900c08",
+      "bytes": 987
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/emit_candidate.py",
+      "sha256": "f0df2b3fbd6aaec3745c390f629022818e1c083c5824e05e31c59a528b492fd0",
+      "bytes": 7116
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/run_lean.py",
+      "sha256": "f0ca0bfcc71424068e29aa50f2fb6aef72582492f5d80c7d7cb85beb62ce60e0",
+      "bytes": 2414
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-delivery-manifest.json",
+      "sha256": "74aa51ec266ec31be63503b4a68c73982383ccb4ec4249e8be59476f992ac678",
+      "bytes": 10080
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S05/shared-factor-compact-complete.json",
+      "sha256": "0cd2e6eaa92e2a5cd95d1bd20728ad9157e80b9e88a728ad7033f8af420c1299",
+      "bytes": 1218
+    }
+  ]
+}

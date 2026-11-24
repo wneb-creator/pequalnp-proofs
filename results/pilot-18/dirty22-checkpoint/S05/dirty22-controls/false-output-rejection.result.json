@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/validate_raw_candidate.py",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/false-output.json",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/false-output-unexpected-report.json"
+  ],
+  "cwd": "/tmp/oec/pequalnp-pilot-18/orch/S05",
+  "exit_code": 2,
+  "elapsed_seconds": 0.06636207200062927,
+  "stdout_sha256": "d039f7158c2d3948ec98e5c91cfe54d3c53c651598fe5ab5ae2c517e844406c4",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

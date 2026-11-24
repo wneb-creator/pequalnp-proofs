@@ -1,0 +1,41 @@
+{
+  "utc": "2026-11-24T04:07:12.423991+00:00",
+  "verdict": "PASS_MAIN_INDEPENDENT_PACK_DECODE_AND_SCALAR_CHECK",
+  "pack_sha256": "7545d43b161bb5d1fab2cbf3e517c56a40dab5e8e26bdaff4bc4649760dbfe0a",
+  "manifest_entries_verified": 48,
+  "cases": [
+    {
+      "index": 0,
+      "junk": [
+        14
+      ],
+      "inputs_checked": 2048,
+      "size": 22
+    },
+    {
+      "index": 1,
+      "junk": [
+        13
+      ],
+      "inputs_checked": 2048,
+      "size": 22
+    },
+    {
+      "index": 2,
+      "junk": [
+        4
+      ],
+      "inputs_checked": 2048,
+      "size": 22
+    },
+    {
+      "index": 3,
+      "junk": [
+        18
+      ],
+      "inputs_checked": 2048,
+      "size": 22
+    }
+  ],
+  "scope": "exact22 only; not posted21"
+}

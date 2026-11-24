@@ -1,0 +1,28 @@
+{
+  "kind": "all2048_checked_22_gate_controls",
+  "candidate_only": true,
+  "assigned_shard_exhaustion": false,
+  "count": 4,
+  "family_manifest_sha256": "bf548bea651ed134b2cd5b3e2c0507f98cb2a7d5b2d8e4c671b5358ceadf5002",
+  "pack_sha256": "7545d43b161bb5d1fab2cbf3e517c56a40dab5e8e26bdaff4bc4649760dbfe0a",
+  "validator_sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+  "preparer_sha256": "1e6f24c16faf2948c0aec5e4c300f9114d3e331c5894f191c9e0e7607f8afe8b",
+  "baselines": [
+    {
+      "case": "c0000-k22",
+      "sha256": "a023ba6635d5c4c7dff8de198941c2271efa3e4758794b6d9c7c90d9789eb56a"
+    },
+    {
+      "case": "c0001-k22",
+      "sha256": "7dec09e55cf2866a7a13fcd784ebf667d3a01465dcdee1fb6ce7a93bacfd2c55"
+    },
+    {
+      "case": "c0002-k22",
+      "sha256": "3ed1082a77fd97acf4d553b2a491ece57c3dc7211b21991b2dd47c3f8b1d8cc4"
+    },
+    {
+      "case": "c0003-k22",
+      "sha256": "50d84a9b20f12a4b0e9aed53b0a12d698729e9895572c062d7bcaf57758f705f"
+    }
+  ]
+}

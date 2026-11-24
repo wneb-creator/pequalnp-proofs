@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_monotone' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_size' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1342_aux.Dirty22Control_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]

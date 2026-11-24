@@ -1,0 +1,133 @@
+{
+  "inputs": 11,
+  "gates": [
+    [
+      "or",
+      0,
+      7
+    ],
+    [
+      "or",
+      1,
+      4
+    ],
+    [
+      "or",
+      8,
+      11
+    ],
+    [
+      "or",
+      9,
+      12
+    ],
+    [
+      "and",
+      13,
+      14
+    ],
+    [
+      "or",
+      0,
+      2
+    ],
+    [
+      "or",
+      6,
+      7
+    ],
+    [
+      "or",
+      8,
+      9
+    ],
+    [
+      "or",
+      4,
+      16
+    ],
+    [
+      "or",
+      6,
+      19
+    ],
+    [
+      "and",
+      1,
+      4
+    ],
+    [
+      "and",
+      2,
+      5
+    ],
+    [
+      "and",
+      3,
+      17
+    ],
+    [
+      "and",
+      6,
+      7
+    ],
+    [
+      "and",
+      10,
+      20
+    ],
+    [
+      "or",
+      5,
+      15
+    ],
+    [
+      "and",
+      18,
+      26
+    ],
+    [
+      "or",
+      21,
+      22
+    ],
+    [
+      "or",
+      23,
+      28
+    ],
+    [
+      "or",
+      24,
+      29
+    ],
+    [
+      "or",
+      25,
+      30
+    ],
+    [
+      "or",
+      27,
+      31
+    ]
+  ],
+  "output": 32,
+  "size": 22,
+  "normalization": {
+    "original_gate_count": 22,
+    "constant_folded_gates": 0,
+    "identity_or_alias_gates": 0,
+    "gates_before_dead_pruning": 22,
+    "dead_gates_pruned": 0
+  },
+  "gate_wire_offset": 11,
+  "gap": "L-meta-1342",
+  "verified_inputs": 2048,
+  "meets_posted_gate_limit": false,
+  "requires_Lean_proof": true,
+  "source_sha256": "3ed1082a77fd97acf4d553b2a491ece57c3dc7211b21991b2dd47c3f8b1d8cc4",
+  "validator_sha256": "d244bfc58d60560041c5890592f3c2de90905c78fcd058f691b27e7785131401",
+  "normalizer_sha256": "b807c1a580ce1fa49da51d859e6bc5d94bab2f9f0cd359c35cef35686f826529",
+  "status": "EXACT_BUT_TOO_LARGE"
+}

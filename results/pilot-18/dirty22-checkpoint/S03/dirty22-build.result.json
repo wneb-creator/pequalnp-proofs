@@ -1,0 +1,33 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/Dirty22Control.lean",
+  "source_sha256": "9a7014c902546881f3653782c4dbcc62213e91a6fe67f7faa6e7645029423969",
+  "source_unchanged": true,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S03/Dirty22Control.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-24T04:07:46.663531+00:00",
+  "finished_utc": "2026-11-24T04:08:04.355851+00:00",
+  "lock_wait_seconds": 4.906400135951117e-05,
+  "elapsed_seconds": 17.691895710999233,
+  "exit_code": 0,
+  "timeout": false,
+  "child_maxrss_kib": 3237628,
+  "logs": {
+    "stdout": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/tmp/oec/pequalnp-pilot-18/orch/S03/dirty22-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

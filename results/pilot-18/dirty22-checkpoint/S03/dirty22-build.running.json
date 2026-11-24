@@ -1,0 +1,14 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-18/orch/S03/Dirty22Control.lean",
+  "source_sha256": "9a7014c902546881f3653782c4dbcc62213e91a6fe67f7faa6e7645029423969",
+  "started_utc": "2026-11-24T04:07:46.663531+00:00",
+  "lock_acquired_utc": "2026-11-24T04:07:46.663708+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-18/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "-M4000",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-18/orch/S03/Dirty22Control.lean"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "status": "PASS_READY_FOR_MAIN_REVIEW",
+  "source_sha256": "0cd2e6eaa92e2a5cd95d1bd20728ad9157e80b9e88a728ad7033f8af420c1299",
+  "original_full_inputs": 2048,
+  "seed_full_inputs": 8192,
+  "packed_roundtrip_full_inputs": 8192,
+  "intermediate_comparisons": 180224,
+  "seed_details": [
+    {
+      "case": "c0000-k22",
+      "order_name": "original",
+      "junk_gate": 14,
+      "all_2048_outputs_pass": true,
+      "intermediate_comparisons": 45056,
+      "live_gate_count": 22,
+      "output": 34,
+      "constants_read": false
+    },
+    {
+      "case": "c0001-k22",
+      "order_name": "reverse-ready",
+      "junk_gate": 13,
+      "all_2048_outputs_pass": true,
+      "intermediate_comparisons": 45056,
+      "live_gate_count": 22,
+      "output": 34,
+      "constants_read": false
+    },
+    {
+      "case": "c0002-k22",
+      "order_name": "earliest-junk",
+      "junk_gate": 4,
+      "all_2048_outputs_pass": true,
+      "intermediate_comparisons": 45056,
+      "live_gate_count": 22,
+      "output": 34,
+      "constants_read": false
+    },
+    {
+      "case": "c0003-k22",
+      "order_name": "latest-junk",
+      "junk_gate": 18,
+      "all_2048_outputs_pass": true,
+      "intermediate_comparisons": 45056,
+      "live_gate_count": 22,
+      "output": 34,
+      "constants_read": false
+    }
+  ],
+  "normalizations": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/shared-factor-compact-complete.json",
+      "report": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-0.json",
+      "status": "EXACT_BUT_TOO_LARGE",
+      "size": 22
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-family/c0000-k22.baseline22.json",
+      "report": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-1.json",
+      "status": "EXACT_BUT_TOO_LARGE",
+      "size": 22
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-family/c0001-k22.baseline22.json",
+      "report": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-2.json",
+      "status": "EXACT_BUT_TOO_LARGE",
+      "size": 22
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-family/c0002-k22.baseline22.json",
+      "report": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-3.json",
+      "status": "EXACT_BUT_TOO_LARGE",
+      "size": 22
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-family/c0003-k22.baseline22.json",
+      "report": "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-controls/normalize-4.json",
+      "status": "EXACT_BUT_TOO_LARGE",
+      "size": 22
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "unshifted-offset",
+      "mismatch_count": 851,
+      "first_mismatch": 18,
+      "rejected": true
+    },
+    {
+      "name": "false-output",
+      "mismatch_count": 1923,
+      "first_mismatch": 18,
+      "rejected": true
+    }
+  ],
+  "tools_unchanged": true,
+  "search_worker_launched": false,
+  "lean_run": false,
+  "exact_21_witness": false,
+  "engine_launched": false,
+  "engine_self_test": "NOT_RUN"
+}

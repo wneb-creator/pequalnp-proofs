@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/stochastic/stochastic_tools.py",
+    "prepare",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-family",
+    "/tmp/oec/pequalnp-pilot-18/orch/S05/dirty22-seed-pack"
+  ],
+  "cwd": "/tmp/oec/pequalnp-pilot-18/orch/S05",
+  "exit_code": 0,
+  "elapsed_seconds": 0.13925899300011224,
+  "stdout_sha256": "3983a93566385c428a7ae6b7982bb2128ada5dfc246f57179e330b5564f539db",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

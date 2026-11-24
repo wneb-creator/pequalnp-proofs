@@ -63,7 +63,7 @@ SAT candidate validator: 30 tests passed. Online runner: 15 controls passed.
 Tiny test-control UNSAT results do not exhaust any assigned case.
 
 Sub-agents: 6 inherited-model agents, ultra effort: structural proof, SAT repairs, finite Lean certificates, CNF red-team review, solver performance, integration review
-TIMING total=201.6 subagents=6
+TIMING total=233.6 subagents=6
 
 Candidate neighborhoods: 144 independently reviewed formulas preserve prefixes
 of exact 22-gate cover constructions and search arbitrary shorter completions.
@@ -98,3 +98,9 @@ wrapper preserving a supplied size bound k. The known22gate baseline passes
 this check as a positive control. The named file now has2069lines; build exit0,
 integrated six-helper axiom audit exit0, permittedaxiomsonly. Main independently
 reviewed the agent-authored proof and exact insertion; no21gate result is implied.
+A separate exact dirty22 circuit is now kernel-checked in the archived scratch
+component dirty22-checkpoint/S03/Dirty22Control.lean.txt. Build exit0 (17.69s),
+axiom audit exit0 (6.83s), permitted axioms only; full logs and source bindings
+are archived. Four equivalent schedules pass independent all2048-input checks.
+This is a bound22 partial result, not the posted bound21 theorem. The named
+module remains2069lines with the same hash; no cleanup or posted checker run.

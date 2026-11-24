@@ -1,0 +1,16 @@
+{
+  "status": "PASS_NOT_YET_COMPILED",
+  "checks": {
+    "exact_source_hash": true,
+    "exact_original_json_hash": true,
+    "fixed_emitter_hash": true,
+    "named_source_unchanged": true,
+    "helper_mode_existing": true,
+    "bound22": true,
+    "no_helper_redeclarations": true,
+    "no_string_or_commands": true,
+    "permitted_options": true
+  },
+  "source_sha256": "9a7014c902546881f3653782c4dbcc62213e91a6fe67f7faa6e7645029423969",
+  "exact_bound": 22
+}
