@@ -1,0 +1,20 @@
+{
+  "id": "L-meta-3821",
+  "title": "A step toward: A step toward: Petersen graph: no circuit of AND, OR (fan-in two) and NOT gates with at most 19 gates computes its edge function",
+  "statement": "have x1 : (Fin (10 : \u2115) \u2192 Bool) \u2192 Bool := fun (x1 : Fin (10 : \u2115) \u2192 Bool) => (List.finRange (5 : \u2115)).any fun (x2 : Fin (5 : \u2115)) => x1 (Fin.castAdd (5 : \u2115) x2) && x1 (Fin.castAdd (5 : \u2115) (x2 + (1 : Fin (5 : \u2115)))) || x1 (Fin.castAdd (5 : \u2115) x2) && x1 (Fin.natAdd (5 : \u2115) x2) || x1 (Fin.natAdd (5 : \u2115) x2) && x1 (Fin.natAdd (5 : \u2115) (x2 + (2 : Fin (5 : \u2115)))); \u2200 (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 x4 : \u2115),   PEqualNP.MetaComplexity.FanInTwo x2 \u2192     x2.size \u2264 (18 : \u2115) \u2192       have x7 : (Fin (10 : \u2115) \u2192 Bool) \u2192 \u2115 \u2192 Bool := fun (x7 : Fin (10 : \u2115) \u2192 Bool) (x8 : \u2115) => (x2.wires (List.ofFn x7)).getD x8 Bool.false;       have x8 : (Fin (10 : \u2115) \u2192 Bool) \u2192 Bool := fun (x8 : Fin (10 : \u2115) \u2192 Bool) => x7 x8 x3 || x7 x8 x4;       (\u2203 (x9 : Fin (10 : \u2115) \u2192 Bool), x7 x9 x3 = Bool.true \u2227 x7 x9 x4 = Bool.false) \u2192 (\u2203 (x10 : Fin (10 : \u2115) \u2192 Bool), x7 x10 x3 = Bool.false \u2227 x7 x10 x4 = Bool.true) \u2192 (\u2200 (x11 : Fin (10 : \u2115) \u2192 Bool), x1 x11 = Bool.false \u2228 List.count Bool.true (List.ofFn x11) \u2264 (2 : \u2115) \u2192 x8 x11 = x1 x11) \u2192 \u2203 (x12 : Equiv.Perm (Fin (10 : \u2115))) (x13 : Bool) (x14 : PEqualNP.CircuitLowerBounds.Circuit), (\u2200 (x15 : Fin (10 : \u2115) \u2192 Bool), x1 (x15 \u2218 \u21d1x12) = x1 x15) \u2227 PEqualNP.MetaComplexity.FanInTwo x14 \u2227 (x14.size \u2264 if x13 = Bool.true then (10 : \u2115) else (15 : \u2115)) \u2227 \u2200 (x15 : Fin (9 : \u2115) \u2192 Bool), x14.eval (List.ofFn x15) = x8 ((fun (x16 : Fin ((9 : \u2115) + (1 : \u2115))) => Fin.lastCases x13 x15 x16) \u2218 \u21d1x12)",
+  "file": "lean/PEqualNP/Outside/L_meta_3821.lean",
+  "module": "PEqualNP.Outside.L_meta_3821",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "unlocks": "With its 2 sibling(s) it proves a posted step.",
+  "context": "A hypothesis of a checked reduction, as Lean printed it.",
+  "dead": [],
+  "weight": 50,
+  "parallel": 10,
+  "lane": "main",
+  "reductions": true,
+  "sketch": "Step 3 of 3 of a checked cut of L-meta-2373. Its sibling steps: L-meta-3817, L-meta-3819. Together they give the parent; the parent's own sketch: none recorded.",
+  "pr_open": 0,
+  "pr_numbers": []
+}
