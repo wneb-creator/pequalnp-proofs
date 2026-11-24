@@ -15,3 +15,5 @@
 2026-11-24T18:12:53.844162+00:00 — normal_form: complete forest and universal-vertex cases compiled; standard Sum representation cleanup also compiled.
 2026-11-24T18:13:41.460320+00:00 — push4 checkpoint: named660-line padding partial plus checked forest theorem snapshot
 2026-11-24T18:15:37.626921+00:00 — integrated forest, restriction and padding partials compiled; independent review approved SHA25612e53199ee701f7c1460839b56b2ec56f3ca2d8002eac8c8e80bac0b784cf742
+2026-11-24T18:15:58.349672+00:00 — route-obstruction Lean-check complete; root notified for push.
+2026-11-24T18:16:27.721806+00:00 — local operand-bypass strategy refuted for nonminimal circuits by checked7gate matching example; minimum-circuit strategy remains open
