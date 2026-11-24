@@ -294,4 +294,90 @@ lemma prune_dead_cone (n : ℕ) (C : Circuit) (S : Finset ℕ) (hfan : FanInTwo 
   · intro hon _ hremoved
     exact ho (C.output - n) hremoved (by omega)
 
+
+def falseGate : Gate := ⟨.or, []⟩
+
+def replaceWithFalse (C : Circuit) (p : ℕ) : Circuit :=
+  ⟨C.gates.set p falseGate, C.output⟩
+
+lemma replaceWithFalse_size (C : Circuit) (p : ℕ) :
+    (replaceWithFalse C p).size = C.size := by
+  simp [replaceWithFalse, Circuit.size]
+
+lemma replaceWithFalse_fanInTwo (C : Circuit) (p : ℕ) (hfan : FanInTwo C) :
+    FanInTwo (replaceWithFalse C p) := by
+  intro g hg
+  rcases List.mem_or_eq_of_mem_set hg with hg | rfl
+  · exact hfan g hg
+  · simp [falseGate]
+
+lemma fold_replace_gate (gs : List Gate) (p : ℕ) (hp : p < gs.length)
+    (g : Gate) (x : List Bool)
+    (heq : g.op.eval (g.inputs.map fun i => (d3r1Fold false GateOp.eval (gs.take p) x).getD i false) =
+      gs[p].op.eval (gs[p].inputs.map fun i =>
+        (d3r1Fold false GateOp.eval (gs.take p) x).getD i false)) :
+    d3r1Fold false GateOp.eval (gs.set p g) x = d3r1Fold false GateOp.eval gs x := by
+  have hsplit : gs = gs.take p ++ gs[p] :: gs.drop (p + 1) := by
+    rw [← List.drop_eq_getElem_cons hp, List.take_append_drop]
+  unfold d3r1Fold
+  rw [List.set_eq_take_append_cons_drop, ite_eq_left hp]
+  conv_rhs => rw [hsplit]
+  simp only [List.foldl_append, List.foldl_cons]
+  exact congrArg (fun w => (gs.drop (p + 1)).foldl
+    (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) w)
+    (congrArg (fun b => d3r1Fold false GateOp.eval (gs.take p) x ++ [b]) heq)
+
+lemma replaceAndFalse_wires (C : Circuit) (p i j : ℕ) (hp : p < C.gates.length)
+    (hg : C.gates[p] = ⟨.and, [i, j]⟩) (x : List Bool)
+    (hz : (d3r1Fold false GateOp.eval (C.gates.take p) x).getD i false = false) :
+    (replaceWithFalse C p).wires x = C.wires x := by
+  apply fold_replace_gate C.gates p hp falseGate x
+  simp only [falseGate, hg, GateOp.eval, List.map_cons, List.map_nil,
+    List.all_cons, List.all_nil, List.any_nil, id_eq]
+  rw [hz]
+  rfl
+
+lemma replaceAndFalse_eval (C : Circuit) (p i j : ℕ) (hp : p < C.gates.length)
+    (hg : C.gates[p] = ⟨.and, [i, j]⟩) (x : List Bool)
+    (hz : (d3r1Fold false GateOp.eval (C.gates.take p) x).getD i false = false) :
+    (replaceWithFalse C p).eval x = C.eval x := by
+  simp only [Circuit.eval, replaceAndFalse_wires C p i j hp hg x hz]
+  rfl
+
+
+lemma prune_private_and (n : ℕ) (C : Circuit) (p i j : ℕ) (S : Finset ℕ)
+    (P : (Fin n → Bool) → Prop) (hfan : FanInTwo C) (hp : p < C.gates.length)
+    (hg : C.gates[p] = ⟨.and, [i, j]⟩)
+    (hS : ∀ t ∈ S, t < p)
+    (hprivate : ∀ (q : ℕ) (hq : q < C.gates.length), q ∉ S → q ≠ p →
+      ∀ a ∈ C.gates[q].inputs, n ≤ a → a < n + q → a - n ∉ S)
+    (ho : n ≤ C.output → C.output < n + C.gates.length → C.output - n ∉ S)
+    (hz : ∀ x : Fin n → Bool, P x →
+      (d3r1Fold false GateOp.eval (C.gates.take p) (List.ofFn x)).getD i false = false) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + S.card = C.size ∧
+      ∀ x : Fin n → Bool, P x → D.eval (List.ofFn x) = C.eval (List.ofFn x) := by
+  obtain ⟨D, hD, hsize, heval⟩ := prune_removed_set n (replaceWithFalse C p) S
+    (replaceWithFalse_fanInTwo C p hfan)
+    (by
+      intro t ht
+      simpa only [replaceWithFalse, List.length_set] using lt_trans (hS t ht) hp)
+    (by
+      intro q hq hkeep a ha han haq
+      by_cases hqp : q = p
+      · subst q
+        simp only [replaceWithFalse, List.getElem_set_self, falseGate, List.not_mem_nil] at ha
+      · have hq' : q < C.gates.length := by
+          simpa only [replaceWithFalse, List.length_set] using hq
+        have hgate : (replaceWithFalse C p).gates[q] = C.gates[q] := by
+          exact List.getElem_set_ne (Ne.symm hqp) hq
+        rw [hgate] at ha
+        exact hprivate q hq' hkeep hqp a ha han haq)
+    (by
+      intro hon hol
+      exact ho hon (by simpa only [replaceWithFalse, List.length_set] using hol))
+  refine ⟨D, hD, ?_, ?_⟩
+  · simpa only [replaceWithFalse_size] using hsize
+  · intro x hx
+    exact (heval x).trans (replaceAndFalse_eval C p i j hp hg (List.ofFn x) (hz x hx))
+
 end PEqualNP.Outside.L_meta_3821_aux.Pruning
