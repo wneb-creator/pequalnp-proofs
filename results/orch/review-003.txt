@@ -1,0 +1,21 @@
+Independent red-team review 003: flat proof words and canonical cover read-2
+UTC: 2026-11-24T18:08:35.833321+00:00
+Reviewer: status_review
+File: lean/PEqualNP/Outside/L_meta_2584.lean
+SHA256: 134ebe02137a68d65ba21b7451f2608dea338ae92879f067e231a671ca769eff
+Lines: 855
+Bytes: 38671
+Verdict: EARLY-PUSH READY CONDITIONAL ON SUCCESSFUL COMPILATION; NOT PR-READY.
+
+Integration check: merged body exactly matches independently compiled CoverRead.lean after removing its imports and replacing only its four full namespace/end names by relative nested names. Earlier helper body is unchanged. Mathlib is an authorized additional import.
+Words semantics: input wire words are singleton leaf lists; OR takes union and AND concatenates one word from each child. Missing wires have no words. AO2 supplies exactly two earlier inputs, making strong induction valid. value_eq_terms proves Boolean truth iff an all-true leaf word exists.
+Count-vector connection: encoded_mem proves the sufficient direction from a supported leaf word to its joint read vector. It does not claim a full iff. encode counts each variable with cap 3, matching k+1 for k=2; encode_append proves capped vector addition agrees with leaf-list concatenation. The two AND fold steps correctly begin from the zero vector. OR membership uses deduplicated union. This faithfully uses joint counts, not per-variable minima.
+Length argument: a Q wire has only OR ancestors down to inputs, so each word has length one. Every AND reads two Q wires, hence each concatenated word has length two; higher ORs preserve length at most two. flat_isReadTwo obtains a word from the actual true setInput value, proves its leaves belong to setList S, and bounds each count by word length. Prime minimality is unnecessary for this stronger structural claim.
+Separated form: the two listed wire sets consist of their own input block and closed OR gates; their union gives Q. Every AND has one operand in each set. No assumption that an arbitrary circuit already has this form is concealed.
+Canonical cover: Inv ensures AND/OR kinds, exact arity two, strict backward wires, OR closure for pure chains, and separated operands for ANDs. Concatenation shifts the base consistently; each nonempty block is an OR chain followed by an AND and optional accumulated OR. cover_form adds the actual input ranges and converts Inv to IsAO2 plus separated form. canonical_cover_isReadTwo then applies the previously established structural lemma.
+Scope: canonical_cover_isReadTwo assumes only the displayed nonempty opposite-side star data. It does not establish that this cover computes the target incidence relation, that a suitable cover exists, or that its size is at most the original circuit. Those remain separate obligations. No final posted theorem is present.
+Format: no sorry, new axiom, native_decide, _root_, double quote, attribute, limit option, compilation command, instance, unsafe, partial, or misplaced import. File size is below 512 KiB. Every nested namespace/end is at column zero and matched.
+Actual repository guard: invoked exported checkProofFile on the unchanged target with PEqualNP.Defs allowed. Its only two refusals concern the intentionally missing final theorem; no plain-file, import, or namespace refusal. Guard source permits relative nested namespaces under the owning top-level namespace (lines 338-342).
+Guard output: /tmp/oec/pequalnp-pilot-39/review003-guard.txt. Full diff snapshot: /tmp/oec/pequalnp-pilot-39/review003-diff.txt.
+Root must confirm successful build and preserve full logs before explicit named-file staging, git status, commit, and branch-only checkpoint push. Do not open a proof PR in this partial state.
+Build follow-up UTC 2026-11-24T18:08:44.001938+00:00: root reports integrated build003 passed (6.3 seconds target compile). Compilation condition satisfied; CHECKPOINT PUSH READY, still not PR-ready. Upstream module-system warning is nonfatal and does not justify adding a forbidden module command.

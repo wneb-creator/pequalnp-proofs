@@ -16,3 +16,11 @@ Build: lake build PEqualNP.Outside.L_meta_2584; exit 0.
 Build completed successfully (5145 jobs).
 Independent review: review-002.txt passed; NOT a full proof.
 TIMING total=8.9 subagents=6
+
+Checkpoint 3: flat-circuit and canonical star-cover read-2 helpers, 855 lines.
+Build: lake build PEqualNP.Outside.L_meta_2584; exit 0.
+Build completed successfully (18419 jobs).
+Independent review: review-003.txt passed.
+Guard: only missing-final-theorem refusals, no plain-file violations.
+Partial axiom audit and posted statement elaboration also passed (earlier ten-helper version).
+TIMING total=11.6 subagents=6
