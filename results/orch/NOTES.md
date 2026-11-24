@@ -55,3 +55,36 @@ C5 path-sensitive search is now complete: no optimum seven-gate circuit has a vi
 `ReductionDesign.lean` compiles: deleting an existing gate lowers size by exactly one and preserves Monotone2. `CopyErasure.lean` compiles without diagnostics: if gate k computes exactly an earlier wire p<n+k on all n-inputs, CircuitMoves.eraseGate n C k p preserves output. No ReadsBack premise is needed because this definition leaves the prefix untouched. Generic redundant/comparable-operand erasure can therefore be supplied as an actual proof in a reduction, not left conjectural. Files import only PEqualNP.Defs.
 
 Finite agent reports every minimum circuit is clean on all 352 labelled eligible graphs through five vertices. Stronger all-minima-clean conjecture remains unrefuted there. Still avoid arbitrary-circuit deletion hypotheses: forest example e*[(a∨b∨c)∧(a∨b∨d)]∨cd = ae∨be∨cd can need a new OR(a,b) wire; neither operand nor any existing earlier wire is a valid replacement when a∨b was never built.
+
+## Normalization strategy
+
+- 2026-11-24T21:57:27.656649+00:00: `Normalization.lean` checked: light-set/invisibility equivalence, graph false on light inputs, full assigned conclusion for edgeless graphs.
+- `StarUpper.lean` checked: every nonempty simple graph G with vertex cover T has an AND/OR fan-in-two circuit with size + 1 ≤ |E(G)| + |T|, all AND gates invisible on light inputs. Proof adapts in-repo EdgeUpperMono with strengthened Bld invariant. No triangle/C4 assumption. Convenience clean_cover lemma converts to posted Monotone2 and set-input form.
+- Full singleton normalization remains open. A local visible AND such as (x OR a) AND (x OR b) cannot simply be replaced by one child; shared children require global absorption.
+- Existing R_meta_1904_137 reduction assumes essentially our normalization plus a clean-circuit budget plus star construction, so replacing our step with entire total lower bound risks circular decomposition. Better proposed split: AND count bounds vertex cover; OR count + 1 bounds edge count; use proved construction. Finite checks pending counterexample agent.
+
+## Counterexample agent — quantitative reduction checks
+
+Proposed split: (A) every fan-in-two monotone circuit for a triangle-/square-free graph has at least the minimum vertex-cover number of AND gates; (B) it has at least |E|−1 OR gates. Both survive exact searches permitting **arbitrarily many gates of the other operation**.
+
+- A verified for all 3,423 nonempty eligible labelled graphs on six vertices; maximum minimum-cover size is 3. Exact free-OR closure enumeration through two AND gates checked 8,937,420 output candidates from 1,416 possible first-AND functions. Smaller vertex counts embed by isolated vertices, so this covers n≤6.
+- B verified for all 280 eligible five-vertex forests with at least two edges. Under duality this is free-OR enumeration through two AND gates against the dual edge functions. 503,084 candidates; 318 first functions. Cases with zero or one edge are immediate.
+- B verified also for C5: no circuit with at most three OR gates can compute its edge function, even permitting arbitrary AND gates. Exact dual free-OR closure search used 285 nontrivial first AND functions, 6,619 two-stage states modulo D5, and 4,674,402 final operand-pair tests. Thus B is verified for all eligible n≤5.
+
+Programs and complete outputs in scratch: `make_count_targets.py`, `make_count_targets.log`, `free_or_count_search.cpp`, `count_A_6.log`, `count_B_5.log`, `cycle5_or_bound.cpp`, `cycle5_or_bound.log`. These are computational checks, not Lean proofs.
+
+Method: between charged AND gates, any number of free OR gates yields exactly OR-closures of inputs and earlier AND outputs. An output for an edge graph cannot include input clauses because it rejects all singleton inputs. For general dual targets, all allowable singleton clauses are combined as the target's linear part. Constant gates can be simplified away without increasing either operation count; the general two-AND enumeration nevertheless includes the empty-AND true constant. D5 canonicalization preserves the C5 target. At the last AND, earlier outputs lying below the target can all be ORed in, reducing verification to whether two available operands intersect to cover the remaining required rows without adding forbidden rows.
+
+Both inequalities are substantive structural claims. B correctly fails on excluded C4: (a∨b)∧(c∨d) has 4 edges and only 2 OR gates. No counterexample found within the stated graph class.
+
+## Count reduction assembly
+
+- `results/orch/lemmas/CountReduction.lean` compiles with exactly one theorem and only `PEqualNP.Defs` imported, 487 lines.
+- Frozen SHA-256: `da223f80fc1593b271736b95d5b604987437aa99907931aee9f3133ffeeabd66`.
+- Child A: every circuit for a triangle-free/C4-free graph edge function has at least the minimum vertex-cover number of AND gates (stated as existence of a cover within AND count).
+- Child B: every such circuit has at least |E|-1 OR gates.
+- Proof fully inlines StarUpper builder, minimizes cover cardinality with Nat.find, proves the AND/OR count partition from Monotone2, then uses a safe star-cover circuit of size ≤ |E|+|T|-1. Edgeless case uses a zero-gate circuit.
+- Exact posted statement retained unchanged. Two lint warnings only: posted implicit x3 binder and redundant List.countP_cons simp argument. Full stdout/stderr at `/tmp/oec/pequalnp-pilot-43/count-reduction-check.log`.
+- Root now owns official file, checker, review, cleanup and push. Do not edit frozen scratch candidate without coordination.
+
+Checker cache prerequisite repaired without altering the checker: `lake exe cache lookup Mathlib` computed pinned root artifact `79da901f0eeeaa4a.ltar`. Downloaded that single official cache artifact from `https://cache.mathlib.org/mathlib4-master/f/79da901f0eeeaa4a.ltar`, extracted with bundled `leantar` at the Mathlib package root, and verified via cache lookup: `git=mathlib4@fc4f59e577feb1a4956671bc04ac18aaaf8cd842`. The resulting authentic `Mathlib.olean` is 803632 bytes. Full root Mathlib dependency closure is still intentionally not downloaded (disk constraint).

@@ -8,3 +8,8 @@
 - 2026-11-24T21:56:33.159766+00:00: reduction-design agent compiled generic copy-erasure simulation (151 lines); both gate-erasure components checked.
 
 - 2026-11-24T21:57:22.552841+00:00: compiled/reviewed edgeless case, clean star upper bound, semantic copy erasure; preserving checkpoint.
+
+- 2026-11-24T21:57:51.843860+00:00: second checkpoint pushed 3ee4a00; independent count-bound reduction under investigation; weighted finite tests running.
+- 2026-11-24T22:00:02.042653+00:00: CountReduction candidate compiled successfully, 487 lines, frozen for official-file validation.
+
+- 2026-11-24T22:02:11.492909+00:00: preserving compiled, independently reviewed count reduction while full checker environment is prepared.
