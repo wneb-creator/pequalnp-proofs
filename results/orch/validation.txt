@@ -5,3 +5,5 @@ No full-theorem checker acceptance is claimed; no PR opened.
 Independent review passed for the exact helper files before push.
 Sub-agents: 6 (normalization, restriction, counterexample search, lemma search, toolchain setup, independent review)
 TIMING total=9 subagents=6
+TarjanGraph.lean: size 58, AO2, bipartition checked, exit 0. Semantic equality and lower bound unfinished.
+Flat.lean: flat operand, BelowF, and biclique color lemmas compiled exit 0.
