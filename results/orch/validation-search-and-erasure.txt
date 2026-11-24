@@ -1,0 +1,17 @@
+L-meta-1477 checked partial infrastructure. The posted lower bound remains unproved.
+All listed snapshots compiled with pinned Lean4.36.0 and prebuilt Mathlib; exit0.
+Complete author build output is saved alongside this validation file.
+
+GateErasure.lean: 353 lines; log gate-erasure-build-006.log; independent review PASS by normal_form.
+GateBypassInitial.lean: 449 lines; log gate-bypass-build-001.log; independent review PASS by normal_form.
+NormalFormSemantics.lean: 448 lines; log normal-form-semantics-002.log; independent review PASS by gate_invariants.
+HyperovalBaseline.lean: 276 lines; log hyperoval-baseline-build.log; independent review PASS by normal_form.
+HyperovalCertificateCircuit.lean: 216 lines; log hyperoval-certificate-next.log; independent review PASS by root.
+StructuralMasks.lean: 87 lines; log structural-masks-build-002.log; independent review PASS by status_audit.
+MaskBounds.lean: 113 lines; log mask-bounds-build-002.log; independent review PASS by gate_invariants and structural_lower_bound.
+HyperovalLiftStar.lean: 263 lines; log hyperoval-lift-build-006.log; independent review PASS by structural_lower_bound for append foundation; root for star extension.
+
+Local posted-gap checker: not run; no final gap theorem exists yet.
+No UNSAT claim or full circuit lower-bound claim is made by these components.
+Sub-agents: six (status_audit, lean_setup, structural_lower_bound, counterexample_search, gate_invariants, normal_form)
+TIMING total=109.4 subagents=6

@@ -23,3 +23,9 @@
 - 2026-11-24T07:47:56.124289+00:00: named module lakebuild passed with new dirty-pair necessity lemma; root notified for immediate review/push.
 
 - 2026-11-24T07:48:45.602569+00:00: root independently reviewed first named-module partial build; preparing immediate push.
+- 2026-11-24T07:51:24.646706+00:00: StructuralMasks full-domain mask semantics compiled; cleaner counting qualified by disjointness of the product sides.
+- 2026-11-24T07:51:40.340112+00:00: gate_invariants completed generic edge-witness gate minimality, Lean build006 exit0.
+
+2026-11-24 07:51:42 UTC Generic94-test certificate, Circuit.eval monotonicity bridge,and35-gate concrete baseline all compiled; snapshots frozen.
+
+- 2026-11-24 07:56:14 UTC: normal_form compiled MaskBounds.lean singleton/nonedge cleaner bounds (exit0).

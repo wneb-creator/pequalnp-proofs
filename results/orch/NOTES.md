@@ -69,3 +69,24 @@ Independent review GateInvariant.lean PASS (170lines, SHA25600a752cb31ec54e8f632
 ### Named module substantive partial — 2026-11-24T07:47:56.124289+00:00
 
 `lean/PEqualNP/Outside/L_meta_1477.lean` now combines frozen GeometryGraph and Library helpers plus `short_plane_circuit_has_dirty_pair`: a Monotone2 circuit of size<=124 computing the exactposted42-input105-edge function must have an internal AND true on a nonedge pair. Proof contraposes Library.clean_graph_lower_bound and uses105edges+cover lower21. `lake build PEqualNP.Outside.L_meta_1477` exited0; full log /tmp/oec/pequalnp-pilot-29/named-partial-build-001.log.1165lines,55,524bytes,SHA2568b0efa64971d4b3827fae8acb1200e2c957949b15d1b7b90b693ce956d5c2cbf. Final theorem name remains undeclared, so this is partial only. Root notified immediately; named file frozen for independentreview+push.
+
+- 2026-11-24T07:48:51.966767+00:00 gate_invariants: GateErasureInitial.lean checked (build003, exit0). prune deletes an arbitrary gate, redirects its references to a permanently missing wire, shifts later references; proves exact size decrease, Monotone2 preservation, and eval equality on every input where the removed gate was false. No ReadsBack assumption. Main GateErasure.lean will continue with monotonicity/minimality.
+
+### Structural semantic refinement 2026-11-24T07:51:24.646706+00:00
+
+StructuralMasks.lean compiled with exit0 (structural-masks-build-002.log). It defines the full-domain clean-mask predicate for (OR A) AND (OR B), proves neighborhood containment iff a mask center belongs to a product side, and proves that every edge-effective mask belongs to A union B when A and B are disjoint. Important qualification: the earlier at-most-two graph-center bound accounts for all effective masks only in this disjoint case. For nonempty overlap, every clean center is adjacent to every overlap vertex; two overlap vertices therefore leave at most one clean center in a C4-free graph.
+
+Literature read on 2026-11-24: Stasys Jukna, Disproving the Single Level Conjecture, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf, section3.5. The phrase “monotone single level circuits” is essential: its K2,2-free edge-count bound applies to that restricted class. The paper separates full quadratic-function computation from graph representation only on two-element inputs. Thus the generic clean-normalization step is substantive, not supplied by this source.
+
+- 2026-11-24T07:51:40.340112+00:00 gate_invariants: COMPLETED GateErasure.lean, build006 exit0. minimal_graph_gate_fires: every gate of IsMinimalMonoCircuit n C computing any edge relation is true on some positive edge-pair input. Proof includes actual one-gate erasure with size decrease1, Monotone2 preservation, equality when removed gate false, and global semantic decrease. No ReadsBack hypothesis. File frozen for root review/push.
+
+2026-11-24 07:51:42 UTC Hyperoval certificate COMPLETE: HyperovalCertificateCircuit.lean (also current HyperovalCertificate.lean) compiles generic certificate and Monotone2 Circuit.eval monotonicity bridge. Exactly30 positive pair inputs plus64 negative m(A) tests suffice for all21-input semantics. Frozen HyperovalBaseline.lean validates known35-gate star witness entirely in Lean with these94 kernel-decide tests, Monotone2,size35,global correctness. All full logs hyperoval-certificate-next.log and hyperoval-baseline-build.log empty(exit0). Ready for34-gate SAT witness replacement; independent review requested.
+
+## Root replan 2026-11-24T07:53:49.691018+00:00
+
+- Conditional lower bound, exact graph adapter, and necessary dirty-pair cut are checked and pushed in the named module. The unconditional gap is not proved.
+- Continue two main routes: finite hyperoval SAT witness search and quantitative/one-junk structural elimination. General single-level normalization is not assumed.
+- Primary source read on 2026-11-24: Stasys Jukna, https://web.vu.lt/mif/s.jukna/papers/single.html. Short quote: "there are quadratic functions whose monotone circuits have linear size". The paper refutes general single-level normalization; its constructions use saturated extensions, not our sparse bipartite plane. The historical open-problem discussion does not establish the current status of this finite statement.
+- SAT results without a Lean witness remain computational evidence only. The known35-gate local baseline now has a kernel-checked certificate on30 positive and64 negative tests.
+
+- 2026-11-24 07:56:14 UTC normal_form: MaskBounds.lean compiled exit0; semantic cleaner bounds from dirty pair/singleton witnesses, and >=3 masks force every active pair away from singleton z to be an edge. Uses NoFourCycle only, no graph-specific computation; wmax bridge by rfl. Frozen pending review/push. Independently reviewed and rebuilt GateErasure.lean, HyperovalBaseline.lean, GateBypassInitial.lean: PASS; complete review logs under job scratch.
