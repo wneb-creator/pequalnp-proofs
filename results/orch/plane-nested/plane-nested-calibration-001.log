@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<stdin>", line 10, in <module>
+  File "/workspace/pequalnp-proofs/results/orch/lemmas/SearchStochasticPlaneNested.py", line 398, in baseline
+    assert checked[0]==128-(sum(len(NEIGHBORS[c]) for c in centers)-len(neighbors))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

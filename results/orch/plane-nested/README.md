@@ -1,0 +1,9 @@
+# Final plane nested-dirty search variants
+
+Both sources retain the reviewed PlanePairs complete26,140fitness basis and25,342case scalar witness verifier. Their new initializer takes the valid128-gate shared-sum construction, preserving its two dirty helpers and cleaner ANDs, and compresses exactly four of the remaining19ordinary point stars. It keeps the other15bare stars unchanged. The exact resulting size is128−(20−|union of four neighborhoods|), between122and125. All positive edges and singleton rejection are preserved, but these starts are explicitly INVALID overapproximations.
+
+PlaneNested retains the earlier negative-multiplier choices0.25/0.5/1/2/4. PlaneNestedLow only adds0.01/0.03/0.1choices and updates its model label, to explore false-positive states whose coarse terms otherwise lose against missing-positive alternatives. This is a heuristic scoring change; archive rules, gate semantics, complete verification and target124 are identical. Neither preparation claims a target witness or lower bound.
+
+Author calibration checked48baselines (25valid,23INVALID,17nested),144physical expansions and104,560scalar cases. Independent review checked24physical baselines including13nested and four full augmented fixtures/104,560scalar cases. The first author calibration caught a selection bug that removed all19bare roots; the final reviewed source selects and removes only the chosen four. Both complete author logs are retained. The Low delta received an independent source review; no repeated semantic test was needed for a choice-list-only change.
+
+Final planned command from this directory: `python3 SearchStochasticPlaneNestedLow.py --seed 14772962 --seconds 800 --output-dir /tmp/oec/pequalnp-pilot-29/stochastic-plane-012`, with complete stdout/stderr redirected. Root chooses the final variant and renews the lease. This replaces the existing global CPU worker after its cap; its actual duration must end before12:00UTC.

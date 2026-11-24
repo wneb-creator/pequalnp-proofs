@@ -1,0 +1,2 @@
+{"counts": {"invalid": 23, "nested": 17, "physical": 144, "scalar": 104560, "valid": 25}, "verdict": "PASS"}
+sha256 e96f246f662096e8b7e3680b06eeb8a5ce954020487a69593383e008d8a016a1

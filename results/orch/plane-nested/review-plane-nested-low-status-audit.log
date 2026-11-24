@@ -1,0 +1,25 @@
+--- 
+
++++ 
+
+@@ -464,7 +464,7 @@
+
+                       'tests': len(TESTS), 'negative_scale':NEGATIVE_SCALE,
+                       'small_negative_scale':SMALL_NEGATIVE_SCALE,
+                       'archive_weighted_limit':ARCHIVE_ERROR_LIMIT,
+-                      'model': 'full42-input plane: separately balanced singleton/nonedge-pair and maximal-negative errors; INVALID nested shared-helper compression and one/two/three-cluster biclique starts; valid mixed126/shared128/matching131; target124; active-AND-diverse archive; full raw verification'}), flush=True)
++                      'model': 'full42-input plane: separately balanced singleton/nonedge-pair and maximal-negative errors; negative multipliers0.01/0.03/0.1/0.25/0.5/1/2/4; INVALID nested shared-helper compression and one/two/three-cluster biclique starts; valid mixed126/shared128/matching131; target124; active-AND-diverse archive; full raw verification'}), flush=True)
+ 
+     def record(rows, out, ev, linear):
+         nonlocal best_valid,best_overapprox_neg,overapprox_saved
+@@ -669,7 +669,7 @@
+
+                 _, rows, out = rng.choice(options)
+                 rows = list(rows)
+         penalty = rng.choice([.9, 1.2, 1.7, 2.4, 3.5, 5.0, 1.0/NEGATIVE_SCALE, 2.0/NEGATIVE_SCALE])
+-        neg_weight = rng.choice([.25, .5, 1.0, 2.0, 4.0])
++        neg_weight = rng.choice([.01, .03, .1, .25, .5, 1.0, 2.0, 4.0])
+         ev = evaluate(rows, out)
+         if record(rows, out, ev, linear):
+             return
+927772915e8f58c955fd0b2495b9a2b099a5035bd01425ae108d41d733083d0a

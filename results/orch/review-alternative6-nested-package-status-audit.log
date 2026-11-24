@@ -1,0 +1,26 @@
+alternative6-nested INVALID-fixtures/points-0-1.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-0-2.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-0-3.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-0-4.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-0-5.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-1-2.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-1-3.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-1-4.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-1-5.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-2-3.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-2-4.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-2-5.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-3-4.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-3-5.json gates 28 wrong 56 dirty 3
+alternative6-nested INVALID-fixtures/points-4-5.json gates 28 wrong 56 dirty 3
+PASS alternative6-nested manifest 27 circuits 15 scalar_cases 1320 valid 0 INVALID 15
+# Alternative6 nested-dirty compression starts
+
+This final local variant copies the reviewed254-test Pair stochastic model and changes only its baseline initializer and counters. It obtains a valid32-gate shared-sum construction with two dirty helpers feeding point-cleaner ANDs, then compresses the other four ordinary point stars into one dirty biclique. Reconstructing the OR of the six point-root outputs preserves the original function before compression. The exact new cost is32−(16−|union of four neighborhoods|), hence26or27gates. These starts retain every positive edge and reject every singleton, but remain explicitly INVALID on56of the64raw maximal negatives. Their dirty helpers are already nested below cleaner gates, unlike an OR of unfiltered dirty bicliques.
+
+The deterministic generator includes all15point-pair versions, padded to28gates using absorption with the final OR operand. Their complete88case mistakes are preserved. Author SLS calibration checked96baselines (56valid,40INVALID,27nested) and288physical expansions on73,152augmented scalar cases. Independent review checked72baselines (42valid,30INVALID,22nested) on18,288augmented cases; all15generator fixtures received complete88scalar verification. The score, mutation operators, complete raw witness check and target28 are unchanged.
+
+The first inline generator diagnostic expected27/28rather than26/27 and stopped at its cost assertion; the corrected generator computes the exact degree-minus-neighbor saving and passed. The independent review also corrected its own missing active-argument harness typo; its final002 log is included. Neither correction changed the final reviewed search source.
+
+Run from this directory: `python3 SearchStochasticAlternative6Nested.py --seed 14772959 --seconds 1200 --output-dir /tmp/oec/pequalnp-pilot-29/stochastic-alternative6-run-011`, redirecting complete stdout/stderr. The status-audit agent owns this final local CPU slot; it must finish by12:00UTC. No target witness or lower-bound result is claimed by these preparations.
+

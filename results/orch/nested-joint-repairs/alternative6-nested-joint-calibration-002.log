@@ -1,0 +1,4 @@
+{"file": "joint-0-1.json", "size": 28, "raw_errors": 56, "augmented_errors": 80, "joint_clean_on_complete_basis": true}
+{"file": "joint-2-3.json", "size": 28, "raw_errors": 56, "augmented_errors": 80, "joint_clean_on_complete_basis": true}
+{"file": "joint-4-5.json", "size": 28, "raw_errors": 56, "augmented_errors": 80, "joint_clean_on_complete_basis": true}
+PASS3INVALIDjoint seeds, complete88scalar verification each

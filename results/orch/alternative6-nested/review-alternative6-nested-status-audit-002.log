@@ -1,0 +1,3 @@
+PASS baselines72 valid 42 INVALID 30 nested starts 22 augmented scalar cases 18288 nested generator fixtures15 full88replayed internally
+SearchStochasticAlternative6Nested.py 6f20f3509959edd4a1628e0bcec245fdf1b79d357d43361a9266538351b31b14
+SearchNestedSeeds.py 411ce3df4e9276f223e60023bb01df3b33bb690e4de14d06b7599db47e63490f

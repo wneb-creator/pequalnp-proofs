@@ -353,3 +353,23 @@
 2026-11-24T11:33:36.277734+00:00 root: SingletonOrdinaryFull compiled EXIT0; ordinary residual edges count by all outside-Lambda OR gates, including shared-empty-child collision credit. Independent structural and gate source reviews PASS.
 
 2026-11-24 11:35:22 UTC lean_setup: Preservation033 prepared for root only:8frozen reviewed Lean snapshots (including ordinary-reader resource bound),2frozen reviewed search packages,65explicit paths,full build/review logs. Exact gap stillunproved; oversized aggregate files results-only. Manifest SHA02ea6891f7a78279c8050a67d3e7ea3c31a4480fad79ff9cca2910fddac16d6a.
+
+- 2026-11-24 11:36:54Z structural: SingletonPairOneCleanGeneral EXIT0; no productive-joint premise removed from no-bad-opposite-leaf singleton branch; independent review requested.
+
+- 2026-11-24 11:37:39Z structural: SingletonSameColorZero EXIT0; final c0 both-bad-opposite singleton case complete, independent review requested; final all-singleton assembly delegated to status.
+
+2026-11-24T11:38Z normal_form: PlaneZeroAny.lean build002 EXIT0, SHA 2da57e86806a46dc7e7588619ee02df0b3ff0404a02a5681b9fbe0b431696219. Actual plane125 under exact2 pure/disjoint dirty products, one cleaner-card0, other operand support sizes>=2; all other cleaner counts handled. No nojoint/allmasked/private-reader premises. All-size singleton extension still compiling.
+
+- 2026-11-24 11:36 UTC — status_audit: SingletonSameColorPositive build002 exit0, c≥1 same-color singleton accounting; independent gate review PASS.
+- 2026-11-24 11:39 UTC — status_audit: SingletonPairFull build001 exit0, exact two first-layer/disjoint side0-singleton gates, all pivot colors and all reader counts, no noJoint/minjunk premise. Structural independent review PASS.
+- 2026-11-24 11:39:28 UTC — status_audit: final local Nested011 started seed14772959,1140second cap ending about11:58:28; previous augmented Pair010 ended with bestvalid29/no28.
+
+2026-11-24T11:41Z normal_form: PlaneZeroAllSizes.lean FIRSTBUILD001 EXIT0, SHA ad91da09e26003374e4420a6bea76cdb5247b45b31e84462a5db48b558fc9667. Main plane_zero_product_size proves125 for exact2 first-layer pure dirty gates with disjoint operand supports and one product having no internal clean center. No operand-size, nojoint, allmasked or reader assumptions. Singleton case uses generic filtered residual cone; large case uses finite private-edge reduction and family accounting. Provisional independent source review by lean_setup, exact freeze confirmation requested.
+
+- 2026-11-24 11:41:49Z structural review: SingletonPairFull and concrete plane125 author EXIT0 + independent PASS; all both-side0-singleton cases closed under exact2 first-layer assumptions.
+
+[2026-11-24T11:41:53.719374+00:00] gate_invariants: PairShadowElimination.lean frozen SHAe8661e01b1f3d98ec0ef12846f1e0e824996d5b9891217189ef2389d5101fc83, pair-shadow-elimination-build-002.log EXIT0. Root independent review at exact hash PASS. Generic covered_pairs_mask_replacement constructs same-size AO2 graph-equivalent circuit with strictly fewer junk gates if a clean internal mask covers every positive graph pair firing the gate. minimum_junk_no_covered_pairs contradicts global junk minimum. No TopForm, first-layer, noJoint, uniqueness, C4 or bipartite assumptions in this adapter.
+
+2026-11-24 11:42:09 UTC lean_setup: Preservation034 prepared for root only:10 frozen independently reviewed Lean snapshots and4 frozen reviewed search packages,163 explicit paths. Includes complete two-singleton plane branch and zero-cleaner plane branch for exact-two pure/disjoint products; unrestricted gap remains unproved. Complete author/review logs preserved; oversized aggregates are results-only. Manifest SHAff10deda4d3544ef36ef0deb0d1049308891ed6b4ddcdb961ba52c10627bdf6f.
+
+- 2026-11-24 11:42:52Z structural: SingletonPureDisjoint EXIT0 + independent PASS; singleton operand disjointness is automatic in least circuits.

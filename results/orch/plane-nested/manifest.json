@@ -1,0 +1,60 @@
+{
+  "frozen_at": "2026-11-24T11:39:12.892364+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "de9702cde98eae8d3f4a115353f894196d749bd27385422c1e1641ad32446a08",
+      "bytes": 1951
+    },
+    {
+      "file": "SearchPlanePairProblem.py",
+      "sha256": "f8b1a2848334df617ef613f20446e4bc5066ac546e150321b6854fb6b891a742",
+      "bytes": 1033
+    },
+    {
+      "file": "SearchPlaneProblem.json",
+      "sha256": "f13c8c17d8d2e3842d6a2a9ac736b17c7bf831d801a54ca07345907352ae1017",
+      "bytes": 358849
+    },
+    {
+      "file": "SearchPlaneProblem.py",
+      "sha256": "9c9369995311971fef919af1a75364f091b9b6b77552c2e66bef85648e83f865",
+      "bytes": 693
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticPlaneNested.py",
+      "sha256": "e96f246f662096e8b7e3680b06eeb8a5ce954020487a69593383e008d8a016a1",
+      "bytes": 32905
+    },
+    {
+      "file": "SearchStochasticPlaneNestedLow.py",
+      "sha256": "927772915e8f58c955fd0b2495b9a2b099a5035bd01425ae108d41d733083d0a",
+      "bytes": 32969
+    },
+    {
+      "file": "plane-nested-calibration-001.log",
+      "sha256": "d1459516b9ac6398c4673d04ba57ad15c9d463b1ea1ad0e040ed0fb5a33890d8",
+      "bytes": 367
+    },
+    {
+      "file": "plane-nested-calibration-002.log",
+      "sha256": "bf512cdddf1e6f79dbf48cd2a601ef458d0f8885c92c07057ff1cf0496bf2cc7",
+      "bytes": 181
+    },
+    {
+      "file": "review-plane-nested-low-status-audit.log",
+      "sha256": "166cdf00b70b1b86a40c5149e4e65d8b2164fd77ae596c48b4f88a518cca5c7b",
+      "bytes": 1556
+    },
+    {
+      "file": "review-plane-nested-status-audit.log",
+      "sha256": "f8d9e230571f0158832d465fb01629764f658c45e9e842a1d6490d98c2a11072",
+      "bytes": 163
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+PASS plane-nested manifest 11 circuits 0 scalar_cases 0 valid 0 INVALID 0
+nested-joint-repairs alternative6-nested-joint-seeds/joint-0-1.json gates 28 wrong 56 dirty 3
+nested-joint-repairs alternative6-nested-joint-seeds/joint-2-3.json gates 28 wrong 56 dirty 3
+nested-joint-repairs alternative6-nested-joint-seeds/joint-4-5.json gates 28 wrong 56 dirty 3
+nested-joint-repairs physical-repair-alternative6-013/improved-13.json gates 28 wrong 43 dirty 4
+nested-joint-repairs physical-repair-alternative6-013/improved-14.json gates 28 wrong 42 dirty 3
+nested-joint-repairs physical-repair-alternative6-013/improved-5.json gates 28 wrong 47 dirty 4
+PASS nested-joint-repairs manifest 18 circuits 6 scalar_cases 528 valid 0 INVALID 6
+plane-nested
+# Final plane nested-dirty search variants
+
+Both sources retain the reviewed PlanePairs complete26,140fitness basis and25,342case scalar witness verifier. Their new initializer takes the valid128-gate shared-sum construction, preserving its two dirty helpers and cleaner ANDs, and compresses exactly four of the remaining19ordinary point stars. It keeps the other15bare stars unchanged. The exact resulting size is128−(20−|union of four neighborhoods|), between122and125. All positive edges and singleton rejection are preserved, but these starts are explicitly INVALID overapproximations.
+
+PlaneNested retains the earlier negative-multiplier choices0.25/0.5/1/2/4. PlaneNestedLow only adds0.01/0.03/0.1choices and updates its model label, to explore false-positive states whose coarse terms otherwise lose against missing-positive alternatives. This is a heuristic scoring change; archive rules, gate semantics, complete verification and target124 are identical. Neither preparation claims a target witness or lower bound.
+
+Author calibration checked48baselines (25valid,23INVALID,17nested),144physical expansions and104,560scalar cases. Independent review checked24physical baselines including13nested and four full augmented fixtures/104,560scalar cases. The first author calibration caught a selection bug that removed all19bare roots; the final reviewed source selects and removes only the chosen four. Both complete author logs are retained. The Low delta received an independent source review; no repeated semantic test was needed for a choice-list-only change.
+
+Final planned command from this directory: `python3 SearchStochasticPlaneNestedLow.py --seed 14772962 --seconds 800 --output-dir /tmp/oec/pequalnp-pilot-29/stochastic-plane-012`, with complete stdout/stderr redirected. Root chooses the final variant and renews the lease. This replaces the existing global CPU worker after its cap; its actual duration must end before12:00UTC.
+
+nested-joint-repairs
+# Nested helper joints and completed focused repairs012/013
+
+For the three original26-gate nested Alternative6 starts, the generator uses the two spare slots to compute h0 AND h1 and OR it into the original output. Here h0=(a OR b)AND N(a) and h1=(a OR b)AND N(b); their conjunction is below the target function, since either selected point witnesses its own incident edge. The complete254-test output signature is unchanged, the added joint fails every negative test, and all three28gate fixtures receive independent88-case scalar replay. Each remains INVALID with56raw false positives and no singleton leakage. Initial generator code attempted to append to a tuple; the corrected list conversion passed002 and independent review, with both full logs retained.
+
+Completed Resynthesize012 used the ordinary padded nested points0/1seed, width16,120seconds, and inspected5,496,832neighbors without improving80augmented errors. Completed Jump013 started from the new joint0/1seed, width128,120seconds, seed14772961, singleton rejection and minimum2diagnostic dirty gates. It inspected5,165,056neighbors in120.024016seconds and saved three improvements with47/43/42raw errors; the final augmented count was54. All saved candidates accept every positive edge, reject allsingleton inputs, and remain explicitly INVALID. The43error intermediate has an active dirty AND feeding another dirty AND, distinguishing it from flat coarse-biclique seeds.
+
+The reviewed Jump/Resynthesize sources are preserved in sibling physical-composite-repair/. This package includes all completed012/013stdout/stderr and exact mistakes. No target witness, general UNSAT claim or circuit lower bound is established. Continued run014 is outside this frozen snapshot.
+
+PASS all 6 physical fixtures reject every singleton

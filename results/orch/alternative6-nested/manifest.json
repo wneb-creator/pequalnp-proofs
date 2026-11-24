@@ -1,0 +1,140 @@
+{
+  "frozen_at": "2026-11-24T11:34:37.774409+00:00",
+  "files": [
+    {
+      "file": "INVALID-fixtures/points-0-1.json",
+      "sha256": "8371fcff6e32b0ddf8c0120004e7e5fea23414658642118e8fe5132ba09ba471",
+      "bytes": 6672
+    },
+    {
+      "file": "INVALID-fixtures/points-0-2.json",
+      "sha256": "99b98f47b8563dc5d111cf7cb252d42995d37397aa470cf64f558fef089fe8b1",
+      "bytes": 6669
+    },
+    {
+      "file": "INVALID-fixtures/points-0-3.json",
+      "sha256": "4498a4161575df5f0fb647ebf10f88fb2c46113b1b7bf549f37c4c195053c0f0",
+      "bytes": 6673
+    },
+    {
+      "file": "INVALID-fixtures/points-0-4.json",
+      "sha256": "8947fb4b41e95d1a32d06e345787dc6f742549ff6d2337dcda61e77df4ddc475",
+      "bytes": 6673
+    },
+    {
+      "file": "INVALID-fixtures/points-0-5.json",
+      "sha256": "719a5179d9922f39858dbb01f37901f6de08d8623aae9c905ef8ee1e3849e71b",
+      "bytes": 6672
+    },
+    {
+      "file": "INVALID-fixtures/points-1-2.json",
+      "sha256": "824059029454307061bff3221453c33926194a31392b1d53cbce6acb81522536",
+      "bytes": 6668
+    },
+    {
+      "file": "INVALID-fixtures/points-1-3.json",
+      "sha256": "cdfee415290f6072bb4321b1c0952cc9ef10c52c646e7eae6929770de3e70e61",
+      "bytes": 6672
+    },
+    {
+      "file": "INVALID-fixtures/points-1-4.json",
+      "sha256": "042ecaac11965cda69bd95a79b9431aef00b494e6b5e7d2cb74ab5b81a5d5a5a",
+      "bytes": 6672
+    },
+    {
+      "file": "INVALID-fixtures/points-1-5.json",
+      "sha256": "4e0f05502b00d9c168e9f9a833a835b090b3e20c7ced5cbe35b5514f7afa438d",
+      "bytes": 6671
+    },
+    {
+      "file": "INVALID-fixtures/points-2-3.json",
+      "sha256": "b6ad15894703bed29a911223d2966f83452ebeb5de0c01abfe4e1ef9003efbf9",
+      "bytes": 6671
+    },
+    {
+      "file": "INVALID-fixtures/points-2-4.json",
+      "sha256": "1f6a6fecd4337eb231144dcca311b3ed06ce46c1b9be86463ac7644cb255d76d",
+      "bytes": 6670
+    },
+    {
+      "file": "INVALID-fixtures/points-2-5.json",
+      "sha256": "84797cca3c2bb6663aa14bf87f5b6528004a274d1a9a64ac498d7186ceb3ec22",
+      "bytes": 6670
+    },
+    {
+      "file": "INVALID-fixtures/points-3-4.json",
+      "sha256": "f4acffd219e5e737fc6888ce2583f6dfcfca5bf6ac8b5ba98813b717a61d4312",
+      "bytes": 6674
+    },
+    {
+      "file": "INVALID-fixtures/points-3-5.json",
+      "sha256": "8ba9b8f62be4161f6e654fcaaf8692925e1c101f8ebd1a79d1d658015977959e",
+      "bytes": 6673
+    },
+    {
+      "file": "INVALID-fixtures/points-4-5.json",
+      "sha256": "bf17374995075a069f474b197306f7485d232c1e089965f44a33003159d34498",
+      "bytes": 6672
+    },
+    {
+      "file": "README.md",
+      "sha256": "6cc6c54649862af808203817659b95f48908c8fc6d12076adc4717ea30352aa5",
+      "bytes": 2054
+    },
+    {
+      "file": "SearchAlternative6PairProblem.py",
+      "sha256": "c269a4cef111f5e47f64a6db3f8a4de880cf94c683c1f9421732580b0a4b3563",
+      "bytes": 926
+    },
+    {
+      "file": "SearchAlternative6Problem.json",
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+      "bytes": 2275
+    },
+    {
+      "file": "SearchAlternative6Problem.py",
+      "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+      "bytes": 925
+    },
+    {
+      "file": "SearchNestedSeeds.py",
+      "sha256": "411ce3df4e9276f223e60023bb01df3b33bb690e4de14d06b7599db47e63490f",
+      "bytes": 2688
+    },
+    {
+      "file": "SearchPhysicalRepairPairs.py",
+      "sha256": "090562fa8447d109911cca22626c09302053a8e7def837c88cc61e1f56bdc38a",
+      "bytes": 11588
+    },
+    {
+      "file": "SearchReduce.py",
+      "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+      "bytes": 2888
+    },
+    {
+      "file": "SearchStochasticAlternative6Nested.py",
+      "sha256": "6f20f3509959edd4a1628e0bcec245fdf1b79d357d43361a9266538351b31b14",
+      "bytes": 29773
+    },
+    {
+      "file": "alternative6-nested-seeds-calibration-002.log",
+      "sha256": "6c6838d3340669fe9e9a340bf2c6f4f63856af207df4f4c50e83b77f7174a8c1",
+      "bytes": 1945
+    },
+    {
+      "file": "alternative6-nested-seeds-calibration.log",
+      "sha256": "86206729f418acb8d5edc84a0878fbc0dbf6a00d2e4744952e10fdf28298730b",
+      "bytes": 89
+    },
+    {
+      "file": "alternative6-nested-sls-calibration-001.log",
+      "sha256": "2a34181f39d901f3bd3dfd3dd17545dc824774b2a26ffeec8623d223f502b5a5",
+      "bytes": 180
+    },
+    {
+      "file": "review-alternative6-nested-status-audit-002.log",
+      "sha256": "c911db9435b9978c82f2c11e36d9bec2c7a799c4ade20ad4c9ba3a63149e6580",
+      "bytes": 326
+    }
+  ]
+}

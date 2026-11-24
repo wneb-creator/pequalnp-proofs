@@ -1,0 +1,1004 @@
+{
+  "batch": "034",
+  "created_utc": "2026-11-24T11:42:00.123457+00:00",
+  "base_preservation_commit": "83b3dee58b1b0118fd3192746e9f89baaaeca8fb",
+  "gap": "L-meta-1477",
+  "status": "PARTIAL RESULTS ONLY; exact posted theorem unproved; no proof PR",
+  "named_file_checker": "REJECTED (no-theorem), unchanged from prior checker run; not rerun for results-only batch",
+  "snapshots": [
+    {
+      "path": "results/orch/lemmas/ZeroSmallMasked.lean",
+      "sha256": "464dc6bcda4b9b736dc376f3063cb2fb819415b93a7254b8fff31e5201200a57",
+      "bytes": 515834,
+      "name": "ZeroSmallMasked",
+      "lines": 10409,
+      "author": "normal_form",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/zero-small-masked-build-002.log",
+        "sha256": "b8898e381474a340168a5d830313381d4aa4b99831c19fa764d3ef83f6cd69fd",
+        "bytes": 23674
+      },
+      "review_log": {
+        "path": "results/orch/review-zero-small-masked-lean-setup.log",
+        "sha256": "82202629a62a21a94a4085cf94ddd42991a1265e1e05f7b9bea7aa68fad1d590",
+        "bytes": 718
+      },
+      "reviewer": "lean_setup",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Generic zero/at-most-one-cleaner profile, with an explicit all-Ustar-masked premise, exactly two pure products with disjoint operands, and both active supports of size at least two.",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/SingletonSameColorZero.lean",
+      "sha256": "20888f09545bee4927bb171eae2fb8f6fe51c98e3e6d5c54f4de2deca0d39eb8",
+      "bytes": 550795,
+      "name": "SingletonSameColorZero",
+      "lines": 11074,
+      "author": "structural_lower_bound",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/singleton-same-color-zero-build-002.log",
+        "sha256": "cdfb2165da0d28c10225113508249cbb0d6d6e325c6a374140537baefbb4183b",
+        "bytes": 22200
+      },
+      "review_log": {
+        "path": "results/orch/review-singleton-same-color-zero-lean-setup.log",
+        "sha256": "a2204b650faa572f7989a4c8ee945f1801cadb48a6a56e445bd7a38b5d974690",
+        "bytes": 860
+      },
+      "reviewer": "lean_setup",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Exactly two pure singleton products with disjoint operands, distinct same-color pivots, opposite-color bad leaves, no productive joint, and no centreless tops; generic lower bound.",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/SingletonPairOneCleanGeneral.lean",
+      "sha256": "7430f32925104f20215756c498b2e6c2cf98b125600a17aeca94705cc78563c9",
+      "bytes": 544804,
+      "name": "SingletonPairOneCleanGeneral",
+      "lines": 10969,
+      "author": "structural_lower_bound",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/singleton-pair-one-clean-general-build-001.log",
+        "sha256": "17882d3cfcfeb44e429931d3d6733d1f12d60ba07adf51413bc30b802324f382",
+        "bytes": 23802
+      },
+      "review_log": {
+        "path": "results/orch/review-singleton-pair-one-clean-general-gate-invariants.log",
+        "sha256": "e27d071577a9b08e07893c030d2843dc7a5655c983a65850d760fdedf7381812",
+        "bytes": 647
+      },
+      "reviewer": "gate_invariants",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Exactly two pure singleton products with disjoint operands; one product has no bad opposite-color leaf. Generic lower bound without a no-joint premise.",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/SingletonSameColorPositive.lean",
+      "sha256": "5ca7884455597777995c41cdd4f9c0034ca93adbafa83d60969035be8f98913d",
+      "bytes": 579878,
+      "name": "SingletonSameColorPositive",
+      "lines": 11788,
+      "author": "status_audit",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/singleton-same-color-positive-build-002.log",
+        "sha256": "2d446c57cd28bcffc75ce001014cc4806dd60d1569e79371ab19341757494f1d",
+        "bytes": 23445
+      },
+      "review_log": {
+        "path": "results/orch/review-singleton-same-color-positive-gate-invariants.log",
+        "sha256": "8d889bdffe94de3c6fc8bcd53b731abd7c9b1951d532254858259e58c1579d68",
+        "bytes": 1310
+      },
+      "reviewer": "gate_invariants",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Exactly two pure singleton products with disjoint operands, distinct same-color pivots, opposite-color bad leaves, no productive joint, and at least one centreless top; generic lower bound.",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/PlaneZeroAny.lean",
+      "sha256": "2da57e86806a46dc7e7588619ee02df0b3ff0404a02a5681b9fbe0b431696219",
+      "bytes": 898643,
+      "name": "PlaneZeroAny",
+      "lines": 18283,
+      "author": "normal_form",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/plane-zero-any-build-002.log",
+        "sha256": "8f9fdfd791fb294bd0efdd89262c5e45b42375d81785244face3d287a139f518",
+        "bytes": 25789
+      },
+      "review_log": {
+        "path": "results/orch/review-plane-zero-any-lean-setup.log",
+        "sha256": "063f5edf9537b417065a3904fa53d843505e61bcd9fd5528eb047e8fcc8ced03",
+        "bytes": 893
+      },
+      "reviewer": "lean_setup",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Concrete plane lower bound of125 gates for exactly two pure products with disjoint operands, one empty cleaner set, and both other supports of size at least two. No joint, masking or private-reader premise is assumed.",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/SingletonPairFull.lean",
+      "sha256": "0fb6ec844aadf952f5532cedf444d16608791d5df955f02b015f1ae53a1952ae",
+      "bytes": 675513,
+      "name": "SingletonPairFull",
+      "lines": 13968,
+      "author": "status_audit",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/singleton-pair-full-build-001.log",
+        "sha256": "f7d14b62ac1075ff990f844aae27cc943183cf728b1233d6ab31f20a3bcae774",
+        "bytes": 24410
+      },
+      "review_log": {
+        "path": "results/orch/review-singleton-pair-full-structural.log",
+        "sha256": "357fbb610c2e3e57eccdd17bb14d30fa1d87b15f347488fce983017693006924",
+        "bytes": 1490
+      },
+      "reviewer": "structural_lower_bound",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Exactly two first-layer dirty gates, a singleton first operand for each, and disjoint operand supports; generic lower bound with no joint, minimum-junk, cleaner-count or pivot-color premise.",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/PlaneZeroAllSizes.lean",
+      "sha256": "ad91da09e26003374e4420a6bea76cdb5247b45b31e84462a5db48b558fc9667",
+      "bytes": 909465,
+      "name": "PlaneZeroAllSizes",
+      "lines": 18500,
+      "author": "normal_form",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/plane-zero-all-sizes-build-001.log",
+        "sha256": "90355a2375f9e4dc542080621c99f19e8e6c0dbd12a67e1b1051fe96dea42e54",
+        "bytes": 26304
+      },
+      "review_log": {
+        "path": "results/orch/review-plane-zero-all-sizes-lean-setup.log",
+        "sha256": "09cfe737b9afb202d1fc51fc3b13ed233598b2e7f33f883564d1e2f5efbc5cc5",
+        "bytes": 1032
+      },
+      "reviewer": "lean_setup",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Concrete plane lower bound of125 gates for exactly two pure dirty products with disjoint operand supports and one empty cleaner set; no support-size, masking or no-joint premise.",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/PlaneSingletonPairFull.lean",
+      "sha256": "68f8471d6367451668803618cc9899fc5fd7fede07f8eb9b6060d17dfba2faeb",
+      "bytes": 687070,
+      "name": "PlaneSingletonPairFull",
+      "lines": 14223,
+      "author": "status_audit",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/plane-singleton-pair-full-build-001.log",
+        "sha256": "3eebf79ed8a672d624764044c597668f92eb2e1740a8dbac320474cb3f5d1eab",
+        "bytes": 24866
+      },
+      "review_log": {
+        "path": "results/orch/review-plane-singleton-pair-full-structural.log",
+        "sha256": "18418bf666d62b0456774f8b48693d2ccca042e3ad7c0dc7be8213b21a3ec61f",
+        "bytes": 704
+      },
+      "reviewer": "structural_lower_bound",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Concrete plane lower bound of125 gates for exactly two first-layer dirty gates with disjoint operands and singleton first operands; no joint, minimum-junk or pivot-color premise.",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/PairShadowElimination.lean",
+      "sha256": "e8661e01b1f3d98ec0ef12846f1e0e824996d5b9891217189ef2389d5101fc83",
+      "bytes": 234414,
+      "name": "PairShadowElimination",
+      "lines": 5083,
+      "author": "gate_invariants",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/pair-shadow-elimination-build-002.log",
+        "sha256": "785be4087d4dfbaa6a4e210d8aae6b999e015c14321625a30e5a6fa2d65aaf38",
+        "bytes": 3475
+      },
+      "review_log": {
+        "path": "results/orch/review-pair-shadow-elimination-root.log",
+        "sha256": "d7e83ed6f1ee22d45ecd089dd2a4ba5fd9f3eeef1b1c10e6d447a7f42ec56327",
+        "bytes": 582
+      },
+      "reviewer": "root",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Minimum-junk gate replacement adapter with explicit pair-shadow semantic hypotheses; no unrestricted lower-bound claim.",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    },
+    {
+      "path": "results/orch/lemmas/UniqueCenterCommonNeighbor.lean",
+      "sha256": "d001dfb30ef12bf4789f3caca3755fac4aa48ae6c9e35c03f31cfc6f00a93b64",
+      "bytes": 27875,
+      "name": "UniqueCenterCommonNeighbor",
+      "lines": 555,
+      "author": "root",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Author explicit EXIT0 completion, accepted at exact frozen hash by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/unique-center-common-neighbor-build-003.log",
+        "sha256": "90e8117047e553d4921d99954f36a06cfbbf931bf6f2fad34f7b21fe38cf9c65",
+        "bytes": 1792
+      },
+      "review_log": {
+        "path": "results/orch/review-unique-center-common-neighbor-normal.log",
+        "sha256": "a695c21a52d590b2328448844198912cb737cc8a32f477744f1d01df51f96db1",
+        "bytes": 423
+      },
+      "reviewer": "normal_form",
+      "review_verdict": "PASS",
+      "source_filter_scan": "PASS",
+      "scope": "Finite graph common-neighbor lemma under its explicit unique-cleaner, support, bipartition and no-four-cycle assumptions; no circuit lower-bound claim.",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY; exact posted theorem not claimed"
+    }
+  ],
+  "search_packages": [
+    {
+      "name": "alternative6-nested",
+      "reviewer": "status_audit",
+      "manifest_entries": 27,
+      "physical_circuits": 15,
+      "scalar_cases": 1320,
+      "result": "Heuristic search preparation only. All15 padded28-gate fixtures remain INVALID with56 raw errors each. No target witness or lower-bound result.",
+      "path": "results/orch/alternative6-nested",
+      "manifest": {
+        "path": "results/orch/alternative6-nested/manifest.json",
+        "sha256": "1badb6c5810ccd975ec4ecdbd98858c75e1155758ef39252fe5599f9e040beaf",
+        "bytes": 4567
+      },
+      "review_log": {
+        "path": "results/orch/review-alternative6-nested-package-status-audit.log",
+        "sha256": "d3ea2a353e8d9a8e15b0cdc2660b5172eeca60380f18e6cdffa8086f7959cd12",
+        "bytes": 3326
+      },
+      "review_verdict": "PASS",
+      "files": [
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-0-1.json",
+          "sha256": "8371fcff6e32b0ddf8c0120004e7e5fea23414658642118e8fe5132ba09ba471",
+          "bytes": 6672
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-0-2.json",
+          "sha256": "99b98f47b8563dc5d111cf7cb252d42995d37397aa470cf64f558fef089fe8b1",
+          "bytes": 6669
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-0-3.json",
+          "sha256": "4498a4161575df5f0fb647ebf10f88fb2c46113b1b7bf549f37c4c195053c0f0",
+          "bytes": 6673
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-0-4.json",
+          "sha256": "8947fb4b41e95d1a32d06e345787dc6f742549ff6d2337dcda61e77df4ddc475",
+          "bytes": 6673
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-0-5.json",
+          "sha256": "719a5179d9922f39858dbb01f37901f6de08d8623aae9c905ef8ee1e3849e71b",
+          "bytes": 6672
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-1-2.json",
+          "sha256": "824059029454307061bff3221453c33926194a31392b1d53cbce6acb81522536",
+          "bytes": 6668
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-1-3.json",
+          "sha256": "cdfee415290f6072bb4321b1c0952cc9ef10c52c646e7eae6929770de3e70e61",
+          "bytes": 6672
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-1-4.json",
+          "sha256": "042ecaac11965cda69bd95a79b9431aef00b494e6b5e7d2cb74ab5b81a5d5a5a",
+          "bytes": 6672
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-1-5.json",
+          "sha256": "4e0f05502b00d9c168e9f9a833a835b090b3e20c7ced5cbe35b5514f7afa438d",
+          "bytes": 6671
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-2-3.json",
+          "sha256": "b6ad15894703bed29a911223d2966f83452ebeb5de0c01abfe4e1ef9003efbf9",
+          "bytes": 6671
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-2-4.json",
+          "sha256": "1f6a6fecd4337eb231144dcca311b3ed06ce46c1b9be86463ac7644cb255d76d",
+          "bytes": 6670
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-2-5.json",
+          "sha256": "84797cca3c2bb6663aa14bf87f5b6528004a274d1a9a64ac498d7186ceb3ec22",
+          "bytes": 6670
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-3-4.json",
+          "sha256": "f4acffd219e5e737fc6888ce2583f6dfcfca5bf6ac8b5ba98813b717a61d4312",
+          "bytes": 6674
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-3-5.json",
+          "sha256": "8ba9b8f62be4161f6e654fcaaf8692925e1c101f8ebd1a79d1d658015977959e",
+          "bytes": 6673
+        },
+        {
+          "path": "results/orch/alternative6-nested/INVALID-fixtures/points-4-5.json",
+          "sha256": "bf17374995075a069f474b197306f7485d232c1e089965f44a33003159d34498",
+          "bytes": 6672
+        },
+        {
+          "path": "results/orch/alternative6-nested/README.md",
+          "sha256": "6cc6c54649862af808203817659b95f48908c8fc6d12076adc4717ea30352aa5",
+          "bytes": 2054
+        },
+        {
+          "path": "results/orch/alternative6-nested/SearchAlternative6PairProblem.py",
+          "sha256": "c269a4cef111f5e47f64a6db3f8a4de880cf94c683c1f9421732580b0a4b3563",
+          "bytes": 926
+        },
+        {
+          "path": "results/orch/alternative6-nested/SearchAlternative6Problem.json",
+          "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+          "bytes": 2275
+        },
+        {
+          "path": "results/orch/alternative6-nested/SearchAlternative6Problem.py",
+          "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+          "bytes": 925
+        },
+        {
+          "path": "results/orch/alternative6-nested/SearchNestedSeeds.py",
+          "sha256": "411ce3df4e9276f223e60023bb01df3b33bb690e4de14d06b7599db47e63490f",
+          "bytes": 2688
+        },
+        {
+          "path": "results/orch/alternative6-nested/SearchPhysicalRepairPairs.py",
+          "sha256": "090562fa8447d109911cca22626c09302053a8e7def837c88cc61e1f56bdc38a",
+          "bytes": 11588
+        },
+        {
+          "path": "results/orch/alternative6-nested/SearchReduce.py",
+          "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+          "bytes": 2888
+        },
+        {
+          "path": "results/orch/alternative6-nested/SearchStochasticAlternative6Nested.py",
+          "sha256": "6f20f3509959edd4a1628e0bcec245fdf1b79d357d43361a9266538351b31b14",
+          "bytes": 29773
+        },
+        {
+          "path": "results/orch/alternative6-nested/alternative6-nested-seeds-calibration-002.log",
+          "sha256": "6c6838d3340669fe9e9a340bf2c6f4f63856af207df4f4c50e83b77f7174a8c1",
+          "bytes": 1945
+        },
+        {
+          "path": "results/orch/alternative6-nested/alternative6-nested-seeds-calibration.log",
+          "sha256": "86206729f418acb8d5edc84a0878fbc0dbf6a00d2e4744952e10fdf28298730b",
+          "bytes": 89
+        },
+        {
+          "path": "results/orch/alternative6-nested/alternative6-nested-sls-calibration-001.log",
+          "sha256": "2a34181f39d901f3bd3dfd3dd17545dc824774b2a26ffeec8623d223f502b5a5",
+          "bytes": 180
+        },
+        {
+          "path": "results/orch/alternative6-nested/review-alternative6-nested-status-audit-002.log",
+          "sha256": "c911db9435b9978c82f2c11e36d9bec2c7a799c4ade20ad4c9ba3a63149e6580",
+          "bytes": 326
+        },
+        {
+          "path": "results/orch/alternative6-nested/manifest.json",
+          "sha256": "1badb6c5810ccd975ec4ecdbd98858c75e1155758ef39252fe5599f9e040beaf",
+          "bytes": 4567
+        }
+      ]
+    },
+    {
+      "name": "alternative6-run-010",
+      "reviewer": "counterexample_search",
+      "manifest_entries": 65,
+      "physical_circuits": 62,
+      "scalar_cases": 5456,
+      "augmented_scalar_cases": 15748,
+      "result": "Bounded heuristic run only;3valid circuits have29/30/31 gates and59 other candidates remain INVALID. No28-gate target witness.",
+      "path": "results/orch/alternative6-run-010",
+      "manifest": {
+        "path": "results/orch/alternative6-run-010/manifest.json",
+        "sha256": "b73a4b48230182af57d90d85b3e2f33b03425e040b2af4f74806158a1856340d",
+        "bytes": 9768
+      },
+      "review_log": {
+        "path": "results/orch/review-alternative6-run010-counterexample.log",
+        "sha256": "462b9e57956d98efc8759928145c07aa7a45e9930468a0e3ab07cdcbe0953b35",
+        "bytes": 1573
+      },
+      "review_verdict": "PASS",
+      "files": [
+        {
+          "path": "results/orch/alternative6-run-010/README.md",
+          "sha256": "ec434549754c2e147e9782adb7f37368dccf6e21d43d941258addf84ae95968c",
+          "bytes": 1391
+        },
+        {
+          "path": "results/orch/alternative6-run-010/best-valid-29.json",
+          "sha256": "790151df0336866b57c5718482859ffe177493d023a89b23ecac12a8221ce4d9",
+          "bytes": 3543
+        },
+        {
+          "path": "results/orch/alternative6-run-010/best-valid-30.json",
+          "sha256": "027c1e814ca0a87f1168e387384c436baec3a39ad17ce67b54d16e8f5fd73946",
+          "bytes": 3427
+        },
+        {
+          "path": "results/orch/alternative6-run-010/best-valid-31.json",
+          "sha256": "edc03465fa868b18959ea0cb8a4f67a36ed0b3ff3770a261f68e961954550374",
+          "bytes": 3394
+        },
+        {
+          "path": "results/orch/alternative6-run-010/complete-run.log",
+          "sha256": "4f4edaec2d781370beb12f0f58804601a4ed85c38334da087af10739ed16f39f",
+          "bytes": 40630
+        },
+        {
+          "path": "results/orch/alternative6-run-010/frontier.json",
+          "sha256": "d332aa3b8cdbff375bc4cc9af46205fdbb4aa3d35a9ce8ac9f5a140e1c4d1a85",
+          "bytes": 2625
+        },
+        {
+          "path": "results/orch/alternative6-run-010/multi-dirty-near-1.json",
+          "sha256": "9610725510c51d87492ccf6f85fa49a320af7acebaf6e8074f633b252b2f5b18",
+          "bytes": 3664
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-1-1.json",
+          "sha256": "cdd145b3a58e121b882827852df2e0a52ed5c514fb6748c7c99dfb9144d3febb",
+          "bytes": 3636
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-1-10.json",
+          "sha256": "09ea852db7e1df198bc24f154ebdecd439ab56362269bad32aeb229f27cc8b31",
+          "bytes": 3313
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-1-11.json",
+          "sha256": "3e43f5fc183bfe08a45d0a28f621777a044f4593f26df485fe3725e01fe00d3d",
+          "bytes": 3366
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-1-12.json",
+          "sha256": "2c25ec5c9d0c12cd41c30c61f8dd8352d84ffd48e07c12ebd1d23eebca92e21c",
+          "bytes": 3450
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-1-2.json",
+          "sha256": "cde1360250bc3bc0ab4e29d42b7c01be3394383a8cd3676bfc16aa905fea9c0d",
+          "bytes": 3531
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-1-3.json",
+          "sha256": "518f040087b167a5bc71e86e6351f5ae3736e966b78dba7e78807cb0a29fb5cd",
+          "bytes": 3381
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-1-4.json",
+          "sha256": "35d846d5612abf06f34d18fabf84f0b2fffb223a241cb77aabf4877c2bbad04b",
+          "bytes": 3524
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-1-5.json",
+          "sha256": "dd7ee72e5d90c543c516d14337635386a9e17e5ae3716e4df3394b421d3df822",
+          "bytes": 3550
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-1-6.json",
+          "sha256": "a3fab8f2ffe682d1d8a0c2f3791f08db2b75b9752a81674aa861ac347cc29c47",
+          "bytes": 3420
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-1-7.json",
+          "sha256": "fa40a9344610babe0e0a0cd486280ebe75c06ac0fb962296b40e7b8db47c0f80",
+          "bytes": 3312
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-1-8.json",
+          "sha256": "4b23c7cadc93c2ffdf60409db53262f7430155c19d94f31f78851bd21ca01a1c",
+          "bytes": 3554
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-1-9.json",
+          "sha256": "8fd6048f3e4f107747de0fa51b7457e9d8d8b0f6d6d7259b8090c55e01423b14",
+          "bytes": 3596
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-2-1.json",
+          "sha256": "6e093ecac67f0b6691f8e5e6710966b894a05ff89af8919e407573275b4b4412",
+          "bytes": 3722
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-2-10.json",
+          "sha256": "173abc9c4a51622fdc6d22a263056b75e0c66c39cfbc2d4a3a9073b6e367a4b9",
+          "bytes": 3499
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-2-11.json",
+          "sha256": "f937d2517a000d76e8458fcb98ad1cdde81c2925e8e3231f932ab4d03efb0281",
+          "bytes": 3398
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-2-12.json",
+          "sha256": "0035ec806e020deb615abec7c7100ba493f6385cceb83742778aedd062770773",
+          "bytes": 3463
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-2-2.json",
+          "sha256": "4ec1ad0c9fdc056546604e8e20be43744bda9f137b6324ef1eb4d7db59649ef1",
+          "bytes": 4121
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-2-3.json",
+          "sha256": "1381a538642783606822930f328af9a00811f3f25a70fb219c3a5c1cf2cc2e1c",
+          "bytes": 3852
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-2-4.json",
+          "sha256": "be804148964612889ad4da15685fa201a837185f56903c14c2a3bbdaa6350cab",
+          "bytes": 3549
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-2-5.json",
+          "sha256": "38410be19ba61e6b1e30b024463c9bf32200a618a335b8b792dbcf5a646a7df2",
+          "bytes": 3371
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-2-6.json",
+          "sha256": "6effac20d4235be6cd4fb55fdd7d2618d60f1e32cbfd14d02a4c4e51800562bc",
+          "bytes": 3394
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-2-7.json",
+          "sha256": "5a045266c2624b5be4ce651f545ab33dae6a49eb5a45d77af561faa2f442721f",
+          "bytes": 3475
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-2-8.json",
+          "sha256": "7e3dbcc789ec397aa23941e6ecda79e87b3799f06e40262619f16be6144271f0",
+          "bytes": 3539
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-2-9.json",
+          "sha256": "d03258cf8cd429b2a30dd41633b8677c4c60f74609cf5123ed7d8e93a1bec532",
+          "bytes": 4069
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-3-1.json",
+          "sha256": "3bffe8cc0fc4bb4a0450ade6fa82fea81a798cb0c60a41e4eb748320904100b9",
+          "bytes": 3733
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-3-10.json",
+          "sha256": "a15a6aac4065f36cc3b5161f19941bb9472089718f294c7aa69ecd71b1083a06",
+          "bytes": 3409
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-3-11.json",
+          "sha256": "3388501a5853f1703cf189b675e6524299b66c44022ea8016506bee166faf303",
+          "bytes": 3486
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-3-12.json",
+          "sha256": "c6cf46a8e189a14c2302c72bfe91b91eee0c881a37f302f83c4dd365b1685d2f",
+          "bytes": 3456
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-3-2.json",
+          "sha256": "ca3ce0fb206cda9e66782679ac3a6e237839c9e05dca8db29f7db15c7a33ad38",
+          "bytes": 3577
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-3-3.json",
+          "sha256": "5d885b9641d93fffb3dfc60374cb84973ee97e0586cc1f8288ce2cb4d2b9868e",
+          "bytes": 3647
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-3-4.json",
+          "sha256": "62f414267bc40b99fe867716d3d1d1181e01128b288f6b688023121993e4d16e",
+          "bytes": 3590
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-3-5.json",
+          "sha256": "6025523a1984468dfe98a399495c3b971947eaaaecd431fea9dfe721c6bbb333",
+          "bytes": 3851
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-3-6.json",
+          "sha256": "befbe70bb07623cfc94675b8df1713b41a46527105e4a5cd4f040aa6a71926ce",
+          "bytes": 3731
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-3-7.json",
+          "sha256": "129269ad220f0cb1127d6be9153ce104ac062a44df9a3b31c89b499b5efa909d",
+          "bytes": 3295
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-3-8.json",
+          "sha256": "2f5ed86912bae721141cf586c85189a0dc375762845ce9bf67327b60f0d28c99",
+          "bytes": 3565
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-3-9.json",
+          "sha256": "592569a4b7aabe8aa6e150f179bacb01b67ff7363dbb59efc6d0f4ca6c7c4003",
+          "bytes": 3542
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-4-1.json",
+          "sha256": "915c92cb1106224b05edf84ec1b4c6b7d08d89ae10d81c96ae4b1e3370019e34",
+          "bytes": 3461
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-4-10.json",
+          "sha256": "dffd5a18bd3ff9b845d5c82100abe3d827996184f965fc24f9b068abe04b6470",
+          "bytes": 3524
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-4-11.json",
+          "sha256": "b3f838b0421f9483a52da93d8125cd9eb64e37ae7c139d01cd69243e46d8549b",
+          "bytes": 3676
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-4-12.json",
+          "sha256": "03370b078eeacd43a58066faaef2436562f6d2ed5a0f77b49f02496f6c0434b3",
+          "bytes": 3322
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-4-2.json",
+          "sha256": "04894954ee4ed892c16660e23d680b14e54336c02fed15dceada134229f316f5",
+          "bytes": 3518
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-4-3.json",
+          "sha256": "1a1d4041e4149d0e58aaa7f26678bcc2a03fed761aff50cbcc6cf9e09c99c73c",
+          "bytes": 3502
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-4-4.json",
+          "sha256": "178e03d110769206bfb85c2e94685cdf947597239d3e2d13209a21edf5bdfa56",
+          "bytes": 3520
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-4-5.json",
+          "sha256": "418cf94fe48d155b7d5bbc4e21f62a998633935d0276e81159b0b09de9804261",
+          "bytes": 3570
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-4-6.json",
+          "sha256": "3e8f15aa58c95a96948b98c4549074f50e3fbd3b1eabd3f2c704d0a0d890dce6",
+          "bytes": 3548
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-4-7.json",
+          "sha256": "e14ccc8e7da16a9db0e20379b59cea3e69cb6e8a60783cfe45cc777e65b9baa3",
+          "bytes": 3598
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-4-8.json",
+          "sha256": "506171ec1da1044f0f24a2ca4f1eb61ab98dbbf70d368ff2ab1d238926cd20e7",
+          "bytes": 3536
+        },
+        {
+          "path": "results/orch/alternative6-run-010/near-4-9.json",
+          "sha256": "7e3771c45bc6a198e909ca7841df849b458f7cb61038b165b6dce67d8eb16c72",
+          "bytes": 3676
+        },
+        {
+          "path": "results/orch/alternative6-run-010/overapprox-best-1.json",
+          "sha256": "da04694216593dba8b7b51e6f176ec735c06d30ddbdc9b51edc46dbc9b37866e",
+          "bytes": 7116
+        },
+        {
+          "path": "results/orch/alternative6-run-010/overapprox-best-10.json",
+          "sha256": "c7fd0a03778798f07f7b24f343fba39e6c040cb467badbaa5f41ecd44a4bfd76",
+          "bytes": 5850
+        },
+        {
+          "path": "results/orch/alternative6-run-010/overapprox-best-2.json",
+          "sha256": "79126d4f1082a1528e8c5493b29b5489efb71f6e0110ae2a6294cb486d36b371",
+          "bytes": 7049
+        },
+        {
+          "path": "results/orch/alternative6-run-010/overapprox-best-3.json",
+          "sha256": "9ddc4c8e6cbd4d46406213aa47e964599f0c2418c95379d734f872eb1d25a204",
+          "bytes": 7048
+        },
+        {
+          "path": "results/orch/alternative6-run-010/overapprox-best-4.json",
+          "sha256": "09ee3abe5e09e90002448004b76a88b083031414af2b8bb69c1e87d4f5c68aca",
+          "bytes": 6976
+        },
+        {
+          "path": "results/orch/alternative6-run-010/overapprox-best-5.json",
+          "sha256": "33001f0f6e6d1e969821c37c3f2adc753efa1a639f2b7c386c26cb6bdfe7c818",
+          "bytes": 7727
+        },
+        {
+          "path": "results/orch/alternative6-run-010/overapprox-best-6.json",
+          "sha256": "e587b1204ccf2bc3a8490f9280fab4321e2189807acb7ed0c7556188f5e38a35",
+          "bytes": 7580
+        },
+        {
+          "path": "results/orch/alternative6-run-010/overapprox-best-7.json",
+          "sha256": "0184ba85f8daf3b0f9e258f31165fe5cb2f1510bc30590c6fe52a8eac2314ea6",
+          "bytes": 7684
+        },
+        {
+          "path": "results/orch/alternative6-run-010/overapprox-best-8.json",
+          "sha256": "dbc657fa378ed65c862d6920d5eb377a67cbc84af72a4b57876d169a6e338589",
+          "bytes": 7107
+        },
+        {
+          "path": "results/orch/alternative6-run-010/overapprox-best-9.json",
+          "sha256": "f782d2fcd69ac8c77774ebe967ac56626698a46e8346232cbb7f83a4a202b915",
+          "bytes": 7023
+        },
+        {
+          "path": "results/orch/alternative6-run-010/manifest.json",
+          "sha256": "b73a4b48230182af57d90d85b3e2f33b03425e040b2af4f74806158a1856340d",
+          "bytes": 9768
+        }
+      ]
+    },
+    {
+      "name": "plane-nested",
+      "reviewer": "status_audit",
+      "manifest_entries": 11,
+      "physical_circuits": 0,
+      "scalar_cases": 0,
+      "result": "Reviewed nested-initializer and heuristic scoring sources with calibration logs only; no target witness or lower bound.",
+      "path": "results/orch/plane-nested",
+      "manifest": {
+        "path": "results/orch/plane-nested/manifest.json",
+        "sha256": "67dcaa5ed8b9c0c0bef989bb6ee4b720ace2f315ebbf7f37395f53896d588a3f",
+        "bytes": 1852
+      },
+      "review_log": {
+        "path": "results/orch/review-plane-nested-joint-packages-status-audit.log",
+        "sha256": "7f2a4e03586f7dd789ac1a381277af93bc2811f7b5db97d2f679aeb3641b0b73",
+        "bytes": 4506
+      },
+      "review_verdict": "PASS",
+      "files": [
+        {
+          "path": "results/orch/plane-nested/README.md",
+          "sha256": "de9702cde98eae8d3f4a115353f894196d749bd27385422c1e1641ad32446a08",
+          "bytes": 1951
+        },
+        {
+          "path": "results/orch/plane-nested/SearchPlanePairProblem.py",
+          "sha256": "f8b1a2848334df617ef613f20446e4bc5066ac546e150321b6854fb6b891a742",
+          "bytes": 1033
+        },
+        {
+          "path": "results/orch/plane-nested/SearchPlaneProblem.json",
+          "sha256": "f13c8c17d8d2e3842d6a2a9ac736b17c7bf831d801a54ca07345907352ae1017",
+          "bytes": 358849
+        },
+        {
+          "path": "results/orch/plane-nested/SearchPlaneProblem.py",
+          "sha256": "9c9369995311971fef919af1a75364f091b9b6b77552c2e66bef85648e83f865",
+          "bytes": 693
+        },
+        {
+          "path": "results/orch/plane-nested/SearchReduce.py",
+          "sha256": "25e42c145720123ae4b503b0480bda83d7c6a454bc15b587dedae7da5e5746ef",
+          "bytes": 2888
+        },
+        {
+          "path": "results/orch/plane-nested/SearchStochasticPlaneNested.py",
+          "sha256": "e96f246f662096e8b7e3680b06eeb8a5ce954020487a69593383e008d8a016a1",
+          "bytes": 32905
+        },
+        {
+          "path": "results/orch/plane-nested/SearchStochasticPlaneNestedLow.py",
+          "sha256": "927772915e8f58c955fd0b2495b9a2b099a5035bd01425ae108d41d733083d0a",
+          "bytes": 32969
+        },
+        {
+          "path": "results/orch/plane-nested/plane-nested-calibration-001.log",
+          "sha256": "d1459516b9ac6398c4673d04ba57ad15c9d463b1ea1ad0e040ed0fb5a33890d8",
+          "bytes": 367
+        },
+        {
+          "path": "results/orch/plane-nested/plane-nested-calibration-002.log",
+          "sha256": "bf512cdddf1e6f79dbf48cd2a601ef458d0f8885c92c07057ff1cf0496bf2cc7",
+          "bytes": 181
+        },
+        {
+          "path": "results/orch/plane-nested/review-plane-nested-low-status-audit.log",
+          "sha256": "166cdf00b70b1b86a40c5149e4e65d8b2164fd77ae596c48b4f88a518cca5c7b",
+          "bytes": 1556
+        },
+        {
+          "path": "results/orch/plane-nested/review-plane-nested-status-audit.log",
+          "sha256": "f8d9e230571f0158832d465fb01629764f658c45e9e842a1d6490d98c2a11072",
+          "bytes": 163
+        },
+        {
+          "path": "results/orch/plane-nested/manifest.json",
+          "sha256": "67dcaa5ed8b9c0c0bef989bb6ee4b720ace2f315ebbf7f37395f53896d588a3f",
+          "bytes": 1852
+        }
+      ]
+    },
+    {
+      "name": "nested-joint-repairs",
+      "reviewer": "status_audit",
+      "manifest_entries": 18,
+      "physical_circuits": 6,
+      "scalar_cases": 528,
+      "result": "Six28-gate candidates remain INVALID after complete raw replay and singleton-rejection checks; completed repair012/013 logs only, no target witness or UNSAT claim.",
+      "path": "results/orch/nested-joint-repairs",
+      "manifest": {
+        "path": "results/orch/nested-joint-repairs/manifest.json",
+        "sha256": "4ad320a5a69b8a57d2425e2ec1ce4db887ef06c97bae054aae0e7b77a5cd1eac",
+        "bytes": 3151
+      },
+      "review_log": {
+        "path": "results/orch/review-plane-nested-joint-packages-status-audit.log",
+        "sha256": "7f2a4e03586f7dd789ac1a381277af93bc2811f7b5db97d2f679aeb3641b0b73",
+        "bytes": 4506
+      },
+      "review_verdict": "PASS",
+      "files": [
+        {
+          "path": "results/orch/nested-joint-repairs/README.md",
+          "sha256": "1a55f5153c0c2d02b6fca879d9027b608967d587798bb98faadafd6e91868dc6",
+          "bytes": 1737
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/SearchAlternative6PairProblem.py",
+          "sha256": "c269a4cef111f5e47f64a6db3f8a4de880cf94c683c1f9421732580b0a4b3563",
+          "bytes": 926
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/SearchAlternative6Problem.json",
+          "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+          "bytes": 2275
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/SearchAlternative6Problem.py",
+          "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+          "bytes": 925
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/SearchNestedJointSeeds.py",
+          "sha256": "ca50433dbfd57b1f9dc077ff56ac925398dbc8855ab8e678af93b7beb4fd1e5f",
+          "bytes": 1888
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/SearchNestedSeeds.py",
+          "sha256": "411ce3df4e9276f223e60023bb01df3b33bb690e4de14d06b7599db47e63490f",
+          "bytes": 2688
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/SearchPhysicalRepairPairs.py",
+          "sha256": "090562fa8447d109911cca22626c09302053a8e7def837c88cc61e1f56bdc38a",
+          "bytes": 11588
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/alternative6-nested-joint-calibration-001.log",
+          "sha256": "b517166e9bf0a7e28e54263ec41d696f002e30b2410922349758ff7925a1a875",
+          "bytes": 376
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/alternative6-nested-joint-calibration-002.log",
+          "sha256": "6c8799975e20b381c24ea00b53c579f9d7500f299d3c53a78ed86d04dce54fb7",
+          "bytes": 420
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/alternative6-nested-joint-seeds/joint-0-1.json",
+          "sha256": "6dc3b9fe307e701294d032517b49a7311cc0522a61eb4a776dd367679083ca11",
+          "bytes": 6641
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/alternative6-nested-joint-seeds/joint-2-3.json",
+          "sha256": "443b8cf216babc09e8000b8e15a822a1655adaa4e80e06d82f400f0b799a1fae",
+          "bytes": 6640
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/alternative6-nested-joint-seeds/joint-4-5.json",
+          "sha256": "cf4a794f8dd89d5382f0f1b98b235aa41cbf1676a4716ec11768117210d140f0",
+          "bytes": 6641
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/physical-repair-alternative6-012.log",
+          "sha256": "be1aa897937a79f1e1344c8ddb6c724ad747512534311e9f6a7f2ae0e37cd104",
+          "bytes": 2931
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/physical-repair-alternative6-013/improved-13.json",
+          "sha256": "42a51e447754d51bfc7dff4a95e0f9539b0dabf1c8135cd9b74b137eb96ab172",
+          "bytes": 5460
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/physical-repair-alternative6-013/improved-14.json",
+          "sha256": "7d567d209bfac581ed9a1219b5ce826617040beeface8e44f6a05b79336fdef4",
+          "bytes": 5383
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/physical-repair-alternative6-013/improved-5.json",
+          "sha256": "a5b8e6014989a80a67b35899ef6657abc0a103cc1ddf6e7d23e7b3b1dd483825",
+          "bytes": 5786
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/physical-repair-alternative6-013.log",
+          "sha256": "d8db86a00fd68292325780a94288c033d09133c50e093570519658d6beb845eb",
+          "bytes": 4470
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/review-nested-joint-status-audit.log",
+          "sha256": "6c8799975e20b381c24ea00b53c579f9d7500f299d3c53a78ed86d04dce54fb7",
+          "bytes": 420
+        },
+        {
+          "path": "results/orch/nested-joint-repairs/manifest.json",
+          "sha256": "4ad320a5a69b8a57d2425e2ec1ce4db887ef06c97bae054aae0e7b77a5cd1eac",
+          "bytes": 3151
+        }
+      ]
+    }
+  ],
+  "extra_evidence": [
+    {
+      "path": "results/orch/review-preservation-033-status-audit.log",
+      "sha256": "b58e11f6b9362084c61a40b130803a81ebeb118350b3df18d1505eabd415123d",
+      "bytes": 177
+    }
+  ],
+  "verification": "Exact frozen hashes, full author logs without errors, independent source/math/provenance/format reviews, forbidden-source filter scan, package manifest hashes and byte counts. This preservation validation reused reported author build results and did not rerun Lean.",
+  "sub_agents": [
+    "counterexample_search",
+    "gate_invariants",
+    "lean_setup",
+    "normal_form",
+    "status_audit",
+    "structural_lower_bound"
+  ],
+  "timing_total_min": 333.5,
+  "subagents_count": 6
+}
