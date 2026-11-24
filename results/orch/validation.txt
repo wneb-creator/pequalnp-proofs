@@ -1,0 +1,10 @@
+Gap: L-meta-5324
+Status: checked partial lemmas only; not a complete proof of the posted statement.
+File: results/orch/lemmas/direct.lean
+Lean: 4.36.0
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/direct.lean
+Exit: 0
+Complete stdout/stderr: empty (successful compilation).
+Checker: not applicable to helper-only partial.
+Sub-agents: 6 (direct proof, counterexample, reduction, status/review, Lean setup, OR-only proof).
+TIMING total=11.0 subagents=6
