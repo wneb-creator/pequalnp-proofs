@@ -1,0 +1,8 @@
+2026-11-24T08:51:51.875811+00:00
+L-meta-1477 partial milestone. The unrestricted posted theorem is still not proved; no exact-statement checker acceptance claimed.
+PlaneOneJunkFull.one_junk_size: every least AO TopForm circuit for the exact plane with exactly one dirty AND has size>=125. short_circuit_two_junk: any such normalized circuit of size<=124 has at least2 dirty ANDs. Every single-dirty-gate support/mask case is covered. A bridge from arbitrary posted Monotone2 circuits is being added separately.
+DNFTableBaselineScoped is an upper-bound125 circuit only, with explicit kernel-checked per-gate DNF certificate. Scoped limits and helper lemma declarations now satisfy final-file syntax rules.
+PlaneOneJunkFull: author build exit0 and independent source/math/format review PASS; 8654lines,405314bytes,SHA25620a8540b61e792b63f361030ea63bd09dae67a6ed27d72a3d85a2d7116ec1f7a; complete log plane-one-junk-full-build-002.log.
+DNFTableBaselineScoped: author build exit0 and independent source/math/format review PASS; 595lines,30494bytes,SHA25644c577c15de7fb9d194642d0cd6d233c6f3f27281c69953eeb919d77d6e1ccbc; complete log dnf-table-baseline-scoped-build-001.log.
+Sub-agents: status_audit, lean_setup, structural_lower_bound, counterexample_search, gate_invariants, normal_form
+TIMING total=163.3 subagents=6

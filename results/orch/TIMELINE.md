@@ -95,3 +95,9 @@
 - 2026-11-24 08:43:48 UTC: lean_setup completed independent AlternativeLiftComplete and DNFTableBaseline mathematical/build reviews; flagged two baseline option-format issues. Started InternalMaskUniqueness and OneJunkSingleton independent rebuilds.
 
 - 2026-11-24 08:44:47 UTC: lean_setup completed independent InternalMaskUniqueness and OneJunkSingleton reviews and rebuilds, both PASS.
+
+2026-11-24T08:47:45.641474+00:00 normal_form: RotationSemantics frozen/compiled; independent status_audit source+Lean PASS. Structural OneJunkSingleton frozen/compiled and independently source-reviewed by normal_form; complete one-junk125 case split assembled in PlaneOneJunkFull, build002 after adding a missing DecidableRel binder.
+
+2026-11-24T08:48:41.587296+00:00 normal_form MILESTONE: PlaneOneJunkFull.lean build002 EXIT0. Complete one-junk lower bound125; short leastAO TopForm plane circuits require at least two junk ANDs. Frozen8654lines; status_audit reviewed final namespace PASS before successful build. Full posted unrestricted bound remains open.
+
+- 2026-11-24 08:51:07 UTC: lean_setup completed source/math/format reviews of scoped DNF baseline derivative and complete one-junk plane integration, both PASS.
