@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "mathematical_review": "PASS",
+  "implementation_review": "PASS",
+  "source": "/tmp/oec/pequalnp-pilot-18/sat_mono_prefix17_productive.py",
+  "source_sha256": "da9b8c724e48b714bfc837bb5e322752875f79d2da4c2643d131a066fa83c800",
+  "proof": "Within the clean prefix, zero singleton support implies zero on every independent input, including empty by monotonicity. Replacing AND(A,B) by OR(B,B) when B has zero support preserves every negative-input wire value and all singleton supports, and increases wire functions pointwise. Correct positive outputs stay true and negatives stay false. Junk positions stay unchanged. Prune newly dead prefix nodes, OR-pad a live cut edge, then re-sort.",
+  "liveness": "All suffix paths remain unchanged because only prefix input edges are edited. Prefix liveness is restored by the established prune/pad construction; the padding adds no ANDs.",
+  "code_delta": "Stores the existing prefix operand-support arrays and appends (-op OR a_bits) and (-op OR b_bits), exactly 34 clauses and no variables when first_junk=17. zip pairs the first 17 op variables with those 17 arrays.",
+  "provided_agent1_validation": {
+    "status": "PASS",
+    "random_circuits": 300,
+    "gate_truth_tables_checked": 6300,
+    "inputs_per_table": 2048,
+    "replaced_prefix_gates": 998,
+    "base_CNF_byte_structure_unchanged": true,
+    "new_clauses": 34,
+    "new_variables": 0
+  },
+  "independent_validation": "Read full delta against reviewed standalone implementation; verified clause guards, gate range, option threading and mathematical normalization. Did not rerun CNF build.",
+  "specific_risks": [
+    {
+      "severity": "scope",
+      "detail": "Zero singleton support implies clean only under the clean-prefix invariant; applying this rule after first junk is not justified."
+    },
+    {
+      "severity": "audit",
+      "detail": "The decoder does not separately recheck productive_prefix, and the generation summary omits this flag. Metadata does record it. A decoded candidate alone is not an audit of membership in this restricted subclass."
+    },
+    {
+      "severity": "formalization",
+      "detail": "This cut preserves existence of a correct witness, not every intermediate positive-input value. A formal normalization proof must use monotone increase plus unchanged negative values, not claim full functional equality of each wire."
+    }
+  ],
+  "optional_duplicate_description_cut": {
+    "mathematical_review": "PASS",
+    "implementation_review": "NOT REVIEWED: no implementation supplied",
+    "test_report": "distinct-prefix-review.json",
+    "stronger_normalization": "Process prefix in place. Replace a repeated description by OR-copy of an earlier identical gate; chase existing identical OR copies to a strictly later earlier representative until the new description is fresh. Functions and all old ancestor paths are preserved, so an already all-live circuit remains all-live without pruning or padding. Re-sort lexicographically.",
+    "conditions": "Use unordered/canonically sorted operand pairs, AND-first rank, and existing equality flags. Two clauses force opposite operations only when both operands coincide; together with lex order this is strict lex order on descriptions. Repeated operands and duplicate functions remain allowed."
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "status": "PASS",
+  "reviewed_sources": {
+    "/tmp/oec/pequalnp-pilot-18/math-analysis/sat_mono_prefix17_standalone.py": "51d69e867b6d7622f1d03b80c83a0610ec22ced5aaf02454867ec37f146bc59b",
+    "/tmp/oec/pequalnp-pilot-18/math-analysis/sat_mono_prefix17_assumptions.md": "e52d85c960f7f190993c2ddb0b8962ac07495b482f760d48dce52de6d46f9c96"
+  },
+  "scope": {
+    "input_model": "raw Monotone2 translated to the augmented binary DAG with free FALSE/TRUE",
+    "size": "at most 21, padded to 21",
+    "first_junk": 17,
+    "minimum_junk_ANDs": 2,
+    "output": "exact posted 11-input graph edge function",
+    "last_op": "unset, or both AND and OR branches considered"
+  },
+  "complete_overapproximation_retained": true,
+  "base_compression": "PASS: singleton supports are exact on nonempty independent inputs before first junk; forbidden support pairs enforce clean AND; edge values remain exact; MIS rows determine the monotone output including the empty input",
+  "all_live_clauses": "PASS: a later reader for every gate below 20 plus output=20 is equivalent to every gate reaching output in the ordered DAG",
+  "lower_bound_dependency": {
+    "theorem": "PEqualNP.Outside.L_meta_1407",
+    "path": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1407.lean",
+    "line": 843,
+    "statement_read": true,
+    "recompiled": false,
+    "graph_C4_free": true,
+    "edges": 16,
+    "vertex_cover_number": 7,
+    "clean_gate_lower_bound": 22,
+    "free_constant_extension": "constant propagation and alias deletion preserve retained AND functions and do not increase gate count"
+  },
+  "normalization_cases": "PASS: a live junk must exist; dead17 repair uses a dirty prefix operand; the gate19=AND(18,18) exceptional first-live-junk case reduces to a forbidden clean circuit; suffix copy/relocation cases preserve output; prune prefix and OR-pad a live cut edge; re-sort",
+  "independent_tests": {
+    "status": "PASS",
+    "constructive_cases": 110,
+    "suffix_patterns": [
+      "both_dead",
+      "only18_dead_17_via19",
+      "only18_dead_17_direct",
+      "only19_dead_18_reads17",
+      "only19_dead_independent18",
+      "all_live",
+      "repair17_firstlive18",
+      "repair17_firstlive18_dead19",
+      "repair17_firstlive19_prefix",
+      "repair17_firstlive19_mixed",
+      "constant_junk"
+    ],
+    "exceptional_clean_reductions_detected": 10,
+    "truth_table_assignments_per_case": 2048,
+    "scope": "Synthetic target x0 AND x1 tests reconstruction only. The actual graph lower bound separately excludes the exceptional/no-live-junk cases. No SAT solve or Lean build."
+  },
+  "graph_tests": {
+    "vertices": 11,
+    "edges": 16,
+    "max_common_neighbors_of_distinct_vertices": 1,
+    "C4_free": true,
+    "vertex_disjoint_odd_cycles": [
+      [
+        1,
+        4,
+        8
+      ],
+      [
+        3,
+        6,
+        7
+      ],
+      [
+        0,
+        9,
+        5,
+        2,
+        10
+      ]
+    ],
+    "vertex_cover_lower_bound": 7,
+    "seven_vertex_cover": [
+      0,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "clean_gate_lower_bound_using_L_meta_1407": 22,
+    "reason": "16 edges + cover cardinality >=7 <= gates+1",
+    "scope": "Finite graph checks only; no solver or Lean build run."
+  },
+  "specific_risks": [
+    {
+      "severity": "documentation",
+      "detail": "Assumptions line107 must mean new AND copies only at 18 and 19, then redirect the read of 17 in gate20 through 19. Preserve gate20 operation and its other operand; copying gate20 itself would be wrong."
+    },
+    {
+      "severity": "scope",
+      "detail": "Completeness is only for firstjunk17 with at least two junk ANDs. A single last-op branch or this shard alone does not cover all raw circuits."
+    },
+    {
+      "severity": "formalization",
+      "detail": "The new normalization is mathematically reviewed but not Lean formalized. Solver UNSAT is not a checked refutation without certificate, encoding and normalization proofs."
+    },
+    {
+      "severity": "delivery",
+      "detail": "Current gap imports list only PEqualNP.Defs besides Mathlib. L_meta_1407 cannot simply be imported in the final candidate; an admissible refutation would need the bound proved inside the permitted file or an explicitly permitted dependency."
+    },
+    {
+      "severity": "model",
+      "detail": "Keep repeated operands, dead gates during normalization, and semantically redundant copies available. Do not replace structural liveness by semantic irredundancy."
+    },
+    {
+      "severity": "mapping",
+      "detail": "Normalize unavailable raw reads to FALSE before pruning/renumbering; do not renumber raw out-of-range references as if they were ordinary DAG dependencies."
+    },
+    {
+      "severity": "padding",
+      "detail": "The prefix-to-suffix cut includes input/constant wires. In the augmented model firstjunk17 has binary operands, so it always supplies such an edge even if no original prefix gate survives."
+    }
+  ],
+  "work_performed": "Source/theorem review plus small finite Python checks. No SAT solver, CNF generation, Lean build, source edits, desk calls or Git writes."
+}

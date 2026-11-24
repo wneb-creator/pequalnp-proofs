@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "program_sha256": "e227e161f9ac776d099d6fd20194d4e8047ba69a881b605a61763ea04f962a96",
+  "lines": 382,
+  "component_checks": {
+    "CNF": "AST-identical",
+    "target": "AST-identical",
+    "conditional_mux": "AST-identical",
+    "binary_value": "AST-identical",
+    "build": "AST-identical",
+    "write": "AST-identical",
+    "add_prefix_lex": "AST-identical",
+    "generate": "AST-identical",
+    "EDGES": "Identical literal",
+    "N": "Identical literal",
+    "TEMPLATES": "Identical literal"
+  },
+  "imports": [
+    "argparse",
+    "hashlib",
+    "json",
+    "pathlib"
+  ],
+  "legacy_decoder_removed": true,
+  "reproducibility_report_matches_current_program": true,
+  "all_seven_reported_hashes_match_running_inputs": true,
+  "default_distinct_prefix": false,
+  "distinct_prefix_additional_clauses": 32,
+  "distinct_prefix_flag_projection_cases": 16,
+  "distinct_prefix_review": "Implementation is exactly the proposed two clauses per adjacent pair; in-place earlier-copy normalization preserves functions, liveness and prefix cleanliness.",
+  "no_generator_or_solver_executed": true,
+  "scope": "Source aggregation and existing-output audit, not a Lean proof or checked UNSAT certificate."
+}

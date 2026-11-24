@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "projected_adjacent_pair_assignments": 2184,
+  "exhaustive_labeled_four_gate_dags": 43200,
+  "large_circuits": 100,
+  "nonidentity_permutations": 100,
+  "full_truth_table_assignments_per_large_circuit": 2048,
+  "junk_indices_preserved": [
+    17,
+    18
+  ],
+  "key": "(right, left, 0 for AND or 1 for OR)",
+  "new_variables": 32,
+  "new_clauses_beyond_existing_right_sort": 4040,
+  "scope": "Proposed encoding and scheduling proof checked; generator not changed by reviewer; synthetic circuits are not solutions of the posted gap."
+}

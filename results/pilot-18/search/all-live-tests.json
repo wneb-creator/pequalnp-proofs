@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "constructive_cases": 110,
+  "suffix_patterns": [
+    "both_dead",
+    "only18_dead_17_via19",
+    "only18_dead_17_direct",
+    "only19_dead_18_reads17",
+    "only19_dead_independent18",
+    "all_live",
+    "repair17_firstlive18",
+    "repair17_firstlive18_dead19",
+    "repair17_firstlive19_prefix",
+    "repair17_firstlive19_mixed",
+    "constant_junk"
+  ],
+  "exceptional_clean_reductions_detected": 10,
+  "truth_table_assignments_per_case": 2048,
+  "scope": "Synthetic target x0 AND x1 tests reconstruction only. The actual graph lower bound separately excludes the exceptional/no-live-junk cases. No SAT solve or Lean build."
+}

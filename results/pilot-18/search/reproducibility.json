@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "program_sha256": "e227e161f9ac776d099d6fd20194d4e8047ba69a881b605a61763ea04f962a96",
+  "byte_identical_cases": {
+    "meet2or1meet2.cnf": "d6d8459682f5ef1497136776ea935dd17bf3ad8d7162835bd70fb511696d3804",
+    "meet3or2.cnf": "4c1ecb66781cf17ff58bacb86b5280c5e456dc2e7e60ea2197e8e5ef83ee9416",
+    "meet1or1meet3.cnf": "e739d2a65942d846738dcdcf9f88e9c7786b3f5c355da9b0bf012a65e2796396",
+    "or1meet4.cnf": "722a3c995aebe85abcbb0582a591561d08031957b7e71b2e26df73de5c6341cc",
+    "meet1or2meet2.cnf": "fe6c348b587e3560973077050b083a029277c006f9d769c3417a46850b6be5b9",
+    "or2meet3.cnf": "6fd90e158f1baf2337b831f743b753a9ae1486d7fb445e27d4c4fb925cda33f2",
+    "meet5.cnf": "11d69118229d0c58d8fd37af8954c6eda570ceb5b211b3266e1e2db2edf096c2"
+  },
+  "unused_legacy_decoder_removed": true
+}

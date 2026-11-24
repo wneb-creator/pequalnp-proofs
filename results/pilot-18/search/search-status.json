@@ -1,0 +1,53 @@
+{
+  "started": "2026-11-24T01:13:48.440471+00:00",
+  "solver_sha256": "21da5d984e38b74f620f14c62442f834f27b9158decdb722540d97f98aac93a1",
+  "scope": "Seven formula overapproximation; no exhaustion claim without complete reviewed certificates.",
+  "cases": {
+    "meet5": {
+      "pid": 8923,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--unsat",
+        "--time=7200",
+        "/tmp/oec/pequalnp-pilot-18/tail7/meet5.cnf",
+        "/tmp/oec/pequalnp-pilot-18/tail7/meet5.drat.gz"
+      ],
+      "started": "2026-11-24T01:13:48.700164+00:00"
+    },
+    "or1meet4": {
+      "pid": 8924,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--unsat",
+        "--time=7200",
+        "/tmp/oec/pequalnp-pilot-18/tail7/or1meet4.cnf",
+        "/tmp/oec/pequalnp-pilot-18/tail7/or1meet4.drat.gz"
+      ],
+      "started": "2026-11-24T01:13:48.700607+00:00"
+    },
+    "meet1or1meet3": {
+      "pid": 8925,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--unsat",
+        "--time=7200",
+        "/tmp/oec/pequalnp-pilot-18/tail7/meet1or1meet3.cnf",
+        "/tmp/oec/pequalnp-pilot-18/tail7/meet1or1meet3.drat.gz"
+      ],
+      "started": "2026-11-24T01:13:48.700979+00:00"
+    },
+    "meet3or2": {
+      "pid": 8928,
+      "command": [
+        "/tmp/oec/pequalnp-pilot-18/solver/kissat-4.0.4-linux-amd64",
+        "--unsat",
+        "--time=7200",
+        "/tmp/oec/pequalnp-pilot-18/tail7/meet3or2.cnf",
+        "/tmp/oec/pequalnp-pilot-18/tail7/meet3or2.drat.gz"
+      ],
+      "started": "2026-11-24T01:13:48.701294+00:00"
+    }
+  },
+  "snapshot_utc": "2026-11-24T01:17:34.826940+00:00",
+  "conclusion": "No SAT or UNSAT verdict at this checkpoint; the posted statement remains unproved."
+}

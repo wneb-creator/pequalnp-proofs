@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "coverage": "Seven-form UNSAT overapproximation; suffix junk is unconstrained",
+  "source_sha256": "113e76c515e6ba49f294d6c34699dcec760548eff7f2fcb02b9b99e71305876e",
+  "generator_sha256": "a1e59c05db29856645662c65fdde688fc9eb657fa95e6101d819d7045838618b",
+  "removed_clauses": [
+    [
+      2974
+    ],
+    [
+      3243,
+      3516,
+      3793
+    ]
+  ],
+  "case_audits": {
+    "meet5": {
+      "variables": 3989,
+      "clauses": 77406,
+      "sha256": "11d69118229d0c58d8fd37af8954c6eda570ceb5b211b3266e1e2db2edf096c2",
+      "retained_base_clauses": 75653,
+      "extra_clauses": 1753,
+      "audit": "PASS"
+    },
+    "or1meet4": {
+      "variables": 3989,
+      "clauses": 76971,
+      "sha256": "722a3c995aebe85abcbb0582a591561d08031957b7e71b2e26df73de5c6341cc",
+      "retained_base_clauses": 75653,
+      "extra_clauses": 1318,
+      "audit": "PASS"
+    },
+    "or2meet3": {
+      "variables": 3989,
+      "clauses": 76969,
+      "sha256": "6fd90e158f1baf2337b831f743b753a9ae1486d7fb445e27d4c4fb925cda33f2",
+      "retained_base_clauses": 75653,
+      "extra_clauses": 1316,
+      "audit": "PASS"
+    },
+    "meet1or1meet3": {
+      "variables": 3989,
+      "clauses": 76536,
+      "sha256": "e739d2a65942d846738dcdcf9f88e9c7786b3f5c355da9b0bf012a65e2796396",
+      "retained_base_clauses": 75653,
+      "extra_clauses": 883,
+      "audit": "PASS"
+    },
+    "meet1or2meet2": {
+      "variables": 3989,
+      "clauses": 76970,
+      "sha256": "fe6c348b587e3560973077050b083a029277c006f9d769c3417a46850b6be5b9",
+      "retained_base_clauses": 75653,
+      "extra_clauses": 1317,
+      "audit": "PASS"
+    },
+    "meet2or1meet2": {
+      "variables": 3989,
+      "clauses": 76535,
+      "sha256": "d6d8459682f5ef1497136776ea935dd17bf3ad8d7162835bd70fb511696d3804",
+      "retained_base_clauses": 75653,
+      "extra_clauses": 882,
+      "audit": "PASS"
+    },
+    "meet3or2": {
+      "variables": 3989,
+      "clauses": 76969,
+      "sha256": "4c1ecb66781cf17ff58bacb86b5280c5e456dc2e7e60ea2197e8e5ef83ee9416",
+      "retained_base_clauses": 75653,
+      "extra_clauses": 1316,
+      "audit": "PASS"
+    }
+  },
+  "template_assignments_checked": 117649,
+  "canonical_function_counts": {
+    "meet5": 33,
+    "or1meet4": 97,
+    "or2meet3": 202,
+    "meet1or1meet3": 202,
+    "meet1or2meet2": 217,
+    "meet2or1meet2": 222,
+    "meet3or2": 112
+  },
+  "covered_functions": 318,
+  "exhaustive_counts": {
+    "all_live_four_gate_at_most_one_OR": 57150
+  },
+  "original_functions": 316,
+  "repeated_leaves_and_constants": true,
+  "decoder_note": "Honor enforce_junk=False",
+  "solver_started": false,
+  "reviewed_inputs_unchanged": true,
+  "limitation": "Mathematical normalization is not Lean-certified.",
+  "program_sha256": "fd5e7375580cf62aa4107bbba53767168b9f49eedd2012ae7b64be0c76e1ae1b",
+  "wall_seconds": 2.046
+}

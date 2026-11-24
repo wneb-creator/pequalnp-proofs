@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "program_sha256": "51d69e867b6d7622f1d03b80c83a0610ec22ced5aaf02454867ec37f146bc59b",
+  "baseline_byte_matches": {
+    "shard17-compressed.cnf": {
+      "variables": 3957,
+      "clauses": 68192,
+      "sha256": "69907b0a43606c6ee698db2225ce3e87d746163c3106a6014000cb6974642fa3"
+    },
+    "shard17-compressed-sorted.cnf": {
+      "variables": 3957,
+      "clauses": 71560,
+      "sha256": "2139e0f2b731ed921526c475a76553339be72dff1d14d2fae1a09a80cf9341c1"
+    }
+  },
+  "invalid_option_cases_rejected": 8,
+  "liveness_patterns_compared_to_DFS": 1002,
+  "repeated_operand_live_chain_accepted": true,
+  "fixed_CNF_flag_fixtures": {
+    "root_or_selected_or": true,
+    "root_or_selected_and": false,
+    "nonfinal_output_rejected": true,
+    "root_and_selected_and": true,
+    "root_and_selected_or": false
+  },
+  "embedded_decoder_truth_table_rows": 2048,
+  "isolated_relocated_execution": "PASS",
+  "original_running_files_unchanged": true,
+  "solver_started": false,
+  "wall_seconds": 1.489
+}

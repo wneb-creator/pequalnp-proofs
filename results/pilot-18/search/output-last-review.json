@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "N": 21,
+  "first_junk_range": [
+    0,
+    18
+  ],
+  "cases": 399,
+  "complete_truth_table_assignments_per_case": 2048,
+  "first_junk_17_cases": 21,
+  "method": "Exact 2048-bit truth tables on synthetic target x0; every possible nonjunk output gate plus input-output case, fixed prefix preserved",
+  "proof_scope": "Supports the general reconstruction; does not claim a 21-gate solution for the posted graph",
+  "construction": "Preserve through first junk, duplicate that wire with AND, shift needed suffix through original output, OR-pad to last gate; leave already-last output unchanged"
+}

@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_1342.baseline_monotone' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1342.baseline_size' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1342.baseline_eval' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1342.baseline_spec' depends on axioms: [propext, Quot.sound]

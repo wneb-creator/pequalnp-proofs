@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "random_circuits": 300,
+  "gate_truth_tables_checked": 6300,
+  "inputs_per_table": 2048,
+  "replaced_prefix_gates": 998,
+  "base_CNF_byte_structure_unchanged": true,
+  "new_clauses": 34,
+  "new_variables": 0
+}

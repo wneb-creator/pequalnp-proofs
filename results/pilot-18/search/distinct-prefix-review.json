@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "mathematical_normalization": "In-place copying through a strictly increasing earlier-copy chain preserves functions and all previously live gates; no prune/pad needed",
+  "exhaustive_four_gate_labeled_DAGs": 43200,
+  "adjacent_pair_flag_projections": 2184,
+  "added_clauses_for_17_gate_prefix": 32,
+  "new_variables": 0,
+  "implementation_status": "NOT REVIEWED: only proposed clauses were supplied",
+  "scope": "Synthetic finite checks; no solver or Lean build, no solution or global refutation of the gap."
+}

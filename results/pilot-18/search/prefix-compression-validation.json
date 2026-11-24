@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "support_pairs_checked": 4194304,
+  "randomized_prefixes": 128,
+  "independent_nonempty_rows": 124,
+  "positive_fixtures_full_truth_table_rows": 2048,
+  "fixed_CNF_fixtures": {
+    "dead_repeated_true_junk": {
+      "size": 24,
+      "first_junk": 17,
+      "prefix_sort": false,
+      "accepted": true
+    },
+    "suffix_junk_reads_suffix": {
+      "size": 24,
+      "first_junk": 17,
+      "prefix_sort": false,
+      "accepted": true
+    },
+    "prefix_sort": {
+      "size": 24,
+      "first_junk": 17,
+      "prefix_sort": true,
+      "accepted": true
+    },
+    "prefix_true_and_false_arbitrary_output": {
+      "size": 28,
+      "first_junk": 17,
+      "prefix_sort": false,
+      "accepted": true
+    },
+    "wrong_output": {
+      "size": 24,
+      "first_junk": 17,
+      "prefix_sort": false,
+      "accepted": false
+    },
+    "missing_first_junk": {
+      "size": 24,
+      "first_junk": 17,
+      "prefix_sort": false,
+      "accepted": false
+    },
+    "missing_second_junk": {
+      "size": 24,
+      "first_junk": 17,
+      "prefix_sort": false,
+      "accepted": false
+    },
+    "early_junk": {
+      "size": 24,
+      "first_junk": 17,
+      "prefix_sort": false,
+      "accepted": false
+    },
+    "empty_compressed_prefix": {
+      "size": 24,
+      "first_junk": 0,
+      "prefix_sort": false,
+      "accepted": true
+    },
+    "boundary_only_known_witness_rejected": {
+      "size": 20,
+      "first_junk": 2,
+      "prefix_sort": false,
+      "accepted": false
+    }
+  },
+  "wall_seconds": 1.031
+}

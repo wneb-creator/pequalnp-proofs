@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "template_truth_table_checks": 224,
+  "random_index_symmetry_checks": 7000,
+  "note": "Template and leaf-symmetry checks only; full range-coverage review separately required."
+}

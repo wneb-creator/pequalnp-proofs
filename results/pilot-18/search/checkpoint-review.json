@@ -1,0 +1,59 @@
+{
+  "verdict": "PASS",
+  "scope": "Artifacts-only fork checkpoint; not a proof PR, accepted theorem, or exhaustion result.",
+  "reviewed_HEAD": "75d115d57ce50d925b8b810ef3c3aa06d774114c",
+  "expected_changes": [
+    "results/pilot-18/search/",
+    "results/pilot-18/baseline-axioms.stdout.txt",
+    "results/pilot-18/checker-executable-build.stdout.txt",
+    "results/pilot-18/checker-executable-build.stderr.txt",
+    "results/pilot-18/validation.txt"
+  ],
+  "lean_unchanged_from_HEAD_and_index": true,
+  "lean_lines": 201,
+  "lean_sha256": "b8d3c2ae6508190f3ad278c134b60c0f8c7b6a799d22ce93cc8878e25d15ddc6",
+  "combined_program_sha256": "e227e161f9ac776d099d6fd20194d4e8047ba69a881b605a61763ea04f962a96",
+  "checks": [
+    "Combined generator matches independently reviewed components; all seven reported hashes match running CNFs.",
+    "The seven-form coverage argument and complete finite checks are copied without changes.",
+    "README, status snapshot and validation explicitly distinguish the 22-gate baseline from the unproved at-most-21 statement.",
+    "No proof, refutation, global exhaustion, solver verdict or certificate acceptance is claimed.",
+    "Building checklemma:exe is accurately distinguished from running the posted-gap checker, which remains NOT RUN.",
+    "Axiom log lists propext and Quot.sound only, with no axioms for baseline_size.",
+    "New axiom/checker-build logs byte-match full scratch logs, including empty stderr.",
+    "No credential or lease identifier found in scanned text or manual review.",
+    "Sub-agents and timing lines are present; no Lean change is staged or unstaged."
+  ],
+  "target_checker": "NOT RUN",
+  "solver_checkpoint": "No SAT or UNSAT verdict claimed in the reviewed snapshot; only four of seven cases are listed as launched.",
+  "artifact_hashes": {
+    "baseline-axioms.stdout.txt": "8e8181062a269ff9f26c097c7ce8d13afd8c71b7bf3ec7b64bf9d4332865153e",
+    "checker-executable-build.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "checker-executable-build.stdout.txt": "4e1294f461abc3009c32bbb869be82a0262cacd787618c12541e842fbe9a8a57",
+    "search/README.md": "460b08f7868fa75ba1dd32f25b65120b6e5ca3b857f7887e0d110f3802fc6136",
+    "search/all-live-assumptions.md": "e52d85c960f7f190993c2ddb0b8962ac07495b482f760d48dce52de6d46f9c96",
+    "search/all-live-review.json": "9d63cc1393e2da5c95419ffe00a1c932a74750298f1e5dbe087eac5a79768f81",
+    "search/all-live-tests.json": "1e3817fe18f629a6c554a3802ba8495a9dcb263de9e290468a8052656b8c37f8",
+    "search/distinct-prefix-review.json": "6915de3bb46b2084ddd29552151fc50a9c070e10a6a7af574369ba21b602ee65",
+    "search/fixed-tail-validation.json": "9141adb5988207929f32a213776c77969861625fc5394e9b4a34328edd11c478",
+    "search/generator-review.json": "022dc36834c40233b4c00632ce2342703dd6c367f6b3cc00ace57c08ad82a354",
+    "search/graph-checks.json": "97843b8afe1f596f4ece4b5960fe462e9d4ba57d4e55a8770f1961dbf0ab1a30",
+    "search/normalization.md": "e2d4dfd0b1600cda03c87e34d373718c01daa983025eac1d3b71bdb89859d2ff",
+    "search/output-last-review.json": "eedbef2106d48ff19fffb5b98f2921ee84d9078e1ebdfa89f626b17eaa5828f4",
+    "search/prefix-compression-validation.json": "8345e7858fcf1ea7cad34c61d6468ffefe8e091596282cb5c0557e9b76dece47",
+    "search/prefix-lex-review.json": "184c7c3cf8a57df3ca640a4a4178fca63b25268d87f281e05f64781d289f3205",
+    "search/productive-prefix-review.json": "263299139c74d729fbd9d7f2aa0af5c375ad4f255ca7f1311700734275ba746e",
+    "search/productive-prefix-validation.json": "cd182ef9c6991959030d2b176da47ce48473b74bc41265704b738d6abad1df27",
+    "search/reproducibility.json": "e91137928dfc199353007777db2e6a07f11433e6bfccad0432fc9912badbc0c4",
+    "search/search-status.json": "79cc54623d47a50589b1f70e456058f144a5462a82570ae501c82848f56a8525",
+    "search/search_l1342_shard17.py": "e227e161f9ac776d099d6fd20194d4e8047ba69a881b605a61763ea04f962a96",
+    "search/seven-case-review.json": "146cfe6e2b6577aeb48c3a05e7bb154e704c1d0ab246f7f303f76c540b8d0cc6",
+    "search/standalone-validation.json": "db68b4946d8ac9f804d518fc3bc668574ca937d05eb0fd01c816955ad1504622",
+    "validation.txt": "4d2246abe690d44dfca7eb07edcd4c8308507a98e3293ddc25e584aa6131fc61"
+  },
+  "blocking_issues": [],
+  "nonblocking_notes": [
+    "normalization.md retains its original scratch review filename suffix-seven-review.json; the copied report is named seven-case-review.json."
+  ],
+  "review_actions": "Read-only repo/source/log review; writes limited to math-analysis review artifacts. No solver, lease, build, staging, commit or push."
+}
