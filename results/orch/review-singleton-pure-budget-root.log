@@ -1,0 +1,4 @@
+Independent incremental review PASS
+File: results/orch/lemmas/SingletonPureBudget.lean
+SHA256: 28c049a7bd742d4d70f42197aa0f5e5633facb0d86db36db3a868f0848716dda
+Exact reviewed SingletonReaderCredit prefix confirmed; copied MaskJointBudget declarations retain source semantics. Reviewed new pure_path_not_mixing and pure_star_extra_budget. A pure OR cone has nonempty raw supports at both children of every OR node, so avoids mixing. Joint-star charge B avoids masklive by checked ownership stop, and avoids mixing by pure-root path. Thus B, masklive, and residual mixing are pairwise disjoint subsets of outsideLambda. Grouped mask credit plus one-star credit plus q mixing credit yields stated t+1 bound by union cardinality. Coverage/roots/disjointness remain explicit; no unrestricted theorem claimed. Author firstbuild001 EXIT0 reported. Forbidden scan PASS.

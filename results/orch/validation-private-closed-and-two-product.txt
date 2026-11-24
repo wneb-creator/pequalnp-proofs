@@ -1,0 +1,16 @@
+PARTIAL RESULTS ONLY. Exact gap L-meta-1477 remains unproved.
+Named-file checker remains REJECTED (no-theorem); no proof PR opened.
+PrivateOneMaskAutomatic is a results-only preservation file above the512KiB PR limit.
+No-productive-joint, first-layer and disjointness restrictions on the masked-product bounds remain explicit.
+
+PlaneZeroMaskPrivate.lean lines=9028 bytes=438092 SHA256=e662539a89ef6fb237b26598ed417e09a9b4ef31dc91df3e3889146337c3adf6; author build EXIT0; independent review PASS by status_audit; full log=results/orch/plane-zero-mask-private-build-001.log
+PrivateBothMaskClosed.lean lines=9493 bytes=460046 SHA256=3a42d99b9e715aa03e96ce218a8608ccb24e4bb438951d6f5c943b4437c21089; author build EXIT0; independent review PASS by status_audit; full log=results/orch/private-both-mask-closed-build-001.log
+PrivateOneMaskAutomatic.lean lines=11596 bytes=570258 SHA256=fbbfde3f4477a18198497e5c668e9fe7a2ba19d2cf619e72d1d738b92997362d; author build EXIT0; independent review PASS by gate_invariants; full log=results/orch/private-one-mask-automatic-build-001.log
+TwoProductCentreless.lean lines=8360 bytes=410339 SHA256=f9f006cf845e093b32a5d391ddf967dafbc335ec44b724581f881427c7e0244e; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/two-product-centreless-build-002.log
+TwoProductOneCentreless.lean lines=8513 bytes=418625 SHA256=de9ae74fea0472bc2508d537276cedd9a18f87b3493e6868b02f77c05242ae00; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/two-product-one-centreless-build-002.log
+TwoProductLowerBound.lean lines=8547 bytes=420684 SHA256=3037db3bfab925702f239e661e5771a9b5e0076021eb17b33bd76b12db06e0ea; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/two-product-lower-bound-build-001.log
+SingletonReaderCredit.lean lines=7633 bytes=372289 SHA256=1cf5557be41d0e0f63a2fea6a6637684a792c2b66bf0e146561d3e651e3fd2f8; author build EXIT0; independent review PASS by status_audit; full log=results/orch/singleton-reader-credit-build-001.log
+SingletonPureBudget.lean lines=8107 bytes=396413 SHA256=28c049a7bd742d4d70f42197aa0f5e5633facb0d86db36db3a868f0848716dda; author build EXIT0; independent review PASS by root; full log=results/orch/singleton-pure-budget-build-001.log
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=280.03 subagents=6
