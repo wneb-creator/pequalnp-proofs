@@ -1,0 +1,120 @@
+{
+  "CNF_files_written": false,
+  "actual_size_signed_counter_assignments": 1632,
+  "all_original_cost_clauses_preserved": true,
+  "ancestor_budget_off_by_one_checked": true,
+  "ancestor_flags_clauses": 3400,
+  "ancestor_flags_variables": 952,
+  "ancestor_root_checks": 8384,
+  "audit_script_seconds": 7.225,
+  "build_started": false,
+  "case_audits": {
+    "meet1or1meet3": {
+      "clauses": 101563,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "3ed39132e1c62ded17c5f2ab7c4d87a72028bfdaa6f42c96702db63a3113c178",
+      "variables": 11764
+    },
+    "meet1or2meet2": {
+      "clauses": 101997,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "f2bc694e3f8a2adcaad70df74c85b2db0d3f843f9c6e8924350323248a48deba",
+      "variables": 11764
+    },
+    "meet2or1meet2": {
+      "clauses": 101562,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "f08746870b59fe0b78e142b593a340738d7edfafe422edf82cb55fb74bd920b8",
+      "variables": 11764
+    },
+    "meet3or2": {
+      "clauses": 101996,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "65b6c201cf6c0ca3e3e19046add3c3a22d0927a286aec891a68510d092998733",
+      "variables": 11764
+    },
+    "meet5": {
+      "clauses": 102433,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "53534d3e4fced3343b0baca899ee1232963622de064a2fe1b1ad278f97c19555",
+      "variables": 11764
+    },
+    "or1meet4": {
+      "clauses": 101998,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "b67ffc01320b368e482f01a143eb99fbda87fe13f640ab2730c6b351326eb72b",
+      "variables": 11764
+    },
+    "or2meet3": {
+      "clauses": 101996,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "cd9e809a81aa96b6f0f6774eccdd4c14b43ed72a60c4b88c2276e455fef29501",
+      "variables": 11764
+    },
+    "prefix-base": {
+      "clauses": 96610,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "45ab1a010dbf0bfdd9351da710af29e815837a08d7271a217f459459fd650e24",
+      "variables": 11732
+    },
+    "prefix-distinct": {
+      "clauses": 100682,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "be26b85132b39d05ddd4abd183e4eae5a4a9ab5af41c95f8840685678483d681",
+      "variables": 11764
+    },
+    "prefix-lex": {
+      "clauses": 100650,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "1942bb1f6d91913674a378c436f969ee7897381e57cf0e994e9d2748beee9d19",
+      "variables": 11764
+    }
+  },
+  "companion_mathematical_reviews": {
+    "ancestor-cost-math-review.json": {
+      "sha256": "e1a32f9031341fdd3089884e04094d77dba68ea6cdfe06bf94f63efcddd4989d",
+      "status": "PASS"
+    },
+    "partial-edge-cost-review.json": {
+      "sha256": "5d3c0c615d4a822b3a819fe4361bcf25ccae33514cc2aa240de864d7d8a7f4a5",
+      "status": "PASS"
+    },
+    "strict-or-review.json": {
+      "sha256": "a944f1f4668c6c00018ced1451153271766101ed2170f386d2f6c5aaf12d3a24",
+      "status": "PASS"
+    }
+  },
+  "desk_calls": false,
+  "existing_functions_AST_unchanged_except_boundary_table_exposure": true,
+  "full_support_overflow_exemption_exact": true,
+  "generator_modified": false,
+  "lex_flags_disjoint_and_reallocated": true,
+  "limitations": [
+    "Finite controls plus source review, not a Lean formalization.",
+    "No SAT/UNSAT, search exhaustion, or gap-acceptance verdict.",
+    "Forward totalizer flags need not equal thresholds in every satisfying assignment; exact existential projection follows from forced lower thresholds and the minimal threshold extension.",
+    "Full-support exemption is necessary for free TRUE."
+  ],
+  "mathematics": "Separate companion mathematical reviews reported PASS; this review independently checks the encoding.",
+  "partial_and_ancestor_cost_clauses": 15867,
+  "partial_and_ancestor_cost_variables": 4647,
+  "repository_modified": false,
+  "residual_edge_truth_table_cases": 16,
+  "reviewed_at_utc": "2026-11-24T01:52:30.047451+00:00",
+  "scope": "Final ancestorcost superset: strict OR, residual cost, signed totalizer, exact ancestry, generated CNF integration",
+  "small_signed_totalizer_assignments": 12291,
+  "solver_started": false,
+  "source": "/tmp/oec/pequalnp-pilot-18/search_l1342_shard17_ancestorcost.py",
+  "source_sha256": "60a37d85580f1190e3dac3793610a6d90197c90f2cde08520ec79269be3f5997",
+  "strict_OR_clauses": 2941,
+  "strict_OR_variables": 935,
+  "strict_selector_equality_cases": 15810,
+  "strict_witness_projection_cases": 1024,
+  "subagent_count": 0,
+  "subagents": "none",
+  "total_added_clauses_over_cost": 18808,
+  "total_added_variables_over_cost": 5582,
+  "total_session_minutes": 93.72,
+  "verdict": "PASS",
+  "vertex_cover_subgraphs_compared": 65536
+}

@@ -32,8 +32,13 @@ SAT validator tests: 30 passed. Streaming certificate checker controls: 4 passed
 No SAT/UNSAT search verdict and no posted-gap checker acceptance yet.
 
 Sub-agents: 2 inherited-model agents for mathematical search and independent validation/proof engineering
-TIMING total=84.0 subagents=2
+TIMING total=96.4 subagents=2
 
 Recovery checkpoint: files and pushed results survived the environment restart.
 All interrupted searches remain inconclusive. Reviewed support-cost generator
 adds 17 variables and 1287 clauses. Seven fresh cases running or queued.
+
+Ancestor-cost checkpoint: mathematical and independent encoding reviews PASS.
+Signed-counter and exact-reachability finite controls PASS. Online runner: 15
+controls PASS, independent source review PASS. Production results still PENDING.
+No posted-gap theorem, acceptance, exhaustion, or PR is claimed.

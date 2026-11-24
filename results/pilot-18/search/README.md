@@ -43,3 +43,17 @@ wire covers all graph edges. Free TRUE remains exempt. Run
 `python search_l1342_shard17_cost.py --distinct-prefix OUTPUT_DIRECTORY`.
 Both mathematical and encoding reviews passed; the seven new cases are running
 or queued. No SAT/UNSAT verdict has been obtained.
+
+The ancestor-cost variant additionally removes absorbed noncopy OR gates and
+bounds every prefix wire using its residual accepted edge graph and exact
+structural ancestor cone. Mathematical and separate encoding reviews passed.
+Run `python search_l1342_shard17_ancestorcost.py --distinct-prefix OUTPUT_DIRECTORY`.
+All seven CNF hashes are in ancestorcost-reproducibility.json. Two strong cases
+are running with online checkers; all four weaker solver states are paused.
+
+The included online runner forwards binary DRAT through a bounded FIFO to the
+unchanged hash-pinned DSR checker. It retains full logs and a proof hash, but
+no replayable certificate. It accepts only the explicit solver/checker UNSAT
+verdicts with successful exits and a complete producer stream. Fifteen controls
+passed, and the runner received an independent source review. No production
+case has yet produced a verdict.

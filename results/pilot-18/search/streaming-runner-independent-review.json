@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "reviewer": "main agent, independent of runner author",
+  "source_sha256": "535ff6e32a68a31eefa1545f031483d0e9b73acd79066d1bbb2a2f42c86685bb",
+  "source_lines_reviewed": 349,
+  "controls_reviewed": 15,
+  "acceptance_review": "Requires matching solver UNSAT20 and checker VERIFIED UNSAT0, complete producer stream, unchanged hashes, and no abort/failure",
+  "bounds_review": "Bounded relay, per-child memory caps, record count cap, direct worker process groups and parent-death signals",
+  "limitations": [
+    "No replayable proof retained",
+    "Default-width checker state can grow; limits abort without acceptance",
+    "Positive streamed prefix suffices even if checker exits before draining producer tail; report states bytes not forwarded"
+  ],
+  "current_search": "No verdict; no Lean acceptance claim",
+  "time": "2026-11-24T01:53:34.759603+00:00"
+}

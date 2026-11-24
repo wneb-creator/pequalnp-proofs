@@ -1,0 +1,93 @@
+{
+  "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+  "checker_source_modified": false,
+  "desk_or_lease_calls": false,
+  "documentation": "/tmp/oec/pequalnp-pilot-18/lean-setup/streaming-runner.md",
+  "existing_searches_interrupted": false,
+  "limitations": [
+    "Proof hash and logs cannot replay a discarded certificate.",
+    "Streaming DSR retains growing clause state; 4000 MiB address-space limit is per worker, not aggregate.",
+    "Checker throughput can throttle the solver.",
+    "Coordinator must signal lease failure via abort-file; no automatic renewal or silent-coordinator-failure detection.",
+    "SIGKILL leaves no final result; Linux direct workers receive parent-death SIGKILL."
+  ],
+  "logs": [
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/streaming-controls.stdout.txt",
+    "/tmp/oec/pequalnp-pilot-18/lean-setup/streaming-controls.stderr.txt"
+  ],
+  "measurement_scope": "8 MiB repeated-clause control, not representative RAT workload; RSS sampling may miss peaks",
+  "production_searches_started": false,
+  "proof_retained": false,
+  "recorded_at_utc": "2026-11-24T01:49:47.298546+00:00",
+  "relay_buffer_limit_bytes": 1048576,
+  "runner_sha256": "535ff6e32a68a31eefa1545f031483d0e9b73acd79066d1bbb2a2f42c86685bb",
+  "strict_acceptance": "solver exit20 + s UNSATISFIABLE; checker exit0 + s VERIFIED UNSAT; complete stream hash and no failure/abort",
+  "synthetic_transport_benchmark": {
+    "accepted_CNF_UNSAT": true,
+    "checker_exit": 0,
+    "checker_may_stop_after_verified_empty_clause": true,
+    "checker_pid": 11522,
+    "checker_sha256": "e6894b5b74ac2c09b494344f397ec5111547aaa782cdb399f1a8b6835ecef84b",
+    "checker_verdicts": [
+      "s VERIFIED UNSAT"
+    ],
+    "children_maxrss_kib": 9012,
+    "children_system_cpu_seconds": 0.008827999999999999,
+    "children_user_cpu_seconds": 0.095746,
+    "cnf_sha256": "bdcfed14408fb3f368fe82437336d283a9dedc953677460e9c7317724c5e1e58",
+    "elapsed_seconds": 0.248128,
+    "error_detail": null,
+    "limits": {
+      "checker_address_space_mb": 4000,
+      "max_proof_zero_bytes": 100000000,
+      "max_seconds": 15.0,
+      "min_free_mb": 256,
+      "solver_address_space_mb": 4000
+    },
+    "logs": {
+      "checker.stderr.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "checker.stdout.txt": {
+        "bytes": 508,
+        "sha256": "8024b4d5976673882e5a1577cbfa7324043d760cfd0747e518e15f52c3758896"
+      },
+      "solver.stderr.txt": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "solver.stdout.txt": {
+        "bytes": 16,
+        "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+      }
+    },
+    "max_pending_bytes": 1048576,
+    "proof_bytes_forwarded_to_checker_pipe": 8388613,
+    "proof_bytes_not_forwarded": 0,
+    "proof_bytes_read": 8388613,
+    "proof_retained": false,
+    "proof_sha256": "f4b9ade085757d815284db74a53312ba5733e7c8f1b0b2a8b36a2625bf4e5fb8",
+    "proof_stream_complete": true,
+    "reason": null,
+    "relay_buffer_limit_bytes": 1048576,
+    "runner_cpu_seconds": 0.074169287,
+    "sampled_peak_rss_kib": {
+      "checker": 820,
+      "solver": 16
+    },
+    "scope": "Online CNF certificate checking only; no retained replayable certificate or Lean acceptance.",
+    "solver_exit": 20,
+    "solver_options": [],
+    "solver_pid": 11523,
+    "solver_sha256": "13b1b72cf01901e393228d7f9c80e3c5c40a7da434d00bab3af288495e3bb857",
+    "solver_verdicts": [
+      "s UNSATISFIABLE"
+    ],
+    "status": "VERIFIED_UNSAT",
+    "zero_bytes_counted": 2097154
+  },
+  "test_count": 15,
+  "tests": "PASS",
+  "verdict": "FEASIBLE_WITH_DOCUMENTED_LIMITS"
+}

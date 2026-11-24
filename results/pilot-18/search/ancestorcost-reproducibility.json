@@ -1,0 +1,69 @@
+{
+  "generator_sha256": "60a37d85580f1190e3dac3793610a6d90197c90f2cde08520ec79269be3f5997",
+  "cases": {
+    "meet1or1meet3": {
+      "clauses": 101563,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "3ed39132e1c62ded17c5f2ab7c4d87a72028bfdaa6f42c96702db63a3113c178",
+      "variables": 11764
+    },
+    "meet1or2meet2": {
+      "clauses": 101997,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "f2bc694e3f8a2adcaad70df74c85b2db0d3f843f9c6e8924350323248a48deba",
+      "variables": 11764
+    },
+    "meet2or1meet2": {
+      "clauses": 101562,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "f08746870b59fe0b78e142b593a340738d7edfafe422edf82cb55fb74bd920b8",
+      "variables": 11764
+    },
+    "meet3or2": {
+      "clauses": 101996,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "65b6c201cf6c0ca3e3e19046add3c3a22d0927a286aec891a68510d092998733",
+      "variables": 11764
+    },
+    "meet5": {
+      "clauses": 102433,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "53534d3e4fced3343b0baca899ee1232963622de064a2fe1b1ad278f97c19555",
+      "variables": 11764
+    },
+    "or1meet4": {
+      "clauses": 101998,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "b67ffc01320b368e482f01a143eb99fbda87fe13f640ab2730c6b351326eb72b",
+      "variables": 11764
+    },
+    "or2meet3": {
+      "clauses": 101996,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "cd9e809a81aa96b6f0f6774eccdd4c14b43ed72a60c4b88c2276e455fef29501",
+      "variables": 11764
+    },
+    "prefix-base": {
+      "clauses": 96610,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "45ab1a010dbf0bfdd9351da710af29e815837a08d7271a217f459459fd650e24",
+      "variables": 11732
+    },
+    "prefix-distinct": {
+      "clauses": 100682,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "be26b85132b39d05ddd4abd183e4eae5a4a9ab5af41c95f8840685678483d681",
+      "variables": 11764
+    },
+    "prefix-lex": {
+      "clauses": 100650,
+      "exact_prior_cost_sequence_plus_delta": true,
+      "sha256": "1942bb1f6d91913674a378c436f969ee7897381e57cf0e994e9d2748beee9d19",
+      "variables": 11764
+    }
+  },
+  "mathematics": "PASS",
+  "encoding": "PASS",
+  "result": "PENDING; no SAT/UNSAT or exhaustion verdict",
+  "online_checking": "Explicit solver and checker UNSAT required; no replayable proof is retained"
+}

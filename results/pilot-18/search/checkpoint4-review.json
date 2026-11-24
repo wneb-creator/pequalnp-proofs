@@ -1,0 +1,397 @@
+{
+  "CNF_case_checks": {
+    "meet1or1meet3": {
+      "actual_CNF_and_review_match": true,
+      "clauses": 101563,
+      "sha256": "3ed39132e1c62ded17c5f2ab7c4d87a72028bfdaa6f42c96702db63a3113c178",
+      "variables": 11764
+    },
+    "meet1or2meet2": {
+      "actual_CNF_and_review_match": true,
+      "clauses": 101997,
+      "sha256": "f2bc694e3f8a2adcaad70df74c85b2db0d3f843f9c6e8924350323248a48deba",
+      "variables": 11764
+    },
+    "meet2or1meet2": {
+      "actual_CNF_and_review_match": true,
+      "clauses": 101562,
+      "sha256": "f08746870b59fe0b78e142b593a340738d7edfafe422edf82cb55fb74bd920b8",
+      "variables": 11764
+    },
+    "meet3or2": {
+      "actual_CNF_and_review_match": true,
+      "clauses": 101996,
+      "sha256": "65b6c201cf6c0ca3e3e19046add3c3a22d0927a286aec891a68510d092998733",
+      "variables": 11764
+    },
+    "meet5": {
+      "actual_CNF_and_review_match": true,
+      "clauses": 102433,
+      "sha256": "53534d3e4fced3343b0baca899ee1232963622de064a2fe1b1ad278f97c19555",
+      "variables": 11764
+    },
+    "or1meet4": {
+      "actual_CNF_and_review_match": true,
+      "clauses": 101998,
+      "sha256": "b67ffc01320b368e482f01a143eb99fbda87fe13f640ab2730c6b351326eb72b",
+      "variables": 11764
+    },
+    "or2meet3": {
+      "actual_CNF_and_review_match": true,
+      "clauses": 101996,
+      "sha256": "cd9e809a81aa96b6f0f6774eccdd4c14b43ed72a60c4b88c2276e455fef29501",
+      "variables": 11764
+    },
+    "prefix-base": {
+      "actual_CNF_and_review_match": true,
+      "clauses": 96610,
+      "sha256": "45ab1a010dbf0bfdd9351da710af29e815837a08d7271a217f459459fd650e24",
+      "variables": 11732
+    },
+    "prefix-distinct": {
+      "actual_CNF_and_review_match": true,
+      "clauses": 100682,
+      "sha256": "be26b85132b39d05ddd4abd183e4eae5a4a9ab5af41c95f8840685678483d681",
+      "variables": 11764
+    },
+    "prefix-lex": {
+      "actual_CNF_and_review_match": true,
+      "clauses": 100650,
+      "sha256": "1942bb1f6d91913674a378c436f969ee7897381e57cf0e994e9d2748beee9d19",
+      "variables": 11764
+    }
+  },
+  "Lean_unchanged": true,
+  "accepted_tiny_controls": 3,
+  "actions_not_taken": [
+    "repository_edit",
+    "stage",
+    "commit",
+    "push",
+    "worker_control",
+    "solver_run",
+    "build",
+    "desk_or_lease_call"
+  ],
+  "binding_checks": {
+    "ancestor_math_review_hashes_bound_in_encoding_review": "PASS",
+    "fifteen_tests_zero_failures_and_full_test_logs": "PASS",
+    "positive_control_acceptance_requires_all_solver_checker_conditions": "PASS",
+    "reproducibility_equals_encoding_manifest": "PASS",
+    "runner_controls_feasibility_and_independent_review_match_source": "PASS",
+    "ten_CNF_hashes_counts_and_source_hashes": "PASS",
+    "three_generator_source_hashes_and_relevant_reviews": "PASS"
+  },
+  "copies_checked": [
+    {
+      "byte_identical": true,
+      "packaged_path": "ancestor-cost-math-review.json",
+      "scratch_path": "math-analysis/ancestor-cost-math-review.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "ancestor-cost-math-review.md",
+      "scratch_path": "math-analysis/ancestor-cost-math-review.md"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "partial-edge-cost-review.json",
+      "scratch_path": "math-analysis/partial-edge-cost-review.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "partial-edge-cost-review.md",
+      "scratch_path": "math-analysis/partial-edge-cost-review.md"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "strict-or-review.json",
+      "scratch_path": "math-analysis/strict-or-review.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "strict-or-review.md",
+      "scratch_path": "math-analysis/strict-or-review.md"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "ancestorcost-encoding-review.json",
+      "scratch_path": "lean-setup/ancestorcost-encoding-review.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "run_checked_kissat.py",
+      "scratch_path": "lean-setup/run_checked_kissat.py"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "test_checked_kissat_runner.py",
+      "scratch_path": "lean-setup/test_checked_kissat_runner.py"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-controls.json",
+      "scratch_path": "lean-setup/streaming-controls.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-controls.stdout.txt",
+      "scratch_path": "lean-setup/streaming-controls.stdout.txt"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-controls.stderr.txt",
+      "scratch_path": "lean-setup/streaming-controls.stderr.txt"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-feasibility.json",
+      "scratch_path": "lean-setup/streaming-feasibility.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "streaming-runner.md",
+      "scratch_path": "lean-setup/streaming-runner.md"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "ancestorcost-main-validation.json",
+      "scratch_path": "ancestorcost-main-validation.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "partialcost-main-validation.json",
+      "scratch_path": "partialcost-main-validation.json"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "validate_ancestorcost_main.py",
+      "scratch_path": "validate_ancestorcost_main.py"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "validate_partialcost_main.py",
+      "scratch_path": "validate_partialcost_main.py"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "search_l1342_shard17_ancestorcost.py",
+      "scratch_path": "search_l1342_shard17_ancestorcost.py"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "search_l1342_shard17_partialcost.py",
+      "scratch_path": "search_l1342_shard17_partialcost.py"
+    },
+    {
+      "byte_identical": true,
+      "packaged_path": "search_l1342_shard17_strict.py",
+      "scratch_path": "search_l1342_shard17_strict.py"
+    }
+  ],
+  "diff_check": "PASS",
+  "gap": "L-meta-1342",
+  "head_commit": "936ca817922b6d012305011a53888ad0976fa085",
+  "index_empty": true,
+  "latest_README_sha256": "6b7b08282beb98a97b81adc2e560f7be7e624cc3fb36bde0b4154b24937e2999",
+  "latest_README_state": "Two strong online cases running; all four weaker states paused; no production verdict",
+  "notes": [
+    "Operational worker state is reported by main; no worker was inspected, started, paused or stopped for this review.",
+    "Test/helper scripts retain scratch paths and are archived validation evidence rather than portable fresh-clone tests.",
+    "Historical math reports separate mathematical PASS from implementation review; the final superset encoding review supplies the latter.",
+    "No staged source exists yet; this verdict binds the exact pending worktree bytes and updated README hash."
+  ],
+  "red_team_checklist": {
+    "Lean_import_attribute_option_single_file_rules": "No Lean changes; this is an artifact checkpoint, not a proof PR",
+    "all_new_JSON_objects_parse": true,
+    "checker_memory_growth_and_resource_caps_disclosed": true,
+    "discarded_stream_not_claimed_replayable_certificate": true,
+    "mathematical_reviews_explicitly_not_Lean_formalized": true,
+    "no_Lean_statement_or_axiom_changes": true,
+    "no_binary_or_symlink_additions": true,
+    "no_credential_or_lease_identifier_values_found": true,
+    "no_global_exhaustion_production_result_or_Lean_acceptance_claim": true,
+    "only_expected_results_paths_changed": true,
+    "production_PENDING_distinguished_from_tiny_control_UNSAT": true,
+    "subagent_and_timing_measurements_present": true
+  },
+  "reviewed_at_utc": "2026-11-24T01:55:45.344531+00:00",
+  "runner_sha256": "535ff6e32a68a31eefa1545f031483d0e9b73acd79066d1bbb2a2f42c86685bb",
+  "scope": "Checkpoint4 result-artifact push review; not a proof PR or gap acceptance",
+  "sensitive_scan": {
+    "files": 25,
+    "findings": 0,
+    "patterns": [
+      "github_token",
+      "authorization_value",
+      "private_key",
+      "url_userinfo",
+      "secret_assignment",
+      "lease_identifier",
+      "uuid"
+    ]
+  },
+  "snapshots": [
+    {
+      "bytes": 3647,
+      "path": "results/pilot-18/search/README.md",
+      "sha256": "6b7b08282beb98a97b81adc2e560f7be7e624cc3fb36bde0b4154b24937e2999",
+      "status": " M"
+    },
+    {
+      "bytes": 2299,
+      "path": "results/pilot-18/validation.txt",
+      "sha256": "c56ca7d4ace633bf687912eaebbac64a312257e6528383d8348d0872483a0176",
+      "status": " M"
+    },
+    {
+      "bytes": 670,
+      "path": "results/pilot-18/search/ancestor-cost-math-review.json",
+      "sha256": "e1a32f9031341fdd3089884e04094d77dba68ea6cdfe06bf94f63efcddd4989d",
+      "status": "??"
+    },
+    {
+      "bytes": 2203,
+      "path": "results/pilot-18/search/ancestor-cost-math-review.md",
+      "sha256": "7b7a73434c4f027550fa9342b47948669b858d10ba4cb45c48f1d7784808a184",
+      "status": "??"
+    },
+    {
+      "bytes": 4708,
+      "path": "results/pilot-18/search/ancestorcost-encoding-review.json",
+      "sha256": "c31c0c0a7fdbddbee671b47d534497d8c68fc5edfaf48860c3435e774afcb623",
+      "status": "??"
+    },
+    {
+      "bytes": 333,
+      "path": "results/pilot-18/search/ancestorcost-main-validation.json",
+      "sha256": "d8e8688ee40a393a9ff083ef0c2666ed78740ff1c33ad18e8daa00ec37bcd103",
+      "status": "??"
+    },
+    {
+      "bytes": 2449,
+      "path": "results/pilot-18/search/ancestorcost-reproducibility.json",
+      "sha256": "ac60335ddc73a8d0fe50b1c735099126c48fa6fcc5bbab9c14486ebedd14ca78",
+      "status": "??"
+    },
+    {
+      "bytes": 1955,
+      "path": "results/pilot-18/search/partial-edge-cost-review.json",
+      "sha256": "5d3c0c615d4a822b3a819fe4361bcf25ccae33514cc2aa240de864d7d8a7f4a5",
+      "status": "??"
+    },
+    {
+      "bytes": 6404,
+      "path": "results/pilot-18/search/partial-edge-cost-review.md",
+      "sha256": "0219c49b09ccc2af09c325798c27c8eeed22b26289b75023c96ca79a9fb64bc1",
+      "status": "??"
+    },
+    {
+      "bytes": 340,
+      "path": "results/pilot-18/search/partialcost-main-validation.json",
+      "sha256": "26ba25ebbc1e277c9ea520dd53f40a62b6ef67a54675783eeb1e1385bf1d561f",
+      "status": "??"
+    },
+    {
+      "bytes": 17043,
+      "path": "results/pilot-18/search/run_checked_kissat.py",
+      "sha256": "535ff6e32a68a31eefa1545f031483d0e9b73acd79066d1bbb2a2f42c86685bb",
+      "status": "??"
+    },
+    {
+      "bytes": 28662,
+      "path": "results/pilot-18/search/search_l1342_shard17_ancestorcost.py",
+      "sha256": "60a37d85580f1190e3dac3793610a6d90197c90f2cde08520ec79269be3f5997",
+      "status": "??"
+    },
+    {
+      "bytes": 27213,
+      "path": "results/pilot-18/search/search_l1342_shard17_partialcost.py",
+      "sha256": "b7aca3bb4fedf7dbe12d3e86416576f1e0bfc2612ae9d140b6a0be149c250d80",
+      "status": "??"
+    },
+    {
+      "bytes": 24563,
+      "path": "results/pilot-18/search/search_l1342_shard17_strict.py",
+      "sha256": "514e55125469e00cec874c847d8ed2c7e02fc6caefa07312e0c24f0442336777",
+      "status": "??"
+    },
+    {
+      "bytes": 40403,
+      "path": "results/pilot-18/search/streaming-controls.json",
+      "sha256": "f890a12c5e3d1c3b4872c5771e7ff76e9c4ea5d445b23f691902741ba3776b44",
+      "status": "??"
+    },
+    {
+      "bytes": 1824,
+      "path": "results/pilot-18/search/streaming-controls.stderr.txt",
+      "sha256": "d5ccc708114afd97fa2a46b8b559f5e784506b617369a31dd76d45cd2d53edef",
+      "status": "??"
+    },
+    {
+      "bytes": 0,
+      "path": "results/pilot-18/search/streaming-controls.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "??"
+    },
+    {
+      "bytes": 3780,
+      "path": "results/pilot-18/search/streaming-feasibility.json",
+      "sha256": "85d9bbf8ddc694bdbf2c6574db3dee770e32b065aefc62830f2c30d363e62440",
+      "status": "??"
+    },
+    {
+      "bytes": 883,
+      "path": "results/pilot-18/search/streaming-runner-independent-review.json",
+      "sha256": "6221caa991f44cca2da7b3d60c0dcda146c03ab6d73f1e53a7ea1ab7b2662fb3",
+      "status": "??"
+    },
+    {
+      "bytes": 6559,
+      "path": "results/pilot-18/search/streaming-runner.md",
+      "sha256": "cbc088f3f28d216a58ba1f8a23799980402c0836e41880704a2abc12e2a9d495",
+      "status": "??"
+    },
+    {
+      "bytes": 2271,
+      "path": "results/pilot-18/search/strict-or-review.json",
+      "sha256": "a944f1f4668c6c00018ced1451153271766101ed2170f386d2f6c5aaf12d3a24",
+      "status": "??"
+    },
+    {
+      "bytes": 2732,
+      "path": "results/pilot-18/search/strict-or-review.md",
+      "sha256": "a9f2eae2107868dd3fecd89d8db039e7d91a54b4ff711df2ddf8b7c5d5650950",
+      "status": "??"
+    },
+    {
+      "bytes": 11296,
+      "path": "results/pilot-18/search/test_checked_kissat_runner.py",
+      "sha256": "f2c82af7f1a5cfb2b549af9f43986e2740c564dc44d4f67fd2568f8f1c63a0af",
+      "status": "??"
+    },
+    {
+      "bytes": 2738,
+      "path": "results/pilot-18/search/validate_ancestorcost_main.py",
+      "sha256": "67983940bede106dcd31c8607b7686e11b46576a2b8ab6d79c702b9bda643d17",
+      "status": "??"
+    },
+    {
+      "bytes": 2974,
+      "path": "results/pilot-18/search/validate_partialcost_main.py",
+      "sha256": "0209e727befd6500f01b84eba4377e652d368ce6a6d8235fc926e5ad7aaafa3c",
+      "status": "??"
+    }
+  ],
+  "source_hashes": {
+    "ancestorcost": "60a37d85580f1190e3dac3793610a6d90197c90f2cde08520ec79269be3f5997",
+    "partialcost": "b7aca3bb4fedf7dbe12d3e86416576f1e0bfc2612ae9d140b6a0be149c250d80",
+    "strict": "514e55125469e00cec874c847d8ed2c7e02fc6caefa07312e0c24f0442336777"
+  },
+  "subagent_count": 0,
+  "subagents": "none",
+  "total_session_minutes": 96.97,
+  "tracked_files_modified": 2,
+  "untracked_files": 23,
+  "verdict": "PASS"
+}

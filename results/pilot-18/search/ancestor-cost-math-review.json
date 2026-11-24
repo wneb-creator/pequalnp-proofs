@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "mathematical_review": "PASS",
+  "claim": "Apply partial-edge support cost to the exact structural ancestor cone.",
+  "cone_gate_count": "1 + sum_{h<g} a[g,h]",
+  "cardinality": "sum(S)+sum(q)+sum(c)+sum_{h<g} NOT a[g,h] <= g+2",
+  "full_support_exempt": true,
+  "algebra_cases_checked": 5967,
+  "ancestor_requirement": "Exact reachability intended; undercounting can be unsound, overcounting only weakens the cut.",
+  "implementation_review": "NOT REVIEWED: mathematical proposal only.",
+  "solver_started": false,
+  "repository_modified": false,
+  "limitation": "Depends on mathematically reviewed partial-edge theorem; not Lean-formalized."
+}

@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "mathematical_review": "PASS",
+  "implementation_review": "PASS",
+  "source": "/tmp/oec/pequalnp-pilot-18/search_l1342_shard17_strict.py",
+  "source_sha256": "514e55125469e00cec874c847d8ed2c7e02fc6caefa07312e0c24f0442336777",
+  "parent_cost_source_sha256": "f3236024e27aed9aa90356e442d4644e5f8920609a3f922cac9ddab5387a5d06",
+  "delta": "Build only records existing operand boundary literals; other parent functions unchanged.",
+  "added_variables": 935,
+  "same_source_flags": 17,
+  "directional_witnesses": 918,
+  "added_clauses": 2941,
+  "base_clauses_unchanged": true,
+  "exact_generated_clause_sequence_checked": true,
+  "selector_equality_cases": 91,
+  "four_row_projection_cases": 1024,
+  "lex_flag_reallocation_and_distinct_checked": true,
+  "case_audits": {
+    "meet5": {
+      "variables": 7117,
+      "clauses": 86566,
+      "sha256": "5c22818de63f9a887d774c9ba4aa18b7d16b0c465cd2e03d752000dfb1aa0092"
+    },
+    "or1meet4": {
+      "variables": 7117,
+      "clauses": 86131,
+      "sha256": "177a46d6b5303bbb7ac04d89e338062a82239b39cc985fe87006e415c041728b"
+    },
+    "or2meet3": {
+      "variables": 7117,
+      "clauses": 86129,
+      "sha256": "181bdd999be7ba52dbd00b1ea2ff0f22e52119f0e5579b47ad7a66ab80ac5e72"
+    },
+    "meet1or1meet3": {
+      "variables": 7117,
+      "clauses": 85696,
+      "sha256": "581cf1b730a82dee63e9ac5bfc6a2868cb6e8f3c34a9bbdb4cd7de4cae301c0c"
+    },
+    "meet1or2meet2": {
+      "variables": 7117,
+      "clauses": 86130,
+      "sha256": "55ea4987243af93a44bc80ae2d6d5cbf5774a9e5c47ecd42394e6ec1e53fc588"
+    },
+    "meet2or1meet2": {
+      "variables": 7117,
+      "clauses": 85695,
+      "sha256": "e462c5768b45599581dd536ab260a8391d8d917b0e3a918709a61627c27e5dd6"
+    },
+    "meet3or2": {
+      "variables": 7117,
+      "clauses": 86129,
+      "sha256": "99e4186c8fbc169783e48aec474f2b9dde0c60e1939019c09534c85dc8bd18b9"
+    }
+  },
+  "normalization": "Delete absorbed noncopy ORs preserving singleton and edge rows; normalize/prune/sort the core and restore exempt final copy chain.",
+  "solver_started": false,
+  "CNF_generated_or_modified": false,
+  "repository_modified": false,
+  "limitations": [
+    "Mathematical normalization not Lean-certified.",
+    "No SAT/UNSAT or runtime claim."
+  ]
+}

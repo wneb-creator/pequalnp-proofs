@@ -1,0 +1,9 @@
+{
+  "status": "PASS: finite encoder controls; separate math/reviewer verdict required",
+  "source_sha256": "60a37d85580f1190e3dac3793610a6d90197c90f2cde08520ec79269be3f5997",
+  "signed_totalizer_assignments": 36409,
+  "ancestry_root_checks": 17408,
+  "ancestor_added_variables": 952,
+  "ancestor_clauses": 3400,
+  "seconds": 5.512
+}

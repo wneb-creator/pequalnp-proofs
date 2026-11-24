@@ -1,0 +1,20 @@
+test_checker_failure_before_fifo_producer_opens (__main__.RunnerControls.test_checker_failure_before_fifo_producer_opens) ... ok
+test_checker_hash_mismatch_starts_no_worker (__main__.RunnerControls.test_checker_hash_mismatch_starts_no_worker) ... ok
+test_early_verified_checker_drains_and_hashes_all_bytes (__main__.RunnerControls.test_early_verified_checker_drains_and_hashes_all_bytes) ... ok
+test_eight_megabyte_transport_and_duplicate_clause_control (__main__.RunnerControls.test_eight_megabyte_transport_and_duplicate_clause_control) ... ok
+test_invalid_empty_clause_rejected_by_real_checker (__main__.RunnerControls.test_invalid_empty_clause_rejected_by_real_checker) ... ok
+test_lease_loss_sentinel_and_sigterm_shutdown (__main__.RunnerControls.test_lease_loss_sentinel_and_sigterm_shutdown) ... ok
+test_preexisting_abort_file_starts_no_worker (__main__.RunnerControls.test_preexisting_abort_file_starts_no_worker) ... ok
+test_proof_record_guard (__main__.RunnerControls.test_proof_record_guard) ... ok
+test_real_kissat_sat (__main__.RunnerControls.test_real_kissat_sat) ... ok
+test_real_kissat_unsat (__main__.RunnerControls.test_real_kissat_unsat) ... ok
+test_supervisor_sigkill_stops_direct_workers (__main__.RunnerControls.test_supervisor_sigkill_stops_direct_workers) ... ok
+test_timeout_escalates_and_cleans_fifo (__main__.RunnerControls.test_timeout_escalates_and_cleans_fifo) ... ok
+test_unknown (__main__.RunnerControls.test_unknown) ... ok
+test_valid_without_empty_clause_never_accepted (__main__.RunnerControls.test_valid_without_empty_clause_never_accepted) ... ok
+test_zero_exit_with_valid_proof_is_not_solver_unsat20 (__main__.RunnerControls.test_zero_exit_with_valid_proof_is_not_solver_unsat20) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 3.164s
+
+OK
