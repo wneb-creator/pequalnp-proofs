@@ -25,3 +25,7 @@
 - 2026-11-24T23:10:13.667897+00:00 Enlarged phase live smoke and independent restoration audit PASS:102019 files/2306968399 bytes, exact SHA256/size/mode/mtime and original runtime links. Preparing nativechecker004 with unchanged verifier/environment.
 
 - 2026-11-24T23:17:38.397184+00:00 Checker004 completed exit3: native137, no verdict; full storage restoration completed. Preserving all logs before further resource work.
+
+- 2026-11-24T23:38:56.831476+00:00 Preserved complete named-build003/import-guard003 output for the97-line Defs-only candidate. Build PASS, source review PASS, pushed9b502f6. Checker verdict still pending.
+
+- 2026-11-24T23:48:46.565603+00:00 Checker005 complete exit3/native137 with no verdict; independent full restoration audit PASS. Preparing reserved integration smoke. Lease renewed separately in scratch desk log.

@@ -42,3 +42,8 @@ FUSE capability was refused by the environment, and no bypass was attempted. Nat
 
 ## Checker resource investigation
 The third and fourth original-checker attempts also ended with native exit137 before a verdict. Storage was restored exactly after each. The enlarged phase passed independent auditing of102019 files/2306968399 bytes. The fourth attempt reduced pinned storage to2133220976 bytes but still exhausted8GiB memory. The next bounded approaches are retiring redundant RAM-holder processes and encouraging the Node launcher to collect its temporary verifier-binary hash buffer. Neither changes the proof, verifier, library data or sanitized Lean environment.
+
+## Narrow proof imports
+Deleting only `import Mathlib` preserves the full proof and exact statement. The named97-line module built successfully (5147 jobs), and the import/source guard passed. Its dependency closure is4069 modules instead of11096, removing7027 modules from the checker's separately loaded proof environment. The statement environment still loads the full pinned Mathlib. The compiled candidate is pushed at9b502f64bcc2eab6dbfccf0b32442467dd1ae270. Checker005 will use the previously tested storage wrapper; the new core-offload prototype remains inactive.
+
+Checker005 also ended with native137 before a verdict. Full restoration and independent byte audit passed. The resource monitor now reads only128 journal bytes instead of parsing the full journal; whether earlier monitoring contributed to memory pressure is unverified. The reserved reviewed process handoff and unused-core offload remain the next attempt; no checker logic or Lean settings are changed.
