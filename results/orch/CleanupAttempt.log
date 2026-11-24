@@ -1,0 +1,2 @@
+Try this:
+  [apply] simp only [Bool.and_comm, Bool.and_or_distrib_left]

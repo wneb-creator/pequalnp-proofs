@@ -1,0 +1,7 @@
+Trace adaptation validation
+2026-11-24T17:31:10.068553+00:00
+TraceMini.lean: PASS, Lean exit 0, empty stdout/stderr.
+PaddingMini.lean: PASS, Lean exit 0, empty stdout/stderr.
+Fullcopy compile cancelled at root request to avoid repeated unchanged finite-certificate checks; root will validate integrated whole file.
+Baseline PR7597.lean: 1241 lines. Trace adaptation: 1255 lines.
+Changed only two Trace predicates and their two induction proofs, preserving nil/gate APIs.

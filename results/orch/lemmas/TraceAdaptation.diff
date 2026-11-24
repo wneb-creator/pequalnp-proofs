@@ -1,0 +1,73 @@
+diff --git a/tmp/oec/pequalnp-pilot-36/PR7597.lean b/tmp/oec/pequalnp-pilot-36/scratch/adapt/PR7597-Trace.lean
+index f438e2f..44a29ac 100644
+--- a/tmp/oec/pequalnp-pilot-36/PR7597.lean
++++ b/tmp/oec/pequalnp-pilot-36/scratch/adapt/PR7597-Trace.lean
+@@ -977,16 +977,23 @@ private theorem certificate (a b c : W) :
+     have eq := tag_eq i u e; subst u
+     simpa only [tag_noinput,Bool.false_or] using List.all_eq_true.mp hh _ hu
+ 
+-inductive Trace : List W → Prop
+-| nil : Trace []
+-| gate {tail : List W} {u v : W} : Trace tail → u ∈ inputs ++ tail → v ∈ inputs ++ tail →
+-    Trace ((u ||| v) :: tail)
++def Trace : List W → Prop
++  | [] => True
++  | w :: tail => Trace tail ∧ ∃ u ∈ inputs ++ tail, ∃ v ∈ inputs ++ tail, w = u ||| v
++
++lemma Trace.nil : Trace [] := trivial
++
++lemma Trace.gate {tail : List W} {u v : W} (h : Trace tail)
++    (hu : u ∈ inputs ++ tail) (hv : v ∈ inputs ++ tail) : Trace ((u ||| v) :: tail) :=
++  ⟨h, u, hu, v, hv, rfl⟩
+ 
+ private theorem explain {ws : List W} (h : Trace ws) {w : W} (hw : w ∈ ws) :
+     w ∈ inputs ∨ ∃ u ∈ inputs ++ ws, ∃ v ∈ inputs ++ ws, split w u v = true := by
+-  induction h with
++  induction ws with
+   | nil => simp at hw
+-  | @gate tail u v ht hu hv ih =>
++  | cons z tail ih =>
++    obtain ⟨ht, u, hu, v, hv, rfl⟩ := h
++    have ih := ih ht
+     have lift (x : W) (hx : x ∈ inputs ++ tail) : x ∈ inputs ++ (u ||| v) :: tail := by
+       simpa only [List.mem_append, List.mem_cons] using
+         (List.mem_append.mp hx).imp_right (fun h => Or.inr h : x ∈ tail → x = u ||| v ∨ x ∈ tail)
+@@ -1076,9 +1083,15 @@ private def unitBit (j : Fin 25) : P := BitVec.ofNat 25 (2 ^ j.val)
+ private def free (w : P) : Prop := w = 0 ∨ ∃ j, w = unitBit j
+ private def usable (bank : List P) (w : P) := free w ∨ w ∈ bank
+ 
+-inductive Trace : List P → Prop
+-  | nil : Trace []
+-  | gate {t : List P} {u v : P} : Trace t → usable t u → usable t v → Trace ((u ||| v) :: t)
++def Trace : List P → Prop
++  | [] => True
++  | w :: tail => Trace tail ∧ ∃ u, usable tail u ∧ ∃ v, usable tail v ∧ w = u ||| v
++
++lemma Trace.nil : Trace [] := trivial
++
++lemma Trace.gate {tail : List P} {u v : P} (h : Trace tail)
++    (hu : usable tail u) (hv : usable tail v) : Trace ((u ||| v) :: tail) :=
++  ⟨h, u, hu, v, hv, rfl⟩
+ 
+ private def low (w : P) : Tarjan3679.W := w.setWidth 11
+ private def high (w : P) : Finset (Fin 14) :=
+@@ -1115,15 +1128,16 @@ private theorem project {ws : List P} (h : Trace ws) :
+     (∀ w, usable ws w → low w ∈ Tarjan3679.inputs ++ ts) ∧
+     ∀ w, usable ws w → ∀ i, marked w i → i ∈ paid := by
+   classical
+-  induction h with
++  induction ws with
+   | nil =>
+     refine ⟨[],∅,.nil,by simp,?_,?_⟩
+     · intro w hw; have hf : free w := by simpa [usable] using hw
+       simpa using free_low hf
+     · intro w hw i hm; have hf : free w := by simpa [usable] using hw
+       exact (free_unmarked hf i hm).elim
+-  | @gate t u v ht hu hv ih =>
+-    obtain ⟨ts,paid,bt,cost,avail,tracked⟩ := ih
++  | cons z t ih =>
++    obtain ⟨ht, u, hu, v, hv, rfl⟩ := h
++    obtain ⟨ts,paid,bt,cost,avail,tracked⟩ := ih ht
+     have casesWire (w : P) (hw : usable ((u ||| v) :: t) w) : w = u ||| v ∨ usable t w := by
+       simpa only [usable,List.mem_cons] using (show w = u ||| v ∨ free w ∨ w ∈ t by
+         rcases hw with hf | h; exact Or.inr (Or.inl hf); exact (List.mem_cons.mp h).imp_right Or.inr)

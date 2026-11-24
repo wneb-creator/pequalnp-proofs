@@ -1,0 +1,9 @@
+¬ (∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (s : Fin n → Bool),
+  (∀ u v : Fin n, G.Adj u v → s u ≠ s v) →
+  (∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.TopForm.IsAO2 n C ∧
+    PEqualNP.MetaComplexity.circuitFun n C = PEqualNP.MetaComplexity.NestedCover.graphFun G ∅) →
+  ∃ D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.TopForm.IsLeastAO G D ∧
+    ∀ i < D.gates.length, ∀ j < D.gates.length,
+      (PEqualNP.MetaComplexity.NestedCover.gateAt D i).op = PEqualNP.CircuitLowerBounds.GateOp.and →
+      (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = PEqualNP.CircuitLowerBounds.GateOp.and →
+      ¬ PEqualNP.EdgeOwnership.InCone n D i j)

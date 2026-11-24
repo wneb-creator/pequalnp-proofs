@@ -13,3 +13,5 @@
 2026-11-24T17:27:47.992069+00:00 independent full upper witness, transpose, flat partition, and pruning helpers compiled and reviewed.
 2026-11-24T17:34:54.935792+00:00 original pmatos baseline local checker ACCEPTED; integrated plain-file adaptation prepared for full validation.
 2026-11-24T17:41:32.826539+00:00 complete plain-file L_meta_3679 built successfully and exact source independently reviewed; final checker started.
+2026-11-24T17:44:30.746213+00:00 final standard-type refutation checker ACCEPTED; cleanup started on unchanged 1302-line file.
+2026-11-24T17:45:33.395090+00:00 cleanup finished: simp? alternative passed but was longer, original checked source retained (1302→1302).
