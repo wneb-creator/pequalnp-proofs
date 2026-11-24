@@ -57,3 +57,15 @@ The DNF representation is raw (not minimal): inputs are singleton singleton fami
 ## DNF compiler checked
 
 2026-11-24T17:18:04.867515+00:00: `results/orch/lemmas/direct_compiler.lean` passes `lake env lean` with exit 0, empty stdout/stderr, no warnings. The 170-line file proves the exact first hypothesis of the proposed DNF reduction; no missing facts remain in compilation. Earlier finite checks covered 9,132 circuits and 905,786 wire/assignment instances. Final logs are `/tmp/oec/pequalnp-pilot-34/direct-compiler.stdout` and `.stderr`. Root notified to archive/push immediately after independent review.
+
+## Sparse minimal-support normal form checked
+
+2026-11-24T17:21:04.987782+00:00: `direct_minimal.lean` (91 lines) passes Lean with exit 0 and no output/warnings. From the exact two output conditions in the reduction (subset witness for each incident pair; soundness of each output support with at most q line variables), it proves that inclusion-minimal surviving supports are exactly incident pairs, for every q≥1. No projective-plane geometry is needed. In particular, every incident pair itself belongs to the raw output family, strengthening subset completeness. Root and independent reviewer notified for immediate archive/push.
+
+## Formal masking obstruction (2026-11-24T17:21:14.522290+00:00)
+
+Lean checked results/orch/lemmas/masking_obstruction.lean with exit 0 and empty stdout/stderr. Explicit 4-input, 7-gate circuit computes (p1 AND l1) OR (p2 AND l2) on every assignment, proved by all 16 Boolean cases. Its first AND, wire 6, is true on the nonedge {p1,l2}; later AND gates reject that input. Concrete witness checked by kernel decide. This refutes only naive soundness/charging of internal first-AND rectangles, NOT L-meta-2870. Complete diagnostics: /tmp/oec/pequalnp-pilot-34/masking.stdout and masking.stderr. Root notified immediately on successful compilation.
+
+## Root — point derivatives as a possible lower-bound route
+
+Fixing one point input to true and all other point inputs false leaves a line function agreeing with that point's neighborhood OR on assignments of at most q lines. Each raw output support is therefore either a neighbor singleton or requires more than q lines. A possible route is a simultaneous derivative-to-OR-circuit conversion, charging shared AND masks. No such conversion or quantitative bound has been proved. The masking example explains why naive gate-by-gate linearization is insufficient.

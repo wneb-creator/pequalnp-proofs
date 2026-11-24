@@ -13,3 +13,8 @@ Generic DNF compiler lemma: Lean exit 0; 170 lines, no warnings. Independent rev
 
 Initial local checker: ACCEPTED (reduce), two children; standard axioms only.
 Cleanup source lines: 53 to 51. Cleaned named lake build: exit 0. Independent cleanup review: PASS. Cleaned checker: running.
+
+Cleaned local checker: ACCEPTED (reduce), two children, only propext, Quot.sound, Classical.choice; exit 0.
+Cleanup retained: 53 to 51 lines.
+Minimal sparse output support lemma: Lean exit 0, independently reviewed, 91 lines.
+Seven-gate masking obstruction: Lean exit 0, independently reviewed.
