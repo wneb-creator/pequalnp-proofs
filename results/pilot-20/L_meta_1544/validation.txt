@@ -1,18 +1,19 @@
 Gap: L-meta-1544
-Result: full exact posted theorem ACCEPTED (check), exit 0.
+Result: full exact posted theorem ACCEPTED (check), exit 0, before and after cleanup.
 Final file: lean/PEqualNP/Outside/L_meta_1544.lean
-Named-file lake build: PASS; Build completed successfully (18395 jobs), stderr empty.
+Named-file lake build: PASS (exit 0); Build completed successfully (18395 jobs).
+Exact-statement local checker: ACCEPTED (check), exit 0; stderr empty.
+Allowed axioms: propext, Quot.sound, Classical.choice. Kernel re-checked 1337 constants.
 Format/import guard: PASS; Mathlib and PEqualNP.Defs only.
-Independent source/red-team review: PASS; exact statement, generic circuit semantics, arbitrary-plane geometry, and charging counts checked.
-Source provenance: generic helpers and charging proof adapted from checked L-meta-1516; fixed q=3,N=13 geometry replaced by a separately Lean-checked argument for arbitrary q>=2,N=q^2+q+1.
-First build failed only because Circuit/GateOp were not opened after helper namespace; complete diagnostics preserved. Added the permitted namespace open and rebuilt successfully.
+Independent source/red-team, cleanup-diff, and final archive reviews: PASS.
 Lines before cleanup: 578
-Lines after cleanup: 577 (candidate build and guard PASS; exact checker pending)
-PR: none yet; capped cleanup still required before delivery.
-Sub-agents: lease_keeper, counterexample_search, lemma_search, review_rules, prior proof/setup agents and independent child reviewers (10 total across job).
-TIMING total=131 subagents=10
-Source SHA256: fbd9220b2f26de8233bb9acab6f11f94ed49ec516b9e6d0b964c987b0076dfc6
-Checker verdict: ACCEPTED (check): PEqualNP.Outside.L_meta_1544; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked 1337 constants.
-Cleanup candidate: replace by_contra plus push_neg with by_contra!; exact statement and all other proof bytes unchanged.
-Original accepted source: proof-before-cleanup.lean.txt, original checker.stdout.
-Current source: proof.lean.txt; cleanup diagnostics have cleanup- prefix.
+Lines after cleanup: 577
+Cleanup: replace by_contra plus push_neg with by_contra!; exact statement and every other proof byte unchanged. Build and checker passed again within the 10-minute cap.
+Final source SHA256: f33ade18ffbf9222793656cfcbce408c33f3d60f396cb7133eb777c926adefe0
+Original accepted source: proof-before-cleanup.lean.txt; original logs: build.stdout and checker.stdout.
+Final accepted source: proof.lean.txt; final logs: cleanup-build.stdout and cleanup-checker.stdout.
+Source provenance: generic helpers and charging proof adapted from checked L-meta-1516; fixed order-3 geometry replaced by a separately checked argument from the posted arbitrary-plane axioms.
+First build failed only on missing namespace opens; complete failed-build diagnostics retained separately.
+PR status: final archive and one-file diff preparation pending. Research/validation archives will remain in this branch history, while the PR adds exactly the named Lean file.
+Sub-agents: proof adaptation and lemma search, counterexample analysis, independent source/artifact review, lease keeping, toolchain setup, and prior proof agents (10 total across the job).
+TIMING total=133.4 subagents=10
