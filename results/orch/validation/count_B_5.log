@@ -1,1 +1,0 @@
-PASS n=5 targets=280 first_AND_functions=318 output_candidates=503084. Exhaustive through two ANDs with arbitrary free OR gates.
