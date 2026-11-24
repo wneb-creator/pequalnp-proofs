@@ -50,26 +50,25 @@ theorem PEqualNP.Outside.R_meta_670_32
       rw [ht, List.getD_append _ _ _ _ h]
 
     let effInputs (g : Gate) : List ℕ :=
-      match g.op with
-      | GateOp.not => g.inputs.take 1
-      | _ => g.inputs
+      if g.op = GateOp.not then g.inputs.take 1 else g.inputs
 
     let active (g : Gate) : Bool :=
-      match g.op with
-      | GateOp.not => false
-      | _ => true
+      decide (g.op ≠ GateOp.not)
 
     have eval_effective (g : Gate) (w : List Bool) :
         g.op.eval (g.inputs.map fun i => w.getD i false) =
           g.op.eval ((effInputs g).map fun i => w.getD i false) := by
-      rcases g with ⟨op, ins⟩
-      cases op <;> simp only [effInputs]
-      case not => cases ins <;> simp [GateOp.eval]
+      by_cases hop : g.op = GateOp.not
+      · have he : effInputs g = g.inputs.take 1 := if_pos hop
+        rw [he, hop]
+        cases g.inputs <;> rfl
+      · simp only [effInputs, if_neg hop]
 
     have effInputs_length (g : Gate) (h : g.inputs.length ≤ 2) :
         (effInputs g).length ≤ (if active g then 1 else 0) + 1 := by
-      rcases g with ⟨op, ins⟩
-      cases op <;> simp_all [effInputs, active]
+      by_cases hop : g.op = GateOp.not
+      · simp [effInputs, active, hop]
+      · simpa [effInputs, active, hop] using h
 
     have getD_snoc_ne {α : Type} (L : List α) (S d : α) (j : ℕ) (h : j ≠ L.length) :
         (L ++ [S]).getD j d = L.getD j d := by
@@ -222,11 +221,7 @@ theorem PEqualNP.Outside.R_meta_670_32
       cnt_inputs {C.output}
     simp only [Finset.singleton_biUnion, Finset.card_singleton, zero_add] at hc
     rw [← hS, hcard] at hc
-    have hactive : active = fun g => decide (g.op ≠ GateOp.not) := by
-      funext g
-      rcases g with ⟨op, ins⟩
-      cases op <;> simp [active]
-    simpa only [hactive] using hc
+    simpa only [active] using hc
   rintro ⟨C, hfan, hsize, hcompute⟩
   have heq : circuitFun 9 C = (fun x : Fin 9 → Bool => (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) || (x 3 && x 8) || (x 5 && x 7) || (x 6 && x 8) || (x 8 && x 5)) := funext hcompute
   by_cases hz : PEqualNP.NotBracket.notCount C = 0

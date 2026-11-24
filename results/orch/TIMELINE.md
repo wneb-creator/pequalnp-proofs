@@ -16,3 +16,5 @@
 - 2026-11-24T15:29:41.170958+00:00 Checked support-count proof with all helpers local to one theorem; checked NOT count assembly facts; independently reviewed and preserving.
 - 2026-11-24T15:31:14.204208+00:00 Four-child reduction compiles (304lines); independent review passed. Placed named R_meta_670_32.lean for build and checker.
 - 2026-11-24T15:33:02.019734+00:00 Checked12 graph automorphisms and shortened local-support proof independently reviewed; finite search logs preserved.
+- 2026-11-24T15:35:09.206532+00:00 Initial local checker rejected compiler-generated auxiliary declarations (reduce-extra). Rewriting local pattern matches and avoiding lazy evaluator equation lemmas; mathematical children unchanged.
+- 2026-11-24T15:36:16.426358+00:00 Corrected reduction builds (299lines), independently reviewed: avoid generated auxiliary declarations through if/decide and direct rfl evaluator steps. Second local checker running.
