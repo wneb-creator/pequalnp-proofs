@@ -1,0 +1,70 @@
+{
+  "frozen_at": "2026-11-24T11:33:51.288595+00:00",
+  "files": [
+    {
+      "file": "INVALID-seed43raw.json",
+      "sha256": "36deee95e5cfb88884dc8366422f977dc06a27be4d1394e6b230fb0312d03edc",
+      "bytes": 5458
+    },
+    {
+      "file": "README.md",
+      "sha256": "69ddfe8bbb5a861fe4e8f2b02e2b9b6fa183f1bb614554904bb0322cec915e53",
+      "bytes": 1627
+    },
+    {
+      "file": "SearchAlternative6PairProblem.py",
+      "sha256": "c269a4cef111f5e47f64a6db3f8a4de880cf94c683c1f9421732580b0a4b3563",
+      "bytes": 926
+    },
+    {
+      "file": "SearchAlternative6Problem.json",
+      "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+      "bytes": 2275
+    },
+    {
+      "file": "SearchAlternative6Problem.py",
+      "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+      "bytes": 925
+    },
+    {
+      "file": "SearchPhysicalRepairJump.py",
+      "sha256": "58aa6cb3f174cb0892ffa3dc7bdeea05666f404a2060761970b18773a159b860",
+      "bytes": 12814
+    },
+    {
+      "file": "SearchPhysicalRepairResynthesize.py",
+      "sha256": "f0e571bb9b10311e627357ad21a56476e4d9d85b2ab5ee7a4467489377cc215e",
+      "bytes": 11359
+    },
+    {
+      "file": "physical-jump-calibration-001.log",
+      "sha256": "bc80f4def9d751335807938aa79665d075f02039b24e420ce43b73d71941e5a5",
+      "bytes": 146
+    },
+    {
+      "file": "physical-repair-alternative6-010.log",
+      "sha256": "0dc387dafd3ae5cb276b4d17daaf3cf94efc3b5133bf515cb449bd286c868af6",
+      "bytes": 2940
+    },
+    {
+      "file": "physical-repair-alternative6-011.log",
+      "sha256": "93f9c88dad0919e7c82e664130cddec9e79b877025f084aee1a772d593ffc24d",
+      "bytes": 3363
+    },
+    {
+      "file": "physical-resynthesize-calibration-001.log",
+      "sha256": "c00d8e5f2ab8bca3967ae8a6565264a03808d14f6a452bb7e57b240c9260e7b8",
+      "bytes": 188
+    },
+    {
+      "file": "review-physical-jump-resynthesize-status-audit-002.log",
+      "sha256": "42059acc1615acb76f809dab110be404756eeeeaa0e01892acec10b3b2acc4b1",
+      "bytes": 266
+    },
+    {
+      "file": "review-physical-jump-resynthesize-status-audit.log",
+      "sha256": "cc9f4fa7593f87f28118e6d178bc3590cf0358ff9d9eaab7a23218aacb807851",
+      "bytes": 763
+    }
+  ]
+}

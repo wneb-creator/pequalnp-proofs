@@ -1,0 +1,21 @@
+PARTIAL RESULTS ONLY. Exact gap L-meta-1477 remains unproved.
+Named-file checker remains REJECTED (no-theorem); no proof PR opened.
+All eight snapshots have explicit author build EXIT0 and an independent review PASS at the recorded exact hash. Full stdout/stderr build logs and full review logs are preserved.
+Several assembled results exceed512KiB and remain results-only artifacts; all restricted circuit hypotheses remain explicit.
+Forbidden-source scan passed: no quotes, forbidden proof mechanisms, custom data types/instances or unapproved attributes/options; permitted imports occur only at the top. This does not certify the absent exact posted theorem.
+
+ZeroTwoProduct.lean lines=10278 bytes=508783 SHA256=315927c04fc6826d700f7c0ad4633367493c00f0937bda0f024efe563f46d69d; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/zero-two-product-build-002.log
+ZeroTwoProductCenters.lean lines=10335 bytes=511723 SHA256=a1bf68c1ff5f560e694192fc6e53d1bf82fdc94b9daa871658bf56610f63b0d9; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/zero-two-product-centers-build-001.log
+PlaneTwoProductCenters.lean lines=13649 bytes=664978 SHA256=430381d4707854b1f51890ba9ebf92a81f4059995e900a5e67d2a5f4297644be; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/plane-two-product-centers-build-001.log
+SingletonPairAccountingGeneral.lean lines=10561 bytes=523565 SHA256=5471887d248313b0b6e8fc07db31dd4aa094e958d9f34e111e22220acce6626b; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/singleton-pair-accounting-general-build-001.log
+SingletonPairColorGeneral.lean lines=10595 bytes=525430 SHA256=b57c755211b17442e46399e0216c33d756ebc52837fc76ad99896b42d2fc56fc; author build EXIT0; independent review PASS by lean_setup; full log=results/orch/singleton-pair-color-general-build-001.log
+SingletonFilterBank.lean lines=10766 bytes=534084 SHA256=452ae9392cc671fe983356eefdf74f06087ed22dc638b20cabf79813c6e3d3c1; author build EXIT0; independent review PASS by gate_invariants; full log=results/orch/singleton-filter-bank-build-001.log
+SingletonFilterActual.lean lines=10979 bytes=545275 SHA256=e864a3d19f4413dc77146f0eef0d00146fd7dd7ad2b4539eaad0283f1ded17e3; author build EXIT0; independent review PASS by gate_invariants; full log=results/orch/singleton-filter-actual-build-002.log
+SingletonOrdinaryFull.lean lines=10964 bytes=544871 SHA256=07d37a1847d57e6a6c27124b9ef63a87875042bdd5719170e3f716f867c599fa; author build EXIT0; independent review PASS by structural_lower_bound; full log=results/orch/singleton-ordinary-full-build-003.log
+
+plane-run-010:20manifest entries hash/bytechecked; independent package review PASS by status_audit;17physical circuits and430814scalar cases. Valid circuits have125/127gates;15invalid candidates retain invalid labels. No target witness.
+physical-composite-repair:13manifest entries hash/bytechecked; independent package review PASS by status_audit; one28gate INVALID seed replayed on88cases has43errors. Reviewed heuristic sources and complete010/011logs preserved; no target witness or UNSAT claim.
+Full records and exact staged-file candidate paths are in preservation-033-manifest.json and the scratch preserve-paths-033.json.
+Cleanup: exact theorem unavailable; capped cleanup pass not triggered. Named-file lines unchanged10143 before/after.
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=326.9 subagents=6

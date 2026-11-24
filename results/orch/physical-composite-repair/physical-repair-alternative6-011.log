@@ -1,0 +1,16 @@
+{"event": "start", "size": 28, "positive_errors": 0, "negative_errors": 54, "seconds": 120.0, "width": 16, "rounds": 40, "seed": 14772956, "min_nontrivial_dirty": 2, "reject_singletons": true}
+{"event": "round", "round": 0, "tested": 32310, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 0.8629192760017759, "timed_out": false}
+{"event": "round", "round": 1, "tested": 549250, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 9.721830045000388, "timed_out": false}
+{"event": "round", "round": 2, "tested": 1066178, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 18.73503051100124, "timed_out": false}
+{"event": "round", "round": 3, "tested": 1583092, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 26.603650471999572, "timed_out": false}
+{"event": "round", "round": 4, "tested": 2099982, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 34.502740268002526, "timed_out": false}
+{"event": "round", "round": 5, "tested": 2616880, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 42.449942134000594, "timed_out": false}
+{"event": "round", "round": 6, "tested": 3133768, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 50.06991049000135, "timed_out": false}
+{"event": "round", "round": 7, "tested": 3650658, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 58.10602673299945, "timed_out": false}
+{"event": "round", "round": 8, "tested": 4167538, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 67.50649048600098, "timed_out": false}
+{"event": "round", "round": 9, "tested": 4684412, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 78.1018551470006, "timed_out": false}
+{"event": "round", "round": 10, "tested": 5201276, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 90.73470711600021, "timed_out": false}
+{"event": "round", "round": 11, "tested": 5718132, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 101.91008985799999, "timed_out": false}
+{"event": "round", "round": 12, "tested": 6234988, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 114.45408994100217, "timed_out": false}
+{"event": "round", "round": 13, "tested": 6453248, "beam": 16, "best_positive_complete_negative_errors": 54, "best_beam_errors": [[0, 54], [0, 54], [0, 54], [0, 54]], "seconds": 120.0123975030001, "timed_out": true}
+{"event": "finished", "tested": 6453248, "seconds": 120.01246231100231, "conclusion": "bounded heuristic search; no lower-bound conclusion"}

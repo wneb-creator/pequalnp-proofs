@@ -1,0 +1,4 @@
+2026-11-24T11:30:13.485730+00:00
+Independent source/math/provenance/format review: PASS
+SingletonFilterActual.lean SHA256e864a3d19f4413dc77146f0eef0d00146fd7dd7ad2b4539eaad0283f1ded17e3
+Exact reviewed SingletonFilterBank prefix and SingletonCommonFilterGeneral namespace verified. Canonical empty side chooses a unique actual filter root per centreless top, even when both dirty products reach its empty operand. Product path cleanliness plus an opposite-color nonneighbor leaf proves the filter root's required opposite-color adjacency. A nonempty opposite raw support makes the chosen dirty-reader side the canonical empty side; this discharges the actual edge-to-filter inclusion. Distinct filter roots are bounded by centreless top cardinality, avoiding double charging the two possible owners. Explicit F witness, singleton/pure-product/bad-leaf premises retained. Author build002 EXIT0 accepted; no log errors or forbidden mechanisms.

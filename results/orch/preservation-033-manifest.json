@@ -1,0 +1,447 @@
+{
+  "batch": "033",
+  "created_utc": "2026-11-24T11:35:22.619279+00:00",
+  "base_preservation_commit": "8b3f6fb834e4c573fe19885a310b52b67de36a2f",
+  "gap": "L-meta-1477",
+  "status": "PARTIAL RESULTS ONLY; exact posted theorem unproved; no proof PR",
+  "named_file_checker": "REJECTED (no-theorem), unchanged from prior checker run; not rerun for results-only batch",
+  "snapshots": [
+    {
+      "path": "results/orch/lemmas/ZeroTwoProduct.lean",
+      "sha256": "315927c04fc6826d700f7c0ad4633367493c00f0937bda0f024efe563f46d69d",
+      "bytes": 508783,
+      "name": "ZeroTwoProduct",
+      "lines": 10278,
+      "author": "normal_form",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Explicit author completion reported in agent message; accepted by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/zero-two-product-build-002.log",
+        "sha256": "bb486b4c7d9e429e5a464a307cf5e88b151a2415817457da9bc361986f7c9ae5",
+        "bytes": 23534
+      },
+      "review_verdict": "PASS",
+      "reviewer": "lean_setup",
+      "review_log": {
+        "path": "results/orch/review-zero-two-product-lean-setup.log",
+        "sha256": "ff4705ac450c32f93c065a4c128e9e7bef0b226f116ad92586f67f16e6945369",
+        "bytes": 794
+      },
+      "source_filter_scan": "PASS",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY: no exact posted theorem claimed"
+    },
+    {
+      "path": "results/orch/lemmas/ZeroTwoProductCenters.lean",
+      "sha256": "a1bf68c1ff5f560e694192fc6e53d1bf82fdc94b9daa871658bf56610f63b0d9",
+      "bytes": 511723,
+      "name": "ZeroTwoProductCenters",
+      "lines": 10335,
+      "author": "normal_form",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Explicit author completion reported in agent message; accepted by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/zero-two-product-centers-build-001.log",
+        "sha256": "a8a3f4ca9b4460f2312ff8c9267bbb80cc520a872faded69d8cc640126e8df0f",
+        "bytes": 24206
+      },
+      "review_verdict": "PASS",
+      "reviewer": "lean_setup",
+      "review_log": {
+        "path": "results/orch/review-zero-two-product-centers-lean-setup.log",
+        "sha256": "713c24faa387ed4449cda54017966d5aa66eba11708d8f653e2515bd8d9b7268",
+        "bytes": 436
+      },
+      "source_filter_scan": "PASS",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY: no exact posted theorem claimed"
+    },
+    {
+      "path": "results/orch/lemmas/PlaneTwoProductCenters.lean",
+      "sha256": "430381d4707854b1f51890ba9ebf92a81f4059995e900a5e67d2a5f4297644be",
+      "bytes": 664978,
+      "name": "PlaneTwoProductCenters",
+      "lines": 13649,
+      "author": "status_audit",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Explicit author completion reported in agent message; accepted by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/plane-two-product-centers-build-001.log",
+        "sha256": "f43a5b8c0b527fa93b94e9640e5fc2ace0435034215ab1dc005b0f917a757cdd",
+        "bytes": 26568
+      },
+      "review_verdict": "PASS",
+      "reviewer": "lean_setup",
+      "review_log": {
+        "path": "results/orch/review-plane-two-product-centers-lean-setup.log",
+        "sha256": "350522dce11a68c1090759189c7e199ce692ea37af8b5ed64de31362422a66fd",
+        "bytes": 527
+      },
+      "source_filter_scan": "PASS",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY: no exact posted theorem claimed"
+    },
+    {
+      "path": "results/orch/lemmas/SingletonPairAccountingGeneral.lean",
+      "sha256": "5471887d248313b0b6e8fc07db31dd4aa094e958d9f34e111e22220acce6626b",
+      "bytes": 523565,
+      "name": "SingletonPairAccountingGeneral",
+      "lines": 10561,
+      "author": "gate_invariants",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Explicit author completion reported in agent message; accepted by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/singleton-pair-accounting-general-build-001.log",
+        "sha256": "3e00c95f1708991e13e4f866ed5714741d8f90dd50f1926461e269d3aa26bbbd",
+        "bytes": 22994
+      },
+      "review_verdict": "PASS",
+      "reviewer": "lean_setup",
+      "review_log": {
+        "path": "results/orch/review-singleton-pair-accounting-general-lean-setup.log",
+        "sha256": "0f493133cac4919603f9085db2d4912f185bcc8bd5cc1d91dce5d2b0c4014ed7",
+        "bytes": 648
+      },
+      "source_filter_scan": "PASS",
+      "exceeds_512_KiB": false,
+      "submission_status": "RESULTS ONLY: no exact posted theorem claimed"
+    },
+    {
+      "path": "results/orch/lemmas/SingletonPairColorGeneral.lean",
+      "sha256": "b57c755211b17442e46399e0216c33d756ebc52837fc76ad99896b42d2fc56fc",
+      "bytes": 525430,
+      "name": "SingletonPairColorGeneral",
+      "lines": 10595,
+      "author": "gate_invariants",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Explicit author completion reported in agent message; accepted by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/singleton-pair-color-general-build-001.log",
+        "sha256": "7ed7b75bfc822cff198d43aac45f41d0afd8c7d66eee865eeb3d88717972fd94",
+        "bytes": 22559
+      },
+      "review_verdict": "PASS",
+      "reviewer": "lean_setup",
+      "review_log": {
+        "path": "results/orch/review-singleton-pair-color-general-lean-setup.log",
+        "sha256": "087bc9c2d1aeeeb7adbf28b80be0169512a779b38d369b9444f5649cd173d3b4",
+        "bytes": 482
+      },
+      "source_filter_scan": "PASS",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY: no exact posted theorem claimed"
+    },
+    {
+      "path": "results/orch/lemmas/SingletonFilterBank.lean",
+      "sha256": "452ae9392cc671fe983356eefdf74f06087ed22dc638b20cabf79813c6e3d3c1",
+      "bytes": 534084,
+      "name": "SingletonFilterBank",
+      "lines": 10766,
+      "author": "structural_lower_bound",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Explicit author completion reported in agent message; accepted by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/singleton-filter-bank-build-001.log",
+        "sha256": "42c7990224fb2df26cd404b6a525f77a2ca494c8d8fd86f1d69b2702636acf85",
+        "bytes": 21970
+      },
+      "review_verdict": "PASS",
+      "reviewer": "gate_invariants",
+      "review_log": {
+        "path": "results/orch/review-singleton-filter-bank-gate-invariants.log",
+        "sha256": "6f60d187395d3d65be49763958bb96b764632fe8f34041653308dba8efb2fa07",
+        "bytes": 959
+      },
+      "source_filter_scan": "PASS",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY: no exact posted theorem claimed"
+    },
+    {
+      "path": "results/orch/lemmas/SingletonFilterActual.lean",
+      "sha256": "e864a3d19f4413dc77146f0eef0d00146fd7dd7ad2b4539eaad0283f1ded17e3",
+      "bytes": 545275,
+      "name": "SingletonFilterActual",
+      "lines": 10979,
+      "author": "structural_lower_bound",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Explicit author completion reported in agent message; accepted by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/singleton-filter-actual-build-002.log",
+        "sha256": "cd8e5433ef0f7fc47106212a4ec96611f3256b7d38fa034ede1fba9e4893bc89",
+        "bytes": 22582
+      },
+      "review_verdict": "PASS",
+      "reviewer": "gate_invariants",
+      "review_log": {
+        "path": "results/orch/review-singleton-filter-actual-gate-invariants.log",
+        "sha256": "02044cbabad4b478c5c93da7a15aa48c0b25363a6e3022df53f06dbcd8a7fcd2",
+        "bytes": 941
+      },
+      "source_filter_scan": "PASS",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY: no exact posted theorem claimed"
+    },
+    {
+      "path": "results/orch/lemmas/SingletonOrdinaryFull.lean",
+      "sha256": "07d37a1847d57e6a6c27124b9ef63a87875042bdd5719170e3f716f867c599fa",
+      "bytes": 544871,
+      "name": "SingletonOrdinaryFull",
+      "lines": 10964,
+      "author": "root",
+      "build_exit_code": 0,
+      "build_exit_evidence": "Explicit author completion reported in agent message; accepted by independent reviewer.",
+      "build_log": {
+        "path": "results/orch/singleton-ordinary-full-build-003.log",
+        "sha256": "c3fed1e347ce887a81aa345ad50aeb235f1518f50516f8cbf97941221abcc916",
+        "bytes": 22417
+      },
+      "review_verdict": "PASS",
+      "reviewer": "structural_lower_bound",
+      "review_log": {
+        "path": "results/orch/review-singleton-ordinary-full-structural.log",
+        "sha256": "f0705330fe79c48c7484b93a79bea67d373652b8a66bc4f8ce8f1920c5ce9a41",
+        "bytes": 826
+      },
+      "source_filter_scan": "PASS",
+      "exceeds_512_KiB": true,
+      "submission_status": "RESULTS ONLY: no exact posted theorem claimed"
+    }
+  ],
+  "search_packages": [
+    {
+      "path": "results/orch/plane-run-010",
+      "manifest": {
+        "path": "results/orch/plane-run-010/manifest.json",
+        "sha256": "d1e5f703e4610b5b744179f4bd4c502b0b30427118af59faec0ce74e8846d7e2",
+        "bytes": 3141
+      },
+      "manifest_entries": 20,
+      "physical_circuits": 17,
+      "scalar_cases": 430814,
+      "reviewer": "status_audit",
+      "review_verdict": "PASS",
+      "review_log": {
+        "path": "results/orch/review-plane-run010-status-audit.log",
+        "sha256": "584e3396f815e5b93eeb938d535fac6cc7a809e09f1e07ac5c2f4208700ae81f",
+        "bytes": 1104
+      },
+      "result": "No target witness. Two valid circuits have125 and127 gates;15 other circuits retain invalid labels.",
+      "files": [
+        {
+          "path": "results/orch/plane-run-010/README.md",
+          "sha256": "e1fc165540ac85533421815e62231fee1017ebee8ac2d7ab064c710d5a9ab0e5",
+          "bytes": 1322
+        },
+        {
+          "path": "results/orch/plane-run-010/best-valid-125.json",
+          "sha256": "5f86a28e5e0f8a24c18c827df863b1b919fe0cf4868e52c97627d0fdeae6b6e4",
+          "bytes": 12884
+        },
+        {
+          "path": "results/orch/plane-run-010/best-valid-127.json",
+          "sha256": "9737bf59e2637120cc4e0b6f8fc11132d644f397d33aa4d26aaf8566da66d2e0",
+          "bytes": 12938
+        },
+        {
+          "path": "results/orch/plane-run-010/complete-run.log",
+          "sha256": "6b4b835c41aaabea69f4569cc8250975d242e277cf3c992930e7a290ce919bfe",
+          "bytes": 34356
+        },
+        {
+          "path": "results/orch/plane-run-010/frontier.json",
+          "sha256": "99df4028af3810683b67e52a25c239a7a1e32c74b934e39d92253ce77bf916cc",
+          "bytes": 86779
+        },
+        {
+          "path": "results/orch/plane-run-010/manifest.json",
+          "sha256": "d1e5f703e4610b5b744179f4bd4c502b0b30427118af59faec0ce74e8846d7e2",
+          "bytes": 3141
+        },
+        {
+          "path": "results/orch/plane-run-010/multi-dirty-overapprox-2.json",
+          "sha256": "bb4b449e5b2984935b54a722926eae92db01c8a7a2c8f273ea38e0c6b520a492",
+          "bytes": 1671669
+        },
+        {
+          "path": "results/orch/plane-run-010/multi-dirty-overapprox-4.json",
+          "sha256": "0229666da6bbbc7200fc25da0ff5cd71956d2651a1ad99f017aeeb1e261a968a",
+          "bytes": 2076880
+        },
+        {
+          "path": "results/orch/plane-run-010/near-1-1.json",
+          "sha256": "bf3d5521c4dd8ad278785cd715a0d2e4f8b48a2c372dd9bbff7ac26cd32a9091",
+          "bytes": 13252
+        },
+        {
+          "path": "results/orch/plane-run-010/near-1-2.json",
+          "sha256": "046c77cd2defdc1291f5b6a9ddf0dac5d58fbf1b420a769da262f86900f12493",
+          "bytes": 13142
+        },
+        {
+          "path": "results/orch/plane-run-010/near-1-3.json",
+          "sha256": "903e80e179a9a25a63365f7eb8fd4c1e591dfd4ea046559870711540ef5b20e7",
+          "bytes": 12965
+        },
+        {
+          "path": "results/orch/plane-run-010/near-2-1.json",
+          "sha256": "2c09db495dd7e17993d9ff73e8edc103feada4e074e42872ea5875dff06ec04c",
+          "bytes": 13347
+        },
+        {
+          "path": "results/orch/plane-run-010/near-2-2.json",
+          "sha256": "301fa01d18cca7a3245c83fe083075f2a3e1ab1830ca7f90d5d1ff56907c26b9",
+          "bytes": 13233
+        },
+        {
+          "path": "results/orch/plane-run-010/near-3-1.json",
+          "sha256": "77635515eac40368819489bc6d564462f6ff810f252a001051b613f8acb907a1",
+          "bytes": 13359
+        },
+        {
+          "path": "results/orch/plane-run-010/near-4-1.json",
+          "sha256": "c449d36f947e01279f3736bc9a1cb590635aa16bff09cdd2f74484ba5ce1ebba",
+          "bytes": 13380
+        },
+        {
+          "path": "results/orch/plane-run-010/near-4-2.json",
+          "sha256": "305767f8fcc17b6f8478258cb558b4fe6be63e79e5c5581602586b7f168c8ed7",
+          "bytes": 13472
+        },
+        {
+          "path": "results/orch/plane-run-010/near-4-3.json",
+          "sha256": "7d6c5e121210768561f3afd401bb639ccca64e591f31fec40a1eb3449aea2677",
+          "bytes": 13544
+        },
+        {
+          "path": "results/orch/plane-run-010/overapprox-best-1.json",
+          "sha256": "852346b6114bc160da2104cd8060e76390e13ce25638f586c845a20b9f388e02",
+          "bytes": 1840625
+        },
+        {
+          "path": "results/orch/plane-run-010/overapprox-best-2.json",
+          "sha256": "7334cd4fdc9b1c5877bbb99d8604f739a2041a6845e10071635e3688e1cd6fd0",
+          "bytes": 1559941
+        },
+        {
+          "path": "results/orch/plane-run-010/overapprox-best-3.json",
+          "sha256": "e595a43a567795a74765a98062ac4d7f9c8ad2259cf735dff75059fd25255e1d",
+          "bytes": 1401697
+        },
+        {
+          "path": "results/orch/plane-run-010/overapprox-best-4.json",
+          "sha256": "579e6c84181453aa38651104b190f333108b51ab1d76cd8a07bae6a295eaae7b",
+          "bytes": 1286700
+        }
+      ]
+    },
+    {
+      "path": "results/orch/physical-composite-repair",
+      "manifest": {
+        "path": "results/orch/physical-composite-repair/manifest.json",
+        "sha256": "43bdee83d4eedb37e926fee62e2a8a5af31775f03bcc9bb1395d070c7696ef91",
+        "bytes": 2255
+      },
+      "manifest_entries": 13,
+      "physical_circuits": 1,
+      "scalar_cases": 88,
+      "reviewer": "status_audit",
+      "review_verdict": "PASS",
+      "review_log": {
+        "path": "results/orch/review-physical-composite-package-status-audit.log",
+        "sha256": "d316e91308f8a295dad5ee2c3ff0028ed485b5314ba64b36a2b6db28c5ddadab",
+        "bytes": 1791
+      },
+      "result": "Heuristic search/calibration only; included28gate seed has43errors and remains INVALID. Completed010/011 logs only; no target witness or UNSAT claim.",
+      "files": [
+        {
+          "path": "results/orch/physical-composite-repair/INVALID-seed43raw.json",
+          "sha256": "36deee95e5cfb88884dc8366422f977dc06a27be4d1394e6b230fb0312d03edc",
+          "bytes": 5458
+        },
+        {
+          "path": "results/orch/physical-composite-repair/README.md",
+          "sha256": "69ddfe8bbb5a861fe4e8f2b02e2b9b6fa183f1bb614554904bb0322cec915e53",
+          "bytes": 1627
+        },
+        {
+          "path": "results/orch/physical-composite-repair/SearchAlternative6PairProblem.py",
+          "sha256": "c269a4cef111f5e47f64a6db3f8a4de880cf94c683c1f9421732580b0a4b3563",
+          "bytes": 926
+        },
+        {
+          "path": "results/orch/physical-composite-repair/SearchAlternative6Problem.json",
+          "sha256": "9714f073a9ba3b7da3b2b7564f5075b4e1428b70817df2378fffa02fad3929f1",
+          "bytes": 2275
+        },
+        {
+          "path": "results/orch/physical-composite-repair/SearchAlternative6Problem.py",
+          "sha256": "4db7cf808521d2222f2902ceda2faa62e20e288f796fa38682e6ee622da63121",
+          "bytes": 925
+        },
+        {
+          "path": "results/orch/physical-composite-repair/SearchPhysicalRepairJump.py",
+          "sha256": "58aa6cb3f174cb0892ffa3dc7bdeea05666f404a2060761970b18773a159b860",
+          "bytes": 12814
+        },
+        {
+          "path": "results/orch/physical-composite-repair/SearchPhysicalRepairResynthesize.py",
+          "sha256": "f0e571bb9b10311e627357ad21a56476e4d9d85b2ab5ee7a4467489377cc215e",
+          "bytes": 11359
+        },
+        {
+          "path": "results/orch/physical-composite-repair/manifest.json",
+          "sha256": "43bdee83d4eedb37e926fee62e2a8a5af31775f03bcc9bb1395d070c7696ef91",
+          "bytes": 2255
+        },
+        {
+          "path": "results/orch/physical-composite-repair/physical-jump-calibration-001.log",
+          "sha256": "bc80f4def9d751335807938aa79665d075f02039b24e420ce43b73d71941e5a5",
+          "bytes": 146
+        },
+        {
+          "path": "results/orch/physical-composite-repair/physical-repair-alternative6-010.log",
+          "sha256": "0dc387dafd3ae5cb276b4d17daaf3cf94efc3b5133bf515cb449bd286c868af6",
+          "bytes": 2940
+        },
+        {
+          "path": "results/orch/physical-composite-repair/physical-repair-alternative6-011.log",
+          "sha256": "93f9c88dad0919e7c82e664130cddec9e79b877025f084aee1a772d593ffc24d",
+          "bytes": 3363
+        },
+        {
+          "path": "results/orch/physical-composite-repair/physical-resynthesize-calibration-001.log",
+          "sha256": "c00d8e5f2ab8bca3967ae8a6565264a03808d14f6a452bb7e57b240c9260e7b8",
+          "bytes": 188
+        },
+        {
+          "path": "results/orch/physical-composite-repair/review-physical-jump-resynthesize-status-audit-002.log",
+          "sha256": "42059acc1615acb76f809dab110be404756eeeeaa0e01892acec10b3b2acc4b1",
+          "bytes": 266
+        },
+        {
+          "path": "results/orch/physical-composite-repair/review-physical-jump-resynthesize-status-audit.log",
+          "sha256": "cc9f4fa7593f87f28118e6d178bc3590cf0358ff9d9eaab7a23218aacb807851",
+          "bytes": 763
+        }
+      ]
+    }
+  ],
+  "excluded_pending": [
+    "SingletonPairOneCleanGeneral",
+    "SingletonSameColorZero",
+    "SingletonSameColorPositive",
+    "PlaneZeroAnyWork",
+    "unfrozen search packages"
+  ],
+  "verification": "Exact frozen hashes, full author logs without errors, independent source/math/provenance/format reviews, forbidden-source filter scan, package manifest hashes and byte counts. This preservation validation reused reported author build results and did not rerun Lean.",
+  "sub_agents": [
+    "counterexample_search",
+    "gate_invariants",
+    "lean_setup",
+    "normal_form",
+    "status_audit",
+    "structural_lower_bound"
+  ],
+  "timing_total_min": 326.9,
+  "subagents_count": 6
+}

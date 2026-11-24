@@ -1,0 +1,4 @@
+2026-11-24T11:28:10.911515+00:00
+Independent source/math/provenance/format review: PASS
+SingletonFilterBank.lean SHA256452ae9392cc671fe983356eefdf74f06087ed22dc638b20cabf79813c6e3d3c1
+Exact reviewed SingletonSameColorActive prefix. The new arbitrary-root family labels are actual unowned pivot-input spokes, restricted by OR reachability. After removing owner-zero common-neighbor edges, every wire carries labels of at most one owner: any owner-one ancestor makes every active owner-zero spoke a dropped common edge by the explicit root cleanliness premise. Input and Lambda capacity are therefore at most one, using the checked C4/owned-stop bound. The labeled frontier provides an outside-Lambda, nonmixing charged set with full DAG sharing accounted for and one credit per distinct actual root. Root boundedness, same colors and per-root opposite-color cleanliness remain explicit. Author first build EXIT0 accepted; no forbidden mechanism or log errors.
