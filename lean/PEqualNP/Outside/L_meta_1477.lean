@@ -3450,7 +3450,8 @@ lemma prev2 : ∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : 
 
 end PEqualNP.Outside.L_meta_1477.OneJunk
 
-lemma PEqualNP.Outside.L_meta_1477.OneJunk.oneJunkBound : ∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : PEqualNP.CircuitLowerBounds.Circuit),
+namespace PEqualNP.Outside.L_meta_1477.OneJunk
+lemma oneJunkBound : ∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : PEqualNP.CircuitLowerBounds.Circuit),
   PEqualNP.TopForm.NoFourCycle G → G.edgeFinset.Nonempty → PEqualNP.TopForm.IsLeastAO G C →
   PEqualNP.TopForm.TopForm G C → ∀ (g : ℕ), PEqualNP.TopForm.junk G C = {g} →
     ∃ K : Finset (Fin n), (∀ e ∈ PEqualNP.TopForm.starEdges G C, ∃ v ∈ K, v ∈ e) ∧
@@ -3494,6 +3495,7 @@ lemma PEqualNP.Outside.L_meta_1477.OneJunk.oneJunkBound : ∀ (n : ℕ) (G : Sim
     simpa only [PEqualNP.TopForm.formZ] using hw
   · omega
 
+end PEqualNP.Outside.L_meta_1477.OneJunk
 namespace PEqualNP.Outside.L_meta_1477.OneJunk
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover

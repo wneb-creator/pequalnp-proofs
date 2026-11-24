@@ -1,0 +1,9 @@
+PARTIAL RESULTS ONLY. Exact L-meta-1477 theorem remains absent.
+Formatting repair encloses oneJunkBound in its matching namespace, preserving its fully qualified declaration name, type, and proof.
+Named source SHA256 ed19693d5db6a6eb7fab5296b0fe0c79402e35673f3fd08d7b7b444d1f98c739;470482bytes;lines10143 before and10145 after formatting repair.
+Author lake build PEqualNP.Outside.L_meta_1477 EXIT0; full named-partial-build-003.log says Build completed successfully (18407 jobs).
+Independent minimal source diff review PASS by root.
+Prior exact checker REJECTED (no-theorem); refreshed checker002 pending at this preservation timestamp. No proof PR.
+Cleanup pass not triggered because exact checker has not passed.
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=345.4 subagents=6
