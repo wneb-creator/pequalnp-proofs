@@ -34,3 +34,5 @@
 - 2026-11-24 03:48:05 UTC — First orchestration replan completed; named 4041-line module build passed. Continue four/five-exotic formalization and collective global route; replace unrestricted full search with reviewed OR-sink query. Next review 04:13 UTC.
 
 - 2026-11-24 03:57:26 UTC — FirstAnd normalization and PairSurcharge compiled, independently approved, and copied for preservation. No exact39-gate theorem yet.
+
+- 2026-11-24 04:05:24 UTC — Preserving reviewed NineOrdinary/FourBound/MissingRawWitness: a hypothetical circuit below39 gates must have at least five nonordinary outputs. Exact statement remains open.

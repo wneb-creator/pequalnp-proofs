@@ -36,3 +36,7 @@ Put new stable, compiled components here only after review. Work in an individua
 
 - `Assembly.lean`: compiled and independently reviewed append-list and deleted-OR-root interfaces. Full log: `../validation/assembly-build-002.log`.
 - `SmallFamily.lean`: compiled and independently reviewed nonordinariness of all four outputs in a hypothetical eleven-gate residual. Full log: `../validation/small-family-build-001.log`.
+
+- `FourBound.lean`: checked and reviewed 39-gate bound for nine ordinary outputs and four OR sinks.
+- `NineOrdinary.lean`: checked and reviewed removal of those root/sink hypotheses; any counterexample below39 gates has at least five globally nonordinary outputs.
+- `MissingRawWitness.lean`: checked and reviewed fixed-set witness lemma supplying at most two raw sources and nine distinct paid pair-core witnesses when a required raw point is missing.
