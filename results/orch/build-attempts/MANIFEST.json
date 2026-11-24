@@ -60,6 +60,11 @@
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   {
+    "file": "results/orch/build-attempts/frontier-privacy-build.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
     "file": "results/orch/build-attempts/frontier-reader-exists-build.log",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -95,6 +100,11 @@
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   {
+    "file": "results/orch/build-attempts/minimum-invariants-build.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
     "file": "results/orch/build-attempts/minimum-output-build.log",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -106,6 +116,11 @@
   },
   {
     "file": "results/orch/build-attempts/normal-form-build.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "results/orch/build-attempts/or-cone-identity-build.log",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
@@ -213,6 +228,21 @@
     "file": "results/orch/build-attempts/partial-build-22.log",
     "bytes": 71916,
     "sha256": "061f2b73c8d42ce8bdca0c549a88724e1266e3c9728e1ba908f6c511d03948c3"
+  },
+  {
+    "file": "results/orch/build-attempts/partial-build-23.log",
+    "bytes": 71916,
+    "sha256": "f4bba1f52fc737a0d90b34416af381f987bfcab4882ef1cbe7c616de099fd53a"
+  },
+  {
+    "file": "results/orch/build-attempts/partial-build-24.log",
+    "bytes": 71916,
+    "sha256": "061f2b73c8d42ce8bdca0c549a88724e1266e3c9728e1ba908f6c511d03948c3"
+  },
+  {
+    "file": "results/orch/build-attempts/partial-build-25.log",
+    "bytes": 71916,
+    "sha256": "494e083ff03458b46624fececab53d5d417a29b809078bbf518d897994bada1b"
   },
   {
     "file": "results/orch/build-attempts/partial-build-4.log",

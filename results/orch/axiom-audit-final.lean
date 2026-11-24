@@ -20,3 +20,8 @@ import PEqualNP.Outside.L_meta_3451
 #print axioms PEqualNP.Outside.L_meta_3451.saMinimumOutputValid
 #print axioms PEqualNP.Outside.L_meta_3451.raMinimumReaderCard
 #print axioms PEqualNP.Outside.L_meta_3451.raMinimumReaderOne
+#print axioms PEqualNP.Outside.L_meta_3451.minimum_invariants
+#print axioms PEqualNP.Outside.L_meta_3451.ocFilterSplit
+#print axioms PEqualNP.Outside.L_meta_3451.ocFilterCollapse
+#print axioms PEqualNP.Outside.L_meta_3451.raAllTailAndRoots
+#print axioms PEqualNP.Outside.L_meta_3451.raMinimumUniqueReader

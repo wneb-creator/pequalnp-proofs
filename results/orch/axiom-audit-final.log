@@ -19,3 +19,8 @@
 'PEqualNP.Outside.L_meta_3451.saMinimumOutputValid' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PEqualNP.Outside.L_meta_3451.raMinimumReaderCard' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PEqualNP.Outside.L_meta_3451.raMinimumReaderOne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451.minimum_invariants' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451.ocFilterSplit' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451.ocFilterCollapse' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451.raAllTailAndRoots' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451.raMinimumUniqueReader' depends on axioms: [propext, Classical.choice, Quot.sound]

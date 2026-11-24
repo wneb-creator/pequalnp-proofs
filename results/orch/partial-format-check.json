@@ -1,7 +1,7 @@
 {
   "kind": "partial-format-check",
   "file": "lean/PEqualNP/Outside/L_meta_3451.lean",
-  "sha256": "c886a35443966cd07754fad56ee044e53eaf53837415f748ad68b797d5ccadfd",
+  "sha256": "d592bf23259a4c40bd232d62247b6e2ae2ea7fbd6f63239e7abdec67f6fa1a06",
   "full_target_present": false,
   "result": "Error: the file holds no theorem\nthe theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_3451 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_3451` ... `end PEqualNP.Outside.L_meta_3451`; only the imports and the theorem stay outside"
 }
