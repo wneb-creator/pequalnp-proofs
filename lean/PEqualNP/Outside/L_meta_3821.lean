@@ -380,4 +380,320 @@ lemma prune_private_and (n : ℕ) (C : Circuit) (p i j : ℕ) (S : Finset ℕ)
   · intro x hx
     exact (heval x).trans (replaceAndFalse_eval C p i j hp hg (List.ofFn x) (hz x hx))
 
+
+def aliasGate (n : ℕ) (r : ℕ → ℕ) (t : ℕ) (g : Gate) : Gate :=
+  ⟨g.op, g.inputs.map fun a => if a < n + t then r a else a⟩
+
+def aliasGates (n : ℕ) (r : ℕ → ℕ) (gs : List Gate) : List Gate :=
+  gs.zipIdx.map fun z => aliasGate n r z.2 z.1
+
+def aliasCircuit (n : ℕ) (C : Circuit) (r : ℕ → ℕ) : Circuit :=
+  ⟨aliasGates n r C.gates, r C.output⟩
+
+lemma aliasGates_length (n : ℕ) (r : ℕ → ℕ) (gs : List Gate) :
+    (aliasGates n r gs).length = gs.length := by simp [aliasGates]
+
+lemma aliasGates_get (n : ℕ) (r : ℕ → ℕ) (gs : List Gate) (t : ℕ)
+    (ht : t < (aliasGates n r gs).length) :
+    (aliasGates n r gs)[t] = aliasGate n r t (gs[t]'(by simpa [aliasGates] using ht)) := by
+  simp [aliasGates, List.getElem_zipIdx]
+
+lemma aliasCircuit_fanInTwo (n : ℕ) (C : Circuit) (r : ℕ → ℕ) (hfan : FanInTwo C) :
+    FanInTwo (aliasCircuit n C r) := by
+  intro g hg
+  obtain ⟨t, ht, rfl⟩ := List.mem_iff_getElem.mp hg
+  simp only [aliasCircuit] at ht ⊢
+  rw [aliasGates_get n r C.gates t ht]
+  have ht' : t < C.gates.length := by simpa [aliasCircuit, aliasGates] using ht
+  simpa only [aliasGate, List.length_map] using hfan C.gates[t] (List.getElem_mem ht')
+
+lemma aliasGates_values (n : ℕ) (gs : List Gate) (r : ℕ → ℕ) (x : List Bool)
+    (hx : x.length = n) (hr : ∀ a, r a ≤ a)
+    (heq : ∀ a, (d3r1Fold false GateOp.eval gs x).getD (r a) false =
+      (d3r1Fold false GateOp.eval gs x).getD a false) :
+    ∀ u, (d3r1Fold false GateOp.eval (aliasGates n r gs) x).getD u false =
+      (d3r1Fold false GateOp.eval gs x).getD u false := by
+  intro u
+  induction u using Nat.strong_induction_on with
+  | _ u ih =>
+    by_cases hun : u < n
+    · rw [d3r1Fold_lt _ _ _ _ _ (by omega), d3r1Fold_lt _ _ _ _ _ (by omega)]
+    · by_cases hul : u < n + gs.length
+      · obtain ⟨t, rfl⟩ : ∃ t, u = n + t := ⟨u - n, by omega⟩
+        have ht : t < gs.length := by omega
+        have ht' : t < (aliasGates n r gs).length := by simpa [aliasGates] using ht
+        have hleft := d3r1Fold_gate false GateOp.eval (aliasGates n r gs) x t ht'
+        have hright := d3r1Fold_gate false GateOp.eval gs x t ht
+        rw [hx] at hleft hright
+        rw [hleft, hright, aliasGates_get n r gs t ht']
+        simp only [aliasGate, List.map_map]
+        congr 1
+        apply List.map_congr_left
+        intro a _
+        simp only [Function.comp_apply]
+        by_cases hat : a < n + t
+        · have hrat : r a < n + t := lt_of_le_of_lt (hr a) hat
+          rw [ite_eq_left hat, ite_eq_left (by omega), ite_eq_left (by omega)]
+          exact (ih (r a) hrat).trans (heq a)
+        · rw [ite_eq_right hat, ite_eq_right (by omega), ite_eq_right (by omega)]
+      · rw [d3r1Fold_ge _ _ _ _ _ (by rw [aliasGates_length]; omega),
+          d3r1Fold_ge _ _ _ _ _ (by omega)]
+
+lemma aliasCircuit_eval (n : ℕ) (C : Circuit) (r : ℕ → ℕ) (x : Fin n → Bool)
+    (hr : ∀ a, r a ≤ a)
+    (heq : ∀ a, (C.wires (List.ofFn x)).getD (r a) false =
+      (C.wires (List.ofFn x)).getD a false) :
+    (aliasCircuit n C r).eval (List.ofFn x) = C.eval (List.ofFn x) := by
+  exact (aliasGates_values n C.gates r (List.ofFn x) (by simp) hr heq (r C.output)).trans
+    (heq C.output)
+
+
+lemma alias_prune (n : ℕ) (C : Circuit) (r : ℕ → ℕ) (S : Finset ℕ)
+    (P : (Fin n → Bool) → Prop) (hfan : FanInTwo C) (hr : ∀ a, r a ≤ a)
+    (hS : ∀ t ∈ S, t < C.gates.length)
+    (hcl : ∀ (t : ℕ) (ht : t < C.gates.length), t ∉ S →
+      ∀ a ∈ C.gates[t].inputs, a < n + t → n ≤ r a → r a - n ∉ S)
+    (ho : n ≤ r C.output → r C.output < n + C.gates.length → r C.output - n ∉ S)
+    (heq : ∀ x : Fin n → Bool, P x → ∀ a,
+      (C.wires (List.ofFn x)).getD (r a) false = (C.wires (List.ofFn x)).getD a false) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + S.card = C.size ∧
+      ∀ x : Fin n → Bool, P x → D.eval (List.ofFn x) = C.eval (List.ofFn x) := by
+  obtain ⟨D, hD, hsize, hev⟩ := prune_removed_set n (aliasCircuit n C r) S
+    (aliasCircuit_fanInTwo n C r hfan)
+    (by intro t ht; simpa only [aliasCircuit, aliasGates_length] using hS t ht)
+    (by
+      intro t ht hkeep a ha han hat
+      change a ∈ (aliasGates n r C.gates)[t].inputs at ha
+      rw [aliasGates_get n r C.gates t ht] at ha
+      obtain ⟨b, hb, hba⟩ := List.mem_map.mp ha
+      by_cases hbt : b < n + t
+      · have hba' : r b = a := by simpa only [ite_eq_left hbt] using hba
+        subst a
+        simp only [ite_eq_left hbt] at han ⊢
+        exact hcl t (by simpa only [aliasCircuit, aliasGates_length] using ht)
+          hkeep b hb hbt han
+      · have hba' : b = a := by simpa only [ite_eq_right hbt] using hba
+        omega)
+    (by
+      intro hon hol
+      exact ho hon (by simpa only [aliasCircuit, aliasGates_length] using hol))
+  refine ⟨D, hD, ?_, ?_⟩
+  · simpa only [Circuit.size, aliasCircuit, aliasGates_length] using hsize
+  · intro x hx
+    exact (hev x).trans (aliasCircuit_eval n C r x hr (heq x hx))
+
+def bypassPair (n p q i w a : ℕ) : ℕ :=
+  if a = n + q then (if w = n + p then i else w) else if a = n + p then i else a
+
+lemma bypassPair_le (n p q i w : ℕ) (hi : i < n) (_hpq : p < q) (hw : w < n + q) :
+    ∀ a, bypassPair n p q i w a ≤ a := by
+  intro a
+  unfold bypassPair
+  split_ifs <;> omega
+
+lemma bypassPair_ne_left (n p q i w a : ℕ) (hi : i < n) :
+    bypassPair n p q i w a ≠ n + p := by
+  unfold bypassPair
+  split_ifs <;> omega
+
+lemma bypassPair_ne_right (n p q i w a : ℕ) (hi : i < n) (hw : w < n + q) :
+    bypassPair n p q i w a ≠ n + q := by
+  unfold bypassPair
+  split_ifs <;> omega
+
+lemma bypassPair_values (n p q i w : ℕ) (v : ℕ → Bool)
+    (hp : v (n + p) = v i) (hq : v (n + q) = v w) :
+    ∀ a, v (bypassPair n p q i w a) = v a := by
+  intro a
+  unfold bypassPair
+  split_ifs with haq hwp hap
+  · subst a
+    rw [hwp] at hq
+    exact (hq.trans hp).symm
+  · subst a
+    exact hq.symm
+  · subst a
+    exact hp.symm
+  · rfl
+
+
+lemma bypassPair_outside (n p q i w a : ℕ) (S : Finset ℕ) (hi : i < n)
+    (hwS : n ≤ w → w - n ∉ S) (haS : n ≤ a → a - n ∉ S) :
+    n ≤ bypassPair n p q i w a → bypassPair n p q i w a - n ∉ S := by
+  unfold bypassPair
+  split_ifs
+  · omega
+  · exact hwS
+  · omega
+  · exact haS
+
+lemma private_pair_saving (n : ℕ) (C : Circuit) (p q i w : ℕ) (S : Finset ℕ)
+    (P : (Fin n → Bool) → Prop) (hfan : FanInTwo C) (hp : p < C.gates.length)
+    (hpq : p < q) (hq : q < C.gates.length) (hi : i < n) (hw : w < n + q)
+    (hS : ∀ t ∈ S, t < p)
+    (hprivate : ∀ (t : ℕ) (ht : t < C.gates.length), t ∉ S → t ≠ p →
+      ∀ a ∈ C.gates[t].inputs, n ≤ a → a < n + t → a - n ∉ S)
+    (hwS : n ≤ w → w - n ∉ S)
+    (ho : n ≤ C.output → C.output < n + C.gates.length → C.output - n ∉ S)
+    (hvp : ∀ x : Fin n → Bool, P x → (C.wires (List.ofFn x)).getD (n + p) false =
+      (C.wires (List.ofFn x)).getD i false)
+    (hvq : ∀ x : Fin n → Bool, P x → (C.wires (List.ofFn x)).getD (n + q) false =
+      (C.wires (List.ofFn x)).getD w false) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + S.card + 2 = C.size ∧
+      ∀ x : Fin n → Bool, P x → D.eval (List.ofFn x) = C.eval (List.ofFn x) := by
+  let T : Finset ℕ := insert p (insert q S)
+  let r : ℕ → ℕ := bypassPair n p q i w
+  have hpn : p ∉ S := by intro hm; have := hS p hm; omega
+  have hqn : q ∉ S := by intro hm; have := hS q hm; omega
+  have hTcard : T.card = S.card + 2 := by simp [T, hpn, hqn, ne_of_lt hpq]
+  have routside (a : ℕ) (ha : n ≤ a → a - n ∉ S) (hra : n ≤ r a) : r a - n ∉ T := by
+    have hleft := bypassPair_ne_left n p q i w a hi
+    have hright := bypassPair_ne_right n p q i w a hi hw
+    have hrest := bypassPair_outside n p q i w a S hi hwS ha hra
+    simp only [T, Finset.mem_insert]
+    intro hm
+    rcases hm with hm | hm | hm
+    · exact hleft (by change bypassPair n p q i w a - n = p at hm; change n ≤ bypassPair n p q i w a at hra; omega)
+    · exact hright (by change bypassPair n p q i w a - n = q at hm; change n ≤ bypassPair n p q i w a at hra; omega)
+    · exact hrest hm
+  obtain ⟨D, hD, hsize, hev⟩ := alias_prune n C r T P hfan
+    (bypassPair_le n p q i w hi hpq hw)
+    (by
+      intro t ht
+      simp only [T, Finset.mem_insert] at ht
+      rcases ht with rfl | rfl | ht
+      · exact hp
+      · exact hq
+      · exact lt_trans (hS t ht) hp)
+    (by
+      intro t ht hkeep a ha hat hra
+      apply routside a _ hra
+      intro han
+      apply hprivate t ht
+      · intro hm; exact hkeep (by simp [T, hm])
+      · intro hm; subst t; exact hkeep (by simp [T])
+      · exact ha
+      · exact han
+      · exact hat)
+    (by
+      intro hra _
+      apply routside C.output _ hra
+      intro hon hm
+      have hs := hS (C.output - n) hm
+      exact ho hon (by omega) hm)
+    (by
+      intro x hx
+      exact bypassPair_values n p q i w
+        (fun a => (C.wires (List.ofFn x)).getD a false) (hvp x hx) (hvq x hx))
+  refine ⟨D, hD, ?_, hev⟩
+  rw [hTcard] at hsize
+  omega
+
+
+lemma private_and_or_saving (n : ℕ) (C : Circuit) (p q i j w : ℕ) (S : Finset ℕ)
+    (P : (Fin n → Bool) → Prop) (hfan : FanInTwo C) (hp : p < C.gates.length)
+    (hpq : p < q) (hq : q < C.gates.length) (hi : i < n) (hw : w < n + q)
+    (hgp : C.gates[p] = ⟨.and, [i, j]⟩)
+    (hgq : C.gates[q] = ⟨.or, [n + p, w]⟩)
+    (hS : ∀ t ∈ S, t < p)
+    (hprivate : ∀ (t : ℕ) (ht : t < C.gates.length), t ∉ S → t ≠ p →
+      ∀ a ∈ C.gates[t].inputs, n ≤ a → a < n + t → a - n ∉ S)
+    (ho : n ≤ C.output → C.output < n + C.gates.length → C.output - n ∉ S)
+    (hz : ∀ x : Fin n → Bool, P x → x ⟨i, hi⟩ = false) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + S.card + 2 = C.size ∧
+      ∀ x : Fin n → Bool, P x → D.eval (List.ofFn x) = C.eval (List.ofFn x) := by
+  have hqn : q ∉ S := by intro hm; have := hS q hm; omega
+  have hwS : n ≤ w → w - n ∉ S := by
+    intro hwn
+    exact hprivate q hq hqn (ne_of_gt hpq) w (by rw [hgq]; simp) hwn hw
+  have hzero (x : Fin n → Bool) (hx : P x) :
+      (C.wires (List.ofFn x)).getD i false = false := by
+    change (d3r1Fold false GateOp.eval C.gates (List.ofFn x)).getD i false = false
+    rw [d3r1Fold_lt _ _ _ _ _ (by simpa using hi)]
+    simpa [List.getD_eq_getElem?_getD, hi] using hz x hx
+  have hpzero (x : Fin n → Bool) (hx : P x) :
+      (C.wires (List.ofFn x)).getD (n + p) false = false := by
+    have hv := d3r1Fold_gate false GateOp.eval C.gates (List.ofFn x) p hp
+    simp only [List.length_ofFn, hgp, GateOp.eval, List.map_cons, List.map_nil,
+      List.all_cons, List.all_nil, id_eq] at hv
+    change (d3r1Fold false GateOp.eval C.gates (List.ofFn x)).getD (n + p) false = false
+    rw [hv, ite_eq_left (by omega)]
+    change ((C.wires (List.ofFn x)).getD i false && _) = false
+    rw [hzero x hx]
+    rfl
+  apply private_pair_saving n C p q i w S P hfan hp hpq hq hi hw hS hprivate hwS ho
+  · intro x hx
+    rw [hpzero x hx, hzero x hx]
+  · intro x hx
+    have hv := d3r1Fold_gate false GateOp.eval C.gates (List.ofFn x) q hq
+    simp only [List.length_ofFn, hgq, GateOp.eval, List.map_cons, List.map_nil,
+      List.any_cons, List.any_nil, id_eq] at hv
+    change (d3r1Fold false GateOp.eval C.gates (List.ofFn x)).getD (n + q) false = _
+    rw [hv, ite_eq_left (by omega), ite_eq_left hw]
+    change ((C.wires (List.ofFn x)).getD (n + p) false || _) = _
+    rw [hpzero x hx]
+    simp only [Bool.false_or, Bool.or_false]
+    rfl
+
+lemma private_and_or_four (n : ℕ) (C : Circuit) (p q i j w : ℕ) (S : Finset ℕ)
+    (P : (Fin n → Bool) → Prop) (hfan : FanInTwo C) (hp : p < C.gates.length)
+    (hpq : p < q) (hq : q < C.gates.length) (hi : i < n) (hw : w < n + q)
+    (hgp : C.gates[p] = ⟨.and, [i, j]⟩)
+    (hgq : C.gates[q] = ⟨.or, [n + p, w]⟩)
+    (hS : ∀ t ∈ S, t < p) (hcard : S.card = 2)
+    (hprivate : ∀ (t : ℕ) (ht : t < C.gates.length), t ∉ S → t ≠ p →
+      ∀ a ∈ C.gates[t].inputs, n ≤ a → a < n + t → a - n ∉ S)
+    (ho : n ≤ C.output → C.output < n + C.gates.length → C.output - n ∉ S)
+    (hz : ∀ x : Fin n → Bool, P x → x ⟨i, hi⟩ = false) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + 4 = C.size ∧
+      ∀ x : Fin n → Bool, P x → D.eval (List.ofFn x) = C.eval (List.ofFn x) := by
+  obtain ⟨D, hD, hsize, hev⟩ := private_and_or_saving n C p q i j w S P hfan hp hpq hq hi hw
+    hgp hgq hS hprivate ho hz
+  exact ⟨D, hD, by omega, hev⟩
+
+
+namespace StarCover
+
+open Finset
+
+def Covers (S : Finset (Fin 10)) : Prop :=
+  ∀ i : Fin 5,
+    (Fin.castAdd 5 i ∈ S ∨ Fin.castAdd 5 (i + (1 : Fin 5)) ∈ S) ∧
+    (Fin.castAdd 5 i ∈ S ∨ Fin.natAdd 5 i ∈ S) ∧
+    (Fin.natAdd 5 i ∈ S ∨ Fin.natAdd 5 (i + (2 : Fin 5)) ∈ S)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 4000000 in
+lemma cover_card : ∀ S : Finset (Fin 10), Covers S → 6 ≤ S.card := by
+  unfold Covers
+  decide +kernel
+
+def endpoints (e : Fin 3 × Fin 5) : Fin 10 × Fin 10 :=
+  if e.1 = 0 then (Fin.castAdd 5 e.2, Fin.castAdd 5 (e.2 + 1))
+  else if e.1 = 1 then (Fin.castAdd 5 e.2, Fin.natAdd 5 e.2)
+  else (Fin.natAdd 5 e.2, Fin.natAdd 5 (e.2 + 2))
+
+lemma assigned_centers_cover (c : Fin 3 × Fin 5 → Fin 10)
+    (hc : ∀ e, c e = (endpoints e).1 ∨ c e = (endpoints e).2) :
+    Covers (Finset.univ.image c) := by
+  intro i
+  have mem (e : Fin 3 × Fin 5) : c e ∈ Finset.univ.image c :=
+    Finset.mem_image.mpr ⟨e, Finset.mem_univ _, rfl⟩
+  have edge (e : Fin 3 × Fin 5) :
+      (endpoints e).1 ∈ Finset.univ.image c ∨ (endpoints e).2 ∈ Finset.univ.image c := by
+    rcases hc e with h | h
+    · exact Or.inl (h ▸ mem e)
+    · exact Or.inr (h ▸ mem e)
+  exact ⟨by simpa [endpoints] using edge (0, i),
+    by simpa [endpoints] using edge (1, i),
+    by simpa [endpoints] using edge (2, i)⟩
+
+lemma assigned_star_cost (c : Fin 3 × Fin 5 → Fin 10)
+    (hc : ∀ e, c e = (endpoints e).1 ∨ c e = (endpoints e).2) :
+    20 ≤ 15 + (Finset.univ.image c).card - 1 := by
+  have := cover_card _ (assigned_centers_cover c hc)
+  omega
+
+end StarCover
+
 end PEqualNP.Outside.L_meta_3821_aux.Pruning
