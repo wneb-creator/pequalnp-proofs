@@ -1,0 +1,57 @@
+import took 4.05s
+type checking took 203ms
+type checking took 117ms
+type checking took 139ms
+type checking took 161ms
+type checking took 134ms
+type checking took 122ms
+type checking took 119ms
+type checking took 137ms
+type checking took 158ms
+type checking took 378ms
+type checking took 156ms
+type checking took 136ms
+tactic execution of Lean.Parser.Tactic.refine took 290ms
+tactic execution of Lean.Parser.Tactic.refine took 181ms
+type checking took 2.21s
+type checking took 2.08s
+type checking took 2s
+type checking took 2.25s
+type checking took 1.86s
+type checking took 2.61s
+type checking took 1.98s
+type checking took 2.64s
+type checking took 2.43s
+type checking took 2.04s
+type checking took 2.15s
+type checking took 2.62s
+tactic execution of Lean.Parser.Tactic.decide took 217ms
+type checking took 268ms
+type checking took 331ms
+cumulative profiling times:
+	.olean serialization 19.4ms
+	attribute application 0.78ms
+	blocked (unaccounted) 209s
+	compilation (IR) 0.837ms
+	compilation (LCNF base) 14.4ms
+	compilation (LCNF impure) 2.78ms
+	compilation (LCNF mono) 6.72ms
+	congr simp thm 6.62ms
+	declTypeLinter 46.5ms
+	elaboration 179ms
+	fix level params 2.1ms
+	import 4.05s
+	initialization 29ms
+	instantiate metavars 10.5ms
+	interpretation 1.01s
+	let-to-have transformation 0.529ms
+	linting 125ms
+	module linting 0.081ms
+	parsing 16ms
+	process pre-definitions 54.4ms
+	share common exprs 12.6ms
+	simp 81.8ms
+	tactic execution 867ms
+	tacticAnalysis 15.1ms
+	type checking 29.5s
+	typeclass inference 77.9ms

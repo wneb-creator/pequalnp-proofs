@@ -25,3 +25,9 @@ Sub-agents: counterexample, lower_bound, red_team, sat_proof, status_review, too
 TIMING total=158 subagents=6
 
 Checkpoint2026-11-24T00:31Z: CompactCase159 fully checked (same closed frontier case,2968B proof body), generic SlackOne and retained-extension classification checked, lower_twelve remains explicitly conditional. First-input Tight batches0..4 check180/324 cases; remaining batches pending. Independent audits and full output preserved. Full gap0..5 and final repository checker remain pending.
+
+Checkpoint2026-11-24T00:35Z: Restorable checked source bundle v1 includes27 custom modules and exact import closure; verify-only passed, Smoke current source rechecked. FirstOrbit and unordered-pair generic helpers checked/reviewed. Alpha variants are UNCOMPILED source-only compression candidates. Exact DAG and signed/slack native packages independently audited as UNVERIFIED diagnostics; no gap proof is asserted.
+Sub-agents: counterexample, lower_bound, red_team, sat_proof, status_review, toolchain
+TIMING total=171 subagents=6
+
+CLOSED RESULT2026-11-24T00:35Z: TightLowerEleven.high_nots_closed now excludes EVERY normalized size15 Live branch with t>=5NOTs. All324 exact finite checks passed, complete aggregation compiled, independent review passed, standard three-axiom diagnostic preserved. The full posted theorem is NOT proved: branches0..4 remain. UnorderedEndgame independently checked/reviewed but still explicitly assumes24 first-gate finite exclusions for t>=4.

@@ -1,0 +1,5 @@
+PASS: independent source review. The unordered tight and one-slack recurrences retain the exact card/NOT/gate equations and all cases of the previously reviewed ordered recurrences. The only child enumeration change is use of the checked UnorderedPairs.step_mem and keep_step_mem, which preserve multiplicity and operand-swap completeness. Unary replacement respects phase; retained input consumes one slack and enters tight search; binary consume-both retains one slack; retaining both inputs is excluded by live_size. The finite split helpers require every actual list position, including duplicates; any_false_fin obtains a genuine index from membership, so no child can be skipped. Depth zero remains permissive. No finite family outcome or full-gap theorem is assumed. Body matches checked wrapper and contains no banned forms.
+
+aaea7c6404ca61edd2a7ce79e011e0a4868c243f8e319f595be87c8b5dbdb026  sat-proof/UnorderedFormulaBody.lean
+7657aef99e14485b2d7e9fef7efd04bbc27635429a096f29ddc32081bdcffaee  sat-proof/UnorderedFormulaTest.lean
+b871ef8b5d9c0452866845a6012eeabee8f8dd5e9aa29c1b3ab50684c3d12e7d  sat-proof/unordered-formula-build2.log

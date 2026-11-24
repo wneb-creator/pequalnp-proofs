@@ -1,0 +1,24 @@
+{
+  "source_bytes": 519754,
+  "source_sha256": "117f01430097ce47ad8c1226a6e8a0a5f1fbadd7b7462ffb70175f67eb2c280f",
+  "variants": {
+    "Namespaces": {
+      "bytes": 509025,
+      "sha256": "9685c69424a8ae96e99e5a8f7458c5f427ba96c6b32f0cb5136d76e95f3c1b3d",
+      "renamed_identifiers": 27,
+      "token_and_namespace_rows_equal": true,
+      "semantic_rows": 5489,
+      "saved_bytes": 10729
+    },
+    "Candidate": {
+      "bytes": 501913,
+      "sha256": "7d29ab78793fb8743070914138cbd9c2e32393d3ad3fcb0706bb06b57a825991",
+      "renamed_identifiers": 189,
+      "token_and_namespace_rows_equal": true,
+      "semantic_rows": 5489,
+      "saved_bytes": 17841
+    }
+  },
+  "qualified_external_renamed_helpers": [],
+  "verdict": "PASS: exact source-token alpha map and namespace scope preservation; compile pending"
+}

@@ -1,0 +1,8 @@
+result=EXCLUDED k=12 t=0 sec=27.2253 nodes=807139 hits=476062 branches=807138 failed=331077 signals=1142291 bins=3636156
+depth 6 nodes 642
+depth 7 nodes 56526
+depth 8 nodes 378630
+depth 9 nodes 339720
+depth 10 nodes 31476
+depth 11 nodes 144
+depth 12 nodes 1

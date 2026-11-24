@@ -1,0 +1,16 @@
+PASS: independent closed-family aggregation review. all_first_cases performs all nine Fin9 cases of i and applies the corresponding checked first0..8 theorem uniformly over every j:Fin9 and u:Fin4. Each of the nine source files has the matching literal i, covers all9x4 positions with fin_cases and kernel checks, and has its checked artifact. Exactly324 cases are covered; no finite-family hypothesis remains. from_cases uses phase-normalized op membership and the proven literal index identities to cover arbitrary signed literals and either binary operator. lower_eleven then excludes every actual literal-state Live derivation with too few binary gates. high_nots_closed instantiates the literal input state and contradicts k≤15 when t≥5, while binary_gates_lower exposes the exact general t+11≤k bound. Body exactly matches the imported test wrapper apart from imports, with no banned forms or introduced axioms. This closes target size15 cases with at least five NOT gates, not the complete gap.
+
+cdc88f74f7afe08ede9b9675c6a8d5160f2b563b16ab4ebd786a3672bad851d7  lower-bound/TightLowerEleven.lean
+276960776f870f62eb17fa9eee94fb4eba6e885a6e9ebdf852739aaf843f2f28  lower-bound/TightLowerElevenBody.lean
+5ff998c66bdd9edb1eb16d80696bdb8e197e678df21603867544983960467afe  lower-bound/TightFamilyBridgeTest.lean
+d2b4aeb098567c5a7827412b3e34d0564b5650bd78fdf6a71e427c8ad1239630  lower-bound/TightFirstData.lean
+6a157eee6de904c3b2f4512c129afc09e5171234dac484ef284ed8576302c19f  lower-bound/TightFirst0.lean
+1a10598e37864879f73d77ce5ddd1a18fe0f92d9399ffb906060f1a2010584d8  lower-bound/TightFirst1.lean
+cd5fe1817e84dd232365a58b6c55616f667f38e4a1d946161b94f410570b637d  lower-bound/TightFirst2.lean
+4bd3c595d7ec44860fc2682ad7d2debdfbf139a9e7f8cda6fce64ab4eaa8cea9  lower-bound/TightFirst3.lean
+97b6896bbff7c1363f72a5f504ab07db425c1a736de5849dee81b80e32fed3f0  lower-bound/TightFirst4.lean
+619187e22cdb3ed6de2710b0ae8c0da1332ecf5fa87beff6b2f69bb5096987d6  lower-bound/TightFirst5.lean
+abebc868329715063da25522096fa82f15377481a49cdface47bb90ce847c883  lower-bound/TightFirst6.lean
+f957928fa8efe50e7ccc4de951ce463d0033dbd2c4c2645c4524da7da8db4064  lower-bound/TightFirst7.lean
+8d8654cafd6b30e8e03fdcd2f22cbf4a62c9584d62cf4b5d7289e3d91b0f06e9  lower-bound/TightFirst8.lean
+1ea61aeee595184a2d069a92577a850ba19c35e7ba97e6c91b8d53d1bbeec5f7  lower-bound/tight-lower-eleven-build.log

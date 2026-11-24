@@ -1,0 +1,5 @@
+PASS: independent source review. test_implies_one inducts on precisely the same depth n; the short-list base and every consume-both transition of test occur among the corresponding testOne alternatives. Child coverage is retained and the induction applies to the same child state. The theorem has the correct implication direction: a false one-slack result also excludes tight search at the same depth. It makes no finite-case claim and adds no assumptions.
+
+86d9fb12f9be80a3e5945d863815c5615b703985e3abd6e8d3987ce84b7b3bad  sat-proof/UnorderedEmbeddingBody.lean
+6b6e456e60719ee25886d627b668e143462d717ca433754ab8c743b539b8cc50  sat-proof/UnorderedEmbeddingTest.lean
+7855ad9386de34f089a5a90e74d933745186dedb1ae510121d80cf43d5dd8679  sat-proof/unordered-embedding-build2.log

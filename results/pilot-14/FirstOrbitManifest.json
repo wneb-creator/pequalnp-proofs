@@ -1,0 +1,22 @@
+{
+  "FirstOrbitBase.lean": {
+    "sha256": "a90244abd5b92c23db2efdbc496f0bb89f95535b7a60f3dfd88b677d89b0436e",
+    "bytes": 22463
+  },
+  "FirstOrbitBody.lean": {
+    "sha256": "41b6ab8b249bce1418205eba53400522943cffa0f812a27cc5f0e22653dc4609",
+    "bytes": 4895
+  },
+  "FirstOrbitTest.lean": {
+    "sha256": "e509db1440b90f4dffe2adf416c95c996243ee37d08541f4feebb6710efe7592",
+    "bytes": 4985
+  },
+  "first-orbit-base.log": {
+    "sha256": "f6364a5019983a26757215245bc8d4c98270bbbf88a79d32f229fb552d457dcf",
+    "bytes": 1507
+  },
+  "first-orbit-test.log": {
+    "sha256": "84c0286e7d59430c920579ea406ad4c5a16ecee1ea41c428c29d5cfd1602403c",
+    "bytes": 916
+  }
+}

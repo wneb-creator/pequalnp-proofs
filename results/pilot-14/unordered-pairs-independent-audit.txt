@@ -1,0 +1,5 @@
+PASS: independent source review. The recursive pairs enumerates unordered positions, not a set of values, so duplicate signals remain available as distinct operands. pair_mem proves completeness up to operand swap and residual list permutation even when a=b. Swapping sign-normalized ops is justified by bitwise AND commutativity in all four sign combinations. Consume-both and keep-one lists preserve every previous legal phase step through exact membership/Perm proofs. No efficiency claim is inferred from compilation; runtime benchmarking remains separate. Source body has no new assumptions or banned forms, and the test reports only standard axioms.
+
+e8944fe9c19d2b82763d0bdec5fde724dcedd7be61f23f589901563df2a7fcd6  toolchain/UnorderedPairsBody.lean
+8cddd906a8f995362a8b7f078a043ae374d530857aae070e903e7233448866d0  toolchain/UnorderedPairsTest.lean
+c61dce1d8ca4c9deaebb5ce84144106d17b6c4c7e1d9fd637cf5bab37821732b  toolchain/unordered-pairs-test.log

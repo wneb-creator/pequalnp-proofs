@@ -1,0 +1,26 @@
+import took 3.45s
+/tmp/oec/pequalnp-pilot-14/counterexample/FirstOrbitTest.lean:62:71: warning: exponent 414 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+'PEqualNP.Outside.L_meta_670_aux.FirstOrbit.first_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+cumulative profiling times:
+	.olean serialization 3.57ms
+	attribute application 0.086ms
+	blocked (unaccounted) 157ms
+	congr simp thm 3.27ms
+	declTypeLinter 3.57ms
+	elaboration 31ms
+	fix level params 0.266ms
+	import 3.45s
+	initialization 27.2ms
+	instantiate metavars 0.88ms
+	interpretation 325ms
+	let-to-have transformation 0.0937ms
+	linting 15ms
+	module linting 0.0291ms
+	parsing 6.37ms
+	process pre-definitions 4.37ms
+	share common exprs 1.81ms
+	simp 112ms
+	tactic execution 75ms
+	tacticAnalysis 2.9ms
+	type checking 75ms
+	typeclass inference 43.9ms

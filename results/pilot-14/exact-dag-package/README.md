@@ -1,0 +1,11 @@
+# L-meta-670 exact native t4/t5 DAG diagnostic
+
+UNVERIFIED AS A LEAN PROOF. This package records exhaustive native searches and an independent Python replay. No finite Lean theorem is claimed.
+
+Compile with `g++ -O2 -std=c++17 live_theta_dag.cpp -o live_theta_dag`. Run `./live_theta_dag 20 1000000 15 5 0 ExactDagT5.json` and `./live_theta_dag 20 1000000 15 4 0 ExactDagT4.json`, saving complete stdout and stderr. Then `python3 prune_exact_dag.py 5 4` and `python3 validate_exact_dag.py 5 4`. Decompress the JSON archives before validating precomputed data. The cut parameter is zero: unlike earlier frontier collection experiments, these completed native runs enumerate the entire search. EXCLUDED means native search completed without a witness; it does not mean Lean checked it. The time/node/resource checks are sampled every65,536calls and may overshoot their nominal caps.
+
+Records are keyed by remaining gate count, exact remaining NOT count, and state modulo the12 input automorphisms. kind1 is a prefix-certificate terminal; kind2 is a branch. Each record stores its actual representative state and all12 projected prefix programs. Later stronger prefix witnesses may replace earlier branch representatives; child references authenticate only modulo automorphism. Prefix programs use oldraw0..7,false8,true9,then gates10+j. Gate op0=AND,1=OR,2=NOT. RPN recipes are4bit-token sequences: input1..9,NOT10,AND11,OR12.
+
+Pruning follows only branch edges from root0, drops unreachable records, and deduplicates edges. The independent Python validator reconstructs every wire from its recipe, verifies every projected program output, checks each terminal inequality, and independently enumerates all legal cardinality/coverage-preserving successors of every branch; their canonical state set must equal the recorded child set. It uses direct arbitrary-precision Boolean arithmetic, separate from the C++ implementation.
+
+Final t5:5,969 records,1,432 branches,4,537 prefix terminals,11,501 distinct edges; native13,565calls. Final t4:24,547 records,5,463 branches,19,084 prefix terminals,41,233 distinct edges; native46,201calls. Full native stdout/stderr and full Python validation logs are included.

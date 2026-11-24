@@ -1,0 +1,6 @@
+PASS: independent source review of checked FirstOrbit.first_cut. Raw literal index/sign classification is kernel checked on all literals. Distinct literals with equal index must be complements, whose AND/OR output is constant and contradicts the actual tail Live proper invariant; this justifies invoking distinct-index pair_orbits. The actual symmetry action transports Live with the same gate and NOT counts, preserves literal membership, U cardinality by injectivity, and output freshness by injectivity. Reversing the representative pair uses actual AND/OR commutativity. The result keeps the complete transformed U and live tail; it does not silently replace U by all other literals or drop a condition. This reduces binary operand pairs to the six proven representatives only. No finite SlackOne case outcome or full gap proof is claimed. Body exactly matches checked test apart from import and axioms query; log reports standard axioms.
+
+41b6ab8b249bce1418205eba53400522943cffa0f812a27cc5f0e22653dc4609  counterexample/FirstOrbitBody.lean
+e509db1440b90f4dffe2adf416c95c996243ee37d08541f4feebb6710efe7592  counterexample/FirstOrbitTest.lean
+a90244abd5b92c23db2efdbc496f0bb89f95535b7a60f3dfd88b677d89b0436e  counterexample/FirstOrbitBase.lean
+84c0286e7d59430c920579ea406ad4c5a16ecee1ea41c428c29d5cfd1602403c  counterexample/first-orbit-test.log

@@ -1,0 +1,36 @@
+import took 3.6s
+/tmp/oec/pequalnp-pilot-14/sat-proof/UnorderedFormulaTest.lean:197:2: error: Type mismatch: After simplification, term
+  h i
+ has type
+  f xs[i] = false
+but is expected to have type
+  ¬f a = true
+cumulative profiling times:
+	attribute application 0.0671ms
+	compilation (IR) 0.271ms
+	compilation (LCNF base) 10.1ms
+	compilation (LCNF impure) 1.14ms
+	compilation (LCNF mono) 4.12ms
+	congr simp thm 3.36ms
+	declTypeLinter 5.01ms
+	dsimp 3.14ms
+	elaboration 36.6ms
+	fix level params 0.44ms
+	import 3.6s
+	initialization 45.1ms
+	instantiate metavars 3.24ms
+	interpretation 370ms
+	let-to-have transformation 0.133ms
+	linting 24.4ms
+	module linting 0.0217ms
+	parsing 9.32ms
+	process pre-definitions 9.91ms
+	share common exprs 4.94ms
+	simp 68ms
+	tactic execution 318ms
+	tacticAnalysis 7.42ms
+	type checking 91.3ms
+	typeclass inference 125ms
+real 12.36
+user 4.29
+sys 2.55

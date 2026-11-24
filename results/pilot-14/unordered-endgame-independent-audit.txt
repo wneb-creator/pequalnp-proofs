@@ -1,0 +1,28 @@
+Independent UnorderedEndgame review
+Verdict: PASS for conditional generic bridge; finite24-case premise still explicit.
+Body source is included exactly in the successful test. Owner reports EXIT0 and
+current full log is empty. Reviewer did not recompile.
+
+first_cut_impossible uses actual Live tail, both literal operands, their
+distinctness, all retained U literals, output freshness, and k<=t+10. The Live
+size bound and RetainedExtension classify U phases as the9 raw phases plus at
+most one extra duplicate. U9 has either one slack or is tight, using one_test
+or tight_test then test_implies_one; U10 is tight and the checked duplication
+rule embeds it into testOne. Both branches contradict the explicit finite
+Boolean result. The <= budget form validly subsumes the tight branch and does
+not require the older324-case lower-eleven theorem.
+
+lower_twelve_by_cuts inducts on actual Live. Unary gates preserve the signed
+literal invariant and reduce both k/t; binary first cut preserves retained
+U and extracts exact freshness. first_cut via FirstOrbit supplies an actual
+transported Live state and a representative index pair. op_mem together with
+literal_phase_index selects one of the four signed output phases for that pair.
+Thus checkedReps ranges over exactly6 pairs x4 operations; it is neither an
+assumption of Boolean equivariance nor a drop of retained wires. high_nots then
+uses t+12<=k<=15 to exclude t>=4, still conditional on checkedReps.
+
+No new axioms, hidden finite assumptions, forbidden attributes/options/strings,
+or theorem weakening found. Exact reviewed hashes:
+UnorderedEndgameBody.lean 5177 275db973b88c1c647751e3f51f9b02c6329e9e534db9f4b06471f4bb8070d5a5
+UnorderedEndgameTest.lean 5258 ec91771c5256a8c5a6316403a92d7fa1167dda3ee83585997959f11accd99323
+unordered-endgame-build.log 0 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855

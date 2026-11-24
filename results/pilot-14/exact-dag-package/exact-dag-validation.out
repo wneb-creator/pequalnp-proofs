@@ -1,0 +1,2 @@
+{"t": 5, "rows": 5969, "wires": 270, "branches": 1432, "programs_verified": 71628, "distinct_edges_verified": 11501, "seconds": 1.928, "status": "Independent Python replay of all rows, programs, and complete legal child sets; not a Lean proof."}
+{"t": 4, "rows": 24547, "wires": 764, "branches": 5463, "programs_verified": 294564, "distinct_edges_verified": 41233, "seconds": 8.218, "status": "Independent Python replay of all rows, programs, and complete legal child sets; not a Lean proof."}

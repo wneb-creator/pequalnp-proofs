@@ -1,0 +1,10 @@
+result=UNKNOWN k=14 t=0 sec=7.75181 nodes=720896 hits=479883 branches=720895 failed=241006 signals=281927 bins=912244
+depth 6 nodes 1405
+depth 7 nodes 82274
+depth 8 nodes 362055
+depth 9 nodes 247577
+depth 10 nodes 27241
+depth 11 nodes 340
+depth 12 nodes 2
+depth 13 nodes 1
+depth 14 nodes 1

@@ -1,0 +1,5 @@
+pairs=414 independent=58 maximal=12
+automorphisms=12
+progress nodes=1048576 sec=17.1104 failed=401225 signals=777910 bins=2628332
+progress nodes=2097152 sec=32.983 failed=752717 signals=1374320 bins=4847515
+bounded_stop rssKB=1960204 elapsed=48.0801

@@ -1,0 +1,434 @@
+{
+  "purpose": "Checked supporting results for gap L-meta-670; not a complete gap proof",
+  "created_utc": "2026-11-24T00:28:52.609274+00:00",
+  "roots": [
+    "Case159Closed",
+    "LiteralBinaryTest",
+    "TightFormulaEndgameTest",
+    "FiniteProofTreeChild11",
+    "CompactCase159Test",
+    "SlackOneTest",
+    "TightFirstData",
+    "TightFirst0",
+    "TightFirst1",
+    "TightFirst2",
+    "RetainedExtensionTest"
+  ],
+  "build_order": [
+    "SlimCompact1007",
+    "Smoke",
+    "Cut12StrictRuntimeSmoke",
+    "DiagonalT7Base",
+    "ProjectedChildTest",
+    "Case159Common",
+    "Case159Child11",
+    "Case159Prefixes",
+    "Case159OtherChildren",
+    "Case159Combine",
+    "Case159GrandCommon",
+    "Case159GrandPrefixes",
+    "Case159GrandOthers",
+    "Case159Closed",
+    "DynamicFastBase",
+    "LiteralBinaryTest",
+    "TightFormulaTest",
+    "TightFormulaEndgameTest",
+    "FiniteProofTreeTest",
+    "FiniteProofTreeChild11",
+    "CompactCase159Test",
+    "SlackOneTest",
+    "TightFirstData",
+    "TightFirst0",
+    "TightFirst1",
+    "TightFirst2",
+    "RetainedExtensionTest"
+  ],
+  "external_imports": [
+    "Batteries.Tactic.OpenPrivate",
+    "Mathlib",
+    "PEqualNP.Defs"
+  ],
+  "external_repo_files": [
+    {
+      "path": "lean/lean-toolchain",
+      "sha256": "582a63f8f9c5128067b688778c1051cf1464c3ca9d57b9325025c051c29b774a"
+    },
+    {
+      "path": "lean/lake-manifest.json",
+      "sha256": "d0af863cde532caaef1b1bee0d63ec47100208e33e488309cb80abc88b8f1509"
+    },
+    {
+      "path": "lean/lakefile.toml",
+      "sha256": "ee756ab61cf24d2fd5f561d89080cf162e34f35b06d9b6101bc680ef1619a7bf"
+    },
+    {
+      "path": "lean/PEqualNP/Defs.lean",
+      "sha256": "dfa7f0163772255a54145a2b79eb6573e2fa0952c7450da46b5609f599560157"
+    }
+  ],
+  "modules": [
+    {
+      "module": "SlimCompact1007",
+      "source": "/tmp/oec/pequalnp-pilot-14/toolchain/SlimCompact1007.lean",
+      "copy": "modules/SlimCompact1007.lean",
+      "bytes": 306244,
+      "sha256": "21069a8982b627c2f8d2c916edf7b70c2224b9be12f590f72acd097fb7c0a97f",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ],
+      "olean_sha256": "9df31b04bb0fb0c8558767053f400d148b67a239d67d375406f5d288aa1c3d38",
+      "source_mtime_ns": 1795473722549732827,
+      "olean_mtime_ns": 1795474709109054298
+    },
+    {
+      "module": "Smoke",
+      "source": "/tmp/oec/pequalnp-pilot-14/assembly/Smoke.lean",
+      "copy": "modules/Smoke.lean",
+      "bytes": 167798,
+      "sha256": "4ba912ce728a33d1a7093f3f7f348dcb3030ea9364d3ac7354bfcfd94be660e3",
+      "imports": [
+        "SlimCompact1007",
+        "Batteries.Tactic.OpenPrivate"
+      ],
+      "olean_sha256": "e686c20c75d2ba96a57e197517328c6a96c72351cd7e8dabce1dfd9a44a6ff38",
+      "source_mtime_ns": 1795475281024809507,
+      "olean_mtime_ns": 1795480258489795200,
+      "historical_olean_sha256": "ae9df1acdf8d61656555012ccf07669c712a2b5fd14fe5fe7bc7da82625c9a1c",
+      "historical_olean_mtime_ns": 1795475233876671115,
+      "recheck": "Current exact source recompiled against existing SlimCompact1007; fresh .olean emitted 2026-11-24T00:30:58Z, complete log has warnings and no errors."
+    },
+    {
+      "module": "Cut12StrictRuntimeSmoke",
+      "source": "/tmp/oec/pequalnp-pilot-14/replay/Cut12StrictRuntimeSmoke.lean",
+      "copy": "modules/Cut12StrictRuntimeSmoke.lean",
+      "bytes": 81183,
+      "sha256": "627e066608690c4bb167b663a7e7e209a2e4d16e0a0062ea265d254bcefb7e31",
+      "imports": [
+        "Smoke",
+        "Batteries.Tactic.OpenPrivate"
+      ],
+      "olean_sha256": "7aac2df6d02b0764c70002e7100dbec873ace249ae7c052629ef722a4d93eff1",
+      "source_mtime_ns": 1795477359163362664,
+      "olean_mtime_ns": 1795477367859094671
+    },
+    {
+      "module": "DiagonalT7Base",
+      "source": "/tmp/oec/pequalnp-pilot-14/replay/DiagonalT7Base.lean",
+      "copy": "modules/DiagonalT7Base.lean",
+      "bytes": 7982,
+      "sha256": "632c9a599aea9e6a840df9936ddd0ada52684770188801996614019b49dfc882",
+      "imports": [
+        "Cut12StrictRuntimeSmoke"
+      ],
+      "olean_sha256": "e3ea22b73541b92da6c79105187f917b6a3008bcc6f245b90916f62f14c2c713",
+      "source_mtime_ns": 1795477682930669731,
+      "olean_mtime_ns": 1795477690246105791
+    },
+    {
+      "module": "ProjectedChildTest",
+      "source": "/tmp/oec/pequalnp-pilot-14/replay/ProjectedChildTest.lean",
+      "copy": "modules/ProjectedChildTest.lean",
+      "bytes": 4756,
+      "sha256": "86a58a73ef372273677b81340b82fed91353c5c3a3d1343370f961b85a37ee49",
+      "imports": [
+        "DiagonalT7Base"
+      ],
+      "olean_sha256": "8bd08cd1252e61e14b811b143e9f47b1ee7fe52b745212627f5b9e8c71cd765b",
+      "source_mtime_ns": 1795477602103724392,
+      "olean_mtime_ns": 1795477711267676549
+    },
+    {
+      "module": "Case159Common",
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/Case159Common.lean",
+      "copy": "modules/Case159Common.lean",
+      "bytes": 2790,
+      "sha256": "bbb23a93c5caec2537c6fda5a306a4976144215c4fe6d0799dfe975fc99c80d1",
+      "imports": [
+        "ProjectedChildTest"
+      ],
+      "olean_sha256": "ca7457a1e59c8fae1fc7c195fecd4293b0f982797da2ebc8990213b94dc98fea",
+      "source_mtime_ns": 1795477793444044934,
+      "olean_mtime_ns": 1795477799672485068
+    },
+    {
+      "module": "Case159Child11",
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/Case159Child11.lean",
+      "copy": "modules/Case159Child11.lean",
+      "bytes": 369,
+      "sha256": "819ff754dc120f62e8e0c6d786283bd159d2508eb5645b1584240c356ea7670d",
+      "imports": [
+        "Case159Common"
+      ],
+      "olean_sha256": "73fd4f31ed0ccb4b5feb69156713dcac2319798e40437301308a9bda4621e668",
+      "source_mtime_ns": 1795477850441719802,
+      "olean_mtime_ns": 1795477921153894137
+    },
+    {
+      "module": "Case159Prefixes",
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/Case159Prefixes.lean",
+      "copy": "modules/Case159Prefixes.lean",
+      "bytes": 3564,
+      "sha256": "7747e9ca1095e4cfdca1cb7197b6bead65744bdbb05b2b59306394162e5fd6a5",
+      "imports": [
+        "Case159Common"
+      ],
+      "olean_sha256": "e042ee8ac32489c6ef146d0a439544d986536358fb9f0e3db4c68e01a80fcad1",
+      "source_mtime_ns": 1795478050059547931,
+      "olean_mtime_ns": 1795478126511586874
+    },
+    {
+      "module": "Case159OtherChildren",
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/Case159OtherChildren.lean",
+      "copy": "modules/Case159OtherChildren.lean",
+      "bytes": 611,
+      "sha256": "9355ed2ae326a44cb45d22b23e51cc05e6e66e7b8f012da10cdc919dde0981eb",
+      "imports": [
+        "Case159Common"
+      ],
+      "olean_sha256": "436e11aa3d65285f3c231a9ce31f066cefd3861c35bc8b949759ded3a09025da",
+      "source_mtime_ns": 1795478050059817037,
+      "olean_mtime_ns": 1795478173689609104
+    },
+    {
+      "module": "Case159Combine",
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/Case159Combine.lean",
+      "copy": "modules/Case159Combine.lean",
+      "bytes": 4018,
+      "sha256": "25e0cad519a1f186724a06e5cf34859f1f6e99cd1058bd32b0fb0f374ad634ac",
+      "imports": [
+        "Case159Child11",
+        "Case159Prefixes",
+        "Case159OtherChildren"
+      ],
+      "olean_sha256": "001a9ad670ad97e42e8a92a3f41b0ab3c947866ddf635fc13e5b3d359a77c88a",
+      "source_mtime_ns": 1795478272202136082,
+      "olean_mtime_ns": 1795478278790897752
+    },
+    {
+      "module": "Case159GrandCommon",
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/Case159GrandCommon.lean",
+      "copy": "modules/Case159GrandCommon.lean",
+      "bytes": 1464,
+      "sha256": "13f3a3248bd8c00745625d3eef8d5b94e4607a25a25748a8a85603a86e35bb01",
+      "imports": [
+        "Case159Combine"
+      ],
+      "olean_sha256": "28662dcaf921bd9f31fd94469c961263f1ae740b9aabee4791c3496db98e05ec",
+      "source_mtime_ns": 1795478501193193331,
+      "olean_mtime_ns": 1795478507167554224
+    },
+    {
+      "module": "Case159GrandPrefixes",
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/Case159GrandPrefixes.lean",
+      "copy": "modules/Case159GrandPrefixes.lean",
+      "bytes": 2981,
+      "sha256": "065f635b0dce5edb1a465f9b71a8a29958db2c93e4f679ffc3156c78f35717bb",
+      "imports": [
+        "Case159GrandCommon"
+      ],
+      "olean_sha256": "5586637c458aa96b5ae53400c1de6b381d176c9861ec847c8bc68652aa0e763d",
+      "source_mtime_ns": 1795478501193344650,
+      "olean_mtime_ns": 1795478588965647214
+    },
+    {
+      "module": "Case159GrandOthers",
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/Case159GrandOthers.lean",
+      "copy": "modules/Case159GrandOthers.lean",
+      "bytes": 713,
+      "sha256": "716d1fa3dcfd03baf74019e4ffe047f1ba815f7af8070050b7250b4e70cd3b34",
+      "imports": [
+        "Case159GrandCommon"
+      ],
+      "olean_sha256": "050a485fc9fea9f9d15e85fe283e3fdcd94d4f866b8fd4fbe763fc3bd3ed3788",
+      "source_mtime_ns": 1795478501193410730,
+      "olean_mtime_ns": 1795478594746960349
+    },
+    {
+      "module": "Case159Closed",
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/Case159Closed.lean",
+      "copy": "modules/Case159Closed.lean",
+      "bytes": 3703,
+      "sha256": "41de837631acab52a3162146a0ef5b875b905f39be6f9407cd5f37aaa17514b7",
+      "imports": [
+        "Case159GrandPrefixes",
+        "Case159GrandOthers"
+      ],
+      "olean_sha256": "741f0ffc73529fe7dcec7653ab63b68014e7be4a64023b7e0d436e8619803f3d",
+      "source_mtime_ns": 1795478745844712959,
+      "olean_mtime_ns": 1795478753628078405
+    },
+    {
+      "module": "DynamicFastBase",
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/DynamicFastBase.lean",
+      "copy": "modules/DynamicFastBase.lean",
+      "bytes": 90533,
+      "sha256": "1e5e37bf167d38af684fdc966358eab2fb1ff3410dbe96bddc8a60bf8cf6343d",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ],
+      "olean_sha256": "c3a6079f7443c3e567af9071225897c003b17967f14afc04bf253e307b8fe837",
+      "source_mtime_ns": 1795473136657590018,
+      "olean_mtime_ns": 1795473248509371821
+    },
+    {
+      "module": "LiteralBinaryTest",
+      "source": "/tmp/oec/pequalnp-pilot-14/lower-bound/LiteralBinaryTest.lean",
+      "copy": "modules/LiteralBinaryTest.lean",
+      "bytes": 9326,
+      "sha256": "712ab509b18f67f8ff14a3d0cc0e97b7f4c4fdf9044a5bc6271c569227e66d20",
+      "imports": [
+        "DynamicFastBase"
+      ],
+      "olean_sha256": "88168a0eaa79a9e0a17efde5b76702dcbccda83d4dddbbbb4d0877994a352db9",
+      "source_mtime_ns": 1795478534257326504,
+      "olean_mtime_ns": 1795478542396634004
+    },
+    {
+      "module": "TightFormulaTest",
+      "source": "/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaTest.lean",
+      "copy": "modules/TightFormulaTest.lean",
+      "bytes": 6085,
+      "sha256": "13faa5269e86ecb0ac07134f857b0ea0f7389d89384b18c6938489a281184cfa",
+      "imports": [
+        "LiteralBinaryTest"
+      ],
+      "olean_sha256": "10714cc4c511823c104d36f5aa34798c75d2500df6f9fc60670a6b76cdc2fcf7",
+      "source_mtime_ns": 1795479452179971716,
+      "olean_mtime_ns": 1795479458648385503
+    },
+    {
+      "module": "TightFormulaEndgameTest",
+      "source": "/tmp/oec/pequalnp-pilot-14/lower-bound/TightFormulaEndgameTest.lean",
+      "copy": "modules/TightFormulaEndgameTest.lean",
+      "bytes": 4100,
+      "sha256": "f949c27d30d46a1bad4ff028e5b2d4eef41969fe22d53da2379f6b883901ee63",
+      "imports": [
+        "TightFormulaTest"
+      ],
+      "olean_sha256": "cfc72d7173f4e968b2435b8526c29d0f7e991524fb02f2b6f54420029405b35a",
+      "source_mtime_ns": 1795479599161187163,
+      "olean_mtime_ns": 1795479604987827259
+    },
+    {
+      "module": "FiniteProofTreeTest",
+      "source": "/tmp/oec/pequalnp-pilot-14/toolchain/FiniteProofTreeTest.lean",
+      "copy": "modules/FiniteProofTreeTest.lean",
+      "bytes": 2153,
+      "sha256": "61dee5325b22d7916951e42d007d5898937ea9eca3f6b5e681963a5c66f18646",
+      "imports": [
+        "Case159Common"
+      ],
+      "olean_sha256": "afa20f424f38aeeb8436dcbb80b8e63e751cf2af92d4b282295cc375cda939ec",
+      "source_mtime_ns": 1795479331073221892,
+      "olean_mtime_ns": 1795479344498666079
+    },
+    {
+      "module": "FiniteProofTreeChild11",
+      "source": "/tmp/oec/pequalnp-pilot-14/toolchain/FiniteProofTreeChild11.lean",
+      "copy": "modules/FiniteProofTreeChild11.lean",
+      "bytes": 757,
+      "sha256": "eca0e9b590a8f46710c78ccb4f946ddc3859d3054899746fe091f444359afe10",
+      "imports": [
+        "FiniteProofTreeTest"
+      ],
+      "olean_sha256": "1d55b22a7389b332087f5a2d993b13b8a06f524d5c2794c380100fcc8cd08cc7",
+      "source_mtime_ns": 1795479412651377147,
+      "olean_mtime_ns": 1795479484552951294
+    },
+    {
+      "module": "CompactCase159Test",
+      "source": "/tmp/oec/pequalnp-pilot-14/toolchain/CompactCase159Test.lean",
+      "copy": "modules/CompactCase159Test.lean",
+      "bytes": 3066,
+      "sha256": "4b784359891a033e987c9588c2bd430ea0db976f37344868236beed38241d297",
+      "imports": [
+        "Case159GrandCommon"
+      ],
+      "olean_sha256": "3bb63b587f85d0eb0495aaa981e2f9380054faab4b8f17b4980b2d3fbae27d49",
+      "source_mtime_ns": 1795479634048101982,
+      "olean_mtime_ns": 1795479796567731800
+    },
+    {
+      "module": "SlackOneTest",
+      "source": "/tmp/oec/pequalnp-pilot-14/sat-proof/SlackOneTest.lean",
+      "copy": "modules/SlackOneTest.lean",
+      "bytes": 7012,
+      "sha256": "9e279852363836e189dbffef2693a39e8418a7350c17fa610d12fcc77128a6a6",
+      "imports": [
+        "TightFormulaTest"
+      ],
+      "olean_sha256": "cd60addbedc0bb6d127b9e06f8001a3124c317f2007f0a9adfa8fe5fba6d1917",
+      "source_mtime_ns": 1795479917311647037,
+      "olean_mtime_ns": 1795479971111529210
+    },
+    {
+      "module": "TightFirstData",
+      "source": "/tmp/oec/pequalnp-pilot-14/lower-bound/TightFirstData.lean",
+      "copy": "modules/TightFirstData.lean",
+      "bytes": 304,
+      "sha256": "d2b4aeb098567c5a7827412b3e34d0564b5650bd78fdf6a71e427c8ad1239630",
+      "imports": [
+        "TightFormulaEndgameTest"
+      ],
+      "olean_sha256": "c70412bb9ba30ff22e82ad1b5433573196bbf7024f723aad64a93dfc0bcbce98",
+      "source_mtime_ns": 1795479627103534158,
+      "olean_mtime_ns": 1795479632177592965
+    },
+    {
+      "module": "TightFirst0",
+      "source": "/tmp/oec/pequalnp-pilot-14/lower-bound/TightFirst0.lean",
+      "copy": "modules/TightFirst0.lean",
+      "bytes": 322,
+      "sha256": "6a157eee6de904c3b2f4512c129afc09e5171234dac484ef284ed8576302c19f",
+      "imports": [
+        "TightFirstData"
+      ],
+      "olean_sha256": "3db89874b04aa67eee4d59b56266ad928804fbcaab3c6ebca06b855dcc282167",
+      "source_mtime_ns": 1795479632568543734,
+      "olean_mtime_ns": 1795479694601516541
+    },
+    {
+      "module": "TightFirst1",
+      "source": "/tmp/oec/pequalnp-pilot-14/lower-bound/TightFirst1.lean",
+      "copy": "modules/TightFirst1.lean",
+      "bytes": 322,
+      "sha256": "1a10598e37864879f73d77ce5ddd1a18fe0f92d9399ffb906060f1a2010584d8",
+      "imports": [
+        "TightFirstData"
+      ],
+      "olean_sha256": "3c278570fd675a5e0e81de5562f496011044280d9e20ab6f0f534b1c9b459a6e",
+      "source_mtime_ns": 1795479632568607320,
+      "olean_mtime_ns": 1795479796723009567
+    },
+    {
+      "module": "TightFirst2",
+      "source": "/tmp/oec/pequalnp-pilot-14/lower-bound/TightFirst2.lean",
+      "copy": "modules/TightFirst2.lean",
+      "bytes": 322,
+      "sha256": "cd5fe1817e84dd232365a58b6c55616f667f38e4a1d946161b94f410570b637d",
+      "imports": [
+        "TightFirstData"
+      ],
+      "olean_sha256": "ba2f306c4a0cb77c1a92b34ebdb1da15a418d94aa609f3f98bbf778f31fd4493",
+      "source_mtime_ns": 1795479632568643976,
+      "olean_mtime_ns": 1795479866139453797
+    },
+    {
+      "module": "RetainedExtensionTest",
+      "source": "/tmp/oec/pequalnp-pilot-14/lower-bound/RetainedExtensionTest.lean",
+      "copy": "modules/RetainedExtensionTest.lean",
+      "bytes": 1606,
+      "sha256": "ec367e6224e93d3f4e52fa02be57f01ab3409784030c814f78ad58a571fe5f95",
+      "imports": [
+        "TightFormulaEndgameTest"
+      ],
+      "olean_sha256": "ca2ef72687c2d8126b787d58437eb730e492eb531c79d66bdcb073cec9d63f58",
+      "source_mtime_ns": 1795479906778150361,
+      "olean_mtime_ns": 1795479979861797992
+    }
+  ],
+  "warnings": [],
+  "snapshot_validation": "All source copies byte-identical to originals after snapshot; no missing or ambiguous imports; compiled artifact newer than its source for every module. Smoke was recompiled against the existing base without repeating its kernel certificate."
+}

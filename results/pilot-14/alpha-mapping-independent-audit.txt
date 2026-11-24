@@ -1,0 +1,28 @@
+Independent source-only alpha-renaming review
+Verdict: PASS as a reversible lexical size estimate; UNCOMPILED.
+
+The original source SHA matches the recorded source. An independently written
+identifier lexer reconstructed both output files byte-for-byte using the
+recorded27 namespace and162 helper mappings, comment removal, blank-line removal,
+and the same explicit outer-namespace wrapping. The inverse token substitution
+recovers the complete comment-stripped input exactly. All189 replacement names
+are globally fresh in the input and jointly injective; no own outer namespace
+component is renamed. Every helper maps an actual declaration within the own
+namespace, and every explicitly qualified occurrence of a renamed helper uses
+an own namespace. No qualified external identifier substitution was found.
+All byte/line/hash/savings/headroom fields recompute exactly.
+
+Namespace-only variant:509025bytes,15263bytes available below512KiB.
+Full helper-renamed variant:501913bytes,22375bytes available below512KiB.
+The estimator does not compile or prove the resulting Lean code. Namespace
+resolution and elaboration must still be checked before either variant is used.
+It does not add the missing closed finite proof; source remains conditional.
+
+Exact reviewed files:
+assembly-alpha/renaming.json 6647 0087755492e3cce3966fc8a93f0cc44274f56aa81f3370b8863e83105544954b
+assembly-alpha/Namespaces.lean 509025 9685c69424a8ae96e99e5a8f7458c5f427ba96c6b32f0cb5136d76e95f3c1b3d
+assembly-alpha/Candidate.lean 501913 7d29ab78793fb8743070914138cbd9c2e32393d3ad3fcb0706bb06b57a825991
+assembly-slim-certified/Candidate.lean 519754 117f01430097ce47ad8c1226a6e8a0a5f1fbadd7b7462ffb70175f67eb2c280f
+replay/alpha_compact.py 3594 7d0d5c3237f01996f44bc2578223b13bdbd0df71c473494fca344958aba6362e
+counterexample/audit_alpha_mapping.py 3276 020d351cf89581270c1fea4c217832929f63456f5bf748f8e786ec89e5ee1842
+counterexample/alpha-mapping-validation.out 657 2f6780076f187815524fee2ab6679aad3cd775364bbad65a4fccf75eaa5e5df4

@@ -1,0 +1,95 @@
+Independent preservation review: exact DAG and signed/slack native packages
+Reviewer: counterexample agent, 2026-11-24 UTC
+Verdict: PASS for preservation as explicitly UNVERIFIED native diagnostics.
+No Lean lower bound or posted theorem is established by either package.
+
+Exact DAG source review: inspected complete search/control/prune/validator logic.
+cutDepth=0, complete branch enumeration, terminal inequality, exact projected
+program replay, automorphism keying, and child-set replay agree with the README.
+Records can replace an earlier branch representative with a stronger prefix
+witness; edges are compared modulo the full actual signal action, and pruning
+clears terminal outgoing edges. The sampled resource cap and UNKNOWN behavior
+are explicit. Full Python replay log covers all 366192 projected programs and
+52734 distinct branch edges; I inspected its validator source and full log,
+but did not repeat that complete validator run.
+
+Additional independent validation executed now: both manifests verified; actual
+root states are precisely raw inputs with k=15,t=5/4; every retained record is
+reachable; all child k values decrease exactly one; all wire references and
+program output indices are nonnegative/in-bounds; all state signal lists are
+Nodup and proper, no target singleton occurs; all recipes have valid token
+ranges/stack shapes; every prefix domain is valid; branch k is positive. These
+checks close permissive Python indexing/recipe assumptions in the supplied
+validator. The root/child/program census matched archived outputs.
+
+Signed/slack source review: complement-normalized signals, four signed AND
+choices, cardinality/separation filters, memo keys, and per-input cache resets
+match the descriptions. Initial t=0 means the unused signed-engine NOT/action
+paths do not participate in the preserved runs. Python phase bit477 equals
+positive coordinate63 under the packed 414+414 convention. Unordered pair
+selection still enumerates positions of duplicate signals; both retained-operand
+choices and the one free duplication are included.
+
+Independent summary validation: all 154 rows in each mode have no surviving
+path and their call/move/hit totals recompute exactly. Native b12 EXCLUDED is
+807139 calls; b13/b14/b15 outputs are all UNKNOWN. The extended b13 1.5GB sampled
+limit overshot to1960204KB and stopped after48.0804s; the README states this.
+These native signed-model results are not claimed to imply circuit lower bounds.
+
+Executed reviewer script and complete output:
+ counterexample/audit_native_packages.py
+ counterexample/native-packages-review-validation.out
+
+Exact reviewed package hashes (all listed entries verified):
+
+exact-dag-package
+{
+  "Data414.json": "2b368956564706035458f7c26066b064d476c8bb4ec00d56fbe746a4de025c9e",
+  "Domains12.json": "61da49c6e2b3cc055ac0d0ce2daf302e479315782c9af4da0387b301f8f11054",
+  "ExactDagT4.json.gz": "004c14f2e2737ddeaa8c5fe2929fa80eab69bcc7a1e1dbb5bcfccbffea97f6e8",
+  "ExactDagT5.json.gz": "3e63d670526cfff9af543eb86af787d2cf3ef5b2a422a2a45fc199ffca2bbefb",
+  "PrunedDagT4.json.gz": "6339a02d6e00827b5c6b282c71574ef336743dc37249e75f573a36b0ccde4e61",
+  "PrunedDagT5.json.gz": "28935ed9d0cc6bdd91fd65309b37918bb207eb6bc020a93419407d1731217b3f",
+  "README.md": "cad09624232c4192f2e392cb0742c6b5c3f802cfd82e7e0073d31be873b587fe",
+  "exact-dag-t4.err": "f38223cd6a7df55600a0cc2394b38eb7511ab0ac507227ad2edf54fe6e7ed8e6",
+  "exact-dag-t4.out": "a6c6ef92ac1267dd81673d97f218737b5e4b0d729c429ded5bd65d4cbbaa23e5",
+  "exact-dag-t5.err": "7886242d99a74811756e48fea8fcd90f6a0f03dd4cd9aa3580c66ce141ff9283",
+  "exact-dag-t5.out": "c462e74ca4966e6fdbd49f8071621f0508e1f58616d8e9584a69b1922b6decfa",
+  "exact-dag-validation.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "exact-dag-validation.out": "5569c7e2db38948ae5ccef6ec84d8e11ac254e509072f6d454b0c067441ebc63",
+  "live-theta-dag-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "live_theta_dag.cpp": "6213b58b134089ac9dfb0164cbe620703af32c97735ddeaded2479afc09c2e2a",
+  "prune_exact_dag.py": "ebd18a27325a4e7037cb366a55a72d261b7f4d61b055d3c2d56fc49cb870d9cb",
+  "validate_exact_dag.py": "94b3a306c54a13c739177241cd8ebe65748b9ba3e1c1e20d73cbc4473d423ddf"
+}
+SHA256.json 984b99ba85915ccae0578991361f848d5b40ad66a42d3eba7e96b182086b6b09
+
+signed-slack-package-v2
+{
+  "Data414.json": "2b368956564706035458f7c26066b064d476c8bb4ec00d56fbe746a4de025c9e",
+  "README.md": "5e34d084cb851403eaa01032e2b11d89a0a3c43925ed24b3ff2860a708b3ed8f",
+  "live_signed.cpp": "b93bfc275205d08df10d3ec605d4704bdf99636175a72fe30c5f79f989f4d23d",
+  "live_signed_b13.cpp": "bd3fb90edae2e2869a6a5539880de6e730e9dd495edc72ee54dee73dd45d085f",
+  "live_signed_bounded.cpp": "70cb18578fa058e7f426e79c4a356a1fb700ae6ba935ec82ac3a038f9062960d",
+  "signed-b13-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "signed-bounded-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "signed12nosym.err": "4b741a3799252a9574c8e211df49c309c29d85992614719372046c50c6f90ce5",
+  "signed12nosym.out": "3e56f68d9b2b1100d4c0d9ed4cc38a007d8c265e7aef4210156210f05987348d",
+  "signed13-120s.err": "2758ee82d7014243552a7b87d29bf55a7256730d538af255c089ca0bc8e6bb92",
+  "signed13-120s.out": "37a7e809543c78472d04d33499a6f4ed68a6f71f81f0329ca8f4e36fa0a35905",
+  "signed13nosym.err": "282bbd8b255d105c8d79b84750acfce315150885711f4f083da9b74b247a1223",
+  "signed13nosym.out": "95b8f65e606077625ab1c2b45a964d182724f9f1947728fede532557388fab20",
+  "signed14-bounded.err": "2beff8c7ef7a70c170dd15f1809677256d85ded3188f0e364a1f58d1b54c6e27",
+  "signed14-bounded.out": "a0c49e0010040575acb775057541238157b459c5fcecd40768c8d912df96a81f",
+  "signed15-bounded.err": "f975200a9c642179b177d2aa52a4be8ef665e76272e90035c0d5725830e4c397",
+  "signed15-bounded.out": "ace312c0198ccdd40fa574b0a62e769977b732259fc27b104a050e24c58e994f",
+  "slack-one-counts-memo.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "slack-one-counts-memo.json": "a1cd36aab7d1db791de759b12bea180f587284e120de6b47176cc4dfe2b33f32",
+  "slack-one-counts-nomemo.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "slack-one-counts-nomemo.json": "63e82eb23278aa17b574008e09fc08d55394dc08fef141c6a4320ea9f66a9779",
+  "slack_one_counts.py": "3b3e918c401727ac697e54490813a636d58150a297e9d8530a85276ef218d4b1",
+  "slack_one_counts_selected.py": "071f2b33acfc3a34a99fbc9f491421ae201e78ecb27e4558b5744f81c23f2616"
+}
+SHA256.json edafa640706cfc5a4f5ba11a09bde615284ca4cd6b0176c88c318cf94597123c
+audit_native_packages.py 3b055aabed247e1a5dfec1a24b2729c64a28fbcc78955e0d2e22d33702409901
+native-packages-review-validation.out f45ea6c24b9b8882c7813b11a81daa5a7ebe5376f688957a9a72cdb9adb313a9

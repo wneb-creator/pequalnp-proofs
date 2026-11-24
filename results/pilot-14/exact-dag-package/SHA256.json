@@ -1,0 +1,19 @@
+{
+  "Data414.json": "2b368956564706035458f7c26066b064d476c8bb4ec00d56fbe746a4de025c9e",
+  "Domains12.json": "61da49c6e2b3cc055ac0d0ce2daf302e479315782c9af4da0387b301f8f11054",
+  "ExactDagT4.json.gz": "004c14f2e2737ddeaa8c5fe2929fa80eab69bcc7a1e1dbb5bcfccbffea97f6e8",
+  "ExactDagT5.json.gz": "3e63d670526cfff9af543eb86af787d2cf3ef5b2a422a2a45fc199ffca2bbefb",
+  "PrunedDagT4.json.gz": "6339a02d6e00827b5c6b282c71574ef336743dc37249e75f573a36b0ccde4e61",
+  "PrunedDagT5.json.gz": "28935ed9d0cc6bdd91fd65309b37918bb207eb6bc020a93419407d1731217b3f",
+  "README.md": "cad09624232c4192f2e392cb0742c6b5c3f802cfd82e7e0073d31be873b587fe",
+  "exact-dag-t4.err": "f38223cd6a7df55600a0cc2394b38eb7511ab0ac507227ad2edf54fe6e7ed8e6",
+  "exact-dag-t4.out": "a6c6ef92ac1267dd81673d97f218737b5e4b0d729c429ded5bd65d4cbbaa23e5",
+  "exact-dag-t5.err": "7886242d99a74811756e48fea8fcd90f6a0f03dd4cd9aa3580c66ce141ff9283",
+  "exact-dag-t5.out": "c462e74ca4966e6fdbd49f8071621f0508e1f58616d8e9584a69b1922b6decfa",
+  "exact-dag-validation.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "exact-dag-validation.out": "5569c7e2db38948ae5ccef6ec84d8e11ac254e509072f6d454b0c067441ebc63",
+  "live-theta-dag-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "live_theta_dag.cpp": "6213b58b134089ac9dfb0164cbe620703af32c97735ddeaded2479afc09c2e2a",
+  "prune_exact_dag.py": "ebd18a27325a4e7037cb366a55a72d261b7f4d61b055d3c2d56fc49cb870d9cb",
+  "validate_exact_dag.py": "94b3a306c54a13c739177241cd8ebe65748b9ba3e1c1e20d73cbc4473d423ddf"
+}
