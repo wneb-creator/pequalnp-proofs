@@ -1,25 +1,17 @@
-PARTIAL RESEARCH ONLY: L-meta-5112 is not yet proved or refuted.
-Normalize.lean compiled with pinned Lean4.36.0, exit0.
-Independent reviewer:status_check; red-team partial review passed.
-NoPR opened. Exact posted14-gate statement not yet checked.
-Sub-agents: status_check, circuit_search, exact_sat, structural, lower_bound, lower_bound_library (6 total)
-TIMING total=6 subagents=6
-
-Named-file build: PASS for partial15-gate witness,1267jobs,3.8s file time.
-Normalize.lean: bounded_pad preserves output at exact requested length with bounded selectors; compiled with pinned Lean, exit0; root independently inspected extension.
-Gap checker: NOT RUN (partial theorem intentionally not the posted14-gate theorem).
-
-AndBound.lean: pinned Lean compilation PASS, exit0. Root independent proof inspection PASS. Generic bound only; numerical AND>=4 instantiation in progress.
-
-Monotone.lean: root independent pinned-Lean compilation exit0; row monotonicity proof reviewed.
-AndBoundSpecific.lean: exact posted inputs/target imply at least4AND gates, pinned-Lean exit0; root reviewed finite certificates and arithmetic deduction. Still no total14-gate result.
-
-Draft R_meta_5112_42.lean: pinned Lean compilation PASS, exit0. Root reviewed exact conclusion, independent hypotheses, finite dominance certificate, default0 reads, and unbounded high-bit argument. Not yet checked with check-lean.mjs or submitted.
-Normalize.lean: prefix stability/source recurrence extension compiled and root reviewed.
-
-R_meta_5112_42 final-path build: PASS;101lines before cleanup; only PEqualNP.Defs imported; outside-guard PASS. Exact14-slot Fin28/24-row hypothesis and generic row-monotonicity hypothesis. Full gap checker pending.
-CnfBridge: compiled clause soundness research, complete circuit-to-CNF assembly pending; independently reviewed by status_check.
-OrNormal: compiled canonical OR-count normalization; independently reviewed and rebuilt by status_check.
-
-Baseline local checker: ACCEPTED (reduce); child lengths534 and693; axioms[propext,Quot.sound].
-Cleanup:101→99lines, removed only two resource-limit options. Rebuild PASS4.9s, independent review PASS; repeated checker pending.
+Gap: L-meta-5112
+Result: checked reduction; original14-gate witness remains open.
+File: lean/PEqualNP/Outside/R_meta_5112_42.lean
+Build before cleanup: PASS
+Checker before cleanup: ACCEPTED (reduce)
+Build after cleanup: PASS (file4.9s;5147jobs including cached dependencies)
+Checker after cleanup: ACCEPTED (reduce): PEqualNP.Outside.R_meta_5112_42; axioms[propext,Quot.sound];1653constants rechecked.
+Child statement printed lengths:534,693characters.
+Cleanup:101lines before,99lines after; only removed two unnecessary resource-limit options.
+Outside guard and explicit forbidden-marker scan: PASS.
+Independent final review: structural and status_check; cleanup diff reviewed by status_check.
+Desk null responses:0; no null message was returned. Own lease only.
+L-meta-1035: withdrawn, per closedPR7653; not worked.
+Research results: checked15-gate upper bound, AND>=4, selector normalization/padding, row monotonicity, OR normalization; CNF clause soundness partial.
+No14-gate witness or UNSAT certificate found. Pending CNF aggregate is explicitly uncompiled.
+Sub-agents: status_check, circuit_search, exact_sat, structural, lower_bound, lower_bound_library
+TIMING total=22.5 subagents=6

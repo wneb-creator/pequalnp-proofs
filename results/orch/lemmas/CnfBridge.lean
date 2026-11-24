@@ -189,12 +189,17 @@ def inputData : List Nat :=
     270286071508729856, 288160007409369088, 192860064594267704,
     288166778660192704, 283797140973809664]
 
-def opVar (i : Nat) : Nat := 1 + 231 * i
+def rowData : List Nat :=
+  [21, 4, 23, 5, 10, 11, 28, 25, 7, 8, 19, 20, 46, 13, 32, 14, 15, 17, 38, 37, 42, 53, 55, 57]
+
+def rowIndex (r : Nat) : Nat := rowData.getD r 0
+
+def opVar (i : Nat) : Nat := 1 + 129 * i
 def selVar (i : Nat) (side : Bool) (j : Nat) : Nat :=
-  (if side then 30 else 2) + 231 * i + j
+  (if side then 30 else 2) + 129 * i + j
 def argVar (i : Nat) (side : Bool) (r : Nat) : Nat :=
-  (if side then 116 else 58) + 231 * i + r
-def outVar (i r : Nat) : Nat := 174 + 231 * i + r
+  (if side then 82 else 58) + 129 * i + r
+def outVar (i r : Nat) : Nat := 106 + 129 * i + r
 
 def positive (n : Nat) : Nat × Bool := (n, true)
 def negative (n : Nat) : Nat × Bool := (n, false)
@@ -209,7 +214,7 @@ def sourceClauses (i source r : Nat) (side : Bool) : List (List (Nat × Bool)) :
   let s := selVar i side source
   let a := argVar i side r
   if source < 13 then
-    [[negative s, (a, (inputData.getD source 0).testBit r)]]
+    [[negative s, (a, (inputData.getD source 0).testBit (rowIndex r))]]
   else if 13 + i ≤ source then [[negative s, negative a]]
   else [[negative s, negative a, positive (outVar (source - 13) r)],
     [negative s, positive a, negative (outVar (source - 13) r)]]
@@ -230,10 +235,10 @@ def allClauses : List (List (Nat × Bool)) :=
   (List.range 14).flatMap (fun i =>
     onehotClauses i false ++ onehotClauses i true ++
     (List.range 28).flatMap (fun source =>
-      (List.range 58).flatMap (fun r =>
+      (List.range 24).flatMap (fun r =>
         [false, true].flatMap fun side => sourceClauses i source r side)) ++
-    (List.range 58).flatMap (fun r => gateClauses i r)) ++
-  (List.range 58).map (fun r => [(outVar 13 r, (1764784 : Nat).testBit r)])
+    (List.range 24).flatMap (fun r => gateClauses i r)) ++
+  (List.range 24).map (fun r => [(outVar 13 r, (1764784 : Nat).testBit (rowIndex r))])
 
 def formula : Std.Sat.CNF Nat :=
   ⟨(allClauses.map Std.Sat.CNF.Clause.ofLiterals).toArray⟩
@@ -243,21 +248,21 @@ def sourceOf (g : Bool × Nat × Nat) (side : Bool) : Nat :=
 
 def rowArg (gs : List (Bool × Nat × Nat)) (i : Nat) (side : Bool) (r : Nat) : Bool :=
   (((gs.take i).foldl gateStep inputData).getD
-    (sourceOf (gs.getD i (false, 0, 0)) side) 0).testBit r
+    (sourceOf (gs.getD i (false, 0, 0)) side) 0).testBit (rowIndex r)
 
 def rowOut (gs : List (Bool × Nat × Nat)) (i r : Nat) : Bool :=
-  ((gs.foldl gateStep inputData).getD (13 + i) 0).testBit r
+  ((gs.foldl gateStep inputData).getD (13 + i) 0).testBit (rowIndex r)
 
 def assignment (gs : List (Bool × Nat × Nat)) (v : Nat) : Bool :=
-  let i := (v - 1) / 231
-  let p := (v - 1) % 231
+  let i := (v - 1) / 129
+  let p := (v - 1) % 129
   let g := gs.getD i (false, 0, 0)
   if p = 0 then g.1
   else if p < 29 then decide (g.2.1 = p - 1)
   else if p < 57 then decide (g.2.2 = p - 29)
-  else if p < 115 then rowArg gs i false (p - 57)
-  else if p < 173 then rowArg gs i true (p - 115)
-  else rowOut gs i (p - 173)
+  else if p < 81 then rowArg gs i false (p - 57)
+  else if p < 105 then rowArg gs i true (p - 81)
+  else rowOut gs i (p - 105)
 
 theorem assignment_op (gs : List (Bool × Nat × Nat)) (i : Nat) :
     assignment gs (opVar i) = (gs.getD i (false, 0, 0)).1 := by
@@ -267,44 +272,44 @@ theorem assignment_sel (gs : List (Bool × Nat × Nat)) (i j : Nat) (side : Bool
     (hj : j < 28) :
     assignment gs (selVar i side j) = decide (sourceOf (gs.getD i (false, 0, 0)) side = j) := by
   cases side
-  · have hd : (2 + 231 * i + j - 1) / 231 = i := by omega
-    have hm : (2 + 231 * i + j - 1) % 231 = j + 1 := by omega
+  · have hd : (2 + 129 * i + j - 1) / 129 = i := by omega
+    have hm : (2 + 129 * i + j - 1) % 129 = j + 1 := by omega
     simp only [assignment, selVar, Bool.false_eq_true, ↓reduceIte, hd, hm, sourceOf]
     simp only [show j + 1 ≠ 0 by omega, show j + 1 < 29 by omega, ↓reduceIte]
     simp
-  · have hd : (30 + 231 * i + j - 1) / 231 = i := by omega
-    have hm : (30 + 231 * i + j - 1) % 231 = j + 29 := by omega
+  · have hd : (30 + 129 * i + j - 1) / 129 = i := by omega
+    have hm : (30 + 129 * i + j - 1) % 129 = j + 29 := by omega
     simp only [assignment, selVar, ↓reduceIte, hd, hm, sourceOf]
     simp only [show j + 29 ≠ 0 by omega, show ¬ j + 29 < 29 by omega,
       show j + 29 < 57 by omega, ↓reduceIte]
     simp
 
 theorem assignment_arg (gs : List (Bool × Nat × Nat)) (i r : Nat) (side : Bool)
-    (hr : r < 58) :
+    (hr : r < 24) :
     assignment gs (argVar i side r) = rowArg gs i side r := by
   cases side
-  · have hd : (58 + 231 * i + r - 1) / 231 = i := by omega
-    have hm : (58 + 231 * i + r - 1) % 231 = r + 57 := by omega
+  · have hd : (58 + 129 * i + r - 1) / 129 = i := by omega
+    have hm : (58 + 129 * i + r - 1) % 129 = r + 57 := by omega
     simp only [assignment, argVar, Bool.false_eq_true, ↓reduceIte, hd, hm]
     simp only [show r + 57 ≠ 0 by omega, show ¬ r + 57 < 29 by omega,
-      show ¬ r + 57 < 57 by omega, show r + 57 < 115 by omega, ↓reduceIte]
+      show ¬ r + 57 < 57 by omega, show r + 57 < 81 by omega, ↓reduceIte]
     simp
-  · have hd : (116 + 231 * i + r - 1) / 231 = i := by omega
-    have hm : (116 + 231 * i + r - 1) % 231 = r + 115 := by omega
+  · have hd : (82 + 129 * i + r - 1) / 129 = i := by omega
+    have hm : (82 + 129 * i + r - 1) % 129 = r + 81 := by omega
     simp only [assignment, argVar, ↓reduceIte, hd, hm]
-    simp only [show r + 115 ≠ 0 by omega, show ¬ r + 115 < 29 by omega,
-      show ¬ r + 115 < 57 by omega, show ¬ r + 115 < 115 by omega,
-      show r + 115 < 173 by omega, ↓reduceIte]
+    simp only [show r + 81 ≠ 0 by omega, show ¬ r + 81 < 29 by omega,
+      show ¬ r + 81 < 57 by omega, show ¬ r + 81 < 81 by omega,
+      show r + 81 < 105 by omega, ↓reduceIte]
     simp
 
-theorem assignment_out (gs : List (Bool × Nat × Nat)) (i r : Nat) (hr : r < 58) :
+theorem assignment_out (gs : List (Bool × Nat × Nat)) (i r : Nat) (hr : r < 24) :
     assignment gs (outVar i r) = rowOut gs i r := by
-  have hd : (174 + 231 * i + r - 1) / 231 = i := by omega
-  have hm : (174 + 231 * i + r - 1) % 231 = r + 173 := by omega
+  have hd : (106 + 129 * i + r - 1) / 129 = i := by omega
+  have hm : (106 + 129 * i + r - 1) % 129 = r + 105 := by omega
   simp only [assignment, outVar, hd, hm]
-  simp only [show r + 173 ≠ 0 by omega, show ¬ r + 173 < 29 by omega,
-    show ¬ r + 173 < 57 by omega, show ¬ r + 173 < 115 by omega,
-    show ¬ r + 173 < 173 by omega, ↓reduceIte]
+  simp only [show r + 105 ≠ 0 by omega, show ¬ r + 105 < 29 by omega,
+    show ¬ r + 105 < 57 by omega, show ¬ r + 105 < 81 by omega,
+    show ¬ r + 105 < 105 by omega, ↓reduceIte]
   simp
 
 def clauseSat (a : Nat → Bool) (c : List (Nat × Bool)) : Prop :=
@@ -326,7 +331,7 @@ theorem clauseSat_cons (a : Nat → Bool) (lit : Nat × Bool) (cs : List (Nat ×
     · exact ⟨l, List.mem_cons_of_mem _ hl, ha⟩
 
 def sourceBit (a : Nat → Bool) (i source r : Nat) : Bool :=
-  if source < 13 then (inputData.getD source 0).testBit r
+  if source < 13 then (inputData.getD source 0).testBit (rowIndex r)
   else if 13 + i ≤ source then false else a (outVar (source - 13) r)
 
 theorem onehot_sat (a : Nat → Bool) (i : Nat) (side : Bool) (k : Nat) (hk : k < 28)
@@ -382,5 +387,60 @@ theorem gate_sat (a : Nat → Bool) (i r : Nat)
   cases ho : a (opVar i) <;> cases ha : a (argVar i false r) <;>
     cases hb : a (argVar i true r) <;>
     simp_all [gateClauses, clauseSat_cons, clauseSat_nil, positive, negative]
+
+theorem rowArg_source (gs : List (Bool × Nat × Nat)) (i r : Nat) (side : Bool)
+    (hi : i < gs.length) (hr : r < 24) :
+    rowArg gs i side r = sourceBit (assignment gs) i
+      (sourceOf (gs.getD i (false, 0, 0)) side) r := by
+  let k := sourceOf (gs.getD i (false, 0, 0)) side
+  have hlen : inputData.length = 13 := rfl
+  change (((gs.take i).foldl gateStep inputData).getD k 0).testBit (rowIndex r) =
+    if k < 13 then (inputData.getD k 0).testBit (rowIndex r) else
+      if 13 + i ≤ k then false else assignment gs (outVar (k - 13) r)
+  by_cases hs : k < 13
+  · simp only [hs, ↓reduceIte]
+    rw [eval_preserves inputData (gs.take i) k (by simpa only [hlen] using hs)]
+  · by_cases hz : 13 + i ≤ k
+    · simp only [hs, hz, ↓reduceIte]
+      rw [getD_default _ _ (by rw [take_eval_length inputData gs i (by omega), hlen]; exact hz)]
+      simp
+    · simp only [hs, hz, ↓reduceIte, assignment_out gs (k - 13) r hr, rowOut]
+      have hk : k < inputData.length + i := by rw [hlen]; omega
+      rw [← take_eval_preserves inputData gs i k (by omega) hk]
+      congr 2
+      omega
+
+theorem rowOut_gate (gs : List (Bool × Nat × Nat)) (i r : Nat) (hi : i < gs.length) :
+    rowOut gs i r = if (gs.getD i (false, 0, 0)).1 then
+      rowArg gs i false r || rowArg gs i true r
+      else rowArg gs i false r && rowArg gs i true r := by
+  have hg : gs.getD i (false, 0, 0) = gs[i] := List.getD_eq_getElem _ _ hi
+  have he := congrArg (fun n : Nat => n.testBit (rowIndex r)) (gate_eq inputData gs i hi)
+  have hlen : inputData.length = 13 := rfl
+  simp only [rowOut, rowArg, sourceOf, Bool.false_eq_true, ↓reduceIte, hg]
+  simp only [hlen] at he
+  cases hop : gs[i].1 <;>
+    simp only [hop, Bool.false_eq_true, ↓reduceIte, Nat.testBit_or, Nat.testBit_and] at he ⊢ <;>
+    exact he
+
+theorem program_gate_sat (gs : List (Bool × Nat × Nat)) (i r : Nat)
+    (hi : i < gs.length) (hr : r < 24) :
+    ∀ c ∈ gateClauses i r, clauseSat (assignment gs) c := by
+  apply gate_sat
+  rw [assignment_out gs i r hr, assignment_op,
+    assignment_arg gs i r false hr, assignment_arg gs i r true hr]
+  exact rowOut_gate gs i r hi
+
+theorem program_source_sat (gs : List (Bool × Nat × Nat)) (i k r : Nat) (side : Bool)
+    (hi : i < gs.length) (hk : k < 28) (hr : r < 24) :
+    ∀ c ∈ sourceClauses i k r side, clauseSat (assignment gs) c := by
+  apply source_sat
+  rw [assignment_sel gs i k side hk, assignment_arg gs i r side hr]
+  by_cases hs : sourceOf (gs.getD i (false, 0, 0)) side = k
+  · right
+    rw [← hs]
+    exact rowArg_source gs i r side hi hr
+  · left
+    exact decide_eq_false hs
 
 end PEqualNP.Outside.L_meta_5112_aux

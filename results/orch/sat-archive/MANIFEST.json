@@ -1,0 +1,460 @@
+{
+  "snapshot_utc": "2026-11-24T22:08:29.327034+00:00",
+  "files": [
+    {
+      "name": "archive.py",
+      "bytes": 2660,
+      "sha256": "ee12e93c73a586aac8c53df90b90de22892bd6f631b547da8ba7a22cde4fa311"
+    },
+    {
+      "name": "cadical-14-and4.log",
+      "bytes": 17919,
+      "sha256": "48b4bc998f12e67399365b7eca7b9a5b68a97eca3687568a1e145cc9a140251f"
+    },
+    {
+      "name": "cadical-14-and5.log",
+      "bytes": 18994,
+      "sha256": "a0f98a7f589d5cae86e659f5520aae2102342205139bc675aed19a7d8934c3ab"
+    },
+    {
+      "name": "cadical-14-dom.log",
+      "bytes": 22996,
+      "sha256": "97374d96bcd6385089b38557836e360f1372249daf70eaedb717861ca6c57d49"
+    },
+    {
+      "name": "cadical-14-irr.log",
+      "bytes": 21791,
+      "sha256": "03d80c9fe423e6a5fb92e3833530b2c037a60d0ddd57f7f7eaef601fcf63e945"
+    },
+    {
+      "name": "cadical-14-share.log",
+      "bytes": 22805,
+      "sha256": "16f688d5e17a0ad83d0c8439ce72889314137b3dfd1ca821b4d94c5116bd10ec"
+    },
+    {
+      "name": "cadical-14-sym.log",
+      "bytes": 24823,
+      "sha256": "3b39f137afdf2151bd170adbe7d3d74823c230337926fc6f014afd1d1ab80fd3"
+    },
+    {
+      "name": "cadical-14-useful-and4.log",
+      "bytes": 20730,
+      "sha256": "d31f84d72da6a8d213ccb6396dd6c823edf77cd47749a0ae60568b50bf7026d2"
+    },
+    {
+      "name": "cadical-14-useful.log",
+      "bytes": 21448,
+      "sha256": "5588aad722ba09d43763a303a896f3fa64ee4f4f13c1a5d15359f06750327b89"
+    },
+    {
+      "name": "cadical-14.log",
+      "bytes": 24103,
+      "sha256": "a597d080de07f3f66a098d29af952acafcc3b8ec1ba0c465459ee9b25d8d160d"
+    },
+    {
+      "name": "cadical-help.txt",
+      "bytes": 14905,
+      "sha256": "3130f29128ff982dbf028386f6af7e99342bde5f9dd10db4a65ab0b91a7da23c"
+    },
+    {
+      "name": "check_known.py",
+      "bytes": 1668,
+      "sha256": "957ea44c3bbdbb13694a51d99287c1d219062480aa0adfb59df1b0b9fdecc7de"
+    },
+    {
+      "name": "cnf.py",
+      "bytes": 2691,
+      "sha256": "7adea3b3da1eca9486d63318bbf5fe466e3295888144563f93699cdec7d2e8e1"
+    },
+    {
+      "name": "complete.py",
+      "bytes": 1809,
+      "sha256": "bf675b2fe7fde904618397f4dc3cfc5ea5a4e0ecb1d8df10291e1f7b455e7954"
+    },
+    {
+      "name": "complete14-meta.json",
+      "bytes": 542,
+      "sha256": "c0e995079002a854dfa10ed2c1a5f0e7b8b0a710d4a2a18e38ffb94c5adc4c70"
+    },
+    {
+      "name": "complete14.log",
+      "bytes": 20999,
+      "sha256": "26e1b7eca7f655b53b9656c867786ac821e9e544675588a4256d18af84b623fa"
+    },
+    {
+      "name": "complete15-meta.json",
+      "bytes": 542,
+      "sha256": "a2ee93d4a7496015eb94bca414839b81e5c92dc1b0970708a5ee0d63c439b7da"
+    },
+    {
+      "name": "complete15.py",
+      "bytes": 1809,
+      "sha256": "07e93a6a15b1e90c6c4ebfbf600fc866954b9856df331d3c151d1e3b43a98a73"
+    },
+    {
+      "name": "complete24-and4.log",
+      "bytes": 13084,
+      "sha256": "74772c37404c7474698d1db4f3c127102a0311aad8f963740959dc7af0d12391"
+    },
+    {
+      "name": "complete24-meta.json",
+      "bytes": 731,
+      "sha256": "f7f1b98cc820f68b35be22e0bb2cd8e1a9469d1f7dde36cdc19350a2325a1120"
+    },
+    {
+      "name": "complete24.log",
+      "bytes": 21293,
+      "sha256": "3c46dd3f0d412cb04fe3552333b5958218cfdfa62c0b6db6f043346617406091"
+    },
+    {
+      "name": "complete24.py",
+      "bytes": 2074,
+      "sha256": "701cb3bb6244a01fe56933e1d68d76d8c1d03becbbbc06bc0ff717083b8bf26e"
+    },
+    {
+      "name": "count_and.py",
+      "bytes": 640,
+      "sha256": "b26bad53b9940a695ea99f1a1e7f295e1b3019ab04c7586a5a84e7159c68cd23"
+    },
+    {
+      "name": "dominance.py",
+      "bytes": 896,
+      "sha256": "f12585d467f22994fba04d42181dc6ac3e3971f2b79454bc0d1bb1dcce7eae7b"
+    },
+    {
+      "name": "free-and-10-closed.log",
+      "bytes": 31564,
+      "sha256": "ffd1c0313565e8fa52ab71fe97926e70edd2a66dbaf38c88f18c51c40d55f64f"
+    },
+    {
+      "name": "free-and-10-long.log",
+      "bytes": 30152,
+      "sha256": "f6e90b4336ca882cb6c1421488a71a72a303ed2beed8ebf77185720a72ae5ab8"
+    },
+    {
+      "name": "free-and-10-prune.log",
+      "bytes": 24727,
+      "sha256": "f0829b3b7e60de0c25c3fe1572480ffbeda98d26cdb7022f155df4a649e29427"
+    },
+    {
+      "name": "free-and-10-sym.log",
+      "bytes": 18975,
+      "sha256": "de87b52eb2914170981f9c3bb715981222e63cac4bfebb2526228f903f86d5a8"
+    },
+    {
+      "name": "free-and-10.log",
+      "bytes": 19776,
+      "sha256": "b53050cf4e75d5f829488206f309f584ef2a93cec1f79c796ae283415932709c"
+    },
+    {
+      "name": "free-and-first-frontier.json",
+      "bytes": 24782,
+      "sha256": "3831ecaf338fb3c4757f897661fe5ceaa8db79cff2b5d214f3db2f691d8fa0f6"
+    },
+    {
+      "name": "free-and-first-reps.json",
+      "bytes": 1204,
+      "sha256": "4763d00425a39eef3cdc495d6531cdfac670bbc82255d0680e90d25c5d799e5c"
+    },
+    {
+      "name": "free-and-vars-10.json",
+      "bytes": 64527,
+      "sha256": "7b8c86f38ed98c4a8c3ba28fa05bf687bdb052c780c43f92fab700a4f17f26b4"
+    },
+    {
+      "name": "free-and-witness-10-prune.txt",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "name": "free-and-witness-10.txt",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "name": "free_and.py",
+      "bytes": 1555,
+      "sha256": "519a231e489cccd16fa65bc35ed8f41ea9ff382c2183c56575b521bab0081253"
+    },
+    {
+      "name": "free_and_closed.py",
+      "bytes": 975,
+      "sha256": "5ee0c3fb657328a89fa9f5f751d403135cab4a963e1558e6f855ab7057c246c1"
+    },
+    {
+      "name": "free_and_prune.py",
+      "bytes": 902,
+      "sha256": "2969d205051a342d7284f122f88b85fe428aaac9e6088565d62845d19a9a3487"
+    },
+    {
+      "name": "free_and_sym.py",
+      "bytes": 866,
+      "sha256": "a34c4f007e1f9120ee9404205d75a7532683f8c5e6737b9c08c3a2a73971de08"
+    },
+    {
+      "name": "irredundant.py",
+      "bytes": 952,
+      "sha256": "ad589ffe219a53e593cabf742d89be898ffdb3935630fd0fc54a450d38cd8917"
+    },
+    {
+      "name": "known15.json",
+      "bytes": 228,
+      "sha256": "9d37ea5014fdffc7a01f473f7105ebbf35affbb57ab995bbd80a0fec0fc66689"
+    },
+    {
+      "name": "rows-14.json",
+      "bytes": 262,
+      "sha256": "ee0407e3d407506cc1ee1bf3d2be1b9b76729fabd25468d02a2c0476f9e476f8"
+    },
+    {
+      "name": "rows-15.json",
+      "bytes": 262,
+      "sha256": "ee0407e3d407506cc1ee1bf3d2be1b9b76729fabd25468d02a2c0476f9e476f8"
+    },
+    {
+      "name": "run-14-0.log",
+      "bytes": 112,
+      "sha256": "fe0d9010fde67c7199c3063f16d8ddf7cbde61182ffe5544641b9487cfa63c76"
+    },
+    {
+      "name": "run-14-1.log",
+      "bytes": 112,
+      "sha256": "4bb57360fefea50cdf3aa8e4f29a8778c622140992b0d214b5168b0d6fb04946"
+    },
+    {
+      "name": "scan.py",
+      "bytes": 1418,
+      "sha256": "a22044c84dbe46d85f571b755d56f49f5b25f2e43efb1002cb8f973e3ae84432"
+    },
+    {
+      "name": "shared.py",
+      "bytes": 734,
+      "sha256": "0c5ef0a7817c4e3c25437b7efc3f42b58b1e9faf4ffe4a266d1e89c60a177c7c"
+    },
+    {
+      "name": "symmetry.py",
+      "bytes": 1018,
+      "sha256": "0f8f07ab478e3ea6197f52d4690ce27a90444fa7f082e0058874dcb8297573b7"
+    },
+    {
+      "name": "synth-canon.py",
+      "bytes": 2464,
+      "sha256": "d44c80e5ea371c0ae88880067e3fd88eb4d5960f6e125de133e11e959ff47c24"
+    },
+    {
+      "name": "synth.py",
+      "bytes": 2282,
+      "sha256": "51404bdd0ba820a91d8cfbd64bef9fbc69d795c399455660646150a420fa97cd"
+    },
+    {
+      "name": "termination-summary.json",
+      "bytes": 446,
+      "sha256": "e0a590e5f95b3a266a6cf2cd0c68401006837347150a596d34351747bcba5f0b"
+    },
+    {
+      "name": "useful.py",
+      "bytes": 900,
+      "sha256": "c716ae79912911ec8e1f3c3c661bd9fea4ca6e1f3d0068f169e0022843dadee6"
+    },
+    {
+      "name": "vars-14.json",
+      "bytes": 23477,
+      "sha256": "d0924f1b37065764372d48f6454c7cbd24fbe48ddaf5c0a6123f1c96eab3e48c"
+    },
+    {
+      "name": "vars-15.json",
+      "bytes": 25473,
+      "sha256": "e8c3660e09e2ae9ed0b153743b4212b225d7567250974b99a0ba7124a9d69f4d"
+    },
+    {
+      "name": "witness-14-and4.txt",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "name": "witness-14-and5.txt",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "name": "witness-14-dom.txt",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "name": "witness-14-irr.txt",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "name": "witness-14-share.txt",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "name": "witness-14-sym.txt",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "name": "witness-14-useful.txt",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "name": "witness-14.txt",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    }
+  ],
+  "regenerable_cnf": [
+    {
+      "name": "circuit-14-and4.cnf",
+      "bytes": 1435660,
+      "sha256": "fcbc00ac823849fdb9b8506d1b41850040fefa77a733468b93c2efb63dc34f6b",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "circuit-14-and5.cnf",
+      "bytes": 1504001,
+      "sha256": "c81bd462689c700a92d32fab8e597047d6633cd99f0334e83ae92be172d9f3d0",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "circuit-14-dom.cnf",
+      "bytes": 1483825,
+      "sha256": "42e58d683f6ffd4bd679a434f1f9aecf42a72c74cabb9c9bfd603316f33d6817",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "circuit-14-irr.cnf",
+      "bytes": 1390733,
+      "sha256": "cf733553a6cef9243af99f292b01c0d690dc2b434691c86456b485fa0e02c87e",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "circuit-14-share.cnf",
+      "bytes": 1404501,
+      "sha256": "87718ac0246bd93287a44325c6d45c6d9cb299ab1726e3a33f1aedd530f4b723",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "circuit-14-sym.cnf",
+      "bytes": 1368491,
+      "sha256": "3fe7926f89a83c5820bc8131a72eec1a350f6c6134fce19896c79b476a472399",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "circuit-14-useful-and4.cnf",
+      "bytes": 1572525,
+      "sha256": "00620c9afbf2f57554c3432c8e5683434a1a8994e10caf9db87fdbc73e4db956",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "circuit-14-useful.cnf",
+      "bytes": 1504723,
+      "sha256": "b3ebea31fff009cbca6ffb31d3877828d2f8b8f9b7e02d9db3b8b2e2b05e21a7",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "circuit-14.cnf",
+      "bytes": 1367865,
+      "sha256": "ea131c841aa069a41879c8cedf4b94ce16de504a0486dfd5a992852cfb85ab2a",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "circuit-15.cnf",
+      "bytes": 1615914,
+      "sha256": "4aa56e2a6a0c272437a6ae4f9a1ce226b1e2e69d48a0f338a7ddd055bcee0919",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "complete14.cnf",
+      "bytes": 1072473,
+      "sha256": "6d65b6077d478ba5cf390ee88c55b2d4922b8ae9266b6ad218104c1e2d48253d",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "complete15.cnf",
+      "bytes": 1173481,
+      "sha256": "21fbaa19e25b15d78225616cf8194e96e809cd5684eaa96793260c90c79ba381",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "complete24-and4.cnf",
+      "bytes": 528900,
+      "sha256": "51957bc536f5cac68ba3971fb61b88dd2b0db8029d28158be9ce29870c5ebba1",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "complete24.cnf",
+      "bytes": 507008,
+      "sha256": "486e17aeeb4f2fa1ca9c7f3914186022538d421f496e00d31f6c6f01d0d4b671",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "free-and-10-closed.cnf",
+      "bytes": 304943,
+      "sha256": "b03026ad9625c36ac07df80fb9fa2861096c143cffdae56419af599c4c67eb88",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "free-and-10-prune.cnf",
+      "bytes": 261176,
+      "sha256": "78c5ebf2192b977a22a955311899bcd6a0fa5f3fd82174282728fa00481918cb",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "free-and-10-sym.cnf",
+      "bytes": 268676,
+      "sha256": "684bafe299c020840b91b0e328b5835b17686cfe68c542b10e120468ac533ed5",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    },
+    {
+      "name": "free-and-10.cnf",
+      "bytes": 253074,
+      "sha256": "f0f89e07ad1ee8dc460ad9edfe35eb4e6d3c55cd9b2c39d3b43783dbdde94664",
+      "archived": false,
+      "reason": "regenerable from archived source"
+    }
+  ],
+  "excluded_traces": [
+    {
+      "name": "complete14.lrat",
+      "bytes": 281051136,
+      "status": "incomplete; no UNSAT result; not a certificate"
+    },
+    {
+      "name": "complete24-and4.lrat",
+      "bytes": 127225856,
+      "status": "incomplete; no UNSAT result; not a certificate"
+    },
+    {
+      "name": "complete24.lrat",
+      "bytes": 659038208,
+      "status": "incomplete; no UNSAT result; not a certificate"
+    },
+    {
+      "name": "free-and-10-closed.lrat",
+      "bytes": 726417408,
+      "status": "incomplete; no UNSAT result; not a certificate"
+    }
+  ]
+}

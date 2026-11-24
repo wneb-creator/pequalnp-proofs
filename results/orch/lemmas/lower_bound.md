@@ -1,0 +1,12 @@
+# Lower bound route
+
+- Existing verified LRAT framework: PEqualNP.Library.LRAT.Checker and Link, but gap allows only PEqualNP.Defs. Copying a local checker and specialized source-to-CNF soundness bridge remains possible.
+- Direct bv_decide is forbidden by axiom policy: pinned Lean Prover/Bitblast.lean calls nativeEqTrue. Use it only for exploratory solving, replay certificate by decide +kernel if practical.
+- Posted circuit selectors are arbitrary naturals. Refutation must include default-zero sources; clamp every selector to current wire-list length, preserving getD.
+- 2026-11-24T21:52:42.577297+00:00: Normalize.lean compiles with pinned Lean, importing Lean only. Proves getD clipping preserves entire circuit fold, keeps program length and bounds sources by wire count including default-zero sentinel.
+- 2026-11-24T21:55:43.258483+00:00: Full bounded_pad theorem compiles. Any program of length<=s with a final wire has equivalent length=s program, all selectors < initial.length+s+1. Adds OR identities then clamps; output preserved. For this gap s=14, initial13, so Fin28 selectors suffice.
+- Mathlib already exposes Std.Tactic.BVDecide.LRAT.check_sound. Explicit kernel-evaluated replay can use it without forbidden project imports.
+- 2026-11-24T22:00:57.130612+00:00: Added compiled evaluator trace lemmas: eval_extends, eval_preserves, take_eval_length, take_eval_preserves, take_eval_source, gate_eq. Exact circuit-to-CNF bridge under construction.
+- 2026-11-24T22:07:31.636795+00:00: Exact complete24 CNF selected original rows and assignment/source/gate soundness compiled. Final all-clauses assembly rechecking.
+- Kernel smoke test corrected earlier optimism: Std LRAT checker cannot be reduced because check.go is private opaque. Native check would introduce forbidden axiom. Transparent projectchecker can potentially be copied, with its only custom Trie replaced by Mathlib BinaryTree (Option Nat); not implemented.
+- 2026-11-24T22:08:05.566398+00:00: FROZEN compiled CnfBridge.lean prefix: exact24-row encoding, arithmetic assignments, program/source/gate constraint satisfaction all checked. Final aggregate theorem not completed: implicit List.mem_append inference unfolds concrete lists incorrectly. Pending full source and exacterrors saved as CnfBridge.pending.txt and cnf-pending-errors.txt. Likely repair: define named sourceBlock/gateBlock lists and instantiate mem_append with explicit s/t, mem_flatMap with explicit f/l. No UNSAT certificate obtained.

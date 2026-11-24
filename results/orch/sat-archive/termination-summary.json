@@ -1,0 +1,18 @@
+{
+  "time_utc": "2026-11-24T22:08:29.238300+00:00",
+  "reason": "Root requested stopping remaining searches after accepted reduction was ready",
+  "runs": [
+    {
+      "log": "complete24.log",
+      "exit_code": 143,
+      "shell_stderr": "Terminated\n",
+      "sat_status": "no result"
+    },
+    {
+      "log": "free-and-10-closed.log",
+      "exit_code": 143,
+      "shell_stderr": "Terminated\n",
+      "sat_status": "no result"
+    }
+  ]
+}
