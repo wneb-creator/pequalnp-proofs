@@ -1,0 +1,11 @@
+{
+  "archive": "/tmp/oec/pequalnp-pilot-20/counterexample-research-final.zip",
+  "bytes": 1637998,
+  "sha256": "a1f71b42ec3f05bbc065e3629f8429a1cae30f20ba644316f4bcc46e419bd2d8",
+  "manifest": "/tmp/oec/pequalnp-pilot-20/research-bundle/counterexample-search/manifest.json",
+  "manifest_sha256": "7933045ce7d146a5856dcbb283e3a3f0f60e1883696465f86bd557a53d8a33bd",
+  "manifest_files": 1073,
+  "archive_files": 1074,
+  "source_data_log_bytes": 4563197,
+  "result": "No at-most64-gate witness found; restricted and interrupted outcomes remain separately scoped."
+}

@@ -1,0 +1,92 @@
+{
+  "gap": "L-meta-1482",
+  "posted_statement_proved": false,
+  "posted_statement_refuted": false,
+  "verified_upper_bound_gates": 65,
+  "named_validated_seeds": [
+    "shannon65-regression.json",
+    "or-bound/shannon65-local-allflags.json",
+    "core6-global65-validated.json"
+  ],
+  "last_global_annealer": {
+    "seed": "core6-global65-validated.json",
+    "seconds": 600,
+    "mutations": 179961856,
+    "best_active_double_gates": 65
+  },
+  "local_resynthesis": {
+    "global_seed": {
+      "attempts": 48,
+      "UNKNOWN": 48
+    },
+    "localized_seed": {
+      "attempts": 24,
+      "restricted_UNSAT": 23,
+      "UNKNOWN": 1
+    }
+  },
+  "compressed_local_types": {
+    "total": 9,
+    "UNSAT": [
+      "k2-type1",
+      "k3-type2"
+    ],
+    "UNKNOWN": [
+      "k3-type1",
+      "k4-type3",
+      "k4-type2",
+      "k4-type1",
+      "k5-type3",
+      "k5-type2",
+      "k5-type1"
+    ],
+    "scope": "fixed twin-line preprocessing, arbitrary core binary gates, all local derivative flags and critical inputs; not an exhaustive global circuit search"
+  },
+  "pair_only": [
+    {
+      "run": "pair-cegar-752",
+      "rounds": 6,
+      "seconds_per_round": 120,
+      "completed_mutations": 360054784,
+      "pair_candidates_at_most64": 0,
+      "best_active": 66,
+      "closures_added": 0
+    },
+    {
+      "run": "pair-cegar-763",
+      "rounds": 3,
+      "seconds_per_round": 120,
+      "completed_mutations": 174587904,
+      "pair_candidates_at_most64": 0,
+      "best_active": 65,
+      "closures_added": 0
+    }
+  ],
+  "global_unrestricted_sat": "UNKNOWN/interrupted by execution-environment transition",
+  "two_original_free_or_runs": "UNKNOWN/interrupted by execution-environment transition",
+  "final_unsafe_branch_status_file": "or-bound/plane-a14-shared-unsafe-s78.status.json",
+  "all_native_results_are_not_Lean_lower_bound_certificates": true,
+  "final_unsafe_branch": {
+    "run": "plane-a14-shared-unsafe-s78",
+    "status": "UNKNOWN/time_limit",
+    "started_utc": "2026-11-24T01:47:09.606738+00:00",
+    "limit_seconds": 700,
+    "model_scope": "14 free-OR AND gates, explicit shared OR, selector78, target0,4, at least one unsafeAND; restricted physical-cost heuristic",
+    "unsafe_condition": "someAND output true on one of704 maximalfalse inputs",
+    "solver_arguments": [
+      "-t",
+      "700",
+      "--phase=false",
+      "--seed=24",
+      "-w",
+      "/tmp/oec/pequalnp-pilot-20/search/or-bound/plane-a14-shared-unsafe-s78.sol",
+      "/tmp/oec/pequalnp-pilot-20/search/or-bound/plane-a14-shared-unsafe-s78.cnf"
+    ],
+    "generator_source": "or-bound/free_and.py",
+    "retained_prior_interrupted_logs": true,
+    "returncode": 0,
+    "finished_utc": "2026-11-24T01:58:49.673717+00:00"
+  },
+  "frozen_utc": "2026-11-24T01:59:03.622989+00:00",
+  "all_search_runs_stopped": true
+}

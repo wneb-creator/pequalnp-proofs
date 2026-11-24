@@ -1,0 +1,43 @@
+{
+  "verdict": "PASS: independent final counterexample-search archive review",
+  "reviewed_utc": "2026-11-24T02:02:54.699440+00:00",
+  "reviewers": [
+    "/root/review_rules",
+    "/root/review_rules/candidate_archive_audit"
+  ],
+  "archive_sha256": "a1f71b42ec3f05bbc065e3629f8429a1cae30f20ba644316f4bcc46e419bd2d8",
+  "archive_bytes": 1637998,
+  "manifest_sha256": "7933045ce7d146a5856dcbb283e3a3f0f60e1883696465f86bd557a53d8a33bd",
+  "manifested_files": 1073,
+  "archive_entries": 1074,
+  "source_data_log_bytes": 4563197,
+  "candidate_jsons_independently_evaluated": 139,
+  "physical_candidates": 133,
+  "global_physical_candidates": 119,
+  "local_physical_candidates": 14,
+  "symbolic_free_or_models": 6,
+  "global_physical_classification": {
+    "function_correct_and_double": 43,
+    "function_correct_ordinary": 1,
+    "invalid_search_or_near_seed_states": 75
+  },
+  "completed_pair_rounds": 9,
+  "completed_pair_mutations": 534642688,
+  "target_budget_witnesses": [],
+  "checks": [
+    "Exact inventory, all1073 manifest byte counts and SHA256 digests match the frozen tree; ZIP has those exact bytes plus root manifest.",
+    "All archived files are regular UTF8 text without NUL; no symlinks, credential signatures, generated CNFs, compiled binaries, or unexpected inventory entries.",
+    "All139 gate-list JSONs independently evaluated:133 physical circuits and6 free-OR symbolic models; physical input legality and all applicable semantic/derivative tests agree.",
+    "All16 stored validated summaries and stored active-gate, AND/OR-count, singleton-table, and formal-derivative metadata agree with recomputation.",
+    "All14 local/calibration physical circuits pass exhaustive assignment tests; six symbolic models pass756 global critical inputs or64 C6 assignments as applicable.",
+    "Named65/66-gate witnesses and their exact double flags match documentation; deliberately incomplete64-gate states remain accurately labelled as nonwitnesses.",
+    "UnsafeAND calibration independently reproduces0 safe65 versus4096 unsafe66 violations among8192 assignments, including gate8 and first witness mask50036738.",
+    "Nine completed pair rounds and534642688 mutations agree with terminal logs; local batch48UNKNOWN and24attempts(23restrictedUNSAT,1UNKNOWN) agree with records.",
+    "Final700-second unsafe-AND run has UNKNOWN solution status and solver exit0, not an UNSAT claim; interrupted global and two free-OR runs retain UNKNOWN/no-verdict scope.",
+    "Preserved interrupted free-OR log byte counts/hashes match their status records; sole nonempty stderr is an unused-variable compilation warning.",
+    "README and final summary distinguish restricted native results, nonexhaustive heuristics, valid65-gate upper bounds, and the unproved/unrefuted64-gate statement."
+  ],
+  "scope_limit": "Research preservation only. No proof, refutation, or checker acceptance of L-meta-1482. No correct global double-reread witness with at most64 active gates occurs among archived candidates; this is not an exhaustive lower bound.",
+  "unresolved_findings": [],
+  "bundle_mutated_by_review": false
+}

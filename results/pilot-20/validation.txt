@@ -26,7 +26,7 @@ Cleanup pass not started: the checker has not accepted the posted theorem.
 
 Sub-agents: independent review, structural proof, counterexample/SAT search,
 lemma search/formalization, lease keeper, Lean environment setup, OR-bound lookup,
-shared-cover search, and replacement archive review (9 total).
+shared-cover search, and replacement archive review, and counterexample archive review (10 total).
 Research process note: earlier read-only academic paper lookups exceeded the
 allowed-host list. Those requests were stopped; no credentials/private data
 were sent and no external writes occurred.
@@ -82,4 +82,17 @@ and bounded coverage soundness use exactly propext, Classical.choice,
 and Quot.sound. The separate audit source is the frozen proof plus only two
 axiom-print commands; complete stdout/stderr and status are preserved.
 
-TIMING total=88.0 subagents=9
+
+Counterexample-search research archive frozen and independently reviewed PASS.
+All1,073 manifested files and the embedded manifest match;139 stored physical
+or symbolic models were independently recomputed and their recorded semantics,
+derivative metadata, and limitations confirmed. Invalid near-seeds remain
+explicitly invalid. No qualifying64-gate global witness was found.
+The compressed local SAT census finished with2 restricted UNSAT and7 UNKNOWN;
+9 pair-only rounds made534,642,688 mutations without a64-gate pair model.
+Final unsafe-AND SAT: UNKNOWN after700seconds, no model. Interrupted original
+global/free-OR runs are UNKNOWN/interrupted, with full partial logs retained.
+All research searches are stopped; no stale RUNNING status is claimed.
+Archive SHA256a1f71b42ec3f05bbc065e3629f8429a1cae30f20ba644316f4bcc46e419bd2d8.
+
+TIMING total=97.4 subagents=10
