@@ -34,3 +34,29 @@ Exact search timestamps from Linux file birth times (UTC):
 Independent computational audit (status_review) passed current dimensions and semantics. Important implementation limits: multi.cpp/subbounds.cpp encode pair graph in uint64, so they are valid only forN<=11; all those runs usedN=8. The subbounds executable labels any component inequality violation COUNTEREXAMPLE, which would have to be distinguished from a main-statement witness. No component violation was found. Targeted evolution uses separate signature arrays and has no64-pair limit. Every claimed witness must still be pruned/reindexed and independently checked before Lean.
 
 2026-11-24T15:32:50.2Z: started guided L(Petersen)1B, guided ER3 polarity1B, and focused Fano7 orthogonality100M after parent renewal15:32:07(expiry15:52:07). Fano7 finished100M in28.697s; best1 error on128 rows, no witness; near-fano7.json records it. ER3 recomputes C4/mincover and59 exact compressed constraints from theory/polarity3.json edge data.
+
+Fano7 near-miss structure
+Let a,b,c form a triangle, with pendant edges ap,bq,cr, and u adjacent to p,q,r. The11-gate near candidate computes
+u AND (p OR q OR r) OR ((a OR c OR q) AND (b OR ((a OR r) AND (c OR p)))).
+This is exactly the nine-edge graph function OR pqr. The sole wrong input is p=q=r=true, all othersfalse. It uses AND3 and OR8, violating the desired AND>=tau4 only because of that cubic independent minterm. Adding any pair among p,q,r to absorb it creates a4-cycle through the corresponding triangle edge. The six-input core (triangle plus its three pendant edges) pluspqr costs7 gates versus graph bound8. This is a useful obstruction/example, not a counterexample to the posted statement.
+
+2026-11-24T15:36:11Z: L(Heawood)780M/1B; guided L(Petersen)158M/1B; guided ER3 polarity206M/1B; all bestcompressed1, no witness.
+
+2026-11-24T15:37:19.241034+00:00: parent requested resource consolidation (five CPUs shared with SAT). Paused guided L(Petersen) with SIGSTOP at221M/1B,best1; PID preserved in scratch/random/guided-petersen.pid. Heawood and ER3 remain active; no new long runs until consolidation.
+
+2026-11-24T15:39:49.013485+00:00: L(Heawood) completed1B mutations in712.034s,best1,no witness. Resumed guided L(Petersen) after Heawood completion per parent instruction; ER3 remains active.
+
+Short edited-target batches after parent renewal15:40:01 (expiry16:00:01)
+- 2026-11-24T15:42:11.868Z–15:42:14.6Z: eight11-vertex edited graph classes, each1,000,000 guided mutations. All n11,E14,tau6,budget18; no witness; bestcompressed1. Exact data/logs/nearJSON and seeds in scratch/random/edited/summary.json.
+- 2026-11-24T15:44:11.596Z–15:44:13.9Z: eight9-vertex leaf-stripped cores, each1,000,000 guided mutations, prioritizing edited-6-core. Budgets13 or14. Allbestcompressed1; full512-row validation finds8–13 false-negative rows and no false positives. Equal-score selection favored candidates with every edge pair correct, but none was found. Data/logs/nearJSON and seeds in scratch/random/cores/summary.json.
+No long follow-up from these short batches has been started.
+
+Completed long-guided runs (observed2026-11-24T15:47:37Z)
+- ER3 polarity30-gate run:1,000,000,000 guided mutations, no witness, bestcompressed1; elapsed587.939s.
+- L(Petersen)38-gate guided run:1,000,000,000 mutations, no witness, bestcompressed1; elapsed809.588s includes pause.
+- Independent tiny C5 multioutput smoke run:1,000,000 mutations, best summed output-distance2, no witness; elapsed0.328s. SAT agent separately reports eight-gate queryUNSAT and is reviewing positive control/encoding.
+
+New pendant-star gadget search prepared (not yet run)
+For a C4-free graph outputG and available OR(S) signals, require each pair inS have zero common neighbors inG, and pairwise selectedS intersections have atmostone vertex. Attach a newcenter and leaf with3gates perS, increasingedges by|S|+1 andtau by1. Exact positive-gain criterion is E+tau-1 + sum(|S|-1) > live cost of graph output AND all selected OR signals. This requires union of their ancestor masks; counting graph ancestors alone is unsound. gadget_search.cpp precomputes all six-input graph tables and tests single/pair/triple compatible OR packs, plus greedy larger packs. It emits full baseDAG/output/auxiliary data for any positive gain; independent expanded-graph full truth verification is required before Lean.
+
+Parent renewed15:47:03 UTC, expiry16:07:02; authorized new gadget objective for~8minutes. Started two six-input lanes with480-second internal caps, balanced seed2028 and OR-biased seed612. Gadget objective independently reviewed by status_review: PASS for currentdimensions/semantics, with required independent expanded-witness verification. Programs and complete logs remain in scratch/random/.

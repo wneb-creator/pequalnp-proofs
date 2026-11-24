@@ -1,0 +1,8 @@
+{"n": 8, "e": 10, "t": 4, "k": 12, "variables": 1980, "clauses": 19975}
+local-n8-30 returncode 20 seconds 6.51
+{"n": 8, "e": 11, "t": 4, "k": 13, "variables": 2178, "clauses": 22489}
+local-n8-6 returncode 20 seconds 5.58
+{"n": 8, "e": 11, "t": 4, "k": 13, "variables": 2178, "clauses": 22489}
+local-n8-11 returncode 20 seconds 8.28
+{"n": 8, "e": 10, "t": 4, "k": 12, "variables": 1892, "clauses": 18509}
+local-n8-4 returncode 20 seconds 5.32

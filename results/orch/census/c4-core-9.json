@@ -1,0 +1,11103 @@
+[
+  {
+    "id": "c4-n9-1224",
+    "n": 9,
+    "graph6": "HoDPhPH",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 13,
+    "tau": 6,
+    "alpha": 3,
+    "minimum_cover": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "maximal_independent_sets": [
+      14,
+      22,
+      49,
+      52,
+      81,
+      82,
+      137,
+      138,
+      161,
+      193,
+      194,
+      265,
+      268,
+      289,
+      292,
+      321
+    ],
+    "mis_count": 16,
+    "bound": 18,
+    "target_size": 17,
+    "degrees": [
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 5
+  },
+  {
+    "id": "c4-n9-0727",
+    "n": 9,
+    "graph6": "H?G]DTU",
+    "edges": [
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 13,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      3,
+      4,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      27,
+      39,
+      76,
+      88,
+      100,
+      138,
+      162,
+      261,
+      273,
+      384
+    ],
+    "mis_count": 11,
+    "bound": 17,
+    "target_size": 16,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 4,
+    "cyclomatic_number": 5
+  },
+  {
+    "id": "c4-n9-0726",
+    "n": 9,
+    "graph6": "H?G]BeM",
+    "edges": [
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 13,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      4,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      15,
+      27,
+      39,
+      76,
+      88,
+      100,
+      145,
+      161,
+      270,
+      384
+    ],
+    "mis_count": 10,
+    "bound": 17,
+    "target_size": 16,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 5
+  },
+  {
+    "id": "c4-n9-0786",
+    "n": 9,
+    "graph6": "H?Sc`nK",
+    "edges": [
+      [
+        1,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 13,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      4,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      21,
+      43,
+      49,
+      70,
+      84,
+      98,
+      112,
+      131,
+      145,
+      268,
+      324,
+      384
+    ],
+    "mis_count": 13,
+    "bound": 17,
+    "target_size": 16,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 5
+  },
+  {
+    "id": "c4-n9-0991",
+    "n": 9,
+    "graph6": "HAGO[Nw",
+    "edges": [
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ]
+    ],
+    "edge_count": 13,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      25,
+      39,
+      51,
+      71,
+      77,
+      134,
+      140,
+      146,
+      152,
+      288,
+      320,
+      384
+    ],
+    "mis_count": 12,
+    "bound": 17,
+    "target_size": 16,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5
+    ],
+    "min_degree": 2,
+    "max_degree": 5,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 5
+  },
+  {
+    "id": "c4-n9-1007",
+    "n": 9,
+    "graph6": "HCSsASf",
+    "edges": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 13,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      7,
+      21,
+      35,
+      49,
+      78,
+      84,
+      98,
+      112,
+      133,
+      140,
+      161,
+      259,
+      266,
+      273
+    ],
+    "mis_count": 14,
+    "bound": 17,
+    "target_size": 16,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 5
+  },
+  {
+    "id": "c4-n9-1008",
+    "n": 9,
+    "graph6": "HCTCHof",
+    "edges": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 13,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      7,
+      44,
+      53,
+      78,
+      84,
+      131,
+      161,
+      194,
+      259,
+      266,
+      273
+    ],
+    "mis_count": 11,
+    "bound": 17,
+    "target_size": 16,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 5
+  },
+  {
+    "id": "c4-n9-1113",
+    "n": 9,
+    "graph6": "HH`?Wmw",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ]
+    ],
+    "edge_count": 13,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      26,
+      37,
+      41,
+      52,
+      56,
+      69,
+      75,
+      131,
+      133,
+      146,
+      148,
+      288,
+      322,
+      386
+    ],
+    "mis_count": 14,
+    "bound": 17,
+    "target_size": 16,
+    "degrees": [
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 5
+  },
+  {
+    "id": "c4-n9-0683",
+    "n": 9,
+    "graph6": "H?DPTjI",
+    "edges": [
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 13,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      23,
+      53,
+      75,
+      97,
+      146,
+      194,
+      268,
+      292,
+      384
+    ],
+    "mis_count": 10,
+    "bound": 17,
+    "target_size": 16,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 5
+  },
+  {
+    "id": "c4-n9-0811",
+    "n": 9,
+    "graph6": "H?hSbC{",
+    "edges": [
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 13,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      26,
+      37,
+      70,
+      82,
+      100,
+      112,
+      137,
+      152,
+      161,
+      176,
+      259,
+      322,
+      385
+    ],
+    "mis_count": 14,
+    "bound": 17,
+    "target_size": 16,
+    "degrees": [
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 5
+  },
+  {
+    "id": "c4-n9-1199",
+    "n": 9,
+    "graph6": "H`?M@cN",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 6,
+    "alpha": 3,
+    "minimum_cover": [
+      0,
+      2,
+      4,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      21,
+      22,
+      25,
+      26,
+      37,
+      38,
+      41,
+      42,
+      84,
+      88,
+      100,
+      104,
+      145,
+      146,
+      161,
+      162,
+      261,
+      262,
+      265,
+      266
+    ],
+    "mis_count": 20,
+    "bound": 17,
+    "target_size": 16,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 4,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1011",
+    "n": 9,
+    "graph6": "HCd@Igi",
+    "edges": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 6,
+    "alpha": 3,
+    "minimum_cover": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "maximal_independent_sets": [
+      7,
+      14,
+      22,
+      37,
+      44,
+      52,
+      67,
+      74,
+      82,
+      133,
+      148,
+      193,
+      208,
+      259,
+      266,
+      289,
+      296,
+      385
+    ],
+    "mis_count": 18,
+    "bound": 17,
+    "target_size": 16,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1173",
+    "n": 9,
+    "graph6": "H_GPOnK",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 6,
+    "alpha": 3,
+    "minimum_cover": [
+      0,
+      1,
+      3,
+      4,
+      5,
+      6
+    ],
+    "maximal_independent_sets": [
+      13,
+      14,
+      25,
+      26,
+      37,
+      38,
+      49,
+      50,
+      73,
+      74,
+      97,
+      98,
+      133,
+      134,
+      145,
+      146,
+      268,
+      328,
+      388
+    ],
+    "mis_count": 19,
+    "bound": 17,
+    "target_size": 16,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1086",
+    "n": 9,
+    "graph6": "HGC?KNx",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      3,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      43,
+      45,
+      51,
+      53,
+      75,
+      77,
+      83,
+      85,
+      138,
+      140,
+      146,
+      148,
+      288,
+      320
+    ],
+    "mis_count": 14,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      6
+    ],
+    "min_degree": 2,
+    "max_degree": 6,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 4,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1182",
+    "n": 9,
+    "graph6": "H`?EPgN",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      53,
+      54,
+      57,
+      58,
+      100,
+      104,
+      145,
+      146,
+      192,
+      261,
+      262,
+      265,
+      266
+    ],
+    "mis_count": 13,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 4,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1188",
+    "n": 9,
+    "graph6": "H`?G?F~",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      4,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      85,
+      86,
+      89,
+      90,
+      101,
+      102,
+      105,
+      106,
+      149,
+      150,
+      153,
+      154,
+      165,
+      166,
+      169,
+      170,
+      256
+    ],
+    "mis_count": 17,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      8
+    ],
+    "min_degree": 2,
+    "max_degree": 8,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 4,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0808",
+    "n": 9,
+    "graph6": "H?`_pfK",
+    "edges": [
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      3,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      30,
+      41,
+      56,
+      71,
+      97,
+      131,
+      146,
+      161,
+      176,
+      268,
+      324,
+      384
+    ],
+    "mis_count": 13,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0933",
+    "n": 9,
+    "graph6": "H@A?YVs",
+    "edges": [
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      23,
+      27,
+      54,
+      58,
+      71,
+      75,
+      133,
+      137,
+      164,
+      168,
+      272,
+      320,
+      384
+    ],
+    "mis_count": 13,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      5
+    ],
+    "min_degree": 2,
+    "max_degree": 5,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1035",
+    "n": 9,
+    "graph6": "HG?K_ze",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      4,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      27,
+      29,
+      43,
+      45,
+      82,
+      84,
+      98,
+      100,
+      131,
+      133,
+      194,
+      196,
+      280,
+      384
+    ],
+    "mis_count": 14,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      5
+    ],
+    "min_degree": 2,
+    "max_degree": 5,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1055",
+    "n": 9,
+    "graph6": "HG@PSiJ",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      27,
+      29,
+      53,
+      75,
+      97,
+      146,
+      148,
+      194,
+      266,
+      268,
+      292
+    ],
+    "mis_count": 11,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1089",
+    "n": 9,
+    "graph6": "HGC?[Np",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      43,
+      45,
+      51,
+      53,
+      75,
+      77,
+      138,
+      140,
+      146,
+      148,
+      304,
+      320
+    ],
+    "mis_count": 12,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      4,
+      5
+    ],
+    "min_degree": 2,
+    "max_degree": 5,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1143",
+    "n": 9,
+    "graph6": "H_?HOjr",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      29,
+      30,
+      45,
+      46,
+      105,
+      106,
+      149,
+      150,
+      193,
+      194,
+      272,
+      288
+    ],
+    "mis_count": 12,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      6
+    ],
+    "min_degree": 2,
+    "max_degree": 6,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1150",
+    "n": 9,
+    "graph6": "H_?XESu",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      29,
+      30,
+      37,
+      38,
+      89,
+      90,
+      97,
+      98,
+      140,
+      164,
+      273,
+      274,
+      384
+    ],
+    "mis_count": 13,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1158",
+    "n": 9,
+    "graph6": "H_?gpfK",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      5,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      29,
+      30,
+      41,
+      42,
+      69,
+      70,
+      97,
+      98,
+      145,
+      146,
+      161,
+      162,
+      268,
+      324,
+      384
+    ],
+    "mis_count": 15,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1169",
+    "n": 9,
+    "graph6": "H_CgeCf",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      13,
+      14,
+      41,
+      42,
+      85,
+      86,
+      97,
+      98,
+      140,
+      148,
+      168,
+      265,
+      266,
+      273,
+      274
+    ],
+    "mis_count": 15,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0728",
+    "n": 9,
+    "graph6": "H?G{afG",
+    "edges": [
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      5,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      27,
+      35,
+      70,
+      82,
+      98,
+      133,
+      145,
+      161,
+      268,
+      324,
+      352,
+      388,
+      416
+    ],
+    "mis_count": 14,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0731",
+    "n": 9,
+    "graph6": "H?HS`VK",
+    "edges": [
+      [
+        2,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      4,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      27,
+      37,
+      49,
+      70,
+      82,
+      100,
+      112,
+      139,
+      161,
+      268,
+      324,
+      392
+    ],
+    "mis_count": 13,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0771",
+    "n": 9,
+    "graph6": "H?O_}ad",
+    "edges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      3,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      29,
+      43,
+      57,
+      71,
+      148,
+      176,
+      196,
+      266,
+      280,
+      322
+    ],
+    "mis_count": 11,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0777",
+    "n": 9,
+    "graph6": "H?Oc_ze",
+    "edges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      4,
+      5,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      29,
+      43,
+      57,
+      84,
+      98,
+      112,
+      135,
+      198,
+      280,
+      384
+    ],
+    "mis_count": 11,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      5
+    ],
+    "min_degree": 2,
+    "max_degree": 5,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0809",
+    "n": 9,
+    "graph6": "H?cQHNg",
+    "edges": [
+      [
+        0,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      4,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      39,
+      54,
+      77,
+      84,
+      139,
+      146,
+      288,
+      328,
+      392
+    ],
+    "mis_count": 10,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0815",
+    "n": 9,
+    "graph6": "H?o_jaM",
+    "edges": [
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      4,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      15,
+      28,
+      43,
+      56,
+      71,
+      84,
+      161,
+      176,
+      193,
+      208,
+      270,
+      384
+    ],
+    "mis_count": 12,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0981",
+    "n": 9,
+    "graph6": "HA?\\BQM",
+    "edges": [
+      [
+        1,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      3,
+      4,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      23,
+      29,
+      39,
+      82,
+      88,
+      98,
+      137,
+      161,
+      200,
+      224,
+      262,
+      268,
+      392
+    ],
+    "mis_count": 13,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0985",
+    "n": 9,
+    "graph6": "HAA_pVK",
+    "edges": [
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      3,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      23,
+      29,
+      50,
+      56,
+      71,
+      98,
+      131,
+      137,
+      162,
+      168,
+      268,
+      324,
+      392
+    ],
+    "mis_count": 13,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0992",
+    "n": 9,
+    "graph6": "HAGO^AF",
+    "edges": [
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      25,
+      39,
+      51,
+      71,
+      77,
+      152,
+      176,
+      200,
+      262,
+      268,
+      274,
+      280
+    ],
+    "mis_count": 12,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0997",
+    "n": 9,
+    "graph6": "HA_PJQM",
+    "edges": [
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      2,
+      4,
+      5,
+      8
+    ],
+    "maximal_independent_sets": [
+      13,
+      28,
+      39,
+      54,
+      67,
+      82,
+      88,
+      161,
+      201,
+      262,
+      268,
+      392
+    ],
+    "mis_count": 12,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0998",
+    "n": 9,
+    "graph6": "HA_`GvK",
+    "edges": [
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      3,
+      4,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      13,
+      22,
+      28,
+      41,
+      50,
+      56,
+      67,
+      73,
+      82,
+      88,
+      135,
+      163,
+      268,
+      328,
+      388
+    ],
+    "mis_count": 15,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1005",
+    "n": 9,
+    "graph6": "HCOOXNg",
+    "edges": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      28,
+      39,
+      53,
+      71,
+      78,
+      131,
+      138,
+      145,
+      152,
+      288,
+      328,
+      392
+    ],
+    "mis_count": 12,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1010",
+    "n": 9,
+    "graph6": "HC`PhPH",
+    "edges": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      3,
+      4,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      7,
+      30,
+      52,
+      82,
+      138,
+      161,
+      195,
+      268,
+      293,
+      321
+    ],
+    "mis_count": 10,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1012",
+    "n": 9,
+    "graph6": "HCdAHgi",
+    "edges": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "maximal_independent_sets": [
+      7,
+      14,
+      22,
+      37,
+      44,
+      52,
+      69,
+      76,
+      84,
+      146,
+      193,
+      208,
+      266,
+      289,
+      296,
+      387
+    ],
+    "mis_count": 16,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1051",
+    "n": 9,
+    "graph6": "HG?O[re",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      27,
+      29,
+      51,
+      53,
+      75,
+      77,
+      162,
+      164,
+      194,
+      196,
+      280,
+      384
+    ],
+    "mis_count": 12,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      5
+    ],
+    "min_degree": 2,
+    "max_degree": 5,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1104",
+    "n": 9,
+    "graph6": "HGEChXW",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      4,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      13,
+      19,
+      21,
+      42,
+      44,
+      50,
+      52,
+      82,
+      84,
+      139,
+      194,
+      261,
+      292,
+      324,
+      385,
+      448
+    ],
+    "mis_count": 16,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1106",
+    "n": 9,
+    "graph6": "HGESQgi",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      4,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      13,
+      19,
+      50,
+      52,
+      74,
+      76,
+      98,
+      100,
+      149,
+      196,
+      267,
+      290,
+      385
+    ],
+    "mis_count": 13,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1125",
+    "n": 9,
+    "graph6": "HQ?EPgN",
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      3,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      51,
+      54,
+      57,
+      60,
+      108,
+      147,
+      192,
+      259,
+      262,
+      265,
+      268
+    ],
+    "mis_count": 11,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1148",
+    "n": 9,
+    "graph6": "H_?O\\hi",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      29,
+      30,
+      53,
+      54,
+      77,
+      78,
+      146,
+      194,
+      265,
+      289,
+      384
+    ],
+    "mis_count": 11,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1155",
+    "n": 9,
+    "graph6": "H_?_g^w",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      4,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      29,
+      30,
+      57,
+      58,
+      85,
+      86,
+      141,
+      142,
+      288,
+      320,
+      384
+    ],
+    "mis_count": 11,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      5
+    ],
+    "min_degree": 2,
+    "max_degree": 5,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1157",
+    "n": 9,
+    "graph6": "H_?gaue",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      29,
+      30,
+      41,
+      42,
+      85,
+      86,
+      97,
+      98,
+      133,
+      161,
+      282,
+      384
+    ],
+    "mis_count": 12,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1161",
+    "n": 9,
+    "graph6": "H_?pOvK",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      5,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      29,
+      30,
+      49,
+      50,
+      73,
+      74,
+      97,
+      98,
+      133,
+      134,
+      161,
+      162,
+      268,
+      328,
+      388
+    ],
+    "mis_count": 15,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1206",
+    "n": 9,
+    "graph6": "H`_gaCN",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      2,
+      4,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      26,
+      42,
+      69,
+      86,
+      97,
+      98,
+      133,
+      148,
+      152,
+      169,
+      261,
+      262,
+      265,
+      266
+    ],
+    "mis_count": 14,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0646",
+    "n": 9,
+    "graph6": "H?C]dPc",
+    "edges": [
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      3,
+      4,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      23,
+      39,
+      84,
+      100,
+      138,
+      162,
+      224,
+      265,
+      273,
+      336,
+      392,
+      448
+    ],
+    "mis_count": 13,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0659",
+    "n": 9,
+    "graph6": "H?CitbC",
+    "edges": [
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      4,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      23,
+      43,
+      69,
+      97,
+      146,
+      162,
+      224,
+      268,
+      276,
+      324,
+      400,
+      448
+    ],
+    "mis_count": 13,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0722",
+    "n": 9,
+    "graph6": "H?GZCfK",
+    "edges": [
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      4,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      27,
+      39,
+      89,
+      97,
+      146,
+      166,
+      268,
+      328,
+      388
+    ],
+    "mis_count": 10,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0796",
+    "n": 9,
+    "graph6": "H?_q`VK",
+    "edges": [
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      3,
+      4,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      30,
+      50,
+      69,
+      84,
+      97,
+      112,
+      139,
+      163,
+      268,
+      324,
+      392
+    ],
+    "mis_count": 12,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0983",
+    "n": 9,
+    "graph6": "HA?gtFK",
+    "edges": [
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      3,
+      4,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      23,
+      29,
+      41,
+      71,
+      99,
+      146,
+      152,
+      162,
+      168,
+      268,
+      324,
+      392
+    ],
+    "mis_count": 12,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1105",
+    "n": 9,
+    "graph6": "HGECqgk",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      4,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      13,
+      19,
+      42,
+      44,
+      50,
+      52,
+      98,
+      100,
+      149,
+      196,
+      267,
+      322,
+      385,
+      448
+    ],
+    "mis_count": 14,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1124",
+    "n": 9,
+    "graph6": "HO?OZrE",
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      1,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      27,
+      30,
+      51,
+      54,
+      75,
+      78,
+      161,
+      193,
+      284,
+      384
+    ],
+    "mis_count": 10,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1009",
+    "n": 9,
+    "graph6": "HC`PX`H",
+    "edges": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      3,
+      4,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      7,
+      30,
+      52,
+      74,
+      146,
+      161,
+      176,
+      195,
+      268,
+      293,
+      321,
+      328
+    ],
+    "mis_count": 12,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 0,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0492",
+    "n": 9,
+    "graph6": "H?@PSre",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 4,
+    "alpha": 5,
+    "minimum_cover": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      31,
+      53,
+      75,
+      97,
+      134,
+      164,
+      194,
+      224,
+      280,
+      384
+    ],
+    "mis_count": 10,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      5
+    ],
+    "min_degree": 2,
+    "max_degree": 5,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0493",
+    "n": 9,
+    "graph6": "H?@PUYq",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 4,
+    "alpha": 5,
+    "minimum_cover": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      31,
+      53,
+      75,
+      97,
+      140,
+      200,
+      274,
+      304,
+      384
+    ],
+    "mis_count": 9,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-0494",
+    "n": 9,
+    "graph6": "H?@P]Qp",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 12,
+    "tau": 4,
+    "alpha": 5,
+    "minimum_cover": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      31,
+      53,
+      75,
+      140,
+      164,
+      200,
+      274,
+      304,
+      322
+    ],
+    "mis_count": 9,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 4
+  },
+  {
+    "id": "c4-n9-1195",
+    "n": 9,
+    "graph6": "H`?H_ZB",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 6,
+    "alpha": 3,
+    "minimum_cover": [
+      0,
+      1,
+      2,
+      4,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      21,
+      22,
+      25,
+      26,
+      37,
+      38,
+      41,
+      42,
+      81,
+      82,
+      97,
+      98,
+      133,
+      134,
+      137,
+      138,
+      193,
+      194,
+      276,
+      280,
+      292,
+      296
+    ],
+    "mis_count": 22,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1201",
+    "n": 9,
+    "graph6": "H`B@_WJ",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 6,
+    "alpha": 3,
+    "minimum_cover": [
+      0,
+      1,
+      2,
+      4,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      21,
+      22,
+      25,
+      26,
+      52,
+      56,
+      81,
+      82,
+      112,
+      133,
+      134,
+      137,
+      138,
+      193,
+      194,
+      261,
+      262,
+      265,
+      266,
+      292,
+      296
+    ],
+    "mis_count": 21,
+    "bound": 16,
+    "target_size": 15,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1034",
+    "n": 9,
+    "graph6": "HG?K_za",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      4,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      27,
+      29,
+      43,
+      45,
+      82,
+      84,
+      98,
+      100,
+      131,
+      133,
+      194,
+      196,
+      280,
+      296,
+      384
+    ],
+    "mis_count": 15,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1085",
+    "n": 9,
+    "graph6": "HGC?KNw",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      3,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      43,
+      45,
+      51,
+      53,
+      75,
+      77,
+      83,
+      85,
+      138,
+      140,
+      146,
+      148,
+      288,
+      320,
+      384
+    ],
+    "mis_count": 15,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      5
+    ],
+    "min_degree": 2,
+    "max_degree": 5,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 3,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-0685",
+    "n": 9,
+    "graph6": "H?D_tBB",
+    "edges": [
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      3,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      23,
+      41,
+      49,
+      71,
+      97,
+      138,
+      146,
+      168,
+      176,
+      194,
+      224,
+      268,
+      276,
+      296,
+      304
+    ],
+    "mis_count": 16,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-0959",
+    "n": 9,
+    "graph6": "H@GQSJB",
+    "edges": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      27,
+      39,
+      51,
+      73,
+      101,
+      134,
+      154,
+      196,
+      200,
+      280,
+      292,
+      304
+    ],
+    "mis_count": 12,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1048",
+    "n": 9,
+    "graph6": "HG?O[Rp",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      1,
+      4,
+      5,
+      8
+    ],
+    "maximal_independent_sets": [
+      27,
+      29,
+      51,
+      53,
+      75,
+      77,
+      162,
+      164,
+      202,
+      204,
+      304,
+      320
+    ],
+    "mis_count": 12,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      5
+    ],
+    "min_degree": 2,
+    "max_degree": 5,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1061",
+    "n": 9,
+    "graph6": "HGAOOva",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      27,
+      29,
+      50,
+      52,
+      75,
+      77,
+      98,
+      100,
+      131,
+      133,
+      162,
+      164,
+      280,
+      304,
+      416
+    ],
+    "mis_count": 15,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1092",
+    "n": 9,
+    "graph6": "HGCCG^o",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      4,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      43,
+      45,
+      51,
+      53,
+      74,
+      76,
+      82,
+      84,
+      139,
+      141,
+      304,
+      336,
+      384
+    ],
+    "mis_count": 13,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1160",
+    "n": 9,
+    "graph6": "H_?pOvC",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      1,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      29,
+      30,
+      49,
+      50,
+      73,
+      74,
+      97,
+      98,
+      133,
+      134,
+      161,
+      162,
+      284,
+      328,
+      388
+    ],
+    "mis_count": 15,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1162",
+    "n": 9,
+    "graph6": "H_?pShI",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      4,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      29,
+      30,
+      49,
+      50,
+      73,
+      74,
+      97,
+      98,
+      150,
+      194,
+      269,
+      289,
+      388
+    ],
+    "mis_count": 13,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1181",
+    "n": 9,
+    "graph6": "H`??ON{",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      53,
+      54,
+      57,
+      58,
+      101,
+      102,
+      105,
+      106,
+      149,
+      150,
+      153,
+      154,
+      320,
+      384
+    ],
+    "mis_count": 14,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      6
+    ],
+    "min_degree": 2,
+    "max_degree": 6,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1192",
+    "n": 9,
+    "graph6": "H`?GC\\q",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      4,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      85,
+      86,
+      89,
+      90,
+      101,
+      102,
+      105,
+      106,
+      134,
+      138,
+      273,
+      289,
+      384
+    ],
+    "mis_count": 13,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1200",
+    "n": 9,
+    "graph6": "H`@H_YB",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      21,
+      25,
+      37,
+      41,
+      81,
+      82,
+      97,
+      133,
+      134,
+      137,
+      138,
+      193,
+      194,
+      278,
+      282,
+      292,
+      296
+    ],
+    "mis_count": 17,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1204",
+    "n": 9,
+    "graph6": "H`GOONB",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      49,
+      50,
+      73,
+      74,
+      101,
+      102,
+      133,
+      134,
+      153,
+      154,
+      280,
+      292,
+      304
+    ],
+    "mis_count": 13,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1209",
+    "n": 9,
+    "graph6": "H``?@cN",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      1,
+      2,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      86,
+      90,
+      101,
+      105,
+      116,
+      120,
+      146,
+      161,
+      176,
+      261,
+      262,
+      265,
+      266
+    ],
+    "mis_count": 13,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1216",
+    "n": 9,
+    "graph6": "Ho@POgJ",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      4,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      25,
+      30,
+      49,
+      52,
+      73,
+      74,
+      97,
+      145,
+      150,
+      193,
+      194,
+      265,
+      270,
+      289,
+      292
+    ],
+    "mis_count": 15,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1220",
+    "n": 9,
+    "graph6": "HoC?Iof",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      41,
+      46,
+      49,
+      54,
+      73,
+      78,
+      81,
+      86,
+      161,
+      164,
+      193,
+      196,
+      265,
+      266,
+      273,
+      274
+    ],
+    "mis_count": 16,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1222",
+    "n": 9,
+    "graph6": "HoCY@CF",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      38,
+      73,
+      76,
+      81,
+      84,
+      97,
+      100,
+      137,
+      138,
+      145,
+      146,
+      161,
+      162,
+      265,
+      270,
+      273,
+      278
+    ],
+    "mis_count": 17,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-0754",
+    "n": 9,
+    "graph6": "H?OPKra",
+    "edges": [
+      [
+        1,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      4,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      29,
+      39,
+      53,
+      75,
+      89,
+      166,
+      194,
+      280,
+      304,
+      416
+    ],
+    "mis_count": 11,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-0776",
+    "n": 9,
+    "graph6": "H?Oc_za",
+    "edges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      1,
+      2,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      15,
+      29,
+      43,
+      57,
+      84,
+      98,
+      112,
+      135,
+      198,
+      312,
+      384
+    ],
+    "mis_count": 11,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-0785",
+    "n": 9,
+    "graph6": "H?QP?va",
+    "edges": [
+      [
+        1,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      4,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      29,
+      52,
+      75,
+      89,
+      98,
+      112,
+      135,
+      166,
+      280,
+      304,
+      416
+    ],
+    "mis_count": 12,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-0788",
+    "n": 9,
+    "graph6": "H?YP?fB",
+    "edges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      4,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      75,
+      89,
+      98,
+      112,
+      135,
+      145,
+      166,
+      176,
+      268,
+      280,
+      292,
+      304
+    ],
+    "mis_count": 13,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-0929",
+    "n": 9,
+    "graph6": "H@@GtBB",
+    "edges": [
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      23,
+      27,
+      41,
+      71,
+      101,
+      154,
+      168,
+      194,
+      224,
+      276,
+      280,
+      292,
+      296
+    ],
+    "mis_count": 13,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1044",
+    "n": 9,
+    "graph6": "HG?OSNw",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      1,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      27,
+      29,
+      51,
+      53,
+      75,
+      77,
+      99,
+      101,
+      154,
+      156,
+      352,
+      384
+    ],
+    "mis_count": 12,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      5
+    ],
+    "min_degree": 2,
+    "max_degree": 5,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1050",
+    "n": 9,
+    "graph6": "HG?O[ra",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      4,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      27,
+      29,
+      51,
+      53,
+      75,
+      77,
+      162,
+      164,
+      194,
+      196,
+      280,
+      304,
+      416
+    ],
+    "mis_count": 13,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1127",
+    "n": 9,
+    "graph6": "HQB@_WJ",
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      1,
+      4,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      22,
+      25,
+      60,
+      83,
+      112,
+      134,
+      137,
+      140,
+      195,
+      259,
+      262,
+      265,
+      300
+    ],
+    "mis_count": 13,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1128",
+    "n": 9,
+    "graph6": "HQBGPCR",
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      28,
+      67,
+      70,
+      73,
+      108,
+      147,
+      153,
+      168,
+      275,
+      278,
+      292
+    ],
+    "mis_count": 11,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1165",
+    "n": 9,
+    "graph6": "H_@XS_b",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      29,
+      30,
+      37,
+      73,
+      74,
+      97,
+      150,
+      164,
+      194,
+      224,
+      281,
+      282,
+      289
+    ],
+    "mis_count": 13,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1194",
+    "n": 9,
+    "graph6": "H`?HGrB",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      4,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      21,
+      22,
+      41,
+      42,
+      89,
+      90,
+      165,
+      166,
+      193,
+      194,
+      276,
+      280,
+      292,
+      296
+    ],
+    "mis_count": 14,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1215",
+    "n": 9,
+    "graph6": "Ho?gqGR",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      30,
+      41,
+      42,
+      70,
+      97,
+      98,
+      153,
+      156,
+      193,
+      196,
+      273,
+      278,
+      289,
+      290
+    ],
+    "mis_count": 14,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1217",
+    "n": 9,
+    "graph6": "Ho@P_WJ",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      4,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      25,
+      30,
+      52,
+      82,
+      113,
+      137,
+      142,
+      193,
+      194,
+      265,
+      270,
+      289,
+      292
+    ],
+    "mis_count": 13,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1218",
+    "n": 9,
+    "graph6": "Ho@X?cJ",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      4,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      30,
+      89,
+      90,
+      97,
+      145,
+      150,
+      161,
+      164,
+      265,
+      270,
+      289,
+      292
+    ],
+    "mis_count": 12,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1223",
+    "n": 9,
+    "graph6": "HoDH?cF",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      44,
+      74,
+      81,
+      82,
+      105,
+      145,
+      150,
+      161,
+      164,
+      265,
+      270,
+      273,
+      278
+    ],
+    "mis_count": 13,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-0717",
+    "n": 9,
+    "graph6": "H?GQSNo",
+    "edges": [
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      27,
+      39,
+      51,
+      77,
+      101,
+      142,
+      154,
+      304,
+      352,
+      400
+    ],
+    "mis_count": 11,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 0,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1126",
+    "n": 9,
+    "graph6": "HQAIPCT",
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      28,
+      38,
+      73,
+      108,
+      147,
+      153,
+      162,
+      168,
+      275,
+      278,
+      321,
+      324
+    ],
+    "mis_count": 12,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 0,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1159",
+    "n": 9,
+    "graph6": "H_?hchI",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      2,
+      4,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      29,
+      30,
+      42,
+      81,
+      97,
+      98,
+      150,
+      210,
+      269,
+      297,
+      388
+    ],
+    "mis_count": 11,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 0,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1164",
+    "n": 9,
+    "graph6": "H_?{aOb",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      29,
+      30,
+      86,
+      98,
+      141,
+      161,
+      196,
+      224,
+      281,
+      282,
+      289,
+      290
+    ],
+    "mis_count": 12,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 0,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1171",
+    "n": 9,
+    "graph6": "H_GOC\\q",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      2,
+      3,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      77,
+      78,
+      89,
+      90,
+      101,
+      102,
+      113,
+      114,
+      142,
+      305,
+      384
+    ],
+    "mis_count": 11,
+    "bound": 15,
+    "target_size": 14,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 0,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-0491",
+    "n": 9,
+    "graph6": "H?@PSra",
+    "edges": [
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 4,
+    "alpha": 5,
+    "minimum_cover": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      31,
+      53,
+      75,
+      97,
+      134,
+      164,
+      194,
+      224,
+      280,
+      304,
+      416
+    ],
+    "mis_count": 11,
+    "bound": 14,
+    "target_size": 13,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1130",
+    "n": 9,
+    "graph6": "HQ`?@KZ",
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 4,
+    "alpha": 5,
+    "minimum_cover": [
+      0,
+      1,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      67,
+      86,
+      105,
+      124,
+      131,
+      137,
+      146,
+      152,
+      259,
+      262,
+      289,
+      292
+    ],
+    "mis_count": 12,
+    "bound": 14,
+    "target_size": 13,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-0513",
+    "n": 9,
+    "graph6": "H?BTQOp",
+    "edges": [
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 11,
+    "tau": 4,
+    "alpha": 5,
+    "minimum_cover": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      31,
+      52,
+      74,
+      141,
+      164,
+      200,
+      224,
+      275,
+      304,
+      322,
+      352
+    ],
+    "mis_count": 11,
+    "bound": 14,
+    "target_size": 13,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 0,
+    "cyclomatic_number": 3
+  },
+  {
+    "id": "c4-n9-1219",
+    "n": 9,
+    "graph6": "HoC?Ioe",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 10,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      5,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      41,
+      46,
+      49,
+      54,
+      73,
+      78,
+      81,
+      86,
+      161,
+      164,
+      193,
+      196,
+      265,
+      266,
+      273,
+      274,
+      385
+    ],
+    "mis_count": 17,
+    "bound": 14,
+    "target_size": 13,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 2,
+    "cyclomatic_number": 2
+  },
+  {
+    "id": "c4-n9-1131",
+    "n": 9,
+    "graph6": "HWEA?oF",
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 10,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      2,
+      3,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      42,
+      50,
+      73,
+      81,
+      108,
+      116,
+      131,
+      162,
+      193,
+      228,
+      267,
+      268,
+      275,
+      276
+    ],
+    "mis_count": 14,
+    "bound": 14,
+    "target_size": 13,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 2
+  },
+  {
+    "id": "c4-n9-1172",
+    "n": 9,
+    "graph6": "H_GOONo",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ]
+    ],
+    "edge_count": 10,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      49,
+      50,
+      77,
+      78,
+      101,
+      102,
+      141,
+      142,
+      153,
+      154,
+      304,
+      352,
+      400
+    ],
+    "mis_count": 13,
+    "bound": 14,
+    "target_size": 13,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 2
+  },
+  {
+    "id": "c4-n9-1208",
+    "n": 9,
+    "graph6": "H``?@cM",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 10,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      1,
+      2,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      86,
+      90,
+      101,
+      105,
+      116,
+      120,
+      146,
+      161,
+      176,
+      261,
+      262,
+      265,
+      266,
+      385,
+      386
+    ],
+    "mis_count": 15,
+    "bound": 14,
+    "target_size": 13,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 2
+  },
+  {
+    "id": "c4-n9-1225",
+    "n": 9,
+    "graph6": "HqGO?KJ",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 10,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      3,
+      4,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      76,
+      89,
+      102,
+      113,
+      114,
+      134,
+      140,
+      146,
+      153,
+      265,
+      268,
+      289,
+      294
+    ],
+    "mis_count": 13,
+    "bound": 14,
+    "target_size": 13,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 1,
+    "cyclomatic_number": 2
+  },
+  {
+    "id": "c4-n9-0803",
+    "n": 9,
+    "graph6": "H?`H?fo",
+    "edges": [
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        8
+      ]
+    ],
+    "edge_count": 10,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      3,
+      4,
+      6,
+      8
+    ],
+    "maximal_independent_sets": [
+      15,
+      30,
+      45,
+      75,
+      90,
+      105,
+      135,
+      150,
+      165,
+      336,
+      352,
+      400,
+      416
+    ],
+    "mis_count": 13,
+    "bound": 14,
+    "target_size": 13,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4
+    ],
+    "min_degree": 2,
+    "max_degree": 4,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 0,
+    "cyclomatic_number": 2
+  },
+  {
+    "id": "c4-n9-1121",
+    "n": 9,
+    "graph6": "HK`@?WR",
+    "edges": [
+      [
+        1,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "edge_count": 10,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      1,
+      3,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      60,
+      90,
+      97,
+      120,
+      133,
+      140,
+      195,
+      202,
+      259,
+      274,
+      293,
+      308
+    ],
+    "mis_count": 12,
+    "bound": 14,
+    "target_size": 13,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 0,
+    "cyclomatic_number": 2
+  },
+  {
+    "id": "c4-n9-1207",
+    "n": 9,
+    "graph6": "H``??se",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 10,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      86,
+      90,
+      101,
+      105,
+      116,
+      120,
+      134,
+      165,
+      265,
+      282,
+      385,
+      386
+    ],
+    "mis_count": 12,
+    "bound": 14,
+    "target_size": 13,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 0,
+    "cyclomatic_number": 2
+  },
+  {
+    "id": "c4-n9-1214",
+    "n": 9,
+    "graph6": "Ho?OQoe",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 10,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      0,
+      2,
+      5,
+      6,
+      7
+    ],
+    "maximal_independent_sets": [
+      30,
+      49,
+      54,
+      73,
+      78,
+      102,
+      225,
+      228,
+      281,
+      282,
+      385
+    ],
+    "mis_count": 11,
+    "bound": 14,
+    "target_size": 13,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 0,
+    "cyclomatic_number": 2
+  },
+  {
+    "id": "c4-n9-1129",
+    "n": 9,
+    "graph6": "HQ`?@KY",
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 10,
+    "tau": 4,
+    "alpha": 5,
+    "minimum_cover": [
+      0,
+      1,
+      7,
+      8
+    ],
+    "maximal_independent_sets": [
+      67,
+      86,
+      105,
+      124,
+      137,
+      146,
+      152,
+      262,
+      289,
+      292,
+      387
+    ],
+    "mis_count": 11,
+    "bound": 13,
+    "target_size": 12,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "min_degree": 2,
+    "max_degree": 3,
+    "components": 1,
+    "connected": true,
+    "bipartite": true,
+    "triangles": 0,
+    "cyclomatic_number": 2
+  },
+  {
+    "id": "c4-n9-1221",
+    "n": 9,
+    "graph6": "HoCOPHA",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        6,
+        8
+      ]
+    ],
+    "edge_count": 9,
+    "tau": 5,
+    "alpha": 4,
+    "minimum_cover": [
+      1,
+      2,
+      3,
+      5,
+      6
+    ],
+    "maximal_independent_sets": [
+      54,
+      78,
+      97,
+      102,
+      146,
+      201,
+      202,
+      268,
+      305,
+      308,
+      393,
+      401
+    ],
+    "mis_count": 12,
+    "bound": 13,
+    "target_size": 12,
+    "degrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "min_degree": 2,
+    "max_degree": 2,
+    "components": 1,
+    "connected": true,
+    "bipartite": false,
+    "triangles": 0,
+    "cyclomatic_number": 1
+  }
+]

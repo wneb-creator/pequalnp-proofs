@@ -1,0 +1,14 @@
+>A ./geng -fld0D7 n=8 e=0-11
+>C 1 graphs with 0 edges
+>C 1 graphs with 1 edges
+>C 2 graphs with 2 edges
+>C 5 graphs with 3 edges
+>C 10 graphs with 4 edges
+>C 21 graphs with 5 edges
+>C 43 graphs with 6 edges
+>C 72 graphs with 7 edges
+>C 88 graphs with 8 edges
+>C 72 graphs with 9 edges
+>C 31 graphs with 10 edges
+>C 5 graphs with 11 edges
+>Z 351 graphs generated in 0.00 sec

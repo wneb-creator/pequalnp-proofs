@@ -1,0 +1,18 @@
+partitions 4140
+near-8-10.json checked 10 valid 10
+near-8-13.json checked 48 valid 41
+near-8-17.json checked 58 valid 51
+near-8-19.json checked 68 valid 61
+near-8-20.json checked 80 valid 66
+near-8-22.json checked 90 valid 76
+near-8-26.json checked 100 valid 86
+near-8-28.json checked 110 valid 96
+near-8-3.json checked 148 valid 127
+near-8-30.json checked 180 valid 154
+near-8-31.json checked 212 valid 183
+near-8-32.json checked 222 valid 193
+near-8-33.json checked 232 valid 203
+near-8-34.json checked 264 valid 230
+near-8-7.json checked 276 valid 236
+near-8-9.json checked 286 valid 246
+FINISHED checked 286 valid 246 best improvement 0

@@ -1,0 +1,7 @@
+{"stage": "splits", "counts": {"tested": 256, "pure_graph": 0, "c4free": 0}}
+{"kind": "local_cofactor", "size": 17, "bound": 17, "margin": 0, "counts": {"tested": 269, "pure_graph": 1, "c4free": 1}}
+{"stage": "cofactor", "k": 1, "counts": {"tested": 294, "pure_graph": 2, "c4free": 2}}
+{"stage": "cofactor", "k": 2, "counts": {"tested": 978, "pure_graph": 45, "c4free": 31}}
+{"stage": "cofactor", "k": 3, "counts": {"tested": 8730, "pure_graph": 501, "c4free": 264}}
+{"stage": "cofactor", "k": 4, "counts": {"tested": 70746, "pure_graph": 3756, "c4free": 1732}}
+{"final": true, "counts": {"tested": 70746, "pure_graph": 3756, "c4free": 1732}, "best": 0, "elapsed": 5.904597043991089}

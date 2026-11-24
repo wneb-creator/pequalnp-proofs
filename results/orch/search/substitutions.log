@@ -1,0 +1,18 @@
+near-fano7.json tested 14819 exact C4free 731 seconds 0.34
+near-8-10.json tested 103085 exact C4free 4069 seconds 3.05
+near-8-13.json tested 191351 exact C4free 8764 seconds 4.98
+near-8-17.json tested 279617 exact C4free 12102 seconds 6.75
+near-8-19.json tested 367883 exact C4free 15440 seconds 8.75
+near-8-20.json tested 456149 exact C4free 17620 seconds 10.64
+near-8-22.json tested 544415 exact C4free 20958 seconds 12.42
+near-8-26.json tested 632681 exact C4free 24296 seconds 14.11
+near-8-28.json tested 720947 exact C4free 27634 seconds 15.95
+near-8-3.json tested 809213 exact C4free 32329 seconds 17.79
+near-8-30.json tested 897479 exact C4free 37010 seconds 19.56
+near-8-31.json tested 985745 exact C4free 41622 seconds 21.54
+near-8-32.json tested 1074011 exact C4free 44960 seconds 23.61
+near-8-33.json tested 1162277 exact C4free 48298 seconds 25.59
+near-8-34.json tested 1250543 exact C4free 52979 seconds 27.45
+near-8-7.json tested 1338809 exact C4free 54993 seconds 29.21
+near-8-9.json tested 1427075 exact C4free 58331 seconds 31.22
+FINISHED 1427075 58331 seconds 31.22

@@ -1,0 +1,7 @@
+>A ./geng -cfld2D8 n=9 e=9-13
+>C 1 graphs with 9 edges
+>C 10 graphs with 10 edges
+>C 42 graphs with 11 edges
+>C 49 graphs with 12 edges
+>C 10 graphs with 13 edges
+>Z 112 graphs generated in 0.00 sec

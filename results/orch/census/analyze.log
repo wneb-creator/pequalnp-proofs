@@ -1,0 +1,5 @@
+{"n": 8, "family": "all", "count": 351, "max_edges": 11, "max_target_size": 14}
+{"n": 8, "family": "core", "count": 28, "max_edges": 11, "max_target_size": 14}
+{"n": 9, "family": "all", "count": 1230, "max_edges": 13, "max_target_size": 17}
+{"n": 9, "family": "core", "count": 112, "max_edges": 13, "max_target_size": 17}
+VALIDATED {"iso_pair_checks": 0, "elapsed": 1.3048522472381592, "core_total": 140}

@@ -1,0 +1,13 @@
+best 26 trials 1 seconds 0.0
+best 25 trials 71 seconds 0.0
+best 23 trials 73 seconds 0.01
+best 22 trials 114 seconds 0.01
+best 20 trials 3743 seconds 0.05
+best 19 trials 13351 seconds 0.1
+best 18 trials 13605 seconds 0.1
+best 16 trials 16028 seconds 0.12
+best 14 trials 18077 seconds 0.15
+best 12 trials 78556 seconds 0.58
+best 7 trials 100001 seconds 0.74
+best 2 trials 200001 seconds 1.49
+finished {'best': 2, 'trials': 92482000, 'restarts': 925, 'seconds': 600.0002236366272}

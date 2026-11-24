@@ -37,3 +37,10 @@ Retired: definition loopholes, one/two shared-rectangle families, complete input
 Continue: exactSAT repairs and normalized AND skeletons; guided mutation on linePetersen,lineHeawood,ER3,and7vertex polarity; dynamicgraphsearch with alternativefitness.
 New analytical work: ER3 factorization and graph-edit/gadget repair of dynamic near witness.
 Formal support is complete enough to validate a finite witness; no more easypositivehelpers planned.
+
+2026-11-24T15:50:54.079993+00:00: preservation checkpoint and strategy update
+- The named file remains 537 lines and builds; the second official checker run again rejected it with no-theorem. No gap proof or PR exists.
+- Retired the billion-step fixed-target evolutionary runs after no witness. New randomized objective looks for exact graph circuits that also expose safe OR outputs, then adds pendant-star gadgets. Independent review confirmed graph, cover and live-ancestor cost accounting.
+- A systematic nauty census now supplies 28 connected minimum-degree-two C4-free graphs on eight vertices and 112 on nine. These are search targets, not a proved restriction on counterexamples.
+- Shared-A/local ER3 synthesis returned UNSAT in its restricted template; this does not prove the unrestricted 30-gate case impossible.
+- The initial desk request succeeded. Null replies: 0. Only the assigned L-meta-2028 lease is held.

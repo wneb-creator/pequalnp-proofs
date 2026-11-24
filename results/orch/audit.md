@@ -41,3 +41,19 @@ The two-rectangle extension sampled another 100,000 families and found 13,750 va
 Search records now always prune and reindex dead gates, so `size` equals the stored gate list length. Any failed independent full truth-table check raises an error rather than reporting a witness. All three complete logs and compact verified best examples are archived under `results/orch/rectangle-results/` for preservation.
 
 A tight one-rectangle motif is (R OR l) AND (a OR b), where R=(OR A) AND (OR B), a∈A, b∈B, and l lies outside A∪B. It realizes a double star plus the triangle a-l-b at exactly E+tau-1 gates. Reusing R for a second such tight motif in a C4-free union forces the same a,b: selecting a second vertex from either side exposes a K2,2. A second distinct l then creates the C4 a-l-b-l′. Thus this direct sharing of tight motifs cannot yield the desired gain.
+
+## Dynamic near-witness repairs
+
+The 18-gate dynamic snapshot has a 15-edge, cover-number-5 quadratic graph and four unwanted minimal triples {0,5,8}, {1,5,8}, {3,5,8}, {5,6,8}. Its exact first component is a 7-gate, 6-edge, cover-number-2 triangle-with-leaves function. The second component is
+
+(x2 OR (x5 OR x7) AND (x9 OR x8)) AND (x0 OR x1 OR x3 OR x6 OR x7 OR x9).
+
+Its unwanted triples arise from the unselected rectangle edge5–8. Removing the four external leaves from the second component leaves an exact 6-gate, 5-edge, cover-number-2 graph function. Reattaching independent optimal star gadgets cannot undercut E+tau-1 without sharing: vertex-cover number is subadditive under graph union, while OR joining adds the matching gate cost.
+
+`near_repair.py` checked all256 ways to split the second occurrence of each of the8 twice-used inputs; none yielded a pure quadratic function. It also checked all70,490 choices of up to4 individual input occurrences set independently to Boolean constants. Semantic simplification and dead-gate removal gave3,756 pure graph functions, of which1,732 were C4-free; none beat the bound (best margin0). This is occurrence-local cofactoring, not merely global input substitution.
+
+With `--expose`, each edited circuit was also tried after OR-ing into the output one or two hidden AND intermediates not already implied by the output. Total110,253 output variants from70,746 edit patterns:14,412 pure graph functions,3,182 C4-free, no violation, best margin0. Every best record was independently verified across all Boolean inputs. Full logs and compact examples are under `near-repair-results/`.
+
+`gadget_graphs.py` enumerated the17 inclusion-minimal edge-addition sets that cover all four unwanted triples, and all existing-edge deletions up to the first feasible cardinality. Adding5–8 needs at least2 deletions; all9 minimal repairs have target bound at most18. Without5–8, one chooses z–5 or z–8 for each z∈{0,1,3,6}; all16 such choices need at least5 deletions. Thirteen choices admit a repaired C4-free graph with14edges and cover number6, hence target18gates against bound19. One maximum-bound repair per such choice was saved, not every possible repaired graph.
+
+`near_graph_targets.py` independently checked these13 saved graphs by explicit four-vertex cycles and exhaustive2^11 independent-set enumeration, then deduplicated them into8 isomorphism classes by exact adjacency-preserving backtracking. `near-edited-graphs.json` holds all13, the8 representatives, and their complete lists of maximal independent sets. The representatives have18–22 maximal independent sets. They are new graph targets, not counterexamples; no18-gate circuit has been found.

@@ -1,0 +1,16 @@
+{"n": 4, "e": 3, "t": 2, "k": 3, "variables": 285, "clauses": 1588}
+n4-e3-t2 returncode 20 seconds 0.01
+{"n": 5, "e": 5, "t": 3, "k": 6, "variables": 944, "clauses": 8041}
+n5-e5-t3 returncode 20 seconds 0.19
+{"n": 5, "e": 6, "t": 3, "k": 7, "variables": 1083, "clauses": 9880}
+n5-e6-t3 returncode 20 seconds 3.84
+{"n": 6, "e": 6, "t": 4, "k": 8, "variables": 2277, "clauses": 24957}
+n6-e6-t4 returncode 20 seconds 32.6
+{"n": 6, "e": 7, "t": 3, "k": 8, "variables": 2307, "clauses": 25042}
+n6-e7-t3 returncode 0 seconds 120.02
+{"n": 6, "e": 7, "t": 4, "k": 9, "variables": 2528, "clauses": 33295}
+n6-e7-t4 returncode 0 seconds 120.03
+{"n": 7, "e": 9, "t": 4, "k": 11, "variables": 5796, "clauses": 90484}
+n7-e9-t4 returncode 0 seconds 120.01
+{"n": 7, "e": 8, "t": 4, "k": 10, "variables": 5335, "clauses": 78418}
+n7-e8-t4 returncode 0 seconds 120.01

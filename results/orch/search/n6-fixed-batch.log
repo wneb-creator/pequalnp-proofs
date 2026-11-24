@@ -1,0 +1,8 @@
+{"n": 6, "e": 7, "t": 3, "k": 8, "variables": 747, "clauses": 9064}
+n6-class1 returncode 20 seconds 17.46
+{"n": 6, "e": 7, "t": 3, "k": 8, "variables": 747, "clauses": 9061}
+n6-class2 returncode 20 seconds 17.03
+{"n": 6, "e": 7, "t": 3, "k": 8, "variables": 777, "clauses": 9419}
+n6-class3 returncode 20 seconds 16.36
+{"n": 6, "e": 7, "t": 4, "k": 9, "variables": 911, "clauses": 12454}
+n6-class4 returncode 0 seconds 120.01

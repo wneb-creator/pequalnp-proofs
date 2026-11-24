@@ -8,3 +8,4 @@
 
 Times for intermediate checkpoints are recorded to the minute; exact search start/end times appear in specialist notes.
 2026-11-24T15:34:58.529221+00:00: first strategy review; retired rectangle/search loophole routes; prioritized guided synthesis and SAT repair
+2026-11-24T15:41:25.726288+00:00: concrete pair-only diagnostic compiled in named file;537lines; independent review passed

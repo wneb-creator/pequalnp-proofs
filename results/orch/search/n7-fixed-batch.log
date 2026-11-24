@@ -1,0 +1,8 @@
+{"n": 7, "e": 9, "t": 4, "k": 11, "variables": 1396, "clauses": 23644}
+n7-class1 returncode 0 seconds 120.01
+{"n": 7, "e": 9, "t": 4, "k": 11, "variables": 1356, "clauses": 23034}
+n7-class2 returncode 0 seconds 120.04
+{"n": 7, "e": 9, "t": 4, "k": 11, "variables": 1316, "clauses": 22431}
+n7-class3 returncode 0 seconds 120.03
+{"n": 7, "e": 9, "t": 4, "k": 11, "variables": 1356, "clauses": 23032}
+n7-class5 returncode 0 seconds 120.01

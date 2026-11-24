@@ -1,0 +1,8 @@
+{"n": 11, "e": 16, "t": 7, "k": 21, "variables": 6438, "clauses": 100183}
+local4 returncode 20 seconds 54.86
+{"n": 11, "e": 16, "t": 7, "k": 21, "variables": 6396, "clauses": 100057}
+local5 returncode 0 seconds 120.03
+{"n": 11, "e": 16, "t": 7, "k": 21, "variables": 6354, "clauses": 99931}
+local6 returncode 0 seconds 120.01
+{"n": 11, "e": 16, "t": 7, "k": 21, "variables": 6270, "clauses": 99679}
+local8 returncode 0 seconds 120.01

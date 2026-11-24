@@ -40,3 +40,14 @@ Independent audit
 - status_review inspected synth.py and found CNF semantics and topological-order pruning sound.
 - Decoder now explicitly verifies all Boolean inputs, C4-freeness, exact vertex cover number, and reports strict counterexample inequality.
 - An early anneal graph/metadata filename collision was found and corrected. Files anneal.log and anneal-best.json refer to an erroneous K11 run and are DISCARDED. Correct target files are seed11-graph.json and anneal-seed11*. Original exact seed11.cnf was generated before its graph metadata overwrite and is unaffected.
+
+Updates through 15:50 UTC
+- Both original600-second unrestricted six-AND runs on the11-vertex seed ended UNKNOWN. A new seed17 run has a1800-second limit, started about15:42:48.
+- Edited-3 graph (11vertices,14edges,tau6): normalized at-most-five-AND query with arbitrary OR subsets is UNSAT (71.35 CPU seconds). This is a computational exclusion, not a Lean certificate.
+- Edited-6-core (9vertices,11edges,tau5): analogous at-most-four-AND query is UNSAT (1.05 CPU seconds).
+- Tiny joint-output C5 route: no8-gate circuit in the encoding can compute C5 while exposing OR(0,1) and OR(2,3) as auxiliary wires. Those auxiliary outputs are allowed to be unused by the final C5 output. Nine-gate positive control is SAT and all32 input assignments check. Independent fixed-prefix review passed. This is a joint-output lower bound only, not an unrestricted C5 claim.
+- Fano/polarity with exactly4AND+7OR gates: separate600-second query started15:47:20 to target an OR saving rather than the observed three-AND near misses.
+- Prepared but not yet launched: C6 and C7 optimal-size circuits with a free OR on one adjacent pair. Attaching a new triangle vertex and pendant leaf would then give a total-bound counterexample.
+- Prepared Fano12-gate circuit with a free OR on spoke(2,3). Adding one new vertex adjacent to2,3 would yield8vertices,11edges,tau5 and14gates against bound15. Graph counts and C4-freeness exhaustively checked; this is census class c4-n8-0275.
+- Original fixed-target seed11 CNF regenerated identically from authoritative16-edge graph, SHA25641c7af292d6cec58cf2cc3d5051aa2701dc1a135a37120b739a613e2dfb35797. Confirms early graph/metadata filename collision did not affect it.
+- Search archive created at results/orch/search/, including source programs, complete solver diagnostics, graph/model JSON and22 snapshots of inputs supplied by other agents. Regenerable CNFs and the cloned solver are omitted. Some long-run logs will be refreshed when complete.

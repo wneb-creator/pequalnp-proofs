@@ -1,0 +1,7 @@
+{"stage": "splits", "counts": {"patterns": 256, "tested": 1024, "pure_graph": 320, "c4free": 0}}
+{"kind": "local_cofactor", "size": 17, "bound": 17, "margin": 0, "counts": {"patterns": 269, "tested": 1059, "pure_graph": 330, "c4free": 1}}
+{"stage": "cofactor", "k": 1, "counts": {"patterns": 294, "tested": 1132, "pure_graph": 355, "c4free": 2}}
+{"stage": "cofactor", "k": 2, "counts": {"patterns": 978, "tested": 2621, "pure_graph": 688, "c4free": 42}}
+{"stage": "cofactor", "k": 3, "counts": {"patterns": 8730, "tested": 16358, "pure_graph": 2920, "c4free": 441}}
+{"stage": "cofactor", "k": 4, "counts": {"patterns": 70746, "tested": 110253, "pure_graph": 14412, "c4free": 3182}}
+{"final": true, "counts": {"patterns": 70746, "tested": 110253, "pure_graph": 14412, "c4free": 3182}, "best": 0, "elapsed": 15.97620964050293}
