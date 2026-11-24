@@ -31,3 +31,7 @@ Local obstruction: ((a OR d) AND (b OR c)) AND ((a OR c) AND (b OR d)) computes 
 Lean-checked scratch LocalNormalization.lean gives this identity, dirtiness witnesses, and a biclique color lemma. Root notified for push-early preservation.
 
 Primary research read 2026-11-24: Jukna, Disproving the Single Level Conjecture, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf . Its total-size separations use non-bipartite saturated extensions. They do not refute our exact bipartite statement. Cross-pair graph representation is weaker than exact graphFun computation because larger independent sets matter.
+
+## lemma_search 2026-11-24T17:15:01.611771+00:00
+
+Scratch lemmas/Least.lean passed `lake env lean` with exit 0 and no warnings. Ten helpers establish least existence, least choice minimizing andPairs, equivalence of zero pairs with no stacked ANDs, monochromatic and singleton rejection, the edgeless case, normalization conditional on strict pair-count descent, and the at-most-one-gate case (root contributed the latter). This is a checked partial only: the bipartite descent obligation remains open. Root notified immediately for review and early push.

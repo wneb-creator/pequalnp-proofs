@@ -1,5 +1,7 @@
 L-meta-3678 PARTIAL RESULTS ONLY. Exact posted theorem remains unproved.
-LocalNormalization.lean: lake env lean exit 0; full compiler output in LocalNormalization.build.log (empty).
-No local full-theorem checker acceptance is claimed; no PR opened.
+Named module lake build PEqualNP.Outside.L_meta_3678: exit 0. Full output L_meta_3678.build.log.
+Least.lean and LocalNormalization.lean: lake env lean exit 0. Full compiler outputs retained.
+No full-theorem checker acceptance is claimed; no PR opened.
+Independent review passed for the exact helper files before push.
 Sub-agents: 6 (normalization, restriction, counterexample search, lemma search, toolchain setup, independent review)
-TIMING total=6 subagents=6
+TIMING total=9 subagents=6
