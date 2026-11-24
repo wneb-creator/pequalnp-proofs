@@ -1,0 +1,40 @@
+{
+  "counterexample": null,
+  "completed_hosts": [
+    {
+      "host": "cycle8",
+      "dirty_products": 3009,
+      "product_pairs_checked": 4525536,
+      "productive_joint_clean_pairs": 82704,
+      "counterexample_found": false
+    },
+    {
+      "host": "path8",
+      "dirty_products": 3012,
+      "product_pairs_checked": 4534566,
+      "productive_joint_clean_pairs": 61088,
+      "counterexample_found": false
+    },
+    {
+      "host": "cover4_example",
+      "dirty_products": 3005,
+      "product_pairs_checked": 4513510,
+      "productive_joint_clean_pairs": 91017,
+      "counterexample_found": false
+    },
+    {
+      "host": "overlap_budget_example",
+      "dirty_products": 3002,
+      "product_pairs_checked": 4504501,
+      "productive_joint_clean_pairs": 75750,
+      "counterexample_found": false
+    },
+    {
+      "host": "matching4",
+      "dirty_products": 3021,
+      "product_pairs_checked": 4561710,
+      "productive_joint_clean_pairs": 17442,
+      "counterexample_found": false
+    }
+  ]
+}

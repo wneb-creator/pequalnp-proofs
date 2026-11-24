@@ -1,0 +1,5 @@
+PASS independent incremental source/math/provenance/format reviews
+MaskGraphBoundaryPath.lean SHA256 30ec26d0ab129aacafa445566cae80923202af99d696752acd5cbc85c4398a8f
+MaskGraphCredit.lean SHA256 7f57c9651fd85de87053d36f2c3146de148bf4e06cfd762a964d5c742f929e66
+MaskAllCentersCredit.lean SHA256 7412adee76b98e649ccb834cd0bd8a22ca857b2a95342dc2e6b286f897a0f033
+BoundaryPath: exact original OR path to an owned labeled edge projects to boundary none. Credit: exact previously independently reviewed finite-credit helper plus new wrapper transports one owned-edge hit across every same-group connected root. AllCentersCredit: exact Sigma enumeration machinery with explicit boundary-product witnesses, reindexes each witness correctly and keeps card credit under residual subset and live-outsideLambda bounds. No injectivity or nonempty-group assumption added. Author builds003/002/001 all exit0 respectively.

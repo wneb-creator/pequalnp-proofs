@@ -1,0 +1,4 @@
+SHA256 7562fabf93d5628f4789e9b35651fb5ad0eee3cfdd66beb4090c79316db6ff99
+PASS source delta: removes only minimum-operand-cardinality-two, retaining disjointness and nonempty operands. Full assignment cleanliness, effective masks, productive joint and shared-quadrant cost formula unchanged. Singleton sums correctly have zero OR cost; singleton intersections have zero sharing refund. Tests original |U|≤K+2, not stronger K+1. Both products remain dirty. Five finite hosts only; no general theorem claimed.
+PASS complete JSON/log agreement;3025total disjoint product functions; all paircounts exact; no timeout.
+Package currently lacks copied source/README/manifest; source/results review PASS, preservation packaging remains to author.

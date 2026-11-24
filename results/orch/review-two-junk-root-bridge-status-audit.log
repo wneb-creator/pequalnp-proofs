@@ -1,0 +1,3 @@
+PASS independent incremental source/math/provenance/format
+SHA256 57231eb86f1d89fa98f19d661bd28f0d7597bebc77bfa9a2089a9b88782dbd99
+Exact reviewed ProductBridge prefix. First dirty operand cannot reach an AND: TopForm and two-element junk set force it to be the first dirty gate itself, contradicting strict backward operand bound. Second operand can only reach first dirty gate, excluded by explicit hno. Actual four operands are bounded from their gates and AO topology; vector cases preserve exact pairing and purity. No global independent-junk assumption is inferred without hno. Author first build exit0.

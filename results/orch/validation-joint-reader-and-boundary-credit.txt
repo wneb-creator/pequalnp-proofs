@@ -1,0 +1,30 @@
+UTC 2026-11-24T09:58:27.746617+00:00
+Gap L-meta-1477
+PARTIAL RESULTS ONLY. The exact posted statement is not proved or refuted.
+Named-file lake build passed previously; exact checker remains REJECTED (no-theorem).
+No PR opened. No final proof cleanup claimed.
+
+UnpairedCellNonempty.lean: 49 lines; sha256 6a5b6ddb995e162a04774f397d1e663dc04265ac83e2d26bd452c03cce27fd70; author unpaired-cell-nonempty-build-001.log exit0; independent review PASS.
+JointUnionAll.lean: 1043 lines; sha256 cdb1108fa086b556c7fd63504eb9fb1ebe46c23f35ac30756eddfd3e43d2e7ac; author joint-union-build-004.log exit0; independent review PASS.
+JointUnionNonempty.lean: 1041 lines; sha256 6bb0cdc7b9bf231d8bcc9471118f275bafec56b72eecab8ef10ad3b4464306d8; author joint-union-nonempty-build-001.log exit0; independent review PASS.
+JointORCost.lean: 5722 lines; sha256 c9897d69856feaca4d840290d3dc1348706023d82495b511857b76e808d60181; author joint-or-cost-build-001.log exit0; independent review PASS.
+JointORCostAll.lean: 5987 lines; sha256 1490a7a9c32f80536811c699210a7cead0bf4a5e7e35fcf3d69035bb45689c9b; author joint-or-cost-all-build-001.log exit0; independent review PASS.
+JointORCostNonempty.lean: 5983 lines; sha256 f76bdbff81492a1e421a50b6c659532af1d4fe2de311c4185f67ac9fa7ccf5bc; author joint-or-cost-nonempty-build-001.log exit0; independent review PASS.
+JointORCostAutomatic.lean: 6030 lines; sha256 499de0aca906e13a8664497b436551dd095eb49a1c2105f2af9713df466550c2; author joint-or-cost-automatic-build-001.log exit0; independent review PASS.
+GraphBoundaryCredit.lean: 184 lines; sha256 a9162462d254b92cfced2ff4e8365102c8e8d63254d6b6a6218dd5835d95e55e; author graph-boundary-credit-build-001.log exit0; independent review PASS.
+BoundaryProductBipartite.lean: 479 lines; sha256 0d81877afd9a40e5913814b084421583b6c99810515cee796b1167677fb31077; author boundary-product-bipartite-build-001.log exit0; independent review PASS.
+MaskGraphBoundaryPath.lean: 4717 lines; sha256 30ec26d0ab129aacafa445566cae80923202af99d696752acd5cbc85c4398a8f; author mask-graph-boundary-path-build-003.log exit0; independent review PASS.
+MaskGraphCredit.lean: 4802 lines; sha256 7f57c9651fd85de87053d36f2c3146de148bf4e06cfd762a964d5c742f929e66; author mask-graph-credit-build-002.log exit0; independent review PASS.
+MaskAllCentersCredit.lean: 5191 lines; sha256 7412adee76b98e649ccb834cd0bd8a22ca857b2a95342dc2e6b286f897a0f033; author mask-all-centers-credit-build-001.log exit0; independent review PASS.
+TwoJunkRootBridge.lean: 4675 lines; sha256 57231eb86f1d89fa98f19d661bd28f0d7597bebc77bfa9a2089a9b88782dbd99; author two-junk-root-bridge-build-001.log exit0; independent review PASS.
+TwoJunkRawCost.lean: 6447 lines; sha256 09f4d00cd7308405f3c8cada624b358857c876af2b2c4ec126cce5ea23dd7ca9; author two-junk-raw-cost-build-001.log exit0; independent review PASS.
+JointReaderOverhead.lean: 3959 lines; sha256 963a8ef0f274452cd5f82fed218baad4da8e4e6ba2c174340296442dd77186d4; author joint-reader-overhead-build-002.log exit0; independent review PASS.
+singleton-joint-search: 4 manifest files; all hashes confirmed; independent source/results review PASS.
+
+Static pair-union bounds now allow all nonempty operand supports, including singletons. Actual roots supply nonemptiness automatically. Owned-mask graph groups yield a boundary credit. Two-junk raw bound counts full pure OR ancestry; Lambda subtraction remains unresolved. Joint reader overhead proves two distinct mixing gates outside any pure region, or a centreless-top charge, under actual paired paths. No unrestricted circuit lower bound is claimed.
+
+Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
+TIMING total=229.9 subagents=6
+FirstLayerSensitive.lean: 4555 lines, SHA256 77db3760492a9e60a44ca66e8737a156f5a01c149ad40fddb1f49bd9ad733bb6; first-layer-sensitive-build-002.log exit0; independent review PASS. General first-layer sensitivity and explicit endpoint replacement remain conditional.
+GeneralDirtyPaths.lean: 3861 lines, SHA256 c79b4ce9439bd945d8a9f55e4a2419fa68e8ec6fa26bd71fe7bb34014b2b9db4; general-dirty-paths-build-001.log exit0; independent review PASS. General first-layer sensitivity and explicit endpoint replacement remain conditional.
+GenericMaskReplacement.lean: 4991 lines, SHA256 c0974bfc095d5d0cabb4a2f1de0ed5d444e8659efafee8fdcb5a926c9a0ab8c8; generic-mask-replacement-build-002.log exit0; independent review PASS. General first-layer sensitivity and explicit endpoint replacement remain conditional.

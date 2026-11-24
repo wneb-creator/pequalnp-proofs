@@ -1,0 +1,25 @@
+{
+  "frozen_at": "2026-11-24T09:57:54.192306+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "9a49ff055c3686c57f6917165ef9e9d3ae608012bd81b7cec0dd2d7294000ff4",
+      "bytes": 1401
+    },
+    {
+      "file": "SearchSingletonJoint.py",
+      "sha256": "7562fabf93d5628f4789e9b35651fb5ad0eee3cfdd66beb4090c79316db6ff99",
+      "bytes": 6516
+    },
+    {
+      "file": "singleton-joint-eight.json",
+      "sha256": "e11df8e8d576e6ae348207b46c6abd2f116885cac3ae8bc43590063ae0990eaf",
+      "bytes": 1022
+    },
+    {
+      "file": "singleton-joint-eight.log",
+      "sha256": "ba5deee5eaecd6c8040f5efd71a597a7b38cac9ec321272fb6b0368d383780c9",
+      "bytes": 905
+    }
+  ]
+}

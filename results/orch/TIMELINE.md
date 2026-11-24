@@ -189,3 +189,15 @@
 2026-11-24 09:51:31 UTC status_audit: GraphBoundaryCredit.lean compiled FIRST TRY exit0 (graph-boundary-credit-build-001.log), frozen 184lines SHA256 a9162462d254b92cfced2ff4e8365102c8e8d63254d6b6a6218dd5835d95e55e. Grouped-root Euler with all roots of B groups connected to boundary gives labels+B.card<=gates+m. Chooses representatives only for uncredited groups, boundary handles B; unused groups and empty types allowed. Pending independent review.
 
 2026-11-24T09:52:13.728928+00:00 Root preserving reviewed four-root shared-OR cost, productive union bound, all-center masked residual count, and actual two-junk coverage. Exact theorem still open; no PR.
+
+- 2026-11-24 09:53:36 UTC: lean_setup froze JointUnionNonempty.lean, author exit0; all nonempty two-product mask/joint edge budgets checked.
+
+2026-11-24T09:56:07.164233+00:00 structural: arbitrary-product residual mask graph count completed; boundary-credit strengthening compiled; corrected bipartite boundary-product geometry compiled/reviewed.
+
+- 2026-11-24 09:56:12 UTC: lean_setup froze JointORCostAutomatic.lean after author exit0; actual-root static edge-cost bridge complete.
+
+2026-11-24 09:57:29 UTC status_audit: GenericMaskReplacement.lean frozen 4991lines SHA256 c0974bfc095d5d0cabb4a2f1de0ed5d444e8659efafee8fdcb5a926c9a0ab8c8; generic-mask-replacement-build-002.log EXIT0. Exact OneCenterEliminationFull prefix plusgeneric sensitive_endpoint_replacement: any dirty j withcenter a inoneoperand/wmax andexplicit sensitivepair endpointcondition canbe replacedby a AND otheroperand, samefunction/samesize/Monotone2, jclean, allpreviousclean gatesstayclean, junkD subsetjunkC.erasej andstrictjunkcountdecrease. No unique-junk or TopForm hypothesis needed for replacementitself. Pending independent review.
+
+2026-11-24T09:57:34.552991+00:00 gate_invariants: Arbitrary first-layer dirty-count output-sensitive mask-or-productive-joint bridge compiled; frozen for review.
+
+2026-11-24T09:58:27.746617+00:00 Root preserving singleton-general static bounds, automatic actual OR roots, owned-boundary credit and actual joint-reader overhead. Exact theorem still open.
