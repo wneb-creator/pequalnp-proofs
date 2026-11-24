@@ -62,3 +62,5 @@ Put new stable, compiled components here only after review. Work in an individua
 - `TwoPairs.lean`: checked/reviewed impossibility of two distinct nonordinary OR outputs over at most six internals, and at least four of five outputs using one of the last three internals. Full logs: `../validation/ancestry-build-002.log` and `../validation/two-pairs-build-002.log`.
 
 - `ConnectedCircuit.lean`: checked/reviewed direct application of connected parent rank to arbitrary circuit indices; under the eight-ordinary reduction the actual five-pair parent graph is disconnected. No simple-graph or first-occurrence hypothesis is added. Full log and durable status: `../validation/connected-circuit-build-002.log` and `.exit`.
+
+- `Collective.lean`: checked/reviewed directed path inside the original fixed selected cone while avoiding every node of another selected cone, using exact prefix-valid edges. The global graph-count inequality remains open. Full log/status: `../validation/collective-build-002.log` and `.exit`.

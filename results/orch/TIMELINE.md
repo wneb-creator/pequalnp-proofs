@@ -54,3 +54,5 @@
 - 2026-11-24 04:37:54 UTC: Replan3 completed; refreshed current summary, queued preservation of Ancestry/TwoPairs and the complete restricted UNSAT certificate. Next review05:02UTC. Environment transition checked: lease timer still live.
 
 - 2026-11-24T04:44:57.868960+00:00: ConnectedCircuit durable exit0 and independent approval; preserving exact disconnected-only reduction, successful diagnostics, and two reviewed auxiliary examples.
+
+- 2026-11-24T04:47:18.895502+00:00: Collective compiled with durable exit0 and passed independent review; preserving the fixed-cone semantic bridge.
