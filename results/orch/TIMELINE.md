@@ -387,3 +387,5 @@
 2026-11-24T12:01:05.608484+00:00 counterexample_search: all workers stopped before12:00. Finalglobal012800.23s/3,753,984mutations best125; finalK4countedSATqueries UNKNOWN; no targetwitness. Final SEARCH_HANDOFF frozen and packages queued for independent review/preservation.
 
 2026-11-24 12:04:10 UTC lean_setup: Final036 preserves5 checked Lean snapshots including actual restricted1/1 and conditional generic1/any,2 completed reviewed search packages,104 explicit paths, finalHANDOFF29e2f01d…5207, and a separately UNCHECKED actual1/any wrapper. Checker003 genuinely REJECTED(no-theorem), exit1; earlier002FAULT retained separately. Full logs/reviews and source hashes verified. Manifest SHA675e78a628b2bedc7a4b316c0d70337be7b970db9dcfb0d728a881dfa929214d. Exact gap remains unproved; no proof PR.
+
+- 2026-11-24T12:05:31.377988+00:00: Root released only own L-meta-1477 lease with out_of_time after preservation push325d6fe00ee499b7bd91184a9c736afc6311465f. Exact gap remains unproved/unrefuted; no proof acceptance or PR. Final standalone checker003: REJECTED(no-theorem).

@@ -19,7 +19,7 @@ Strongest checked restricted results and exact remaining hypotheses: results/orc
 Search outcomes: no valid counterexample. Full search evidence and explicitly invalid candidates: results/orch/SEARCH_HANDOFF.md and package manifests. Timeouts and restricted searches are not lower-bound proofs.
 The actual one-center/any-center plane wrapper is explicitly UNCOMPILED and preserved separately; its generic budget backend compiled. Oversized assembled lemmas are results-only, not submission files.
 Desk polling: seven null answers before assignment. Exact note texts, UTC timestamps and multiplicities are in results/orch/desk-null-summary.json. Full local raw desk log is /tmp/oec/pequalnp-pilot-29/desk-log.txt.
-Lease disposition: pending final preservation push; only this job's lease will be released with reason out_of_time. Final release summary will supersede this line.
+Lease disposition: own L-meta-1477 lease successfully released with reason out_of_time at 2026-11-24T12:05:31.377988+00:00 after all checked results and search packages were pushed. Desk response is preserved in results/orch/desk-release-final.json. No other pilot's lease was touched.
 Sub-agents: counterexample_search, gate_invariants, lean_setup, normal_form, status_audit, structural_lower_bound
-TIMING total=354.7 subagents=6
-Validation recorded UTC: 2026-11-24T12:03:14.403118+00:00
+TIMING total=357.4 subagents=6
+Validation recorded UTC: 2026-11-24T12:05:53.971004+00:00
