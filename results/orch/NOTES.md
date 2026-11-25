@@ -81,3 +81,10 @@ The joint six-variant ten-gate run finished UNKNOWN at09:23:16 after2700wallseco
 The remaining planned allocation is anchored-tail26 after the unique-input run, then a soft-phase unique-input portfolio after the noncollinear run if no witness appears. Each launch requires a fresh root renewal. The anchored runner now independently verifies the complete CNF and all16384 raw assignments before publishing a witness. The correlated noncollinear runner independently checks all2048 underlying assignments and all16384 full assignments.
 
 The Fano factor route is closed without a target construction. Its16-gate formula and finite identities are recorded; the reviewed interface argument is unformalized and applies only to an exact maximal partner, not arbitrary partner functions. Post-recovery validation of the unchanged assigned module passed: all5149 build jobs are up to date. No official checker acceptance is claimed. Twenty-five obsolete, reproducible CNFs were removed after independent inventory review; all active inputs and evidence were preserved.
+
+
+## Strategy review 2026-11-25T09:54:03.247665+00:00
+
+The general unique-input run completed UNKNOWN at09:52:27 after3600wallseconds/3492CPUseconds. Its source and necessary constraints passed review, but the solver supplied no existence or nonexistence verdict. The anchored AND-OR search began09:52:50 for60minutes. The noncollinear family remains active until about10:08:38, when the reviewed soft-phase unique-input run is planned for60minutes. A prior120second soft-phase probe was UNKNOWN.
+
+A required-dirty-AND restriction for the correlated TEN and noncollinear cones passed independent review. Its positive28-gate and negative fixed-clean27-gate runs are regression tests, not target results. A120second dirty-TEN probe is now authorized as a temporary third process; any later final-slot run will be separately allocated. Neither long run is being changed. About84minutes of the original six-hour budget remain; no exact26-gate witness, unrestricted refutation or accepted checker result exists.

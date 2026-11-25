@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-11-25T09:54:20.666928+00:00",
+  "wall_limit_seconds": 120,
+  "lease_renewed_at": "2026-11-25T09:53:38+00:00",
+  "lease_expiry_at_launch": "2026-11-25T10:13:39.255+00:00",
+  "allocation": "Root-authorized temporary third process; anchored and noncollinear long runs unchanged.",
+  "independent_reviews": [
+    "sat-review/joint-ten-review.json",
+    "sat-review/correlated-liveness-review.json",
+    "sat-review/required-dirty-and-review.json"
+  ],
+  "scope": "Restricted fixed-four-star architectures with a necessary dirty cone AND; no unrestricted26-gate nonexistence conclusion."
+}

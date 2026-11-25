@@ -44,6 +44,18 @@
       "captured_utc": "2026-11-25T09:28:52.034425+00:00"
     },
     {
+      "path": "circuit-search/anchored-tail26-kissat-allocation.json",
+      "bytes": 438,
+      "sha256": "15b2780b7d0d28b80d2c7abd04d334e4615d761d3b8e7c667e557117cc5eb7fb",
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+    },
+    {
+      "path": "circuit-search/anchored-tail26-kissat-run.json",
+      "bytes": 1330,
+      "sha256": "756991db657a40270b23d8c2103ec2930f491be8f235ff3f68ae08bf142de581",
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+    },
+    {
       "path": "circuit-search/anchored-tail26-preflight.json",
       "bytes": 1356,
       "sha256": "84a42bf2bee8a9ed6ecf90e24f7ceb9d915725b664a202b7a8d22d7cdcd74882",
@@ -1073,6 +1085,36 @@
       "bytes": 211,
       "sha256": "7f9fd8ce0455317f1f6616b6e01bbe969fbde958e50e94e401c5c9104858e08f",
       "captured_utc": "2026-11-25T09:45:20.358711+00:00"
+    },
+    {
+      "path": "circuit-search/joint-ten10-live-dirty-probe120-allocation.json",
+      "bytes": 609,
+      "sha256": "b3576513e32cbb9e79529dac6fb3bcc45f679b89bcdcf48074d4eb3e7887f780",
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+    },
+    {
+      "path": "circuit-search/joint-ten10-live-dirty-probe120-result.json",
+      "bytes": 1530,
+      "sha256": "a22ad37f23a048c4221f4fb227719110fedc1b6565f93f239141ef3c0cf4f105",
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+    },
+    {
+      "path": "circuit-search/joint-ten10-live-dirty-probe120-run.json",
+      "bytes": 606,
+      "sha256": "407bdb20cebd553a8aa7cadded9526a7d5d89847b2dcf24d43ef9e27c73c4aee",
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+    },
+    {
+      "path": "circuit-search/joint-ten10-live-dirty-probe120-solve.log",
+      "bytes": 54262,
+      "sha256": "6d392a9182a13af7621bd0e935427218529cbe9c9aa7b42e102094fe78771fe2",
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+    },
+    {
+      "path": "circuit-search/joint-ten10-live-dirty-probe120-wrapper.log",
+      "bytes": 734,
+      "sha256": "4161304df80eb1f05b0bccd75e67563b607f89c1d9fe76bd11f435d4b3b93877",
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
     },
     {
       "path": "circuit-search/joint-ten10-live-dirty.map.json",
@@ -2347,6 +2389,12 @@
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
     },
     {
+      "path": "circuit-search/stable-search-artifacts-0959.json",
+      "bytes": 3647,
+      "sha256": "a367a8f146fd69fa601d41a3115a068935463b09948a526690540319f51b0773",
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+    },
+    {
       "path": "circuit-search/star27.json",
       "bytes": 415,
       "sha256": "7710c19212e6412b4d13cc4ef81d0bc5d1ad001dc4dbde43507bfb4ee78e12aa"
@@ -2525,10 +2573,28 @@
       "captured_utc": "2026-11-25T09:00:06.515649+00:00"
     },
     {
+      "path": "circuit-search/unique0-26-kissat-result.json",
+      "bytes": 2088,
+      "sha256": "6537ed17fcb7c872d48b7cd91e9f505697012087b1e9a62aea79ae12841eb5f0",
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+    },
+    {
       "path": "circuit-search/unique0-26-kissat-run.json",
       "bytes": 1813,
       "sha256": "26aae99ce9c04007cc385a33d19fc3670d9df4768728353f38a438c8e0a101e6",
-      "captured_utc": "2026-11-25T09:28:52.034425+00:00"
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+    },
+    {
+      "path": "circuit-search/unique0-26-kissat-solve.log",
+      "bytes": 217009,
+      "sha256": "fb258f3c68bdce27eda1f42fb371f3fc689067b64e5ba32be48644766a4ec281",
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+    },
+    {
+      "path": "circuit-search/unique0-26-kissat-wrapper.log",
+      "bytes": 678,
+      "sha256": "a5b0426c13af2afe4e3625a63a297e1027af827415402ac5d4ca9ce0abe70741",
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
     },
     {
       "path": "circuit-search/unique0-26-near-phases.log",
@@ -4743,6 +4809,12 @@
       "captured_utc": "2026-11-25T09:00:06.515649+00:00"
     },
     {
+      "path": "research-audit-outcomes-1000.json",
+      "bytes": 8499,
+      "sha256": "29bb1c5be6b5af78a964e2c4a2782938229ba6af647769b34b0c46bc9e331a34",
+      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+    },
+    {
       "path": "review-034fdef-diff-check.json",
       "bytes": 8530,
       "sha256": "67a00a52e042f3272aee96721cf77fd797d8b1c24c719e267e2d07d86649cbb4",
@@ -5235,5 +5307,5 @@
       "captured_utc": "2026-11-25T09:28:52.034425+00:00"
     }
   ],
-  "updated_utc": "2026-11-25T09:45:44.236767+00:00"
+  "updated_utc": "2026-11-25T10:01:04.323837+00:00"
 }

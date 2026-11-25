@@ -47,3 +47,6 @@
 - 2026-11-25T09:23:16.116927+00:00: joint six-variant ten-gate run completed UNKNOWN after2700.022wallseconds/2610.163CPUseconds; complete log preserved.
 - 2026-11-25T09:23:37.561179+00:00: reviewed joint noncollinear14-live search began with45minute cap.
 - 2026-11-25T09:24:31.665347+00:00: strategy review retained unique-input, noncollinear and anchored-tail synthesis; no full proof or accepted checker result.
+- 2026-11-25T09:52:27.520070+00:00: general unique-input Kissat completed UNKNOWN after3600.057wallseconds/3492.002CPUseconds; complete log preserved.
+- 2026-11-25T09:52:50.880122+00:00: reviewed anchored-tail26 search began with60minute cap; noncollinear remains active.
+- 2026-11-25T09:54:03.247665+00:00: strategy review retains full phased unique-input run next and authorizes one short dirty-TEN probe; target unresolved.

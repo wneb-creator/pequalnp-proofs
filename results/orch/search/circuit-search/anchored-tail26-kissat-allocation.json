@@ -1,0 +1,11 @@
+{
+  "started_at": "2026-11-25T09:52:50.880122+00:00",
+  "wall_limit_seconds": 3600,
+  "lease_renewed_at": "2026-11-25T09:52:10+00:00",
+  "lease_expiry_at_launch": "2026-11-25T10:12:10.821+00:00",
+  "independent_reviews": [
+    "sat-review/anchored-tail-review.json",
+    "circuit-search/anchored-run-independent-review.json"
+  ],
+  "allocation": "Replaces normally completed unique0 Kissat run; joint noncollinear continues unchanged."
+}

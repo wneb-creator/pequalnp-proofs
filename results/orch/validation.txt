@@ -1,7 +1,7 @@
 Job: pequalnp-pilot-70
 Message: msg-1005ae78a872689acc127cfe
 Gap: L-meta-2732
-Validation snapshot UTC: 2026-11-25T09:25:04.589398+00:00
+Validation snapshot UTC: 2026-11-25T09:54:03.247665+00:00
 Status: unresolved. Checked partial lemmas and a 27-gate baseline exist; no 26-gate witness or unrestricted refutation has been found.
 File: lean/PEqualNP/Outside/L_meta_2732.lean
 File SHA256: aaeb9e91385f2cb04fb7232630d4dd565c26ae3f0523e930f5ea07dd3d1c0143
@@ -12,11 +12,11 @@ Line count before cleanup: 518. After: 518. Cleanup skipped because a full proof
 Full cache: Mathlib no-build verification passed 18,249 jobs before the restart; no Mathlib theorem source compilation. The full checker cache was lost on restart. Focused dependencies were restored and independently audited; full-cache restoration is deferred until an exact proof exists.
 Witness pipeline: strict single-file generator independently reviewed, including full truth tables, a 58-row certificate and exact posted statement. Its 541-line 27-gate/tail-25 smoke compiled; this is explicitly weaker than the posted target.
 Independent review: helper proofs, search encodings, model checks, runner guards and preservation inventories were checked by separate agents. Review files and complete logs are retained.
-Completed searches: F0+A24, matching14 and jointTEN each UNKNOWN after 45 minutes. Six-gate fixed-star cone and six local k2/k3/k4 neighborhoods UNSAT only in their stated restricted scopes. No unrestricted nonexistence follows.
+Completed searches: F0+A24, matching14 and jointTEN each UNKNOWN after 45 minutes; general unique-input synthesis UNKNOWN after 60 minutes; short guided probe UNKNOWN after 120 seconds. Six-gate fixed-star cone and six local k2/k3/k4 neighborhoods UNSAT only in their stated restricted scopes. No unrestricted nonexistence follows.
 Interrupted searches: the environment restart killed two runs; later general final-OR synthesis was intentionally interrupted for reallocation. No verdict is attributed to these interrupted runs.
-Active at snapshot: unique-input general 26-gate and joint noncollinear 14-gate live. Anchored-tail 26-gate and soft-phase unique-input runs are prepared for later slots.
+Active at snapshot: anchored-tail26 and joint noncollinear14-live. The full soft-phase unique-input run is queued; one short dirty-TEN probe is authorized.
 PR: none. This branch contains research checkpoints and must not be submitted as a one-file proof PR in its current state.
 Sub-agents: repo_review; circuit_search; lower_bound; formalization; formalization/rename_wires; constructive; sat_review
-TIMING total=246.9 subagents=7
+TIMING total=275.8 subagents=7
 Desk null count: 2
 Exact message both times: no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes

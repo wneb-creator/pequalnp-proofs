@@ -1,0 +1,37 @@
+{
+  "name": "unique0-26-kissat",
+  "started_at": "2026-11-25T08:52:27.449939+00:00",
+  "wall_limit_seconds": 3600,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=3600",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-permissive-final.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "cnf_sha256": "86c036aaf5381cf4d574958b036eb8e32fa257d525fb2e4dd4fa2a33f4c86244",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "finished_at": "2026-11-25T09:52:27.520070+00:00",
+  "wall_seconds": 3600.056645272998,
+  "cpu_seconds": 3492.002133,
+  "max_rss_kib": 77748,
+  "exit_code": 0,
+  "status": "UNKNOWN",
+  "independent_review": "PASS by lower_bound: exact clauses, source equality, 336 automorphisms and complete baseline/padding smokes",
+  "source_sha256": {
+    "unique_input_base.py": "1f00b614240f448ca0c89a62eb3880dfa8d8df5eff8a91402b7988ab143f6422",
+    "repair_base.py": "3cb9a0dd85d8e68ab3412545a572db1c519c68fb3569865b5e3eed8eb9c388d7",
+    "add_unique_input.py": "2b5243f5f7e475d407112e406e8dc681c308be1d4ba562089d11638b67c1ad65",
+    "add_raw_fanout.py": "d50aa52f37814cdb2c07ee7c3015497f0d28c53b63be589a3314a75fafe2af22",
+    "run_kissat.py": "46632f432f6f0e6da1538f126ed6fe0edf01ec10e5b78150456f2ba60796f084",
+    "decode.py": "76359ac080495f46758e02de734a5454556efc00e658252d90490eb43a23f79f",
+    "unique-input-source.diff": "77d85d6b62092c509852768fb4e65d9395e2967ebea2044e985942d8a3d3f62a",
+    "unique0-26-permissive-final.cnf": "86c036aaf5381cf4d574958b036eb8e32fa257d525fb2e4dd4fa2a33f4c86244"
+  },
+  "lease_renewed_at": "2026-11-25T08:51:27+00:00",
+  "lease_expiry_at_launch": "2026-11-25T09:11:28.037+00:00",
+  "scope": "Unique-input0 complete existence normal form for live constant-free Heawood circuits of size at most26, with output-copy padding, lex ordering and reviewed raw-fanout implications; no shadow or full-group prefix restriction.",
+  "solve_log_sha256": "fb258f3c68bdce27eda1f42fb371f3fc689067b64e5ba32be48644766a4ec281"
+}

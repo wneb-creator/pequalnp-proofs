@@ -1,0 +1,93 @@
+{
+  "frozen_files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-kissat-run.json",
+      "size": 1813,
+      "sha256": "26aae99ce9c04007cc385a33d19fc3670d9df4768728353f38a438c8e0a101e6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-kissat-result.json",
+      "size": 2088,
+      "sha256": "6537ed17fcb7c872d48b7cd91e9f505697012087b1e9a62aea79ae12841eb5f0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-kissat-solve.log",
+      "size": 217009,
+      "sha256": "fb258f3c68bdce27eda1f42fb371f3fc689067b64e5ba32be48644766a4ec281"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-kissat-wrapper.log",
+      "size": 678,
+      "sha256": "a5b0426c13af2afe4e3625a63a297e1027af827415402ac5d4ca9ce0abe70741"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-ten10-live-dirty-probe120-run.json",
+      "size": 606,
+      "sha256": "407bdb20cebd553a8aa7cadded9526a7d5d89847b2dcf24d43ef9e27c73c4aee"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-ten10-live-dirty-probe120-result.json",
+      "size": 1530,
+      "sha256": "a22ad37f23a048c4221f4fb227719110fedc1b6565f93f239141ef3c0cf4f105"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-ten10-live-dirty-probe120-solve.log",
+      "size": 54262,
+      "sha256": "6d392a9182a13af7621bd0e935427218529cbe9c9aa7b42e102094fe78771fe2"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-ten10-live-dirty-probe120-wrapper.log",
+      "size": 734,
+      "sha256": "4161304df80eb1f05b0bccd75e67563b607f89c1d9fe76bd11f435d4b3b93877"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-ten10-live-dirty-probe120-allocation.json",
+      "size": 609,
+      "sha256": "b3576513e32cbb9e79529dac6fb3bcc45f679b89bcdcf48074d4eb3e7887f780"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/anchored-tail26-kissat-run.json",
+      "size": 1330,
+      "sha256": "756991db657a40270b23d8c2103ec2930f491be8f235ff3f68ae08bf142de581"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/anchored-tail26-kissat-allocation.json",
+      "size": 438,
+      "sha256": "15b2780b7d0d28b80d2c7abd04d334e4615d761d3b8e7c667e557117cc5eb7fb"
+    }
+  ],
+  "outcomes": {
+    "unique0-26-kissat": {
+      "started_at": "2026-11-25T08:52:27.449939+00:00",
+      "finished_at": "2026-11-25T09:52:27.520070+00:00",
+      "status": "UNKNOWN",
+      "exit_code": 0,
+      "wall_seconds": 3600.056645272998,
+      "cpu_seconds": 3492.002133,
+      "max_rss_kib": 77748
+    },
+    "joint-ten10-live-dirty-probe120": {
+      "started_at": "2026-11-25T09:54:20.666928+00:00",
+      "finished_at": "2026-11-25T09:56:20.677369+00:00",
+      "status": "UNKNOWN",
+      "exit_code": 0,
+      "wall_seconds": 120.00598731399805,
+      "cpu_seconds": 80.598501,
+      "max_rss_kib": 19688
+    }
+  },
+  "notes": {
+    "path": "/workspace/pequalnp-proofs/results/orch/lemmas/circuit-search.md",
+    "sha256": "76c8036e64c10fa7864134007c87e1ca6293c8e6711d7ac37a3a3d0733c703b9"
+  },
+  "live_exclusions": [
+    "anchored-tail26-kissat-solve.log",
+    "anchored-tail26-kissat-wrapper.log",
+    "joint-noncollinear14-live-kissat-solve.log",
+    "joint-noncollinear14-live-kissat-wrapper.log"
+  ],
+  "unfinished_exclusions": [
+    "dirty-ten-phased-preflight.json pending independent review; no final-slot phased dirty-TEN run."
+  ],
+  "scope": "Two normally completed UNKNOWN runs, plus static anchored launch/allocation only; no26-gate proof or nonexistence verdict."
+}

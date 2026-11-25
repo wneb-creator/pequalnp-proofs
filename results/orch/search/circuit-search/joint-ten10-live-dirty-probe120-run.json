@@ -1,0 +1,17 @@
+{
+  "started_at": "2026-11-25T09:54:20.666928+00:00",
+  "wall_limit_seconds": 120,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=120",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-ten10-live-dirty.cnf"
+  ],
+  "cnf_sha256": "a9671e1a17acae8640d686024f43a5f162b5d3744bfe00da61620e00d8309b33",
+  "map_sha256": "2489ce76f1bba7eaf065b18a60763fe58436d322cb8963ebb475aba51f21eb2c",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "backend": "kissat",
+  "preset": "default",
+  "seed": 1
+}
