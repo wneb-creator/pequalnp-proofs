@@ -7553,3 +7553,1079 @@ lemma peel_of_normalized_wire_pivotal {n : ℕ} (G : SimpleGraph (Fin n))
 end WireFirstPivotal
 
 end PEqualNP.Outside.L_meta_3566
+
+namespace PEqualNP.Outside.L_meta_3566.PureFactorStar
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+noncomputable def rawOr {n : ℕ} (A : Finset (Fin n)) (x : Fin n → Bool) : Bool := by
+  classical
+  exact decide (∃ a ∈ A, x a = true)
+
+lemma rawOr_true {n : ℕ} (A : Finset (Fin n)) (x : Fin n → Bool) :
+    rawOr A x = true ↔ ∃ a ∈ A, x a = true := by
+  classical
+  simp [rawOr]
+
+lemma same_color_of_dirty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (u : Fin n) (A B : Finset (Fin n))
+    (hCross : ∀ a ∈ A, ∀ b ∈ B, color b ≠ color u → G.Adj a b)
+    (hDirty : ∃ x : Fin n → Bool,
+      (rawOr A x && rawOr B x) = true ∧ graphFun G ∅ x = false) :
+    ∃ b ∈ B, color b = color u := by
+  obtain ⟨x, hx, hfalse⟩ := hDirty
+  obtain ⟨ha, hb⟩ : rawOr A x = true ∧ rawOr B x = true := by simpa using hx
+  obtain ⟨a, haA, hax⟩ := (rawOr_true A x).mp ha
+  obtain ⟨b, hbB, hbx⟩ := (rawOr_true B x).mp hb
+  by_cases hcolor : color b = color u
+  · exact ⟨b, hbB, hcolor⟩
+  · have hF : graphFun G ∅ x = true := by
+      simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+        Bool.false_or, decide_eq_true_eq]
+      exact ⟨a, b, hCross a haA b hbB hcolor, hax, hbx⟩
+    rw [hfalse] at hF
+    cases hF
+
+lemma neighbor_not_adjacent {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hFour : NoFourCycle G) (u b : Fin n) (hbu : b ≠ u) (hdeg : 2 ≤ G.degree u) :
+    ∃ w : Fin n, G.Adj u w ∧ ¬ G.Adj b w := by
+  classical
+  by_contra hn
+  push Not at hn
+  have hsub : G.neighborFinset u ⊆ Finset.univ.filter (fun w => G.Adj u w ∧ G.Adj b w) := by
+    intro w hw
+    have huw := (G.mem_neighborFinset u w).mp hw
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, huw, hn w huw⟩
+  have hc := (Finset.card_le_card hsub).trans (hFour u b hbu.symm)
+  rw [G.card_neighborFinset_eq_degree] at hc
+  omega
+
+lemma common_neighbor_unique {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hFour : NoFourCycle G) (A : Finset (Fin n)) (hMany : 2 ≤ A.card)
+    (p q : Fin n) (hp : ∀ a ∈ A, G.Adj p a) (hq : ∀ a ∈ A, G.Adj q a) : p = q := by
+  classical
+  by_contra hpq
+  have hsub : A ⊆ Finset.univ.filter (fun a => G.Adj p a ∧ G.Adj q a) := by
+    intro a ha
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hp a ha, hq a ha⟩
+  have hc := (Finset.card_le_card hsub).trans (hFour p q hpq)
+  omega
+
+lemma common_star_of_cover {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hFour : NoFourCycle G) (u b0 : Fin n)
+    (hb0 : b0 ≠ u) (hdeg : 2 ≤ G.degree u) (A B : Finset (Fin n)) (hMany : 2 ≤ A.card)
+    (hCross : ∀ a ∈ A, ∀ b ∈ B, color b ≠ color u → G.Adj a b)
+    (hCover : ∀ a ∈ A, ∀ w : Fin n, G.Adj u w → G.Adj a w ∨ G.Adj b0 w) :
+    ∃ w0 : Fin n, G.Adj u w0 ∧ (∀ a ∈ A, G.Adj a w0) ∧
+      ∀ b ∈ B, color b ≠ color u → b = w0 := by
+  obtain ⟨w0, huw0, hb0w0⟩ := neighbor_not_adjacent G hFour u b0 hb0 hdeg
+  have hA : ∀ a ∈ A, G.Adj a w0 := by
+    intro a ha
+    exact (hCover a ha w0 huw0).resolve_right hb0w0
+  refine ⟨w0, huw0, hA, ?_⟩
+  intro b hb hcolor
+  exact common_neighbor_unique G hFour A hMany b w0
+    (fun a ha => (hCross a ha b hb hcolor).symm) (fun a ha => (hA a ha).symm)
+
+lemma star_clean {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (A : Finset (Fin n)) (w0 : Fin n) (hA : ∀ a ∈ A, G.Adj a w0) :
+    ∀ x : Fin n → Bool, (rawOr A x && x w0) = true → graphFun G ∅ x = true := by
+  intro x hx
+  obtain ⟨hax, hw⟩ : rawOr A x = true ∧ x w0 = true := by simpa using hx
+  obtain ⟨a, ha, hxa⟩ := (rawOr_true A x).mp hax
+  simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+    Bool.false_or, decide_eq_true_eq]
+  exact ⟨a, w0, hA a ha, hxa, hw⟩
+
+lemma accepted_edge_covered {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b : Fin n, G.Adj a b → color a ≠ color b)
+    (u : Fin n) (A B : Finset (Fin n)) (hPure : ∀ a ∈ A, color a = color u)
+    (hDisjoint : Disjoint A B) (w0 : Fin n)
+    (hUnique : ∀ b ∈ B, color b ≠ color u → b = w0) :
+    ∀ p q : Fin n, G.Adj p q →
+      (rawOr A (pairInput p q) && rawOr B (pairInput p q)) = true →
+      (rawOr A (pairInput p q) && pairInput p q w0) = true := by
+  intro p q hpq hx
+  obtain ⟨hax, hbx⟩ : rawOr A (pairInput p q) = true ∧ rawOr B (pairInput p q) = true := by
+    simpa using hx
+  obtain ⟨a, ha, hpa⟩ := (rawOr_true A _).mp hax
+  obtain ⟨b, hb, hpb⟩ := (rawOr_true B _).mp hbx
+  have haPair : a = p ∨ a = q := by simpa [pairInput] using hpa
+  have hbPair : b = p ∨ b = q := by simpa [pairInput] using hpb
+  have hab : a ≠ b := by
+    intro heq
+    subst b
+    exact Finset.disjoint_left.mp hDisjoint ha hb
+  have hAdj : G.Adj a b := by
+    rcases haPair with rfl | rfl <;> rcases hbPair with rfl | rfl
+    · exact False.elim (hab rfl)
+    · exact hpq
+    · exact hpq.symm
+    · exact False.elim (hab rfl)
+  have hcolor : color b ≠ color u := by
+    intro heq
+    exact hBip a b hAdj ((hPure a ha).trans heq.symm)
+  have hb0 := hUnique b hb hcolor
+  have hw : pairInput p q w0 = true := by
+    rw [← hb0]
+    exact hpb
+  simp [hax, hw]
+
+lemma raw_product_star {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b : Fin n, G.Adj a b → color a ≠ color b)
+    (hFour : NoFourCycle G) (u b0 : Fin n) (hb0 : b0 ≠ u) (hdeg : 2 ≤ G.degree u)
+    (A B : Finset (Fin n)) (hMany : 2 ≤ A.card) (hPure : ∀ a ∈ A, color a = color u)
+    (hDisjoint : Disjoint A B)
+    (hCross : ∀ a ∈ A, ∀ b ∈ B, color b ≠ color u → G.Adj a b)
+    (hCover : ∀ a ∈ A, ∀ w : Fin n, G.Adj u w → G.Adj a w ∨ G.Adj b0 w) :
+    ∃ w0 : Fin n, G.Adj u w0 ∧ (∀ a ∈ A, G.Adj a w0) ∧
+      (∀ b ∈ B, color b ≠ color u → b = w0) ∧
+      (∀ x : Fin n → Bool, (rawOr A x && x w0) = true → graphFun G ∅ x = true) ∧
+      (∀ p q : Fin n, G.Adj p q →
+        (rawOr A (pairInput p q) && rawOr B (pairInput p q)) = true →
+        (rawOr A (pairInput p q) && pairInput p q w0) = true) := by
+  obtain ⟨w0, huw, hA, hUnique⟩ := common_star_of_cover G color hFour u b0 hb0 hdeg A B hMany
+    hCross hCover
+  exact ⟨w0, huw, hA, hUnique, star_clean G A w0 hA,
+    accepted_edge_covered G color hBip u A B hPure hDisjoint w0 hUnique⟩
+
+end PEqualNP.Outside.L_meta_3566.PureFactorStar
+
+namespace PEqualNP.Outside.L_meta_3566.SharedRewrite
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership
+
+lemma replace_gateVal (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (g : Gate) (hgback : ∀ i ∈ g.inputs, i < n + j) (x : Fin n → Bool) :
+    gateVal n (replace C j g) j x =
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) := by
+  obtain ⟨pre, post, old, hgs, hpre_len, htake, hdrop, _⟩ := split_gates C.gates j hj
+  let w0 := pre.foldl stepWire (List.ofFn x)
+  have hw0 : w0.length = n + j := by
+    dsimp [w0]
+    rw [foldl_stepWire_length, List.length_ofFn, hpre_len]
+  have hpre : ∀ i, i < n + j →
+      (C.wires (List.ofFn x)).getD i false = w0.getD i false := by
+    intro i hi
+    rw [wires_eq_foldl, hgs, List.foldl_append, List.foldl_cons,
+      foldl_stepWire_getD_lt _ _ _ (by change i < (stepWire w0 old).length; simp [stepWire, hw0]; omega),
+      stepWire_getD_lt _ _ _ (by change i < w0.length; omega)]
+  have hm : g.inputs.map (fun i => (C.wires (List.ofFn x)).getD i false) =
+      g.inputs.map (fun i => w0.getD i false) := by
+    apply List.map_congr_left
+    intro i hi
+    exact hpre i (hgback i hi)
+  rw [hm]
+  change ((replace C j g).wires (List.ofFn x)).getD (n + j) false = _
+  rw [wires_eq_foldl]
+  change ((C.gates.set j g).foldl stepWire (List.ofFn x)).getD (n + j) false = _
+  rw [List.set_eq_take_cons_drop g hj, htake, hdrop, List.foldl_append, List.foldl_cons,
+    foldl_stepWire_getD_lt _ _ _ (by change n + j < (stepWire w0 g).length; simp [stepWire, hw0])]
+  rw [← hw0, stepWire_getD_len]
+
+end PEqualNP.Outside.L_meta_3566.SharedRewrite
+
+namespace PEqualNP.Outside.L_meta_3566.PureFactorReplace
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PureFactorStar
+
+lemma below_of_clean_pivotal_replace {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : WireFirst.IsWireLeast G C) (j : ℕ) (hj : j < C.gates.length)
+    (g : Gate) (hgop : g.op = GateOp.and ∨ g.op = GateOp.or) (hglen : g.inputs.length = 2)
+    (hgback : ∀ i ∈ g.inputs, i < n + j)
+    (hPos : ∀ a b : Fin n, G.Adj a b → JunkPivotal.pivotal C j a b →
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn (pairInput a b))).getD i false) = true)
+    (hClean : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) = true →
+        graphFun G ∅ x = true) : BelowF G C j := by
+  by_contra hDirty
+  change ¬ ∀ x : Fin n → Bool, gateVal n C j x = true → graphFun G ∅ x = true at hDirty
+  push Not at hDirty
+  obtain ⟨x, hx, hfalse⟩ := hDirty
+  have hWitness : ∃ x : Fin n → Bool, gateVal n C j x = true ∧ graphFun G ∅ x = false :=
+    ⟨x, hx, Bool.eq_false_iff.mpr hfalse⟩
+  obtain ⟨hD, hfun, hsize⟩ := JunkPivotal.correct_of_pivotal_cover G C hC.1.1 hC.1.2.1
+    j hj g hgop hglen hgback hPos hClean
+  have hLeast : IsLeastAO G (SharedRewrite.replace C j g) :=
+    ⟨hD, hfun, fun E hE hEF => hsize.trans_le (hC.1.2.2 E hE hEF)⟩
+  have hNewClean : BelowF G (SharedRewrite.replace C j g) j := by
+    intro y hy
+    rw [SharedRewrite.replace_gateVal n C j hj g hgback y] at hy
+    exact hClean y hy
+  have hlt := WirePivotal.mass_lt_of_clean_replace G C hC.1.1.1 j hj g hgback
+    hClean hWitness hNewClean
+  have hle := hC.2 _ hLeast
+  omega
+
+lemma raw_product_below {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b : Fin n, G.Adj a b → color a ≠ color b)
+    (hFour : NoFourCycle G) (u : Fin n) (hdeg : 2 ≤ G.degree u)
+    (A B : Finset (Fin n)) (hMany : 2 ≤ A.card) (hPure : ∀ a ∈ A, color a = color u)
+    (hDisjoint : Disjoint A B) (huB : u ∉ B)
+    (hCross : ∀ a ∈ A, ∀ b ∈ B, color b ≠ color u → G.Adj a b)
+    (hCover : ∀ a ∈ A, ∀ b ∈ B, color b = color u →
+      ∀ w : Fin n, G.Adj u w → G.Adj a w ∨ G.Adj b w)
+    (C : Circuit) (hC : WireFirst.IsWireLeast G C) (j : ℕ) (hj : j < C.gates.length)
+    (aWire : ℕ) (haWire : aWire < n + j)
+    (hAVal : ∀ x : Fin n → Bool, wireVal n C aWire x = rawOr A x)
+    (hVal : ∀ x : Fin n → Bool, gateVal n C j x = (rawOr A x && rawOr B x)) :
+    BelowF G C j := by
+  by_contra hDirty
+  have hWitness : ∃ x : Fin n → Bool,
+      (rawOr A x && rawOr B x) = true ∧ graphFun G ∅ x = false := by
+    change ¬ ∀ x : Fin n → Bool, gateVal n C j x = true → graphFun G ∅ x = true at hDirty
+    push Not at hDirty
+    obtain ⟨x, hx, hfalse⟩ := hDirty
+    exact ⟨x, by rw [← hVal]; exact hx, Bool.eq_false_iff.mpr hfalse⟩
+  obtain ⟨b0, hb0, hcolor⟩ := same_color_of_dirty G color u A B hCross hWitness
+  have hb0u : b0 ≠ u := by
+    intro heq
+    subst b0
+    exact huB hb0
+  obtain ⟨w0, huw0, hA, hUnique, hStarClean, hStarCover⟩ :=
+    raw_product_star G color hBip hFour u b0 hb0u hdeg A B hMany hPure hDisjoint hCross
+      (fun a ha w hw => hCover a ha b0 hb0 hcolor w hw)
+  let g : Gate := ⟨GateOp.and, [aWire, w0.val]⟩
+  have hback : ∀ i ∈ g.inputs, i < n + j := by
+    intro i hi
+    simp only [g, List.mem_cons, List.not_mem_nil, or_false] at hi
+    rcases hi with rfl | rfl
+    · exact haWire
+    · omega
+  have hEval : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) =
+        (rawOr A x && x w0) := by
+    intro x
+    simp only [g, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+      id_eq, Bool.and_true]
+    rw [show (C.wires (List.ofFn x)).getD aWire false = rawOr A x from hAVal x,
+      SharedRewrite.input_val]
+  apply hDirty
+  apply below_of_clean_pivotal_replace G C hC j hj g (Or.inl rfl) rfl hback
+  · intro a b hab hp
+    rw [hEval]
+    apply hStarCover a b hab
+    rw [← hVal]
+    exact JunkPivotal.pivotal_on G C hC.1.1 hC.1.2.1 j hj a b hab hp
+  · intro x hx
+    rw [hEval] at hx
+    exact hStarClean x hx
+
+end PEqualNP.Outside.L_meta_3566.PureFactorReplace
+
+
+namespace PEqualNP.Outside.L_meta_3566
+namespace SoleOrSingleton
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open TwinLeaf.SingleRead
+
+lemma prefix_pair_le_singleton {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (u v : Fin n) (pre post : List Gate) (hshape : C.gates = pre ++ post)
+    (hno : ∀ g ∈ pre, u.val ∉ g.inputs) (t : ℕ)
+    (ht : t < n + pre.length) (htu : t ≠ u.val) :
+    wireVal n C t (pairInput u v) = true →
+      wireVal n C t (pairInput v v) = true := by
+  have hpre : ∀ q ∈ pre, q.op = GateOp.and ∨ q.op = GateOp.or := by
+    intro q hq
+    exact hAO.1 q (by rw [hshape]; exact List.mem_append_left _ hq)
+  have hprefix (x : Fin n → Bool) : wireVal n C t x =
+      (pre.foldl step (List.ofFn x)).getD t false := by
+    unfold wireVal Circuit.wires
+    rw [hshape, List.foldl_append]
+    change (post.foldl step (pre.foldl step (List.ofFn x))).getD t false =
+      (pre.foldl step (List.ofFn x)).getD t false
+    exact fold_get post _ t (by simpa [fold_length] using ht)
+  rw [hprefix, hprefix]
+  exact fold_compare pre _ _ (by simp) (pair_input_compare u v v) hpre hno t htu
+
+lemma source_rejects_input_pairs {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (u : Fin n) (pre post : List Gate) (g : Gate) (t : ℕ)
+    (hshape : C.gates = pre ++ g :: post) (hop : g.op = GateOp.or)
+    (hinputs : g.inputs = [u.val, t] ∨ g.inputs = [t, u.val])
+    (hAO : IsAO2 n C) (hno : ∀ q ∈ pre ++ post, u.val ∉ q.inputs)
+    (hfun : circuitFun n C = graphFun G ∅) (hfour : NoFourCycle G)
+    (htu : t ≠ u.val) (hdegree : 2 ≤ G.degree u) :
+    ∀ v : Fin n, wireVal n C t (pairInput u v) = false := by
+  intro v
+  apply Bool.eq_false_iff.mpr
+  intro hpair
+  have hgate : gateAt C pre.length = g := by
+    simp [gateAt, hshape, List.getD_eq_getElem?_getD]
+  have htmem : t ∈ g.inputs := by rcases hinputs with h | h <;> simp [h]
+  have ht : t < n + pre.length := hAO.2.1 pre.length
+    (by simp [hshape]) t (hgate.symm ▸ htmem)
+  have hs := prefix_pair_le_singleton C hAO u v pre (g :: post) hshape
+    (fun q hq => hno q (List.mem_append_left _ hq)) t ht htu hpair
+  have hz := source_rejects_singletons G C u pre post g t hshape hop hinputs
+    hAO hno hfun hfour htu hdegree v
+  rw [hz] at hs
+  exact Bool.false_ne_true hs
+
+lemma source_rejects_input_pairs_of_once {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (u : Fin n) (j t : ℕ)
+    (hj : j < C.gates.length) (hop : (gateAt C j).op = GateOp.or)
+    (hinputs : (gateAt C j).inputs = [u.val, t] ∨
+      (gateAt C j).inputs = [t, u.val])
+    (honce : (C.gates.flatMap Gate.inputs).count u.val = 1)
+    (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (hfour : NoFourCycle G) (hdegree : 2 ≤ G.degree u) :
+    ∀ v : Fin n, wireVal n C t (pairInput u v) = false := by
+  have hshape : C.gates = C.gates.take j ++ gateAt C j :: C.gates.drop (j + 1) := by
+    have h := List.take_append_drop j C.gates
+    rw [List.drop_eq_getElem_cons hj] at h
+    have e : C.gates[j] = gateAt C j := by simp [gateAt, List.getD_eq_getElem?_getD, hj]
+    rw [e] at h
+    exact h.symm
+  have hu : u.val ∈ (gateAt C j).inputs := by rcases hinputs with h | h <;> simp [h]
+  have htu : t ≠ u.val := by
+    intro heq
+    have hc := honce
+    rw [hshape] at hc
+    simp only [List.flatMap_append, List.flatMap_cons, List.count_append] at hc
+    rcases hinputs with h | h <;> simp [h, heq] at hc <;> omega
+  exact source_rejects_input_pairs G C u _ _ _ t hshape hop hinputs hAO
+    (SingleSlotCone.unique_read_outside C u.val _ _ _ hshape honce hu)
+    hfun hfour htu hdegree
+
+
+lemma independent_pair_covers_neighbors {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (u : Fin n) (pre post : List Gate)
+    (g : Gate) (t : ℕ) (hshape : C.gates = pre ++ g :: post)
+    (hop : g.op = GateOp.or)
+    (hinputs : g.inputs = [u.val, t] ∨ g.inputs = [t, u.val])
+    (hAO : IsAO2 n C) (hno : ∀ q ∈ pre ++ post, u.val ∉ q.inputs)
+    (hfun : circuitFun n C = graphFun G ∅) (htu : t ≠ u.val)
+    (a b : Fin n) (hab : ¬ G.Adj a b)
+    (hs : wireVal n C t (pairInput a b) = true) :
+    ∀ w : Fin n, G.Adj u w → G.Adj a w ∨ G.Adj b w := by
+  classical
+  intro w huw
+  have hind : ∀ p ∈ ({a,b} : Finset (Fin n)),
+      ∀ q ∈ ({a,b} : Finset (Fin n)), ¬ G.Adj p q := by
+    intro p hp q hq
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hp hq
+    rcases hp with rfl | rfl <;> rcases hq with rfl | rfl
+    · exact G.irrefl
+    · exact hab
+    · exact fun h => hab h.symm
+    · exact G.irrefl
+  have htmem : t ∈ g.inputs := by rcases hinputs with h | h <;> simp [h]
+  have hlarge : wireVal n C t (setInput (insert w ({a,b} : Finset (Fin n)))) = true := by
+    apply other_wire_compare C u pre post g t hshape htmem hAO hno htu
+      (pairInput a b) _ _ hs
+    intro i _ hi
+    simp only [pairInput, decide_eq_true_eq] at hi
+    simp only [setInput, decide_eq_true_eq, Finset.mem_insert, Finset.mem_singleton]
+    exact Or.inr hi
+  have hF := sole_or_neighbor_multiplier G C u pre post g t hshape hop hinputs
+    hAO hno hfun w huw _ hlarge (by simp [setInput])
+  obtain ⟨v, hv, hvw⟩ := graph_insert_independent G {a,b} hind w hF
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hv
+  rcases hv with rfl | rfl
+  · exact Or.inl hvw
+  · exact Or.inr hvw
+
+end SoleOrSingleton
+end PEqualNP.Outside.L_meta_3566
+
+namespace PEqualNP.Outside.L_meta_3566.SoleOrRaw
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open PureFactorStar TwinLeaf.SingleRead
+
+lemma product_pair_true {n : ℕ} (A B : Finset (Fin n)) (a b : Fin n)
+    (ha : a ∈ A) (hb : b ∈ B) :
+    (rawOr A (pairInput a b) && rawOr B (pairInput a b)) = true := by
+  have hA := (rawOr_true A (pairInput a b)).mpr ⟨a, ha, by simp [pairInput]⟩
+  have hB := (rawOr_true B (pairInput a b)).mpr ⟨b, hb, by simp [pairInput]⟩
+  simp [hA,hB]
+
+lemma disjoint_of_singletons {n : ℕ} (A B : Finset (Fin n))
+    (hfalse : ∀ a : Fin n, (rawOr A (pairInput a a) && rawOr B (pairInput a a)) = false) :
+    Disjoint A B := by
+  apply Finset.disjoint_left.mpr
+  intro a ha hb
+  have ht := product_pair_true A B a a ha hb
+  rw [hfalse] at ht
+  cases ht
+
+lemma avoids_input {n : ℕ} (A B : Finset (Fin n)) (u : Fin n)
+    (hA : A.Nonempty) (hB : B.Nonempty)
+    (hfalse : ∀ v : Fin n, (rawOr A (pairInput u v) && rawOr B (pairInput u v)) = false) :
+    u ∉ A ∧ u ∉ B := by
+  constructor
+  · intro hu
+    obtain ⟨b,hb⟩ := hB
+    have ht := product_pair_true A B u b hu hb
+    rw [hfalse] at ht
+    cases ht
+  · intro hu
+    obtain ⟨a,ha⟩ := hA
+    have hAp := (rawOr_true A (pairInput u a)).mpr ⟨a,ha,by simp [pairInput]⟩
+    have hBp := (rawOr_true B (pairInput u a)).mpr ⟨u,hu,by simp [pairInput]⟩
+    have hz := hfalse a
+    simp [hAp,hBp] at hz
+
+lemma raw_source_below {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b : Fin n, G.Adj a b → color a ≠ color b)
+    (hFour : NoFourCycle G) (C : Circuit) (hC : WireFirst.IsWireLeast G C)
+    (u : Fin n) (hdeg : 2 ≤ G.degree u) (pre post : List Gate) (g : Gate)
+    (k : ℕ) (hk : k < C.gates.length)
+    (hshape : C.gates = pre ++ g :: post) (hop : g.op = GateOp.or)
+    (hinputs : g.inputs = [u.val, n+k] ∨ g.inputs = [n+k, u.val])
+    (hno : ∀ q ∈ pre ++ post, u.val ∉ q.inputs)
+    (A B : Finset (Fin n)) (hMany : 2 ≤ A.card)
+    (hPure : ∀ a ∈ A, color a = color u)
+    (aWire : ℕ) (haWire : aWire < n+k)
+    (hAVal : ∀ x : Fin n → Bool, wireVal n C aWire x = rawOr A x)
+    (hVal : ∀ x : Fin n → Bool, gateVal n C k x = (rawOr A x && rawOr B x)) :
+    BelowF G C k := by
+  classical
+  by_cases hB : B.Nonempty
+  swap
+  · have he : B = ∅ := Finset.not_nonempty_iff_eq_empty.mp hB
+    intro x hx
+    rw [hVal,he] at hx
+    simp [rawOr] at hx
+  have hAO := hC.1.1
+  have hfun := hC.1.2.1
+  have htu : n+k ≠ u.val := by omega
+  have hsingle := SoleOrSingleton.source_rejects_singletons G C u pre post g (n+k)
+    hshape hop hinputs hAO hno hfun hFour htu hdeg
+  have hpair := SoleOrSingleton.source_rejects_input_pairs G C u pre post g (n+k)
+    hshape hop hinputs hAO hno hfun hFour htu hdeg
+  have hprod (x : Fin n → Bool) : wireVal n C (n+k) x = (rawOr A x && rawOr B x) := hVal x
+  have hDisjoint : Disjoint A B := disjoint_of_singletons A B (by
+    intro a
+    rw [← hprod]
+    exact hsingle a)
+  have hAnonempty : A.Nonempty := Finset.card_pos.mp (by omega)
+  have hu := avoids_input A B u hAnonempty hB (by
+    intro v
+    rw [← hprod]
+    exact hpair v)
+  have hCover (a : Fin n) (ha : a ∈ A) (b : Fin n) (hb : b ∈ B)
+      (hab : ¬ G.Adj a b) :
+      ∀ w : Fin n, G.Adj u w → G.Adj a w ∨ G.Adj b w := by
+    apply SoleOrSingleton.independent_pair_covers_neighbors G C u pre post g (n+k)
+      hshape hop hinputs hAO hno hfun htu a b hab
+    rw [hprod]
+    exact product_pair_true A B a b ha hb
+  have hCross : ∀ a ∈ A, ∀ b ∈ B, color b ≠ color u → G.Adj a b := by
+    intro a ha b hb hcolor
+    by_contra hab
+    have haU : u ≠ a := by intro he; exact hu.1 (he ▸ ha)
+    have hsub : G.neighborFinset u ⊆ Finset.univ.filter
+        (fun w => G.Adj u w ∧ G.Adj a w) := by
+      intro w hw
+      have huw := (G.mem_neighborFinset u w).mp hw
+      have hbw : color b = color w := by
+        have hucw := hBip u w huw
+        cases hcu : color u <;> cases hcb : color b <;> cases hcw : color w <;> simp_all
+      have hn : ¬ G.Adj b w := fun h => hBip b w h hbw
+      exact Finset.mem_filter.mpr ⟨Finset.mem_univ _,huw,(hCover a ha b hb hab w huw).resolve_right hn⟩
+    have hc := (Finset.card_le_card hsub).trans (hFour u a haU)
+    rw [G.card_neighborFinset_eq_degree] at hc
+    omega
+  apply PureFactorReplace.raw_product_below G color hBip hFour u hdeg A B hMany hPure
+    hDisjoint hu.2 hCross ?_ C hC k hk aWire haWire hAVal hVal
+  intro a ha b hb hcolor
+  apply hCover a ha b hb
+  intro hab
+  exact hBip a b hab ((hPure a ha).trans hcolor.symm)
+
+
+lemma raw_source_below_of_once {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b : Fin n, G.Adj a b → color a ≠ color b)
+    (hFour : NoFourCycle G) (C : Circuit) (hC : WireFirst.IsWireLeast G C)
+    (u : Fin n) (hdeg : 2 ≤ G.degree u) (j k : ℕ)
+    (hj : j < C.gates.length) (hk : k < C.gates.length)
+    (hop : (gateAt C j).op = GateOp.or)
+    (hinputs : (gateAt C j).inputs = [u.val, n+k] ∨
+      (gateAt C j).inputs = [n+k, u.val])
+    (honce : (C.gates.flatMap Gate.inputs).count u.val = 1)
+    (A B : Finset (Fin n)) (hMany : 2 ≤ A.card)
+    (hPure : ∀ a ∈ A, color a = color u)
+    (aWire : ℕ) (haWire : aWire < n+k)
+    (hAVal : ∀ x : Fin n → Bool, wireVal n C aWire x = rawOr A x)
+    (hVal : ∀ x : Fin n → Bool, gateVal n C k x = (rawOr A x && rawOr B x)) :
+    BelowF G C k := by
+  have hshape : C.gates = C.gates.take j ++ gateAt C j :: C.gates.drop (j + 1) := by
+    have h := List.take_append_drop j C.gates
+    rw [List.drop_eq_getElem_cons hj] at h
+    have e : C.gates[j] = gateAt C j := by simp [gateAt, List.getD_eq_getElem?_getD, hj]
+    rw [e] at h
+    exact h.symm
+  have hu : u.val ∈ (gateAt C j).inputs := by rcases hinputs with h | h <;> simp [h]
+  exact raw_source_below G color hBip hFour C hC u hdeg _ _ _ k hk hshape hop hinputs
+    (SingleSlotCone.unique_read_outside C u.val _ _ _ hshape honce hu)
+    A B hMany hPure aWire haWire hAVal hVal
+
+end PEqualNP.Outside.L_meta_3566.SoleOrRaw
+
+
+namespace PEqualNP.Outside.L_meta_3566.FilteredShell
+
+noncomputable def dom_pair_bits {α β : Type*} (R : α → β → Prop) (a c : α) : β → Bool × Bool := by
+  classical
+  exact fun y => (decide (R a y), decide (R c y))
+
+lemma dom_pair_bits_injective {α β : Type*} (R : α → β → Prop)
+    (h4 : ∀ a b, a ≠ b → ∀ x y, R a x → R a y → R b x → R b y → x = y)
+    (a b c d : α) (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d)
+    (hAB : ∀ y, R a y ∨ R b y) (hCD : ∀ y, R c y ∨ R d y) :
+    Function.Injective (dom_pair_bits R a c) := by
+  classical
+  intro x y hxy
+  have hA : decide (R a x) = decide (R a y) := congrArg Prod.fst hxy
+  have hC : decide (R c x) = decide (R c y) := congrArg Prod.snd hxy
+  by_cases hxA : R a x
+  · have hyA : R a y := by simpa [hxA] using hA.symm
+    by_cases hxC : R c x
+    · have hyC : R c y := by simpa [hxC] using hC.symm
+      exact h4 a c hac x y hxA hyA hxC hyC
+    · have hyC : ¬ R c y := by simpa [hxC] using hC.symm
+      exact h4 a d had x y hxA hyA ((hCD x).resolve_left hxC) ((hCD y).resolve_left hyC)
+  · have hyA : ¬ R a y := by simpa [hxA] using hA.symm
+    by_cases hxC : R c x
+    · have hyC : R c y := by simpa [hxC] using hC.symm
+      exact h4 b c hbc x y ((hAB x).resolve_left hxA) ((hAB y).resolve_left hyA) hxC hyC
+    · have hyC : ¬ R c y := by simpa [hxC] using hC.symm
+      exact h4 b d hbd x y ((hAB x).resolve_left hxA) ((hAB y).resolve_left hyA)
+        ((hCD x).resolve_left hxC) ((hCD y).resolve_left hyC)
+
+lemma two_dom_pairs_card_le_four {α β : Type*} [Fintype β]
+    (R : α → β → Prop)
+    (h4 : ∀ a b, a ≠ b → ∀ x y, R a x → R a y → R b x → R b y → x = y)
+    (a b c d : α) (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d)
+    (hAB : ∀ y, R a y ∨ R b y) (hCD : ∀ y, R c y ∨ R d y) :
+    Fintype.card β ≤ 4 := by
+  have hinj := dom_pair_bits_injective R h4 a b c d hac had hbc hbd hAB hCD
+  simpa using Fintype.card_le_of_injective (dom_pair_bits R a c) hinj
+
+lemma two_dom_pairs_partner_unique {α β : Type*} [Fintype β]
+    (R : α → β → Prop)
+    (h4 : ∀ a b, a ≠ b → ∀ x y, R a x → R a y → R b x → R b y → x = y)
+    (a b c d : α) (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d)
+    (hAB : ∀ y, R a y ∨ R b y) (hCD : ∀ y, R c y ∨ R d y)
+    (hcard : Fintype.card β = 4) (e : α) (hAE : ∀ y, R a y ∨ R e y) : e = b := by
+  classical
+  let f := dom_pair_bits R a c
+  have hinj : Function.Injective f := dom_pair_bits_injective R h4 a b c d hac had hbc hbd hAB hCD
+  have hsurj : Function.Surjective f := by
+    by_contra hnot
+    have hlt := Fintype.card_lt_of_injective_not_surjective f hinj hnot
+    simp [hcard] at hlt
+  obtain ⟨y, hy⟩ := hsurj (false, false)
+  obtain ⟨z, hz⟩ := hsurj (false, true)
+  have hyA : ¬ R a y := by
+    have h := congrArg Prod.fst hy
+    simpa [f, dom_pair_bits] using h
+  have hzA : ¬ R a z := by
+    have h := congrArg Prod.fst hz
+    simpa [f, dom_pair_bits] using h
+  have hyz : y ≠ z := by
+    intro heq
+    subst z
+    rw [hy] at hz
+    cases hz
+  by_contra hne
+  exact hyz (h4 e b hne y z ((hAE y).resolve_left hyA) ((hAE z).resolve_left hzA)
+    ((hAB y).resolve_left hyA) ((hAB z).resolve_left hzA))
+
+lemma support_subset_pair {α β : Type*} [Fintype β]
+    (R : α → β → Prop)
+    (h4 : ∀ a b, a ≠ b → ∀ x y, R a x → R a y → R b x → R b y → x = y)
+    (a b c d : α) (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d)
+    (hAB : ∀ y, R a y ∨ R b y) (hCD : ∀ y, R c y ∨ R d y)
+    (hcard : Fintype.card β = 4) (U V : α → Prop) (hUa : U a) (hVb : V b)
+    (hUV : ∀ x y, U x → V y → ∀ z, R x z ∨ R y z) :
+    ∀ x, U x ∨ V x → x = a ∨ x = b := by
+  intro x hx
+  rcases hx with hU | hV
+  · left
+    exact two_dom_pairs_partner_unique R h4 b a c d hbc hbd hac had
+      (fun z => (hAB z).symm) hCD hcard x
+      (fun z => (hUV x b hU hVb z).symm)
+  · right
+    exact two_dom_pairs_partner_unique R h4 a b c d hac had hbc hbd
+      hAB hCD hcard x (hUV a x hUa hV)
+
+end PEqualNP.Outside.L_meta_3566.FilteredShell
+
+
+namespace PEqualNP.Outside.L_meta_3566.FilteredShell
+
+lemma excess_two_double_owners {m k : ℕ} (f : Fin m → Fin k) (s : Fin m → Bool)
+    (hinj : Function.Injective (fun x => (f x, s x))) (hcard : k + 1 < m) :
+    ∃ a b c d : Fin m, a ≠ b ∧ c ≠ d ∧ a ≠ c ∧ a ≠ d ∧ b ≠ c ∧ b ≠ d ∧
+      f a = f b ∧ f c = f d ∧ f a ≠ f c := by
+  classical
+  obtain ⟨a, b, hab, hfab⟩ := Fintype.exists_ne_map_eq_of_card_lt f (by simpa using (show k < m by omega))
+  have hsmall : (Finset.univ : Finset (Fin k)).card <
+      ((Finset.univ : Finset (Fin m)).erase a).card := by simp; omega
+  obtain ⟨c, hc, d, hd, hcd, hfcd⟩ := Finset.exists_ne_map_eq_of_card_lt_of_maps_to hsmall
+    (f := f) (fun x _ => Finset.mem_univ (f x))
+  have hca : c ≠ a := (Finset.mem_erase.mp hc).1
+  have hda : d ≠ a := (Finset.mem_erase.mp hd).1
+  have hfca : f c ≠ f a := by
+    intro he
+    have hsc : s c ≠ s a := by
+      intro h
+      exact hca (hinj (Prod.ext he h))
+    have hsd : s d ≠ s a := by
+      intro h
+      exact hda (hinj (Prod.ext (hfcd.symm.trans he) h))
+    have hscd : s c = s d := by
+      cases h1 : s c <;> cases h2 : s d <;> cases h3 : s a <;> simp_all
+    exact hcd (hinj (Prod.ext hfcd hscd))
+  refine ⟨a, b, c, d, hab, hcd, Ne.symm hca, Ne.symm hda, ?_, ?_, hfab, hfcd, Ne.symm hfca⟩
+  · intro he
+    exact hfca (he ▸ hfab.symm)
+  · intro he
+    exact hfca (hfcd.trans (he ▸ hfab.symm))
+
+def MatrixShells {m k : ℕ} (R : Fin m → Fin m → Prop)
+    (LA LB RA RB : Fin k → Fin m → Prop) : Prop :=
+  (∀ x, R x x) ∧
+  (∀ a b, a ≠ b → ∀ x y, R a x → R a y → R b x → R b y → x = y) ∧
+  (∀ x y, R x y ↔ ∃ i, (LA i x ∧ RB i y) ∨ (LB i x ∧ RA i y)) ∧
+  (∀ i a b, LA i a → LB i b → ∀ y, R a y ∨ R b y) ∧
+  (∀ i a b, RA i a → RB i b → ∀ x, R x a ∨ R x b)
+
+lemma MatrixShells.owner_exists {m k : ℕ} {R : Fin m → Fin m → Prop}
+    {LA LB RA RB : Fin k → Fin m → Prop} (S : MatrixShells R LA LB RA RB) :
+    ∃ (f : Fin m → Fin k) (s : Fin m → Bool),
+      (∀ x, if s x then LA (f x) x ∧ RB (f x) x
+        else LB (f x) x ∧ RA (f x) x) ∧
+      Function.Injective (fun x => (f x, s x)) := by
+  classical
+  have hex : ∀ x, ∃ p : Fin k × Bool,
+      if p.2 then LA p.1 x ∧ RB p.1 x
+      else LB p.1 x ∧ RA p.1 x := by
+    intro x
+    obtain ⟨i, h | h⟩ := (S.2.2.1 x x).mp (S.1 x)
+    · exact ⟨(i, true), h⟩
+    · exact ⟨(i, false), h⟩
+  choose p hp using hex
+  refine ⟨fun x => (p x).1, fun x => (p x).2, hp, ?_⟩
+  intro x y hxy
+  by_contra hne
+  have hi : (p x).1 = (p y).1 := congrArg Prod.fst hxy
+  have hs : (p x).2 = (p y).2 := congrArg Prod.snd hxy
+  have hx := hp x
+  have hy := hp y
+  have hcross : R x y ∧ R y x := by
+    cases hb : (p x).2 <;> simp only [hb, hs.symm, Bool.false_eq_true, ↓reduceIte] at hx hy
+    · exact ⟨(S.2.2.1 x y).mpr ⟨(p x).1, Or.inr ⟨hx.1, hi.symm ▸ hy.2⟩⟩,
+        (S.2.2.1 y x).mpr ⟨(p x).1, Or.inr ⟨hi.symm ▸ hy.1, hx.2⟩⟩⟩
+    · exact ⟨(S.2.2.1 x y).mpr ⟨(p x).1, Or.inl ⟨hx.1, hi.symm ▸ hy.2⟩⟩,
+        (S.2.2.1 y x).mpr ⟨(p x).1, Or.inl ⟨hi.symm ▸ hy.1, hx.2⟩⟩⟩
+  exact hne (S.2.1 x y hne x y (S.1 x) hcross.1 hcross.2 (S.1 y))
+
+lemma MatrixShells.owned_pair_dominate {m k : ℕ} {R : Fin m → Fin m → Prop}
+    {LA LB RA RB : Fin k → Fin m → Prop} (S : MatrixShells R LA LB RA RB)
+    (f : Fin m → Fin k) (s : Fin m → Bool)
+    (hown : ∀ x, if s x then LA (f x) x ∧ RB (f x) x
+      else LB (f x) x ∧ RA (f x) x)
+    (hinj : Function.Injective (fun x => (f x, s x)))
+    (a b : Fin m) (hab : a ≠ b) (hf : f a = f b) :
+    (∀ y, R a y ∨ R b y) ∧ (∀ x, R x a ∨ R x b) := by
+  have hside : s a ≠ s b := fun he => hab (hinj (Prod.ext hf he))
+  have ha := hown a
+  have hb := hown b
+  rw [← hf] at hb
+  cases hsa : s a <;> cases hsb : s b
+  · exact False.elim (hside (hsa.trans hsb.symm))
+  · simp only [hsa, hsb, Bool.false_eq_true, ↓reduceIte] at ha hb
+    exact ⟨fun y => (S.2.2.2.1 (f a) b a hb.1 ha.1 y).symm,
+      S.2.2.2.2 (f a) a b ha.2 hb.2⟩
+  · simp only [hsa, hsb, Bool.false_eq_true, ↓reduceIte] at ha hb
+    exact ⟨S.2.2.2.1 (f a) a b ha.1 hb.1,
+      fun x => (S.2.2.2.2 (f a) b a hb.2 ha.2 x).symm⟩
+  · exact False.elim (hside (hsa.trans hsb.symm))
+
+lemma MatrixShells.noFour_transpose {m k : ℕ} {R : Fin m → Fin m → Prop}
+    {LA LB RA RB : Fin k → Fin m → Prop} (S : MatrixShells R LA LB RA RB) :
+    ∀ a b, a ≠ b → ∀ x y, R x a → R y a → R x b → R y b → x = y := by
+  intro a b hab x y hxa hya hxb hyb
+  by_contra hxy
+  exact hab (S.2.1 x y hxy a b hxa hxb hya hyb)
+
+lemma MatrixShells.owned_pair_supports {m k : ℕ} {R : Fin m → Fin m → Prop}
+    {LA LB RA RB : Fin k → Fin m → Prop} (S : MatrixShells R LA LB RA RB)
+    (f : Fin m → Fin k) (s : Fin m → Bool)
+    (hown : ∀ x, if s x then LA (f x) x ∧ RB (f x) x
+      else LB (f x) x ∧ RA (f x) x)
+    (hinj : Function.Injective (fun x => (f x, s x)))
+    (a b c d : Fin m) (hab : a ≠ b) (hf : f a = f b)
+    (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d)
+    (hCD : ∀ y, R c y ∨ R d y) (hCD' : ∀ x, R x c ∨ R x d)
+    (hcard : m = 4) :
+    (∀ x, LA (f a) x ∨ LB (f a) x → x = a ∨ x = b) ∧
+    (∀ x, RA (f a) x ∨ RB (f a) x → x = a ∨ x = b) := by
+  have hAB := S.owned_pair_dominate f s hown hinj a b hab hf
+  have hside : s a ≠ s b := fun he => hab (hinj (Prod.ext hf he))
+  have ha := hown a
+  have hb := hown b
+  rw [← hf] at hb
+  have hcard' : Fintype.card (Fin m) = 4 := by simpa using hcard
+  cases hsa : s a <;> cases hsb : s b
+  · exact False.elim (hside (hsa.trans hsb.symm))
+  · simp only [hsa, hsb, Bool.false_eq_true, ↓reduceIte] at ha hb
+    refine ⟨?_, ?_⟩
+    · intro x hx
+      exact support_subset_pair R S.2.1 a b c d hac had hbc hbd hAB.1 hCD
+        hcard' (LB (f a)) (LA (f a)) ha.1 hb.1
+        (fun x y hx hy z => (S.2.2.2.1 (f a) y x hy hx z).symm) x hx.symm
+    · exact support_subset_pair (fun x y => R y x) S.noFour_transpose
+        a b c d hac had hbc hbd hAB.2 hCD' hcard'
+        (RA (f a)) (RB (f a)) ha.2 hb.2 (S.2.2.2.2 (f a))
+  · simp only [hsa, hsb, Bool.false_eq_true, ↓reduceIte] at ha hb
+    refine ⟨?_, ?_⟩
+    · exact support_subset_pair R S.2.1 a b c d hac had hbc hbd hAB.1 hCD
+        hcard' (LA (f a)) (LB (f a)) ha.1 hb.1 (S.2.2.2.1 (f a))
+    · intro x hx
+      exact support_subset_pair (fun x y => R y x) S.noFour_transpose
+        a b c d hac had hbc hbd hAB.2 hCD' hcard'
+        (RB (f a)) (RA (f a)) ha.2 hb.2
+        (fun x y hx hy z => (S.2.2.2.2 (f a) y x hy hx z).symm) x hx.symm
+  · exact False.elim (hside (hsa.trans hsb.symm))
+
+lemma MatrixShells.matching_bound {m k : ℕ} {R : Fin m → Fin m → Prop}
+    {LA LB RA RB : Fin k → Fin m → Prop} (S : MatrixShells R LA LB RA RB) : m ≤ k + 1 := by
+  classical
+  by_contra hnot
+  have hlarge : k + 1 < m := by omega
+  obtain ⟨f, s, hown, hinj⟩ := S.owner_exists
+  obtain ⟨a, b, c, d, hab, hcd, hac, had, hbc, hbd, hfab, hfcd, hfac⟩ :=
+    excess_two_double_owners f s hinj hlarge
+  have hAB := S.owned_pair_dominate f s hown hinj a b hab hfab
+  have hCD := S.owned_pair_dominate f s hown hinj c d hcd hfcd
+  have hmle : m ≤ 4 := by
+    simpa using two_dom_pairs_card_le_four R S.2.1 a b c d hac had hbc hbd hAB.1 hCD.1
+  have hmge : 4 ≤ m := by
+    have hsub : ({a, b, c, d} : Finset (Fin m)) ⊆ Finset.univ := Finset.subset_univ _
+    have hcard := Finset.card_le_card hsub
+    simpa [hab, hac, had, hbc, hbd, hcd, Ne.symm hab, Ne.symm hac, Ne.symm had,
+      Ne.symm hbc, Ne.symm hbd, Ne.symm hcd] using hcard
+  have hm : m = 4 := by omega
+  have hkge : 2 ≤ k := by
+    have hsub : ({f a, f c} : Finset (Fin k)) ⊆ Finset.univ := Finset.subset_univ _
+    have hcard := Finset.card_le_card hsub
+    simpa [hfac] using hcard
+  have hk : k = 2 := by omega
+  have howners : ∀ i : Fin k, i = f a ∨ i = f c := by
+    intro i
+    by_contra hnone
+    have hia : i.val ≠ (f a).val := fun he => hnone (Or.inl (Fin.ext he))
+    have hic : i.val ≠ (f c).val := fun he => hnone (Or.inr (Fin.ext he))
+    have hac' : (f a).val ≠ (f c).val := fun he => hfac (Fin.ext he)
+    have hi := i.isLt
+    have ha := (f a).isLt
+    have hc := (f c).isLt
+    omega
+  have hsAB := S.owned_pair_supports f s hown hinj a b c d hab hfab hac had hbc hbd
+    hCD.1 hCD.2 hm
+  have hsCD := S.owned_pair_supports f s hown hinj c d a b hcd hfcd
+    (Ne.symm hac) (Ne.symm hbc) (Ne.symm had) (Ne.symm hbd) hAB.1 hAB.2 hm
+  have hnca : ¬ R c a := by
+    intro he
+    obtain ⟨i, hi⟩ := (S.2.2.1 c a).mp he
+    rcases howners i with h | h <;> subst i
+    · have hc' : c = a ∨ c = b := hsAB.1 c (by rcases hi with h | h; exact Or.inl h.1; exact Or.inr h.1)
+      exact hc'.elim (Ne.symm hac) (Ne.symm hbc)
+    · have ha' : a = c ∨ a = d := hsCD.2 a (by rcases hi with h | h; exact Or.inr h.2; exact Or.inl h.2)
+      exact ha'.elim hac had
+  have hnda : ¬ R d a := by
+    intro he
+    obtain ⟨i, hi⟩ := (S.2.2.1 d a).mp he
+    rcases howners i with h | h <;> subst i
+    · have hd' : d = a ∨ d = b := hsAB.1 d (by rcases hi with h | h; exact Or.inl h.1; exact Or.inr h.1)
+      exact hd'.elim (Ne.symm had) (Ne.symm hbd)
+    · have ha' : a = c ∨ a = d := hsCD.2 a (by rcases hi with h | h; exact Or.inr h.2; exact Or.inl h.2)
+      exact ha'.elim hac had
+  exact (hCD.1 a).elim hnca hnda
+
+end PEqualNP.Outside.L_meta_3566.FilteredShell
+
+namespace PEqualNP.Outside.L_meta_3566.FilteredShell
+
+def GeneralMatrixShells {m k : ℕ} (R : Fin m → Fin m → Prop)
+    (LA LB RA RB : Fin k → Fin m → Prop) : Prop :=
+  (∀ x, R x x) ∧
+  (∀ a b, a ≠ b → ∀ x y, R a x → R a y → R b x → R b y → x = y) ∧
+  (∀ x y, R x y ↔ ∃ i,
+    (LA i x ∧ RB i y) ∨ (LB i x ∧ RA i y) ∨
+    (LA i x ∧ LB i x) ∨ (RA i y ∧ RB i y)) ∧
+  (∀ i a b, LA i a → LB i b → ∀ y, R a y ∨ R b y) ∧
+  (∀ i a b, RA i a → RB i b → ∀ x, R x a ∨ R x b)
+
+lemma GeneralMatrixShells.bound_of_universal_row {m k : ℕ} {R : Fin m → Fin m → Prop}
+    {LA LB RA RB : Fin k → Fin m → Prop} (S : GeneralMatrixShells R LA LB RA RB)
+    (v : Fin m) (hv : ∀ y, R v y) : m ≤ k + 1 := by
+  classical
+  by_contra hnot
+  have hlarge : k + 1 < m := by omega
+  have hkpos : 0 < k := by
+    obtain ⟨i, _⟩ := (S.2.2.1 v v).mp (S.1 v)
+    exact Nat.zero_lt_of_lt i.isLt
+  have hm : 3 ≤ m := by omega
+  have row_only : ∀ p : Fin m, p ≠ v → ∀ q, R p q → q = p := by
+    intro p hp q hpq
+    exact S.2.1 p v hp q p hpq (S.1 p) (hv q) (hv p)
+  have no_right_overlap : ∀ i x, ¬ (RA i x ∧ RB i x) := by
+    intro i x hx
+    have hcol : ∀ p, R p x := fun p =>
+      (S.2.2.2.2 i x x hx.1 hx.2 p).elim id id
+    have hsub : (Finset.univ : Finset (Fin m)) ⊆ {v, x} := by
+      intro p _
+      by_cases hp : p = v
+      · simp [hp]
+      · have he := row_only p hp x (hcol p)
+        simp [he]
+    have hcard := Finset.card_le_card hsub
+    have hsmall : ({v, x} : Finset (Fin m)).card ≤ 2 := by
+      by_cases he : v = x <;> simp [he]
+    simp only [Finset.card_univ, Fintype.card_fin] at hcard
+    omega
+  have no_left_overlap : ∀ i p, p ≠ v → ¬ (LA i p ∧ LB i p) := by
+    intro i p hp hx
+    have h := (S.2.2.2.1 i p p hx.1 hx.2 v).elim id id
+    exact hp (row_only p hp v h).symm
+  have hex : ∀ p : {x : Fin m // x ≠ v}, ∃ i : Fin k,
+      (LA i p.val ∧ RB i p.val) ∨ (LB i p.val ∧ RA i p.val) := by
+    intro p
+    obtain ⟨i, hi⟩ := (S.2.2.1 p.val p.val).mp (S.1 p.val)
+    refine ⟨i, ?_⟩
+    rcases hi with h | h | h | h
+    · exact Or.inl h
+    · exact Or.inr h
+    · exact False.elim (no_left_overlap i p.val p.property h)
+    · exact False.elim (no_right_overlap i p.val h)
+  choose f hf using hex
+  have hfinj : Function.Injective f := by
+    intro p q hpq
+    apply Subtype.ext
+    by_contra hne
+    have hp := hf p
+    have hq := hf q
+    rw [← hpq] at hq
+    have hnp : ¬ R p.val v := fun h => p.property (row_only p.val p.property v h).symm
+    have hnq : ¬ R q.val v := fun h => q.property (row_only q.val q.property v h).symm
+    rcases hp with hp | hp <;> rcases hq with hq | hq
+    · have hrel := (S.2.2.1 p.val q.val).mpr ⟨f p, Or.inl ⟨hp.1, hq.2⟩⟩
+      exact hne (row_only p.val p.property q.val hrel).symm
+    · exact (S.2.2.2.1 (f p) p.val q.val hp.1 hq.1 v).elim hnp hnq
+    · exact (S.2.2.2.1 (f p) q.val p.val hq.1 hp.1 v).elim hnq hnp
+    · have hrel := (S.2.2.1 p.val q.val).mpr ⟨f p, Or.inr (Or.inl ⟨hp.1, hq.2⟩)⟩
+      exact hne (row_only p.val p.property q.val hrel).symm
+  have hcount := Fintype.card_le_of_injective f hfinj
+  have hcount' : m - 1 ≤ k := by simpa using hcount
+  omega
+
+lemma GeneralMatrixShells.transpose {m k : ℕ} {R : Fin m → Fin m → Prop}
+    {LA LB RA RB : Fin k → Fin m → Prop} (S : GeneralMatrixShells R LA LB RA RB) :
+    GeneralMatrixShells (fun x y => R y x) RA RB LA LB := by
+  refine ⟨S.1, ?_, ?_, S.2.2.2.2, S.2.2.2.1⟩
+  · intro a b hab x y hxa hya hxb hyb
+    by_contra hxy
+    exact hab (S.2.1 x y hxy a b hxa hxb hya hyb)
+  · intro x y
+    change R y x ↔ _
+    rw [S.2.2.1]
+    constructor
+    · rintro ⟨i, hi⟩
+      exact ⟨i, by tauto⟩
+    · rintro ⟨i, hi⟩
+      exact ⟨i, by tauto⟩
+
+lemma GeneralMatrixShells.matching_bound {m k : ℕ} {R : Fin m → Fin m → Prop}
+    {LA LB RA RB : Fin k → Fin m → Prop} (S : GeneralMatrixShells R LA LB RA RB) : m ≤ k + 1 := by
+  classical
+  by_cases hL : ∃ i v, LA i v ∧ LB i v
+  · obtain ⟨i, v, ha, hb⟩ := hL
+    exact S.bound_of_universal_row v (fun y => (S.2.2.2.1 i v v ha hb y).elim id id)
+  by_cases hR : ∃ i v, RA i v ∧ RB i v
+  · obtain ⟨i, v, ha, hb⟩ := hR
+    exact S.transpose.bound_of_universal_row v (fun y => (S.2.2.2.2 i v v ha hb y).elim id id)
+  have hprofile : ∀ x y, R x y ↔ ∃ i, (LA i x ∧ RB i y) ∨ (LB i x ∧ RA i y) := by
+    intro x y
+    rw [S.2.2.1]
+    constructor
+    · rintro ⟨i, h | h | h | h⟩
+      · exact ⟨i, Or.inl h⟩
+      · exact ⟨i, Or.inr h⟩
+      · exact False.elim (hL ⟨i, x, h⟩)
+      · exact False.elim (hR ⟨i, y, h⟩)
+    · rintro ⟨i, h | h⟩
+      · exact ⟨i, Or.inl h⟩
+      · exact ⟨i, Or.inr (Or.inl h)⟩
+  exact MatrixShells.matching_bound (R := R) (LA := LA) (LB := LB) (RA := RA) (RB := RB)
+    ⟨S.1, S.2.1, hprofile, S.2.2.2.1, S.2.2.2.2⟩
+
+end PEqualNP.Outside.L_meta_3566.FilteredShell
+
+namespace PEqualNP.Outside.L_meta_3566.FilteredShell
+
+def FullFormula {α β : Type*} {k : ℕ} (R : α → β → Prop)
+    (LA LB : Fin k → α → Prop) (RA RB : Fin k → β → Prop) : Prop :=
+  ∀ (X : α → Prop) (Y : β → Prop),
+    (∃ a b, R a b ∧ X a ∧ Y b) ↔
+      ((∃ i, ((∃ a, LA i a ∧ X a) ∨ (∃ b, RA i b ∧ Y b)) ∧
+        ((∃ a, LB i a ∧ X a) ∨ (∃ b, RB i b ∧ Y b))) ∧
+        (∃ a, X a) ∧ (∃ b, Y b))
+
+lemma full_formula_profile {m k : ℕ} (R : Fin m → Fin m → Prop)
+    (LA LB RA RB : Fin k → Fin m → Prop)
+    (hleft : ∀ i x, ¬ (LA i x ∧ LB i x))
+    (hright : ∀ i y, ¬ (RA i y ∧ RB i y))
+    (hfull : FullFormula R LA LB RA RB) (x y : Fin m) :
+    R x y ↔ ∃ i, (LA i x ∧ RB i y) ∨ (LB i x ∧ RA i y) := by
+  have hpair : R x y ↔ ∃ i, (LA i x ∨ RA i y) ∧ (LB i x ∨ RB i y) := by
+    simpa using hfull (fun a => a = x) (fun b => b = y)
+  constructor
+  · intro hR
+    obtain ⟨i, hA, hB⟩ := hpair.mp hR
+    refine ⟨i, ?_⟩
+    rcases hA with hLA | hRA
+    · rcases hB with hLB | hRB
+      · exact False.elim (hleft i x ⟨hLA, hLB⟩)
+      · exact Or.inl ⟨hLA, hRB⟩
+    · rcases hB with hLB | hRB
+      · exact Or.inr ⟨hLB, hRA⟩
+      · exact False.elim (hright i y ⟨hRA, hRB⟩)
+  · rintro ⟨i, h | h⟩
+    · exact hpair.mpr ⟨i, Or.inl h.1, Or.inr h.2⟩
+    · exact hpair.mpr ⟨i, Or.inr h.2, Or.inl h.1⟩
+
+lemma full_formula_left_triple {m k : ℕ} (R : Fin m → Fin m → Prop)
+    (LA LB RA RB : Fin k → Fin m → Prop)
+    (hfull : FullFormula R LA LB RA RB)
+    (i : Fin k) (a b : Fin m) (ha : LA i a) (hb : LB i b) (y : Fin m) :
+    R a y ∨ R b y := by
+  have hex : ∃ x z, R x z ∧ (x = a ∨ x = b) ∧ z = y :=
+    (hfull (fun x => x = a ∨ x = b) (fun z => z = y)).mpr
+      ⟨⟨i, Or.inl ⟨a, ha, Or.inl rfl⟩, Or.inl ⟨b, hb, Or.inr rfl⟩⟩,
+        ⟨a, Or.inl rfl⟩, ⟨y, rfl⟩⟩
+  obtain ⟨x, z, hR, hx, rfl⟩ := hex
+  rcases hx with rfl | rfl
+  · exact Or.inl hR
+  · exact Or.inr hR
+
+lemma full_formula_right_triple {m k : ℕ} (R : Fin m → Fin m → Prop)
+    (LA LB RA RB : Fin k → Fin m → Prop)
+    (hfull : FullFormula R LA LB RA RB)
+    (i : Fin k) (a b : Fin m) (ha : RA i a) (hb : RB i b) (x : Fin m) :
+    R x a ∨ R x b := by
+  have hex : ∃ y z, R y z ∧ y = x ∧ (z = a ∨ z = b) :=
+    (hfull (fun y => y = x) (fun z => z = a ∨ z = b)).mpr
+      ⟨⟨i, Or.inr ⟨a, ha, Or.inl rfl⟩, Or.inr ⟨b, hb, Or.inr rfl⟩⟩,
+        ⟨x, rfl⟩, ⟨a, Or.inl rfl⟩⟩
+  obtain ⟨y, z, hR, rfl, hz⟩ := hex
+  rcases hz with rfl | rfl
+  · exact Or.inl hR
+  · exact Or.inr hR
+
+lemma full_formula_matching_bound {m k : ℕ} (R : Fin m → Fin m → Prop)
+    (LA LB RA RB : Fin k → Fin m → Prop)
+    (hdiag : ∀ x, R x x)
+    (hfour : ∀ a b, a ≠ b → ∀ x y, R a x → R a y → R b x → R b y → x = y)
+    (hleft : ∀ i x, ¬ (LA i x ∧ LB i x))
+    (hright : ∀ i y, ¬ (RA i y ∧ RB i y))
+    (hfull : FullFormula R LA LB RA RB) : m ≤ k + 1 := by
+  have S : MatrixShells R LA LB RA RB :=
+    ⟨hdiag, hfour, full_formula_profile R LA LB RA RB hleft hright hfull,
+      full_formula_left_triple R LA LB RA RB hfull,
+      full_formula_right_triple R LA LB RA RB hfull⟩
+  exact S.matching_bound
+
+lemma full_formula_general_profile {m k : ℕ} (R : Fin m → Fin m → Prop)
+    (LA LB RA RB : Fin k → Fin m → Prop)
+    (hfull : FullFormula R LA LB RA RB) (x y : Fin m) :
+    R x y ↔ ∃ i,
+      (LA i x ∧ RB i y) ∨ (LB i x ∧ RA i y) ∨
+      (LA i x ∧ LB i x) ∨ (RA i y ∧ RB i y) := by
+  have hpair : R x y ↔ ∃ i, (LA i x ∨ RA i y) ∧ (LB i x ∨ RB i y) := by
+    simpa using hfull (fun a => a = x) (fun b => b = y)
+  rw [hpair]
+  constructor
+  · rintro ⟨i, hi⟩
+    exact ⟨i, by tauto⟩
+  · rintro ⟨i, hi⟩
+    exact ⟨i, by tauto⟩
+
+lemma full_general_formula_matching_bound {m k : ℕ} (R : Fin m → Fin m → Prop)
+    (LA LB RA RB : Fin k → Fin m → Prop)
+    (hdiag : ∀ x, R x x)
+    (hfour : ∀ a b, a ≠ b → ∀ x y, R a x → R a y → R b x → R b y → x = y)
+    (hfull : FullFormula R LA LB RA RB) : m ≤ k + 1 := by
+  have S : GeneralMatrixShells R LA LB RA RB :=
+    ⟨hdiag, hfour, full_formula_general_profile R LA LB RA RB hfull,
+      full_formula_left_triple R LA LB RA RB hfull,
+      full_formula_right_triple R LA LB RA RB hfull⟩
+  exact S.matching_bound
+
+end PEqualNP.Outside.L_meta_3566.FilteredShell
+
+namespace PEqualNP.Outside.L_meta_3566.FilteredShell
+
+lemma full_formula_restrict {α β ι κ : Type*} {k : ℕ} (R : α → β → Prop)
+    (LA LB : Fin k → α → Prop) (RA RB : Fin k → β → Prop)
+    (hfull : FullFormula R LA LB RA RB) (l : ι → α) (r : κ → β) :
+    FullFormula (fun x y => R (l x) (r y))
+      (fun i x => LA i (l x)) (fun i x => LB i (l x))
+      (fun i y => RA i (r y)) (fun i y => RB i (r y)) := by
+  intro X Y
+  let X' : α → Prop := fun a => ∃ x, l x = a ∧ X x
+  let Y' : β → Prop := fun b => ∃ y, r y = b ∧ Y y
+  have hL (P : α → Prop) : (∃ a, P a ∧ X' a) ↔ ∃ x, P (l x) ∧ X x := by
+    constructor
+    · rintro ⟨a, ha, x, rfl, hx⟩
+      exact ⟨x, ha, hx⟩
+    · rintro ⟨x, hp, hx⟩
+      exact ⟨l x, hp, x, rfl, hx⟩
+  have hR (P : β → Prop) : (∃ b, P b ∧ Y' b) ↔ ∃ y, P (r y) ∧ Y y := by
+    constructor
+    · rintro ⟨b, hb, y, rfl, hy⟩
+      exact ⟨y, hb, hy⟩
+    · rintro ⟨y, hp, hy⟩
+      exact ⟨r y, hp, y, rfl, hy⟩
+  have hX : (∃ a, X' a) ↔ ∃ x, X x := by
+    constructor
+    · rintro ⟨a, x, _, hx⟩
+      exact ⟨x, hx⟩
+    · rintro ⟨x, hx⟩
+      exact ⟨l x, x, rfl, hx⟩
+  have hY : (∃ b, Y' b) ↔ ∃ y, Y y := by
+    constructor
+    · rintro ⟨b, y, _, hy⟩
+      exact ⟨y, hy⟩
+    · rintro ⟨y, hy⟩
+      exact ⟨r y, y, rfl, hy⟩
+  have hE : (∃ a b, R a b ∧ X' a ∧ Y' b) ↔ ∃ x y, R (l x) (r y) ∧ X x ∧ Y y := by
+    constructor
+    · rintro ⟨a, b, hab, ⟨x, rfl, hx⟩, ⟨y, rfl, hy⟩⟩
+      exact ⟨x, y, hab, hx, hy⟩
+    · rintro ⟨x, y, hxy, hx, hy⟩
+      exact ⟨l x, r y, hxy, ⟨x, rfl, hx⟩, ⟨y, rfl, hy⟩⟩
+  simpa only [hL, hR, hX, hY, hE] using hfull X' Y'
+
+lemma full_formula_injective_matching_bound {α β : Type*} {m k : ℕ} (R : α → β → Prop)
+    (LA LB : Fin k → α → Prop) (RA RB : Fin k → β → Prop)
+    (hfull : FullFormula R LA LB RA RB)
+    (hfour : ∀ a b, a ≠ b → ∀ x y, R a x → R a y → R b x → R b y → x = y)
+    (l : Fin m → α) (r : Fin m → β) (hl : Function.Injective l) (hr : Function.Injective r)
+    (hmatch : ∀ x, R (l x) (r x)) : m ≤ k + 1 := by
+  apply full_general_formula_matching_bound (fun x y => R (l x) (r y))
+    (fun i x => LA i (l x)) (fun i x => LB i (l x))
+    (fun i y => RA i (r y)) (fun i y => RB i (r y)) hmatch
+  · intro a b hab x y hax hay hbx hby
+    exact hr (hfour (l a) (l b) (fun he => hab (hl he)) (r x) (r y) hax hay hbx hby)
+  · exact full_formula_restrict R LA LB RA RB hfull l r
+
+end PEqualNP.Outside.L_meta_3566.FilteredShell
