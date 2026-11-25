@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-11-25T12:12:34.771503+00:00",
+  "results": [
+    {
+      "file": "Lower9811-heavy.lean",
+      "sha256": "b98aba4e4e627860522f3ea1e52ebab14e0284452d776f97fb88b6f1cd1b5c42",
+      "bytes": 493349,
+      "lines": 8824,
+      "lean_exit_code": 0,
+      "log": "lower-heavy-build.log",
+      "claim": "Lower bound 20 for the exact original 14-input graph, not the posted lower bound 25"
+    },
+    {
+      "file": "Lower9811-light.lean",
+      "sha256": "ba2c40287d39e9402d576f491b57e8a985bb008138a2fc2c91888c0beeafef5e",
+      "bytes": 520470,
+      "lines": 9210,
+      "lean_exit_code": 0,
+      "log": "lower-light-build.log",
+      "claim": "Lower bound 20 for the exact original 14-input graph, not the posted lower bound 25"
+    }
+  ]
+}

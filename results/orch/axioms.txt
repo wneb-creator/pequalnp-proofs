@@ -1,0 +1,2 @@
+'PEqualNP.Outside.L_meta_9811_aux.lowerBound20' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_9811.upperBound' depends on axioms: [propext, Classical.choice, Quot.sound]

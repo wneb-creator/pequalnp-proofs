@@ -16,3 +16,9 @@
 
 2026-11-25T12:10:50.518466+00:00 lemma_search: Lean checked lower bound 20 on original target graph; notified root for immediate push.
 2026-11-25T12:11:30.986513+00:00 lower20 for exacttarget compiled exit0; independentlyreviewed source plus onlyone permittedheartbeatlimit change. Preserving exactcheckedbytes beforemergednamedbuild.
+
+2026-11-25T12:12:34.771503+00:00 lemma_search: light DNF lower-20 proof also checked; artifact preservation complete.
+2026-11-25T12:12:46.989299+00:00 light lower20 andupper25 merged into namedpartial forlakebuild; originalcheckedcomponents retained.
+
+- 2026-11-25T12:13:00.786742+00:00 lower_bound: ordinary Monotone2 target circuits need at least seven AND gates; AndSevenRoot.lean compiled, exit 0, independently reviewing compiler bridge.
+2026-11-25T12:17:12.336615+00:00 namedfile lakebuildPASS (9249lines522141bytes); lower20/upper25 axioms each exactlypropext,Classical.choice,Quot.sound. OrdinarymonotoneAND≥7formattedcomponent compilePASS and independentlyreviewed.

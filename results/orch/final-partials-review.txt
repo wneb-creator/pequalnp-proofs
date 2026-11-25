@@ -1,0 +1,23 @@
+Independent final partial-artifact review by status_review, 2026-11-25
+
+Named file: lean/PEqualNP/Outside/L_meta_9811.lean
+SHA256 773f0b9c16f44f2d7be6cc2cb756a21bcbf05c2c45b61c963186068e4ef4994b
+522141 bytes, 9249 lines.
+
+Static review passed. All imports are permitted. All helper declarations are in approved namespaces; limit options are declaration-local and permitted. No forbidden forms, axioms, unsafe constructs, or shadowing of primitive/project circuit names found. The official outside-guard reports only the intentionally absent final theorem. This file remains a partial and is not a proof PR submission.
+
+The lower target has exactly the desk's 19 edges. Its canonical relabeling was independently verified. Lower equality certificates now use the independently compiled generic DNF subsumption/pinning/relabeling lemmas and closed finite clause checks. The lower conclusion is 20. The appended previously reviewed circuit has 25 gates and computes the literal desk expression. The posted exclusion of size 24 is not claimed.
+
+Ordinary monotone AND-count artifact: results/orch/lemmas/AndSevenRoot.lean
+SHA256 0641270b97343fa08db59e520f212d453bfa3cd34b8f2736125987f0f59e2d90
+50984 bytes, 1139 lines.
+
+Semantic review passed. The first 644 lines are the previously reviewed seven-AND argument. The compiler block was independently verified to equal the existing L_meta_4682 proof byte-for-byte after the namespace rename and replacement of the concrete arity 27 by 14. Its output is a well-formed AndCountCircuit with size bounded by the number of AND gates of the source circuit and identical evaluations on every input subset. The source Monotone2 condition excludes NOT and restricts fan-in to two. Its required false input is explicitly the empty set; this excludes the constant-true output case. The representation treats missing wires as false and handles constants during compilation, matching the project's root model.
+
+The final wrapper uses exact target evaluations on the 39 maximal independent sets and their one-vertex extensions, plus the actual edge {1,7}. It therefore establishes at least seven AND gates for ordinary monotone fan-in-two circuits computing the exact target. This says nothing about arbitrary NOT gates or total size 25.
+
+Formatting note for the original AndSevenRoot artifact: copied helpers still use theorem keywords and the compiler declaration sits at top level. The author is preparing a formatted copy with lemma keywords and the compiler declaration inside the own namespace. The original is semantically checked research output; the formatted copy is preferable for proof-file integration. Its St structure invokes the repository's manual-reader path if included in a final PR.
+
+Verdict: approved for preservation as accurately labeled partial results, conditional on successful named-file build. No full-gap acceptance is claimed.
+
+Formatted ordinary-monotone artifact additionally reviewed: results/orch/lemmas/AndSevenRootFormat.lean, SHA256 325409cd314ee777a184d40c9aeab10b551d2b98b2e95f8aad38fcddfb25dacf, 50977 bytes, 1143 lines. Independently verified its complete diff is exactly theorem-to-lemma renaming and the requested own-namespace wrapper around the compiler declaration; no proof changes. Official outside-guard now reports only the intentionally absent final theorem. Author confirms compilation exit 0. This formatted artifact is approved for preservation.

@@ -1,0 +1,16 @@
+lower bound 20
+delete 0 bound 19
+delete 1 bound 19
+delete 2 bound 18
+delete 3 bound 19
+delete 4 bound 18
+delete 5 bound 18
+delete 6 bound 18
+delete 7 bound 19
+delete 8 bound 18
+delete 9 bound 19
+delete 10 bound 18
+delete 11 bound 18
+delete 12 bound 18
+delete 13 bound 19
+CacheInfo(hits=1091149, misses=106170, maxsize=None, currsize=106170) seconds 1.6731539259999977
