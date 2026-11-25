@@ -549,4 +549,571 @@ lemma computes_pad (N : ℕ) (I : Fin N → Fin N → Prop) (C : Circuit)
 
 end Padding
 
+namespace Restriction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma any_filterMap {α β : Type} (f : α → Option β) (g : β → Bool) (xs : List α) :
+    (xs.filterMap f).any g = xs.any (fun x => ((f x).map g).getD false) := by
+  induction xs with
+  | nil => rfl
+  | cons a xs ih =>
+    cases ha : f a <;> simp [ha, ih]
+
+lemma all_filterMap {α β : Type} (f : α → Option β) (g : β → Bool) (xs : List α) :
+    xs.all (fun x => ((f x).map g).getD false) =
+      if xs.any (fun x => (f x).isNone) then false else (xs.filterMap f).all g := by
+  induction xs with
+  | nil => rfl
+  | cons a xs ih =>
+    cases ha : f a with
+    | none => simp [ha]
+    | some b =>
+      simp only [List.all_cons, ha, Option.map_some, Option.getD_some, List.any_cons,
+        Option.isNone_some, Bool.false_or, List.filterMap_cons]
+      rw [ih]
+      split <;> simp_all
+
+def wireMap {m n : ℕ} (ρ : Fin m → Option (Fin n)) (w : ℕ) : Option ℕ :=
+  if h : w < m then (ρ ⟨w, h⟩).map Fin.val else some (n + (w - m))
+
+def gate {m n : ℕ} (ρ : Fin m → Option (Fin n)) (g : Gate) : Gate :=
+  match g.op with
+  | .and =>
+    if g.inputs.any (fun w => (wireMap ρ w).isNone) then ⟨.or, []⟩
+    else ⟨.and, g.inputs.filterMap (wireMap ρ)⟩
+  | op => ⟨op, g.inputs.filterMap (wireMap ρ)⟩
+
+def circuit {m n : ℕ} (ρ : Fin m → Option (Fin n)) (C : Circuit) : Circuit :=
+  ⟨C.gates.map (gate ρ), (wireMap ρ C.output).getD (n + C.size)⟩
+
+def input {m n : ℕ} (ρ : Fin m → Option (Fin n)) (z : Fin n → Bool) : Fin m → Bool :=
+  fun i => ((ρ i).map z).getD false
+
+lemma wireMap_last {m n : ℕ} (ρ : Fin m → Option (Fin n)) (i t : ℕ) :
+    wireMap ρ i = some (n + t) ↔ i = m + t := by
+  unfold wireMap
+  split_ifs with hi
+  · cases hρ : ρ ⟨i, hi⟩ with
+    | none => simp; omega
+    | some k => simp only [Option.map_some, Option.some.injEq]; omega
+  · simp only [Option.some.injEq]
+    omega
+
+lemma gate_value {m n : ℕ} (ρ : Fin m → Option (Fin n)) (g : Gate)
+    (xs ys : List Bool) (hop : g.op = .and ∨ g.op = .or)
+    (hxy : ∀ i, xs.getD i false = ((wireMap ρ i).map (fun j => ys.getD j false)).getD false) :
+    g.op.eval (g.inputs.map (fun i => xs.getD i false)) =
+      (gate ρ g).op.eval ((gate ρ g).inputs.map (fun i => ys.getD i false)) := by
+  rcases g with ⟨op, ins⟩
+  simp only at hop
+  rcases hop with rfl | rfl
+  · simp only [gate]
+    split_ifs with hnone
+    · simp only [GateOp.eval, List.all_map, List.map_nil, List.any_nil]
+      simp only [Function.id_comp]
+      simp_rw [hxy]
+      rw [all_filterMap]
+      simp [hnone]
+    · simp only [GateOp.eval, List.all_map]
+      simp only [Function.id_comp]
+      simp_rw [hxy]
+      rw [all_filterMap]
+      simp [hnone]
+  · simp only [gate, GateOp.eval, List.any_map]
+    simp_rw [hxy]
+    exact (any_filterMap _ _ _).symm
+
+lemma getD_snoc {α : Type} (xs : List α) (a d : α) (i : ℕ) :
+    (xs ++ [a]).getD i d = if i = xs.length then a else xs.getD i d := by
+  by_cases hi : i < xs.length
+  · rw [List.getD_append _ _ _ _ hi]
+    simp [Nat.ne_of_lt hi]
+  · rw [List.getD_append_right _ _ _ _ (by omega)]
+    by_cases he : i = xs.length
+    · simp [he]
+    · rw [List.getD_eq_default _ _ (by simp; omega),
+        List.getD_eq_default _ _ (by omega)]
+      simp [he]
+
+lemma extend_values {m n t : ℕ} (ρ : Fin m → Option (Fin n)) (xs ys : List Bool)
+    (hx : xs.length = m + t) (hy : ys.length = n + t)
+    (hxy : ∀ i, xs.getD i false = ((wireMap ρ i).map (fun j => ys.getD j false)).getD false)
+    (b : Bool) :
+    ∀ i, (xs ++ [b]).getD i false =
+      ((wireMap ρ i).map (fun j => (ys ++ [b]).getD j false)).getD false := by
+  intro i
+  rw [getD_snoc]
+  by_cases hi : i = m + t
+  · have hm := (wireMap_last ρ i t).mpr hi
+    rw [ite_eq_left (hi.trans hx.symm), hm]
+    simp only [Option.map_some, Option.getD_some]
+    rw [getD_snoc, hy, ite_eq_left rfl]
+  · simp only [hx, hi, ↓reduceIte]
+    rw [hxy]
+    cases hm : wireMap ρ i with
+    | none => rfl
+    | some j =>
+      have hj : j ≠ n + t := by
+        intro he
+        apply hi
+        apply (wireMap_last ρ i t).mp
+        simpa [he] using hm
+      simp only [Option.map_some, Option.getD_some]
+      rw [getD_snoc, hy, ite_eq_right hj]
+
+def run (gs : List Gate) (xs : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map (fun i => w.getD i false))]) xs
+
+lemma run_length (gs : List Gate) (xs : List Bool) :
+    (run gs xs).length = xs.length + gs.length := by
+  induction gs generalizing xs with
+  | nil => simp [run]
+  | cons g gs ih =>
+    simp only [run, List.foldl_cons] at *
+    rw [ih]
+    simp
+    omega
+
+lemma initial_values {m n : ℕ} (ρ : Fin m → Option (Fin n)) (z : Fin n → Bool) :
+    ∀ i, (List.ofFn (input ρ z)).getD i false =
+      ((wireMap ρ i).map (fun j => (List.ofFn z).getD j false)).getD false := by
+  intro i
+  by_cases hi : i < m
+  · cases hr : ρ ⟨i, hi⟩ with
+    | none => simp [input, wireMap, hi, hr, List.getD_eq_getElem?_getD]
+    | some j => simp [input, wireMap, hi, hr, List.getD_eq_getElem?_getD]
+  · have hni : ¬ n + (i - m) < n := by omega
+    simp [wireMap, hi, hni, List.getD_eq_getElem?_getD]
+
+lemma run_values {m n : ℕ} (ρ : Fin m → Option (Fin n)) (gs : List Gate)
+    (hop : ∀ g ∈ gs, g.op = .and ∨ g.op = .or)
+    (t : ℕ) (xs ys : List Bool) (hx : xs.length = m + t) (hy : ys.length = n + t)
+    (hxy : ∀ i, xs.getD i false = ((wireMap ρ i).map (fun j => ys.getD j false)).getD false) :
+    ∀ i, (run gs xs).getD i false =
+      ((wireMap ρ i).map (fun j => (run (gs.map (gate ρ)) ys).getD j false)).getD false := by
+  induction gs generalizing t xs ys with
+  | nil => exact hxy
+  | cons g gs ih =>
+    have hv := gate_value ρ g xs ys (hop g (by simp)) hxy
+    change ∀ i, (run gs (xs ++ [g.op.eval (g.inputs.map (fun j => xs.getD j false))])).getD i false = _
+    apply ih (fun g hg => hop g (by simp [hg])) (t + 1)
+    · simp [hx]
+      omega
+    · simp [hy]
+      omega
+    · dsimp only
+      rw [← hv]
+      exact extend_values ρ xs ys hx hy hxy _
+
+lemma wires {m n : ℕ} (ρ : Fin m → Option (Fin n)) (C : Circuit)
+    (hmono : Monotone2 C) (z : Fin n → Bool) :
+    ∀ i, (C.wires (List.ofFn (input ρ z))).getD i false =
+      ((wireMap ρ i).map (fun j => ((circuit ρ C).wires (List.ofFn z)).getD j false)).getD false := by
+  apply run_values ρ C.gates _ 0 (List.ofFn (input ρ z)) (List.ofFn z)
+    (by simp) (by simp) (initial_values ρ z)
+  intro g hg
+  simpa using (hmono g hg).1
+
+lemma size {m n : ℕ} (ρ : Fin m → Option (Fin n)) (C : Circuit) :
+    (circuit ρ C).size = C.size := by
+  simp [circuit, Circuit.size]
+
+lemma mono {m n : ℕ} (ρ : Fin m → Option (Fin n)) (C : Circuit)
+    (hmono : Monotone2 C) : Monotone2 (circuit ρ C) := by
+  intro g hg
+  obtain ⟨g0, hg0, rfl⟩ := List.mem_map.mp hg
+  have hm := hmono g0 hg0
+  have hop : g0.op = .and ∨ g0.op = .or := by simpa using hm.1
+  have hlen := List.length_filterMap_le (f := wireMap ρ) (l := g0.inputs)
+  rcases g0 with ⟨op, ins⟩
+  simp only at hop hm hlen
+  rcases hop with rfl | rfl
+  · simp only [gate]
+    split_ifs <;> simp_all
+    omega
+  · simp only [gate]
+    simp_all
+    omega
+
+lemma eval {m n : ℕ} (ρ : Fin m → Option (Fin n)) (C : Circuit)
+    (hmono : Monotone2 C) (z : Fin n → Bool) :
+    circuitFun n (circuit ρ C) z = circuitFun m C (input ρ z) := by
+  have hv := wires ρ C hmono z C.output
+  change ((circuit ρ C).wires (List.ofFn z)).getD (wireMap ρ C.output |>.getD (n + C.size)) false = _
+  cases ho : wireMap ρ C.output with
+  | some j => simpa only [ho, Option.map_some, Option.getD_some, circuitFun, Circuit.eval] using hv.symm
+  | none =>
+    have hl : ((circuit ρ C).wires (List.ofFn z)).length = n + C.size := by
+      change (run (C.gates.map (gate ρ)) (List.ofFn z)).length = _
+      simp [run_length, Circuit.size]
+    simp only [Option.getD_none]
+    rw [List.getD_eq_default _ _ hl.le]
+    simpa only [ho, Option.map_none, Option.getD_none, circuitFun, Circuit.eval] using hv.symm
+
+lemma gate_value_at {m n : ℕ} (ρ : Fin m → Option (Fin n)) (C : Circuit)
+    (hmono : Monotone2 C) (z : Fin n → Bool) (j : ℕ) :
+    PEqualNP.EdgeOwnership.gateVal n (circuit ρ C) j z =
+      PEqualNP.EdgeOwnership.gateVal m C j (input ρ z) := by
+  have hv := wires ρ C hmono z (m + j)
+  have hm := (wireMap_last ρ (m + j) j).mpr rfl
+  simpa only [hm, Option.map_some, Option.getD_some, PEqualNP.EdgeOwnership.gateVal] using hv.symm
+
+lemma input_mem {m n : ℕ} (ρ : Fin m → Option (Fin n)) (g : Gate) (i : ℕ)
+    (hi : i ∈ (gate ρ g).inputs) : ∃ w ∈ g.inputs, wireMap ρ w = some i := by
+  rcases g with ⟨op, ins⟩
+  cases op <;> simp only [gate] at hi
+  · split_ifs at hi with hnone
+    · simp at hi
+    · exact List.mem_filterMap.mp hi
+  all_goals exact List.mem_filterMap.mp hi
+
+lemma mapped_lt {m n : ℕ} (ρ : Fin m → Option (Fin n)) (w i t : ℕ)
+    (hw : w < m + t) (hi : wireMap ρ w = some i) : i < n + t := by
+  unfold wireMap at hi
+  split_ifs at hi with hm
+  · cases hρ : ρ ⟨w, hm⟩ with
+    | none => simp [hρ] at hi
+    | some k => simp only [hρ, Option.map_some, Option.some.injEq] at hi; omega
+  · simp only [Option.some.injEq] at hi
+    omega
+
+lemma gate_at {m n : ℕ} (ρ : Fin m → Option (Fin n)) (C : Circuit) (j : ℕ) :
+    NestedCover.gateAt (circuit ρ C) j = gate ρ (NestedCover.gateAt C j) := by
+  exact List.getD_map C.gates ⟨.or, []⟩ (gate ρ)
+
+lemma readsBack {m n : ℕ} (ρ : Fin m → Option (Fin n)) (C : Circuit)
+    (hback : NestedCover.ReadsBack m C) : NestedCover.ReadsBack n (circuit ρ C) := by
+  intro j hj i hi
+  rw [gate_at] at hi
+  obtain ⟨w, hw, hmap⟩ := input_mem ρ _ i hi
+  have hj' : j < C.gates.length := by simpa [circuit] using hj
+  exact mapped_lt ρ w i j (hback j hj' w hw) hmap
+
+lemma gate_and_origin {m n : ℕ} (ρ : Fin m → Option (Fin n)) (g : Gate)
+    (h : (gate ρ g).op = .and) : g.op = .and := by
+  rcases g with ⟨op, ins⟩
+  cases op <;> simp_all [gate]
+
+lemma and_origin {m n : ℕ} (ρ : Fin m → Option (Fin n)) (C : Circuit) (j : ℕ)
+    (h : (NestedCover.gateAt (circuit ρ C) j).op = .and) :
+    (NestedCover.gateAt C j).op = .and := by
+  rw [gate_at] at h
+  exact gate_and_origin ρ _ h
+
+lemma rejects {m n : ℕ} (ρ : Fin m → Option (Fin n)) (C : Circuit)
+    (hmono : Monotone2 C) (z : Fin n → Bool)
+    (h : ∀ j < C.gates.length, (NestedCover.gateAt C j).op = .and →
+      PEqualNP.EdgeOwnership.gateVal m C j (input ρ z) = false) :
+    ∀ j < (circuit ρ C).gates.length, (NestedCover.gateAt (circuit ρ C) j).op = .and →
+      PEqualNP.EdgeOwnership.gateVal n (circuit ρ C) j z = false := by
+  intro j hj hand
+  rw [gate_value_at ρ C hmono z j]
+  exact h j (by simpa [circuit] using hj) (and_origin ρ C j hand)
+
+end Restriction
+
+namespace Bridge
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_3451_aux.Padding
+
+def inputMap (N : ℕ) : Fin ((N + 1) + (N + 1)) → Option (Fin (N + N)) :=
+  Fin.addCases
+    (fun p : Fin (N + 1) => if h : p.val < N then some (Fin.castAdd N ⟨p.val, h⟩) else none)
+    (fun l : Fin (N + 1) => if h : l.val < N then some (Fin.natAdd N ⟨l.val, h⟩) else none)
+
+def embedInput (N : ℕ) : Fin (N + N) → Fin ((N + 1) + (N + 1)) :=
+  Fin.addCases (fun p => Fin.castAdd (N + 1) p.castSucc)
+    (fun l => Fin.natAdd (N + 1) l.castSucc)
+
+lemma inputMap_embed (N : ℕ) (i : Fin (N + N)) :
+    inputMap N (embedInput N i) = some i := by
+  refine Fin.addCases (fun p => ?_) (fun l => ?_) i
+  · rw [embedInput, Fin.addCases_left, inputMap, Fin.addCases_left]
+    simp only [Fin.val_castSucc]
+    rw [dite_eq_left p.isLt]
+  · rw [embedInput, Fin.addCases_right, inputMap, Fin.addCases_right]
+    simp only [Fin.val_castSucc]
+    rw [dite_eq_left l.isLt]
+
+lemma inputMap_some (N : ℕ) (k : Fin ((N + 1) + (N + 1))) (i : Fin (N + N))
+    (h : inputMap N k = some i) : embedInput N i = k := by
+  revert h
+  refine Fin.addCases (fun p => ?_) (fun l => ?_) k
+  · intro h
+    simp only [inputMap, Fin.addCases_left] at h
+    split_ifs at h with hp
+    cases Option.some.inj h
+    rw [embedInput, Fin.addCases_left]
+    rfl
+  · intro h
+    simp only [inputMap, Fin.addCases_right] at h
+    split_ifs at h with hl
+    cases Option.some.inj h
+    rw [embedInput, Fin.addCases_right]
+    rfl
+
+lemma inputMap_iff (N : ℕ) (k : Fin ((N + 1) + (N + 1))) (i : Fin (N + N)) :
+    inputMap N k = some i ↔ k = embedInput N i := by
+  constructor
+  · exact fun h => (inputMap_some N k i h).symm
+  · rintro rfl
+    exact inputMap_embed N i
+
+lemma lifted_singleton (N : ℕ) (i : Fin (N + N)) :
+    PEqualNP.Outside.L_meta_3451_aux.Restriction.input (inputMap N) (fun k => decide (k = i)) =
+      fun k => decide (k = embedInput N i) := by
+  funext k
+  unfold PEqualNP.Outside.L_meta_3451_aux.Restriction.input
+  cases h : inputMap N k with
+  | none =>
+    have hn : k ≠ embedInput N i := by
+      intro he
+      have := (inputMap_iff N k i).mpr he
+      rw [h] at this
+      cases this
+    simp [hn]
+  | some j =>
+    simp only [Option.map_some, Option.getD_some]
+    apply Bool.eq_iff_iff.mpr
+    simp only [decide_eq_true_eq]
+    constructor
+    · intro he
+      subst j
+      exact (inputMap_iff N k i).mp h
+    · intro he
+      have hh := (inputMap_iff N k i).mpr he
+      rw [h] at hh
+      exact Option.some.inj hh
+
+lemma lifted_pair (N : ℕ) (i j : Fin (N + N)) :
+    PEqualNP.Outside.L_meta_3451_aux.Restriction.input (inputMap N)
+      (fun k => decide (k = i ∨ k = j)) =
+      fun k => decide (k = embedInput N i ∨ k = embedInput N j) := by
+  funext k
+  have hi := congrFun (lifted_singleton N i) k
+  have hj := congrFun (lifted_singleton N j) k
+  unfold PEqualNP.Outside.L_meta_3451_aux.Restriction.input at hi hj ⊢
+  cases h : inputMap N k <;> simp_all
+
+open PEqualNP.Outside.L_meta_3451_aux
+
+lemma computes_restrict (N : ℕ) (I : Fin N → Fin N → Prop) (C : Circuit)
+    (hC : Monotone2 C)
+    (sem : ∀ z : Fin ((N + 1) + (N + 1)) → Bool,
+      circuitFun ((N + 1) + (N + 1)) C z = true ↔
+      ∃ p l : Fin (N + 1), padIncidence N I p l ∧
+        z (Fin.castAdd (N + 1) p) = true ∧ z (Fin.natAdd (N + 1) l) = true) :
+    ∀ z : Fin (N + N) → Bool,
+      circuitFun (N + N) (Restriction.circuit (inputMap N) C) z = true ↔
+      ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true := by
+  intro z
+  rw [Restriction.eval (inputMap N) C hC z, sem]
+  constructor
+  · rintro ⟨p, l, ⟨hp, hl, hi⟩, hz, hw⟩
+    refine ⟨⟨p.val, hp⟩, ⟨l.val, hl⟩, hi, ?_, ?_⟩
+    · simpa only [Restriction.input, inputMap, Fin.addCases_left, dite_eq_left hp,
+        Option.map_some, Option.getD_some] using hz
+    · simpa only [Restriction.input, inputMap, Fin.addCases_right, dite_eq_left hl,
+        Option.map_some, Option.getD_some] using hw
+  · rintro ⟨p, l, hi, hp, hl⟩
+    refine ⟨p.castSucc, l.castSucc, ⟨p.isLt, l.isLt, hi⟩, ?_, ?_⟩
+    · simpa only [Restriction.input, inputMap, Fin.addCases_left, Fin.val_castSucc,
+        dite_eq_left p.isLt, Option.map_some, Option.getD_some] using hp
+    · simpa only [Restriction.input, inputMap, Fin.addCases_right, Fin.val_castSucc,
+        dite_eq_left l.isLt, Option.map_some, Option.getD_some] using hl
+
+def PairNormalizes : Prop :=
+  ∀ (N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I] (C : Circuit),
+    (∀ p p' l l' : Fin N, p ≠ p' → l ≠ l' → ¬ (I p l ∧ I p l' ∧ I p' l ∧ I p' l')) →
+    Monotone2 C → NestedCover.ReadsBack (N + N) C →
+    (∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z = true ↔
+      ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) →
+    ∃ D : Circuit, Monotone2 D ∧ NestedCover.ReadsBack (N + N) D ∧ D.size ≤ C.size ∧
+      (∀ z : Fin (N + N) → Bool, circuitFun (N + N) D z = true ↔
+        ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) ∧
+      (∀ j < D.gates.length, (NestedCover.gateAt D j).op = GateOp.and →
+        ∀ p l : Fin N, ¬ I p l →
+          (D.wires (List.ofFn (fun k : Fin (N + N) =>
+            decide (k = Fin.castAdd N p ∨ k = Fin.natAdd N l)))).getD
+              (N + N + j) false = false)
+
+lemma full_of_pair (hyp : PairNormalizes) :
+    ∀ (N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I] (C : Circuit),
+      (∀ p p' l l' : Fin N, p ≠ p' → l ≠ l' → ¬ (I p l ∧ I p l' ∧ I p' l ∧ I p' l')) →
+      Monotone2 C → NestedCover.ReadsBack (N + N) C →
+      (∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z = true ↔
+        ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) →
+      ∃ D : Circuit, Monotone2 D ∧ NestedCover.ReadsBack (N + N) D ∧ D.size ≤ C.size ∧
+        (∀ z : Fin (N + N) → Bool, circuitFun (N + N) D z = true ↔
+          ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) ∧
+        (∀ j < D.gates.length, (NestedCover.gateAt D j).op = GateOp.and →
+          ∀ p l : Fin N, ¬ I p l →
+            (D.wires (List.ofFn (fun k : Fin (N + N) =>
+              decide (k = Fin.castAdd N p ∨ k = Fin.natAdd N l)))).getD
+                (N + N + j) false = false) ∧
+        (∀ j < D.gates.length, (NestedCover.gateAt D j).op = GateOp.and →
+          (∀ p : Fin N, (D.wires (List.ofFn (fun k : Fin (N + N) =>
+            decide (k = Fin.castAdd N p)))).getD (N + N + j) false = false) ∧
+          ∀ l : Fin N, (D.wires (List.ofFn (fun k : Fin (N + N) =>
+            decide (k = Fin.natAdd N l)))).getD (N + N + j) false = false) := by
+  classical
+  intro N I _ C hfour hmono hback sem
+  obtain ⟨D, dm, db, ds, de, dp⟩ := hyp (N + 1) (padIncidence N I) (padCircuit N C)
+    (noFourCycle_pad N I hfour) (monotone_pad N C hmono) (readsBack_pad N C hback)
+    (computes_pad N I C sem)
+  have dz := singleton_clean_of_nonedge (N + 1) (padIncidence N I) D dm
+    (point_misses N I) (line_misses N I) dp
+  refine ⟨Restriction.circuit (inputMap N) D, Restriction.mono _ D dm,
+    Restriction.readsBack _ D db, ?_, computes_restrict N I D dm de, ?_, ?_⟩
+  · rw [Restriction.size]
+    simpa only [size_pad] using ds
+  · intro j hj hand p l hn
+    change PEqualNP.EdgeOwnership.gateVal (N + N)
+      (Restriction.circuit (inputMap N) D) j
+      (fun k => decide (k = Fin.castAdd N p ∨ k = Fin.natAdd N l)) = false
+    rw [Restriction.gate_value_at _ D dm, lifted_pair]
+    simp only [embedInput, Fin.addCases_left, Fin.addCases_right]
+    apply dp j (by simpa only [Restriction.circuit, List.length_map] using hj)
+      (Restriction.and_origin _ D j hand) p.castSucc l.castSucc
+    rintro ⟨_, _, hi⟩
+    exact hn hi
+  · intro j hj hand
+    have hj' : j < D.gates.length := by
+      simpa only [Restriction.circuit, List.length_map] using hj
+    have hand' := Restriction.and_origin _ D j hand
+    constructor
+    · intro p
+      change PEqualNP.EdgeOwnership.gateVal (N + N)
+        (Restriction.circuit (inputMap N) D) j
+        (fun k => decide (k = Fin.castAdd N p)) = false
+      rw [Restriction.gate_value_at _ D dm, lifted_singleton]
+      simp only [embedInput, Fin.addCases_left]
+      exact (dz j hj' hand').1 p.castSucc
+    · intro l
+      change PEqualNP.EdgeOwnership.gateVal (N + N)
+        (Restriction.circuit (inputMap N) D) j
+        (fun k => decide (k = Fin.natAdd N l)) = false
+      rw [Restriction.gate_value_at _ D dm, lifted_singleton]
+      simp only [embedInput, Fin.addCases_right]
+      exact (dz j hj' hand').2 l.castSucc
+
+lemma pair_iff_full : PairNormalizes ↔ (∀ (N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I] (C : PEqualNP.CircuitLowerBounds.Circuit), (∀ p p' l l' : Fin N, p ≠ p' → l ≠ l' → ¬ (I p l ∧ I p l' ∧ I p' l ∧ I p' l')) → PEqualNP.MetaComplexity.Monotone2 C → PEqualNP.MetaComplexity.NestedCover.ReadsBack (N + N) C → (∀ z : Fin (N + N) → Bool, PEqualNP.MetaComplexity.circuitFun (N + N) C z = true ↔ ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) → ∃ D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 D ∧ PEqualNP.MetaComplexity.NestedCover.ReadsBack (N + N) D ∧ D.size ≤ C.size ∧ (∀ z : Fin (N + N) → Bool, PEqualNP.MetaComplexity.circuitFun (N + N) D z = true ↔ ∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) ∧ (∀ j < D.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = PEqualNP.CircuitLowerBounds.GateOp.and → ∀ p0 l0 : Fin N, ¬ I p0 l0 → (D.wires (List.ofFn (fun ke : Fin (N + N) => decide (ke = Fin.castAdd N p0 ∨ ke = Fin.natAdd N l0)))).getD (N + N + j) false = false) ∧ (∀ j < D.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = PEqualNP.CircuitLowerBounds.GateOp.and → (∀ p : Fin N, (D.wires (List.ofFn (fun kc : Fin (N + N) => decide (kc = Fin.castAdd N p)))).getD (N + N + j) false = false) ∧ ∀ l : Fin N, (D.wires (List.ofFn (fun kd : Fin (N + N) => decide (kd = Fin.natAdd N l)))).getD (N + N + j) false = false)) := by
+  constructor
+  · exact full_of_pair
+  · intro h N I _ C hfour hm hb hs
+    obtain ⟨D, dm, db, ds, de, dp, _⟩ := h N I C hfour hm hb hs
+    exact ⟨D, dm, db, ds, de, dp⟩
+
+end Bridge
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def sharedOrExample : Circuit :=
+  ⟨[⟨.or, [0, 1]⟩, ⟨.or, [3, 4]⟩, ⟨.and, [6, 7]⟩,
+    ⟨.and, [2, 5]⟩, ⟨.or, [8, 9]⟩, ⟨.and, [10, 0]⟩,
+    ⟨.and, [10, 4]⟩, ⟨.or, [11, 12]⟩, ⟨.or, [13, 9]⟩], 14⟩
+
+def sharedOrIncidence (p l : Fin 3) : Prop :=
+  (p = 0 ∧ (l = 0 ∨ l = 1)) ∨ (p = 1 ∧ l = 1) ∨ (p = 2 ∧ l = 2)
+
+def sharedOrClean : Circuit :=
+  ⟨[⟨.or, [3, 4]⟩, ⟨.and, [0, 6]⟩, ⟨.and, [1, 4]⟩,
+    ⟨.or, [7, 8]⟩, ⟨.and, [2, 5]⟩, ⟨.or, [9, 10]⟩], 11⟩
+
+lemma sharedOrExample_sizes : sharedOrExample.size = 9 ∧ sharedOrClean.size = 6 := by
+  decide
+
+set_option synthInstance.maxSize 1000 in
+lemma sharedOrIncidence_c4_free :
+    ∀ p p' l l' : Fin 3, p ≠ p' → l ≠ l' →
+      ¬ (sharedOrIncidence p l ∧ sharedOrIncidence p l' ∧
+        sharedOrIncidence p' l ∧ sharedOrIncidence p' l') := by
+  unfold sharedOrIncidence
+  decide
+
+lemma sharedOrExample_model :
+    Monotone2 sharedOrExample ∧ NestedCover.ReadsBack 6 sharedOrExample ∧
+      Monotone2 sharedOrClean ∧ NestedCover.ReadsBack 6 sharedOrClean := by
+  let := NestedCover.gateOpDecEq
+  unfold Monotone2
+  decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+lemma sharedOrExample_computes :
+    ∀ z : Fin 6 → Bool, circuitFun 6 sharedOrExample z = true ↔
+      ∃ p l : Fin 3, sharedOrIncidence p l ∧
+        z (Fin.castAdd 3 p) = true ∧ z (Fin.natAdd 3 l) = true := by
+  unfold sharedOrIncidence
+  decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+lemma sharedOrClean_computes :
+    ∀ z : Fin 6 → Bool, circuitFun 6 sharedOrClean z = true ↔
+      ∃ p l : Fin 3, sharedOrIncidence p l ∧
+        z (Fin.castAdd 3 p) = true ∧ z (Fin.natAdd 3 l) = true := by
+  unfold sharedOrIncidence
+  decide
+
+lemma sharedOrExample_dirty :
+    ¬ sharedOrIncidence 1 0 ∧
+      (sharedOrExample.wires (List.ofFn (fun k : Fin 6 => decide (k = 1 ∨ k = 3)))).getD
+        8 false = true := by
+  unfold sharedOrIncidence
+  decide
+
+lemma sharedOrExample_replace_left :
+    circuitFun 6 (PEqualNP.FactorSubst.substReads sharedOrExample 6 2 (fun _ => 6))
+      (fun k => decide (k = 0)) = true ∧
+    circuitFun 6 sharedOrExample (fun k => decide (k = 0)) = false := by
+  decide
+
+lemma sharedOrExample_replace_right :
+    circuitFun 6 (PEqualNP.FactorSubst.substReads sharedOrExample 6 2 (fun _ => 7))
+      (fun k => decide (k = 4)) = true ∧
+    circuitFun 6 sharedOrExample (fun k => decide (k = 4)) = false := by
+  decide
+
+lemma sharedOrExample_only_reader :
+    PEqualNP.TopForm.readers 6 sharedOrExample 2 = {4} := by
+  decide
+
+lemma sharedOrExample_no_factor_substitution (sigma : ℕ → ℕ)
+    (hs : sigma 4 = 6 ∨ sigma 4 = 7) :
+    circuitFun 6 (PEqualNP.FactorSubst.substReads sharedOrExample 6 2 sigma) ≠
+      circuitFun 6 sharedOrExample := by
+  have heq : PEqualNP.FactorSubst.substReads sharedOrExample 6 2 sigma =
+      PEqualNP.FactorSubst.substReads sharedOrExample 6 2 (fun _ => sigma 4) := by
+    rfl
+  rw [heq]
+  rcases hs with hs | hs
+  · rw [hs]
+    intro he
+    have hx := congrFun he (fun k => decide (k = 0))
+    rw [sharedOrExample_replace_left.1, sharedOrExample_replace_left.2] at hx
+    cases hx
+  · rw [hs]
+    intro he
+    have hx := congrFun he (fun k => decide (k = 4))
+    rw [sharedOrExample_replace_right.1, sharedOrExample_replace_right.2] at hx
+    cases hx
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+set_option synthInstance.maxSize 1000 in
+lemma sharedOrClean_rejects :
+    (∀ j < sharedOrClean.gates.length, (NestedCover.gateAt sharedOrClean j).op = GateOp.and →
+      ∀ p l : Fin 3, ¬ sharedOrIncidence p l →
+        (sharedOrClean.wires (List.ofFn (fun k : Fin 6 =>
+          decide (k = Fin.castAdd 3 p ∨ k = Fin.natAdd 3 l)))).getD (6 + j) false = false) ∧
+    (∀ j < sharedOrClean.gates.length, (NestedCover.gateAt sharedOrClean j).op = GateOp.and →
+      ∀ k : Fin 6, (sharedOrClean.wires (List.ofFn (fun w : Fin 6 => decide (w = k)))).getD
+        (6 + j) false = false) := by
+  let := NestedCover.gateOpDecEq
+  unfold sharedOrIncidence
+  decide
+
 end PEqualNP.Outside.L_meta_3451_aux
