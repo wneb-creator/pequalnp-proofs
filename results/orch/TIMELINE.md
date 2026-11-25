@@ -16,3 +16,5 @@
 - 2026-11-25T16:00:42.424183+00:00: actual circuit singleton-support gate count and disjoint charging compiled; partial checkpoint 4.
 - 2026-11-25T16:02:11.989821+00:00: re-plan after initial parallel phase: raw root-count and AND-only bridges disproved; focus component-rank counting and total remaining-gate budget.
 - 2026-11-25T16:03:42.260075+00:00: exact graph-function minimum-cover pruning built; partial checkpoint 5.
+- 2026-11-25T16:05:58.073727+00:00: component rank/core plus finite-edge and induced-connectivity adapters compiled; 30-helper ledger checkpoint published.
+- 2026-11-25T16:10:12.471936+00:00: generic support graph and component rank compiled; checkpoint 6. Structural agent delegated independent global-bridge review; total subagents now 7.

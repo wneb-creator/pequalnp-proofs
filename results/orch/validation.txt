@@ -19,3 +19,7 @@ Full theorem remains absent.
 Checkpoint 5: named module builds with actual minimum-cover pruning and paid-gate truth/disjointness facts.
 Research artifact counterexample.lean refutes an AND-only intermediate, not L-meta-4970. Its separate build exited 0.
 Full posted theorem remains unproved.
+
+Checkpoint 6: named module (1503 lines) builds; generic graph/component counting independently reviewed.
+Sub-agents: checker_review, lean_setup, counterexample, structural_proof, lemma_search, combinatorial_ledger, structural_proof/global_bridge
+TIMING total=47 subagents=7

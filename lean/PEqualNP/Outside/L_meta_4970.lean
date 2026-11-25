@@ -3,8 +3,11 @@ import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.Order.BigOperators.Group.Finset
 import Mathlib.Data.Nat.Find
 import PEqualNP.Defs
+import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
 import Mathlib.Data.Finset.Basic
 import Mathlib.Data.Fintype.Pi
+import Mathlib.Combinatorics.SimpleGraph.Acyclic
+import Mathlib.Combinatorics.SimpleGraph.Connectivity.Finite
 
 namespace PEqualNP.Outside.L_meta_4970
 
@@ -832,6 +835,110 @@ lemma pureOrPaid_card_le_size (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) :
   have h := Finset.card_le_card (pureOrPaid_sub_gates n C Q)
   simpa using h
 
+def edgeGraph {α : Type*} (E : Finset (α × α)) : SimpleGraph α :=
+  SimpleGraph.fromRel fun a b => (a, b) ∈ E
+
+lemma edgeGraph_mono {α : Type*} {E F : Finset (α × α)} (h : E ⊆ F) :
+    edgeGraph E ≤ edgeGraph F := by
+  intro a b hab
+  exact ⟨hab.1, hab.2.imp (fun h' => h h') (fun h' => h h')⟩
+
+lemma edgeGraph_link {α : Type*} [DecidableEq α] (E : Finset (α × α))
+    (a b : α) : (edgeGraph (insert (a,b) E)).Reachable a b := by
+  by_cases h : a = b
+  · subst b
+    exact SimpleGraph.Reachable.refl _
+  · apply SimpleGraph.Adj.reachable
+    exact ⟨h, Or.inl (Finset.mem_insert_self _ _)⟩
+
+lemma edgeGraph_union_connected {α : Type*} [DecidableEq α]
+    (E : Finset (α × α)) (A B : Finset α)
+    (hA : ∀ x ∈ A, ∀ y ∈ A, (edgeGraph E).Reachable x y)
+    (hB : ∀ x ∈ B, ∀ y ∈ B, (edgeGraph E).Reachable x y)
+    (a : α) (ha : a ∈ A) (b : α) (hb : b ∈ B) :
+    ∀ x ∈ A ∪ B, ∀ y ∈ A ∪ B,
+      (edgeGraph (insert (a,b) E)).Reachable x y := by
+  have hmono := edgeGraph_mono (Finset.subset_insert (a,b) E)
+  have hleg : ∀ x ∈ A ∪ B, (edgeGraph (insert (a,b) E)).Reachable x a := by
+    intro x hx
+    rcases Finset.mem_union.mp hx with hx | hx
+    · exact (hA x hx a ha).mono hmono
+    · exact ((hB x hx b hb).mono hmono).trans (edgeGraph_link E a b).symm
+  intro x hx y hy
+  exact (hleg x hx).trans (hleg y hy).symm
+
+lemma support_connected_edges {α : Type*} [DecidableEq α]
+    (U : Finset α) (S : ℕ → Finset α) (paid : Finset ℕ) (N : ℕ)
+    (hU : ∀ w < N, S w ⊆ U)
+    (step : ∀ w < N, 1 < (S w).card →
+      (∃ a < w, S w ⊆ S a) ∨
+        (w ∈ paid ∧ ∃ a < w, ∃ b < w, S w ⊆ S a ∪ S b)) :
+    ∃ E : Finset (α × α), E ⊆ U ×ˢ U ∧ E.card ≤ (Finset.range N ∩ paid).card ∧
+      ∀ w < N, ∀ x ∈ S w, ∀ y ∈ S w, (edgeGraph E).Reachable x y := by
+  classical
+  induction N with
+  | zero =>
+    refine ⟨∅, by simp, by simp, ?_⟩
+    intro w hw
+    omega
+  | succ N ih =>
+    obtain ⟨E, hEU, hcard, hconn⟩ := ih (fun w hw => hU w (by omega))
+      (fun w hw => step w (by omega))
+    have hcard' : E.card ≤ (Finset.range (N + 1) ∩ paid).card := by
+      apply hcard.trans
+      apply Finset.card_le_card
+      intro w hw
+      have hm := Finset.mem_inter.mp hw
+      exact Finset.mem_inter.mpr ⟨Finset.mem_range.mpr (by have := Finset.mem_range.mp hm.1; omega), hm.2⟩
+    have extend (F : Finset (α × α)) (hEF : E ⊆ F)
+        (hnew : ∀ x ∈ S N, ∀ y ∈ S N, (edgeGraph F).Reachable x y) :
+        ∀ w < N + 1, ∀ x ∈ S w, ∀ y ∈ S w, (edgeGraph F).Reachable x y := by
+      intro w hw x hx y hy
+      by_cases h : w < N
+      · exact (hconn w h x hx y hy).mono (edgeGraph_mono hEF)
+      · have he : w = N := by omega
+        subst w
+        exact hnew x hx y hy
+    by_cases hlarge : 1 < (S N).card
+    · rcases step N (by omega) hlarge with ⟨a, ha, hsub⟩ | ⟨hp, a, ha, b, hb, hsub⟩
+      · refine ⟨E, hEU, hcard', extend E (fun _ h => h) ?_⟩
+        exact fun x hx y hy => hconn a ha x (hsub hx) y (hsub hy)
+      · by_cases hA : (S a).Nonempty
+        · by_cases hB : (S b).Nonempty
+          · obtain ⟨u, hu⟩ := hA
+            obtain ⟨v, hv⟩ := hB
+            have hpaid : (Finset.range (N + 1) ∩ paid).card =
+                (Finset.range N ∩ paid).card + 1 := by
+              have heq : Finset.range (N + 1) ∩ paid = insert N (Finset.range N ∩ paid) := by
+                ext j
+                by_cases hj : j = N <;> simp [Finset.range_add_one, hj, hp]
+              rw [heq]
+              simp
+            refine ⟨insert (u,v) E, ?_, ?_, extend _ (Finset.subset_insert _ _) ?_⟩
+            · intro z hz
+              rcases Finset.mem_insert.mp hz with rfl | hz
+              · exact Finset.mem_product.mpr ⟨hU a (by omega) hu, hU b (by omega) hv⟩
+              · exact hEU hz
+            · have hi := Finset.card_insert_le (u,v) E
+              omega
+            · intro x hx y hy
+              exact edgeGraph_union_connected E (S a) (S b) (hconn a ha) (hconn b hb)
+                u hu v hv x (hsub hx) y (hsub hy)
+          · have hB' : S b = ∅ := Finset.not_nonempty_iff_eq_empty.mp hB
+            have hs : S N ⊆ S a := by simpa [hB'] using hsub
+            exact ⟨E, hEU, hcard', extend E (fun _ h => h)
+              (fun x hx y hy => hconn a ha x (hs hx) y (hs hy))⟩
+        · have hA' : S a = ∅ := Finset.not_nonempty_iff_eq_empty.mp hA
+          have hs : S N ⊆ S b := by simpa [hA'] using hsub
+          exact ⟨E, hEU, hcard', extend E (fun _ h => h)
+            (fun x hx y hy => hconn b hb x (hs hx) y (hs hy))⟩
+    · have hsmall : (S N).card ≤ 1 := by omega
+      refine ⟨E, hEU, hcard', extend E (fun _ h => h) ?_⟩
+      intro x hx y hy
+      have heq : x = y := Finset.card_le_one.mp hsmall x hx y hy
+      subst y
+      exact SimpleGraph.Reachable.refl _
+
 end PEqualNP.Outside.L_meta_4970_aux.Structural
 
 namespace PEqualNP.Outside.L_meta_4970.Pruning
@@ -1358,3 +1465,39 @@ lemma bipartite_minimum_cover_pruning (p l : ℕ) (E : Finset (Fin p × Fin l))
     exact hc
 
 end PEqualNP.Outside.L_meta_4970.Pruning
+
+namespace PEqualNP.Outside.L_meta_4970
+
+lemma graph_card_le_edges_add_components {V : Type*} [Finite V] (G : SimpleGraph V) :
+    Nat.card V ≤ G.edgeSet.ncard + Nat.card G.ConnectedComponent := by
+  classical
+  letI := Fintype.ofFinite V
+  letI := Fintype.ofFinite G.ConnectedComponent
+  calc
+    Nat.card V = ∑ c : G.ConnectedComponent, c.supp.ncard :=
+      G.sum_connectedComponent_ncard_supp.symm
+    _ ≤ ∑ c : G.ConnectedComponent, (c.toSimpleGraph.edgeSet.ncard + 1) := by
+      apply Finset.sum_le_sum
+      intro c hc
+      exact c.connected_toSimpleGraph.card_vert_le_card_edgeSet_add_one
+    _ = G.edgeSet.ncard + Nat.card G.ConnectedComponent := by
+      rw [Finset.sum_add_distrib, G.sum_connectedComponent_ncard_edgeSet]
+      simp [Nat.card_eq_fintype_card]
+
+lemma component_card_le_of_reachable {V : Type*} [Finite V] (G H : SimpleGraph V)
+    (h : ∀ u v, H.Reachable u v → G.Reachable u v) :
+    Nat.card G.ConnectedComponent ≤ Nat.card H.ConnectedComponent := by
+  let f : H.ConnectedComponent → G.ConnectedComponent :=
+    Quot.map id (fun u v huv => h u v huv)
+  apply Nat.card_le_card_of_surjective f
+  intro c
+  induction c using SimpleGraph.ConnectedComponent.ind with
+  | h v => exact ⟨H.connectedComponentMk v, rfl⟩
+
+lemma graph_card_le_edges_add_larger_components {V : Type*} [Finite V]
+    (G H : SimpleGraph V) (h : ∀ u v, H.Reachable u v → G.Reachable u v) :
+    Nat.card V ≤ G.edgeSet.ncard + Nat.card H.ConnectedComponent := by
+  exact (graph_card_le_edges_add_components G).trans
+    (Nat.add_le_add_left (component_card_le_of_reachable G H h) _)
+
+end PEqualNP.Outside.L_meta_4970
