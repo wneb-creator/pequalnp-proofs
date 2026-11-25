@@ -1,0 +1,10 @@
+{
+  "observed_at_utc": "2026-11-25T17:16:28.617694+00:00",
+  "command": "lake env lean ../results/orch/lemmas/AndDecisionCount2056.lean",
+  "workdir": "lean",
+  "exit_code": 0,
+  "source_sha256": "ce5d2bccd5545ec7912eddeec13839678dc0730479e65e75c4e339f7cfab9b94",
+  "lines": 60,
+  "scope": "Conditional cardinal bound from disjunctive upper approximations. No circuit-to-selector bridge or plane census is formalized here. Not the posted target.",
+  "checker": "Not submitted as a proof of L-meta-2056."
+}
