@@ -1,6 +1,7 @@
 L-meta-2685 PARTIAL snapshot; posted theorem remains unproved.
-Named-file lake build: PASS.
+Named-file lake build: PASS; includes least TopForm, canonical two-level shape, linear AND bypass, empty incidence.
 Local checker: not run; target theorem is not yet present.
-Independent review: approved partial snapshot, not eligible for proof PR.
-Sub-agents: 6 (prior status/library route, environment preparation, independent checker review, normalization, counterexample search, construction/counting).
-TIMING total=11 subagents=6
+Library normalization simplification: 1473 to 1149 lines; integrated target 1539 lines.
+Independent review: partial snapshot, not eligible for proof PR.
+Sub-agents: 6 (library route, environment/elimination, independent reviewer, normalization, counterexample search, construction/counting).
+TIMING total=14 subagents=6
