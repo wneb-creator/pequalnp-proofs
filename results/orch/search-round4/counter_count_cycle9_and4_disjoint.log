@@ -1,0 +1,3 @@
+DISJOINT first-pair orbits [(0, 1), (0, 2), (0, 3), (0, 4)] automorphisms 18
+START cycle9 and 4 rows 21 cnfbytes 59648
+RESULT unsat seconds 0.200577974319458 exit 20

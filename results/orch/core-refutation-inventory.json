@@ -1,0 +1,533 @@
+{
+  "L2969": {
+    "n": 2,
+    "edges": [
+      [
+        0,
+        1
+      ]
+    ],
+    "circuit": {
+      "n": 2,
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "gates": [
+        [
+          "and",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "or",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "and",
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          "and",
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "output": 4
+    },
+    "size": 4,
+    "canonical_optimum": 1,
+    "vertex_cover_size": 1,
+    "owned": {
+      "0": [
+        [
+          0,
+          1
+        ]
+      ],
+      "2": [],
+      "3": []
+    },
+    "dirty_AND": [],
+    "AND_false_on_every_edge": [],
+    "gates_without_essential_edge": [
+      3
+    ],
+    "cores": [
+      2,
+      3
+    ],
+    "maximal_cores": [
+      2,
+      3
+    ],
+    "core_cone_union": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "exclusive_core_cone": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "core_covered_edges": [
+      [
+        0,
+        1
+      ]
+    ],
+    "residual_cover_size": 0,
+    "all_gates_in_output_cone": false,
+    "count_bound": [
+      6,
+      5
+    ],
+    "exclusive_count_bound": [
+      6,
+      5
+    ],
+    "exchange_bound": [
+      2,
+      6
+    ]
+  },
+  "L3444": {
+    "n": 5,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "circuit": {
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "gates": [
+        [
+          "and",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "and",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "or",
+          [
+            2,
+            4
+          ]
+        ],
+        [
+          "and",
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          "or",
+          [
+            5,
+            8
+          ]
+        ],
+        [
+          "and",
+          [
+            2,
+            9
+          ]
+        ],
+        [
+          "or",
+          [
+            6,
+            10
+          ]
+        ],
+        [
+          "or",
+          [
+            9,
+            11
+          ]
+        ]
+      ],
+      "output": 12
+    },
+    "size": 8,
+    "canonical_optimum": 5,
+    "vertex_cover_size": 2,
+    "owned": {
+      "0": [
+        [
+          0,
+          1
+        ]
+      ],
+      "1": [
+        [
+          1,
+          2
+        ]
+      ],
+      "3": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "5": []
+    },
+    "dirty_AND": [],
+    "AND_false_on_every_edge": [],
+    "gates_without_essential_edge": [
+      5
+    ],
+    "cores": [
+      5
+    ],
+    "maximal_cores": [
+      5
+    ],
+    "core_cone_union": [
+      0,
+      2,
+      3,
+      4,
+      5
+    ],
+    "exclusive_core_cone": [
+      0,
+      2,
+      3,
+      5
+    ],
+    "core_covered_edges": [
+      [
+        2,
+        3
+      ]
+    ],
+    "residual_cover_size": 2,
+    "all_gates_in_output_cone": true,
+    "count_bound": [
+      11,
+      9
+    ],
+    "exclusive_count_bound": [
+      10,
+      9
+    ],
+    "exchange_bound": [
+      3,
+      7
+    ]
+  },
+  "L3446": {
+    "n": 7,
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "circuit": {
+      "n": 7,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "gates": [
+        [
+          "or",
+          [
+            0,
+            4
+          ]
+        ],
+        [
+          "or",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "or",
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          "and",
+          [
+            8,
+            9
+          ]
+        ],
+        [
+          "and",
+          [
+            7,
+            10
+          ]
+        ],
+        [
+          "and",
+          [
+            1,
+            4
+          ]
+        ],
+        [
+          "and",
+          [
+            5,
+            6
+          ]
+        ],
+        [
+          "and",
+          [
+            13,
+            7
+          ]
+        ],
+        [
+          "and",
+          [
+            13,
+            8
+          ]
+        ],
+        [
+          "and",
+          [
+            13,
+            9
+          ]
+        ],
+        [
+          "and",
+          [
+            13,
+            10
+          ]
+        ],
+        [
+          "or",
+          [
+            11,
+            12
+          ]
+        ],
+        [
+          "or",
+          [
+            18,
+            13
+          ]
+        ],
+        [
+          "or",
+          [
+            19,
+            14
+          ]
+        ],
+        [
+          "or",
+          [
+            20,
+            15
+          ]
+        ],
+        [
+          "or",
+          [
+            21,
+            16
+          ]
+        ],
+        [
+          "or",
+          [
+            22,
+            17
+          ]
+        ]
+      ],
+      "output": 23
+    },
+    "size": 17,
+    "canonical_optimum": 6,
+    "vertex_cover_size": 3,
+    "owned": {
+      "3": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "4": [],
+      "5": [
+        [
+          1,
+          4
+        ]
+      ],
+      "6": [
+        [
+          5,
+          6
+        ]
+      ],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
+    },
+    "dirty_AND": [
+      3
+    ],
+    "AND_false_on_every_edge": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "gates_without_essential_edge": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "cores": [
+      4
+    ],
+    "maximal_cores": [
+      4
+    ],
+    "core_cone_union": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "exclusive_core_cone": [
+      4
+    ],
+    "core_covered_edges": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "residual_cover_size": 2,
+    "all_gates_in_output_cone": true,
+    "count_bound": [
+      10,
+      18
+    ],
+    "exclusive_count_bound": [
+      6,
+      18
+    ],
+    "exchange_bound": [
+      5,
+      4
+    ]
+  }
+}

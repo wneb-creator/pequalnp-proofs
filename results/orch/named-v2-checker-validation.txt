@@ -1,0 +1,12 @@
+Posted-statement checker attempt on named partial.
+UTC recorded: 2026-11-25T02:21:34.220437+00:00
+Source: lean/PEqualNP/Outside/L_meta_1031.lean
+SHA256: 2011a533d49ecf0a82d095ef56836673c07337a6174bdb870e66edab55aad8e3
+Command from repository root:
+LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache node tools/check-lean.mjs lean/PEqualNP/Outside/L_meta_1031.lean /tmp/oec/pequalnp-pilot-56/statement.txt check
+Exit status:3 (CHECKER FAULT). No verdict.
+Final diagnostic: CHECKER FAULT: the verifier ended without a verdict (exit 137).
+This retry had no concurrent Lean compilation. Approximately383MiB of tmpfs had been reclaimed first. One small external SAT query ran concurrently. Exit137 indicates a killed process; memory pressure is suspected, but no specific kill cause is asserted without kernel evidence.
+The named lake build independently passed. Full posted theorem remains absent and unproved; no checker acceptance, proof rejection, or proof PR is claimed.
+Cleanup pass is skipped: neither a completed posted proof nor a successful checker exists. Source remains6066lines before/after cleanup.
+Complete stdout/stderr are named-v2-checker.stdout/.stderr, preserved without truncation.

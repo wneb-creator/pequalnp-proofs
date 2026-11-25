@@ -9,3 +9,6 @@
 2026-11-25T01:34:40.589668+00:00 inventory graph_has_stars compiled (arbitrary finite graph, no minimality).
 2026-11-25T01:45:14.742868+00:00 inventory consolidation compiled, all preserved partial results in one Lean file.
 2026-11-25T01:48:29.654398+00:00 second replan: named3027linepartialbuiltandpushed; directcountnormalization stillunproved; focuscyclestrongerelimination,soundboundaryfactorization,andcyclicsynthesis. No full-proof acceptance.
+
+- 2026-11-25T01:56:35.552071+00:00: inventory_forest.lean compiled exit0; exact posted existential conclusion for all acyclic graphs. Full no-C3/no-C4 statement remains open.
+2026-11-25T02:12:08.368106+00:00 third replan: forest case proved; OR-count route refuted in Lean; reuse existing cycle results; continue direct ownership exchanges and larger gadget synthesis. No full-proof acceptance.

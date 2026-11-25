@@ -1,0 +1,5 @@
+DISJOINT first-pair orbits [(0, 1), (0, 2)] automorphisms 10
+START cycle5 or 4 rows 10 cnfbytes 108601
+RESULT sat seconds 0.032195329666137695 exit 10
+SUBSETS {"l0": [2], "r0": [0], "l1": [1, 7], "r1": [0, 4], "l2": [4], "r2": [2], "l3": [8], "r3": [3, 9], "out": [10]}
+FULL_TABLE_ERRORS []

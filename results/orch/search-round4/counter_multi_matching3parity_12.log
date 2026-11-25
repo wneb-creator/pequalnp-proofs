@@ -1,0 +1,9 @@
+AUTOMORPHISMS 24 first_pair_reps [(0, 1), (0, 2)]
+START matching3_parity_aux n 6 k 12 rows 64 mode any timeout 240
+CNF 3390389 bytes
+RESULT unknown seconds 240.40595984458923 exit 0
+(:max-memory   67.09
+ :memory       58.72
+ :num-allocs   8203606
+ :rlimit-count 105649
+ :sat-mk-var   1)
