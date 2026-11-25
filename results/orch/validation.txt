@@ -1,18 +1,18 @@
-L-meta-2592: PARTIAL ONLY. The posted theorem is not proved and no PR is eligible yet.
+L-meta-2592: PARTIAL ONLY. The posted theorem is absent; no complete proof or refutation, and no proof PR.
 
-Assigned file lean/PEqualNP/Outside/L_meta_2592.lean contains finite normalization and terminal-NOT helpers, no gap theorem.
-lake build PEqualNP.Outside.L_meta_2592: exit0, Build completed successfully (5149 jobs). Full output: build-partial.log.
-Local checker: exit3, CHECKER FAULT: the prebuilt Mathlib cache is missing. Full output: checker-partial.log.
-No cleanup pass: checker has not accepted the gap.
+File: lean/PEqualNP/Outside/L_meta_2592.lean
+lake build PEqualNP.Outside.L_meta_2592: exit0; Build completed successfully (5149 jobs).
+Full build output: build-partial.log
+Local checker: exit3; CHECKER FAULT: the prebuilt Mathlib cache is missing.
+Full checker output: checker-partial.log
+Named helper axiom audit: propext, Classical.choice, Quot.sound only; axioms-partial.log.
+Cleanup skipped because checker did not pass. Lines before/after: 296 / 296.
 
-Other directly Lean-checked partials: lower-half projection; first-OR witness rows; ten Petersen automorphisms; first-binary-gate input retention. Matching complete logs are in lemmas/.
-Independent reviews: status_review reviewed normalization, terminal-NOT helper and projection; root reviewed final compilation fixes, OR witnesses, automorphisms and retention. No forbidden proof constructs were found.
-No counterexample found so far. SAT timeouts/UNKNOWN are not proofs.
+Other compiled partials and conditional helper results are documented in CHECKPOINT_STATUS.md and individual logs. In particular, gate_lower_bound_development.lean requires an explicit nineFloor15 premise; the proposed unconditional global17 bound remains unverified.
+
+Independent review: status_review reviewed the conditional development and final status; root reviewed the other agents' compiled witnesses and helpers. No forbidden proof constructs found. All SAT runs remain UNKNOWN; none is an UNSAT certificate.
+
+Stopped after HTTP410 on renewal, followed by two gap requests returning the same pre-existing L-meta-2583 lease under the shared handle's five-lease cap. Did not work, renew, or release that lease. Gap requests:3; null answers:0. Exact message: you hold 5 gaps, the most one handle may hold at once; release one to get another
 
 Sub-agents: status_review, not_elimination, circuit_search, gate_lower_bound, finite_certificate, checker_storage
-TIMING total=17.1 subagents=6
-
-Checkpoint4: polarized-context repair and neutral pin constraints compile; finite Petersen support classification compiles. Root reviewed every new lemma. Named partial rebuild exits0 (5149 jobs). Axiom audit of existing named helpers uses only propext, Classical.choice, Quot.sound. Exploratory one-input-NOT synthesis scripts/logs preserved with explicit scope limitations.
-
-Lease-loss checkpoint: all workers stopped; HTTP410 confirmed. Conditional development independently reviewed by status_review. Full result statuses in CHECKPOINT_STATUS.md.
-TIMING total=26.7 subagents=6
+TIMING total=29.3 subagents=6
