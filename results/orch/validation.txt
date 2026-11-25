@@ -31,3 +31,5 @@ Full exact theorem still absent.
 Checkpoint 8: named module (1753 lines) builds with integrated circuit component count.
 Centreless example is a separately checked intermediate obstruction, not a refutation of the target.
 Posted statement and four exact null desk notes preserved for review.
+
+Checkpoint9: named lake build passes (5189 jobs), 2139 lines approximately; target theorem still absent, partial result only. Independent reviews covered structural snapshot9 and restriction body1. Lease heartbeat returned410 at2026-11-25T16:35:14Z despite prior expiry16:45:13Z; exact curl-si retry also410. Preserving before lease recovery.
