@@ -277,3 +277,8 @@ import PEqualNP.Outside.L_meta_3451
 #print axioms PEqualNP.Outside.L_meta_3451_aux.Prune.zero_monotone
 #print axioms PEqualNP.Outside.L_meta_3451_aux.Prune.zero_back
 #print axioms PEqualNP.Outside.L_meta_3451_aux.Prune.edge_active_normalization
+#print axioms PEqualNP.Outside.L_meta_3451_aux.Prune.andFlag
+#print axioms PEqualNP.Outside.L_meta_3451_aux.Prune.ands
+#print axioms PEqualNP.Outside.L_meta_3451_aux.Prune.ands_zero_le
+#print axioms PEqualNP.Outside.L_meta_3451_aux.Prune.ands_zero_lt
+#print axioms PEqualNP.Outside.L_meta_3451_aux.Prune.edge_sensitive_normalization

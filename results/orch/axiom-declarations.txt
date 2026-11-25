@@ -275,3 +275,8 @@ PEqualNP.Outside.L_meta_3451_aux.Prune.zero_fold_eq
 PEqualNP.Outside.L_meta_3451_aux.Prune.zero_monotone
 PEqualNP.Outside.L_meta_3451_aux.Prune.zero_back
 PEqualNP.Outside.L_meta_3451_aux.Prune.edge_active_normalization
+PEqualNP.Outside.L_meta_3451_aux.Prune.andFlag
+PEqualNP.Outside.L_meta_3451_aux.Prune.ands
+PEqualNP.Outside.L_meta_3451_aux.Prune.ands_zero_le
+PEqualNP.Outside.L_meta_3451_aux.Prune.ands_zero_lt
+PEqualNP.Outside.L_meta_3451_aux.Prune.edge_sensitive_normalization

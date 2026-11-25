@@ -319,3 +319,10 @@
 'PEqualNP.Outside.L_meta_3451_aux.Prune.edge_active_normalization' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Prune.andFlag' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_3451_aux.Prune.ands' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_3451_aux.Prune.ands_zero_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Prune.ands_zero_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Prune.edge_sensitive_normalization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
