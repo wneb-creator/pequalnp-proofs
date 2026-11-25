@@ -16,3 +16,4 @@
 
 2026-11-25T02:33:08.934884+00:00 counting-route disjoint-star budget/card component compiled; coordinated generic support lemma with prepare_lean.
 - 2026-11-25T02:35:20.330596+00:00: closed star_forest_normal_form compiled in named target; no remaining support-budget hypothesis for disjoint-star incidence.
+- 2026-11-25T02:36:50.867316+00:00: 20-minute replan. Construction and support/star-forest routes completed; general cofactor budget extraction stalled; pursue sharp two-level lower bound, last-AND circuit rewrite, general reader-cut recurrence, and Fano SAT search.

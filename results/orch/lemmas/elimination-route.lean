@@ -241,4 +241,87 @@ lemma essential_card_le_size (n : ℕ) (C : Circuit)
   simpa only [Finset.singleton_biUnion, Finset.card_singleton, Circuit.size] using
     (Finset.card_le_card sub).trans (by simpa using hb)
 
+
+lemma private_neighbor {n : ℕ} (G : SimpleGraph (Fin n))
+    (trianglefree : ∀ p a b, G.Adj p a → G.Adj p b → ¬ G.Adj a b)
+    (squarefree : ∀ p q a b, p ≠ q → a ≠ b →
+      ¬ (G.Adj p a ∧ G.Adj p b ∧ G.Adj q a ∧ G.Adj q b))
+    (degree : ∀ p, ∃ a b, a ≠ b ∧ G.Adj p a ∧ G.Adj p b)
+    (p q : Fin n) (hpq : p ≠ q) :
+    ∃ r, G.Adj p r ∧ r ≠ q ∧ ¬ G.Adj q r := by
+  obtain ⟨a, b, hab, hpa, hpb⟩ := degree p
+  by_cases ha : a = q
+  · subst a
+    exact ⟨b, hpb, hab.symm, trianglefree p q b hpa hpb⟩
+  by_cases hb : b = q
+  · subst b
+    exact ⟨a, hpa, hab, trianglefree p q a hpb hpa⟩
+  by_cases hqa : G.Adj q a
+  · refine ⟨b, hpb, hb, ?_⟩
+    intro hqb
+    exact squarefree p q a b hpq hab ⟨hpa, hpb, hqa, hqb⟩
+  · exact ⟨a, hpa, ha, hqa⟩
+
+lemma private_neighbor_sensitive {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (p q r : Fin n) (hpq : p ≠ q) (hpr : G.Adj p r) (hrq : r ≠ q)
+    (hqr : ¬ G.Adj q r) (c : Bool) :
+    ∃ x : Fin n → Bool,
+      decide (∃ i j, G.Adj i j ∧
+        Function.update (Function.update x p true) q c i = true ∧
+        Function.update (Function.update x p true) q c j = true) = true ∧
+      decide (∃ i j, G.Adj i j ∧
+        Function.update (Function.update x p false) q c i = true ∧
+        Function.update (Function.update x p false) q c j = true) = false := by
+  classical
+  let x : Fin n → Bool := fun i => decide (i = r)
+  have hrp : r ≠ p := hpr.ne.symm
+  refine ⟨x, ?_, ?_⟩
+  · simp only [decide_eq_true_eq]
+    refine ⟨p, r, hpr, ?_, ?_⟩
+    · simp [Function.update_of_ne hpq]
+    · simp [Function.update_of_ne hrq, Function.update_of_ne hrp, x]
+  · simp only [decide_eq_false_iff_not]
+    rintro ⟨i, j, hij, hi, hj⟩
+    have active : ∀ a, Function.update (Function.update x p false) q c a = true →
+        a = r ∨ a = q := by
+      intro a ha
+      by_cases haq : a = q
+      · exact Or.inr haq
+      by_cases hap : a = p
+      · subst a
+        simp [Function.update_of_ne hpq] at ha
+      · rw [Function.update_of_ne haq, Function.update_of_ne hap] at ha
+        exact Or.inl (by simpa [x] using ha)
+    rcases active i hi with rfl | rfl <;> rcases active j hj with rfl | rfl
+    · exact hij.ne rfl
+    · exact hqr hij.symm
+    · exact hqr hij
+    · exact hij.ne rfl
+
+lemma no_pair_funnel {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hneigh : ∀ p q : Fin n, p ≠ q → ∃ r, G.Adj p r ∧ r ≠ q ∧ ¬ G.Adj q r)
+    (p q : Fin n) (hpq : p ≠ q) :
+    ¬ ∃ a b : Bool, ∀ x : Fin n → Bool,
+      (decide (∃ i j, G.Adj i j ∧
+        Function.update (Function.update x p (!a)) q b i = true ∧
+        Function.update (Function.update x p (!a)) q b j = true)) =
+      (decide (∃ i j, G.Adj i j ∧
+        Function.update (Function.update x p a) q (!b) i = true ∧
+        Function.update (Function.update x p a) q (!b) j = true)) ∧
+      (decide (∃ i j, G.Adj i j ∧
+        Function.update (Function.update x p a) q (!b) i = true ∧
+        Function.update (Function.update x p a) q (!b) j = true)) =
+      (decide (∃ i j, G.Adj i j ∧
+        Function.update (Function.update x p (!a)) q (!b) i = true ∧
+        Function.update (Function.update x p (!a)) q (!b) j = true)) := by
+  obtain ⟨r, hpr, hrq, hqr⟩ := hneigh p q hpq
+  rintro ⟨a, b, h⟩
+  obtain ⟨x, h1, h0⟩ := private_neighbor_sensitive G p q r hpq hpr hrq hqr (!b)
+  have he := (h x).2
+  cases a
+  · simp only [Bool.not_false, h0, h1] at he
+    contradiction
+  · simp only [Bool.not_true, h0, h1] at he
+    contradiction
+
 end PEqualNP.Outside.L_meta_2685.EliminationRoute

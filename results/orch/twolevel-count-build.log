@@ -1,0 +1,135 @@
+../results/orch/lemmas/twolevel-count-route.lean:309:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:341:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:388:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:658:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:667:14: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:667:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:668:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:674:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:891:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+../results/orch/lemmas/twolevel-count-route.lean:1082:6: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1082:23: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1087:6: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1087:22: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1092:6: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1092:23: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1106:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:1106:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:1109:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:1109:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:1111:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:1111:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:1113:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:1113:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:1235:55: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1236:55: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1239:55: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1240:55: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1248:10: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1249:10: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1258:29: warning: `Fin.coe_castAdd` has been deprecated: Use `Fin.val_castAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵c̵a̵s̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲c̲a̲s̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1258:52: warning: `Fin.coe_natAdd` has been deprecated: Use `Fin.val_natAdd` instead
+
+Hint: Replace the deprecated name:
+  F̵i̵n̵.̵c̵o̵e̵_̵n̵a̵t̵A̵d̵d̵F̲i̲n̲.̲v̲a̲l̲_̲n̲a̲t̲A̲d̲d̲
+../results/orch/lemmas/twolevel-count-route.lean:1261:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/twolevel-count-route.lean:1263:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
