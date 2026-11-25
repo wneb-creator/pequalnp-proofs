@@ -1,0 +1,7 @@
+{"scenario": "cycle4", "vertices": [0, 1, 2, 3], "positives": 4, "negative_maxima": 2, "or_count": 2}
+false_OR_bounds [1, 1]
+prefix_cover_cuts 2
+encoded 0.222
+CNF_ready 0.278 bytes 12901
+result sat solver_exit 10 elapsed 0.298
+{"vertices": [0, 1, 2, 3], "ors": [[[0], [2]], [[1, 4], [3, 4]]], "output": [0, 1], "positive_signatures": [[5, 10], [3, 12]]}

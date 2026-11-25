@@ -1,0 +1,8 @@
+[
+  "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+  "-t",
+  "5",
+  "-w",
+  "/tmp/oec/pequalnp-pilot-62/cover-control-theta8.sol",
+  "/tmp/oec/pequalnp-pilot-62/cover-control-theta8.cnf"
+]

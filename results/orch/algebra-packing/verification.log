@@ -1,0 +1,27 @@
+{
+  "verified": true,
+  "blocks": [
+    [
+      0,
+      14
+    ],
+    [
+      1,
+      15
+    ],
+    [
+      3,
+      25
+    ]
+  ],
+  "removed_edges": 21,
+  "surviving_edges": 31,
+  "row_activity_histogram": {
+    "0": 72,
+    "1": 180,
+    "2": 216
+  },
+  "all_26_singleton_stars_verified": true,
+  "all_936_theta_three_maximizers_verified": true,
+  "optimality_status": "C++ exhaustive search; not a Lean proof"
+}

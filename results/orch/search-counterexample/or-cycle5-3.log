@@ -1,0 +1,31 @@
+{"scenario": "cycle5", "vertices": [0, 1, 2, 3, 4], "positives": 5, "negative_maxima": 5, "or_count": 3}
+encoded 0.027
+result unsat elapsed 0.088
+(:max-memory              25.32
+ :memory                  17.00
+ :num-allocs              90909
+ :rlimit-count            43379
+ :sat-backjumps           278
+ :sat-conflicts           279
+ :sat-decisions           433
+ :sat-del-clause          568
+ :sat-elim-bool-vars-res  135
+ :sat-elim-clauses        77
+ :sat-elim-literals       148
+ :sat-minimized-lits      873
+ :sat-mk-clause-2ary      1042
+ :sat-mk-clause-3ary      181
+ :sat-mk-clause-nary      908
+ :sat-mk-var              345
+ :sat-propagations-2ary   17663
+ :sat-propagations-nary   8778
+ :sat-restarts            6
+ :sat-scc-elim-binary     12
+ :sat-scc-elim-vars       32
+ :sat-subs-resolution     7
+ :sat-subs-resolution-dyn 62
+ :sat-subsumed            67
+ :sat-units               86
+ :solve-eqs-elim-vars     9
+ :solve-eqs-steps         466
+ :time                    0.06)

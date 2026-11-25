@@ -1,0 +1,33 @@
+{"scenario": "0,1,2,5,13,14,15,17", "vertices": [0, 1, 2, 5, 13, 14, 15, 17], "positives": 8, "negative_maxima": 10, "or_count": 7}
+false_OR_bounds [3, 4, 4, 4, 4, 4, 4, 4, 4, 3]
+encoded 0.06
+result unknown elapsed 180.082
+(:added-eqs           118757552
+ :binary-propagations 721228506
+ :bv-bit2core         250828492
+ :bv-diseqs           1980
+ :bv-dynamic-diseqs   3936422
+ :bv-dynamic-eqs      103108
+ :bv->core-eq         26463522
+ :conflicts           973958
+ :decisions           1259770
+ :del-clause          14309582
+ :max-memory          28.68
+ :memory              20.26
+ :minimized-lits      20670106
+ :mk-bool-var         7809542
+ :mk-clause           14343826
+ :mk-clause-binary    26706
+ :num-allocs          26019355521.00
+ :num-checks          2
+ :pb-conflicts        2304
+ :pb-predicates       140
+ :pb-propagations     179108
+ :pb-resolves         2150
+ :propagations        1027498584
+ :restarts            1748
+ :rlimit-count        902573085
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 23
+ :solve-eqs-steps     1791
+ :time                180.02)

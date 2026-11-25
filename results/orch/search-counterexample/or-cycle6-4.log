@@ -1,0 +1,30 @@
+{"scenario": "cycle6", "vertices": [0, 1, 2, 3, 4, 5], "positives": 6, "negative_maxima": 9, "or_count": 4}
+encoded 0.013
+result unsat elapsed 0.144
+(:max-memory              25.61
+ :memory                  17.09
+ :num-allocs              470843
+ :rlimit-count            365887
+ :sat-backjumps           3013
+ :sat-conflicts           3014
+ :sat-decisions           4789
+ :sat-del-clause          2640
+ :sat-elim-bool-vars-res  288
+ :sat-elim-clauses        1698
+ :sat-elim-literals       649
+ :sat-minimized-lits      26252
+ :sat-mk-clause-2ary      2239
+ :sat-mk-clause-3ary      338
+ :sat-mk-clause-nary      4541
+ :sat-mk-var              751
+ :sat-propagations-2ary   209071
+ :sat-propagations-nary   143772
+ :sat-restarts            129
+ :sat-scc-elim-binary     17
+ :sat-scc-elim-vars       51
+ :sat-subs-resolution-dyn 1262
+ :sat-subsumed            107
+ :sat-units               19
+ :solve-eqs-elim-vars     12
+ :solve-eqs-steps         786
+ :time                    0.13)

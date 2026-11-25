@@ -1,0 +1,7 @@
+../results/orch/lemmas/OrLower.lean:103:28: warning: This simp argument is unused:
+  Bool.true_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [trace, ho, ↓reduceIte, List.cons.injEq] at same
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

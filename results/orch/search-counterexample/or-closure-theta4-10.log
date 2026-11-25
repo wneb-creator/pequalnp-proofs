@@ -1,0 +1,34 @@
+{"scenario": "theta4", "vertices": [2, 0, 1, 3, 9, 13, 25, 14, 15, 19], "positives": 12, "negative_maxima": 19, "or_count": 10}
+encoded 0.068
+result unknown elapsed 600.126
+(:max-memory              92.97
+ :memory                  18.24
+ :num-allocs              21123503845.00
+ :rlimit-count            1275925962
+ :sat-ate                 511
+ :sat-backjumps           2337545
+ :sat-bce                 340
+ :sat-conflicts           2337545
+ :sat-decisions           4688673
+ :sat-del-clause          2243575
+ :sat-elim-bool-vars-res  1851
+ :sat-elim-literals       253832
+ :sat-gc-clause           2219050
+ :sat-minimized-lits      84694079
+ :sat-mk-clause-2ary      22345
+ :sat-mk-clause-3ary      2743
+ :sat-mk-clause-nary      2349998
+ :sat-mk-var              6721
+ :sat-propagations-2ary   1001128784
+ :sat-propagations-nary   406346747
+ :sat-restarts            190329
+ :sat-scc-elim-binary     275
+ :sat-scc-elim-vars       249
+ :sat-subs-resolution     18096
+ :sat-subs-resolution-dyn 5290073
+ :sat-subsumed            4932
+ :sat-tr                  360
+ :sat-units               20
+ :solve-eqs-elim-vars     30
+ :solve-eqs-steps         3986
+ :time                    600.05)

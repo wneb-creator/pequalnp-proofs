@@ -1,0 +1,30 @@
+{"scenario": "bowtie", "vertices": [0, 1, 2, 3, 4], "positives": 6, "negative_maxima": 5, "or_count": 4}
+encoded 0.089
+result unsat elapsed 0.352
+(:max-memory              25.51
+ :memory                  17.06
+ :num-allocs              301449
+ :rlimit-count            265057
+ :sat-backjumps           2576
+ :sat-conflicts           2577
+ :sat-decisions           4041
+ :sat-del-clause          2163
+ :sat-elim-bool-vars-res  223
+ :sat-elim-clauses        1324
+ :sat-elim-literals       879
+ :sat-minimized-lits      18665
+ :sat-mk-clause-2ary      1820
+ :sat-mk-clause-3ary      257
+ :sat-mk-clause-nary      3711
+ :sat-mk-var              595
+ :sat-propagations-2ary   147286
+ :sat-propagations-nary   99854
+ :sat-restarts            138
+ :sat-scc-elim-binary     28
+ :sat-scc-elim-vars       52
+ :sat-subs-resolution-dyn 708
+ :sat-subsumed            100
+ :sat-units               61
+ :solve-eqs-elim-vars     12
+ :solve-eqs-steps         690
+ :time                    0.26)

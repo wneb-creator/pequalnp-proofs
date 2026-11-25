@@ -1,0 +1,151 @@
+{
+  "positive_masks": [
+    18,
+    34,
+    20,
+    68,
+    65,
+    129,
+    33,
+    24,
+    136
+  ],
+  "input_signatures": [
+    112,
+    3,
+    12,
+    384,
+    133,
+    66,
+    24,
+    288
+  ],
+  "orbits": [
+    {
+      "representative": [
+        1,
+        2
+      ],
+      "size": 6
+    },
+    {
+      "representative": [
+        1,
+        4
+      ],
+      "size": 6
+    },
+    {
+      "representative": [
+        1,
+        8
+      ],
+      "size": 12
+    },
+    {
+      "representative": [
+        1,
+        12
+      ],
+      "size": 12
+    },
+    {
+      "representative": [
+        1,
+        16
+      ],
+      "size": 6
+    },
+    {
+      "representative": [
+        1,
+        24
+      ],
+      "size": 12
+    },
+    {
+      "representative": [
+        1,
+        64
+      ],
+      "size": 3
+    },
+    {
+      "representative": [
+        1,
+        66
+      ],
+      "size": 6
+    },
+    {
+      "representative": [
+        1,
+        112
+      ],
+      "size": 6
+    },
+    {
+      "representative": [
+        2,
+        8
+      ],
+      "size": 3
+    },
+    {
+      "representative": [
+        2,
+        12
+      ],
+      "size": 12
+    },
+    {
+      "representative": [
+        2,
+        112
+      ],
+      "size": 6
+    },
+    {
+      "representative": [
+        3,
+        12
+      ],
+      "size": 6
+    },
+    {
+      "representative": [
+        3,
+        24
+      ],
+      "size": 6
+    },
+    {
+      "representative": [
+        3,
+        66
+      ],
+      "size": 3
+    },
+    {
+      "representative": [
+        3,
+        112
+      ],
+      "size": 6
+    },
+    {
+      "representative": [
+        3,
+        133
+      ],
+      "size": 6
+    },
+    {
+      "representative": [
+        112,
+        133
+      ],
+      "size": 1
+    }
+  ]
+}

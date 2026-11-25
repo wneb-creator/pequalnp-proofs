@@ -1,0 +1,33 @@
+{"scenario": "theta4", "vertices": [2, 0, 1, 3, 9, 13, 25, 14, 15, 19], "positives": 12, "negative_maxima": 19, "or_count": 10}
+repair 0 4
+encoded 0.076
+result unsat elapsed 17.653
+(:added-eqs           4602692
+ :binary-propagations 15022820
+ :bv-bit2core         17139958
+ :bv-diseqs           6170
+ :bv-dynamic-diseqs   108420
+ :bv-dynamic-eqs      5238
+ :bv->core-eq         1407220
+ :conflicts           11764
+ :decisions           144040
+ :del-clause          1084048
+ :max-memory          34.56
+ :memory              19.16
+ :minimized-lits      58362
+ :mk-bool-var         1031430
+ :mk-clause           1113130
+ :mk-clause-binary    64088
+ :num-allocs          828242862
+ :num-checks          2
+ :pb-conflicts        10
+ :pb-predicates       42
+ :pb-propagations     35462
+ :pb-resolves         10
+ :propagations        22513032
+ :restarts            88
+ :rlimit-count        34371897
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 30
+ :solve-eqs-steps     3986
+ :time                17.58)

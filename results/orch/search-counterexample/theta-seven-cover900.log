@@ -1,0 +1,7 @@
+{"scenario": "theta", "vertices": [2, 0, 1, 3, 13, 25, 14, 15], "positives": 9, "negative_maxima": 13, "or_count": 7}
+false_OR_bounds [3, 3, 3, 5, 4, 4, 4, 3, 4, 4, 3, 4, 3]
+prefix_cover_cuts 78
+first_OR_orbits 18
+encoded 0.358
+CNF_ready 0.568 bytes 971723
+result unsat solver_exit 20 elapsed 650.79

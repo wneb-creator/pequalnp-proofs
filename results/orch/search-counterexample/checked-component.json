@@ -1,0 +1,14 @@
+{
+  "source": "results/orch/lemmas/CounterexampleClosure.lean",
+  "sha256": "4100b561fc207d7f602efbddfbb7ef1c2bb663af99f5463497096d8cd68d06b7",
+  "exit_code": 0,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "../results/orch/lemmas/CounterexampleClosure.lean"
+  ],
+  "working_directory": "lean",
+  "log": "counterexample-closure-build.log",
+  "scope": "Generic closure and cover-replacement lemmas only; not the posted statement."
+}

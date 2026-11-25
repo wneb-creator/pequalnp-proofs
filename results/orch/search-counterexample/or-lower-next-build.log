@@ -1,0 +1,21 @@
+/tmp/oec/pequalnp-pilot-62/OrLowerNext.lean:103:28: warning: This simp argument is unused:
+  Bool.true_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [trace, ho, ↓reduceIte, List.cons.injEq] at same
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-62/OrLowerNext.lean:134:42: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, hi] at ha hb ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-62/OrLowerNext.lean:136:42: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, hi] at ha
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

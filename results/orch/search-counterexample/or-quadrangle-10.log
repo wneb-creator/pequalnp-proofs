@@ -1,0 +1,37 @@
+{"scenario": "quadrangle", "vertices": [0, 1, 2, 5, 13, 14, 15, 17, 18, 25], "positives": 12, "negative_maxima": 14, "or_count": 10}
+encoded 0.117
+result unknown elapsed 120.295
+(:max-memory              43.41
+ :memory                  17.85
+ :num-allocs              1193505420
+ :rlimit-count            133888498
+ :sat-ate                 84
+ :sat-backjumps           359880
+ :sat-backtracks          1
+ :sat-bce                 462
+ :sat-conflicts           359881
+ :sat-decisions           707116
+ :sat-del-clause          331760
+ :sat-elim-bool-vars-res  1433
+ :sat-elim-clauses        14
+ :sat-elim-literals       44790
+ :sat-gc-clause           307269
+ :sat-minimized-lits      11123601
+ :sat-mk-clause-2ary      15973
+ :sat-mk-clause-3ary      2731
+ :sat-mk-clause-nary      368762
+ :sat-mk-var              4726
+ :sat-probing-assigned    15
+ :sat-propagations-2ary   102127389
+ :sat-propagations-nary   41567830
+ :sat-restarts            25152
+ :sat-scc-elim-binary     181
+ :sat-scc-elim-vars       9
+ :sat-subs-resolution     8630
+ :sat-subs-resolution-dyn 847063
+ :sat-subsumed            3372
+ :sat-tr                  489
+ :sat-units               25
+ :solve-eqs-elim-vars     30
+ :solve-eqs-steps         698
+ :time                    120.12)

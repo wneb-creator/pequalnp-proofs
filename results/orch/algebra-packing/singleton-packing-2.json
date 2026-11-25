@@ -1,0 +1,32 @@
+{
+  "capacity": 2,
+  "status": 1,
+  "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+  "objective": 21.00000000000096,
+  "dual_upper_bound": 35.0,
+  "gap": 0.6666666666665906,
+  "blocks": [
+    [
+      3,
+      24
+    ],
+    [
+      4,
+      15
+    ],
+    [
+      12,
+      21
+    ]
+  ],
+  "vertices": [
+    3,
+    4,
+    12,
+    15,
+    21,
+    24
+  ],
+  "removed_edges": 21,
+  "surviving_edges": 31
+}

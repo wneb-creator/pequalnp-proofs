@@ -1,0 +1,6 @@
+{"points": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "line_inputs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "positive_count": 13, "negative_count": 234, "or_count": 39, "baseline": true}
+joint_false_OR_bounds [6]
+verified_symmetries 39 first_OR_representatives 2
+encoded 0.479 max_rss_KiB 52836
+fixed_control sat elapsed 0.691
+WITNESS_VERIFIED 39 ORs 13 outputs
