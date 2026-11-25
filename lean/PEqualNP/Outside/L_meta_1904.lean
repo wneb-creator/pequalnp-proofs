@@ -1574,3 +1574,333 @@ lemma packing_factorization_lower_bound {ι : Type*} [Fintype ι] [DecidableEq �
   exact output_change_separated coord sign A F p.1 p.2 (hchange p hp)
 
 end PEqualNP.Outside.L_meta_1904_aux.ForestRows
+
+
+namespace PEqualNP.Outside.L_meta_1904_aux
+
+open StarContraction StarBypass
+
+lemma polluted_safe_consumer_no_singleton {n : ℕ} (G : SimpleGraph (Fin n))
+    (hfour : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (h q : (Fin n → Bool) → Bool)
+    (hh : ∀ x y, (∀ i, x i = true → y i = true) → h x = true → h y = true)
+    (hq : ∀ x y, (∀ i, x i = true → y i = true) → q x = true → q y = true)
+    (c u v j : Fin n) (hcu : G.Adj c u) (hcv : G.Adj c v)
+    (huv : u ≠ v) (hcj : ¬ G.Adj c j)
+    (hu : h (starSingleton u) = true) (hv : h (starSingleton v) = true)
+    (hj : h (starSingleton j) = true)
+    (hsafe : ∀ x, (h x && q x) = true →
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true) :
+    ∀ a, q (starSingleton a) = false := by
+  intro a
+  cases hqa : q (starSingleton a) with
+  | false => rfl
+  | true =>
+    have hcross : ∀ b, h (starSingleton b) = true → G.Adj a b := by
+      intro b hb
+      have hbpair : h (pair a b) = true := by
+        apply hh (starSingleton b) (pair a b) ?_ hb
+        intro i hi
+        have he : i = b := by simpa [starSingleton] using hi
+        simp [pair, he]
+      have hapair : q (pair a b) = true := by
+        apply hq (starSingleton a) (pair a b) ?_ hqa
+        intro i hi
+        have he : i = a := by simpa [starSingleton] using hi
+        simp [pair, he]
+      exact (hit_pair G a b).mp (hsafe (pair a b) (by simp [hbpair, hapair]))
+    have hau := hcross u hu
+    have hav := hcross v hv
+    have haj := hcross j hj
+    have hca : c = a :=
+      (hfour c u a v hcu hau.symm hav hcv.symm).resolve_right huv
+    rw [← hca] at haj
+    exact (hcj haj).elim
+
+end PEqualNP.Outside.L_meta_1904_aux
+
+
+namespace PEqualNP.Outside.L_meta_1904_aux.Survivor
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open StarCircuit StarContraction
+
+def appendOr (n : ℕ) (D : Circuit) (hwire : ℕ) : Circuit :=
+  ⟨D.gates ++ [⟨.or, [D.output, hwire]⟩], n + D.size⟩
+
+lemma appendOr_size (n : ℕ) (D : Circuit) (hwire : ℕ) :
+    (appendOr n D hwire).size = D.size + 1 := by
+  simp [appendOr, Circuit.size]
+
+lemma appendOr_mono (n : ℕ) (D : Circuit) (hwire : ℕ) (hD : Monotone2 D) :
+    Monotone2 (appendOr n D hwire) := by
+  intro g hg
+  change g ∈ D.gates ++ [⟨.or, [D.output, hwire]⟩] at hg
+  rcases List.mem_append.mp hg with hg | hg
+  · exact hD g hg
+  · have he : g = ⟨.or, [D.output, hwire]⟩ := List.mem_singleton.mp hg
+    subst g
+    simp
+
+lemma appendOr_eval {n : ℕ} (D : Circuit) (hwire : ℕ) (x : Fin n → Bool) :
+    (appendOr n D hwire).eval (List.ofFn x) =
+      (D.eval (List.ofFn x) || (D.wires (List.ofFn x)).getD hwire false) := by
+  change ((patchCircuit D.gates [] ⟨.or, [D.output, hwire]⟩ (n + D.size)).wires
+    (List.ofFn x)).getD (n + D.gates.length) false = _
+  rw [patch_wire_value]
+  simp only [gatePrefix, GateOp.eval, List.map_cons, List.map_nil, List.any_cons,
+    List.any_nil, id_eq, Bool.or_false]
+  rfl
+
+lemma appendOr_old_read {n : ℕ} (D : Circuit) (hwire i : ℕ) (x : Fin n → Bool)
+    (hi : i < n + D.size) :
+    ((appendOr n D hwire).wires (List.ofFn x)).getD i false =
+      (D.wires (List.ofFn x)).getD i false := by
+  change (run (D.gates ++ [⟨.or, [D.output, hwire]⟩]) (List.ofFn x)).getD i false =
+    (run D.gates (List.ofFn x)).getD i false
+  simp only [run, List.foldl_append]
+  apply run_old_read [⟨.or, [D.output, hwire]⟩] (run D.gates (List.ofFn x)) i
+  simpa [run_length, Circuit.size] using hi
+
+lemma wire_mono {n : ℕ} (D : Circuit) (hD : Monotone2 D) (wire : ℕ)
+    (x y : Fin n → Bool) (hxy : ∀ i, x i = true → y i = true) :
+    (D.wires (List.ofFn x)).getD wire false = true →
+      (D.wires (List.ofFn y)).getD wire false = true := by
+  apply prefix_wire_mono D.gates wire ?_ x y hxy
+  intro g hg
+  simpa only [Set.mem_insert_iff, Set.mem_singleton_iff] using (hD g hg).1
+
+lemma safe_survivor_completion {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (D : Circuit) (hwire : ℕ) (hD : Monotone2 D)
+    (hout : ∀ x : Fin n → Bool, D.eval (List.ofFn x) = true →
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true)
+    (hsafe : ∀ x : Fin n → Bool, (D.wires (List.ofFn x)).getD hwire false = true →
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true)
+    (hcover : ∀ a b, G.Adj a b →
+      D.eval (List.ofFn (pair a b)) = true ∨
+      (D.wires (List.ofFn (pair a b))).getD hwire false = true) :
+    ∀ x : Fin n → Bool, (appendOr n D hwire).eval (List.ofFn x) =
+      decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true) := by
+  intro x
+  rw [appendOr_eval]
+  apply Bool.eq_iff_iff.mpr
+  constructor
+  · intro hx
+    have hx' : D.eval (List.ofFn x) = true ∨
+        (D.wires (List.ofFn x)).getD hwire false = true := by
+      simpa only [Bool.or_eq_true] using hx
+    apply decide_eq_true
+    exact hx'.elim (hout x) (hsafe x)
+  · intro hx
+    obtain ⟨a, b, hab, ha, hb⟩ := of_decide_eq_true hx
+    have hpx : ∀ i, pair a b i = true → x i = true := by
+      intro i hi
+      simp only [pair, decide_eq_true_eq] at hi
+      rcases hi with rfl | rfl
+      · exact ha
+      · exact hb
+    have hresult : D.eval (List.ofFn x) = true ∨
+        (D.wires (List.ofFn x)).getD hwire false = true := by
+      rcases hcover a b hab with he | he
+      · exact Or.inl (wire_mono D hD D.output (pair a b) x hpx he)
+      · exact Or.inr (wire_mono D hD hwire (pair a b) x hpx he)
+    simpa only [Bool.or_eq_true] using hresult
+
+lemma safe_survivor_completion_with_budget {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C D : Circuit) (hwire : ℕ) (hD : Monotone2 D)
+    (hbudget : D.size + 1 ≤ C.size)
+    (hout : ∀ x : Fin n → Bool, D.eval (List.ofFn x) = true →
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true)
+    (hsafe : ∀ x : Fin n → Bool, (D.wires (List.ofFn x)).getD hwire false = true →
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true)
+    (hcover : ∀ a b, G.Adj a b →
+      D.eval (List.ofFn (pair a b)) = true ∨
+      (D.wires (List.ofFn (pair a b))).getD hwire false = true) :
+    ∃ E : Circuit, Monotone2 E ∧ E.size ≤ C.size ∧
+      ∀ x : Fin n → Bool, E.eval (List.ofFn x) =
+        decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true) := by
+  exact ⟨appendOr n D hwire, appendOr_mono n D hwire hD,
+    by simpa only [appendOr_size] using hbudget,
+    safe_survivor_completion G D hwire hD hout hsafe hcover⟩
+
+end PEqualNP.Outside.L_meta_1904_aux.Survivor
+
+namespace PEqualNP.Outside.L_meta_1904_aux.Survivor
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+
+lemma appendOr_gateAt_old (n : ℕ) (D : Circuit) (hwire j : ℕ) (hj : j < D.gates.length) :
+    gateAt (appendOr n D hwire) j = gateAt D j := by
+  simp only [gateAt, appendOr, List.getD_eq_getElem?_getD,
+    List.getElem?_append_left hj]
+
+lemma appendOr_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (D : Circuit) (hwire : ℕ) : junk G (appendOr n D hwire) = junk G D := by
+  classical
+  apply Finset.ext
+  intro j
+  change (j ∈ (Finset.range (appendOr n D hwire).gates.length).filter
+    (fun i => IsDirtyAnd n G (appendOr n D hwire) i)) ↔
+      (j ∈ (Finset.range D.gates.length).filter (fun i => IsDirtyAnd n G D i))
+  rw [Finset.mem_filter, Finset.mem_filter, Finset.mem_range, Finset.mem_range]
+  simp only [IsDirtyAnd, IsDirty]
+  constructor
+  · rintro ⟨hj, hop, _, x, hx, hneg⟩
+    have hjold : j < D.gates.length := by
+      by_contra h
+      have hjlast : j = D.gates.length := by
+        have hl : (appendOr n D hwire).gates.length = D.gates.length + 1 := by
+          simp [appendOr]
+        omega
+      subst j
+      simp [gateAt, appendOr, List.getD_eq_getElem?_getD] at hop
+    refine ⟨hjold, ?_, hjold, x, ?_, hneg⟩
+    · simpa only [appendOr_gateAt_old n D hwire j hjold] using hop
+    · change ((appendOr n D hwire).wires (List.ofFn x)).getD (n + j) false = true at hx
+      rw [appendOr_old_read D hwire (n + j) x (by simpa [Circuit.size] using Nat.add_lt_add_left hjold n)] at hx
+      exact hx
+  · rintro ⟨hj, hop, _, x, hx, hneg⟩
+    have hjnew : j < (appendOr n D hwire).gates.length := by
+      simp only [appendOr, List.length_append, List.length_cons, List.length_nil]
+      omega
+    refine ⟨hjnew, ?_, hjnew, x, ?_, hneg⟩
+    · simpa only [appendOr_gateAt_old n D hwire j hj] using hop
+    · change ((appendOr n D hwire).wires (List.ofFn x)).getD (n + j) false = true
+      rw [appendOr_old_read D hwire (n + j) x (by simpa [Circuit.size] using Nat.add_lt_add_left hj n)]
+      exact hx
+
+end PEqualNP.Outside.L_meta_1904_aux.Survivor
+
+
+namespace PEqualNP.Outside.L_meta_1904_aux.ZeroSurvivor
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open StarCircuit StarContraction
+
+lemma zero_preserves_wires_when_selected_false {n : ℕ}
+    (pre post : List Gate) (g : Gate) (out : ℕ) (x : Fin n → Bool)
+    (hz : gatePrefix pre g x = false) :
+    (patchCircuit pre post g out).wires (List.ofFn x) =
+      (patchCircuit pre post ⟨.or, []⟩ out).wires (List.ofFn x) := by
+  change run (pre ++ g :: post) (List.ofFn x) =
+    run (pre ++ (⟨.or, []⟩ : Gate) :: post) (List.ofFn x)
+  simp only [run, List.foldl_append, List.foldl_cons]
+  change run post (run pre (List.ofFn x) ++ [gatePrefix pre g x]) =
+    run post (run pre (List.ofFn x) ++ [false])
+  rw [hz]
+
+lemma patch_prefix_read {n : ℕ} (pre post : List Gate) (g : Gate)
+    (out p : ℕ) (x : Fin n → Bool) (hp : p < n + pre.length) :
+    ((patchCircuit pre post g out).wires (List.ofFn x)).getD p false =
+      (run pre (List.ofFn x)).getD p false := by
+  change (run (pre ++ g :: post) (List.ofFn x)).getD p false = _
+  simp only [run, List.foldl_append]
+  apply run_old_read (g :: post) (run pre (List.ofFn x)) p
+  simpa [run_length] using hp
+
+lemma monotone_product_pair_coverage {n : ℕ}
+    (A Q : (Fin n → Bool) → Bool) (c i : Fin n)
+    (hA : ∀ x y, (∀ j, x j = true → y j = true) → A x = true → A y = true)
+    (hQ : ∀ x y, (∀ j, x j = true → y j = true) → Q x = true → Q y = true)
+    (hAi : A (StarBypass.starSingleton i) = true)
+    (hQc : Q (StarBypass.starSingleton c) = true) :
+    (A (pair c i) && Q (pair c i)) = true := by
+  simp only [Bool.and_eq_true]
+  constructor
+  · apply hA _ _ ?_ hAi
+    intro j hj
+    have hj' : j = i := by simpa [StarBypass.starSingleton] using hj
+    simp [pair, hj']
+  · apply hQ _ _ ?_ hQc
+    intro j hj
+    have hj' : j = c := by simpa [StarBypass.starSingleton] using hj
+    simp [pair, hj']
+
+lemma zeroed_star_pair_operands {n : ℕ}
+    (pre post : List Gate) (g : Gate) (out p q : ℕ) (c i : Fin n)
+    (hmono : Monotone2 (patchCircuit pre post g out))
+    (hp : p < n + pre.length)
+    (hpi : (run pre (List.ofFn (StarBypass.starSingleton i))).getD p false = true)
+    (hzero : gatePrefix pre g (StarBypass.starSingleton c) = false)
+    (hqc : ((patchCircuit pre post g out).wires
+      (List.ofFn (StarBypass.starSingleton c))).getD q false = true) :
+    (((patchCircuit pre post ⟨.or, []⟩ out).wires (List.ofFn (pair c i))).getD p false &&
+      ((patchCircuit pre post ⟨.or, []⟩ out).wires (List.ofFn (pair c i))).getD q false) = true := by
+  have hmono0 : Monotone2 (patchCircuit pre post ⟨.or, []⟩ out) :=
+    patch_mono pre post g _ out hmono (by simp)
+  have hmono0' : ∀ a ∈ (patchCircuit pre post ⟨.or, []⟩ out).gates,
+      a.op = GateOp.and ∨ a.op = GateOp.or := by
+    intro a ha
+    simpa only [Set.mem_insert_iff, Set.mem_singleton_iff] using (hmono0 a ha).1
+  have hpi0 : ((patchCircuit pre post ⟨.or, []⟩ out).wires
+      (List.ofFn (StarBypass.starSingleton i))).getD p false = true := by
+    rw [patch_prefix_read pre post ⟨.or, []⟩ out p _ hp]
+    exact hpi
+  have hqc0 : ((patchCircuit pre post ⟨.or, []⟩ out).wires
+      (List.ofFn (StarBypass.starSingleton c))).getD q false = true := by
+    rw [← zero_preserves_wires_when_selected_false pre post g out _ hzero]
+    exact hqc
+  exact monotone_product_pair_coverage _ _ c i
+    (fun x y hxy => prefix_wire_mono _ p hmono0' x y hxy)
+    (fun x y hxy => prefix_wire_mono _ q hmono0' x y hxy) hpi0 hqc0
+
+lemma and_wire_of_true_inputs {n : ℕ} (pre post : List Gate)
+    (out p q : ℕ) (x : Fin n → Bool)
+    (hp : p < n + pre.length) (hq : q < n + pre.length)
+    (hptrue : ((patchCircuit pre post ⟨.and, [p, q]⟩ out).wires
+      (List.ofFn x)).getD p false = true)
+    (hqtrue : ((patchCircuit pre post ⟨.and, [p, q]⟩ out).wires
+      (List.ofFn x)).getD q false = true) :
+    ((patchCircuit pre post ⟨.and, [p, q]⟩ out).wires (List.ofFn x)).getD
+      (n + pre.length) false = true := by
+  rw [patch_prefix_read pre post ⟨.and, [p, q]⟩ out p x hp] at hptrue
+  rw [patch_prefix_read pre post ⟨.and, [p, q]⟩ out q x hq] at hqtrue
+  rw [patch_wire_value]
+  simp only [gatePrefix, GateOp.eval, List.map_cons, List.map_nil, List.all_cons,
+    List.all_nil, id_eq, hptrue, hqtrue, Bool.and_self]
+
+end PEqualNP.Outside.L_meta_1904_aux.ZeroSurvivor
+
+
+namespace PEqualNP.Outside.L_meta_1904_aux
+
+open StarContraction StarBypass
+
+lemma safe_product_singletons_adjacent {n : ℕ} (G : SimpleGraph (Fin n))
+    (h q : (Fin n → Bool) → Bool)
+    (hh : ∀ x y, (∀ i, x i = true → y i = true) → h x = true → h y = true)
+    (hq : ∀ x y, (∀ i, x i = true → y i = true) → q x = true → q y = true)
+    (hsafe : ∀ x, (h x && q x) = true →
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true)
+    (u a : Fin n) (hu : h (starSingleton u) = true)
+    (ha : q (starSingleton a) = true) : G.Adj u a := by
+  have hupair : h (pair u a) = true := by
+    apply hh (starSingleton u) (pair u a) ?_ hu
+    intro i hi
+    have he : i = u := by simpa [starSingleton] using hi
+    simp [pair, he]
+  have hapair : q (pair u a) = true := by
+    apply hq (starSingleton a) (pair u a) ?_ ha
+    intro i hi
+    have he : i = a := by simpa [starSingleton] using hi
+    simp [pair, he]
+  exact (hit_pair G u a).mp (hsafe (pair u a) (by simp [hupair, hapair]))
+
+lemma safe_consumer_singleton_center {n : ℕ} (G : SimpleGraph (Fin n))
+    (hfour : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (h q : (Fin n → Bool) → Bool)
+    (hh : ∀ x y, (∀ i, x i = true → y i = true) → h x = true → h y = true)
+    (hq : ∀ x y, (∀ i, x i = true → y i = true) → q x = true → q y = true)
+    (hsafe : ∀ x, (h x && q x) = true →
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true)
+    (c u v a : Fin n) (hcu : G.Adj c u) (hcv : G.Adj c v) (huv : u ≠ v)
+    (hu : h (starSingleton u) = true) (hv : h (starSingleton v) = true)
+    (ha : q (starSingleton a) = true) : a = c := by
+  have hua := safe_product_singletons_adjacent G h q hh hq hsafe u a hu ha
+  have hva := safe_product_singletons_adjacent G h q hh hq hsafe v a hv ha
+  exact ((hfour c u a v hcu hua hva.symm hcv.symm).resolve_right huv).symm
+
+end PEqualNP.Outside.L_meta_1904_aux
