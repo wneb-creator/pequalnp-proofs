@@ -1,0 +1,9 @@
+L-meta-3457 PARTIAL ONLY
+File: results/lemmas/PrefixUnion3457.lean
+SHA256: 3edcd51f56a3db4be8e4be1b88e4578c38d9d7ca74c2f30693877d9ba1cf5975
+Command: lake env lean /workspace/pequalnp-proofs/results/lemmas/PrefixUnion3457.lean
+Exit:0
+Stdout: empty
+Stderr: empty
+Independent source review: APPROVED by checker_review.
+This proves conditional union preservation for AND/OR prefixes and a Boolean singleton-orientation fact. It does not prove the posted normalization statement.
