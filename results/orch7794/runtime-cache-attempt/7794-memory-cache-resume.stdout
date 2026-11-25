@@ -1,0 +1,21 @@
+{"event": "starting", "modules": 4838, "memoryLimit": 8053063680, "reserveDisk": 209715200, "pid": 51295}
+{"event": "status", "ready": false, "done": 0, "files": 0, "diskBytes": 0, "memfdBytes": 0, "memory": 537866240, "diskFree": 206876672}
+{"event": "status", "ready": false, "done": 540, "files": 2700, "diskBytes": 0, "memfdBytes": 361197456, "memory": 938868736, "diskFree": 205393920}
+{"event": "status", "ready": false, "done": 1050, "files": 5251, "diskBytes": 0, "memfdBytes": 717155096, "memory": 1321197568, "diskFree": 204337152}
+{"event": "status", "ready": false, "done": 1555, "files": 7775, "diskBytes": 0, "memfdBytes": 1054397872, "memory": 1681432576, "diskFree": 203272192}
+{"event": "status", "ready": false, "done": 2052, "files": 10260, "diskBytes": 0, "memfdBytes": 1250495992, "memory": 1885523968, "diskFree": 202276864}
+{"event": "status", "ready": false, "done": 2492, "files": 12460, "diskBytes": 0, "memfdBytes": 1586226256, "memory": 2242453504, "diskFree": 201252864}
+{"event": "status", "ready": false, "done": 2880, "files": 14400, "diskBytes": 0, "memfdBytes": 1855550368, "memory": 2516795392, "diskFree": 200347648}
+{"event": "status", "ready": false, "done": 3305, "files": 16525, "diskBytes": 0, "memfdBytes": 2125580136, "memory": 2812690432, "diskFree": 199274496}
+{"event": "status", "ready": false, "done": 3707, "files": 18537, "diskBytes": 0, "memfdBytes": 2432453120, "memory": 3098370048, "diskFree": 197931008}
+{"event": "status", "ready": false, "done": 4106, "files": 20530, "diskBytes": 0, "memfdBytes": 2730073256, "memory": 3420512256, "diskFree": 197754880}
+{"event": "status", "ready": false, "done": 4494, "files": 22470, "diskBytes": 0, "memfdBytes": 3013256504, "memory": 3719884800, "diskFree": 195665920}
+{"event": "status", "ready": false, "done": 4833, "files": 24165, "diskBytes": 0, "memfdBytes": 3177345736, "memory": 3855273984, "diskFree": 196222976}
+{"event": "READY", "modules": 4838, "memory": 3855302656}
+{"event": "status", "ready": true, "done": 4838, "files": 24190, "diskBytes": 0, "memfdBytes": 3182912016, "memory": 3843756032, "diskFree": 196304896}
+{"event": "status", "ready": true, "done": 4838, "files": 24190, "diskBytes": 0, "memfdBytes": 3182912016, "memory": 3854098432, "diskFree": 196304896}
+{"event": "status", "ready": true, "done": 4838, "files": 24190, "diskBytes": 0, "memfdBytes": 3182912016, "memory": 3868110848, "diskFree": 196296704}
+{"event": "status", "ready": true, "done": 4838, "files": 24190, "diskBytes": 0, "memfdBytes": 3182912016, "memory": 3866058752, "diskFree": 196296704}
+{"event": "checker-started", "pid": 75552}
+{"event": "memory-limit", "memory": 8127700992}
+{"event": "holder-stopped", "memory": 4247879680}

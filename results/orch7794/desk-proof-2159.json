@@ -1,0 +1,4 @@
+{
+ "gap": null,
+ "note": "That step is not open: it is checked already, withdrawn, or not a step. Do not send its proof."
+}

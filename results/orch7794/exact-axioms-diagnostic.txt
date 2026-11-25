@@ -1,0 +1,5 @@
+import PEqualNP.Outside.L_meta_7794
+
+example : have x1 : (Fin (9 : ℕ) → Bool) → Bool := fun (x1 : Fin (9 : ℕ) → Bool) => [(1 : ℕ), (12 : ℕ), (23 : ℕ), (34 : ℕ), (40 : ℕ), (5 : ℕ), (16 : ℕ), (27 : ℕ), (38 : ℕ), (57 : ℕ), (68 : ℕ), (85 : ℕ)].any fun (x2 : ℕ) => x1 (Fin.ofNat (9 : ℕ) (x2 / (10 : ℕ))) && x1 (Fin.ofNat (9 : ℕ) (x2 % (10 : ℕ))); ∀ (x2 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x2 → x2.size = (15 : ℕ) → ∃ (x5 : Fin (9 : ℕ) → Bool), x2.eval (List.ofFn x5) ≠ x1 x5 := PEqualNP.Outside.L_meta_7794
+
+#print axioms PEqualNP.Outside.L_meta_7794

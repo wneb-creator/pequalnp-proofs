@@ -7,3 +7,23 @@ Candidate SHA256 d714efb590571bf8c86527409b8eee7b94ea4338d5a2271c3b87f98fe8cacc2
 2026-11-25T16:21:08.597016+00:00
 FULL BUILD PASSED: lake build PEqualNP.Outside.L_meta_7794, exit 0. Full stdout/stderr: build.stdout/build.stderr.
 Checker pending. Candidate SHA256 d714efb590571bf8c86527409b8eee7b94ea4338d5a2271c3b87f98fe8cacc2e.
+2026-11-25T16:27:05.775539+00:00
+Official checker attempt1 returned CHECKER FAULT (exit3), missing Batteries.olean during unconditional Mathlib environment loading. No theorem verdict. Full named target build remains passed. Genuine official cache restoration in progress; no checker or proof changes.
+2026-11-25T16:33:22.963087+00:00
+Independent Lean exact-type example passed; axiom inspection reports [propext, Classical.choice, Quot.sound]. This supplements, and does not replace, the pending official checker.
+
+2026-11-25T16:42:36.107960+00:00
+Final source unchanged: SHA256 d714efb590571bf8c86527409b8eee7b94ea4338d5a2271c3b87f98fe8cacc2e; 521570 bytes; 6586 lines.
+Full named build PASSED, exit 0, module elapsed 882 seconds: lake build PEqualNP.Outside.L_meta_7794.
+Separate exact desk type and axiom inspection PASSED: [propext, Classical.choice, Quot.sound].
+Official local checker attempt 1: CHECKER FAULT, missing Batteries runtime cache. No theorem verdict.
+Official local checker attempt 2 after genuine full runtime-cache provisioning: CHECKER FAULT: the verifier ended without a verdict (exit null).
+The bounded checker attempt crossed the container memory guard; no ACCEPTED or REJECTED verdict. Complete logs and restoration evidence are in runtime-cache-attempt/.
+Post-restoration no-build check PASSED: checklemma, PEqualNP.Outside.L_meta_7794, PEqualNP.Defs; all 5153 targets current.
+Cleanup skipped under the explicit offline-checker exception. Lines before/after cleanup: 6586 -> 6586.
+Four inherited helper structures require manual review under CONTRIBUTING; disclose in first PR body line.
+Delivery plan: retain this evidence in a pushed ancestor commit; final PR diff adds only lean/PEqualNP/Outside/L_meta_7794.lean. Authoritative checker pending.
+Null desk replies: 5; exact messages are recorded in null-desk-replies.json and desk-log.txt.
+Sub-agents: semantic_proof, combinatorial_bound, counterexample, few_nots, toolchain_setup, status_review
+TIMING total=163.8 subagents=6
+Kit message acknowledged: msg-baf8032db29c389ad36422c0

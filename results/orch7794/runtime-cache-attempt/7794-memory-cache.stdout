@@ -1,0 +1,6 @@
+{"event": "starting", "modules": 6630, "memoryLimit": 8053063680, "reserveDisk": 209715200, "pid": 42225}
+{"event": "status", "ready": false, "done": 0, "files": 0, "diskBytes": 0, "memfdBytes": 0, "memory": 3996712960, "diskFree": 1442410496}
+{"event": "status", "ready": false, "done": 550, "files": 2750, "diskBytes": 270870208, "memfdBytes": 0, "memory": 4309405696, "diskFree": 1163190272}
+{"event": "status", "ready": false, "done": 1150, "files": 5750, "diskBytes": 738451312, "memfdBytes": 0, "memory": 4814286848, "diskFree": 687243264}
+{"event": "status", "ready": false, "done": 1751, "files": 8755, "diskBytes": 1171672104, "memfdBytes": 0, "memory": 5276475392, "diskFree": 245170176}
+{"event": "holder-stopped", "memory": 5285478400}

@@ -919,3 +919,183 @@ x-envoy-upstream-service-time: 138
  "next_beat_s": 300
 }
 
+
+2026-11-25T16:09:50.962000+00:00 7794-beat-003.json
+{
+ "lease": {
+  "id": "7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "expires_at": "2026-11-25T16:29:50.962Z",
+  "renew": "POST /desk/beat?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 156,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T16:03:00.202Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T16:14:40.609000+00:00 7794-beat-004.json
+{
+ "lease": {
+  "id": "7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "expires_at": "2026-11-25T16:34:40.609Z",
+  "renew": "POST /desk/beat?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 156,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T16:03:00.202Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T16:19:29.685000+00:00 7794-beat-005.json
+{
+ "lease": {
+  "id": "7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "expires_at": "2026-11-25T16:39:29.685Z",
+  "renew": "POST /desk/beat?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 156,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T16:03:00.202Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T16:21:16.086000+00:00 7794-beat-006.json
+{
+ "lease": {
+  "id": "7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "expires_at": "2026-11-25T16:41:16.086Z",
+  "renew": "POST /desk/beat?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 156,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T16:03:00.202Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T16:24:25.673000+00:00 7794-beat-007.json
+{
+ "lease": {
+  "id": "7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "expires_at": "2026-11-25T16:44:25.673Z",
+  "renew": "POST /desk/beat?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 156,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T16:03:00.202Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T16:30:23.855000+00:00 7794-beat-008.json
+{
+ "lease": {
+  "id": "7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "expires_at": "2026-11-25T16:50:23.855Z",
+  "renew": "POST /desk/beat?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 156,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T16:03:00.202Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T16:35:42.317000+00:00 7794-beat-009.json
+{
+ "lease": {
+  "id": "7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "expires_at": "2026-11-25T16:55:42.317Z",
+  "renew": "POST /desk/beat?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 156,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T16:03:00.202Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T16:38:43.280000+00:00 7794-beat-010.json
+{
+ "lease": {
+  "id": "7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "expires_at": "2026-11-25T16:58:43.280Z",
+  "renew": "POST /desk/beat?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 156,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T16:03:00.202Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T16:41:58.358000+00:00 7794-beat-011.json
+{
+ "lease": {
+  "id": "7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "expires_at": "2026-11-25T17:01:58.358Z",
+  "renew": "POST /desk/beat?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=7dc25920-3548-4d6a-a5b3-ca065f1d0526&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 156,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T16:03:00.202Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
