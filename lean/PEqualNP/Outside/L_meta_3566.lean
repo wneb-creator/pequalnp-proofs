@@ -10507,3 +10507,417 @@ lemma private_top {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
   exact hkj (hu k hk hkr)
 
 end PEqualNP.Outside.L_meta_3566.MaxDirtyConsumerExtras
+
+namespace PEqualNP.Outside.L_meta_3566.CleanCNF
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+def cnf {n k : ℕ} (S : Fin k → Finset (Fin n)) (x : Fin n → Bool) : Bool :=
+  decide (∀ j, RectangleFamily.rawOr (S j) x = true)
+
+def negativeRow {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b : Fin m → Fin n) : Option (Fin m) → Finset (Fin n)
+  | none => Finset.univ.image a
+  | some j => ((Finset.univ.image a).filter fun v => ¬ G.Adj v (b j)) ∪ {b j}
+
+lemma negative_row_false {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (a b : Fin m → Fin n) (ha : ∀ i, s (a i) = false) (hb : ∀ i, s (b i) = true)
+    (r : Option (Fin m)) :
+    graphFun G ∅ (RectangleFamily.setInput (negativeRow G a b r)) = false := by
+  classical
+  apply Bool.eq_false_iff.mpr
+  intro hx
+  have hL : ∀ v ∈ Finset.univ.image a, s v = false := by
+    intro v hv
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hv
+    exact ha i
+  cases r with
+  | none =>
+    obtain ⟨u, v, huv, hu, hv⟩ := (RectangleFamily.graph_true G _).mp hx
+    have hu' : u ∈ Finset.univ.image a := by
+      simpa [RectangleFamily.setInput, negativeRow] using hu
+    have hv' : v ∈ Finset.univ.image a := by
+      simpa [RectangleFamily.setInput, negativeRow] using hv
+    exact hbip u v huv ((hL u hu').trans (hL v hv').symm)
+  | some j =>
+    obtain ⟨u, hu, v, hv, huv⟩ := RectangleFamily.edge_of_two_colors G s hbip
+      ((Finset.univ.image a).filter fun v => ¬ G.Adj v (b j)) {b j}
+      (fun v hv => hL v (Finset.mem_filter.mp hv).1)
+      (by simpa using hb j) hx
+    have hv' : v = b j := Finset.mem_singleton.mp hv
+    exact (Finset.mem_filter.mp hu).2 (hv' ▸ huv)
+
+lemma row_union_contains_pair {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (h4 : NoFourCycle G) (a b : Fin m → Fin n)
+    (hai : Function.Injective a) (hbi : Function.Injective b)
+    (hedge : ∀ i, G.Adj (a i) (b i))
+    (r t : Option (Fin m)) (hrt : r ≠ t) :
+    ∃ i, {a i, b i} ⊆ negativeRow G a b r ∪ negativeRow G a b t := by
+  classical
+  cases r with
+  | none =>
+    cases t with
+    | none => exact False.elim (hrt rfl)
+    | some j =>
+      refine ⟨j, ?_⟩
+      intro v hv
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hv
+      rcases hv with rfl | rfl <;> simp [negativeRow]
+  | some i =>
+    cases t with
+    | none =>
+      refine ⟨i, ?_⟩
+      intro v hv
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hv
+      rcases hv with rfl | rfl <;> simp [negativeRow]
+    | some j =>
+      have hij : i ≠ j := fun h => hrt (congrArg some h)
+      have haij : a i ≠ a j := fun h => hij (hai h)
+      have hbij : b i ≠ b j := fun h => hij (hbi h)
+      have hcross : ¬ G.Adj (a i) (b j) ∨ ¬ G.Adj (a j) (b i) := by
+        by_contra h
+        push Not at h
+        have hs := RectangleFamily.rectangle_small_side G h4 {a i, a j} {b i, b j}
+          (by
+            intro u hu v hv
+            simp only [Finset.mem_insert, Finset.mem_singleton] at hu hv
+            rcases hu with rfl | rfl <;> rcases hv with rfl | rfl
+            · exact hedge i
+            · exact h.1
+            · exact h.2
+            · exact hedge j)
+        simp [haij, hbij] at hs
+      rcases hcross with hcross | hcross
+      · refine ⟨i, ?_⟩
+        intro v hv
+        simp only [Finset.mem_insert, Finset.mem_singleton] at hv
+        rcases hv with rfl | rfl <;> simp [negativeRow, hcross]
+      · refine ⟨j, ?_⟩
+        intro v hv
+        simp only [Finset.mem_insert, Finset.mem_singleton] at hv
+        rcases hv with rfl | rfl <;> simp [negativeRow, hcross]
+
+lemma matching_bound {n m k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (h4 : NoFourCycle G) (s : Fin n → Bool)
+    (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (a b : Fin m → Fin n) (hai : Function.Injective a) (hbi : Function.Injective b)
+    (ha : ∀ i, s (a i) = false) (hb : ∀ i, s (b i) = true)
+    (hedge : ∀ i, G.Adj (a i) (b i)) (S : Fin k → Finset (Fin n))
+    (hbelow : ∀ x, cnf S x = true → graphFun G ∅ x = true)
+    (haccept : ∀ i, cnf S (pairInput (a i) (b i)) = true) : m + 1 ≤ k := by
+  classical
+  have hfalse : ∀ r : Option (Fin m), ∃ j : Fin k,
+      RectangleFamily.rawOr (S j) (RectangleFamily.setInput (negativeRow G a b r)) = false := by
+    intro r
+    have hn : ¬ ∀ j : Fin k,
+        RectangleFamily.rawOr (S j) (RectangleFamily.setInput (negativeRow G a b r)) = true := by
+      intro hall
+      have ht := hbelow _ (by simpa [cnf] using hall)
+      rw [negative_row_false G s hbip a b ha hb r] at ht
+      cases ht
+    obtain ⟨j, hj⟩ := not_forall.mp hn
+    exact ⟨j, Bool.eq_false_iff.mpr hj⟩
+  choose c hc using hfalse
+  have hdisj : ∀ r v, v ∈ S (c r) → v ∉ negativeRow G a b r := by
+    intro r v hv hr
+    have ht : RectangleFamily.rawOr (S (c r))
+        (RectangleFamily.setInput (negativeRow G a b r)) = true := by
+      simp only [RectangleFamily.rawOr, decide_eq_true_eq]
+      exact ⟨v, hv, by simpa [RectangleFamily.setInput] using hr⟩
+    rw [hc r] at ht
+    cases ht
+  have hinj : Function.Injective c := by
+    intro r t hct
+    by_contra hrt
+    obtain ⟨i, hi⟩ := row_union_contains_pair G h4 a b hai hbi hedge r t hrt
+    have hall : ∀ j, RectangleFamily.rawOr (S j) (pairInput (a i) (b i)) = true := by
+      simpa [cnf] using haccept i
+    have hmem := (RectangleFamily.rawOr_pair (S (c r)) (a i) (b i)).mp (hall (c r))
+    have hnone : ∀ v ∈ S (c r), v ∉ negativeRow G a b r ∪ negativeRow G a b t := by
+      intro v hv hr
+      rcases Finset.mem_union.mp hr with hr | ht
+      · exact hdisj r v hv hr
+      · exact hdisj t v (hct ▸ hv) ht
+    rcases hmem with hmem | hmem
+    · exact hnone (a i) hmem (hi (by simp))
+    · exact hnone (b i) hmem (hi (by simp))
+  simpa using Fintype.card_le_of_injective c hinj
+
+end PEqualNP.Outside.L_meta_3566.CleanCNF
+
+namespace PEqualNP.Outside.L_meta_3566.AndRegionProfile
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+def joinInput {n : ℕ} (x y : Fin n → Bool) : Fin n → Bool := fun v => x v || y v
+
+def profile {n : ℕ} {ι : Type*} [Fintype ι] (C : Circuit)
+    (rows : ι → Fin n → Bool) (w : ℕ) : Finset ι :=
+  Finset.univ.filter fun i => value C (rows i) w = false
+
+noncomputable def andWires (n : ℕ) (C : Circuit) (R : Finset ℕ) : Finset ℕ := by
+  classical
+  exact R.filter fun w => n ≤ w ∧ (gateAt C (w - n)).op = .and
+
+lemma rawOr_join {n : ℕ} (S : Finset (Fin n)) (x y : Fin n → Bool) :
+    RectangleFamily.rawOr S (joinInput x y) = (RectangleFamily.rawOr S x || RectangleFamily.rawOr S y) := by
+  apply Bool.eq_iff_iff.mpr
+  simp [RectangleFamily.rawOr, joinInput, and_or_left, exists_or]
+
+lemma profile_small {n : ℕ} {ι : Type*} [Fintype ι]
+    (C : Circuit) (rows : ι → Fin n → Bool) (w : ℕ)
+    (hjoin : ∀ x y : Fin n → Bool,
+      value C (joinInput x y) w = (value C x w || value C y w))
+    (hgood : ∀ i j, i ≠ j → value C (joinInput (rows i) (rows j)) w = true) :
+    (profile C rows w).card ≤ 1 := by
+  classical
+  apply Finset.card_le_one.mpr
+  intro i hi j hj
+  by_contra hne
+  have hi' := (Finset.mem_filter.mp hi).2
+  have hj' := (Finset.mem_filter.mp hj).2
+  have ht := hgood i j hne
+  rw [hjoin, hi', hj'] at ht
+  cases ht
+
+lemma and_region_bound {n : ℕ} {ι : Type*} [Fintype ι]
+    (C : Circuit) (hAO : IsAO2 n C) (R : Finset ℕ)
+    (hR : ∀ w ∈ R, w < n + C.gates.length)
+    (hclose : ∀ j, j < C.gates.length → n + j ∈ R → (gateAt C j).op = .and →
+      ∀ w ∈ (gateAt C j).inputs, w ∈ R)
+    (hjoin : ∀ j, j < C.gates.length → n + j ∈ R → (gateAt C j).op = .or →
+      ∀ x y : Fin n → Bool,
+        value C (joinInput x y) (n + j) = (value C x (n + j) || value C y (n + j)))
+    (rows : ι → Fin n → Bool) (root : ℕ) (hroot : root ∈ R)
+    (hfalse : ∀ i, value C (rows i) root = false)
+    (hgood : ∀ i j, i ≠ j → value C (joinInput (rows i) (rows j)) root = true) :
+    Fintype.card ι ≤ (andWires n C R).card + 1 := by
+  classical
+  let good : ℕ → Prop := fun w => w ∈ R ∧
+    ∀ i j, i ≠ j → value C (joinInput (rows i) (rows j)) w = true
+  let Q := andWires n C R
+  have hstep : ∀ w < n + C.gates.length, good w → 1 < (profile C rows w).card →
+      ∃ A : Finset ℕ, (∀ v ∈ A, v < w ∧ good v) ∧
+        profile C rows w ⊆ A.biUnion (profile C rows) ∧
+        A.card ≤ 1 + (if w ∈ Q then 1 else 0) := by
+    intro w hw hwgood hlarge
+    have hn : n ≤ w := by
+      by_contra hn
+      have hwn : w < n := by omega
+      have hs := profile_small C rows w (fun x y => by
+        rw [value_input C (joinInput x y) w hwn, value_input C x w hwn, value_input C y w hwn]
+        rfl) hwgood.2
+      omega
+    let j := w - n
+    have hj : j < C.gates.length := by dsimp [j]; omega
+    have hwj : n + j = w := by dsimp [j]; omega
+    have hop : (gateAt C j).op = .and := by
+      rcases hAO.1 _ (MixedColor.gateAt_mem hj) with ha | ho
+      · exact ha
+      · have hs := profile_small C rows (n + j)
+          (hjoin j hj (hwj.symm ▸ hwgood.1) ho) (hwj.symm ▸ hwgood.2)
+        rw [hwj] at hs
+        omega
+    have hwQ : w ∈ Q := by
+      change w ∈ andWires n C R
+      simp only [andWires, Finset.mem_filter]
+      exact ⟨hwgood.1, hn, hop⟩
+    refine ⟨(gateAt C j).inputs.toFinset, ?_, ?_, ?_⟩
+    · intro v hv
+      have hvin := List.mem_toFinset.mp hv
+      have hvlt := hAO.2.1 j hj v hvin
+      refine ⟨by omega, hclose j hj (hwj.symm ▸ hwgood.1) hop v hvin, ?_⟩
+      intro i l hil
+      have hvtrue := hwgood.2 i l hil
+      have hle := and_gate_le_input C hAO.2.1 j hj hop v hvin (joinInput (rows i) (rows l))
+      rw [hwj] at hle
+      exact bool_true_of_le hle hvtrue
+    · intro i hi
+      have hif := (Finset.mem_filter.mp hi).2
+      obtain ⟨a, b, hab⟩ := MixedColor.binaryInputs hAO hj
+      have hv : value C (rows i) (n + j) = (value C (rows i) a && value C (rows i) b) := by
+        rw [value_gate C hAO.2.1 (rows i) j hj, hop, hab]
+        simp [GateOp.eval]
+      rw [hwj] at hv
+      rw [hv] at hif
+      cases ha : value C (rows i) a with
+      | false =>
+        refine Finset.mem_biUnion.mpr ⟨a, ?_, ?_⟩
+        · simp [hab]
+        · simp [profile, ha]
+      | true =>
+        have hb : value C (rows i) b = false := by simpa [ha] using hif
+        refine Finset.mem_biUnion.mpr ⟨b, ?_, ?_⟩
+        · simp [hab]
+        · simp [profile, hb]
+    · rw [ite_eq_left hwQ]
+      have hc := List.toFinset_card_le (gateAt C j).inputs
+      have h2 := hAO.2.2 _ (MixedColor.gateAt_mem hj)
+      omega
+  have hbound := OrCharge.frontier_bound (profile C rows) Q good (n + C.gates.length)
+    hstep {root} (by simpa [good] using And.intro (hR root hroot) (And.intro hroot hgood))
+  have hfilter : (Finset.range (n + C.gates.length)).filter (· ∈ Q) = Q := by
+    ext w
+    constructor
+    · intro hw
+      exact (Finset.mem_filter.mp hw).2
+    · intro hw
+      exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr (hR w (Finset.mem_filter.mp hw).1), hw⟩
+  have hprof : profile C rows root = Finset.univ := by
+    ext i
+    simp [profile, hfalse]
+  simpa [hfilter, hprof, Q] using hbound
+
+end PEqualNP.Outside.L_meta_3566.AndRegionProfile
+
+namespace PEqualNP.Outside.L_meta_3566.AndRegionProfile
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+lemma matching_bound {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (h4 : NoFourCycle G)
+    (a b : Fin m → Fin n) (hai : Function.Injective a) (hbi : Function.Injective b)
+    (ha : ∀ i, s (a i) = false) (hb : ∀ i, s (b i) = true)
+    (hedge : ∀ i, G.Adj (a i) (b i))
+    (C : Circuit) (hAO : IsAO2 n C) (R : Finset ℕ)
+    (hR : ∀ w ∈ R, w < n + C.gates.length)
+    (hclose : ∀ j, j < C.gates.length → n + j ∈ R → (gateAt C j).op = .and →
+      ∀ w ∈ (gateAt C j).inputs, w ∈ R)
+    (hraw : ∀ j, j < C.gates.length → n + j ∈ R → (gateAt C j).op = .or →
+      ∃ S : Finset (Fin n), ∀ x : Fin n → Bool, value C x (n + j) = RectangleFamily.rawOr S x)
+    (root : ℕ) (hroot : root ∈ R)
+    (hbelow : ∀ x : Fin n → Bool, value C x root = true → graphFun G ∅ x = true)
+    (haccept : ∀ i, value C (pairInput (a i) (b i)) root = true) :
+    m ≤ (andWires n C R).card := by
+  classical
+  let rows : Option (Fin m) → Fin n → Bool :=
+    fun r => RectangleFamily.setInput (CleanCNF.negativeRow G a b r)
+  have hj : ∀ j, j < C.gates.length → n + j ∈ R → (gateAt C j).op = .or →
+      ∀ x y : Fin n → Bool,
+        value C (joinInput x y) (n + j) = (value C x (n + j) || value C y (n + j)) := by
+    intro j hj hRj hop x y
+    obtain ⟨S, hS⟩ := hraw j hj hRj hop
+    rw [hS, hS, hS, rawOr_join]
+  have hf : ∀ r, value C (rows r) root = false := by
+    intro r
+    have hg := CleanCNF.negative_row_false G s hbip a b ha hb r
+    cases hv : value C (rows r) root with
+    | false => rfl
+    | true =>
+      have ht := hbelow (rows r) hv
+      change graphFun G ∅ (RectangleFamily.setInput (CleanCNF.negativeRow G a b r)) = true at ht
+      rw [hg] at ht
+      cases ht
+  have hg : ∀ r t, r ≠ t → value C (joinInput (rows r) (rows t)) root = true := by
+    intro r t hrt
+    obtain ⟨i, hi⟩ := CleanCNF.row_union_contains_pair G h4 a b hai hbi hedge r t hrt
+    have hle : pairInput (a i) (b i) ≤ joinInput (rows r) (rows t) := by
+      intro v
+      apply Bool.le_iff_imp.mpr
+      intro hv
+      have hvm : v ∈ ({a i, b i} : Finset (Fin n)) := by simpa [pairInput] using hv
+      have hmem := hi hvm
+      simpa [joinInput, rows, RectangleFamily.setInput] using hmem
+    exact bool_true_of_le (WireFacts.wire_monotone C hAO root hle) (haccept i)
+  have hcount := and_region_bound C hAO R hR hclose hj rows root hroot hf hg
+  simp only [Fintype.card_option, Fintype.card_fin] at hcount
+  omega
+
+end PEqualNP.Outside.L_meta_3566.AndRegionProfile
+
+namespace PEqualNP.Outside.L_meta_3566.LastDirtyAndFrontier
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+lemma path_le {n : ℕ} {C : Circuit} {w z : ℕ}
+    (hp : Relation.ReflTransGen (MixedColor.OrStep n C) w z) : z ≤ w := by
+  induction hp using Relation.ReflTransGen.head_induction_on with
+  | refl => exact le_rfl
+  | head hs _ ih =>
+    obtain ⟨j,_,rfl,_,_,hlt⟩ := hs
+    omega
+
+lemma path_true {n : ℕ} {C : Circuit} {q w : ℕ}
+    (hp : Relation.ReflTransGen (MixedColor.OrStep n C) w (n+q))
+    (x : Fin n → Bool) (hx : gateVal n C q x = true) : value C x w = true :=
+  MixedColor.orStep_up (by simp) hp hx
+
+lemma dirty_of_path {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) {q w : ℕ} (hdirty : ¬ BelowF G C q)
+    (hp : Relation.ReflTransGen (MixedColor.OrStep n C) w (n+q)) :
+    ¬ (∀ x : Fin n → Bool, value C x w = true → graphFun G ∅ x = true) := by
+  intro hb
+  apply hdirty
+  intro x hx
+  exact hb x (path_true hp x hx)
+
+lemma and_reader_top {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) {q : ℕ}
+    (hlast : ∀ k, q < k → k < C.gates.length → (gateAt C k).op = .and → BelowF G C k)
+    {j w : ℕ} (hj : j < C.gates.length) (hja : (gateAt C j).op = .and)
+    (hw : w ∈ (gateAt C j).inputs)
+    (hp : Relation.ReflTransGen (MixedColor.OrStep n C) w (n+q)) :
+    q < j ∧ j ∈ tops G C := by
+  classical
+  have hqw := path_le hp
+  have hwj := hAO.2.1 j hj w hw
+  have hqj : q < j := by omega
+  refine ⟨hqj,?_⟩
+  simp only [tops,gatesWhere,Finset.mem_filter,Finset.mem_range]
+  exact ⟨hj,hja,hlast j hqj hj hja⟩
+
+lemma descendant_reaches_top {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hLeast : IsLeastAO G C) {q : ℕ} (hdirty : ¬ BelowF G C q)
+    (hlast : ∀ k, q < k → k < C.gates.length → (gateAt C k).op = .and → BelowF G C k)
+    {j : ℕ} (hj : j < C.gates.length)
+    (hp : Relation.ReflTransGen (MixedColor.OrStep n C) (n+j) (n+q)) :
+    ∃ k w, q < k ∧ k ∈ tops G C ∧ w ∈ (gateAt C k).inputs ∧
+      Relation.ReflTransGen (MixedColor.OrStep n C) w (n+j) := by
+  rcases JunkPurity.reaches_and_or_output C hLeast.1
+      (LeastGateLive.output_or_later_reader G C hLeast) j hj with hout | ⟨k,w,hk,hka,hw,hpath⟩
+  · exfalso
+    apply dirty_of_path G C hdirty (hout.trans hp)
+    intro x hx
+    change circuitFun n C x = true at hx
+    simpa only [hLeast.2.1] using hx
+  · have hkT := and_reader_top G C hLeast.1 hlast hk hka hw (hpath.trans hp)
+    exact ⟨k,w,hkT.1,hkT.2,hw,hpath⟩
+
+lemma partner_false {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) {q j w r : ℕ}
+    (hj : j < C.gates.length) (hja : (gateAt C j).op = .and) (hjc : BelowF G C j)
+    (hinputs : (gateAt C j).inputs = [w,r] ∨ (gateAt C j).inputs = [r,w])
+    (hp : Relation.ReflTransGen (MixedColor.OrStep n C) w (n+q))
+    (x : Fin n → Bool) (hqx : gateVal n C q x = true) (hneg : graphFun G ∅ x = false) :
+    value C x r = false := by
+  by_contra hr
+  have hrx : value C x r = true := by cases he : value C x r <;> simp_all
+  have hwx := path_true hp x hqx
+  have hjx : gateVal n C j x = true := by
+    change value C x (n+j) = true
+    rw [value_gate C hAO.2.1 x j hj,hja]
+    rcases hinputs with hs | hs <;> simp [hs,GateOp.eval,hwx,hrx]
+  have hf := hjc x hjx
+  rw [hneg] at hf
+  cases hf
+
+lemma partner_not_reaches {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) {q j w r : ℕ} (hdirty : ¬ BelowF G C q)
+    (hj : j < C.gates.length) (hja : (gateAt C j).op = .and) (hjc : BelowF G C j)
+    (hinputs : (gateAt C j).inputs = [w,r] ∨ (gateAt C j).inputs = [r,w])
+    (hp : Relation.ReflTransGen (MixedColor.OrStep n C) w (n+q)) :
+    ¬ Relation.ReflTransGen (MixedColor.OrStep n C) r (n+q) := by
+  intro hrp
+  apply hdirty
+  intro x hqx
+  by_contra hneg
+  have hrf := partner_false G C hAO hj hja hjc hinputs hp x hqx (Bool.eq_false_iff.mpr hneg)
+  have hrt := path_true hrp x hqx
+  rw [hrf] at hrt
+  cases hrt
+
+end PEqualNP.Outside.L_meta_3566.LastDirtyAndFrontier
