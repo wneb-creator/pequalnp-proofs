@@ -6322,4 +6322,75 @@ lemma no_build_of_search {goal g : Mask} (hg : g = goal ∨ g = ~~~goal)
 end Endpoint64
 
 
+
+namespace Endpoint64
+
+def hasEdge (goal : Mask) (ws : List Mask) : Bool :=
+  let es := endpoints goal ws
+  (List.range ws.length).any fun i => (List.range i).any fun j =>
+    edge (ws.getD i 0) (ws.getD j 0) (es.getD i (0,0)) (es.getD j (0,0))
+
+lemma hasEdge_false {goal : Mask} {ws : List Mask} (hn : ws.Nodup)
+    (hc : graphColorable (graph goal ws) 1) : hasEdge goal ws = false := by
+  apply Bool.eq_false_iff.mpr
+  intro he
+  obtain ⟨i,hi,hrow⟩ := List.any_eq_true.mp he
+  obtain ⟨j,hj,hedge⟩ := List.any_eq_true.mp hrow
+  have hi' : i < ws.length := List.mem_range.mp hi
+  have hj' : j < i := List.mem_range.mp hj
+  have hjlen : j < ws.length := hj'.trans hi'
+  have hcritical := (edge_endpoints_correct goal ws hn i j hi' hjlen (by omega)).mp hedge
+  have hbit := (graph_bit goal ws hn i j hi' hjlen).mpr hcritical
+  obtain ⟨color,hbound,hproper⟩ := hc
+  have hiG : i < (graph goal ws).length := by simpa only [graph_length] using hi'
+  have hjG : j < (graph goal ws).length := by simpa only [graph_length] using hjlen
+  have hne := hproper i hiG j hjG hbit
+  have hbi := hbound i hiG
+  have hbj := hbound j hjG
+  omega
+
+def admissibleFast (goal : Mask) (k : Nat) (ws : List Mask) : Bool :=
+  let colors := k + 2 - ws.length
+  if ws.length > k + 1 then false
+  else if colors > 4 then true
+  else if ws.length ≤ colors then true
+  else if colors = 1 then !hasEdge goal ws
+  else graphColorDegreeFast (graph goal ws) colors
+
+lemma admissibleFast_complete {goal g : Mask} (hg : g = goal ∨ g = ~~~goal)
+    (k : Nat) (ws : List Mask) (hn : ws.Nodup)
+    (hl : live basicOps g k ws.toFinset) : admissibleFast goal k ws = true := by
+  have hc := live_card hl
+  rw [List.toFinset_card_of_nodup hn] at hc
+  unfold admissibleFast
+  dsimp only
+  simp only [show ¬ws.length > k + 1 by omega, ite_false]
+  split_ifs with hlarge hsmall hone
+  · rfl
+  · rfl
+  · have hgcol := graph_colorable_of_live hg hn hl
+    rw [hone] at hgcol
+    simp only [hasEdge_false hn hgcol, Bool.not_false]
+  · exact graphColorDegreeFast_complete (graph_colorable_of_live hg hn hl)
+
+lemma no_live_of_runFast {goal g : Mask} (hg : g = goal ∨ g = ~~~goal)
+    (threshold k : Nat) (ws : List Mask) (hn : ws.Nodup)
+    (rejected : MemoPruned.runFrom threshold (admissibleFast goal) (MemoActualPruned.done goal)
+      (MemoActualPruned.children goal (SearchKernel.falseRows goal)) k ws = false) :
+    ¬live basicOps g k ws.toFinset := by
+  intro hl
+  have found := MemoActualPruned.run_complete hg (admissibleFast goal)
+    (admissibleFast_complete hg) (SearchKernel.falseRows goal) threshold k ws hn hl
+  rw [rejected] at found
+  contradiction
+
+lemma no_build_of_searchFast {goal g : Mask} (hg : g = goal ∨ g = ~~~goal)
+    (threshold k : Nat) (ws : List Mask) (hn : ws.Nodup)
+    (rejected : MemoActualPruned.search goal (admissibleFast goal) threshold k ws = false) :
+    ¬build basicOps g k ws.toFinset :=
+  MemoActualPruned.no_build hg (admissibleFast goal) (admissibleFast_complete hg)
+    threshold k ws hn rejected
+
+end Endpoint64
+
 end PEqualNP.Outside.L_meta_10760
