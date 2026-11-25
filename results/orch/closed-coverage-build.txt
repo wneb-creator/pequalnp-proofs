@@ -1,0 +1,70 @@
+import took 1.77s
+parsing took 171ms
+/tmp/oec/pequalnp-pilot-178/lrat_route/ClosedCoveragePilot.lean:20:58: warning: Variable name `K` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _K
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 221ms
+elaboration took 2.24s
+typeclass inference of OfNat took 152ms
+process pre-definitions took 255ms
+elaboration took 12.1s
+interpretation of Mathlib.Tactic.Linter.internalConstructor._lam_0._boxed took 127ms
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTactic.0.Mathlib.Linter.UnusedTactic.unusedTacticLinter._lam_0._boxed took 174ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 304ms
+interpretation of Batteries.Linter.UnnecessarySeqFocus.unnecessarySeqFocusLinter._lam_0._boxed took 162ms
+linting took 383ms
+elaboration took 117ms
+elaboration took 1.8s
+type checking took 7.4s
+/tmp/oec/pequalnp-pilot-178/lrat_route/ClosedCoveragePilot.lean:516:0: warning: Definition `binBucketsBound` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 318ms
+/tmp/oec/pequalnp-pilot-178/lrat_route/ClosedCoveragePilot.lean:521:0: warning: Definition `rootBucketsBound` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 325ms
+/tmp/oec/pequalnp-pilot-178/lrat_route/ClosedCoveragePilot.lean:526:0: warning: Definition `unaryBucketsBound` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.92s
+/tmp/oec/pequalnp-pilot-178/lrat_route/ClosedCoveragePilot.lean:535:0: warning: Definition `unaryBucketCoverage` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.21s
+/tmp/oec/pequalnp-pilot-178/lrat_route/ClosedCoveragePilot.lean:540:0: warning: Definition `binaryBucketCoverage` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.24s
+/tmp/oec/pequalnp-pilot-178/lrat_route/ClosedCoveragePilot.lean:564:0: warning: Definition `parentBucket0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+cumulative profiling times:
+	attribute application 1.05ms
+	blocked (unaccounted) 3.14s
+	compilation (IR) 2.8ms
+	compilation (LCNF base) 22.4ms
+	compilation (LCNF impure) 7.51ms
+	compilation (LCNF mono) 11.4ms
+	congr simp thm 6.12ms
+	declTypeLinter 103ms
+	elaboration 17s
+	fix level params 8.11ms
+	import 1.77s
+	initialization 38.6ms
+	instantiate metavars 59.4ms
+	interpretation 1.84s
+	let-to-have transformation 126ms
+	linting 600ms
+	module linting 0.0785ms
+	parsing 291ms
+	process pre-definitions 474ms
+	share common exprs 98.1ms
+	simp 61.5ms
+	tactic execution 103ms
+	tacticAnalysis 87.3ms
+	type checking 15.5s
+	typeclass inference 6.56s
