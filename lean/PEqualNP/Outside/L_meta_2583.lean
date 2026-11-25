@@ -1214,4 +1214,467 @@ lemma least_ao_not_read_one :
       ¬ PEqualNP.ReadK.IsReadK 4 Additional.p4Mixed 1 :=
   ⟨p4Mixed_least, Additional.p4Mixed_not_readOne⟩
 
+
+
+
+lemma expansion_arithmetic_equality (q s t : ℕ) (hs : 0 < s)
+    (hsq : s ≤ q ^ 2) (h : (s * (q + 1)) ^ 2 ≤ t * (s * (q + s)))
+    (heq : t = s + q) : s = 1 ∨ s = q ^ 2 := by
+  have hcancel : s * (q + 1) ^ 2 ≤ t * (q + s) := by
+    have hx : s * (s * (q + 1) ^ 2) ≤ s * (t * (q + s)) := by
+      convert h using 1 <;> ring
+    exact Nat.le_of_mul_le_mul_left hx hs
+  have hsq_int : (s : ℤ) ≤ (q : ℤ) ^ 2 := by exact_mod_cast hsq
+  have hprod : 0 ≤ ((s : ℤ) - 1) * ((q : ℤ) ^ 2 - s) := by
+    apply mul_nonneg <;> omega
+  have hc : (s : ℤ) * (q + 1) ^ 2 ≤ (s + q) * (q + s) := by
+    rw [heq] at hcancel
+    exact_mod_cast hcancel
+  have hz : ((s : ℤ) - 1) * ((q : ℤ) ^ 2 - s) = 0 := by nlinarith
+  rcases mul_eq_zero.mp hz with hleft | hright
+  · left
+    omega
+  · right
+    have hx : (s : ℤ) = (q : ℤ) ^ 2 := by omega
+    exact_mod_cast hx
+
+lemma incidence_neighborhood_expansion_strict {α β : Type*} [DecidableEq α]
+    [DecidableEq β] (S : Finset α) (T : Finset β) (I : α → β → Prop)
+    [DecidableRel I] (q : ℕ) (hS : 1 < S.card) (hsq : S.card < q ^ 2)
+    (hrow : ∀ p ∈ S, (T.filter (I p)).card = q + 1)
+    (hpair : ∀ p ∈ S, ∀ r ∈ S, p ≠ r →
+      (T.filter (fun l => I p l ∧ I r l)).card = 1) :
+    S.card + q + 1 ≤ T.card := by
+  have hc := sq_sum_le_card_mul_sum_sq (s := T)
+    (f := fun l => (S.filter (fun p => I p l)).card)
+  rw [incidence_moment_one S T I q hrow, incidence_moment_two S T I q hrow hpair] at hc
+  have hpos : 0 < S.card := by omega
+  have hle := expansion_arithmetic q S.card T.card hpos (by omega) hc
+  by_contra hbad
+  have heq : T.card = S.card + q := by omega
+  rcases expansion_arithmetic_equality q S.card T.card hpos (by omega) hc heq with h | h <;> omega
+
+lemma expansion_arithmetic_two (q s t : ℕ) (hs : 2 ≤ s)
+    (hsq : s + q ≤ q ^ 2) (h : (s * (q + 1)) ^ 2 ≤ t * (s * (q + s))) :
+    s + 2 * q ≤ t + 1 := by
+  have hcancel : s * (q + 1) ^ 2 ≤ t * (q + s) := by
+    have hx : s * (s * (q + 1) ^ 2) ≤ s * (t * (q + s)) := by
+      convert h using 1 <;> ring
+    exact Nat.le_of_mul_le_mul_left hx (by omega)
+  have hsq_int : (s : ℤ) + q ≤ (q : ℤ) ^ 2 := by exact_mod_cast hsq
+  have hprod : 0 ≤ ((s : ℤ) - 2) * ((q : ℤ) ^ 2 - q - s) := by
+    apply mul_nonneg <;> omega
+  have hc : (s : ℤ) * (q + 1) ^ 2 ≤ t * (q + s) := by exact_mod_cast hcancel
+  by_contra hbad
+  have hlt : (t : ℤ) ≤ s + 2 * q - 2 := by omega
+  have hspos : 0 < (s : ℤ) := by omega
+  have hqpos : 0 ≤ (q : ℤ) := by omega
+  nlinarith [mul_le_mul_of_nonneg_right hlt (by positivity : 0 ≤ (q : ℤ) + s)]
+
+lemma incidence_neighborhood_expansion_two {α β : Type*} [DecidableEq α]
+    [DecidableEq β] (S : Finset α) (T : Finset β) (I : α → β → Prop)
+    [DecidableRel I] (q : ℕ) (hS : 2 ≤ S.card) (hsq : S.card + q ≤ q ^ 2)
+    (hrow : ∀ p ∈ S, (T.filter (I p)).card = q + 1)
+    (hpair : ∀ p ∈ S, ∀ r ∈ S, p ≠ r →
+      (T.filter (fun l => I p l ∧ I r l)).card = 1) :
+    S.card + 2 * q ≤ T.card + 1 := by
+  have hc := sq_sum_le_card_mul_sum_sq (s := T)
+    (f := fun l => (S.filter (fun p => I p l)).card)
+  rw [incidence_moment_one S T I q hrow, incidence_moment_two S T I q hrow hpair] at hc
+  exact expansion_arithmetic_two q S.card T.card hS hsq hc
+
+lemma plane_mixed_cover_bound_two (q N : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (hN : N = q ^ 2 + q + 1)
+    (hrow : ∀ p : Fin N, (Finset.univ.filter (I p)).card = q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hunique : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (A B : Finset (Fin N)) (hA : 2 ≤ (Finset.univ \ A).card)
+    (hB : 2 ≤ (Finset.univ \ B).card)
+    (hcover : ∀ p l : Fin N, I p l → p ∈ A ∨ l ∈ B) :
+    N + 2 * q ≤ A.card + B.card + 1 := by
+  classical
+  let S := Finset.univ \ A
+  have hnotA : ∀ p ∈ S, p ∉ A := by
+    intro p hp
+    exact (Finset.mem_sdiff.mp hp).2
+  have hneigh : ∀ p ∈ S, ∀ l, I p l → l ∈ B := by
+    intro p hp l hpl
+    exact (hcover p l hpl).resolve_left (hnotA p hp)
+  have hsquare : S.card + q ≤ q ^ 2 := by
+    obtain ⟨l, hl, k, hk, hlk⟩ := Finset.one_lt_card.mp (show 1 < (Finset.univ \ B).card by omega)
+    have hlB : l ∉ B := (Finset.mem_sdiff.mp hl).2
+    have hkB : k ∉ B := (Finset.mem_sdiff.mp hk).2
+    let L := Finset.univ.filter (fun p => I p l)
+    let K := Finset.univ.filter (fun p => I p k)
+    have hLcard : L.card = q + 1 := hcol l
+    have hKcard : K.card = q + 1 := hcol k
+    have hinter : (L ∩ K).card ≤ 1 := by
+      apply Finset.card_le_one.mpr
+      intro p hp r hr
+      by_contra hpr
+      obtain ⟨j, hj, huniq⟩ := hunique p r hpr
+      have hpL : I p l := (Finset.mem_filter.mp (Finset.mem_inter.mp hp).1).2
+      have hpK : I p k := (Finset.mem_filter.mp (Finset.mem_inter.mp hp).2).2
+      have hrL : I r l := (Finset.mem_filter.mp (Finset.mem_inter.mp hr).1).2
+      have hrK : I r k := (Finset.mem_filter.mp (Finset.mem_inter.mp hr).2).2
+      exact hlk ((huniq l ⟨hpL, hrL⟩).trans (huniq k ⟨hpK, hrK⟩).symm)
+    have hu := Finset.card_union_add_card_inter L K
+    have hsub : S ⊆ Finset.univ \ (L ∪ K) := by
+      intro p hp
+      refine Finset.mem_sdiff.mpr ⟨Finset.mem_univ _, ?_⟩
+      intro hpLK
+      rcases Finset.mem_union.mp hpLK with hpL | hpK
+      · exact hlB (hneigh p hp l (Finset.mem_filter.mp hpL).2)
+      · exact hkB (hneigh p hp k (Finset.mem_filter.mp hpK).2)
+    have hle := Finset.card_le_card hsub
+    have hsum := Finset.card_sdiff_add_card_eq_card (Finset.subset_univ (L ∪ K))
+    simp only [Finset.card_univ, Fintype.card_fin] at hsum
+    omega
+  have hrowB : ∀ p ∈ S, (B.filter (I p)).card = q + 1 := by
+    intro p hp
+    have heq : B.filter (I p) = Finset.univ.filter (I p) := by
+      ext l
+      simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+      exact ⟨And.right, fun hpl => ⟨hneigh p hp l hpl, hpl⟩⟩
+    rw [heq]
+    exact hrow p
+  have hpairB : ∀ p ∈ S, ∀ r ∈ S, p ≠ r →
+      (B.filter (fun l => I p l ∧ I r l)).card = 1 := by
+    intro p hp r hr hpr
+    obtain ⟨l, hl, huniq⟩ := hunique p r hpr
+    apply Finset.card_eq_one.mpr
+    refine ⟨l, ?_⟩
+    ext k
+    simp only [Finset.mem_filter, Finset.mem_singleton]
+    constructor
+    · intro hk
+      exact huniq k hk.2
+    · intro hk
+      subst k
+      exact ⟨hneigh p hp l hl.1, hl⟩
+  have hexp := incidence_neighborhood_expansion_two S B I q hA hsquare hrowB hpairB
+  have hpart : S.card + A.card = N := by
+    simpa only [Finset.card_univ, Fintype.card_fin] using
+      Finset.card_sdiff_add_card_eq_card (Finset.subset_univ A)
+  omega
+
+
+
+open scoped BigOperators
+
+def HitsEveryRectangle {α β : Type*} (S : Finset α) (T : Finset β)
+    (E : Finset (α × β)) : Prop :=
+  ∀ a ∈ S, ∀ b ∈ S, a ≠ b → ∀ l ∈ T, ∀ k ∈ T, l ≠ k →
+    (a, l) ∈ E ∨ (a, k) ∈ E ∨ (b, l) ∈ E ∨ (b, k) ∈ E
+
+lemma rectangle_hit_nonempty {α β : Type*} (S : Finset α) (T : Finset β)
+    (E : Finset (α × β)) (hS : 2 ≤ S.card) (hT : 2 ≤ T.card)
+    (hrect : HitsEveryRectangle S T E) : E.Nonempty := by
+  obtain ⟨a, ha, b, hb, hab⟩ := Finset.one_lt_card.mp (show 1 < S.card by omega)
+  obtain ⟨l, hl, k, hk, hlk⟩ := Finset.one_lt_card.mp (show 1 < T.card by omega)
+  rcases hrect a ha b hb hab l hl k hk hlk with h | h | h | h
+  · exact ⟨_, h⟩
+  · exact ⟨_, h⟩
+  · exact ⟨_, h⟩
+  · exact ⟨_, h⟩
+
+lemma rectangle_density {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (S : Finset α) (T : Finset β) (E : Finset (α × β))
+    (hsub : E ⊆ S ×ˢ T) (hS : 2 ≤ S.card) (hT : 2 ≤ T.card)
+    (hrect : HitsEveryRectangle S T E) : S.card + T.card ≤ E.card + 3 := by
+  classical
+  have main : ∀ n : ℕ, ∀ (S : Finset α) (T : Finset β) (E : Finset (α × β)),
+      S.card + T.card = n → E ⊆ S ×ˢ T → 2 ≤ S.card → 2 ≤ T.card →
+      HitsEveryRectangle S T E → S.card + T.card ≤ E.card + 3 := by
+    intro n
+    induction n using Nat.strong_induction_on with
+    | ind n ih =>
+      intro S T E hn hsub hS hT hrect
+      obtain ⟨e, he⟩ := rectangle_hit_nonempty S T E hS hT hrect
+      have heS : e.1 ∈ S := (Finset.mem_product.mp (hsub he)).1
+      have heT : e.2 ∈ T := (Finset.mem_product.mp (hsub he)).2
+      by_cases hS2 : S.card = 2
+      · by_cases hT2 : T.card = 2
+        · have : 0 < E.card := Finset.card_pos.mpr ⟨e, he⟩
+          omega
+        · let T' := T.erase e.2
+          let E' := E.filter (fun x => x.2 ≠ e.2)
+          have hcardT : T'.card + 1 = T.card := Finset.card_erase_add_one heT
+          have hsub' : E' ⊆ S ×ˢ T' := by
+            intro x hx
+            obtain ⟨hxE, hxne⟩ := Finset.mem_filter.mp hx
+            obtain ⟨hxS, hxT⟩ := Finset.mem_product.mp (hsub hxE)
+            exact Finset.mem_product.mpr ⟨hxS, Finset.mem_erase.mpr ⟨hxne, hxT⟩⟩
+          have hEerase : E' ⊆ E.erase e := by
+            intro x hx
+            obtain ⟨hxE, hxne⟩ := Finset.mem_filter.mp hx
+            refine Finset.mem_erase.mpr ⟨?_, hxE⟩
+            intro hxe
+            subst x
+            exact hxne rfl
+          have hcardE : E'.card + 1 ≤ E.card := by
+            have hle := Finset.card_le_card hEerase
+            have hecard := Finset.card_erase_add_one he
+            omega
+          have hrect' : HitsEveryRectangle S T' E' := by
+            intro a ha b hb hab l hl k hk hlk
+            obtain ⟨hlne, hlT⟩ := Finset.mem_erase.mp hl
+            obtain ⟨hkne, hkT⟩ := Finset.mem_erase.mp hk
+            rcases hrect a ha b hb hab l hlT k hkT hlk with h | h | h | h
+            · exact Or.inl (Finset.mem_filter.mpr ⟨h, hlne⟩)
+            · exact Or.inr (Or.inl (Finset.mem_filter.mpr ⟨h, hkne⟩))
+            · exact Or.inr (Or.inr (Or.inl (Finset.mem_filter.mpr ⟨h, hlne⟩)))
+            · exact Or.inr (Or.inr (Or.inr (Finset.mem_filter.mpr ⟨h, hkne⟩)))
+          have hrec := ih (S.card + T'.card) (by omega) S T' E' rfl hsub' hS
+            (by omega) hrect'
+          omega
+      · let S' := S.erase e.1
+        let E' := E.filter (fun x => x.1 ≠ e.1)
+        have hcardS : S'.card + 1 = S.card := Finset.card_erase_add_one heS
+        have hsub' : E' ⊆ S' ×ˢ T := by
+          intro x hx
+          obtain ⟨hxE, hxne⟩ := Finset.mem_filter.mp hx
+          obtain ⟨hxS, hxT⟩ := Finset.mem_product.mp (hsub hxE)
+          exact Finset.mem_product.mpr ⟨Finset.mem_erase.mpr ⟨hxne, hxS⟩, hxT⟩
+        have hEerase : E' ⊆ E.erase e := by
+          intro x hx
+          obtain ⟨hxE, hxne⟩ := Finset.mem_filter.mp hx
+          refine Finset.mem_erase.mpr ⟨?_, hxE⟩
+          intro hxe
+          subst x
+          exact hxne rfl
+        have hcardE : E'.card + 1 ≤ E.card := by
+          have hle := Finset.card_le_card hEerase
+          have hecard := Finset.card_erase_add_one he
+          omega
+        have hrect' : HitsEveryRectangle S' T E' := by
+          intro a ha b hb hab l hl k hk hlk
+          obtain ⟨hane, haS⟩ := Finset.mem_erase.mp ha
+          obtain ⟨hbne, hbS⟩ := Finset.mem_erase.mp hb
+          rcases hrect a haS b hbS hab l hl k hk hlk with h | h | h | h
+          · exact Or.inl (Finset.mem_filter.mpr ⟨h, hane⟩)
+          · exact Or.inr (Or.inl (Finset.mem_filter.mpr ⟨h, hane⟩))
+          · exact Or.inr (Or.inr (Or.inl (Finset.mem_filter.mpr ⟨h, hbne⟩)))
+          · exact Or.inr (Or.inr (Or.inr (Finset.mem_filter.mpr ⟨h, hbne⟩)))
+        have hrec := ih (S'.card + T.card) (by omega) S' T E' rfl hsub'
+          (by omega) hT hrect'
+        omega
+  exact main _ S T E rfl hsub hS hT hrect
+
+
+namespace CompletionSets
+
+def uncovered {m n : ℕ} (E : Finset (Fin m × Fin n))
+    (A : Finset (Fin m)) (B : Finset (Fin n)) : Finset (Fin m × Fin n) :=
+  E.filter fun e => e.1 ∉ A ∧ e.2 ∉ B
+
+lemma completion_avoiding_sets {m n : ℕ} (E : Finset (Fin m × Fin n))
+    (A P : Finset (Fin m)) (B Q : Finset (Fin n))
+    (hP : ∀ p ∈ P, p ∉ A) (hQ : ∀ l ∈ Q, l ∉ B)
+    (hPQ : ∀ p ∈ P, ∀ l ∈ Q, (p, l) ∉ E) :
+    ∃ A' : Finset (Fin m), ∃ B' : Finset (Fin n),
+      (∀ p ∈ P, p ∉ A') ∧ (∀ l ∈ Q, l ∉ B') ∧
+      (∀ e ∈ E, e.1 ∈ A' ∨ e.2 ∈ B') ∧
+      A'.card + B'.card ≤ A.card + B.card + (uncovered E A B).card := by
+  let U := uncovered E A B
+  let X := U.filter fun e => e.1 ∉ P
+  let Y := U.filter fun e => e.1 ∈ P
+  refine ⟨A ∪ X.image Prod.fst, B ∪ Y.image Prod.snd, ?_, ?_, ?_, ?_⟩
+  · intro p hp
+    simp only [Finset.mem_union, not_or]
+    refine ⟨hP p hp, ?_⟩
+    intro h
+    obtain ⟨e, he, hep⟩ := Finset.mem_image.mp h
+    exact (Finset.mem_filter.mp he).2 (hep ▸ hp)
+  · intro l hl
+    simp only [Finset.mem_union, not_or]
+    refine ⟨hQ l hl, ?_⟩
+    intro h
+    obtain ⟨e, he, hel⟩ := Finset.mem_image.mp h
+    obtain ⟨heU, heP⟩ := Finset.mem_filter.mp he
+    have heE : e ∈ E := (Finset.mem_filter.mp heU).1
+    have heeq : e = (e.1, l) := Prod.ext rfl hel
+    exact hPQ e.1 heP l hl (heeq ▸ heE)
+  · intro e he
+    by_cases hA : e.1 ∈ A
+    · exact Or.inl (Finset.mem_union_left _ hA)
+    by_cases hB : e.2 ∈ B
+    · exact Or.inr (Finset.mem_union_left _ hB)
+    have heU : e ∈ U := Finset.mem_filter.mpr ⟨he, hA, hB⟩
+    by_cases hep : e.1 ∈ P
+    · exact Or.inr (Finset.mem_union_right _
+        (Finset.mem_image.mpr ⟨e, Finset.mem_filter.mpr ⟨heU, hep⟩, rfl⟩))
+    · exact Or.inl (Finset.mem_union_right _
+        (Finset.mem_image.mpr ⟨e, Finset.mem_filter.mpr ⟨heU, hep⟩, rfl⟩))
+  · have hA := Finset.card_union_le A (X.image Prod.fst)
+    have hB := Finset.card_union_le B (Y.image Prod.snd)
+    have hX := Finset.card_image_le (s := X) (f := Prod.fst)
+    have hY := Finset.card_image_le (s := Y) (f := Prod.snd)
+    have hsum : Y.card + X.card = U.card :=
+      Finset.card_filter_add_card_filter_not (s := U) (fun e => e.1 ∈ P)
+    change (A ∪ X.image Prod.fst).card + (B ∪ Y.image Prod.snd).card ≤
+      A.card + B.card + U.card
+    omega
+
+end CompletionSets
+
+
+lemma partial_cover_bound_two (N q : ℕ) (E : Finset (Fin N × Fin N))
+    (hN : 2 * q + 2 ≤ N)
+    (hfull : ∀ A B : Finset (Fin N), 2 ≤ (Finset.univ \ A).card →
+      2 ≤ (Finset.univ \ B).card → (∀ e ∈ E, e.1 ∈ A ∨ e.2 ∈ B) →
+      N + 2 * q ≤ A.card + B.card + 1)
+    (A B : Finset (Fin N)) (hA : 2 ≤ (Finset.univ \ A).card)
+    (hB : 2 ≤ (Finset.univ \ B).card) :
+    N + 2 * q ≤ A.card + B.card + (CompletionSets.uncovered E A B).card + 1 := by
+  classical
+  let S : Finset (Fin N) := Finset.univ \ A
+  let T : Finset (Fin N) := Finset.univ \ B
+  let U := CompletionSets.uncovered E A B
+  have hnotA : ∀ p ∈ S, p ∉ A := fun p hp => (Finset.mem_sdiff.mp hp).2
+  have hnotB : ∀ l ∈ T, l ∉ B := fun l hl => (Finset.mem_sdiff.mp hl).2
+  by_cases hex : ∃ a b l k : Fin N, a ∈ S ∧ b ∈ S ∧ a ≠ b ∧
+      l ∈ T ∧ k ∈ T ∧ l ≠ k ∧ (a, l) ∉ E ∧ (a, k) ∉ E ∧
+      (b, l) ∉ E ∧ (b, k) ∉ E
+  · obtain ⟨a, b, l, k, ha, hb, hab, hl, hk, hlk, hal, hak, hbl, hbk⟩ := hex
+    have hP : ∀ p ∈ ({a, b} : Finset (Fin N)), p ∉ A := by
+      intro p hp
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hp
+      rcases hp with rfl | rfl
+      · exact hnotA _ ha
+      · exact hnotA _ hb
+    have hQ : ∀ r ∈ ({l, k} : Finset (Fin N)), r ∉ B := by
+      intro r hr
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hr
+      rcases hr with rfl | rfl
+      · exact hnotB _ hl
+      · exact hnotB _ hk
+    have hPQ : ∀ p ∈ ({a, b} : Finset (Fin N)), ∀ r ∈ ({l, k} : Finset (Fin N)),
+        (p, r) ∉ E := by
+      intro p hp r hr
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hp hr
+      rcases hp with rfl | rfl <;> rcases hr with rfl | rfl <;> assumption
+    obtain ⟨A', B', hP', hQ', hcover, hcost⟩ :=
+      CompletionSets.completion_avoiding_sets E A {a, b} B {l, k} hP hQ hPQ
+    have hA' : 2 ≤ (Finset.univ \ A').card := by
+      have hs : ({a, b} : Finset (Fin N)) ⊆ Finset.univ \ A' := by
+        intro p hp
+        exact Finset.mem_sdiff.mpr ⟨Finset.mem_univ _, hP' p hp⟩
+      have h := Finset.card_le_card hs
+      rwa [Finset.card_pair hab] at h
+    have hB' : 2 ≤ (Finset.univ \ B').card := by
+      have hs : ({l, k} : Finset (Fin N)) ⊆ Finset.univ \ B' := by
+        intro r hr
+        exact Finset.mem_sdiff.mpr ⟨Finset.mem_univ _, hQ' r hr⟩
+      have h := Finset.card_le_card hs
+      rwa [Finset.card_pair hlk] at h
+    have h := hfull A' B' hA' hB' hcover
+    omega
+  · have hsub : U ⊆ S ×ˢ T := by
+      intro e he
+      obtain ⟨_, hp, hl⟩ := Finset.mem_filter.mp he
+      exact Finset.mem_product.mpr
+        ⟨Finset.mem_sdiff.mpr ⟨Finset.mem_univ _, hp⟩,
+         Finset.mem_sdiff.mpr ⟨Finset.mem_univ _, hl⟩⟩
+    have hmem : ∀ p ∈ S, ∀ l ∈ T, (p, l) ∈ E → (p, l) ∈ U := by
+      intro p hp l hl hpl
+      exact Finset.mem_filter.mpr ⟨hpl, hnotA p hp, hnotB l hl⟩
+    have hrect : HitsEveryRectangle S T U := by
+      intro a ha b hb hab l hl k hk hlk
+      by_contra hn
+      simp only [not_or] at hn
+      exact hex ⟨a, b, l, k, ha, hb, hab, hl, hk, hlk,
+        fun he => hn.1 (hmem a ha l hl he),
+        fun he => hn.2.1 (hmem a ha k hk he),
+        fun he => hn.2.2.1 (hmem b hb l hl he),
+        fun he => hn.2.2.2 (hmem b hb k hk he)⟩
+    have h := rectangle_density S T U hsub hA hB hrect
+    have hScard : S.card + A.card = N := by
+      simpa [S] using Finset.card_sdiff_add_card_eq_card (Finset.subset_univ A)
+    have hTcard : T.card + B.card = N := by
+      simpa [T] using Finset.card_sdiff_add_card_eq_card (Finset.subset_univ B)
+    change N + 2 * q ≤ A.card + B.card + U.card + 1
+    omega
+
+lemma plane_partial_cover_bound_two (q N : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hunique : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (A B : Finset (Fin N)) (hA : 2 ≤ (Finset.univ \ A).card)
+    (hB : 2 ≤ (Finset.univ \ B).card) :
+    N + 2 * q ≤ A.card + B.card +
+      (Finset.univ.filter (fun e : Fin N × Fin N =>
+        I e.1 e.2 ∧ e.1 ∉ A ∧ e.2 ∉ B)).card + 1 := by
+  let E := Finset.univ.filter (fun e : Fin N × Fin N => I e.1 e.2)
+  have hfull : ∀ A' B' : Finset (Fin N), 2 ≤ (Finset.univ \ A').card →
+      2 ≤ (Finset.univ \ B').card → (∀ e ∈ E, e.1 ∈ A' ∨ e.2 ∈ B') →
+      N + 2 * q ≤ A'.card + B'.card + 1 := by
+    intro A' B' hA' hB' hcov
+    apply plane_mixed_cover_bound_two q N I hN
+      (plane_point_degree q N I (by omega) hN hcol hunique) hcol hunique A' B' hA' hB'
+    intro p l hpl
+    exact hcov (p, l) (Finset.mem_filter.mpr ⟨Finset.mem_univ _, hpl⟩)
+  have hdim : 2 * q + 2 ≤ N := by
+    have hmul := Nat.mul_le_mul_right q hq
+    nlinarith
+  have h := partial_cover_bound_two N q E hdim hfull A B hA hB
+  simpa only [CompletionSets.uncovered, E, Finset.filter_filter, and_assoc] using h
+
+lemma mixed_partial_cover_penalty_two (q N u t penalty : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hunique : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (A B : Finset (Fin N)) (hA : 2 ≤ (Finset.univ \ A).card)
+    (hB : 2 ≤ (Finset.univ \ B).card) (hsize : A.card + B.card ≤ t)
+    (hmissing : (Finset.univ.filter (fun e : Fin N × Fin N =>
+      I e.1 e.2 ∧ e.1 ∉ A ∧ e.2 ∉ B)).card ≤ u)
+    (hledger : t + penalty + 1 ≤ N + u) : 2 * q + penalty ≤ 2 * u := by
+  have h := plane_partial_cover_bound_two q N I hq hN hcol hunique A B hA hB
+  omega
+
+lemma near_minimum_partial_cover_pure (q N : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hunique : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (A B : Finset (Fin N)) (hsize : A.card + B.card = N - 1)
+    (hmissing : (Finset.univ.filter (fun e : Fin N × Fin N =>
+      I e.1 e.2 ∧ e.1 ∉ A ∧ e.2 ∉ B)).card ≤ q + 1) : A = ∅ ∨ B = ∅ := by
+  by_contra hn
+  simp only [not_or] at hn
+  have hApos := Finset.card_pos.mpr (Finset.nonempty_iff_ne_empty.mpr hn.1)
+  have hBpos := Finset.card_pos.mpr (Finset.nonempty_iff_ne_empty.mpr hn.2)
+  have hAc : (Finset.univ \ A).card + A.card = N := by
+    simpa using Finset.card_sdiff_add_card_eq_card (Finset.subset_univ A)
+  have hBc : (Finset.univ \ B).card + B.card = N := by
+    simpa using Finset.card_sdiff_add_card_eq_card (Finset.subset_univ B)
+  have h := plane_partial_cover_bound_two q N I hq hN hcol hunique A B
+    (by omega) (by omega)
+  omega
+
+lemma near_minimum_partial_cover_single_star (q N : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hunique : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (A B : Finset (Fin N)) (hsize : A.card + B.card = N - 1)
+    (hmissing : (Finset.univ.filter (fun e : Fin N × Fin N =>
+      I e.1 e.2 ∧ e.1 ∉ A ∧ e.2 ∉ B)).card ≤ q + 1) :
+    (∃ p : Fin N, A = Finset.univ.erase p ∧ B = ∅) ∨
+      ∃ l : Fin N, A = ∅ ∧ B = Finset.univ.erase l := by
+  have hco : ∀ C : Finset (Fin N), C.card = N - 1 → ∃ p, C = Finset.univ.erase p := by
+    intro C hC
+    have hc : (Finset.univ \ C).card + C.card = N := by
+      simpa using Finset.card_sdiff_add_card_eq_card (Finset.subset_univ C)
+    obtain ⟨p, hp⟩ := Finset.card_eq_one.mp (show (Finset.univ \ C).card = 1 by omega)
+    refine ⟨p, ?_⟩
+    calc
+      C = Finset.univ \ (Finset.univ \ C) := by ext a; simp
+      _ = Finset.univ \ {p} := congrArg (fun X : Finset (Fin N) => Finset.univ \ X) hp
+      _ = Finset.univ.erase p := by ext a; simp
+  rcases near_minimum_partial_cover_pure q N I hq hN hcol hunique A B hsize hmissing with hA | hB
+  · obtain ⟨l, hl⟩ := hco B (by simpa [hA] using hsize)
+    exact Or.inr ⟨l, hA, hl⟩
+  · obtain ⟨p, hp⟩ := hco A (by simpa [hB] using hsize)
+    exact Or.inl ⟨p, hp, hB⟩
+
+
 end PEqualNP.Outside.L_meta_2583
