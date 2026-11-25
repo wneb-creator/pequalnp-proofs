@@ -2,913 +2,54 @@ import PEqualNP.Defs
 
 namespace PEqualNP.Outside.L_meta_10760
 
-open PEqualNP.CircuitLowerBounds
-
-def normalizeWire (m i : ℕ) : ℕ := if i < m then i + 2 else 0
-
-def normalizeInputs (m unit : ℕ) : List ℕ → List ℕ
-  | [] => [unit, unit]
-  | [a] => [normalizeWire m a, normalizeWire m a]
-  | a :: b :: _ => [normalizeWire m a, normalizeWire m b]
-
-def normalizeGate (m : ℕ) (g : Gate) : Gate :=
-  ⟨g.op, match g.op with
-    | GateOp.and => normalizeInputs m 1 g.inputs
-    | GateOp.or => normalizeInputs m 0 g.inputs
-    | GateOp.not => [normalizeWire m (g.inputs.headD m)]
-    | _ => g.inputs.map (normalizeWire m)⟩
-
-def normalizeGates : ℕ → List Gate → List Gate
-  | _, [] => []
-  | m, g :: gs => normalizeGate m g :: normalizeGates (m + 1) gs
-
-def runGates (gs : List Gate) (w : List Bool) : List Bool :=
-  gs.foldl (fun v g => v ++ [g.op.eval (g.inputs.map fun i => v.getD i false)]) w
-
-def basisGate (g : Gate) : Prop :=
-  (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2
-
-lemma normalizeWire_lt (m i : ℕ) : normalizeWire m i < m + 2 := by
-  unfold normalizeWire
-  split_ifs <;> omega
-
-lemma normalizeGate_op (m : ℕ) (g : Gate) : (normalizeGate m g).op = g.op := rfl
-
-lemma normalizeGates_length (m : ℕ) (gs : List Gate) :
-    (normalizeGates m gs).length = gs.length := by
-  induction gs generalizing m with
-  | nil => rfl
-  | cons g gs ih => simp only [normalizeGates, List.length_cons, ih]
-
-lemma normalizeWire_value (w : List Bool) (i : ℕ) :
-    ([false, true] ++ w).getD (normalizeWire w.length i) false = w.getD i false := by
-  unfold normalizeWire
-  split_ifs with hi
-  · change (false :: true :: w).getD ((i + 1) + 1) false = w.getD i false
-    rw [List.getD_cons_succ, List.getD_cons_succ]
-  · rw [show w.getD i false = false from List.getD_eq_default _ _ (by omega)]
-    rfl
-
-lemma normalizeInputs_length (m unit : ℕ) (ins : List ℕ) :
-    (normalizeInputs m unit ins).length = 2 := by
-  cases ins with
-  | nil => rfl
-  | cons a ins => cases ins <;> rfl
-
-lemma normalizeInputs_lt (m unit : ℕ) (hu : unit < m + 2) (ins : List ℕ) :
-    ∀ i ∈ normalizeInputs m unit ins, i < m + 2 := by
-  cases ins with
-  | nil => simpa [normalizeInputs] using hu
-  | cons a ins =>
-    cases ins with
-    | nil => simpa [normalizeInputs] using normalizeWire_lt m a
-    | cons b ins =>
-      intro i hi
-      simp only [normalizeInputs, List.mem_cons, List.not_mem_nil, or_false] at hi
-      rcases hi with rfl | rfl
-      · exact normalizeWire_lt m a
-      · exact normalizeWire_lt m b
-
-lemma normalizeGate_shape (m : ℕ) (g : Gate) (hg : basisGate g) :
-    (((normalizeGate m g).op = GateOp.and ∨ (normalizeGate m g).op = GateOp.or) ∧
-      (normalizeGate m g).inputs.length = 2 ∨
-      (normalizeGate m g).op = GateOp.not ∧ (normalizeGate m g).inputs.length = 1) ∧
-    ∀ i ∈ (normalizeGate m g).inputs, i < m + 2 := by
-  rcases hg.1 with hop | hop | hop
-  · constructor
-    · left
-      exact ⟨Or.inl hop, by simpa [normalizeGate, hop] using normalizeInputs_length m 1 g.inputs⟩
-    · simpa [normalizeGate, hop] using normalizeInputs_lt m 1 (by omega) g.inputs
-  · constructor
-    · left
-      exact ⟨Or.inr hop, by simpa [normalizeGate, hop] using normalizeInputs_length m 0 g.inputs⟩
-    · simpa [normalizeGate, hop] using normalizeInputs_lt m 0 (by omega) g.inputs
-  · constructor
-    · right
-      exact ⟨hop, by simp [normalizeGate, hop]⟩
-    · simpa [normalizeGate, hop] using normalizeWire_lt m (g.inputs.headD m)
-
-lemma normalizeGate_value (w : List Bool) (g : Gate) (hg : basisGate g) :
-    (normalizeGate w.length g).op.eval
-        ((normalizeGate w.length g).inputs.map fun i => ([false, true] ++ w).getD i false) =
-      g.op.eval (g.inputs.map fun i => w.getD i false) := by
-  rcases g with ⟨op, ins⟩
-  rcases hg with ⟨hop, hlen⟩
-  rcases hop with rfl | rfl | rfl
-  · cases ins with
-    | nil => rfl
-    | cons a ins =>
-      cases ins with
-      | nil =>
-        simp only [normalizeGate, normalizeInputs, List.map_cons, List.map_nil, normalizeWire_value]
-        simp [GateOp.eval]
-      | cons b ins =>
-        have he : ins = [] := by simpa using hlen
-        subst ins
-        simp only [normalizeGate, normalizeInputs, List.map_cons, List.map_nil, normalizeWire_value]
-  · cases ins with
-    | nil => rfl
-    | cons a ins =>
-      cases ins with
-      | nil =>
-        simp only [normalizeGate, normalizeInputs, List.map_cons, List.map_nil, normalizeWire_value]
-        simp [GateOp.eval]
-      | cons b ins =>
-        have he : ins = [] := by simpa using hlen
-        subst ins
-        simp only [normalizeGate, normalizeInputs, List.map_cons, List.map_nil, normalizeWire_value]
-  · cases ins with
-    | nil => simp [normalizeGate, normalizeWire, GateOp.eval]
-    | cons a ins =>
-      simp only [normalizeGate, List.headD_cons, List.map_cons, List.map_nil, normalizeWire_value]
-      simp [GateOp.eval]
-
-lemma runGates_length (gs : List Gate) (w : List Bool) :
-    (runGates gs w).length = w.length + gs.length := by
-  induction gs generalizing w with
-  | nil => simp [runGates]
-  | cons g gs ih =>
-    change (runGates gs (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])).length = _
-    rw [ih]
-    simp [Nat.add_comm, Nat.add_left_comm]
-
-lemma normalizeGates_value (gs : List Gate) (w : List Bool)
-    (hgs : ∀ g ∈ gs, basisGate g) :
-    runGates (normalizeGates w.length gs) ([false, true] ++ w) =
-      [false, true] ++ runGates gs w := by
-  induction gs generalizing w with
-  | nil => rfl
-  | cons g gs ih =>
-    change runGates (normalizeGates (w.length + 1) gs)
-      (([false, true] ++ w) ++ [(normalizeGate w.length g).op.eval
-        ((normalizeGate w.length g).inputs.map fun i => ([false, true] ++ w).getD i false)]) =
-      [false, true] ++ runGates gs (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
-    rw [normalizeGate_value w g (hgs g List.mem_cons_self), List.append_assoc]
-    have he : (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]).length = w.length + 1 :=
-      by simp
-    rw [← he]
-    exact ih _ (fun g hg => hgs g (List.mem_cons_of_mem _ hg))
-
-lemma normalizeGates_eval (gs : List Gate) (o : ℕ) (w : List Bool)
-    (hgs : ∀ g ∈ gs, basisGate g) :
-    Circuit.eval ⟨normalizeGates w.length gs, normalizeWire (w.length + gs.length) o⟩
-      ([false, true] ++ w) = Circuit.eval ⟨gs, o⟩ w := by
-  change (runGates (normalizeGates w.length gs) ([false, true] ++ w)).getD
-    (normalizeWire (w.length + gs.length) o) false = (runGates gs w).getD o false
-  rw [normalizeGates_value gs w hgs, ← runGates_length gs w]
-  exact normalizeWire_value _ _
-
-lemma normalizeGates_getElem (m : ℕ) (gs : List Gate) (j : ℕ) (hj : j < gs.length) :
-    (normalizeGates m gs)[j]'(by rw [normalizeGates_length]; exact hj) =
-      normalizeGate (m + j) gs[j] := by
-  induction gs generalizing m j with
-  | nil => simp at hj
-  | cons g gs ih =>
-    cases j with
-    | zero => simp [normalizeGates]
-    | succ j =>
-      simpa [normalizeGates, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using
-        ih (m + 1) j (by simpa using hj)
-
-lemma normalizeGates_shape (m : ℕ) (gs : List Gate) (hgs : ∀ g ∈ gs, basisGate g)
-    (j : Fin (normalizeGates m gs).length) :
-    (((normalizeGates m gs).get j).op = GateOp.and ∨
-        ((normalizeGates m gs).get j).op = GateOp.or) ∧
-      ((normalizeGates m gs).get j).inputs.length = 2 ∨
-    ((normalizeGates m gs).get j).op = GateOp.not ∧
-      ((normalizeGates m gs).get j).inputs.length = 1 := by
-  have hj : j.val < gs.length := by simpa [normalizeGates_length] using j.isLt
-  simpa only [List.get_eq_getElem, normalizeGates_getElem m gs j.val hj] using
-    (normalizeGate_shape (m + j.val) gs[j.val] (hgs _ (List.getElem_mem hj))).1
-
-lemma normalizeGates_readsBack (m : ℕ) (gs : List Gate) (hgs : ∀ g ∈ gs, basisGate g)
-    (j : Fin (normalizeGates m gs).length) :
-    ∀ i ∈ ((normalizeGates m gs).get j).inputs, i < m + 2 + j.val := by
-  have hj : j.val < gs.length := by simpa [normalizeGates_length] using j.isLt
-  simpa only [List.get_eq_getElem, normalizeGates_getElem m gs j.val hj,
-    Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using
-    (normalizeGate_shape (m + j.val) gs[j.val] (hgs _ (List.getElem_mem hj))).2
-
-lemma normalizeGates_oneNot (m : ℕ) (gs : List Gate)
-    (huniq : ∀ i j : Fin gs.length, (gs.get i).op = GateOp.not →
-      (gs.get j).op = GateOp.not → i = j) :
-    ∀ i j : Fin (normalizeGates m gs).length,
-      ((normalizeGates m gs).get i).op = GateOp.not →
-      ((normalizeGates m gs).get j).op = GateOp.not → i = j := by
-  intro i j hi hj
-  have hi' : i.val < gs.length := by simpa [normalizeGates_length] using i.isLt
-  have hj' : j.val < gs.length := by simpa [normalizeGates_length] using j.isLt
-  simp only [List.get_eq_getElem, normalizeGates_getElem m gs i.val hi',
-    normalizeGates_getElem m gs j.val hj', normalizeGate_op] at hi hj
-  have he := huniq ⟨i.val, hi'⟩ ⟨j.val, hj'⟩ hi hj
-  apply Fin.ext
-  exact congrArg (fun k : Fin gs.length => k.val) he
-
-
-def padRun (gs : List Gate) (w : List Bool) : List Bool :=
-  gs.foldl (fun v g => v ++ [g.op.eval (g.inputs.map fun i => v.getD i false)]) w
-
-def padNormal : ℕ → List Gate → Prop
-  | _, [] => True
-  | n, g :: gs =>
-      ((((g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2) ∨
-        (g.op = GateOp.not ∧ g.inputs.length = 1)) ∧
-        (∀ i ∈ g.inputs, i < n)) ∧ padNormal (n + 1) gs
-
-def padCopy (o : ℕ) : Gate := ⟨GateOp.or, [o, o]⟩
-
-def padGates (n K : ℕ) (gs : List Gate) (o : ℕ) : List Gate :=
-  gs.take (o + 1 - n) ++ List.replicate (K - (o + 1 - n)) (padCopy o)
-
-lemma padRun_append (gs hs : List Gate) (w : List Bool) :
-    padRun (gs ++ hs) w = padRun hs (padRun gs w) := by
-  simp only [padRun, List.foldl_append]
-
-lemma padRun_length (gs : List Gate) (w : List Bool) :
-    (padRun gs w).length = w.length + gs.length := by
-  induction gs generalizing w with
-  | nil => simp [padRun]
-  | cons g gs ih =>
-    change (padRun gs (w ++ [_])).length = _
-    rw [ih]
-    simp only [List.length_append, List.length_cons, List.length_nil]
-    omega
-
-lemma padRun_prefix (gs : List Gate) (w : List Bool) :
-    ∃ tail, padRun gs w = w ++ tail := by
-  induction gs generalizing w with
-  | nil => exact ⟨[], by simp [padRun]⟩
-  | cons g gs ih =>
-    obtain ⟨tail, ht⟩ := ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
-    exact ⟨_ :: tail, by simpa only [padRun, List.foldl_cons, List.append_assoc,
-      List.singleton_append] using ht⟩
-
-lemma padRun_getD (gs : List Gate) (w : List Bool) (o : ℕ) (ho : o < w.length) :
-    (padRun gs w).getD o false = w.getD o false := by
-  obtain ⟨tail, ht⟩ := padRun_prefix gs w
-  rw [ht, List.getD_append _ _ _ _ ho]
-
-lemma padRun_take_getD (gs : List Gate) (w : List Bool) (q o : ℕ)
-    (ho : o < w.length + (gs.take q).length) :
-    (padRun gs w).getD o false = (padRun (gs.take q) w).getD o false := by
-  conv_lhs => rw [← List.take_append_drop q gs]
-  rw [padRun_append]
-  apply padRun_getD
-  simpa only [padRun_length] using ho
-
-lemma padCopy_eval (w : List Bool) (o : ℕ) :
-    (padCopy o).op.eval ((padCopy o).inputs.map fun i => w.getD i false) =
-      w.getD o false := by
-  simp [padCopy, GateOp.eval]
-
-lemma padRun_replicate (w : List Bool) (o k : ℕ) (ho : o < w.length) :
-    padRun (List.replicate k (padCopy o)) w =
-      w ++ List.replicate k (w.getD o false) := by
-  induction k generalizing w with
-  | zero => simp [padRun]
-  | succ k ih =>
-    rw [List.replicate_succ]
-    change padRun (List.replicate k (padCopy o))
-      (w ++ [(padCopy o).op.eval ((padCopy o).inputs.map fun i => w.getD i false)]) = _
-    rw [padCopy_eval, ih _ (by simp only [List.length_append, List.length_singleton]; omega),
-      List.getD_append _ _ _ _ ho]
-    simp only [List.append_assoc, List.singleton_append, List.replicate_succ]
-
-lemma padNormal_take {n q : ℕ} {gs : List Gate} (h : padNormal n gs) :
-    padNormal n (gs.take q) := by
-  induction q generalizing n gs with
-  | zero => simp [padNormal]
-  | succ q ih =>
-    cases gs with
-    | nil => trivial
-    | cons g gs => exact ⟨h.1, ih h.2⟩
-
-lemma padNormal_append {n : ℕ} {gs hs : List Gate}
-    (hg : padNormal n gs) (hh : padNormal (n + gs.length) hs) :
-    padNormal n (gs ++ hs) := by
-  induction gs generalizing n with
-  | nil => simpa only [List.nil_append, List.length_nil, Nat.add_zero] using hh
-  | cons g gs ih =>
-    refine ⟨hg.1, ih hg.2 ?_⟩
-    simpa only [List.length_cons, Nat.add_assoc, Nat.add_comm 1 gs.length] using hh
-
-lemma padNormal_replicate (n o k : ℕ) (ho : o < n) :
-    padNormal n (List.replicate k (padCopy o)) := by
-  induction k generalizing n with
-  | zero => trivial
-  | succ k ih =>
-    refine ⟨⟨Or.inl ⟨Or.inr rfl, rfl⟩, ?_⟩, ih (n + 1) (by omega)⟩
-    intro i hi
-    simp only [padCopy, List.mem_cons, List.not_mem_nil, or_false, or_self] at hi
-    simpa only [hi] using ho
-
-lemma padGates_length {n K o : ℕ} {gs : List Gate}
-    (hL : gs.length ≤ K) (ho : o < n + gs.length) :
-    (padGates n K gs o).length = K := by
-  have hq : o + 1 - n ≤ gs.length := by omega
-  have hqK : o + 1 - n ≤ K := by omega
-  simp only [padGates, List.length_append, List.length_take, Nat.min_eq_left hq,
-    List.length_replicate]
-  omega
-
-lemma padGates_normal {n K o : ℕ} {gs : List Gate}
-    (hn : padNormal n gs) (ho : o < n + gs.length) :
-    padNormal n (padGates n K gs o) := by
-  apply padNormal_append (padNormal_take hn)
-  apply padNormal_replicate
-  have hq : o + 1 - n ≤ gs.length := by omega
-  simp only [List.length_take, Nat.min_eq_left hq]
-  omega
-
-lemma padGates_eval {n K o : ℕ} {gs : List Gate} (w : List Bool)
-    (hw : w.length = n) (hL : gs.length ≤ K) (hK : 0 < K)
-    (ho : o < n + gs.length) :
-    (padRun (padGates n K gs o) w).getD (n + K - 1) false =
-      (padRun gs w).getD o false := by
-  have hq : o + 1 - n ≤ gs.length := by omega
-  have hqK : o + 1 - n ≤ K := by omega
-  have hlen : (gs.take (o + 1 - n)).length = o + 1 - n := by
-    simp only [List.length_take, Nat.min_eq_left hq]
-  have hwpre : (padRun (gs.take (o + 1 - n)) w).length = n + (o + 1 - n) := by
-    rw [padRun_length, hw, hlen]
-  have hopre : o < (padRun (gs.take (o + 1 - n)) w).length := by
-    rw [hwpre]
-    omega
-  rw [padGates, padRun_append, padRun_replicate _ _ _ hopre]
-  rw [padRun_take_getD gs w (o + 1 - n) o (by rw [hw, hlen]; omega)]
-  by_cases hk : K = o + 1 - n
-  · rw [hk, Nat.sub_self, List.replicate_zero, List.append_nil]
-    have hoeq : n + (o + 1 - n) - 1 = o := by omega
-    rw [hoeq]
-  · rw [List.getD_append_right _ _ _ _ (by rw [hwpre]; omega)]
-    apply List.getD_replicate
-    rw [hwpre]
-    omega
-
-lemma padGates_not_source {n K o i : ℕ} {gs : List Gate}
-    (_hL : gs.length ≤ K) (ho : o < n + gs.length)
-    (hi : i < (padGates n K gs o).length)
-    (hop : ((padGates n K gs o)[i]).op = GateOp.not) :
-    ∃ hi' : i < gs.length, (gs[i]).op = GateOp.not := by
-  have hq : o + 1 - n ≤ gs.length := by omega
-  have hlen : (gs.take (o + 1 - n)).length = o + 1 - n := by
-    simp only [List.length_take, Nat.min_eq_left hq]
-  by_cases hleft : i < (gs.take (o + 1 - n)).length
-  · have his : i < gs.length := by omega
-    refine ⟨his, ?_⟩
-    simpa only [padGates, List.getElem_append_left hleft, List.getElem_take] using hop
-  · have hright : (gs.take (o + 1 - n)).length ≤ i := by omega
-    simp only [padGates, List.getElem_append_right hright, List.getElem_replicate,
-      padCopy] at hop
-    cases hop
-
-lemma padGates_oneNot {n K o : ℕ} {gs : List Gate}
-    (hL : gs.length ≤ K) (ho : o < n + gs.length)
-    (hu : ∀ i j : Fin gs.length,
-      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j) :
-    ∀ i j : Fin (padGates n K gs o).length,
-      ((padGates n K gs o).get i).op = GateOp.not →
-      ((padGates n K gs o).get j).op = GateOp.not → i = j := by
-  intro i j hi hj
-  obtain ⟨hi', hni⟩ := padGates_not_source hL ho i.isLt hi
-  obtain ⟨hj', hnj⟩ := padGates_not_source hL ho j.isLt hj
-  have he := hu ⟨i.val, hi'⟩ ⟨j.val, hj'⟩ hni hnj
-  exact Fin.ext (congrArg (fun v : Fin gs.length => v.val) he)
-
-lemma padNormal_indexed (n : ℕ) (gs : List Gate) :
-    padNormal n gs ↔ ∀ j : Fin gs.length,
-      ((((gs.get j).op = GateOp.and ∨ (gs.get j).op = GateOp.or) ∧
-        (gs.get j).inputs.length = 2) ∨
-        ((gs.get j).op = GateOp.not ∧ (gs.get j).inputs.length = 1)) ∧
-      (∀ i ∈ (gs.get j).inputs, i < n + j.val) := by
-  induction gs generalizing n with
-  | nil => simp [padNormal]
-  | cons g gs ih =>
-    constructor
-    · intro h j
-      refine Fin.cases ?_ (fun k => ?_) j
-      · simpa only [List.get_eq_getElem, Fin.val_zero, List.getElem_cons_zero,
-          Nat.add_zero] using h.1
-      · have hk := (ih (n + 1)).mp h.2 k
-        simpa only [List.get_eq_getElem, Fin.val_succ, List.getElem_cons_succ,
-          Nat.add_assoc, Nat.add_comm 1 k.val] using hk
-    · intro h
-      refine ⟨?_, (ih (n + 1)).mpr ?_⟩
-      · simpa only [List.get_eq_getElem, Fin.val_zero, List.getElem_cons_zero,
-          Nat.add_zero] using h 0
-      · intro k
-        have hk := h k.succ
-        simpa only [List.get_eq_getElem, Fin.val_succ, List.getElem_cons_succ,
-          Nat.add_assoc, Nat.add_comm 1 k.val] using hk
-
-lemma pad_exact {n K o : ℕ} {gs : List Gate}
-    (hL : gs.length ≤ K) (hK : 0 < K) (ho : o < n + gs.length)
-    (hs : ∀ j : Fin gs.length,
-      ((((gs.get j).op = GateOp.and ∨ (gs.get j).op = GateOp.or) ∧
-        (gs.get j).inputs.length = 2) ∨
-        ((gs.get j).op = GateOp.not ∧ (gs.get j).inputs.length = 1)))
-    (hr : ∀ j : Fin gs.length, ∀ i ∈ (gs.get j).inputs, i < n + j.val)
-    (hu : ∀ i j : Fin gs.length,
-      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j) :
-    ∃ padded : List Gate,
-      padded.length = K ∧
-      (∀ j : Fin padded.length,
-        ((((padded.get j).op = GateOp.and ∨ (padded.get j).op = GateOp.or) ∧
-          (padded.get j).inputs.length = 2) ∨
-          ((padded.get j).op = GateOp.not ∧ (padded.get j).inputs.length = 1))) ∧
-      (∀ j : Fin padded.length, ∀ i ∈ (padded.get j).inputs, i < n + j.val) ∧
-      (∀ i j : Fin padded.length,
-        (padded.get i).op = GateOp.not → (padded.get j).op = GateOp.not → i = j) ∧
-      ∀ w : List Bool, w.length = n →
-        Circuit.eval ⟨padded, n + K - 1⟩ w = Circuit.eval ⟨gs, o⟩ w := by
-  have hn : padNormal n gs := (padNormal_indexed n gs).mpr (fun j => ⟨hs j, hr j⟩)
-  have hp := (padNormal_indexed n (padGates n K gs o)).mp (padGates_normal hn ho)
-  refine ⟨padGates n K gs o, padGates_length hL ho, (fun j => (hp j).1),
-    (fun j => (hp j).2), padGates_oneNot hL ho hu, ?_⟩
-  intro w hw
-  exact padGates_eval w hw hL hK ho
-
-lemma normalize_pad (n K : ℕ) (gs : List Gate) (o : ℕ)
-    (hL : gs.length ≤ K) (hK : 0 < K) (hgs : ∀ g ∈ gs, basisGate g)
-    (hu : ∀ i j : Fin gs.length,
-      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j) :
-    ∃ padded : List Gate,
-      padded.length = K ∧ padNormal (n + 2) padded ∧
-      (∀ i j : Fin padded.length,
-        (padded.get i).op = GateOp.not → (padded.get j).op = GateOp.not → i = j) ∧
-      ∀ x : Fin n → Bool,
-        Circuit.eval ⟨padded, n + 2 + K - 1⟩ ([false, true] ++ List.ofFn x) =
-          Circuit.eval ⟨gs, o⟩ (List.ofFn x) := by
-  have ho : normalizeWire (n + gs.length) o < n + 2 + (normalizeGates n gs).length := by
-    rw [normalizeGates_length]
-    have hh := normalizeWire_lt (n + gs.length) o
-    omega
-  obtain ⟨padded, hpL, hpS, hpR, hpU, hpE⟩ := pad_exact
-    (n := n + 2) (K := K) (gs := normalizeGates n gs)
-    (o := normalizeWire (n + gs.length) o)
-    (by simpa only [normalizeGates_length] using hL) hK ho
-    (normalizeGates_shape n gs hgs) (normalizeGates_readsBack n gs hgs)
-    (normalizeGates_oneNot n gs hu)
-  refine ⟨padded, hpL, (padNormal_indexed _ _).mpr (fun j => ⟨hpS j, hpR j⟩), hpU, ?_⟩
-  intro x
-  rw [hpE _ (by simp only [List.length_append, List.length_cons, List.length_nil,
-    List.length_ofFn]; omega)]
-  simpa only [List.length_ofFn] using normalizeGates_eval gs o (List.ofFn x) hgs
-
-def keepPad (K : ℕ) (gs : List Gate) : List Gate :=
-  gs ++ List.replicate (K - gs.length) (padCopy 0)
-
-lemma keepPad_length (K : ℕ) (gs : List Gate) (hL : gs.length ≤ K) :
-    (keepPad K gs).length = K := by
-  simp only [keepPad, List.length_append, List.length_replicate]
-  omega
-
-lemma keepPad_normal {n K : ℕ} {gs : List Gate} (hn : padNormal n gs) (hn0 : 0 < n) :
-    padNormal n (keepPad K gs) := by
-  apply padNormal_append hn
-  exact padNormal_replicate _ _ _ (by omega)
-
-lemma keepPad_eval {n K o : ℕ} {gs : List Gate} (w : List Bool)
-    (hw : w.length = n) (ho : o < n + gs.length) :
-    Circuit.eval ⟨keepPad K gs, o⟩ w = Circuit.eval ⟨gs, o⟩ w := by
-  change (padRun (keepPad K gs) w).getD o false = (padRun gs w).getD o false
-  rw [keepPad, padRun_append]
-  exact padRun_getD _ _ o (by rw [padRun_length, hw]; exact ho)
-
-lemma keepPad_not_source {K i : ℕ} {gs : List Gate}
-    (hi : i < (keepPad K gs).length) (hop : ((keepPad K gs)[i]).op = GateOp.not) :
-    ∃ hi' : i < gs.length, (gs[i]).op = GateOp.not := by
-  by_cases hleft : i < gs.length
-  · exact ⟨hleft, by simpa only [keepPad, List.getElem_append_left hleft] using hop⟩
-  · have hright : gs.length ≤ i := by omega
-    simp only [keepPad, List.getElem_append_right hright, List.getElem_replicate, padCopy] at hop
-    cases hop
-
-lemma keepPad_oneNot {K : ℕ} {gs : List Gate}
-    (hu : ∀ i j : Fin gs.length,
-      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j) :
-    ∀ i j : Fin (keepPad K gs).length,
-      ((keepPad K gs).get i).op = GateOp.not →
-      ((keepPad K gs).get j).op = GateOp.not → i = j := by
-  intro i j hi hj
-  obtain ⟨hi', hni⟩ := keepPad_not_source i.isLt hi
-  obtain ⟨hj', hnj⟩ := keepPad_not_source j.isLt hj
-  exact Fin.ext (congrArg (fun v : Fin gs.length => v.val)
-    (hu ⟨i.val, hi'⟩ ⟨j.val, hj'⟩ hni hnj))
-
-lemma normalizeGates_hasNot (n : ℕ) (gs : List Gate)
-    (hn : ∃ i : Fin gs.length, (gs.get i).op = GateOp.not) :
-    ∃ i : Fin (normalizeGates n gs).length,
-      ((normalizeGates n gs).get i).op = GateOp.not := by
-  obtain ⟨i, hi⟩ := hn
-  refine ⟨⟨i.val, by simpa only [normalizeGates_length] using i.isLt⟩, ?_⟩
-  simpa only [List.get_eq_getElem, normalizeGates_getElem n gs i.val i.isLt,
-    normalizeGate_op] using hi
-
-lemma keepPad_hasNot (K : ℕ) (gs : List Gate)
-    (hn : ∃ i : Fin gs.length, (gs.get i).op = GateOp.not) :
-    ∃ i : Fin (keepPad K gs).length, ((keepPad K gs).get i).op = GateOp.not := by
-  obtain ⟨i, hi⟩ := hn
-  refine ⟨⟨i.val, by have hh := i.isLt; simp only [keepPad, List.length_append]; omega⟩, ?_⟩
-  simpa only [List.get_eq_getElem, keepPad, List.getElem_append_left i.isLt] using hi
-
-lemma normalize_pad_exactNot (n K : ℕ) (gs : List Gate) (o : ℕ)
-    (hL : gs.length ≤ K) (hgs : ∀ g ∈ gs, basisGate g)
-    (hu : ∀ i j : Fin gs.length,
-      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j)
-    (hn : ∃ i : Fin gs.length, (gs.get i).op = GateOp.not) :
-    ∃ (padded : List Gate) (output : ℕ),
-      padded.length = K ∧ padNormal (n + 2) padded ∧ output < n + 2 + K ∧
-      (∀ i j : Fin padded.length,
-        (padded.get i).op = GateOp.not → (padded.get j).op = GateOp.not → i = j) ∧
-      (∃ i : Fin padded.length, (padded.get i).op = GateOp.not) ∧
-      ∀ x : Fin n → Bool,
-        Circuit.eval ⟨padded, output⟩ ([false, true] ++ List.ofFn x) =
-          Circuit.eval ⟨gs, o⟩ (List.ofFn x) := by
-  have hlen : (normalizeGates n gs).length ≤ K := by
-    simpa only [normalizeGates_length] using hL
-  have ho : normalizeWire (n + gs.length) o < n + 2 + (normalizeGates n gs).length := by
-    rw [normalizeGates_length]
-    have hh := normalizeWire_lt (n + gs.length) o
-    omega
-  have hs : padNormal (n + 2) (normalizeGates n gs) :=
-    (padNormal_indexed _ _).mpr (fun j =>
-      ⟨normalizeGates_shape n gs hgs j, normalizeGates_readsBack n gs hgs j⟩)
-  refine ⟨keepPad K (normalizeGates n gs), normalizeWire (n + gs.length) o,
-    keepPad_length _ _ hlen, keepPad_normal hs (by omega), by omega,
-    keepPad_oneNot (normalizeGates_oneNot n gs hu),
-    keepPad_hasNot K _ (normalizeGates_hasNot n gs hn), ?_⟩
-  intro x
-  rw [keepPad_eval (n := n + 2) _ (by simp only [List.length_append, List.length_cons,
-    List.length_nil, List.length_ofFn]; omega) ho]
-  simpa only [List.length_ofFn] using normalizeGates_eval gs o (List.ofFn x) hgs
-
-def outputPrefix (n : ℕ) (gs : List Gate) (o : ℕ) : List Gate :=
-  if o < n + gs.length then gs.take (o + 1 - n) else []
-
-lemma outputPrefix_length (n : ℕ) (gs : List Gate) (o : ℕ) :
-    (outputPrefix n gs o).length ≤ gs.length := by
-  unfold outputPrefix
-  split_ifs
-  · simp only [List.length_take]
-    exact Nat.min_le_right _ _
-  · simp
-
-lemma outputPrefix_mem {n o : ℕ} {gs : List Gate} {g : Gate}
-    (hg : g ∈ outputPrefix n gs o) : g ∈ gs := by
-  unfold outputPrefix at hg
-  split_ifs at hg
-  · exact List.mem_of_mem_take hg
-  · simp at hg
-
-lemma outputPrefix_eval (n : ℕ) (gs : List Gate) (o : ℕ) (w : List Bool)
-    (hw : w.length = n) : Circuit.eval ⟨outputPrefix n gs o, o⟩ w = Circuit.eval ⟨gs, o⟩ w := by
-  change (padRun (outputPrefix n gs o) w).getD o false = (padRun gs w).getD o false
-  unfold outputPrefix
-  split_ifs with ho
-  · have hq : o + 1 - n ≤ gs.length := by omega
-    exact (padRun_take_getD gs w (o + 1 - n) o (by
-      simp only [hw, List.length_take, Nat.min_eq_left hq]
-      omega)).symm
-  · change w.getD o false = (padRun gs w).getD o false
-    rw [show w.getD o false = false from List.getD_eq_default _ _ (by omega),
-      show (padRun gs w).getD o false = false from List.getD_eq_default _ _ (by
-        rw [padRun_length, hw]
-        omega)]
-
-lemma outputPrefix_oneNot (n : ℕ) (gs : List Gate) (o : ℕ)
-    (hu : ∀ i j : Fin gs.length,
-      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j) :
-    ∀ i j : Fin (outputPrefix n gs o).length,
-      ((outputPrefix n gs o).get i).op = GateOp.not →
-      ((outputPrefix n gs o).get j).op = GateOp.not → i = j := by
-  by_cases ho : o < n + gs.length
-  · rw [show outputPrefix n gs o = gs.take (o + 1 - n) by simp [outputPrefix, ho]]
-    intro i j hi hj
-    have hi' : i.val < gs.length := lt_of_lt_of_le i.isLt (by
-      simp only [List.length_take]; exact Nat.min_le_right _ _)
-    have hj' : j.val < gs.length := lt_of_lt_of_le j.isLt (by
-      simp only [List.length_take]; exact Nat.min_le_right _ _)
-    have hi0 : (gs.get ⟨i.val, hi'⟩).op = GateOp.not := by
-      simpa only [List.get_eq_getElem, List.getElem_take] using hi
-    have hj0 : (gs.get ⟨j.val, hj'⟩).op = GateOp.not := by
-      simpa only [List.get_eq_getElem, List.getElem_take] using hj
-    exact Fin.ext (congrArg (fun k : Fin gs.length => k.val)
-      (hu ⟨i.val, hi'⟩ ⟨j.val, hj'⟩ hi0 hj0))
-  · rw [show outputPrefix n gs o = [] by simp [outputPrefix, ho]]
-    intro i
-    exact Fin.elim0 i
-
-lemma outputPrefix_last {n o : ℕ} {gs : List Gate}
-    (hn : ∃ i : Fin (outputPrefix n gs o).length,
-      ((outputPrefix n gs o).get i).op = GateOp.not) :
-    n + (outputPrefix n gs o).length = o + 1 := by
-  have hp : 0 < (outputPrefix n gs o).length := by
-    obtain ⟨i, _⟩ := hn
-    exact Nat.zero_lt_of_lt i.isLt
-  by_cases ho : o < n + gs.length
-  · have hq : o + 1 - n ≤ gs.length := by omega
-    simp only [outputPrefix, ho, ite_true, List.length_take, Nat.min_eq_left hq] at hp ⊢
-    omega
-  · simp only [outputPrefix, ho, ite_false, List.length_nil, Nat.lt_irrefl] at hp
-
-def rootMonotoneReplacement (n : ℕ) (gs : List Gate) (o : ℕ) : Prop :=
-  ∃ (ms : List Gate) (mo : ℕ),
-    (∀ g ∈ ms, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
-    ms.length ≤ gs.length ∧ ∀ x : Fin n → Bool,
-      Circuit.eval ⟨ms, mo⟩ (List.ofFn x) = Circuit.eval ⟨gs, o⟩ (List.ofFn x)
-
-lemma outputPrefix_noNot (n : ℕ) (gs : List Gate) (o : ℕ)
-    (hgs : ∀ g ∈ gs, basisGate g)
-    (hn : ¬ ∃ i : Fin (outputPrefix n gs o).length,
-      ((outputPrefix n gs o).get i).op = GateOp.not) : rootMonotoneReplacement n gs o := by
-  refine ⟨outputPrefix n gs o, o, ?_, outputPrefix_length n gs o, ?_⟩
-  · intro g hg
-    obtain ⟨hop, hlen⟩ := hgs g (outputPrefix_mem hg)
-    refine ⟨?_, hlen⟩
-    rcases hop with hop | hop | hop
-    · exact Or.inl hop
-    · exact Or.inr hop
-    · obtain ⟨i, hi, rfl⟩ := List.getElem_of_mem hg
-      exact (hn ⟨⟨i, hi⟩, hop⟩).elim
-  · intro x
-    exact outputPrefix_eval n gs o (List.ofFn x) (by simp)
-
-
-lemma padGates_last {n K o : ℕ} {gs : List Gate} (hlast : n + gs.length = o + 1) :
-    padGates n K gs o = gs ++ List.replicate (K - gs.length) (padCopy o) := by
-  have hq : o + 1 - n = gs.length := by omega
-  simp only [padGates, hq, List.take_length]
-
-lemma padGates_hasNot {n K o : ℕ} {gs : List Gate} (hlast : n + gs.length = o + 1)
-    (hnot : ∃ j : Fin gs.length, (gs.get j).op = GateOp.not) :
-    ∃ j : Fin (padGates n K gs o).length,
-      ((padGates n K gs o).get j).op = GateOp.not := by
-  obtain ⟨j, hj⟩ := hnot
-  rw [padGates_last hlast]
-  refine ⟨⟨j.val, by simp only [List.length_append, List.length_replicate]; omega⟩, ?_⟩
-  simpa only [List.get_eq_getElem, List.getElem_append_left j.isLt] using hj
-
-lemma pad_exact_last_hasNot {n K o : ℕ} {gs : List Gate}
-    (hL : gs.length ≤ K) (hK : 0 < K) (hlast : n + gs.length = o + 1)
-    (hn : padNormal n gs)
-    (hu : ∀ i j : Fin gs.length,
-      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j)
-    (hnot : ∃ j : Fin gs.length, (gs.get j).op = GateOp.not) :
-    ∃ padded : List Gate,
-      padded.length = K ∧ padNormal n padded ∧
-      (∀ i j : Fin padded.length,
-        (padded.get i).op = GateOp.not → (padded.get j).op = GateOp.not → i = j) ∧
-      (∃ j : Fin padded.length, (padded.get j).op = GateOp.not) ∧
-      ∀ w : List Bool, w.length = n →
-        Circuit.eval ⟨padded, n + K - 1⟩ w = Circuit.eval ⟨gs, o⟩ w := by
-  have ho : o < n + gs.length := by omega
-  refine ⟨padGates n K gs o, padGates_length hL ho, padGates_normal hn ho,
-    padGates_oneNot hL ho hu, padGates_hasNot hlast hnot, ?_⟩
-  intro w hw
-  exact padGates_eval w hw hL hK ho
-
-lemma normalize_pad_last_hasNot (n K : ℕ) (gs : List Gate) (o : ℕ)
-    (hL : gs.length ≤ K) (hK : 0 < K) (hlast : n + gs.length = o + 1)
-    (hgs : ∀ g ∈ gs, basisGate g)
-    (hu : ∀ i j : Fin gs.length,
-      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j)
-    (hnot : ∃ j : Fin gs.length, (gs.get j).op = GateOp.not) :
-    ∃ padded : List Gate,
-      padded.length = K ∧ padNormal (n + 2) padded ∧
-      (∀ i j : Fin padded.length,
-        (padded.get i).op = GateOp.not → (padded.get j).op = GateOp.not → i = j) ∧
-      (∃ j : Fin padded.length, (padded.get j).op = GateOp.not) ∧
-      ∀ x : Fin n → Bool,
-        Circuit.eval ⟨padded, n + 2 + K - 1⟩ ([false, true] ++ List.ofFn x) =
-          Circuit.eval ⟨gs, o⟩ (List.ofFn x) := by
-  have ho : o < n + gs.length := by omega
-  have hnlast : n + 2 + (normalizeGates n gs).length =
-      normalizeWire (n + gs.length) o + 1 := by
-    simp only [normalizeGates_length, normalizeWire, ho, ite_true]
-    omega
-  have hn : padNormal (n + 2) (normalizeGates n gs) :=
-    (padNormal_indexed _ _).mpr (fun j =>
-      ⟨normalizeGates_shape n gs hgs j, normalizeGates_readsBack n gs hgs j⟩)
-  obtain ⟨padded, hpL, hpN, hpU, hpNot, hpE⟩ := pad_exact_last_hasNot
-    (n := n + 2) (K := K) (gs := normalizeGates n gs)
-    (o := normalizeWire (n + gs.length) o)
-    (by simpa only [normalizeGates_length] using hL) hK hnlast hn
-    (normalizeGates_oneNot n gs hu) (normalizeGates_hasNot n gs hnot)
-  refine ⟨padded, hpL, hpN, hpU, hpNot, ?_⟩
-  intro x
-  rw [hpE _ (by simp only [List.length_append, List.length_cons, List.length_nil,
-    List.length_ofFn]; omega)]
-  simpa only [List.length_ofFn] using normalizeGates_eval gs o (List.ofFn x) hgs
-
-lemma pad_exact_hasNot {n K o : ℕ} {gs : List Gate}
-    (hL : gs.length ≤ K) (hK : 0 < K) (hlast : n + gs.length = o + 1)
-    (hs : ∀ j : Fin gs.length,
-      ((((gs.get j).op = GateOp.and ∨ (gs.get j).op = GateOp.or) ∧
-        (gs.get j).inputs.length = 2) ∨
-        ((gs.get j).op = GateOp.not ∧ (gs.get j).inputs.length = 1)))
-    (hr : ∀ j : Fin gs.length, ∀ i ∈ (gs.get j).inputs, i < n + j.val)
-    (hu : ∀ i j : Fin gs.length,
-      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j)
-    (hnot : ∃ j : Fin gs.length, (gs.get j).op = GateOp.not) :
-    ∃ padded : List Gate,
-      padded.length = K ∧
-      (∀ j : Fin padded.length,
-        ((((padded.get j).op = GateOp.and ∨ (padded.get j).op = GateOp.or) ∧
-          (padded.get j).inputs.length = 2) ∨
-          ((padded.get j).op = GateOp.not ∧ (padded.get j).inputs.length = 1))) ∧
-      (∀ j : Fin padded.length, ∀ i ∈ (padded.get j).inputs, i < n + j.val) ∧
-      (∀ i j : Fin padded.length,
-        (padded.get i).op = GateOp.not → (padded.get j).op = GateOp.not → i = j) ∧
-      (∃ j : Fin padded.length, (padded.get j).op = GateOp.not) ∧
-      ∀ w : List Bool, w.length = n →
-        Circuit.eval ⟨padded, n + K - 1⟩ w = Circuit.eval ⟨gs, o⟩ w := by
-  have hn : padNormal n gs := (padNormal_indexed n gs).mpr (fun j => ⟨hs j, hr j⟩)
-  obtain ⟨padded, hpL, hpN, hpU, hpNot, hpE⟩ := pad_exact_last_hasNot hL hK hlast hn hu hnot
-  have hp := (padNormal_indexed n padded).mp hpN
-  exact ⟨padded, hpL, (fun j => (hp j).1), (fun j => (hp j).2), hpU, hpNot, hpE⟩
-
-lemma normalize_or_replace (n K : ℕ) (gs : List Gate) (o : ℕ)
-    (hL : gs.length ≤ K) (hK : 0 < K) (hgs : ∀ g ∈ gs, basisGate g)
-    (hu : ∀ i j : Fin gs.length,
-      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j) :
-    rootMonotoneReplacement n gs o ∨
-    ∃ padded : List Gate,
-      padded.length = K ∧ padNormal (n + 2) padded ∧
-      (∀ i j : Fin padded.length,
-        (padded.get i).op = GateOp.not → (padded.get j).op = GateOp.not → i = j) ∧
-      (∃ j : Fin padded.length, (padded.get j).op = GateOp.not) ∧
-      ∀ x : Fin n → Bool,
-        Circuit.eval ⟨padded, n + 2 + K - 1⟩ ([false, true] ++ List.ofFn x) =
-          Circuit.eval ⟨gs, o⟩ (List.ofFn x) := by
-  classical
-  by_cases hn : ∃ i : Fin (outputPrefix n gs o).length,
-      ((outputPrefix n gs o).get i).op = GateOp.not
-  · right
-    have hpL : (outputPrefix n gs o).length ≤ K :=
-      (outputPrefix_length n gs o).trans hL
-    have hpS : ∀ g ∈ outputPrefix n gs o, basisGate g :=
-      fun g hg => hgs g (outputPrefix_mem hg)
-    obtain ⟨padded, hlen, hnormal, huniq, hnot, heval⟩ :=
-      normalize_pad_last_hasNot n K (outputPrefix n gs o) o hpL hK
-        (outputPrefix_last hn) hpS (outputPrefix_oneNot n gs o hu) hn
-    refine ⟨padded, hlen, hnormal, huniq, hnot, ?_⟩
-    intro x
-    rw [heval]
-    exact outputPrefix_eval n gs o (List.ofFn x) (by simp)
-  · exact Or.inl (outputPrefix_noNot n gs o hgs hn)
-
-def stripSource (q i : ℕ) : ℕ := if i = 0 then q else i - 2
-
-def stripAnd (q : ℕ) : List ℕ → List ℕ
-  | [] => []
-  | i :: is => if i = 1 then stripAnd q is else stripSource q i :: stripAnd q is
-
-def stripGate (q : ℕ) (g : Gate) : Gate :=
-  match g.op with
-  | GateOp.and => ⟨GateOp.and, stripAnd q g.inputs⟩
-  | GateOp.or => if 1 ∈ g.inputs then ⟨GateOp.and, []⟩
-      else ⟨GateOp.or, g.inputs.map (stripSource q)⟩
-  | _ => g
-
-lemma stripSource_value (w : List Bool) (q i : ℕ) (hq : w.length ≤ q) (hi : i ≠ 1) :
-    w.getD (stripSource q i) false = ([false, true] ++ w).getD i false := by
-  cases i with
-  | zero =>
-    simp only [stripSource, ite_true]
-    rw [List.getD_eq_default _ _ hq]
-    rfl
-  | succ i =>
-    cases i with
-    | zero => exact (hi rfl).elim
-    | succ i =>
-      simp only [stripSource, Nat.succ_ne_zero, ite_false]
-      change w.getD i false = (false :: true :: w).getD ((i + 1) + 1) false
-      rw [List.getD_cons_succ, List.getD_cons_succ]
-
-lemma stripAnd_length (q : ℕ) (ins : List ℕ) : (stripAnd q ins).length ≤ ins.length := by
-  induction ins with
-  | nil => rfl
-  | cons i ins ih =>
-    simp only [stripAnd]
-    split_ifs <;> simp only [List.length_cons] <;> omega
-
-lemma stripAnd_value (w : List Bool) (q : ℕ) (ins : List ℕ) (hq : w.length ≤ q) :
-    GateOp.and.eval ((stripAnd q ins).map fun i => w.getD i false) =
-      GateOp.and.eval (ins.map fun i => ([false, true] ++ w).getD i false) := by
-  induction ins with
-  | nil => rfl
-  | cons i ins ih =>
-    simp only [stripAnd]
-    by_cases hi : i = 1
-    · subst i
-      simpa only [ite_true, List.map_cons, GateOp.eval, List.all_cons,
-        show ([false, true] ++ w).getD 1 false = true from rfl, id_eq, Bool.true_and] using ih
-    · simp only [hi, ite_false, List.map_cons, GateOp.eval, List.all_cons, id_eq,
-        stripSource_value w q i hq hi]
-      exact congrArg (fun b : Bool => ([false, true] ++ w).getD i false && b) ih
-
-lemma stripGate_value (w : List Bool) (q : ℕ) (g : Gate) (hq : w.length ≤ q)
-    (hop : g.op = GateOp.and ∨ g.op = GateOp.or) :
-    (stripGate q g).op.eval ((stripGate q g).inputs.map fun i => w.getD i false) =
-      g.op.eval (g.inputs.map fun i => ([false, true] ++ w).getD i false) := by
-  rcases hop with hop | hop
-  · simpa only [stripGate, hop] using stripAnd_value w q g.inputs hq
-  · by_cases h1 : 1 ∈ g.inputs
-    · simp only [stripGate, hop, h1, ite_true, List.map_nil, GateOp.eval, List.all_nil]
-      symm
-      apply List.any_eq_true.mpr
-      exact ⟨true, List.mem_map.mpr ⟨1, h1, rfl⟩, rfl⟩
-    · have he : g.inputs.map (fun i => w.getD (stripSource q i) false) =
-          g.inputs.map (fun i => ([false, true] ++ w).getD i false) := by
-        apply List.map_congr_left
-        intro i hi
-        exact stripSource_value w q i hq (fun he => h1 (he ▸ hi))
-      simpa only [stripGate, hop, h1, ite_false, List.map_map, Function.comp_def] using
-        congrArg GateOp.or.eval he
-
-lemma stripGate_basis (q : ℕ) (g : Gate)
-    (hg : (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) :
-    ((stripGate q g).op = GateOp.and ∨ (stripGate q g).op = GateOp.or) ∧
-      (stripGate q g).inputs.length ≤ 2 := by
-  rcases hg with ⟨hop | hop, hlen⟩
-  · exact ⟨Or.inl (by simp only [stripGate, hop]),
-      by simpa only [stripGate, hop] using (stripAnd_length q g.inputs).trans hlen⟩
-  · by_cases h1 : 1 ∈ g.inputs
-    · simp [stripGate, hop, h1]
-    · simpa only [stripGate, hop, h1, ite_false, List.length_map] using
-        And.intro (Or.inr rfl : GateOp.or = GateOp.and ∨ GateOp.or = GateOp.or) hlen
-
-lemma stripGates_value (gs : List Gate) (w : List Bool) (q : ℕ)
-    (hq : w.length + gs.length ≤ q) (hgs : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or) :
-    runGates gs ([false, true] ++ w) =
-      [false, true] ++ runGates (gs.map (stripGate q)) w := by
-  induction gs generalizing w with
-  | nil => rfl
-  | cons g gs ih =>
-    change runGates gs (([false, true] ++ w) ++
-      [g.op.eval (g.inputs.map fun i => ([false, true] ++ w).getD i false)]) =
-      [false, true] ++ runGates (gs.map (stripGate q))
-        (w ++ [(stripGate q g).op.eval ((stripGate q g).inputs.map fun i => w.getD i false)])
-    rw [← stripGate_value w q g (by simp only [List.length_cons] at hq; omega)
-      (hgs g List.mem_cons_self), List.append_assoc]
-    apply ih
-    · simp only [List.length_append, List.length_singleton]
-      simp only [List.length_cons] at hq
-      omega
-    · intro g hg
-      exact hgs g (List.mem_cons_of_mem _ hg)
-
-lemma strip_constants (n : ℕ) (gs : List Gate) (o : ℕ) (ho : o ≠ 1)
-    (hgs : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) :
-    ∃ (ms : List Gate) (mo : ℕ),
-      (∀ g ∈ ms, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
-      ms.length = gs.length ∧ ∀ x : Fin n → Bool,
-        Circuit.eval ⟨ms, mo⟩ (List.ofFn x) =
-          Circuit.eval ⟨gs, o⟩ ([false, true] ++ List.ofFn x) := by
-  refine ⟨gs.map (stripGate (n + gs.length)), stripSource (n + gs.length) o,
-    ?_, by simp, ?_⟩
-  · intro g hg
-    obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hg
-    exact stripGate_basis _ _ (hgs a ha)
-  · intro x
-    change (runGates (gs.map (stripGate (n + gs.length))) (List.ofFn x)).getD
-      (stripSource (n + gs.length) o) false =
-      (runGates gs ([false, true] ++ List.ofFn x)).getD o false
-    rw [stripGates_value gs (List.ofFn x) (n + gs.length) (by simp)
-      (fun g hg => (hgs g hg).1)]
-    exact stripSource_value _ _ _ (by rw [runGates_length]; simp) ho
-
-lemma initialTrue_value (gs : List Gate) (w : List Bool) :
-    Circuit.eval ⟨gs, 1⟩ ([false, true] ++ w) = true := by
-  change (padRun gs ([false, true] ++ w)).getD 1 false = true
-  rw [padRun_getD gs _ 1 (by simp)]
-  rfl
-
-lemma strip_constants_of_false (n : ℕ) (gs : List Gate) (o : ℕ)
-    (hgs : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
-    (x0 : Fin n → Bool)
-    (h0 : Circuit.eval ⟨gs, o⟩ ([false, true] ++ List.ofFn x0) = false) :
-    ∃ (ms : List Gate) (mo : ℕ),
-      (∀ g ∈ ms, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
-      ms.length = gs.length ∧ ∀ x : Fin n → Bool,
-        Circuit.eval ⟨ms, mo⟩ (List.ofFn x) =
-          Circuit.eval ⟨gs, o⟩ ([false, true] ++ List.ofFn x) := by
-  apply strip_constants n gs o _ hgs
-  intro ho
-  subst o
-  rw [initialTrue_value] at h0
-  cases h0
-
-
+section Live
 
 variable {α : Type} [DecidableEq α]
+
+def build (ops : α → α → Finset α) (goal : α) : ℕ → Finset α → Prop
+  | 0, available => goal ∈ available
+  | k + 1, available => build ops goal k available ∨
+    ∃ a ∈ available, ∃ b ∈ available, a ≠ b ∧
+      ∃ z ∈ ops a b, build ops goal k (insert z available)
 
 def live (ops : α → α → Finset α) (goal : α) : ℕ → Finset α → Prop
   | 0, s => s = {goal}
   | k + 1, s => live ops goal k s ∨
     ∃ a ∈ s, ∃ b ∈ s, a ≠ b ∧ ∃ z ∈ ops a b, z ∉ s ∧
       ∃ rest : Finset α, s = insert a (insert b rest) ∧ live ops goal k (insert z rest)
+
+lemma compress {ops : α → α → Finset α} {goal : α} {k : ℕ} {available : Finset α}
+    (h : build ops goal k available) : ∃ s ⊆ available, live ops goal k s := by
+  induction k generalizing available with
+  | zero =>
+    exact ⟨{goal}, Finset.singleton_subset_iff.mpr h, rfl⟩
+  | succ k ih =>
+    rcases h with skip | ⟨a, ha, b, hb, hab, z, hz, tail⟩
+    · obtain ⟨s, hs, hrun⟩ := ih skip
+      exact ⟨s, hs, Or.inl hrun⟩
+    · obtain ⟨t, ht, hrun⟩ := ih tail
+      by_cases sub : t ⊆ available
+      · exact ⟨t, sub, Or.inl hrun⟩
+      · have hzmem : z ∈ t := by
+          by_contra hn
+          apply sub
+          intro u hu
+          rcases Finset.mem_insert.mp (ht hu) with rfl | ok
+          · exact False.elim (hn hu)
+          · exact ok
+        have hzout : z ∉ available := by
+          intro hh
+          exact sub ((Finset.insert_eq_of_mem hh) ▸ ht)
+        let rest := t.erase z
+        have hrest : rest ⊆ available := by
+          intro u hu
+          have hu' := Finset.mem_erase.mp hu
+          exact (Finset.mem_insert.mp (ht hu'.2)).resolve_left hu'.1
+        let s := insert a (insert b rest)
+        have hs : s ⊆ available := Finset.insert_subset ha (Finset.insert_subset hb hrest)
+        refine ⟨s, hs, Or.inr ⟨a, by simp [s], b, by simp [s], hab, z, hz,
+          fun h => hzout (hs h), rest, rfl, ?_⟩⟩
+        simpa [rest, Finset.insert_erase hzmem] using hrun
 
 lemma live_card {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
     (h : live ops goal k s) : s.card ≤ k + 1 := by
@@ -924,340 +65,2146 @@ lemma live_card {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finse
       have h₂ := Finset.card_insert_le b rest
       omega
 
-lemma live_tight_step {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
-    (h : live ops goal (k + 1) s) (hcard : s.card = k + 2) :
-    ∃ a ∈ s, ∃ b ∈ s, a ≠ b ∧ ∃ z ∈ ops a b, z ∉ s ∧
-      ∃ rest : Finset α, s = insert a (insert b rest) ∧
-        a ∉ rest ∧ b ∉ rest ∧ rest.card = k ∧ live ops goal k (insert z rest) := by
-  rcases h with skip | ⟨a, ha, b, hb, hab, z, hz, hout, rest, rfl, tail⟩
-  · have hh := live_card skip
-    omega
-  · have hzrest : z ∉ rest := fun hm => hout (by simp [hm])
-    have htail := live_card tail
-    rw [Finset.card_insert_of_notMem hzrest] at htail
-    have h₁ := Finset.card_insert_le a (insert b rest)
-    have h₂ := Finset.card_insert_le b rest
-    have hrest : rest.card = k := by omega
-    have han : a ∉ rest := by
-      intro har
-      have hai : a ∈ insert b rest := Finset.mem_insert_of_mem har
-      rw [Finset.insert_eq_of_mem hai] at hcard
-      omega
-    have hbn : b ∉ rest := by
-      intro hbr
-      rw [Finset.insert_eq_of_mem hbr] at hcard
-      have hh := Finset.card_insert_le a rest
-      omega
-    exact ⟨a, ha, b, hb, hab, z, hz, hout, rest, rfl, han, hbn, hrest, tail⟩
+lemma live_separates {ops : α → α → Finset α} {goal : α} (D : α → Prop)
+    (hd : D goal) (hops : ∀ a b, ∀ z ∈ ops a b, D z → D a ∨ D b)
+    {k : ℕ} {s : Finset α} (h : live ops goal k s) : ∃ w ∈ s, D w := by
+  induction k generalizing s with
+  | zero => change s = {goal} at h; exact ⟨goal, by simp [h], hd⟩
+  | succ k ih =>
+    rcases h with skip | ⟨a, ha, b, hb, hab, z, hz, hout, rest, rfl, tail⟩
+    · exact ih skip
+    · obtain ⟨w, hw, hD⟩ := ih tail
+      rcases Finset.mem_insert.mp hw with rfl | hw
+      · rcases hops a b w hz hD with h | h
+        · exact ⟨a, ha, h⟩
+        · exact ⟨b, hb, h⟩
+      · exact ⟨w, by simp [hw], hD⟩
 
-def ops {width : ℕ} (x y : BitVec width) : List (BitVec width) :=
+lemma first_live {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
+    (h : live ops goal (k + 1) s) :
+    s = {goal} ∨
+    ∃ a ∈ s, ∃ b ∈ s, a ≠ b ∧ ∃ z ∈ ops a b, z ∉ s ∧
+      ∃ rest : Finset α, s = insert a (insert b rest) ∧ live ops goal k (insert z rest) := by
+  induction k with
+  | zero => exact h
+  | succ k ih =>
+    rcases h with skip | step
+    · rcases ih skip with done | ⟨a, ha, b, hb, hab, z, hz, hn, r, hs, tail⟩
+      · exact .inl done
+      · exact .inr ⟨a, ha, b, hb, hab, z, hz, hn, r, hs, Or.inl tail⟩
+    · exact .inr step
+
+end Live
+
+variable {width : Nat}
+
+def ops (x y : BitVec width) : List (BitVec width) :=
   [x &&& y, x ||| y, x &&& ~~~y, y &&& ~~~x]
 
-abbrev basicOps {width : ℕ} (a b : BitVec width) : Finset (BitVec width) :=
-  (ops a b).toFinset
+abbrev basicOps (a b : BitVec width) : Finset (BitVec width) := (ops a b).toFinset
 
-def signedValue (positive value : Bool) : Bool := if positive then value else !value
+def uniqueSep {width : Nat} (S : Finset (BitVec width)) (a : BitVec width)
+    (p q : Fin width) : Prop :=
+  a[p.val] ≠ a[q.val] ∧ ∀ w ∈ S, w ≠ a → w[p.val] = w[q.val]
 
-def boolOp (t : Fin 4) (a b : Bool) : Bool :=
-  if t.val = 0 then a && b else if t.val = 1 then a || b
-  else if t.val = 2 then a && !b else b && !a
+def criticalPair {width : Nat} (target : BitVec width) (S : Finset (BitVec width))
+    (a b : BitVec width) : Prop :=
+  a ∈ S ∧ b ∈ S ∧ a ≠ b ∧ ∃ p q ra rb sa sb : Fin width,
+    target[p.val] = true ∧ target[q.val] = false ∧
+    target[ra.val] = false ∧ target[rb.val] = false ∧
+    target[sa.val] = true ∧ target[sb.val] = true ∧
+    uniqueSep S a p ra ∧ uniqueSep S b p rb ∧
+    uniqueSep S a sa q ∧ uniqueSep S b sb q ∧
+    a[p.val] = a[sa.val] ∧ b[p.val] = b[sb.val]
 
-lemma binary_orientation : ∀ t : Fin 4, ∀ d : Bool, ∃ da db : Bool,
-    ∀ a0 a1 b0 b1 : Bool,
-      (signedValue da a0 = true → signedValue da a1 = true) →
-      (signedValue db b0 = true → signedValue db b1 = true) →
-      signedValue d (boolOp t a0 b0) = true → signedValue d (boolOp t a1 b1) = true := by
+
+lemma ops_equal_bits {width : Nat} {a b z : BitVec width} {p q : Fin width}
+    (hz : z ∈ basicOps a b) (ha : a[p.val] = a[q.val])
+    (hb : b[p.val] = b[q.val]) : z[p.val] = z[q.val] := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons,
+    List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;> simp [ha, hb]
+
+lemma live_target_separates {width k : Nat} {target g : BitVec width}
+    {S : Finset (BitVec width)} (run : live basicOps g k S)
+    (hg : g = target ∨ g = ~~~target) {p q : Fin width}
+    (different : target[p.val] ≠ target[q.val]) :
+    ∃ w ∈ S, w[p.val] ≠ w[q.val] := by
+  apply live_separates (fun w : BitVec width => w[p.val] ≠ w[q.val]) ?_ ?_ run
+  · rcases hg with rfl | rfl
+    · exact different
+    · simpa using different
+  · intro a b z hz hd
+    by_cases ha : a[p.val] = a[q.val]
+    · right
+      intro hb
+      exact hd (ops_equal_bits hz ha hb)
+    · exact Or.inl ha
+
+lemma uniqueSep_step {width k : Nat} {target g a b z c : BitVec width}
+    {U : Finset (BitVec width)} {p q : Fin width}
+    (hz : z ∈ basicOps a b) (run : live basicOps g k (insert z U))
+    (hg : g = target ∨ g = ~~~target)
+    (different : target[p.val] ≠ target[q.val])
+    (ha : c = a → a ∉ U) (hb : c = b → b ∉ U)
+    (hs : uniqueSep (insert a (insert b U)) c p q) :
+    uniqueSep (insert z U) (if c = a ∨ c = b then z else c) p q := by
+  by_cases hc : c = a ∨ c = b
+  · rw [ite_eq_left hc]
+    have hcU : c ∉ U := by
+      rcases hc with rfl | rfl
+      · exact ha rfl
+      · exact hb rfl
+    have hU : ∀ w ∈ U, w[p.val] = w[q.val] := by
+      intro w hw
+      apply hs.2 w (by simp [hw])
+      intro eq
+      exact hcU (eq ▸ hw)
+    constructor
+    · obtain ⟨w, hw, hd⟩ := live_target_separates run hg different
+      rcases Finset.mem_insert.mp hw with rfl | hw
+      · exact hd
+      · exact False.elim (hd (hU w hw))
+    · intro w hw hne
+      exact hU w ((Finset.mem_insert.mp hw).resolve_left hne)
+  · rw [ite_eq_right hc]
+    refine ⟨hs.1, ?_⟩
+    intro w hw hne
+    rcases Finset.mem_insert.mp hw with rfl | hw
+    · apply ops_equal_bits hz
+      · exact hs.2 a (by simp) (fun eq => hc (.inl eq.symm))
+      · exact hs.2 b (by simp) (fun eq => hc (.inr eq.symm))
+    · exact hs.2 w (by simp [hw]) hne
+
+namespace ChromGate
+
+def eval (d : Fin 4) (a b : Bool) : Bool :=
+  match d.val with
+  | 0 => a && b
+  | 1 => a || b
+  | 2 => a && !b
+  | _ => b && !a
+
+lemma left_transport : ∀ (d : Fin 4)
+    (a₀ a₁ a₂ a₃ b₀ b₁ b₂ b₃ : Bool),
+    b₀ = b₁ → b₂ = b₃ →
+    eval d a₀ b₀ ≠ eval d a₁ b₁ →
+    eval d a₂ b₂ ≠ eval d a₃ b₃ →
+    a₀ = a₂ → eval d a₀ b₀ = eval d a₂ b₂ := by
   decide
 
-lemma basicOps_bits {width : ℕ} {a b z : BitVec width} (hz : z ∈ basicOps a b) :
-    ∃ t : Fin 4, ∀ p : Fin width,
-      z.getLsbD p.val = boolOp t (a.getLsbD p.val) (b.getLsbD p.val) := by
+lemma right_transport : ∀ (d : Fin 4)
+    (a₀ a₁ a₂ a₃ b₀ b₁ b₂ b₃ : Bool),
+    a₀ = a₁ → a₂ = a₃ →
+    eval d a₀ b₀ ≠ eval d a₁ b₁ →
+    eval d a₂ b₂ ≠ eval d a₃ b₃ →
+    b₀ = b₂ → eval d a₀ b₀ = eval d a₂ b₂ := by
+  decide
+
+lemma rectangle_false : ∀ (d : Fin 4) (a b c e : Bool),
+    eval d a b ≠ eval d c b →
+    eval d a b ≠ eval d a e →
+    eval d c e ≠ eval d a e →
+    eval d c e ≠ eval d c b → False := by
+  decide
+
+lemma sensitive_corner_unique : ∀ (d : Fin 4) (a b c e : Bool),
+    eval d a b ≠ eval d (!a) b →
+    eval d a b ≠ eval d a (!b) →
+    eval d c e ≠ eval d (!c) e →
+    eval d c e ≠ eval d c (!e) → a = c ∧ b = e := by
+  decide
+
+lemma opposite_corners_false : ∀ (d : Fin 4) (a b : Bool),
+    eval d a b ≠ eval d (!a) b →
+    eval d a b ≠ eval d a (!b) →
+    eval d (!a) (!b) ≠ eval d a (!b) →
+    eval d (!a) (!b) ≠ eval d (!a) b → False := by
+  decide
+
+def word {width : Nat} (d : Fin 4) (a b : BitVec width) : BitVec width :=
+  match d.val with
+  | 0 => a &&& b
+  | 1 => a ||| b
+  | 2 => a &&& ~~~b
+  | _ => b &&& ~~~a
+
+lemma word_get {width : Nat} (d : Fin 4) (a b : BitVec width) (p : Fin width) :
+    (word d a b)[p.val] = eval d a[p.val] b[p.val] := by
+  fin_cases d <;> simp [word, eval]
+
+lemma of_basicOps {width : Nat} {a b z : BitVec width}
+    (hz : z ∈ basicOps a b) : ∃ d : Fin 4, z = word d a b := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil,
+    or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl
+  · exact ⟨0, rfl⟩
+  · exact ⟨1, rfl⟩
+  · exact ⟨2, rfl⟩
+  · exact ⟨3, rfl⟩
+
+end ChromGate
+
+namespace ChromGeneric
+
+variable {α : Type} [DecidableEq α]
+
+lemma retained_card {a b z : α} {rest : Finset α}
+    (hab : a ≠ b) (hz : z ∉ insert a (insert b rest)) :
+    (insert a (insert b rest)).card +
+        ((if a ∈ rest then 1 else 0) + (if b ∈ rest then 1 else 0)) =
+      (insert z rest).card + 1 := by
+  have hzr : z ∉ rest := fun h => hz (by simp [h])
+  rw [Finset.card_insert_of_notMem hzr]
+  by_cases ha : a ∈ rest <;> by_cases hb : b ∈ rest
+  · simp [ha, hb]
+  · have ha' : a ∈ insert b rest := by simp [ha]
+    simp [Finset.insert_eq_of_mem ha', Finset.card_insert_of_notMem hb, ha, hb]
+  · have ha' : a ∉ insert b rest := by simp [hab, ha]
+    simp [Finset.card_insert_of_notMem ha', Finset.insert_eq_of_mem hb, ha, hb]
+  · have ha' : a ∉ insert b rest := by simp [hab, ha]
+    simp [Finset.card_insert_of_notMem ha', Finset.card_insert_of_notMem hb, ha, hb]
+
+def collapse (a b z c : α) : α := if c = a ∨ c = b then z else c
+
+lemma collapse_mem {a b z c : α} {rest : Finset α}
+    (hc : c ∈ insert a (insert b rest)) :
+    collapse a b z c ∈ insert z rest := by
+  unfold collapse
+  split_ifs with h
+  · simp
+  · simp only [Finset.mem_insert] at hc ⊢
+    exact Or.inr ((hc.resolve_left (fun hca => h (Or.inl hca))).resolve_left
+      (fun hcb => h (Or.inr hcb)))
+
+
+lemma extend_coloring {edge : Finset α → α → α → Prop}
+    (irrefl : ∀ S c, ¬ edge S c c)
+    {a b z : α} {U : Finset α} (hab : a ≠ b)
+    (hnew : z ∉ insert a (insert b U))
+    (transport : ∀ c ∈ insert a (insert b U), ∀ d ∈ insert a (insert b U),
+      edge (insert a (insert b U)) c d →
+      (c = a → a ∉ U) → (c = b → b ∉ U) →
+      (d = a → a ∉ U) → (d = b → b ∉ U) →
+      edge (insert z U) (collapse a b z c) (collapse a b z d))
+    {x : Nat} {f : α → Nat}
+    (fbound : ∀ c ∈ insert z U, f c ≤ x)
+    (fproper : ∀ c ∈ insert z U, ∀ d ∈ insert z U,
+      edge (insert z U) c d → f c ≠ f d) :
+    ∃ g : α → Nat,
+      (∀ c ∈ insert a (insert b U),
+        g c ≤ x + ((if a ∈ U then 1 else 0) + (if b ∈ U then 1 else 0))) ∧
+      ∀ c ∈ insert a (insert b U), ∀ d ∈ insert a (insert b U),
+        edge (insert a (insert b U)) c d → g c ≠ g d := by
+  let base : α → Nat := fun c => f (collapse a b z c)
+  have hbase : ∀ c ∈ insert a (insert b U), base c ≤ x := by
+    intro c hc
+    exact fbound _ (collapse_mem hc)
+  have hproper : ∀ c ∈ insert a (insert b U), ∀ d ∈ insert a (insert b U),
+      edge (insert a (insert b U)) c d →
+      ¬ (c = a ∧ a ∈ U) → ¬ (c = b ∧ b ∈ U) →
+      ¬ (d = a ∧ a ∈ U) → ¬ (d = b ∧ b ∈ U) → base c ≠ base d := by
+    intro c hc d hd he hca hcb hda hdb
+    apply fproper _ (collapse_mem hc) _ (collapse_mem hd)
+    apply transport c hc d hd he
+    · intro h hmem; exact hca ⟨h, hmem⟩
+    · intro h hmem; exact hcb ⟨h, hmem⟩
+    · intro h hmem; exact hda ⟨h, hmem⟩
+    · intro h hmem; exact hdb ⟨h, hmem⟩
+  let g : α → Nat := fun c =>
+    if c = a ∧ a ∈ U then x + 1
+    else if c = b ∧ b ∈ U then x + 1 + (if a ∈ U then 1 else 0)
+    else base c
+  refine ⟨g, ?_, ?_⟩
+  · intro c hc
+    have hh := hbase c hc
+    dsimp only [g]
+    by_cases ha : a ∈ U <;> by_cases hb : b ∈ U
+    all_goals simp only [ha, hb, and_true, and_false, ite_true, ite_false]
+    all_goals first | omega | (split_ifs <;> omega)
+  · intro c hc d hd he heq
+    have hcBound := hbase c hc
+    have hdBound := hbase d hd
+    have hcd : c ≠ d := by
+      intro h
+      subst d
+      exact irrefl _ _ he
+    by_cases hca : c = a ∧ a ∈ U
+    · by_cases hda : d = a ∧ a ∈ U
+      · exact hcd (hca.1.trans hda.1.symm)
+      · by_cases hdb : d = b ∧ b ∈ U
+        · simp only [g, ite_eq_left hca, ite_eq_right hda, ite_eq_left hdb, ite_eq_left hca.2] at heq
+          omega
+        · simp only [g, ite_eq_left hca, ite_eq_right hda, ite_eq_right hdb] at heq
+          omega
+    · by_cases hcb : c = b ∧ b ∈ U
+      · by_cases hda : d = a ∧ a ∈ U
+        · simp only [g, ite_eq_right hca, ite_eq_left hcb, ite_eq_left hda, ite_eq_left hda.2] at heq
+          omega
+        · by_cases hdb : d = b ∧ b ∈ U
+          · exact hcd (hcb.1.trans hdb.1.symm)
+          · simp only [g, ite_eq_right hca, ite_eq_left hcb, ite_eq_right hda, ite_eq_right hdb] at heq
+            split_ifs at heq <;> omega
+      · by_cases hda : d = a ∧ a ∈ U
+        · simp only [g, ite_eq_right hca, ite_eq_right hcb, ite_eq_left hda] at heq
+          omega
+        · by_cases hdb : d = b ∧ b ∈ U
+          · simp only [g, ite_eq_right hca, ite_eq_right hcb, ite_eq_right hda, ite_eq_left hdb] at heq
+            split_ifs at heq <;> omega
+          · exact hproper c hc d hd he hca hcb hda hdb
+              (by simpa only [g, ite_eq_right hca, ite_eq_right hcb, ite_eq_right hda, ite_eq_right hdb] using heq)
+
+lemma live_coloring {ops : α → α → Finset α} {goal : α}
+    (edge : Finset α → α → α → Prop)
+    (irrefl : ∀ S c, ¬ edge S c c)
+    (transport : ∀ (k : Nat) (a b z : α) (U : Finset α),
+      a ≠ b → z ∉ insert a (insert b U) → z ∈ ops a b →
+      live ops goal k (insert z U) →
+      ∀ c ∈ insert a (insert b U), ∀ d ∈ insert a (insert b U),
+      edge (insert a (insert b U)) c d →
+      (c = a → a ∉ U) → (c = b → b ∉ U) →
+      (d = a → a ∉ U) → (d = b → b ∉ U) →
+      edge (insert z U) (collapse a b z c) (collapse a b z d))
+    {k : Nat} {S : Finset α} (hlive : live ops goal k S) :
+    ∃ x : Nat, ∃ f : α → Nat, S.card + x ≤ k + 1 ∧
+      (∀ c ∈ S, f c ≤ x) ∧
+      ∀ c ∈ S, ∀ d ∈ S, edge S c d → f c ≠ f d := by
+  induction k generalizing S with
+  | zero =>
+    change S = {goal} at hlive
+    subst S
+    refine ⟨0, fun _ => 0, by simp, by simp, ?_⟩
+    intro c hc d hd he
+    simp only [Finset.mem_singleton] at hc hd
+    subst c
+    subst d
+    exact False.elim (irrefl _ _ he)
+  | succ k ih =>
+    rcases hlive with hskip | ⟨a, ha, b, hb, hab, z, hz, hnew, U, rfl, htail⟩
+    · obtain ⟨x, f, hcard, hbound, hproper⟩ := ih hskip
+      exact ⟨x, f, by omega, hbound, hproper⟩
+    · obtain ⟨x, f, hcard, hbound, hproper⟩ := ih htail
+      obtain ⟨g, gbound, gproper⟩ := extend_coloring irrefl hab hnew
+        (transport k a b z U hab hnew hz htail) hbound hproper
+      refine ⟨x + ((if a ∈ U then 1 else 0) + (if b ∈ U then 1 else 0)),
+        g, ?_, gbound, gproper⟩
+      have hcount := retained_card hab hnew
+      omega
+
+end ChromGeneric
+
+namespace ChromRelation
+
+variable {width : Nat}
+
+def moved (a b z c : BitVec width) : BitVec width :=
+  if c = a ∨ c = b then z else c
+
+lemma moved_mem {a b z c : BitVec width} {U : Finset (BitVec width)}
+    (hc : c ∈ insert a (insert b U)) : moved a b z c ∈ insert z U := by
+  unfold moved
+  split_ifs with h
+  · exact Finset.mem_insert_self ..
+  · rcases Finset.mem_insert.mp hc with rfl | hc
+    · exact False.elim (h (.inl rfl))
+    · rcases Finset.mem_insert.mp hc with rfl | hc
+      · exact False.elim (h (.inr rfl))
+      · exact Finset.mem_insert_of_mem hc
+
+lemma moved_ne {a b z c d : BitVec width} {U : Finset (BitVec width)}
+    (hc : c ∈ insert a (insert b U)) (hd : d ∈ insert a (insert b U))
+    (hz : z ∉ insert a (insert b U)) (hne : c ≠ d)
+    (notboth : ¬ ((c = a ∨ c = b) ∧ (d = a ∨ d = b))) :
+    moved a b z c ≠ moved a b z d := by
+  unfold moved
+  split_ifs with h₁ h₂ h₂
+  · exact False.elim (notboth ⟨h₁, h₂⟩)
+  · intro eq
+    exact hz (eq ▸ hd)
+  · intro eq
+    exact hz (eq ▸ hc)
+  · exact hne
+
+lemma criticalPair_symm {target : BitVec width} {S : Finset (BitVec width)}
+    {a b : BitVec width} (h : criticalPair target S a b) : criticalPair target S b a := by
+  obtain ⟨ha, hb, hab, p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb,
+    u₁, u₂, u₃, u₄, phase₁, phase₂⟩ := h
+  exact ⟨hb, ha, hab.symm, p, q, rb, ra, sb, sa, hp, hq, hrb, hra, hsb, hsa,
+    u₂, u₁, u₄, u₃, phase₂, phase₁⟩
+
+lemma bool_other_eq {x y z : Bool} (hy : x ≠ y) (hz : x ≠ z) : y = z := by
+  cases x <;> cases y <;> cases z <;> simp_all
+
+lemma moved_phase {a b z c : BitVec width} {U : Finset (BitVec width)}
+    {p r s q : Fin width} (hab : a ≠ b) (hz : z ∈ basicOps a b)
+    (u₁ : uniqueSep (insert a (insert b U)) c p r)
+    (u₂ : uniqueSep (insert a (insert b U)) c s q)
+    (v₁ : uniqueSep (insert z U) (moved a b z c) p r)
+    (v₂ : uniqueSep (insert z U) (moved a b z c) s q)
+    (phase : c[p.val] = c[s.val]) :
+    (moved a b z c)[p.val] = (moved a b z c)[s.val] := by
+  by_cases hc : c = a ∨ c = b
+  · simp only [moved, ite_eq_left hc] at v₁ v₂ ⊢
+    obtain ⟨d, rfl⟩ := ChromGate.of_basicOps hz
+    rcases hc with rfl | rfl
+    · have e₁ := u₁.2 b (by simp) hab.symm
+      have e₂ := u₂.2 b (by simp) hab.symm
+      have d₁ := v₁.1
+      have d₂ := v₂.1
+      simp only [ChromGate.word_get] at d₁ d₂ ⊢
+      exact ChromGate.left_transport d _ _ _ _ _ _ _ _ e₁ e₂ d₁ d₂ phase
+    · have e₁ := u₁.2 a (by simp) hab
+      have e₂ := u₂.2 a (by simp) hab
+      have d₁ := v₁.1
+      have d₂ := v₂.1
+      simp only [ChromGate.word_get] at d₁ d₂ ⊢
+      exact ChromGate.right_transport d _ _ _ _ _ _ _ _ e₁ e₂ d₁ d₂ phase
+  · simpa only [moved, ite_eq_right hc] using phase
+
+lemma criticalPair_noCollapse {k : Nat} {target g a b z : BitVec width}
+    {U : Finset (BitVec width)} (hz : z ∈ basicOps a b)
+    (run : live basicOps g k (insert z U)) (hg : g = target ∨ g = ~~~target)
+    (ha : a ∉ U) (hb : b ∉ U)
+    (h : criticalPair target (insert a (insert b U)) a b) : False := by
+  obtain ⟨_, _, hab, p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb,
+    u₁, u₂, u₃, u₄, phase₁, phase₂⟩ := h
+  have v₁ : z[p.val] ≠ z[ra.val] := by
+    simpa using (uniqueSep_step hz run hg (by simp [hp, hra])
+      (fun _ => ha) (fun _ => hb) u₁).1
+  have v₂ : z[p.val] ≠ z[rb.val] := by
+    simpa using (uniqueSep_step hz run hg (by simp [hp, hrb])
+      (fun _ => ha) (fun _ => hb) u₂).1
+  have v₃ : z[sa.val] ≠ z[q.val] := by
+    simpa using (uniqueSep_step hz run hg (by simp [hsa, hq])
+      (fun _ => ha) (fun _ => hb) u₃).1
+  have v₄ : z[sb.val] ≠ z[q.val] := by
+    simpa using (uniqueSep_step hz run hg (by simp [hsb, hq])
+      (fun _ => ha) (fun _ => hb) u₄).1
+  have ara : a[ra.val] = a[q.val] := bool_other_eq u₁.1 (phase₁ ▸ u₃.1)
+  have brb : b[rb.val] = b[q.val] := bool_other_eq u₂.1 (phase₂ ▸ u₄.1)
+  have bra := u₁.2 b (by simp) hab.symm
+  have arb := u₂.2 a (by simp) hab
+  have bsa := u₃.2 b (by simp) hab.symm
+  have asb := u₄.2 a (by simp) hab
+  obtain ⟨d, hzword⟩ := ChromGate.of_basicOps hz
+  have d₁ : ChromGate.eval d a[p.val] b[p.val] ≠ ChromGate.eval d a[q.val] b[p.val] := by
+    simpa only [hzword, ChromGate.word_get, ara, ← bra] using v₁
+  have d₂ : ChromGate.eval d a[p.val] b[p.val] ≠ ChromGate.eval d a[p.val] b[q.val] := by
+    simpa only [hzword, ChromGate.word_get, brb, ← arb] using v₂
+  have d₃ : ChromGate.eval d a[q.val] b[q.val] ≠ ChromGate.eval d a[p.val] b[q.val] := by
+    simpa only [hzword, ChromGate.word_get, ← phase₁, bsa] using v₃.symm
+  have d₄ : ChromGate.eval d a[q.val] b[q.val] ≠ ChromGate.eval d a[q.val] b[p.val] := by
+    simpa only [hzword, ChromGate.word_get, ← phase₂, asb] using v₄.symm
+  exact ChromGate.rectangle_false d _ _ _ _ d₁ d₂ d₃ d₄
+
+lemma criticalPair_step {k : Nat} {target g a b z c d : BitVec width}
+    {U : Finset (BitVec width)} (hab : a ≠ b) (hz : z ∈ basicOps a b)
+    (fresh : z ∉ insert a (insert b U))
+    (run : live basicOps g k (insert z U)) (hg : g = target ∨ g = ~~~target)
+    (hca : c = a → a ∉ U) (hcb : c = b → b ∉ U)
+    (hda : d = a → a ∉ U) (hdb : d = b → b ∉ U)
+    (h : criticalPair target (insert a (insert b U)) c d) :
+    criticalPair target (insert z U)
+      (if c = a ∨ c = b then z else c) (if d = a ∨ d = b then z else d) := by
+  have notboth : ¬ ((c = a ∨ c = b) ∧ (d = a ∨ d = b)) := by
+    rintro ⟨hc, hd⟩
+    rcases hc with rfl | rfl <;> rcases hd with rfl | rfl
+    · exact h.2.2.1 rfl
+    · exact criticalPair_noCollapse hz run hg (hca rfl) (hdb rfl) h
+    · exact criticalPair_noCollapse hz run hg (hda rfl) (hcb rfl) (criticalPair_symm h)
+    · exact h.2.2.1 rfl
+  obtain ⟨hc, hd, hcd, p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb,
+    u₁, u₂, u₃, u₄, phase₁, phase₂⟩ := h
+  have v₁ := uniqueSep_step hz run hg (by simp [hp, hra]) hca hcb u₁
+  have v₂ := uniqueSep_step hz run hg (by simp [hp, hrb]) hda hdb u₂
+  have v₃ := uniqueSep_step hz run hg (by simp [hsa, hq]) hca hcb u₃
+  have v₄ := uniqueSep_step hz run hg (by simp [hsb, hq]) hda hdb u₄
+  change criticalPair target (insert z U) (moved a b z c) (moved a b z d)
+  exact ⟨moved_mem hc, moved_mem hd, moved_ne hc hd fresh hcd notboth,
+    p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb, v₁, v₂, v₃, v₄,
+    moved_phase hab hz u₁ u₃ v₁ v₃ phase₁,
+    moved_phase hab hz u₂ u₄ v₂ v₄ phase₂⟩
+
+end ChromRelation
+
+lemma live_criticalPair_coloring {width k : Nat} {target g : BitVec width}
+    {S : Finset (BitVec width)} (run : live basicOps g k S)
+    (hg : g = target ∨ g = ~~~target) :
+    ∃ color : BitVec width → Nat,
+      (∀ a ∈ S, color a < k + 2 - S.card) ∧
+      ∀ a b, criticalPair target S a b → color a ≠ color b := by
+  have irrefl : ∀ U c, ¬ criticalPair target U c c := by
+    intro U c h
+    exact h.2.2.1 rfl
+  obtain ⟨x, color, hcard, hbound, hproper⟩ :=
+    ChromGeneric.live_coloring (criticalPair target) irrefl
+      (by
+        intro n a b z U hab fresh hz tail c hc d hd edge hca hcb hda hdb
+        exact ChromRelation.criticalPair_step hab hz fresh tail hg
+          hca hcb hda hdb edge) run
+  refine ⟨color, ?_, ?_⟩
+  · intro a ha
+    have := hbound a ha
+    omega
+  · intro a b edge
+    exact hproper a edge.1 b edge.2.1 edge
+
+open PEqualNP.CircuitLowerBounds
+
+def holds (av : Finset (BitVec width)) (z : (BitVec width)) : Prop :=
+  z = 0 ∨ z = ~~~0 ∨ ∃ a ∈ av, z = a ∨ z = ~~~a
+
+lemma holds_insert {av : Finset (BitVec width)} {z a : (BitVec width)} (h : holds av z) : holds (insert a av) z := by
+  rcases h with h|h|⟨u,hu,he⟩
+  · exact .inl h
+  · exact .inr (.inl h)
+  · exact .inr (.inr ⟨u,Finset.mem_insert_of_mem hu,he⟩)
+
+lemma holds_not {av : Finset (BitVec width)} {z : (BitVec width)} (h : holds av z) : holds av (~~~z) := by
+  rcases h with rfl|rfl|⟨a,ha,he⟩
+  · exact .inr (.inl rfl)
+  · exact .inl BitVec.not_not
+  · rcases he with he|he <;> rw [he]
+    · exact .inr (.inr ⟨a, ha, .inr rfl⟩)
+    · exact .inr (.inr ⟨a, ha, .inl BitVec.not_not⟩)
+
+def reachable (av : Finset (BitVec width)) (z : (BitVec width)) : Prop :=
+  holds av z ∨ ∃ a ∈ av, ∃ b ∈ av, a ≠ b ∧ ∃ w ∈ basicOps a b, holds (insert w av) z
+
+lemma reachable_not {av : Finset (BitVec width)} {z : (BitVec width)} (h : reachable av z) : reachable av (~~~z) := by
+  rcases h with h|⟨a,ha,b,hb,ne,w,hop,hw⟩
+  · exact .inl (holds_not h)
+  · exact .inr ⟨a,ha,b,hb,ne,w,hop,holds_not hw⟩
+
+set_option maxRecDepth 5000 in
+lemma and_reach {av : Finset (BitVec width)} {x y : (BitVec width)} (hx : holds av x) (hy : holds av y) :
+    reachable av (x &&& y) := by
+  have const : holds av (0 : (BitVec width)) := .inl rfl
+  have oldx := hx
+  rcases hx with rfl|rfl|⟨a,ha,ea⟩
+  · rw [show (0 : (BitVec width)) &&& y = 0 from BitVec.zero_and]; exact .inl const
+  · have he : (~~~(0 : BitVec width)) &&& y = y := by
+      apply BitVec.eq_of_getLsbD_eq
+      intro i
+      simp
+    rw [he]
+    exact .inl hy
+  rcases hy with rfl|rfl|⟨b,hb,eb⟩
+  · rw [show x &&& (0 : (BitVec width)) = 0 from BitVec.and_zero]; exact .inl const
+  · have he : x &&& ~~~(0 : BitVec width) = x := by
+      apply BitVec.eq_of_getLsbD_eq
+      intro i
+      simp
+    rw [he]
+    exact .inl oldx
+  by_cases h : a = b
+  · subst b
+    rcases ea with ea|ea <;> rcases eb with eb|eb <;> rw [ea,eb] <;>
+      simp only [BitVec.and_self, BitVec.and_not_self, BitVec.not_and_self] <;>
+      first | exact .inl const | exact .inl (.inr (.inr ⟨a,ha,.inl rfl⟩)) |
+        exact .inl (.inr (.inr ⟨a,ha,.inr rfl⟩))
+  have add (w : (BitVec width)) (hw : w ∈ basicOps a b) (z : (BitVec width)) (hz : z = w ∨ z = ~~~w) :
+      reachable av z :=
+    .inr ⟨a,ha,b,hb,h,w,hw,.inr (.inr ⟨w,Finset.mem_insert_self ..,hz⟩)⟩
+  rcases ea with ea|ea <;> rcases eb with eb|eb <;> rw [ea,eb]
+  · exact add _ (by simp [basicOps,ops] : a &&& b ∈ basicOps a b) _ (.inl rfl)
+  · exact add _ (by simp [basicOps,ops] : a &&& ~~~b ∈ basicOps a b) _ (.inl rfl)
+  · exact add _ (by simp [basicOps,ops] : b &&& ~~~a ∈ basicOps a b) _ (.inl (BitVec.and_comm ..))
+  · exact add _ (by simp [basicOps,ops] : a ||| b ∈ basicOps a b) _ (.inr BitVec.not_or.symm)
+
+lemma or_reach {av : Finset (BitVec width)} {x y : (BitVec width)} (hx : holds av x) (hy : holds av y) :
+    reachable av (x ||| y) := by
+  simpa only [BitVec.not_and, BitVec.not_not] using reachable_not (and_reach (holds_not hx) (holds_not hy))
+
+private def bit (k : Fin width) (z : (BitVec width)) : Bool := z[k.val]
+private def step (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+private lemma read_bit (w : List (BitVec width)) (i : ℕ) (k : Fin width) :
+    (w.map (bit k)).getD i false = bit k (w.getD i 0) := by
+  by_cases h : i < w.length
+  · simp [List.getD_eq_getElem?_getD, List.getElem?_map, List.getElem?_eq_getElem h]
+  · simp [List.getD_eq_getElem?_getD, List.getElem?_map,
+      List.getElem?_eq_none (Nat.le_of_not_gt h), bit]
+
+def legal (g : Gate) : Prop := (g.op = .and ∨ g.op = .or ∨ g.op = .not) ∧ g.inputs.length ≤ 2
+
+def action (w : List (BitVec width)) (g : Gate) : (BitVec width) := match g.op with
+  | .not => ~~~(g.inputs.head?.map (fun i => w.getD i 0)).getD 0
+  | .and => (g.inputs.map fun i => w.getD i 0).foldr (· &&& ·) (~~~0)
+  | .or => (g.inputs.map fun i => w.getD i 0).foldr (· ||| ·) 0
+  | _ => 0
+
+lemma evalAnd (xs : List Bool) : GateOp.and.eval xs = xs.all id := rfl
+lemma evalOr (xs : List Bool) : GateOp.or.eval xs = xs.any id := rfl
+lemma evalNot (xs : List Bool) : GateOp.not.eval xs = !(xs.headD false) := rfl
+
+set_option maxRecDepth 5000 in
+lemma action_spec (w : List (BitVec width)) (g : Gate) (hg : legal g) (k : Fin width) :
+    step (w.map (bit k)) g = (w ++ [action w g]).map (bit k) := by
+  obtain ⟨op,args⟩ := g
+  obtain ⟨hop,cap⟩ := hg
+  change op = .and ∨ op = .or ∨ op = .not at hop
+  change args.length ≤ 2 at cap
+  rcases args with _|⟨i,_|⟨j,_|⟨u,tail⟩⟩⟩ <;> try simp at cap
+  all_goals have bit0 : (0 : (BitVec width))[k.val] = false := by change (0 : BitVec width)[k.val] = false; simp
+  all_goals rcases hop with rfl|rfl|rfl <;>
+    simp only [step, List.map_cons,List.map_nil,read_bit,List.map_append] <;>
+    simp only [action, evalAnd, evalOr, evalNot, List.foldr_cons,List.foldr_nil,List.head?_cons,List.head?_nil,
+      List.headD_cons,List.headD_nil,Option.map_some,Option.map_none,Option.getD_some,Option.getD_none,
+      List.all_cons,List.all_nil,List.any_cons,List.any_nil,List.map_cons,List.map_nil,id_eq,
+      Bool.and_true,Bool.or_false, bit,BitVec.getElem_and,BitVec.getElem_or,BitVec.getElem_not,
+      BitVec.getElem_zero,bit0,Bool.not_false] <;> rfl
+
+def isBinary (g : Gate) : Bool := match g.op with
+  | .not => false
+  | _ => true
+def binaryCost (gs : List Gate) := (gs.filter isBinary).length
+
+lemma available_read {av : Finset (BitVec width)} {w : List (BitVec width)} (hw : ∀ u ∈ w, holds av u) (i : ℕ) :
+    holds av (w.getD i 0) := by
+  by_cases h : i < w.length
+  · exact hw _ (by simp [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem h])
+  · rw [List.getD_eq_default _ _ (Nat.le_of_not_gt h)]
+    exact .inl rfl
+
+set_option maxRecDepth 5000 in
+lemma gate_reach (w : List (BitVec width)) (av : Finset (BitVec width)) (hw : ∀ u ∈ w, holds av u)
+    (g : Gate) (hg : legal g) :
+    if isBinary g then reachable av (action w g) else holds av (action w g) := by
+  obtain ⟨op,args⟩ := g
+  obtain ⟨hop,cap⟩ := hg
+  change op = .and ∨ op = .or ∨ op = .not at hop
+  change args.length ≤ 2 at cap
+  rcases args with _|⟨i,_|⟨j,_|⟨u,tail⟩⟩⟩ <;> try simp at cap
+  all_goals rcases hop with rfl|rfl|rfl <;> simp only [isBinary,Bool.false_eq_true,ite_false,ite_true,
+    action,List.head?_nil,List.head?_cons,List.map_nil,List.map_cons,List.foldr_nil,List.foldr_cons,
+    Option.map_none,Option.map_some,Option.getD_none,Option.getD_some,
+    show ∀ x : (BitVec width), x ||| (0 : (BitVec width)) = x from fun x => BitVec.or_zero,
+    show ∀ x : (BitVec width), x &&& ~~~0 = x from fun x => by simp]
+  all_goals first
+    | exact .inl (.inl rfl)
+    | exact .inl (.inr (.inl rfl))
+    | exact .inr (.inl rfl)
+    | exact .inl (available_read hw _)
+    | exact holds_not (available_read hw _)
+    | exact and_reach (available_read hw _) (available_read hw _)
+    | exact or_reach (available_read hw _) (available_read hw _)
+
+set_option maxRecDepth 4000 in
+lemma compile {goal : BitVec width} (nonzero : goal ≠ 0) (nonones : goal ≠ ~~~0) (gs : List Gate) (out : ℕ) (hg : ∀ g ∈ gs, legal g)
+    (w : List (BitVec width)) (av : Finset (BitVec width)) (hw : ∀ u ∈ w, holds av u)
+    (he : ∀ k, (gs.foldl step (w.map (bit k))).getD out false = bit k goal) :
+    ∃ t, (t = goal ∨ t = ~~~goal) ∧ build basicOps t (binaryCost gs) av := by
+  induction gs generalizing w av with
+  | nil =>
+    have hv : w.getD out 0 = goal := by
+      apply BitVec.eq_of_getElem_eq
+      intro i hi
+      simpa only [List.foldl_nil, read_bit, bit] using he ⟨i,hi⟩
+    have h := hv ▸ available_read hw out
+    rcases h with zero|ones|⟨t,ht,eq|eq⟩
+    · exact False.elim (nonzero zero)
+    · exact False.elim (nonones ones)
+    · exact ⟨t, .inl eq.symm, ht⟩
+    · exact ⟨t, .inr (by rw [eq, BitVec.not_not]), ht⟩
+  | cons g gs ih =>
+    let z := action w g
+    have stepOK := action_spec w g (hg g (by simp))
+    have nextEval : ∀ k, (gs.foldl step ((w ++ [z]).map (bit k))).getD out false = bit k goal := by
+      intro k; simpa only [List.foldl_cons, stepOK] using he k
+    have tail := ih (fun t ht => hg t (by simp [ht])) (w ++ [z])
+    have cont (A : Finset (BitVec width)) (hold : ∀ u ∈ w, holds A u) (new : holds A z) :=
+      tail A (by
+        intro u hu
+        rcases List.mem_append.mp hu with hu|hu
+        · exact hold u hu
+        · exact (List.mem_singleton.mp hu) ▸ new) nextEval
+    have stepClass := gate_reach w av hw g (hg g (by simp))
+    cases neg : isBinary g
+    · simp only [neg,Bool.false_eq_true,ite_false] at stepClass
+      simpa [binaryCost,neg] using cont av hw stepClass
+    · simp only [neg,ite_true] at stepClass
+      have len : binaryCost (g::gs) = binaryCost gs+1 := by simp [binaryCost,neg]
+      rw [len]
+      rcases stepClass with existing|⟨a,ha,b,hb,ne,new,op,rep⟩
+      · obtain ⟨t,ht,run⟩ := cont av hw existing
+        exact ⟨t,ht,Or.inl run⟩
+      · obtain ⟨t,ht,run⟩ := cont (insert new av) (fun u hu => holds_insert (hw u hu)) rep
+        exact ⟨t,ht,Or.inr ⟨a,ha,b,hb,ne,new,op,run⟩⟩
+
+lemma bound_from_samples {inputCount budget : Nat} {goal : BitVec width}
+    (nonzero : goal ≠ 0) (nonones : goal ≠ ~~~0)
+    (target : (Fin inputCount → Bool) → Bool) (ins : List (BitVec width))
+    (roots : Finset (BitVec width)) (represented : ∀ u ∈ ins, holds roots u)
+    (inputLength : ins.length = inputCount)
+    (row : ∀ j : Fin width,
+      target (fun i => (ins.getD i.val 0)[j.val]) = goal[j.val])
+    (rejection : ∀ z, z = goal ∨ z = ~~~goal →
+      ¬ build basicOps z budget roots)
+    (gs : List Gate) (out : Nat) (legalGates : ∀ g ∈ gs, legal g)
+    (computes : ∀ x : Fin inputCount → Bool,
+      Circuit.eval ⟨gs, out⟩ (List.ofFn x) = target x) :
+    budget < binaryCost gs := by
+  by_contra! low
+  have evaluate (k : Fin width) :
+      (gs.foldl step (ins.map (bit k))).getD out false = bit k goal := by
+    let x (i : Fin inputCount) : Bool := bit k (ins.getD i.val 0)
+    have same : List.ofFn x = ins.map (bit k) := by
+      apply List.ext_getElem
+      · simp [inputLength]
+      · intro i hi hj
+        have hlt : i < ins.length := by simpa using hj
+        simp only [List.getElem_ofFn, List.getElem_map, x,
+          List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hlt, Option.getD_some]
+    change Circuit.eval ⟨gs, out⟩ (ins.map (bit k)) = bit k goal
+    rw [← same, computes]
+    exact row k
+  obtain ⟨z, hz, run⟩ := compile nonzero nonones gs out legalGates ins roots
+    represented evaluate
+  have lift {a b : Nat} (h : a ≤ b) (hr : build basicOps z a roots) :
+      build basicOps z b roots := by
+    induction h with
+    | refl => exact hr
+    | step _ ih => exact Or.inl ih
+  exact rejection z hz (lift low run)
+
+lemma replace_from_samples {inputCount replacementSize : Nat} {goal : BitVec width}
+    (nonzero : goal ≠ 0) (nonones : goal ≠ ~~~0)
+    (target : (Fin inputCount → Bool) → Bool) (ins : List (BitVec width))
+    (roots : Finset (BitVec width)) (represented : ∀ u ∈ ins, holds roots u)
+    (inputLength : ins.length = inputCount)
+    (row : ∀ j : Fin width,
+      target (fun i => (ins.getD i.val 0)[j.val]) = goal[j.val])
+    (rejection : ∀ z, z = goal ∨ z = ~~~goal →
+      ¬ build basicOps z (replacementSize - 2) roots)
+    (upper : ∃ (gs : List Gate) (out : Nat),
+      (∀ g ∈ gs, (g.op = .and ∨ g.op = .or) ∧ g.inputs.length ≤ 2) ∧
+      gs.length = replacementSize ∧
+      ∀ x : Fin inputCount → Bool, Circuit.eval ⟨gs, out⟩ (List.ofFn x) = target x)
+    (gs : List Gate) (out : Nat) (legalGates : ∀ g ∈ gs, legal g)
+    (computes : ∀ x : Fin inputCount → Bool,
+      Circuit.eval ⟨gs, out⟩ (List.ofFn x) = target x) :
+    ∃ (ds : List Gate) (newOut : Nat),
+      (∀ g ∈ ds, (g.op = .and ∨ g.op = .or) ∧ g.inputs.length ≤ 2) ∧
+      ds.length ≤ gs.length ∧
+      ∀ x : Fin inputCount → Bool, Circuit.eval ⟨ds, newOut⟩ (List.ofFn x) = target x := by
+  by_cases present : ∃ g ∈ gs, g.op = .not
+  · obtain ⟨g, member, op⟩ := present
+    have cut : binaryCost gs < gs.length :=
+      (List.length_filter_lt_length_iff_exists (p := isBinary)).mpr
+        ⟨g, member, by simp [isBinary, op]⟩
+    have lower := bound_from_samples nonzero nonones target ins roots represented inputLength row rejection
+      gs out legalGates computes
+    obtain ⟨ds, newOut, ok, size, evaluates⟩ := upper
+    exact ⟨ds, newOut, ok, by omega, evaluates⟩
+  · refine ⟨gs, out, ?_, le_rfl, computes⟩
+    intro g member
+    obtain ⟨op, arity⟩ := legalGates g member
+    exact ⟨op.elim Or.inl (fun h => h.elim Or.inr
+      (fun eq => (present ⟨g, member, eq⟩).elim)), arity⟩
+
+end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760
+
+lemma live_zero_free {width k : Nat} {g : BitVec width} {S : Finset (BitVec width)}
+    (hg : g ≠ 0) (run : live basicOps g k S) : (0 : BitVec width) ∉ S := by
+  induction k generalizing S with
+  | zero =>
+    change S = {g} at run
+    intro hz
+    rw [run, Finset.mem_singleton] at hz
+    exact hg hz.symm
+  | succ k ih =>
+    rcases run with skip | ⟨a, ha, b, hb, hab, z, hz, fresh, rest, rfl, tail⟩
+    · exact ih skip
+    · have hrest : (0 : BitVec width) ∉ rest := by
+        intro h
+        exact ih tail (Finset.mem_insert_of_mem h)
+      intro h
+      simp only [Finset.mem_insert] at h
+      rcases h with h | h | h
+      · subst a
+        simp only [basicOps, ops, List.mem_toFinset, List.mem_cons,
+          List.not_mem_nil, or_false] at hz
+        rcases hz with rfl | rfl | rfl | rfl <;> exact fresh (by simp)
+      · subst b
+        simp only [basicOps, ops, List.mem_toFinset, List.mem_cons,
+          List.not_mem_nil, or_false] at hz
+        rcases hz with rfl | rfl | rfl | rfl <;> exact fresh (by simp)
+      · exact hrest h
+
+end PEqualNP.Outside.L_meta_10760
+
+
+namespace PEqualNP.Outside.L_meta_10760
+
+open PEqualNP.CircuitLowerBounds
+
+def edgeFunction (x : Fin 7 → Bool) : Bool :=
+  (x 0 && x 2) || (x 1 && x 3) || (x 0 && x 4) || (x 1 && x 4) || (x 2 && x 4) || (x 0 && x 5) || (x 1 && x 5) || (x 3 && x 5) || (x 0 && x 6) || (x 2 && x 6) || (x 3 && x 6) || (x 5 && x 6)
+
+def monotoneWitness : List Gate :=
+  [
+    ⟨GateOp.or, [0, 2]⟩,
+    ⟨GateOp.or, [3, 5]⟩,
+    ⟨GateOp.or, [7, 8]⟩,
+    ⟨GateOp.and, [6, 9]⟩,
+    ⟨GateOp.or, [1, 5]⟩,
+    ⟨GateOp.and, [3, 11]⟩,
+    ⟨GateOp.or, [0, 1]⟩,
+    ⟨GateOp.or, [4, 5]⟩,
+    ⟨GateOp.and, [13, 14]⟩,
+    ⟨GateOp.or, [0, 4]⟩,
+    ⟨GateOp.and, [2, 16]⟩,
+    ⟨GateOp.or, [10, 12]⟩,
+    ⟨GateOp.or, [15, 17]⟩,
+    ⟨GateOp.or, [18, 19]⟩
+  ]
+
+lemma witness_size : monotoneWitness.length = 14 := rfl
+
+lemma witness_allowed : ∀ g ∈ monotoneWitness,
+    (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2 := by
+  simp [monotoneWitness]
+
+set_option maxHeartbeats 2000000 in
+lemma witness_eval : ∀ x : Fin 7 → Bool,
+    Circuit.eval ⟨monotoneWitness, 20⟩ (List.ofFn x) = edgeFunction x := by
+  decide +kernel
+
+set_option maxHeartbeats 2000000 in
+lemma edgeFunction_posted : ∀ x : Fin 7 → Bool,
+    decide (∃ i < ([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).length / 2, (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i) 0) false = true ∧ (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i + 1) 0) false = true) = edgeFunction x := by
+  decide +kernel
+
+
+def pairInput (i j : Fin 7) : Fin 7 → Bool :=
+  fun k => decide (k = i ∨ k = j)
+
+set_option maxHeartbeats 8000000 in
+lemma positive_pair : ∀ x : Fin 7 → Bool, edgeFunction x = true →
+    ∃ i j : Fin 7, i ≠ j ∧ pairInput i j ≤ x ∧ edgeFunction (pairInput i j) = true := by
+  decide +kernel
+
+set_option maxHeartbeats 8000000 in
+lemma negative_pair : ∀ x : Fin 7 → Bool, edgeFunction x = false →
+    ∃ i j : Fin 7, i ≠ j ∧ x ≤ pairInput i j ∧ edgeFunction (pairInput i j) = false := by
+  decide +kernel
+
+lemma pair_table_suffices (g : (Fin 7 → Bool) → Bool) (hg : Monotone g)
+    (hpair : ∀ i j : Fin 7, i ≠ j → g (pairInput i j) = edgeFunction (pairInput i j)) :
+    ∀ x : Fin 7 → Bool, g x = edgeFunction x := by
+  intro x
+  cases hx : edgeFunction x with
+  | false =>
+    obtain ⟨i, j, hij, hle, hf⟩ := negative_pair x hx
+    have h := hg hle
+    rw [hpair i j hij, hf] at h
+    exact Bool.eq_false_of_le_false h
+  | true =>
+    obtain ⟨i, j, hij, hle, hf⟩ := positive_pair x hx
+    have h := hg hle
+    rw [hpair i j hij, hf] at h
+    exact Bool.eq_true_of_true_le h
+
+end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760
+
+open PEqualNP.CircuitLowerBounds
+
+def sampleInputs : List (BitVec 128) := [0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa, 0xcccccccccccccccccccccccccccccccc, 0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0, 0xff00ff00ff00ff00ff00ff00ff00ff00, 0xffff0000ffff0000ffff0000ffff0000, 0xffffffff00000000ffffffff00000000, 0xffffffffffffffff0000000000000000]
+
+def sampleGoal : BitVec 128 := 0xfffffffffffefffafffeffeefefeeca0
+
+def signedRoots : Finset (BitVec 128) := (sampleInputs.map (fun w => ~~~w)).toFinset
+
+lemma sample_represented : ∀ u ∈ sampleInputs, holds signedRoots u := by
+  intro u hu
+  refine Or.inr (Or.inr ⟨~~~u, ?_, Or.inr ?_⟩)
+  · exact List.mem_toFinset.mpr (List.mem_map.mpr ⟨u, hu, rfl⟩)
+  · exact BitVec.not_not.symm
+
+set_option maxHeartbeats 2000000 in
+lemma sample_rows : ∀ j : Fin 128,
+    edgeFunction (fun i => (sampleInputs.getD i.val 0)[j.val]) = sampleGoal[j.val] := by
+  decide +kernel
+
+set_option maxHeartbeats 2000000 in
+lemma gap_of_rejection
+    (reject : ∀ z, z = sampleGoal ∨ z = ~~~sampleGoal →
+      ¬ build basicOps z 12 signedRoots) :
+∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (o : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.not) ∧ g.inputs.length ≤ 2) → (∀ i j : Fin gates.length, (gates.get i).op = PEqualNP.CircuitLowerBounds.GateOp.not → (gates.get j).op = PEqualNP.CircuitLowerBounds.GateOp.not → i = j) → (∀ x : Fin 7 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, o⟩ (List.ofFn x) = decide (∃ i < ([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).length / 2, (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i) 0) false = true ∧ (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i + 1) 0) false = true)) → ∃ (gates' : List PEqualNP.CircuitLowerBounds.Gate) (o' : ℕ), (∀ g ∈ gates', (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) ∧ gates'.length ≤ gates.length ∧ ∀ x : Fin 7 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates', o'⟩ (List.ofFn x) = decide (∃ i < ([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).length / 2, (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i) 0) false = true ∧ (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i + 1) 0) false = true) := by
+  intro gates o hg _ hf
+  obtain ⟨ds, out, ok, len, ev⟩ := replace_from_samples
+    (replacementSize := 14) (goal := sampleGoal)
+    (by decide +kernel) (by decide +kernel) edgeFunction sampleInputs signedRoots
+    sample_represented rfl sample_rows reject
+    ⟨monotoneWitness, 20, witness_allowed, witness_size, witness_eval⟩
+    gates o hg (fun x => (hf x).trans (edgeFunction_posted x))
+  exact ⟨ds, out, ok, len, fun x => (ev x).trans (edgeFunction_posted x).symm⟩
+
+end PEqualNP.Outside.L_meta_10760
+
+
+namespace PEqualNP.Outside.L_meta_10760
+
+def firstRoot (i : Fin 7) : BitVec 128 := ~~~(sampleInputs.getD i.val 0)
+
+def firstOp (i j : Fin 7) (o : Fin 4) : BitVec 128 :=
+  (ops (firstRoot i) (firstRoot j)).getD o.val 0
+
+def collisionData : List Nat := [0, 0, 0, 0, 775, 517, 517, 775, 517, 2065, 2065, 517, 1549, 517, 517, 1549, 2065, 517, 517, 2065, 4129, 517, 517, 4129, 8257, 517, 517, 8257, 1163, 1034, 1034, 1163, 0, 0, 0, 0, 1550, 1034, 1034, 1550, 1034, 2066, 2066, 1034, 2066, 1034, 1034, 2066, 4130, 1034, 1034, 4130, 10322, 1034, 1034, 10322, 133, 2068, 2068, 133, 391, 133, 133, 391, 0, 0, 0, 0, 1165, 133, 133, 1165, 2068, 133, 133, 2068, 6196, 133, 133, 6196, 8260, 133, 133, 8260, 395, 266, 266, 395, 266, 4136, 4136, 266, 782, 266, 266, 782, 0, 0, 0, 0, 6200, 266, 266, 6200, 4136, 266, 266, 4136, 8264, 266, 266, 8264, 145, 274, 274, 145, 274, 145, 145, 274, 532, 145, 145, 532, 1177, 145, 145, 1177, 0, 0, 0, 0, 4660, 145, 145, 4660, 8530, 145, 145, 8530, 161, 290, 290, 161, 290, 161, 161, 290, 806, 161, 161, 806, 1064, 161, 161, 1064, 3128, 161, 161, 3128, 0, 0, 0, 0, 8288, 161, 161, 8288, 193, 580, 580, 193, 451, 193, 193, 451, 580, 193, 193, 580, 1096, 193, 193, 1096, 3160, 193, 193, 3160, 4192, 193, 193, 4192, 0, 0, 0, 0]
+
+def collisionPos (i j : Fin 7) (o : Fin 4) : Fin 128 :=
+  ⟨(collisionData.getD ((i.val * 7 + j.val) * 4 + o.val) 0) % 128, Nat.mod_lt _ (by decide)⟩
+
+def collisionNeg (i j : Fin 7) (o : Fin 4) : Fin 128 :=
+  ⟨(collisionData.getD ((i.val * 7 + j.val) * 4 + o.val) 0 / 128) % 128, Nat.mod_lt _ (by decide)⟩
+
+set_option maxHeartbeats 8000000 in
+lemma first_collision : ∀ i j : Fin 7, ∀ o : Fin 4, i ≠ j →
+    sampleGoal[(collisionPos i j o).val] ≠ sampleGoal[(collisionNeg i j o).val] ∧
+    (firstOp i j o)[(collisionPos i j o).val] = (firstOp i j o)[(collisionNeg i j o).val] ∧
+    ∀ k : Fin 7, k ≠ i →
+      (firstRoot k)[(collisionPos i j o).val] = (firstRoot k)[(collisionNeg i j o).val] := by
+  decide +kernel
+
+lemma first_roots_eq : signedRoots = Finset.univ.image firstRoot := by
+  decide +kernel
+
+lemma first_mem {u : BitVec 128} (hu : u ∈ signedRoots) : ∃ i : Fin 7, u = firstRoot i := by
+  rw [first_roots_eq] at hu
+  obtain ⟨i, _, hi⟩ := Finset.mem_image.mp hu
+  exact ⟨i, hi.symm⟩
+
+lemma first_op_mem {i j : Fin 7} {z : BitVec 128}
+    (hz : z ∈ basicOps (firstRoot i) (firstRoot j)) : ∃ o : Fin 4, z = firstOp i j o := by
   simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false] at hz
   rcases hz with rfl | rfl | rfl | rfl
-  · exact ⟨0, by intro p; simp [boolOp]⟩
-  · exact ⟨1, by intro p; simp [boolOp]⟩
-  · exact ⟨2, by intro p; simp [boolOp]⟩
-  · exact ⟨3, by intro p; simp [boolOp]⟩
+  · exact ⟨0, rfl⟩
+  · exact ⟨1, rfl⟩
+  · exact ⟨2, rfl⟩
+  · exact ⟨3, rfl⟩
 
-def unateSeparator {width : ℕ} (goal : BitVec width) (s : Finset (BitVec width)) : Prop :=
-  ∃ direction : BitVec width → Bool, ∀ p q : Fin width,
-    (∀ w ∈ s, signedValue (direction w) (w.getLsbD p.val) = true →
-      signedValue (direction w) (w.getLsbD q.val) = true) →
-    goal.getLsbD p.val = true → goal.getLsbD q.val = true
+lemma first_bit_congr {width : Nat} {a b z : BitVec width} (i j : Fin width)
+    (hz : z ∈ basicOps a b) (ha : a[i.val] = a[j.val]) (hb : b[i.val] = b[j.val]) :
+    z[i.val] = z[j.val] := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;>
+    simp only [BitVec.getElem_and, BitVec.getElem_or, BitVec.getElem_not, ha, hb]
 
-lemma live_tight_unate {width : ℕ} {goal : BitVec width} {k : ℕ}
-    {s : Finset (BitVec width)} (h : live basicOps goal k s) (hcard : s.card = k + 1) :
-    unateSeparator goal s := by
+lemma first_live_separates {width : Nat} {goal : BitVec width} {k : Nat}
+    {s : Finset (BitVec width)} (i j : Fin width) (hd : goal[i.val] ≠ goal[j.val])
+    (hl : live basicOps goal k s) : ∃ w ∈ s, w[i.val] ≠ w[j.val] := by
+  apply live_separates (fun w => w[i.val] ≠ w[j.val]) hd _ hl
+  intro a b z hz hne
+  by_contra hn
+  simp only [not_or, not_not] at hn
+  exact hne (first_bit_congr i j hz hn.1 hn.2)
+
+lemma first_drop_collision {a b z : BitVec 128}
+    (ha : a ∈ signedRoots) (hb : b ∈ signedRoots) (hne : a ≠ b)
+    (hz : z ∈ basicOps a b) :
+    ∃ i j : Fin 128, sampleGoal[i.val] ≠ sampleGoal[j.val] ∧
+      ∀ w ∈ insert z (signedRoots.erase a), w[i.val] = w[j.val] := by
+  obtain ⟨i, rfl⟩ := first_mem ha
+  obtain ⟨j, rfl⟩ := first_mem hb
+  obtain ⟨o, rfl⟩ := first_op_mem hz
+  obtain ⟨hg, ho, hw⟩ := first_collision i j o (fun h => hne (congrArg firstRoot h))
+  refine ⟨collisionPos i j o, collisionNeg i j o, hg, ?_⟩
+  intro w hmem
+  rcases Finset.mem_insert.mp hmem with rfl | hmem
+  · exact ho
+  · obtain ⟨hneq, hroot⟩ := Finset.mem_erase.mp hmem
+    obtain ⟨k, rfl⟩ := first_mem hroot
+    exact hw k (fun h => hneq (congrArg firstRoot h))
+
+def essentialPos (i : Fin 7) : Fin 128 :=
+  ⟨(([5, 10, 5, 10, 17, 33, 65] : List Nat).getD i.val 0) % 128, Nat.mod_lt _ (by decide)⟩
+
+def essentialNeg (i : Fin 7) : Fin 128 :=
+  ⟨(([4, 8, 1, 2, 1, 1, 1] : List Nat).getD i.val 0) % 128, Nat.mod_lt _ (by decide)⟩
+
+lemma first_essential : ∀ i : Fin 7,
+    sampleGoal[(essentialPos i).val] ≠ sampleGoal[(essentialNeg i).val] ∧
+    ∀ j : Fin 7, j ≠ i →
+      (firstRoot j)[(essentialPos i).val] = (firstRoot j)[(essentialNeg i).val] := by
+  decide +kernel
+
+lemma first_goal_diff {goal : BitVec 128} (hgoal : goal = sampleGoal ∨ goal = ~~~sampleGoal)
+    {i j : Fin 128} (hd : sampleGoal[i.val] ≠ sampleGoal[j.val]) : goal[i.val] ≠ goal[j.val] := by
+  rcases hgoal with rfl | rfl
+  · exact hd
+  · intro h
+    apply hd
+    have hh := congrArg Bool.not h
+    simpa only [BitVec.getElem_not, Bool.not_not] using hh
+
+lemma firstRootsComplete {goal : BitVec 128} {k : Nat} {s : Finset (BitVec 128)}
+    (hgoal : goal = sampleGoal ∨ goal = ~~~sampleGoal)
+    (hsub : s ⊆ signedRoots) (hl : live basicOps goal k s) : s = signedRoots := by
+  apply Finset.Subset.antisymm hsub
+  intro a ha
+  obtain ⟨i, rfl⟩ := first_mem ha
+  by_contra hn
+  obtain ⟨hd, hw⟩ := first_essential i
+  obtain ⟨w, hws, hne⟩ := first_live_separates (essentialPos i) (essentialNeg i)
+    (first_goal_diff hgoal hd) hl
+  obtain ⟨j, rfl⟩ := first_mem (hsub hws)
+  exact hne (hw j (fun h => hn (by simpa [h] using hws)))
+
+lemma first_keeps_left {goal a b z : BitVec 128} {k : Nat} {rest : Finset (BitVec 128)}
+    (hgoal : goal = sampleGoal ∨ goal = ~~~sampleGoal)
+    (ha : a ∈ signedRoots) (hb : b ∈ signedRoots) (hne : a ≠ b)
+    (hz : z ∈ basicOps a b) (hsub : rest ⊆ signedRoots)
+    (hl : live basicOps goal k (insert z rest)) : a ∈ rest := by
+  by_contra haout
+  obtain ⟨i, j, hd, hc⟩ := first_drop_collision ha hb hne hz
+  obtain ⟨w, hw, hbad⟩ := first_live_separates i j (first_goal_diff hgoal hd) hl
+  apply hbad
+  apply hc
+  rcases Finset.mem_insert.mp hw with rfl | hw
+  · exact Finset.mem_insert_self _ _
+  · exact Finset.mem_insert_of_mem (Finset.mem_erase.mpr ⟨fun h => haout (h ▸ hw), hsub hw⟩)
+
+lemma first_ops_comm (a b : BitVec 128) : basicOps a b = basicOps b a := by
+  ext z
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false,
+    BitVec.and_comm, BitVec.or_comm]
+  tauto
+
+lemma first_rest_complete {goal a b z : BitVec 128} {k : Nat} {rest : Finset (BitVec 128)}
+    (hgoal : goal = sampleGoal ∨ goal = ~~~sampleGoal)
+    (ha : a ∈ signedRoots) (hb : b ∈ signedRoots) (hne : a ≠ b)
+    (hz : z ∈ basicOps a b) (hs : signedRoots = insert a (insert b rest))
+    (hl : live basicOps goal k (insert z rest)) : rest = signedRoots := by
+  have hsub : rest ⊆ signedRoots := by
+    intro w hw
+    rw [hs]
+    exact Finset.mem_insert_of_mem (Finset.mem_insert_of_mem hw)
+  have hleft := first_keeps_left hgoal ha hb hne hz hsub hl
+  have hright := first_keeps_left hgoal hb ha hne.symm
+    (by simpa only [first_ops_comm] using hz) hsub hl
+  rw [Finset.insert_eq_of_mem hright, Finset.insert_eq_of_mem hleft] at hs
+  exact hs.symm
+
+lemma first_roots_card : signedRoots.card = 7 := by decide +kernel
+
+lemma first_split_live {goal : BitVec 128} {k : Nat}
+    (hgoal : goal = sampleGoal ∨ goal = ~~~sampleGoal)
+    (hl : live basicOps goal (k + 1) signedRoots) :
+    ∃ a ∈ signedRoots, ∃ b ∈ signedRoots, a ≠ b ∧
+      ∃ z ∈ basicOps a b, z ∉ signedRoots ∧ live basicOps goal k (insert z signedRoots) := by
+  rcases first_live hl with hs | ⟨a, ha, b, hb, hne, z, hz, hout, rest, hs, ht⟩
+  · have hc := first_roots_card
+    rw [hs, Finset.card_singleton] at hc
+    omega
+  · have hrest := first_rest_complete hgoal ha hb hne hz hs ht
+    rw [hrest] at ht
+    exact ⟨a, ha, b, hb, hne, z, hz, hout, ht⟩
+
+lemma first_split_build {goal : BitVec 128} {k : Nat}
+    (hgoal : goal = sampleGoal ∨ goal = ~~~sampleGoal)
+    (hb : build basicOps goal (k + 1) signedRoots) :
+    ∃ a ∈ signedRoots, ∃ b ∈ signedRoots, a ≠ b ∧
+      ∃ z ∈ basicOps a b, z ∉ signedRoots ∧ live basicOps goal k (insert z signedRoots) := by
+  obtain ⟨s, hs, hl⟩ := compress hb
+  have he := firstRootsComplete hgoal hs hl
+  rw [he] at hl
+  exact first_split_live hgoal hl
+
+lemma rejection_from_first {goal : BitVec 128} {k : Nat}
+    (hgoal : goal = sampleGoal ∨ goal = ~~~sampleGoal)
+    (reject : ∀ a ∈ signedRoots, ∀ b ∈ signedRoots, a ≠ b →
+      ∀ z ∈ basicOps a b, z ∉ signedRoots → ¬ live basicOps goal k (insert z signedRoots)) :
+    ¬ build basicOps goal (k + 1) signedRoots := by
+  intro hb
+  obtain ⟨a, ha, b, hb, hne, z, hz, hout, hl⟩ := first_split_build hgoal hb
+  exact reject a ha b hb hne z hz hout hl
+
+lemma rejection_from_indexed {goal : BitVec 128} {k : Nat}
+    (hgoal : goal = sampleGoal ∨ goal = ~~~sampleGoal)
+    (reject : ∀ i j : Fin 7, j < i → ∀ o : Fin 4,
+      ¬ live basicOps goal k (insert (firstOp i j o) signedRoots)) :
+    ¬ build basicOps goal (k + 1) signedRoots := by
+  apply rejection_from_first hgoal
+  intro a ha b hb hne z hz _
+  obtain ⟨i, rfl⟩ := first_mem ha
+  obtain ⟨j, rfl⟩ := first_mem hb
+  have hij : i ≠ j := fun h => hne (congrArg firstRoot h)
+  rcases lt_or_gt_of_ne hij with hij | hji
+  · have hz' : z ∈ basicOps (firstRoot j) (firstRoot i) := by
+      rwa [first_ops_comm]
+    obtain ⟨o, rfl⟩ := first_op_mem hz'
+    exact reject j i hij o
+  · obtain ⟨o, rfl⟩ := first_op_mem hz
+    exact reject i j hji o
+
+lemma first_ops_zero {width : Nat} {a b z : BitVec width} (i : Fin width)
+    (hz : z ∈ basicOps a b) (ha : a[i.val] = false) (hb : b[i.val] = false) :
+    z[i.val] = false := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;>
+    simp only [BitVec.getElem_and, BitVec.getElem_or, BitVec.getElem_not, ha, hb,
+      Bool.false_and, Bool.false_or]
+
+lemma first_build_zero {width : Nat} {goal : BitVec width} (i : Fin width)
+    (k : Nat) (s : Finset (BitVec width)) (hs : ∀ w ∈ s, w[i.val] = false)
+    (hb : build basicOps goal k s) : goal[i.val] = false := by
   induction k generalizing s with
-  | zero =>
-    change s = {goal} at h
-    subst s
-    refine ⟨fun _ => true, ?_⟩
-    intro p q hpq
-    simpa only [signedValue, ite_true] using hpq goal (Finset.mem_singleton_self _)
+  | zero => exact hs goal hb
   | succ k ih =>
-    obtain ⟨a, ha, b, hb, hab, z, hz, hzout, rest, hs, han, hbn, hrest, htail⟩ :=
-      live_tight_step h (by omega)
-    have hzrest : z ∉ rest := fun hzmem => hzout (by rw [hs]; simp [hzmem])
-    obtain ⟨direction, hdir⟩ := ih htail (by rw [Finset.card_insert_of_notMem hzrest, hrest])
-    obtain ⟨t, ht⟩ := basicOps_bits hz
-    obtain ⟨da, db, hd⟩ := binary_orientation t (direction z)
-    let newDirection : BitVec width → Bool :=
-      fun w => if w = a then da else if w = b then db else direction w
-    refine ⟨newDirection, ?_⟩
-    intro p q hpq hp
-    apply hdir p q _ hp
-    intro w hw
-    rcases Finset.mem_insert.mp hw with rfl | hw
-    · have hapq := hpq a ha
-      have hbpq := hpq b hb
-      rw [show newDirection a = da by simp [newDirection]] at hapq
-      rw [show newDirection b = db by simp [newDirection, Ne.symm hab]] at hbpq
-      rw [ht p, ht q]
-      exact hd _ _ _ _ hapq hbpq
-    · have hwa : w ≠ a := by intro he; subst w; exact han hw
-      have hwb : w ≠ b := by intro he; subst w; exact hbn hw
-      have hwpq := hpq w (by rw [hs]; simp [hw])
-      simpa only [newDirection, hwa, hwb, ite_false] using hwpq
+    rcases hb with skip | ⟨a, ha, b, hb, _, z, hz, tail⟩
+    · exact ih s hs skip
+    · apply ih (insert z s) _ tail
+      intro w hw
+      rcases Finset.mem_insert.mp hw with rfl | hw
+      · exact first_ops_zero i hz (hs a ha) (hs b hb)
+      · exact hs w hw
 
-lemma unate_no_opposite_edges {width : ℕ} {goal w : BitVec width}
-    {s : Finset (BitVec width)} (hs : unateSeparator goal s) (_hw : w ∈ s)
-    (p q r t : Fin width)
-    (hp : goal.getLsbD p.val = true) (hq : goal.getLsbD q.val = false)
-    (hr : goal.getLsbD r.val = true) (ht : goal.getLsbD t.val = false)
-    (hwp : w.getLsbD p.val = true) (_hwq : w.getLsbD q.val = false)
-    (_hwr : w.getLsbD r.val = false) (hwt : w.getLsbD t.val = true)
-    (hpq : ∀ u ∈ s, u ≠ w → u.getLsbD p.val = u.getLsbD q.val)
-    (hrt : ∀ u ∈ s, u ≠ w → u.getLsbD r.val = u.getLsbD t.val) : False := by
-  obtain ⟨direction, hdir⟩ := hs
-  cases hd : direction w with
-  | false =>
-    have hc := hdir p q (by
-      intro u hu
-      by_cases he : u = w
-      · subst u
-        simp [signedValue, hd, hwp]
-      · rw [hpq u hu he]
-        exact id) hp
-    rw [hq] at hc
-    cases hc
-  | true =>
-    have hc := hdir r t (by
-      intro u hu
-      by_cases he : u = w
-      · subst u
-        simp [signedValue, hd, hwt]
-      · rw [hrt u hu he]
-        exact id) hr
-    rw [ht] at hc
-    cases hc
+lemma first_roots_zero : ∀ w ∈ signedRoots, w[127] = false := by
+  intro w hw
+  obtain ⟨i, rfl⟩ := first_mem hw
+  have all : ∀ j : Fin 7, (firstRoot j)[127] = false := by decide +kernel
+  exact all i
 
-lemma live_tight_no_opposite_edges {width : ℕ} {goal w : BitVec width} {k : ℕ}
-    {s : Finset (BitVec width)} (h : live basicOps goal k s) (hcard : s.card = k + 1)
-    (hw : w ∈ s) (p q r t : Fin width)
-    (hp : goal.getLsbD p.val = true) (hq : goal.getLsbD q.val = false)
-    (hr : goal.getLsbD r.val = true) (ht : goal.getLsbD t.val = false)
-    (hwp : w.getLsbD p.val = true) (hwq : w.getLsbD q.val = false)
-    (hwr : w.getLsbD r.val = false) (hwt : w.getLsbD t.val = true)
-    (hpq : ∀ u ∈ s, u ≠ w → u.getLsbD p.val = u.getLsbD q.val)
-    (hrt : ∀ u ∈ s, u ≠ w → u.getLsbD r.val = u.getLsbD t.val) : False :=
-  unate_no_opposite_edges (live_tight_unate h hcard) hw p q r t hp hq hr ht
-    hwp hwq hwr hwt hpq hrt
+lemma reject_positive_goal (k : Nat) : ¬ build basicOps sampleGoal k signedRoots := by
+  intro hb
+  have hz := first_build_zero (goal := sampleGoal) ⟨127, by decide⟩ k signedRoots first_roots_zero hb
+  have ho : sampleGoal[127] = true := by decide +kernel
+  exact Bool.noConfusion (ho.symm.trans hz)
 
+lemma rejection_from_84
+    (reject : ∀ i j : Fin 7, j < i → ∀ o : Fin 4,
+      ¬ live basicOps (~~~sampleGoal) 11 (insert (firstOp i j o) signedRoots)) :
+    ∀ z, z = sampleGoal ∨ z = ~~~sampleGoal → ¬ build basicOps z 12 signedRoots := by
+  intro z hz
+  rcases hz with rfl | rfl
+  · exact reject_positive_goal 12
+  · exact rejection_from_indexed (Or.inr rfl) reject
 
-def bitVecOfFn {n : ℕ} (f : Fin n → Bool) : BitVec n :=
-  (BitVec.ofBoolListLE (List.ofFn f)).cast (by simp)
+end PEqualNP.Outside.L_meta_10760
 
-lemma bitVecOfFn_bit {n : ℕ} (f : Fin n → Bool) (i : Fin n) :
-    (bitVecOfFn f).getLsbD i.val = f i := by
-  simp only [bitVecOfFn, BitVec.getLsbD_cast, BitVec.getLsbD_ofBoolListLE]
-  rw [List.getD_eq_getElem?_getD]
-  simp only [List.getElem?_ofFn, i.isLt, dite_eq_left, Option.getD_some]
+namespace PEqualNP.Outside.L_meta_10760
 
-def orientationColumn (m i : ℕ) : BitVec (2 ^ m) :=
-  bitVecOfFn (fun j : Fin (2 ^ m) => j.val.testBit i)
+open PEqualNP.CircuitLowerBounds
 
-def orientationInputs {width : ℕ} (frontier : List (BitVec width)) :
-    List (BitVec width × BitVec (2 ^ frontier.length)) :=
-  List.ofFn fun i : Fin frontier.length => (frontier.get i, orientationColumn frontier.length i.val)
+def canonical64 (w : BitVec 64) : BitVec 64 :=
+  if w.toNat ≤ (~~~w).toNat then w else ~~~w
 
-lemma orientationInputs_words {width : ℕ} (frontier : List (BitVec width)) :
-    (orientationInputs frontier).map Prod.fst = frontier := by
-  simp only [orientationInputs, List.map_ofFn]
-  change List.ofFn (fun i : Fin frontier.length => frontier.get i) = frontier
-  exact List.ofFn_get frontier
+def sampleInputs64 : List (BitVec 64) := [0x844a844a8952aaa, 0x1089308931264ccc, 0x2111c111c23870f0, 0x421e021e03c07f00, 0x83e003e003ff8000, 0xfc0003fffc000000, 0xfffffc0000000000]
 
-lemma orientationInputs_complete {width : ℕ} (frontier : List (BitVec width))
-    (direction : BitVec width → Bool) :
-    ∃ j : Fin (2 ^ frontier.length), ∀ wc ∈ orientationInputs frontier,
-      wc.2.getLsbD j.val = direction wc.1 := by
-  let dirs := bitVecOfFn (fun i : Fin frontier.length => direction (frontier.get i))
-  refine ⟨⟨dirs.toNat, dirs.isLt⟩, ?_⟩
-  intro wc hwc
-  obtain ⟨i, rfl⟩ := List.mem_ofFn.mp hwc
-  rw [show (orientationColumn frontier.length i.val).getLsbD dirs.toNat =
-      dirs.toNat.testBit i.val from bitVecOfFn_bit _ ⟨dirs.toNat, dirs.isLt⟩]
-  exact bitVecOfFn_bit _ i
+def sampleGoal64 : BitVec 64 := 0xffdfebdfbbbf6ca0
 
-def orientationConstraint {width phases : ℕ}
-    (wc : BitVec width × BitVec phases) (p q : ℕ) : BitVec phases :=
-  if wc.1.getLsbD p = wc.1.getLsbD q then BitVec.allOnes phases
-  else if wc.1.getLsbD q then wc.2 else ~~~wc.2
+def signedRoots64 : Finset (BitVec 64) := (sampleInputs64.map canonical64).toFinset
 
-def dominationMask {width phases : ℕ} (inputs : List (BitVec width × BitVec phases))
-    (p q : ℕ) : BitVec phases :=
-  inputs.foldr (fun wc mask => orientationConstraint wc p q &&& mask) (BitVec.allOnes phases)
-
-def clearOrientationPair {width phases : ℕ} (goal : BitVec width)
-    (inputs : List (BitVec width × BitVec phases)) (p q : ℕ)
-    (valid : BitVec phases) : BitVec phases :=
-  if valid = 0 then 0
-  else if goal.getLsbD p && !(goal.getLsbD q) then valid &&& ~~~dominationMask inputs p q
-    else valid
-
-def orientationMaskInputs {width phases : ℕ} (goal : BitVec width)
-    (inputs : List (BitVec width × BitVec phases)) : BitVec phases :=
-  let rows := List.range width
-  let positiveRows := rows.filter (fun p => goal.getLsbD p)
-  let negativeRows := rows.filter (fun q => !(goal.getLsbD q))
-  positiveRows.foldl (fun valid p => negativeRows.foldl (fun valid q =>
-    clearOrientationPair goal inputs p q valid) valid) (BitVec.allOnes phases)
-
-def orientationMask {width : ℕ} (goal : BitVec width)
-    (frontier : List (BitVec width)) : BitVec (2 ^ frontier.length) :=
-  orientationMaskInputs goal (orientationInputs frontier)
-
-def orientationCheck {width : ℕ} (goal : BitVec width)
-    (frontier : List (BitVec width)) : Bool :=
-  decide (orientationMask goal frontier.eraseDups ≠ 0)
-
-lemma orientationConstraint_sound {width phases : ℕ} (wc : BitVec width × BitVec phases)
-    (p q : ℕ) (j : Fin phases) (d : Bool) (hc : wc.2.getLsbD j.val = d)
-    (h : (orientationConstraint wc p q).getLsbD j.val = true) :
-    signedValue d (wc.1.getLsbD p) = true → signedValue d (wc.1.getLsbD q) = true := by
-  cases hp : wc.1.getLsbD p <;> cases hq : wc.1.getLsbD q <;> cases d <;>
-    simp_all [orientationConstraint, signedValue, j.isLt]
-
-lemma dominationMask_sound {width phases : ℕ} (inputs : List (BitVec width × BitVec phases))
-    (p q : ℕ) (j : Fin phases) (direction : BitVec width → Bool)
-    (hc : ∀ wc ∈ inputs, wc.2.getLsbD j.val = direction wc.1)
-    (h : (dominationMask inputs p q).getLsbD j.val = true) :
-    ∀ w ∈ inputs.map Prod.fst,
-      signedValue (direction w) (w.getLsbD p) = true →
-      signedValue (direction w) (w.getLsbD q) = true := by
-  induction inputs with
-  | nil => simp
-  | cons wc ws ih =>
-    have hh : (orientationConstraint wc p q).getLsbD j.val = true ∧
-        (dominationMask ws p q).getLsbD j.val = true := by
-      simpa only [dominationMask, List.foldr_cons, BitVec.getLsbD_and, Bool.and_eq_true] using h
-    intro w hw
-    rcases List.mem_cons.mp hw with rfl | hw
-    · exact orientationConstraint_sound wc p q j _ (hc wc List.mem_cons_self) hh.1
-    · exact ih (fun x hx => hc x (List.mem_cons_of_mem _ hx)) hh.2 w hw
-
-lemma clearOrientationPair_preserves {width phases : ℕ} (goal : BitVec width)
-    (inputs : List (BitVec width × BitVec phases)) (direction : BitVec width → Bool)
-    (j : Fin phases) (hc : ∀ wc ∈ inputs, wc.2.getLsbD j.val = direction wc.1)
-    (hmono : ∀ p q : Fin width,
-      (∀ w ∈ inputs.map Prod.fst, signedValue (direction w) (w.getLsbD p.val) = true →
-        signedValue (direction w) (w.getLsbD q.val) = true) →
-      goal.getLsbD p.val = true → goal.getLsbD q.val = true)
-    (p q : ℕ) (hp : p < width) (hq : q < width)
-    (valid : BitVec phases) (hv : valid.getLsbD j.val = true) :
-    (clearOrientationPair goal inputs p q valid).getLsbD j.val = true := by
-  have hz : valid ≠ 0 := by
-    intro hz
-    rw [hz] at hv
-    simp at hv
-  unfold clearOrientationPair
-  rw [ite_eq_right hz]
+lemma sample_represented64 : ∀ u ∈ sampleInputs64, holds signedRoots64 u := by
+  intro u hu
+  refine Or.inr (Or.inr ⟨canonical64 u,
+    List.mem_toFinset.mpr (List.mem_map.mpr ⟨u, hu, rfl⟩), ?_⟩)
+  unfold canonical64
   split
-  next hg =>
-    have hgood : goal.getLsbD p = true ∧ goal.getLsbD q = false := by
-      simpa using hg
-    have hnot : (dominationMask inputs p q).getLsbD j.val = false := by
-      cases hd : (dominationMask inputs p q).getLsbD j.val with
-      | false => rfl
-      | true =>
-        have hh := hmono ⟨p, hp⟩ ⟨q, hq⟩ (dominationMask_sound inputs p q j direction hc hd) hgood.1
-        rw [hgood.2] at hh
-        cases hh
-    simp only [BitVec.getLsbD_and, BitVec.getLsbD_not, j.isLt, decide_true,
-      Bool.true_and, hv, hnot, Bool.not_false]
-  next hg => exact hv
+  · exact Or.inl rfl
+  · exact Or.inr BitVec.not_not.symm
 
-lemma foldl_preserves_phase {phases : ℕ} {β : Type} (xs : List β)
-    (f : BitVec phases → β → BitVec phases) (j : Fin phases)
-    (hf : ∀ a ∈ xs, ∀ v : BitVec phases, v.getLsbD j.val = true →
-      (f v a).getLsbD j.val = true) (v : BitVec phases) (hv : v.getLsbD j.val = true) :
-    (xs.foldl f v).getLsbD j.val = true := by
-  induction xs generalizing v with
-  | nil => exact hv
-  | cons a as ih =>
-    apply ih (fun a ha => hf a (List.mem_cons_of_mem _ ha))
-    exact hf a List.mem_cons_self v hv
+set_option maxHeartbeats 2000000 in
+lemma sample_rows64 : ∀ j : Fin 64,
+    edgeFunction (fun i => (sampleInputs64.getD i.val 0)[j.val]) = sampleGoal64[j.val] := by
+  decide +kernel
 
-lemma orientationMaskInputs_preserves {width phases : ℕ} (goal : BitVec width)
-    (inputs : List (BitVec width × BitVec phases)) (direction : BitVec width → Bool)
-    (j : Fin phases) (hc : ∀ wc ∈ inputs, wc.2.getLsbD j.val = direction wc.1)
-    (hmono : ∀ p q : Fin width,
-      (∀ w ∈ inputs.map Prod.fst, signedValue (direction w) (w.getLsbD p.val) = true →
-        signedValue (direction w) (w.getLsbD q.val) = true) →
-      goal.getLsbD p.val = true → goal.getLsbD q.val = true) :
-    (orientationMaskInputs goal inputs).getLsbD j.val = true := by
-  apply foldl_preserves_phase
-  · intro p hp valid hv
-    apply foldl_preserves_phase
-    · intro q hq valid hv
-      exact clearOrientationPair_preserves goal inputs direction j hc hmono p q
-        (List.mem_range.mp (List.mem_filter.mp hp).1)
-        (List.mem_range.mp (List.mem_filter.mp hq).1) valid hv
-    · exact hv
-  · simp [j.isLt]
+set_option maxHeartbeats 2000000 in
+lemma gap_of_rejection64
+    (reject : ∀ z, z = sampleGoal64 ∨ z = ~~~sampleGoal64 →
+      ¬ build basicOps z 12 signedRoots64) :
+∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (o : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.not) ∧ g.inputs.length ≤ 2) → (∀ i j : Fin gates.length, (gates.get i).op = PEqualNP.CircuitLowerBounds.GateOp.not → (gates.get j).op = PEqualNP.CircuitLowerBounds.GateOp.not → i = j) → (∀ x : Fin 7 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, o⟩ (List.ofFn x) = decide (∃ i < ([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).length / 2, (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i) 0) false = true ∧ (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i + 1) 0) false = true)) → ∃ (gates' : List PEqualNP.CircuitLowerBounds.Gate) (o' : ℕ), (∀ g ∈ gates', (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) ∧ gates'.length ≤ gates.length ∧ ∀ x : Fin 7 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates', o'⟩ (List.ofFn x) = decide (∃ i < ([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).length / 2, (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i) 0) false = true ∧ (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i + 1) 0) false = true) := by
+  intro gates o hg _ hf
+  obtain ⟨ds, out, ok, len, ev⟩ := replace_from_samples
+    (replacementSize := 14) (goal := sampleGoal64)
+    (by decide +kernel) (by decide +kernel) edgeFunction sampleInputs64 signedRoots64
+    sample_represented64 rfl sample_rows64 reject
+    ⟨monotoneWitness, 20, witness_allowed, witness_size, witness_eval⟩
+    gates o hg (fun x => (hf x).trans (edgeFunction_posted x))
+  exact ⟨ds, out, ok, len, fun x => (ev x).trans (edgeFunction_posted x).symm⟩
 
-lemma orientationMask_of_unate {width : ℕ} (goal : BitVec width)
-    (frontier : List (BitVec width)) (h : unateSeparator goal frontier.toFinset) :
-    orientationMask goal frontier ≠ 0 := by
-  obtain ⟨direction, hdir⟩ := h
-  obtain ⟨j, hj⟩ := orientationInputs_complete frontier direction
-  have hmono : ∀ p q : Fin width,
-      (∀ w ∈ (orientationInputs frontier).map Prod.fst,
-        signedValue (direction w) (w.getLsbD p.val) = true →
-        signedValue (direction w) (w.getLsbD q.val) = true) →
-      goal.getLsbD p.val = true → goal.getLsbD q.val = true := by
-    intro p q hpq
-    apply hdir p q
+end PEqualNP.Outside.L_meta_10760
+
+
+namespace PEqualNP.Outside.L_meta_10760.S64
+
+def firstRoot (i : Fin 7) : BitVec 64 :=
+  min (sampleInputs64.getD i.val 0) (~~~(sampleInputs64.getD i.val 0))
+
+def firstOp (i j : Fin 7) (o : Fin 4) : BitVec 64 :=
+  (ops (firstRoot i) (firstRoot j)).getD o.val 0
+
+def collisionData : List Nat := [0, 0, 0, 0, 261, 391, 391, 261, 976, 261, 261, 976, 261, 781, 781, 261, 976, 261, 261, 976, 1691, 261, 261, 1691, 2731, 261, 261, 2731, 522, 587, 587, 522, 0, 0, 0, 0, 522, 782, 782, 522, 977, 522, 522, 977, 977, 522, 522, 977, 1692, 522, 522, 1692, 3447, 522, 522, 3447, 979, 69, 69, 979, 69, 199, 199, 69, 0, 0, 0, 0, 69, 589, 589, 69, 979, 69, 69, 979, 2408, 69, 69, 2408, 2734, 69, 69, 2734, 138, 203, 203, 138, 1697, 138, 138, 1697, 138, 398, 398, 138, 0, 0, 0, 0, 2409, 138, 138, 2409, 1697, 138, 138, 1697, 2737, 138, 138, 2737, 145, 80, 80, 145, 80, 145, 145, 80, 80, 275, 275, 80, 80, 599, 599, 80, 0, 0, 0, 0, 1960, 80, 80, 1960, 2871, 80, 80, 2871, 156, 91, 91, 156, 91, 156, 156, 91, 91, 416, 416, 91, 91, 545, 545, 91, 1449, 91, 91, 1449, 0, 0, 0, 0, 2746, 91, 91, 2746, 302, 107, 107, 302, 107, 237, 237, 107, 107, 302, 302, 107, 107, 561, 561, 107, 1465, 107, 107, 1465, 1722, 107, 107, 1722, 0, 0, 0, 0]
+
+def collisionPos (i j : Fin 7) (o : Fin 4) : Fin 64 :=
+  ⟨(collisionData.getD ((i.val * 7 + j.val) * 4 + o.val) 0) % 64, Nat.mod_lt _ (by decide)⟩
+
+def collisionNeg (i j : Fin 7) (o : Fin 4) : Fin 64 :=
+  ⟨(collisionData.getD ((i.val * 7 + j.val) * 4 + o.val) 0 / 64) % 64, Nat.mod_lt _ (by decide)⟩
+
+set_option maxHeartbeats 8000000 in
+lemma first_collision : ∀ i j : Fin 7, ∀ o : Fin 4, i ≠ j →
+    sampleGoal64[(collisionPos i j o).val] ≠ sampleGoal64[(collisionNeg i j o).val] ∧
+    (firstOp i j o)[(collisionPos i j o).val] = (firstOp i j o)[(collisionNeg i j o).val] ∧
+    ∀ k : Fin 7, k ≠ i →
+      (firstRoot k)[(collisionPos i j o).val] = (firstRoot k)[(collisionNeg i j o).val] := by
+  decide +kernel
+
+lemma first_roots_eq : signedRoots64 = Finset.univ.image firstRoot := by
+  decide +kernel
+
+lemma first_mem {u : BitVec 64} (hu : u ∈ signedRoots64) : ∃ i : Fin 7, u = firstRoot i := by
+  rw [first_roots_eq] at hu
+  obtain ⟨i, _, hi⟩ := Finset.mem_image.mp hu
+  exact ⟨i, hi.symm⟩
+
+lemma first_op_mem {i j : Fin 7} {z : BitVec 64}
+    (hz : z ∈ basicOps (firstRoot i) (firstRoot j)) : ∃ o : Fin 4, z = firstOp i j o := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl
+  · exact ⟨0, rfl⟩
+  · exact ⟨1, rfl⟩
+  · exact ⟨2, rfl⟩
+  · exact ⟨3, rfl⟩
+
+lemma first_bit_congr {width : Nat} {a b z : BitVec width} (i j : Fin width)
+    (hz : z ∈ basicOps a b) (ha : a[i.val] = a[j.val]) (hb : b[i.val] = b[j.val]) :
+    z[i.val] = z[j.val] := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;>
+    simp only [BitVec.getElem_and, BitVec.getElem_or, BitVec.getElem_not, ha, hb]
+
+lemma first_live_separates {width : Nat} {goal : BitVec width} {k : Nat}
+    {s : Finset (BitVec width)} (i j : Fin width) (hd : goal[i.val] ≠ goal[j.val])
+    (hl : live basicOps goal k s) : ∃ w ∈ s, w[i.val] ≠ w[j.val] := by
+  apply live_separates (fun w => w[i.val] ≠ w[j.val]) hd _ hl
+  intro a b z hz hne
+  by_contra hn
+  simp only [not_or, not_not] at hn
+  exact hne (first_bit_congr i j hz hn.1 hn.2)
+
+lemma first_drop_collision {a b z : BitVec 64}
+    (ha : a ∈ signedRoots64) (hb : b ∈ signedRoots64) (hne : a ≠ b)
+    (hz : z ∈ basicOps a b) :
+    ∃ i j : Fin 64, sampleGoal64[i.val] ≠ sampleGoal64[j.val] ∧
+      ∀ w ∈ insert z (signedRoots64.erase a), w[i.val] = w[j.val] := by
+  obtain ⟨i, rfl⟩ := first_mem ha
+  obtain ⟨j, rfl⟩ := first_mem hb
+  obtain ⟨o, rfl⟩ := first_op_mem hz
+  obtain ⟨hg, ho, hw⟩ := first_collision i j o (fun h => hne (congrArg firstRoot h))
+  refine ⟨collisionPos i j o, collisionNeg i j o, hg, ?_⟩
+  intro w hmem
+  rcases Finset.mem_insert.mp hmem with rfl | hmem
+  · exact ho
+  · obtain ⟨hneq, hroot⟩ := Finset.mem_erase.mp hmem
+    obtain ⟨k, rfl⟩ := first_mem hroot
+    exact hw k (fun h => hneq (congrArg firstRoot h))
+
+def essentialPos (i : Fin 7) : Fin 64 :=
+  ⟨(([5, 10, 5, 10, 16, 27, 43] : List Nat).getD i.val 0) % 64, Nat.mod_lt _ (by decide)⟩
+
+def essentialNeg (i : Fin 7) : Fin 64 :=
+  ⟨(([4, 8, 1, 2, 1, 1, 1] : List Nat).getD i.val 0) % 64, Nat.mod_lt _ (by decide)⟩
+
+lemma first_essential : ∀ i : Fin 7,
+    sampleGoal64[(essentialPos i).val] ≠ sampleGoal64[(essentialNeg i).val] ∧
+    ∀ j : Fin 7, j ≠ i →
+      (firstRoot j)[(essentialPos i).val] = (firstRoot j)[(essentialNeg i).val] := by
+  decide +kernel
+
+lemma first_goal_diff {goal : BitVec 64} (hgoal : goal = sampleGoal64 ∨ goal = ~~~sampleGoal64)
+    {i j : Fin 64} (hd : sampleGoal64[i.val] ≠ sampleGoal64[j.val]) : goal[i.val] ≠ goal[j.val] := by
+  rcases hgoal with rfl | rfl
+  · exact hd
+  · intro h
+    apply hd
+    have hh := congrArg Bool.not h
+    simpa only [BitVec.getElem_not, Bool.not_not] using hh
+
+lemma firstRootsComplete {goal : BitVec 64} {k : Nat} {s : Finset (BitVec 64)}
+    (hgoal : goal = sampleGoal64 ∨ goal = ~~~sampleGoal64)
+    (hsub : s ⊆ signedRoots64) (hl : live basicOps goal k s) : s = signedRoots64 := by
+  apply Finset.Subset.antisymm hsub
+  intro a ha
+  obtain ⟨i, rfl⟩ := first_mem ha
+  by_contra hn
+  obtain ⟨hd, hw⟩ := first_essential i
+  obtain ⟨w, hws, hne⟩ := first_live_separates (essentialPos i) (essentialNeg i)
+    (first_goal_diff hgoal hd) hl
+  obtain ⟨j, rfl⟩ := first_mem (hsub hws)
+  exact hne (hw j (fun h => hn (by simpa [h] using hws)))
+
+lemma first_keeps_left {goal a b z : BitVec 64} {k : Nat} {rest : Finset (BitVec 64)}
+    (hgoal : goal = sampleGoal64 ∨ goal = ~~~sampleGoal64)
+    (ha : a ∈ signedRoots64) (hb : b ∈ signedRoots64) (hne : a ≠ b)
+    (hz : z ∈ basicOps a b) (hsub : rest ⊆ signedRoots64)
+    (hl : live basicOps goal k (insert z rest)) : a ∈ rest := by
+  by_contra haout
+  obtain ⟨i, j, hd, hc⟩ := first_drop_collision ha hb hne hz
+  obtain ⟨w, hw, hbad⟩ := first_live_separates i j (first_goal_diff hgoal hd) hl
+  apply hbad
+  apply hc
+  rcases Finset.mem_insert.mp hw with rfl | hw
+  · exact Finset.mem_insert_self _ _
+  · exact Finset.mem_insert_of_mem (Finset.mem_erase.mpr ⟨fun h => haout (h ▸ hw), hsub hw⟩)
+
+lemma first_ops_comm (a b : BitVec 64) : basicOps a b = basicOps b a := by
+  ext z
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false,
+    BitVec.and_comm, BitVec.or_comm]
+  tauto
+
+lemma first_rest_complete {goal a b z : BitVec 64} {k : Nat} {rest : Finset (BitVec 64)}
+    (hgoal : goal = sampleGoal64 ∨ goal = ~~~sampleGoal64)
+    (ha : a ∈ signedRoots64) (hb : b ∈ signedRoots64) (hne : a ≠ b)
+    (hz : z ∈ basicOps a b) (hs : signedRoots64 = insert a (insert b rest))
+    (hl : live basicOps goal k (insert z rest)) : rest = signedRoots64 := by
+  have hsub : rest ⊆ signedRoots64 := by
     intro w hw
-    apply hpq w
-    rw [orientationInputs_words]
-    exact List.mem_toFinset.mp hw
-  have hh := orientationMaskInputs_preserves goal (orientationInputs frontier) direction j hj hmono
-  intro hz
-  change (orientationMask goal frontier).getLsbD j.val = true at hh
-  rw [hz] at hh
-  simp at hh
+    rw [hs]
+    exact Finset.mem_insert_of_mem (Finset.mem_insert_of_mem hw)
+  have hleft := first_keeps_left hgoal ha hb hne hz hsub hl
+  have hright := first_keeps_left hgoal hb ha hne.symm
+    (by simpa only [first_ops_comm] using hz) hsub hl
+  rw [Finset.insert_eq_of_mem hright, Finset.insert_eq_of_mem hleft] at hs
+  exact hs.symm
 
-lemma orientationCheck_of_unate {width : ℕ} (goal : BitVec width)
-    (frontier : List (BitVec width)) (h : unateSeparator goal frontier.toFinset) :
-    orientationCheck goal frontier = true := by
-  apply decide_eq_true
-  apply orientationMask_of_unate
-  have he : frontier.eraseDups.toFinset = frontier.toFinset := by
-    apply Finset.ext
-    intro w
-    simp only [List.mem_toFinset, List.mem_eraseDups]
-  rw [he]
-  exact h
+lemma first_roots_card : signedRoots64.card = 7 := by decide +kernel
 
-lemma not_live_of_orientationCheck {width k : ℕ} (goal : BitVec width)
-    (frontier : List (BitVec width)) (hcard : frontier.toFinset.card = k + 1)
-    (hcheck : orientationCheck goal frontier = false) :
-    ¬ live basicOps goal k frontier.toFinset := by
+lemma first_split_live {goal : BitVec 64} {k : Nat}
+    (hgoal : goal = sampleGoal64 ∨ goal = ~~~sampleGoal64)
+    (hl : live basicOps goal (k + 1) signedRoots64) :
+    ∃ a ∈ signedRoots64, ∃ b ∈ signedRoots64, a ≠ b ∧
+      ∃ z ∈ basicOps a b, z ∉ signedRoots64 ∧ live basicOps goal k (insert z signedRoots64) := by
+  rcases first_live hl with hs | ⟨a, ha, b, hb, hne, z, hz, hout, rest, hs, ht⟩
+  · have hc := first_roots_card
+    rw [hs, Finset.card_singleton] at hc
+    omega
+  · have hrest := first_rest_complete hgoal ha hb hne hz hs ht
+    rw [hrest] at ht
+    exact ⟨a, ha, b, hb, hne, z, hz, hout, ht⟩
+
+lemma first_split_build {goal : BitVec 64} {k : Nat}
+    (hgoal : goal = sampleGoal64 ∨ goal = ~~~sampleGoal64)
+    (hb : build basicOps goal (k + 1) signedRoots64) :
+    ∃ a ∈ signedRoots64, ∃ b ∈ signedRoots64, a ≠ b ∧
+      ∃ z ∈ basicOps a b, z ∉ signedRoots64 ∧ live basicOps goal k (insert z signedRoots64) := by
+  obtain ⟨s, hs, hl⟩ := compress hb
+  have he := firstRootsComplete hgoal hs hl
+  rw [he] at hl
+  exact first_split_live hgoal hl
+
+lemma rejection_from_first {goal : BitVec 64} {k : Nat}
+    (hgoal : goal = sampleGoal64 ∨ goal = ~~~sampleGoal64)
+    (reject : ∀ a ∈ signedRoots64, ∀ b ∈ signedRoots64, a ≠ b →
+      ∀ z ∈ basicOps a b, z ∉ signedRoots64 → ¬ live basicOps goal k (insert z signedRoots64)) :
+    ¬ build basicOps goal (k + 1) signedRoots64 := by
+  intro hb
+  obtain ⟨a, ha, b, hb, hne, z, hz, hout, hl⟩ := first_split_build hgoal hb
+  exact reject a ha b hb hne z hz hout hl
+
+lemma rejection_from_indexed {goal : BitVec 64} {k : Nat}
+    (hgoal : goal = sampleGoal64 ∨ goal = ~~~sampleGoal64)
+    (reject : ∀ i j : Fin 7, j < i → ∀ o : Fin 4,
+      ¬ live basicOps goal k (insert (firstOp i j o) signedRoots64)) :
+    ¬ build basicOps goal (k + 1) signedRoots64 := by
+  apply rejection_from_first hgoal
+  intro a ha b hb hne z hz _
+  obtain ⟨i, rfl⟩ := first_mem ha
+  obtain ⟨j, rfl⟩ := first_mem hb
+  have hij : i ≠ j := fun h => hne (congrArg firstRoot h)
+  rcases lt_or_gt_of_ne hij with hij | hji
+  · have hz' : z ∈ basicOps (firstRoot j) (firstRoot i) := by
+      rwa [first_ops_comm]
+    obtain ⟨o, rfl⟩ := first_op_mem hz'
+    exact reject j i hij o
+  · obtain ⟨o, rfl⟩ := first_op_mem hz
+    exact reject i j hji o
+
+lemma first_ops_zero {width : Nat} {a b z : BitVec width} (i : Fin width)
+    (hz : z ∈ basicOps a b) (ha : a[i.val] = false) (hb : b[i.val] = false) :
+    z[i.val] = false := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;>
+    simp only [BitVec.getElem_and, BitVec.getElem_or, BitVec.getElem_not, ha, hb,
+      Bool.false_and, Bool.false_or]
+
+lemma first_build_zero {width : Nat} {goal : BitVec width} (i : Fin width)
+    (k : Nat) (s : Finset (BitVec width)) (hs : ∀ w ∈ s, w[i.val] = false)
+    (hb : build basicOps goal k s) : goal[i.val] = false := by
+  induction k generalizing s with
+  | zero => exact hs goal hb
+  | succ k ih =>
+    rcases hb with skip | ⟨a, ha, b, hb, _, z, hz, tail⟩
+    · exact ih s hs skip
+    · apply ih (insert z s) _ tail
+      intro w hw
+      rcases Finset.mem_insert.mp hw with rfl | hw
+      · exact first_ops_zero i hz (hs a ha) (hs b hb)
+      · exact hs w hw
+
+lemma first_roots_zero : ∀ w ∈ signedRoots64, w[63] = false := by
+  intro w hw
+  obtain ⟨i, rfl⟩ := first_mem hw
+  have all : ∀ j : Fin 7, (firstRoot j)[63] = false := by decide +kernel
+  exact all i
+
+lemma reject_positive_goal (k : Nat) : ¬ build basicOps sampleGoal64 k signedRoots64 := by
+  intro hb
+  have hz := first_build_zero (goal := sampleGoal64) ⟨63, by decide⟩ k signedRoots64 first_roots_zero hb
+  have ho : sampleGoal64[63] = true := by decide +kernel
+  exact Bool.noConfusion (ho.symm.trans hz)
+
+lemma rejection_from_84_64
+    (reject : ∀ i j : Fin 7, j < i → ∀ o : Fin 4,
+      ¬ live basicOps (~~~sampleGoal64) 11 (insert (firstOp i j o) signedRoots64)) :
+    ∀ z, z = sampleGoal64 ∨ z = ~~~sampleGoal64 → ¬ build basicOps z 12 signedRoots64 := by
+  intro z hz
+  rcases hz with rfl | rfl
+  · exact reject_positive_goal 12
+  · exact rejection_from_indexed (Or.inr rfl) reject
+
+end PEqualNP.Outside.L_meta_10760.S64
+
+namespace PEqualNP.Outside.L_meta_10760
+
+namespace SearchKernel
+
+open PEqualNP.Outside.L_meta_10760
+
+variable {width : Nat}
+
+def singles {α : Type} : List α → List (α × List α)
+  | [] => []
+  | a :: rest => (a, rest) :: (singles rest).map (fun (b, bs) => (b, a :: bs))
+
+def pairs {α : Type} : List α → List (α × α × List α)
+  | [] => []
+  | a :: rest => (singles rest).map (fun (b, bs) => (a, b, bs)) ++
+      (pairs rest).map (fun (b, c, bs) => (b, c, a :: bs))
+
+set_option maxRecDepth 100000 in
+lemma pick_one {α : Type} {a : α} {ws : List α} (h : a ∈ ws) :
+    ∃ rest, (a, rest) ∈ singles ws ∧ ws.Perm (a :: rest) := by
+  induction ws with
+  | nil => simp at h
+  | cons x xs ih =>
+    rcases List.mem_cons.mp h with e | h
+    · subst x; exact ⟨xs, by simp [singles], .refl _⟩
+    · obtain ⟨rest, hm, hp⟩ := ih h
+      refine ⟨x :: rest, List.mem_cons_of_mem _ (List.mem_map.mpr ⟨(a, rest), hm, rfl⟩), ?_⟩
+      exact (hp.cons x).trans (.swap _ _ _)
+
+set_option maxRecDepth 100000 in
+lemma pick_two {α : Type} {a b : α} {ws : List α} (ha : a ∈ ws) (hb : b ∈ ws) (hne : a ≠ b) :
+    ∃ rest, ((a, b, rest) ∈ pairs ws ∨ (b, a, rest) ∈ pairs ws) ∧
+      ws.Perm (a :: b :: rest) := by
+  induction ws with
+  | nil => simp at ha
+  | cons x xs ih =>
+    rcases List.mem_cons.mp ha with h | ha
+    · subst x
+      obtain ⟨r, hm, hp⟩ := pick_one ((List.mem_cons.mp hb).resolve_left (Ne.symm hne))
+      exact ⟨r, .inl (List.mem_append_left _ (List.mem_map.mpr ⟨(b, r), hm, rfl⟩)), hp.cons a⟩
+    · rcases List.mem_cons.mp hb with h | hb
+      · subst x
+        obtain ⟨r, hm, hp⟩ := pick_one (ws := xs) (a := a) (by assumption)
+        exact ⟨r, .inr (List.mem_append_left _ (List.mem_map.mpr ⟨(a, r), hm, rfl⟩)),
+          (hp.cons b).trans (.swap _ _ _)⟩
+      · obtain ⟨r, hm, hp⟩ := ih ha hb
+        refine ⟨x :: r, ?_,
+          (hp.cons x).trans ((List.Perm.swap _ _ _).trans ((List.Perm.swap _ _ _).cons a))⟩
+        rcases hm with hm | hm
+        · exact .inl (List.mem_append_right _ (List.mem_map.mpr ⟨(a, b, r), hm, rfl⟩))
+        · exact .inr (List.mem_append_right _ (List.mem_map.mpr ⟨(b, a, r), hm, rfl⟩))
+
+lemma ops_swap (a b : (BitVec width)) : basicOps a b = basicOps b a := by
+  ext z
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false]
+  rw [BitVec.and_comm a b, BitVec.or_comm a b]
+  tauto
+
+def keepChoices (a b : (BitVec width)) (r : List (BitVec width)) : List (List (BitVec width)) := [r, a :: r, b :: r, a :: b :: r]
+
+set_option maxRecDepth 100000 in
+lemma recover_kept {ws r : List (BitVec width)} {a b : (BitVec width)} {needed : Finset (BitVec width)}
+    (hp : ws.Perm (a :: b :: r)) (hn : ws.Nodup)
+    (hs : ws.toFinset = insert a (insert b needed)) :
+    ∃ kept ∈ keepChoices a b r, kept.Nodup ∧ kept.toFinset = needed := by
+  have habr := hp.nodup_iff.mp hn
+  have hbase : ws.toFinset = insert a (insert b r.toFinset) := by
+    ext v
+    simp [hp.mem_iff]
+  have henne : ∀ v, v ∈ r ↔ v ∈ needed ∧ v ≠ a ∧ v ≠ b := by
+    intro v
+    have he : (v ∈ insert a (insert b r.toFinset)) ↔ v ∈ insert a (insert b needed) := by
+      rw [← hbase, ← hs]
+    simp only [Finset.mem_insert, List.mem_toFinset] at he
+    simp only [List.nodup_cons, List.mem_cons, not_or] at habr
+    grind
+  by_cases ha : a ∈ needed <;> by_cases hb : b ∈ needed
+  · refine ⟨a :: b :: r, by simp [keepChoices], habr, ?_⟩
+    ext v; simp [henne]; grind
+  · refine ⟨a :: r, by simp [keepChoices], ?_, ?_⟩
+    · simp_all [List.nodup_cons]
+    · ext v; simp [henne]; grind
+  · refine ⟨b :: r, by simp [keepChoices], (List.nodup_cons.mp habr).2, ?_⟩
+    ext v; simp [henne]; grind
+  · refine ⟨r, by simp [keepChoices], (List.nodup_cons.mp (List.nodup_cons.mp habr).2).2, ?_⟩
+    ext v; simp [henne]; grind
+
+set_option maxRecDepth 100000 in
+lemma singleton_list {goal : (BitVec width)} {ws : List (BitVec width)} (hn : ws.Nodup) (hs : ws.toFinset = {goal}) : ws = [goal] := by
+  have hc := List.toFinset_card_of_nodup hn
+  rw [hs] at hc
+  cases ws with
+  | nil => simp at hc
+  | cons w ws =>
+    cases ws with
+    | nil => simpa using hs
+    | cons => simp at hc
+
+def rowClass (j : Fin width) (w : BitVec width) : BitVec width :=
+  if w[j.val] then w else ~~~w
+
+def survivors (goal : BitVec width) (j : Fin width) (ws : List (BitVec width)) : BitVec width :=
+  ws.foldr (fun w r => rowClass j w &&& r) goal
+
+def separates (goal : BitVec width) (rows : List (Fin width))
+    (ws : List (BitVec width)) : Bool :=
+  rows.all (fun j => goal[j.val] || (survivors goal j ws == 0))
+
+lemma rowClass_bit (i j : Fin width) (w : BitVec width) :
+    (rowClass j w)[i.val] = true ↔ w[i.val] = w[j.val] := by
+  unfold rowClass
+  split <;> simp_all
+
+lemma survivors_bit (goal : BitVec width) (i j : Fin width) (ws : List (BitVec width)) :
+    (survivors goal j ws)[i.val] = true ↔
+      goal[i.val] = true ∧ ∀ w ∈ ws, w[i.val] = w[j.val] := by
+  induction ws with
+  | nil => simp [survivors]
+  | cons w ws ih =>
+    simp only [survivors, List.foldr_cons, BitVec.getElem_and, Bool.and_eq_true]
+    change (rowClass j w)[i.val] = true ∧ (survivors goal j ws)[i.val] = true ↔ _
+    rw [rowClass_bit, ih]
+    simp only [List.mem_cons, forall_eq_or_imp]
+    tauto
+
+lemma ops_separate (i j : Fin width) (a b z : BitVec width) (hz : z ∈ basicOps a b)
+    (hd : z[i.val] ≠ z[j.val]) : a[i.val] ≠ a[j.val] ∨ b[i.val] ≠ b[j.val] := by
+  by_contra h
+  push Not at h
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;> apply hd <;>
+    simp only [BitVec.getElem_and, BitVec.getElem_or, BitVec.getElem_not, h.1, h.2]
+
+lemma separates_complete {goal g : BitVec width} (hg : g = goal ∨ g = ~~~goal)
+    (rows : List (Fin width))
+    {k : Nat} {ws : List (BitVec width)} (h : live basicOps g k ws.toFinset) :
+    separates goal rows ws = true := by
+  rw [separates, List.all_eq_true]
+  intro j hj
+  cases he : goal[j.val] with
+  | true => simp [he]
+  | false =>
+    simp only [he, Bool.false_or, beq_iff_eq]
+    apply BitVec.eq_of_getElem_eq
+    intro i hi
+    have zi : (0 : BitVec width)[i] = false := by simp
+    rw [zi]
+    cases hs : (survivors goal j ws)[i] with
+    | false => rfl
+    | true =>
+      obtain ⟨hgoal, hagree⟩ := (survivors_bit goal ⟨i,hi⟩ j ws).mp hs
+      have diff : g[i] ≠ g[j.val] := by
+        rcases hg with rfl | rfl <;> simp [hgoal, he]
+      obtain ⟨w, hw, hd⟩ := live_separates (fun w : BitVec width => w[i] ≠ w[j.val])
+        diff (ops_separate ⟨i,hi⟩ j) h
+      exact False.elim (hd (hagree w (List.mem_toFinset.mp hw)))
+
+
+def dispatch (goal : BitVec width) (rows : List (Fin width)) (extra : Nat)
+    (next : Nat → List (BitVec width) → Bool) (a b : BitVec width)
+    (r : List (BitVec width)) : Bool :=
+  (ops a b).any fun z => !(a :: b :: r).contains z &&
+    (keepChoices a b r).any fun kept =>
+    decide (kept.length ≤ extra + r.length) && separates goal rows (z :: kept) &&
+      next (extra + r.length - kept.length) (z :: kept)
+
+def optimized (goal : BitVec width) (rows : List (Fin width)) : Nat → Nat → List (BitVec width) → Bool
+  | 0, _, ws => (ws == [goal] || ws == [~~~goal])
+  | k + 1, extra, ws => (ws == [goal] || ws == [~~~goal]) ||
+    (pairs ws).any (fun (a, b, r) => dispatch goal rows extra (optimized goal rows k) a b r)
+
+lemma dispatch_complete {goal : BitVec width} {rows : List (Fin width)} {k extra : Nat} {a b z : BitVec width}
+    {r kept : List (BitVec width)} (next : Nat → List (BitVec width) → Bool)
+    (hz : z ∈ basicOps a b) (hnew : z ∉ a :: b :: r) (hk : kept ∈ keepChoices a b r)
+    (he : extra + r.length = k) (hn : kept.length ≤ k)
+    (hc : separates goal rows (z :: kept) = true)
+    (ht : next (k - kept.length) (z :: kept) = true) :
+    dispatch goal rows extra next a b r = true := by
+  apply List.any_eq_true.mpr
+  refine ⟨z, List.mem_toFinset.mp hz, ?_⟩
+  rw [Bool.and_eq_true]
+  refine ⟨by simpa using hnew, ?_⟩
+  apply List.any_eq_true.mpr
+  refine ⟨kept, hk, ?_⟩
+  simp only [Bool.and_eq_true, decide_eq_true_eq]
+  exact ⟨⟨by omega, hc⟩, by simpa only [he] using ht⟩
+
+set_option maxRecDepth 100000 in
+lemma optimized_complete {goal g : (BitVec width)} (hg : g = goal ∨ g = ~~~goal) (rows : List (Fin width)) (n : ℕ) (ws : List (BitVec width)) (extra : ℕ) (hn : ws.Nodup)
+    (room : extra + ws.length = n + 1) (h : live basicOps g n ws.toFinset) :
+    optimized goal rows n extra ws = true := by
+  induction n generalizing ws extra with
+  | zero => rcases hg with rfl | rfl <;> simp [optimized, singleton_list hn h]
+  | succ k ih =>
+    rcases first_live h with done | ⟨a, ha, b, hb, hab, z, hz, hout, needed, hs, tail⟩
+    · rcases hg with rfl | rfl <;> simp [optimized, singleton_list hn done]
+    · obtain ⟨r, hm, hp⟩ := pick_two (List.mem_toFinset.mp ha) (List.mem_toFinset.mp hb) hab
+      have go {a b : (BitVec width)} (perm : ws.Perm (a :: b :: r))
+          (hset : ws.toFinset = insert a (insert b needed)) (hop : z ∈ basicOps a b) :
+          dispatch goal rows extra (optimized goal rows k) a b r = true := by
+        obtain ⟨kept, hk, hnk, hfin⟩ := recover_kept perm hn hset
+        have hznew : z ∉ kept := by
+          intro hu
+          apply hout
+          rw [hset]
+          exact Finset.mem_insert_of_mem (Finset.mem_insert_of_mem (hfin ▸ (List.mem_toFinset.mpr hu)))
+        have hnd : (z :: kept).Nodup := List.nodup_cons.mpr ⟨hznew, hnk⟩
+        have hl : live basicOps g k (z :: kept).toFinset := by
+          simpa [hfin] using tail
+        have hc := live_card hl
+        rw [List.toFinset_card_of_nodup hnd, List.length_cons] at hc
+        have len := perm.length_eq
+        simp only [List.length_cons] at len
+        apply dispatch_complete (k := k) (extra := extra) (optimized goal rows k) hop (by
+          intro hz
+          exact hout (List.mem_toFinset.mpr (perm.mem_iff.mpr hz))) hk (by omega) (by omega) (separates_complete hg rows hl)
+        apply ih _ _ hnd _ hl
+        simp; omega
+      simp only [optimized, Bool.or_eq_true, List.any_eq_true]
+      right
+      rcases hm with direct | swap
+      · exact ⟨(a, b, r), direct, go hp hs hz⟩
+      · exact ⟨(b, a, r), swap, go (hp.trans (.swap _ _ _)) (by rw [hs, Finset.insert_comm]) (ops_swap a b ▸ hz)⟩
+
+def falseRows (goal : BitVec width) : List (Fin width) :=
+  (List.finRange width).filter (fun j => !goal[j.val])
+
+def search (goal : BitVec width) (n : ℕ) (inputs : List (BitVec width)) : Bool :=
+  let rows := falseRows goal
+  inputs.sublists.any fun ws =>
+    decide (ws.length ≤ n+1) && separates goal rows ws && optimized goal rows n (n+1-ws.length) ws
+
+set_option maxRecDepth 100000 in
+lemma search_complete {goal g : (BitVec width)} (hg : g = goal ∨ g = ~~~goal) (n : ℕ) (inputs : List (BitVec width))
+    (hn : inputs.Nodup) (h : build basicOps g n inputs.toFinset) : search goal n inputs = true := by
+  classical
+  obtain ⟨s,hs,hl⟩ := compress h
+  let ws := inputs.filter (· ∈ s)
+  have eq : ws.toFinset = s := by
+    ext w
+    simp only [ws, List.mem_toFinset, List.mem_filter, decide_eq_true_eq, and_iff_right_iff_imp]
+    exact fun hw => List.mem_toFinset.mp (hs hw)
+  have hnd : ws.Nodup := hn.filter _
+  have hl' : live basicOps g n ws.toFinset := eq.symm ▸ hl
+  have sz := live_card hl'
+  rw [List.toFinset_card_of_nodup hnd] at sz
+  exact List.any_eq_true.mpr ⟨ws,List.mem_sublists.mpr (List.filter_sublist ..),
+    by simp [sz, separates_complete hg (falseRows goal) hl', optimized_complete hg (falseRows goal) n ws _ hnd (by omega : n+1-ws.length+ws.length=n+1) hl']⟩
+
+lemma no_build {goal g : BitVec width} (hg : g = goal ∨ g = ~~~goal)
+    (n : Nat) (inputs : List (BitVec width)) (hn : inputs.Nodup)
+    (rejected : search goal n inputs = false) :
+    ¬ build basicOps g n inputs.toFinset := by
   intro h
-  have hh := orientationCheck_of_unate goal frontier (live_tight_unate h hcard)
-  rw [hcheck] at hh
-  cases hh
+  have found := search_complete hg n inputs hn h
+  rw [rejected] at found
+  contradiction
+
+end SearchKernel
+
+
+namespace PackedKeyWide
+
+def packWords {w : Nat} : List (BitVec w) → Nat
+  | [] => 1
+  | a :: xs => packWords xs * 2 ^ (w + 1) + a.toNat
+
+lemma packWords_pos {w : Nat} (xs : List (BitVec w)) : 0 < packWords xs := by
+  induction xs with
+  | nil => simp [packWords]
+  | cons a xs ih =>
+    have h := Nat.mul_pos ih (Nat.two_pow_pos (w + 1))
+    simp only [packWords]
+    omega
+
+lemma base_ge_two (w : Nat) : 2 ≤ 2 ^ (w + 1) := by
+  have h := Nat.two_pow_pos w
+  simp only [pow_succ]
+  omega
+
+lemma packWords_cons_gt_one {w : Nat} (a : BitVec w) (xs : List (BitVec w)) :
+    1 < packWords (a :: xs) := by
+  have h := packWords_pos xs
+  have hb := base_ge_two w
+  have hm := Nat.mul_le_mul_right (2 ^ (w + 1)) h
+  simp only [packWords, Nat.one_mul] at *
+  omega
+
+lemma packWords_inj {w : Nat} {xs ys : List (BitVec w)}
+    (h : packWords xs = packWords ys) : xs = ys := by
+  induction xs generalizing ys with
+  | nil =>
+    cases ys with
+    | nil => rfl
+    | cons a ys =>
+      have hc := packWords_cons_gt_one a ys
+      change 1 = packWords (a :: ys) at h
+      omega
+  | cons a xs ih =>
+    cases ys with
+    | nil =>
+      have hc := packWords_cons_gt_one a xs
+      change packWords (a :: xs) = 1 at h
+      omega
+    | cons b ys =>
+      have ha0 := a.isLt
+      have ha : a.toNat < 2 ^ (w + 1) := by rw [pow_succ]; omega
+      have hb0 := b.isLt
+      have hb : b.toNat < 2 ^ (w + 1) := by rw [pow_succ]; omega
+      have hd := congrArg (fun v => v % 2 ^ (w + 1)) h
+      simp only [packWords, Nat.add_mod, Nat.mul_mod_left, Nat.zero_add,
+        Nat.mod_eq_of_lt ha, Nat.mod_eq_of_lt hb] at hd
+      have hab : a = b := BitVec.eq_of_toNat_eq hd
+      subst b
+      have ht : packWords xs * 2 ^ (w + 1) = packWords ys * 2 ^ (w + 1) := by
+        simp only [packWords] at h
+        omega
+      have he : packWords xs = packWords ys := Nat.eq_of_mul_eq_mul_right (Nat.two_pow_pos (w + 1)) ht
+      exact congrArg (a :: ·) (ih he)
+
+def packBudget : Nat → Nat → Nat
+  | 0, p => 2 * p + 1
+  | k + 1, p => 2 * packBudget k p
+
+lemma packBudget_inj {k j p q : Nat} (h : packBudget k p = packBudget j q) : k = j ∧ p = q := by
+  induction k generalizing j with
+  | zero =>
+    cases j with
+    | zero => simp only [packBudget] at h; exact ⟨rfl, by omega⟩
+    | succ j => simp only [packBudget] at h; omega
+  | succ k ih =>
+    cases j with
+    | zero => simp only [packBudget] at h; omega
+    | succ j =>
+      have he : packBudget k p = packBudget j q := by simpa only [packBudget, Nat.mul_right_inj (by decide : 2 ≠ 0)] using h
+      obtain ⟨rfl, rfl⟩ := ih he
+      exact ⟨rfl, rfl⟩
+
+def key {w : Nat} (k : Nat) (xs : List (BitVec w)) : Nat := packBudget k (packWords xs)
+
+lemma key_inj {w : Nat} {k j : Nat} {xs ys : List (BitVec w)}
+    (h : key k xs = key j ys) : k = j ∧ xs = ys := by
+  obtain ⟨hkj, hxy⟩ := packBudget_inj h
+  exact ⟨hkj, packWords_inj hxy⟩
+
+end PackedKeyWide
+
+
+namespace RawLaws
+
+lemma empty_wf : (∅ : Std.TreeSet.Raw Nat compare).WF :=
+  ⟨⟨⟨(∅ : Std.TreeSet Nat compare).inner.inner.wf⟩⟩⟩
+
+lemma insert_wf {t : Std.TreeSet.Raw Nat compare} (h : t.WF) (a : Nat) : (t.insert a).WF :=
+  ⟨⟨⟨h.out.out.out.insertIfNew!⟩⟩⟩
+
+lemma contains_insert {t : Std.TreeSet.Raw Nat compare} (h : t.WF) (k a : Nat) :
+    (t.insert k).contains a = (compare k a == .eq || t.contains a) := by
+  exact Std.DTreeMap.Internal.Impl.contains_insertIfNew! h.out.out.out
+
+end RawLaws
+
+
+namespace MemoPruned
+
+variable {α κ : Type}
+
+def plain (admissible : Nat → α → Bool) (done : α → Bool) (children : Nat → α → List α) : Nat → α → Bool
+  | 0, x => if admissible 0 x then done x else false
+  | k + 1, x => if admissible (k+1) x then done x || (children k x).any (plain admissible done children k) else false
+
+def scan (next : α → κ → Bool × κ) : List α → κ → Bool × κ
+  | [], cache => (false, cache)
+  | x :: xs, cache =>
+    match next x cache with
+    | (true, cache') => (true, cache')
+    | (false, cache') => scan next xs cache'
+
+lemma scan_correct (Good : κ → Prop)
+    (f : α → Bool) (next : α → κ → Bool × κ)
+    (hnext : ∀ x cache, Good cache →
+      (next x cache).1 = f x ∧ Good (next x cache).2)
+    (xs : List α) (cache : κ) (hc : Good cache) :
+    (scan next xs cache).1 = xs.any f ∧ Good (scan next xs cache).2 := by
+  induction xs generalizing cache with
+  | nil => exact ⟨rfl, hc⟩
+  | cons x xs ih =>
+    have hs := hnext x cache hc
+    cases he : next x cache with
+    | mk b cache' =>
+      simp only [he] at hs
+      cases b with
+      | false =>
+        have ht := ih cache' hs.2
+        simpa only [scan, he, hs.1.symm, List.any_cons, Bool.false_or] using ht
+      | true =>
+        simp only [scan, he, hs.1.symm, List.any_cons, Bool.true_or]
+        exact ⟨trivial, hs.2⟩
+
+def search (hit : Nat → α → κ → Bool) (put : Nat → α → κ → κ) (admissible : Nat → α → Bool) (done : α → Bool) (children : Nat → α → List α) :
+    Nat → α → κ → Bool × κ
+  | 0, x, cache =>
+    if hit 0 x cache then (false, cache)
+    else if !admissible 0 x then (false, cache)
+    else if done x then (true, cache)
+    else (false, put 0 x cache)
+  | k+1, x, cache =>
+    if hit (k+1) x cache then (false, cache)
+    else if !admissible (k+1) x then (false, cache)
+    else if done x then (true, cache)
+    else match scan (search hit put admissible done children k) (children k x) cache with
+    | (true, cache') => (true, cache')
+    | (false, cache') => (false, put (k+1) x cache')
+
+lemma search_correct (hit : Nat → α → κ → Bool) (put : Nat → α → κ → κ)
+    (admissible : Nat → α → Bool) (done : α → Bool) (children : Nat → α → List α) (Good : κ → Prop)
+    (hit_sound : ∀ k x cache, Good cache → hit k x cache = true → plain admissible done children k x = false)
+    (put_good : ∀ k x cache, Good cache → plain admissible done children k x = false → Good (put k x cache))
+    (k : Nat) (x : α) (cache : κ) (hc : Good cache) :
+    (search hit put admissible done children k x cache).1 = plain admissible done children k x ∧
+      Good (search hit put admissible done children k x cache).2 := by
+  induction k generalizing x cache with
+  | zero =>
+    by_cases hh : hit 0 x cache = true
+    · simp only [search, hh, Bool.true_eq, ite_true, Prod.fst, Prod.snd]
+      exact ⟨(hit_sound 0 x cache hc hh).symm, hc⟩
+    · have hh' : hit 0 x cache = false := Bool.eq_false_iff.mpr hh
+      by_cases ha : admissible 0 x = true
+      · by_cases hd : done x = true
+        · simp [search, hh', ha, hd, plain, hc]
+        · have hd' : done x = false := Bool.eq_false_iff.mpr hd
+          have hx : plain admissible done children 0 x = false := by simp [plain, ha, hd']
+          simpa only [search, hh', Bool.false_eq_true, ite_false, ha, Bool.not_true,
+            hd', Prod.fst, Prod.snd] using And.intro hx.symm (put_good 0 x cache hc hx)
+      · have ha' : admissible 0 x = false := Bool.eq_false_iff.mpr ha
+        simp [search, hh', ha', plain, hc]
+  | succ k ih =>
+    by_cases hh : hit (k+1) x cache = true
+    · simp only [search, hh, Bool.true_eq, ite_true, Prod.fst, Prod.snd]
+      exact ⟨(hit_sound (k+1) x cache hc hh).symm, hc⟩
+    · have hh' : hit (k+1) x cache = false := Bool.eq_false_iff.mpr hh
+      by_cases ha : admissible (k+1) x = true
+      · by_cases hd : done x = true
+        · simp [search, hh', ha, hd, plain, hc]
+        · have hd' : done x = false := Bool.eq_false_iff.mpr hd
+          have hs := scan_correct Good (plain admissible done children k) (search hit put admissible done children k)
+            (fun y c h => ih y c h) (children k x) cache hc
+          cases he : scan (search hit put admissible done children k) (children k x) cache with
+          | mk b cache' =>
+            simp only [he] at hs
+            cases b with
+            | false =>
+              have hx : plain admissible done children (k+1) x = false := by
+                simp only [plain, ha, Bool.true_eq, ite_true, hd', Bool.false_or]
+                exact hs.1.symm
+              simp only [search, hh', Bool.false_eq_true, ite_false, ha, Bool.not_true,
+                hd', he, Prod.fst, Prod.snd]
+              exact ⟨hx.symm, put_good (k+1) x cache' hs.2 hx⟩
+            | true =>
+              simp only [search, hh', Bool.false_eq_true, ite_false, ha, Bool.not_true,
+                hd', he, Prod.fst, Prod.snd]
+              constructor
+              · simp only [plain, ha, Bool.true_eq, ite_true, hd', Bool.false_or]
+                exact hs.1.symm
+              · exact hs.2
+      · have ha' : admissible (k+1) x = false := Bool.eq_false_iff.mpr ha
+        simp [search, hh', ha', plain, hc]
+
+lemma search_run (hit : Nat → α → κ → Bool) (put : Nat → α → κ → κ)
+    (admissible : Nat → α → Bool) (done : α → Bool) (children : Nat → α → List α) (Good : κ → Prop)
+    (hit_sound : ∀ k x cache, Good cache → hit k x cache = true → plain admissible done children k x = false)
+    (put_good : ∀ k x cache, Good cache → plain admissible done children k x = false → Good (put k x cache))
+    (k : Nat) (x : α) (cache : κ) (hc : Good cache) :
+    (search hit put admissible done children k x cache).1 = plain admissible done children k x :=
+  (search_correct hit put admissible done children Good hit_sound put_good k x cache hc).1
+
+
+variable {width : Nat}
+
+abbrev States (width : Nat) := List (BitVec width)
+abbrev TreeCache := Std.TreeSet.Raw Nat
+
+def key (k : Nat) (ws : States width) : Nat :=
+  PackedKeyWide.key k ws
+
+def forceNat {β : Type} (n : Nat) (f : Nat → β) : β :=
+  Nat.rec (f 0) (fun k _ => f (k+1)) n
+
+lemma forceNat_eq {β : Type} (n : Nat) (f : Nat → β) : forceNat n f = f n := by
+  cases n <;> rfl
+
+def treeHit (k : Nat) (ws : States width) (cache : TreeCache) : Bool := forceNat (key k ws) (fun q => cache.contains q)
+def treePut (k : Nat) (ws : States width) (cache : TreeCache) : TreeCache := forceNat (key k ws) (fun q => cache.insert q)
+
+lemma key_inj {k j : Nat} {ws vs : States width} (h : key k ws = key j vs) : k = j ∧ ws = vs :=
+  PackedKeyWide.key_inj h
+
+def TreeGood (admissible : Nat → States width → Bool) (done : States width → Bool) (children : Nat → States width → List (States width)) (cache : TreeCache) : Prop :=
+  cache.WF ∧ ∀ k ws, treeHit k ws cache = true → plain admissible done children k ws = false
+
+lemma tree_good_empty (admissible : Nat → States width → Bool) (done : States width → Bool) (children : Nat → States width → List (States width)) :
+    TreeGood admissible done children ∅ := by
+  refine ⟨RawLaws.empty_wf, ?_⟩
+  intro k ws h
+  simp only [treeHit, forceNat_eq] at h
+  change false = true at h
+  contradiction
+
+lemma tree_put_good {admissible : Nat → States width → Bool} {done : States width → Bool} {children : Nat → States width → List (States width)}
+    (k : Nat) (ws : States width) (cache : TreeCache) (hc : TreeGood admissible done children cache)
+    (h : plain admissible done children k ws = false) : TreeGood admissible done children (treePut k ws cache) := by
+  simp only [treePut, forceNat_eq]
+  refine ⟨RawLaws.insert_wf hc.1 _, ?_⟩
+  intro j vs hh
+  simp only [treeHit, forceNat_eq, RawLaws.contains_insert hc.1, Bool.or_eq_true] at hh
+  rcases hh with he | hold
+  · have heq : key k ws = key j vs := Std.LawfulEqCmp.eq_of_compare (beq_iff_eq.mp he)
+    obtain ⟨rfl, rfl⟩ := key_inj heq
+    exact h
+  · exact hc.2 j vs (by simpa only [treeHit, forceNat_eq] using hold)
+
+def run (admissible : Nat → States width → Bool) (done : States width → Bool) (children : Nat → States width → List (States width)) (k : Nat) (ws : States width) : Bool :=
+  (search treeHit treePut admissible done children k ws ∅).1
+
+lemma run_correct (admissible : Nat → States width → Bool) (done : States width → Bool) (children : Nat → States width → List (States width)) (k : Nat) (ws : States width) :
+    run admissible done children k ws = plain admissible done children k ws := by
+  exact search_run treeHit treePut admissible done children (TreeGood admissible done children)
+    (fun k ws cache hc hh => hc.2 k ws hh)
+    (fun k ws cache hc hh => tree_put_good k ws cache hc hh)
+    k ws ∅ (tree_good_empty admissible done children)
+
+
+lemma plain_complete (admissible : Nat → α → Bool) (done : α → Bool) (children : Nat → α → List α)
+    (Sol : Nat → α → Prop)
+    (admissible_complete : ∀ k x, Sol k x → admissible k x = true)
+    (base : ∀ x, Sol 0 x → done x = true)
+    (step : ∀ k x, Sol (k+1) x → done x = true ∨ ∃ y ∈ children k x, Sol k y)
+    (k : Nat) (x : α) (h : Sol k x) : plain admissible done children k x = true := by
+  induction k generalizing x with
+  | zero => simp only [plain, admissible_complete 0 x h, Bool.true_eq, ite_true, base x h]
+  | succ k ih =>
+    simp only [plain, admissible_complete (k+1) x h, Bool.true_eq, ite_true]
+    rcases step k x h with hd | ⟨y, hy, hs⟩
+    · simp only [hd, Bool.true_or]
+    · simp only [Bool.or_eq_true, List.any_eq_true]
+      exact Or.inr ⟨y, hy, ih y hs⟩
+
+lemma run_reject (admissible : Nat → States width → Bool) (done : States width → Bool)
+    (children : Nat → States width → List (States width)) (Sol : Nat → States width → Prop)
+    (admissible_complete : ∀ k x, Sol k x → admissible k x = true)
+    (base : ∀ x, Sol 0 x → done x = true)
+    (step : ∀ k x, Sol (k+1) x → done x = true ∨ ∃ y ∈ children k x, Sol k y)
+    (k : Nat) (ws : States width) (h : run admissible done children k ws = false) : ¬ Sol k ws := by
+  intro hs
+  have ht := plain_complete admissible done children Sol admissible_complete base step k ws hs
+  rw [← run_correct, h] at ht
+  contradiction
+
+
+def treeHitFrom (threshold k : Nat) (ws : States width) (cache : TreeCache) : Bool :=
+  decide (threshold ≤ k) && treeHit k ws cache
+
+lemma tree_hitFrom_sound {admissible : Nat → States width → Bool} {done : States width → Bool} {children : Nat → States width → List (States width)}
+    (threshold k : Nat) (ws : States width) (cache : TreeCache) (hc : TreeGood admissible done children cache)
+    (h : treeHitFrom threshold k ws cache = true) : plain admissible done children k ws = false := by
+  simp only [treeHitFrom, Bool.and_eq_true] at h
+  exact hc.2 k ws h.2
+
+def treePutFrom (threshold k : Nat) (ws : States width) (cache : TreeCache) : TreeCache :=
+  if threshold ≤ k then treePut k ws cache else cache
+
+lemma tree_putFrom_good {admissible : Nat → States width → Bool} {done : States width → Bool} {children : Nat → States width → List (States width)}
+    (threshold k : Nat) (ws : States width) (cache : TreeCache) (hc : TreeGood admissible done children cache)
+    (h : plain admissible done children k ws = false) : TreeGood admissible done children (treePutFrom threshold k ws cache) := by
+  unfold treePutFrom
+  split_ifs
+  · exact tree_put_good k ws cache hc h
+  · exact hc
+
+def runFrom (threshold : Nat) (admissible : Nat → States width → Bool) (done : States width → Bool) (children : Nat → States width → List (States width))
+    (k : Nat) (ws : States width) : Bool :=
+  (search (treeHitFrom threshold) (treePutFrom threshold) admissible done children k ws ∅).1
+
+lemma runFrom_correct (threshold : Nat) (admissible : Nat → States width → Bool) (done : States width → Bool) (children : Nat → States width → List (States width))
+    (k : Nat) (ws : States width) : runFrom threshold admissible done children k ws = plain admissible done children k ws := by
+  exact search_run (treeHitFrom threshold) (treePutFrom threshold) admissible done children (TreeGood admissible done children)
+    (fun k ws cache hc hh => tree_hitFrom_sound threshold k ws cache hc hh)
+    (fun k ws cache hc hh => tree_putFrom_good threshold k ws cache hc hh)
+    k ws ∅ (tree_good_empty admissible done children)
+
+end MemoPruned
+
+
+namespace MemoActualPruned
+
+open SearchKernel
+variable {width : Nat}
+
+abbrev State := List (BitVec width)
+
+def insertW (v : BitVec width) : List (BitVec width) → List (BitVec width)
+  | [] => [v]
+  | x :: xs => if v ≤ x then v :: x :: xs else x :: insertW v xs
+
+def ordered (ws : List (BitVec width)) := ws.foldr insertW []
+
+lemma insertW_perm (v : BitVec width) (ws : List (BitVec width)) :
+    (insertW v ws).Perm (v :: ws) := by
+  induction ws with
+  | nil => exact .refl _
+  | cons x xs ih =>
+    simp only [insertW]
+    split
+    · exact .refl _
+    · exact (ih.cons x).trans (.swap _ _ _)
+
+lemma ordered_perm (ws : List (BitVec width)) : (ordered ws).Perm ws := by
+  induction ws with
+  | nil => exact .refl _
+  | cons x xs ih => exact (insertW_perm x (ordered xs)).trans (ih.cons x)
+
+lemma perm_set {u v : List (BitVec width)} (p : u.Perm v) : u.toFinset = v.toFinset := by
+  ext a
+  simpa only [List.mem_toFinset] using (p.mem_iff : a ∈ u ↔ a ∈ v)
+
+def done (goal : BitVec width) (ws : List (BitVec width)) : Bool :=
+  ws == [goal] || ws == [~~~goal]
+
+def children (goal : BitVec width) (rows : List (Fin width)) (k : Nat)
+    (ws : List (BitVec width)) : List (List (BitVec width)) :=
+  (pairs ws).flatMap fun (a,b,r) =>
+    (ops a b).flatMap fun z =>
+      if z ∈ a :: b :: r then [] else
+        (keepChoices a b r).filterMap fun kept =>
+          if kept.length ≤ k ∧ separates goal rows (z :: kept) = true
+          then some (ordered (z :: kept)) else none
+
+lemma base_complete {goal g : BitVec width} (hg : g = goal ∨ g = ~~~goal)
+    (ws : List (BitVec width)) (h : ws.Nodup ∧ live basicOps g 0 ws.toFinset) :
+    done goal ws = true := by
+  have he := singleton_list h.1 h.2
+  rcases hg with rfl | rfl <;> simp [done, he]
+
+lemma step_complete {goal g : BitVec width} (hg : g = goal ∨ g = ~~~goal)
+    (rows : List (Fin width)) (k : Nat) (ws : List (BitVec width))
+    (h : ws.Nodup ∧ live basicOps g (k+1) ws.toFinset) :
+    done goal ws = true ∨ ∃ child ∈ children goal rows k ws,
+      child.Nodup ∧ live basicOps g k child.toFinset := by
+  obtain ⟨hn, hlive⟩ := h
+  rcases first_live hlive with hend | ⟨a, ha, b, hb, hab, z, hz, hout, needed, hs, tail⟩
+  · left
+    have he := singleton_list hn hend
+    rcases hg with rfl | rfl <;> simp [done, he]
+  · right
+    obtain ⟨r, hm, hp⟩ := pick_two (List.mem_toFinset.mp ha) (List.mem_toFinset.mp hb) hab
+    have go {a b : BitVec width} (perm : ws.Perm (a :: b :: r))
+        (hmem : (a,b,r) ∈ pairs ws)
+        (hset : ws.toFinset = insert a (insert b needed)) (hop : z ∈ basicOps a b) :
+        ∃ child ∈ children goal rows k ws,
+          child.Nodup ∧ live basicOps g k child.toFinset := by
+      obtain ⟨kept, hk, hnk, hfin⟩ := recover_kept perm hn hset
+      have hznew : z ∉ kept := by
+        intro hu
+        apply hout
+        rw [hset]
+        exact Finset.mem_insert_of_mem (Finset.mem_insert_of_mem (hfin ▸ List.mem_toFinset.mpr hu))
+      have hnd : (z :: kept).Nodup := List.nodup_cons.mpr ⟨hznew, hnk⟩
+      have hl : live basicOps g k (z :: kept).toFinset := by simpa [hfin] using tail
+      have hc := live_card hl
+      rw [List.toFinset_card_of_nodup hnd, List.length_cons] at hc
+      have fresh : z ∉ a :: b :: r := by
+        intro hzmem
+        exact hout (List.mem_toFinset.mpr (perm.mem_iff.mpr hzmem))
+      refine ⟨ordered (z :: kept), ?_, (ordered_perm _).nodup_iff.mpr hnd, ?_⟩
+      · apply List.mem_flatMap.mpr
+        refine ⟨(a,b,r), hmem, List.mem_flatMap.mpr ⟨z, List.mem_toFinset.mp hop, ?_⟩⟩
+        simp only [if_neg fresh]
+        exact List.mem_filterMap.mpr ⟨kept, hk, by simp [show kept.length ≤ k by omega,
+          separates_complete hg rows hl]⟩
+      · rwa [perm_set (ordered_perm _)]
+    rcases hm with direct | swap
+    · exact go hp direct hs hz
+    · exact go (hp.trans (.swap _ _ _)) swap (by rw [hs, Finset.insert_comm]) (ops_swap a b ▸ hz)
+
+lemma run_complete {goal g : BitVec width} (hg : g = goal ∨ g = ~~~goal)
+    (admissible : Nat → List (BitVec width) → Bool)
+    (admissible_complete : ∀ k ws, ws.Nodup → live basicOps g k ws.toFinset → admissible k ws = true)
+    (rows : List (Fin width)) (threshold k : Nat) (ws : List (BitVec width))
+    (hn : ws.Nodup) (h : live basicOps g k ws.toFinset) :
+    MemoPruned.runFrom threshold admissible (done goal) (children goal rows) k ws = true := by
+  rw [MemoPruned.runFrom_correct]
+  exact MemoPruned.plain_complete admissible (done goal) (children goal rows)
+    (fun k ws => ws.Nodup ∧ live basicOps g k ws.toFinset)
+    (fun k ws h => admissible_complete k ws h.1 h.2)
+    (base_complete hg) (step_complete hg rows) k ws ⟨hn,h⟩
+
+def search (goal : BitVec width) (admissible : Nat → List (BitVec width) → Bool)
+    (threshold n : Nat) (inputs : List (BitVec width)) : Bool :=
+  let rows := falseRows goal
+  inputs.sublists.any fun ws => decide (ws.length ≤ n+1) && separates goal rows ws &&
+    MemoPruned.runFrom threshold admissible (done goal) (children goal rows) n ws
+
+lemma search_complete {goal g : BitVec width} (hg : g = goal ∨ g = ~~~goal)
+    (admissible : Nat → List (BitVec width) → Bool)
+    (admissible_complete : ∀ k ws, ws.Nodup → live basicOps g k ws.toFinset → admissible k ws = true)
+    (threshold n : Nat) (inputs : List (BitVec width)) (hn : inputs.Nodup)
+    (h : build basicOps g n inputs.toFinset) : search goal admissible threshold n inputs = true := by
+  classical
+  obtain ⟨s,hs,hl⟩ := compress h
+  let ws := inputs.filter (· ∈ s)
+  have eq : ws.toFinset = s := by
+    ext w
+    simp only [ws, List.mem_toFinset, List.mem_filter, decide_eq_true_eq, and_iff_right_iff_imp]
+    exact fun hw => List.mem_toFinset.mp (hs hw)
+  have hnd : ws.Nodup := hn.filter _
+  have hl' : live basicOps g n ws.toFinset := eq.symm ▸ hl
+  have sz := live_card hl'
+  rw [List.toFinset_card_of_nodup hnd] at sz
+  exact List.any_eq_true.mpr ⟨ws,List.mem_sublists.mpr (List.filter_sublist ..),
+    by simp [sz, separates_complete hg (falseRows goal) hl',
+      run_complete hg admissible admissible_complete (falseRows goal) threshold n ws hnd hl']⟩
+
+lemma no_build {goal g : BitVec width} (hg : g = goal ∨ g = ~~~goal)
+    (admissible : Nat → List (BitVec width) → Bool)
+    (admissible_complete : ∀ k ws, ws.Nodup → live basicOps g k ws.toFinset → admissible k ws = true)
+    (threshold n : Nat) (inputs : List (BitVec width)) (hn : inputs.Nodup)
+    (rejected : search goal admissible threshold n inputs = false) : ¬ build basicOps g n inputs.toFinset := by
+  intro h
+  have found := search_complete hg admissible admissible_complete threshold n inputs hn h
+  rw [rejected] at found
+  contradiction
+
+end MemoActualPruned
 
 
 def graphEdge (graph : List ℕ) (i j : ℕ) : Bool :=
@@ -1420,6 +2367,9 @@ lemma not_fin_coloring_of_fast {graph : List ℕ} {colors : ℕ}
   not_graphColorable_of_fast h (graphColorable_of_fin f hproper)
 
 
+end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760
 
 def inducedGraph (graph chosen : List ℕ) : List ℕ :=
   chosen.map fun v => (BitVec.ofBoolListLE (chosen.map fun u => graphEdge graph v u)).toNat
@@ -1537,201 +2487,1505 @@ lemma not_graphColorable_of_degreeFast {graph : List ℕ} {colors : ℕ}
   cases hh
 
 
-def colorSearchSym (graph : List ℕ) (colors : ℕ) : ℕ → ℕ → List ℕ → Bool
-  | 0, _, _ => true
-  | k + 1, used, assigned => (List.range (min colors (used + 1))).any (fun c =>
-      fitsColor graph assigned c &&
-        colorSearchSym graph colors k (max used (c + 1)) (assigned ++ [c]))
 
-lemma colorPrefix_congr (f g : ℕ → ℕ) (n : ℕ) (h : ∀ i < n, f i = g i) :
-    colorPrefix f n = colorPrefix g n := by
-  apply List.map_congr_left
+section RowTransport
+
+variable {α β : Type} [DecidableEq α] [DecidableEq β]
+
+lemma build_map_on (ops : α → α → Finset α) (ops' : β → β → Finset β)
+    (D : α → Prop) (f : α → β)
+    (closed : ∀ a b, D a → D b → ∀ z ∈ ops a b, D z)
+    (injectiveOn : ∀ a b, D a → D b → f a = f b → a = b)
+    (respects : ∀ a b, D a → D b → ∀ z ∈ ops a b, f z ∈ ops' (f a) (f b))
+    {goal : α} {budget : ℕ} {available : Finset α}
+    (initial : ∀ a ∈ available, D a) (run : build ops goal budget available) :
+    build ops' (f goal) budget (available.image f) := by
+  induction budget generalizing available with
+  | zero =>
+    exact Finset.mem_image.mpr ⟨goal, run, rfl⟩
+  | succ budget ih =>
+    rcases run with skip | ⟨a, ha, b, hb, distinct, z, hz, tail⟩
+    · exact Or.inl (ih initial skip)
+    · have da : D a := initial a ha
+      have db : D b := initial b hb
+      have next : ∀ u ∈ insert z available, D u := by
+        intro u hu
+        rcases Finset.mem_insert.mp hu with he | hu
+        · rw [he]
+          exact closed a b da db z hz
+        · exact initial u hu
+      refine Or.inr ⟨f a, Finset.mem_image.mpr ⟨a, ha, rfl⟩,
+        f b, Finset.mem_image.mpr ⟨b, hb, rfl⟩,
+        fun he => distinct (injectiveOn a b da db he),
+        f z, respects a b da db z hz, ?_⟩
+      simpa only [Finset.image_insert] using ih next tail
+
+lemma live_map_on (ops : α → α → Finset α) (ops' : β → β → Finset β)
+    (D : α → Prop) (f : α → β)
+    (closed : ∀ a b, D a → D b → ∀ z ∈ ops a b, D z)
+    (injectiveOn : ∀ a b, D a → D b → f a = f b → a = b)
+    (respects : ∀ a b, D a → D b → ∀ z ∈ ops a b, f z ∈ ops' (f a) (f b))
+    {goal : α} {budget : ℕ} {available : Finset α}
+    (initial : ∀ a ∈ available, D a) (run : live ops goal budget available) :
+    live ops' (f goal) budget (available.image f) := by
+  induction budget generalizing available with
+  | zero =>
+    change available = {goal} at run
+    simp only [live, run, Finset.image_singleton]
+  | succ budget ih =>
+    rcases run with skip | ⟨a, ha, b, hb, distinct, z, hz, fresh, rest, hs, tail⟩
+    · exact Or.inl (ih initial skip)
+    · have da : D a := initial a ha
+      have db : D b := initial b hb
+      have dz : D z := closed a b da db z hz
+      have restIn : rest ⊆ available := by
+        intro u hu
+        rw [hs]
+        exact Finset.mem_insert_of_mem (Finset.mem_insert_of_mem hu)
+      have next : ∀ u ∈ insert z rest, D u := by
+        intro u hu
+        rcases Finset.mem_insert.mp hu with he | hu
+        · simpa only [he] using dz
+        · exact initial u (restIn hu)
+      have freshImage : f z ∉ available.image f := by
+        intro hmem
+        obtain ⟨u, hu, he⟩ := Finset.mem_image.mp hmem
+        exact fresh ((injectiveOn u z (initial u hu) dz he) ▸ hu)
+      refine Or.inr ⟨f a, Finset.mem_image.mpr ⟨a, ha, rfl⟩,
+        f b, Finset.mem_image.mpr ⟨b, hb, rfl⟩,
+        fun he => distinct (injectiveOn a b da db he),
+        f z, respects a b da db z hz, freshImage,
+        rest.image f, ?_, ?_⟩
+      · rw [hs, Finset.image_insert, Finset.image_insert]
+      · simpa only [Finset.image_insert] using ih next tail
+
+end RowTransport
+
+def pullback {m n : ℕ} (ρ : Fin n → Fin m) (w : BitVec m) : BitVec n :=
+  (BitVec.ofBoolListLE (List.ofFn (fun j => w[(ρ j).val]))).cast (by simp)
+
+lemma pullback_bit {m n : ℕ} (ρ : Fin n → Fin m) (w : BitVec m) (j : Fin n) :
+    (pullback ρ w)[j.val] = w[(ρ j).val] := by
+  simp [pullback, ← BitVec.getLsbD_eq_getElem]
+
+lemma pullback_zero {m n : ℕ} (ρ : Fin n → Fin m) : pullback ρ 0 = 0 := by
+  apply BitVec.eq_of_getElem_eq
   intro i hi
-  exact h i (List.mem_range.mp hi)
+  simpa using pullback_bit ρ 0 ⟨i, hi⟩
 
-lemma colorRenaming_next (f : ℕ → ℕ) (n used colors : ℕ)
-    (hnext : f n < colors) (hprior : ∀ i < n, f i < used) :
-    ∃ e : ℕ ≃ ℕ,
-      (∀ c < colors, e c < colors) ∧
-      (∀ i < n, e (f i) = f i) ∧
-      e (f n) < min colors (used + 1) := by
-  by_cases hold : f n < used
-  · refine ⟨Equiv.refl _, (fun c hc => hc), (fun i hi => rfl), ?_⟩
-    change f n < min colors (used + 1)
-    exact lt_min hnext (by omega)
-  · have hu : used < colors := by omega
-    refine ⟨Equiv.swap (f n) used, ?_, ?_, ?_⟩
-    · intro c hc
-      by_cases hcn : c = f n
-      · subst c
-        simpa only [Equiv.swap_apply_left] using hu
-      · by_cases hcu : c = used
-        · subst c
-          simpa only [Equiv.swap_apply_right] using hnext
-        · rwa [Equiv.swap_apply_of_ne_of_ne hcn hcu]
-    · intro i hi
-      have hfi := hprior i hi
-      exact Equiv.swap_apply_of_ne_of_ne (by omega) (by omega)
-    · rw [Equiv.swap_apply_left]
-      exact lt_min hu (Nat.lt_succ_self _)
-
-lemma colorSearchSym_complete {graph : List ℕ} {colors : ℕ} {f : ℕ → ℕ}
-    (hbound : ∀ i < graph.length, f i < colors)
-    (hproper : ∀ i < graph.length, ∀ j < graph.length,
-      (graph.getD i 0).testBit j = true → f i ≠ f j)
-    (k n used : ℕ) (hsize : n + k ≤ graph.length) (hused : used ≤ colors)
-    (hprior : ∀ i < n, f i < used) :
-    colorSearchSym graph colors k used (colorPrefix f n) = true := by
-  induction k generalizing f n used with
-  | zero => rfl
-  | succ k ih =>
-    have hn : n < graph.length := by omega
-    obtain ⟨e, heBound, heFix, heNext⟩ :=
-      colorRenaming_next f n used colors (hbound n hn) hprior
-    let g : ℕ → ℕ := fun i => e (f i)
-    have hgBound : ∀ i < graph.length, g i < colors :=
-      fun i hi => heBound (f i) (hbound i hi)
-    have hgProper : ∀ i < graph.length, ∀ j < graph.length,
-        (graph.getD i 0).testBit j = true → g i ≠ g j := by
-      intro i hi j hj hedge heq
-      exact hproper i hi j hj hedge (e.injective heq)
-    have hprefix : colorPrefix g n = colorPrefix f n :=
-      colorPrefix_congr g f n heFix
-    apply List.any_eq_true.mpr
-    refine ⟨g n, List.mem_range.mpr heNext, ?_⟩
-    simp only [Bool.and_eq_true]
-    constructor
-    · rw [← hprefix]
-      exact fitsColor_prefix hgProper hn
-    · rw [← hprefix, ← colorPrefix_succ]
-      apply ih hgBound hgProper (n + 1) (max used (g n + 1))
-      · omega
-      · exact max_le hused (Nat.succ_le_of_lt (hgBound n hn))
-      · intro i hi
-        by_cases hin : i < n
-        · have heq : g i = f i := heFix i hin
-          rw [heq]
-          exact lt_of_lt_of_le (hprior i hin) (Nat.le_max_left _ _)
-        · have heq : i = n := by omega
-          subst i
-          exact lt_of_lt_of_le (Nat.lt_succ_self _) (Nat.le_max_right _ _)
-
-def graphColorSym (graph : List ℕ) (colors : ℕ) : Bool :=
-  colorSearchSym graph colors graph.length 0 []
-
-lemma graphColorSym_complete {graph : List ℕ} {colors : ℕ}
-    (h : graphColorable graph colors) : graphColorSym graph colors = true := by
-  obtain ⟨f, hbound, hproper⟩ := h
-  simpa only [graphColorSym, colorPrefix, List.range_zero, List.map_nil] using
-    colorSearchSym_complete hbound hproper graph.length 0 0 (by omega) (by omega)
-      (by intro i hi; omega)
-
-lemma not_graphColorable_of_sym {graph : List ℕ} {colors : ℕ}
-    (h : graphColorSym graph colors = false) : ¬ graphColorable graph colors := by
-  intro hc
-  have hh := graphColorSym_complete hc
-  rw [h] at hh
-  cases hh
-
-def graphColorSymOrdered (graph : List ℕ) (colors : ℕ) : Bool :=
-  graphColorSym (inducedGraph graph (graphOrder graph)) colors
-
-lemma graphColorSymOrdered_complete {graph : List ℕ} {colors : ℕ}
-    (hc : graphColorable graph colors) : graphColorSymOrdered graph colors = true := by
-  exact graphColorSym_complete (graphColorable_induced hc (graphOrder_valid graph))
-
-def graphColorSymFast (graph : List ℕ) (colors : ℕ) : Bool :=
-  if colors = 1 then graphEmptyCheck graph
-  else if 1 < colors then graphColorSymOrdered graph colors
-  else graphColorSym graph colors
-
-lemma graphColorSymFast_complete {graph : List ℕ} {colors : ℕ}
-    (hc : graphColorable graph colors) : graphColorSymFast graph colors = true := by
-  unfold graphColorSymFast
-  split
-  · next h => subst colors; exact graphEmptyCheck_complete hc
-  · split
-    · exact graphColorSymOrdered_complete hc
-    · exact graphColorSym_complete hc
-
-lemma not_graphColorable_of_symFast {graph : List ℕ} {colors : ℕ}
-    (h : graphColorSymFast graph colors = false) : ¬ graphColorable graph colors := by
-  intro hc
-  have hh := graphColorSymFast_complete hc
-  rw [h] at hh
-  cases hh
-
-lemma not_fin_coloring_of_symFast {graph : List ℕ} {colors : ℕ}
-    (h : graphColorSymFast graph colors = false)
-    (f : Fin graph.length → Fin colors)
-    (hproper : ∀ i j, (graph.getD i.val 0).testBit j.val = true → f i ≠ f j) : False :=
-  not_graphColorable_of_symFast h (graphColorable_of_fin f hproper)
-
-
-def graphTriangleCheck (graph : List ℕ) : Bool :=
-  (List.range graph.length).all fun i =>
-    (List.range graph.length).all fun j =>
-      !((graph.getD i 0).testBit j) ||
-        decide ((BitVec.ofNat graph.length (graph.getD i 0) &&&
-          BitVec.ofNat graph.length (graph.getD j 0)) = 0)
-
-lemma graphTriangleCheck_complete {graph : List ℕ} (h : graphColorable graph 2) :
-    graphTriangleCheck graph = true := by
-  obtain ⟨f, hbound, hproper⟩ := h
-  apply List.all_eq_true.mpr
+lemma pullback_not {m n : ℕ} (ρ : Fin n → Fin m) (w : BitVec m) :
+    pullback ρ (~~~w) = ~~~(pullback ρ w) := by
+  apply BitVec.eq_of_getElem_eq
   intro i hi
-  have hin := List.mem_range.mp hi
-  apply List.all_eq_true.mpr
-  intro j hj
-  have hjn := List.mem_range.mp hj
-  cases he : (graph.getD i 0).testBit j with
-  | false => simp
+  simpa only [BitVec.getElem_not, pullback_bit ρ w ⟨i, hi⟩] using
+    pullback_bit ρ (~~~w) ⟨i, hi⟩
+
+lemma pullback_and {m n : ℕ} (ρ : Fin n → Fin m) (u w : BitVec m) :
+    pullback ρ (u &&& w) = pullback ρ u &&& pullback ρ w := by
+  apply BitVec.eq_of_getElem_eq
+  intro i hi
+  simpa only [BitVec.getElem_and, pullback_bit ρ u ⟨i, hi⟩,
+    pullback_bit ρ w ⟨i, hi⟩] using pullback_bit ρ (u &&& w) ⟨i, hi⟩
+
+lemma pullback_or {m n : ℕ} (ρ : Fin n → Fin m) (u w : BitVec m) :
+    pullback ρ (u ||| w) = pullback ρ u ||| pullback ρ w := by
+  apply BitVec.eq_of_getElem_eq
+  intro i hi
+  simpa only [BitVec.getElem_or, pullback_bit ρ u ⟨i, hi⟩,
+    pullback_bit ρ w ⟨i, hi⟩] using pullback_bit ρ (u ||| w) ⟨i, hi⟩
+
+
+
+lemma pullback_ops {m n : ℕ} (ρ : Fin n → Fin m) (u w z : BitVec m)
+    (hz : z ∈ basicOps u w) : pullback ρ z ∈ basicOps (pullback ρ u) (pullback ρ w) := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil,
+    or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;>
+    simp [basicOps, ops, pullback_and, pullback_or, pullback_not]
+
+
+
+def canonicalAt {m : ℕ} (ref : Fin m) (w : BitVec m) : BitVec m :=
+  if w[ref.val] then ~~~w else w
+
+lemma canonicalAt_bit {m : ℕ} (ref : Fin m) (w : BitVec m) :
+    (canonicalAt ref w)[ref.val] = false := by
+  cases h : w[ref.val] <;> simp [canonicalAt, h]
+
+lemma canonicalAt_of_false {m : ℕ} (ref : Fin m) (w : BitVec m)
+    (h : w[ref.val] = false) : canonicalAt ref w = w := by
+  simp only [canonicalAt, h, Bool.false_eq_true, ite_false]
+
+lemma canonicalAt_not {m : ℕ} (ref : Fin m) (w : BitVec m) :
+    canonicalAt ref (~~~w) = canonicalAt ref w := by
+  cases h : w[ref.val] <;> simp [canonicalAt, h]
+
+lemma canonicalAt_eq_iff {m : ℕ} (ref : Fin m) (u w : BitVec m) :
+    canonicalAt ref u = canonicalAt ref w ↔ u = w ∨ u = ~~~w := by
+  constructor
+  · intro h
+    cases hu : u[ref.val] <;> cases hw : w[ref.val] <;>
+      simp only [canonicalAt, hu, hw, Bool.false_eq_true,
+        ite_false, ite_true] at h
+    · exact Or.inl h
+    · exact Or.inr h
+    · exact Or.inr (by simpa only [BitVec.not_not] using congrArg (fun z => ~~~z) h)
+    · exact Or.inl (by simpa only [BitVec.not_not] using congrArg (fun z => ~~~z) h)
+  · rintro (rfl | rfl)
+    · rfl
+    · exact canonicalAt_not ref w
+
+lemma canonicalAt_ops {m : ℕ} (ref : Fin m) (u w z : BitVec m)
+    (hz : z ∈ basicOps u w) :
+    canonicalAt ref z ∈ basicOps (canonicalAt ref u) (canonicalAt ref w) := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil,
+    or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl
+  all_goals cases hu : u[ref.val] <;> cases hw : w[ref.val] <;>
+    simp [canonicalAt, basicOps, ops, hu, hw, BitVec.not_and, BitVec.not_or,
+      BitVec.and_comm, BitVec.or_comm]
+
+lemma zeroAt_ops {m : ℕ} (ref : Fin m) (u w : BitVec m)
+    (hu : u[ref.val] = false) (hw : w[ref.val] = false)
+    (z : BitVec m) (hz : z ∈ basicOps u w) : z[ref.val] = false := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil,
+    or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;> simp [hu, hw]
+
+lemma pullback_rowEquiv_injective {m n : ℕ} (e : Fin n ≃ Fin m) :
+    Function.Injective (pullback e) := by
+  intro u w he
+  apply BitVec.eq_of_getElem_eq
+  intro i hi
+  have hb := congrArg (fun z : BitVec n => z[(e.symm ⟨i, hi⟩).val]) he
+  simpa only [pullback_bit, Equiv.apply_symm_apply] using hb
+
+def canonicalTransport {m n : ℕ} (e : Fin n ≃ Fin m) (ref : Fin n)
+    (w : BitVec m) : BitVec n := canonicalAt ref (pullback e w)
+
+lemma canonicalTransport_injective_zero {m n : ℕ}
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n)
+    (u w : BitVec m) (hu : u[src.val] = false) (hw : w[src.val] = false)
+    (he : canonicalTransport e dst u = canonicalTransport e dst w) : u = w := by
+  rcases (canonicalAt_eq_iff dst _ _).mp he with same | opposite
+  · exact pullback_rowEquiv_injective e same
+  · have inv : u = ~~~w := pullback_rowEquiv_injective e (by
+      simpa only [pullback_not] using opposite)
+    have bad := congrArg (fun z : BitVec m => z[src.val]) inv
+    simp only [BitVec.getElem_not, hu, hw, Bool.not_false] at bad
+    contradiction
+
+lemma canonicalTransport_ops {m n : ℕ} (e : Fin n ≃ Fin m) (ref : Fin n)
+    (u w z : BitVec m) (hz : z ∈ basicOps u w) :
+    canonicalTransport e ref z ∈
+      basicOps (canonicalTransport e ref u) (canonicalTransport e ref w) :=
+  canonicalAt_ops ref _ _ _ (pullback_ops e u w z hz)
+
+lemma build_canonicalTransport {m n budget : ℕ}
+    {roots : Finset (BitVec m)} {goal : BitVec m}
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n)
+    (initial : ∀ w ∈ roots, w[src.val] = false)
+    (run : build basicOps goal budget roots) :
+    build basicOps (canonicalTransport e dst goal) budget
+      (roots.image (canonicalTransport e dst)) := by
+  exact build_map_on basicOps basicOps (fun w => w[src.val] = false)
+    (canonicalTransport e dst) (zeroAt_ops src)
+    (canonicalTransport_injective_zero e src dst)
+    (fun a b _ _ z hz => canonicalTransport_ops e dst a b z hz) initial run
+
+lemma live_canonicalTransport {m n budget : ℕ}
+    {roots : Finset (BitVec m)} {goal : BitVec m}
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n)
+    (initial : ∀ w ∈ roots, w[src.val] = false)
+    (run : live basicOps goal budget roots) :
+    live basicOps (canonicalTransport e dst goal) budget
+      (roots.image (canonicalTransport e dst)) := by
+  exact live_map_on basicOps basicOps (fun w => w[src.val] = false)
+    (canonicalTransport e dst) (zeroAt_ops src)
+    (canonicalTransport_injective_zero e src dst)
+    (fun a b _ _ z hz => canonicalTransport_ops e dst a b z hz) initial run
+
+lemma pullback_rowEquiv_inverse {m n : ℕ} (e : Fin n ≃ Fin m) (w : BitVec m) :
+    pullback e.symm (pullback e w) = w := by
+  apply BitVec.eq_of_getElem_eq
+  intro i hi
+  rw [pullback_bit e.symm (pullback e w) ⟨i, hi⟩,
+    pullback_bit e w (e.symm ⟨i, hi⟩)]
+  simp only [Equiv.apply_symm_apply]
+
+lemma canonicalTransport_roundtrip {m n : ℕ}
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n) (w : BitVec m) :
+    canonicalTransport e.symm src (canonicalTransport e dst w) = canonicalAt src w := by
+  change canonicalAt src (pullback e.symm (canonicalAt dst (pullback e w))) = _
+  by_cases phase : (pullback e w)[dst.val] = true
+  · have hc : canonicalAt dst (pullback e w) = ~~~(pullback e w) := by
+      simp only [canonicalAt, phase, ite_true]
+    rw [hc, pullback_not, pullback_rowEquiv_inverse, canonicalAt_not]
+  · have hc : canonicalAt dst (pullback e w) = pullback e w := by
+      simp [canonicalAt, phase]
+    rw [hc, pullback_rowEquiv_inverse]
+
+lemma canonicalTransport_roots_zero {m n : ℕ}
+    (e : Fin n ≃ Fin m) (dst : Fin n) (roots : Finset (BitVec m)) :
+    ∀ w ∈ roots.image (canonicalTransport e dst), w[dst.val] = false := by
+  intro w hw
+  obtain ⟨u, _, rfl⟩ := Finset.mem_image.mp hw
+  exact canonicalAt_bit dst (pullback e u)
+
+lemma canonicalTransport_roots_inverse {m n : ℕ}
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n) (roots : Finset (BitVec m))
+    (initial : ∀ w ∈ roots, w[src.val] = false) :
+    (roots.image (canonicalTransport e dst)).image (canonicalTransport e.symm src) = roots := by
+  rw [Finset.image_image]
+  have inv : ∀ w ∈ roots,
+      canonicalTransport e.symm src (canonicalTransport e dst w) = w := by
+    intro w hw
+    rw [canonicalTransport_roundtrip, canonicalAt_of_false src w (initial w hw)]
+  ext w
+  constructor
+  · intro h
+    obtain ⟨u, hu, he⟩ := Finset.mem_image.mp h
+    change canonicalTransport e.symm src (canonicalTransport e dst u) = w at he
+    rw [inv u hu] at he
+    exact he ▸ hu
+  · intro hw
+    exact Finset.mem_image.mpr ⟨w, hw, inv w hw⟩
+
+lemma build_iff_canonicalTransport {m n budget : ℕ}
+    (roots : Finset (BitVec m)) (goal : BitVec m)
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n)
+    (initial : ∀ w ∈ roots, w[src.val] = false) (targetZero : goal[src.val] = false) :
+    build basicOps goal budget roots ↔
+      build basicOps (canonicalTransport e dst goal) budget
+        (roots.image (canonicalTransport e dst)) := by
+  constructor
+  · exact build_canonicalTransport e src dst initial
+  · intro run
+    have back := build_canonicalTransport e.symm dst src
+      (canonicalTransport_roots_zero e dst roots) run
+    simpa only [canonicalTransport_roundtrip, canonicalAt_of_false src goal targetZero,
+      canonicalTransport_roots_inverse e src dst roots initial] using back
+
+lemma live_iff_canonicalTransport {m n budget : ℕ}
+    (roots : Finset (BitVec m)) (goal : BitVec m)
+    (e : Fin n ≃ Fin m) (src : Fin m) (dst : Fin n)
+    (initial : ∀ w ∈ roots, w[src.val] = false) (targetZero : goal[src.val] = false) :
+    live basicOps goal budget roots ↔
+      live basicOps (canonicalTransport e dst goal) budget
+        (roots.image (canonicalTransport e dst)) := by
+  constructor
+  · exact live_canonicalTransport e src dst initial
+  · intro run
+    have back := live_canonicalTransport e.symm dst src
+      (canonicalTransport_roots_zero e dst roots) run
+    simpa only [canonicalTransport_roundtrip, canonicalAt_of_false src goal targetZero,
+      canonicalTransport_roots_inverse e src dst roots initial] using back
+
+lemma build_iff_canonicalAutomorphism {m budget : ℕ}
+    (roots : Finset (BitVec m)) (goal : BitVec m)
+    (e : Equiv.Perm (Fin m)) (ref : Fin m)
+    (initial : ∀ w ∈ roots, w[ref.val] = false) (targetZero : goal[ref.val] = false)
+    (goalFixed : canonicalTransport e ref goal = goal) :
+    build basicOps goal budget roots ↔
+      build basicOps goal budget (roots.image (canonicalTransport e ref)) := by
+  simpa only [goalFixed] using build_iff_canonicalTransport roots goal e ref ref initial targetZero
+
+lemma live_iff_canonicalAutomorphism {m budget : ℕ}
+    (roots : Finset (BitVec m)) (goal : BitVec m)
+    (e : Equiv.Perm (Fin m)) (ref : Fin m)
+    (initial : ∀ w ∈ roots, w[ref.val] = false) (targetZero : goal[ref.val] = false)
+    (goalFixed : canonicalTransport e ref goal = goal) :
+    live basicOps goal budget roots ↔
+      live basicOps goal budget (roots.image (canonicalTransport e ref)) := by
+  simpa only [goalFixed] using live_iff_canonicalTransport roots goal e ref ref initial targetZero
+
+
+
+namespace S64
+
+def symRowData : List Nat := [0, 26, 15, 37, 8, 33, 22, 41, 4, 30, 19, 40, 12, 36, 25, 2, 28, 17, 39, 10, 35, 24, 6, 32, 21, 14, 1, 27, 16, 38, 9, 34, 23, 5, 31, 20, 13, 3, 29, 18, 11, 7, 42, 58, 53, 63, 49, 62, 57, 46, 61, 56, 52, 44, 60, 55, 51, 48, 43, 59, 54, 50, 47, 45]
+
+def symRow (i : Fin 64) : Fin 64 :=
+  ⟨symRowData.getD i.val 0 % 64, Nat.mod_lt _ (by decide)⟩
+
+lemma symRow_involutive : Function.Involutive symRow := by
+  change ∀ i : Fin 64, symRow (symRow i) = i
+  decide +kernel
+
+def symEquiv : Equiv.Perm (Fin 64) :=
+  ⟨symRow, symRow, symRow_involutive, symRow_involutive⟩
+
+abbrev symWord (w : BitVec 64) : BitVec 64 :=
+  canonicalTransport symEquiv ⟨63, by decide⟩ w
+
+def caseData : List (Fin 7 × Fin 7 × Fin 4) := [(1, 0, 0), (1, 0, 1), (1, 0, 2), (1, 0, 3), (2, 0, 0), (2, 0, 1), (2, 0, 2), (2, 0, 3), (2, 1, 0), (2, 1, 1), (2, 1, 2), (2, 1, 3), (3, 0, 0), (3, 0, 1), (3, 0, 2), (3, 0, 3), (3, 1, 0), (3, 1, 1), (3, 1, 2), (3, 1, 3), (3, 2, 0), (3, 2, 1), (3, 2, 2), (3, 2, 3), (4, 0, 0), (4, 0, 1), (4, 0, 2), (4, 0, 3), (4, 1, 0), (4, 1, 1), (4, 1, 2), (4, 1, 3), (4, 2, 0), (4, 2, 1), (4, 2, 2), (4, 2, 3), (4, 3, 0), (4, 3, 1), (4, 3, 2), (4, 3, 3), (5, 0, 0), (5, 0, 1), (5, 0, 2), (5, 0, 3), (5, 1, 0), (5, 1, 1), (5, 1, 2), (5, 1, 3), (5, 2, 0), (5, 2, 1), (5, 2, 2), (5, 2, 3), (5, 3, 0), (5, 3, 1), (5, 3, 2), (5, 3, 3), (5, 4, 0), (5, 4, 1), (5, 4, 2), (5, 4, 3), (6, 0, 0), (6, 0, 1), (6, 0, 2), (6, 0, 3), (6, 1, 0), (6, 1, 1), (6, 1, 2), (6, 1, 3), (6, 2, 0), (6, 2, 1), (6, 2, 2), (6, 2, 3), (6, 3, 0), (6, 3, 1), (6, 3, 2), (6, 3, 3), (6, 4, 0), (6, 4, 1), (6, 4, 2), (6, 4, 3), (6, 5, 0), (6, 5, 1), (6, 5, 2), (6, 5, 3)]
+
+def caseWord (c : Fin 84) : BitVec 64 :=
+  let t := caseData.getD c.val (0, 0, 0)
+  firstOp t.1 t.2.1 t.2.2
+
+def symCaseData : List Nat := [57, 56, 58, 59, 55, 54, 52, 53, 39, 38, 36, 37, 51, 50, 48, 49, 35, 34, 32, 33, 20, 21, 23, 22, 45, 44, 46, 47, 29, 28, 30, 31, 18, 19, 17, 16, 10, 11, 9, 8, 41, 40, 42, 43, 25, 24, 26, 27, 14, 15, 13, 12, 6, 7, 5, 4, 1, 0, 2, 3, 82, 83, 80, 81, 78, 79, 76, 77, 72, 73, 74, 75, 68, 69, 70, 71, 66, 67, 64, 65, 62, 63, 60, 61]
+
+def symCase (c : Fin 84) : Fin 84 :=
+  ⟨symCaseData.getD c.val 0 % 84, Nat.mod_lt _ (by decide)⟩
+
+def representativeData : List Nat := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 24, 25, 26, 27, 28, 30, 31, 40, 42, 43, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71]
+
+def representative (r : Fin 45) : Fin 84 :=
+  ⟨representativeData.getD r.val 0 % 84, Nat.mod_lt _ (by decide)⟩
+
+def caseIndex (i j : Fin 7) (o : Fin 4) : Fin 84 :=
+  ⟨(2 * i.val * (i.val - 1) + 4 * j.val + o.val) % 84, Nat.mod_lt _ (by decide)⟩
+
+set_option maxHeartbeats 8000000 in
+lemma caseIndex_correct : ∀ i j : Fin 7, ∀ o : Fin 4, j < i →
+    caseWord (caseIndex i j o) = firstOp i j o := by decide +kernel
+
+lemma symGoal_fixed : symWord (~~~sampleGoal64) = ~~~sampleGoal64 := by decide +kernel
+
+lemma symRoots_fixed : signedRoots64.image symWord = signedRoots64 := by decide +kernel
+
+set_option maxHeartbeats 8000000 in
+lemma symCases_correct : ∀ c : Fin 84, symWord (caseWord c) = caseWord (symCase c) := by
+  decide +kernel
+
+lemma symCase_involutive : Function.Involutive symCase := by
+  change ∀ c : Fin 84, symCase (symCase c) = c
+  decide +kernel
+
+lemma representatives_cover : ∀ c : Fin 84, ∃ r : Fin 45,
+    c = representative r ∨ symCase c = representative r := by decide +kernel
+
+lemma symRoots_zero : ∀ w ∈ signedRoots64, w[63] = false := by
+  intro w hw
+  obtain ⟨u, hu, rfl⟩ := List.mem_map.mp (List.mem_toFinset.mp hw)
+  simp only [sampleInputs64, List.mem_cons, List.not_mem_nil, or_false] at hu
+  rcases hu with rfl | rfl | rfl | rfl | rfl | rfl | rfl <;> decide +kernel
+
+lemma caseWords_zero : ∀ c : Fin 84, (caseWord c)[63] = false := by decide +kernel
+
+lemma live_case_symmetry (c : Fin 84) (budget : ℕ) :
+    live basicOps (~~~sampleGoal64) budget (insert (caseWord c) signedRoots64) ↔
+      live basicOps (~~~sampleGoal64) budget (insert (caseWord (symCase c)) signedRoots64) := by
+  have initial : ∀ w ∈ insert (caseWord c) signedRoots64, w[63] = false := by
+    intro w hw
+    rcases Finset.mem_insert.mp hw with rfl | hw
+    · exact caseWords_zero c
+    · exact symRoots_zero w hw
+  have h := live_iff_canonicalAutomorphism (budget := budget) (insert (caseWord c) signedRoots64)
+    (~~~sampleGoal64) symEquiv ⟨63, by decide⟩ initial (by decide +kernel) symGoal_fixed
+  change live basicOps (~~~sampleGoal64) budget (insert (caseWord c) signedRoots64) ↔
+    live basicOps (~~~sampleGoal64) budget
+      ((insert (caseWord c) signedRoots64).image symWord) at h
+  simpa only [Finset.image_insert, symCases_correct, symRoots_fixed] using h
+
+lemma reject84_of_reject45 (budget : ℕ)
+    (reject : ∀ r : Fin 45, ¬ live basicOps (~~~sampleGoal64) budget
+      (insert (caseWord (representative r)) signedRoots64)) :
+    ∀ c : Fin 84, ¬ live basicOps (~~~sampleGoal64) budget
+      (insert (caseWord c) signedRoots64) := by
+  intro c run
+  obtain ⟨r, same | mapped⟩ := representatives_cover c
+  · exact reject r (same ▸ run)
+  · exact reject r (mapped ▸ (live_case_symmetry c budget).mp run)
+
+lemma rejection_from_45_64 (budget : ℕ)
+    (reject : ∀ r : Fin 45, ¬ live basicOps (~~~sampleGoal64) budget
+      (insert (caseWord (representative r)) signedRoots64)) :
+    ∀ i j : Fin 7, j < i → ∀ o : Fin 4,
+      ¬ live basicOps (~~~sampleGoal64) budget (insert (firstOp i j o) signedRoots64) := by
+  intro i j hji o
+  have h := reject84_of_reject45 budget reject (caseIndex i j o)
+  rwa [caseIndex_correct i j o hji] at h
+
+end S64
+end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760.KernelNat64
+
+
+def mask : Nat := 0xffffffffffffffff
+def goal : Nat := 0xffdfebdfbbbf6ca0
+def roots : List Nat := [0x844a844a8952aaa, 0x1089308931264ccc, 0x2111c111c23870f0, 0x421e021e03c07f00, 0x7c1ffc1ffc007fff, 0x3fffc0003ffffff, 0x3ffffffffff]
+def rows : List Nat := [0, 1, 2, 3, 4, 6, 8, 9, 12, 15, 22, 26, 30, 37, 42, 44, 53]
+def ops (a b : Nat) : List Nat :=
+  [a &&& b, a ||| b, a &&& (b ^^^ mask), b &&& (a ^^^ mask)]
+
+def singles {α : Type} : List α → List (α × List α)
+  | [] => []
+  | a :: rest => (a, rest) :: (singles rest).map (fun (b, bs) => (b, a :: bs))
+
+def pairs {α : Type} : List α → List (α × α × List α)
+  | [] => []
+  | a :: rest => (singles rest).map (fun (b, bs) => (a, b, bs)) ++
+      (pairs rest).map (fun (b, c, bs) => (b, c, a :: bs))
+
+def rowClass (j w : Nat) : Nat :=
+  if (w >>> j) &&& 1 == 1 then w else w ^^^ mask
+
+def survivors (j : Nat) (ws : List Nat) : Nat :=
+  ws.foldr (fun w r => rowClass j w &&& r) goal
+
+def collisions (ws : List Nat) : List (Nat × Nat) :=
+  rows.filterMap fun j =>
+    let bits := survivors j ws
+    if bits == 0 then none else some (j, bits)
+
+def separatesNew (cs : List (Nat × Nat)) (ws : List Nat) : Bool :=
+  cs.all fun (j, bits) => ws.foldr (fun w r => rowClass j w &&& r) bits == 0
+
+def cmpWords : List Nat → List Nat → Ordering
+  | [], [] => .eq
+  | [], _ :: _ => .lt
+  | _ :: _, [] => .gt
+  | a :: as, b :: bs => match compare a b with
+    | .eq => cmpWords as bs
+    | o => o
+
+def insertWord (a : Nat) : List Nat → List Nat
+  | [] => [a]
+  | b :: bs => if a <= b then a :: b :: bs else b :: insertWord a bs
+
+def sortWords : List Nat → List Nat
+  | [] => []
+  | a :: as => insertWord a (sortWords as)
+
+
+def rowPattern (row : Nat) : List Nat → Nat
+  | [] => 0
+  | w :: ws => ((w >>> row) &&& 1) ||| (rowPattern row ws <<< 1)
+
+def labelledPatterns (ws : List Nat) : List (Nat × Bool) :=
+  (List.range 64).map fun row => (rowPattern row ws, (goal >>> row) &&& 1 == 1)
+
+def patternSets (ps : List (Nat × Bool)) : Nat × Nat :=
+  ps.foldl (fun (positive, negative) (p, label) =>
+    if label then (positive ||| (1 <<< p), negative)
+    else (positive, negative ||| (1 <<< p))) (0, 0)
+
+def bitTest (w j : Nat) : Bool := (w >>> j) &&& 1 == 1
+
+def phaseMasks (ps : List (Nat × Bool)) (positive negative i j : Nat) : Nat × Nat :=
+  let bi := 1 <<< i
+  let bj := 1 <<< j
+  ps.foldl (fun (pf, nf) (p, label) =>
+    let opposite := if label then negative else positive
+    if bitTest opposite (p ^^^ bi) && bitTest opposite (p ^^^ bj) then
+      let phase := ((p >>> i) &&& 1) ||| (((p >>> j) &&& 1) <<< 1)
+      if label then (pf ||| (1 <<< phase), nf)
+      else (pf, nf ||| (1 <<< (phase ^^^ 3)))
+    else (pf, nf)) (0, 0)
+
+def criticalEdges (ws : List Nat) : List (Nat × Nat) :=
+  let ps := labelledPatterns ws
+  let (positive, negative) := patternSets ps
+  (pairs (List.range ws.length)).filterMap fun (i, j, _) =>
+    let (pf, nf) := phaseMasks ps positive negative i j
+    if pf &&& nf == 0 then none else some (i, j)
+
+def criticalGraph (ws : List Nat) : List (Nat × Nat) :=
+  let es := criticalEdges ws
+  (List.range ws.length).map fun i =>
+    (i, es.foldl (fun mask (a,b) =>
+      if a == i then mask ||| (1 <<< b)
+      else if b == i then mask ||| (1 <<< a) else mask) 0)
+
+lemma adj_bitTest (w i : Nat) : bitTest w i = w.testBit i := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [bitTest, Nat.and_one_is_mod, Nat.shiftRight_eq_div_pow,
+    Nat.testBit_eq_decide_div_mod_eq, beq_iff_eq, decide_eq_true_eq]
+
+def adj_bitmapStep (acc : Nat × Nat) (item : Nat × Bool) : Nat × Nat :=
+  if item.2 then (acc.1 ||| (1 <<< item.1), acc.2)
+  else (acc.1, acc.2 ||| (1 <<< item.1))
+
+lemma adj_bitmap_step_pos (acc : Nat × Nat) (item : Nat × Bool) (t : Nat) :
+    (adj_bitmapStep acc item).1.testBit t =
+      (acc.1.testBit t || (item.2 && decide (item.1 = t))) := by
+  rcases acc with ⟨a,b⟩
+  rcases item with ⟨p,label⟩
+  cases label <;> simp [adj_bitmapStep, Nat.testBit_or, Nat.shiftLeft_eq, Nat.testBit_two_pow]
+
+lemma adj_bitmap_step_neg (acc : Nat × Nat) (item : Nat × Bool) (t : Nat) :
+    (adj_bitmapStep acc item).2.testBit t =
+      (acc.2.testBit t || (!item.2 && decide (item.1 = t))) := by
+  rcases acc with ⟨a,b⟩
+  rcases item with ⟨p,label⟩
+  cases label <;> simp [adj_bitmapStep, Nat.testBit_or, Nat.shiftLeft_eq, Nat.testBit_two_pow]
+
+lemma adj_bitmap_fold_pos (ps : List (Nat × Bool)) (acc : Nat × Nat) (t : Nat) :
+    (ps.foldl adj_bitmapStep acc).1.testBit t =
+      (acc.1.testBit t || ps.any (fun item => item.2 && decide (item.1 = t))) := by
+  induction ps generalizing acc with
+  | nil => simp
+  | cons a ps ih =>
+    rw [List.foldl_cons, ih, adj_bitmap_step_pos]
+    simp only [List.any_cons, Bool.or_assoc]
+
+lemma adj_bitmap_fold_neg (ps : List (Nat × Bool)) (acc : Nat × Nat) (t : Nat) :
+    (ps.foldl adj_bitmapStep acc).2.testBit t =
+      (acc.2.testBit t || ps.any (fun item => !item.2 && decide (item.1 = t))) := by
+  induction ps generalizing acc with
+  | nil => simp
+  | cons a ps ih =>
+    rw [List.foldl_cons, ih, adj_bitmap_step_neg]
+    simp only [List.any_cons, Bool.or_assoc]
+
+lemma adj_patternSets_eq (ps : List (Nat × Bool)) :
+    patternSets ps = ps.foldl adj_bitmapStep (0,0) := rfl
+
+lemma adj_patternSets_pos (ps : List (Nat × Bool)) (t : Nat) :
+    (patternSets ps).1.testBit t = true ↔ (t,true) ∈ ps := by
+  rw [adj_patternSets_eq, adj_bitmap_fold_pos]
+  simp only [Nat.zero_testBit, Bool.false_or, List.any_eq_true, Bool.and_eq_true, decide_eq_true_eq]
+  constructor
+  · rintro ⟨⟨p,label⟩, hm, hl, hp⟩
+    cases hl
+    cases hp
+    exact hm
+  · intro h
+    exact ⟨(t,true),h,rfl,rfl⟩
+
+lemma adj_patternSets_neg (ps : List (Nat × Bool)) (t : Nat) :
+    (patternSets ps).2.testBit t = true ↔ (t,false) ∈ ps := by
+  rw [adj_patternSets_eq, adj_bitmap_fold_neg]
+  simp only [Nat.zero_testBit, Bool.false_or, List.any_eq_true, Bool.and_eq_true,
+    decide_eq_true_eq]
+  constructor
+  · rintro ⟨⟨p,label⟩, hm, hl, hp⟩
+    cases label with
+    | false => cases hp; exact hm
+    | true => simp at hl
+  · intro h
+    exact ⟨(t,false),h,rfl,rfl⟩
+
+def adj_phase (p i j : Nat) : Nat :=
+  ((p >>> i) &&& 1) ||| (((p >>> j) &&& 1) <<< 1)
+
+def adj_phaseEntry (positive negative i j : Nat) (item : Nat × Bool) : Option (Nat × Bool) :=
+  let p := item.1
+  let label := item.2
+  let opposite := if label then negative else positive
+  if bitTest opposite (p ^^^ (1 <<< i)) && bitTest opposite (p ^^^ (1 <<< j)) then
+    some (if label then adj_phase p i j else adj_phase p i j ^^^ 3, label)
+  else none
+
+def adj_phaseRows (ps : List (Nat × Bool)) (positive negative i j : Nat) : List (Nat × Bool) :=
+  ps.filterMap (adj_phaseEntry positive negative i j)
+
+lemma adj_phaseMasks_eq (ps : List (Nat × Bool)) (positive negative i j : Nat) :
+    phaseMasks ps positive negative i j = patternSets (adj_phaseRows ps positive negative i j) := by
+  unfold phaseMasks patternSets adj_phaseRows
+  rw [List.foldl_filterMap]
+  change ps.foldl _ (0,0) = ps.foldl _ (0,0)
+  apply congrArg (fun f => ps.foldl f (0,0))
+  funext acc item
+  rcases acc with ⟨pf,nf⟩
+  rcases item with ⟨p,label⟩
+  cases label <;> simp [adj_phaseEntry, adj_phase] <;> split_ifs <;> rfl
+
+lemma adj_phase_pos {ps : List (Nat × Bool)} {positive negative i j t : Nat}
+    (hm : (t,true) ∈ adj_phaseRows ps positive negative i j) :
+    ∃ p, (p,true) ∈ ps ∧ bitTest negative (p ^^^ (1 <<< i)) = true ∧
+      bitTest negative (p ^^^ (1 <<< j)) = true ∧ adj_phase p i j = t := by
+  obtain ⟨⟨p,label⟩, hp, he⟩ := List.mem_filterMap.mp hm
+  cases label with
+  | false =>
+    dsimp [adj_phaseEntry] at he
+    split at he <;> simp_all
   | true =>
-    have hne := hproper i hin j hjn he
-    have hzero : (BitVec.ofNat graph.length (graph.getD i 0) &&&
-        BitVec.ofNat graph.length (graph.getD j 0)) = 0 := by
-      apply BitVec.eq_of_getLsbD_eq_iff.mpr
-      intro k hk
-      have hand : ((graph.getD i 0).testBit k && (graph.getD j 0).testBit k) = false := by
-        cases hi : (graph.getD i 0).testBit k with
-        | false => simp
-        | true =>
-          cases hj : (graph.getD j 0).testBit k with
-          | false => simp
-          | true =>
-            have hni := hproper i hin k hk hi
-            have hnj := hproper j hjn k hk hj
-            have bi := hbound i hin
-            have bj := hbound j hjn
-            have bk := hbound k hk
-            omega
-      change (BitVec.ofNat graph.length (graph.getD i 0) &&&
-        BitVec.ofNat graph.length (graph.getD j 0)).getLsbD k =
-          (BitVec.ofNat graph.length 0).getLsbD k
-      simp only [BitVec.getLsbD_and, BitVec.getLsbD_ofNat, hk, decide_true,
-        Bool.true_and, hand]
-      simp
-    simp only [Bool.not_true, Bool.false_or, decide_eq_true_eq]
-    exact hzero
+    dsimp [adj_phaseEntry] at he
+    split at he
+    · rename_i hc
+      have ht : adj_phase p i j = t := congrArg Prod.fst (Option.some.inj he)
+      exact ⟨p,hp,(Bool.and_eq_true_iff.mp hc).1,(Bool.and_eq_true_iff.mp hc).2,ht⟩
+    · simp at he
 
-def graphColorTriangleFast (graph : List ℕ) (colors : ℕ) : Bool :=
-  if colors = 2 then graphTriangleCheck graph && graphColorSymFast graph colors
-  else graphColorSymFast graph colors
+lemma adj_phase_neg {ps : List (Nat × Bool)} {positive negative i j t : Nat}
+    (hm : (t,false) ∈ adj_phaseRows ps positive negative i j) :
+    ∃ q, (q,false) ∈ ps ∧ bitTest positive (q ^^^ (1 <<< i)) = true ∧
+      bitTest positive (q ^^^ (1 <<< j)) = true ∧ (adj_phase q i j ^^^ 3) = t := by
+  obtain ⟨⟨q,label⟩, hq, he⟩ := List.mem_filterMap.mp hm
+  cases label with
+  | false =>
+    dsimp [adj_phaseEntry] at he
+    split at he
+    · rename_i hc
+      have ht : (adj_phase q i j ^^^ 3) = t := congrArg Prod.fst (Option.some.inj he)
+      exact ⟨q,hq,(Bool.and_eq_true_iff.mp hc).1,(Bool.and_eq_true_iff.mp hc).2,ht⟩
+    · simp at he
+  | true =>
+    dsimp [adj_phaseEntry] at he
+    split at he <;> simp_all
 
-lemma graphColorTriangleFast_complete {graph : List ℕ} {colors : ℕ}
-    (h : graphColorable graph colors) : graphColorTriangleFast graph colors = true := by
-  unfold graphColorTriangleFast
+def adj_patternWitness (ps : List (Nat × Bool)) (i j : Nat) : Prop :=
+  ∃ p q, (p,true) ∈ ps ∧ (q,false) ∈ ps ∧
+    (p ^^^ (1 <<< i),false) ∈ ps ∧ (p ^^^ (1 <<< j),false) ∈ ps ∧
+    (q ^^^ (1 <<< i),true) ∈ ps ∧ (q ^^^ (1 <<< j),true) ∈ ps ∧
+    adj_phase p i j = (adj_phase q i j ^^^ 3)
+
+lemma adj_overlap {ps : List (Nat × Bool)} {i j : Nat}
+    (hn : (phaseMasks ps (patternSets ps).1 (patternSets ps).2 i j).1 &&&
+      (phaseMasks ps (patternSets ps).1 (patternSets ps).2 i j).2 ≠ 0) :
+    adj_patternWitness ps i j := by
+  obtain ⟨t,ht⟩ := Nat.exists_testBit_of_ne_zero hn
+  rw [Nat.testBit_and] at ht
+  obtain ⟨hp,hn⟩ := Bool.and_eq_true_iff.mp ht
+  rw [adj_phaseMasks_eq] at hp hn
+  have hpm := (adj_patternSets_pos _ t).mp hp
+  have hnm := (adj_patternSets_neg _ t).mp hn
+  obtain ⟨p,hp,hpi,hpj,hpt⟩ := adj_phase_pos hpm
+  obtain ⟨q,hq,hqi,hqj,hqt⟩ := adj_phase_neg hnm
+  rw [adj_bitTest] at hpi hpj hqi hqj
+  exact ⟨p,q,hp,hq,(adj_patternSets_neg _ _).mp hpi,(adj_patternSets_neg _ _).mp hpj,
+    (adj_patternSets_pos _ _).mp hqi,(adj_patternSets_pos _ _).mp hqj,hpt.trans hqt.symm⟩
+
+lemma adj_phase_zero (p i j : Nat) : (adj_phase p i j).testBit 0 = p.testBit i := by
+  simp [adj_phase]
+
+lemma adj_phase_one (p i j : Nat) : (adj_phase p i j).testBit 1 = p.testBit j := by
+  have h1 : (1 : Nat).testBit 1 = false := by decide
+  rw [adj_phase, Nat.testBit_or, Nat.testBit_and, h1]
+  simp [Nat.testBit_shiftLeft, Nat.testBit_shiftRight]
+
+lemma adj_opposite_phase {p q i j : Nat} (he : adj_phase p i j = (adj_phase q i j ^^^ 3)) :
+    p.testBit i ≠ q.testBit i ∧ p.testBit j ≠ q.testBit j := by
+  have h0 := congrArg (fun n : Nat => n.testBit 0) he
+  have h1 := congrArg (fun n : Nat => n.testBit 1) he
+  rw [adj_phase_zero, Nat.testBit_xor, adj_phase_zero] at h0
+  rw [adj_phase_one, Nat.testBit_xor, adj_phase_one] at h1
+  have ht0 : (3 : Nat).testBit 0 = true := by decide
+  have ht1 : (3 : Nat).testBit 1 = true := by decide
+  rw [ht0] at h0
+  rw [ht1] at h1
+  constructor
+  · cases hp : p.testBit i <;> cases hq : q.testBit i <;> simp_all
+  · cases hp : p.testBit j <;> cases hq : q.testBit j <;> simp_all
+
+lemma singles_mem {a : Nat} {rest ws : List Nat}
+    (h : (a, rest) ∈ singles ws) : a ∈ ws ∧ ∀ x ∈ rest, x ∈ ws := by
+  induction ws generalizing rest with
+  | nil => simp [singles] at h
+  | cons b bs ih =>
+    simp only [singles, List.mem_cons, List.mem_map] at h
+    rcases h with h | ⟨⟨c, cs⟩, hc, he⟩
+    · cases h
+      exact ⟨by simp, fun x hx => by simp [hx]⟩
+    · cases he
+      obtain ⟨ha, hr⟩ := ih hc
+      refine ⟨by simp [ha], ?_⟩
+      intro x hx
+      simp only [List.mem_cons] at hx ⊢
+      exact hx.imp_right (hr x)
+
+lemma pairs_mem_bounds {a b : Nat} {rest ws : List Nat} (hw : ws.Nodup)
+    (h : (a, b, rest) ∈ pairs ws) : a ∈ ws ∧ b ∈ ws ∧ a ≠ b := by
+  induction ws generalizing a b rest with
+  | nil => simp [pairs] at h
+  | cons c cs ih =>
+    simp only [List.nodup_cons] at hw
+    simp only [pairs, List.mem_append, List.mem_map] at h
+    rcases h with ⟨⟨d, ds⟩, hd, he⟩ | ⟨⟨d, e, ds⟩, hd, he⟩
+    · cases he
+      obtain ⟨hdmem, _⟩ := singles_mem hd
+      refine ⟨by simp, by simp [hdmem], ?_⟩
+      intro he
+      exact hw.1 (he ▸ hdmem)
+    · cases he
+      obtain ⟨ha, hb, hab⟩ := ih hw.2 hd
+      exact ⟨by simp [ha], by simp [hb], hab⟩
+
+lemma pairs_range_bounds {n i j : Nat} {rest : List Nat}
+    (h : (i, j, rest) ∈ pairs (List.range n)) : i < n ∧ j < n ∧ i ≠ j := by
+  simpa using pairs_mem_bounds (List.nodup_range) h
+
+lemma rowPattern_bit (row i : Nat) (ws : List Nat) :
+    (rowPattern row ws).testBit i = (ws.getD i 0).testBit row := by
+  induction ws generalizing i with
+  | nil => simp [rowPattern]
+  | cons w ws ih =>
+    cases i with
+    | zero => simp [rowPattern]
+    | succ i =>
+      have h1 : (1 : Nat).testBit (i + 1) = false := by
+        rw [show (1 : Nat) = 2 ^ 0 by rfl, Nat.testBit_two_pow]
+        simp
+      rw [rowPattern, Nat.testBit_or, Nat.testBit_and, h1]
+      simpa using ih i
+
+lemma rowPattern_flip {p q i : Nat} {ws : List Nat}
+    (h : rowPattern q ws = rowPattern p ws ^^^ (1 <<< i)) (j : Nat) :
+    (ws.getD j 0).testBit q = xor ((ws.getD j 0).testBit p) (decide (i = j)) := by
+  have hb := congrArg (fun w : Nat => w.testBit j) h
+  rw [rowPattern_bit, Nat.testBit_xor, rowPattern_bit] at hb
+  simpa [Nat.shiftLeft_eq, Nat.testBit_two_pow] using hb
+
+
+lemma adj_labelled {ws : List Nat} {pattern : Nat} {label : Bool}
+    (hm : (pattern,label) ∈ labelledPatterns ws) :
+    ∃ r : Fin 64, rowPattern r.val ws = pattern ∧ goal.testBit r.val = label := by
+  obtain ⟨r,hr,he⟩ := List.mem_map.mp hm
+  have hr' : r < 64 := List.mem_range.mp hr
+  refine ⟨⟨r,hr'⟩,congrArg Prod.fst he,?_⟩
+  have hl := congrArg Prod.snd he
+  change bitTest goal r = label at hl
+  rwa [adj_bitTest] at hl
+
+lemma adj_ofNat_bit (w : Nat) (r : Fin 64) :
+    (BitVec.ofNat 64 w)[r.val] = w.testBit r.val := by
+  rw [← BitVec.getLsbD_eq_getElem, BitVec.getLsbD_ofNat]
+  simp only [r.isLt, decide_true, Bool.true_and]
+
+def adj_frontier (ws : List Nat) : Finset (BitVec 64) :=
+  (ws.map (BitVec.ofNat 64)).toFinset
+
+def adj_word (ws : List Nat) (i : Nat) : BitVec 64 :=
+  BitVec.ofNat 64 (ws.getD i 0)
+
+lemma adj_word_bit (ws : List Nat) (i : Nat) (r : Fin 64) :
+    (adj_word ws i)[r.val] = (ws.getD i 0).testBit r.val := adj_ofNat_bit _ _
+
+lemma adj_word_mem {ws : List Nat} {i : Nat} (hi : i < ws.length) :
+    adj_word ws i ∈ adj_frontier ws := by
+  simp only [adj_word, adj_frontier, List.mem_toFinset, List.mem_map]
+  exact ⟨ws.getD i 0, by rw [List.getD_eq_getElem ws 0 hi]; exact List.getElem_mem hi, rfl⟩
+
+lemma adj_mem_word {ws : List Nat} {w : BitVec 64} (hw : w ∈ adj_frontier ws) :
+    ∃ k, k < ws.length ∧ adj_word ws k = w := by
+  simp only [adj_frontier, List.mem_toFinset, List.mem_map] at hw
+  obtain ⟨v,hv,he⟩ := hw
+  obtain ⟨k,hk,hv⟩ := List.mem_iff_getElem.mp hv
+  exact ⟨k,hk,by rw [adj_word, List.getD_eq_getElem ws 0 hk, hv]; exact he⟩
+
+lemma adj_flip_unique {ws : List Nat} {i : Nat} {p q : Fin 64}
+    (hf : rowPattern q.val ws = rowPattern p.val ws ^^^ (1 <<< i)) :
+    uniqueSep (adj_frontier ws) (adj_word ws i) p q := by
+  constructor
+  · have hb := rowPattern_flip hf i
+    simp only [decide_true, Bool.xor_true] at hb
+    simp only [adj_word_bit]
+    rw [hb]
+    exact Bool.ne_not.mpr rfl
+  · intro w hw hne
+    obtain ⟨k,hk,rfl⟩ := adj_mem_word hw
+    have hki : i ≠ k := by
+      intro he
+      exact hne (congrArg (adj_word ws) he.symm)
+    have hb := rowPattern_flip hf k
+    simpa only [adj_word_bit, hki, decide_false, Bool.xor_false] using hb.symm
+
+lemma adj_unique_symm {S : Finset (BitVec 64)} {a : BitVec 64} {p q : Fin 64}
+    (h : uniqueSep S a p q) : uniqueSep S a q p := by
+  exact ⟨Ne.symm h.1,fun w hw hne => (h.2 w hw hne).symm⟩
+
+
+def adj_patternCorners (ps : List (Nat × Bool)) (i j : Nat) : Prop :=
+  ∃ p q, (p,true) ∈ ps ∧ (q,false) ∈ ps ∧
+    (p ^^^ (1 <<< i),false) ∈ ps ∧ (p ^^^ (1 <<< j),false) ∈ ps ∧
+    (q ^^^ (1 <<< i),true) ∈ ps ∧ (q ^^^ (1 <<< j),true) ∈ ps ∧
+    p.testBit i ≠ q.testBit i ∧ p.testBit j ≠ q.testBit j
+
+lemma adj_corner_rows {ws : List Nat} {i j : Nat}
+    (hi : i < ws.length) (hj : j < ws.length) (hij : i ≠ j)
+    (hc : adj_patternCorners (labelledPatterns ws) i j) :
+    criticalPair (BitVec.ofNat 64 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  obtain ⟨x,y,hx,hy,hxi,hxj,hyi,hyj,hpi,hpj⟩ := hc
+  obtain ⟨p,hp,hpt⟩ := adj_labelled hx
+  obtain ⟨q,hq,hqt⟩ := adj_labelled hy
+  obtain ⟨ra,hra,hrat⟩ := adj_labelled hxi
+  obtain ⟨rb,hrb,hrbt⟩ := adj_labelled hxj
+  obtain ⟨sa,hsa,hsat⟩ := adj_labelled hyi
+  obtain ⟨sb,hsb,hsbt⟩ := adj_labelled hyj
+  have hfra : rowPattern ra.val ws = rowPattern p.val ws ^^^ (1 <<< i) := by rwa [hp]
+  have hfrb : rowPattern rb.val ws = rowPattern p.val ws ^^^ (1 <<< j) := by rwa [hp]
+  have hfsa : rowPattern sa.val ws = rowPattern q.val ws ^^^ (1 <<< i) := by rwa [hq]
+  have hfsb : rowPattern sb.val ws = rowPattern q.val ws ^^^ (1 <<< j) := by rwa [hq]
+  have ua := adj_flip_unique hfra
+  have ub := adj_flip_unique hfrb
+  have usa := adj_unique_symm (adj_flip_unique hfsa)
+  have usb := adj_unique_symm (adj_flip_unique hfsb)
+  have hne : adj_word ws i ≠ adj_word ws j := by
+    have hb := rowPattern_flip hfra j
+    simp only [hij, decide_false, Bool.xor_false] at hb
+    have hbe : (adj_word ws j)[p.val] = (adj_word ws j)[ra.val] := by
+      simpa only [adj_word_bit] using hb.symm
+    intro he
+    exact ua.1 (by rw [he]; exact hbe)
+  have hip : (adj_word ws i)[p.val] ≠ (adj_word ws i)[q.val] := by
+    simpa only [adj_word_bit, ← rowPattern_bit, hp, hq] using hpi
+  have hjp : (adj_word ws j)[p.val] ≠ (adj_word ws j)[q.val] := by
+    simpa only [adj_word_bit, ← rowPattern_bit, hp, hq] using hpj
+  have his : (adj_word ws i)[sa.val] = !(adj_word ws i)[q.val] := by
+    have hb := rowPattern_flip hfsa i
+    simpa only [adj_word_bit, decide_true, Bool.xor_true] using hb
+  have hjs : (adj_word ws j)[sb.val] = !(adj_word ws j)[q.val] := by
+    have hb := rowPattern_flip hfsb j
+    simpa only [adj_word_bit, decide_true, Bool.xor_true] using hb
+  have hipa : (adj_word ws i)[p.val] = (adj_word ws i)[sa.val] := by
+    rw [his]
+    exact Bool.eq_not.mpr hip
+  have hjpb : (adj_word ws j)[p.val] = (adj_word ws j)[sb.val] := by
+    rw [hjs]
+    exact Bool.eq_not.mpr hjp
+  refine ⟨adj_word_mem hi, adj_word_mem hj, hne, p,q,ra,rb,sa,sb,?_,?_,?_,?_,?_,?_,ua,ub,usa,usb,hipa,hjpb⟩
+  all_goals rwa [adj_ofNat_bit]
+
+lemma adj_witness_rows {ws : List Nat} {i j : Nat}
+    (hi : i < ws.length) (hj : j < ws.length) (hij : i ≠ j)
+    (hc : adj_patternWitness (labelledPatterns ws) i j) :
+    criticalPair (BitVec.ofNat 64 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  apply adj_corner_rows hi hj hij
+  obtain ⟨p,q,hp,hq,hpi,hpj,hqi,hqj,he⟩ := hc
+  exact ⟨p,q,hp,hq,hpi,hpj,hqi,hqj,adj_opposite_phase he⟩
+
+
+
+def lowMasks : List Nat := [0x5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555, 0x3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333, 0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f, 0xff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff, 0xffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff, 0xffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff, 0xffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff, 0xffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff, 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff, 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff]
+
+def flipPatternBits (i x : Nat) : Nat :=
+  ((x &&& lowMasks[i]!) <<< (1 <<< i)) |||
+    ((x >>> (1 <<< i)) &&& lowMasks[i]!)
+
+def flipIndexLaw (i p : Nat) : Prop :=
+  let d := 1 <<< i
+  let mask := lowMasks[i]!
+  (mask.testBit p = true ∧
+    (decide (p ≥ d) && mask.testBit (p-d)) = false ∧
+    p+d = p ^^^ d) ∨
+  (mask.testBit p = false ∧
+    (decide (p ≥ d) && mask.testBit (p-d)) = true ∧
+    p-d = p ^^^ d)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+lemma flipIndexLaw_checked (i : Fin 10) (p : Fin 1024) :
+    flipIndexLaw i p := by
+  unfold flipIndexLaw
+  decide +kernel +revert
+
+lemma flipPatternBits_bit {i p : Nat} (hi : i < 10) (hp : p < 1024) (x : Nat) :
+    (flipPatternBits i x).testBit p = x.testBit (p ^^^ (1 <<< i)) := by
+  obtain (⟨hm, hf, he⟩ | ⟨hm, hf, he⟩) :=
+    flipIndexLaw_checked ⟨i, hi⟩ ⟨p, hp⟩ <;>
+    change lowMasks[i]!.testBit p = _ at hm <;>
+    change (decide (p ≥ (1 <<< i)) && lowMasks[i]!.testBit (p-(1 <<< i))) = _ at hf
+  all_goals
+    rw [flipPatternBits, Nat.testBit_or, Nat.testBit_shiftLeft,
+      Nat.testBit_and, Nat.testBit_and, Nat.testBit_shiftRight]
+    have regroup :
+        (decide (p ≥ (1 <<< i)) &&
+          (x.testBit (p-(1 <<< i)) && lowMasks[i]!.testBit (p-(1 <<< i)))) =
+        ((decide (p ≥ (1 <<< i)) && lowMasks[i]!.testBit (p-(1 <<< i))) &&
+          x.testBit (p-(1 <<< i))) := by
+      cases decide (p ≥ (1 <<< i)) <;>
+        cases x.testBit (p-(1 <<< i)) <;>
+        cases lowMasks[i]!.testBit (p-(1 <<< i)) <;> rfl
+    rw [regroup, hf, hm]
+    simp only [Bool.false_and, Bool.true_and, Bool.and_true,
+      Bool.and_false, Bool.false_or, Bool.or_false, Nat.add_comm (1 <<< i) p, he]
+
+
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+theorem lowMask_bit_checked : ∀ (i : Fin 10) (p : Fin 1024),
+    (lowMasks[i.val]!).testBit p.val = !(p.val.testBit i.val) := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+theorem highMask_bit_checked : ∀ (i : Fin 10) (p : Fin 1024),
+    ((lowMasks[i.val]!) <<< (1 <<< i.val)).testBit p.val = p.val.testBit i.val := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+theorem lowMask_lt_checked : ∀ (i : Fin 10), lowMasks[i.val]! < 2 ^ 1024 := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+theorem highMask_lt_checked : ∀ (i : Fin 10),
+    ((lowMasks[i.val]!) <<< (1 <<< i.val)) < 2 ^ 1024 := by decide +kernel
+
+lemma fastForkPhaseWitness {positive negative fi fj li lj i j : Nat} {a b : Bool}
+    (hfi : ∀ p < 1024, fi.testBit p = negative.testBit (p ^^^ (1 <<< i)))
+    (hfj : ∀ p < 1024, fj.testBit p = negative.testBit (p ^^^ (1 <<< j)))
+    (hli : ∀ p, li.testBit p = (decide (p < 1024) && (p.testBit i == a)))
+    (hlj : ∀ p, lj.testBit p = (decide (p < 1024) && (p.testBit j == b)))
+    (hn : (positive &&& fi) &&& (positive &&& fj) &&& li &&& lj ≠ 0) :
+    ∃ p < 1024, positive.testBit p = true ∧
+      negative.testBit (p ^^^ (1 <<< i)) = true ∧
+      negative.testBit (p ^^^ (1 <<< j)) = true ∧
+      p.testBit i = a ∧ p.testBit j = b := by
+  obtain ⟨p, hp⟩ := Nat.exists_testBit_of_ne_zero hn
+  simp only [Nat.testBit_and, Bool.and_eq_true] at hp
+  obtain ⟨⟨⟨⟨hpos, hflipI⟩, ⟨_, hflipJ⟩⟩, hmaskI⟩, hmaskJ⟩ := hp
+  rw [hli] at hmaskI
+  rw [hlj] at hmaskJ
+  have hmaskI : p < 1024 ∧ p.testBit i = a := by simpa using hmaskI
+  have hmaskJ : p < 1024 ∧ p.testBit j = b := by simpa using hmaskJ
+  rw [hfi p hmaskI.1] at hflipI
+  rw [hfj p hmaskI.1] at hflipJ
+  exact ⟨p, hmaskI.1, hpos, hflipI, hflipJ, hmaskI.2, hmaskJ.2⟩
+
+lemma boundedMask_bits {mask dim : Nat}
+    (hlt : mask < 2 ^ dim) (bit : Nat → Bool)
+    (hbit : ∀ p < dim, mask.testBit p = bit p) (p : Nat) :
+    mask.testBit p = (decide (p < dim) && bit p) := by
+  by_cases hp : p < dim
+  · simp [hp, hbit p hp]
+  · have hpow : 2 ^ dim ≤ 2 ^ p := Nat.pow_le_pow_right (by decide) (by omega)
+    have hzero := Nat.testBit_lt_two_pow (hlt.trans_le hpow)
+    simp [hp, hzero]
+
+
+lemma fastOppositeCorners {positive negative fi fj gi gj li lj mi mj i j : Nat}
+    {a b : Bool}
+    (hfi : ∀ p < 1024, fi.testBit p = negative.testBit (p ^^^ (1 <<< i)))
+    (hfj : ∀ p < 1024, fj.testBit p = negative.testBit (p ^^^ (1 <<< j)))
+    (hgi : ∀ p < 1024, gi.testBit p = positive.testBit (p ^^^ (1 <<< i)))
+    (hgj : ∀ p < 1024, gj.testBit p = positive.testBit (p ^^^ (1 <<< j)))
+    (hli : ∀ p, li.testBit p = (decide (p < 1024) && (p.testBit i == a)))
+    (hlj : ∀ p, lj.testBit p = (decide (p < 1024) && (p.testBit j == b)))
+    (hmi : ∀ p, mi.testBit p = (decide (p < 1024) && (p.testBit i == !a)))
+    (hmj : ∀ p, mj.testBit p = (decide (p < 1024) && (p.testBit j == !b)))
+    (hpos : (positive &&& fi) &&& (positive &&& fj) &&& li &&& lj ≠ 0)
+    (hneg : (negative &&& gi) &&& (negative &&& gj) &&& mi &&& mj ≠ 0) :
+    ∃ p q, p < 1024 ∧ q < 1024 ∧
+      positive.testBit p = true ∧ negative.testBit q = true ∧
+      negative.testBit (p ^^^ (1 <<< i)) = true ∧
+      negative.testBit (p ^^^ (1 <<< j)) = true ∧
+      positive.testBit (q ^^^ (1 <<< i)) = true ∧
+      positive.testBit (q ^^^ (1 <<< j)) = true ∧
+      p.testBit i ≠ q.testBit i ∧ p.testBit j ≠ q.testBit j := by
+  obtain ⟨p, hp, hP, hPi, hPj, hia, hjb⟩ :=
+    fastForkPhaseWitness hfi hfj hli hlj hpos
+  obtain ⟨q, hq, hQ, hQi, hQj, hni, hnj⟩ :=
+    fastForkPhaseWitness hgi hgj hmi hmj hneg
+  refine ⟨p, q, hp, hq, hP, hQ, hPi, hPj, hQi, hQj, ?_, ?_⟩
+  · rw [hia, hni]
+    cases a <;> decide
+  · rw [hjb, hnj]
+    cases b <;> decide
+
+lemma lowMask_bit {i : Nat} (hi : i < 10) (p : Nat) :
+    lowMasks[i]!.testBit p = (decide (p < 1024) && !(p.testBit i)) := by
+  apply boundedMask_bits (lowMask_lt_checked ⟨i, hi⟩)
+  intro q hq
+  exact lowMask_bit_checked ⟨i, hi⟩ ⟨q, hq⟩
+
+lemma highMask_bit {i : Nat} (hi : i < 10) (p : Nat) :
+    (lowMasks[i]! <<< (1 <<< i)).testBit p =
+      (decide (p < 1024) && p.testBit i) := by
+  apply boundedMask_bits (highMask_lt_checked ⟨i, hi⟩)
+  intro q hq
+  exact highMask_bit_checked ⟨i, hi⟩ ⟨q, hq⟩
+
+def inspectNat {α : Sort u} (n : Nat) (k : Nat → α) : α :=
+  Nat.rec (motive := fun _ => α) (k 0) (fun p _ => k (Nat.succ p)) n
+
+lemma inspectNat_eq {α : Sort u} (n : Nat) (k : Nat → α) : inspectNat n k = k n := by
+  cases n <;> rfl
+
+def fastVertices (n positive negative : Nat) : List (Nat × Nat × Nat × Nat × Nat) :=
+  (List.range n).map fun i =>
+    let low := lowMasks[i]!
+    let high := low <<< (1 <<< i)
+    let forkP := positive &&& flipPatternBits i negative
+    let forkN := negative &&& flipPatternBits i positive
+    inspectNat forkP fun forkP =>
+      inspectNat forkN fun forkN => (i,low,high,forkP,forkN)
+
+def edgeBoolFast (vi vj : Nat × Nat × Nat × Nat × Nat) : Bool :=
+  let (_,li,hi,pi,ni) := vi
+  let (_,lj,hj,pj,nj) := vj
+  let cp := pi &&& pj
+  let cn := ni &&& nj
+  (!(cp &&& li &&& lj == 0) && !(cn &&& hi &&& hj == 0)) ||
+  (!(cp &&& hi &&& lj == 0) && !(cn &&& li &&& hj == 0)) ||
+  (!(cp &&& li &&& hj == 0) && !(cn &&& hi &&& lj == 0)) ||
+  (!(cp &&& hi &&& hj == 0) && !(cn &&& li &&& lj == 0))
+
+def criticalEdgesFast (ws : List Nat) : List (Nat × Nat) :=
+  let (positive, negative) := patternSets (labelledPatterns ws)
+  inspectNat positive fun positive =>
+    inspectNat negative fun negative =>
+      (pairs (fastVertices ws.length positive negative)).filterMap fun (vi,vj,_) =>
+        if edgeBoolFast vi vj then some (vi.1,vj.1) else none
+
+def hasCriticalEdgeFast (ws : List Nat) : Bool :=
+  let (positive, negative) := patternSets (labelledPatterns ws)
+  inspectNat positive fun positive =>
+    inspectNat negative fun negative =>
+      (pairs (fastVertices ws.length positive negative)).any fun (vi,vj,_) =>
+        edgeBoolFast vi vj
+
+
+def adj_phaseMask (i : Nat) (a : Bool) : Nat :=
+  if a then lowMasks[i]! <<< (1 <<< i) else lowMasks[i]!
+
+lemma adj_phaseMask_bit {i : Nat} (hi : i < 10) (a : Bool) (p : Nat) :
+    (adj_phaseMask i a).testBit p = (decide (p < 1024) && (p.testBit i == a)) := by
+  cases a with
+  | false =>
+    change lowMasks[i]!.testBit p = _
+    rw [lowMask_bit hi]
+    cases p.testBit i <;> rfl
+  | true =>
+    change (lowMasks[i]! <<< (1 <<< i)).testBit p = _
+    rw [highMask_bit hi]
+    cases p.testBit i <;> rfl
+
+def adj_corner (positive negative i j : Nat) (a b : Bool) : Nat :=
+  (positive &&& flipPatternBits i negative) &&&
+    (positive &&& flipPatternBits j negative) &&& adj_phaseMask i a &&& adj_phaseMask j b
+
+lemma adj_fast_corner {ps : List (Nat × Bool)} {i j : Nat} (hi : i < 10) (hj : j < 10)
+    {a b : Bool}
+    (hp : adj_corner (patternSets ps).1 (patternSets ps).2 i j a b ≠ 0)
+    (hn : adj_corner (patternSets ps).2 (patternSets ps).1 i j (!a) (!b) ≠ 0) :
+    adj_patternCorners ps i j := by
+  obtain ⟨p,q,_,_,hP,hN,hPi,hPj,hNi,hNj,hij,hij'⟩ :=
+    fastOppositeCorners
+      (fun p hp => flipPatternBits_bit hi hp _)
+      (fun p hp => flipPatternBits_bit hj hp _)
+      (fun p hp => flipPatternBits_bit hi hp _)
+      (fun p hp => flipPatternBits_bit hj hp _)
+      (adj_phaseMask_bit hi a) (adj_phaseMask_bit hj b)
+      (adj_phaseMask_bit hi (!a)) (adj_phaseMask_bit hj (!b)) hp hn
+  exact ⟨p,q,(adj_patternSets_pos ps p).mp hP,(adj_patternSets_neg ps q).mp hN,
+    (adj_patternSets_neg ps _).mp hPi,(adj_patternSets_neg ps _).mp hPj,
+    (adj_patternSets_pos ps _).mp hNi,(adj_patternSets_pos ps _).mp hNj,hij,hij'⟩
+
+lemma adj_singles_map {α β : Type} (f : α → β) (ws : List α) :
+    singles (ws.map f) = (singles ws).map (fun (a,rest) => (f a,rest.map f)) := by
+  induction ws with
+  | nil => rfl
+  | cons a ws ih => simp [singles, ih, List.map_map, Function.comp_def]
+
+lemma adj_pairs_map {α β : Type} (f : α → β) (ws : List α) :
+    pairs (ws.map f) = (pairs ws).map (fun (a,b,rest) => (f a,f b,rest.map f)) := by
+  induction ws with
+  | nil => rfl
+  | cons a ws ih => simp [pairs, adj_singles_map, ih, List.map_map, Function.comp_def]
+
+def adj_vertex (positive negative i : Nat) : Nat × Nat × Nat × Nat × Nat :=
+  (i,lowMasks[i]!,lowMasks[i]! <<< (1 <<< i),
+    positive &&& flipPatternBits i negative,negative &&& flipPatternBits i positive)
+
+def adj_edge (positive negative i j : Nat) : Bool :=
+  (!(adj_corner positive negative i j false false == 0) &&
+     !(adj_corner negative positive i j true true == 0)) ||
+  (!(adj_corner positive negative i j true false == 0) &&
+     !(adj_corner negative positive i j false true == 0)) ||
+  (!(adj_corner positive negative i j false true == 0) &&
+     !(adj_corner negative positive i j true false == 0)) ||
+  (!(adj_corner positive negative i j true true == 0) &&
+     !(adj_corner negative positive i j false false == 0))
+
+lemma adj_edge_sound {ps : List (Nat × Bool)} {i j : Nat} (hi : i < 10) (hj : j < 10)
+    (he : adj_edge (patternSets ps).1 (patternSets ps).2 i j = true) :
+    adj_patternCorners ps i j := by
+  simp only [adj_edge, Bool.or_eq_true, Bool.and_eq_true] at he
+  rcases he with ((h | h) | h) | h
+  · exact adj_fast_corner hi hj (a := false) (b := false) (by simpa using h.1) (by simpa using h.2)
+  · exact adj_fast_corner hi hj (a := true) (b := false) (by simpa using h.1) (by simpa using h.2)
+  · exact adj_fast_corner hi hj (a := false) (b := true) (by simpa using h.1) (by simpa using h.2)
+  · exact adj_fast_corner hi hj (a := true) (b := true) (by simpa using h.1) (by simpa using h.2)
+
+lemma adj_criticalEdgesFast_eq (ws : List Nat) :
+    criticalEdgesFast ws = (pairs (List.range ws.length)).filterMap (fun (i,j,_) =>
+      if adj_edge (patternSets (labelledPatterns ws)).1 (patternSets (labelledPatterns ws)).2 i j
+        then some (i,j) else none) := by
+  unfold criticalEdgesFast
+  simp only [inspectNat_eq, fastVertices]
+  change (pairs ((List.range ws.length).map (adj_vertex _ _))).filterMap _ = _
+  rw [adj_pairs_map, List.filterMap_map]
+  rfl
+
+lemma criticalEdgesFast_sound {ws : List Nat} {i j : Nat} (hw : ws.length ≤ 10)
+    (he : (i,j) ∈ criticalEdgesFast ws) :
+    criticalPair (BitVec.ofNat 64 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  rw [adj_criticalEdgesFast_eq] at he
+  obtain ⟨⟨a,b,rest⟩,hab,he⟩ := List.mem_filterMap.mp he
+  change (if adj_edge (patternSets (labelledPatterns ws)).1
+    (patternSets (labelledPatterns ws)).2 a b then some (a,b) else none) = some (i,j) at he
+  split at he
+  · rename_i hc
+    have heq : (a,b) = (i,j) := Option.some.inj he
+    cases heq
+    obtain ⟨ha,hb,hne⟩ := pairs_range_bounds hab
+    exact adj_corner_rows ha hb hne (adj_edge_sound (ha.trans_le hw) (hb.trans_le hw) hc)
+  · simp at he
+
+
+
+
+def criticalGraphFast (ws : List Nat) : List (Nat × Nat) :=
+  let es := criticalEdgesFast ws
+  (List.range ws.length).map fun i =>
+    (i, es.foldl (fun mask (a,b) =>
+      if a == i then mask ||| (1 <<< b)
+      else if b == i then mask ||| (1 <<< a) else mask) 0)
+
+lemma criticalPair_symm {width : Nat} {target : BitVec width}
+    {S : Finset (BitVec width)} {a b : BitVec width}
+    (h : criticalPair target S a b) : criticalPair target S b a := by
+  obtain ⟨ha,hb,hne,p,q,ra,rb,sa,sb,hp,hq,hra,hrb,hsa,hsb,ua,ub,usa,usb,hpa,hpb⟩ := h
+  exact ⟨hb,ha,Ne.symm hne,p,q,rb,ra,sb,sa,hp,hq,hrb,hra,hsb,hsa,ub,ua,usb,usa,hpb,hpa⟩
+
+def adj_neighborStep (i acc : Nat) (e : Nat × Nat) : Nat :=
+  if e.1 == i then acc ||| (1 <<< e.2)
+  else if e.2 == i then acc ||| (1 <<< e.1) else acc
+
+lemma adj_neighbor_bit (i acc j : Nat) (e : Nat × Nat) :
+    (adj_neighborStep i acc e).testBit j =
+      (acc.testBit j || decide ((e.1 = i ∧ e.2 = j) ∨ (e.2 = i ∧ e.1 = j))) := by
+  obtain ⟨a,b⟩ := e
+  by_cases ha : a = i <;> by_cases hb : b = i <;>
+    simp [adj_neighborStep, ha, hb, Nat.testBit_or, Nat.shiftLeft_eq, Nat.testBit_two_pow]
+
+lemma adj_neighbor_fold (es : List (Nat × Nat)) (i acc j : Nat) :
+    (es.foldl (adj_neighborStep i) acc).testBit j =
+      (acc.testBit j || es.any (fun (a,b) => decide ((a=i ∧ b=j) ∨ (b=i ∧ a=j)))) := by
+  induction es generalizing acc with
+  | nil => simp
+  | cons e es ih =>
+    rw [List.foldl_cons, ih, adj_neighbor_bit]
+    simp only [List.any_cons, Bool.or_assoc]
+
+lemma adj_neighbor_sound {es : List (Nat × Nat)} {i j : Nat}
+    (h : (es.foldl (adj_neighborStep i) 0).testBit j = true) :
+    (i,j) ∈ es ∨ (j,i) ∈ es := by
+  rw [adj_neighbor_fold] at h
+  simp only [Nat.zero_testBit, Bool.false_or, List.any_eq_true, decide_eq_true_eq] at h
+  obtain ⟨⟨a,b⟩,he,(⟨ha,hb⟩ | ⟨hb,ha⟩)⟩ := h
+  · dsimp at ha hb; subst a; subst b; exact Or.inl he
+  · dsimp at ha hb; subst a; subst b; exact Or.inr he
+
+lemma criticalGraphFast_sound {ws : List Nat} {i adj j : Nat} (hw : ws.length ≤ 10)
+    (hi : (i,adj) ∈ criticalGraphFast ws) (hb : adj.testBit j = true) :
+    criticalPair (BitVec.ofNat 64 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  obtain ⟨k,_,he⟩ := List.mem_map.mp hi
+  have he1 : k = i := congrArg Prod.fst he
+  subst k
+  have he2 := congrArg Prod.snd he
+  change (criticalEdgesFast ws).foldl (adj_neighborStep i) 0 = adj at he2
+  rw [← he2] at hb
+  rcases adj_neighbor_sound hb with he | he
+  · exact criticalEdgesFast_sound hw he
+  · exact criticalPair_symm (criticalEdgesFast_sound hw he)
+
+lemma criticalEdgesFast_exists {ws : List Nat} (hw : ws.length ≤ 10)
+    (he : (criticalEdgesFast ws).isEmpty = false) :
+    ∃ i j, criticalPair (BitVec.ofNat 64 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  have hn : criticalEdgesFast ws ≠ [] := by simpa using he
+  obtain ⟨⟨i,j⟩,hm⟩ := List.exists_mem_of_ne_nil _ hn
+  exact ⟨i,j,criticalEdgesFast_sound hw hm⟩
+
+
+lemma hasCriticalEdgeFast_edges {ws : List Nat} (h : hasCriticalEdgeFast ws = true) :
+    ∃ i j, (i,j) ∈ criticalEdgesFast ws := by
+  unfold hasCriticalEdgeFast at h
+  simp only [inspectNat_eq] at h
+  obtain ⟨⟨vi,vj,rest⟩,hm,he⟩ := List.any_eq_true.mp h
+  refine ⟨vi.1,vj.1,?_⟩
+  unfold criticalEdgesFast
+  simp only [inspectNat_eq]
+  refine List.mem_filterMap.mpr ⟨(vi,vj,rest),hm,?_⟩
+  change (if edgeBoolFast vi vj then some (vi.1,vj.1) else none) = some (vi.1,vj.1)
+  rw [he]
+  rfl
+
+lemma hasCriticalEdgeFast_sound {ws : List Nat} (hw : ws.length ≤ 10)
+    (h : hasCriticalEdgeFast ws = true) :
+    ∃ i j, criticalPair (BitVec.ofNat 64 goal) (adj_frontier ws) (adj_word ws i) (adj_word ws j) := by
+  obtain ⟨i,j,he⟩ := hasCriticalEdgeFast_edges h
+  exact ⟨i,j,criticalEdgesFast_sound hw he⟩
+
+
+end PEqualNP.Outside.L_meta_10760.KernelNat64
+
+namespace PEqualNP.Outside.L_meta_10760
+
+def sampledGraph (ws : List (BitVec 64)) : List Nat :=
+  (KernelNat64.criticalGraphFast (ws.map BitVec.toNat)).map Prod.snd
+
+lemma sampledGraph_length (ws : List (BitVec 64)) :
+    (sampledGraph ws).length = ws.length := by
+  simp [sampledGraph, KernelNat64.criticalGraphFast]
+
+lemma sampled_frontier (ws : List (BitVec 64)) :
+    KernelNat64.adj_frontier (ws.map BitVec.toNat) = ws.toFinset := by
+  simp [KernelNat64.adj_frontier, List.map_map, Function.comp_def]
+
+lemma sampledGraph_row (ws : List (BitVec 64)) (i : Nat) (hi : i < ws.length) :
+    (i, (sampledGraph ws).getD i 0) ∈
+      KernelNat64.criticalGraphFast (ws.map BitVec.toNat) := by
+  unfold sampledGraph KernelNat64.criticalGraphFast
+  simp only [List.map_map, Function.comp_def, List.length_map]
+  apply List.mem_map.mpr
+  refine ⟨i, List.mem_range.mpr hi, ?_⟩
+  simp [List.getD_eq_getElem?_getD, hi]
+
+def sampledAdmissible (k : Nat) (ws : List (BitVec 64)) : Bool :=
+  if ws.length ≤ 10 then
+    let colors := k + 2 - ws.length
+    if 4 ≤ colors then true
+    else if colors = 1 then !KernelNat64.hasCriticalEdgeFast (ws.map BitVec.toNat)
+    else graphColorDegreeFast (sampledGraph ws) colors
+  else true
+
+lemma sampledAdmissible_complete {g : BitVec 64}
+    (hg : g = sampleGoal64 ∨ g = ~~~sampleGoal64)
+    (k : Nat) (ws : List (BitVec 64)) (hn : ws.Nodup)
+    (run : live basicOps g k ws.toFinset) : sampledAdmissible k ws = true := by
+  obtain ⟨color, bound, proper⟩ := live_criticalPair_coloring run hg
+  have card : ws.toFinset.card = ws.length := List.toFinset_card_of_nodup hn
+  rw [card] at bound
+  unfold sampledAdmissible
   split
-  next hc =>
-    subst colors
-    simp only [graphTriangleCheck_complete h, graphColorSymFast_complete h, Bool.and_self]
-  next hc => exact graphColorSymFast_complete h
+  next hsize =>
+    dsimp only
+    split
+    · rfl
+    · split
+      next hone =>
+        cases he : KernelNat64.hasCriticalEdgeFast (ws.map BitVec.toNat) with
+        | false => rfl
+        | true =>
+          obtain ⟨i, j, hedge⟩ := KernelNat64.hasCriticalEdgeFast_sound
+            (by simpa using hsize) he
+          change criticalPair sampleGoal64
+            (KernelNat64.adj_frontier (ws.map BitVec.toNat)) _ _ at hedge
+          rw [sampled_frontier] at hedge
+          have hb1 := bound _ hedge.1
+          have hb2 := bound _ hedge.2.1
+          have hne := proper _ _ hedge
+          omega
+      next hnotone =>
+        apply graphColorDegreeFast_complete
+        refine ⟨fun i => color (KernelNat64.adj_word (ws.map BitVec.toNat) i), ?_, ?_⟩
+        · intro i hi
+          rw [sampledGraph_length] at hi
+          apply bound
+          rw [← sampled_frontier]
+          exact KernelNat64.adj_word_mem (by simpa using hi)
+        · intro i hi j hj he
+          rw [sampledGraph_length] at hi hj
+          have hedge := KernelNat64.criticalGraphFast_sound
+            (by simpa using hsize) (sampledGraph_row ws i hi) he
+          change criticalPair sampleGoal64
+            (KernelNat64.adj_frontier (ws.map BitVec.toNat)) _ _ at hedge
+          rw [sampled_frontier] at hedge
+          exact proper _ _ hedge
+  next hsize => rfl
 
-lemma not_graphColorable_of_triangleFast {graph : List ℕ} {colors : ℕ}
-    (h : graphColorTriangleFast graph colors = false) : ¬ graphColorable graph colors := by
-  intro hc
-  have hh := graphColorTriangleFast_complete hc
-  rw [h] at hh
-  cases hh
+def checkedAdmissible (k : Nat) (ws : List (BitVec 64)) : Bool :=
+  decide ((0 : BitVec 64) ∉ ws) && sampledAdmissible k ws
+
+lemma checkedAdmissible_complete {g : BitVec 64}
+    (hg : g = sampleGoal64 ∨ g = ~~~sampleGoal64)
+    (k : Nat) (ws : List (BitVec 64)) (hn : ws.Nodup)
+    (run : live basicOps g k ws.toFinset) : checkedAdmissible k ws = true := by
+  have hnonzero : g ≠ 0 := by
+    rcases hg with rfl | rfl <;> decide +kernel
+  have hz : (0 : BitVec 64) ∉ ws := by
+    simpa using live_zero_free hnonzero run
+  simpa only [checkedAdmissible, Bool.and_eq_true, decide_eq_true_eq] using
+    And.intro hz (sampledAdmissible_complete hg k ws hn run)
+
+def representativeInputs (r : Fin 45) : List (BitVec 64) :=
+  MemoActualPruned.ordered
+    (S64.caseWord (S64.representative r) :: sampleInputs64.map canonical64)
+
+lemma representativeInputs_set (r : Fin 45) :
+    (representativeInputs r).toFinset =
+      insert (S64.caseWord (S64.representative r)) signedRoots64 := by
+  rw [representativeInputs, MemoActualPruned.perm_set (MemoActualPruned.ordered_perm _)]
+  simp [signedRoots64]
+
+set_option maxHeartbeats 8000000 in
+lemma representativeInputs_nodup : ∀ r : Fin 45, (representativeInputs r).Nodup := by
+  decide +kernel
+
+def selectedFalseRows : List (Fin 64) :=
+  [0, 1, 2, 3, 4, 6, 8, 9, 12, 15, 22, 26, 30, 37, 42, 44, 53]
+
+def representativeCheck (r : Fin 45) : Bool :=
+  MemoPruned.runFrom 0 checkedAdmissible (MemoActualPruned.done sampleGoal64)
+    (MemoActualPruned.children sampleGoal64 selectedFalseRows) 11 (representativeInputs r)
+
+lemma representative_rejection (r : Fin 45) (h : representativeCheck r = false) :
+    ¬ live basicOps (~~~sampleGoal64) 11
+      (insert (S64.caseWord (S64.representative r)) signedRoots64) := by
+  intro run
+  rw [← representativeInputs_set r] at run
+  have found := MemoActualPruned.run_complete (Or.inr rfl)
+    checkedAdmissible (checkedAdmissible_complete (Or.inr rfl))
+    selectedFalseRows 0 11 (representativeInputs r) (representativeInputs_nodup r) run
+  change representativeCheck r = true at found
+  rw [h] at found
+  contradiction
+
+end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760.MemoPruned
+
+lemma plain_reject_of_guard {α : Type}
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (k : Nat) (x : α)
+    (ha : admissible k x = false) :
+    plain admissible done children k x = false := by
+  cases k <;> simp [plain, ha]
+
+lemma plain_reject_of_cover {α : Type}
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (k : Nat) (x : α) (hard : List α)
+    (hd : done x = false)
+    (hcover : ∀ child ∈ children k x, admissible k child = false ∨ child ∈ hard)
+    (hc : ∀ child ∈ hard, plain admissible done children k child = false) :
+    plain admissible done children (k+1) x = false := by
+  simp only [plain]
+  split
+  · rw [hd, Bool.false_or]
+    apply List.any_eq_false.mpr
+    intro child hchild
+    have hf : plain admissible done children k child = false := by
+      rcases hcover child hchild with ha | hh
+      · exact plain_reject_of_guard admissible done children k child ha
+      · exact hc child hh
+    rw [hf]
+    decide
+  · rfl
+
+end PEqualNP.Outside.L_meta_10760.MemoPruned
+
+namespace PEqualNP.Outside.L_meta_10760
+
+lemma runFrom_reject_of_guard {width : Nat}
+    (threshold : Nat)
+    (admissible : Nat → List (BitVec width) → Bool)
+    (done : List (BitVec width) → Bool)
+    (children : Nat → List (BitVec width) → List (List (BitVec width)))
+    (k : Nat) (ws : List (BitVec width))
+    (ha : admissible k ws = false) :
+    MemoPruned.runFrom threshold admissible done children k ws = false := by
+  rw [MemoPruned.runFrom_correct]
+  cases k <;> simp [MemoPruned.plain, ha]
+
+lemma runFrom_reject_of_children {width : Nat}
+    (parentThreshold childThreshold : Nat)
+    (admissible : Nat → List (BitVec width) → Bool)
+    (done : List (BitVec width) → Bool)
+    (children : Nat → List (BitVec width) → List (List (BitVec width)))
+    (k : Nat) (ws : List (BitVec width))
+    (hd : done ws = false)
+    (hc : ∀ child ∈ children k ws,
+      MemoPruned.runFrom childThreshold admissible done children k child = false) :
+    MemoPruned.runFrom parentThreshold admissible done children (k+1) ws = false := by
+  rw [MemoPruned.runFrom_correct]
+  simp only [MemoPruned.plain]
+  split
+  · rw [hd, Bool.false_or]
+    apply List.any_eq_false.mpr
+    intro child hchild
+    have hf : MemoPruned.plain admissible done children k child = false := by
+      simpa only [MemoPruned.runFrom_correct] using hc child hchild
+    rw [hf]
+    decide
+  · rfl
+
+lemma runFrom_reject_of_cover {width : Nat}
+    (parentThreshold childThreshold : Nat)
+    (admissible : Nat → List (BitVec width) → Bool)
+    (done : List (BitVec width) → Bool)
+    (children : Nat → List (BitVec width) → List (List (BitVec width)))
+    (k : Nat) (ws : List (BitVec width)) (hard : List (List (BitVec width)))
+    (hd : done ws = false)
+    (hcover : ∀ child ∈ children k ws, admissible k child = false ∨ child ∈ hard)
+    (hc : ∀ child ∈ hard,
+      MemoPruned.runFrom childThreshold admissible done children k child = false) :
+    MemoPruned.runFrom parentThreshold admissible done children (k+1) ws = false := by
+  apply runFrom_reject_of_children parentThreshold childThreshold admissible done children k ws hd
+  intro child hchild
+  rcases hcover child hchild with ha | hh
+  · exact runFrom_reject_of_guard childThreshold admissible done children k child ha
+  · exact hc child hh
+
+def representativeChildren (r : Fin 45) : List (List (BitVec 64)) :=
+  MemoActualPruned.children sampleGoal64 selectedFalseRows 10 (representativeInputs r)
+
+def representativeChildCheck (threshold : Nat) (r : Fin 45)
+    (i : Fin (representativeChildren r).length) : Bool :=
+  MemoPruned.runFrom threshold checkedAdmissible (MemoActualPruned.done sampleGoal64)
+    (MemoActualPruned.children sampleGoal64 selectedFalseRows) 10
+    ((representativeChildren r)[i])
+
+set_option maxHeartbeats 2000000 in
+lemma representativeCheck_of_child_checks (threshold : Nat) (r : Fin 45)
+    (hd : MemoActualPruned.done sampleGoal64 (representativeInputs r) = false)
+    (hc : ∀ i : Fin (representativeChildren r).length,
+      representativeChildCheck threshold r i = false) :
+    representativeCheck r = false := by
+  unfold representativeCheck
+  refine runFrom_reject_of_children 0 threshold checkedAdmissible
+    (MemoActualPruned.done sampleGoal64)
+    (MemoActualPruned.children sampleGoal64 selectedFalseRows) 10 (representativeInputs r) hd ?_
+  intro child hchild
+  obtain ⟨i, hi, he⟩ := List.mem_iff_getElem.mp hchild
+  change i < (representativeChildren r).length at hi
+  have hh := hc ⟨i, hi⟩
+  change MemoPruned.runFrom threshold checkedAdmissible
+    (MemoActualPruned.done sampleGoal64)
+    (MemoActualPruned.children sampleGoal64 selectedFalseRows) 10
+    ((representativeChildren r)[i]) = false at hh
+  change (representativeChildren r)[i] = child at he
+  rw [he] at hh
+  exact hh
+
+end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760
+
+def childrenCoverCheck {width : Nat}
+    (admissible : Nat → List (BitVec width) → Bool)
+    (children : Nat → List (BitVec width) → List (List (BitVec width)))
+    (k : Nat) (ws : List (BitVec width)) (hard : List (List (BitVec width))) : Bool :=
+  (children k ws).all (fun child => !admissible k child || decide (child ∈ hard))
+
+lemma childrenCoverCheck_sound {width : Nat}
+    (admissible : Nat → List (BitVec width) → Bool)
+    (children : Nat → List (BitVec width) → List (List (BitVec width)))
+    (k : Nat) (ws : List (BitVec width)) (hard : List (List (BitVec width)))
+    (h : childrenCoverCheck admissible children k ws hard = true) :
+    ∀ child ∈ children k ws, admissible k child = false ∨ child ∈ hard := by
+  intro child hc
+  have hh := List.all_eq_true.mp h child hc
+  simpa using hh
+
+def indexedChildren {width : Nat} (children : List (List (BitVec width)))
+    (indices : List Nat) : List (List (BitVec width)) :=
+  indices.map (fun i => children.getD i [])
+
+end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760
+
+def helper7Hard26 : List (List (BitVec 64)) :=
+  indexedChildren (representativeChildren (26 : Fin 45))
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156]
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+lemma helper7ChildCount26 : (representativeChildren (26 : Fin 45)).length = 157 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+lemma helper7Hard26Covered :
+    childrenCoverCheck checkedAdmissible
+      (MemoActualPruned.children sampleGoal64 selectedFalseRows) 10
+      (representativeInputs (26 : Fin 45)) helper7Hard26 = true := by
+  decide +kernel
+
 
 end PEqualNP.Outside.L_meta_10760
