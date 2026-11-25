@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS independent cleanup delta review",
+  "original_sha256": "5c0f4a872ef18607dfa4be1c150020e256eff4df564c55e8898fdc47bd42f124",
+  "candidate_sha256": "72f8ba7a58bb18f0f7b5571ca6d618d8e6b415f515757508a769a636dbfc3907",
+  "original_bytes": 112661,
+  "candidate_bytes": 111121,
+  "original_lines": 2222,
+  "candidate_lines": 2221,
+  "unchanged_prefix_bytes": 108640,
+  "exact_final_type_text_unchanged": true,
+  "proof_body_identical_after_local_lower_bound_binding": true,
+  "format_scan": "PASS",
+  "scope": "No finite data or generic proof changes; separate Lean compile/check remains required."
+}

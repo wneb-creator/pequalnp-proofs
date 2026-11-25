@@ -1,0 +1,17 @@
+{
+  "source": "lemmas/Public18915Clean.lean",
+  "source_sha256": "72f8ba7a58bb18f0f7b5571ca6d618d8e6b415f515757508a769a636dbfc3907",
+  "source_bytes": 111121,
+  "source_lines": 2221,
+  "original_sha256": "5c0f4a872ef18607dfa4be1c150020e256eff4df564c55e8898fdc47bd42f124",
+  "original_bytes": 112661,
+  "original_lines": 2222,
+  "changes": [
+    "Removed solve helper, eliminating repeated exact posted statement.",
+    "Moved its proof body unchanged into the final theorem with local low := fullBound allgb.",
+    "Opened the same helper namespaces for the final proof."
+  ],
+  "validation": "Standalone Lean compilation/export passed exit0; named lake build and official checker remain root responsibility.",
+  "stdout": "public18915-clean-checked.stdout",
+  "stderr": "public18915-clean-checked.stderr"
+}
