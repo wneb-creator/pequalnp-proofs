@@ -1,0 +1,11 @@
+L-meta-670 partial progress only; full statement remains unproved in this branch.
+
+Compiled artifact: results/orch/lemmas/BenchForce.lean
+Lean 4.36.0 exit code: 0. Complete stdout/stderr: empty.
+Independently reviewed and recompiled by root; source proves the optimizer preserves Batch values.
+SHA256: 0858339b56c1002bc0994f1ffcc5303960a2065bfa47c2dbff766a21be10e4bc
+
+Local gap checker: NOT RUN; this artifact is an auxiliary lemma, not the posted theorem.
+
+Sub-agents: 5 (rules/review, assembly, structural/certificates, counterexample/SAT, first-gate/optimization)
+TIMING total=14.1 subagents=5
