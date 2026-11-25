@@ -1,0 +1,9 @@
+Independent final preservation review at 2026-11-25T14:42:59.918962+00:00
+
+Named proof remains the previously built Seventeen partial; no full L-meta-2592 theorem or checker acceptance is claimed. Subsequent checked components were reviewed and preserved with complete logs and precise conditional hypotheses in lemmas/review-checkpoint.txt.
+
+Counterexample archive: 81 SHA256-listed payloads verified (82 files including manifest). Independent Boolean simulation confirmed signed18 candidates have4 errors, signed17 has12, common-t vectors have at least2 output errors, the signed C6 bank candidate has1 error, and the planted20 Petersen example has0 errors and0 NOTs. No19-gate refutation was found.
+
+SAT archive:227 current payload hashes verified plus two historical source snapshots whose filename prefixes match SHA256. SCOPE.md accurately distinguishes fixed neighborhoods/shards, UNKNOWN and interrupted runs, and planted sanity models. All27 fixed-bank UNSAT cases concern the first seven-input subdivided-claw orbit. They do not establish a full Petersen lower bound. Current source/log archives were scanned for credential patterns; none found.
+
+Unfinished source archives are explicitly UNVERIFIED and are not submitted proofs. Empty or warning-only logs from an unfinished process are not counted as compilation success. The producing agent owns the final running-build status update.

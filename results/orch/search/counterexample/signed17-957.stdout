@@ -1,0 +1,5 @@
+seed=957 sec=0.000103256 trials=0 errors=37 fp=0 fn=37
+seed=957 sec=0.0649699 trials=281568 errors=35 fp=5 fn=30
+seed=957 sec=0.0769946 trials=335710 errors=30 fp=0 fn=30
+seed=957 sec=0.0794088 trials=346702 errors=21 fp=0 fn=21
+seed=957 sec=0.0909586 trials=400000 errors=12 fp=12 fn=0

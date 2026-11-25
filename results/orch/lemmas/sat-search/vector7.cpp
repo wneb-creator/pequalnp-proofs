@@ -38,6 +38,7 @@ struct VectorSynth {
    }
   }
   for(int k=0;k<4;k++){for(int j=0;j<n+s;j++){outs[k].push_back(var());sat.freeze(outs[k][j]);}one(outs[k]);}
+  if(abs(maxnot)==1)for(int k=0;k<4;k++)for(int i=0;i<s;i++)sat.clause(-outs[k][n+i],-ops[i][2]);
   vector<int> nots;for(auto op:ops)nots.push_back(op[2]);if(maxnot!=0)sat.clause(nots);atmost(nots,abs(maxnot));
   if(maxnot<0){vector<int> negs;for(int x:nots)negs.push_back(-x);atmost(negs,s-abs(maxnot));}
   for(int i=0;i<s;i++){vector<int> use;for(int j=i+1;j<s;j++){use.push_back(as[j][n+i]);use.push_back(bs[j][n+i]);}for(int k=0;k<4;k++)use.push_back(outs[k][n+i]);sat.clause(use);}

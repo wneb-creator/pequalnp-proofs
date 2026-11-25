@@ -1,0 +1,26 @@
+WARM errors=2 penalty=8
+ACTIVE errors=44 trials=1798
+ACTIVE errors=42 trials=1805
+ACTIVE errors=40 trials=7161
+ACTIVE errors=38 trials=14514
+ACTIVE errors=25 trials=24703
+ACTIVE errors=24 trials=36671
+ACTIVE errors=20 trials=231812
+ACTIVE errors=19 trials=1085849
+ACTIVE errors=17 trials=1088450
+ACTIVE errors=15 trials=10274884
+PROGRESS trials=14964583 restarts=100 best=2
+ACTIVE errors=11 trials=28161168
+PROGRESS trials=33911075 restarts=200 best=2
+PROGRESS trials=52856019 restarts=300 best=2
+ACTIVE errors=10 trials=54032867
+PROGRESS trials=71803323 restarts=400 best=2
+PROGRESS trials=90753425 restarts=500 best=2
+PROGRESS trials=109699098 restarts=600 best=2
+PROGRESS trials=128644700 restarts=700 best=2
+PROGRESS trials=147589909 restarts=800 best=2
+PROGRESS trials=166536034 restarts=900 best=2
+PROGRESS trials=185481147 restarts=1000 best=2
+PROGRESS trials=204424910 restarts=1100 best=2
+PROGRESS trials=223373753 restarts=1200 best=2
+PROGRESS trials=242318119 restarts=1300 best=2

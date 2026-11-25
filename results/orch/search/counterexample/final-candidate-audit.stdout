@@ -1,0 +1,112 @@
+{
+  "exact20.txt": {
+    "gates": 20,
+    "errors": [],
+    "count": 0
+  },
+  "best951.txt": {
+    "gates": 19,
+    "errors": [
+      50,
+      104,
+      138,
+      208
+    ],
+    "count": 4
+  },
+  "best952.txt": {
+    "gates": 19,
+    "errors": [
+      69,
+      208,
+      276,
+      385
+    ],
+    "count": 4
+  },
+  "best953.txt": {
+    "gates": 19,
+    "errors": [
+      20,
+      68,
+      69,
+      80,
+      84,
+      208,
+      276,
+      385
+    ],
+    "count": 8
+  },
+  "signed18-best956.txt": {
+    "gates": 18,
+    "errors": [
+      69,
+      208,
+      276,
+      385
+    ],
+    "count": 4
+  },
+  "signed17-best957.txt": {
+    "gates": 17,
+    "errors": [
+      65,
+      69,
+      73,
+      129,
+      137,
+      192,
+      193,
+      200,
+      201,
+      208,
+      276,
+      385
+    ],
+    "count": 12
+  },
+  "orbit2-best958.txt": {
+    "vector_gates": 13,
+    "composed_gates": 19,
+    "errors": [
+      520,
+      521,
+      522,
+      552,
+      554
+    ],
+    "count": 5
+  },
+  "orbit2-best959.txt": {
+    "vector_gates": 13,
+    "composed_gates": 19,
+    "errors": [
+      520,
+      521,
+      522,
+      552,
+      554
+    ],
+    "count": 5
+  },
+  "orbit2-best960.txt": {
+    "vector_gates": 13,
+    "composed_gates": 19,
+    "errors": [
+      520,
+      521,
+      522,
+      552,
+      554
+    ],
+    "count": 5
+  },
+  "cycle-bank-best.txt": {
+    "additional_signed_gates": 7,
+    "errors": [
+      18
+    ],
+    "count": 1
+  }
+}

@@ -1,0 +1,38 @@
+seed=958 sec=0.000250924 trials=0 errors=16 penalty=4
+seed=958 sec=0.0440856 trials=75747 errors=14 penalty=4
+seed=958 sec=0.0799021 trials=139872 errors=6 penalty=0
+seed=958 sec=1.04315 trials=1639378 errors=4 penalty=4
+PROGRESS trials=18821668 restarts=100 best=4
+PROGRESS trials=37653335 restarts=200 best=4
+PROGRESS trials=56479176 restarts=300 best=4
+seed=958 sec=34.6935 trials=60198046 errors=2 penalty=4
+PROGRESS trials=75302158 restarts=400 best=2
+PROGRESS trials=94136009 restarts=500 best=2
+PROGRESS trials=112958724 restarts=600 best=2
+PROGRESS trials=131777767 restarts=700 best=2
+PROGRESS trials=150601742 restarts=800 best=2
+PROGRESS trials=169418571 restarts=900 best=2
+PROGRESS trials=188242935 restarts=1000 best=2
+PROGRESS trials=207070046 restarts=1100 best=2
+PROGRESS trials=225893337 restarts=1200 best=2
+PROGRESS trials=244709072 restarts=1300 best=2
+PROGRESS trials=263534105 restarts=1400 best=2
+PROGRESS trials=282364779 restarts=1500 best=2
+PROGRESS trials=301187282 restarts=1600 best=2
+PROGRESS trials=320007664 restarts=1700 best=2
+PROGRESS trials=338835154 restarts=1800 best=2
+PROGRESS trials=357654640 restarts=1900 best=2
+PROGRESS trials=376473387 restarts=2000 best=2
+PROGRESS trials=395297285 restarts=2100 best=2
+PROGRESS trials=414117552 restarts=2200 best=2
+PROGRESS trials=432943572 restarts=2300 best=2
+PROGRESS trials=451777090 restarts=2400 best=2
+PROGRESS trials=470599590 restarts=2500 best=2
+PROGRESS trials=489427192 restarts=2600 best=2
+PROGRESS trials=508243383 restarts=2700 best=2
+PROGRESS trials=527069801 restarts=2800 best=2
+PROGRESS trials=545894395 restarts=2900 best=2
+PROGRESS trials=564727459 restarts=3000 best=2
+PROGRESS trials=583543966 restarts=3100 best=2
+PROGRESS trials=602368575 restarts=3200 best=2
+PROGRESS trials=621187088 restarts=3300 best=2

@@ -1,0 +1,3 @@
+{"name": "full-repair-budget3-notcap1", "exit_code": 0, "budget": 3, "not_cap": 1, "result": 20, "seconds": 1, "verdict": "UNSAT"}
+{"name": "full-repair-budget4-notcap3", "exit_code": 0, "budget": 4, "not_cap": 3, "result": 20, "seconds": 11, "verdict": "UNSAT"}
+{"name": "full-repair-budget5-notcap3", "exit_code": 0, "budget": 5, "not_cap": 3, "result": 0, "seconds": 60, "verdict": "UNKNOWN"}

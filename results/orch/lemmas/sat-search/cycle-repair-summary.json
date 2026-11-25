@@ -1,0 +1,34 @@
+[
+  {
+    "name": "cycle-repair-budget2",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 0,
+    "verdict": "UNSAT",
+    "budget": 2
+  },
+  {
+    "name": "cycle-repair-budget3",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 0,
+    "verdict": "UNSAT",
+    "budget": 3
+  },
+  {
+    "name": "cycle-repair-budget4",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 1,
+    "verdict": "UNSAT",
+    "budget": 4
+  },
+  {
+    "name": "cycle-repair-budget5",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 6,
+    "verdict": "UNSAT",
+    "budget": 5
+  }
+]

@@ -1,0 +1,20 @@
+SOLVE supplied-config=0 unknown-gates=10 vars=4220
+RESULT 10 elapsed=0
+INDEPENDENT_CHECK_ERRORS 0
+7 1 1 3
+8 1 5 7
+9 1 0 1
+10 1 2 9
+11 1 0 4
+12 1 5 11
+13 2 0 0
+14 0 6 13
+15 1 0 14
+16 0 3 15
+17 1 1 6
+18 0 4 17
+19 1 5 6
+20 0 2 19
+21 1 16 18
+22 1 20 21
+OUTPUTS 8 10 12 22

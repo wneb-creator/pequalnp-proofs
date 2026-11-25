@@ -1,0 +1,50 @@
+[
+  {
+    "file": "signed18-best955.txt",
+    "gates": 18,
+    "false_positive": 4,
+    "false_negative": 0
+  },
+  {
+    "file": "signed18-best956.txt",
+    "gates": 18,
+    "false_positive": 4,
+    "false_negative": 0
+  },
+  {
+    "file": "signed17-best957.txt",
+    "gates": 17,
+    "false_positive": 12,
+    "false_negative": 0
+  },
+  {
+    "file": "orbit2-best958.txt",
+    "vector_errors": 2
+  },
+  {
+    "file": "orbit2-best959.txt",
+    "vector_errors": 2
+  },
+  {
+    "file": "orbit2-best959.txt.active.txt",
+    "vector_errors": 6
+  },
+  {
+    "file": "orbit2-best960.txt",
+    "vector_errors": 2
+  },
+  {
+    "file": "orbit2-best960.txt.active.txt",
+    "vector_errors": 10
+  },
+  {
+    "file": "cycle-bank-best.txt",
+    "errors": 1
+  },
+  {
+    "file": "../lemmas/sat-search/PETERSEN_WITNESS20.txt",
+    "gates": 20,
+    "errors": 0,
+    "NOTs": 0
+  }
+]

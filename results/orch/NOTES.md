@@ -58,3 +58,7 @@ Tool paths: PATH prefix /tmp/oec/pequalnp-pilot-95/toolchain/lean-4.36.0-linux/b
 - 2026-11-25T14:34:48.253478+00:00 reductions: Checked terminal-NOT extraction saves two gates with total NOT≤2, even with unused trailing gates (`TerminalOutput`). Checked sole-NOT feeding final AND/OR endpoint-neutrality and exact signature translation (`ConstantNot`, `ConstantNotSignature`); actual size≤19 direct-child exclusion (`DirectNotTerminal`) is checked given mono constant-prefix floor18, supplied by proof_route. Both operand orders covered; context monotonicity follows from count1. Checked budget-free exclusion of final AND/OR combining the two distinct NOT outputs (`TwoNotPairStructural`), with monotone pre/mid and arbitrary post. All complete diagnostics in reductions scratch; reviewers preserving snapshots.
 
 - 2026-11-25T14:37:23.213472+00:00 not_cases: C6 with all three opposite-pair ORs supplied needs >=7 additional binary gates, free NOTs allowed; checked semantic theorem and direct circuit wrapper. Independent review of semantic theorem passed.
+
+- 2026-11-25T14:39:28.100555+00:00 reductions paused all new proofwork on root410 notice. Saved internal-NOT route dead ends and essential edge/independent-set witness idea in lemmas/reductions.md. All earlier compiled fragments and complete logs remain available.
+
+2026-11-25T14:39:29.204969+00:00 Counterexample work suspended pending root lease status. Checked20gate upperbound preserved; no19gate counterexample. Cycle-bank tightness probe completed withoutwitness (log retained).

@@ -1,0 +1,8 @@
+SOLVE n=7 outputs=4 gates=13 vars=5474
+RESULT 0 elapsed=600
+
+{"name": "cycle-repair-planted14", "exit_code": 0, "result": 10, "seconds": 0, "verdict": "SAT"}
+{"name": "cycle-repair-budget2", "exit_code": 0, "result": 20, "seconds": 0, "verdict": "UNSAT"}
+{"name": "cycle-repair-budget3", "exit_code": 0, "result": 20, "seconds": 0, "verdict": "UNSAT"}
+{"name": "cycle-repair-budget4", "exit_code": 0, "result": 20, "seconds": 1, "verdict": "UNSAT"}
+{"name": "cycle-repair-budget5", "exit_code": 0, "result": 20, "seconds": 6, "verdict": "UNSAT"}

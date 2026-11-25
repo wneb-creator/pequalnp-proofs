@@ -1,0 +1,218 @@
+[
+  {
+    "name": "supplied-config0",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 3,
+    "configuration": 0,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config1",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 1,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config2",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 2,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config3",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 3,
+    "configuration": 3,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config4",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 4,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config5",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 5,
+    "configuration": 5,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config6",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 6,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config7",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 7,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config8",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 7,
+    "configuration": 8,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config9",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 5,
+    "configuration": 9,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config10",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 10,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config11",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 5,
+    "configuration": 11,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config12",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 12,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config13",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 3,
+    "configuration": 13,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config14",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 3,
+    "configuration": 14,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config15",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 3,
+    "configuration": 15,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config16",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 16,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config17",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 17,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config18",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 18,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config19",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 19,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config20",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 3,
+    "configuration": 20,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config21",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 3,
+    "configuration": 21,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config22",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 22,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config23",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 3,
+    "configuration": 23,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config24",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 3,
+    "configuration": 24,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config25",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 3,
+    "configuration": 25,
+    "verdict": "UNSAT"
+  },
+  {
+    "name": "supplied-config26",
+    "exit_code": 0,
+    "result": 20,
+    "seconds": 4,
+    "configuration": 26,
+    "verdict": "UNSAT"
+  }
+]

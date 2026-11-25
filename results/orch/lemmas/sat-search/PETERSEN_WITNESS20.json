@@ -1,0 +1,7 @@
+{
+  "source": "cycle14-planted.stdout",
+  "gates": 20,
+  "not_gates": 0,
+  "assignments_checked": 1024,
+  "result": "exact Petersen edge function"
+}

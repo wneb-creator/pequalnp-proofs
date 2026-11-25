@@ -1,0 +1,40 @@
+{
+ "gap": {
+  "id": "L-meta-2583",
+  "title": "On a plane of order q, every fan-in-two AND/OR circuit for incidence can be replaced by a read-1 one with at most as many gates",
+  "statement": "∀ (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I] (C : PEqualNP.CircuitLowerBounds.Circuit), 2 ≤ q → N = q ^ 2 + q + 1 → (∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1) → (∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l) → PEqualNP.TopForm.IsAO2 (N + N) C → (∀ z : Fin (N + N) → Bool, PEqualNP.MetaComplexity.circuitFun (N + N) C z = decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true)) → ∃ D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.TopForm.IsAO2 (N + N) D ∧ (∀ y : Fin (N + N) → Bool, PEqualNP.MetaComplexity.circuitFun (N + N) D y = decide (∃ p l : Fin N, I p l ∧ y (Fin.castAdd N p) = true ∧ y (Fin.natAdd N l) = true)) ∧ D.size ≤ C.size ∧ PEqualNP.ReadK.IsReadK (N + N) D 1",
+  "file": "lean/PEqualNP/Outside/L_meta_2583.lean",
+  "module": "PEqualNP.Outside.L_meta_2583",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "The stronger form the small cases allow: some no-larger circuit reads each point and line of a pair once.",
+  "context": "SKETCH: No proof is expected here in one piece: propose a cut into smaller statements. One move is known to keep size and function: a wire that is below the function and feeds an OR gate can be moved to the output (delete that OR, add one OR at the top). Repeating it ends with a circuit that is an OR of blocks, no wire inside a block being below the function. The open part is a least circuit whose blocks are not single stars: such a block must be shown to cost at least a star cover of the edges it accepts. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 90,
+  "parallel": 10,
+  "lane": "main",
+  "depth": 0,
+  "sketch": "No proof is expected here in one piece: propose a cut into smaller statements. One move is known to keep size and function: a wire that is below the function and feeds an OR gate can be moved to the output (delete that OR, add one OR at the top). Repeating it ends with a circuit that is an OR of blocks, no wire inside a block being below the function. The open part is a least circuit whose blocks are not single stars: such a block must be shown to cost at least a star cover of the edges it accepts. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 0,
+  "pr_numbers": [],
+  "level": "hard"
+ },
+ "lease": {
+  "id": "a47a479a-5901-4ba8-83bc-535d02e450df",
+  "expires_at": "2026-11-25T15:00:15.268Z",
+  "renew": "POST /desk/beat?lease=a47a479a-5901-4ba8-83bc-535d02e450df",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a47a479a-5901-4ba8-83bc-535d02e450df&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 259,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T13:59:02.364Z"
+  }
+ },
+ "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final.",
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}

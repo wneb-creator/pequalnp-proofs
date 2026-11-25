@@ -25,3 +25,12 @@ Compilation completed 2026-11-25T13:59:53.440308+00:00: `Sixteen.lean` exit0, no
 `TerminalNot.lean` compiled and independently reviewed: an output gate that is the sole NOT cannot compute any function satisfying f(bottom)=false and f(top)=true, irrespective of gate budget.
 
 `TerminalTwo.lean` compiled: if P,Q contain only AND/OR and `Bool.not (Q.eval (P.wires x ++ [!P.eval x])) = f x` with those endpoints, then P itself computes f. The proof compares the monotone suffix on bottom/x/top inputs, conditioning only on the prefix output bit. A concrete circuit decomposition using exactly two NOT gates is being tested in `TerminalStructural.lean`. Together with a monotone Petersen lower bound of18, this would exclude every≤19 circuit ending in NOT and containing at most twoNOTs.
+
+
+### Internal-NOT continuation (paused for lease410)
+
+- Generic constant replacement is false even for single monotone output: P=x∨y, B=x∨z, A=z∧P gives A∨(B∧¬P)=z, while neither constant replacement computes z. Root/reviewer supplied this example; it agrees with independent interpolation analysis.
+- For one-NOT circuit F=H(x,¬g(x)), g and H are monotone. Constant false/true cofactors H0≤F≤H1. For monotone graph edge F, essential constant-false failure can be reduced to an edge assignment e with H0(e)=0, F(e)=1, hence g(e)=0. Essential constant-true failure reduces to a maximal independent set I with H1(I)=1, F(I)=0, hence g(I)=1. Petersen has only15 edges and15 maximal independent sets (five size4 and ten size3, combinatorial claim not yet formally checked here). These witness types could normalize an essential-NOT search, but do not yet yield a gate-count reduction.
+- A vertex-false restriction kills the unique NOT only when g≤x_v; g can be an OR with no mandatory variable, so this cannot be assumed. Vertex-true restrictions kill NOT when g has a singleton minterm but leave much easier graph cofactors, currently no adequate lower bound.
+- Existing checked L_meta_2909 treats a related9-input15-gate one-NOT essential replacement-witness case, with firstgate AND(x0,x2). Existing L_meta_1425/1427/1439/1443/1445 prove finite5-input one-NOT-to-monotone conversions, not the general theorem. No generic size-saving transform found.
+- No new compiler/proof was launched after root's410 instruction.

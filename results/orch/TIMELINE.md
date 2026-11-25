@@ -44,3 +44,10 @@
 
 - 2026-11-25T14:37:23.213472+00:00 not_cases: C6 with all three opposite-pair ORs supplied needs >=7 additional binary gates, free NOTs allowed; checked semantic theorem and direct circuit wrapper. Independent review of semantic theorem passed.
 2026-11-25T14:39:26.872477+00:00 Renewal returned HTTP410 unexpectedly; paused work and preserved checked components.
+
+2026-11-25T14:39:29.204969+00:00 Counterexample searches stopped after root reported desk410. All source, candidate and full stdout/stderr files saved in results/orch/search/counterexample. No witness found.
+
+- 2026-11-25T14:39:31.550303+00:00 not_cases paused new proof work after root reported desk410; all checked sources/logs already preserved. Saved first-two-signed-gate frontier and dead dual-restriction strategy.
+2026-11-25T14:40:46.566171+00:00 Recovery twice returned pre-existing L-meta-2583 lease issued13:59:02, holding5. Did not work, renew or release that other pilot lease. Stopping per isolation rule after final preservation.
+
+- 2026-11-25T14:41:32.413922+00:00 SAT searches stopped after root desk410 report. All27 first-orbit fixed-bank cases had completed with restricted UNSAT; no19-gate counterexample found. Sources and full logs preserved for review.
