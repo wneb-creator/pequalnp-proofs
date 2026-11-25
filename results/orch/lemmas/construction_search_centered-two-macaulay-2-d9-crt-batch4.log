@@ -1,0 +1,6 @@
+{"stage": "crt_saved", "chart": 2, "primes": 71, "modulus_bits": 2123, "seconds": 3.256767298000341}
+{"stage": "crt_saved", "chart": 2, "primes": 72, "modulus_bits": 2153, "seconds": 3.157531184000618}
+{"stage": "crt_saved", "chart": 2, "primes": 73, "modulus_bits": 2183, "seconds": 3.0141035830001783}
+{"stage": "crt_saved", "chart": 2, "primes": 74, "modulus_bits": 2213, "seconds": 3.014295402999778}
+{"stage": "crt", "chart": 2, "primes": 75, "modulus_bits": 2243, "unreconstructed": 0, "accepted_nonzero": 3854, "stable_nonzero": 0, "accepted_height_range": [526, 1061, 1072], "seconds": 5.444553986999381}
+{"stage": "EXACT_CERTIFICATE_VERIFIED", "chart": 2, "support": 3854, "denominator_bits": 1064, "max_coefficient_bits": 1075}

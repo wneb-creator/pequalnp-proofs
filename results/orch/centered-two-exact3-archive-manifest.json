@@ -1,0 +1,44 @@
+[
+  {
+    "source": "centered-two-macaulay-3-d9-exact-certificate.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-exact-certificate.json",
+    "bytes": 1037730,
+    "sha256": "3d14c58d1d157448b372e021efa8f1e018890702457592d12713e65439df8853"
+  },
+  {
+    "source": "centered_two_verify_exact.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_verify_exact.py",
+    "bytes": 2932,
+    "sha256": "2746467076e5170e7a05cc97bc28318d29eddc8aa4431e1816e3ee48568e1f1c"
+  },
+  {
+    "source": "centered-two-macaulay-3-d9-exact-verification.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-exact-verification.json",
+    "bytes": 261,
+    "sha256": "ff02fac9dcbed1ac80127d1af64c1b2387a35dbfb28a1ed351bce6f1164683b1"
+  },
+  {
+    "source": "centered-two-macaulay-3-d9-exact-verification.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-exact-verification.log",
+    "bytes": 244,
+    "sha256": "290b5294051a70e60f9eef6fc616d6f0b3ccb7915c9999c30a57480e5fcb8919"
+  },
+  {
+    "source": "centered-two-chart3-independent-verification.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-chart3-independent-verification.log",
+    "bytes": 245,
+    "sha256": "55eb9c587f903d0a1cf6533425f15239cc780158aea8b922aa27fb9a64e34186"
+  },
+  {
+    "source": "centered-two-macaulay-3-d9-crt-batch1.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-crt-batch1.log",
+    "bytes": 3576,
+    "sha256": "b9447facee591f6bb7ad06101c0043b4270604e1403da317a700d820dd219e93"
+  },
+  {
+    "source": "centered-two-macaulay-3-d9-crt-batch2.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-crt-batch2.log",
+    "bytes": 6607,
+    "sha256": "7c7972be077f88a6b5c361b099c10728559160cfaf27d406c6eb042eacc74aad"
+  }
+]

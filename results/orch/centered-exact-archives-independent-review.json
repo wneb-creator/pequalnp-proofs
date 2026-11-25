@@ -1,0 +1,180 @@
+[
+  {
+    "manifest": "centered-two-exact2-archive-manifest.json",
+    "files": [
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-exact-certificate.json",
+        "bytes": 1315259,
+        "hash_ok": true,
+        "scratch_exact": true,
+        "keys": [
+          "classification",
+          "denominator",
+          "coefficients",
+          "primes",
+          "fingerprint"
+        ],
+        "classification": "Exact integer polynomial certificate verified by standalone arithmetic; not Lean checked",
+        "nonzero_coefficients": 3854,
+        "max_coefficient_bits": 1075,
+        "denominator_bits": 1064,
+        "primes": 75
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-exact-verification.json",
+        "bytes": 262,
+        "hash_ok": true,
+        "scratch_exact": true,
+        "keys": [
+          "classification",
+          "chart",
+          "identity_verified",
+          "chart_invariants_verified",
+          "certificate_support",
+          "constant_bits",
+          "seconds"
+        ]
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-exact-verification.log",
+        "bytes": 245,
+        "hash_ok": true,
+        "scratch_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-chart2-independent-verification.log",
+        "bytes": 246,
+        "hash_ok": true,
+        "scratch_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-crt-batch1.log",
+        "bytes": 1180,
+        "hash_ok": true,
+        "scratch_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-crt-batch2.log",
+        "bytes": 2391,
+        "hash_ok": true,
+        "scratch_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-crt-batch3.log",
+        "bytes": 8406,
+        "hash_ok": true,
+        "scratch_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-crt-batch4.log",
+        "bytes": 738,
+        "hash_ok": true,
+        "scratch_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered_two_direct6_run.py",
+        "bytes": 2342,
+        "hash_ok": true,
+        "scratch_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-direct6-complex.log",
+        "bytes": 0,
+        "hash_ok": true,
+        "scratch_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-direct6-complex-run.json",
+        "bytes": 195,
+        "hash_ok": true,
+        "scratch_exact": true,
+        "keys": [
+          "pid",
+          "mode",
+          "exit",
+          "timeout",
+          "over_memory",
+          "peak_rss_bytes",
+          "seconds",
+          "memory_limit_bytes"
+        ]
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_CenteredTwoMixed3Eleven.lean.txt",
+        "bytes": 7354,
+        "hash_ok": true,
+        "scratch_exact": true
+      }
+    ],
+    "issues": []
+  },
+  {
+    "manifest": "centered-two-exact3-archive-manifest.json",
+    "files": [
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-exact-certificate.json",
+        "bytes": 1037730,
+        "hash_ok": true,
+        "scratch_exact": true,
+        "keys": [
+          "classification",
+          "denominator",
+          "coefficients",
+          "primes",
+          "fingerprint"
+        ],
+        "classification": "Exact integer polynomial certificate verified by standalone arithmetic; not Lean checked",
+        "nonzero_coefficients": 3578,
+        "max_coefficient_bits": 900,
+        "denominator_bits": 890,
+        "primes": 61
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered_two_verify_exact.py",
+        "bytes": 2932,
+        "hash_ok": true,
+        "scratch_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-exact-verification.json",
+        "bytes": 261,
+        "hash_ok": true,
+        "scratch_exact": true,
+        "keys": [
+          "classification",
+          "chart",
+          "identity_verified",
+          "chart_invariants_verified",
+          "certificate_support",
+          "constant_bits",
+          "seconds"
+        ]
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-exact-verification.log",
+        "bytes": 244,
+        "hash_ok": true,
+        "scratch_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-chart3-independent-verification.log",
+        "bytes": 245,
+        "hash_ok": true,
+        "scratch_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-crt-batch1.log",
+        "bytes": 3576,
+        "hash_ok": true,
+        "scratch_exact": true
+      },
+      {
+        "file": "results/orch/lemmas/construction_search_centered-two-macaulay-3-d9-crt-batch2.log",
+        "bytes": 6607,
+        "hash_ok": true,
+        "scratch_exact": true
+      }
+    ],
+    "issues": []
+  }
+]

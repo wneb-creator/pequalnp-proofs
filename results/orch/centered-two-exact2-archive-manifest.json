@@ -1,0 +1,74 @@
+[
+  {
+    "source": "centered-two-macaulay-2-d9-exact-certificate.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-exact-certificate.json",
+    "bytes": 1315259,
+    "sha256": "2d524593f8bbffef66e7e46e359dd30bbefbdda6dbf7e8b63c92e0701d3dd261"
+  },
+  {
+    "source": "centered-two-macaulay-2-d9-exact-verification.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-exact-verification.json",
+    "bytes": 262,
+    "sha256": "8b06af02c173ed4ce0271f91d672d85ccecae6e5618497877281ea4d23996fc5"
+  },
+  {
+    "source": "centered-two-macaulay-2-d9-exact-verification.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-exact-verification.log",
+    "bytes": 245,
+    "sha256": "8d0207f1aef01885085782a410f73732a6bc321a6900de6c0dcb3a5e1c7766d4"
+  },
+  {
+    "source": "centered-two-chart2-independent-verification.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-chart2-independent-verification.log",
+    "bytes": 246,
+    "sha256": "b5d753a2983e5390e74af346986a41866935282d02573ec7a2973940ac0b7405"
+  },
+  {
+    "source": "centered-two-macaulay-2-d9-crt-batch1.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-crt-batch1.log",
+    "bytes": 1180,
+    "sha256": "eca1b2239b831a02e3ddfe290de8e3a9a8dcf11a8e69a7878e38996024bf1644"
+  },
+  {
+    "source": "centered-two-macaulay-2-d9-crt-batch2.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-crt-batch2.log",
+    "bytes": 2391,
+    "sha256": "15f806a893d7f0f362791a411a06d2dc2ac57685e6e2ae97c8ab72b54cc5ce58"
+  },
+  {
+    "source": "centered-two-macaulay-2-d9-crt-batch3.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-crt-batch3.log",
+    "bytes": 8406,
+    "sha256": "d5e23eb3fff31a72c810569111d9ead22b58437e804d0baf9a178c2df1f9a05c"
+  },
+  {
+    "source": "centered-two-macaulay-2-d9-crt-batch4.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-macaulay-2-d9-crt-batch4.log",
+    "bytes": 738,
+    "sha256": "a998a893855778b63bc5a7215f563c3057e5494d999addebedf9806c633bb55e"
+  },
+  {
+    "source": "centered_two_direct6_run.py",
+    "archive": "results/orch/lemmas/construction_search_centered_two_direct6_run.py",
+    "bytes": 2342,
+    "sha256": "8434dc1cfab3573afdb4cb4d97285706f6f0621df699bb68e1595bb796b3ae65"
+  },
+  {
+    "source": "centered-two-direct6-complex.log",
+    "archive": "results/orch/lemmas/construction_search_centered-two-direct6-complex.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "centered-two-direct6-complex-run.json",
+    "archive": "results/orch/lemmas/construction_search_centered-two-direct6-complex-run.json",
+    "bytes": 195,
+    "sha256": "7b1f9de3c1426f3da3d2ecb68cf3cf99cd70848f4604c501fe7923fc62d5c47f"
+  },
+  {
+    "source": "CenteredTwoMixed3Eleven.lean",
+    "archive": "results/orch/lemmas/construction_search_CenteredTwoMixed3Eleven.lean.txt",
+    "bytes": 7354,
+    "sha256": "95cd55ff7700c2c60241f754b59de27508be6ca65cc0a9580f758202e44c3daf"
+  }
+]
