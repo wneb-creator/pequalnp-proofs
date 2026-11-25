@@ -35,3 +35,14 @@ Toolchain: /tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin. Cache set
 - Structural strategy checked two new partials: FlagFragment.lean proves at most two safe line guards for two point sets each of size at least two; CanonicalFragment.lean replaces an arbitrary dirty-AND witness by a canonical false input determined by 13 point bits. Standalone Flag.lean and Canonical.lean compile, with full logs in job scratch.
 
 2026-11-25T03:12:52.448792+00:00 Re-plan: checked partial4 includes a65-gate witness, derivative/path certificates, clean/flat exclusions, plane geometry, canonical falseinputs, a two-line flag bound, and derivative-safe substitution. Original64-gate target remains open. Generic dirtyAND-count increase is false (P4counterexample); unrestricted dirtynormalform is an existing openproblem. Active routes: complete-test heuristic64 search; global OR-count/equality analysis; firstdirtyAND structure; semantic rewiring followed by derivative-preserving dead-gate compaction. Reduction capacity is alreadyfull, so nofourthreduction willbe submitted.
+
+- First-dirty analysis found a rigorous obstruction to factor bypass: matching xy OR zw has a 7-gate double-zero circuit whose first dirty AND has one clean mixed-OR reader, but either operand bypass introduces a nonedge. See structural.md. All 16 input rows and derivative recurrences checked computationally.
+
+- 2026-11-25T03:19:01.553732+00:00 lemma_search: FactorElimination.lean COMPILED401lines/no warnings. Globalfunctionpreservation, proper distinctinputs undernoncollision, deadwire, unchangedderivative witnesses, zero-signature factorcriterion. CombiningwithDeadGate compactor next.
+
+- 2026-11-25T03:21:00.116359+00:00 lemma_search: CombinedElimination.lean SOURCE ONLY prepared: conditionalactualsize dropby1 withProperdistinctinputs, samefullfunction, bothtransportedzero witnesses. Awaitingrootcomputeavailability; no newLeancheckstarted.
+
+- CORRECTION on L_meta_1006: its6ANDgraph counterexample satisfiesonlymaximalfalseboundarytests; itdoesNOTcompute thefull edgefunction (rejects actualedge{6,7}). ItdoesnotrefutefullfunctionAND≥cover. OnlytheP4dirtyANDstrictnesscounterexampleaboveisexactfullfunction.
+- ExhaustivefreeOR/≤2ANDnormalform census finished:334 C4-free3×3bipartitegraphs,1415firstANDfunctions,4465825secondANDpairs; nocircuit belowmatching/covernumber. Source and_count_small.py, JSONlog jobscratch. Thisiscomputationalevidenceonly.
+
+- 2026-11-25T03:22:04.548672+00:00: Search64 repair and annealing completed without witness; full logs preserved in results/orch. Repair33,127,686candidates; anneal24,066,384mutations. Best64 missesoneedge, derivativeszero. Rotationsearch stillbounded/running.

@@ -1,0 +1,26 @@
+Independent review: results/orch/lemmas/DeadGateChecked.lean
+Reviewer: structural_proof sub-agent
+SHA256: f1e36fc3b93d073578c14c59a32147ea5e0926fea3be5ccae7aa79f405d0ebde
+Size: 457 lines; 20309 bytes
+Verdict: PASS as partial-proof source.
+
+The first 301 lines are byte-identical to the reviewed Derivative prelude.
+The new DeadGate block was reviewed in full. Erasure and index-renaming maps
+correctly distinguish the deleted wire from retained wires. Renaming preserves
+distinct operands because the unused-wire hypothesis excludes the single
+noninjective point of the downward map.
+
+Value and derivative recurrence transport compose the original traces with the
+upward index map. The input range is unchanged. The actual wire-value transfer
+explicitly requires a valid removed gate, a valid retained wire, and retained
+wire unequal to the removed wire. Those are the needed bounds and exclusions.
+
+No unconditional preservation of the circuit output is claimed; proving that
+the output is not the deleted wire remains a separate obligation.
+
+Only PEqualNP.Defs is imported. The namespaces are permitted helper descendants.
+No forbidden syntax, root qualifier, quotes, proof holes, new axioms, unsafe
+commands, metaprogramming, attributes, or resource options were found.
+
+Integration caution: this standalone file repeats the Derivative prelude. Add
+only its DeadGate namespace when merging into the already combined named file.

@@ -4,7 +4,8 @@ SHA256: 3c2755fbd8cf4ecf94c9a51be7e792faa103c4c6ee008aa7a2c32479a312b81d
 Lines: 2394. Cleanup: not yet applicable to a full proof.
 Build: lake build PEqualNP.Outside.L_meta_2602 exited 0; Build completed successfully (5149 jobs).
 Partial results: 65-gate feasibility witness; derivative and path certificates; clean/flat exclusions; geometry; canonical false inputs; flag and substitution lemmas.
-Checker: not run on this partial artifact; original target theorem is not declared.
+Checker: FAULT, exit 3; verifier exited 137 and cgroup oom_kill increased. No theorem verdict. The posted target theorem remains undeclared.
 Independent review: PASS for this exact snapshot before pushing.
 Sub-agents: checker_review, structural_proof, counterexample, lemma_search, reduction_design, derivative_lemmas
-TIMING total=30.6 subagents=6
+TIMING total=40.9 subagents=6
+Additional independently reviewed compiled standalone partials: FactorElimination.lean and DeadGateChecked.lean.

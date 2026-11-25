@@ -1,0 +1,38 @@
+L-meta-2602 partial4 local-checker result
+
+VERDICT: CHECKER FAULT — no verdict on the posted statement.
+
+Command:
+  node tools/check-lean.mjs lean/PEqualNP/Outside/L_meta_2602.lean \
+    /tmp/oec/pequalnp-pilot-60/statement.txt check
+
+Checker exit: 3.
+Verifier exit reported by checker: 137.
+Exact final diagnostic:
+  CHECKER FAULT: the verifier ended without a verdict (exit 137).
+
+The verifier-build and named-file/definitions-build stages completed.
+The verifier started reading the compiled file at t=67s, but was killed
+before returning any theorem/statement verdict. The cgroup OOM and
+oom_kill counters increased from 0 to 1 during this run, confirming an
+out-of-memory kill. The cgroup memory limit is 8 GiB; the cached artifacts
+use approximately 4.5 GB of memory-backed storage.
+
+Frozen source SHA-256, unchanged after the run:
+  3c2755fbd8cf4ecf94c9a51be7e792faa103c4c6ee008aa7a2c32479a312b81d
+Original posted statement SHA-256:
+  2ed8eb66f1ddbab30408040859dc3ee5e58c223b33ac00da65191281c9bb6777
+
+Complete outputs are preserved beside this report:
+  partial4-checker.stdout (1 byte)
+  partial4-checker.stderr (288 bytes)
+  partial4-checker.exit (2 bytes)
+The original copies remain in /tmp/oec/pequalnp-pilot-60/.
+
+No ACCEPTED or REJECTED theorem verdict was produced. In particular,
+the expected missing-target rejection was not reached. The partial
+helper file remains compiled, but the original L-meta-2602 statement
+remains unproved. No retry was performed after this resource fault.
+
+After the fault the verifier process was absent, and both cache keepers
+(4179 and 5976) were confirmed alive. Other Lean work may resume.

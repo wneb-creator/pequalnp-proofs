@@ -18,3 +18,6 @@
 - 2026-11-25T03:08:08.141515+00:00: Structural Flag and Canonical partials compiled; root notified for independent review and preservation push.
 - 2026-11-25T03:12:52.448792+00:00: Re-planned strategies around global counting and admissible gate elimination.
 - 2026-11-25T03:13:24.440999+00:00: Partial 4 built and independently reviewed: 65-gate feasibility witness; derivative and path certificates; clean/flat exclusions; geometry; canonical false inputs; flag and substitution lemmas.
+- 2026-11-25T03:16:10.834629+00:00: First-dirty local-bypass route narrowed by explicit 7-gate matching obstruction; root notified.
+- 2026-11-25T03:19:01.553732+00:00: lemma_search global factor rewiring compiled.
+- 2026-11-25T03:23:22.624182+00:00: Original-statement checker ended FAULT via OOM; preserving complete output plus compiled gate-elimination components.

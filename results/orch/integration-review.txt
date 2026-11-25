@@ -1,0 +1,23 @@
+Independent integration review: partial4
+Reviewer: checker_review
+Gap: L-meta-2602
+File: lean/PEqualNP/Outside/L_meta_2602.lean
+SHA-256: 3c2755fbd8cf4ecf94c9a51be7e792faa103c4c6ee008aa7a2c32479a312b81d
+Lines: 2394
+
+VERDICT: PASS AS CHECKED PARTIAL HELPER INTEGRATION; NOT A FINISHED PROOF.
+
+After removing only each source file's initial import/blank header,
+the complete bodies of Derivative.lean, Clean.lean, Geometry.lean,
+Transform.lean, CanonicalFragment.lean, FlagFragment.lean, and
+Counterexample.lean each occur verbatim exactly once in the named file.
+
+The consolidated imports are PEqualNP.Defs and Mathlib.Tactic.Tauto,
+both permitted. The official raw-source/import guard and helper-namespace
+guard reported only the expected partial-file omissions: no theorem and
+no last, top-level theorem named PEqualNP.Outside.L_meta_2602.
+No forbidden source token or additional layout violation was reported.
+
+This review authorizes preservation of the checked partial material. It
+does not assert the original statement, its negation, or full local-checker
+acceptance. The original-statement checker run is recorded separately.

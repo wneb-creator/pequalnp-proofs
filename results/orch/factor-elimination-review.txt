@@ -1,0 +1,28 @@
+Independent review: results/orch/lemmas/FactorElimination.lean
+Reviewer: structural_proof sub-agent
+SHA256: c88e5a8edd3675097b500577915a7a6e796bda1f615b2f115715c7eaba4eb4d5
+Size: 401 lines; 18022 bytes
+Verdict: PASS as partial-proof source. Entire file reviewed.
+
+Semantic preservation requires source growth and cleanliness of every proposed
+reader value, evaluated against the original wires. The proof correctly uses
+monotonicity on true inputs and wire equality on false inputs.
+
+Properness explicitly assumes that substituted operands remain distinct. Earlier
+wire bounds follow from the original reads-back condition and source < removed
+wire. Derivative preservation assumes exact equality of both source value and
+source derivative at the chosen base input; semantic equivalence alone is not
+used as a substitute for that requirement.
+
+The zero-factor lemma is sound: a selected AND operand with false ordinary value
+and false derivative forces both values at the whole AND to be false.
+
+Scope limits: rewire_dead removes operand references to the gate but does not
+exclude the circuit output from naming it. No gate is deleted by this file yet.
+Compaction and output-not-removed obligations remain separate requirements.
+
+Only PEqualNP.Defs is imported. Helpers are in permitted GlobalRewire/Eval
+descendant namespaces. No forbidden root qualifier, quotes, proof holes, new
+axioms, native_decide, bv_decide, unsafe commands, attributes, options, or other
+compilation-time commands were found. No collision with the existing Derivative,
+CleanCase, Geometry, or Structural helper namespaces is introduced.
