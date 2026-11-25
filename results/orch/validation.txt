@@ -143,3 +143,7 @@ Desk nextrequests sofar2; nullresponses0.
 Cleanup pass notapplicable: fullstatementcheckerhasnotpassed.
 Sub-agents: status_review, proof_route, circuit_search, not_elimination, toolchain_setup, gate_elimination
 TIMING total=58.35 subagents=6
+
+2026-11-25T15:19:29.236889+00:00 ReadOnePetersen2590.lean compiled (1447 lines), independent status_review approval; proves20 gates with explicit IsAO2 and joint read1 hypotheses, not the whole posted Monotone2 statement. SHA256 3da4d332bd36fd1350557771ebdeaf4cc1e56bee717c70f25bf9df69094508eb. Full empty Lean stdout/stderr preserved.
+Sub-agents: six parallel proof, search, library and review agents
+TIMING total=65 subagents=6
