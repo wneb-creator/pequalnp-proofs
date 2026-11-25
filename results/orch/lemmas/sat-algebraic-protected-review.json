@@ -1,0 +1,24 @@
+{
+  "verdict": "PASS",
+  "reviewed_utc": "2026-11-25T11:10:24.168534+00:00",
+  "source": "results/orch/lemmas/algebraic-protected.lean",
+  "sha256": "9528339b86c8c68163736e22053db23b47a9a20a5a06b6b1aa6a35b78e8d0157",
+  "scope": "Four new theorems from equality_lost_saturates_chain through equality_cf_seven_protected; accepted7507-line prefix compared exactly; successful standalone receipt checked; no new Lean process",
+  "checks": [
+    "The accepted first7507 lines match exactly, and no ambient Bzero=0 premise is present at the new theorem declarations.",
+    "For each missing-mask label in J, sem_inelig_reach must select an empty-support branch: a full single-reader chain would produce its forbidden exact neighborhood mask.",
+    "If the extra ineligible v also reached an empty branch, branches for insert v J would be distinct. Comparing a missing-mask i with any different j uses a neighbor of j absent from i, lying in P by the explicit neighborhood-subset hypotheses; a shared branch would produce the forbidden mask for i.",
+    "The distinct empty branches number J.card+1 but bz_card bounds them by Bzero. The stated equality J.card=Bzero yields the contradiction for any nonnegative Bzero; zero is not assumed.",
+    "A single-reader chain to the output makes every reachable wire have fanout\u22641: alternate reader paths coincide at each unique reader, and the output has no reader.",
+    "The protected corollary preserves all saturation, missing-mask, independence, ineligibility, and neighborhood-subset premises; it does not claim unrestricted protection.",
+    "The final cofactor theorem requires two explicitly protected original inputs corresponding to one of the three listed K4 perfect-matching pairs. cf_main transports these protections to ineligibility in the cofactor; k4_surplus_seven_matching then raises the cofactor surplus lower bound to7.",
+    "Combining that7 lower bound with the explicit cf_main loss ru.card+X.card+1 gives ru.card+X.card+8\u2264totalSurplus. All PureBranch, good-cofactor, eligible-c, and residual-unit/co-support premises remain stated.",
+    "Standalone receipt is exit0 with empty stdout/stderr at the exact reviewed hash."
+  ],
+  "issues": [],
+  "limits": [
+    "No unconditional Bzero=0 result is proved.",
+    "No size27 assumption is used or concluded.",
+    "Applying the protected cofactor bound still requires supplying both protected-input premises and the listed matching relation."
+  ]
+}

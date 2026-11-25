@@ -1,0 +1,12 @@
+{
+  "source": "results/orch/lemmas/structural-cofactor-slack-next.lean",
+  "source_sha256": "411e53a60d058eba7c2d7ce30016a2f00d07126995fee461c73c5205ef640930",
+  "lines": 6186,
+  "exit_code": 0,
+  "accepted_prefix_lines": 6032,
+  "accepted_source_sha256": "e856158208c582f389897b6941fd0cd675fe6e590fb09b4299b35b9c91a76a20",
+  "command": "pinned lake --dir lean env lean explicit standalone source; imports only PEqualNP.Defs",
+  "frozen": true,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "source_sha256": "7c9b5e95d326ef5414bc148207b8dbb46a8d8b69ef1e52d727788710135452ea",
+  "source": "results/orch/lemmas/formalization-p8-saturation-standalone.lean",
+  "lines": 9625,
+  "command": "pinned lake env lean explicit standalone file; imports only PEqualNP.Defs",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

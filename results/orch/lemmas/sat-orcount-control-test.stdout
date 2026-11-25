@@ -1,0 +1,8 @@
+Independent final Fano SAT control review PASS
+2026-11-25T11:00:31.750370+00:00
+Complete10192-variable assignment satisfies all218698 essential and218726 minimal control clauses.
+Exact difference:28 expected maximal-negative false-output clauses, no other changes.
+Both operand polarities hold on the appropriate positive/negative boundary for every control gate.
+No solver run; no target27 satisfiability claim.
+Minimal source SHA256 49eb5c52d0e7f09410d80fed563ecf02d03d09e86c0c44ac9273662703a7be9e
+{"verdict": "PASS", "variables": 18814, "clauses": 250866, "threshold_census": {"6": 2, "8": 14, "9": 21}, "source_sha256": "8c4f7cdaaf836c8365e0ed7d73a49139115c9f2730b873ff8df2b6195b5054b3"}

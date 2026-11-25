@@ -1,0 +1,24 @@
+{
+  "seeds": 72,
+  "family_bounds_only": [
+    {
+      "eligible_count": 12,
+      "best_gate_cost": 31,
+      "minimum_recipes": 9,
+      "selected": 9
+    },
+    {
+      "eligible_count": 13,
+      "best_gate_cost": 33,
+      "minimum_recipes": 18,
+      "selected": 18
+    },
+    {
+      "eligible_count": 14,
+      "best_gate_cost": 35,
+      "minimum_recipes": 9,
+      "selected": 9
+    }
+  ],
+  "all_truth_and_trace_checks": "PASS"
+}

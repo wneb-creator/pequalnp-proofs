@@ -1,0 +1,7 @@
+Independent mathematical review: PASS, compilation of the corrected combined source pending.
+
+Reviewed six-theorem fragment constructive-p8-endgame.lean SHA256 51e0b458668fcdca1afd4d8797b76ee1cc05d4870d78a4fead88f153fce9e655. onesided_big charges the seven distinct Fano line-neighborhood triples through sup_charge, with the accepted common-neighbor bound establishing pairwise intersection≤1. onesided_exit uses the first six canonical point inputs, which are ineligible in both q=6 and q=7 cases, and the checked edge(6,8) supplies the additional fresh exit. heawood_false_ors takes the line-side indicator as its false base; every point input has a neighbor on that side, so inserting it makes output true. The generic false_or_count then forces six false OR gates.
+
+The structure theorem obtains all seven masks from the separately compiled equality_onesided_masks lemma and applies the reviewed saturation theorem. Carrier-linearity then turns true marked-edge output and false singleton output into a true point derivative. The final orientation split correctly associates d with seed v/base u and e with seed u/base v. The exact canonical ineligible-set assumption remains explicit, and no arbitrary-configuration or relabeling claim is made.
+
+I caught one initial Lean argument-order error in the false_or_count call (I and zero reversed). The reviewed fragment now has the corrected order. No mathematical defects remain in the six-theorem composition.

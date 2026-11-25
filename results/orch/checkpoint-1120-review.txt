@@ -1,0 +1,15 @@
+Independent preservation review by stochastic_search
+UTC: 2026-11-25T11:17:38.585397+00:00
+Verdict: PASS, push-ready for archival partial preservation.
+
+Reviewed the76 exact paths in checkpoint-1120-files.json, totaling4715637 bytes. Every current file matches its listed SHA256 and size. All paths are under results/orch/; the candidate includes no main proof change or unrelated repository change. Selected files were not modified during review.
+
+NOTES.md, TIMELINE.md and validation.txt retain the distinction between compiled canonical/model-specific components and the open posted target. The checker remains explicitly REJECTED(no-theorem). Canonical p7/p8 closure is not generalized to arbitrary ineligible configurations. Higher eligible cases remain open; Bzero0 is not claimed to exclude quietness. SAT baseline is UNKNOWN, active27 status unresolved, and the250866-clause28 control is only encoding validation.
+
+The seven source line counts exactly match metadata:7622,2524,7517,9625,6186,5905,8493. All exact source hashes match their exit0 receipts; the selected independent review records bind the same hashes and retain explicit scope. Reviews that originally said standalone compilation pending are now paired with matching successful standalone receipts. Mathematical arguments already reviewed independently were not re-reviewed here.
+
+The high-search metadata correctly distinguishes352 double-quiet28/31/33/35-gate seeds from128 ordinary27 controls with both derivatives true. The31/33/35 minima are limited to the enumerated construction family. No27 quiet witness or global size lower bound is inferred from these searches. The immutable high-input archive contains12 listed files and253371 bytes; active outputs are excluded.
+
+Every selected file, including decompressed gzip content, was scanned for common GitHub/API credential formats, private-key markers, credential-bearing URL userinfo and literal Authorization values. No matches were found; no credential values were printed or copied.
+
+No blocking findings. This is approval of preservation on the designated fork branch, not approval to submit an incomplete proof PR.

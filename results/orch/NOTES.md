@@ -48,3 +48,11 @@ Root must renew before long runs and every ten minutes, preserve all compiled pr
 - K4 minimum no-double-quiet is compiled in the exact strict-live10-input model. Strengthening cofactor bounds using its equality case needs explicit protected-input or lost-unit/fiber-slack bookkeeping.
 - Generic critical-input false-OR count is compiled: k individually critical inputs at a false base require at least k-1 false OR gates. This supplies37 new possible SAT cardinality constraints; any encoding extension needs independent review before a restart.
 - Broad SAT cutoff remains12:34UTC. One variable-length stochastic worker runs640 verified28/29/31 seeds with mixed branching preferences, capped at11:17:45UTC.
+
+## Re-plan at 11:20 UTC
+
+- Canonical p7/p8 no-double-quiet now passes its full standalone build and independent review.
+- Missing-mask saturation protects other ineligible inputs; strict cofactor slack accounts for kept units whose images stop branching. These components are compiled and reviewed.
+- New proposed invariant counts surplus on wires false at the all-lines-true base. Combined with all seven neighborhood masks it may exclude any eligible point at27 gates; its generic count and branch-charge lemmas are under construction.
+- Higher eligible cases still need an actual no-quiet argument. Bzero0 alone is insufficient.
+- Broad SAT continues toward12:34UTC. The next single stochastic worker uses480 verified inputs, including higher-eligible quiet seeds and correct27-gate bright controls.

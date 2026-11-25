@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "source_sha256": "b2311c73e3e15a7f9ea45e7e48a138bc832b48114f4aefa909993b9db9cf9f4d",
+  "source": "results/orch/lemmas/constructive-p8.lean",
+  "lines": 7517,
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "warnings": "Only unused-variable/simp and unnecessary-simpa lints; no errors."
+}

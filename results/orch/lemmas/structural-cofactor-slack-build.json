@@ -1,0 +1,12 @@
+{
+  "source": "results/orch/lemmas/structural-cofactor-slack.lean",
+  "source_sha256": "944a32436f5e97e368f030a1e9636ec848bc3ee031ce80d2da4f998594117741",
+  "lines": 5905,
+  "exit_code": 0,
+  "accepted_prefix_lines": 5845,
+  "accepted_source_sha256": "e856158208c582f389897b6941fd0cd675fe6e590fb09b4299b35b9c91a76a20",
+  "command": "pinned lake --dir lean env lean explicit standalone source; imports only PEqualNP.Defs",
+  "frozen": true,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

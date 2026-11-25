@@ -1,0 +1,193 @@
+{
+  "created_utc": "2026-11-25T11:03:34.813011+00:00",
+  "gap": "L-meta-1479",
+  "status": "Active target search; no SAT/UNSAT conclusion",
+  "requires_manifest": {
+    "path": "results/orch/lemmas/sat-preservation-manifest.json",
+    "sha256": "1db3c09bd1aed369abc542fb2f435b2c19af9b94d422d73afced54bb241e4330"
+  },
+  "local_encoder_dependencies": [],
+  "mutable_active_output_included": false,
+  "target": {
+    "variables": 18073,
+    "clauses": 236262
+  },
+  "control": {
+    "gates": 28,
+    "variables": 18814,
+    "clauses": 250866,
+    "independent_review": "PASS"
+  },
+  "reproduction_argv": [
+    [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-81/sat-fano-orcount.py",
+      "--size",
+      "27",
+      "--tag",
+      "sat-fano-orcount27-broad",
+      "--points",
+      "0,1,2,3,4,5,6",
+      "--limit",
+      "1",
+      "--edge",
+      "0,0",
+      "--ordered",
+      "--op-order",
+      "--edge-support",
+      "--boundary-essential",
+      "--false-or-count",
+      "--no-solve"
+    ],
+    [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-81/sat-fano-orcount.py",
+      "--size",
+      "28",
+      "--tag",
+      "sat-fano-orcount28-control",
+      "--points",
+      "0,1,2,3,4,5,6",
+      "--limit",
+      "1",
+      "--edge",
+      "0,0",
+      "--ordered",
+      "--op-order",
+      "--edge-support",
+      "--boundary-essential",
+      "--false-or-count",
+      "--no-solve"
+    ]
+  ],
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-fano-orcount.py",
+      "bytes": 8953,
+      "sha256": "8c4f7cdaaf836c8365e0ed7d73a49139115c9f2730b873ff8df2b6195b5054b3",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/sat-threshold-dp-test.py",
+      "bytes": 1572,
+      "sha256": "bd94a7383e9458ac03fd5fae3a218edf4b8d65ca287f289527f43f43968475ae",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/sat-threshold-dp-test.json",
+      "bytes": 2848,
+      "sha256": "1d33bab38091b71317f1d0d2aa88d75bad3373ac3d37b559b7c78efcc8cf0c40",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/sat-threshold-dp-test.stdout",
+      "bytes": 2030,
+      "sha256": "86642d30d7edf716408b6905c951c5132686d1a7b5ed9574b9243cf1657d038a",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/sat-threshold-dp-test.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/sat-orcount-control-test.py",
+      "bytes": 2158,
+      "sha256": "f4b514e5420b05c9a758f1df89e16edb487927ef8fd74114888076d48e40ae70",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/sat-orcount-control-test.json",
+      "bytes": 3558,
+      "sha256": "a871ece2a847142fdbf4f365d3eef8d51ecc82c5ec5b226931c19442bd4da8aa",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/sat-orcount-control-test.stdout",
+      "bytes": 692,
+      "sha256": "7c57974f1fa21425e2db31c1c216a6df9ec3e40f8e5e23b71502099e1894384f",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/sat-orcount-control-test.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/status-orcount-fano-sat-review.py",
+      "bytes": 3634,
+      "sha256": "19fd7fc605427f6f32e8b9381b6b00462f2e9fe93ef7a8ddb02f51f2c1e8fa9a",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/status-orcount-fano-sat-review.stdout",
+      "bytes": 1002,
+      "sha256": "3715f1ff263bb172452a05cf9238f451efe5217469a872958a98e2bed4949843",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/status-orcount-fano-sat-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/sat-orcount.md",
+      "bytes": 2162,
+      "sha256": "c87d968b10cd0383f710729b9a870f317f1714486635c04eac5819453ae33886",
+      "role": "Frozen OR-count encoder, test, audit, or checkpoint notes"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-minimal27-broad.stdout.gz",
+      "bytes": 13037,
+      "sha256": "f4d691edc7399830ba7bcfd184e86c6ec6b831500f04d8695f2397d136ccc434",
+      "role": "Immutable OR-count CNF/metadata or complete stopped minimality-run diagnostic",
+      "restore_basename": "sat-fano-minimal27-broad.stdout"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-minimal27-broad.stderr.gz",
+      "bytes": 52,
+      "sha256": "a2905368be863dfbcbca769ca0cb5a5b711b40448136e5db8fc2eda2de0faf04",
+      "role": "Immutable OR-count CNF/metadata or complete stopped minimality-run diagnostic",
+      "restore_basename": "sat-fano-minimal27-broad.stderr"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-minimal27-broad.runlog.gz",
+      "bytes": 182,
+      "sha256": "713ebf469aa2ac083abde4f2875d6ff1e21f91fb36527370c094f0516f74703b",
+      "role": "Immutable OR-count CNF/metadata or complete stopped minimality-run diagnostic",
+      "restore_basename": "sat-fano-minimal27-broad.runlog"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-orcount27-broad.cnf.gz",
+      "bytes": 901335,
+      "sha256": "b15c0dad68fa59cbb7a4fbfb0fb83af92ba4ba5e46e1efcd3183b283626e6bf6",
+      "role": "Immutable OR-count CNF/metadata or complete stopped minimality-run diagnostic",
+      "restore_basename": "sat-fano-orcount27-broad.cnf"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-orcount27-broad.metadata.json.gz",
+      "bytes": 76075,
+      "sha256": "914c2e9cf036e5d6a38961a86c372c63207d4fba69139e8f0e2e3cdf3cce134b",
+      "role": "Immutable OR-count CNF/metadata or complete stopped minimality-run diagnostic",
+      "restore_basename": "sat-fano-orcount27-broad.metadata.json"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-orcount28-control.cnf.gz",
+      "bytes": 958632,
+      "sha256": "4b7dacab1b91e2f4e7da762398bb472ec879eca3176c8ba28511b80bdd071ae5",
+      "role": "Immutable OR-count CNF/metadata or complete stopped minimality-run diagnostic",
+      "restore_basename": "sat-fano-orcount28-control.cnf"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-fano-orcount28-control.metadata.json.gz",
+      "bytes": 78764,
+      "sha256": "8df11b16a35b4e362f91815ae76b6966dc90a82ff92366c44049fee3e0bc3fe6",
+      "role": "Immutable OR-count CNF/metadata or complete stopped minimality-run diagnostic",
+      "restore_basename": "sat-fano-orcount28-control.metadata.json"
+    }
+  ],
+  "total_bytes": 2056686
+}

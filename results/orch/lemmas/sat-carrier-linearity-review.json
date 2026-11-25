@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS",
+  "reviewed_utc": "2026-11-25T11:02:34.200160+00:00",
+  "source": "results/orch/lemmas/constructive-carrier-linearity.lean",
+  "sha256": "2092f4801ae2990ec8e9f527bffccf163ac82a6e55474b53ca96dadcd41ca6c4",
+  "scope": "New MarkedTrace, closed_carrier_derivative, carrier_linearity tail; source matches successful build; no new Lean process",
+  "checks": [
+    "MarkedTrace is the intended Boolean formal derivative: input singleton seed, OR sum, and AND product rule at the given base.",
+    "Closure makes both operands of every P-supported gate P-supported. Induction therefore makes its derivative zero when the marked input lies outside P; input membership and valid-wire bounds are handled explicitly.",
+    "At inputs, the pair assignment is exactly base-singleton OR marked seed. Strict backward operands justify the induction for every later wire.",
+    "The OR case preserves the value=base OR derivative identity unconditionally.",
+    "For AND, expanding (A OR da) AND (B OR db) produces the additional term da AND db. The guarded-carrier premise forces at least one derivative to be false, eliminating precisely that term; the remaining terms are base value OR the formal product-rule derivative.",
+    "No graph correctness, minimality, or undocumented semantic premise is needed. The unused u\u2208P hypothesis only narrows the theorem and creates a harmless linter warning.",
+    "Build receipt is exit0 at the exact source hash; remaining output consists only of unused-variable/simp warnings."
+  ],
+  "issues": []
+}

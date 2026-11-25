@@ -1,0 +1,41 @@
+../results/orch/lemmas/constructive-carrier-linearity.lean:2490:53: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/constructive-carrier-linearity.lean:2516:16: warning: This simp argument is unused:
+  ht
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [gop, h1, h2, h3, h4]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/constructive-carrier-linearity.lean:2516:25: warning: This simp argument is unused:
+  h1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ht, gop, h2, h3, h4]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/constructive-carrier-linearity.lean:2516:29: warning: This simp argument is unused:
+  h2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ht, gop, h1, h3, h4]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/constructive-carrier-linearity.lean:2516:33: warning: This simp argument is unused:
+  h3
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ht, gop, h1, h2, h4]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/constructive-carrier-linearity.lean:2516:37: warning: This simp argument is unused:
+  h4
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ht, gop, h1, h2, h3]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

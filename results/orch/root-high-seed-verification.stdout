@@ -1,0 +1,71 @@
+{
+  "config": "stochastic-global-high.cfg",
+  "sha256": "400290e9a4078743a4b5f282a3a21e8aab12fb85ddfd5bf01f364e160b1cc153",
+  "verified_seeds": 480,
+  "full_truth_rows_per_seed": 16384,
+  "marked_inputs": [
+    0,
+    7
+  ],
+  "trace_patterns": [
+    [
+      false,
+      false,
+      352
+    ],
+    [
+      true,
+      true,
+      128
+    ]
+  ],
+  "boundary_rows": {
+    "positive": 21,
+    "maximal_negative": 37
+  },
+  "sizes": {
+    "28": 64,
+    "31": 72,
+    "33": 144,
+    "35": 72,
+    "27": 128
+  },
+  "structures_gate_p_Bplus_Bzero": [
+    [
+      27,
+      7,
+      14,
+      0,
+      128
+    ],
+    [
+      28,
+      7,
+      14,
+      1,
+      64
+    ],
+    [
+      31,
+      12,
+      18,
+      0,
+      72
+    ],
+    [
+      33,
+      13,
+      20,
+      0,
+      144
+    ],
+    [
+      35,
+      14,
+      22,
+      0,
+      72
+    ]
+  ],
+  "verdict": "PASS"
+}

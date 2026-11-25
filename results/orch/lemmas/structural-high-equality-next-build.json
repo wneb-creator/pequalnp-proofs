@@ -1,0 +1,12 @@
+{
+  "source": "results/orch/lemmas/structural-high-equality-next.lean",
+  "source_sha256": "bad45d3a7f9d208e135fb9273d30f0c635643a381f84e73a5b6c24de9146b569",
+  "lines": 8493,
+  "exit_code": 0,
+  "accepted_prefix_lines": 8183,
+  "accepted_source_sha256": "e856158208c582f389897b6941fd0cd675fe6e590fb09b4299b35b9c91a76a20",
+  "command": "pinned lake --dir lean env lean explicit standalone source; imports only PEqualNP.Defs",
+  "frozen": true,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

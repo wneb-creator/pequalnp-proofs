@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "source_sha256": "2092f4801ae2990ec8e9f527bffccf163ac82a6e55474b53ca96dadcd41ca6c4",
+  "lines": 2524,
+  "source": "results/orch/lemmas/constructive-carrier-linearity.lean"
+}

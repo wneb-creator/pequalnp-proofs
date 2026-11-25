@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS",
+  "tail_sha256": "cdba607588629fe843cb358e5f5e8be968f8ccfc87738572571aa436ba58b6c8",
+  "wrapper_sha256": "e23127b187bd17bb2ffeecad0ac6d9e4f897dc1c91a99f50d68599f6d2a125e5",
+  "lines": 118,
+  "scope": "Explicit three lower bounds14/7/6 plus size<=27 imply exact partition and the carrier-closure/AND-guard structure. It does not itself prove those lower bounds for p8 circuits.",
+  "checks": [
+    "Finite disjoint three-part sum is tight and exhausts all gates.",
+    "Carrier gates evaluate true on the independent-set base; base-false OR gates cannot be carrier gates.",
+    "An OR cannot be an exit because singleton supports union.",
+    "sup_big subset carrier and tight card imply equality.",
+    "Every carrier output has both operands in carrier; every AND has at least one carrier operand.",
+    "Exact reviewed tail hash matches successful cache-based build receipt."
+  ],
+  "archival_note": "Defs-only standalone composition confirmed; final target still requires exact theorem and checker.",
+  "standalone_sha256": "7c9b5e95d326ef5414bc148207b8dbb46a8d8b69ef1e52d727788710135452ea",
+  "standalone_composition": "Exact accepted source followed by whitespace and exact reviewed tail."
+}

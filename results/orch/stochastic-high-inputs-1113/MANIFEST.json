@@ -1,0 +1,62 @@
+[
+  {
+    "name": "stochastic-high-seeds.py",
+    "bytes": 3508,
+    "sha256": "f34d72d1dd59725eb9cb884a2319576475d28f6fdd88b72640a64ce6b8c7f5fd"
+  },
+  {
+    "name": "stochastic-high-seeds.json",
+    "bytes": 55167,
+    "sha256": "5e0dc6f0bdeff76d23fdbe6c85d8b8ffcdac963e3de98975f9cc6abc1bdfb8e2"
+  },
+  {
+    "name": "stochastic-high-seeds-verification.json",
+    "bytes": 534,
+    "sha256": "5859c3f8f800f2d78a696d18645fffded22f9b06dca72558f53eff0328b22575"
+  },
+  {
+    "name": "stochastic-high-seeds.log",
+    "bytes": 441,
+    "sha256": "cc637f9315f30a83a8f03bdbc780f1d2f62408a0d079ff87e911c67eaef49ee3"
+  },
+  {
+    "name": "stochastic-high-phase.cpp",
+    "bytes": 10259,
+    "sha256": "aa6bca3f54aca30115339c2d92487e76f48ab2be15d37730acfbe2adaeafc9d5"
+  },
+  {
+    "name": "stochastic-global-high.cfg",
+    "bytes": 110675,
+    "sha256": "400290e9a4078743a4b5f282a3a21e8aab12fb85ddfd5bf01f364e160b1cc153"
+  },
+  {
+    "name": "stochastic-high-config-verify.py",
+    "bytes": 2489,
+    "sha256": "0361eb81687a63c084ade2a9860872aff454eccfdaffffa96aa475f5f5aa4b2c"
+  },
+  {
+    "name": "stochastic-global-high-verification.json",
+    "bytes": 904,
+    "sha256": "33b4ea76d6e1b0405e234b9756213638bff043c83bfa83092baf35b619fb4286"
+  },
+  {
+    "name": "stochastic-global-high-verification.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "stochastic-ordinary27-seeds.py",
+    "bytes": 1952,
+    "sha256": "b98452456301bf952ffe55f1f1de7b1773d514ee83e5841ad32e074045459e23"
+  },
+  {
+    "name": "stochastic-ordinary27-seeds.json",
+    "bytes": 67329,
+    "sha256": "c80483d176ccfa07c317cceaa22bfe9ff0547cd721ae07932853793b75ca8145"
+  },
+  {
+    "name": "stochastic-ordinary27-seeds.log",
+    "bytes": 113,
+    "sha256": "12434569fc21d26d7c7543048ff8e8826dd790222416ae887a4111b11c490cc3"
+  }
+]

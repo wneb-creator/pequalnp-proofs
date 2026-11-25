@@ -6,7 +6,7 @@ Checker: exit 1, REJECTED (no-theorem); final target theorem is absent. The chec
 Independent whole-file review: PASS by status_review; all new tails also reviewed by algebraic_route.
 Complete build logs and earlier axiom audit are archived alongside this file.
 Sub-agents: 6 (structural review, Lean formalization, constructive search, stochastic search, SAT decomposition, algebraic route)
-TIMING total=123.8 subagents=6
+TIMING total=139.1 subagents=6
 Additional archival partial: constructive-completion.lean, 80 lines; all 441 witness cases independently recomputed, Lean exit 0, no claim about arbitrary AND factors.
 Normal-form axiom audit: only propext, Classical.choice, Quot.sound.
 Additional archival partial: algebraic-blocking.lean, 44 lines, Lean exit 0; blocking-set classification and pure-point constraint for an OR-of-lines masked factor. Independent review PASS; scope excludes arbitrary AND factors.
@@ -20,3 +20,7 @@ Additional archival partial: algebraic-equality-mixed22.lean, 9169 lines, exit0 
 SAT preservation bundle: 29 immutable files, 4185591 bytes, independently reviewed encoding and canonical28 positive control; all218726 control clauses pass. Complete stopped baseline diagnostics retained; baseline verdict UNKNOWN. Active broad27 search remains unresolved.
 Further archival partials, all compiled exit0 and independently reviewed: high-case Bzero bounds (7998 lines), mixed2+2 symmetry wrapper (9191 lines), fresh carrier-exit count (2630 lines), critical-input/false-OR bound (438 lines), OR-function corollaries (485 lines), and finite certificate count (48 lines). Each retains its explicit model and hypotheses; no full Fano equality classification or target proof is claimed.
 Immutable stochastic archive: 64 selected files, 956340 bytes, with hashes, frozen source/configs, completed full logs and640 verified seeds at28/29/31 gates. Bounded search failures are not UNSAT verdicts.
+
+Further archival partials, all standalone Lean exit0 with independent source reviews: canonical p7/p8 no-double-quiet (7517 lines), p8 saturation component (9625), carrier linearity (2524), missing-mask saturation/protected inputs (7622), mixed p11 bound (8493), strict cofactor slack (5905), and its restriction wrappers (6186). These are model-specific components; the posted target remains unproved.
+SAT OR-count delta:20 immutable files,2056686 bytes; hashes verified against its manifest. Known28 control satisfies all250866 clauses; broad27 search remains unresolved.
+High-search input archive:12 hashed inputs,253371 bytes. Root independently reran the verifier:480 seeds checked on16384 rows each,352 double-quiet seeds with28/31/33/35 gates and128 ordinary27 controls with both derivatives true. No27 quiet witness is claimed.

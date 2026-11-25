@@ -1,0 +1,29 @@
+{
+  "seeds": 72,
+  "full_truth_rows_per_seed": 16384,
+  "both_derivatives_false_at": [
+    0,
+    7
+  ],
+  "best_within_this_star_squaring_family_only": [
+    {
+      "eligible_count": 12,
+      "best_gate_cost": 31,
+      "minimum_recipes": 9,
+      "selected": 9
+    },
+    {
+      "eligible_count": 13,
+      "best_gate_cost": 33,
+      "minimum_recipes": 18,
+      "selected": 18
+    },
+    {
+      "eligible_count": 14,
+      "best_gate_cost": 35,
+      "minimum_recipes": 9,
+      "selected": 9
+    }
+  ],
+  "verdict": "PASS"
+}

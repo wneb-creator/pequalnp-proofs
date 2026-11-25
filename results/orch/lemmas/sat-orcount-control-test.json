@@ -1,0 +1,235 @@
+{
+  "verdict": "PASS",
+  "variables": 18814,
+  "clauses": 250866,
+  "rows": [
+    {
+      "mask": 127,
+      "required": 6,
+      "count": 20,
+      "slack": 14
+    },
+    {
+      "mask": 244,
+      "required": 8,
+      "count": 14,
+      "slack": 6
+    },
+    {
+      "mask": 361,
+      "required": 8,
+      "count": 14,
+      "slack": 6
+    },
+    {
+      "mask": 480,
+      "required": 9,
+      "count": 10,
+      "slack": 1
+    },
+    {
+      "mask": 595,
+      "required": 8,
+      "count": 14,
+      "slack": 6
+    },
+    {
+      "mask": 720,
+      "required": 9,
+      "count": 10,
+      "slack": 1
+    },
+    {
+      "mask": 833,
+      "required": 9,
+      "count": 10,
+      "slack": 1
+    },
+    {
+      "mask": 1063,
+      "required": 8,
+      "count": 17,
+      "slack": 9
+    },
+    {
+      "mask": 1188,
+      "required": 9,
+      "count": 12,
+      "slack": 3
+    },
+    {
+      "mask": 1313,
+      "required": 9,
+      "count": 12,
+      "slack": 3
+    },
+    {
+      "mask": 1539,
+      "required": 9,
+      "count": 12,
+      "slack": 3
+    },
+    {
+      "mask": 2126,
+      "required": 8,
+      "count": 15,
+      "slack": 7
+    },
+    {
+      "mask": 2244,
+      "required": 9,
+      "count": 11,
+      "slack": 2
+    },
+    {
+      "mask": 2376,
+      "required": 9,
+      "count": 11,
+      "slack": 2
+    },
+    {
+      "mask": 2626,
+      "required": 9,
+      "count": 10,
+      "slack": 1
+    },
+    {
+      "mask": 3008,
+      "required": 8,
+      "count": 8,
+      "slack": 0
+    },
+    {
+      "mask": 3078,
+      "required": 9,
+      "count": 13,
+      "slack": 4
+    },
+    {
+      "mask": 4125,
+      "required": 8,
+      "count": 15,
+      "slack": 7
+    },
+    {
+      "mask": 4244,
+      "required": 9,
+      "count": 10,
+      "slack": 1
+    },
+    {
+      "mask": 4361,
+      "required": 9,
+      "count": 10,
+      "slack": 1
+    },
+    {
+      "mask": 4625,
+      "required": 9,
+      "count": 11,
+      "slack": 2
+    },
+    {
+      "mask": 5125,
+      "required": 9,
+      "count": 13,
+      "slack": 4
+    },
+    {
+      "mask": 5889,
+      "required": 8,
+      "count": 8,
+      "slack": 0
+    },
+    {
+      "mask": 6156,
+      "required": 9,
+      "count": 11,
+      "slack": 2
+    },
+    {
+      "mask": 7300,
+      "required": 8,
+      "count": 8,
+      "slack": 0
+    },
+    {
+      "mask": 8250,
+      "required": 8,
+      "count": 16,
+      "slack": 8
+    },
+    {
+      "mask": 8368,
+      "required": 9,
+      "count": 11,
+      "slack": 2
+    },
+    {
+      "mask": 8488,
+      "required": 9,
+      "count": 11,
+      "slack": 2
+    },
+    {
+      "mask": 8722,
+      "required": 9,
+      "count": 11,
+      "slack": 2
+    },
+    {
+      "mask": 9250,
+      "required": 9,
+      "count": 14,
+      "slack": 5
+    },
+    {
+      "mask": 9632,
+      "required": 8,
+      "count": 8,
+      "slack": 0
+    },
+    {
+      "mask": 10250,
+      "required": 9,
+      "count": 12,
+      "slack": 3
+    },
+    {
+      "mask": 11778,
+      "required": 8,
+      "count": 8,
+      "slack": 0
+    },
+    {
+      "mask": 12312,
+      "required": 9,
+      "count": 13,
+      "slack": 4
+    },
+    {
+      "mask": 12944,
+      "required": 8,
+      "count": 8,
+      "slack": 0
+    },
+    {
+      "mask": 14600,
+      "required": 8,
+      "count": 8,
+      "slack": 0
+    },
+    {
+      "mask": 16256,
+      "required": 6,
+      "count": 6,
+      "slack": 0
+    }
+  ],
+  "threshold_census": {
+    "6": 2,
+    "8": 14,
+    "9": 21
+  },
+  "source_sha256": "8c4f7cdaaf836c8365e0ed7d73a49139115c9f2730b873ff8df2b6195b5054b3"
+}

@@ -1,0 +1,149 @@
+{
+  "verdict": "PASS",
+  "scope": "Exhaustive input+auxiliary assignments for all n=0..4 and thresholds0..n+1; each satisfying input has exactly one auxiliary model; independent recurrence truth table",
+  "source_sha256": "8c4f7cdaaf836c8365e0ed7d73a49139115c9f2730b873ff8df2b6195b5054b3",
+  "cases": [
+    {
+      "inputs": 0,
+      "threshold": 0,
+      "variables": 0,
+      "clauses": 0,
+      "all_assignments": 1
+    },
+    {
+      "inputs": 0,
+      "threshold": 1,
+      "variables": 0,
+      "clauses": 1,
+      "all_assignments": 1
+    },
+    {
+      "inputs": 1,
+      "threshold": 0,
+      "variables": 1,
+      "clauses": 0,
+      "all_assignments": 2
+    },
+    {
+      "inputs": 1,
+      "threshold": 1,
+      "variables": 2,
+      "clauses": 3,
+      "all_assignments": 4
+    },
+    {
+      "inputs": 1,
+      "threshold": 2,
+      "variables": 1,
+      "clauses": 1,
+      "all_assignments": 2
+    },
+    {
+      "inputs": 2,
+      "threshold": 0,
+      "variables": 2,
+      "clauses": 0,
+      "all_assignments": 4
+    },
+    {
+      "inputs": 2,
+      "threshold": 1,
+      "variables": 4,
+      "clauses": 6,
+      "all_assignments": 16
+    },
+    {
+      "inputs": 2,
+      "threshold": 2,
+      "variables": 5,
+      "clauses": 9,
+      "all_assignments": 32
+    },
+    {
+      "inputs": 2,
+      "threshold": 3,
+      "variables": 2,
+      "clauses": 1,
+      "all_assignments": 4
+    },
+    {
+      "inputs": 3,
+      "threshold": 0,
+      "variables": 3,
+      "clauses": 0,
+      "all_assignments": 8
+    },
+    {
+      "inputs": 3,
+      "threshold": 1,
+      "variables": 6,
+      "clauses": 9,
+      "all_assignments": 64
+    },
+    {
+      "inputs": 3,
+      "threshold": 2,
+      "variables": 8,
+      "clauses": 16,
+      "all_assignments": 256
+    },
+    {
+      "inputs": 3,
+      "threshold": 3,
+      "variables": 9,
+      "clauses": 19,
+      "all_assignments": 512
+    },
+    {
+      "inputs": 3,
+      "threshold": 4,
+      "variables": 3,
+      "clauses": 1,
+      "all_assignments": 8
+    },
+    {
+      "inputs": 4,
+      "threshold": 0,
+      "variables": 4,
+      "clauses": 0,
+      "all_assignments": 16
+    },
+    {
+      "inputs": 4,
+      "threshold": 1,
+      "variables": 8,
+      "clauses": 12,
+      "all_assignments": 256
+    },
+    {
+      "inputs": 4,
+      "threshold": 2,
+      "variables": 11,
+      "clauses": 23,
+      "all_assignments": 2048
+    },
+    {
+      "inputs": 4,
+      "threshold": 3,
+      "variables": 13,
+      "clauses": 30,
+      "all_assignments": 8192
+    },
+    {
+      "inputs": 4,
+      "threshold": 4,
+      "variables": 14,
+      "clauses": 33,
+      "all_assignments": 16384
+    },
+    {
+      "inputs": 4,
+      "threshold": 5,
+      "variables": 4,
+      "clauses": 1,
+      "all_assignments": 16
+    }
+  ],
+  "total_assignments": 27826,
+  "elapsed": 0.119
+}
