@@ -1,0 +1,8 @@
+UTC 2026-11-25T05:42:43.113350+00:00
+Lean build exit 0. Complete stdout/stderr empty.
+Defs-only standalone extraction of generic packing proof from accepted R_meta_5060_52.lean lines32-149, including helpers. Original local have/let declarations become theorem/def; proof bodies unchanged except indentation.
+Scope: AndCountCircuit only. No ordinary-Circuit normalization, size preservation, or equality of operand statistics is claimed.
+For a rejected family with every distinct union accepted, sum over family of2^(equal-operand-count) is at most2^C.size.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/WeightedRejectedPacking.lean
+Source SHA256 125d1a0627b76d92d34ab879847d7ce4012ff7ad31b1ea0e8997e2746751327a
+Artifact SHA256 bc11d02ed6b7b6d3b5ec10b4a4f00995074476215b46e82e65bd5243c8792a78
