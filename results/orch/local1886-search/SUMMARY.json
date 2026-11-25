@@ -1,0 +1,53 @@
+{
+  "utc": "2026-11-25T14:57:28.961223+00:00",
+  "gap": "L-meta-1886",
+  "job": "pequalnp-pilot-92",
+  "status": "prepared and reviewed restricted searches; no result on posted theorem",
+  "heuristic_executed": false,
+  "files": {
+    "local1886-and-care-analysis.json": {
+      "bytes": 241,
+      "sha256": "214cd757fb0477b14f05f9923de284ae670907673a0384462396283921e83d89"
+    },
+    "local1886-and-care-seeds.json": {
+      "bytes": 139587,
+      "sha256": "fd6a3e2cd859bdd82ee1f557834bc6d30e3419a2e2b91def341dc74e630b45c8"
+    },
+    "local1886-bank-guard-orbits.json": {
+      "bytes": 261,
+      "sha256": "2440cc42ee88a8529701413d053bd8a0378326b841d8c61d6bdb91960d967bc1"
+    },
+    "local1886-care-search.cpp": {
+      "bytes": 4889,
+      "sha256": "bccf31a948b986a9eb4b4c908ee85bf51f2e0f7790f9efe1f780e8082286f7dd"
+    },
+    "local1886-care-templates.txt": {
+      "bytes": 17108,
+      "sha256": "7fc27cddaadbec9f7141caf577e4d579fd4a9e1a6b121c6c5d2841a3418cf6f0"
+    },
+    "local1886-care-validate.py": {
+      "bytes": 2293,
+      "sha256": "3a990f820a8ff2aaa54639612f07c62fa4431c4949cbbe659cc0026ba9ac07d0"
+    },
+    "local1886-pair-orbits.json": {
+      "bytes": 5399,
+      "sha256": "49e096125417b86f5e8e33c699b5d62d64ad18b2eb8ac97bb2f42d3028433822"
+    },
+    "local1886-review-guard.json": {
+      "bytes": 1156,
+      "sha256": "8c9fee589c634c8e4a915ca3c65effbaffc82ff12ad7d9663a244fdc5cde66ed"
+    },
+    "local1886-review-ordering.json": {
+      "bytes": 1064,
+      "sha256": "2a258c7b1542e50bca8afcbf5d9e9ce935826c0e85af0055598925db1a9ee51f"
+    },
+    "local1886-review-search.json": {
+      "bytes": 1985,
+      "sha256": "126222ca0546b3936655fea8972c3c00a56bfe55e52a51ca8405258d8d4b5283"
+    },
+    "README.md": {
+      "bytes": 1923,
+      "sha256": "e49482c46968f9447cb76f1fedd1fc5c051da3d7f45dc70ee91d54d63febec51"
+    }
+  }
+}

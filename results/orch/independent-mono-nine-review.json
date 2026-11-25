@@ -1,0 +1,14 @@
+{
+  "sourceHash": "PASS",
+  "outputHash": "PASS",
+  "unchangedNormalizedDeclarationBodies": 1326,
+  "lexicalMissingDependencies": [],
+  "format": "PASS",
+  "options": [
+    "maxHeartbeats",
+    "maxRecDepth"
+  ],
+  "newLower16": "Reviewed sound via essential input rows and monoRoot15; compile pending",
+  "bytes": 478528,
+  "sha256": "0aec2e94438aab6a1228cc80c1d9c38b259ba41da9cbf91f08f495e8d7f25f31"
+}

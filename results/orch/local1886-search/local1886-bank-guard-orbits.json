@@ -1,0 +1,20 @@
+[
+  {
+    "bank_partner_representative": 2,
+    "fixed_variables": [
+      0,
+      1,
+      2
+    ],
+    "critical_rows": 58
+  },
+  {
+    "bank_partner_representative": 3,
+    "fixed_variables": [
+      0,
+      1,
+      3
+    ],
+    "critical_rows": 60
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "utc": "2026-11-25T14:47:13.774047+00:00",
+  "verdict": "PASS",
+  "files": {
+    "search-1886-firstnot.py": "ac76506a74b6929f4bd535bcaac17615719bf8663ba765e33056f37319474314",
+    "search-1886-decode.py": "b40662b40ac165c0389b4a68db5cada6b816db71c3473216ebc952fbd043b713"
+  },
+  "and_or_truth_cases": 16,
+  "selector_truth_cases": 8,
+  "critical_row_cases": [
+    {
+      "not_input": -1,
+      "rows": 30,
+      "complete_rows": 1024
+    },
+    {
+      "not_input": 0,
+      "rows": 38,
+      "complete_rows": 1024
+    },
+    {
+      "not_input": 1,
+      "rows": 38,
+      "complete_rows": 1024
+    },
+    {
+      "not_input": 2,
+      "rows": 38,
+      "complete_rows": 1024
+    },
+    {
+      "not_input": 3,
+      "rows": 38,
+      "complete_rows": 1024
+    },
+    {
+      "not_input": 4,
+      "rows": 38,
+      "complete_rows": 1024
+    },
+    {
+      "not_input": 5,
+      "rows": 38,
+      "complete_rows": 1024
+    },
+    {
+      "not_input": 6,
+      "rows": 38,
+      "complete_rows": 1024
+    },
+    {
+      "not_input": 7,
+      "rows": 38,
+      "complete_rows": 1024
+    },
+    {
+      "not_input": 8,
+      "rows": 38,
+      "complete_rows": 1024
+    },
+    {
+      "not_input": 9,
+      "rows": 38,
+      "complete_rows": 1024
+    },
+    {
+      "not_input": 10,
+      "rows": 46,
+      "complete_rows": 1024
+    }
+  ],
+  "final_or_edge_rows": 29,
+  "final_or_care_rows": 768,
+  "review": "Correct selector biconditional and AND/OR polarity. Sorted operands preserve all commutative gates. First NOT is evaluated on bank input 0..10; fixed cofactors cover its dependencies. Positive minimal and negative maximal points determine monotone suffix in every cofactor. Final-OR AND-bank mode omits only edge01, and decoder restores that edge with one final gate. Decoder verifies every one of 1024 original inputs and uses correct 11-input wire numbering. This establishes encoder soundness for the restricted templates, not exhaustiveness over arbitrary circuits."
+}

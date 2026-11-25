@@ -1,0 +1,7 @@
+{
+  "automorphisms": 120,
+  "distinct_simplified": 120,
+  "minimum_size": 19,
+  "seconds": 0.6110258102416992,
+  "scope": "g over ten raw inputs; exact on x0 AND x1 = false only; add one counted OR with free AND01 to reconstruct Petersen"
+}

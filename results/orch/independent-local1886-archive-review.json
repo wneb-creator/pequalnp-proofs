@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-25T14:58:41.278546+00:00",
+  "verdict": "PASS",
+  "archive": "results/orch/local1886-search",
+  "files": 12,
+  "bytes": 177766,
+  "hashes_match": true,
+  "all_120_seed_automorphisms_unique_valid": true,
+  "all_120_seeds_verified_on_768_care_rows": true,
+  "minimum_seed_gates": 19,
+  "stabilizer_size": 8,
+  "raw_pair_orbits": 10,
+  "raw_pairs_partitioned": 45,
+  "template_text_matches_seed_json": true,
+  "credential_environment_binary_scan": "PASS",
+  "claims": "Restricted search preprocessing only; heuristic explicitly unexecuted; no proof or counterexample claimed. Independent validator implements all1024 lifted evaluations and exact11-input indexing."
+}
