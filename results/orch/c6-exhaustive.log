@@ -1,0 +1,6 @@
+cover=7 roots=3 remaining=4 prefixes=225125 final_pairs=29292120 found=0
+cover=27 roots=4 remaining=3 prefixes=5037 final_pairs=656040 found=0
+cover=45 roots=4 remaining=3 prefixes=5037 final_pairs=656040 found=0
+cover=54 roots=4 remaining=3 prefixes=5037 final_pairs=656040 found=0
+cover=56 roots=3 remaining=4 prefixes=225125 final_pairs=29292120 found=0
+FINITE_CANONICAL_SEARCH_UNSAT cases=5 prefixes=465361 final_pairs=60552360 seconds=0.0720103

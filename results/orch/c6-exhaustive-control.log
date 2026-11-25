@@ -1,0 +1,10 @@
+cover=7 roots=3 remaining=5 prefixes=3894511 final_pairs=600119676 found=1
+CANDIDATE
+1 4 5
+1 3 5
+1 3 4
+0 0 6
+0 1 7
+0 2 8
+1 9 10
+1 11 12

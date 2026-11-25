@@ -127,5 +127,214 @@ lemma selected_dag_cover
       · simp [he] at hcard
   · simpa using hroot
 
-end PEqualNP.Outside.L_meta_4970.Pruning
+def selectedSupport (n : ℕ) (a b : ℕ → ℕ) (fork chooseLeft : ℕ → Bool)
+    (w : ℕ) : Finset (Fin n) :=
+  if hw : w < n then {⟨w, hw⟩}
+  else if h : a w < w ∧ b w < w then
+    if fork w = true then selectedSupport n a b fork chooseLeft (a w) ∪
+      selectedSupport n a b fork chooseLeft (b w)
+    else if chooseLeft w = true then selectedSupport n a b fork chooseLeft (a w)
+      else selectedSupport n a b fork chooseLeft (b w)
+  else ∅
+termination_by w
+decreasing_by all_goals first | exact h.1 | exact h.2
 
+def selectedStep (n total : ℕ) (a b : ℕ → ℕ) (fork chooseLeft : ℕ → Bool)
+    (w v : ℕ) : Prop :=
+  n ≤ w ∧ w < total ∧
+    if fork w = true then v = a w ∨ v = b w
+    else if chooseLeft w = true then v = a w else v = b w
+
+def follows (step : ℕ → ℕ → Prop) (root w : ℕ) : Prop :=
+  ∀ S : Set ℕ, root ∈ S → (∀ u ∈ S, ∀ v, step u v → v ∈ S) → w ∈ S
+
+lemma follows_refl (step : ℕ → ℕ → Prop) (root : ℕ) : follows step root root := by
+  intro S hS _
+  exact hS
+
+lemma follows_step (step : ℕ → ℕ → Prop) (root w v : ℕ)
+    (hw : follows step root w) (hv : step w v) : follows step root v := by
+  intro S hS hclosed
+  exact hclosed w (hw S hS hclosed) v hv
+
+noncomputable def selectedActive (n total : ℕ) (a b : ℕ → ℕ)
+    (fork chooseLeft : ℕ → Bool) (root : ℕ) : Finset ℕ := by
+  classical
+  exact (Finset.range total).filter (follows (selectedStep n total a b fork chooseLeft) root)
+
+noncomputable def selectedUnions (n total : ℕ) (a b : ℕ → ℕ)
+    (fork chooseLeft : ℕ → Bool) (root : ℕ) : Finset ℕ := by
+  classical
+  exact (selectedActive n total a b fork chooseLeft root).filter
+    (fun w => n ≤ w ∧ fork w = true)
+
+lemma selectedSupport_input (n : ℕ) (a b : ℕ → ℕ) (fork chooseLeft : ℕ → Bool)
+    (w : ℕ) (hw : w < n) : selectedSupport n a b fork chooseLeft w = {⟨w, hw⟩} := by
+  rw [selectedSupport, dite_eq_left hw]
+
+lemma selectedSupport_gate (n : ℕ) (a b : ℕ → ℕ) (fork chooseLeft : ℕ → Bool)
+    (w : ℕ) (hw : n ≤ w) (hp : a w < w ∧ b w < w) :
+    selectedSupport n a b fork chooseLeft w =
+      if fork w = true then selectedSupport n a b fork chooseLeft (a w) ∪
+        selectedSupport n a b fork chooseLeft (b w)
+      else if chooseLeft w = true then selectedSupport n a b fork chooseLeft (a w)
+        else selectedSupport n a b fork chooseLeft (b w) := by
+  rw [selectedSupport, dite_eq_right (Nat.not_lt.mpr hw), dite_eq_left hp]
+
+lemma selected_cover
+    {A B : Type*} (n total root : ℕ) (left : A → Fin n) (right : B → Fin n)
+    (edges : Finset (A × B)) (a b : ℕ → ℕ) (fork chooseLeft : ℕ → Bool)
+    (hit : ℕ → A → B → Prop)
+    (hroot : root < total)
+    (hparents : ∀ w, n ≤ w → w < total → a w < w ∧ b w < w)
+    (hinput : ∀ w (hw : w < n), ∀ u v, hit w u v → left u = ⟨w, hw⟩ ∨ right v = ⟨w, hw⟩)
+    (hfork : ∀ w, n ≤ w → w < total → fork w = true →
+      ∀ u v, hit w u v → hit (a w) u v ∨ hit (b w) u v)
+    (hchoose : ∀ w, n ≤ w → w < total → fork w ≠ true →
+      ∀ u v, hit w u v → hit (a w) u v ∧ hit (b w) u v)
+    (haccepted : ∀ u v, (u, v) ∈ edges → hit root u v) :
+    (∀ u v, (u, v) ∈ edges →
+      left u ∈ selectedSupport n a b fork chooseLeft root ∨
+      right v ∈ selectedSupport n a b fork chooseLeft root) ∧
+    (selectedSupport n a b fork chooseLeft root).card ≤
+      1 + (selectedUnions n total a b fork chooseLeft root).card := by
+  classical
+  let active := selectedActive n total a b fork chooseLeft root
+  let paid := selectedUnions n total a b fork chooseLeft root
+  let supp := selectedSupport n a b fork chooseLeft
+  let support : ℕ → Finset (Fin n) := fun w => if w ∈ active then supp w else ∅
+  let hits : ℕ → A → B → Prop := fun w u v => w ∈ active ∧ hit w u v
+  have root_mem : root ∈ active := by
+    exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hroot, follows_refl _ _⟩
+  have mem_next (w v : ℕ) (hw : w ∈ active)
+      (hv : selectedStep n total a b fork chooseLeft w v) (hvw : v < w) : v ∈ active := by
+    have hs := Finset.mem_filter.mp hw
+    exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr (hvw.trans (Finset.mem_range.mp hs.1)),
+      follows_step _ root w v hs.2 hv⟩
+  have hpaid : Finset.range total ∩ paid = paid := by
+    apply Finset.inter_eq_right.mpr
+    intro w hw
+    exact (Finset.mem_filter.mp (Finset.mem_filter.mp hw).1).1
+  have result := selected_dag_cover left right edges n total root support hits paid hroot
+    (fun u v huv => ⟨root_mem, haccepted u v huv⟩) ?_ ?_
+  · simpa only [support, root_mem, ite_eq_left, hpaid] using result
+  · intro w hw
+    constructor
+    · dsimp only [support, supp]
+      split_ifs
+      · rw [selectedSupport_input n a b fork chooseLeft w hw]
+        simp
+      · simp
+    · intro u v ⟨hactive, hhit⟩
+      dsimp only [support]
+      rw [ite_eq_left hactive]
+      change left u ∈ selectedSupport n a b fork chooseLeft w ∨
+        right v ∈ selectedSupport n a b fork chooseLeft w
+      rw [selectedSupport_input n a b fork chooseLeft w hw]
+      simpa using hinput w hw u v hhit
+  · intro w hn hw
+    by_cases hactive : w ∈ active
+    · have hp := hparents w hn hw
+      have hs : supp w = if fork w = true then supp (a w) ∪ supp (b w)
+          else if chooseLeft w = true then supp (a w) else supp (b w) :=
+        selectedSupport_gate n a b fork chooseLeft w hn hp
+      by_cases hor : fork w = true
+      · have ha : a w ∈ active := mem_next w (a w) hactive
+          ⟨hn, hw, by simp only [hor, ite_eq_left, true_or]⟩ hp.1
+        have hb : b w ∈ active := mem_next w (b w) hactive
+          ⟨hn, hw, by simp only [hor, ite_eq_left, or_true]⟩ hp.2
+        right
+        left
+        refine ⟨Finset.mem_filter.mpr ⟨hactive, hn, hor⟩, a w, hp.1, b w, hp.2, ?_, ?_⟩
+        · simp only [support, hactive, ha, hb, ite_eq_left, hor] at hs ⊢
+          exact hs
+        · intro u v ⟨_, hv⟩
+          rcases hfork w hn hw hor u v hv with h | h
+          · exact Or.inl ⟨ha, h⟩
+          · exact Or.inr ⟨hb, h⟩
+      · left
+        by_cases hl : chooseLeft w = true
+        · have ha : a w ∈ active := mem_next w (a w) hactive
+            ⟨hn, hw, by simp [hor, hl]⟩ hp.1
+          refine ⟨a w, hp.1, ?_, ?_⟩
+          · simp only [support, hactive, ha, ite_eq_left, hor, ite_eq_right, hl] at hs ⊢
+            exact hs
+          · intro u v ⟨_, hv⟩
+            exact ⟨ha, (hchoose w hn hw hor u v hv).1⟩
+        · have hb : b w ∈ active := mem_next w (b w) hactive
+            ⟨hn, hw, by simp [hor, hl]⟩ hp.2
+          refine ⟨b w, hp.2, ?_, ?_⟩
+          · simp only [support, hactive, hb, ite_eq_left, hor, ite_eq_right, hl] at hs ⊢
+            exact hs
+          · intro u v ⟨_, hv⟩
+            exact ⟨hb, (hchoose w hn hw hor u v hv).2⟩
+    · right
+      right
+      refine ⟨by simp [support, hactive], ?_⟩
+      intro u v hv
+      exact hactive hv.1
+
+
+
+lemma selectedSupport_zero (n total : ℕ) (a b : ℕ → ℕ)
+    (fork chooseLeft : ℕ → Bool) (value : ℕ → Bool)
+    (hparents : ∀ w, n ≤ w → w < total → a w < w ∧ b w < w)
+    (hfork : ∀ w, n ≤ w → w < total → fork w = true → value w = false →
+      value (a w) = false ∧ value (b w) = false)
+    (hchoose : ∀ w, n ≤ w → w < total → fork w ≠ true → value w = false →
+      (if chooseLeft w = true then value (a w) else value (b w)) = false) :
+    ∀ w, w < total → value w = false →
+      ∀ i ∈ selectedSupport n a b fork chooseLeft w, value i.val = false := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw hv i hi
+    by_cases hin : w < n
+    · rw [selectedSupport_input n a b fork chooseLeft w hin] at hi
+      have hi1 : i = ⟨w, hin⟩ := by simpa using hi
+      subst i
+      exact hv
+    · have hn : n ≤ w := Nat.le_of_not_lt hin
+      have hp := hparents w hn hw
+      rw [selectedSupport_gate n a b fork chooseLeft w hn hp] at hi
+      by_cases hor : fork w = true
+      · simp only [hor, ite_eq_left, Finset.mem_union] at hi
+        rcases hi with hi | hi
+        · exact ih _ hp.1 (hp.1.trans hw) (hfork w hn hw hor hv).1 i hi
+        · exact ih _ hp.2 (hp.2.trans hw) (hfork w hn hw hor hv).2 i hi
+      · have hc := hchoose w hn hw hor hv
+        by_cases hl : chooseLeft w = true
+        · simp [hor, hl] at hi hc
+          exact ih _ hp.1 (hp.1.trans hw) hc i hi
+        · simp [hor, hl] at hi hc
+          exact ih _ hp.2 (hp.2.trans hw) hc i hi
+
+lemma selectedActive_zero (n total root : ℕ) (a b : ℕ → ℕ)
+    (fork chooseLeft : ℕ → Bool) (value : ℕ → Bool)
+    (hzero : value root = false)
+    (hfork : ∀ w, n ≤ w → w < total → fork w = true → value w = false →
+      value (a w) = false ∧ value (b w) = false)
+    (hchoose : ∀ w, n ≤ w → w < total → fork w ≠ true → value w = false →
+      (if chooseLeft w = true then value (a w) else value (b w)) = false) :
+    ∀ w ∈ selectedActive n total a b fork chooseLeft root, value w = false := by
+  classical
+  intro w hw
+  have hr := (Finset.mem_filter.mp hw).2
+  apply hr {v | value v = false} hzero
+  intro u hu v ⟨hn, ht, hv⟩
+  change value v = false
+  by_cases hor : fork u = true
+  · simp only [hor, ite_eq_left] at hv
+    rcases hv with rfl | rfl
+    · exact (hfork u hn ht hor hu).1
+    · exact (hfork u hn ht hor hu).2
+  · have hc := hchoose u hn ht hor hu
+    by_cases hl : chooseLeft u = true
+    · simp [hor, hl] at hv hc
+      rw [hv]
+      exact hc
+    · simp [hor, hl] at hv hc
+      rw [hv]
+      exact hc
+
+end PEqualNP.Outside.L_meta_4970.Pruning

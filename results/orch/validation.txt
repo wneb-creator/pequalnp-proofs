@@ -33,3 +33,7 @@ Centreless example is a separately checked intermediate obstruction, not a refut
 Posted statement and four exact null desk notes preserved for review.
 
 Checkpoint9: named lake build passes (5189 jobs), 2139 lines approximately; target theorem still absent, partial result only. Independent reviews covered structural snapshot9 and restriction body1. Lease heartbeat returned410 at2026-11-25T16:35:14Z despite prior expiry16:45:13Z; exact curl-si retry also410. Preserving before lease recovery.
+
+Final L4970 partial preservation: 2581lines, lake build passes5189jobs. Independent review APPROVED for preservation only; exact target theorem remains absent. Source guard rejects missing theorem. Official checker still running. No cleanup performed because no complete proof. C6 files are external finite search evidence and positivecontrol, not Lean proof.
+Sub-agents: 7 (structural proof, global bridge, combinatorial ledger, lemma search, counterexample search, Lean setup, independent review)
+TIMING total=77.8 subagents=7
