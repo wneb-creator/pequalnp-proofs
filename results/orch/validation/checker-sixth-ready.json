@@ -1,0 +1,28 @@
+{
+  "disk_free": 142544896,
+  "base_journal_estimate": 38321661,
+  "core_journal_bytes": 506139,
+  "core_journal_already_restored": true,
+  "original_enter_guard_spare": 10802697,
+  "base_build_files": 100760,
+  "base_build_allocated": 1344540672,
+  "base_ram_files": 1259,
+  "base_ram_raw": 1309365728,
+  "base_ram_allocated": 1311940608,
+  "core_files": 655,
+  "core_bytes": 117399848,
+  "verify_pinned_bytes": 2015821128,
+  "verify_free_conservative": 136317160,
+  "verify_reserve_bytes": 104857600,
+  "restoration_atomic_journal_spare": 65395435,
+  "pending_backups": 0,
+  "live_lean_processes": [],
+  "source_hashes": {
+    "resource-wrapper/storage_phase.py": "a43b13fa9556910376ae08131bbc8228b8318be81ab986f74a9ddf4427f1feb2",
+    "core-phase/core_phase.py": "d91225cbfe02e7ab5b03f49daf89077cafdf14f327b1aa9d5dd7b0f1f22048f3",
+    "core-phase/storage_sequence.py": "940eff8b930e95526e3bbd0828b333b6db107e05b2322abcdc27e3dc1eaaa9c1",
+    "core-phase/config.json": "4a90ff3916fae62da87485de1ef879a865de180973ea617c01b1beeb5f141124",
+    "resource-wrapper/handoff-prototype/lake": "dfcf223f529a93d2b886b9864bbcca53351d553381f8959fe4934936690142cc",
+    "resource-wrapper/handoff-prototype/config.json": "15626a62ca6ac1d4e48a410c146fffa113c49dcbb4a3755e0ca0cfd1708e5041"
+  }
+}

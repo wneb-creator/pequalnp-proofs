@@ -1,0 +1,11 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage-state/transaction.json",
+  "archive": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage-state/transaction-checker006.json.zst",
+  "status": "restored",
+  "uncompressed_bytes": 38317628,
+  "sha256": "8fb4a2a46fa5985d22a4b50fe44cd365b3532ee0a0d0e7a7bc891cd9388981e4",
+  "archive_sha256": "56f6c8263ae409d8043172408cf947ec09e659ba542dc36a17b7c760c7afff83",
+  "archive_bytes": 6143316,
+  "source_mode": 384,
+  "source_mtime_ns": 1795565123558382677
+}

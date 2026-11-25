@@ -29,3 +29,7 @@
 - 2026-11-24T23:38:56.831476+00:00 Preserved complete named-build003/import-guard003 output for the97-line Defs-only candidate. Build PASS, source review PASS, pushed9b502f6. Checker verdict still pending.
 
 - 2026-11-24T23:48:46.565603+00:00 Checker005 complete exit3/native137 with no verdict; independent full restoration audit PASS. Preparing reserved integration smoke. Lease renewed separately in scratch desk log.
+
+- 2026-11-24T23:56:59Z: combined storage smoke observations ended with both storage phases restored. Verifier printed usage only; independent base/core restoration audits passed. This was not a proof verdict.
+- 2026-11-25T00:07:40Z: checker006 resource observations ended after full restoration. Exact checker result was FAULT with native exit null; cgroup oom_kill increased from 5 to 7. Both independent restoration audits passed.
+- 2026-11-25T00:16:57.235030+00:00: archived complete checker006 and combined-smoke small logs. Compiled-header graph and independent review report 11,211 modules/61,249 edges. Candidate storage estimate is 417 modules/397,385,544 bytes, pending native runtime trace and fresh identity checks. Current 97-line proof SHA256 191b2cda8c5f17e7b401f9a3b17a1678ba2c456ea294db429667d46d3b757983; local checker acceptance remains pending. Elapsed 149.42 minutes from 21:47:32 UTC baseline.

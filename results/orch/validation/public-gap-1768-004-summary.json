@@ -1,0 +1,30 @@
+{
+  "updated_at": "2026-11-25T00:16:24.250Z",
+  "id": "L-meta-1768",
+  "reductions_live": 2,
+  "pr_numbers": [
+    10649,
+    10907
+  ],
+  "statement_matches": true,
+  "reductions": [
+    {
+      "id": "R-L-meta-1768-1",
+      "parent": "L-meta-1768",
+      "state": "open",
+      "artifact": {
+        "lean_file": "lean/PEqualNP/Outside/R_meta_1768_1.lean",
+        "content_hash": "sha256:aeef58d7503f4909deee716c15de62b38de5a3591dbbe7bd51f7995dbc5172e2"
+      }
+    },
+    {
+      "id": "R-L-meta-1768-417",
+      "parent": "L-meta-1768",
+      "state": "open",
+      "artifact": {
+        "lean_file": "lean/PEqualNP/Outside/R_meta_1768_417.lean",
+        "content_hash": "sha256:bae55e1e6bb112c9e5e794e420a06e755408da052d240106d5d66b941b313b18"
+      }
+    }
+  ]
+}
