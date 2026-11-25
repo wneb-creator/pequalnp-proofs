@@ -317,3 +317,7 @@ TIMING total=300.2 subagents=7
 2026-11-25T13:48:18.846595+00:00 Preserved independently reviewed L-meta-3773 research checkpoints: eight finished whole-circuit CGP batches, three-output core stochastic runs, finite local-repair analyses through four-point patches, exact sources/full logs/invalid near-miss candidates. Best validated whole circuit in this packet has66gates with an unproductive AND; no63witness. The local exclusion computations are explicitly restricted CAS/semantic diagnostics, not a Lean refutation of the posted existential. Sources and all hashes reverified before publication.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=312.6 subagents=7
+
+2026-11-25T13:55:52.492684+00:00 Complete explicit64-gate control for L-meta-3773 kernel-checks successfully: exact input columns, finite packed replay, allowed first gate and quantified conditions; bound64 only, requested63 remains unresolved. Exit0,283.27s,4.782GB. Independent rules_review approved exact b99b6f82972f49b14c2167a0400653fb1b9be2e4c82e46bbdf61a40e7f2a0f98 source and full bound status/log. No final target checker or PR claimed.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=320.2 subagents=7

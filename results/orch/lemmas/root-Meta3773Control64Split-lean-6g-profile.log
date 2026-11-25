@@ -1,0 +1,119 @@
+import took 1.65s
+type checking took 6.94s
+type checking took 7.25s
+type checking took 7.37s
+type checking took 7.85s
+type checking took 8.15s
+type checking took 8.31s
+type checking took 10.8s
+type checking took 9.26s
+type checking took 10.2s
+type checking took 10.2s
+type checking took 10.2s
+type checking took 11.2s
+type checking took 11s
+type checking took 9.11s
+type checking took 9.21s
+type checking took 9.97s
+type checking took 11.7s
+type checking took 11.6s
+type checking took 13.1s
+type checking took 10.8s
+type checking took 11s
+type checking took 11.6s
+type checking took 11.7s
+type checking took 11.7s
+type checking took 11.9s
+type checking took 11.5s
+type checking took 203ms
+type checking took 368ms
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:333:52: warning: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:333:55: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:350:40: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ih, packedStep, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 787ms
+simp took 754ms
+simp took 775ms
+tactic execution of Lean.Parser.Tactic.exact took 4.39s
+type checking took 7.59s
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:487:12: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:487:16: warning: Unused tactic linter: `congr 1` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:487:24: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:487:28: warning: Unused tactic linter: `funext i` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:487:37: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:487:41: warning: Unused tactic linter: `symm` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:487:46: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:488:6: warning: Unused tactic linter: `first
+| exact Fin.addCases_left i
+| exact Fin.addCases_right i` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:487:16: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:487:28: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:487:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Split.lean:488:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+cumulative profiling times:
+	attribute application 0.528ms
+	blocked (unaccounted) 4.06e+03s
+	compilation (IR) 1.87ms
+	compilation (LCNF base) 31.6ms
+	compilation (LCNF impure) 7.3ms
+	compilation (LCNF mono) 25.1ms
+	congr simp thm 18.9ms
+	declTypeLinter 35.3ms
+	elaboration 301ms
+	fix level params 2.6ms
+	import 1.65s
+	initialization 36.8ms
+	instantiate metavars 13ms
+	interpretation 438ms
+	let-to-have transformation 6.82ms
+	linting 78.4ms
+	module linting 0.0482ms
+	parsing 24.4ms
+	process pre-definitions 38.9ms
+	share common exprs 32.6ms
+	simp 2.66s
+	tactic execution 4.94s
+	tacticAnalysis 13.1ms
+	type checking 272s
+	typeclass inference 669ms
