@@ -1,0 +1,9 @@
+{
+  "source": "results/orch/lemmas/root-fano-label.lean",
+  "source_sha256": "e59ca4b06c73ca3aba75cf77216b1dfe15d2b977a4a90e847016cf85ca58fca6",
+  "lines": 1417,
+  "exit_code": 0,
+  "command": "pinned lake env lean explicit source; imports only PEqualNP.Defs",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

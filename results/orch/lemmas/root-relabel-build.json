@@ -1,0 +1,11 @@
+{
+  "source": "results/orch/lemmas/root-relabel.lean",
+  "source_sha256": "ac6d3aa15b9466c338d541dcbb71224d3a204a6fc2c5cde2eca9d3b4fdc87b65",
+  "lines": 1500,
+  "exit_code": 0,
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

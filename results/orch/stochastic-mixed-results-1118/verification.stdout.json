@@ -1,0 +1,3762 @@
+{
+  "snapshots": 68,
+  "truth_rows_each": 16384,
+  "boundary_rows": [
+    21,
+    37
+  ],
+  "marked_inputs": [
+    0,
+    7
+  ],
+  "best_exact_quiet_gates": 28,
+  "witnesses_at_most27": 0,
+  "validation": "PASS: all reported boundary and derivative error signatures agree with full independent evaluation",
+  "results": [
+    {
+      "file": "stochastic-diverse-best.json",
+      "sha256": "b84cc9045f4e5d9ee1ddc4fa52de848cc8f45a2534c5453e7e5f40757cbc98db",
+      "gates": 28,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 1,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-diverse-exact-p10-bz0.json",
+      "sha256": "330e1a1700a95f67db70bea1110b13dedfd0f0b26f46484639eaadec0e9cdcaa",
+      "gates": 31,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "Bplus": 18,
+      "Bzero": 0,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-diverse-exact-p10-bz1.json",
+      "sha256": "e45ee02faa2ff663bf60c92e50b625d159c6711c91ee58bcd8b5e378dedc3b8a",
+      "gates": 30,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 16,
+      "Bzero": 1,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-diverse-exact-p11-bz0.json",
+      "sha256": "e19c1775eb84e3c0c84e0bf35aa21683c0dae5e5038ebf38b838a21aaa13d2d0",
+      "gates": 31,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "Bplus": 18,
+      "Bzero": 0,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-diverse-exact-p12-bz0.json",
+      "sha256": "9eea12305cec5fe1dcdb96e06216d63cd3d7ce46463a374b89022d193ea9157a",
+      "gates": 31,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 18,
+      "Bzero": 0,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-diverse-exact-p7-bz1.json",
+      "sha256": "2f63043af7d131088011bfe1b17e32f9afcecb5dc84345a24f7edd0b024ca397",
+      "gates": 28,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 1,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-diverse-exact-p9-bz1.json",
+      "sha256": "9ef2d1f8cde5da19e4625f86e535573425103ea50852709ac5e800cabb324e45",
+      "gates": 29,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        2,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 15,
+      "Bzero": 1,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-diverse-frontier-p10-bz0.json",
+      "sha256": "4f13a0572b496b2d17d73a14056d6d7e49a9d0fa6742bf7375d7f72a26288b2d",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "Bplus": 14,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        0
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p10-bz1.json",
+      "sha256": "110bd561425980ae3bf76cc86837fea9067c025cdc1588f50440869de68ec738",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        0,
+        5
+      ],
+      "false_positives": 0,
+      "false_negatives": 102,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p10-bz2.json",
+      "sha256": "15c7f972f9a2339f3fc6c66ac79294ba5ca50517714006a5ffee6abb3770a755",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "Bplus": 13,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        18,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 232,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p10-bz3.json",
+      "sha256": "690d977d832c28122af437e909337cfe1e6d0ca751a3f820f78ac3042a2ed900",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "Bplus": 12,
+      "Bzero": 3,
+      "failed_boundary_bits": [
+        17,
+        18,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 300,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p10-bz4.json",
+      "sha256": "98a4a99251ef7d1abd012de8b1f678827143c58fbd95f7b87386ac6e2460eca0",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "Bplus": 11,
+      "Bzero": 4,
+      "failed_boundary_bits": [
+        2,
+        17,
+        18,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 368,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p10-bz5.json",
+      "sha256": "070f49fab335efac782f38c658b0af183fb577cd3cf87f87475ce83fba023182",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 10,
+      "Bzero": 5,
+      "failed_boundary_bits": [
+        1,
+        3,
+        11,
+        13,
+        16,
+        18
+      ],
+      "false_positives": 0,
+      "false_negatives": 508,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p10-bz6.json",
+      "sha256": "c4eaf6a76bc57fa1447cc4e77c614a6f1eaf3e7568226d728e9835279aa5ef9b",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "Bplus": 10,
+      "Bzero": 6,
+      "failed_boundary_bits": [
+        4,
+        6,
+        7,
+        10,
+        17,
+        18,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 810,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p10-bz7.json",
+      "sha256": "310769f6813b24bf58e257e3f446e1b55da1e4872578ed274a861fb79b8762fa",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 8,
+      "Bzero": 7,
+      "failed_boundary_bits": [
+        2,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        16,
+        17,
+        18,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 2206,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p11-bz0.json",
+      "sha256": "e36e7c71ea37163d433f949ecb425f25798f705c2786ff945b35a41c1ae2d90a",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        0,
+        6
+      ],
+      "false_positives": 0,
+      "false_negatives": 102,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p11-bz1.json",
+      "sha256": "40f8319e956956ba8973a793dcc5ede5975bfa24b64802679d9dce49ac07b54d",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "Bplus": 14,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        18,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 232,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p11-bz2.json",
+      "sha256": "1b78b7540e8f5aeb40010556cf5e7a7a1b56f092174ac96e6e28efb9c728cb79",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "Bplus": 13,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        17,
+        18,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 300,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p11-bz3.json",
+      "sha256": "53cc64dd29feead7cd8be68a3451be93b33e13c42dd2e253ab05c9ea21a235aa",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "Bplus": 12,
+      "Bzero": 3,
+      "failed_boundary_bits": [
+        12,
+        17,
+        18,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 378,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p11-bz4.json",
+      "sha256": "4e8069f68f0fe4d4ddd9a0f6c9d9dc2f7fef5c854e3c1137444143009c627a34",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 11,
+      "Bzero": 4,
+      "failed_boundary_bits": [
+        1,
+        3,
+        11,
+        13,
+        16,
+        18
+      ],
+      "false_positives": 0,
+      "false_negatives": 508,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p11-bz5.json",
+      "sha256": "c8102c937e08abab8b1c133a1f3a8b52f9638f9a358d4ef3211df7e117b9bdb9",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 9,
+      "Bzero": 5,
+      "failed_boundary_bits": [
+        2,
+        6,
+        7,
+        8,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "false_positives": 0,
+      "false_negatives": 1558,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p11-bz6.json",
+      "sha256": "02c255f2d490c99fcf1a18daffd8a0c7d2a0b1d52b38ac20db135a971376fa86",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 9,
+      "Bzero": 6,
+      "failed_boundary_bits": [
+        8,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        52,
+        54,
+        55,
+        56,
+        57
+      ],
+      "false_positives": 346,
+      "false_negatives": 20,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p12-bz0.json",
+      "sha256": "3df2fa61daa7d24568e91597e3b530e56ed68288240ae9aa6e6f7f4547a7e285",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        0,
+        7,
+        9
+      ],
+      "false_positives": 0,
+      "false_negatives": 166,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p12-bz1.json",
+      "sha256": "b27802ae1bb341b414bfa4d96d46bfade45d4338cb531a75f3beb7a7bc60c07f",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        2,
+        3,
+        9,
+        13
+      ],
+      "false_positives": 0,
+      "false_negatives": 252,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p12-bz2.json",
+      "sha256": "00c774aa1da27196f3e53907b0c760676a447ec2fe03a87efe55df282666e01c",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        13
+      ],
+      "Bplus": 12,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        4,
+        7,
+        14,
+        17
+      ],
+      "false_positives": 0,
+      "false_negatives": 221,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p12-bz3.json",
+      "sha256": "76b702f50eb58bcd6a8d19c4938e84beafd04d1f649be950365400e12efd0e2e",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 11,
+      "Bzero": 3,
+      "failed_boundary_bits": [
+        4,
+        6,
+        7,
+        12,
+        14,
+        16,
+        17
+      ],
+      "false_positives": 0,
+      "false_negatives": 663,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p12-bz4.json",
+      "sha256": "1b8e4e41f4b94a5461238928caf68668ad06798ec231e083066266069ea7bce9",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 10,
+      "Bzero": 4,
+      "failed_boundary_bits": [
+        2,
+        6,
+        7,
+        12,
+        14,
+        16,
+        17
+      ],
+      "false_positives": 0,
+      "false_negatives": 676,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p12-bz5.json",
+      "sha256": "b74260355b306e4217431fcc77d0bc5e3015a799065012fecb898f380bef6fa3",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "Bplus": 10,
+      "Bzero": 5,
+      "failed_boundary_bits": [
+        0,
+        1,
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        21,
+        32,
+        38,
+        44
+      ],
+      "false_positives": 41,
+      "false_negatives": 3551,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p13-bz0.json",
+      "sha256": "4ae2ca8c126dce530750e53b8774dad56257b7b566defd948cd707c101f43642",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        7,
+        9,
+        14,
+        17,
+        19,
+        22,
+        29,
+        33,
+        39,
+        45
+      ],
+      "false_positives": 18,
+      "false_negatives": 395,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p13-bz1.json",
+      "sha256": "deecc1e3a3c3586b9f80ec5fe6d087647c26bb3cff40ae03c9b2d565760e533f",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        3,
+        7,
+        9,
+        14,
+        17,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 559,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p13-bz2.json",
+      "sha256": "d12a2a2fea07df125a0b5b473dafc1e74d0ad0fd1f462de0207de658f785e532",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 12,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        3,
+        6,
+        7,
+        12,
+        14,
+        16,
+        17
+      ],
+      "false_positives": 0,
+      "false_negatives": 663,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p13-bz3.json",
+      "sha256": "6c17d95a7190066aeda9c03dea82c8b96d13170f88fef63a5bba098c09bb89fd",
+      "gates": 25,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+      ],
+      "Bplus": 9,
+      "Bzero": 3,
+      "failed_boundary_bits": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        38,
+        40,
+        41
+      ],
+      "false_positives": 8,
+      "false_negatives": 3262,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p13-bz4.json",
+      "sha256": "6c98fcdff047b756fe80679e290ba8123baf10ddbc20bd2b01b34f228c008789",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 10,
+      "Bzero": 4,
+      "failed_boundary_bits": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "false_positives": 422,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p14-bz0.json",
+      "sha256": "7bf2e2796c7791695ec23f85a288f17600b0e8ef4b21e7a579982baaac1b8f03",
+      "gates": 23,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 10,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 6838,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p14-bz1.json",
+      "sha256": "9dafe953357a7a5390fff1a876466351bf908ad8798fb14398bba390e54a58f4",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "false_positives": 406,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p14-bz2.json",
+      "sha256": "7ab6d4badb863bd9eee69623fcf72df8193c1ae50e6dcfdd4b88700db3a282ef",
+      "gates": 24,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 9,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 6454,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p8-bz0.json",
+      "sha256": "f58cb94d9adaa51cdbe0f6a46187745805fca52c2ceae9f1b6f6c515ecf8f963",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        0,
+        1
+      ],
+      "false_positives": 0,
+      "false_negatives": 119,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p8-bz1.json",
+      "sha256": "036da8afc984ea137790d5a0d6a3c597b8983e92e9175457dec22dd614d992b8",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        2,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 12,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        10,
+        12
+      ],
+      "false_positives": 0,
+      "false_negatives": 119,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p8-bz2.json",
+      "sha256": "7056537083c99bad7a6ff013d8d07745c0427b6d5e597ecba50f5d0f9c91db94",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "Bplus": 12,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        18,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 119,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p8-bz3.json",
+      "sha256": "6563dda0a3d4c8b7ecdcf041a010c281cef287abbfd5679703728e9a7ac1b840",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "Bplus": 11,
+      "Bzero": 3,
+      "failed_boundary_bits": [
+        10,
+        18,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 174,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p8-bz4.json",
+      "sha256": "6978c4366f1893f121ae9a666ebb121e6574058abea7fec694718fd1ecfbe2bf",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        3,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 11,
+      "Bzero": 4,
+      "failed_boundary_bits": [
+        2,
+        5,
+        10,
+        12
+      ],
+      "false_positives": 0,
+      "false_negatives": 300,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p8-bz5.json",
+      "sha256": "1d8058033d44008e3e96617e33c13314b19aef67f466eed763c4da840f97dce0",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        9,
+        13
+      ],
+      "Bplus": 9,
+      "Bzero": 5,
+      "failed_boundary_bits": [
+        2,
+        3,
+        5,
+        14,
+        16
+      ],
+      "false_positives": 0,
+      "false_negatives": 301,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p8-bz6.json",
+      "sha256": "96864695a241db025271e24d1046beb8683bff6cef4386de14c5cd7828b2af98",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8,
+        10,
+        13
+      ],
+      "Bplus": 8,
+      "Bzero": 6,
+      "failed_boundary_bits": [
+        5,
+        7,
+        8,
+        15,
+        17,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 499,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p8-bz7.json",
+      "sha256": "60684816578b63013fd9c85a1a63c6c557ed38b3f57cc6ae1d24b2b474d707d1",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        3,
+        6,
+        9,
+        10,
+        11,
+        13
+      ],
+      "Bplus": 8,
+      "Bzero": 7,
+      "failed_boundary_bits": [
+        4,
+        5,
+        6,
+        10,
+        12,
+        16,
+        17,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 874,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p8-bz8.json",
+      "sha256": "212efc443c5e92b6eaa1e7d6d28c22b9ff079b40201165a64bd34e28abc9dd1a",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 7,
+      "Bzero": 8,
+      "failed_boundary_bits": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        10,
+        11,
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 1762,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p9-bz0.json",
+      "sha256": "cd6a9a0d8062ee727ca24a028c85da32715c9e95cda6104aefc1957d5bc7c9ad",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        0
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p9-bz1.json",
+      "sha256": "540c0047b50622b25dd25dea40a24a71f4c761fdb3e529bf2a434c352fd52461",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        2,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        0,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 119,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p9-bz2.json",
+      "sha256": "45cdb691055709194559c9420a01b9c9c5e32b435cdf4cb20bfa890e6d89a9ed",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        2,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 12,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        0,
+        9,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 174,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p9-bz3.json",
+      "sha256": "89c364b9f087e97bbb9894c39388c861f17e0385a04bd2c0dd67807d7fea0169",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        2,
+        3,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 12,
+      "Bzero": 3,
+      "failed_boundary_bits": [
+        1,
+        3,
+        17
+      ],
+      "false_positives": 0,
+      "false_negatives": 232,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p9-bz4.json",
+      "sha256": "150445283c0c6aa8502edb66af0c1b0d6c7c4528e252bf1d831bfb16f7f75fdc",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        13
+      ],
+      "Bplus": 11,
+      "Bzero": 4,
+      "failed_boundary_bits": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "false_positives": 0,
+      "false_negatives": 300,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p9-bz5.json",
+      "sha256": "4e7c3bd16fa0bec31e8a1eff8840ffbe695cb1f3188550b18974c683698a9e7d",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        10,
+        11
+      ],
+      "Bplus": 10,
+      "Bzero": 5,
+      "failed_boundary_bits": [
+        4,
+        9,
+        15,
+        16,
+        17
+      ],
+      "false_positives": 0,
+      "false_negatives": 378,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p9-bz6.json",
+      "sha256": "307c7fd614845d3f8b12f5a598b141e5c308cfc8d10f538fed71d99070f8efcd",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8,
+        9,
+        10,
+        13
+      ],
+      "Bplus": 9,
+      "Bzero": 6,
+      "failed_boundary_bits": [
+        5,
+        7,
+        8,
+        15,
+        16,
+        17,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 668,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p9-bz7.json",
+      "sha256": "c7f9e3f2bbb807f5fff1a88a4f0c699f441f31a1f2e7d5f4060ebfd5b8a8b8f4",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        2,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 7,
+      "Bzero": 7,
+      "failed_boundary_bits": [
+        2,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        16,
+        17,
+        18,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 2206,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-frontier-p9-bz8.json",
+      "sha256": "7b08bd017150aa0546b6da928f41397c6165b0677df05f2e0d574ff17b647209",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 7,
+      "Bzero": 8,
+      "failed_boundary_bits": [
+        1,
+        2,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        16,
+        17,
+        18,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 2782,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-0.json",
+      "sha256": "a38a5b856f42f3b76aced5f41ac2acff5ec8a55beda8a88f2a18fa01dc62dc2c",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        0
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-1.json",
+      "sha256": "d2159c6624f7287cfefd98e9969428e42d6c4d83281520817d718064b4716c21",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        1
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-10.json",
+      "sha256": "160a92f0fb297c63c3429d0d5a4cbddb169913942e0a6e397ef7100bfdf4bc27",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        10
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-11.json",
+      "sha256": "ba8d34a45e2de14439be83d3cdc7dc088b3aef9feb29414244b8b0d2fb184f59",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        11
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-13.json",
+      "sha256": "f2d2359e9520a8762a825c248859e1a9dce23ca6261e19d8e7bd853f944fcac9",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        13
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-14.json",
+      "sha256": "d21235bc1aff001dafdd0a0995b67f2b27dcbf1498d5c21216341fb8296855bd",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        14
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-15.json",
+      "sha256": "04cb548702bc1f0ccee34fbb049fb5da8ae25edc5d42c2f7631a4b4dbf938097",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        15
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-16.json",
+      "sha256": "22dd575cafccdb3cf03c647f6c77b7d2cadeee46fd34047fe65f45c9f85b0453",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        16
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-2.json",
+      "sha256": "457e25ea637a47bd7ba3c19884a7e4d54144c0f61692c29acb9d8b88bdd47eb1",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        2
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-4.json",
+      "sha256": "12e222afb4c30d337bfc7548606bab4026ac280c9ea033ac7813fabeda9816bf",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        4
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-5.json",
+      "sha256": "0909c0214e5aaffe3b629e97aa5b29a590290e3e91a04b47e18d94192c8193e2",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        5
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-7.json",
+      "sha256": "bc3f28a1508d4a1949e69fc8bbe11fd527b322a4584745fe8f32187ccf0ec80a",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        7
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-8.json",
+      "sha256": "629a49390b37a372c625c259115f68c9c2e9e095c3f9046505cef3e57097d000",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        8
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-diverse-near-9.json",
+      "sha256": "6e2193ff71249d2ee3ec80f2141f36bf592c8c34506fd8610c28fd4d249fd41a",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        9
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    }
+  ]
+}

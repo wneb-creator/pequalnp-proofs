@@ -49,10 +49,18 @@ Root must renew before long runs and every ten minutes, preserve all compiled pr
 - Generic critical-input false-OR count is compiled: k individually critical inputs at a false base require at least k-1 false OR gates. This supplies37 new possible SAT cardinality constraints; any encoding extension needs independent review before a restart.
 - Broad SAT cutoff remains12:34UTC. One variable-length stochastic worker runs640 verified28/29/31 seeds with mixed branching preferences, capped at11:17:45UTC.
 
-## Re-plan at 11:20 UTC
+## Re-plan at 11:17 UTC
 
 - Canonical p7/p8 no-double-quiet now passes its full standalone build and independent review.
 - Missing-mask saturation protects other ineligible inputs; strict cofactor slack accounts for kept units whose images stop branching. These components are compiled and reviewed.
 - New proposed invariant counts surplus on wires false at the all-lines-true base. Combined with all seven neighborhood masks it may exclude any eligible point at27 gates; its generic count and branch-charge lemmas are under construction.
 - Higher eligible cases still need an actual no-quiet argument. Bzero0 alone is insufficient.
 - Broad SAT continues toward12:34UTC. The next single stochastic worker uses480 verified inputs, including higher-eligible quiet seeds and correct27-gate bright controls.
+
+## Progress at 11:24 UTC
+
+- False-wire surplus count and eligible critical-branch injection now pass standalone Lean and independent review. Their all-mask combination is being checked.
+- Canonical p11 collinear now has Bzero0; this alone does not exclude quiet edges. P14 consumption/AND-support restrictions are being flattened for a standalone build.
+- The cyclic posted Fano graph and accepted edgeList are related by fixing point labels and negating line labels. Standalone lemmas now transport correctness and all derivative traces through any input permutation without changing gate outputs.
+- Integration is assigned: derive a StrictLive canonical double-quiet witness from the exact posted existential, conditional on the remaining structural exclusion theorem.
+- Public snapshot generated11:21:13UTC still lists L-meta-1479 and L-meta-1480 as conjectures.

@@ -1,0 +1,23 @@
+{
+  "verdict": "PASS as a preserved partial development",
+  "reviewed_utc": "2026-11-25T11:17:59.607725+00:00",
+  "source": "results/orch/lemmas/algebraic-saturated.lean",
+  "sha256": "c35cadec114703b30301c2f6e874bdcd42143d7fd1ec741d6e5616cdd363b731",
+  "scope": "New173-line saturated tail; prior7621-line protected prefix compared exactly; receipt and plain-file token scan checked; no new Lean process",
+  "checks": [
+    "The prior protected source is unchanged through its7621 pre-end lines. The full source hash matches the empty-log standalone exit0 receipt.",
+    "equality_five_point_star explicitly assumes the five-point ineligible normal form and transports a four-cap subset by the stated automorphism before applying mx_star.",
+    "equality_cap_union was independently enumerated using the accepted adjacency masks: all64 admissible subsets for Q={0,1,2,3,4} and all40 for Q={0,1,2,5} satisfy the inequality.",
+    "For the one-sided saturation theorem, the star bound and totalSurplus\u226414 imply Bzero\u2264Q.card\u22123, so the geometry premise follows from missing-mask count\u2264Bzero. Combining hw_count with the geometric union bound gives Bplus\u226514\u2212missing; the surplus split gives Bzero\u2264missing. hw_lost supplies the reverse inequality.",
+    "The one-sided chain corollary applies saturation only to ineligible k\u2208Q with an occurring full neighborhood mask. Its exclusion from the missing-mask set is explicit; no claim is made for missing masks or eligible labels.",
+    "For the mixed cap, the exact ineligible set has five elements, so eligibleCard=9. mx_star gives Bplus\u226512; hw_count gives Bplus\u226515\u22122Mc. Together with Mc\u2264Bzero, Bplus+Bzero\u226414, and Mc+Oc=4, integer arithmetic forces Mc=Bzero. No Bzero=0 hypothesis is present.",
+    "The mixed chain corollary covers only v in{0,1,2,5} whose mask occurs on mx_L. The fifth ineligible label11 is not silently included.",
+    "New definitions are noncomputable Finset filters and introduce no axioms or data types. Scans found no quotes, forbidden root token, sorry, axiom, native_decide, or new options; the only attributes are accepted local simp attributes in the unchanged prefix."
+  ],
+  "issues": [],
+  "limits": [
+    "This artifact retains the borrowed helper namespace PEqualNP.Outside.L_meta_6659_aux and has no final L_meta_1479 theorem. It is suitable for preservation, but final proof integration must use the module-owned namespace and exact posted theorem format.",
+    "The accepted graph uses line labels negated relative to the posted cyclic incidence model. A checked relabel bridge is still required when applying these structural conclusions to the final posted statement.",
+    "The one-sided theorem requires the explicit star-surplus premise and one of exactly two listed Q sets; the mixed theorem requires its exact listed ineligible set."
+  ]
+}

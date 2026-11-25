@@ -1,0 +1,15 @@
+Independent preservation review by stochastic_search
+UTC: 2026-11-25T11:24:32.949215+00:00
+Verdict: PASS, push-ready for archival partial preservation.
+
+Reviewed the118 exact paths in checkpoint-1124-files.json, totaling1709706 bytes. All current files match their listed SHA256 and size, and every selected path is confined to results/orch/. No selected file was modified. No main proof or unrelated repository file is in this preservation batch.
+
+The six claimed standalone developments match successful exit0 receipts and exact independent review hashes: algebraic-saturated7795 lines, algebraic-false-branch2532, structural-high-collinear8703, formalization-false-surplus-standalone3979, root-fano-label1417, root-relabel1500. Three additional tail fragments are supplementary source fragments and are not represented as separate standalone builds. Mathematical arguments already reviewed independently were not repeated here.
+
+NOTES.md corrects the previous re-plan heading to11:17 and keeps the new invariant/integration work conditional on remaining structural exclusions. Canonical collinear Bzero0 is explicitly distinguished from no-quiet. Relabel correctness and trace transport claims match the exact reviewed bridge scope. TIMELINE.md and validation.txt retain that the full posted target remains open and checker REJECTED(no-theorem); no final theorem or refutation is claimed.
+
+The completed mixed-search metadata is accurate:74 hashed files,322201 bytes,68 fully checked snapshots,1200 seconds and427875232 mutations, best exact quiet28, no<=27 witness. Failure is described as bounded heuristic failure, not UNSAT or impossibility. Root's rerun receipt agrees with the standalone independent snapshot verifier. Mutable active high-phase outputs are excluded.
+
+All selected content was scanned for common GitHub/API credentials, private-key markers, credential-bearing URL userinfo and literal Authorization values. No matches; no credential values were printed or copied.
+
+No blocking findings. This approves preservation of partial results on the designated fork branch, not submission of an incomplete proof PR.

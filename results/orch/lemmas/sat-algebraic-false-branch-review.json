@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS as a preserved partial development",
+  "reviewed_utc": "2026-11-25T11:19:41.547147+00:00",
+  "source": "results/orch/lemmas/algebraic-false-branch.lean",
+  "sha256": "05ccc644dcd0b1a4dc76ae171a2203a9b9b8980cbd416fed9733cc9e2e70e658",
+  "scope": "New Heawood bridge, critical-branch-false, reserved-unit injection, and point-base specialization; accepted2451-line prefix compared exactly; standalone receipt checked; no new Lean process",
+  "checks": [
+    "A single-reader chain makes its endpoint dominate the input. If that endpoint were true at the false-output base, monotonicity keeps it true after inserting the critical input; sem_dom_eq would then force equal output values, contradicting the explicit false/true premises.",
+    "The generic surplus theorem assumes P consists of eligible labels and every member is individually critical at the same base. It chooses the established first pure branching wire for each label.",
+    "Each reserved unit (b(v),0) is valid and its wire is false at the base by the first theorem. Pure singleton support makes the reserved-unit map injective on P.",
+    "The image lies in unitsOn for inner wires false at the base; the unitsOn cardinality theorem exactly yields the stated fanout-minus-one sum.",
+    "The quantity bounded is false-at-base surplus, which can include nonempty singleton-support branches. It is not identified with Bzero.",
+    "The point specialization uses all line inputs true and points false. Bipartite geometry gives a false output; each point has a true line neighbor, so insertion makes the output true. The filtered eligible point set supplies exactly the generic premises.",
+    "No Bzero=0, size27, derivative, or unspoken liveness hypothesis is used by the generic injection theorem. The specialization explicitly assumes StrictLive, though it only needs its strict component.",
+    "Source hash matches the successful standalone receipt with empty stdout/stderr."
+  ],
+  "issues": []
+}

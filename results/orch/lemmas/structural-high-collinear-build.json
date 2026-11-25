@@ -1,0 +1,15 @@
+{
+  "source": "results/orch/lemmas/structural-high-collinear.lean",
+  "source_sha256": "18b7ee3f327edc6c4b79955d0c04d5bae0852d65a658c12975c9f488982f2703",
+  "lines": 8703,
+  "accepted_prefix_lines": 8153,
+  "new_combined_tail_lines": 548,
+  "cache_source_sha256": "fc4217e57f6924c94a5b68d4f1c6d00253002e0f65399817d39a49e039a66b38",
+  "cached_exit_code": 0,
+  "standalone_status": "PASS",
+  "scope": "Strengthened cofactor loss and p11 canonical collinear Bzero0 at totalSurplus<=14. No general no-quiet claim.",
+  "exit_code": 0,
+  "frozen": true,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

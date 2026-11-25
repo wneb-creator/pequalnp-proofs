@@ -28,3 +28,5 @@
 2026-11-25T11:00:59.937110+00:00 — Equality and OR-count partials compiled and reviewed. Re-plan: close p8 by disjoint counts14+7+6 and carrier linearity; strengthen cofactor equality using protected inputs and strict loss; continue broad SAT and diversified stochastic search.
 
 2026-11-25T11:16:19.953438+00:00 — Canonical p7/p8 closure compiled standalone; preserving it with protected-input/cofactor partials and verified SAT/search inputs. Full target remains open. New false-wire surplus strategy assigned to three collaborating agents.
+
+2026-11-25T11:23:43.605831+00:00 — False-surplus/critical-branch components and derivative relabel transport compiled standalone and independently reviewed; preserving these and completed mixed-search diagnostics. Full target remains open.

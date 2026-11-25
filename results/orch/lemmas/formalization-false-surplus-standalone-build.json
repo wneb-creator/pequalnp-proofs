@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "source_sha256": "b1a9ac83a15737f745f5caf1778e82a7ea831766531f9f160f96bcd28c699f09",
+  "source": "results/orch/lemmas/formalization-false-surplus-standalone.lean",
+  "lines": 3979,
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

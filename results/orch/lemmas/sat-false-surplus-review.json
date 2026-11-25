@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS",
+  "reviewed_utc": "2026-11-25T11:22:06.523563+00:00",
+  "source": "results/orch/lemmas/formalization-false-surplus-tail.lean",
+  "tail_sha256": "af43642321517074d9f8ca29683f0a3031391b842ca49bce47e6f49020ffc794",
+  "scope": "Complete179-line false-surplus tail, including final sum; cached build receipt and independent Boolean census checked; no new Lean process",
+  "checks": [
+    "falseInner excludes the final wire and contains exactly the false-at-base earlier wires. Strict operand bounds make operand membership equivalent to its Boolean value being false.",
+    "StrictLive nonemptiness places every primary input before the output, so falseInner sources correspond bijectively to false primary inputs.",
+    "Every false internal gate has a false operand, satisfying the predecessor premise of the accepted carrier_flow identity. Its exits plus merges therefore equal false-input count plus false-wire surplus.",
+    "A P-exit gate must be AND and has a base-true operand because all P inputs are true. A big P-carrier merge has both operands base true. The two gate classes are disjoint by their output P-support.",
+    "The per-gate inequality correctly charges ordinary gates at most1 and the excluded final false output at most2. The entire Boolean inequality was independently checked for every admissible assignment of its six Boolean parameters.",
+    "Summing operand-position exits, gate merges, P-exit gates, and big-carrier gates uses the exact finite-set cardinalities. The final-gate indicator sums to1 because the circuit is nonempty.",
+    "The conclusion preserves every stated premise: StrictLive, all P inputs true at the chosen base, and a false final output. No Bzero0, graph correctness, minimality, or derivative premise is hidden.",
+    "falseFlow_exits is the same gate predicate used by constructive fresh_exit_count, so the intended exit-count composition is definitionally compatible after namespace integration.",
+    "Permitted-import standalone source has exactly the reviewed tail and SHA b1a9ac83\u2026, matching the reported successful standalone build; receipt checked separately."
+  ],
+  "independent_boolean_cases": 19,
+  "issues": [],
+  "limits": [
+    "This is a helper artifact in the borrowed auxiliary namespace, not a final L_meta_1479 proof file."
+  ],
+  "standalone_source": "results/orch/lemmas/formalization-false-surplus-standalone.lean",
+  "standalone_sha256": "b1a9ac83a15737f745f5caf1778e82a7ea831766531f9f160f96bcd28c699f09"
+}
