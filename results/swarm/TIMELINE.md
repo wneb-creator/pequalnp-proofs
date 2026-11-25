@@ -58,3 +58,5 @@ First substantive helper results (distinct from setup check-ins):
 - 2026-11-25T22:39:07Z: SupportBudget.lean independently rebuilt and type/axiom-audited by root. Generic reachable birth/merge budget and refined multi-root frontier imply the cover-cost bound under explicit root coverage/count hypotheses. Those hypotheses are not yet derived for arbitrary plane circuits.
 
 - 2026-11-25T22:52:57.948645+00:00: SeparatedOperandBound.lean independently rebuilt by root and source auditor. For arbitrary bipartite no-four-cycle graphs, separated AND operands imply edge-plus-cover lower bound; exact plane premises yield N*(q+2)-1. No TopForm assumption remains. Size-preserving operand separation is still unproved, so this is not the posted theorem.
+
+- 2026-11-25T23:04:07.440616+00:00: Root independently rebuilt current helper1/5/9 research bundles and WeightedSupportBudget.lean. Original unrestricted order-3 core23 search ended UNKNOWN at its one-hour limit; stronger at-most searches continue. Weight-only extraction was disproved by an explicit large order-4 circuit, not by a counterexample to the gap. The full target remains open.

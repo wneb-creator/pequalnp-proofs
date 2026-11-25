@@ -35,3 +35,10 @@ TIMING total=60.7 subagents=11 (known root/external jobs only; helper-descendant
 SeparatedOperandBound.lean: root standalone build PASS; independent exact SHA a935c03670547a713458c2cad07c83f48ca6af83f4334f3f0ec31d13ea799a40 rebuild/full-type/axiom audit PASS. Direct graph and plane bounds explicitly assume every AND operand is point/line OR-separable. Standard three axioms only. No unconditional target theorem.
 Sub-agents: 9 external helpers plus 2 local support/audit agents; external descendant census still in progress.
 TIMING total=74.6 subagents=11 (root/external jobs only; final count will include descendants).
+
+2026-11-25T23:04:07.440616+00:00 progress update
+WeightedSupportBudget.lean: root build PASS; independent exact SHA d8f9fe82734ce63c5f13f0bddd85a37204c270699feda5858a299769142ae1e2 full-source/type/axiom audit PASS. The weight upper bound is valid; the proposed unrestricted weight lower bound is false (explicit order-4 mask construction has weight124, edge-plus-cover126, actualsize291). No target refutation follows.
+At-most SAT encoder: canonical24-in25 and21-in22 controls PASS, exhaustive truth and full CNF clause audits PASS; active-prefix/incomparability/pair-activity/essential-input flags independently reviewed. Original core23 timed out UNKNOWN; no SAT/UNSAT claim.
+Formal checklemma executable built successfully. No final submission exists yet.
+Sub-agents: 9 external helpers, 2 local support/audit agents, 51 helper descendants reported (62 total).
+TIMING total=85.7 subagents=62
