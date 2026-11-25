@@ -1,0 +1,9 @@
+{
+  "sha256": "1639d6b9bc0eed514ddf298656fec9687ad0eb514a8c2b22282255f74521a855",
+  "lines": 148,
+  "build_exit": 0,
+  "stdout_bytes": 0,
+  "stderr_bytes": 105,
+  "scope": "Exact Hadamard coordinate maps, tangent reconstruction and diagonal/trace formulas. No infeasibility statement.",
+  "review": "PASS: geometry_search/rowzero/hadamard-coordinates-independent-review.json, exact final source hash"
+}

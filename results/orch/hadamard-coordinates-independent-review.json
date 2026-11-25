@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "sha256": "1639d6b9bc0eed514ddf298656fec9687ad0eb514a8c2b22282255f74521a855",
+  "line_count": 148,
+  "H_squared_equals_4I": true,
+  "transform_involution_trace_and_tangent": true,
+  "P_and_D_normalization": true,
+  "reconstruction_and_original_diagonal_formula": true,
+  "linear_permanent_coefficient_equals_six_times_total_entry_sum": true,
+  "finite_evaluation_coefficient_extraction": true,
+  "scope": "Independent source/math/format review; final compiled source differs only by the required noncomputable marker. No build by reviewer.",
+  "final_noncomputable_marker_only_change_verified": true
+}
