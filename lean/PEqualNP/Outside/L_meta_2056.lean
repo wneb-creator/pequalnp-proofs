@@ -2,6 +2,7 @@ import Mathlib.Data.Fintype.Prod
 import Mathlib.Data.Fintype.Fin
 import Mathlib.Data.Finset.Card
 import Mathlib.Data.Finset.Prod
+import Mathlib.Data.Finset.Sort
 import Mathlib.Algebra.Order.BigOperators.Group.Finset
 
 namespace PEqualNP.Outside.L_meta_2056_aux
@@ -148,5 +149,40 @@ lemma private_neighbor (a : Fin 13) (s : Finset (Fin 13))
       _ ≤ ∑ _p ∈ s, 1 := Finset.sum_le_sum small
       _ = s.card := by simp
   omega
+
+lemma four_points_few_avoiding : ∀ a b c d : Fin 13, a < b → b < c → c < d →
+    (Finset.univ.filter fun l : Fin 13 =>
+      ¬ incident a l ∧ ¬ incident b l ∧ ¬ incident c l ∧ ¬ incident d l).card ≤ 3 := by
+  decide +kernel
+
+lemma independent_small_side (s t : Finset (Fin 13))
+    (h : ∀ p ∈ s, ∀ l ∈ t, ¬ incident p l) : s.card ≤ 3 ∨ t.card ≤ 3 := by
+  by_cases hs : s.card ≤ 3
+  · exact Or.inl hs
+  right
+  obtain ⟨s', hsub, hc⟩ := Finset.exists_subset_card_eq (s := s) (n := 4) (by omega)
+  let f := s'.orderEmbOfFin hc
+  have hm : ∀ i, f i ∈ s := fun i => hsub (s'.orderEmbOfFin_mem hc i)
+  have hk := four_points_few_avoiding (f 0) (f 1) (f 2) (f 3)
+    (f.strictMono (by decide)) (f.strictMono (by decide)) (f.strictMono (by decide))
+  have hts : t ⊆ Finset.univ.filter fun l : Fin 13 =>
+      ¬ incident (f 0) l ∧ ¬ incident (f 1) l ∧ ¬ incident (f 2) l ∧ ¬ incident (f 3) l := by
+    intro l hl
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _,
+      h _ (hm 0) l hl, h _ (hm 1) l hl, h _ (hm 2) l hl, h _ (hm 3) l hl⟩
+  exact (Finset.card_le_card hts).trans hk
+
+lemma no_simultaneous_neighborhood_domination
+    (s t : Finset (Fin 13)) (a b : Fin 13)
+    (h : ∀ p ∈ s, ∀ l ∈ t, ¬ incident p l) (ha : a ∉ s) (hb : b ∉ t)
+    (hpa : ∀ l, incident a l → ∃ p ∈ s, incident p l)
+    (hlb : ∀ p, incident p b → ∃ l ∈ t, incident p l) : False := by
+  rcases independent_small_side s t h with hs | ht
+  · obtain ⟨l, hal, hsl⟩ := private_neighbor a s ha hs
+    obtain ⟨p, hp, hpl⟩ := hpa l hal
+    exact hsl p hp hpl
+  · obtain ⟨p, hbp, htp⟩ := private_neighbor b t hb ht
+    obtain ⟨l, hl, hpl⟩ := hlb p ((incident_symmetric b p).mp hbp)
+    exact htp l hl ((incident_symmetric p l).mp hpl)
 
 end PEqualNP.Outside.L_meta_2056_aux
