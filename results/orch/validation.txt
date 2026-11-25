@@ -66,3 +66,9 @@ Scope: Signed circuit to generic Reach bridge; exact source-matching Reach inter
 Lean exit0; stdout/stderr empty.
 Independent source review: status_review PASS as partial.
 SHA256: 1e613195e335892f1a6deb02b06875197f356ef45e96a208f7d2a0dcdee50595
+
+Artifact: results/orch/lemmas/BinarySixteen.lean
+Scope: every FanInTwo Petersen circuit has16+notCount<=size; excludes at least4 NOT gates under size19.
+Lean exit0. Complete stdout/stderr saved beside this validation.
+Independent source review: status_review PASS before compilation.
+SHA256: f01350812f5cc03411dc9d2c36d113fc3453e4fe6767b9576f5b45d2ce6d32f1
