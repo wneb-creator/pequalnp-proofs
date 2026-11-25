@@ -132,4 +132,218 @@ theorem proper_cover_size (P L : Finset (Fin 13)) (hP : P ≠ Finset.univ)
     simpa using Finset.sum_add_sum_compl L (fun _ => (1 : ℕ))
   omega
 
+theorem independent_small_side (S T : Finset (Fin 13))
+    (hI : ∀ p ∈ S, ∀ l ∈ T, ¬ Incident p l) : S.card ≤ 3 ∨ T.card ≤ 3 := by
+  by_cases hs : S.Nonempty
+  · have h := independent_moment_bound S T hs hI
+    by_contra hn
+    have hp : 4 ≤ S.card := by omega
+    have hl : 4 ≤ T.card := by omega
+    have hm := Nat.mul_le_mul hp hl
+    omega
+  · left
+    have h0 : S = ∅ := Finset.not_nonempty_iff_eq_empty.mp hs
+    simp [h0]
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma getD_le {a b : List Bool} (h : List.Forall₂ (· ≤ ·) a b) (i : ℕ) :
+    a.getD i false ≤ b.getD i false := by
+  induction h generalizing i with
+  | nil => exact le_rfl
+  | cons hhead htail ih =>
+    cases i with
+    | zero => exact hhead
+    | succ i => exact ih i
+
+lemma all_map_le (is : List ℕ) (f g : ℕ → Bool) (h : ∀ i, f i ≤ g i) :
+    (is.map f).all id ≤ (is.map g).all id := by
+  apply Bool.le_iff_imp.mpr
+  intro hf
+  change (is.map f).all id = true at hf
+  rw [List.all_eq_true] at hf ⊢
+  intro b hb
+  obtain ⟨i, hi, rfl⟩ := List.mem_map.mp hb
+  exact Bool.le_iff_imp.mp (h i) (hf (f i) (List.mem_map.mpr ⟨i, hi, rfl⟩))
+
+lemma any_map_le (is : List ℕ) (f g : ℕ → Bool) (h : ∀ i, f i ≤ g i) :
+    (is.map f).any id ≤ (is.map g).any id := by
+  apply Bool.le_iff_imp.mpr
+  intro hf
+  change (is.map f).any id = true at hf
+  rw [List.any_eq_true] at hf ⊢
+  obtain ⟨b, hb, htrue⟩ := hf
+  obtain ⟨i, hi, rfl⟩ := List.mem_map.mp hb
+  exact ⟨g i, List.mem_map.mpr ⟨i, hi, rfl⟩, Bool.le_iff_imp.mp (h i) htrue⟩
+
+lemma gate_eval_le (g : Gate) (basis : g.op = GateOp.and ∨ g.op = GateOp.or)
+    {a b : List Bool} (h : List.Forall₂ (· ≤ ·) a b) :
+    g.op.eval (g.inputs.map fun i => a.getD i false) ≤
+      g.op.eval (g.inputs.map fun i => b.getD i false) := by
+  rcases basis with hand | hor
+  · rw [hand]
+    exact all_map_le _ _ _ (getD_le h)
+  · rw [hor]
+    exact any_map_le _ _ _ (getD_le h)
+
+lemma wires_le (C : Circuit) (mono : Monotone2 C) {a b : List Bool}
+    (h : List.Forall₂ (· ≤ ·) a b) : List.Forall₂ (· ≤ ·) (C.wires a) (C.wires b) := by
+  rcases C with ⟨gs, out⟩
+  induction gs generalizing a b with
+  | nil => exact h
+  | cons g gs ih =>
+    apply ih
+    · exact List.rel_append h (List.Forall₂.cons
+        (gate_eval_le g (mono g List.mem_cons_self).1 h) List.Forall₂.nil)
+    · intro q hq
+      exact mono q (List.mem_cons_of_mem g hq)
+
+lemma eval_le (C : Circuit) (mono : Monotone2 C) {a b : List Bool}
+    (h : List.Forall₂ (· ≤ ·) a b) : C.eval a ≤ C.eval b :=
+  getD_le (wires_le C mono h) C.output
+
+lemma ofFn_le {n : ℕ} {x y : Fin n → Bool} (h : x ≤ y) :
+    List.Forall₂ (· ≤ ·) (List.ofFn x) (List.ofFn y) := by
+  apply List.forall₂_iff_get.mpr
+  constructor
+  · simp
+  · intro i hi hj
+    simpa using h ⟨i, by simpa using hi⟩
+
+def row (S T : Finset (Fin 13)) (i : Fin 26) : Bool :=
+  if i.val < 13 then decide (Fin.ofNat 13 i.val ∈ S)
+  else decide (Fin.ofNat 13 i.val ∈ T)
+
+def off (S : Finset (Fin 13)) : Finset (Fin 13) :=
+  Finset.univ.filter fun l => ∀ p ∈ S, ¬ Incident p l
+
+lemma incident_symm (p l : Fin 13) : Incident p l ↔ Incident l p := by
+  simp [Incident, Nat.add_comm]
+
+lemma row_left (S T : Finset (Fin 13)) (p : Fin 13) :
+    row S T (Fin.castAdd 13 p) = decide (p ∈ S) := by
+  have h : Fin.ofNat 13 p.val = p := by
+    apply Fin.ext
+    exact Nat.mod_eq_of_lt p.isLt
+  simp [row, p.isLt, h]
+
+lemma row_right (S T : Finset (Fin 13)) (l : Fin 13) :
+    row S T (Fin.natAdd 13 l) = decide (l ∈ T) := by
+  have h : Fin.ofNat 13 (13 + l.val) = l := by
+    apply Fin.ext
+    change (13 + l.val) % 13 = l.val
+    omega
+  have hn : ¬ 13 + l.val < 13 := by omega
+  change (if 13 + l.val < 13 then decide (Fin.ofNat 13 (13 + l.val) ∈ S)
+    else decide (Fin.ofNat 13 (13 + l.val) ∈ T)) = decide (l ∈ T)
+  simp only [if_neg hn, h]
+
+def Tests (f : (Fin 26 → Bool) → Bool) : Prop :=
+  (∀ p l : Fin 13, Incident p l → f (row {p} {l}) = true) ∧
+    ∀ S : Finset (Fin 13), S.card ≤ 3 →
+      f (row S (off S)) = false ∧ f (row (off S) S) = false
+
+lemma tests_determine (f : (Fin 26 → Bool) → Bool) (hm : Monotone f) (ht : Tests f)
+    (x : Fin 26 → Bool) :
+    f x = decide (∃ p l : Fin 13, Incident p l ∧
+      x (Fin.castAdd 13 p) = true ∧ x (Fin.natAdd 13 l) = true) := by
+  classical
+  by_cases he : ∃ p l : Fin 13, Incident p l ∧
+      x (Fin.castAdd 13 p) = true ∧ x (Fin.natAdd 13 l) = true
+  · simp only [he, decide_true]
+    obtain ⟨p, l, hi, hp, hl⟩ := he
+    have hr : row {p} {l} ≤ x := by
+      intro i
+      refine Fin.addCases (m := 13) (n := 13) ?_ ?_ i
+      · intro q
+        rw [row_left]
+        apply Bool.le_iff_imp.mpr
+        intro hq
+        have hqp : q = p := by simpa using hq
+        simpa [hqp] using hp
+      · intro m
+        rw [row_right]
+        apply Bool.le_iff_imp.mpr
+        intro hq
+        have hml : m = l := by simpa using hq
+        simpa [hml] using hl
+    exact Bool.le_iff_imp.mp (hm hr) (ht.1 p l hi)
+  · simp only [he, decide_false]
+    let S : Finset (Fin 13) := Finset.univ.filter fun p => x (Fin.castAdd 13 p) = true
+    let T : Finset (Fin 13) := Finset.univ.filter fun l => x (Fin.natAdd 13 l) = true
+    have hn : ∀ p ∈ S, ∀ l ∈ T, ¬ Incident p l := by
+      intro p hp l hl hi
+      apply he
+      exact ⟨p, l, hi, (Finset.mem_filter.mp hp).2, (Finset.mem_filter.mp hl).2⟩
+    rcases independent_small_side S T hn with hs | htl
+    · have hx : x ≤ row S (off S) := by
+        intro i
+        refine Fin.addCases (m := 13) (n := 13) ?_ ?_ i
+        · intro p
+          rw [row_left]
+          apply Bool.le_iff_imp.mpr
+          intro hp
+          simpa [S] using hp
+        · intro l
+          rw [row_right]
+          apply Bool.le_iff_imp.mpr
+          intro hl
+          apply decide_eq_true
+          apply Finset.mem_filter.mpr
+          refine ⟨Finset.mem_univ _, ?_⟩
+          intro p hp
+          exact hn p hp l (Finset.mem_filter.mpr ⟨Finset.mem_univ _, hl⟩)
+      have h := hm hx
+      rw [(ht.2 S hs).1] at h
+      exact le_antisymm h (Bool.le_iff_imp.mpr (by intro hf; cases hf))
+    · have hx : x ≤ row (off T) T := by
+        intro i
+        refine Fin.addCases (m := 13) (n := 13) ?_ ?_ i
+        · intro p
+          rw [row_left]
+          apply Bool.le_iff_imp.mpr
+          intro hp
+          apply decide_eq_true
+          apply Finset.mem_filter.mpr
+          refine ⟨Finset.mem_univ _, ?_⟩
+          intro l hl hi
+          exact hn p (Finset.mem_filter.mpr ⟨Finset.mem_univ _, hp⟩) l hl
+            ((incident_symm p l).mpr hi)
+        · intro l
+          rw [row_right]
+          apply Bool.le_iff_imp.mpr
+          intro hl
+          simpa [T] using hl
+      have h := hm hx
+      rw [(ht.2 T htl).2] at h
+      exact le_antisymm h (Bool.le_iff_imp.mpr (by intro hf; cases hf))
+
+theorem circuit_tests_determine (C : Circuit) (hC : Monotone2 C)
+    (ht : Tests (fun x => C.eval (List.ofFn x))) (x : Fin 26 → Bool) :
+    C.eval (List.ofFn x) = decide (∃ p l : Fin 13, Incident p l ∧
+      x (Fin.castAdd 13 p) = true ∧ x (Fin.natAdd 13 l) = true) := by
+  apply tests_determine _ ?_ ht x
+  intro a b hab
+  exact eval_le C hC (ofFn_le hab)
+
+theorem posted_tests_determine (C : Circuit) (hC : Monotone2 C)
+    (ht :
+      let I : Fin 13 → Fin 13 → Prop := fun p l => (p.val + l.val) % 13 ∈ [0, 1, 3, 9]
+      let r : Finset (Fin 13) → Finset (Fin 13) → Fin 26 → Bool := fun S T i =>
+        if i.val < 13 then decide (Fin.ofNat 13 i.val ∈ S)
+        else decide (Fin.ofNat 13 i.val ∈ T)
+      let o : Finset (Fin 13) → Finset (Fin 13) := fun S =>
+        Finset.univ.filter fun l => ∀ p ∈ S, ¬ I p l
+      (∀ p l : Fin 13, I p l → C.eval (List.ofFn (r {p} {l})) = true) ∧
+        ∀ S : Finset (Fin 13), S.card ≤ 3 →
+          C.eval (List.ofFn (r S (o S))) = false ∧
+          C.eval (List.ofFn (r (o S) S)) = false)
+    (x : Fin 26 → Bool) :
+    C.eval (List.ofFn x) = decide (∃ p l : Fin 13,
+      (p.val + l.val) % 13 ∈ [0, 1, 3, 9] ∧
+      x (Fin.castAdd 13 p) = true ∧ x (Fin.natAdd 13 l) = true) := by
+  have hh : Tests (fun x => C.eval (List.ofFn x)) := by
+    simpa [Tests, row, off, Incident] using ht
+  simpa [Incident] using circuit_tests_determine C hC hh x
+
 end PEqualNP.Outside.L_meta_2056_aux.FullPlaneCover
