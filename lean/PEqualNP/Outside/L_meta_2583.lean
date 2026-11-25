@@ -4344,4 +4344,438 @@ lemma budget_three_contradiction
   omega
 
 
+
+lemma incidence_moment_one {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (S : Finset α) (T : Finset β) (I : α → β → Prop) [DecidableRel I]
+    (q : ℕ) (hrow : ∀ p ∈ S, (T.filter (I p)).card = q + 1) :
+    ∑ l ∈ T, (S.filter (fun p => I p l)).card = S.card * (q + 1) := by
+  simp only [Finset.card_filter]
+  rw [Finset.sum_comm]
+  calc
+    (∑ p ∈ S, ∑ l ∈ T, (if I p l then 1 else 0)) = ∑ p ∈ S, (q + 1) := by
+      apply Finset.sum_congr rfl
+      intro p hp
+      simpa only [Finset.card_filter] using hrow p hp
+    _ = _ := by simp
+
+lemma incidence_moment_two {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (S : Finset α) (T : Finset β) (I : α → β → Prop) [DecidableRel I]
+    (q : ℕ) (hrow : ∀ p ∈ S, (T.filter (I p)).card = q + 1)
+    (hpair : ∀ p ∈ S, ∀ r ∈ S, p ≠ r →
+      (T.filter (fun l => I p l ∧ I r l)).card = 1) :
+    ∑ l ∈ T, (S.filter (fun p => I p l)).card ^ 2 = S.card * (q + S.card) := by
+  classical
+  have h_expand : ∀ l ∈ T, (S.filter (fun p => I p l)).card ^ 2 =
+      ∑ p ∈ S, ∑ r ∈ S, if I p l ∧ I r l then 1 else 0 := by
+    intro l hl
+    rw [pow_two]
+    simp only [Finset.card_filter, Finset.sum_mul_sum]
+    apply Finset.sum_congr rfl
+    intro p hp
+    apply Finset.sum_congr rfl
+    intro r hr
+    by_cases hp' : I p l <;> by_cases hr' : I r l <;> simp [hp', hr']
+  simp_rw [Finset.sum_congr rfl h_expand]
+  rw [Finset.sum_comm]
+  have h_each : ∀ p ∈ S,
+      ∑ l ∈ T, ∑ r ∈ S, (if I p l ∧ I r l then 1 else 0) = q + S.card := by
+    intro p hp
+    rw [Finset.sum_comm]
+    have h_inside : ∀ r ∈ S,
+        ∑ l ∈ T, (if I p l ∧ I r l then 1 else 0) = if r = p then q + 1 else 1 := by
+      intro r hr
+      by_cases h : r = p
+      · subst r
+        simpa only [Finset.card_filter, and_self, ite_true] using hrow p hp
+      · simpa only [Finset.card_filter, ite_eq_right h] using hpair p hp r hr (Ne.symm h)
+    rw [Finset.sum_congr rfl h_inside]
+    rw [← Finset.sum_erase_add _ _ hp]
+    have he : ∑ r ∈ S.erase p, (if r = p then q + 1 else 1) = (S.erase p).card := by
+      rw [Finset.card_eq_sum_ones]
+      apply Finset.sum_congr rfl
+      intro r hr
+      have hne := (Finset.mem_erase.mp hr).1
+      simp [hne]
+    rw [he]
+    simp only [ite_true]
+    have hcard := Finset.card_erase_add_one hp
+    omega
+  rw [Finset.sum_congr rfl h_each]
+  simp
+
+lemma contained_lines_pair_bound (q N : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (S B : Finset (Fin N))
+    (hrow : ∀ p : Fin N, (Finset.univ.filter (I p)).card = q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hpair : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (hcontained : ∀ l ∈ B, ∀ p, I p l → p ∈ S) :
+    B.card * (q + 1) * q ≤ S.card * (S.card - 1) := by
+  classical
+  let c : Fin N → ℕ := fun l => (S.filter (fun p => I p l)).card
+  have hrowS : ∀ p ∈ S, (Finset.univ.filter (I p)).card = q + 1 :=
+    fun p _ => hrow p
+  have hpairS : ∀ p ∈ S, ∀ r ∈ S, p ≠ r →
+      (Finset.univ.filter (fun l => I p l ∧ I r l)).card = 1 := by
+    intro p hp r hr hpr
+    obtain ⟨l, hl, hu⟩ := hpair p r hpr
+    apply Finset.card_eq_one.mpr
+    refine ⟨l, ?_⟩
+    ext k
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_singleton]
+    exact ⟨fun hk => hu k hk, fun hk => hk ▸ hl⟩
+  have hm1 := incidence_moment_one S Finset.univ I q hrowS
+  have hm2 := incidence_moment_two S Finset.univ I q hrowS hpairS
+  have hc : ∀ l ∈ B, c l = q + 1 := by
+    intro l hl
+    have heq : S.filter (fun p => I p l) = Finset.univ.filter (fun p => I p l) := by
+      ext p
+      simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+      exact ⟨And.right, fun hp => ⟨hcontained l hl p hp, hp⟩⟩
+    dsimp [c]
+    rw [heq]
+    exact hcol l
+  have hid : ∀ a : ℕ, a * (a - 1) + a = a ^ 2 := by
+    intro a
+    by_cases h : a = 0
+    · simp [h]
+    · have ha : a - 1 + 1 = a := by omega
+      nlinarith
+  have hsum : (∑ l, c l * (c l - 1)) + S.card * (q + 1) = S.card * (q + S.card) := by
+    rw [← hm1, ← hm2, ← Finset.sum_add_distrib]
+    apply Finset.sum_congr rfl
+    intro l hl
+    exact hid (c l)
+  have hrestrict : (∑ l ∈ B, c l * (c l - 1)) ≤ ∑ l, c l * (c l - 1) :=
+    Finset.sum_le_sum_of_subset (Finset.subset_univ B)
+  have hB : (∑ l ∈ B, c l * (c l - 1)) = B.card * (q + 1) * q := by
+    calc
+      _ = ∑ l ∈ B, (q + 1) * q := by
+        apply Finset.sum_congr rfl
+        intro l hl
+        rw [hc l hl]
+        simp
+      _ = _ := by simp [Nat.mul_assoc]
+  rw [hB] at hrestrict
+  have hs := hid S.card
+  nlinarith
+
+lemma small_cut_forces_contained (q N : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (S B : Finset (Fin N))
+    (hrow : ∀ p : Fin N, (Finset.univ.filter (I p)).card = q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hsize : S.card = B.card + 1)
+    (hcut : (∑ l ∈ Finset.univ \ B, (S.filter (fun p => I p l)).card) ≤ q + 1) :
+    ∀ l ∈ B, ∀ p, I p l → p ∈ S := by
+  classical
+  let c : Fin N → ℕ := fun l => (S.filter (fun p => I p l)).card
+  have hcmax : ∀ l, c l ≤ q + 1 := by
+    intro l
+    rw [← hcol l]
+    exact Finset.card_le_card (Finset.filter_subset_filter _ (Finset.subset_univ S))
+  have hm1 : ∑ l, c l = S.card * (q + 1) :=
+    incidence_moment_one S Finset.univ I q (fun p _ => hrow p)
+  have hpartition := Finset.sum_sdiff (f := c) (Finset.subset_univ B)
+  intro l hl p hpl
+  have hcard : c l = q + 1 := by
+    have hsummax : (∑ k ∈ B.erase l, c k) ≤ (B.erase l).card * (q + 1) := by
+      calc
+        _ ≤ ∑ k ∈ B.erase l, (q + 1) := Finset.sum_le_sum (fun k _ => hcmax k)
+        _ = _ := by simp
+    have herase := Finset.sum_erase_add B c hl
+    have herasecard := Finset.card_erase_add_one hl
+    have hcut' : (∑ l ∈ Finset.univ \ B, c l) ≤ q + 1 := hcut
+    have hmax := hcmax l
+    nlinarith
+  have heq : S.filter (fun p => I p l) = Finset.univ.filter (fun p => I p l) := by
+    apply Finset.eq_of_subset_of_card_le
+    · exact Finset.filter_subset_filter _ (Finset.subset_univ S)
+    · change (Finset.univ.filter (fun p => I p l)).card ≤ c l
+      rw [hcol l, hcard]
+  have hp : p ∈ S.filter (fun p => I p l) := by
+    rw [heq]
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hpl⟩
+  exact (Finset.mem_filter.mp hp).1
+
+lemma small_cut_rigidity (q N : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (S B : Finset (Fin N)) (hq : 2 ≤ q)
+    (hN : N = q ^ 2 + q + 1)
+    (hrow : ∀ p : Fin N, (Finset.univ.filter (I p)).card = q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hpair : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (hsize : S.card = B.card + 1)
+    (hcut : (∑ l ∈ Finset.univ \ B, (S.filter (fun p => I p l)).card) ≤ q + 1) :
+    S.card = 1 ∨ S = Finset.univ := by
+  classical
+  by_cases hs : S.card = 1
+  · exact Or.inl hs
+  by_cases hS : S = Finset.univ
+  · exact Or.inr hS
+  have hcontained := small_cut_forces_contained q N I S B hrow hcol hsize hcut
+  have hbound := contained_lines_pair_bound q N I S B hrow hcol hpair hcontained
+  have hb : 0 < B.card := by omega
+  have hsub : S.card - 1 = B.card := by omega
+  rw [hsub] at hbound
+  have hslarge : (q + 1) * q ≤ S.card := by
+    by_contra h
+    have hlt := Nat.mul_lt_mul_of_pos_right (by omega : S.card < (q + 1) * q) hb
+    nlinarith
+  obtain ⟨p, hp⟩ : ∃ p : Fin N, p ∉ S := by
+    by_contra! h
+    exact hS (Finset.eq_univ_iff_forall.mpr h)
+  let L := Finset.univ.filter (I p)
+  have hBsub : B ⊆ Finset.univ \ L := by
+    intro l hl
+    refine Finset.mem_sdiff.mpr ⟨Finset.mem_univ _, ?_⟩
+    intro hL
+    exact hp (hcontained l hl p (Finset.mem_filter.mp hL).2)
+  have hBcard := Finset.card_le_card hBsub
+  have hLcard : L.card = q + 1 := hrow p
+  have hpartition := Finset.card_sdiff_add_card_eq_card (Finset.subset_univ L)
+  simp only [Finset.card_univ, Fintype.card_fin] at hpartition
+  rw [hLcard] at hpartition
+  have hbmax : B.card + (q + 1) ≤ N := by omega
+  exfalso
+  nlinarith
+
+lemma uncovered_card_eq_sum (N : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (A B : Finset (Fin N)) :
+    (Finset.univ.filter (fun e : Fin N × Fin N =>
+      I e.1 e.2 ∧ e.1 ∉ A ∧ e.2 ∉ B)).card =
+      ∑ l ∈ Finset.univ \ B, ((Finset.univ \ A).filter (fun p => I p l)).card := by
+  classical
+  rw [Finset.card_filter, ← Finset.univ_product_univ, Finset.sum_product]
+  have hA : Finset.univ \ A = Finset.univ.filter (fun p => p ∉ A) := by
+    ext p
+    simp
+  have hB : Finset.univ \ B = Finset.univ.filter (fun l => l ∉ B) := by
+    ext l
+    simp
+  simp only [hA, hB, Finset.card_filter, Finset.sum_filter]
+  rw [Finset.sum_comm]
+  apply Finset.sum_congr rfl
+  intro l hl
+  by_cases hlB : l ∈ B
+  · simp [hlB]
+  · simp only [hlB, not_false_eq_true, ite_true]
+    apply Finset.sum_congr rfl
+    intro p hp
+    by_cases hpA : p ∈ A <;> by_cases hpI : I p l <;> simp [hpA, hpI]
+
+lemma small_uncovered_cover_is_pure (q N : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (A B : Finset (Fin N)) (hq : 2 ≤ q)
+    (hN : N = q ^ 2 + q + 1)
+    (hrow : ∀ p : Fin N, (Finset.univ.filter (I p)).card = q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hpair : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (hsize : A.card + B.card + 1 = N)
+    (hmissing : (Finset.univ.filter (fun e : Fin N × Fin N =>
+      I e.1 e.2 ∧ e.1 ∉ A ∧ e.2 ∉ B)).card ≤ q + 1) :
+    A = ∅ ∨ B = ∅ := by
+  classical
+  let S := Finset.univ \ A
+  have hpart : S.card + A.card = N := by
+    simpa only [Finset.card_univ, Fintype.card_fin] using
+      Finset.card_sdiff_add_card_eq_card (Finset.subset_univ A)
+  have hSB : S.card = B.card + 1 := by omega
+  have hcut : (∑ l ∈ Finset.univ \ B, (S.filter (fun p => I p l)).card) ≤ q + 1 := by
+    rw [uncovered_card_eq_sum] at hmissing
+    exact hmissing
+  rcases small_cut_rigidity q N I S B hq hN hrow hcol hpair hSB hcut with hs | hs
+  · right
+    apply Finset.card_eq_zero.mp
+    omega
+  · left
+    have hScard : S.card = N := by simp [hs]
+    exact Finset.card_eq_zero.mp (by omega)
+
+lemma plane_point_degree (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 0 < q) (hN : N = q ^ 2 + q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hunique : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (p : Fin N) : (Finset.univ.filter (I p)).card = q + 1 := by
+  classical
+  let L := Finset.univ.filter (I p)
+  have hsum : ∑ l ∈ L, (Finset.univ.filter (fun r => I r l)).card = L.card * (q + 1) := by
+    simp_rw [hcol]
+    simp
+  have hcommon : ∀ r : Fin N, r ≠ p → (L.filter (I r)).card = 1 := by
+    intro r hr
+    obtain ⟨l, hl, huniq⟩ := hunique p r (Ne.symm hr)
+    apply Finset.card_eq_one.mpr
+    refine ⟨l, ?_⟩
+    ext k
+    simp only [L, Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_singleton]
+    exact ⟨fun hk => huniq k hk, fun hk => hk ▸ hl⟩
+  have hself : (L.filter (I p)).card = L.card := by
+    congr 1
+    ext l
+    simp [L]
+  have hswap : ∑ l ∈ L, (Finset.univ.filter (fun r => I r l)).card =
+      ∑ r : Fin N, (L.filter (I r)).card := by
+    simp only [Finset.card_filter]
+    rw [Finset.sum_comm]
+  have hrow : ∑ r : Fin N, (L.filter (I r)).card = N - 1 + L.card := by
+    rw [← Finset.sum_erase_add _ _ (Finset.mem_univ p), hself]
+    have he : ∑ r ∈ Finset.univ.erase p, (L.filter (I r)).card = N - 1 := by
+      calc
+        _ = ∑ r ∈ Finset.univ.erase p, 1 := by
+          apply Finset.sum_congr rfl
+          intro r hr
+          exact hcommon r (Finset.mem_erase.mp hr).1
+        _ = _ := by simp
+    rw [he]
+  rw [hswap, hrow] at hsum
+  have hNm : N - 1 = q ^ 2 + q := by omega
+  rw [hNm] at hsum
+  have hcancel : L.card * q = (q + 1) * q := by
+    nlinarith
+  exact Nat.eq_of_mul_eq_mul_right hq hcancel
+
+lemma finset_missing_one (N : ℕ) (A : Finset (Fin N)) (hsize : A.card + 1 = N) :
+    ∃ p : Fin N, A = Finset.univ.erase p := by
+  classical
+  have hpart := Finset.card_sdiff_add_card_eq_card (Finset.subset_univ A)
+  simp only [Finset.card_univ, Fintype.card_fin] at hpart
+  have hc : (Finset.univ \ A).card = 1 := by omega
+  obtain ⟨p, hp⟩ := Finset.card_eq_one.mp hc
+  refine ⟨p, ?_⟩
+  ext x
+  have hx : x ∉ A ↔ x = p := by
+    have h := Finset.ext_iff.mp hp x
+    simpa using h
+  simp only [Finset.mem_erase, Finset.mem_univ, and_true]
+  tauto
+
+lemma small_uncovered_cover_is_single_star_complement
+    (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (A B : Finset (Fin N)) (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hpair : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (hsize : A.card + B.card + 1 = N)
+    (hmissing : (Finset.univ.filter (fun e : Fin N × Fin N =>
+      I e.1 e.2 ∧ e.1 ∉ A ∧ e.2 ∉ B)).card ≤ q + 1) :
+    (∃ p, A = Finset.univ.erase p ∧ B = ∅) ∨
+    (∃ l, A = ∅ ∧ B = Finset.univ.erase l) := by
+  have hrow := plane_point_degree q N I (by omega) hN hcol hpair
+  rcases small_uncovered_cover_is_pure q N I A B hq hN hrow hcol hpair hsize hmissing with hA | hB
+  · right
+    have hsz : B.card + 1 = N := by simpa [hA] using hsize
+    obtain ⟨l, hl⟩ := finset_missing_one N B hsz
+    exact ⟨l, hA, hl⟩
+  · left
+    have hsz : A.card + 1 = N := by simpa [hB] using hsize
+    obtain ⟨p, hp⟩ := finset_missing_one N A hsz
+    exact ⟨p, hp, hB⟩
+
+
+
+lemma small_uncovered_counterexample_shape (q N t u P size : ℕ)
+    (hq : 3 ≤ q) (hP : 4 ≤ P) (hu : u ≤ 4)
+    (hdensity : N * (q + 1) ≤ (q + 1) * t + u)
+    (hledger : N * (q + 1) + t + P ≤ size + u + 1)
+    (hbad : size + 1 < N * (q + 1) + N) :
+    q = 3 ∧ u = 4 ∧ P = 4 ∧ t + 1 = N := by
+  have hcost : t + P + 1 ≤ N + u := by omega
+  have ht : t + 1 ≤ N := by omega
+  have hdeficit : 0 < N - t := by omega
+  have hN : N = t + (N - t) := by omega
+  have hproduct : (N - t) * (q + 1) ≤ u := by nlinarith
+  have hqbound : q + 1 ≤ u := by
+    have hmul := Nat.mul_le_mul_right (q + 1) hdeficit
+    nlinarith
+  have hqeq : q = 3 := by omega
+  have hueq : u = 4 := by omega
+  rw [hqeq, hueq] at hproduct
+  have htight : N - t = 1 := by omega
+  omega
+
+
+lemma one_extra_or_clean_pencil
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hleast : IsLeastAO G C) (htop : TopForm G C)
+    (hempty : centreless G C = ∅)
+    (m : ℕ) (honly : orN G C \ lam G C = {m})
+    (hU : (Ustar G C).Nonempty) :
+    ∃ t : Fin n, ∀ u v, s(u, v) ∈ Ustar G C →
+      ∃ w, (w = u ∨ w = v) ∧ (G.deleteEdges ↑(Ustar G C)).Adj t w := by
+  have hm : m ∈ orN G C \ lam G C := by simp [honly]
+  obtain ⟨e, he⟩ := hU
+  induction e using Sym2.ind with
+  | h u v =>
+    obtain ⟨a, ha, b, j, hj, _, hr, _⟩ := Budget.residualTrace hleast htop he
+    obtain ⟨m', hm', _, path⟩ := Budget.residualPath hleast.1 hempty ha hj hr
+    rw [honly, Finset.mem_singleton] at hm'
+    subst m'
+    obtain ⟨t, ht⟩ := Budget.mixingRaw hleast.1 hempty honly hm ha path
+    refine ⟨t, ?_⟩
+    intro p q hpq
+    obtain ⟨a', ha', b', k, hk, hav, hr', _⟩ := Budget.residualTrace hleast htop hpq
+    obtain ⟨l, hl, _, hp⟩ := Budget.residualPath hleast.1 hempty ha' hk hr'
+    rw [honly, Finset.mem_singleton] at hl
+    subst l
+    obtain ⟨w, hw, hend⟩ := Budget.oppositeEndpoint hleast htop hempty honly hm ha' hav hp
+    have ht' : t ∈ side C a' b' :=
+      Budget.reach_mem_orIn t (hp.trans (Budget.mem_orIn_reach t ht))
+    exact ⟨w, hend, Budget.cleanAdj hleast.1 ha' b' ht' hw⟩
+
+lemma full_star_clean_pencil_card_le_one
+    {V : Type} [DecidableEq V] (G : SimpleGraph V)
+    (U : Finset (Sym2 V)) (p t : V)
+    (hstar : ∀ u v, s(u, v) ∈ U ↔ G.Adj u v ∧ (u = p ∨ v = p))
+    (hfour : ∀ a b, a ≠ b → ∀ l m,
+      G.Adj a l → G.Adj b l → G.Adj a m → G.Adj b m → l = m)
+    (hpencil : ∀ u v, s(u, v) ∈ U →
+      ∃ w, (w = u ∨ w = v) ∧ G.Adj t w ∧ s(t, w) ∉ U) :
+    U.card ≤ 1 := by
+  have orient : ∀ e ∈ U, ∃ w,
+      e = s(p, w) ∧ G.Adj p w ∧ G.Adj t w ∧ s(t, w) ∉ U := by
+    intro e he
+    induction e using Sym2.ind with
+    | h u v =>
+      obtain ⟨w, hend, htw, hclean⟩ := hpencil u v he
+      have hwp : w ≠ p := by
+        intro h
+        apply hclean
+        exact (hstar t w).mpr ⟨htw, Or.inr h⟩
+      have hrepr : s(u, v) = s(p, w) := by
+        rcases (hstar u v).mp he with ⟨_, hp | hp⟩
+        · rcases hend with hw | hw
+          · exact (hwp (hw.trans hp)).elim
+          · rw [hp, ← hw]
+        · rcases hend with hw | hw
+          · rw [hp, ← hw]
+            exact Sym2.eq_swap
+          · exact (hwp (hw.trans hp)).elim
+      have hpw : G.Adj p w := ((hstar p w).mp (hrepr ▸ he)).1
+      exact ⟨w, hrepr, hpw, htw, hclean⟩
+  apply Finset.card_le_one.mpr
+  intro e he f hf
+  obtain ⟨w0, rfl, hp0, ht0, hc0⟩ := orient e he
+  obtain ⟨w1, rfl, hp1, ht1, _⟩ := orient f hf
+  have hpt : p ≠ t := by
+    intro h
+    exact hc0 (h ▸ he)
+  have hw : w0 = w1 := hfour p t hpt w0 w1 hp0 ht0 hp1 ht1
+  exact congrArg (fun w => s(p, w)) hw
+
+lemma full_star_one_extra_or_ustar_card_le_one
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hleast : IsLeastAO G C) (htop : TopForm G C)
+    (hfour : NoFourCycle G) (hempty : centreless G C = ∅)
+    (hor : (orN G C \ lam G C).card = 1)
+    (p : Fin n)
+    (hstar : ∀ u v, s(u, v) ∈ Ustar G C ↔ G.Adj u v ∧ (u = p ∨ v = p)) :
+    (Ustar G C).card ≤ 1 := by
+  classical
+  by_cases hU : (Ustar G C).Nonempty
+  · obtain ⟨m, honly⟩ := Finset.card_eq_one.mp hor
+    obtain ⟨t, ht⟩ := one_extra_or_clean_pencil n G C hleast htop hempty m honly hU
+    apply full_star_clean_pencil_card_le_one G (Ustar G C) p t hstar
+      (common_neighbors_unique_of_card_le_one G hfour)
+    intro u v huv
+    obtain ⟨w, hw, hclean⟩ := ht u v huv
+    exact ⟨w, hw, (SimpleGraph.deleteEdges_adj.mp hclean).1,
+      (SimpleGraph.deleteEdges_adj.mp hclean).2⟩
+  · simp [Finset.not_nonempty_iff_eq_empty.mp hU]
+
 end PEqualNP.Outside.L_meta_2583_aux
