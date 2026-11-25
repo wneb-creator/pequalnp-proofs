@@ -59,3 +59,15 @@ The compiled-header reader and independent review found 11,211 modules and 61,24
 Current proof: 97 lines, SHA256 `191b2cda8c5f17e7b401f9a3b17a1678ba2c456ea294db429667d46d3b757983`. Named build and source guard passed; all six local checker attempts have faulted before acceptance. Baseline job start was 2026-11-24 21:47:32 UTC; this checkpoint is 149.42 minutes after that baseline.
 
 The public desk snapshot at 2026-11-25 00:16:24 UTC still listed L-meta-1768 as open with two live reductions and an unchanged statement. Two competing reduction PRs remained pending in that snapshot; this historical capacity observation is not a reservation. The compact public snapshot is archived in validation/public-gap-1768-004-summary.json.
+
+
+## Native trace diagnostic001 (2026-11-25 00:32 UTC)
+The traced native verifier was killed by SIGKILL and produced no verdict. This was a diagnostic run only; it does not satisfy the original local-checker prerequisite. Both storage phases restored, and independent exact restoration audits passed: 102,019 base files/2,302,175,326 logical bytes and 655 core files/117,399,848 bytes.
+
+The complete compressed file-access trace is preserved with native stdout/stderr, status, compressor streams, the five-second resource log and independent review outputs in `validation/native-trace-run001/`. The compressed trace is 1,267,325 bytes, SHA256 `f67618c8a9c0f421218b1339ac16dab21c79979b745e67ca8573d952d91c0fb5`. It decompresses completely to 129,299 records across three traced IDs, with no malformed/truncated records or working-directory changes found by independent review. The candidate .olean is opened at record 78,560; the review infers that the initial Mathlib+Defs import with loadExts=true returned before that point. Later loading ended in SIGKILL.
+
+Extra-module and shared-library trace joins remain pending review; no new artifact exclusions are authorized by this checkpoint. Proof source remains 97 lines with SHA256 `191b2cda8c5f17e7b401f9a3b17a1678ba2c456ea294db429667d46d3b757983`. The preservation summary records hashes of every copied file and of the full decompressed trace.
+
+
+## 00:34 UTC resource strategy
+At 00:34 UTC, the full trace/header review supported a reversible exclusion of 583 modules, and root approved preparation. Setup is preparing a sealed backup of about 119 MB using unchanged phase code; the projected net memory saving is about 278 MB. Later execution paths were not all observed in the killed diagnostic run. Original checker007 is next after independent storage review. The alternate scratch whitelist/cache-compaction approach remains inactive.

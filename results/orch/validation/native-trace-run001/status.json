@@ -1,0 +1,12 @@
+{
+  "wrapper_status": -9,
+  "compressor_status": 0,
+  "compression_fault": false,
+  "returned_status": -9,
+  "native_argv": [
+    "/workspace/pequalnp-proofs/lean/.lake/build/bin/checklemma",
+    "PEqualNP.Outside.R_meta_1768_45",
+    "/workspace/pequalnp-proofs/results/orch/statement.txt",
+    "reduce"
+  ]
+}

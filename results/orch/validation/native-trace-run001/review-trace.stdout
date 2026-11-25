@@ -1,0 +1,62 @@
+{
+  "status": "PARSED",
+  "trace_bytes": 1267325,
+  "trace_sha256": "f67618c8a9c0f421218b1339ac16dab21c79979b745e67ca8573d952d91c0fb5",
+  "lines": 129299,
+  "pids": [
+    "50916",
+    "50917",
+    "50918"
+  ],
+  "syscall_counts": {
+    "access": 6,
+    "openat": 91895,
+    "newfstatat": 48,
+    "open": 2,
+    "statx": 37345
+  },
+  "candidate_markers": [
+    {
+      "line": 78559,
+      "text": "50918 statx(AT_FDCWD</workspace/pequalnp-proofs/lean>, \"/workspace/pequalnp-proofs/lean/.lake/build/lib/lean/PEqualNP/Outside/R_meta_1768_45.olean\", AT_STATX_SYNC_AS_STAT, STATX_ALL, {stx_mask=STATX_ALL|STATX_MNT_ID, stx_attributes=0, stx_mode=S_IFREG|0600, stx_size=307664, ...}) = 0"
+    },
+    {
+      "line": 78560,
+      "text": "50918 openat(AT_FDCWD</workspace/pequalnp-proofs/lean>, \"/workspace/pequalnp-proofs/lean/.lake/build/lib/lean/PEqualNP/Outside/R_meta_1768_45.olean\", O_RDONLY) = 9</workspace/pequalnp-proofs/lean/.lake/build/lib/lean/PEqualNP/Outside/R_meta_1768_45.olean>"
+    },
+    {
+      "line": 78561,
+      "text": "50918 statx(AT_FDCWD</workspace/pequalnp-proofs/lean>, \"/workspace/pequalnp-proofs/lean/.lake/build/lib/lean/PEqualNP/Outside/R_meta_1768_45.ir.sig\", AT_STATX_SYNC_AS_STAT, STATX_ALL, 0x7fb95fffe1b0) = -1 ENOENT (No such file or directory)"
+    }
+  ],
+  "cwd_calls": [],
+  "suspicious_records": [],
+  "termination_records": [
+    {
+      "line": 129297,
+      "text": "50917 +++ killed by SIGKILL +++"
+    },
+    {
+      "line": 129298,
+      "text": "50918 +++ killed by SIGKILL +++"
+    },
+    {
+      "line": 129299,
+      "text": "50916 +++ killed by SIGKILL +++"
+    }
+  ],
+  "first_records": [
+    "50916 access(\"/etc/ld.so.preload\", R_OK) = -1 ENOENT (No such file or directory)",
+    "50916 openat(AT_FDCWD</workspace/pequalnp-proofs/lean>, \"/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/lib/lean/glibc-hwcaps/x86-64-v4/libc.so.6\", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)",
+    "50916 newfstatat(AT_FDCWD</workspace/pequalnp-proofs/lean>, \"/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/lib/lean/glibc-hwcaps/x86-64-v4/\", 0x7ffd4b5a2cc0, 0) = -1 ENOENT (No such file or directory)",
+    "50916 openat(AT_FDCWD</workspace/pequalnp-proofs/lean>, \"/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/lib/lean/glibc-hwcaps/x86-64-v3/libc.so.6\", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)",
+    "50916 newfstatat(AT_FDCWD</workspace/pequalnp-proofs/lean>, \"/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/lib/lean/glibc-hwcaps/x86-64-v3/\", 0x7ffd4b5a2cc0, 0) = -1 ENOENT (No such file or directory)"
+  ],
+  "last_records": [
+    "50918 statx(AT_FDCWD</workspace/pequalnp-proofs/lean>, \"/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Algebra/Operations.olean\", AT_STATX_SYNC_AS_STAT, STATX_ALL, {stx_mask=STATX_ALL|STATX_MNT_ID, stx_attributes=0, stx_mode=S_IFREG|0600, stx_size=711040, ...}) = 0",
+    "50918 openat(AT_FDCWD</workspace/pequalnp-proofs/lean>, \"/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Algebra/Operations.olean\", O_RDONLY) = 9</workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Algebra/Operations.olean>",
+    "50917 +++ killed by SIGKILL +++",
+    "50918 +++ killed by SIGKILL +++",
+    "50916 +++ killed by SIGKILL +++"
+  ]
+}
