@@ -5,3 +5,5 @@ This checkpoint is branch-only and is not eligible as a proof PR.
 Full checker not run on this helper artifact.
 Sub-agents: status_review, not_elimination, circuit_search, gate_lower_bound, finite_certificate, checker_storage
 TIMING total=11 subagents=6
+
+Terminal-NOT helper: lake env lean ../results/orch/lemmas/not_elimination_last.lean exited0 with no warnings or errors. Root reviewed all92lines plus status_review semantic audit.
