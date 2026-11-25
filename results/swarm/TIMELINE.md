@@ -5,10 +5,18 @@
 - 2026-11-25 23:10:15: helper-1 first result: full constraints matched; solver installation needed.
 - 2026-11-25 23:11:14: helper-2 first result: no monotonicity conflict; 11 minimal edge terms.
 - 2026-11-25 23:11:36: helper-3 first result: maximal independent sets specify full function.
-- 2026-11-25 23:11:33: helper-4 first result: 23 distinct input patterns and two contaminated AND requirements.
+- 2026-11-25 23:11:33: helper-4 first result: row compression and two contaminated AND requirements (pattern count later corrected to 24).
 - 2026-11-25 23:11:09: helper-5 first result: no contradiction without gate bound.
 - 2026-11-25 23:12:27: helper-6 first result: minimum biclique formula cost is 15 gates.
 - 2026-11-25 23:12:03: helper-7 first result: finite witness proof layout with explicit wire masks.
 - 2026-11-25 23:11:43: helper-8 first report: bit-blasted synthesis setup underway.
 - 2026-11-25 23:12:05: helper-9 first report: exact semantics and checker review underway.
 - 2026-11-25 23:12:39: Existing desk lease renewed; no lease requested or released.
+- 2026-11-25 23:15:49: Pinned Mathlib cache and checker prerequisites built; provisional diff independently reviewed PASS.
+- 2026-11-25 23:22:28: Formula DP independently confirmed 15-gate formula minimum. Random shared-basis circuit search active. Restricted five-gate core UNSAT with seven-gate positive control; no full result.
+- 2026-11-25 23:16:04: First reviewed progress checkpoint a49835bc pushed to origin/pnp/swarm-L-meta-9033-orch.
+- 2026-11-25 23:13:20: helper-8 first concrete result: full CNF generated with 1,442 variables and 20,815 clauses.
+- 2026-11-25 23:13:01: helper-9 first semantic review: repeated sources and unused gates allowed; high-bit witnesses may share a bit index.
+- 2026-11-25 23:24:25: Existing lease renewed; full Mathlib and checker remain ready.
+- 2026-11-25 23:30:04: First scheduled replanning: full proof/refutation priority retained, solver diversification and gate-count/union encodings prioritized. No full result yet.
+- 2026-11-25 23:30:04: Local helper compiled an internal proof of the graph AND-count lower bound; exact-statement bridge remains in progress.
