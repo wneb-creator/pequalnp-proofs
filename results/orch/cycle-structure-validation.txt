@@ -1,0 +1,10 @@
+Partial structural lemmas for L-meta-1031; not the complete assigned theorem.
+Source: results/orch/lemmas/proof_cycle_struct.lean
+Source SHA256: 55baad7565ff2c3a7f50be0e20e6627a72550e4cb9e582dea3e7046f9eabed2a
+Source lines: 949
+UTC: 2026-11-25T02:00:39.996361+00:00
+Checked with pinned Lean4.36.0 via tools/bin/lake env lean, LAKE_ARTIFACT_CACHE=false.
+Exit code: 0
+Complete combined output: results/orch/cycle-structure-build.log
+Diagnostics: inherited if_pos/if_neg deprecation warnings only.
+Local checker not run on this research artifact; root coordinates named-file checking.
