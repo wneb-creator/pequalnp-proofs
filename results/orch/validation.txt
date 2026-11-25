@@ -70,3 +70,18 @@ Scope: this excludes extensions of one particular 2D space, not arbitrary 3D spa
 Local checker for target: not run; target remains unproved.
 Sub-agents: seven, including an added fresh mathematical review.
 TIMING total=76.6 subagents=7
+
+Additional checked partial: crossed-star polynomial parameter obstruction.
+UTC: 2026-11-25T10:04:17.344658+00:00
+File: results/orch/lemmas/CrossedStarObstruction.lean
+Lines: 17
+SHA256: 44e041d5cdf0a93c2c594845d93325bfb292f843a8c1bc8d8dbb9fa1f5f1b912
+Command (cwd lean/): lake env lean ../results/orch/lemmas/CrossedStarObstruction.lean
+Build exit status: 0
+Complete build stdout and stderr follows:
+
+Independent review: passed; two displayed polynomial assumptions imply both parameters vanish.
+Scope: no matrix parametrization or arbitrary-space classification follows from this lemma alone.
+Local checker for target: not run; target remains unproved.
+Sub-agents: seven.
+TIMING total=88.6 subagents=7
