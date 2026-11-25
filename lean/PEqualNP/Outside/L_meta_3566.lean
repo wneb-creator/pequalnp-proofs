@@ -6372,3 +6372,2286 @@ lemma junk_empty_of_upper_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableR
   omega
 
 end PEqualNP.Outside.L_meta_3566.NonjunkMixedBound
+
+namespace PEqualNP.Outside.L_meta_3566.LeastGateLive
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm SemanticPurity ParallelRewrite
+
+lemma output_or_later_reader {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hLeast : IsLeastAO G C) (j : ℕ) (hj : j < C.gates.length) :
+    C.output = n + j ∨ ∃ k, j < k ∧ k < C.gates.length ∧
+      n + j ∈ (gateAt C k).inputs := by
+  classical
+  by_contra h
+  have hout : C.output ≠ n + j := fun he => h (Or.inl he)
+  have hreader : ∀ k, k < C.gates.length → n + j ∉ (gateAt C k).inputs := by
+    intro k hk hin
+    have hlt := hLeast.1.2.1 k hk (n + j) hin
+    exact h (Or.inr ⟨k, by omega, hk, hin⟩)
+  obtain ⟨a, b, hab⟩ := MixedColor.binaryInputs hLeast.1 hj
+  have ha : a < n + j := hLeast.1.2.1 j hj a (by simp [hab])
+  let f : Fin C.gates.length → Gate := fun k =>
+    if k.val = j then ⟨.or, [a, a]⟩ else gateAt C k.val
+  let D := rewrite C f
+  have hlen : D.gates.length = C.gates.length := rewrite_length C f
+  have hsize : D.size = C.size := rewrite_size C f
+  have hgate (k : ℕ) (hk : k < C.gates.length) :
+      gateAt D k = if k = j then ⟨.or, [a, a]⟩ else gateAt C k := by
+    exact rewrite_gate C f k hk
+  have hAO : IsAO2 n D := by
+    apply rewrite_ao C f
+    · intro k
+      by_cases hk : k.val = j
+      · simp [f, hk]
+      · simpa [f, hk] using hLeast.1.1 _ (MixedColor.gateAt_mem k.isLt)
+    · intro k
+      by_cases hk : k.val = j
+      · simp [f, hk]
+      · simpa [f, hk] using hLeast.1.2.2 _ (MixedColor.gateAt_mem k.isLt)
+    · intro k i hi
+      by_cases hk : k.val = j
+      · simp only [f, ite_eq_left hk, List.mem_cons, List.not_mem_nil, or_false, or_self] at hi
+        subst i
+        simpa only [hk] using ha
+      · simp only [f, ite_eq_right hk] at hi
+        exact hLeast.1.2.1 k.val k.isLt i hi
+  have hstable : ∀ x : Fin n → Bool, ∀ z, z ≠ n + j → value D x z = value C x z := by
+    intro x
+    apply wire_relation C D hlen hLeast.1.2.1 hAO.2.1 x
+      (fun z old new => z ≠ n + j → new = old)
+    · intro z hz _
+      rfl
+    · intro z hz _
+      rfl
+    · intro k hk ih hne
+      have hkj : k ≠ j := by omega
+      rw [hgate k hk, ite_eq_right hkj]
+      apply congrArg (gateAt C k).op.eval
+      apply List.map_congr_left
+      intro i hi
+      exact ih i (hLeast.1.2.1 k hk i hi) (fun he => hreader k hk (he ▸ hi))
+  have hfun : circuitFun n D = graphFun G ∅ := by
+    rw [← hLeast.2.1]
+    funext x
+    change value D x C.output = value C x C.output
+    exact hstable x C.output hout
+  have hLD : IsLeastAO G D := by
+    refine ⟨hAO, hfun, ?_⟩
+    intro E hE hEf
+    rw [hsize]
+    exact hLeast.2.2 E hE hEf
+  apply not_equal_earlier G D hLD j a (by omega) ha
+  funext x
+  change value D x (n + j) = value D x a
+  rw [value_gate D hAO.2.1 x j (by omega), hgate j hj, ite_eq_left rfl]
+  simp [GateOp.eval]
+
+end PEqualNP.Outside.L_meta_3566.LeastGateLive
+
+namespace PEqualNP.Outside.L_meta_3566.JunkPurity
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.EdgeOwnership SemanticPurity
+
+lemma coneFold_length (n : ℕ) (gs : List Gate) (cs : List (List ℕ)) :
+    (gs.foldl (coneStep n) cs).length = cs.length + gs.length := by
+  induction gs generalizing cs with
+  | nil => simp
+  | cons g gs ih =>
+    rw [List.foldl_cons, ih]
+    simp [coneStep]
+    omega
+
+lemma coneStep_getD_last (n : ℕ) (cs : List (List ℕ)) (g : Gate) :
+    (coneStep n cs g).getD cs.length [] =
+      (g.inputs.filter (fun w => decide (n ≤ w ∧ w < n + cs.length))).flatMap
+        (fun w => (w - n) :: cs.getD (w - n) []) := by
+  simp [coneStep, List.getD_eq_getElem?_getD]
+
+lemma coneStep_getD_lt (n : ℕ) (cs : List (List ℕ)) (g : Gate) (m : ℕ) (hm : m < cs.length) :
+    (coneStep n cs g).getD m [] = cs.getD m [] := by
+  simp [coneStep, List.getD_eq_getElem?_getD, List.getElem?_append_left hm]
+
+lemma coneFold_getD_lt (n : ℕ) (gs : List Gate) (cs : List (List ℕ)) (k : ℕ)
+    (hk : k < cs.length) :
+    (gs.foldl (coneStep n) cs).getD k [] = cs.getD k [] := by
+  induction gs generalizing cs with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [List.foldl_cons]
+    rw [ih (coneStep n cs g) (by simp [coneStep]; omega)]
+    exact coneStep_getD_lt n cs g k hk
+
+lemma inCone_iff (n : ℕ) (C : Circuit) (i k : ℕ) (hk : k < C.gates.length) :
+    InCone n C i k ↔ ∃ w ∈ (gateAt C k).inputs, n ≤ w ∧ w < n + k ∧
+      (i = w - n ∨ InCone n C i (w - n)) := by
+  obtain ⟨pre, post, gk, hgs, hpre_len, _, _, hgk⟩ := Splice.split_gates C.gates k hk
+  have hga : gateAt C k = gk := by simpa only [gateAt, List.getD_eq_getElem _ _ hk] using hgk
+  rw [hga]
+  have hc : cones n C = post.foldl (coneStep n) (coneStep n (pre.foldl (coneStep n) []) gk) := by
+    simp only [cones]
+    rw [hgs, List.foldl_append, List.foldl_cons]
+  have hl0 : (pre.foldl (coneStep n) []).length = k := by
+    rw [coneFold_length]; simp [hpre_len]
+  have hl1 : (coneStep n (pre.foldl (coneStep n) []) gk).length = k + 1 := by
+    simp [coneStep, hl0]
+  have h1 : (cones n C).getD k [] =
+      (gk.inputs.filter (fun w => decide (n ≤ w ∧ w < n + k))).flatMap
+        (fun w => (w - n) :: (pre.foldl (coneStep n) []).getD (w - n) []) := by
+    rw [hc, coneFold_getD_lt n post _ k (by omega)]
+    have h := coneStep_getD_last n (pre.foldl (coneStep n) []) gk
+    rw [hl0] at h
+    exact h
+  have h2 : ∀ m, m < k → (cones n C).getD m [] = (pre.foldl (coneStep n) []).getD m [] := by
+    intro m hm
+    rw [hc, coneFold_getD_lt n post _ m (by omega)]
+    exact coneStep_getD_lt n _ gk m (by omega)
+  unfold InCone
+  rw [h1]
+  simp only [List.mem_flatMap, List.mem_filter, decide_eq_true_eq, List.mem_cons]
+  constructor
+  · rintro ⟨w, ⟨hw, hn, hlt⟩, h⟩
+    refine ⟨w, hw, hn, hlt, ?_⟩
+    rcases h with h | h
+    · exact Or.inl h
+    · right
+      rw [h2 (w - n) (by omega)]
+      exact h
+  · rintro ⟨w, hw, hn, hlt, h⟩
+    refine ⟨w, ⟨hw, hn, hlt⟩, ?_⟩
+    rcases h with h | h
+    · exact Or.inl h
+    · right
+      rw [← h2 (w - n) (by omega)]
+      exact h
+
+lemma cone_step {n : ℕ} (C : Circuit) (hAO : IsAO2 n C) {i j k : ℕ}
+    (hk : k < C.gates.length) (hm : n + j ∈ (gateAt C k).inputs)
+    (hi : i = j ∨ InCone n C i j) : InCone n C i k := by
+  apply (inCone_iff n C i k hk).mpr
+  refine ⟨n + j, hm, by omega, hAO.2.1 k hk _ hm, ?_⟩
+  simpa using hi
+
+lemma cone_trans {n : ℕ} (C : Circuit) {i j k : ℕ}
+    (hk : k < C.gates.length) (hij : InCone n C i j) (hjk : InCone n C j k) :
+    InCone n C i k := by
+  induction k using Nat.strong_induction_on with
+  | ind k ih =>
+    obtain ⟨w, hw, hn, hlt, heq | hc⟩ := (inCone_iff n C j k hk).mp hjk
+    · exact (inCone_iff n C i k hk).mpr ⟨w, hw, hn, hlt, Or.inr (heq ▸ hij)⟩
+    · exact (inCone_iff n C i k hk).mpr
+        ⟨w, hw, hn, hlt, Or.inr (ih (w-n) (by omega) (by omega) hc)⟩
+
+def NoAndBelow {n : ℕ} (C : Circuit) (w : ℕ) : Prop :=
+  ∀ j, j < C.gates.length → (gateAt C j).op = .and →
+    w ≠ n + j ∧ (n ≤ w → ¬ InCone n C j (w-n))
+
+def Raw {n : ℕ} (C : Circuit) (w : ℕ) : Prop :=
+  ∀ x : Fin n → Bool, W n C w x = true →
+    ∃ v : Fin n, x v = true ∧ W n C w (pairInput v v) = true
+
+lemma raw_no_and {n : ℕ} (C : Circuit) (hAO : IsAO2 n C) :
+    ∀ w, w < n + C.gates.length → NoAndBelow (n := n) C w → Raw (n := n) C w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw hno x hx
+    by_cases hwi : w < n
+    · refine ⟨⟨w,hwi⟩, ?_, ?_⟩
+      · simpa only [W_input C w hwi] using hx
+      · rw [W_input C w hwi]; simp [pairInput]
+    obtain ⟨j,rfl⟩ : ∃ j, w = n+j := ⟨w-n, by omega⟩
+    have hj : j < C.gates.length := by omega
+    have hor : (gateAt C j).op = .or := by
+      rcases hAO.1 _ (MixedColor.gateAt_mem hj) with ha | ho
+      · exact ((hno j hj ha).1 rfl).elim
+      · exact ho
+    obtain ⟨a,b,hab⟩ := MixedColor.binaryInputs hAO hj
+    have ha := hAO.2.1 j hj a (by simp [hab])
+    have hb := hAO.2.1 j hj b (by simp [hab])
+    have hc : ∀ u ∈ (gateAt C j).inputs, NoAndBelow (n := n) C u := by
+      intro u hu i hi hop
+      constructor
+      · intro heq
+        subst u
+        exact (hno i hi hop).2 (by omega)
+          (by simpa using cone_step C hAO hj hu (Or.inl rfl))
+      · intro hnu hic
+        exact (hno i hi hop).2 (by omega)
+          (by simpa using (inCone_iff n C i j hj).mpr ⟨u,hu,hnu,hAO.2.1 j hj u hu,Or.inr hic⟩)
+    rw [W_gate C hAO j hj a b hab, hor] at hx
+    have hsplit : W n C a x = true ∨ W n C b x = true := by
+      simpa [GateOp.eval] using hx
+    rcases hsplit with hax | hbx
+    · obtain ⟨v,hv,hva⟩ := ih a ha (by omega) (hc a (by simp [hab])) x hax
+      refine ⟨v,hv,?_⟩
+      rw [W_gate C hAO j hj a b hab,hor]
+      simp [GateOp.eval,hva]
+    · obtain ⟨v,hv,hvb⟩ := ih b hb (by omega) (hc b (by simp [hab])) x hbx
+      refine ⟨v,hv,?_⟩
+      rw [W_gate C hAO j hj a b hab,hor]
+      simp [GateOp.eval,hvb]
+
+lemma all_and_clean {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hjunk : junk G C = ∅) {j : ℕ} (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = .and) : BelowF G C j := by
+  intro x hx
+  by_contra hg
+  have hm : j ∈ junk G C := Finset.mem_filter.mpr
+    ⟨Finset.mem_range.mpr hj,hop,hj,x,hx,Bool.eq_false_iff.mpr hg⟩
+  rw [hjunk] at hm
+  exact Finset.notMem_empty _ hm
+
+lemma and_input_no_and {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hTF : TopForm G C) (hjunk : junk G C = ∅)
+    {j w : ℕ} (hj : j < C.gates.length) (hop : (gateAt C j).op = .and)
+    (hw : w ∈ (gateAt C j).inputs) : NoAndBelow (n := n) C w := by
+  intro i hi hia
+  have hforbid := hTF i hi j hj hia (all_and_clean G C hjunk hi hia) hop
+  constructor
+  · intro heq
+    subst w
+    exact hforbid (cone_step C hAO hj hw (Or.inl rfl))
+  · intro hn hc
+    exact hforbid ((inCone_iff n C i j hj).mpr
+      ⟨w,hw,hn,hAO.2.1 j hj w hw,Or.inr hc⟩)
+
+lemma no_and_child {n : ℕ} (C : Circuit) (hAO : IsAO2 n C) {j w : ℕ}
+    (hj : j < C.gates.length) (hw : w ∈ (gateAt C j).inputs)
+    (hn : NoAndBelow (n := n) C (n+j)) : NoAndBelow (n := n) C w := by
+  intro i hi hia
+  constructor
+  · intro heq
+    subst w
+    exact (hn i hi hia).2 (by omega)
+      (by simpa using cone_step C hAO hj hw (Or.inl rfl))
+  · intro hnw hc
+    exact (hn i hi hia).2 (by omega)
+      (by simpa using ((inCone_iff n C i j hj).mpr
+        ⟨w,hw,hnw,hAO.2.1 j hj w hw,Or.inr hc⟩))
+
+lemma no_and_or_path {n : ℕ} (C : Circuit) (hAO : IsAO2 n C) {w z : ℕ}
+    (hp : Relation.ReflTransGen (MixedColor.OrStep n C) w z)
+    (hn : NoAndBelow (n := n) C w) : NoAndBelow (n := n) C z := by
+  induction hp using Relation.ReflTransGen.head_induction_on with
+  | refl => exact hn
+  | head hs _ ih =>
+    obtain ⟨j,hj,rfl,_,hw,_⟩ := hs
+    exact ih (no_and_child C hAO hj hw hn)
+
+lemma singleton_le {n : ℕ} (x : Fin n → Bool) (v : Fin n) (hv : x v = true) :
+    pairInput v v ≤ x := by
+  intro u
+  by_cases hu : u = v
+  · subst u; simp [pairInput,hv]
+  · simp [pairInput,hu]
+
+lemma raw_pure_of_zero_mask {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (s : Fin n → Bool) (b : Bool) {w : ℕ} (hr : Raw (n := n) C w)
+    (hz : W n C w (mask s (!b) (fun _ => true)) = false) : Pure s b (W n C w) := by
+  intro x
+  apply le_antisymm
+  · apply Bool.le_iff_imp.mpr
+    intro hx
+    obtain ⟨v,hv,hsv⟩ := hr x hx
+    have hc : s v = b := by
+      by_contra hcb
+      have hc' : s v = !b := by cases hs : s v <;> cases b <;> simp_all
+      have hm : mask s (!b) (fun _ => true) v = true := by simp [mask,hc']
+      have hu := (WireFacts.wire_monotone C hAO w) (singleton_le _ v hm)
+      change W n C w (pairInput v v) ≤ W n C w (mask s (!b) (fun _ => true)) at hu
+      rw [hsv,hz] at hu
+      contradiction
+    have hm : mask s b x v = true := by simp [mask,hc,hv]
+    have hu := (WireFacts.wire_monotone C hAO w) (singleton_le _ v hm)
+    exact Bool.le_iff_imp.mp hu hsv
+  · exact (WireFacts.wire_monotone C hAO w) (mask_le s b x)
+
+lemma raw_mask_some {n : ℕ} (C : Circuit) (hAO : IsAO2 n C) (s : Fin n → Bool)
+    {w : ℕ} (hw : w < n + C.gates.length) (hr : Raw (n := n) C w) :
+    ∃ b, W n C w (mask s b (fun _ => true)) = true := by
+  obtain ⟨v,_,hv⟩ := hr (fun _ => true) (wire_one C hAO w hw)
+  refine ⟨s v,?_⟩
+  have hm : mask s (s v) (fun _ => true) v = true := by simp [mask]
+  exact Bool.le_iff_imp.mp ((WireFacts.wire_monotone C hAO w) (singleton_le _ v hm)) hv
+
+lemma reaches_and_or_output {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (hlive : ∀ j, j < C.gates.length → C.output = n+j ∨
+      ∃ k, j < k ∧ k < C.gates.length ∧ n+j ∈ (gateAt C k).inputs) :
+    ∀ j, j < C.gates.length →
+      Relation.ReflTransGen (MixedColor.OrStep n C) C.output (n+j) ∨
+      ∃ k w, k < C.gates.length ∧ (gateAt C k).op = .and ∧
+        w ∈ (gateAt C k).inputs ∧ Relation.ReflTransGen (MixedColor.OrStep n C) w (n+j) := by
+  intro j hj
+  have haux : ∀ d j, C.gates.length-j = d → j < C.gates.length →
+      Relation.ReflTransGen (MixedColor.OrStep n C) C.output (n+j) ∨
+      ∃ k w, k < C.gates.length ∧ (gateAt C k).op = .and ∧
+        w ∈ (gateAt C k).inputs ∧ Relation.ReflTransGen (MixedColor.OrStep n C) w (n+j) := by
+    intro d
+    induction d using Nat.strong_induction_on with
+    | ind d ih =>
+      intro j hd hj
+      rcases hlive j hj with hout | ⟨k,hjk,hk,hread⟩
+      · left; rw [hout]
+      · rcases hAO.1 _ (MixedColor.gateAt_mem hk) with ha | ho
+        · exact Or.inr ⟨k,n+j,hk,ha,hread,.refl⟩
+        · have hs : MixedColor.OrStep n C (n+k) (n+j) :=
+            ⟨k,hk,rfl,ho,hread,by omega⟩
+          rcases ih (C.gates.length-k) (by omega) k rfl hk with hp | ⟨a,w,ha,hop,hw,hp⟩
+          · exact Or.inl (hp.tail hs)
+          · exact Or.inr ⟨a,w,ha,hop,hw,hp.tail hs⟩
+  exact haux _ j rfl hj
+
+lemma hOR_of_live {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hTF : TopForm G C) (hjunk : junk G C = ∅)
+    (hlive : ∀ j, j < C.gates.length → C.output = n+j ∨
+      ∃ k, j < k ∧ k < C.gates.length ∧ n+j ∈ (gateAt C k).inputs)
+    (j : ℕ) (hj : j < C.gates.length) (_hor : (gateAt C j).op = .or)
+    (hp0 : ¬ Pure s false (W n C (n+j))) (hp1 : ¬ Pure s true (W n C (n+j))) :
+    BelowF G C j := by
+  rcases reaches_and_or_output C hAO hlive j hj with hout | ⟨k,w,hk,hka,hw,hpath⟩
+  · intro x hx
+    have ho : W n C C.output x = true := MixedColor.orStep_up (by simp) hout hx
+    have hf := congrFun hfun x
+    exact hf ▸ ho
+  · have hwn : NoAndBelow (n := n) C w := and_input_no_and G C hAO hTF hjunk hk hka hw
+    have hjn := no_and_or_path C hAO hpath hwn
+    have hrj := raw_no_and C hAO (n+j) (by omega) hjn
+    have hboth : ∀ b, W n C (n+j) (mask s b (fun _ => true)) = true := by
+      intro b
+      by_contra hb
+      have hz := Bool.eq_false_iff.mpr hb
+      cases b
+      · exact hp1 (raw_pure_of_zero_mask C hAO s true hrj (by simpa using hz))
+      · exact hp0 (raw_pure_of_zero_mask C hAO s false hrj (by simpa using hz))
+    obtain ⟨a,b,hab⟩ := MixedColor.binaryInputs hAO hk
+    have ha : a < n+k := hAO.2.1 k hk a (by simp [hab])
+    have hb : b < n+k := hAO.2.1 k hk b (by simp [hab])
+    have hwa : w=a ∨ w=b := by simpa [hab] using hw
+    obtain ⟨other,ho,heval⟩ : ∃ other, other ∈ (gateAt C k).inputs ∧
+        ∀ x, W n C (n+k) x = (W n C w x && W n C other x) := by
+      rcases hwa with hwa | hwb
+      · subst w
+        refine ⟨b,by simp [hab],?_⟩
+        intro x
+        rw [W_gate C hAO k hk a b hab,hka]
+        simp [GateOp.eval]
+      · subst w
+        refine ⟨a,by simp [hab],?_⟩
+        intro x
+        rw [W_gate C hAO k hk a b hab,hka]
+        simp [GateOp.eval,Bool.and_comm]
+    have hother := raw_no_and C hAO other
+      (by have hh := hAO.2.1 k hk other ho; omega)
+      (and_input_no_and G C hAO hTF hjunk hk hka ho)
+    obtain ⟨c,hc⟩ := raw_mask_some C hAO s
+      (by have hh := hAO.2.1 k hk other ho; omega) hother
+    have hwmask : W n C w (mask s c (fun _ => true)) = true :=
+      MixedColor.orStep_up (by simp) hpath (hboth c)
+    have hktrue : gateVal n C k (mask s c (fun _ => true)) = true := by
+      change W n C (n+k) _ = true
+      rw [heval,hwmask,hc]
+      rfl
+    have hf := all_and_clean G C hjunk hk hka _ hktrue
+    rw [graph_mask_false G s hbip] at hf
+    cases hf
+
+lemma hOR_of_least_top_junk_empty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hLeast : IsLeastAO G C)
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hTF : TopForm G C) (hjunk : junk G C = ∅)
+    (j : ℕ) (hj : j < C.gates.length) (hor : (gateAt C j).op = .or)
+    (hp0 : ¬ Pure s false (W n C (n+j))) (hp1 : ¬ Pure s true (W n C (n+j))) :
+    BelowF G C j :=
+  hOR_of_live G C hLeast.1 hLeast.2.1 s hbip hTF hjunk
+    (LeastGateLive.output_or_later_reader G C hLeast) j hj hor hp0 hp1
+
+end PEqualNP.Outside.L_meta_3566.JunkPurity
+
+namespace PEqualNP.Outside.L_meta_3566.SharedProductFrontier
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.EdgeOwnership PureFunctionFamily
+
+lemma singleton_le {n : ℕ} (x : Fin n → Bool) (u : Fin n) (hu : x u = true) :
+    pairInput u u ≤ x := by
+  intro v
+  apply Bool.le_iff_imp.mpr
+  intro hv
+  have heq : v = u := by simpa [pairInput] using hv
+  subst v
+  exact hu
+
+lemma orient_edge {n : ℕ} (G : SimpleGraph (Fin n))
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (a b : Fin n) (hab : G.Adj a b) :
+    ∃ u v, s u = true ∧ s v = false ∧ pairInput a b = pairInput u v := by
+  cases ha : s a
+  · have hb : s b = true := by
+      cases hb : s b
+      · exact False.elim ((hbip a b hab) (ha.trans hb.symm))
+      · rfl
+    refine ⟨b, a, hb, ha, ?_⟩
+    funext w
+    simp [pairInput, or_comm]
+  · have hb : s b = false := by
+      cases hb : s b
+      · rfl
+      · exact False.elim ((hbip a b hab) (ha.trans hb.symm))
+    exact ⟨a, b, ha, hb, rfl⟩
+
+lemma pure_pair {n : ℕ} (s : Fin n → Bool) (f : (Fin n → Bool) → Bool)
+    (hp : ∀ x, f x = f (maskTrue s x)) (u v : Fin n)
+    (hu : s u = true) (hv : s v = false) : f (pairInput u v) = f (pairInput u u) := by
+  rw [hp (pairInput u v), mask_pair s u v hu hv]
+
+lemma common_two_unique {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (h4 : NoFourCycle G) (b c u v : Fin n) (hbc : b ≠ c)
+    (hub : G.Adj u b) (huc : G.Adj u c) (hvb : G.Adj v b) (hvc : G.Adj v c) : u = v := by
+  by_contra huv
+  have hb : b ∈ Finset.univ.filter (fun x => G.Adj u x ∧ G.Adj v x) := by simp [hub, hvb]
+  have hc : c ∈ Finset.univ.filter (fun x => G.Adj u x ∧ G.Adj v x) := by simp [huc, hvc]
+  exact hbc ((Finset.card_le_one.mp (h4 u v huv)) b hb c hc)
+
+lemma shared_side_star {n : ℕ} {ι : Type*}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (h4 : NoFourCycle G)
+    (A B : (Fin n → Bool) → Bool) (P : ι → (Fin n → Bool) → Bool)
+    (hAm : Monotone A) (hBm : Monotone B) (hPm : ∀ i, Monotone (P i))
+    (hAp : ∀ x, A x = A (maskTrue s x)) (hPp : ∀ i x, P i x = P i (maskTrue s x))
+    (hBtwo : ∃ b c, b ≠ c ∧ B (pairInput b b) = true ∧ B (pairInput c c) = true)
+    (hbelow : ∀ i x, A x = true → B x = true → P i x = true → graphFun G ∅ x = true)
+    (haccept : ∃ i a b, G.Adj a b ∧ A (pairInput a b) = true ∧
+      B (pairInput a b) = true ∧ P i (pairInput a b) = true) :
+    ∃ u : Fin n, s u = true ∧
+      (∀ x, (x u && B x) = true → graphFun G ∅ x = true) ∧
+      (∀ i a b, G.Adj a b → A (pairInput a b) = true → B (pairInput a b) = true →
+        P i (pairInput a b) = true → (pairInput a b u && B (pairInput a b)) = true) := by
+  have hrect : ∀ i u, A (pairInput u u) = true → P i (pairInput u u) = true →
+      ∀ v, B (pairInput v v) = true → G.Adj u v := by
+    intro i u hau hpu v hbv
+    have hu : pairInput u v u = true := by simp [pairInput]
+    have hv : pairInput u v v = true := by simp [pairInput]
+    exact (MixedColor.graphFun_pair G u v).mp
+      (hbelow i (pairInput u v)
+        (true_of_le (hAm (singleton_le _ u hu)) hau)
+        (true_of_le (hBm (singleton_le _ v hv)) hbv)
+        (true_of_le (hPm i (singleton_le _ u hu)) hpu))
+  have hunique : ∀ i j u v, A (pairInput u u) = true → P i (pairInput u u) = true →
+      A (pairInput v v) = true → P j (pairInput v v) = true → u = v := by
+    intro i j u v hau hpu hav hpv
+    obtain ⟨b, c, hbc, hb, hc⟩ := hBtwo
+    exact common_two_unique G h4 b c u v hbc
+      (hrect i u hau hpu b hb) (hrect i u hau hpu c hc)
+      (hrect j v hav hpv b hb) (hrect j v hav hpv c hc)
+  obtain ⟨i, a, b, hab, ha, hb, hp⟩ := haccept
+  obtain ⟨u, v, hu, hv, heq⟩ := orient_edge G s hbip a b hab
+  have hau : A (pairInput u u) = true := by
+    rw [heq, pure_pair s A hAp u v hu hv] at ha
+    exact ha
+  have hpu : P i (pairInput u u) = true := by
+    rw [heq, pure_pair s (P i) (hPp i) u v hu hv] at hp
+    exact hp
+  refine ⟨u, hu, ?_, ?_⟩
+  · intro x hx
+    have hx' : x u = true ∧ B x = true := by simpa using hx
+    exact hbelow i x (true_of_le (hAm (singleton_le x u hx'.1)) hau) hx'.2
+      (true_of_le (hPm i (singleton_le x u hx'.1)) hpu)
+  · intro j a b hab ha hb hp
+    obtain ⟨r, t, hr, ht, heq⟩ := orient_edge G s hbip a b hab
+    have har : A (pairInput r r) = true := by
+      rw [heq, pure_pair s A hAp r t hr ht] at ha
+      exact ha
+    have hpr : P j (pairInput r r) = true := by
+      rw [heq, pure_pair s (P j) (hPp j) r t hr ht] at hp
+      exact hp
+    have hru := hunique j i r u har hpr hau hpu
+    have hxu : pairInput a b u = true := by rw [heq, hru]; simp [pairInput]
+    simp [hxu, hb]
+
+lemma shared_product_family {n k : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (h4 : NoFourCycle G)
+    (A B : (Fin n → Bool) → Bool) (P Q : Fin k → (Fin n → Bool) → Bool)
+    (hAm : Monotone A) (hBm : Monotone B)
+    (hPm : ∀ i, Monotone (P i)) (hQm : ∀ i, Monotone (Q i))
+    (hAp : ∀ x, A x = A (maskTrue (fun v => !(s v)) x))
+    (hBp : ∀ x, B x = B (maskTrue s x))
+    (hPp : ∀ i x, P i x = P i (maskTrue (fun v => !(s v)) x))
+    (hQp : ∀ i x, Q i x = Q i (maskTrue s x))
+    (hAtwo : ∃ a c, a ≠ c ∧ A (pairInput a a) = true ∧ A (pairInput c c) = true)
+    (hBtwo : ∃ b d, b ≠ d ∧ B (pairInput b b) = true ∧ B (pairInput d d) = true)
+    (hbelow : ∀ i x, ((A x && B x) && (P i x || Q i x)) = true → graphFun G ∅ x = true)
+    (haccept : ∃ i a b, G.Adj a b ∧
+      ((A (pairInput a b) && B (pairInput a b)) &&
+        (P i (pairInput a b) || Q i (pairInput a b))) = true) :
+    ∃ (u v : Fin n) (f g : (Fin n → Bool) → Bool),
+      (f = A ∨ f = B) ∧ (g = A ∨ g = B) ∧
+      (∀ x, ((x u && f x) || (x v && g x)) = true → graphFun G ∅ x = true) ∧
+      (∀ i a b, G.Adj a b →
+        ((A (pairInput a b) && B (pairInput a b)) &&
+          (P i (pairInput a b) || Q i (pairInput a b))) = true →
+        ((pairInput a b u && f (pairInput a b)) ||
+          (pairInput a b v && g (pairInput a b))) = true) := by
+  classical
+  let Allowed : ((Fin n → Bool) → Bool) → Prop := fun f => f = A ∨ f = B
+  let T : (Fin n → Bool) → Bool := fun x => decide (∃ i, A x = true ∧ B x = true ∧ P i x = true)
+  let U : (Fin n → Bool) → Bool := fun x => decide (∃ i, A x = true ∧ B x = true ∧ Q i x = true)
+  have hbip' : ∀ u v, G.Adj u v → (!(s u)) ≠ (!(s v)) := by
+    intro u v huv heq
+    apply hbip u v huv
+    simpa only [Bool.not_not] using congrArg Bool.not heq
+  have hT : (∃ a b, G.Adj a b ∧ T (pairInput a b) = true) →
+      TwoProductFrontier.HasStar G T Allowed := by
+    intro ht
+    have hbelowP : ∀ i x, A x = true → B x = true → P i x = true → graphFun G ∅ x = true := by
+      intro i x ha hb hp
+      exact hbelow i x (by simp [ha, hb, hp])
+    have hacceptP : ∃ i a b, G.Adj a b ∧ A (pairInput a b) = true ∧
+        B (pairInput a b) = true ∧ P i (pairInput a b) = true := by
+      obtain ⟨a, b, hab, hx⟩ := ht
+      obtain ⟨i, ha, hb, hp⟩ := of_decide_eq_true hx
+      exact ⟨i, a, b, hab, ha, hb, hp⟩
+    obtain ⟨u, _, hclean, hkeep⟩ := shared_side_star G (fun v => !(s v)) hbip' h4 A B P
+      hAm hBm hPm hAp hPp hBtwo hbelowP hacceptP
+    refine ⟨u, B, Or.inr rfl, hclean, ?_⟩
+    intro a b hab hx
+    obtain ⟨i, ha, hb, hp⟩ := of_decide_eq_true hx
+    exact hkeep i a b hab ha hb hp
+  have hU : (∃ a b, G.Adj a b ∧ U (pairInput a b) = true) →
+      TwoProductFrontier.HasStar G U Allowed := by
+    intro hu
+    have hbelowQ : ∀ i x, B x = true → A x = true → Q i x = true → graphFun G ∅ x = true := by
+      intro i x hb ha hq
+      exact hbelow i x (by simp [ha, hb, hq])
+    have hacceptQ : ∃ i a b, G.Adj a b ∧ B (pairInput a b) = true ∧
+        A (pairInput a b) = true ∧ Q i (pairInput a b) = true := by
+      obtain ⟨a, b, hab, hx⟩ := hu
+      obtain ⟨i, ha, hb, hq⟩ := of_decide_eq_true hx
+      exact ⟨i, a, b, hab, hb, ha, hq⟩
+    obtain ⟨v, _, hclean, hkeep⟩ := shared_side_star G s hbip h4 B A Q
+      hBm hAm hQm hBp hQp hAtwo hbelowQ hacceptQ
+    refine ⟨v, A, Or.inl rfl, hclean, ?_⟩
+    intro a b hab hx
+    obtain ⟨i, ha, hb, hq⟩ := of_decide_eq_true hx
+    exact hkeep i a b hab hb ha hq
+  have hcover : ∀ i x, ((A x && B x) && (P i x || Q i x)) = true → (T x || U x) = true := by
+    intro i x hx
+    have hx' : (A x = true ∧ B x = true) ∧ (P i x = true ∨ Q i x = true) := by simpa using hx
+    rcases hx'.2 with hp | hq
+    · have ht : T x = true := decide_eq_true ⟨i, hx'.1.1, hx'.1.2, hp⟩
+      simp [ht]
+    · have hu : U x = true := decide_eq_true ⟨i, hx'.1.1, hx'.1.2, hq⟩
+      simp [hu]
+  have ha : ∃ a b, G.Adj a b ∧ (T (pairInput a b) || U (pairInput a b)) = true := by
+    obtain ⟨i, a, b, hab, hx⟩ := haccept
+    exact ⟨a, b, hab, hcover i _ hx⟩
+  obtain ⟨u, v, f, g, hf, hg, hclean, hkeep⟩ :=
+    TwoProductFrontier.select_disjunction G T U Allowed hT hU ha
+  refine ⟨u, v, f, g, hf, hg, hclean, ?_⟩
+  intro i a b hab hx
+  exact hkeep a b hab (hcover i _ hx)
+
+end PEqualNP.Outside.L_meta_3566.SharedProductFrontier
+
+namespace PEqualNP.Outside.L_meta_3566.SharedProductDirty
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.EdgeOwnership SemanticPurity
+
+lemma singleton_le {n : ℕ} (x : Fin n → Bool) (u : Fin n) (hu : x u = true) :
+    pairInput u u ≤ x := by
+  intro v
+  apply Bool.le_iff_imp.mpr
+  intro hv
+  have heq : v = u := by simpa [pairInput] using hv
+  subst v
+  exact hu
+
+lemma product_not_below {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (h4 : NoFourCycle G) (A B : (Fin n → Bool) → Bool)
+    (hAm : Monotone A) (hBm : Monotone B)
+    (hAtwo : ∃ a c, a ≠ c ∧ A (pairInput a a) = true ∧ A (pairInput c c) = true)
+    (hBtwo : ∃ b d, b ≠ d ∧ B (pairInput b b) = true ∧ B (pairInput d d) = true) :
+    ¬ ∀ x, (A x && B x) = true → graphFun G ∅ x = true := by
+  intro hbelow
+  have hrect : ∀ u v, A (pairInput u u) = true → B (pairInput v v) = true → G.Adj u v := by
+    intro u v hau hbv
+    have hauv : A (pairInput u v) = true :=
+      PureFunctionFamily.true_of_le (hAm (singleton_le _ u (by simp [pairInput]))) hau
+    have hbuv : B (pairInput u v) = true :=
+      PureFunctionFamily.true_of_le (hBm (singleton_le _ v (by simp [pairInput]))) hbv
+    exact (MixedColor.graphFun_pair G u v).mp (hbelow _ (by simp [hauv, hbuv]))
+  obtain ⟨a, c, hac, ha, hc⟩ := hAtwo
+  obtain ⟨b, d, hbd, hb, hd⟩ := hBtwo
+  have hb' : b ∈ Finset.univ.filter (fun x => G.Adj a x ∧ G.Adj c x) := by
+    simp [hrect a b ha hb, hrect c b hc hb]
+  have hd' : d ∈ Finset.univ.filter (fun x => G.Adj a x ∧ G.Adj c x) := by
+    simp [hrect a d ha hd, hrect c d hc hd]
+  exact hbd ((Finset.card_le_one.mp (h4 a c hac)) b hb' d hd')
+
+lemma product_dirty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (h4 : NoFourCycle G) (A B : (Fin n → Bool) → Bool)
+    (hAm : Monotone A) (hBm : Monotone B)
+    (hAtwo : ∃ a c, a ≠ c ∧ A (pairInput a a) = true ∧ A (pairInput c c) = true)
+    (hBtwo : ∃ b d, b ≠ d ∧ B (pairInput b b) = true ∧ B (pairInput d d) = true) :
+    ∃ x, A x = true ∧ B x = true ∧ graphFun G ∅ x = false := by
+  classical
+  have h := product_not_below G h4 A B hAm hBm hAtwo hBtwo
+  push Not at h
+  obtain ⟨x, hx, hg⟩ := h
+  have hx' : A x = true ∧ B x = true := by simpa using hx
+  exact ⟨x, hx'.1, hx'.2, Bool.eq_false_iff.mpr hg⟩
+
+lemma and_mem_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (h4 : NoFourCycle G) (C : Circuit) (hAO : IsAO2 n C)
+    (j wa wb : ℕ) (hj : j < C.gates.length) (hop : (gateAt C j).op = .and)
+    (hinputs : (gateAt C j).inputs = [wa, wb])
+    (hAtwo : ∃ a c, a ≠ c ∧ W n C wa (pairInput a a) = true ∧ W n C wa (pairInput c c) = true)
+    (hBtwo : ∃ b d, b ≠ d ∧ W n C wb (pairInput b b) = true ∧ W n C wb (pairInput d d) = true) :
+    j ∈ junk G C := by
+  obtain ⟨x, ha, hb, hg⟩ := product_dirty G h4 (W n C wa) (W n C wb)
+    (WireFacts.wire_monotone C hAO wa) (WireFacts.wire_monotone C hAO wb) hAtwo hBtwo
+  have hgate : W n C (n + j) x = true := by
+    rw [W_gate C hAO j hj wa wb hinputs x, hop]
+    simp [GateOp.eval, ha, hb]
+  apply Finset.mem_filter.mpr
+  refine ⟨Finset.mem_range.mpr hj, ?_⟩
+  exact ⟨hop, hj, x, hgate, hg⟩
+
+end PEqualNP.Outside.L_meta_3566.SharedProductDirty
+
+namespace PEqualNP.Outside.L_meta_3566.SharedProductCircuit
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.EdgeOwnership SemanticPurity
+
+lemma shared_wire_stars {n k : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (h4 : NoFourCycle G)
+    (C : Circuit) (hAO : IsAO2 n C) (cut wa wb : ℕ)
+    (hwa : wa < n + cut) (hwb : wb < n + cut)
+    (frontier : Fin k → Fin C.gates.length) (wp wq : Fin k → ℕ)
+    (hAp : Pure s false (W n C wa)) (hBp : Pure s true (W n C wb))
+    (hPp : ∀ i, Pure s false (W n C (wp i))) (hQp : ∀ i, Pure s true (W n C (wq i)))
+    (hAtwo : ∃ a c, a ≠ c ∧ W n C wa (pairInput a a) = true ∧ W n C wa (pairInput c c) = true)
+    (hBtwo : ∃ b d, b ≠ d ∧ W n C wb (pairInput b b) = true ∧ W n C wb (pairInput d d) = true)
+    (hval : ∀ i x, W n C (n + (frontier i).val) x =
+      ((W n C wa x && W n C wb x) && (W n C (wp i) x || W n C (wq i) x)))
+    (hbelow : ∀ i x, W n C (n + (frontier i).val) x = true → graphFun G ∅ x = true)
+    (haccept : ∃ i a b, G.Adj a b ∧ W n C (n + (frontier i).val) (pairInput a b) = true) :
+    ∃ (u v : Fin n) (p q : ℕ),
+      (p = wa ∨ p = wb) ∧ (q = wa ∨ q = wb) ∧ p < n + cut ∧ q < n + cut ∧
+      (∀ x, ((x u && W n C p x) || (x v && W n C q x)) = true → graphFun G ∅ x = true) ∧
+      (∀ i a b, G.Adj a b → W n C (n + (frontier i).val) (pairInput a b) = true →
+        ((pairInput a b u && W n C p (pairInput a b)) ||
+          (pairInput a b v && W n C q (pairInput a b))) = true) := by
+  have hAp' : ∀ x, W n C wa x = W n C wa (PureFunctionFamily.maskTrue (fun v => !(s v)) x) := by
+    intro x
+    rw [← ConeFrontier.mask_false_eq]
+    exact hAp x
+  have hBp' : ∀ x, W n C wb x = W n C wb (PureFunctionFamily.maskTrue s x) := by
+    intro x
+    rw [← ConeFrontier.mask_true_eq]
+    exact hBp x
+  have hPp' : ∀ i x, W n C (wp i) x =
+      W n C (wp i) (PureFunctionFamily.maskTrue (fun v => !(s v)) x) := by
+    intro i x
+    rw [← ConeFrontier.mask_false_eq]
+    exact hPp i x
+  have hQp' : ∀ i x, W n C (wq i) x = W n C (wq i) (PureFunctionFamily.maskTrue s x) := by
+    intro i x
+    rw [← ConeFrontier.mask_true_eq]
+    exact hQp i x
+  have hb : ∀ i x, ((W n C wa x && W n C wb x) &&
+      (W n C (wp i) x || W n C (wq i) x)) = true → graphFun G ∅ x = true := by
+    intro i x hx
+    exact hbelow i x (by rw [hval]; exact hx)
+  have ha : ∃ i a b, G.Adj a b ∧ ((W n C wa (pairInput a b) && W n C wb (pairInput a b)) &&
+      (W n C (wp i) (pairInput a b) || W n C (wq i) (pairInput a b))) = true := by
+    simpa only [hval] using haccept
+  obtain ⟨u, v, f, g, hf, hg, hclean, hkeep⟩ := SharedProductFrontier.shared_product_family G s hbip h4
+    (W n C wa) (W n C wb) (fun i => W n C (wp i)) (fun i => W n C (wq i))
+    (WireFacts.wire_monotone C hAO wa) (WireFacts.wire_monotone C hAO wb)
+    (fun i => WireFacts.wire_monotone C hAO (wp i)) (fun i => WireFacts.wire_monotone C hAO (wq i))
+    hAp' hBp' hPp' hQp' hAtwo hBtwo hb ha
+  have select : ∀ f, (f = W n C wa ∨ f = W n C wb) →
+      ∃ w, (w = wa ∨ w = wb) ∧ w < n + cut ∧ W n C w = f := by
+    intro f hf
+    rcases hf with rfl | rfl
+    · exact ⟨wa, Or.inl rfl, hwa, rfl⟩
+    · exact ⟨wb, Or.inr rfl, hwb, rfl⟩
+  obtain ⟨p, hp, hpb, hpf⟩ := select f hf
+  obtain ⟨q, hq, hqb, hqg⟩ := select g hg
+  refine ⟨u, v, p, q, hp, hq, hpb, hqb, ?_, ?_⟩
+  · simpa only [hpf, hqg] using hclean
+  · intro i a b hab hx
+    rw [hval] at hx
+    simpa only [hpf, hqg] using hkeep i a b hab hx
+
+end PEqualNP.Outside.L_meta_3566.SharedProductCircuit
+
+namespace PEqualNP.Outside.L_meta_3566.FanoutInsert
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+def move (m w : ℕ) : ℕ := if w < m then w else w + 2
+
+def rename (m : ℕ) (g : Gate) : Gate := ⟨g.op, g.inputs.map (move m)⟩
+
+def position (h j : ℕ) : ℕ := if j < h then j else j + 2
+
+def copy (w : ℕ) : Gate := ⟨.and, [w, w]⟩
+
+def newGate (n : ℕ) (C : Circuit) (h : ℕ) (S : Finset ℕ)
+    (g₀ g₁ g₂ : Gate) (k : ℕ) : Gate :=
+  if k < h then rename (n + h) (gateAt C k)
+  else if k = h then g₀
+  else if k = h + 1 then g₁
+  else if k = h + 2 then g₂
+  else if k - 2 ∈ S then copy (n + h + 2)
+  else rename (n + h) (gateAt C (k - 2))
+
+def circuit (n : ℕ) (C : Circuit) (h : ℕ) (S : Finset ℕ)
+    (g₀ g₁ g₂ : Gate) : Circuit :=
+  ⟨List.ofFn (fun k : Fin (C.gates.length + 2) => newGate n C h S g₀ g₁ g₂ k),
+    move (n + h) C.output⟩
+
+lemma length (n : ℕ) (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate) :
+    (circuit n C h S g₀ g₁ g₂).gates.length = C.gates.length + 2 := by
+  simp [circuit]
+
+lemma size (n : ℕ) (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate) :
+    (circuit n C h S g₀ g₁ g₂).size = C.size + 2 := by
+  simp [Circuit.size, length]
+
+lemma gate (n : ℕ) (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (k : ℕ) (hk : k < C.gates.length + 2) :
+    gateAt (circuit n C h S g₀ g₁ g₂) k = newGate n C h S g₀ g₁ g₂ k := by
+  change (List.ofFn (fun k : Fin (C.gates.length + 2) => newGate n C h S g₀ g₁ g₂ k)).getD k _ = _
+  rw [List.getD_eq_getElem _ _ (by simpa only [List.length_ofFn] using hk), List.getElem_ofFn]
+
+lemma move_add (n h j : ℕ) : move (n + h) (n + j) = n + position h j := by
+  simp only [move, position]
+  split_ifs <;> omega
+
+lemma move_lt (m b w : ℕ) (hw : w < b) : move m w < move m b := by
+  unfold move
+  split_ifs <;> omega
+
+lemma move_input (n h w : ℕ) (hw : w < n) : move (n + h) w = w := by
+  simp [move, show w < n + h by omega]
+
+lemma at_lt (C : Circuit) (h j : ℕ) (hj : j < C.gates.length) :
+    position h j < C.gates.length + 2 := by
+  unfold position
+  split_ifs <;> omega
+
+lemma moved_gate (n : ℕ) (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hS : ∀ j ∈ S, h < j) (j : ℕ) (hj : j < C.gates.length) (hjh : j ≠ h) :
+    gateAt (circuit n C h S g₀ g₁ g₂) (position h j) =
+      if j ∈ S then copy (n + h + 2) else rename (n + h) (gateAt C j) := by
+  rw [gate _ _ _ _ _ _ _ _ (at_lt C h j hj)]
+  by_cases hjl : j < h
+  · have hn : j ∉ S := fun hs => by have := hS j hs; omega
+    simp [newGate, position, hjl, hn]
+  · have hgt : h < j := by omega
+    have h0 : ¬ j + 2 < h := by omega
+    have h1 : j + 2 ≠ h := by omega
+    have h2 : j + 2 ≠ h + 1 := by omega
+    have h3 : j + 2 ≠ h + 2 := by omega
+    simp [newGate, position, hjl, h0, h1, h2, hjh]
+
+lemma newGate_ao {n : ℕ} (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hC : IsAO2 n C) (hh : h < C.gates.length)
+    (hg₀ : (g₀.op = .and ∨ g₀.op = .or) ∧ g₀.inputs.length = 2 ∧
+      ∀ w ∈ g₀.inputs, w < n + h)
+    (hg₁ : (g₁.op = .and ∨ g₁.op = .or) ∧ g₁.inputs.length = 2 ∧
+      ∀ w ∈ g₁.inputs, w < n + h + 1)
+    (hg₂ : (g₂.op = .and ∨ g₂.op = .or) ∧ g₂.inputs.length = 2 ∧
+      ∀ w ∈ g₂.inputs, w < n + h + 2)
+    (k : ℕ) (hk : k < C.gates.length + 2) :
+    ((newGate n C h S g₀ g₁ g₂ k).op = .and ∨
+      (newGate n C h S g₀ g₁ g₂ k).op = .or) ∧
+      (newGate n C h S g₀ g₁ g₂ k).inputs.length = 2 ∧
+      ∀ w ∈ (newGate n C h S g₀ g₁ g₂ k).inputs, w < n + k := by
+  unfold newGate
+  split_ifs with h0 h1 h2 h3 h4
+  · have hkc : k < C.gates.length := by omega
+    refine ⟨by simpa only [rename] using hC.1 (gateAt C _) (MixedColor.gateAt_mem hkc), ?_, ?_⟩
+    · simpa [rename] using hC.2.2 _ (MixedColor.gateAt_mem hkc)
+    · intro w hw
+      obtain ⟨u, hu, rfl⟩ := List.mem_map.mp hw
+      have hu' := hC.2.1 k hkc u hu
+      simp only [move, ite_eq_left (show u < n + h by omega)]
+      omega
+  · subst k
+    exact hg₀
+  · subst k
+    simpa [Nat.add_assoc] using hg₁
+  · subst k
+    simpa [Nat.add_assoc] using hg₂
+  · refine ⟨Or.inl rfl, by simp [copy], ?_⟩
+    intro w hw
+    have hw' : w = n + h + 2 := by simpa [copy] using hw
+    omega
+  · have hkc : k - 2 < C.gates.length := by omega
+    refine ⟨by simpa only [rename] using hC.1 (gateAt C _) (MixedColor.gateAt_mem hkc), ?_, ?_⟩
+    · simpa [rename] using hC.2.2 _ (MixedColor.gateAt_mem hkc)
+    · intro w hw
+      obtain ⟨u, hu, rfl⟩ := List.mem_map.mp hw
+      have hu' := hC.2.1 (k - 2) hkc u hu
+      unfold move
+      split_ifs <;> omega
+
+lemma ao {n : ℕ} (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hC : IsAO2 n C) (hh : h < C.gates.length)
+    (hg₀ : (g₀.op = .and ∨ g₀.op = .or) ∧ g₀.inputs.length = 2 ∧
+      ∀ w ∈ g₀.inputs, w < n + h)
+    (hg₁ : (g₁.op = .and ∨ g₁.op = .or) ∧ g₁.inputs.length = 2 ∧
+      ∀ w ∈ g₁.inputs, w < n + h + 1)
+    (hg₂ : (g₂.op = .and ∨ g₂.op = .or) ∧ g₂.inputs.length = 2 ∧
+      ∀ w ∈ g₂.inputs, w < n + h + 2) :
+    IsAO2 n (circuit n C h S g₀ g₁ g₂) := by
+  have hs := newGate_ao C h S g₀ g₁ g₂ hC hh hg₀ hg₁ hg₂
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    obtain ⟨k, rfl⟩ := List.mem_ofFn.mp hg
+    exact (hs k k.isLt).1
+  · intro k hk w hw
+    have hk' : k < C.gates.length + 2 := by simpa only [length] using hk
+    rw [gate _ _ _ _ _ _ _ _ hk'] at hw
+    exact (hs k hk').2.2 w hw
+  · intro g hg
+    obtain ⟨k, rfl⟩ := List.mem_ofFn.mp hg
+    exact (hs k k.isLt).2.1
+
+lemma preserve_prefix {n : ℕ} (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hC : ReadsBack n C) (hh : h < C.gates.length)
+    (hD : ReadsBack n (circuit n C h S g₀ g₁ g₂)) (x : Fin n → Bool) :
+    ∀ w, w < n + h → value (circuit n C h S g₀ g₁ g₂) x w = value C x w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hwn : w < n
+    · rw [value_input (circuit n C h S g₀ g₁ g₂) x w hwn, value_input C x w hwn]
+    · let j := w - n
+      have hjh : j < h := by dsimp [j]; omega
+      have hj : j < C.gates.length := by omega
+      have heq : n + j = w := by dsimp [j]; omega
+      have hjD : j < (circuit n C h S g₀ g₁ g₂).gates.length := by rw [length]; omega
+      rw [← heq, value_gate _ hD x j hjD, value_gate C hC x j hj,
+        gate _ _ _ _ _ _ _ _ (by omega)]
+      simp only [newGate, ite_eq_left hjh, rename, List.map_map, Function.comp_def]
+      apply congrArg (gateAt C j).op.eval
+      apply List.map_congr_left
+      intro i hi
+      have hil := hC j hj i hi
+      have him : i < n + h := by omega
+      simp only [move, ite_eq_left him]
+      exact ih i (by omega) him
+
+lemma relation {n : ℕ} (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hC : ReadsBack n C) (hh : h < C.gates.length)
+    (hD : ReadsBack n (circuit n C h S g₀ g₁ g₂))
+    (hS : ∀ j ∈ S, h < j)
+    (hexits : ∀ j, j < C.gates.length → n + h ∈ (gateAt C j).inputs → j ∈ S)
+    (x : Fin n → Bool) (R : Bool → Bool → Prop) (hr : ∀ b, R b b)
+    (hmono : ∀ j, j < C.gates.length → ∀ f g : ℕ → Bool,
+      (∀ i ∈ (gateAt C j).inputs, R (f i) (g i)) →
+      R ((gateAt C j).op.eval ((gateAt C j).inputs.map f))
+        ((gateAt C j).op.eval ((gateAt C j).inputs.map g)))
+    (hfrontier : ∀ j ∈ S, j < C.gates.length →
+      R (value C x (n + j)) (value (circuit n C h S g₀ g₁ g₂) x (n + h + 2))) :
+    ∀ w, w ≠ n + h →
+      R (value C x w) (value (circuit n C h S g₀ g₁ g₂) x (move (n + h) w)) := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hwm
+    by_cases hwn : w < n
+    · rw [move_input n h w hwn, value_input (circuit n C h S g₀ g₁ g₂) x w hwn, value_input C x w hwn]
+      exact hr _
+    by_cases hwc : w < n + C.gates.length
+    · let j := w - n
+      have hj : j < C.gates.length := by dsimp [j]; omega
+      have heq : n + j = w := by dsimp [j]; omega
+      have hjh : j ≠ h := by omega
+      have hjD : position h j < (circuit n C h S g₀ g₁ g₂).gates.length := by
+        rw [length]
+        exact at_lt C h j hj
+      rw [← heq, move_add, value_gate _ hD x (position h j) hjD,
+        moved_gate n C h S g₀ g₁ g₂ hS j hj hjh]
+      by_cases hjS : j ∈ S
+      · simp only [ite_eq_left hjS, copy, GateOp.eval, List.map_cons, List.map_nil,
+          List.all_cons, List.all_nil, id_eq, Bool.and_true, Bool.and_self]
+        exact hfrontier j hjS hj
+      · rw [ite_eq_right hjS, value_gate C hC x j hj]
+        simp only [rename, List.map_map, Function.comp_def]
+        apply hmono j hj
+        intro i hi
+        apply ih i (by have := hC j hj i hi; omega)
+        intro him
+        subst i
+        exact hjS (hexits j hj hi)
+    · have hge : n + C.gates.length ≤ w := by omega
+      have hgm : ¬ w < n + h := by omega
+      rw [value_missing C x w hge]
+      simp only [move, ite_eq_right hgm]
+      rw [value_missing _ x (w + 2) (by rw [length]; omega)]
+      exact hr false
+
+lemma frontier_value {n : ℕ} (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hD : ReadsBack n (circuit n C h S g₀ g₁ g₂))
+    (hS : ∀ j ∈ S, h < j) (x : Fin n → Bool) (j : ℕ)
+    (hj : j < C.gates.length) (hjS : j ∈ S) :
+    value (circuit n C h S g₀ g₁ g₂) x (n + position h j) =
+      value (circuit n C h S g₀ g₁ g₂) x (n + h + 2) := by
+  have hjh : j ≠ h := by have := hS j hjS; omega
+  have hjD : position h j < (circuit n C h S g₀ g₁ g₂).gates.length := by
+    rw [length]
+    exact at_lt C h j hj
+  rw [value_gate _ hD x (position h j) hjD, moved_gate n C h S g₀ g₁ g₂ hS j hj hjh]
+  simp [hjS, copy, GateOp.eval]
+
+lemma equality_on_negative {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hC : ReadsBack n C) (hh : h < C.gates.length)
+    (hD : ReadsBack n (circuit n C h S g₀ g₁ g₂))
+    (hS : ∀ j ∈ S, h < j)
+    (hexits : ∀ j, j < C.gates.length → n + h ∈ (gateAt C j).inputs → j ∈ S)
+    (hclean : ∀ j ∈ S, j < C.gates.length → ∀ x : Fin n → Bool,
+      value C x (n + j) = true → graphFun G ∅ x = true)
+    (hnew : ∀ x : Fin n → Bool,
+      value (circuit n C h S g₀ g₁ g₂) x (n + h + 2) = true → graphFun G ∅ x = true)
+    (x : Fin n → Bool) (hx : graphFun G ∅ x = false) :
+    ∀ w, w ≠ n + h →
+      value C x w = value (circuit n C h S g₀ g₁ g₂) x (move (n + h) w) := by
+  apply relation C h S g₀ g₁ g₂ hC hh hD hS hexits x Eq (fun _ => rfl)
+  · intro j hj f g hfg
+    apply congrArg (gateAt C j).op.eval
+    exact List.map_congr_left hfg
+  · intro j hjS hj
+    have ho : value C x (n + j) = false := by
+      cases hv : value C x (n + j) with
+      | false => rfl
+      | true => have := hclean j hjS hj x hv; simp_all
+    have hn : value (circuit n C h S g₀ g₁ g₂) x (n + h + 2) = false := by
+      cases hv : value (circuit n C h S g₀ g₁ g₂) x (n + h + 2) with
+      | false => rfl
+      | true => have := hnew x hv; simp_all
+    rw [ho, hn]
+
+lemma graph_correct {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hC : IsAO2 n C) (hh : h < C.gates.length)
+    (hD : IsAO2 n (circuit n C h S g₀ g₁ g₂))
+    (hS : ∀ j ∈ S, h < j)
+    (hexits : ∀ j, j < C.gates.length → n + h ∈ (gateAt C j).inputs → j ∈ S)
+    (hout : C.output ≠ n + h) (hfun : circuitFun n C = graphFun G ∅)
+    (hclean : ∀ j ∈ S, j < C.gates.length → ∀ x : Fin n → Bool,
+      value C x (n + j) = true → graphFun G ∅ x = true)
+    (hnew : ∀ x : Fin n → Bool,
+      value (circuit n C h S g₀ g₁ g₂) x (n + h + 2) = true → graphFun G ∅ x = true)
+    (hkeep : ∀ a b, G.Adj a b → ∀ j ∈ S, j < C.gates.length →
+      value C (pairInput a b) (n + j) = true →
+        value (circuit n C h S g₀ g₁ g₂) (pairInput a b) (n + h + 2) = true) :
+    circuitFun n (circuit n C h S g₀ g₁ g₂) = graphFun G ∅ := by
+  apply (graphFun_boundary_iff G (circuitFun n (circuit n C h S g₀ g₁ g₂))
+    (Splice.circuitFun_monotone n _ hD.1)).mpr
+  constructor
+  · intro a b hab
+    have hrel := relation C h S g₀ g₁ g₂ hC.2.1 hh hD.2.1 hS hexits (pairInput a b)
+      (fun u v => u ≤ v) (fun _ => le_rfl)
+      (fun j hj f g hfg => gate_eval_mono_on_inputs _
+        (hC.1 _ (MixedColor.gateAt_mem hj)) f g hfg)
+      (fun j hjS hj => Bool.le_iff_imp.mpr (hkeep a b hab j hjS hj)) C.output hout
+    have ho : value C (pairInput a b) C.output = true := by
+      change circuitFun n C (pairInput a b) = true
+      rw [hfun]
+      exact graphFun_pair_true G hab
+    exact bool_true_of_le hrel ho
+  · intro T hT
+    have hx : graphFun G ∅ (supportInput T) = false := graphFun_independent_false G hT.1
+    have heq := equality_on_negative G C h S g₀ g₁ g₂ hC.2.1 hh hD.2.1 hS hexits
+      hclean hnew (supportInput T) hx C.output hout
+    change value (circuit n C h S g₀ g₁ g₂) (supportInput T) (move (n + h) C.output) = false
+    rw [← heq]
+    change circuitFun n C (supportInput T) = false
+    rw [hfun]
+    exact hx
+
+lemma gadget_gate₀ (n : ℕ) (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hh : h < C.gates.length) : gateAt (circuit n C h S g₀ g₁ g₂) h = g₀ := by
+  rw [gate _ _ _ _ _ _ _ _ (by omega)]
+  simp [newGate]
+
+lemma gadget_gate₁ (n : ℕ) (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hh : h < C.gates.length) : gateAt (circuit n C h S g₀ g₁ g₂) (h + 1) = g₁ := by
+  rw [gate _ _ _ _ _ _ _ _ (by omega)]
+  simp [newGate, show ¬ h + 1 < h by omega]
+
+lemma gadget_gate₂ (n : ℕ) (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hh : h < C.gates.length) : gateAt (circuit n C h S g₀ g₁ g₂) (h + 2) = g₂ := by
+  rw [gate _ _ _ _ _ _ _ _ (by omega)]
+  simp [newGate, show ¬ h + 2 < h by omega]
+
+def star (u p : ℕ) : Gate := ⟨.and, [u, p]⟩
+
+def join (n h : ℕ) : Gate := ⟨.or, [n + h, n + h + 1]⟩
+
+def stars (n : ℕ) (C : Circuit) (h : ℕ) (S : Finset ℕ) (u p v q : ℕ) : Circuit :=
+  circuit n C h S (star u p) (star v q) (join n h)
+
+lemma stars_ao {n : ℕ} (C : Circuit) (h : ℕ) (S : Finset ℕ) (u p v q : ℕ)
+    (hC : IsAO2 n C) (hh : h < C.gates.length)
+    (hu : u < n + h) (hp : p < n + h) (hv : v < n + h) (hq : q < n + h) :
+    IsAO2 n (stars n C h S u p v q) := by
+  apply ao C h S (star u p) (star v q) (join n h) hC hh
+  · refine ⟨Or.inl rfl, rfl, ?_⟩
+    intro w hw
+    simp only [star, List.mem_cons, List.not_mem_nil, or_false] at hw
+    rcases hw with rfl | rfl <;> assumption
+  · refine ⟨Or.inl rfl, rfl, ?_⟩
+    intro w hw
+    simp only [star, List.mem_cons, List.not_mem_nil, or_false] at hw
+    rcases hw with rfl | rfl <;> omega
+  · refine ⟨Or.inr rfl, rfl, ?_⟩
+    intro w hw
+    simp only [join, List.mem_cons, List.not_mem_nil, or_false] at hw
+    rcases hw with rfl | rfl <;> omega
+
+lemma stars_value {n : ℕ} (C : Circuit) (h : ℕ) (S : Finset ℕ) (u p v q : ℕ)
+    (hC : IsAO2 n C) (hh : h < C.gates.length)
+    (hu : u < n + h) (hp : p < n + h) (hv : v < n + h) (hq : q < n + h)
+    (x : Fin n → Bool) :
+    value (stars n C h S u p v q) x (n + h + 2) =
+      ((value C x u && value C x p) || (value C x v && value C x q)) := by
+  let D := stars n C h S u p v q
+  have hD := stars_ao C h S u p v q hC hh hu hp hv hq
+  have hpre := preserve_prefix C h S (star u p) (star v q) (join n h) hC.2.1 hh hD.2.1 x
+  change ∀ w, w < n + h → value D x w = value C x w at hpre
+  have hlen : D.gates.length = C.gates.length + 2 := length _ _ _ _ _ _ _
+  have hg₀ : gateAt D h = star u p := gadget_gate₀ n C h S (star u p) (star v q) (join n h) hh
+  have hg₁ : gateAt D (h + 1) = star v q := gadget_gate₁ n C h S (star u p) (star v q) (join n h) hh
+  have hg₂ : gateAt D (h + 2) = join n h := gadget_gate₂ n C h S (star u p) (star v q) (join n h) hh
+  have he₀ : value D x (n + h) = (value C x u && value C x p) := by
+    rw [value_gate D hD.2.1 x h (by omega), hg₀]
+    simp only [star, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+      id_eq, Bool.and_true]
+    rw [hpre u hu, hpre p hp]
+  have he₁ : value D x (n + (h + 1)) = (value C x v && value C x q) := by
+    rw [value_gate D hD.2.1 x (h + 1) (by omega), hg₁]
+    simp only [star, GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+      id_eq, Bool.and_true]
+    rw [hpre v hv, hpre q hq]
+  change value D x (n + h + 2) = _
+  rw [show n + h + 2 = n + (h + 2) by omega,
+    value_gate D hD.2.1 x (h + 2) (by omega), hg₂]
+  simp only [join, GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil,
+    id_eq, Bool.or_false]
+  rw [he₀, show n + h + 1 = n + (h + 1) by omega, he₁]
+
+lemma position_injective (h : ℕ) : Function.Injective (position h) := by
+  intro a b hab
+  unfold position at hab
+  split_ifs at hab <;> omega
+
+lemma mem_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit) (j : ℕ) :
+    j ∈ junk G C ↔ (gateAt C j).op = .and ∧ j < C.gates.length ∧
+      ∃ x : Fin n → Bool, value C x (n + j) = true ∧ graphFun G ∅ x = false := by
+  change j ∈ (Finset.range C.gates.length).filter (fun i => PEqualNP.CleanedNonEdge.IsDirtyAnd n G C i) ↔ _
+  rw [Finset.mem_filter, Finset.mem_range]
+  simp only [PEqualNP.CleanedNonEdge.IsDirtyAnd, PEqualNP.CleanedNonEdge.IsDirty, gateVal, value]
+  tauto
+
+lemma junk_equiv {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hS : ∀ j ∈ S, h < j)
+    (hnegs : ∀ x : Fin n → Bool, graphFun G ∅ x = false → ∀ w, w ≠ n + h →
+      value C x w = value (circuit n C h S g₀ g₁ g₂) x (move (n + h) w))
+    (j : ℕ) (hj : j < C.gates.length) (hjh : j ≠ h) (hjS : j ∉ S) :
+    position h j ∈ junk G (circuit n C h S g₀ g₁ g₂) ↔ j ∈ junk G C := by
+  rw [mem_junk, mem_junk, moved_gate n C h S g₀ g₁ g₂ hS j hj hjh, ite_eq_right hjS]
+  have hjD : position h j < (circuit n C h S g₀ g₁ g₂).gates.length := by
+    rw [length]
+    exact at_lt C h j hj
+  simp only [rename, hj, hjD, true_and]
+  constructor
+  · rintro ⟨hop, x, hv, hx⟩
+    refine ⟨hop, x, ?_, hx⟩
+    have he := hnegs x hx (n + j) (by omega)
+    rw [move_add] at he
+    exact he.trans hv
+  · rintro ⟨hop, x, hv, hx⟩
+    refine ⟨hop, x, ?_, hx⟩
+    have he := hnegs x hx (n + j) (by omega)
+    rw [move_add] at he
+    exact he.symm.trans hv
+
+lemma junk_image {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hh : h < C.gates.length) (hS : ∀ j ∈ S, h < j)
+    (hD : ReadsBack n (circuit n C h S g₀ g₁ g₂))
+    (hnegs : ∀ x : Fin n → Bool, graphFun G ∅ x = false → ∀ w, w ≠ n + h →
+      value C x w = value (circuit n C h S g₀ g₁ g₂) x (move (n + h) w))
+    (hclean : ∀ j ∈ S, j < C.gates.length → ∀ x : Fin n → Bool,
+      value C x (n + j) = true → graphFun G ∅ x = true)
+    (hnew : ∀ x : Fin n → Bool,
+      value (circuit n C h S g₀ g₁ g₂) x (n + h + 2) = true → graphFun G ∅ x = true)
+    (hg₀ : ∀ x : Fin n → Bool,
+      value (circuit n C h S g₀ g₁ g₂) x (n + h) = true → graphFun G ∅ x = true)
+    (hg₁ : ∀ x : Fin n → Bool,
+      value (circuit n C h S g₀ g₁ g₂) x (n + h + 1) = true → graphFun G ∅ x = true)
+    (hg₂ : g₂.op = .or) :
+    junk G (circuit n C h S g₀ g₁ g₂) = ((junk G C).erase h).image (position h) := by
+  classical
+  ext k
+  constructor
+  · intro hk
+    obtain ⟨hop, hkc, x, hv, hx⟩ := (mem_junk G _ k).mp hk
+    have hkh : k ≠ h := by
+      intro he
+      subst k
+      have := hg₀ x hv
+      simp_all
+    have hkh₁ : k ≠ h + 1 := by
+      intro he
+      subst k
+      have hv' : value (circuit n C h S g₀ g₁ g₂) x (n + h + 1) = true := by
+        simpa [Nat.add_assoc] using hv
+      have := hg₁ x hv'
+      simp_all
+    have hkh₂ : k ≠ h + 2 := by
+      intro he
+      subst k
+      rw [gadget_gate₂ n C h S g₀ g₁ g₂ hh, hg₂] at hop
+      cases hop
+    let j := if k < h then k else k - 2
+    have hpos : position h j = k := by
+      dsimp [j, position]
+      split_ifs <;> omega
+    have hjh : j ≠ h := by
+      dsimp [j]
+      split_ifs <;> omega
+    have hj : j < C.gates.length := by
+      rw [length] at hkc
+      dsimp [j]
+      split_ifs <;> omega
+    have hjS : j ∉ S := by
+      intro hs
+      have he := frontier_value C h S g₀ g₁ g₂ hD hS x j hj hs
+      rw [hpos] at he
+      have hn := hnew x (he.symm.trans hv)
+      rw [hx] at hn
+      cases hn
+    apply Finset.mem_image.mpr
+    refine ⟨j, Finset.mem_erase.mpr ⟨hjh, ?_⟩, hpos⟩
+    exact (junk_equiv G C h S g₀ g₁ g₂ hS hnegs j hj hjh hjS).mp (hpos ▸ hk)
+  · intro hk
+    obtain ⟨j, hjm, rfl⟩ := Finset.mem_image.mp hk
+    obtain ⟨hjh, hjunk⟩ := Finset.mem_erase.mp hjm
+    obtain ⟨hop, hj, x, hv, hx⟩ := (mem_junk G C j).mp hjunk
+    have hjS : j ∉ S := by
+      intro hs
+      have hn := hclean j hs hj x hv
+      rw [hx] at hn
+      cases hn
+    exact (junk_equiv G C h S g₀ g₁ g₂ hS hnegs j hj hjh hjS).mpr hjunk
+
+lemma junk_card {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C D : Circuit) (h : ℕ)
+    (himage : junk G D = ((junk G C).erase h).image (position h))
+    (hh : h ∈ junk G C) : (junk G D).card + 1 = (junk G C).card := by
+  rw [himage, Finset.card_image_of_injective _ (position_injective h)]
+  exact Finset.card_erase_add_one hh
+
+lemma join_value {n : ℕ} (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ : Gate)
+    (hh : h < C.gates.length) (hD : ReadsBack n (circuit n C h S g₀ g₁ (join n h)))
+    (x : Fin n → Bool) :
+    value (circuit n C h S g₀ g₁ (join n h)) x (n + h + 2) =
+      (value (circuit n C h S g₀ g₁ (join n h)) x (n + h) ||
+        value (circuit n C h S g₀ g₁ (join n h)) x (n + h + 1)) := by
+  rw [show n + h + 2 = n + (h + 2) by omega,
+    value_gate _ hD x (h + 2) (by rw [length]; omega), gadget_gate₂ n C h S _ _ _ hh]
+  simp [join, GateOp.eval]
+
+lemma stars_spec {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (h : ℕ) (S : Finset ℕ) (u p v q : ℕ)
+    (hC : IsAO2 n C) (hh : h < C.gates.length)
+    (hS : ∀ j ∈ S, h < j)
+    (hexits : ∀ j, j < C.gates.length → n + h ∈ (gateAt C j).inputs → j ∈ S)
+    (hout : C.output ≠ n + h) (hfun : circuitFun n C = graphFun G ∅)
+    (hu : u < n + h) (hp : p < n + h) (hv : v < n + h) (hq : q < n + h)
+    (hclean : ∀ j ∈ S, j < C.gates.length → ∀ x : Fin n → Bool,
+      value C x (n + j) = true → graphFun G ∅ x = true)
+    (hnew : ∀ x : Fin n → Bool,
+      ((value C x u && value C x p) || (value C x v && value C x q)) = true → graphFun G ∅ x = true)
+    (hkeep : ∀ a b, G.Adj a b → ∀ j ∈ S, j < C.gates.length →
+      value C (pairInput a b) (n + j) = true →
+        ((value C (pairInput a b) u && value C (pairInput a b) p) ||
+          (value C (pairInput a b) v && value C (pairInput a b) q)) = true) :
+    let D := stars n C h S u p v q
+    IsAO2 n D ∧ D.size = C.size + 2 ∧ circuitFun n D = graphFun G ∅ ∧
+      (∀ j ∈ S, j < C.gates.length → ∀ x : Fin n → Bool,
+        value D x (n + position h j) = value D x (n + h + 2)) ∧
+      (∀ x : Fin n → Bool, graphFun G ∅ x = false → ∀ w, w ≠ n + h →
+        value C x w = value D x (move (n + h) w)) ∧
+      junk G D = ((junk G C).erase h).image (position h) := by
+  let D := stars n C h S u p v q
+  have hD : IsAO2 n D := stars_ao C h S u p v q hC hh hu hp hv hq
+  have hnewD : ∀ x : Fin n → Bool, value D x (n + h + 2) = true → graphFun G ∅ x = true := by
+    intro x hx
+    change value (stars n C h S u p v q) x (n + h + 2) = true at hx
+    rw [stars_value C h S u p v q hC hh hu hp hv hq x] at hx
+    exact hnew x hx
+  have hneg := equality_on_negative G C h S (star u p) (star v q) (join n h)
+    hC.2.1 hh hD.2.1 hS hexits hclean hnewD
+  refine ⟨hD, size _ _ _ _ _ _ _, ?_, ?_, hneg, ?_⟩
+  · apply graph_correct G C h S (star u p) (star v q) (join n h)
+      hC hh hD hS hexits hout hfun hclean hnewD
+    intro a b hab j hjS hj hval
+    change value (stars n C h S u p v q) (pairInput a b) (n + h + 2) = true
+    rw [stars_value C h S u p v q hC hh hu hp hv hq (pairInput a b)]
+    exact hkeep a b hab j hjS hj hval
+  · intro j hjS hj x
+    exact frontier_value C h S (star u p) (star v q) (join n h) hD.2.1 hS x j hj hjS
+  · apply junk_image G C h S (star u p) (star v q) (join n h) hh hS hD.2.1 hneg hclean hnewD
+    · intro x hx
+      apply hnewD x
+      change value (circuit n C h S (star u p) (star v q) (join n h)) x (n + h + 2) = true
+      rw [join_value C h S (star u p) (star v q) hh hD.2.1 x]
+      simp only [hx, Bool.true_or]
+    · intro x hx
+      apply hnewD x
+      change value (circuit n C h S (star u p) (star v q) (join n h)) x (n + h + 2) = true
+      rw [join_value C h S (star u p) (star v q) hh hD.2.1 x]
+      simp only [hx, Bool.or_true]
+    · rfl
+
+end PEqualNP.Outside.L_meta_3566.FanoutInsert
+
+namespace PEqualNP.Outside.L_meta_3566.AliasErase
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership Splice ParallelRewrite
+
+lemma wire_eq {n : ℕ} (C : Circuit) (j s : ℕ) (hj : j < C.gates.length)
+    (hs : s < n + j) (heq : ∀ x : Fin n → Bool, value C x (n + j) = value C x s)
+    (x : Fin n → Bool) (w : ℕ) :
+    value C x w = value (dropDup n C j s) x (aliasWire (n + j) s w) := by
+  let Cw : Circuit := { C with output := w }
+  have hmono : ∀ g ∈ Cw.gates, ∀ f h : ℕ → Bool, (∀ u, f u = h u) →
+      g.op.eval (g.inputs.map f) = g.op.eval (g.inputs.map h) := by
+    intro g hg f h he
+    congr 1
+    exact List.map_congr_left (fun u _ => he u)
+  have hr := dropDup_rel (R := Eq) (fun _ => rfl) n Cw j s hj hs hmono x (heq x)
+  exact hr
+
+lemma function_eq {n : ℕ} (C : Circuit) (j s : ℕ) (hj : j < C.gates.length)
+    (hs : s < n + j) (heq : ∀ x : Fin n → Bool, value C x (n + j) = value C x s) :
+    circuitFun n (dropDup n C j s) = circuitFun n C := by
+  funext x
+  exact (wire_eq C j s hj hs heq x C.output).symm
+
+def oldIndex (j k : ℕ) : ℕ := if k < j then k else k + 1
+
+lemma oldIndex_injective (j : ℕ) : Function.Injective (oldIndex j) := by
+  intro a b h
+  unfold oldIndex at h
+  split_ifs at h <;> omega
+
+lemma oldIndex_ne (j k : ℕ) : oldIndex j k ≠ j := by
+  unfold oldIndex
+  split_ifs <;> omega
+
+lemma gate_eq {n : ℕ} (C : Circuit) (j s : ℕ) (hj : j < C.gates.length)
+    (k : ℕ) (hk : k < (dropDup n C j s).gates.length) :
+    (gateAt (dropDup n C j s) k).op = (gateAt C (oldIndex j k)).op := by
+  have hlen := dropDup_length n C j s hj
+  by_cases hkj : k < j
+  · rw [dropDup_gateAt_lt n C j s k hj hkj]
+    simp [oldIndex, hkj]
+  · rw [dropDup_gateAt_ge n C j s k hj (by omega) (by omega)]
+    simp [aliasGate, oldIndex, hkj]
+
+lemma mapped_wire {n : ℕ} (j s k : ℕ) :
+    aliasWire (n + j) s (n + oldIndex j k) = n + k := by
+  unfold oldIndex aliasWire shiftDown
+  split_ifs <;> omega
+
+lemma mem_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit) (j : ℕ) :
+    j ∈ junk G C ↔ (gateAt C j).op = .and ∧ j < C.gates.length ∧
+      ∃ x : Fin n → Bool, value C x (n + j) = true ∧ graphFun G ∅ x = false := by
+  constructor
+  · intro h
+    exact (Finset.mem_filter.mp h).2
+  · intro h
+    apply Finset.mem_filter.mpr
+    exact ⟨Finset.mem_range.mpr h.2.1, h⟩
+
+lemma junk_le {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (j s : ℕ) (hj : j < C.gates.length) (hs : s < n + j)
+    (heq : ∀ x : Fin n → Bool, value C x (n + j) = value C x s) :
+    (junk G (dropDup n C j s)).card ≤ (junk G C).card := by
+  classical
+  have hlen := dropDup_length n C j s hj
+  have hm : (junk G (dropDup n C j s)).image (oldIndex j) ⊆ junk G C := by
+    intro i hi
+    obtain ⟨k, hk, rfl⟩ := Finset.mem_image.mp hi
+    have hkd := (mem_junk G (dropDup n C j s) k).mp hk
+    have hki := hkd.2.1
+    have hi : oldIndex j k < C.gates.length := by unfold oldIndex; split_ifs <;> omega
+    apply (mem_junk G C (oldIndex j k)).mpr
+    refine ⟨?_, hi, ?_⟩
+    · rw [← gate_eq C j s hj k hki]
+      exact hkd.1
+    · obtain ⟨x, hx, hg⟩ := hkd.2.2
+      refine ⟨x, ?_, hg⟩
+      have hw := wire_eq C j s hj hs heq x (n + oldIndex j k)
+      rw [mapped_wire] at hw
+      exact hw.trans hx
+  have hc := Finset.card_le_card hm
+  rw [Finset.card_image_of_injective _ (oldIndex_injective j)] at hc
+  exact hc
+
+lemma erase_family {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (J : Finset ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (hJ : J ⊆ Finset.range C.size) (s : ℕ)
+    (hs : ∀ j ∈ J, s < n + j)
+    (heq : ∀ j ∈ J, ∀ x : Fin n → Bool, value C x (n + j) = value C x s) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = circuitFun n C ∧
+      D.size + J.card ≤ C.size ∧ (junk G D).card ≤ (junk G C).card := by
+  classical
+  induction J using Finset.strongInductionOn generalizing C
+  rename_i J ih
+  by_cases hne : J.Nonempty
+  · let j := J.max' hne
+    have hjJ : j ∈ J := Finset.max'_mem J hne
+    have hj : j < C.gates.length := Finset.mem_range.mp (hJ hjJ)
+    have hsj := hs j hjJ
+    let E := dropDup n C j s
+    have hE : IsAO2 n E := dropDup_ao n C j s hj hsj hC
+    have hlen : E.size + 1 = C.size := dropDup_length n C j s hj
+    have hklt : ∀ k ∈ J.erase j, k < j := by
+      intro k hk
+      have hm := Finset.le_max' J k (Finset.mem_of_mem_erase hk)
+      have hn := (Finset.mem_erase.mp hk).1
+      omega
+    have hJE : J.erase j ⊆ Finset.range E.size := by
+      intro k hk
+      have hkj := hklt k hk
+      apply Finset.mem_range.mpr
+      change j < C.size at hj
+      omega
+    have heqE : ∀ k ∈ J.erase j, ∀ x : Fin n → Bool, value E x (n + k) = value E x s := by
+      intro k hk x
+      have hkj := hklt k hk
+      have hwk := wire_eq C j s hj hsj (heq j hjJ) x (n + k)
+      have hws := wire_eq C j s hj hsj (heq j hjJ) x s
+      have hkmap : aliasWire (n + j) s (n + k) = n + k := by unfold aliasWire shiftDown; split_ifs <;> omega
+      have hsmap : aliasWire (n + j) s s = s := by unfold aliasWire shiftDown; split_ifs <;> omega
+      rw [hkmap] at hwk
+      rw [hsmap] at hws
+      exact hwk.symm.trans ((heq k (Finset.mem_of_mem_erase hk) x).trans hws)
+    obtain ⟨D, hD, hf, hsz, hjunk⟩ := ih (J.erase j) (Finset.erase_ssubset hjJ) E hE hJE
+      (fun k hk => hs k (Finset.mem_of_mem_erase hk)) heqE
+    refine ⟨D, hD, hf.trans (function_eq C j s hj hsj (heq j hjJ)), ?_, ?_⟩
+    · have hcard := Finset.card_erase_add_one hjJ
+      omega
+    · exact hjunk.trans (junk_le G C j s hj hsj (heq j hjJ))
+  · have hz : J = ∅ := Finset.not_nonempty_iff_eq_empty.mp hne
+    subst J
+    exact ⟨C, hC, rfl, by simp, le_rfl⟩
+
+end PEqualNP.Outside.L_meta_3566.AliasErase
+
+namespace PEqualNP.Outside.L_meta_3566.FanoutInsert
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+lemma frontier_set_card (h : ℕ) (S : Finset ℕ) :
+    (S.image (position h)).card = S.card :=
+  Finset.card_image_of_injective _ (position_injective h)
+
+lemma frontier_set_spec {n : ℕ} (C : Circuit) (h : ℕ) (S : Finset ℕ) (g₀ g₁ g₂ : Gate)
+    (hD : ReadsBack n (circuit n C h S g₀ g₁ g₂))
+    (hS : ∀ j ∈ S, h < j ∧ j < C.gates.length) :
+    ∀ k ∈ S.image (position h),
+      k < (circuit n C h S g₀ g₁ g₂).gates.length ∧ n + h + 2 < n + k ∧
+        ∀ x : Fin n → Bool,
+          value (circuit n C h S g₀ g₁ g₂) x (n + k) =
+            value (circuit n C h S g₀ g₁ g₂) x (n + h + 2) := by
+  intro k hk
+  obtain ⟨j, hjS, rfl⟩ := Finset.mem_image.mp hk
+  obtain ⟨hjh, hj⟩ := hS j hjS
+  refine ⟨?_, ?_, ?_⟩
+  · rw [length]
+    exact at_lt C h j hj
+  · simp only [position, ite_eq_right (show ¬ j < h by omega)]
+    omega
+  · intro x
+    exact frontier_value C h S g₀ g₁ g₂ hD (fun j hj => (hS j hj).1) x j hj hjS
+
+end PEqualNP.Outside.L_meta_3566.FanoutInsert
+
+namespace PEqualNP.Outside.L_meta_3566.FanoutInsert
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+lemma replace_and_erase {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (h : ℕ) (S : Finset ℕ) (u p v q : ℕ)
+    (hC : IsAO2 n C) (hh : h < C.gates.length)
+    (hS : ∀ j ∈ S, h < j ∧ j < C.gates.length)
+    (hexits : ∀ j, j < C.gates.length → n + h ∈ (gateAt C j).inputs → j ∈ S)
+    (hout : C.output ≠ n + h) (hfun : circuitFun n C = graphFun G ∅)
+    (hu : u < n + h) (hp : p < n + h) (hv : v < n + h) (hq : q < n + h)
+    (hclean : ∀ j ∈ S, j < C.gates.length → ∀ x : Fin n → Bool,
+      value C x (n + j) = true → graphFun G ∅ x = true)
+    (hnew : ∀ x : Fin n → Bool,
+      ((value C x u && value C x p) || (value C x v && value C x q)) = true → graphFun G ∅ x = true)
+    (hkeep : ∀ a b, G.Adj a b → ∀ j ∈ S, j < C.gates.length →
+      value C (pairInput a b) (n + j) = true →
+        ((value C (pairInput a b) u && value C (pairInput a b) p) ||
+          (value C (pairInput a b) v && value C (pairInput a b) q)) = true)
+    (hdirty : h ∈ junk G C) :
+    ∃ E : Circuit, IsAO2 n E ∧ circuitFun n E = graphFun G ∅ ∧
+      E.size + S.card ≤ C.size + 2 ∧ (junk G E).card + 1 ≤ (junk G C).card := by
+  let D := stars n C h S u p v q
+  have hspec := stars_spec G C h S u p v q hC hh (fun j hj => (hS j hj).1)
+    hexits hout hfun hu hp hv hq hclean hnew hkeep
+  change IsAO2 n D ∧ _ at hspec
+  obtain ⟨hD, hsize, hfunD, hfrontier, hneg, hjunk⟩ := hspec
+  change D.size = C.size + 2 at hsize
+  let J := S.image (position h)
+  have hJcard : J.card = S.card := frontier_set_card h S
+  have hJspec := frontier_set_spec C h S (star u p) (star v q) (join n h) hD.2.1 hS
+  have hJ : J ⊆ Finset.range D.size := by
+    intro k hk
+    exact Finset.mem_range.mpr (hJspec k hk).1
+  have hs : ∀ j ∈ J, n + h + 2 < n + j := fun j hj => (hJspec j hj).2.1
+  have heq : ∀ j ∈ J, ∀ x : Fin n → Bool, value D x (n + j) = value D x (n + h + 2) :=
+    fun j hj => (hJspec j hj).2.2
+  obtain ⟨E, hE, hfunE, hsizeE, hjunkE⟩ :=
+    AliasErase.erase_family G J D hD hJ (n + h + 2) hs heq
+  refine ⟨E, hE, hfunE.trans hfunD, ?_, ?_⟩
+  · rw [hJcard] at hsizeE
+    omega
+  · have hcard := junk_card G C D h hjunk hdirty
+    omega
+
+lemma no_closed_fanout {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (h : ℕ) (S : Finset ℕ) (u p v q : ℕ)
+    (hC : IsLeastAO G C)
+    (hmin : ∀ E : Circuit, IsAO2 n E → circuitFun n E = graphFun G ∅ →
+      E.size = C.size → (junk G C).card ≤ (junk G E).card)
+    (hh : h < C.gates.length) (hS : ∀ j ∈ S, h < j ∧ j < C.gates.length)
+    (hcard : 2 ≤ S.card)
+    (hexits : ∀ j, j < C.gates.length → n + h ∈ (gateAt C j).inputs → j ∈ S)
+    (hout : C.output ≠ n + h)
+    (hu : u < n + h) (hp : p < n + h) (hv : v < n + h) (hq : q < n + h)
+    (hclean : ∀ j ∈ S, j < C.gates.length → ∀ x : Fin n → Bool,
+      value C x (n + j) = true → graphFun G ∅ x = true)
+    (hnew : ∀ x : Fin n → Bool,
+      ((value C x u && value C x p) || (value C x v && value C x q)) = true → graphFun G ∅ x = true)
+    (hkeep : ∀ a b, G.Adj a b → ∀ j ∈ S, j < C.gates.length →
+      value C (pairInput a b) (n + j) = true →
+        ((value C (pairInput a b) u && value C (pairInput a b) p) ||
+          (value C (pairInput a b) v && value C (pairInput a b) q)) = true)
+    (hdirty : h ∈ junk G C) : False := by
+  obtain ⟨E, hE, hfunE, hsizeE, hjunkE⟩ := replace_and_erase G C h S u p v q hC.1 hh hS
+    hexits hout hC.2.1 hu hp hv hq hclean hnew hkeep hdirty
+  have hlo := hC.2.2 E hE hfunE
+  have heq : E.size = C.size := by omega
+  have hjo := hmin E hE hfunE heq
+  omega
+
+end PEqualNP.Outside.L_meta_3566.FanoutInsert
+
+namespace PEqualNP.Outside.L_meta_3566.SharedProductCompile
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership SemanticPurity ParallelRewrite FanoutInsert
+
+lemma reduce_shared_product {n k : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (h4 : NoFourCycle G)
+    (hne : G.edgeFinset.Nonempty)
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (cut wa wb : ℕ) (hcut : cut < C.gates.length)
+    (hop : (gateAt C cut).op = .and) (hinputs : (gateAt C cut).inputs = [wa, wb])
+    (frontier : Fin k → Fin C.gates.length) (hinj : Function.Injective frontier)
+    (hafter : ∀ i, cut < (frontier i).val)
+    (hexits : ∀ j, j < C.gates.length → n + cut ∈ (gateAt C j).inputs →
+      ∃ i, (frontier i).val = j)
+    (wp wq : Fin k → ℕ)
+    (hAp : Pure s false (W n C wa)) (hBp : Pure s true (W n C wb))
+    (hPp : ∀ i, Pure s false (W n C (wp i))) (hQp : ∀ i, Pure s true (W n C (wq i)))
+    (hAtwo : ∃ a c, a ≠ c ∧ W n C wa (pairInput a a) = true ∧ W n C wa (pairInput c c) = true)
+    (hBtwo : ∃ b d, b ≠ d ∧ W n C wb (pairInput b b) = true ∧ W n C wb (pairInput d d) = true)
+    (hval : ∀ i x, W n C (n + (frontier i).val) x =
+      ((W n C wa x && W n C wb x) && (W n C (wp i) x || W n C (wq i) x)))
+    (hbelow : ∀ i x, W n C (n + (frontier i).val) x = true → graphFun G ∅ x = true) :
+    ∃ E : Circuit, IsAO2 n E ∧ circuitFun n E = graphFun G ∅ ∧
+      E.size + k ≤ C.size + 2 ∧ (junk G E).card + 1 ≤ (junk G C).card := by
+  classical
+  have hwa : wa < n + cut := hAO.2.1 cut hcut wa (by simp [hinputs])
+  have hwb : wb < n + cut := hAO.2.1 cut hcut wb (by simp [hinputs])
+  have hdirty := SharedProductDirty.and_mem_junk G h4 C hAO cut wa wb hcut hop hinputs hAtwo hBtwo
+  have hout : C.output ≠ n + cut := by
+    intro heq
+    obtain ⟨_, _, x, hv, hx⟩ := (FanoutInsert.mem_junk G C cut).mp hdirty
+    have ht : circuitFun n C x = true := by
+      change value C x C.output = true
+      rw [heq]
+      exact hv
+    rw [hfun, hx] at ht
+    cases ht
+  have hstars : ∃ (u v : Fin n) (p q : ℕ), p < n + cut ∧ q < n + cut ∧
+      (∀ x, ((x u && W n C p x) || (x v && W n C q x)) = true → graphFun G ∅ x = true) ∧
+      (∀ i a b, G.Adj a b → W n C (n + (frontier i).val) (pairInput a b) = true →
+        ((pairInput a b u && W n C p (pairInput a b)) ||
+          (pairInput a b v && W n C q (pairInput a b))) = true) := by
+    by_cases haccept : ∃ i a b, G.Adj a b ∧ W n C (n + (frontier i).val) (pairInput a b) = true
+    · obtain ⟨u, v, p, q, _, _, hp, hq, hn, hk⟩ :=
+        SharedProductCircuit.shared_wire_stars G s hbip h4 C hAO cut wa wb hwa hwb frontier wp wq
+          hAp hBp hPp hQp hAtwo hBtwo hval hbelow haccept
+      exact ⟨u, v, p, q, hp, hq, hn, hk⟩
+    · obtain ⟨e, he⟩ := hne
+      induction e using Sym2.ind with
+      | _ a b =>
+        have hab : G.Adj a b := by
+          simpa only [SimpleGraph.mem_edgeFinset, SimpleGraph.mem_edgeSet] using he
+        have hb : b.val < n + cut := by have := b.isLt; omega
+        refine ⟨a, a, b.val, b.val, hb, hb, ?_, ?_⟩
+        · intro x hx
+          have hwb : W n C b.val x = x b := value_input C x b.val b.isLt
+          rw [hwb] at hx
+          have hx' : x a = true ∧ x b = true := by simpa using hx
+          exact (RectangleFamily.graph_true G x).mpr ⟨a, b, hab, hx'.1, hx'.2⟩
+        · intro i u v huv hx
+          exact (haccept ⟨i, u, v, huv, hx⟩).elim
+  obtain ⟨u, v, p, q, hp, hq, hnew, hkeep⟩ := hstars
+  let S : Finset ℕ := Finset.univ.image (fun i : Fin k => (frontier i).val)
+  have hSmem : ∀ j, j ∈ S ↔ ∃ i, (frontier i).val = j := by
+    intro j
+    simp [S]
+  have hScard : S.card = k := by
+    have hi : Function.Injective (fun i : Fin k => (frontier i).val) := by
+      intro a b hab
+      exact hinj (Fin.ext hab)
+    dsimp [S]
+    rw [Finset.card_image_of_injective _ hi]
+    simp
+  have hS : ∀ j ∈ S, cut < j ∧ j < C.gates.length := by
+    intro j hj
+    obtain ⟨i, rfl⟩ := (hSmem j).mp hj
+    exact ⟨hafter i, (frontier i).isLt⟩
+  have he : ∀ j, j < C.gates.length → n + cut ∈ (gateAt C j).inputs → j ∈ S := by
+    intro j hj hr
+    exact (hSmem j).mpr (hexits j hj hr)
+  have hclean : ∀ j ∈ S, j < C.gates.length → ∀ x : Fin n → Bool,
+      value C x (n + j) = true → graphFun G ∅ x = true := by
+    intro j hj _ x hx
+    obtain ⟨i, rfl⟩ := (hSmem j).mp hj
+    exact hbelow i x hx
+  have hinput : ∀ (x : Fin n → Bool) (a : Fin n), value C x a.val = x a := by
+    intro x a
+    exact value_input C x a.val a.isLt
+  have hn : ∀ x : Fin n → Bool,
+      ((value C x u.val && value C x p) || (value C x v.val && value C x q)) = true →
+        graphFun G ∅ x = true := by
+    intro x hx
+    rw [hinput x u, hinput x v] at hx
+    exact hnew x hx
+  have hk : ∀ a b, G.Adj a b → ∀ j ∈ S, j < C.gates.length →
+      value C (pairInput a b) (n + j) = true →
+        ((value C (pairInput a b) u.val && value C (pairInput a b) p) ||
+          (value C (pairInput a b) v.val && value C (pairInput a b) q)) = true := by
+    intro a b hab j hj _ hx
+    obtain ⟨i, rfl⟩ := (hSmem j).mp hj
+    rw [hinput _ u, hinput _ v]
+    exact hkeep i a b hab hx
+  obtain ⟨E, hE, hf, hs, hj⟩ := FanoutInsert.replace_and_erase G C cut S u.val p v.val q
+    hAO hcut hS he hout hfun (by have := u.isLt; omega) hp (by have := v.isLt; omega) hq
+    hclean hn hk hdirty
+  exact ⟨E, hE, hf, hScard ▸ hs, hj⟩
+
+lemma no_closed_shared_product {n k : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (h4 : NoFourCycle G)
+    (hne : G.edgeFinset.Nonempty)
+    (C : Circuit) (hAO : IsLeastAO G C)
+    (hmin : ∀ E : Circuit, IsAO2 n E → circuitFun n E = graphFun G ∅ →
+      E.size = C.size → (junk G C).card ≤ (junk G E).card)
+    (cut wa wb : ℕ) (hcut : cut < C.gates.length)
+    (hop : (gateAt C cut).op = .and) (hinputs : (gateAt C cut).inputs = [wa, wb])
+    (frontier : Fin k → Fin C.gates.length) (hinj : Function.Injective frontier)
+    (hafter : ∀ i, cut < (frontier i).val) (hcount : 2 ≤ k)
+    (hexits : ∀ j, j < C.gates.length → n + cut ∈ (gateAt C j).inputs →
+      ∃ i, (frontier i).val = j)
+    (wp wq : Fin k → ℕ)
+    (hAp : Pure s false (W n C wa)) (hBp : Pure s true (W n C wb))
+    (hPp : ∀ i, Pure s false (W n C (wp i))) (hQp : ∀ i, Pure s true (W n C (wq i)))
+    (hAtwo : ∃ a c, a ≠ c ∧ W n C wa (pairInput a a) = true ∧ W n C wa (pairInput c c) = true)
+    (hBtwo : ∃ b d, b ≠ d ∧ W n C wb (pairInput b b) = true ∧ W n C wb (pairInput d d) = true)
+    (hval : ∀ i x, W n C (n + (frontier i).val) x =
+      ((W n C wa x && W n C wb x) && (W n C (wp i) x || W n C (wq i) x)))
+    (hbelow : ∀ i x, W n C (n + (frontier i).val) x = true → graphFun G ∅ x = true) : False := by
+  obtain ⟨E, hE, hf, hs, hj⟩ := reduce_shared_product G s hbip h4 hne C hAO.1 hAO.2.1
+    cut wa wb hcut hop hinputs frontier hinj hafter hexits wp wq hAp hBp hPp hQp hAtwo hBtwo
+    hval hbelow
+  have hsize := hAO.2.2 E hE hf
+  have heq : E.size = C.size := by omega
+  have hcard := hmin E hE hf heq
+  omega
+
+end PEqualNP.Outside.L_meta_3566.SharedProductCompile
+
+namespace PEqualNP.Outside.L_meta_3566.FanoutInsert
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+lemma one_star_replace_and_erase {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (h : ℕ) (S : Finset ℕ) (u p : ℕ)
+    (hC : IsAO2 n C) (hh : h < C.gates.length)
+    (hS : ∀ j ∈ S, h < j ∧ j < C.gates.length)
+    (hexits : ∀ j, j < C.gates.length → n + h ∈ (gateAt C j).inputs → j ∈ S)
+    (hout : C.output ≠ n + h) (hfun : circuitFun n C = graphFun G ∅)
+    (hu : u < n + h) (hp : p < n + h)
+    (hclean : ∀ j ∈ S, j < C.gates.length → ∀ x : Fin n → Bool,
+      value C x (n + j) = true → graphFun G ∅ x = true)
+    (hnew : ∀ x : Fin n → Bool,
+      (value C x u && value C x p) = true → graphFun G ∅ x = true)
+    (hkeep : ∀ a b, G.Adj a b → ∀ j ∈ S, j < C.gates.length →
+      value C (pairInput a b) (n + j) = true →
+        (value C (pairInput a b) u && value C (pairInput a b) p) = true)
+    :
+    ∃ E : Circuit, IsAO2 n E ∧ circuitFun n E = graphFun G ∅ ∧
+      E.size + S.card ≤ C.size ∧ (junk G E).card ≤ (junk G C).card := by
+  classical
+  let D := stars n C h S u p u p
+  have hn : ∀ x : Fin n → Bool,
+      ((value C x u && value C x p) || (value C x u && value C x p)) = true → graphFun G ∅ x = true := by
+    simpa only [Bool.or_self] using hnew
+  have hk : ∀ a b, G.Adj a b → ∀ j ∈ S, j < C.gates.length →
+      value C (pairInput a b) (n + j) = true →
+        ((value C (pairInput a b) u && value C (pairInput a b) p) ||
+          (value C (pairInput a b) u && value C (pairInput a b) p)) = true := by
+    simpa only [Bool.or_self] using hkeep
+  have hspec := stars_spec G C h S u p u p hC hh (fun j hj => (hS j hj).1)
+    hexits hout hfun hu hp hu hp hclean hn hk
+  change IsAO2 n D ∧ _ at hspec
+  obtain ⟨hD, hsize, hfunD, hfrontier, hneg, hjunk⟩ := hspec
+  change D.size = C.size + 2 at hsize
+  have hlen : D.gates.length = C.gates.length + 2 := length _ _ _ _ _ _ _
+  have hg₀ : gateAt D h = star u p := gadget_gate₀ n C h S (star u p) (star u p) (join n h) hh
+  have hg₁ : gateAt D (h + 1) = star u p := gadget_gate₁ n C h S (star u p) (star u p) (join n h) hh
+  have hdup : ∀ x : Fin n → Bool, value D x (n + h + 1) = value D x (n + h) := by
+    intro x
+    rw [show n + h + 1 = n + (h + 1) by omega,
+      value_gate D hD.2.1 x (h + 1) (by omega), value_gate D hD.2.1 x h (by omega), hg₀, hg₁]
+  have hjoin : ∀ x : Fin n → Bool, value D x (n + h + 2) = value D x (n + h) := by
+    intro x
+    have hv := join_value C h S (star u p) (star u p) hh hD.2.1 x
+    change value D x (n + h + 2) = (value D x (n + h) || value D x (n + h + 1)) at hv
+    rw [hv, hdup x, Bool.or_self]
+  let K := S.image (position h)
+  let J := insert (h + 1) (insert (h + 2) K)
+  have hKspec := frontier_set_spec C h S (star u p) (star u p) (join n h) hD.2.1 hS
+  have hKhigh : ∀ k ∈ K, h + 2 < k := by
+    intro k hk
+    have := (hKspec k hk).2.1
+    omega
+  have hJcard : J.card = S.card + 2 := by
+    have h₂ : h + 2 ∉ K := by intro hk; have := hKhigh _ hk; omega
+    have h₁ : h + 1 ∉ insert (h + 2) K := by
+      intro hk
+      rcases Finset.mem_insert.mp hk with he | hk
+      · omega
+      · have := hKhigh _ hk; omega
+    dsimp [J]
+    rw [Finset.card_insert_of_notMem h₁, Finset.card_insert_of_notMem h₂]
+    have hc : K.card = S.card := frontier_set_card h S
+    rw [hc]
+  have hJ : J ⊆ Finset.range D.size := by
+    intro k hk
+    rcases Finset.mem_insert.mp hk with rfl | hk
+    · apply Finset.mem_range.mpr
+      change h + 1 < D.gates.length
+      omega
+    rcases Finset.mem_insert.mp hk with rfl | hk
+    · apply Finset.mem_range.mpr
+      change h + 2 < D.gates.length
+      omega
+    · exact Finset.mem_range.mpr (hKspec k hk).1
+  have hs : ∀ j ∈ J, n + h < n + j := by
+    intro j hj
+    rcases Finset.mem_insert.mp hj with rfl | hj
+    · omega
+    rcases Finset.mem_insert.mp hj with rfl | hj
+    · omega
+    · have := hKhigh _ hj; omega
+  have heq : ∀ j ∈ J, ∀ x : Fin n → Bool, value D x (n + j) = value D x (n + h) := by
+    intro j hj x
+    rcases Finset.mem_insert.mp hj with rfl | hj
+    · simpa [Nat.add_assoc] using hdup x
+    rcases Finset.mem_insert.mp hj with rfl | hj
+    · simpa [Nat.add_assoc] using hjoin x
+    · exact ((hKspec j hj).2.2 x).trans (hjoin x)
+  obtain ⟨E, hE, hfunE, hsizeE, hjunkE⟩ := AliasErase.erase_family G J D hD hJ (n + h) hs heq
+  refine ⟨E, hE, hfunE.trans hfunD, ?_, ?_⟩
+  · rw [hJcard] at hsizeE
+    omega
+  · have hcard : (junk G D).card ≤ (junk G C).card := by
+      rw [hjunk, Finset.card_image_of_injective _ (position_injective h)]
+      exact Finset.card_le_card (Finset.erase_subset _ _)
+    exact hjunkE.trans hcard
+
+lemma one_star_frontier_empty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (h : ℕ) (S : Finset ℕ) (u p : ℕ)
+    (hC : IsLeastAO G C) (hh : h < C.gates.length)
+    (hS : ∀ j ∈ S, h < j ∧ j < C.gates.length)
+    (hexits : ∀ j, j < C.gates.length → n + h ∈ (gateAt C j).inputs → j ∈ S)
+    (hout : C.output ≠ n + h) (hu : u < n + h) (hp : p < n + h)
+    (hclean : ∀ j ∈ S, j < C.gates.length → ∀ x : Fin n → Bool,
+      value C x (n + j) = true → graphFun G ∅ x = true)
+    (hnew : ∀ x : Fin n → Bool,
+      (value C x u && value C x p) = true → graphFun G ∅ x = true)
+    (hkeep : ∀ a b, G.Adj a b → ∀ j ∈ S, j < C.gates.length →
+      value C (pairInput a b) (n + j) = true →
+        (value C (pairInput a b) u && value C (pairInput a b) p) = true) : S = ∅ := by
+  obtain ⟨E, hE, hf, hs, _⟩ := one_star_replace_and_erase G C h S u p hC.1 hh hS
+    hexits hout hC.2.1 hu hp hclean hnew hkeep
+  have hlo := hC.2.2 E hE hf
+  apply Finset.card_eq_zero.mp
+  omega
+
+end PEqualNP.Outside.L_meta_3566.FanoutInsert
+
+namespace PEqualNP.Outside.L_meta_3566.MixedProduct
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership SemanticPurity
+
+lemma reader_zero_sides {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (H T : (Fin n → Bool) → Bool) (hT : Monotone T)
+    (hH : ∀ b, H (mask s b (fun _ => true)) = true)
+    (hclean : ∀ x, (H x && T x) = true → graphFun G ∅ x = true) :
+    ZeroSides s T := by
+  intro b x
+  have htop : T (mask s b (fun _ => true)) = false := by
+    apply Bool.eq_false_iff.mpr
+    intro ht
+    have hg := hclean (mask s b (fun _ => true)) (by rw [hH b, ht]; rfl)
+    rw [graph_mask_false G s hbip] at hg
+    cases hg
+  have hle : mask s b x ≤ mask s b (fun _ => true) := by
+    intro v
+    unfold mask
+    split_ifs <;> simp
+  exact bool_false_of_le (hT hle) htop
+
+lemma reader_not_pure {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (H T : (Fin n → Bool) → Bool) (hT : Monotone T)
+    (hH : ∀ b, H (mask s b (fun _ => true)) = true)
+    (hclean : ∀ x, (H x && T x) = true → graphFun G ∅ x = true)
+    (hne : ∃ x, T x = true) (b : Bool) : ¬ Pure s b T := by
+  intro hp
+  obtain ⟨x, hx⟩ := hne
+  have hz := reader_zero_sides G s hbip H T hT hH hclean b x
+  rw [hp x, hz] at hx
+  cases hx
+
+lemma full_mask_of_singletons {n : ℕ} (s : Fin n → Bool)
+    (f : (Fin n → Bool) → Bool) (hf : Monotone f)
+    (hs : ∀ b, ∃ u : Fin n, s u = b ∧ f (pairInput u u) = true) :
+    ∀ b, f (mask s b (fun _ => true)) = true := by
+  intro b
+  obtain ⟨u, hu, hftrue⟩ := hs b
+  have hle : pairInput u u ≤ mask s b (fun _ => true) := by
+    intro v
+    apply Bool.le_iff_imp.mpr
+    intro hv
+    have heq : v = u := by simpa [pairInput] using hv
+    subst v
+    simp [mask, hu]
+  exact bool_true_of_le (hf hle) hftrue
+
+lemma mixed_product_full_masks {n : ℕ} (s : Fin n → Bool)
+    (A B : (Fin n → Bool) → Bool) (hA : Monotone A) (hB : Monotone B)
+    (hAs : ∀ b, ∃ u : Fin n, s u = b ∧ A (pairInput u u) = true)
+    (hBs : ∀ b, ∃ u : Fin n, s u = b ∧ B (pairInput u u) = true) :
+    ∀ b, (A (mask s b (fun _ => true)) && B (mask s b (fun _ => true))) = true := by
+  intro b
+  rw [full_mask_of_singletons s A hA hAs b, full_mask_of_singletons s B hB hBs b]
+  rfl
+
+end PEqualNP.Outside.L_meta_3566.MixedProduct
+
+namespace PEqualNP.Outside.L_meta_3566.GeneralFactorBridge
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+lemma rows_comparable {n m : ℕ} (G A B : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] [DecidableRel A.Adj] [DecidableRel B.Adj]
+    (s : Fin n → Bool) (hbip : ∀ x y, G.Adj x y → s x ≠ s y)
+    (hfun : ∀ x, graphFun G ∅ x = (graphFun A ∅ x && graphFun B ∅ x))
+    (a b : Fin m → Fin n) (ha : ∀ i, s (a i) = false) (hb : ∀ i, s (b i) = true) :
+    ∀ i, (∀ j, A.Adj (a i) (b j) → B.Adj (a i) (b j)) ∨
+      (∀ j, B.Adj (a i) (b j) → A.Adj (a i) (b j)) := by
+  classical
+  intro i
+  by_cases h : ∀ j, A.Adj (a i) (b j) → B.Adj (a i) (b j)
+  · exact Or.inl h
+  · right
+    push Not at h
+    obtain ⟨j, haj, hbj⟩ := h
+    intro k hbk
+    by_contra hak
+    exact (GraphFactor.exclusive_endpoints_distinct G A B hfun s hbip
+      (a i) (b j) (a i) (b k) (ha i) (hb j) (ha i) (hb k) haj hbj hbk hak).1 rfl
+
+lemma columns_comparable {n m : ℕ} (G A B : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] [DecidableRel A.Adj] [DecidableRel B.Adj]
+    (s : Fin n → Bool) (hbip : ∀ x y, G.Adj x y → s x ≠ s y)
+    (hfun : ∀ x, graphFun G ∅ x = (graphFun A ∅ x && graphFun B ∅ x))
+    (a b : Fin m → Fin n) (ha : ∀ i, s (a i) = false) (hb : ∀ i, s (b i) = true) :
+    ∀ j, (∀ i, A.Adj (a i) (b j) → B.Adj (a i) (b j)) ∨
+      (∀ i, B.Adj (a i) (b j) → A.Adj (a i) (b j)) := by
+  classical
+  intro j
+  by_cases h : ∀ i, A.Adj (a i) (b j) → B.Adj (a i) (b j)
+  · exact Or.inl h
+  · right
+    push Not at h
+    obtain ⟨i, hai, hbi⟩ := h
+    intro k hbk
+    by_contra hak
+    exact (GraphFactor.exclusive_endpoints_distinct G A B hfun s hbip
+      (a i) (b j) (a k) (b j) (ha i) (hb j) (ha k) (hb j) hai hbi hbk hak).2.1 rfl
+
+lemma intersection_no_rectangle {n m : ℕ} (G A B : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] [DecidableRel A.Adj] [DecidableRel B.Adj]
+    (h4 : NoFourCycle G)
+    (hfun : ∀ x, graphFun G ∅ x = (graphFun A ∅ x && graphFun B ∅ x))
+    (a b : Fin m → Fin n) (ha : Function.Injective a) (hb : Function.Injective b)
+    (i j k l : Fin m) (hik : i ≠ k) (hjl : j ≠ l)
+    (hij : A.Adj (a i) (b j) ∧ B.Adj (a i) (b j))
+    (hil : A.Adj (a i) (b l) ∧ B.Adj (a i) (b l))
+    (hkj : A.Adj (a k) (b j) ∧ B.Adj (a k) (b j))
+    (hkl : A.Adj (a k) (b l) ∧ B.Adj (a k) (b l)) : False := by
+  have hgij := (GraphFactor.edges_intersection G A B hfun _ _).mpr hij
+  have hgil := (GraphFactor.edges_intersection G A B hfun _ _).mpr hil
+  have hgkj := (GraphFactor.edges_intersection G A B hfun _ _).mpr hkj
+  have hgkl := (GraphFactor.edges_intersection G A B hfun _ _).mpr hkl
+  have hmemj : b j ∈ Finset.univ.filter (fun v => G.Adj (a i) v ∧ G.Adj (a k) v) := by
+    simp [hgij, hgkj]
+  have hmeml : b l ∈ Finset.univ.filter (fun v => G.Adj (a i) v ∧ G.Adj (a k) v) := by
+    simp [hgil, hgkl]
+  have hc := h4 (a i) (a k) (fun he => hik (ha he))
+  exact hjl (hb ((Finset.card_le_one.mp hc) (b j) hmemj (b l) hmeml))
+
+end PEqualNP.Outside.L_meta_3566.GeneralFactorBridge
+
+namespace PEqualNP.Outside.L_meta_3566.RectangleRank
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+
+def RectangleFree {m : ℕ} (H : Fin m → Fin m → Prop) : Prop :=
+  ∀ i j k l, i ≠ j → k ≠ l → ¬ (H i k ∧ H i l ∧ H j k ∧ H j l)
+
+def RowWitness {m r s : ℕ} (A B : Fin m → Fin m → Prop)
+    (LA RA : Fin r → Fin m → Prop) (LB RB : Fin s → Fin m → Prop)
+    (i : Fin m) (q : Fin r ⊕ Fin s) : Prop :=
+  match q with
+  | .inl k => LA k i ∧ RA k i ∧ ∀ j, A i j → B i j
+  | .inr k => LB k i ∧ RB k i ∧ ∀ j, B i j → A i j
+
+lemma row_labels_injective {m r s : ℕ} (A B : Fin m → Fin m → Prop)
+    (LA RA : Fin r → Fin m → Prop) (LB RB : Fin s → Fin m → Prop)
+    (hA : ∀ i j, A i j ↔ ∃ k, LA k i ∧ RA k j)
+    (hB : ∀ i j, B i j ↔ ∃ k, LB k i ∧ RB k j)
+    (hdiag : ∀ i, A i i ∧ B i i) (h4 : RectangleFree (fun i j => A i j ∧ B i j))
+    (row : Fin m → Fin r ⊕ Fin s)
+    (hrow : ∀ i, RowWitness A B LA RA LB RB i (row i)) : Function.Injective row := by
+  intro i j heq
+  by_contra hij
+  have hi := hrow i
+  have hj := hrow j
+  rw [← heq] at hj
+  cases hq : row i with
+  | inl k =>
+    rw [hq] at hi hj
+    have aij := (hA i j).mpr ⟨k,hi.1,hj.2.1⟩
+    have aji := (hA j i).mpr ⟨k,hj.1,hi.2.1⟩
+    exact h4 i j i j hij hij
+      ⟨hdiag i,⟨aij,hi.2.2 j aij⟩,⟨aji,hj.2.2 i aji⟩,hdiag j⟩
+  | inr k =>
+    rw [hq] at hi hj
+    have bij := (hB i j).mpr ⟨k,hi.1,hj.2.1⟩
+    have bji := (hB j i).mpr ⟨k,hj.1,hi.2.1⟩
+    exact h4 i j i j hij hij
+      ⟨hdiag i,⟨hi.2.2 j bij,bij⟩,⟨hj.2.2 i bji,bji⟩,hdiag j⟩
+
+lemma row_witness_exists {m r s : ℕ} (A B : Fin m → Fin m → Prop)
+    (LA RA : Fin r → Fin m → Prop) (LB RB : Fin s → Fin m → Prop)
+    (hA : ∀ i j, A i j ↔ ∃ k, LA k i ∧ RA k j)
+    (hB : ∀ i j, B i j ↔ ∃ k, LB k i ∧ RB k j)
+    (hdiag : ∀ i, A i i ∧ B i i)
+    (hcomp : ∀ i, (∀ j, A i j → B i j) ∨ (∀ j, B i j → A i j)) :
+    ∀ i, ∃ q, RowWitness A B LA RA LB RB i q := by
+  intro i
+  rcases hcomp i with ha | hb
+  · obtain ⟨k,hk⟩ := (hA i i).mp (hdiag i).1
+    exact ⟨Sum.inl k,hk.1,hk.2,ha⟩
+  · obtain ⟨k,hk⟩ := (hB i i).mp (hdiag i).2
+    exact ⟨Sum.inr k,hk.1,hk.2,hb⟩
+
+lemma rectangle_bound {m r s : ℕ} (A B : Fin m → Fin m → Prop)
+    (LA RA : Fin r → Fin m → Prop) (LB RB : Fin s → Fin m → Prop)
+    (hA : ∀ i j, A i j ↔ ∃ k, LA k i ∧ RA k j)
+    (hB : ∀ i j, B i j ↔ ∃ k, LB k i ∧ RB k j)
+    (hdiag : ∀ i, A i i ∧ B i i) (h4 : RectangleFree (fun i j => A i j ∧ B i j))
+    (hrowcomp : ∀ i, (∀ j, A i j → B i j) ∨ (∀ j, B i j → A i j))
+    (hcolcomp : ∀ j, (∀ i, A i j → B i j) ∨ (∀ i, B i j → A i j))
+    (hm : 0 < m) : m + 1 ≤ r + s := by
+  classical
+  obtain ⟨row,hrow⟩ := Classical.axiomOfChoice
+    (row_witness_exists A B LA RA LB RB hA hB hdiag hrowcomp)
+  have hri := row_labels_injective A B LA RA LB RB hA hB hdiag h4 row hrow
+  have hle : m ≤ r+s := by
+    simpa using Fintype.card_le_of_injective row hri
+  by_contra hlt
+  have hmeq : m = r+s := by omega
+  have hcards : Fintype.card (Fin m) = Fintype.card (Fin r ⊕ Fin s) := by simpa using hmeq
+  have hrs : Function.Surjective row := (Fintype.bijective_iff_injective_and_card row).mpr ⟨hri,hcards⟩ |>.2
+  let AT : Fin m → Fin m → Prop := fun i j => A j i
+  let BT : Fin m → Fin m → Prop := fun i j => B j i
+  have hAT : ∀ i j, AT i j ↔ ∃ k, RA k i ∧ LA k j := by
+    intro i j
+    simpa [AT,and_comm] using hA j i
+  have hBT : ∀ i j, BT i j ↔ ∃ k, RB k i ∧ LB k j := by
+    intro i j
+    simpa [BT,and_comm] using hB j i
+  have h4T : RectangleFree (fun i j => AT i j ∧ BT i j) := by
+    intro i j k l hij hkl ⟨hki,hli,hkj,hlj⟩
+    exact h4 k l i j hkl hij ⟨hki,hkj,hli,hlj⟩
+  obtain ⟨col,hcol⟩ := Classical.axiomOfChoice
+    (row_witness_exists AT BT RA LA RB LB hAT hBT hdiag hcolcomp)
+  have hci := row_labels_injective AT BT RA LA RB LB hAT hBT hdiag h4T col hcol
+  have hcs : Function.Surjective col := (Fintype.bijective_iff_injective_and_card col).mpr ⟨hci,hcards⟩ |>.2
+  let z : Fin m := ⟨0,hm⟩
+  obtain ⟨a,_⟩ := (hA z z).mp (hdiag z).1
+  obtain ⟨i,hi⟩ := hrs (Sum.inl a)
+  obtain ⟨j,hj⟩ := hcs (Sum.inl a)
+  have hriw := hrow i
+  rw [hi] at hriw
+  have hcjw := hcol j
+  rw [hj] at hcjw
+  have aij : A i j := (hA i j).mpr ⟨a,hriw.1,hcjw.1⟩
+  have bij : B i j := hriw.2.2 j aij
+  obtain ⟨b,hbi,hbj⟩ := (hB i j).mp bij
+  obtain ⟨k,hk⟩ := hrs (Sum.inr b)
+  obtain ⟨l,hl⟩ := hcs (Sum.inr b)
+  have hrkw := hrow k
+  rw [hk] at hrkw
+  have hclw := hcol l
+  rw [hl] at hclw
+  have hik : i ≠ k := by
+    intro heq
+    have hh := congrArg row heq
+    rw [hi,hk] at hh
+    cases hh
+  have hjl : j ≠ l := by
+    intro heq
+    have hh := congrArg col heq
+    rw [hj,hl] at hh
+    cases hh
+  have bil : B i l := (hB i l).mpr ⟨b,hbi,hclw.1⟩
+  have bkj : B k j := (hB k j).mpr ⟨b,hrkw.1,hbj⟩
+  have bkl : B k l := (hB k l).mpr ⟨b,hrkw.1,hclw.1⟩
+  exact h4 i k j l hik hjl
+    ⟨⟨aij,bij⟩,⟨hclw.2.2 i bil,bil⟩,⟨hrkw.2.2 j bkj,bkj⟩,⟨hrkw.2.2 l bkl,bkl⟩⟩
+
+end PEqualNP.Outside.L_meta_3566.RectangleRank
+
+namespace PEqualNP.Outside.L_meta_3566.GeneralFactorRank
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+lemma matching_bound {n m r t : ℕ} (G A B : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] [DecidableRel A.Adj] [DecidableRel B.Adj]
+    (s : Fin n → Bool) (hbip : ∀ x y, G.Adj x y → s x ≠ s y) (h4 : NoFourCycle G)
+    (hfun : ∀ x, graphFun G ∅ x = (graphFun A ∅ x && graphFun B ∅ x))
+    (LA RA : Fin r → Finset (Fin n)) (LB RB : Fin t → Finset (Fin n))
+    (hA : ∀ x y, s x = false → s y = true →
+      (A.Adj x y ↔ ∃ k, x ∈ LA k ∧ y ∈ RA k))
+    (hB : ∀ x y, s x = false → s y = true →
+      (B.Adj x y ↔ ∃ k, x ∈ LB k ∧ y ∈ RB k))
+    (a b : Fin m → Fin n) (hai : Function.Injective a) (hbi : Function.Injective b)
+    (ha : ∀ i, s (a i) = false) (hb : ∀ i, s (b i) = true)
+    (he : ∀ i, G.Adj (a i) (b i)) (hm : 0 < m) : m + 1 ≤ r + t := by
+  apply RectangleRank.rectangle_bound
+    (fun i j => A.Adj (a i) (b j)) (fun i j => B.Adj (a i) (b j))
+    (fun k i => a i ∈ LA k) (fun k j => b j ∈ RA k)
+    (fun k i => a i ∈ LB k) (fun k j => b j ∈ RB k)
+    (fun i j => hA (a i) (b j) (ha i) (hb j))
+    (fun i j => hB (a i) (b j) (ha i) (hb j))
+    (fun i => (GraphFactor.edges_intersection G A B hfun _ _).mp (he i))
+  · intro i k j l hik hjl ⟨hij,hil,hkj,hkl⟩
+    exact GeneralFactorBridge.intersection_no_rectangle G A B h4 hfun a b hai hbi
+      i j k l hik hjl hij hil hkj hkl
+  · exact GeneralFactorBridge.rows_comparable G A B s hbip hfun a b ha hb
+  · exact GeneralFactorBridge.columns_comparable G A B s hbip hfun a b ha hb
+  · exact hm
+
+lemma matching_sub_bound {n m r t : ℕ} (G A B : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] [DecidableRel A.Adj] [DecidableRel B.Adj]
+    (s : Fin n → Bool) (hbip : ∀ x y, G.Adj x y → s x ≠ s y) (h4 : NoFourCycle G)
+    (hfun : ∀ x, graphFun G ∅ x = (graphFun A ∅ x && graphFun B ∅ x))
+    (LA RA : Fin r → Finset (Fin n)) (LB RB : Fin t → Finset (Fin n))
+    (hA : ∀ x y, s x = false → s y = true →
+      (A.Adj x y ↔ ∃ k, x ∈ LA k ∧ y ∈ RA k))
+    (hB : ∀ x y, s x = false → s y = true →
+      (B.Adj x y ↔ ∃ k, x ∈ LB k ∧ y ∈ RB k))
+    (a b : Fin m → Fin n) (hai : Function.Injective a) (hbi : Function.Injective b)
+    (ha : ∀ i, s (a i) = false) (hb : ∀ i, s (b i) = true)
+    (he : ∀ i, G.Adj (a i) (b i)) : m ≤ r + t - 1 := by
+  by_cases hm : 0 < m
+  · have h := matching_bound G A B s hbip h4 hfun LA RA LB RB hA hB a b hai hbi ha hb he hm
+    omega
+  · omega
+
+end PEqualNP.Outside.L_meta_3566.GeneralFactorRank
+
+namespace PEqualNP.Outside.L_meta_3566.MonotoneFactorBridge
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+lemma pair_intersection {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (f g : (Fin n → Bool) → Bool)
+    (hfun : ∀ x, graphFun G ∅ x = (f x && g x)) (a b : Fin n) :
+    G.Adj a b ↔ f (pairInput a b) = true ∧ g (pairInput a b) = true := by
+  rw [← MixedColor.graphFun_pair G a b, hfun, Bool.and_eq_true]
+
+lemma pair_le {n : ℕ} (x : Fin n → Bool) (a b : Fin n) (ha : x a = true) (hb : x b = true) :
+    pairInput a b ≤ x := by
+  intro v
+  apply Bool.le_iff_imp.mpr
+  intro hv
+  have hv' : v = a ∨ v = b := by simpa [pairInput] using hv
+  rcases hv' with rfl | rfl <;> assumption
+
+lemma exclusive_cross {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (f g : (Fin n → Bool) → Bool) (hf : Monotone f) (hg : Monotone g)
+    (hfun : ∀ x, graphFun G ∅ x = (f x && g x))
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (a b c d : Fin n) (ha : s a = false) (hb : s b = true)
+    (hc : s c = false) (hd : s d = true)
+    (hfab : f (pairInput a b) = true) (hgab : g (pairInput a b) = false)
+    (hgcd : g (pairInput c d) = true) (hfcd : f (pairInput c d) = false) :
+    G.Adj a d ∨ G.Adj c b := by
+  classical
+  let L : Finset (Fin n) := {a, c}
+  let R : Finset (Fin n) := {b, d}
+  let x := RectangleFamily.setInput (L ∪ R)
+  have hxA : f x = true := PureFunctionFamily.true_of_le (hf (pair_le x a b
+    (by simp [x, RectangleFamily.setInput, L, R])
+    (by simp [x, RectangleFamily.setInput, L, R]))) hfab
+  have hxB : g x = true := PureFunctionFamily.true_of_le (hg (pair_le x c d
+    (by simp [x, RectangleFamily.setInput, L, R])
+    (by simp [x, RectangleFamily.setInput, L, R]))) hgcd
+  have hxG : graphFun G ∅ x = true := by rw [hfun, hxA, hxB]; rfl
+  have hL : ∀ u ∈ L, s u = false := by
+    intro u hu
+    simp only [L, Finset.mem_insert, Finset.mem_singleton] at hu
+    rcases hu with rfl | rfl <;> assumption
+  have hR : ∀ v ∈ R, s v = true := by
+    intro v hv
+    simp only [R, Finset.mem_insert, Finset.mem_singleton] at hv
+    rcases hv with rfl | rfl <;> assumption
+  obtain ⟨u, hu, v, hv, huv⟩ := RectangleFamily.edge_of_two_colors G s hbip L R hL hR hxG
+  simp only [L, Finset.mem_insert, Finset.mem_singleton] at hu
+  simp only [R, Finset.mem_insert, Finset.mem_singleton] at hv
+  rcases hu with rfl | rfl <;> rcases hv with rfl | rfl
+  · have ht := ((pair_intersection G f g hfun _ _).mp huv).2
+    rw [hgab] at ht
+    cases ht
+  · exact Or.inl huv
+  · exact Or.inr huv
+  · have ht := ((pair_intersection G f g hfun _ _).mp huv).1
+    rw [hfcd] at ht
+    cases ht
+
+lemma exclusive_endpoints_distinct {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (f g : (Fin n → Bool) → Bool) (hf : Monotone f) (hg : Monotone g)
+    (hfun : ∀ x, graphFun G ∅ x = (f x && g x))
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (a b c d : Fin n) (ha : s a = false) (hb : s b = true)
+    (hc : s c = false) (hd : s d = true)
+    (hfab : f (pairInput a b) = true) (hgab : g (pairInput a b) = false)
+    (hgcd : g (pairInput c d) = true) (hfcd : f (pairInput c d) = false) :
+    a ≠ c ∧ b ≠ d := by
+  have he := exclusive_cross G f g hf hg hfun s hbip a b c d ha hb hc hd hfab hgab hgcd hfcd
+  have hab : ¬ G.Adj a b := by
+    intro h
+    have ht := ((pair_intersection G f g hfun a b).mp h).2
+    rw [hgab] at ht
+    cases ht
+  have hcd : ¬ G.Adj c d := by
+    intro h
+    have ht := ((pair_intersection G f g hfun c d).mp h).1
+    rw [hfcd] at ht
+    cases ht
+  constructor
+  · intro heq
+    subst c
+    exact he.elim hcd hab
+  · intro heq
+    subst d
+    exact he.elim hab hcd
+
+lemma rows_comparable {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (f g : (Fin n → Bool) → Bool) (hf : Monotone f) (hg : Monotone g)
+    (hfun : ∀ x, graphFun G ∅ x = (f x && g x))
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (a b : Fin m → Fin n) (ha : ∀ i, s (a i) = false) (hb : ∀ i, s (b i) = true) :
+    ∀ i, (∀ j, f (pairInput (a i) (b j)) = true → g (pairInput (a i) (b j)) = true) ∨
+      (∀ j, g (pairInput (a i) (b j)) = true → f (pairInput (a i) (b j)) = true) := by
+  classical
+  intro i
+  by_cases h : ∀ j, f (pairInput (a i) (b j)) = true → g (pairInput (a i) (b j)) = true
+  · exact Or.inl h
+  · right
+    push Not at h
+    obtain ⟨j, hfj, hgj⟩ := h
+    intro k hgk
+    by_contra hfk
+    exact (exclusive_endpoints_distinct G f g hf hg hfun s hbip
+      (a i) (b j) (a i) (b k) (ha i) (hb j) (ha i) (hb k) hfj
+      (Bool.eq_false_iff.mpr hgj) hgk (Bool.eq_false_iff.mpr hfk)).1 rfl
+
+lemma columns_comparable {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (f g : (Fin n → Bool) → Bool) (hf : Monotone f) (hg : Monotone g)
+    (hfun : ∀ x, graphFun G ∅ x = (f x && g x))
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (a b : Fin m → Fin n) (ha : ∀ i, s (a i) = false) (hb : ∀ i, s (b i) = true) :
+    ∀ j, (∀ i, f (pairInput (a i) (b j)) = true → g (pairInput (a i) (b j)) = true) ∨
+      (∀ i, g (pairInput (a i) (b j)) = true → f (pairInput (a i) (b j)) = true) := by
+  classical
+  intro j
+  by_cases h : ∀ i, f (pairInput (a i) (b j)) = true → g (pairInput (a i) (b j)) = true
+  · exact Or.inl h
+  · right
+    push Not at h
+    obtain ⟨i, hfi, hgi⟩ := h
+    intro k hgk
+    by_contra hfk
+    exact (exclusive_endpoints_distinct G f g hf hg hfun s hbip
+      (a i) (b j) (a k) (b j) (ha i) (hb j) (ha k) (hb j) hfi
+      (Bool.eq_false_iff.mpr hgi) hgk (Bool.eq_false_iff.mpr hfk)).2 rfl
+
+lemma intersection_no_rectangle {n m : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (f g : (Fin n → Bool) → Bool) (h4 : NoFourCycle G)
+    (hfun : ∀ x, graphFun G ∅ x = (f x && g x))
+    (a b : Fin m → Fin n) (ha : Function.Injective a) (hb : Function.Injective b)
+    (i j k l : Fin m) (hik : i ≠ k) (hjl : j ≠ l)
+    (hij : f (pairInput (a i) (b j)) = true ∧ g (pairInput (a i) (b j)) = true)
+    (hil : f (pairInput (a i) (b l)) = true ∧ g (pairInput (a i) (b l)) = true)
+    (hkj : f (pairInput (a k) (b j)) = true ∧ g (pairInput (a k) (b j)) = true)
+    (hkl : f (pairInput (a k) (b l)) = true ∧ g (pairInput (a k) (b l)) = true) : False := by
+  have hgij := (pair_intersection G f g hfun _ _).mpr hij
+  have hgil := (pair_intersection G f g hfun _ _).mpr hil
+  have hgkj := (pair_intersection G f g hfun _ _).mpr hkj
+  have hgkl := (pair_intersection G f g hfun _ _).mpr hkl
+  have hmemj : b j ∈ Finset.univ.filter (fun v => G.Adj (a i) v ∧ G.Adj (a k) v) := by
+    simp [hgij, hgkj]
+  have hmeml : b l ∈ Finset.univ.filter (fun v => G.Adj (a i) v ∧ G.Adj (a k) v) := by
+    simp [hgil, hgkl]
+  have hc := h4 (a i) (a k) (fun he => hik (ha he))
+  exact hjl (hb ((Finset.card_le_one.mp hc) (b j) hmemj (b l) hmeml))
+
+end PEqualNP.Outside.L_meta_3566.MonotoneFactorBridge
+
+namespace PEqualNP.Outside.L_meta_3566.MonotoneFactorRank
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership SemanticPurity
+
+lemma output_and_factor {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (j wa wb : ℕ) (hj : j < C.gates.length) (hout : C.output = n+j)
+    (hop : (gateAt C j).op = .and) (hinputs : (gateAt C j).inputs = [wa,wb]) :
+    ∀ x : Fin n → Bool, circuitFun n C x = (W n C wa x && W n C wb x) := by
+  intro x
+  change W n C C.output x = _
+  rw [hout,W_gate C hAO j hj wa wb hinputs,hop]
+  simp [GateOp.eval]
+
+lemma matching_bound {n m r t : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (f g : (Fin n → Bool) → Bool) (hf : Monotone f) (hg : Monotone g)
+    (hfun : ∀ x, graphFun G ∅ x = (f x && g x))
+    (s : Fin n → Bool) (hbip : ∀ x y, G.Adj x y → s x ≠ s y) (h4 : NoFourCycle G)
+    (a b : Fin m → Fin n) (hai : Function.Injective a) (hbi : Function.Injective b)
+    (ha : ∀ i, s (a i) = false) (hb : ∀ i, s (b i) = true) (he : ∀ i, G.Adj (a i) (b i))
+    (LA RA : Fin r → Fin m → Prop) (LB RB : Fin t → Fin m → Prop)
+    (hA : ∀ i j, f (pairInput (a i) (b j)) = true ↔ ∃ k, LA k i ∧ RA k j)
+    (hB : ∀ i j, g (pairInput (a i) (b j)) = true ↔ ∃ k, LB k i ∧ RB k j)
+    (hm : 0 < m) : m + 1 ≤ r + t := by
+  apply RectangleRank.rectangle_bound
+    (fun i j => f (pairInput (a i) (b j)) = true)
+    (fun i j => g (pairInput (a i) (b j)) = true)
+    LA RA LB RB hA hB
+    (fun i => (MonotoneFactorBridge.pair_intersection G f g hfun _ _).mp (he i))
+  · intro i k j l hik hjl ⟨hij,hil,hkj,hkl⟩
+    exact MonotoneFactorBridge.intersection_no_rectangle G f g h4 hfun a b hai hbi
+      i j k l hik hjl hij hil hkj hkl
+  · exact MonotoneFactorBridge.rows_comparable G f g hf hg hfun s hbip a b ha hb
+  · exact MonotoneFactorBridge.columns_comparable G f g hf hg hfun s hbip a b ha hb
+  · exact hm
+
+lemma matching_sub_bound {n m r t : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (f g : (Fin n → Bool) → Bool) (hf : Monotone f) (hg : Monotone g)
+    (hfun : ∀ x, graphFun G ∅ x = (f x && g x))
+    (s : Fin n → Bool) (hbip : ∀ x y, G.Adj x y → s x ≠ s y) (h4 : NoFourCycle G)
+    (a b : Fin m → Fin n) (hai : Function.Injective a) (hbi : Function.Injective b)
+    (ha : ∀ i, s (a i) = false) (hb : ∀ i, s (b i) = true) (he : ∀ i, G.Adj (a i) (b i))
+    (LA RA : Fin r → Fin m → Prop) (LB RB : Fin t → Fin m → Prop)
+    (hA : ∀ i j, f (pairInput (a i) (b j)) = true ↔ ∃ k, LA k i ∧ RA k j)
+    (hB : ∀ i j, g (pairInput (a i) (b j)) = true ↔ ∃ k, LB k i ∧ RB k j) :
+    m ≤ r + t - 1 := by
+  by_cases hm : 0 < m
+  · have h := matching_bound G f g hf hg hfun s hbip h4 a b hai hbi ha hb he
+      LA RA LB RB hA hB hm
+    omega
+  · omega
+
+lemma output_and_matching_bound {n m r t : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (j wa wb : ℕ) (hj : j < C.gates.length) (hout : C.output = n+j)
+    (hop : (gateAt C j).op = .and) (hinputs : (gateAt C j).inputs = [wa,wb])
+    (s : Fin n → Bool) (hbip : ∀ x y, G.Adj x y → s x ≠ s y) (h4 : NoFourCycle G)
+    (a b : Fin m → Fin n) (hai : Function.Injective a) (hbi : Function.Injective b)
+    (ha : ∀ i, s (a i) = false) (hb : ∀ i, s (b i) = true) (he : ∀ i, G.Adj (a i) (b i))
+    (LA RA : Fin r → Fin m → Prop) (LB RB : Fin t → Fin m → Prop)
+    (hA : ∀ i k, W n C wa (pairInput (a i) (b k)) = true ↔ ∃ q, LA q i ∧ RA q k)
+    (hB : ∀ i k, W n C wb (pairInput (a i) (b k)) = true ↔ ∃ q, LB q i ∧ RB q k) :
+    m ≤ r + t - 1 := by
+  apply matching_sub_bound G (W n C wa) (W n C wb)
+    (WireFacts.wire_monotone C hAO wa) (WireFacts.wire_monotone C hAO wb)
+    _ s hbip h4 a b hai hbi ha hb he LA RA LB RB hA hB
+  intro x
+  rw [← hfun]
+  exact output_and_factor C hAO j wa wb hj hout hop hinputs x
+
+end PEqualNP.Outside.L_meta_3566.MonotoneFactorRank
