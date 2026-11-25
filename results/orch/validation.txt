@@ -13,3 +13,4 @@ TIMING total=9.09 subagents=6
 Additional checked partials archived: Endpoint.lean (exit0, linter warning), Audit.lean (exit0, empty stdout/stderr).
 NotComparable.lean: semantic replacement of a NOT whose operand is comparable with the target; direct Lean exit0, empty complete log. No gate-count conclusion asserted.
 BranchBudget.lean: tight fanout budget gives exact read counts; compiled exit0, empty log. EndpointClean.lean is the warning-free checked revision of Endpoint.lean (exit0, empty log).
+NotComparableExtended.lean and GraphSeparator.lean: checked semantic refinements for an essential NOT operand; direct Lean exit0 with empty full logs. Neither proves the posted circuit-size bound.
