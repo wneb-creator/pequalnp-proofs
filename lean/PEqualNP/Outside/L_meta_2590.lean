@@ -4478,3 +4478,2860 @@ lemma petersen_two_ineligible_clean_stars {D : Dag}
         private_filter_two_i2 h hc small hi h0 h2 hF tF emptyF neighborsF)
 
 end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma zero_merges_exit_support {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    {x : Fin n} (hm : merges n D (carrierT n D {x}) = ∅)
+    {w : ℕ} (hx : x ∈ supp n D w) :
+    ∃ e ∈ sem_W n D x, supp n D w ⊆ supp n D (src D e) := by
+  classical
+  by_contra bad
+  have preserves {u v : ℕ} (step : sem_step n D u v)
+      (hu : x ∈ supp n D u) (sub : supp n D w ⊆ supp n D u) :
+      x ∈ supp n D v ∧ supp n D w ⊆ supp n D v := by
+    obtain ⟨j, s, hj, rfl, hsrc⟩ := sem_step_iff.mp step
+    have hxj : x ∈ supp n D (n + j) := by
+      by_contra hn
+      apply bad
+      refine ⟨(j, s), sem_mem_W.mpr ⟨hj, ?_, hn⟩, ?_⟩
+      · simpa only [hsrc] using hu
+      · simpa only [hsrc] using sub
+    have hor := (sem_zm_gate h.1 hm hj hxj).1
+    refine ⟨hxj, sub.trans ?_⟩
+    intro a ha
+    rw [sem_supp_or h.1 hj hor]
+    rw [← hsrc] at ha
+    cases s
+    · exact Finset.mem_union.mpr (Or.inl (by simpa only [sb_src_false] using ha))
+    · exact Finset.mem_union.mpr (Or.inr (by simpa only [sb_src_true] using ha))
+  have propagate : ∀ u, Relation.ReflTransGen (sem_step n D) w u →
+      x ∈ supp n D u ∧ supp n D w ⊆ supp n D u := by
+    intro u path
+    induction path with
+    | refl => exact ⟨hx, Finset.Subset.refl _⟩
+    | @tail u v path step ih => exact preserves step ih.1 ih.2
+  have hout := (propagate _ (live_reaches_output h (sem_supp_lt hx))).1
+  rw [sem_supp_out hG hc] at hout
+  exact Finset.notMem_empty _ hout
+
+end PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+namespace PEqualNP.Outside.L_meta_2590_aux
+
+open DagTools
+
+lemma petersen_clean_star_one_exits {D : Dag}
+    (h : StrictLive 10 D) (hC : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D) :
+    ∃ A B : ℕ × Bool,
+      A ∈ sem_W 10 D (1 : V) ∧ B ∈ sem_W 10 D (1 : V) ∧ A ≠ B ∧
+      supp 10 D (src D (sem_bar A)) = {(0 : V)} ∧
+      supp 10 D (src D (sem_bar B)) = {(2 : V)} ∧
+      (6 : V) ∉ supp 10 D (src D A) ∧ (6 : V) ∉ supp 10 D (src D B) := by
+  obtain ⟨hs0, hs2⟩ := petersen_two_ineligible_clean_stars h hC small two h0 h2
+  obtain ⟨e0, he0, _, hp0, hout0, _, _, hs0, _⟩ := hs0
+  obtain ⟨e2, he2, _, hp2, hout2, _, _, hs2, _⟩ := hs2
+  have hA : sem_bar e0 ∈ sem_W 10 D (1 : V) := by
+    refine sem_mem_W.mpr ⟨he0, (hs0 1).mpr (by decide), ?_⟩
+    change (1 : V) ∉ supp 10 D (10 + e0.1)
+    rw [hout0]
+    exact Finset.notMem_empty _
+  have hB : sem_bar e2 ∈ sem_W 10 D (1 : V) := by
+    refine sem_mem_W.mpr ⟨he2, (hs2 1).mpr (by decide), ?_⟩
+    change (1 : V) ∉ supp 10 D (10 + e2.1)
+    rw [hout2]
+    exact Finset.notMem_empty _
+  have hne : sem_bar e0 ≠ sem_bar e2 := by
+    intro hh
+    have heq : e0 = e2 := r1_bar_inj hh
+    have hz : (0 : V) ∈ supp 10 D (src D e0) := by rw [hp0]; simp
+    rw [heq, hp2, Finset.mem_singleton] at hz
+    exact (by decide : (0 : V) ≠ 2) hz
+  refine ⟨sem_bar e0, sem_bar e2, hA, hB, hne, ?_, ?_, ?_, ?_⟩
+  · simpa only [sem_bar_bar] using hp0
+  · simpa only [sem_bar_bar] using hp2
+  · intro hm
+    exact (by decide : ¬ adj 0 6) ((hs0 6).mp hm)
+  · intro hm
+    exact (by decide : ¬ adj 2 6) ((hs2 6).mp hm)
+
+lemma petersen_one_code_not_subset_six {D : Dag}
+    (h : StrictLive 10 D) (hC : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b) :
+    ¬ (∀ u ∈ residualUnits 10 D b,
+      (1 : V) ∈ supp 10 D u.1 → (6 : V) ∈ supp 10 D u.1) := by
+  intro hinc
+  obtain ⟨A, B, hA, hB, hne, _, _, hA6, hB6⟩ :=
+    petersen_clean_star_one_exits h hC small two h0 h2
+  obtain ⟨u, hu, hu1⟩ := common_neighbor_residual h hC b hb h0 h2
+  have eligible : (1 : V) ∈ eligSet 10 D :=
+    (sem_elig_cover graph_ok h hC (show adj 0 1 by decide)).resolve_left
+      (sem_mem_inelig.mp h0)
+  obtain ⟨e0, he0⟩ := ri_gen graph_ok h hC b hb
+    (by decide : (1 : V) ≠ 6) eligible hinc ⟨hu1, hinc u hu hu1⟩
+  have hAe : A = e0 := by
+    by_contra hn
+    exact hA6 (he0 A hA hn)
+  have hBe : B = e0 := by
+    by_contra hn
+    exact hB6 (he0 B hB hn)
+  exact hne (hAe.trans hBe.symm)
+
+lemma petersen_single_one_residual_support {D : Dag}
+    (h : StrictLive 10 D) (hC : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (single : ((residualUnits 10 D b).filter
+      (fun u => (1 : V) ∈ supp 10 D u.1)).card = 1)
+    {u : Σ _ : ℕ, ℕ} (hu : u ∈ residualUnits 10 D b)
+    (hu1 : (1 : V) ∈ supp 10 D u.1) : supp 10 D u.1 = {(1 : V)} := by
+  classical
+  have hz := (two_ineligible_tight h hC small two).2.1
+  have hle : ((residualUnits 10 D b).filter
+      (fun v => (1 : V) ∈ supp 10 D v.1)).card ≤ 1 := by omega
+  have unique (v : Σ _ : ℕ, ℕ) (hv : v ∈ residualUnits 10 D b)
+      (hv1 : (1 : V) ∈ supp 10 D v.1) : v = u :=
+    Finset.card_le_one.mp hle v (Finset.mem_filter.mpr ⟨hv, hv1⟩)
+      u (Finset.mem_filter.mpr ⟨hu, hu1⟩)
+  have inclusion {c : V} (hcu : c ∈ supp 10 D u.1) :
+      ∀ v ∈ residualUnits 10 D b, (1 : V) ∈ supp 10 D v.1 → c ∈ supp 10 D v.1 := by
+    intro v hv hv1
+    rw [unique v hv hv1]
+    exact hcu
+  have noC6 : ∀ c ∈ ({3,4,5,7,8,9} : Finset V), c ∉ supp 10 D u.1 := by
+    intro c hc hcu
+    exact petersen_one_code_not_subset h hC hz h0 h2 b hb hc (inclusion hcu)
+  have no6 : (6 : V) ∉ supp 10 D u.1 := by
+    intro h6
+    exact petersen_one_code_not_subset_six h hC small two h0 h2 b hb (inclusion h6)
+  have hunit := (mem_units.mp
+    (Finset.mem_filter.mp (Finset.mem_sdiff.mp hu).1).1).2
+  have hfan : 2 ≤ fanout D u.1 := by omega
+  have noIneligible (v : V) (hv : v ∈ ineligSet 10 D) : v ∉ supp 10 D u.1 := by
+    intro hvs
+    exact (sem_mem_inelig.mp hv) (mem_eligSet.mpr ⟨u.1, hfan, hvs⟩)
+  have partition : ∀ c : V, c = 0 ∨ c = 1 ∨ c = 2 ∨ c = 6 ∨
+      c ∈ ({3,4,5,7,8,9} : Finset V) := by decide +kernel
+  apply Finset.Subset.antisymm
+  · intro c hc
+    rcases partition c with rfl | rfl | rfl | rfl | hset
+    · exact False.elim (noIneligible 0 h0 hc)
+    · exact Finset.mem_singleton_self _
+    · exact False.elim (noIneligible 2 h2 hc)
+    · exact False.elim (no6 hc)
+    · exact False.elim (noC6 c hset hc)
+  · exact Finset.singleton_subset_iff.mpr hu1
+
+end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux
+
+open DagTools
+
+lemma petersen_single_one_flow {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (single : ((residualUnits 10 D b).filter
+      (fun u => (1 : V) ∈ supp 10 D u.1)).card ≤ 1) :
+    (sem_W 10 D (1 : V)).card = 3 ∧ merges 10 D (carrierT 10 D {(1 : V)}) = ∅ := by
+  have lower := common_neighbor_three h hc h0 h2
+  have count := sem_code_count graph_ok h hc b hb (1 : V)
+  have cap : (({(1 : V)} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+    (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+  exact ⟨by omega, Finset.card_eq_zero.mp (by omega)⟩
+
+lemma petersen_single_one_no_joint_six {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (hi : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (single : ((residualUnits 10 D b).filter
+      (fun u => (1 : V) ∈ supp 10 D u.1)).card ≤ 1) :
+    ∀ w, ¬ ((1 : V) ∈ supp 10 D w ∧ (6 : V) ∈ supp 10 D w) := by
+  obtain ⟨size1, merges1⟩ := petersen_single_one_flow h hc h0 h2 b hb single
+  obtain ⟨A, B, hA, hB, neAB, pureA, pureB, freeA, freeB⟩ :=
+    petersen_clean_star_one_exits h hc small hi h0 h2
+  obtain ⟨C, hC, hbarC, freeC, _, _⟩ :=
+    sem_edge_slots graph_ok h.1 hc (show adj 1 6 by decide)
+  have sixC : (6 : V) ∈ supp 10 D (src D (sem_bar C)) := (sem_mem_W.mp hbarC).2.1
+  have neCA : C ≠ A := by
+    intro eq
+    rw [eq, pureA, Finset.mem_singleton] at sixC
+    exact (by decide : (6 : V) ≠ 0) sixC
+  have neCB : C ≠ B := by
+    intro eq
+    rw [eq, pureB, Finset.mem_singleton] at sixC
+    exact (by decide : (6 : V) ≠ 2) sixC
+  have all_free (e : ℕ × Bool) (he : e ∈ sem_W 10 D (1 : V)) :
+      (6 : V) ∉ supp 10 D (src D e) := by
+    rcases mem_three_of_card_le (by omega) hA hB hC neAB neCA.symm neCB.symm he with
+      rfl | rfl | rfl
+    · exact freeA
+    · exact freeB
+    · exact freeC
+  intro w hw
+  obtain ⟨e, he, sub⟩ := zero_merges_exit_support graph_ok h hc merges1 hw.1
+  exact all_free e he (sub hw.2)
+
+end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux
+
+open DagTools
+
+lemma petersen_six_code_and_exit_caps {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (hi : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b) :
+    ((residualUnits 10 D b).filter (fun u => (6 : V) ∈ supp 10 D u.1)).card ≤ 1 ∧
+      (sem_W 10 D (6 : V)).card ≤ 3 := by
+  classical
+  have tight := two_ineligible_tight h hc small hi
+  have complement := inelig_card_add 10 D
+  have residual := card_residual h.1 b hb
+  have cap : (residualUnits 10 D b).card ≤ 2 := by omega
+  have code : ((residualUnits 10 D b).filter
+      (fun u => (6 : V) ∈ supp 10 D u.1)).card ≤ 1 := by
+    have notsub := petersen_one_code_not_subset_six h hc small hi h0 h2 b hb
+    have le := Finset.card_filter_le (residualUnits 10 D b)
+      (fun u => (6 : V) ∈ supp 10 D u.1)
+    by_contra bad
+    have eq : ((residualUnits 10 D b).filter
+        (fun u => (6 : V) ∈ supp 10 D u.1)).card = (residualUnits 10 D b).card := by omega
+    have all := Finset.card_filter_eq_iff.mp eq
+    exact notsub (fun u hu _ => all u hu)
+  have count := sem_code_count graph_ok h hc b hb (6 : V)
+  have single : (({(6 : V)} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+    (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+  exact ⟨code, by omega⟩
+
+lemma petersen_both_one_flow_cases {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (both : ((residualUnits 10 D b).filter
+      (fun u => (1 : V) ∈ supp 10 D u.1)).card = 2) :
+    ((sem_W 10 D (1 : V)).card = 3 ∧
+      (merges 10 D (carrierT 10 D {(1 : V)})).card = 1) ∨
+    ((sem_W 10 D (1 : V)).card = 4 ∧
+      merges 10 D (carrierT 10 D {(1 : V)}) = ∅) := by
+  have eligible : (1 : V) ∈ eligSet 10 D :=
+    (sem_elig_cover graph_ok h hc (show adj 0 1 by decide)).resolve_left
+      (sem_mem_inelig.mp h0)
+  have single : (({(1 : V)} : Finset V) ∩ eligSet 10 D).card = 1 := by
+    rw [Finset.inter_eq_left.mpr (Finset.singleton_subset_iff.mpr eligible)]
+    simp
+  have lower := common_neighbor_three h hc h0 h2
+  have count := sem_code_count graph_ok h hc b hb (1 : V)
+  by_cases three : (sem_W 10 D (1 : V)).card = 3
+  · exact Or.inl ⟨three, by omega⟩
+  · exact Or.inr ⟨by omega, Finset.card_eq_zero.mp (by omega)⟩
+
+end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2ForbiddenPairs
+
+open DagTools
+
+def center : Fin 10 → V := ![2, 2, 2, 0, 0, 0, 0, 0, 2, 2]
+def left : Fin 10 → V := ![3, 3, 3, 4, 4, 4, 5, 5, 7, 7]
+def right : Fin 10 → V := ![5, 6, 9, 6, 7, 8, 6, 9, 6, 8]
+def witness : Fin 10 → Finset V := ![{1, 4, 5}, {4, 6, 7}, {1, 8, 9}, {3, 5, 6}, {1, 3, 7}, {1, 8, 9}, {4, 6, 7}, {1, 8, 9}, {3, 5, 6}, {1, 8, 9}]
+
+set_option synthInstance.maxSize 10000 in
+lemma geometry : ∀ k : Fin 10,
+    (center k = 0 ∨ center k = 2) ∧ left k ≠ 1 ∧
+    adj (center k) (left k) ∧ ¬ adj (center k) (right k) ∧ ¬ adj (left k) (right k) ∧
+    (∀ a ∈ witness k, ∀ z ∈ witness k, ¬ adj a z) ∧ right k ∈ witness k ∧
+    (∃ a ∈ witness k, adj (center k) a) ∧ (∃ a ∈ witness k, adj (left k) a) := by
+  unfold adj
+  decide +kernel
+
+lemma code_not_subset {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (k : Fin 10) (hcode : ∃ u ∈ residualUnits 10 D b, left k ∈ supp 10 D u.1) :
+    ¬ (∀ u ∈ residualUnits 10 D b, left k ∈ supp 10 D u.1 → right k ∈ supp 10 D u.1) := by
+  obtain ⟨hi,_,hix,hic,hxc,hA,hcA,hiA,hxA⟩ := geometry k
+  have hin : center k ∈ ineligSet 10 D := by rcases hi with hi | hi <;> simpa [hi]
+  exact ineligible_code_not_subset graph_ok h hc hz b hb hin hix hic hxc hcode
+    (witness k) hA hcA hiA hxA
+
+lemma other_support_avoids_pairs {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (u v : Σ _ : ℕ, ℕ) (hres : residualUnits 10 D b = {u,v})
+    (hu : supp 10 D u.1 = {1}) (S : Finset V) (hv : supp 10 D v.1 = S) :
+    ∀ k : Fin 10, ¬ (left k ∈ S ∧ right k ∈ S) := by
+  intro k hpair
+  have hvm : v ∈ residualUnits 10 D b := by rw [hres]; simp
+  apply code_not_subset h hc hz b hb h0 h2 k ⟨v,hvm,by rw [hv]; exact hpair.1⟩
+  intro w hw hx
+  rw [hres, Finset.mem_insert, Finset.mem_singleton] at hw
+  rcases hw with rfl | rfl
+  · rw [hu, Finset.mem_singleton] at hx
+    exact False.elim ((geometry k).2.1 hx)
+  · rw [hv]
+    exact hpair.2
+
+def supports : List (Finset V) := [{3}, {4}, {3, 4}, {5}, {4, 5}, {6}, {7}, {3, 7}, {5, 7}, {8}, {3, 8}, {5, 8}, {6, 8}, {9}, {4, 9}, {6, 9}, {7, 9}, {8, 9}, {6, 8, 9}]
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+set_option synthInstance.maxSize 10000 in
+lemma finite_supports : ∀ S : Finset V, S.Nonempty → S ⊆ {3,4,5,6,7,8,9} →
+    (∀ k : Fin 10, ¬ (left k ∈ S ∧ right k ∈ S)) → S ∈ supports := by
+  decide +kernel
+
+end PEqualNP.Outside.L_meta_2590_aux.I2ForbiddenPairs
+
+namespace PEqualNP.Outside.L_meta_2590_aux
+
+open DagTools
+
+lemma petersen_single_one_residual_decomposition {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (hone : ((residualUnits 10 D b).filter
+      (fun u => (1 : V) ∈ supp 10 D u.1)).card ≤ 1) :
+    ∃ u v : Σ _ : ℕ, ℕ, u ≠ v ∧ residualUnits 10 D b = {u,v} ∧
+      supp 10 D u.1 = {(1 : V)} ∧ supp 10 D v.1 ∈ I2ForbiddenPairs.supports := by
+  classical
+  obtain ⟨u,hu,hu1⟩ := common_neighbor_residual h hc b hb h0 h2
+  have hpos : 0 < ((residualUnits 10 D b).filter
+      (fun u => (1 : V) ∈ supp 10 D u.1)).card :=
+    Finset.card_pos.mpr ⟨u, Finset.mem_filter.mpr ⟨hu,hu1⟩⟩
+  have hone' : ((residualUnits 10 D b).filter
+      (fun u => (1 : V) ∈ supp 10 D u.1)).card = 1 := by omega
+  obtain ⟨hz,hcard,_⟩ := petersen_two_ineligible_code_caps h hc small two h0 h2 b hb
+  have herase : ((residualUnits 10 D b).erase u).card = 1 := by
+    rw [Finset.card_erase_of_mem hu, hcard]
+  obtain ⟨v,hv⟩ := Finset.card_eq_one.mp herase
+  have hvm : v ∈ (residualUnits 10 D b).erase u := by rw [hv]; simp
+  have hvne : v ≠ u := (Finset.mem_erase.mp hvm).1
+  have hvr : v ∈ residualUnits 10 D b := (Finset.mem_erase.mp hvm).2
+  have hres : residualUnits 10 D b = {u,v} := by
+    rw [← Finset.insert_erase hu, hv]
+  have hus := petersen_single_one_residual_support h hc small two h0 h2 b hb hone' hu hu1
+  have hv1 : (1 : V) ∉ supp 10 D v.1 := by
+    intro hv1
+    exact hvne (Finset.card_le_one.mp hone v (Finset.mem_filter.mpr ⟨hvr,hv1⟩)
+      u (Finset.mem_filter.mpr ⟨hu,hu1⟩))
+  have hunit := (mem_units.mp
+    (Finset.mem_filter.mp (Finset.mem_sdiff.mp hvr).1).1).2
+  have hfan : 2 ≤ fanout D v.1 := by omega
+  have hnonempty : (supp 10 D v.1).Nonempty :=
+    (Finset.mem_filter.mp (Finset.mem_sdiff.mp hvr).1).2
+  have hnot (x : V) (hx : x ∈ ineligSet 10 D) : x ∉ supp 10 D v.1 := by
+    intro hxs
+    exact (sem_mem_inelig.mp hx) (mem_eligSet.mpr ⟨v.1,hfan,hxs⟩)
+  have hsub : supp 10 D v.1 ⊆ ({3,4,5,6,7,8,9} : Finset V) := by
+    have hpart : ∀ x : V, x = 0 ∨ x = 1 ∨ x = 2 ∨ x ∈ ({3,4,5,6,7,8,9} : Finset V) := by
+      decide +kernel
+    intro x hx
+    rcases hpart x with rfl | rfl | rfl | hxset
+    · exact False.elim (hnot 0 h0 hx)
+    · exact False.elim (hv1 hx)
+    · exact False.elim (hnot 2 h2 hx)
+    · exact hxset
+  refine ⟨u,v,Ne.symm hvne,hres,hus,?_⟩
+  exact I2ForbiddenPairs.finite_supports _ hnonempty hsub
+    (I2ForbiddenPairs.other_support_avoids_pairs h hc hz b hb h0 h2 u v hres hus _ rfl)
+
+lemma residual_other_code {D : Dag} (b : V → ℕ) (u v : Σ _ : ℕ, ℕ)
+    (hres : residualUnits 10 D b = {u,v}) (hu : supp 10 D u.1 = {(1 : V)})
+    {x : V} (hx : x ≠ 1) :
+    (residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1) =
+      if x ∈ supp 10 D v.1 then {v} else ∅ := by
+  classical
+  rw [hres]
+  by_cases hv : x ∈ supp 10 D v.1 <;> simp [Finset.filter_insert, hu, hx, hv]
+
+end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux.PortCodes
+
+def bar (e : ℕ × Bool) : ℕ × Bool := (e.1, !e.2)
+
+def flip (s : ℕ) : ℕ := if s % 2 = 0 then s + 1 else s - 1
+
+def decode (r : ℕ → ℕ × Bool) (s : ℕ) : ℕ × Bool :=
+  if s % 2 = 0 then r (s / 2) else ((r (s / 2)).1, !(r (s / 2)).2)
+
+lemma bar_ne_self (e : ℕ × Bool) : bar e ≠ e := by
+  rcases e with ⟨a, b⟩
+  cases b <;> simp [bar]
+
+lemma decode_even (r : ℕ → ℕ × Bool) (a : ℕ) : decode r (2 * a) = r a := by
+  have hm : (2 * a) % 2 = 0 := by omega
+  have hd : (2 * a) / 2 = a := by omega
+  simp [decode, hm, hd]
+
+lemma decode_odd (r : ℕ → ℕ × Bool) (a : ℕ) :
+    decode r (2 * a + 1) = ((r a).1, !(r a).2) := by
+  have hm : (2 * a + 1) % 2 ≠ 0 := by omega
+  have hd : (2 * a + 1) / 2 = a := by omega
+  simp [decode, hm, hd]
+
+lemma decode_fst (r : ℕ → ℕ × Bool) (s : ℕ) :
+    (decode r s).1 = (r (s / 2)).1 := by
+  unfold decode
+  split_ifs <;> rfl
+
+lemma flip_div_two (s : ℕ) : flip s / 2 = s / 2 := by
+  unfold flip
+  split_ifs <;> omega
+
+lemma flip_lt {k s : ℕ} (hs : s < 2 * k) : flip s < 2 * k := by
+  unfold flip
+  split_ifs <;> omega
+
+lemma decode_flip (r : ℕ → ℕ × Bool) (s : ℕ) :
+    decode r (flip s) = bar (decode r s) := by
+  by_cases hs : s % 2 = 0
+  · have hflip : flip s % 2 ≠ 0 := by
+      rw [flip, if_pos hs]
+      omega
+    simp [decode, hs, hflip, flip_div_two, bar]
+  · have hflip : flip s % 2 = 0 := by
+      rw [flip, if_neg hs]
+      omega
+    simp [decode, hs, hflip, flip_div_two, bar]
+
+lemma decode_injective_below (k : ℕ) (r : ℕ → ℕ × Bool)
+    (hr : ∀ a < k, ∀ b < k, (r a).1 = (r b).1 → a = b)
+    {s t : ℕ} (hs : s < 2 * k) (ht : t < 2 * k)
+    (he : decode r s = decode r t) : s = t := by
+  have hfst : (r (s / 2)).1 = (r (t / 2)).1 := by
+    simpa only [decode_fst] using congrArg Prod.fst he
+  have hd : s / 2 = t / 2 := hr (s / 2) (by omega) (t / 2) (by omega) hfst
+  by_cases hs0 : s % 2 = 0
+  · by_cases ht0 : t % 2 = 0
+    · omega
+    · have hbad : r (s / 2) = bar (r (s / 2)) := by
+        simpa [decode, hs0, ht0, ← hd, bar] using he
+      exact False.elim (bar_ne_self _ hbad.symm)
+  · by_cases ht0 : t % 2 = 0
+    · have hbad : bar (r (s / 2)) = r (s / 2) := by
+        simpa [decode, hs0, ht0, ← hd, bar] using he
+      exact False.elim (bar_ne_self _ hbad)
+    · omega
+
+end PEqualNP.Outside.L_meta_2590_aux.PortCodes
+
+namespace PEqualNP.Outside.L_meta_2590_aux.PortCodes
+
+def groups (a : List ℕ) : ℕ := a.foldl (fun k c => max k (c / 2 + 1)) 0
+
+def Growth (a : List ℕ) : Prop :=
+  ∀ (i : ℕ) (hi : i < a.length), a[i] ≤ 2 * groups (a.take i)
+
+lemma groups_snoc (a : List ℕ) (c : ℕ) :
+    groups (a ++ [c]) = max (groups a) (c / 2 + 1) := by
+  simp [groups, List.foldl_append]
+
+lemma growth_snoc {a : List ℕ} (ha : Growth a) {c : ℕ}
+    (hc : c ≤ 2 * groups a) : Growth (a ++ [c]) := by
+  intro i hi
+  by_cases hia : i < a.length
+  · simpa only [List.getElem_append_left hia,
+      List.take_append_of_le_length (Nat.le_of_lt hia)] using ha i hia
+  · have hieq : i = a.length := by simp only [List.length_append, List.length_singleton] at hi; omega
+    subst i
+    simpa using hc
+
+lemma extend_reps (r : ℕ → ℕ × Bool) (k : ℕ)
+    (hinj : ∀ i j, i < k → j < k → (r i).1 = (r j).1 → i = j)
+    (e : ℕ × Bool) :
+    ∃ c : ℕ, ∃ r' : ℕ → ℕ × Bool,
+      c ≤ 2 * k ∧ (∀ i, i < k → r' i = r i) ∧ decode r' c = e ∧
+      ∀ i j, i < max k (c / 2 + 1) → j < max k (c / 2 + 1) →
+        (r' i).1 = (r' j).1 → i = j := by
+  classical
+  by_cases hex : ∃ j, j < k ∧ (r j).1 = e.1
+  · obtain ⟨j, hj, he⟩ := hex
+    by_cases hs : (r j).2 = e.2
+    · refine ⟨2 * j, r, by omega, fun _ _ => rfl, ?_, ?_⟩
+      · rw [decode_even]
+        exact Prod.ext he hs
+      · have hm : max k ((2 * j) / 2 + 1) = k := by omega
+        simpa only [hm] using hinj
+    · refine ⟨2 * j + 1, r, by omega, fun _ _ => rfl, ?_, ?_⟩
+      · rw [decode_odd]
+        apply Prod.ext
+        · exact he
+        · cases h1 : (r j).2 <;> cases h2 : e.2 <;> simp_all
+      · have hm : max k ((2 * j + 1) / 2 + 1) = k := by omega
+        simpa only [hm] using hinj
+  · let r' : ℕ → ℕ × Bool := fun i => if i = k then e else r i
+    have old (i : ℕ) (hi : i < k) : r' i = r i := by
+      simp only [r', if_neg (show i ≠ k by omega)]
+    have new : r' k = e := by simp only [r', if_pos rfl]
+    refine ⟨2 * k, r', by omega, old, ?_, ?_⟩
+    · rw [decode_even, new]
+    · have hm : max k ((2 * k) / 2 + 1) = k + 1 := by omega
+      intro i j hi hj he
+      rw [hm] at hi hj
+      by_cases hik : i = k
+      · subst i
+        by_cases hjk : j = k
+        · exact hjk.symm
+        · have hjlt : j < k := by omega
+          rw [new, old j hjlt] at he
+          exact False.elim (hex ⟨j, hjlt, he.symm⟩)
+      · have hilt : i < k := by omega
+        by_cases hjk : j = k
+        · subst j
+          rw [old i hilt, new] at he
+          exact False.elim (hex ⟨i, hilt, he⟩)
+        · have hjlt : j < k := by omega
+          rw [old i hilt, old j hjlt] at he
+          exact hinj i j hilt hjlt he
+
+lemma normalize (es : List (ℕ × Bool)) :
+    ∃ a : List ℕ, ∃ r : ℕ → ℕ × Bool,
+      a.map (decode r) = es ∧ Growth a ∧
+      (∀ c ∈ a, c < 2 * groups a) ∧
+      (∀ i j, i < groups a → j < groups a → (r i).1 = (r j).1 → i = j) := by
+  induction es using List.reverseRecOn with
+  | nil =>
+    refine ⟨[], fun _ => (0, false), rfl, ?_, by simp, ?_⟩
+    · intro i hi
+      simp at hi
+    · simp [groups]
+  | append_singleton es e ih =>
+    obtain ⟨a, r, hmap, hgrowth, hbound, hinj⟩ := ih
+    obtain ⟨c, r', hc, hold, hnew, hinj'⟩ := extend_reps r (groups a) hinj e
+    have hdecode (v : ℕ) (hv : v ∈ a) : decode r' v = decode r v := by
+      have hsmall := hbound v hv
+      have hvgroup : v / 2 < groups a := by omega
+      simp only [decode, hold _ hvgroup]
+    refine ⟨a ++ [c], r', ?_, growth_snoc hgrowth hc, ?_, ?_⟩
+    · rw [List.map_append, List.map_singleton, hnew]
+      have hm : a.map (decode r') = a.map (decode r) := List.map_congr_left hdecode
+      rw [hm, hmap]
+    · intro v hv
+      rw [groups_snoc]
+      rcases List.mem_append.mp hv with hv | hv
+      · have hb := hbound v hv
+        have hm := le_max_left (groups a) (c / 2 + 1)
+        omega
+      · have hv : v = c := List.mem_singleton.mp hv
+        subst v
+        have hm := le_max_right (groups a) (c / 2 + 1)
+        omega
+    · simpa only [groups_snoc] using hinj'
+
+end PEqualNP.Outside.L_meta_2590_aux.PortCodes
+
+namespace PEqualNP.Outside.L_meta_2590_aux.PortCodes
+
+lemma growth_snoc_parts {a : List ℕ} {c : ℕ} (ha : Growth (a ++ [c])) :
+    Growth a ∧ c ≤ 2 * groups a := by
+  constructor
+  · intro i hi
+    have hi' : i < (a ++ [c]).length := by
+      simp only [List.length_append, List.length_singleton]
+      omega
+    simpa only [List.getElem_append_left hi,
+      List.take_append_of_le_length (Nat.le_of_lt hi)] using ha i hi'
+  · have hlast : a.length < (a ++ [c]).length := by simp
+    simpa using ha a.length hlast
+
+lemma groups_dense (a : List ℕ) (ha : Growth a) :
+    ∀ j, j < groups a → ∃ c ∈ a, c / 2 = j := by
+  revert ha
+  induction a using List.reverseRecOn with
+  | nil =>
+    intro _ j hj
+    simp [groups] at hj
+  | append_singleton a c ih =>
+    intro ha j hj
+    obtain ⟨hprefix, hc⟩ := growth_snoc_parts ha
+    rw [groups_snoc] at hj
+    by_cases hold : j < groups a
+    · obtain ⟨d, hd, hdj⟩ := ih hprefix j hold
+      exact ⟨d, List.mem_append.mpr (Or.inl hd), hdj⟩
+    · have hcj : c / 2 = j := by omega
+      exact ⟨c, by simp, hcj⟩
+
+lemma groups_le_length (a : List ℕ) (ha : Growth a) : groups a ≤ a.length := by
+  revert ha
+  induction a using List.reverseRecOn with
+  | nil =>
+    intro _
+    simp [groups]
+  | append_singleton a c ih =>
+    intro ha
+    obtain ⟨hprefix, hc⟩ := growth_snoc_parts ha
+    have hlen := ih hprefix
+    rw [groups_snoc, List.length_append, List.length_singleton]
+    omega
+
+lemma representatives_avoid (a : List ℕ) (r : ℕ → ℕ × Bool)
+    (es : List (ℕ × Bool)) (fixedID : ℕ)
+    (hmap : a.map (decode r) = es) (ha : Growth a)
+    (havoid : ∀ e ∈ es, e.1 ≠ fixedID) :
+    ∀ j, j < groups a → (r j).1 ≠ fixedID := by
+  intro j hj
+  obtain ⟨c, hca, hcj⟩ := groups_dense a ha j hj
+  have he : decode r c ∈ es := by
+    rw [← hmap]
+    exact List.mem_map.mpr ⟨c, hca, rfl⟩
+  have hne := havoid (decode r c) he
+  simpa only [decode_fst, hcj] using hne
+
+end PEqualNP.Outside.L_meta_2590_aux.PortCodes
+
+namespace PEqualNP.Outside.L_meta_2590_aux.PortCodes
+
+def fixedReps (A B : ℕ × Bool) (r : ℕ → ℕ × Bool) : ℕ → ℕ × Bool
+  | 0 => A
+  | 1 => B
+  | j + 2 => r j
+
+lemma fixedReps_injective (A B : ℕ × Bool) (r : ℕ → ℕ × Bool) (k : ℕ)
+    (hAB : A.1 ≠ B.1)
+    (hA : ∀ i < k, (r i).1 ≠ A.1) (hB : ∀ i < k, (r i).1 ≠ B.1)
+    (hr : ∀ i j, i < k → j < k → (r i).1 = (r j).1 → i = j) :
+    ∀ i j, i < k + 2 → j < k + 2 →
+      (fixedReps A B r i).1 = (fixedReps A B r j).1 → i = j := by
+  intro i j hi hj he
+  cases i with
+  | zero =>
+    cases j with
+    | zero => rfl
+    | succ j =>
+      cases j with
+      | zero => exact False.elim (hAB he)
+      | succ j => exact False.elim (hA j (by omega) he.symm)
+  | succ i =>
+    cases i with
+    | zero =>
+      cases j with
+      | zero => exact False.elim (hAB he.symm)
+      | succ j =>
+        cases j with
+        | zero => rfl
+        | succ j => exact False.elim (hB j (by omega) he.symm)
+    | succ i =>
+      cases j with
+      | zero => exact False.elim (hA i (by omega) he)
+      | succ j =>
+        cases j with
+        | zero => exact False.elim (hB i (by omega) he)
+        | succ j =>
+          have hij := hr i j (by omega) (by omega) he
+          omega
+
+lemma decode_fixed_zero (A B : ℕ × Bool) (r : ℕ → ℕ × Bool) :
+    decode (fixedReps A B r) 0 = A := by
+  simpa [fixedReps] using decode_even (fixedReps A B r) 0
+
+lemma decode_fixed_one (A B : ℕ × Bool) (r : ℕ → ℕ × Bool) :
+    decode (fixedReps A B r) 1 = bar A := by
+  simpa [fixedReps, bar] using decode_odd (fixedReps A B r) 0
+
+lemma decode_fixed_two (A B : ℕ × Bool) (r : ℕ → ℕ × Bool) :
+    decode (fixedReps A B r) 2 = B := by
+  simpa [fixedReps] using decode_even (fixedReps A B r) 1
+
+lemma decode_fixed_three (A B : ℕ × Bool) (r : ℕ → ℕ × Bool) :
+    decode (fixedReps A B r) 3 = bar B := by
+  simpa [fixedReps, bar] using decode_odd (fixedReps A B r) 1
+
+lemma decode_fixed_add_four (A B : ℕ × Bool) (r : ℕ → ℕ × Bool) (s : ℕ) :
+    decode (fixedReps A B r) (s + 4) = decode r s := by
+  have hd : (s + 4) / 2 = s / 2 + 2 := by omega
+  have hm : (s + 4) % 2 = s % 2 := by omega
+  simp only [decode, hd, hm, fixedReps]
+
+end PEqualNP.Outside.L_meta_2590_aux.PortCodes
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+abbrev V := Fin 10
+abbrev P := Fin 22
+
+def bar (p : P) : P := ⟨2 * (p.val / 2) + (1 - p.val % 2), by omega⟩
+def toggle (c : Nat) : Nat := 2 * (c / 2) + (1 - c % 2)
+def freeEdges : List (V × V) :=
+  [(1,6),(3,4),(3,8),(5,7),(7,9),(4,9),(5,8),(6,8),(6,9)]
+def decode (n : Nat) : Finset V := Finset.univ.filter fun v => n / 2 ^ v.val % 2 = 1
+
+def lower (a : List Nat) (p : P) : Finset V :=
+  if p.val < 4 then decode (([1,50,4,138] : List Nat).getD p.val 0)
+  else ((a.zip freeEdges).flatMap fun z =>
+    if z.1 + 4 = p.val then [z.2.1]
+    else if toggle z.1 + 4 = p.val then [z.2.2]
+    else []).toFinset
+
+def selected (a : List Nat) (v : V) : Finset P :=
+  Finset.univ.filter fun p => v ∈ lower a p
+
+def budget (S : Finset V) (v : V) : Nat :=
+  if v = 0 ∨ v = 2 then 1 else if v = 1 then 3 else 2 + if v ∈ S then 1 else 0
+
+def row (r : Fin 15) : Finset V :=
+  decode ((![50,69,104,116,138,201,208,276,385,402,521,548,554,770,773] : Fin 15 → Nat) r)
+def neighbors (v : V) : Finset V :=
+  decode ((![50,69,138,276,521,385,770,548,104,208] : Fin 10 → Nat) v)
+abbrev touches (v : V) (r : Fin 15) : Prop := ¬ Disjoint (neighbors v) (row r)
+
+abbrev omits (a : List Nat) (p : P) (y : V) : Prop :=
+  if p.val < 4 then y ∉ lower a p else y ∈ lower a (bar p)
+
+def triples (a : List Nat) : Finset V :=
+  Finset.univ.filter fun v => 3 ≤ v.val ∧ (selected a v).card = 3
+
+def common (a : List Nat) : Finset P :=
+  Finset.univ.filter fun p => ∀ v ∈ triples a, p ∈ selected a v
+
+abbrev Conditions (S : Finset V) (a : List Nat) : Prop :=
+  (∀ p, Disjoint (lower a p) (lower a (bar p))) ∧
+  (∀ v, (selected a v).card ≤ budget S v) ∧
+  (∀ v, (selected a v).card = budget S v → ∀ r, touches v r →
+    ∃ p ∈ selected a v, Disjoint (lower a p) (row r)) ∧
+  (∀ x ∈ S, ∀ y ∈ S, x ≠ y → ∀ p ∈ selected a x, ∀ q ∈ selected a x,
+    p ≠ q → ¬ (omits a p y ∧ omits a q y)) ∧
+  ((triples a).Nonempty → 2 ≤ (common a).card)
+
+set_option synthInstance.maxSize 100000 in
+def valid (S : Finset V) (a : List Nat) : Bool :=
+  @decide (Conditions S a) (by unfold Conditions touches omits; infer_instance)
+
+lemma valid_iff (S : Finset V) (a : List Nat) : valid S a = true ↔ Conditions S a := by
+  unfold valid
+  simp only [decide_eq_true_eq]
+def groups (a : List Nat) : Nat := a.foldl (fun k c => max k (c / 2 + 1)) 0
+
+def search (S : Finset V) : Nat → List Nat → List (List Nat)
+  | 0, a => if valid S a then [a] else []
+  | n + 1, a => if valid S a then
+      (List.range (2 * groups a + 1)).flatMap fun c => search S n (a ++ [c])
+    else []
+
+def Admissible (S : Finset V) : List Nat → List Nat → Prop
+  | p, [] => Conditions S p
+  | p, c :: cs => Conditions S p ∧ c < 2 * groups p + 1 ∧ Admissible S (p ++ [c]) cs
+
+lemma admissible_mem_search (S : Finset V) (p a : List Nat) (ha : Admissible S p a) :
+    p ++ a ∈ search S a.length p := by
+  induction a generalizing p with
+  | nil =>
+    have hp : valid S p = true := (valid_iff S p).mpr ha
+    simp [search, hp]
+  | cons c cs ih =>
+    rcases ha with ⟨hp, hc, ht⟩
+    have hv : valid S p = true := (valid_iff S p).mpr hp
+    simp only [List.length_cons, search, hv, ↓reduceIte]
+    apply List.mem_flatMap.mpr
+    refine ⟨c, List.mem_range.mpr hc, ?_⟩
+    simpa only [List.append_assoc, List.singleton_append] using ih (p ++ [c]) ht
+
+def support (i : Fin 19) : Finset V :=
+  decode ((![8,16,24,32,48,64,128,136,160,256,264,288,320,512,528,576,640,768,832] : Fin 19 → Nat) i)
+def pattern45 : List Nat := [0,2,2,4,5,6,6,6,6]
+def pattern37 : List Nat := [0,2,4,6,4,3,6,4,4]
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_0 : search (support 0) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_1 : search (support 1) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_2 : search (support 2) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_3 : search (support 3) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_4 : search (support 4) 9 [] = [pattern45] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_5 : search (support 5) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_6 : search (support 6) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_7 : search (support 7) 9 [] = [pattern37] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_8 : search (support 8) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_9 : search (support 9) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_10 : search (support 10) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_11 : search (support 11) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_12 : search (support 12) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_13 : search (support 13) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_14 : search (support 14) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_15 : search (support 15) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_16 : search (support 16) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_17 : search (support 17) 9 [] = [] := by decide +kernel
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma search_18 : search (support 18) 9 [] = [] := by decide +kernel
+
+lemma search_result (i : Fin 19) : search (support i) 9 [] =
+    if i = 4 then [pattern45] else if i = 7 then [pattern37] else [] := by
+  fin_cases i
+  · exact search_0
+  · exact search_1
+  · exact search_2
+  · exact search_3
+  · exact search_4
+  · exact search_5
+  · exact search_6
+  · exact search_7
+  · exact search_8
+  · exact search_9
+  · exact search_10
+  · exact search_11
+  · exact search_12
+  · exact search_13
+  · exact search_14
+  · exact search_15
+  · exact search_16
+  · exact search_17
+  · exact search_18
+
+lemma classified (S : Finset V) (a : List Nat) (hS : ∃ i, S = support i)
+    (ha : Admissible S [] a) (hlen : a.length = 9) :
+    (S = support 4 ∧ a = pattern45) ∨ (S = support 7 ∧ a = pattern37) := by
+  obtain ⟨i, rfl⟩ := hS
+  have hm := admissible_mem_search (support i) [] a ha
+  simp only [List.nil_append, hlen] at hm
+  rw [search_result] at hm
+  split_ifs at hm with h4 h7
+  · subst i
+    exact Or.inl ⟨rfl, List.mem_singleton.mp hm⟩
+  · subst i
+    exact Or.inr ⟨rfl, List.mem_singleton.mp hm⟩
+  · simp at hm
+
+lemma admissible_of_prefix_conditions (S : Finset V) (p a : List Nat)
+    (hc : ∀ b c, b ++ c = a → Conditions S (p ++ b))
+    (hg : ∀ b c d, b ++ c :: d = a → c < 2 * groups (p ++ b) + 1) :
+    Admissible S p a := by
+  induction a generalizing p with
+  | nil =>
+    change Conditions S p
+    simpa using hc [] [] rfl
+  | cons c cs ih =>
+    refine ⟨?_, ?_, ?_⟩
+    · simpa using hc [] (c :: cs) rfl
+    · simpa using hg [] c cs rfl
+    · apply ih (p ++ [c])
+      · intro b d hbd
+        simpa only [List.append_assoc, List.singleton_append] using hc (c :: b) d (by simp [hbd])
+      · intro b d es hbd
+        simpa only [List.append_assoc, List.singleton_append] using hg (c :: b) d es (by simp [hbd])
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+lemma toggle_eq_flip (c : Nat) : toggle c = PortCodes.flip c := by
+  unfold toggle PortCodes.flip
+  split_ifs <;> omega
+
+lemma groups_eq_portGroups (a : List Nat) : groups a = PortCodes.groups a := rfl
+
+lemma admissible_of_growth (S : Finset V) (a : List Nat) (hg : PortCodes.Growth a)
+    (hc : ∀ i, i ≤ a.length → Conditions S (a.take i)) : Admissible S [] a := by
+  apply admissible_of_prefix_conditions S [] a
+  · intro b c he
+    have hb : b.length ≤ a.length := by rw [← he]; simp
+    have ht : a.take b.length = b := by rw [← he]; simp
+    simpa only [List.nil_append, ht] using hc b.length hb
+  · intro b c d he
+    have hb : b.length < a.length := by rw [← he]; simp
+    have ht : a.take b.length = b := by rw [← he]; simp
+    have hi : a[b.length] = c := by simp [← he]
+    have hh := hg b.length hb
+    rw [hi, ht] at hh
+    change c < 2 * PortCodes.groups b + 1
+    omega
+
+lemma support_list_eq : List.ofFn support = I2ForbiddenPairs.supports := by decide +kernel
+
+lemma support_exists_of_mem {S : Finset V} (hS : S ∈ I2ForbiddenPairs.supports) :
+    ∃ i, S = support i := by
+  rw [← support_list_eq] at hS
+  obtain ⟨i, hi⟩ := List.mem_ofFn.mp hS
+  exact ⟨i, hi.symm⟩
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+def lower45 : P → Finset V :=
+  ![{0},{1,4,5},{2},{1,3,7},{1},{6},{3},{4,8},{5,9},{7},{4,5,6},{8,9},
+    ∅,∅,∅,∅,∅,∅,∅,∅,∅,∅]
+def lower37 : P → Finset V :=
+  ![{0},{1,4,5},{2},{1,3,7},{1},{6},{3,9},{4},{3,6,7},{8,9},{5},{7,8},
+    ∅,∅,∅,∅,∅,∅,∅,∅,∅,∅]
+
+set_option synthInstance.maxSize 100000 in
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma geometry45 : support 4 = {4,5} ∧ groups pattern45 = 4 ∧
+    (∀ p, lower pattern45 p = lower45 p) ∧
+    (∀ v, (selected pattern45 v).card = budget (support 4) v) ∧
+    (∀ p, (lower pattern45 p).Nonempty ↔ p.val < 12) := by decide +kernel
+
+set_option synthInstance.maxSize 100000 in
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma geometry37 : support 7 = {3,7} ∧ groups pattern37 = 4 ∧
+    (∀ p, lower pattern37 p = lower37 p) ∧
+    (∀ v, (selected pattern37 v).card = budget (support 7) v) ∧
+    (∀ p, (lower pattern37 p).Nonempty ↔ p.val < 12) := by decide +kernel
+
+lemma classified_geometry (S : Finset V) (a : List Nat) (hS : ∃ i, S = support i)
+    (ha : Admissible S [] a) (hlen : a.length = 9) :
+    groups a = 4 ∧ (∀ v, (selected a v).card = budget S v) ∧
+    (∀ p, (lower a p).Nonempty ↔ p.val < 12) ∧
+    ((S = {4,5} ∧ ∀ p, lower a p = lower45 p) ∨
+     (S = {3,7} ∧ ∀ p, lower a p = lower37 p)) := by
+  rcases classified S a hS ha hlen with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+  · exact ⟨geometry45.2.1, geometry45.2.2.2.1, geometry45.2.2.2.2,
+      Or.inl ⟨geometry45.1, geometry45.2.2.1⟩⟩
+  · exact ⟨geometry37.2.1, geometry37.2.2.2.1, geometry37.2.2.2.2,
+      Or.inr ⟨geometry37.1, geometry37.2.2.1⟩⟩
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma same_residual_omitting_exits_equal {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
+    (b : Fin n → ℕ) (hb : PureBranch n D b)
+    {x y : Fin n} (hxy : x ≠ y) (u0 : Σ _ : ℕ, ℕ)
+    (hxcode : ((residualUnits n D b).filter (fun u => x ∈ supp n D u.1)) = {u0})
+    (hycode : ((residualUnits n D b).filter (fun u => y ∈ supp n D u.1)) = {u0}) :
+    ∀ e ∈ sem_W n D x, ∀ f ∈ sem_W n D x,
+      y ∉ supp n D (src D e) → y ∉ supp n D (src D f) → e = f := by
+  classical
+  have hxu0 : u0 ∈ (residualUnits n D b).filter (fun u => x ∈ supp n D u.1) := by
+    rw [hxcode]
+    exact Finset.mem_singleton_self _
+  have hyu0 : u0 ∈ (residualUnits n D b).filter (fun u => y ∈ supp n D u.1) := by
+    rw [hycode]
+    exact Finset.mem_singleton_self _
+  obtain ⟨hu0, hx0⟩ := Finset.mem_filter.mp hxu0
+  have hy0 : y ∈ supp n D u0.1 := (Finset.mem_filter.mp hyu0).2
+  have hunit := (mem_units.mp
+    (Finset.mem_filter.mp (Finset.mem_sdiff.mp hu0).1).1).2
+  have fan : 2 ≤ fanout D u0.1 := by omega
+  have eligible : x ∈ eligSet n D := mem_eligSet.mpr ⟨u0.1, fan, hx0⟩
+  have inclusion : ∀ u ∈ residualUnits n D b, x ∈ supp n D u.1 → y ∈ supp n D u.1 := by
+    intro u hu hxu
+    have hm : u ∈ (residualUnits n D b).filter (fun v => x ∈ supp n D v.1) :=
+      Finset.mem_filter.mpr ⟨hu, hxu⟩
+    rw [hxcode, Finset.mem_singleton] at hm
+    rw [hm]
+    exact hy0
+  obtain ⟨e0, he0⟩ := ri_gen hG h hC b hb hxy eligible inclusion ⟨hx0, hy0⟩
+  intro e he f hf hey hfy
+  have heq : e = e0 := by
+    by_contra hn
+    exact hey (he0 e he hn)
+  have hfq : f = e0 := by
+    by_contra hn
+    exact hfy (he0 f hf hn)
+  exact heq.trans hfq.symm
+
+lemma opposite_exit_omits {n : ℕ} {D : Dag} (hS : Strict n D)
+    {e : ℕ × Bool} {y : Fin n} (hbar : sem_bar e ∈ sem_W n D y) :
+    y ∉ supp n D (src D e) := by
+  intro hy
+  have he : e ∈ sem_W n D y :=
+    sem_mem_W.mpr ⟨(sem_mem_W.mp hbar).1, hy, (sem_mem_W.mp hbar).2.2⟩
+  exact sem_bar_ne e (W_gate_injective hS hbar he rfl)
+
+end PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+open DagTools
+
+lemma budget_and_shared_code {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (u1 u2 : Σ _ : ℕ, ℕ) (S : Finset V)
+    (hR : residualUnits 10 D b = {u1, u2})
+    (hs1 : supp 10 D u1.1 = {(1 : V)}) (hs2 : supp 10 D u2.1 = S)
+    (h1S : (1 : V) ∉ S) :
+    (∀ x ∈ S, (residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1) = {u2}) ∧
+      ∀ v : V, (sem_W 10 D v).card ≤ budget S v := by
+  classical
+  have code (v : V) (hv : v ≠ 1) :
+      ((residualUnits 10 D b).filter (fun u => v ∈ supp 10 D u.1)).card ≤
+        if v ∈ S then 1 else 0 := by
+    rw [hR]
+    by_cases hs : v ∈ S <;>
+      simp [Finset.filter_insert, Finset.filter_singleton, hs1, hs2, hv, hs]
+  have code1 : ((residualUnits 10 D b).filter
+      (fun u => (1 : V) ∈ supp 10 D u.1)).card ≤ 1 := by
+    rw [hR]
+    simp [Finset.filter_insert, Finset.filter_singleton, hs1, hs2, h1S]
+  refine ⟨?_, ?_⟩
+  · intro x hx
+    have hx1 : x ≠ 1 := by intro he; subst x; exact h1S hx
+    rw [hR]
+    simp [Finset.filter_insert, Finset.filter_singleton, hs1, hs2, hx1, hx]
+  · intro v
+    by_cases hi : v = 0 ∨ v = 2
+    · rcases hi with rfl | rfl
+      · have flow := sem_flow1 graph_ok h hc (0 : V)
+        rw [sem_inelig_surplus h0] at flow
+        have cap : (sem_W 10 D (0 : V)).card ≤ 1 := by omega
+        simpa [budget] using cap
+      · have flow := sem_flow1 graph_ok h hc (2 : V)
+        rw [sem_inelig_surplus h2] at flow
+        have cap : (sem_W 10 D (2 : V)).card ≤ 1 := by omega
+        simpa [budget] using cap
+    · have count := sem_code_count graph_ok h hc b hb v
+      have single : (({v} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+        (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+      by_cases hv1 : v = 1
+      · subst v
+        have cap : (sem_W 10 D (1 : V)).card ≤ 3 := by omega
+        simpa [budget] using cap
+      · have extra := code v hv1
+        have cap : (sem_W 10 D v).card ≤ 2 + if v ∈ S then 1 else 0 := by omega
+        simpa [budget, hi, hv1] using cap
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+open DagTools
+
+lemma row_independent : ∀ r : Fin 15, ∀ x ∈ row r, ∀ y ∈ row r, ¬ adj x y := by
+  decide +kernel
+
+lemma touches_neighbor : ∀ (v : V) (r : Fin 15), touches v r → ∃ x ∈ row r, adj v x := by
+  decide +kernel
+
+lemma conditions_of_semantics {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (b : V → ℕ) (hb : sem_MinBranch 10 D b)
+    (S : Finset V) (a : List Nat) (u0 : Σ _ : ℕ, ℕ)
+    (hcode : ∀ x ∈ S,
+      (residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1) = {u0})
+    (hbudget : ∀ v : V, (sem_W 10 D v).card ≤ budget S v)
+    (f : P → ℕ × Bool)
+    (hbar : ∀ p : P, f (bar p) = sem_bar (f p))
+    (hinj : ∀ p q : P, (lower a p).Nonempty → (lower a q).Nonempty →
+      f p = f q → p = q)
+    (hselected : ∀ (p : P) (v : V), v ∈ lower a p → f p ∈ sem_W 10 D v)
+    (hfixed : ∀ p : P, p.val < 4 → supp 10 D (src D (f p)) = lower a p) :
+    Conditions S a := by
+  classical
+  have selected_mem (v : V) (p : P) : p ∈ selected a v ↔ v ∈ lower a p := by
+    simp only [selected, Finset.mem_filter, Finset.mem_univ, true_and]
+  have label_sub (p : P) : lower a p ⊆ supp 10 D (src D (f p)) := by
+    intro v hv
+    exact (sem_mem_W.mp (hselected p v hv)).2.1
+  have image_sub (v : V) : (selected a v).image f ⊆ sem_W 10 D v := by
+    intro e he
+    obtain ⟨p, hp, rfl⟩ := Finset.mem_image.mp he
+    exact hselected p v ((selected_mem v p).mp hp)
+  have image_card (v : V) : ((selected a v).image f).card = (selected a v).card := by
+    apply Finset.card_image_of_injOn
+    intro p hp q hq he
+    exact hinj p q ⟨v, (selected_mem v p).mp hp⟩ ⟨v, (selected_mem v q).mp hq⟩ he
+  have selected_le (v : V) : (selected a v).card ≤ (sem_W 10 D v).card := by
+    rw [← image_card v]
+    exact Finset.card_le_card (image_sub v)
+  have image_eq (v : V) (hsat : (selected a v).card = budget S v) :
+      (selected a v).image f = sem_W 10 D v := by
+    apply Finset.eq_of_subset_of_card_le (image_sub v)
+    rw [image_card v, hsat]
+    exact hbudget v
+  have pullback (v : V) (hsat : (selected a v).card = budget S v)
+      (e : ℕ × Bool) (he : e ∈ sem_W 10 D v) :
+      ∃ p ∈ selected a v, f p = e := by
+    rw [← image_eq v hsat] at he
+    exact Finset.mem_image.mp he
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  · intro p
+    apply Finset.disjoint_left.mpr
+    intro v hv hvbar
+    have he := hselected p v hv
+    have hother := hselected (bar p) v hvbar
+    rw [hbar] at hother
+    have eq := W_gate_injective h.1 he hother rfl
+    exact sem_bar_ne (f p) eq.symm
+  · intro v
+    exact (selected_le v).trans (hbudget v)
+  · intro v hsat r htouch
+    obtain ⟨j, s, hj, _, hvs, hvout, hdis⟩ :=
+      sem_exposure graph_ok h.1 hc (row r) (row_independent r) v (touches_neighbor v r htouch)
+    have he : (j, s) ∈ sem_W 10 D v := sem_mem_W.mpr ⟨hj, hvs, hvout⟩
+    obtain ⟨p, hp, hpe⟩ := pullback v hsat (j, s) he
+    refine ⟨p, hp, Finset.disjoint_left.mpr ?_⟩
+    intro y hy hyr
+    have hys := label_sub p hy
+    rw [hpe] at hys
+    exact Finset.disjoint_left.mp hdis hys hyr
+  · intro x hx y hy hxy p hp q hq hpq homit
+    have omission (r : P) (hr : omits a r y) : y ∉ supp 10 D (src D (f r)) := by
+      by_cases hsmall : r.val < 4
+      · rw [hfixed r hsmall]
+        simpa only [omits, hsmall, ite_true] using hr
+      · have hyr : y ∈ lower a (bar r) := by
+          simpa only [omits, hsmall, ite_false] using hr
+        have hother := hselected (bar r) y hyr
+        rw [hbar] at hother
+        exact opposite_exit_omits h.1 hother
+    have eq : f p = f q := same_residual_omitting_exits_equal graph_ok h hc b
+      (sem_minBranch_pure hb) hxy u0 (hcode x hx) (hcode y hy)
+      (f p) (hselected p x ((selected_mem x p).mp hp))
+      (f q) (hselected q x ((selected_mem x q).mp hq))
+      (omission p homit.1) (omission q homit.2)
+    exact hpq (hinj p q ⟨x, (selected_mem x p).mp hp⟩
+      ⟨x, (selected_mem x q).mp hq⟩ eq)
+  · intro nonempty
+    have triple_facts (v : V) (hv : v ∈ triples a) :
+        v ∈ S ∧ (selected a v).card = budget S v ∧ 3 ≤ (sem_W 10 D v).card := by
+      have facts := (Finset.mem_filter.mp hv).2
+      have ne0 : v ≠ 0 := by intro eq; subst v; simp at facts
+      have ne1 : v ≠ 1 := by intro eq; subst v; simp at facts
+      have ne2 : v ≠ 2 := by intro eq; subst v; simp at facts
+      have inS : v ∈ S := by
+        by_contra hn
+        have bound := (selected_le v).trans (hbudget v)
+        simp only [budget, ne0, ne1, ne2, or_self, ite_false, hn] at bound
+        omega
+      refine ⟨inS, ?_, ?_⟩
+      · simpa only [budget, ne0, ne1, ne2, or_self, ite_false, inS, ite_true] using facts.2
+      · have bound := selected_le v
+        omega
+    obtain ⟨P0, Q0, hPQ, hall, _, _⟩ := sem_local_common_terminals_support
+      graph_ok h hc b hb (triples a) nonempty u0
+      (fun v hv => hcode v (triple_facts v hv).1)
+      (fun v hv => (triple_facts v hv).2.2)
+    obtain ⟨v0, hv0⟩ := nonempty
+    obtain ⟨p, hp, hpe⟩ := pullback v0 (triple_facts v0 hv0).2.1 P0 (hall v0 hv0).1
+    obtain ⟨q, hq, hqe⟩ := pullback v0 (triple_facts v0 hv0).2.1 Q0 (hall v0 hv0).2
+    have shared (r : P) (hr : r ∈ selected a v0) (e : ℕ × Bool) (hre : f r = e)
+        (he : ∀ v ∈ triples a, e ∈ sem_W 10 D v) : r ∈ common a := by
+      apply Finset.mem_filter.mpr
+      refine ⟨Finset.mem_univ _, ?_⟩
+      intro v hv
+      obtain ⟨r', hr', hr'e⟩ := pullback v (triple_facts v hv).2.1 e (he v hv)
+      have eq : r' = r := hinj r' r ⟨v, (selected_mem v r').mp hr'⟩
+        ⟨v0, (selected_mem v0 r).mp hr⟩ (hr'e.trans hre.symm)
+      exact eq ▸ hr'
+    have hpcommon := shared p hp P0 hpe (fun v hv => (hall v hv).1)
+    have hqcommon := shared q hq Q0 hqe (fun v hv => (hall v hv).2)
+    have hpq : p ≠ q := by
+      intro eq
+      have hsame : P0 = Q0 := hpe.symm.trans ((congrArg f eq).trans hqe)
+      exact hPQ (congrArg Prod.fst hsame)
+    have card : 1 < (common a).card := Finset.one_lt_card.mpr ⟨p, hpcommon, q, hqcommon, hpq⟩
+    omega
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+open DagTools
+
+lemma budget_flow_bound {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (u1 u2 : Σ _ : ℕ, ℕ) (S : Finset V)
+    (hR : residualUnits 10 D b = {u1, u2})
+    (hs1 : supp 10 D u1.1 = {(1 : V)}) (hs2 : supp 10 D u2.1 = S)
+    (h1S : (1 : V) ∉ S) :
+    ∀ v : V, 1 + (({v} : Finset V) ∩ eligSet 10 D).card +
+      ((residualUnits 10 D b).filter (fun u => v ∈ supp 10 D u.1)).card ≤ budget S v := by
+  classical
+  have code (v : V) (hv : v ≠ 1) :
+      ((residualUnits 10 D b).filter (fun u => v ∈ supp 10 D u.1)).card ≤
+        if v ∈ S then 1 else 0 := by
+    rw [hR]
+    by_cases hs : v ∈ S <;>
+      simp [Finset.filter_insert, Finset.filter_singleton, hs1, hs2, hv, hs]
+  have code1 : ((residualUnits 10 D b).filter
+      (fun u => (1 : V) ∈ supp 10 D u.1)).card ≤ 1 := by
+    rw [hR]
+    simp [Finset.filter_insert, Finset.filter_singleton, hs1, hs2, h1S]
+  intro v
+  by_cases hi : v = 0 ∨ v = 2
+  · rcases hi with rfl | rfl
+    · have flow := sem_flow1 graph_ok h hc (0 : V)
+      rw [sem_inelig_surplus h0] at flow
+      have count := sem_code_count graph_ok h hc b hb (0 : V)
+      rw [show budget S (0 : V) = 1 by simp [budget]]
+      omega
+    · have flow := sem_flow1 graph_ok h hc (2 : V)
+      rw [sem_inelig_surplus h2] at flow
+      have count := sem_code_count graph_ok h hc b hb (2 : V)
+      rw [show budget S (2 : V) = 1 by simp [budget]]
+      omega
+  · have single : (({v} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+      (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+    by_cases hv1 : v = 1
+    · subst v
+      rw [show budget S (1 : V) = 3 by simp [budget]]
+      omega
+    · have extra := code v hv1
+      rw [show budget S v = 2 + if v ∈ S then 1 else 0 by simp [budget, hi, hv1]]
+      omega
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+open DagTools
+
+def freePair (i : Fin 9) : V × V := freeEdges.getD i.val (0, 0)
+
+lemma free_pair_geometry : ∀ i : Fin 9,
+    adj (freePair i).1 (freePair i).2 ∧
+    (freePair i).1 ≠ 0 ∧ (freePair i).2 ≠ 0 ∧
+    (freePair i).1 ≠ 2 ∧ (freePair i).2 ≠ 2 := by
+  decide +kernel
+
+lemma free_ports_zip {D : Dag} (e : Fin 9 → ℕ × Bool)
+    (he : ∀ i : Fin 9, e i ∈ sem_W 10 D (freePair i).1 ∧
+      sem_bar (e i) ∈ sem_W 10 D (freePair i).2) :
+    ∀ z ∈ (List.ofFn e).zip freeEdges,
+      z.1 ∈ sem_W 10 D z.2.1 ∧ sem_bar z.1 ∈ sem_W 10 D z.2.2 := by
+  intro z hz
+  have zip_eq : (List.ofFn e).zip freeEdges =
+      List.ofFn (fun i : Fin 9 => (e i, freePair i)) := by rfl
+  rw [zip_eq] at hz
+  obtain ⟨i, rfl⟩ := List.mem_ofFn.mp hz
+  exact he i
+
+lemma edge_exit_avoids_pure_gate {D : Dag}
+    {e A : ℕ × Bool} {x y i : V}
+    (he : e ∈ sem_W 10 D x) (hbar : sem_bar e ∈ sem_W 10 D y)
+    (hpure : supp 10 D (src D A) = {i}) (hxi : x ≠ i) (hyi : y ≠ i) :
+    e.1 ≠ A.1 := by
+  intro eq
+  rcases sem_same_gate eq.symm with heq | heq
+  · have hm := (sem_mem_W.mp he).2.1
+    rw [heq, hpure, Finset.mem_singleton] at hm
+    exact hxi hm
+  · have hm := (sem_mem_W.mp hbar).2.1
+    rw [heq, sem_bar_bar, hpure, Finset.mem_singleton] at hm
+    exact hyi hm
+
+lemma actual_free_port_choice {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (hi : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D) :
+    ∃ A B : ℕ × Bool, ∃ e : Fin 9 → ℕ × Bool,
+      CleanStarAt 10 adj D (0 : V) A ∧ CleanStarAt 10 adj D (2 : V) B ∧
+      A.1 ≠ B.1 ∧
+      ∀ i : Fin 9,
+        e i ∈ sem_W 10 D (freePair i).1 ∧
+        sem_bar (e i) ∈ sem_W 10 D (freePair i).2 ∧
+        (e i).1 ≠ A.1 ∧ (e i).1 ≠ B.1 := by
+  classical
+  obtain ⟨⟨A, hA⟩, ⟨B, hB⟩⟩ := petersen_two_ineligible_clean_stars h hc small hi h0 h2
+  have pureA : supp 10 D (src D A) = {(0 : V)} := hA.2.2.1
+  have pureB : supp 10 D (src D B) = {(2 : V)} := hB.2.2.1
+  have oneA : (1 : V) ∈ supp 10 D (src D (sem_bar A)) :=
+    (hA.2.2.2.2.2.2.1 1).mpr (by decide)
+  have neAB : A.1 ≠ B.1 := by
+    intro eq
+    rcases sem_same_gate eq with heq | heq
+    · have zeroA : (0 : V) ∈ supp 10 D (src D A) := by rw [pureA]; simp
+      rw [← heq, pureB, Finset.mem_singleton] at zeroA
+      exact (by decide : (0 : V) ≠ 2) zeroA
+    · rw [← heq, pureB, Finset.mem_singleton] at oneA
+      exact (by decide : (1 : V) ≠ 2) oneA
+  have witnesses : ∀ i : Fin 9, ∃ e : ℕ × Bool,
+      e ∈ sem_W 10 D (freePair i).1 ∧ sem_bar e ∈ sem_W 10 D (freePair i).2 := by
+    intro i
+    obtain ⟨e, he, hbar, _, _, _⟩ := sem_edge_slots graph_ok h.1 hc (free_pair_geometry i).1
+    exact ⟨e, he, hbar⟩
+  choose e he using witnesses
+  refine ⟨A, B, e, hA, hB, neAB, ?_⟩
+  intro i
+  have geometry := (free_pair_geometry i).2
+  exact ⟨(he i).1, (he i).2,
+    edge_exit_avoids_pure_gate (he i).1 (he i).2 pureA geometry.1 geometry.2.1,
+    edge_exit_avoids_pure_gate (he i).1 (he i).2 pureB geometry.2.2.1 geometry.2.2.2⟩
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+lemma zip_fst_mem {α β : Type} (a : List α) :
+    ∀ (b : List β) (z : α × β), z ∈ a.zip b → z.1 ∈ a := by
+  induction a with
+  | nil =>
+    intro b z hz
+    simp at hz
+  | cons x a ih =>
+    intro b z hz
+    cases b with
+    | nil => simp at hz
+    | cons y b =>
+      change z ∈ (x, y) :: a.zip b at hz
+      rcases List.mem_cons.mp hz with he | hz
+      · rw [he]
+        exact List.mem_cons_self
+      · exact List.mem_cons_of_mem _ (ih b z hz)
+
+lemma lower_free_witness (a : List Nat) (p : P) (hp : 4 ≤ p.val)
+    {v : V} (hv : v ∈ lower a p) :
+    ∃ z ∈ a.zip freeEdges,
+      (z.1 + 4 = p.val ∧ v = z.2.1) ∨
+      (toggle z.1 + 4 = p.val ∧ v = z.2.2) := by
+  rw [lower, if_neg (by omega : ¬ p.val < 4)] at hv
+  have hv' : v ∈ (a.zip freeEdges).flatMap (fun z =>
+      if z.1 + 4 = p.val then [z.2.1]
+      else if toggle z.1 + 4 = p.val then [z.2.2]
+      else []) := by
+    simpa only [List.mem_toFinset] using hv
+  obtain ⟨z, hz, hvz⟩ := List.mem_flatMap.mp hv'
+  refine ⟨z, hz, ?_⟩
+  by_cases hfirst : z.1 + 4 = p.val
+  · exact Or.inl ⟨hfirst, by simpa [hfirst] using hvz⟩
+  · by_cases hsecond : toggle z.1 + 4 = p.val
+    · exact Or.inr ⟨hsecond, by simpa [hfirst, hsecond] using hvz⟩
+    · simp [hfirst, hsecond] at hvz
+
+lemma lower_nonempty_bound (a : List Nat)
+    (hcodes : ∀ c ∈ a, c < 2 * PortCodes.groups a)
+    (p : P) (hp : (lower a p).Nonempty) :
+    p.val < 4 + 2 * PortCodes.groups a := by
+  by_cases hsmall : p.val < 4
+  · omega
+  obtain ⟨v, hv⟩ := hp
+  obtain ⟨z, hz, hcase⟩ := lower_free_witness a p (by omega) hv
+  have hc := hcodes z.1 (zip_fst_mem a freeEdges z hz)
+  rcases hcase with ⟨he, _⟩ | ⟨he, _⟩
+  · omega
+  · have ht : toggle z.1 < 2 * PortCodes.groups a := by
+      rw [toggle_eq_flip]
+      exact PortCodes.flip_lt hc
+    omega
+
+lemma zip_take_mem {α β : Type} (i : ℕ) :
+    ∀ (a : List α) (b : List β) (z : α × β),
+      z ∈ (a.take i).zip b → z ∈ a.zip b := by
+  induction i with
+  | zero =>
+    intro a b z hz
+    simp at hz
+  | succ i ih =>
+    intro a b z hz
+    cases a with
+    | nil => simp at hz
+    | cons x a =>
+      cases b with
+      | nil => simp at hz
+      | cons y b =>
+        change z ∈ (x, y) :: (a.take i).zip b at hz
+        change z ∈ (x, y) :: a.zip b
+        rcases List.mem_cons.mp hz with hz | hz
+        · exact List.mem_cons.mpr (Or.inl hz)
+        · exact List.mem_cons.mpr (Or.inr (ih a b z hz))
+
+lemma lower_take_subset (a : List Nat) (i : ℕ) (p : P) :
+    lower (a.take i) p ⊆ lower a p := by
+  intro v hv
+  by_cases hp : p.val < 4
+  · simpa only [lower, if_pos hp] using hv
+  · rw [lower, if_neg hp] at hv ⊢
+    obtain ⟨z, hz, hzv⟩ := List.mem_flatMap.mp (List.mem_toFinset.mp hv)
+    exact List.mem_toFinset.mpr
+      (List.mem_flatMap.mpr ⟨z, zip_take_mem i a freeEdges z hz, hzv⟩)
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+open DagTools
+
+def fixedMap (A B : ℕ × Bool) (r : ℕ → ℕ × Bool) (p : P) : ℕ × Bool :=
+  PortCodes.decode (PortCodes.fixedReps A B r) p.val
+
+lemma fixedMap_bar (A B : ℕ × Bool) (r : ℕ → ℕ × Bool) (p : P) :
+    fixedMap A B r (bar p) = sem_bar (fixedMap A B r p) := by
+  have hp : (bar p).val = PortCodes.flip p.val := toggle_eq_flip p.val
+  simp only [fixedMap, hp, PortCodes.decode_flip]
+  rfl
+
+lemma fixedMap_injective_nonempty (a : List Nat) (A B : ℕ × Bool) (r : ℕ → ℕ × Bool)
+    (hcodes : ∀ c ∈ a, c < 2 * PortCodes.groups a)
+    (hAB : A.1 ≠ B.1)
+    (hA : ∀ i < PortCodes.groups a, (r i).1 ≠ A.1)
+    (hB : ∀ i < PortCodes.groups a, (r i).1 ≠ B.1)
+    (hr : ∀ i j, i < PortCodes.groups a → j < PortCodes.groups a →
+      (r i).1 = (r j).1 → i = j)
+    (p q : P) (hp : (lower a p).Nonempty) (hq : (lower a q).Nonempty)
+    (he : fixedMap A B r p = fixedMap A B r q) : p = q := by
+  have hrep := PortCodes.fixedReps_injective A B r (PortCodes.groups a) hAB hA hB hr
+  have hpbound := lower_nonempty_bound a hcodes p hp
+  have hqbound := lower_nonempty_bound a hcodes q hq
+  apply Fin.ext
+  exact PortCodes.decode_injective_below (PortCodes.groups a + 2)
+    (PortCodes.fixedReps A B r) (fun i hi j hj => hrep i j hi hj)
+    (by omega) (by omega) he
+
+lemma lower_fixed_zero (a : List Nat) : lower a (0 : P) = {0} := by change decode 1 = {0}; decide
+lemma lower_fixed_one (a : List Nat) : lower a (1 : P) = {1, 4, 5} := by change decode 50 = {1, 4, 5}; decide
+lemma lower_fixed_two (a : List Nat) : lower a (2 : P) = {2} := by change decode 4 = {2}; decide
+lemma lower_fixed_three (a : List Nat) : lower a (3 : P) = {1, 3, 7} := by change decode 138 = {1, 3, 7}; decide
+
+lemma fixedMap_fixed_data {D : Dag} (a : List Nat) (A B : ℕ × Bool) (r : ℕ → ℕ × Bool)
+    (hA : CleanStarAt 10 adj D (0 : V) A) (hB : CleanStarAt 10 adj D (2 : V) B)
+    (p : P) (hp : p.val < 4) :
+    (fixedMap A B r p).1 < D.length ∧
+      supp 10 D (src D (fixedMap A B r p)) = lower a p ∧
+      supp 10 D (10 + (fixedMap A B r p).1) = ∅ := by
+  obtain ⟨ha, _, hap, hao, _, _, han, _⟩ := hA
+  obtain ⟨hb, _, hbp, hbo, _, _, hbn, _⟩ := hB
+  have has : supp 10 D (src D (sem_bar A)) = {1, 4, 5} := by
+    ext v
+    rw [han v]
+    have hn : ∀ v : V, adj 0 v ↔ v ∈ ({1, 4, 5} : Finset V) := by decide
+    exact hn v
+  have hbs : supp 10 D (src D (sem_bar B)) = {1, 3, 7} := by
+    ext v
+    rw [hbn v]
+    have hn : ∀ v : V, adj 2 v ↔ v ∈ ({1, 3, 7} : Finset V) := by decide
+    exact hn v
+  by_cases hp0 : p.val = 0
+  · have heq : p = 0 := Fin.ext hp0
+    subst p
+    simpa only [fixedMap, PortCodes.decode_fixed_zero, lower_fixed_zero] using ⟨ha, hap, hao⟩
+  by_cases hp1 : p.val = 1
+  · have heq : p = 1 := Fin.ext hp1
+    subst p
+    simpa only [fixedMap, PortCodes.decode_fixed_one, lower_fixed_one, PortCodes.bar, sem_bar] using
+      ⟨ha, has, hao⟩
+  by_cases hp2 : p.val = 2
+  · have heq : p = 2 := Fin.ext hp2
+    subst p
+    simpa only [fixedMap, PortCodes.decode_fixed_two, lower_fixed_two] using ⟨hb, hbp, hbo⟩
+  have hp3 : p.val = 3 := by omega
+  have heq : p = 3 := Fin.ext hp3
+  subst p
+  simpa only [fixedMap, PortCodes.decode_fixed_three, lower_fixed_three, PortCodes.bar, sem_bar] using
+    ⟨hb, hbs, hbo⟩
+
+lemma fixedMap_selected {D : Dag} (a : List Nat) (A B : ℕ × Bool) (r : ℕ → ℕ × Bool)
+    (hA : CleanStarAt 10 adj D (0 : V) A) (hB : CleanStarAt 10 adj D (2 : V) B)
+    (hzip : ∀ z ∈ a.zip freeEdges,
+      PortCodes.decode r z.1 ∈ sem_W 10 D z.2.1 ∧
+      sem_bar (PortCodes.decode r z.1) ∈ sem_W 10 D z.2.2)
+    (p : P) (v : V) (hv : v ∈ lower a p) : fixedMap A B r p ∈ sem_W 10 D v := by
+  by_cases hp : p.val < 4
+  · obtain ⟨hgate, hsupport, hzero⟩ := fixedMap_fixed_data (D := D) a A B r hA hB p hp
+    apply sem_mem_W.mpr
+    refine ⟨hgate, hsupport.symm ▸ hv, ?_⟩
+    rw [hzero]
+    exact Finset.notMem_empty v
+  · obtain ⟨z, hz, hcase⟩ := lower_free_witness a p (by omega) hv
+    rcases hcase with ⟨he, rfl⟩ | ⟨he, rfl⟩
+    · simpa only [fixedMap, ← he, PortCodes.decode_fixed_add_four] using (hzip z hz).1
+    · simpa only [fixedMap, ← he, PortCodes.decode_fixed_add_four, toggle_eq_flip,
+        PortCodes.decode_flip, PortCodes.bar, sem_bar] using (hzip z hz).2
+
+lemma zip_map_fst_mem {α β γ : Type} (f : α → γ) (a : List α) :
+    ∀ (b : List β) (z : α × β), z ∈ a.zip b → (f z.1, z.2) ∈ (a.map f).zip b := by
+  induction a with
+  | nil => intro b z hz; simp at hz
+  | cons x a ih =>
+    intro b z hz
+    cases b with
+    | nil => simp at hz
+    | cons y b =>
+      change z ∈ (x, y) :: a.zip b at hz
+      change (f z.1, z.2) ∈ (f x, y) :: (a.map f).zip b
+      rcases List.mem_cons.mp hz with rfl | hz
+      · exact List.mem_cons_self
+      · exact List.mem_cons_of_mem _ (ih b z hz)
+
+lemma normalize_actual_ports {D : Dag} (A B : ℕ × Bool) (e : Fin 9 → ℕ × Bool)
+    (hA : CleanStarAt 10 adj D (0 : V) A) (hB : CleanStarAt 10 adj D (2 : V) B)
+    (hAB : A.1 ≠ B.1)
+    (he : ∀ i : Fin 9,
+      e i ∈ sem_W 10 D (freePair i).1 ∧ sem_bar (e i) ∈ sem_W 10 D (freePair i).2 ∧
+      (e i).1 ≠ A.1 ∧ (e i).1 ≠ B.1) :
+    ∃ a : List Nat, ∃ f : P → ℕ × Bool,
+      a.length = 9 ∧ PortCodes.Growth a ∧
+      (∀ p, f (bar p) = sem_bar (f p)) ∧
+      (∀ p q, (lower a p).Nonempty → (lower a q).Nonempty → f p = f q → p = q) ∧
+      (∀ p v, v ∈ lower a p → f p ∈ sem_W 10 D v) ∧
+      (∀ p, p.val < 4 → supp 10 D (src D (f p)) = lower a p) := by
+  obtain ⟨a, r, hmap, hgrowth, hcodes, hr⟩ := PortCodes.normalize (List.ofFn e)
+  have hlen : a.length = 9 := by simpa using congrArg List.length hmap
+  have avoidA := PortCodes.representatives_avoid a r (List.ofFn e) A.1 hmap hgrowth
+    (by intro z hz; obtain ⟨i, rfl⟩ := List.mem_ofFn.mp hz; exact (he i).2.2.1)
+  have avoidB := PortCodes.representatives_avoid a r (List.ofFn e) B.1 hmap hgrowth
+    (by intro z hz; obtain ⟨i, rfl⟩ := List.mem_ofFn.mp hz; exact (he i).2.2.2)
+  have hzip : ∀ z ∈ a.zip freeEdges,
+      PortCodes.decode r z.1 ∈ sem_W 10 D z.2.1 ∧
+      sem_bar (PortCodes.decode r z.1) ∈ sem_W 10 D z.2.2 := by
+    intro z hz
+    have hm := zip_map_fst_mem (PortCodes.decode r) a freeEdges z hz
+    rw [hmap] at hm
+    exact free_ports_zip (D := D) e (fun i => ⟨(he i).1, (he i).2.1⟩)
+      (PortCodes.decode r z.1, z.2) hm
+  refine ⟨a, fixedMap A B r, hlen, hgrowth, fixedMap_bar A B r, ?_, ?_, ?_⟩
+  · exact fixedMap_injective_nonempty a A B r hcodes hAB avoidA avoidB hr
+  · exact fixedMap_selected (D := D) a A B r hA hB hzip
+  · intro p hp
+    exact (fixedMap_fixed_data (D := D) a A B r hA hB p hp).2.1
+
+lemma map_properties_take {D : Dag} (a : List Nat) (f : P → ℕ × Bool)
+    (hinj : ∀ p q, (lower a p).Nonempty → (lower a q).Nonempty → f p = f q → p = q)
+    (hselected : ∀ p v, v ∈ lower a p → f p ∈ sem_W 10 D v)
+    (hfixed : ∀ p, p.val < 4 → supp 10 D (src D (f p)) = lower a p)
+    (i : ℕ) :
+    (∀ p q, (lower (a.take i) p).Nonempty → (lower (a.take i) q).Nonempty →
+      f p = f q → p = q) ∧
+    (∀ p v, v ∈ lower (a.take i) p → f p ∈ sem_W 10 D v) ∧
+    (∀ p, p.val < 4 → supp 10 D (src D (f p)) = lower (a.take i) p) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro p q hp hq he
+    apply hinj p q ?_ ?_ he
+    · obtain ⟨v, hv⟩ := hp
+      exact ⟨v, lower_take_subset a i p hv⟩
+    · obtain ⟨v, hv⟩ := hq
+      exact ⟨v, lower_take_subset a i q hv⟩
+  · intro p v hv
+    exact hselected p v (lower_take_subset a i p hv)
+  · intro p hp
+    simpa only [lower, if_pos hp] using hfixed p hp
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+open DagTools
+
+lemma saturated_actual_sources {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (S : Finset V) (a : List ℕ) (f : P → ℕ × Bool)
+    (hinj : ∀ p q, (lower a p).Nonempty → (lower a q).Nonempty → f p = f q → p = q)
+    (hselected : ∀ p v, v ∈ lower a p → f p ∈ sem_W 10 D v)
+    (hflow : ∀ v, 1 + (({v} : Finset V) ∩ eligSet 10 D).card +
+      ((residualUnits 10 D b).filter (fun u => v ∈ supp 10 D u.1)).card ≤ budget S v)
+    (hsat : ∀ v, (selected a v).card = budget S v) :
+    (∀ v, merges 10 D (carrierT 10 D {v}) = ∅) ∧
+    (∀ p, (lower a p).Nonempty → supp 10 D (src D (f p)) = lower a p) ∧
+    (∀ v, sem_W 10 D v = (selected a v).image f) := by
+  classical
+  have selected_mem (v : V) (p : P) : p ∈ selected a v ↔ v ∈ lower a p := by
+    simp only [selected, Finset.mem_filter, Finset.mem_univ, true_and]
+  have image_sub (v : V) : (selected a v).image f ⊆ sem_W 10 D v := by
+    intro e he
+    obtain ⟨p,hp,rfl⟩ := Finset.mem_image.mp he
+    exact hselected p v ((selected_mem v p).mp hp)
+  have image_card (v : V) : ((selected a v).image f).card = budget S v := by
+    rw [← hsat v]
+    apply Finset.card_image_of_injOn
+    intro p hp q hq he
+    exact hinj p q ⟨v,(selected_mem v p).mp hp⟩ ⟨v,(selected_mem v q).mp hq⟩ he
+  have paired (v : V) : sem_W 10 D v = (selected a v).image f ∧
+      merges 10 D (carrierT 10 D {v}) = ∅ := by
+    have count := sem_code_count graph_ok h hc b hb v
+    have flow := hflow v
+    have lowerBound := Finset.card_le_card (image_sub v)
+    rw [image_card v] at lowerBound
+    have hle : (sem_W 10 D v).card ≤ ((selected a v).image f).card := by
+      rw [image_card v]
+      omega
+    exact ⟨(Finset.eq_of_subset_of_card_le (image_sub v) hle).symm,
+      Finset.card_eq_zero.mp (by omega)⟩
+  have hm : ∀ v, merges 10 D (carrierT 10 D {v}) = ∅ := fun v => (paired v).2
+  refine ⟨hm, ?_, fun v => (paired v).1⟩
+  intro p hp
+  obtain ⟨x,hx⟩ := hp
+  have he := hselected p x hx
+  have hj := (sem_mem_W.mp he).1
+  have ht := sem_W_and h.1 he
+  ext v
+  constructor
+  · intro hv
+    have hw := (sem_sat_mem_W_iff_src h.1 hm hj ht v).mpr hv
+    rw [(paired v).1] at hw
+    obtain ⟨q,hq,heq⟩ := Finset.mem_image.mp hw
+    have hqv := (selected_mem v q).mp hq
+    have eq := hinj q p ⟨v,hqv⟩ ⟨x,hx⟩ heq
+    exact eq ▸ hqv
+  · intro hv
+    exact (sem_mem_W.mp (hselected p v hv)).2.1
+
+lemma saturated_actual_and_signature {D : Dag}
+    (hS : Strict 10 D) (a : List ℕ) (f : P → ℕ × Bool)
+    (hbar : ∀ p, f (bar p) = sem_bar (f p))
+    (hnonempty : ∀ p, (lower a p).Nonempty → (lower a (bar p)).Nonempty)
+    (hm : ∀ v, merges 10 D (carrierT 10 D {v}) = ∅)
+    (hfull : ∀ p, (lower a p).Nonempty → supp 10 D (src D (f p)) = lower a p)
+    (hW : ∀ v, sem_W 10 D v = (selected a v).image f)
+    {j : ℕ} (hj : j < D.length) (ht : tag D j = true) :
+    (∃ p, (lower a p).Nonempty ∧ f p = (j,false) ∧
+      supp 10 D (opA D j) = lower a p ∧ supp 10 D (opB D j) = lower a (bar p)) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅) := by
+  classical
+  have recover (e : ℕ × Bool) (he : e.1 < D.length) (ht : tag D e.1 = true)
+      (hsrc : (supp 10 D (src D e)).Nonempty) :
+      ∃ p, (lower a p).Nonempty ∧ f p = e := by
+    obtain ⟨v,hv⟩ := hsrc
+    have hw := (sem_sat_mem_W_iff_src hS hm he ht v).mpr hv
+    rw [hW v] at hw
+    obtain ⟨p,hp,hpe⟩ := Finset.mem_image.mp hw
+    exact ⟨p, ⟨v,(Finset.mem_filter.mp hp).2⟩,hpe⟩
+  have build (p : P) (hp : (lower a p).Nonempty) (he : f p = (j,false)) :
+      ∃ p, (lower a p).Nonempty ∧ f p = (j,false) ∧
+      supp 10 D (opA D j) = lower a p ∧ supp 10 D (opB D j) = lower a (bar p) := by
+    refine ⟨p,hp,he,?_,?_⟩
+    · simpa only [he,src,Bool.false_eq_true,ite_false] using hfull p hp
+    · have hbe := hbar p
+      rw [he] at hbe
+      simpa only [hbe,sem_bar,Bool.not_false,src,ite_true] using hfull (bar p) (hnonempty p hp)
+  by_cases ha : (supp 10 D (opA D j)).Nonempty
+  · obtain ⟨p,hp,he⟩ := recover (j,false) hj ht (by simpa [src] using ha)
+    exact Or.inl (build p hp he)
+  · by_cases hb : (supp 10 D (opB D j)).Nonempty
+    · obtain ⟨q,hq,he⟩ := recover (j,true) hj ht (by simpa [src] using hb)
+      have hbe : f (bar q) = (j,false) := by simpa [he,sem_bar] using hbar q
+      exact Or.inl (build (bar q) (hnonempty q hq) hbe)
+    · exact Or.inr ⟨Finset.not_nonempty_iff_eq_empty.mp ha,Finset.not_nonempty_iff_eq_empty.mp hb⟩
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux
+
+namespace S45.CausalBarrier
+
+abbrev Wire := Finset (Fin 10) × Bool
+
+def Safe (T : Finset (Fin 10)) (w : Wire) : Prop :=
+  w.2 = true → (w.1 ∩ T).Nonempty
+
+def Join (a b : Wire) : Wire := (a.1 ∪ b.1, a.2 || b.2)
+
+def Meet (a b : Wire) : Wire := (a.1 ∩ b.1, a.2 && b.2)
+
+def Separates (T A B : Finset (Fin 10)) : Prop :=
+  ¬ ((A ∩ T).Nonempty ∧ (B ∩ T).Nonempty)
+
+lemma safe_join {T : Finset (Fin 10)} {a b : Wire}
+    (ha : Safe T a) (hb : Safe T b) : Safe T (Join a b) := by
+  intro h
+  change a.2 || b.2 = true at h
+  rcases Bool.or_eq_true_iff.mp h with h | h
+  · rcases ha h with ⟨v, hv⟩
+    refine ⟨v, ?_⟩
+    simpa only [Join, Finset.mem_inter, Finset.mem_union] using
+      And.intro (Or.inl (Finset.mem_inter.mp hv).1) (Finset.mem_inter.mp hv).2
+  · rcases hb h with ⟨v, hv⟩
+    refine ⟨v, ?_⟩
+    simpa only [Join, Finset.mem_inter, Finset.mem_union] using
+      And.intro (Or.inr (Finset.mem_inter.mp hv).1) (Finset.mem_inter.mp hv).2
+
+lemma safe_meet {T : Finset (Fin 10)} {a b : Wire}
+    (ha : Safe T a) (hb : Safe T b) (hs : Separates T a.1 b.1) :
+    Safe T (Meet a b) := by
+  intro h
+  change a.2 && b.2 = true at h
+  rcases Bool.and_eq_true_iff.mp h with ⟨ha', hb'⟩
+  exact False.elim (hs ⟨ha ha', hb hb'⟩)
+
+lemma safe_zero_false {T : Finset (Fin 10)} {w : Wire}
+    (h : Safe T w) (hz : w.1 = ∅) : w.2 = false := by
+  cases hv : w.2
+  · rfl
+  · have hn := h hv
+    simp [hz] at hn
+
+def OtherSides : List (Finset (Fin 10) × Finset (Fin 10)) :=
+  [({0}, {1, 4, 5}), ({1}, {6}), ({2}, {1, 3, 7}), ({3}, {4, 8}), ({7}, {5, 9}), (∅, ∅)]
+
+def DirtyEdges : List (Finset (Fin 10)) :=
+  [{4, 9}, {5, 8}, {6, 8}, {6, 9}]
+
+def UniversalEdge (v : Fin 10) : Finset (Fin 10) :=
+  match v.val with
+  | 0 => {6, 8}
+  | 1 => {4, 9}
+  | 2 => {4, 9}
+  | 3 => {6, 9}
+  | 4 => {4, 9}
+  | 5 => {5, 8}
+  | 6 => {6, 8}
+  | 7 => {6, 8}
+  | 8 => {5, 8}
+  | _ => {4, 9}
+
+def UniversalBarrier (v : Fin 10) : Finset (Fin 10) := insert v (UniversalEdge v)
+
+lemma universal_edge_valid : ∀ v : Fin 10, UniversalEdge v ∈ DirtyEdges := by decide
+
+lemma all_vertices_separation :
+    ∀ (v : Fin 10), ∀ AB ∈ OtherSides,
+      Separates (UniversalBarrier v) AB.1 AB.2 ∧
+      Separates (UniversalBarrier v) AB.2 AB.1 := by
+  intro v
+  simp [OtherSides, Separates]
+  revert v
+  decide
+
+end S45.CausalBarrier
+
+namespace S45.ResourceExclusion
+
+open CausalBarrier
+
+abbrev Resource := Finset (Fin 10) × (Finset (Fin 10) → Bool)
+
+def CrossPairs : List (Finset (Fin 10)) :=
+  [{4, 8}, {4, 9}, {5, 8}, {5, 9}, {6, 8}, {6, 9}]
+
+def RSafe (E T : Finset (Fin 10)) (w : Resource) : Prop :=
+  w.2 E = true → (w.1 ∩ T).Nonempty
+
+def Ordinary (w : Resource) : Prop := ∀ E ∈ CrossPairs, RSafe E E w
+
+def AllOrdinary (p : Multiset Resource) : Prop := ∀ w ∈ p, Ordinary w
+
+def RJoin (a b : Resource) : Resource :=
+  (a.1 ∪ b.1, fun E => a.2 E || b.2 E)
+
+def RMeet (a b : Resource) : Resource :=
+  (a.1 ∩ b.1, fun E => a.2 E && b.2 E)
+
+def AllowedSides (a b : Resource) : Prop :=
+  (a.1, b.1) ∈ OtherSides ∨ (b.1, a.1) ∈ OtherSides
+
+def Keep (w : Resource) : Multiset Resource :=
+  if w.1 = ∅ then 0 else {w}
+
+def Next (a b c : Resource) (rest : Multiset Resource) : Multiset Resource :=
+  c ::ₘ (Keep a + Keep b + rest)
+
+def ResourceStep (p q : Multiset Resource) : Prop :=
+  (∃ a b c rest, p = a ::ₘ b ::ₘ rest ∧ q = Next a b c rest ∧
+    (c = RJoin a b ∨ (AllowedSides a b ∧ c = RMeet a b))) ∨
+  (∃ w rest, w.1 ≠ ∅ ∧ p = w ::ₘ rest ∧ q = w ::ₘ w ::ₘ rest) ∨
+  (∃ w rest, p = w ::ₘ rest ∧ q = rest)
+
+def Blocked (p : Multiset Resource) : Prop :=
+  ∃ E ∈ DirtyEdges, ∃ T : Finset (Fin 10),
+    (∀ AB ∈ OtherSides, Separates T AB.1 AB.2 ∧ Separates T AB.2 AB.1) ∧
+    ∀ w ∈ p, RSafe E T w
+
+def Exceptional (p : Multiset Resource) : Prop :=
+  ∃ d rest, p = d ::ₘ rest ∧ d.1 = ∅ ∧
+    (∀ E ∈ CrossPairs, d.2 E = true) ∧ AllOrdinary rest
+
+def Invariant (p : Multiset Resource) : Prop := Blocked p ∨ Exceptional p
+
+def Target (w : Resource) : Prop :=
+  w.1 = ∅ ∧ (∀ E ∈ DirtyEdges, w.2 E = true) ∧ w.2 {4, 8} = false
+
+lemma rsafe_join {E T : Finset (Fin 10)} {a b : Resource}
+    (ha : RSafe E T a) (hb : RSafe E T b) : RSafe E T (RJoin a b) := by
+  exact safe_join (a := (a.1, a.2 E)) (b := (b.1, b.2 E)) ha hb
+
+lemma rsafe_meet {E T : Finset (Fin 10)} {a b : Resource}
+    (ha : RSafe E T a) (hb : RSafe E T b) (hs : Separates T a.1 b.1) :
+    RSafe E T (RMeet a b) := by
+  exact safe_meet (a := (a.1, a.2 E)) (b := (b.1, b.2 E)) ha hb hs
+
+lemma rsafe_zero_false {E T : Finset (Fin 10)} {w : Resource}
+    (h : RSafe E T w) (hz : w.1 = ∅) : w.2 E = false :=
+  safe_zero_false (w := (w.1, w.2 E)) h hz
+
+lemma cross_separation :
+    ∀ E ∈ CrossPairs, ∀ AB ∈ OtherSides,
+      Separates E AB.1 AB.2 ∧ Separates E AB.2 AB.1 := by
+  simp [CrossPairs, OtherSides, Separates]
+
+lemma dirty_mem_cross : ∀ E ∈ DirtyEdges, E ∈ CrossPairs := by
+  simp [DirtyEdges, CrossPairs]
+
+lemma ordinary_join {a b : Resource} (ha : Ordinary a) (hb : Ordinary b) :
+    Ordinary (RJoin a b) := by
+  intro E hE
+  exact rsafe_join (ha E hE) (hb E hE)
+
+lemma ordinary_meet {a b : Resource} (ha : Ordinary a) (hb : Ordinary b)
+    (hs : AllowedSides a b) : Ordinary (RMeet a b) := by
+  intro E hE
+  apply rsafe_meet (ha E hE) (hb E hE)
+  rcases hs with hs | hs
+  · exact (cross_separation E hE _ hs).1
+  · exact (cross_separation E hE _ hs).2
+
+lemma keep_mem {a w : Resource} (h : w ∈ Keep a) : w = a := by
+  classical
+  by_cases hz : a.1 = ∅
+  · simp [Keep, hz] at h
+  · simpa [Keep, hz] using h
+
+lemma allOrdinary_next {a b c : Resource} {rest : Multiset Resource}
+    (ha : Ordinary a) (hb : Ordinary b) (hc : Ordinary c) (hr : AllOrdinary rest) :
+    AllOrdinary (Next a b c rest) := by
+  intro w hw
+  simp only [Next, Multiset.mem_cons, Multiset.mem_add] at hw
+  rcases hw with rfl | (hw | hw) | hw
+  · exact hc
+  · exact (keep_mem hw) ▸ ha
+  · exact (keep_mem hw) ▸ hb
+  · exact hr w hw
+
+lemma allOrdinary_blocked {p : Multiset Resource} (hp : AllOrdinary p) : Blocked p := by
+  refine ⟨{4, 9}, by simp [DirtyEdges], {4, 9}, ?_, ?_⟩
+  · exact cross_separation _ (by simp [CrossPairs])
+  · intro w hw
+    exact hp w hw _ (by simp [CrossPairs])
+
+lemma blocked_no_target {p : Multiset Resource} (hp : Blocked p)
+    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
+  obtain ⟨E, hE, T, _, hs⟩ := hp
+  rintro ⟨hz, ht, _⟩
+  have hf := rsafe_zero_false (hs w hw) hz
+  rw [ht E hE] at hf
+  contradiction
+
+lemma exceptional_no_target {p : Multiset Resource} (hp : Exceptional p)
+    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
+  obtain ⟨d, rest, rfl, hd, hdt, hr⟩ := hp
+  rcases Multiset.mem_cons.mp hw with rfl | hw
+  · rintro ⟨_, _, hf⟩
+    have ht := hdt {4, 8} (by simp [CrossPairs])
+    rw [hf] at ht
+    contradiction
+  · exact blocked_no_target (allOrdinary_blocked hr) hw
+
+lemma invariant_no_target {p : Multiset Resource} (hp : Invariant p)
+    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
+  rcases hp with hp | hp
+  · exact blocked_no_target hp hw
+  · exact exceptional_no_target hp hw
+
+
+lemma all_safe_next {E T : Finset (Fin 10)} {a b c : Resource}
+    {rest : Multiset Resource}
+    (ha : RSafe E T a) (hb : RSafe E T b) (hc : RSafe E T c)
+    (hr : ∀ w ∈ rest, RSafe E T w) :
+    ∀ w ∈ Next a b c rest, RSafe E T w := by
+  intro w hw
+  simp only [Next, Multiset.mem_cons, Multiset.mem_add] at hw
+  rcases hw with rfl | (hw | hw) | hw
+  · exact hc
+  · exact (keep_mem hw) ▸ ha
+  · exact (keep_mem hw) ▸ hb
+  · exact hr w hw
+
+lemma blocked_step {p q : Multiset Resource} (hp : Blocked p)
+    (hstep : ResourceStep p q) : Blocked q := by
+  obtain ⟨E, hE, T, hT, hs⟩ := hp
+  refine ⟨E, hE, T, hT, ?_⟩
+  rcases hstep with ⟨a, b, c, rest, rfl, rfl, hc⟩ | ⟨w, rest, _, rfl, rfl⟩ | ⟨w, rest, rfl, rfl⟩
+  · have ha := hs a (by simp)
+    have hb := hs b (by simp)
+    have hr : ∀ w ∈ rest, RSafe E T w := fun w hw => hs w (by simp [hw])
+    apply all_safe_next ha hb ?_ hr
+    rcases hc with rfl | ⟨hside, rfl⟩
+    · exact rsafe_join ha hb
+    · apply rsafe_meet ha hb
+      rcases hside with hside | hside
+      · exact (hT _ hside).1
+      · exact (hT _ hside).2
+  · intro a ha
+    simp only [Multiset.mem_cons, or_self_left] at ha
+    exact hs a (Multiset.mem_cons.mpr ha)
+  · intro a ha
+    exact hs a (by simp [ha])
+
+lemma ordinary_carrier_blocked {c : Resource} {rest : Multiset Resource}
+    (hc : c.1.Nonempty) (hr : AllOrdinary rest) : Blocked (c ::ₘ rest) := by
+  obtain ⟨v, hv⟩ := hc
+  refine ⟨UniversalEdge v, universal_edge_valid v, UniversalBarrier v,
+    all_vertices_separation v, ?_⟩
+  intro w hw
+  rcases Multiset.mem_cons.mp hw with rfl | hw
+  · intro _
+    exact ⟨v, Finset.mem_inter.mpr ⟨hv, Finset.mem_insert_self _ _⟩⟩
+  · intro ht
+    obtain ⟨u, hu⟩ := hr w hw _ (dirty_mem_cross _ (universal_edge_valid v)) ht
+    obtain ⟨hus, huE⟩ := Finset.mem_inter.mp hu
+    exact ⟨u, Finset.mem_inter.mpr ⟨hus, Finset.mem_insert_of_mem huE⟩⟩
+
+lemma keep_ordinary {w : Resource} (h : Ordinary w) : AllOrdinary (Keep w) := by
+  intro a ha
+  exact (keep_mem ha) ▸ h
+
+lemma allOrdinary_add {p q : Multiset Resource}
+    (hp : AllOrdinary p) (hq : AllOrdinary q) : AllOrdinary (p + q) := by
+  intro w hw
+  rcases Multiset.mem_add.mp hw with hw | hw
+  · exact hp w hw
+  · exact hq w hw
+
+lemma allOrdinary_cons {w : Resource} {p : Multiset Resource}
+    (hw : Ordinary w) (hp : AllOrdinary p) : AllOrdinary (w ::ₘ p) := by
+  intro a ha
+  rcases Multiset.mem_cons.mp ha with rfl | ha
+  · exact hw
+  · exact hp a ha
+
+lemma zero_side_of_allowed {a b : Resource} (ha : a.1 = ∅) (hs : AllowedSides a b) :
+    b.1 = ∅ := by
+  have hzero : ∀ AB ∈ OtherSides,
+      (AB.1 = ∅ → AB.2 = ∅) ∧ (AB.2 = ∅ → AB.1 = ∅) := by
+    simp [OtherSides]
+  rcases hs with hs | hs
+  · exact (hzero _ hs).1 ha
+  · exact (hzero _ hs).2 ha
+
+lemma exceptional_left_step {d b c : Resource} {rest : Multiset Resource}
+    (hd : d.1 = ∅) (hdt : ∀ E ∈ CrossPairs, d.2 E = true)
+    (hb : Ordinary b) (hr : AllOrdinary rest)
+    (hc : c = RJoin d b ∨ (AllowedSides d b ∧ c = RMeet d b)) :
+    Invariant (Next d b c rest) := by
+  classical
+  rcases hc with rfl | ⟨hs, rfl⟩
+  · by_cases hbs : b.1 = ∅
+    · right
+      refine ⟨RJoin d b, rest, ?_, ?_, ?_, hr⟩
+      · simp [Next, Keep, hd, hbs]
+      · simp [RJoin, hd, hbs]
+      · intro E hE
+        simp [RJoin, hdt E hE]
+    · left
+      have hbp : (RJoin d b).1.Nonempty := by
+        simpa [RJoin, hd] using Finset.nonempty_iff_ne_empty.mpr hbs
+      have hpool : AllOrdinary (Keep d + Keep b + rest) := by
+        simpa [Keep, hd, hbs] using allOrdinary_cons hb hr
+      exact ordinary_carrier_blocked hbp hpool
+  · left
+    have hbs := zero_side_of_allowed hd hs
+    have hc : Ordinary (RMeet d b) := by
+      intro E hE ht
+      have hbf := rsafe_zero_false (hb E hE) hbs
+      simp [RMeet, hbf] at ht
+    apply allOrdinary_blocked
+    simpa [Next, Keep, hd, hbs] using allOrdinary_cons hc hr
+
+
+lemma next_swap (a b c : Resource) (rest : Multiset Resource) :
+    Next a b c rest = Next b a c rest := by
+  simp only [Next, add_comm (Keep a) (Keep b)]
+
+lemma rjoin_swap (a b : Resource) : RJoin a b = RJoin b a := by
+  apply Prod.ext
+  · exact Finset.union_comm _ _
+  · funext E
+    exact Bool.or_comm _ _
+
+lemma rmeet_swap (a b : Resource) : RMeet a b = RMeet b a := by
+  apply Prod.ext
+  · exact Finset.inter_comm _ _
+  · funext E
+    exact Bool.and_comm _ _
+
+lemma ordinary_result {a b c : Resource} (ha : Ordinary a) (hb : Ordinary b)
+    (hc : c = RJoin a b ∨ (AllowedSides a b ∧ c = RMeet a b)) : Ordinary c := by
+  rcases hc with rfl | ⟨hs, rfl⟩
+  · exact ordinary_join ha hb
+  · exact ordinary_meet ha hb hs
+
+lemma exceptional_step {p q : Multiset Resource} (hp : Exceptional p)
+    (hstep : ResourceStep p q) : Invariant q := by
+  classical
+  obtain ⟨d, r0, hpd, hd, hdt, hr0⟩ := hp
+  rcases hstep with ⟨a, b, c, rest, hpab, rfl, hc⟩ |
+    ⟨w, rest, hws, hpw, rfl⟩ | ⟨w, rest, hpw, hqr⟩
+  · have heq : d ::ₘ r0 = a ::ₘ b ::ₘ rest := hpd.symm.trans hpab
+    by_cases had : a = d
+    · subst a
+      have hrEq := (Multiset.cons_inj_right d).mp heq
+      rw [hrEq] at hr0
+      exact exceptional_left_step hd hdt (hr0 b (by simp))
+        (fun w hw => hr0 w (by simp [hw])) hc
+    · by_cases hbd : b = d
+      · subst b
+        rw [Multiset.cons_swap a d] at heq
+        have hrEq := (Multiset.cons_inj_right d).mp heq
+        rw [hrEq] at hr0
+        rw [next_swap]
+        apply exceptional_left_step hd hdt (hr0 a (by simp))
+          (fun w hw => hr0 w (by simp [hw]))
+        rcases hc with hc | ⟨hs, hc⟩
+        · left
+          exact hc.trans (rjoin_swap _ _)
+        · right
+          exact ⟨Or.symm hs, hc.trans (rmeet_swap _ _)⟩
+      · have hdm : d ∈ a ::ₘ b ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
+        have hdr : d ∈ rest := by
+          simpa [Ne.symm had, Ne.symm hbd] using hdm
+        obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
+        rw [Multiset.cons_swap b d, Multiset.cons_swap a d] at heq
+        have hrEq := (Multiset.cons_inj_right d).mp heq
+        rw [hrEq] at hr0
+        have ha : Ordinary a := hr0 a (by simp)
+        have hb : Ordinary b := hr0 b (by simp)
+        have hr : AllOrdinary r := fun w hw => hr0 w (by simp [hw])
+        right
+        refine ⟨d, Next a b c r, ?_, hd, hdt,
+          allOrdinary_next ha hb (ordinary_result ha hb hc) hr⟩
+        simp only [Next, Multiset.add_cons]
+        exact Multiset.cons_swap _ _ _
+  · have heq : d ::ₘ r0 = w ::ₘ rest := hpd.symm.trans hpw
+    have hdw : d ≠ w := by
+      intro h
+      subst w
+      exact hws hd
+    have hdm : d ∈ w ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
+    have hdr : d ∈ rest := by simpa [hdw] using hdm
+    obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
+    rw [Multiset.cons_swap w d] at heq
+    have hrEq := (Multiset.cons_inj_right d).mp heq
+    rw [hrEq] at hr0
+    right
+    refine ⟨d, w ::ₘ w ::ₘ r, ?_, hd, hdt, ?_⟩
+    · rw [Multiset.cons_swap w d, Multiset.cons_swap w d]
+    · exact allOrdinary_cons (hr0 w (by simp)) hr0
+  · rw [hqr]
+    have heq : d ::ₘ r0 = w ::ₘ rest := hpd.symm.trans hpw
+    by_cases hdw : d = w
+    · subst w
+      have hrEq := (Multiset.cons_inj_right d).mp heq
+      rw [hrEq] at hr0
+      exact Or.inl (allOrdinary_blocked hr0)
+    · have hdm : d ∈ w ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
+      have hdr : d ∈ rest := by simpa [hdw] using hdm
+      obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
+      rw [Multiset.cons_swap w d] at heq
+      have hrEq := (Multiset.cons_inj_right d).mp heq
+      rw [hrEq] at hr0
+      exact Or.inr ⟨d, r, rfl, hd, hdt, fun a ha => hr0 a (by simp [ha])⟩
+
+lemma invariant_step {p q : Multiset Resource} (hp : Invariant p)
+    (hstep : ResourceStep p q) : Invariant q := by
+  rcases hp with hp | hp
+  · exact Or.inl (blocked_step hp hstep)
+  · exact exceptional_step hp hstep
+
+end S45.ResourceExclusion
+
+namespace S45.IndexSchedule
+
+open ResourceExclusion
+
+def Pool (W : ℕ → Resource) (ids : Finset ℕ) : Multiset Resource := ids.val.map W
+
+def DropZero (W : ℕ → Resource) (i : ℕ) (ids : Finset ℕ) : Finset ℕ :=
+  if (W i).1 = ∅ then ids.erase i else ids
+
+def NextIds (W : ℕ → Resource) (a b out : ℕ) (ids : Finset ℕ) : Finset ℕ :=
+  insert out (DropZero W b (DropZero W a ids))
+
+def Available (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) : ℕ → Finset ℕ
+  | 0 => Finset.range start
+  | t + 1 => NextIds W (A (start + t)) (B (start + t)) (start + t)
+      (Available W start A B t)
+
+lemma drop_subset (W : ℕ → Resource) (i : ℕ) (ids : Finset ℕ) :
+    DropZero W i ids ⊆ ids := by
+  unfold DropZero
+  split
+  · exact Finset.erase_subset _ _
+  · exact Finset.Subset.refl _
+
+lemma mem_drop {W : ℕ → Resource} {i x : ℕ} {ids : Finset ℕ}
+    (hx : x ∈ ids) (hkeep : (W x).1 ≠ ∅ ∨ x ≠ i) : x ∈ DropZero W i ids := by
+  unfold DropZero
+  split_ifs with hi
+  · apply Finset.mem_erase.mpr
+    refine ⟨?_, hx⟩
+    rcases hkeep with hkeep | hkeep
+    · intro hxi
+      subst x
+      exact hkeep hi
+    · exact hkeep
+  · exact hx
+
+lemma available_bounded (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ)
+    (t : ℕ) : ∀ x ∈ Available W start A B t, x < start + t := by
+  induction t with
+  | zero => simp [Available]
+  | succ t ih =>
+      intro x hx
+      rcases Finset.mem_insert.mp hx with rfl | hx
+      · omega
+      · have hx' := drop_subset W _ _ (drop_subset W _ _ hx)
+        have hb := ih x hx'
+        omega
+
+lemma available_complete (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ)
+    (t : ℕ) : ∀ x, x < start + t →
+      ((W x).1 ≠ ∅ ∨ ∀ j < t, A (start + j) ≠ x ∧ B (start + j) ≠ x) →
+      x ∈ Available W start A B t := by
+  induction t with
+  | zero => simp [Available]
+  | succ t ih =>
+      intro x hbound hunused
+      by_cases hlast : x = start + t
+      · subst x
+        exact Finset.mem_insert_self _ _
+      · have hold : x < start + t := by omega
+        have hprev : (W x).1 ≠ ∅ ∨ ∀ j < t,
+            A (start + j) ≠ x ∧ B (start + j) ≠ x := by
+          rcases hunused with hp | hu
+          · exact Or.inl hp
+          · exact Or.inr (fun j hj => hu j (by omega))
+        have hmem := ih x hold hprev
+        apply Finset.mem_insert_of_mem
+        apply mem_drop
+        · apply mem_drop hmem
+          rcases hunused with hp | hu
+          · exact Or.inl hp
+          · exact Or.inr (Ne.symm (hu t (by omega)).1)
+        · rcases hunused with hp | hu
+          · exact Or.inl hp
+          · exact Or.inr (Ne.symm (hu t (by omega)).2)
+
+def Reads (A B : ℕ → ℕ) (i x : ℕ) : Prop := A i = x ∨ B i = x
+
+def LinearUpTo (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ i < n, ∀ j < n, ∀ x, (W x).1 = ∅ →
+    Reads A B (start + i) x → Reads A B (start + j) x → i = j
+
+lemma source_available {W : ℕ → Resource} {start n t x : ℕ} {A B : ℕ → ℕ}
+    (hlin : LinearUpTo W start A B n) (ht : t < n)
+    (hx : x < start + t) (hr : Reads A B (start + t) x) :
+    x ∈ Available W start A B t := by
+  apply available_complete W start A B t x hx
+  by_cases hp : (W x).1 = ∅
+  · right
+    intro j hj
+    constructor
+    · intro hja
+      have heq := hlin t ht j (by omega) x hp hr (Or.inl hja)
+      omega
+    · intro hjb
+      have heq := hlin t ht j (by omega) x hp hr (Or.inr hjb)
+      omega
+  · exact Or.inl hp
+
+lemma pool_insert {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∉ ids) :
+    Pool W (insert i ids) = W i ::ₘ Pool W ids := by
+  simp only [Pool, Finset.insert_val_of_notMem hi, Multiset.map_cons]
+
+lemma pool_erase_decomp {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∈ ids) :
+    Pool W ids = W i ::ₘ Pool W (ids.erase i) := by
+  calc
+    Pool W ids = Pool W (insert i (ids.erase i)) := by rw [Finset.insert_erase hi]
+    _ = W i ::ₘ Pool W (ids.erase i) := pool_insert (Finset.notMem_erase _ _)
+
+lemma pool_two_decomp {W : ℕ → Resource} {ids : Finset ℕ} {a b : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) :
+    Pool W ids = W a ::ₘ W b ::ₘ Pool W ((ids.erase a).erase b) := by
+  rw [pool_erase_decomp ha]
+  rw [pool_erase_decomp (Finset.mem_erase.mpr ⟨Ne.symm hab, hb⟩)]
+
+lemma pool_drop_two {W : ℕ → Resource} {ids : Finset ℕ} {a b : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) :
+    Pool W (DropZero W b (DropZero W a ids)) =
+      Keep (W a) + Keep (W b) + Pool W ((ids.erase a).erase b) := by
+  classical
+  by_cases hza : (W a).1 = ∅ <;> by_cases hzb : (W b).1 = ∅
+  · simp [DropZero, Keep, hza, hzb]
+  · simp only [DropZero, Keep, hza, hzb, ite_true, ite_false, zero_add]
+    exact pool_erase_decomp (Finset.mem_erase.mpr ⟨Ne.symm hab, hb⟩)
+  · simp only [DropZero, Keep, hza, hzb, ite_true, ite_false, add_zero]
+    rw [Finset.erase_right_comm]
+    exact pool_erase_decomp (Finset.mem_erase.mpr ⟨hab, ha⟩)
+  · simp only [DropZero, Keep, hza, hzb, ite_false]
+    simpa using pool_two_decomp ha hb hab
+
+lemma index_resource_step {W : ℕ → Resource} {ids : Finset ℕ} {a b out : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) (hout : out ∉ ids)
+    (hg : W out = RJoin (W a) (W b) ∨
+      (AllowedSides (W a) (W b) ∧ W out = RMeet (W a) (W b))) :
+    ResourceStep (Pool W ids) (Pool W (NextIds W a b out ids)) := by
+  left
+  refine ⟨W a, W b, W out, Pool W ((ids.erase a).erase b),
+    pool_two_decomp ha hb hab, ?_, hg⟩
+  have hfresh : out ∉ DropZero W b (DropZero W a ids) := by
+    intro h
+    exact hout (drop_subset W _ _ (drop_subset W _ _ h))
+  rw [NextIds, pool_insert hfresh, pool_drop_two ha hb hab]
+  rfl
+
+
+def ValidUpTo (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ t < n, A (start + t) < start + t ∧ B (start + t) < start + t ∧
+    A (start + t) ≠ B (start + t)
+
+def CanonicalUpTo (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ t < n,
+    W (start + t) = RJoin (W (A (start + t))) (W (B (start + t))) ∨
+    (AllowedSides (W (A (start + t))) (W (B (start + t))) ∧
+      W (start + t) = RMeet (W (A (start + t))) (W (B (start + t))))
+
+lemma available_step {W : ℕ → Resource} {start n t : ℕ} {A B : ℕ → ℕ}
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) (ht : t < n) :
+    ResourceStep (Pool W (Available W start A B t))
+      (Pool W (Available W start A B (t + 1))) := by
+  obtain ⟨ha, hb, hab⟩ := hv t ht
+  have haa := source_available hl ht ha (Or.inl rfl)
+  have hba := source_available hl ht hb (Or.inr rfl)
+  apply index_resource_step haa hba hab ?_ (hc t ht)
+  intro h
+  have := available_bounded W start A B t _ h
+  omega
+
+lemma program_invariant {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : Invariant (Pool W (Finset.range start)))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ t ≤ n, Invariant (Pool W (Available W start A B t)) := by
+  intro t
+  induction t with
+  | zero => intro _; exact hp
+  | succ t ih =>
+      intro ht
+      exact invariant_step (ih (by omega)) (available_step hv hl hc (by omega))
+
+lemma pool_mem {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∈ ids) :
+    W i ∈ Pool W ids := by
+  exact Multiset.mem_map.mpr ⟨i, hi, rfl⟩
+
+lemma canonical_program_exclusion {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : Invariant (Pool W (Finset.range start)))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ t < n, ¬ Target (W (start + t)) := by
+  intro t ht
+  have hinv := program_invariant hp hv hl hc (t + 1) (by omega)
+  apply invariant_no_target hinv
+  apply pool_mem
+  exact Finset.mem_insert_self _ _
+
+lemma initial_exceptional {W : ℕ → Resource} {start d : ℕ}
+    (hd : d < start) (hz : (W d).1 = ∅)
+    (ht : ∀ E ∈ CrossPairs, (W d).2 E = true)
+    (ho : ∀ i < start, i ≠ d → Ordinary (W i)) :
+    Invariant (Pool W (Finset.range start)) := by
+  right
+  refine ⟨W d, Pool W ((Finset.range start).erase d),
+    pool_erase_decomp (Finset.mem_range.mpr hd), hz, ht, ?_⟩
+  intro w hw
+  obtain ⟨i, hi, rfl⟩ := Multiset.mem_map.mp hw
+  have hi' : i ∈ (Finset.range start).erase d := hi
+  obtain ⟨hid, hir⟩ := Finset.mem_erase.mp hi'
+  exact ho i (Finset.mem_range.mp hir) hid
+
+lemma program_any_wire_exclusion {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : Invariant (Pool W (Finset.range start)))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ i < start + n, ¬ Target (W i) := by
+  intro i hi
+  by_cases hold : i < start
+  · exact invariant_no_target hp (pool_mem (Finset.mem_range.mpr hold))
+  · have ht : i - start < n := by omega
+    have heq : start + (i - start) = i := by omega
+    simpa only [heq] using canonical_program_exclusion hp hv hl hc (i - start) ht
+
+lemma ordinary_prefix {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : ∀ i < start, Ordinary (W i))
+    (hv : ValidUpTo start A B n) (hc : CanonicalUpTo W start A B n) :
+    ∀ i < start + n, Ordinary (W i) := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+      intro hi
+      by_cases hold : i < start
+      · exact hp i hold
+      · have ht : i - start < n := by omega
+        have heq : start + (i - start) = i := by omega
+        obtain ⟨ha, hb, _⟩ := hv (i - start) ht
+        rw [heq] at ha hb
+        have hca := hc (i - start) ht
+        rw [heq] at hca
+        exact ordinary_result (ih _ ha (by omega)) (ih _ hb (by omega)) hca
+
+end S45.IndexSchedule
+
+
+namespace S45.DAGBridge
+
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open ResourceExclusion IndexSchedule CausalBarrier
+
+def DagResource (D : Dag) (w : ℕ) : Resource :=
+  (supp 10 D w, fun E => val D (fun v => decide (v ∈ E)) w)
+
+lemma zero_reader_unique {D : Dag} (hS : Strict 10 D) (hz : Bzero 10 D = 0)
+    {j k w : ℕ} (hj : j < D.length) (hk : k < D.length)
+    (he : supp 10 D w = ∅)
+    (hrj : opA D j = w ∨ opB D j = w)
+    (hrk : opA D k = w ∨ opB D k = w) : j = k := by
+  have hw : w < 10 + j := by
+    obtain ⟨ha, hb, _⟩ := hS j hj
+    rcases hrj with h | h <;> omega
+  have hinner : w ∈ (inner 10 D).filter (fun u => ¬ (supp 10 D u).Nonempty) := by
+    apply Finset.mem_filter.mpr
+    constructor
+    · simp only [inner, Finset.mem_range]
+      omega
+    · simp [he]
+  have hsum : fanout D w - 1 ≤ Bzero 10 D := by
+    unfold Bzero surplusOn
+    exact Finset.single_le_sum (f := fun u => fanout D u - 1) (fun _ _ => Nat.zero_le _) hinner
+  have hcard : (readers D w).card ≤ 1 := by
+    change fanout D w ≤ 1
+    omega
+  apply Finset.card_le_one.mp hcard j ?_ k ?_
+  · exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hj, hrj⟩
+  · exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hk, hrk⟩
+
+lemma input_ordinary (D : Dag) {i : ℕ} (hi : i < 10) : Ordinary (DagResource D i) := by
+  intro E _ ht
+  change val D (fun v => decide (v ∈ E)) i = true at ht
+  rw [val_input D _ i hi] at ht
+  have hm : (⟨i, hi⟩ : Fin 10) ∈ E := of_decide_eq_true ht
+  refine ⟨⟨i, hi⟩, Finset.mem_inter.mpr ⟨?_, hm⟩⟩
+  change (⟨i, hi⟩ : Fin 10) ∈ supp 10 D i
+  rw [supp_input D ⟨i, hi⟩]
+  simp
+
+lemma resource_gate {D : Dag} (hS : Strict 10 D) {j : ℕ} (hj : j < D.length) :
+    DagResource D (10 + j) =
+      if tag D j = true then RMeet (DagResource D (opA D j)) (DagResource D (opB D j))
+      else RJoin (DagResource D (opA D j)) (DagResource D (opB D j)) := by
+  cases ht : tag D j
+  · simp only [Bool.false_eq_true, ite_false]
+    apply Prod.ext
+    · exact (supp_gate hS j hj).trans (by simp [ht, RJoin, DagResource])
+    · funext E
+      exact (val_gate hS (fun v => decide (v ∈ E)) j hj).trans (by simp [ht, gop, RJoin, DagResource])
+  · simp only [ite_true]
+    apply Prod.ext
+    · exact (supp_gate hS j hj).trans (by simp [ht, RMeet, DagResource])
+    · funext E
+      exact (val_gate hS (fun v => decide (v ∈ E)) j hj).trans (by simp [ht, gop, RMeet, DagResource])
+
+lemma support_hit_true {D : Dag} (hS : Strict 10 D) {w : ℕ} {E : Finset (Fin 10)}
+    (hh : (supp 10 D w ∩ E).Nonempty) : (DagResource D w).2 E = true := by
+  obtain ⟨v, hv⟩ := hh
+  obtain ⟨hvs, hvE⟩ := Finset.mem_inter.mp hv
+  apply val_mono hS (single v) (fun u => decide (u ∈ E)) ?_ w (mem_supp.mp hvs)
+  intro u hu
+  have huv : u = v := by simpa [single] using hu
+  subst u
+  exact decide_eq_true hvE
+
+def DirtyA : Finset (Fin 10) := {4, 5, 6}
+
+def DirtyB : Finset (Fin 10) := {8, 9}
+
+def DirtySides (D : Dag) (g : ℕ) : Prop :=
+  (supp 10 D (opA D g) = DirtyA ∧ supp 10 D (opB D g) = DirtyB) ∨
+  (supp 10 D (opA D g) = DirtyB ∧ supp 10 D (opB D g) = DirtyA)
+
+lemma cross_hits : ∀ E ∈ CrossPairs,
+    (DirtyA ∩ E).Nonempty ∧ (DirtyB ∩ E).Nonempty := by
+  simp [CrossPairs, DirtyA, DirtyB]
+
+lemma dirty_seed {D : Dag} (hS : Strict 10 D) {g : ℕ} (hg : g < D.length)
+    (ht : tag D g = true) (hs : DirtySides D g) :
+    (DagResource D (10 + g)).1 = ∅ ∧
+      ∀ E ∈ CrossPairs, (DagResource D (10 + g)).2 E = true := by
+  constructor
+  · change supp 10 D (10 + g) = ∅
+    rw [supp_gate hS g hg, ht]
+    simp only [ite_true]
+    rcases hs with ⟨ha, hb⟩ | ⟨ha, hb⟩
+    · rw [ha, hb]
+      decide
+    · rw [ha, hb]
+      decide
+  · intro E hE
+    change val D (fun v => decide (v ∈ E)) (10 + g) = true
+    rw [val_gate hS _ g hg, ht]
+    change (DagResource D (opA D g)).2 E && (DagResource D (opB D g)).2 E = true
+    have hcross := cross_hits E hE
+    rcases hs with ⟨ha, hb⟩ | ⟨ha, hb⟩
+    · rw [support_hit_true hS (by simpa [ha] using hcross.1),
+        support_hit_true hS (by simpa [hb] using hcross.2)]
+      rfl
+    · rw [support_hit_true hS (by simpa [ha] using hcross.2),
+        support_hit_true hS (by simpa [hb] using hcross.1)]
+      rfl
+
+
+def Left (D : Dag) (w : ℕ) : ℕ := opA D (w - 10)
+
+def Right (D : Dag) (w : ℕ) : ℕ := opB D (w - 10)
+
+lemma window_valid {D : Dag} (hS : Strict 10 D) {offset count : ℕ}
+    (hbound : offset + count ≤ D.length) :
+    ValidUpTo (10 + offset) (Left D) (Right D) count := by
+  intro t ht
+  have hj : offset + t < D.length := by omega
+  have hsub : 10 + offset + t - 10 = offset + t := by omega
+  obtain ⟨ha, hb, hab⟩ := hS (offset + t) hj
+  simp only [Left, Right, hsub]
+  exact ⟨by omega, by omega, hab⟩
+
+lemma window_linear {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
+    {offset count : ℕ} (hbound : offset + count ≤ D.length) :
+    LinearUpTo (DagResource D) (10 + offset) (Left D) (Right D) count := by
+  intro i hi j hj w he hri hrj
+  have his : 10 + offset + i - 10 = offset + i := by omega
+  have hjs : 10 + offset + j - 10 = offset + j := by omega
+  change supp 10 D w = ∅ at he
+  simp only [Reads, Left, Right, his] at hri
+  simp only [Reads, Left, Right, hjs] at hrj
+  have heq := zero_reader_unique hS hB (by omega : offset + i < D.length)
+    (by omega : offset + j < D.length) he hri hrj
+  omega
+
+lemma window_canonical {D : Dag} (hS : Strict 10 D) {offset count : ℕ}
+    (hbound : offset + count ≤ D.length)
+    (hsides : ∀ j, offset ≤ j → j < offset + count → tag D j = true →
+      AllowedSides (DagResource D (opA D j)) (DagResource D (opB D j))) :
+    CanonicalUpTo (DagResource D) (10 + offset) (Left D) (Right D) count := by
+  intro t ht
+  have hj : offset + t < D.length := by omega
+  have hsub : 10 + offset + t - 10 = offset + t := by omega
+  have hout : 10 + offset + t = 10 + (offset + t) := by omega
+  simp only [Left, Right, hsub]
+  rw [hout]
+  have hgate := resource_gate hS hj
+  cases ht : tag D (offset + t)
+  · left
+    simpa only [ht, Bool.false_eq_true, ite_false] using hgate
+  · right
+    exact ⟨hsides _ (by omega) (by omega) ht, by simpa only [ht, ite_true] using hgate⟩
+
+def OtherAndSides (D : Dag) (g : ℕ) : Prop :=
+  ∀ j < D.length, j ≠ g → tag D j = true →
+    AllowedSides (DagResource D (opA D j)) (DagResource D (opB D j))
+
+lemma before_seed_ordinary {D : Dag} (hS : Strict 10 D) {g : ℕ}
+    (hg : g < D.length) (hsides : OtherAndSides D g) :
+    ∀ i < 10 + g, Ordinary (DagResource D i) := by
+  apply ordinary_prefix (start := 10) (n := g) (A := Left D) (B := Right D)
+  · exact fun i hi => input_ordinary D hi
+  · exact window_valid (offset := 0) hS (by omega)
+  · apply window_canonical (offset := 0) hS (by omega)
+    intro j _ hj ht
+    exact hsides j (by omega) (by omega) ht
+
+lemma canonical_dag_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
+    {g : ℕ} (hg : g < D.length) (ht : tag D g = true) (hdirty : DirtySides D g)
+    (hsides : OtherAndSides D g) :
+    ∀ w < 10 + D.length, ¬ Target (DagResource D w) := by
+  obtain ⟨hdz, hdt⟩ := dirty_seed hS hg ht hdirty
+  have hbefore := before_seed_ordinary hS hg hsides
+  have hinit : Invariant (Pool (DagResource D) (Finset.range (10 + (g + 1)))) := by
+    apply initial_exceptional (d := 10 + g) (by omega) hdz hdt
+    intro i hi hne
+    exact hbefore i (by omega)
+  have hcount : g + 1 + (D.length - (g + 1)) ≤ D.length := by omega
+  have hvalid := window_valid hS hcount
+  have hlinear := window_linear hS hB hcount
+  have hcanonical : CanonicalUpTo (DagResource D) (10 + (g + 1)) (Left D) (Right D)
+      (D.length - (g + 1)) := by
+    apply window_canonical hS hcount
+    intro j hlo hhi ht
+    exact hsides j (by omega) (by omega) ht
+  intro w hw
+  exact program_any_wire_exclusion hinit hvalid hlinear hcanonical w (by omega)
+
+end S45.DAGBridge
+
+namespace S45.DAGBridge
+
+open DagTools ResourceExclusion CausalBarrier
+
+lemma target_of_sem_comp {D : Dag} (hc : sem_Comp 10 adj D) :
+    Target (DagResource D (outW 10 D)) := by
+  refine ⟨sem_supp_out graph_ok hc, ?_, ?_⟩
+  · intro E hE
+    change val D (fun v => decide (v ∈ E)) (outW 10 D) = true
+    apply (hc _).mpr
+    have hfinite : ∀ E ∈ DirtyEdges,
+        sem_Edge adj (fun v => decide (v ∈ E)) := by
+      intro E hE
+      simp [DirtyEdges] at hE
+      rcases hE with rfl | rfl | rfl | rfl <;> unfold sem_Edge <;> decide
+    exact hfinite E hE
+  · change val D (fun v => decide (v ∈ ({4, 8} : Finset (Fin 10)))) (outW 10 D) = false
+    by_contra hn
+    have ht : val D (fun v => decide (v ∈ ({4, 8} : Finset (Fin 10)))) (outW 10 D) = true :=
+      by simpa only [Bool.not_eq_false] using hn
+    have hbad : ¬ sem_Edge adj (fun v => decide (v ∈ ({4, 8} : Finset (Fin 10)))) := by unfold sem_Edge; decide
+    exact hbad ((hc _).mp ht)
+
+lemma petersen_dag_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
+    {g : ℕ} (hg : g < D.length) (ht : tag D g = true) (hdirty : DirtySides D g)
+    (hsides : OtherAndSides D g) (hc : sem_Comp 10 adj D) : False := by
+  exact canonical_dag_exclusion hS hB hg ht hdirty hsides (outW 10 D)
+    (by unfold outW; omega) (target_of_sem_comp hc)
+
+lemma petersen_dag_exclusion_of_supports {D : Dag}
+    (hS : Strict 10 D) (hB : Bzero 10 D = 0) (hc : sem_Comp 10 adj D)
+    {g : ℕ} (hg : g < D.length) (ht : tag D g = true)
+    (hdirty : (supp 10 D (opA D g) = {4, 5, 6} ∧ supp 10 D (opB D g) = {8, 9}) ∨
+      (supp 10 D (opA D g) = {8, 9} ∧ supp 10 D (opB D g) = {4, 5, 6}))
+    (hsides : ∀ j < D.length, j ≠ g → tag D j = true →
+      (supp 10 D (opA D j), supp 10 D (opB D j)) ∈ OtherSides ∨
+      (supp 10 D (opB D j), supp 10 D (opA D j)) ∈ OtherSides) : False := by
+  exact petersen_dag_exclusion hS hB hg ht hdirty hsides hc
+
+end S45.DAGBridge
+
+end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+open DagTools
+
+def swap37Fn : V → V := ![2,1,0,4,3,7,6,5,9,8]
+
+def swap37 : Equiv.Perm V :=
+  ⟨swap37Fn,swap37Fn,by decide +kernel,by decide +kernel⟩
+
+lemma swap37_adj : ∀ u v : V, adj (swap37 u) (swap37 v) ↔ adj u v := by
+  decide +kernel
+
+lemma relabel_Bzero {n : ℕ} {D : Dag} (h : StrictLive n D)
+    (σ : Equiv.Perm (Fin n)) : Bzero n (relabel σ D) = Bzero n D := by
+  classical
+  have lenpos := List.length_pos_iff_ne_nil.mpr h.2.2
+  have bound : n ≤ n + D.length - 1 := by omega
+  have mem_iff (w : ℕ) :
+      liftP σ w ∈ (inner n (relabel σ D)).filter (fun u => ¬ (supp n (relabel σ D) u).Nonempty) ↔
+      w ∈ (inner n D).filter (fun u => ¬ (supp n D u).Nonempty) := by
+    simp only [Finset.mem_filter, inner, Finset.mem_range, relabel_length,
+      tr_liftP_lt_iff σ bound, relabel_supp σ h.1, Finset.image_nonempty]
+  unfold Bzero surplusOn
+  symm
+  refine Finset.sum_bij (fun w _ => liftP σ w) (fun w hw => (mem_iff w).mpr hw)
+    (fun a _ b _ hab => (tr_liftP_inj σ).mp hab) ?_ ?_
+  · intro b hb
+    refine ⟨liftP σ⁻¹ b, ?_, tr_liftP_inv' σ b⟩
+    apply (mem_iff _).mp
+    simpa only [tr_liftP_inv'] using hb
+  · intro a ha
+    rw [relabel_fanout]
+
+def other37Sides : List (Finset V × Finset V) :=
+  [({0},{1,4,5}),({1},{6}),({2},{1,3,7}),({4},{3,9}),({5},{7,8}),(∅,∅)]
+
+lemma swap37_other {A B : Finset V} (h : (A,B) ∈ other37Sides) :
+    (A.image swap37, B.image swap37) ∈ S45.CausalBarrier.OtherSides := by
+  simp only [other37Sides,List.mem_cons,List.not_mem_nil,or_false,Prod.mk.injEq] at h
+  rcases h with ⟨rfl,rfl⟩ | ⟨rfl,rfl⟩ | ⟨rfl,rfl⟩ | ⟨rfl,rfl⟩ | ⟨rfl,rfl⟩ | ⟨rfl,rfl⟩
+  all_goals decide +kernel
+
+lemma swap37_dirty :
+    ({3,6,7} : Finset V).image swap37 = {4,5,6} ∧
+    ({8,9} : Finset V).image swap37 = {8,9} := by decide +kernel
+
+lemma s37_exclusion_of_supports {D : Dag}
+    (h : StrictLive 10 D) (hB : Bzero 10 D = 0) (hc : sem_Comp 10 adj D)
+    {g : ℕ} (hg : g < D.length) (ht : tag D g = true)
+    (hdirty : (supp 10 D (opA D g) = {3,6,7} ∧ supp 10 D (opB D g) = {8,9}) ∨
+      (supp 10 D (opA D g) = {8,9} ∧ supp 10 D (opB D g) = {3,6,7}))
+    (hsides : ∀ j < D.length, j ≠ g → tag D j = true →
+      (supp 10 D (opA D j),supp 10 D (opB D j)) ∈ other37Sides ∨
+      (supp 10 D (opB D j),supp 10 D (opA D j)) ∈ other37Sides) : False := by
+  let E := relabel swap37 D
+  have hE := relabel_strictLive swap37 h
+  have hEC := r1_relabel_comp h hc swap37 swap37_adj
+  have hEB : Bzero 10 E = 0 := by
+    change Bzero 10 (relabel swap37 D) = 0
+    rw [relabel_Bzero h,hB]
+  have left (j : ℕ) (hj : j < D.length) :
+      supp 10 E (opA E j) = (supp 10 D (opA D j)).image swap37 := by
+    change supp 10 (relabel swap37 D) (opA (relabel swap37 D) j) = _
+    rw [tr_opA swap37 D j hj,relabel_supp swap37 h.1]
+  have right (j : ℕ) (hj : j < D.length) :
+      supp 10 E (opB E j) = (supp 10 D (opB D j)).image swap37 := by
+    change supp 10 (relabel swap37 D) (opB (relabel swap37 D) j) = _
+    rw [tr_opB swap37 D j hj,relabel_supp swap37 h.1]
+  apply S45.DAGBridge.petersen_dag_exclusion_of_supports hE.1 hEB hEC
+    (g := g) (by simpa only [E,relabel_length] using hg)
+    (by simpa only [E,tr_tag swap37 D g hg] using ht)
+  · rw [left g hg,right g hg]
+    rcases hdirty with ⟨ha,hb⟩ | ⟨ha,hb⟩
+    · exact Or.inl ⟨by rw [ha,swap37_dirty.1],by rw [hb,swap37_dirty.2]⟩
+    · exact Or.inr ⟨by rw [ha,swap37_dirty.2],by rw [hb,swap37_dirty.1]⟩
+  · intro j hj hne hjt
+    have hjD : j < D.length := by simpa only [E,relabel_length] using hj
+    have htD : tag D j = true := by simpa only [E,tr_tag swap37 D j hjD] using hjt
+    rw [left j hjD,right j hjD]
+    rcases hsides j hjD hne htD with hh | hh
+    · exact Or.inl (swap37_other hh)
+    · exact Or.inr (swap37_other hh)
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+open DagTools
+
+lemma dirty_sides_of_full {D : Dag} (f : P → ℕ × Bool) (d : P)
+    (hbar : ∀ p, f (bar p) = sem_bar (f p))
+    (A B : Finset V)
+    (ha : supp 10 D (src D (f d)) = A)
+    (hb : supp 10 D (src D (f (bar d))) = B) :
+    (supp 10 D (opA D (f d).1) = A ∧ supp 10 D (opB D (f d).1) = B) ∨
+    (supp 10 D (opA D (f d).1) = B ∧ supp 10 D (opB D (f d).1) = A) := by
+  rw [hbar d] at hb
+  cases he : (f d).2
+  · left
+    simpa only [src, he, sem_bar, Bool.not_false, Bool.false_eq_true, ite_false, ite_true] using And.intro ha hb
+  · right
+    simpa only [src, he, sem_bar, Bool.not_true, Bool.false_eq_true, ite_false, ite_true] using And.intro hb ha
+
+lemma other_sides_of_selected {D : Dag} (f : P → ℕ × Bool) (d : P)
+    (L : P → Finset V) (other : List (Finset V × Finset V))
+    (hbar : ∀ p, f (bar p) = sem_bar (f p))
+    (hc : ∀ p, p.val < 12 → p ≠ d → p ≠ bar d →
+      (L p, L (bar p)) ∈ other ∨ (L (bar p), L p) ∈ other)
+    (he : ((∅ : Finset V), ∅) ∈ other)
+    (hsig : ∀ j < D.length, tag D j = true →
+      (∃ p, p.val < 12 ∧ f p = (j,false) ∧
+        supp 10 D (opA D j) = L p ∧ supp 10 D (opB D j) = L (bar p)) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅)) :
+    ∀ j < D.length, j ≠ (f d).1 → tag D j = true →
+      (supp 10 D (opA D j), supp 10 D (opB D j)) ∈ other ∨
+      (supp 10 D (opB D j), supp 10 D (opA D j)) ∈ other := by
+  intro j hj hne ht
+  rcases hsig j hj ht with ⟨p,hp,hfp,hA,hB⟩ | ⟨hA,hB⟩
+  · have hpd : p ≠ d := by
+      intro hd
+      subst p
+      exact hne (congrArg Prod.fst hfp).symm
+    have hpbd : p ≠ bar d := by
+      intro hd
+      subst p
+      have hb := congrArg Prod.fst (hbar d)
+      have hjf := congrArg Prod.fst hfp
+      exact hne (hjf.symm.trans hb)
+    simpa only [hA,hB] using hc p hp hpd hpbd
+  · exact Or.inl (by simpa only [hA,hB] using he)
+
+set_option maxRecDepth 4096 in
+lemma catalog45 : ∀ p : P, p.val < 12 → p ≠ 10 → p ≠ bar 10 →
+    (lower45 p, lower45 (bar p)) ∈ S45.CausalBarrier.OtherSides ∨
+    (lower45 (bar p), lower45 p) ∈ S45.CausalBarrier.OtherSides := by decide +kernel
+
+lemma s45_exclusion_of_selected {D : Dag}
+    (hS : Strict 10 D) (hz : Bzero 10 D = 0) (hc : sem_Comp 10 adj D)
+    (f : P → ℕ × Bool) (hbar : ∀ p, f (bar p) = sem_bar (f p))
+    (hg : (f 10).1 < D.length) (ht : tag D (f 10).1 = true)
+    (hfull : ∀ p, p.val < 12 → supp 10 D (src D (f p)) = lower45 p)
+    (hsig : ∀ j < D.length, tag D j = true →
+      (∃ p, p.val < 12 ∧ f p = (j,false) ∧
+        supp 10 D (opA D j) = lower45 p ∧ supp 10 D (opB D j) = lower45 (bar p)) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅)) : False := by
+  apply S45.DAGBridge.petersen_dag_exclusion_of_supports hS hz hc hg ht
+  · exact dirty_sides_of_full f 10 hbar _ _ (hfull 10 (by decide)) (hfull (bar 10) (by decide))
+  · exact other_sides_of_selected f 10 lower45 S45.CausalBarrier.OtherSides hbar catalog45 (by decide) hsig
+
+def other37 : List (Finset V × Finset V) :=
+  [({0},{1,4,5}),({1},{6}),({2},{1,3,7}),({4},{3,9}),({5},{7,8}),(∅,∅)]
+
+set_option maxRecDepth 4096 in
+lemma catalog37 : ∀ p : P, p.val < 12 → p ≠ 8 → p ≠ bar 8 →
+    (lower37 p, lower37 (bar p)) ∈ other37 ∨
+    (lower37 (bar p), lower37 p) ∈ other37 := by decide +kernel
+
+lemma s37_sides_of_selected {D : Dag}
+    (f : P → ℕ × Bool) (hbar : ∀ p, f (bar p) = sem_bar (f p))
+    (hfull : ∀ p, p.val < 12 → supp 10 D (src D (f p)) = lower37 p)
+    (hsig : ∀ j < D.length, tag D j = true →
+      (∃ p, p.val < 12 ∧ f p = (j,false) ∧
+        supp 10 D (opA D j) = lower37 p ∧ supp 10 D (opB D j) = lower37 (bar p)) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅)) :
+    ((supp 10 D (opA D (f 8).1) = {3,6,7} ∧ supp 10 D (opB D (f 8).1) = {8,9}) ∨
+      (supp 10 D (opA D (f 8).1) = {8,9} ∧ supp 10 D (opB D (f 8).1) = {3,6,7})) ∧
+    (∀ j < D.length, j ≠ (f 8).1 → tag D j = true →
+      (supp 10 D (opA D j), supp 10 D (opB D j)) ∈ other37 ∨
+      (supp 10 D (opB D j), supp 10 D (opA D j)) ∈ other37) := by
+  exact ⟨dirty_sides_of_full f 8 hbar _ _ (hfull 8 (by decide)) (hfull (bar 8) (by decide)),
+    other_sides_of_selected f 8 lower37 other37 hbar catalog37 (by decide) hsig⟩
+
+lemma s37_exclusion_of_selected {D : Dag}
+    (h : StrictLive 10 D) (hz : Bzero 10 D = 0) (hc : sem_Comp 10 adj D)
+    (f : P → ℕ × Bool) (hbar : ∀ p, f (bar p) = sem_bar (f p))
+    (hg : (f 8).1 < D.length) (ht : tag D (f 8).1 = true)
+    (hfull : ∀ p, p.val < 12 → supp 10 D (src D (f p)) = lower37 p)
+    (hsig : ∀ j < D.length, tag D j = true →
+      (∃ p, p.val < 12 ∧ f p = (j,false) ∧
+        supp 10 D (opA D j) = lower37 p ∧ supp 10 D (opB D j) = lower37 (bar p)) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅)) : False := by
+  obtain ⟨hd, hs⟩ := s37_sides_of_selected f hbar hfull hsig
+  apply s37_exclusion_of_supports h hz hc hg ht hd
+  simpa only [other37, other37Sides] using hs
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+open DagTools
+
+lemma bar_lt_twelve : ∀ p : P, p.val < 12 → (bar p).val < 12 := by decide +kernel
+
+lemma exclusion_of_normalized_ports {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (S : Finset V) (hS : S ∈ I2ForbiddenPairs.supports)
+    (a : List ℕ) (hlen : a.length = 9) (hgrowth : PortCodes.Growth a)
+    (hconditions : ∀ i, i ≤ a.length → Conditions S (a.take i))
+    (f : P → ℕ × Bool) (hbar : ∀ p, f (bar p) = sem_bar (f p))
+    (hinj : ∀ p q, (lower a p).Nonempty → (lower a q).Nonempty → f p = f q → p = q)
+    (hselected : ∀ p v, v ∈ lower a p → f p ∈ sem_W 10 D v)
+    (hflow : ∀ v, 1 + (({v} : Finset V) ∩ eligSet 10 D).card +
+      ((residualUnits 10 D b).filter (fun u => v ∈ supp 10 D u.1)).card ≤ budget S v) : False := by
+  obtain ⟨_,hsat,hnonempty,hshape⟩ := classified_geometry S a
+    (support_exists_of_mem hS) (admissible_of_growth S a hgrowth hconditions) hlen
+  obtain ⟨hm,hfull,hW⟩ := saturated_actual_sources h hc b hb S a f hinj hselected hflow hsat
+  have hbar_nonempty (p : P) (hp : (lower a p).Nonempty) : (lower a (bar p)).Nonempty :=
+    (hnonempty (bar p)).mpr (bar_lt_twelve p ((hnonempty p).mp hp))
+  have hsignature (j : ℕ) (hj : j < D.length) (ht : tag D j = true) :=
+    saturated_actual_and_signature h.1 a f hbar hbar_nonempty hm hfull hW hj ht
+  have valid (p : P) (hp : p.val < 12) : (f p).1 < D.length ∧ tag D (f p).1 = true := by
+    obtain ⟨v,hv⟩ := (hnonempty p).mpr hp
+    have he := hselected p v hv
+    exact ⟨(sem_mem_W.mp he).1,sem_W_and h.1 he⟩
+  rcases hshape with ⟨_,h45⟩ | ⟨_,h37⟩
+  · apply s45_exclusion_of_selected h.1 hz hc f hbar
+      (valid 10 (by decide)).1 (valid 10 (by decide)).2
+    · intro p hp
+      exact (hfull p ((hnonempty p).mpr hp)).trans (h45 p)
+    · intro j hj ht
+      rcases hsignature j hj ht with ⟨p,hp,hfp,hA,hB⟩ | hh
+      · exact Or.inl ⟨p,(hnonempty p).mp hp,hfp,hA.trans (h45 p),hB.trans (h45 (bar p))⟩
+      · exact Or.inr hh
+  · apply s37_exclusion_of_selected h hz hc f hbar
+      (valid 8 (by decide)).1 (valid 8 (by decide)).2
+    · intro p hp
+      exact (hfull p ((hnonempty p).mpr hp)).trans (h37 p)
+    · intro j hj ht
+      rcases hsignature j hj ht with ⟨p,hp,hfp,hA,hB⟩ | hh
+      · exact Or.inl ⟨p,(hnonempty p).mp hp,hfp,hA.trans (h37 p),hB.trans (h37 (bar p))⟩
+      · exact Or.inr hh
+
+end PEqualNP.Outside.L_meta_2590_aux.I2Census
+
+namespace PEqualNP.Outside.L_meta_2590_aux
+
+open DagTools I2Census
+
+lemma petersen_single_one_exclusion {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : sem_MinBranch 10 D b)
+    (hone : ((residualUnits 10 D b).filter
+      (fun u => (1 : V) ∈ supp 10 D u.1)).card ≤ 1) : False := by
+  have hbp := sem_minBranch_pure hb
+  obtain ⟨u,v,_,hR,hu,hS⟩ := petersen_single_one_residual_decomposition h hc small two h0 h2 b hbp hone
+  let S := supp 10 D v.1
+  have h1S : (1 : V) ∉ S := by
+    have finite : ∀ i : Fin 19, (1 : V) ∉ support i := by decide +kernel
+    obtain ⟨i,hi⟩ := support_exists_of_mem hS
+    change (1 : V) ∉ supp 10 D v.1
+    rw [hi]
+    exact finite i
+  obtain ⟨hcode,hbudget⟩ := budget_and_shared_code h hc h0 h2 b hbp u v S hR hu rfl h1S
+  have hflow := budget_flow_bound h hc h0 h2 b hbp u v S hR hu rfl h1S
+  obtain ⟨A,B,e,hA,hB,hAB,he⟩ := actual_free_port_choice h hc small two h0 h2
+  obtain ⟨a,f,hlen,hgrowth,hbar,hinj,hselected,hfixed⟩ := normalize_actual_ports A B e hA hB hAB he
+  have hconditions (i : ℕ) (_ : i ≤ a.length) : Conditions S (a.take i) := by
+    obtain ⟨hi,hs,hf⟩ := map_properties_take a f hinj hselected hfixed i
+    exact conditions_of_semantics h hc b hb S (a.take i) v hcode hbudget f hbar hi hs hf
+  exact exclusion_of_normalized_ports h hc (two_ineligible_tight h hc small two).2.1
+    b hbp S hS a hlen hgrowth hconditions f hbar hinj hselected hflow
+
+lemma petersen_two_ineligible_both_one {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
+    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
+    (b : V → ℕ) (hb : sem_MinBranch 10 D b) :
+    ((residualUnits 10 D b).filter (fun u => (1 : V) ∈ supp 10 D u.1)).card = 2 := by
+  have hR := (petersen_two_ineligible_code_caps h hc small two h0 h2 b (sem_minBranch_pure hb)).2.1
+  have hle := Finset.card_filter_le (residualUnits 10 D b) (fun u => (1 : V) ∈ supp 10 D u.1)
+  have hnot : ¬ ((residualUnits 10 D b).filter (fun u => (1 : V) ∈ supp 10 D u.1)).card ≤ 1 :=
+    fun hsmall => petersen_single_one_exclusion h hc small two h0 h2 b hb hsmall
+  omega
+
+end PEqualNP.Outside.L_meta_2590_aux
