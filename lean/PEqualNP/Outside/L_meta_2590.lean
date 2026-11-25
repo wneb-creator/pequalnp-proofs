@@ -6654,3 +6654,170 @@ lemma first_zero_star_only_reachable_and {D : Dag}
   exact reachable_ands_unique_of_support_ne h hc b hb zero hi hR hne hg htg pg he ht reach
 
 end PEqualNP.Outside.L_meta_2590_aux.I1UniqueChain
+
+namespace PEqualNP.Outside.L_meta_2590_aux.SharedDom
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.Four
+open PEqualNP.Outside.L_meta_2590_aux.I1Exposure
+
+lemma third_exit_pure {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {x : V} (hx : x ≠ 0) (small : (sem_W 10 D x).card ≤ 3)
+    {e q : Nat × Bool} (he : e ∈ sem_W 10 D x) (hq : q ∈ sem_W 10 D x)
+    (heq : e ≠ q)
+    (hallE : ∀ a : V, Adj 0 a → a ∈ supp 10 D (src D e))
+    (hallQ : ∀ a : V, Adj 0 a → a ∈ supp 10 D (src D q))
+    {f : Nat × Bool} (hf : f ∈ sem_W 10 D x) (hfe : f ≠ e) (hfq : f ≠ q) :
+    supp 10 D (src D f) = {x} := by
+  have hxsrc : x ∈ supp 10 D (src D f) := (sem_mem_W.mp hf).2.1
+  apply Finset.Subset.antisymm
+  · intro d hdsrc
+    simp only [Finset.mem_singleton]
+    by_contra hdx
+    by_cases hd : d = 0
+    · have hpure := sem_inelig_pure graph_ok h.1 hc hi (hd ▸ hdsrc)
+      rw [hpure,Finset.mem_singleton] at hxsrc
+      exact hx hxsrc
+    · obtain ⟨A,ind,hdA,hit0,hitx⟩ := i1_exposure_omit_geometry x d hx hd hdx
+      obtain ⟨g,s,hg,_,hxg,hxout,free⟩ := sem_exposure graph_ok h.1 hc A ind x hitx
+      have hgw : (g,s) ∈ sem_W 10 D x := sem_mem_W.mpr ⟨hg,hxg,hxout⟩
+      have differs (a : Nat × Bool)
+          (hallA : ∀ v : V, Adj 0 v → v ∈ supp 10 D (src D a)) : (g,s) ≠ a := by
+        intro eq
+        obtain ⟨v,hv,h0v⟩ := hit0
+        have hva := hallA v h0v
+        rw [← eq] at hva
+        exact Finset.disjoint_left.mp free hva hv
+      have eq := exits_equal_away_two (sem_W 10 D x) small he hq hf hgw heq hfe hfq
+        (differs e hallE) (differs q hallQ)
+      rw [eq] at hdsrc
+      exact Finset.disjoint_left.mp free hdsrc hdA
+  · exact Finset.singleton_subset_iff.mpr hxsrc
+
+end PEqualNP.Outside.L_meta_2590_aux.SharedDom
+
+namespace PEqualNP.Outside.L_meta_2590_aux.SharedDom
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.Four
+open PEqualNP.Outside.L_meta_2590_aux.I1Exposure
+
+lemma common_neighbor_exit_exhausted {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (small : (sem_W 10 D 1).card ≤ 3)
+    {P Q e : Nat × Bool} (hne : P ≠ Q)
+    (hP : ∀ x : V, Adj 0 x → P ∈ sem_W 10 D x)
+    (hQ : ∀ x : V, Adj 0 x → Q ∈ sem_W 10 D x)
+    (he : ∀ x : V, Adj 0 x → e ∈ sem_W 10 D x) : e = P ∨ e = Q := by
+  have n1 : Adj 0 1 := by decide +kernel
+  have n4 : Adj 0 4 := by decide +kernel
+  obtain ⟨A,ind,ha,_,hit⟩ := i1_exposure_omit_geometry 1 4 (by decide) (by decide) (by decide)
+  obtain ⟨g,s,hg,_,hxs,hxo,free⟩ := sem_exposure graph_ok h.1 hc A ind 1 hit
+  have hf : (g,s) ∈ sem_W 10 D 1 := sem_mem_W.mpr ⟨hg,hxs,hxo⟩
+  have no4 : (4 : V) ∉ supp 10 D (src D (g,s)) := fun hm => Finset.disjoint_left.mp free hm ha
+  have fp : (g,s) ≠ P := fun eq => no4 (eq.symm ▸ (sem_mem_W.mp (hP 4 n4)).2.1)
+  have fq : (g,s) ≠ Q := fun eq => no4 (eq.symm ▸ (sem_mem_W.mp (hQ 4 n4)).2.1)
+  by_contra hn
+  push Not at hn
+  have eq := exits_equal_away_two (sem_W 10 D 1) small (hP 1 n1) (hQ 1 n1)
+    (he 1 n1) hf hne hn.1 hn.2 fp fq
+  exact no4 (eq ▸ (sem_mem_W.mp (he 4 n4)).2.1)
+
+lemma three_exit_ports {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (heq : e ≠ q)
+    (he : ∀ x : V, Adj 0 x → e ∈ sem_W 10 D x)
+    (hq : ∀ x : V, Adj 0 x → q ∈ sem_W 10 D x)
+    {x : V} (hx : Adj 0 x) (three : (sem_W 10 D x).card = 3) :
+    ∃ f : Nat × Bool, sem_W 10 D x = {e,q,f} ∧
+      f ≠ e ∧ f ≠ q ∧ supp 10 D (src D f) = {x} := by
+  classical
+  have sub : ({e,q} : Finset (Nat × Bool)) ⊆ sem_W 10 D x := by
+    intro f hf
+    simp only [Finset.mem_insert,Finset.mem_singleton] at hf
+    rcases hf with rfl | rfl
+    · exact he x hx
+    · exact hq x hx
+  have pair : ({e,q} : Finset (Nat × Bool)).card = 2 := by simp [heq]
+  have split := Finset.card_sdiff_add_card_eq_card sub
+  have positive : 0 < (sem_W 10 D x \ {e,q}).card := by omega
+  obtain ⟨f,hf⟩ := Finset.card_pos.mp positive
+  obtain ⟨hfw,hfnot⟩ := Finset.mem_sdiff.mp hf
+  have hfe : f ≠ e := fun eq => hfnot (by simp [eq])
+  have hfq : f ≠ q := fun eq => hfnot (by simp [eq])
+  have sub3 : ({e,q,f} : Finset (Nat × Bool)) ⊆ sem_W 10 D x := by
+    intro v hv
+    simp only [Finset.mem_insert,Finset.mem_singleton] at hv
+    rcases hv with rfl | rfl | rfl
+    · exact he x hx
+    · exact hq x hx
+    · exact hfw
+  have card3 : ({e,q,f} : Finset (Nat × Bool)).card = 3 := by
+    simp [heq,Ne.symm hfe,Ne.symm hfq]
+  have eq := Finset.eq_of_subset_of_card_le sub3 (by omega)
+  refine ⟨f,eq.symm,hfe,hfq,?_⟩
+  exact third_exit_pure h hc hi (x := x) (fun eq => graph_ok.2.1 0 (eq ▸ hx))
+    (by omega) (he x hx) (hq x hx) heq
+    (fun a ha => (sem_mem_W.mp (he a ha)).2.1)
+    (fun a ha => (sem_mem_W.mp (hq a ha)).2.1) hfw hfe hfq
+
+lemma case50_ports_of_common {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D) (star : FirstZeroStar D)
+    (sat : ∀ x : V, Adj 0 x → (sem_W 10 D x).card = 3)
+    {P Q : Nat × Bool} (hpq : P.1 ≠ Q.1)
+    (common : ∀ x : V, Adj 0 x → P ∈ sem_W 10 D x ∧ Q ∈ sem_W 10 D x) :
+    ∃ e q : Nat × Bool, e.1 < D.length ∧ tag D e.1 = true ∧
+      supp 10 D (src D e) = ({0} : Finset V) ∧
+      supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V) ∧
+      supp 10 D (10 + e.1) = ∅ ∧ e.1 ≠ q.1 ∧
+      (∀ x : V, Adj 0 x → q ∈ sem_W 10 D x) ∧
+      ∀ x : V, Adj 0 x → ∃ f : Nat × Bool,
+        sem_W 10 D x = {sem_bar e,q,f} ∧ f ≠ sem_bar e ∧ f ≠ q ∧
+          supp 10 D (src D f) = {x} := by
+  obtain ⟨e,he,ht,hs,hn,hm,_,_,_⟩ := star
+  have hmate (x : V) (hx : Adj 0 x) : sem_bar e ∈ sem_W 10 D x := by
+    apply sem_mem_W.mpr
+    refine ⟨he,?_,?_⟩
+    · exact hm.symm ▸ (zero_neighbors x).mp hx
+    · change x ∉ supp 10 D (10 + e.1)
+      rw [hn]
+      simp
+  have ne : P ≠ Q := fun eq => hpq (congrArg Prod.fst eq)
+  have member := common_neighbor_exit_exhausted h hc (by rw [sat 1 (by decide +kernel)]) ne
+    (fun x hx => (common x hx).1) (fun x hx => (common x hx).2) hmate
+  obtain ⟨q,neq,hq⟩ : ∃ q : Nat × Bool, e.1 ≠ q.1 ∧
+      ∀ x : V, Adj 0 x → q ∈ sem_W 10 D x := by
+    rcases member with ep | eq
+    · refine ⟨Q,?_,fun x hx => (common x hx).2⟩
+      have hep := congrArg Prod.fst ep
+      change e.1 = P.1 at hep
+      exact hep ▸ hpq
+    · refine ⟨P,?_,fun x hx => (common x hx).1⟩
+      have heq := congrArg Prod.fst eq
+      change e.1 = Q.1 at heq
+      exact heq ▸ Ne.symm hpq
+  refine ⟨e,q,he,ht,hs,hm,hn,neq,hq,?_⟩
+  intro x hx
+  exact three_exit_ports h hc hi (e := sem_bar e) (q := q) (x := x)
+    (by intro eq; have hf := congrArg Prod.fst eq; exact neq hf) hmate hq hx (sat x hx)
+
+lemma case50_budget_ports_of_common {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    (budget : Bplus 10 D = (eligSet 10 D).card + 1)
+    (sat : ∀ x : V, Adj 0 x → (sem_W 10 D x).card = 3)
+    {P Q : Nat × Bool} (hpq : P.1 ≠ Q.1)
+    (common : ∀ x : V, Adj 0 x → P ∈ sem_W 10 D x ∧ Q ∈ sem_W 10 D x) :
+    ∃ e q : Nat × Bool, e.1 < D.length ∧ tag D e.1 = true ∧
+      supp 10 D (src D e) = ({0} : Finset V) ∧
+      supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V) ∧
+      supp 10 D (10 + e.1) = ∅ ∧ e.1 ≠ q.1 ∧
+      (∀ x : V, Adj 0 x → q ∈ sem_W 10 D x) ∧
+      ∀ x : V, Adj 0 x → ∃ f : Nat × Bool,
+        sem_W 10 D x = {sem_bar e,q,f} ∧ f ≠ sem_bar e ∧ f ≠ q ∧
+          supp 10 D (src D f) = {x} :=
+  case50_ports_of_common h hc hi (budget_one_first_zero_star h hc zero hi budget) sat hpq common
+
+end PEqualNP.Outside.L_meta_2590_aux.SharedDom
