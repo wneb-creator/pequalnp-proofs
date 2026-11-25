@@ -1438,12 +1438,42 @@ lemma sem_descent (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
       · rw [hs]; exact hc x hx
       · rw [hs]
 
-lemma sem_two_arms (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
+lemma sem_arm_step_support_mono (hS : Strict n D)
+    {X : Finset (Fin n)} (hX : X.Nonempty)
+    (hM : ∀ x ∈ X, merges n D (carrierT n D {x}) = ∅)
+    {a c : ℕ} (ha : sem_Arm n D X a c) : supp n D a ⊆ supp n D c := by
+  obtain ⟨x, hx⟩ := hX
+  obtain ⟨j, s, hj, hceq, hs⟩ := sem_step_iff.mp ha.1
+  have hxc : x ∈ supp n D (n + j) := by
+    rw [← hceq]
+    exact (ha.2.2 x hx).2
+  have ht := (sem_zm_gate hS (hM x hx) hj hxc).1
+  rw [hceq, sem_supp_or hS hj ht]
+  cases s
+  · rw [sb_src_false] at hs
+    rw [hs]
+    exact Finset.subset_union_left
+  · rw [sb_src_true] at hs
+    rw [hs]
+    exact Finset.subset_union_right
+
+lemma sem_arm_support_mono (hS : Strict n D)
+    {X : Finset (Fin n)} (hX : X.Nonempty)
+    (hM : ∀ x ∈ X, merges n D (carrierT n D {x}) = ∅)
+    {a c : ℕ} (ha : Relation.ReflTransGen (sem_Arm n D X) a c) :
+    supp n D a ⊆ supp n D c := by
+  induction ha with
+  | refl => intro v hv; exact hv
+  | tail _ hstep ih => exact ih.trans (sem_arm_step_support_mono hS hX hM hstep)
+
+lemma sem_two_arms_support (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
     (X : Finset (Fin n)) (hX : X.Nonempty)
     (hM : ∀ x ∈ X, merges n D (carrierT n D {x}) = ∅) (r : ℕ)
     (hr : ∀ x ∈ X, x ∈ supp n D r) (hf : 2 ≤ fanout D r)
     (hlow : ∀ x ∈ X, ∀ w, r < w → x ∈ supp n D w → fanout D w ≤ 1) :
-    ∃ P Q : ℕ × Bool, P.1 ≠ Q.1 ∧ ∀ x ∈ X, P ∈ sem_W n D x ∧ Q ∈ sem_W n D x := by
+    ∃ P Q : ℕ × Bool, P.1 ≠ Q.1 ∧
+      (∀ x ∈ X, P ∈ sem_W n D x ∧ Q ∈ sem_W n D x) ∧
+      supp n D r ⊆ supp n D (src D P) ∧ supp n D r ⊆ supp n D (src D Q) := by
   classical
   have hS := h.1
   obtain ⟨x0, hx0⟩ := hX
@@ -1454,7 +1484,8 @@ lemma sem_two_arms (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
     have := hS j hj.1
     exact ⟨hj.1, by omega, hj.2⟩
   have hterm : ∀ j ∈ readers D r, ∃ e : ℕ × Bool, (∀ x ∈ X, e ∈ sem_W n D x) ∧
-      ((e.1 = j ∧ src D e = r) ∨ Relation.ReflTransGen (sem_Arm n D X) (n + j) (src D e)) := by
+      ((e.1 = j ∧ src D e = r) ∨ Relation.ReflTransGen (sem_Arm n D X) (n + j) (src D e)) ∧
+      supp n D r ⊆ supp n D (src D e) := by
     intro j hj
     obtain ⟨hjl, hrj, hop⟩ := hread j hj
     obtain ⟨s, hs⟩ : ∃ s : Bool, src D (j, s) = r := by
@@ -1472,9 +1503,17 @@ lemma sem_two_arms (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
         · right; rw [h1]; exact hr x hx
       obtain ⟨e, he1, he2⟩ := sem_descent hG h hC X ⟨x0, hx0⟩ hM (n + j) hall
         (fun x hx w hw => hlow x hx w (by omega))
-      exact ⟨e, he1, Or.inr he2⟩
+      have hsub : supp n D r ⊆ supp n D (n + j) := by
+        rw [sem_supp_or hS hjl ht]
+        rcases hop with ha | hb
+        · rw [ha]
+          exact Finset.subset_union_left
+        · rw [hb]
+          exact Finset.subset_union_right
+      exact ⟨e, he1, Or.inr he2,
+        hsub.trans (sem_arm_support_mono hS ⟨x0, hx0⟩ hM he2)⟩
     · exact ⟨(j, s), fun x hx => sem_mem_W.mpr ⟨hjl, by rw [hs]; exact hr x hx,
-        fun hc2 => hcar ⟨x, hx, hc2⟩⟩, Or.inl ⟨rfl, hs⟩⟩
+        fun hc2 => hcar ⟨x, hx, hc2⟩⟩, Or.inl ⟨rfl, hs⟩, by rw [hs]⟩
   have hRstep : ∀ a b, sem_Arm n D X a b → sem_step n D a b := fun _ _ hab => hab.1
   have hfun : ∀ a a' b, sem_Arm n D X a b → sem_Arm n D X a' b → a = a' := by
     intro a a' b h1 h2
@@ -1513,9 +1552,9 @@ lemma sem_two_arms (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
         · rw [e1, e2]; exact ⟨hrr, hu⟩
         · exact absurd (e1.symm.trans e2) hur
       omega
-  obtain ⟨P, hP1, hP2⟩ := hterm j1 hj1
-  obtain ⟨Q, hQ1, hQ2⟩ := hterm j2 hj2
-  refine ⟨P, Q, fun hPQ => ?_, fun x hx => ⟨hP1 x hx, hQ1 x hx⟩⟩
+  obtain ⟨P, hP1, hP2, hPs⟩ := hterm j1 hj1
+  obtain ⟨Q, hQ1, hQ2, hQs⟩ := hterm j2 hj2
+  refine ⟨P, Q, fun hPQ => ?_, fun x hx => ⟨hP1 x hx, hQ1 x hx⟩, hPs, hQs⟩
   have hsame : Q = P := by
     rcases sem_same_gate hPQ with h1 | h1
     · exact h1
@@ -1541,6 +1580,15 @@ lemma sem_two_arms (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
   · rcases sem_rtg_comparable hfun hPp hQp with h1 | h1
     · exact hcross j1 hj1 j2 hj2 hne h1
     · exact hcross j2 hj2 j1 hj1 (Ne.symm hne) h1
+
+lemma sem_two_arms (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
+    (X : Finset (Fin n)) (hX : X.Nonempty)
+    (hM : ∀ x ∈ X, merges n D (carrierT n D {x}) = ∅) (r : ℕ)
+    (hr : ∀ x ∈ X, x ∈ supp n D r) (hf : 2 ≤ fanout D r)
+    (hlow : ∀ x ∈ X, ∀ w, r < w → x ∈ supp n D w → fanout D w ≤ 1) :
+    ∃ P Q : ℕ × Bool, P.1 ≠ Q.1 ∧ ∀ x ∈ X, P ∈ sem_W n D x ∧ Q ∈ sem_W n D x := by
+  obtain ⟨P,Q,hne,hW,_,_⟩ := sem_two_arms_support hG h hC X hX hM r hr hf hlow
+  exact ⟨P,Q,hne,hW⟩
 
 lemma sem_saturated (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
     (b : Fin n → ℕ) (hb : PureBranch n D b) {u0 : Σ _ : ℕ, ℕ}
@@ -1769,13 +1817,6 @@ section IneligiblePathFacts
 
 variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
 
-lemma val_all_false (hS : Strict n D) (w : ℕ) :
-    val D (fun _ : Fin n => false) w = false := by
-  by_cases hw : w < n + D.length
-  · exact val_unique hS (fun _ => false) (fun _ => false) (fun _ _ => rfl)
-      (fun j _ => by cases tag D j <;> rfl) w hw
-  · exact val_ge D _ w (by omega)
-
 lemma ineligible_reachable_pure (hG : sem_Gr G) (h : StrictLive n D)
     (hC : sem_Comp n G D) (hz : Bzero n D = 0) {i : Fin n}
     (hi : i ∈ ineligSet n D) {w : ℕ}
@@ -1793,148 +1834,12 @@ lemma ineligible_reachable_fanout (hG : sem_Gr G) (h : StrictLive n D)
   rw [sem_branch_empty hG h.1 hC hi (sem_noempty_unique hG h hC hz hi hp) hf] at hn
   exact Finset.not_nonempty_empty hn
 
-lemma ineligible_empty_stays_empty (hG : sem_Gr G) (h : StrictLive n D)
-    (hC : sem_Comp n G D) (hz : Bzero n D = 0) {i : Fin n}
-    (hi : i ∈ ineligSet n D) {b t : ℕ}
-    (hb : Relation.ReflTransGen (sem_step n D) i.val b)
-    (hbt : Relation.ReflTransGen (sem_step n D) b t) (empty : supp n D b = ∅) :
-    supp n D t = ∅ := by
-  have chain := sem_noempty_unique hG h hC hz hi hb
-  have sub := ineligible_reachable_pure hG h hC hz hi (hb.trans hbt)
-  have le := sem_rtg_le h.1 (fun _ _ h => h) hbt
-  have sb : val D (single i) b = false := by
-    by_contra bad
-    rw [Bool.not_eq_false] at bad
-    have mem := mem_supp.mpr bad
-    rw [empty] at mem
-    exact Finset.notMem_empty _ mem
-  have eq := sem_dom_eq_at h.1 (fun _ : Fin n => false) (single i) i
-    (by intro k hk; simp [single, hk]) b t (sem_chain_dom_at h.1 chain le)
-    (by rw [val_all_false h.1, sb])
-  have st : val D (single i) t = false := by rw [←eq]; exact val_all_false h.1 t
-  refine Finset.eq_empty_of_forall_notMem (fun u hu => ?_)
-  have ui : u = i := Finset.mem_singleton.mp (sub hu)
-  subst u
-  have truth := mem_supp.mp hu
-  rw [st] at truth
-  exact Bool.false_ne_true truth
-
-lemma chain_join_is_or (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {i j : Fin n} {g : ℕ} (hg : g < D.length)
-    (left : sem_Chain n D i.val (opA D g)) (fan : fanout D (opA D g) = 1)
-    (right : sem_Chain n D j.val (opB D g)) : tag D g = false := by
-  by_contra bad
-  rw [Bool.not_eq_false] at bad
-  obtain ⟨a,hia,haj⟩ := hG.2.2.2 i j
-  have step : sem_step n D (opA D g) (n + g) := by
-    simpa [src] using (sem_step_src (n := n) (D := D) hg false)
-  have chain : sem_Chain n D i.val (n + g) := Relation.ReflTransGen.tail left ⟨step, fan⟩
-  have split := sem_dom_split hS hC (single a) i (n + g) (sem_chain_dom hS chain)
-    (sem_single_no_edge hG a)
-    (show sem_Edge G (sem_ins i (single a)) from
-      ⟨i,a,hia,sem_ins_self i _,by simp [sem_ins, single]⟩)
-  have truth := split.2
-  rw [val_gate hS _ g hg, bad, gop_true, Bool.and_eq_true] at truth
-  have independent := sem_sibling_indep hS i hg true
-    (by simpa [src] using left) (by simpa [src] using fan)
-    (single a) (sem_ins i (single a)) (sem_ins_agree i (single a))
-  have hAt : val D (single a) (opB D g) = true := by
-    change val D (single a) (opB D g) = val D (sem_ins i (single a)) (opB D g) at independent
-    exact independent.trans truth.2
-  have pure := sem_dom_pure hG hS hC j (opB D g) (sem_chain_dom hS right)
-  exact haj (Finset.mem_singleton.mp (pure (mem_supp.mpr hAt)))
-
-lemma ineligible_paths_join_is_or (hG : sem_Gr G) (h : StrictLive n D)
-    (hC : sem_Comp n G D) (hz : Bzero n D = 0) {i j : Fin n}
-    (hi : i ∈ ineligSet n D) (hj : j ∈ ineligSet n D) {g : ℕ}
-    (hg : g < D.length)
-    (left : Relation.ReflTransGen (sem_step n D) i.val (opA D g))
-    (right : Relation.ReflTransGen (sem_step n D) j.val (opB D g)) : tag D g = false := by
-  have le := ineligible_reachable_fanout hG h hC hz hi left
-  have pos : 1 ≤ fanout D (opA D g) := sem_step_fanout
-    (by simpa [src] using (sem_step_src (n := n) (D := D) hg false))
-  exact chain_join_is_or hG h.1 hC hg (sem_noempty_unique hG h hC hz hi left)
-    (by omega) (sem_noempty_unique hG h hC hz hj right)
-
 lemma chain_star_influence (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
     {i a : Fin n} {w : ℕ} (chain : sem_Chain n D i.val w) (hia : G i a) :
     val D (single a) w = false ∧ val D (sem_two i a) w = true := by
   exact sem_dom_split hS hC (single a) i w (sem_chain_dom hS chain)
     (sem_single_no_edge hG a)
     ⟨i,a,hia,sem_ins_self i _,by simp [sem_ins, single]⟩
-
-lemma chain_sibling_not_self (hS : Strict n D) {i : Fin n} {g : ℕ}
-    (hg : g < D.length) (left : sem_Chain n D i.val (opA D g))
-    (fan : fanout D (opA D g) = 1) : i ∉ supp n D (opB D g) := by
-  have independent := sem_sibling_indep hS i hg true
-    (by simpa [src] using left) (by simpa [src] using fan)
-    (fun _ : Fin n => false) (single i) (by intro k hk; simp [single, hk])
-  change val D (fun _ : Fin n => false) (opB D g) = val D (single i) (opB D g) at independent
-  rw [val_all_false hS] at independent
-  intro mem
-  have hv := mem_supp.mp mem
-  exact Bool.false_ne_true (independent.trans hv)
-
-lemma chain_and_opposite_neighbors (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {i : Fin n} {g : ℕ} (hg : g < D.length)
-    (left : sem_Chain n D i.val (opA D g)) (fan : fanout D (opA D g) = 1)
-    (hand : tag D g = true) : ∀ a : Fin n, G i a → a ∈ supp n D (opB D g) := by
-  intro a hia
-  have step : sem_step n D (opA D g) (n + g) := by
-    simpa [src] using (sem_step_src (n := n) (D := D) hg false)
-  have chain : sem_Chain n D i.val (n + g) := Relation.ReflTransGen.tail left ⟨step, fan⟩
-  have truth := (chain_star_influence hG hS hC chain hia).2
-  rw [val_gate hS _ g hg, hand, gop_true, Bool.and_eq_true] at truth
-  have independent := sem_sibling_indep hS i hg true
-    (by simpa [src] using left) (by simpa [src] using fan)
-    (single a) (sem_ins i (single a)) (sem_ins_agree i (single a))
-  change val D (single a) (opB D g) = val D (sem_ins i (single a)) (opB D g) at independent
-  exact mem_supp.mpr (independent.trans truth.2)
-
-lemma chain_and_output_empty (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {i : Fin n} {g : ℕ} (hg : g < D.length)
-    (left : sem_Chain n D i.val (opA D g)) (fan : fanout D (opA D g) = 1)
-    (hand : tag D g = true) : supp n D (n + g) = ∅ := by
-  have pure := sem_dom_pure hG hS hC i (opA D g) (sem_chain_dom hS left)
-  have missing := chain_sibling_not_self hS hg left fan
-  refine Finset.eq_empty_of_forall_notMem (fun x hx => ?_)
-  rw [sem_supp_and hS hg hand, Finset.mem_inter] at hx
-  have xi := Finset.mem_singleton.mp (pure hx.1)
-  exact missing (xi ▸ hx.2)
-
-lemma chain_and_neighbor_exits (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {i : Fin n} {g : ℕ} (hg : g < D.length)
-    (left : sem_Chain n D i.val (opA D g)) (fan : fanout D (opA D g) = 1)
-    (hand : tag D g = true) : ∀ a : Fin n, G i a → (g, true) ∈ sem_W n D a := by
-  intro a hia
-  refine sem_mem_W.mpr ⟨hg,?_,?_⟩
-  · simpa [src] using chain_and_opposite_neighbors hG hS hC hg left fan hand a hia
-  · rw [chain_and_output_empty hG hS hC hg left fan hand]
-    exact Finset.notMem_empty a
-
-lemma chain_or_sibling_empty (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {i : Fin n} {g : ℕ} (hg : g < D.length)
-    (left : sem_Chain n D i.val (opA D g)) (fan : fanout D (opA D g) = 1)
-    (hor : tag D g = false) : supp n D (opB D g) = ∅ := by
-  have step : sem_step n D (opA D g) (n + g) := by
-    simpa [src] using (sem_step_src (n := n) (D := D) hg false)
-  have chain : sem_Chain n D i.val (n + g) := Relation.ReflTransGen.tail left ⟨step, fan⟩
-  have pure := sem_dom_pure hG hS hC i (n + g) (sem_chain_dom hS chain)
-  have missing := chain_sibling_not_self hS hg left fan
-  refine Finset.eq_empty_of_forall_notMem (fun x hx => ?_)
-  have mem : x ∈ supp n D (n + g) := by
-    rw [sem_supp_or hS hg hor]
-    exact Finset.mem_union_right _ hx
-  have xi := Finset.mem_singleton.mp (pure mem)
-  exact missing (xi ▸ hx)
-
-lemma two_chain_support_empty (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {i j : Fin n} (ne : i ≠ j) {w : ℕ}
-    (hi : sem_Chain n D i.val w) (hj : sem_Chain n D j.val w) : supp n D w = ∅ := by
-  have pi := sem_dom_pure hG hS hC i w (sem_chain_dom hS hi)
-  have pj := sem_dom_pure hG hS hC j w (sem_chain_dom hS hj)
-  refine Finset.eq_empty_of_forall_notMem (fun x hx => ?_)
-  exact ne ((Finset.mem_singleton.mp (pi hx)).symm.trans (Finset.mem_singleton.mp (pj hx)))
 
 lemma or_path_value (hS : Strict n D) (x : Fin n → Bool) {a b : ℕ}
     (hp : Relation.ReflTransGen (fun a b => sem_step n D a b ∧ tag D (b - n) = false) a b)
@@ -1963,25 +1868,6 @@ lemma edge_two_iff (hG : sem_Gr G) (i a : Fin n) : sem_Edge G (sem_two i a) ↔ 
     · exact hG.1 _ _ huv
     · exact False.elim (hG.2.1 _ huv)
   · exact sem_two_edge
-
-lemma chain_star_exact_if_below_target (hG : sem_Gr G) (hS : Strict n D)
-    (hC : sem_Comp n G D) {i : Fin n} {g : ℕ} (hg : g < D.length)
-    (left : sem_Chain n D i.val (opA D g)) (fan : fanout D (opA D g) = 1)
-    (hand : tag D g = true) (hi : i ∈ supp n D (opA D g))
-    (below : ∀ x : Fin n → Bool, val D x (n + g) = true → sem_Edge G x) :
-    ∀ a : Fin n, a ∈ supp n D (opB D g) ↔ G i a := by
-  intro a
-  constructor
-  · intro ha
-    have vi : val D (sem_two i a) (opA D g) = true :=
-      sem_val_of_supp hS hi (by simp [sem_two])
-    have va : val D (sem_two i a) (opB D g) = true :=
-      sem_val_of_supp hS ha (by simp [sem_two])
-    apply (edge_two_iff hG i a).mp
-    apply below
-    rw [val_gate hS _ g hg, hand, gop_true, vi, va]
-    rfl
-  · exact chain_and_opposite_neighbors hG hS hC hg left fan hand a
 
 end IneligiblePathFacts
 
@@ -2091,18 +1977,6 @@ lemma two_ineligible_residual_nonempty {D : Dag}
       (fun u => x ∈ supp 10 D u.1)).card := by omega
   obtain ⟨u,hu⟩ := Finset.card_pos.mp pos
   exact ⟨u, (Finset.mem_filter.mp hu).1⟩
-
-lemma two_ineligible_budget {D : Dag}
-    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
-    (small : D.length ≤ 19) (hi : (ineligSet 10 D).card = 2) :
-    9 ≤ Bplus 10 D ∧ Bplus 10 D ≤ 10 ∧ Bzero 10 D ≤ 1 := by
-  obtain ⟨b,hb⟩ := sem_exists_pureBranch graph_ok h.1 hc
-  have pos := Finset.card_pos.mpr (two_ineligible_residual_nonempty h hc b hb (by omega))
-  have residual := card_residual h.1 b hb
-  have complement := inelig_card_add 10 D
-  have size := surplus_identity h
-  rw [totalSurplus_split] at size
-  omega
 
 lemma one_residual_exit_cap {D : Dag}
     (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
@@ -2376,20 +2250,6 @@ lemma r1_no_residual_one {D : Dag} (h : StrictLive 10 D) (hc : sem_Comp 10 adj D
   · exact he1 (hBn 1 (by decide))
   · exact he8 (sem_mem_W.mp ha8).2.1
 
-lemma canonical_two_ineligible_tight {D : Dag}
-    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
-    (small : D.length ≤ 19) (hi : (ineligSet 10 D).card = 2)
-    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D) :
-    Bplus 10 D = 10 ∧ Bzero 10 D = 0 := by
-  have budget := two_ineligible_budget h hc small hi
-  have comp := inelig_card_add 10 D
-  have notnine : Bplus 10 D ≠ 9 := by
-    intro eq
-    exact r1_no_residual_one h hc (by omega) h0 h2
-  have size := surplus_identity h
-  rw [totalSurplus_split] at size
-  omega
-
 def r1_perm_rows : List (List V) := [
   [0,1,2,3,4,5,6,7,8,9],
   [0,1,2,3,4,5,6,7,8,9],
@@ -2603,84 +2463,6 @@ section SharedFilterFacts
 
 variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
 
-lemma ineligible_opposite_exit (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    {i x : Fin n} (hi : i ∈ ineligSet n D) (hix : G i x) :
-    ∃ e, e ∈ sem_W n D x ∧ supp n D (src D (sem_bar e)) = {i} ∧
-      ∀ a, G i a → a ∈ supp n D (src D e) := by
-  obtain ⟨e,he,_,hp,hz,hn,_,_⟩ := sem_inelig_consumer hG h hC hi
-  refine ⟨sem_bar e, sem_mem_W.mpr ⟨he, hn x hix, ?_⟩, ?_, ?_⟩
-  · change x ∉ supp n D (n + e.1)
-    rw [hz]
-    exact Finset.notMem_empty x
-  · rw [sem_bar_bar]
-    exact hp
-  · exact hn
-
-lemma shared_and_opposite_union (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
-    {i j : Fin n} {g : ℕ} (hg : g < D.length)
-    (lefti : sem_Chain n D i.val (opA D g))
-    (leftj : sem_Chain n D j.val (opA D g))
-    (fan : fanout D (opA D g) = 1) (hand : tag D g = true) :
-    ∀ a : Fin n, G i a ∨ G j a → a ∈ supp n D (opB D g) := by
-  intro a ha
-  rcases ha with ha | ha
-  · exact chain_and_opposite_neighbors hG hS hC hg lefti fan hand a ha
-  · exact chain_and_opposite_neighbors hG hS hC hg leftj fan hand a ha
-
-lemma shared_and_four_exits (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    {i j x y : Fin n} (hi : i ∈ ineligSet n D) (hj : j ∈ ineligSet n D)
-    (hij : i ≠ j) (hix : G i x) (hjx : G j x) (hxy : G x y) (hyi : y ≠ i) (hyj : y ≠ j)
-    {g : ℕ} (hg : g < D.length) (hand : tag D g = true)
-    (lefti : sem_Chain n D i.val (opA D g))
-    (leftj : sem_Chain n D j.val (opA D g)) (fan : fanout D (opA D g) = 1) :
-    4 ≤ (sem_W n D x).card := by
-  obtain ⟨ei,hei,hpi,_⟩ := ineligible_opposite_exit hG h hC hi hix
-  obtain ⟨ej,hej,hpj,_⟩ := ineligible_opposite_exit hG h hC hj hjx
-  obtain ⟨ey,hey,hybar,_,_,_⟩ := sem_edge_slots hG h.1 hC hxy
-  have hy : y ∈ supp n D (src D (sem_bar ey)) := (sem_mem_W.mp hybar).2.1
-  let eg : ℕ × Bool := (g,true)
-  have heg : eg ∈ sem_W n D x := chain_and_neighbor_exits hG h.1 hC hg lefti fan hand x hix
-  have empty : supp n D (src D (sem_bar eg)) = ∅ := by
-    change supp n D (opA D g) = ∅
-    exact two_chain_support_empty hG h.1 hC hij lefti leftj
-  have neij : ei ≠ ej := by
-    intro eq
-    exact hij (Finset.singleton_injective (hpi.symm.trans (eq ▸ hpj)))
-  have neyi : ey ≠ ei := by
-    intro eq
-    rw [eq, hpi, Finset.mem_singleton] at hy
-    exact hyi hy
-  have neyj : ey ≠ ej := by
-    intro eq
-    rw [eq, hpj, Finset.mem_singleton] at hy
-    exact hyj hy
-  have neyg : ey ≠ eg := by
-    intro eq
-    rw [eq, empty] at hy
-    exact Finset.notMem_empty _ hy
-  have neig : ei ≠ eg := by
-    intro eq
-    have mem : i ∈ supp n D (src D (sem_bar ei)) := by rw [hpi]; simp
-    rw [eq, empty] at mem
-    exact Finset.notMem_empty _ mem
-  have nejg : ej ≠ eg := by
-    intro eq
-    have mem : j ∈ supp n D (src D (sem_bar ej)) := by rw [hpj]; simp
-    rw [eq, empty] at mem
-    exact Finset.notMem_empty _ mem
-  have sub : ({eg,ei,ej,ey} : Finset (ℕ × Bool)) ⊆ sem_W n D x := by
-    intro e he
-    simp only [Finset.mem_insert,Finset.mem_singleton] at he
-    rcases he with rfl | rfl | rfl | rfl
-    · exact heg
-    · exact hei
-    · exact hej
-    · exact hey
-  have card : ({eg,ei,ej,ey} : Finset (ℕ × Bool)).card = 4 := by
-    simp [Ne.symm neig,Ne.symm nejg,Ne.symm neyg,neij,Ne.symm neyi,Ne.symm neyj]
-  have le := Finset.card_le_card sub
-  omega
-
 lemma four_exits_two_residuals (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
     (b : Fin n → ℕ) (hb : PureBranch n D b) {x : Fin n}
     (four : 4 ≤ (sem_W n D x).card) (cap : (residualUnits n D b).card ≤ 2) :
@@ -2699,42 +2481,6 @@ end SharedFilterFacts
 end DagTools
 
 open DagTools
-
-lemma petersen_shared_and_five_supports {D : Dag}
-    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D) {g : ℕ}
-    (hg : g < D.length) (hand : tag D g = true)
-    (left0 : sem_Chain 10 D 0 (opA D g)) (left2 : sem_Chain 10 D 2 (opA D g))
-    (fan : fanout D (opA D g) = 1) : 5 ≤ (supp 10 D (opB D g)).card := by
-  have geom : ∀ a ∈ ({1,3,4,5,7} : Finset V), adj 0 a ∨ adj 2 a := by decide +kernel
-  have sub : ({1,3,4,5,7} : Finset V) ⊆ supp 10 D (opB D g) := by
-    intro a ha
-    exact shared_and_opposite_union graph_ok h.1 hc hg left0 left2 fan hand a (geom a ha)
-  have card : ({1,3,4,5,7} : Finset V).card = 5 := by decide
-  have le := Finset.card_le_card sub
-  omega
-
-lemma petersen_shared_and_residuals {D : Dag}
-    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D) (small : D.length ≤ 19)
-    (two : (ineligSet 10 D).card = 2)
-    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
-    (b : V → ℕ) (hb : PureBranch 10 D b) {g : ℕ}
-    (hg : g < D.length) (hand : tag D g = true)
-    (left0 : sem_Chain 10 D 0 (opA D g)) (left2 : sem_Chain 10 D 2 (opA D g))
-    (fan : fanout D (opA D g) = 1) :
-    (sem_W 10 D (1 : V)).card = 4 ∧ merges 10 D (carrierT 10 D {(1 : V)}) = ∅ ∧
-      (residualUnits 10 D b).card = 2 ∧
-      ∀ u ∈ residualUnits 10 D b, (1 : V) ∈ supp 10 D u.1 := by
-  have four := shared_and_four_exits graph_ok h hc h0 h2
-    (by decide : (0 : V) ≠ 2) (by decide : adj 0 1) (by decide : adj 2 1)
-    (by decide : adj 1 6) (by decide : (6 : V) ≠ 0) (by decide : (6 : V) ≠ 2)
-    hg hand left0 left2 fan
-  have cap : (residualUnits 10 D b).card ≤ 2 := by
-    have residual := card_residual h.1 b hb
-    have complement := inelig_card_add 10 D
-    have size := surplus_identity h
-    rw [totalSurplus_split] at size
-    omega
-  exact four_exits_two_residuals graph_ok h hc b hb four cap
 
 namespace DagTools
 
@@ -2761,26 +2507,6 @@ lemma chain_and_neighbor_exits_side (hG : sem_Gr G) (hS : Strict n D) (hC : sem_
     (sem_dom_pure hG hS hC i (n + g) (sem_chain_dom hS chain) ha)
   exact hG.2.1 i (ai ▸ hia)
 
-lemma reachable_and_neighbor_exit (hG : sem_Gr G) (h : StrictLive n D)
-    (hC : sem_Comp n G D) (hz : Bzero n D = 0) {i x : Fin n}
-    (hi : i ∈ ineligSet n D) (hix : G i x) {g : ℕ}
-    (hg : g < D.length) (hand : tag D g = true)
-    (path : Relation.ReflTransGen (sem_step n D) i.val (n + g)) :
-    ∃ e ∈ sem_W n D x, e.1 = g ∧ supp n D (src D (sem_bar e)) ⊆ {i} := by
-  rcases Relation.ReflTransGen.cases_tail path with eq | ⟨u,prev,last⟩
-  · have lt := i.isLt
-    omega
-  · obtain ⟨j,s,hj,eq,hs⟩ := sem_step_iff.mp last
-    have jg : j = g := by omega
-    subst j
-    rw [←hs] at prev
-    have chain := sem_noempty_unique hG h hC hz hi prev
-    have le := ineligible_reachable_fanout hG h hC hz hi prev
-    have pos := sem_step_fanout (sem_step_src (n := n) (D := D) hg s)
-    have fan : fanout D (src D (g,s)) = 1 := by omega
-    refine ⟨(g,!s),chain_and_neighbor_exits_side hG h.1 hC hg s chain fan hand x hix,rfl,?_⟩
-    simpa only [sem_bar, Bool.not_not] using ineligible_reachable_pure hG h hC hz hi prev
-
 lemma W_gate_injective (hS : Strict n D) {x : Fin n} {e f : ℕ × Bool}
     (he : e ∈ sem_W n D x) (hf : f ∈ sem_W n D x) (eq : e.1 = f.1) : e = f := by
   rcases sem_same_gate eq with same | same
@@ -2797,71 +2523,11 @@ lemma W_gate_injective (hS : Strict n D) {x : Fin n} {e f : ℕ × Bool}
     · exact ⟨by simpa [src] using hxe,by simpa [src,sem_bar] using hxf⟩
     · exact ⟨by simpa [src,sem_bar] using hxf,by simpa [src] using hxe⟩
 
-lemma ineligible_and_union_bound (hG : sem_Gr G) (h : StrictLive n D)
-    (hC : sem_Comp n G D) (hz : Bzero n D = 0) {i j x y : Fin n}
-    (hi : i ∈ ineligSet n D) (hj : j ∈ ineligSet n D)
-    (hix : G i x) (hjx : G j x) (hxy : G x y) (hyi : y ≠ i) (hyj : y ≠ j)
-    (S : Finset ℕ)
-    (all : ∀ g ∈ S, g < D.length ∧ tag D g = true ∧
-      (Relation.ReflTransGen (sem_step n D) i.val (n + g) ∨
-       Relation.ReflTransGen (sem_step n D) j.val (n + g))) :
-    S.card + 1 ≤ (sem_W n D x).card := by
-  obtain ⟨ey,hey,hybar,_,_,_⟩ := sem_edge_slots hG h.1 hC hxy
-  have hy : y ∈ supp n D (src D (sem_bar ey)) := (sem_mem_W.mp hybar).2.1
-  have witnesses : ∀ g ∈ S, ∃ e ∈ sem_W n D x, e.1 = g ∧
-      (supp n D (src D (sem_bar e)) ⊆ {i} ∨ supp n D (src D (sem_bar e)) ⊆ {j}) := by
-    intro g hg
-    obtain ⟨lt,hand,path⟩ := all g hg
-    rcases path with path | path
-    · obtain ⟨e,he,eq,sub⟩ := reachable_and_neighbor_exit hG h hC hz hi hix lt hand path
-      exact ⟨e,he,eq,Or.inl sub⟩
-    · obtain ⟨e,he,eq,sub⟩ := reachable_and_neighbor_exit hG h hC hz hj hjx lt hand path
-      exact ⟨e,he,eq,Or.inr sub⟩
-  have notin : ey.1 ∉ S := by
-    intro mem
-    obtain ⟨e,he,eq,sub⟩ := witnesses ey.1 mem
-    have same : e = ey := W_gate_injective h.1 he hey eq
-    subst e
-    rcases sub with sub | sub
-    · exact hyi (Finset.mem_singleton.mp (sub hy))
-    · exact hyj (Finset.mem_singleton.mp (sub hy))
-  have sub : insert ey.1 S ⊆ (sem_W n D x).image Prod.fst := by
-    intro g hg
-    rcases Finset.mem_insert.mp hg with rfl | hg
-    · exact Finset.mem_image.mpr ⟨ey,hey,rfl⟩
-    · obtain ⟨e,he,eq,_⟩ := witnesses g hg
-      exact Finset.mem_image.mpr ⟨e,he,eq⟩
-  have count := (Finset.card_le_card sub).trans (Finset.card_image_le)
-  rw [Finset.card_insert_of_notMem notin] at count
-  exact count
-
 end IneligibleAndCountFacts
 
 end DagTools
 
 open DagTools
-
-lemma petersen_ineligible_and_union_three {D : Dag}
-    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0)
-    (small : D.length ≤ 19) (two : (ineligSet 10 D).card = 2)
-    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
-    (S : Finset ℕ)
-    (all : ∀ g ∈ S, g < D.length ∧ tag D g = true ∧
-      (Relation.ReflTransGen (sem_step 10 D) 0 (10 + g) ∨
-       Relation.ReflTransGen (sem_step 10 D) 2 (10 + g))) : S.card ≤ 3 := by
-  have bound := ineligible_and_union_bound graph_ok h hc hz h0 h2
-    (by decide : adj 0 1) (by decide : adj 2 1) (by decide : adj 1 6)
-    (by decide : (6 : V) ≠ 0) (by decide : (6 : V) ≠ 2) S all
-  obtain ⟨b,hb⟩ := sem_exists_pureBranch graph_ok h.1 hc
-  have residual := card_residual h.1 b hb
-  have complement := inelig_card_add 10 D
-  have size := surplus_identity h
-  rw [totalSurplus_split] at size
-  have count := sem_code_count graph_ok h hc b hb (1 : V)
-  have single : (({1} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
-    (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
-  have rem := Finset.card_filter_le (residualUnits 10 D b) (fun u => (1 : V) ∈ supp 10 D u.1)
-  omega
 
 end PEqualNP.Outside.L_meta_2590_aux
 
@@ -3993,149 +3659,6 @@ namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
 section LocalTerminalSupport
 variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
 
-lemma sem_arm_step_support_mono (hS : Strict n D)
-    {X : Finset (Fin n)} (hX : X.Nonempty)
-    (hM : ∀ x ∈ X, merges n D (carrierT n D {x}) = ∅)
-    {a c : ℕ} (ha : sem_Arm n D X a c) : supp n D a ⊆ supp n D c := by
-  obtain ⟨x, hx⟩ := hX
-  obtain ⟨j, s, hj, hceq, hs⟩ := sem_step_iff.mp ha.1
-  have hxc : x ∈ supp n D (n + j) := by
-    rw [← hceq]
-    exact (ha.2.2 x hx).2
-  have ht := (sem_zm_gate hS (hM x hx) hj hxc).1
-  rw [hceq, sem_supp_or hS hj ht]
-  cases s
-  · rw [sb_src_false] at hs
-    rw [hs]
-    exact Finset.subset_union_left
-  · rw [sb_src_true] at hs
-    rw [hs]
-    exact Finset.subset_union_right
-
-lemma sem_arm_support_mono (hS : Strict n D)
-    {X : Finset (Fin n)} (hX : X.Nonempty)
-    (hM : ∀ x ∈ X, merges n D (carrierT n D {x}) = ∅)
-    {a c : ℕ} (ha : Relation.ReflTransGen (sem_Arm n D X) a c) :
-    supp n D a ⊆ supp n D c := by
-  induction ha with
-  | refl => intro v hv; exact hv
-  | tail _ hstep ih => exact ih.trans (sem_arm_step_support_mono hS hX hM hstep)
-
-lemma sem_two_arms_support (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    (X : Finset (Fin n)) (hX : X.Nonempty)
-    (hM : ∀ x ∈ X, merges n D (carrierT n D {x}) = ∅) (r : ℕ)
-    (hr : ∀ x ∈ X, x ∈ supp n D r) (hf : 2 ≤ fanout D r)
-    (hlow : ∀ x ∈ X, ∀ w, r < w → x ∈ supp n D w → fanout D w ≤ 1) :
-    ∃ P Q : ℕ × Bool, P.1 ≠ Q.1 ∧
-      (∀ x ∈ X, P ∈ sem_W n D x ∧ Q ∈ sem_W n D x) ∧
-      supp n D r ⊆ supp n D (src D P) ∧ supp n D r ⊆ supp n D (src D Q) := by
-  classical
-  have hS := h.1
-  obtain ⟨x0, hx0⟩ := hX
-  obtain ⟨j1, hj1, j2, hj2, hne⟩ := Finset.one_lt_card.mp (show 1 < (readers D r).card from hf)
-  have hread : ∀ j ∈ readers D r, j < D.length ∧ r < n + j ∧ (opA D j = r ∨ opB D j = r) := by
-    intro j hj
-    simp only [readers, Finset.mem_filter, Finset.mem_range] at hj
-    have := hS j hj.1
-    exact ⟨hj.1, by omega, hj.2⟩
-  have hterm : ∀ j ∈ readers D r, ∃ e : ℕ × Bool, (∀ x ∈ X, e ∈ sem_W n D x) ∧
-      ((e.1 = j ∧ src D e = r) ∨ Relation.ReflTransGen (sem_Arm n D X) (n + j) (src D e)) ∧
-      supp n D r ⊆ supp n D (src D e) := by
-    intro j hj
-    obtain ⟨hjl, hrj, hop⟩ := hread j hj
-    obtain ⟨s, hs⟩ : ∃ s : Bool, src D (j, s) = r := by
-      rcases hop with h1 | h1
-      · exact ⟨false, by rw [sb_src_false]; exact h1⟩
-      · exact ⟨true, by rw [sb_src_true]; exact h1⟩
-    by_cases hcar : ∃ x1 ∈ X, x1 ∈ supp n D (n + j)
-    · obtain ⟨x1, hx1, hx1c⟩ := hcar
-      have ht := (sem_zm_gate hS (hM x1 hx1) hjl hx1c).1
-      have hall : ∀ x ∈ X, x ∈ supp n D (n + j) := by
-        intro x hx
-        rw [sem_supp_or hS hjl ht, Finset.mem_union]
-        rcases hop with h1 | h1
-        · left; rw [h1]; exact hr x hx
-        · right; rw [h1]; exact hr x hx
-      obtain ⟨e, he1, he2⟩ := sem_descent hG h hC X ⟨x0, hx0⟩ hM (n + j) hall
-        (fun x hx w hw => hlow x hx w (by omega))
-      have hsub : supp n D r ⊆ supp n D (n + j) := by
-        rw [sem_supp_or hS hjl ht]
-        rcases hop with ha | hb
-        · rw [ha]
-          exact Finset.subset_union_left
-        · rw [hb]
-          exact Finset.subset_union_right
-      exact ⟨e, he1, Or.inr he2,
-        hsub.trans (sem_arm_support_mono hS ⟨x0, hx0⟩ hM he2)⟩
-    · exact ⟨(j, s), fun x hx => sem_mem_W.mpr ⟨hjl, by rw [hs]; exact hr x hx,
-        fun hc2 => hcar ⟨x, hx, hc2⟩⟩, Or.inl ⟨rfl, hs⟩, by rw [hs]⟩
-  have hRstep : ∀ a b, sem_Arm n D X a b → sem_step n D a b := fun _ _ hab => hab.1
-  have hfun : ∀ a a' b, sem_Arm n D X a b → sem_Arm n D X a' b → a = a' := by
-    intro a a' b h1 h2
-    by_contra hne2
-    obtain ⟨hb1, hb2, hba⟩ := h1.1
-    obtain ⟨-, -, hba'⟩ := h2.1
-    have hjb : b - n < D.length := by omega
-    have hcarb : x0 ∈ supp n D (n + (b - n)) := by
-      rw [Nat.add_sub_cancel' hb2]; exact (h1.2.2 x0 hx0).2
-    apply (sem_zm_gate hS (hM x0 hx0) hjb hcarb).2
-    have ha := (h1.2.2 x0 hx0).1
-    have ha' := (h2.2.2 x0 hx0).1
-    rcases hba with e1 | e1 <;> rcases hba' with e2 | e2
-    · exact absurd (e1.symm.trans e2) hne2
-    · rw [e1, e2]; exact ⟨ha, ha'⟩
-    · rw [e1, e2]; exact ⟨ha', ha⟩
-    · exact absurd (e1.symm.trans e2) hne2
-  have hcross : ∀ ja ∈ readers D r, ∀ jb ∈ readers D r, ja ≠ jb →
-      ¬ Relation.ReflTransGen (sem_Arm n D X) (n + ja) (n + jb) := by
-    intro ja hja jb hjb hab hp
-    obtain ⟨hjla, hrja, -⟩ := hread ja hja
-    obtain ⟨hjlb, hrjb, hopb⟩ := hread jb hjb
-    rcases Relation.ReflTransGen.cases_tail hp with heq | ⟨u, hu1, hu2⟩
-    · exact hab (by omega)
-    · have hle := sem_rtg_le hS hRstep hu1
-      have hur : u = r := by
-        by_contra hur
-        obtain ⟨-, -, hbu⟩ := hu2.1
-        rw [Nat.add_sub_cancel_left] at hbu
-        apply (sem_zm_gate hS (hM x0 hx0) hjlb (hu2.2.2 x0 hx0).2).2
-        have hu := (hu2.2.2 x0 hx0).1
-        have hrr := hr x0 hx0
-        rcases hbu with e1 | e1 <;> rcases hopb with e2 | e2
-        · exact absurd (e1.symm.trans e2) hur
-        · rw [e1, e2]; exact ⟨hu, hrr⟩
-        · rw [e1, e2]; exact ⟨hrr, hu⟩
-        · exact absurd (e1.symm.trans e2) hur
-      omega
-  obtain ⟨P, hP1, hP2, hPs⟩ := hterm j1 hj1
-  obtain ⟨Q, hQ1, hQ2, hQs⟩ := hterm j2 hj2
-  refine ⟨P, Q, fun hPQ => ?_, fun x hx => ⟨hP1 x hx, hQ1 x hx⟩, hPs, hQs⟩
-  have hsame : Q = P := by
-    rcases sem_same_gate hPQ with h1 | h1
-    · exact h1
-    · exfalso
-      obtain ⟨hjP, hxP, hnP⟩ := sem_mem_W.mp (hP1 x0 hx0)
-      have hxQ := (sem_mem_W.mp (hQ1 x0 hx0)).2.1
-      rw [h1] at hxQ
-      apply hnP
-      rw [sem_supp_and hS hjP (sem_W_and hS (hP1 x0 hx0)), Finset.mem_inter]
-      obtain ⟨j, s⟩ := P
-      cases s
-      · exact ⟨by simpa [src] using hxP, by simpa [src, sem_bar] using hxQ⟩
-      · exact ⟨by simpa [src, sem_bar] using hxQ, by simpa [src] using hxP⟩
-  rw [hsame] at hQ2
-  obtain ⟨-, hrj1, -⟩ := hread j1 hj1
-  obtain ⟨-, hrj2, -⟩ := hread j2 hj2
-  rcases hP2 with ⟨hPa, hPb⟩ | hPp <;> rcases hQ2 with ⟨hQa, hQb⟩ | hQp
-  · exact hne (hPa.symm.trans hQa)
-  · have := sem_rtg_le hS hRstep hQp
-    omega
-  · have := sem_rtg_le hS hRstep hPp
-    omega
-  · rcases sem_rtg_comparable hfun hPp hQp with h1 | h1
-    · exact hcross j1 hj1 j2 hj2 hne h1
-    · exact hcross j2 hj2 j1 hj1 (Ne.symm hne) h1
-
 lemma sem_local_saturated (hG : sem_Gr G) (h : StrictLive n D)
     (hC : sem_Comp n G D) (b : Fin n → ℕ) (hb : PureBranch n D b)
     (u0 : Σ _ : ℕ, ℕ) (x : Fin n)
@@ -4212,70 +3735,9 @@ lemma sem_local_common_terminals_support (hG : sem_Gr G) (h : StrictLive n D)
 
 end LocalTerminalSupport
 
-lemma s45_residual_support {G : Fin 10 → Fin 10 → Prop} {D : Dag}
-    (hG : sem_Gr G) (h : StrictLive 10 D) (hC : sem_Comp 10 G D)
-    (b : Fin 10 → ℕ) (hb : sem_MinBranch 10 D b) (u0 : Σ _ : ℕ, ℕ)
-    (hcode : ∀ x ∈ ({4, 5} : Finset (Fin 10)),
-      (residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1) = {u0})
-    (hsat : ∀ x ∈ ({4, 5} : Finset (Fin 10)), 3 ≤ (sem_W 10 D x).card)
-    (A Z : ℕ × Bool)
-    (hcommon : ∀ e, e ∈ sem_W 10 D (4 : Fin 10) → e ∈ sem_W 10 D (5 : Fin 10) →
-      e = A ∨ e = Z)
-    (hA : supp 10 D (src D A) = {1, 4, 5})
-    (hone : (1 : Fin 10) ∉ supp 10 D u0.1) : supp 10 D u0.1 = {4, 5} := by
-  obtain ⟨P, Q, hPQ, hm, hP, hQ⟩ := sem_local_common_terminals_support
-    hG h hC b hb {4, 5} (by simp) u0 hcode hsat
-  have hPa := hcommon P (hm 4 (by simp)).1 (hm 5 (by simp)).1
-  have hQa := hcommon Q (hm 4 (by simp)).2 (hm 5 (by simp)).2
-  have hRA : supp 10 D u0.1 ⊆ supp 10 D (src D A) := by
-    rcases hPa with rfl | hPZ
-    · exact hP
-    rcases hQa with rfl | hQZ
-    · exact hQ
-    exact False.elim (hPQ (by rw [hPZ, hQZ]))
-  rw [hA] at hRA
-  have hin (x : Fin 10) (hx : x ∈ ({4, 5} : Finset (Fin 10))) : x ∈ supp 10 D u0.1 := by
-    have hu : u0 ∈ (residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1) := by
-      rw [hcode x hx]
-      exact Finset.mem_singleton_self _
-    exact (Finset.mem_filter.mp hu).2
-  apply Finset.Subset.antisymm
-  · intro x hx
-    have hm := hRA hx
-    simp only [Finset.mem_insert, Finset.mem_singleton] at hm ⊢
-    rcases hm with rfl | h4 | h5
-    · exact False.elim (hone hx)
-    · exact Or.inl h4
-    · exact Or.inr h5
-  · exact hin
-
 end PEqualNP.Outside.L_meta_2590_aux.DagTools
 
 namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
-
-lemma sem_sat_of_flow {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
-    (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
-    (b : Fin n → ℕ) (hb : PureBranch n D b)
-    (E : Finset (ℕ × Bool)) (L : (ℕ × Bool) → Finset (Fin n))
-    (hsub : ∀ x : Fin n, E.filter (fun e => x ∈ L e) ⊆ sem_W n D x)
-    (hbudget : ∀ x : Fin n,
-      1 + (({x} : Finset (Fin n)) ∩ eligSet n D).card +
-        ((residualUnits n D b).filter (fun u => x ∈ supp n D u.1)).card ≤
-          (E.filter (fun e => x ∈ L e)).card) :
-    (∀ x : Fin n, sem_W n D x = E.filter (fun e => x ∈ L e)) ∧
-      ∀ x : Fin n, merges n D (carrierT n D {x}) = ∅ := by
-  have hpair (x : Fin n) :
-      sem_W n D x = E.filter (fun e => x ∈ L e) ∧
-        merges n D (carrierT n D {x}) = ∅ := by
-    have hflow := sem_code_count hG h hC b hb x
-    have hcard := Finset.card_le_card (hsub x)
-    have hbound := hbudget x
-    have hle : (sem_W n D x).card ≤ (E.filter (fun e => x ∈ L e)).card := by
-      omega
-    have heq : E.filter (fun e => x ∈ L e) = sem_W n D x :=
-      Finset.eq_of_subset_of_card_le (hsub x) hle
-    exact ⟨heq.symm, Finset.card_eq_zero.mp (by omega)⟩
-  exact ⟨fun x => (hpair x).1, fun x => (hpair x).2⟩
 
 lemma sem_sat_and_supp_empty {n : ℕ} {D : Dag} (hS : Strict n D)
     (hM : ∀ x : Fin n, merges n D (carrierT n D {x}) = ∅)
@@ -4299,67 +3761,6 @@ lemma sem_sat_mem_W_iff_src {n : ℕ} {D : Dag} (hS : Strict n D)
     refine ⟨he, hx, ?_⟩
     rw [sem_sat_and_supp_empty hS hM he ht]
     exact Finset.notMem_empty x
-
-lemma sem_sat_src_eq_label {n : ℕ} {D : Dag} (hS : Strict n D)
-    (hM : ∀ x : Fin n, merges n D (carrierT n D {x}) = ∅)
-    (E : Finset (ℕ × Bool)) (L : (ℕ × Bool) → Finset (Fin n))
-    (hW : ∀ x : Fin n, sem_W n D x = E.filter (fun e => x ∈ L e))
-    {e : ℕ × Bool} (he : e.1 < D.length) (ht : tag D e.1 = true) :
-    supp n D (src D e) = if e ∈ E then L e else ∅ := by
-  ext x
-  calc
-    x ∈ supp n D (src D e) ↔ e ∈ sem_W n D x :=
-      (sem_sat_mem_W_iff_src hS hM he ht x).symm
-    _ ↔ x ∈ (if e ∈ E then L e else ∅) := by
-      rw [hW x]
-      by_cases h : e ∈ E <;> simp [h]
-
-lemma sem_sat_and_selected_or_empty {n : ℕ} {D : Dag} (hS : Strict n D)
-    (hM : ∀ x : Fin n, merges n D (carrierT n D {x}) = ∅)
-    (E : Finset (ℕ × Bool))
-    (hbar : ∀ e ∈ E, sem_bar e ∈ E)
-    (hcover : ∀ x : Fin n, sem_W n D x ⊆ E)
-    {j : ℕ} (hj : j < D.length) (ht : tag D j = true) :
-    (j, false) ∈ E ∨
-      (supp n D (opA D j) = ∅ ∧ supp n D (opB D j) = ∅) := by
-  by_cases he : (j, false) ∈ E
-  · exact Or.inl he
-  · refine Or.inr ⟨?_, ?_⟩
-    · apply Finset.eq_empty_of_forall_notMem
-      intro x hx
-      have hx' : x ∈ supp n D (src D (j, false)) := by simpa [src] using hx
-      have hw : (j, false) ∈ sem_W n D x :=
-        (sem_sat_mem_W_iff_src hS hM (e := (j, false)) hj ht x).mpr hx'
-      exact he (hcover x hw)
-    · apply Finset.eq_empty_of_forall_notMem
-      intro x hx
-      have hx' : x ∈ supp n D (src D (j, true)) := by simpa [src] using hx
-      have hw : (j, true) ∈ sem_W n D x :=
-        (sem_sat_mem_W_iff_src hS hM (e := (j, true)) hj ht x).mpr hx'
-      have hmem := hbar (j, true) (hcover x hw)
-      exact he (by simpa [sem_bar] using hmem)
-
-lemma sem_sat_and_signature {n : ℕ} {D : Dag} (hS : Strict n D)
-    (hM : ∀ x : Fin n, merges n D (carrierT n D {x}) = ∅)
-    (E : Finset (ℕ × Bool)) (L : (ℕ × Bool) → Finset (Fin n))
-    (hbar : ∀ e ∈ E, sem_bar e ∈ E)
-    (hW : ∀ x : Fin n, sem_W n D x = E.filter (fun e => x ∈ L e))
-    {j : ℕ} (hj : j < D.length) (ht : tag D j = true) :
-    ((j, false) ∈ E ∧ supp n D (opA D j) = L (j, false) ∧
-      supp n D (opB D j) = L (j, true)) ∨
-      (supp n D (opA D j) = ∅ ∧ supp n D (opB D j) = ∅) := by
-  have hcover (x : Fin n) : sem_W n D x ⊆ E := by
-    intro e he
-    rw [hW x] at he
-    exact (Finset.mem_filter.mp he).1
-  rcases sem_sat_and_selected_or_empty hS hM E hbar hcover hj ht with he | hz
-  · have he' : (j, true) ∈ E := by simpa [sem_bar] using hbar (j, false) he
-    refine Or.inl ⟨he, ?_, ?_⟩
-    · simpa [src, he] using
-        sem_sat_src_eq_label hS hM E L hW (e := (j, false)) hj ht
-    · simpa [src, he'] using
-        sem_sat_src_eq_label hS hM E L hW (e := (j, true)) hj ht
-  · exact Or.inr hz
 
 end PEqualNP.Outside.L_meta_2590_aux.DagTools
 
@@ -4481,41 +3882,6 @@ end PEqualNP.Outside.L_meta_2590_aux
 
 namespace PEqualNP.Outside.L_meta_2590_aux.DagTools
 
-lemma zero_merges_exit_support {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
-    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
-    {x : Fin n} (hm : merges n D (carrierT n D {x}) = ∅)
-    {w : ℕ} (hx : x ∈ supp n D w) :
-    ∃ e ∈ sem_W n D x, supp n D w ⊆ supp n D (src D e) := by
-  classical
-  by_contra bad
-  have preserves {u v : ℕ} (step : sem_step n D u v)
-      (hu : x ∈ supp n D u) (sub : supp n D w ⊆ supp n D u) :
-      x ∈ supp n D v ∧ supp n D w ⊆ supp n D v := by
-    obtain ⟨j, s, hj, rfl, hsrc⟩ := sem_step_iff.mp step
-    have hxj : x ∈ supp n D (n + j) := by
-      by_contra hn
-      apply bad
-      refine ⟨(j, s), sem_mem_W.mpr ⟨hj, ?_, hn⟩, ?_⟩
-      · simpa only [hsrc] using hu
-      · simpa only [hsrc] using sub
-    have hor := (sem_zm_gate h.1 hm hj hxj).1
-    refine ⟨hxj, sub.trans ?_⟩
-    intro a ha
-    rw [sem_supp_or h.1 hj hor]
-    rw [← hsrc] at ha
-    cases s
-    · exact Finset.mem_union.mpr (Or.inl (by simpa only [sb_src_false] using ha))
-    · exact Finset.mem_union.mpr (Or.inr (by simpa only [sb_src_true] using ha))
-  have propagate : ∀ u, Relation.ReflTransGen (sem_step n D) w u →
-      x ∈ supp n D u ∧ supp n D w ⊆ supp n D u := by
-    intro u path
-    induction path with
-    | refl => exact ⟨hx, Finset.Subset.refl _⟩
-    | @tail u v path step ih => exact preserves step ih.1 ih.2
-  have hout := (propagate _ (live_reaches_output h (sem_supp_lt hx))).1
-  rw [sem_supp_out hG hc] at hout
-  exact Finset.notMem_empty _ hout
-
 end PEqualNP.Outside.L_meta_2590_aux.DagTools
 
 namespace PEqualNP.Outside.L_meta_2590_aux
@@ -4633,52 +3999,6 @@ end PEqualNP.Outside.L_meta_2590_aux
 namespace PEqualNP.Outside.L_meta_2590_aux
 
 open DagTools
-
-lemma petersen_single_one_flow {D : Dag}
-    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
-    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
-    (b : V → ℕ) (hb : PureBranch 10 D b)
-    (single : ((residualUnits 10 D b).filter
-      (fun u => (1 : V) ∈ supp 10 D u.1)).card ≤ 1) :
-    (sem_W 10 D (1 : V)).card = 3 ∧ merges 10 D (carrierT 10 D {(1 : V)}) = ∅ := by
-  have lower := common_neighbor_three h hc h0 h2
-  have count := sem_code_count graph_ok h hc b hb (1 : V)
-  have cap : (({(1 : V)} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
-    (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
-  exact ⟨by omega, Finset.card_eq_zero.mp (by omega)⟩
-
-lemma petersen_single_one_no_joint_six {D : Dag}
-    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
-    (small : D.length ≤ 19) (hi : (ineligSet 10 D).card = 2)
-    (h0 : (0 : V) ∈ ineligSet 10 D) (h2 : (2 : V) ∈ ineligSet 10 D)
-    (b : V → ℕ) (hb : PureBranch 10 D b)
-    (single : ((residualUnits 10 D b).filter
-      (fun u => (1 : V) ∈ supp 10 D u.1)).card ≤ 1) :
-    ∀ w, ¬ ((1 : V) ∈ supp 10 D w ∧ (6 : V) ∈ supp 10 D w) := by
-  obtain ⟨size1, merges1⟩ := petersen_single_one_flow h hc h0 h2 b hb single
-  obtain ⟨A, B, hA, hB, neAB, pureA, pureB, freeA, freeB⟩ :=
-    petersen_clean_star_one_exits h hc small hi h0 h2
-  obtain ⟨C, hC, hbarC, freeC, _, _⟩ :=
-    sem_edge_slots graph_ok h.1 hc (show adj 1 6 by decide)
-  have sixC : (6 : V) ∈ supp 10 D (src D (sem_bar C)) := (sem_mem_W.mp hbarC).2.1
-  have neCA : C ≠ A := by
-    intro eq
-    rw [eq, pureA, Finset.mem_singleton] at sixC
-    exact (by decide : (6 : V) ≠ 0) sixC
-  have neCB : C ≠ B := by
-    intro eq
-    rw [eq, pureB, Finset.mem_singleton] at sixC
-    exact (by decide : (6 : V) ≠ 2) sixC
-  have all_free (e : ℕ × Bool) (he : e ∈ sem_W 10 D (1 : V)) :
-      (6 : V) ∉ supp 10 D (src D e) := by
-    rcases mem_three_of_card_le (by omega) hA hB hC neAB neCA.symm neCB.symm he with
-      rfl | rfl | rfl
-    · exact freeA
-    · exact freeB
-    · exact freeC
-  intro w hw
-  obtain ⟨e, he, sub⟩ := zero_merges_exit_support graph_ok h hc merges1 hw.1
-  exact all_free e he (sub hw.2)
 
 end PEqualNP.Outside.L_meta_2590_aux
 
@@ -4849,15 +4169,6 @@ lemma petersen_single_one_residual_decomposition {D : Dag}
   refine ⟨u,v,Ne.symm hvne,hres,hus,?_⟩
   exact I2ForbiddenPairs.finite_supports _ hnonempty hsub
     (I2ForbiddenPairs.other_support_avoids_pairs h hc hz b hb h0 h2 u v hres hus _ rfl)
-
-lemma residual_other_code {D : Dag} (b : V → ℕ) (u v : Σ _ : ℕ, ℕ)
-    (hres : residualUnits 10 D b = {u,v}) (hu : supp 10 D u.1 = {(1 : V)})
-    {x : V} (hx : x ≠ 1) :
-    (residualUnits 10 D b).filter (fun a => x ∈ supp 10 D a.1) =
-      if x ∈ supp 10 D v.1 then {v} else ∅ := by
-  classical
-  rw [hres]
-  by_cases hv : x ∈ supp 10 D v.1 <;> simp [Finset.filter_insert, hu, hx, hv]
 
 end PEqualNP.Outside.L_meta_2590_aux
 
@@ -5066,19 +4377,6 @@ lemma groups_dense (a : List ℕ) (ha : Growth a) :
       exact ⟨d, List.mem_append.mpr (Or.inl hd), hdj⟩
     · have hcj : c / 2 = j := by omega
       exact ⟨c, by simp, hcj⟩
-
-lemma groups_le_length (a : List ℕ) (ha : Growth a) : groups a ≤ a.length := by
-  revert ha
-  induction a using List.reverseRecOn with
-  | nil =>
-    intro _
-    simp [groups]
-  | append_singleton a c ih =>
-    intro ha
-    obtain ⟨hprefix, hc⟩ := growth_snoc_parts ha
-    have hlen := ih hprefix
-    rw [groups_snoc, List.length_append, List.length_singleton]
-    omega
 
 lemma representatives_avoid (a : List ℕ) (r : ℕ → ℕ × Bool)
     (es : List (ℕ × Bool)) (fixedID : ℕ)
@@ -5388,8 +4686,6 @@ namespace PEqualNP.Outside.L_meta_2590_aux.I2Census
 lemma toggle_eq_flip (c : Nat) : toggle c = PortCodes.flip c := by
   unfold toggle PortCodes.flip
   split_ifs <;> omega
-
-lemma groups_eq_portGroups (a : List Nat) : groups a = PortCodes.groups a := rfl
 
 lemma admissible_of_growth (S : Finset V) (a : List Nat) (hg : PortCodes.Growth a)
     (hc : ∀ i, i ≤ a.length → Conditions S (a.take i)) : Admissible S [] a := by
@@ -6423,17 +5719,6 @@ lemma ordinary_carrier_blocked {c : Resource} {rest : Multiset Resource}
     obtain ⟨u, hu⟩ := hr w hw _ (dirty_mem_cross _ (universal_edge_valid v)) ht
     obtain ⟨hus, huE⟩ := Finset.mem_inter.mp hu
     exact ⟨u, Finset.mem_inter.mpr ⟨hus, Finset.mem_insert_of_mem huE⟩⟩
-
-lemma keep_ordinary {w : Resource} (h : Ordinary w) : AllOrdinary (Keep w) := by
-  intro a ha
-  exact (keep_mem ha) ▸ h
-
-lemma allOrdinary_add {p q : Multiset Resource}
-    (hp : AllOrdinary p) (hq : AllOrdinary q) : AllOrdinary (p + q) := by
-  intro w hw
-  rcases Multiset.mem_add.mp hw with hw | hw
-  · exact hp w hw
-  · exact hq w hw
 
 lemma allOrdinary_cons {w : Resource} {p : Multiset Resource}
     (hw : Ordinary w) (hp : AllOrdinary p) : AllOrdinary (w ::ₘ p) := by
@@ -7832,20 +7117,6 @@ lemma exposure_forces_disjoint (F Pos : P → Finset V) (ports : Finset P)
     exact Finset.disjoint_left.mp hdis (hpositive q hq hv) hvr
   simpa only [hqp] using hdis
 
-lemma exposure_negative_union_safe (F Pos Neg : P → Finset V) (ports : Finset P)
-    (row : Finset V) (p : P)
-    (hpositive : ∀ q ∈ ports, Pos q ⊆ F q)
-    (hnegative : Disjoint (Neg p) (F p))
-    (hexposure : ∃ q ∈ ports, Disjoint (F q) row)
-    (hothers : ∀ q ∈ ports, q ≠ p → ¬ Disjoint (Pos q) row) :
-    Disjoint (Neg p ∪ row) (F p) := by
-  have hforced := exposure_forces_disjoint F Pos ports row p hpositive hexposure hothers
-  apply Finset.disjoint_left.mpr
-  intro v hv hvF
-  rcases Finset.mem_union.mp hv with hvN | hvR
-  · exact Finset.disjoint_left.mp hnegative hvN hvF
-  · exact Finset.disjoint_left.mp hforced hvF hvR
-
 lemma saturated_selected_exposure {D : Dag}
     (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
     (a : List ℕ) (f : P → ℕ × Bool)
@@ -7877,25 +7148,6 @@ lemma saturated_selected_exposure {D : Dag}
   rw [← image_eq] at he
   obtain ⟨p, hp, hpe⟩ := Finset.mem_image.mp he
   exact ⟨p, hp, by simpa only [hpe] using hdis⟩
-
-lemma forced_omissions_contradict_code_inclusion {D : Dag}
-    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
-    (b : V → ℕ) (hb : PureBranch 10 D b)
-    (a : List ℕ) (f : P → ℕ × Bool)
-    (hinj : ∀ p q, (lower a p).Nonempty → (lower a q).Nonempty → f p = f q → p = q)
-    (hselected : ∀ p v, v ∈ lower a p → f p ∈ sem_W 10 D v)
-    {x y : V} (hxy : x ≠ y) (u0 : Σ _ : ℕ, ℕ)
-    (hxcode : ((residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1)) = {u0})
-    (hy0 : y ∈ supp 10 D u0.1)
-    (Neg : P → Finset V)
-    (hnegative : ∀ p, Disjoint (Neg p) (supp 10 D (src D (f p))))
-    (p q : P) (hpx : x ∈ lower a p) (hqx : x ∈ lower a q)
-    (hpq : p ≠ q) (hyp : y ∈ Neg p) (hyq : y ∈ Neg q) : False := by
-  have eq := singleton_code_omitting_exits_equal graph_ok h hc b hb hxy u0 hxcode hy0
-    (f p) (hselected p x hpx) (f q) (hselected q x hqx)
-    (fun hy => Finset.disjoint_left.mp (hnegative p) hyp hy)
-    (fun hy => Finset.disjoint_left.mp (hnegative q) hyq hy)
-  exact hpq (hinj p q ⟨x, hpx⟩ ⟨x, hqx⟩ eq)
 
 end PEqualNP.Outside.L_meta_2590_aux.I2Census
 
@@ -8089,807 +7341,405 @@ open I2Census
 
 def tree0 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked0 : check (left 0) (right 0) 9 [] tree0 = some [] := by decide +kernel
 
 def tree1 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked1 : check (left 1) (right 1) 9 [] tree1 = some [] := by decide +kernel
 
 def tree2 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked2 : check (left 2) (right 2) 9 [] tree2 = some [] := by decide +kernel
 
 def tree3 : List Nat := [0,0,268828,334364,399900]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked3 : check (left 3) (right 3) 9 [] tree3 = some [] := by decide +kernel
 
-def tree4 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree4 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked4 : check (left 4) (right 4) 9 [] tree4 = some [] := by decide +kernel
 
 def tree5 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,75,1073,1691,2369,59,0,13,13,13,2097,1723,1345,72740386980,13,13,58,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked5 : check (left 5) (right 5) 9 [] tree5 = some [] := by decide +kernel
 
-def tree6 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree6 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked6 : check (left 6) (right 6) 9 [] tree6 = some [] := by decide +kernel
 
-def tree7 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree7 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked7 : check (left 7) (right 7) 9 [] tree7 = some [] := by decide +kernel
 
 def tree8 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,13,1179,13,1857,1707,13,0,555,555,547,795,0,13,50466269340,795,13,1857,1707,13,1699,817,0,555,811,547,291,555,939,0,13,13,1443,13,0,34,34,1073,72138371228,34,2369,34,34,34,13,1873,1707,13]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked8 : check (left 8) (right 8) 9 [] tree8 = some [] := by decide +kernel
 
-def tree9 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree9 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked9 : check (left 9) (right 9) 9 [] tree9 = some [] := by decide +kernel
 
-def tree10 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree10 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked10 : check (left 10) (right 10) 9 [] tree10 = some [] := by decide +kernel
 
 def tree11 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked11 : check (left 11) (right 11) 9 [] tree11 = some [] := by decide +kernel
 
-def tree12 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree12 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked12 : check (left 12) (right 12) 9 [] tree12 = some [] := by decide +kernel
 
-def tree13 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree13 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked13 : check (left 13) (right 13) 9 [] tree13 = some [] := by decide +kernel
 
-def tree14 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree14 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked14 : check (left 14) (right 14) 9 [] tree14 = some [] := by decide +kernel
 
-def tree15 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+def tree15 : List Nat := tree2
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked15 : check (left 15) (right 15) 9 [] tree15 = some [] := by decide +kernel
 
-def tree16 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree16 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked16 : check (left 16) (right 16) 9 [] tree16 = some [] := by decide +kernel
 
-def tree17 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree17 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked17 : check (left 17) (right 17) 9 [] tree17 = some [] := by decide +kernel
 
-def tree18 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree18 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked18 : check (left 18) (right 18) 9 [] tree18 = some [] := by decide +kernel
 
-def tree19 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree19 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked19 : check (left 19) (right 19) 9 [] tree19 = some [] := by decide +kernel
 
 def tree20 : List Nat := [0,0,0,0,555,811,0,58,58,1841,1707,58,801,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,801,0,555,555,0,58,58,1841,1707,58,0,555,555,555,795,0,58,58,58,58,1857,1707,58,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,555,795,0,58,58,58,58,1857,1707,58,0,555,811,555,811,0,58,58,58,58,1857,1707,58,817,0,555,811,555,811,555,939,0,58,58,58,58,58,58,1873,1707,58]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked20 : check (left 20) (right 20) 9 [] tree20 = some [] := by decide +kernel
 
 def tree21 : List Nat := [0,0,291,547,0,0,315,59,27,1179,0,58,58,58,58,1857,0,34,34,1073,1691,2369,34,34,58,0,315,59,547,795,0,58,58,58,58,1857,0,34,34,1073,331,2369,34,34,58,1699,817,0,315,59,547,291,1723,315,0,58,58,58,58,58,58,1873,0,34,34,1073,331,34,34,2385,34,34,58]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked21 : check (left 21) (right 21) 9 [] tree21 = some [] := by decide +kernel
 
 def tree22 : List Nat := [0,0,0,0,59,59,0,58,58,1841,0,1057,75,2353,59,72478107812,58,801,0,59,59,27,1179,0,58,58,58,58,1857,0,1057,75,27,1691,2369,59,0,13,67109529764,13,2097,1723,1345,291,13,13,58,0,801,0,315,59,0,58,58,1841,0,331,1057,2353,547,0,2081,13,1723,1329,1571,13,13,58,0,315,59,1723,795,0,58,58,58,58,1857,0,331,1057,795,1699,2369,547,0,1707,13,13,2097,1723,1345,1571,13,13,58,0,0,315,59,27,1179,0,58,58,58,58,1857,0,331,75,1073,1691,2369,59,0,13,2081,13,1179,1723,1345,73277257892,13,13,58,0,315,59,59,795,0,58,58,58,58,1857,0,331,75,1073,331,2369,59,0,2081,13,13,579,1723,1345,1603,13,13,58,0,315,59,59,315,0,58,58,58,58,1857,0,1699,75,1073,331,2369,59,0,13,13,13,2097,1723,1345,72740386980,13,13,58,817,0,315,59,59,315,1723,315,0,58,58,58,58,58,58,1873,0,331,75,1073,331,0,13,13,13,1179,73023369372,2113,1723,1361,13,331,2385,59,0,13,13,13,67394877604,13,2113,1723,1361,73277388964,13,13,58]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked22 : check (left 22) (right 22) 9 [] tree22 = some [] := by decide +kernel
 
-def tree23 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+def tree23 : List Nat := tree1
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked23 : check (left 23) (right 23) 9 [] tree23 = some [] := by decide +kernel
 
 def tree24 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,74088786108,1179,1691,1857,1707,0,34,34,1073,1691,34,34,34,2385,34,0,555,555,547,795,0,71941105820,50466269340,795,547,1857,1707,0,34,34,1073,0,2081,42,42,42,579,1345,42,42,42,34,34,34,2385,34,1699,817,0,555,811,547,291,555,939,0,0,34,2337,1073,331,34,34,34,34,34,0,2337,34,1073,587,34,34,34,34,34,1443,547,0,34,34,1073,72138371228,34,2369,34,34,34,0,34,34,1073,1691,2369,34,34,34,34,1873,1707,0,34,34,1073,0,42,42,42,42,42,2113,0,1569,66,66,66,0,1569,74,2353,50,74,1601,50,50,50,2401,50,2113,811,2129,66,66,66,1361,42,42,42,34,34,34,34,34,2401,34]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked24 : check (left 24) (right 24) 9 [] tree24 = some [] := by decide +kernel
 
 def tree25 : List Nat := [0,0,291,547,0,0,265132,330668,27,1179,527276,0,50466269340,2147887260,547,795,527276,1699,817,0,265132,330668,547,291,527276,592812,658348]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked25 : check (left 25) (right 25) 9 [] tree25 = some [] := by decide +kernel
 
-def tree26 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+def tree26 : List Nat := tree1
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked26 : check (left 26) (right 26) 9 [] tree26 = some [] := by decide +kernel
 
-def tree27 : List Nat := [0,0,291,547,0,0,315,59,27,1179,0,58,58,58,58,1857,0,34,34,1073,1691,2369,34,34,58,0,315,59,547,795,0,58,58,58,58,1857,0,34,34,1073,331,2369,34,34,58,1699,817,0,315,59,547,291,1723,315,0,58,58,58,58,58,58,1873,0,34,34,1073,331,34,34,2385,34,34,58]
+def tree27 : List Nat := tree21
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked27 : check (left 27) (right 27) 9 [] tree27 = some [] := by decide +kernel
 
-def tree28 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+def tree28 : List Nat := tree1
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked28 : check (left 28) (right 28) 9 [] tree28 = some [] := by decide +kernel
 
-def tree29 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+def tree29 : List Nat := tree1
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked29 : check (left 29) (right 29) 9 [] tree29 = some [] := by decide +kernel
 
-def tree30 : List Nat := [0,0,0,0,555,811,0,58,58,1841,1707,58,801,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,801,0,555,555,0,58,58,1841,1707,58,0,555,555,555,795,0,58,58,58,58,1857,1707,58,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,555,795,0,58,58,58,58,1857,1707,58,0,555,811,555,811,0,58,58,58,58,1857,1707,58,817,0,555,811,555,811,555,939,0,58,58,58,58,58,58,1873,1707,58]
+def tree30 : List Nat := tree20
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked30 : check (left 30) (right 30) 9 [] tree30 = some [] := by decide +kernel
 
-def tree31 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+def tree31 : List Nat := tree1
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked31 : check (left 31) (right 31) 9 [] tree31 = some [] := by decide +kernel
 
 def tree32 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,269500,74088786108,1179,1691,1857,1707,662716,0,555,555,547,795,0,71941105820,50466269340,795,547,1857,1707,662716,1699,817,0,555,811,547,291,555,939,0,269500,335036,1443,547,531644,597180,1873,1707,793788]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked32 : check (left 32) (right 32) 9 [] tree32 = some [] := by decide +kernel
 
-def tree33 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+def tree33 : List Nat := tree1
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked33 : check (left 33) (right 33) 9 [] tree33 = some [] := by decide +kernel
 
-def tree34 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,58,58,58,58,1857,1707,58,0,555,555,547,795,0,58,58,58,58,1857,1707,58,1699,817,0,555,811,547,291,555,939,0,58,58,58,58,58,58,1873,1707,58]
+def tree34 : List Nat := tree1
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked34 : check (left 34) (right 34) 9 [] tree34 = some [] := by decide +kernel
 
 def tree35 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,75,1073,1691,2369,59,0,1707,67,27,2097,1723,1345,72740386980,1699,0,1569,66,795,2097,66,66,66,66,0,1569,74,50,50,2369,50,50,2385,74,1633,50,2145,66,58,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked35 : check (left 35) (right 35) 9 [] tree35 = some [] := by decide +kernel
 
-def tree36 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+def tree36 : List Nat := tree2
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked36 : check (left 36) (right 36) 9 [] tree36 = some [] := by decide +kernel
 
 def tree37 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,0,1699,2337,1073,1691,811,1707,0,42,42,42,2097,1723,1345,42,42,42,0,2337,24159660196,1073,1691,811,1707,0,42,42,42,2097,835,1345,42,42,42,795,1691,1857,1707,0,1699,0,42,42,42,2097,835,1345,42,42,42,1073,1691,811,1707,72572614820,2385,0,42,42,42,2097,835,1345,42,42,42,42,42,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked37 : check (left 37) (right 37) 9 [] tree37 = some [] := by decide +kernel
 
 def tree38 : List Nat := [0,0,0,0,555,811,0,0,1057,2337,291,1707,67109398692,4295436476,1841,1707,0,1057,0,42,2081,707,1329,42,42,42,291,1707,72478107812,2369,72478238884,801,0,555,811,27,1179,0,0,1057,2337,27,1691,291,1707,67109529764,13,1179,13,1857,1707,13,0,801,0,555,555,0,68719944124,68719945916,1841,1707,0,0,2081,42,579,1329,42,42,42,1057,1571,547,547,2369,0,2081,42,579,1329,42,42,42,42,42,0,555,555,555,795,0,13,50466269340,795,13,1857,1707,13,0,0,555,811,27,1179,0,0,0,42,2081,42,42,1723,1345,42,2337,1073,1691,811,1707,0,42,2081,42,42,1723,1345,42,42,42,13,1179,13,1857,1707,13,0,555,555,555,795,0,13,50466269340,795,13,1857,1707,13,0,555,811,555,811,0,0,1699,2337,1073,331,811,1707,0,42,42,42,2097,1723,1345,42,42,42,0,2337,24159660196,1073,587,811,1707,0,42,42,42,2097,835,1345,42,42,42,0,1571,75,1073,2353,1443,1707,0,42,42,42,2097,835,1345,42,42,42,0,547,587,1073,0,42,42,42,2097,1723,1345,42,811,547,0,42,42,42,2097,1723,1345,42,42,42,1857,1707,0,1699,0,42,42,42,2097,835,1345,42,42,42,1073,0,42,42,42,2097,835,1345,42,42,42,811,1707,72572614820,2385,0,42,42,42,2097,835,1345,42,42,42,42,42,817,0,555,811,555,811,555,939,0,13,13,0,1571,75,1073,2353,795,1699,1443,1707,0,42,42,42,42,42,2113,50755809436,1361,42,42,42,13,0,0,42,42,42,42,42,2113,74285854876,1361,42,1227,1073,72138371228,0,42,42,42,42,42,2113,74183096484,1361,42,2369,811,1707,0,42,42,42,42,42,2113,74285854876,1361,42,42,42,13,1873,1707,13]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked38 : check (left 38) (right 38) 9 [] tree38 = some [] := by decide +kernel
 
 def tree39 : List Nat := [0,0,27,795,0,26,26,0,265132,330668,27,795,527276,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked39 : check (left 39) (right 39) 9 [] tree39 = some [] := by decide +kernel
 
-def tree40 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+def tree40 : List Nat := tree2
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked40 : check (left 40) (right 40) 9 [] tree40 = some [] := by decide +kernel
 
 def tree41 : List Nat := [0,0,0,269340,801,400412,0,801,334876,400412,0,269340,334876,400412,817,531484]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked41 : check (left 41) (right 41) 9 [] tree41 = some [] := by decide +kernel
 
 def tree42 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,75,1073,1691,2369,59,0,1707,330796,27,2097,1723,1345,72740386980,1699,789548,58,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked42 : check (left 42) (right 42) 9 [] tree42 = some [] := by decide +kernel
 
-def tree43 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+def tree43 : List Nat := tree2
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked43 : check (left 43) (right 43) 9 [] tree43 = some [] := by decide +kernel
 
-def tree44 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+def tree44 : List Nat := tree2
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked44 : check (left 44) (right 44) 9 [] tree44 = some [] := by decide +kernel
 
-def tree45 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+def tree45 : List Nat := tree2
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked45 : check (left 45) (right 45) 9 [] tree45 = some [] := by decide +kernel
 
 def tree46 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,269500,335036,795,1691,1857,1707,662716,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked46 : check (left 46) (right 46) 9 [] tree46 = some [] := by decide +kernel
 
-def tree47 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+def tree47 : List Nat := tree2
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked47 : check (left 47) (right 47) 9 [] tree47 = some [] := by decide +kernel
 
-def tree48 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+def tree48 : List Nat := tree2
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked48 : check (left 48) (right 48) 9 [] tree48 = some [] := by decide +kernel
 
-def tree49 : List Nat := [0,0,268828,334364,399900]
+def tree49 : List Nat := tree3
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked49 : check (left 49) (right 49) 9 [] tree49 = some [] := by decide +kernel
 
-def tree50 : List Nat := [0,0,268828,334364,399900]
+def tree50 : List Nat := tree3
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked50 : check (left 50) (right 50) 9 [] tree50 = some [] := by decide +kernel
 
-def tree51 : List Nat := [0,0,268828,334364,399900]
+def tree51 : List Nat := tree3
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked51 : check (left 51) (right 51) 9 [] tree51 = some [] := by decide +kernel
 
-def tree52 : List Nat := [0,0,268828,334364,399900]
+def tree52 : List Nat := tree3
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked52 : check (left 52) (right 52) 9 [] tree52 = some [] := by decide +kernel
 
-def tree53 : List Nat := [0,0,268828,334364,399900]
+def tree53 : List Nat := tree3
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked53 : check (left 53) (right 53) 9 [] tree53 = some [] := by decide +kernel
 
-def tree54 : List Nat := [0,0,268828,334364,399900]
+def tree54 : List Nat := tree3
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked54 : check (left 54) (right 54) 9 [] tree54 = some [] := by decide +kernel
 
-def tree55 : List Nat := [0,0,268828,334364,399900]
+def tree55 : List Nat := tree3
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked55 : check (left 55) (right 55) 9 [] tree55 = some [] := by decide +kernel
 
-def tree56 : List Nat := [0,0,268828,334364,399900]
+def tree56 : List Nat := tree3
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked56 : check (left 56) (right 56) 9 [] tree56 = some [] := by decide +kernel
 
-def tree57 : List Nat := [0,0,268828,334364,399900]
+def tree57 : List Nat := tree3
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked57 : check (left 57) (right 57) 9 [] tree57 = some [] := by decide +kernel
 
-def tree58 : List Nat := [0,0,268828,334364,399900]
+def tree58 : List Nat := tree3
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked58 : check (left 58) (right 58) 9 [] tree58 = some [] := by decide +kernel
 
-def tree59 : List Nat := [0,0,268828,334364,399900]
+def tree59 : List Nat := tree3
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked59 : check (left 59) (right 59) 9 [] tree59 = some [] := by decide +kernel
 
-def tree60 : List Nat := [0,0,268828,334364,399900]
+def tree60 : List Nat := tree3
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked60 : check (left 60) (right 60) 9 [] tree60 = some [] := by decide +kernel
 
-def tree61 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree61 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked61 : check (left 61) (right 61) 9 [] tree61 = some [] := by decide +kernel
 
-def tree62 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree62 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked62 : check (left 62) (right 62) 9 [] tree62 = some [] := by decide +kernel
 
 def tree63 : List Nat := [0,0,291,547,0,0,50466268060,0,0,34,2337,1073,1691,34,1825,795,1691,0,34,34,1073,1691,34,2369,34,27,1179,0,0,34,2337,1073,1691,34,34,34,13,1179,13,1857,0,34,34,1073,1691,2369,34,34,13,0,50466269340,2147887260,547,795,0,13,50466269340,795,13,1857,0,34,34,1073,331,2369,34,34,13,1699,817,0,0,1825,0,2337,34,1073,331,34,34,34,1443,13,315,13,13,0,0,34,2337,1073,331,34,34,34,1825,1443,13,1595,13,13,547,291,0,13,13,1443,13,1857,0,34,34,1073,1691,2369,34,34,13,0,1595,315,795,547,0,34,34,1073,331,34,2369,34,1857,0,34,34,1073,72138371228,34,34,34,2385,34,0,13,13,1443,13,0,34,34,1073,72138371228,34,2369,34,34,34,13,1873,0,34,34,1073,331,34,34,2385,34,34,13]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked63 : check (left 63) (right 63) 9 [] tree63 = some [] := by decide +kernel
 
-def tree64 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree64 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked64 : check (left 64) (right 64) 9 [] tree64 = some [] := by decide +kernel
 
-def tree65 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+def tree65 : List Nat := tree11
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked65 : check (left 65) (right 65) 9 [] tree65 = some [] := by decide +kernel
 
-def tree66 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree66 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked66 : check (left 66) (right 66) 9 [] tree66 = some [] := by decide +kernel
 
-def tree67 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree67 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked67 : check (left 67) (right 67) 9 [] tree67 = some [] := by decide +kernel
 
 def tree68 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,330916,1073,1691,2369,59,658596,58,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked68 : check (left 68) (right 68) 9 [] tree68 = some [] := by decide +kernel
 
-def tree69 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree69 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked69 : check (left 69) (right 69) 9 [] tree69 = some [] := by decide +kernel
 
-def tree70 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree70 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked70 : check (left 70) (right 70) 9 [] tree70 = some [] := by decide +kernel
 
-def tree71 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree71 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked71 : check (left 71) (right 71) 9 [] tree71 = some [] := by decide +kernel
 
-def tree72 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree72 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked72 : check (left 72) (right 72) 9 [] tree72 = some [] := by decide +kernel
 
 def tree73 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,75,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked73 : check (left 73) (right 73) 9 [] tree73 = some [] := by decide +kernel
 
 def tree74 : List Nat := [0,0,27,795,0,26,26,0,0,1825,0,2337,24159660196,1073,1691,0,451,1313,5,2097,1195,5,5,795,1691,0,1699,24159660196,1073,1691,72572483748,2369,0,451,1313,5,2097,5,5,1195,5,5,0,0,1699,2337,1073,1691,0,1313,67,5,2097,811,5,5,1825,795,1691,0,1699,67109333156,1073,1691,59,2369,0,1313,67,5,2097,5,5,811,5,5,27,795,0,0,1699,2337,1073,1691,1595,59,0,5,5,5,2097,1723,1345,72740386980,5,5,0,2337,24159660196,1073,1691,587,75,0,5,5,5,2097,835,1345,1227,5,5,795,1691,1857,0,1699,75,1073,1691,2369,72572549284,0,5,5,5,2097,835,1345,72740386980,5,5,0,1699,0,5,67,5,2097,835,1345,5,5,5,1073,1691,72740255908,72572549284,72572614820,2385,0,5,5,5,2097,835,1345,5,5,72740518052,5,5,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked74 : check (left 74) (right 74) 9 [] tree74 = some [] := by decide +kernel
 
 def tree75 : List Nat := [6]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked75 : check (left 75) (right 75) 9 [] tree75 = some [] := by decide +kernel
 
-def tree76 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,75,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
+def tree76 : List Nat := tree73
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked76 : check (left 76) (right 76) 9 [] tree76 = some [] := by decide +kernel
 
-def tree77 : List Nat := [0,0,0,269340,801,400412,0,801,334876,400412,0,269340,334876,400412,817,531484]
+def tree77 : List Nat := tree41
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked77 : check (left 77) (right 77) 9 [] tree77 = some [] := by decide +kernel
 
-def tree78 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,75,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
+def tree78 : List Nat := tree73
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked78 : check (left 78) (right 78) 9 [] tree78 = some [] := by decide +kernel
 
 def tree79 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,0,5,67,5,2097,1723,1345,5,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked79 : check (left 79) (right 79) 9 [] tree79 = some [] := by decide +kernel
 
-def tree80 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,0,5,67,5,2097,1723,1345,5,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
+def tree80 : List Nat := tree79
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked80 : check (left 80) (right 80) 9 [] tree80 = some [] := by decide +kernel
 
 def tree81 : List Nat := [0,0,27,795,0,26,26,0,0,1825,335036,795,1691,531644,0,269500,1825,795,1691,531644,27,795,0,269500,335036,795,1691,1857,597180,662716,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked81 : check (left 81) (right 81) 9 [] tree81 = some [] := by decide +kernel
 
 def tree82 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,0,5,67109333156,5,2097,1723,1345,5,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked82 : check (left 82) (right 82) 9 [] tree82 = some [] := by decide +kernel
 
-def tree83 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,0,5,67109333156,5,2097,1723,1345,5,1073,1691,2369,59,0,5,5,5,2097,1723,1345,72740386980,5,5,58,817,26]
+def tree83 : List Nat := tree82
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked83 : check (left 83) (right 83) 9 [] tree83 = some [] := by decide +kernel
 
-def tree84 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree84 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked84 : check (left 84) (right 84) 9 [] tree84 = some [] := by decide +kernel
 
-def tree85 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,13,1179,13,1857,1707,13,0,555,555,547,795,0,13,50466269340,795,13,1857,1707,13,1699,817,0,555,811,547,291,555,939,0,13,13,1443,13,0,34,34,1073,72138371228,34,2369,34,34,34,13,1873,1707,13]
+def tree85 : List Nat := tree8
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked85 : check (left 85) (right 85) 9 [] tree85 = some [] := by decide +kernel
 
-def tree86 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree86 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked86 : check (left 86) (right 86) 9 [] tree86 = some [] := by decide +kernel
 
-def tree87 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree87 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked87 : check (left 87) (right 87) 9 [] tree87 = some [] := by decide +kernel
 
-def tree88 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+def tree88 : List Nat := tree11
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked88 : check (left 88) (right 88) 9 [] tree88 = some [] := by decide +kernel
 
-def tree89 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree89 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked89 : check (left 89) (right 89) 9 [] tree89 = some [] := by decide +kernel
 
-def tree90 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree90 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked90 : check (left 90) (right 90) 9 [] tree90 = some [] := by decide +kernel
 
-def tree91 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+def tree91 : List Nat := tree2
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked91 : check (left 91) (right 91) 9 [] tree91 = some [] := by decide +kernel
 
-def tree92 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree92 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked92 : check (left 92) (right 92) 9 [] tree92 = some [] := by decide +kernel
 
-def tree93 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree93 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked93 : check (left 93) (right 93) 9 [] tree93 = some [] := by decide +kernel
 
-def tree94 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree94 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked94 : check (left 94) (right 94) 9 [] tree94 = some [] := by decide +kernel
 
-def tree95 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+def tree95 : List Nat := tree11
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked95 : check (left 95) (right 95) 9 [] tree95 = some [] := by decide +kernel
 
-def tree96 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree96 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked96 : check (left 96) (right 96) 9 [] tree96 = some [] := by decide +kernel
 
-def tree97 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree97 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked97 : check (left 97) (right 97) 9 [] tree97 = some [] := by decide +kernel
 
-def tree98 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree98 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked98 : check (left 98) (right 98) 9 [] tree98 = some [] := by decide +kernel
 
 def tree99 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,0,1699,2337,1073,1691,811,1707,658596,0,2337,4295567548,1073,1691,811,1707,658596,795,1691,1857,1707,0,1699,330916,1073,1691,811,1707,72495024316,2385,789668,817,26]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked99 : check (left 99) (right 99) 9 [] tree99 = some [] := by decide +kernel
 
-def tree100 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree100 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked100 : check (left 100) (right 100) 9 [] tree100 = some [] := by decide +kernel
 
-def tree101 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree101 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked101 : check (left 101) (right 101) 9 [] tree101 = some [] := by decide +kernel
 
-def tree102 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree102 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked102 : check (left 102) (right 102) 9 [] tree102 = some [] := by decide +kernel
 
 def tree103 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,1707,5,0,555,555,547,795,0,5,50466269340,795,5,1857,1707,5,1699,817,0,555,811,547,291,555,939,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,1707,5]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked103 : check (left 103) (right 103) 9 [] tree103 = some [] := by decide +kernel
 
 def tree104 : List Nat := [0,0,291,547,0,0,50466268060,0,0,34,2337,1073,1691,34,1825,795,1691,0,34,34,1073,1691,34,2369,34,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,0,34,34,1073,1691,2369,34,34,5,0,50466269340,2147887260,547,795,0,5,50466269340,795,5,1857,0,34,34,1073,331,2369,34,34,5,1699,817,0,0,1825,0,2337,34,1073,331,34,34,34,1443,5,315,5,5,0,0,34,2337,1073,331,34,34,34,1825,1443,5,1595,5,5,547,291,527404,0,1595,315,795,547,0,34,34,1073,331,34,2369,34,1857,0,34,34,1073,72138371228,34,34,34,2385,34,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,0,34,34,1073,331,34,34,2385,34,34,5]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked104 : check (left 104) (right 104) 9 [] tree104 = some [] := by decide +kernel
 
-def tree105 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,1707,5,0,555,555,547,795,0,5,50466269340,795,5,1857,1707,5,1699,817,0,555,811,547,291,555,939,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,1707,5]
+def tree105 : List Nat := tree103
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked105 : check (left 105) (right 105) 9 [] tree105 = some [] := by decide +kernel
 
-def tree106 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,1707,5,0,555,555,547,795,0,5,50466269340,795,5,1857,1707,5,1699,817,0,555,811,547,291,555,939,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,1707,5]
+def tree106 : List Nat := tree103
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked106 : check (left 106) (right 106) 9 [] tree106 = some [] := by decide +kernel
 
 def tree107 : List Nat := [0,0,0,0,555,811,0,0,1057,2337,291,1707,67109398692,4295436476,1841,1707,0,1057,330916,291,1707,72494889148,2369,72478238884,801,0,555,811,27,1179,0,0,1057,2337,27,1691,291,1707,67109529764,5,1179,5,1857,1707,5,0,801,0,555,555,0,68719944124,68719945916,1841,1707,0,265380,1057,1571,547,547,2369,658596,0,555,555,555,795,0,5,50466269340,795,5,1857,1707,5,0,0,555,811,27,1179,0,0,265380,2337,1073,1691,811,1707,658596,5,1179,5,1857,1707,5,0,555,555,555,795,0,5,50466269340,795,5,1857,1707,5,0,555,811,555,811,0,0,1699,2337,1073,461988,811,1707,658596,0,2337,4295567548,1073,461988,811,1707,658596,0,1571,330916,1073,2353,1443,1707,658596,461988,1857,1707,0,1699,330916,1073,461988,811,1707,72495024316,2385,789668,817,0,555,811,555,811,555,939,0,5,5,0,1571,330916,1073,2353,795,1699,1443,1707,789668,5,0,265380,330916,1073,72138371228,67109325988,2369,811,1707,789668,5,1873,1707,5]
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked107 : check (left 107) (right 107) 9 [] tree107 = some [] := by decide +kernel
 
-def tree108 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,1707,5,0,555,555,547,795,0,5,50466269340,795,5,1857,1707,5,1699,817,0,555,811,547,291,555,939,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,1707,5]
+def tree108 : List Nat := tree103
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked108 : check (left 108) (right 108) 9 [] tree108 = some [] := by decide +kernel
 
-def tree109 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,1707,5,0,555,555,547,795,0,5,50466269340,795,5,1857,1707,5,1699,817,0,555,811,547,291,555,939,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,1707,5]
+def tree109 : List Nat := tree103
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked109 : check (left 109) (right 109) 9 [] tree109 = some [] := by decide +kernel
 
-def tree110 : List Nat := [0,0,291,547,0,0,555,811,27,1179,0,0,34,2337,1073,1691,34,34,34,5,1179,5,1857,1707,5,0,555,555,547,795,0,5,50466269340,795,5,1857,1707,5,1699,817,0,555,811,547,291,555,939,0,5,5,1443,5,0,34,34,1073,72138371228,34,2369,34,34,34,5,1873,1707,5]
+def tree110 : List Nat := tree103
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked110 : check (left 110) (right 110) 9 [] tree110 = some [] := by decide +kernel
 
-def tree111 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree111 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked111 : check (left 111) (right 111) 9 [] tree111 = some [] := by decide +kernel
 
-def tree112 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+def tree112 : List Nat := tree11
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked112 : check (left 112) (right 112) 9 [] tree112 = some [] := by decide +kernel
 
-def tree113 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree113 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked113 : check (left 113) (right 113) 9 [] tree113 = some [] := by decide +kernel
 
-def tree114 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree114 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked114 : check (left 114) (right 114) 9 [] tree114 = some [] := by decide +kernel
 
-def tree115 : List Nat := [0,0,27,795,0,26,26,0,265132,330668,27,795,527276,817,26]
+def tree115 : List Nat := tree39
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked115 : check (left 115) (right 115) 9 [] tree115 = some [] := by decide +kernel
 
-def tree116 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree116 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked116 : check (left 116) (right 116) 9 [] tree116 = some [] := by decide +kernel
 
-def tree117 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree117 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked117 : check (left 117) (right 117) 9 [] tree117 = some [] := by decide +kernel
 
-def tree118 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree118 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked118 : check (left 118) (right 118) 9 [] tree118 = some [] := by decide +kernel
 
-def tree119 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree119 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked119 : check (left 119) (right 119) 9 [] tree119 = some [] := by decide +kernel
 
-def tree120 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+def tree120 : List Nat := tree2
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked120 : check (left 120) (right 120) 9 [] tree120 = some [] := by decide +kernel
 
-def tree121 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree121 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked121 : check (left 121) (right 121) 9 [] tree121 = some [] := by decide +kernel
 
-def tree122 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree122 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked122 : check (left 122) (right 122) 9 [] tree122 = some [] := by decide +kernel
 
-def tree123 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+def tree123 : List Nat := tree11
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked123 : check (left 123) (right 123) 9 [] tree123 = some [] := by decide +kernel
 
-def tree124 : List Nat := [0,0,0,269340,801,400412,0,801,334876,400412,0,269340,334876,400412,817,531484]
+def tree124 : List Nat := tree41
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked124 : check (left 124) (right 124) 9 [] tree124 = some [] := by decide +kernel
 
-def tree125 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+def tree125 : List Nat := tree11
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked125 : check (left 125) (right 125) 9 [] tree125 = some [] := by decide +kernel
 
-def tree126 : List Nat := [0,0,291,547,0,269340,334876,1699,817,531484]
+def tree126 : List Nat := tree11
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked126 : check (left 126) (right 126) 9 [] tree126 = some [] := by decide +kernel
 
-def tree127 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree127 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked127 : check (left 127) (right 127) 9 [] tree127 = some [] := by decide +kernel
 
-def tree128 : List Nat := [0,0,27,795,0,26,26,0,315,59,27,795,0,58,58,58,58,1857,0,1699,330916,1073,1691,2369,59,658596,58,817,26]
+def tree128 : List Nat := tree68
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked128 : check (left 128) (right 128) 9 [] tree128 = some [] := by decide +kernel
 
-def tree129 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree129 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked129 : check (left 129) (right 129) 9 [] tree129 = some [] := by decide +kernel
 
-def tree130 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree130 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked130 : check (left 130) (right 130) 9 [] tree130 = some [] := by decide +kernel
 
-def tree131 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree131 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked131 : check (left 131) (right 131) 9 [] tree131 = some [] := by decide +kernel
 
-def tree132 : List Nat := [0,0,27,795,0,26,26,0,555,811,27,795,0,58,58,58,58,1857,1707,58,817,26]
+def tree132 : List Nat := tree2
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked132 : check (left 132) (right 132) 9 [] tree132 = some [] := by decide +kernel
 
-def tree133 : List Nat := [0,0,27,795,0,26,26,1699,817,26]
+def tree133 : List Nat := tree0
 
-set_option maxRecDepth 8192 in
-set_option maxHeartbeats 0 in
-lemma checked133 : check (left 133) (right 133) 9 [] tree133 = some [] := by decide +kernel
 
 end PEqualNP.Outside.L_meta_2590_aux.I2BothCensus
 
@@ -8903,141 +7753,7 @@ def trees : Fin 134 → List Nat :=
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 lemma all_checked (k : Fin 134) : check (left k) (right k) 9 [] (trees k) = some [] := by
-  fin_cases k
-  · exact checked0
-  · exact checked1
-  · exact checked2
-  · exact checked3
-  · exact checked4
-  · exact checked5
-  · exact checked6
-  · exact checked7
-  · exact checked8
-  · exact checked9
-  · exact checked10
-  · exact checked11
-  · exact checked12
-  · exact checked13
-  · exact checked14
-  · exact checked15
-  · exact checked16
-  · exact checked17
-  · exact checked18
-  · exact checked19
-  · exact checked20
-  · exact checked21
-  · exact checked22
-  · exact checked23
-  · exact checked24
-  · exact checked25
-  · exact checked26
-  · exact checked27
-  · exact checked28
-  · exact checked29
-  · exact checked30
-  · exact checked31
-  · exact checked32
-  · exact checked33
-  · exact checked34
-  · exact checked35
-  · exact checked36
-  · exact checked37
-  · exact checked38
-  · exact checked39
-  · exact checked40
-  · exact checked41
-  · exact checked42
-  · exact checked43
-  · exact checked44
-  · exact checked45
-  · exact checked46
-  · exact checked47
-  · exact checked48
-  · exact checked49
-  · exact checked50
-  · exact checked51
-  · exact checked52
-  · exact checked53
-  · exact checked54
-  · exact checked55
-  · exact checked56
-  · exact checked57
-  · exact checked58
-  · exact checked59
-  · exact checked60
-  · exact checked61
-  · exact checked62
-  · exact checked63
-  · exact checked64
-  · exact checked65
-  · exact checked66
-  · exact checked67
-  · exact checked68
-  · exact checked69
-  · exact checked70
-  · exact checked71
-  · exact checked72
-  · exact checked73
-  · exact checked74
-  · exact checked75
-  · exact checked76
-  · exact checked77
-  · exact checked78
-  · exact checked79
-  · exact checked80
-  · exact checked81
-  · exact checked82
-  · exact checked83
-  · exact checked84
-  · exact checked85
-  · exact checked86
-  · exact checked87
-  · exact checked88
-  · exact checked89
-  · exact checked90
-  · exact checked91
-  · exact checked92
-  · exact checked93
-  · exact checked94
-  · exact checked95
-  · exact checked96
-  · exact checked97
-  · exact checked98
-  · exact checked99
-  · exact checked100
-  · exact checked101
-  · exact checked102
-  · exact checked103
-  · exact checked104
-  · exact checked105
-  · exact checked106
-  · exact checked107
-  · exact checked108
-  · exact checked109
-  · exact checked110
-  · exact checked111
-  · exact checked112
-  · exact checked113
-  · exact checked114
-  · exact checked115
-  · exact checked116
-  · exact checked117
-  · exact checked118
-  · exact checked119
-  · exact checked120
-  · exact checked121
-  · exact checked122
-  · exact checked123
-  · exact checked124
-  · exact checked125
-  · exact checked126
-  · exact checked127
-  · exact checked128
-  · exact checked129
-  · exact checked130
-  · exact checked131
-  · exact checked132
-  · exact checked133
+  fin_cases k <;> decide +kernel
 
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
