@@ -1,0 +1,8 @@
+{
+  "started_at": "2026-11-25T20:58:43.246756+00:00",
+  "finished_at": "2026-11-25T20:59:50.574679+00:00",
+  "elapsed_seconds": 67.32795268300015,
+  "exit_code": 137,
+  "source_sha256": "1ccedd727ec7f7fe65b57e3034ec86ba740878dbccde40aabd5329475857b9b1",
+  "source_backup": "/tmp/oec/pequalnp-pilot-184/TwentyGateWitnessDecide.lean"
+}

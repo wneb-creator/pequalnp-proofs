@@ -1,0 +1,14 @@
+seed 184 covers 5 seconds 900
+best 42 fp 36 fn 6 eval 2 runs 1 time 0.00019193
+best 33 fp 21 fn 12 eval 5 runs 1 time 0.000429719
+best 27 fp 18 fn 9 eval 22 runs 1 time 0.000642473
+best 18 fp 0 fn 18 eval 6140 runs 2 time 0.00343916
+best 17 fp 5 fn 12 eval 42925 runs 6 time 0.0202073
+best 16 fp 6 fn 10 eval 839298 runs 87 time 0.349598
+best 11 fp 5 fn 6 eval 843366 runs 87 time 0.35146
+best 10 fp 10 fn 0 eval 2140323 runs 223 time 0.898455
+progress best 10 eval 64143074 runs 7102 elapsed 30.0004
+progress best 10 eval 127029494 runs 14002 elapsed 60.0027
+progress best 10 eval 174594676 runs 19245 elapsed 90.0065
+progress best 10 eval 219362461 runs 24162 elapsed 120.007
+progress best 10 eval 272445234 runs 29979 elapsed 150.097

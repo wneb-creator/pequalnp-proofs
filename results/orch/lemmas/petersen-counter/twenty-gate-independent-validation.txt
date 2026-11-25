@@ -1,0 +1,3 @@
+Independently evaluated all 1024 inputs in Python.
+Gate count: 20
+Errors: []

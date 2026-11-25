@@ -1,0 +1,134 @@
+seed 18402 covers 5 automorphisms 4 seconds 1200
+best 31 fp 22 fn 9 eval 2 runs 1 time 0.000231969
+category 0 error 31 negs 0 seed 0 eval 2
+best 21 fp 21 fn 0 eval 4 runs 1 time 0.0012229
+category 0 error 21 negs 0 seed 0 eval 4
+best 18 fp 18 fn 0 eval 16 runs 1 time 0.00136587
+category 0 error 18 negs 0 seed 0 eval 16
+category 2 error 40 negs 1 seed 0 eval 36
+category 1 error 24 negs 0 seed 1 eval 43
+category 3 error 49 negs 1 seed 1 eval 729
+category 4 error 110 negs 2 seed 0 eval 770
+category 2 error 39 negs 1 seed 0 eval 1829
+category 2 error 27 negs 1 seed 0 eval 2002
+category 4 error 60 negs 2 seed 0 eval 2448
+category 3 error 48 negs 1 seed 1 eval 2474
+category 3 error 37 negs 1 seed 1 eval 2514
+category 3 error 35 negs 1 seed 1 eval 2523
+category 3 error 34 negs 1 seed 1 eval 2561
+category 4 error 53 negs 2 seed 0 eval 2779
+category 4 error 47 negs 2 seed 0 eval 2824
+category 4 error 42 negs 2 seed 0 eval 3031
+category 5 error 74 negs 2 seed 1 eval 3103
+category 7 error 90 negs 3 seed 1 eval 3178
+category 6 error 300 negs 3 seed 0 eval 3544
+category 4 error 41 negs 2 seed 0 eval 4000
+category 5 error 41 negs 2 seed 1 eval 4921
+category 6 error 86 negs 3 seed 0 eval 5721
+category 4 error 39 negs 2 seed 0 eval 5753
+category 6 error 76 negs 3 seed 0 eval 6773
+category 4 error 36 negs 2 seed 0 eval 10638
+category 4 error 35 negs 2 seed 0 eval 12408
+category 4 error 32 negs 2 seed 0 eval 12525
+category 3 error 31 negs 1 seed 1 eval 13016
+category 6 error 61 negs 3 seed 0 eval 33371
+category 5 error 39 negs 2 seed 1 eval 33480
+category 6 error 59 negs 3 seed 0 eval 33521
+category 6 error 54 negs 3 seed 0 eval 33633
+category 6 error 50 negs 3 seed 0 eval 34039
+category 5 error 35 negs 2 seed 1 eval 35122
+category 7 error 68 negs 3 seed 1 eval 41926
+category 7 error 60 negs 3 seed 1 eval 41977
+category 7 error 54 negs 3 seed 1 eval 42184
+category 7 error 52 negs 3 seed 1 eval 52253
+category 6 error 48 negs 3 seed 0 eval 73686
+category 4 error 31 negs 2 seed 0 eval 150449
+category 6 error 41 negs 3 seed 0 eval 150830
+category 6 error 35 negs 3 seed 0 eval 151502
+category 5 error 31 negs 2 seed 1 eval 152624
+category 7 error 50 negs 3 seed 1 eval 186033
+category 1 error 20 negs 0 seed 1 eval 197736
+category 1 error 19 negs 0 seed 1 eval 198937
+category 2 error 26 negs 1 seed 0 eval 199047
+category 3 error 26 negs 1 seed 1 eval 200577
+category 2 error 24 negs 1 seed 0 eval 201274
+category 7 error 47 negs 3 seed 1 eval 215199
+category 7 error 37 negs 3 seed 1 eval 221475
+category 6 error 31 negs 3 seed 0 eval 222791
+category 7 error 36 negs 3 seed 1 eval 223967
+best 17 fp 10 fn 7 eval 275743 runs 24 time 0.158692
+category 0 error 17 negs 0 seed 0 eval 275743
+best 10 fp 10 fn 0 eval 275750 runs 24 time 0.158827
+category 0 error 10 negs 0 seed 0 eval 275750
+category 1 error 18 negs 0 seed 1 eval 275970
+category 1 error 17 negs 0 seed 1 eval 276664
+category 7 error 35 negs 3 seed 1 eval 338373
+category 5 error 30 negs 2 seed 1 eval 342078
+category 4 error 30 negs 2 seed 0 eval 342093
+category 2 error 23 negs 1 seed 0 eval 1616027
+category 4 error 29 negs 2 seed 0 eval 1763379
+category 3 error 24 negs 1 seed 1 eval 2689594
+category 3 error 21 negs 1 seed 1 eval 2754554
+category 3 error 20 negs 1 seed 1 eval 2754740
+category 2 error 22 negs 1 seed 0 eval 2756365
+category 2 error 21 negs 1 seed 0 eval 2759533
+category 4 error 25 negs 2 seed 0 eval 11947110
+category 5 error 28 negs 2 seed 1 eval 11987595
+category 5 error 26 negs 2 seed 1 eval 12057629
+category 4 error 24 negs 2 seed 0 eval 12058766
+category 5 error 25 negs 2 seed 1 eval 12469111
+category 4 error 23 negs 2 seed 0 eval 13384290
+category 4 error 22 negs 2 seed 0 eval 13386275
+category 4 error 21 negs 2 seed 0 eval 13386844
+category 5 error 24 negs 2 seed 1 eval 14511032
+category 6 error 30 negs 3 seed 0 eval 15477453
+category 7 error 34 negs 3 seed 1 eval 15905981
+category 7 error 30 negs 3 seed 1 eval 40620386
+progress best 10 eval 58466971 runs 6108 elapsed 30.0003
+category 6 error 28 negs 3 seed 0 eval 110531257
+progress best 10 eval 111973843 runs 11750 elapsed 60.0024
+category 7 error 28 negs 3 seed 1 eval 112611883
+category 6 error 26 negs 3 seed 0 eval 118202678
+category 6 error 24 negs 3 seed 0 eval 118203439
+progress best 10 eval 160546396 runs 16882 elapsed 90.0065
+progress best 10 eval 204940117 runs 21527 elapsed 120.035
+category 2 error 20 negs 1 seed 0 eval 223978215
+progress best 10 eval 243105217 runs 25588 elapsed 150.036
+category 1 error 13 negs 0 seed 1 eval 271585981
+progress best 10 eval 280320610 runs 29494 elapsed 180.037
+progress best 10 eval 332714147 runs 35071 elapsed 210.04
+category 4 error 19 negs 2 seed 0 eval 344463179
+category 2 error 19 negs 1 seed 0 eval 358101509
+category 2 error 16 negs 1 seed 0 eval 358857427
+category 1 error 12 negs 0 seed 1 eval 359273295
+category 1 error 11 negs 0 seed 1 eval 374049110
+progress best 10 eval 396108810 runs 41779 elapsed 240.042
+best 8 fp 2 fn 6 eval 416790885 runs 43972 time 249.787
+category 0 error 8 negs 0 seed 0 eval 416790885
+best 7 fp 3 fn 4 eval 419912988 runs 44306 time 251.256
+category 0 error 7 negs 0 seed 0 eval 419912988
+progress best 7 eval 457242511 runs 48163 elapsed 270.048
+best 4 fp 4 fn 0 eval 482421724 runs 50806 time 285.809
+category 0 error 4 negs 0 seed 0 eval 482421724
+category 5 error 22 negs 2 seed 1 eval 486237378
+progress best 4 eval 512366002 runs 53980 elapsed 300.053
+progress best 4 eval 574348293 runs 60452 elapsed 330.054
+progress best 4 eval 636379369 runs 66972 elapsed 360.055
+progress best 4 eval 687109200 runs 72275 elapsed 390.058
+progress best 4 eval 718939575 runs 75634 elapsed 420.06
+progress best 4 eval 762757663 runs 80255 elapsed 450.061
+progress best 4 eval 806148524 runs 84839 elapsed 480.061
+progress best 4 eval 860851501 runs 90629 elapsed 510.062
+progress best 4 eval 916995501 runs 96512 elapsed 540.066
+progress best 4 eval 949085995 runs 99908 elapsed 570.067
+progress best 4 eval 1000243862 runs 105332 elapsed 600.068
+progress best 4 eval 1055237898 runs 111099 elapsed 630.073
+progress best 4 eval 1114504093 runs 117341 elapsed 660.076
+progress best 4 eval 1174853975 runs 123760 elapsed 690.081
+progress best 4 eval 1235918745 runs 130190 elapsed 720.085
+progress best 4 eval 1286691018 runs 135555 elapsed 750.087
+progress best 4 eval 1347899624 runs 142011 elapsed 780.091
+progress best 4 eval 1401036165 runs 147587 elapsed 810.092
+category 3 error 19 negs 1 seed 1 eval 1460392979
+progress best 4 eval 1461583778 runs 153994 elapsed 840.093
+progress best 4 eval 1522444107 runs 160406 elapsed 870.097

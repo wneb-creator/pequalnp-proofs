@@ -1,0 +1,3 @@
+All 1024 inputs checked independently in Python.
+false positives: [68, 69, 84, 100, 116, 384, 385, 386, 400, 402]
+false negatives: []

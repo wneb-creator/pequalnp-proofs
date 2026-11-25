@@ -1,0 +1,10 @@
+twenty-gates.json gates 20 FP 0 FN 0
+four-error-candidate.json gates 18 FP 4 FN 0
+best-category-0.json gates 18 FP 4 FN 0
+best-category-1.json gates 18 FP 9 FN 2
+best-category-2.json gates 18 FP 12 FN 4
+best-category-3.json gates 18 FP 15 FN 4
+best-category-4.json gates 18 FP 15 FN 4
+best-category-5.json gates 18 FP 10 FN 12
+best-category-6.json gates 18 FP 24 FN 0
+best-category-7.json gates 18 FP 28 FN 0

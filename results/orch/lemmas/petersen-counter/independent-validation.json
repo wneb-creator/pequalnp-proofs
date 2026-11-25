@@ -1,0 +1,223 @@
+[
+  {
+    "file": "twenty-gates.json",
+    "gates": 20,
+    "false_positives": [],
+    "false_negatives": []
+  },
+  {
+    "file": "four-error-candidate.json",
+    "gates": 18,
+    "false_positives": [
+      69,
+      104,
+      521,
+      548
+    ],
+    "false_negatives": []
+  },
+  {
+    "file": "best-category-0.json",
+    "gates": 18,
+    "false_positives": [
+      69,
+      104,
+      521,
+      548
+    ],
+    "false_negatives": []
+  },
+  {
+    "file": "best-category-1.json",
+    "gates": 18,
+    "false_positives": [
+      65,
+      69,
+      72,
+      73,
+      104,
+      193,
+      200,
+      201,
+      548
+    ],
+    "false_negatives": [
+      12,
+      524
+    ]
+  },
+  {
+    "file": "best-category-2.json",
+    "gates": 18,
+    "false_positives": [
+      40,
+      65,
+      69,
+      72,
+      73,
+      104,
+      193,
+      200,
+      201,
+      544,
+      548,
+      552
+    ],
+    "false_negatives": [
+      12,
+      13,
+      524,
+      525
+    ]
+  },
+  {
+    "file": "best-category-3.json",
+    "gates": 18,
+    "false_positives": [
+      9,
+      36,
+      52,
+      65,
+      68,
+      69,
+      73,
+      84,
+      100,
+      116,
+      137,
+      193,
+      201,
+      521,
+      548
+    ],
+    "false_negatives": [
+      576,
+      584,
+      608,
+      616
+    ]
+  },
+  {
+    "file": "best-category-4.json",
+    "gates": 18,
+    "false_positives": [
+      40,
+      42,
+      65,
+      69,
+      72,
+      73,
+      104,
+      193,
+      200,
+      201,
+      544,
+      546,
+      548,
+      552,
+      554
+    ],
+    "false_negatives": [
+      12,
+      13,
+      524,
+      525
+    ]
+  },
+  {
+    "file": "best-category-5.json",
+    "gates": 18,
+    "false_positives": [
+      65,
+      69,
+      72,
+      73,
+      104,
+      192,
+      193,
+      200,
+      201,
+      208
+    ],
+    "false_negatives": [
+      12,
+      33,
+      41,
+      44,
+      66,
+      82,
+      98,
+      114,
+      524,
+      545,
+      553,
+      556
+    ]
+  },
+  {
+    "file": "best-category-6.json",
+    "gates": 18,
+    "false_positives": [
+      5,
+      40,
+      42,
+      69,
+      104,
+      261,
+      512,
+      513,
+      514,
+      516,
+      517,
+      520,
+      521,
+      522,
+      544,
+      546,
+      548,
+      552,
+      554,
+      768,
+      769,
+      770,
+      772,
+      773
+    ],
+    "false_negatives": []
+  },
+  {
+    "file": "best-category-7.json",
+    "gates": 18,
+    "false_positives": [
+      5,
+      34,
+      40,
+      42,
+      50,
+      69,
+      104,
+      260,
+      261,
+      276,
+      512,
+      513,
+      514,
+      516,
+      517,
+      520,
+      521,
+      522,
+      544,
+      546,
+      548,
+      552,
+      554,
+      768,
+      769,
+      770,
+      772,
+      773
+    ],
+    "false_negatives": []
+  }
+]

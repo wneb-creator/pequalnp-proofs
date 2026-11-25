@@ -1,0 +1,11 @@
+Counterexample search for L-meta-1890
+
+No counterexample has been found. The target is an 18-additional-gate AND/OR/NOT circuit, with x 0 AND x 2 supplied as a free input.
+
+The frozen four-error-candidate.json has 18 gates and matches 1020 of 1024 assignments. Its only false positives are 69,104,521,548; it has no false negatives. The accompanying independent Python validator evaluates the actual circuit semantics on every input. This approximation is not a proof or refutation.
+
+search.cpp is the current stochastic search. It starts from 20-gate star-cover circuits, removes two gates, and mutates AND/OR/NOT circuits. The current revision retains separate populations according to NOT count and use of the supplied seed. search-002.stdout/stderr are complete logs for that revision. search-001 logs are the earlier undiversified revision, terminated after it plateaued at 10 errors.
+
+local_repair.cpp exhaustively tests a restricted repair of the four-error topology. It keeps the four shared three-variable ORs A=0 OR 2 OR 6, B=3 OR 5 OR 6, C=2 OR 5 OR 9, D=0 OR 3 OR 9, and considers all 81 choices of their OR-pair intermediates. With these signals, all seven relevant variables, the seed and false, no four-gate AND/OR/NOT circuit computes the required local function. The expanded run tested 2,429,550 two-gate prefixes and 174,927,600 third-gate candidates. An independent SAT encoding by circuit_search also returned UNSAT. This computational local obstruction is not a Lean proof and does not establish the full posted lower bound.
+
+TwentyGateWitness.lean is an explicit upper-bound component, not the posted lower bound. Its 20-gate circuit has independently passed all 1024 truth-table rows in Python. The first Lean attempt using a single large finite-function decision proof was killed with exit 137; its source is preserved as TwentyGateWitnessDecide.lean and complete logs as twenty-gate-build.*. The algebraic version compiled successfully against canonical PEqualNP.Defs at 2026-11-25 T 21:04:22 Z: exit 0 in 5.10 seconds. Full logs and source hash are in twenty-gate-algebra 3.*. This is a checked upper-bound component, not the posted lower bound. All stochastic searches were stopped before releasing the lease.

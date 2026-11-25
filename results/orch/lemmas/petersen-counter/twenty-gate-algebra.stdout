@@ -1,0 +1,143 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/petersen-counter/TwentyGateWitness.lean:42:38: error: Tactic `rfl` failed: The left-hand side
+  false && decide ((false || false) = (false && false)) || false && false
+is not definitionally equal to the right-hand side
+  true
+
+case false.false.false
+⊢ (false && decide ((false || false) = (false && false)) || false && false) = true
+/workspace/pequalnp-proofs/results/orch/lemmas/petersen-counter/TwentyGateWitness.lean:42:38: error: Tactic `rfl` failed: The left-hand side
+  false && decide ((false || true) = (false && false)) || false && true
+is not definitionally equal to the right-hand side
+  true
+
+case false.false.true
+⊢ (false && decide ((false || true) = (false && false)) || false && true) = true
+/workspace/pequalnp-proofs/results/orch/lemmas/petersen-counter/TwentyGateWitness.lean:42:38: error: Tactic `rfl` failed: The left-hand side
+  false && decide ((true || false) = (false && true)) || false && false
+is not definitionally equal to the right-hand side
+  true
+
+case false.true.false
+⊢ (false && decide ((true || false) = (false && true)) || false && false) = true
+/workspace/pequalnp-proofs/results/orch/lemmas/petersen-counter/TwentyGateWitness.lean:42:38: error: Tactic `rfl` failed: The left-hand side
+  false && decide ((true || true) = (false && true)) || false && true
+is not definitionally equal to the right-hand side
+  true
+
+case false.true.true
+⊢ (false && decide ((true || true) = (false && true)) || false && true) = true
+/workspace/pequalnp-proofs/results/orch/lemmas/petersen-counter/TwentyGateWitness.lean:45:38: error: Tactic `rfl` failed: The left-hand side
+  (false || false) && decide (false = (false && false)) || false && false
+is not definitionally equal to the right-hand side
+  true
+
+case false.false.false
+⊢ ((false || false) && decide (false = (false && false)) || false && false) = true
+/workspace/pequalnp-proofs/results/orch/lemmas/petersen-counter/TwentyGateWitness.lean:45:38: error: Tactic `rfl` failed: The left-hand side
+  (false || false) && decide (true = (false && true)) || false && true
+is not definitionally equal to the right-hand side
+  true
+
+case false.false.true
+⊢ ((false || false) && decide (true = (false && true)) || false && true) = true
+/workspace/pequalnp-proofs/results/orch/lemmas/petersen-counter/TwentyGateWitness.lean:58:2: error: Tactic `rfl` failed: equality lhs
+  id
+      (id (x (Fin.succ 0).succ.succ.succ.succ.succ.succ.succ.succ) &&
+        id (id (x (Fin.succ 0).succ.succ.succ.succ.succ) || id (x (Fin.succ 0).succ.succ.succ))) ||
+    id
+      (id
+          (id (x (Fin.succ 0).succ.succ.succ.succ.succ.succ.succ) &&
+            id (id (x (Fin.succ 0).succ.succ.succ.succ.succ) || id (x (Fin.succ 0).succ.succ.succ.succ))) ||
+        id
+          (id
+              (id (x (Fin.succ 0).succ.succ.succ.succ.succ.succ) &&
+                id
+                  (id (x (Fin.succ 0).succ.succ.succ.succ.succ.succ.succ.succ) ||
+                    id (id (x (Fin.succ 0).succ.succ.succ.succ) || id (x (Fin.succ 0).succ)))) ||
+            id
+              (id
+                  (id (x (Fin.succ 0).succ.succ) &&
+                    id
+                      (id (x (Fin.succ 0).succ.succ.succ.succ.succ.succ.succ) ||
+                        id (id (x (Fin.succ 0).succ.succ.succ) || id (x (Fin.succ 0).succ)))) ||
+                id
+                  (id
+                      (id (x (Fin.succ 0)) &&
+                        id (id (x (Fin.succ 0).succ.succ.succ.succ.succ) || id (x (Fin.succ 0).succ))) ||
+                    id
+                      (id (x 0) &&
+                        id
+                          (id (x (Fin.succ 0).succ.succ.succ.succ) ||
+                            id (id (x (Fin.succ 0).succ.succ.succ) || id (x (Fin.succ 0)))))))))
+is not definitionally equal to rhs
+  x 0 && x 1 ||
+    (x 0 && x 4 ||
+      (x 0 && x 5 ||
+        (x 1 && x 2 ||
+          (x 1 && x 6 ||
+            (x 2 && x 3 ||
+              (x 2 && x 7 ||
+                (x 3 && x 4 ||
+                  (x 3 && x 8 ||
+                    (x 4 && x 9 || (x 5 && x 7 || (x 5 && x 8 || (x 6 && x 8 || (x 6 && x 9 || x 7 && x 9)))))))))))))
+
+x : Fin 10 → Bool
+⊢ (id
+        (id (x (Fin.succ 0).succ.succ.succ.succ.succ.succ.succ.succ) &&
+          id (id (x (Fin.succ 0).succ.succ.succ.succ.succ) || id (x (Fin.succ 0).succ.succ.succ))) ||
+      id
+        (id
+            (id (x (Fin.succ 0).succ.succ.succ.succ.succ.succ.succ) &&
+              id (id (x (Fin.succ 0).succ.succ.succ.succ.succ) || id (x (Fin.succ 0).succ.succ.succ.succ))) ||
+          id
+            (id
+                (id (x (Fin.succ 0).succ.succ.succ.succ.succ.succ) &&
+                  id
+                    (id (x (Fin.succ 0).succ.succ.succ.succ.succ.succ.succ.succ) ||
+                      id (id (x (Fin.succ 0).succ.succ.succ.succ) || id (x (Fin.succ 0).succ)))) ||
+              id
+                (id
+                    (id (x (Fin.succ 0).succ.succ) &&
+                      id
+                        (id (x (Fin.succ 0).succ.succ.succ.succ.succ.succ.succ) ||
+                          id (id (x (Fin.succ 0).succ.succ.succ) || id (x (Fin.succ 0).succ)))) ||
+                  id
+                    (id
+                        (id (x (Fin.succ 0)) &&
+                          id (id (x (Fin.succ 0).succ.succ.succ.succ.succ) || id (x (Fin.succ 0).succ))) ||
+                      id
+                        (id (x 0) &&
+                          id
+                            (id (x (Fin.succ 0).succ.succ.succ.succ) ||
+                              id (id (x (Fin.succ 0).succ.succ.succ) || id (x (Fin.succ 0)))))))))) =
+    (x 0 && x 1 ||
+      (x 0 && x 4 ||
+        (x 0 && x 5 ||
+          (x 1 && x 2 ||
+            (x 1 && x 6 ||
+              (x 2 && x 3 ||
+                (x 2 && x 7 ||
+                  (x 3 && x 4 ||
+                    (x 3 && x 8 ||
+                      (x 4 && x 9 ||
+                        (x 5 && x 7 || (x 5 && x 8 || (x 6 && x 8 || (x 6 && x 9 || x 7 && x 9))))))))))))))
+/workspace/pequalnp-proofs/results/orch/lemmas/petersen-counter/TwentyGateWitness.lean:57:52: warning: This simp argument is unused:
+  upper_and_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [upperCircuit, upperTarget, Circuit.eval, Circuit.wires, GateOp.eval, List.ofFn_succ,
+    List.ofFn_zero, List.foldl_cons, List.foldl_nil, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+    List.any_cons, List.any_nil, List.cons_append, List.nil_append, List.getD_eq_getElem?_getD, List.getElem?_cons_zero,
+    List.getElem?_cons_succ, Option.getD_some, Bool.and_true, Bool.or_false, upper_or_and]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/petersen-counter/TwentyGateWitness.lean:57:66: warning: This simp argument is unused:
+  upper_or_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [upperCircuit, upperTarget, Circuit.eval, Circuit.wires, GateOp.eval, List.ofFn_succ,
+    List.ofFn_zero, List.foldl_cons, List.foldl_nil, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+    List.any_cons, List.any_nil, List.cons_append, List.nil_append, List.getD_eq_getElem?_getD, List.getElem?_cons_zero,
+    List.getElem?_cons_succ, Option.getD_some, Bool.and_true, Bool.or_false, upper_and_or]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
