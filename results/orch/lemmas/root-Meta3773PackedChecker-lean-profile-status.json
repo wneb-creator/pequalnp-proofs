@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean",
+  "sha256": "747d79f68e8c1df2bbc1bcaf89375ce8c064bb70d6512559dfc9aa714d347fa8",
+  "source_sha256_after": "747d79f68e8c1df2bbc1bcaf89375ce8c064bb70d6512559dfc9aa714d347fa8",
+  "started_utc": "2026-11-25T13:27:15.790940+00:00",
+  "finished_utc": "2026-11-25T13:27:34.582793+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 4129452032,
+  "seconds": 18.79188000800059,
+  "rss_limit_bytes": 4294967296,
+  "wall_limit_seconds": 60
+}

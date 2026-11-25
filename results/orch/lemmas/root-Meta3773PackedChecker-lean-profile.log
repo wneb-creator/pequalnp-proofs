@@ -1,0 +1,90 @@
+import took 1.89s
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:32:52: warning: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:32:55: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:49:40: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ih, packedStep, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 781ms
+simp took 890ms
+simp took 756ms
+tactic execution of Lean.Parser.Tactic.exact took 5s
+type checking took 7.39s
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:186:12: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:186:16: warning: Unused tactic linter: `congr 1` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:186:24: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:186:28: warning: Unused tactic linter: `funext i` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:186:37: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:186:41: warning: Unused tactic linter: `symm` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:186:46: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:187:6: warning: Unused tactic linter: `first
+| exact Fin.addCases_left i
+| exact Fin.addCases_right i` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:186:16: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:186:28: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:186:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773PackedChecker.lean:187:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+cumulative profiling times:
+	attribute application 0.103ms
+	compilation (IR) 0.236ms
+	compilation (LCNF base) 3.37ms
+	compilation (LCNF impure) 1ms
+	compilation (LCNF mono) 2.38ms
+	congr simp thm 13.9ms
+	declTypeLinter 7.09ms
+	elaboration 107ms
+	fix level params 1.53ms
+	import 1.89s
+	initialization 43ms
+	instantiate metavars 10.6ms
+	interpretation 265ms
+	let-to-have transformation 3.92ms
+	linting 25.6ms
+	module linting 0.143ms
+	parsing 17.1ms
+	process pre-definitions 15.1ms
+	share common exprs 27.8ms
+	simp 2.71s
+	tactic execution 5.42s
+	tacticAnalysis 3.99ms
+	type checking 7.45s
+	typeclass inference 613ms
