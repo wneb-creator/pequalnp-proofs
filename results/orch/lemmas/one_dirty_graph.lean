@@ -112,4 +112,83 @@ lemma shared_product_edges_have_two_centers {α : Type} [DecidableEq α]
     · exact Or.inr (Or.inr (Or.inl h))
   · exact (hdisj _ hp hq).elim
 
+def starProjection {α : Type} (a d : α) (A B : List α) (x : α → Bool) : Bool :=
+  (x a && B.any x) || (x d && A.any x)
+
+lemma starProjection_below_product {α : Type} (a d : α) (A B : List α)
+    (haa : a ∈ A) (hdb : d ∈ B) (x : α → Bool) :
+    starProjection a d A B x = true → (A.any x && B.any x) = true := by
+  simp only [starProjection, Bool.or_eq_true, Bool.and_eq_true]
+  rintro (⟨ha, hB⟩ | ⟨hd, hA⟩)
+  · exact ⟨List.any_eq_true.mpr ⟨a, haa, ha⟩, hB⟩
+  · exact ⟨hA, List.any_eq_true.mpr ⟨d, hdb, hd⟩⟩
+
+lemma starProjection_sound {α : Type} (G : SimpleGraph α)
+    (a d : α) (A B : List α) (haa : a ∈ A) (hdb : d ∈ B)
+    (ha : ∀ x, (A.any x && B.any x) = true → x a = true → HasEdge G x)
+    (hd : ∀ x, (A.any x && B.any x) = true → x d = true → HasEdge G x) :
+    ∀ x, starProjection a d A B x = true → HasEdge G x := by
+  intro x hx
+  have hprod := starProjection_below_product a d A B haa hdb x hx
+  simp only [starProjection, Bool.or_eq_true, Bool.and_eq_true] at hx
+  rcases hx with ⟨h, _⟩ | ⟨h, _⟩
+  · exact ha x hprod h
+  · exact hd x hprod h
+
+lemma starProjection_preserves_graph_pairs {α : Type} [DecidableEq α]
+    (G : SimpleGraph α)
+    (htri : ∀ a b c, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (hfour : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (a d : α) (had : G.Adj a d) (A B : List α) (haa : a ∈ A) (hdb : d ∈ B)
+    (ha : ∀ x, (A.any x && B.any x) = true → x a = true → HasEdge G x)
+    (hd : ∀ x, (A.any x && B.any x) = true → x d = true → HasEdge G x)
+    (u v : α) (huv : G.Adj u v) :
+    starProjection a d A B (pairInput u v) =
+      (A.any (pairInput u v) && B.any (pairInput u v)) := by
+  apply Bool.eq_iff_iff.mpr
+  constructor
+  · exact starProjection_below_product a d A B haa hdb (pairInput u v)
+  · intro hprod
+    have hcover := shared_product_edges_have_two_centers G htri hfour a d had A B haa hdb
+      ha hd u v huv hprod
+    have hcenter : pairInput u v a = true ∨ pairInput u v d = true := by
+      rcases hcover with h | h | h | h
+      · exact Or.inl (by simp [pairInput, h])
+      · exact Or.inl (by simp [pairInput, h])
+      · exact Or.inr (by simp [pairInput, h])
+      · exact Or.inr (by simp [pairInput, h])
+    obtain ⟨hA, hB⟩ := Bool.and_eq_true_iff.mp hprod
+    simp only [starProjection, Bool.or_eq_true, Bool.and_eq_true]
+    rcases hcenter with h | h
+    · exact Or.inl ⟨h, hB⟩
+    · exact Or.inr ⟨h, hA⟩
+
+lemma single_star_replacement {α : Type} [DecidableEq α]
+    (G : SimpleGraph α) (a : α) (A B : (α → Bool) → Bool)
+    (hforces : ∀ x, x a = true → A x = true)
+    (hstar : ∀ u v, G.Adj u v → (A (pairInput u v) && B (pairInput u v)) = true →
+      u = a ∨ v = a)
+    (hsound : ∀ x, (A x && B x) = true → x a = true → HasEdge G x) :
+    (∀ x, (x a && B x) = true → (A x && B x) = true) ∧
+      (∀ u v, G.Adj u v →
+        (pairInput u v a && B (pairInput u v)) =
+          (A (pairInput u v) && B (pairInput u v))) ∧
+      (∀ x, (x a && B x) = true → HasEdge G x) := by
+  have hshrink : ∀ x, (x a && B x) = true → (A x && B x) = true := by
+    intro x hx
+    obtain ⟨ha, hB⟩ := Bool.and_eq_true_iff.mp hx
+    exact Bool.and_eq_true_iff.mpr ⟨hforces x ha, hB⟩
+  refine ⟨hshrink, ?_, ?_⟩
+  · intro u v huv
+    apply Bool.eq_iff_iff.mpr
+    constructor
+    · exact hshrink (pairInput u v)
+    · intro hprod
+      have ha : pairInput u v a = true := by
+        rcases hstar u v huv hprod with h | h <;> simp [pairInput, h]
+      exact Bool.and_eq_true_iff.mpr ⟨ha, (Bool.and_eq_true_iff.mp hprod).2⟩
+  · intro x hx
+    exact hsound x (hshrink x hx) (Bool.and_eq_true_iff.mp hx).1
+
 end PEqualNP.Outside.L_meta_1031_aux.OneDirtyGraph
