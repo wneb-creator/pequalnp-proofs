@@ -33,3 +33,8 @@ orchestrator-minimum.lean: lake env lean exit 0; SHA256 9d490bd84ee12453dc8e4532
 library-redirect.lean: lake env lean exit 0; SHA256 e39fed429d79a838c6598b6642ecc0ebcf03d9c07f123a5dc8f3716c0ff3b8b9
 semantic-fold-delete.lean: lake env lean exit 0; SHA256 1c1b23465a590c468c07a1ba6b681b57a0c9c4e87c889fd5720040e1c06a122b
 structural-pairclean-prefix.lean: lake env lean exit 0; SHA256 833b13f8ab9a07305d531a1c47f453e9249b4121cf9e49af810cfb53e8c7c1a9
+
+Checked partial snapshot 5:
+semantic-least-active.lean: lake env lean exit 0; SHA256 a3a3d827117bc716484b886976bfd288850cdaafb8e33697aa1ec27531d98701
+library-topform.lean: lake env lean exit 0; SHA256 2de4d927600579aeaa3d45ed330251b31e58350681ead64c39ff68f1eacbbc5c
+structural-negative-rectangle.lean: lake env lean exit 0; SHA256 15712b10d7199ef169115a5ee05cfd777563c7a5770791b02ee60a6485955ce9

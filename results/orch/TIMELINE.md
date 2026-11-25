@@ -6,3 +6,4 @@
 - 2026-11-25T17:23:09.155831+00:00: named helper file builds, star-forest special case completed, one-colour buffer and pair-clean endpoint checked. Exact theorem still absent.
 - 2026-11-25T17:24:39.167900+00:00: exact checker returned REJECTED (no-theorem); independent third snapshot review passed; preserving checked helpers only.
 - 2026-11-25T17:26:33.390071+00:00: 20-minute replan: retire direct ReadK and semantic-monochromatic shortcuts; pursue T0-preserving folding and top-form normalization, with Fano/C6 synthesis in parallel. Bipartite pair-clean bridge and constrained minimizers checked.
+- 2026-11-25T17:31:42.745072+00:00: strict pair-inactive deletion and pairactivity of fixed constrained minima checked; T0-preserving top-form core checked; negative-input rectangle characterization checked.
