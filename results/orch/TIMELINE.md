@@ -24,3 +24,5 @@
 - 2026-11-25T19:18:38.890892+00:00: lease renewed; expires 2026-11-25T19:38:38.263Z.
 - 2026-11-25T19:20:05.869728+00:00: colored budgets, nested absorption and matching-cover bridge checked/reviewed; checkpoint7.
 - 2026-11-25T19:20:05.962235+00:00: private nested absorption subcase checked; structural cone-preservation extension in progress.
+- 2026-11-25T19:23:39.407239+00:00: lease renewed; expires 2026-11-25T19:43:38.257Z.
+- 2026-11-25T19:24:51.160319+00:00: normalized both-wmax-empty case excluded in Lean; two independent glue reviews; checkpoint8.

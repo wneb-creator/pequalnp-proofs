@@ -1,9 +1,8 @@
 Gap: L-meta-5012
-Partial only: main theorem absent.
-Build: lake build PEqualNP.Outside.L_meta_5012 PASSED; combined target2114 lines.
-Axiom audit of normalized_two_junk: propext, Classical.choice, Quot.sound only.
+Partial only: posted theorem absent.
+Named target2114 lines: lake build PASSED; standard three axioms only for normalized_two_junk.
+New empty_wmax_exclusion.lean4095 lines: Lean PASSED; independently reviewed complete normalized both-wmax-empty exclusion.
 Checker: CHECKER FAULT: the prebuilt Mathlib cache is missing.
-Full Mathlib umbrella required by verifier; selective2480-module cache supports target builds, full cache exceeds current free disk.
 Cleanup: not applicable to full proof yet.
-Sub-agents: 6 (status/reviewer, toolchain and hidden-lemma/matching search, structural, finite search, restrictions, proof inventory)
-TIMING total=18.6 subagents=6
+Sub-agents: 6 (status/reviewer, toolchain/matching/geometry, structural, finite search, restrictions, proof inventory)
+TIMING total=29.7 subagents=6
