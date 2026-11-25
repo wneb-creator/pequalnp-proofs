@@ -12,3 +12,4 @@
 2026-11-25T10:22:03.930970+00:00 — Exact F4 row-operation certificate translated to checked128-line Lean contradiction for restricted rowzero chart; independent polynomial DAG/source review passes. Preserved immediate checkpoint; full problem unresolved.
 2026-11-25T10:25:00.903678+00:00 — Generic mixed-coefficient extraction helper compiled and independently reviewed; preserved early while full-star equation prototype is prepared.
 2026-11-25T10:30:50.017539+00:00 — Full-star mixed-coefficient lemma compiled and independently reviewed; sparse engine tooling and both computationally unknown full-star diagnostics archived. No full proof/refutation.
+2026-11-25T10:34:39.006995+00:00 — Higher-degree full-star coefficient helpers compiled/reviewed. Transient Git authentication failure recovered with shared helper and fenced branch push; no alternate credentials or URLs used.

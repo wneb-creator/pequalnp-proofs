@@ -29,9 +29,11 @@ was obtained here. These are computational diagnostics, not Lean proofs.
 
 The separate `sparse-star/` archive preserves exact inputs, provenance,
 complete stdout/stderr, wrapper results, converter, and roundtrip checker.
-The existing 82-file `finite/` archive is unchanged. The native engine,
-wrapper, fixes, and independent six-control tests are preserved by the
-engine owner in the adjacent `sparse-engine/` archive.
+The existing 82-file `finite/` archive is unchanged. The engine provenance,
+wrapper, fixes, and independent six-control tests are preserved by the engine
+owner in the adjacent `sparse-engine/` archive; vendor source and compiled
+binaries are deliberately omitted. These runs used the original serial build,
+before the separate SIMD/OpenMP experiment.
 
 The archive also contains an independent exact check of a conditional
 off-diagonal minor stratification. With path coordinates fixed, vanishing

@@ -1,0 +1,7 @@
+PASS exact coefficient literal: [1, 1, 1] occurrences 2
+PASS exact coefficient literal: [2, 1, 1] occurrences 3
+PASS independent affine-product enumeration: triple_four_affine
+PASS independent affine-product enumeration: quartic_four_affine
+PASS unchanged reviewed matrix/XY foundation and derivative multiplicities.
+SHA256: 73002c5f10b0087f85d3bc176b439e2243a8b54a2cca3992de54b78fdfcc9b62
+Source review only; library_route independently reports Lean build exit0.
