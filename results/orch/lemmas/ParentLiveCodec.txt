@@ -1,0 +1,43 @@
+def cmpException (iw ow : Nat) : Nat → Nat → Nat → Option Nat
+  | 0,_,_ => none
+  | n+1,packed,i =>
+    if packed &&& ((1 <<< iw)-1) = i then
+      some ((packed >>> iw) &&& ((1 <<< ow)-1))
+    else cmpException iw ow n (packed >>> (iw+ow)) i
+def cmpWidth (g : Forest) (k : Nat) : Nat :=
+  let (_,depth,_,pw,_,_,_,_,_) := g.levels k
+  if depth=0 then 0 else pw+12
+def cmpNode (g : Forest) (k i : Nat) : Nat :=
+  let (_,_,_,_,_,_,_,_,data) := g.levels k
+  packedAt data (i*cmpWidth g k) (cmpWidth g k)
+def cmpParent (g : Forest) (k i : Nat) : Nat :=
+  let (_,_,_,pw,_,_,_,_,_) := g.levels k
+  cmpNode g k i &&& ((1 <<< pw)-1)
+def cmpOps (g : Forest) : Nat → Nat → Nat → Nat
+  | 0,_,_ => 0
+  | fuel+1,k,i =>
+    let (_,depth,_,pw,iw,_,ec,ex,_) := g.levels k
+    match cmpException iw (10*depth+(wiresOf g).length+depth) ec ex i with
+    | some value => value &&& ((1 <<< (10*depth))-1)
+    | none =>
+      cmpOps g fuel (k+1) (cmpParent g k i) |||
+        (((cmpNode g k i >>> pw) &&& 1023) <<< (10*(depth-1)))
+def cmpLive (g : Forest) : Nat → Nat → Nat → Nat
+  | 0,_,_ => (1 <<< (wiresOf g).length)-1
+  | fuel+1,k,i =>
+    let (_,depth,_,pw,iw,_,ec,ex,_) := g.levels k
+    match cmpException iw (10*depth+(wiresOf g).length+depth) ec ex i with
+    | some value => value >>> (10*depth)
+    | none =>
+      let record := cmpNode g k i
+      let previous := cmpLive g fuel (k+1) (cmpParent g k i)
+      let op := (record >>> pw) &&& 1023
+      let removed := (if record.testBit (pw+10) then 1 <<< (op &&& 15) else 0) |||
+        (if record.testBit (pw+11) then 1 <<< ((op >>> 4) &&& 15) else 0)
+      (previous ^^^ (previous &&& removed)) ||| (1 <<< ((wiresOf g).length+depth-1))
+def readNode (g : Forest) (k i : Nat) : Nat × List Decor × List Decor :=
+  let raw := wiresOf g
+  let (_,depth,_,_,_,_,_,_,_) := g.levels k
+  let ops := cmpOps g depth k i
+  let bank := decodeBank depth ops raw
+  (ops,bank,selectLive (cmpLive g depth k i) bank)

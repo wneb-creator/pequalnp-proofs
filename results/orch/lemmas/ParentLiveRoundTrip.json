@@ -1,0 +1,99 @@
+{
+  "validation": "All assertions in encode_parent_live.py completed with exit0; see encode-parent-live.log",
+  "total_nodes": 20158,
+  "cases": [
+    {
+      "case": 2444,
+      "nodes": 3057,
+      "levels": 38,
+      "encoded_sha256": "0c42aceb1aca488442ade4d8fe74261c6d70330665ae745dcd7990e205cc2a42",
+      "original_sha256": "21e53d62546f3e02d6977bc3fb21c8a6214f902703317fc456908db6329dc1fd",
+      "checks": [
+        "exact opcode sequence",
+        "exact live mask",
+        "all original rules retained",
+        "no duplicate inherited rules"
+      ]
+    },
+    {
+      "case": 4338,
+      "nodes": 316,
+      "levels": 16,
+      "encoded_sha256": "46be326df8bf00f659eff7bc7a2a4db2aa58233a4e80f392c660476c93db4414",
+      "original_sha256": "d1a50e0e40ae3ad943439fb9e53288622c5f7756d6f62b18f33ec95bbda94ba3",
+      "checks": [
+        "exact opcode sequence",
+        "exact live mask",
+        "all original rules retained",
+        "no duplicate inherited rules"
+      ]
+    },
+    {
+      "case": 1674,
+      "nodes": 3788,
+      "levels": 67,
+      "encoded_sha256": "c72ec48b6e555b15834db5c8c33c70090240eb1252e3776eb8f42ad45dfda126",
+      "original_sha256": "672396a8858444b932f14e348ab6deda5366874f3c7147c7a6c7bdbbcd9c7433",
+      "checks": [
+        "exact opcode sequence",
+        "exact live mask",
+        "all original rules retained",
+        "no duplicate inherited rules"
+      ]
+    },
+    {
+      "case": 5120,
+      "nodes": 4726,
+      "levels": 67,
+      "encoded_sha256": "8caaa580e1058b83905a3c678af3275ad57dac1031933ef7e79d03599eaa8d4c",
+      "original_sha256": "3fcdde2bd2e4a4e858cdc8389402caa3dd2c2516c72d8ed07189df33c172cb4a",
+      "checks": [
+        "exact opcode sequence",
+        "exact live mask",
+        "all original rules retained",
+        "no duplicate inherited rules"
+      ]
+    },
+    {
+      "case": 1676,
+      "nodes": 3924,
+      "levels": 57,
+      "encoded_sha256": "9cc5c356188d57767859e7ec0cfba269399bc1cdd2f14e10a6fd32ee4199e99a",
+      "original_sha256": "c8959eb3f79b4ff95805a2f00daa63296f3766bd96de78b440d8831f050f87cd",
+      "checks": [
+        "exact opcode sequence",
+        "exact live mask",
+        "all original rules retained",
+        "no duplicate inherited rules"
+      ]
+    },
+    {
+      "case": 1677,
+      "nodes": 2512,
+      "levels": 59,
+      "encoded_sha256": "3a350dfdf5c02373cd17f324d8df724a74673179b5f3d4e6b595777ee0118f30",
+      "original_sha256": "44dce840cd92de204eee4a2ee0587936cf1acacc8cab4eadf43ec41189ad4d71",
+      "checks": [
+        "exact opcode sequence",
+        "exact live mask",
+        "all original rules retained",
+        "no duplicate inherited rules"
+      ]
+    },
+    {
+      "case": 1678,
+      "nodes": 1835,
+      "levels": 38,
+      "encoded_sha256": "3496fb6c840500fcc80c9c733d497acc3a7ea65bfac55d33162dd39c60737216",
+      "original_sha256": "5b6dc901f1160c07b8f4ce874b52eeb8c5330693fdd2b8e07e7662a83102ff3d",
+      "checks": [
+        "exact opcode sequence",
+        "exact live mask",
+        "all original rules retained",
+        "no duplicate inherited rules"
+      ]
+    }
+  ],
+  "codec_sha256": "e3e03fd3eb737041eceac5117c3699e61d899998e3930eda073b90c3b6b6fc7f",
+  "probe_sha256": "0d7f529e45e4398c61d2f18cb758dd2cdbc5867d42b43122e91f1267737d41aa"
+}

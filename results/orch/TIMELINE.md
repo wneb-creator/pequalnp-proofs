@@ -54,3 +54,7 @@
 - 2026-11-25T04:23:54+00:00: IdentifierMinificationProbe passed exit0; conservative imported-name blacklist minification validated on generic core plus small numerical certificate.
 
 - 2026-11-25T04:26:35.224758+00:00: Checked identifier-minification probe independently reviewed for early preservation.
+
+- 2026-11-25T04:27:43.447116+00:00: ParentLiveProbe passed (60.756s); two-bit live-mask delta codec validated throughvalid31.
+
+- 2026-11-25T04:33:06.204342+00:00: Parent live-mask codec small certificate replay independently reviewed for preservation.

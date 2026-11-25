@@ -233,3 +233,13 @@ PackingT adapter: all199Tnodes have one unaryNOT at opcode step0; allremaining44
 - 2026-11-25T04:22:55+00:00 toolchain: Found aggregation namespace bug: relative source identifiers `L_meta_1673.X`/`rho` survived full-prefix rewrite into C1673. Generator now replaces exact relative namespace token per source. Earlier2444/4338 and1673 have no simp attributes, ruling out prior simp registration as this failure cause.
 
 - 2026-11-25T04:23:54+00:00 toolchain: Conservative custom-identifier minifier preserves imported-name components (138,240-name blacklist), structural declarations, and posted theorem namespace. Frozen v7 source1,935,481B→1,785,191B, saving150,290B via3,217 custom names. Reverse renaming reconstructs original source byte-for-byte. IdentifierMinificationProbe (568 names) compiled exit0, full log saved; full minified source not yet compiled.
+
+## 2026-11-25T04:27:43.447116+00:00 — live-mask codec small replay passed
+
+`results/orch/lemmas/ParentLiveProbe.lean` compiled with exit0 in60.756seconds, full generic5120core plusg15/g31 throughvalid31, combining samplewidth768, parent opcode/rule sharing, sorted hashes, and two-bit live deltas. Full log: `parent-live-probe.log`; exact timing: `parent-live-probe-build.json`; all20158node Python round-trip manifest: `parent-live-roundtrip.json`. Fullcase replay and1674/1677fastState proof check remain pending.
+
+### Rectangle engine reuse feasibility (restriction_math, UTC 2026-11-25T04:31:32.417548+00:00)
+- C1673 has only17 direct rawL occurrences. Its entire verifier core before rawP/rawL is seed-independent; downstream WZ/chk/imp_of can plausibly take rawL plus raw_good/m0_full witnesses. The rawS/rawT/rho symmetry witness is separately seed-specific. imp_full with FF avoids this symmetry but searches more branches.
+- A whole-graph checker with rawP and no free seed may reuse existing seeded cofactor bounds by monotonicity (fewer initial signals). Root tests relaxing the proved packed budget limit L≤15 to L≤16.
+- Computational diagnostics are scratch-only and contain #eval. RectangleOR04Experiment.lean compares unchanged baseline okE(70,8) with only rawL seed x0∨x4 substituted. RectangleOR04ExperimentSmall.lean similarly compares okE(38,5). Both remain running at this timestamp, so no success is claimed.
+- VM compatibility replacements st(n,f)=f(n) and a projection-based pair are each proved equal to the source recursor versions by kernel proofs. Original proof code and certificates remain unchanged.
