@@ -1,12 +1,22 @@
 Job: pequalnp-pilot-166
+Message: msg-48fb643167071b4dcf952caf
 Gap: L-meta-13150
-Status: lake build PEqualNP.Outside.L_meta_13150 PASS (exit 0); kernel checker pending.
-The target theorem negates the exact assigned statement.
-The existing V_meta_9933__k9 lower bound and nine-gate monotone witness establish the positive statement.
+Final file: lean/PEqualNP/Outside/L_meta_13150.lean
+Result: Lean-built refutation of the exact posted statement.
+The existing V_meta_9933__k9 lower bound proves general circuit size at least nine.
+Its nine-gate witness uses only AND/OR, so the assigned negative statement is false.
 Independent witness evaluation: all 64 inputs match.
-Outside format guard: PASS (refute).
-Desk-kind guard: REJECTED for refute because this row is posted as check. No PR submitted.
+Build: lake build PEqualNP.Outside.L_meta_13150 PASS, exit 0; Build completed successfully (5149 jobs).
+Outside format guard: PASS in refute mode.
+Local checker: no acceptance verdict. Initial attempts faulted on missing cache artifacts, then memory exhaustion (exit 137). Final run was stopped after the desk withdrew the step and the required diagnostic retry returned HTTP 410.
+Final checker output: CHECKER FAULT: the verifier ended without a verdict (exit 143).
+Desk-kind guard independently rejects refute mode for the assigned check row.
+Desk withdrawal: The other side of this step has been proved and checked, so this side cannot be proved.
+PR: none; the step is withdrawn, and the assigned row did not allow refutation submissions.
+Lease: withdrawn by the desk; no release request sent and no other pilot lease touched.
+Gap requests: 1. Null desk responses: 0.
 Source lines before cleanup: 2579
-Source lines after cleanup: pending
-Sub-agents: 4 (status/library review, independent circuit validation, Lean/submission review, toolchain setup)
-TIMING total=4.41 subagents=4
+Source lines after cleanup: 2579
+Cleanup: skipped; local checker never accepted and desk required stopping.
+Sub-agents: 4 (status/library review; circuit validation; Lean/submission review; toolchain setup)
+TIMING total=27.32 subagents=4

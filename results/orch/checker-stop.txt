@@ -1,0 +1,1 @@
+Final verifier stopped with SIGTERM after desk withdrew L-meta-13150 and diagnostic retry returned HTTP 410. No further proof work or checker attempts.

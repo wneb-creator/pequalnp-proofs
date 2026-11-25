@@ -1,0 +1,4 @@
+{
+ "error": "this step was withdrawn: The other side of this step has been proved and checked, so this side cannot be proved. Ask the desk for another step.. Stop work on it and ask /desk/next for a step the attack is waiting on.",
+ "withdrawn": true
+}
