@@ -1,0 +1,4 @@
+Problem mono 12 19 972 11706
+sat
+ elapsed 37.81775903701782
+gates [('or', 1, 2), ('and', 1, 2), ('and', 3, 6), ('or', 5, 7), ('and', 0, 8), ('or', 0, 8), ('and', 5, 7), ('and', 3, 4), ('or', 12, 13), ('and', 9, 10), ('or', 14, 15), ('and', 11, 16)] output 17 table 0xfe80e880fe008000 correct True

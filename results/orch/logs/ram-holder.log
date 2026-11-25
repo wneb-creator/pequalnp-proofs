@@ -1,0 +1,8 @@
+mount: /tmp/oec/pequalnp-pilot-160/ram: permission denied.
+       dmesg(1) may have more information after failed mount system call.
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-160/ram-holder.py", line 3, in <module>
+    subprocess.run(['mount','-n','-t','tmpfs','-o','size=3G','tmpfs',str(base/'ram')],check=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['mount', '-n', '-t', 'tmpfs', '-o', 'size=3G', 'tmpfs', '/tmp/oec/pequalnp-pilot-160/ram']' returned non-zero exit status 32.

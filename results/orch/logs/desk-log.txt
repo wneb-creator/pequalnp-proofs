@@ -1,0 +1,145 @@
+2026-11-25T17:00:26.276584+00:00 {
+ "gap": {
+  "id": "L-meta-12087",
+  "title": "False: six-input monotone f symmetric in inputs 0-2, table 4269860992 * 2^32 + 4261445632: every fan-in-two AND/OR/NOT circuit has an AND/OR one no larger",
+  "statement": "¬ (∀ s : ℕ, PEqualNP.MetaComplexity.HasCircuitSize 6 (fun x : Fin 6 → Bool => Nat.testBit (4269860992 * 2 ^ 32 + 4261445632) (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0)) s → ∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ s ∧ ∀ x : Fin 6 → Bool, C.eval (List.ofFn x) = Nat.testBit (4269860992 * 2 ^ 32 + 4261445632) (∑ i : Fin 6, if x i then 2 ^ (i : ℕ) else 0))",
+  "file": "lean/PEqualNP/Outside/L_meta_12087.lean",
+  "module": "PEqualNP.Outside.L_meta_12087",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "where a NOT gate first saves a gate on monotone functions (direction 3)",
+  "dead": [],
+  "weight": 55,
+  "parallel": 3,
+  "lane": "main",
+  "depth": 0,
+  "faithful_by_template": {
+   "template": "block6-fanin2",
+   "hash": "2c60aa0b883b576fbe819e30d1619a5b8c5353ece7bdf3d3bbfb374b69970ec5"
+  },
+  "sketch": "A proof is one explicit counterexample to the positive statement L-meta-12086; none is expected if that statement is true.",
+  "pr_open": 0,
+  "pr_numbers": []
+ },
+ "lease": {
+  "id": "[REDACTED-LEASE-ID]",
+  "expires_at": "2026-11-25T17:20:25.513Z",
+  "renew": "POST /desk/beat?lease=[REDACTED-LEASE-ID]",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=[REDACTED-LEASE-ID]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "solid",
+   "points": 38,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T17:00:25.513Z"
+  }
+ },
+ "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final."
+}
+
+2026-11-25T17:02:16.547257+00:00 BEAT {
+ "lease": {
+  "id": "[REDACTED-LEASE-ID]",
+  "expires_at": "2026-11-25T17:22:16.024Z",
+  "renew": "POST /desk/beat?lease=[REDACTED-LEASE-ID]",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=[REDACTED-LEASE-ID]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "solid",
+   "points": 38,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T17:00:25.513Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T17:06:39.038007+00:00 BEAT {
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+2026-11-25T17:08:53.175497+00:00 REACQUIRE {
+ "gap": {
+  "id": "L-meta-4675",
+  "title": "Bipartite 4-cycle-free edge circuits with no OR mixing a point and a line have at least |E| + tau - 1 gates",
+  "statement": "∀ (p l : ℕ) (E : Finset (Fin p × Fin l)) (C : PEqualNP.CircuitLowerBounds.Circuit),\n  (∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' →\n      ¬ ((a, b) ∈ E ∧ (a, b') ∈ E ∧ (a', b) ∈ E ∧ (a', b') ∈ E)) →\n  PEqualNP.TopForm.IsAO2 (p + l) C →\n  (∀ x : Fin (p + l) → Bool, PEqualNP.MetaComplexity.circuitFun (p + l) C x =\n      decide (∃ (a : Fin p) (b : Fin l), (a, b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true)) →\n  PEqualNP.TwoColour.tCount (p + l) C (fun i => decide (p ≤ i)) = 0 →\n  ∃ S : Finset (Fin (p + l)),\n    (∀ (a : Fin p) (b : Fin l), (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S) ∧\n    E.card + S.card ≤ C.size + 1",
+  "file": "lean/PEqualNP/Outside/L_meta_4675.lean",
+  "module": "PEqualNP.Outside.L_meta_4675",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "the size bound for circuits with no OR mixing points and lines; on paper this class costs at most a factor six, so it is the plane question up to a constant",
+  "context": "SKETCH: No proof is in hand, and none is expected to be short: on paper every circuit off at one-hot inputs equals one of this class of at most six times its size, so this bound is the whole question up to a constant. The class: every OR reaches, through ORs, only points or only lines. Known: one rebuilding move removes a region of ANDs not below F when every gate reading it accepts one star; on our exact circuits that fails at readers accepting a three-edge path or two disjoint edges: price those. Size: open. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 93,
+  "parallel": 6,
+  "lane": "main",
+  "depth": 0,
+  "sketch": "No proof is in hand, and none is expected to be short: on paper every circuit off at one-hot inputs equals one of this class of at most six times its size, so this bound is the whole question up to a constant. The class: every OR reaches, through ORs, only points or only lines. Known: one rebuilding move removes a region of ANDs not below F when every gate reading it accepts one star; on our exact circuits that fails at readers accepting a three-edge path or two disjoint edges: price those. Size: open. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 0,
+  "pr_numbers": [],
+  "level": "hard"
+ },
+ "lease": {
+  "id": "[REDACTED-LEASE-ID]",
+  "expires_at": "2026-11-25T17:28:51.492Z",
+  "renew": "POST /desk/beat?lease=[REDACTED-LEASE-ID]",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=[REDACTED-LEASE-ID]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 151,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T17:06:33.711Z"
+  }
+ },
+ "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final.",
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}
+
+2026-11-25T17:09:13.582298+00:00 RETRY {
+ "gap": {
+  "id": "L-meta-4675",
+  "title": "Bipartite 4-cycle-free edge circuits with no OR mixing a point and a line have at least |E| + tau - 1 gates",
+  "statement": "∀ (p l : ℕ) (E : Finset (Fin p × Fin l)) (C : PEqualNP.CircuitLowerBounds.Circuit),\n  (∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' →\n      ¬ ((a, b) ∈ E ∧ (a, b') ∈ E ∧ (a', b) ∈ E ∧ (a', b') ∈ E)) →\n  PEqualNP.TopForm.IsAO2 (p + l) C →\n  (∀ x : Fin (p + l) → Bool, PEqualNP.MetaComplexity.circuitFun (p + l) C x =\n      decide (∃ (a : Fin p) (b : Fin l), (a, b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true)) →\n  PEqualNP.TwoColour.tCount (p + l) C (fun i => decide (p ≤ i)) = 0 →\n  ∃ S : Finset (Fin (p + l)),\n    (∀ (a : Fin p) (b : Fin l), (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S) ∧\n    E.card + S.card ≤ C.size + 1",
+  "file": "lean/PEqualNP/Outside/L_meta_4675.lean",
+  "module": "PEqualNP.Outside.L_meta_4675",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "the size bound for circuits with no OR mixing points and lines; on paper this class costs at most a factor six, so it is the plane question up to a constant",
+  "context": "SKETCH: No proof is in hand, and none is expected to be short: on paper every circuit off at one-hot inputs equals one of this class of at most six times its size, so this bound is the whole question up to a constant. The class: every OR reaches, through ORs, only points or only lines. Known: one rebuilding move removes a region of ANDs not below F when every gate reading it accepts one star; on our exact circuits that fails at readers accepting a three-edge path or two disjoint edges: price those. Size: open. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 93,
+  "parallel": 6,
+  "lane": "main",
+  "depth": 0,
+  "sketch": "No proof is in hand, and none is expected to be short: on paper every circuit off at one-hot inputs equals one of this class of at most six times its size, so this bound is the whole question up to a constant. The class: every OR reaches, through ORs, only points or only lines. Known: one rebuilding move removes a region of ANDs not below F when every gate reading it accepts one star; on our exact circuits that fails at readers accepting a three-edge path or two disjoint edges: price those. Size: open. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 0,
+  "pr_numbers": [],
+  "level": "hard"
+ },
+ "lease": {
+  "id": "[REDACTED-LEASE-ID]",
+  "expires_at": "2026-11-25T17:28:51.492Z",
+  "renew": "POST /desk/beat?lease=[REDACTED-LEASE-ID]",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=[REDACTED-LEASE-ID]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 151,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T17:06:33.711Z"
+  }
+ },
+ "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final.",
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}
+

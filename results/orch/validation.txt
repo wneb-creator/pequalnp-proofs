@@ -1,10 +1,17 @@
 UNCOMPILED RESEARCH SNAPSHOT; no proof PR.
+Acknowledged KIT-MESSAGE-ID msg-9810a914d4a7e7d477a9e799.
 Gap: L-meta-12087.
-Candidate is a refutation of posted negative statement, adapted with attribution from odinfree PR16697.
-Lean target build: not run; toolchain/cache setup still incomplete.
-Checker: not run.
+Candidate: lean/PEqualNP/Outside/L_meta_12087.lean,3727 lines before cleanup,3727 after (cleanup skipped; not built).
+Candidate attempts to refute the posted negative statement; adapted with attribution from odinfree PR16697.
+Target lake build: NOT RUN (cache setup incomplete when lease was lost).
+Local proof checker: NOT RUN. Existing native checker executable itself built successfully; that is not a proof verdict.
 Independent review: passed snapshot-only format, exact negation wrapper, attribution, credential checks.
-Circuit synthesis: 12-gate monotone witness verified over all64 assignments; no SAT lower bound established.
-Desk renewal: HTTP410; exact body: {"error":"no such live lease: it expired or was released. Ask /desk/next again."}
+Computational result: 12-gate monotone witness verified over all64 inputs; no lower bound established by search.
+Desk null count:0. Public log copies redact desk lease control identifiers; private scratch logs retain original responses.
+Desk renewal HTTP410: no such live lease: it expired or was released. Ask /desk/next again.
+Both re-requests returned identical pre-existing L-meta-4675 lease, issued before our requests, with exact note: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Stopped per other-pilot lease rule. No work on or release of that lease.
+Pushed first preservation snapshot:f4e16e50ec4448e64b43ac89c77953c73d1070e1.
 Sub-agents: status_review, circuit_search, lower_bound, alternative_proof, toolchain_setup
-TIMING total=8.1 subagents=5
+TIMING total=11.4 subagents=5
+Final independent delta review: PASS for research snapshot only;12-gate witness independently verified on64 rows; no proof acceptance.

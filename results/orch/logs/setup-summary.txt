@@ -1,0 +1,12 @@
+2026-11-25T17:09:50.463842+00:00
+Toolchain setup stopped on root instruction after desk lease failure.
+Lean 4.36.0 installed from official GitHub release in scratch:
+/tmp/oec/pequalnp-pilot-160/toolchain/lean-4.36.0-linux/bin
+Native checker build PASSED: lake build checklemma (5 jobs).
+Complete stdout/stderr: checklemma-build.log.
+Required lake exe cache get was run. All 9117 official Mathlib cache archives downloaded, but full unpack could not fit the 7.9 GB filesystem. Setup cache process stopped before full disk; archive copies deleted. No Mathlib library source builds ran.
+Partial genuine Mathlib cache retained for PEqualNP.Defs closure (~2195 modules); targeted get! stopped on root instruction. This is not a complete Mathlib environment. No target proof or local theorem checker ran in this subtask.
+Toolchain .ilean artifacts excluded at extraction. Static .a libraries removed after checker/cache native executables were successfully built and ldd checked; native relinking would require restoring them. Genuine .olean/.olean.private/.olean.server/.ir artifacts retained. Some optional generated Mathlib .ilean/.c/native object outputs pruned for space.
+An ordinary scratch tmpfs mount was attempted after unprivileged user namespace capability succeeded; mount returned permission denied. No retry, bypass, /dev/shm use, memfd or privilege escalation was performed.
+All own cache/pruner/setup processes stopped. No source/tracked repository edits made by this agent.
+Logs: cache-get.log, defs-cache-get.log, cache-pruner.log, cache-pruner-v2.log, checklemma-build.log, dependency-clones.log, clone-<package>.log, toolchain-download.stdout, toolchain-download.stderr, toolchain-extract.stdout, toolchain-extract.stderr, toolchain-archive-list.txt, toolchain-archive-list.stderr, ram-holder.log.

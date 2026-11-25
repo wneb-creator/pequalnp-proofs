@@ -22,3 +22,5 @@ Cofactor a=1 is table0xf8e8f080 on b,c,d,e,f. Verified monotone9 witness (wire5 
 Original mono11 and one-NOT11 synthesis timed out180s each: UNKNOWN, no lower bound. Optimized bounded searches remain active (300s each) as of pause after lease410. No new search will start until root confirms reacquisition. Native libz3.so.4 is available through Python ctypes; no solver package downloaded. Machine reports3 CPUs.
 
 Scratch /tmp/oec/pequalnp-pilot-160/: search_circuit.py, search_optimized.py, search_symmetric.py, search_signed.py, search_cegis.py; corresponding search-*.log complete outputs. Witnesses search-mono-12.gates.json and search-cofactor-mono-9.gates.json.
+
+At 2026-11-25T17:09:39.789336+00:00, all circuit_search-owned active jobs were terminated per root STOP after desk failure. No new witness or lower bound from optimized/signed/CEGIS runs. Complete logs remain in scratch search-*.log.
