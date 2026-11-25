@@ -23,3 +23,8 @@ Main theorem remains unsolved.
 Fifth checkpoint: all five new source snapshots compiled exit 0.
 FewNot independently reviewed by root and one_not_route; permutation files by library_route; FirstBinary by structural_proof; LibraryOrWitness by root (unchanged reviewed prefix plus final witness wrapper).
 FirstBinary is conditional on the remaining pair-support bound; no full-gap proof or exact-statement acceptance.
+
+Sixth checkpoint: six new modules compiled exit 0. CircuitLiveBridge reviewed by toolchain; seeds/generic residual bound reviewed by one_not_route; RowEmbedding, ProjectionMassTwo and LiveFirstBinary reviewed by root. Cached dependency sources archived for reproduction.
+The unconditional residual floor16 is proved; full gap is not yet proved.
+Sub-agents: status_audit, structural_proof, counterexample_search, library_route, toolchain, one_not_route
+TIMING total=28 subagents=6

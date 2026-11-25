@@ -14,3 +14,5 @@
 
 2026-11-25T14:03:21.879010+00:00: stopped fullrow4NOT SAT after root identified acceptedL_meta_6581 proving≥16nonNOTgates for Petersen. Thus4NOT+15binary already impossible by existing proof; solver interruption itself has no logical verdict. Focus now1NOT18binary and2NOT17binary signedsource encodings.
 2026-11-25T14:04:13.517097+00:00: first-binary bridge, symmetry, free-OR floor and strict OR-suffix reduction compiled and reviewed.
+2026-11-25T14:04:38.931360+00:00: root re-plan: concentrate on global17binary route and signed1/2NOT search; drop4NOT synthesis and generic lemma expansion.
+2026-11-25T14:13:09.352629+00:00: residual pair floor16 and all integration bridges compiled and independently reviewed.
