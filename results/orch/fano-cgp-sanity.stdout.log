@@ -1,0 +1,2 @@
+{"search": "Fano neutral Cartesian genetic programming", "seed": 164, "limit_seconds": 1.0, "samples": 58, "base_gates": 27, "base_validated_full_truth_table": true}
+{"finished_seconds": 1.000145024999938, "iterations": 11462, "best": 27, "found_counterexample": false}

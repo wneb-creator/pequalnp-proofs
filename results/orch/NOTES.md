@@ -202,3 +202,17 @@ The projected slot certificate removes semantic monochrome completely: graph_pro
 `linear_family_budget` proves that a Monotone2, ReadsBack circuit with selected wires computing the linear OR functions on sets S_i with pairwise intersections of size at most one satisfies sum_i (|S_i|-1) <= C.size. No singleton-false AND assumption and no tCount assumption. `seven_triple_linear_outputs_need_fourteen` specializes this to seven triples and yields size >= 14. Therefore computing the seven Fano neighborhoods in 13 AND/OR gates cannot produce a 26-gate counterexample.
 
 Proof: for each output set S, use the negative input with all coordinates outside S true. Expand roots whose original singleton support has size >1. An OR expands into its positive-input operands, increasing root count by at most one; an AND expands into a single operand false on the negative input, with no root-count increase. Singleton-support coverage can only grow. Charge expanded ORs to a pool of original OR gates false on the negative input and with original singleton support size >1. The induction gives |S| <= 1 + pool.card. Every pool gate has support contained in S. Pools for distinct targets are disjoint, since their intersection would have singleton support contained in S_i intersect S_j of size <=1. Summing pool sizes gives the gate bound.
+
+### Projected certificate validation (structural, 2026-11-25 18:15 UTC)
+
+ProjectedSlot.lean compiled exit0; stdout contains only inherited unnecessary-simpa warning, stderr empty. ProjectedSlotWrappers.txt is the exact61line new-declaration extraction. It uses Monotone2, ReadsBack, graph correctness, and a proper bipartition; no tCount, no all-AND-singleton-false, no semantic monochrome premise. For each edge(a,b), the chosen actual reachable AND operand contains a in singleton support and every supported vertex of the colour of a is adjacent to b. Original sources frozen.
+
+Independently reviewed LinearBudgetWrappers.txt mathematically. False-on-complement(S) roots expand through a false AND operand at no increase in root count; OR expansions add at most one root and charge a large-support OR gate. Pools for sets with pairwise intersections at most1 are disjoint. This validates the linear-family gate lower bound without a hidden singleton-false condition. It does not extract the needed family from an arbitrary graph circuit.
+
+### Counterexample search update: theta10 and auxiliary theta8
+
+Theta10 15-gate MultiDirty search finished UNKNOWN after 600.138s with reason timeout. No counterexample found. The freed slot now runs theta8 with 12 gates and any dirty AND, limit600s; a SAT witness would refute only the all-optima-clean shortcut, not L-meta-4675. The search summary now explicitly qualifies the unverified symmetry/normalization restrictions in SMT encodings.
+
+### Counterexample search update: original Fano timeout
+
+Original optimized Fano26 search ended UNKNOWN after3603.386s, reason timeout. No model or infeasibility claim. Full stdout/stderr archived and added to log manifest. Refined Fano26 search now requires a dirty AND accepting at least two target edges (necessary by the team’s checked UniqueRepair theorem), limit900s, started18:20:44 UTC after root renewal.

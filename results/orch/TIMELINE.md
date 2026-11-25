@@ -49,3 +49,9 @@
 - 2026-11-25T18:10:19.250118+00:00: Stronger projected-slot certificate compiledandreviewed; archivingbeforecombinedbuild.
 
 - 2026-11-25T18:14:36.339395+00:00:3547lineintegratedpartialbuild+axiomaudit passed; preparingcheckpoint13. Remainingexactsearchesactive, nofullproof/refutation.
+
+- 2026-11-25T18:18:53.719358+00:00: counterexample agent completed theta10 15-gate MultiDirty SMT: UNKNOWN, timeout 600.138s; started theta8 12-gate any-dirty SMT (600s) after root renewal cue.
+
+- 2026-11-25T18:20:53.296693+00:00: original optimized Fano26 SMT completed UNKNOWN (timeout3603.386s); after root renewal started refined Fano26 MultiDirty SMT with900s limit.
+
+- 2026-11-25T18:22:02.013915+00:00: Checkpoint14: allcompletedsearchlogs+reviewedhandoff+finalcheckerfault preserved; remainingsearchescontinue.

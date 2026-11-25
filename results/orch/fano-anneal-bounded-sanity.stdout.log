@@ -1,0 +1,2 @@
+{"search": "Fano26 bounded guided annealing", "seed": 166, "limit_seconds": 1.0, "samples": 58, "initial_weighted_errors": 1}
+{"finished_seconds": 1.0001136759999554, "iterations": 32055, "best_errors": 1, "found_counterexample": false}

@@ -1,0 +1,57 @@
+Independent draft archival review by status_review, 2026-11-25T18:19:29Z.
+
+VERDICT: APPROVED AS A PARTIAL RESEARCH ARCHIVE at this checkpoint.
+No completed proof/refutation, accepted checker result, or PR approval.
+
+MATHEMATICAL_HANDOFF.md accurately states the missing main theorem, extra
+hypotheses on the strongest helpers, and the unresolved global gate budget.
+Its strategy obstructions are distinguished from refutations of L-meta-4675.
+The clean/unique-dirty bounds, projected slots, one-hot restriction, flag cover,
+and linear-family descriptions agree with reviewed Lean statements. Masked
+theta's numerical comparison is consistent with its explicit construction.
+
+COUNTEREXAMPLE_SUMMARY.md clearly says no counterexample was found and separates
+timeouts, heuristics, numerical solver results, and Lean-checked components.
+P4/C6 solver statuses, reported timeout durations, the two completed 1,800-second
+heuristic iteration totals, and census counts agree with saved diagnostics.
+The census text correctly retains fixed diagonal and edge-count restrictions.
+
+Follow-up at 2026-11-25T18:19:49Z: the summary now explicitly states that
+symmetry/normalization restrictions have not all been formally verified and
+that UNSAT describes only the encoded search. This resolves the scope caveat.
+Follow-up at 2026-11-25T18:20:36Z: independently verified all 58 manifest entries,
+total 53,943 bytes. Every archived file is a regular file, exactly equals its
+scratch source, and matches the recorded byte count and SHA256. Independent
+filename discovery finds precisely the same completed search/sanity/stopped-run
+set: zero missing or extra files. Credential-pattern scan result: false.
+The three active searches are correctly excluded. Refresh their status and
+archive their complete diagnostics after completion; they are not covered by
+this completed-log manifest yet.
+
+The named Lean source is unchanged from integration-003, SHA256
+a854c0f07afbe2a665b2eaa3dd9d149f7622e231f757e1840f3e2ac093f1723f.
+
+Diff against 583d8015134a0e3942c99f3886fe333e89bdc963 contains only the added
+named Lean file and authorized results/orch research artifacts. At review
+time there were 160 tracked changed paths and two new handoff documents.
+This multi-file archival branch is not compliant with the single-file PR rule,
+and no PR is being proposed.
+
+Credential-pattern scan result: false.
+Authorized-path check result: true.
+No credential values were printed. No tests or searches were rerun.
+Only this review artifact was written.
+
+Checkpoint 2026-11-25T18:21:18Z: verified the two newly archived optimized
+Fano26 stdout/stderr files byte-for-byte against scratch and against manifest
+hashes/sizes. The manifest now has 60 files, 54,271 bytes. Captured result is
+UNKNOWN after 3603.386341571808 seconds, with reason timeout; no infeasibility
+or counterexample conclusion follows. The summary moves this to completed
+searches and retains the restricted-encoding/timeouts caveats.
+The refined 900-second MultiDirty Fano run remains active and unjudged.
+Credential-pattern scan result for the new logs: false.
+
+Final official-checker diagnostics were also reviewed: empty stdout and stderr
+reporting CHECKER FAULT because the prebuilt Mathlib cache is missing. The
+reported exit code is 3; this is not acceptance or rejection of the statement.
+The named source hash remains unchanged from integration-003. No tests rerun.

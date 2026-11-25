@@ -1,0 +1,2 @@
+{"search": "Fano26 simulated annealing", "seed": 165, "limit_seconds": 1.0, "samples": 58, "initial_weighted_errors": 1}
+{"finished_seconds": 1.0000041660000534, "iterations": 27851, "best_errors": 1, "found_counterexample": false}

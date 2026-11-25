@@ -1,0 +1,108 @@
+{"n": 6, "k": 8, "E": [[0, 3], [0, 4], [1, 4], [1, 5], [2, 3], [2, 5]], "positive": [12, 17, 36, 34, 9, 18], "negative": [7, 10, 20, 33, 56], "vars": 984, "rows": 31195}
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 3e+00]
+  Cost   [0e+00, 0e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 5e+00]
+Presolving model
+20312 rows, 973 cols, 53284 nonzeros  0s
+14913 rows, 842 cols, 42016 nonzeros  0s
+11024 rows, 709 cols, 36725 nonzeros  0s
+9797 rows, 709 cols, 35172 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   9797 rows
+   709 cols (709 binary, 0 integer, 0 implied int., 0 continuous)
+   35172 nonzeros
+MIP-Timing:        0.25 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.3s
+         0       0         0   0.00%   0               inf                  inf        0      0      6        84     0.3s
+
+Symmetry detection completed in 0.0s
+Found 12 full orbitope(s) acting on 36 columns
+
+        60       1        17   3.19%   0               inf                  inf      627     27    665      7064     5.3s
+       517      45       166   3.43%   0               inf                  inf     1029     19   3529     20843    10.3s
+       795      61       266   3.72%   0               inf                  inf     1163     28   5306     28408    15.3s
+      1043      68       344   3.97%   0               inf                  inf     1408     23   6851     36975    24.0s
+
+Restarting search from the root node
+Model after restart has 9797 rows, 709 cols (709 bin., 0 int., 0 impl., 0 cont.), and 35627 nonzeros
+
+MIP-Timing:          26 - starting analytic centre calculation
+      1201       0         0   0.00%   0               inf                  inf       12      0      0     39698    26.4s
+      1201       0         0   0.00%   0               inf                  inf       12      1      2     39699    26.5s
+      1201       0         0   0.00%   0               inf                  inf      578     43    608     44866    38.5s
+
+Symmetry detection completed in 0.1s
+Found 12 full orbitope(s) acting on 36 columns
+
+      1503      10        99   0.12%   0               inf                  inf      741     52   2497     51265    43.5s
+      1720      37       174   0.27%   0               inf                  inf      898     26   3510     61757    49.0s
+      1853      32       222   0.37%   0               inf                  inf      942     30   4307     75507    58.2s
+      1982      32       267   0.38%   0               inf                  inf      965     38   4997     86249    65.8s
+      2304      55       379   0.65%   0               inf                  inf     1129     41   6442     96465    75.7s
+      2412      62       424   0.78%   0               inf                  inf     1240     26   6993    104188    80.8s
+      2639      69       506   1.03%   0               inf                  inf     1366     34   8309    114747    85.8s
+
+Restarting search from the root node
+Model after restart has 9797 rows, 709 cols (709 bin., 0 int., 0 impl., 0 cont.), and 35627 nonzeros
+
+MIP-Timing:          91 - starting analytic centre calculation
+      2857       0         0   0.00%   0               inf                  inf       28      0      0    125144    90.8s
+      2857       0         0   0.00%   0               inf                  inf       28      5      6    125165    90.8s
+      2857       0         0   0.00%   0               inf                  inf      542     53    591    133087    97.4s
+
+Symmetry detection completed in 0.0s
+Found 12 full orbitope(s) acting on 36 columns
+
+      3543      32       227   3.65%   0               inf                  inf     1053     24   4775    144254   102.4s
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+      4199      74       447   4.49%   0               inf                  inf     1310     28   8641    156243   107.5s
+      4545      94       553   4.68%   0               inf                  inf     1465     36   9239    164026   112.5s
+      5229     130       790   6.11%   0               inf                  inf     1415     36   9981    175734   117.5s
+      5866     152      1013   6.65%   0               inf                  inf     1543     33   9808    187567   122.5s
+      6636     171      1304   6.89%   0               inf                  inf     1633     36   9839    199418   127.5s
+      7293     193      1546   7.87%   0               inf                  inf     1261     28   9706    212643   132.5s
+      7925     218      1774   8.02%   0               inf                  inf     1063     20   9650    225718   137.5s
+      8245     237      1883   8.14%   0               inf                  inf     1004     33   9682    231594   142.6s
+
+Restarting search from the root node
+Model after restart has 9797 rows, 709 cols (709 bin., 0 int., 0 impl., 0 cont.), and 35627 nonzeros
+
+MIP-Timing:     1.4e+02 - starting analytic centre calculation
+      8425       0         0   0.00%   0               inf                  inf       22      0      0    233964   144.9s
+      8425       0         0   0.00%   0               inf                  inf       22      5      2    233999   145.0s
+      8425       0         0   0.00%   0               inf                  inf      388     36    628    243103   153.5s
+
+Symmetry detection completed in 0.1s
+Found 12 full orbitope(s) acting on 36 columns
+
+      9023      60       182   0.07%   0               inf                  inf      699     20   3464    256730   158.6s
+      9603     117       376   0.20%   0               inf                  inf     1081     29   6869    267293   163.6s
+      9894     122       483   0.21%   0               inf                  inf     1343     31   8381    272888   168.6s
+     10179     133       583   0.31%   0               inf                  inf     1405     41   8991    278514   173.7s
+     10425     158       666   0.31%   0               inf                  inf     1568     16   9674    298494   196.3s
+     10752     177       770   0.33%   0               inf                  inf     1584     16   9565    303695   201.3s
+     10903     196       826   0.38%   0               inf                  inf     1606     20   9959    320287   220.7s
+     11185     196       933   0.42%   0               inf                  inf     1531     23   9452    325119   225.8s
+     11283     201       973   0.42%   0               inf                  inf     1402     26   9968    342022   257.6s
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+     11488     221      1039   0.43%   0               inf                  inf     1410     19   9884    345483   262.6s
+     11671     238      1106   0.43%   0               inf                  inf     1417     29   9569    348819   267.7s

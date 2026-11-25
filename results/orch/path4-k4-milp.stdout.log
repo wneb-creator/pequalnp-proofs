@@ -1,0 +1,57 @@
+{"n": 4, "k": 4, "E": [[0, 2], [0, 3], [1, 3]], "positive": [5, 9, 10], "negative": [3, 6, 12], "vars": 180, "rows": 3273}
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 3e+00]
+  Cost   [0e+00, 0e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 5e+00]
+Presolving model
+1979 rows, 174 cols, 4488 nonzeros  0s
+1117 rows, 130 cols, 2822 nonzeros  0s
+776 rows, 101 cols, 2294 nonzeros  0s
+622 rows, 101 cols, 2142 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   622 rows
+   101 cols (101 binary, 0 integer, 0 implied int., 0 continuous)
+   2142 nonzeros
+MIP-Timing:       0.077 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.1s
+         0       0         0   0.00%   0               inf                  inf        0      0      2        35     0.1s
+ L       0       0         0 100.00%   0               0                  0.00%     2383     31    138       244     0.8s
+         1       0         1 100.00%   0               0                  0.00%     2383     31    138       245     0.8s
+
+Solving report
+  Status            Optimal
+  Primal bound      0
+  Dual bound        0
+  Gap               0% (tolerance: 0.01%)
+  P-D integral      0
+  Solution status   feasible
+                    0 (objective)
+                    0 (bound viol.)
+                    0 (int. viol.)
+                    0 (row viol.)
+  Timing            0.80 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 1
+  Nodes             1
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     245 (total)
+                    0 (strong br.)
+                    209 (separation)
+                    1 (heuristics)
+result Optimization terminated successfully. (HiGHS Status 7: Optimal) elapsed 0.8066878318786621
+gates [(1, 3, 0), (0, 4, 1), (2, 3, 1), (5, 6, 0)]
+FULL TRUTH TABLE AND COLOR VALIDATED

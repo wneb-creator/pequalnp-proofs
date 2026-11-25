@@ -1,0 +1,4 @@
+{"search": "Fano26 simulated annealing", "seed": 165, "limit_seconds": 1800.0, "samples": 58, "initial_weighted_errors": 1}
+{"elapsed": 30.000007967999863, "iterations": 1677309, "accepted": 1541881, "current_errors": 19, "best_errors": 1, "restarts": 0}
+{"elapsed": 60.00001612999995, "iterations": 3230663, "accepted": 2976826, "current_errors": 19, "best_errors": 1, "restarts": 0}
+{"elapsed": 90.00002947199982, "iterations": 4840190, "accepted": 4455697, "current_errors": 18, "best_errors": 1, "restarts": 0}

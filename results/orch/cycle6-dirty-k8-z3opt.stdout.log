@@ -1,0 +1,4 @@
+{"n": 6, "k": 8, "E": [[0, 3], [0, 4], [1, 4], [1, 5], [2, 3], [2, 5]], "samples": 11, "dirty": true, "smt_bytes": 16880}
+result unsat elapsed 9.577266454696655
+(:reason-unknown "")
+
