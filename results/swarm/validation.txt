@@ -6,7 +6,7 @@ Status: checked helper diagnostics only; no proof or refutation of the posted st
 
 Pinned Lean: v4.36.0.
 Validation: lake env lean ../results/swarm/H9RedTeam.lean passed with PEqualNP.Defs.
-All 48 helper lemmas passed an independent compile and axiom audit.
+All 57 helper lemmas passed an independent compile and axiom audit.
 Axioms are restricted to propext, Classical.choice, and Quot.sound.
 Independent exhaustive circuit evaluation passed.
 Independent mathematical and plain-file review passed.
@@ -36,6 +36,11 @@ fixing any one input false cannot erase an AND by constant-false propagation.
 Only the final gate is safe; every earlier gate accepts a forbidden diagonal.
 Independent evaluation also checks that every gate lies in the output cone.
 
+Hall gives an exact counterexample to a fixed-orientation matching assignment:
+two matching edges have the same sole eligible AND gate when eligibility uses
+only point-row cofactors and raw line reach. This does not refute the repaired
+doubled-slot argument, which also uses the opposite orientation, or the gap.
+
 Independent review of peer h1 4348340c and h3 a7ec7e53: mathematical source audit,
 plain-file audit, and exact unchanged-source Lean compilation all passed.
 Both remain helper artifacts with additional hypotheses or an unresolved ledger.
@@ -49,4 +54,4 @@ limitation. The exact posted hypotheses and actual OR witnesses are preserved.
 
 No PR opened; no desk lease requested or released.
 Sub-agents: 2 (toolchain restoration and independent diagnostic audit; peer lemma review and normalization analysis)
-TIMING total=33.0 subagents=2
+TIMING total=45.0 subagents=2

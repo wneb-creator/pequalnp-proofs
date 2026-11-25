@@ -465,4 +465,79 @@ lemma safe_rectangular_product_star {α β : Type*}
 
 end ProductiveOr
 
+namespace Hall
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.TwoColour
+
+def C : Circuit :=
+  ⟨[⟨.or, [2,3]⟩, ⟨.or, [4,5]⟩, ⟨.and, [0,0]⟩, ⟨.and, [1,1]⟩,
+    ⟨.or, [9,6]⟩, ⟨.or, [8,7]⟩, ⟨.and, [10,11]⟩, ⟨.or, [0,1]⟩,
+    ⟨.or, [6,7]⟩, ⟨.and, [13,14]⟩, ⟨.and, [12,15]⟩], 16⟩
+
+abbrev neighbour (a : Fin 2) (b : Fin 4) : Prop := a.val = b.val / 2
+
+def edge (a : Fin 2) (b : Fin 4) : Fin 6 → Bool :=
+  fun i => decide (i = Fin.castAdd 4 a ∨ i = Fin.natAdd 2 b)
+
+def bad (a : Fin 2) : Fin 6 → Bool :=
+  fun i => decide (i = Fin.castAdd 4 a ∨ ∃ b : Fin 4, i = Fin.natAdd 2 b ∧ ¬ neighbour a b)
+
+def eligible (a : Fin 2) (b : Fin 4) (j : Fin 11) : Prop :=
+  (gateAt C j).op = .and ∧
+  (C.wires (List.ofFn (edge a b))).getD (6+j) false = true ∧
+  ∃ k : Fin 2,
+    (C.wires (List.ofFn (bad a))).getD (opnd C j k) false = false ∧
+    Fin.natAdd 2 b ∈ orIn 6 C (opnd C j k) ∧
+    ∀ i ∈ orIn 6 C (opnd C j k), ∃ b' : Fin 4, i = Fin.natAdd 2 b' ∧ neighbour a b'
+
+lemma model : IsAO2 6 C := by decide +kernel +revert
+
+lemma count_zero : tCount 6 C (fun i => decide (2 ≤ i)) = 0 := by decide +kernel +revert
+
+lemma computes : ∀ x : Fin 6 → Bool,
+    circuitFun 6 C x = decide (∃ (a : Fin 2) (b : Fin 4), neighbour a b ∧
+      x (Fin.castAdd 4 a) = true ∧ x (Fin.natAdd 2 b) = true) := by decide +kernel +revert
+
+lemma no_four_cycle : ∀ (a a' : Fin 2) (b b' : Fin 4), a ≠ a' → b ≠ b' →
+    ¬ (neighbour a b ∧ neighbour a b' ∧ neighbour a' b ∧ neighbour a' b') := by decide +kernel +revert
+
+lemma served : ∀ (a : Fin 2) (b : Fin 4), neighbour a b →
+    ∃ (j : Fin 11) (Q : Finset (Fin 4)), (gateAt C j).op = .or ∧
+      2 ≤ Q.card ∧ b ∈ Q ∧ (∀ b' ∈ Q, neighbour a b') ∧
+      ∀ x : Fin 6 → Bool,
+        (C.wires (List.ofFn x)).getD (6+j) false =
+          decide (∃ b' ∈ Q, x (Fin.natAdd 2 b') = true) := by
+  intro a b hab
+  let Q := Finset.univ.filter (neighbour a)
+  refine ⟨⟨a.val, by have := a.isLt; omega⟩, Q, ?_, ?_, ?_, ?_, ?_⟩
+  · fin_cases a <;> rfl
+  · fin_cases a <;> decide +kernel +revert
+  · exact Finset.mem_filter.mpr ⟨Finset.mem_univ b,hab⟩
+  · intro b' hb'
+    exact (Finset.mem_filter.mp hb').2
+  · fin_cases a <;> decide +kernel +revert
+
+lemma edge_active : ∀ j : Fin 11, ∃ (a : Fin 2) (b : Fin 4), neighbour a b ∧
+    (C.wires (List.ofFn (edge a b))).getD (6+j) false = true := by decide +kernel +revert
+
+lemma first_eligible : ∀ j : Fin 11, eligible 0 0 j ↔ j.val = 6 := by
+  intro j
+  fin_cases j <;> simp [eligible, C, gateAt, opnd] <;> decide +kernel +revert
+
+lemma second_eligible : ∀ j : Fin 11, eligible 1 2 j ↔ j.val = 6 := by
+  intro j
+  fin_cases j <;> simp [eligible, C, gateAt, opnd] <;> decide +kernel +revert
+
+lemma no_injective_assignment :
+    ¬ ∃ f : Fin 2 → Fin 11, Function.Injective f ∧ eligible 0 0 (f 0) ∧ eligible 1 2 (f 1) := by
+  rintro ⟨f, hi, h0, h1⟩
+  have e0 := (first_eligible (f 0)).mp h0
+  have e1 := (second_eligible (f 1)).mp h1
+  have he : f 0 = f 1 := Fin.ext (e0.trans e1.symm)
+  have hc := hi he
+  exact (by decide : (0 : Fin 2) ≠ 1) hc
+
+end Hall
+
 end PEqualNP.Outside.L_meta_4970.H9RedTeam
