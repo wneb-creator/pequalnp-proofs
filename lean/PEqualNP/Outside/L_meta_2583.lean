@@ -912,6 +912,290 @@ lemma crossing_of_join_true (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
   rw [hjoin] at hf
   cases hf
 
+def isAnd (C : Circuit) (k : ℕ) : Bool :=
+  match (gateAt C k).op with
+  | GateOp.and => true
+  | _ => false
+
+def andSet (C : Circuit) : Finset ℕ :=
+  (Finset.range C.gates.length).filter (fun k => isAnd C k = true)
+
+lemma false_family_bound {α : Type} [Fintype α]
+    (n : ℕ) (C : Circuit) (hAO : IsAO2 n C) (f : α → Fin n → Bool)
+    (hfalse : ∀ a, circuitFun n C (f a) = false)
+    (hjoin : ∀ a b, a ≠ b → circuitFun n C (fun i => f a i || f b i) = true) :
+    Fintype.card α ≤ 2 ^ (andSet C).card := by
+  classical
+  let sig : α → ((andSet C) → Bool) := fun a k => wv n C (f a) (opnd C k.val 0)
+  have hinj : Function.Injective sig := by
+    intro a b hab
+    by_contra hne
+    obtain ⟨k, hk, hop, hc⟩ := crossing_of_join_true n C hAO (f a) (f b)
+      (hfalse a) (hfalse b) (hjoin a b hne)
+    have hkA : k ∈ andSet C := by
+      apply Finset.mem_filter.mpr
+      exact ⟨Finset.mem_range.mpr hk, by simp [isAnd, hop]⟩
+    have heq : wv n C (f a) (opnd C k 0) = wv n C (f b) (opnd C k 0) :=
+      congrFun hab ⟨k, hkA⟩
+    rcases hc with h | h
+    · rw [h.1, h.2.2.1] at heq
+      cases heq
+    · rw [h.1, h.2.2.1] at heq
+      cases heq
+  have hcard := Fintype.card_le_of_injective sig hinj
+  simpa only [Fintype.card_fun, Fintype.card_bool, Fintype.card_coe] using hcard
+
+def coreEdges : Finset (Fin 12 × Fin 8) :=
+  {(0, 0), (0, 3), (0, 6), (1, 3), (1, 4), (1, 5),
+   (2, 2), (2, 3), (3, 1), (3, 3), (3, 7), (4, 0),
+   (4, 1), (4, 2), (5, 0), (5, 5), (6, 0), (6, 4),
+   (6, 7), (7, 2), (7, 5), (7, 7), (8, 1), (8, 4),
+   (9, 6), (9, 7), (10, 1), (10, 5), (10, 6),
+   (11, 2), (11, 4), (11, 6)}
+
+def coreNeighbors : Fin 20 → Finset (Fin 20) :=
+  ![{12, 15, 18},
+    {15, 16, 17},
+    {14, 15},
+    {13, 15, 19},
+    {12, 13, 14},
+    {12, 17},
+    {12, 16, 19},
+    {14, 17, 19},
+    {13, 16},
+    {18, 19},
+    {13, 17, 18},
+    {14, 16, 18},
+    {0, 4, 5, 6},
+    {3, 4, 8, 10},
+    {2, 4, 7, 11},
+    {0, 1, 2, 3},
+    {1, 6, 8, 11},
+    {1, 5, 7, 10},
+    {0, 9, 10, 11},
+    {3, 6, 7, 9}]
+
+def coreFalseRows : Finset (Finset (Fin 20)) :=
+  {{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11},
+   {1, 2, 3, 7, 8, 9, 10, 11, 12},
+   {0, 1, 2, 5, 6, 7, 9, 11, 13},
+   {1, 2, 7, 9, 11, 12, 13},
+   {0, 1, 3, 5, 6, 8, 9, 10, 14},
+   {1, 3, 8, 9, 10, 12, 14},
+   {0, 1, 5, 6, 9, 13, 14},
+   {1, 9, 12, 13, 14},
+   {4, 5, 6, 7, 8, 9, 10, 11, 15},
+   {7, 8, 9, 10, 11, 12, 15},
+   {5, 6, 7, 9, 11, 13, 15},
+   {7, 9, 11, 12, 13, 15},
+   {5, 6, 8, 9, 10, 14, 15},
+   {8, 9, 10, 12, 14, 15},
+   {5, 6, 9, 13, 14, 15},
+   {0, 2, 3, 4, 5, 7, 9, 10, 16},
+   {2, 3, 7, 9, 10, 12, 16},
+   {0, 2, 5, 7, 9, 13, 16},
+   {2, 7, 9, 12, 13, 16},
+   {0, 3, 5, 9, 10, 14, 16},
+   {3, 9, 10, 12, 14, 16},
+   {0, 5, 9, 13, 14, 16},
+   {4, 5, 7, 9, 10, 15, 16},
+   {7, 9, 10, 12, 15, 16},
+   {5, 7, 9, 13, 15, 16},
+   {7, 9, 12, 13, 15, 16},
+   {5, 9, 10, 14, 15, 16},
+   {9, 10, 12, 14, 15, 16},
+   {5, 9, 13, 14, 15, 16},
+   {0, 2, 3, 4, 6, 8, 9, 11, 17},
+   {2, 3, 8, 9, 11, 12, 17},
+   {0, 2, 6, 9, 11, 13, 17},
+   {2, 9, 11, 12, 13, 17},
+   {0, 3, 6, 8, 9, 14, 17},
+   {3, 8, 9, 12, 14, 17},
+   {0, 6, 9, 13, 14, 17},
+   {4, 6, 8, 9, 11, 15, 17},
+   {8, 9, 11, 12, 15, 17},
+   {6, 9, 11, 13, 15, 17},
+   {9, 11, 12, 13, 15, 17},
+   {6, 8, 9, 14, 15, 17},
+   {8, 9, 12, 14, 15, 17},
+   {6, 9, 13, 14, 15, 17},
+   {0, 2, 3, 4, 9, 16, 17},
+   {2, 3, 9, 12, 16, 17},
+   {0, 2, 9, 13, 16, 17},
+   {2, 9, 12, 13, 16, 17},
+   {0, 3, 9, 14, 16, 17},
+   {3, 9, 12, 14, 16, 17},
+   {0, 9, 13, 14, 16, 17},
+   {4, 9, 15, 16, 17},
+   {9, 12, 13, 14, 15, 16, 17},
+   {1, 2, 3, 4, 5, 6, 7, 8, 18},
+   {1, 2, 3, 7, 8, 12, 18},
+   {1, 2, 5, 6, 7, 13, 18},
+   {1, 2, 7, 12, 13, 18},
+   {1, 3, 5, 6, 8, 14, 18},
+   {1, 3, 8, 12, 14, 18},
+   {1, 5, 6, 13, 14, 18},
+   {4, 5, 6, 7, 8, 15, 18},
+   {7, 8, 12, 15, 18},
+   {5, 6, 7, 13, 15, 18},
+   {5, 6, 8, 14, 15, 18},
+   {5, 6, 13, 14, 15, 18},
+   {2, 3, 4, 5, 7, 16, 18},
+   {2, 3, 7, 12, 16, 18},
+   {2, 5, 7, 13, 16, 18},
+   {2, 7, 12, 13, 16, 18},
+   {3, 5, 14, 16, 18},
+   {4, 5, 7, 15, 16, 18},
+   {5, 7, 13, 15, 16, 18},
+   {7, 12, 13, 15, 16, 18},
+   {2, 3, 4, 6, 8, 17, 18},
+   {2, 3, 8, 12, 17, 18},
+   {2, 6, 13, 17, 18},
+   {3, 6, 8, 14, 17, 18},
+   {3, 8, 12, 14, 17, 18},
+   {4, 6, 8, 15, 17, 18},
+   {6, 8, 14, 15, 17, 18},
+   {6, 13, 14, 15, 17, 18},
+   {2, 3, 4, 16, 17, 18},
+   {2, 3, 12, 16, 17, 18},
+   {3, 12, 14, 16, 17, 18},
+   {0, 1, 2, 4, 5, 8, 10, 11, 19},
+   {1, 2, 8, 10, 11, 12, 19},
+   {0, 1, 2, 5, 11, 13, 19},
+   {1, 2, 11, 12, 13, 19},
+   {0, 1, 5, 8, 10, 14, 19},
+   {1, 8, 10, 12, 14, 19},
+   {0, 1, 5, 13, 14, 19},
+   {4, 5, 8, 10, 11, 15, 19},
+   {8, 10, 11, 12, 15, 19},
+   {5, 11, 13, 15, 19},
+   {5, 8, 10, 14, 15, 19},
+   {8, 10, 12, 14, 15, 19},
+   {0, 2, 4, 5, 10, 16, 19},
+   {2, 10, 12, 16, 19},
+   {0, 2, 5, 13, 16, 19},
+   {0, 5, 10, 14, 16, 19},
+   {0, 5, 13, 14, 16, 19},
+   {4, 5, 10, 15, 16, 19},
+   {5, 10, 14, 15, 16, 19},
+   {10, 12, 14, 15, 16, 19},
+   {0, 2, 4, 8, 11, 17, 19},
+   {2, 8, 11, 12, 17, 19},
+   {0, 2, 11, 13, 17, 19},
+   {2, 11, 12, 13, 17, 19},
+   {0, 8, 14, 17, 19},
+   {4, 8, 11, 15, 17, 19},
+   {8, 11, 12, 15, 17, 19},
+   {11, 12, 13, 15, 17, 19},
+   {0, 2, 4, 16, 17, 19},
+   {0, 2, 13, 16, 17, 19},
+   {0, 13, 14, 16, 17, 19},
+   {1, 2, 4, 5, 8, 18, 19},
+   {1, 2, 8, 12, 18, 19},
+   {1, 2, 5, 13, 18, 19},
+   {1, 2, 12, 13, 18, 19},
+   {1, 5, 8, 14, 18, 19},
+   {1, 8, 12, 14, 18, 19},
+   {1, 5, 13, 14, 18, 19},
+   {1, 12, 13, 14, 18, 19},
+   {4, 5, 8, 15, 18, 19},
+   {5, 8, 14, 15, 18, 19},
+   {2, 4, 5, 16, 18, 19},
+   {2, 5, 13, 16, 18, 19},
+   {4, 5, 15, 16, 18, 19},
+   {5, 13, 14, 15, 16, 18, 19},
+   {2, 4, 8, 17, 18, 19}}
+
+
+def coreGraph (x : Fin 20 → Bool) : Bool :=
+  decide (∃ i j : Fin 20, j ∈ coreNeighbors i ∧ x i = true ∧ x j = true)
+
+def rowInput (S : Finset (Fin 20)) : Fin 20 → Bool := fun i => decide (i ∈ S)
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 16000000 in
+lemma coreFalseRows_card : coreFalseRows.card = 129 := by decide +kernel
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 16000000 in
+lemma coreRowsFalse : ∀ S : coreFalseRows, coreGraph (rowInput S.val) = false := by
+  decide +kernel
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 16000000 in
+lemma coreRowsClosed : ∀ S : coreFalseRows, ∀ i : Fin 20,
+    i ∉ S.val → (coreNeighbors i ∩ S.val).Nonempty := by
+  decide +kernel
+
+lemma coreRowsJoin (S T : coreFalseRows) (hne : S ≠ T) :
+    coreGraph (fun i => rowInput S.val i || rowInput T.val i) = true := by
+  classical
+  unfold coreGraph
+  rw [decide_eq_true_eq]
+  by_cases hST : S.val ⊆ T.val
+  · have hTS : ¬ T.val ⊆ S.val := by
+      intro hTS
+      apply hne
+      exact Subtype.ext (Finset.Subset.antisymm hST hTS)
+    obtain ⟨i, hiT, hiS⟩ := Finset.not_subset.mp hTS
+    obtain ⟨j, hj⟩ := coreRowsClosed S i hiS
+    obtain ⟨hjN, hjS⟩ := Finset.mem_inter.mp hj
+    exact ⟨i, j, hjN, by simp [rowInput, hiT], by simp [rowInput, hjS]⟩
+  · obtain ⟨i, hiS, hiT⟩ := Finset.not_subset.mp hST
+    obtain ⟨j, hj⟩ := coreRowsClosed T i hiT
+    obtain ⟨hjN, hjT⟩ := Finset.mem_inter.mp hj
+    exact ⟨i, j, hjN, by simp [rowInput, hiS], by simp [rowInput, hjT]⟩
+
+lemma neighbors_ll : ∀ p q : Fin 12,
+    Fin.castAdd 8 q ∉ coreNeighbors (Fin.castAdd 8 p) := by decide +kernel
+
+lemma neighbors_lr : ∀ (p : Fin 12) (l : Fin 8),
+    Fin.natAdd 12 l ∈ coreNeighbors (Fin.castAdd 8 p) ↔ (p, l) ∈ coreEdges := by
+  decide +kernel
+
+lemma neighbors_rl : ∀ (p : Fin 12) (l : Fin 8),
+    Fin.castAdd 8 p ∈ coreNeighbors (Fin.natAdd 12 l) ↔ (p, l) ∈ coreEdges := by
+  decide +kernel
+
+lemma neighbors_rr : ∀ l k : Fin 8,
+    Fin.natAdd 12 k ∉ coreNeighbors (Fin.natAdd 12 l) := by decide +kernel
+
+lemma coreGraph_eq_incidence (x : Fin 20 → Bool) :
+    coreGraph x = decide (∃ p : Fin 12, ∃ l : Fin 8, (p, l) ∈ coreEdges ∧
+      x (Fin.castAdd 8 p) = true ∧ x (Fin.natAdd 12 l) = true) := by
+  unfold coreGraph
+  congr 1
+  apply propext
+  constructor
+  · rintro ⟨i, j, hij, hi, hj⟩
+    cases i using (Fin.addCases (m := 12) (n := 8)) <;>
+      cases j using (Fin.addCases (m := 12) (n := 8))
+    · exact False.elim (neighbors_ll _ _ hij)
+    · exact ⟨_, _, (neighbors_lr _ _).mp hij, hi, hj⟩
+    · exact ⟨_, _, (neighbors_rl _ _).mp hij, hj, hi⟩
+    · exact False.elim (neighbors_rr _ _ hij)
+  · rintro ⟨p, l, he, hp, hl⟩
+    exact ⟨Fin.castAdd 8 p, Fin.natAdd 12 l, (neighbors_lr p l).mpr he, hp, hl⟩
+
+theorem core_and_at_least_eight (C : Circuit) (hAO : IsAO2 20 C)
+    (hfun : ∀ x : Fin 20 → Bool, circuitFun 20 C x =
+      decide (∃ p : Fin 12, ∃ l : Fin 8, (p, l) ∈ coreEdges ∧
+        x (Fin.castAdd 8 p) = true ∧ x (Fin.natAdd 12 l) = true)) :
+    8 ≤ (andSet C).card := by
+  have hcompute (x : Fin 20 → Bool) : circuitFun 20 C x = coreGraph x := by
+    rw [hfun, coreGraph_eq_incidence]
+  have hc := false_family_bound 20 C hAO (fun S : coreFalseRows => rowInput S.val)
+    (fun S => by rw [hcompute]; exact coreRowsFalse S)
+    (fun S T hne => by rw [hcompute]; exact coreRowsJoin S T hne)
+  have hb : 129 ≤ 2 ^ (andSet C).card := by
+    simpa only [Fintype.card_coe, coreFalseRows_card] using hc
+  by_contra h
+  have hle : (andSet C).card ≤ 7 := by omega
+  have hp : 2 ^ (andSet C).card ≤ 2 ^ 7 :=
+    (Nat.pow_le_pow_iff_right (by decide : 1 < 2)).mpr hle
+  norm_num at hp
+  omega
+
 end AndCrossing
 
 end PEqualNP.Outside.L_meta_2583
