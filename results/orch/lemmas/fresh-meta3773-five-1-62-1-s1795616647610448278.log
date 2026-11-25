@@ -1,0 +1,5 @@
+model [0, 1, 2, 3, 6] rows 17 24 group 12 prior completed suffix states 0
+case 4 of 11 result False branch-eligible True states 606 seconds 10.868
+case 5 of 11 result False branch-eligible True states 617 seconds 11.385
+case 6 of 11 result False branch-eligible True states 618 seconds 11.841
+case 7 of 11 result False branch-eligible True states 619 seconds 12.052

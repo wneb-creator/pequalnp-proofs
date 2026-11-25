@@ -1,0 +1,51 @@
+{
+  "utc": "2026-11-25T14:28:23.928808+00:00",
+  "scope": "Independently reviewed exact finite-DNF identities and constructed factoring counts for9pairs of invalid64gate single-extra circuits. All9pairANDs computeF, but directcommon-ORfactoring costs74\u201376 and absorptionreconstruction costs64; these are explicit upperbounds, not exhaustive minima. No63gate witness or globalrefutation.",
+  "artifacts": [
+    {
+      "file": "meta3773_extra_pair_factor.py",
+      "sha256": "3f42bc64b2598a9535e7f90037cefbac983f41f5d582fb97e10df2a6e7576a73",
+      "bytes": 3789
+    },
+    {
+      "file": "meta3773-extra-pair-factor-result.json",
+      "sha256": "c604efac1df394d9e47fe858a7297917c71edb13d175bec451bb461575dda086",
+      "bytes": 3083
+    },
+    {
+      "file": "meta3773-extra-pair-factor.log",
+      "sha256": "6c55dd7f2dfe74319faed11aad57ab33c3311f26e70e9bad1a3a69cbe54c0a94",
+      "bytes": 2681
+    },
+    {
+      "file": "meta3773-single-extra64-p0-l2.json",
+      "sha256": "20b9c8bbd8bdf7072b11e79ccfc70b6a8ebc23f4dfc241af7a74ca19cce148b5",
+      "bytes": 2770
+    },
+    {
+      "file": "meta3773-single-extra64-p0-l8.json",
+      "sha256": "d8b671bbd9033fa7e117ed8135fd87c127129f594d8da144a5e48d70faa09335",
+      "bytes": 2772
+    },
+    {
+      "file": "meta3773-single-extra64-p0-l12.json",
+      "sha256": "0ac785f7ef2d2ec74ff8055e7cd0a39460a3f1f5d08004766dcc9e5cfde75bc2",
+      "bytes": 2772
+    },
+    {
+      "file": "meta3773-single-extra64-p1-l1.json",
+      "sha256": "45dea0aa9d8057144d941e899a20f3330c4a63e1768e625e84dc6a2b66ec9ed7",
+      "bytes": 2771
+    },
+    {
+      "file": "meta3773-single-extra64-p1-l3.json",
+      "sha256": "4247eef03b0b8b716ba0ec80cf8d193bb229c918a0b49d40de2a62c1ad549684",
+      "bytes": 2770
+    },
+    {
+      "file": "meta3773-single-extra64-p1-l9.json",
+      "sha256": "c3873676ea7a15037c245bf6e85a51e89d54438f0a6766a8fe7e9f25452f43c5",
+      "bytes": 2772
+    }
+  ]
+}

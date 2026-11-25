@@ -1,0 +1,377 @@
+{
+  "scope": "Final failed bounded heuristic attempts; no63-gate result or Lean result",
+  "runs": [
+    {
+      "seed": 79080,
+      "genotype": 140,
+      "data": "meta3773-synthesis-cegis-context-data.txt",
+      "data_sha": "83d2786b70cce07d3583ac8ed532f6027f5f867283d23021fdefb66a5f3be07f",
+      "source_sha_before": "aa75b3a622ae9dd126666423dba2cfa75dbdcc464ec33c99d42913606b8c8c71",
+      "binary_sha": "debe365565ef96c7bb698ec8ae304e5293d0ba4c804d5cd9ad98c7ddffce4a36",
+      "warm_seed": "meta3773-warm-over63-library64.txt",
+      "exit": 1,
+      "seconds": 112.1856025499983,
+      "timeout": false,
+      "peak_rss_bytes": 3428352,
+      "source_sha": "aa75b3a622ae9dd126666423dba2cfa75dbdcc464ec33c99d42913606b8c8c71"
+    },
+    {
+      "seed": 79084,
+      "genotype": 140,
+      "data": "meta3773-synthesis-cegis-context-data.txt",
+      "data_sha": "83d2786b70cce07d3583ac8ed532f6027f5f867283d23021fdefb66a5f3be07f",
+      "source_sha_before": "da9a894a6fb75648f4bfd3d3418493ef37b77dcb91e409e0dd4fabbcccf2a8bc",
+      "binary_sha": "9d90e0a42824707364b7faff7b3363411c38d31880882f6788b689e95a27ecf7",
+      "warm_seed": "meta3773-warm-over63-library64.txt",
+      "exit": 1,
+      "seconds": 112.16735536100168,
+      "timeout": false,
+      "peak_rss_bytes": 3641344,
+      "source_sha": "da9a894a6fb75648f4bfd3d3418493ef37b77dcb91e409e0dd4fabbcccf2a8bc"
+    },
+    {
+      "seed": 79088,
+      "genotype": 140,
+      "data": "meta3773-synthesis-cegis-context-data.txt",
+      "data_sha": "83d2786b70cce07d3583ac8ed532f6027f5f867283d23021fdefb66a5f3be07f",
+      "source_sha_before": "da9a894a6fb75648f4bfd3d3418493ef37b77dcb91e409e0dd4fabbcccf2a8bc",
+      "binary_sha": "9d90e0a42824707364b7faff7b3363411c38d31880882f6788b689e95a27ecf7",
+      "warm_seed": "meta3773-warm-single-extra-edge64.txt",
+      "exit": 1,
+      "seconds": 112.08096773099896,
+      "timeout": false,
+      "peak_rss_bytes": 3031040,
+      "source_sha": "da9a894a6fb75648f4bfd3d3418493ef37b77dcb91e409e0dd4fabbcccf2a8bc"
+    },
+    {
+      "seed": 79092,
+      "genotype": 140,
+      "data": "meta3773-synthesis-cegis-context-data.txt",
+      "data_sha": "83d2786b70cce07d3583ac8ed532f6027f5f867283d23021fdefb66a5f3be07f",
+      "source_sha_before": "72edd3ddf70a2d41111020bfae4b9af7663775d3f544aa6e352cca1c85243146",
+      "binary_sha": "3a308be7ef95f52c31340c13f1eae5ce28183199dc5089582c836e3f7b1a2dbe",
+      "warm_seed": "meta3773-warm-single-extra-family.txt",
+      "exit": 1,
+      "seconds": 112.13106151899774,
+      "timeout": false,
+      "peak_rss_bytes": 3452928,
+      "source_sha": "72edd3ddf70a2d41111020bfae4b9af7663775d3f544aa6e352cca1c85243146"
+    },
+    {
+      "seed": 79096,
+      "genotype": 140,
+      "data": "meta3773-synthesis-cegis-context-data.txt",
+      "data_sha": "83d2786b70cce07d3583ac8ed532f6027f5f867283d23021fdefb66a5f3be07f",
+      "source_sha_before": "3d45bbabba0016639f8a168d37ce315c28878245bba9157d58a7621e59b5935b",
+      "binary_sha": "04aae5785e8559dd7da99b791d32d0d180097a25d9dcd888ffa3b0a0148d8f65",
+      "warm_seed": "meta3773-warm-single-extra-family.txt",
+      "exit": 1,
+      "seconds": 112.16553339000166,
+      "timeout": false,
+      "peak_rss_bytes": 3461120,
+      "source_sha": "3d45bbabba0016639f8a168d37ce315c28878245bba9157d58a7621e59b5935b"
+    }
+  ],
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773_cgp_v21.cpp",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773_cgp_v21.cpp",
+      "sha256": "aa75b3a622ae9dd126666423dba2cfa75dbdcc464ec33c99d42913606b8c8c71",
+      "bytes": 28828
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773_cgp_v22.cpp",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773_cgp_v22.cpp",
+      "sha256": "da9a894a6fb75648f4bfd3d3418493ef37b77dcb91e409e0dd4fabbcccf2a8bc",
+      "bytes": 29442
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773_cgp_v23.cpp",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773_cgp_v23.cpp",
+      "sha256": "72edd3ddf70a2d41111020bfae4b9af7663775d3f544aa6e352cca1c85243146",
+      "bytes": 29818
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773_cgp_v24.cpp",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773_cgp_v24.cpp",
+      "sha256": "3d45bbabba0016639f8a168d37ce315c28878245bba9157d58a7621e59b5935b",
+      "bytes": 30273
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79080-140.log",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79080-140.log",
+      "sha256": "4b5548ddb3943382e9b422480d63092212577f9f20747ca7ed20d94a623115d4",
+      "bytes": 4099
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79080-140-status.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79080-140-status.json",
+      "sha256": "7055479bd675b3aed18a874c56cdefc37ed3e8c5f63c972489271c3a686278c3",
+      "bytes": 582
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79080-140-best.json.near",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79080-140-best.json.near",
+      "sha256": "eeae0a0556bf5cfdb847bcec536131904f09f2c064a49fd4b0f7f8d2c63d3246",
+      "bytes": 823
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79080-140-best.json.near-unproductive",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79080-140-best.json.near-unproductive",
+      "sha256": "7369b41a4142fd2eda23fc48824584d95129b8b9e3c814f3c10b16b458535399",
+      "bytes": 818
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79080-140-best.json.over",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79080-140-best.json.over",
+      "sha256": "7369b41a4142fd2eda23fc48824584d95129b8b9e3c814f3c10b16b458535399",
+      "bytes": 818
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79084-140.log",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79084-140.log",
+      "sha256": "b59c19ded760436472ca3b54b135e968766bec6c34777f767152d6bd6814cfb2",
+      "bytes": 4077
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79084-140-status.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79084-140-status.json",
+      "sha256": "137f6cffbf8d3e7d053c3e7530e1f50d618e248a229212a979c67dc5733120f7",
+      "bytes": 583
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79084-140-best.json.near",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79084-140-best.json.near",
+      "sha256": "c259d19591f564898c2c05f7b623041a81c53c1a160cfbf077bbadf9f9c3675c",
+      "bytes": 824
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79084-140-best.json.near-unproductive",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79084-140-best.json.near-unproductive",
+      "sha256": "f4a146a0463825b8c59ff45c6b3169a4ef0baf024dfc4922f76d4b77b9b8f0da",
+      "bytes": 818
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79084-140-best.json.near64",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79084-140-best.json.near64",
+      "sha256": "ef2cc0083f7b100f05f697cde23736d905da0dcbf330db8c2c7355fa1600bad8",
+      "bytes": 830
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79084-140-best.json.over",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79084-140-best.json.over",
+      "sha256": "f4a146a0463825b8c59ff45c6b3169a4ef0baf024dfc4922f76d4b77b9b8f0da",
+      "bytes": 818
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79088-140.log",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79088-140.log",
+      "sha256": "298818d2ddae5990bfb2bc64206e55e48476e4d0b8722d8b6cde8df7512f6f15",
+      "bytes": 4304
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79088-140-status.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79088-140-status.json",
+      "sha256": "18f14a6cd163d653e1f5f21de42ba298cfb8f6fd4c7a08df0bb934a92f09d971",
+      "bytes": 586
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79088-140-best.json.near",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79088-140-best.json.near",
+      "sha256": "fa3cc4b51baabb884dbd983eee1422d6c92353b289f6955d719b80116ab98689",
+      "bytes": 820
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79088-140-best.json.near-unproductive",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79088-140-best.json.near-unproductive",
+      "sha256": "fa3cc4b51baabb884dbd983eee1422d6c92353b289f6955d719b80116ab98689",
+      "bytes": 820
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79088-140-best.json.near64",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79088-140-best.json.near64",
+      "sha256": "52008034ed6ce3761b8f2c4c3b778842cd47d170f5b5e52441340a9776deaa81",
+      "bytes": 826
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79088-140-best.json.over",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79088-140-best.json.over",
+      "sha256": "fa3cc4b51baabb884dbd983eee1422d6c92353b289f6955d719b80116ab98689",
+      "bytes": 820
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79092-140.log",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79092-140.log",
+      "sha256": "a13675c93e8d418190e87616f9bc529ec3d45e6c81fa124baab2eb6ac8eaae37",
+      "bytes": 4417
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79092-140-status.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79092-140-status.json",
+      "sha256": "9da4aa0ecd0e59aba98ce0def788132c8a821be86172d84a9b04d6e5ef23f0eb",
+      "bytes": 586
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79092-140-best.json.near",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79092-140-best.json.near",
+      "sha256": "1e320e0e519354d43afe320e3b5193195f629e08bca0c26764eb579b84c6f76b",
+      "bytes": 823
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79092-140-best.json.near-unproductive",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79092-140-best.json.near-unproductive",
+      "sha256": "1e320e0e519354d43afe320e3b5193195f629e08bca0c26764eb579b84c6f76b",
+      "bytes": 823
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79092-140-best.json.near64",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79092-140-best.json.near64",
+      "sha256": "8f46494e99bf2d3a776276a3a38554020d5d2e9f9ed451ae4cf1d1d1f7cc32de",
+      "bytes": 826
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79092-140-best.json.over",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79092-140-best.json.over",
+      "sha256": "1e320e0e519354d43afe320e3b5193195f629e08bca0c26764eb579b84c6f76b",
+      "bytes": 823
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79096-140.log",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79096-140.log",
+      "sha256": "178041fb89ee1d2b8c99e38e172cc8bcea3eaefe7123da0e8dff589fa593af87",
+      "bytes": 4514
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79096-140-status.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79096-140-status.json",
+      "sha256": "c618bacc8d5e640405df0c27632e42529c9dc3a5d89f598bae7dad1d1455035d",
+      "bytes": 586
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79096-140-best.json.near",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79096-140-best.json.near",
+      "sha256": "4b5cd061fc7c2fffd10f3e367e9093dafd1e93a952afe6e9fbf62bd3752f96a4",
+      "bytes": 822
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79096-140-best.json.near-unproductive",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79096-140-best.json.near-unproductive",
+      "sha256": "4b5cd061fc7c2fffd10f3e367e9093dafd1e93a952afe6e9fbf62bd3752f96a4",
+      "bytes": 822
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79096-140-best.json.near64",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79096-140-best.json.near64",
+      "sha256": "b59556fc2e01de5938a9bb05e59c5f2db0615f65b11a2996909198b1f24d0590",
+      "bytes": 826
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-cgp-79096-140-best.json.over",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-cgp-79096-140-best.json.over",
+      "sha256": "4b5cd061fc7c2fffd10f3e367e9093dafd1e93a952afe6e9fbf62bd3752f96a4",
+      "bytes": 822
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773_single_extra_seed_generate.py",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773_single_extra_seed_generate.py",
+      "sha256": "94f4b44c1a093c92c0ae048ede8d2cd8b576b070d18cfca0cdda9e3f2ceac858",
+      "bytes": 1702
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773_single_extra_family_generate.py",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773_single_extra_family_generate.py",
+      "sha256": "4730d0431757549f06253694ac0c16a5042da13158941e6fa3c1ad6d6a7356d8",
+      "bytes": 1775
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-single-extra-edge64.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-single-extra-edge64.json",
+      "sha256": "da5217900e75521239221716c1186f69119a1f8c6697fcf1dd0a77806ebdb818",
+      "bytes": 2778
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-single-extra-edge64-generation.log",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-single-extra-edge64-generation.log",
+      "sha256": "498e4b0f3dfc523698bb926a17680712f40547f7480d791dce28a91aaf1d7fd9",
+      "bytes": 178
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-single-extra-edge64-context.log",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-single-extra-edge64-context.log",
+      "sha256": "0c17892806d840c7b24102fe1aede9f2be9f584d69e6af1f23f62e4e7f83f2f4",
+      "bytes": 250
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-single-extra-family-generation.log",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-single-extra-family-generation.log",
+      "sha256": "1c046b2228cf75f20e77aa3d277c1126d884100c764544edd897d1b4c0b77cbc",
+      "bytes": 597
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-warm-single-extra-edge64.txt",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-warm-single-extra-edge64.txt",
+      "sha256": "3d824b87d2b810589258d212410647d7d4914262b11af42fbf6a627cc9cc8168",
+      "bytes": 477
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-warm-single-extra-family.txt",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-warm-single-extra-family.txt",
+      "sha256": "d7a18ae64ee0f707ebe94f1c1ad23752c41e9cbac6757b3b2fd3f45b162919fc",
+      "bytes": 2871
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773_monomial_audit.py",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773_monomial_audit.py",
+      "sha256": "a53700e0fa75c5a0a81e5e026c752348c5cf530830b893fc26a568a44fb0ed6a",
+      "bytes": 1637
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-best63-exact-monomial-audit.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-best63-exact-monomial-audit.json",
+      "sha256": "76dce45daf732c1d9887e8f85e54e4ba3244996daafa65ec6735a9eebf5bdb94",
+      "bytes": 1049
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-single-extra64-p0-l2.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-single-extra64-p0-l2.json",
+      "sha256": "20b9c8bbd8bdf7072b11e79ccfc70b6a8ebc23f4dfc241af7a74ca19cce148b5",
+      "bytes": 2770
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-single-extra64-p0-l8.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-single-extra64-p0-l8.json",
+      "sha256": "d8b671bbd9033fa7e117ed8135fd87c127129f594d8da144a5e48d70faa09335",
+      "bytes": 2772
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-single-extra64-p0-l12.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-single-extra64-p0-l12.json",
+      "sha256": "0ac785f7ef2d2ec74ff8055e7cd0a39460a3f1f5d08004766dcc9e5cfde75bc2",
+      "bytes": 2772
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-single-extra64-p1-l1.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-single-extra64-p1-l1.json",
+      "sha256": "45dea0aa9d8057144d941e899a20f3330c4a63e1768e625e84dc6a2b66ec9ed7",
+      "bytes": 2771
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-single-extra64-p1-l3.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-single-extra64-p1-l3.json",
+      "sha256": "4247eef03b0b8b716ba0ec80cf8d193bb229c918a0b49d40de2a62c1ad549684",
+      "bytes": 2770
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-single-extra64-p1-l9.json",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_meta3773_final_meta3773-single-extra64-p1-l9.json",
+      "sha256": "c3873676ea7a15037c245bf6e85a51e89d54438f0a6766a8fe7e9f25452f43c5",
+      "bytes": 2772
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-79/meta3773-final-STATUS.md",
+      "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/construction_search_META3773_FINAL_STATUS.md",
+      "sha256": "470f4f1c3860bd77d4081d574e43217164ef7efc1345c442349481c0bba77173",
+      "bytes": 1601
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"file": "meta3773-single-extra-edge64.json", "sha256": "da5217900e75521239221716c1186f69119a1f8c6697fcf1dd0a77806ebdb818", "gates": 64, "fn": 0, "fp": 74, "bad": [19], "essential_bad": [19], "redundant_bad": [], "bad_earlier_wire_replacements": []}

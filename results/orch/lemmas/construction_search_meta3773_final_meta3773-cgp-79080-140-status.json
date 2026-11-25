@@ -1,0 +1,14 @@
+{
+  "seed": 79080,
+  "genotype": 140,
+  "data": "meta3773-synthesis-cegis-context-data.txt",
+  "data_sha": "83d2786b70cce07d3583ac8ed532f6027f5f867283d23021fdefb66a5f3be07f",
+  "source_sha_before": "aa75b3a622ae9dd126666423dba2cfa75dbdcc464ec33c99d42913606b8c8c71",
+  "binary_sha": "debe365565ef96c7bb698ec8ae304e5293d0ba4c804d5cd9ad98c7ddffce4a36",
+  "warm_seed": "meta3773-warm-over63-library64.txt",
+  "exit": 1,
+  "seconds": 112.1856025499983,
+  "timeout": false,
+  "peak_rss_bytes": 3428352,
+  "source_sha": "aa75b3a622ae9dd126666423dba2cfa75dbdcc464ec33c99d42913606b8c8c71"
+}

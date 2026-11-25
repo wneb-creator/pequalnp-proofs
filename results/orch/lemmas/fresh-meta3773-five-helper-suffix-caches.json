@@ -1,0 +1,62 @@
+{
+  "model_name": "fresh-meta3773-five-point-types.json",
+  "model_sha256": "54d3b8cf7a11e73b8e48f37f18952e026c5375475337e9c83ad3bdaaaa4c0d10",
+  "cache_records": [
+    {
+      "file": "fresh-meta3773-five-1-31-0-deadstates.bin",
+      "complete_keys": 2112,
+      "complete_bytes": 294700,
+      "trailing_uncommitted_bytes": 0,
+      "sha256": "a947f998fa9b6419a8dd85bc67e525718703f5e15c671362bf411de962ab526c"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-1-deadstates.bin",
+      "complete_keys": 754,
+      "complete_bytes": 106092,
+      "trailing_uncommitted_bytes": 0,
+      "sha256": "f1aabe1a85b2c7d9c45a69e06280ef37fe08dc4e0ca9e6e4f0b3316b2525520b"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-0-deadstates.bin",
+      "complete_keys": 1871,
+      "complete_bytes": 262952,
+      "trailing_uncommitted_bytes": 0,
+      "sha256": "50af5ee9fbd1be5b3ec98c5d5fb82ad12590f59966db5a2cfed8620566a65b91"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-1-deadstates.bin",
+      "complete_keys": 545,
+      "complete_bytes": 78050,
+      "trailing_uncommitted_bytes": 0,
+      "sha256": "e8cbec003d667f94a50fdc81e172a654ff62a6c44101b49a5e2418d54bd851f9"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-0-deadstates.bin",
+      "complete_keys": 1498,
+      "complete_bytes": 211816,
+      "trailing_uncommitted_bytes": 0,
+      "sha256": "007e2dba70358f69105b166b150bcd52061612023c782ec5002725f5a28f3343"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-1-deadstates.bin",
+      "complete_keys": 311,
+      "complete_bytes": 45006,
+      "trailing_uncommitted_bytes": 0,
+      "sha256": "ef34ecb5f9e0d40c75271b52678ebdea7206270614227297183dd47db4e4453a"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-0-deadstates.bin",
+      "complete_keys": 4794,
+      "complete_bytes": 676800,
+      "trailing_uncommitted_bytes": 0,
+      "sha256": "a00ddf6f41adde587d33deed6f6e90163abdee9f32767619d5853f988a6abb4c"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-1-deadstates.bin",
+      "complete_keys": 10605,
+      "complete_bytes": 1489794,
+      "trailing_uncommitted_bytes": 0,
+      "sha256": "564f1592a162793159b881d00c632ffeb186ac819ef10d307942cde32ceaf47a"
+    }
+  ]
+}

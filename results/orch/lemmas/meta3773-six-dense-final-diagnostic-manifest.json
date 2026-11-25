@@ -1,0 +1,96 @@
+{
+  "utc": "2026-11-25T14:23:01.369232+00:00",
+  "scope": "Final dense-sixpoint heuristic diagnostics and matched-pair overapproximation seeds for L-meta-3773. No28gate correct local patch, no63gate global witness, no Lean refutation. Baseline29 positive control exhaustively verifies131072physical inputs; exported31gate bad-AND circuits exceed target. Dense90s search finished67,600,384mutations, nearest28gate bad patch misses3sample rows. Matched-pair seeds are explicitly invalid: fivepoint20g/14FPcuts, sixpoint25g/28FPcuts, dense-sixpoint25g/26FPcuts; allsamplepositives retained, nofullphysicalverification claimed for these seeds. Their models and generators were independently reviewed.",
+  "artifacts": [
+    {
+      "file": "meta3773_six_dense_patch_data.py",
+      "sha256": "4c011c7cd6fbeba5724f24110078f8f7960cf7897e82a729ba52d6c6782e9b00",
+      "bytes": 3241
+    },
+    {
+      "file": "meta3773-six-dense-patch-data.json",
+      "sha256": "8dcde4ce4371d3c727fe5b69914104b8a6173f770168b40d1be72fbf9698d2ff",
+      "bytes": 7535
+    },
+    {
+      "file": "meta3773_six_dense_patch_data.hpp",
+      "sha256": "cddda471fe77d082419a4da5c9f8900cba01b6d79175fc44e5a75c1807e3765d",
+      "bytes": 549
+    },
+    {
+      "file": "meta3773-six-dense-patch-data.log",
+      "sha256": "f31f28cf67d3a86fac7ce99284562c1837fbd3294e205d992bfdbbe35d23fdb3",
+      "bytes": 218
+    },
+    {
+      "file": "meta3773_six_dense_patch_cgp.cpp",
+      "sha256": "bedaf3373a0debfd6a9fa0e9e4468b4cdbf71a170058d923f282d05effd47e36",
+      "bytes": 10872
+    },
+    {
+      "file": "meta3773_six_dense_patch_cgp_run.py",
+      "sha256": "be666a3709ace5aae15304429bf19f18319be4bdafeb4e280d14c2d9efe561aa",
+      "bytes": 1411
+    },
+    {
+      "file": "meta3773-six-dense-patch-cgp-build.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "meta3773-six-dense-patch-cgp-3773801.log",
+      "sha256": "6a425713db6a461db147003d663161c5dc446da6cb4756205a469b5f14e06af7",
+      "bytes": 6498
+    },
+    {
+      "file": "meta3773-six-dense-patch-cgp-3773801-run.log",
+      "sha256": "9e1045f4a2f151caca685be058b6aa355b507d6f16b3b0ebacfb50a0704d9c8f",
+      "bytes": 480
+    },
+    {
+      "file": "meta3773-six-dense-patch-cgp-3773801-status.json",
+      "sha256": "9ba81e05f541ea6125394809d9aaa46709c1149eb58c7d43dfc1d91879d65847",
+      "bytes": 508
+    },
+    {
+      "file": "meta3773_six_dense_control.py",
+      "sha256": "a7cb9d4f6360008ccb2fdedb23a5b60c470cfe18e7e3cd3ea782fd6b9a8daa7e",
+      "bytes": 1764
+    },
+    {
+      "file": "meta3773-six-dense-control.log",
+      "sha256": "e1a5aca62ffccb0b609ba4d1c9acc60d5e6f8e097f967e6b3b0d60ab14037660",
+      "bytes": 303
+    },
+    {
+      "file": "meta3773-six-dense-baseline29.json",
+      "sha256": "4e6c1190433794e1918d537f629f91e9edd5faa27acd9e5a43cb9dbbaf2a4a44",
+      "bytes": 1939
+    },
+    {
+      "file": "meta3773_matched_pair_seed.py",
+      "sha256": "cebc35ea44ce2f4d9a9e0000d6ebdac024bd353448f6df99615ccd22a09bb1f6",
+      "bytes": 3119
+    },
+    {
+      "file": "meta3773-matched-pair-seed.log",
+      "sha256": "13d759946b367401bf446e5de2538900c82a1e0e8a316e09233038ccbd655bc3",
+      "bytes": 292
+    },
+    {
+      "file": "meta3773-five-matched-over-seed.json",
+      "sha256": "72b5ad41ba38db73bd0fc85e1203fb5e68f3536763c97e353c1eb414540d7fbe",
+      "bytes": 1997
+    },
+    {
+      "file": "meta3773-six-matched-over-seed.json",
+      "sha256": "9d1cd7b8f5807bf8c9acedc2ac0db91dc222399947be24de5599cd86eafecea9",
+      "bytes": 2541
+    },
+    {
+      "file": "meta3773-six-dense-matched-over-seed.json",
+      "sha256": "c13d99a73dc3d76c19d69ab6a9d43225144efd178cec90c517832d46a6289e4f",
+      "bytes": 2238
+    }
+  ]
+}

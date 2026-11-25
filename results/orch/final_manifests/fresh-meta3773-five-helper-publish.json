@@ -1,0 +1,430 @@
+{
+  "scope": "partially searched one-triple five-helper strata only; incomplete prefixes are inconclusive; no Lean/global claim",
+  "files": [
+    {
+      "file": "fresh-meta3773-five-1-31-0-closing.log",
+      "bytes": 77,
+      "sha256": "12e707793777d7da1a3892085f92ef1d35001fe20590ae7839ce2597898335ac"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-0-cone.json",
+      "bytes": 285,
+      "sha256": "fd87dfb91ee35092a64946dd7136a2fe36615d37e46bcc2d68ba28af2a695988"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-0-deadstates.bin",
+      "bytes": 294700,
+      "sha256": "a947f998fa9b6419a8dd85bc67e525718703f5e15c671362bf411de962ab526c"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-0-first5.log",
+      "bytes": 42,
+      "sha256": "b597788e796d8aa22264119528a19b8a659ab1d852fea51c150e6f9c791dde8c"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-0-s1795616785517061325.log",
+      "bytes": 74,
+      "sha256": "211fe2e5857417515efafc87f3d5cd575a5089fa33a1a1fd21402e36b55bcdf3"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-1-closing.log",
+      "bytes": 76,
+      "sha256": "293f317127d5ca7053201e082e7dcdbcd6a75e58f2da18e73f1841ed8ed6529b"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-1-cone.json",
+      "bytes": 297,
+      "sha256": "6992cd3829620dfaa908f6bf350c5f7a037c098a3569dd00d8e5be54c92e0ec8"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-1-deadstates.bin",
+      "bytes": 106092,
+      "sha256": "f1aabe1a85b2c7d9c45a69e06280ef37fe08dc4e0ca9e6e4f0b3316b2525520b"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-1-first5.log",
+      "bytes": 42,
+      "sha256": "b597788e796d8aa22264119528a19b8a659ab1d852fea51c150e6f9c791dde8c"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-1-progress.json",
+      "bytes": 196,
+      "sha256": "cdb22f128a8b9f12bd7ec5222529cddb8e5d3a02175e38456f3b1ef59059f202"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-1-s1795616766506024214.log",
+      "bytes": 148,
+      "sha256": "174f22b890631a3bd79d2f8722ce08d2bbbd99096371cdcc9e5ec4d949f89631"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-2-closing.log",
+      "bytes": 193,
+      "sha256": "cbd8d4b51ea434a55b35dfb0da82079531c1ae11fca42707cc19d2442e0b80ce"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-2-cone.json",
+      "bytes": 313,
+      "sha256": "6efb1624097d06e3d74b1da61846004a4d2b99176cb4ed0718ed741dd59c6791"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-2-first5.log",
+      "bytes": 935,
+      "sha256": "9a8bf5884b1a2782db4d8ead9aa446f6d6991b81938ee32ea7693b0844c70014"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-2-progress.json",
+      "bytes": 198,
+      "sha256": "f8feb2c2f3992eac6b31299041436ff3679dbe5b2cfa4fee971c311db1696730"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-2-s1795616690454739949.log",
+      "bytes": 416,
+      "sha256": "6d5a173d2da9c013ac0b4d76de097b915fb7a9e531516dcdd3091d325510ad55"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-2-s1795616747492673544.log",
+      "bytes": 571,
+      "sha256": "542a6597dd4ef72f682035aca50d383934b43c8c03368b9e08971380387e2fd1"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-3-first5.log",
+      "bytes": 18782,
+      "sha256": "f60207c019b8fba7434f7ca6917b7d87497c55ec28404d05cca552ed4c466df6"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-3-progress.json",
+      "bytes": 199,
+      "sha256": "9a7fb4ca6f6ba0a0733f328b2ca66d73bfceddcd364a3362fa211deba05c969a"
+    },
+    {
+      "file": "fresh-meta3773-five-1-31-3-s1795616629211778810.log",
+      "bytes": 8099,
+      "sha256": "2c8916ac66300e69a66ee42715200346a306a49f0529fec3eb89d19ef5ea7b37"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-0-cone.json",
+      "bytes": 285,
+      "sha256": "60ea061db8066f2153a4b9950e847ce415211f7a1b9b2377cf5fe8515a217081"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-0-deadstates.bin",
+      "bytes": 262952,
+      "sha256": "50af5ee9fbd1be5b3ec98c5d5fb82ad12590f59966db5a2cfed8620566a65b91"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-0-extra1795616817.log",
+      "bytes": 74,
+      "sha256": "211fe2e5857417515efafc87f3d5cd575a5089fa33a1a1fd21402e36b55bcdf3"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-0-extra1795616893.log",
+      "bytes": 77,
+      "sha256": "a409b0cb155809155146a2d67f0e71ef61e01025cb96e14d2a27a2075f79e576"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-1-cone.json",
+      "bytes": 296,
+      "sha256": "ac950d2d7ac387f5033b2acf9ddf22896be7f70f1b15e358bb0d32803ab4b594"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-1-deadstates.bin",
+      "bytes": 78050,
+      "sha256": "e8cbec003d667f94a50fdc81e172a654ff62a6c44101b49a5e2418d54bd851f9"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-1-extra1795616855.log",
+      "bytes": 74,
+      "sha256": "211fe2e5857417515efafc87f3d5cd575a5089fa33a1a1fd21402e36b55bcdf3"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-1-first5.log",
+      "bytes": 42,
+      "sha256": "b597788e796d8aa22264119528a19b8a659ab1d852fea51c150e6f9c791dde8c"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-2-cone.json",
+      "bytes": 310,
+      "sha256": "917d65247508ccbf195f0a0247a8569fb8cb25624ccf87653e93d3b06d414f7f"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-2-first5.log",
+      "bytes": 1468,
+      "sha256": "7524873123cece9e768225ce5b82c789134418f52bc62409171833bdfa74d271"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-2-progress.json",
+      "bytes": 199,
+      "sha256": "3b3fb2b79dc970414dbfc3f2544875a12248d1f6507bf213d71301df1b36820d"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-2-s1795616709466329521.log",
+      "bytes": 871,
+      "sha256": "7dfd14bc77a52cda0b5ce0e5d30284405cf1ee5b1e9e08303696cd4e2eb7a38e"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-2-s1795616804526122260.log",
+      "bytes": 419,
+      "sha256": "cf43ffc16160f7b088834dfd92a35c5469fe48976ff5a526cac624a4975ce1d4"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-3-first5.log",
+      "bytes": 49095,
+      "sha256": "a8e4d533fa88e0b9ffc66d57123fbb65b18b93a2258677df83ad63c4971a9ab1"
+    },
+    {
+      "file": "fresh-meta3773-five-1-47-3-progress.json",
+      "bytes": 199,
+      "sha256": "3f9d02dfcd2215b5d3cb019046e36267e13717cdd6841d72c55db88191ab2c10"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-0-cone.json",
+      "bytes": 284,
+      "sha256": "2f787aa06f879d5b72c8e73699a661edd590e6cee060df8cf64fdf616d2ab67f"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-0-deadstates.bin",
+      "bytes": 211816,
+      "sha256": "007e2dba70358f69105b166b150bcd52061612023c782ec5002725f5a28f3343"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-0-extra1795616836.log",
+      "bytes": 74,
+      "sha256": "211fe2e5857417515efafc87f3d5cd575a5089fa33a1a1fd21402e36b55bcdf3"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-0-extra1795616912.log",
+      "bytes": 76,
+      "sha256": "e164b9671c1e295ae7478786d06de5edffe76a491248c4d69196e57d1650276c"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-1-cone.json",
+      "bytes": 296,
+      "sha256": "8eeb0e276da273b1432b8bab2f9751d2917408924d6ed7dd36bc0e8fe8b1c7c9"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-1-deadstates.bin",
+      "bytes": 45006,
+      "sha256": "ef34ecb5f9e0d40c75271b52678ebdea7206270614227297183dd47db4e4453a"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-1-extra1795616874.log",
+      "bytes": 74,
+      "sha256": "211fe2e5857417515efafc87f3d5cd575a5089fa33a1a1fd21402e36b55bcdf3"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-1-first5.log",
+      "bytes": 42,
+      "sha256": "b597788e796d8aa22264119528a19b8a659ab1d852fea51c150e6f9c791dde8c"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-2-cone.json",
+      "bytes": 310,
+      "sha256": "d0b509d3baefdd0f4f04244a2a5d460e2df84a781d5cf5b5c3e87a6f0a02fd2b"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-2-first5.log",
+      "bytes": 633,
+      "sha256": "519f9fae132a0ba7956fcc2876887043c5e3bfd2aadaeff322b9a7e12b69d40d"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-2-progress.json",
+      "bytes": 197,
+      "sha256": "4b59d59b20668468cf8e7889511fb5a7f6ba3c4bbb8038f8b24ae238e919b67c"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-2-s1795616728481844063.log",
+      "bytes": 567,
+      "sha256": "868bd3ab8663b15ee66ab38cef156e455ff51e8e149a8459d607d7bd84beda9b"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-2-s1795616823534117348.log",
+      "bytes": 565,
+      "sha256": "75b975a6a04b286f804a6954270c0d8fa575892e22a19b8af1143ee90ba06956"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-3-first5.log",
+      "bytes": 25983,
+      "sha256": "dfc33fb942532cf7e5d49a49d59d502ded3673fd90105410fb8bb331e034f50a"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-3-progress.json",
+      "bytes": 200,
+      "sha256": "255e723d5b225175d0594f753004f635f8ca10e83dae0aa45a7ad1b665bc91f4"
+    },
+    {
+      "file": "fresh-meta3773-five-1-55-3-s1795616634161345638.log",
+      "bytes": 20141,
+      "sha256": "15d7c20e761e3569d5bb3ab772c44c8aebb1b0f0b3194a094319e4872882026a"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-0-cone.json",
+      "bytes": 287,
+      "sha256": "086344b14be8f7536a814ca7087fbb1341b360536ed6521a3cf21761e2fbcb4b"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-0-deadstates.bin",
+      "bytes": 676800,
+      "sha256": "a00ddf6f41adde587d33deed6f6e90163abdee9f32767619d5853f988a6abb4c"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-0-progress.json",
+      "bytes": 195,
+      "sha256": "b75406c4f44aae229406fb0e99faebfb47394cd0f7cf0be1ad7f2bcc4e5d3606"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-0-s1795616666625302146.log",
+      "bytes": 218,
+      "sha256": "5386f523d68b7fbc541f9678f28ac93dd793f06cd8cdee51191477bcf338bb27"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-1-cone.json",
+      "bytes": 302,
+      "sha256": "3038d354038339d1056f4c773ad7f76c54cd4a5ba87e52e2903e03ae60dbf2e2"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-1-deadstates.bin",
+      "bytes": 1489794,
+      "sha256": "564f1592a162793159b881d00c632ffeb186ac819ef10d307942cde32ceaf47a"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-1-first5.log",
+      "bytes": 252,
+      "sha256": "cd53878e04294fa5ff9987e73937b9ae050059f3d9725a3bcead20f7b990de21"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-1-progress.json",
+      "bytes": 198,
+      "sha256": "72285cf33d9c19aa5bd52b64ec4bd64d15b4bf847442e6591088a13eeadabd59"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-1-s1795616647610448278.log",
+      "bytes": 366,
+      "sha256": "ee1f77718dde004305dc919c765fe34174ae2fb30cc4097416771c837e7539f9"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-1-s1795616671590403466.log",
+      "bytes": 447,
+      "sha256": "a17e57ad97b31eb88c337270ec87150fb4c0db3872489c0528d2b6e9b25ca0af"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-2-cone.json",
+      "bytes": 317,
+      "sha256": "9d40e2f6c09e3bf1eae0667171c19842f0065802435130e2bc0866f470d85f61"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-2-first5.log",
+      "bytes": 6077,
+      "sha256": "df3865d03fd3d3d20e39e256060308e5f5a6d325b26a05850350fb49e45853b1"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-2-progress.json",
+      "bytes": 197,
+      "sha256": "70d0dd9e9dba4d803c597930f644cddc119b4d87c53ce20196d8680b3516e191"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-2-s1795616621656696544.log",
+      "bytes": 985,
+      "sha256": "fbc2a9885d88a63f548f1d69f4728ec77e74afa117b1b6224376cf1b489b82b0"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-3-first5.log",
+      "bytes": 44066,
+      "sha256": "54290d21aaffdf3dc8905289a762575050d4c1d80a79aa7fe38d653b9d65f401"
+    },
+    {
+      "file": "fresh-meta3773-five-1-62-3-progress.json",
+      "bytes": 200,
+      "sha256": "899fb021065f4ab30238fac948102358cadcd5741acc813843ad941e7c9942e5"
+    },
+    {
+      "file": "fresh-meta3773-five-final-scheduler-resumed.log",
+      "bytes": 798,
+      "sha256": "1fb81fb9095ff4bcbaf14bc53853eabee30b1a22f216b2f675577b65feaa3e1b"
+    },
+    {
+      "file": "fresh-meta3773-five-final-scheduler.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "fresh-meta3773-five-helper-final-summary.json",
+      "bytes": 4982,
+      "sha256": "efbae16dfa4c7efacd0ca8646281d454e9ae2e569c0530f30629e5e4bfe01bf5"
+    },
+    {
+      "file": "fresh-meta3773-five-helper-suffix-caches.json",
+      "bytes": 2207,
+      "sha256": "79f60ab5e9d3ea13e1403adf0e526c4f96b975086a9d4d1cbf7c4b927555c993"
+    },
+    {
+      "file": "fresh-meta3773-five-helper-summary-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "fresh-meta3773-sixteen-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "fresh-meta3773-sixteen-test.log",
+      "bytes": 422,
+      "sha256": "214a730faf7e02c6816fa5227bd3a7d98fa45073b92dcddcbd74cc8837b8885f"
+    },
+    {
+      "file": "fresh-meta3773-sixteen-test2.log",
+      "bytes": 388,
+      "sha256": "5287be3313c93f6b992e6bdaecd95311f8d67a17f76363833e538812eacf8720"
+    },
+    {
+      "file": "fresh_meta3773_ONE_TRIPLE_FIVE_HELPERS.md",
+      "bytes": 4171,
+      "sha256": "3c00067897d42ee8cc484f7d934166e3ff2077b1f2d1829871b8a3db2e3fd8f3"
+    },
+    {
+      "file": "fresh_meta3773_component_extended_checks_sixteen.py",
+      "bytes": 1076,
+      "sha256": "100928bedbdad3fffa4c766a590362202492d88a2842b53a3bdcfad8ec4255f2"
+    },
+    {
+      "file": "fresh_meta3773_component_sixteen.cpp",
+      "bytes": 4023,
+      "sha256": "3f3f865a87fc61c40d157cdd9ad30f7a59bf75bdd2a56a600fa884d72ece4d5d"
+    },
+    {
+      "file": "fresh_meta3773_component_test_sixteen.py",
+      "bytes": 936,
+      "sha256": "302e3335b6429c4c4485a71604227221b7e1871286d57eb4ddea85bd668c6efc"
+    },
+    {
+      "file": "fresh_meta3773_five_checkpoint.py",
+      "bytes": 1568,
+      "sha256": "5a8c23ea9c38753edc22731aacef8a5850337403c5f82bb973e959e6f1fe54b8"
+    },
+    {
+      "file": "fresh_meta3773_five_checkpoint_initial.py",
+      "bytes": 1482,
+      "sha256": "1f890ae53ea1b4c624f1d8f953fd5bae192e55b4e3c03ed4616ae5bb281ff9d3"
+    },
+    {
+      "file": "fresh_meta3773_five_final_chunks.py",
+      "bytes": 1251,
+      "sha256": "be1aba22a79feef28a7ba34c87594de9915a8f9009bf4eaaebe38fae9fd3657d"
+    },
+    {
+      "file": "fresh_meta3773_five_helper_summary.py",
+      "bytes": 2421,
+      "sha256": "2995df0779c117496c47fe38f2c9c7bee5ca8c6737b6658b6ee5bc1ba2f2a46e"
+    },
+    {
+      "file": "fresh_meta3773_five_sixteen.py",
+      "bytes": 942,
+      "sha256": "80d39e9c8edbcf6598eaa7e3c4c1a92d78d6f38e81d93e4bacce2ded50170e40"
+    },
+    {
+      "file": "fresh_meta3773_freeze_five.py",
+      "bytes": 7617,
+      "sha256": "49e51953ecc10e6b13accec9757befa7832379181793b0b4ebb83458c012718d"
+    }
+  ]
+}

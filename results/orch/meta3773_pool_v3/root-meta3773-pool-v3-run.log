@@ -1,0 +1,9 @@
+{"target_cost": 68, "node": 93, "seconds": 0.0008276370026578661}
+{"target_cost": 66, "node": 165, "seconds": 0.0020462540014705155}
+{"target_cost": 64, "node": 467, "seconds": 0.007014973001787439}
+{"pool_nodes": 865, "functions": 854, "files": 77, "skipped": 0, "best_target": 64}
+{"round": 1, "pool_nodes": 919, "pairs": 364231, "target": 64, "seconds": 0.2699584140027582}
+{"round": 2, "pool_nodes": 969, "pairs": 728462, "target": 64, "seconds": 0.5357199080026476}
+{"round": 3, "pool_nodes": 969, "pairs": 1092693, "target": 64, "seconds": 0.7633050530021137}
+{"seconds": 0.7635352300021623, "pairs": 1092693, "rounds": 3, "size": 64, "errors": 0, "first_gate": [1, 0, 1]}
+{"best_genuine_final_AND": 79, "first_gate": [1, 0, 1]}

@@ -44,3 +44,33 @@
 - 2026-11-25T11:05:12.514870+00:00 geometry_route: root-requested globalrowgraphF4 graceful stop completed, exit0 with explicitPARTIAL/nonGB. Wall2125.68s,CPU2535.23s; lastdegree8,15800internalgenerators/178299673terms; finalboundedsubset1834generators/3103152terms saved at round23. Fullfinaldiagnostics archived undercheckpoints; no restart planned.
 
 - 2026-11-25T11:07:19.502583+00:00: FirstSym3chartandnormalizedtwo-blockmatrixobstructioncompiledandindependentlyreviewed; preservingcheckedpartials.
+
+- 2026-11-25T11:12:42.365658+00:00: geometry_route completed and independently reviewed all four Sym3 chart Lean certificates. Also approved actual-matrix TwoDoubleKernel and OverlapBlocks partials. All own heavy jobs stopped.
+
+- 2026-11-25T11:26:46.451164+00:00: geometry_route completed full Lean proof of common-zero-row dependence in Sym3ZeroRowDependent.lean;146.42s,exit0,independent review pending.
+
+2026-11-25 11:37 UTC root re-plan: complete same-zero-row local theorem and exhaustive projective cover preserved; integrated concrete cases progressing; remaining main mathematical search is the generic top-row principal-block chart. Exact allzero certificate requires smaller Lean normalization; four-frame extraction continues from durable checkpoints.
+
+- 2026-11-25T11:40:21.442577+00:00: geometry_route completed both checked and independently reviewed exceptional fixed-direction polynomial certificates; actual coefficient/reduction bridges in progress.
+
+2026-11-25T12:14:20.931229+00:00 Re-plan: allzero scalar obstruction and compressed Same certificate saved onfork; big frame lift failed to reconstruct at6040bits, compact polynomial route prioritized.
+
+- 2026-11-25 12:14:16 UTC — geometry_route: raw exceptional eight-coefficient reduction passed Lean; complete exact-source independent review passed.
+- 2026-11-25 12:17:03 UTC — geometry_route: actual exceptional permanent/coefficient/partner bridge passed Lean; later exact-source review passed.
+- 2026-11-25 12:19:19 UTC — geometry_route: full generic-integer optimization stopped at4GiB; retained the one previously checked identity and deferred optimization.
+- 2026-11-25 12:29:41 UTC — geometry_route: combined fixed-direction endpoint stopped at11GiB after391.74s, without Lean errors; no combined proof verdict.
+- 2026-11-25 12:31:51 UTC — geometry_route: actual singular-direction normalization passed Lean in7.95s; independently reviewed.
+
+2026-11-25T12:41:13.707333+00:00 Re-plan: allzero normalization and actual coefficient bridge nowkernelchecked; sparse-star actualrank3obstructionpassed; norm-onlybasecertificate unprovedafter10793-bitlift. Exclusive13GiBstrongexceptionalcheckrunning.
+
+- 2026-11-25 12:44:19 UTC — geometry_route: complete actual singular-direction partner obstruction passed Lean,456.99s,peak12.691GB; exact source composition had independent review.
+
+- 2026-11-25 12:51:44 UTC — geometry_route: actual1+3 block Laguerre quartic passed Lean,3.22s,peak2.331GB; independent review requested.
+
+- 2026-11-25 13:03:33 UTC — geometry_route: dense-star concrete matrix quotient/kernel bridge Lean checked (10.76 s, 2.58 GB); independent review approved. Final dense-star submodule composition delegated to construction_search.
+
+2026-11-25T13:30:46.428618+00:00 REPLAN: oldgapstopped13:07; newL-meta-3773assigned13:09. Packed proof bridge checked; rotate from small rigid local patches to unproductive-AND whole circuits and four-arc free-OR patches. Latest lease renewal13:24:51 expiry13:44:51.
+
+2026-11-25T14:14:27.862806+00:00 Root replan: complete64-gate positive control checked283.27s, optimized version59.40s, both independently reviewed and pushed. No63gate witness. Unordered, ordered and strengthened semantic MILP routes timed out and are paused. Remaining compute: global sparse-input CEGIS; warm-phase local SAT repair; six-point CGP; one-triple exact patch analysis. Two-triple finite patch enumeration completed, awaiting final archive review.
+
+2026-11-25T14:33:53.079593+00:00 All production searches ended without a63gate witness or unrestricted refutation. Final late full-instance63gate repair returned UNKNOWN after80.72s; rejected seed has exactly two extra edges and explicit posted-negative counterexamples. Final reviewed preservation and own-lease out_of_time release follow.

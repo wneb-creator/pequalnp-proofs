@@ -1,0 +1,185 @@
+{
+  "scope": "all four exterior-feature orbits with exactly five used helpers, only listed finished prefixes excluded",
+  "strata": [
+    {
+      "helper_mask": 31,
+      "extra_primitive_reads": 0,
+      "allowed_internal_excess": 3,
+      "orbit_count": 1,
+      "finished_prefix": 0,
+      "finished": false,
+      "last_root_cone_checkpoint": 27,
+      "false_suffix_cache_bytes": 294700,
+      "complete_log_files": 3
+    },
+    {
+      "helper_mask": 31,
+      "extra_primitive_reads": 1,
+      "allowed_internal_excess": 2,
+      "orbit_count": 9,
+      "finished_prefix": 1,
+      "finished": false,
+      "last_root_cone_checkpoint": 146,
+      "false_suffix_cache_bytes": 106092,
+      "complete_log_files": 3
+    },
+    {
+      "helper_mask": 31,
+      "extra_primitive_reads": 2,
+      "allowed_internal_excess": 1,
+      "orbit_count": 64,
+      "finished_prefix": 26,
+      "finished": false,
+      "last_root_cone_checkpoint": 1073,
+      "false_suffix_cache_bytes": 0,
+      "complete_log_files": 4
+    },
+    {
+      "helper_mask": 31,
+      "extra_primitive_reads": 3,
+      "allowed_internal_excess": 0,
+      "orbit_count": 360,
+      "finished_prefix": 360,
+      "finished": true,
+      "last_root_cone_checkpoint": null,
+      "false_suffix_cache_bytes": 0,
+      "complete_log_files": 2
+    },
+    {
+      "helper_mask": 47,
+      "extra_primitive_reads": 0,
+      "allowed_internal_excess": 3,
+      "orbit_count": 1,
+      "finished_prefix": 0,
+      "finished": false,
+      "last_root_cone_checkpoint": 10,
+      "false_suffix_cache_bytes": 262952,
+      "complete_log_files": 2
+    },
+    {
+      "helper_mask": 47,
+      "extra_primitive_reads": 1,
+      "allowed_internal_excess": 2,
+      "orbit_count": 13,
+      "finished_prefix": 0,
+      "finished": false,
+      "last_root_cone_checkpoint": 327,
+      "false_suffix_cache_bytes": 78050,
+      "complete_log_files": 2
+    },
+    {
+      "helper_mask": 47,
+      "extra_primitive_reads": 2,
+      "allowed_internal_excess": 1,
+      "orbit_count": 106,
+      "finished_prefix": 35,
+      "finished": false,
+      "last_root_cone_checkpoint": 28,
+      "false_suffix_cache_bytes": 0,
+      "complete_log_files": 3
+    },
+    {
+      "helper_mask": 47,
+      "extra_primitive_reads": 3,
+      "allowed_internal_excess": 0,
+      "orbit_count": 650,
+      "finished_prefix": 650,
+      "finished": true,
+      "last_root_cone_checkpoint": null,
+      "false_suffix_cache_bytes": 0,
+      "complete_log_files": 1
+    },
+    {
+      "helper_mask": 55,
+      "extra_primitive_reads": 0,
+      "allowed_internal_excess": 3,
+      "orbit_count": 1,
+      "finished_prefix": 0,
+      "finished": false,
+      "last_root_cone_checkpoint": 9,
+      "false_suffix_cache_bytes": 211816,
+      "complete_log_files": 2
+    },
+    {
+      "helper_mask": 55,
+      "extra_primitive_reads": 1,
+      "allowed_internal_excess": 2,
+      "orbit_count": 12,
+      "finished_prefix": 0,
+      "finished": false,
+      "last_root_cone_checkpoint": 281,
+      "false_suffix_cache_bytes": 45006,
+      "complete_log_files": 2
+    },
+    {
+      "helper_mask": 55,
+      "extra_primitive_reads": 2,
+      "allowed_internal_excess": 1,
+      "orbit_count": 99,
+      "finished_prefix": 22,
+      "finished": false,
+      "last_root_cone_checkpoint": 56,
+      "false_suffix_cache_bytes": 0,
+      "complete_log_files": 3
+    },
+    {
+      "helper_mask": 55,
+      "extra_primitive_reads": 3,
+      "allowed_internal_excess": 0,
+      "orbit_count": 616,
+      "finished_prefix": 616,
+      "finished": true,
+      "last_root_cone_checkpoint": null,
+      "false_suffix_cache_bytes": 0,
+      "complete_log_files": 2
+    },
+    {
+      "helper_mask": 62,
+      "extra_primitive_reads": 0,
+      "allowed_internal_excess": 3,
+      "orbit_count": 1,
+      "finished_prefix": 1,
+      "finished": true,
+      "last_root_cone_checkpoint": 246,
+      "false_suffix_cache_bytes": 676800,
+      "complete_log_files": 1
+    },
+    {
+      "helper_mask": 62,
+      "extra_primitive_reads": 1,
+      "allowed_internal_excess": 2,
+      "orbit_count": 11,
+      "finished_prefix": 11,
+      "finished": true,
+      "last_root_cone_checkpoint": 486,
+      "false_suffix_cache_bytes": 1489794,
+      "complete_log_files": 3
+    },
+    {
+      "helper_mask": 62,
+      "extra_primitive_reads": 2,
+      "allowed_internal_excess": 1,
+      "orbit_count": 94,
+      "finished_prefix": 94,
+      "finished": true,
+      "last_root_cone_checkpoint": 942,
+      "false_suffix_cache_bytes": 0,
+      "complete_log_files": 2
+    },
+    {
+      "helper_mask": 62,
+      "extra_primitive_reads": 3,
+      "allowed_internal_excess": 0,
+      "orbit_count": 594,
+      "finished_prefix": 594,
+      "finished": true,
+      "last_root_cone_checkpoint": null,
+      "false_suffix_cache_bytes": 0,
+      "complete_log_files": 1
+    }
+  ],
+  "completed_strata": 7,
+  "completed_representatives": 2410,
+  "all_representatives": 2632,
+  "witnesses": 0
+}

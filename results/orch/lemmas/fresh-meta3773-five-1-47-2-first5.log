@@ -1,0 +1,20 @@
+model [0, 1, 2, 3, 6] rows 17 24 group 12
+case 1 of 106 result False branch-eligible True states 18 seconds 0.895
+case 2 of 106 result False branch-eligible True states 2400 seconds 2.124
+case 3 of 106 result False branch-eligible True states 2408 seconds 2.947
+case 4 of 106 result False branch-eligible True states 2414 seconds 3.31
+case 5 of 106 result False branch-eligible True states 2420 seconds 4.418
+case 6 of 106 result False branch-eligible True states 4561 seconds 5.931
+case 7 of 106 result False branch-eligible True states 4563 seconds 6.691
+case 8 of 106 result False branch-eligible True states 4575 seconds 7.218
+case 9 of 106 result False branch-eligible True states 4577 seconds 7.979
+case 10 of 106 result False branch-eligible True states 7868 seconds 10.575
+case 11 of 106 result False branch-eligible True states 7870 seconds 11.494
+case 12 of 106 result False branch-eligible True states 7872 seconds 11.998
+case 13 of 106 result False branch-eligible True states 7874 seconds 12.95
+case 14 of 106 result False branch-eligible True states 9474 seconds 14.334
+case 15 of 106 result False branch-eligible True states 9498 seconds 15.024
+case 16 of 106 result False branch-eligible True states 13922 seconds 16.428
+case 17 of 106 result False branch-eligible True states 13946 seconds 17.076
+case 18 of 106 result False branch-eligible True states 13953 seconds 17.653
+case 19 of 106 result False branch-eligible True states 13959 seconds 18.717

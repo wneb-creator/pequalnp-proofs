@@ -1,0 +1,236 @@
+{
+  "classification": "final incomplete circuit searches; no new proof",
+  "files": [
+    {
+      "path": "results/orch/meta3773_sat_final/CNF_BINDINGS.json",
+      "sha256": "45f31e8d9ac3bacc179244c4e7b4ec90e5e5b249366a0d0ec8b9b18a99fa9d9f",
+      "bytes": 1206
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/README.md",
+      "sha256": "fee7bcb3411ac9e91c32ff9a174a35286115cc16db4461e16bbff55b98094154",
+      "bytes": 2603
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-dense-seed-physical-verification.log",
+      "sha256": "2bca141aac69ab4690b9dbf3d06a3126f5299f5ae0d41e359670ac1d74e82e92",
+      "bytes": 516
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-known29-physical-verification.log",
+      "sha256": "a141e7538bc3c4a438828eed27d5a533835faa954988cffd544217855eda19d7",
+      "bytes": 350
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-known29-verification.log",
+      "sha256": "85cb4c42e01b261873becb5bb6d622da4f3e33a030fdc9fa229a5d5f7c36a829",
+      "bytes": 107
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-known29.json",
+      "sha256": "6fb99f8f00cdb4b59a7fbf030da773bdfb063201adba800c3cba09fbfa5a0277",
+      "bytes": 363
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-matched-over-seed.json",
+      "sha256": "c13d99a73dc3d76c19d69ab6a9d43225144efd178cec90c517832d46a6289e4f",
+      "bytes": 2238
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-padding-verification.log",
+      "sha256": "0573aa5c1cfdaf6f9cf8b70a642134f1a8552d5579ab5bef2f2f7556f4a16453",
+      "bytes": 160
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-patch-data.json",
+      "sha256": "8dcde4ce4371d3c727fe5b69914104b8a6173f770168b40d1be72fbf9698d2ff",
+      "bytes": 7535
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r0-metadata.json",
+      "sha256": "a5b9ce6b4662b275032af1afa9311ea9d85c787b203b40cc981cdfdcdbbc874f",
+      "bytes": 21285
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r0-run.log",
+      "sha256": "c0f9dbd1caf6c19871a550fd5b0108cd9148f23970b15f2c4677f2b2c7724ea1",
+      "bytes": 436
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r0-solver.log",
+      "sha256": "36ac63825eae51c9c6f8764402e53d383dec9409a8a952bdf411717a43c3f28e",
+      "bytes": 16116
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r0-source.py",
+      "sha256": "1f5b3de91554c02b373d3fe60812c37bba6c70e432a9a7ba28def8c59d296d46",
+      "bytes": 10832
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r0-status.json",
+      "sha256": "4384392c6c81d1114a26dddef0fcc179af57e2a0e7a277b237031b094ccd4f44",
+      "bytes": 357
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r990-candidate.json",
+      "sha256": "b0527678762ffbeb616551b147bab7d8acd8bcb1d9f99dbd95a674fb80026580",
+      "bytes": 843
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r990-metadata.json",
+      "sha256": "434ec8f9be9f000092c0b388947d3b0dbe704ec3cc68a52faf994e2c0c041aca",
+      "bytes": 18610
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r990-run.log",
+      "sha256": "f3524bf4463c00b8fae95b5a4db9c0b230e966b90938792e0cd8e4fb6274ae05",
+      "bytes": 501
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r990-solver.log",
+      "sha256": "19f6c325072b0832503c623743c7cce10a1445a3ecbec6c66f4ef6208cb38681",
+      "bytes": 78324
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r990-source.py",
+      "sha256": "1f5b3de91554c02b373d3fe60812c37bba6c70e432a9a7ba28def8c59d296d46",
+      "bytes": 10832
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r990-status.json",
+      "sha256": "b93238035f889d627a13c4138a794ec4a120282324867a62aaaafad5b6a2ddc7",
+      "bytes": 427
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r991-metadata.json",
+      "sha256": "a5b9ce6b4662b275032af1afa9311ea9d85c787b203b40cc981cdfdcdbbc874f",
+      "bytes": 21285
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r991-run.log",
+      "sha256": "4c61486b7ba90d5fbda8d78bd0aff6a8e3aece0351b7014f100af571fbbab8f3",
+      "bytes": 93
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-phase-r991-source.py",
+      "sha256": "1f5b3de91554c02b373d3fe60812c37bba6c70e432a9a7ba28def8c59d296d46",
+      "bytes": 10832
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-repair-r0-metadata.json",
+      "sha256": "6f5bcac1efcca0330dcf38680bcea100697499027a60af287fb7e04d96d7e5eb",
+      "bytes": 84600
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-repair-r0-run.log",
+      "sha256": "c3addc6a49b431b395c094f50d7ad06e75e0fbf380740606a7c82d2abc0180be",
+      "bytes": 359
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-repair-r0-solver.log",
+      "sha256": "592946f1b91d17e7425a2a8aaa5af65c5bd3a9ed7ddaae2989e10a593dfec37e",
+      "bytes": 15984
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-repair-r0-source.py",
+      "sha256": "93cfc01c9f459aaf2fc090d27dfec03043be6fb9dc22c49bfb1a4e872014c637",
+      "bytes": 15524
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-repair-r0-status.json",
+      "sha256": "c86a3cd5ed57a7f8dd40ccdc203a798161a17423117ab40c7216fa844f2cd9a0",
+      "bytes": 252
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-repair-r990-metadata.json",
+      "sha256": "ae0130e4b918d655efcb6efd4c1efbe5e769f3460f31afd9fb868c66ebcda8d1",
+      "bytes": 87309
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-repair-r990-run.log",
+      "sha256": "1363d9b0790a552c4ac8e64cb7dafd69b3ede5e493609ecee4c59e466ce8e795",
+      "bytes": 119
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-repair-r990-source.py",
+      "sha256": "93cfc01c9f459aaf2fc090d27dfec03043be6fb9dc22c49bfb1a4e872014c637",
+      "bytes": 15524
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-repair-r992-metadata.json",
+      "sha256": "6f5bcac1efcca0330dcf38680bcea100697499027a60af287fb7e04d96d7e5eb",
+      "bytes": 84600
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-repair-r992-run.log",
+      "sha256": "f014f76938c2af9614c353eba6ec4335a021f6a09b88603e4543fcaa2c89a05b",
+      "bytes": 119
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-dense-repair-r992-source.py",
+      "sha256": "93cfc01c9f459aaf2fc090d27dfec03043be6fb9dc22c49bfb1a4e872014c637",
+      "bytes": 15524
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-sat-r1-metadata.json",
+      "sha256": "fabf0778c00d4072fb92dcfd739824e04b794ebe701cd6fe73c3c5e61dacd5d8",
+      "bytes": 105221
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-sat-r1-run.log",
+      "sha256": "1f8338b11b1bca26af6451d7ebc1d6714f118ad4ff69cbf0207b78fbe691209b",
+      "bytes": 365
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-sat-r1-solver.log",
+      "sha256": "0e75d0946f42a6fd510ac8292831d9f46ec49f9a8ab2258e3da7fc4a15b8e775",
+      "bytes": 17821
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-sat-r1-source.py",
+      "sha256": "18aa4f495ec9c52102427f233dc2f9dd6da88033d9cd031622629c638c241125",
+      "bytes": 12922
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773-six-sat-r1-status.json",
+      "sha256": "d2863bf83c83eef725ac57a10606b63c965a1436b3c6e5170b4d72a7cde99f22",
+      "bytes": 251
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773_dense_phase_run.py",
+      "sha256": "1f5b3de91554c02b373d3fe60812c37bba6c70e432a9a7ba28def8c59d296d46",
+      "bytes": 10832
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773_dense_seed_verify.py",
+      "sha256": "a3028d2d71780d5cbed9a50f1c1c5e84f7e5680a4bb53300623507c276519647",
+      "bytes": 1702
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773_six_dense_repair_sat.py",
+      "sha256": "93cfc01c9f459aaf2fc090d27dfec03043be6fb9dc22c49bfb1a4e872014c637",
+      "bytes": 15524
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773_six_dense_verify_encoding.py",
+      "sha256": "f68b72759705e1d2b206bb6a4823ce637cf2d2f1d0aa980881b2d3acef0146c4",
+      "bytes": 4000
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773_six_dense_verify_padding.py",
+      "sha256": "216de158a18f7f46c642d3ef42dc066258d4f6067d2a3544b3c987c240f65991",
+      "bytes": 1553
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/meta3773_six_dense_verify_physical.py",
+      "sha256": "a4b6de2b7407ca4f5b238cb9306053fa158084ae85370dddae89569fd8314aa8",
+      "bytes": 1394
+    },
+    {
+      "path": "results/orch/meta3773_sat_final/three_plane_meta3773_final_archive.py",
+      "sha256": "ee89f70c1b68abee5abe47c4caf324ffadf4fa393886498762d0b38998b8958a",
+      "bytes": 5831
+    }
+  ],
+  "total_bytes": 703181
+}

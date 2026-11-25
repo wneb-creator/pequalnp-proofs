@@ -1,0 +1,2 @@
+{"variables": 14924, "clauses": 391979, "samples": 83, "gate_budget": 28, "free_tree_variants": [15, 15, 15, 15, 15, 15, 15]}
+{"returncode": 0, "seconds": 110.0229663099999, "outer_timeout": false, "source_sha256": "18aa4f495ec9c52102427f233dc2f9dd6da88033d9cd031622629c638c241125", "cnf_sha256": "8d62ae15c835514c214d41fb1b3b99ccb650644d75d549fdee09f0455997bb01"}

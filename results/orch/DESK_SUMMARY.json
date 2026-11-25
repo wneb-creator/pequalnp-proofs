@@ -1,0 +1,399 @@
+{
+  "scope": "Whitelisted desk chronology without lease identifiers or credentials. Complete private transport log remains in task scratch.",
+  "generated_utc": "2026-11-25T14:33:53.079593+00:00",
+  "null_count": 10,
+  "records": [
+    {
+      "utc": "2026-11-25T08:37:23.205989+00:00",
+      "kind": "null",
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "utc": "2026-11-25T08:41:23.588722+00:00",
+      "kind": "null",
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "utc": "2026-11-25T08:45:23.659329+00:00",
+      "kind": "null",
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "utc": "2026-11-25T08:49:23.618426+00:00",
+      "kind": "null",
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "utc": "2026-11-25T08:53:23.613824+00:00",
+      "kind": "null",
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "utc": "2026-11-25T08:57:23.674239+00:00",
+      "kind": "null",
+      "note": "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "utc": "2026-11-25T09:01:23.650001+00:00",
+      "kind": "null",
+      "note": "no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "utc": "2026-11-25T09:05:23.574399+00:00",
+      "kind": "null",
+      "note": "no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "utc": "2026-11-25T09:09:23.588485+00:00",
+      "kind": "null",
+      "note": "no step is free that you have not already looked at and handed back in the last hour (1); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "utc": "2026-11-25T09:13:23.606863+00:00",
+      "kind": "null",
+      "note": "no step is free that you have not already looked at and handed back in the last hour (1); new steps are posted through the day, ask again in a few minutes",
+      "retry_after_s": 300
+    },
+    {
+      "utc": "2026-11-25T09:17:23.639026+00:00",
+      "kind": "assignment",
+      "gap": "L-gct-231",
+      "expires_at": "2026-11-25T09:37:23.464Z"
+    },
+    {
+      "utc": "2026-11-25T09:18:33.190595+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T09:38:33.035Z"
+    },
+    {
+      "utc": "2026-11-25T09:20:45.034564+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T09:40:44.868Z"
+    },
+    {
+      "utc": "2026-11-25T09:25:07.097478+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T09:45:06.936Z"
+    },
+    {
+      "utc": "2026-11-25T09:28:03.756363+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T09:48:03.586Z"
+    },
+    {
+      "utc": "2026-11-25T09:34:26.006647+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T09:54:25.812Z"
+    },
+    {
+      "utc": "2026-11-25T09:38:06.082849+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T09:58:05.911Z"
+    },
+    {
+      "utc": "2026-11-25T09:43:53.194872+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T10:03:53.010Z"
+    },
+    {
+      "utc": "2026-11-25T09:53:53.143975+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T10:13:53.003Z"
+    },
+    {
+      "utc": "2026-11-25T10:00:40.099456+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T10:20:39.653Z"
+    },
+    {
+      "utc": "2026-11-25T10:10:39.733714+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T10:30:39.564Z"
+    },
+    {
+      "utc": "2026-11-25T10:14:55.700839+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T10:34:55.529Z"
+    },
+    {
+      "utc": "2026-11-25T10:17:35.540413+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T10:37:35.390Z"
+    },
+    {
+      "utc": "2026-11-25T10:23:11.169417+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T10:43:11.005Z"
+    },
+    {
+      "utc": "2026-11-25T10:29:34.904349+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T10:49:34.619Z"
+    },
+    {
+      "utc": "2026-11-25T10:34:06.769472+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T10:54:06.580Z"
+    },
+    {
+      "utc": "2026-11-25T10:39:47.486324+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T10:59:47.326Z"
+    },
+    {
+      "utc": "2026-11-25T10:44:11.457304+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T11:04:11.301Z"
+    },
+    {
+      "utc": "2026-11-25T10:52:24.172507+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T11:12:24.018Z"
+    },
+    {
+      "utc": "2026-11-25T10:54:36.878592+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T11:14:36.721Z"
+    },
+    {
+      "utc": "2026-11-25T10:58:57.503393+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T11:18:57.339Z"
+    },
+    {
+      "utc": "2026-11-25T11:06:22.583174+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T11:26:22.390Z"
+    },
+    {
+      "utc": "2026-11-25T11:10:45.717001+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T11:30:45.555Z"
+    },
+    {
+      "utc": "2026-11-25T11:15:01.860924+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T11:35:01.630Z"
+    },
+    {
+      "utc": "2026-11-25T11:17:19.488068+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T11:37:19.321Z"
+    },
+    {
+      "utc": "2026-11-25T11:21:58.210181+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T11:41:57.985Z"
+    },
+    {
+      "utc": "2026-11-25T11:24:03.809416+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T11:44:03.502Z"
+    },
+    {
+      "utc": "2026-11-25T11:30:33.810373+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T11:50:33.586Z"
+    },
+    {
+      "utc": "2026-11-25T11:38:38.983144+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T11:58:38.792Z"
+    },
+    {
+      "utc": "2026-11-25T11:42:44.848078+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:02:44.633Z"
+    },
+    {
+      "utc": "2026-11-25T11:47:55.658645+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:07:55.369Z"
+    },
+    {
+      "utc": "2026-11-25T11:50:53.436510+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:10:53.242Z"
+    },
+    {
+      "utc": "2026-11-25T11:56:25.595739+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:16:25.410Z"
+    },
+    {
+      "utc": "2026-11-25T12:02:30.356820+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:22:30.099Z"
+    },
+    {
+      "utc": "2026-11-25T12:06:15.562491+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:26:15.312Z"
+    },
+    {
+      "utc": "2026-11-25T12:07:17.814797+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:27:17.334Z"
+    },
+    {
+      "utc": "2026-11-25T12:08:54.956991+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:28:54.704Z"
+    },
+    {
+      "utc": "2026-11-25T12:12:56.492049+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:32:55.768Z"
+    },
+    {
+      "utc": "2026-11-25T12:14:39.707424+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:34:39.393Z"
+    },
+    {
+      "utc": "2026-11-25T12:17:38.380183+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:37:37.972Z"
+    },
+    {
+      "utc": "2026-11-25T12:22:52.142205+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:42:51.843Z"
+    },
+    {
+      "utc": "2026-11-25T12:28:17.394242+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:48:17.095Z"
+    },
+    {
+      "utc": "2026-11-25T12:30:04.470425+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:50:03.925Z"
+    },
+    {
+      "utc": "2026-11-25T12:31:13.343298+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:51:12.958Z"
+    },
+    {
+      "utc": "2026-11-25T12:36:32.313407+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T12:56:31.941Z"
+    },
+    {
+      "utc": "2026-11-25T12:45:23.232163+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T13:05:22.876Z"
+    },
+    {
+      "utc": "2026-11-25T12:52:00.805501+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T13:12:00.385Z"
+    },
+    {
+      "utc": "2026-11-25T13:00:57.438936+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T13:20:57.177Z"
+    },
+    {
+      "utc": "2026-11-25T13:07:08.829402+00:00",
+      "kind": "lease_error",
+      "error": "no such live lease: it expired or was released. Ask /desk/next again."
+    },
+    {
+      "utc": "2026-11-25T13:07:08.829402+00:00",
+      "kind": "lease_error",
+      "error": "no such live lease: it expired or was released. Ask /desk/next again."
+    },
+    {
+      "utc": "2026-11-25T13:08:26.362152+00:00",
+      "kind": "assignment",
+      "gap": "L-meta-3773",
+      "expires_at": null
+    },
+    {
+      "utc": "2026-11-25T13:09:51.557030+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T13:29:51.224Z"
+    },
+    {
+      "utc": "2026-11-25T13:17:57.550243+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T13:37:57.238Z"
+    },
+    {
+      "utc": "2026-11-25T13:24:51.702247+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T13:44:51.349Z"
+    },
+    {
+      "utc": "2026-11-25T13:32:23.411005+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T13:52:22.735Z"
+    },
+    {
+      "utc": "2026-11-25T13:33:59.528383+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T13:53:59.181Z"
+    },
+    {
+      "utc": "2026-11-25T13:39:40.584225+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T13:59:40.150Z"
+    },
+    {
+      "utc": "2026-11-25T13:41:38.871358+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T14:01:38.040Z"
+    },
+    {
+      "utc": "2026-11-25T13:44:17.359625+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T14:04:17.016Z"
+    },
+    {
+      "utc": "2026-11-25T13:48:24.684390+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T14:08:24.441Z"
+    },
+    {
+      "utc": "2026-11-25T13:56:11.748491+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T14:16:11.222Z"
+    },
+    {
+      "utc": "2026-11-25T14:02:59.119259+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T14:22:58.533Z"
+    },
+    {
+      "utc": "2026-11-25T14:10:55.616280+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T14:30:54.875Z"
+    },
+    {
+      "utc": "2026-11-25T14:15:50.335464+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T14:35:49.917Z"
+    },
+    {
+      "utc": "2026-11-25T14:19:47.572450+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T14:39:45.428Z"
+    },
+    {
+      "utc": "2026-11-25T14:25:27.575965+00:00",
+      "kind": "renewal",
+      "expires_at": "2026-11-25T14:45:27.027Z"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "frozen_input_bindings": {
+    "/tmp/oec/pequalnp-pilot-79/meta3773-late63-frozen-raw.json": "fa3cc4b51baabb884dbd983eee1422d6c92353b289f6955d719b80116ab98689",
+    "/tmp/oec/pequalnp-pilot-79/meta3773-late63-frozen-seed.json": "f4fab35f87d8a03c6f00b317d226d4e91b7e810914fecdc39c3cd83c3b95e948",
+    "/tmp/oec/pequalnp-pilot-79/meta3773-synthesis-data.json": "1281a0ebe8c854562594e098e4eddf4f5f638d3612d9bd7afb6cc1584ffa6023"
+  },
+  "verified_posted_rows": 808,
+  "false_negatives": 0,
+  "false_positives": 148,
+  "exact_quadratic_minterms": 54,
+  "extra_edges": [
+    [
+      0,
+      2
+    ],
+    [
+      12,
+      9
+    ]
+  ],
+  "posted_head_verified": true,
+  "cnf_sha256": "0d7f3dac3a466953d88315bf4dfcda36b1d0b6e27f5d5a5355e635acc717c52a",
+  "cnf_bytes": 183866483,
+  "cnf_preservation": "deterministic source/data regeneration; not duplicated",
+  "status": {
+    "returncode": 0,
+    "seconds": 80.72084068999902,
+    "samples": 756,
+    "first_gate_case": 1
+  }
+}

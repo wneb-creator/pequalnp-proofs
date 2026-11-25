@@ -1,0 +1,1 @@
+{"scope": "Positive baseline29 local circuit control, not target28 or global63 witness", "source_model_sha256": "8dcde4ce4371d3c727fe5b69914104b8a6173f770168b40d1be72fbf9698d2ff", "output": 58, "size": 29, "physical_truth_table_verified": true, "physical_inputs": 131072, "seconds": 1.1596602779973182}

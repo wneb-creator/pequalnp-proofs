@@ -1,0 +1,59 @@
+{
+  "file": "meta3773-cgp-79088-140-best.json.near-unproductive",
+  "sha256": "fa3cc4b51baabb884dbd983eee1422d6c92353b289f6955d719b80116ab98689",
+  "gates": 63,
+  "minimal_monomials": 54,
+  "missing_monomials": [],
+  "extra_monomials": [
+    [
+      0,
+      15
+    ],
+    [
+      12,
+      22
+    ]
+  ],
+  "posted_counterexamples": [
+    {
+      "posted_negative_left_S": [
+        0
+      ],
+      "right_common_nonneighbors": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+      ],
+      "input_mask": 62816257,
+      "candidate_result": true,
+      "required_result": false
+    },
+    {
+      "posted_negative_left_S": [
+        12
+      ],
+      "right_common_nonneighbors": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "input_mask": 58535936,
+      "candidate_result": true,
+      "required_result": false
+    }
+  ],
+  "valid_target": false,
+  "scope": "Exact finite minimal-monomial CAS audit; not a Lean proof"
+}

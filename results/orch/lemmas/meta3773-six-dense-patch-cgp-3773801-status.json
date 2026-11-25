@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "seconds": 90.01660887199978,
+  "bound_hashes": {
+    "meta3773_six_dense_patch_cgp.cpp": "bedaf3373a0debfd6a9fa0e9e4468b4cdbf71a170058d923f282d05effd47e36",
+    "meta3773_six_dense_patch_cgp": "af25b187014c0fa6ae8c4fd0fd255e879a7dbd62f69ca07aa6b71717ecb782e2",
+    "meta3773-six-dense-patch-data.json": "8dcde4ce4371d3c727fe5b69914104b8a6173f770168b40d1be72fbf9698d2ff",
+    "meta3773_six_dense_patch_data.hpp": "cddda471fe77d082419a4da5c9f8900cba01b6d79175fc44e5a75c1807e3765d"
+  }
+}

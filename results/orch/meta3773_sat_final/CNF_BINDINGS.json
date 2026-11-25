@@ -1,0 +1,32 @@
+[
+  {
+    "scratch_file": "meta3773-six-sat-r1.cnf",
+    "sha256": "8d62ae15c835514c214d41fb1b3b99ccb650644d75d549fdee09f0455997bb01",
+    "bytes": 6685912,
+    "preservation": "deterministic source/data regeneration; not copied"
+  },
+  {
+    "scratch_file": "meta3773-six-dense-repair-r0.cnf",
+    "sha256": "f2b0beefbd3bb577e9c745fbc6f1f866cd8f6a7460cf83dbf4bd9dc0d00144f0",
+    "bytes": 4709307,
+    "preservation": "deterministic source/data regeneration; not copied"
+  },
+  {
+    "scratch_file": "meta3773-six-dense-repair-r990.cnf",
+    "sha256": "47eb049ec2cc4a54212e74fc85fe5454be8ca5acb2fbda0b82be17d6df181f14",
+    "bytes": 4974309,
+    "preservation": "deterministic source/data regeneration; not copied"
+  },
+  {
+    "scratch_file": "meta3773-six-dense-phase-r990.cnf",
+    "sha256": "40ce3ab5b7d50c64279cc11d34b8b02efd03b89a52006cbe3658470686101c0a",
+    "bytes": 4963690,
+    "preservation": "deterministic source/data regeneration; not copied"
+  },
+  {
+    "scratch_file": "meta3773-six-dense-phase-r0.cnf",
+    "sha256": "e91cc423b7cee8ef28292f0f44ddb6531ebb89fd640ef79b3444ed5949f12a01",
+    "bytes": 4696338,
+    "preservation": "deterministic source/data regeneration; not copied"
+  }
+]

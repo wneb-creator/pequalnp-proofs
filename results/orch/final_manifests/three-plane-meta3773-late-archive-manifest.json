@@ -1,0 +1,71 @@
+{
+  "classification": "incomplete late full-instance repair; no witness",
+  "files": [
+    {
+      "path": "results/orch/meta3773_sat_late/README.md",
+      "sha256": "eb80a82b5dc9e9280d6dec83c18b91f6b90ca223836389e1605cf03819cd8d46",
+      "bytes": 1409
+    },
+    {
+      "path": "results/orch/meta3773_sat_late/meta3773-late63-freeze-verification.log",
+      "sha256": "5fb9ac76776dd678ab70ab4963e4a80061fca7384d47fa5c6f4f04e9e653a01a",
+      "bytes": 1013
+    },
+    {
+      "path": "results/orch/meta3773_sat_late/meta3773-late63-frozen-raw.json",
+      "sha256": "fa3cc4b51baabb884dbd983eee1422d6c92353b289f6955d719b80116ab98689",
+      "bytes": 820
+    },
+    {
+      "path": "results/orch/meta3773_sat_late/meta3773-late63-frozen-seed.json",
+      "sha256": "f4fab35f87d8a03c6f00b317d226d4e91b7e810914fecdc39c3cd83c3b95e948",
+      "bytes": 984
+    },
+    {
+      "path": "results/orch/meta3773_sat_late/meta3773-late63-frozen-verification.json",
+      "sha256": "a1c7b3c2bbcae68ecac1833bc82531b02f1e73e02c9b18c7a3d9d61dff24899f",
+      "bytes": 1677
+    },
+    {
+      "path": "results/orch/meta3773_sat_late/meta3773-late63-independent-preservation-verification.json",
+      "sha256": "6eade675c5506db71593221e03f7918e50c86d5e8206baabb1e3ffd533b313c4",
+      "bytes": 976
+    },
+    {
+      "path": "results/orch/meta3773_sat_late/meta3773-late63-whole-encoder-source.py",
+      "sha256": "7bc27bbf29f9f436447de98acb2420d7018db5e77ffdf0b0ceca60761e0824b1",
+      "bytes": 10024
+    },
+    {
+      "path": "results/orch/meta3773_sat_late/meta3773-synthesis-data.json",
+      "sha256": "1281a0ebe8c854562594e098e4eddf4f5f638d3612d9bd7afb6cc1584ffa6023",
+      "bytes": 39471
+    },
+    {
+      "path": "results/orch/meta3773_sat_late/meta3773-whole-1-r9-metadata.json",
+      "sha256": "c5fb46d023d63992a7b729451108e45ee30951a2b495fb8c48bdc3c1a44d7c4d",
+      "bytes": 70764
+    },
+    {
+      "path": "results/orch/meta3773_sat_late/meta3773-whole-1-r9-run.log",
+      "sha256": "43a3bd36678a72f6633ab3d5123b7b57d05a6bcc78aaf6a0a35b0f07edb44c5e",
+      "bytes": 166
+    },
+    {
+      "path": "results/orch/meta3773_sat_late/meta3773-whole-1-r9-solver.log",
+      "sha256": "01e2d65f8686e55175af1e6362254be961a2d09a47b051ed8ce270125cd591e7",
+      "bytes": 4690
+    },
+    {
+      "path": "results/orch/meta3773_sat_late/meta3773-whole-1-r9-status.json",
+      "sha256": "6293de4e606ca2163a2b8b0e41688254c4bde7b83f7ddc9f3b441ed9e0ed961a",
+      "bytes": 96
+    },
+    {
+      "path": "results/orch/meta3773_sat_late/meta3773_late_preserve.py",
+      "sha256": "5a5449fa12720788e3a337efcff467942e6de00306ca56301927411d4f30cff1",
+      "bytes": 6516
+    }
+  ],
+  "total_bytes": 138606
+}

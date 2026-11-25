@@ -1,0 +1,6 @@
+model [0, 1, 2, 3, 6] rows 17 24 group 12 prior completed suffix states 2738
+case 8 of 11 result False branch-eligible True states 752 seconds 15.724
+case 9 of 11 result False branch-eligible True states 766 seconds 16.987
+case 10 of 11 result False branch-eligible True states 780 seconds 17.988
+case 11 of 11 result False branch-eligible True states 786 seconds 18.596
+{'cases': 11, 'tested': 11, 'solutions': [], 'seconds': 18.596159643002466}

@@ -1,0 +1,1 @@
+{"gates": 64, "exact_minimal_monomials": 53, "extra_edge": [0, 2], "statement": "output equals target OR(p0 ANDl2), independently checked by exact minimal-monomial propagation"}
