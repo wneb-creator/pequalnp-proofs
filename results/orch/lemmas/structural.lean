@@ -117,4 +117,27 @@ lemma structural_no_funnel (p q : Fin 10) (hpq : p ≠ q) :
 lemma structural_independent_four :
     structuralEdge (fun i => decide (i = 0 ∨ i = 2 ∨ i = 8 ∨ i = 9)) = false := by decide
 
+lemma structural_set_pair_left (x : Fin 10 → Bool) (p q : Fin 10) (hpq : p ≠ q)
+    (a b : Bool) : structuralSetPair x p q a b p = a := by
+  simp [structuralSetPair, Function.update_of_ne hpq]
+
+lemma structural_set_pair_right (x : Fin 10 → Bool) (p q : Fin 10)
+    (a b : Bool) : structuralSetPair x p q a b q = b := by
+  simp [structuralSetPair]
+
+lemma structural_bool_collision : ∀ g : Bool → Bool → Bool,
+    ∃ a b c d : Bool, (a, b) ≠ (c, d) ∧ g a b = g c d := by decide
+
+lemma structural_no_binary_factor (p q : Fin 10) (hpq : p ≠ q)
+    (g : Bool → Bool → Bool) (H : (Fin 10 → Bool) → Bool → Bool)
+    (hH : ∀ (x : Fin 10 → Bool) (a b z : Bool),
+      H (structuralSetPair x p q a b) z = H x z) :
+    ¬ ∀ x : Fin 10 → Bool, structuralEdge x = H x (g (x p) (x q)) := by
+  intro h
+  obtain ⟨a, b, c, d, hne, heq⟩ := structural_bool_collision g
+  obtain ⟨k, hk⟩ := structural_pair_cofactors p q hpq a b c d hne
+  apply hk
+  rw [h, h, structural_set_pair_left _ _ _ hpq, structural_set_pair_right,
+    structural_set_pair_left _ _ _ hpq, structural_set_pair_right, hH, hH, heq]
+
 end PEqualNP.Outside.L_meta_2592

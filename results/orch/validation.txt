@@ -22,3 +22,6 @@ TIMING total=16.53 subagents=7
 
 PrimaryNot.lean: compile exit0; semantic identity only, no cost bound.
 TIMING total=19.22 subagents=7
+
+structural.lean143-line snapshot: compile exit0; independent review by lean_environment PASS; complete logs retained.
+TIMING total=21.35 subagents=7

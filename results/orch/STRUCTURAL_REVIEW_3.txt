@@ -1,0 +1,33 @@
+Independent red-team review: PASS for preservation as a checked partial.
+Reviewer: lean_environment (independent of source author).
+Reviewed UTC: 2026-11-25T14:21:14.334597+00:00
+Source: results/orch/lemmas/structural.lean
+Source SHA-256: 64389ba4f029d240f3c44a7ce7c425097637a7ff3f4b84778408840d0f9004c8
+Baseline SHA-256: 11650ea5c0645db5e5947de6b1102264c8e0637cdf7040efd7d1b596ad2d9dd9
+Scope: committed 120-line version to current 143-line version; 23 added lines, no deletions.
+
+The diff adds two Function.update evaluation helpers, structural_bool_collision,
+and structural_no_binary_factor. The update helpers correctly distinguish p != q.
+The collision lemma is the pigeonhole fact for a map from four Boolean pairs to two
+Boolean values. I independently checked all 16 truth tables in Python; each has a collision.
+
+The new factor lemma is conditional on H being invariant under changing inputs p and q.
+It chooses two distinct pairs with the same g value, applies the existing pair-cofactor
+separation lemma, rewrites both evaluations using the purported factorization, and uses
+H invariance and the collision equality to contradict separation. All variables and
+hypotheses retain the necessary scope; no distinctness or invariance premise is omitted.
+
+This proves an obstruction to compressing two inputs into one Boolean value while the
+remaining context ignores those inputs. It does NOT prove that every circuit of at most
+19 gates is impossible, and it is NOT the exact posted theorem or a submission-ready PR.
+
+Static checks: all imports are unchanged allowed Mathlib import lines at the beginning;
+all helpers stay in namespace PEqualNP.Outside.L_meta_2592; namespace closure unchanged.
+No sorry, axioms, native_decide, unsafe code, forbidden commands, string literals,
+_root_ text, attributes, or new instances. Only existing permitted limit options remain.
+The new finite proof uses ordinary decide. git diff --check passed.
+
+Build evidence: source author/root reported build exit 0 for this version. I verified
+structural-build3.stdout and structural-build3.stderr are both empty and were created
+after the reviewed source. I did not repeat the heavy Lean build. These are local build
+results, not the repository checker accepting the full target statement.
