@@ -1,0 +1,19 @@
+{
+  "status": "PASS partial preservation; exact checked-source composition modulo imports, namespace rename, blank separators",
+  "source_sha256": "a69289d6278473b4ea5b3d5bccf7fe69306cbed4ca8c95bd8bed4bf98185e31d",
+  "lines": 5084,
+  "bytes": 306232,
+  "imports": [
+    "import PEqualNP.Defs"
+  ],
+  "compile_stdout_bytes": 40327,
+  "compile_stdout_sha256": "95666bc9905cbbbfd2c7ae385e0a26bee731d4aad4a33473a20fffc03b4a14b2",
+  "compile_stderr_bytes": 0,
+  "warnings": 174,
+  "errors": 0,
+  "guard_exit": 1,
+  "guard_stdout": "REFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_1884 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_1884` ... `end PEqualNP.Outside.L_meta_1884`; only the imports and the theorem stay outside\n",
+  "guard_stderr": "",
+  "forbidden": [],
+  "scope": "Standalone compilation now succeeds for the signed 17-binary-gate bound and its canonical free-complement transfer. The zero-NOT 17/18-gate and one-NOT 18-gate cases remain open."
+}

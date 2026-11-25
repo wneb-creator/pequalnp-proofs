@@ -1,0 +1,671 @@
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:124:53: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:124:67: warning: This simp argument is unused:
+  Bool.false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:124:111: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:125:22: warning: This simp argument is unused:
+  Bool.true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.false_or, Bool.or_false, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:126:58: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:126:61: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:126:64: warning: This simp argument is unused:
+  bit_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:126:72: warning: This simp argument is unused:
+  bit_prime
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:464:20: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:464:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:465:20: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:465:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:637:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [eqv]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:667:60: warning: This simp argument is unused:
+  er
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:910:47: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:1055:6: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [column, ite_true, BitVec.getLsbD_and, BitVec.getLsbD_not, i.isLt, decide_true, (correct.2 a i).1,
+    (correct.2 a i).2, hp, hn, Bool.not_false, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:1452:27: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:1454:27: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:1452:15: warning: This simp argument is unused:
+  colCheck
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_true, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:1454:15: warning: This simp argument is unused:
+  colCheck
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_false, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:1485:26: warning: Variable name `raw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _raw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:1638:14: warning: This simp argument is unused:
+  List.length_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:1883:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2116:71: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [chart_bit, hp, hq, BitVec.getLsbD_allOnes, i.isLt, decide_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2127:12: warning: `List.Sublist.cons₂` has been deprecated: Use `List.Sublist.cons_cons` instead
+
+Hint: Replace the deprecated name:
+  List.Sublist.cons₂̵_̲c̲o̲n̲s̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2196:20: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2196:23: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2202:6: warning: Variable name `nl` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _nl
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2226:77: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2256:15: warning: This simp argument is unused:
+  Nat.add_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [block, Bool.and_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2348:2: warning: exponent 769 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2354:2: warning: exponent 769 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2360:2: warning: exponent 769 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2406:6: warning: exponent 768 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2428:17: warning: This simp argument is unused:
+  ge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_false, di, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2428:20: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ge, di, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2428:30: warning: This simp argument is unused:
+  di
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ge, ite_false, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2523:54: warning: This simp argument is unused:
+  List.getElem?_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [laneWire, makeBatch, List.getD_eq_getElem?_getD, List.getElem?_range, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2523:72: warning: This simp argument is unused:
+  List.getElem?_range
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [laneWire, makeBatch, List.getD_eq_getElem?_getD, List.getElem?_map, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2580:33: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2719:30: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2755:22: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2755:32: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2761:17: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2755:22: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2755:32: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2761:17: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2758:13: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2763:13: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2796:91: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2796:101: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2796:91: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2796:101: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2796:91: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2796:101: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2796:91: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2796:101: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:2845:33: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3028:4: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3082:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3093:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3093:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3072:65: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3072:65: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3144:20: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3144:23: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3149:6: warning: Variable name `nl` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _nl
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3174:24: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3417:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3433:12: warning: Unused tactic linter: `repeat' apply And.intro` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3467:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3469:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3470:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3472:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3473:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3535:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3537:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3538:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3556:12: warning: Unused tactic linter: `repeat' apply And.intro` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3577:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3579:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3580:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3582:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3583:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3632:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3634:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3635:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3637:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3640:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3641:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3643:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3644:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3707:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3709:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3710:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3712:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3713:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3715:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3718:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3719:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3721:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3722:12: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3787:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3788:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3789:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3790:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3791:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3792:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3796:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3797:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3798:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:3799:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4100:53: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4100:67: warning: This simp argument is unused:
+  Bool.false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4100:111: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4101:22: warning: This simp argument is unused:
+  Bool.true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.false_or, Bool.or_false, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4102:58: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4102:61: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4102:64: warning: This simp argument is unused:
+  bit_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4102:72: warning: This simp argument is unused:
+  bit_prime
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4389:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [eqv]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4419:60: warning: This simp argument is unused:
+  er
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4495:4: warning: This simp argument is unused:
+  BitVec.getLsbD_setWidth
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [restrictRows, embed, Extended.observe, Extended.bit, observe, bit, projected, r.isLt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4979:54: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap1884/lower_bound/FreeNotFloorStandalone.lean:4979:65: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲

@@ -1,0 +1,33 @@
+{
+  "status": "PASS independent finite data checks",
+  "I4_neighbors": {
+    "0": [
+      4,
+      5
+    ],
+    "1": [
+      2,
+      6
+    ],
+    "3": [
+      2,
+      4
+    ],
+    "7": [
+      2,
+      5
+    ],
+    "8": [
+      5,
+      6
+    ],
+    "9": [
+      4,
+      6
+    ]
+  },
+  "profiles": "seven nonempty subsets of three elements enumerate all possibilities",
+  "canonical_rows": 38,
+  "canonical_rows_correlated": true,
+  "scope": "Finite data audit only; no full gap proof or exhaustive circuit search."
+}
