@@ -19,3 +19,5 @@
 2026-11-25T14:23:45.971778+00:00 New17/18 gate arguments compiled conditional on existing P9floor15; independent review PASS.
 
 2026-11-25T14:27:31.810569+00:00 Strong16binary bound, all non-OR opcode extension, physical counted CNF transport and cardinality order all compiled and independently reviewed.
+
+2026-11-25T14:28:58.759328+00:00 Unconditional17+NOT lower bound compiled and independently reviewed. Size19 candidates now require one or two NOT gates.

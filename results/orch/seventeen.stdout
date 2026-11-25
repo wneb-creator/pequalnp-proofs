@@ -1,0 +1,25 @@
+../results/orch/lemmas/Seventeen.lean:149:20: warning: This simp argument is unused:
+  front
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/Seventeen.lean:257:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/Seventeen.lean:215:12: warning: This simp argument is unused:
+  front
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ga, Ne.symm ga]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/Seventeen.lean:215:18: warning: This simp argument is unused:
+  ga
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [front, Ne.symm ga]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
