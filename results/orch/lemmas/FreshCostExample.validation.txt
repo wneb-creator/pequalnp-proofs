@@ -1,0 +1,6 @@
+Lean exit 0. Independent review: status_review PASS.
+Source SHA256 d0252a99e341bdbdc6b7491f3990c84e2e31b7f7979e2fb6722a28fe6ee8083c
+This is an auxiliary counterexample to a proposed excess charge, not a counterexample to L-meta-2585. The global optimality wrapper has not yet compiled.
+Complete stdout:
+
+Complete stderr:
