@@ -27,3 +27,5 @@ Toolchain: /tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin. Cache set
 - 2026-11-25T03:01:43.327129+00:00: Derivative path bridge CHECKED: derivative_true_iff_walk converts the posted recurrence into exact reachability through OR / singleton-guarded AND steps. Direct pair-input repeated-AND corollary is checked too. No global gate bound yet.
 
 - 2026-11-25T03:02:14.586488+00:00: Geometry.lean CHECKED (lake env lean exit0; empty complete log geometry-build-2.log). Degree4, common-neighbor uniqueness,52edges,45faceedges,face diagonal matching12 andfacevertexcover≥12 proved without newinstances. Root notified for preservation.
+
+- 2026-11-25T03:06:06.969090+00:00 lemma_search: Transform.lean COMPILED exit0/no warnings. Formalderivative preservation under factor substitution now proved under explicit value+derivative source domination; droppedfactor true at both target singletonseeds is sufficient. Finding suitable dirtygate remainsopen.

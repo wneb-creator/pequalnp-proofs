@@ -226,6 +226,79 @@ lemma repeated_and_of_pair (n : ℕ) (C : Circuit) (hC : Proper n C)
   · exact hbase
   · exact hzero
 
+def DerivativeStep (n : ℕ) (C : Circuit) (v : ℕ → Bool) (a w : ℕ) : Prop :=
+  ∃ j g b, w = n + j ∧ C.gates[j]? = some g ∧
+    (g.inputs = [a, b] ∨ g.inputs = [b, a]) ∧ (g.op = .or ∨ v b = true)
+
+lemma derivative_step_true (n : ℕ) (C : Circuit) (hC : Proper n C)
+    (v d : ℕ → Bool) (hd : DerivativeRules n C v d)
+    {a w : ℕ} (hs : DerivativeStep n C v a w) (ha : d a = true) : d w = true := by
+  obtain ⟨j, g, b, rfl, hg, hin, hgood⟩ := hs
+  rcases (hC j g hg).1 with hop | hop
+  · have hb : v b = true := hgood.resolve_left (by intro ho; rw [hop] at ho; cases ho)
+    rcases hin with hin | hin
+    · rw [(hd j g a b hg hin).1 hop]
+      simp [ha, hb]
+    · rw [(hd j g b a hg hin).1 hop]
+      simp [ha, hb]
+  · rcases hin with hin | hin
+    · rw [(hd j g a b hg hin).2 hop]
+      simp [ha]
+    · rw [(hd j g b a hg hin).2 hop]
+      simp [ha]
+
+lemma derivative_walk_true (n : ℕ) (C : Circuit) (hC : Proper n C)
+    (v d : ℕ → Bool) (hd : DerivativeRules n C v d)
+    {a w : ℕ} (hs : Relation.ReflTransGen (DerivativeStep n C v) a w)
+    (ha : d a = true) : d w = true := by
+  induction hs with
+  | refl => exact ha
+  | tail _ ht ih => exact derivative_step_true n C hC v d hd ht ih
+
+lemma derivative_true_iff_walk (n : ℕ) (C : Circuit) (hC : Proper n C)
+    (v d : ℕ → Bool) (q : ℕ) (hq : q < n)
+    (hd : DerivativeRules n C v d) (hinit : ∀ i < n, d i = decide (i = q)) :
+    ∀ w < n + C.gates.length,
+      d w = true ↔ Relation.ReflTransGen (DerivativeStep n C v) q w := by
+  have forward : ∀ w < n + C.gates.length, d w = true →
+      Relation.ReflTransGen (DerivativeStep n C v) q w := by
+    intro w
+    induction w using Nat.strong_induction_on with
+    | _ w ih =>
+      intro hw ht
+      by_cases hwn : w < n
+      · rw [hinit w hwn] at ht
+        have hwq : w = q := of_decide_eq_true ht
+        subst w
+        exact Relation.ReflTransGen.refl
+      · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+        have hj : j < C.gates.length := by omega
+        have hg := List.getElem?_eq_getElem (l := C.gates) hj
+        obtain ⟨hop, a, b, hin, _, ha, hb⟩ := hC j _ hg
+        rcases hop with hop | hop
+        · rw [(hd j _ a b hg hin).1 hop] at ht
+          have hor : (v a = true ∧ d b = true) ∨ (d a = true ∧ v b = true) := by
+            simpa using ht
+          rcases hor with ⟨hva, hdb⟩ | ⟨hda, hvb⟩
+          · exact (ih b hb (by omega) hdb).tail
+              ⟨j, _, a, rfl, hg, Or.inr hin, Or.inr hva⟩
+          · exact (ih a ha (by omega) hda).tail
+              ⟨j, _, b, rfl, hg, Or.inl hin, Or.inr hvb⟩
+        · rw [(hd j _ a b hg hin).2 hop] at ht
+          have hor : d a = true ∨ d b = true := by simpa using ht
+          rcases hor with hda | hdb
+          · exact (ih a ha (by omega) hda).tail
+              ⟨j, _, b, rfl, hg, Or.inl hin, Or.inl hop⟩
+          · exact (ih b hb (by omega) hdb).tail
+              ⟨j, _, a, rfl, hg, Or.inr hin, Or.inl hop⟩
+  intro w hw
+  constructor
+  · exact forward w hw
+  · intro hwalk
+    apply derivative_walk_true n C hC v d hd hwalk
+    rw [hinit q hq]
+    simp
+
 end PEqualNP.Outside.L_meta_2602_aux.Derivative
 
 namespace PEqualNP.Outside.L_meta_2602
@@ -1766,3 +1839,85 @@ lemma counterexample_shape (C : Circuit) (hs : C.size ≤ 64)
     cases yes
 
 end PEqualNP.Outside.L_meta_2602
+
+namespace PEqualNP.Outside.L_meta_2602_aux.Geometry
+
+abbrev incident (p l : Fin 13) : Prop :=
+  p = l ∨ p = l + 1 ∨ p = l + 3 ∨ p = l + 9
+
+lemma incident_self (p : Fin 13) : incident p p := Or.inl rfl
+
+lemma point_degree : ∀ p : Fin 13,
+    (Finset.univ.filter fun l => incident p l).card = 4 := by decide
+
+lemma line_degree : ∀ l : Fin 13,
+    (Finset.univ.filter fun p => incident p l).card = 4 := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma point_common_line : ∀ p q : Fin 13, p ≠ q →
+    (Finset.univ.filter fun l => incident p l ∧ incident q l).card = 1 := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma line_common_point : ∀ l m : Fin 13, l ≠ m →
+    (Finset.univ.filter fun p => incident p l ∧ incident p m).card = 1 := by decide
+
+lemma edge_count :
+    (Finset.univ.filter fun e : Fin 13 × Fin 13 => incident e.1 e.2).card = 52 := by
+  decide
+
+lemma face_edge_count :
+    (Finset.univ.filter fun e : Fin 13 × Fin 13 =>
+      e.1 ≠ 0 ∧ e.2 ≠ 0 ∧ incident e.1 e.2).card = 45 := by decide
+
+lemma face_matching_count : (Finset.univ.erase (0 : Fin 13)).card = 12 := by decide
+
+lemma vertex_cover_bound (A B : Finset (Fin 13))
+    (h : ∀ p l, incident p l → p ∈ A ∨ l ∈ B) : 13 ≤ A.card + B.card := by
+  have hs : Finset.univ ⊆ A ∪ B := by
+    intro p _
+    exact Finset.mem_union.mpr (h p p (incident_self p))
+  have hc := (Finset.card_le_card hs).trans (Finset.card_union_le A B)
+  simpa using hc
+
+lemma face_vertex_cover_bound (A B : Finset (Fin 13))
+    (h : ∀ p l, p ≠ 0 → l ≠ 0 → incident p l → p ∈ A ∨ l ∈ B) :
+    12 ≤ A.card + B.card := by
+  have hs : Finset.univ.erase (0 : Fin 13) ⊆ A ∪ B := by
+    intro p hp
+    have hp0 := (Finset.mem_erase.mp hp).1
+    exact Finset.mem_union.mpr (h p p hp0 hp0 (incident_self p))
+  have hc := (Finset.card_le_card hs).trans (Finset.card_union_le A B)
+  rwa [face_matching_count] at hc
+
+lemma face_point_degree : ∀ p : Fin 13, p ≠ 0 →
+    (Finset.univ.filter fun l => l ≠ 0 ∧ incident p l).card =
+      if incident p 0 then 3 else 4 := by decide
+
+lemma face_line_degree : ∀ l : Fin 13, l ≠ 0 →
+    (Finset.univ.filter fun p => p ≠ 0 ∧ incident p l).card =
+      if incident 0 l then 3 else 4 := by decide
+
+lemma no_rectangle (p q l m : Fin 13) (hpq : p ≠ q)
+    (hpl : incident p l) (hql : incident q l)
+    (hpm : incident p m) (hqm : incident q m) : l = m := by
+  have hc := point_common_line p q hpq
+  obtain ⟨a, ha⟩ := Finset.card_eq_one.mp hc
+  have hl : l ∈ ({a} : Finset (Fin 13)) := by
+    rw [← ha]
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+    exact ⟨hpl, hql⟩
+  have hm : m ∈ ({a} : Finset (Fin 13)) := by
+    rw [← ha]
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+    exact ⟨hpm, hqm⟩
+  exact (Finset.mem_singleton.mp hl).trans (Finset.mem_singleton.mp hm).symm
+
+lemma deleted_neighbourhood_no_edge (p l : Fin 13) (hp : p ≠ 0) (hl : l ≠ 0)
+    (hp0 : incident p 0) (h0l : incident 0 l) : ¬ incident p l := by
+  intro hpl
+  have e := no_rectangle p 0 0 l hp hp0 (incident_self 0) hpl h0l
+  exact hl e.symm
+
+end PEqualNP.Outside.L_meta_2602_aux.Geometry

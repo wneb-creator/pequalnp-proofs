@@ -12,3 +12,5 @@
 - 2026-11-25T03:01:43.327129+00:00: Derivative strategy completed local recurrence/path and repeated-AND lemmas; all checked. Global counting unresolved.
 - 2026-11-25T03:02:14.586488+00:00: Geometry certificates compiled successfully; parent notified immediately.
 - 2026-11-25T03:03:13.563645+00:00: Combined derivative and clean/flat exclusion partial built and independently reviewed.
+- 2026-11-25T03:06:06.969090+00:00: lemma_search factor-substitution derivative simulation compiled.
+- 2026-11-25T03:06:18.565841+00:00: Partial 3 built and independently reviewed: Derivative/path equivalence, clean/flat exclusions, and finite projective-plane geometry.
