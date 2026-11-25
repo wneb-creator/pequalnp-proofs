@@ -13,3 +13,9 @@ It proves generic search soundness and the exact target bridge, not the target l
 Independent checkpoint review: toolchain GO; two unnamed sections require names before a final PR; custom data types may defer automatic merge.
 Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
 TIMING total=12.5 subagents=6
+
+Checked single-use counting lemma: results/orch/lemmas/SingleUse.lean, 73 lines, Lean exit 0 with no diagnostics.
+Explicit assumptions: at most 25 operand slots, all seven inputs and all twelve internal non-output wires used. Circuit normalization remains an obligation.
+Independent checkpoint review: toolchain GO, SHA256 5e9b6500af831ec98c3ca16169ef5faf4e3931698c4cc823cdd52cc85810eb81.
+Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
+TIMING total=18.4 subagents=6
