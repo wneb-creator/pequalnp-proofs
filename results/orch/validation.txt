@@ -1,0 +1,12 @@
+PARTIAL CHECKPOINT: L-meta-9502
+Proved lower65: every representing AND/OR circuit has at least 65 gates.
+The posted statement needs at least 72 gates and remains open.
+File: lean/PEqualNP/Outside/L_meta_9502.lean
+lake build PEqualNP.Outside.L_meta_9502: PASS (exit 0), 5149 jobs.
+Local checker: FAULT (exit 3), full prebuilt Mathlib cache missing; disk capacity prevents full cache.
+No final theorem for the posted statement is claimed. No PR opened for this checkpoint.
+Cleanup pass: not applicable to incomplete proof.
+Lean lines: 228
+Independent review: lean_setup, PASS for explicitly marked partial only.
+Sub-agents: status_audit (lower bound), lean_setup (environment and review), artifact_requirements (nested artifact audit), circuit_search, representation_strategy, lean_certificate
+TIMING total=39.1 subagents=6
