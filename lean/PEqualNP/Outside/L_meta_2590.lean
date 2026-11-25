@@ -1784,6 +1784,93 @@ lemma sem_exposure (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
   rw [← hout] at h3
   exact sem_ind_no_edge hA ((hC _).mp h3)
 
+lemma sem_first_mask (hS : Strict n D) (T M : Finset (Fin n)) (hM : 2 ≤ M.card) (w : ℕ)
+    (hw : supp n D w ∩ T = M) :
+    ∃ j, j < D.length ∧ n + j ≤ w ∧ supp n D (n + j) ∩ T = M ∧
+      j ∈ merges n D (carrierT n D T) ∧ (∀ u, u < n + j → supp n D u ∩ T ≠ M) ∧
+      ((tag D j = true ∧ M ⊂ supp n D (opA D j) ∩ T ∧ M ⊂ supp n D (opB D j) ∩ T) ∨
+        (tag D j = false ∧ supp n D (opA D j) ∩ T ⊂ M ∧ supp n D (opB D j) ∩ T ⊂ M ∧
+          (supp n D (opA D j) ∩ T) ∪ (supp n D (opB D j) ∩ T) = M ∧
+          (supp n D (opA D j) ∩ T).Nonempty ∧ (supp n D (opB D j) ∩ T).Nonempty)) := by
+  classical
+  have hex : ∃ u, supp n D u ∩ T = M := ⟨w, hw⟩
+  have hle : Nat.find hex ≤ w := Nat.find_min' hex hw
+  have hmin : ∀ u, u < Nat.find hex → supp n D u ∩ T ≠ M := fun u hu => Nat.find_min hex hu
+  have hspec := Nat.find_spec hex
+  generalize Nat.find hex = f at hle hmin hspec
+  have hMne : M.Nonempty := Finset.card_pos.mp (by omega)
+  have hmem : ∀ {u : ℕ}, (supp n D u ∩ T).Nonempty → u ∈ carrierT n D T := by
+    intro u hu
+    obtain ⟨v, hv⟩ := hu
+    exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr
+      (sem_supp_lt (Finset.mem_inter.mp hv).1), v, hv⟩
+  have hflt : f < n + D.length := by
+    obtain ⟨v, hv⟩ := hMne
+    rw [← hspec] at hv
+    exact sem_supp_lt (Finset.mem_inter.mp hv).1
+  have hfn : n ≤ f := by
+    by_contra hc
+    have hc' : f < n := by omega
+    have hs : supp n D f = {⟨f, hc'⟩} := supp_input D ⟨f, hc'⟩
+    have h1 : M.card ≤ 1 := by
+      rw [← hspec, hs]
+      exact (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+    omega
+  obtain ⟨j, rfl⟩ : ∃ j, f = n + j := ⟨f - n, by omega⟩
+  have hj : j < D.length := by omega
+  obtain ⟨ha, hb, -⟩ := hS j hj
+  have hna := hmin _ ha
+  have hnb := hmin _ hb
+  refine ⟨j, hj, hle, hspec, ?_, hmin, ?_⟩
+  · have hAB : (supp n D (opA D j) ∩ T).Nonempty ∧ (supp n D (opB D j) ∩ T).Nonempty := by
+      cases ht : tag D j
+      · rw [sem_supp_or hS hj ht, Finset.union_inter_distrib_right] at hspec
+        constructor
+        · rw [Finset.nonempty_iff_ne_empty]
+          intro he
+          rw [he, Finset.empty_union] at hspec
+          exact hnb hspec
+        · rw [Finset.nonempty_iff_ne_empty]
+          intro he
+          rw [he, Finset.union_empty] at hspec
+          exact hna hspec
+      · rw [sem_supp_and hS hj ht] at hspec
+        obtain ⟨v, hv⟩ := hMne
+        rw [← hspec] at hv
+        simp only [Finset.mem_inter] at hv
+        exact ⟨⟨v, Finset.mem_inter.mpr ⟨hv.1.1, hv.2⟩⟩, ⟨v, Finset.mem_inter.mpr ⟨hv.1.2, hv.2⟩⟩⟩
+    rw [merges, Finset.mem_filter, Finset.mem_range]
+    exact ⟨hj, hmem (by rw [hspec]; exact hMne), hmem hAB.1, hmem hAB.2⟩
+  · cases ht : tag D j
+    · right
+      rw [sem_supp_or hS hj ht, Finset.union_inter_distrib_right] at hspec
+      have hsa : supp n D (opA D j) ∩ T ⊆ M := by rw [← hspec]; exact Finset.subset_union_left
+      have hsb : supp n D (opB D j) ∩ T ⊆ M := by rw [← hspec]; exact Finset.subset_union_right
+      refine ⟨rfl, Finset.ssubset_iff_subset_ne.mpr ⟨hsa, hna⟩,
+        Finset.ssubset_iff_subset_ne.mpr ⟨hsb, hnb⟩, hspec, ?_, ?_⟩
+      · rw [Finset.nonempty_iff_ne_empty]
+        intro he
+        rw [he, Finset.empty_union] at hspec
+        exact hnb hspec
+      · rw [Finset.nonempty_iff_ne_empty]
+        intro he
+        rw [he, Finset.union_empty] at hspec
+        exact hna hspec
+    · left
+      rw [sem_supp_and hS hj ht] at hspec
+      have hsa : M ⊆ supp n D (opA D j) ∩ T := by
+        rw [← hspec]
+        intro v hv
+        simp only [Finset.mem_inter] at hv ⊢
+        exact ⟨hv.1.1, hv.2⟩
+      have hsb : M ⊆ supp n D (opB D j) ∩ T := by
+        rw [← hspec]
+        intro v hv
+        simp only [Finset.mem_inter] at hv ⊢
+        exact ⟨hv.1.2, hv.2⟩
+      exact ⟨rfl, Finset.ssubset_iff_subset_ne.mpr ⟨hsa, Ne.symm hna⟩,
+        Finset.ssubset_iff_subset_ne.mpr ⟨hsb, Ne.symm hnb⟩⟩
+
 end SemCore
 
 def sem_W (n : ℕ) (D : Dag) (x : Fin n) : Finset (ℕ × Bool) := exitArcs n D (carrierT n D {x})
@@ -3508,6 +3595,29 @@ def mask (m : ℕ) : Finset V := Finset.univ.filter fun i => m.testBit i.val
 
 def edges : List (V × V) := [(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),(3,8),(4,9),(5,7),(7,9),(9,6),(6,8),(8,5)]
 
+def cross (r : ℕ × ℕ) (e : V × V) : Bool :=
+  decide ((e.1 ∈ mask r.1 ∧ e.2 ∈ mask r.2) ∨
+    (e.2 ∈ mask r.1 ∧ e.1 ∈ mask r.2))
+
+def dirtyOf (r : ℕ × ℕ) : List (V × V) := edges.filter (cross r)
+
+def oppositeOf (p : List (ℕ × ℕ)) (v : V) : Finset V := p.foldl (fun acc r =>
+  acc ∪ (if v ∈ mask r.1 then mask r.2 else ∅) ∪
+    (if v ∈ mask r.2 then mask r.1 else ∅)) ∅
+
+def geometry (p : List (ℕ × ℕ)) : Prop :=
+  p.length = 6 ∧
+  (∀ v : V, ((p.map fun r => (if v ∈ mask r.1 then 1 else 0) +
+      (if v ∈ mask r.2 then 1 else 0)).sum : ℕ) = 2) ∧
+  (∀ e ∈ edges, (p.filter fun r => cross r e).length = 1) ∧
+  ∃ r ∈ p,
+    (mask r.1).card = 3 ∧ (mask r.2).card = 3 ∧
+    Disjoint (mask r.1) (mask r.2) ∧ (dirtyOf r).length = 6 ∧
+    (∀ S : Finset V, S.card ≤ 2 → ∃ e ∈ dirtyOf r, e.1 ∉ S ∧ e.2 ∉ S) ∧
+    (∀ v : V, v ∉ mask r.1 ∪ mask r.2 →
+      ∃ e ∈ dirtyOf r, e.1 ∉ oppositeOf p v ∧ e.2 ∉ oppositeOf p v) ∧
+    ∀ q ∈ p, q ≠ r → (mask q.1).card ≤ 2 ∧ (mask q.2).card ≤ 2
+
 end SlotGeometry
 
 namespace ExtraGeometry
@@ -3517,6 +3627,16 @@ abbrev V := Fin 10
 def mask (m : ℕ) : Finset V := Finset.univ.filter fun i => m.testBit i.val
 
 def edges : List (V × V) := [(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),(3,8),(4,9),(5,7),(7,9),(9,6),(6,8),(8,5)]
+
+def cross (r : ℕ × ℕ) (e : V × V) : Bool :=
+  decide ((e.1 ∈ mask r.1 ∧ e.2 ∈ mask r.2) ∨
+    (e.2 ∈ mask r.1 ∧ e.1 ∈ mask r.2))
+
+def dirtyOf (r : ℕ × ℕ) : List (V × V) := edges.filter (cross r)
+
+def oppositeOf (p : List (ℕ × ℕ)) (v : V) : Finset V := p.foldl (fun acc r =>
+  acc ∪ (if v ∈ mask r.1 then mask r.2 else ∅) ∪
+    (if v ∈ mask r.2 then mask r.1 else ∅)) ∅
 
 end ExtraGeometry
 
@@ -11959,5 +12079,273 @@ lemma nonzero_two_exits_of_exit_cap {D : Dag}
   exact Nat.le_antisymm (hcap v) hlo
 
 end DagTools.ExitCapCase
+
+namespace N0BirthsGeneral
+open DagTools
+
+abbrev V := Fin 10
+def pair (i : Fin 3) : Finset V := ![{2, 6}, {3, 9}, {7, 8}] i
+def triple (i : Fin 3) : Finset V := insert 0 (pair i)
+def Occ (D : Dag) (S : Finset V) : Prop := ∃ w, supp 10 D w = S
+def Good (S : Finset V) : Prop :=
+  2 ≤ S.card ∧ ((0 : V) ∈ S ∨ ∃ i : Fin 3, S = pair i)
+def Birth (D : Dag) (j : ℕ) (S : Finset V) : Prop :=
+  j < D.length ∧ supp 10 D (10 + j) = S ∧
+    ∀ w, w < 10 + j → supp 10 D w ≠ S
+
+lemma geometry : (∀ i, (triple i).card = 3 ∧ (0 : V) ∈ triple i ∧ (pair i).card = 2) ∧
+    ∀ i j, i ≠ j → triple i ∩ triple j = {0} := by decide +kernel
+
+lemma triple_injective : Function.Injective triple := by decide +kernel
+
+lemma good_subtriple {S : Finset V} {i : Fin 3}
+    (hcard : 2 ≤ S.card) (hsub : S ⊆ triple i) : Good S := by
+  refine ⟨hcard, ?_⟩
+  by_cases hz : (0 : V) ∈ S
+  · exact Or.inl hz
+  · right
+    refine ⟨i, Finset.eq_of_subset_of_card_le ?_ ?_⟩
+    · intro v hv
+      have hv' := hsub hv
+      rw [triple, Finset.mem_insert] at hv'
+      exact hv'.resolve_left (fun he => hz (he ▸ hv))
+    · rw [(geometry.1 i).2.2]
+      exact hcard
+
+lemma good_supertriple {S : Finset V} {i : Fin 3}
+    (hsub : triple i ⊆ S) : Good S := by
+  have hc := Finset.card_le_card hsub
+  rw [(geometry.1 i).1] at hc
+  exact ⟨by omega, Or.inl (hsub (geometry.1 i).2.1)⟩
+
+lemma birth_exists {D : Dag} (hS : Strict 10 D) {S : Finset V}
+    (hcard : 2 ≤ S.card) (hocc : Occ D S) : ∃ j, Birth D j S := by
+  obtain ⟨w, hw⟩ := hocc
+  obtain ⟨j,hj,_,hs,_,hfirst,_⟩ :=
+    sem_first_mask hS Finset.univ S hcard w (by simpa using hw)
+  simp only [Finset.inter_univ] at hs hfirst
+  exact ⟨j,hj,hs,hfirst⟩
+
+lemma support_split {D : Dag} (hS : Strict 10 D) {S : Finset V}
+    (hcard : S.card = 3) (hocc : Occ D S) :
+    (∃ A B : Finset V, Occ D A ∧ Occ D B ∧ S ⊂ A ∧ S ⊂ B ∧ A ∩ B = S) ∨
+    (∃ C : Finset V, Occ D C ∧ 2 ≤ C.card ∧ C ⊂ S) := by
+  obtain ⟨w, hw⟩ := hocc
+  obtain ⟨j,hj,_,hs,_,_,hcases⟩ :=
+    sem_first_mask hS Finset.univ S (by omega) w (by simpa using hw)
+  simp only [Finset.inter_univ] at hs hcases
+  rcases hcases with ⟨ht,ha,hb⟩ | ⟨_,ha,hb,hu,_,_⟩
+  · exact Or.inl ⟨_,_,⟨opA D j,rfl⟩,⟨opB D j,rfl⟩,ha,hb,
+      (sem_supp_and hS hj ht).symm.trans hs⟩
+  · have hc := Finset.card_union_le (supp 10 D (opA D j)) (supp 10 D (opB D j))
+    rw [hu,hcard] at hc
+    by_cases hca : 2 ≤ (supp 10 D (opA D j)).card
+    · exact Or.inr ⟨_,⟨opA D j,rfl⟩,hca,ha⟩
+    · exact Or.inr ⟨_,⟨opB D j,rfl⟩,by omega,hb⟩
+
+lemma birth_unique {D : Dag} {j k : ℕ} {S : Finset V}
+    (hj : Birth D j S) (hk : Birth D k S) : j = k := by
+  by_contra hne
+  rcases lt_or_gt_of_ne hne with hlt | hgt
+  · exact hk.2.2 (10+j) (by omega) hj.2.1
+  · exact hj.2.2 (10+k) (by omega) hk.2.1
+
+lemma collect_six {D : Dag} (hS : Strict 10 D)
+    (hocc : ∀ i, Occ D (triple i))
+    (U : Fin 3 → Finset V) (hu : ∀ i, Occ D (U i) ∧ Good (U i))
+    (hinj : Function.Injective U) (hsep : ∀ i j, triple i ≠ U j) :
+    ∃ F : Finset ℕ, F.card = 6 ∧
+      (∀ j ∈ F, Birth D j (supp 10 D (10+j)) ∧ Good (supp 10 D (10+j))) ∧
+      ∀ j ∈ F, ∀ k ∈ F, ∀ i : Fin 3,
+        supp 10 D (10+j) = pair i → supp 10 D (10+k) = pair i → j = k := by
+  classical
+  let S : Fin 3 × Bool → Finset V := fun p => if p.2 then triple p.1 else U p.1
+  have hs : ∀ p, Occ D (S p) ∧ Good (S p) := by
+    rintro ⟨i,s⟩
+    cases s
+    · exact hu i
+    · exact ⟨hocc i,good_supertriple (Finset.Subset.refl _)⟩
+  have hsi : Function.Injective S := by
+    rintro ⟨i,s⟩ ⟨j,t⟩ he
+    cases s <;> cases t
+    · exact Prod.ext (hinj he) rfl
+    · exact False.elim (hsep j i he.symm)
+    · exact False.elim (hsep i j he)
+    · exact Prod.ext (triple_injective he) rfl
+  have hbe (p : Fin 3 × Bool) : ∃ j, Birth D j (S p) :=
+    birth_exists hS (hs p).2.1 (hs p).1
+  choose gate hb using hbe
+  have hgi : Function.Injective gate := by
+    intro p q he
+    apply hsi
+    exact (hb p).2.1.symm.trans ((congrArg (fun j => supp 10 D (10+j)) he).trans (hb q).2.1)
+  let F := Finset.univ.image gate
+  have hf : ∀ j ∈ F, Birth D j (supp 10 D (10+j)) ∧ Good (supp 10 D (10+j)) := by
+    intro j hj
+    obtain ⟨p,_,rfl⟩ := Finset.mem_image.mp hj
+    simpa only [(hb p).2.1] using And.intro (hb p) (hs p).2
+  refine ⟨F,?_,hf,?_⟩
+  · rw [Finset.card_image_of_injective _ hgi]
+    decide
+  · intro j hj k hk i he hf'
+    apply birth_unique (S := pair i)
+    · simpa only [he] using (hf j hj).1
+    · simpa only [hf'] using (hf k hk).1
+
+lemma six_of_small_helpers {D : Dag} (hS : Strict 10 D)
+    (hocc : ∀ i, Occ D (triple i))
+    (hsmall : ∀ i, ∃ C : Finset V, Occ D C ∧ 2 ≤ C.card ∧ C ⊂ triple i) :
+    ∃ U : Fin 3 → Finset V, (∀ i, Occ D (U i) ∧ Good (U i)) ∧
+      Function.Injective U ∧ (∀ i j, triple i ≠ U j) := by
+  classical
+  choose U hu hc hs using hsmall
+  have hcard (i : Fin 3) : (U i).card = 2 := by
+    have hh := Finset.card_lt_card (hs i)
+    rw [(geometry.1 i).1] at hh
+    have := hc i
+    omega
+  refine ⟨U,fun i => ⟨hu i,good_subtriple (hc i) (hs i).le⟩,?_,?_⟩
+  · intro i j he
+    by_contra hne
+    have hsub : U i ⊆ triple i ∩ triple j := by
+      intro v hv
+      exact Finset.mem_inter.mpr ⟨(hs i).le hv,(hs j).le (he ▸ hv)⟩
+    have hh := Finset.card_le_card hsub
+    rw [geometry.2 i j hne,Finset.card_singleton,hcard] at hh
+    omega
+  · intro i j he
+    have hh := congrArg Finset.card he
+    rw [(geometry.1 i).1,hcard] at hh
+    omega
+
+lemma other_parent {i j : Fin 3} (hij : i ≠ j) {A B X Y : Finset V}
+    (hAB : A ∩ B = triple i) (hX : triple j ⊂ X)
+    (hXY : X ∩ Y = triple j) :
+    (X ≠ A ∧ X ≠ B) ∨ (Y ≠ A ∧ Y ≠ B) := by
+  have hne : X ≠ Y := by
+    intro he
+    have hc := Finset.card_lt_card hX
+    have hh : X = triple j := by simpa only [← he,Finset.inter_self] using hXY
+    rw [hh] at hc
+    omega
+  by_cases hx : X ≠ A ∧ X ≠ B
+  · exact Or.inl hx
+  by_cases hy : Y ≠ A ∧ Y ≠ B
+  · exact Or.inr hy
+  have hx' : X = A ∨ X = B := by tauto
+  have hy' : Y = A ∨ Y = B := by tauto
+  exfalso
+  rcases hx' with hx' | hx' <;> rcases hy' with hy' | hy'
+  · exact hne (hx'.trans hy'.symm)
+  · apply hij
+    apply triple_injective
+    calc triple i = A ∩ B := hAB.symm
+         _ = X ∩ Y := by rw [hx',hy']
+         _ = triple j := hXY
+  · apply hij
+    apply triple_injective
+    calc triple i = A ∩ B := hAB.symm
+         _ = X ∩ Y := by rw [hx',hy',Finset.inter_comm]
+         _ = triple j := hXY
+  · exact hne (hx'.trans hy'.symm)
+
+lemma helpers_of_and {D : Dag} (hS : Strict 10 D)
+    (hocc : ∀ i, Occ D (triple i)) (i : Fin 3) (A B : Finset V)
+    (hOA : Occ D A) (hOB : Occ D B)
+    (hA : triple i ⊂ A) (hB : triple i ⊂ B) (hAB : A ∩ B = triple i) :
+    ∃ U : Fin 3 → Finset V, (∀ k, Occ D (U k) ∧ Good (U k)) ∧
+      Function.Injective U ∧ (∀ k l, triple k ≠ U l) := by
+  classical
+  have hAc : 4 ≤ A.card := by
+    have hh := Finset.card_lt_card hA
+    rw [(geometry.1 i).1] at hh
+    omega
+  have hBc : 4 ≤ B.card := by
+    have hh := Finset.card_lt_card hB
+    rw [(geometry.1 i).1] at hh
+    omega
+  have hABne : A ≠ B := by
+    intro he
+    have hh : A = triple i := by simpa only [← he,Finset.inter_self] using hAB
+    rw [hh,(geometry.1 i).1] at hAc
+    omega
+  have hje : ∃ j : Fin 3, j ≠ i := by fin_cases i <;> decide +kernel
+  obtain ⟨j,hji⟩ := hje
+  have hCe : ∃ C : Finset V, Occ D C ∧ Good C ∧ C ≠ A ∧ C ≠ B ∧
+      (∀ k, triple k ≠ C) := by
+    rcases support_split hS (geometry.1 j).1 (hocc j) with
+      ⟨X,Y,hOX,hOY,hX,hY,hXY⟩ | ⟨C,hOC,hC,hCT⟩
+    · have pick := other_parent (Ne.symm hji) hAB hX hXY
+      have build (Z : Finset V) (hOZ : Occ D Z) (hZ : triple j ⊂ Z)
+          (hneA : Z ≠ A) (hneB : Z ≠ B) :
+          Occ D Z ∧ Good Z ∧ Z ≠ A ∧ Z ≠ B ∧ (∀ k, triple k ≠ Z) := by
+        refine ⟨hOZ,good_supertriple hZ.le,hneA,hneB,?_⟩
+        intro k he
+        have hc := Finset.card_lt_card hZ
+        rw [← he,(geometry.1 j).1,(geometry.1 k).1] at hc
+        omega
+      rcases pick with hx | hy
+      · exact ⟨X,build X hOX hX hx.1 hx.2⟩
+      · exact ⟨Y,build Y hOY hY hy.1 hy.2⟩
+    · have hCc : C.card = 2 := by
+        have hc := Finset.card_lt_card hCT
+        rw [(geometry.1 j).1] at hc
+        omega
+      refine ⟨C,hOC,good_subtriple hC hCT.le,?_,?_,?_⟩
+      · intro he
+        rw [← he,hCc] at hAc
+        omega
+      · intro he
+        rw [← he,hCc] at hBc
+        omega
+      · intro k he
+        have hc := congrArg Finset.card he
+        rw [(geometry.1 k).1,hCc] at hc
+        omega
+  obtain ⟨C,hOC,hGC,hCA,hCB,hCT⟩ := hCe
+  let U : Fin 3 → Finset V := ![A,B,C]
+  refine ⟨U,?_,?_,?_⟩
+  · intro k
+    fin_cases k
+    · exact ⟨hOA,good_supertriple hA.le⟩
+    · exact ⟨hOB,good_supertriple hB.le⟩
+    · exact ⟨hOC,hGC⟩
+  · intro k l he
+    fin_cases k <;> fin_cases l <;> simp_all [U]
+  · intro k l he
+    fin_cases l
+    · have hc := congrArg Finset.card he
+      change (triple k).card = A.card at hc
+      rw [(geometry.1 k).1] at hc
+      omega
+    · have hc := congrArg Finset.card he
+      change (triple k).card = B.card at hc
+      rw [(geometry.1 k).1] at hc
+      omega
+    · exact hCT k he
+
+lemma six_births {D : Dag} (hS : Strict 10 D)
+    (hocc : ∀ i, Occ D (triple i)) :
+    ∃ F : Finset ℕ, F.card = 6 ∧
+      (∀ j ∈ F, Birth D j (supp 10 D (10+j)) ∧
+        2 ≤ (supp 10 D (10+j)).card ∧
+        ((0 : V) ∈ supp 10 D (10+j) ∨ ∃ i, supp 10 D (10+j) = pair i)) ∧
+      ∀ j ∈ F, ∀ k ∈ F, ∀ i : Fin 3,
+        supp 10 D (10+j) = pair i → supp 10 D (10+k) = pair i → j = k := by
+  classical
+  by_cases ha : ∃ i : Fin 3, ∃ A B : Finset V,
+      Occ D A ∧ Occ D B ∧ triple i ⊂ A ∧ triple i ⊂ B ∧ A ∩ B = triple i
+  · obtain ⟨i,A,B,hOA,hOB,hA,hB,hAB⟩ := ha
+    obtain ⟨U,hu,hi,hs⟩ := helpers_of_and hS hocc i A B hOA hOB hA hB hAB
+    exact collect_six hS hocc U hu hi hs
+  · have hsmall : ∀ i, ∃ C : Finset V, Occ D C ∧ 2 ≤ C.card ∧ C ⊂ triple i := by
+      intro i
+      rcases support_split hS (geometry.1 i).1 (hocc i) with hh | hh
+      · exact False.elim (ha ⟨i,hh⟩)
+      · exact hh
+    obtain ⟨U,hu,hi,hs⟩ := six_of_small_helpers hS hocc hsmall
+    exact collect_six hS hocc U hu hi hs
+
+end N0BirthsGeneral
 
 end PEqualNP.Outside.L_meta_2590
