@@ -1928,4 +1928,547 @@ lemma repair_exact_of_frontier_certificates (hAO : IsAO2 n C)
 
 end Labeling
 
+namespace Duplicate
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.CircuitMoves PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma erase_equal_wires {n : ℕ} {C : Circuit} {k p : ℕ}
+    (hk : k < C.gates.length) (hp : p < n + k) {x : Fin n → Bool}
+    (heq : val C (List.ofFn x) p = val C (List.ofFn x) (n + k)) (w : ℕ) :
+    val (eraseGate n C k p) (List.ofFn x) (eraseRedirect n k p w) = val C (List.ofFn x) w := by
+  apply Eq.symm
+  apply erase_val_rel (fun _ => True) (@Eq Bool) (fun _ => rfl) hk hp ?_
+    (fun _ _ => trivial) (by simp) heq.symm w
+  intro op l f f' _ h
+  rw [List.map_map]
+  congr 1
+  exact List.map_congr_left (fun i _ => h i)
+
+lemma erase_equal_circuit {n : ℕ} {C : Circuit} {k p : ℕ}
+    (hk : k < C.gates.length) (hp : p < n + k)
+    (heq : ∀ x : Fin n → Bool, val C (List.ofFn x) p = val C (List.ofFn x) (n + k)) :
+    circuitFun n (eraseGate n C k p) = circuitFun n C := by
+  funext x
+  change val (eraseGate n C k p) (List.ofFn x) (eraseGate n C k p).output =
+    val C (List.ofFn x) C.output
+  rw [erase_output n C k p hk]
+  exact erase_equal_wires hk hp (heq x) C.output
+
+lemma erase_equal_preserves_clean {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} {k p : ℕ} (hk : k < C.gates.length) (hp : p < n + k)
+    (heq : ∀ x : Fin n → Bool, val C (List.ofFn x) p = val C (List.ofFn x) (n + k))
+    (hclean : ∀ i < C.gates.length, (gateAt C i).op = GateOp.and → BelowF G C i) :
+    ∀ i < (eraseGate n C k p).gates.length, (gateAt (eraseGate n C k p) i).op = GateOp.and →
+      BelowF G (eraseGate n C k p) i := by
+  have hlen := erase_length n C k p hk
+  intro i hi hop x hx
+  have hi' : i + 1 < C.gates.length := by omega
+  by_cases hik : i < k
+  · have hg : gateAt (eraseGate n C k p) i = gateAt C i := by
+      rw [erase_gateAt n C k p i hk hi', if_pos hik]
+    have hop' : (gateAt C i).op = GateOp.and := by rwa [hg] at hop
+    apply hclean i (by omega) hop' x
+    have hwire := erase_equal_wires hk hp (heq x) (n + i)
+    rw [erase_redirect_lt n k p (n + i) (by omega)] at hwire
+    change val C (List.ofFn x) (n + i) = true
+    rw [← hwire]
+    exact hx
+  · have hg : gateAt (eraseGate n C k p) i = erase_rg (eraseRedirect n k p) (gateAt C (i + 1)) := by
+      rw [erase_gateAt n C k p i hk hi', if_neg hik]
+    have hop' : (gateAt C (i + 1)).op = GateOp.and := by
+      rw [hg] at hop
+      exact hop
+    apply hclean (i + 1) hi' hop' x
+    have hwire := erase_equal_wires hk hp (heq x) (n + (i + 1))
+    have hr : eraseRedirect n k p (n + (i + 1)) = n + i := by
+      rw [erase_redirect_gt n k p (n + (i + 1)) (by omega)]
+      omega
+    rw [hr] at hwire
+    change val C (List.ofFn x) (n + (i + 1)) = true
+    rw [← hwire]
+    exact hx
+
+lemma erase_equal_ao_clean {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} {k p : ℕ} (hk : k < C.gates.length) (hp : p < n + k)
+    (hAO : IsAO2 n C)
+    (heq : ∀ x : Fin n → Bool, val C (List.ofFn x) p = val C (List.ofFn x) (n + k))
+    (hclean : ∀ i < C.gates.length, (gateAt C i).op = GateOp.and → BelowF G C i) :
+    IsAO2 n (eraseGate n C k p) ∧ (eraseGate n C k p).size + 1 = C.size ∧
+      circuitFun n (eraseGate n C k p) = circuitFun n C ∧
+      (∀ i < (eraseGate n C k p).gates.length, (gateAt (eraseGate n C k p) i).op = GateOp.and →
+        BelowF G (eraseGate n C k p) i) :=
+  ⟨erase_isAO2 n C k p hk hp hAO, erase_size n C k p hk,
+    erase_equal_circuit hk hp heq, erase_equal_preserves_clean hk hp heq hclean⟩
+
+lemma duplicate_edge_label_values {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (pick : ℕ → Fin n × Fin n) {j k : ℕ}
+    (hj : j < C.gates.length) (hk : k < C.gates.length)
+    (hdj : Repair.dirty G C j) (hdk : Repair.dirty G C k)
+    (hlabel : s((pick j).1, (pick j).2) = s((pick k).1, (pick k).2))
+    (x : Fin n → Bool) :
+    val (Repair.repair G C pick) (List.ofFn x) (n + j) =
+      val (Repair.repair G C pick) (List.ofFn x) (n + k) := by
+  apply Bool.eq_iff_iff.mpr
+  change (Repair.val (Repair.repair G C pick) (List.ofFn x) (n + j) = true) ↔
+    (Repair.val (Repair.repair G C pick) (List.ofFn x) (n + k) = true)
+  rw [Repair.repair_replaced_val pick hj hdj x, Repair.repair_replaced_val pick hk hdk x]
+  rcases Sym2.eq_iff.mp hlabel with ⟨h₁, h₂⟩ | ⟨h₁, h₂⟩ <;> simp [h₁, h₂, and_comm]
+
+lemma merge_duplicate_edge_labels {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (pick : ℕ → Fin n × Fin n)
+    (hpick : ∀ i < C.gates.length, Repair.dirty G C i → G.Adj (pick i).1 (pick i).2)
+    {j k : ℕ} (hjk : j < k) (hk : k < C.gates.length)
+    (hdj : Repair.dirty G C j) (hdk : Repair.dirty G C k)
+    (hlabel : s((pick j).1, (pick j).2) = s((pick k).1, (pick k).2)) :
+    let D := eraseGate n (Repair.repair G C pick) k (n + j)
+    IsAO2 n D ∧ D.size + 1 = C.size ∧
+      circuitFun n D = circuitFun n (Repair.repair G C pick) ∧
+      (∀ i < D.gates.length, (gateAt D i).op = GateOp.and → BelowF G D i) := by
+  intro D
+  obtain ⟨hR, hsize, _, hclean⟩ := Repair.arbitrary_edge_repair hAO hfun pick hpick
+  have hk' : k < (Repair.repair G C pick).gates.length := by rwa [Repair.repair_len]
+  have hresult := erase_equal_ao_clean hk' (by omega : n + j < n + k) hR
+    (duplicate_edge_label_values pick (by omega) hk hdj hdk hlabel) hclean
+  refine ⟨hresult.1, ?_, hresult.2.2.1, hresult.2.2.2⟩
+  exact hresult.2.1.trans hsize
+
+lemma erase_lower_value {n : ℕ} {C : Circuit} {m p : ℕ} (hm : m < C.gates.length)
+    {x : List Bool} (hx : x.length = n) {i : ℕ} (hi : i < n + m) :
+    val (eraseGate n C m p) x i = val C x i := by
+  have hpre : (C.gates.take m).length = m := by
+    rw [List.length_take]
+    omega
+  have hA : (W (C.gates.take m) x).length = n + m := by rw [W_length, hx, hpre]
+  have e1 : val (eraseGate n C m p) x i
+      = (W (C.gates.take m ++ (C.gates.drop (m + 1)).map (erase_rg (eraseRedirect n m p))) x).getD
+        i false :=
+    congrArg (fun gs : List Gate => (W gs x).getD i false) (erase_gates n C m p hm)
+  have e2 : val C x i = (W (C.gates.take m ++ C.gates.drop m) x).getD i false :=
+    congrArg (fun gs : List Gate => (W gs x).getD i false) (List.take_append_drop m C.gates).symm
+  rw [e1, e2, W_append, W_append,
+    W_prefix ((C.gates.drop (m + 1)).map (erase_rg (eraseRedirect n m p)))
+      (W (C.gates.take m) x) i (by omega),
+    W_prefix (C.gates.drop m) (W (C.gates.take m) x) i (by omega)]
+
+lemma collapse_redundant_set {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    (S : Finset ℕ) : ∀ C : Circuit, IsAO2 n C →
+    (∀ i < C.gates.length, (gateAt C i).op = GateOp.and → BelowF G C i) →
+    (∀ k ∈ S, k < C.gates.length ∧ ∃ p < n + k,
+      ∀ x : Fin n → Bool, val C (List.ofFn x) p = val C (List.ofFn x) (n + k)) →
+    ∃ D : Circuit, IsAO2 n D ∧
+      (∀ i < D.gates.length, (gateAt D i).op = GateOp.and → BelowF G D i) ∧
+      D.size + S.card = C.size ∧ circuitFun n D = circuitFun n C := by
+  classical
+  induction S using Finset.strongInductionOn with
+  | _ S ih =>
+    intro C hAO hclean hred
+    by_cases hzero : S = ∅
+    · exact ⟨C, hAO, hclean, by simp [hzero], rfl⟩
+    have hne : S.Nonempty := Finset.nonempty_iff_ne_empty.mpr hzero
+    let k := S.max' hne
+    have hkS : k ∈ S := S.max'_mem hne
+    obtain ⟨hk, p, hp, heq⟩ := hred k hkS
+    let E := eraseGate n C k p
+    obtain ⟨hEAO, hEsize, hEfun, hEclean⟩ := erase_equal_ao_clean hk hp hAO heq hclean
+    have hremaining : ∀ i ∈ S.erase k, i < E.gates.length ∧ ∃ q < n + i,
+        ∀ x : Fin n → Bool, val E (List.ofFn x) q = val E (List.ofFn x) (n + i) := by
+      intro i hi
+      obtain ⟨hik, hiS⟩ := Finset.mem_erase.mp hi
+      have himax : i ≤ k := S.le_max' i hiS
+      have hilt : i < k := by omega
+      obtain ⟨_, q, hq, hqeq⟩ := hred i hiS
+      refine ⟨?_, q, hq, ?_⟩
+      · have hlen := erase_length n C k p hk
+        change i < (eraseGate n C k p).gates.length
+        omega
+      · intro x
+        change val (eraseGate n C k p) (List.ofFn x) q =
+          val (eraseGate n C k p) (List.ofFn x) (n + i)
+        rw [erase_lower_value hk (by simp) (by omega : q < n + k),
+          erase_lower_value hk (by simp) (by omega : n + i < n + k)]
+        exact hqeq x
+    obtain ⟨D, hDAO, hDclean, hDsize, hDfun⟩ :=
+      ih (S.erase k) (Finset.erase_ssubset hkS) E hEAO hEclean hremaining
+    refine ⟨D, hDAO, hDclean, ?_, hDfun.trans hEfun⟩
+    have hcard := Finset.card_erase_add_one hkS
+    change E.size + 1 = C.size at hEsize
+    omega
+
+lemma minimum_label_representatives {α : Type*} [DecidableEq α]
+    (T : Finset ℕ) (f : ℕ → α) :
+    ∃ R : Finset ℕ, R ⊆ T ∧ R.card = (T.image f).card ∧
+      ∀ k ∈ T \ R, ∃ j ∈ T, j < k ∧ f j = f k := by
+  classical
+  let R := T.filter fun k => ∀ j ∈ T, f j = f k → k ≤ j
+  have hRT : R ⊆ T := Finset.filter_subset _ _
+  have hinj : Set.InjOn f (R : Set ℕ) := by
+    intro j hj k hk heq
+    have hj' := Finset.mem_filter.mp hj
+    have hk' := Finset.mem_filter.mp hk
+    exact Nat.le_antisymm (hj'.2 k hk'.1 heq.symm) (hk'.2 j hj'.1 heq)
+  have himage : R.image f = T.image f := by
+    apply Finset.Subset.antisymm (Finset.image_subset_image hRT)
+    intro z hz
+    obtain ⟨k, hk, rfl⟩ := Finset.mem_image.mp hz
+    let F := T.filter fun j => f j = f k
+    have hF : F.Nonempty := ⟨k, Finset.mem_filter.mpr ⟨hk, rfl⟩⟩
+    let j := F.min' hF
+    have hj : j ∈ F := F.min'_mem hF
+    have hjT : j ∈ T := (Finset.mem_filter.mp hj).1
+    have hjeq : f j = f k := (Finset.mem_filter.mp hj).2
+    have hjR : j ∈ R := by
+      apply Finset.mem_filter.mpr
+      refine ⟨hjT, ?_⟩
+      intro l hl heq
+      exact Finset.min'_le F l (Finset.mem_filter.mpr ⟨hl, heq.trans hjeq⟩)
+    exact Finset.mem_image.mpr ⟨j, hjR, hjeq⟩
+  refine ⟨R, hRT, ?_, ?_⟩
+  · calc
+      R.card = (R.image f).card := (Finset.card_image_of_injOn hinj).symm
+      _ = (T.image f).card := congrArg Finset.card himage
+  · intro k hk
+    obtain ⟨hkT, hkR⟩ := Finset.mem_sdiff.mp hk
+    by_contra hno
+    apply hkR
+    apply Finset.mem_filter.mpr
+    refine ⟨hkT, ?_⟩
+    intro j hj heq
+    by_contra hle
+    exact hno ⟨j, hj, by omega, heq⟩
+
+lemma collapse_labeled_dirty_set {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (pick : ℕ → Fin n × Fin n)
+    (hpick : ∀ i < C.gates.length, Repair.dirty G C i → G.Adj (pick i).1 (pick i).2)
+    (T : Finset ℕ) (hT : ∀ k ∈ T, k < C.gates.length ∧ Repair.dirty G C k) :
+    ∃ D : Circuit, IsAO2 n D ∧
+      (∀ i < D.gates.length, (gateAt D i).op = GateOp.and → BelowF G D i) ∧
+      D.size + T.card = C.size + (T.image fun k => s((pick k).1, (pick k).2)).card ∧
+      circuitFun n D = circuitFun n (Repair.repair G C pick) := by
+  classical
+  let label : ℕ → Sym2 (Fin n) := fun k => s((pick k).1, (pick k).2)
+  obtain ⟨R, hRT, hRcard, hrepresent⟩ := minimum_label_representatives T label
+  let S := T \ R
+  obtain ⟨hRAO, hRsize, _, hRclean⟩ := Repair.arbitrary_edge_repair hAO hfun pick hpick
+  have hred : ∀ k ∈ S, k < (Repair.repair G C pick).gates.length ∧ ∃ p < n + k,
+      ∀ x : Fin n → Bool, val (Repair.repair G C pick) (List.ofFn x) p =
+        val (Repair.repair G C pick) (List.ofFn x) (n + k) := by
+    intro k hk
+    have hkT : k ∈ T := (Finset.mem_sdiff.mp hk).1
+    obtain ⟨j, hjT, hjk, hlabel⟩ := hrepresent k hk
+    refine ⟨?_, n + j, by omega, ?_⟩
+    · rw [Repair.repair_len]
+      exact (hT k hkT).1
+    · intro x
+      exact duplicate_edge_label_values pick (hT j hjT).1 (hT k hkT).1
+        (hT j hjT).2 (hT k hkT).2 hlabel x
+  obtain ⟨D, hDAO, hDclean, hDsize, hDfun⟩ :=
+    collapse_redundant_set S (Repair.repair G C pick) hRAO hRclean hred
+  refine ⟨D, hDAO, hDclean, ?_, hDfun⟩
+  have hcard : S.card + R.card = T.card := Finset.card_sdiff_add_card_eq_card hRT
+  change D.size + T.card = C.size + (T.image label).card
+  omega
+
+lemma collapse_all_dirty_labels {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (pick : ℕ → Fin n × Fin n)
+    (hpick : ∀ i < C.gates.length, Repair.dirty G C i → G.Adj (pick i).1 (pick i).2) :
+    let T := @Finset.filter ℕ (Repair.dirty G C)
+      (fun k => Classical.propDecidable (Repair.dirty G C k)) (Finset.range C.gates.length)
+    ∃ D : Circuit, IsAO2 n D ∧
+      (∀ i < D.gates.length, (gateAt D i).op = GateOp.and → BelowF G D i) ∧
+      D.size + T.card = C.size + (T.image fun k => s((pick k).1, (pick k).2)).card ∧
+      circuitFun n D = circuitFun n (Repair.repair G C pick) := by
+  classical
+  apply collapse_labeled_dirty_set hAO hfun pick hpick
+    ((Finset.range C.gates.length).filter (Repair.dirty G C))
+  intro k hk
+  obtain ⟨hk, hd⟩ := Finset.mem_filter.mp hk
+  exact ⟨Finset.mem_range.mp hk, hd⟩
+
+end Duplicate
+
+
+namespace Completion
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+def addEdge {n : ℕ} (C : Circuit) (u v : Fin n) : Circuit :=
+  ⟨C.gates ++ [⟨GateOp.and, [u.val, v.val]⟩,
+    ⟨GateOp.or, [C.output, n + C.gates.length]⟩], n + C.gates.length + 1⟩
+
+lemma addEdge_size {n : ℕ} (C : Circuit) (u v : Fin n) :
+    (addEdge C u v).size = C.size + 2 := by
+  simp [addEdge, Circuit.size]
+
+lemma addEdge_output {n : ℕ} (C : Circuit) (u v : Fin n) :
+    (addEdge C u v).output < n + (addEdge C u v).gates.length := by
+  simp only [addEdge, List.length_append, List.length_cons, List.length_nil]
+  omega
+
+lemma addEdge_gate_old {n : ℕ} (C : Circuit) (u v : Fin n)
+    {j : ℕ} (hj : j < C.gates.length) : gateAt (addEdge C u v) j = gateAt C j := by
+  simp [gateAt, addEdge, List.getD_eq_getElem?_getD, List.getElem?_append_left hj]
+
+lemma addEdge_gate_new {n : ℕ} (C : Circuit) (u v : Fin n) :
+    gateAt (addEdge C u v) C.gates.length = ⟨GateOp.and, [u.val, v.val]⟩ ∧
+    gateAt (addEdge C u v) (C.gates.length + 1) =
+      ⟨GateOp.or, [C.output, n + C.gates.length]⟩ := by
+  simp [gateAt, addEdge, List.getD_eq_getElem?_getD]
+
+lemma addEdge_ao {n : ℕ} (C : Circuit) (u v : Fin n) (hAO : IsAO2 n C)
+    (ho : C.output < n + C.gates.length) : IsAO2 n (addEdge C u v) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    simp only [addEdge, List.mem_append, List.mem_cons, List.not_mem_nil, or_false] at hg
+    rcases hg with hg | rfl | rfl
+    · exact hAO.1 g hg
+    · exact Or.inl rfl
+    · exact Or.inr rfl
+  · intro j hj i hi
+    have hj' : j < C.gates.length + 2 := by simpa [addEdge] using hj
+    by_cases hlt : j < C.gates.length
+    · rw [addEdge_gate_old C u v hlt] at hi
+      exact hAO.2.1 j hlt i hi
+    · have he : j = C.gates.length ∨ j = C.gates.length + 1 := by omega
+      rcases he with rfl | rfl
+      · rw [(addEdge_gate_new C u v).1] at hi
+        simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+        rcases hi with rfl | rfl <;> omega
+      · rw [(addEdge_gate_new C u v).2] at hi
+        simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+        rcases hi with rfl | rfl <;> omega
+  · intro g hg
+    simp only [addEdge, List.mem_append, List.mem_cons, List.not_mem_nil, or_false] at hg
+    rcases hg with hg | rfl | rfl
+    · exact hAO.2.2 g hg
+    · rfl
+    · rfl
+
+lemma addEdge_val_old {n : ℕ} (C : Circuit) (u v : Fin n) (x : Fin n → Bool)
+    {i : ℕ} (hi : i < n + C.gates.length) :
+    val (addEdge C u v) (List.ofFn x) i = val C (List.ofFn x) i := by
+  change (W (C.gates ++ _) (List.ofFn x)).getD i false = _
+  rw [W_append, W_prefix]
+  · rfl
+  · simpa [W_length] using hi
+
+lemma addEdge_val_new {n : ℕ} (C : Circuit) (u v : Fin n) (x : Fin n → Bool) :
+    gateVal n (addEdge C u v) C.gates.length x = (x u && x v) := by
+  have hj : C.gates.length < (addEdge C u v).gates.length := by simp [addEdge]
+  change val (addEdge C u v) (List.ofFn x) (n + C.gates.length) = _
+  rw [val_gate (by simp) hj, (addEdge_gate_new C u v).1]
+  have hu : u.val < n + C.gates.length := by omega
+  have hv : v.val < n + C.gates.length := by omega
+  simp [GateOp.eval, hu, hv, val_ofFn]
+
+lemma addEdge_fun {n : ℕ} (C : Circuit) (u v : Fin n)
+    (ho : C.output < n + C.gates.length) (x : Fin n → Bool) :
+    circuitFun n (addEdge C u v) x = (circuitFun n C x || (x u && x v)) := by
+  have hj : C.gates.length + 1 < (addEdge C u v).gates.length := by simp [addEdge]
+  change val (addEdge C u v) (List.ofFn x) (n + C.gates.length + 1) = _
+  rw [show n + C.gates.length + 1 = n + (C.gates.length + 1) by omega,
+    val_gate (by simp) hj, (addEdge_gate_new C u v).2]
+  have ho' : C.output < n + (C.gates.length + 1) := by omega
+  have hl : n + C.gates.length < n + (C.gates.length + 1) := by omega
+  simp only [List.map_cons, List.map_nil, ite_eq_left ho', ite_eq_left hl, GateOp.eval,
+    List.any_cons, List.any_nil, id_eq, Bool.or_false]
+  rw [addEdge_val_old C u v x ho]
+  change (circuitFun n C x || gateVal n (addEdge C u v) C.gates.length x) = _
+  rw [addEdge_val_new]
+
+lemma addEdge_clean {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (u v : Fin n) (he : G.Adj u v)
+    (hc : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and → BelowF G C j) :
+    ∀ j < (addEdge C u v).gates.length,
+      (gateAt (addEdge C u v) j).op = GateOp.and → BelowF G (addEdge C u v) j := by
+  intro j hj hop x hx
+  have hj' : j < C.gates.length + 2 := by simpa [addEdge] using hj
+  by_cases hlt : j < C.gates.length
+  · rw [addEdge_gate_old C u v hlt] at hop
+    apply hc j hlt hop x
+    change val C (List.ofFn x) (n+j) = true
+    change val (addEdge C u v) (List.ofFn x) (n+j) = true at hx
+    rwa [addEdge_val_old C u v x (by omega)] at hx
+  · have heq : j = C.gates.length ∨ j = C.gates.length + 1 := by omega
+    rcases heq with rfl | rfl
+    · rw [addEdge_val_new] at hx
+      obtain ⟨hu, hv⟩ : x u = true ∧ x v = true := by simpa using hx
+      exact Repair.graph_true.mpr ⟨u, v, he, hu, hv⟩
+    · rw [(addEdge_gate_new C u v).2] at hop
+      cases hop
+
+
+def addEdges {n : ℕ} (C : Circuit) : List (Fin n × Fin n) → Circuit
+  | [] => C
+  | e :: es => addEdges (addEdge C e.1 e.2) es
+
+lemma addEdges_size {n : ℕ} (C : Circuit) (es : List (Fin n × Fin n)) :
+    (addEdges C es).size = C.size + 2 * es.length := by
+  induction es generalizing C with
+  | nil => simp [addEdges]
+  | cons e es ih =>
+    rw [addEdges, ih, addEdge_size, List.length_cons]
+    omega
+
+lemma addEdges_ao_output {n : ℕ} (C : Circuit) (es : List (Fin n × Fin n))
+    (hAO : IsAO2 n C) (ho : C.output < n + C.gates.length) :
+    IsAO2 n (addEdges C es) ∧ (addEdges C es).output < n + (addEdges C es).gates.length := by
+  induction es generalizing C with
+  | nil => exact ⟨hAO, ho⟩
+  | cons e es ih =>
+    exact ih (addEdge C e.1 e.2) (addEdge_ao C e.1 e.2 hAO ho) (addEdge_output C e.1 e.2)
+
+lemma addEdges_fun {n : ℕ} (C : Circuit) (es : List (Fin n × Fin n))
+    (ho : C.output < n + C.gates.length) (x : Fin n → Bool) :
+    circuitFun n (addEdges C es) x = (circuitFun n C x || es.any (fun e => x e.1 && x e.2)) := by
+  induction es generalizing C with
+  | nil => simp [addEdges]
+  | cons e es ih =>
+    rw [addEdges, ih (addEdge C e.1 e.2) (addEdge_output C e.1 e.2),
+      addEdge_fun C e.1 e.2 ho]
+    simp [Bool.or_assoc]
+
+lemma addEdges_clean {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (es : List (Fin n × Fin n))
+    (he : ∀ e ∈ es, G.Adj e.1 e.2)
+    (hc : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and → BelowF G C j) :
+    ∀ j < (addEdges C es).gates.length,
+      (gateAt (addEdges C es) j).op = GateOp.and → BelowF G (addEdges C es) j := by
+  induction es generalizing C with
+  | nil => exact hc
+  | cons e es ih =>
+    apply ih (addEdge C e.1 e.2)
+    · exact fun e' he' => he e' (List.mem_cons_of_mem e he')
+    · exact addEdge_clean G C e.1 e.2 (he e (by simp)) hc
+
+lemma complete_missing_edges {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (es : List (Fin n × Fin n))
+    (hAO : IsAO2 n C) (ho : C.output < n + C.gates.length)
+    (he : ∀ e ∈ es, G.Adj e.1 e.2)
+    (hsafe : ∀ x, circuitFun n C x = true → graphFun G ∅ x = true)
+    (hc : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and → BelowF G C j)
+    (hcover : ∀ u v : Fin n, G.Adj u v → circuitFun n C (pairInput u v) = true ∨
+      ∃ e ∈ es, s(e.1, e.2) = s(u, v)) :
+    IsAO2 n (addEdges C es) ∧
+      (addEdges C es).size = C.size + 2 * es.length ∧
+      circuitFun n (addEdges C es) = graphFun G ∅ ∧
+      (∀ j < (addEdges C es).gates.length,
+        (gateAt (addEdges C es) j).op = GateOp.and → BelowF G (addEdges C es) j) := by
+  have hD := (addEdges_ao_output C es hAO ho).1
+  refine ⟨hD, addEdges_size C es, ?_, addEdges_clean G C es he hc⟩
+  apply eq_graphFun_of_boundary G _ hD
+  · intro u v huv
+    rw [addEdges_fun C es ho]
+    rcases hcover u v huv with h | ⟨e, heMem, hEq⟩
+    · simp [h]
+    · have hpair : pairInput u v e.1 = true ∧ pairInput u v e.2 = true := by
+        rcases Sym2.eq_iff.mp hEq with ⟨h₁, h₂⟩ | ⟨h₁, h₂⟩ <;> simp [h₁, h₂, pairInput]
+      have hAny : es.any (fun e => pairInput u v e.1 && pairInput u v e.2) = true := by
+        apply List.any_eq_true.mpr
+        exact ⟨e, heMem, by simp [hpair.1, hpair.2]⟩
+      simp [hAny]
+  · intro x hx
+    apply Bool.eq_false_iff.mpr
+    intro h
+    rw [addEdges_fun C es ho] at h
+    have hF : graphFun G ∅ x = true := by
+      rcases Bool.or_eq_true_iff.mp h with h | h
+      · exact hsafe x h
+      · obtain ⟨e, heMem, heVal⟩ := List.any_eq_true.mp h
+        obtain ⟨hu, hv⟩ : x e.1 = true ∧ x e.2 = true := by simpa using heVal
+        exact Repair.graph_true.mpr ⟨e.1, e.2, he e heMem, hu, hv⟩
+    rw [hx.1] at hF
+    cases hF
+
+
+lemma ao2_all_true {n : ℕ} (C : Circuit) (hAO : IsAO2 n C) :
+    ∀ w < n + C.gates.length, val C (List.ofFn (fun _ : Fin n => true)) w = true := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw
+    by_cases hinput : w < n
+    · exact val_ofFn C (fun _ : Fin n => true) ⟨w, hinput⟩
+    · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w-n, by omega⟩
+      have hj : j < C.gates.length := by omega
+      obtain ⟨p, q, hpq⟩ := Frontier.binaryInputs hAO hj
+      have hp : p < n + j := hAO.2.1 j hj p (by simp [hpq])
+      have hq : q < n + j := hAO.2.1 j hj q (by simp [hpq])
+      have hvp := ih p hp (by omega)
+      have hvq := ih q hq (by omega)
+      rw [val_gate (by simp) hj, hpq]
+      rcases hAO.1 _ (gateAt_mem hj) with hop | hop <;>
+        simp only [hop, List.map_cons, List.map_nil, ite_eq_left hp, ite_eq_left hq, hvp, hvq] <;> rfl
+
+lemma output_valid_of_true {n : ℕ} (C : Circuit) (x : Fin n → Bool)
+    (hx : circuitFun n C x = true) : C.output < n + C.gates.length := by
+  by_contra! h
+  have hv := val_ge (C := C) (x := List.ofFn x) (by simp) h
+  change circuitFun n C x = false at hv
+  rw [hv] at hx
+  cases hx
+
+end Completion
+
+
+namespace Cost
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma repair_merge_complete {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (ho : C.output < n + C.gates.length) (pick : ℕ → Fin n × Fin n)
+    (hpick : ∀ i < C.gates.length, Repair.dirty G C i → G.Adj (pick i).1 (pick i).2)
+    (T : Finset ℕ) (hT : ∀ k ∈ T, k < C.gates.length ∧ Repair.dirty G C k)
+    (es : List (Fin n × Fin n)) (he : ∀ e ∈ es, G.Adj e.1 e.2)
+    (hcover : ∀ u v : Fin n, G.Adj u v →
+      circuitFun n (Repair.repair G C pick) (pairInput u v) = true ∨
+      ∃ e ∈ es, s(e.1, e.2) = s(u, v)) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = graphFun G ∅ ∧
+      (∀ i < D.gates.length, (gateAt D i).op = GateOp.and → BelowF G D i) ∧
+      D.size + T.card = C.size + (T.image fun k => s((pick k).1, (pick k).2)).card + 2 * es.length := by
+  obtain ⟨R, hRAO, hRclean, hRsize, hRfun⟩ :=
+    Duplicate.collapse_labeled_dirty_set hAO hfun pick hpick T hT
+  obtain ⟨hPAO, _, hPsafe, _⟩ := Repair.arbitrary_edge_repair hAO hfun pick hpick
+  have hpo : (Repair.repair G C pick).output < n + (Repair.repair G C pick).gates.length := by
+    change C.output < n + (Repair.repair G C pick).gates.length
+    rwa [Repair.repair_len]
+  have hRtrue : circuitFun n R (fun _ => true) = true := by
+    rw [hRfun]
+    exact Completion.ao2_all_true (Repair.repair G C pick) hPAO _ hpo
+  have hRo := Completion.output_valid_of_true R (fun _ => true) hRtrue
+  have hRsafe : ∀ x, circuitFun n R x = true → graphFun G ∅ x = true := by
+    intro x hx
+    rw [hRfun] at hx
+    exact hPsafe x hx
+  have hRcover : ∀ u v : Fin n, G.Adj u v → circuitFun n R (pairInput u v) = true ∨
+      ∃ e ∈ es, s(e.1, e.2) = s(u, v) := by
+    intro u v huv
+    rw [hRfun]
+    exact hcover u v huv
+  obtain ⟨hDAO, hDsize, hDfun, hDclean⟩ :=
+    Completion.complete_missing_edges G R es hRAO hRo he hRsafe hRclean hRcover
+  refine ⟨Completion.addEdges R es, hDAO, hDfun, hDclean, ?_⟩
+  omega
+
+lemma repair_merge_complete_no_larger {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (ho : C.output < n + C.gates.length) (pick : ℕ → Fin n × Fin n)
+    (hpick : ∀ i < C.gates.length, Repair.dirty G C i → G.Adj (pick i).1 (pick i).2)
+    (T : Finset ℕ) (hT : ∀ k ∈ T, k < C.gates.length ∧ Repair.dirty G C k)
+    (es : List (Fin n × Fin n)) (he : ∀ e ∈ es, G.Adj e.1 e.2)
+    (hcover : ∀ u v : Fin n, G.Adj u v →
+      circuitFun n (Repair.repair G C pick) (pairInput u v) = true ∨
+      ∃ e ∈ es, s(e.1, e.2) = s(u, v))
+    (hcost : (T.image fun k => s((pick k).1, (pick k).2)).card + 2 * es.length ≤ T.card) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = graphFun G ∅ ∧ D.size ≤ C.size ∧
+      ∀ i < D.gates.length, (gateAt D i).op = GateOp.and → BelowF G D i := by
+  obtain ⟨D, hDAO, hDfun, hDclean, hDsize⟩ := repair_merge_complete hAO hfun ho pick hpick T hT es he hcover
+  exact ⟨D, hDAO, hDfun, by omega, hDclean⟩
+
+end Cost
+
 end PEqualNP.Outside.L_meta_2583
