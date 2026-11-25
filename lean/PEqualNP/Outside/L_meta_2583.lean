@@ -363,4 +363,172 @@ lemma fano_unique_line :
   decide
 
 
+
+def pg3SatIncidence (p l : Fin 13) : Prop :=
+  (p.val, l.val) ∈ ({(0, 1), (0, 4), (0, 7), (0, 10),
+    (1, 0), (1, 4), (1, 5), (1, 6),
+    (2, 3), (2, 4), (2, 9), (2, 11),
+    (3, 2), (3, 4), (3, 8), (3, 12),
+    (4, 0), (4, 1), (4, 2), (4, 3),
+    (5, 1), (5, 6), (5, 9), (5, 12),
+    (6, 1), (6, 5), (6, 8), (6, 11),
+    (7, 0), (7, 10), (7, 11), (7, 12),
+    (8, 3), (8, 6), (8, 8), (8, 10),
+    (9, 2), (9, 5), (9, 9), (9, 10),
+    (10, 0), (10, 7), (10, 8), (10, 9),
+    (11, 2), (11, 6), (11, 7), (11, 11),
+    (12, 3), (12, 5), (12, 7), (12, 12)} : Finset (ℕ × ℕ))
+
+def pg3SatDecidable : DecidableRel pg3SatIncidence := by
+  intro p l
+  unfold pg3SatIncidence
+  infer_instance
+
+set_option maxRecDepth 8192 in
+lemma pg3Sat_column_cardinality :
+    letI := pg3SatDecidable
+    ∀ l : Fin 13, (Finset.univ.filter (fun p => pg3SatIncidence p l)).card = 3 + 1 := by
+  decide +kernel
+
+set_option maxRecDepth 8192 in
+lemma pg3Sat_unique_line :
+    ∀ p p' : Fin 13, p ≠ p' → ∃! l : Fin 13, pg3SatIncidence p l ∧ pg3SatIncidence p' l := by
+  letI := pg3SatDecidable
+  unfold ExistsUnique
+  decide
+
+def pg3StochasticIncidence (p l : Fin 13) : Prop :=
+  (p.val, l.val) ∈ ({(0, 9), (0, 10), (0, 11), (0, 12),
+    (1, 2), (1, 5), (1, 8), (1, 9),
+    (2, 1), (2, 4), (2, 7), (2, 9),
+    (3, 6), (3, 7), (3, 8), (3, 12),
+    (4, 2), (4, 4), (4, 6), (4, 11),
+    (5, 1), (5, 5), (5, 6), (5, 10),
+    (6, 3), (6, 4), (6, 5), (6, 12),
+    (7, 2), (7, 3), (7, 7), (7, 10),
+    (8, 1), (8, 3), (8, 8), (8, 11),
+    (9, 0), (9, 1), (9, 2), (9, 12),
+    (10, 0), (10, 5), (10, 7), (10, 11),
+    (11, 0), (11, 4), (11, 8), (11, 10),
+    (12, 0), (12, 3), (12, 6), (12, 9)} : Finset (ℕ × ℕ))
+
+def pg3StochasticDecidable : DecidableRel pg3StochasticIncidence := by
+  intro p l
+  unfold pg3StochasticIncidence
+  infer_instance
+
+set_option maxRecDepth 8192 in
+lemma pg3Stochastic_column_cardinality :
+    letI := pg3StochasticDecidable
+    ∀ l : Fin 13, (Finset.univ.filter (fun p => pg3StochasticIncidence p l)).card = 3 + 1 := by
+  decide +kernel
+
+set_option maxRecDepth 8192 in
+lemma pg3Stochastic_unique_line :
+    ∀ p p' : Fin 13, p ≠ p' → ∃! l : Fin 13, pg3StochasticIncidence p l ∧ pg3StochasticIncidence p' l := by
+  letI := pg3StochasticDecidable
+  unfold ExistsUnique
+  decide
+
+def pg3StochasticToSat (p : Fin 13) : Fin 13 :=
+  ([4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 0] : List (Fin 13)).getD p.val 0
+
+lemma pg3StochasticToSat_bijective : Function.Bijective pg3StochasticToSat := by
+  decide +kernel
+
+set_option maxRecDepth 8192 in
+lemma pg3OrdersAgree : ∀ p l : Fin 13,
+    pg3StochasticIncidence p l ↔
+      pg3SatIncidence (pg3StochasticToSat p) (pg3StochasticToSat l) := by
+  letI := pg3SatDecidable
+  letI := pg3StochasticDecidable
+  decide
+
+lemma pg3_order_parameters : 2 ≤ (3 : ℕ) ∧ 13 = 3 ^ 2 + 3 + 1 := by
+  decide +kernel
+
+
+
+def pg3CyclicIncidence (p l : Fin 13) : Prop :=
+  p = l ∨ p = l + 1 ∨ p = l + 3 ∨ p = l + 9
+
+def pg3SatPointToCyclic (p : Fin 13) : Fin 13 :=
+  ([0, 1, 3, 9, 2, 8, 12, 4, 5, 7, 10, 6, 11] : List (Fin 13)).getD p.val 0
+
+lemma pg3SatPointToCyclic_bijective : Function.Bijective pg3SatPointToCyclic := by
+  decide +kernel
+
+def pg3SatLineToCyclic (p : Fin 13) : Fin 13 :=
+  ([1, 12, 6, 2, 0, 11, 5, 10, 9, 7, 4, 3, 8] : List (Fin 13)).getD p.val 0
+
+lemma pg3SatLineToCyclic_bijective : Function.Bijective pg3SatLineToCyclic := by
+  decide +kernel
+
+set_option maxRecDepth 8192 in
+lemma pg3SatCyclicAgree : ∀ p l : Fin 13,
+    pg3SatIncidence p l ↔
+      pg3CyclicIncidence (pg3SatPointToCyclic p) (pg3SatLineToCyclic l) := by
+  letI := pg3SatDecidable
+  unfold pg3CyclicIncidence
+  decide
+
+lemma pg3CyclicDifference : ∀ p l : Fin 13,
+    pg3CyclicIncidence p l ↔ p - l ∈ ({0, 1, 3, 9} : Finset (Fin 13)) := by
+  unfold pg3CyclicIncidence
+  decide +kernel
+
+
+def incidenceEnvelope {m n : ℕ} (I : Fin m → Fin n → Prop) [DecidableRel I]
+    (S : Finset (Fin m)) : Fin (m + n) → Bool :=
+  Fin.addCases (fun p => decide (p ∈ S)) (fun l => decide (∀ p ∈ S, ¬ I p l))
+
+lemma incidence_envelope_complete {m n : ℕ} (I : Fin m → Fin n → Prop) [DecidableRel I]
+    (f : (Fin (m + n) → Bool) → Bool) (hf : Monotone f)
+    (hpos : ∀ p l, I p l →
+      f (fun z => decide (z = Fin.castAdd n p ∨ z = Fin.natAdd m l)) = true)
+    (hneg : ∀ S : Finset (Fin m), f (incidenceEnvelope I S) = false) :
+    ∀ x, f x = decide (∃ p l, I p l ∧ x (Fin.castAdd n p) = true ∧
+      x (Fin.natAdd m l) = true) := by
+  intro x
+  by_cases hx : ∃ p l, I p l ∧ x (Fin.castAdd n p) = true ∧ x (Fin.natAdd m l) = true
+  · obtain ⟨p, l, hpl, hp, hl⟩ := hx
+    have hpair : (fun z => decide (z = Fin.castAdd n p ∨ z = Fin.natAdd m l)) ≤ x := by
+      intro z
+      by_cases hz : z = Fin.castAdd n p ∨ z = Fin.natAdd m l
+      · rcases hz with rfl | rfl <;> simp_all
+      · simp [hz]
+    have htrue : f x = true := Bool.le_iff_imp.mp (hf hpair) (hpos p l hpl)
+    simp [htrue]
+    exact ⟨p, l, hpl, hp, hl⟩
+  · let S : Finset (Fin m) := Finset.univ.filter fun p => x (Fin.castAdd n p) = true
+    have hS (p : Fin m) : p ∈ S ↔ x (Fin.castAdd n p) = true := by simp [S]
+    have henv : x ≤ incidenceEnvelope I S := by
+      intro z
+      refine Fin.addCases (fun p => ?_) (fun l => ?_) z
+      · simp [incidenceEnvelope, hS]
+      · apply Bool.le_iff_imp.mpr
+        intro hl
+        simp only [incidenceEnvelope, Fin.addCases_right, decide_eq_true_eq]
+        intro p hp hpl
+        exact hx ⟨p, l, hpl, (hS p).mp hp, hl⟩
+    have hle := hf henv
+    have hzero := hneg S
+    have hfalse : f x = false := by
+      cases hfx : f x <;> simp_all [Bool.le_iff_imp]
+    simp [hfalse, hx]
+
+
+lemma circuit_incidence_envelope_complete {m n : ℕ}
+    (I : Fin m → Fin n → Prop) [DecidableRel I]
+    (C : PEqualNP.CircuitLowerBounds.Circuit)
+    (hAO : PEqualNP.TopForm.IsAO2 (m + n) C)
+    (hpos : ∀ p l, I p l →
+      PEqualNP.MetaComplexity.circuitFun (m + n) C
+        (fun z => decide (z = Fin.castAdd n p ∨ z = Fin.natAdd m l)) = true)
+    (hneg : ∀ S : Finset (Fin m),
+      PEqualNP.MetaComplexity.circuitFun (m + n) C (incidenceEnvelope I S) = false) :
+    ∀ x, PEqualNP.MetaComplexity.circuitFun (m + n) C x =
+      decide (∃ p l, I p l ∧ x (Fin.castAdd n p) = true ∧ x (Fin.natAdd m l) = true) := by
+  exact incidence_envelope_complete I _ (DominanceErase.circuitFun_monotone hAO.1) hpos hneg
+
 end PEqualNP.Outside.L_meta_2583
