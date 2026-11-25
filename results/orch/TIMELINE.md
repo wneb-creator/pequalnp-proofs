@@ -14,3 +14,6 @@
 - 2026-11-25T08:58:32Z: exact replacement/lower-bound equivalence compiled.
 - 2026-11-25T09:00:10Z: renewed lease; expiry 09:20:10Z.
 - 2026-11-25T09:00:12Z: checkpoint 4 combined; full normalization and exact equivalence compiled individually and independently reviewed. Reassigned direct and decomposition strategies to new algebraic and core-cost attempts.
+- 2026-11-25T09:02:13Z: checkpoint 4 named build completed successfully; lease expiry renewed to 09:22:13Z.
+- 2026-11-25T09:03:00Z: checkpoint 4 pushed, commit 0105c37fee50513148c4c87d1c381646ab56c2f3 (time approximate).
+- 2026-11-25T09:03:23Z: renewed lease; expiry 09:23:23Z. Root reviewed compiled restriction lemma for preservation.

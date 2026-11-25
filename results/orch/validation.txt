@@ -35,3 +35,13 @@ d9642178aa58d892e8c5bbb940e85ce184a1df8512878a28f67dda71f5add5d7.
 Guard finds only absent final theorem; no proof PR or accepted verdict.
 Full named-module build output: build-checkpoint-4.log.
 TIMING total=58 subagents=6
+
+Checkpoint 4 completion: complete build-checkpoint-4.log retained including
+the successful final build line. Compiler-generated trailing whitespace in
+the log is preserved to keep stdout intact. Independent log review passed.
+Root independently reviewed structural_restriction.lean: monotone linear
+OR meet-irreducibility and its maximal-false-input lemma; source conforms
+to import, namespace, forbidden-token and axiom rules. Agent build exit 0,
+complete output in structural-restriction.log. This artifact is additional
+partial work and is not yet appended to the named integration file.
+TIMING total=61 subagents=6
