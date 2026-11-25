@@ -1,4 +1,5 @@
 import PEqualNP.Defs
+import Mathlib.Combinatorics.SimpleGraph.Acyclic
 
 namespace PEqualNP.Outside.L_meta_3566
 
@@ -1286,5 +1287,81 @@ lemma subdivisionK4_cover_minimum :
       PEqualNP.MetaComplexity.CoverPromise.IsVertexCover subdivisionK4 S → 4 ≤ S.card := by
   unfold PEqualNP.MetaComplexity.CoverPromise.IsVertexCover
   decide
+
+namespace LeafOr
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_3566.OrLoss
+
+def OrLower {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] : Prop :=
+  ∀ C : Circuit, IsAO2 n C → circuitFun n C = graphFun G ∅ →
+    G.edgeFinset.card ≤ orCount C.gates + 1
+
+lemma or_lower_small {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hsmall : G.edgeFinset.card ≤ 1) : OrLower G := by
+  intro C hAO hfun
+  omega
+
+lemma adjacent_of_edge_card_pos {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hpos : 0 < G.edgeFinset.card) : ∃ a b : Fin n, G.Adj a b := by
+  obtain ⟨e, he⟩ := Finset.card_pos.mp hpos
+  revert he
+  refine Sym2.ind (fun a b => ?_) e
+  intro he
+  exact ⟨a, b, by simpa using he⟩
+
+lemma leaf_step {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (z : Fin n) (hdeg : G.degree z = 1)
+    (hcut : OrLower (G.deleteEdges (G.incidenceSet z))) : OrLower G := by
+  classical
+  have hcount := PEqualNP.Outside.L_meta_3566.cut_edge_count G z
+  by_cases hzero : (G.deleteEdges (G.incidenceSet z)).edgeFinset.card = 0
+  · exact or_lower_small G (by omega)
+  · have hnonempty := adjacent_of_edge_card_pos (G.deleteEdges (G.incidenceSet z)) (by omega)
+    intro C hAO hfun
+    obtain ⟨D, hD, hF, hOr⟩ := graph_restriction_or_loss G z (by omega) hnonempty C hAO hfun
+    have hbound := hcut D hD hF
+    omega
+
+lemma acyclic_has_leaf {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hacyclic : G.IsAcyclic) (hpos : 0 < G.edgeFinset.card) :
+    ∃ z : Fin n, G.degree z = 1 := by
+  classical
+  obtain ⟨a, b, hab⟩ := adjacent_of_edge_card_pos G hpos
+  let : Nonempty (Fin n) := ⟨a⟩
+  obtain ⟨u, v, p, hp, hmax⟩ := SimpleGraph.Walk.exists_isPath_forall_isPath_length_le_length G
+  have hp' := (SimpleGraph.Path.singleton hab).property
+  have hlen := hmax a b (SimpleGraph.Path.singleton hab).val hp'
+  have hnil : ¬p.Nil := by
+    have hone : (SimpleGraph.Path.singleton hab).val.length = 1 := rfl
+    grind
+  refine ⟨u, ?_⟩
+  rw [SimpleGraph.degree_eq_one_iff_existsUnique_adj]
+  refine ⟨_, p.adj_snd hnil, fun w hadj => ?_⟩
+  apply hacyclic.eq_snd_of_adj_start hp hadj
+  have : ¬(p.cons hadj.symm).IsPath := by grind [SimpleGraph.Walk.length_cons]
+  grind [hp.cons]
+
+lemma forest_or_lower {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hacyclic : G.IsAcyclic) : OrLower G := by
+  classical
+  have hall : ∀ m : ℕ, ∀ (H : SimpleGraph (Fin n)) [DecidableRel H.Adj],
+      H.edgeFinset.card = m → H.IsAcyclic → OrLower H := by
+    intro m
+    induction m using Nat.strong_induction_on with
+    | ind m ih =>
+      intro H hdec hcard hA
+      by_cases hsmall : m ≤ 1
+      · exact or_lower_small H (by omega)
+      · obtain ⟨z, hz⟩ := acyclic_has_leaf H hA (by omega)
+        apply leaf_step H z hz
+        have hcount := PEqualNP.Outside.L_meta_3566.cut_edge_count H z
+        exact ih (H.deleteEdges (H.incidenceSet z)).edgeFinset.card (by omega)
+          (H.deleteEdges (H.incidenceSet z)) rfl
+          (hA.anti (H.deleteEdges_le (H.incidenceSet z)))
+  exact hall _ G rfl hacyclic
+
+end LeafOr
 
 end PEqualNP.Outside.L_meta_3566
