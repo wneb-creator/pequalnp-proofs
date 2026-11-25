@@ -1,0 +1,46 @@
+import took 1.31s
+simp took 143ms
+simp took 146ms
+simp took 128ms
+ring took 380ms
+share common exprs took 407ms
+process pre-definitions took 122ms
+elaboration took 216ms
+type checking took 443ms
+linting took 445ms
+simp took 113ms
+simp took 121ms
+ring took 342ms
+share common exprs took 346ms
+process pre-definitions took 148ms
+elaboration took 198ms
+type checking took 516ms
+linting took 440ms
+cumulative profiling times:
+	attribute application 0.197ms
+	compilation (IR) 0.446ms
+	compilation (LCNF base) 3.54ms
+	compilation (LCNF impure) 2.07ms
+	compilation (LCNF mono) 3.96ms
+	congr simp thm 10ms
+	declTypeLinter 8.48ms
+	dsimp 8.22ms
+	elaboration 634ms
+	fix level params 41.2ms
+	import 1.31s
+	initialization 36.4ms
+	instantiate metavars 206ms
+	interpretation 1.01s
+	let-to-have transformation 0.514ms
+	linting 1.02s
+	module linting 0.0366ms
+	norm_num 66ms
+	parsing 16.2ms
+	process pre-definitions 357ms
+	ring 1.08s
+	share common exprs 891ms
+	simp 2.06s
+	tactic execution 175ms
+	tacticAnalysis 6.75ms
+	type checking 1.29s
+	typeclass inference 322ms

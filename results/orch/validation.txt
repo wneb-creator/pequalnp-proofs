@@ -273,3 +273,7 @@ TIMING total=266.2 subagents=7
 2026-11-25T13:03:51.798830+00:00 FrameGramFactor.lean passed pinned Lean unchanged from independent review: exit0/4.5266s/2,765,914,112-byte peak RSS, source SHA17397e4122277a8b95313458ef1582aeca327ffaeeaecd07dbffe29ee439299c. Six exact symmetric Gram factor identities; assumptions and nonzero cross-product sum remain explicit. This is a partial structural lemma, not the full frame norm implication or target. Full log/status/runner/source preserved and independently checked.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=268.1 subagents=7
+
+2026-11-25T13:04:47.920630+00:00 DenseStarMatrixConstraints.lean passed pinned Lean exit0/10.76s/2.58GB, exact source SHA542090ab049f61c88579f77d277546a9eab0aef54bd31d1ef857fd82d8422f39. Fresh independently reviewed actual permanent coefficient extraction, rank-three quotient identity, flat lower-block exclusion and centered-star kernel. This is the concrete dense-star bridge, with submodule composition separate; full target unresolved. Preserved final and initial full diagnostics.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=269.1 subagents=7

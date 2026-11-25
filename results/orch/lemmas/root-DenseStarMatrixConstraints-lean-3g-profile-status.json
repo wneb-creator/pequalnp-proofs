@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/DenseStarMatrixConstraints.lean",
+  "sha256": "542090ab049f61c88579f77d277546a9eab0aef54bd31d1ef857fd82d8422f39",
+  "source_sha256_after": "542090ab049f61c88579f77d277546a9eab0aef54bd31d1ef857fd82d8422f39",
+  "started_utc": "2026-11-25T13:03:22.890541+00:00",
+  "finished_utc": "2026-11-25T13:03:33.651489+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 2580725760,
+  "seconds": 10.760972988999129,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 120
+}

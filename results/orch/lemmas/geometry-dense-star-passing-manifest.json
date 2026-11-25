@@ -1,0 +1,40 @@
+{
+  "scope": "Checked actual matrix coefficient and quotient/kernel bridge for a dense centered star; final submodule obstruction is assembled separately. Initial failed check preserved; final exit0 source hash matches.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/DenseStarMatrixConstraints.lean",
+      "bytes": 11165,
+      "sha256": "542090ab049f61c88579f77d277546a9eab0aef54bd31d1ef857fd82d8422f39"
+    },
+    {
+      "path": "results/orch/lemmas/DenseStarCoordinates.lean",
+      "bytes": 2904,
+      "sha256": "4844a1472ae2a02f6718c63e2151c46ed61730b40afe090e0c2d4d0f3fb3f2bb"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-dense-star-generate.py",
+      "bytes": 7198,
+      "sha256": "a182c268aae8528afaf6b32c9a3d3d59f273e0b98b6b58dc6181cc60337cbed1"
+    },
+    {
+      "path": "results/orch/lemmas/root-DenseStarMatrixConstraints-lean-3g-profile.log",
+      "bytes": 1049,
+      "sha256": "2d055dd58b50612bf563990c6c5a68bbc99d6e96b783153ffc3737d094b500b7"
+    },
+    {
+      "path": "results/orch/lemmas/root-DenseStarMatrixConstraints-lean-3g-profile-status.json",
+      "bytes": 520,
+      "sha256": "fca0f04858611a9ef948c70ef460844788461dd25a6d936c69bb4fc1791dc83f"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-dense-star-v1-root-DenseStarMatrixConstraints-lean-3g-profile.log",
+      "bytes": 2881,
+      "sha256": "1f4a586ea0c50ee8e816e9f19dd817237437d53fe35dc661251d78bd804d88d7"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-dense-star-v1-root-DenseStarMatrixConstraints-lean-3g-profile-status.json",
+      "bytes": 520,
+      "sha256": "d9c449b581a89c7b21fb99fc002688fa838d409e33870358b0cd73b6b8563d03"
+    }
+  ]
+}

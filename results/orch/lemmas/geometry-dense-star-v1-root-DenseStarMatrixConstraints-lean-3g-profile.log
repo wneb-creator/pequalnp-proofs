@@ -1,0 +1,77 @@
+import took 1.18s
+simp took 150ms
+simp took 114ms
+simp took 107ms
+ring took 401ms
+share common exprs took 442ms
+process pre-definitions took 190ms
+elaboration took 179ms
+type checking took 483ms
+linting took 358ms
+simp took 116ms
+simp took 140ms
+ring took 408ms
+share common exprs took 298ms
+process pre-definitions took 106ms
+elaboration took 201ms
+type checking took 527ms
+linting took 427ms
+/tmp/oec/pequalnp-pilot-79/DenseStarMatrixConstraints.lean:170:96: error: unsolved goals
+M : Matrix (Fin 4) (Fin 4) ℂ
+δ : ℂ
+hl : ∀ (i j : Fin 3), M i.succ j.succ = δ
+hp : ∀ (z : ℂ), (Matrix.of fun i j => 1 + z * M i j).permanent = 24
+hn : ¬δ = 0
+he : 1 + -δ⁻¹ * δ = 0
+h11 : M 1 1 = δ
+h12 : M 1 2 = δ
+h13 : M 1 3 = δ
+h21 : M 2 1 = δ
+h22 : M 2 2 = δ
+h23 : M 2 3 = δ
+h31 : M 3 1 = δ
+h32 : M 3 2 = δ
+h33 : M 3 3 = δ
+hz :
+  ((1 + -(δ⁻¹ * M 0 0)) * (1 + -(δ⁻¹ * δ)) + (1 + -(δ⁻¹ * M 0 1)) * (1 + -(δ⁻¹ * M 1 0))) *
+                ((1 + -(δ⁻¹ * δ)) * (1 + -(δ⁻¹ * δ)) + (1 + -(δ⁻¹ * δ)) * (1 + -(δ⁻¹ * δ))) +
+              ((1 + -(δ⁻¹ * M 0 0)) * (1 + -(δ⁻¹ * δ)) + (1 + -(δ⁻¹ * M 0 2)) * (1 + -(δ⁻¹ * M 1 0))) *
+                ((1 + -(δ⁻¹ * δ)) * (1 + -(δ⁻¹ * δ)) + (1 + -(δ⁻¹ * δ)) * (1 + -(δ⁻¹ * δ))) +
+            ((1 + -(δ⁻¹ * M 0 0)) * (1 + -(δ⁻¹ * δ)) + (1 + -(δ⁻¹ * M 0 3)) * (1 + -(δ⁻¹ * M 1 0))) *
+              ((1 + -(δ⁻¹ * δ)) * (1 + -(δ⁻¹ * δ)) + (1 + -(δ⁻¹ * δ)) * (1 + -(δ⁻¹ * δ))) +
+          ((1 + -(δ⁻¹ * M 0 1)) * (1 + -(δ⁻¹ * δ)) + (1 + -(δ⁻¹ * M 0 2)) * (1 + -(δ⁻¹ * δ))) *
+            ((1 + -(δ⁻¹ * M 2 0)) * (1 + -(δ⁻¹ * δ)) + (1 + -(δ⁻¹ * δ)) * (1 + -(δ⁻¹ * M 3 0))) +
+        ((1 + -(δ⁻¹ * M 0 1)) * (1 + -(δ⁻¹ * δ)) + (1 + -(δ⁻¹ * M 0 3)) * (1 + -(δ⁻¹ * δ))) *
+          ((1 + -(δ⁻¹ * M 2 0)) * (1 + -(δ⁻¹ * δ)) + (1 + -(δ⁻¹ * δ)) * (1 + -(δ⁻¹ * M 3 0))) +
+      ((1 + -(δ⁻¹ * M 0 2)) * (1 + -(δ⁻¹ * δ)) + (1 + -(δ⁻¹ * M 0 3)) * (1 + -(δ⁻¹ * δ))) *
+        ((1 + -(δ⁻¹ * M 2 0)) * (1 + -(δ⁻¹ * δ)) + (1 + -(δ⁻¹ * δ)) * (1 + -(δ⁻¹ * M 3 0))) =
+    24
+⊢ False
+cumulative profiling times:
+	attribute application 0.201ms
+	compilation (IR) 0.297ms
+	compilation (LCNF base) 2.73ms
+	compilation (LCNF impure) 1.62ms
+	compilation (LCNF mono) 3.2ms
+	congr simp thm 9.25ms
+	declTypeLinter 7.74ms
+	dsimp 10.3ms
+	elaboration 570ms
+	fix level params 41.5ms
+	import 1.18s
+	initialization 35.9ms
+	instantiate metavars 200ms
+	interpretation 926ms
+	let-to-have transformation 0.532ms
+	linting 915ms
+	module linting 0.0293ms
+	norm_num 85.7ms
+	parsing 14.7ms
+	process pre-definitions 375ms
+	ring 1.14s
+	share common exprs 855ms
+	simp 1.88s
+	tactic execution 169ms
+	tacticAnalysis 8.51ms
+	type checking 1.28s
+	typeclass inference 312ms
