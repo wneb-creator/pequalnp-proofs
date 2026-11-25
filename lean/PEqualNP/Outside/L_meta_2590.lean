@@ -5785,4 +5785,2515 @@ lemma dirty_wire_mask {D : Dag} (hS : Strict 10 D) {j : ℕ} (hj : j < D.length)
 
 end OnceGeometry
 
+
+namespace OnceResource
+
+lemma mem_values_iff {bits x : ℕ} : x ∈ values bits ↔ x < 64 ∧ bits.testBit x = true := by
+  simp [values]
+
+lemma testBit_singleton_iff {k x : ℕ} : (1 <<< k : ℕ).testBit x = true ↔ k = x := by
+  simp [Nat.shiftLeft_eq, Nat.testBit_two_pow]
+
+lemma testBit_fold_or_iff (xs : List ℕ) (f : ℕ → ℕ) (acc z : ℕ) :
+    (xs.foldl (fun a x => a ||| f x) acc).testBit z = true ↔
+      acc.testBit z = true ∨ ∃ x ∈ xs, (f x).testBit z = true := by
+  induction xs generalizing acc with
+  | nil => simp
+  | cons x xs ih => simp [List.foldl_cons, ih, or_assoc]
+
+lemma testBit_fold_pairs_iff (xs ys : List ℕ) (op : ℕ → ℕ → ℕ) (acc z : ℕ) :
+    (xs.foldl (fun acc x => ys.foldl (fun acc y => acc ||| (1 <<< op x y)) acc) acc).testBit z = true ↔
+      acc.testBit z = true ∨ ∃ x ∈ xs, ∃ y ∈ ys, op x y = z := by
+  induction xs generalizing acc with
+  | nil => simp
+  | cons x xs ih =>
+    simp only [List.foldl_cons, ih, testBit_fold_or_iff, testBit_singleton_iff]
+    simp [or_assoc]
+
+lemma mem_pairMasks_iff {op : ℕ → ℕ → ℕ} {a b z : ℕ} :
+    z ∈ values (pairMasks op a b) ↔
+      z < 64 ∧ ∃ x ∈ values a, ∃ y ∈ values b, op x y = z := by
+  simp [mem_values_iff, pairMasks, testBit_fold_pairs_iff]
+
+lemma mem_pairMasks {op : ℕ → ℕ → ℕ} {a b x y : ℕ}
+    (hx : x ∈ values a) (hy : y ∈ values b) (hxy : op x y < 64) :
+    op x y ∈ values (pairMasks op a b) := by
+  exact mem_pairMasks_iff.mpr ⟨hxy, x, hx, y, hy, rfl⟩
+
+lemma mem_singleton_iff {k x : ℕ} :
+    x ∈ values (1 <<< k) ↔ x < 64 ∧ k = x := by
+  rw [mem_values_iff, testBit_singleton_iff]
+
+lemma mem_singleton {k : ℕ} (hk : k < 64) : k ∈ values (1 <<< k) := by
+  exact mem_singleton_iff.mpr ⟨hk, rfl⟩
+
+lemma or_lt_64 {x y : ℕ} (hx : x < 64) (hy : y < 64) : x ||| y < 64 := by
+  exact Nat.or_lt_two_pow (n := 6) hx hy
+
+lemma mem_addCarrier_of_mem {p k x : ℕ} (hx : x ∈ values p) :
+    x ∈ values (addCarrier p k) := by
+  obtain ⟨hxb, hxt⟩ := mem_values_iff.mp hx
+  apply mem_values_iff.mpr
+  simp [addCarrier, hxb, hxt]
+
+lemma mem_addCarrier_or {p k x : ℕ} (hx : x ∈ values p) (hk : k < 64) :
+    x ||| k ∈ values (addCarrier p k) := by
+  apply mem_values_iff.mpr
+  have hb := or_lt_64 (mem_values_iff.mp hx).1 hk
+  have hm := mem_pairMasks (op := (· ||| ·)) hx (mem_singleton hk) hb
+  have ht := (mem_values_iff.mp hm).2
+  simp [addCarrier, mergePools, hb, ht]
+
+lemma mem_addCarrier_iff {p k z : ℕ} (hk : k < 64) :
+    z ∈ values (addCarrier p k) ↔
+      z ∈ values p ∨ ∃ x ∈ values p, x ||| k = z := by
+  constructor
+  · intro hz
+    obtain ⟨hzb, hzt⟩ := mem_values_iff.mp hz
+    simp only [addCarrier, Nat.testBit_or, Bool.or_eq_true] at hzt
+    rcases hzt with hp | hm
+    · exact Or.inl (mem_values_iff.mpr ⟨hzb, hp⟩)
+    · have hm' : z ∈ values (pairMasks (· ||| ·) p (1 <<< k)) :=
+        mem_values_iff.mpr ⟨hzb, hm⟩
+      obtain ⟨_, x, hx, y, hy, heq⟩ := mem_pairMasks_iff.mp hm'
+      obtain ⟨_, rfl⟩ := mem_singleton_iff.mp hy
+      exact Or.inr ⟨x, hx, heq⟩
+  · rintro (hz | ⟨x, hx, rfl⟩)
+    · exact mem_addCarrier_of_mem hz
+    · exact mem_addCarrier_or hx hk
+
+lemma addCarrier_or_closed {p k : ℕ} (hk : k < 64)
+    (hclosed : ∀ x ∈ values p, ∀ y ∈ values p, x ||| y ∈ values p) :
+    ∀ x ∈ values (addCarrier p k), ∀ y ∈ values (addCarrier p k),
+      x ||| y ∈ values (addCarrier p k) := by
+  intro x hx y hy
+  rcases (mem_addCarrier_iff hk).mp hx with hx | ⟨a, ha, rfl⟩
+  · rcases (mem_addCarrier_iff hk).mp hy with hy | ⟨b, hb, rfl⟩
+    · exact mem_addCarrier_of_mem (hclosed x hx y hy)
+    · rw [← Nat.or_assoc]
+      exact mem_addCarrier_or (hclosed x hx b hb) hk
+  · rcases (mem_addCarrier_iff hk).mp hy with hy | ⟨b, hb, rfl⟩
+    · have heq : (a ||| k) ||| y = (a ||| y) ||| k := by ac_rfl
+      rw [heq]
+      exact mem_addCarrier_or (hclosed a ha y hy) hk
+    · have heq : (a ||| k) ||| (b ||| k) = (a ||| b) ||| (k ||| k) := by ac_rfl
+      rw [heq, Nat.or_self]
+      exact mem_addCarrier_or (hclosed a ha b hb) hk
+
+lemma addCarrier_zero_and_or_closed {p k : ℕ} (hk : k < 64)
+    (hzero : 0 ∈ values p)
+    (hclosed : ∀ x ∈ values p, ∀ y ∈ values p, x ||| y ∈ values p) :
+    0 ∈ values (addCarrier p k) ∧
+      ∀ x ∈ values (addCarrier p k), ∀ y ∈ values (addCarrier p k),
+        x ||| y ∈ values (addCarrier p k) := by
+  exact ⟨mem_addCarrier_of_mem hzero, addCarrier_or_closed hk hclosed⟩
+
+
+lemma live_group_of_unused {used g : ℕ} (hg : g < 4)
+    (hu : (! (used.testBit g)) = true) : live used g = true := by
+  by_cases hzero : g = 0
+  · subst g
+    simpa [live] using hu
+  · simp only [live, ite_eq_right hzero, ite_eq_left hg, hu, Bool.or_true]
+
+lemma live_root_right_of_unused {used loc : ℕ}
+    (hlow : 1 ≤ loc) (hhigh : loc < 4) (hu : (! (used.testBit 0)) = true) :
+    live used loc = true := by
+  have hne : loc ≠ 0 := by omega
+  simp only [live, ite_eq_right hne, ite_eq_left hhigh, hu, Bool.true_or]
+
+lemma live_group_right_of_unused {used g : ℕ}
+    (hlow : 1 ≤ g) (hu : (! (used.testBit g)) = true) :
+    live used (g + 3) = true := by
+  have hne : g + 3 ≠ 0 := by omega
+  have hnot : ¬g + 3 < 4 := by omega
+  simpa [live, hne, hnot] using hu
+
+lemma prune_getD_of_live {s : State} {loc : ℕ}
+    (hloc : loc < 7) (hlive : live s.1 loc = true) :
+    (prune s).2.1.getD loc 1 = s.2.1.getD loc 1 := by
+  simp [prune, List.getD_eq_getElem?_getD, List.getElem?_range hloc, hlive]
+
+lemma prune_group_left {s : State} {g : ℕ}
+    (hg : g < 4) (hu : (! (s.1.testBit g)) = true) :
+    (prune s).2.1.getD g 1 = s.2.1.getD g 1 := by
+  apply prune_getD_of_live (by omega)
+  exact live_group_of_unused hg hu
+
+lemma prune_group_right {s : State} {g : ℕ}
+    (hg : g < 4) (hu : (! (s.1.testBit g)) = true) :
+    rightPool (prune s).2.1 g = rightPool s.2.1 g := by
+  by_cases hzero : g = 0
+  · subst g
+    have h1 := prune_getD_of_live (s := s) (loc := 1) (by decide)
+      (live_root_right_of_unused (by decide) (by decide) hu)
+    have h2 := prune_getD_of_live (s := s) (loc := 2) (by decide)
+      (live_root_right_of_unused (by decide) (by decide) hu)
+    have h3 := prune_getD_of_live (s := s) (loc := 3) (by decide)
+      (live_root_right_of_unused (by decide) (by decide) hu)
+    simp only [rightPool, h1, h2, h3]
+  · have hget := prune_getD_of_live (s := s) (loc := g + 3) (by omega)
+      (live_group_right_of_unused (by omega) hu)
+    simp only [rightPool, ite_eq_right hzero, hget]
+
+lemma prune_group_pairMasks {s : State} {g : ℕ}
+    (hg : g < 4) (hu : (! (s.1.testBit g)) = true) :
+    pairMasks (· &&& ·) ((prune s).2.1.getD g 1) (rightPool (prune s).2.1 g) =
+      pairMasks (· &&& ·) (s.2.1.getD g 1) (rightPool s.2.1 g) := by
+  rw [prune_group_left hg hu, prune_group_right hg hu]
+
+
+lemma sortedInsert_perm (k : ℕ) (xs : List ℕ) :
+    List.Perm (sortedInsert k xs) (k :: xs) := by
+  induction xs with
+  | nil => exact List.Perm.refl _
+  | cons x xs ih =>
+      simp only [sortedInsert]
+      split
+      · exact List.Perm.refl _
+      · exact (List.Perm.cons x ih).trans (List.Perm.swap _ _ _)
+
+lemma zeroSort_perm (xs : List ℕ) : List.Perm (zeroSort xs) xs := by
+  induction xs with
+  | nil => exact List.Perm.refl _
+  | cons x xs ih =>
+      exact (sortedInsert_perm x (zeroSort xs)).trans (List.Perm.cons x ih)
+
+lemma insertZero_perm (k : ℕ) (xs : List ℕ) :
+    List.Perm (insertZero k xs) (k :: xs) :=
+  zeroSort_perm (k :: xs)
+
+lemma mem_sortedInsert (a k : ℕ) (xs : List ℕ) :
+    a ∈ sortedInsert k xs ↔ a = k ∨ a ∈ xs := by
+  rw [(sortedInsert_perm k xs).mem_iff, List.mem_cons]
+
+lemma mem_zeroSort (a : ℕ) (xs : List ℕ) :
+    a ∈ zeroSort xs ↔ a ∈ xs :=
+  (zeroSort_perm xs).mem_iff
+
+lemma mem_insertZero (a k : ℕ) (xs : List ℕ) :
+    a ∈ insertZero k xs ↔ a = k ∨ a ∈ xs := by
+  rw [(insertZero_perm k xs).mem_iff, List.mem_cons]
+
+lemma sortedInsert_length (k : ℕ) (xs : List ℕ) :
+    (sortedInsert k xs).length = xs.length + 1 := by
+  simpa only [List.length_cons] using (sortedInsert_perm k xs).length_eq
+
+lemma zeroSort_length (xs : List ℕ) : (zeroSort xs).length = xs.length :=
+  (zeroSort_perm xs).length_eq
+
+lemma insertZero_length (k : ℕ) (xs : List ℕ) :
+    (insertZero k xs).length = xs.length + 1 := by
+  simpa only [List.length_cons] using (insertZero_perm k xs).length_eq
+
+
+lemma prune_used (s : State) : (prune s).1 = s.1 := rfl
+
+lemma prune_zeros (s : State) : (prune s).2.2.1 = s.2.2.1 := rfl
+
+lemma prune_forked (s : State) : (prune s).2.2.2 = s.2.2.2 := rfl
+
+lemma prune_pool_getD (s : State) (i : ℕ) (hi : i < 7) :
+    (prune s).2.1.getD i 1 = if live s.1 i then s.2.1.getD i 1 else 1 := by
+  change ((List.range 7).map (fun j =>
+    if live s.1 j then s.2.1.getD j 1 else 1)).getD i 1 = _
+  simp only [List.getD_eq_getElem?_getD, List.getElem?_map,
+    List.getElem?_range hi, Option.map_some, Option.getD_some]
+
+lemma prune_idempotent (s : State) : prune (prune s) = prune s := by
+  refine Prod.ext rfl (Prod.ext ?_ rfl)
+  change (List.range 7).map (fun i =>
+    if live s.1 i then (prune s).2.1.getD i 1 else 1) =
+      (List.range 7).map (fun i => if live s.1 i then s.2.1.getD i 1 else 1)
+  apply List.map_congr_left
+  intro i hi
+  rw [prune_pool_getD s i (List.mem_range.mp hi)]
+  split <;> rfl
+
+lemma prune_pools_congr (s t : State) (hused : s.1 = t.1)
+    (hpools : s.2.1 = t.2.1) : (prune s).2.1 = (prune t).2.1 := by
+  change (List.range 7).map (fun i => if live s.1 i then s.2.1.getD i 1 else 1) =
+    (List.range 7).map (fun i => if live t.1 i then t.2.1.getD i 1 else 1)
+  rw [hused, hpools]
+
+
+lemma groupNext_mem_successors {s t : State} (h : t ∈ groupNext s) :
+    t ∈ successors s := by
+  simp only [successors, List.mem_append, h, true_or]
+
+lemma forkNext_mem_successors {s t : State} (h : t ∈ forkNext s) :
+    t ∈ successors s := by
+  simp only [successors, List.mem_append, h, true_or, or_true]
+
+lemma liftNext_mem_successors {s t : State} (h : t ∈ liftNext s) :
+    t ∈ successors s := by
+  simp only [successors, List.mem_append, h, true_or, or_true]
+
+lemma discardNext_mem_successors {s t : State} (h : t ∈ discardNext s) :
+    t ∈ successors s := by
+  simp only [successors, List.mem_append, h, true_or, or_true]
+
+lemma combineNext_mem_successors {s t : State} (h : t ∈ combineNext s) :
+    t ∈ successors s := by
+  simp only [successors, List.mem_append, h, or_true]
+
+lemma group_successor {s : State} {g k : ℕ}
+    (hg : g < 4) (hunused : s.1.testBit g = false)
+    (hk : k ∈ values (pairMasks (· &&& ·) (s.2.1.getD g 1) (rightPool s.2.1 g)))
+    (hkn : k ≠ 0) :
+    prune (s.1 ||| (1 <<< g), s.2.1, insertZero k s.2.2.1, s.2.2.2) ∈ successors s := by
+  apply groupNext_mem_successors
+  apply List.mem_flatMap.mpr
+  refine ⟨g, List.mem_range.mpr hg, ?_⟩
+  simp only [hunused, Bool.false_eq_true, ↓reduceIte]
+  apply List.mem_filterMap.mpr
+  exact ⟨k, hk, by simp [hkn]⟩
+
+lemma fork_successor {s : State} {k : ℕ}
+    (hk : k ∈ s.2.2.1) (hf : s.2.2.2 = false) :
+    prune (s.1, s.2.1, insertZero k s.2.2.1, true) ∈ successors s := by
+  apply forkNext_mem_successors
+  simp only [forkNext, hf, Bool.false_eq_true, ↓reduceIte]
+  exact List.mem_map.mpr ⟨k, hk, rfl⟩
+
+lemma lift_successor {s : State} {k loc : ℕ}
+    (hk : k ∈ s.2.2.1) (hloc : loc < 7) (hlive : live s.1 loc = true)
+    (hchange : addCarrier (s.2.1.getD loc 1) k ≠ s.2.1.getD loc 1) :
+    prune (s.1, s.2.1.set loc (addCarrier (s.2.1.getD loc 1) k),
+      s.2.2.1.erase k, s.2.2.2) ∈ successors s := by
+  apply liftNext_mem_successors
+  apply List.mem_flatMap.mpr
+  refine ⟨k, hk, ?_⟩
+  apply List.mem_filterMap.mpr
+  exact ⟨loc, List.mem_range.mpr hloc, by simp only [hlive, hchange, ↓reduceIte]⟩
+
+lemma discard_successor {s : State} {k : ℕ} (hk : k ∈ s.2.2.1) :
+    prune (s.1, s.2.1, s.2.2.1.erase k, s.2.2.2) ∈ successors s := by
+  apply discardNext_mem_successors
+  exact List.mem_map.mpr ⟨k, hk, rfl⟩
+
+lemma combine_successor {s : State} {a b k : ℕ}
+    (ha : a ∈ s.2.2.1) (hb : b ∈ s.2.2.1.erase a)
+    (hk : k = a &&& b ∨ k = a ||| b) (hkn : k ≠ 0) :
+    prune (s.1, s.2.1, insertZero k ((s.2.2.1.erase a).erase b), s.2.2.2) ∈ successors s := by
+  apply combineNext_mem_successors
+  apply List.mem_flatMap.mpr
+  refine ⟨a, ha, ?_⟩
+  apply List.mem_flatMap.mpr
+  refine ⟨b, hb, ?_⟩
+  apply List.mem_filterMap.mpr
+  refine ⟨k, ?_, by simp [hkn]⟩
+  simpa only [List.mem_cons, List.not_mem_nil, or_false] using hk
+
+lemma reachable_of_eq_or_successor {s t : State}
+    (h : t = s ∨ t ∈ successors s) :
+    Relation.ReflTransGen (fun a b : State => b ∈ successors a) s t := by
+  rcases h with rfl | h
+  · exact Relation.ReflTransGen.refl
+  · exact Relation.ReflTransGen.single h
+
+
+lemma set_getD_self (xs : List ℕ) (i d : ℕ) : xs.set i (xs.getD i d) = xs := by
+  induction xs generalizing i with
+  | nil => rfl
+  | cons x xs ih =>
+    cases i with
+    | zero => rfl
+    | succ i => exact congrArg (List.cons x) (ih i)
+
+lemma lift_successor_or_discard {s : State} {k loc : ℕ}
+    (hk : k ∈ s.2.2.1) (hloc : loc < 7) (hlive : live s.1 loc = true) :
+    prune (s.1, s.2.1.set loc (addCarrier (s.2.1.getD loc 1) k),
+      s.2.2.1.erase k, s.2.2.2) ∈ successors s := by
+  by_cases hchange : addCarrier (s.2.1.getD loc 1) k = s.2.1.getD loc 1
+  · rw [hchange, set_getD_self]
+    exact discard_successor hk
+  · exact lift_successor hk hloc hlive hchange
+
+lemma lift_reachable {s : State} {k loc : ℕ}
+    (hk : k ∈ s.2.2.1) (hloc : loc < 7) (hlive : live s.1 loc = true) :
+    Relation.ReflTransGen (fun a b : State => b ∈ successors a) s
+      (prune (s.1, s.2.1.set loc (addCarrier (s.2.1.getD loc 1) k),
+        s.2.2.1.erase k, s.2.2.2)) :=
+  Relation.ReflTransGen.single (lift_successor_or_discard hk hloc hlive)
+
+
+namespace ZeroTransitions
+
+def token (k : ℕ) : Multiset ℕ := if k = 0 then 0 else {k}
+
+lemma mem_of_zero_eq {zs : List ℕ} {a : ℕ} {rest : Multiset ℕ}
+    (hz : (zs : Multiset ℕ) = {a} + rest) : a ∈ zs := by
+  change a ∈ (zs : Multiset ℕ)
+  rw [hz]
+  simp
+
+lemma erase_of_zero_eq {zs : List ℕ} {a : ℕ} {rest : Multiset ℕ}
+    (hz : (zs : Multiset ℕ) = {a} + rest) :
+    (zs.erase a : Multiset ℕ) = rest := by
+  change (zs : Multiset ℕ).erase a = rest
+  rw [hz]
+  simp
+
+lemma coe_insertZero (k : ℕ) (zs : List ℕ) :
+    (insertZero k zs : Multiset ℕ) = {k} + (zs : Multiset ℕ) := by
+  change (insertZero k zs : Multiset ℕ) = ((k :: zs : List ℕ) : Multiset ℕ)
+  exact Quot.sound (insertZero_perm k zs)
+
+lemma discard_one {s : State} {a : ℕ} {rest : Multiset ℕ}
+    (hz : (s.2.2.1 : Multiset ℕ) = {a} + rest) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) s t ∧
+      (t.2.2.1 : Multiset ℕ) = rest ∧ t.1 = s.1 ∧ t.2.2.2 = s.2.2.2 ∧
+      t.2.1 = (prune s).2.1 := by
+  refine ⟨prune (s.1, s.2.1, s.2.2.1.erase a, s.2.2.2),
+    Relation.ReflTransGen.single (discard_successor (mem_of_zero_eq hz)),
+    erase_of_zero_eq hz, rfl, rfl, rfl⟩
+
+lemma discard_two {s : State} {a b : ℕ} {rest : Multiset ℕ}
+    (hz : (s.2.2.1 : Multiset ℕ) = {a} + {b} + rest) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) s t ∧
+      (t.2.2.1 : Multiset ℕ) = rest ∧ t.1 = s.1 ∧ t.2.2.2 = s.2.2.2 ∧
+      t.2.1 = (prune s).2.1 := by
+  have hz' : (s.2.2.1 : Multiset ℕ) = {a} + ({b} + rest) := by
+    simpa only [Multiset.add_assoc] using hz
+  have ha := mem_of_zero_eq hz'
+  have hz1 := erase_of_zero_eq hz'
+  have hb := mem_of_zero_eq hz1
+  have hz2 := erase_of_zero_eq hz1
+  let t1 : State := prune (s.1, s.2.1, s.2.2.1.erase a, s.2.2.2)
+  let t2 : State := prune (s.1, s.2.1, (s.2.2.1.erase a).erase b, s.2.2.2)
+  have h1 : t1 ∈ successors s := discard_successor ha
+  have h2 : t2 ∈ successors t1 := by
+    have hh := discard_successor (s := t1) (k := b) hb
+    change prune (prune (s.1, s.2.1, (s.2.2.1.erase a).erase b, s.2.2.2)) ∈
+      successors t1 at hh
+    rw [prune_idempotent] at hh
+    exact hh
+  exact ⟨t2, (Relation.ReflTransGen.single h1).trans (Relation.ReflTransGen.single h2),
+    hz2, rfl, rfl, rfl⟩
+
+lemma combine_nonzero {s : State} {a b k : ℕ} {rest : Multiset ℕ}
+    (hz : (s.2.2.1 : Multiset ℕ) = {a} + {b} + rest)
+    (hop : k = a &&& b ∨ k = a ||| b) (hk : k ≠ 0) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) s t ∧
+      (t.2.2.1 : Multiset ℕ) = {k} + rest ∧ t.1 = s.1 ∧ t.2.2.2 = s.2.2.2 ∧
+      t.2.1 = (prune s).2.1 := by
+  have hz' : (s.2.2.1 : Multiset ℕ) = {a} + ({b} + rest) := by
+    simpa only [Multiset.add_assoc] using hz
+  have ha := mem_of_zero_eq hz'
+  have hz1 := erase_of_zero_eq hz'
+  have hb := mem_of_zero_eq hz1
+  have hz2 := erase_of_zero_eq hz1
+  refine ⟨prune (s.1, s.2.1, insertZero k ((s.2.2.1.erase a).erase b), s.2.2.2),
+    Relation.ReflTransGen.single (combine_successor ha hb hop hk), ?_, rfl, rfl, rfl⟩
+  change (insertZero k ((s.2.2.1.erase a).erase b) : Multiset ℕ) = {k} + rest
+  rw [coe_insertZero, hz2]
+
+lemma zero_binary {s : State} (a b : ℕ) (isAnd : Bool) (rest : Multiset ℕ)
+    (hz : (s.2.2.1 : Multiset ℕ) = token a + token b + rest) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) s t ∧
+      (t.2.2.1 : Multiset ℕ) = token (if isAnd then a &&& b else a ||| b) + rest ∧
+      t.1 = s.1 ∧ t.2.2.2 = s.2.2.2 ∧
+      (t.2.1 = s.2.1 ∨ t.2.1 = (prune s).2.1) := by
+  by_cases ha : a = 0
+  · subst a
+    cases isAnd
+    · refine ⟨s, Relation.ReflTransGen.refl, ?_, rfl, rfl, Or.inl rfl⟩
+      simpa [token] using hz
+    · by_cases hb : b = 0
+      · subst b
+        refine ⟨s, Relation.ReflTransGen.refl, ?_, rfl, rfl, Or.inl rfl⟩
+        simpa [token] using hz
+      · have hz' : (s.2.2.1 : Multiset ℕ) = {b} + rest := by simpa [token, hb] using hz
+        obtain ⟨t, hr, ht, hu, hf, hp⟩ := discard_one hz'
+        exact ⟨t, hr, by simpa [token] using ht, hu, hf, Or.inr hp⟩
+  · by_cases hb : b = 0
+    · subst b
+      cases isAnd
+      · refine ⟨s, Relation.ReflTransGen.refl, ?_, rfl, rfl, Or.inl rfl⟩
+        simpa [token] using hz
+      · have hz' : (s.2.2.1 : Multiset ℕ) = {a} + rest := by simpa [token, ha] using hz
+        obtain ⟨t, hr, ht, hu, hf, hp⟩ := discard_one hz'
+        exact ⟨t, hr, by simpa [token] using ht, hu, hf, Or.inr hp⟩
+    · have hz' : (s.2.2.1 : Multiset ℕ) = {a} + {b} + rest := by
+        simpa [token, ha, hb] using hz
+      let k := if isAnd then a &&& b else a ||| b
+      by_cases hk : k = 0
+      · obtain ⟨t, hr, ht, hu, hf, hp⟩ := discard_two hz'
+        refine ⟨t, hr, ?_, hu, hf, Or.inr hp⟩
+        change (t.2.2.1 : Multiset ℕ) = token k + rest
+        rw [hk]
+        simpa [token] using ht
+      · have hop : k = a &&& b ∨ k = a ||| b := by cases isAnd <;> simp [k]
+        obtain ⟨t, hr, ht, hu, hf, hp⟩ := combine_nonzero hz' hop hk
+        refine ⟨t, hr, ?_, hu, hf, Or.inr hp⟩
+        change (t.2.2.1 : Multiset ℕ) = token k + rest
+        simpa [token, hk] using ht
+
+end ZeroTransitions
+
+
+end OnceResource
+
+namespace OncePositive
+
+open OnceResource OnceGeometry
+
+abbrev Pools := Fin 7 → ℕ
+
+def or7 (f : Fin 7 → ℕ) : ℕ :=
+  f 0 ||| f 1 ||| f 2 ||| f 3 ||| f 4 ||| f 5 ||| f 6
+
+def PoolsGood (P : Pools) : Prop := ∀ i,
+  0 ∈ values (P i) ∧ ∀ a ∈ values (P i), ∀ b ∈ values (P i), a ||| b ∈ values (P i)
+
+def Witness (P : Pools) (L : Finset (Fin 7)) (f : Fin 7 → ℕ) : Prop :=
+  ∀ i, f i ∈ values (P i) ∧ (i ∉ L → f i = 0)
+
+def Rep (used : ℕ) (P : Pools) (S : Finset (Fin 10)) (m : ℕ) : Prop :=
+  ∀ (g : Fin 4) (b : Bool), used.testBit g.val = false → S ⊆ port g b →
+    ∃ f, Witness P (locations g b) f ∧ m = rawMask S ||| or7 f
+
+def liftPool (P : Pools) (loc : Fin 7) (k : ℕ) : Pools :=
+  Function.update P loc (addCarrier (P loc) k)
+
+lemma or7_or (f h : Fin 7 → ℕ) :
+    or7 (fun i => f i ||| h i) = or7 f ||| or7 h := by
+  dsimp only [or7]
+  ac_rfl
+
+lemma or7_update (f : Fin 7 → ℕ) (loc : Fin 7) (k : ℕ) :
+    or7 (Function.update f loc (f loc ||| k)) = or7 f ||| k := by
+  fin_cases loc <;> simp [or7, Function.update]
+  all_goals
+    generalize f (0 : Fin 7) = x0
+    generalize f (1 : Fin 7) = x1
+    generalize f (2 : Fin 7) = x2
+    generalize f (3 : Fin 7) = x3
+    generalize f (4 : Fin 7) = x4
+    generalize f (5 : Fin 7) = x5
+    generalize f (6 : Fin 7) = x6
+    ac_rfl
+
+lemma rep_raw {used : ℕ} {P : Pools} (hp : PoolsGood P) (S : Finset (Fin 10)) :
+    Rep used P S (rawMask S) := by
+  intro g b _ _
+  refine ⟨fun _ => 0, ?_, ?_⟩
+  · exact fun i => ⟨(hp i).1, fun _ => rfl⟩
+  · simp [or7]
+
+lemma rep_or {used : ℕ} {P : Pools} (hp : PoolsGood P)
+    {S T : Finset (Fin 10)} {a b : ℕ} (ha : Rep used P S a) (hb : Rep used P T b) :
+    Rep used P (S ∪ T) (a ||| b) := by
+  intro g side hu hST
+  have hS : S ⊆ port g side := fun v hv => hST (Finset.mem_union_left _ hv)
+  have hT : T ⊆ port g side := fun v hv => hST (Finset.mem_union_right _ hv)
+  obtain ⟨f, hf, ha⟩ := ha g side hu hS
+  obtain ⟨h, hh, hb⟩ := hb g side hu hT
+  refine ⟨fun i => f i ||| h i, ?_, ?_⟩
+  · intro i
+    refine ⟨(hp i).2 _ (hf i).1 _ (hh i).1, ?_⟩
+    intro hi
+    change f i ||| h i = 0
+    rw [(hf i).2 hi, (hh i).2 hi]
+    rfl
+  · rw [ha, hb, rawMask_union, or7_or]
+    ac_rfl
+
+lemma rep_mono {used : ℕ} {P Q : Pools} {S : Finset (Fin 10)} {m : ℕ}
+    (hPQ : ∀ i x, x ∈ values (P i) → x ∈ values (Q i))
+    (h : Rep used P S m) : Rep used Q S m := by
+  intro g b hg hS
+  obtain ⟨f, hf, hm⟩ := h g b hg hS
+  exact ⟨f, fun i => ⟨hPQ i _ (hf i).1, (hf i).2⟩, hm⟩
+
+lemma liftPool_mono (P : Pools) (loc : Fin 7) (k : ℕ) :
+    ∀ i x, x ∈ values (P i) → x ∈ values (liftPool P loc k i) := by
+  intro i x hx
+  by_cases hi : i = loc
+  · subst i
+    simpa [liftPool] using mem_addCarrier_of_mem (k := k) hx
+  · simpa [liftPool, hi] using hx
+
+lemma poolsGood_lift {P : Pools} (hp : PoolsGood P) (loc : Fin 7) {k : ℕ} (hk : k < 64) :
+    PoolsGood (liftPool P loc k) := by
+  intro i
+  by_cases hi : i = loc
+  · subst i
+    simpa [liftPool] using addCarrier_zero_and_or_closed hk (hp loc).1 (hp loc).2
+  · simpa [liftPool, hi] using hp i
+
+lemma rep_lift {used : ℕ} {P : Pools} {S : Finset (Fin 10)} {m k : ℕ}
+    (h : Rep used P S m) (hk : k < 64) {v : Fin 10} (hv : v ∈ S) :
+    Rep used (liftPool P (vertexClass v) k) S (m ||| k) := by
+  intro g b hg hS
+  have hvL := support_class hS hv
+  obtain ⟨f, hf, hm⟩ := h g b hg hS
+  refine ⟨Function.update f (vertexClass v) (f (vertexClass v) ||| k), ?_, ?_⟩
+  · intro i
+    by_cases hi : i = vertexClass v
+    · subst i
+      constructor
+      · simpa [liftPool] using mem_addCarrier_or (hf (vertexClass v)).1 hk
+      · intro hnot
+        exact False.elim (hnot hvL)
+    · simpa [liftPool, Function.update_apply, hi] using hf i
+  · rw [or7_update, hm]
+    ac_rfl
+
+lemma rep_restrict_pools {old new : ℕ} {P Q : Pools} {S : Finset (Fin 10)} {m : ℕ}
+    (hgroups : ∀ g : Fin 4, new.testBit g.val = false → old.testBit g.val = false)
+    (hzero : ∀ i, 0 ∈ values (Q i))
+    (hpools : ∀ (g : Fin 4) (b : Bool), new.testBit g.val = false →
+      ∀ i ∈ locations g b, Q i = P i)
+    (h : Rep old P S m) : Rep new Q S m := by
+  intro g b hg hS
+  obtain ⟨f, hf, hm⟩ := h g b (hgroups g hg) hS
+  refine ⟨f, ?_, hm⟩
+  intro i
+  refine ⟨?_, (hf i).2⟩
+  by_cases hi : i ∈ locations g b
+  · rw [hpools g b hg i hi]
+    exact (hf i).1
+  · rw [(hf i).2 hi]
+    exact hzero i
+
+end OncePositive
+
+
+namespace OncePositive
+
+open OnceResource OnceGeometry
+
+def rightChoices (P : Pools) (g : Fin 4) : ℕ :=
+  match g.val with
+  | 0 => mergePools (mergePools (P 1) (P 2)) (P 3)
+  | 1 => mergePools (1 <<< 25) (P 4)
+  | 2 => mergePools (1 <<< 42) (P 5)
+  | _ => mergePools (1 <<< 52) (P 6)
+
+def portChoices (P : Pools) (g : Fin 4) (b : Bool) : ℕ :=
+  if b then rightChoices P g else P ⟨g.val, by omega⟩
+
+def poolView (ps : List ℕ) : Pools := fun i => ps.getD i.val 1
+
+lemma portChoices_view (ps : List ℕ) (g : Fin 4) (b : Bool) :
+    portChoices (poolView ps) g b =
+      if b then rightPool ps g.val else ps.getD g.val 1 := by
+  fin_cases g <;> cases b <;> rfl
+
+lemma or7_filtered {L : Finset (Fin 7)} {f : Fin 7 → ℕ}
+    (hf : ∀ i, i ∉ L → f i = 0) :
+    or7 f = or7 (fun i => if i ∈ L then f i else 0) := by
+  congr 1
+  funext i
+  by_cases hi : i ∈ L
+  · simp [hi]
+  · simp [hi, hf i hi]
+
+lemma merge_mem {p q a b : ℕ} (ha : a ∈ values p) (hb : b ∈ values q) :
+    a ||| b ∈ values (mergePools p q) := by
+  exact mem_pairMasks ha hb (or_lt_64 (mem_values_iff.mp ha).1 (mem_values_iff.mp hb).1)
+
+lemma portChoices_membership (P : Pools) (g : Fin 4) (b : Bool) (f : Fin 7 → ℕ)
+    (hf : ∀ i, f i ∈ values (P i)) :
+    rawMask (port g b) ||| or7 (fun i => if i ∈ locations g b then f i else 0) ∈
+      values (portChoices P g b) := by
+  rw [rawMask_port]
+  fin_cases g <;> cases b
+  · simpa [portChoices, locations, or7] using hf 0
+  · simpa [portChoices, rightChoices, locations, or7, basis] using
+      merge_mem (merge_mem (hf 1) (hf 2)) (hf 3)
+  · simpa [portChoices, locations, or7] using hf 1
+  · simpa [portChoices, rightChoices, locations, or7, basis] using
+      merge_mem (mem_singleton (by decide : 25 < 64)) (hf 4)
+  · simpa [portChoices, locations, or7] using hf 2
+  · simpa [portChoices, rightChoices, locations, or7, basis] using
+      merge_mem (mem_singleton (by decide : 42 < 64)) (hf 5)
+  · simpa [portChoices, locations, or7] using hf 3
+  · simpa [portChoices, rightChoices, locations, or7, basis] using
+      merge_mem (mem_singleton (by decide : 52 < 64)) (hf 6)
+
+lemma rep_port_mem {used : ℕ} {P : Pools} {g : Fin 4} {b : Bool} {m : ℕ}
+    (h : Rep used P (port g b) m) (hu : used.testBit g.val = false) :
+    m ∈ values (portChoices P g b) := by
+  obtain ⟨f, hf, hm⟩ := h g b hu (Finset.Subset.refl _)
+  rw [hm, or7_filtered (fun i => (hf i).2)]
+  exact portChoices_membership P g b f (fun i => (hf i).1)
+
+lemma group_candidate {used : ℕ} {P : Pools} {g : Fin 4} {a b : ℕ}
+    (ha : Rep used P (port g false) a) (hb : Rep used P (port g true) b)
+    (hu : used.testBit g.val = false) (hab : a &&& b < 64) :
+    a &&& b ∈ values (pairMasks (· &&& ·) (P ⟨g.val, by omega⟩) (rightChoices P g)) := by
+  have hleft := rep_port_mem ha hu
+  have hright := rep_port_mem hb hu
+  exact mem_pairMasks hleft hright hab
+
+end OncePositive
+
+
+namespace OncePositive
+
+open OnceResource OnceGeometry
+
+lemma poolView_prune (s : State) (i : Fin 7) :
+    poolView (prune s).2.1 i = if live s.1 i.val then poolView s.2.1 i else 1 := by
+  simp [poolView, prune, List.getD_eq_getElem?_getD]
+
+lemma prune_pools_length (s : State) : (prune s).2.1.length = 7 := by
+  simp [prune]
+
+lemma mem_values_one_iff {x : ℕ} : x ∈ values 1 ↔ x = 0 := by
+  rw [mem_values_iff, Nat.testBit_one_eq_true_iff_self_eq_zero]
+  constructor
+  · exact And.right
+  · intro h
+    subst x
+    exact ⟨by decide, rfl⟩
+
+lemma one_pool_good :
+    0 ∈ values 1 ∧ ∀ a ∈ values 1, ∀ b ∈ values 1, a ||| b ∈ values 1 := by
+  constructor
+  · exact mem_values_one_iff.mpr rfl
+  · intro a ha b hb
+    obtain rfl := mem_values_one_iff.mp ha
+    obtain rfl := mem_values_one_iff.mp hb
+    exact mem_values_one_iff.mpr rfl
+
+lemma poolsGood_prune {s : State} (hp : PoolsGood (poolView s.2.1)) :
+    PoolsGood (poolView (prune s).2.1) := by
+  intro i
+  rw [poolView_prune]
+  split
+  · exact hp i
+  · exact one_pool_good
+
+lemma rep_prune {s : State} {S : Finset (Fin 10)} {m : ℕ}
+    (hu : s.1 < 16) (hp : PoolsGood (poolView s.2.1))
+    (h : Rep s.1 (poolView s.2.1) S m) :
+    Rep (prune s).1 (poolView (prune s).2.1) S m := by
+  apply rep_restrict_pools (fun _ hg => hg) (fun i => (poolsGood_prune hp i).1) ?_ h
+  intro g b hg i hi
+  rw [poolView_prune, port_locations_live hu hg b hi]
+  rfl
+
+lemma unused_of_or_unused {used extra i : ℕ}
+    (h : (used ||| extra).testBit i = false) : used.testBit i = false := by
+  rw [Nat.testBit_or] at h
+  exact (Bool.or_eq_false_iff.mp h).1
+
+lemma mark_used_lt {used : ℕ} (hu : used < 16) (g : Fin 4) :
+    used ||| (1 <<< g.val) < 16 := by
+  have hg : (1 <<< g.val : ℕ) < 16 := by fin_cases g <;> decide
+  exact Nat.or_lt_two_pow (n := 4) hu hg
+
+lemma rep_mark {used : ℕ} {P : Pools} {S : Finset (Fin 10)} {m : ℕ}
+    (h : Rep used P S m) (g : Fin 4) : Rep (used ||| (1 <<< g.val)) P S m := by
+  intro g' b hg hS
+  exact h g' b (unused_of_or_unused hg) hS
+
+lemma rep_mark_prune {used : ℕ} {ps : List ℕ} {S : Finset (Fin 10)} {m : ℕ}
+    (hu : used < 16) (hp : PoolsGood (poolView ps)) (h : Rep used (poolView ps) S m)
+    (g : Fin 4) (zs : List ℕ) (forked : Bool) :
+    Rep (used ||| (1 <<< g.val))
+      (poolView (prune (used ||| (1 <<< g.val), ps, zs, forked)).2.1) S m := by
+  exact rep_prune (s := (used ||| (1 <<< g.val), ps, zs, forked))
+    (mark_used_lt hu g) hp (rep_mark h g)
+
+lemma poolView_set {ps : List ℕ} (hlen : ps.length = 7) (loc : Fin 7) (k : ℕ) :
+    poolView (ps.set loc.val (addCarrier (ps.getD loc.val 1) k)) =
+      liftPool (poolView ps) loc k := by
+  funext i
+  by_cases hi : i = loc
+  · subst i
+    have hb : loc.val < ps.length := by simpa only [hlen] using loc.isLt
+    simp [poolView, liftPool, List.getD_eq_getElem?_getD, List.getElem?_set_self hb]
+  · have hne : loc.val ≠ i.val := fun h => hi (Fin.ext h.symm)
+    simp [poolView, liftPool, hi, List.getD_eq_getElem?_getD, List.getElem?_set_ne hne]
+
+lemma poolsGood_set {ps : List ℕ} (hlen : ps.length = 7)
+    (hp : PoolsGood (poolView ps)) (loc : Fin 7) {k : ℕ} (hk : k < 64) :
+    PoolsGood (poolView (ps.set loc.val (addCarrier (ps.getD loc.val 1) k))) := by
+  rw [poolView_set hlen]
+  exact poolsGood_lift hp loc hk
+
+lemma poolView_replicate_one : poolView (List.replicate 7 1) = fun _ => 1 := by
+  funext i
+  fin_cases i <;> rfl
+
+lemma poolsGood_replicate_one : PoolsGood (poolView (List.replicate 7 1)) := by
+  rw [poolView_replicate_one]
+  exact fun _ => one_pool_good
+
+end OncePositive
+
+
+
+namespace OncePositive
+open OnceResource OnceGeometry
+
+lemma rep_of_dead_class {used : ℕ} {P : Pools} {S : Finset (Fin 10)} {v : Fin 10}
+    (hu : used < 16) (hv : v ∈ S) (hd : live used (vertexClass v).val = false) (m : ℕ) :
+    Rep used P S m := by
+  intro g b hg hS
+  have hl := port_locations_live hu hg b (support_class hS hv)
+  simp [hd] at hl
+
+lemma positive_lift_step {s : State} {S : Finset (Fin 10)} {m k : ℕ}
+    (hu : s.1 < 16) (hlen : s.2.1.length = 7) (hp : PoolsGood (poolView s.2.1))
+    (h : Rep s.1 (poolView s.2.1) S m) (hs : S.Nonempty)
+    (hk : k < 64) (hmem : k ∈ s.2.2.1) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun a b : State => b ∈ successors a) s t ∧
+      t.1 = s.1 ∧ t.2.2.1 = s.2.2.1.erase k ∧ t.2.2.2 = s.2.2.2 ∧
+      t.2.1.length = 7 ∧ PoolsGood (poolView t.2.1) ∧
+      (∀ T n, Rep s.1 (poolView s.2.1) T n → Rep t.1 (poolView t.2.1) T n) ∧
+      Rep t.1 (poolView t.2.1) S (m ||| k) := by
+  obtain ⟨v, hv⟩ := hs
+  by_cases hl : live s.1 (vertexClass v).val = true
+  · let q : State := (s.1,
+        s.2.1.set (vertexClass v).val (addCarrier (s.2.1.getD (vertexClass v).val 1) k),
+        s.2.2.1.erase k, s.2.2.2)
+    have hqgood : PoolsGood (poolView q.2.1) := poolsGood_set hlen hp (vertexClass v) hk
+    refine ⟨prune q, lift_reachable hmem (vertexClass v).isLt hl, rfl, rfl, rfl,
+      prune_pools_length q, poolsGood_prune hqgood, ?_, ?_⟩
+    · intro T n hT
+      apply rep_prune (s := q) hu hqgood
+      change Rep s.1 (poolView (s.2.1.set (vertexClass v).val
+        (addCarrier (s.2.1.getD (vertexClass v).val 1) k))) T n
+      rw [poolView_set hlen]
+      exact rep_mono (liftPool_mono _ _ _) hT
+    · apply rep_prune (s := q) hu hqgood
+      change Rep s.1 (poolView (s.2.1.set (vertexClass v).val
+        (addCarrier (s.2.1.getD (vertexClass v).val 1) k))) S (m ||| k)
+      rw [poolView_set hlen]
+      exact rep_lift h hk hv
+  · have hd : live s.1 (vertexClass v).val = false := Bool.eq_false_of_not_eq_true hl
+    let q : State := (s.1, s.2.1, s.2.2.1.erase k, s.2.2.2)
+    refine ⟨prune q, Relation.ReflTransGen.single (discard_successor hmem), rfl, rfl, rfl,
+      prune_pools_length q, poolsGood_prune hp, ?_, ?_⟩
+    · intro T n hT
+      exact rep_prune (s := q) hu hp hT
+    · exact rep_of_dead_class hu hv hd _
+
+lemma positive_group_step {s : State} {g : Fin 4} {a b : ℕ}
+    (hu : s.1 < 16) (hp : PoolsGood (poolView s.2.1))
+    (ha : Rep s.1 (poolView s.2.1) (port g false) a)
+    (hb : Rep s.1 (poolView s.2.1) (port g true) b)
+    (hg : s.1.testBit g.val = false) (hab : a &&& b < 64) (hne : a &&& b ≠ 0) :
+    let t := prune (s.1 ||| (1 <<< g.val), s.2.1, insertZero (a &&& b) s.2.2.1, s.2.2.2)
+    t ∈ successors s ∧ t.1 < 16 ∧ t.2.1.length = 7 ∧ PoolsGood (poolView t.2.1) ∧
+      (∀ T n, Rep s.1 (poolView s.2.1) T n → Rep t.1 (poolView t.2.1) T n) := by
+  dsimp only
+  have hc := group_candidate ha hb hg hab
+  have hr : rightChoices (poolView s.2.1) g = rightPool s.2.1 g.val := by
+    exact portChoices_view s.2.1 g true
+  rw [hr] at hc
+  refine ⟨group_successor g.isLt hg hc hne, mark_used_lt hu g,
+    prune_pools_length _, poolsGood_prune hp, ?_⟩
+  intro T n hT
+  exact rep_mark_prune hu hp hT g _ _
+
+end OncePositive
+
+
+namespace OncePositive
+
+open OnceResource OnceGeometry
+
+lemma frame_preserves {s t : State}
+    (hu : s.1 < 16) (hlen : s.2.1.length = 7) (hp : PoolsGood (poolView s.2.1))
+    (ht : t.1 = s.1) (hps : t.2.1 = s.2.1 ∨ t.2.1 = (prune s).2.1) :
+    t.1 < 16 ∧ t.2.1.length = 7 ∧ PoolsGood (poolView t.2.1) ∧
+      (∀ T n, Rep s.1 (poolView s.2.1) T n → Rep t.1 (poolView t.2.1) T n) := by
+  refine ⟨by simpa only [ht] using hu, ?_⟩
+  rcases hps with he | he
+  · rw [he, ht]
+    exact ⟨hlen, hp, fun _ _ h => h⟩
+  · rw [he, ht]
+    exact ⟨prune_pools_length s, poolsGood_prune hp, fun _ _ h => rep_prune hu hp h⟩
+
+lemma zero_binary_positive_state {s : State} (a b : ℕ) (isAnd : Bool) (rest : Multiset ℕ)
+    (hu : s.1 < 16) (hlen : s.2.1.length = 7) (hp : PoolsGood (poolView s.2.1))
+    (hz : (s.2.2.1 : Multiset ℕ) =
+      ZeroTransitions.token a + ZeroTransitions.token b + rest) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) s t ∧
+      t.1 = s.1 ∧ t.2.2.2 = s.2.2.2 ∧
+      (t.2.2.1 : Multiset ℕ) =
+        ZeroTransitions.token (if isAnd then a &&& b else a ||| b) + rest ∧
+      t.1 < 16 ∧ t.2.1.length = 7 ∧ PoolsGood (poolView t.2.1) ∧
+      (∀ T n, Rep s.1 (poolView s.2.1) T n → Rep t.1 (poolView t.2.1) T n) := by
+  obtain ⟨t, hr, hz', ht, hf, hps⟩ := ZeroTransitions.zero_binary a b isAnd rest hz
+  exact ⟨t, hr, ht, hf, hz', frame_preserves hu hlen hp ht hps⟩
+
+end OncePositive
+
+
+namespace OncePositive
+
+open OnceResource OnceGeometry
+
+lemma insertZero_multiset (k : ℕ) (xs : List ℕ) :
+    (insertZero k xs : Multiset ℕ) = {k} + (xs : Multiset ℕ) := by
+  simpa only [Multiset.singleton_add, Multiset.cons_coe] using
+    (Multiset.coe_eq_coe.mpr (insertZero_perm k xs))
+
+lemma fork_state_spec {s t : State} {k : ℕ}
+    (hk : k ∈ s.2.2.1) (hf : s.2.2.2 = false) (hu : s.1 < 16)
+    (hp : PoolsGood (poolView s.2.1))
+    (ht : t = prune (s.1, s.2.1, insertZero k s.2.2.1, true)) :
+    t ∈ successors s ∧ t.1 = s.1 ∧ t.2.1.length = 7 ∧
+      PoolsGood (poolView t.2.1) ∧
+      (∀ (S : Finset (Fin 10)) (m : ℕ), Rep s.1 (poolView s.2.1) S m →
+        Rep t.1 (poolView t.2.1) S m) ∧
+      (t.2.2.1 : Multiset ℕ) = {k} + (s.2.2.1 : Multiset ℕ) ∧ t.2.2.2 = true := by
+  subst t
+  refine ⟨fork_successor hk hf, rfl, prune_pools_length _, poolsGood_prune hp, ?_, ?_, rfl⟩
+  · intro S m h
+    exact rep_prune (s := (s.1, s.2.1, insertZero k s.2.2.1, true)) hu hp h
+  · exact insertZero_multiset k s.2.2.1
+
+lemma exists_fork_state {s : State} {k : ℕ}
+    (hk : k ∈ s.2.2.1) (hf : s.2.2.2 = false) (hu : s.1 < 16)
+    (hp : PoolsGood (poolView s.2.1)) :
+    ∃ t : State, t ∈ successors s ∧ t.1 = s.1 ∧ t.2.1.length = 7 ∧
+      PoolsGood (poolView t.2.1) ∧
+      (∀ (S : Finset (Fin 10)) (m : ℕ), Rep s.1 (poolView s.2.1) S m →
+        Rep t.1 (poolView t.2.1) S m) ∧
+      (t.2.2.1 : Multiset ℕ) = {k} + (s.2.2.1 : Multiset ℕ) ∧ t.2.2.2 = true := by
+  exact ⟨prune (s.1, s.2.1, insertZero k s.2.2.1, true), fork_state_spec hk hf hu hp rfl⟩
+
+end OncePositive
+
+
+namespace OnceResource.ZeroTransitions
+
+lemma fork_token {s : State} (k : ℕ) (rest : Multiset ℕ)
+    (hf : s.2.2.2 = false) (hz : (s.2.2.1 : Multiset ℕ) = token k + rest) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) s t ∧
+      (t.2.2.1 : Multiset ℕ) = token k + token k + rest ∧
+      t.1 = s.1 ∧ t.2.2.2 = decide (k ≠ 0) ∧
+      (t.2.1 = s.2.1 ∨ t.2.1 = (prune s).2.1) := by
+  by_cases hk : k = 0
+  · refine ⟨s, Relation.ReflTransGen.refl, ?_, rfl, ?_, Or.inl rfl⟩
+    · simpa [token, hk] using hz
+    · simpa [hk] using hf
+  · have hz' : (s.2.2.1 : Multiset ℕ) = {k} + rest := by simpa [token, hk] using hz
+    have hm := mem_of_zero_eq hz'
+    refine ⟨prune (s.1, s.2.1, insertZero k s.2.2.1, true),
+      Relation.ReflTransGen.single (fork_successor hm hf), ?_, rfl, ?_, Or.inr rfl⟩
+    · change (insertZero k s.2.2.1 : Multiset ℕ) = token k + token k + rest
+      rw [coe_insertZero, hz']
+      simp [token, hk]
+    · simp [prune, hk]
+
+end OnceResource.ZeroTransitions
+
+namespace OncePositive
+
+open OnceResource OnceGeometry
+
+lemma zero_fork_positive_state {s : State} (k : ℕ) (rest : Multiset ℕ)
+    (hu : s.1 < 16) (hlen : s.2.1.length = 7) (hp : PoolsGood (poolView s.2.1))
+    (hf : s.2.2.2 = false)
+    (hz : (s.2.2.1 : Multiset ℕ) = ZeroTransitions.token k + rest) :
+    ∃ t : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) s t ∧
+      t.1 = s.1 ∧ t.2.2.2 = decide (k ≠ 0) ∧
+      (t.2.2.1 : Multiset ℕ) =
+        ZeroTransitions.token k + ZeroTransitions.token k + rest ∧
+      t.1 < 16 ∧ t.2.1.length = 7 ∧ PoolsGood (poolView t.2.1) ∧
+      (∀ T n, Rep s.1 (poolView s.2.1) T n → Rep t.1 (poolView t.2.1) T n) := by
+  obtain ⟨t, hr, hz', ht, hf', hps⟩ := ZeroTransitions.fork_token k rest hf hz
+  exact ⟨t, hr, ht, hf', hz', frame_preserves hu hlen hp ht hps⟩
+
+end OncePositive
+
+
+namespace OnceResource.IndexCopies
+
+def Reads (start : ℕ) (A B : ℕ → ℕ) (t x : ℕ) : Prop :=
+  A (start + t) = x ∨ B (start + t) = x
+
+def Readers (start : ℕ) (A B : ℕ → ℕ) (t x : ℕ) : Finset ℕ :=
+  (Finset.range t).filter (fun j => A (start + j) = x ∨ B (start + j) = x)
+
+def ReadCount (start : ℕ) (A B : ℕ → ℕ) (t x : ℕ) : ℕ :=
+  (Readers start A B t x).card
+
+def Capacity (fork x : ℕ) : ℕ := if x = fork then 2 else 1
+
+def Valid (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ t < n, A (start + t) < start + t ∧ B (start + t) < start + t ∧
+    A (start + t) ≠ B (start + t)
+
+lemma readers_mono {start t n x : ℕ} {A B : ℕ → ℕ} (ht : t ≤ n) :
+    Readers start A B t x ⊆ Readers start A B n x := by
+  intro j hj
+  obtain ⟨hj, hr⟩ := Finset.mem_filter.mp hj
+  exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr (lt_of_lt_of_le (Finset.mem_range.mp hj) ht), hr⟩
+
+lemma readCount_succ (start : ℕ) (A B : ℕ → ℕ) (t x : ℕ) :
+    ReadCount start A B (t + 1) x = ReadCount start A B t x +
+      if A (start + t) = x ∨ B (start + t) = x then 1 else 0 := by
+  have hnot : t ∉ Readers start A B t x := by simp [Readers]
+  unfold ReadCount Readers
+  rw [Finset.range_add_one, Finset.filter_insert]
+  split_ifs with hr
+  · exact Finset.card_insert_of_notMem hnot
+  · simp
+
+lemma earlier_readers_lt_capacity {start n t x fork : ℕ} {A B : ℕ → ℕ}
+    (ht : t < n) (hr : Reads start A B t x)
+    (hcap : ReadCount start A B n x ≤ Capacity fork x) :
+    ReadCount start A B t x < Capacity fork x := by
+  have hle := Finset.card_le_card (readers_mono (start := start) (A := A) (B := B)
+    (x := x) (show t + 1 ≤ n by omega))
+  change ReadCount start A B (t + 1) x ≤ ReadCount start A B n x at hle
+  rw [readCount_succ] at hle
+  change A (start + t) = x ∨ B (start + t) = x at hr
+  rw [ite_eq_left hr] at hle
+  omega
+
+lemma earlier_readers_fork_le_one {start n t fork : ℕ} {A B : ℕ → ℕ}
+    (ht : t < n) (hr : Reads start A B t fork)
+    (hcap : ReadCount start A B n fork ≤ 2) :
+    ReadCount start A B t fork ≤ 1 := by
+  have h := earlier_readers_lt_capacity (fork := fork) ht hr (by simpa [Capacity] using hcap)
+  simp [Capacity] at h
+  omega
+
+lemma earlier_readers_other_zero {start n t x fork : ℕ} {A B : ℕ → ℕ}
+    (hx : x ≠ fork) (ht : t < n) (hr : Reads start A B t x)
+    (hcap : ReadCount start A B n x ≤ 1) :
+    ReadCount start A B t x = 0 := by
+  have h := earlier_readers_lt_capacity (fork := fork) ht hr (by simpa [Capacity, hx] using hcap)
+  simp only [Capacity, ite_eq_right hx] at h
+  omega
+
+lemma readCount_zero_of_future {start n t x : ℕ} {A B : ℕ → ℕ}
+    (hv : Valid start A B n) (ht : t ≤ n) (hx : start + t ≤ x) :
+    ReadCount start A B t x = 0 := by
+  apply Finset.card_eq_zero.mpr
+  apply Finset.eq_empty_iff_forall_notMem.mpr
+  intro j hj
+  obtain ⟨hj, hr⟩ := Finset.mem_filter.mp hj
+  have hjt := Finset.mem_range.mp hj
+  obtain ⟨ha, hb, _⟩ := hv j (by omega)
+  rcases hr with hr | hr <;> omega
+
+variable (Z : ℕ → Prop) [DecidablePred Z]
+
+def Copies (fork x : ℕ) : ℕ := if Z x then Capacity fork x else 1
+
+def Drop (i : ℕ) (ids : Multiset ℕ) : Multiset ℕ :=
+  if Z i then ids.erase i else ids
+
+def Give (fork out : ℕ) (ids : Multiset ℕ) : Multiset ℕ :=
+  out ::ₘ (if Z out ∧ out = fork then out ::ₘ ids else ids)
+
+def Initial (start fork : ℕ) : Multiset ℕ :=
+  Multiset.range start + if Z fork ∧ fork < start then {fork} else 0
+
+def Available (start fork : ℕ) (A B : ℕ → ℕ) : ℕ → Multiset ℕ
+  | 0 => Initial Z start fork
+  | t + 1 => Give Z fork (start + t)
+      (Drop Z (B (start + t)) (Drop Z (A (start + t)) (Available start fork A B t)))
+
+lemma count_drop (ids : Multiset ℕ) (i x : ℕ) :
+    (Drop Z i ids).count x = ids.count x - if Z x ∧ x = i then 1 else 0 := by
+  by_cases hxi : x = i
+  · subst x
+    by_cases hi : Z i <;> simp [Drop, hi, Multiset.count_erase_self]
+  · by_cases hi : Z i <;> simp [Drop, hi, hxi, Multiset.count_erase_of_ne hxi]
+
+lemma count_drop_two (ids : Multiset ℕ) {a b : ℕ} (hab : a ≠ b) (x : ℕ) :
+    (Drop Z b (Drop Z a ids)).count x =
+      ids.count x - if Z x ∧ (a = x ∨ b = x) then 1 else 0 := by
+  rw [count_drop, count_drop]
+  by_cases hz : Z x
+  · by_cases hxa : x = a
+    · subst x
+      simp [hz, hab]
+    · by_cases hxb : x = b
+      · subst x
+        simp [hz, hxa, Ne.symm hxa]
+      · simp [hz, hxa, hxb, Ne.symm hxa, Ne.symm hxb]
+  · simp [hz]
+
+lemma count_give (ids : Multiset ℕ) (fork out x : ℕ) :
+    (Give Z fork out ids).count x = ids.count x + if x = out then Copies Z fork out else 0 := by
+  by_cases hf : out = fork
+  · subst out
+    by_cases hx : x = fork
+    · subst x
+      by_cases hz : Z fork <;> simp [Give, Copies, Capacity, hz, Nat.add_assoc]
+    · by_cases hz : Z fork <;> simp [Give, hz, hx]
+  · by_cases hx : x = out
+    · subst x
+      by_cases hz : Z out <;> simp [Give, Copies, Capacity, hz, hf]
+    · simp [Give, hf, hx]
+
+lemma count_initial (start fork x : ℕ) :
+    (Initial Z start fork).count x = if x < start then Copies Z fork x else 0 := by
+  have hrange : (Multiset.range start).count x = if x < start then 1 else 0 := by
+    simpa using Multiset.count_eq_of_nodup (a := x) (Multiset.nodup_range start)
+  by_cases hx : x < start <;> by_cases hxf : x = fork
+  · subst x
+    by_cases hz : Z fork <;>
+      simp [Initial, Multiset.count_add, hrange, hx, hz, Copies, Capacity]
+  · by_cases hz : Z fork ∧ fork < start <;> by_cases hzx : Z x <;>
+      simp [Initial, Multiset.count_add, hrange, hx, hz, Copies, Capacity, hxf, hzx]
+  · subst x
+    simp [Initial, hx]
+  · by_cases hz : Z fork ∧ fork < start <;>
+      simp [Initial, hx, hz, hxf]
+
+lemma count_available {start fork n : ℕ} {A B : ℕ → ℕ}
+    (hv : Valid start A B n) (t : ℕ) (ht : t ≤ n) (x : ℕ) :
+    (Available Z start fork A B t).count x =
+      if x < start + t then
+        if Z x then Capacity fork x - ReadCount start A B t x else 1
+      else 0 := by
+  induction t with
+  | zero => simp [Available, count_initial, Copies, ReadCount, Readers]
+  | succ t ih =>
+    have ht' : t ≤ n := by omega
+    have ih' := ih ht'
+    obtain ⟨ha, hb, hab⟩ := hv t (by omega)
+    rw [Available, count_give, count_drop_two Z _ hab, ih']
+    by_cases hf : x = start + t
+    · subst x
+      have hrc := readCount_zero_of_future hv ht' (x := start + t) (by omega)
+      have hr : ¬(A (start + t) = start + t ∨ B (start + t) = start + t) := by omega
+      have hn : start + t < start + (t + 1) := by omega
+      simp [readCount_succ, hrc, hr, hn, Copies]
+    · by_cases hold : x < start + t
+      · have hn : x < start + (t + 1) := by omega
+        simp only [ite_eq_left hold, ite_eq_right hf, Nat.add_zero, ite_eq_left hn]
+        rw [readCount_succ]
+        by_cases hz : Z x
+        · by_cases hr : A (start + t) = x ∨ B (start + t) = x <;>
+            simp [hz, hr, Nat.sub_sub]
+        · simp [hz]
+      · have hn : ¬ x < start + (t + 1) := by omega
+        have hna : A (start + t) ≠ x := by omega
+        have hnb : B (start + t) ≠ x := by omega
+        simp [hold, hf, hn, hna, hnb]
+
+lemma source_available {start fork n t x : ℕ} {A B : ℕ → ℕ}
+    (hv : Valid start A B n)
+    (hcap : ∀ x, Z x → ReadCount start A B n x ≤ Capacity fork x)
+    (ht : t < n) (hx : x < start + t) (hr : Reads start A B t x) :
+    x ∈ Available Z start fork A B t := by
+  apply Multiset.count_pos.mp
+  rw [count_available Z hv t (by omega) x, ite_eq_left hx]
+  by_cases hz : Z x
+  · rw [ite_eq_left hz]
+    have hlt := earlier_readers_lt_capacity ht hr (hcap x hz)
+    omega
+  · simp [hz]
+
+lemma available_bounded {start fork n t x : ℕ} {A B : ℕ → ℕ}
+    (hv : Valid start A B n) (ht : t ≤ n)
+    (hx : x ∈ Available Z start fork A B t) : x < start + t := by
+  have hpos := Multiset.count_pos.mpr hx
+  rw [count_available Z hv t ht x] at hpos
+  by_contra hnot
+  simp [hnot] at hpos
+
+lemma mem_drop_of_ne {ids : Multiset ℕ} {i x : ℕ} (hx : x ∈ ids) (hne : x ≠ i) :
+    x ∈ Drop Z i ids := by
+  unfold Drop
+  split_ifs
+  · exact (Multiset.mem_erase_of_ne hne).mpr hx
+  · exact hx
+
+lemma sources_available {start fork n t : ℕ} {A B : ℕ → ℕ}
+    (hv : Valid start A B n)
+    (hcap : ∀ x, Z x → ReadCount start A B n x ≤ Capacity fork x)
+    (ht : t < n) :
+    A (start + t) ∈ Available Z start fork A B t ∧
+      B (start + t) ∈ Drop Z (A (start + t)) (Available Z start fork A B t) := by
+  obtain ⟨ha, hb, hab⟩ := hv t ht
+  constructor
+  · exact source_available Z hv hcap ht ha (Or.inl rfl)
+  · apply mem_drop_of_ne Z (source_available Z hv hcap ht hb (Or.inr rfl))
+    exact Ne.symm hab
+
+lemma initial_extra_iff (start fork : ℕ) :
+    (if Z fork ∧ fork < start then ({fork} : Multiset ℕ) else 0) ≠ 0 ↔
+      Z fork ∧ fork < start := by
+  split_ifs with h
+  · simp [h]
+  · simp [h]
+
+lemma creation_extra_unique {start fork t u : ℕ}
+    (ht : Z (start + t) ∧ start + t = fork)
+    (hu : Z (start + u) ∧ start + u = fork) : t = u := by omega
+
+lemma initial_extra_excludes_creation {start fork t : ℕ}
+    (hi : Z fork ∧ fork < start) : ¬(Z (start + t) ∧ start + t = fork) := by omega
+
+lemma extra_before_iff (start fork t : ℕ) :
+    (Z fork ∧ fork < start) ∨
+      (∃ j < t, Z (start + j) ∧ start + j = fork) ↔
+      Z fork ∧ fork < start + t := by
+  constructor
+  · rintro (hi | ⟨j, hj, hz, heq⟩)
+    · exact ⟨hi.1, by omega⟩
+    · exact ⟨heq ▸ hz, by omega⟩
+  · intro h
+    by_cases hi : fork < start
+    · exact Or.inl ⟨h.1, hi⟩
+    · refine Or.inr ⟨fork - start, by omega, ?_, by omega⟩
+      have heq : start + (fork - start) = fork := by omega
+      simpa only [heq] using h.1
+
+def ExtraCount (start fork t : ℕ) : ℕ :=
+  (if Z fork ∧ fork < start then 1 else 0) +
+    ((Finset.range t).filter (fun j => Z (start + j) ∧ start + j = fork)).card
+
+lemma extraCount_le_one (start fork t : ℕ) : ExtraCount Z start fork t ≤ 1 := by
+  by_cases hi : Z fork ∧ fork < start
+  · have he : (Finset.range t).filter (fun j => Z (start + j) ∧ start + j = fork) = ∅ := by
+      apply Finset.eq_empty_iff_forall_notMem.mpr
+      intro j hj
+      have hj' := (Finset.mem_filter.mp hj).2
+      omega
+    simp [ExtraCount, hi, he]
+  · simp only [ExtraCount, ite_eq_right hi, Nat.zero_add]
+    apply Finset.card_le_one.mpr
+    intro i hi j hj
+    have hi' := (Finset.mem_filter.mp hi).2
+    have hj' := (Finset.mem_filter.mp hj).2
+    omega
+
+lemma extraCount_pos_iff (start fork t : ℕ) :
+    0 < ExtraCount Z start fork t ↔ Z fork ∧ fork < start + t := by
+  rw [← extra_before_iff Z start fork t]
+  by_cases hi : Z fork ∧ fork < start <;>
+    simp [ExtraCount, hi, Nat.add_pos_iff_pos_or_pos, Finset.card_pos, Finset.Nonempty, Finset.mem_filter]
+
+lemma extraCount_eq (start fork t : ℕ) :
+    ExtraCount Z start fork t = if Z fork ∧ fork < start + t then 1 else 0 := by
+  have hle := extraCount_le_one Z start fork t
+  have hpos := extraCount_pos_iff Z start fork t
+  split_ifs with h
+  · have hp := hpos.mpr h
+    omega
+  · have hp : ¬0 < ExtraCount Z start fork t := fun hp => h (hpos.mp hp)
+    omega
+
+def Retain (x : ℕ) : Multiset ℕ := if Z x then 0 else {x}
+
+lemma two_decomp {ids : Multiset ℕ} {a b : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) :
+    ids = a ::ₘ b ::ₘ ((ids.erase a).erase b) := by
+  have hb' := (Multiset.mem_erase_of_ne (Ne.symm hab)).mpr hb
+  calc
+    ids = a ::ₘ ids.erase a := (Multiset.cons_erase ha).symm
+    _ = a ::ₘ b ::ₘ ((ids.erase a).erase b) :=
+      congrArg (Multiset.cons a) (Multiset.cons_erase hb').symm
+
+lemma drop_two_decomp {ids : Multiset ℕ} {a b : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) :
+    Drop Z b (Drop Z a ids) =
+      Retain Z a + Retain Z b + ((ids.erase a).erase b) := by
+  by_cases hza : Z a <;> by_cases hzb : Z b
+  · simp [Drop, Retain, hza, hzb]
+  · simp only [Drop, Retain, hza, hzb, ↓reduceIte, Multiset.zero_add, Multiset.singleton_add]
+    exact (Multiset.cons_erase ((Multiset.mem_erase_of_ne (Ne.symm hab)).mpr hb)).symm
+  · simp only [Drop, Retain, hza, hzb, ↓reduceIte, Multiset.add_zero, Multiset.singleton_add]
+    rw [Multiset.erase_comm]
+    exact (Multiset.cons_erase ((Multiset.mem_erase_of_ne hab).mpr ha)).symm
+  · simp only [Drop, Retain, hza, hzb, ↓reduceIte, Multiset.cons_add, Multiset.singleton_add]
+    exact two_decomp ha hb hab
+
+lemma available_step_decomp {start fork n t : ℕ} {A B : ℕ → ℕ}
+    (hv : Valid start A B n)
+    (hcap : ∀ x, Z x → ReadCount start A B n x ≤ Capacity fork x)
+    (ht : t < n) :
+    ∃ rest : Multiset ℕ,
+      Available Z start fork A B t = A (start + t) ::ₘ B (start + t) ::ₘ rest ∧
+      Available Z start fork A B (t + 1) =
+        (start + t) ::ₘ
+          (if Z (start + t) ∧ start + t = fork then
+            (start + t) ::ₘ (Retain Z (A (start + t)) + Retain Z (B (start + t)) + rest)
+          else Retain Z (A (start + t)) + Retain Z (B (start + t)) + rest) := by
+  obtain ⟨ha, hb, hab⟩ := hv t ht
+  have haa := source_available Z hv hcap ht ha (Or.inl rfl)
+  have hba := source_available Z hv hcap ht hb (Or.inr rfl)
+  refine ⟨((Available Z start fork A B t).erase (A (start + t))).erase (B (start + t)),
+    two_decomp haa hba hab, ?_⟩
+  simp only [Available, Give, drop_two_decomp Z haa hba hab]
+
+end OnceResource.IndexCopies
+
+
+
+namespace OnceResource.TokenMap
+
+open IndexCopies
+
+def token (k : ℕ) : Multiset ℕ := if k = 0 then 0 else {k}
+
+def project (Z : ℕ → Prop) [DecidablePred Z] (M : ℕ → ℕ) (ids : Multiset ℕ) : Multiset ℕ :=
+  (ids.filter (fun i => Z i ∧ M i ≠ 0)).map M
+
+variable (Z : ℕ → Prop) [DecidablePred Z] (M : ℕ → ℕ)
+
+lemma project_zero : project Z M 0 = 0 := by simp [project]
+
+lemma project_cons (i : ℕ) (ids : Multiset ℕ) :
+    project Z M (i ::ₘ ids) = (if Z i then token (M i) else 0) + project Z M ids := by
+  by_cases hz : Z i <;> by_cases hm : M i = 0 <;>
+    simp [project, hz, hm, token]
+
+lemma project_add (ids rest : Multiset ℕ) :
+    project Z M (ids + rest) = project Z M ids + project Z M rest := by
+  simp [project]
+
+lemma project_retain (i : ℕ) : project Z M (Retain Z i) = 0 := by
+  by_cases hz : Z i <;> simp [Retain, project, hz]
+
+lemma project_mem {i : ℕ} {ids : Multiset ℕ} (hi : i ∈ ids)
+    (hz : Z i) (hm : M i ≠ 0) : M i ∈ project Z M ids := by
+  exact Multiset.mem_map.mpr ⟨i, Multiset.mem_filter.mpr ⟨hi, hz, hm⟩, rfl⟩
+
+lemma project_drop {i : ℕ} {ids : Multiset ℕ} (hi : i ∈ ids) :
+    project Z M (Drop Z i ids) =
+      if Z i ∧ M i ≠ 0 then (project Z M ids).erase (M i) else project Z M ids := by
+  have heq : ids = i ::ₘ ids.erase i := (Multiset.cons_erase hi).symm
+  by_cases hz : Z i
+  · by_cases hm : M i = 0
+    · simp only [Drop, hz, ↓reduceIte]
+      rw [heq, project_cons]
+      simp [hz, hm, token]
+    · have hp : project Z M ids = M i ::ₘ project Z M (ids.erase i) := by
+        rw [heq, project_cons]
+        simp [hz, hm, token]
+      simp [Drop, hz, hm, hp]
+  · simp [Drop, hz]
+
+lemma project_give (fork out : ℕ) (ids : Multiset ℕ) :
+    project Z M (Give Z fork out ids) =
+      (if Z out then token (M out) else 0) +
+      (if Z out ∧ out = fork then token (M out) else 0) + project Z M ids := by
+  by_cases hf : out = fork
+  · subst out
+    by_cases hz : Z fork <;> simp [Give, hz, project_cons, Multiset.add_assoc]
+  · by_cases hz : Z out <;> simp [Give, hz, hf, project_cons]
+
+lemma project_step {ids rest : Multiset ℕ} {a b out fork : ℕ}
+    (hid : ids = a ::ₘ b ::ₘ rest) (hab : a ≠ b) :
+    project Z M (Give Z fork out (Drop Z b (Drop Z a ids))) =
+      (if Z out then token (M out) else 0) +
+      (if Z out ∧ out = fork then token (M out) else 0) + project Z M rest := by
+  rw [project_give]
+  have ha : a ∈ ids := by rw [hid]; simp
+  have hb : b ∈ ids := by rw [hid]; simp
+  rw [drop_two_decomp Z ha hb hab, project_add, project_add, project_retain, project_retain]
+  simp only [Multiset.zero_add]
+  have herase : (ids.erase a).erase b = rest := by rw [hid]; simp
+  rw [herase]
+
+lemma project_initial_one {start seed : ℕ} (hseed : seed < start)
+    (hzseed : Z seed) (hmseed : M seed ≠ 0)
+    (hother : ∀i<start, Z i → i ≠ seed → M i = 0) :
+    project Z M (Multiset.range start) = {M seed} := by
+  have hf : (Multiset.range start).filter (fun i => Z i ∧ M i ≠ 0) = {seed} := by
+    apply Multiset.ext.mpr
+    intro i
+    rw [Multiset.count_eq_of_nodup ((Multiset.nodup_range start).filter _)]
+    by_cases hi : i = seed
+    · subst i
+      simp [hseed, hzseed, hmseed]
+    · have hn : ¬(i ∈ Multiset.range start ∧ Z i ∧ M i ≠ 0) := by
+        rintro ⟨hi', hz, hm⟩
+        exact hm (hother i (Multiset.mem_range.mp hi') hz hi)
+      simp only [Multiset.mem_range] at hn
+      simp [hn, hi]
+  simp [project, hf]
+
+lemma project_initial {start seed fork : ℕ} (hseed : seed < start)
+    (hzseed : Z seed) (hmseed : M seed ≠ 0)
+    (hother : ∀i<start, Z i → i ≠ seed → M i = 0) :
+    project Z M (Initial Z start fork) =
+      {M seed} + if fork = seed then {M seed} else 0 := by
+  rw [Initial, project_add, project_initial_one Z M hseed hzseed hmseed hother]
+  congr 1
+  by_cases hf : fork = seed
+  · subst fork
+    simp [hseed, hzseed, hmseed, project, Multiset.filter_singleton]
+  · by_cases h : Z fork ∧ fork < start
+    · have hm : M fork = 0 := hother fork h.2 h.1 hf
+      simp [h, hf, project, hm]
+    · simp [h, hf, project]
+
+end OnceResource.TokenMap
+
+
+
+namespace OnceSimulation
+open OnceResource OnceGeometry OncePositive
+
+def contrib (S : Finset (Fin 10)) (m : ℕ) : Multiset ℕ :=
+  if S = ∅ then TokenMap.token m else 0
+
+def Healthy (s : State) : Prop :=
+  s.1 < 16 ∧ s.2.1.length = 7 ∧ PoolsGood (poolView s.2.1)
+
+def Preserves (s t : State) : Prop :=
+  ∀ T m, Rep s.1 (poolView s.2.1) T m → Rep t.1 (poolView t.2.1) T m
+
+def LocalResult (s q : State) (S : Finset (Fin 10)) (m : ℕ)
+    (rest : Multiset ℕ) (group : Option (Fin 4)) : Prop :=
+  Relation.ReflTransGen (fun a b : State => b ∈ successors a) s q ∧
+  q.2.2.2 = s.2.2.2 ∧ Healthy q ∧
+  (q.2.2.1 : Multiset ℕ) = contrib S m + rest ∧ Preserves s q ∧
+  (S.Nonempty → Rep q.1 (poolView q.2.1) S m) ∧
+  (∀ g : Fin 4, q.1.testBit g.val = true → s.1.testBit g.val = true ∨ group = some g)
+
+lemma lift_token_step {s : State} {S : Finset (Fin 10)} {m k : ℕ} {rest : Multiset ℕ}
+    (hs : Healthy s) (hS : S.Nonempty) (hm : Rep s.1 (poolView s.2.1) S m)
+    (hk : k < 64) (hz : (s.2.2.1 : Multiset ℕ) = TokenMap.token k + rest) :
+    ∃ q, LocalResult s q S (m ||| k) rest none := by
+  have hne : S ≠ ∅ := hS.ne_empty
+  by_cases hk0 : k = 0
+  · subst k
+    refine ⟨s, Relation.ReflTransGen.refl, rfl, hs, ?_, (fun _ _ h => h), ?_, ?_⟩
+    · simpa [contrib, TokenMap.token, hne] using hz
+    · intro _
+      simpa using hm
+    · exact fun _ h => Or.inl h
+  · have hmem : k ∈ s.2.2.1 := by
+      have hm' : k ∈ (s.2.2.1 : Multiset ℕ) := by rw [hz]; simp [TokenMap.token, hk0]
+      exact hm'
+    obtain ⟨q, hr, hu, hqz, hf, hl, hp, hpres, hrep⟩ :=
+      positive_lift_step hs.1 hs.2.1 hs.2.2 hm hS hk hmem
+    refine ⟨q, hr, hf, ⟨by simpa [hu] using hs.1, hl, hp⟩, ?_, hpres,
+      (fun _ => hrep), ?_⟩
+    · rw [hqz, ← Multiset.coe_erase, hz]
+      simp [contrib, hne, TokenMap.token, hk0]
+    · intro g hg
+      exact Or.inl (hu ▸ hg)
+
+lemma or_local {s : State} {S T : Finset (Fin 10)} {a b : ℕ} {rest : Multiset ℕ}
+    (hs : Healthy s) (ha : S.Nonempty → Rep s.1 (poolView s.2.1) S a)
+    (hb : T.Nonempty → Rep s.1 (poolView s.2.1) T b)
+    (hab : a < 64 ∧ b < 64)
+    (hz : (s.2.2.1 : Multiset ℕ) = contrib S a + contrib T b + rest) :
+    ∃ q, LocalResult s q (S ∪ T) (a ||| b) rest none := by
+  by_cases hS : S = ∅
+  · subst S
+    by_cases hT : T = ∅
+    · subst T
+      have hz' : (s.2.2.1 : Multiset ℕ) =
+          ZeroTransitions.token a + ZeroTransitions.token b + rest := by
+        simpa [contrib, ZeroTransitions.token, TokenMap.token] using hz
+      obtain ⟨q, hr, hu, hf, hqz, hqu, hql, hqp, hpres⟩ :=
+        zero_binary_positive_state a b false rest hs.1 hs.2.1 hs.2.2 hz'
+      refine ⟨q, hr, hf, ⟨hqu, hql, hqp⟩, ?_, hpres, ?_, ?_⟩
+      · simpa [contrib, ZeroTransitions.token, TokenMap.token] using hqz
+      · simp
+      · intro g hg
+        exact Or.inl (hu ▸ hg)
+    · have hTn : T.Nonempty := Finset.nonempty_iff_ne_empty.mpr hT
+      have hz' : (s.2.2.1 : Multiset ℕ) = TokenMap.token a + rest := by
+        simpa [contrib, hT] using hz
+      obtain ⟨q, hq⟩ := lift_token_step hs hTn (hb hTn) hab.1 hz'
+      refine ⟨q, ?_⟩
+      simpa [Nat.or_comm] using hq
+  · have hSn : S.Nonempty := Finset.nonempty_iff_ne_empty.mpr hS
+    by_cases hT : T = ∅
+    · subst T
+      have hz' : (s.2.2.1 : Multiset ℕ) = TokenMap.token b + rest := by
+        simpa [contrib, hS] using hz
+      obtain ⟨q, hq⟩ := lift_token_step hs hSn (ha hSn) hab.2 hz'
+      exact ⟨q, by simpa using hq⟩
+    · have hTn : T.Nonempty := Finset.nonempty_iff_ne_empty.mpr hT
+      have hST : S ∪ T ≠ ∅ := (hSn.mono Finset.subset_union_left).ne_empty
+      refine ⟨s, Relation.ReflTransGen.refl, rfl, hs, ?_, (fun _ _ h => h), ?_, ?_⟩
+      · simpa [contrib, hS, hT, hST] using hz
+      · intro _
+        exact rep_or hs.2.2 (ha hSn) (hb hTn)
+      · exact fun _ h => Or.inl h
+
+lemma marked_group {used : ℕ} {g h : Fin 4}
+    (ht : (used ||| (1 <<< g.val)).testBit h.val = true) :
+    used.testBit h.val = true ∨ g = h := by
+  rw [Nat.testBit_or, Bool.or_eq_true] at ht
+  rcases ht with ht | ht
+  · exact Or.inl ht
+  · right
+    have hsingle := testBit_singleton_iff.mp ht
+    exact Fin.ext hsingle
+
+lemma pure_local {s : State} {g : Fin 4} {a b : ℕ} {rest : Multiset ℕ}
+    (hs : Healthy s) (ha : Rep s.1 (poolView s.2.1) (port g false) a)
+    (hb : Rep s.1 (poolView s.2.1) (port g true) b)
+    (hk : a &&& b < 64) (hunused : s.1.testBit g.val = false)
+    (hz : (s.2.2.1 : Multiset ℕ) = rest) :
+    ∃ q, LocalResult s q ∅ (a &&& b) rest (some g) := by
+  by_cases hk0 : a &&& b = 0
+  · refine ⟨s, Relation.ReflTransGen.refl, rfl, hs, ?_, (fun _ _ h => h), ?_, ?_⟩
+    · simpa [contrib, TokenMap.token, hk0] using hz
+    · simp
+    · exact fun _ h => Or.inl h
+  · let q := prune (s.1 ||| (1 <<< g.val), s.2.1, insertZero (a &&& b) s.2.2.1, s.2.2.2)
+    obtain ⟨hr, hu, hl, hp, hpres⟩ := positive_group_step hs.1 hs.2.2 ha hb hunused hk hk0
+    refine ⟨q, Relation.ReflTransGen.single hr, rfl, ⟨hu, hl, hp⟩, ?_, hpres, ?_, ?_⟩
+    · change (insertZero (a &&& b) s.2.2.1 : Multiset ℕ) = _
+      rw [insertZero_multiset, hz]
+      simp [contrib, TokenMap.token, hk0]
+    · simp
+    · intro h hh
+      rcases marked_group hh with hh | hh
+      · exact Or.inl hh
+      · exact Or.inr (congrArg some hh)
+
+lemma zero_local {s : State} {a b : ℕ} {rest : Multiset ℕ}
+    (hs : Healthy s)
+    (hz : (s.2.2.1 : Multiset ℕ) = TokenMap.token a + TokenMap.token b + rest) :
+    ∃ q, LocalResult s q ∅ (a &&& b) rest none := by
+  obtain ⟨q, hr, hu, hf, hqz, hqu, hql, hqp, hpres⟩ :=
+    zero_binary_positive_state a b true rest hs.1 hs.2.1 hs.2.2 hz
+  refine ⟨q, hr, hf, ⟨hqu, hql, hqp⟩, ?_, hpres, ?_, ?_⟩
+  · exact hqz
+  · simp
+  · intro g hg
+    exact Or.inl (hu ▸ hg)
+
+end OnceSimulation
+
+
+
+namespace OnceSimulation
+open OnceResource OnceGeometry OncePositive
+
+lemma gate_local {s : State} {S T U : Finset (Fin 10)} {a b c : ℕ}
+    {rest : Multiset ℕ} (op : Bool) (group : Option (Fin 4))
+    (hs : Healthy s) (ha : S.Nonempty → Rep s.1 (poolView s.2.1) S a)
+    (hb : T.Nonempty → Rep s.1 (poolView s.2.1) T b)
+    (hm : a < 64 ∧ b < 64 ∧ c < 64)
+    (hz : (s.2.2.1 : Multiset ℕ) = contrib S a + contrib T b + rest)
+    (hunused : ∀g : Fin 4, group = some g → s.1.testBit g.val = false)
+    (hsem : if op then
+      U = ∅ ∧ c = a &&& b ∧
+        (match group with
+        | none => S = ∅ ∧ T = ∅
+        | some g => (S = port g false ∧ T = port g true) ∨
+          (S = port g true ∧ T = port g false))
+      else group = none ∧ U = S ∪ T ∧ c = a ||| b) :
+    ∃q, LocalResult s q U c rest group := by
+  cases op with
+  | false =>
+    simp only [Bool.false_eq_true, ↓reduceIte] at hsem
+    obtain ⟨rfl, rfl, rfl⟩ := hsem
+    exact or_local hs ha hb ⟨hm.1, hm.2.1⟩ hz
+  | true =>
+    simp only [↓reduceIte] at hsem
+    obtain ⟨rfl, rfl, hports⟩ := hsem
+    cases group with
+    | none =>
+      obtain ⟨rfl, rfl⟩ := hports
+      exact zero_local hs (by simpa [contrib] using hz)
+    | some g =>
+      have hl : (port g false).Nonempty := by fin_cases g <;> decide
+      have hr : (port g true).Nonempty := by fin_cases g <;> decide
+      have hu := hunused g rfl
+      rcases hports with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+      · have hz' : (s.2.2.1 : Multiset ℕ) = rest := by
+          simpa [contrib, hl.ne_empty, hr.ne_empty] using hz
+        exact pure_local hs (ha hl) (hb hr) hm.2.2 hu hz'
+      · have hz' : (s.2.2.1 : Multiset ℕ) = rest := by
+          simpa [contrib, hl.ne_empty, hr.ne_empty] using hz
+        obtain ⟨q, hq⟩ := pure_local hs (hb hl) (ha hr)
+          (by simpa [Nat.and_comm] using hm.2.2) hu hz'
+        exact ⟨q, by simpa [Nat.and_comm] using hq⟩
+
+end OnceSimulation
+
+
+namespace OnceSimulation
+
+open OnceResource OncePositive IndexCopies TokenMap
+
+abbrev Reach (s t : State) : Prop :=
+  Relation.ReflTransGen (fun a b : State => b ∈ successors a) s t
+
+def ProgramCallback (S : ℕ → Finset (Fin 10)) (M A B : ℕ → ℕ)
+    (G : ℕ → Option (Fin 4)) (start n : ℕ) : Prop :=
+  ∀ t < n, ∀ (s : State) (rest : Multiset ℕ),
+    Healthy s →
+    ((S (A (start + t))).Nonempty →
+      Rep s.1 (poolView s.2.1) (S (A (start + t))) (M (A (start + t)))) →
+    ((S (B (start + t))).Nonempty →
+      Rep s.1 (poolView s.2.1) (S (B (start + t))) (M (B (start + t)))) →
+    (s.2.2.1 : Multiset ℕ) =
+      contrib (S (A (start + t))) (M (A (start + t))) +
+      contrib (S (B (start + t))) (M (B (start + t))) + rest →
+    (∀ g : Fin 4, G (start + t) = some g → s.1.testBit g.val = false) →
+    ∃ q : State, Reach s q ∧ q.2.2.2 = s.2.2.2 ∧ Healthy q ∧
+      (q.2.2.1 : Multiset ℕ) = contrib (S (start + t)) (M (start + t)) + rest ∧
+      Preserves s q ∧
+      ((S (start + t)).Nonempty →
+        Rep q.1 (poolView q.2.1) (S (start + t)) (M (start + t))) ∧
+      ∀ g : Fin 4, q.1.testBit g.val = true →
+        s.1.testBit g.val = true ∨ G (start + t) = some g
+
+def GroupUnique (G : ℕ → Option (Fin 4)) (start n : ℕ) : Prop :=
+  ∀ i < n, ∀ j < n, ∀ g : Fin 4,
+    G (start + i) = some g → G (start + j) = some g → i = j
+
+def ProgramInv (S : ℕ → Finset (Fin 10)) (M A B : ℕ → ℕ)
+    (G : ℕ → Option (Fin 4)) (start fork t : ℕ) (s : State) : Prop :=
+  Healthy s ∧
+    (s.2.2.1 : Multiset ℕ) =
+      project (fun w => S w = ∅) M (Available (fun w => S w = ∅) start fork A B t) ∧
+    (∀ w < start + t, (S w).Nonempty → Rep s.1 (poolView s.2.1) (S w) (M w)) ∧
+    s.2.2.2 = decide (S fork = ∅ ∧ M fork ≠ 0 ∧ fork < start + t) ∧
+    ∀ g : Fin 4, s.1.testBit g.val = true → ∃ j < t, G (start + j) = some g
+
+lemma preserves_refl (s : State) : Preserves s s := fun _ _ h => h
+
+lemma preserves_trans {s t u : State} (hst : Preserves s t) (htu : Preserves t u) :
+    Preserves s u := fun T m h => htu T m (hst T m h)
+
+lemma finish_output_fork (S : ℕ → Finset (Fin 10)) (M : ℕ → ℕ)
+    (fork out : ℕ) {q : State} {rest : Multiset ℕ}
+    (hq : Healthy q)
+    (hflag : q.2.2.2 = decide (S fork = ∅ ∧ M fork ≠ 0 ∧ fork < out))
+    (hzero : (q.2.2.1 : Multiset ℕ) = contrib (S out) (M out) + rest) :
+    ∃ r : State, Reach q r ∧ r.1 = q.1 ∧ Healthy r ∧ Preserves q r ∧
+      (r.2.2.1 : Multiset ℕ) =
+        contrib (S out) (M out) + (if S out = ∅ ∧ out = fork then token (M out) else 0) + rest ∧
+      r.2.2.2 = decide (S fork = ∅ ∧ M fork ≠ 0 ∧ fork < out + 1) := by
+  by_cases hevent : S out = ∅ ∧ out = fork ∧ M out ≠ 0
+  · obtain ⟨hz, hout, hm⟩ := hevent
+    subst fork
+    have hf : q.2.2.2 = false := by simp [hflag]
+    have hk : M out ∈ q.2.2.1 := by
+      have hk' : M out ∈ (q.2.2.1 : Multiset ℕ) := by
+        rw [hzero]
+        simp [contrib, hz, token, hm]
+      exact hk'
+    obtain ⟨r, hr, hused, hlen, hgood, hpres, hzeros, htrue⟩ :=
+      exists_fork_state hk hf hq.1 hq.2.2
+    refine ⟨r, Relation.ReflTransGen.single hr, hused, ?_, hpres, ?_, ?_⟩
+    · exact ⟨hused ▸ hq.1, hlen, hgood⟩
+    · rw [hzeros, hzero]
+      simp [contrib, hz, token, hm, Multiset.add_assoc]
+    · simp [htrue, hz, hm]
+  · refine ⟨q, Relation.ReflTransGen.refl, rfl, hq, preserves_refl q, ?_, ?_⟩
+    · rw [hzero]
+      by_cases hz : S out = ∅
+      · by_cases ho : out = fork
+        · have hm : M out = 0 := by by_contra hm; exact hevent ⟨hz, ho, hm⟩
+          subst fork
+          simp [hz, hm, token]
+        · simp [ho]
+      · simp [hz]
+    · rw [hflag]
+      congr 1
+      apply propext
+      constructor
+      · rintro ⟨hz, hm, hf⟩
+        exact ⟨hz, hm, by omega⟩
+      · rintro ⟨hz, hm, hf⟩
+        refine ⟨hz, hm, ?_⟩
+        have hne : out ≠ fork := by
+          intro ho
+          exact hevent ⟨ho ▸ hz, ho, ho ▸ hm⟩
+        omega
+
+lemma program_inv_step {S : ℕ → Finset (Fin 10)} {M A B : ℕ → ℕ}
+    {G : ℕ → Option (Fin 4)} {start fork n t : ℕ} {s : State}
+    (hv : Valid start A B n)
+    (hcap : ∀ w, S w = ∅ → ReadCount start A B n w ≤ Capacity fork w)
+    (hgroups : GroupUnique G start n) (hcallback : ProgramCallback S M A B G start n)
+    (ht : t < n) (hinv : ProgramInv S M A B G start fork t s) :
+    ∃ r : State, Reach s r ∧ ProgramInv S M A B G start fork (t + 1) r := by
+  obtain ⟨hhealthy, hzeros, hreps, hflag, hused⟩ := hinv
+  obtain ⟨ha, hb, hab⟩ := hv t ht
+  obtain ⟨rest, hids, _⟩ := available_step_decomp (fun w => S w = ∅) hv hcap ht
+  have hzero_input : (s.2.2.1 : Multiset ℕ) =
+      contrib (S (A (start + t))) (M (A (start + t))) +
+      contrib (S (B (start + t))) (M (B (start + t))) + project (fun w => S w = ∅) M rest := by
+    rw [hzeros, hids, project_cons, project_cons]
+    simp only [contrib, Multiset.add_assoc]
+  have hunused : ∀ g : Fin 4, G (start + t) = some g → s.1.testBit g.val = false := by
+    intro g hg
+    cases hbit : s.1.testBit g.val with
+    | false => rfl
+    | true =>
+      obtain ⟨j, hj, hjg⟩ := hused g hbit
+      have heq := hgroups t ht j (by omega) g hg hjg
+      omega
+  obtain ⟨q, hreachq, hflagq, hhealthyq, hzeroq, hpresq, hnewq, husedq⟩ :=
+    hcallback t ht s (project (fun w => S w = ∅) M rest) hhealthy
+      (hreps _ ha) (hreps _ hb) hzero_input hunused
+  obtain ⟨r, hreachr, husedr, hhealthyr, hpresr, hzeror, hflagr⟩ :=
+    finish_output_fork S M fork (start + t) hhealthyq (hflagq.trans hflag) hzeroq
+  refine ⟨r, hreachq.trans hreachr, hhealthyr, ?_, ?_, ?_, ?_⟩
+  · rw [Available, project_step (fun w => S w = ∅) M hids hab]
+    exact hzeror
+  · intro w hw hSw
+    by_cases hold : w < start + t
+    · exact hpresr _ _ (hpresq _ _ (hreps w hold hSw))
+    · have heq : w = start + t := by omega
+      subst w
+      exact hpresr _ _ (hnewq hSw)
+  · simpa only [Nat.add_assoc] using hflagr
+  · intro g hg
+    rw [husedr] at hg
+    rcases husedq g hg with hg | hg
+    · obtain ⟨j, hj, hjg⟩ := hused g hg
+      exact ⟨j, by omega, hjg⟩
+    · exact ⟨t, by omega, hg⟩
+
+lemma program_induction_prefix {S : ℕ → Finset (Fin 10)} {M A B : ℕ → ℕ}
+    {G : ℕ → Option (Fin 4)} {start fork n : ℕ} {s₀ : State}
+    (hv : Valid start A B n)
+    (hcap : ∀ w, S w = ∅ → ReadCount start A B n w ≤ Capacity fork w)
+    (hgroups : GroupUnique G start n) (hcallback : ProgramCallback S M A B G start n)
+    (hinit : ProgramInv S M A B G start fork 0 s₀) :
+    ∀ t ≤ n, ∃ s : State, Reach s₀ s ∧ ProgramInv S M A B G start fork t s := by
+  intro t
+  induction t with
+  | zero =>
+    intro _
+    exact ⟨s₀, Relation.ReflTransGen.refl, hinit⟩
+  | succ t ih =>
+    intro ht
+    obtain ⟨s, hreach, hinv⟩ := ih (by omega)
+    obtain ⟨r, hstep, hinvr⟩ := program_inv_step hv hcap hgroups hcallback (by omega) hinv
+    exact ⟨r, hreach.trans hstep, hinvr⟩
+
+lemma program_induction {S : ℕ → Finset (Fin 10)} {M A B : ℕ → ℕ}
+    {G : ℕ → Option (Fin 4)} {start fork n : ℕ} {s₀ : State}
+    (hv : Valid start A B n)
+    (hcap : ∀ w, S w = ∅ → ReadCount start A B n w ≤ Capacity fork w)
+    (hgroups : GroupUnique G start n) (hcallback : ProgramCallback S M A B G start n)
+    (hinit : ProgramInv S M A B G start fork 0 s₀) :
+    ∃ s : State, Reach s₀ s ∧ ProgramInv S M A B G start fork n s :=
+  program_induction_prefix hv hcap hgroups hcallback hinit n (Nat.le_refl n)
+
+end OnceSimulation
+
+
+
+namespace OnceSimulation
+open OnceResource OnceGeometry OncePositive
+
+def ProgramSemantics (S : ℕ → Finset (Fin 10)) (M A B : ℕ → ℕ)
+    (G : ℕ → Option (Fin 4)) (Op : ℕ → Bool) (start n : ℕ) : Prop :=
+  ∀ t < n,
+    if Op (start + t) then
+      S (start + t) = ∅ ∧ M (start + t) = M (A (start + t)) &&& M (B (start + t)) ∧
+        (match G (start + t) with
+        | none => S (A (start + t)) = ∅ ∧ S (B (start + t)) = ∅
+        | some g =>
+          (S (A (start + t)) = port g false ∧ S (B (start + t)) = port g true) ∨
+          (S (A (start + t)) = port g true ∧ S (B (start + t)) = port g false))
+    else G (start + t) = none ∧
+      S (start + t) = S (A (start + t)) ∪ S (B (start + t)) ∧
+      M (start + t) = M (A (start + t)) ||| M (B (start + t))
+
+lemma semantic_callback {S : ℕ → Finset (Fin 10)} {M A B : ℕ → ℕ}
+    {G : ℕ → Option (Fin 4)} {Op : ℕ → Bool} {start n : ℕ}
+    (hm : ∀w, M w < 64) (hsem : ProgramSemantics S M A B G Op start n) :
+    ProgramCallback S M A B G start n := by
+  intro t ht s rest hs ha hb hz hgroups
+  generalize hg : G (start + t) = group at hgroups ⊢
+  cases group with
+  | none =>
+    exact gate_local (Op (start + t)) none hs ha hb
+      ⟨hm _, hm _, hm _⟩ hz hgroups (by simpa [hg] using hsem t ht)
+  | some g =>
+    exact gate_local (Op (start + t)) (some g) hs ha hb
+      ⟨hm _, hm _, hm _⟩ hz hgroups (by simpa [hg] using hsem t ht)
+
+end OnceSimulation
+
+
+namespace OnceSimulation
+
+open OnceResource OnceGeometry OncePositive
+
+lemma initial_state_witness (S : ℕ → Finset (Fin 10)) (M : ℕ → ℕ)
+    {start seed fork : ℕ} (hseed : seed < start)
+    (hSseed : S seed = ∅) (hMseed : M seed = 63)
+    (hother : ∀ w < start, S w = ∅ → w ≠ seed → M w = 0)
+    (hpositive : ∀ w < start, (S w).Nonempty → M w = rawMask (S w)) :
+    ∃ s : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) initial s ∧
+      Healthy s ∧ s.1 = 0 ∧
+      (s.2.2.1 : Multiset ℕ) = TokenMap.project (fun w => S w = ∅) M
+        (IndexCopies.Initial (fun w => S w = ∅) start fork) ∧
+      (∀ w < start, (S w).Nonempty → Rep s.1 (poolView s.2.1) (S w) (M w)) ∧
+      s.2.2.2 = decide (S fork = ∅ ∧ M fork ≠ 0 ∧ fork < start) := by
+  have hi : Healthy initial := ⟨by decide, rfl, poolsGood_replicate_one⟩
+  have hr : ∀ w < start, (S w).Nonempty →
+      Rep initial.1 (poolView initial.2.1) (S w) (M w) := by
+    intro w hw hS
+    rw [hpositive w hw hS]
+    exact rep_raw hi.2.2 _
+  have hMne : M seed ≠ 0 := by rw [hMseed]; decide
+  have hproj := TokenMap.project_initial (fun w => S w = ∅) M
+    (fork := fork) hseed hSseed hMne hother
+  rw [hMseed] at hproj
+  have hflag : (S fork = ∅ ∧ M fork ≠ 0 ∧ fork < start) ↔ fork = seed := by
+    constructor
+    · rintro ⟨hS, hM, hlt⟩
+      by_contra hne
+      exact hM (hother fork hlt hS hne)
+    · intro heq
+      subst fork
+      exact ⟨hSseed, hMne, hseed⟩
+  by_cases hf : fork = seed
+  · have hz : (initial.2.2.1 : Multiset ℕ) = ZeroTransitions.token 63 + 0 := by decide
+    obtain ⟨s, hreach, hu, hfork, hzeros, hsused, hslen, hsgood, hpres⟩ :=
+      zero_fork_positive_state 63 0 hi.1 hi.2.1 hi.2.2 rfl hz
+    refine ⟨s, hreach, ⟨hsused, hslen, hsgood⟩, hu, ?_, ?_, ?_⟩
+    · rw [hproj]
+      simpa [hf, ZeroTransitions.token] using hzeros
+    · intro w hw hS
+      exact hpres _ _ (hr w hw hS)
+    · rw [decide_eq_true (hflag.mpr hf)]
+      simpa using hfork
+  · refine ⟨initial, Relation.ReflTransGen.refl, hi, rfl, ?_, hr, ?_⟩
+    · rw [hproj]
+      simp [initial, hf]
+    · simp [initial, hflag, hf]
+
+end OnceSimulation
+
+
+namespace OnceSimulation
+
+open OnceResource OncePositive OnceGeometry IndexCopies TokenMap
+
+lemma program_target_excluded {S : ℕ → Finset (Fin 10)} {M A B : ℕ → ℕ}
+    {G : ℕ → Option (Fin 4)} {start fork n w : ℕ}
+    (hsafe : ∀ s : State, Reach initial s → 56 ∉ s.2.2.1)
+    (hv : Valid start A B n)
+    (hcap : ∀ u, S u = ∅ → ReadCount start A B n u ≤ Capacity fork u)
+    (hgroups : GroupUnique G start n) (hcallback : ProgramCallback S M A B G start n)
+    (hinit : ∃ s₀ : State, Reach initial s₀ ∧ ProgramInv S M A B G start fork 0 s₀)
+    (hw : w ∈ Available (fun u => S u = ∅) start fork A B n)
+    (hSw : S w = ∅) (hMw : M w = 56) : False := by
+  obtain ⟨s₀, hreach₀, hinv₀⟩ := hinit
+  obtain ⟨s, hreach, hinv⟩ := program_induction hv hcap hgroups hcallback hinv₀
+  have hMne : M w ≠ 0 := by omega
+  have hmem := project_mem (fun u => S u = ∅) M hw hSw hMne
+  rw [hMw] at hmem
+  have htarget : 56 ∈ s.2.2.1 := by
+    have hm : 56 ∈ (s.2.2.1 : Multiset ℕ) := by
+      rw [hinv.2.1]
+      exact hmem
+    exact hm
+  exact hsafe s (hreach₀.trans hreach) htarget
+
+lemma initial_program_inv (S : ℕ → Finset (Fin 10)) (M A B : ℕ → ℕ)
+    (G : ℕ → Option (Fin 4)) {start seed fork : ℕ}
+    (hseed : seed < start) (hSseed : S seed = ∅) (hMseed : M seed = 63)
+    (hother : ∀ w < start, S w = ∅ → w ≠ seed → M w = 0)
+    (hpositive : ∀ w < start, (S w).Nonempty → M w = rawMask (S w)) :
+    ∃ s : State, Reach initial s ∧ ProgramInv S M A B G start fork 0 s := by
+  obtain ⟨s, hreach, hhealthy, hused, hzeros, hreps, hflag⟩ :=
+    initial_state_witness S M (fork := fork) hseed hSseed hMseed hother hpositive
+  refine ⟨s, hreach, hhealthy, hzeros, ?_, ?_, ?_⟩
+  · simpa only [Nat.add_zero] using hreps
+  · simpa only [Nat.add_zero] using hflag
+  · intro g hg
+    simp [hused] at hg
+
+lemma program_target_excluded_seed {S : ℕ → Finset (Fin 10)} {M A B : ℕ → ℕ}
+    {G : ℕ → Option (Fin 4)} {start seed fork n w : ℕ}
+    (hsafe : ∀ s : State, Reach initial s → 56 ∉ s.2.2.1)
+    (hv : Valid start A B n)
+    (hcap : ∀ u, S u = ∅ → ReadCount start A B n u ≤ Capacity fork u)
+    (hgroups : GroupUnique G start n) (hcallback : ProgramCallback S M A B G start n)
+    (hseed : seed < start) (hSseed : S seed = ∅) (hMseed : M seed = 63)
+    (hother : ∀ u < start, S u = ∅ → u ≠ seed → M u = 0)
+    (hpositive : ∀ u < start, (S u).Nonempty → M u = rawMask (S u))
+    (hw : w ∈ Available (fun u => S u = ∅) start fork A B n)
+    (hSw : S w = ∅) (hMw : M w = 56) : False := by
+  exact program_target_excluded hsafe hv hcap hgroups hcallback
+    (initial_program_inv S M A B G hseed hSseed hMseed hother hpositive) hw hSw hMw
+
+end OnceSimulation
+
+
+namespace OnceSimulation
+
+open OnceResource OncePositive OnceGeometry IndexCopies TokenMap
+
+lemma program_target_excluded_certified {S : ℕ → Finset (Fin 10)} {M A B : ℕ → ℕ}
+    {G : ℕ → Option (Fin 4)} {start fork n w : ℕ}
+    (hv : Valid start A B n)
+    (hcap : ∀ u, S u = ∅ → ReadCount start A B n u ≤ Capacity fork u)
+    (hgroups : GroupUnique G start n) (hcallback : ProgramCallback S M A B G start n)
+    (hinit : ∃ s₀ : State, Reach initial s₀ ∧ ProgramInv S M A B G start fork 0 s₀)
+    (hw : w ∈ Available (fun u => S u = ∅) start fork A B n)
+    (hSw : S w = ∅) (hMw : M w = 56) : False := by
+  exact program_target_excluded (fun _ h => reachable_no_target h)
+    hv hcap hgroups hcallback hinit hw hSw hMw
+
+lemma program_target_excluded_seed_certified {S : ℕ → Finset (Fin 10)} {M A B : ℕ → ℕ}
+    {G : ℕ → Option (Fin 4)} {start seed fork n w : ℕ}
+    (hv : Valid start A B n)
+    (hcap : ∀ u, S u = ∅ → ReadCount start A B n u ≤ Capacity fork u)
+    (hgroups : GroupUnique G start n) (hcallback : ProgramCallback S M A B G start n)
+    (hseed : seed < start) (hSseed : S seed = ∅) (hMseed : M seed = 63)
+    (hother : ∀ u < start, S u = ∅ → u ≠ seed → M u = 0)
+    (hpositive : ∀ u < start, (S u).Nonempty → M u = rawMask (S u))
+    (hw : w ∈ Available (fun u => S u = ∅) start fork A B n)
+    (hSw : S w = ∅) (hMw : M w = 56) : False := by
+  exact program_target_excluded_seed (fun _ h => reachable_no_target h)
+    hv hcap hgroups hcallback hseed hSseed hMseed hother hpositive hw hSw hMw
+
+end OnceSimulation
+
+
+namespace OnceResourceBudget
+
+open PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
+
+variable {n : ℕ} {D : Dag}
+
+lemma zero_reader_inner (hS : Strict n D) {j w : ℕ} (hj : j < D.length)
+    (he : supp n D w = ∅) (hr : opA D j = w ∨ opB D j = w) :
+    w ∈ (inner n D).filter (fun u => ¬(supp n D u).Nonempty) := by
+  have hw : w < n + j := by
+    obtain ⟨ha, hb, _⟩ := hS j hj
+    rcases hr with hr | hr <;> omega
+  apply Finset.mem_filter.mpr
+  constructor
+  · simp only [inner, Finset.mem_range]
+    omega
+  · simp [he]
+
+lemma zero_branch_inner (hS : Strict n D) {w : ℕ} (he : supp n D w = ∅)
+    (hf : 2 ≤ fanout D w) :
+    w ∈ (inner n D).filter (fun u => ¬(supp n D u).Nonempty) := by
+  have hp : 0 < (readers D w).card := by change 0 < fanout D w; omega
+  obtain ⟨j, hj⟩ := Finset.card_pos.mp hp
+  obtain ⟨hj, hr⟩ := Finset.mem_filter.mp hj
+  exact zero_reader_inner hS (Finset.mem_range.mp hj) he hr
+
+lemma zero_fanout_le_two (hS : Strict n D) (hB : Bzero n D ≤ 1)
+    {w : ℕ} (he : supp n D w = ∅) : fanout D w ≤ 2 := by
+  by_cases hf : 2 ≤ fanout D w
+  · have hsum : fanout D w - 1 ≤ Bzero n D := by
+      unfold Bzero surplusOn
+      exact Finset.single_le_sum (f := fun u => fanout D u - 1)
+        (fun _ _ => Nat.zero_le _) (zero_branch_inner hS he hf)
+    omega
+  · omega
+
+lemma zero_branch_unique (hS : Strict n D) (hB : Bzero n D ≤ 1)
+    {a b : ℕ} (ha : supp n D a = ∅) (hb : supp n D b = ∅)
+    (hfa : 2 ≤ fanout D a) (hfb : 2 ≤ fanout D b) : a = b := by
+  by_contra hne
+  have hsub : ({a, b} : Finset ℕ) ⊆
+      (inner n D).filter (fun u => ¬(supp n D u).Nonempty) := by
+    intro w hw
+    rcases Finset.mem_insert.mp hw with rfl | hw
+    · exact zero_branch_inner hS ha hfa
+    · have hwb : w = b := Finset.mem_singleton.mp hw
+      subst w
+      exact zero_branch_inner hS hb hfb
+  have hsum := Finset.sum_le_sum_of_subset (f := fun w => fanout D w - 1) hsub
+  rw [Finset.sum_pair hne] at hsum
+  unfold Bzero surplusOn at hB
+  omega
+
+lemma exists_fork_id (hS : Strict n D) (hB : Bzero n D ≤ 1) :
+    ∃ fork : ℕ, ∀ w, supp n D w = ∅ →
+      fanout D w ≤ if w = fork then 2 else 1 := by
+  classical
+  by_cases hb : ∃ b, supp n D b = ∅ ∧ 2 ≤ fanout D b
+  · obtain ⟨b, hb, hfb⟩ := hb
+    refine ⟨b, ?_⟩
+    intro w hw
+    by_cases hwb : w = b
+    · simp only [hwb, ite_true]
+      exact zero_fanout_le_two hS hB hb
+    · simp only [hwb, ite_false]
+      by_contra hbad
+      have hwf : 2 ≤ fanout D w := by omega
+      exact hwb (zero_branch_unique hS hB hw hb hwf hfb)
+  · refine ⟨0, ?_⟩
+    intro w hw
+    have hf : fanout D w ≤ 1 := by
+      by_contra hbad
+      exact hb ⟨w, hw, by omega⟩
+    split_ifs <;> omega
+
+lemma readers_card_le_cap {fork : ℕ}
+    (hcap : ∀ w, supp n D w = ∅ → fanout D w ≤ if w = fork then 2 else 1)
+    {w : ℕ} (hw : supp n D w = ∅) :
+    (readers D w).card ≤ if w = fork then 2 else 1 := hcap w hw
+
+lemma zero_reader_pair_eq (hS : Strict n D) (hB : Bzero n D ≤ 1)
+    {w j k l : ℕ} (hw : supp n D w = ∅)
+    (hj : j < D.length) (hk : k < D.length) (hl : l < D.length)
+    (rj : opA D j = w ∨ opB D j = w)
+    (rk : opA D k = w ∨ opB D k = w)
+    (rl : opA D l = w ∨ opB D l = w) : j = k ∨ j = l ∨ k = l := by
+  by_contra h
+  push Not at h
+  have hsub : ({j, k, l} : Finset ℕ) ⊆ readers D w := by
+    intro i hi
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hi
+    rcases hi with rfl | rfl | rfl
+    · exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hj, rj⟩
+    · exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hk, rk⟩
+    · exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hl, rl⟩
+  have hcard := Finset.card_le_card hsub
+  have hthree : ({j, k, l} : Finset ℕ).card = 3 := by simp [h.1, h.2.1, h.2.2]
+  rw [hthree] at hcard
+  have htwo := zero_fanout_le_two hS hB hw
+  change (readers D w).card ≤ 2 at htwo
+  omega
+
+end OnceResourceBudget
+
+
+namespace OnceActualSchedule
+
+open DAGBridge.DagTools OnceResource.IndexCopies
+
+def start (g : ℕ) : ℕ := 10 + g + 1
+
+def remaining (D : Dag) (g : ℕ) : ℕ := D.length - g - 1
+
+def sourceA (D : Dag) (w : ℕ) : ℕ := opA D (w - 10)
+
+def sourceB (D : Dag) (w : ℕ) : ℕ := opB D (w - 10)
+
+abbrev Zero (D : Dag) (w : ℕ) : Prop := supp 10 D w = ∅
+
+def ids (D : Dag) (g fork t : ℕ) : Multiset ℕ :=
+  Available (Zero D) (start g) fork (sourceA D) (sourceB D) t
+
+lemma continuation_index (g t : ℕ) : start g + t - 10 = g + 1 + t := by
+  unfold start
+  omega
+
+lemma continuation_valid {D : Dag} (hS : Strict 10 D) (g : ℕ) :
+    Valid (start g) (sourceA D) (sourceB D) (remaining D g) := by
+  intro t ht
+  have hj : g + 1 + t < D.length := by unfold remaining at ht; omega
+  have hs := hS (g + 1 + t) hj
+  have hout : 10 + (g + 1 + t) = start g + t := by unfold start; omega
+  simpa only [sourceA, sourceB, continuation_index, hout] using hs
+
+lemma continuation_readCount_le_fanout (D : Dag) (g w : ℕ) :
+    ReadCount (start g) (sourceA D) (sourceB D) (remaining D g) w ≤ fanout D w := by
+  unfold ReadCount fanout
+  apply Finset.card_le_card_of_injOn (fun j => g + 1 + j)
+  · intro j hj
+    obtain ⟨hj, hr⟩ := Finset.mem_filter.mp hj
+    have hjt := Finset.mem_range.mp hj
+    have hjD : g + 1 + j < D.length := by unfold remaining at hjt; omega
+    apply Finset.mem_filter.mpr
+    refine ⟨Finset.mem_range.mpr hjD, ?_⟩
+    simpa only [sourceA, sourceB, continuation_index] using hr
+  · intro i _ j _ heq
+    change g + 1 + i = g + 1 + j at heq
+    omega
+
+lemma exists_continuation_fork {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D ≤ 1)
+    (g : ℕ) :
+    ∃ fork : ℕ, ∀ w, Zero D w →
+      ReadCount (start g) (sourceA D) (sourceB D) (remaining D g) w ≤ Capacity fork w := by
+  obtain ⟨fork, hcap⟩ := OnceResourceBudget.exists_fork_id hS hB
+  refine ⟨fork, ?_⟩
+  intro w hw
+  exact (continuation_readCount_le_fanout D g w).trans (hcap w hw)
+
+lemma actual_sources_available {D : Dag} (hS : Strict 10 D) {g fork t : ℕ}
+    (hcap : ∀ w, Zero D w →
+      ReadCount (start g) (sourceA D) (sourceB D) (remaining D g) w ≤ Capacity fork w)
+    (ht : t < remaining D g) :
+    opA D (g + 1 + t) ∈ ids D g fork t ∧
+      opB D (g + 1 + t) ∈ Drop (Zero D) (opA D (g + 1 + t)) (ids D g fork t) := by
+  have hs := sources_available (Zero D) (continuation_valid hS g) hcap ht
+  simpa only [ids, sourceA, sourceB, continuation_index] using hs
+
+lemma actual_available_step_decomp {D : Dag} (hS : Strict 10 D) {g fork t : ℕ}
+    (hcap : ∀ w, Zero D w →
+      ReadCount (start g) (sourceA D) (sourceB D) (remaining D g) w ≤ Capacity fork w)
+    (ht : t < remaining D g) :
+    ∃ rest : Multiset ℕ,
+      ids D g fork t = opA D (g + 1 + t) ::ₘ opB D (g + 1 + t) ::ₘ rest ∧
+      ids D g fork (t + 1) =
+        (start g + t) ::ₘ
+          (if Zero D (start g + t) ∧ start g + t = fork then
+            (start g + t) ::ₘ
+              (Retain (Zero D) (opA D (g + 1 + t)) + Retain (Zero D) (opB D (g + 1 + t)) + rest)
+          else Retain (Zero D) (opA D (g + 1 + t)) + Retain (Zero D) (opB D (g + 1 + t)) + rest) := by
+  have hs := available_step_decomp (Zero D) (continuation_valid hS g) hcap ht
+  simpa only [ids, sourceA, sourceB, continuation_index] using hs
+
+lemma actual_id_count {D : Dag} (hS : Strict 10 D) (g fork t w : ℕ)
+    (ht : t ≤ remaining D g) :
+    (ids D g fork t).count w =
+      if w < start g + t then
+        if Zero D w then Capacity fork w - ReadCount (start g) (sourceA D) (sourceB D) t w else 1
+      else 0 := by
+  exact count_available (Zero D) (continuation_valid hS g) t ht w
+
+lemma actual_extra_count (D : Dag) (g fork t : ℕ) :
+    ExtraCount (Zero D) (start g) fork t = if Zero D fork ∧ fork < start g + t then 1 else 0 := by
+  exact extraCount_eq (Zero D) (start g) fork t
+
+lemma exists_actual_sources {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D ≤ 1) (g : ℕ) :
+    ∃ fork : ℕ,
+      (∀ w, Zero D w →
+        ReadCount (start g) (sourceA D) (sourceB D) (remaining D g) w ≤ Capacity fork w) ∧
+      ∀ t < remaining D g,
+        opA D (g + 1 + t) ∈ ids D g fork t ∧
+          opB D (g + 1 + t) ∈ Drop (Zero D) (opA D (g + 1 + t)) (ids D g fork t) := by
+  obtain ⟨fork, hcap⟩ := exists_continuation_fork hS hB g
+  exact ⟨fork, hcap, fun _ ht => actual_sources_available hS hcap ht⟩
+
+end OnceActualSchedule
+
+
+namespace OnceActualSchedule
+
+open DAGBridge.DagTools OnceResource.IndexCopies
+
+lemma final_fanout_zero {D : Dag} (hS : Strict 10 D) : fanout D (outW 10 D) = 0 := by
+  apply Finset.card_eq_zero.mpr
+  apply Finset.eq_empty_iff_forall_notMem.mpr
+  intro j hj
+  obtain ⟨hj, hr⟩ := Finset.mem_filter.mp hj
+  have hjD := Finset.mem_range.mp hj
+  obtain ⟨ha, hb, _⟩ := hS j hjD
+  unfold outW at hr
+  rcases hr with hr | hr <;> omega
+
+lemma final_readCount_zero {D : Dag} (hS : Strict 10 D) (g : ℕ) :
+    ReadCount (start g) (sourceA D) (sourceB D) (remaining D g) (outW 10 D) = 0 := by
+  have hle := continuation_readCount_le_fanout D g (outW 10 D)
+  rw [final_fanout_zero hS] at hle
+  omega
+
+lemma final_output_count {D : Dag} (hS : Strict 10 D) {g : ℕ}
+    (hg : g < D.length) (fork : ℕ) :
+    (ids D g fork (remaining D g)).count (outW 10 D) = Copies (Zero D) fork (outW 10 D) := by
+  rw [actual_id_count hS g fork (remaining D g) (outW 10 D) (Nat.le_refl _)]
+  have hbound : outW 10 D < start g + remaining D g := by
+    unfold outW start remaining
+    omega
+  rw [ite_eq_left hbound, final_readCount_zero hS g]
+  simp only [Copies, Nat.sub_zero]
+
+lemma final_output_available {D : Dag} (hS : Strict 10 D) {g : ℕ}
+    (hg : g < D.length) (fork : ℕ) :
+    outW 10 D ∈ ids D g fork (remaining D g) := by
+  apply Multiset.count_pos.mp
+  rw [final_output_count hS hg fork]
+  unfold Copies Capacity
+  split_ifs <;> decide
+
+end OnceActualSchedule
+
+
+namespace OnceGeometry
+
+open PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
+
+lemma rowSet_mem_crossPairs : ∀ r : Fin 6,
+    rowSet r ∈ FiveGroup.ResourceExclusion.CrossPairs := by decide
+
+lemma wireMask_of_ordinary {D : Dag} (hS : Strict 10 D) {w : ℕ}
+    (ho : FiveGroup.ResourceExclusion.Ordinary (FiveGroup.DAGBridge.DagResource D w)) :
+    wireMask D w = rawMask (supp 10 D w) := by
+  unfold wireMask rawMask
+  apply congrArg mask
+  funext r
+  have hu := ho (rowSet r) (rowSet_mem_crossPairs r)
+  change val D (rowInput r) w = true → (supp 10 D w ∩ rowSet r).Nonempty at hu
+  by_cases hh : (supp 10 D w ∩ rowSet r).Nonempty
+  · rw [support_row_true hS hh, decide_eq_true hh]
+  · cases hv : val D (rowInput r) w with
+    | false => simp [hh]
+    | true => exact False.elim (hh (hu hv))
+
+lemma before_seed_wireMask {D : Dag} (hS : Strict 10 D) {g : ℕ}
+    (hg : g < D.length) (hsides : FiveGroup.DAGBridge.OtherAndSides D g)
+    {w : ℕ} (hw : w < 10 + g) :
+    wireMask D w = rawMask (supp 10 D w) :=
+  wireMask_of_ordinary hS (FiveGroup.DAGBridge.before_seed_ordinary hS hg hsides w hw)
+
+lemma before_seed_zero {D : Dag} (hS : Strict 10 D) {g : ℕ}
+    (hg : g < D.length) (hsides : FiveGroup.DAGBridge.OtherAndSides D g)
+    {w : ℕ} (hw : w < 10 + g) (hz : supp 10 D w = ∅) : wireMask D w = 0 := by
+  rw [before_seed_wireMask hS hg hsides hw, hz, rawMask_empty]
+
+lemma dirty_wire_mask_unoriented {D : Dag} (hS : Strict 10 D) {g : ℕ}
+    (hg : g < D.length) (ht : tag D g = true)
+    (hdirty : FiveGroup.DAGBridge.DirtySides D g) : wireMask D (10 + g) = 63 := by
+  have hd := (FiveGroup.DAGBridge.dirty_seed hS hg ht hdirty).2
+  have heq : (fun r => val D (rowInput r) (10 + g)) = (fun _ => true) := by
+    funext r
+    exact hd (rowSet r) (rowSet_mem_crossPairs r)
+  unfold wireMask
+  rw [heq]
+  decide
+
+lemma seed_initial_masks {D : Dag} (hS : Strict 10 D) {g : ℕ}
+    (hg : g < D.length) (ht : tag D g = true)
+    (hdirty : FiveGroup.DAGBridge.DirtySides D g)
+    (hsides : FiveGroup.DAGBridge.OtherAndSides D g) :
+    (∀ w < 10 + g, wireMask D w = rawMask (supp 10 D w)) ∧
+      wireMask D (10 + g) = 63 := by
+  exact ⟨fun _ hw => before_seed_wireMask hS hg hsides hw,
+    dirty_wire_mask_unoriented hS hg ht hdirty⟩
+
+end OnceGeometry
+
+
+namespace OnceSimulation
+
+open OnceResource OnceGeometry OncePositive
+open PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
+
+lemma actual_initial_state {D : Dag} (hS : Strict 10 D) {g fork : ℕ}
+    (hg : g < D.length) (ht : tag D g = true)
+    (hdirty : FiveGroup.DAGBridge.DirtySides D g)
+    (hsides : FiveGroup.DAGBridge.OtherAndSides D g) :
+    ∃ s : State,
+      Relation.ReflTransGen (fun p q : State => q ∈ successors p) initial s ∧
+      Healthy s ∧ s.1 = 0 ∧
+      (s.2.2.1 : Multiset ℕ) = TokenMap.project (fun w => supp 10 D w = ∅) (wireMask D)
+        (IndexCopies.Initial (fun w => supp 10 D w = ∅) (10 + g + 1) fork) ∧
+      (∀ w < 10 + g + 1, (supp 10 D w).Nonempty →
+        Rep s.1 (poolView s.2.1) (supp 10 D w) (wireMask D w)) ∧
+      s.2.2.2 = decide (supp 10 D fork = ∅ ∧ wireMask D fork ≠ 0 ∧ fork < 10 + g + 1) := by
+  have hseed : supp 10 D (10 + g) = ∅ :=
+    (FiveGroup.DAGBridge.dirty_seed hS hg ht hdirty).1
+  apply initial_state_witness (supp 10 D) (wireMask D) (seed := 10 + g)
+    (by omega) hseed (dirty_wire_mask_unoriented hS hg ht hdirty)
+  · intro w hw hz hne
+    exact before_seed_zero hS hg hsides (by omega) hz
+  · intro w hw hpos
+    have hne : w ≠ 10 + g := by
+      intro heq
+      subst w
+      exact hpos.ne_empty hseed
+    exact before_seed_wireMask hS hg hsides (by omega)
+
+end OnceSimulation
+
+
+namespace OnceSimulation
+open OnceResource OnceGeometry OncePositive OnceActualSchedule
+open DAGBridge.DagTools
+
+lemma actual_petersen_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D ≤ 1)
+    {g : ℕ} (hg : g < D.length) (ht : tag D g = true)
+    (hdirty : FiveGroup.DAGBridge.DirtySides D g)
+    (hsides : FiveGroup.DAGBridge.OtherAndSides D g)
+    {G : ℕ → Option (Fin 4)}
+    (hgroups : GroupUnique G (start g) (remaining D g))
+    (hsem : ProgramSemantics (supp 10 D) (wireMask D) (sourceA D) (sourceB D) G
+      (fun w => tag D (w - 10)) (start g) (remaining D g)) :
+    ¬ ∀ x : Fin 10 → Bool, val D x (10 + D.length - 1) = edgeFn x := by
+  intro hc
+  obtain ⟨fork, hcap⟩ := exists_continuation_fork hS hB g
+  obtain ⟨s₀, hr, hh, hu, hz, hp, hf⟩ := actual_initial_state (fork := fork) hS hg ht hdirty hsides
+  have hinit : ∃ s₀ : State, Reach initial s₀ ∧
+      ProgramInv (supp 10 D) (wireMask D) (sourceA D) (sourceB D) G (start g) fork 0 s₀ := by
+    refine ⟨s₀, hr, hh, hz, ?_, ?_, ?_⟩
+    · simpa only [start, Nat.add_zero] using hp
+    · apply Bool.eq_iff_iff.mpr
+      rw [hf]
+      simp only [decide_eq_true_eq, start, Nat.add_zero]
+      constructor
+      · exact fun h => decide_eq_true h
+      · exact fun h => of_decide_eq_true h
+    · intro k hk
+      simp [hu] at hk
+  have hout : supp 10 D (10 + D.length - 1) = ∅ :=
+    (FiveGroup.DAGBridge.target_of_computes hc).1
+  exact program_target_excluded_certified (continuation_valid hS g) hcap hgroups
+    (semantic_callback (wireMask_lt D) hsem) hinit
+    (final_output_available hS hg fork) hout (wireMask_correct hc)
+
+end OnceSimulation
+
+
+namespace OnceSimulation
+open OnceResource OnceGeometry OncePositive OnceActualSchedule
+open DAGBridge.DagTools
+
+lemma actual_target_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D ≤ 1)
+    {g : ℕ} (hg : g < D.length) (ht : tag D g = true)
+    (hdirty : FiveGroup.DAGBridge.DirtySides D g)
+    (hsides : FiveGroup.DAGBridge.OtherAndSides D g)
+    {G : ℕ → Option (Fin 4)}
+    (hgroups : GroupUnique G (start g) (remaining D g))
+    (hsem : ProgramSemantics (supp 10 D) (wireMask D) (sourceA D) (sourceB D) G
+      (fun w => tag D (w - 10)) (start g) (remaining D g)) :
+    ¬ (supp 10 D (10 + D.length - 1) = ∅ ∧ wireMask D (10 + D.length - 1) = 56) := by
+  intro hout
+  obtain ⟨fork, hcap⟩ := exists_continuation_fork hS hB g
+  obtain ⟨s₀, hr, hh, hu, hz, hp, hf⟩ := actual_initial_state (fork := fork) hS hg ht hdirty hsides
+  have hinit : ∃ s₀ : State, Reach initial s₀ ∧
+      ProgramInv (supp 10 D) (wireMask D) (sourceA D) (sourceB D) G (start g) fork 0 s₀ := by
+    refine ⟨s₀, hr, hh, hz, ?_, ?_, ?_⟩
+    · simpa only [start, Nat.add_zero] using hp
+    · apply Bool.eq_iff_iff.mpr
+      rw [hf]
+      simp only [decide_eq_true_eq, start, Nat.add_zero]
+      constructor
+      · exact fun h => decide_eq_true h
+      · exact fun h => of_decide_eq_true h
+    · intro k hk
+      simp [hu] at hk
+  exact program_target_excluded_certified (continuation_valid hS g) hcap hgroups
+    (semantic_callback (wireMask_lt D) hsem) hinit
+    (final_output_available hS hg fork) hout.1 hout.2
+
+end OnceSimulation
+
+namespace OnceActualLabels
+open DAGBridge.DagTools OnceGeometry
+
+def firstFour (g : Fin 4) : Fin 5 := ⟨g.val, by omega⟩
+
+noncomputable def label (gate : Fin 5 → ℕ) (j : ℕ) : Option (Fin 4) :=
+  if h : ∃ g : Fin 4, j = gate (firstFour g) then some (Classical.choose h) else none
+
+lemma firstFour_injective : Function.Injective firstFour := by
+  intro a b h
+  apply Fin.ext
+  exact congrArg (fun x : Fin 5 => x.val) h
+
+lemma label_some_iff {gate : Fin 5 → ℕ} (hinj : Function.Injective gate)
+    (j : ℕ) (g : Fin 4) : label gate j = some g ↔ j = gate (firstFour g) := by
+  classical
+  unfold label
+  split_ifs with h
+  · constructor
+    · intro he
+      have he' : Classical.choose h = g := Option.some.inj he
+      exact he' ▸ Classical.choose_spec h
+    · intro he
+      have he' : firstFour (Classical.choose h) = firstFour g :=
+        hinj ((Classical.choose_spec h).symm.trans he)
+      rw [firstFour_injective he']
+  · simp only [Option.noConfusion, false_iff]
+    intro he
+    exact h ⟨g, he⟩
+
+lemma label_none_iff (gate : Fin 5 → ℕ) (j : ℕ) :
+    label gate j = none ↔ ∀ g : Fin 4, j ≠ gate (firstFour g) := by
+  classical
+  unfold label
+  split_ifs with h
+  · simp only [Option.some_ne_none, false_iff, not_forall, Classical.not_not]
+    exact h
+  · simp only [true_iff]
+    intro g he
+    exact h ⟨g, he⟩
+
+lemma label_unique {gate : Fin 5 → ℕ} (hinj : Function.Injective gate)
+    {j k : ℕ} {g : Fin 4} (hj : label gate j = some g)
+    (hk : label gate k = some g) : j = k :=
+  ((label_some_iff hinj j g).mp hj).trans ((label_some_iff hinj k g).mp hk).symm
+
+lemma gate_split (k : Fin 5) : k = 4 ∨ ∃ g : Fin 4, k = firstFour g := by
+  by_cases hk : k.val = 4
+  · exact Or.inl (Fin.ext hk)
+  · refine Or.inr ⟨⟨k.val, by omega⟩, ?_⟩
+    rfl
+
+lemma label_semantics {D : Dag} (hS : Strict 10 D) {gate : Fin 5 → ℕ}
+    (hinj : Function.Injective gate)
+    (hvalid : ∀ k, gate k < D.length ∧ tag D (gate k) = true)
+    (hports : ∀ g : Fin 4,
+      (supp 10 D (opA D (gate (firstFour g))) = port g false ∧
+       supp 10 D (opB D (gate (firstFour g))) = port g true) ∨
+      (supp 10 D (opA D (gate (firstFour g))) = port g true ∧
+       supp 10 D (opB D (gate (firstFour g))) = port g false))
+    (htypes : ∀ j, j < D.length → tag D j = true →
+      (∃ k : Fin 5, j = gate k) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅))
+    (j : ℕ) (hj : j < D.length) (hdirty : j ≠ gate 4) :
+    if tag D j then
+      supp 10 D (10+j) = ∅ ∧
+      wireMask D (10+j) = wireMask D (opA D j) &&& wireMask D (opB D j) ∧
+      (match label gate j with
+      | none => supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅
+      | some g =>
+        (supp 10 D (opA D j) = port g false ∧ supp 10 D (opB D j) = port g true) ∨
+        (supp 10 D (opA D j) = port g true ∧ supp 10 D (opB D j) = port g false))
+    else label gate j = none ∧
+      supp 10 D (10+j) = supp 10 D (opA D j) ∪ supp 10 D (opB D j) ∧
+      wireMask D (10+j) = wireMask D (opA D j) ||| wireMask D (opB D j) := by
+  classical
+  have hm := wireMask_gate hS hj
+  have hs := supp_gate hS j hj
+  cases ht : tag D j with
+  | false =>
+    simp only [ht, Bool.false_eq_true, ↓reduceIte] at hm hs ⊢
+    refine ⟨(label_none_iff gate j).mpr ?_, hs, hm⟩
+    intro g he
+    have hh := (hvalid (firstFour g)).2
+    rw [← he, ht] at hh
+    cases hh
+  | true =>
+    simp only [ht, ↓reduceIte] at hm hs ⊢
+    cases hl : label gate j with
+    | none =>
+      have hz : supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅ := by
+        rcases htypes j hj ht with ⟨k, hk⟩ | hz
+        · rcases gate_split k with rfl | ⟨g, rfl⟩
+          · exact False.elim (hdirty hk)
+          · exact False.elim ((label_none_iff gate j).mp hl g hk)
+        · exact hz
+      refine ⟨?_, hm, hz⟩
+      simpa only [hz.1, Finset.empty_inter] using hs
+    | some g =>
+      have he := (label_some_iff hinj j g).mp hl
+      have hp := hports g
+      rw [← he] at hp
+      refine ⟨?_, hm, hp⟩
+      have hd : port g false ∩ port g true = ∅ := by fin_cases g <;> decide
+      rcases hp with ⟨ha,hb⟩ | ⟨ha,hb⟩
+      · simpa only [ha,hb,hd] using hs
+      · simpa only [ha,hb,Finset.inter_comm (port g true) (port g false),hd] using hs
+
+end OnceActualLabels
+
+namespace OnceActualLabels
+open DAGBridge.DagTools OnceGeometry
+
+lemma actual_other_sides {D : Dag} {gate : Fin 5 → ℕ}
+    (hports : ∀ g : Fin 4,
+      (supp 10 D (opA D (gate (firstFour g))) = port g false ∧
+       supp 10 D (opB D (gate (firstFour g))) = port g true) ∨
+      (supp 10 D (opA D (gate (firstFour g))) = port g true ∧
+       supp 10 D (opB D (gate (firstFour g))) = port g false))
+    (htypes : ∀ j, j < D.length → tag D j = true →
+      (∃ k : Fin 5, j = gate k) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅)) :
+    FiveGroup.DAGBridge.OtherAndSides D (gate 4) := by
+  intro j hj hne ht
+  change (supp 10 D (opA D j), supp 10 D (opB D j)) ∈
+      FiveGroup.CausalBarrier.OtherSides ∨
+    (supp 10 D (opB D j), supp 10 D (opA D j)) ∈
+      FiveGroup.CausalBarrier.OtherSides
+  rcases htypes j hj ht with ⟨k,hk⟩ | ⟨ha,hb⟩
+  · rcases gate_split k with rfl | ⟨g,rfl⟩
+    · exact False.elim (hne hk)
+    · have hp := hports g
+      rw [← hk] at hp
+      have hm : (port g false, port g true) ∈ FiveGroup.CausalBarrier.OtherSides := by
+        fin_cases g <;> decide
+      rcases hp with ⟨ha,hb⟩ | ⟨ha,hb⟩
+      · exact Or.inl (by simpa only [ha,hb] using hm)
+      · exact Or.inr (by simpa only [ha,hb] using hm)
+  · left
+    rw [ha,hb]
+    decide
+
+end OnceActualLabels
+
+namespace OnceActualLabels
+open DAGBridge.DagTools OnceGeometry OnceSimulation OnceActualSchedule
+
+noncomputable def wireLabel (gate : Fin 5 → ℕ) (w : ℕ) : Option (Fin 4) := label gate (w - 10)
+
+lemma actual_group_unique {gate : Fin 5 → ℕ} (hinj : Function.Injective gate) :
+    GroupUnique (wireLabel gate) (start (gate 4)) (remaining D (gate 4)) := by
+  intro i hi j hj g hgi hgj
+  have he := label_unique hinj hgi hgj
+  change start (gate 4) + i - 10 = start (gate 4) + j - 10 at he
+  unfold start at he
+  omega
+
+lemma actual_program_semantics {D : Dag} (hS : Strict 10 D) {gate : Fin 5 → ℕ}
+    (hinj : Function.Injective gate)
+    (hvalid : ∀ k, gate k < D.length ∧ tag D (gate k) = true)
+    (hports : ∀ g : Fin 4,
+      (supp 10 D (opA D (gate (firstFour g))) = port g false ∧
+       supp 10 D (opB D (gate (firstFour g))) = port g true) ∨
+      (supp 10 D (opA D (gate (firstFour g))) = port g true ∧
+       supp 10 D (opB D (gate (firstFour g))) = port g false))
+    (htypes : ∀ j, j < D.length → tag D j = true →
+      (∃ k : Fin 5, j = gate k) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅)) :
+    ProgramSemantics (supp 10 D) (wireMask D) (sourceA D) (sourceB D)
+      (wireLabel gate) (fun w => tag D (w-10)) (start (gate 4)) (remaining D (gate 4)) := by
+  intro t ht
+  have hj : gate 4 + 1 + t < D.length := by unfold remaining at ht; omega
+  have hn : gate 4 + 1 + t ≠ gate 4 := by omega
+  have h := label_semantics hS hinj hvalid hports htypes (gate 4 + 1 + t) hj hn
+  have he : start (gate 4) + t = 10 + (gate 4 + 1 + t) := by unfold start; omega
+  simpa only [sourceA, sourceB, wireLabel, continuation_index, he, Nat.add_sub_cancel_left] using h
+
+end OnceActualLabels
+
+namespace OnceActualLabels
+open DAGBridge.DagTools OnceGeometry OnceSimulation
+
+lemma five_gate_petersen_exclusion {D : Dag} (hS : Strict 10 D)
+    (hB : Bzero 10 D ≤ 1) {gate : Fin 5 → ℕ}
+    (hinj : Function.Injective gate)
+    (hvalid : ∀ k, gate k < D.length ∧ tag D (gate k) = true)
+    (hports : ∀ g : Fin 4,
+      (supp 10 D (opA D (gate (firstFour g))) = port g false ∧
+       supp 10 D (opB D (gate (firstFour g))) = port g true) ∨
+      (supp 10 D (opA D (gate (firstFour g))) = port g true ∧
+       supp 10 D (opB D (gate (firstFour g))) = port g false))
+    (hdirty : FiveGroup.DAGBridge.DirtySides D (gate 4))
+    (htypes : ∀ j, j < D.length → tag D j = true →
+      (∃ k : Fin 5, j = gate k) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅)) :
+    ¬ ∀ x : Fin 10 → Bool, val D x (10 + D.length - 1) = edgeFn x := by
+  exact actual_petersen_exclusion hS hB (hvalid 4).1 (hvalid 4).2 hdirty
+    (actual_other_sides hports htypes) (actual_group_unique hinj)
+    (actual_program_semantics hS hinj hvalid hports htypes)
+
+end OnceActualLabels
+
+namespace OnceActualLabels
+open DAGBridge.DagTools OnceGeometry OnceSimulation
+
+lemma five_gate_target_exclusion {D : Dag} (hS : Strict 10 D)
+    (hB : Bzero 10 D ≤ 1) {gate : Fin 5 → ℕ}
+    (hinj : Function.Injective gate)
+    (hvalid : ∀ k, gate k < D.length ∧ tag D (gate k) = true)
+    (hports : ∀ g : Fin 4,
+      (supp 10 D (opA D (gate (firstFour g))) = port g false ∧
+       supp 10 D (opB D (gate (firstFour g))) = port g true) ∨
+      (supp 10 D (opA D (gate (firstFour g))) = port g true ∧
+       supp 10 D (opB D (gate (firstFour g))) = port g false))
+    (hdirty : FiveGroup.DAGBridge.DirtySides D (gate 4))
+    (htypes : ∀ j, j < D.length → tag D j = true →
+      (∃ k : Fin 5, j = gate k) ∨
+      (supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅)) :
+    ¬ (supp 10 D (10 + D.length - 1) = ∅ ∧ wireMask D (10 + D.length - 1) = 56) := by
+  exact actual_target_exclusion hS hB (hvalid 4).1 (hvalid 4).2 hdirty
+    (actual_other_sides hports htypes) (actual_group_unique hinj)
+    (actual_program_semantics hS hinj hvalid hports htypes)
+
+end OnceActualLabels
+
 end PEqualNP.Outside.L_meta_2590
