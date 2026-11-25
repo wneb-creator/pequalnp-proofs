@@ -1,0 +1,30 @@
+{"mask": 303, "gates": 7, "timeout": 10000, "pin": true, "output": "/tmp/oec/pequalnp-pilot-163/counterexample-tree-303-validation.smt2"}
+gates 8 smt_bytes 21798 known_star_full128_replay True
+sat
+
+elapsed_seconds 0.006755736999821238
+((a0 #x1)
+ (b0 #x4)
+ (o0 false)
+ (a1 #x2)
+ (b1 #x3)
+ (o1 false)
+ (a2 #x3)
+ (b2 #x4)
+ (o2 true)
+ (a3 #x5)
+ (b3 #x9)
+ (o3 true)
+ (a4 #x6)
+ (b4 #xa)
+ (o4 true)
+ (a5 #x0)
+ (b5 #xb)
+ (o5 false)
+ (a6 #x7)
+ (b6 #xc)
+ (o6 true)
+ (a7 #x8)
+ (b7 #xd)
+ (o7 true))
+

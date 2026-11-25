@@ -1,0 +1,704 @@
+{
+  "gap": "L-meta-4675",
+  "frozen_utc": "2026-11-25T18:15:20.515098+00:00",
+  "prior_manifest": "results/orch/lemmas/counterexample-manifest.json",
+  "prior_manifest_sha256": "52af8cd77906d3181a840442313a0a8f1900b3af1ae05923a929fec8a9510d21",
+  "prior_files_unchanged": true,
+  "interpretation": [
+    "No proof or refutation of the unrestricted posted statement is claimed.",
+    "SMT UNSAT results are computational; no Lean proof certificates were produced.",
+    "Used-gate and no-idempotent-OR conventions preserve at-most-k existence: prune the output cone, remove idempotent ORs, then pad with AND(output,output).",
+    "Depth/lex ordering only renumbers the wiring DAG. No dirty-AND, TopForm, minimum, edge-activity, or pivotality assumption is present.",
+    "The full seven-input graph census identifies forests and two cyclic classes. Low-bound forest classes were not all synthesized here, so this manifest makes no blanket seven-input solver claim."
+  ],
+  "experiments": [
+    {
+      "id": "three-four-extremal-census",
+      "source": "counterexample-three-four-census.py",
+      "status": "ASSERTIONS_PASS",
+      "scope": "All4096 masks;1952 C4-free graphs;72 with |E|+tau>=10; one class=C6+pendant",
+      "completeness": "EXHAUSTIVE_GRAPH_CENSUS",
+      "args": [],
+      "logs": [
+        "counterexample-three-four-census.stdout",
+        "counterexample-three-four-census.stderr"
+      ]
+    },
+    {
+      "id": "three-four-nine-census",
+      "source": "counterexample-three-four-nine-census.py",
+      "status": "ASSERTIONS_PASS",
+      "scope": "All4096 masks;444 C4-free graphs with |E|+tau=9; seven classes, six genuinely7-active trees and C6+isolate",
+      "completeness": "EXHAUSTIVE_GRAPH_CENSUS",
+      "args": [],
+      "logs": [
+        "counterexample-three-four-nine-census.stdout",
+        "counterexample-three-four-nine-census.stderr"
+      ]
+    },
+    {
+      "id": "all-seven-input-graph-census",
+      "source": "counterexample-seven-input-census.py",
+      "status": "ASSERTIONS_PASS",
+      "scope": "Bipartitions0+7,1+6,2+5,3+4: all masks, exact cover histograms and cycle classification",
+      "completeness": "EXHAUSTIVE_GRAPH_CENSUS",
+      "args": [],
+      "logs": [
+        "counterexample-seven-input-census.stdout",
+        "counterexample-seven-input-census.stderr"
+      ],
+      "limitation": "Graph classification only, not a blanket circuit synthesis result."
+    },
+    {
+      "id": "pendant-known9",
+      "source": "counterexample-pendant-eight-smt.py",
+      "status": "SAT",
+      "scope": "Pinned canonical9-gate star circuit for C6+pendant, full128 truth rows",
+      "completeness": "ENCODING_POSITIVE_CONTROL",
+      "args": [
+        "validate"
+      ],
+      "logs": [
+        "counterexample-pendant-eight-validation.stdout",
+        "counterexample-pendant-eight-validation.stderr"
+      ]
+    },
+    {
+      "id": "pendant-at-most8",
+      "source": "counterexample-pendant-eight-smt.py",
+      "status": "UNSAT",
+      "scope": "Existence of any T0 binary AO circuit of at most8 gates for C6+pendant, full128 truth rows",
+      "completeness": "COMPLETE_FOR_THIS_FINITE_TARGET",
+      "args": [
+        "8",
+        "900000",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-pendant-eight.smt2"
+      ],
+      "logs": [
+        "counterexample-pendant-eight.stdout",
+        "counterexample-pendant-eight.stderr"
+      ],
+      "timeout_ms": 900000,
+      "elapsed_seconds": 81.98328124999989,
+      "limitations": "No Lean UNSAT certificate; no general graph lower bound."
+    },
+    {
+      "id": "tree-303-known8",
+      "source": "counterexample-seven-input-smt.py",
+      "status": "SAT",
+      "scope": "Pinned8-gate star circuit for graph mask303, independent full128-row Python replay",
+      "completeness": "ENCODING_POSITIVE_CONTROL",
+      "args": [
+        "--mask",
+        "303",
+        "--timeout",
+        "10000",
+        "--pin",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-tree-303-validation.smt2"
+      ],
+      "logs": [
+        "counterexample-tree-303-validation.stdout",
+        "counterexample-tree-303-validation.stderr"
+      ]
+    },
+    {
+      "id": "tree-303-at-most7",
+      "source": "counterexample-seven-input-smt.py",
+      "status": "UNSAT",
+      "scope": "Any T0 binary AO circuit of at most7 gates for seven-active tree mask303, full128 truth rows",
+      "completeness": "COMPLETE_FOR_THIS_FINITE_TARGET",
+      "args": [
+        "--mask",
+        "303",
+        "--gates",
+        "7",
+        "--timeout",
+        "300000",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-tree-303-seven.smt2"
+      ],
+      "logs": [
+        "counterexample-tree-303-seven.stdout",
+        "counterexample-tree-303-seven.stderr"
+      ],
+      "timeout_ms": 300000,
+      "elapsed_seconds": 11.344119569999748,
+      "limitations": "Solver result only; no Lean UNSAT certificate."
+    },
+    {
+      "id": "tree-317-known8",
+      "source": "counterexample-seven-input-smt.py",
+      "status": "SAT",
+      "scope": "Pinned8-gate star circuit for graph mask317, independent full128-row Python replay",
+      "completeness": "ENCODING_POSITIVE_CONTROL",
+      "args": [
+        "--mask",
+        "317",
+        "--timeout",
+        "10000",
+        "--pin",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-tree-317-validation.smt2"
+      ],
+      "logs": [
+        "counterexample-tree-317-validation.stdout",
+        "counterexample-tree-317-validation.stderr"
+      ]
+    },
+    {
+      "id": "tree-317-at-most7",
+      "source": "counterexample-seven-input-smt.py",
+      "status": "UNSAT",
+      "scope": "Any T0 binary AO circuit of at most7 gates for seven-active tree mask317, full128 truth rows",
+      "completeness": "COMPLETE_FOR_THIS_FINITE_TARGET",
+      "args": [
+        "--mask",
+        "317",
+        "--gates",
+        "7",
+        "--timeout",
+        "300000",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-tree-317-seven.smt2"
+      ],
+      "logs": [
+        "counterexample-tree-317-seven.stdout",
+        "counterexample-tree-317-seven.stderr"
+      ],
+      "timeout_ms": 300000,
+      "elapsed_seconds": 10.077176102000067,
+      "limitations": "Solver result only; no Lean UNSAT certificate."
+    },
+    {
+      "id": "tree-318-known8",
+      "source": "counterexample-seven-input-smt.py",
+      "status": "SAT",
+      "scope": "Pinned8-gate star circuit for graph mask318, independent full128-row Python replay",
+      "completeness": "ENCODING_POSITIVE_CONTROL",
+      "args": [
+        "--mask",
+        "318",
+        "--timeout",
+        "10000",
+        "--pin",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-tree-318-validation.smt2"
+      ],
+      "logs": [
+        "counterexample-tree-318-validation.stdout",
+        "counterexample-tree-318-validation.stderr"
+      ]
+    },
+    {
+      "id": "tree-318-at-most7",
+      "source": "counterexample-seven-input-smt.py",
+      "status": "UNSAT",
+      "scope": "Any T0 binary AO circuit of at most7 gates for seven-active tree mask318, full128 truth rows",
+      "completeness": "COMPLETE_FOR_THIS_FINITE_TARGET",
+      "args": [
+        "--mask",
+        "318",
+        "--gates",
+        "7",
+        "--timeout",
+        "300000",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-tree-318-seven.smt2"
+      ],
+      "logs": [
+        "counterexample-tree-318-seven.stdout",
+        "counterexample-tree-318-seven.stderr"
+      ],
+      "timeout_ms": 300000,
+      "elapsed_seconds": 12.19069244000002,
+      "limitations": "Solver result only; no Lean UNSAT certificate."
+    },
+    {
+      "id": "tree-363-known8",
+      "source": "counterexample-seven-input-smt.py",
+      "status": "SAT",
+      "scope": "Pinned8-gate star circuit for graph mask363, independent full128-row Python replay",
+      "completeness": "ENCODING_POSITIVE_CONTROL",
+      "args": [
+        "--mask",
+        "363",
+        "--timeout",
+        "10000",
+        "--pin",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-tree-363-validation.smt2"
+      ],
+      "logs": [
+        "counterexample-tree-363-validation.stdout",
+        "counterexample-tree-363-validation.stderr"
+      ]
+    },
+    {
+      "id": "tree-363-at-most7",
+      "source": "counterexample-seven-input-smt.py",
+      "status": "UNSAT",
+      "scope": "Any T0 binary AO circuit of at most7 gates for seven-active tree mask363, full128 truth rows",
+      "completeness": "COMPLETE_FOR_THIS_FINITE_TARGET",
+      "args": [
+        "--mask",
+        "363",
+        "--gates",
+        "7",
+        "--timeout",
+        "300000",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-tree-363-seven.smt2"
+      ],
+      "logs": [
+        "counterexample-tree-363-seven.stdout",
+        "counterexample-tree-363-seven.stderr"
+      ],
+      "timeout_ms": 300000,
+      "elapsed_seconds": 16.22444940100013,
+      "limitations": "Solver result only; no Lean UNSAT certificate."
+    },
+    {
+      "id": "tree-857-known8",
+      "source": "counterexample-seven-input-smt.py",
+      "status": "SAT",
+      "scope": "Pinned8-gate star circuit for graph mask857, independent full128-row Python replay",
+      "completeness": "ENCODING_POSITIVE_CONTROL",
+      "args": [
+        "--mask",
+        "857",
+        "--timeout",
+        "10000",
+        "--pin",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-tree-857-validation.smt2"
+      ],
+      "logs": [
+        "counterexample-tree-857-validation.stdout",
+        "counterexample-tree-857-validation.stderr"
+      ]
+    },
+    {
+      "id": "tree-857-at-most7",
+      "source": "counterexample-seven-input-smt.py",
+      "status": "UNSAT",
+      "scope": "Any T0 binary AO circuit of at most7 gates for seven-active tree mask857, full128 truth rows",
+      "completeness": "COMPLETE_FOR_THIS_FINITE_TARGET",
+      "args": [
+        "--mask",
+        "857",
+        "--gates",
+        "7",
+        "--timeout",
+        "300000",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-tree-857-seven.smt2"
+      ],
+      "logs": [
+        "counterexample-tree-857-seven.stdout",
+        "counterexample-tree-857-seven.stderr"
+      ],
+      "timeout_ms": 300000,
+      "elapsed_seconds": 9.500380134000352,
+      "limitations": "Solver result only; no Lean UNSAT certificate."
+    },
+    {
+      "id": "tree-858-known8",
+      "source": "counterexample-seven-input-smt.py",
+      "status": "SAT",
+      "scope": "Pinned8-gate star circuit for graph mask858, independent full128-row Python replay",
+      "completeness": "ENCODING_POSITIVE_CONTROL",
+      "args": [
+        "--mask",
+        "858",
+        "--timeout",
+        "10000",
+        "--pin",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-tree-858-validation.smt2"
+      ],
+      "logs": [
+        "counterexample-tree-858-validation.stdout",
+        "counterexample-tree-858-validation.stderr"
+      ]
+    },
+    {
+      "id": "tree-858-at-most7",
+      "source": "counterexample-seven-input-smt.py",
+      "status": "UNSAT",
+      "scope": "Any T0 binary AO circuit of at most7 gates for seven-active tree mask858, full128 truth rows",
+      "completeness": "COMPLETE_FOR_THIS_FINITE_TARGET",
+      "args": [
+        "--mask",
+        "858",
+        "--gates",
+        "7",
+        "--timeout",
+        "300000",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-tree-858-seven.smt2"
+      ],
+      "logs": [
+        "counterexample-tree-858-seven.stdout",
+        "counterexample-tree-858-seven.stderr"
+      ],
+      "timeout_ms": 300000,
+      "elapsed_seconds": 7.928004380999937,
+      "limitations": "Solver result only; no Lean UNSAT certificate."
+    }
+  ],
+  "forest_theorem_crosscheck": {
+    "theorem": "PEqualNP.MetaComplexity.L104",
+    "file": "lean/PEqualNP/MetaComplexity/L104.lean",
+    "line": 9,
+    "helper": "lean/PEqualNP/MetaComplexity/Helpers/ForestBound.lean:425",
+    "hypotheses": [
+      "G.IsAcyclic",
+      "G has at least one edge",
+      "Every vertex cover has cardinality at least k",
+      "HasCircuitSize n edgeFn s"
+    ],
+    "conclusion": "G.edgeFinset.card+k <= s+1",
+    "model": "Defs/MetaComplexity.lean:27,37 uses the same CircuitLowerBounds.Circuit, AND/OR/NOT and fan-in<=2; the AO2 test circuits are included.",
+    "application": "For every six-edge tree in this supplement, k=3 gives s>=8, independently predicting the7-gate UNSAT results.",
+    "status": "Source-level crosscheck of existing theorem, not a newly compiled Lean instance."
+  },
+  "files": [
+    {
+      "path": "results/orch/lemmas/counterexample-pendant-eight-smt.py",
+      "bytes": 5595,
+      "sha256": "d15f67644cd5a14995b44b5c3d83e98c556058eb7b57f27c69c0336983f76aa9",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-census.py",
+      "bytes": 2285,
+      "sha256": "23ad79bf80fb96264714ca1d72312b50d27c40befda99dd8d2f2b3fa7a81f956",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-smt.py",
+      "bytes": 6819,
+      "sha256": "34d196eb588ac459e03084c7c10dec62be8f4209de013094ce03d16c4ded4e37",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-three-four-census.py",
+      "bytes": 2302,
+      "sha256": "f8c355c034869e928852e212580881beb29490e94115f419e960cd85247eb367",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-three-four-nine-census.py",
+      "bytes": 2160,
+      "sha256": "b2f319210172e5387864ec778dd3a1457e5299d647c76b7deca16b32d711f858",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-three-four-census.stdout",
+      "bytes": 8588,
+      "sha256": "1f7a24465a9e12d9fda7fb84c40bc1bed1833ea8ed869e44efed1ffa04ccdccf",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-three-four-census.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-three-four-nine-census.stdout",
+      "bytes": 4264,
+      "sha256": "965a58171ce2bb4d5af6c2dca1a4214483a58664e1f4a1a033368896f246bc83",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-three-four-nine-census.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-seven-input-census.stdout",
+      "bytes": 5081,
+      "sha256": "4ff63e5f168bc1007de549094559de8e55e9ca04cf10aa2adb874ca60980536b",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-seven-input-census.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-pendant-eight-validation.stdout",
+      "bytes": 452,
+      "sha256": "9328e2180a4f7dc6e544bddee30f625ddd4ece31c779de17771aa08a483975f9",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-pendant-eight-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-pendant-eight.stdout",
+      "bytes": 97,
+      "sha256": "ae602dbebfa2bb8e50ba2f7709fb35e12dd95cb40df11b5cfe4b18c4516af343",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-pendant-eight.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-303-validation.stdout",
+      "bytes": 488,
+      "sha256": "2319a8ea839b696d7f75e087385387c24bbb60c6cca7316d4bad93b0a0808a3c",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-303-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-303-seven.stdout",
+      "bytes": 233,
+      "sha256": "187913ddcb1695aa4b84538caf860dca25ace6caf079132b693a2ccd80e0e378",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-303-seven.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-317-validation.stdout",
+      "bytes": 488,
+      "sha256": "d4e3a23c872466971379f1ce160024b27e69f144b6acfacd37acf29b7d8b3131",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-317-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-317-seven.stdout",
+      "bytes": 233,
+      "sha256": "7e48d2189f7db1b8378ed2832de68f5548e3fdced936e584853de40dfcbadf5f",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-317-seven.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-318-validation.stdout",
+      "bytes": 489,
+      "sha256": "6a644439413eac6629aa512d8315c6afd9370e75d114b315780f9e3317f23bab",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-318-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-318-seven.stdout",
+      "bytes": 232,
+      "sha256": "341ffe8c3b6d03767340575a9ea9eeff2f50b796ab0c0aec4b2848c93e46e0a5",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-318-seven.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-363-validation.stdout",
+      "bytes": 488,
+      "sha256": "d8982974a8c2c3d921cb71afe4570b321298b7838670cd366b6e051c30a16fab",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-363-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-363-seven.stdout",
+      "bytes": 232,
+      "sha256": "f55cc9ee6a190af8d41a65c932195595e53fb7ff4c779ba0e5ef46326c5997c7",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-363-seven.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-857-validation.stdout",
+      "bytes": 488,
+      "sha256": "341f99fefa9a6d6172d91706e873520469dc7295d4d16783370200486d44a541",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-857-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-857-seven.stdout",
+      "bytes": 232,
+      "sha256": "113affeac48b24e73c0cb78f187b65ad4747c0506e32aba1460d5d61557d7bc3",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-857-seven.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-858-validation.stdout",
+      "bytes": 488,
+      "sha256": "eea4580fe9fd5d06c1d6f0db5ec94aea1fa9fb4c3cb2750a12f2613138938f9c",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-858-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-858-seven.stdout",
+      "bytes": 232,
+      "sha256": "850d22d2e888ae5eb7f2fbc63def5cf8211221e6cc1b929d72ca53cd99001412",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-858-seven.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-pendant-known9.smt2",
+      "bytes": 25281,
+      "sha256": "5d100f603692e6ffd3ef5a9f5f54cf7729690a9e712e7212ce7d6e1f4e3e441f",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-pendant-eight.smt2",
+      "bytes": 21209,
+      "sha256": "940de486d5c3f1eb9cb3bb044ea49b59d5ddf074ac6568858c04d7e8bff22cb3",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-303-validation.smt2",
+      "bytes": 21799,
+      "sha256": "08ef16d0c40c291de6ab8c45fb07bcabdc382208f42ff259f24c77940b74e098",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-303-seven.smt2",
+      "bytes": 18005,
+      "sha256": "db644e3f530480a73d6254846733fd961ed61fe4f2b63e1603fc44608a8ec963",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-317-validation.smt2",
+      "bytes": 21799,
+      "sha256": "3bcab4e03b2c218582a4ab50f644307f4c767bac34adf36a0cecacd2775181a9",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-317-seven.smt2",
+      "bytes": 18005,
+      "sha256": "7a68fddf5d405a3d36e1b35a975416cb0c0a8b0be3be2deb86b5064117d88ab3",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-318-validation.smt2",
+      "bytes": 21799,
+      "sha256": "349638af84cff0335a299dd42885b0bcd87d6884ef2a0ebaeabba37e1c7ebe36",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-318-seven.smt2",
+      "bytes": 18005,
+      "sha256": "75fc8cab341d49077529a0a141f70e48c42a16d57fc13ff903fdf8ac4e3d51a3",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-363-validation.smt2",
+      "bytes": 21799,
+      "sha256": "7e85255439200e7c4abd1cf74be9dc83701eddef0b0101ad44eb2a3e8d7d8166",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-363-seven.smt2",
+      "bytes": 18005,
+      "sha256": "9ae4b052c2deaa5d89f1734ed85acf92a63956779ff036737db05d2347be7469",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-857-validation.smt2",
+      "bytes": 21799,
+      "sha256": "118aaf7ecdfb7f6aa140df14abc0132d1ebd1fabb69c43273f4c2bbda79842f5",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-857-seven.smt2",
+      "bytes": 18005,
+      "sha256": "ad0a34d98de0834ff2b8ca02ccfa030762ef8696ecb54a495ea400cee5e9dd42",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-858-validation.smt2",
+      "bytes": 21799,
+      "sha256": "6c0674c0b803b3780cdf284626eb9b7530cc042f7b0be25869b436dc3acf9d80",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-858-seven.smt2",
+      "bytes": 18005,
+      "sha256": "f4cda3baa974b80395c50921a0ce98995bd99e2cf8e2ad6aea58e56cb50bd191",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-batch.stdout",
+      "bytes": 792,
+      "sha256": "0ddde101013a823764a7c0dd12da2ddfe82becdbff822de047b7b5b271978335",
+      "kind": "complete_batch_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-logs/counterexample-tree-batch.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_batch_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-manifest.md",
+      "bytes": 2643,
+      "sha256": "f1632e730cdc2d777f475774f15da6b4e459e2affd28e366840351e20dbf5a13",
+      "kind": "human_readable_manifest"
+    }
+  ]
+}

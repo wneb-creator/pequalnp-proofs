@@ -92,3 +92,9 @@ results/orch/lemmas/algebraic-centres-trace.lean SHA256 121a6804f2d3a9013b05b26b
 results/orch/lemmas/algebraic-and-trace.lean SHA256 61c4a0f3307d64155d74c5a3249456adce37ab44767a136e465b6e14fec983ac, compiled exit0; complete algebraic-and-trace-4.stdout/.stderr.
 results/orch/lemmas/library-mask-cut.lean SHA256 7597afcc544fa3958b6b8ab85333184e81564aabeb973cdd9e7e7e375ff460b1, compiled exit0; complete library-mask-cut-build.stdout/.stderr.
 Named aggregate9363lines424733bytes SHA256 3b61b43dfce7c70c897b830c031e7fc4d52071c112a66f19c44d061360b42d5b, lake build exit0, guardmissingtargetonly. No complete proof/refutation.
+
+Snapshot14 2026-11-25T18:18:31.335919+00:00
+Seven-input supplement 02602bb1a1190b6529e032ab094d1f8f01f680eaee6207edc61b3db47492a11c; all56 size/hashrecords verified; independentreviewPASS. SevenSATcontrols andsevenUNSATsearches are computationalresults, notgeneralLeanproof.
+results/orch/lemmas/structural-reader-centres.lean SHA256 76db865b448220121cbc726888dd54a6e13589df446f0817503a4d67817ea613, compiled exit0, independent review PASS; logs structural-reader-centres.stdout/.stderr.
+results/orch/lemmas/library-mask-cut-flex.lean SHA256 100eb999fb1aa2fb7455510e49e2da1f954abfa89c08c5365ee9e5eacd726de4, compiled exit0, independent review PASS; logs library-mask-cut-flex-build.stdout/.stderr.
+results/orch/lemmas/algebraic-and-cone.lean SHA256 c383489ea8e30593b3c2e034914a38b8be85d9a45683c73bd842667a0e204066, compiled exit0, independent review PASS; logs algebraic-and-cone-3.stdout/.stderr.

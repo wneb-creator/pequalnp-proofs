@@ -1,0 +1,5 @@
+{"mask": 303, "gates": 7, "timeout": 300000, "pin": false, "output": "/tmp/oec/pequalnp-pilot-163/counterexample-tree-303-seven.smt2"}
+gates 7 smt_bytes 18004 known_star_full128_replay False
+unsat
+
+elapsed_seconds 11.344119569999748

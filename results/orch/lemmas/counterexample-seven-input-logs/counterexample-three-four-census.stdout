@@ -1,0 +1,589 @@
+{
+  "all_masks": 4096,
+  "c4_free_masks": 1952,
+  "maximum_edges": 7,
+  "maximum_edges_plus_cover": 10,
+  "histogram": [
+    {
+      "edges": 0,
+      "tau": 0,
+      "count": 1
+    },
+    {
+      "edges": 1,
+      "tau": 1,
+      "count": 12
+    },
+    {
+      "edges": 2,
+      "tau": 1,
+      "count": 30
+    },
+    {
+      "edges": 2,
+      "tau": 2,
+      "count": 36
+    },
+    {
+      "edges": 3,
+      "tau": 1,
+      "count": 16
+    },
+    {
+      "edges": 3,
+      "tau": 2,
+      "count": 180
+    },
+    {
+      "edges": 3,
+      "tau": 3,
+      "count": 24
+    },
+    {
+      "edges": 4,
+      "tau": 1,
+      "count": 3
+    },
+    {
+      "edges": 4,
+      "tau": 2,
+      "count": 294
+    },
+    {
+      "edges": 4,
+      "tau": 3,
+      "count": 180
+    },
+    {
+      "edges": 5,
+      "tau": 2,
+      "count": 144
+    },
+    {
+      "edges": 5,
+      "tau": 3,
+      "count": 504
+    },
+    {
+      "edges": 6,
+      "tau": 2,
+      "count": 12
+    },
+    {
+      "edges": 6,
+      "tau": 3,
+      "count": 444
+    },
+    {
+      "edges": 7,
+      "tau": 3,
+      "count": 72
+    }
+  ],
+  "target_masks": 72,
+  "target_isomorphism_classes": 1,
+  "classes": [
+    {
+      "canonical": 862,
+      "count": 72,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ]
+    }
+  ],
+  "expected_pendant_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      0,
+      6
+    ]
+  ],
+  "expected_mask": 862,
+  "expected_canonical": 862,
+  "conclusion": "Every C4-free3+4 graph with |E|+tau(E)>=10 is isomorphic, preserving the bipartition, to C6 plus one pendant edge.",
+  "scope": "Finite exhaustive Python calculation, not Lean verification.",
+  "target_records": [
+    {
+      "mask": 862,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 877,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 926,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 941,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 982,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 986,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 997,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1001,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1342,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1387,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1438,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1462,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1468,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1483,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1507,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1513,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1597,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1627,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1709,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1717,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1724,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1739,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1747,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1754,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1946,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1948,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1961,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1964,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1993,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 1994,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2366,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2398,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2426,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2428,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2471,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2503,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2531,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2533,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2621,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2669,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2681,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2684,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2711,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2759,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2771,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2774,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2902,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2908,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2917,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 2924,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3013,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3014,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3163,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3179,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3193,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3194,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3223,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3239,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3253,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3254,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3382,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3386,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3427,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3434,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3491,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3494,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3637,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3641,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3667,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3673,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3731,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    },
+    {
+      "mask": 3733,
+      "edges": 7,
+      "tau": 3,
+      "canonical": 862
+    }
+  ]
+}

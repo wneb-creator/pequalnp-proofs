@@ -1,0 +1,318 @@
+{
+  "all_masks": 4096,
+  "target": "|E|+tau(E)=9",
+  "labelled": 444,
+  "classes": 7,
+  "genuinely_seven_active_classes": 6,
+  "genuinely_seven_active_labelled": 420,
+  "records": [
+    {
+      "mask": 303,
+      "edges": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "tau": 3,
+      "support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "active_inputs": 7,
+      "forest": true,
+      "components": 1,
+      "labelled_count": 36
+    },
+    {
+      "mask": 317,
+      "edges": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "tau": 3,
+      "support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "active_inputs": 7,
+      "forest": true,
+      "components": 1,
+      "labelled_count": 72
+    },
+    {
+      "mask": 318,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "tau": 3,
+      "support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "active_inputs": 7,
+      "forest": true,
+      "components": 1,
+      "labelled_count": 72
+    },
+    {
+      "mask": 363,
+      "edges": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "edge_count": 6,
+      "tau": 3,
+      "support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "active_inputs": 7,
+      "forest": true,
+      "components": 1,
+      "labelled_count": 144
+    },
+    {
+      "mask": 854,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "edge_count": 6,
+      "tau": 3,
+      "support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "active_inputs": 6,
+      "forest": false,
+      "components": 2,
+      "labelled_count": 24
+    },
+    {
+      "mask": 857,
+      "edges": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "edge_count": 6,
+      "tau": 3,
+      "support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "active_inputs": 7,
+      "forest": true,
+      "components": 1,
+      "labelled_count": 24
+    },
+    {
+      "mask": 858,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "edge_count": 6,
+      "tau": 3,
+      "support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "active_inputs": 7,
+      "forest": true,
+      "components": 1,
+      "labelled_count": 72
+    }
+  ],
+  "scope": "Finite exhaustive computation, not Lean verification."
+}

@@ -1,0 +1,32 @@
+Generated 9 gates; 25280 SMT bytes; known9_pinned True
+sat
+
+Elapsed seconds 0.01169021200030329
+((a0 #b00011)
+ (b0 #b00100)
+ (o0 true)
+ (a1 #b00011)
+ (b1 #b00101)
+ (o1 true)
+ (a2 #b00100)
+ (b2 #b00101)
+ (o2 true)
+ (a3 #b00001)
+ (b3 #b01000)
+ (o3 false)
+ (a4 #b00010)
+ (b4 #b00111)
+ (o4 false)
+ (a5 #b00110)
+ (b5 #b01001)
+ (o5 true)
+ (a6 #b00000)
+ (b6 #b01100)
+ (o6 false)
+ (a7 #b01010)
+ (b7 #b01011)
+ (o7 true)
+ (a8 #b01101)
+ (b8 #b01110)
+ (o8 true))
+

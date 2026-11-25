@@ -1,0 +1,288 @@
+{
+  "inputs": 7,
+  "partitions": [
+    {
+      "p": 0,
+      "l": 7,
+      "all_masks": 1,
+      "c4_free_masks": 1,
+      "forests": 1,
+      "cyclic_masks": 0,
+      "histogram": [
+        {
+          "edges": 0,
+          "tau": 0,
+          "count": 1
+        }
+      ],
+      "cyclic_classes": []
+    },
+    {
+      "p": 1,
+      "l": 6,
+      "all_masks": 64,
+      "c4_free_masks": 64,
+      "forests": 64,
+      "cyclic_masks": 0,
+      "histogram": [
+        {
+          "edges": 0,
+          "tau": 0,
+          "count": 1
+        },
+        {
+          "edges": 1,
+          "tau": 1,
+          "count": 6
+        },
+        {
+          "edges": 2,
+          "tau": 1,
+          "count": 15
+        },
+        {
+          "edges": 3,
+          "tau": 1,
+          "count": 20
+        },
+        {
+          "edges": 4,
+          "tau": 1,
+          "count": 15
+        },
+        {
+          "edges": 5,
+          "tau": 1,
+          "count": 6
+        },
+        {
+          "edges": 6,
+          "tau": 1,
+          "count": 1
+        }
+      ],
+      "cyclic_classes": []
+    },
+    {
+      "p": 2,
+      "l": 5,
+      "all_masks": 1024,
+      "c4_free_masks": 648,
+      "forests": 648,
+      "cyclic_masks": 0,
+      "histogram": [
+        {
+          "edges": 0,
+          "tau": 0,
+          "count": 1
+        },
+        {
+          "edges": 1,
+          "tau": 1,
+          "count": 10
+        },
+        {
+          "edges": 2,
+          "tau": 1,
+          "count": 25
+        },
+        {
+          "edges": 2,
+          "tau": 2,
+          "count": 20
+        },
+        {
+          "edges": 3,
+          "tau": 1,
+          "count": 20
+        },
+        {
+          "edges": 3,
+          "tau": 2,
+          "count": 100
+        },
+        {
+          "edges": 4,
+          "tau": 1,
+          "count": 10
+        },
+        {
+          "edges": 4,
+          "tau": 2,
+          "count": 190
+        },
+        {
+          "edges": 5,
+          "tau": 1,
+          "count": 2
+        },
+        {
+          "edges": 5,
+          "tau": 2,
+          "count": 190
+        },
+        {
+          "edges": 6,
+          "tau": 2,
+          "count": 80
+        }
+      ],
+      "cyclic_classes": []
+    },
+    {
+      "p": 3,
+      "l": 4,
+      "all_masks": 4096,
+      "c4_free_masks": 1952,
+      "forests": 1856,
+      "cyclic_masks": 96,
+      "histogram": [
+        {
+          "edges": 0,
+          "tau": 0,
+          "count": 1
+        },
+        {
+          "edges": 1,
+          "tau": 1,
+          "count": 12
+        },
+        {
+          "edges": 2,
+          "tau": 1,
+          "count": 30
+        },
+        {
+          "edges": 2,
+          "tau": 2,
+          "count": 36
+        },
+        {
+          "edges": 3,
+          "tau": 1,
+          "count": 16
+        },
+        {
+          "edges": 3,
+          "tau": 2,
+          "count": 180
+        },
+        {
+          "edges": 3,
+          "tau": 3,
+          "count": 24
+        },
+        {
+          "edges": 4,
+          "tau": 1,
+          "count": 3
+        },
+        {
+          "edges": 4,
+          "tau": 2,
+          "count": 294
+        },
+        {
+          "edges": 4,
+          "tau": 3,
+          "count": 180
+        },
+        {
+          "edges": 5,
+          "tau": 2,
+          "count": 144
+        },
+        {
+          "edges": 5,
+          "tau": 3,
+          "count": 504
+        },
+        {
+          "edges": 6,
+          "tau": 2,
+          "count": 12
+        },
+        {
+          "edges": 6,
+          "tau": 3,
+          "count": 444
+        },
+        {
+          "edges": 7,
+          "tau": 3,
+          "count": 72
+        }
+      ],
+      "cyclic_classes": [
+        {
+          "canonical": 854,
+          "labelled_count": 24,
+          "edges": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "active_inputs": 6
+        },
+        {
+          "canonical": 862,
+          "labelled_count": 72,
+          "edges": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "active_inputs": 7
+        }
+      ]
+    }
+  ],
+  "conclusion": "Every bipartite C4-free graph on7 inputs is a forest, C6 plus an isolated input, or C6 plus a pendant edge, up to input renaming and side exchange.",
+  "limitation": "Graph census only; this is not a circuit proof or a blanket seven-input solver result."
+}
