@@ -1817,4 +1817,634 @@ lemma sole_or_dirty_source_bound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableR
 
 end DirtyCertificate
 
+
+
+namespace CertificateForest
+
+lemma sum_indicator {α : Type*} [DecidableEq α] (V S : Finset α) (hS : S ⊆ V) :
+    (∑ v ∈ V, if v ∈ S then 1 else 0 : ℕ) = S.card := by
+  rw [← Finset.sum_filter]
+  have heq : V.filter (fun v => v ∈ S) = S := by
+    ext v
+    simp only [Finset.mem_filter]
+    exact ⟨fun h => h.2, fun h => ⟨hS h, h⟩⟩
+  rw [heq]
+  simp
+
+lemma leaf_bound {α : Type*} [DecidableEq α]
+    (V L A R : Finset α) (E : Finset (α × α))
+    (hR : R ⊆ V) (hL : L ⊆ V) (hA : A ⊆ V)
+    (hsource : ∀ e ∈ E, e.1 ∈ V)
+    (hincoming : ∀ v ∈ V, v ∉ R → ∃ u, (u, v) ∈ E)
+    (houtgoing : ∀ v ∈ V,
+      (E.filter (fun e => e.1 = v)).card + (if v ∈ L then 1 else 0) ≤
+        1 + (if v ∈ A then 1 else 0)) :
+    L.card ≤ A.card + R.card := by
+  have himage : V \ R ⊆ E.image Prod.snd := by
+    intro v hv
+    obtain ⟨hvV, hvr⟩ := Finset.mem_sdiff.mp hv
+    obtain ⟨u, hu⟩ := hincoming v hvV hvr
+    exact Finset.mem_image.mpr ⟨(u, v), hu, rfl⟩
+  have hlow := (Finset.card_le_card himage).trans (Finset.card_image_le)
+  have hV : V.card ≤ E.card + R.card := by
+    have h := Finset.card_sdiff_add_card_eq_card hR
+    omega
+  have hcount : E.card = ∑ v ∈ V, (E.filter (fun e => e.1 = v)).card :=
+    Finset.card_eq_sum_card_fiberwise hsource
+  have hsum := Finset.sum_le_sum houtgoing
+  rw [Finset.sum_add_distrib, Finset.sum_add_distrib, ← hcount,
+    sum_indicator V L hL, sum_indicator V A hA] at hsum
+  simp only [Finset.sum_const, smul_eq_mul, mul_one] at hsum
+  omega
+
+lemma binary_proof_leaf_bound {α : Type*} [DecidableEq α]
+    (V L A R : Finset α) (E : Finset (α × α))
+    (hR : R ⊆ V) (hL : L ⊆ V) (hA : A ⊆ V)
+    (hsource : ∀ e ∈ E, e.1 ∈ V)
+    (hincoming : ∀ v ∈ V, v ∉ R → ∃ u, (u, v) ∈ E)
+    (hleaf : ∀ v ∈ L, (E.filter (fun e => e.1 = v)).card = 0)
+    (hand : ∀ v ∈ A, (E.filter (fun e => e.1 = v)).card ≤ 2)
+    (hor : ∀ v ∈ V, v ∉ L → v ∉ A →
+      (E.filter (fun e => e.1 = v)).card ≤ 1) :
+    L.card ≤ A.card + R.card := by
+  apply leaf_bound V L A R E hR hL hA hsource hincoming
+  intro v hv
+  by_cases hl : v ∈ L
+  · rw [hleaf v hl]
+    simp [hl]
+  by_cases ha : v ∈ A
+  · have h := hand v ha
+    simpa [hl, ha] using h
+  · have h := hor v hv hl ha
+    simpa [hl, ha] using h
+
+lemma children_leaf_bound {α : Type*} [DecidableEq α]
+    (V L A R : Finset α) (S : α → Finset α)
+    (hR : R ⊆ V) (hL : L ⊆ V) (hA : A ⊆ V)
+    (hincoming : ∀ v ∈ V, v ∉ R → ∃ u ∈ V, v ∈ S u)
+    (hleaf : ∀ v ∈ L, S v = ∅)
+    (hand : ∀ v ∈ A, (S v).card ≤ 2)
+    (hor : ∀ v ∈ V, v ∉ L → v ∉ A → (S v).card ≤ 1) :
+    L.card ≤ A.card + R.card := by
+  let E : Finset (α × α) := V.biUnion fun v => (S v).image fun w => (v, w)
+  have hmem (a b : α) : (a, b) ∈ E ↔ a ∈ V ∧ b ∈ S a := by
+    constructor
+    · intro h
+      obtain ⟨v, hv, h⟩ := Finset.mem_biUnion.mp h
+      obtain ⟨w, hw, heq⟩ := Finset.mem_image.mp h
+      obtain ⟨rfl, rfl⟩ := Prod.mk.inj heq
+      exact ⟨hv, hw⟩
+    · rintro ⟨ha, hb⟩
+      exact Finset.mem_biUnion.mpr ⟨a, ha, Finset.mem_image.mpr ⟨b, hb, rfl⟩⟩
+  have hfiber (v : α) (hv : v ∈ V) :
+      (E.filter (fun e => e.1 = v)).card = (S v).card := by
+    have heq : E.filter (fun e => e.1 = v) = (S v).image (fun w => (v, w)) := by
+      ext e
+      rcases e with ⟨a, b⟩
+      simp only [Finset.mem_filter, hmem]
+      constructor
+      · rintro ⟨⟨ha, hb⟩, rfl⟩
+        exact Finset.mem_image.mpr ⟨b, hb, rfl⟩
+      · intro h
+        obtain ⟨w, hw, heq⟩ := Finset.mem_image.mp h
+        obtain ⟨rfl, rfl⟩ := Prod.mk.inj heq
+        exact ⟨⟨hv, hw⟩, rfl⟩
+    rw [heq]
+    exact Finset.card_image_of_injective _ (fun a b h => (Prod.mk.inj h).2)
+  apply binary_proof_leaf_bound V L A R E hR hL hA
+  · rintro ⟨a, b⟩ h
+    exact ((hmem a b).mp h).1
+  · intro v hv hvr
+    obtain ⟨u, hu, huv⟩ := hincoming v hv hvr
+    exact ⟨u, (hmem u v).mpr ⟨hu, huv⟩⟩
+  · intro v hv
+    rw [hfiber v (hL hv), hleaf v hv]
+    rfl
+  · intro v hv
+    rw [hfiber v (hA hv)]
+    exact hand v hv
+  · intro v hv hl ha
+    rw [hfiber v hv]
+    exact hor v hv hl ha
+
+end CertificateForest
+
+namespace SelectedForest
+
+lemma exists_forest (S : ℕ → Finset ℕ) (R : Finset ℕ) (m : ℕ)
+    (hR : ∀ r ∈ R, r < m)
+    (hback : ∀ v < m, ∀ w ∈ S v, w < v)
+    (P : ℕ → Prop) (hroot : ∀ r ∈ R, P r)
+    (hprop : ∀ v < m, P v → ∀ w ∈ S v, P w) :
+    ∃ V : Finset ℕ, R ⊆ V ∧
+      (∀ v ∈ V, v < m) ∧
+      (∀ v ∈ V, ∀ w ∈ S v, w ∈ V) ∧
+      (∀ v ∈ V, v ∉ R → ∃ p ∈ V, v ∈ S p) ∧
+      ∀ v ∈ V, P v := by
+  classical
+  let rel : ℕ → ℕ → Prop := fun v w => w ∈ S v
+  have reach_lt : ∀ r ∈ R, ∀ v, Relation.ReflTransGen rel r v → v < m := by
+    intro r hr v hv
+    induction hv with
+    | refl => exact hR r hr
+    | @tail b c hbc hstep ih =>
+      exact (hback b ih c hstep).trans ih
+  have reach_P : ∀ r ∈ R, ∀ v, Relation.ReflTransGen rel r v → P v := by
+    intro r hr v hv
+    induction hv with
+    | refl => exact hroot r hr
+    | @tail b c hbc hstep ih =>
+      exact hprop b (reach_lt r hr b hbc) ih c hstep
+  let V := (Finset.range m).filter (fun v => ∃ r ∈ R, Relation.ReflTransGen rel r v)
+  have mem_V : ∀ v, v ∈ V ↔ ∃ r ∈ R, Relation.ReflTransGen rel r v := by
+    intro v
+    simp only [V, Finset.mem_filter, Finset.mem_range]
+    constructor
+    · exact fun h => h.2
+    · rintro ⟨r, hr, hv⟩
+      exact ⟨reach_lt r hr v hv, r, hr, hv⟩
+  refine ⟨V, ?_, ?_, ?_, ?_, ?_⟩
+  · intro r hr
+    exact (mem_V r).2 ⟨r, hr, .refl⟩
+  · intro v hv
+    obtain ⟨r, hr, hrv⟩ := (mem_V v).1 hv
+    exact reach_lt r hr v hrv
+  · intro v hv w hw
+    obtain ⟨r, hr, hrv⟩ := (mem_V v).1 hv
+    exact (mem_V w).2 ⟨r, hr, hrv.tail hw⟩
+  · intro v hv hvr
+    obtain ⟨r, hr, hrv⟩ := (mem_V v).1 hv
+    rcases hrv.cases_tail with h | ⟨p, hp, hstep⟩
+    · exact (hvr (h ▸ hr)).elim
+    · exact ⟨p, (mem_V p).2 ⟨r, hr, hp⟩, hstep⟩
+  · intro v hv
+    obtain ⟨r, hr, hrv⟩ := (mem_V v).1 hv
+    exact reach_P r hr v hrv
+
+end SelectedForest
+
+namespace ProofForest
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+open PEqualNP.CleanedNonEdge ProofSelection
+
+lemma true_certificates {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (R : Finset ℕ) (hR : ∀ r ∈ R, r < n + C.gates.length) (x : Fin n → Bool)
+    (hx : ∀ r ∈ R, wireVal n C r x = true) :
+    ∃ J : Finset (Fin n), (∀ i ∈ J, x i = true) ∧
+      (∀ r ∈ R, wireVal n C r (fun i => decide (i ∈ J)) = true) ∧
+      J.card ≤ (trueAnds n C x (n + C.gates.length)).card + R.card := by
+  classical
+  let S := selectedChildren n C x
+  obtain ⟨V, hRV, hbound, hclosed, hincoming, htruth⟩ :=
+    SelectedForest.exists_forest S R (n + C.gates.length) hR
+      (selected_back C hAO x) (fun v => wireVal n C v x = true) hx
+      (selected_true C hAO x)
+  let L := V.filter (fun v => v < n)
+  let A := V.filter (fun v => n ≤ v ∧ (gateAt C (v - n)).op = GateOp.and)
+  let J : Finset (Fin n) := Finset.univ.filter (fun i => i.val ∈ V)
+  have hcard : J.card = L.card := by
+    apply Finset.card_bij (fun i _ => i.val)
+    · intro i hi
+      simp only [J, Finset.mem_filter, Finset.mem_univ, true_and] at hi
+      exact Finset.mem_filter.mpr ⟨hi, i.isLt⟩
+    · intro i hi j hj he
+      exact Fin.ext he
+    · intro v hv
+      obtain ⟨hvV, hvn⟩ := Finset.mem_filter.mp hv
+      exact ⟨⟨v, hvn⟩, by simpa [J] using hvV, rfl⟩
+  have hcount : L.card ≤ A.card + R.card := by
+    apply CertificateForest.children_leaf_bound V L A R S hRV
+      (Finset.filter_subset _ _) (Finset.filter_subset _ _) hincoming
+    · intro v hv
+      have h := (Finset.mem_filter.mp hv).2
+      simp [S, selectedChildren, h]
+    · intro v hv
+      obtain ⟨hvV, hvn, ha⟩ := Finset.mem_filter.mp hv
+      simp only [S, selectedChildren, not_lt.mpr hvn, ↓reduceIte, ha]
+      by_cases h : opnd C (v - n) 0 = opnd C (v - n) 1 <;> simp [h]
+    · intro v hv hl ha
+      have hvn : n ≤ v := by
+        by_contra h
+        exact hl (Finset.mem_filter.mpr ⟨hv, by omega⟩)
+      have hop : (gateAt C (v - n)).op ≠ GateOp.and := by
+        intro h
+        exact ha (Finset.mem_filter.mpr ⟨hv, hvn, h⟩)
+      simp [S, selectedChildren, not_lt.mpr hvn, hop]
+  have hsub : A ⊆ trueAnds n C x (n + C.gates.length) := by
+    intro v hv
+    obtain ⟨hvV, hvn, ha⟩ := Finset.mem_filter.mp hv
+    have hb := hbound v hvV
+    simp only [trueAnds, Finset.mem_filter, Finset.mem_range]
+    exact ⟨hb, hvn, Nat.le_of_lt hb, ha, htruth v hvV⟩
+  refine ⟨J, ?_, ?_, ?_⟩
+  · intro i hi
+    have hv : i.val ∈ V := by simpa [J] using hi
+    have ht := htruth i.val hv
+    rw [ProofWire.input_value] at ht
+    exact ht
+  · have hall := SelectedTrace.propagate_on_trace S V
+      (fun v => wireVal n C v (fun i => decide (i ∈ J)) = true) ?_ hclosed ?_
+    · intro r hr
+      exact hall r (hRV hr)
+    · intro v hv w hw
+      exact selected_back C hAO x v (hbound v hv) w hw
+    · intro v hv ih
+      by_cases hvn : v < n
+      · rw [ProofWire.input_value C v hvn]
+        simpa [J] using hv
+      · exact selected_eval C hAO x _ v (hbound v hv) (by omega) ih
+  · rw [hcard]
+    exact hcount.trans (Nat.add_le_add_right (Finset.card_le_card hsub) R.card)
+
+end ProofForest
+
+
+namespace MultiReader
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+open TwinLeaf.SingleRead
+
+lemma wire_mono {n : ℕ} (C : Circuit) (hao : IsAO2 n C)
+    (x y : Fin n → Bool) (hxy : ∀ i, x i = true → y i = true)
+    (r : ℕ) (hr : r < n + C.gates.length) :
+    wireVal n C r x = true → wireVal n C r y = true := by
+  induction r using Nat.strong_induction_on with
+  | ind r ih =>
+    by_cases hin : r < n
+    · rw [ProofWire.input_value C r hin x, ProofWire.input_value C r hin y]
+      exact hxy _
+    · have hn : n ≤ r := by omega
+      let k := r - n
+      have hk : k < C.gates.length := by omega
+      have he : r = n + k := by omega
+      have hzero := ProofWire.operand_lt C hao k hk 0
+      have hone := ProofWire.operand_lt C hao k hk 1
+      rw [he, ProofWire.gate_value C hao k hk x, ProofWire.gate_value C hao k hk y]
+      split_ifs with hop
+      · intro ht
+        simp only [Bool.and_eq_true] at ht ⊢
+        exact ⟨ih _ (by omega) (by omega) ht.1,
+          ih _ (by omega) (by omega) ht.2⟩
+      · intro ht
+        simp only [Bool.or_eq_true] at ht ⊢
+        rcases ht with ht | ht
+        · exact Or.inl (ih _ (by omega) (by omega) ht)
+        · exact Or.inr (ih _ (by omega) (by omega) ht)
+
+lemma wire_compare_away {n : ℕ} (C : Circuit) (hao : IsAO2 n C) (u : Fin n)
+    (x y : Fin n → Bool)
+    (hxy : ∀ i, i ≠ u → x i = true → y i = true)
+    (hread : ∀ k < C.gates.length, u.val ∈ (gateAt C k).inputs →
+      wireVal n C (n + k) y = true)
+    (r : ℕ) (hr : r < n + C.gates.length) (hru : r ≠ u.val) :
+    wireVal n C r x = true → wireVal n C r y = true := by
+  induction r using Nat.strong_induction_on with
+  | ind r ih =>
+    by_cases hin : r < n
+    · rw [ProofWire.input_value C r hin x, ProofWire.input_value C r hin y]
+      exact hxy _ (fun he => hru (congrArg Fin.val he))
+    · have hn : n ≤ r := by omega
+      let k := r - n
+      have hk : k < C.gates.length := by omega
+      have he : r = n + k := by omega
+      by_cases hreader : u.val ∈ (gateAt C k).inputs
+      · intro _
+        rw [he]
+        exact hread k hk hreader
+      · have hzero := ProofWire.operand_lt C hao k hk 0
+        have hone := ProofWire.operand_lt C hao k hk 1
+        have hmem (b : Fin 2) : opnd C k b ∈ (gateAt C k).inputs := by
+          have hg : C.gates[k]? = some (gateAt C k) := by
+            simp [gateAt, List.getD_eq_getElem?_getD, hk]
+          have hlen := hao.2.2 _ (List.mem_of_getElem? hg)
+          have hb : b.val < (gateAt C k).inputs.length := by simpa [hlen] using b.isLt
+          have ho : (gateAt C k).inputs[b.val]? = some (opnd C k b) := by
+            simp [opnd, List.getD_eq_getElem?_getD, hb]
+          exact List.mem_of_getElem? ho
+        have haway (b : Fin 2) : opnd C k b ≠ u.val := by
+          intro heq
+          exact hreader (heq ▸ hmem b)
+        rw [he, ProofWire.gate_value C hao k hk x, ProofWire.gate_value C hao k hk y]
+        split_ifs with hop
+        · intro ht
+          simp only [Bool.and_eq_true] at ht ⊢
+          exact ⟨ih _ (by omega) (by omega) (haway 0) ht.1,
+            ih _ (by omega) (by omega) (haway 1) ht.2⟩
+        · intro ht
+          simp only [Bool.or_eq_true] at ht ⊢
+          rcases ht with ht | ht
+          · exact Or.inl (ih _ (by omega) (by omega) (haway 0) ht)
+          · exact Or.inr (ih _ (by omega) (by omega) (haway 1) ht)
+
+lemma true_wire_bound {n : ℕ} (C : Circuit) (x : Fin n → Bool) (r : ℕ)
+    (ht : wireVal n C r x = true) : r < n + C.gates.length := by
+  have hlen : (C.wires (List.ofFn x)).length = n + C.gates.length := by
+    simpa [Circuit.wires] using ProofWire.wires_length C.gates (List.ofFn x)
+  by_contra hb
+  have hb' : ¬r < (C.wires (List.ofFn x)).length := by omega
+  simp [wireVal, List.getD_eq_getElem?_getD, hb'] at ht
+
+lemma readers_or_transfer {n : ℕ} (C : Circuit) (hao : IsAO2 n C) (u : Fin n)
+    (R : Finset ℕ)
+    (hread : ∀ k < C.gates.length, u.val ∈ (gateAt C k).inputs →
+      (gateAt C k).op = GateOp.or ∧ ∃ t ∈ R,
+        (gateAt C k).inputs = [u.val, t] ∨ (gateAt C k).inputs = [t, u.val])
+    (x y : Fin n → Bool) (hxy : ∀ i, i ≠ u → x i = true → y i = true)
+    (hs : ∀ t ∈ R, wireVal n C t y = true) (hout : C.output ≠ u.val) :
+    circuitFun n C x = true → circuitFun n C y = true := by
+  intro ht
+  have houtx : wireVal n C C.output x = true := ht
+  have hbound := true_wire_bound C x C.output houtx
+  apply wire_compare_away C hao u x y hxy _ C.output hbound hout houtx
+  intro k hk hkread
+  obtain ⟨hop, t, htR, hinputs⟩ := hread k hk hkread
+  rw [ProofWire.gate_value C hao k hk y]
+  rcases hinputs with hi | hi <;> simp [hop, opnd, hi, hs t htR]
+
+lemma independent_neighbor_bound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (u : Fin n) (J : Finset (Fin n)) (hfour : NoFourCycle G) (huJ : u ∉ J)
+    (hcover : ∀ w : Fin n, G.Adj u w → ∃ a ∈ J, G.Adj a w) :
+    G.degree u ≤ J.card := by
+  let A : Fin n → Finset (Fin n) := fun a => Finset.univ.filter fun w => G.Adj u w ∧ G.Adj a w
+  have hsub : G.neighborFinset u ⊆ J.biUnion A := by
+    intro w hw
+    have huw := (G.mem_neighborFinset u w).1 hw
+    obtain ⟨a, ha, haw⟩ := hcover w huw
+    exact Finset.mem_biUnion.mpr ⟨a, ha, by simp [A, huw, haw]⟩
+  have hsum : (∑ a ∈ J, (A a).card) ≤ ∑ a ∈ J, 1 := by
+    apply Finset.sum_le_sum
+    intro a ha
+    apply hfour u a
+    intro he
+    exact huJ (he ▸ ha)
+  have hc := (Finset.card_le_card hsub).trans Finset.card_biUnion_le
+  rw [G.card_neighborFinset_eq_degree] at hc
+  exact hc.trans (by simpa using hsum)
+
+lemma independent_insert_bound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (u : Fin n) (J : Finset (Fin n)) (hfour : NoFourCycle G) (huJ : u ∉ J)
+    (hind : ∀ a ∈ J, ∀ b ∈ J, ¬ G.Adj a b)
+    (hinsert : ∀ w : Fin n, G.Adj u w → graphFun G ∅ (setInput (insert w J)) = true) :
+    G.degree u ≤ J.card := by
+  apply independent_neighbor_bound G u J hfour huJ
+  intro w huw
+  exact graph_insert_independent G J hind w (hinsert w huw)
+
+lemma readers_or_independent_support_bound {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit) (u : Fin n)
+    (R : Finset ℕ) (hao : IsAO2 n C)
+    (hread : ∀ k < C.gates.length, u.val ∈ (gateAt C k).inputs →
+      (gateAt C k).op = GateOp.or ∧ ∃ t ∈ R,
+        (gateAt C k).inputs = [u.val, t] ∨ (gateAt C k).inputs = [t, u.val])
+    (hfun : circuitFun n C = graphFun G ∅) (hfour : NoFourCycle G)
+    (J : Finset (Fin n)) (huJ : u ∉ J)
+    (hind : ∀ a ∈ J, ∀ b ∈ J, ¬ G.Adj a b)
+    (hs : ∀ t ∈ R, wireVal n C t (setInput J) = true) :
+    G.degree u ≤ J.card := by
+  apply independent_insert_bound G u J hfour huJ hind
+  intro w huw
+  rw [← hfun]
+  refine readers_or_transfer C hao u R hread (pairInput u w) (setInput (insert w J))
+    ?_ ?_ (output_ne G C hfun u) ?_
+  · intro i hi hp
+    simp only [pairInput, decide_eq_true_eq] at hp
+    rcases hp with he | he
+    · exact False.elim (hi he)
+    · simp [setInput, he]
+  · intro t ht
+    apply wire_mono C hao (setInput J) (setInput (insert w J)) _ t
+      (true_wire_bound C (setInput J) t (hs t ht)) (hs t ht)
+    intro i hi
+    simp only [setInput, decide_eq_true_eq] at hi ⊢
+    exact Finset.mem_insert_of_mem hi
+  · rw [hfun]
+    exact (graph_pair G u w).2 huw
+
+end MultiReader
+
+
+namespace MultiReader
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+open TwinLeaf.SingleRead
+
+lemma readers_or_sources_compare {n : ℕ} (C : Circuit) (hao : IsAO2 n C) (u : Fin n)
+    (R : Finset ℕ)
+    (hread : ∀ k < C.gates.length, u.val ∈ (gateAt C k).inputs →
+      (gateAt C k).op = GateOp.or ∧ ∃ t ∈ R, t ≠ u.val ∧
+        ((gateAt C k).inputs = [u.val, t] ∨ (gateAt C k).inputs = [t, u.val]))
+    (x y : Fin n → Bool) (hxy : ∀ i, i ≠ u → x i = true → y i = true)
+    (hs : ∀ t ∈ R, wireVal n C t x = true)
+    (r : ℕ) (hr : r < n + C.gates.length) (hru : r ≠ u.val) :
+    wireVal n C r x = true → wireVal n C r y = true := by
+  induction r using Nat.strong_induction_on with
+  | ind r ih =>
+    by_cases hin : r < n
+    · rw [ProofWire.input_value C r hin x, ProofWire.input_value C r hin y]
+      exact hxy _ (fun he => hru (congrArg Fin.val he))
+    · have hn : n ≤ r := by omega
+      let k := r - n
+      have hk : k < C.gates.length := by omega
+      have he : r = n + k := by omega
+      by_cases hreader : u.val ∈ (gateAt C k).inputs
+      · intro _
+        obtain ⟨hop, t, htR, htu, hinputs⟩ := hread k hk hreader
+        have htmem : t ∈ (gateAt C k).inputs := by
+          rcases hinputs with hi | hi <;> simp [hi]
+        have htlt : t < n + k := hao.2.1 k hk t htmem
+        have hty : wireVal n C t y = true := ih t (by omega) (by omega) htu (hs t htR)
+        rw [he, ProofWire.gate_value C hao k hk y]
+        rcases hinputs with hi | hi <;> simp [hop, opnd, hi, hty]
+      · have hzero := ProofWire.operand_lt C hao k hk 0
+        have hone := ProofWire.operand_lt C hao k hk 1
+        have hmem (b : Fin 2) : opnd C k b ∈ (gateAt C k).inputs := by
+          have hg : C.gates[k]? = some (gateAt C k) := by
+            simp [gateAt, List.getD_eq_getElem?_getD, hk]
+          have hlen := hao.2.2 _ (List.mem_of_getElem? hg)
+          have hb : b.val < (gateAt C k).inputs.length := by simpa [hlen] using b.isLt
+          have ho : (gateAt C k).inputs[b.val]? = some (opnd C k b) := by
+            simp [opnd, List.getD_eq_getElem?_getD, hb]
+          exact List.mem_of_getElem? ho
+        have haway (b : Fin 2) : opnd C k b ≠ u.val := by
+          intro heq
+          exact hreader (heq ▸ hmem b)
+        rw [he, ProofWire.gate_value C hao k hk x, ProofWire.gate_value C hao k hk y]
+        split_ifs with hop
+        · intro ht
+          simp only [Bool.and_eq_true] at ht ⊢
+          exact ⟨ih _ (by omega) (by omega) (haway 0) ht.1,
+            ih _ (by omega) (by omega) (haway 1) ht.2⟩
+        · intro ht
+          simp only [Bool.or_eq_true] at ht ⊢
+          rcases ht with ht | ht
+          · exact Or.inl (ih _ (by omega) (by omega) (haway 0) ht)
+          · exact Or.inr (ih _ (by omega) (by omega) (haway 1) ht)
+
+lemma readers_or_independent_support_erase_bound {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit) (u : Fin n)
+    (R : Finset ℕ) (hao : IsAO2 n C)
+    (hread : ∀ k < C.gates.length, u.val ∈ (gateAt C k).inputs →
+      (gateAt C k).op = GateOp.or ∧ ∃ t ∈ R, t ≠ u.val ∧
+        ((gateAt C k).inputs = [u.val, t] ∨ (gateAt C k).inputs = [t, u.val]))
+    (hfun : circuitFun n C = graphFun G ∅) (hfour : NoFourCycle G)
+    (J : Finset (Fin n)) (hind : ∀ a ∈ J, ∀ b ∈ J, ¬ G.Adj a b)
+    (hs : ∀ t ∈ R, wireVal n C t (setInput J) = true) :
+    G.degree u ≤ (J.erase u).card := by
+  refine readers_or_independent_support_bound G C u (R.erase u.val) hao ?_ hfun hfour
+    (J.erase u) (by simp) ?_ ?_
+  · intro k hk hr
+    obtain ⟨hop, t, htR, htu, hin⟩ := hread k hk hr
+    exact ⟨hop, t, Finset.mem_erase.mpr ⟨htu, htR⟩, hin⟩
+  · intro a ha b hb
+    exact hind a (Finset.mem_of_mem_erase ha) b (Finset.mem_of_mem_erase hb)
+  · intro t ht
+    have htR := Finset.mem_of_mem_erase ht
+    have htu := (Finset.mem_erase.mp ht).1
+    apply readers_or_sources_compare C hao u R hread (setInput J) (setInput (J.erase u))
+      _ hs t (true_wire_bound C (setInput J) t (hs t htR)) htu (hs t htR)
+    intro i hi hiJ
+    simp only [setInput, decide_eq_true_eq] at hiJ ⊢
+    exact Finset.mem_erase.mpr ⟨hi, hiJ⟩
+
+end MultiReader
+
+namespace MultiDirty
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.CleanedNonEdge
+open TwinLeaf.SingleRead
+
+lemma readers_or_dirty_and_bound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (u : Fin n) (R : Finset ℕ) (hAO : IsAO2 n C)
+    (hread : ∀ k < C.gates.length, u.val ∈ (gateAt C k).inputs →
+      (gateAt C k).op = GateOp.or ∧ ∃ t ∈ R,
+        (gateAt C k).inputs = [u.val, t] ∨ (gateAt C k).inputs = [t, u.val])
+    (hfun : circuitFun n C = graphFun G ∅) (hfour : NoFourCycle G)
+    (I : Finset (Fin n)) (huI : u ∉ I)
+    (hind : ∀ a ∈ I, ∀ b ∈ I, ¬ G.Adj a b)
+    (hs : ∀ t ∈ R, wireVal n C t (setInput I) = true) :
+    G.degree u ≤ (DirtyCertificate.dirtyAnds G C (n + C.gates.length)).card + R.card := by
+  classical
+  have hR : ∀ t ∈ R, t < n + C.gates.length :=
+    fun t ht => MultiReader.true_wire_bound C (setInput I) t (hs t ht)
+  obtain ⟨J, hJ, hsJ, hcard⟩ := ProofForest.true_certificates C hAO R hR (setInput I) hs
+  have hsub : J ⊆ I := by
+    intro i hi
+    simpa [setInput] using hJ i hi
+  have huJ : u ∉ J := fun h => huI (hsub h)
+  have hindJ : ∀ a ∈ J, ∀ b ∈ J, ¬ G.Adj a b :=
+    fun a ha b hb => hind a (hsub ha) b (hsub hb)
+  have hd := MultiReader.readers_or_independent_support_bound G C u R hAO hread hfun hfour J huJ hindJ hsJ
+  have hc := DirtyCertificate.trueAnds_le_dirty G C (n + C.gates.length) I hind
+  omega
+
+lemma readers_or_joint_dirty_bound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (u : Fin n) (R : Finset ℕ) (hAO : IsAO2 n C)
+    (hread : ∀ k < C.gates.length, u.val ∈ (gateAt C k).inputs →
+      (gateAt C k).op = GateOp.or ∧ ∃ t ∈ R,
+        (gateAt C k).inputs = [u.val, t] ∨ (gateAt C k).inputs = [t, u.val])
+    (hfun : circuitFun n C = graphFun G ∅) (hfour : NoFourCycle G)
+    (hdirty : ¬ ∀ x : Fin n → Bool, x u = false →
+      (∀ t ∈ R, wireVal n C t x = true) → graphFun G ∅ x = true) :
+    G.degree u ≤ (DirtyCertificate.dirtyAnds G C (n + C.gates.length)).card + R.card := by
+  classical
+  push Not at hdirty
+  obtain ⟨x, hu, hs, hf⟩ := hdirty
+  let I := Finset.univ.filter (fun i : Fin n => x i = true)
+  have heq : setInput I = x := by
+    funext i
+    simp [setInput, I]
+  have huI : u ∉ I := by simp [I, hu]
+  have hind : ∀ a ∈ I, ∀ b ∈ I, ¬ G.Adj a b := by
+    intro a ha b hb hab
+    apply hf
+    simp only [graphFun, Finset.notMem_empty, false_and, exists_false,
+      decide_false, Bool.false_or, decide_eq_true_eq]
+    exact ⟨a, b, hab, by simpa [I] using ha, by simpa [I] using hb⟩
+  apply readers_or_dirty_and_bound G C u R hAO hread hfun hfour I huI hind
+  simpa [heq] using hs
+
+lemma readers_or_dirty_and_erase_bound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (u : Fin n) (R : Finset ℕ) (hAO : IsAO2 n C)
+    (hread : ∀ k < C.gates.length, u.val ∈ (gateAt C k).inputs →
+      (gateAt C k).op = GateOp.or ∧ ∃ t ∈ R, t ≠ u.val ∧
+        ((gateAt C k).inputs = [u.val, t] ∨ (gateAt C k).inputs = [t, u.val]))
+    (hfun : circuitFun n C = graphFun G ∅) (hfour : NoFourCycle G)
+    (I : Finset (Fin n)) (hind : ∀ a ∈ I, ∀ b ∈ I, ¬ G.Adj a b)
+    (hs : ∀ t ∈ R, wireVal n C t (setInput I) = true) :
+    G.degree u ≤ (DirtyCertificate.dirtyAnds G C (n + C.gates.length)).card + R.card := by
+  classical
+  have hR : ∀ t ∈ R, t < n + C.gates.length :=
+    fun t ht => MultiReader.true_wire_bound C (setInput I) t (hs t ht)
+  obtain ⟨J, hJ, hsJ, hcard⟩ := ProofForest.true_certificates C hAO R hR (setInput I) hs
+  have hsub : J ⊆ I := by
+    intro i hi
+    simpa [setInput] using hJ i hi
+  have hindJ : ∀ a ∈ J, ∀ b ∈ J, ¬ G.Adj a b :=
+    fun a ha b hb => hind a (hsub ha) b (hsub hb)
+  have hd := MultiReader.readers_or_independent_support_erase_bound G C u R hAO hread hfun hfour J hindJ hsJ
+  have he := Finset.card_erase_le (s := J) (a := u)
+  have hc := DirtyCertificate.trueAnds_le_dirty G C (n + C.gates.length) I hind
+  omega
+
+lemma readers_or_joint_dirty_erase_bound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (u : Fin n) (R : Finset ℕ) (hAO : IsAO2 n C)
+    (hread : ∀ k < C.gates.length, u.val ∈ (gateAt C k).inputs →
+      (gateAt C k).op = GateOp.or ∧ ∃ t ∈ R, t ≠ u.val ∧
+        ((gateAt C k).inputs = [u.val, t] ∨ (gateAt C k).inputs = [t, u.val]))
+    (hfun : circuitFun n C = graphFun G ∅) (hfour : NoFourCycle G)
+    (hdirty : ¬ ∀ x : Fin n → Bool,
+      (∀ t ∈ R, wireVal n C t x = true) → graphFun G ∅ x = true) :
+    G.degree u ≤ (DirtyCertificate.dirtyAnds G C (n + C.gates.length)).card + R.card := by
+  classical
+  push Not at hdirty
+  obtain ⟨x, hs, hf⟩ := hdirty
+  let I := Finset.univ.filter (fun i : Fin n => x i = true)
+  have heq : setInput I = x := by
+    funext i
+    simp [setInput, I]
+  have hind : ∀ a ∈ I, ∀ b ∈ I, ¬ G.Adj a b := by
+    intro a ha b hb hab
+    apply hf
+    simp only [graphFun, Finset.notMem_empty, false_and, exists_false,
+      decide_false, Bool.false_or, decide_eq_true_eq]
+    exact ⟨a, b, hab, by simpa [I] using ha, by simpa [I] using hb⟩
+  apply readers_or_dirty_and_erase_bound G C u R hAO hread hfun hfour I hind
+  simpa [heq] using hs
+
+end MultiDirty
+
+
+namespace DirtyCertificate
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.CleanedNonEdge
+
+lemma dirtyAnds_subset_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (r : ℕ) : dirtyAnds G C r ⊆ junk G C := by
+  classical
+  intro j hj
+  obtain ⟨hj, _, hand, hdirty⟩ := Finset.mem_filter.mp hj
+  have hjlt : j < C.gates.length := Finset.mem_range.mp hj
+  unfold BelowF at hdirty
+  push Not at hdirty
+  obtain ⟨x, hx, hf⟩ := hdirty
+  exact Finset.mem_filter.mpr ⟨hj, hand, hjlt, x, hx, by simpa using hf⟩
+
+lemma dirtyAnds_all_eq_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) : dirtyAnds G C (n + C.gates.length) = junk G C := by
+  classical
+  apply Finset.Subset.antisymm (dirtyAnds_subset_junk G C _)
+  intro j hj
+  obtain ⟨hj, hand, hjlt, x, hx, hf⟩ := Finset.mem_filter.mp hj
+  apply Finset.mem_filter.mpr
+  refine ⟨hj, by omega, hand, ?_⟩
+  intro hbelow
+  have h := hbelow x hx
+  rw [hf] at h
+  cases h
+
+end DirtyCertificate
+
 end PEqualNP.Outside.L_meta_3566
