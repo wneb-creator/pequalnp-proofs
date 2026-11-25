@@ -1,0 +1,12 @@
+MODEL {"graph": "c6.graph", "n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "K": 8, "rows": [3, 6, 12, 24, 48, 33, 9, 18, 21, 36, 42], "ordered": false, "clauses": 3957, "cnf_sha256": "053ecf107e100810466e9569f20bc59f1d3aa02064e61158b22527769c77842a"}
+RESULT 10 SECONDS 1.0447163279995948
+STATUS ['s SATISFIABLE']
+0 or 2 4
+1 or 0 2
+2 or 0 4
+3 and 3 6
+4 and 5 8
+5 and 1 7
+6 or 9 11
+7 or 10 12
+FULL_TRUTH_FAILED []

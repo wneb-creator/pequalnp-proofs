@@ -34,3 +34,7 @@ Continue four routes: whole common-singleton component extraction; graph-only gu
 ## Conditional one-junk result
 
 `lemmas/OneJunk.lean` proves the cover-size bound for a least exact-two AO circuit in TopForm on a triangle/four-cycle-free graph, assuming exactly one junk AND gate and silence on singleton inputs. This removes the old global bipartition premise for that subcase. It imports checked L_meta_3760 as a prototype dependency, so it cannot be copied into the final gap file without extracting the used helper proofs. It does not address multiple interacting junk gates and does not prove the posted theorem.
+
+## Second strategy review
+
+The at-most-one-junk case now gives the desired star-profile existential conditionally, including zero junk and empty graphs. Multiple dirty gates remain unresolved. A concrete two-junk circuit blocks a fixed-prefix replacement within three added gates; this is not a full counterexample because the whole OR prefix can be rebuilt. Free-OR bounded-AND searches and finite total-gate synthesis support small instances but do not prove a global size bound. A fresh independent full-theorem route and allowed-import dependency extraction are underway.

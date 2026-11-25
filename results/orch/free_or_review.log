@@ -1,0 +1,20 @@
+EXACT_CNF_PASS c5-or3 base dual True status ['s UNSATISFIABLE'] exit 20 seconds 0.075
+EXACT_CNF_PASS c5-or4 base dual True status ['s SATISFIABLE'] exit 10 seconds 0.018
+SAT_MODEL_PASS c5-or4 all 32 assignments and all CNF clauses
+EXACT_CNF_PASS c7-and3 base dual False status ['s UNSATISFIABLE'] exit 20 seconds 0.134
+EXACT_CNF_PASS c7-and4 base dual False status ['s SATISFIABLE'] exit 10 seconds 0.046
+SAT_MODEL_PASS c7-and4 all 128 assignments and all CNF clauses
+EXACT_CNF_PASS c7-disjoint-and4 disjoint dual False status ['s SATISFIABLE'] exit 10 seconds 0.008
+SAT_MODEL_PASS c7-disjoint-and4 all 128 assignments and all CNF clauses
+EXACT_CNF_PASS c7-or5 base dual True status ['s UNSATISFIABLE'] exit 20 seconds 23.699
+EXACT_CNF_PASS c7-top-and4 top dual False status ['s SATISFIABLE'] exit 10 seconds 0.023
+SAT_MODEL_PASS c7-top-and4 all 128 assignments and all CNF clauses
+EXACT_CNF_PASS c9-disjoint-ordered-and4 ordered dual False status ['s UNSATISFIABLE'] exit 20 seconds 0.492
+EXACT_CNF_PASS petersen-and5 base dual False status [] exit 0 seconds 120.014
+EXACT_CNF_PASS petersen-disjoint-and5 disjoint dual False status [] exit 0 seconds 120.007
+EXACT_CNF_PASS petersen-disjoint-ordered-and5 ordered dual False status ['s UNSATISFIABLE'] exit 20 seconds 142.075
+EXACT_CNF_PASS petersen-top-and5 top dual False status ['s UNSATISFIABLE'] exit 20 seconds 114.538
+EXACT_CNF_PASS petersen-top-and6 top dual False status ['s SATISFIABLE'] exit 10 seconds 0.225
+SAT_MODEL_PASS petersen-top-and6 all 1024 assignments and all CNF clauses
+EXACT_CNF_PASS petersen-top-or13 top dual True status [] exit 0 seconds 120.036
+TOTAL 14 CNFs reconstructed; 5 SAT witnesses checked

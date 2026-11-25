@@ -1,0 +1,20 @@
+{
+  "recorded_at": "2026-11-25T08:01:08.679777+00:00",
+  "runs": {
+    "theta233-k10-sat-r2": {
+      "status": "UNKNOWN_TIME_LIMIT",
+      "exit": 0,
+      "wrapper_seconds": 900.093871793,
+      "solver_real_seconds": 900.0,
+      "solver_cpu_seconds": 856.04
+    },
+    "theta333-k11-sat-r2": {
+      "status": "UNKNOWN_TIME_LIMIT",
+      "exit": 0,
+      "wrapper_seconds": 900.033068047,
+      "solver_real_seconds": 900.01,
+      "solver_cpu_seconds": 848.86
+    }
+  },
+  "note": "Native CaDiCaL -t900 reached; no SAT/UNSAT status. These are not infeasibility results."
+}

@@ -29,3 +29,13 @@ The encoding allows at most k AND gates. Each operand is an arbitrary disjunctio
 Informal completeness follows by eliminating constants and aliases, collapsing each OR cone into its contributing primaries and earlier AND outputs, and omitting primary output terms because graph edge functions are false on singletons. Unused AND slots may compute false. C7 with three ANDs returned UNSAT; Petersen with five ANDs returned no status at its 120-second limit and remains UNKNOWN.
 
 All solver UNSAT reports are computational evidence about the encoding, not Lean-checked lower-bound theorems. This review does not cover the later free_or_dual_sat.py or free_or_disjoint_sat.py variants.
+
+## Subsequent constrained free-OR review
+
+The later review covers all six sources and 14 runs in results/orch/free-or. The frozen SHA256SUMS hash is 7411ee9a6465aff9b3b31e81e9e5687c3a4ce462e701970dd2352812c2ba3143. Its 64 entries have exact coverage and matching hashes. Catalog source hashes, native wall limits, elapsed times, and statuses match the full logs: six UNSAT, five SAT, and three UNKNOWN runs.
+
+The separate reproducible validator is results/orch/free_or_review.py, with full output in results/orch/free_or_review.log. It reconstructs all 14 CNFs exactly and independently checks all five SAT models, including both collapsed and concrete binary realizations on every input.
+
+Disjoint-source extraction and left/right orientation preserve the AND count when OR gates are free. The Petersen five-AND UNSAT result at 142.075 seconds uses only those restrictions, not the optional clean-output TopForm clauses. TopForm queries and dual queries are identified separately. The Petersen six-AND calibration passes all 1024 inputs. The C7 top-mode witness's binary gate 2 owns edges 01, 06, and 12, confirming its nonstar ownership; its 14-gate circuit is not a total-size minimum.
+
+No credential, environment-dump, network-call, or destructive-code findings were identified. The new results remain computational evidence, not Lean proofs of the posted statement or total-gate lower bounds.

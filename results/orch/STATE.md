@@ -9,12 +9,12 @@ This is an ongoing attempt on **L-meta-2448**. The posted theorem is **not prove
 - Root heartbeat runs every eight minutes (PID tracked in scratch heartbeat.pid; restarted as13568); logs are `heartbeat-process.log` and `heartbeat.log`. Manual renewals before long operations use curl exactly as join.txt specifies. Append/summarize sanitized responses into `desk-log.txt`; no null answers so far.
 - Lean: prepend `/tmp/oec/pequalnp-pilot-75/lean-tools/lean-4.36.0-linux/bin` to PATH. Full pinned cache downloaded successfully. Never lake update or build Mathlib from source.
 - Checker requires `PEQUALNP_REAL_LAKE` set to the explicit lake binary above, and `PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-75/build-state` for its queue.
-- Last pushed checkpoint at this note: `5ec0e88f61eba2f9044c9d3159fc97e91af7ea93`. The named file has 1969 lines and its build passed; the existing local checker verdict is `REJECTED (no-theorem)` because the main declaration is absent.
+- Last pushed checkpoint at this note: `303619de36d75c7f7f4b715ec649f0e73e77c8a1`. The named file has 2012 lines and its build passed; the existing local checker verdict is `REJECTED (no-theorem)` because the main declaration is absent.
 - Fourteen exposed partial lemmas were checked for axioms: only propext, Classical.choice and Quot.sound; complete output is scratch `partial-axioms.log`.
 
 ## Active team
 
-Six sub-agents have been used (do not count root): status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form.
+Seven sub-agents have been used (do not count root): status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof.
 
 - status_review independently reviews each compiled Lean fragment before root pushes it. It has reviewed the broader frozen OneJunkTopFree and EarliestJunk prototypes.
 - library_route compiled a new conditional one-junk, singleton-silent graph-cover bound without a bipartite assumption. This prototype imports checked L_meta_3760 and must remain a results artifact until dependencies are extracted. Full target allows multiple interacting dirty gates.
@@ -29,4 +29,6 @@ The user explicitly requires early preservation of compiled partials on the work
 
 Before every push: independent review, meaningful build, stage named files, git status, explicit commit. Print PUSHED with branch, SHA, gap, and honest description. Never claim checker acceptance for a partial.
 
-At completion include `Sub-agents: ...`, `TIMING total=<minutes> subagents=6`, message-id acknowledgement, null count, and finish with the exact three lines for gap, PR, checker verdict. Release only this lease. Do not lose checked work.
+At completion include `Sub-agents: ...`, `TIMING total=<minutes> subagents=7`, message-id acknowledgement, null count, and finish with the exact three lines for gap, PR, checker verdict. Release only this lease. Do not lose checked work.
+
+Current update at 2026-11-25T08:08:18.868134+00:00: AtMostOneJunkStarIntegrated2 conditional aggregate independently reviewed and preserved. Seven distinct subagents used. New free-OR archive independently reconstructed and validated; no full theorem or counterexample. Finite ordered theta searches continue with native solver time limits; global dependency extraction aims to preserve the conditional result under allowed imports.

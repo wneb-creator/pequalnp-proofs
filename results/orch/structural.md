@@ -20,3 +20,30 @@
 ## Remaining mathematical obstacle
 
 None of these local repairs shows that an arbitrary minimum circuit with a bad ownership gate contains a repairable block. The missing step is a global structural or counting argument controlling shared dirty operands. Nonminimum C6 circuits can share both operands of a dirty AND, so no-C3/C4 alone does not forbid sharing. The singleton-overlap case yields neighborhood restrictions: along u-a-b, N(u) intersect N(a) is empty and N(u) intersect N(b) is contained in {a}. Clean direct users of shared factors may then make the dirty gate redundant, but dirty shared users can form larger components.
+
+## Auxiliary separate-count route
+
+The hoped-for full route would prove AND-count >= tau(G) and OR-count >= |E(G)|-1 separately, then apply the canonical star-cover construction. Neither generic inequality has been proved here. Biclique-cover <= AND-count is not a general graph theorem; saturated graph constructions can defeat naive versions. No-C3/C4 remains a substantive hypothesis, not a justification by itself.
+
+A global normal form preserving AND-count only (ORs free) is sound: maintain each old signal as an OR of primary variables and previously retained AND atoms. Expand the two operands of each AND, pull their common source set R outside using (R OR A) AND (R OR B) = R OR (A AND B), and create at most one new AND on the disjoint remainders. Every retained AND atom is singleton-silent by induction. This does not bound the number of OR gates.
+
+Also for OR-free cost, select every clean AND signal (below the target function) as an output disjunct and remove references to clean signals from later AND operands. The output is unchanged because any removed true signal already causes acceptance. Iterate as new signals become clean. This yields an AND-count-preserving top form, again with uncontrolled OR cost. The base encoding is independently reviewed; review of the stronger normalization constraints is pending.
+
+### Computational probes (not Lean proofs)
+
+- C7: <=3 ANDs, ORs free: UNSAT, 0.134 s. Four ANDs: SAT, all 128 inputs verified.
+- C9: <=4 ANDs in disjoint-source/ordered normal form: UNSAT, 0.492 s; cover number is 5.
+- C5 dual: <=3 ANDs (equivalently original <=3 ORs) UNSAT, 0.075 s; four ANDs SAT and gives an optimal seven-gate original after dualization.
+- C7 dual: <=5 ANDs (original <=5 ORs) UNSAT, 23.7 s; expected OR count is 6.
+- Petersen: <=5 ANDs base and disjoint-only models each timed out at 120 s (UNKNOWN).
+- Petersen: <=5 ANDs in canonical top-form model UNSAT, 114.5 s, pending normalization review. Six ANDs SAT, all 1024 inputs verified, 24 binary gates.
+- A C7 four-AND top-form witness still has a nonstar first ownership gate: (x0 OR x2) AND (x1 OR x6) owns edges 01,06,12. Its total size is 14, so it does not contradict the target or known ten-gate optimum. It does refute the stronger idea that every AND-count minimum circuit already has a star profile.
+
+Base script `free_or_sat.py` SHA256 ca33829e0d047e59bda013f381278977dfc4a9a2cbc1c6477a521efe3044f7a4 independently reviewed PASS by lean_setup. It validates each SAT CNF model and both collapsed and concrete binary realizations on every Boolean assignment. UNSAT outcomes are solver evidence only. The ordered/disjoint Petersen five-AND run completed UNSAT in 142.1 seconds (900-second budget). This avoids dependence on the semantic top-form constraints. The dual Petersen thirteen-AND run timed out at 120 seconds (UNKNOWN). No solver sessions remain active.
+
+
+All computational scripts and results are now frozen for independent review. The ordered/disjoint model adds only two structural constraints to the independently reviewed base: disjoint operand source sets, and minimum selected source on the left (swap the two operands; an unused false gate may have empty sides). The extraction normal-form argument was independently endorsed by lean_setup; source-level constrained encoding review is pending from status_review. No generic separate-count inequality or main theorem has been proved.
+
+## Frozen free-OR archive
+
+Completed bounded-AND/free-OR searches are frozen under `results/orch/free-or/`: six source scripts, fourteen runs with complete CNFs/full solver logs/full runner logs/JSON models, README, catalog and SHA256 manifest. There are 65 files totaling 1,101,865 bytes. The SHA256 of `SHA256SUMS` is `7411ee9a6465aff9b3b31e81e9e5687c3a4ce462e701970dd2352812c2ba3143`. Outcomes are 5 SAT, 6 UNSAT and 3 UNKNOWN. The independent generator/validator and complete output are `results/orch/free_or_review.py` and `results/orch/free_or_review.log`; all fourteen CNFs matched and all five SAT witnesses passed CNF and full collapsed/binary truth validation. Independent mathematical review accepted disjoint/ordered and optional top normalization for AND count only. None of this proves the posted total-size theorem. No solver runs were started during preservation.

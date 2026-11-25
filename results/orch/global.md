@@ -49,3 +49,13 @@ Scope is explicit: the base input list is `[u] ++ a`, where `a` contains the `p`
 Triangle/four-cycle freedom plus correct output alone cannot imply `t <= p`. For example, the ten common-u factors corresponding to Petersen vertices can feed fifteen boundary ANDs corresponding to Petersen edges; filtering each boundary with its direct edge term and OR-ing gives the Petersen edge function with `u` isolated. All fifteen boundaries are used, but the circuit is redundant. Minimum/irredundancy must therefore be essential in any boundary-count theorem.
 
 Potential measure for a successful equal-size extraction: each core signal changes from `u OR v` to `v`, so core AND functions decrease pointwise. Added and removed boundary gates are ORs, and all suffix gate values remain unchanged. Hence AND gates cannot acquire new false-positive inputs. Every core AND loses the singleton-u input. This suggests minimizing circuit size and then total AND truth on nonedge/singleton pairs. The existence of an extractable region with `t <= p` is still unproved.
+
+## Independent star-cover review and conditional target result
+
+Reviewed `StarCoverPrototype.lean` independently: its constructor assigns each graph edge to one covering endpoint, builds each resulting star, and ORs the stars. Every AND directly reads its center input, giving `HasStarProfile`. Its exact size is `|E| + |M| - 1` for the active centers `M`, so it is bounded by `|E| + |K| - 1` for the given cover. It makes no minimum claim. Frozen hash: `315c489b288898f1e918c65bed308905afa43225f729724df1fb45162c7d4c56`.
+
+`OneJunkStar.lean` (38 lines) combines that witness with `OneJunkAll.lean`: a least AO circuit in top form with one dirty AND can be replaced by a no-larger star-profile circuit. An additional public minimum premise gives the posted existential conclusion conditionally.
+
+`AtMostOneJunkStar.lean` removes the top-form and nonempty-graph premises using `OneJunkTopFree.lean`, and handles zero dirty ANDs directly. Its final theorem proves the posted existential conclusion provided there is a public minimum circuit `C` that is `IsAO2` and satisfies `(junk G C).card <= 1`. The case of two or more dirty AND gates remains unsolved, so this is not a proof of L-meta-2448.
+
+The combined file `AtMostOneJunkStarIntegrated2.lean` compiled successfully. Its only warnings are the two inherited unused variables in `OneJunkTopFree`. These prototypes use outside imports and are checked scratch results, not submission-format files.

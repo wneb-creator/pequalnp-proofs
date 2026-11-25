@@ -67,3 +67,17 @@ Theta heuristic600s results:233 used4,805,000,000 mutations and333 used4,432,800
 All78 preserved artifacts are under results/orch/finite/ with hashes in sha256.json, including every full stdout/stderr solver log, model CNF, metadata, program source, graph and critical rows. Solver UNSAT is computational evidence about its encoding; none of these results is a Lean-checked lower-bound theorem.
 
 Updated 2026-11-25T07:43:44.857028+00:00
+
+C6 completed follow-up: attempt2 of K8 shared-pure-OR query returned UNSAT in87.906s. A separate unrestricted K8 base-model run returned SAT in1.045s and its decoded witness passed all64 input assignments. This establishes nonvacuous shared-pure-OR exclusion at the bounded model optimum8, paired with earlier K7 UNSAT. These remain solver observations, not Lean theorems. The9 new full artifacts are added to results/orch/finite/; manifest now covers87 artifacts. New any-fanout variant remains outside the repository pending its independent review.
+
+Updated 2026-11-25T07:54:10.468216+00:00
+
+Stronger bounded circuit-shape query: require any useful gate (AND or OR) to feed at least2 distinct later parents, with every gate in the output ancestor cone. C5 K7 returned UNSAT1.919s; C6 K8 returned UNSAT29.047s. Thus these normalized bounded optimum circuit models force all gate fanouts to1. This is not a general formula-normalization theorem and is not Lean-checked. synth_sat_fanout.py independently reviewed PASS, SHA256 b057272d063218c07e041c8dbb86ead6372f7156756345328860ceaabf9d4ede. The9 artifacts are preserved; manifest now96 files.
+
+Updated 2026-11-25T07:55:23.056902+00:00
+
+Theta unrestricted SAT attempt2 finished normally at the native900s limit with exit0 and no SAT/UNSAT verdict:233 used856.04 CPU seconds/900.00 real seconds;333 used848.86/900.01. Both are UNKNOWN/time-limit, not UNSAT. Full logs and theta-sat-timeouts-r2.json are preserved; manifest now105 files.
+
+Ordered theta attempts are now running under new prefixes. The optional larger-fanin-index nondecreasing cut was independently reviewed complete for the base normalized synthesis: sort useful gates bydepth, then bylargerfaninindex within a depth; parents are alreadyindexed and the largestparent lies at the precedingdepth, so orderingis global. Output remainslast. Unused input0-AND-input1 copies canpad the base model toexactK. This padding argument doesnot apply to shared/fanout variants requiring everygate useful; no ordered usefulvariant is being run.
+
+Updated 2026-11-25T08:01:08.688975+00:00

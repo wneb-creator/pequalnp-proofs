@@ -1,0 +1,276 @@
+{
+  "gap": "L-meta-2448",
+  "frozen_utc": "2026-11-25T08:04:19.856541+00:00",
+  "scope": "Exploratory bounded-AND / free-OR search; not a proof of the posted total-size theorem",
+  "source_directory_at_execution": "/tmp/oec/pequalnp-pilot-75/structural",
+  "solver_path_at_execution": "/tmp/oec/pequalnp-pilot-75/lean-tools/lean-4.36.0-linux/bin/cadical",
+  "source_provenance_note": "The dual source gained a singleton-silence assertion after the three base-dual runs started. It changes no generated CNF on these inputs. All other frozen source constraints match the run variants.",
+  "runs": [
+    {
+      "prefix": "c7-and3",
+      "source": "sources/free_or_sat.py",
+      "source_sha256": "ca33829e0d047e59bda013f381278977dfc4a9a2cbc1c6477a521efe3044f7a4",
+      "graph": "c7",
+      "and_slots": 3,
+      "dual": false,
+      "mode": "base",
+      "wall_limit_seconds": 120,
+      "status": "UNSAT",
+      "solver_exit": 20,
+      "elapsed_seconds": 0.13383153299992046,
+      "artifacts": [
+        "runs/c7-and3.cnf",
+        "runs/c7-and3.solver.log",
+        "runs/c7-and3.json",
+        "runs/c7-and3-run.log"
+      ]
+    },
+    {
+      "prefix": "c7-and4",
+      "source": "sources/free_or_sat.py",
+      "source_sha256": "ca33829e0d047e59bda013f381278977dfc4a9a2cbc1c6477a521efe3044f7a4",
+      "graph": "c7",
+      "and_slots": 4,
+      "dual": false,
+      "mode": "base",
+      "wall_limit_seconds": 60,
+      "status": "SAT",
+      "solver_exit": 10,
+      "elapsed_seconds": 0.04607482200026425,
+      "artifacts": [
+        "runs/c7-and4.cnf",
+        "runs/c7-and4.solver.log",
+        "runs/c7-and4.json",
+        "runs/c7-and4-run.log"
+      ]
+    },
+    {
+      "prefix": "petersen-and5",
+      "source": "sources/free_or_sat.py",
+      "source_sha256": "ca33829e0d047e59bda013f381278977dfc4a9a2cbc1c6477a521efe3044f7a4",
+      "graph": "petersen",
+      "and_slots": 5,
+      "dual": false,
+      "mode": "base",
+      "wall_limit_seconds": 120,
+      "status": "UNKNOWN",
+      "solver_exit": 0,
+      "elapsed_seconds": 120.01432916600015,
+      "artifacts": [
+        "runs/petersen-and5.cnf",
+        "runs/petersen-and5.solver.log",
+        "runs/petersen-and5.json",
+        "runs/petersen-and5-run.log"
+      ]
+    },
+    {
+      "prefix": "c5-or3",
+      "source": "sources/free_or_dual_sat.py",
+      "source_sha256": "93f29c34c58e0932cd0d15c77cb792448764bf9f7f0a4341f6dae8c589a234ae",
+      "graph": "c5",
+      "and_slots": 3,
+      "dual": true,
+      "mode": "base",
+      "wall_limit_seconds": 120,
+      "status": "UNSAT",
+      "solver_exit": 20,
+      "elapsed_seconds": 0.07514840300018477,
+      "artifacts": [
+        "runs/c5-or3.cnf",
+        "runs/c5-or3.solver.log",
+        "runs/c5-or3.json",
+        "runs/c5-or3-run.log"
+      ]
+    },
+    {
+      "prefix": "c5-or4",
+      "source": "sources/free_or_dual_sat.py",
+      "source_sha256": "93f29c34c58e0932cd0d15c77cb792448764bf9f7f0a4341f6dae8c589a234ae",
+      "graph": "c5",
+      "and_slots": 4,
+      "dual": true,
+      "mode": "base",
+      "wall_limit_seconds": 60,
+      "status": "SAT",
+      "solver_exit": 10,
+      "elapsed_seconds": 0.01818245399999796,
+      "artifacts": [
+        "runs/c5-or4.cnf",
+        "runs/c5-or4.solver.log",
+        "runs/c5-or4.json",
+        "runs/c5-or4-run.log"
+      ]
+    },
+    {
+      "prefix": "c7-or5",
+      "source": "sources/free_or_dual_sat.py",
+      "source_sha256": "93f29c34c58e0932cd0d15c77cb792448764bf9f7f0a4341f6dae8c589a234ae",
+      "graph": "c7",
+      "and_slots": 5,
+      "dual": true,
+      "mode": "base",
+      "wall_limit_seconds": 120,
+      "status": "UNSAT",
+      "solver_exit": 20,
+      "elapsed_seconds": 23.698608650000097,
+      "artifacts": [
+        "runs/c7-or5.cnf",
+        "runs/c7-or5.solver.log",
+        "runs/c7-or5.json",
+        "runs/c7-or5-run.log"
+      ]
+    },
+    {
+      "prefix": "c7-disjoint-and4",
+      "source": "sources/free_or_disjoint_sat.py",
+      "source_sha256": "25e670adadd194db40d16655f204ede37729951567bdb0d892a0aca1e2add26c",
+      "graph": "c7",
+      "and_slots": 4,
+      "dual": false,
+      "mode": "disjoint",
+      "wall_limit_seconds": 60,
+      "status": "SAT",
+      "solver_exit": 10,
+      "elapsed_seconds": 0.008205375000216009,
+      "artifacts": [
+        "runs/c7-disjoint-and4.cnf",
+        "runs/c7-disjoint-and4.solver.log",
+        "runs/c7-disjoint-and4.json",
+        "runs/c7-disjoint-and4-run.log"
+      ]
+    },
+    {
+      "prefix": "petersen-disjoint-and5",
+      "source": "sources/free_or_disjoint_sat.py",
+      "source_sha256": "25e670adadd194db40d16655f204ede37729951567bdb0d892a0aca1e2add26c",
+      "graph": "petersen",
+      "and_slots": 5,
+      "dual": false,
+      "mode": "disjoint",
+      "wall_limit_seconds": 120,
+      "status": "UNKNOWN",
+      "solver_exit": 0,
+      "elapsed_seconds": 120.0066079940002,
+      "artifacts": [
+        "runs/petersen-disjoint-and5.cnf",
+        "runs/petersen-disjoint-and5.solver.log",
+        "runs/petersen-disjoint-and5.json",
+        "runs/petersen-disjoint-and5-run.log"
+      ]
+    },
+    {
+      "prefix": "c9-disjoint-ordered-and4",
+      "source": "sources/free_or_disjoint_ordered_sat.py",
+      "source_sha256": "2a8c43977418df89ee3126fb16ec048e2cb74d97cc782b9e7abeac4e7c6abeea",
+      "graph": "c9",
+      "and_slots": 4,
+      "dual": false,
+      "mode": "disjoint_ordered",
+      "wall_limit_seconds": 120,
+      "status": "UNSAT",
+      "solver_exit": 20,
+      "elapsed_seconds": 0.4916790190000029,
+      "artifacts": [
+        "runs/c9-disjoint-ordered-and4.cnf",
+        "runs/c9-disjoint-ordered-and4.solver.log",
+        "runs/c9-disjoint-ordered-and4.json",
+        "runs/c9-disjoint-ordered-and4-run.log"
+      ]
+    },
+    {
+      "prefix": "petersen-disjoint-ordered-and5",
+      "source": "sources/free_or_disjoint_ordered_sat.py",
+      "source_sha256": "2a8c43977418df89ee3126fb16ec048e2cb74d97cc782b9e7abeac4e7c6abeea",
+      "graph": "petersen",
+      "and_slots": 5,
+      "dual": false,
+      "mode": "disjoint_ordered",
+      "wall_limit_seconds": 900,
+      "status": "UNSAT",
+      "solver_exit": 20,
+      "elapsed_seconds": 142.0747318949998,
+      "artifacts": [
+        "runs/petersen-disjoint-ordered-and5.cnf",
+        "runs/petersen-disjoint-ordered-and5.solver.log",
+        "runs/petersen-disjoint-ordered-and5.json",
+        "runs/petersen-disjoint-ordered-and5-run.log"
+      ]
+    },
+    {
+      "prefix": "c7-top-and4",
+      "source": "sources/free_or_top_sat.py",
+      "source_sha256": "5794d6ee9a901c1013a2272cbace22605aea6bbc1ec06fd9b8053ef65f2fc7a3",
+      "graph": "c7",
+      "and_slots": 4,
+      "dual": false,
+      "mode": "top",
+      "wall_limit_seconds": 60,
+      "status": "SAT",
+      "solver_exit": 10,
+      "elapsed_seconds": 0.0227531620002992,
+      "artifacts": [
+        "runs/c7-top-and4.cnf",
+        "runs/c7-top-and4.solver.log",
+        "runs/c7-top-and4.json",
+        "runs/c7-top-and4-run.log"
+      ]
+    },
+    {
+      "prefix": "petersen-top-and5",
+      "source": "sources/free_or_top_sat.py",
+      "source_sha256": "5794d6ee9a901c1013a2272cbace22605aea6bbc1ec06fd9b8053ef65f2fc7a3",
+      "graph": "petersen",
+      "and_slots": 5,
+      "dual": false,
+      "mode": "top",
+      "wall_limit_seconds": 120,
+      "status": "UNSAT",
+      "solver_exit": 20,
+      "elapsed_seconds": 114.53825620800035,
+      "artifacts": [
+        "runs/petersen-top-and5.cnf",
+        "runs/petersen-top-and5.solver.log",
+        "runs/petersen-top-and5.json",
+        "runs/petersen-top-and5-run.log"
+      ]
+    },
+    {
+      "prefix": "petersen-top-and6",
+      "source": "sources/free_or_top_sat.py",
+      "source_sha256": "5794d6ee9a901c1013a2272cbace22605aea6bbc1ec06fd9b8053ef65f2fc7a3",
+      "graph": "petersen",
+      "and_slots": 6,
+      "dual": false,
+      "mode": "top",
+      "wall_limit_seconds": 120,
+      "status": "SAT",
+      "solver_exit": 10,
+      "elapsed_seconds": 0.22527614899991022,
+      "artifacts": [
+        "runs/petersen-top-and6.cnf",
+        "runs/petersen-top-and6.solver.log",
+        "runs/petersen-top-and6.json",
+        "runs/petersen-top-and6-run.log"
+      ]
+    },
+    {
+      "prefix": "petersen-top-or13",
+      "source": "sources/free_or_top_dual_sat.py",
+      "source_sha256": "4776ffc07577b9e212e3e6ebf06880c82a1bfa02889ba9043fc2991192391c2f",
+      "graph": "petersen",
+      "and_slots": 13,
+      "dual": true,
+      "mode": "top",
+      "wall_limit_seconds": 120,
+      "status": "UNKNOWN",
+      "solver_exit": 0,
+      "elapsed_seconds": 120.03555934799988,
+      "artifacts": [
+        "runs/petersen-top-or13.cnf",
+        "runs/petersen-top-or13.solver.log",
+        "runs/petersen-top-or13.json",
+        "runs/petersen-top-or13-run.log"
+      ]
+    }
+  ]
+}

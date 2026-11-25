@@ -25,3 +25,6 @@ No complete proof or accepted submission yet.
 - 2026-11-25T07:42:41.587429+00:00: Frozen 601-line one-junk conditional cover result independently reviewed and preserved as a scratch artifact; full target remains open. Integrated helper axiom audit passed.
 
 - 2026-11-25T07:53:11.085048+00:00: 1969-line named partial builds. Preserved broader one-junk bound, earliest-junk local semantics, star-cover construction, and reviewed interrupted-search evidence.
+
+- 07:59:00: Second strategy review: global shared-context accounting remains unresolved. Added a fresh main-proof agent; restarted interrupted finite searches with native time limits.
+- 2026-11-25T08:08:18.868134+00:00: Preserved independently reviewed at-most-one-junk conditional theorem aggregate and all 14 free-OR synthesis runs. No accepted proof.

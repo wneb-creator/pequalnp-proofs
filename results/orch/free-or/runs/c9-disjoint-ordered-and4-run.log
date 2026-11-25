@@ -1,0 +1,1 @@
+{"graph": "c9", "n": 9, "edges": [[0, 1], [0, 8], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8]], "vertex_cover": 5, "ands": 4, "critical_rows": 21, "variables": 628, "clauses": 2181, "seconds": 0.4916790190000029, "exit": 20, "status": ["s UNSATISFIABLE"]}

@@ -1,0 +1,37 @@
+{
+  "graph": "c5",
+  "dual": true,
+  "n": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "vertex_cover": 3,
+  "ands": 3,
+  "critical_rows": 10,
+  "variables": 204,
+  "clauses": 635,
+  "seconds": 0.07514840300018477,
+  "exit": 20,
+  "status": [
+    "s UNSATISFIABLE"
+  ]
+}

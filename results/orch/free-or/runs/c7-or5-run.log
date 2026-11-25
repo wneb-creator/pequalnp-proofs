@@ -1,0 +1,1 @@
+{"graph": "c7", "dual": true, "n": 7, "edges": [[0, 1], [0, 6], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6]], "vertex_cover": 4, "ands": 5, "critical_rows": 14, "variables": 620, "clauses": 2247, "seconds": 23.698608650000097, "exit": 20, "status": ["s UNSATISFIABLE"]}
