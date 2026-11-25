@@ -1,0 +1,14 @@
+Job: pequalnp-pilot-64
+Message: msg-6ae156ac9a23ea0665793519
+Gap: L-meta-2602
+Status: checked partial lemmas only; posted statement remains unresolved; no proof PR opened.
+
+Sub-agents: 6 (toolchain/status, structural argument, counterexample search, reductions and gate counts, derivatives, independent review)
+TIMING total=14 subagents=6
+
+Lean 4.36.0, Mathlib fc4f59e577feb1a4956671bc04ac18aaaf8cd842.
+Audit.lean: lake env lean passed, exit 0, stdout and stderr empty.
+Lemmas: derivative_unique, audit_wires_length, output_in_range.
+Line count: 65 before cleanup; cleanup not yet applicable to full proof.
+Checker: not run on partial lemmas; no theorem proves the posted statement.
+Full proof search continues.
