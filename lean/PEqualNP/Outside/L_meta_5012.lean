@@ -2410,4 +2410,408 @@ lemma singleton_projection_excludes_independent_two_junk {n : ℕ}
 
 end ProjectionOutput
 
+
+namespace ProtectedHelpers
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm PEqualNP.Core PEqualNP.ReadTwo
+  PEqualNP.Outside.L_meta_5012.Projection
+
+def selected2 {α : Type} [DecidableEq α] (I N S : Finset α) : Prop :=
+  ¬ S ⊆ N ∧ 2 ≤ (S ∩ I).card
+
+lemma selected2_mono {α : Type} [DecidableEq α] {I N S T : Finset α}
+    (hST : S ⊆ T) (hS : selected2 I N S) : selected2 I N T := by
+  refine ⟨fun hTN => hS.1 (hST.trans hTN), ?_⟩
+  exact hS.2.trans (Finset.card_le_card (projected_mono hST))
+
+lemma unselected2_of_subset {α : Type} [DecidableEq α] {I N S T : Finset α}
+    (hST : S ⊆ T) (hT : ¬ selected2 I N T) : ¬ selected2 I N S :=
+  fun hS => hT (selected2_mono hST hS)
+
+lemma union_unselected2_children {α : Type} [DecidableEq α] {I N S T : Finset α}
+    (h : ¬ selected2 I N (S ∪ T)) : ¬ selected2 I N S ∧ ¬ selected2 I N T :=
+  ⟨unselected2_of_subset Finset.subset_union_left h,
+    unselected2_of_subset Finset.subset_union_right h⟩
+
+lemma selected2_projected_nonempty {α : Type} [DecidableEq α] {I N S : Finset α}
+    (h : selected2 I N S) : (S ∩ I).Nonempty :=
+  Finset.card_pos.mp (by have := h.2; omega)
+
+lemma selected2_union_nonempty_child {α : Type} [DecidableEq α] {I N S T : Finset α}
+    (h : selected2 I N (S ∪ T)) : (S ∩ I).Nonempty ∨ (T ∩ I).Nonempty := by
+  have hp := selected2_projected_nonempty h
+  rw [projected_union] at hp
+  exact Finset.union_nonempty.mp hp
+
+noncomputable def projectedWire2 {n : ℕ} (I N : Finset (Fin n))
+    (S : ℕ → Finset (Fin n)) (w : ℕ) : Option ℕ :=
+  if S w ⊆ N then some w else projectedWire I S w
+
+lemma projectedWire2_eq_self_of_subset {n : ℕ} (I N : Finset (Fin n))
+    (S : ℕ → Finset (Fin n)) (w : ℕ) (h : S w ⊆ N) :
+    projectedWire2 I N S w = some w := by
+  simp [projectedWire2, h]
+
+lemma projectedWire2_bound {n : ℕ} (I N : Finset (Fin n))
+    (S : ℕ → Finset (Fin n)) {j w v : ℕ} (hw : w < n + j)
+    (hv : projectedWire2 I N S w = some v) : v < n + j := by
+  unfold projectedWire2 at hv
+  split_ifs at hv with hsafe
+  · cases hv
+    exact hw
+  · exact projectedWire_bound I S hw hv
+
+lemma projectedWire2_none_empty {n : ℕ} (I N : Finset (Fin n))
+    (S : ℕ → Finset (Fin n)) (w : ℕ) (h : projectedWire2 I N S w = none) :
+    S w ∩ I = ∅ := by
+  by_cases hsafe : S w ⊆ N
+  · simp [projectedWire2, hsafe] at h
+  · apply (projectedWire_none_iff I S w).mp
+    simpa [projectedWire2, hsafe] using h
+
+lemma projectedWire2_none_iff {n : ℕ} (I N : Finset (Fin n))
+    (S : ℕ → Finset (Fin n)) (w : ℕ) :
+    projectedWire2 I N S w = none ↔ ¬ S w ⊆ N ∧ S w ∩ I = ∅ := by
+  by_cases hsafe : S w ⊆ N
+  · simp [projectedWire2, hsafe]
+  · simp [projectedWire2, hsafe, projectedWire_none_iff]
+
+def Between {n : ℕ} (I N S : Finset (Fin n)) (x : Fin n → Bool) (b : Bool) : Prop :=
+  (setOr (S ∩ I) x = true → b = true) ∧
+    (b = true → setOr (S ∩ N) x = true)
+
+lemma setOr_true_mono {n : ℕ} {S T : Finset (Fin n)} (hST : S ⊆ T)
+    (x : Fin n → Bool) : setOr S x = true → setOr T x = true := by
+  simp only [setOr, decide_eq_true_eq]
+  rintro ⟨v, hv, hx⟩
+  exact ⟨v, hST hv, hx⟩
+
+lemma between_lower {n : ℕ} {I N : Finset (Fin n)} (hIN : I ⊆ N)
+    (S : Finset (Fin n)) (x : Fin n → Bool) :
+    Between I N S x (setOr (S ∩ I) x) := by
+  refine ⟨fun h => h, setOr_true_mono ?_ x⟩
+  intro v hv
+  obtain ⟨hvS, hvI⟩ := Finset.mem_inter.mp hv
+  exact Finset.mem_inter.mpr ⟨hvS, hIN hvI⟩
+
+lemma between_full {n : ℕ} {I N S : Finset (Fin n)} (hSN : S ⊆ N)
+    (x : Fin n → Bool) : Between I N S x (setOr S x) := by
+  refine ⟨setOr_true_mono Finset.inter_subset_left x, ?_⟩
+  rw [projected_eq_of_subset hSN]
+  exact fun h => h
+
+lemma projectedWire2_value {n : ℕ} (I N : Finset (Fin n))
+    (hIN : I ⊆ N) (S : ℕ → Finset (Fin n)) (D : Circuit)
+    (x : Fin n → Bool) (w : ℕ)
+    (hsel : selected2 I N (S w) → Between I N (S w) x (wval D x w))
+    (hkeep : ¬ selected2 I N (S w) → wval D x w = setOr (S w) x) :
+    Between I N (S w) x (optionVal D x (projectedWire2 I N S w)) := by
+  classical
+  unfold projectedWire2
+  split_ifs with hsafe
+  · change Between I N (S w) x (wval D x w)
+    rw [hkeep (fun hs => hs.1 hsafe)]
+    exact between_full hsafe x
+  · unfold projectedWire
+    split_ifs with hn hc
+    · change Between I N (S w) x (wval D x w)
+      exact hsel ⟨hsafe, hc⟩
+    · change Between I N (S w) x (wval D x ((S w ∩ I).min' hn).val)
+      rw [wval_input D x _ (Fin.isLt _)]
+      have hsmall : (S w ∩ I).card ≤ 1 := by omega
+      have hs := projected_eq_singleton hsmall (Finset.min'_mem _ hn)
+      have hvalue : x ((S w ∩ I).min' hn) = setOr (S w ∩ I) x := by
+        conv_rhs => rw [hs]
+        simp [setOr]
+      rw [hvalue]
+      exact between_lower hIN (S w) x
+    · change Between I N (S w) x false
+      have he : S w ∩ I = ∅ := Finset.not_nonempty_iff_eq_empty.mp hn
+      have hz : setOr (S w ∩ I) x = false := by simp [he, setOr]
+      simpa [hz] using between_lower hIN (S w) x
+
+lemma between_union {n : ℕ} {I N S T : Finset (Fin n)}
+    {x : Fin n → Bool} {a b : Bool}
+    (ha : Between I N S x a) (hb : Between I N T x b) :
+    Between I N (S ∪ T) x (a || b) := by
+  constructor
+  · intro h
+    rw [projected_union, setOr_union, Bool.or_eq_true] at h
+    rcases h with h | h
+    · simp [ha.1 h]
+    · simp [hb.1 h]
+  · intro h
+    rw [projected_union, setOr_union, Bool.or_eq_true]
+    rw [Bool.or_eq_true] at h
+    rcases h with h | h
+    · exact Or.inl (ha.2 h)
+    · exact Or.inr (hb.2 h)
+
+end ProtectedHelpers
+
+namespace ProjectionProtected
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm PEqualNP.Core PEqualNP.ReadTwo
+  PEqualNP.Outside.L_meta_5012.Projection PEqualNP.Outside.L_meta_5012.ProtectedHelpers
+
+lemma not_selected2_singleton {n : ℕ} (I N : Finset (Fin n)) (u : Fin n) :
+    ¬ selected2 I N {u} := by
+  intro h
+  have hle := Finset.card_le_card (Finset.inter_subset_left (s₁ := {u}) (s₂ := I))
+  simp only [Finset.card_singleton] at hle
+  have := h.2
+  omega
+
+lemma between_union {n : ℕ} (I N A B : Finset (Fin n)) (x : Fin n → Bool)
+    {a b : Bool} (ha : Between I N A x a) (hb : Between I N B x b) :
+    Between I N (A ∪ B) x (a || b) := by
+  unfold Between at ha hb ⊢
+  rw [projected_union, projected_union, setOr_union, setOr_union]
+  constructor
+  · intro h
+    rw [Bool.or_eq_true] at h ⊢
+    rcases h with h | h
+    · exact Or.inl (ha.1 h)
+    · exact Or.inr (hb.1 h)
+  · intro h
+    rw [Bool.or_eq_true] at h ⊢
+    rcases h with h | h
+    · exact Or.inl (ha.2 h)
+    · exact Or.inr (hb.2 h)
+
+/-- In a hereditary pure OR domain, selected actual wires satisfy the protected
+lower bound and safe upper bound. Every unselected actual wire retains its old
+raw support, including shared unsafe nodes with at most one protected variable. -/
+lemma protected_pure_cone_values {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (Q R : Finset ℕ) (I N : Finset (Fin n)) (hIN : I ⊆ N)
+    (S : ℕ → Finset (Fin n))
+    (hR : ∀ j, j ∈ R ↔ j ∈ Q ∧ selected2 I N (S (n + j)))
+    (hSin : ∀ w (hw : w < n), S w = {⟨w, hw⟩})
+    (hQ : ∀ j ∈ Q, (gateAt C j).op = GateOp.or ∧
+      S (n + j) = S (opnd C j 0) ∪ S (opnd C j 1) ∧
+      (∀ b : Fin 2, opnd C j b < n ∨ opnd C j b - n ∈ Q))
+    (x : Fin n → Bool) :
+    ∀ w < n + C.gates.length, (w < n ∨ w - n ∈ Q) →
+      (selected2 I N (S w) → Between I N (S w) x
+        (wval (rebuild C R (projectedWire2 I N S)) x w)) ∧
+      (¬ selected2 I N (S w) →
+        wval (rebuild C R (projectedWire2 I N S)) x w = setOr (S w) x) := by
+  classical
+  let D := rebuild C R (projectedWire2 I N S)
+  have hD : IsAO2 n D := rebuild_isAO2 hAO R (projectedWire2 I N S)
+    (fun j hj => (hQ j ((hR j).mp hj).1).1)
+    (fun j _ w hw v hv => projectedWire2_bound I N S hw hv)
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw hdom
+    by_cases hwn : w < n
+    · have hs := hSin w hwn
+      have hn : ¬ selected2 I N (S w) := by
+        rw [hs]
+        exact not_selected2_singleton I N _
+      refine ⟨fun h => False.elim (hn h), fun _ => ?_⟩
+      rw [wval_input _ x w hwn, hs]
+      simp [setOr]
+    · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+      have hj : j < C.gates.length := by omega
+      have hq : j ∈ Q := by simpa using hdom.resolve_left hwn
+      obtain ⟨hop, hsupport, hchildren⟩ := hQ j hq
+      have ha := opnd_lt hAO hj 0
+      have hb := opnd_lt hAO hj 1
+      have hia := ih (opnd C j 0) ha (by omega) (hchildren 0)
+      have hib := ih (opnd C j 1) hb (by omega) (hchildren 1)
+      have hjD : j < D.gates.length := by simpa [D, rebuild_length] using hj
+      by_cases hsel : selected2 I N (S (n + j))
+      · refine ⟨fun _ => ?_, fun hn => False.elim (hn hsel)⟩
+        have hr : j ∈ R := (hR j).mpr ⟨hq, hsel⟩
+        have hg : gateAt D j = repairOr (gateAt C j)
+            (projectedWire2 I N S (opnd C j 0)) (projectedWire2 I N S (opnd C j 1)) := by
+          simp only [D, gateAt_rebuild C R (projectedWire2 I N S) hj, ite_eq_left hr]
+        have hn : projectedWire2 I N S (opnd C j 0) ≠ none ∨
+            projectedWire2 I N S (opnd C j 1) ≠ none := by
+          have hnon : ((S (opnd C j 0) ∪ S (opnd C j 1)) ∩ I).Nonempty := by
+            rw [← hsupport]
+            exact Finset.card_pos.mp (by have := hsel.2; omega)
+          rw [projected_union] at hnon
+          rcases Finset.union_nonempty.mp hnon with he | he
+          · left
+            intro heq
+            exact he.ne_empty (projectedWire2_none_empty I N S _ heq)
+          · right
+            intro heq
+            exact he.ne_empty (projectedWire2_none_empty I N S _ heq)
+        change Between I N (S (n + j)) x (wval D x (n + j))
+        rw [repairOr_value hD hjD _ _ _ hg hn x, hsupport]
+        exact between_union I N _ _ x
+          (projectedWire2_value I N hIN S D x _ hia.1 hia.2)
+          (projectedWire2_value I N hIN S D x _ hib.1 hib.2)
+      · refine ⟨fun h => False.elim (hsel h), fun _ => ?_⟩
+        have hr : j ∉ R := fun hr => hsel ((hR j).mp hr).2
+        have hg : gateAt D j = gateAt C j := by
+          simp only [D, gateAt_rebuild C R (projectedWire2 I N S) hj, ite_eq_right hr]
+        have hn0 : ¬ selected2 I N (S (opnd C j 0)) := by
+          intro hs
+          apply hsel
+          rw [hsupport]
+          exact selected2_mono Finset.subset_union_left hs
+        have hn1 : ¬ selected2 I N (S (opnd C j 1)) := by
+          intro hs
+          apply hsel
+          rw [hsupport]
+          exact selected2_mono Finset.subset_union_right hs
+        have hgate : gateAt D j = ⟨GateOp.or, [opnd C j 0, opnd C j 1]⟩ := by
+          rw [hg]
+          have hin := gate_inputs_eq hAO hj
+          cases he : gateAt C j with
+          | mk o ins =>
+            simp only [he] at hop hin
+            simp only [hop, hin]
+        change wval D x (n + j) = _
+        rw [binary_or_value hD hjD hgate x, hia.2 hn0, hib.2 hn1, hsupport, setOr_union]
+
+
+/-- The protected projection only decreases wire values throughout the circuit. -/
+lemma protected_decreases {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (Q R : Finset ℕ) (I N : Finset (Fin n)) (hIN : I ⊆ N)
+    (S : ℕ → Finset (Fin n))
+    (hR : ∀ j, j ∈ R ↔ j ∈ Q ∧ selected2 I N (S (n + j)))
+    (hSin : ∀ w (hw : w < n), S w = {⟨w, hw⟩})
+    (hQ : ∀ j ∈ Q, (gateAt C j).op = GateOp.or ∧
+      S (n + j) = S (opnd C j 0) ∪ S (opnd C j 1) ∧
+      (∀ b : Fin 2, opnd C j b < n ∨ opnd C j b - n ∈ Q))
+    (x : Fin n → Bool) :
+    ∀ w < n + C.gates.length,
+      wval (rebuild C R (projectedWire2 I N S)) x w = true → wval C x w = true := by
+  classical
+  let D := rebuild C R (projectedWire2 I N S)
+  have hD : IsAO2 n D := rebuild_isAO2 hAO R (projectedWire2 I N S)
+    (fun j hj => (hQ j ((hR j).mp hj).1).1)
+    (fun j _ w hw v hv => projectedWire2_bound I N S hw hv)
+  apply global_decrease_of_local hAO hD (rebuild_length C R (projectedWire2 I N S)) R
+  · intro j hj hr
+    simp only [D, gateAt_rebuild C R (projectedWire2 I N S) hj, ite_eq_right hr]
+  · intro j hj hr y hy
+    have hq := ((hR j).mp hr).1
+    have hsel := ((hR j).mp hr).2
+    have hdom : n + j < n ∨ n + j - n ∈ Q := Or.inr (by simpa using hq)
+    have hp := protected_pure_cone_values hAO Q R I N hIN S hR hSin hQ y
+      (n+j) (by omega) hdom
+    have hsafe := (hp.1 hsel).2 hy
+    rw [pure_cone_values hAO Q S hSin hQ y (n+j) (by omega) hdom]
+    simp only [setOr, decide_eq_true_eq] at hsafe ⊢
+    obtain ⟨v, hv, hyv⟩ := hsafe
+    exact ⟨v, (Finset.mem_inter.mp hv).1, hyv⟩
+
+/-- A protected projection compiler for I contained in N. Safe supports retain
+their original wires. Unsafe supports with at most one protected variable use
+none or a raw representative only when read by a rebuilt gate. Unsafe supports
+with at least two protected variables are rebuilt in place.
+
+The result promises relational values in the pure OR domain and global decrease;
+it makes no graph-function equivalence or privacy assertion. -/
+lemma protected_projection_compiler {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (Q R : Finset ℕ) (I N : Finset (Fin n)) (hIN : I ⊆ N)
+    (S : ℕ → Finset (Fin n))
+    (hR : ∀ j, j ∈ R ↔ j ∈ Q ∧ selected2 I N (S (n + j)))
+    (hSin : ∀ w (hw : w < n), S w = {⟨w, hw⟩})
+    (hQ : ∀ j ∈ Q, (gateAt C j).op = GateOp.or ∧
+      S (n + j) = S (opnd C j 0) ∪ S (opnd C j 1) ∧
+      (∀ b : Fin 2, opnd C j b < n ∨ opnd C j b - n ∈ Q)) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size = C.size ∧ D.output = C.output ∧
+      (∀ j < C.gates.length, (gateAt D j).op = (gateAt C j).op) ∧
+      (∀ j < C.gates.length, j ∉ R → gateAt D j = gateAt C j) ∧
+      (∀ x w, w < n + C.gates.length → (w < n ∨ w - n ∈ Q) →
+        Between I N (S w) x (optionVal D x (projectedWire2 I N S w)) ∧
+        (¬ selected2 I N (S w) → wval D x w = wval C x w) ∧
+        (selected2 I N (S w) → Between I N (S w) x (wval D x w))) ∧
+      (∀ (x : Fin n → Bool) (w : ℕ), w < n + C.gates.length → wval D x w = true → wval C x w = true) := by
+  classical
+  let D := rebuild C R (projectedWire2 I N S)
+  have hD : IsAO2 n D := rebuild_isAO2 hAO R (projectedWire2 I N S)
+    (fun j hj => (hQ j ((hR j).mp hj).1).1)
+    (fun j _ w hw v hv => projectedWire2_bound I N S hw hv)
+  refine ⟨D, hD, rebuild_size C R (projectedWire2 I N S), rfl, ?_, ?_, ?_, ?_⟩
+  · intro j hj
+    rw [show gateAt D j = _ from gateAt_rebuild C R (projectedWire2 I N S) hj]
+    split_ifs with hr
+    · exact repairOr_op (hQ j ((hR j).mp hr).1).1 _ _
+    · rfl
+  · intro j hj hr
+    simp only [D, gateAt_rebuild C R (projectedWire2 I N S) hj, ite_eq_right hr]
+  · intro x w hw hdom
+    have hsem := protected_pure_cone_values hAO Q R I N hIN S hR hSin hQ x w hw hdom
+    refine ⟨projectedWire2_value I N hIN S D x w hsem.1 hsem.2, ?_, hsem.1⟩
+    intro hn
+    rw [hsem.2 hn, pure_cone_values hAO Q S hSin hQ x w hw hdom]
+  · exact fun x => protected_decreases hAO Q R I N hIN S hR hSin hQ x
+
+end ProjectionProtected
+
+namespace BothMono
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm PEqualNP.EdgeOwnership
+  PEqualNP.MetaComplexity.NestedCover FrontierPrivacy
+
+def monoInput {n : ℕ} (s : Fin n → Bool) (b : Bool) : Fin n → Bool :=
+  fun u => decide (s u = b)
+
+lemma graphFun_monoInput_false {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (s : Fin n → Bool)
+    (hs : ∀ u v, G.Adj u v → s u ≠ s v) (b : Bool) :
+    graphFun G ∅ (monoInput s b) = false := by
+  rw [graphFun, Bool.or_eq_false_iff]
+  constructor
+  · simp
+  · rw [decide_eq_false_iff_not]
+    rintro ⟨u, v, huv, hu, hv⟩
+    simp only [monoInput, decide_eq_true_eq] at hu hv
+    exact hs u v huv (hu.trans hv.symm)
+
+lemma full_mono_gate_before_other {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] {C : Circuit} (hAO : IsAO2 n C) (hTF : TopForm G C)
+    (hcompute : circuitFun n C = graphFun G ∅) (s : Fin n → Bool)
+    (hs : ∀ u v, G.Adj u v → s u ≠ s v) {p q : ℕ}
+    (hJ : ∀ k ∈ junk G C, k = p ∨ k = q)
+    (hlive : ∀ r < C.gates.length,
+      C.output = n + r ∨ ∃ j < C.gates.length, n + r ∈ (gateAt C j).inputs)
+    (hp : p < C.gates.length)
+    (hpmono : ∀ b, gateVal n C p (monoInput s b) = true)
+    (hqmono : ∀ b, gateVal n C q (monoInput s b) = true) : p < q := by
+  have hraw : ∀ u : Fin n, ∃ x,
+      gateVal n C p x = true ∧ x u = true ∧ graphFun G ∅ x = false := by
+    intro u
+    exact ⟨monoInput s (s u), hpmono _, by simp [monoInput], graphFun_monoInput_false G s hs _⟩
+  have hself : ∃ x, gateVal n C p x = true ∧ gateVal n C p x = true ∧ graphFun G ∅ x = false :=
+    ⟨monoInput s false, hpmono _, hpmono _, graphFun_monoInput_false G s hs _⟩
+  have hother : ∃ x, gateVal n C p x = true ∧ gateVal n C q x = true ∧ graphFun G ∅ x = false :=
+    ⟨monoInput s false, hpmono _, hqmono _, graphFun_monoInput_false G s hs _⟩
+  obtain ⟨j, hj, _, hjpq, w, hw, hwp, _⟩ :=
+    dirty_frontier_eventually_junk hAO hTF hcompute hJ hlive hraw hself hother hp
+      (orReach_self n C p hp)
+  have hpj := inCone_lt n C j p
+    (reach_cone n C j hj w hw (hAO.2.1 j hj w hw) p hwp)
+  rcases hjpq with rfl | rfl
+  · omega
+  · exact hpj
+
+lemma both_full_monochromatic_impossible {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] {C : Circuit} (hAO : IsAO2 n C) (hTF : TopForm G C)
+    (hcompute : circuitFun n C = graphFun G ∅) (s : Fin n → Bool)
+    (hs : ∀ u v, G.Adj u v → s u ≠ s v) {g h : ℕ}
+    (hJ : ∀ k ∈ junk G C, k = g ∨ k = h)
+    (hlive : ∀ r < C.gates.length,
+      C.output = n + r ∨ ∃ j < C.gates.length, n + r ∈ (gateAt C j).inputs)
+    (hg : g < C.gates.length) (hh : h < C.gates.length)
+    (hgmono : ∀ b, gateVal n C g (monoInput s b) = true)
+    (hhmono : ∀ b, gateVal n C h (monoInput s b) = true) : False := by
+  have hgh := full_mono_gate_before_other hAO hTF hcompute s hs hJ hlive hg hgmono hhmono
+  have hhg := full_mono_gate_before_other hAO hTF hcompute s hs
+    (fun k hk => (hJ k hk).symm) hlive hh hhmono hgmono
+  omega
+
+end BothMono
+
 end PEqualNP.Outside.L_meta_5012
