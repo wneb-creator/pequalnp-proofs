@@ -10,3 +10,6 @@
 2026-11-25T03:18:24.677733+00:00 derivative repeatWrap lemmas compiled (exit0); notified root to preserve.
 
 2026-11-25T03:18:43.379682+00:00 Derivatives.lean compiled; preserving122-line checkpoint.
+2026-11-25T03:20:24.421350+00:00 generic distributed wrapper size/evaluation lemmas compiled firstpass (exit0); awaiting root preservation.
+
+2026-11-25T03:20:38.527574+00:00 Counterexample.lean and Distributed.lean compiled; independent review passed.

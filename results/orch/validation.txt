@@ -16,3 +16,6 @@ Full proof search continues.
 Structural.lean: lake env lean passed, exit0; 154 lines, one unnecessarySimpa warning. Exact finite geometry and minimum vertex-cover rigidity.
 
 Derivatives.lean: lake env lean passed, exit0;122 lines, no output. Generic size+2 repeated-output wrapper: legal topology, semantic preservation, vanishing linear part.
+
+Counterexample.lean: lake env lean passed, exit0;39 lines, no output. Monotone OR boundary criterion and Boolean identities.
+Distributed.lean: lake env lean passed, exit0;112 lines, no output. Distributive wrapper equivalence with +1 gate relative to ordinary form.
