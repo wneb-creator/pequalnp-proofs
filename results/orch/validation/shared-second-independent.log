@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_2592_aux.SharedSecondReader.no_shared_second_reader' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SharedSecondReader.signed_and_or_fiber' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

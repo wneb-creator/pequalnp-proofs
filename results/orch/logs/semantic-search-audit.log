@@ -1,0 +1,6 @@
+PASS: 76 false target rows; minimum cover size 6; 5 minimum covers; all 40 seed circuits correct on 1024 rows.
+PASS: independently evaluated 12 complete logged candidates from seed 101.
+PASS: independently evaluated 31 complete logged candidates from seed 102.
+PASS: 43 logged candidates; best no-NOT error 9; best containing-NOT error 10, NOT unused.
+PASS: hexagon decomposition matches all 1024 target rows; 10+9 gate accounting is valid.
+PASS: no credential-shaped material in 10 selected source/report/local-search log files; no environment or credential store read.
