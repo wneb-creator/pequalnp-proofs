@@ -176,4 +176,85 @@ lemma flipCoordinate_testBit_of_mask (B mask m i r : Nat)
 
 end NatFlip
 
+namespace BitmapCollision
+
+def collisionMask (flip : Nat → Nat) (domainBits P N G : Nat) : Nat :=
+  (P &&& flip N) &&& (domainBits ^^^ (G ^^^ flip G))
+
+lemma collisionMask_testBit (flip delta : Nat → Nat) (domainBits P N G p : Nat)
+    (hflip : ∀ B, (flip B).testBit p = B.testBit (delta p))
+    (hdomain : domainBits.testBit p = true) :
+    (collisionMask flip domainBits P N G).testBit p = true ↔
+      P.testBit p = true ∧ N.testBit (delta p) = true ∧
+        G.testBit p = G.testBit (delta p) := by
+  simp only [collisionMask, Nat.testBit_and, Nat.testBit_xor, hflip, hdomain]
+  cases P.testBit p <;> cases N.testBit (delta p) <;>
+    cases G.testBit p <;> cases G.testBit (delta p) <;> decide
+
+lemma collisionMask_ne_zero_iff (flip delta : Nat → Nat) (domainBits P N G : Nat)
+    (hflip : ∀ B q, P.testBit q = true → (flip B).testBit q = B.testBit (delta q))
+    (hsupport : ∀ p, P.testBit p = true → domainBits.testBit p = true) :
+    collisionMask flip domainBits P N G ≠ 0 ↔
+      ∃ p, P.testBit p = true ∧ N.testBit (delta p) = true ∧
+        G.testBit p = G.testBit (delta p) := by
+  constructor
+  · intro hnonzero
+    obtain ⟨p, hp⟩ := Nat.exists_testBit_of_ne_zero hnonzero
+    have hP : P.testBit p = true := by
+      have h := hp
+      simp only [collisionMask, Nat.testBit_and, Bool.and_eq_true] at h
+      exact h.1.1
+    exact ⟨p, (collisionMask_testBit flip delta domainBits P N G p
+      (fun B => hflip B p hP) (hsupport p hP)).mp hp⟩
+  · rintro ⟨p, hp, hn, hg⟩ hzero
+    have h := (collisionMask_testBit flip delta domainBits P N G p
+      (fun B => hflip B p hp) (hsupport p hp)).mpr ⟨hp, hn, hg⟩
+    simp only [hzero, Nat.zero_testBit, Bool.false_eq_true] at h
+
+lemma selfMask_ne_zero_iff (flip delta : Nat → Nat) (P N G : Nat)
+    (hflip : ∀ B q, P.testBit q = true → (flip B).testBit q = B.testBit (delta q)) :
+    collisionMask flip P P N G ≠ 0 ↔
+      ∃ p, P.testBit p = true ∧ N.testBit (delta p) = true ∧
+        G.testBit p = G.testBit (delta p) :=
+  collisionMask_ne_zero_iff flip delta P P N G hflip (fun _ hp => hp)
+
+lemma projected_overlap_of_collision
+    (flip delta f : Nat → Nat) (domainBits P N G projectedP projectedN : Nat)
+    (hflip : ∀ B q, P.testBit q = true → (flip B).testBit q = B.testBit (delta q))
+    (hsupport : ∀ p, P.testBit p = true → domainBits.testBit p = true)
+    (himageP : ∀ q, projectedP.testBit q = true ↔
+      ∃ p, P.testBit p = true ∧ f p = q)
+    (himageN : ∀ q, projectedN.testBit q = true ↔
+      ∃ p, N.testBit p = true ∧ f p = q)
+    (hmap : ∀ p, P.testBit p = true → N.testBit (delta p) = true →
+      G.testBit p = G.testBit (delta p) → f p = f (delta p))
+    (hnonzero : collisionMask flip domainBits P N G ≠ 0) :
+    projectedP &&& projectedN ≠ 0 := by
+  obtain ⟨p, hp, hn, hg⟩ :=
+    (collisionMask_ne_zero_iff flip delta domainBits P N G hflip hsupport).mp hnonzero
+  have hP : projectedP.testBit (f p) = true :=
+    (himageP (f p)).mpr ⟨p, hp, rfl⟩
+  have hN : projectedN.testBit (f p) = true :=
+    (himageN (f p)).mpr ⟨delta p, hn, (hmap p hp hn hg).symm⟩
+  intro hzero
+  have hbit : (projectedP &&& projectedN).testBit (f p) = true := by
+    simp only [Nat.testBit_and, hP, hN, Bool.and_self]
+  simp only [hzero, Nat.zero_testBit, Bool.false_eq_true] at hbit
+
+lemma projected_overlap_of_selfMask
+    (flip delta f : Nat → Nat) (P N G projectedP projectedN : Nat)
+    (hflip : ∀ B q, P.testBit q = true → (flip B).testBit q = B.testBit (delta q))
+    (himageP : ∀ q, projectedP.testBit q = true ↔
+      ∃ p, P.testBit p = true ∧ f p = q)
+    (himageN : ∀ q, projectedN.testBit q = true ↔
+      ∃ p, N.testBit p = true ∧ f p = q)
+    (hmap : ∀ p, P.testBit p = true → N.testBit (delta p) = true →
+      G.testBit p = G.testBit (delta p) → f p = f (delta p))
+    (hnonzero : collisionMask flip P P N G ≠ 0) :
+    projectedP &&& projectedN ≠ 0 :=
+  projected_overlap_of_collision flip delta f P P N G projectedP projectedN
+    hflip (fun _ hp => hp) himageP himageN hmap hnonzero
+
+end BitmapCollision
+
 end PEqualNP.Outside.L_meta_10760
