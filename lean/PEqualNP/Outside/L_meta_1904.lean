@@ -1904,3 +1904,540 @@ lemma safe_consumer_singleton_center {n : ℕ} (G : SimpleGraph (Fin n))
   exact ((hfour c u a v hcu hua hva.symm hcv.symm).resolve_right huv).symm
 
 end PEqualNP.Outside.L_meta_1904_aux
+
+
+namespace PEqualNP.Outside.L_meta_1904_aux.StarSourceCover
+
+open StarContraction StarBypass
+
+def leafSources {ι : Type*} [DecidableEq ι] {n : ℕ}
+    (D : Finset ι) (A : ι → Finset (Fin n)) (c : Fin n) (L : Finset (Fin n)) :
+    Finset ι :=
+  D.filter fun d => c ∉ A d ∧ (A d ∩ L).Nonempty
+
+lemma leaf_sources_cover {ι : Type*} [DecidableEq ι] {n : ℕ}
+    (D : Finset ι) (A : ι → Finset (Fin n)) (c : Fin n) (L : Finset (Fin n))
+    (hsep : ∀ l ∈ L, ∃ d ∈ D,
+      rootOr (A d) (pair c l) = true ∧ rootOr (A d) (starSingleton c) = false) :
+    ∀ l ∈ L, ∃ d ∈ leafSources D A c L, l ∈ A d := by
+  intro l hl
+  obtain ⟨d, hd, hpos, hneg⟩ := hsep l hl
+  have hnot : c ∉ A d := by
+    simpa [rootOr, starSingleton] using hneg
+  obtain ⟨v, hv, hvl⟩ := of_decide_eq_true hpos
+  have hvcl : v = c ∨ v = l := by simpa [pair] using hvl
+  have hld : l ∈ A d := by
+    rcases hvcl with rfl | rfl
+    · exact (hnot hv).elim
+    · exact hv
+  exact ⟨d, Finset.mem_filter.mpr ⟨hd, hnot, ⟨l, Finset.mem_inter.mpr ⟨hld, hl⟩⟩⟩,
+    hld⟩
+
+lemma center_separator_outside_leaf_sources {ι : Type*} [DecidableEq ι] {n : ℕ}
+    (D : Finset ι) (A : ι → Finset (Fin n)) (c : Fin n) (L : Finset (Fin n))
+    (hsep : ∃ l ∈ L, ∃ d ∈ D, rootOr (A d) (pair c l) = true ∧
+      rootOr (A d) (fun v => decide (v ∈ L)) = false) :
+    ∃ d ∈ D, c ∈ A d ∧ d ∉ leafSources D A c L := by
+  obtain ⟨l, hl, d, hd, hpos, hneg⟩ := hsep
+  obtain ⟨v, hv, hvl⟩ := of_decide_eq_true hpos
+  have hvcl : v = c ∨ v = l := by simpa [pair] using hvl
+  have hcd : c ∈ A d := by
+    rcases hvcl with rfl | rfl
+    · exact hv
+    · have htrue : rootOr (A d) (fun v => decide (v ∈ L)) = true :=
+        decide_eq_true ⟨_, hv, by simpa using hl⟩
+      simp [hneg] at htrue
+  refine ⟨d, hd, hcd, ?_⟩
+  intro hmem
+  exact (Finset.mem_filter.mp hmem).2.1 hcd
+
+lemma star_source_cover_card {ι : Type*} [DecidableEq ι] {n : ℕ}
+    (D : Finset ι) (A : ι → Finset (Fin n)) (c : Fin n) (L : Finset (Fin n))
+    (K : ℕ) (hbudget : D.card ≤ K + 1)
+    (hsep : ∃ l ∈ L, ∃ d ∈ D, rootOr (A d) (pair c l) = true ∧
+      rootOr (A d) (fun v => decide (v ∈ L)) = false) :
+    (leafSources D A c L).card ≤ K := by
+  obtain ⟨d, hd, _, hdnot⟩ := center_separator_outside_leaf_sources D A c L hsep
+  have hsubset : insert d (leafSources D A c L) ⊆ D := by
+    intro i hi
+    rcases Finset.mem_insert.mp hi with rfl | hi
+    · exact hd
+    · exact (Finset.mem_filter.mp hi).1
+  have hbound : (leafSources D A c L).card + 1 ≤ D.card := by
+    simpa [Finset.card_insert_of_notMem hdnot] using Finset.card_le_card hsubset
+  omega
+
+end PEqualNP.Outside.L_meta_1904_aux.StarSourceCover
+
+
+namespace PEqualNP.Outside.L_meta_1904_aux.StarSourceCover
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open StarContraction StarBypass StarCircuit
+
+def selectedSupport {n : ℕ} (A N L : Finset (Fin n)) : Finset (Fin n) :=
+  if A ⊆ N then A else A ∩ L
+
+lemma selectedSupport_subset {n : ℕ} (A N L : Finset (Fin n)) (hLN : L ⊆ N) :
+    selectedSupport A N L ⊆ N := by
+  by_cases hclean : A ⊆ N
+  · simp [selectedSupport, hclean]
+  · simpa [selectedSupport, hclean] using Finset.Subset.trans Finset.inter_subset_right hLN
+
+lemma selectedSupport_contains_leaf {n : ℕ} (A N L : Finset (Fin n))
+    (l : Fin n) (hlA : l ∈ A) (hlL : l ∈ L) : l ∈ selectedSupport A N L := by
+  by_cases hclean : A ⊆ N
+  · simpa [selectedSupport, hclean] using hlA
+  · simpa [selectedSupport, hclean] using Finset.mem_inter.mpr ⟨hlA, hlL⟩
+
+lemma selectedSupport_original_or_singleton {n : ℕ} (A N L : Finset (Fin n))
+    (hmeet : (A ∩ L).Nonempty) (hsparse : ¬ A ⊆ N → (A ∩ L).card ≤ 1) :
+    selectedSupport A N L = A ∨
+      ∃ l ∈ A ∩ L, selectedSupport A N L = {l} := by
+  by_cases hclean : A ⊆ N
+  · exact Or.inl (by simp [selectedSupport, hclean])
+  · have hpos := Finset.card_pos.mpr hmeet
+    have hcard : (A ∩ L).card = 1 := by have := hsparse hclean; omega
+    obtain ⟨l, hl⟩ := Finset.card_eq_one.mp hcard
+    exact Or.inr ⟨l, by simp [hl], by simp [selectedSupport, hclean, hl]⟩
+
+lemma selectedSupport_cover {ι : Type*} [DecidableEq ι] {n : ℕ}
+    (R : Finset ι) (A : ι → Finset (Fin n)) (N L : Finset (Fin n))
+    (hcover : ∀ l ∈ L, ∃ i ∈ R, l ∈ A i) :
+    ∀ l ∈ L, ∃ i ∈ R, l ∈ selectedSupport (A i) N L := by
+  intro l hl
+  obtain ⟨i, hi, hli⟩ := hcover l hl
+  exact ⟨i, hi, selectedSupport_contains_leaf (A i) N L l hli hl⟩
+
+lemma exists_selected_wires {ι : Type*} [DecidableEq ι] {n : ℕ}
+    (pre : List Gate) (R : Finset ι) (A : ι → Finset (Fin n))
+    (w : ι → ℕ) (N L : Finset (Fin n))
+    (hvalid : ∀ i ∈ R, w i < n + pre.length)
+    (hreal : ∀ i ∈ R, ∀ x : Fin n → Bool,
+      (run pre (List.ofFn x)).getD (w i) false = rootOr (A i) x)
+    (hmeet : ∀ i ∈ R, (A i ∩ L).Nonempty)
+    (hsparse : ∀ i ∈ R, ¬ A i ⊆ N → (A i ∩ L).card ≤ 1) :
+    ∃ b : ι → ℕ, ∀ i ∈ R,
+      b i < n + pre.length ∧
+      (∀ x : Fin n → Bool,
+        (run pre (List.ofFn x)).getD (b i) false = rootOr (selectedSupport (A i) N L) x) ∧
+      (b i = w i ∨ ∃ l ∈ A i ∩ L, b i = l.val) := by
+  classical
+  have hlocal : ∀ i : ι, ∃ j : ℕ, i ∈ R →
+      j < n + pre.length ∧
+      (∀ x : Fin n → Bool,
+        (run pre (List.ofFn x)).getD j false = rootOr (selectedSupport (A i) N L) x) ∧
+      (j = w i ∨ ∃ l ∈ A i ∩ L, j = l.val) := by
+    intro i
+    by_cases hi : i ∈ R
+    · rcases selectedSupport_original_or_singleton (A i) N L (hmeet i hi)
+        (hsparse i hi) with hclean | ⟨l, hl, hsingle⟩
+      · refine ⟨w i, fun _ => ⟨hvalid i hi, ?_, Or.inl rfl⟩⟩
+        intro x
+        rw [hclean]
+        exact hreal i hi x
+      · refine ⟨l.val, fun _ => ⟨by have := l.isLt; omega, ?_, Or.inr ⟨l, hl, rfl⟩⟩⟩
+        intro x
+        rw [hsingle, run_input]
+        simp [rootOr]
+    · exact ⟨0, fun h => (hi h).elim⟩
+  choose b hb using hlocal
+  exact ⟨b, hb⟩
+
+lemma exists_selected_wire_set {ι : Type*} [DecidableEq ι] {n : ℕ}
+    (pre : List Gate) (R : Finset ι) (A : ι → Finset (Fin n))
+    (w : ι → ℕ) (N L : Finset (Fin n)) (K : ℕ)
+    (hbudget : R.card ≤ K) (hLN : L ⊆ N)
+    (hvalid : ∀ i ∈ R, w i < n + pre.length)
+    (hreal : ∀ i ∈ R, ∀ x : Fin n → Bool,
+      (run pre (List.ofFn x)).getD (w i) false = rootOr (A i) x)
+    (hmeet : ∀ i ∈ R, (A i ∩ L).Nonempty)
+    (hsparse : ∀ i ∈ R, ¬ A i ⊆ N → (A i ∩ L).card ≤ 1)
+    (hcover : ∀ l ∈ L, ∃ i ∈ R, l ∈ A i) :
+    ∃ W : Finset ℕ, W.card ≤ K ∧
+      (∀ j ∈ W, j < n + pre.length) ∧
+      (∀ j ∈ W, ∀ x : Fin n → Bool,
+        (run pre (List.ofFn x)).getD j false = true → ∃ v ∈ N, x v = true) ∧
+      (∀ l ∈ L, ∃ j ∈ W,
+        (run pre (List.ofFn (starSingleton l))).getD j false = true) := by
+  classical
+  obtain ⟨b, hb⟩ := exists_selected_wires pre R A w N L hvalid hreal hmeet hsparse
+  refine ⟨R.image b, (Finset.card_image_le.trans hbudget), ?_, ?_, ?_⟩
+  · intro j hj
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hj
+    exact (hb i hi).1
+  · intro j hj x hx
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hj
+    rw [(hb i hi).2.1 x] at hx
+    obtain ⟨v, hv, hxv⟩ := of_decide_eq_true hx
+    exact ⟨v, selectedSupport_subset (A i) N L hLN hv, hxv⟩
+  · intro l hl
+    obtain ⟨i, hi, hli⟩ := selectedSupport_cover R A N L hcover l hl
+    refine ⟨b i, Finset.mem_image.mpr ⟨i, hi, rfl⟩, ?_⟩
+    rw [(hb i hi).2.1]
+    exact decide_eq_true ⟨l, hli, by simp [starSingleton]⟩
+
+end PEqualNP.Outside.L_meta_1904_aux.StarSourceCover
+
+
+namespace PEqualNP.Outside.L_meta_1904_aux.BorrowedStar
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open StarCircuit StarContraction Survivor
+
+def orTail (n : ℕ) : Circuit → List ℕ → Circuit
+  | D, [] => D
+  | D, w :: W => orTail n (appendOr n D w) W
+
+def finish (n : ℕ) (D : Circuit) (c : Fin n) : Circuit :=
+  ⟨D.gates ++ [⟨.and, [c.val, D.output]⟩], n + D.size⟩
+
+def build (n : ℕ) (D : Circuit) (c : Fin n) : List ℕ → Circuit
+  | [] => D
+  | w :: W => finish n (orTail n { D with output := w } W) c
+
+lemma orTail_size (n : ℕ) (D : Circuit) (W : List ℕ) :
+    (orTail n D W).size = D.size + W.length := by
+  induction W generalizing D with
+  | nil => simp [orTail]
+  | cons w W ih => simp [orTail, ih, appendOr_size, Nat.add_assoc, Nat.add_comm]
+
+lemma orTail_mono (n : ℕ) (D : Circuit) (W : List ℕ) (hD : Monotone2 D) :
+    Monotone2 (orTail n D W) := by
+  induction W generalizing D with
+  | nil => exact hD
+  | cons w W ih => exact ih _ (appendOr_mono n D w hD)
+
+lemma orTail_old_read {n : ℕ} (D : Circuit) (W : List ℕ) (i : ℕ)
+    (x : Fin n → Bool) (hi : i < n + D.size) :
+    ((orTail n D W).wires (List.ofFn x)).getD i false =
+      (D.wires (List.ofFn x)).getD i false := by
+  induction W generalizing D with
+  | nil => rfl
+  | cons w W ih =>
+    change ((orTail n (appendOr n D w) W).wires (List.ofFn x)).getD i false = _
+    rw [ih _ (by rw [appendOr_size]; omega)]
+    exact appendOr_old_read D w i x hi
+
+lemma orTail_eval {n : ℕ} (D : Circuit) (W : List ℕ) (x : Fin n → Bool)
+    (hW : ∀ w ∈ W, w < n + D.size) :
+    (orTail n D W).eval (List.ofFn x) =
+      (D.eval (List.ofFn x) || W.any (fun w => (D.wires (List.ofFn x)).getD w false)) := by
+  induction W generalizing D with
+  | nil => simp [orTail]
+  | cons w W ih =>
+    have hrest : ∀ z ∈ W, z < n + (appendOr n D w).size := by
+      intro z hz
+      have := hW z (by simp [hz])
+      rw [appendOr_size]
+      omega
+    rw [orTail, ih _ hrest, appendOr_eval]
+    have hmap : W.map (fun z => ((appendOr n D w).wires (List.ofFn x)).getD z false) =
+        W.map (fun z => (D.wires (List.ofFn x)).getD z false) := by
+      apply List.map_congr_left
+      intro z hz
+      exact appendOr_old_read D w z x (hW z (by simp [hz]))
+    have hany := congrArg (fun l : List Bool => l.any id) hmap
+    simp only [List.any_map, Function.comp_def, id_eq] at hany
+    rw [hany]
+    simp [Bool.or_assoc]
+
+lemma finish_size (n : ℕ) (D : Circuit) (c : Fin n) :
+    (finish n D c).size = D.size + 1 := by
+  simp [finish, Circuit.size]
+
+lemma finish_mono (n : ℕ) (D : Circuit) (c : Fin n) (hD : Monotone2 D) :
+    Monotone2 (finish n D c) := by
+  intro g hg
+  change g ∈ D.gates ++ [⟨.and, [c.val, D.output]⟩] at hg
+  rcases List.mem_append.mp hg with hg | hg
+  · exact hD g hg
+  · have he : g = ⟨.and, [c.val, D.output]⟩ := List.mem_singleton.mp hg
+    subst g
+    simp
+
+lemma finish_eval {n : ℕ} (D : Circuit) (c : Fin n) (x : Fin n → Bool) :
+    (finish n D c).eval (List.ofFn x) = (x c && D.eval (List.ofFn x)) := by
+  change ((patchCircuit D.gates [] ⟨.and, [c.val, D.output]⟩ (n + D.size)).wires
+    (List.ofFn x)).getD (n + D.gates.length) false = _
+  rw [patch_wire_value]
+  simp only [gatePrefix, GateOp.eval, List.map_cons, List.map_nil, List.all_cons,
+    List.all_nil, id_eq, Bool.and_true, run_input]
+  rfl
+
+lemma finish_old_read {n : ℕ} (D : Circuit) (c : Fin n) (i : ℕ)
+    (x : Fin n → Bool) (hi : i < n + D.size) :
+    ((finish n D c).wires (List.ofFn x)).getD i false =
+      (D.wires (List.ofFn x)).getD i false := by
+  change (run (D.gates ++ [⟨.and, [c.val, D.output]⟩]) (List.ofFn x)).getD i false =
+    (run D.gates (List.ofFn x)).getD i false
+  simp only [run, List.foldl_append]
+  apply run_old_read [⟨.and, [c.val, D.output]⟩] (run D.gates (List.ofFn x)) i
+  simpa [run_length, Circuit.size] using hi
+
+lemma build_size (n : ℕ) (D : Circuit) (c : Fin n) (W : List ℕ) (hne : W ≠ []) :
+    (build n D c W).size = D.size + W.length := by
+  cases W with
+  | nil => exact (hne rfl).elim
+  | cons w W =>
+    rw [build, finish_size, orTail_size]
+    simp only [Circuit.size, List.length_cons]
+    omega
+
+lemma build_mono (n : ℕ) (D : Circuit) (c : Fin n) (W : List ℕ) (hD : Monotone2 D) :
+    Monotone2 (build n D c W) := by
+  cases W with
+  | nil => exact hD
+  | cons w W =>
+    exact finish_mono n _ c (orTail_mono n { D with output := w } W hD)
+
+lemma build_old_read {n : ℕ} (D : Circuit) (c : Fin n) (W : List ℕ) (i : ℕ)
+    (x : Fin n → Bool) (hi : i < n + D.size) :
+    ((build n D c W).wires (List.ofFn x)).getD i false =
+      (D.wires (List.ofFn x)).getD i false := by
+  cases W with
+  | nil => rfl
+  | cons w W =>
+    rw [build, finish_old_read _ c i x (by rw [orTail_size]; change i < n + (D.size + W.length); omega)]
+    exact orTail_old_read { D with output := w } W i x hi
+
+lemma build_eval {n : ℕ} (D : Circuit) (c : Fin n) (W : List ℕ)
+    (hne : W ≠ []) (hvalid : ∀ w ∈ W, w < n + D.size) (x : Fin n → Bool) :
+    (build n D c W).eval (List.ofFn x) =
+      (x c && W.any (fun w => (D.wires (List.ofFn x)).getD w false)) := by
+  cases W with
+  | nil => exact (hne rfl).elim
+  | cons w W =>
+    rw [build, finish_eval, orTail_eval _ W x (by
+      intro z hz
+      exact hvalid z (by simp [hz]))]
+    rfl
+
+lemma build_safe {n : ℕ} (G : SimpleGraph (Fin n))
+    (D : Circuit) (c : Fin n) (W : List ℕ) (hne : W ≠ [])
+    (hvalid : ∀ w ∈ W, w < n + D.size)
+    (hneighbor : ∀ w ∈ W, ∀ x : Fin n → Bool,
+      (D.wires (List.ofFn x)).getD w false = true →
+        ∃ v, G.Adj c v ∧ x v = true) :
+    ∀ x : Fin n → Bool, (build n D c W).eval (List.ofFn x) = true →
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true := by
+  intro x hx
+  rw [build_eval D c W hne hvalid x, Bool.and_eq_true] at hx
+  obtain ⟨w, hw, hwire⟩ := List.any_eq_true.mp hx.2
+  obtain ⟨v, hcv, hv⟩ := hneighbor w hw x hwire
+  exact ⟨c, v, hcv, hx.1, hv⟩
+
+lemma build_pair_true {n : ℕ} (D : Circuit) (c l : Fin n) (W : List ℕ)
+    (hne : W ≠ []) (hvalid : ∀ w ∈ W, w < n + D.size)
+    (hcover : ∃ w ∈ W, (D.wires (List.ofFn (pair c l))).getD w false = true) :
+    (build n D c W).eval (List.ofFn (pair c l)) = true := by
+  rw [build_eval D c W hne hvalid (pair c l), Bool.and_eq_true]
+  exact ⟨by simp [pair], List.any_eq_true.mpr hcover⟩
+
+lemma build_singleton_coverage {n : ℕ} (D : Circuit) (hD : Monotone2 D)
+    (c l : Fin n) (W : List ℕ) (hne : W ≠ [])
+    (hvalid : ∀ w ∈ W, w < n + D.size)
+    (hcover : ∃ w ∈ W,
+      (D.wires (List.ofFn (StarBypass.starSingleton l))).getD w false = true) :
+    (build n D c W).eval (List.ofFn (pair c l)) = true := by
+  apply build_pair_true D c l W hne hvalid
+  obtain ⟨w, hw, hwire⟩ := hcover
+  refine ⟨w, hw, wire_mono D hD w (StarBypass.starSingleton l) (pair c l) ?_ hwire⟩
+  intro i hi
+  have he : i = l := by simpa [StarBypass.starSingleton] using hi
+  simp [pair, he]
+
+lemma orTail_shape (n : ℕ) (D : Circuit) (W : List ℕ) :
+    ∃ gs : List Gate, (orTail n D W).gates = D.gates ++ gs ∧
+      gs.length = W.length ∧ ∀ g ∈ gs, g.op = .or := by
+  induction W generalizing D with
+  | nil => exact ⟨[], by simp [orTail], rfl, by simp⟩
+  | cons w W ih =>
+    obtain ⟨gs, hgs, hlen, hops⟩ := ih (appendOr n D w)
+    refine ⟨⟨.or, [D.output, w]⟩ :: gs, ?_, by simp [hlen], ?_⟩
+    · simpa only [orTail, appendOr, List.append_assoc, List.singleton_append] using hgs
+    · intro g hg
+      rcases List.mem_cons.mp hg with rfl | hg
+      · rfl
+      · exact hops g hg
+
+lemma build_shape (n : ℕ) (D : Circuit) (c : Fin n) (W : List ℕ) (hne : W ≠ []) :
+    ∃ gs : List Gate, ∃ w : ℕ,
+      (build n D c W).gates = D.gates ++ gs ++ [⟨.and, [c.val, w]⟩] ∧
+      gs.length + 1 = W.length ∧ (∀ g ∈ gs, g.op = .or) ∧
+      (build n D c W).output = n + D.size + gs.length := by
+  cases W with
+  | nil => exact (hne rfl).elim
+  | cons w W =>
+    obtain ⟨gs, hgs, hlen, hops⟩ := orTail_shape n { D with output := w } W
+    refine ⟨gs, (orTail n { D with output := w } W).output, ?_, by simp [hlen], hops, ?_⟩
+    · change (orTail n { D with output := w } W).gates ++ _ = _
+      rw [hgs]
+    · change n + (orTail n { D with output := w } W).size = _
+      rw [orTail_size, hlen]
+      exact (Nat.add_assoc _ _ _).symm
+
+open PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+
+lemma orTail_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (D : Circuit) (W : List ℕ) : junk G (orTail n D W) = junk G D := by
+  induction W generalizing D with
+  | nil => rfl
+  | cons w W ih => rw [orTail, ih, appendOr_junk]
+
+lemma finish_gateAt_old (n : ℕ) (D : Circuit) (c : Fin n) (j : ℕ)
+    (hj : j < D.gates.length) : gateAt (finish n D c) j = gateAt D j := by
+  simp only [gateAt, finish, List.getD_eq_getElem?_getD, List.getElem?_append_left hj]
+
+lemma finish_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (D : Circuit) (c : Fin n)
+    (hsafe : ∀ x : Fin n → Bool, (finish n D c).eval (List.ofFn x) = true →
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true) :
+    junk G (finish n D c) = junk G D := by
+  classical
+  apply Finset.ext
+  intro j
+  change (j ∈ (Finset.range (finish n D c).gates.length).filter
+    (fun i => IsDirtyAnd n G (finish n D c) i)) ↔
+      (j ∈ (Finset.range D.gates.length).filter (fun i => IsDirtyAnd n G D i))
+  rw [Finset.mem_filter, Finset.mem_filter, Finset.mem_range, Finset.mem_range]
+  simp only [IsDirtyAnd, IsDirty]
+  constructor
+  · rintro ⟨hj, hop, _, x, hx, hneg⟩
+    have hjold : j < D.gates.length := by
+      by_contra h
+      have hjlast : j = D.gates.length := by
+        have hl : (finish n D c).gates.length = D.gates.length + 1 := by simp [finish]
+        omega
+      subst j
+      have htrue : (finish n D c).eval (List.ofFn x) = true := hx
+      obtain ⟨a, b, hab, ha, hb⟩ := hsafe x htrue
+      have hg : graphFun G ∅ x = true := by
+        simp only [graphFun, Bool.or_eq_true, decide_eq_true_eq]
+        exact Or.inr ⟨a, b, hab, ha, hb⟩
+      exact Bool.noConfusion (hneg.symm.trans hg)
+    refine ⟨hjold, ?_, hjold, x, ?_, hneg⟩
+    · simpa only [finish_gateAt_old n D c j hjold] using hop
+    · change ((finish n D c).wires (List.ofFn x)).getD (n + j) false = true at hx
+      rw [finish_old_read D c (n + j) x (by simpa [Circuit.size] using Nat.add_lt_add_left hjold n)] at hx
+      exact hx
+  · rintro ⟨hj, hop, _, x, hx, hneg⟩
+    have hjnew : j < (finish n D c).gates.length := by
+      simp only [finish, List.length_append, List.length_cons, List.length_nil]
+      omega
+    refine ⟨hjnew, ?_, hjnew, x, ?_, hneg⟩
+    · simpa only [finish_gateAt_old n D c j hj] using hop
+    · change ((finish n D c).wires (List.ofFn x)).getD (n + j) false = true
+      rw [finish_old_read D c (n + j) x (by simpa [Circuit.size] using Nat.add_lt_add_left hj n)]
+      exact hx
+
+lemma build_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (D : Circuit) (c : Fin n) (W : List ℕ) (hne : W ≠ [])
+    (hvalid : ∀ w ∈ W, w < n + D.size)
+    (hneighbor : ∀ w ∈ W, ∀ x : Fin n → Bool,
+      (D.wires (List.ofFn x)).getD w false = true →
+        ∃ v, G.Adj c v ∧ x v = true) :
+    junk G (build n D c W) = junk G D := by
+  have hsafe := build_safe G D c W hne hvalid hneighbor
+  cases W with
+  | nil => exact (hne rfl).elim
+  | cons w W =>
+    rw [build, finish_junk G _ c hsafe, orTail_junk]
+    rfl
+
+end PEqualNP.Outside.L_meta_1904_aux.BorrowedStar
+
+
+namespace PEqualNP.Outside.L_meta_1904_aux.StarSourceCover
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm
+open StarContraction StarBypass StarCircuit
+
+def StarPrefixExtension {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C E : Circuit) (c : Fin n) (L : Finset (Fin n)) (K : ℕ) : Prop :=
+  Monotone2 E ∧ E.size ≤ C.size + K ∧
+  (∃ gs : List Gate, ∃ w : ℕ,
+    E.gates = C.gates ++ gs ++ [⟨.and, [c.val, w]⟩] ∧
+    (∀ g ∈ gs, g.op = .or)) ∧
+  (∀ x : Fin n → Bool, E.eval (List.ofFn x) = true → hit G x) ∧
+  (∀ l ∈ L, E.eval (List.ofFn (pair c l)) = true) ∧
+  junk G E = junk G C ∧
+  ∀ i, i < n + C.size → ∀ x : Fin n → Bool,
+    (E.wires (List.ofFn x)).getD i false = (C.wires (List.ofFn x)).getD i false
+
+lemma star_prefix_extension_from_cover {ι : Type*} [DecidableEq ι] {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : Monotone2 C) (c : Fin n) (N L : Finset (Fin n))
+    (hN : ∀ v ∈ N, G.Adj c v) (hLN : L ⊆ N) (hneL : L.Nonempty)
+    (R : Finset ι) (A : ι → Finset (Fin n)) (w : ι → ℕ) (K : ℕ)
+    (hbudget : R.card ≤ K)
+    (hvalid : ∀ i ∈ R, w i < n + C.size)
+    (hreal : ∀ i ∈ R, ∀ x : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD (w i) false = rootOr (A i) x)
+    (hmeet : ∀ i ∈ R, (A i ∩ L).Nonempty)
+    (hsparse : ∀ i ∈ R, ¬ A i ⊆ N → (A i ∩ L).card ≤ 1)
+    (hcover : ∀ l ∈ L, ∃ i ∈ R, l ∈ A i) :
+    ∃ E : Circuit, StarPrefixExtension G C E c L K := by
+  classical
+  obtain ⟨W, hcard, hvalidW, hneighborW, hcoverW⟩ :=
+    exists_selected_wire_set C.gates R A w N L K hbudget hLN hvalid hreal
+      hmeet hsparse hcover
+  have hne : W.toList ≠ [] := by
+    intro he
+    obtain ⟨l, hl⟩ := hneL
+    obtain ⟨j, hj, _⟩ := hcoverW l hl
+    have hm : j ∈ W.toList := Finset.mem_toList.mpr hj
+    simp [he] at hm
+  have hvalid' : ∀ j ∈ W.toList, j < n + C.size := by
+    intro j hj
+    exact hvalidW j (Finset.mem_toList.mp hj)
+  have hneighbor' : ∀ j ∈ W.toList, ∀ x : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD j false = true → ∃ v, G.Adj c v ∧ x v = true := by
+    intro j hj x hx
+    obtain ⟨v, hv, hxv⟩ := hneighborW j (Finset.mem_toList.mp hj) x hx
+    exact ⟨v, hN v hv, hxv⟩
+  refine ⟨BorrowedStar.build n C c W.toList, BorrowedStar.build_mono n C c W.toList hC,
+    ?_, ?_, BorrowedStar.build_safe G C c W.toList hne hvalid' hneighbor', ?_,
+    BorrowedStar.build_junk G C c W.toList hne hvalid' hneighbor', ?_⟩
+  · rw [BorrowedStar.build_size n C c W.toList hne, Finset.length_toList]
+    omega
+  · obtain ⟨gs, z, hgs, _, hops, _⟩ := BorrowedStar.build_shape n C c W.toList hne
+    exact ⟨gs, z, hgs, hops⟩
+  · intro l hl
+    apply BorrowedStar.build_singleton_coverage C hC c l W.toList hne hvalid'
+    obtain ⟨j, hj, htrue⟩ := hcoverW l hl
+    exact ⟨j, Finset.mem_toList.mpr hj, htrue⟩
+  · intro i hi x
+    exact BorrowedStar.build_old_read C c W.toList i x hi
+
+lemma star_prefix_extension_from_separators {ι : Type*} [DecidableEq ι] {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : Monotone2 C) (c : Fin n) (N L : Finset (Fin n))
+    (hN : ∀ v ∈ N, G.Adj c v) (hLN : L ⊆ N) (hneL : L.Nonempty)
+    (D : Finset ι) (A : ι → Finset (Fin n)) (w : ι → ℕ) (K : ℕ)
+    (hbudget : D.card ≤ K + 1)
+    (hvalid : ∀ i ∈ D, w i < n + C.size)
+    (hreal : ∀ i ∈ D, ∀ x : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD (w i) false = rootOr (A i) x)
+    (hsparse : ∀ i ∈ D, c ∉ A i → ¬ A i ⊆ N → (A i ∩ L).card ≤ 1)
+    (hleaf : ∀ l ∈ L, ∃ d ∈ D, rootOr (A d) (pair c l) = true ∧
+      rootOr (A d) (starSingleton c) = false)
+    (hcenter : ∃ l ∈ L, ∃ d ∈ D, rootOr (A d) (pair c l) = true ∧
+      rootOr (A d) (fun v => decide (v ∈ L)) = false) :
+    ∃ E : Circuit, StarPrefixExtension G C E c L K := by
+  apply star_prefix_extension_from_cover G C hC c N L hN hLN hneL
+    (leafSources D A c L) A w K (star_source_cover_card D A c L K hbudget hcenter)
+  · intro i hi
+    exact hvalid i (Finset.mem_filter.mp hi).1
+  · intro i hi
+    exact hreal i (Finset.mem_filter.mp hi).1
+  · intro i hi
+    exact (Finset.mem_filter.mp hi).2.2
+  · intro i hi
+    exact hsparse i (Finset.mem_filter.mp hi).1 (Finset.mem_filter.mp hi).2.1
+  · exact leaf_sources_cover D A c L hleaf
+
+end PEqualNP.Outside.L_meta_1904_aux.StarSourceCover
