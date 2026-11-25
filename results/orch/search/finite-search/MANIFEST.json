@@ -1,10 +1,10 @@
 {
-  "created_utc": "2026-11-25T04:23:33.544895+00:00",
+  "created_utc": "2026-11-25T04:33:24.020686+00:00",
   "files": [
     {
       "path": "README.md",
-      "bytes": 3343,
-      "sha256": "0324b03f0ca1432144d878165f3b1aa848fe255748cc6b0fdde1d91feb42f757"
+      "bytes": 3748,
+      "sha256": "e326d579c986c6a257eeb5e50a8fd1c2fce34a304dd61d2e8d0cd4d220e58649"
     },
     {
       "path": "data/cycle9-witness.json",
@@ -555,6 +555,156 @@
       "path": "tree_window.py",
       "bytes": 2359,
       "sha256": "ffcc1858eb3ae099c3fac61f96eded161f92b0111b21cf340ba0f0f0587a8ea0"
+    },
+    {
+      "path": "two-roots/README.md",
+      "bytes": 2360,
+      "sha256": "9b17038cb8f0a9285f9d54a256d5846e9fb8b213fa240e96b7a1b2b31f2b16b7"
+    },
+    {
+      "path": "two-roots/SUMMARY.json",
+      "bytes": 886,
+      "sha256": "4928b3045d0ebf042d179eb46346893f063b6936a3ab9c1d8b546cb1bfc0d59d"
+    },
+    {
+      "path": "two-roots/c8-extend-first.log",
+      "bytes": 1230,
+      "sha256": "a2cbfd0dbae9cbfcbace392734657e7ce051784f50f22350a786d3b160caf8dd"
+    },
+    {
+      "path": "two-roots/c8-virtual-actions-two-dirty-roots-fragment.witness.json",
+      "bytes": 35307,
+      "sha256": "0a0164abde817c104ac13e16fb1065c23d445a010ef8f07e19bb5af694f30aab"
+    },
+    {
+      "path": "two-roots/c8_extend_virtual.py",
+      "bytes": 6597,
+      "sha256": "58ca880d69040ccbb730d532f9824c4c40dd83818cf93d0db484a29d5554375c"
+    },
+    {
+      "path": "two-roots/decode_two_dirty_roots.py",
+      "bytes": 3090,
+      "sha256": "59079e122a3e4c721a3d7b3e644f590971aabebdc00791f3505e02dcbb1dd4c9"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-encode.log",
+      "bytes": 191,
+      "sha256": "3cebb434518581a1fbf2678d50c9e6d872318764feb5081d714ef78731d782b4"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-fragment-decode.log",
+      "bytes": 1102,
+      "sha256": "cb5c3deb211e1c6f49c309c00685fd147224c163ec0d46f433aa1b5f9914ad9d"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-fragment-encode.log",
+      "bytes": 252,
+      "sha256": "c16629077e00c1074fc6f9e68b8cc28c635ce504ffb37eca2ccc396008cab528"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-fragment.log",
+      "bytes": 36960,
+      "sha256": "d8a27d799687a86715fe9cfad2f430c345397c887820a19d5523e89c53ac6175"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-fragment.witness.json",
+      "bytes": 2007,
+      "sha256": "71da0bb799202e29e147546dadd8e166198e5e29f02018cb34855b19f44a104b"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-matching3-decode.log",
+      "bytes": 889,
+      "sha256": "2185a3a5172d0f8781ca45e2faa565d46b832759a020c40cb8a3c21d018a9e41"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-matching3-encode.log",
+      "bytes": 252,
+      "sha256": "cbcd17f00225289c362bc9a6cc1ff740515242da14071dcabd4f4ae8104c52e0"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-matching3.log",
+      "bytes": 36252,
+      "sha256": "aa466e53011167363ab8f526a9549dd5988125439a7b96416d837d74c52ad124"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-matching3.witness.json",
+      "bytes": 1722,
+      "sha256": "e70df13f32e034a5f43010468ec14ab03afae4cd937661486af811569d1b774f"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-nodirty-encode.log",
+      "bytes": 253,
+      "sha256": "7629e1e734b439fcd2f5e7d556a47f43504926809ede7fec4fe2ed520040b0a5"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-nodirty.log",
+      "bytes": 8772,
+      "sha256": "92c2b0f7b3126a73392b7dd8ab9fc23b657b91f7687c1da905107bbbb63ac9f5"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-notrace-encode.log",
+      "bytes": 253,
+      "sha256": "bbb73da88ef8fdd45d03db151c5aec155a95dc53d047ea8de6ae7274b9899d7c"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-notrace.log",
+      "bytes": 8126,
+      "sha256": "37f54d44e46ea33d243c437d726875baa6e114da3d0e4ad31adc3304e68e83a8"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-pairs-decode.log",
+      "bytes": 1112,
+      "sha256": "af4015344884970cfc81bd6261bc6e2c633efe73ac92234ca866ac4419ef14ce"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-pairs-encode.log",
+      "bytes": 249,
+      "sha256": "20727184214c6d80c78723b3218ad3caf999b27fdba3d2f6bf67d3498c10e543"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-pairs.log",
+      "bytes": 7298,
+      "sha256": "2be39e56655a06ae2fa231d46aada04728ee7acc4809fde2552d3c9eec182653"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-pairs.witness.json",
+      "bytes": 2295,
+      "sha256": "106d7eb3331b6c3a92db5903b6abe666b35170b772fa23bce203625175314fc1"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-triples-encode.log",
+      "bytes": 250,
+      "sha256": "4b2d4d9c6c27e4dae3c55969dc17a432fe0528f92a2428f9ad68ec6443143af5"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-triples-lrat.log",
+      "bytes": 8689,
+      "sha256": "883c7c1d9050bb938a7b5b591087c04f58c1ae9de2e0ceedd1ce4909e434517f"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-triples.cnf",
+      "bytes": 96322,
+      "sha256": "66275825ff194ff68e8d5eab3f40836369065e8d91ddae63419148c2a4fa9038"
+    },
+    {
+      "path": "two-roots/two-dirty-roots-triples.lrat",
+      "bytes": 7298434,
+      "sha256": "f7ff32d7aa7325bd94a0f2b0a6cda95dd4abad40e764404b7f6c649030a7ad9a"
+    },
+    {
+      "path": "two-roots/two-dirty-roots.log",
+      "bytes": 8380,
+      "sha256": "af35237e6402aa9e87366289709d3d5b4f34beff409ed59cba19b96d3cda3731"
+    },
+    {
+      "path": "two-roots/two-roots-triples-rows.json",
+      "bytes": 395,
+      "sha256": "5e433dd1e6dab83c9fc8010c8132207fb3824fc9ef862ce42b230da5d7c3643e"
+    },
+    {
+      "path": "two-roots/two_dirty_roots.py",
+      "bytes": 4237,
+      "sha256": "1fc7c44e2820272c96ca0eb9db6c39dbfe5282789436cc0c4a8a458c8d67b01b"
     }
   ]
 }

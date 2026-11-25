@@ -1,0 +1,20 @@
+{
+  "verdict": "PASS",
+  "reviewer": "status_review",
+  "artifact_count": 141,
+  "bytes": 8623433,
+  "checks": [
+    "complete manifest hashes and census",
+    "all three new witness truth tables on 256 rows",
+    "gate legality, both traces, dirty marked-active roots",
+    "pair shadows and matching witnesses",
+    "solver result labels",
+    "beam depth6 width300 best_missing10"
+  ],
+  "limitations": [
+    "LRAT certificate not independently or Lean checked",
+    "Exact two-root UNSAT is not a full-gap theorem",
+    "C8 fragment is not full plane counterexample",
+    "No successful augmentation found"
+  ]
+}

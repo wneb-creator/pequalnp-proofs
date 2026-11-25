@@ -1,0 +1,1 @@
+{"variables": 6069, "clauses": 24333, "truth_rows": 256, "matching": 3, "enforce_trace": true, "enforce_dirty": true, "shape": "two parallel dirty rectangles; root0=(A or D1) and (B or D2); root1 free side flags; exact graph; both marked traces zero"}

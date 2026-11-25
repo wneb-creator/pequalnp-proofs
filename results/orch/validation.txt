@@ -3,7 +3,7 @@ Gap: L-meta-2602
 Status: checked partial components only; exact gap theorem is NOT proved.
 
 Sub-agents: 6 (status/counterexample search, structural proof, lemma route, finite search, toolchain, independent review)
-TIMING total=86.67 subagents=6
+TIMING total=88.88 subagents=6
 
 Lean: v4.36.0; pinned Mathlib cache fetched successfully (9117 files).
 Command: source /tmp/oec/pequalnp-pilot-65/toolchain/enable.sh && lake env lean ../results/orch/lemmas/lemma_route.lean
@@ -81,3 +81,5 @@ Generic matching-cover helper (105 lines) compiled and independently reviewed PA
 Integrated canonical partial: 3006 lines, 143328 bytes; lake build exit 0, 44.01 seconds, peak 4683720 KiB. Independent final-merge review PASS. Adds the arbitrary four-clause pair-shadow two-cover interface. Exact main theorem remains absent. No cleanup pass is applicable because the exact checker has not accepted the statement; line count before/after cleanup is unchanged at 3006.
 
 Desk renewal interrupted by HTTP410 at04:31UTC despite previous04:44UTC expiry. Diagnostic retry preserved complete headers/body. No successful main theorem, proof PR, or release is claimed.
+
+Final finite-search preservation review PASS: 141 files, 8,623,433 bytes. All three new witnesses independently checked on all256 rows; exact two-root UNSAT remains solver evidence only; weaker fragment cover≤3 is refuted, not the posted gap. Six-injection beam found no improvement and is inconclusive.

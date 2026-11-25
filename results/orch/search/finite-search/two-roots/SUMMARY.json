@@ -1,0 +1,11 @@
+{
+  "exact_full_256_rows": "UNSAT (1.90s)",
+  "exact_without_trace": "UNSAT (2.34s)",
+  "exact_without_dirty": "UNSAT (1.81s)",
+  "exact_weight_at_most_3_rows": "UNSAT (1.21s), ASCII LRAT emitted; no Lean/kernel check",
+  "exact_matching3_positive_control": "SAT (0.02s), full256 truth and traces independently decoded",
+  "pair_only_37_rows": "SAT; higher false-positive assignments show pair-only sufficiency fails",
+  "clean_fragment_256_rows": "SAT, output below C8 graph function and accepts matching4, both zero traces, two dirty roots; refutes only the two-root clean-fragment shadow-cover-at-most-three route",
+  "c8_plane_augmentation": "58-gate base, 10 missing incidence pairs, 142 sources, 454 initially safe OR-port injections, no positive-edge gain individually or in width300 beam through depth6; heuristic NO WITNESS, not impossibility proof",
+  "processes_active": 0
+}

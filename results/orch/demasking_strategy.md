@@ -35,7 +35,7 @@ There is also a bipartite example with only one gate of double-reread overhead:
 
 It computes xy OR py OR pq, and both derivatives at the leaf edge xy are false. Every AND output implies the final function. Its five gates compare with the ordinary four-gate implementation xy OR p(y OR q). Thus a universal two-gate double penalty is false even for a bipartite forest. The earlier three-edge-path experiment marked the middle edge, not a leaf edge.
 
-The root's bowtie counterexample is even stronger: an eight-gate circuit on two triangles sharing a vertex whose ordinary minimality is supported by the SAT solver, not certified in Lean has a double edge, while all of its AND outputs are clean. Therefore clean demasking can preserve size and destroy double reread. Bipartiteness is essential to a further rigidity argument.
+The root's bowtie counterexample is even stronger: an eight-gate circuit on two triangles sharing a vertex whose ordinary minimality is supported by the SAT solver, not certified in Lean, has a double edge, while all of its AND outputs are clean. Therefore clean demasking can preserve size and destroy double reread. Bipartiteness is essential to a further rigidity argument.
 
 ## Conditional route for the projective plane
 

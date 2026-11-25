@@ -1,0 +1,1 @@
+{'all256_clean': True, 'pair_shadow': [(0, 4), (3, 4), (0, 5), (1, 5), (2, 6), (3, 7)], 'traces': [(False, False), (False, False)], 'exact_mismatches': [66, 67, 74, 75, 132, 134, 148, 150, 164, 180, 194, 195]}

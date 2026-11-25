@@ -42,3 +42,9 @@ Sub-agents: 6 (status and counterexample search, structural proof, lemma route, 
 ## Lease interruption
 
 At 2026-11-25 04:31 UTC the desk returned HTTP410, saying the lease had expired or been released. The prior renewal gave expiry04:44:15UTC. The mandated curl diagnostic retry returned the same410; full headers and body are preserved in desk/auto-beat-011-diagnostic.txt. Proof work was paused and all current reviewed results preserved before a new request, following the owner's specific410 instruction. The cause of invalidation is not yet known.
+
+## Last research updates before the lease interruption
+
+A clean eight-input C8 fragment refutes the proposed two-root pair-shadow cover bound of three: it has four AND gates, a matching of four accepted pairs, and both zero traces. It is a subfunction of C8, not its exact graph function; two omitted graph edges absorb higher terms. The exact two-root SAT model remains UNSAT, with its unverified solver certificate archived only as computational evidence. The beam attempt to extend this fragment to the plane found no completed witness. See two-root-independent-review.md and search/finite-search/two-roots/.
+
+Upstream commit d7dd149881faedf1819d7ca0ca51130327f5a9bb contains a new L_meta_1898 proof of an unconditional plane AND-count lower bound of13. Its equality case does not classify pair cleanliness or preserve OR count/traces under normalization. No unconditional OR-count lower bound was found in the182-file refresh. The exact source reference and census are in library-refresh/. The fetched tree still has no direct L_meta_2602 proof file.

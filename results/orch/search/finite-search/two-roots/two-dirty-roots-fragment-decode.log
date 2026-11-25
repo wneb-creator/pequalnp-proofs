@@ -1,0 +1,110 @@
+{
+  "graph_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      7
+    ]
+  ],
+  "dclauses": [
+    [
+      [
+        0,
+        1
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    [
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        3
+      ]
+    ]
+  ],
+  "root_raw": [
+    [
+      [
+        2
+      ],
+      [
+        6
+      ]
+    ],
+    [
+      [],
+      [
+        3,
+        5
+      ]
+    ]
+  ],
+  "root1_dirty_select": [
+    [
+      0,
+      1
+    ],
+    []
+  ],
+  "dirty_witnesses": [
+    18,
+    129
+  ],
+  "output": 20,
+  "and_count": 4,
+  "or_count": 9,
+  "full_truth_rows_checked": 256,
+  "full_truth_valid": false,
+  "full_truth_mismatches": [
+    66,
+    67,
+    74,
+    75,
+    132,
+    134,
+    148,
+    150,
+    164,
+    180,
+    194,
+    195
+  ],
+  "traces": [
+    false,
+    false
+  ],
+  "scope": "counterexample only to structural AND-surplus route, not to plane gate bound"
+}
