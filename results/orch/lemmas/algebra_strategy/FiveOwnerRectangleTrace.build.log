@@ -1,0 +1,6 @@
+⊢ ∀ P ∈ points.powerset, (owned P).card ≤ 4 ∧ (4 ≤ (owned P).card → ∃ p ∈ points, P = {p})
+hsets : pointSubsets.toFinset = points.powerset
+⊢ ∀ P ∈ points.powerset, (owned P).card ≤ 4 ∧ (4 ≤ (owned P).card → ∃ p ∈ points, P = {p})
+hsets : pointSubsets.toFinset = points.powerset
+checked : (pointSubsets.all fun P => decide ((owned P).card ≤ 4 ∧ (4 ≤ (owned P).card → ∃ p ∈ points, P = {p}))) = true
+⊢ ∀ P ∈ points.powerset, (owned P).card ≤ 4 ∧ (4 ≤ (owned P).card → ∃ p ∈ points, P = {p})

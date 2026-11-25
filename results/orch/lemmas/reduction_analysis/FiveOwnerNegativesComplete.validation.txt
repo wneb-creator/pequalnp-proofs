@@ -1,0 +1,5 @@
+UTC 2026-11-25T06:34:21.458866+00:00
+Lean build exit0, complete log empty.
+FiveOwnerNegatives prefix unchanged. New independent_cover proves every raw16 input set containing no targeted edge is contained in one of the30 rejecting family sets. It uses a symbolic canonical superset from the selected owners and an explicit32-owner-subset certificate; no exhaustive2^16 input check. All previously checked finite tables retained. No completeA5 circuit theorem claimed.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/FiveOwnerNegativesComplete.lean
+SHA256 e46feb8edc2499814680538583b3882887e0648b6f0e5b1e3a8c8215276ae046

@@ -1,0 +1,7 @@
+Successful standalone build: lake env lean -j 1 -M 4096; exit0.
+Import: PEqualNP.Defs only. Full stdout/stderr: FiveOwnerRectangleComplete.build.log (empty).
+SHA256 c4bd98b39a770cfdc828bc23f157b07846af05ff78b5e76eb3f100f7f05a06c4
+Lines 297
+Scope: finite five-owner raw-support geometry, not a full circuit lower bound or L650 refutation. AllAllowed uses exact20 target edges plus15 individually permitted dirty pairs.
+Theorems: max_four bounds every allowed rectangle by4 target edges; classify_four yields9 shapes up to swap; owner_witness identifies the entire4-edge owner row; point_side separates ordinary stars from4 dirty variants. No per-rectangle negative-count premise.
+Finite computations use32 explicit point subsets,5 owner-bound checks,20 Boolean extension cases and9 explicit shapes. Generic subset/cardinality arguments connect the tables to arbitrary supports.
