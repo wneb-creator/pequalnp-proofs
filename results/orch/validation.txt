@@ -7,3 +7,8 @@ PEqualNP.Defs build: Build completed successfully (5147 jobs).
 Exact-statement checker: not run; full target not proved.
 Sub-agents: six (status_review, circuit_search, algebra_strategy, lean_baseline, reduction_analysis, lower_bound)
 TIMING total=16.5 subagents=6
+
+2026-11-25T02:19:56.414110+00:00 Second snapshot:
+BaselineCorrect.lean and BaselineCorrect2.lean: Lean exit0, complete output empty. Full baseline_correct now proves posted graph semantics for all26-bit inputs, but size is64.
+GraphFacts.lean and GraphFactsCover.lean: Lean exit0, complete output empty. Exact52edges, both degrees4, distinctrow intersections1, perfectmatching13, vertexcover lower13.
+Still no size63 witness and no exact-target checker acceptance.
