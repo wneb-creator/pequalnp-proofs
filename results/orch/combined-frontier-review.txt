@@ -1,0 +1,9 @@
+Independent reviewer: derivative_lemmas
+SHA256: 124060db2294659dd2765543d2e65823ae578091e1c8dddf01340e4243fb821a
+Lines: 1211
+Verdict: PASS for checked partial preservation, not a completed proof of L-meta-2602.
+CombinedElimination body is verbatim once; new Frontier and CombinedFrontier fragments are verbatim once.
+OR closure is defined on original gates and ordinary true values propagate along it. A dirty source cannot reach the exact-function output through that closure.
+For negative inputs, rewritten frontier AND values are false by the explicit frontier hypothesis. Old values there are false by the global monotone increase relation. Every gate outside the OR cone therefore has equal old/new values by earlier-wire induction; this includes the output. Positive inputs are preserved by monotone increase.
+The elimination corollary derives source-not-output from dirtiness, retains explicit noncollision/earlier-input constraints, and uses the previously reviewed dead-gate erasure to decrease size exactly one. Actual derivative recurrences at the two bases are transported through rewiring using equal source signatures, and then through erasure. The strong kept-factor zero-signature and frontier-soundness hypotheses remain explicit; no global existence claim is made.
+Forbidden text, string literals, and non-simp attributes absent. Imports and namespaces retain allowed helper scope. Parent-reported standalone Lean build passed; reviewer did not launch a redundant build during the shared checker resource cycle.

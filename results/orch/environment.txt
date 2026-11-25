@@ -72,7 +72,7 @@ Logs
   all full-cache attempt logs/results, cache-lookup-all, cleanup manifests,
   cache-final-unpack, memfd keeper logs, and memfd-import-probe logs.
 
-Verifier preparation (not started; waiting for a memory slot)
+Verifier preparation (completed)
   lean/CheckLemma.lean imports only Lean.
   lakefile.toml declares checklemma with root CheckLemma and
   supportInterpreter = true. Building this executable compiles the project
@@ -80,11 +80,41 @@ Verifier preparation (not started; waiting for a memory slot)
   compilation of Mathlib. Mathlib is loaded later by the running verifier.
   Workdir: /workspace/pequalnp-proofs/lean
   Command:
+    LEAN_NUM_THREADS=1 \
     PATH="/tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin:$PATH" \
     PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin/lake \
     XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-60/xdg-cache \
     LAKE_HOME=/tmp/oec/pequalnp-pilot-60/lake-home \
     /tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin/lake build checklemma
+  This prebuild exited 0 with:
+    Built CheckLemma (13s)
+    Built CheckLemma:c.o (6.9s)
+    Built checklemma:exe (11s)
+    Build completed successfully (5 jobs).
+  Complete output is in toolchain-logs/checklemma-build.stdout and .stderr.
   tools/check-lean.mjs invokes this same `lake build checklemma` target,
   then builds the named proof module and PEqualNP.Defs, and finally runs
-  the verifier. No final proof has been submitted to it at this stage.
+  the verifier. The subsequent original-statement check of partial4 is
+  recorded separately; this environment setup is not proof acceptance.
+
+Subsequent full-checker resource limitation
+  The partial4 original-statement checker exited 3 with verifier exit 137.
+  Cgroup oom and oom_kill counters increased from 0 to 1. Thus the available
+  memory was insufficient for that full verifier run with the memory-backed
+  cache. No theorem verdict was reached. See partial4-checker-result.txt
+  and the complete preserved outputs. Both cache keepers survived.
+  Do not retry a full checker run until a concrete memory fix is in place.
+
+Controlled keeper handoff (2026-11-25T03:38:56.630648+00:00)
+The original keeper PIDs 4179 and 5976 are terminated zombies. They no longer hold live descriptors. Sole live keeper PID 36474 now owns all 14,033 original sealed artifacts (4,499,999,872 bytes) without duplicating their memfd storage. Every original/new handle SHA256 and size/mode/nanosecond-mtime matched, and every final symlink and hash was verified before the old keepers were stopped.
+The new keeper is /tmp/oec/pequalnp-pilot-60/controlled-memfd-keeper.py, status controlled-memfd-state.json, socket controlled-memfd.sock. It can safely copy selected oleans to regular files and close their memfd handles, or restore them to sealed memfds later. Do not terminate PID 36474 while it holds artifacts. Complete handoff ledger: toolchain-logs/controlled-memfd-events.jsonl.
+Prepared reversible runtime-unused archives: 735,697,069 bytes of Mathlib C/ilean ->86,406,317 bytes; 547,935,962 bytes of other package C/ilean, toolchain static archives/ilean, compiler-only LLVM libraries, and the completed cache executable ->121,493,681 bytes; libLean.a 323,318,154 ->52,183,363 bytes. Every archived byte was independently decompressed and checked by SHA256; manifests preserve exact modes and nanosecond mtimes. Original artifacts remain present at this preparation stage.
+Transparent job-local PEQUALNP_REAL_LAKE candidate: /tmp/oec/pequalnp-pilot-60/lake-resource-wrapper.py. It runs the real pinned Lake with identical arguments/environment, performs reversible disk/memfd movement only after the final successful proof+Defs build when explicitly armed, and restores artifacts after the verifier exits. No checker/source/configuration edits. It is currently unarmed. Runtime asset manager and full operation logs remain in the same job scratch. No full-checker retry has occurred.
+Removed 449 redundant already-unpacked LTAR/partial-download files, 33,988,475 bytes, after full cache unpack succeeded; required artifacts unchanged.
+
+Resource preparation validation (2026-11-25T03:40:14.924281+00:00)
+All 20,889 archived original files, totaling 1,606,951,185 bytes, passed a complete SHA256/mode/nanosecond-mtime preflight. A live reversible keeper round trip passed: temporarily removed verified archived libLean.a, copied one 8,240,656-byte private olean to disk, independently checked its hash/metadata, returned it to a sealed memfd, verified hash/mtime again, and restored libLean.a exactly. Exit 0, empty stderr. All original artifacts are present, and keeper 36474 again holds exactly 4,499,999,872 bytes across 14,033 files. No full checker retry has run yet; the Lake wrapper remains unarmed pending root coordination.
+Logs: /tmp/oec/pequalnp-pilot-60/toolchain-logs/keeper-roundtrip.stdout/.stderr and runtime-originals-preflight.stdout/.stderr. The guarded full cycle targets >=1.3 GB unpinned memory with >=350 MB disk free; it will restore exact cached artifacts after verifier exit.
+
+Full resource-cycle checker retry (2026-11-25T03:54:03.873698+00:00)
+The unchanged checker built frozen partial6 and Defs, then the wrapper unpinned 1,350,199,304 bytes with 399,790,080 bytes disk free before verifier import. The verifier still suffered OOM: monitored oom_kill counter 2 ->3, verifier exit137, checker exit3, no verdict. Peak sampled verifier RSS was7,441,977,344 bytes. The wrapper restored all20,889 archived files exactly; final assetstate normal, solekeeper36474 holds4,499,999,872 bytes again, no verifier remains. Complete checker stdout/stderr/exit, resource samples, compaction/restoration logs and migration records are preserved in results/orch/partial6-*. No proof acceptance or missing-target rejection was obtained.

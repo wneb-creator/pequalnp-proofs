@@ -1,0 +1,32 @@
+Independent source review by structural_proof, 2026-11-25.
+Verdict: PASS as a compiled partial, not a proof of L-meta-2602.
+
+The new derivative-supervalue theorem correctly assumes base input and initial tangent are bounded by the larger input, and applies only to valid wires. The zero corollary therefore yields both ordinary-base and derivative zeros when the marked-pair wire is false.
+
+Rule/Plan distinguish abstract zero slots, aliases, fresh binary gates, and duplicate-AND repair. Plan's properness, source-unread, bounded/fixed representative and strict-alias requirements are explicit hypotheses; this file does not construct their witness. The derivative relation requires zero derivative at the source and ordinary zeros for all None representatives. Transport additionally requires representative ordinary-value equality, full physical-value equality at the seed, and zero derivatives on padding/dummy inputs. These are meaningful assumptions needed to preserve duplicate-AND derivatives, not claimed consequences of semantic equivalence alone. Duplicate ANDs retain multiplication of the repeated value and derivative.
+
+rule_shape derives distinct earlier operands and source avoidance from the stated bounds, fixedness, source None and distinct bounded dummy/padding inputs. rule_strict_alias correctly excludes fresh cases by output-representative inequality and identifies the OR padding shape.
+
+Only PEqualNP.Defs is imported; all new names are under the intended auxiliary namespace. No added axiom declarations or forbidden proof shortcuts occur. The existing reviewed Derivative and FirstDirty preludes are present unchanged. Own inductive Rule and structure Plan are ordinary kernel declarations, but CONTRIBUTING routes these declaration forms to manual review; this is an internal preserved partial and is not PR-ready. No exact target theorem is supplied, and no axiom audit was rerun during this source review.
+
+{
+  "sha256": "37959f68c51f83529d1524a581eda60e498169011d80a04841a888e9f670d096",
+  "lines": 797,
+  "bytes": 34728,
+  "forbidden_matches": {
+    "\\b(?:sorry|admit|axiom|native_decide|bv_decide|unsafe|opaque|run_tac)\\b": false,
+    "_root_": false,
+    "\"": false,
+    "@\\[": false,
+    "^set_option": false,
+    "^#": false
+  },
+  "constituents_present": {
+    "Derivative.lean": true,
+    "FirstDirtyFragment.lean": true,
+    "DerivativeSuperFragment.lean": true,
+    "ClampPlanDefs.lean": true,
+    "ClampDerivativeFragment.lean": true,
+    "ClampShapeFragment.lean": true
+  }
+}

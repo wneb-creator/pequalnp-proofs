@@ -1,0 +1,13 @@
+Independent review by structural_proof, 2026-11-25.
+{
+  "sha256": "a3ea5e79d31973625677826108aaa7742050dc4a630f4779824777e8b2c1a755",
+  "lines": 368,
+  "bytes": 16897,
+  "rows_per_table": 169,
+  "incident_flags": 52,
+  "independent_incidence_checks": 8788,
+  "all_rows_permutations": true
+}
+Mathematical certificate PASS: each incident point-line flag has two bijections taking its endpoints to zero and preserving all incidence comparisons. Total 52 flags and 8788 comparisons independently checked from the Lean literal tables. Nonincident rows are irrelevant to the theorem hypothesis. The modulo/default definitions are safe because every literal row has length 13 and consists of exactly 0..12. Kernel decide has no added axioms.
+Scope: this proves flag-transitivity only, not the target gap or SAT encoding correctness.
+Source-format caveat: standalone set_option maxRecDepth/maxHeartbeats on lines 5-6 need declaration-local `in` form before incorporation into the proof PR; CONTRIBUTING.md line 64 requires that. No other forbidden syntax found.

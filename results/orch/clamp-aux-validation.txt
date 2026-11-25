@@ -1,0 +1,29 @@
+Combined narrow-import Lean check: PASS, exit0, no diagnostics.
+Command: lake env lean ../results/orch/lemmas/ClampAux.lean
+Workdir: /workspace/pequalnp-proofs/lean
+Toolchain: Lean4.36.0-linux staged under job scratch.
+Full output log: /tmp/oec/pequalnp-pilot-60/clamp-aux-check-3.log (empty)
+Standalone helper snapshots refreshed from exactly the checked fragments; the combined file is the checked artifact.
+Custom Clamp.Rule/Plan are internal partial-preservation infrastructure; root notes the final guard may require flattening them. No proof of L-meta-2602 is claimed.
+[
+  {
+    "file": "results/orch/lemmas/ClampAux.lean",
+    "lines": 797,
+    "sha256": "37959f68c51f83529d1524a581eda60e498169011d80a04841a888e9f670d096"
+  },
+  {
+    "file": "results/orch/lemmas/DerivativeSuperFragment.lean",
+    "lines": 59,
+    "sha256": "6d02d198098b54b589ada7a9fced6b790ca92ad6ec348dfd186f60c6b4f1b9a3"
+  },
+  {
+    "file": "results/orch/lemmas/ClampDerivativeFragment.lean",
+    "lines": 167,
+    "sha256": "2b4a8882ea6f3a98c458227d4ad3e118f388d3e10d31f923891c25515b55e8df"
+  },
+  {
+    "file": "results/orch/lemmas/ClampShapeFragment.lean",
+    "lines": 86,
+    "sha256": "64c600d50465069583274b805b0d693f82cc894cc1c7285678c315ab3510ae14"
+  }
+]

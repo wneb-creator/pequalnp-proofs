@@ -1,0 +1,48 @@
+{
+  "verdict": "CHECKER FAULT: verifier ended without a verdict (exit 137); no proof acceptance or theorem rejection obtained.",
+  "checker_exit": 3,
+  "frozen_source_sha256": "c563ae368cf13fba89a6ebe000280ca839d9388de53eca8a7305655cd0af339c",
+  "statement_sha256": "2ed8eb66f1ddbab30408040859dc3ee5e58c223b33ac00da65191281c9bb6777",
+  "unpinned_bytes": 1350199304,
+  "verifier_initial_disk_free": 399790080,
+  "peak_sampled_verifier_rss_bytes": 7441977344,
+  "oom_kill_monitor_baseline": 2,
+  "oom_kill_final": 3,
+  "final_asset_state": {
+    "mode": "normal",
+    "time": 1795578618.8909326,
+    "restored": 20889,
+    "keeper": {
+      "pid": 36474,
+      "ready": true,
+      "error": null,
+      "count": 14033,
+      "bytes": 4499999872,
+      "regular_count": 0,
+      "regular_bytes": 0,
+      "disk_free": 103800832,
+      "anon_shmem": 4941115392,
+      "memory_current": 7258566656,
+      "time": 1795578618.888792
+    }
+  },
+  "final_keeper_state": {
+    "pid": 36474,
+    "ready": true,
+    "error": null,
+    "count": 14033,
+    "bytes": 4499999872,
+    "regular_count": 0,
+    "regular_bytes": 0,
+    "disk_free": 103677952,
+    "anon_shmem": 4630790144,
+    "memory_current": 8190435328,
+    "time": 1795578727.5953865
+  },
+  "verifier_running_at_final_sample": false,
+  "notes": [
+    "Unchanged checker and pinned toolchain; transparent Lake wrapper moved only verified runtime-unused artifacts after the successful build and restored all exact bytes/modes/mtimes after verifier exit.",
+    "Expected result for this helper-only source was a missing-target rejection; OOM prevented any verdict.",
+    "No further retry authorized without a stronger resource fix."
+  ]
+}

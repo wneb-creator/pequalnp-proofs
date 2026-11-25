@@ -4,8 +4,12 @@ SHA256: c563ae368cf13fba89a6ebe000280ca839d9388de53eca8a7305655cd0af339c
 Lines: 3265. Cleanup: not yet applicable to a full proof.
 Build: lake build PEqualNP.Outside.L_meta_2602 exited 0; Build completed successfully (5149 jobs).
 Partial results: 65-gate witness, actual one-gate elimination under explicit local conditions, first-dirty singleton/pair witness, canonical/flag geometry, and derivative certificates.
-Checker: not run on this partial artifact; original target theorem is not declared.
+Checker: FAULT (exit3), verifier exit137 from confirmed cgroup OOM; original target theorem is not declared and no theorem verdict was obtained. Complete second-run logs preserved.
 Independent review: PASS for this exact snapshot before pushing.
 Sub-agents: checker_review, structural_proof, counterexample, lemma_search, reduction_design, derivative_lemmas
 TIMING total=54.9 subagents=6
 Previous full original-statement checker run on partial4: FAULT, verifier exit137 from confirmed cgroup OOM; no theorem verdict. Complete logs preserved.
+
+Additional independently reviewed, compiled standalone partials preserved: CombinedFrontier.lean (1211 lines), FlagAutomorphismsChecked.lean (368 lines), ClampAux.lean (797 lines).
+The exact checked Flag snapshot needs local limit options before final-file integration; ClampAux uses custom Rule/Plan declarations that trigger manual review under CONTRIBUTING. Neither is claimed to prove the target.
+TIMING total=72.3 subagents=6

@@ -1,0 +1,13 @@
+Independent source-only preservation review (2026-11-25T03:53:35.072475+00:00)
+Verdict: PASS for partial preservation on the pilot branch; neither source is the posted target theorem.
+
+CombinedFrontier.lean SHA256 124060db2294659dd2765543d2e65823ae578091e1c8dddf01340e4243fb821a, 1211 lines, 55,912 bytes.
+The previously reviewed CombinedElimination body occurs verbatim exactly once. FrontierFragment and CombinedFrontierFragment occur verbatim exactly once. Independently read the full 219-line extension: OR closure uses original circuit gates; dirtiness excludes the output from that closure; ordinary monotonicity and the explicit rewritten-frontier cleanliness assumption establish output equality; kept-factor signatures preserve actual derivative bases and both witness recurrences; zero-fanout erasure decreases size exactly one. Noncollision and all existence assumptions remain explicit. No global elimination or target proof is claimed.
+
+FlagAutomorphismsChecked.lean SHA256 a3ea5e79d31973625677826108aaa7742050dc4a630f4779824777e8b2c1a755, 368 lines, 16,897 bytes.
+Independently reparsed both 169-row literal tables. All 338 rows are permutations of 0..12. Checked all 52 incident flags, their endpoint images, and all 8788 incidence equivalences. Kernel decide proves the finite certificate; no native evaluator or axiom declaration appears.
+Formatting caveat for future proof-file incorporation: the snapshot has standalone maxRecDepth/maxHeartbeats options at lines 5-6; these must become declaration-local `in` forms under CONTRIBUTING. Preserve this exact already-compiled snapshot now rather than silently editing its hash. The surrounding auxiliary namespace also means it is not the required top-level posted theorem.
+
+Both sources import only PEqualNP.Defs, contain no forbidden _root_ text, quotes, sorry, axioms, native_decide, bv_decide, unsafe, or attributes. Both exact hashes match the earlier independent reports. Existing standalone build logs are empty (no diagnostics); root reported successful compilation. No redundant Lean build or checker rerun was launched for this review.
+
+Current actual local checker outcome remains CHECKER FAULT, exit 3 / verifier exit 137, with OOM count increase. It is not an acceptance verdict.

@@ -1,0 +1,29 @@
+Resource investigation (2026-11-25T03:31:38.346688+00:00)
+No required artifact has been deleted or modified, and no full-checker retry has run.
+
+Measured reversible compression, originals still intact:
+- Mathlib generated C and editor ilean files: 17,462 files, 735,697,069 original bytes, 86,406,317 compressed bytes, 649,290,752 bytes potential net saving. Every archived member was streamed back and SHA256 checked against its original; all passed. The manifest preserves exact mode and nanosecond mtime.
+- Toolchain libLean.a: 323,318,154 original bytes, 52,183,363 compressed bytes, 271,134,791 bytes potential net saving. Decompressed SHA256 matches original: d9a3c092ea06d684037da40dfdc45893032818ad7c9cb48a50bff87388e8ba02.
+- Other toolchain static archives total approximately 104 MB and remain uncompressed. Other package generated C/ilean total approximately 87 MB. Toolchain ilean total 89,689,850 bytes. Mathlib cache executable is 124,968,488 bytes. These may offer further reversible storage savings after the build stage, but their compression has not been measured.
+
+Runtime independence evidence:
+- CheckLemma.lean:344-445 imports library/proof modules and replays constants in the kernel; it runs no C compiler or editor server.
+- Installed Lean Environment.lean:2443-2469 loads module olean, server/private parts and IR/IR signatures. All of those artifacts must remain present with original bytes.
+- readelf/ldd show the already-built checklemma executable is linked only to system libc, pthread, dl, rt and m, plus the dynamic loader; it does not load any toolchain static archive at runtime.
+- Lake Build/ModuleArtifacts.lean records C and ilean among module output artifacts. Therefore all temporarily compressed C/ilean files must be restored before any future Lake build. Do not leave missing output files or introduce placeholders.
+
+A safe eventual cycle requires exclusive heavy-job coordination:
+1. Finish checker build stages with original artifacts intact.
+2. Suspend the newly started verifier while preserving its PID and all inputs.
+3. After validating archive manifests against current files, temporarily remove only archived runtime-unused C/ilean/static-archive files.
+4. Safely transfer current memfd ownership to a keeper capable of release: open every existing fd through its old keeper, atomically repoint every original symlink to the new holder, verify all paths, then terminate old holders. This shares original memfd bytes; it must not duplicate their storage.
+5. Copy a bounded selection of memfd olean artifacts back to regular disk files with streaming hashes, exact modes/mtimes, atomic replacement, and adequate disk headroom. Close their final memfd handles to free pinned memory.
+6. Resume unchanged verifier and record its actual result.
+7. Before another Lake build, move selected regular artifacts back into sealed memfds if necessary to free disk, then restore archived C/ilean/static files with exact hashes/modes/mtimes.
+No such handoff or deletion has been implemented yet. Existing keeper PIDs 4179 and 5976 remain indispensable. Never terminate them before every current fd has another live holder or restored regular file.
+
+Logs and verified archives live under /tmp/oec/pequalnp-pilot-60/toolchain-logs/:
+libLean.a.zst, libLean-original.sha256, libLean-compressed.sha256;
+mathlib-runtime-unused.tar.zst, mathlib-runtime-unused-manifest.json;
+runtime-assets-compress.stdout/.stderr, runtime-assets-verify.stdout/.stderr;
+checklemma-readelf.stdout/.stderr, checklemma-ldd.stdout/.stderr.
