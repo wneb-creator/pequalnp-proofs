@@ -1,17 +1,24 @@
 Research checkpoints; no completed proof, refutation, reduction submission, or PR.
-Updated 2026-11-25T16:34:08.118283+00:00
+Updated 2026-11-25T16:39:05.594492+00:00
 Job pequalnp-pilot-99. KIT-MESSAGE-ID msg-6f9c7453afc710bc87553b5d.
 Branch pnp/pilot-99; all pushes went only to origin, wneb-creator/pequalnp-proofs.
 
-No current live lease. Last assignment: L-meta-4970, assigned around15:40UTC, withdrawn by HTTP410 at16:30:09UTC. Last successful renewal advertised expiry16:46:08.437UTC. All proof and search work stopped; the automatic timer repeated the same call once with curl -si, whose complete response is validation/4970-beat-auto-13-response.txt. Exact body: { "error": "no such live lease: it expired or was released. Ask /desk/next again." } Four assigned leases have now ended with HTTP410. No release call has been made; no other pilot's lease was touched.
+Current assignment: L-meta-1884, assigned around16:35UTC, own lease de68ce60-fb13-4311-8e7e-e64ffc779aa1. Root renews every four minutes; latest manual expiry16:58:23.384Z. Exact statement and assignment are archived as validation/1884-statement.txt and1884-assignment.json. No other pilot's lease is worked or released.
 
-Current named file: lean/PEqualNP/Outside/L_meta_4970.lean.
+Current named file: lean/PEqualNP/Outside/L_meta_1884.lean. Exact InputSupport snapshot81lines2924bytes, SHA2566ff188d17207bf4a2d440c25b0f352ee61a3ed53ff036df4ac03d7a4b1ddc552. Named lake build PASSED5149jobs; full logs validation/1884-build-input-support.*. Independent semantic/format review passed. Guard rejects only missingmain; official checker has not yet been run on this first checkpoint. This is a partial support lemma, not the full posted statement.
+
+Correctness alone implies every nonzero Petersen variable occurs in the input map. If variable0 is omitted, the extra unary map must be identity or negation. If that unary map is constant, the ten-input map must be bijective. No circuit-size lower bound is claimed by this checkpoint.
+
+Previous L-meta-4970 checkpoint and final records:
+Withdrawn assignment: L-meta-4970, assigned around15:40UTC, withdrawn by HTTP410 at16:30:09UTC. Last successful renewal advertised expiry16:46:08.437UTC. All proof and search work stopped; the automatic timer repeated the same call once with curl -si, whose complete response is validation/4970-beat-auto-13-response.txt. Exact body: { "error": "no such live lease: it expired or was released. Ask /desk/next again." } Four assigned leases have now ended with HTTP410. No release call has been made; no other pilot's lease was touched.
+
+Previous named file L_meta_4970.lean is now preserved byte-for-byte as lemmas/checked4970/PostedEdgeBound.lean.
 Exact snapshot: 909 lines,40260 bytes; SHA256 ae68dec66a8597198f79ee6e9b367a5df8be1fd77599520b72297fea44f493c1.
 Named lake build: PASSED,18423 jobs. Full logs: validation/4970-build-posted-edge-bound.stdout and .stderr.
 Official local checker on this exact snapshot: REJECTED (no-theorem). Full logs: validation/4970-checker-posted-edge-bound.stdout and .stderr.
 Independent review: passed exact four-source composition and semantic/format checks. The guard reports the missing final theorem only.
 
-What the current file proves: the posted AO2, C4-free, and per-edge pure-star OR witness hypotheses imply E.card <= 2*orWires.card. This proof does not require circuit correctness or T=0. It is a weaker partial result, not the posted E.card+cover.card <= C.size+1 conclusion.
+What the4970 snapshot proves: the posted AO2, C4-free, and per-edge pure-star OR witness hypotheses imply E.card <= 2*orWires.card. This proof does not require circuit correctness or T=0. It is a weaker partial result, not the posted E.card+cover.card <= C.size+1 conclusion.
 
 Other checked4970 results are preserved under lemmas/checked4970: semantic support and complement identities, disjoint OR charging, overlap-component budgets, star-center uniqueness, serving-endpoint cover assignment, essential-input bounds, and the exact desired cover conclusion for star graphs or p<=1 or l<=1. Earlier named checkpoints of234,593,1099 lines built successfully and remain in branch history; their logs/manifests are archived. These are historical checkpoints, not separate completed proofs.
 
@@ -29,7 +36,7 @@ Prior assignment L-meta-2592: the503-line named partial is preserved as lemmas/c
 
 Preservation and limits: all pushed checked Lean sources received independent review. Modular builds, standalone builds, uncompiled drafts, conditional claims and finite computational controls are distinguished in their notes. The branch is a research archive with results files, not a compliant one-file proof PR. Scratch imports must be inlined for any eventual submission. Raw compiler logs retain their original whitespace. No lake update or Mathlib source rebuild was run; the official Lean4.36.0 release and Mathlib cache were used.
 
-Cleanup pass: not started, because no full posted theorem has passed the checker. Before/after cleanup line counts are not applicable. The named file changed from1099 to909 lines during integration of the stronger partial; that was not the requested final cleanup pass.
+Cleanup pass: not started, because no full posted theorem has passed the checker. Before/after cleanup line counts are not applicable. The4970 named file changed from1099 to909 lines during integration of the stronger partial; that was not the requested final cleanup pass.
 
 Desk null responses: 3. Exact messages follow; full UTC log is validation/desk-log.txt.
 desk-recover-03.json: The checker is behind: 521 proofs are queued for a check and 528 were checked in the last hour, about 59 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
@@ -37,4 +44,4 @@ desk-poll-001.json: The checker is behind: 521 proofs are queued for a check and
 desk-poll-002.json: The checker is behind: 521 proofs are queued for a check and 478 were checked in the last hour, about 65 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
 
 Sub-agents: status_review, lower_bound, counterexample, library_route, reduction_strategy, sat_encoding (6).
-TIMING total=167.7 subagents=6
+TIMING total=172.6 subagents=6

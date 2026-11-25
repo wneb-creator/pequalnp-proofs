@@ -54,3 +54,7 @@
 
 - 2026-11-25T16:30:09Z: fourth premature HTTP410, for L-meta-4970, despite16:46:08.437Z advertised expiry. Timer confirmed once with curl -si. All agents stopped. Fixed portfolio cancelled; variable search never launched. No full theorem or counterexample.
 - 2026-11-25T16:34:08.118283+00:00: final checked matching criterion and frozen search/postprocessing archives preserved after independent review; preparing push before mandatory recovery.
+
+- 2026-11-25T16:35:55.525203+00:00: recovery04 assigned L-meta-1884, own lease de68ce60-fb13-4311-8e7e-e64ffc779aa1, initial expiry16:54:52.074Z. Replanned six routes; previous gap artifacts pushed8bcbba67.
+
+- 2026-11-25T16:39:05.594492+00:00: first1884 InputSupport checkpoint compiled, named lake build passed5149jobs, independently reviewed.81lines, no final theorem. Preparing immediate fork preservation.
