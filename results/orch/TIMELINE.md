@@ -25,3 +25,4 @@
 - 2026-11-25T17:58:52.586518+00:00: one-junk semantics, nonstar restoration identity, and boundary-test completeness compiled and independently reviewed; actual gap checker rejects the current partial for missing the required theorem.
 - 2026-11-25T18:01:00.215794+00:00: consolidated4107linepartial, forced-evaluator semantics, and gate/cone embedding compiled and independently reviewed.
 - 2026-11-25T18:06:13.109205+00:00: strict dirty-gate descent for correct explicit restoration and productive-gate semantic identity compiled and independently reviewed.
+- 2026-11-25T18:07:14.665687+00:00: explicit nonstar restoration/raw-path bridge and min-andPairs existence compiled and independently reviewed.

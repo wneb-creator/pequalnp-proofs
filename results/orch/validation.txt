@@ -77,3 +77,7 @@ Checkpoint13: dirty-gate descent and productive-lift semantic identities compile
 Root independently reviewed all164 new JunkDrop/JunkRestore lines; restored gates add no junk when the restored circuit computes the graph function, so pruning a dirty gate then restoring strictly decreases junk count. Toolchain independently built/reviewed ProductiveLift786lines.
 These do not show every dirty gate admits a semantic repair; the global gap remains.
 TIMING total=61.0 subagents=7
+
+Checkpoint14: explicit nonstar circuit construction, raw-path bridge, and natural-number minimization compile and pass independent toolchain review.
+NonstarPaths exposes the exact restoreStar(pruned C) circuit and derives preservation from actual raw OR paths; graph/rectangle/factor hypotheses remain explicit. NonstarCircuit is retained as its older, weaker API and is not sufficient for induction on its own.
+TIMING total=62.0 subagents=7

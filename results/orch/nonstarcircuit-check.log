@@ -1,0 +1,6 @@
+/tmp/oec/pequalnp-pilot-161/NonstarCircuitAssembly.lean:17:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp at hm
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
