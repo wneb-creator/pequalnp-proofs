@@ -13,3 +13,13 @@ Strategies are tracked in TIMELINE.md. Agents append findings to their own resul
 ## Stronger binary floor route
 - L_meta_5236 has a checked >=16 binary-gate floor after a free extra OR input. Generic embedding now compiled, allowing application to ordinary circuits.
 - PairSeparation noPairFactor is compiled; semantic/few-NOT agents aim to use it with two-gate elimination and the9-input floor15 to obtain >=17 binary gates.
+
+## 2026-11-25T14:21:04.322109+00:00 re-plan
+- Preserve all compiled components immediately; four partial commits have been pushed. No full theorem/PR claimed.
+- Completed and compiled: CutLast, EmbedExtra, PairSeparation/cofactor/automorphisms, signed restriction machinery, plain product-based signed variant, FewNots boundary witnesses, first-gate two-reader/false-two-deletion lemma.
+- ReachBridge now compiles against exact generic Reach interface; combine with nineFloor15 and first-gate deletion to obtain17binary floor. BinarySixteen certificate still running, independently audited.
+- Stronger conditional deletions: opposite-phase second reader saves3binary underfalse; same-phasefalse saves4. These imply18/19binary after nineFloor15. Remaining first-OR/same-negative-phase case is difficult.
+- Tooling/combinatorial agents exploring finite Live-state certificates forbudget17; constant restriction and rowseparation reduce firststep to45ORstates (two graphorbits). Generic duplicate-charge pruning is false (mux counterexample), so discarded.
+- Existing L4033 proves9vertex totalgatefloor16; it is near512KiB and does not directly strengthen signedbinaryfloor15.
+- SAT searches have no witness or UNSAT result; focus compact signed17/18 searches. Extra processes paused/stopped to keep CPU available.
+- Three live reductions already fill the desk limit; no fourth reduction can be submitted. Continue toward fullproof/refutation with onelease.

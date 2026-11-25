@@ -42,3 +42,27 @@ Scope: exact edge/minimal-positive and maximal-independent negative boundaries; 
 Lean exit: 0; stdout empty; stderr empty.
 Independent source review: root PASS, including Boolean finite certificate and its logical extraction.
 SHA256: e16b752e23303f60a81220e87760b5175cfc6baca279b6e1ce2604a7545d116d
+
+Artifact: results/orch/lemmas/SignedRestrictionPlain.lean
+Scope: Plain product-based normalization and restriction interface; no custom types/instances.
+Lean exit0; stdout/stderr empty.
+Independent source review: status_review PASS as partial.
+SHA256: 3faf2c688af602c3057a1c3d3850d28d74e58b6dc2eb9fd205cbce659f87576e
+
+Artifact: results/orch/lemmas/FirstGatePlain.lean
+Scope: Petersen false restriction saves at least two binary gates.
+Lean exit0; stdout/stderr empty.
+Independent source review: status_review and root PASS as partial.
+SHA256: 3f92659d0d405ec744207e49e6e268dea588e1ab90c080c107b4337b97302f82
+
+Artifact: results/orch/lemmas/FirstGateCases.lean
+Scope: Conditional on each false cofactor requiring15 binary gates, a minimal signed circuit of size<=17 starts with a negative-input gate and every read of its first inputs has negative phase.
+Lean exit0; stdout/stderr empty.
+Independent source review: root PASS as partial.
+SHA256: f2cce06b05949cf5556694bdebd1e6ffc4942b279034a90b9d3c500658ba1b89
+
+Artifact: results/orch/lemmas/ReachBridgeSmall.lean
+Scope: Signed circuit to generic Reach bridge; exact source-matching Reach interface included.
+Lean exit0; stdout/stderr empty.
+Independent source review: status_review PASS as partial.
+SHA256: 1e613195e335892f1a6deb02b06875197f356ef45e96a208f7d2a0dcdee50595
