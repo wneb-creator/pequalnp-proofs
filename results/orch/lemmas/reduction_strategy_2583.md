@@ -55,3 +55,18 @@ For the edge-invisible-gate removal assigned to sat_encoding, L_meta_4747 suppli
 Root proposed removing one clean input edge or private clean star, paying for the removed incidences plus at most one unit of vertex-cover loss. The completed edge-visibility argument would force a first AND on two distinct original inputs to be a clean incidence edge; repeated inputs are removed separately by idempotence. For a first AND of larger pure-OR operands A and B, visibility only ensures an incident cross-pair. A dirty rectangle can still contain nonincidences or singleton terms from A intersect B. Boolean factoring can save a gate when its OR cones are private, but shared OR cones obstruct that local argument. No theorem making a first dirty rectangle clean was found.
 
 A plane-specific possible source of slack is that every inclusion-minimal mixed vertex cover costs at least N+q, whereas an entire-side cover costsN. Lower_bound found a promising proof using the regular induced incidence graph obtained by removing a nonincident point-line pair and their neighborhoods. The missing bridge is still to charge arbitrary shared blind cores to such a mixed cover; no implication from the geometric bound alone is claimed.
+
+## Compiled rectangle-layer identities, 14:56 UTC
+
+Frozen RectangleLayer.lean has 65 lines, 2546 bytes, SHA256 ec16b018154b61d0da71ea969809e1d60f8bd9c41fffe11ee99b629f98c4e65c. It compiles with only Defs and empty rectangle-layer.stdout/stderr. Root was alerted immediately; it will not be edited.
+
+Four lemmas capture semantic transformations relevant to the new layer strategy:
+
+- rectangle_split: if p implies a and l implies b, then (a AND b) AND (p OR l) = (p AND b) OR (l AND a).
+- rectangle_family_split: the same projection for an OR of any finite family of rectangles sharing both centers.
+- shared_centre_projection: with one shared center p, ANDing the rectangle family with p equals ANDing p with the OR of opposite-side factors.
+- distinct_pair_selectors: a finite selector set contained in each of two distinct point-line endpoint pairs has cardinality at most one.
+
+For a depth-one layer of full-neighborhood rectangles, a mixed selector OR(p,l) cannot feed another pure-side rectangle; its clean top readers must use same-pair mixtures. Factoring the common selector across those top readers can make the private split available. Mixtures of distinct endpoint pairs have one common center and admit the second projection. The remaining cost issue is shared homogeneous OR subgraphs serving both center directions.
+
+Scope caveat: wmax={p,l} is true for full-neighborhood rectangles in a plane of order at least two, or with at least two bad rows and two bad columns. It is false for a partial two-by-two rectangle. Its single bad corner (a,b) can be filtered by any point incident to b or any line incident to a. Extra selectors produce no accepted edge for that individual rectangle contribution, but an OR mixture may hide the invisible contribution beside useful contributions from other rectangles. Gate visibility alone does not justify dropping such shared contributions.

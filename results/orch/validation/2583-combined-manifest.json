@@ -1,0 +1,21 @@
+{
+  "components": [
+    {
+      "source": "new2583/library_route/CostEquivalence.lean",
+      "sha256": "53295d611325a8fa7f2c63887260350158d532a2a7582fc419a4363ef3240b9e"
+    },
+    {
+      "source": "gap2583/reduction_strategy/Blocks.lean",
+      "sha256": "b2e852164e257d645b2c95522167ed860a13ca53cb0c66b9755418166a247ec9"
+    },
+    {
+      "source": "gap2583/sat_encoding/EdgeReplacement.lean",
+      "sha256": "d2eba86ded07dd451b567d01572b250ab795c9336b7c0c9621b804baa9796010"
+    },
+    {
+      "source": "gap2583/lower_bound/MixedCoverGap.lean",
+      "sha256": "19a1a42a301a7000db931591f2ee68ad2115f4f46a4d89984fedc4886cb27b45"
+    }
+  ],
+  "combined_sha256": "8a03feeb873579241a25cb2a6d24b3d1cda1496d770dee51240153028e731046"
+}

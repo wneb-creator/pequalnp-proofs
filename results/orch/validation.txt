@@ -1,28 +1,20 @@
-L-meta-2592 partial research checkpoint
+Partial research checkpoints; no proof PR opened.
+Updated 2026-11-25T14:57:24.349702+00:00
 
-Status: incomplete. No proof PR has been opened.
-Named file: lean/PEqualNP/Outside/L_meta_2592.lean (503 lines).
-Named build: lake build PEqualNP.Outside.L_meta_2592 passed (6655 jobs).
-Local checker: REJECTED (no-theorem), because the full posted theorem is not declared.
-Plain-file guard: only the missing final theorem requirements fail.
-Full build/checker stdout and stderr are preserved in results/orch/validation/.
+Current gap: L-meta-2583.
+Named file: lean/PEqualNP/Outside/L_meta_2583.lean (6743 lines, 325031 bytes).
+SHA256: 8a03feeb873579241a25cb2a6d24b3d1cda1496d770dee51240153028e731046.
+Named lake build passed. Full stdout/stderr: validation/2583-build-combined-01.*.
+Independent review verified the exact four-component composition and all mathematical premises. The plain-file guard reports only the missing final theorem.
+Local checker on the earlier block checkpoint: REJECTED (no-theorem). The combined file still has no full posted theorem; checker rerun pending.
 
-Checked components include last-NOT factorization, monotonicity and endpoint lemmas, unused-gate erasure, connected representatives, essential-NOT witnesses, the existing sixteen-binary-gate lower bound, unrestricted circuit-to-CNF completeness, exact NOT-count preservation, the at-most-three-NOT encoding, the conditional Petersen LRAT bridge, first-gate retention, and arbitrary-vertex deletion projections. Components under lemmas/checked/ were compiled separately and independently reviewed before each push. Some are conditional lemmas; none is a proof of the full gap.
+Checked components: size-preserving lift/block decomposition; exact equivalence of a read-one replacement with the cost bound N*(q+2) <= C.size+1; canonical read-one construction; plane regularity and cover counting; removal of gates false on every edge; earlier-wire replacement preserving all edge inputs; and the N+q bound for proper mixed vertex covers. The unrestricted circuit lower bound remains unproved. Conditional cost-debt assumptions remain explicit.
 
-Kernel replay controls accept valid toy certificates and reject a corrupted certificate. The LRAT packing utility passed independent review and text/binary/slicing/packing tests. Generated data must still pass the Lean checker.
+Prior gap: L-meta-2592. The desk returned HTTP 410 at 14:40:48 despite its previous expiry of 14:53:45.327. Complete headers/body are in validation/desk-410-response.txt. The recovery request assigned L-meta-2583, and all old work stopped. Old 503-line named file is preserved byte-for-byte as lemmas/checked/StructuralWitness.lean; its named build passed and checker rejected no-theorem. Additional modularly checked old components prove >=17 non-NOT gates, thus at most two NOT gates in size <=19. Full17.lean is the reviewed inline snapshot, not separately built. All sources, logs, CNF completeness, and LRAT tooling remain on this branch.
 
-The seventeen-non-NOT-gate lower bound and at-most-two-NOT corollary compiled modularly and passed independent semantic review. Full17.lean is the exact combined source, pending a standalone build. Killed-NOT monotonicity and predicate-preserving extraction also compiled. Generic at-most-k and exact-two-NOT encodings compiled and were reviewed. No solver has returned a counterexample or an UNSAT certificate. Timeouts and partial proof traces are not lower-bound proofs.
+Solver searches have found no counterexample or completed UNSAT certificate. Partial traces/timeouts are not proofs. Fano positive controls succeeded; active search outputs will be archived when finished.
 
-Cleanup: not started; the full posted theorem has not passed the checker.
+Cleanup: not started because the posted theorem has not passed the checker. Integration changed the current named file from 1749 to 6743 lines; this was not a cleanup pass.
+Desk null responses: 0. Own old lease ended with 410; own new lease is being renewed. No other pilot lease has been released.
 Sub-agents: status_review, lower_bound, counterexample, library_route, reduction_strategy, sat_encoding (6).
-TIMING total=56.0 subagents=6
-
-2026-11-25T14:40:48Z: renewal returned HTTP 410 despite previously advertised expiry 14:53:45.327Z. Complete headers and body are preserved in validation/desk-410-response.txt. Preserving all reviewed new sources before the required recovery request.
-
-Final L-meta-2592 components FirstNonOrBound, NormalizeMono, TraceMonoRun, MonoContraction, and TraceProject compiled and passed independent semantic review. Restart transport utility passed independent review and its full controls; it is untrusted data tooling, not a kernel axiom. New assignment L-meta-2583 began after the old lease returned 410.
-
-L-meta-2583: Blocks.lean compiled separately with empty stdout/stderr and passed independent review. Named target now contains this partial composition; full normalization theorem is absent. Named build pending.
-
-L-meta-2583 named build passed (5149 jobs). Frozen Blocks hash b2e852164e257d645b2c95522167ed860a13ca53cb0c66b9755418166a247ec9 includes the incidence appendix; that exact appendix and named file were independently reviewed after the source-copy race was detected. StarConstruction, PlaneGeometry, and ReadOneCost compiled and passed semantic review. Archival StarConstruction/ReadOneCost have top-level helper namespace placement issues to fix during final integration. None proves the unrestricted circuit lower bound.
-
-L-meta-2583 local checker returned REJECTED (no-theorem): the exact posted theorem is absent. Full checker stdout/stderr preserved. No proof PR has been opened for either gap.
+TIMING total=70.9 subagents=6
