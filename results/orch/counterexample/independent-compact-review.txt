@@ -1,0 +1,8 @@
+compact_hybrid.py sha256=1d32e7ecbfe82cde62ddac9e698b530466903af82fb53a9530aca57966cb3df1
+compact_budget.py sha256=392434b473ce2c546293da89b77a84c2f18fb08dec54ef6137be756d9f0f935d
+Threshold encoding: 155 selector assignments checked by exhaustive auxiliary assignment, n<=4,k<=4.
+Lex encoding: 340 pairs checked by exhaustive auxiliary assignment, n<=4.
+Extraction: 2816 deterministic random circuit/input evaluations agreed with independent abstract evaluator; exact formula and all gate indices checked.
+Sample census: MIS=39, monotone rows=58, NOT initial rows=145.
+Review: primitive CNF conjunction/union and NOT equivalence are correct. Selectors range over earlier wires only; nonempty clauses justify exact OR-chain accounting. CEGIS validates all 16384 inputs before FOUND, keeps constrained rows, and adds violating inputs. Source E matches the exact target19 edges.
+Scope: fixed AND count, one retained helper, nonempty side/output ORs, no direct primary output, optional side ordering and cone constraints form a restricted search. No UNSAT result is a full circuit lower bound. Positive candidates require Lean proof with NOT dummy input encoded as an out-of-range Nat, not Python -1.

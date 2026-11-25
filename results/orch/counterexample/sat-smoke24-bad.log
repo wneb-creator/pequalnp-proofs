@@ -1,0 +1,4 @@
+round 0 samples 106 elapsed 0.0
+CNF 8976 vars 248815 clauses
+solver exit 20 elapsed 0.41
+UNSAT for this synthesis model and sample constraints; no Lean certificate yet
