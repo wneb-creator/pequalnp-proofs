@@ -1,24 +1,34 @@
-# Continuing state
+# Active state: recovery polling
 
-L-meta-2448 remains UNPROVED. Do not open a proof PR for this partial.
+Do not end the task yet. The user requires four-minute desk polling after null replies, within the overall job budget. No live lease is currently held by this job.
 
-- Work branch pnp/pilot-75; only push origin (fork). Last pushed74cced85b7c154200fc1eb3454bc635820920c61; next checkpoint contains standalone replacement.
-- Started2026-11-25 07:02:59UTC; own lease acquired07:04:37. Minimum90-minute effort point08:32:59. Current time2026-11-25T08:23:16.895458+00:00.
-- Named file now9440lines/476959bytes, SHA72c333a765a480d06fbae71d6afa211f788c15109a7f201eae70da7a1f798890. Only Mathlib+Defs. Full named build12 passes.
-- Strongest helper proves posted existential conditionally on an exact public minimum AO2 circuit with junk.card<=1. The main unconditional theorem is absent. Checker12 running; previous checker09 REJECTED(no-theorem).
-- Old2078line helper collection is preserved in results/orch/lemmas/IntegratedRepairs.lean and prior pushed history. Standalone source/logs/provenance are in results/orch/standalone/.
-- Independent scope/format/axiom review by status_review and exact418declaration provenance review by lean_setup passed. Final helper uses standard3axioms only.
-- Seven distinct subagents used: status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof.
-- Root heartbeat PID13568 renews every8minutes. Check STAT, not merelyPID existence. Current manual beat20 expiry08:42:22UTC. Private own lease is only in scratch desk-first.json; never display/log its identifier.
-- Scratch /tmp/oec/pequalnp-pilot-75. Lean bin lean-tools/lean-4.36.0-linux/bin there; prependPATH. Checker needs PEQUALNP_REAL_LAKE explicitlake and PEQUALNP_HOME=.../build-state.
-- Finite orderedtheta searches timedout UNKNOWN; C7dirty query awaiting final review/preservation. Do not infer negative proof from timeout.
-- Essential-star AND-minimum induction was refuted by a P4 circuit with2AND/5total gates; canonical2AND/4total gate circuit exists. Allowed-import Lean witness being independently reviewed and preserved. Tie-breaking by OR count still has the global sharing obstacle.
-- No proof PR or lease release yet. Reduction slots were full(3 live), so no extra reduction was submitted.
-- Before ending: preserve all completed reviewed artifacts, finalchecker output, source hashes/timing, stop heartbeat, release only ownlease with honest reason, push finalrecords. User minimum90minutes must be respected.
-- Final include messageID, Sub-agents, TIMING total=<min> subagents=7; end with gap/pr/checker lines. No desk null replies.
+- Job began2026-11-25 07:02:59UTC; overall six-hour deadline13:02:59UTC. Ninety-minute minimum effort already exceeded. Current update2026-11-25T09:05:47.960889+00:00.
+- Poller PID20197, execsession37580. Script /tmp/oec/pequalnp-pilot-75/poller.py; output poller-process.log; PID file poller.pid. Sleeps in at-most30second pieces; exact curl-s next URL uses handle=wneb-creator&another=1&hard=1 every240seconds.
+- Latest recovery response09:03:10 gapnull; nullcount8; next due09:07:10. Initial six nulls referred to4 recent-handback steps, then3, now2. Exact messages andUTC times are in desk-log.txt.
+- Poller stops on assignment, error, stop-poller flag, or job deadline. ALWAYS inspect poller-assigned.txt / poller-error.txt / poller-complete.txt before issuing a new request. Raw recovery responses are desk-recovery-NN.json; future assigned responses may include private lease IDs—never print those. Check process STAT after environment refresh; PID presence alone can mean zombie.
+- On assignment: inspect only safe gap metadata and lease expiry; renew ONLY the new supplied lease. Restart a heartbeat configured to read that new recovery response. The existing heartbeat.py reads old desk-first.json and MUST NOT be reused unchanged. stop-heartbeat currently exists and old heartbeatPID13568 exited.
 
-2026-11-25T08:34:15.666772+00:00: All compiled work and final checker output pushed through07314f7d. At08:31:23 the renewal timer received error and repeated curl-si once: HTTP410 no such live lease. Prior renewal advertised08:43:23 expiry. Timer exited; stop flag now exists. No release call made, because lease is no longer live. Final literature all-neighborhood route has24vs25 incidence-K5 obstruction; no full proof. Preserve/push current notes before any recovery call per user.
+## Prior assigned gap and preserved result
 
-2026-11-25T08:37:46.231619+00:00: RECOVERY IS ACTIVE, DO NOT END YET. After pushing all work74aca969, the explicit HTTP410 recovery request at08:35:08 returned gapnull with nofree/recenthandback4 note. User poller instruction requires continuing every4minutes until another lease or job budget. Poller scratchpoller.py runs in execsession37580, PID inpoller.pid, stdoutpoller-process.log. Next due08:39:08; deadline13:02:59UTC (six hours from job start). It logs every answer todesk-log.txt, saves raw response in desk-recovery-NN.json, and stops on assignment, error, ordeadline. Check poller-assigned.txt before any new request to avoid duplicate leases. No lease currentlylive for thisjob. Existing heartbeat intentionally stopped afterHTTP410; stop-heartbeat flagexists. New lease requires heartbeat using its own recoveryresponse, never olddesk-first.json. Current nullcount1; exact note in desk-recovery-01.json and desk-log. All work onL2448 stopped; only statusresearch andpolling proceed. Newstepmustbe handled per task withremainingjobtime.
+L-meta-2448 was assigned07:04:37. Its timer renewal08:23:23 advertised expiry08:43:23, but renewal08:31:23 returned no-such-live-lease. The timer made the mandatory same-call curl-si retry once and receivedHTTP410, then stopped. Root discovered this08:32:51. All compiled artifacts had already been pushed. No release request was made because the lease was already unavailable. Explicit recovery request08:35:08 returnedgapnull and began the current polling phase.
 
-2026-11-25T08:41:59.865030+00:00: PollerPID20197/session37580 remains active; nullcount2. Next request08:43:08. Public read-only review found no accepted proof or withdrawal explaining410; see read-only-status.md. No proof/source work onL2448 continues after410. Last pushed74aca969.
+Public read-only review found no accepted proof or withdrawal explaining410; another pilot's PR13028 was refused for no theorem. See read-only-status.md. Do not touch that PR or another pilot's leases. Work on L2448 stopped after410; only archival/status work followed.
+
+- Repository /workspace/pequalnp-proofs, authorized branchpnp/pilot-75; push only origin fork. Latest pushed before this notea2e40148ebce58746142fc4686761c65005a1715. No PR opened.
+- Named partial lean/PEqualNP/Outside/L_meta_2448.lean is9440lines/476959bytes, SHA72c333a765a480d06fbae71d6afa211f788c15109a7f201eae70da7a1f798890. Only Mathlib+PEqualNP.Defs imports.
+- Strongest helper constructs a minimum star-profile circuit under explicit extra premises: supplied publicminimum AO2 circuit, correct graph function, and junk.card<=1. Full posted theorem remains UNPROVED.
+- Named build12 passes. Local checker12: REJECTED(no-theorem), because the unconditional main declaration is absent. Full logs are in results/orch/. Final helper uses only standard3axioms. Independent provenance/scope/format/axiom reviews passed.
+- Old2078line helper collection is preserved as results/orch/lemmas/IntegratedRepairs.lean and earlier branch history. Standalone source/logs/provenance under results/orch/standalone/. All143 older lemmas audited too.
+- Final finite archive137artifacts independently reviewed; freeOR archive14runs independently reconstructed. Timeouts are UNKNOWN. No solver processes remain.
+- HANDOFF.md and per-strategy notes explain the remaining sharing/boundary inequality, checked local obstructions, and why essential-star/minimumAND/all-neighborhood extraction routes fail. None refutes the full gap.
+- All three reduction slots were occupied; no extra reduction submitted.
+
+## Tools and team
+
+Prepend /tmp/oec/pequalnp-pilot-75/lean-tools/lean-4.36.0-linux/bin toPATH. Full pinned Mathlib cache fetched; never lake update or build Mathlib from source. Checker needs PEQUALNP_REAL_LAKE set to that lake binary and PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-75/build-state.
+
+Seven distinct subagents used, all currently completed: status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof. Reuse agents via followup_task; send_message alone does not wake idle agents.
+
+If a different gap is assigned, work only that new posted goal under the remaining job time and keep one lease. Before any successful proof PR, its final diff must add exactly its one named Lean file; prior partials/results remain recoverable in pushed history. Do not submit the current helper-only file.
+
+At final completion preserve the complete desk log, null count/exact messages, final timing and checker output; stop poller/heartbeat; release only any then-live OWN lease. Final must acknowledge msg-8f0f42bb760e4ee78f16c6cd, print Sub-agents and TIMING total=<min> subagents=7, and end with gap/pr/checker lines.
