@@ -129,3 +129,21 @@ All 120 C4-free 3×3 bipartite graphs with a perfect matching require at least t
 ### counting_proof family aggregation and pruning 2026-11-25T16:07:35.499116+00:00
 StarFamilyCount.lean checked exit0 with empty diagnostics, reviewed by status_review. Adds pure_family_count (union of pure support outputs), ownedOr_disjoint, and sum_pure_family_count. The aggregate bound is sum of centre-union leaf counts <= sum of centre root counts + total OR count, provided centre-unions intersect pairwise in at most one input. This explicitly retains the root-count overhead. Its prefix duplicates OrOnlyCount; merge only the three additions.
 RootDomination.lean checked exit0 with empty diagnostics: supports dominated by another root support can be removed, and finite induction gives an antichain of supports with exactly the same union. More general overlap-component reduction remains open. A promising potential is number of connected components of original-support family on the frontier: AND replacement can only merge components; OR replacement can split at most one component; singleton terminals give |S| components.
+
+### status_review — global witness pruning
+
+`RootDomination.lean` mathematical review passed; initial name `undominated_root_subfamily` violated the literal `_root_` ban and was reported for renaming before preservation.
+
+Authored and Lean-checked `IrredundantFamily.lean`: a finite family has a subfamily with the same union in which every retained member has a private element belonging to no other retained member. Use this on global witness edge sets, not only per-center leaf sets. It removes a root covered jointly by several other roots, which pairwise support-antichain pruning misses. Build exit 0, empty scratch irredundant-family.log. Independent review requested from counting agent.
+
+The precise overlap correction remains essential: write U_c for union of leaf sets at center c, r for total selected root count, and delta = sum_c |U_c| - |E|. Combining the owned OR bound with the desired conclusion requires residual >= r + cover_size - 1 - delta, unless root selection supplies an additional stronger property. Merely partitioning edges does not prove this circuit inequality; it only identifies the duplicate-count slack. Full residual budget is still unproved.
+
+## semantic_bound P5 obstruction to naive residual ledger
+
+This is NOT a refutation of L-meta-4970. Let left vertices a0,a1,a2, right b0,b1, and E={a0b0,a1b0,a1b1,a2b1}. Circuit u=a0 OR a1; v=a1 OR a2; s=b0 AND u; t=b1 AND v; output=s OR t; unused r=b0 OR b1. Size6 and T0. Choose three witness centres b0,b1,a1, with roots u,v,r and support sets {a0,a1},{a1,a2},{b0,b1}. They cover E; ownedOR=3, rootcount=3, tau=2, remaining gates=3, so remaining >= roots+tau-1 is false (3<4). Sum support-cardinalities is6 versus Ecard4. The posted full bound still holds: Ecard+tau=6<=size+1=7. A valid repaired route must choose an appropriate minimal family and/or retain overlap surplus delta=sum supportcards-Ecard. The candidate remaining >= roots+tau-1-delta is not yet proved; arbitrary duplicate roots also require pruning.
+
+### Exact AND-budget search (cofactor_route, 2026-11-25T16:13:37+00:00)
+
+T0 AO circuits can be normalized into k binary AND gates, each operand an OR subset of original inputs and earlier AND outputs. The selected original inputs of each operand must have one colour; previous AND outputs have empty OR-reach. Original inputs cannot occur in the final OR for a nonempty graph function. This is encoded in `/tmp/oec/pequalnp-pilot-157/and_sat.py`. Positive edge assignments plus maximal-independent negatives completely determine correctness for monotone circuits.
+
+Cycle C12 (6+6 vertices, 12 edges, minimum cover 6): no circuit with five AND gates, arbitrarily many OR gates, and T0. CaDiCaL returned UNSAT, exit20, 8.31 seconds wall time, 73,788 conflicts, 115,072 decisions. CNF has1870 variables and7317 clauses; complete log is `/tmp/oec/pequalnp-pilot-157/cycle12-5and-t0.log`. This is computational evidence, not a Lean theorem. Fano6-AND search remains running; pinned canonical7-AND control is SAT.

@@ -24,3 +24,6 @@
 2026-11-25T16:07:35.499116+00:00 counting_proof: family aggregation and root domination checked.
 2026-11-25T16:10:03.743308+00:00 Renewed L-meta-4970; expiry 2026-11-25T16:30:04.082Z
 2026-11-25T16:10:50.826664+00:00 Preserving checked family counts and root pruning; full checker reports no-theorem.
+
+- 2026-11-25T16:13:37+00:00 cofactor_route: independently reviewed IrredundantFamily.lean PASS; cycle12 five-AND T0 CNF UNSAT (computational evidence only); Fano six-AND search ongoing.
+2026-11-25T16:13:46.136934+00:00 Preserving checked global witness pruning and diagnostic ledger counterexample.

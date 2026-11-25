@@ -48,3 +48,7 @@ Added checked OR-only frontier count, disjoint-support sums, and actual-circuit 
 Fifth partial checkpoint:
 StarFamilyCount.lean and RootDomination.lean compile with exit0 and empty diagnostics. RootDomination uses the corrected name undominated_rt_subfamily. Independent review by status_review: mathematical PASS; forbidden identifier corrected and compilation rerun.
 Local checker on the named 946-line helper-only file: REJECTED (no-theorem): no theorem named PEqualNP.Outside.L_meta_4970. Full output: results/orch/checker-004.txt. This expected rejection confirms the file is not a complete proof submission. No PR opened.
+
+Sixth partial checkpoint:
+IrredundantFamily.lean: Lean exit0, complete stdout/stderr empty; independent reviews PASS by counting_proof and cofactor_route.
+LedgerOverlapExample.lean: Lean exit0, complete stdout/stderr empty; independent review PASS by status_review. It refutes only a proposed residual ledger and explicitly proves the posted conclusion for its P5 example. It is NOT a refutation of L-meta-4970.
