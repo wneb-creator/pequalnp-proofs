@@ -1,0 +1,7 @@
+../results/orch/lemmas/2583_hall.lean:110:65: warning: This simp argument is unused:
+  Nat.add_sub_cancel_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [disj, card_image_of_injective _ Subtype.coe_injective]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

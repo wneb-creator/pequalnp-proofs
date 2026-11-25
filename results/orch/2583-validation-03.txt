@@ -1,0 +1,8 @@
+L-meta-2583 partial checkpoint 03
+Standalone read-one lower-bound helper: Lean PASS with Defs only; copied checked L_meta_7639 and renamed under the assigned namespace.
+Standalone plane perfect matching: Lean PASS with Defs only, finite Hall induction inlined from pinned Mathlib; comment-only cleanup independently reviewed.
+Both remain auxiliary statements. The lower bound assumes the circuit is read-one.
+Independent review PASS for exact hashes recorded in 2583-review-03.md.
+Sub-agents: six (structure, direct lower bound, exact synthesis, counterexample search, reductions mapping, independent review)
+TIMING total=69 subagents=6
+The plain lower-check log has trailing whitespace normalized for Git; the matching .raw.gz preserves exact complete bytes.

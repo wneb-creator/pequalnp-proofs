@@ -1,0 +1,2 @@
+../results/orch/lemmas/2583_hall.lean:43:9: error(lean.unknownIdentifier): Unknown constant `Finset.all_card_le_biUnion_card_iff_exists_injective`
+../results/orch/lemmas/2583_hall.lean:44:8: error: No goals to be solved
