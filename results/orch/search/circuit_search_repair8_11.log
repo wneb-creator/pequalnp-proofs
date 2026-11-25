@@ -1,0 +1,146 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 10 seconds real time (due to '-t 10')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-120/circuit_search_repair8_11.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-120/circuit_search_repair8_11.cnf'
+c found 'p cnf 59185 1312279' header
+c parsed 1312279 clauses in 0.58 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds   reductions  redundant   irredundant
+c          MB    restarts       trail        variables
+c           level   conflicts       glue          remaining
+c 
+c *  0.58 141  0 0   0    0    0  0% 0 1311222 30950 52%
+c {  0.61 143  0 0   0    0    0  0% 0 1311222 30950 52%
+c i  0.62 143  1 0   0    1    0 48% 0 1311222 30949 52%
+c i  0.62 143  1 0   0    2    0 48% 0 1311222 30948 52%
+c -  0.88 137 513 1   5  300  269 77% 11 507375 30948 52%
+c i  0.90 141 481 1   6  325  291 77% 11 507375 30947 52%
+c i  0.90 141 476 1   6  328  293 77% 11 507375 30946 52%
+c i  0.93 141 416 1   7  381  344 77% 10 507375 30945 52%
+c i  1.07 142 214 1   8  818  717 76% 9 507375 30944 52%
+c i  1.09 142 207 1   9  860  750 76% 9 507375 30943 52%
+c }  1.13 142 188 1  10 1000  882 78% 9 507375 30943 52%
+c [  1.13 142  0 1  10 1000  882  0% 0 507375 30943 52%
+c O  1.14 142 26 1  10 1003  884 83% 2 507375 30943 52%
+c i  1.14 142 26 1  10 1003  884 83% 2 507375 30942 52%
+c i  1.20 142 18 1  10 1090  961 84% 6 507375 30941 52%
+c -  1.43 161 18 2  10 1323 1056 67% 7 507332 30941 52%
+c i  1.81 161 18 2  10 1776 1423 63% 8 507332 30940 52%
+c i  1.96 161 20 2  10 2045 1651 62% 8 507332 30939 52%
+c i  2.01 161 20 2  11 2136 1725 62% 8 507332 30938 52%
+c i  2.06 161 21 2  11 2251 1819 62% 8 507332 30937 52%
+c 
+c  seconds   reductions  redundant  irredundant
+c          MB    restarts       trail       variables
+c           level   conflicts       glue         remaining
+c 
+c -  2.48 161 20 3  11 2858 1947 62% 9 507312 30937 52%
+c ]  2.65 155 20 3  11 3001 2056 19% 9 507312 30937 52%
+c {  2.65 155 188 3  11 3001 2056 149% 9 507312 30937 52%
+c F  2.66 155 187 3  11 3004 2059 149% 9 507312 30937 52%
+c i  2.66 155 180 3  11 3047 2096 145% 9 507312 30936 52%
+c i  2.69 155 172 3  18 3115 2148 138% 9 507312 30935 52%
+c i  2.87 155 130 3  32 3591 2551 113% 9 507312 30934 52%
+c i  2.92 155 120 3  39 3745 2682 106% 8 507312 30933 52%
+c i  2.94 155 118 3  39 3782 2714 104% 8 507312 30932 52%
+c i  3.09 155 103 3  60 4197 3061 93% 8 507312 30931 52%
+c i  3.18 155 96 3  67 4438 3259 88% 8 507312 30930 52%
+c -  3.40 156 87 4  88 4905 2934 84% 8 507275 30930 52%
+c i  3.46 156 86 4 100 4983 3003 83% 9 507275 30929 52%
+c d  3.51 156 86 4 102 5001 3016 83% 9 492159 23371 39%
+c 2  3.75 156 86 4 102 5001 29592 83% 9 492148 22873 39%
+c p  3.95 156 86 4 102 5001 33587 83% 9 492148 22560 38%
+c #  4.30 156 74 4 136 6006 34452 70% 8 492148 22560 38%
+c }  4.82 155 66 4 187 7002 33751 38% 8 415282 22560 38%
+c [  4.82 155 20 4 187 7002 33751 26% 9 415282 22560 38%
+c -  5.04 158 23 5 188 7463 4214 40% 9 415282 22560 38%
+c 
+c  seconds   reductions   redundant   irredundant
+c          MB    restarts        trail        variables
+c           level    conflicts       glue          remaining
+c 
+c I  6.11 158 30 5 189 10007 6411 42% 12 415282 22560 38%
+c -  6.26 159 32 6 190 10377 5334 40% 12 415282 22560 38%
+c ]  6.26 159 32 6 190 10387 5342 40% 12 415282 22560 38%
+c ?  6.26 159 32 6 190 10387 5342 40% 12 415282 22560 38%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-120/circuit_search_repair8_11.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         5.16   90.88% search
+c         2.96   52.12% stable
+c         2.17   38.23% unstable
+c         0.58   10.30% parse
+c         0.52    9.12% simplify
+c         0.20    3.58% ternary
+c         0.20    3.49% probe
+c         0.03    0.53% lucky
+c   =================================
+c         5.68   90.66% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:              3849        37.06 %  of conflicts
+c conflicts:                 10387      1830.01    per second
+c decisions:                 32232      5678.73    per second
+c fixed:                     29067        49.11 %  of all variables
+c learned:                    9768        94.04 %  per conflict
+c learned_lits:             337405       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                  49575        14.69 %  learned literals
+c minishrunken:              49494        14.67 %  learned literals
+c otfs:                        134         1.29 %  of conflict
+c propagations:           21024841         3.70 M  per second
+c reduced:                    3522        33.91 %  per conflict
+c rephased:                      4      2596.75    interval
+c restarts:                    190        54.67    interval
+c stabilizing:                   2        51.82 %  of conflicts
+c substituted:                7558        12.77 %  of all variables
+c subsumed:                    859         0.06 %  of all clauses
+c strengthened:                131         0.01 %  of all clauses
+c ternary:                   26576         0.81 %  of resolved
+c weakened:                  15116         2.00    average size
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         6.26    seconds
+c total real time since initialization:           10.01    seconds
+c maximum resident set size of process:          319.36    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 0

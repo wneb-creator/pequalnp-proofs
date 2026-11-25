@@ -1,0 +1,16 @@
+../results/orch/lemmas/not_elimination_petersen_support.lean:57:54: error: Expected type must not contain free variables
+  false ≤ (false || false)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+../results/orch/lemmas/not_elimination_petersen_support.lean:57:54: error: Expected type must not contain free variables
+  false ≤ (false || true)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+../results/orch/lemmas/not_elimination_petersen_support.lean:57:54: error: Expected type must not contain free variables
+  true ≤ (true || false)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables
+../results/orch/lemmas/not_elimination_petersen_support.lean:57:54: error: Expected type must not contain free variables
+  true ≤ (true || true)
+
+Hint: Use the `+revert` option to automatically clean up and revert free variables

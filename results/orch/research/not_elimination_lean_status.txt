@@ -1,0 +1,3 @@
+Checked exit0: not_elimination_last.lean, not_elimination_repair.lean, not_elimination_constraints.lean.
+Incomplete exit1: not_elimination_petersen_support.lean (asInput_le_extend decide metavariable issue), not_elimination_failure.lean (Decidable synthesis for quantified Bool functions).
+Stopped proof work on root instruction after lease failure at 2026-11-25T14:38:48Z. No remaining subprocesses.

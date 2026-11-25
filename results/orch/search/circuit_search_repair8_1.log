@@ -1,0 +1,131 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 10 seconds real time (due to '-t 10')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-120/circuit_search_repair8_1.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-120/circuit_search_repair8_1.cnf'
+c found 'p cnf 59185 1312279' header
+c parsed 1312279 clauses in 0.66 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds   reductions  redundant   irredundant
+c          MB    restarts       trail        variables
+c           level   conflicts       glue          remaining
+c 
+c *  0.66 141  0 0   0    0    0  0% 0 1311222 31266 53%
+c {  0.68 143  0 0   0    0    0  0% 0 1311222 31266 53%
+c i  0.71 144 2116 0   1   64   51 74% 15 1311222 31264 53%
+c i  0.72 144 2051 0   1   66   52 74% 15 1311222 31263 53%
+c i  0.76 145 1024 0   1  139  118 73% 14 1311222 31262 53%
+c i  0.79 145 656 0   5  227  199 67% 14 1311222 31261 53%
+c -  1.00 138 529 1   6  300  255 66% 13 418533 31261 53%
+c i  1.03 141 469 1   6  338  292 67% 11 418533 31260 53%
+c i  1.26 141 182 1   9  981  858 69% 8 418533 31258 53%
+c }  1.26 141 179 1   9 1000  877 69% 8 418533 31258 53%
+c [  1.26 141  0 1   9 1000  877  0% 0 418533 31258 53%
+c O  1.27 141 20 1   9 1002  879 83% 5 418533 31258 53%
+c -  1.45 160 17 2   9 1273 1027 88% 8 416378 31258 53%
+c i  1.46 160 17 2   9 1289 1041 88% 8 416378 31257 53%
+c i  1.49 160 18 2   9 1379 1111 83% 8 416378 31255 53%
+c -  2.12 171 20 3  10 2732 1877 72% 9 413368 31255 53%
+c ]  2.48 168 21 3  10 3000 2113 40% 10 413368 31255 53%
+c {  2.48 168 179 3  10 3000 2113 130% 8 413368 31255 53%
+c F  2.48 168 178 3  10 3004 2117 130% 8 413368 31255 53%
+c i  2.67 168 126 3  24 3538 2596 103% 8 413368 31254 53%
+c 
+c  seconds    reductions  redundant   irredundant
+c          MB     restarts       trail        variables
+c            level   conflicts        glue         remaining
+c 
+c i  2.68 168 123 3  24 3574 2627 102% 8 413368 31253 53%
+c i  2.68 168 123 3  24 3577 2629 102% 8 413368 31252 53%
+c i  2.81 168 100 3  42 4009 2996 87% 7 413368 31251 53%
+c i  2.87 168 92 3  42 4199 3097 80% 7 413368 31250 53%
+c -  3.11 169 81 4  62 4671 2709 72% 7 409061 31250 53%
+c i  3.13 169 81 4  62 4702 2734 72% 7 409061 31249 53%
+c i  3.21 169 77 4  62 4868 2870 70% 7 409061 31248 53%
+c d  3.31 170 75 4  74 5001 2974 69% 7 395374 24413 41%
+c 2  3.53 170 75 4  74 5001 27287 69% 7 395363 23897 40%
+c p  3.67 170 75 4  74 5001 41208 69% 7 395363 23857 40%
+c d  3.71 170 75 4  74 5001 40458 69% 7 346924 23847 40%
+c d  3.73 170 75 4  74 5001 40438 69% 7 346915 23842 40%
+c }  4.04 170 63 4  96 5775 41093 60% 7 346914 23842 40%
+c ?  4.04 170 63 4  96 5775 41093 60% 7 346914 23842 40%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-120/circuit_search_repair8_1.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         2.92   86.40% search
+c         1.68   49.82% unstable
+c         1.22   36.01% stable
+c         0.66   19.51% parse
+c         0.46   13.60% simplify
+c         0.19    5.57% ternary
+c         0.14    4.23% probe
+c         0.02    0.56% lucky
+c   =================================
+c         3.38   83.67% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:              2008        34.77 %  of conflicts
+c conflicts:                  5775      1709.61    per second
+c decisions:                 17263      5110.47    per second
+c fixed:                     28493        48.14 %  of all variables
+c learned:                    5420        93.85 %  per conflict
+c learned_lits:             140217       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                  24891        17.75 %  learned literals
+c minishrunken:              20169        14.38 %  learned literals
+c otfs:                        130         2.25 %  of conflict
+c propagations:           12337567         3.65 M  per second
+c reduced:                    1083        18.75 %  per conflict
+c rephased:                      2      2887.50    interval
+c restarts:                     96        60.16    interval
+c stabilizing:                   1        34.46 %  of conflicts
+c substituted:                6850        11.57 %  of all variables
+c subsumed:                    585         0.04 %  of all clauses
+c strengthened:                117         0.01 %  of all clauses
+c ternary:                   24313         1.53 %  of resolved
+c weakened:                  13700         2.00    average size
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         4.04    seconds
+c total real time since initialization:           10.01    seconds
+c maximum resident set size of process:          319.24    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 0

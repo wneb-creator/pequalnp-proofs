@@ -1,0 +1,14 @@
+Stopped at root instruction after desk lease error.
+2026-11-25T14:39:26.252658+00:00
+
+COMPILED (pinned Lean 4.36.0):
+finite_certificate_projection_core.lean: exit 0, three unused simp argument warnings.
+finite_certificate_normalize.lean: exit 0, no diagnostics.
+
+INTERRUPTED, NO COMPILE VERDICT:
+finite_certificate_permutations.lean: own Lean PID 7046 stopped with SIGTERM at root request.
+Last complete stdout/stderr retained in finite_certificate_permutations.interrupted.log; empty up to interruption.
+
+UNCOMPILED INTEGRATION SNIPPETS:
+finite_certificate_projection_snippet.lean: proof bodies checked in projection_core; references existing 6581 namespace for integration.
+finite_certificate_permutations_snippet.lean: extracted transport/certificate declarations from interrupted source, not independently compiled.

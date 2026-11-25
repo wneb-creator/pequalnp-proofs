@@ -1,0 +1,9 @@
+../results/orch/lemmas/not_elimination_failure.lean:11:2: error: failed to synthesize
+  Decidable
+    (∀ (G : Bool → Bool → Bool) (a b x : Bool),
+      (∀ (p : Bool), Monotone (G p)) →
+        G a b ≤ G true false →
+          G (x || a) (!x && b) ≠ G (x || a) b →
+            a = false ∧ b = true ∧ x = true ∧ G false true = false ∧ G true false = false ∧ G true true = true)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

@@ -1,0 +1,9 @@
+2026-11-25T14:39:36.425581+00:00
+Independent review: PASS as a conditional partial checkpoint.
+Reviewer: status_review
+Artifact: results/orch/lemmas/gate_lower_bound_development.lean
+Scope: new first_live_tail_floor, first_live_absorbing_floor, and arithmetic corollaries, plus comparison against inherited L6581 core.
+The premise nineFloor : Lower true inputs graph 15 is explicit in every theorem needing the nine-variable lower bound. No axiom, sorry, or hidden global assumption was found.
+The first tail bound charges one retained projected-zero source; the absorbing case charges two distinct retained projected-zero sources. Distinctness is checked for j != 0. Arithmetic corollaries count NOT and non-NOT gates consistently.
+The existing compiler log contains warnings only. This artifact does not prove an unconditional Petersen bound or the posted gap.
+Scratch formatting reopens its outer helper namespace; consolidate when assembling a final eligible proof.
