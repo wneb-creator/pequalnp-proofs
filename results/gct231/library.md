@@ -38,3 +38,13 @@ Target: a complex 3-dimensional submodule of symmetric 4-by-4 matrices t on whic
 No `barriers/l037/STATE.md` or `plan/README.md` exists in this clone. A bounded filename search found only our earlier `results/orch/STATE.md` and unrelated checked L037 modules. No repository theorem with the requested symmetric 3-dimensional conclusion was found.
 
 The missing mathematical step remains an explicit symmetric 3-parameter family (or a proof that none exists); the Lean expansion and dimension bookkeeping are available.
+
+## Independent review of shared helpers
+
+`/tmp/oec/pequalnp-pilot-75/gct231/lean/Helpers.lean`, SHA256 `428d0f7caffd36ebe05e217bf8069fb4527007eeb54643aa3188532743e9e3d0`: PASS. Independently compiled with exit 0 and empty full log `gct231/library/helpers-review-build.log`. The range wrapper retains injectivity, symmetry, and permanent constancy as explicit hypotheses; it does not assert the missing family exists. The symmetric permanent formula is the standard 17-term form. Format checks found no prohibited constructs.
+
+`ThreeMap.lean`: the only addition to Helpers is the expected linear map sending `(x,y,z)` to `xA+yB+zC`, with linearity proved by ring identities. Source-level review passes; compilation was performed by its author.
+
+`Diagonal.lean`, SHA256 `723067e42cc50c0204a39d0d787dc2c821fd4fa7ca84f7cf197556194c60853f`: PASS. Independently compiled with exit 0 and empty complete log `gct231/library/diagonal-review-build.log`. New claims are diagonal_entries_zero and diagonal_rigid: a purely diagonal direction whose entire scalar line has permanent 24 must vanish. The evaluations at ±1 and ±2 correctly recover e₁ through e₄ from `24 + 6e₁z + 2e₂z² + e₃z³ + e₄z⁴`; the monic quartic then forces each entry to have fourth power zero. This does not force the diagonal entries of general, non-diagonal level directions to vanish. The independent mathematical reviewer status_review also confirmed this distinction and argument. Format review passes.
+
+`Projection.lean`, SHA256 `3f018366fc7e3c7b198c2c912c72a598be9a19e75dd50e1fba5a431b2ba3d9f8`: PASS. Independently compiled with exit 0 and empty complete log `gct231/library/projection-review-build.log`. The only additions beyond Diagonal prove that all off-diagonal entries determine a member of any level submodule, define the six upper-triangular coordinates as a linear map, and prove this map injective on a symmetric level submodule. Applying diagonal rigidity to all scalar multiples of the difference is justified by submodule closure. Symmetry recovers the six lower-triangular entries. There is no dimension hypothesis or unconditional existence/nonexistence claim. Format review passes.

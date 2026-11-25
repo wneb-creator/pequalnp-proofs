@@ -1,10 +1,13 @@
 Gap: L-gct-231
 Status: PARTIAL ONLY; no proof/refutation and no PR.
 Named file: lean/PEqualNP/Outside/L_gct_231.lean
-Source:66lines,3019bytes,SHA256428d0f7caffd36ebe05e217bf8069fb4527007eeb54643aa3188532743e9e3d0
-Named lake build: exit0; complete build-partial-01.log. Independent source review and recompilation PASS.
+Source:159lines,6719bytes,SHA2563f018366fc7e3c7b198c2c912c72a598be9a19e75dd50e1fba5a431b2ba3d9f8
+Named lake build: exit0; complete build-partial-02.log. Independent source review and recompilation PASS.
 Scope: permanent expansion, coordinate injectivity, and conditional range construction requiring an explicit valid linear map. No such map supplied.
 Cleanup: not reached.
 Sub-agents:7 (status_review,structural_proof,library_route,finite_cases,lean_setup,global_normal_form,fresh_main_proof)
-TIMING total=160.0 subagents=7
+TIMING total=165.3 subagents=7
 Message ID: msg-8f0f42bb760e4ee78f16c6cd
+New checked necessary condition: purely diagonal constant-permanent directions vanish. Consequently all off-diagonal entries determine any member of such a submodule; symmetry reduces this to six upper-triangular coordinates. No finrank3 existence/nonexistence is proved.
+Independent source review and compilation PASS for Diagonal and Projection. Named build02 exit0. Axiom audit of all three new lemmas uses only propext,Classical.choice,Quot.sound.
+Checker01: REJECTED(no-theorem), exit1; full log preserved. Checker02 for the new partial is running.
