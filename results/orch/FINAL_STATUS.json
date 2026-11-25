@@ -1,0 +1,30 @@
+{
+  "job_id": "msg-e98796d0d0ad050188abca1f",
+  "gap": "L-meta-650",
+  "branch": "pnp/pilot-57",
+  "preserved_artifact_commit": "79515136c52ef5ab5b5d8365724f86e103bec53f",
+  "outcome": "unresolved: no proof or refutation of the posted target",
+  "pr": null,
+  "target_checker": "not run (target unresolved; no target submission file)",
+  "all_searches_stopped_before_utc": "2026-11-25T07:50:00Z",
+  "own_lease_release": {
+    "released": "L-meta-650",
+    "reason": "out_of_time"
+  },
+  "release_response_saved_utc": "2026-11-25T07:56:42.689896+00:00",
+  "null_desk_responses": 3,
+  "exact_null_message": "no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes",
+  "subagents": [
+    "algebra_strategy",
+    "circuit_search",
+    "lean_baseline",
+    "lower_bound",
+    "reduction_analysis",
+    "status_review"
+  ],
+  "timing_total_minutes": 357.6,
+  "subagent_count": 6,
+  "recorded_utc": "2026-11-25T07:58:42.430426+00:00",
+  "final_preservation_review_receipt": "results/orch/final-review-staged-hashes.json",
+  "final_preservation_review_scope": "150 staged paths independently reviewed before the preservation push; receipt does not cover this subsequent administrative status commit"
+}
