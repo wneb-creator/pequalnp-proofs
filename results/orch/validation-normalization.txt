@@ -1,0 +1,26 @@
+L-meta-1884 partial validation
+UTC: 2026-11-25T16:51:27.639167+00:00
+Source: results/orch/lemmas/normalization.lean
+SHA256: 76f10164f102d74ad8dfee3bc35de08002461356714ad6dc4f86a1134b305fb0
+Command: lake env lean ../results/orch/lemmas/normalization.lean (repository build queue)
+Exit status: 0
+Complete stdout:
+../results/orch/lemmas/normalization.lean:82:78: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/normalization.lean:671:40: warning: This simp argument is unused:
+  List.getElem?_append_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+Complete stderr:
+
+Scope: checked helpers only. The exact posted theorem remains unproved. No proof PR is ready; gap checker not yet run.
+Sub-agents: 6 (rules/toolchain/normalization; structural proof; counterexample search; existing lemmas; combinatorial review; finite certificates)
+TIMING total=13 subagents=6
