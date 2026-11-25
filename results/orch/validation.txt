@@ -19,6 +19,10 @@ The final post-acceptance cleanup pass has not been reached. Earlier partial tri
 Desk null replies:0. Only the L-meta-2373 lease is held; it is renewed every5minutes.
 
 Sub-agents: status_review, proof_structure, counterexample, library_route, lean_setup, finite_invariants
-TIMING total=111.8 subagents=6
+TIMING total=133.8 subagents=6
 
 A real ten-wire subtree is now fully kernel-checked: all1440 ordered branches are excluded, giving signed Lower13 for that frontier. Its exact symbolic-word compression reduces the append-only proof package104656→59138bytes, with both versions and full logs preserved. The adjacent-OR positive-formula lower bound20 leaves is independently checked; it does not cover arbitrary circuit sharing. Indexed/intermediate/compressed-wire cofactor bridges and the positive-width generic foundation are also checked partials.
+
+Checkpoint update: the general cofactor-pruned recursive certificate soundness theorem and its concrete14-node,269-entry fixture application now compile. The fixture excludes one real12-root state, not the original root. Standard axiom audit for the generic theorem and completed application reports only propext, Classical.choice, Quot.sound; full output: pruned-axiom-audit.txt. All five representative first-prefix positive-formula lower bounds and the tight-Run rectangle bridge compile. An exact weighted rectangle certificate excludes the actual20-root terminal bank41908 (target weight116, root-cost sum104), with a checked BudgetRunCut adapter. These are partial components. The mono19 first-OR-edge computational case remains unfinished.
+
+Metadata-based reversible identifier compression compiled successfully and reduces the frozen named partial source from353344 to333623bytes, preserving public endpoints. The compressed variant is archived as NamesCompressed.lean; the active target is unchanged. No exact gap theorem or accepted checker result has been produced.

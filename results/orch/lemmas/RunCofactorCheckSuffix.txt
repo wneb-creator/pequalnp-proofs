@@ -1,0 +1,22 @@
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+def runCofactorCheck (u : Bool) (raw : List Sig) (d : Sig) (L cap : Nat)
+    (ws : List Sig) (cs : List Choice) : Bool :=
+  match makePool u d raw cs with
+  | none => false
+  | some pool => poolCut u d L cap cs.length pool ws
+
+theorem runCofactorCheck_sound {u raw T d L cap ws cs}
+    (slice : Slice u raw T d L)
+    (check : runCofactorCheck u raw d L cap ws cs = true)
+    {k : Nat} (bound : k ≤ cap) :
+    ¬ Run u (observe T) k (ws.map observe) := by
+  cases built : makePool u d raw cs with
+  | none => simp [runCofactorCheck, built] at check
+  | some pool =>
+    have cut : poolCut u d L cap cs.length pool ws = true := by
+      simpa [runCofactorCheck, built] using check
+    exact poolCut_run_sound slice cs built cut bound
+
+end PEqualNP.Outside.L_meta_2373.Live1024

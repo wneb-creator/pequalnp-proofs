@@ -1,0 +1,14 @@
+EXPERIMENTAL first-copy recurrence mode=0 group=120
+nodes=3563 steps=0 card=0 cover=0 cof=2553 formula=455 share1=0 fullcover=0 clips=613474 signals=51252 seconds=10.1898 levels=0:3174,1:341,2:29,3:5,4:4,5:3,6:2,7:2,8:1,9:1,10:1,
+copyclosures=553 entries=22256 subchecks=322603 subcuts=306397
+nodes=13461 steps=0 card=0 cover=0 cof=9418 formula=1345 share1=0 fullcover=0 clips=938167 signals=83151 seconds=20.19 levels=0:11171,1:2070,2:198,3:8,4:4,5:3,6:2,7:2,8:1,9:1,10:1,
+copyclosures=1745 entries=58018 subchecks=669372 subcuts=630920
+nodes=34845 steps=0 card=0 cover=0 cof=23519 formula=2601 share1=0 fullcover=0 clips=1159246 signals=110369 seconds=31.4568 levels=0:26052,1:6835,2:1691,3:213,4:32,5:14,6:3,7:2,8:1,9:1,10:1,
+copyclosures=3915 entries=110251 subchecks=1069264 subcuts=1003352
+nodes=35185 steps=0 card=0 cover=0 cof=23746 formula=2695 share1=0 fullcover=0 clips=1506522 signals=148833 seconds=41.4991 levels=0:26391,1:6836,2:1691,3:213,4:32,5:14,6:3,7:2,8:1,9:1,10:1,
+copyclosures=4010 entries=117387 subchecks=1213551 subcuts=1141541
+nodes=37639 steps=0 card=0 cover=0 cof=25470 formula=2995 share1=0 fullcover=0 clips=1792443 signals=180200 seconds=53.422 levels=0:28698,1:6982,2:1692,3:213,4:32,5:14,6:3,7:2,8:1,9:1,10:1,
+copyclosures=4355 entries=133439 subchecks=1449313 subcuts=1365080
+limit reached
+nodes=41908 steps=0 card=0 cover=0 cof=28401 formula=3426 share1=0 fullcover=0 clips=1915194 signals=196022 seconds=60.0075 levels=0:32314,1:7563,2:1763,3:214,4:32,5:14,6:3,7:2,8:1,9:1,10:1,
+copyclosures=4896 entries=151884 subchecks=1657684 subcuts=1560075

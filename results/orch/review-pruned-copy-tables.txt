@@ -1,0 +1,16 @@
+Independent frozen source-to-fixture and wrapper review by status_review: PASS.
+
+PrunedCopyFixture0Tables.lean SHAa1fa742ea398412c1ccee1c76e0d70019323bd58fbf0b97737dd90d75aa75b8a,61661bytes.
+PrunedCopyFixture0Node.lean SHA5ced14547af9b7e8d780a23f77f04c0def704c2f92c2b90dacde2f7365c49bb4,9812bytes.
+Both compiler logs record exit0. Their EntryGateChecker/EntryTableAdapters dependencies were independently reviewed by root; the42 concrete cuts were independently reviewed here.
+
+I parsed all actual Lean root-label lists, entry masks, signal indices, cut lists and row lists and compared them with the audited finite JSON. All14 bases and269entries match. Direct Sum(Fin12)Bool labels preserve original indices and distinguish the two copies even when values coincide. The root raw function is the exact original12-signal list; each child raw function duplicates the selected root entry value.
+
+All42 BudgetRunCut adapters enumerate precisely the outside-support labels, lifted once more by Sum.inl, plus the new false-copy singleton. Their list values equal the previously audited cutWs list with duplicates preserved. Every explicit cap equals compressed_basis.card+depth−1. The finite row lists contain258 witnesses; independent exhaustive regeneration confirms all3729 otherwise-uncovered gate alternatives are rejected. All13 depth0 PrunedNode statements refer to the exact child bases/raw values/certificates.
+
+For the final wrapper, each of13 childBasis identities and bridge arguments matches its original copied mask/value. All152 disjoint-parent bridge alternatives are covered by child entries, the42 supplied cuts, or the chosen row witnesses. completedPrunedNode exhausts exactly the13 root entries and supplies the corresponding checked child certificate and bridge. It has no hypotheses and uses the finite checks with declaration-local limits only.
+
+This is an unconditional checked depth1 recurrence certificate for the concrete root fixture. Its implication to actual Live impossibility remains a separate generic theorem being proved by counterexample; this review does not claim the posted gap is solved. No forbidden proof form or hidden assumption was found.
+
+Final Live wrapper independently reviewed: PASS.
+PrunedCopyFixture0Complete.lean SHAb2003cc27a0131d696a775a6caa22fc74f250bb0bc918d705aabf4a262b8eff2,757bytes, compiler exit0. completed_live_exclusion proves Impossible false graph12 for exactly roots0.image nodeRaw0. Its cardinality premise is derived from the checked raw_card=12 and k≤12, giving k+1≤card+1. It supplies the exact depth1 certificate, initial partition/certificate/ReadOnce/support package and pair-column gate/cover semantics to pruned_node_exclusion_state. No extra hypothesis or altered target appears. The generic PrunedSound proof has its separate dependency review; this wrapper now closes the concrete recurrence into an actual Live exclusion, not merely a table predicate. It still does not prove the original posted gap.

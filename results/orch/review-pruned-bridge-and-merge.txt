@@ -1,0 +1,45 @@
+Independent source review: PrunedBridgeResolve and PrunedMerge
+Reviewer: library_route
+Verdict: PASS, no blocking findings.
+
+Reviewed exact sources:
+PrunedBridgeResolve.lean
+SHA256 60e2838f369635f3952eca2e5496d869bdaffc32c5115e34038226e3e4f9a190
+PrunedMerge.lean
+SHA256 e45127f96bc1efbe69f0eed22a3fb96d35f76c48bf5a60bdc11d342438efdeb5
+
+Bridge review:
+The original state is S = insert a (insert b U), and a remains in U.
+The fresh new wire z is a distinct index, but the intermediate Run maps its
+value to a. Thus the two new labelled singleton roots really both carry a;
+this does not assert a duplicate-valued fresh Live state. The retained a is
+still an independent index. The old b is included even when consumed at the
+binary step; first_copy_run_general explicitly covers both b-in-U cases.
+For each old v different from a, freshness also gives v different from z,
+so its copied label is exactly liftLabels(label v), and its value is v.
+The compressed indexed-forest cut therefore uses precisely the bridge's
+outside-B-plus-v basis and the same duplicateRaw values.
+The source Run has k+1 gates and index set insert z S of cardinality |S|+1.
+The required inequality k+2 <= |insert z S|+depth follows exactly from the
+stated parent cap k+2 <= |S|+(depth+1); no budget unit is lost.
+
+Merge review:
+pruned_closed_live derives admissibility and properness from the actual Live
+tail, then resolves either a retained entry or the exact compressed-wire
+BudgetRunCut for its union label. pruned_merge_transfer requires both inputs
+to be consumed, assigns their disjoint union to z, and leaves every U label
+unchanged. ReadOnce.combine uses the same disjoint supports and permitted
+operation. Freshness supplies both output/operand inequalities. The supplied
+tail cap has the correct unchanged deficit after consuming two roots and
+inserting one. Partition, ReadOnce provenance, and column support all refer
+to the same next-label map.
+
+Supporting interfaces read: PrunedInterface; relevant PrunedStructural
+lemmas; FirstCopyRunGeneral; CopyInputPartition and copy_input_readOnce;
+CompressedIndexedForest; and their exact BudgetRunCut/label definitions.
+Neither reviewed source contains sorry, axioms, native_decide, or _root_.
+The author reported exit 0 for both Lean builds; archived compile logs are
+empty. This review did not launch a redundant build. These are generic helper
+lemmas and do not themselves instantiate the recursive fixture or prove the
+posted gap. Scratch-only module imports must be inlined for a final allowed
+single-file submission.

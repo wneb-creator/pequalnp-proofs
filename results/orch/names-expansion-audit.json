@@ -1,0 +1,10 @@
+{
+  "original_sha256": "8c4c7d99c9079fb7fe118236e2cd7f9f248273a82071a29e349a62ddf81bb85f",
+  "compressed_sha256": "9a3a96e0579986397e32604f30b98368a101ec68c09ecc685e6498f1e3f36381",
+  "original_bytes": 353344,
+  "compressed_bytes": 333623,
+  "savings": 19721,
+  "constants": 683,
+  "edits": 3863,
+  "tokenwise_reverse_exact": true
+}

@@ -1,0 +1,41 @@
+{
+  "description": "Tight banks from an incomplete computational search",
+  "files": {
+    "README.md": {
+      "bytes": 1285,
+      "sha256": "cd9362e2461eefbc9c3a20b11e3dd8ac88f40c2df199eac03497f00bee4d3ac5"
+    },
+    "compile-copy-pruned-banks.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "compile-copy-pruned-fresh.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "copy-closure-banks-selected.json": {
+      "bytes": 44146,
+      "sha256": "047d7d8abd8d18cd44ade9ffd61b04a6db494724a6af0e06439a8723de443c98"
+    },
+    "copy-closure-banks.jsonl": {
+      "bytes": 222020,
+      "sha256": "ce5e586dee883407a85c44befbf4162c7a0274d18cb2cf577477422d8249f052"
+    },
+    "copy-pruned-banks-mono19-60.log": {
+      "bytes": 1460,
+      "sha256": "244c076ca5d9946d8b0f3bcf303c0fb394d5f424a58a932ed854352c8b84ba0e"
+    },
+    "copy-pruned-fresh-mono19-120.log": {
+      "bytes": 1459,
+      "sha256": "29abc26e966a6990ab428a036e4e1b72f94f207f2d9af51b09c23d0cc25ba757"
+    },
+    "copy_search_pruned_banks.cpp": {
+      "bytes": 34531,
+      "sha256": "2873da9cb7305ef806b00500f2230d321cef9297e004e4f8b14850cfe68b78ae"
+    },
+    "copy_search_pruned_fresh.cpp": {
+      "bytes": 33175,
+      "sha256": "24695b75e1ab0e72944323bf9c7794ee05b3c5a92407c92cb40321654aad4509"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+Source-budget investigation by lean_setup, 2026-11-25 UTC
+
+Conclusion: safe dependency pruning and shared positive-width foundations help, but do not provide the requested100KB reduction. A helper budget below250KB is not realistic from these changes alone. Original checked sources and the active target remain unchanged.
+
+Baseline measurements
+- NineSignedReach.lean:247029 bytes,756 source declarations.
+- PetersenSeventeenFull.lean:330182 bytes.
+- No numeric token longer than20 characters repeats in either file. Factoring repeated large Sig512 numerals therefore saves0 bytes.
+- All numeric tokens in NineSignedReach total46695 bytes. Many long tokens are already packed certificate naturals, not repeated truth tables.
+- Global shortening of declared helper names to four characters has an optimistic17529-byte saving. This is separate, invasive source compression and was not applied.
+
+Exact dependency analysis
+The scratch audit walks elaborated constant types and proof/definition values, including generated and private constants. It does not use lexical names to infer kernel dependencies.
+- Roots for17/18/GapBridge consumers:738 retained source declarations.
+- Union with SliceProfiles, proper-subgraph lifting, RunPoolCut and copied-basis/forest consumers:the same738 declarations. The nine_reach_lower proof already uses the proper-subgraph certificates.
+- Retained block text:238254 bytes. Complete reconstructed module:239143 bytes.
+- One additional source-only dependency is required by a simp command:nrm_false. Restoring it unchanged yields739 declarations and239198 bytes, a7831-byte reduction.
+- The first full compile checked the retained certificates and reported only the missing-source-lemma simp failure. The corrected-source build exited0 with181warnings and no errors. Its exact source and complete log are archived as NineSignedPruned.lean and NineSignedPruned.compile.txt.
+
+Shared-width feasibility
+WidthPrototype.lean is a checked741-line,39758-byte generalization of the Live1024Count prefix before concrete input tables. It uses Sig=BitVec(width+1), Row=Fin(width+1), explicit width parameters where inference requires them, and two explicit Fin index-bound facts. Live extraction, normalization, Reach/Run contraction, row tables and list_run all compile for arbitrary positive widths.
+Independent review mechanically reversed these changes to the original prefix, modulo whitespace; review-width-prototype.txt records PASS.
+
+The two original512/1024 prefixes total about67KB. Keeping compatibility aliases for all114 names costs approximately10–14KB, so the current generalized prefix saves only14–17KB. A smaller public alias surface can improve this. Later generic checker/lower-bound sections offer roughly another10–15KB of duplicate source before parameter/alias overhead. These savings overlap with dependency pruning, particularly the old nine-variable circuit extraction; they must not simply be added twice. A realistic combined helper budget remains roughly290–310KB, depending on how aggressively compatibility names are removed. No large rewrite has been started.
+
+Trust boundary
+The metadata extractor lives only in scratch. Proof archives contain ordinary Lean declarations with the permitted import and no sorry, axioms, native_decide, bv_decide, unsafe mechanism or custom datatype. Exact retained source blocks are unchanged by pruning. The width-generalized framework is a reusable proof component, not the posted gap theorem.
+
+Metadata-based naming follow-up
+The frozen .ilean supplies exact constant definition/reference spans. After preserving47 public/namespace endpoints,683 undotted internal helper names were replaced at3863 exact name-component spans by fresh three-character names absent from all original identifiers. Receiver prefixes, local binders and imported names are unchanged. The standalone source shrinks353344 to333623bytes, saving19721bytes(5.6%). Full compile EXIT0,201warnings,0errors. Independent review verified every edit against metadata and both forward replay and tokenwise inverse expansion byte-exactly. Reversible map, expansion audit, preserved endpoints, source and complete log are archived. This improves the budget but still does not establish a sub250KB combined helper budget.

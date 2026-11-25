@@ -1,0 +1,4 @@
+Independent review: PASS
+Reviewed by finite_invariants at 2026-11-25T15:04:28.072978+00:00
+SHA256 1b0561b310dbbe442dc61ec48e4d2ebb1667985e13e228f22dcfcc85ba4f5cec
+Read the entire28-line adapter and the BudgetRunCut definition. Fin20 indexes the20 original occurrences through the checked labels list, preserving multiplicity. The Finset univ list is permuted to finRange20, whose mapped indexedRaw list is definitionally the bank_exclusion list. Run length gives20<=k+1; depth0 BudgetRunCut cap givesk+1<=20, hence k=19. The final contradiction is exactly the checked bank_exclusion. Empty log and reported EXIT0 agree. No new axioms, sorry, native_decide or strengthened hypotheses.

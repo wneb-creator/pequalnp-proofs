@@ -1,0 +1,4 @@
+/tmp/oec/pequalnp-pilot-87/finite_invariants/RectangleRun.lean:138:21: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲

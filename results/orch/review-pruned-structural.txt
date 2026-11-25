@@ -1,0 +1,12 @@
+Independent immutable structural-module review by status_review: PASS.
+
+PrunedStructural.lean SHA256597f8f014b1bf8be278a7c1dbc5de5bea70c35fa3281f5f0985f71fbfe9244bc
+22573bytes481lines. Author reports compiler exit0; complete log has inherited linter/deprecation warnings and no errors. Exact source equals the two cached imports, namespace wrapper and preserved PrunedStructuralSuffix.
+
+Eleven declarations are byte-identical to the previously reviewed forest/double-sharing/general-first-copy helpers. The two public Live lemmas are byte-identical to the original private Count lemmas after changing only private lemma/name to public theorem/new name. Thus no new bound or hidden assumption enters through public exposure.
+
+The only new mathematical interface is merge_partition_frame. It explicitly updates only the fresh output z to label(a) union label(b), while preserving labels of every retained wire in U. The original LabelPartition plus a,b absent from U proves coverage, subset and pairwise disjointness after that merge. ColumnSupport for z follows from the explicit gate-column union hypothesis; other supports are unchanged. Returning the two label equations is sound. Removing certificate/closed premises is justified because the result contains only the partition/support frame, no certificate membership assertion.
+
+The general first-copy Run lemma is copied exactly and preserves deliberate duplicate values through index lists. No copied proof was weakened or silently generalized. Both cached imported module sources are preserved; CompressedIndexedForest has its separate checked review, and PrunedInterface's finite-interface review is assigned separately to proof_structure.
+
+No forbidden proof form, global resource option, attribute or added axiom occurs. This structural module supports the pending pruned-copy checker; it is not an unconditional target exclusion.

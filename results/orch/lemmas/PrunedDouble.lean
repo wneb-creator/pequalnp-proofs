@@ -1,0 +1,75 @@
+import PrunedMerge
+import SharingReadOnce
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+theorem pruned_double_transfer {α Ω : Type} [DecidableEq α]
+    (roots : Finset α) (raw : α → Sig) (col : Sig → Set Ω) (need : Set Ω)
+    (Cert2 : Finset (Sum α Bool) → Sig → Prop)
+    (Cert3 : Finset (Sum (Sum α Bool) Bool) → Sig → Prop)
+    (u : Bool) (T : Sig) (depth : Nat)
+    (gateCol : ∀ d a b, allowed u d → col (bin d a b) ⊆ col a ∪ col b)
+    (rowCover : ∀ k S, Live u T k S → ∀ o ∈ need, ∃ v ∈ S, o ∈ col v)
+    (U : Finset Sig) (a b : Sig) (d k : Nat) (label : Sig → Finset α)
+    (hd : allowed u d) (hab : a ≠ b)
+    (fresh : bin d a b ∉ insert a (insert b U)) (ha : a ∈ U) (hb : b ∈ U)
+    (tail : Live u T k (insert (bin d a b) U))
+    (cap : k + 1 ≤ (insert (bin d a b) U).card + depth)
+    (part : LabelPartition roots (insert a (insert b U)) label)
+    (entries2 : ∀ v ∈ insert a (insert b U), v ≠ a → Cert2 (liftLabels (label v)) v)
+    (traces : ∀ v ∈ insert a (insert b U), ReadOnce raw u (label v) v)
+    (supports : ∀ v ∈ insert a (insert b U), ColumnSupport raw col (label v) v)
+    (initial3 : ∀ r ∈ duplicateRoots (duplicateRoots roots (label a)) (liftLabels (label b)),
+      Cert3 {r} (duplicateRaw (duplicateRaw raw a) b r))
+    (closed3 : PrunedGateClosed
+      (duplicateRoots (duplicateRoots roots (label a)) (liftLabels (label b)))
+      (duplicateRaw (duplicateRaw raw a) b) col need Cert3 u T depth)
+    (bridge2 : PrunedBridge (duplicateRoots roots (label a)) (duplicateRaw raw a)
+      col need Cert2 Cert3 u T depth (liftLabels (label b)) b) :
+    LabelPartition
+      (duplicateRoots (duplicateRoots roots (label a)) (liftLabels (label b)))
+      (insert (bin d a b) U) (doubleSharingLabels label a b (bin d a b)) ∧
+    (∀ v ∈ insert (bin d a b) U, Cert3 (doubleSharingLabels label a b (bin d a b) v) v) ∧
+    (∀ v ∈ insert (bin d a b) U, ReadOnce (duplicateRaw (duplicateRaw raw a) b) u
+      (doubleSharingLabels label a b (bin d a b) v) v) ∧
+    (∀ v ∈ insert (bin d a b) U, ColumnSupport (duplicateRaw (duplicateRaw raw a) b) col
+      (doubleSharingLabels label a b (bin d a b) v) v) := by
+  have pn := double_sharing_partition roots U a b (bin d a b) label hab fresh ha hb part
+  have tn := double_sharing_readOnce raw u U a b d hd fresh label traces
+  have sn := double_sharing_support raw col u gateCol U a b d hd fresh label supports
+  have admissible := partition_admissible _ _ col need pn sn (rowCover k _ tail)
+  have za : bin d a b ≠ a := fun eq => fresh (by simp [eq])
+  have zb : bin d a b ≠ b := fun eq => fresh (by simp [eq])
+  have ca : Cert3 {Sum.inl (Sum.inr true)} a :=
+    initial3 _ (by simp [duplicateRoots, liftLabels])
+  have cb : Cert3 {Sum.inr true} b :=
+    initial3 _ (by simp [duplicateRoots])
+  have generated := pruned_closed_live _ _ col need Cert3 u T depth rowCover closed3
+    tail cap _ pn tn sn {Sum.inl (Sum.inr true)} {Sum.inr true} a b d
+    (by simp) hd hab za zb ca cb (by simp)
+    (by simp [doubleSharingLabels, Finset.singleton_union])
+  refine ⟨pn, ?_, tn, sn⟩
+  intro v hv
+  by_cases vz : v = bin d a b
+  · subst v
+    simpa [doubleSharingLabels, Finset.singleton_union] using generated
+  have vu : v ∈ U := (Finset.mem_insert.mp hv).resolve_left vz
+  by_cases va : v = a
+  · subst v
+    have leaf := initial3 (Sum.inl (Sum.inr false)) (by simp [duplicateRoots, liftLabels])
+    simpa [doubleSharingLabels, vz, duplicateRaw] using leaf
+  by_cases vb : v = b
+  · subst v
+    have leaf := initial3 (Sum.inr false) (by simp [duplicateRoots])
+    simpa [doubleSharingLabels, vz, va, duplicateRaw] using leaf
+  have old : v ∈ insert a (insert b U) := by simp [vu]
+  have adm := admissible v hv
+  simp only [doubleSharingLabels, if_neg vz, if_neg va, if_neg vb] at adm
+  rcases bridge2 (liftLabels (label v)) v (entries2 v old va)
+    (liftLabels_disjoint (part.2.1 b (by simp) v old (Ne.symm vb))) adm with found | cut
+  · simpa [doubleSharingLabels, vz, va, vb] using found
+  · exfalso
+    apply compressed_wire_forest_exclusion _ _ u T depth tail cap _ pn tn v hv
+    simpa only [doubleSharingLabels, if_neg vz, if_neg va, if_neg vb] using cut
+
+end PEqualNP.Outside.L_meta_2373.Live1024

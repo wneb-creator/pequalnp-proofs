@@ -1,0 +1,6 @@
+Independent root review: PASS.
+Source EntryTableAdapters.lean, SHA256 bff5dd53d0b1c820d6094041b8f441acd32443c463ce3e3918d507154f59aeda. Full preserved compiler log records exit0, with only the deprecated if_pos warning. This is a finite checking adapter, not an exclusion of the full Petersen instance.
+
+The list adapter requires noduplicated labels, exact basis equality and exact raw-value equality, then transports Run by permutation without discarding repeated wire values. The budget inequality implies the supplied cap by natural arithmetic. Leaf checking covers every basis label. Bridge checking covers every source entry disjoint from the duplicated support and returns membership, an explicit nested compressed-basis Run cut, or a contradiction to admissibility. The depth-zero constructor exposes precisely the leaf, closure and target-absence obligations; its recursive field is trivial only because depth is zero.
+
+The imports are preserved checked helper modules. No new axiom, sorry, native_decide, unsafe/meta command, custom datatype/instance, forbidden namespace text, string literal, attribute or option is introduced. All cofactor exclusions remain explicit cutSound/blocked hypotheses; no raw search verdict is trusted.

@@ -1,0 +1,11 @@
+Independent immutable source/math review by status_review: PASS.
+
+RectangleOrEdgeRun.lean SHAc7ef98685c8377c1c8422f2bc861a9c6dde5e3bd4eb3b419ad739f9dd798964e (60lines).
+RectangleRunIndexed.lean SHA7dc46c45a36aaec15394eca9479dd0c71f4af57ec8db6b54cddf859b3ff8b129 (31lines).
+Both author builds reported exit0 and frozen complete logs are empty. All cached imports are preserved and independently reviewed.
+
+The concrete OR-edge basis is exactly the ten Live1024 inputs plus their0/1 OR. I independently checked all330 sample-input bits; the30 graph sample classifications are already checked by the rectangle-data audit and are also kernel-checked in this wrapper. prefix_bound transports the leaf rectangle cap4 to the exact Live observations. The final theorem permits arbitrary repeated roots from that11-signal basis. With exact tightness and at most19 root occurrences it derives79≤4*19=76, a contradiction. The19 bound is on root occurrences; tightness gives at most18 tail gates. No claim is made for a20-root/19-gate tight state.
+
+The indexed extension compares measures and caps by induction over the original label list, then composes with tight_run_bound. It retains every repeated label/value occurrence and requires the corresponding explicit Bounds premise for each. No raw-function injectivity, deduplication or hidden uniform-cap assumption is used.
+
+No forbidden proof form, global resource option or extra trust assumption found. These are actual tight-Run bounds usable in the first-OR copy search, subject to the stated tightness and basis hypotheses.

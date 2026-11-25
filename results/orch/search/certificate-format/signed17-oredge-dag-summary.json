@@ -1,0 +1,29 @@
+{
+  "root": [
+    "part2",
+    1
+  ],
+  "trace_sha256": {
+    "part1": "95ac0317b254cb8d0532bc6c730fae33e01bf28067d2e694a6ae1bc539b9c3fb",
+    "part2": "4118466ecb357314b760ea7b424053e7406917b07e327f620d3c8cb5126fa24a"
+  },
+  "total_visited": {
+    "part1": 302957,
+    "part2": 54844
+  },
+  "reachable": {
+    "part1": 301757,
+    "part2": 54844
+  },
+  "kinds": {
+    "expand": 649,
+    "cofactor": 203215,
+    "row": 144859,
+    "memo": 5047,
+    "formula1": 1491,
+    "formula0": 1340
+  },
+  "dependency_edges": 361635,
+  "pending_formula_leaves": 2831,
+  "note": "Computational dependency DAG; formula leaves and final Lean embedding remain pending"
+}

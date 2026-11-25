@@ -1,0 +1,10 @@
+Independent review by lean_setup, 2026-11-25 UTC
+
+Verdict: PASS.
+SHA256: afbc6849a0606fab3321a70a91e13e0563c53b5c78a8a4b40861524f37d2d0bb
+Source: results/orch/lemmas/IndexedCopyBridge.lean
+Read the complete2372-byte source and complete compiler log, which records EXIT0 and no diagnostics.
+
+copyIndex sends ordinary Fin n labels to their original indices and sends the two copies to n and n+1. Its case proof establishes injectivity for every n, including n=0; no raw-signature injectivity is assumed. runCut_of_image uses this general injective-label principle: the mapped nodup root list is a permutation of nextRoots, so both root cardinality and the depth budget agree. Mapping the pointwise raw equality through observe preserves the full wire list and its repeated values. Run.perm transports the hypothetical Run into exactly the list excluded by blocked. The direction of transport and bound are correct.
+
+No axioms, sorry, native_decide, bv_decide, custom datatype/instance, unsafe mechanism, string literals, _root_, attributes or option changes. All declarations are target-prefixed. The cached PetersenSeventeenFull import is test scaffolding to inline with the reviewed base in a final single-file proof. This is a generic representation bridge, not a full-gap theorem.

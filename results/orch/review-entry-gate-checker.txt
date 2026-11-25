@@ -1,0 +1,6 @@
+Independent root review: PASS.
+Source EntryGateChecker.lean, SHA256 842c5a74dde283f60bfd6f2fba51242777f7342729cfd76d58d8a974f2425499. Full preserved compiler log records exit0, with only the deprecated if_pos warning. This is a finite checking adapter, not an exclusion of the full Petersen instance.
+
+columnReject supplies an actual target-separating row pair that is not separated by the candidate or any raw root outside its support; this directly contradicts ColumnAdmissible. Duplicate root-list labels do not affect the universal check. entryGateCheck exhausts both ordered table entries and all semantically allowed gate codes. Its guard is exactly the required disjointness, distinctness, freshness and properness premises. Each result is kept, backed by an explicitly supplied compressed-basis BudgetRunCut, or ruled out by the checked row witness. No completeness or soundness obligation is omitted.
+
+The imports are preserved checked helper modules. No new axiom, sorry, native_decide, unsafe/meta command, custom datatype/instance, forbidden namespace text, string literal, attribute or option is introduced. All cofactor exclusions remain explicit cutSound/blocked hypotheses; no raw search verdict is trusted.

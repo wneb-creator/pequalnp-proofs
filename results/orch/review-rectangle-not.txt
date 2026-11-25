@@ -1,0 +1,12 @@
+Independent immutable source/math review by status_review: PASS.
+
+RectangleNot.lean SHA256 ebe9484f3e16e28703a550c562dfe3e95dc22cfe17336f50d1c604a937bd1baf
+9077bytes205lines; author reports compiler exit0, and the complete frozen log is empty. Sole import PEqualNP.Defs.
+
+The theorem applies to positive formulas over the ten inputs plus the freely reusable additional input NOT x0, evaluated only on the corresponding augmented assignments. It asserts20 leaves; it does not infer a lower bound for general circuits with sharing.
+
+Independently recomputed all357 signed weights, total2439; all21 positive and17 negative sample classifications; all231 support-cover cases; and all4824 subsets of the explicit support lists. Every leaf rectangle has weight at most128. The support lists have no padding or duplicate indices; dependent Fin(length) enumeration covers exactly all row subsets, including the12-row NOT-input support.
+
+The generic formula-induction text exactly matches the previously reviewed proof after only replacing the row/column Fin types and numeric leaf cap. Exact disjoint partitions make signed weight addition valid. The inequality2439≤128*leaves forces20≤leaves. No positivity-of-weights assumption or circuit normalization is used.
+
+No forbidden proof form, global option, extra trust assumption or scratch-only import was found. This is the fifth checked representative first-prefix formula case, not the posted gap itself.

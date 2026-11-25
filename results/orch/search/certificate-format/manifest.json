@@ -1,0 +1,75 @@
+{
+  "description": "Storage measurements only; not a Lean certificate",
+  "files": {
+    "README.md": {
+      "bytes": 1249,
+      "sha256": "234e80d667a66c43d85f5446dcb16d14741cb6db5736fa9458feedcf92d0dccf"
+    },
+    "certificate-format-metrics.json": {
+      "bytes": 2019,
+      "sha256": "0858ee15100dbc7a529ca8ed47609a3810d75cb88d040db470667aaa3a8931a8"
+    },
+    "certificate-format-report.txt": {
+      "bytes": 2019,
+      "sha256": "0858ee15100dbc7a529ca8ed47609a3810d75cb88d040db470667aaa3a8931a8"
+    },
+    "compact-skeleton-metrics.json": {
+      "bytes": 1022,
+      "sha256": "0a93518b7923aa94fa25df76e3745273c8daa69376db69825171932912d14273"
+    },
+    "compact-skeleton-report.txt": {
+      "bytes": 1022,
+      "sha256": "0a93518b7923aa94fa25df76e3745273c8daa69376db69825171932912d14273"
+    },
+    "expanded-state-table.bin": {
+      "bytes": 18421,
+      "sha256": "51660c520a97ea6eed2907edd94f6f9c3dbbe4617a4754740245bfe06b7199cf"
+    },
+    "measure_certificate.py": {
+      "bytes": 8931,
+      "sha256": "d22b9c700e0ad060b196db47c1da3cfc8118416dff9b5866ac68aec004bb0c2e"
+    },
+    "measure_compact_skeleton.py": {
+      "bytes": 4473,
+      "sha256": "6faaf75fcf8804f2018da3fc4646051bc150c9b21b8db61e590b8c386ffd7e02"
+    },
+    "proof-state-table.bin": {
+      "bytes": 103147,
+      "sha256": "2ab02df8392ee38254a5e912e9580909315fad58d6389dd5b382c310e20a45b6"
+    },
+    "signed17-oredge-dag-summary.json": {
+      "bytes": 656,
+      "sha256": "9e9d47b64c68e285d2aaa940266dd389a977d13ecac6e753d55a61782a6eb142"
+    },
+    "signed17-oredge-dag.json.gz": {
+      "bytes": 759728,
+      "sha256": "07af1e6558b3eee8251e1db7117115fde631f878581727165dbb155e4a37d589"
+    },
+    "trim_proof_dag.py": {
+      "bytes": 2058,
+      "sha256": "e53f9bb8f79efe7deab62e5cb552efe2156b432bd8fd1e4ed321a38add7fe91e"
+    },
+    "witness-exceptions.bin": {
+      "bytes": 35976,
+      "sha256": "60be02dcf9e928d5c113e32e27075c8e3e0ad87caf3348a8f9ca42e15f75deb5"
+    },
+    "witness-shortlist-delta-bytes.bin": {
+      "bytes": 40615,
+      "sha256": "592214d2f408a7d0ebd6a0e65e3a77d0f8bcdd472ae4bd4a23676dcb9657d534"
+    },
+    "witness-shortlist-delta-gaps.bin": {
+      "bytes": 28959,
+      "sha256": "afbb9a1d8b30443354d6ad86207b1032ac2b9fc4ae4cc087c71da33ac54e0a26"
+    },
+    "witness-shortlists.bin": {
+      "bytes": 94333,
+      "sha256": "1f33bcdd909ff36b764e24e52e48960058c6d03adc7b2c97b38e527d5bf17fe8"
+    }
+  },
+  "decompressed": {
+    "signed17-oredge-dag.json.gz": {
+      "bytes": 2319903,
+      "sha256": "47764291601f9b6486276157c96954447baea2e939838bf90d6aa8c46d1d2d0b"
+    }
+  }
+}

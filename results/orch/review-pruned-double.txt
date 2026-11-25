@@ -1,0 +1,39 @@
+Independent source review: PrunedDouble
+Reviewer: library_route
+Verdict: PASS, no blocking findings.
+SHA256 2ef11d7f4a9cf298cd880ba34dcaaf6046bce92cfdc1ff235f28910046c391d9
+
+The two sequential copies remove label(a), then lifted label(b), from the
+original labelled basis. These supports are disjoint because a != b and the
+original labels partition the actual pre-state. The four new labels remain
+distinct: old false/true a copies are nested Sum.inl(Sum.inr ...), while false/
+true b copies are outer Sum.inr labels. duplicateRaw assigns the intended
+values a and b at those respective slots.
+
+Retained a and b receive their false singleton entries directly from initial3.
+The generated output receives the union of the two true singleton labels;
+these labels are disjoint and its ReadOnce trace is exactly the permitted
+binary operation. The new-output entry is resolved through pruned_closed_live
+on the actual tail, so a missing table entry is contradicted by its exact
+compressed-wire cut. No unsupported bridge entry for either copied wire is
+assumed.
+
+Every other old wire is distinct from a, b and the fresh output. Its label is
+liftLabels(liftLabels(label v)), its raw value is unchanged, and its Cert2
+entry is covered by entries2. The second bridge's disjointness premise is
+exactly the old b/v partition disjointness transported through liftLabels.
+Its admissibility is derived from the actual post-state partition/support and
+row-cover theorem. A bridge cut has the same double-copied raw basis and same
+compressed support as compressed_wire_forest_exclusion applied to that v.
+
+The method uses the explicitly supplied actual-tail budget cap and depth;
+it neither changes nor silently strengthens the budget. The caller remains
+responsible for the two-copy deficit decrement. Supporting partition,
+ReadOnce and support formulas were inspected, including SharingReadOnce and
+the previously reviewed PrunedMerge/PrunedInterface definitions.
+
+The author reported Lean exit 0. The preserved log contains six deprecation
+warnings for if_neg and no errors. No redundant compile was launched for this
+source review. No forbidden proof placeholders or axioms occur. This helper
+does not by itself close the recursive fixture or the original posted gap;
+its scratch module imports require inlining for a final single-file proof.

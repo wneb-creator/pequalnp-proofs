@@ -1,0 +1,6 @@
+Independent general first-copy Run review
+Reviewer: /root/counterexample
+Full source SHA256: 325a6e231bc844112e73f3b615eebc3bfe7f785f4fcadb5d749c86d8b05b8a00
+Verdict: PASS.
+
+Exact module is unchanged reviewed FirstCopyRun plus the new suffix. When b is retained, the earlier helper applies after Finset insertion simplification. When b is consumed, z,b,U are distinct indices; list_run supplies the actual tail z,U, and Run.two consumes the new a occurrence and b. Mapping fresh index z to a produces the required pre-step list and keeps any old a occurrence. Permutation transports this indexed list to the canonical finite-set order, preserving value multiplicity. The cost is exactly tail k+1, and freshness is correctly required against insert b U. Full log has0errors, only inherited Count warnings; author reported EXIT0. No forbidden trust/format construct is added.

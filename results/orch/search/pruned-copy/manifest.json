@@ -1,0 +1,37 @@
+{
+  "description": "Experimental finite data and an incomplete bounded root search",
+  "files": {
+    "README.md": {
+      "bytes": 1632,
+      "sha256": "d9485fb62cc1ed943887006004b88e483d1ef30c75f7151b275c626b9bd37222"
+    },
+    "compile-copy-pruned-lazy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "copy-pruned-lazy-mono19-60.log": {
+      "bytes": 1583,
+      "sha256": "6752d1bfe065b7522f768f4fed0611fc4acccb0215ad215c961238e358b3b860"
+    },
+    "copy_search_pruned_cached_compact_prefilter.cpp": {
+      "bytes": 32638,
+      "sha256": "1a64b5171ae97a0e2bd8056f0af46fb50464574e2c5a2db2170a872ca58059de"
+    },
+    "copy_search_pruned_lazy.cpp": {
+      "bytes": 32857,
+      "sha256": "485ebb673613e8bb0e93f2ff5b64809b4231d5303b3b7f8fdf618c5d0d98a1b9"
+    },
+    "export-pruned-fixture.log": {
+      "bytes": 193,
+      "sha256": "3767af9a6f28838c65ae598059d4011aa03c46c916e1d9a805085dd6bc804b6d"
+    },
+    "export_pruned_fixture.py": {
+      "bytes": 8626,
+      "sha256": "b57722bfc4352d646d75990e7e0343c9c8c80059e79164483f49b3abe3cf5900"
+    },
+    "pruned-copy-state-0.json": {
+      "bytes": 61729,
+      "sha256": "e23eed834296846e9b71fbf0c6b0a903edbcb88ec18181b54cdaa304b58a95d2"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+Independent wrapper review by counterexample: PASS
+Source results/orch/lemmas/RectangleOrEdgeRun.lean
+SHA256 c7ef98685c8377c1c8422f2bc861a9c6dde5e3bd4eb3b419ad739f9dd798964e
+Scope:53-line wrapper; imported rectangle weight proof and generic RectangleRun separately reviewed. Kernel-decided sample equalities identify exact original inputs plus first OR-edge signal, positive/negative graph rows. prefix_bound transfers the existing max-rectangle weight4 per leaf. tight_prefix_exclusion applies the checked tight Run potential bound and full_weight, with raw roots explicitly restricted to this eleven-signal basis and list multiplicity preserved. It does not claim a bound for arbitrary compound copied roots. Limits are local; no trust/source-format issue. Reported compiler exit0 and full log checked.

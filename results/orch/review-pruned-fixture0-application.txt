@@ -1,0 +1,10 @@
+Independent final-application review by lean_setup, 2026-11-25 UTC
+
+Verdict: PASS for the application and its initial-state interface. The separate finite-data audit remains outside this review's scope.
+Source: results/orch/lemmas/PrunedCopyFixture0Complete.lean
+SHA256: b2003cc27a0131d696a775a6caa22fc74f250bb0bc918d705aabf4a262b8eff2
+Complete compiler log records EXIT0 and no diagnostics.
+
+Read the complete final application and PrunedCopyFixture0Initial source/log. The latter kernel-checks raw injectivity and raw image cardinality12, then constructs all four initial invariants through the checked initial_raw_state and leaf checker. The final theorem assumes an arbitrary Live run with k<=12 on that exact image. Cardinality12 yields k+1<=card+1, so the supplied completedPrunedNode depth1 matches the general soundness theorem's required budget. Certificate predicate, raw basis, target graph, mode false, pair-column function and required columns are passed consistently. The final conclusion is exactly Impossible false graph12 on this concrete fixture basis, not an exclusion of all original10-input circuits.
+
+No extra axiom, hidden validity assumption, sorry, native_decide, bv_decide, string literal, attribute, option change or custom datatype appears in the final application. Cached imports are a checked dependency chain for later single-file assembly. Finite node/table data and their provenance are covered by the team's separate data review.

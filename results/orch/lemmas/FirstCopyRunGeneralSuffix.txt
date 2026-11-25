@@ -1,0 +1,42 @@
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+theorem first_copy_run_general {u : Bool} {T a b : Sig} {k d : Nat} {U : Finset Sig}
+    (tail : Live u T k (insert (bin d a b) U)) (hd : allowed u d)
+    (fresh : bin d a b ∉ insert b U) :
+    Run u (observe T) (k + 1)
+      ((insert (bin d a b) (insert b U)).toList.map
+        (fun v => observe (if v = bin d a b then a else v))) := by
+  classical
+  have freshU : bin d a b ∉ U := fun h => fresh (Finset.mem_insert_of_mem h)
+  by_cases hb : b ∈ U
+  · simpa only [Finset.insert_eq_of_mem hb] using first_copy_run tail hd hb freshU
+  · let z := bin d a b
+    let value : Sig → Sig := fun v => if v = z then a else v
+    have zb : z ≠ b := fun h => fresh (Finset.mem_insert.mpr (Or.inl h))
+    have zr : z ∉ U.toList := fun h => freshU (Finset.mem_toList.mp h)
+    have br : b ∉ U.toList := fun h => hb (Finset.mem_toList.mp h)
+    have nd : (z :: b :: U.toList).Nodup := by
+      simp [zb, zr, br, Finset.nodup_toList]
+    have progress := list_run tail (z :: U.toList)
+      (List.nodup_cons.mpr ⟨zr, Finset.nodup_toList U⟩) (by simp [z])
+    have finish : Run u (observe T) (k + 1)
+        (observe a :: observe b :: U.toList.map observe) :=
+      Run.two d hd false false (by simpa [kept, z, obs_bin] using progress)
+    have untouched (v : Sig) (hv : v ∈ U) : value v = v := by
+      have vz : v ≠ z := fun h =>
+        freshU (Eq.mp (congrArg (fun v : Sig => v ∈ U) h) hv)
+      simp [value, vz]
+    have mappedRest : U.toList.map (fun v => observe (value v)) = U.toList.map observe := by
+      apply List.map_congr_left
+      intro v hv
+      rw [untouched v (Finset.mem_toList.mp hv)]
+    have source : Run u (observe T) (k + 1)
+        ((z :: b :: U.toList).map (fun v => observe (value v))) := by
+      simpa only [List.map_cons, show value z = a by simp [value],
+        show value b = b by simp [value, Ne.symm zb], mappedRest] using finish
+    have perm : (z :: b :: U.toList).Perm (insert z (insert b U)).toList := by
+      apply List.perm_of_nodup_nodup_toFinset_eq nd (Finset.nodup_toList _)
+      simp
+    exact Run.perm (perm.map (fun v => observe (value v))) source
+
+end PEqualNP.Outside.L_meta_2373.Live1024

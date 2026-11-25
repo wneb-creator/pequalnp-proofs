@@ -1,0 +1,4 @@
+Independent final-application review by counterexample: PASS
+Source results/orch/lemmas/PrunedCopyFixture0Complete.lean
+SHA256 b2003cc27a0131d696a775a6caa22fc74f250bb0bc918d705aabf4a262b8eff2
+Reported compiler exit0, complete log checked. The application uses the actual12-root initial state, budget k≤12, depth1, exact pairColumn gate and row-cover proofs, completedPrunedNode, and all four initial invariants. raw_card=12 justifies cap. Conclusion is precisely Impossible false graph12 of this archived live-state fixture, not a full Petersen19gate lower bound. General soundness and finite-data reviews are separate named prerequisites; no additional assumptions or trust escapes appear.

@@ -1,0 +1,7 @@
+PASS exact20root bank41908 at19gate tight budget; all1024truth bits per input match selected bank.
+PASS exact15positive/15negative rows and all80 rectangle support subsets.
+Maxima: [0, 0, 0, 8, 12, 8, 6, 12, 6, 12] stated caps: [0, 0, 0, 8, 12, 8, 6, 12, 6, 12]
+Total target weight116; indexed bank cost104; strict gap12.
+Multiplicity: [3, 2, 3, 2, 1, 2, 2, 1, 2, 2]
+Source SHA256: a00dd72a9786d235c718a8ce185dee2261c788d255bb6040e55f07d6e2963428
+Bank source SHA256: 047d7d8abd8d18cd44ade9ffd61b04a6db494724a6af0e06439a8723de443c98

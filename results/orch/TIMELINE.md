@@ -83,3 +83,21 @@
 2026-11-25T14:42:50.111094+00:00 finite_invariants: RectangleBinaryPrefixes compiled EXIT0, three restricted monotone formula lower bounds, archived for early push.
 
 - 2026-11-25T14:43:40.502201+00:00: Combined7674-line target build passed. Preserving checked concrete subtree,45.5KB certificate compression, both complete signed17 computational cases, formula restriction and cofactor-cut bridges. Full gap still unproved.
+
+2026-11-25T14:47:27.703604+00:00 finite_invariants: RectangleNot compiled EXIT0, fifth representative first-prefix monotone formula case, archived for early push.
+
+2026-11-25T14:54:28.403766+00:00 finite_invariants: all8 actual mono19 bottleneck multisets separated by exact bank-specific rectangle candidates; beginning generic tight-Run measure bridge.
+
+- 2026-11-25T14:56:16.576345+00:00: Root re-plan and finite Entry-adapter reviews completed. Priorities: close actual14-node recurrence soundness, test normalized mono19 first-gate starts with checked rectangle tight cuts, and keep source-budget estimates honest.
+
+- 2026-11-25T14:57:03+00:00 proof_structure: complete finite pruned-copy state0 recurrence certificate, all components compile exit0; awaiting generic recursive soundness for actual Live exclusion.
+
+- 2026-11-25T14:57:49.832359+00:00: counterexample finished general cofactor-aware PrunedNode exclusion; Lean EXIT0, empty log, SHA256 0dc3cbf6560ca69f726795f0eaa7b37268991fdcfe7c33ce78ae519630383f4b.
+
+2026-11-25T14:59:47.707113+00:00 finite_invariants: concrete adjacent-OR tight Run exclusion and generic indexed-cost bridge compiled EXIT0, ready for copy-search consumer.
+
+- 2026-11-25T14:59:52+00:00 proof_structure/counterexample: first actual14-node pruned-copy Live exclusion compiled and independently reviewed; cap12 at12-root state0 frontier.
+
+- 2026-11-25T15:03:44.319104+00:00: counterexample independently audited exact rectangle bank41908, then compiled its direct Fin20 BudgetRunCut adapter EXIT0; SHA256 1b0561b310dbbe442dc61ec48e4d2ebb1667985e13e228f22dcfcc85ba4f5cec.
+
+- 2026-11-25T15:06:01.788658+00:00: counterexample compiled concrete compound first-OR-edge terminal13338 rectangle exclusion plus Fin18 BudgetRunCut adapter, both EXIT0/empty log; target135 versus bank132.

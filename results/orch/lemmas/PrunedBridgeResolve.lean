@@ -1,0 +1,55 @@
+import PrunedStructural
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+theorem pruned_bridge_live_copy {α Ω : Type} [DecidableEq α]
+    (roots : Finset α) (raw : α → Sig) (col : Sig → Set Ω) (need : Set Ω)
+    (Cert : Finset α → Sig → Prop) (Cert2 : Finset (Sum α Bool) → Sig → Prop)
+    (u : Bool) (T : Sig) (depth : Nat)
+    (rowCover : ∀ k S, Live u T k S → ∀ o ∈ need, ∃ v ∈ S, o ∈ col v)
+    (U : Finset Sig) (a b : Sig) (d k : Nat) (label : Sig → Finset α)
+    (hd : allowed u d) (pa : proper a) (pb : proper b) (hab : a ≠ b)
+    (fresh : bin d a b ∉ insert a (insert b U)) (ha : a ∈ U)
+    (tail : Live u T k (insert (bin d a b) U))
+    (cap : k + 2 ≤ (insert a (insert b U)).card + (depth + 1))
+    (part : LabelPartition roots (insert a (insert b U)) label)
+    (entries : ∀ v ∈ insert a (insert b U), Cert (label v) v)
+    (traces : ∀ v ∈ insert a (insert b U), ReadOnce raw u (label v) v)
+    (supports : ∀ v ∈ insert a (insert b U), ColumnSupport raw col (label v) v)
+    (bridge : PrunedBridge roots raw col need Cert Cert2 u T depth (label a) a) :
+    ∀ v ∈ insert a (insert b U), v ≠ a → Cert2 (liftLabels (label v)) v := by
+  intro v hv hne
+  have memA : a ∈ insert a (insert b U) := by simp
+  have preRun : Live u T (k + 1) (insert a (insert b U)) :=
+    Live.binary hd pa pb hab fresh tail
+  have adm := duplicate_admissible roots raw col need part supports
+    (rowCover (k + 1) _ preRun) a memA v hv hne
+  rcases bridge (label v) v (entries v hv) (part.2.1 a memA v hv (Ne.symm hne)) adm with found | cut
+  · exact found
+  · exfalso
+    have part2 := copy_input_partition roots (insert a (insert b U)) label a (bin d a b)
+      part memA fresh
+    have traces2 := copy_input_readOnce raw u (insert a (insert b U)) label a (bin d a b)
+      fresh traces
+    have source := first_copy_run_general tail hd
+      (fun h => fresh (Finset.mem_insert_of_mem h))
+    have same : insert a (insert b U) = insert b U :=
+      Finset.insert_eq_of_mem (Finset.mem_insert_of_mem ha)
+    have source2 : Run u (observe T) (k + 1)
+        ((insert (bin d a b) (insert a (insert b U))).toList.map
+          (fun w => observe (if w = bin d a b then a else w))) := by
+      simpa only [same] using source
+    have vz : v ≠ bin d a b := by
+      intro h
+      exact fresh (Eq.mp (congrArg (fun w : Sig => w ∈ insert a (insert b U)) h) hv)
+    have cap2 : k + 1 + 1 ≤ (insert (bin d a b) (insert a (insert b U))).card + depth := by
+      rw [Finset.card_insert_of_notMem fresh]
+      omega
+    apply compressed_indexed_forest_exclusion
+      (duplicateRoots roots (label a)) (duplicateRaw raw a) u T depth
+      (fun w => if w = bin d a b then a else w) source2 cap2
+      (copyInputLabels label a (bin d a b)) part2 traces2 v
+      (Finset.mem_insert_of_mem hv)
+    simpa [BudgetRunCut, copyInputLabels, vz, hne] using cut
+
+end PEqualNP.Outside.L_meta_2373.Live1024

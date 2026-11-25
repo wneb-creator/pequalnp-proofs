@@ -1,0 +1,65 @@
+{
+  "sha256": "9139466d32953231d9a3883f694543ac1cb494b4fdad34bdccf877d5e50911c6",
+  "cases": [
+    {
+      "module": "RectangleAndEdge",
+      "total": 117,
+      "leaf_cap": 6,
+      "subset_checks": 704,
+      "maxima": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "induction_unchanged_except_cap": true
+    },
+    {
+      "module": "RectangleAndNonedge",
+      "total": 40,
+      "leaf_cap": 2,
+      "subset_checks": 704,
+      "maxima": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0
+      ],
+      "induction_unchanged_except_cap": true
+    },
+    {
+      "module": "RectangleOrNonedge",
+      "total": 231,
+      "leaf_cap": 12,
+      "subset_checks": 704,
+      "maxima": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "induction_unchanged_except_cap": true
+    }
+  ]
+}

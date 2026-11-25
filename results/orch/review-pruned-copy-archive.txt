@@ -1,0 +1,9 @@
+Independent archive and narrow C++ delta review by status_review: PASS within the stated experimental scope.
+
+All8 manifest file sizes/SHA256 hashes match. The archived fixture/exporter match the independently audited14-node data,269retained entries,40subtree cuts and2bridge cuts. See review-pruned-copy-fixture.txt for the complete finite-data audit. Full compilation/search logs are preserved.
+
+The C++ delta replaces eager305-element restriction arrays by lazy initialized arrays, preserving the same -1 sentinel and computed keys/values. The new850MB guard is explicitly an estimate and throws the existing Limit exception; it does not mark an interrupted root excluded. It replaces earlier fixed signal-count limits, so it changes resource policy rather than transitions.
+
+Cofactor pruning moves before symmetry canonicalization, using the same current state, remaining budget and constructive history. Such a successful cut excludes that state independently of canonical identity. Removing per-parent canonicalization can add revisits but cannot remove branches; recursive memoization still uses the exact multiset and budget. No gate generation or cofactor arithmetic changed in the reviewed delta.
+
+The60.0075-second run is honestly reported unfinished:41908visits,4896closures and1560075subtree cuts. It is not a completed root exclusion, a checked recurrence, or the posted theorem. The earlier/final C++ sources and finite-data exporter are archived as research aids, with original scratch dependency paths noted.

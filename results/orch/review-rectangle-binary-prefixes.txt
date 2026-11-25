@@ -1,0 +1,12 @@
+Independent immutable source/math review by status_review: PASS.
+
+RectangleBinaryPrefixes.lean SHA2569139466d32953231d9a3883f694543ac1cb494b4fdad34bdccf877d5e50911c6
+589lines; author reports exit0 and the preserved complete compile log is empty. Sole import PEqualNP.Defs.
+
+The three modules add free reusable x0 AND x1, x0 AND x2, or x0 OR x2 to the ten original Petersen inputs. Each requires a positive DMFormula and exact computation on every augmented input. No arbitrary-circuit normalization is assumed.
+
+Independently checked every literal table:675 signed weights, three target-positive/negative sample families,495 support-cover cases and2112 six-bit subsets. Weight totals/leaf caps are117/6,40/2 and231/12; each forces at least20 leaves. The full generic formula-induction text is byte-identical to the reviewed RectangleOrEdge proof after changing only the numeric cap.
+
+The changed selected definition filters both the keep bit and actual positivity of the chosen row. Its coverage lemma now requires only that every positive row occurs in positions; selected_covers proves equality using that implication and the supplied positive-row hypothesis. This correctly handles the empty positive support of nonadjacent AND, whose placeholder positions otherwise would introduce inadmissible rows. The column-max bound and exact disjoint signed-weight partitions remain sound.
+
+No forbidden proof form, extra trust assumption or scratch-only import found. These are checked formula subcases, not a solution of the posted circuit gap.

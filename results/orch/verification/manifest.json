@@ -16,8 +16,8 @@
     "sha256": "4ea4d771e423739fa34417c7134d9ec13d68ae87ef5a0793963deb334f66d506"
   },
   "README.md": {
-    "bytes": 1401,
-    "sha256": "7fbbcf915a87b85da6b547f7fe4d79c792295529a0bdb24428da2cd7704a8a26"
+    "bytes": 2934,
+    "sha256": "b059548267a431e52e31465650571b26b0c26b11dc569550be24e0c77b9810fd"
   },
   "audit_live_trace_ornonedge.py": {
     "bytes": 8533,
@@ -26,5 +26,33 @@
   "audit-live-trace-ornonedge.txt": {
     "bytes": 2865,
     "sha256": "fcdf85268f3d0670dfe70c178b27d0df5620130a12231e4f792de6f6669acca3"
+  },
+  "audit_pruned_copy_fixture.py": {
+    "bytes": 10391,
+    "sha256": "2b0c504ade4ad3393b1b48819f281c9083b4240a1f30c4a92ac1059b09b91f42"
+  },
+  "audit-pruned-copy-fixture.txt": {
+    "bytes": 512,
+    "sha256": "1d86b344fb8e5b9c40a46fb12b66ee7f614a5c381926c828ddbe59d2d3c4c80a"
+  },
+  "pruned-copy-fixture0-cut-map.json": {
+    "bytes": 55575,
+    "sha256": "3e4968c8b6c1f99aef85f364e2ee91702d21ac2468298773bb654939af89d882"
+  },
+  "audit_pruned_copy_tables.py": {
+    "bytes": 7026,
+    "sha256": "01996d8bfbf5e0bffe6a528147f2c50865f95b8caf4210eb0cd249d2b5f00a13"
+  },
+  "audit-pruned-copy-tables.txt": {
+    "bytes": 451,
+    "sha256": "04ef21149e9c50832d9b613d4f5c5442c22a9281f062424745d2d397110a9a8f"
+  },
+  "generate_fixture0_tables.py": {
+    "bytes": 5475,
+    "sha256": "2b00ca13a9e3ad30b9d237a37f19bf1e0744abb202700d5a26bcdf6a075c350d"
+  },
+  "fixture0-row-selection.json": {
+    "bytes": 11369,
+    "sha256": "4970434d87a48b574936dc9d35fbcf5f1b6eebca84c5612be275849e9c84fabf"
   }
 }

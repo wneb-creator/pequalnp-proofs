@@ -1,0 +1,15 @@
+Independent immutable review by status_review: PASS.
+
+InitialRawState.lean SHA256 bea391b7acc3bdf18a998c9438e815da6155d90bcbfca8118d81e254e9d3b141 (1907bytes).
+PairColumnSemantics.lean SHA256 efb6a14b7da129d1d611883448692bf38220ed724bfd0ff33823655d332f8089 (1230bytes).
+PrunedCopyFixture0Initial.lean SHA256 23439bbb199285794c05b0ee19c47fe3d5ccc2a190a1258691de3696f3b0c188 (1018bytes).
+
+All three authors' builds reported exit0; their frozen logs record the outcomes. Imports refer only to preserved, separately reviewed helper modules.
+
+initial_raw_state constructs the exact inverse-image labels on the supplied finite roots. Injectivity on that finite domain proves every live image value has one singleton label. The resulting partition covers exactly the roots, preserves pairwise disjointness, and obtains certificate membership and ReadOnce leaves from the supplied singleton hypothesis. ColumnSupport is witnessed by that same original root. No injectivity outside the root domain is assumed.
+
+pairColumn_bits matches the four BitVec operations. pairColumn_gate restricts to the explicitly allowed operation/mode cases and checks the Boolean separation implication. Monotone mode uses oriented separation; signed mode uses inequality. pairColumn_cover directly invokes the reviewed Live separation preservation lemma. These supply the exact semantic hypotheses of the generic checker.
+
+The concrete initial module uses the exact audited root basis and raw function. I independently confirmed that its12 raw truth functions are pairwise distinct. Its finite raw_card/injectivity checks and entryLeafCheck establish the complete initial invariant package with positive mode false, the original graph-column relation and the exact entries0 certificate. No Live impossibility is asserted in these initialization lemmas alone.
+
+No forbidden proof form, global option, hidden axiom or unpreserved import was found. Ready for checkpoint.

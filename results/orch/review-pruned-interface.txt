@@ -1,0 +1,6 @@
+Independent PrunedInterface review
+Reviewer: /root/proof_structure
+SHA256: 696cee79f939109f778428e99161d3458022591e9f277821fe77f4da8e26155d
+Verdict: PASS for the stated interface definitions; no recursive soundness theorem is asserted by this artifact.
+
+BudgetRunCut quantifies actual Run exclusions with n+1≤card+depth and preserves labelled duplicate roots. PrunedGateClosed requires disjoint inputs, allowed operation, fresh proper output, both table memberships and ColumnAdmissible before accepting either output membership or a compressed-basis cut at the same depth. PrunedBridge similarly permits a compressed child-basis cut, rather than silently assuming every outside entry survives. PrunedNode explicitly includes every active singleton, missing target, closure, and a recursively smaller depth. Copy children use duplicateRoots and depth−1, with either a direct Run cut or child node plus bridge. All quantifiers and duplicateRaw nesting match the described finite recurrence. Source contains only definitions/abbreviations; no new axioms, trust directives, unsafe tactics or hidden proof assumptions. Author reports successful compilation with empty log.

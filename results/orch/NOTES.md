@@ -304,3 +304,51 @@ Three additional Defs-only exact integer rectangle certificates compiled EXIT0, 
 ### 2026-11-25T14:43:39.573527+00:00 lean_setup compression feasibility
 No large numeric token repeats; literal factoring cannot help. Exact elaborated dependency closure preserves essentially all signed certificates for both baseline17/18 and all current cofactor consumers. Deletion-only candidate saves7831bytes; corrected full build is running.
 WidthPrototype is checked and independently reviewed:741lines generalize the entire pre-input foundation to BitVec(width+1). WidthSpecialization is also checked/reviewed, proving16 defining equalities and6 Live/Reach/Run equivalences to the original512/1024 versions. No target changes. Generic-source and compatibility overhead means realistic combined helpers remain~290–310KB; report is compression-report.txt. This does not solve the large search-DAG certificate budget.
+
+## library_route: pruned-copy fixture and format study
+
+The complete signed-17 OR-edge and OR-nonedge computations are independently audited and archived, but their complete Lean certificates and the original target remain unproved. The compact OR-edge format study estimates a 58,380-byte binary skeleton, excluding all formula certificates and Lean helpers; see search/certificate-format.
+
+A new indexed-label pruned-copy fixture has 14 nodes, 269 retained entries, 40 subtree cuts, and 2 bridge cuts. All cuts use only checked single-zero lower 15. The unified checker agents have the interface; independent finite-data audit is pending. A bounded optimized monotone-19 root run reached 41,908 visits in 60 seconds and remained unfinished. Source, complete log, and fixture are in search/pruned-copy.
+
+2026-11-25T14:46:28.410320+00:00 lean_setup: NineSignedPruned full build EXIT0,181warnings0errors;239198bytes (7831saved), all retained blocks unchanged. Compression feasibility artifacts and specialization evidence are reviewed. CompressedIndexedForest (38lines,1876bytes) also compiled EXIT0/empty log, giving the requested indexed-value compression step for pruned bridge cuts; counterexample is reviewing. No active builds remain from lean_setup.
+
+### First-NOT rectangle certificate — finite_invariants
+RectangleNot.lean compiled EXIT0 with empty log. Positive formulas over ten inputs plus freely reused NOT x0 require at least20 leaves. Enlarged matrix uses21 positive and17 negative rows, total2439, leaf rectangle cap128; exact kernel checks verify every allowed support subset, maximum support12. Alongside RectangleOrEdge and RectangleBinaryPrefixes, this reconstructs all five representative first-prefix monotone formula cases claimed but not published by PR8827. These are restricted formula theorems, not arbitrary circuit lower bounds and not signed terminal-bank exclusions. SHA256 ebe9484f3e16e28703a550c562dfe3e95dc22cfe17336f50d1c604a937bd1baf. Independent review requested.
+
+### Actual mono19 tight banks — finite_invariants
+Fixed checked matrices exclude none of the8 largest pure-input20-root banks; the best gives equality40=20*2. Across41 exported banks only already-cheap node39189 is excluded. A subsequent bank-specific positive rectangle LP succeeds on all8 large banks. Exact integer conversion and independent full subset maximization give positive gaps12,31,13,31,13,15,47,14 at denominators12,24,12,24,12,12,36,12 for nodes41908,37639,34847,3563,35467,10286,34846,34845. Full integer matrices, ten input costs and multiplicities are saved in rectangle-mono19-tailored-exact.json. These candidates are computationally checked but not yet Lean-certified. Root prioritizes a generic tight positive Run measure bridge, which also applies existing uniform prefix certificates to ≤19-root banks after the first gate.
+
+## Root re-plan after the two-hour checkpoint
+
+The7674-line named partial builds. Both signed17 first-OR computational cases are complete and independently audited; one real Lower13 subtree and its45.5KB certificate compression are kernel-checked. The exact posted theorem remains absent. No signed18 or general zero/one-NOT exclusion is claimed.
+
+Finish the real14-node pruned-copy fixture through the general actual-Live soundness theorem. Its finite entry/bridge checks and42 cofactor cuts now compile; local semantic lemmas alone do not certify the whole recursive search. Counterexample owns recursive soundness, proof_structure owns concrete finite replay.
+
+For the original zero-NOT branch, begin the computational case after a canonical first binary gate. Checked operand retention supplies all ten inputs plus that gate, budget18 and deficit8. The existing20-leaf rectangle certificates can exclude tight banks of at most19 roots drawn from those11 free functions, including duplicates. finite_invariants owns the tight-Run measure bridge; library_route measures actual effects. Bank-specific LPs also separate the8 previously expensive pure-input banks, but those numerical candidates still need exact certificate integration.
+
+Certificate source size remains a barrier. The literal skeleton estimates exclude formula certificates and decoder proofs. Safe pruning, width sharing and metadata-based identifier shortening save tens ofKB, not100KB individually. Preserve exact original sources and reversible maps; do not imply the512KiB full proof already exists.
+
+## proof_structure: finite pruned-copy fixture (2026-11-25T14:57:03+00:00)
+
+The exact state0 fixture now has a checked `PrunedCopyFixture0.completedPrunedNode` at depth1. It covers14 nodes,269 table entries,42 cofactor cuts (40 omitted-entry and2 bridge),13 copy-child bridges, and13 depth0 child nodes. All source data preserve duplicate labels. The42 cuts use only checked zero-cofactor lower15. Generic finite entry/gate/bridge checkers, singleton partition adapter, and pair-column semantics are checked; the actual initial root has12 distinct signatures and12 labels. Source/logs are archived under lemmas/PrunedCopyFixture0{Cuts,Tables,Node,Initial} and helper names. Table compilation took99.667seconds. This is a recurrence certificate only until counterexample proves its general implication to actual Live exclusion; that theorem is the remaining dependency.
+
+### counterexample: unified pruned-copy soundness (2026-11-25T14:57:49.832359+00:00)
+PrunedSound now compiles EXIT0 with empty output. General arbitrary-depth PrunedNode soundness includes all three cofactor pruning forms: whole copied bases, generated compressed entries, and compressed bridge entries. Gate-count induction preserves actual-Live partition, ReadOnce provenance, and column support; duplicate signatures are indexed separately. The concrete 14-node fixture is checked by proof_structure and awaits this final theorem application. Full target remains open. Immutable PrunedSound SHA256 0dc3cbf6560ca69f726795f0eaa7b37268991fdcfe7c33ce78ae519630383f4b.
+
+### Tight positive Run rectangle bridge — finite_invariants
+RectangleRun.lean compiled EXIT0. Generic run_length_le and run_tight_measure prove any subadditive integer wire measure cannot increase along a tight Run, with list multiplicity preserved. A maximum signed rectangle measure is subadditive under positive AND/OR by exact disjoint partitions. tight_run_bound and tight_run_uniform expose the bound for arbitrary finite samples and integer matrices. No circuit normalization, complements or sharing beyond the Run tightness condition is assumed. SHA256 642aa3a2a10a90775e4cee820b5a1936fc4ddb770d3d1b7799def46ec2d34e00.
+
+### Concrete first-OR Run exclusion — finite_invariants
+RectangleOrEdgeRun.lean compiled EXIT0 with empty log. tight_prefix_exclusion rules out any tight positive Run to Live1024.graph from ≤19 roots chosen with multiplicity from ten inputs and x0 OR x1. It kernel-checks all330 sample/basis correspondences and30 target rows against the exact Live1024 tables, then uses the signed rectangle total79 and per-root cap4. RectangleRunIndexed.lean also compiled EXIT0; it supports nonuniform costs indexed by a list of labels, preserving duplicate occurrences. Both caches are available under scratch finite_invariants.
+
+### proof_structure: actual pruned-copy exclusion completed (2026-11-25T14:59:52+00:00)
+
+`PrunedCopyFixture0Complete.lean` now compiles with exit0 and proves `Impossible false graph 12 (roots0.image nodeRaw0)` without hypotheses, using the independently checked recurrence data and counterexample's general PrunedSound theorem. Final757-byte source SHA256 `b2003cc27a0131d696a775a6caa22fc74f250bb0bc918d705aabf4a262b8eff2`. Both counterexample and status_review independently reviewed the application. `lemmas/PrunedCopyFixture0.build-order.txt` lists all28 archived source dependencies in rebuild order; none is missing. Source total551701bytes before stripping imports or pruning unrelated imported examples. This is a real completed nontrivial search fixture, not the full gap or full initial search case.
+
+### Actual20-root bank exclusion — finite_invariants
+RectangleBank41908.lean compiled EXIT0, empty log. It rules out the actual largest mono19 pure-input bottleneck bank with multiplicities[3,2,3,2,1,2,2,1,2,2] and19 remaining gates. The225 integer weights total116; exact per-input maxima[0,0,0,8,12,8,6,12,6,12] sum104 across the20 root occurrences. All80 input-support subsets are kernel-checked. The indexed Run measure bridge gives contradiction116≤104. SHA256 a00dd72a9786d235c718a8ce185dee2261c788d255bb6040e55f07d6e2963428.
+
+### 2026-11-25T15:03:31.590329+00:00 lean_setup metadata compression / checker transfer
+NamesCompressed full build EXIT0 (201warnings0errors), exact19721-byte saving from353344 to333623bytes. .ilean-directed edits affect683 internal helper names at3863 constant-name spans, preserving47 public/namespace endpoints. Fresh names and exact forward/inverse expansion independently verified. Source/log/map/audit archived; active target unchanged.
+SharingReadOnce and PrunedSingleTransfer are checked and independently reviewed; PrunedSound and the completed fixture0 final application also received independent full-source/interface reviews. No active builds remain from lean_setup.

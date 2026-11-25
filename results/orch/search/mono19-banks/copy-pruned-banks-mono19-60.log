@@ -1,0 +1,12 @@
+EXPERIMENTAL first-copy recurrence mode=0 group=120
+nodes=3889 steps=0 card=0 cover=0 cof=2789 formula=536 share1=0 fullcover=0 clips=661593 signals=57771 seconds=10.0571 levels=0:3499,1:342,2:29,3:5,4:4,5:3,6:2,7:2,8:1,9:1,10:1,
+copyclosures=635 entries=26479 subchecks=305369 subcuts=285838
+nodes=17545 steps=0 card=0 cover=0 cof=12218 formula=1771 share1=0 fullcover=0 clips=1019493 signals=92867 seconds=20.0573 levels=0:14713,1:2546,2:263,3:9,4:4,5:3,6:2,7:2,8:1,9:1,10:1,
+copyclosures=2286 entries=74523 subchecks=640852 subcuts=592031
+nodes=35168 steps=0 card=0 cover=0 cof=23741 formula=2690 share1=0 fullcover=0 clips=1503985 signals=148496 seconds=30.7422 levels=0:26374,1:6836,2:1691,3:213,4:32,5:14,6:3,7:2,8:1,9:1,10:1,
+copyclosures=4005 entries=116954 subchecks=931605 subcuts=859973
+nodes=39116 steps=0 card=0 cover=0 cof=26472 formula=3196 share1=0 fullcover=0 clips=1848464 signals=188388 seconds=40.7743 levels=0:30024,1:7131,2:1694,3:213,4:32,5:14,6:3,7:2,8:1,9:1,10:1,
+copyclosures=4586 entries=142747 subchecks=1227947 subcuts=1136978
+limit reached
+nodes=41908 steps=0 card=0 cover=0 cof=28401 formula=3426 share1=0 fullcover=0 clips=1929482 signals=197243 seconds=43.2374 levels=0:32314,1:7563,2:1763,3:214,4:32,5:14,6:3,7:2,8:1,9:1,10:1,
+copyclosures=4896 entries=151876 subchecks=1309101 subcuts=1211409 memory_estimate=850009940 lazy_clip_tables=196350 projected_cache=389633 move_cache=12185 constant_profiles=196350 memo_states=4896

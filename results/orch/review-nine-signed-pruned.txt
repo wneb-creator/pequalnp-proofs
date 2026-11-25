@@ -1,0 +1,9 @@
+Independent NineSignedPruned source review
+Reviewer: /root/proof_structure
+SHA256: 0fed459a6e9ab87f77517445c235e544530210420df54e2e64e31e0f0dadcbb3
+Bytes: 239198
+Verdict: PASS for deletion-only source and retained Reach interface, with final full compilation exit0 confirmed on the same immutable hash.
+
+Compared every line against the checked archived NineSignedReach source using an exact sequence diff: only deletions occur; there are no added or modified nonblank lines. Seventeen declaration blocks are removed. These are the Circuit extraction/evaluation wrappers and dependencies, including the public nine_binary_lower theorem. The stronger-consumer path uses nine_reach_lower and retained Lower/Reach/cofactor machinery; those definitions and proofs are unchanged. No new assumptions, trust settings, tactics, or imports are introduced. Retained current consumer endpoints include nine_reach_lower, low189, valid189, lift_ok, lower_slice, graph_proper and input_list. The removed nine_binary_lower interface should not be advertised as preserved. The complete independent diff is saved in scratch compression/independent-pruned-diff.txt.
+
+Final compiler log archived as lemmas/NineSignedPruned.compile.txt:0errors,181nonblocking warnings; author reports exit0.

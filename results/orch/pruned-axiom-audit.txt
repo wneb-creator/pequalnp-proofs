@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_2373.Live1024.pruned_node_exclusion_state' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373.Live1024.PrunedCopyFixture0.completed_live_exclusion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

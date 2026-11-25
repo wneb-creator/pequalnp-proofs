@@ -1,0 +1,10 @@
+Independent narrow cache-reset delta review by status_review: PASS.
+
+Baseline copy_search_first.cpp SHA256 6df2d4f3edbc55638b7e74e0474d139cca9f9af2ee1c32c038897e54b8ce07a3
+Updated copy_search_first_trim.cpp SHA256 20d69211127cb6292caed92c6dca9fd681e928143f0681a88423e7dd72228d80
+
+The delta clears all three projected caches (clipids, clipcache and per-signal clip tables), clears derived constant-profile caches, and rebuilds every free projected basis from the unchanged masks and original inputs. Word zero is interned first, so zero ID0 is recreated before freekeys uses it. Both monotone and signed free-key conventions match the original initialization exactly.
+
+Reset calls occur only at DFS entry and closure outer-loop boundaries. Projected IDs are local to completed prune calls at these points; no active prune state survives a reset. The closure's retained entries, known keys and required-column cache contain actual signal IDs or column bitsets, not projected IDs. Actual signal IDs, histories, memo states, truth functions and symmetry caches are unchanged. Thus recycling projected numeric IDs cannot change comparisons within a subsequent prune.
+
+The650MB threshold and850MB stopping guard remain estimates; reset does not establish a hard memory cap. No search transition, cofactor inequality or proof claim changes in this delta. This review covers cache lifetime correctness relative to the supplied baseline, not a complete correctness proof of the experimental first-copy search.

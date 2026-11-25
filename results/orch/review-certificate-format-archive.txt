@@ -1,0 +1,9 @@
+Independent archive/source review by status_review: PASS for a storage study.
+
+All16 manifest file sizes/SHA256 hashes and the decompressed DAG size/hash match. The three Python programs were read and parsed; they use standard-library local file/computation operations only. No credential, network, subprocess or external service access is present.
+
+trim_proof_dag follows expanded children and memo/resume dependencies from the completed OR-edge root and rejects open/found dependencies. Its source traces and resume links were already independently audited. The preserved DAG has649 expanded states and2831 pending formula leaves.
+
+measure_certificate emits alternative varint representations and verifies exact round-trip equality for the XOR/gap witness-shortlist stream. The README was corrected to make this scope precise; the other emitted streams are measurements, not all independently decoded. Complete reports equal the structured metrics byte-for-byte.
+
+The compact skeleton total58380bytes is exactly the sum of shortlist gamma, reference gamma, packed expanded states and dictionary cost;116760hex characters is twice that. The seven-bit allowance covers120 possible memo permutations, but actual permutation codes/decoder are not emitted. Formula certificates, truth-function derivations, seed histories, decoder proofs, Lean helper source and syntax overhead are explicitly excluded. The study therefore does not establish a complete small certificate or a proof of the target. No semantic exclusion is inferred from a compressed byte count.

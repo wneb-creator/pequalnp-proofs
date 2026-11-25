@@ -1,0 +1,4 @@
+Independent review by counterexample: PASS
+Source results/orch/lemmas/SharingReadOnce.lean
+SHA256 3ed112974eca45c257fcf2a2314cf5e75b4187017e62408abaf86f983673226f
+Scope: both new provenance lemmas only; imported PrunedStructural separately reviewed. Single sharing combines true-copy leaf with injectively lifted consumed-b provenance. Double sharing combines true leaves of each copied operand; retained false copies and unchanged wires are mapped correctly. Duplicate signatures are never conflated. The fresh premise is unused but harmless. Reported EXIT0 log contains only two unused-variable warnings. No trust or source-format issues.

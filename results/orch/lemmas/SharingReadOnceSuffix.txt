@@ -1,0 +1,64 @@
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+theorem sharing_readOnce {α : Type} [DecidableEq α]
+    (raw : α → Sig) (u : Bool) (U : Finset Sig) (a b : Sig) (d : Nat)
+    (hd : allowed u d) (fresh : bin d a b ∉ insert a (insert b U))
+    (label : Sig → Finset α)
+    (entries : ∀ v ∈ insert a (insert b U), ReadOnce raw u (label v) v) :
+    ∀ v ∈ insert (bin d a b) U, ReadOnce (duplicateRaw raw a) u
+      (sharingLabels label a b (bin d a b) v) v := by
+  intro v hv
+  by_cases vz : v = bin d a b
+  · subst v
+    have left : ReadOnce (duplicateRaw raw a) u {Sum.inr true} a :=
+      ReadOnce.leaf (duplicateRaw raw a) u (Sum.inr true)
+    have right := ReadOnce.map raw (duplicateRaw raw a) u Sum.inl
+      (by intro x y h; cases h; rfl) (by intro r; rfl) (entries b (by simp))
+    have disjoint : Disjoint ({Sum.inr true} : Finset (Sum α Bool)) (liftLabels (label b)) := by
+      simp [liftLabels]
+    simpa [sharingLabels, liftLabels, Finset.singleton_union] using
+      ReadOnce.combine (duplicateRaw raw a) u left right disjoint d hd
+  · have hvU : v ∈ U := (Finset.mem_insert.mp hv).resolve_left vz
+    by_cases va : v = a
+    · subst v
+      simpa [sharingLabels, vz, duplicateRaw] using
+        ReadOnce.leaf (duplicateRaw raw a) u (Sum.inr false)
+    · have mapped := ReadOnce.map raw (duplicateRaw raw a) u Sum.inl
+        (by intro x y h; cases h; rfl) (by intro r; rfl) (entries v (by simp [hvU]))
+      simpa [sharingLabels, vz, va, liftLabels] using mapped
+
+theorem double_sharing_readOnce {α : Type} [DecidableEq α]
+    (raw : α → Sig) (u : Bool) (U : Finset Sig) (a b : Sig) (d : Nat)
+    (hd : allowed u d) (fresh : bin d a b ∉ insert a (insert b U))
+    (label : Sig → Finset α)
+    (entries : ∀ v ∈ insert a (insert b U), ReadOnce raw u (label v) v) :
+    ∀ v ∈ insert (bin d a b) U, ReadOnce (duplicateRaw (duplicateRaw raw a) b) u
+      (doubleSharingLabels label a b (bin d a b) v) v := by
+  let next := duplicateRaw (duplicateRaw raw a) b
+  intro v hv
+  by_cases vz : v = bin d a b
+  · subst v
+    have left : ReadOnce next u {Sum.inl (Sum.inr true)} a :=
+      ReadOnce.leaf next u (Sum.inl (Sum.inr true))
+    have right : ReadOnce next u {Sum.inr true} b :=
+      ReadOnce.leaf next u (Sum.inr true)
+    have disjoint : Disjoint ({Sum.inl (Sum.inr true)} : Finset (Sum (Sum α Bool) Bool))
+        {Sum.inr true} := by simp
+    simpa [doubleSharingLabels, next, Finset.singleton_union] using
+      ReadOnce.combine next u left right disjoint d hd
+  · have hvU : v ∈ U := (Finset.mem_insert.mp hv).resolve_left vz
+    by_cases va : v = a
+    · subst v
+      simpa [doubleSharingLabels, vz, next, duplicateRaw] using
+        ReadOnce.leaf next u (Sum.inl (Sum.inr false))
+    · by_cases vb : v = b
+      · subst v
+        simpa [doubleSharingLabels, vz, va, next, duplicateRaw] using
+          ReadOnce.leaf next u (Sum.inr false)
+      · have first := ReadOnce.map raw (duplicateRaw raw a) u Sum.inl
+          (by intro x y h; cases h; rfl) (by intro r; rfl) (entries v (by simp [hvU]))
+        have second := ReadOnce.map (duplicateRaw raw a) next u Sum.inl
+          (by intro x y h; cases h; rfl) (by intro r; rfl) first
+        simpa [doubleSharingLabels, vz, va, vb, next, liftLabels] using second
+
+end PEqualNP.Outside.L_meta_2373.Live1024

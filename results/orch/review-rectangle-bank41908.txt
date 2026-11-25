@@ -1,0 +1,7 @@
+Independent review by counterexample: PASS
+Source results/orch/lemmas/RectangleBank41908.lean
+SHA256 a00dd72a9786d235c718a8ce185dee2261c788d255bb6040e55f07d6e2963428
+128 lines/5020bytes, reported compiler EXIT0 with empty log.
+Mathematics: every positive support has exactly3rows; all8subsets per original input bound its signed rectangle weight by the stated cap. The sum/max argument handles arbitrary negative subsets, including negative weights. The indexed tight-Run theorem preserves the exact20root multiplicities, giving target116≤rootcost104 contradiction. No trust escapes; options declaration-local.
+Independent computation parsed the exact Lean matrix, costs, positions and labels, checked all80support subsets,15positive/negative graph rows, and all1024truth bits of each root against selected bank41908. Exact multiplicities [3,2,3,2,1,2,2,1,2,2] and19gate budget match. Complete output: rectangle-bank41908-independent-audit.txt; reproducible audit source: audit-rectangle-bank41908.py.
+Scope: this one tight terminal bank from the mono19 search, not a full first-gate case or full19gate lower bound.

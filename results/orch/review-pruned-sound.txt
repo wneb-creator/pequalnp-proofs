@@ -1,0 +1,16 @@
+Independent review by lean_setup, 2026-11-25 UTC
+
+Verdict: PASS for the general cofactor-pruned certificate soundness theorem.
+Source: results/orch/lemmas/PrunedSound.lean
+SHA256: 0dc3cbf6560ca69f726795f0eaa7b37268991fdcfe7c33ce78ae519630383f4b
+Size:9455 bytes,167 lines. Complete compiler log is empty; author build EXIT0.
+
+Read all source. The induction is on the actual remaining Live gate count, generalized over root-label type, root basis, certificate predicate and depth. Every recursive call uses the actual smaller tail. The terminal case identifies its unique wire's support with the complete root basis through LabelPartition, then contradicts the node's missing-target obligation.
+
+The three retention cases account for cardinalities correctly. With no retained operand, old width is U.card+2 and tail width is U.card+1, preserving depth. With exactly one retained operand, old and tail widths agree, and the child depth drops by one. With two retained operands, old width is U.card and tail width is U.card+1, and two child-copy operations reduce depth by two. The Live cardinality bound rejects insufficient-depth cases. The swapped-operand branch uses the checked flip operation, preserves freshness/partition/invariants by insert commutation, and covers the other single-retention orientation.
+
+Each copy either invokes its explicit bounded-Run cut against an actual forest/first-copy Run, or obtains a child node and bridge. The consumed operand's copied certificate is justified by pruned_bridge_live_copy; it is not assumed merely from tail membership. Single/double transfer then establishes child partition, certificate membership, ReadOnce provenance and column support. Gate closure and bridge-cut exclusions receive actual state runs and the correctly reduced budget. No global provenance assumption has been silently inserted or dropped.
+
+Node obligations are exactly initial leaves, pruned gate closure, target absence and the recursive copy alternatives. Gate-column containment and row coverage remain explicit premises. The theorem is conditional on these certificate obligations; finite tables must still establish them. No claim that this artifact alone proves the posted gap.
+
+No sorry, axioms, native_decide, bv_decide, unsafe mechanism, custom datatype/instance, string literals, _root_, attributes or option changes. Names are target-prefixed. Cached imports are checked dependency modules to inline once into a final single-file proof.

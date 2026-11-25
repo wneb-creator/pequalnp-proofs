@@ -1,0 +1,31 @@
+Base dependency: PEqualNP.Defs from the pinned Lean project.
+Build these archived Lean modules in order, putting this directory on LEAN_PATH.
+
+PetersenSeventeenFull
+SliceProfiles
+RunPoolCut
+State4Copy14
+State4ReadOnceForest
+IndexedForest
+IntermediateCopyCut
+CompressedWireCut
+PrunedInterface
+SuccessorChecker
+EntryGateChecker
+EntryTableAdapters
+RunCofactorCheck
+PrunedCopyFixture0Cuts
+PrunedCopyFixture0Tables
+PrunedCopyFixture0Node
+InitialRawState
+PairColumnSemantics
+PrunedCopyFixture0Initial
+CompressedIndexedForest
+PrunedStructural
+PrunedBridgeResolve
+PrunedMerge
+SharingReadOnce
+PrunedDouble
+PrunedSingleTransfer
+PrunedSound
+PrunedCopyFixture0Complete

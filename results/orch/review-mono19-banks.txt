@@ -1,0 +1,9 @@
+Independent archive/source/data review by status_review: PASS within the experimental scope.
+
+All9 manifest file sizes and SHA256 hashes match. Both complete compile logs are empty, and both bounded search logs are preserved. The two runs end at the same41908visits and4896closure attempts at an estimated850009940-byte guard; neither exhausts the monotone19 root.
+
+The fresh-source delta adds operand inequality, proper output and output distinct from operands, plus diagnostics. Those conditions match the fresh Live model; the complete first-copy recurrence is still separately pending formalization. The instrumentation delta adds only JSONL snapshots and elapsed-time bookkeeping. In particular, limit snapshots remain explicitly marked limit rather than complete. The memory figure is an estimate, not measured process memory.
+
+All41 snapshot records were independently parsed: each preserves exact1024-bit truth values and list multiplicities, satisfies remaining=raw.length−1, and has a valid recorded supply history from the original inputs. The selected8 records are exactly the8 largest entry counts; each is a pure-input multiset of20 roots with budget19. Exactly one selected snapshot is interrupted. All duplicate occurrences are retained. Each selected bank is consistent with all five checked rectangle inequalities; no contradiction is claimed.
+
+No bank is a counterexample or a checked exclusion certificate. The README correctly states the unfinished root and pending recursive checker. Source changes add no network or credential access. The snapshot file is a deliberate local output of the diagnostic program, preserved in this archive.

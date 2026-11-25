@@ -1,0 +1,16 @@
+Independent finite-data and exporter review by status_review: PASS within the stated scope.
+
+Fixture SHA256 e23eed834296846e9b71fbf0c6b0a903edbcb88ec18181b54cdaa304b58a95d2
+Exporter SHA256 b57722bfc4352d646d75990e7e0343c9c8c80059e79164483f49b3abe3cf5900
+The exporter uses local finite computation only and clearly labels its output experimental finite data. No network, credential access, subprocess or external write occurs beyond its named scratch JSON.
+
+Independently reconstructed all75 truth functions,225-column signatures and10 exact single-zero lower15 cofactor domains. All14 nodes have the stated basis/depth budget. Every one of269 retained entries has valid leaf or disjoint fresh AND/OR provenance; all40 omitted entries have matching constructive cofactor cuts. Exhaustive regeneration checked3862 eligible fresh/disjoint closure alternatives, including all133 admissible ones, against retained/omitted entries. The target is absent at the full basis in each closure.
+
+Every copied child removes exactly the selected support and appends two distinct labels with the same wire value; its depth and budget adjust exactly. All152 disjoint-parent bridge alternatives are accounted for by retained entries, valid row witnesses or the2 explicit cofactor cuts. The42 cofactor cuts preserve list multiplicity, replay selected history gates from the original free input pool after projection, and satisfy lower+constant_mass>budget+paid. For compressed entries, budget=node.budget−support.card+1 exactly.
+
+The generated Lean mapping was cross-checked independently: all42 pools, selected choices, cap/profile indices and all75 signal-expression definitions match the source JSON exactly. Repeated pool entries are preserved as list occurrences. The localized Lean source audited at this point has SHA149b0e678f18803ae35d06d737caedc705c6c36130a42fdf50a9d7694063786e; its compiler result is recorded separately after the author's recheck.
+
+This audit is finite computation, not the recursive Lean exclusion theorem. Individual cuts are being kernel-checked; combining the complete closure/copy hierarchy still requires the generalized certificate theorem. No proof of the posted gap is asserted.
+
+Final localized Lean artifact: PASS.
+PrunedCopyFixture0Cuts.lean SHA149b0e678f18803ae35d06d737caedc705c6c36130a42fdf50a9d7694063786e,25078bytes. The author reported recompile exit0; the frozen log records that result. Both resource limits now use permitted declaration-local `in` syntax on each of42 finite checks; no global options remain. All42 resulting cutRun theorems are unconditional Run exclusions obtained from the checked ZeroProfiles.slice and RunCofactorCheck adapter. The duplicate-aware Run checker has no Nodup hypothesis, and the finite mapping preserves every list occurrence. No recursive hierarchy exclusion is claimed yet.

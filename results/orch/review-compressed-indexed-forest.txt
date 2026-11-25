@@ -1,0 +1,6 @@
+Independent indexed compressed-wire cut review
+Reviewer: /root/counterexample
+Full source SHA256: cd2c8c12c41427a6c66650fc5e3da6f693098477197ea00c9ae5768fe2227402
+Verdict: PASS.
+
+The38-line module imports the checked CompressedWireCut chain. It compresses an index z using its actual value(value z), not its index signature, and relabels all other ReadOnce traces injectively. The same indexed state S and cap feed readOnce_indexed_forest_exclusion_state. Repeated wire values retain distinct labels and list occurrences. The cut budget is the explicit compressed-basis cardinal plus depth, with no hidden gate credit. Full log is empty and author reported EXIT0; no forbidden trust/format construct is added.

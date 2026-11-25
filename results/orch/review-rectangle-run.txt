@@ -1,0 +1,12 @@
+Independent immutable source/math review by status_review: PASS.
+
+RectangleRun.lean SHA256642aa3a2a10a90775e4cee820b5a1936fc4ddb770d3d1b7799def46ec2d34e00
+8466bytes186lines. Author reports exit0; complete frozen log has one deprecation warning and no errors. Its cached PetersenSeventeenFull import is preserved.
+
+run_length_le counts list occurrences and proves roots.length≤k+1 for the general Run. Under exact equality, run_tight_measure uses the tail length bound to force both keep flags false at every gate. Thus every step consumes both operands and an arbitrary subadditive Int measure propagates to the sum over the original root list. Permutations preserve that sum. Duplicate functions remain separate occurrences throughout; no deduplication is used.
+
+The rectangle measure is the finite maximum over all admissible positive/negative index rectangles, with invalid rectangles scored zero. Empty rectangles establish nonnegativity of any claimed bound. bounds_measure and measure_le correctly relate this maximum to the universal Bounds predicate. The positive AND/OR subadditivity proofs use the same exact disjoint column/row partitions as the reviewed formula lemmas, so negative matrix entries are allowed.
+
+Only allowed false operations are used by measure_subadditive, hence the Run bound applies to monotone gates. It also permits arbitrary initial wire functions, including precomputed negated signals, provided their rectangle bounds are supplied. tight_run_uniform applies root bounds once per list occurrence and uses the explicit target-positive/negative sample hypotheses to obtain the full matrix weight bound.
+
+The exact roots.length=k+1 hypothesis is material: this is a bound for tight Runs, not a bound for arbitrary shared circuits. No unsupported circuit-to-formula conversion is assumed. No forbidden proof form, new trust assumption or scratch-only dependency was found.

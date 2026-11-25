@@ -1,0 +1,25 @@
+{
+  "shortlist_gamma_bits": 186469,
+  "shortlist_gamma_bytes": 23309,
+  "shortlist_rice_bits": 167135,
+  "shortlist_rice_bytes": 20892,
+  "reference_count": 8514,
+  "proof_reference_width": 12,
+  "identity_memos": 1361,
+  "nonidentity_reference_count": 3686,
+  "reference_gamma_bits": 220990,
+  "reference_gamma_bytes": 27624,
+  "expanded_state_packed_bits": 35549,
+  "expanded_state_packed_bytes": 4444,
+  "expanded_noninput_wire_occurrences": 1543,
+  "shared_truth_function_count": 706,
+  "dictionary_bytes": 3003,
+  "binary_skeleton_bytes": 58380,
+  "hex_literal_characters_before_overhead": 116760,
+  "limitations": [
+    "Excludes all formula certificates and all Lean helper code.",
+    "Truth-function derivation programs, seed histories, exact memo permutation values, decoder proofs and delimiters are not emitted.",
+    "Reference bit budget reserves seven bits for each nonidentity permutation; values still need recovery.",
+    "This is a format/computation cost study; it is not a checked certificate."
+  ]
+}

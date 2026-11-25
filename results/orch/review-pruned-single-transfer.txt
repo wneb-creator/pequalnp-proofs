@@ -1,0 +1,5 @@
+Independent review by counterexample: PASS
+Source results/orch/lemmas/PrunedSingleTransfer.lean
+SHA256 af362be5c3a67b00348753ace6bf41fd95a1e9d3e6b0a2eba1a6de823fbc2dd8
+EXIT0, empty compiler log.
+The retained-a/consumed-b cardinal identity derives exactly the pre-copy bridge budget from the tail budget. The checked bridge resolver certifies b before consumption, leaves distinguish the two copies of a, and pruned_closed_live resolves the actual fresh result including its compressed cut alternative. Unchanged entries lift through the bridge; partition, ReadOnce and column support use independently checked structural helpers. No static-closure assumption is silently substituted for pruned closure. No source-format or trust issues.
