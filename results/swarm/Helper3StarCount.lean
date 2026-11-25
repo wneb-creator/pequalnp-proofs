@@ -2139,3 +2139,88 @@ lemma chosen_productive_family_overlap_budget {ι α : Type*} [Fintype ι] [Deci
     exact ⟨i, hi⟩
 
 end PEqualNP.Outside.L_meta_4970_aux
+
+
+namespace PEqualNP.Outside.L_meta_4970_aux
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_4970.SemanticSafe
+
+lemma productiveOr_support_subset (n : ℕ) (C : Circuit) (Q : Finset (Fin n))
+    (w : ℕ) (hw : w ∈ productiveOr n C Q) :
+    singletonSupport n C w ⊆ Q := by
+  classical
+  have hm := productiveOr_subset n C Q hw
+  have hs := (Finset.mem_filter.mp hm).2.1.2
+  exact singletonSupport_safe_subset n C w Q hs
+
+lemma productiveOr_binary_operands (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (w : ℕ) (hw : w ∈ productiveOr n C Q) :
+    n ≤ w ∧ w < n + C.gates.length ∧
+      (gateAt C (w - n)).op = GateOp.or ∧
+      ∃ a b, (gateAt C (w - n)).inputs = [a, b] ∧ a < w ∧ b < w ∧
+        Safe Q (wireFn n C a) ∧ Safe Q (wireFn n C b) ∧
+        singletonSupport n C w = singletonSupport n C a ∪ singletonSupport n C b ∧
+        (singletonSupport n C a).Nonempty ∧ (singletonSupport n C b).Nonempty ∧
+        ¬ singletonSupport n C w ⊆ singletonSupport n C a ∧
+        ¬ singletonSupport n C w ⊆ singletonSupport n C b := by
+  classical
+  have hm := productiveOr_subset n C Q hw
+  obtain ⟨_, ⟨hwlim, hs⟩, ⟨hn, hor⟩, _⟩ := Finset.mem_filter.mp hm
+  have hj : w - n < C.gates.length := by omega
+  have heq : n + (w - n) = w := by omega
+  obtain ⟨a, b, ha, hb, hab, _, heval⟩ := binary_gate n C hC (w - n) hj
+  rw [heq] at ha hb heval
+  have hv : ∀ x, wireFn n C w x = (wireFn n C a x || wireFn n C b x) := by
+    intro x
+    rw [heval x, hor]
+    simp [GateOp.eval]
+  have hs' : Safe Q (fun x => wireFn n C a x || wireFn n C b x) := by
+    simpa only [← hv] using hs
+  obtain ⟨hsa, hsb⟩ := safe_or_iff.mp hs'
+  have hsup : singletonSupport n C w = singletonSupport n C a ∪ singletonSupport n C b := by
+    ext i
+    simp only [mem_singletonSupport, hv, Bool.or_eq_true, Finset.mem_union]
+  have hna := productiveOr_no_carrier n C Q w hw a ha (by omega) hsa
+  have hnb := productiveOr_no_carrier n C Q w hw b hb (by omega) hsb
+  have hane : (singletonSupport n C a).Nonempty := by
+    by_contra h
+    have hz : singletonSupport n C a = ∅ := Finset.not_nonempty_iff_eq_empty.mp h
+    apply hnb
+    rw [hsup, hz, Finset.empty_union]
+  have hbne : (singletonSupport n C b).Nonempty := by
+    by_contra h
+    have hz : singletonSupport n C b = ∅ := Finset.not_nonempty_iff_eq_empty.mp h
+    apply hna
+    rw [hsup, hz, Finset.union_empty]
+  exact ⟨hn, hwlim, hor, a, b, hab, ha, hb, hsa, hsb, hsup, hane, hbne, hna, hnb⟩
+
+lemma productiveOr_monochromatic {β : Type*} (n : ℕ) (C : Circuit)
+    (Q : Finset (Fin n)) (w : ℕ) (hw : w ∈ productiveOr n C Q)
+    (color : Fin n → β) (c : β) (hQ : ∀ i ∈ Q, color i = c) :
+    ∀ i ∈ singletonSupport n C w, color i = c := by
+  intro i hi
+  exact hQ i (productiveOr_support_subset n C Q w hw hi)
+
+lemma productiveOr_not_bad {β : Type*} (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (w : ℕ) (hw : w ∈ productiveOr n C Q)
+    (a b : ℕ) (hab : (gateAt C (w - n)).inputs = [a, b])
+    (color : Fin n → β) (c : β) (hQ : ∀ i ∈ Q, color i = c) :
+    ¬ (singletonSupport n C a = ∅ ∨ singletonSupport n C b = ∅ ∨
+      ∃ i ∈ singletonSupport n C w, ∃ j ∈ singletonSupport n C w,
+        color i ≠ color j) := by
+  obtain ⟨_, _, _, a', b', hab', _, _, _, _, _, hane, hbne, _, _⟩ :=
+    productiveOr_binary_operands n C hC Q w hw
+  have heq : [a', b'] = [a, b] := hab'.symm.trans hab
+  have ha : a' = a := (List.cons.inj heq).1
+  have hb : b' = b := (List.cons.inj (List.cons.inj heq).2).1
+  subst a'
+  subst b'
+  intro hbad
+  rcases hbad with hza | hzb | ⟨i, hi, j, hj, hij⟩
+  · exact (Finset.nonempty_iff_ne_empty.mp hane) hza
+  · exact (Finset.nonempty_iff_ne_empty.mp hbne) hzb
+  · have hm := productiveOr_monochromatic n C Q w hw color c hQ
+    exact hij ((hm i hi).trans (hm j hj).symm)
+
+end PEqualNP.Outside.L_meta_4970_aux
