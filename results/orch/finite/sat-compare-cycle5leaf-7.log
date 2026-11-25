@@ -1,0 +1,6 @@
+{"graph": "cycle5leaf", "n": 6, "edges": [[0, 1], [0, 4], [0, 5], [1, 2], [2, 3], [3, 4]], "tau": 3, "cover_upper": 8, "samples": 11, "max_independent_sets": 5, "gates": 7, "require_bad_own": false, "require_all_own": false, "require_singleton_and": false, "ordered": true, "distinct_prefix": false, "pair_orbits": false, "build_seconds": 0.01820540428161621}
+{
+  "result": "unsat",
+  "seconds": 7.9457924365997314,
+  "reason_unknown": null
+}

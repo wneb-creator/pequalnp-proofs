@@ -1,0 +1,17 @@
+{
+  "results/orch/finite/sat_ownership_compare.py": "28467d51229d82f23dfdfdbfc5c4ccc8bc803b41d9e9d227ba1f9de117800e8f",
+  "results/orch/finite/sat_ownership_bitset.py": "861fc1653d3c683589b0e41942c7638d7bfdd4dc565302e0c8aa06adf03c766a",
+  "results/orch/finite/OWNERSHIP_COMPARE_README.md": "317a6bd5e3d40318bec74e5edd537d7203ab64de90e98f1cc722f5193ee3772f",
+  "results/orch/finite/sat-all-own-path4-3.log": "21e8fb71e67b018a4e48d8d31b9c4ee77447c49b77b52fe3067a14cf6b9d0f4b",
+  "results/orch/finite/sat-all-own-path4-4.log": "44ad18329ab6186efe58a492a0353c295a37683eba288b05a287aaec30376621",
+  "results/orch/finite/sat-all-own-cycle5leaf-7.log": "a2998059769b0b97b8a08177cce1fcde6c2bc100339477dafaab2a819b9d9c72",
+  "results/orch/finite/sat-compare-cycle5leaf-7.log": "a8c5f3f641d5503cb93a97457615ee097e1da753cfd333c0f6b2fd674be96325",
+  "results/orch/finite/sat-all-own-cycle5leaf-8.log": "bb7b7d0136a8b149add89cac5b1ce2049eb1f45b3287cdceff9b2f49f5c25528",
+  "results/orch/finite/sat-all-own-theta233-10.log": "5e5a0bdd3f3dba7eda3818d2bcc235e33b8aabb5b161cb5333ba2e24967657f5",
+  "results/orch/finite/sat-bitset-path4-3.log": "cb2ad704853474066d179f7bfa88b0430b494d05fd5ccf2f9196a35fcccca259",
+  "results/orch/finite/sat-bitset-path4-4.log": "c286c83869155bca9d4a3c608463166f8cae6f6cfdddcc4d6b1528a05a322ad8",
+  "results/orch/finite/sat-bitset-cycle5leaf-7.log": "8933d13a8705c0ddb8b622ed644220a927b51960d9bfbd4403d417dc91ddbe87",
+  "results/orch/finite/sat-bitset-theta233-10.log": "0b77381daffefbca17e0b4b98cc97736a35447fd9c9ae947510adb8dd6e9b573",
+  "results/orch/lemmas/source_copy_route.lean": "f92e43c06a1c1a7b9921ae9b304232ac650f5add00cc03e9b247bc1f82ca3581",
+  "results/orch/lemmas/star_operand_route.lean": "bd8bafefe65cbb851679046e002902142d3679c66c9460b3fbf2ced98893aa85"
+}

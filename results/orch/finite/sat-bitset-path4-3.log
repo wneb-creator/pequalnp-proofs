@@ -1,0 +1,6 @@
+{"graph": "path4", "n": 4, "edges": [[0, 1], [1, 2], [2, 3]], "tau": 2, "cover_upper": 4, "samples": 6, "max_independent_sets": 3, "gates": 3, "require_bad_own": false, "require_all_own": true, "ownership_encoding": "edge_bitset", "sampleconstant_pruning": false, "require_singleton_and": false, "ordered": true, "distinct_prefix": false, "pair_orbits": false, "build_seconds": 0.04746270179748535}
+{
+  "result": "unsat",
+  "seconds": 0.1807236671447754,
+  "reason_unknown": null
+}

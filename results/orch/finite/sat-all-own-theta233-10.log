@@ -1,0 +1,6 @@
+{"graph": "theta233", "n": 7, "edges": [[0, 2], [0, 3], [0, 5], [1, 2], [1, 4], [1, 6], [3, 4], [5, 6]], "tau": 4, "cover_upper": 11, "samples": 15, "max_independent_sets": 7, "gates": 10, "require_bad_own": false, "require_all_own": true, "require_singleton_and": false, "ordered": true, "distinct_prefix": false, "pair_orbits": false, "build_seconds": 0.07780694961547852}
+{
+  "result": "unknown",
+  "seconds": 180.0923616886139,
+  "reason_unknown": "timeout"
+}
