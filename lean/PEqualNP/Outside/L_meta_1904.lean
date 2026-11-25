@@ -4226,4 +4226,96 @@ lemma graphExtremal_surviving_wire_obstruction (n : ℕ) (G : SimpleGraph (Fin n
   by_contra hn
   push Not at hn
   exact graphExtremal_promotion_gate_not_dirty n G activity pre post g out h hX hn hg
+
+lemma graphExtremal_safe_zeroed_wire_misses_edge (n : ℕ) (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (activity : Circuit → ℕ) (pre post : List Gate)
+    (g : Gate) (out h : ℕ)
+    (hX : GraphExtremal n G activity ⟨pre ++ g :: post, out⟩)
+    (hg : IsDirtyAnd n G ⟨pre ++ g :: post, out⟩ pre.length)
+    (hsafe : ∀ x : Fin n → Bool,
+      (Circuit.wires ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x)).getD h false = true →
+        graphFun G ∅ x = true) :
+    ∃ u v : Fin n, G.Adj u v ∧
+      let pair : Fin n → Bool := fun w => decide (w = u ∨ w = v)
+      Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn pair) = false ∧
+        (Circuit.wires ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn pair)).getD h false = false := by
+  let C₀ : Circuit := ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩
+  have hm₀ : Monotone2 C₀ :=
+    deletion_mono_replace_gate pre post g ⟨GateOp.or, []⟩ out hX.1.1 (by simp)
+  have houtput : ∀ x, C₀.eval (List.ofFn x) = true → graphFun G ∅ x = true := by
+    intro x hx
+    have ht := zeroReplacement_wires_le n pre post g out hX.1.1 x out hx
+    change Circuit.eval ⟨pre ++ g :: post, out⟩ (List.ofFn x) = true at ht
+    exact (congrFun hX.2.1 x).symm.trans ht
+  obtain ⟨x, hx⟩ :=
+    graphExtremal_surviving_wire_obstruction n G activity pre post g out h hX hg
+  change (C₀.eval (List.ofFn x) || (C₀.wires (List.ofFn x)).getD h false) ≠ graphFun G ∅ x at hx
+  have hf : graphFun G ∅ x = true := by
+    cases he : graphFun G ∅ x with
+    | true => rfl
+    | false =>
+      have ho : C₀.eval (List.ofFn x) = false := by
+        apply Bool.eq_false_iff.mpr
+        intro ht
+        have hc := houtput x ht
+        simp [he] at hc
+      have hw : (C₀.wires (List.ofFn x)).getD h false = false := by
+        apply Bool.eq_false_iff.mpr
+        intro ht
+        have hc := hsafe x ht
+        simp [he] at hc
+      exact False.elim (hx (by simp only [ho, hw, he, Bool.false_or]))
+  have hboth : C₀.eval (List.ofFn x) = false ∧
+      (C₀.wires (List.ofFn x)).getD h false = false := by
+    cases ho : C₀.eval (List.ofFn x) <;>
+      cases hw : (C₀.wires (List.ofFn x)).getD h false <;> simp_all
+  obtain ⟨u, v, huv, hu, hv⟩ := (SafeLift.graphFun_iff G x).mp hf
+  let pair : Fin n → Bool := fun w => decide (w = u ∨ w = v)
+  have hpx : ∀ w, pair w = true → x w = true := by
+    intro w hw
+    have he : w = u ∨ w = v := of_decide_eq_true hw
+    rcases he with rfl | rfl
+    · exact hu
+    · exact hv
+  refine ⟨u, v, huv, ?_, ?_⟩
+  · apply Bool.eq_false_iff.mpr
+    intro ht
+    have hc := signed_eval_mono C₀ hm₀ hpx ht
+    rw [hboth.1] at hc
+    contradiction
+  · apply Bool.eq_false_iff.mpr
+    intro ht
+    have hc := signed_eval_mono ⟨C₀.gates, h⟩ hm₀ hpx ht
+    change (C₀.wires (List.ofFn x)).getD h false = true at hc
+    rw [hboth.2] at hc
+    contradiction
+
+lemma graphExtremal_safe_old_wire_misses_edge (n : ℕ) (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (activity : Circuit → ℕ) (pre post : List Gate)
+    (g : Gate) (out h : ℕ)
+    (hX : GraphExtremal n G activity ⟨pre ++ g :: post, out⟩)
+    (hg : IsDirtyAnd n G ⟨pre ++ g :: post, out⟩ pre.length)
+    (hsafe : ∀ x : Fin n → Bool,
+      (Circuit.wires ⟨pre ++ g :: post, out⟩ (List.ofFn x)).getD h false = true →
+        graphFun G ∅ x = true) :
+    ∃ u v : Fin n, G.Adj u v ∧
+      let pair : Fin n → Bool := fun w => decide (w = u ∨ w = v)
+      Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn pair) = false ∧
+        (Circuit.wires ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn pair)).getD h false = false := by
+  apply graphExtremal_safe_zeroed_wire_misses_edge n G activity pre post g out h hX hg
+  intro x hx
+  exact hsafe x (zeroReplacement_wires_le n pre post g out hX.1.1 x h hx)
+
+lemma graphExtremal_safe_gate_misses_edge (n : ℕ) (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (activity : Circuit → ℕ) (pre post : List Gate)
+    (g : Gate) (out j : ℕ)
+    (hX : GraphExtremal n G activity ⟨pre ++ g :: post, out⟩)
+    (hg : IsDirtyAnd n G ⟨pre ++ g :: post, out⟩ pre.length)
+    (hsafe : PEqualNP.TopForm.BelowF G ⟨pre ++ g :: post, out⟩ j) :
+    ∃ u v : Fin n, G.Adj u v ∧
+      let pair : Fin n → Bool := fun w => decide (w = u ∨ w = v)
+      Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn pair) = false ∧
+        gateVal n ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ j pair = false := by
+  exact graphExtremal_safe_old_wire_misses_edge n G activity pre post g out (n+j) hX hg hsafe
+
 end PEqualNP.Outside.L_meta_1904_aux
