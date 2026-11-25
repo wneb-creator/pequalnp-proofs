@@ -167,3 +167,72 @@ lemma unique_bare_biclique_cover {n : ℕ} (C : AndCountCircuit n) (G : SimpleGr
         by simpa only [Y, ite_eq_left hg] using hu⟩
 
 end PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover
+
+namespace PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover
+
+lemma biclique_center {n : ℕ} [Nonempty (Fin n)] (G : SimpleGraph (Fin n))
+    (no4 : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (X Y : Finset (Fin n)) (complete : ∀ a ∈ X, ∀ b ∈ Y, G.Adj a b) :
+    ∃ c : Fin n, ∀ a ∈ X, ∀ b ∈ Y, a = c ∨ b = c := by
+  classical
+  by_cases hx : X.Nonempty
+  · obtain ⟨a, ha⟩ := hx
+    by_cases hsingleton : ∀ c ∈ X, c = a
+    · exact ⟨a, fun c hc _ _ => Or.inl (hsingleton c hc)⟩
+    · push Not at hsingleton
+      obtain ⟨c, hc, hca⟩ := hsingleton
+      by_cases hy : Y.Nonempty
+      · obtain ⟨b, hb⟩ := hy
+        refine ⟨b, ?_⟩
+        intro p hp q hq
+        have h := no4 a b c q (complete a ha b hb) (complete c hc b hb).symm
+          (complete c hc q hq) (complete a ha q hq).symm
+        exact Or.inr ((h.resolve_left (Ne.symm hca)).symm)
+      · exact ⟨a, fun _ _ b hb => False.elim (hy ⟨b, hb⟩)⟩
+  · exact ⟨Classical.arbitrary (Fin n), fun a ha _ _ => False.elim (hx ⟨a, ha⟩)⟩
+
+lemma biclique_cover_to_vertex_cover {n k : ℕ} (G : SimpleGraph (Fin n))
+    (no4 : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (X Y : Fin k → Finset (Fin n))
+    (complete : ∀ i, ∀ a ∈ X i, ∀ b ∈ Y i, G.Adj a b)
+    (cover : ∀ a b, G.Adj a b → ∃ i, (a ∈ X i ∧ b ∈ Y i) ∨
+      (b ∈ X i ∧ a ∈ Y i)) :
+    ∃ S : Finset (Fin n), S.card ≤ k ∧ ∀ a b, G.Adj a b → a ∈ S ∨ b ∈ S := by
+  classical
+  by_cases hn : Nonempty (Fin n)
+  · let _ : Nonempty (Fin n) := hn
+    have hc : ∀ i, ∃ c : Fin n, ∀ a ∈ X i, ∀ b ∈ Y i, a = c ∨ b = c :=
+      fun i => biclique_center G no4 (X i) (Y i) (complete i)
+    choose c hc using hc
+    refine ⟨Finset.univ.image c, ?_, ?_⟩
+    · exact (Finset.card_image_le).trans (by simp)
+    · intro a b hab
+      obtain ⟨i, h⟩ := cover a b hab
+      have hci : c i ∈ Finset.univ.image c := Finset.mem_image.mpr ⟨i, by simp, rfl⟩
+      rcases h with ⟨ha, hb⟩ | ⟨hb, ha⟩
+      · rcases hc i a ha b hb with rfl | rfl
+        · exact Or.inl hci
+        · exact Or.inr hci
+      · rcases hc i b hb a ha with rfl | rfl
+        · exact Or.inr hci
+        · exact Or.inl hci
+  · refine ⟨∅, by simp, ?_⟩
+    intro a
+    exact False.elim (hn ⟨a⟩)
+
+lemma unique_bare_vertex_cover {n : ℕ} (C : PEqualNP.AndCount.AndCountCircuit n)
+    (G : SimpleGraph (Fin n))
+    (no4 : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (computes : C.Computes G) (hout : C.outVars = ∅)
+    (disj : ∀ i, Disjoint (C.leftVars i) (C.rightVars i))
+    (unique : ∀ v i j, (v ∈ C.leftVars i ∨ v ∈ C.rightVars i) →
+      (v ∈ C.leftVars j ∨ v ∈ C.rightVars j) → i = j) :
+    ∃ S : Finset (Fin n), S.card ≤ C.size ∧
+      ∀ a b, G.Adj a b → a ∈ S ∨ b ∈ S := by
+  obtain ⟨X, Y, complete, cover⟩ := unique_bare_biclique_cover C G computes hout disj unique
+  exact biclique_cover_to_vertex_cover G no4 X Y complete cover
+
+end PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover

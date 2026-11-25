@@ -1,0 +1,24 @@
+The L_meta_615 branch-counting route supplies a useful weighted budget, but its existing slot lemmas do not establish the general m+τ−1 lower bound.
+
+The checked component is results/orch/lemmas/branch_budget.lean. For a finite set W of live wires, output in W, r live inputs, g live gates, and reader count d(a), it proves
+
+    r + Σ(a∈W) (d(a)−1) ≤ g+1
+
+from W.card=r+g, at least one reader for each non-output live wire, and total reader count at most 2g. It also proves that the number of wires with at least two readers is bounded by this surplus sum. The proofs use only propext, Classical.choice and Quot.sound. Complete compile/audit output is in branch-budget-validation.txt. This is an abstract counting lemma; it asserts no ownership or graph lower bound.
+
+To connect it to L615, use living/readers as W/d, take g to be the number of live gate wires, and reuse the double count and incoming_bound from lines1581–1689. For a graph without isolated vertices all inputs are live by input_live. With isolated vertices, count actual live input wires or first remove the unused inputs. The desired missing geometric inequality is best written without natural-number subtraction:
+
+    edgeCount(G) + vertexCoverNumber(G) ≤ liveInputCount + readerSurplus.
+
+Under minimum degree2 this is the familiar surplus ≥ m−n+τ. Original general_branch_bound counts a cover only of edges whose endpoints both have degree at least2; it does not give n+τ(G)−1 for arbitrary graphs with leaves. A single edge already distinguishes those statements.
+
+The premise restricting neighbor_slots to at most one eligible neighbor cannot simply be removed. A five-input circuit for C5 has gates
+
+    5=OR(1,4); 6=AND(0,5); 7=OR(1,3); 8=AND(2,7);
+    9=AND(3,4); 10=OR(6,8); 11=OR(10,9), output11.
+
+Its eligible vertices are {1,3,4}. Vertex0 has neighbors {1,4} but only consumption wire6. Thus the unrestricted assertion |N(0)|≤numberOfConsumptions(0) fails, even though the graph is triangle-free and has no square. This is a counterexample to that auxiliary strengthening, not to L-meta-1031. All32 Boolean evaluations, the graph conditions, reader counts and consumption sets were checked by a separate Python model of these definitions. This finite check is not presented as a Lean proof of the obstruction.
+
+The forest premise in theta_exact/total_slots_impossible is also specific. Construct a base C5 and attach two additional C5 petals at each base vertex, sharing only that hub. The resulting graph has45 vertices,55 edges, minimum degree2, and no triangles or squares. Each petal needs2 internal cover vertices when its hub is included, and3 when excluded. For a hub and its two petals, inclusion costs1+2+2=5; exclusion costs3+3=6. A minimum cover therefore contains every base hub and has size25. Every minimum cover induces the base C5, so none meets the forest premise. The adjacency conditions and the exact separator-based cover calculation were independently computed in Python. This example concerns applicability of the existing forest argument, not circuit optimality.
+
+The theta proof establishes one extra unit by assuming equality in n+τ−1, obtaining that every branch is a pure first branch with exactly two readers, and deriving a contradiction from two-slot capacities and a forest bound on the induced minimum cover. For general m−n excess, the weighted budget controls total surplus but does not charge the missing edges. Post-first-branch sharing can involve several eligible vertices, so summing per-vertex consumption budgets would double-count a branch. Resolving that sharing would require a new global charging or elimination lemma; it is not supplied by the cited L615 results. The OR-rank and AND-cover approaches remain separate possible routes.

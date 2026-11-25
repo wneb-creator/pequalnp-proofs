@@ -1,0 +1,184 @@
+Independent static review by lean_setup
+
+Semantic assembly: PASS
+Source: results/orch/lemmas/semantic_case_assembly.lean
+SHA256: 5f329291be60b4bdc97bb3a02cb9f0f6dede7e70af1bdddf21a2da1e1dfc6df7
+238 lines. Independently recomputed all ORs of the17 initial values: exactly102 distinct values, matching the literal list and every hypothesis/use in order. Initial set is AND-closed. The result remains conditional on102 checkFirst proofs. Author reported compile and both theorem axiom audits exit0, with only the three allowed axioms. No heavy compilation rerun by this reviewer.
+
+Two-choice rectangle: PASS
+Source: results/orch/lemmas/two_choice_rectangle.lean
+SHA256: ab3dfd90119079e5ded12e379055c5e638f2bd277458919ca2aca445899b8749
+283 lines. factor_singleton uses distinct row/column corners to exclude cardinalities0 and2. If all four edge corners are distinct, every factor is a singleton and the edges form a forbidden square. Soundness evaluated on a corner forces any accepted2-set to equal that corner. Pattern flag casework reduces to the rectangle bound or at most3 monomials. No general circuit-normalization claim is made. Author reported all8 lemma axiom audits exit0, only the three allowed axioms. No forbidden tokens, quotes or attributes found.
+
+Combined C5 certificate: STATIC PASS, COMBINED BUILD/AUDIT PENDING
+Source: /tmp/oec/pequalnp-pilot-55/cycle_or_certificate.lean
+SHA256: 8d285631f802742d480718ed6d0b9085a7c1d2fde9a07bf1a7d4869d710f52b6
+1343 lines. All102 first_N declarations use decide +kernel and names match arguments; their exact set is the102 actual OR values. all_first_cases uses all102 in list order. The semantic_soundness body is byte-identical to the existing reviewed source; the complete compact_or namespace is byte-identical to its592-line source. The807-line known suffix is contained unchanged.
+
+The representation simulation preserves each wire as a conjunction of input/OR atoms; well-formed bounds prevent out-of-range atoms, and ANDs add no compact OR instruction. Padding preserves the chosen output; bitmask selection covers every bounded conjunction among at most8 atoms. Semantic soundness derives the obstruction from the102 finite checks. The final glue supplies that unconditional obstruction to the circuit theorem, proving at least4 OR gates for normalized5-input AND/OR circuits computing cycleTruth. The ten input columns match C5 truth values under cyclic Fin5 addition (independent Python check below). General L-meta-1031 remains unproved.
+
+The last two #print axioms lines are audit-only commands and must be removed from a final plain proof file. The source otherwise has no forbidden axiom/sorry/native_decide/root/string/unsafe/initialization constructs or attributes. Scoped options only maxRecDepth and maxHeartbeats. This reviewer did not run the heavy combined compile while the serial finite checks were using memory.
+
+Review recorded UTC: 2026-11-25T01:59:39.043532+00:00
+
+Independent C5 column evaluation:
+[
+  {
+    "test": 0,
+    "input": [
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "cycle_truth": true,
+    "target_bit": true
+  },
+  {
+    "test": 1,
+    "input": [
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "cycle_truth": true,
+    "target_bit": true
+  },
+  {
+    "test": 2,
+    "input": [
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "cycle_truth": true,
+    "target_bit": true
+  },
+  {
+    "test": 3,
+    "input": [
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "cycle_truth": true,
+    "target_bit": true
+  },
+  {
+    "test": 4,
+    "input": [
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "cycle_truth": true,
+    "target_bit": true
+  },
+  {
+    "test": 5,
+    "input": [
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "cycle_truth": false,
+    "target_bit": false
+  },
+  {
+    "test": 6,
+    "input": [
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    "cycle_truth": false,
+    "target_bit": false
+  },
+  {
+    "test": 7,
+    "input": [
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "cycle_truth": false,
+    "target_bit": false
+  },
+  {
+    "test": 8,
+    "input": [
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "cycle_truth": false,
+    "target_bit": false
+  },
+  {
+    "test": 9,
+    "input": [
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    "cycle_truth": false,
+    "target_bit": false
+  }
+]
+
+Complete author audit log semantic-case-assembly-axioms.stdout:
+'PEqualNP.Outside.L_meta_1031_aux.SemanticCertificate.ors_initial_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.SemanticCertificate.assemble_checks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete author audit log semantic-case-assembly-axioms.stderr:
+
+Complete author audit log two-choice-rectangle-axioms.stdout:
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.factor_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.hasEdge_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.corners_repeat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.edgeCorners_card_le_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.HasEdge.card_ge_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.two_choices_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.three_monomials_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.TwoChoiceRectangle.two_or_pattern_at_most_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete author audit log two-choice-rectangle-axioms.stderr:

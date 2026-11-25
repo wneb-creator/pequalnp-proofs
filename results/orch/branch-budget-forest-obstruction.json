@@ -1,0 +1,17 @@
+{
+  "vertices": 45,
+  "edges": 55,
+  "degree_histogram": {
+    "6": 5,
+    "2": 40
+  },
+  "triangle_free": true,
+  "no_square": true,
+  "minimum_degree": 2,
+  "petal_cover_cost_excluding_hub": 3,
+  "petal_cover_cost_including_hub": 2,
+  "minimum_cover_size": 25,
+  "all_minimum_covers_contain_base_C5": true,
+  "edges_plus_cover_minus_one": 79,
+  "vertices_plus_cover_minus_one": 69
+}

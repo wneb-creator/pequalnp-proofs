@@ -86,3 +86,69 @@ Scope: two_choice_rectangle bounds a two-OR expression pattern, not arbitrary pr
 Checker: not run; these are partial lemmas, not the posted theorem.
 Sub-agents: checker_review, lean_setup, normal_form, counterexample, graph_ownership, exchange
 TIMING total=55.92 subagents=6
+
+Additional checkpoint: unique_bare_cover extended to238 lines, noc4 vertex-cover corollary. Independent normal_form review PASS. Full13-declaration axiom audit:
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.side_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.fuel_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.eval_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.eval_true_has_raw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.pair_left_hit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.pair_right_hit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.pair_cross_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.computes_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.edge_has_raw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.unique_bare_biclique_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.biclique_center' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.biclique_cover_to_vertex_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.UniqueBareCover.unique_bare_vertex_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete stderr:
+
+C5 AND lower bound: cycle_and_bound.lean346lines, SHA66403284a082faf66974778b59b8e68bf40c07f6ef3826735e4e3ec27e2c5c56. Direct compile exit0 empty stdout/stderr; normal_form independent review PASS. Full23-declaration audit:
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.stp' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.wires_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.getD_ge' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.getD_ofFn' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.getD_app' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.jn' does not depend on any axioms
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.realAnd' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.realAnd_spec' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.eval_mono' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.mono_fold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.any_or' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.eval_join' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.join_fold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.ofFn_jn' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.bound0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.and_zero' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.and_up' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.adjacent' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.independentInput' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.independentInput_false' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.independentInput_join_true' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.cycle_requires_three_binary_ands' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete stderr:
