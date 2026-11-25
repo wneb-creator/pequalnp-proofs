@@ -1008,9 +1008,9 @@ structure Cm where
   a : List Nat
   b : List Nat
 def NN : Nat := 501
-def AA : Nat := (0x0 + 2 ^ 60 * (0xfbffdb6fff6fff0 + 2 ^ 60 * (0xbffdffed6bffd7f + 2 ^ 60 * (0xffdbffdb56bffda + 2 ^ 60 * (0xfb57ffb5aabffdb + 2 ^ 60 * (0xeffffbbfffeef7f + 2 ^ 60 * (0xbfffeeffffbfffe + 2 ^ 60 * (0xfffef7fffdffff7 + 2 ^ 60 * 0xffffb))))))))
-def HX : Nat := (0x0 + 2 ^ 60 * (0x40024900090000 + 2 ^ 60 * (0x400200129400280 + 2 ^ 60 * (0x240024a940025 + 2 ^ 60 * 0x4a8004a5540024))))
-def HY : Nat := (0x0 + 2 ^ 60 * (0x0 + 2 ^ 60 * (0x0 + 2 ^ 60 * (0x0 + 2 ^ 60 * (0x0 + 2 ^ 60 * (0x100004400011080 + 2 ^ 60 * (0x400011000040001 + 2 ^ 60 * (0x108000200008 + 2 ^ 60 * 0x100004))))))))
+def AA : Nat := (show {n : Nat // n = (0x0 + 2 ^ 60 * (0xfbffdb6fff6fff0 + 2 ^ 60 * (0xbffdffed6bffd7f + 2 ^ 60 * (0xffdbffdb56bffda + 2 ^ 60 * (0xfb57ffb5aabffdb + 2 ^ 60 * (0xeffffbbfffeef7f + 2 ^ 60 * (0xbfffeeffffbfffe + 2 ^ 60 * (0xfffef7fffdffff7 + 2 ^ 60 * 0xffffb))))))))} from ⟨_, by norm_num; rfl⟩).val
+def HX : Nat := (show {n : Nat // n = (0x0 + 2 ^ 60 * (0x40024900090000 + 2 ^ 60 * (0x400200129400280 + 2 ^ 60 * (0x240024a940025 + 2 ^ 60 * 0x4a8004a5540024))))} from ⟨_, by norm_num; rfl⟩).val
+def HY : Nat := (show {n : Nat // n = (0x0 + 2 ^ 60 * (0x0 + 2 ^ 60 * (0x0 + 2 ^ 60 * (0x0 + 2 ^ 60 * (0x0 + 2 ^ 60 * (0x100004400011080 + 2 ^ 60 * (0x400011000040001 + 2 ^ 60 * (0x108000200008 + 2 ^ 60 * 0x100004))))))))} from ⟨_, by norm_num; rfl⟩).val
 noncomputable section core
 def st (n : Nat) (f : Nat → Bool) : Bool := Nat.rec (motive := fun _ => Bool) (f 0) (fun m _ => f m) (Nat.succ n)
 def sp (d : Bool) (l s : Nat) : Nat :=
@@ -2976,15 +2976,18 @@ theorem look1_sound (hR : RR R) (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R
       refine one_sound X hR hR2 ih hs hcod hlen hk hl hmW hyk hy2 fun a ha c hc hne har hcr => ⟨pairsS, hy1, fun h hp => ?_⟩
       exact pairs_any hp (fs_mem (List.mem_map_of_mem ha) har) (fs_mem (List.mem_map_of_mem hc) hcr) (fun e => hne (congrArg L_meta_10760_aux.X.s e))
 end sound
-def rawP : List ℕ := [(0xf4351b55eebe6af + 2 ^ 60 * (0x3ffc360006ffff + 2 ^ 60 * (0x8001ffe06000100 + 2 ^ 60 * (0x1bffc01080002 + 2 ^ 60 * (0x280000002080000 + 2 ^ 60 * (0x889886ab60f09 + 2 ^ 60 * (0x8224a2088a9333a + 2 ^ 60 * (0x64a10449410a50 + 2 ^ 60 * (0x4928 + 2 ^ 60 * (0x2c048404c000000 + 2 ^ 60 * (0x5804009201400b0 + 2 ^ 60 * (0xb00010090100a00 + 2 ^ 60 * (0xa00010090009100 + 2 ^ 60 * (0x7fffc1e0000000 + 2 ^ 60 * 0x7fffc00000)))))))))))))), (0xe79a5deea977b69 + 2 ^ 60 * (0xf800186fff60003 + 2 ^ 60 * (0xbffc0001080017f + 2 ^ 60 * (0x1800004000018 + 2 ^ 60 * (0x501000018200018 + 2 ^ 60 * (0x22357004cdce002 + 2 ^ 60 * (0x494401150044c + 2 ^ 60 * (0xd494000928014a1 + 2 ^ 60 * (0x8252 + 2 ^ 60 * (0x481cc828000000 + 2 ^ 60 * (0x3001205240e2061 + 2 ^ 60 * (0x600002031120710 + 2 ^ 60 * (0x601042033205320 + 2 ^ 60 * (0x7fffdc00000240 + 2 ^ 60 * (0x1ffff + 2 ^ 60 * (0x0 + 2 ^ 60 * 0x7fffc0)))))))))))))))), (0xe7f7f8fb9aac5ec + 2 ^ 60 * (0x1b00006fff4 + 2 ^ 60 * (0xc0bffc00 + 2 ^ 60 * (0xffc00003060001a + 2 ^ 60 * (0x88400004080001b + 2 ^ 60 * (0x3265b881060110 + 2 ^ 60 * (0x41228546684092 + 2 ^ 60 * (0x18222090452d910 + 2 ^ 60 * (0x11088 + 2 ^ 60 * (0x4029082b0000000 + 2 ^ 60 * (0xa08109601280943 + 2 ^ 60 * (0x4020c0923409404 + 2 ^ 60 * (0x400100521056005 + 2 ^ 60 * (0x700000000000809 + 2 ^ 60 * (0x1ffff000001ffff + 2 ^ 60 * 0x3fffe000000))))))))))))))), (0xfabfac7f34f3e5a + 2 ^ 60 * (0x1b6fff0000b + 2 ^ 60 * (0xd6000000 + 2 ^ 60 * (0x1806bffc0 + 2 ^ 60 * (0x100000300abffc0 + 2 ^ 60 * (0xe44060110182024 + 2 ^ 60 * (0x199c4066471991c + 2 ^ 60 * (0x610441220846022 + 2 ^ 60 * (0x22410 + 2 ^ 60 * (0x681e001c0000000 + 2 ^ 60 * (0xc1ac05800b00582 + 2 ^ 60 * (0x8100503c0003801 + 2 ^ 60 * (0x8201103c0038003 + 2 ^ 60 * (0x3 + 2 ^ 60 * (0x1ffff7fffdc0000 + 2 ^ 60 * 0x7fffc))))))))))))))), (0x35f9c678b9af3d7 + 2 ^ 60 * (0xfbffc0000000009 + 2 ^ 60 * (0xd6bffd7f + 2 ^ 60 * (0x1b5000000 + 2 ^ 60 * (0xe3000035a000000 + 2 ^ 60 * (0x781001e04200 + 2 ^ 60 * (0x111f8e0078001e0 + 2 ^ 60 * (0x8038043c70081c0 + 2 ^ 60 * (0xbc0e0 + 2 ^ 60 * (0x15001500000000 + 2 ^ 60 * (0x1285600ac05600 + 2 ^ 60 * (0x34a05200052029 + 2 ^ 60 * (0x6a404a004a004a + 2 ^ 60 * (0x6092 + 2 ^ 60 * (0xc00000000000000 + 2 ^ 60 * (0xffff8000007fffd + 2 ^ 60 * 0x1ffff000000)))))))))))))))), (0xfd7afd45d43fff + 2 ^ 60 * (0xe + 2 ^ 60 * (0xbffdffe00000000 + 2 ^ 60 * (0x1b56bffda + 2 ^ 60 * (0x357ff800000000 + 2 ^ 60 * (0x48780021e008447 + 2 ^ 60 * (0xa1e000878021e00 + 2 ^ 60 * (0x1c0863f818fe07 + 2 ^ 60 * (0xc0703 + 2 ^ 60 * (0x6000600000000 + 2 ^ 60 * (0x18003001800 + 2 ^ 60 * (0x26a81c0241c00e + 2 ^ 60 * (0xc000c000c + 2 ^ 60 * (0x281c + 2 ^ 60 * (0x0 + 2 ^ 60 * 0xffffbfffef00000))))))))))))))), (0x9bfd7ba75f77035 + 2 ^ 60 * (0xd + 2 ^ 60 * (0x0 + 2 ^ 60 * (0xffdbffc00000000 + 2 ^ 60 * (0x357ffb5aabffdb + 2 ^ 60 * (0x8f80023e0000878 + 2 ^ 60 * (0x3e0000f8003e000 + 2 ^ 60 * (0xfe00f7c001f0004 + 2 ^ 60 * (0xff803 + 2 ^ 60 * (0x18001800000000 + 2 ^ 60 * (0x6000c006000 + 2 ^ 60 * (0x6000060030 + 2 ^ 60 * (0x4b447002700270 + 2 ^ 60 * (0x42e0 + 2 ^ 60 * (0x0 + 2 ^ 60 * (0x0 + 2 ^ 60 * 0x1ffff7fffde))))))))))))))))]
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+def rawP : List ℕ := (show {ns : List Nat // ns = [(0xf4351b55eebe6af + 2 ^ 60 * (0x3ffc360006ffff + 2 ^ 60 * (0x8001ffe06000100 + 2 ^ 60 * (0x1bffc01080002 + 2 ^ 60 * (0x280000002080000 + 2 ^ 60 * (0x889886ab60f09 + 2 ^ 60 * (0x8224a2088a9333a + 2 ^ 60 * (0x64a10449410a50 + 2 ^ 60 * (0x4928 + 2 ^ 60 * (0x2c048404c000000 + 2 ^ 60 * (0x5804009201400b0 + 2 ^ 60 * (0xb00010090100a00 + 2 ^ 60 * (0xa00010090009100 + 2 ^ 60 * (0x7fffc1e0000000 + 2 ^ 60 * 0x7fffc00000)))))))))))))), (0xe79a5deea977b69 + 2 ^ 60 * (0xf800186fff60003 + 2 ^ 60 * (0xbffc0001080017f + 2 ^ 60 * (0x1800004000018 + 2 ^ 60 * (0x501000018200018 + 2 ^ 60 * (0x22357004cdce002 + 2 ^ 60 * (0x494401150044c + 2 ^ 60 * (0xd494000928014a1 + 2 ^ 60 * (0x8252 + 2 ^ 60 * (0x481cc828000000 + 2 ^ 60 * (0x3001205240e2061 + 2 ^ 60 * (0x600002031120710 + 2 ^ 60 * (0x601042033205320 + 2 ^ 60 * (0x7fffdc00000240 + 2 ^ 60 * (0x1ffff + 2 ^ 60 * (0x0 + 2 ^ 60 * 0x7fffc0)))))))))))))))), (0xe7f7f8fb9aac5ec + 2 ^ 60 * (0x1b00006fff4 + 2 ^ 60 * (0xc0bffc00 + 2 ^ 60 * (0xffc00003060001a + 2 ^ 60 * (0x88400004080001b + 2 ^ 60 * (0x3265b881060110 + 2 ^ 60 * (0x41228546684092 + 2 ^ 60 * (0x18222090452d910 + 2 ^ 60 * (0x11088 + 2 ^ 60 * (0x4029082b0000000 + 2 ^ 60 * (0xa08109601280943 + 2 ^ 60 * (0x4020c0923409404 + 2 ^ 60 * (0x400100521056005 + 2 ^ 60 * (0x700000000000809 + 2 ^ 60 * (0x1ffff000001ffff + 2 ^ 60 * 0x3fffe000000))))))))))))))), (0xfabfac7f34f3e5a + 2 ^ 60 * (0x1b6fff0000b + 2 ^ 60 * (0xd6000000 + 2 ^ 60 * (0x1806bffc0 + 2 ^ 60 * (0x100000300abffc0 + 2 ^ 60 * (0xe44060110182024 + 2 ^ 60 * (0x199c4066471991c + 2 ^ 60 * (0x610441220846022 + 2 ^ 60 * (0x22410 + 2 ^ 60 * (0x681e001c0000000 + 2 ^ 60 * (0xc1ac05800b00582 + 2 ^ 60 * (0x8100503c0003801 + 2 ^ 60 * (0x8201103c0038003 + 2 ^ 60 * (0x3 + 2 ^ 60 * (0x1ffff7fffdc0000 + 2 ^ 60 * 0x7fffc))))))))))))))), (0x35f9c678b9af3d7 + 2 ^ 60 * (0xfbffc0000000009 + 2 ^ 60 * (0xd6bffd7f + 2 ^ 60 * (0x1b5000000 + 2 ^ 60 * (0xe3000035a000000 + 2 ^ 60 * (0x781001e04200 + 2 ^ 60 * (0x111f8e0078001e0 + 2 ^ 60 * (0x8038043c70081c0 + 2 ^ 60 * (0xbc0e0 + 2 ^ 60 * (0x15001500000000 + 2 ^ 60 * (0x1285600ac05600 + 2 ^ 60 * (0x34a05200052029 + 2 ^ 60 * (0x6a404a004a004a + 2 ^ 60 * (0x6092 + 2 ^ 60 * (0xc00000000000000 + 2 ^ 60 * (0xffff8000007fffd + 2 ^ 60 * 0x1ffff000000)))))))))))))))), (0xfd7afd45d43fff + 2 ^ 60 * (0xe + 2 ^ 60 * (0xbffdffe00000000 + 2 ^ 60 * (0x1b56bffda + 2 ^ 60 * (0x357ff800000000 + 2 ^ 60 * (0x48780021e008447 + 2 ^ 60 * (0xa1e000878021e00 + 2 ^ 60 * (0x1c0863f818fe07 + 2 ^ 60 * (0xc0703 + 2 ^ 60 * (0x6000600000000 + 2 ^ 60 * (0x18003001800 + 2 ^ 60 * (0x26a81c0241c00e + 2 ^ 60 * (0xc000c000c + 2 ^ 60 * (0x281c + 2 ^ 60 * (0x0 + 2 ^ 60 * 0xffffbfffef00000))))))))))))))), (0x9bfd7ba75f77035 + 2 ^ 60 * (0xd + 2 ^ 60 * (0x0 + 2 ^ 60 * (0xffdbffc00000000 + 2 ^ 60 * (0x357ffb5aabffdb + 2 ^ 60 * (0x8f80023e0000878 + 2 ^ 60 * (0x3e0000f8003e000 + 2 ^ 60 * (0xfe00f7c001f0004 + 2 ^ 60 * (0xff803 + 2 ^ 60 * (0x18001800000000 + 2 ^ 60 * (0x6000c006000 + 2 ^ 60 * (0x6000060030 + 2 ^ 60 * (0x4b447002700270 + 2 ^ 60 * (0x42e0 + 2 ^ 60 * (0x0 + 2 ^ 60 * (0x0 + 2 ^ 60 * 0x1ffff7fffde))))))))))))))))]} from ⟨_, by norm_num; rfl⟩).val
 def xw (e : ℕ × ℕ) : ℕ := rawP.getD e.1 0 ||| rawP.getD e.2 0
 def rawL (E : List (ℕ × ℕ)) : List ℕ := rawP ++ E.map xw
 def six : List (ℕ × ℕ) := []
 def rawG : List ℕ := rawL six
 def FPM : ℕ := 2 ^ 64 - 1
 def FULL : ℕ := 2 ^ NN - 1
-def TG : ℕ := (0xfffffffffffffff + 2 ^ 60 * (0xfbffdb6fff6ffff + 2 ^ 60 * (0xbffdffed6bffd7f + 2 ^ 60 * (0xffdbffdb56bffda + 2 ^ 60 * (0xfb57ffb5aabffdb + 2 ^ 60 * (0xeffffbbfffeef7f + 2 ^ 60 * (0xbfffeeffffbfffe + 2 ^ 60 * (0xfffef7fffdffff7 + 2 ^ 60 * 0xffffb))))))))
-def kz (Z : ℕ) : ℕ := (List.range 7).foldr (fun i x => bif Nat.testBit Z i then Nat.lor x (Nat.land (Nat.lor (rawP.getD i 0) (Nat.shiftRight (rawP.getD i 0) NN)) FULL) else x) 0
+def TG : ℕ := (show {n : Nat // n = (0xfffffffffffffff + 2 ^ 60 * (0xfbffdb6fff6ffff + 2 ^ 60 * (0xbffdffed6bffd7f + 2 ^ 60 * (0xffdbffdb56bffda + 2 ^ 60 * (0xfb57ffb5aabffdb + 2 ^ 60 * (0xeffffbbfffeef7f + 2 ^ 60 * (0xbfffeeffffbfffe + 2 ^ 60 * (0xfffef7fffdffff7 + 2 ^ 60 * 0xffffb))))))))} from ⟨_, by norm_num; rfl⟩).val
+def kz (Z : ℕ) : ℕ := (List.range 7).foldr (fun i x => bif Nat.testBit Z i then Nat.lor x (Nat.land (Nat.lor (rawP.getD i 0) (Nat.shiftRight (rawP.getD i 0) NN)) FULL) else
+  (bif Nat.testBit Z (i + 9) then Nat.lor x (Nat.xor FULL (Nat.land (rawP.getD i 0) (Nat.lor (Nat.shiftRight (rawP.getD i 0) NN) FPM))) else x)) 0
 def lz (Z : ℕ) : ℕ := Nat.land AA (Nat.xor (kz Z) FULL)
 def fz (Z : ℕ) : ℕ := Nat.land FPM (Nat.xor (kz Z) FULL)
 def mz (Z : ℕ) : ℕ := Nat.lor (Nat.lor (lz Z) (fz Z)) (Nat.shiftLeft (lz Z) NN)
@@ -3040,9 +3043,9 @@ lemma wire_good {w : ℕ} (hw : w ∈ rawG) (Z : ℕ) : Good (lz Z) (w &&& mz Z)
     rw [Nat.testBit_and, Nat.testBit_and, this, (lz_lg Z i h1).1.1, (lz_lg Z j h2).1.1]
   · have := segGood_eq (h.2 s hs) a1 a2 a3 a4
     rw [Nat.testBit_and, Nat.testBit_and, this, (lz_lg Z i h1).1.2.1, (lz_lg Z j h2).1.2.1]
-noncomputable section
+noncomputable section computeSection1
 def pL (L : List ℕ) : ℕ := List.rec (motive := fun _ => ℕ) 0 (fun d _ ih => Nat.add (Nat.shiftLeft ih 5) d) L
-end
+end computeSection1
 lemma pL_cons (d : ℕ) (L : List ℕ) : pL (d :: L) = 2 ^ 5 * pL L + d := by
   change (pL L <<< 5) + d = _; rw [Nat.shiftLeft_eq]; ring
 lemma pL_pk (L : List ℕ) : pL L = pk L.length (fun j => L.getD j 0) := by
@@ -3098,7 +3101,7 @@ lemma mkW_ok (P : List ℕ) (s : ℕ) : WOk P (mkW P s) := by
   · have := pL_isPk (h01 fun n => Nat.beq (Nat.land s n) n); rwa [List.length_map] at this
   · exact Nat.eq_of_beq_eq_true (bt (fun n => Nat.beq (Nat.land s n) 0) j hj h)
   · exact Nat.eq_of_beq_eq_true (bt (fun n => Nat.beq (Nat.land s n) n) j hj h)
-noncomputable section
+noncomputable section computeSection2
 def addS (o : W) (v : List W) : List W := List.rec (motive := fun _ => List W) [o]
   (fun w t ih => Bool.rec (motive := fun _ => List W) (w :: ih) (Bool.rec (motive := fun _ => List W) (o :: w :: t) (w :: t) (Nat.beq o.s w.s)) (Nat.ble w.s o.s)) v
 def avl (P : List ℕ) (m : ℕ) (L : List ℕ) : List W := List.rec (motive := fun _ => List W) []
@@ -3124,7 +3127,7 @@ def startv (l m g B K t p H ph : ℕ) (v : List W) : Bool :=
   Bool.rec (motive := fun _ => Bool) false (Bool.rec (motive := fun _ => Bool) false
     (child (fun z r => topC l m g K H ph K t z r) g (fun h => h v) (Nat.sub B (sumc v)))
     (Nat.ble v.length (Nat.sub (Nat.succ K) t))) (hasP p v)
-end
+end computeSection2
 lemma frc_eq (v : List W) : ∀ h, frc v h = h v := by
   induction v with
   | nil => intro h; rfl
@@ -3566,6 +3569,31 @@ lemma appS {T : List (ℕ × ℕ)} {Z K : ℕ} {A B : List (ℕ × ℕ × ℕ)} 
   rw [List.all_append, ha, hb]; rfl
 lemma one1 {Z L : ℕ} (h : Imp [] Z L) : ∀ e ∈ [(Z, L)], Imp [] e.1 e.2 := fun e he => by
   simp only [List.mem_singleton] at he; subst he; exact h
+def grp3 : List (Nat × Nat) := [(15, 1), (23, 4), (27, 2), (29, 2), (30, 4), (39, 1), (43, 2), (45, 1), (46, 2), (51, 2), (53, 2), (54, 2), (57, 1), (58, 4), (60, 1), (71, 1), (75, 1), (77, 2), (78, 2), (83, 1), (85, 4), (86, 2), (89, 1), (90, 2), (92, 2), (99, 1), (101, 2), (102, 1), (105, 2), (106, 4), (108, 2), (113, 1), (114, 1), (116, 1), (120, 1)]
+def ac3 : List (Nat × Nat) := []
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma seed3 : grp3.all (fun e => okE [] (pr ac3 e.1) e) = true := by decide +kernel
+
+def grp4 : List (Nat × Nat) := [(7, 4), (11, 4), (13, 4), (14, 5), (19, 5), (21, 5), (22, 5), (25, 4), (26, 5), (28, 5), (35, 4), (37, 4), (38, 4), (41, 4), (42, 5), (44, 4), (49, 4), (50, 5), (52, 4), (56, 4), (67, 3), (69, 5), (70, 4), (73, 4), (74, 5), (76, 3), (81, 4), (82, 4), (84, 5), (88, 4), (97, 4), (98, 4), (100, 4), (104, 5), (112, 3)]
+def ac4 : List (Nat × Nat) := grp3
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma seed4 : grp4.all (fun e => okE [] (pr ac4 e.1) e) = true := by decide +kernel
+
+def grp5 : List (Nat × Nat) := [(3, 7), (5, 7), (6, 7), (9, 7), (10, 7), (12, 6), (17, 7), (18, 7), (20, 7), (24, 7), (33, 7), (34, 7), (36, 7), (40, 7), (48, 7), (65, 7), (66, 7), (68, 6), (72, 6), (80, 7), (96, 7)]
+def ac5 : List (Nat × Nat) := grp3 ++ grp4
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma seed5 : grp5.all (fun e => okE [] (pr ac5 e.1) e) = true := by decide +kernel
+
+lemma ai3 : ∀ e ∈ grp3, Imp [] e.1 e.2 := okAll seed3 (by simp [ac3])
+lemma ai4 : ∀ e ∈ grp4, Imp [] e.1 e.2 := okAll seed4 (by simpa [ac4] using ai3)
+lemma ai5 : ∀ e ∈ grp5, Imp [] e.1 e.2 := okAll seed5 (by simpa [ac5] using apI ai3 ai4)
+def allSeeds : List (Nat × Nat) := grp3 ++ grp4 ++ grp5
+lemma allSeeds_sound : ∀ e ∈ allSeeds, Imp [] e.1 e.2 := by
+  simpa [allSeeds, List.append_assoc] using apI (apI ai3 ai4) ai5
+
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 section circuit
 variable (m : ℕ)

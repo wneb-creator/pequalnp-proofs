@@ -28,3 +28,10 @@ TIMING total=21.2 subagents=6
 Extended checked counting lemma: SingleUse.lean, 158 lines, Lean exit 0. Covers at most 13 gates with a unary-slot saving, and sharing-or-single-input-use dichotomy under explicit normalization assumptions. Independent review: toolchain GO.
 Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
 TIMING total=22.8 subagents=6
+
+Checked seed engine: Computational.lean, 3772 lines, exit 0; all 91 small restriction lower bounds proved, exact target bridge unchanged. This is not the root14 lower bound.
+Checked circuit absorption bridge: SingleUseCircuit.lean, 80 lines, and SingleUseBridge.lean, 197 lines, exit 0 with empty diagnostics. Explicit raw-partner assumptions remain.
+All three sources independently audited by toolchain. Complete diagnostics preserved.
+Additional graph_search sources/certificate/logs independently audited as ordinary formula-only computations, not Lean proofs or DAG bounds.
+Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
+TIMING total=29.36 subagents=6

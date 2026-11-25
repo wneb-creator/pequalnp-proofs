@@ -10,3 +10,4 @@ Pilot pequalnp-pilot-180
 2026-11-25T19:27:51.187261+00:00 Factor constraints compiled and independently reviewed; formula DP source and full output preserved; preparing checkpoint push.
 2026-11-25T19:28:27.367489+00:00 sat_synthesis: all initial300s globalSAT runs UNKNOWN; known14 witness validated. Strongerone-NOT13 read-once/critical run active; monotone13 read-once/critical plus2730 monotonicity clauses started600s inSAT-focused mode. Formula13 SAT also active; graph_search independently computed formula minimum14.
 2026-11-25T19:29:28.959393+00:00 Generalized single-use counting lemmas compiled and independently reviewed; checkpointing.
+2026-11-25T19:36:34.659116+00:00 Seed engine with91 proved restriction bounds and actual-circuit raw-partner exclusion checked and independently audited; preparing checkpoint push.

@@ -1,0 +1,1 @@
+CERTIFICATE ACCEPTED: 1253 orbits cover 2350602 states; 47460228 normalized binary checks; target potential 14; elapsed 0.915861s

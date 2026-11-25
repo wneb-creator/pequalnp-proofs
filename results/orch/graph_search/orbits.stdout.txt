@@ -1,0 +1,19 @@
+Orbits 1253
+0 3
+1 2
+2 3
+3 6
+4 11
+5 23
+6 45
+7 68
+8 118
+9 161
+10 217
+11 235
+12 184
+13 109
+14 68
+feature 0 groups 494 costconflicts 185
+feature 1 groups 1148 costconflicts 67
+feature 2 groups 1253 costconflicts 0
