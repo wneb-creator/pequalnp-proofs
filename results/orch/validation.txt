@@ -36,3 +36,9 @@ SHA256: 7b295abf20add60ea4064f42e47409db9e2c9e634cbc5846f7417c5d5b03560a
 
 Combinatorial.lean extended with cofactor essentiality and vertex automorphisms. Lean exit0, stdout/stderr empty. Source delta independently reviewed by root: PASS.
 SHA256: 21722978b382c7d1d07cd26b810fa990aa89e2b6586d1e64db5c860fb55b381f
+
+Artifact: results/orch/lemmas/FewNots.lean
+Scope: exact edge/minimal-positive and maximal-independent negative boundaries; necessary witnesses for an essential one-NOT function cut.
+Lean exit: 0; stdout empty; stderr empty.
+Independent source review: root PASS, including Boolean finite certificate and its logical extraction.
+SHA256: e16b752e23303f60a81220e87760b5175cfc6baca279b6e1ce2604a7545d116d
