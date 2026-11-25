@@ -1,0 +1,26 @@
+{
+  "status": "Interrupted immediately after root reported lease HTTP410; no corrected restart was launched.",
+  "started_utc": "2026-11-25T15:04:16+00:00",
+  "stopped_utc": "2026-11-25T15:11:07.181863+00:00",
+  "elapsed_wall_seconds": 411.181863,
+  "exit_code": 130,
+  "minimum_emitted_size": 27,
+  "minimum_emitted_or": 20,
+  "source": "circuit_cgp_normalized.cpp",
+  "known_limitation": "This interrupted version checks normalized candidates only; the separate dual-model fix preserves raw candidates too and has completed controls but no timed run.",
+  "logs": [
+    "fano-cgp-normalized.stdout",
+    "fano-cgp-normalized.stderr"
+  ],
+  "command": [
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_normalized",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-sls.input",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-dirty29-sls.input",
+    "480",
+    "1094",
+    "42",
+    "0"
+  ],
+  "fixed_source": "circuit_cgp_normalized_dual.cpp",
+  "fixed_review_package": "DUAL_MODEL_REVIEW.json"
+}

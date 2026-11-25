@@ -1,0 +1,6 @@
+{
+  "cnf_sha256": "b8190b50b5bd8e3d465d18aee14052be56f11c943c4483f38c93f54b22a07a95",
+  "status": "UNKNOWN",
+  "regeneration": "fano_unread_sat.py --graph fano --gates 26 --ordered --propagate --seconds 1800 --output PREFIX",
+  "scope": "No Fano lower bound follows from UNKNOWN."
+}

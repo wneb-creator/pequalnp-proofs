@@ -1,0 +1,1 @@
+{"graph": "k4inc", "dual": true, "n": 10, "and_gates": 10, "variables": 3300, "clauses": 13772, "returncode": 0, "seconds": 480.0142764259999, "status": "UNKNOWN"}

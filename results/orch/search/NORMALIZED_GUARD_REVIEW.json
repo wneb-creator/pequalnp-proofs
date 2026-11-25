@@ -1,0 +1,13 @@
+{
+  "changed_source": "results/orch/search/circuit_cgp_normalized.cpp",
+  "change": "Immediately full-verify and emit any <=26 normalized circuit produced by a control seed or a fresh search seed, before entering the mutation loop or checking the time cap. The existing post-mutation immediate detection is unchanged.",
+  "new_logs": [
+    "cgp-normalized-compile2.stdout",
+    "cgp-normalized-compile2.stderr",
+    "cgp-normalized-controls2.stdout",
+    "cgp-normalized-controls2.stderr",
+    "cgp-normalized-controls2-verification.stdout",
+    "cgp-normalized-controls2-verification.stderr"
+  ],
+  "validation": "Recompiled successfully; both standard controls again passed independent full truth-table and READ1 verification. No fitness or normalization rule changed."
+}

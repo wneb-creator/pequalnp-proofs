@@ -1,33 +1,24 @@
-pequalnp-pilot-94 — checked partial checkpoints
+pequalnp-pilot-94 — checked partial results; no full proof or refutation
 
-Current held step: L-meta-2583. Earlier L-meta-1904 lease returned HTTP410; its partials remain archived.
-Current named file: lean/PEqualNP/Outside/L_meta_2583.lean (3207 lines).
-Build: lake build PEqualNP.Outside.L_meta_2583
-Result: Build completed successfully (6669 jobs).
-Checked components: incidence prime implicants; point regularity; no four-cycle; line intersections; incidence nonemptiness.
-Auxiliary plane_upper.lean (648 lines): explicit AO2 READ1 circuit of size+1=N*(q+2), and conditional replacement from an unrestricted lower bound.
-Independent source/axiom audits pass, with only propext, Classical.choice, Quot.sound.
-The posted theorem is not proved. Guard refuses the absent final theorem, as expected. No full checker acceptance claimed; no proof PR opened.
-Cleanup line counts:3207/3207 for named file; full-proof cleanup not started.
-Prior L-meta-1904 named partial:315 lines, build and axiom audits passed.
+Last held gap: L-meta-2583. Its lease was invalidated by the desk at 2026-11-25T15:10:17Z (HTTP410), despite a last reported expiry of 15:25:16.842Z. The required curl-si diagnostic also returned410. All searches stopped. No other pilot lease was released. Earlier own L-meta-1904 lease also returned410; its 315-line checked partial remains archived.
+
+Named file: lean/PEqualNP/Outside/L_meta_2583.lean (3207 lines).
+Build: lake build PEqualNP.Outside.L_meta_2583, exit 0.
+Output: Build completed successfully (6669 jobs).
+Complete build stdout/stderr: plane-build.stdout, plane-build.stderr.
+
+Checked components include incidence geometry and matching; an exact READ1 upper construction; the READ1 lower bound and equivalence between the requested replacement and the unrestricted size threshold; concrete Fano incidence and READ1 minimum 27; three-line orientation, shared-OR semantics, absorption padding, and finite extremal-test sufficiency.
+Independent source/axiom reviews passed, using only propext, Classical.choice, Quot.sound. These are partial lemmas, not a proof of the posted statement.
+
+Source guard: REFUSED: the file holds no theorem; the required final theorem is absent. Complete output is final-source-guard.stdout/stderr.
+Full tools/check-lean.mjs was not run: its CheckLemma build requires uncached Mathlib modules. The genuine import smoke test fails at missing Batteries.olean, and full-cache extraction does not fit the available disk. Building Mathlib from source is prohibited by this job. No checker acceptance is claimed.
+Cleanup was not triggered: the full theorem/checker did not pass. Line counts before/after: 3207/3207.
+No proof PR opened.
+
+Search outcomes: fixed-edge Fano 26 SAT UNKNOWN after 900s; strengthened ordered SAT UNKNOWN after 1800s; minimum-AND7 phase interrupted on lease loss. Original and weighted CGP 480s phases found no ≤26 circuit, best 27. The old normalized-only run was interrupted after 411s; its candidate-detection limitation is documented. Corrected raw-or-normalized source has independent controls/regression review only, with no timed run started. K4-incidence dual searches returned UNKNOWN after 480s and 110s (the latter explicitly restricted). UNKNOWN and heuristic non-discovery establish no lower bound. Complete programs, tested circuits, logs, reviewer reports and historical-only artifacts are archived.
+
+Desk null answers: 0. Exact 410 message: no such live lease: it expired or was released. Ask /desk/next again.
+Recovery request pending until this checkpoint is pushed.
+
 Sub-agents: 7 (status/setup/review, structure, counterexample search, lemmas, research, C4-free theory, nested-AND theory)
-TIMING total=75 subagents=7
-
-Full local checker limitation: CheckLemma imports all Mathlib; smoke test fails at missing Batteries.olean. Thousands of further pinned Mathlib modules are not cached, with only about426MiB disk free. Named-file builds and direct axiom audits succeed. No full checker acceptance claimed.
-
-ThreeLines checkpoint: avoid_two_points, accepts_superset and singleton_point_orientation compiled and independently audited. All use only standard logical axioms.
-
-Shared OR checkpoint: semantic repair identity compiles with propext and Quot.sound only. No circuit-cost conclusion is claimed. Independently replayed search archive contains correct27/29gate circuits and explicitly incorrect26gate candidate.
-
-ReadLower checkpoint: self-contained integration of checked L-meta-7639 helper proof and three new plane corollaries. Any READ1 plane circuit has size+1≥N*(q+2); Fano READ1 minimum≥27; the requested replacement exists iff C satisfies that numerical threshold. None proves the unrestricted threshold. Independent provenance/axiom audit and named-file build pass.
-Fixed-edge 26gate SAT: UNKNOWN after900seconds, not UNSAT. Strengthened propagation search is ongoing.
-
-Padding checkpoint: append preserves AO2 under valid operand bounds, increases size by exactly1, and absorption preserves the function under its explicit output equation. Independent source/axiom review and named build pass. This is not a complete SAT normalization proof.
-
-CGP archive independently rebuilt/replayed:480s,3,997,351,680 mutations,1,999 restarts,best27,no26witness. The28intermediate has a redundant equal-input AND; no minimality claim. The3128-line partial passes forbidden-text scans, while source guard correctly refuses because it contains no final theorem. Full check-lean was not run: it would build missing Mathlib dependencies from source, which this job prohibits.
-
-Concrete Fano checkpoint: kernel-checked seven line cards and unique point-pair incidence exactlymatch the search; READ1 minimum is27. The ≤26 replacement obstruction has an explicit small-circuit premise; no such correct circuit has been found. Independent source/axiom review passes and named3168-line build succeeds.
-
-Weighted CGP480.014s:3,900,573,440 mutations,best27total/20OR,no counterexample. Signature-normalized CGP source and virtual-constant controls independently rebuilt/replayed, prepared for next run. Free-OR/dual encoder controls independently verified; K4-incidence search ongoing. New minimum-AND7 SAT constraint independently reviewed and controls passed.
-
-Extremal-test helper independently reviewed and kernel checked, then integrated: a monotone Bool function on a finite partial order is determined by target minimal-positive and maximal-negative inputs. Fano boundary enumeration is not formally instantiated. Named3207-line partial builds successfully.
+TIMING total=93 subagents=7

@@ -1,0 +1,76 @@
+{"n": 5, "edges": [[0, 1], [0, 4], [1, 2], [2, 3], [3, 4]], "gates": 6, "assignments": 10, "variables": 354, "selectors": 294, "constraints": 8841, "honest": false}
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 1e+00]
+  Cost   [0e+00, 0e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 3e+00]
+Presolving model
+5459 rows, 344 cols, 13430 nonzeros  0s
+3751 rows, 274 cols, 10284 nonzeros  0s
+3345 rows, 243 cols, 9294 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   3345 rows
+   243 cols (193 binary, 0 integer, 0 implied int., 50 continuous)
+   9294 nonzeros
+MIP-Timing:       0.097 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.1s
+         0       0         0   0.00%   0               inf                  inf        0      0      4        46     0.1s
+      1287      16       598  51.10%   0               inf                  inf      874     13   3248     10960     5.1s
+      3302      32      1518  56.40%   0               inf                  inf      971     17   7899     26386    10.1s
+
+Restarting search from the root node
+Model after restart has 3345 rows, 243 cols (193 bin., 0 int., 0 impl., 50 cont.), and 9294 nonzeros
+
+MIP-Timing:          13 - starting analytic centre calculation
+      4457       0         0   0.00%   0               inf                  inf       14      0      0     34058    12.5s
+      4457       0         0   0.00%   0               inf                  inf       14      0      4     34058    12.5s
+      6202      13       787  56.59%   0               inf                  inf     1149     11   4032     51846    17.5s
+      9100      35      2127  63.85%   0               inf                  inf     1344      8   9925     76431    22.5s
+
+Restarting search from the root node
+Model after restart has 3345 rows, 243 cols (193 bin., 0 int., 0 impl., 50 cont.), and 9294 nonzeros
+
+MIP-Timing:          24 - starting analytic centre calculation
+      9993       0         0   0.00%   0               inf                  inf        9      0      0     84064    23.8s
+      9993       0         0   0.00%   0               inf                  inf        9      0      4     84064    23.8s
+     11922      18       883  53.34%   0               inf                  inf     1116     20   4222    109477    28.8s
+     15621      31      2617  63.21%   0               inf                  inf     1459     24   9773    136336    33.8s
+     19344      34      4346  66.44%   0               inf                  inf     1737     22   9633    164927    38.8s
+     22417      26      5754  83.01%   0               inf                  inf     1985     19   9055    191542    43.8s
+     24362      28      6671  92.19%   0               inf                  inf     1964     16   8751    207688    48.8s
+     26571      45      7686  98.10%   0               inf                  inf     2108      9   8951    224637    53.8s
+     28145      24      8416  98.86%   0               inf                  inf     2059     15   9048    239317    58.8s
+     29506      18      9035  99.83%   0               inf                  inf     1949     23   8732    251450    63.8s
+     31421       4      9916 100.00%   0               inf                  inf     2178     23   9588    268235    68.8s
+     31655       0     10026 100.00%   inf             inf                  inf     2217     28   9510    270350    69.4s
+
+Solving report
+  Status            Infeasible
+  Primal bound      inf
+  Dual bound        inf
+  Gap               inf
+  P-D integral      0
+  Solution status   -
+  Timing            69.36 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 4
+  Nodes             31655
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     270350 (total)
+                    0 (strong br.)
+                    8780 (separation)
+                    19136 (heuristics)
+{"status": 2, "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)", "seconds": 69.41610093899999}

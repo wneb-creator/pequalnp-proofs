@@ -1,0 +1,10 @@
+Free-OR dual search: K4-incidence original OR budget <=10.
+
+Unrestricted model: UNKNOWN after480.014s,3300variables13772clauses.
+Restricted model: UNKNOWN after110.012s,3550variables18812clauses.
+Restricted cuts: point reader-count <=2; line-pair reader union <=3; every bare operand set is an original-graph clique.
+No satisfying witness, no UNSAT verdict, and no Lean lower-bound certificate were obtained.
+
+Controls: fixedFano7 SAT, decoded27gates=20OR+7AND, all16384assignments verified. C5dual3 UNSAT (solver verdict only). C5dual4 SAT, decoded9gates=4OR+5AND, all32assignments verified. C5dual4 withclique-bare normalization SAT, decoded8gates=4OR+4AND, all32assignments verified.
+
+All CNFs, source scripts, complete driver/solver stdout and stderr, JSON results, and independentcontrol-review artifacts are preserved in this directory. No solver is still running in this agent slot.

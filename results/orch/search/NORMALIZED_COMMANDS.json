@@ -44,5 +44,5 @@
     "results/orch/search/fano-sls.input",
     "/tmp/oec/pequalnp-pilot-94/plane-counterexample/virtual-reproduced"
   ],
-  "status": "Compiled; ordinary and virtual-constant controls passed full validation. Timed normalized search has not begun."
+  "status": "The original normalization-only timed run started at15:04:16 UTC and was interrupted after411 seconds at15:11:07 UTC following desk HTTP410. Complete logs and limitations are in NORMALIZED_INTERRUPTED_RUN.json. The corrected dual-model source has controls/regression validation only and has not begun a timed run."
 }

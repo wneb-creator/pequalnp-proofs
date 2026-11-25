@@ -1,0 +1,1 @@
+{"graph": "k4inc", "dual": true, "n": 10, "and_gates": 10, "variables": 3550, "clauses": 18812, "restricted_search": true, "extra_constraints": ["point-reader count <= 2", "line-pair reader union <= 3", "every bare operand set is an original-graph clique"], "returncode": 0, "seconds": 110.01189213500038, "status": "UNKNOWN"}

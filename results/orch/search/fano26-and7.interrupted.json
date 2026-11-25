@@ -1,0 +1,17 @@
+{
+  "status": "INTERRUPTED",
+  "exit_code": 130,
+  "requested_seconds": 600,
+  "reason": "Desk invalidated the held L-meta-2583 lease with HTTP410; work stopped immediately.",
+  "options": [
+    "--graph",
+    "fano",
+    "--gates",
+    "26",
+    "--ordered",
+    "--propagate",
+    "--min-ands",
+    "7"
+  ],
+  "verdict": "No SAT witness or UNSAT proof produced."
+}

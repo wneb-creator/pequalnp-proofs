@@ -1,0 +1,1 @@
+{"graph": "path4", "n": 4, "edges": [[0, 1], [1, 2], [2, 3]], "gates": 5, "tests": 6, "variables": 260, "clauses": 1271, "seconds": 0.0031787519997124036, "returncode": 10, "circuit": [[1, 0, 2], [0, 2, 3], [1, 1, 5], [0, 4, 6], [0, 4, 7]], "dirty": [], "fixed_edge": [0, 1], "fixed_edge_read1": false}

@@ -1,0 +1,455 @@
+{
+  "status": "PASS",
+  "minimum_gates": 27,
+  "records": [
+    {
+      "source": "inflation-1.stdout",
+      "kind": "control_honest_raw",
+      "size": 28,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "inflation-1.stdout",
+      "kind": "control_honest_normalized",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        21
+      ]
+    },
+    {
+      "source": "inflation-1.stdout",
+      "kind": "control_dirty_raw",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        19
+      ]
+    },
+    {
+      "source": "inflation-1.stdout",
+      "kind": "control_dirty_normalized",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        19
+      ]
+    },
+    {
+      "source": "cgp-normalized-dual-controls.stdout",
+      "kind": "control_honest_raw",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "cgp-normalized-dual-controls.stdout",
+      "kind": "control_honest_normalized",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "cgp-normalized-dual-controls.stdout",
+      "kind": "control_dirty_raw",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        19
+      ]
+    },
+    {
+      "source": "cgp-normalized-dual-controls.stdout",
+      "kind": "control_dirty_normalized",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        19
+      ]
+    },
+    {
+      "source": "cgp-normalized-dual-virtual-controls.stdout",
+      "kind": "control_honest_raw",
+      "size": 30,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "cgp-normalized-dual-virtual-controls.stdout",
+      "kind": "control_honest_normalized",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "cgp-normalized-dual-virtual-controls.stdout",
+      "kind": "control_dirty_raw",
+      "size": 41,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          5,
+          11
+        ],
+        [
+          5,
+          12
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          6,
+          13
+        ]
+      ],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "cgp-normalized-dual-virtual-controls.stdout",
+      "kind": "control_dirty_normalized",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "fano-cgp-normalized.stdout",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "fano-cgp-normalized.stdout",
+      "kind": "control_dirty",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        19
+      ]
+    },
+    {
+      "source": "fano-cgp-normalized.stdout",
+      "kind": "improvement",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        14
+      ]
+    },
+    {
+      "source": "fano-cgp-normalized.stdout",
+      "kind": "improvement",
+      "size": 28,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "fano-cgp-normalized.stdout",
+      "kind": "improvement",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "cgp-normalized-controls2.stdout",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "cgp-normalized-controls2.stdout",
+      "kind": "control_dirty",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        19
+      ]
+    }
+  ]
+}

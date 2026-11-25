@@ -1,0 +1,24 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/extremal_tests.lean:13:10: error: unsolved goals
+case false.true
+α : Type u_1
+inst✝¹ : Fintype α
+inst✝ : PartialOrder α
+f g : α → Bool
+hf : Monotone f
+hpos : ∀ (x : α), Minimal (fun y => g y = true) x → f x = true
+hneg : ∀ (x : α), Maximal (fun y => g y = false) x → f x = false
+x : α
+hx : g x = false
+s : Finset α := {y | g y = false}
+hxs : x ∈ s
+y : α
+hxy : x ≤ y
+hy : Maximal (fun x => x ∈ s) y
+hmax : Maximal (fun z => g z = false) y
+h : true ≤ false
+hfx : f x = true
+⊢ False
+/workspace/pequalnp-proofs/results/orch/lemmas/extremal_tests.lean:25:31: error(lean.invalidField): Invalid field `exists_minimal_le`: The environment does not contain `Finset.exists_minimal_le`, so it is not possible to project the field `exists_minimal_le` from an expression
+  s
+of type `Finset α`
+/workspace/pequalnp-proofs/results/orch/lemmas/extremal_tests.lean:25:13: error: Tactic `rcases` failed: `x✝ : ?m.170` is not an inductive datatype

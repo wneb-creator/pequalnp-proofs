@@ -1,0 +1,24 @@
+pequalnp-pilot-94 — checked partial results; no full proof or refutation
+
+Last held gap: L-meta-2583. Its lease was invalidated by the desk at 2026-11-25T15:10:17Z (HTTP410), despite a last reported expiry of 15:25:16.842Z. The required curl-si diagnostic also returned410. All searches stopped. No other pilot lease was released. Earlier own L-meta-1904 lease also returned410; its 315-line checked partial remains archived.
+
+Named file: lean/PEqualNP/Outside/L_meta_2583.lean (3207 lines).
+Build: lake build PEqualNP.Outside.L_meta_2583, exit 0.
+Output: Build completed successfully (6669 jobs).
+Complete build stdout/stderr: plane-build.stdout, plane-build.stderr.
+
+Checked components include incidence geometry and matching; an exact READ1 upper construction; the READ1 lower bound and equivalence between the requested replacement and the unrestricted size threshold; concrete Fano incidence and READ1 minimum 27; three-line orientation, shared-OR semantics, absorption padding, and finite extremal-test sufficiency.
+Independent source/axiom reviews passed, using only propext, Classical.choice, Quot.sound. These are partial lemmas, not a proof of the posted statement.
+
+Source guard: REFUSED: the file holds no theorem; the required final theorem is absent. Complete output is final-source-guard.stdout/stderr.
+Full tools/check-lean.mjs was not run: its CheckLemma build requires uncached Mathlib modules. The genuine import smoke test fails at missing Batteries.olean, and full-cache extraction does not fit the available disk. Building Mathlib from source is prohibited by this job. No checker acceptance is claimed.
+Cleanup was not triggered: the full theorem/checker did not pass. Line counts before/after: 3207/3207.
+No proof PR opened.
+
+Search outcomes: fixed-edge Fano 26 SAT UNKNOWN after 900s; strengthened ordered SAT UNKNOWN after 1800s; minimum-AND7 phase interrupted on lease loss. Original and weighted CGP 480s phases found no ≤26 circuit, best 27. The old normalized-only run was interrupted after 411s; its candidate-detection limitation is documented. Corrected raw-or-normalized source has independent controls/regression review only, with no timed run started. K4-incidence dual searches returned UNKNOWN after 480s and 110s (the latter explicitly restricted). UNKNOWN and heuristic non-discovery establish no lower bound. Complete programs, tested circuits, logs, reviewer reports and historical-only artifacts are archived.
+
+Desk null answers: 0. Exact 410 message: no such live lease: it expired or was released. Ask /desk/next again.
+Recovery request pending until this checkpoint is pushed.
+
+Sub-agents: 7 (status/setup/review, structure, counterexample search, lemmas, research, C4-free theory, nested-AND theory)
+TIMING total=93 subagents=7

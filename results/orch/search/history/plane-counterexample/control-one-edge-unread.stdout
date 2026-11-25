@@ -1,0 +1,1 @@
+{"graph": "cycle", "n": 2, "edges": [[0, 1], [1, 0]], "gates": 1, "tests": 3, "variables": 27, "clauses": 75, "seconds": 0.002919471000041085, "returncode": 20}

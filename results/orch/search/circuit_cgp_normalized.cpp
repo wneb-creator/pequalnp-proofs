@@ -56,11 +56,11 @@ int main(int argc,char **argv){
   for(int j=0;j<r.size;j++){auto g=r.gates[j];if(j)std::cout<<',';std::cout<<'['<<g.op<<','<<g.a<<','<<g.b<<']';}std::cout<<"],\"output\":"<<r.output<<'}'<<std::endl;
  };
  std::array<uint64_t,128>values{};
- for(const auto *z:{&a,&b}){auto c=fresh(*z);evaluate(c,values);if(values[n+cap-1]!=a.target)return 9;auto r=normalize(c,n+cap-1,values);if(r.size>z->upperk)return 10;print(r,z==&a?"control_honest":"control_dirty",0,0);}
+ for(const auto *z:{&a,&b}){auto c=fresh(*z);evaluate(c,values);if(values[n+cap-1]!=a.target)return 9;auto r=normalize(c,n+cap-1,values);if(r.size>z->upperk)return 10;if(r.size<=26){print(r,"counterexample_candidate",0,0);return 11;}print(r,z==&a?"control_honest":"control_dirty",0,0);}
  if(controls)return 0;
  int best=1000,best_or=20;bool found_unread27=false;uint64_t total=0,restarts=0;Normal best_normal;
  while(elapsed()<seconds){
-  restarts++;auto c=fresh((rng()&1)?a:b);int output=n+cap-1;evaluate(c,values);Normal current=normalize(c,output,values);int energy=current.size+3*current.ors;
+  restarts++;auto c=fresh((rng()&1)?a:b);int output=n+cap-1;evaluate(c,values);Normal current=normalize(c,output,values);if(current.size<=26){print(current,"counterexample_candidate",total,restarts);return 11;}int energy=current.size+3*current.ors;
   for(int iter=0;iter<2000000;iter++){
    if((iter&8191)==0&&elapsed()>=seconds){print(best_normal,"final",total,restarts);return 0;}
    total++;bool output_change=rng()%64==0;int oldout=output,j=rng()%cap;Gate old=c[j],g=old;

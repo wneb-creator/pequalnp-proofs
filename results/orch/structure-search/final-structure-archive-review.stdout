@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS for restricted/UNKNOWN search archive",
+  "geometry_cases": 19,
+  "unrestricted_status": "UNKNOWN",
+  "restricted_status": "UNKNOWN",
+  "clique_control": "SAT model satisfies all1045 clauses; 8-gate circuit verified on all32 inputs",
+  "capped_source_sha256": "c2e7e7bc96f53ac2dea42dc916ac562e6226bdea1e59413f7fb779ebb2016d03",
+  "claim_limit": "No satisfying K4 witness, no UNSAT verdict, no Lean lower-bound proof."
+}

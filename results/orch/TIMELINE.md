@@ -37,3 +37,16 @@
 2026-11-25T14:56:35.997054+00:00: independent weighted/normalized CGP and dual-model controls archived; both active SAT searches continue.
 
 2026-11-25T14:59:18.045982+00:00: extremal-test sufficiency integrated and reviewed;3207-line named partial builds. Full target remains unproved.
+
+- 2026-11-25 14:02–14:07 UTC: structure agent extracted and checked exact plane READ1 upper builder and lower-bound bridge.
+- 2026-11-25 14:15–14:24 UTC: structure agent checked dual/hexagon geometry, three-line support orientation and shared-OR Boolean repair identity; no complete size normalization.
+- 2026-11-25 14:35–14:49 UTC: theory child verified existing Fano/order3 AND bounds and derived the mathematical line-linear transposition OR-count argument; no Lean formalization or generic-q AND bound.
+- 2026-11-25 14:52:49 UTC: reviewed encoder controls completed: fixedFano7SAT, C5dual3UNSAT, C5dual4SAT; all SAT assignments independently validated.
+- 2026-11-25 14:53:05–15:01:05 UTC: unrestricted K4-incidence dual10AND search ran480.014s and returnedUNKNOWN.
+- 2026-11-25 15:01:50 UTC: clique-normalized C5dual4 controlSAT; decoded8gates(4OR4AND), all32assignments verified.
+- 2026-11-25 15:02:10–15:04:00 UTC: restricted K4 dual10 search with cofactor/clique cuts ran110.012s and returnedUNKNOWN. Slot released immediately to counterexample agent.
+- 2026-11-25T15:07:05.582483+00:00: structure findings consolidated with explicit separation of Lean-checked components, unformalized mathematical arguments and unresolved full-target steps; complete search artifacts archived.
+
+2026-11-25T15:10:17Z: own L-meta-2583 renewal and required curl-si diagnostic both returned410 before last reported expiry. All proof/search work stopped; archival review and checkpoint only.
+
+2026-11-25T15:16:38.234605+00:00: completed archival review and documentation after lease invalidation; all new results ready for push before recovery request.

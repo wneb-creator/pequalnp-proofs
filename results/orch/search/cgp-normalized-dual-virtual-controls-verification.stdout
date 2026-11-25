@@ -1,0 +1,131 @@
+[
+  {
+    "kind": "control_honest_raw",
+    "active_gates": 30,
+    "and_gates": 9,
+    "or_gates": 21,
+    "inputs_verified": 16384,
+    "wrong_inputs": 0,
+    "unread_edges": [],
+    "dirty_AND_gates": [],
+    "counterexample_candidate": false
+  },
+  {
+    "kind": "control_honest_normalized",
+    "active_gates": 27,
+    "and_gates": 7,
+    "or_gates": 20,
+    "inputs_verified": 16384,
+    "wrong_inputs": 0,
+    "unread_edges": [],
+    "dirty_AND_gates": [],
+    "counterexample_candidate": false
+  },
+  {
+    "kind": "control_dirty_raw",
+    "active_gates": 41,
+    "and_gates": 8,
+    "or_gates": 33,
+    "inputs_verified": 16384,
+    "wrong_inputs": 0,
+    "unread_edges": [
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        5,
+        11
+      ],
+      [
+        1,
+        12
+      ],
+      [
+        5,
+        12
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        0,
+        13
+      ],
+      [
+        2,
+        13
+      ],
+      [
+        6,
+        13
+      ]
+    ],
+    "dirty_AND_gates": [],
+    "counterexample_candidate": false
+  },
+  {
+    "kind": "control_dirty_normalized",
+    "active_gates": 27,
+    "and_gates": 7,
+    "or_gates": 20,
+    "inputs_verified": 16384,
+    "wrong_inputs": 0,
+    "unread_edges": [],
+    "dirty_AND_gates": [],
+    "counterexample_candidate": false
+  }
+]

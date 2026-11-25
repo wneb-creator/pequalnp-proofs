@@ -1,0 +1,65 @@
+{
+  "new_source": "results/orch/search/circuit_cgp_normalized_dual.cpp",
+  "changes": [
+    "Prune raw reachable circuit independently of signature normalization.",
+    "Check both raw and normalized models for <=26 before fitness or time-cap rejection.",
+    "Choose lower 4*OR+AND fitness of the two; log OR/read-state evidence from either model.",
+    "Keep the designated last seed output last during topological shuffling, so unused helper fixtures remain valid.",
+    "Distinguish raw and normalized emitted models in metadata."
+  ],
+  "regression": "The 35-gate exact Fano fixture has28 raw reachable gates; seed1 produces29 after earliest-signature normalization. Raw fitness88 is lower than normalized92. Both models passed complete16384-input and READ1 verification.",
+  "compile": [
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_normalized_dual.cpp",
+    "-o",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_normalized_dual"
+  ],
+  "regression_command": [
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_normalized_dual",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-inflating-normalization.input",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-dirty29-sls.input",
+    "0",
+    "1",
+    "42",
+    "1"
+  ],
+  "standard_controls": [
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_normalized_dual",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-sls.input",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-dirty29-sls.input",
+    "0",
+    "794",
+    "42",
+    "1"
+  ],
+  "virtual_controls": [
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_normalized_dual",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-virtual-zero.input",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-virtual-one.input",
+    "0",
+    "794",
+    "42",
+    "1"
+  ],
+  "new_files": [
+    "circuit_cgp_normalized_dual.cpp",
+    "cgp-normalized-dual-compile.stdout",
+    "cgp-normalized-dual-compile.stderr",
+    "cgp-normalized-dual-controls.stdout",
+    "cgp-normalized-dual-controls.stderr",
+    "cgp-normalized-dual-controls-verification.stdout",
+    "cgp-normalized-dual-controls-verification.stderr",
+    "cgp-normalized-dual-virtual-controls.stdout",
+    "cgp-normalized-dual-virtual-controls.stderr",
+    "cgp-normalized-dual-virtual-controls-verification.stdout",
+    "cgp-normalized-dual-virtual-controls-verification.stderr",
+    "fano-inflating-normalization.input",
+    "inflation-1.stdout",
+    "inflation-1.stderr",
+    "inflation-1-verification.stdout",
+    "inflation-1-verification.stderr"
+  ],
+  "status": "Compiled and independently checked locally; focused review requested before restart. No timed run with this source yet."
+}
