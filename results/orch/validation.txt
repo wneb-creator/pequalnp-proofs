@@ -1,0 +1,10 @@
+Gap: L-meta-1890
+Status: checked partial only; the exact posted theorem remains unproved.
+File: lean/PEqualNP/Outside/L_meta_1890.lean
+Build: lake build PEqualNP.Outside.L_meta_1890 exited 0; Build completed successfully (5149 jobs).
+Content: any missing mapped vertex gives a counterexample, so a computing remapping must be surjective.
+Checker: not run against the posted statement; the final theorem is intentionally absent.
+Independent review: status_review checked mathematics, allowed imports, helper namespaces, forbidden syntax and whitespace.
+Cleanup: not yet applicable to a complete proof; 49 lines in the first checked partial.
+Sub-agents: status_review, toolchain, structural_proof, counterexample, finite_certificate, readtwice, finite_certificate/search_audit
+TIMING total=15.2 subagents=7
