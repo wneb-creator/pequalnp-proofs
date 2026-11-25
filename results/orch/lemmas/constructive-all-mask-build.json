@@ -1,0 +1,11 @@
+{
+  "source": "results/orch/lemmas/constructive-all-mask.lean",
+  "sha256": "faf44d0fa477f6ef997168b7997722de2fff0af3c35cbba2991bc74247c4c5df",
+  "lines": 7871,
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T11:29:39.883297+00:00",
+  "command": "PATH=<pinned Lean bin>:$PATH lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/constructive-all-mask.lean",
+  "stdout": "results/orch/lemmas/constructive-all-mask-build.stdout",
+  "stderr": "results/orch/lemmas/constructive-all-mask-build.stderr",
+  "scope": "StrictLive14 exact Fano, at most27 gates, all seven line-neighborhood masks occur: no double-quiet marked edge. All-mask premise remains explicit; not full gap refutation."
+}

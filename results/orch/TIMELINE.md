@@ -30,3 +30,5 @@
 2026-11-25T11:16:19.953438+00:00 — Canonical p7/p8 closure compiled standalone; preserving it with protected-input/cofactor partials and verified SAT/search inputs. Full target remains open. New false-wire surplus strategy assigned to three collaborating agents.
 
 2026-11-25T11:23:43.605831+00:00 — False-surplus/critical-branch components and derivative relabel transport compiled standalone and independently reviewed; preserving these and completed mixed-search diagnostics. Full target remains open.
+
+2026-11-25T11:33:52.843998+00:00 — All-mask theorem compiled standalone and independently reviewed; preserving it with p14 structural restrictions. P9 finite residual-support certificate and actual-circuit bridge are in progress.

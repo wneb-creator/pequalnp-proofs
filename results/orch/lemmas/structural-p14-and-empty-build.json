@@ -1,0 +1,14 @@
+{
+  "source": "results/orch/lemmas/structural-p14-and-empty.lean",
+  "source_sha256": "149b25b27bbdec5b19d01cfb4d933189aa9f89a4301ab4563dd5011bc6cc885e",
+  "lines": 7371,
+  "accepted_prefix_lines": 7125,
+  "accepted_source_sha256": "e856158208c582f389897b6941fd0cd675fe6e590fb09b4299b35b9c91a76a20",
+  "cached_exit_code": 0,
+  "standalone_status": "PASS",
+  "scope": "At totalSurplus<=14 and all14 labels eligible, every code has2positions, no singleton carrier merges occur, and every AND output has empty singleton support. No no-quiet conclusion.",
+  "exit_code": 0,
+  "frozen": true,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

@@ -1,0 +1,7 @@
+Independent CASE_LEDGER review: PASS for mathematical scope, canonical sets, and counts; two status sentences are stale.
+
+All14 nonempty canonical ineligible sets exactly match accepted canonI, in order, and the empty p14 case is included separately. Eligible counts equal14 minus set size in all15 rows. The ledger correctly marks only p7/p8 as complete no-double-quiet cases and keeps every remaining equality case open. Its Bplus/Bzero and p14 structural descriptions match the compiled theorem signatures inspected in structural-high-equality, structural-high-collinear-zero, algebraic-equality-mixed22-next, and structural-p14-and-empty tails. Zero-support surplus bounds are correctly distinguished from no-quiet conclusions.
+
+Suggested status-only updates after root stages: the all-mask standalone is now compiled exit0 at frozen SHA faf44d0fa477f6ef997168b7997722de2fff0af3c35cbba2991bc74247c4c5df; the exact-statement integration has cached exit0 plus independent source review PASS, with its flattened standalone build still running. The all-mask hypothesis must remain explicit. No CASE_LEDGER edit was made during this review.
+
+The separate formalization-review-all-mask-composition.json verifies the entire7871-line assembled all-mask source equals the reviewed p8 prefix and the frozen branch/flow/endgame/final tails, with only whitespace and namespace-wrapper differences. Its matching standalone receipt records exit0.

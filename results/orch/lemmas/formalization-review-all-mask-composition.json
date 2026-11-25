@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS",
+  "reviewer": "lean_setup",
+  "time_utc": "2026-11-25T11:32:00.534215+00:00",
+  "source": "results/orch/lemmas/constructive-all-mask.lean",
+  "sha256": "faf44d0fa477f6ef997168b7997722de2fff0af3c35cbba2991bc74247c4c5df",
+  "lines": 7871,
+  "build_exit_code": 0,
+  "checks": [
+    "Full first7516 lines byte-identical to reviewed p8 standalone prefix.",
+    "Whole file equals p8 prefix + frozen algebraic false-branch tail + frozen false-surplus tail + reviewed all-mask endgame + reviewed final fragment, ignoring whitespace and removed namespace wrappers only.",
+    "Matching standalone build receipt records exit0.",
+    "Explicit all-seven-mask hypothesis remains in both final conclusions; no unconditional full-gap refutation is claimed."
+  ]
+}

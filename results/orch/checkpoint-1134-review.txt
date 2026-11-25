@@ -1,0 +1,15 @@
+Independent preservation review by stochastic_search
+UTC: 2026-11-25T11:34:41.233494+00:00
+Verdict: PASS, push-ready for archival partial preservation.
+
+Reviewed all34 exact paths in checkpoint-1134-files.json, totaling811121 bytes. Every current SHA256 and byte count matches. All selected paths are under results/orch/, with no main proof or unrelated file change. Selected content was not modified during this review.
+
+The all-mask7871-line source and p14 structural7371-line source match their successful standalone exit0 receipts and exact independent composition review hashes. All-seven-mask occurrence remains an explicit hypothesis; p14 consumption/AND-empty conclusions are not presented as no-quiet. Existing mathematical reviews were not repeated.
+
+CASE_LEDGER.md has15 canonical rows, marks only the canonical p7/p8 cases complete, and retains every remaining case as open. Its extra all-mask result is conditional. The earlier ledger review's recommended status updates are now reflected in the current ledger and agree with receipts; the historical review text itself remains intact. Posted-to-canonical integration is described as cached/reviewed with standalone work pending. NOTES/TIMELINE/validation consistently keep the full target open and checker REJECTED(no-theorem).
+
+The10-file masked-control archive and20260-byte count are correct. Its three40/41-gate controls are exact functions with zero marked derivatives, fully verified on16384 rows/direct traces, and explicitly not27-gate witnesses. The CSE/support-repair and Bzero distinctions are retained. Root's independent rerun agrees with the standalone verifier.
+
+Sensitive-data scans over every selected file found no common GitHub/API token, private-key marker, credential-bearing URL userinfo or literal Authorization value. No credential values were printed or copied.
+
+No blocking findings. This approves preservation of partial results on the designated fork branch, not submission of an incomplete proof PR.

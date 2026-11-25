@@ -1,0 +1,5 @@
+# Masked high-eligibility controls
+
+Three full Fano controls with zero marked derivatives, independently checked on all16,384 assignments and by direct trace recurrence. None has27 gates. Algebraic route supplied the original41-gate masked construction. It has p14/Bplus28/Bzero0 and survives conservative finite-word CSE unchanged. Replacing its two unsupported gates with one common nonmarked edge and applying CSE yields40 gates,p14/Bplus26/Bzero1. Replacing them with two distinct nonmarked edges yields a fully supported41-gate,p14/Bplus28/Bzero0 circuit that survives CSE unchanged. This is a less redundant high-p seed than the star-squaring controls, but remains far above27.
+
+Run `python stochastic-result-verify.py . stochastic-masked41` here for the independent complete verifier. The transformation script records its exact replacements and depends on the scratch CSE helper; the frozen candidate data and verifier are standalone. These controls need not satisfy size27-only minimality cuts.

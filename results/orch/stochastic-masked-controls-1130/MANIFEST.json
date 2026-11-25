@@ -1,0 +1,52 @@
+[
+  {
+    "name": "algebraic-both-blocking-best.json",
+    "bytes": 1982,
+    "sha256": "7d3723bbdf1eeb109087e4468a341d59e84974774cab630022524b5f35d2de1f"
+  },
+  {
+    "name": "stochastic-masked-control-check.json",
+    "bytes": 2016,
+    "sha256": "0ed0ad55a5f7ab8c85b3e1ba02d2fef116dabc0a409937de3db494975cd17f4a"
+  },
+  {
+    "name": "stochastic-masked-control-check.log",
+    "bytes": 2016,
+    "sha256": "0ed0ad55a5f7ab8c85b3e1ba02d2fef116dabc0a409937de3db494975cd17f4a"
+  },
+  {
+    "name": "stochastic-masked-control-check.py",
+    "bytes": 2424,
+    "sha256": "38fab3b9c415609de1bca94da211eb348704a908234795c44fb53ba45549de49"
+  },
+  {
+    "name": "stochastic-masked41-exact-distinct-supported.json",
+    "bytes": 1997,
+    "sha256": "19878d6b65ea447e8ee0fda107b341b9722bbf853dc10e381696cb5ab025e682"
+  },
+  {
+    "name": "stochastic-masked41-exact-original.json",
+    "bytes": 1997,
+    "sha256": "7e1f83617c9350806119683616a00b7f67b131be07a9458e62b8abf6b9c07739"
+  },
+  {
+    "name": "stochastic-masked41-exact-supported.json",
+    "bytes": 1954,
+    "sha256": "b708e5cd8e5f5472af8f74f081b69686f8293ec1d02e726b4f6190a3ca0b0582"
+  },
+  {
+    "name": "stochastic-result-verify.py",
+    "bytes": 2951,
+    "sha256": "1780d80ce23ce34d173b0be9f08dfbd47ba2ce9a90b0dc668d95bdfa888ccb06"
+  },
+  {
+    "name": "verification.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "verification.stdout.json",
+    "bytes": 2923,
+    "sha256": "6cfc6a8823f976eec3937d93c9efc2164b5311785088fd585502a6cf2b15f4f2"
+  }
+]

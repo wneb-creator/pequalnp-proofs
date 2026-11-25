@@ -1,0 +1,9 @@
+# P14 singleton-support structure
+
+Accepted source: L_meta_6659.lean, SHA256 e856158208c582f389897b6941fd0cd675fe6e590fb09b4299b35b9c91a76a20, PR https://github.com/open-goat/pequalnp-proofs/pull/13206. Read2026-11-25. The standalone copies its first7125 lines with the enclosing namespace renamed HighEquality, then the two new tails. Full Lean exit0, complete stdout/stderr empty; SHA256149b25b27bbdec5b19d01cfb4d933189aa9f89a4301ab4563dd5011bc6cc885e. Algebraic_route independently reviewed both tails.
+
+A singleton consumption code yields a pure consuming operand, an empty-support gate output, and an opposite operand carrying all its neighbors. These explicit facts suffice for the accepted private-slot and finite Fano contradiction; the original ineligible-label hypothesis is unnecessary for this argument. Automorphism transport extends the result from label0 to every label. Consequently, if every code has at most2 positions, every code has exactly2.
+
+With all14 labels eligible and totalSurplus at most14, supported surplus is14 and residual units vanish. The exact2-position code exhausts each singleton-carrier budget, so no singleton-carrier merge exists. Every AND output therefore has empty singleton support. Combining with Bzero0 also bounds every AND gate's reader count by1.
+
+This is a structural restriction, not a no-quiet theorem. A pure singleton OR wire can still have the form x OR H with H having empty singleton support; if it branches, it can duplicate an edge contribution of H. Boolean correctness does not force H to imply the target function: replacing point2 by point2 OR(point0 AND point1 AND point3) preserves the Fano function, because points0,1,3 meet every line, while the conjunction alone is true on a false pure-point assignment. This counterexample was checked on all16384 assignments in scratch status-p14-mask-obstacle.json. Optimal-size and consumption constraints must still control such masks.

@@ -1,0 +1,46 @@
+{
+  "verdict": "PASS (independent mathematical/source review; frozen standalone build exit0)",
+  "reviewed_utc": "2026-11-25T11:30:44.574409+00:00",
+  "sources": [
+    {
+      "path": "results/orch/lemmas/constructive-all-mask-endgame.lean",
+      "sha256": "98a230cb9e694661720d87b04a51971b3603bd9d69560af5ac7fb9adeab34008"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-all-mask-final.lean",
+      "sha256": "c21e1851ae993d02558a228915f27d0b255c833e30717d4b7e20ef4acd110d7f"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-all-mask.lean",
+      "sha256": "faf44d0fa477f6ef997168b7997722de2fff0af3c35cbba2991bc74247c4c5df"
+    }
+  ],
+  "scope": "72-line endgame and36-line final composition; foundational theorem signatures checked in assembled file; no new Lean process",
+  "checks": [
+    "Eligible and ineligible point labels partition exactly the seven point inputs.",
+    "If an eligible point v exists, every ineligible point is distinct from v and has a neighbor in the line side. The reviewed fresh-exit theorem therefore gives at least I.card+1 P-exit gates.",
+    "The reviewed critical-branch injection gives false-at-all-lines surplus at least the number E of eligible points. The all-mask hypothesis gives at least14 big line-carrier merges via onesided_big.",
+    "The false-flow budget would then be at least E+7+(I+1)+14=29, while size\u226427 gives budget\u226428. Hence every point is ineligible.",
+    "Eligible labels form a vertex cover. Once every point is ineligible, every line must be eligible because it has a point neighbor. The ineligible set is therefore exactly all seven points.",
+    "The final trace contradiction invokes the already proved one-sided q=7 theorem with the correct trace orientation and explicit ineligible-set characterization.",
+    "all_mask_false_budget verifies the all-lines base is true on P, false at the correct graph output, and has exactly7 false primary inputs. falseInner and falseFlow_exits reduce to the budget predicates used by the endgame.",
+    "The final theorems retain the all-seven-mask occurrence hypothesis. No assertion that every minimal circuit has all masks is made.",
+    "No new assumptions replace the supplied false-flow budget in the final composition; it is derived from the reviewed general theorem and Correct.",
+    "The restored false_flow_boolean helper matches the previously reviewed flow source exactly; the frozen assembled standalone source has a matching successful build receipt."
+  ],
+  "issues": [],
+  "limits": [
+    "This proves the all-mask case only, not the whole posted existential negation."
+  ],
+  "build": {
+    "source": "results/orch/lemmas/constructive-all-mask.lean",
+    "sha256": "faf44d0fa477f6ef997168b7997722de2fff0af3c35cbba2991bc74247c4c5df",
+    "lines": 7871,
+    "exit_code": 0,
+    "completed_utc": "2026-11-25T11:29:39.883297+00:00",
+    "command": "PATH=<pinned Lean bin>:$PATH lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/constructive-all-mask.lean",
+    "stdout": "results/orch/lemmas/constructive-all-mask-build.stdout",
+    "stderr": "results/orch/lemmas/constructive-all-mask-build.stderr",
+    "scope": "StrictLive14 exact Fano, at most27 gates, all seven line-neighborhood masks occur: no double-quiet marked edge. All-mask premise remains explicit; not full gap refutation."
+  }
+}

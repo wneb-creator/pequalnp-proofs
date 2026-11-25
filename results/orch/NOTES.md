@@ -64,3 +64,5 @@ Root must renew before long runs and every ten minutes, preserve all compiled pr
 - The cyclic posted Fano graph and accepted edgeList are related by fixing point labels and negating line labels. Standalone lemmas now transport correctness and all derivative traces through any input permutation without changing gate outputs.
 - Integration is assigned: derive a StrictLive canonical double-quiet witness from the exact posted existential, conditional on the remaining structural exclusion theorem.
 - Public snapshot generated11:21:13UTC still lists L-meta-1479 and L-meta-1480 as conjectures.
+
+The all-mask combination now has a successful standalone build and independent composition review. P14 structural restrictions also have a successful standalone build. The one-sided p9 case is reduced in the active proof work to a finite residual-support predicate; its certificate and actual-circuit transfer are still being checked. The exact posted-to-canonical bridge has a reviewed cached build, with standalone recheck pending.
