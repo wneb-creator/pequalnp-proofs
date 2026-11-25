@@ -30,3 +30,8 @@ All timestamps are UTC.
 - 2026-11-25T20:36:08Z: Mixed-seed six-row search ended without a witness: TIME_LIMIT seconds=1200.09 iterations=4924000000 best=8.
 - 2026-11-25T20:36:43Z: Second replan kept full proof/refutation priority and cautioned against combining partial-test normalization with full-function lower bounds.
 - 2026-11-25T20:39:33Z: Positive-preserving six-row search ended without a witness: TIME_LIMIT seconds=1200.05 iterations=5118000000 best=12.
+- 2026-11-25T20:49:47Z: Helper 6 found a conflict between lexicographic prefix symmetry and maximal-predecessor scheduling; helpers audited joint restrictions. No invalid global UNSAT result had been claimed.
+- 2026-11-25T20:52:29Z: Independent local reviewer began a bounded ABC logic-synthesis route, requiring translation back to positive-input AND/OR gates.
+- 2026-11-25T20:54:01Z: Third coordinated replan retained full proof/refutation priority; root began structural OR-count lower-bound investigation.
+- 2026-11-25T20:56:05Z: Root began a six-row exact-care search that credits reusable line disjunctions when extending the circuit to all thirteen rows.
+- 2026-11-25T20:58:49Z: Retired two redundant deep-seed searches at the 29-gate core baseline to free resources for ABC and the reuse-aware search. Three earlier exact-care variants completed 1,800-second caps without a witness.
