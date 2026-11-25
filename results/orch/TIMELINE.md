@@ -62,3 +62,8 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 2026-11-25T13:53:09.838225+00:00 renewed; expiry 2026-11-25T14:13:10.039Z
 2026-11-25T13:57:26.864486+00:00 structural automorphism and robust essentiality helper compiled successfully.
 2026-11-25T13:57:40.248205+00:00 first compiled component: structural.lean, exit0; preparing early push.
+2026-11-25T13:58:10.528541+00:00 renewed; expiry 2026-11-25T14:18:10.060Z
+2026-11-25T13:58:41.151164+00:00 Stopped global ORnonedge SAT shard after9minutes ofunknown, replaced with≤5gate-edits search around4false-positive K4star seed; QF_FD engine andraw-input pair essentiality pruning.
+2026-11-25T13:59:44.253116+00:00 local stochastic batch finished: 600s, 1667631432 candidates,66703 restarts; no witness. Paused CPU for Lean.
+2026-11-25T14:03:11.038644+00:00 renewed; expiry 2026-11-25T14:23:10.715Z
+2026-11-25T14:03:35.157057+00:00 bankfinite.lean compiled and independently reviewed; preparing early push.

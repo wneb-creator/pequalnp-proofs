@@ -1,0 +1,1 @@
+Independent root review PASS: bankfinite.lean exact Petersen truth table on all1024 inputs; ten pins cover all assignments; all8 witness cases checked; forbidden-token scan clean. Lean compilation separately exited0. Partial component only.

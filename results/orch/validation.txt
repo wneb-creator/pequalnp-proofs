@@ -10,3 +10,6 @@ Checker for exact posted theorem: not run; theorem is not yet present.
 
 Sub-agents: 6 (status/definition audit, exact synthesis, structural proof, reduction analysis/review, Lean setup, local circuit optimization)
 TIMING total=14 subagents=6
+
+Independent root review PASS: bankfinite.lean exact Petersen truth table on all1024 inputs; ten pins cover all assignments; all8 witness cases checked; forbidden-token scan clean. Lean compilation separately exited0. Partial component only.
+bankfinite.lean compilation: exit0, empty output.
