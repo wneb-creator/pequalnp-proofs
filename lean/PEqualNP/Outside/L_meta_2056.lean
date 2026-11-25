@@ -540,4 +540,62 @@ lemma sole_and_reader_accepts_neighbor_support {n : ℕ} (G : SimpleGraph (Fin n
   simpa [hiv] using hxv
 
 
+
+lemma sole_or_reader_blocks_neighbors_without_self {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (u : Fin n) (sibling : ℕ) (pre tail : List Gate) (output : ℕ)
+    (hpre : ∀ g ∈ pre, u.val ∉ g.inputs) (htail : ∀ g ∈ tail, u.val ∉ g.inputs)
+    (hsib : sibling ≠ u.val)
+    (hmono : ∀ g ∈ pre, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hc : ∀ x : Fin n → Bool,
+      (Circuit.mk (pre ++ ⟨GateOp.or, [u.val, sibling]⟩ :: tail) output).eval (List.ofFn x) =
+        PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x)
+    (x : Fin n → Bool)
+    (hx : PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x = false)
+    (hxs : (pre.foldl step (List.ofFn x)).getD sibling false = true) :
+    ∀ v, G.Adj u v → ∃ t, x t = true ∧ t ≠ u ∧ G.Adj t v := by
+  let y : Fin n → Bool := fun i => if i = u then false else x i
+  have hy : PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ y = false := by
+    simp only [PEqualNP.MetaComplexity.NestedCover.graphFun, Finset.notMem_empty,
+      false_and, exists_false, decide_false, Bool.false_or, decide_eq_false_iff_not] at hx ⊢
+    rintro ⟨a, b, hab, ha, hb⟩
+    apply hx
+    refine ⟨a, b, hab, ?_, ?_⟩
+    · by_cases hau : a = u <;> simp_all [y]
+    · by_cases hbu : b = u <;> simp_all [y]
+  have hxy : SameExcept u.val (List.ofFn x) (List.ofFn y) := by
+    apply sameExcept_ofFn
+    intro i hi
+    simp [y, hi]
+  have hys : (pre.foldl step (List.ofFn y)).getD sibling false = true := by
+    rw [← (fold_sameExcept u.val pre _ _ hxy hpre).2 sibling hsib]
+    exact hxs
+  intro v huv
+  obtain ⟨t, ht, htv⟩ := sole_or_reader_blocks_neighbors G u sibling pre tail output
+    hpre htail hsib hmono hc y hy hys v huv
+  have htu : t ≠ u := by
+    intro heq
+    simp [y, heq] at ht
+  exact ⟨t, by simpa [y, htu] using ht, htu, htv⟩
+
+lemma sole_or_reader_private_neighbor_guard_below_graph {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (u v : Fin n) (huv : G.Adj u v) (hprivate : ∀ t, G.Adj t v → t = u)
+    (sibling : ℕ) (pre tail : List Gate) (output : ℕ)
+    (hpre : ∀ g ∈ pre, u.val ∉ g.inputs) (htail : ∀ g ∈ tail, u.val ∉ g.inputs)
+    (hsib : sibling ≠ u.val)
+    (hmono : ∀ g ∈ pre, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hc : ∀ x : Fin n → Bool,
+      (Circuit.mk (pre ++ ⟨GateOp.or, [u.val, sibling]⟩ :: tail) output).eval (List.ofFn x) =
+        PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x)
+    (x : Fin n → Bool)
+    (hxs : (pre.foldl step (List.ofFn x)).getD sibling false = true) :
+    PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x = true := by
+  cases hx : PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x with
+  | true => rfl
+  | false =>
+    obtain ⟨t, _, htu, htv⟩ := sole_or_reader_blocks_neighbors_without_self G u sibling
+      pre tail output hpre htail hsib hmono hc x hx hxs v huv
+    exact False.elim (htu (hprivate t htv))
+
+
 end PEqualNP.Outside.L_meta_2056
