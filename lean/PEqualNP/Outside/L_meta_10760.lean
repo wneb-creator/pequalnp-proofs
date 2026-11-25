@@ -1726,3 +1726,45 @@ lemma search_semantic
 end MemoPruned
 
 end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760.MemoPruned
+
+variable {α : Type}
+
+def solutionUp (Sol : Nat → α → Prop) (k : Nat) (s : α) : Prop :=
+  ∃ b, b ≤ k ∧ Sol b s
+
+lemma solutionUp_mono {Sol : Nat → α → Prop} {j k : Nat} {s : α}
+    (hjk : j ≤ k) (hsol : solutionUp Sol j s) : solutionUp Sol k s := by
+  obtain ⟨b, hbj, hs⟩ := hsol
+  exact ⟨b, hbj.trans hjk, hs⟩
+
+lemma solutionUp_base (Sol : Nat → α → Prop) (done : α → Bool)
+    (base : ∀ s, Sol 0 s → done s = true)
+    (s : α) (hsol : solutionUp Sol 0 s) : done s = true := by
+  obtain ⟨b, hb, hs⟩ := hsol
+  have he : b = 0 := Nat.eq_zero_of_le_zero hb
+  subst b
+  exact base s hs
+
+lemma solutionUp_step (Sol : Nat → α → Prop) (done : α → Bool)
+    (children : Nat → α → List α)
+    (base : ∀ s, Sol 0 s → done s = true)
+    (step : ∀ b s, Sol (b+1) s → done s = true ∨ ∃ t ∈ children b s, Sol b t)
+    (children_monotone : ∀ b k s, b ≤ k → children b s ⊆ children k s)
+    (k : Nat) (s : α) (hsol : solutionUp Sol (k+1) s) :
+    done s = true ∨ ∃ t ∈ children k s, solutionUp Sol k t := by
+  obtain ⟨b, hb, hs⟩ := hsol
+  cases b with
+  | zero => exact Or.inl (base s hs)
+  | succ b =>
+    have hbk : b ≤ k := Nat.le_of_succ_le_succ hb
+    rcases step b s hs with hd | ⟨t, ht, htail⟩
+    · exact Or.inl hd
+    · exact Or.inr ⟨t, children_monotone b k s hbk ht, b, hbk, htail⟩
+
+lemma solutionUp_failure_downward {Sol : Nat → α → Prop} {j k : Nat} {s : α}
+    (hjk : j ≤ k) (hno : ¬ solutionUp Sol k s) : ¬ solutionUp Sol j s :=
+  fun hs => hno (solutionUp_mono hjk hs)
+
+end PEqualNP.Outside.L_meta_10760.MemoPruned
