@@ -1,0 +1,20 @@
+{
+  "artifact": "results/orch/lemmas/algebra_strategy/SingletonMixingMarker.lean",
+  "source_sha256": "ad73a1e0ff845a04c8f076af4d6284c2cfdf8f7a3ee58040b4b20d86898cd652",
+  "source_lines": 845,
+  "build_command": "lake env lean -j1 -M3072 ../results/orch/lemmas/algebra_strategy/SingletonMixingMarker.lean",
+  "build_workdir": "/workspace/pequalnp-proofs/lean",
+  "exit_code": 0,
+  "build_log": "results/orch/lemmas/algebra_strategy/SingletonMixingMarker.build.log",
+  "build_log_bytes": 2834,
+  "completed_utc": "2026-11-25T07:41:13.614053+00:00",
+  "status": "compiled_frozen_pending_independent_review",
+  "scope": "Research only. An AND reached through an OR-only path from a singleton-raw-support wing yields a nonlam OR marker of the same singleton support. Distinct singleton labels require distinct markers. No full L650 construction or exclusion.",
+  "imports": [
+    "PEqualNP.Defs",
+    "Mathlib.Combinatorics.Enumerative.DoubleCounting"
+  ],
+  "restart_note": "Pre-restart check was interrupted; this receipt records the successful fresh post-restart run, tool session59431 exit0.",
+  "final_gap_ready": false,
+  "scope_note": "Research-only scope and copied public declarations; no claim this artifact proves or refutes the posted L650 statement."
+}
