@@ -73,3 +73,10 @@ CleanClassReplacement.lean: standalone Lean build exit 0; independent reviewer P
 NormalizedExistence gives a minimum circuit whose unowned ANDs accept at least two unordered graph edges. CleanClassReplacement gives the conditional budgeted class replacement, including arbitrary shared readers. Neither proves the posted theorem. Repository checker not run on partial artifacts.
 Sub-agents: six; independent review, minimality, normal forms, counterexample search, algebraic replacement, ownership rewrites.
 TIMING total=53.5 subagents=6
+
+2026-11-25T04:19:35.205691+00:00 checked partial batch
+ClassIteration.lean: Lean exit 0; independent review PASS; SHA256 fda9d4529150d4d95ece5f5d4a40be48aedd8ce156ff555fe9d47ed81050af36; full log class-iteration-build-002.log.
+ClassCover.lean: Lean exit 0; independent review PASS; SHA256 fc58322d96a6da8edf8f29105189348f495b8c351e181c6f9f99be55c23a8c44; full log class-cover-build-001.log.
+ClassPrefix.lean: Lean exit 0; independent review PASS; SHA256 8e608e9cf8f10b0cbee37aa966180b35b6fa26eb0f5e4ca4240561fcbf70abb3; full log class-prefix-build-002.log.
+ResidualStar.lean: Lean exit 0; independent review PASS; SHA256 74f3dd4329b0ddbc910d3c4adb9290814f4de8ccfe16592a85eca91c2aeae9e7; full log residual-star-build.log.
+ClassIteration/ClassCover/ClassPrefix are prerequisites subsumed by CleanClassReplacement. ResidualStar proves a local residual-star simplification. None proves the posted statement; repository checker not run on partial artifacts.

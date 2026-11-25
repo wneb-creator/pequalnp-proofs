@@ -20,3 +20,5 @@
 - 2026-11-25T04:11:23.576739+00:00: preserving reviewed global singleton normalization, ownership transport, capture rewrite and deletion criterion.
 
 - 2026-11-25T04:19:03.305376+00:00: reviewed and preserved unconditional multi-edge normalization and conditional global clean-class replacement; full theorem unresolved.
+
+- 2026-11-25T04:19:35.205691+00:00: preserved reviewed class-deletion prerequisites and local residual-star simplification.
