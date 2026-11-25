@@ -16,3 +16,5 @@
 - 2026-11-25T12:12:35.771159+00:00: UniqueOr208-line source independently reviewed by root. Recompiled with axiom audit: PASS, standard three axioms only. Preparing immediate partial checkpoint push.
 
 - 2026-11-25T12:16:24.127757+00:00: UniqueOr expanded to294lines with properness and row-neighborhood constraints. Root independent source review and compiled standard-axiom audit PASS.
+
+- 2026-11-25T12:18:44.808148+00:00: ClosedNoLive finite-table soundness helper compiled, independently reviewed by lean_setup and root. Preserved as partial research component.
