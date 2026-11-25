@@ -1,0 +1,13 @@
+L-meta-2373 PARTIAL CHECKPOINT
+
+The posted statement is NOT proved. No proof PR has been opened.
+The file contains checked helper lemmas only; the required top-level theorem is absent.
+
+Build: lake build PEqualNP.Outside.L_meta_2373
+Build result: exit 0; Build completed successfully (18423 jobs).
+Complete output: build-partial-1.txt
+Local checker: not yet run; missing target theorem means no acceptance is claimed.
+Independent review: status_review PASS for partial snapshot (80 lines).
+
+Sub-agents: status_review, proof_structure, counterexample, library_route, lean_setup, finite_invariants
+TIMING total=11 subagents=6
