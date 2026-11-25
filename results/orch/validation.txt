@@ -1,0 +1,22 @@
+L-meta-4970 PARTIAL RESULT ONLY
+Pinned Lean 4.36.0.
+Command: lake env lean results/orch/lemmas/StarCentres.lean (from lean/ with absolute source path)
+Exit code: 0
+Complete stdout/stderr: empty.
+Full posted theorem: not proved. Local checker: not yet run; helper file has no final theorem.
+Sub-agents: 6 (status_review, counting_proof, counterexample, semantic_bound, toolchain, cofactor_route)
+TIMING total=9.6 subagents=6
+
+Named module validation:
+lake build PEqualNP.Outside.L_meta_4970
+Exit code: 0
+Complete stdout/stderr follows:
+⚠ [18250/18251] Built PEqualNP.Outside.L_meta_4970 (6.5s)
+warning: PEqualNP/Outside/L_meta_4970.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18251/18251] Ran PEqualNP.Outside.L_meta_4970:irArts
+warning: PEqualNP/Outside/L_meta_4970.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (18251 jobs).
+
+SemanticPureOr.lean: lake env lean passed; exit0; complete stdout/stderr empty.
+Independent source/diff review: PASS for partial-preservation push, by status_review; not proof-PR acceptance.
+Main file line count: 136. Cleanup not run because posted theorem unproved.
