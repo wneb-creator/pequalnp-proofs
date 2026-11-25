@@ -67,3 +67,5 @@ UTC 2026-11-25T14:26:09.586326+00:00 proof_route sensitivity extension
 2026-11-25T14:44:25.289991+00:00 lower_bound_route: PAUSED onrootinstruction afterleasefailure. SharedOrThird.lean source saved (142lines7241bytes) butnoLeanbuildstarted. Intendednewclaim: allshared-inputOR/OR/AND prefixes cost>=18binary viazeroleafprojection. Allactiveprocessesminealreadyfinished. graphs8.json copiedintoreporesults. Needrootauthorizationbeforeanyfurtherproofwork.
 
 2026-11-25T14:44:56.130360+00:00 [counterexample_route] STOPPED all searches on root lease-error notice. All12 owned driver/solver processes are SIGSTOPped; no new query starts. Final archive includes complete saved logs, exact scripts,108 Fin9 templates, summaries and process state. No counterexample found and no Lean counterexample claim.
+
+2026-11-25T14:49:38.560326+00:00 [counterexample_route] Final cleanup complete: six owned stopped drivers killed, six solver children terminated gracefully and flushed logs. No active counterexample jobs remain; exited solver zombies await reaping. Final compressed archive and SHA256 sidecar refreshed. No counterexample found.
