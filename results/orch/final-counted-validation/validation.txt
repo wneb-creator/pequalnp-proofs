@@ -1,0 +1,24 @@
+L-meta-10760: complete optimized proof.
+Source SHA-256: 5c2ff7c32345dbfd9d2b81e67b8bef57499c7003f14e9be5294c10211afa97e0
+
+Named build PASSED: 522.371 seconds; peak RSS 5,544,948 KiB; source unchanged.
+Command: lake build PEqualNP.Outside.L_meta_10760
+Last build line: Build completed successfully (5149 jobs).
+Compiled theorem axioms: [propext, Classical.choice, Quot.sound].
+Independent source review and repository import/plain-file guard PASSED.
+
+Optimization: 8,290 to 8,194 lines; final size 507,867 bytes.
+Post-checker cleanup skipped because the official checker cannot finish locally.
+Lines before/after that skipped cleanup: 8,194 / 8,194.
+
+Official checker: NO ACCEPTANCE. Included v6 logs concern the original successful-build source, SHA-256 0199ec155b8609bb2b9412fb772637b7971e9ee9d633c08f9ae388b3f08b325d. They report FAULT, exit 137, after the proof import under this container's 8 GiB limit without swap. The optimized revision was not rerun through that known resource failure; its full named build and actual axiom dependencies were checked.
+
+PR creation FAILED: GraphQL: Resource not accessible by integration (createPullRequest).
+No PR was created. No alternate credential, URL, or retry of that refused write was attempted.
+Only the authorized fork branch pnp/pilot-182 is pushed. The final diff adds exactly the named Lean file; complete artifacts remain in commit history.
+
+Desk null responses: 0.
+Own lease: 6b12f372-f2dc-428e-8c1f-29c8bd473f27; release follows preservation.
+Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count, advanced_certificate, tight_not_count, review_final
+TIMING total=178.5 subagents=9
+KIT-MESSAGE-ID msg-a63fed3bbcb865bb52f73d5c

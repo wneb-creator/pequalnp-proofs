@@ -1,0 +1,401 @@
+{
+  "original_sha256": "0199ec155b8609bb2b9412fb772637b7971e9ee9d633c08f9ae388b3f08b325d",
+  "inputs": {
+    "TightNotFirst": "26a91e85602f480c1ed224a4e32fd7365e6b26518d1dd1dcaaa1c747518737d4",
+    "CountedFirst": "6d7b2ffa073053ab0b912c417b16bc7ac96f1a0dd5dab209394aae2eb62090a0",
+    "KernelFirstEngine": "39a315671c0728b9bce853b57d1d62584da22df90d43778a2b00567d5fa676d0",
+    "KernelFirstTables": "029ed904a4e7f9fbb079dc4460f2d5f08141ff17decde48fc81763c97b4f0567",
+    "FirstReject": "b39f558106c760dffb8bcaccd257cf054f3f2810555a6f7b93c95488c05ce624",
+    "RootShardAdapter": "5a8f336e5257de17bf747d70ba3373d631b30f1e1449667dcd73a56d4ddc2bc8",
+    "Root13Safe": "1ce4ff3be3e75cc2288aead496ad4eccdc23fb6356b3aab9ecd17772a3bc5dad",
+    "OwnSequence": "3c7aabd54be8755b76ff7eeed742a681195d2e1cd7e5fa65af1a2f999b4ce59b",
+    "OwnRows": "7d653a8419919743178d62135738d947bf647bcc35ced528b599ba7a9bb97e97",
+    "GateCatalogue": "b95487239ffaa0ff941f3c0c4dca4aaeac4b2881512cecdeb98fdd2789a82012",
+    "SymmetryFirst": "e68ae628be9e73b73b79c4e6b94d32cf8006f85d8f442ca0a810eef830cc5a0b",
+    "CountedCases": "b69b79a8b8b2eb2c1b638a79f8fc7ba725d7e5e49f75668244970c3ec48e5786",
+    "Root14Safe": "a932734076777a7eafda0ce286f538de00fa9b5ac81456ded84db3260d4cf931",
+    "ChainFirst": "4582feffb9b6f8b4c8de7fab725a9681d8f45ce331140914ca7b9218bed8cfef",
+    "TightFinalGlue": "262ae77901eac6a07ce35de3950131103c40b4a2ea6da7ea79cf0ea93371e9f0"
+  },
+  "removed": [
+    {
+      "name": "MF.bi",
+      "reason": "replaced by exact-count soundness",
+      "bytes": 428,
+      "lines": 5,
+      "sha256": "d5b1bc5188aac3fed257a5edcbdb2de4ec53affe0b7dc7443cb864979afb70f3"
+    },
+    {
+      "name": "MF.gate",
+      "reason": "replaced by exact-count soundness",
+      "bytes": 430,
+      "lines": 8,
+      "sha256": "10c59c3bf101e44a63928914967db1ac044b1e02aba664543a1cba6849dba233"
+    },
+    {
+      "name": "phase_step",
+      "reason": "replaced by exact-count soundness",
+      "bytes": 2195,
+      "lines": 29,
+      "sha256": "bf1fe59670fb7e495d44f83b70033d24cae7dcc69be7401b5b6a900cbebabb57"
+    },
+    {
+      "name": "one_sound",
+      "reason": "replaced by exact-count soundness",
+      "bytes": 2369,
+      "lines": 29,
+      "sha256": "b8756a8730517895b9a33401d31e8e91ce634eefaa921fca61301f43d4ed94a2"
+    },
+    {
+      "name": "look1_sound",
+      "reason": "replaced by exact-count soundness",
+      "bytes": 1569,
+      "lines": 25,
+      "sha256": "b1e4e1a5f547b0ba9a4ee8d66c65f25a7cf77933fe27480f91366da1fabecf28"
+    },
+    {
+      "name": "topC_sound",
+      "reason": "replaced by exact-count soundness",
+      "bytes": 2505,
+      "lines": 33,
+      "sha256": "45138d59aee6ffd2bdb210ef31bc39410d57efe15005da73da547adeedbfd4d2"
+    },
+    {
+      "name": "sym_bound",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 221,
+      "lines": 4,
+      "sha256": "7cec643b8df464aa3ef30d69886a3af395b5aba00375072f77f9bad30e493f7b"
+    },
+    {
+      "name": "imp_gate_swap",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 210,
+      "lines": 4,
+      "sha256": "bef5aa252e8f69401ebeaf52eca6767d44b62864b5d2caed6c285048e9671bfd"
+    },
+    {
+      "name": "reject_one_shards",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 713,
+      "lines": 15,
+      "sha256": "f0ad227ede72df94543c7cfb835cdeb54fd099579353d11aa29b35207c573c44"
+    },
+    {
+      "name": "one1",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 154,
+      "lines": 3,
+      "sha256": "cffab83d8ebc7f10290a59d4282427bcaf1da362e16a92bda270433d6518d3fa"
+    },
+    {
+      "name": "last_imp",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 840,
+      "lines": 11,
+      "sha256": "1ba14fd2b25c3e9f5e9081bfdb398e294ca4a728a9dfd45adca59a40a970590c"
+    },
+    {
+      "name": "iroot_min",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 390,
+      "lines": 6,
+      "sha256": "da6d952383f9f07edbff5a77456e59935416ce249fb6208cd462cbd8b8b0b22c"
+    },
+    {
+      "name": "chainT",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 583,
+      "lines": 13,
+      "sha256": "62f2f7a769af3b1caeef52caee14ff8ee595b6df30bb6e1b7f28684106232b7b"
+    },
+    {
+      "name": "ty_imp",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 927,
+      "lines": 11,
+      "sha256": "dbfcb707c6ebbe5fadaf9c70b09277e0f312bcfdce483be75eab9577c2b4de47"
+    },
+    {
+      "name": "ctc",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 383,
+      "lines": 6,
+      "sha256": "bfb56fc333c1543dfc7a86a4e04c5ae2163e0e9d5e0c473270d71fe1e0ad4ae8"
+    },
+    {
+      "name": "ctn",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 143,
+      "lines": 1,
+      "sha256": "3cd7e4f3c7b8e14c439ec18f423ce225166c72fe73206a8fae7dfc66ea57714b"
+    },
+    {
+      "name": "imp_run",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 871,
+      "lines": 9,
+      "sha256": "8ff523a3e82caba921fb8101376b279d02941f9e3f4c79615db79bf5402b5859"
+    },
+    {
+      "name": "symE0",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 203,
+      "lines": 1,
+      "sha256": "3df4b79fd492daa1ff119c90a0af76f73a70f67979de5280f50dcdbb3156d67e"
+    },
+    {
+      "name": "subI",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 215,
+      "lines": 2,
+      "sha256": "49a44cf58be23c1243445f5b024792d336d2b809dcdcbea035d29ee8855e1aca"
+    },
+    {
+      "name": "ownOne",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 597,
+      "lines": 10,
+      "sha256": "1ac0adb01c0e2cd681fc8c64826f0b37d82348a89e5162eda79921dc2d133e80"
+    },
+    {
+      "name": "okAllP",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 350,
+      "lines": 4,
+      "sha256": "2d6b84338d5546325c98dc0d494030cfbe31d838ca036561fd180bd58b65f712"
+    },
+    {
+      "name": "ownAll",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 770,
+      "lines": 10,
+      "sha256": "c7ee823f4ec1878385c1aa1dad416981c43c778b884b0d0772b8929c46d87702"
+    },
+    {
+      "name": "mkX_mem",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 699,
+      "lines": 12,
+      "sha256": "5d41af2dfcf593ea45a9b234a02971d03bc3913db73e9709b2bdfc1f4d26f4e8"
+    },
+    {
+      "name": "pos_ex",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 154,
+      "lines": 3,
+      "sha256": "67f822e5c6e130a3d2a9407c8916584bc43a9a72f3711d98d33aaafc9a6ff974"
+    },
+    {
+      "name": "cnt_one",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 192,
+      "lines": 3,
+      "sha256": "3f48032b720d29e0dd5de7a19c46b17b392623f7eeb3647cf32067c83c8f4ad0"
+    },
+    {
+      "name": "cnt_two",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 512,
+      "lines": 8,
+      "sha256": "6697102ac66718f140456fc6bf6bf6642352fb8636b9b6299fb5df6e4aa2c166"
+    },
+    {
+      "name": "rm_eq",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 489,
+      "lines": 9,
+      "sha256": "ec5311e068c9967c669a4ebdd13106478e9948e821d86d354600751e5dfbf811"
+    },
+    {
+      "name": "rect_false",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 667,
+      "lines": 14,
+      "sha256": "8a04e2fe2b188f3937ba0b97023ed9ee7a0a9ae27a930c85f7edcfc9ea935841"
+    },
+    {
+      "name": "hit_spec",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 1179,
+      "lines": 20,
+      "sha256": "80dd28527825ce91cfdedb14243eb6421b79ce87164aa3d4f9be15ee2b7d48c1"
+    },
+    {
+      "name": "flag_seg",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 595,
+      "lines": 7,
+      "sha256": "fb9f4c91002343f0dd3b01a5c9cf977bc018008a3fc3d063288fdabab21500ac"
+    },
+    {
+      "name": "ht_un",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 1124,
+      "lines": 20,
+      "sha256": "092d1ef2201b2e902e426af02200ea5473d64b12b6acc0753eff64b158bd85ea"
+    },
+    {
+      "name": "P1",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 338,
+      "lines": 3,
+      "sha256": "2a35f0649437a22b612c3ee1904cfce698b94041098e3910be855b6fc235b1ea"
+    },
+    {
+      "name": "flk",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 219,
+      "lines": 2,
+      "sha256": "4e24db46dcfb92388da5a51630e26bd7c6d6378ffd3cafa168e811a3bb4853ae"
+    },
+    {
+      "name": "star",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 321,
+      "lines": 2,
+      "sha256": "400ce1056f2f8ecc91d9f51f41cf76ddb731e11f4480891b23d50969a69cbbac"
+    },
+    {
+      "name": "bip",
+      "reason": "unreferenced unregistered declaration leaf, pass 0",
+      "bytes": 199,
+      "lines": 3,
+      "sha256": "fc1c26e341f16450ca31d5e5415933ae7f69c3f16b6c3d6d0cd308c3d35a3bc8"
+    },
+    {
+      "name": "imp_gate_congr",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 195,
+      "lines": 4,
+      "sha256": "881a50c67344df92b7a19ade8d6279b43aae4173c8372ceb348f1b4c1cb00505"
+    },
+    {
+      "name": "reject_live",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 7230,
+      "lines": 142,
+      "sha256": "d08d61c2cf4481b65e6480577b241837fc638d5b91d09ae13395b797c1f318cf"
+    },
+    {
+      "name": "imp_symZ",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 1413,
+      "lines": 29,
+      "sha256": "42621318053944734dcf745a9a8e73edfac4198de723c9c651cb5af0af61e997"
+    },
+    {
+      "name": "rootL",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 807,
+      "lines": 7,
+      "sha256": "a4bd12faf571a4ea19c50163857da05eb633f02c3888fafa07111b1c2851ce26"
+    },
+    {
+      "name": "rootT",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 1125,
+      "lines": 11,
+      "sha256": "bab7185dae7e23f48167e03dd6e2f16fcdbcd3318feb3b300d1102eb5a85c899"
+    },
+    {
+      "name": "hits_false",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 313,
+      "lines": 6,
+      "sha256": "deed3c56a12af4593bd48ca496bab3d397876163ac8641f7c09f314f5e8c5d8f"
+    },
+    {
+      "name": "un_uq2",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 566,
+      "lines": 11,
+      "sha256": "2b7c5349706fca72be822b316bbef643f0a6c45deb2563d838265decd889df5c"
+    },
+    {
+      "name": "okLs",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 132,
+      "lines": 1,
+      "sha256": "d700e16b5e1f4a32126e6fcffa5d424bedf5bba840279be9d6b371399f56cecc"
+    },
+    {
+      "name": "okTs",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 189,
+      "lines": 1,
+      "sha256": "412ded3925363b98d7d868169101708a6383a327eb1ba3f6801d4b586575d512"
+    },
+    {
+      "name": "inC",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 83,
+      "lines": 1,
+      "sha256": "37cf14034b0529810b150aaa4cbcc9527f0f9fa477b33b71dd869d02e211f9c3"
+    },
+    {
+      "name": "okU",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 128,
+      "lines": 1,
+      "sha256": "3381575ddf81b248414aed8ebc0b8d1c1941c96df78d11593555890c66f4e32c"
+    },
+    {
+      "name": "rm",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 304,
+      "lines": 2,
+      "sha256": "82a49df57b1df013fb16b71702b1cf4491fc6bba4a02a71da1e31ec1a2e1ff2d"
+    },
+    {
+      "name": "rmF",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 170,
+      "lines": 2,
+      "sha256": "f060de996bd2ef54280de7e802447e15cacfeff647b8e1972ea5057830bfb98f"
+    },
+    {
+      "name": "anyE",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 147,
+      "lines": 1,
+      "sha256": "ef05b5097504252b6425caff390e8d90f4370f08cab60aa576737bcc9a4fa7f8"
+    },
+    {
+      "name": "join",
+      "reason": "unreferenced unregistered declaration leaf, pass 1",
+      "bytes": 489,
+      "lines": 5,
+      "sha256": "502ccd78ce5111d190e07beade273cdc2a477b975d4e5f08ab8dcb290847becd"
+    },
+    {
+      "name": "sol_rho2",
+      "reason": "unreferenced unregistered declaration leaf, pass 2",
+      "bytes": 460,
+      "lines": 9,
+      "sha256": "b4daee85a87b659b2b33254658d364758fc1261e28de7871dcfa1ec39a11d229"
+    },
+    {
+      "name": "cov_t",
+      "reason": "unreferenced unregistered declaration leaf, pass 2",
+      "bytes": 1014,
+      "lines": 13,
+      "sha256": "06a35cdc26a99af421b1fe62d74f981a501df03aae7fe2d78bd87f12e0eb5712"
+    },
+    {
+      "name": "app",
+      "reason": "unreferenced unregistered declaration leaf, pass 2",
+      "bytes": 106,
+      "lines": 1,
+      "sha256": "e55d69a992c0c6f9eb6b534fe048c2e9bc221501ff25bf467f04d069c88a62d7"
+    }
+  ],
+  "transformations": [
+    "Move unchanged LTR core earlier; replace original MF-threaded soundness with CountedFirst core; preserve TopOk contract via topC_ok_unrestricted."
+  ],
+  "candidate_sha256": "5c2ff7c32345dbfd9d2b81e67b8bef57499c7003f14e9be5294c10211afa97e0",
+  "bytes": 507867,
+  "lines": 8194,
+  "numeric_kernel_checks": 304,
+  "scope_names_added": 7
+}

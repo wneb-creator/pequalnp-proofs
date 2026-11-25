@@ -1,0 +1,5 @@
+[git remote -v]
+[git config --get-regexp ^remote\..*\.gh-resolved$]
+[git status --porcelain]
+Warning: 1 uncommitted change
+pull request create failed: GraphQL: Resource not accessible by integration (createPullRequest)

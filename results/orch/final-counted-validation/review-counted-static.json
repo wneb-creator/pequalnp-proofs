@@ -1,0 +1,81 @@
+{
+  "reviewer": "review_final",
+  "review_saved_at_utc": "2026-11-25T22:14:03.088204+00:00",
+  "scope": "Independent source-only red-team review of the counted final assembly; no further tests or source edits performed while the full build runs.",
+  "candidate": "CountedFinalCandidate.lean",
+  "source_sha256": "5c2ff7c32345dbfd9d2b81e67b8bef57499c7003f14e9be5294c10211afa97e0",
+  "baseline_source_sha256": "0199ec155b8609bb2b9412fb772637b7971e9ee9d633c08f9ae388b3f08b325d",
+  "lines": 8194,
+  "bytes": 507867,
+  "size_limit_bytes": 524288,
+  "size_margin_bytes": 16421,
+  "verdict": "STATIC PASS",
+  "full_build_status": "PENDING when this completed static review was recorded; root is running the named-file build.",
+  "official_checker_status": "NO ACCEPTANCE. This static review does not establish an official checker verdict.",
+  "input_hashes_verified": 15,
+  "checked_generic_helper": {
+    "file": "CountedFirst.lean",
+    "source_sha256": "6d7b2ffa073053ab0b912c417b16bc7ac96f1a0dd5dab209394aae2eb62090a0",
+    "compiled_exit": 0,
+    "compiled_wall_seconds": 4.451554361001399,
+    "compiled_max_rss_kib": 2828220,
+    "exact_helper_declarations_in_assembly": 27,
+    "semantic_review": "Balanced LTR tracks NOT budget through binary-gate insertion and forbidden-first-gate pruning. Unrestricted impB lower bounds force minimal q=12 before LTR.exact_counts produces exact Live12,1. The original unrestricted TopOk contract follows through LTR.to_sol; no reliance on the old final theorem or replaced gate certificates."
+  },
+  "retained_unrestricted_bounds": {
+    "declarations_verified_unchanged": 68,
+    "modules": [
+      "KernelFirstTables",
+      "Root13Safe",
+      "OwnSequence",
+      "OwnRows"
+    ],
+    "generic_engine_surviving_declarations": "Identical except topC_ok proof body; its original unrestricted TopOk contract is unchanged.",
+    "LTR_helpers_and_final_replacement_proof": "Identical to the reviewed baseline.",
+    "restriction_and_ownership_search_counts": "Remain unrestricted; only first-gate certificates use t=[1]."
+  },
+  "numeric_case_review": {
+    "representative_cases": 24,
+    "count_one_search_shards": 183,
+    "search_gate_budget": 12,
+    "search_NOT_counts": [
+      1
+    ],
+    "binary_hash_buckets_covered_per_case": 214,
+    "unary_phase_covered_per_case": true,
+    "all_prior_lists_rows_owned_bounds_codes_and_shapes_unchanged": true,
+    "native_records_crosschecked": "24 of 24 records report true at K=12,t=[1]; native results are not a substitute for kernel verification.",
+    "final_root_numeric_checks": "Unchanged from the baseline."
+  },
+  "catalogue_review": {
+    "gates": 42,
+    "coverage": "Exactly both AND and OR for every unordered pair of distinct inputs among seven inputs.",
+    "acyclic_prior_dependencies": true,
+    "gate_bound_contract": "All first-gate bounds use ImpT with NOT budget 1.",
+    "symmetry": "Exact reviewed count-preserving LTR/ImpT adaptations, with the same checked graph involution."
+  },
+  "declaration_cleanup": {
+    "removed_declarations": 53,
+    "replaced_old_soundness_declarations": 6,
+    "unreferenced_unregistered_leaf_declarations": 47,
+    "remaining_references_to_removed_leaf_names": 0,
+    "attributed_or_instance_declarations_removed": false,
+    "new_explicit_section_names": 7,
+    "namespace_and_section_balance": "PASS"
+  },
+  "format_review": {
+    "sole_import": "PEqualNP.Defs",
+    "upstream_import_guard": "PASS",
+    "exact_posted_statement_and_final_proof_suffix": "Byte-identical to the baseline and posted statement.",
+    "final_theorem_unconditional": true,
+    "forbidden_constructs_or_namespace_leakage": "None found.",
+    "attributes": "Only simp.",
+    "scoped_options": [
+      "maxHeartbeats",
+      "maxRecDepth"
+    ],
+    "numeral_limit": "PASS",
+    "named_source_matches_frozen_candidate": true
+  },
+  "limitation": "Approval covers independent static review and preservation of this candidate. Full named-file compilation and official acceptance require their own recorded results."
+}

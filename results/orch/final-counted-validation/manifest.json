@@ -1,0 +1,137 @@
+[
+  {
+    "file": "CountedFinalCandidate.lean",
+    "bytes": 507867,
+    "sha256": "5c2ff7c32345dbfd9d2b81e67b8bef57499c7003f14e9be5294c10211afa97e0"
+  },
+  {
+    "file": "CountedFirst.lean",
+    "bytes": 27459,
+    "sha256": "6d7b2ffa073053ab0b912c417b16bc7ac96f1a0dd5dab209394aae2eb62090a0"
+  },
+  {
+    "file": "CountedCases.lean",
+    "bytes": 94910,
+    "sha256": "b69b79a8b8b2eb2c1b638a79f8fc7ba725d7e5e49f75668244970c3ec48e5786"
+  },
+  {
+    "file": "counted-final-build.stdout",
+    "bytes": 144696,
+    "sha256": "df3fab921e5834fb4f93c936f9e6632a2c7e7dce0bc924dc6bee25ddef6b4def"
+  },
+  {
+    "file": "counted-final-build.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "counted-final-build.metrics.json",
+    "bytes": 381,
+    "sha256": "3860ee9b7df1e84a9845e1b1c27f1dcfc2efbfffd84c57f0585febaafd316ba1"
+  },
+  {
+    "file": "counted-final-build-runner.stdout",
+    "bytes": 359,
+    "sha256": "384ef87633705c8172dbe8277db0cd6f942f00bbe4d25ee4a0080adc2eb9380a"
+  },
+  {
+    "file": "counted-final-build-runner.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "counted-axiom-audit.stdout",
+    "bytes": 91,
+    "sha256": "9344dd79f7b5bb2658a3e6d0c349e9a37b9a8df4caaa5068d3df933c8b3b7723"
+  },
+  {
+    "file": "counted-axiom-audit.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "AxiomAudit.lean",
+    "bytes": 81,
+    "sha256": "1d0cd95b7d11a98f4f7e3e14a836d68fac31d020773d7713c3cb61920ccc3387"
+  },
+  {
+    "file": "counted-candidate-guard.stdout",
+    "bytes": 31,
+    "sha256": "19c350aa816e348ae3d6af5ca17c0bcbdc488cfdbd5a6d4548dced5b74bf4217"
+  },
+  {
+    "file": "counted-candidate-guard.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "review-counted-static.json",
+    "bytes": 4034,
+    "sha256": "db687e9f6140bdb6a797633e3c5910692a4376ce6890fc7ed4993e40e27c8cc7"
+  },
+  {
+    "file": "counted-assembly-audit.json",
+    "bytes": 13853,
+    "sha256": "88d5eb32ac8de06797592474e58efe447b935e422901ac0072ba2b39934212d9"
+  },
+  {
+    "file": "counted-cases-manifest.json",
+    "bytes": 40036,
+    "sha256": "9c6ea21311cd879a74248d6028e2c642cb4058e093b1f9fb16d632f5e6b47393"
+  },
+  {
+    "file": "assemble_counted_final.py",
+    "bytes": 6464,
+    "sha256": "ae52463d7b7a2ad4d5051848c89b968d22e5e44aa231fc4ed4163fe05c88191c"
+  },
+  {
+    "file": "opt-count-one-all-results.json",
+    "bytes": 62061,
+    "sha256": "1bb65cd3ebef8ceefcddd2664a345bd969349d0a02ba58c228b3238a87b7a270"
+  },
+  {
+    "file": "opt-count-one-all-summary.json",
+    "bytes": 182,
+    "sha256": "1e929ec0881044be876b62e146aefabb21d8dfd687750060da18d05ce763e4a6"
+  },
+  {
+    "file": "pr-create.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "pr-create.stderr",
+    "bytes": 219,
+    "sha256": "22ed8001aea46d1231607873f4a26c97931cbbc47d0694cbb5071ca446d60726"
+  },
+  {
+    "file": "resource-diagnosis.md",
+    "bytes": 3146,
+    "sha256": "693dace67531af9b81803a422eaef57ccf8f7db8f64ee4ff115beb74b464ff8f"
+  },
+  {
+    "file": "final-checker-eviction-v6.stdout",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "file": "final-checker-eviction-v6.stderr",
+    "bytes": 287,
+    "sha256": "5c0c6498a62d6536f1754276d7f4b50467ad8feadcf8fb44c19b058900ba17e7"
+  },
+  {
+    "file": "final-checker-eviction-v6.metrics.json",
+    "bytes": 956,
+    "sha256": "9b7de20102b3f46564adaa3c2ab05d909f01ee96f023ce2ea7debe4aeb74c853"
+  },
+  {
+    "file": "latest-beat.json",
+    "bytes": 712,
+    "sha256": "bab5dcdbaa166ea61be3c5c1d3d636fdecfff6fbe69279723dfc450eb4617fb3"
+  },
+  {
+    "file": "desk-log.txt",
+    "bytes": 35386,
+    "sha256": "a6c0507325ea72cc480b0b800a31158617d10c343d29c1b6955ecf0b9e36e661"
+  }
+]

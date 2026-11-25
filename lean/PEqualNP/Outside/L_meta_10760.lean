@@ -110,24 +110,6 @@ def flag (d : Bool) (l o : Nat) (w : W) : Nat := Nat.add (Nat.land (sp d l w.s) 
 def rect (d : Bool) (l o : Nat) (v : List W) : List Nat → Bool :=
   List.rec (motive := fun _ => List Nat → Bool) (fun _ => false)
     (fun w _ ih m => (Bool.rec (motive := fun _ => Bool) (ih (flag d l o w :: m)) (true) (hits (flag d l o w) m))) v
-def app (x y : List Nat) : List Nat := List.rec (motive := fun _ => List Nat) y (fun e _ ih => e :: ih) x
-def join (k : List Cm → Bool) (f : Nat) (cs : List Cm) : List Nat → List Nat → List Cm → Bool :=
-  List.rec (motive := fun _ => List Nat → List Nat → List Cm → Bool) (fun S O R => k (⟨S, O⟩ :: R))
-    (fun c _ ih S O R => Bool.rec (motive := fun _ => Bool)
-      (Bool.rec (motive := fun _ => Bool) (ih S O (c :: R)) (ih (app c.a S) (app c.b O) R) (hits f c.b))
-      (Bool.rec (motive := fun _ => Bool) (ih (app c.b S) (app c.a O) R) true (hits f c.b)) (hits f c.a)) cs
-def bip (l o : Nat) (v : List W) : List Cm → Bool :=
-  List.rec (motive := fun _ => List Cm → Bool) (fun _ => false)
-    (fun w _ ih cs => (fun f => join ih f cs [f] [] []) (flag false l o w)) v
-def anyE (m : List Nat) : Bool := List.rec (motive := fun _ => Bool) false (fun f t ih => Bool.rec (motive := fun _ => Bool) ih true (hits f t)) m
-def rmF (f : Nat) (m : List Nat) : List Nat :=
-  List.rec (motive := fun _ => List Nat) [] (fun e t ih => Bool.rec (motive := fun _ => List Nat) (e :: ih) t (hit f e)) m
-def star (m : List Nat) : Bool := List.rec (motive := fun _ => Bool) true (fun f t ih => Bool.rec (motive := fun _ => Bool) ih
-  (Bool.rec (motive := fun _ => Bool) true (Bool.rec (motive := fun _ => Bool) (Bool.rec (motive := fun _ => Bool) true false (anyE (rmF f t))) false (hits f (rmF f t))) (anyE t)) (hits f t)) m
-def flk (l o : Nat) (v : List W) : (List Nat → Bool) → Bool :=
-  List.rec (motive := fun _ => (List Nat → Bool) → Bool) (fun k => k []) (fun w _ ih k => (fun f => ih (fun r => k (f :: r))) (flag false l o w)) v
-def rm (x y : Nat) (v : List W) : (List W → Bool) → Bool :=
-  List.rec (motive := fun _ => (List W → Bool) → Bool) (fun h => h []) (fun w _ ih h => Bool.rec (motive := fun _ => Bool) (Bool.rec (motive := fun _ => Bool) (ih (fun r => h (w :: r))) (ih h) (Nat.beq w.s y)) (ih h) (Nat.beq w.s x)) v
 def ins (o : W) (v : List W) : (List W → Bool) → Bool :=
   List.rec (motive := fun _ => (List W → Bool) → Bool) (fun h => h [o]) (fun w t ih h => Bool.rec (motive := fun _ => Bool) (ih (fun r => h (w :: r))) (Bool.rec (motive := fun _ => Bool) (h (o :: w :: t)) false (Nat.beq o.s w.s)) (Nat.ble w.s o.s)) v
 def child (f : Nat → List W → Bool) (g : Nat) (kb : Bool) (mk : (List W → Bool) → Bool) (z : Nat) : Bool :=
@@ -499,26 +481,19 @@ def topC (l m g np fm fh K H ph k t z : ℕ) (v : List W) : Bool :=
 end hz16
 section hz17
 variable {R : ℕ → ℕ}
-def P1 (R : ℕ → ℕ) (P : List ℕ) (l m T : ℕ) (Fs : Set ℕ) (f : ℕ → ℕ → ℕ → List W → Bool) : Prop :=
-  ∀ (k t z : ℕ) (v : List W) (S : Finset ℕ), f k t z v = false → StOk P T l k z v S → (∀ w ∈ v, w.r = R w.s) →
-    ∀ k' ≤ k, Live Z0 m T k' t S → MW R m T k' S → MF R m T k' Fs S → False
 abbrev TopT := ℕ → ℕ → ℕ → ℕ → ℕ → ℕ → ℕ → ℕ → ℕ → ℕ → ℕ → ℕ → List W → Bool
 noncomputable def okR (top : TopT) (E : List (Bool × ℕ × ℕ)) (Q : List (ℕ × ℕ)) (x : ℕ × ℕ) : Bool :=
   pOk x.1 Q && Nat.ble x.2 15 && (Q.any (fun y => Nat.ble x.2 y.2) || !chkT top E Q (1, 0) x.1 (x.2 - 1) (List.range x.2) FF 1)
 def pr (T : List (ℕ × ℕ)) (c : ℕ) : List (ℕ × ℕ) := T.filter (fun y => Nat.beq (Nat.land c y.1) c && !Nat.beq c y.1)
 def pick (T : List (ℕ × ℕ)) (cs : List ℕ) : List (ℕ × ℕ) := cs.filterMap (fun c => T.find? (fun x => Nat.beq x.1 c))
-noncomputable def okU (top : TopT) (T : List (ℕ × ℕ)) (r : (ℕ × ℕ) × List ℕ) : Bool := okR top [] (pick T r.2) r.1
 noncomputable def okO (top : TopT) (e : Bool × ℕ × ℕ) (own : List ℕ) (raw : List (ℕ × ℕ)) (r : (ℕ × ℕ) × List ℕ) : Bool :=
   raw.all (fun x => !Nat.beq x.1 r.1.1 || Nat.beq x.2 r.1.2) && okR top [e] (tabE e own (pick raw r.2)) r.1
-def inC (cs : List ℕ) (x : ℕ × ℕ) : Bool := cs.any (fun c => Nat.beq c x.1)
 def rho (p : List ℕ) (w : ℕ) : ℕ := p.foldr (fun i x => 2 * x + (w.testBit i).toNat) 0
 def gimg (g : ℕ → ℕ) (e : Bool × ℕ × ℕ) : Bool × ℕ × ℕ := (e.1, g e.2.1, g e.2.2)
 def symOk (p : List ℕ) (Z Z' : ℕ) : Bool := Nat.beq (rho p (mz Z)) (mz Z') && Nat.beq (rho p (tz Z)) (tz Z')
 abbrev Gt := Bool × ℕ × ℕ
 def okTy (gs : List Gt) (raw : List (ℕ × ℕ)) (K i : ℕ) (e : Gt) (own cs : List ℕ) (fb : ℕ × ℕ) (tt : List (List ℕ)) : Bool :=
   Nat.blt e.2.1 7 && Nat.blt e.2.2 7 && Nat.ble K 15 && pOk 0 (tabE e own (pick raw cs)) && fbOk [e] (gs.take i) fb && (List.range (K + 1)).all (fun t => tt.any (fun ts => ts.any (Nat.beq t)))
-noncomputable def okTs (raw : List (ℕ × ℕ)) (K : ℕ) (e : Gt) (own cs : List ℕ) (fb : ℕ × ℕ) (ts : List ℕ) : Bool := !chkT topC [e] (tabE e own (pick raw cs)) fb 0 K ts FF 1
-noncomputable def okLs (Q : List (ℕ × ℕ)) (K : ℕ) (fb : ℕ × ℕ) (ts : List ℕ) : Bool := !chkT topC [] Q fb 0 K ts FF 1
 end hz17
 section hz20
 variable {R : ℕ → ℕ}
@@ -1318,37 +1293,6 @@ lemma ht_merge {a b k t : ℕ} {d e : Bool} {U : Finset ℕ} (hab : a ≠ b) (he
   revert e1 e2 e1b e2b n1 n2 n3 n4 s1 s2 s3 s4 v1 v2 v3 v4 p1 p2
   unfold sepb; simp only [op_bit]
   cases e <;> cases d <;> simp <;> grind
-lemma un_uq2 {a c i : ℕ} {U : Finset ℕ} (hi : Lg N m T i) (h1 : c = a → a ∉ U) (hc : c ∈ insert a U) (h : Uq N true (insert a U) c i) :
-    Uq N true (insert (a ^^^ m) U) (if c = a then a ^^^ m else c) i := by
-  by_cases hca : c = a
-  · exact un_uq hi (h1 hca) hc h
-  · rw [ite_eq_right hca]
-    have hn : sepb N true (a ^^^ m) i = sepb N true a i := by simp [sepb, hi.1, hi.2.1]
-    refine ⟨h.1, fun x hx hne => ?_⟩
-    simp at hx
-    rcases hx with rfl | hx
-    · rw [hn]; exact h.2 a (by simp) (Ne.symm hca)
-    · exact h.2 x (by simp [hx]) hne
-lemma ht_un {a c1 c2 : ℕ} {U : Finset ℕ} (hc1 : c1 ∈ insert a U) (hc2 : c2 ∈ insert a U) (h1 : c1 = a → a ∉ U) (h2 : c2 = a → a ∉ U)
-    (h : Ht N m T true (insert a U) c1 c2) :
-    Ht N m T true (insert (a ^^^ m) U) (if c1 = a then a ^^^ m else c1) (if c2 = a then a ^^^ m else c2) := by
-  obtain ⟨i1, i2, j1, j2, l1, l2, l3, l4, r1, r2, u1, u2, u3, u4, p1, p2⟩ := h
-  have pp : ∀ {c i j : ℕ}, m.testBit i = true → m.testBit j = true → c.testBit i = c.testBit j →
-      (if c = a then a ^^^ m else c).testBit i = (if c = a then a ^^^ m else c).testBit j := by
-    intro c i j m1 m2 p
-    split_ifs with h
-    · subst h; simp [m1, m2, p]
-    · exact p
-  refine ⟨i1, i2, j1, j2, l1, l2, l3, l4, ?_, ?_, un_uq2 l1 h1 hc1 u1, un_uq2 l2 h2 hc2 u2, un_uq2 l3 h1 hc1 u3, un_uq2 l4 h2 hc2 u4,
-    pp l1.1 l3.1 p1, pp l2.1 l4.1 p2⟩
-  · intro w hw; simp at hw
-    rcases hw with rfl | hw
-    · simp [r1 a (by simp), l1.1, l2.1]
-    · exact r1 w (by simp [hw])
-  · intro w hw; simp at hw
-    rcases hw with rfl | hw
-    · simp [r2 a (by simp), l3.2.1, l4.2.1]
-    · exact r2 w (by simp [hw])
 lemma chrom {e : Bool} {k t : ℕ} {S : Finset ℕ} (hl : Live R m T k t S) (hm : ∀ q < k, ¬ Sol Z0 m T q (C m (S : Set ℕ)))
     (he : e = true ∨ t = 0) :
     ∃ (x : ℕ) (f : ℕ → ℕ), S.card + t + x = k + 1 ∧ (∀ a ∈ S, f a ≤ x) ∧ ∀ a ∈ S, ∀ b ∈ S, a ≠ b → Ht N m T e S a b → f a ≠ f b := by
@@ -1922,53 +1866,6 @@ lemma carry {u A p h : ℕ} (hp : p < h) (hA : A % 2 ^ h + 2 ^ (p + 1) = 2 ^ h +
   rw [e2] at hs
   simp [Nat.testBit_zero] at hs b1 b2
   omega
-lemma flag_seg {L : List (ℕ × ℕ)} (hL : L.all segOk = true) {u : ℕ} (hu : ∀ i, u.testBit i = true → AA.testBit i = true)
-    {s : ℕ × ℕ} (hs : s ∈ L) (hb : (u + AA).testBit s.2 = true) : ∃ i, s.1 < i ∧ i < s.2 ∧ u.testBit i = true := by
-  have h := List.all_eq_true.1 hL s hs
-  simp only [segOk, Bool.and_eq_true, decide_eq_true_eq, Bool.not_eq_true'] at h
-  refine carry h.1.1.1 h.1.1.2 h.2 ?_ ?_ hb
-  · by_contra hc; have := hu _ (by simpa using hc); rw [h.2] at this; simp at this
-  · by_contra hc; have := hu _ (by simpa using hc); rw [h.1.2] at this; simp at this
-lemma hit_spec {f e : ℕ} (h : hit f e = true) :
-    (∃ s ∈ segsX, f.testBit s.2 = true ∧ e.testBit s.2 = true) ∧ (∃ s ∈ segsY, f.testBit s.2 = true ∧ e.testBit s.2 = true) := by
-  have aux : ∀ H, Nat.beq (Nat.land (Nat.land f e) H) 0 = false → ∃ i, f.testBit i = true ∧ e.testBit i = true ∧ H.testBit i = true := by
-    intro H hH
-    have hne : (f &&& e &&& H) ≠ 0 := fun h0 => by rw [nl, nl, h0] at hH; simp at hH
-    obtain ⟨i, hi⟩ := Nat.exists_testBit_of_ne_zero hne
-    simp at hi; exact ⟨i, hi.1.1, hi.1.2, hi.2⟩
-  simp only [hit, bR] at h
-  cases h1 : Nat.beq (Nat.land (Nat.land f e) HX) 0 with
-  | true => rw [h1] at h; simp only [cond_true, Bool.false_eq_true] at h
-  | false =>
-    cases h2 : Nat.beq (Nat.land (Nat.land f e) HY) 0 with
-    | true => rw [h1, h2] at h; simp only [cond_true, cond_false, Bool.false_eq_true] at h
-    | false =>
-      obtain ⟨i, a1, a2, a3⟩ := aux _ h1
-      obtain ⟨j, b1, b2, b3⟩ := aux _ h2
-      rw [HX_eq] at a3; rw [HY_eq] at b3
-      obtain ⟨s, hs, rfl⟩ := bitsOf_bit a3
-      obtain ⟨s', hs', rfl⟩ := bitsOf_bit b3
-      exact ⟨⟨s, hs, a1, a2⟩, ⟨s', hs', b1, b2⟩⟩
-lemma hits_false {f : ℕ} {m : List ℕ} (h : ∀ e ∈ m, hit f e = false) : hits f m = false := by
-  induction m with
-  | nil => rfl
-  | cons e m ih =>
-    change (Bool.rec (motive := fun _ => Bool) (hits f m) true (hit f e) : Bool) = false
-    rw [bR, h e (by simp), ih (fun x hx => h x (by simp [hx]))]; rfl
-lemma rect_false {d : Bool} {l o : ℕ} {v : List W} : ∀ {m : List ℕ}, v.Pairwise (fun a b => hit (flag d l o b) (flag d l o a) = false) →
-    (∀ w ∈ v, ∀ e ∈ m, hit (flag d l o w) e = false) → rect d l o v m = false := by
-  induction v with
-  | nil => intros; rfl
-  | cons w v ih =>
-    intro m hp hm
-    change (Bool.rec (motive := fun _ => Bool) (rect d l o v (flag d l o w :: m)) true (hits (flag d l o w) m) : Bool) = false
-    rw [List.pairwise_cons] at hp
-    rw [bR, hits_false (hm w (by simp)), ih hp.2]; · rfl
-    intro w' hw' e he
-    simp at he
-    rcases he with rfl | he
-    · exact hp.1 w' hw'
-    · exact hm w' (by simp [hw']) e he
 lemma Live.pos {m T k t : ℕ} {S : Finset ℕ} (h : Live R m T k t S) : 0 < S.card := by
   cases h with
   | stop => simp
@@ -2325,15 +2222,6 @@ lemma StOk.start {P : List ℕ} {T l K : ℕ} {v : List W} {S : Finset ℕ} {b :
     StOk P T l K (pk P.length (fun j => 16 + b j - cnt v j)) v S := by
   refine ⟨hrep, hwok, hgood, b, fun _ _ => 0, hb, hA, fun w hw => ?_, fun j _ => by simpa using hK, rfl⟩
   rw [hd w hw]; simp [pk]
-lemma rm_eq (x y : ℕ) (v : List W) : ∀ h, rm x y v h = h (v.filter (fun w => !(Nat.beq w.s x || Nat.beq w.s y))) := by
-  induction v with
-  | nil => intro h; rfl
-  | cons w v ih =>
-    intro h
-    change (Bool.rec (motive := fun _ => Bool) (Bool.rec (motive := fun _ => Bool) (rm x y v (fun r => h (w :: r)))
-      (rm x y v h) (Nat.beq w.s y)) (rm x y v h) (Nat.beq w.s x) : Bool) = _
-    rw [bR, bR, ih, ih, List.filter_cons]
-    cases Nat.beq w.s x <;> cases Nat.beq w.s y <;> simp
 lemma ins_spec (o : W) (v : List W) (hv : ∀ w ∈ v, w.s ≠ o.s) : ∃ r : List W, r.Perm (o :: v) ∧ ∀ h, ins o v h = h r := by
   induction v with
   | nil => exact ⟨[o], List.Perm.refl _, fun h => rfl⟩
@@ -2491,17 +2379,6 @@ lemma shape_all {o a c : W} {v r : List W} (ho : ∀ w ∈ v, w.s ≠ o.s) (hp :
     exact ((filter_perm (hnd.sublist (List.filter_sublist.map _)) h2).cons a).trans (h1.trans hp)
   · rw [filter1]; exact (filter_perm hnd hcr).trans hp
   · rw [filter1]; exact (filter_perm hnd har).trans hp
-lemma cnt_two {v : List W} {a c : W} (ha : a ∈ v) (hc : c ∈ v) (hv : (v.map W.s).Nodup) (hac : a.s ≠ c.s) (j : ℕ) :
-    fl a j + fl c j ≤ cnt v j := by
-  have h1 := cnt_perm (filter_perm hv ha) j
-  have h2 : c ∈ v.filter (fun w => !Nat.beq w.s a.s) := by
-    rw [List.mem_filter]; refine ⟨hc, ?_⟩
-    rw [Bool.eq_false_iff.2 fun h => hac (Nat.eq_of_beq_eq_true h).symm]; rfl
-  have h3 := cnt_perm (filter_perm (hv.sublist (List.filter_sublist.map _)) h2) j
-  simp only [cnt_cons] at h1 h3; omega
-lemma cnt_one {v : List W} {a : W} (ha : a ∈ v) (hv : (v.map W.s).Nodup) (j : ℕ) : fl a j ≤ cnt v j := by
-  have h1 := cnt_perm (filter_perm hv ha) j
-  simp only [cnt_cons] at h1; omega
 lemma opW_s (d : Bool) (a c : W) : (opW d a c).s = op d a.s c.s := by cases d <;> rfl
 lemma opW_ok {P : List ℕ} {a c : W} (d : Bool) (ha : WOk P a) (hc : WOk P c) : WOk P (opW d a c) := by
   cases d
@@ -4018,9 +3895,6 @@ lemma pos_inj {v : List W} (hv : (v.map W.s).Nodup) {a b : W} {i j : ℕ} (ha : 
     · exact absurd (List.mem_map.2 ⟨b, hb'.mem, e.symm⟩) hv.1
     · exact absurd (List.mem_map.2 ⟨a, ha'.mem, e⟩) hv.1
     · exact ih hv.2 ha' hb'
-lemma pos_ex {v : List W} {w : W} (h : w ∈ v) : ∃ i, Pos v w i := by
-  obtain ⟨p, t, rfl⟩ := List.append_of_mem h
-  exact ⟨_, p, t, rfl, rfl⟩
 lemma Eb_edg {l o : ℕ} (hl : ∀ i, l.testBit i = true → AA.testBit i = true) (ho : ∀ i, o.testBit i = true → l.testBit i = true)
     {d : Bool} {v : List W} : Eb (edg d l o v) := fun p hp => by
   obtain ⟨h1, h2, _⟩ := edg_spec hl ho hp; exact ⟨h1, h2⟩
@@ -4480,18 +4354,6 @@ lemma mkX_of {d : Bool} {l o : ℕ} {v : List W} {w : W} {i : ℕ} (h : Pos v w 
     have : Nat.shiftLeft 1 t.length = 2 ^ t.length := by change 1 <<< _ = _; rw [Nat.shiftLeft_eq, one_mul]
     rw [this]; exact List.mem_cons_self
   | cons x pre ih => exact List.mem_cons_of_mem _ ih
-lemma mkX_mem {d : Bool} {l o : ℕ} {v : List W} {p : X} (h : p ∈ mkX d l o v) : ∃ w i, Pos v w i ∧ p = xof d l o w i := by
-  induction v with
-  | nil => simp [mkX] at h
-  | cons x v ih =>
-    change p ∈ (⟨x, x.s, Nat.shiftRight x.s NN, Nat.land (sp d l x.s) o, Nat.shiftLeft 1 (len v)⟩ : X) :: mkX d l o v at h
-    rw [len_eq] at h
-    have e : Nat.shiftLeft 1 v.length = 2 ^ v.length := by change 1 <<< _ = _; rw [Nat.shiftLeft_eq, one_mul]
-    rw [e] at h
-    rcases List.mem_cons.1 h with rfl | h
-    · exact ⟨x, v.length, ⟨[], v, rfl, rfl⟩, rfl⟩
-    · obtain ⟨w, i, ⟨pre, t, e1, e2⟩, e3⟩ := ih h
-      exact ⟨w, i, ⟨x :: pre, t, by rw [e1]; rfl, e2⟩, e3⟩
 lemma Pos.ex {v : List W} {w : W} (h : w ∈ v) : ∃ i, Pos v w i := by
   obtain ⟨pre, t, rfl⟩ := List.append_of_mem h; exact ⟨t.length, pre, t, rfl, rfl⟩
 lemma nodeH_eq (h : W → W → Bool → Bool → Bool → Bool → Bool → Nat → Nat → Nat → Bool) (d : Bool) (l e n : ℕ) (v : List W) (κ : ℕ → Bool) (κ2 : ℕ → ℕ → Bool)
@@ -4924,8 +4786,8 @@ lemma PZ_lt (Q : List (ℕ × ℕ)) (j : ℕ) : (PZ Q).getD j 0 < 2 ^ (2 * NN) :
   cases Q[j]? with
   | none => exact Nat.two_pow_pos _
   | some x => exact mz_lt _
-noncomputable section
-end
+noncomputable section counted_scope_1
+end counted_scope_1
 lemma pL_cons (d : ℕ) (L : List ℕ) : pL (d :: L) = 2 ^ 5 * pL L + d := by
   change (pL L <<< 5) + d = _; rw [Nat.shiftLeft_eq]; ring
 lemma pL_pk (L : List ℕ) : pL L = pk L.length (fun j => L.getD j 0) := by
@@ -4962,8 +4824,8 @@ lemma pL_bit {L : List ℕ} (h : ∀ d ∈ L, d ≤ 1) : ∀ i, (pL L).testBit i
       · rintro ⟨a, b, c⟩; exact ⟨by omega, by omega, c⟩
 lemma pL_isPk {L : List ℕ} (h : ∀ d ∈ L, d ≤ 1) : isPk L.length (pL L) := fun i hi => by
   have := (pL_bit h i).1 hi; exact ⟨this.1, this.2.1⟩
-noncomputable section
-end
+noncomputable section counted_scope_2
+end counted_scope_2
 lemma fl0_eq (s : ℕ) (P : List ℕ) : fl0 s P = pL (P.map fun n => bit01 (Nat.beq (Nat.land s n) 0)) := by
   induction P with
   | nil => rfl
@@ -4994,8 +4856,8 @@ lemma mkW_ok (P : List ℕ) (s : ℕ) : WOk P (mkW P s) := by
   · change (fl1 s P).testBit (5 * j) = true at h
     rw [fl1_eq] at h
     exact Nat.eq_of_beq_eq_true (bt (fun n => Nat.beq (Nat.land s n) n) j hj h)
-noncomputable section
-end
+noncomputable section counted_scope_3
+end counted_scope_3
 lemma mkA_eq (P L : List ℕ) : ∀ h, mkA P L h = h (L.map (mkW P)) := by
   induction L with
   | nil => intro h; rfl
@@ -5212,8 +5074,8 @@ lemma hasP_ok {p : ℕ} {v : List W} (h : p = 0 ∨ ∃ w ∈ v, w.s = p) : hasP
         · rw [Nat.beq_refl]; rfl
         · rw [ih hw]; cases Nat.beq x.s w.s <;> rfl
     rw [this]; cases Nat.beq w.s 0 <;> rfl
-noncomputable section
-end
+noncomputable section counted_scope_4
+end counted_scope_4
 lemma frcQ_eq (Q : List (ℕ × ℕ)) : ∀ h, frcQ Q h = h Q := by
   induction Q with
   | nil => intro h; rfl
@@ -5544,50 +5406,8 @@ lemma step_sub {m : ℕ} {A : Set ℕ} {S S1 : Finset ℕ} {g : ℕ} (h : S1 ⊆
 lemma MW.bi {m T k a b : ℕ} {d : Bool} {S S1 : Finset ℕ} (h : MW R m T (k + 1) S) (hb : Bi Z0 d a b S S1) : MW R m T k S1 := by
   intro q hq hs
   exact h (q + 1) (by omega) (.bi (d := d) (a := a) (b := b) (Or.inl (Or.inr hb.sub.1)) (Or.inl (Or.inr hb.sub.2.1)) (al0 _ _ _) (hs.mono le_rfl (step_sub hb.sub.2.2)))
-lemma MF.bi {m T k a b : ℕ} {Fs : Set ℕ} {d : Bool} {S S1 : Finset ℕ} (h : MF R m T (k + 1) Fs S) (hb : Bi Z0 d a b S S1) : MF R m T k Fs S1 := by
-  intro s hsF q hq hs
-  refine h s hsF (q + 1) (by omega) (.bi (d := d) (a := a) (b := b) (Or.inl (Or.inr (Or.inr hb.sub.1))) (Or.inl (Or.inr (Or.inr hb.sub.2.1))) (al0 _ _ _) (hs.mono le_rfl ?_))
-  rw [← Set.insert_union, ← Set.insert_union]
-  exact step_sub hb.sub.2.2
-lemma MF.gate {m T k t a b : ℕ} {Fs : Set ℕ} {d : Bool} {S S1 : Finset ℕ} (h : MF R m T (k + 1) Fs S) (hb : Bi Z0 d a b S S1) (hl : Live Z0 m T k t S1)
-    (hg : op d a b ∈ Fs) : False := by
-  refine h _ hg k (by omega) (hl.sol.mono le_rfl fun x hx => ?_)
-  have hx' := hb.sub.2.2 hx
-  simp only [Finset.mem_insert] at hx'
-  rcases hx' with rfl | hx'
-  · exact Or.inl (Or.inl rfl)
-  · exact Or.inl (Or.inr (Or.inr hx'))
-theorem phase_step (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R d a b) {P : List ℕ} {m T l k k' t : ℕ} {f : ℕ → List W → Bool} {v : List W} {S : Finset ℕ} {fm fh : ℕ} {Fs : Set ℕ}
-    (hrep : Rep v S) (hcod : ∀ w ∈ v, w.r = R w.s) (hk : k' ≤ k) (hl : Live Z0 m T k' t S) (hmW : MW R m T k' S) (hFb : MF R m T k' Fs S)
-    (hfb : ∀ d x y, x ≠ y → R x ≠ 0 → R y ≠ 0 → fbit fm fh (op d x y) = true → op d x y ∈ Fs)
-    (hA : ¬ Min R m T k' t S)
-    (hB : ∀ (d : Bool) (a c : W) (S1 : Finset ℕ) (k0 : ℕ), a ∈ v → c ∈ v → a.s ≠ c.s → a.r ≠ 0 → c.r ≠ 0 → k' = k0 + 1 → Bi Z0 d a.s c.s S S1 → Live Z0 m T k0 t S1 →
-      fbit fm fh (op d a.s c.s) = false → ∃ z' r, f z' r = false ∧ StOk P T l (k - 1) z' r S1 ∧ ∀ w ∈ r, (w.s = op d a.s c.s ∧ w.r = 0) ∨ ∃ w' ∈ v, w'.s = w.s ∧ w'.r = w.r)
-    (hF : ∀ (z' : ℕ) (r : List W) (S1 : Finset ℕ), f z' r = false → StOk P T l (k - 1) z' r S1 → (∀ w ∈ r, w.r = R w.s) → ∀ k0 ≤ k - 1, Live Z0 m T k0 t S1 →
-      MW R m T k0 S1 → MF R m T k0 Fs S1 → False) : False := by
-  rcases front hR2 hl hmW with hlR | ⟨k0, d, a, b, S1, rfl, ha, hb', hb, hl1⟩
-  · exact hA ⟨hlR, (hmW.min hl).2⟩
-  · obtain ⟨wa, hwa, rfl⟩ := hrep.mem.1 hb.sub.1
-    obtain ⟨wb, hwb, rfl⟩ := hrep.mem.1 hb.sub.2.1
-    have hnf : fbit fm fh (op d wa.s wb.s) = false := by
-      by_contra hc
-      exact hFb.gate hb hl1 (hfb d wa.s wb.s hb.1 ha hb' (by simpa using hc))
-    obtain ⟨z', r, hf, hst, hmem⟩ := hB d wa wb S1 k0 hwa hwb hb.1 (by rw [hcod wa hwa]; exact ha) (by rw [hcod wb hwb]; exact hb') rfl hb hl1 hnf
-    have hfr : R (op d wa.s wb.s) = 0 := by
-      by_contra hne
-      refine hmW k0 (by omega) (hl1.sol.mono le_rfl fun x hx => ?_)
-      have hx' := hb.sub.2.2 hx
-      simp only [Finset.mem_insert] at hx'
-      rcases hx' with rfl | hx'
-      · exact Or.inl (Or.inl hne)
-      · exact Or.inl (Or.inr hx')
-    refine hF z' r S1 hf hst ?_ k0 (by omega) hl1 (hmW.bi hb) (hFb.bi hb)
-    intro w hw
-    rcases hmem w hw with ⟨e1, e2⟩ | ⟨w', hw', e1, e2⟩
-    · rw [e1, e2, hfr]
-    · rw [← e1, ← e2]; exact hcod w' hw'
-noncomputable section
-end
+noncomputable section counted_scope_5
+end counted_scope_5
 lemma pairsC_false {H : ℕ} {h : X → X → Bool} {xs : List X} (hp : pairsC H h xs = false) :
     xs.Pairwise (fun a b => hb H (a.s + b.s) = true → h a b = false) := by
   induction xs with
@@ -5626,15 +5446,155 @@ lemma mid1_false {fm fh : ℕ} {h : W → W → Bool → Bool → Bool → Bool 
 section sound
 variable {P : List ℕ} {l m g np T : ℕ} (X : Ctx P l m g np T)
 include X
-lemma one_sound (hR : RR R) (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R d a b) {fm fh fu : ℕ} {Fs : Set ℕ} {f : ℕ → ℕ → ℕ → List W → Bool}
+end sound
+def LTR (m T q u : ℕ) (S : Set ℕ) : Prop :=
+  ∃ k ≤ q, ∃ t ≤ u, k + u ≤ q + t ∧ ∃ S0 : Finset ℕ, (S0 : Set ℕ) ⊆ S ∧ Live Z0 m T k t S0
+
+lemma LTR.mono {m T q u : ℕ} {S : Set ℕ} (h : LTR m T q u S)
+    {q' u' : ℕ} {S' : Set ℕ} (hq : q ≤ q') (hu : u ≤ u') (hbu : q + u' ≤ q' + u) (hs : S ⊆ S') :
+    LTR m T q' u' S' := by
+  obtain ⟨k, hk, t, ht, hbal, S0, hS, hl⟩ := h
+  exact ⟨k, hk.trans hq, t, ht.trans hu, by omega, S0, hS.trans hs, hl⟩
+
+lemma LTR.done {m T : ℕ} {S : Set ℕ} (h : T ∈ S) : LTR m T 0 0 S :=
+  ⟨0, by omega, 0, by omega, by omega, {T}, by simpa using h, .stop⟩
+
+lemma LTR.un {m T q u a : ℕ} {S : Set ℕ} (ha : a ∈ S)
+    (h : LTR m T q u (insert (a ^^^ m) S)) : LTR m T (q + 1) (u + 1) S := by
+  obtain ⟨k, hk, t, ht, hbal, S1, hs, hl⟩ := h
+  by_cases hg : a ^^^ m ∈ S1
+  · refine ⟨k + 1, by omega, t + 1, by omega, by omega, insert a (S1.erase (a ^^^ m)), ?_, .un (by rwa [Finset.insert_erase hg])⟩
+    intro x hx
+    simp at hx
+    rcases hx with rfl | ⟨h1, h2⟩
+    · exact ha
+    · exact (hs h1).resolve_left h2
+  · exact ⟨k, by omega, t, by omega, by omega, S1, fun x hx => (hs hx).resolve_left (fun e => hg (e ▸ hx)), hl⟩
+
+lemma LTR.bi {m T q u a b : ℕ} {d : Bool} {S : Set ℕ} (ha : a ∈ S) (hb : b ∈ S)
+    (h : LTR m T q u (insert (op d a b) S)) : LTR m T (q + 1) u S := by
+  obtain ⟨k, hk, t, ht, hbal, S1, hs, hl⟩ := h
+  by_cases hg : op d a b ∈ S1
+  · by_cases hab : a = b
+    · subst hab; rw [op_self] at hs
+      exact ⟨k, by omega, t, ht, by omega, S1, fun x hx => (hs hx).elim (fun e => e ▸ ha) id, hl⟩
+    refine ⟨k + 1, by omega, t, ht, by omega, insert a (insert b (S1.erase (op d a b))), ?_, .bi hab (al0 _ _ _) (by rwa [Finset.insert_erase hg])⟩
+    intro x hx
+    simp at hx
+    rcases hx with rfl | rfl | ⟨h1, h2⟩
+    · exact ha
+    · exact hb
+    · exact (hs h1).resolve_left h2
+  · exact ⟨k, by omega, t, ht, by omega, S1, fun x hx => (hs hx).resolve_left (fun e => hg (e ▸ hx)), hl⟩
+
+
+lemma LTR.exact_counts {m T q u : ℕ} {S : Set ℕ}
+    (hmin : ∀ k < q, ¬ Sol Z0 m T k S) (h : LTR m T q u S) :
+    ∃ S0 : Finset ℕ, (S0 : Set ℕ) ⊆ S ∧ Live Z0 m T q u S0 := by
+  obtain ⟨k, hk, t, ht, hbal, S0, hS, hl⟩ := h
+  have hkeq : k = q := by
+    by_contra hne
+    exact hmin k (by omega) (hl.sol.mono le_rfl hS)
+  have hteq : t = u := by omega
+  subst k
+  subst t
+  exact ⟨S0, hS, hl⟩
+
+
+def MFt (R : Nat → Nat) (m T k t : Nat) (Fs : Set Nat) (S : Finset Nat) : Prop :=
+  ∀ s ∈ Fs, ∀ q < k, ¬ LTR m T q t
+    (C m (insert s ({x | R x ≠ 0} ∪ (S : Set Nat))))
+
+def P1t (R : Nat → Nat) (P : List Nat) (l m T : Nat) (Fs : Set Nat)
+    (f : Nat → Nat → Nat → List W → Bool) : Prop :=
+  ∀ (k t z : Nat) (v : List W) (S : Finset Nat),
+    f k t z v = false → StOk P T l k z v S →
+    (∀ w ∈ v, w.r = R w.s) → ∀ k' ≤ k,
+    Live Z0 m T k' t S → MW R m T k' S → MFt R m T k' t Fs S → False
+
+lemma LTR.to_sol {m T q u : Nat} {S : Set Nat} (h : LTR m T q u S) :
+    Sol Z0 m T q S := by
+  obtain ⟨k, hk, t, ht, hbal, V, hV, hl⟩ := h
+  exact hl.sol.mono hk hV
+
+lemma live_ltr {m T k t : Nat} {S : Finset Nat} {Q : Set Nat}
+    (h : Live Z0 m T k t S) (hs : (S : Set Nat) ⊆ Q) : LTR m T k t Q :=
+  ⟨k, le_rfl, t, le_rfl, le_rfl, S, hs, h⟩
+
+lemma MFt.of_full {R : Nat → Nat} {m T k t : Nat} {Fs : Set Nat} {S : Finset Nat}
+    (h : MF R m T k Fs S) : MFt R m T k t Fs S := by
+  intro f hf q hq hs
+  exact h f hf q hq (LTR.to_sol hs)
+
+lemma MFt.bi {R : Nat → Nat} {m T k t a b : Nat} {Fs : Set Nat} {d : Bool}
+    {S S1 : Finset Nat} (h : MFt R m T (k + 1) t Fs S)
+    (hb : Bi Z0 d a b S S1) : MFt R m T k t Fs S1 := by
+  intro f hf q hq hs
+  refine h f hf (q + 1) (by omega) (LTR.bi
+    (d := d) (a := a) (b := b)
+    (Or.inl (Or.inr (Or.inr hb.sub.1)))
+    (Or.inl (Or.inr (Or.inr hb.sub.2.1)))
+    (hs.mono le_rfl le_rfl le_rfl ?_))
+  rw [← Set.insert_union, ← Set.insert_union]
+  exact step_sub hb.sub.2.2
+
+lemma MFt.gate {R : Nat → Nat} {m T k t a b : Nat} {Fs : Set Nat} {d : Bool}
+    {S S1 : Finset Nat} (h : MFt R m T (k + 1) t Fs S)
+    (hb : Bi Z0 d a b S S1) (hl : Live Z0 m T k t S1)
+    (hg : op d a b ∈ Fs) : False := by
+  refine h _ hg k (by omega) (live_ltr hl ?_)
+  intro x hx
+  have hx' := hb.sub.2.2 hx
+  simp only [Finset.mem_insert] at hx'
+  rcases hx' with rfl | hx'
+  · exact Or.inl (Or.inl rfl)
+  · exact Or.inl (Or.inr (Or.inr hx'))
+
+section counted_scope_6
+variable {R : Nat → Nat}
+theorem phase_step_t (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R d a b) {P : List ℕ} {m T l k k' t : ℕ} {f : ℕ → List W → Bool} {v : List W} {S : Finset ℕ} {fm fh : ℕ} {Fs : Set ℕ}
+    (hrep : Rep v S) (hcod : ∀ w ∈ v, w.r = R w.s) (hk : k' ≤ k) (hl : Live Z0 m T k' t S) (hmW : MW R m T k' S) (hFb : MFt R m T k' t Fs S)
     (hfb : ∀ d x y, x ≠ y → R x ≠ 0 → R y ≠ 0 → fbit fm fh (op d x y) = true → op d x y ∈ Fs)
-    (hF : P1 R P l m T Fs f) {k t z : ℕ} {v : List W} {S : Finset ℕ} {κ : ℕ → Bool} {κ2 : ℕ → ℕ → Bool} (hs : StOk P T l k z v S) (hcod : ∀ w ∈ v, w.r = R w.s) (hlen : 2 ≤ v.length)
-    {k' : ℕ} (hk : k' ≤ k) (hl : Live Z0 m T k' t S) (hmW : MW R m T k' S) (hFb : MF R m T k' Fs S) (hKP : KP Z0 m T k' t S v κ κ2)
+    (hA : ¬ Min R m T k' t S)
+    (hB : ∀ (d : Bool) (a c : W) (S1 : Finset ℕ) (k0 : ℕ), a ∈ v → c ∈ v → a.s ≠ c.s → a.r ≠ 0 → c.r ≠ 0 → k' = k0 + 1 → Bi Z0 d a.s c.s S S1 → Live Z0 m T k0 t S1 →
+      fbit fm fh (op d a.s c.s) = false → ∃ z' r, f z' r = false ∧ StOk P T l (k - 1) z' r S1 ∧ ∀ w ∈ r, (w.s = op d a.s c.s ∧ w.r = 0) ∨ ∃ w' ∈ v, w'.s = w.s ∧ w'.r = w.r)
+    (hF : ∀ (z' : ℕ) (r : List W) (S1 : Finset ℕ), f z' r = false → StOk P T l (k - 1) z' r S1 → (∀ w ∈ r, w.r = R w.s) → ∀ k0 ≤ k - 1, Live Z0 m T k0 t S1 →
+      MW R m T k0 S1 → MFt R m T k0 t Fs S1 → False) : False := by
+  rcases front hR2 hl hmW with hlR | ⟨k0, d, a, b, S1, rfl, ha, hb', hb, hl1⟩
+  · exact hA ⟨hlR, (hmW.min hl).2⟩
+  · obtain ⟨wa, hwa, rfl⟩ := hrep.mem.1 hb.sub.1
+    obtain ⟨wb, hwb, rfl⟩ := hrep.mem.1 hb.sub.2.1
+    have hnf : fbit fm fh (op d wa.s wb.s) = false := by
+      by_contra hc
+      exact hFb.gate hb hl1 (hfb d wa.s wb.s hb.1 ha hb' (by simpa using hc))
+    obtain ⟨z', r, hf, hst, hmem⟩ := hB d wa wb S1 k0 hwa hwb hb.1 (by rw [hcod wa hwa]; exact ha) (by rw [hcod wb hwb]; exact hb') rfl hb hl1 hnf
+    have hfr : R (op d wa.s wb.s) = 0 := by
+      by_contra hne
+      refine hmW k0 (by omega) (hl1.sol.mono le_rfl fun x hx => ?_)
+      have hx' := hb.sub.2.2 hx
+      simp only [Finset.mem_insert] at hx'
+      rcases hx' with rfl | hx'
+      · exact Or.inl (Or.inl hne)
+      · exact Or.inl (Or.inr hx')
+    refine hF z' r S1 hf hst ?_ k0 (by omega) hl1 (hmW.bi hb) (hFb.bi hb)
+    intro w hw
+    rcases hmem w hw with ⟨e1, e2⟩ | ⟨w', hw', e1, e2⟩
+    · rw [e1, e2, hfr]
+    · rw [← e1, ← e2]; exact hcod w' hw'
+end counted_scope_6
+
+section sound
+variable {R : Nat → Nat} {P : List Nat} {l m g np T : Nat} (X : Ctx P l m g np T)
+include X
+lemma one_sound_t (hR : RR R) (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R d a b) {fm fh fu : ℕ} {Fs : Set ℕ} {f : ℕ → ℕ → ℕ → List W → Bool}
+    (hfb : ∀ d x y, x ≠ y → R x ≠ 0 → R y ≠ 0 → fbit fm fh (op d x y) = true → op d x y ∈ Fs)
+    (hF : P1t R P l m T Fs f) {k t z : ℕ} {v : List W} {S : Finset ℕ} {κ : ℕ → Bool} {κ2 : ℕ → ℕ → Bool} (hs : StOk P T l k z v S) (hcod : ∀ w ∈ v, w.r = R w.s) (hlen : 2 ≤ v.length)
+    {k' : ℕ} (hk : k' ≤ k) (hl : Live Z0 m T k' t S) (hmW : MW R m T k' S) (hFb : MFt R m T k' t Fs S) (hKP : KP Z0 m T k' t S v κ κ2)
     (h2 : mv (look l m g np fu) l m g np k t z v κ κ2 = false)
     (h1 : ∀ x y, x ∈ S → y ∈ S → x ≠ y → R x ≠ 0 → R y ≠ 0 → ∃ go : (L_meta_10760.X → L_meta_10760.X → Bool) → List L_meta_10760.X → Bool,
       node1 (f (k - 1) t) (pos' t) l m g np fm fh (k - t) v.length z v κ κ2 go = false ∧
       ∀ h xs, go h xs = false → ∀ a c : L_meta_10760.X, a ∈ xs → c ∈ xs → a.w.r ≠ 0 → c.w.r ≠ 0 → a.s = x → c.s = y → h a c = false ∨ h c a = false) : False := by
-  refine phase_step hR2 (P := P) (l := l) (f := f (k - 1) t) (fm := fm) (fh := fh) (Fs := Fs) hs.rep hcod hk hl hmW hFb hfb ?_ ?_ ?_
+  refine phase_step_t hR2 (P := P) (l := l) (f := f (k - 1) t) (fm := fm) (fh := fh) (Fs := Fs) hs.rep hcod hk hl hmW hFb hfb ?_ ?_ ?_
   · intro hm
     exact mv_sound X hR (look_sound X hR fu) hs (fun w hw => Or.inr (hcod w hw)) hlen h2 k' hk hm hKP.toR
   · intro d a c S1 k0 ha hc hne har hcr e hb hl1 hnf
@@ -5655,8 +5615,8 @@ lemma one_sound (hR : RR R) (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R d a
         rw [this]; exact hcr
   · intro z' r S1 hf hst hcod' k0 hk0 hl1 hmW1 hFb1
     exact hF _ _ _ _ _ hf hst hcod' k0 hk0 hl1 hmW1 hFb1
-theorem look1_sound (hR : RR R) (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R d a b) {fm fh K : ℕ} {Fs : Set ℕ}
-    (hfb : ∀ d x y, x ≠ y → R x ≠ 0 → R y ≠ 0 → fbit fm fh (op d x y) = true → op d x y ∈ Fs) : ∀ fuel : ℕ, P1 R P l m T Fs (look1 l m g np fm fh K fuel) := by
+theorem look1_sound_t (hR : RR R) (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R d a b) {fm fh K : ℕ} {Fs : Set ℕ}
+    (hfb : ∀ d x y, x ≠ y → R x ≠ 0 → R y ≠ 0 → fbit fm fh (op d x y) = true → op d x y ∈ Fs) : ∀ fuel : ℕ, P1t R P l m T Fs (look1 l m g np fm fh K fuel) := by
   intro fuel
   induction fuel with
   | zero => intro k t z v S h; simp [look1] at h
@@ -5678,12 +5638,12 @@ theorem look1_sound (hR : RR R) (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R
       beta_reduce at hy
       obtain ⟨hy1, hy2⟩ := or_f hy
       rw [st_eq] at hy1
-      refine one_sound X hR hR2 hfb ih hs hcod hlen hk hl hmW hFb hKP hy2 fun x y hx hy hne hxr hyr => ⟨pairsS, hy1, fun h xs hp a c ha hc har hcr ea ec => ?_⟩
+      refine one_sound_t X hR hR2 hfb ih hs hcod hlen hk hl hmW hFb hKP hy2 fun x y hx hy hne hxr hyr => ⟨pairsS, hy1, fun h xs hp a c ha hc har hcr ea ec => ?_⟩
       exact pairs_any hp (fs_mem ha har) (fs_mem hc hcr) (fun e => hne (by rw [← ea, ← ec, e]))
-theorem topC_sound (hR : RR R) (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R d a b) {fm fh K k t z : ℕ} {v : List W} {S : Finset ℕ} {M : List (ℕ × ℕ)} {Fs : Set ℕ}
+theorem topC_sound_t (hR : RR R) (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R d a b) {fm fh K k t z : ℕ} {v : List W} {S : Finset ℕ} {M : List (ℕ × ℕ)} {Fs : Set ℕ}
     (hM : mFull M = true) (h : ∀ p ∈ M, topC l m g np fm fh K p.1 p.2 k t z v = false) (hs : StOk P T l k z v S) (hcod : ∀ w ∈ v, w.r = R w.s)
     {k' : ℕ} (hk : k' ≤ k) (hl : Live Z0 m T k' t S) (hmW : MW R m T k' S)
-    (hfb : ∀ d x y, x ≠ y → R x ≠ 0 → R y ≠ 0 → fbit fm fh (op d x y) = true → op d x y ∈ Fs) (hFb : MF R m T k' Fs S) : False := by
+    (hfb : ∀ d x y, x ≠ y → R x ≠ 0 → R y ≠ 0 → fbit fm fh (op d x y) = true → op d x y ∈ Fs) (hFb : MFt R m T k' t Fs S) : False := by
   simp only [mFull, Bool.and_eq_true, List.all_eq_true, List.mem_range, List.any_eq_true] at hM
   obtain ⟨hM1, p0, hp0, hp1⟩ := hM
   have hmin := hmW.min hl
@@ -5703,7 +5663,7 @@ theorem topC_sound (hR : RR R) (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R 
       refine ⟨?_, (hFy _).symm.trans h⟩
       by_contra hc
       rw [Nat.ble_eq_true_of_le (by omega)] at h0; simp at h0
-  refine one_sound X hR hR2 hfb (look1_sound X hR hR2 (K := K) hfb K) hs hcod (un p0 hp0).1 hk hl hmW hFb hKP (fu := k) ?_ ?_
+  refine one_sound_t X hR hR2 hfb (look1_sound_t X hR hR2 (K := K) hfb K) hs hcod (un p0 hp0).1 hk hl hmW hFb hKP (fu := k) ?_ ?_
   · have := (or_f (un p0 hp0).2).2
     rw [bR, hp1, cond_true] at this; exact this
   · intro x y hx hy hne hxr hyr
@@ -5714,15 +5674,44 @@ theorem topC_sound (hR : RR R) (hR2 : ∀ d a b, (R a = 0 ∨ R b = 0) → Al R 
     refine ⟨_, h3, fun h xs hp a c ha hc har hcr ea ec => ?_⟩
     exact pairsC_any hp (fs_mem ha har) (fs_mem hc hcr) (fun e => hne (by rw [← ea, ← ec, e])) (by rw [ea, ec]; exact hpb)
 end sound
-theorem topC_ok : TopOk topC := by
+
+-- The old unrestricted interface remains derivable for Q tables, ownership,
+-- and the unconditional lower bound. Final integration replaces topC_ok's body.
+theorem topC_ok_unrestricted : TopOk topC := by
   intro P l m g np T X R hR hR2 fm fh K k t z v S M Fs hM h hs hcod k' hk hl hmW hfb hFb
-  exact topC_sound X hR hR2 hM h hs hcod hk hl hmW hfb hFb
+  exact topC_sound_t X hR hR2 hM h hs hcod hk hl hmW hfb (MFt.of_full hFb)
+
+def TopOkT (top : TopT) : Prop :=
+  ∀ {P : List Nat} {l m g np T : Nat}, Ctx P l m g np T →
+    ∀ {R : Nat → Nat},
+    (∀ d a b, R a ≠ 0 → R b ≠ 0 → ¬ Al R d a b) →
+    (∀ d a b, (R a = 0 ∨ R b = 0) → Al R d a b) →
+    ∀ {fm fh K k t z : Nat} {v : List W} {S : Finset Nat}
+      {M : List (Nat × Nat)} {Fs : Set Nat}, mFull M = true →
+    (∀ p ∈ M, top l m g np fm fh K p.1 p.2 k t z v = false) →
+    StOk P T l k z v S → (∀ w ∈ v, w.r = R w.s) →
+    ∀ {k' : Nat}, k' ≤ k → Live Z0 m T k' t S →
+    MW R m T k' S →
+    (∀ d x y, x ≠ y → R x ≠ 0 → R y ≠ 0 →
+      fbit fm fh (op d x y) = true → op d x y ∈ Fs) →
+    MFt R m T k' t Fs S → False
+
+theorem topC_ok_t : TopOkT topC := by
+  intro P l m g np T X R hR hR2 fm fh K k t z v S M Fs hM h hs hcod k' hk hl hmW hfb hFb
+  exact topC_sound_t X hR hR2 hM h hs hcod hk hl hmW hfb hFb
+
+def ImpT (E : List Gt) (Z L u : Nat) : Prop :=
+  ∀ q < L, ¬ LTR (mz Z) (tz Z) q u (C (mz Z) (WZ E Z))
+
+
+theorem topC_ok : TopOk topC := topC_ok_unrestricted
+
 lemma pick_sub {T : List (ℕ × ℕ)} {cs : List ℕ} : ∀ x ∈ pick T cs, x ∈ T := by
   intro x hx
   simp only [pick, List.mem_filterMap] at hx
   obtain ⟨c, _, h⟩ := hx
   exact List.mem_of_find?_eq_some h
-section
+section counted_scope_7
 variable {top : TopT} (htop : TopOk top)
 include htop
 lemma okR_imp {E : List (Bool × ℕ × ℕ)} {Q : List (ℕ × ℕ)} {x : ℕ × ℕ} (hE : E = [] ∨ ∃ e, E = [e] ∧ e.2.1 < 7 ∧ e.2.2 < 7 ∧ Imp [] x.1 x.2)
@@ -5735,20 +5724,6 @@ lemma okR_imp {E : List (Bool × ℕ × ℕ)} {Q : List (ℕ × ℕ)} {x : ℕ �
   exact chkT_chk h t (List.mem_range.2 ht)
 lemma okAll {T U : List (ℕ × ℕ)} (h : U.all (fun x => okR top [] (pr T x.1) x) = true) (hT : ∀ x ∈ T, Imp [] x.1 x.2) : ∀ x ∈ U, Imp [] x.1 x.2 := fun x hx =>
   okR_imp htop (Or.inl rfl) (List.all_eq_true.1 h x hx) (fun y hy => hT y (List.mem_of_mem_filter hy))
-lemma ownAll {e : Bool × ℕ × ℕ} (he : e.2.1 < 7 ∧ e.2.2 < 7) {raw : List (ℕ × ℕ)} (hr : ∀ x ∈ raw, Imp [] x.1 x.2) {own cs : List ℕ}
-    (ho : ∀ x ∈ raw, x.1 ∈ own → Imp [e] x.1 x.2)
-    (h : (raw.filter (inC cs)).all (fun x => okR top [e] (pr (tabE e own raw) x.1) x) = true) : ∀ x ∈ raw, x.1 ∈ cs ++ own → Imp [e] x.1 x.2 := by
-  intro x hx hc
-  rcases List.mem_append.1 hc with hc | hc
-  · have hx' : x ∈ raw.filter (inC cs) := by
-      rw [List.mem_filter]
-      exact ⟨hx, by simp only [inC, List.any_eq_true]; exact ⟨x.1, hc, Nat.beq_refl _⟩⟩
-    exact okR_imp htop (Or.inr ⟨e, rfl, he.1, he.2, hr x hx⟩) (List.all_eq_true.1 h x hx') (fun y hy => tabE_ok hr ho y (List.mem_of_mem_filter hy))
-  · exact ho x hx hc
-lemma okAllP {T : List (ℕ × ℕ)} {rs : List ((ℕ × ℕ) × List ℕ)} (h : rs.all (okU top T) = true) (hT : ∀ x ∈ T, Imp [] x.1 x.2) : ∀ x ∈ rs.map Prod.fst, Imp [] x.1 x.2 := by
-  intro x hx
-  obtain ⟨r, hr, rfl⟩ := List.mem_map.1 hx
-  exact okR_imp htop (Or.inl rfl) (List.all_eq_true.1 h r hr) (fun y hy => hT y (pick_sub y hy))
 lemma ownAllP {e : Bool × ℕ × ℕ} (he : e.2.1 < 7 ∧ e.2.2 < 7) {raw : List (ℕ × ℕ)} (hr : ∀ x ∈ raw, Imp [] x.1 x.2) {own : List ℕ}
     (ho : ∀ x ∈ raw, x.1 ∈ own → Imp [e] x.1 x.2) {rs : List ((ℕ × ℕ) × List ℕ)} (h : rs.all (okO top e own raw) = true) :
     ∀ x ∈ raw, x.1 ∈ rs.map (fun r => r.1.1) ++ own → Imp [e] x.1 x.2 := by
@@ -5765,56 +5740,13 @@ lemma ownAllP {e : Bool × ℕ × ℕ} (he : e.2.1 < 7 ∧ e.2.2 < 7) {raw : Lis
     subst e3
     exact okR_imp htop (Or.inr ⟨e, rfl, he.1, he.2, hr _ hx⟩) h.2 (tabE_ok (fun y hy => hr y (pick_sub y hy)) (fun y hy => ho y (pick_sub y hy)))
   · exact ho x hx hc
-lemma cov_t {E : List (Bool × ℕ × ℕ)} {Q : List (ℕ × ℕ)} {fb : ℕ × ℕ} {K : ℕ} {Ms : List (ℕ × List (ℕ × ℕ))} {tt : List (List ℕ)}
-    (hMs : ∀ x ∈ Ms, mFull x.2 = true ∧ ∀ p ∈ x.2, chkG top E Q fb 0 K x.1 p.1 p.2 = false) (hts : ∀ ts ∈ tt, chkT top E Q fb 0 K ts FF 1 = false)
-    (hcov : (List.range (K + 1)).all (fun t => tt.any (fun ts => ts.any (Nat.beq t)) || Ms.any (fun x => Nat.beq t x.1)) = true) :
-    ∀ t < K + 1, ∃ M : List (ℕ × ℕ), mFull M = true ∧ ∀ p ∈ M, chkG top E Q fb 0 K t p.1 p.2 = false := by
-  clear htop
-  intro t ht
-  have h := List.all_eq_true.1 hcov t (List.mem_range.2 ht)
-  simp only [Bool.or_eq_true, List.any_eq_true] at h
-  rcases h with ⟨ts, hs, s, hs', h⟩ | ⟨x, hx, h⟩
-  · obtain rfl := Nat.eq_of_beq_eq_true h
-    exact ⟨[(FF, 1)], ffull, fun p hp => by simp only [List.mem_singleton] at hp; subst hp; exact chkT_chk (hts ts hs) t hs'⟩
-  · obtain rfl := Nat.eq_of_beq_eq_true h
-    exact ⟨x.2, hMs x hx⟩
-lemma rootT {e : Bool × ℕ × ℕ} {F : List (Bool × ℕ × ℕ)} {Q : List (ℕ × ℕ)} {fb : ℕ × ℕ} {L K : ℕ} (hLK : L ≤ K + 1) (hK : K ≤ 15) (he : e.2.1 < 7 ∧ e.2.2 < 7) (h0 : Imp [] 0 L)
-    (hI : ∀ y ∈ Q, Imp [e] y.1 y.2) (hp : pOk 0 Q = true) (hfb : fbOk [e] F fb = true) (hF : ∀ f ∈ F, Imp [f] 0 L)
-    {Ms : List (ℕ × List (ℕ × ℕ))} {tt : List (List ℕ)} (hMs : ∀ x ∈ Ms, mFull x.2 = true ∧ ∀ p ∈ x.2, chkG top [e] Q fb 0 K x.1 p.1 p.2 = false)
-    (hts : ∀ ts ∈ tt, chkT top [e] Q fb 0 K ts FF 1 = false)
-    (hcov : (List.range (K + 1)).all (fun t => tt.any (fun ts => ts.any (Nat.beq t)) || Ms.any (fun x => Nat.beq t x.1)) = true) : Imp [e] 0 L := by
-  rcases Nat.eq_zero_or_pos L with rfl | hpos
-  · intro q hq; exact absurd hq (Nat.not_lt_zero _)
-  · have hc := cov_t htop hMs hts hcov
-    refine imp_FK htop hLK hK (Or.inr ⟨e, rfl, he.1, he.2, h0⟩) hp hI (Or.inr ⟨rfl, hfb⟩) (fun f hf => ?_) (Or.inr fun t ht => hc t (by omega))
-    have e1 : L - 1 + [e].length = L := by simp only [List.length_cons, List.length_nil]; omega
-    rw [e1]; exact hF f hf
-lemma rootL {F : List (Bool × ℕ × ℕ)} {Q : List (ℕ × ℕ)} {fb : ℕ × ℕ} {L K : ℕ} (hLK : L ≤ K) (hK : K ≤ 15)
-    (hI : ∀ y ∈ Q, Imp [] y.1 y.2) (hp : pOk 0 Q = true) (hfb : fbOk [] F fb = true) (hF : ∀ f ∈ F, Imp [f] 0 L)
-    {Ms : List (ℕ × List (ℕ × ℕ))} {tt : List (List ℕ)} (hMs : ∀ x ∈ Ms, mFull x.2 = true ∧ ∀ p ∈ x.2, chkG top [] Q fb 0 K x.1 p.1 p.2 = false)
-    (hts : ∀ ts ∈ tt, chkT top [] Q fb 0 K ts FF 1 = false)
-    (hcov : (List.range (K + 1)).all (fun t => tt.any (fun ts => ts.any (Nat.beq t)) || Ms.any (fun x => Nat.beq t x.1)) = true) : Imp [] 0 (L + 1) := by
-  have hc := cov_t htop hMs hts hcov
-  exact imp_FK htop (by omega) hK (Or.inl rfl) hp hI (Or.inr ⟨rfl, hfb⟩) (fun f hf => hF f hf) (Or.inr fun t ht => hc t (by omega))
-end
+end counted_scope_7
 lemma apI {E : List (Bool × ℕ × ℕ)} {A B : List (ℕ × ℕ)} (ha : ∀ x ∈ A, Imp E x.1 x.2) (hb : ∀ x ∈ B, Imp E x.1 x.2) : ∀ x ∈ A ++ B, Imp E x.1 x.2 := fun x hx =>
   (List.mem_append.1 hx).elim (ha x) (hb x)
 lemma own0 {e : Bool × ℕ × ℕ} {raw : List (ℕ × ℕ)} : ∀ x ∈ raw, x.1 ∈ ([] : List ℕ) → Imp [e] x.1 x.2 := fun _ _ h => by simp at h
 lemma rootQ {e : Bool × ℕ × ℕ} {own : List ℕ} {raw : List (ℕ × ℕ)} {cs : List ℕ} (hr : ∀ x ∈ raw, Imp [] x.1 x.2) (ho : ∀ x ∈ raw, x.1 ∈ own → Imp [e] x.1 x.2) :
     ∀ y ∈ tabE e own (pick raw cs), Imp [e] y.1 y.2 := tabE_ok (fun y hy => hr y (pick_sub y hy)) (fun y hy => ho y (pick_sub y hy))
 lemma pickI {E : List (Bool × ℕ × ℕ)} {T : List (ℕ × ℕ)} {cs : List ℕ} (h : ∀ x ∈ T, Imp E x.1 x.2) : ∀ x ∈ pick T cs, Imp E x.1 x.2 := fun x hx => h x (pick_sub x hx)
-lemma ownOne {e : Bool × ℕ × ℕ} {raw : List (ℕ × ℕ)} {own : List ℕ} {c L : ℕ} (h : Imp [e] c L) (hu : raw.all (fun x => !Nat.beq x.1 c || Nat.beq x.2 L) = true)
-    (ho : ∀ x ∈ raw, x.1 ∈ own → Imp [e] x.1 x.2) : ∀ x ∈ raw, x.1 ∈ c :: own → Imp [e] x.1 x.2 := by
-  intro x hx hc
-  rcases List.mem_cons.1 hc with hc | hc
-  · have hu := List.all_eq_true.1 hu x hx
-    simp only [Bool.or_eq_true, Bool.not_eq_true'] at hu
-    rcases hu with hu | hu
-    · rw [hc, Nat.beq_refl] at hu; simp at hu
-    · rw [hc, Nat.eq_of_beq_eq_true hu]; exact h
-  · exact ho x hx hc
-lemma subI {E : List (Bool × ℕ × ℕ)} {A : List (ℕ × ℕ)} {p : ℕ × ℕ → Bool} (ha : ∀ x ∈ A, Imp E x.1 x.2) : ∀ x ∈ A.filter p, Imp E x.1 x.2 := fun x hx =>
-  ha x (List.mem_of_mem_filter hx)
 lemma rho_cons (a : ℕ) (p : List ℕ) (w : ℕ) : rho (a :: p) w = 2 * rho p w + (w.testBit a).toNat := rfl
 lemma rho_bit (p : List ℕ) (w i : ℕ) : (rho p w).testBit i = (decide (i < p.length) && w.testBit (p.getD i 0)) := by
   induction p generalizing i with
@@ -5855,109 +5787,10 @@ lemma mem_rawP {w : ℕ} (hw : w ∈ rawP) : ∃ v < 7, w = rawP.getD v 0 := by
   refine ⟨v, by simpa [rawP_l7] using hv, ?_⟩
   rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hv]
   simpa using h.symm
-theorem sol_rho2 {p : List ℕ} {m T q : ℕ} {S : Set ℕ} (h : Sol Z0 m T q S) : Sol Z0 (rho p m) (rho p T) q (rho p '' S) := by
-  induction h with
-  | done h => exact .done (Set.mem_image_of_mem _ h)
-  | un h _ ih =>
-    rw [Set.image_insert_eq, rho_xor] at ih
-    exact .un (Set.mem_image_of_mem _ h) ih
-  | bi h1 h2 ha _ ih =>
-    rw [Set.image_insert_eq, rho_op] at ih
-    exact .bi (Set.mem_image_of_mem _ h1) (Set.mem_image_of_mem _ h2) (al0 _ _ _) ih
-theorem imp_symZ {p : List ℕ} {g : ℕ → ℕ} {E E' : List (Bool × ℕ × ℕ)} {Z Z' L : ℕ} (hs : symOk p Z Z' = true)
-    (hr : ∀ v < 7, rho p (rawP.getD v 0) = rawP.getD (g v) 0)
-    (hE : ∀ e ∈ E, e.2.1 < 7 ∧ e.2.2 < 7 ∧ ∃ e' ∈ E', tw e' = tw (gimg g e)) (h : Imp E' Z' L) : Imp E Z L := by
-  simp only [symOk, Bool.and_eq_true] at hs
-  have hm : rho p (mz Z) = mz Z' := Nat.eq_of_beq_eq_true hs.1
-  have hT : rho p (tz Z) = tz Z' := Nat.eq_of_beq_eq_true hs.2
-  intro q hq hsol
-  have h2 := sol_rho2 (p := p) hsol
-  rw [hm, hT] at h2
-  refine h q hq (h2.mono le_rfl ?_)
-  rintro x ⟨y, hy, rfl⟩
-  rcases hy with ⟨w, hw, rfl⟩ | hy
-  · rw [rho_and, hm]
-    simp only [rawL, List.mem_append, List.mem_map] at hw
-    rcases hw with hw | ⟨e, he, rfl⟩
-    · obtain ⟨v, hv8, rfl⟩ := mem_rawP hw
-      rw [hr v hv8]
-      exact raw_avail E' (g v) Z'
-    · obtain ⟨h1, h2, e', he', htw⟩ := hE e he
-      have : rho p (tw e) = tw e' := by
-        rw [htw]
-        simp only [tw, gimg]
-        rw [rho_op, hr _ h1, hr _ h2]
-      rw [this]
-      exact Or.inl ⟨tw e', by simp only [rawL, List.mem_append, List.mem_map]; exact Or.inr ⟨e', he', rfl⟩, rfl⟩
-  · simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hy
-    rcases hy with h0 | h0
-    · rw [h0, rho_zero]; exact Or.inr (Set.mem_insert _ _)
-    · rw [h0, hm]; exact Or.inr (Set.mem_insert_of_mem _ rfl)
-lemma symE0 {g : ℕ → ℕ} {E' : List (Bool × ℕ × ℕ)} : ∀ e ∈ ([] : List (Bool × ℕ × ℕ)), e.2.1 < 7 ∧ e.2.2 < 7 ∧ ∃ e' ∈ E', tw e' = tw (gimg g e) := fun e he => by simp at he
 lemma symE1 {g : ℕ → ℕ} {e e' : Bool × ℕ × ℕ} (h8 : e.2.1 < 7 ∧ e.2.2 < 7) (h : Nat.beq (tw e') (tw (gimg g e)) = true) :
     ∀ x ∈ [e], x.2.1 < 7 ∧ x.2.2 < 7 ∧ ∃ x' ∈ [e'], tw x' = tw (gimg g x) := fun x hx => by
   simp only [List.mem_singleton] at hx; subst hx
   exact ⟨h8.1, h8.2, e', by simp, Nat.eq_of_beq_eq_true h⟩
-lemma imp_run {T : List (ℕ × ℕ)} {Z L : ℕ} (tt : List (List ℕ)) (hT : ∀ e ∈ T, Imp [] e.1 e.2)
-    (hp : (pOk Z (pr T Z) && Nat.ble L 16 && (List.range L).all (fun t => tt.any (fun ts => ts.any (Nat.beq t)))) = true)
-    (h : ∀ ts ∈ tt, chkT topC [] (pr T Z) (1, 0) Z (L - 1) ts FF 1 = false) : Imp [] Z L := by
-  simp only [Bool.and_eq_true, List.all_eq_true, List.mem_range, List.any_eq_true] at hp
-  have h16 := Nat.le_of_ble_eq_true hp.1.2
-  refine imp_FK topC_ok (F := []) (fb := (1, 0)) (K := L - 1) (by omega) (by omega) (Or.inl rfl) hp.1.1 (fun e he => hT e (List.mem_of_mem_filter he)) (Or.inl rfl) (by simp) (Or.inr fun t ht => ?_)
-  obtain ⟨ts, hts, s, hs, e⟩ := hp.2 t ht
-  obtain rfl := Nat.eq_of_beq_eq_true e
-  exact ⟨[(FF, 1)], ffull, fun p hq => by simp only [List.mem_singleton] at hq; subst hq; exact chkT_chk (h ts hts) t hs⟩
-lemma ctn {T : List (ℕ × ℕ)} {Z K : ℕ} : ∀ ts ∈ ([] : List (List ℕ)), chkT topC [] (pr T Z) (1, 0) Z K ts FF 1 = false := by simp
-lemma ctc {T : List (ℕ × ℕ)} {Z K : ℕ} {a : List ℕ} {tt : List (List ℕ)} (h : chkT topC [] (pr T Z) (1, 0) Z K a FF 1 = false)
-    (hh : ∀ ts ∈ tt, chkT topC [] (pr T Z) (1, 0) Z K ts FF 1 = false) : ∀ ts ∈ a :: tt, chkT topC [] (pr T Z) (1, 0) Z K ts FF 1 = false := by
-  intro ts hts
-  rcases List.mem_cons.1 hts with rfl | hts
-  · exact h
-  · exact hh ts hts
-lemma ty_imp {gs : List Gt} {raw : List (ℕ × ℕ)} {K i : ℕ} {e : Gt} {own cs : List ℕ} {fb : ℕ × ℕ} {tt : List (List ℕ)}
-    (hr : ∀ x ∈ raw, Imp [] x.1 x.2) (ho : ∀ x ∈ raw, x.1 ∈ own → Imp [e] x.1 x.2) (h1 : okTy gs raw K i e own cs fb tt = true)
-    (h2 : tt.all (okTs raw K e own cs fb) = true) {L : ℕ} (hL : L ≤ K + 1) (h0 : Imp [] 0 L) (hF : ∀ f ∈ gs.take i, Imp [f] 0 L) : Imp [e] 0 L := by
-  simp only [okTy, Bool.and_eq_true] at h1
-  obtain ⟨⟨⟨⟨⟨a1, a2⟩, a3⟩, a4⟩, a5⟩, a6⟩ := h1
-  refine rootT topC_ok (Ms := []) (tt := tt) (K := K) hL (Nat.le_of_ble_eq_true a3) ⟨Nat.le_of_ble_eq_true a1, Nat.le_of_ble_eq_true a2⟩ h0 (rootQ hr ho) a4 a5 hF (by simp) (fun ts hts => ?_) ?_
-  · have := List.all_eq_true.1 h2 ts hts
-    simpa only [okTs, Bool.not_eq_true'] using this
-  · rw [List.all_eq_true] at a6 ⊢
-    intro t ht
-    simp only [a6 t ht, Bool.true_or]
-lemma chainT {gs : List Gt} {L : ℕ} (H : ∀ i (hi : i < gs.length), (∀ f ∈ gs.take i, Imp [f] 0 L) → Imp [gs[i]] 0 L) : ∀ f ∈ gs, Imp [f] 0 L := by
-  have P : ∀ n, ∀ i (hi : i < gs.length), i < n → Imp [gs[i]] 0 L := by
-    intro n
-    induction n with
-    | zero => intro i _ h; omega
-    | succ n ih =>
-      intro i hi _
-      refine H i hi fun f hf => ?_
-      obtain ⟨j, hj, rfl⟩ := List.mem_take_iff_getElem.1 hf
-      exact ih j (by omega) (by omega)
-  intro f hf
-  obtain ⟨i, hi, rfl⟩ := List.mem_iff_getElem.1 hf
-  exact P (i + 1) i hi (by omega)
-theorem iroot_min {N : ℕ} (H : ∀ L ≤ N, Imp [] 0 L → Imp [] 0 (L + 1)) : Imp [] 0 (N + 1) := by
-  intro q hq hs
-  classical
-  have hex : ∃ q, Sol Z0 (mz 0) (tz 0) q (C (mz 0) (WZ [] 0)) := ⟨q, hs⟩
-  have h1 : Nat.find hex ≤ q := Nat.find_min' hex hs
-  exact H (Nat.find hex) (by omega) (fun q' hq' hs' => Nat.find_min hex hq' hs') _ (Nat.lt_succ_self _) (Nat.find_spec hex)
-lemma last_imp {gs : List Gt} {raw : List (ℕ × ℕ)} {K : ℕ} {cs : List ℕ} {fb : ℕ × ℕ} {tt : List (List ℕ)} (hr : ∀ x ∈ raw, Imp [] x.1 x.2)
-    (h1 : (Nat.ble K 15 && pOk 0 (pick raw cs) && fbOk [] gs fb && (List.range (K + 1)).all (fun t => tt.any (fun ts => ts.any (Nat.beq t)))) = true)
-    (h2 : tt.all (okLs (pick raw cs) K fb) = true) {L : ℕ} (hL : L ≤ K) (hF : ∀ f ∈ gs, Imp [f] 0 L) : Imp [] 0 (L + 1) := by
-  simp only [Bool.and_eq_true] at h1
-  obtain ⟨⟨⟨a3, a4⟩, a5⟩, a6⟩ := h1
-  refine rootL topC_ok (Ms := []) (tt := tt) hL (Nat.le_of_ble_eq_true a3) (pickI hr) a4 a5 hF (by simp) (fun ts hts => ?_) ?_
-  · have := List.all_eq_true.1 h2 ts hts
-    simpa only [okLs, Bool.not_eq_true'] using this
-  · rw [List.all_eq_true] at a6 ⊢
-    intro t ht
-    simp only [a6 t ht, Bool.true_or]
-lemma one1 {Z L : ℕ} (h : Imp [] Z L) : ∀ e ∈ [(Z, L)], Imp [] e.1 e.2 := fun e he => by
-  simp only [List.mem_singleton] at he; subst he; exact h
-
 def zero5 : List (Nat × Nat) := [(122, 1), (117, 1), (110, 1), (109, 1), (107, 1), (94, 1), (93, 1), (87, 1), (62, 1), (59, 1), (55, 1), (31, 1)]
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
@@ -6029,13 +5862,128 @@ lemma bounds_extraFive : ∀ e ∈ extraFive, Imp [] e.1 e.2 := okAll topC_ok ce
 def acc_extraFive : List (Nat × Nat) := extraFive ++ acc_extraFour
 lemma accBounds_extraFive : ∀ e ∈ acc_extraFive, Imp [] e.1 e.2 := apI bounds_extraFive accBounds_extraFour
 
-lemma reject_live {top : TopT} (htop : TopOk top)
+lemma root13_of_shards {Q : List (Nat × Nat)} {M : List (Nat × Nat)}
+    (hQ : ∀ e ∈ Q, Imp [] e.1 e.2) (hp : pOk 0 Q = true)
+    (hM : mFull M = true)
+    (hc : ∀ p ∈ M, chkT topC [] Q (1, 0) 0 12 (List.range 13) p.1 p.2 = false) :
+    Imp [] 0 13 := by
+  refine imp_FK topC_ok (F := []) (fb := (1, 0)) (K := 12)
+    (by decide) (by decide) (Or.inl rfl) hp hQ (Or.inl rfl) (by simp) (Or.inr ?_)
+  intro t ht
+  exact ⟨M, hM, fun p hp => chkT_chk (hc p hp) t (List.mem_range.2 ht)⟩
+def root13Q : List (Nat × Nat) := pick acc_extraFive [32, 16, 8, 4, 2, 1, 64, 8192, 4096, 2048, 1024, 96, 80, 66, 65, 48, 40, 36, 34, 33, 24, 20, 18, 17, 10, 9, 6, 5, 3, 8196, 8194, 8193, 4160, 4128, 4098, 2112, 2064, 2049, 1056, 1040, 1032, 72, 68, 12]
+lemma root13Q_bounds : ∀ e ∈ root13Q, Imp [] e.1 e.2 := pickI accBounds_extraFive
+def masks13 : List (Nat × Nat) := [(0, 1), (((2 ^ 26 - 1) <<< 0), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 27 - 1) <<< 53), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 27 - 1) <<< 133), 0), (((2 ^ 27 - 1) <<< 160), 0), (((2 ^ 27 - 1) <<< 187), 0)]
+def masks13_full : mFull masks13 = true := by decide +kernel
+noncomputable def run13 (p : Nat × Nat) : Bool := chkT topC [] root13Q (1, 0) 0 12 (List.range 13) p.1 p.2
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def shard13_0 : run13 (0, 1) = false := by decide +kernel
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def shard13_1 : run13 (((2 ^ 26 - 1) <<< 0), 0) = false := by decide +kernel
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def shard13_2 : run13 (((2 ^ 27 - 1) <<< 26), 0) = false := by decide +kernel
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def shard13_3 : run13 (((2 ^ 27 - 1) <<< 53), 0) = false := by decide +kernel
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def shard13_4 : run13 (((2 ^ 27 - 1) <<< 80), 0) = false := by decide +kernel
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def shard13_5 : run13 (((2 ^ 26 - 1) <<< 107), 0) = false := by decide +kernel
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def shard13_6 : run13 (((2 ^ 27 - 1) <<< 133), 0) = false := by decide +kernel
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def shard13_7 : run13 (((2 ^ 27 - 1) <<< 160), 0) = false := by decide +kernel
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def shard13_8 : run13 (((2 ^ 27 - 1) <<< 187), 0) = false := by decide +kernel
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma bound13 : Imp [] 0 13 := by
+  have hc : ∀ p ∈ masks13, run13 p = false := by
+    intro p hp
+    simp only [masks13, List.mem_cons, List.not_mem_nil, or_false] at hp
+    rcases hp with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+    · exact shard13_0
+    · exact shard13_1
+    · exact shard13_2
+    · exact shard13_3
+    · exact shard13_4
+    · exact shard13_5
+    · exact shard13_6
+    · exact shard13_7
+    · exact shard13_8
+  exact root13_of_shards root13Q_bounds (by decide +kernel) masks13_full hc
+
+noncomputable def ownCheck (top : TopT) (e : Gt) (raw : List (Nat × Nat)) : List Nat → List ((Nat × Nat) × List Nat) → Bool
+  | _, [] => true
+  | own, r :: rs => okO top e own raw r && ownCheck top e raw (r.1.1 :: own) rs
+lemma ownCheck_imp {top : TopT} (htop : TopOk top) {e : Gt}
+    (he : e.2.1 < 7 ∧ e.2.2 < 7) {raw : List (Nat × Nat)}
+    (hr : ∀ x ∈ raw, Imp [] x.1 x.2) {own : List Nat}
+    (ho : ∀ x ∈ raw, x.1 ∈ own → Imp [e] x.1 x.2)
+    {rs : List ((Nat × Nat) × List Nat)}
+    (h : ownCheck top e raw own rs = true) :
+    ∀ x ∈ raw, x.1 ∈ rs.map (fun r => r.1.1) ++ own → Imp [e] x.1 x.2 := by
+  induction rs generalizing own with
+  | nil => simpa using ho
+  | cons r rs ih =>
+    have hh : okO top e own raw r = true ∧ ownCheck top e raw (r.1.1 :: own) rs = true := by
+      simpa only [ownCheck, Bool.and_eq_true] using h
+    have hstep : ∀ x ∈ raw, x.1 ∈ r.1.1 :: own → Imp [e] x.1 x.2 :=
+      ownAllP htop he hr ho (rs := [r]) (by simpa using hh.1)
+    have htail := ih hstep hh.2
+    intro x hx hc
+    apply htail x hx
+    simp only [List.map_cons, List.mem_append, List.mem_cons] at hc ⊢
+    tauto
+
+def ownRows (raw : List (Nat × Nat)) (cs : List Nat) : List ((Nat × Nat) × List Nat) :=
+  cs.filterMap fun c => (raw.find? fun x => Nat.beq x.1 c).map fun x =>
+    (x, (pr raw c).map Prod.fst)
+
+lemma ltr_add {e : Gt} {E : List Gt} {Z q u : Nat} {S : Set Nat}
+    (hS : S ⊆ C (mz Z) (WZ E Z))
+    (hs : LTR (mz Z) (tz Z) q u (insert (tw e &&& mz Z) S)) :
+    LTR (mz Z) (tz Z) (q + 1) u (C (mz Z) (WZ E Z)) := by
+  refine LTR.bi (d := e.1) (raw_avail E e.2.1 Z) (raw_avail E e.2.2 Z)
+    (hs.mono le_rfl le_rfl le_rfl ?_)
+  rw [← and_op]
+  exact Set.insert_subset_insert hS
+
+lemma forb_ok_t {E : List (Bool × ℕ × ℕ)} {f : Bool × ℕ × ℕ} {Z L u : ℕ} (hE : E.length ≤ 1) (hf : ImpT [f] Z (L + E.length) u) :
+    ∀ q < L, ¬ LTR (mz Z) (tz Z) q u (C (mz Z) (insert (tw f &&& mz Z) (WZ E Z))) := by
+  intro q hq hs
+  have hsub : C (mz Z) (insert (tw f &&& mz Z) (WZ [] Z)) ⊆ C (mz Z) (WZ [f] Z) := by
+    rintro x ((rfl | hx) | hx)
+    · exact Or.inl ⟨tw f, by simp [rawL], rfl⟩
+    · exact Or.inl (WZ_nil_sub _ _ hx)
+    · exact Or.inr hx
+  match E, hE, hf, hs with
+  | [], _, hf, hs => exact hf q (by simpa using hq) (hs.mono le_rfl le_rfl le_rfl hsub)
+  | [e], _, hf, hs =>
+    refine hf (q + 1) (by simpa using hq) (ltr_add (e := e) (S := C (mz Z) (insert (tw f &&& mz Z) (WZ [] Z))) hsub (hs.mono le_rfl le_rfl le_rfl ?_))
+    rintro x ((rfl | ⟨w, hw, rfl⟩) | hx)
+    · exact Or.inr (Or.inl (Or.inl rfl))
+    · simp only [rawL, List.map_cons, List.map_nil, List.mem_append, List.mem_singleton] at hw
+      rcases hw with hw | rfl
+      · exact Or.inr (Or.inl (Or.inr ⟨w, by simp only [rawL, List.map_nil, List.append_nil]; exact hw, rfl⟩))
+      · exact Or.inl rfl
+    · exact Or.inr (Or.inr hx)
+
+lemma reject_live_t {top : TopT} (htop : TopOkT top)
     {E F : List (Bool × Nat × Nat)} {Q : List (Nat × Nat)} {fb : Nat × Nat}
     {Z K k t : Nat} {S : Finset Nat}
     (hk : k ≤ K) (hK : K ≤ 15) (hE1 : E.length ≤ 1)
     (hp : pOk Z Q = true) (hI : ∀ e ∈ Q, Imp E e.1 e.2)
     (hfb : fb = (1, 0) ∨ (Z = 0 ∧ fbOk E F fb = true))
-    (hF : ∀ e ∈ F, Imp [e] 0 (k + E.length))
+    (hF : ∀ e ∈ F, ImpT [e] 0 (k + E.length) t)
     (hmin : Imp E Z k)
     (hS : (S : Set Nat) ⊆ C (mz Z) (WZ E Z))
     (hl : Live Z0 (mz Z) (tz Z) k t S)
@@ -6169,178 +6117,85 @@ lemma reject_live {top : TopT} (htop : TopOk top)
       exact ⟨f, hf, e, rfl⟩
   · rintro s ⟨f, hf, rfl, rfl⟩ q hq hs
     rw [hW] at hs
-    exact forb_ok hE1 (hF f hf) q (by omega) hs
+    exact forb_ok_t hE1 (hF f hf) q (by omega) hs
 
-lemma root13_of_shards {Q : List (Nat × Nat)} {M : List (Nat × Nat)}
-    (hQ : ∀ e ∈ Q, Imp [] e.1 e.2) (hp : pOk 0 Q = true)
-    (hM : mFull M = true)
-    (hc : ∀ p ∈ M, chkT topC [] Q (1, 0) 0 12 (List.range 13) p.1 p.2 = false) :
-    Imp [] 0 13 := by
-  refine imp_FK topC_ok (F := []) (fb := (1, 0)) (K := 12)
-    (by decide) (by decide) (Or.inl rfl) hp hQ (Or.inl rfl) (by simp) (Or.inr ?_)
-  intro t ht
-  exact ⟨M, hM, fun p hp => chkT_chk (hc p hp) t (List.mem_range.2 ht)⟩
-lemma reject_one_shards {F : List Gt} {Q : List (Nat × Nat)}
+lemma gate_bound_t {e : Gt} {F : List Gt} {Q : List (Nat × Nat)}
     {fb : Nat × Nat} {M : List (Nat × Nat)}
-    (hQ : ∀ e ∈ Q, Imp [] e.1 e.2) (hp : pOk 0 Q = true)
-    (hfb : fbOk [] F fb = true) (hF : ∀ e ∈ F, Imp [e] 0 13)
-    (hmin : Imp [] 0 13) (hM : mFull M = true)
-    (hc : ∀ p ∈ M, chkT topC [] Q fb 0 13 [1] p.1 p.2 = false) :
-    ∀ S : Finset Nat, (S : Set Nat) ⊆ C (mz 0) (WZ [] 0) →
-      ¬ Live Z0 (mz 0) (tz 0) 13 1 S := by
-  intro S hS hL
-  refine reject_live topC_ok (K := 13) (F := F) (fb := fb)
-    (by decide) (by decide) (by decide) hp hQ (Or.inr ⟨rfl, hfb⟩)
-    (by simpa using hF) hmin hS hL (Or.inl rfl) M hM ?_
-  intro p hp
-  exact chkT_chk (hc p hp) 1 (by simp)
+    (h0 : Imp [] 0 13)
+    (hp : pOk 0 Q = true) (hQ : ∀ x ∈ Q, Imp [e] x.1 x.2)
+    (hfb : fbOk [e] F fb = true)
+    (hF : ∀ f ∈ F, ImpT [f] 0 13 1)
+    (hM : mFull M = true)
+    (hc : ∀ p ∈ M, chkT topC [e] Q fb 0 12 [1] p.1 p.2 = false) :
+    ImpT [e] 0 13 1 := by
+  intro q hq hs
+  have hmin : Imp [e] 0 12 := impB h0
+  have hq12 : 12 ≤ q := by
+    by_contra hn
+    exact hmin q (by omega) (LTR.to_sol hs)
+  have heq : q = 12 := by omega
+  subst q
+  obtain ⟨S, hS, hL⟩ := LTR.exact_counts hmin hs
+  have hpw : pwr [e] 0 = 0 ∨ pwr [e] 0 ∈ S := by
+    by_contra hn
+    push_neg at hn
+    refine h0 12 (by omega) (hL.sol.mono le_rfl ?_)
+    intro x hx
+    rcases hS hx with ⟨w, hw, rfl⟩ | hx'
+    · simp only [rawL, List.mem_append, List.map_cons, List.map_nil, List.mem_singleton] at hw
+      rcases hw with hw | rfl
+      · exact Or.inl ⟨w, by simpa only [rawL, List.map_nil, List.append_nil] using hw, rfl⟩
+      · exact False.elim (hn.2 hx)
+    · exact Or.inr hx'
+  refine reject_live_t topC_ok_t (F := F) (K := 12) (fb := fb)
+    (by omega) (by decide) (by simp) hp hQ (Or.inr ⟨rfl, hfb⟩)
+    (by simpa using hF) hmin hS hL hpw M hM ?_
+  intro p hpM
+  exact chkT_chk (hc p hpM) 1 (by simp)
 
-def root13Q : List (Nat × Nat) := pick acc_extraFive [32, 16, 8, 4, 2, 1, 64, 8192, 4096, 2048, 1024, 96, 80, 66, 65, 48, 40, 36, 34, 33, 24, 20, 18, 17, 10, 9, 6, 5, 3, 8196, 8194, 8193, 4160, 4128, 4098, 2112, 2064, 2049, 1056, 1040, 1032, 72, 68, 12]
-lemma root13Q_bounds : ∀ e ∈ root13Q, Imp [] e.1 e.2 := pickI accBounds_extraFive
-def masks13 : List (Nat × Nat) := [(0, 1), (((2 ^ 26 - 1) <<< 0), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 27 - 1) <<< 53), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 27 - 1) <<< 133), 0), (((2 ^ 27 - 1) <<< 160), 0), (((2 ^ 27 - 1) <<< 187), 0)]
-def masks13_full : mFull masks13 = true := by decide +kernel
-noncomputable def run13 (p : Nat × Nat) : Bool := chkT topC [] root13Q (1, 0) 0 12 (List.range 13) p.1 p.2
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def shard13_0 : run13 (0, 1) = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def shard13_1 : run13 (((2 ^ 26 - 1) <<< 0), 0) = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def shard13_2 : run13 (((2 ^ 27 - 1) <<< 26), 0) = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def shard13_3 : run13 (((2 ^ 27 - 1) <<< 53), 0) = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def shard13_4 : run13 (((2 ^ 27 - 1) <<< 80), 0) = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def shard13_5 : run13 (((2 ^ 26 - 1) <<< 107), 0) = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def shard13_6 : run13 (((2 ^ 27 - 1) <<< 133), 0) = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def shard13_7 : run13 (((2 ^ 27 - 1) <<< 160), 0) = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def shard13_8 : run13 (((2 ^ 27 - 1) <<< 187), 0) = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-lemma bound13 : Imp [] 0 13 := by
-  have hc : ∀ p ∈ masks13, run13 p = false := by
-    intro p hp
-    simp only [masks13, List.mem_cons, List.not_mem_nil, or_false] at hp
-    rcases hp with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
-    · exact shard13_0
-    · exact shard13_1
-    · exact shard13_2
-    · exact shard13_3
-    · exact shard13_4
-    · exact shard13_5
-    · exact shard13_6
-    · exact shard13_7
-    · exact shard13_8
-  exact root13_of_shards root13Q_bounds (by decide +kernel) masks13_full hc
-
-noncomputable def ownCheck (top : TopT) (e : Gt) (raw : List (Nat × Nat)) : List Nat → List ((Nat × Nat) × List Nat) → Bool
-  | _, [] => true
-  | own, r :: rs => okO top e own raw r && ownCheck top e raw (r.1.1 :: own) rs
-lemma ownCheck_imp {top : TopT} (htop : TopOk top) {e : Gt}
-    (he : e.2.1 < 7 ∧ e.2.2 < 7) {raw : List (Nat × Nat)}
-    (hr : ∀ x ∈ raw, Imp [] x.1 x.2) {own : List Nat}
-    (ho : ∀ x ∈ raw, x.1 ∈ own → Imp [e] x.1 x.2)
-    {rs : List ((Nat × Nat) × List Nat)}
-    (h : ownCheck top e raw own rs = true) :
-    ∀ x ∈ raw, x.1 ∈ rs.map (fun r => r.1.1) ++ own → Imp [e] x.1 x.2 := by
-  induction rs generalizing own with
-  | nil => simpa using ho
-  | cons r rs ih =>
-    have hh : okO top e own raw r = true ∧ ownCheck top e raw (r.1.1 :: own) rs = true := by
-      simpa only [ownCheck, Bool.and_eq_true] using h
-    have hstep : ∀ x ∈ raw, x.1 ∈ r.1.1 :: own → Imp [e] x.1 x.2 :=
-      ownAllP htop he hr ho (rs := [r]) (by simpa using hh.1)
-    have htail := ih hstep hh.2
-    intro x hx hc
-    apply htail x hx
-    simp only [List.map_cons, List.mem_append, List.mem_cons] at hc ⊢
-    tauto
-
-def ownRows (raw : List (Nat × Nat)) (cs : List Nat) : List ((Nat × Nat) × List Nat) :=
-  cs.filterMap fun c => (raw.find? fun x => Nat.beq x.1 c).map fun x =>
-    (x, (pr raw c).map Prod.fst)
-
-lemma ty_imp_shards {gs : List Gt} {raw : List (Nat × Nat)} {i : Nat} {e : Gt}
+lemma ty_imp_shards_t {gs : List Gt} {raw : List (Nat × Nat)} {i : Nat} {e : Gt}
     {own cs : List Nat} {fb : Nat × Nat} {M : List (Nat × Nat)}
     (hr : ∀ x ∈ raw, Imp [] x.1 x.2)
     (ho : ∀ x ∈ raw, x.1 ∈ own → Imp [e] x.1 x.2)
     (hshape : okTy gs raw 12 i e own cs fb [List.range 13] = true)
     (hM : mFull M = true)
-    (hchecks : ∀ p ∈ M, chkT topC [e] (tabE e own (pick raw cs)) fb 0 12 (List.range 13) p.1 p.2 = false)
-    (h0 : Imp [] 0 13) (hF : ∀ f ∈ gs.take i, Imp [f] 0 13) : Imp [e] 0 13 := by
+    (hchecks : ∀ p ∈ M,
+      chkT topC [e] (tabE e own (pick raw cs)) fb 0 12 [1] p.1 p.2 = false)
+    (h0 : Imp [] 0 13) (hF : ∀ f ∈ gs.take i, ImpT [f] 0 13 1) :
+    ImpT [e] 0 13 1 := by
   simp only [okTy, Bool.and_eq_true] at hshape
   obtain ⟨⟨⟨⟨⟨a1, a2⟩, a3⟩, a4⟩, a5⟩, a6⟩ := hshape
-  refine imp_FK topC_ok (K := 12) (by decide) (by decide)
-    (Or.inr ⟨e, rfl, Nat.le_of_ble_eq_true a1, Nat.le_of_ble_eq_true a2, h0⟩)
-    a4 (rootQ hr ho) (Or.inr ⟨rfl, a5⟩) ?_ (Or.inr ?_)
-  · simpa using hF
-  · intro t ht
-    exact ⟨M, hM, fun p hp => chkT_chk (hchecks p hp) t (List.mem_range.2 ht)⟩
+  exact gate_bound_t h0 a4 (rootQ hr ho) a5 hF hM hchecks
 
-lemma anyN_false_of_mem {h : Nat → Bool} {L : List Nat}
-    (hh : ∀ t ∈ L, h t = false) : anyN h L = false := by
-  induction L with
-  | nil => rfl
-  | cons a L ih =>
-    change (Bool.rec (motive := fun _ => Bool) (anyN h L) true (h a) : Bool) = false
-    rw [hh a (by simp)]
-    exact ih (fun t ht => hh t (by simp [ht]))
-lemma chkT_cover {top : Nat → Nat → Nat → Nat → Nat → Nat → Nat → Nat → Nat → Nat → Nat → Nat → List W → Bool}
-    {E : List Gt} {Q : List (Nat × Nat)} {fb : Nat × Nat} {Z K : Nat}
-    {ts : List Nat} {tt : List (List Nat)} {H ph : Nat}
-    (hcover : ∀ t ∈ ts, ∃ us ∈ tt, t ∈ us)
-    (hchecks : ∀ us ∈ tt, chkT top E Q fb Z K us H ph = false) :
-    chkT top E Q fb Z K ts H ph = false := by
-  have hpoint : ∀ t ∈ ts, chkG top E Q fb Z K t H ph = false := by
-    intro t ht
-    obtain ⟨us, hus, htu⟩ := hcover t ht
-    exact chkT_chk (hchecks us hus) t htu
-  simp only [chkT, chkG, st_eq, pre_eq] at hpoint ⊢
-  exact anyN_false_of_mem hpoint
+lemma reject_one_shards_t {F : List Gt} {Q : List (Nat × Nat)}
+    {fb : Nat × Nat} {M : List (Nat × Nat)}
+    (hQ : ∀ e ∈ Q, Imp [] e.1 e.2) (hp : pOk 0 Q = true)
+    (hfb : fbOk [] F fb = true) (hF : ∀ e ∈ F, ImpT [e] 0 13 1)
+    (hmin : Imp [] 0 13) (hM : mFull M = true)
+    (hc : ∀ p ∈ M, chkT topC [] Q fb 0 13 [1] p.1 p.2 = false) :
+    ∀ S : Finset Nat, (S : Set Nat) ⊆ C (mz 0) (WZ [] 0) →
+      ¬ Live Z0 (mz 0) (tz 0) 13 1 S := by
+  intro S hS hL
+  refine reject_live_t topC_ok_t (K := 13) (F := F) (fb := fb)
+    (by decide) (by decide) (by decide) hp hQ (Or.inr ⟨rfl, hfb⟩)
+    (by simpa using hF) hmin hS hL (Or.inl rfl) M hM ?_
+  intro p hpM
+  exact chkT_chk (hc p hpM) 1 (by simp)
 
-lemma count_range13_cover : ∀ t ∈ List.range 13, ∃ us ∈ [[0], [1], (List.range 13).drop 2], t ∈ us := by
-  intro t ht
-  have ht13 := List.mem_range.mp ht
-  interval_cases t <;> decide
-lemma chkT_count_split {top : Nat → Nat → Nat → Nat → Nat → Nat → Nat → Nat → Nat → Nat → Nat → Nat → List W → Bool}
-    {E : List Gt} {Q : List (Nat × Nat)} {fb : Nat × Nat} {Z K H ph : Nat}
-    (h0 : chkT top E Q fb Z K [0] H ph = false)
-    (h1 : chkT top E Q fb Z K [1] H ph = false)
-    (h2 : chkT top E Q fb Z K ((List.range 13).drop 2) H ph = false) :
-    chkT top E Q fb Z K (List.range 13) H ph = false := by
-  apply chkT_cover count_range13_cover
-  intro us hu
-  simp only [List.mem_cons, List.not_mem_nil, or_false] at hu
-  rcases hu with rfl | rfl | rfl
-  · exact h0
-  · exact h1
-  · exact h2
 
-lemma gate_bounds_sub {A B : List Gt} (hA : ∀ e ∈ A, Imp [e] 0 13)
-    (hB : B.all (fun e => A.contains e) = true) : ∀ e ∈ B, Imp [e] 0 13 := by
+lemma gate_bounds_sub {A B : List Gt} (hA : ∀ e ∈ A, ImpT [e] 0 13 1)
+    (hB : B.all (fun e => A.contains e) = true) : ∀ e ∈ B, ImpT [e] 0 13 1 := by
   intro e he
   exact hA e (List.contains_iff_mem.1 (List.all_eq_true.1 hB e he))
-lemma gate_bounds_nil : ∀ e ∈ ([] : List Gt), Imp [e] 0 13 := by simp
+lemma gate_bounds_nil : ∀ e ∈ ([] : List Gt), ImpT [e] 0 13 1 := by simp
 lemma gate_bounds_cons {e : Gt} {F : List Gt}
-    (he : Imp [e] 0 13) (hF : ∀ f ∈ F, Imp [f] 0 13) : ∀ f ∈ e :: F, Imp [f] 0 13 := by
+    (he : ImpT [e] 0 13 1) (hF : ∀ f ∈ F, ImpT [f] 0 13 1) : ∀ f ∈ e :: F, ImpT [f] 0 13 1 := by
   intro f hf
   rcases List.mem_cons.1 hf with rfl | hf
   · exact he
   · exact hF f hf
-lemma gate_bounds_append {A B : List Gt} (hA : ∀ e ∈ A, Imp [e] 0 13)
-    (hB : ∀ e ∈ B, Imp [e] 0 13) : ∀ e ∈ A ++ B, Imp [e] 0 13 := by
+lemma gate_bounds_append {A B : List Gt} (hA : ∀ e ∈ A, ImpT [e] 0 13 1)
+    (hB : ∀ e ∈ B, ImpT [e] 0 13 1) : ∀ e ∈ A ++ B, ImpT [e] 0 13 1 := by
   intro e he
   exact (List.mem_append.1 he).elim (hA e) (hB e)
 
@@ -6357,17 +6212,81 @@ lemma auto_raw : ∀ v < 7, rho autoP (rawP.getD v 0) = rawP.getD (autoV v) 0 :=
   intro v hv
   interval_cases v <;> decide +kernel
 
-lemma imp_gate_congr {e e' : Bool × ℕ × ℕ} {Z L : ℕ}
-    (he : tw e = tw e') (h : Imp [e'] Z L) : Imp [e] Z L := by
-  simpa only [Imp, WZ, rawL, List.map_cons, List.map_nil, he] using h
+lemma live_rho_ltr {p : List Nat} {m T k t : Nat} {S : Finset Nat}
+    (h : Live Z0 m T k t S) :
+    LTR (rho p m) (rho p T) k t (rho p '' (S : Set Nat)) := by
+  induction h with
+  | stop => exact LTR.done (Set.mem_image_of_mem _ (by simp))
+  | @un k t a U hl ih =>
+    refine LTR.un (a := rho p a)
+      (Set.mem_image_of_mem _ (by simp))
+      (ih.mono le_rfl le_rfl le_rfl ?_)
+    rintro _ ⟨x, hx, rfl⟩
+    simp only [Finset.mem_coe, Finset.mem_insert] at hx
+    rcases hx with rfl | hx
+    · rw [rho_xor]; exact Or.inl rfl
+    · exact Or.inr ⟨x, by simp [hx], rfl⟩
+  | @bi k t d a b U hab hal hl ih =>
+    refine LTR.bi (d := d) (a := rho p a) (b := rho p b)
+      (Set.mem_image_of_mem _ (by simp)) (Set.mem_image_of_mem _ (by simp))
+      (ih.mono le_rfl le_rfl le_rfl ?_)
+    rintro _ ⟨x, hx, rfl⟩
+    simp only [Finset.mem_coe, Finset.mem_insert] at hx
+    rcases hx with rfl | hx
+    · rw [rho_op]; exact Or.inl rfl
+    · exact Or.inr ⟨x, by simp [hx], rfl⟩
 
-lemma imp_gate_swap {d : Bool} {a b Z L : ℕ}
-    (h : Imp [(d, b, a)] Z L) : Imp [(d, a, b)] Z L := by
-  exact imp_gate_congr (e := (d, a, b)) (e' := (d, b, a)) (op_comm d (rawP.getD a 0) (rawP.getD b 0)) h
+lemma LTR.rho {p : List Nat} {m T q u : Nat} {S : Set Nat}
+    (h : LTR m T q u S) : LTR (rho p m) (rho p T) q u (rho p '' S) := by
+  obtain ⟨k, hk, t, ht, hbal, V, hV, hl⟩ := h
+  refine (live_rho_ltr (p := p) hl).mono hk ht hbal ?_
+  rintro _ ⟨x, hx, rfl⟩
+  exact ⟨x, hV hx, rfl⟩
 
-lemma sym_bound {L : ℕ} (d : Bool) (a b : ℕ) (ha : a < 7) (hb : b < 7)
-    (h : Imp [(d, autoV a, autoV b)] 0 L) : Imp [(d, a, b)] 0 L := by
-  exact imp_symZ auto_sym auto_raw (symE1 ⟨ha, hb⟩ (by simp [gimg])) h
+theorem impT_symZ {p : List ℕ} {g : ℕ → ℕ} {E E' : List (Bool × ℕ × ℕ)} {Z Z' L u : ℕ} (hs : symOk p Z Z' = true)
+    (hr : ∀ v < 7, rho p (rawP.getD v 0) = rawP.getD (g v) 0)
+    (hE : ∀ e ∈ E, e.2.1 < 7 ∧ e.2.2 < 7 ∧ ∃ e' ∈ E', tw e' = tw (gimg g e)) (h : ImpT E' Z' L u) : ImpT E Z L u := by
+  simp only [symOk, Bool.and_eq_true] at hs
+  have hm : rho p (mz Z) = mz Z' := Nat.eq_of_beq_eq_true hs.1
+  have hT : rho p (tz Z) = tz Z' := Nat.eq_of_beq_eq_true hs.2
+  intro q hq hsol
+  have h2 := LTR.rho (p := p) hsol
+  rw [hm, hT] at h2
+  refine h q hq (h2.mono le_rfl le_rfl le_rfl ?_)
+  rintro x ⟨y, hy, rfl⟩
+  rcases hy with ⟨w, hw, rfl⟩ | hy
+  · rw [rho_and, hm]
+    simp only [rawL, List.mem_append, List.mem_map] at hw
+    rcases hw with hw | ⟨e, he, rfl⟩
+    · obtain ⟨v, hv8, rfl⟩ := mem_rawP hw
+      rw [hr v hv8]
+      exact raw_avail E' (g v) Z'
+    · obtain ⟨h1, h2, e', he', htw⟩ := hE e he
+      have : rho p (tw e) = tw e' := by
+        rw [htw]
+        simp only [tw, gimg]
+        rw [rho_op, hr _ h1, hr _ h2]
+      rw [this]
+      exact Or.inl ⟨tw e', by simp only [rawL, List.mem_append, List.mem_map]; exact Or.inr ⟨e', he', rfl⟩, rfl⟩
+  · simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hy
+    rcases hy with h0 | h0
+    · rw [h0, rho_zero]; exact Or.inr (Set.mem_insert _ _)
+    · rw [h0, hm]; exact Or.inr (Set.mem_insert_of_mem _ rfl)
+
+lemma impT_gate_congr {e e' : Gt} {Z L u : Nat} (he : tw e = tw e')
+    (h : ImpT [e'] Z L u) : ImpT [e] Z L u := by
+  unfold ImpT WZ rawL at h ⊢
+  simpa only [List.map_cons, List.map_nil, he] using h
+
+lemma impT_gate_swap {d : Bool} {a b Z L u : Nat}
+    (h : ImpT [(d, a, b)] Z L u) : ImpT [(d, b, a)] Z L u := by
+  apply impT_gate_congr (h := h)
+  cases d <;> simp [tw, op, Nat.and_comm, Nat.or_comm]
+
+lemma sym_bound_t (d : Bool) (a b : Nat) (ha : a < 7) (hb : b < 7)
+    {L u : Nat} (h : ImpT [(d, autoV a, autoV b)] 0 L u) :
+    ImpT [(d, a, b)] 0 L u := by
+  exact impT_symZ auto_sym auto_raw (symE1 ⟨ha, hb⟩ (by simp [gimg])) h
 
 def gate0 : Gt := (false, 0, 2)
 def rows0 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [90, 32784, 32770, 16400, 40960, 24576, 12288, 33792, 32800, 32776, 16448, 16392, 16386, 8256, 8224, 8200, 32768, 16384, 74, 26, 8194, 72, 8192, 24, 18, 10, 64, 16, 8, 2]
@@ -6382,35 +6301,27 @@ lemma owned0_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns0 → Imp [gate0] x.1
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape0_checked : okTy [] acc_extraFive 12 0 gate0 owns0 codes0 (1, 0) [List.range 13] = true := by decide +kernel
-def masks_base0 : List (Nat × Nat) := [(0, 1), (((2 ^ 3 - 1) <<< 0), 0), (((2 ^ 1 - 1) <<< 3), 0), (((2 ^ 1 - 1) <<< 4), 0), (((2 ^ 1 - 1) <<< 5), 0), (((2 ^ 7 - 1) <<< 6), 0), (((2 ^ 13 - 1) <<< 13), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 6 - 1) <<< 53), 0), (((2 ^ 3 - 1) <<< 59), 0), (((2 ^ 2 - 1) <<< 62), 0), (((2 ^ 1 - 1) <<< 64), 0), (((2 ^ 1 - 1) <<< 65), 0), (((2 ^ 14 - 1) <<< 66), 0), (((2 ^ 6 - 1) <<< 80), 0), (((2 ^ 3 - 1) <<< 86), 0), (((2 ^ 4 - 1) <<< 89), 0), (((2 ^ 14 - 1) <<< 93), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 7 - 1) <<< 146), 0), (((2 ^ 7 - 1) <<< 153), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_base0 : List (Nat × Nat) := [(0, 1), ((2 ^ 3 - 1), 0), (((2 ^ 1 - 1) <<< 3), 0), (((2 ^ 1 - 1) <<< 4), 0), (((2 ^ 1 - 1) <<< 5), 0), (((2 ^ 7 - 1) <<< 6), 0), (((2 ^ 13 - 1) <<< 13), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 6 - 1) <<< 53), 0), (((2 ^ 3 - 1) <<< 59), 0), (((2 ^ 2 - 1) <<< 62), 0), (((2 ^ 1 - 1) <<< 64), 0), (((2 ^ 1 - 1) <<< 65), 0), (((2 ^ 14 - 1) <<< 66), 0), (((2 ^ 6 - 1) <<< 80), 0), (((2 ^ 3 - 1) <<< 86), 0), (((2 ^ 4 - 1) <<< 89), 0), (((2 ^ 14 - 1) <<< 93), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 7 - 1) <<< 146), 0), (((2 ^ 7 - 1) <<< 153), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_base0_full : mFull masks_base0 = true := by decide +kernel
 noncomputable def run_base0 (p : Nat × Nat) : Bool :=
-  chkT topC [gate0] (tabE gate0 owns0 (pick acc_extraFive codes0)) (1, 0) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate0] (tabE gate0 owns0 (pick acc_extraFive codes0)) (1, 0) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base0_0 : run_base0 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_base0_1 : run_base0 (((2 ^ 3 - 1) <<< 0), 0) = false := by decide +kernel
+def split_base0_1 : run_base0 ((2 ^ 3 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base0_2 : run_base0 (((2 ^ 1 - 1) <<< 3), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base0_3 : run_base0 (((2 ^ 1 - 1) <<< 4), 0) = false := by decide +kernel
-noncomputable def count_base0_5 (ts : List Nat) : Bool :=
-  chkT topC [gate0] (tabE gate0 owns0 (pick acc_extraFive codes0)) (1, 0) 0 12 ts ((2 ^ 1 - 1) <<< 5) 0
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def count_base0_5_zero : count_base0_5 [0] = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def count_base0_5_one : count_base0_5 [1] = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def count_base0_5_more : count_base0_5 ((List.range 13).drop 2) = false := by decide +kernel
-def split_base0_4 : run_base0 (((2 ^ 1 - 1) <<< 5), 0) = false :=
-  chkT_count_split count_base0_5_zero count_base0_5_one count_base0_5_more
+def split_base0_4 : run_base0 (((2 ^ 1 - 1) <<< 5), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base0_5 : run_base0 (((2 ^ 7 - 1) <<< 6), 0) = false := by decide +kernel
@@ -6432,19 +6343,9 @@ def split_base0_10 : run_base0 (((2 ^ 2 - 1) <<< 62), 0) = false := by decide +k
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base0_11 : run_base0 (((2 ^ 1 - 1) <<< 64), 0) = false := by decide +kernel
-noncomputable def count_base0_65 (ts : List Nat) : Bool :=
-  chkT topC [gate0] (tabE gate0 owns0 (pick acc_extraFive codes0)) (1, 0) 0 12 ts ((2 ^ 1 - 1) <<< 65) 0
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def count_base0_65_zero : count_base0_65 [0] = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def count_base0_65_one : count_base0_65 [1] = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def count_base0_65_more : count_base0_65 ((List.range 13).drop 2) = false := by decide +kernel
-def split_base0_12 : run_base0 (((2 ^ 1 - 1) <<< 65), 0) = false :=
-  chkT_count_split count_base0_65_zero count_base0_65_one count_base0_65_more
+def split_base0_12 : run_base0 (((2 ^ 1 - 1) <<< 65), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base0_13 : run_base0 (((2 ^ 14 - 1) <<< 66), 0) = false := by decide +kernel
@@ -6475,7 +6376,7 @@ def split_base0_21 : run_base0 (((2 ^ 7 - 1) <<< 153), 0) = false := by decide +
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base0_22 : run_base0 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case0_bound (h0 : Imp [] 0 13) : Imp [gate0] 0 13 := by
+lemma case0_bound (h0 : Imp [] 0 13) : ImpT [gate0] 0 13 1 := by
   have hc : ∀ p ∈ masks_base0, run_base0 p = false := by
     intro p hp
     simp only [masks_base0, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -6503,8 +6404,7 @@ lemma case0_bound (h0 : Imp [] 0 13) : Imp [gate0] 0 13 := by
     · exact split_base0_20
     · exact split_base0_21
     · exact split_base0_22
-  exact ty_imp_shards accBounds_extraFive owned0_bounds shape0_checked masks_base0_full hc h0 (by simp)
-
+  exact ty_imp_shards_t accBounds_extraFive owned0_bounds shape0_checked masks_base0_full hc h0 (by simp)
 def gate1 : Gt := (false, 0, 5)
 def prior1 : List Gt := [(false, 0, 2)]
 def rows1 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [92, 90, 86, 78, 32784, 32770, 76, 40960, 12288, 6144, 33792, 3072, 32776, 32772, 8256, 8200, 4112, 4100, 2056, 2050, 1088, 1028, 88, 82, 70, 8198, 4162, 2128, 1048, 32768, 84, 74, 28, 26, 22, 14, 8196, 8194, 4160, 4098, 2112, 2064, 1040, 1032, 72, 68, 12, 8192, 4096, 2048, 1024, 80, 66, 24, 20, 18, 10, 6, 64, 16, 8, 4, 2]
@@ -6519,16 +6419,18 @@ lemma owned1_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns1 → Imp [gate1] x.1
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape1_checked : okTy prior1 acc_extraFive 12 prior1.length gate1 owns1 codes1 (20, 64) [List.range 13] = true := by decide +kernel
-def masks_base1 : List (Nat × Nat) := [(0, 1), (((2 ^ 53 - 1) <<< 0), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_base1 : List (Nat × Nat) := [(0, 1), ((2 ^ 53 - 1), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_base1_full : mFull masks_base1 = true := by decide +kernel
 noncomputable def run_base1 (p : Nat × Nat) : Bool :=
-  chkT topC [gate1] (tabE gate1 owns1 (pick acc_extraFive codes1)) (20, 64) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate1] (tabE gate1 owns1 (pick acc_extraFive codes1)) (20, 64) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base1_0 : run_base1 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_base1_1 : run_base1 (((2 ^ 53 - 1) <<< 0), 0) = false := by decide +kernel
+def split_base1_1 : run_base1 ((2 ^ 53 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base1_2 : run_base1 (((2 ^ 54 - 1) <<< 53), 0) = false := by decide +kernel
@@ -6538,7 +6440,7 @@ def split_base1_3 : run_base1 (((2 ^ 53 - 1) <<< 107), 0) = false := by decide +
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base1_4 : run_base1 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case1_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior1, Imp [f] 0 13) : Imp [gate1] 0 13 := by
+lemma case1_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior1, ImpT [f] 0 13 1) : ImpT [gate1] 0 13 1 := by
   have hc : ∀ p ∈ masks_base1, run_base1 p = false := by
     intro p hp
     simp only [masks_base1, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -6548,8 +6450,7 @@ lemma case1_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior1, Imp [f] 0 13) : Imp
     · exact split_base1_2
     · exact split_base1_3
     · exact split_base1_4
-  exact ty_imp_shards accBounds_extraFive owned1_bounds shape1_checked masks_base1_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned1_bounds shape1_checked masks_base1_full hc h0 (by simpa using hF)
 def gate2 : Gt := (false, 0, 6)
 def prior2 : List Gt := [(false, 0, 2), (false, 0, 5)]
 def rows2 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [54, 46, 16400, 16388, 24576, 12288, 18432, 6144, 3072, 16392, 16386, 8224, 8200, 4112, 4100, 2080, 2056, 2050, 38, 8198, 4130, 16384, 50, 42, 22, 14, 8196, 8194, 4128, 4098, 2064, 12, 8192, 4096, 2048, 40, 34, 20, 18, 10, 6, 32, 16, 8, 4, 2]
@@ -6564,16 +6465,18 @@ lemma owned2_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns2 → Imp [gate2] x.1
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape2_checked : okTy prior2 acc_extraFive 12 prior2.length gate2 owns2 codes2 (26, 4198400) [List.range 13] = true := by decide +kernel
-def masks_base2 : List (Nat × Nat) := [(0, 1), (((2 ^ 26 - 1) <<< 0), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 27 - 1) <<< 53), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 14 - 1) <<< 146), 0), (((2 ^ 27 - 1) <<< 160), 0), (((2 ^ 27 - 1) <<< 187), 0)]
+def masks_base2 : List (Nat × Nat) := [(0, 1), ((2 ^ 26 - 1), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 27 - 1) <<< 53), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 14 - 1) <<< 146), 0), (((2 ^ 27 - 1) <<< 160), 0), (((2 ^ 27 - 1) <<< 187), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_base2_full : mFull masks_base2 = true := by decide +kernel
 noncomputable def run_base2 (p : Nat × Nat) : Bool :=
-  chkT topC [gate2] (tabE gate2 owns2 (pick acc_extraFive codes2)) (26, 4198400) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate2] (tabE gate2 owns2 (pick acc_extraFive codes2)) (26, 4198400) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base2_0 : run_base2 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_base2_1 : run_base2 (((2 ^ 26 - 1) <<< 0), 0) = false := by decide +kernel
+def split_base2_1 : run_base2 ((2 ^ 26 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base2_2 : run_base2 (((2 ^ 27 - 1) <<< 26), 0) = false := by decide +kernel
@@ -6598,7 +6501,7 @@ def split_base2_8 : run_base2 (((2 ^ 27 - 1) <<< 160), 0) = false := by decide +
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base2_9 : run_base2 (((2 ^ 27 - 1) <<< 187), 0) = false := by decide +kernel
-lemma case2_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior2, Imp [f] 0 13) : Imp [gate2] 0 13 := by
+lemma case2_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior2, ImpT [f] 0 13 1) : ImpT [gate2] 0 13 1 := by
   have hc : ∀ p ∈ masks_base2, run_base2 p = false := by
     intro p hp
     simp only [masks_base2, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -6613,8 +6516,7 @@ lemma case2_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior2, Imp [f] 0 13) : Imp
     · exact split_base2_7
     · exact split_base2_8
     · exact split_base2_9
-  exact ty_imp_shards accBounds_extraFive owned2_bounds shape2_checked masks_base2_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned2_bounds shape2_checked masks_base2_full hc h0 (by simpa using hF)
 def gate4 : Gt := (true, 1, 2)
 def prior4 : List Gt := [(false, 0, 2), (false, 0, 5), (false, 0, 6), (false, 5, 6)]
 def rows4 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [120, 113, 89, 57, 32784, 16400, 520, 112, 32800, 32776, 32769, 16448, 16392, 16385, 4112, 4097, 576, 544, 528, 88, 81, 56, 49, 25, 4192, 32768, 16384, 512, 4160, 4128, 72, 4096, 80, 48, 40, 24, 17, 64, 32, 16, 8]
@@ -6629,16 +6531,18 @@ lemma owned4_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns4 → Imp [gate4] x.1
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape4_checked : okTy prior4 acc_extraFive 12 prior4.length gate4 owns4 codes4 (46, 4415494816768) [List.range 13] = true := by decide +kernel
-def masks_base4 : List (Nat × Nat) := [(0, 1), (((2 ^ 53 - 1) <<< 0), 0), (((2 ^ 27 - 1) <<< 53), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 14 - 1) <<< 146), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_base4 : List (Nat × Nat) := [(0, 1), ((2 ^ 53 - 1), 0), (((2 ^ 27 - 1) <<< 53), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 14 - 1) <<< 146), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_base4_full : mFull masks_base4 = true := by decide +kernel
 noncomputable def run_base4 (p : Nat × Nat) : Bool :=
-  chkT topC [gate4] (tabE gate4 owns4 (pick acc_extraFive codes4)) (46, 4415494816768) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate4] (tabE gate4 owns4 (pick acc_extraFive codes4)) (46, 4415494816768) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base4_0 : run_base4 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_base4_1 : run_base4 (((2 ^ 53 - 1) <<< 0), 0) = false := by decide +kernel
+def split_base4_1 : run_base4 ((2 ^ 53 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base4_2 : run_base4 (((2 ^ 27 - 1) <<< 53), 0) = false := by decide +kernel
@@ -6657,7 +6561,7 @@ def split_base4_6 : run_base4 (((2 ^ 14 - 1) <<< 146), 0) = false := by decide +
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base4_7 : run_base4 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case4_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior4, Imp [f] 0 13) : Imp [gate4] 0 13 := by
+lemma case4_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior4, ImpT [f] 0 13 1) : ImpT [gate4] 0 13 1 := by
   have hc : ∀ p ∈ masks_base4, run_base4 p = false := by
     intro p hp
     simp only [masks_base4, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -6670,8 +6574,7 @@ lemma case4_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior4, Imp [f] 0 13) : Imp
     · exact split_base4_5
     · exact split_base4_6
     · exact split_base4_7
-  exact ty_imp_shards accBounds_extraFive owned4_bounds shape4_checked masks_base4_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned4_bounds shape4_checked masks_base4_full hc h0 (by simpa using hF)
 def gate5 : Gt := (false, 1, 4)
 def prior5 : List Gt := [(false, 0, 2), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2)]
 def rows5 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [108, 105, 101, 77, 16388, 520, 76, 18432, 6144, 4608, 16448, 16392, 16385, 4100, 4097, 2080, 2056, 576, 544, 516, 100, 97, 73, 4192, 2113, 16384, 512, 104, 69, 4160, 4128, 2112, 2049, 72, 68, 12, 4096, 2048, 96, 65, 64, 8, 4]
@@ -6686,16 +6589,18 @@ lemma owned5_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns5 → Imp [gate5] x.1
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape5_checked : okTy prior5 acc_extraFive 12 prior5.length gate5 owns5 codes5 (46, 4415494816770) [List.range 13] = true := by decide +kernel
-def masks_base5 : List (Nat × Nat) := [(0, 1), (((2 ^ 26 - 1) <<< 0), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 13 - 1) <<< 53), 0), (((2 ^ 7 - 1) <<< 66), 0), (((2 ^ 7 - 1) <<< 73), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 6 - 1) <<< 133), 0), (((2 ^ 7 - 1) <<< 139), 0), (((2 ^ 14 - 1) <<< 146), 0), (((2 ^ 27 - 1) <<< 160), 0), (((2 ^ 27 - 1) <<< 187), 0)]
+def masks_base5 : List (Nat × Nat) := [(0, 1), ((2 ^ 26 - 1), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 13 - 1) <<< 53), 0), (((2 ^ 7 - 1) <<< 66), 0), (((2 ^ 7 - 1) <<< 73), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 6 - 1) <<< 133), 0), (((2 ^ 7 - 1) <<< 139), 0), (((2 ^ 14 - 1) <<< 146), 0), (((2 ^ 27 - 1) <<< 160), 0), (((2 ^ 27 - 1) <<< 187), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_base5_full : mFull masks_base5 = true := by decide +kernel
 noncomputable def run_base5 (p : Nat × Nat) : Bool :=
-  chkT topC [gate5] (tabE gate5 owns5 (pick acc_extraFive codes5)) (46, 4415494816770) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate5] (tabE gate5 owns5 (pick acc_extraFive codes5)) (46, 4415494816770) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base5_0 : run_base5 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_base5_1 : run_base5 (((2 ^ 26 - 1) <<< 0), 0) = false := by decide +kernel
+def split_base5_1 : run_base5 ((2 ^ 26 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base5_2 : run_base5 (((2 ^ 27 - 1) <<< 26), 0) = false := by decide +kernel
@@ -6729,7 +6634,7 @@ def split_base5_11 : run_base5 (((2 ^ 27 - 1) <<< 160), 0) = false := by decide 
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_base5_12 : run_base5 (((2 ^ 27 - 1) <<< 187), 0) = false := by decide +kernel
-lemma case5_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior5, Imp [f] 0 13) : Imp [gate5] 0 13 := by
+lemma case5_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior5, ImpT [f] 0 13 1) : ImpT [gate5] 0 13 1 := by
   have hc : ∀ p ∈ masks_base5, run_base5 p = false := by
     intro p hp
     simp only [masks_base5, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -6747,8 +6652,7 @@ lemma case5_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior5, Imp [f] 0 13) : Imp
     · exact split_base5_10
     · exact split_base5_11
     · exact split_base5_12
-  exact ty_imp_shards accBounds_extraFive owned5_bounds shape5_checked masks_base5_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned5_bounds shape5_checked masks_base5_full hc h0 (by simpa using hF)
 def gate_s0 : Gt := (false, 0, 1)
 def prior_s0 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4)]
 def rows_s0 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [120, 116, 60, 108, 92, 32784, 16400, 16388, 112, 76, 40960, 24576, 12288, 18432, 6144, 32800, 32776, 32772, 16448, 16392, 8256, 8224, 8200, 4112, 4100, 2080, 2056, 100, 88, 56, 52, 44, 4192, 2128, 32768, 16384, 104, 84, 28, 8196, 4160, 4128, 2112, 2064, 72, 68, 12, 8192, 4096, 2048, 96, 80, 48, 40, 36, 24, 20, 64, 32, 16, 8, 4]
@@ -6763,12 +6667,22 @@ lemma owned_s0_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s0 → Imp [gate_s
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s0_checked : okTy prior_s0 acc_extraFive 12 prior_s0.length gate_s0 owns_s0 codes_s0 (121, ((0x80c000000080 <<< 64) + 0x8200020000000400)) [List.range 13] = true := by decide +kernel
+def masks_sym0 : List (Nat × Nat) := [((2 ^ 214 - 1), 1)]
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def search_s0_checked : [List.range 13].all (okTs acc_extraFive 12 gate_s0 owns_s0 codes_s0 (121, ((0x80c000000080 <<< 64) + 0x8200020000000400))) = true := by decide +kernel
-lemma case_s0_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s0, Imp [f] 0 13) : Imp [gate_s0] 0 13 :=
-  ty_imp accBounds_extraFive owned_s0_bounds shape_s0_checked search_s0_checked (by decide) h0 (by simpa using hF)
-
+def masks_sym0_full : mFull masks_sym0 = true := by decide +kernel
+noncomputable def run_sym0 (p : Nat × Nat) : Bool :=
+  chkT topC [gate_s0] (tabE gate_s0 owns_s0 (pick acc_extraFive codes_s0)) (121, ((0x80c000000080 <<< 64) + 0x8200020000000400)) 0 12 [1] p.1 p.2
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def split_sym0_0 : run_sym0 ((2 ^ 214 - 1), 1) = false := by decide +kernel
+lemma case_s0_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s0, ImpT [f] 0 13 1) : ImpT [gate_s0] 0 13 1 := by
+  have hc : ∀ p ∈ masks_sym0, run_sym0 p = false := by
+    intro p hp
+    simp only [masks_sym0, List.mem_cons, List.not_mem_nil, or_false] at hp
+    rcases hp with rfl
+    · exact split_sym0_0
+  exact ty_imp_shards_t accBounds_extraFive owned_s0_bounds shape_s0_checked masks_sym0_full hc h0 (by simpa using hF)
 def gate_s1 : Gt := (false, 0, 3)
 def prior_s1 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5)]
 def rows_s1 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [116, 114, 102, 86, 54, 32784, 32770, 16400, 16388, 112, 40960, 24576, 18432, 33792, 3072, 32800, 32772, 16448, 16386, 8256, 8224, 2080, 2050, 1088, 1028, 100, 98, 82, 70, 52, 38, 8198, 2128, 1072, 32768, 16384, 84, 50, 22, 8196, 8194, 2112, 2064, 1056, 1040, 68, 8192, 2048, 1024, 96, 80, 66, 48, 36, 34, 20, 18, 6, 64, 32, 16, 4, 2]
@@ -6783,12 +6697,22 @@ lemma owned_s1_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s1 → Imp [gate_s
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s1_checked : okTy prior_s1 acc_extraFive 12 prior_s1.length gate_s1 owns_s1 codes_s1 (125, ((0x1000000100082000 <<< 64) + 0x0000200000401004)) [List.range 13] = true := by decide +kernel
+def masks_sym1 : List (Nat × Nat) := [((2 ^ 214 - 1), 1)]
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def search_s1_checked : [List.range 13].all (okTs acc_extraFive 12 gate_s1 owns_s1 codes_s1 (125, ((0x1000000100082000 <<< 64) + 0x0000200000401004))) = true := by decide +kernel
-lemma case_s1_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s1, Imp [f] 0 13) : Imp [gate_s1] 0 13 :=
-  ty_imp accBounds_extraFive owned_s1_bounds shape_s1_checked search_s1_checked (by decide) h0 (by simpa using hF)
-
+def masks_sym1_full : mFull masks_sym1 = true := by decide +kernel
+noncomputable def run_sym1 (p : Nat × Nat) : Bool :=
+  chkT topC [gate_s1] (tabE gate_s1 owns_s1 (pick acc_extraFive codes_s1)) (125, ((0x1000000100082000 <<< 64) + 0x0000200000401004)) 0 12 [1] p.1 p.2
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def split_sym1_0 : run_sym1 ((2 ^ 214 - 1), 1) = false := by decide +kernel
+lemma case_s1_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s1, ImpT [f] 0 13 1) : ImpT [gate_s1] 0 13 1 := by
+  have hc : ∀ p ∈ masks_sym1, run_sym1 p = false := by
+    intro p hp
+    simp only [masks_sym1, List.mem_cons, List.not_mem_nil, or_false] at hp
+    rcases hp with rfl
+    · exact split_sym1_0
+  exact ty_imp_shards_t accBounds_extraFive owned_s1_bounds shape_s1_checked masks_sym1_full hc h0 (by simpa using hF)
 def gate_s2 : Gt := (false, 1, 2)
 def prior_s2 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5)]
 def rows_s2 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [120, 113, 89, 57, 105, 32784, 16400, 520, 112, 40960, 24576, 12288, 4608, 32800, 32776, 32769, 16448, 16392, 16385, 8256, 8224, 8200, 4112, 4097, 576, 544, 528, 97, 88, 81, 73, 56, 49, 41, 25, 4192, 32768, 16384, 512, 104, 8193, 4160, 4128, 72, 8192, 4096, 96, 80, 65, 48, 40, 33, 24, 17, 9, 64, 32, 16, 8, 1]
@@ -6803,12 +6727,22 @@ lemma owned_s2_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s2 → Imp [gate_s
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s2_checked : okTy prior_s2 acc_extraFive 12 prior_s2.length gate_s2 owns_s2 codes_s2 (78, ((0x2c41 <<< 64) + 0x0400000141000094)) [List.range 13] = true := by decide +kernel
+def masks_sym2 : List (Nat × Nat) := [((2 ^ 214 - 1), 1)]
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def search_s2_checked : [List.range 13].all (okTs acc_extraFive 12 gate_s2 owns_s2 codes_s2 (78, ((0x2c41 <<< 64) + 0x0400000141000094))) = true := by decide +kernel
-lemma case_s2_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s2, Imp [f] 0 13) : Imp [gate_s2] 0 13 :=
-  ty_imp accBounds_extraFive owned_s2_bounds shape_s2_checked search_s2_checked (by decide) h0 (by simpa using hF)
-
+def masks_sym2_full : mFull masks_sym2 = true := by decide +kernel
+noncomputable def run_sym2 (p : Nat × Nat) : Bool :=
+  chkT topC [gate_s2] (tabE gate_s2 owns_s2 (pick acc_extraFive codes_s2)) (78, ((0x2c41 <<< 64) + 0x0400000141000094)) 0 12 [1] p.1 p.2
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def split_sym2_0 : run_sym2 ((2 ^ 214 - 1), 1) = false := by decide +kernel
+lemma case_s2_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s2, ImpT [f] 0 13 1) : ImpT [gate_s2] 0 13 1 := by
+  have hc : ∀ p ∈ masks_sym2, run_sym2 p = false := by
+    intro p hp
+    simp only [masks_sym2, List.mem_cons, List.not_mem_nil, or_false] at hp
+    rcases hp with rfl
+    · exact split_sym2_0
+  exact ty_imp_shards_t accBounds_extraFive owned_s2_bounds shape_s2_checked masks_sym2_full hc h0 (by simpa using hF)
 def gate_s3 : Gt := (false, 1, 6)
 def prior_s3 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4)]
 def rows_s3 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [60, 57, 45, 53, 29, 16400, 16388, 520, 24576, 12288, 18432, 6144, 4608, 16392, 16385, 8224, 8200, 4112, 4100, 4097, 2080, 2056, 544, 528, 516, 56, 52, 49, 44, 41, 37, 25, 13, 8197, 2065, 16384, 512, 28, 21, 8196, 8193, 4128, 2064, 2049, 12, 8192, 4096, 2048, 48, 40, 36, 33, 24, 20, 17, 9, 5, 32, 16, 8, 4, 1]
@@ -6823,16 +6757,18 @@ lemma owned_s3_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s3 → Imp [gate_s
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s3_checked : okTy prior_s3 acc_extraFive 12 prior_s3.length gate_s3 owns_s3 codes_s3 (114, ((0xb1010001000 <<< 64) + 0x0010002001201112)) [List.range 13] = true := by decide +kernel
-def masks_sym3 : List (Nat × Nat) := [(0, 1), (((2 ^ 53 - 1) <<< 0), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_sym3 : List (Nat × Nat) := [(0, 1), ((2 ^ 53 - 1), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym3_full : mFull masks_sym3 = true := by decide +kernel
 noncomputable def run_sym3 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s3] (tabE gate_s3 owns_s3 (pick acc_extraFive codes_s3)) (114, ((0xb1010001000 <<< 64) + 0x0010002001201112)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s3] (tabE gate_s3 owns_s3 (pick acc_extraFive codes_s3)) (114, ((0xb1010001000 <<< 64) + 0x0010002001201112)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym3_0 : run_sym3 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym3_1 : run_sym3 (((2 ^ 53 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym3_1 : run_sym3 ((2 ^ 53 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym3_2 : run_sym3 (((2 ^ 54 - 1) <<< 53), 0) = false := by decide +kernel
@@ -6842,7 +6778,7 @@ def split_sym3_3 : run_sym3 (((2 ^ 53 - 1) <<< 107), 0) = false := by decide +ke
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym3_4 : run_sym3 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case_s3_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s3, Imp [f] 0 13) : Imp [gate_s3] 0 13 := by
+lemma case_s3_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s3, ImpT [f] 0 13 1) : ImpT [gate_s3] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym3, run_sym3 p = false := by
     intro p hp
     simp only [masks_sym3, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -6852,8 +6788,7 @@ lemma case_s3_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s3, Imp [f] 0 13) :
     · exact split_sym3_2
     · exact split_sym3_3
     · exact split_sym3_4
-  exact ty_imp_shards accBounds_extraFive owned_s3_bounds shape_s3_checked masks_sym3_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s3_bounds shape_s3_checked masks_sym3_full hc h0 (by simpa using hF)
 def gate_s4 : Gt := (false, 2, 3)
 def prior_s4 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6)]
 def rows_s4 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [114, 113, 99, 83, 51, 32784, 32770, 16400, 514, 112, 67, 40960, 24576, 33792, 1536, 32800, 32769, 16448, 16386, 16385, 8256, 8224, 1088, 1025, 576, 544, 528, 98, 97, 82, 81, 49, 35, 8195, 1072, 32768, 16384, 512, 50, 19, 8194, 8193, 1056, 1040, 8192, 1024, 96, 80, 66, 65, 48, 34, 33, 18, 17, 3, 64, 32, 16, 2, 1]
@@ -6868,16 +6803,18 @@ lemma owned_s4_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s4 → Imp [gate_s
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s4_checked : okTy prior_s4 acc_extraFive 12 prior_s4.length gate_s4 owns_s4 codes_s4 (150, ((((0x100000 <<< 64) + 0x0000008220000000) <<< 64) + 0x4470c00009100004)) [List.range 13] = true := by decide +kernel
-def masks_sym4 : List (Nat × Nat) := [(0, 1), (((2 ^ 53 - 1) <<< 0), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_sym4 : List (Nat × Nat) := [(0, 1), ((2 ^ 53 - 1), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym4_full : mFull masks_sym4 = true := by decide +kernel
 noncomputable def run_sym4 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s4] (tabE gate_s4 owns_s4 (pick acc_extraFive codes_s4)) (150, ((((0x100000 <<< 64) + 0x0000008220000000) <<< 64) + 0x4470c00009100004)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s4] (tabE gate_s4 owns_s4 (pick acc_extraFive codes_s4)) (150, ((((0x100000 <<< 64) + 0x0000008220000000) <<< 64) + 0x4470c00009100004)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym4_0 : run_sym4 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym4_1 : run_sym4 (((2 ^ 53 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym4_1 : run_sym4 ((2 ^ 53 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym4_2 : run_sym4 (((2 ^ 54 - 1) <<< 53), 0) = false := by decide +kernel
@@ -6887,7 +6824,7 @@ def split_sym4_3 : run_sym4 (((2 ^ 53 - 1) <<< 107), 0) = false := by decide +ke
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym4_4 : run_sym4 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case_s4_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s4, Imp [f] 0 13) : Imp [gate_s4] 0 13 := by
+lemma case_s4_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s4, ImpT [f] 0 13 1) : ImpT [gate_s4] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym4, run_sym4 p = false := by
     intro p hp
     simp only [masks_sym4, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -6897,8 +6834,7 @@ lemma case_s4_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s4, Imp [f] 0 13) :
     · exact split_sym4_2
     · exact split_sym4_3
     · exact split_sym4_4
-  exact ty_imp_shards accBounds_extraFive owned_s4_bounds shape_s4_checked masks_sym4_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s4_bounds shape_s4_checked masks_sym4_full hc h0 (by simpa using hF)
 def gate_s5 : Gt := (false, 0, 4)
 def prior_s5 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3)]
 def rows_s5 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [108, 78, 46, 32770, 16388, 76, 18432, 6144, 33792, 3072, 32800, 32776, 32772, 16448, 16392, 16386, 2080, 2056, 2050, 1088, 1028, 44, 1064, 32768, 16384, 104, 74, 42, 14, 2112, 1056, 1032, 72, 68, 12, 2048, 1024, 40, 34, 10, 64, 32, 8, 4, 2]
@@ -6913,16 +6849,18 @@ lemma owned_s5_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s5 → Imp [gate_s
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s5_checked : okTy prior_s5 acc_extraFive 12 prior_s5.length gate_s5 owns_s5 codes_s5 (139, ((((0x188 <<< 64) + 0x00c0000000058400) <<< 64) + 0x5020021000400001)) [List.range 13] = true := by decide +kernel
-def masks_sym5 : List (Nat × Nat) := [(0, 1), (((2 ^ 26 - 1) <<< 0), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_sym5 : List (Nat × Nat) := [(0, 1), ((2 ^ 26 - 1), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym5_full : mFull masks_sym5 = true := by decide +kernel
 noncomputable def run_sym5 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s5] (tabE gate_s5 owns_s5 (pick acc_extraFive codes_s5)) (139, ((((0x188 <<< 64) + 0x00c0000000058400) <<< 64) + 0x5020021000400001)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s5] (tabE gate_s5 owns_s5 (pick acc_extraFive codes_s5)) (139, ((((0x188 <<< 64) + 0x00c0000000058400) <<< 64) + 0x5020021000400001)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym5_0 : run_sym5 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym5_1 : run_sym5 (((2 ^ 26 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym5_1 : run_sym5 ((2 ^ 26 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym5_2 : run_sym5 (((2 ^ 27 - 1) <<< 26), 0) = false := by decide +kernel
@@ -6935,7 +6873,7 @@ def split_sym5_4 : run_sym5 (((2 ^ 53 - 1) <<< 107), 0) = false := by decide +ke
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym5_5 : run_sym5 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case_s5_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s5, Imp [f] 0 13) : Imp [gate_s5] 0 13 := by
+lemma case_s5_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s5, ImpT [f] 0 13 1) : ImpT [gate_s5] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym5, run_sym5 p = false := by
     intro p hp
     simp only [masks_sym5, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -6946,8 +6884,7 @@ lemma case_s5_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s5, Imp [f] 0 13) :
     · exact split_sym5_3
     · exact split_sym5_4
     · exact split_sym5_5
-  exact ty_imp_shards accBounds_extraFive owned_s5_bounds shape_s5_checked masks_sym5_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s5_bounds shape_s5_checked masks_sym5_full hc h0 (by simpa using hF)
 def gate_s6 : Gt := (false, 1, 3)
 def prior_s6 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5)]
 def rows_s6 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [101, 53, 32784, 16400, 16388, 40960, 24576, 18432, 32800, 32772, 32769, 16448, 16385, 8256, 8224, 37, 8197, 32768, 16384, 69, 21, 8196, 8193, 68, 8192, 20, 17, 5, 64, 16, 4, 1]
@@ -6962,16 +6899,18 @@ lemma owned_s6_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s6 → Imp [gate_s
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s6_checked : okTy prior_s6 acc_extraFive 12 prior_s6.length gate_s6 owns_s6 codes_s6 (108, ((0xc1040 <<< 64) + 0x00800044e4214b01)) [List.range 13] = true := by decide +kernel
-def masks_sym6 : List (Nat × Nat) := [(0, 1), (((2 ^ 26 - 1) <<< 0), 0), (((2 ^ 6 - 1) <<< 26), 0), (((2 ^ 7 - 1) <<< 32), 0), (((2 ^ 7 - 1) <<< 39), 0), (((2 ^ 1 - 1) <<< 46), 0), (((2 ^ 1 - 1) <<< 47), 0), (((2 ^ 1 - 1) <<< 48), 0), (((2 ^ 4 - 1) <<< 49), 0), (((2 ^ 3 - 1) <<< 53), 0), (((2 ^ 3 - 1) <<< 56), 0), (((2 ^ 7 - 1) <<< 59), 0), (((2 ^ 14 - 1) <<< 66), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 13 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 120), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 7 - 1) <<< 146), 0), (((2 ^ 7 - 1) <<< 153), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_sym6 : List (Nat × Nat) := [(0, 1), ((2 ^ 26 - 1), 0), (((2 ^ 6 - 1) <<< 26), 0), (((2 ^ 7 - 1) <<< 32), 0), (((2 ^ 7 - 1) <<< 39), 0), (((2 ^ 1 - 1) <<< 46), 0), (((2 ^ 1 - 1) <<< 47), 0), (((2 ^ 1 - 1) <<< 48), 0), (((2 ^ 4 - 1) <<< 49), 0), (((2 ^ 3 - 1) <<< 53), 0), (((2 ^ 3 - 1) <<< 56), 0), (((2 ^ 7 - 1) <<< 59), 0), (((2 ^ 14 - 1) <<< 66), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 13 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 120), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 7 - 1) <<< 146), 0), (((2 ^ 7 - 1) <<< 153), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym6_full : mFull masks_sym6 = true := by decide +kernel
 noncomputable def run_sym6 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s6] (tabE gate_s6 owns_s6 (pick acc_extraFive codes_s6)) (108, ((0xc1040 <<< 64) + 0x00800044e4214b01)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s6] (tabE gate_s6 owns_s6 (pick acc_extraFive codes_s6)) (108, ((0xc1040 <<< 64) + 0x00800044e4214b01)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym6_0 : run_sym6 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym6_1 : run_sym6 (((2 ^ 26 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym6_1 : run_sym6 ((2 ^ 26 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym6_2 : run_sym6 (((2 ^ 6 - 1) <<< 26), 0) = false := by decide +kernel
@@ -6984,19 +6923,9 @@ def split_sym6_4 : run_sym6 (((2 ^ 7 - 1) <<< 39), 0) = false := by decide +kern
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym6_5 : run_sym6 (((2 ^ 1 - 1) <<< 46), 0) = false := by decide +kernel
-noncomputable def count_sym6_47 (ts : List Nat) : Bool :=
-  chkT topC [gate_s6] (tabE gate_s6 owns_s6 (pick acc_extraFive codes_s6)) (108, ((0xc1040 <<< 64) + 0x00800044e4214b01)) 0 12 ts ((2 ^ 1 - 1) <<< 47) 0
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def count_sym6_47_zero : count_sym6_47 [0] = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def count_sym6_47_one : count_sym6_47 [1] = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def count_sym6_47_more : count_sym6_47 ((List.range 13).drop 2) = false := by decide +kernel
-def split_sym6_6 : run_sym6 (((2 ^ 1 - 1) <<< 47), 0) = false :=
-  chkT_count_split count_sym6_47_zero count_sym6_47_one count_sym6_47_more
+def split_sym6_6 : run_sym6 (((2 ^ 1 - 1) <<< 47), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym6_7 : run_sym6 (((2 ^ 1 - 1) <<< 48), 0) = false := by decide +kernel
@@ -7036,7 +6965,7 @@ def split_sym6_18 : run_sym6 (((2 ^ 7 - 1) <<< 153), 0) = false := by decide +ke
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym6_19 : run_sym6 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case_s6_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s6, Imp [f] 0 13) : Imp [gate_s6] 0 13 := by
+lemma case_s6_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s6, ImpT [f] 0 13 1) : ImpT [gate_s6] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym6, run_sym6 p = false := by
     intro p hp
     simp only [masks_sym6, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -7061,8 +6990,7 @@ lemma case_s6_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s6, Imp [f] 0 13) :
     · exact split_sym6_17
     · exact split_sym6_18
     · exact split_sym6_19
-  exact ty_imp_shards accBounds_extraFive owned_s6_bounds shape_s6_checked masks_sym6_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s6_bounds shape_s6_checked masks_sym6_full hc h0 (by simpa using hF)
 def gate_s7 : Gt := (false, 2, 6)
 def prior_s7 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4)]
 def rows_s7 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [51, 43, 27, 16400, 520, 514, 24576, 12288, 4608, 1536, 16392, 16386, 16385, 8224, 8200, 4112, 4097, 544, 528, 35, 11, 8195, 4130, 16384, 512, 50, 42, 26, 19, 8194, 8193, 4128, 4098, 8192, 4096, 40, 34, 24, 18, 10, 3, 32, 16, 8, 2]
@@ -7077,16 +7005,18 @@ lemma owned_s7_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s7 → Imp [gate_s
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s7_checked : okTy prior_s7 acc_extraFive 12 prior_s7.length gate_s7 owns_s7 codes_s7 (206, ((((((0x400 <<< 64) + 0x4200000004000101) <<< 64) + 0x2000000000008306) <<< 64) + 0x2400040001081800)) [List.range 13] = true := by decide +kernel
-def masks_sym7 : List (Nat × Nat) := [(0, 1), (((2 ^ 26 - 1) <<< 0), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 14 - 1) <<< 146), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_sym7 : List (Nat × Nat) := [(0, 1), ((2 ^ 26 - 1), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 14 - 1) <<< 146), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym7_full : mFull masks_sym7 = true := by decide +kernel
 noncomputable def run_sym7 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s7] (tabE gate_s7 owns_s7 (pick acc_extraFive codes_s7)) (206, ((((((0x400 <<< 64) + 0x4200000004000101) <<< 64) + 0x2000000000008306) <<< 64) + 0x2400040001081800)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s7] (tabE gate_s7 owns_s7 (pick acc_extraFive codes_s7)) (206, ((((((0x400 <<< 64) + 0x4200000004000101) <<< 64) + 0x2000000000008306) <<< 64) + 0x2400040001081800)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym7_0 : run_sym7 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym7_1 : run_sym7 (((2 ^ 26 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym7_1 : run_sym7 ((2 ^ 26 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym7_2 : run_sym7 (((2 ^ 27 - 1) <<< 26), 0) = false := by decide +kernel
@@ -7105,7 +7035,7 @@ def split_sym7_6 : run_sym7 (((2 ^ 14 - 1) <<< 146), 0) = false := by decide +ke
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym7_7 : run_sym7 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case_s7_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s7, Imp [f] 0 13) : Imp [gate_s7] 0 13 := by
+lemma case_s7_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s7, ImpT [f] 0 13 1) : ImpT [gate_s7] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym7, run_sym7 p = false := by
     intro p hp
     simp only [masks_sym7, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -7118,8 +7048,7 @@ lemma case_s7_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s7, Imp [f] 0 13) :
     · exact split_sym7_5
     · exact split_sym7_6
     · exact split_sym7_7
-  exact ty_imp_shards accBounds_extraFive owned_s7_bounds shape_s7_checked masks_sym7_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s7_bounds shape_s7_checked masks_sym7_full hc h0 (by simpa using hF)
 def gate_s8 : Gt := (true, 0, 1)
 def prior_s8 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4), (false, 2, 6), (false, 3, 6)]
 def rows_s8 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [120, 116, 60, 32784, 112, 32800, 32776, 32772, 4112, 4100, 2080, 2056, 56, 52, 4192, 2128, 32768, 4160, 4128, 2112, 2064, 4096, 2048, 48, 40, 24, 20, 32, 16]
@@ -7134,16 +7063,18 @@ lemma owned_s8_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s8 → Imp [gate_s
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s8_checked : okTy prior_s8 acc_extraFive 12 prior_s8.length gate_s8 owns_s8 codes_s8 (220, ((((((0x400400a <<< 64) + 0x6000402000404000) <<< 64) + 0x1823000000804209) <<< 64) + 0x0010002008000000)) [List.range 13] = true := by decide +kernel
-def masks_sym8 : List (Nat × Nat) := [(0, 1), (((2 ^ 13 - 1) <<< 0), 0), (((2 ^ 13 - 1) <<< 13), 0), (((2 ^ 6 - 1) <<< 26), 0), (((2 ^ 7 - 1) <<< 32), 0), (((2 ^ 14 - 1) <<< 39), 0), (((2 ^ 27 - 1) <<< 53), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 13 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 120), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 7 - 1) <<< 146), 0), (((2 ^ 7 - 1) <<< 153), 0), (((2 ^ 6 - 1) <<< 160), 0), (((2 ^ 7 - 1) <<< 166), 0), (((2 ^ 14 - 1) <<< 173), 0), (((2 ^ 27 - 1) <<< 187), 0)]
+def masks_sym8 : List (Nat × Nat) := [(0, 1), ((2 ^ 13 - 1), 0), (((2 ^ 13 - 1) <<< 13), 0), (((2 ^ 6 - 1) <<< 26), 0), (((2 ^ 7 - 1) <<< 32), 0), (((2 ^ 14 - 1) <<< 39), 0), (((2 ^ 27 - 1) <<< 53), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 13 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 120), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 7 - 1) <<< 146), 0), (((2 ^ 7 - 1) <<< 153), 0), (((2 ^ 6 - 1) <<< 160), 0), (((2 ^ 7 - 1) <<< 166), 0), (((2 ^ 14 - 1) <<< 173), 0), (((2 ^ 27 - 1) <<< 187), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym8_full : mFull masks_sym8 = true := by decide +kernel
 noncomputable def run_sym8 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s8] (tabE gate_s8 owns_s8 (pick acc_extraFive codes_s8)) (220, ((((((0x400400a <<< 64) + 0x6000402000404000) <<< 64) + 0x1823000000804209) <<< 64) + 0x0010002008000000)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s8] (tabE gate_s8 owns_s8 (pick acc_extraFive codes_s8)) (220, ((((((0x400400a <<< 64) + 0x6000402000404000) <<< 64) + 0x1823000000804209) <<< 64) + 0x0010002008000000)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym8_0 : run_sym8 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym8_1 : run_sym8 (((2 ^ 13 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym8_1 : run_sym8 ((2 ^ 13 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym8_2 : run_sym8 (((2 ^ 13 - 1) <<< 13), 0) = false := by decide +kernel
@@ -7189,7 +7120,7 @@ def split_sym8_15 : run_sym8 (((2 ^ 14 - 1) <<< 173), 0) = false := by decide +k
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym8_16 : run_sym8 (((2 ^ 27 - 1) <<< 187), 0) = false := by decide +kernel
-lemma case_s8_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s8, Imp [f] 0 13) : Imp [gate_s8] 0 13 := by
+lemma case_s8_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s8, ImpT [f] 0 13 1) : ImpT [gate_s8] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym8, run_sym8 p = false := by
     intro p hp
     simp only [masks_sym8, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -7211,8 +7142,7 @@ lemma case_s8_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s8, Imp [f] 0 13) :
     · exact split_sym8_14
     · exact split_sym8_15
     · exact split_sym8_16
-  exact ty_imp_shards accBounds_extraFive owned_s8_bounds shape_s8_checked masks_sym8_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s8_bounds shape_s8_checked masks_sym8_full hc h0 (by simpa using hF)
 def gate_s9 : Gt := (true, 0, 3)
 def prior_s9 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4), (false, 2, 6), (false, 3, 6), (true, 0, 1), (true, 4, 5)]
 def rows_s9 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [116, 114, 102, 112, 8256, 8224, 2080, 2050, 1088, 1028, 100, 98, 8198, 2128, 1072, 8196, 8194, 2112, 2064, 1056, 1040, 68, 8192, 2048, 1024, 96, 34, 64, 32]
@@ -7227,35 +7157,27 @@ lemma owned_s9_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s9 → Imp [gate_s
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s9_checked : okTy prior_s9 acc_extraFive 12 prior_s9.length gate_s9 owns_s9 codes_s9 (182, ((((0x20011a52000000 <<< 64) + 0x00a0084000042420) <<< 64) + 0x2400000128060002)) [List.range 13] = true := by decide +kernel
-def masks_sym9 : List (Nat × Nat) := [(0, 1), (((2 ^ 26 - 1) <<< 0), 0), (((2 ^ 13 - 1) <<< 26), 0), (((2 ^ 7 - 1) <<< 39), 0), (((2 ^ 1 - 1) <<< 46), 0), (((2 ^ 2 - 1) <<< 47), 0), (((2 ^ 4 - 1) <<< 49), 0), (((2 ^ 27 - 1) <<< 53), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 14 - 1) <<< 146), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_sym9 : List (Nat × Nat) := [(0, 1), ((2 ^ 26 - 1), 0), (((2 ^ 13 - 1) <<< 26), 0), (((2 ^ 7 - 1) <<< 39), 0), (((2 ^ 1 - 1) <<< 46), 0), (((2 ^ 2 - 1) <<< 47), 0), (((2 ^ 4 - 1) <<< 49), 0), (((2 ^ 27 - 1) <<< 53), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 14 - 1) <<< 146), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym9_full : mFull masks_sym9 = true := by decide +kernel
 noncomputable def run_sym9 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s9] (tabE gate_s9 owns_s9 (pick acc_extraFive codes_s9)) (182, ((((0x20011a52000000 <<< 64) + 0x00a0084000042420) <<< 64) + 0x2400000128060002)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s9] (tabE gate_s9 owns_s9 (pick acc_extraFive codes_s9)) (182, ((((0x20011a52000000 <<< 64) + 0x00a0084000042420) <<< 64) + 0x2400000128060002)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym9_0 : run_sym9 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym9_1 : run_sym9 (((2 ^ 26 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym9_1 : run_sym9 ((2 ^ 26 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym9_2 : run_sym9 (((2 ^ 13 - 1) <<< 26), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym9_3 : run_sym9 (((2 ^ 7 - 1) <<< 39), 0) = false := by decide +kernel
-noncomputable def count_sym9_46 (ts : List Nat) : Bool :=
-  chkT topC [gate_s9] (tabE gate_s9 owns_s9 (pick acc_extraFive codes_s9)) (182, ((((0x20011a52000000 <<< 64) + 0x00a0084000042420) <<< 64) + 0x2400000128060002)) 0 12 ts ((2 ^ 1 - 1) <<< 46) 0
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def count_sym9_46_zero : count_sym9_46 [0] = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def count_sym9_46_one : count_sym9_46 [1] = false := by decide +kernel
-set_option maxRecDepth 100000 in
-set_option maxHeartbeats 0 in
-def count_sym9_46_more : count_sym9_46 ((List.range 13).drop 2) = false := by decide +kernel
-def split_sym9_4 : run_sym9 (((2 ^ 1 - 1) <<< 46), 0) = false :=
-  chkT_count_split count_sym9_46_zero count_sym9_46_one count_sym9_46_more
+def split_sym9_4 : run_sym9 (((2 ^ 1 - 1) <<< 46), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym9_5 : run_sym9 (((2 ^ 2 - 1) <<< 47), 0) = false := by decide +kernel
@@ -7280,7 +7202,7 @@ def split_sym9_11 : run_sym9 (((2 ^ 14 - 1) <<< 146), 0) = false := by decide +k
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym9_12 : run_sym9 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case_s9_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s9, Imp [f] 0 13) : Imp [gate_s9] 0 13 := by
+lemma case_s9_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s9, ImpT [f] 0 13 1) : ImpT [gate_s9] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym9, run_sym9 p = false := by
     intro p hp
     simp only [masks_sym9, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -7298,8 +7220,7 @@ lemma case_s9_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s9, Imp [f] 0 13) :
     · exact split_sym9_10
     · exact split_sym9_11
     · exact split_sym9_12
-  exact ty_imp_shards accBounds_extraFive owned_s9_bounds shape_s9_checked masks_sym9_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s9_bounds shape_s9_checked masks_sym9_full hc h0 (by simpa using hF)
 def gate_s10 : Gt := (true, 1, 6)
 def prior_s10 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4), (false, 2, 6), (false, 3, 6), (true, 0, 1), (true, 4, 5), (true, 0, 3), (true, 2, 5)]
 def rows_s10 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [60, 57, 45, 520, 8224, 8200, 2080, 2056, 544, 528, 516, 56, 44, 41, 8197, 2065, 512, 8196, 8193, 2064, 2049, 12, 8192, 2048, 40, 24, 8]
@@ -7314,16 +7235,18 @@ lemma owned_s10_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s10 → Imp [gate
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s10_checked : okTy prior_s10 acc_extraFive 12 prior_s10.length gate_s10 owns_s10 codes_s10 (206, ((((((0x400 <<< 64) + 0x4200000006000101) <<< 64) + 0x2020000200008306) <<< 64) + 0x2400048009081800)) [List.range 13] = true := by decide +kernel
-def masks_sym10 : List (Nat × Nat) := [(0, 1), (((2 ^ 26 - 1) <<< 0), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 27 - 1) <<< 53), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 7 - 1) <<< 146), 0), (((2 ^ 7 - 1) <<< 153), 0), (((2 ^ 27 - 1) <<< 160), 0), (((2 ^ 27 - 1) <<< 187), 0)]
+def masks_sym10 : List (Nat × Nat) := [(0, 1), ((2 ^ 26 - 1), 0), (((2 ^ 27 - 1) <<< 26), 0), (((2 ^ 27 - 1) <<< 53), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 7 - 1) <<< 146), 0), (((2 ^ 7 - 1) <<< 153), 0), (((2 ^ 27 - 1) <<< 160), 0), (((2 ^ 27 - 1) <<< 187), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym10_full : mFull masks_sym10 = true := by decide +kernel
 noncomputable def run_sym10 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s10] (tabE gate_s10 owns_s10 (pick acc_extraFive codes_s10)) (206, ((((((0x400 <<< 64) + 0x4200000006000101) <<< 64) + 0x2020000200008306) <<< 64) + 0x2400048009081800)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s10] (tabE gate_s10 owns_s10 (pick acc_extraFive codes_s10)) (206, ((((((0x400 <<< 64) + 0x4200000006000101) <<< 64) + 0x2020000200008306) <<< 64) + 0x2400048009081800)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym10_0 : run_sym10 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym10_1 : run_sym10 (((2 ^ 26 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym10_1 : run_sym10 ((2 ^ 26 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym10_2 : run_sym10 (((2 ^ 27 - 1) <<< 26), 0) = false := by decide +kernel
@@ -7351,7 +7274,7 @@ def split_sym10_9 : run_sym10 (((2 ^ 27 - 1) <<< 160), 0) = false := by decide +
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym10_10 : run_sym10 (((2 ^ 27 - 1) <<< 187), 0) = false := by decide +kernel
-lemma case_s10_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s10, Imp [f] 0 13) : Imp [gate_s10] 0 13 := by
+lemma case_s10_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s10, ImpT [f] 0 13 1) : ImpT [gate_s10] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym10, run_sym10 p = false := by
     intro p hp
     simp only [masks_sym10, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -7367,8 +7290,7 @@ lemma case_s10_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s10, Imp [f] 0 13)
     · exact split_sym10_8
     · exact split_sym10_9
     · exact split_sym10_10
-  exact ty_imp_shards accBounds_extraFive owned_s10_bounds shape_s10_checked masks_sym10_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s10_bounds shape_s10_checked masks_sym10_full hc h0 (by simpa using hF)
 def gate_s11 : Gt := (true, 2, 3)
 def prior_s11 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4), (false, 2, 6), (false, 3, 6), (true, 0, 1), (true, 4, 5), (true, 0, 3), (true, 2, 5), (true, 1, 6), (true, 4, 6)]
 def rows_s11 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [114, 113, 99, 83, 16400, 514, 112, 67, 16448, 16386, 16385, 8256, 8224, 1088, 1025, 576, 544, 528, 98, 97, 82, 81, 8195, 1072, 16384, 512, 8194, 8193, 1056, 1040, 8192, 1024, 96, 80, 66, 65, 34, 18, 17, 64, 32, 16, 2, 1]
@@ -7383,16 +7305,18 @@ lemma owned_s11_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s11 → Imp [gate
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s11_checked : okTy prior_s11 acc_extraFive 12 prior_s11.length gate_s11 owns_s11 codes_s11 (149, ((((0x18100 <<< 64) + 0x2001025204050710) <<< 64) + 0x4900204020000690)) [List.range 13] = true := by decide +kernel
-def masks_sym11 : List (Nat × Nat) := [(0, 1), (((2 ^ 53 - 1) <<< 0), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_sym11 : List (Nat × Nat) := [(0, 1), ((2 ^ 53 - 1), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym11_full : mFull masks_sym11 = true := by decide +kernel
 noncomputable def run_sym11 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s11] (tabE gate_s11 owns_s11 (pick acc_extraFive codes_s11)) (149, ((((0x18100 <<< 64) + 0x2001025204050710) <<< 64) + 0x4900204020000690)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s11] (tabE gate_s11 owns_s11 (pick acc_extraFive codes_s11)) (149, ((((0x18100 <<< 64) + 0x2001025204050710) <<< 64) + 0x4900204020000690)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym11_0 : run_sym11 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym11_1 : run_sym11 (((2 ^ 53 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym11_1 : run_sym11 ((2 ^ 53 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym11_2 : run_sym11 (((2 ^ 54 - 1) <<< 53), 0) = false := by decide +kernel
@@ -7402,7 +7326,7 @@ def split_sym11_3 : run_sym11 (((2 ^ 53 - 1) <<< 107), 0) = false := by decide +
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym11_4 : run_sym11 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case_s11_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s11, Imp [f] 0 13) : Imp [gate_s11] 0 13 := by
+lemma case_s11_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s11, ImpT [f] 0 13 1) : ImpT [gate_s11] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym11, run_sym11 p = false := by
     intro p hp
     simp only [masks_sym11, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -7412,8 +7336,7 @@ lemma case_s11_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s11, Imp [f] 0 13)
     · exact split_sym11_2
     · exact split_sym11_3
     · exact split_sym11_4
-  exact ty_imp_shards accBounds_extraFive owned_s11_bounds shape_s11_checked masks_sym11_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s11_bounds shape_s11_checked masks_sym11_full hc h0 (by simpa using hF)
 def gate_s12 : Gt := (true, 0, 2)
 def prior_s12 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4), (false, 2, 6), (false, 3, 6), (true, 0, 1), (true, 4, 5), (true, 0, 3), (true, 2, 5), (true, 1, 6), (true, 4, 6), (true, 2, 3)]
 def rows_s12 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [120, 114, 122, 90, 16400, 112, 16448, 16392, 16386, 4112, 1088, 88, 82, 16384, 26, 72, 80, 24, 18, 64, 16]
@@ -7428,16 +7351,18 @@ lemma owned_s12_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s12 → Imp [gate
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s12_checked : okTy prior_s12 acc_extraFive 12 prior_s12.length gate_s12 owns_s12 codes_s12 (234, ((((((0x2088080 <<< 64) + 0x009020010a004106) <<< 64) + 0x00a00000002104c8) <<< 64) + 0x00a2000140000128)) [List.range 13] = true := by decide +kernel
-def masks_sym12 : List (Nat × Nat) := [(0, 1), (((2 ^ 53 - 1) <<< 0), 0), (((2 ^ 6 - 1) <<< 53), 0), (((2 ^ 7 - 1) <<< 59), 0), (((2 ^ 14 - 1) <<< 66), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 14 - 1) <<< 146), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_sym12 : List (Nat × Nat) := [(0, 1), ((2 ^ 53 - 1), 0), (((2 ^ 6 - 1) <<< 53), 0), (((2 ^ 7 - 1) <<< 59), 0), (((2 ^ 14 - 1) <<< 66), 0), (((2 ^ 27 - 1) <<< 80), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 14 - 1) <<< 146), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym12_full : mFull masks_sym12 = true := by decide +kernel
 noncomputable def run_sym12 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s12] (tabE gate_s12 owns_s12 (pick acc_extraFive codes_s12)) (234, ((((((0x2088080 <<< 64) + 0x009020010a004106) <<< 64) + 0x00a00000002104c8) <<< 64) + 0x00a2000140000128)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s12] (tabE gate_s12 owns_s12 (pick acc_extraFive codes_s12)) (234, ((((((0x2088080 <<< 64) + 0x009020010a004106) <<< 64) + 0x00a00000002104c8) <<< 64) + 0x00a2000140000128)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym12_0 : run_sym12 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym12_1 : run_sym12 (((2 ^ 53 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym12_1 : run_sym12 ((2 ^ 53 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym12_2 : run_sym12 (((2 ^ 6 - 1) <<< 53), 0) = false := by decide +kernel
@@ -7462,7 +7387,7 @@ def split_sym12_8 : run_sym12 (((2 ^ 14 - 1) <<< 146), 0) = false := by decide +
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym12_9 : run_sym12 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case_s12_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s12, Imp [f] 0 13) : Imp [gate_s12] 0 13 := by
+lemma case_s12_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s12, ImpT [f] 0 13 1) : ImpT [gate_s12] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym12, run_sym12 p = false := by
     intro p hp
     simp only [masks_sym12, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -7477,8 +7402,7 @@ lemma case_s12_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s12, Imp [f] 0 13)
     · exact split_sym12_7
     · exact split_sym12_8
     · exact split_sym12_9
-  exact ty_imp_shards accBounds_extraFive owned_s12_bounds shape_s12_checked masks_sym12_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s12_bounds shape_s12_checked masks_sym12_full hc h0 (by simpa using hF)
 def gate_s13 : Gt := (true, 0, 4)
 def prior_s13 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4), (false, 2, 6), (false, 3, 6), (true, 0, 1), (true, 4, 5), (true, 0, 3), (true, 2, 5), (true, 1, 6), (true, 4, 6), (true, 2, 3), (true, 0, 2), (true, 3, 5)]
 def rows_s13 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [102, 110, 108, 78, 46, 32770, 16388, 76, 32800, 32776, 32772, 16448, 16392, 16386, 4100, 1088, 1028, 100, 70, 44, 38, 1064, 32768, 16384, 42, 14, 1056, 1032, 68, 12, 1024, 40, 36, 34, 10, 6, 32, 4, 2]
@@ -7493,16 +7417,18 @@ lemma owned_s13_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s13 → Imp [gate
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s13_checked : okTy prior_s13 acc_extraFive 12 prior_s13.length gate_s13 owns_s13 codes_s13 (201, ((((((0x4 <<< 64) + 0x002200000500c600) <<< 64) + 0x0801402000890801) <<< 64) + 0x1800054500080412)) [List.range 13] = true := by decide +kernel
-def masks_sym13 : List (Nat × Nat) := [(0, 1), (((2 ^ 53 - 1) <<< 0), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_sym13 : List (Nat × Nat) := [(0, 1), ((2 ^ 53 - 1), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym13_full : mFull masks_sym13 = true := by decide +kernel
 noncomputable def run_sym13 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s13] (tabE gate_s13 owns_s13 (pick acc_extraFive codes_s13)) (201, ((((((0x4 <<< 64) + 0x002200000500c600) <<< 64) + 0x0801402000890801) <<< 64) + 0x1800054500080412)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s13] (tabE gate_s13 owns_s13 (pick acc_extraFive codes_s13)) (201, ((((((0x4 <<< 64) + 0x002200000500c600) <<< 64) + 0x0801402000890801) <<< 64) + 0x1800054500080412)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym13_0 : run_sym13 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym13_1 : run_sym13 (((2 ^ 53 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym13_1 : run_sym13 ((2 ^ 53 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym13_2 : run_sym13 (((2 ^ 54 - 1) <<< 53), 0) = false := by decide +kernel
@@ -7512,7 +7438,7 @@ def split_sym13_3 : run_sym13 (((2 ^ 53 - 1) <<< 107), 0) = false := by decide +
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym13_4 : run_sym13 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case_s13_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s13, Imp [f] 0 13) : Imp [gate_s13] 0 13 := by
+lemma case_s13_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s13, ImpT [f] 0 13 1) : ImpT [gate_s13] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym13, run_sym13 p = false := by
     intro p hp
     simp only [masks_sym13, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -7522,8 +7448,7 @@ lemma case_s13_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s13, Imp [f] 0 13)
     · exact split_sym13_2
     · exact split_sym13_3
     · exact split_sym13_4
-  exact ty_imp_shards accBounds_extraFive owned_s13_bounds shape_s13_checked masks_sym13_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s13_bounds shape_s13_checked masks_sym13_full hc h0 (by simpa using hF)
 def gate_s14 : Gt := (true, 0, 5)
 def prior_s14 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4), (false, 2, 6), (false, 3, 6), (true, 0, 1), (true, 4, 5), (true, 0, 3), (true, 2, 5), (true, 1, 6), (true, 4, 6), (true, 2, 3), (true, 0, 2), (true, 3, 5), (true, 0, 4), (true, 1, 5)]
 def rows_s14 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [94, 92, 90, 86, 78, 76, 8256, 8200, 4112, 4100, 2056, 2050, 1088, 1028, 88, 82, 70, 8198, 4162, 2128, 1048, 84, 74, 26, 22, 8196, 8194, 4160, 4098, 2112, 2064, 1040, 1032, 72, 68, 8192, 4096, 2048, 1024, 80, 66, 24, 20, 18, 10, 6, 64, 16, 2]
@@ -7538,16 +7463,18 @@ lemma owned_s14_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s14 → Imp [gate
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s14_checked : okTy prior_s14 acc_extraFive 12 prior_s14.length gate_s14 owns_s14 codes_s14 (215, ((((((0x604030 <<< 64) + 0x0000c00a04200190) <<< 64) + 0x0409004000200a88) <<< 64) + 0x4001084148080004)) [List.range 13] = true := by decide +kernel
-def masks_sym14 : List (Nat × Nat) := [(0, 1), (((2 ^ 53 - 1) <<< 0), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 7 - 1) <<< 146), 0), (((2 ^ 7 - 1) <<< 153), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_sym14 : List (Nat × Nat) := [(0, 1), ((2 ^ 53 - 1), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 26 - 1) <<< 107), 0), (((2 ^ 13 - 1) <<< 133), 0), (((2 ^ 7 - 1) <<< 146), 0), (((2 ^ 7 - 1) <<< 153), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym14_full : mFull masks_sym14 = true := by decide +kernel
 noncomputable def run_sym14 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s14] (tabE gate_s14 owns_s14 (pick acc_extraFive codes_s14)) (215, ((((((0x604030 <<< 64) + 0x0000c00a04200190) <<< 64) + 0x0409004000200a88) <<< 64) + 0x4001084148080004)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s14] (tabE gate_s14 owns_s14 (pick acc_extraFive codes_s14)) (215, ((((((0x604030 <<< 64) + 0x0000c00a04200190) <<< 64) + 0x0409004000200a88) <<< 64) + 0x4001084148080004)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym14_0 : run_sym14 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym14_1 : run_sym14 (((2 ^ 53 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym14_1 : run_sym14 ((2 ^ 53 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym14_2 : run_sym14 (((2 ^ 54 - 1) <<< 53), 0) = false := by decide +kernel
@@ -7566,7 +7493,7 @@ def split_sym14_6 : run_sym14 (((2 ^ 7 - 1) <<< 153), 0) = false := by decide +k
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym14_7 : run_sym14 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case_s14_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s14, Imp [f] 0 13) : Imp [gate_s14] 0 13 := by
+lemma case_s14_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s14, ImpT [f] 0 13 1) : ImpT [gate_s14] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym14, run_sym14 p = false := by
     intro p hp
     simp only [masks_sym14, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -7579,8 +7506,7 @@ lemma case_s14_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s14, Imp [f] 0 13)
     · exact split_sym14_5
     · exact split_sym14_6
     · exact split_sym14_7
-  exact ty_imp_shards accBounds_extraFive owned_s14_bounds shape_s14_checked masks_sym14_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s14_bounds shape_s14_checked masks_sym14_full hc h0 (by simpa using hF)
 def gate_s15 : Gt := (true, 0, 6)
 def prior_s15 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4), (false, 2, 6), (false, 3, 6), (true, 0, 1), (true, 4, 5), (true, 0, 3), (true, 2, 5), (true, 1, 6), (true, 4, 6), (true, 2, 3), (true, 0, 2), (true, 3, 5), (true, 0, 4), (true, 1, 5), (true, 0, 5)]
 def rows_s15 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [60, 62, 54, 46, 8224, 8200, 4112, 4100, 1028, 52, 44, 38, 8198, 4130, 42, 22, 8196, 8194, 4128, 4098, 12, 8192, 4096, 40, 36, 34, 20, 6, 32, 4]
@@ -7595,16 +7521,18 @@ lemma owned_s15_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s15 → Imp [gate
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s15_checked : okTy prior_s15 acc_extraFive 12 prior_s15.length gate_s15 owns_s15 codes_s15 (181, ((((0x8081150200008 <<< 64) + 0x6110100250100020) <<< 64) + 0x800a850a84020360)) [List.range 13] = true := by decide +kernel
-def masks_sym15 : List (Nat × Nat) := [(0, 1), (((2 ^ 53 - 1) <<< 0), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+def masks_sym15 : List (Nat × Nat) := [(0, 1), ((2 ^ 53 - 1), 0), (((2 ^ 54 - 1) <<< 53), 0), (((2 ^ 53 - 1) <<< 107), 0), (((2 ^ 54 - 1) <<< 160), 0)]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
 def masks_sym15_full : mFull masks_sym15 = true := by decide +kernel
 noncomputable def run_sym15 (p : Nat × Nat) : Bool :=
-  chkT topC [gate_s15] (tabE gate_s15 owns_s15 (pick acc_extraFive codes_s15)) (181, ((((0x8081150200008 <<< 64) + 0x6110100250100020) <<< 64) + 0x800a850a84020360)) 0 12 (List.range 13) p.1 p.2
+  chkT topC [gate_s15] (tabE gate_s15 owns_s15 (pick acc_extraFive codes_s15)) (181, ((((0x8081150200008 <<< 64) + 0x6110100250100020) <<< 64) + 0x800a850a84020360)) 0 12 [1] p.1 p.2
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym15_0 : run_sym15 (0, 1) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def split_sym15_1 : run_sym15 (((2 ^ 53 - 1) <<< 0), 0) = false := by decide +kernel
+def split_sym15_1 : run_sym15 ((2 ^ 53 - 1), 0) = false := by decide +kernel
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym15_2 : run_sym15 (((2 ^ 54 - 1) <<< 53), 0) = false := by decide +kernel
@@ -7614,7 +7542,7 @@ def split_sym15_3 : run_sym15 (((2 ^ 53 - 1) <<< 107), 0) = false := by decide +
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def split_sym15_4 : run_sym15 (((2 ^ 54 - 1) <<< 160), 0) = false := by decide +kernel
-lemma case_s15_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s15, Imp [f] 0 13) : Imp [gate_s15] 0 13 := by
+lemma case_s15_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s15, ImpT [f] 0 13 1) : ImpT [gate_s15] 0 13 1 := by
   have hc : ∀ p ∈ masks_sym15, run_sym15 p = false := by
     intro p hp
     simp only [masks_sym15, List.mem_cons, List.not_mem_nil, or_false] at hp
@@ -7624,8 +7552,7 @@ lemma case_s15_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s15, Imp [f] 0 13)
     · exact split_sym15_2
     · exact split_sym15_3
     · exact split_sym15_4
-  exact ty_imp_shards accBounds_extraFive owned_s15_bounds shape_s15_checked masks_sym15_full hc h0 (by simpa using hF)
-
+  exact ty_imp_shards_t accBounds_extraFive owned_s15_bounds shape_s15_checked masks_sym15_full hc h0 (by simpa using hF)
 def gate_s16 : Gt := (true, 1, 3)
 def prior_s16 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4), (false, 2, 6), (false, 3, 6), (true, 0, 1), (true, 4, 5), (true, 0, 3), (true, 2, 5), (true, 1, 6), (true, 4, 6), (true, 2, 3), (true, 0, 2), (true, 3, 5), (true, 0, 4), (true, 1, 5), (true, 0, 5), (true, 0, 6), (true, 5, 6)]
 def rows_s16 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [116, 113, 117, 101, 53, 32784, 112, 32800, 32772, 32769, 8256, 8224, 2080, 576, 544, 528, 516, 100, 97, 52, 49, 37, 8197, 32768, 512, 21, 8196, 8193, 68, 8192, 96, 48, 36, 33, 20, 17, 5, 64, 32, 16, 4, 1]
@@ -7640,12 +7567,22 @@ lemma owned_s16_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s16 → Imp [gate
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s16_checked : okTy prior_s16 acc_extraFive 12 prior_s16.length gate_s16 owns_s16 codes_s16 (159, ((((0x40308a80 <<< 64) + 0x600aa45033080008) <<< 64) + 0x0500040022c20001)) [List.range 13] = true := by decide +kernel
+def masks_sym16 : List (Nat × Nat) := [((2 ^ 214 - 1), 1)]
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def search_s16_checked : [List.range 13].all (okTs acc_extraFive 12 gate_s16 owns_s16 codes_s16 (159, ((((0x40308a80 <<< 64) + 0x600aa45033080008) <<< 64) + 0x0500040022c20001))) = true := by decide +kernel
-lemma case_s16_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s16, Imp [f] 0 13) : Imp [gate_s16] 0 13 :=
-  ty_imp accBounds_extraFive owned_s16_bounds shape_s16_checked search_s16_checked (by decide) h0 (by simpa using hF)
-
+def masks_sym16_full : mFull masks_sym16 = true := by decide +kernel
+noncomputable def run_sym16 (p : Nat × Nat) : Bool :=
+  chkT topC [gate_s16] (tabE gate_s16 owns_s16 (pick acc_extraFive codes_s16)) (159, ((((0x40308a80 <<< 64) + 0x600aa45033080008) <<< 64) + 0x0500040022c20001)) 0 12 [1] p.1 p.2
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def split_sym16_0 : run_sym16 ((2 ^ 214 - 1), 1) = false := by decide +kernel
+lemma case_s16_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s16, ImpT [f] 0 13 1) : ImpT [gate_s16] 0 13 1 := by
+  have hc : ∀ p ∈ masks_sym16, run_sym16 p = false := by
+    intro p hp
+    simp only [masks_sym16, List.mem_cons, List.not_mem_nil, or_false] at hp
+    rcases hp with rfl
+    · exact split_sym16_0
+  exact ty_imp_shards_t accBounds_extraFive owned_s16_bounds shape_s16_checked masks_sym16_full hc h0 (by simpa using hF)
 def gate_s17 : Gt := (true, 1, 4)
 def prior_s17 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4), (false, 2, 6), (false, 3, 6), (true, 0, 1), (true, 4, 5), (true, 0, 3), (true, 2, 5), (true, 1, 6), (true, 4, 6), (true, 2, 3), (true, 0, 2), (true, 3, 5), (true, 0, 4), (true, 1, 5), (true, 0, 5), (true, 0, 6), (true, 5, 6), (true, 1, 3), (true, 2, 4)]
 def rows_s17 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [45, 109, 108, 105, 101, 77, 16388, 520, 76, 32800, 32776, 32772, 32769, 16448, 16392, 16385, 4100, 4097, 2080, 2056, 576, 544, 516, 100, 97, 73, 44, 41, 37, 13, 4192, 2113, 32768, 16384, 512, 104, 69, 4160, 4128, 2112, 2049, 72, 68, 12, 4096, 2048, 96, 65, 40, 36, 33, 9, 5, 64, 32, 8, 4, 1]
@@ -7660,12 +7597,22 @@ lemma owned_s17_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s17 → Imp [gate
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s17_checked : okTy prior_s17 acc_extraFive 12 prior_s17.length gate_s17 owns_s17 codes_s17 (229, ((((((0x140a002010 <<< 64) + 0x0040104101169400) <<< 64) + 0x2c42001044082000) <<< 64) + 0x004000080000a4d0)) [List.range 13] = true := by decide +kernel
+def masks_sym17 : List (Nat × Nat) := [((2 ^ 214 - 1), 1)]
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def search_s17_checked : [List.range 13].all (okTs acc_extraFive 12 gate_s17 owns_s17 codes_s17 (229, ((((((0x140a002010 <<< 64) + 0x0040104101169400) <<< 64) + 0x2c42001044082000) <<< 64) + 0x004000080000a4d0))) = true := by decide +kernel
-lemma case_s17_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s17, Imp [f] 0 13) : Imp [gate_s17] 0 13 :=
-  ty_imp accBounds_extraFive owned_s17_bounds shape_s17_checked search_s17_checked (by decide) h0 (by simpa using hF)
-
+def masks_sym17_full : mFull masks_sym17 = true := by decide +kernel
+noncomputable def run_sym17 (p : Nat × Nat) : Bool :=
+  chkT topC [gate_s17] (tabE gate_s17 owns_s17 (pick acc_extraFive codes_s17)) (229, ((((((0x140a002010 <<< 64) + 0x0040104101169400) <<< 64) + 0x2c42001044082000) <<< 64) + 0x004000080000a4d0)) 0 12 [1] p.1 p.2
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def split_sym17_0 : run_sym17 ((2 ^ 214 - 1), 1) = false := by decide +kernel
+lemma case_s17_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s17, ImpT [f] 0 13 1) : ImpT [gate_s17] 0 13 1 := by
+  have hc : ∀ p ∈ masks_sym17, run_sym17 p = false := by
+    intro p hp
+    simp only [masks_sym17, List.mem_cons, List.not_mem_nil, or_false] at hp
+    rcases hp with rfl
+    · exact split_sym17_0
+  exact ty_imp_shards_t accBounds_extraFive owned_s17_bounds shape_s17_checked masks_sym17_full hc h0 (by simpa using hF)
 def gate_s18 : Gt := (true, 2, 6)
 def prior_s18 : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4), (false, 2, 6), (false, 3, 6), (true, 0, 1), (true, 4, 5), (true, 0, 3), (true, 2, 5), (true, 1, 6), (true, 4, 6), (true, 2, 3), (true, 0, 2), (true, 3, 5), (true, 0, 4), (true, 1, 5), (true, 0, 5), (true, 0, 6), (true, 5, 6), (true, 1, 3), (true, 2, 4), (true, 1, 4)]
 def rows_s18 : List ((Nat × Nat) × List Nat) := ownRows acc_extraFive [57, 59, 51, 43, 27, 16400, 16392, 16386, 16385, 8224, 8200, 4112, 4097, 1025, 49, 41, 35, 25, 11, 8195, 4130, 16384, 42, 26, 19, 8194, 8193, 4128, 4098, 8192, 4096, 40, 34, 33, 24, 18, 17, 10, 9, 3, 32, 16, 2, 1]
@@ -7680,11 +7627,22 @@ lemma owned_s18_bounds : ∀ x ∈ acc_extraFive, x.1 ∈ owns_s18 → Imp [gate
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def shape_s18_checked : okTy prior_s18 acc_extraFive 12 prior_s18.length gate_s18 owns_s18 codes_s18 (159, ((((0x40308a80 <<< 64) + 0x620aa45033080408) <<< 64) + 0x0500040032c20001)) [List.range 13] = true := by decide +kernel
+def masks_sym18 : List (Nat × Nat) := [((2 ^ 214 - 1), 1)]
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
-def search_s18_checked : [List.range 13].all (okTs acc_extraFive 12 gate_s18 owns_s18 codes_s18 (159, ((((0x40308a80 <<< 64) + 0x620aa45033080408) <<< 64) + 0x0500040032c20001))) = true := by decide +kernel
-lemma case_s18_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s18, Imp [f] 0 13) : Imp [gate_s18] 0 13 :=
-  ty_imp accBounds_extraFive owned_s18_bounds shape_s18_checked search_s18_checked (by decide) h0 (by simpa using hF)
+def masks_sym18_full : mFull masks_sym18 = true := by decide +kernel
+noncomputable def run_sym18 (p : Nat × Nat) : Bool :=
+  chkT topC [gate_s18] (tabE gate_s18 owns_s18 (pick acc_extraFive codes_s18)) (159, ((((0x40308a80 <<< 64) + 0x620aa45033080408) <<< 64) + 0x0500040032c20001)) 0 12 [1] p.1 p.2
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+def split_sym18_0 : run_sym18 ((2 ^ 214 - 1), 1) = false := by decide +kernel
+lemma case_s18_bound (h0 : Imp [] 0 13) (hF : ∀ f ∈ prior_s18, ImpT [f] 0 13 1) : ImpT [gate_s18] 0 13 1 := by
+  have hc : ∀ p ∈ masks_sym18, run_sym18 p = false := by
+    intro p hp
+    simp only [masks_sym18, List.mem_cons, List.not_mem_nil, or_false] at hp
+    rcases hp with rfl
+    · exact split_sym18_0
+  exact ty_imp_shards_t accBounds_extraFive owned_s18_bounds shape_s18_checked masks_sym18_full hc h0 (by simpa using hF)
 
 def optQ14 : List (Nat × Nat) := pick acc_extraFive [32, 16, 8, 4, 2, 1, 64, 8192, 4096, 2048, 1024, 96, 80, 66, 65, 48, 40, 36, 34, 33, 24, 20, 18, 17, 10, 9, 6, 5, 3, 8196, 8194, 8193, 4160, 4128, 4098, 2112, 2064, 2049, 1056, 1040, 1032, 72, 68, 12, 8198, 8197, 8195, 4192, 4162, 4130, 2128, 2113, 2065, 1072, 1064, 1048, 32768, 16384, 512, 104, 84, 74, 69, 50, 42, 28, 26, 22, 21, 19, 14]
 def finalGates : List Gt := [(false, 0, 2), (false, 3, 5), (false, 0, 5), (false, 0, 6), (false, 5, 6), (true, 1, 2), (true, 3, 4), (false, 1, 4), (false, 0, 1), (false, 4, 5), (false, 0, 3), (false, 2, 5), (false, 1, 2), (false, 3, 4), (false, 1, 6), (false, 4, 6), (false, 2, 3), (false, 0, 4), (false, 1, 5), (false, 1, 3), (false, 2, 4), (false, 2, 6), (false, 3, 6), (true, 0, 1), (true, 4, 5), (true, 0, 3), (true, 2, 5), (true, 1, 6), (true, 4, 6), (true, 2, 3), (true, 0, 2), (true, 3, 5), (true, 0, 4), (true, 1, 5), (true, 0, 5), (true, 0, 6), (true, 5, 6), (true, 1, 3), (true, 2, 4), (true, 1, 4), (true, 2, 6), (true, 3, 6)]
@@ -7705,268 +7663,215 @@ def optUnary14 : chkT topC [] optQ14 (1, 1) 0 13 [1] 0 1 = false := by decide +k
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 def optBinary14 : chkT topC [] optQ14 (1, 1) 0 13 [1] FF 0 = false := by decide +kernel
-lemma optReject14 (hmin : Imp [] 0 13) (hF : ∀ e ∈ finalGates, Imp [e] 0 13) :
+lemma optReject14 (hmin : Imp [] 0 13) (hF : ∀ e ∈ finalGates, ImpT [e] 0 13 1) :
     ∀ S : Finset Nat, (S : Set Nat) ⊆ C (mz 0) (WZ [] 0) →
       ¬ Live Z0 (mz 0) (tz 0) 13 1 S := by
-  apply reject_one_shards optQ14_bounds optQ14_shape finalGates_shape hF hmin optM14_shape
+  apply reject_one_shards_t optQ14_bounds optQ14_shape finalGates_shape hF hmin optM14_shape
   intro p hp
   simp only [optM14, List.mem_cons, List.not_mem_nil, or_false] at hp
   rcases hp with rfl | rfl
   · exact optUnary14
   · exact optBinary14
-lemma live_excluded (hF : ∀ e ∈ finalGates, Imp [e] 0 13) :
+lemma live_excluded (hF : ∀ e ∈ finalGates, ImpT [e] 0 13 1) :
     ∀ S : Finset Nat, (S : Set Nat) ⊆ C (mz 0) (WZ [] 0) →
       ¬ Live Z0 (mz 0) (tz 0) 13 1 S := optReject14 bound13 hF
 
 def catalog0 : List Gt := []
-lemma catalog0_bounds : ∀ e ∈ catalog0, Imp [e] 0 13 := gate_bounds_nil
-lemma certified0 : Imp [gate0] 0 13 :=
+lemma catalog0_bounds : ∀ e ∈ catalog0, ImpT [e] 0 13 1 := gate_bounds_nil
+lemma certified0 : ImpT [gate0] 0 13 1 :=
   case0_bound bound13
-lemma reflected0 : Imp [(false, 3, 5)] 0 13 := by
-  apply sym_bound false 3 5 (by decide) (by decide)
-  change Imp [(false, 2, 0)] 0 13
-  exact imp_gate_swap certified0
+lemma reflected0 : ImpT [(false, 3, 5)] 0 13 1 := by
+  apply sym_bound_t false 3 5 (by decide) (by decide)
+  change ImpT [(false, 2, 0)] 0 13 1
+  exact impT_gate_swap certified0
 def catalog1 : List Gt := catalog0 ++ [gate0, (false, 3, 5)]
-lemma catalog1_bounds : ∀ e ∈ catalog1, Imp [e] 0 13 :=
+lemma catalog1_bounds : ∀ e ∈ catalog1, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog0_bounds (gate_bounds_cons certified0 (gate_bounds_cons reflected0 gate_bounds_nil))
-lemma certified1 : Imp [gate1] 0 13 :=
+lemma certified1 : ImpT [gate1] 0 13 1 :=
   case1_bound bound13 (gate_bounds_sub catalog1_bounds (by decide))
 def catalog2 : List Gt := catalog1 ++ [gate1]
-lemma catalog2_bounds : ∀ e ∈ catalog2, Imp [e] 0 13 :=
+lemma catalog2_bounds : ∀ e ∈ catalog2, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog1_bounds (gate_bounds_cons certified1 gate_bounds_nil)
-lemma certified2 : Imp [gate2] 0 13 :=
+lemma certified2 : ImpT [gate2] 0 13 1 :=
   case2_bound bound13 (gate_bounds_sub catalog2_bounds (by decide))
-lemma reflected2 : Imp [(false, 5, 6)] 0 13 := by
-  apply sym_bound false 5 6 (by decide) (by decide)
-  change Imp [(false, 0, 6)] 0 13
+lemma reflected2 : ImpT [(false, 5, 6)] 0 13 1 := by
+  apply sym_bound_t false 5 6 (by decide) (by decide)
+  change ImpT [(false, 0, 6)] 0 13 1
   exact certified2
 def catalog3 : List Gt := catalog2 ++ [gate2, (false, 5, 6)]
-lemma catalog3_bounds : ∀ e ∈ catalog3, Imp [e] 0 13 :=
+lemma catalog3_bounds : ∀ e ∈ catalog3, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog2_bounds (gate_bounds_cons certified2 (gate_bounds_cons reflected2 gate_bounds_nil))
-lemma certified3 : Imp [gate4] 0 13 :=
+lemma certified3 : ImpT [gate4] 0 13 1 :=
   case4_bound bound13 (gate_bounds_sub catalog3_bounds (by decide))
-lemma reflected3 : Imp [(true, 3, 4)] 0 13 := by
-  apply sym_bound true 3 4 (by decide) (by decide)
-  change Imp [(true, 2, 1)] 0 13
-  exact imp_gate_swap certified3
+lemma reflected3 : ImpT [(true, 3, 4)] 0 13 1 := by
+  apply sym_bound_t true 3 4 (by decide) (by decide)
+  change ImpT [(true, 2, 1)] 0 13 1
+  exact impT_gate_swap certified3
 def catalog4 : List Gt := catalog3 ++ [gate4, (true, 3, 4)]
-lemma catalog4_bounds : ∀ e ∈ catalog4, Imp [e] 0 13 :=
+lemma catalog4_bounds : ∀ e ∈ catalog4, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog3_bounds (gate_bounds_cons certified3 (gate_bounds_cons reflected3 gate_bounds_nil))
-lemma certified4 : Imp [gate5] 0 13 :=
+lemma certified4 : ImpT [gate5] 0 13 1 :=
   case5_bound bound13 (gate_bounds_sub catalog4_bounds (by decide))
 def catalog5 : List Gt := catalog4 ++ [gate5]
-lemma catalog5_bounds : ∀ e ∈ catalog5, Imp [e] 0 13 :=
+lemma catalog5_bounds : ∀ e ∈ catalog5, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog4_bounds (gate_bounds_cons certified4 gate_bounds_nil)
-lemma certified5 : Imp [gate_s0] 0 13 :=
+lemma certified5 : ImpT [gate_s0] 0 13 1 :=
   case_s0_bound bound13 (gate_bounds_sub catalog5_bounds (by decide))
-lemma reflected5 : Imp [(false, 4, 5)] 0 13 := by
-  apply sym_bound false 4 5 (by decide) (by decide)
-  change Imp [(false, 1, 0)] 0 13
-  exact imp_gate_swap certified5
+lemma reflected5 : ImpT [(false, 4, 5)] 0 13 1 := by
+  apply sym_bound_t false 4 5 (by decide) (by decide)
+  change ImpT [(false, 1, 0)] 0 13 1
+  exact impT_gate_swap certified5
 def catalog6 : List Gt := catalog5 ++ [gate_s0, (false, 4, 5)]
-lemma catalog6_bounds : ∀ e ∈ catalog6, Imp [e] 0 13 :=
+lemma catalog6_bounds : ∀ e ∈ catalog6, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog5_bounds (gate_bounds_cons certified5 (gate_bounds_cons reflected5 gate_bounds_nil))
-lemma certified6 : Imp [gate_s1] 0 13 :=
+lemma certified6 : ImpT [gate_s1] 0 13 1 :=
   case_s1_bound bound13 (gate_bounds_sub catalog6_bounds (by decide))
-lemma reflected6 : Imp [(false, 2, 5)] 0 13 := by
-  apply sym_bound false 2 5 (by decide) (by decide)
-  change Imp [(false, 3, 0)] 0 13
-  exact imp_gate_swap certified6
+lemma reflected6 : ImpT [(false, 2, 5)] 0 13 1 := by
+  apply sym_bound_t false 2 5 (by decide) (by decide)
+  change ImpT [(false, 3, 0)] 0 13 1
+  exact impT_gate_swap certified6
 def catalog7 : List Gt := catalog6 ++ [gate_s1, (false, 2, 5)]
-lemma catalog7_bounds : ∀ e ∈ catalog7, Imp [e] 0 13 :=
+lemma catalog7_bounds : ∀ e ∈ catalog7, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog6_bounds (gate_bounds_cons certified6 (gate_bounds_cons reflected6 gate_bounds_nil))
-lemma certified7 : Imp [gate_s2] 0 13 :=
+lemma certified7 : ImpT [gate_s2] 0 13 1 :=
   case_s2_bound bound13 (gate_bounds_sub catalog7_bounds (by decide))
-lemma reflected7 : Imp [(false, 3, 4)] 0 13 := by
-  apply sym_bound false 3 4 (by decide) (by decide)
-  change Imp [(false, 2, 1)] 0 13
-  exact imp_gate_swap certified7
+lemma reflected7 : ImpT [(false, 3, 4)] 0 13 1 := by
+  apply sym_bound_t false 3 4 (by decide) (by decide)
+  change ImpT [(false, 2, 1)] 0 13 1
+  exact impT_gate_swap certified7
 def catalog8 : List Gt := catalog7 ++ [gate_s2, (false, 3, 4)]
-lemma catalog8_bounds : ∀ e ∈ catalog8, Imp [e] 0 13 :=
+lemma catalog8_bounds : ∀ e ∈ catalog8, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog7_bounds (gate_bounds_cons certified7 (gate_bounds_cons reflected7 gate_bounds_nil))
-lemma certified8 : Imp [gate_s3] 0 13 :=
+lemma certified8 : ImpT [gate_s3] 0 13 1 :=
   case_s3_bound bound13 (gate_bounds_sub catalog8_bounds (by decide))
-lemma reflected8 : Imp [(false, 4, 6)] 0 13 := by
-  apply sym_bound false 4 6 (by decide) (by decide)
-  change Imp [(false, 1, 6)] 0 13
+lemma reflected8 : ImpT [(false, 4, 6)] 0 13 1 := by
+  apply sym_bound_t false 4 6 (by decide) (by decide)
+  change ImpT [(false, 1, 6)] 0 13 1
   exact certified8
 def catalog9 : List Gt := catalog8 ++ [gate_s3, (false, 4, 6)]
-lemma catalog9_bounds : ∀ e ∈ catalog9, Imp [e] 0 13 :=
+lemma catalog9_bounds : ∀ e ∈ catalog9, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog8_bounds (gate_bounds_cons certified8 (gate_bounds_cons reflected8 gate_bounds_nil))
-lemma certified9 : Imp [gate_s4] 0 13 :=
+lemma certified9 : ImpT [gate_s4] 0 13 1 :=
   case_s4_bound bound13 (gate_bounds_sub catalog9_bounds (by decide))
 def catalog10 : List Gt := catalog9 ++ [gate_s4]
-lemma catalog10_bounds : ∀ e ∈ catalog10, Imp [e] 0 13 :=
+lemma catalog10_bounds : ∀ e ∈ catalog10, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog9_bounds (gate_bounds_cons certified9 gate_bounds_nil)
-lemma certified10 : Imp [gate_s5] 0 13 :=
+lemma certified10 : ImpT [gate_s5] 0 13 1 :=
   case_s5_bound bound13 (gate_bounds_sub catalog10_bounds (by decide))
-lemma reflected10 : Imp [(false, 1, 5)] 0 13 := by
-  apply sym_bound false 1 5 (by decide) (by decide)
-  change Imp [(false, 4, 0)] 0 13
-  exact imp_gate_swap certified10
+lemma reflected10 : ImpT [(false, 1, 5)] 0 13 1 := by
+  apply sym_bound_t false 1 5 (by decide) (by decide)
+  change ImpT [(false, 4, 0)] 0 13 1
+  exact impT_gate_swap certified10
 def catalog11 : List Gt := catalog10 ++ [gate_s5, (false, 1, 5)]
-lemma catalog11_bounds : ∀ e ∈ catalog11, Imp [e] 0 13 :=
+lemma catalog11_bounds : ∀ e ∈ catalog11, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog10_bounds (gate_bounds_cons certified10 (gate_bounds_cons reflected10 gate_bounds_nil))
-lemma certified11 : Imp [gate_s6] 0 13 :=
+lemma certified11 : ImpT [gate_s6] 0 13 1 :=
   case_s6_bound bound13 (gate_bounds_sub catalog11_bounds (by decide))
-lemma reflected11 : Imp [(false, 2, 4)] 0 13 := by
-  apply sym_bound false 2 4 (by decide) (by decide)
-  change Imp [(false, 3, 1)] 0 13
-  exact imp_gate_swap certified11
+lemma reflected11 : ImpT [(false, 2, 4)] 0 13 1 := by
+  apply sym_bound_t false 2 4 (by decide) (by decide)
+  change ImpT [(false, 3, 1)] 0 13 1
+  exact impT_gate_swap certified11
 def catalog12 : List Gt := catalog11 ++ [gate_s6, (false, 2, 4)]
-lemma catalog12_bounds : ∀ e ∈ catalog12, Imp [e] 0 13 :=
+lemma catalog12_bounds : ∀ e ∈ catalog12, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog11_bounds (gate_bounds_cons certified11 (gate_bounds_cons reflected11 gate_bounds_nil))
-lemma certified12 : Imp [gate_s7] 0 13 :=
+lemma certified12 : ImpT [gate_s7] 0 13 1 :=
   case_s7_bound bound13 (gate_bounds_sub catalog12_bounds (by decide))
-lemma reflected12 : Imp [(false, 3, 6)] 0 13 := by
-  apply sym_bound false 3 6 (by decide) (by decide)
-  change Imp [(false, 2, 6)] 0 13
+lemma reflected12 : ImpT [(false, 3, 6)] 0 13 1 := by
+  apply sym_bound_t false 3 6 (by decide) (by decide)
+  change ImpT [(false, 2, 6)] 0 13 1
   exact certified12
 def catalog13 : List Gt := catalog12 ++ [gate_s7, (false, 3, 6)]
-lemma catalog13_bounds : ∀ e ∈ catalog13, Imp [e] 0 13 :=
+lemma catalog13_bounds : ∀ e ∈ catalog13, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog12_bounds (gate_bounds_cons certified12 (gate_bounds_cons reflected12 gate_bounds_nil))
-lemma certified13 : Imp [gate_s8] 0 13 :=
+lemma certified13 : ImpT [gate_s8] 0 13 1 :=
   case_s8_bound bound13 (gate_bounds_sub catalog13_bounds (by decide))
-lemma reflected13 : Imp [(true, 4, 5)] 0 13 := by
-  apply sym_bound true 4 5 (by decide) (by decide)
-  change Imp [(true, 1, 0)] 0 13
-  exact imp_gate_swap certified13
+lemma reflected13 : ImpT [(true, 4, 5)] 0 13 1 := by
+  apply sym_bound_t true 4 5 (by decide) (by decide)
+  change ImpT [(true, 1, 0)] 0 13 1
+  exact impT_gate_swap certified13
 def catalog14 : List Gt := catalog13 ++ [gate_s8, (true, 4, 5)]
-lemma catalog14_bounds : ∀ e ∈ catalog14, Imp [e] 0 13 :=
+lemma catalog14_bounds : ∀ e ∈ catalog14, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog13_bounds (gate_bounds_cons certified13 (gate_bounds_cons reflected13 gate_bounds_nil))
-lemma certified14 : Imp [gate_s9] 0 13 :=
+lemma certified14 : ImpT [gate_s9] 0 13 1 :=
   case_s9_bound bound13 (gate_bounds_sub catalog14_bounds (by decide))
-lemma reflected14 : Imp [(true, 2, 5)] 0 13 := by
-  apply sym_bound true 2 5 (by decide) (by decide)
-  change Imp [(true, 3, 0)] 0 13
-  exact imp_gate_swap certified14
+lemma reflected14 : ImpT [(true, 2, 5)] 0 13 1 := by
+  apply sym_bound_t true 2 5 (by decide) (by decide)
+  change ImpT [(true, 3, 0)] 0 13 1
+  exact impT_gate_swap certified14
 def catalog15 : List Gt := catalog14 ++ [gate_s9, (true, 2, 5)]
-lemma catalog15_bounds : ∀ e ∈ catalog15, Imp [e] 0 13 :=
+lemma catalog15_bounds : ∀ e ∈ catalog15, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog14_bounds (gate_bounds_cons certified14 (gate_bounds_cons reflected14 gate_bounds_nil))
-lemma certified15 : Imp [gate_s10] 0 13 :=
+lemma certified15 : ImpT [gate_s10] 0 13 1 :=
   case_s10_bound bound13 (gate_bounds_sub catalog15_bounds (by decide))
-lemma reflected15 : Imp [(true, 4, 6)] 0 13 := by
-  apply sym_bound true 4 6 (by decide) (by decide)
-  change Imp [(true, 1, 6)] 0 13
+lemma reflected15 : ImpT [(true, 4, 6)] 0 13 1 := by
+  apply sym_bound_t true 4 6 (by decide) (by decide)
+  change ImpT [(true, 1, 6)] 0 13 1
   exact certified15
 def catalog16 : List Gt := catalog15 ++ [gate_s10, (true, 4, 6)]
-lemma catalog16_bounds : ∀ e ∈ catalog16, Imp [e] 0 13 :=
+lemma catalog16_bounds : ∀ e ∈ catalog16, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog15_bounds (gate_bounds_cons certified15 (gate_bounds_cons reflected15 gate_bounds_nil))
-lemma certified16 : Imp [gate_s11] 0 13 :=
+lemma certified16 : ImpT [gate_s11] 0 13 1 :=
   case_s11_bound bound13 (gate_bounds_sub catalog16_bounds (by decide))
 def catalog17 : List Gt := catalog16 ++ [gate_s11]
-lemma catalog17_bounds : ∀ e ∈ catalog17, Imp [e] 0 13 :=
+lemma catalog17_bounds : ∀ e ∈ catalog17, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog16_bounds (gate_bounds_cons certified16 gate_bounds_nil)
-lemma certified17 : Imp [gate_s12] 0 13 :=
+lemma certified17 : ImpT [gate_s12] 0 13 1 :=
   case_s12_bound bound13 (gate_bounds_sub catalog17_bounds (by decide))
-lemma reflected17 : Imp [(true, 3, 5)] 0 13 := by
-  apply sym_bound true 3 5 (by decide) (by decide)
-  change Imp [(true, 2, 0)] 0 13
-  exact imp_gate_swap certified17
+lemma reflected17 : ImpT [(true, 3, 5)] 0 13 1 := by
+  apply sym_bound_t true 3 5 (by decide) (by decide)
+  change ImpT [(true, 2, 0)] 0 13 1
+  exact impT_gate_swap certified17
 def catalog18 : List Gt := catalog17 ++ [gate_s12, (true, 3, 5)]
-lemma catalog18_bounds : ∀ e ∈ catalog18, Imp [e] 0 13 :=
+lemma catalog18_bounds : ∀ e ∈ catalog18, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog17_bounds (gate_bounds_cons certified17 (gate_bounds_cons reflected17 gate_bounds_nil))
-lemma certified18 : Imp [gate_s13] 0 13 :=
+lemma certified18 : ImpT [gate_s13] 0 13 1 :=
   case_s13_bound bound13 (gate_bounds_sub catalog18_bounds (by decide))
-lemma reflected18 : Imp [(true, 1, 5)] 0 13 := by
-  apply sym_bound true 1 5 (by decide) (by decide)
-  change Imp [(true, 4, 0)] 0 13
-  exact imp_gate_swap certified18
+lemma reflected18 : ImpT [(true, 1, 5)] 0 13 1 := by
+  apply sym_bound_t true 1 5 (by decide) (by decide)
+  change ImpT [(true, 4, 0)] 0 13 1
+  exact impT_gate_swap certified18
 def catalog19 : List Gt := catalog18 ++ [gate_s13, (true, 1, 5)]
-lemma catalog19_bounds : ∀ e ∈ catalog19, Imp [e] 0 13 :=
+lemma catalog19_bounds : ∀ e ∈ catalog19, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog18_bounds (gate_bounds_cons certified18 (gate_bounds_cons reflected18 gate_bounds_nil))
-lemma certified19 : Imp [gate_s14] 0 13 :=
+lemma certified19 : ImpT [gate_s14] 0 13 1 :=
   case_s14_bound bound13 (gate_bounds_sub catalog19_bounds (by decide))
 def catalog20 : List Gt := catalog19 ++ [gate_s14]
-lemma catalog20_bounds : ∀ e ∈ catalog20, Imp [e] 0 13 :=
+lemma catalog20_bounds : ∀ e ∈ catalog20, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog19_bounds (gate_bounds_cons certified19 gate_bounds_nil)
-lemma certified20 : Imp [gate_s15] 0 13 :=
+lemma certified20 : ImpT [gate_s15] 0 13 1 :=
   case_s15_bound bound13 (gate_bounds_sub catalog20_bounds (by decide))
-lemma reflected20 : Imp [(true, 5, 6)] 0 13 := by
-  apply sym_bound true 5 6 (by decide) (by decide)
-  change Imp [(true, 0, 6)] 0 13
+lemma reflected20 : ImpT [(true, 5, 6)] 0 13 1 := by
+  apply sym_bound_t true 5 6 (by decide) (by decide)
+  change ImpT [(true, 0, 6)] 0 13 1
   exact certified20
 def catalog21 : List Gt := catalog20 ++ [gate_s15, (true, 5, 6)]
-lemma catalog21_bounds : ∀ e ∈ catalog21, Imp [e] 0 13 :=
+lemma catalog21_bounds : ∀ e ∈ catalog21, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog20_bounds (gate_bounds_cons certified20 (gate_bounds_cons reflected20 gate_bounds_nil))
-lemma certified21 : Imp [gate_s16] 0 13 :=
+lemma certified21 : ImpT [gate_s16] 0 13 1 :=
   case_s16_bound bound13 (gate_bounds_sub catalog21_bounds (by decide))
-lemma reflected21 : Imp [(true, 2, 4)] 0 13 := by
-  apply sym_bound true 2 4 (by decide) (by decide)
-  change Imp [(true, 3, 1)] 0 13
-  exact imp_gate_swap certified21
+lemma reflected21 : ImpT [(true, 2, 4)] 0 13 1 := by
+  apply sym_bound_t true 2 4 (by decide) (by decide)
+  change ImpT [(true, 3, 1)] 0 13 1
+  exact impT_gate_swap certified21
 def catalog22 : List Gt := catalog21 ++ [gate_s16, (true, 2, 4)]
-lemma catalog22_bounds : ∀ e ∈ catalog22, Imp [e] 0 13 :=
+lemma catalog22_bounds : ∀ e ∈ catalog22, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog21_bounds (gate_bounds_cons certified21 (gate_bounds_cons reflected21 gate_bounds_nil))
-lemma certified22 : Imp [gate_s17] 0 13 :=
+lemma certified22 : ImpT [gate_s17] 0 13 1 :=
   case_s17_bound bound13 (gate_bounds_sub catalog22_bounds (by decide))
 def catalog23 : List Gt := catalog22 ++ [gate_s17]
-lemma catalog23_bounds : ∀ e ∈ catalog23, Imp [e] 0 13 :=
+lemma catalog23_bounds : ∀ e ∈ catalog23, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog22_bounds (gate_bounds_cons certified22 gate_bounds_nil)
-lemma certified23 : Imp [gate_s18] 0 13 :=
+lemma certified23 : ImpT [gate_s18] 0 13 1 :=
   case_s18_bound bound13 (gate_bounds_sub catalog23_bounds (by decide))
-lemma reflected23 : Imp [(true, 3, 6)] 0 13 := by
-  apply sym_bound true 3 6 (by decide) (by decide)
-  change Imp [(true, 2, 6)] 0 13
+lemma reflected23 : ImpT [(true, 3, 6)] 0 13 1 := by
+  apply sym_bound_t true 3 6 (by decide) (by decide)
+  change ImpT [(true, 2, 6)] 0 13 1
   exact certified23
 def catalog24 : List Gt := catalog23 ++ [gate_s18, (true, 3, 6)]
-lemma catalog24_bounds : ∀ e ∈ catalog24, Imp [e] 0 13 :=
+lemma catalog24_bounds : ∀ e ∈ catalog24, ImpT [e] 0 13 1 :=
   gate_bounds_append catalog23_bounds (gate_bounds_cons certified23 (gate_bounds_cons reflected23 gate_bounds_nil))
-lemma all_gates_bound : ∀ e ∈ finalGates, Imp [e] 0 13 :=
+lemma all_gates_bound : ∀ e ∈ finalGates, ImpT [e] 0 13 1 :=
   gate_bounds_sub catalog24_bounds (by decide)
-
-def LTR (m T q u : ℕ) (S : Set ℕ) : Prop :=
-  ∃ k ≤ q, ∃ t ≤ u, k + u ≤ q + t ∧ ∃ S0 : Finset ℕ, (S0 : Set ℕ) ⊆ S ∧ Live Z0 m T k t S0
-
-lemma LTR.mono {m T q u : ℕ} {S : Set ℕ} (h : LTR m T q u S)
-    {q' u' : ℕ} {S' : Set ℕ} (hq : q ≤ q') (hu : u ≤ u') (hbu : q + u' ≤ q' + u) (hs : S ⊆ S') :
-    LTR m T q' u' S' := by
-  obtain ⟨k, hk, t, ht, hbal, S0, hS, hl⟩ := h
-  exact ⟨k, hk.trans hq, t, ht.trans hu, by omega, S0, hS.trans hs, hl⟩
-
-lemma LTR.done {m T : ℕ} {S : Set ℕ} (h : T ∈ S) : LTR m T 0 0 S :=
-  ⟨0, by omega, 0, by omega, by omega, {T}, by simpa using h, .stop⟩
-
-lemma LTR.un {m T q u a : ℕ} {S : Set ℕ} (ha : a ∈ S)
-    (h : LTR m T q u (insert (a ^^^ m) S)) : LTR m T (q + 1) (u + 1) S := by
-  obtain ⟨k, hk, t, ht, hbal, S1, hs, hl⟩ := h
-  by_cases hg : a ^^^ m ∈ S1
-  · refine ⟨k + 1, by omega, t + 1, by omega, by omega, insert a (S1.erase (a ^^^ m)), ?_, .un (by rwa [Finset.insert_erase hg])⟩
-    intro x hx
-    simp at hx
-    rcases hx with rfl | ⟨h1, h2⟩
-    · exact ha
-    · exact (hs h1).resolve_left h2
-  · exact ⟨k, by omega, t, by omega, by omega, S1, fun x hx => (hs hx).resolve_left (fun e => hg (e ▸ hx)), hl⟩
-
-lemma LTR.bi {m T q u a b : ℕ} {d : Bool} {S : Set ℕ} (ha : a ∈ S) (hb : b ∈ S)
-    (h : LTR m T q u (insert (op d a b) S)) : LTR m T (q + 1) u S := by
-  obtain ⟨k, hk, t, ht, hbal, S1, hs, hl⟩ := h
-  by_cases hg : op d a b ∈ S1
-  · by_cases hab : a = b
-    · subst hab; rw [op_self] at hs
-      exact ⟨k, by omega, t, ht, by omega, S1, fun x hx => (hs hx).elim (fun e => e ▸ ha) id, hl⟩
-    refine ⟨k + 1, by omega, t, ht, by omega, insert a (insert b (S1.erase (op d a b))), ?_, .bi hab (al0 _ _ _) (by rwa [Finset.insert_erase hg])⟩
-    intro x hx
-    simp at hx
-    rcases hx with rfl | rfl | ⟨h1, h2⟩
-    · exact ha
-    · exact hb
-    · exact (hs h1).resolve_left h2
-  · exact ⟨k, by omega, t, ht, by omega, S1, fun x hx => (hs hx).resolve_left (fun e => hg (e ▸ hx)), hl⟩
-
-
-lemma LTR.exact_counts {m T q u : ℕ} {S : Set ℕ}
-    (hmin : ∀ k < q, ¬ Sol Z0 m T k S) (h : LTR m T q u S) :
-    ∃ S0 : Finset ℕ, (S0 : Set ℕ) ⊆ S ∧ Live Z0 m T q u S0 := by
-  obtain ⟨k, hk, t, ht, hbal, S0, hS, hl⟩ := h
-  have hkeq : k = q := by
-    by_contra hne
-    exact hmin k (by omega) (hl.sol.mono le_rfl hS)
-  have hteq : t = u := by omega
-  subst k
-  subst t
-  exact ⟨S0, hS, hl⟩
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 section circuit
@@ -8282,7 +8187,6 @@ lemma replacement_from_one
       fun x => (CC_f x).trans (dec_f x).symm⟩
 
 end PEqualNP.Outside.L_meta_10760
-
 
 theorem PEqualNP.Outside.L_meta_10760 :
     ∀ (gates : List PEqualNP.CircuitLowerBounds.Gate) (o : ℕ), (∀ g ∈ gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.not) ∧ g.inputs.length ≤ 2) → (∀ i j : Fin gates.length, (gates.get i).op = PEqualNP.CircuitLowerBounds.GateOp.not → (gates.get j).op = PEqualNP.CircuitLowerBounds.GateOp.not → i = j) → (∀ x : Fin 7 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates, o⟩ (List.ofFn x) = decide (∃ i < ([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).length / 2, (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i) 0) false = true ∧ (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i + 1) 0) false = true)) → ∃ (gates' : List PEqualNP.CircuitLowerBounds.Gate) (o' : ℕ), (∀ g ∈ gates', (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) ∧ gates'.length ≤ gates.length ∧ ∀ x : Fin 7 → Bool, PEqualNP.CircuitLowerBounds.Circuit.eval ⟨gates', o'⟩ (List.ofFn x) = decide (∃ i < ([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).length / 2, (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i) 0) false = true ∧ (List.ofFn x).getD (([0, 2, 1, 3, 0, 4, 1, 4, 2, 4, 0, 5, 1, 5, 3, 5, 0, 6, 2, 6, 3, 6, 5, 6] : List ℕ).getD (2 * i + 1) 0) false = true) :=
