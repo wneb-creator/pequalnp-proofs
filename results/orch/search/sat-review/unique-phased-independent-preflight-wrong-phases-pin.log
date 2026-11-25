@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-70/constructive/unique_phased_run.py", line 158, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/tmp/oec/pequalnp-pilot-70/constructive/unique_phased_run.py", line 83, in main
+    check_pins()
+  File "/tmp/oec/pequalnp-pilot-70/constructive/unique_phased_run.py", line 81, in check_pins
+    assert len(wanted) == 64 and digest(path) == wanted, f'{name} hash mismatch'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: phases hash mismatch

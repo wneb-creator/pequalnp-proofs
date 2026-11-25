@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "positive": {
+    "started_at": "2026-11-25T09:33:28.046081+00:00",
+    "wall_limit_seconds": 5,
+    "command": [
+      "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+      "-s",
+      "--time=5",
+      "--seed=1",
+      "/tmp/oec/pequalnp-pilot-70/circuit-search/dirty-and28-smoke.cnf"
+    ],
+    "cnf_sha256": "57372dc288b20449584c8ce6f84c90ec7e9d71f1d4f128ca431945eba18ee7a8",
+    "map_sha256": "36fda55a652147a5337751639edb546339176d774e53a2b53f9ac640d7baab54",
+    "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+    "backend": "kissat",
+    "preset": "default",
+    "seed": 1,
+    "finished_at": "2026-11-25T09:33:28.054884+00:00",
+    "wall_seconds": 0.006638001999817789,
+    "cpu_seconds": 0.006313999999999999,
+    "max_rss_kib": 11816,
+    "exit_code": 10,
+    "status": "SAT",
+    "full_truth_table_verified": true,
+    "witness_file": "/tmp/oec/pequalnp-pilot-70/circuit-search/dirty-and28-smoke-witness.json",
+    "selected_branch": 0,
+    "selected_variant": 0,
+    "full_gate_count": 28
+  },
+  "negative": {
+    "started_at": "2026-11-25T09:33:28.729643+00:00",
+    "wall_limit_seconds": 5,
+    "command": [
+      "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+      "-s",
+      "--time=5",
+      "--seed=1",
+      "/tmp/oec/pequalnp-pilot-70/circuit-search/dirty-and27-clean-smoke.cnf"
+    ],
+    "cnf_sha256": "ad555904b621d45f8404b02ae089044927c07af0126bb286ebf1a17b28da693d",
+    "map_sha256": "72078e9083d2304183edd052ec13f7b10d8299023d9c57a5a09145244912132c",
+    "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+    "backend": "kissat",
+    "preset": "default",
+    "seed": 1,
+    "finished_at": "2026-11-25T09:33:28.746527+00:00",
+    "wall_seconds": 0.015112564999071765,
+    "cpu_seconds": 0.008903,
+    "max_rss_kib": 11824,
+    "exit_code": 20,
+    "status": "UNSAT"
+  },
+  "postprocessor_sha256": "4a42ee3944ac6d12d0a91b8cc6df75fc55f68ed96fc925d40b7e3284222e2c2d",
+  "scope": "A live AND(raw0,raw0) copy preserves the known target while satisfying dirtiness at28 gates. The fixed clean27 baseline is excluded by the extra condition. No target-budget search."
+}

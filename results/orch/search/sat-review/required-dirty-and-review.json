@@ -1,0 +1,90 @@
+{
+  "status": "PASS",
+  "source_sha256": "4a42ee3944ac6d12d0a91b8cc6df75fc55f68ed96fc925d40b7e3284222e2c2d",
+  "smoke_source_sha256": "378cae0d3eb780dcf37b290f69ff5a9a8a686c1ee43f10e16a43e1681aaa4460",
+  "outputs": [
+    {
+      "name": "joint-ten10-live-dirty",
+      "variables": 1503,
+      "clauses": 25019,
+      "new_witness_variables": 80,
+      "new_clauses": 161,
+      "full_gate_counts": [
+        26,
+        26,
+        26,
+        26,
+        26,
+        26
+      ],
+      "sha256": "a9671e1a17acae8640d686024f43a5f162b5d3744bfe00da61620e00d8309b33"
+    },
+    {
+      "name": "joint-noncollinear14-live-dirty",
+      "variables": 2686,
+      "clauses": 51607,
+      "new_witness_variables": 210,
+      "new_clauses": 421,
+      "full_gate_counts": [
+        26,
+        26,
+        26,
+        26,
+        26,
+        26,
+        26
+      ],
+      "sha256": "187824b5e2ee66a3c8835d59102ac9ed49e9301c1a191dfd6c4798a538c42d90"
+    },
+    {
+      "name": "dirty-and28-smoke-dirty",
+      "variables": 1847,
+      "clauses": 31813,
+      "new_witness_variables": 96,
+      "new_clauses": 193,
+      "full_gate_counts": [
+        28,
+        28,
+        28,
+        28,
+        28,
+        28
+      ],
+      "sha256": "c7a61d5a08b4784ef5e0503dda3f041441a6b1847af8f5caad9b1fa503fef88a"
+    },
+    {
+      "name": "dirty-and27-clean-smoke-base",
+      "variables": 1673,
+      "clauses": 28267,
+      "new_witness_variables": 88,
+      "new_clauses": 177,
+      "full_gate_counts": [
+        27,
+        27,
+        27,
+        27,
+        27,
+        27
+      ],
+      "sha256": "794f1ff4455752e0242f029d083bd8ac338162a3c01da10532e9f4818a226686"
+    }
+  ],
+  "smokes": [
+    {
+      "name": "dirty-and28-smoke",
+      "status": "SAT",
+      "clauses": 31850,
+      "dirty_gate_row_witnesses": 4,
+      "full_gate_count": 28
+    },
+    {
+      "name": "dirty-and27-clean-smoke",
+      "status": "UNSAT",
+      "clauses": 28301,
+      "dirty_gate_row_witnesses": 0,
+      "full_gate_count": 27
+    }
+  ],
+  "prefix_cleanliness_checked": "Every full false assignment, by bit-vector evaluation for every variant",
+  "necessity_scope": "Reviewed fixed-star embeddings with final OR and full gate count <=26, using checked clean-AND27 bound plus residual projection and monotonicity. No unrestricted lower-bound claim or production solve."
+}

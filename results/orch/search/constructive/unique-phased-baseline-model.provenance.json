@@ -1,0 +1,9 @@
+{
+  "phase_literals": 7582,
+  "phase_sha256": "17a95c704b1bb7e47a2a56d138289b8fb80346b8eeface0a9f936aefc3a1acc4",
+  "source_model": "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail27-smoke-solve.log",
+  "source_model_sha256": "5c4676da75ece5d5ec521c5d6258dce7382f4abd7559350694e1983bfceb3fbe",
+  "source_map": "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail27-smoke.map.json",
+  "source_map_sha256": "d8eb249ffec3fa7c23e570b703f2407d74bfcc9d35d580ce51de6f21c1eedd32",
+  "scope": "Complete soft phase preferences from the independently reviewed fixed27-gate baseline SAT model."
+}

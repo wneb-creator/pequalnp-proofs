@@ -1,0 +1,9 @@
+{
+  "started_at": "2026-11-25T09:37:23.632651+00:00",
+  "wall_limit_seconds": 120,
+  "lease_renewed_at": "2026-11-25T09:36:58+00:00",
+  "lease_expiry_at_launch": "2026-11-25T09:56:58.393+00:00",
+  "allocation": "Root-authorized temporary third solver; active unique0 and joint noncollinear Kissat runs remain unchanged.",
+  "independent_review": "sat-review/unique-phased-review.json",
+  "scope": "Same unique0 hard CNF,5928 soft preferences only; no additional clauses or assumptions."
+}

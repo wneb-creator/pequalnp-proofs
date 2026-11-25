@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "wrapper_sha256": "7891b60028bdaec206fd8d53120ed48dace7ef162a2aa8374134be73da0e7250",
+  "verifier_sha256": "fbdda261ef96bf13ef17d91006cfb85ee0bf1d34363f38f8693c18a8ba0fc391",
+  "preflight_source_sha256": "50250577011c40eaaafd27498dda017f7a6d0616af9ce3de7a1ee77135840371",
+  "default_production": {
+    "variables": 7253,
+    "clauses": 208826,
+    "gate_count": 26,
+    "phase_preferences": 5928,
+    "cnf_sha256": "86c036aaf5381cf4d574958b036eb8e32fa257d525fb2e4dd4fa2a33f4c86244",
+    "map_sha256": "8451a86887702275a3727555655d708d111d921b5fe0a86daaba7fef62a6b21d",
+    "phase_sha256": "5e96bcfb2eba5d129a8b4a0c3b899cb1e6d8d3bdbfba4698ff7cdb50768fa47c"
+  },
+  "baseline": {
+    "clauses_independently_verified": 211180,
+    "full_inputs": 16384,
+    "gate_count": 27
+  },
+  "preflight_rejections": 9,
+  "parser_checks": [
+    {
+      "name": "valid-multiline.cnf",
+      "status": "accepted"
+    },
+    {
+      "name": "missing-terminator.cnf",
+      "status": "rejected"
+    },
+    {
+      "name": "duplicate-header.cnf",
+      "status": "rejected"
+    },
+    {
+      "name": "out-of-range.cnf",
+      "status": "rejected"
+    },
+    {
+      "name": "wrong-count.cnf",
+      "status": "rejected"
+    },
+    {
+      "name": "valid.model",
+      "status": "accepted"
+    },
+    {
+      "name": "duplicate-status.model",
+      "status": "rejected"
+    },
+    {
+      "name": "conflict.model",
+      "status": "rejected"
+    },
+    {
+      "name": "incomplete.model",
+      "status": "rejected"
+    },
+    {
+      "name": "outside.model",
+      "status": "rejected"
+    },
+    {
+      "name": "wrong-status.model",
+      "status": "rejected"
+    }
+  ],
+  "scope": "Pinned soft phase preferences only; no added clauses/assumptions. SAT witness exported only after exact full model and raw target verification. No production solver launched by reviewer."
+}

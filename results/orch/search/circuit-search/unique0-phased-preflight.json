@@ -1,0 +1,30 @@
+{
+  "status": "Prepared only; requires root fresh renewal and allocation after current run completion.",
+  "workdir": "/tmp/oec/pequalnp-pilot-70/constructive",
+  "command": [
+    "python3",
+    "unique_phased_run.py",
+    "--cnf",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-permissive-final.cnf",
+    "--phases",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-near.phases",
+    "--prefix",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-phased",
+    "--seconds",
+    "3600"
+  ],
+  "wrapper_sha256": "7891b60028bdaec206fd8d53120ed48dace7ef162a2aa8374134be73da0e7250",
+  "verifier_sha256": "fbdda261ef96bf13ef17d91006cfb85ee0bf1d34363f38f8693c18a8ba0fc391",
+  "production": {
+    "variables": 7253,
+    "clauses": 208826,
+    "gate_count": 26,
+    "phase_preferences": 5928,
+    "cnf_sha256": "86c036aaf5381cf4d574958b036eb8e32fa257d525fb2e4dd4fa2a33f4c86244",
+    "map_sha256": "8451a86887702275a3727555655d708d111d921b5fe0a86daaba7fef62a6b21d",
+    "phase_sha256": "5e96bcfb2eba5d129a8b4a0c3b899cb1e6d8d3bdbfba4698ff7cdb50768fa47c"
+  },
+  "independent_review": "/tmp/oec/pequalnp-pilot-70/sat-review/unique-phased-review.json",
+  "backend": "CaDiCaL3.1.0 reviewed phased helper, configuration sat",
+  "scope": "Same unique0 hard CNF as active Kissat run;5928 soft preferences only, no added clauses or assumptions. Full model and all16384 input assignments checked before witness export."
+}

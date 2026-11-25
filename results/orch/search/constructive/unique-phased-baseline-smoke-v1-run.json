@@ -1,0 +1,47 @@
+{
+  "started_at": "2026-11-25T09:29:29.034310+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/phased",
+    "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail27-smoke.cnf",
+    "/tmp/oec/pequalnp-pilot-70/constructive/unique-phased-baseline-model.phases",
+    "5"
+  ],
+  "solver_limit_seconds": 5,
+  "backend": "cadical-phased",
+  "configuration": "sat",
+  "gate_count": 27,
+  "variables": 7582,
+  "clauses": 211180,
+  "wrapper_sha256": "7891b60028bdaec206fd8d53120ed48dace7ef162a2aa8374134be73da0e7250",
+  "pins": {
+    "verifier": {
+      "path": "/tmp/oec/pequalnp-pilot-70/constructive/raw_verify.py",
+      "sha256": "fbdda261ef96bf13ef17d91006cfb85ee0bf1d34363f38f8693c18a8ba0fc391"
+    },
+    "helper": {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/phased",
+      "sha256": "3ba1edbfbc745cca6f0d75a5f0772433a30b6c8feb2cc7f3211f40f3f27615ca"
+    },
+    "driver_source": {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/phased.cpp",
+      "sha256": "050e6463c4ba26c564d7834021ad75ee40bc16e222cca5aabbf761294b64fa51"
+    },
+    "cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail27-smoke.cnf",
+      "sha256": "9705bb2f63bd8e30047d33addd464774be42a6f581579c491ecdc984015ae7e4"
+    },
+    "map": {
+      "path": "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail27-smoke.map.json",
+      "sha256": "d8eb249ffec3fa7c23e570b703f2407d74bfcc9d35d580ce51de6f21c1eedd32"
+    },
+    "phases": {
+      "path": "/tmp/oec/pequalnp-pilot-70/constructive/unique-phased-baseline-model.phases",
+      "sha256": "17a95c704b1bb7e47a2a56d138289b8fb80346b8eeface0a9f936aefc3a1acc4"
+    }
+  },
+  "phase_literals": 7582,
+  "distinct_phase_variables": 7582,
+  "repeated_identical_phase_literals": 0,
+  "phase_semantics": "Soft solver.phase preferences only; no assumptions or added clauses.",
+  "deadline_semantics": "Reviewed helper starts its steady-clock solver deadline after DIMACS parsing."
+}

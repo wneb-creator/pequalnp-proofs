@@ -1,0 +1,17 @@
+{
+  "started_at": "2026-11-25T09:33:28.046081+00:00",
+  "wall_limit_seconds": 5,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=5",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/dirty-and28-smoke.cnf"
+  ],
+  "cnf_sha256": "57372dc288b20449584c8ce6f84c90ec7e9d71f1d4f128ca431945eba18ee7a8",
+  "map_sha256": "36fda55a652147a5337751639edb546339176d774e53a2b53f9ac640d7baab54",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "backend": "kissat",
+  "preset": "default",
+  "seed": 1
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PREFLIGHT_ONLY",
+  "gate_count": 26,
+  "variables": 7253,
+  "clauses": 208826,
+  "phase_literals": 5928,
+  "distinct_phase_variables": 5928,
+  "pins": {
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-permissive-final.cnf": "86c036aaf5381cf4d574958b036eb8e32fa257d525fb2e4dd4fa2a33f4c86244",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-permissive-final.map.json": "8451a86887702275a3727555655d708d111d921b5fe0a86daaba7fef62a6b21d",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-near.phases": "5e96bcfb2eba5d129a8b4a0c3b899cb1e6d8d3bdbfba4698ff7cdb50768fa47c",
+    "/tmp/oec/pequalnp-pilot-70/constructive/raw_verify.py": "fbdda261ef96bf13ef17d91006cfb85ee0bf1d34363f38f8693c18a8ba0fc391",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/phased": "3ba1edbfbc745cca6f0d75a5f0772433a30b6c8feb2cc7f3211f40f3f27615ca",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/phased.cpp": "050e6463c4ba26c564d7834021ad75ee40bc16e222cca5aabbf761294b64fa51"
+  },
+  "wrapper_sha256": "7891b60028bdaec206fd8d53120ed48dace7ef162a2aa8374134be73da0e7250",
+  "solver_launched": false
+}

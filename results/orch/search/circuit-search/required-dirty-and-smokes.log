@@ -1,0 +1,1 @@
+{"status": "PASS", "positive_gate_count": 28, "positive": "SAT and full truth checked", "negative_gate_count": 27, "negative": "UNSAT"}

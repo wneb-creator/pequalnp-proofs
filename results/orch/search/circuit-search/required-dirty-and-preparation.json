@@ -1,0 +1,49 @@
+{
+  "status": "Prepared and independently reviewed; no production search launched.",
+  "productions": [
+    {
+      "name": "joint-ten10-live-dirty",
+      "cnf": "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-ten10-live-dirty.cnf",
+      "variables": 1503,
+      "clauses": 25019,
+      "cnf_sha256": "a9671e1a17acae8640d686024f43a5f162b5d3744bfe00da61620e00d8309b33",
+      "added_variables": 80,
+      "added_clauses": 161,
+      "full_gate_counts": [
+        26,
+        26,
+        26,
+        26,
+        26,
+        26
+      ]
+    },
+    {
+      "name": "joint-noncollinear14-live-dirty",
+      "cnf": "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-noncollinear14-live-dirty.cnf",
+      "variables": 2686,
+      "clauses": 51607,
+      "cnf_sha256": "187824b5e2ee66a3c8835d59102ac9ed49e9301c1a191dfd6c4798a538c42d90",
+      "added_variables": 210,
+      "added_clauses": 421,
+      "full_gate_counts": [
+        26,
+        26,
+        26,
+        26,
+        26,
+        26,
+        26
+      ]
+    }
+  ],
+  "postprocessor_sha256": "4a42ee3944ac6d12d0a91b8cc6df75fc55f68ed96fc925d40b7e3284222e2c2d",
+  "independent_review": "/tmp/oec/pequalnp-pilot-70/sat-review/required-dirty-and-review.json",
+  "runner": "/tmp/oec/pequalnp-pilot-70/constructive/joint_run.py",
+  "runner_sha256": "90710efbcf80a9fc7f3d42ffc24cb299810729f7425b347987e4c8bf1c4559ef",
+  "scope": "Necessary dirty-AND restriction only for the reviewed fixed-star full\u226426 embeddings; does not establish nonexistence by itself.",
+  "smokes": {
+    "positive": "dirty-and28-smoke-result.json",
+    "negative": "dirty-and27-clean-smoke-result.json"
+  }
+}
