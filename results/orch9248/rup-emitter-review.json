@@ -1,0 +1,23 @@
+{
+  "utc": "2026-11-25T17:13:27.683521+00:00",
+  "status": "PASS static/provenance review",
+  "script_sha256": "e9fb4e759dd38576bf2660f842cb9e7db852b7f864ccab0170fbd9f10f58fb07",
+  "documentation_sha256": "bfe80f98a2cc45a7ac4a9875a29d16265e76f1b0c57f89c8c12f876501d33c27",
+  "axiom_logs": [
+    {
+      "path": "results/orch9248/witness16-axioms.stdout",
+      "bytes": 325,
+      "sha256": "841526aac180f2939f508569398dd7a053f324ccc5f69f82a55b82b7aac94ad5"
+    },
+    {
+      "path": "results/orch9248/witness16-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "documentation_update_after_review": {
+    "utc": "2026-11-25T17:17:04.594924+00:00",
+    "sha256": "7dd5988b0d02c89e5a8a9d590c3b200571c1b759ea010b4862d41973639905e8",
+    "scope": "Author updated best known checked length to15 and added lease-stop status; original documentation review hash retained."
+  }
+}

@@ -1,0 +1,7 @@
+UTC: 2026-11-25T17:15:49.210373+00:00
+
+Preservation-only independent review: PASS for the completed15-clause certificate. Exact source SHA256c6a7a29f251b4a836f4b127981caeff543d26c4ba9e1cb2ffc9418b49adada1c,37lines/2014bytes. Author reports the Lean check/export completed successfully before the observed manual stop at17:14:26, but after the background timer had already returnedHTTP410 at17:13:21; both original streams are empty and archived. No new Lean build or search ran during this review.
+
+The source table was parsed independently, matched exactly to witness15-traces.json, and all15 learned steps were replayed against the actual45-clausePHP5,4 database plus only earlier learned clauses. Every propagation trace ends at an actual falsified known clause; all literal codes are within0..39 and all clauses are non-tautological/duplicate-free. The final learned clause is empty. The existing reviewed harness proves soundness of this exact Boolean replay. The Lean module states only actualrun, emptymembership and exactlength15. It does not contain a<=12 witness and does not settle the posted negation.
+
+Only the permitted scoped numerical limits appear. The helper import requires single-file inlining for a final submission. No prohibited root text, string literals, attributes, admitted proofs, new axioms or native decision procedure occur. Exact independent trace details are in witness15-independent.json.

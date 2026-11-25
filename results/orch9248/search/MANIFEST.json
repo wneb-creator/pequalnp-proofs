@@ -1,0 +1,110 @@
+{
+  "time_utc": "2026-11-25T17:15:33.525617+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 3733,
+      "sha256": "a1f75ac1dea23e454dc1b76997b38be8e6522913a3bb06f8a73526537ae13862"
+    },
+    {
+      "file": "STATUS.json",
+      "bytes": 978,
+      "sha256": "6dd6343b199edf668784484a2e733436270729f40a840ab063e874cacb8a517c"
+    },
+    {
+      "file": "baseline20.json",
+      "bytes": 7173,
+      "sha256": "d2ca98321a7af69cf185fdd18904fb6847621a5c93f9990c6f0bda10aa2c3b09"
+    },
+    {
+      "file": "beam-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "beam-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "beam-diagnostic.json",
+      "bytes": 314,
+      "sha256": "21449cf75d12262935632a0a9448a56b52047bb1a207fab43d12d43744751b7f"
+    },
+    {
+      "file": "beam-diagnostic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "beam-diagnostic.stdout",
+      "bytes": 1380,
+      "sha256": "4763c81a7454297af6b73b8055eb19948290de38dd6c4550384d4e3a66fe43cc"
+    },
+    {
+      "file": "beam-diagnostic2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "beam-diagnostic2.stdout",
+      "bytes": 1294,
+      "sha256": "3129453252da79f8b7f17491ed094da103c83b5473fe9cefda5bc744c1a7bf16"
+    },
+    {
+      "file": "beam.cpp",
+      "bytes": 9935,
+      "sha256": "a04d50fc3e7a1b76857b0e71984db9b13fc79fedcc4602f382925da594d5c24b"
+    },
+    {
+      "file": "check-baseline.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "check-baseline.stdout",
+      "bytes": 119,
+      "sha256": "8939a2ea8e13dcc3a04ad9a4cdbdba0256c117a4de42035a54f7b6a78b245701"
+    },
+    {
+      "file": "compiler-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "compiler-version.stdout",
+      "bytes": 232,
+      "sha256": "5f6798e87440f1e8b88bf6822c33bebe434f83374640a7f8ba967902ee1ea098"
+    },
+    {
+      "file": "first-orbits.txt",
+      "bytes": 40,
+      "sha256": "695805edbd6d7255a7185cfabf877c22b982ae42de8ff68e6c6d905c6657557e"
+    },
+    {
+      "file": "initial-short-orbits.json",
+      "bytes": 685,
+      "sha256": "e49b2264873b727cb98f7c003278944530be4859ce732b30aebea9cc34a71e16"
+    },
+    {
+      "file": "initial-short-pool.json",
+      "bytes": 60404,
+      "sha256": "a1c2dea451d9bb48a222ad263508901d1a6a7b4282ab3a6b8c7367dbde823f7e"
+    },
+    {
+      "file": "rup.py",
+      "bytes": 4142,
+      "sha256": "b1276ef94b466e3ab921514666287de08d76d7ee602e33d815470e7e600f31b2"
+    },
+    {
+      "file": "structured-pool-metadata.json",
+      "bytes": 700,
+      "sha256": "f452b9a384f68589223b5d164a2a9eb36d71cc5f11bc2ea28e6951cf9a5703ae"
+    },
+    {
+      "file": "structured-pool.txt",
+      "bytes": 135805,
+      "sha256": "e6b11cfbf570c06b3473ffdbbce22e9f1a03c28e616d32442c9962fda9614852"
+    }
+  ]
+}

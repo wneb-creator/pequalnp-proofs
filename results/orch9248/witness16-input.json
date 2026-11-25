@@ -1,0 +1,107 @@
+{
+  "provenance": "search-alt/diagnostic-best.json; signed DIMACS converted; traces regenerated in harness database order",
+  "steps": [
+    {
+      "clause": [
+        4,
+        0,
+        15,
+        32
+      ]
+    },
+    {
+      "clause": [
+        4,
+        12,
+        17
+      ]
+    },
+    {
+      "clause": [
+        31,
+        20,
+        12,
+        4
+      ]
+    },
+    {
+      "clause": [
+        27,
+        16,
+        12,
+        20
+      ]
+    },
+    {
+      "clause": [
+        36,
+        3,
+        14,
+        38
+      ]
+    },
+    {
+      "clause": [
+        23,
+        36,
+        4
+      ]
+    },
+    {
+      "clause": [
+        37
+      ]
+    },
+    {
+      "clause": [
+        18,
+        13,
+        2
+      ]
+    },
+    {
+      "clause": [
+        34,
+        2,
+        15
+      ]
+    },
+    {
+      "clause": [
+        27
+      ]
+    },
+    {
+      "clause": [
+        19,
+        0,
+        32
+      ]
+    },
+    {
+      "clause": [
+        5,
+        16,
+        18
+      ]
+    },
+    {
+      "clause": [
+        29
+      ]
+    },
+    {
+      "clause": [
+        33
+      ]
+    },
+    {
+      "clause": [
+        31
+      ]
+    },
+    {
+      "clause": []
+    }
+  ]
+}

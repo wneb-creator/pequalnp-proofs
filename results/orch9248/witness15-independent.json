@@ -1,0 +1,90 @@
+{
+  "utc": "2026-11-25T17:15:49.210373+00:00",
+  "scope": "Preservation-only independent replay of a source already Lean-checked beforeHTTP410; no new proof development or Lean build",
+  "source_sha256": "c6a7a29f251b4a836f4b127981caeff543d26c4ba9e1cb2ffc9418b49adada1c",
+  "steps": 15,
+  "verdict": "PASS all actual-clause conflict traces",
+  "source_matches_trace_json": true,
+  "traces": [
+    {
+      "step": 0,
+      "actual_conflict_clause": 43,
+      "trail_entries_used": 17
+    },
+    {
+      "step": 1,
+      "actual_conflict_clause": 28,
+      "trail_entries_used": 18
+    },
+    {
+      "step": 2,
+      "actual_conflict_clause": 20,
+      "trail_entries_used": 18
+    },
+    {
+      "step": 3,
+      "actual_conflict_clause": 19,
+      "trail_entries_used": 17
+    },
+    {
+      "step": 4,
+      "actual_conflict_clause": 29,
+      "trail_entries_used": 17
+    },
+    {
+      "step": 5,
+      "actual_conflict_clause": 40,
+      "trail_entries_used": 17
+    },
+    {
+      "step": 6,
+      "actual_conflict_clause": 44,
+      "trail_entries_used": 18
+    },
+    {
+      "step": 7,
+      "actual_conflict_clause": 44,
+      "trail_entries_used": 18
+    },
+    {
+      "step": 8,
+      "actual_conflict_clause": 42,
+      "trail_entries_used": 19
+    },
+    {
+      "step": 9,
+      "actual_conflict_clause": 27,
+      "trail_entries_used": 20
+    },
+    {
+      "step": 10,
+      "actual_conflict_clause": 44,
+      "trail_entries_used": 20
+    },
+    {
+      "step": 11,
+      "actual_conflict_clause": 40,
+      "trail_entries_used": 19
+    },
+    {
+      "step": 12,
+      "actual_conflict_clause": 44,
+      "trail_entries_used": 20
+    },
+    {
+      "step": 13,
+      "actual_conflict_clause": 27,
+      "trail_entries_used": 20
+    },
+    {
+      "step": 14,
+      "actual_conflict_clause": 27,
+      "trail_entries_used": 21
+    }
+  ],
+  "empty_logs": [
+    "results/orch9248/witness15-checked.stdout",
+    "results/orch9248/witness15-checked.stderr"
+  ],
+  "chronology": "Candidate found17:13:42 and checked before observedmanualstop17:14:26, after backgroundtimer41017:13:21; preserved as completed research, not represented as pre-expiry work."
+}

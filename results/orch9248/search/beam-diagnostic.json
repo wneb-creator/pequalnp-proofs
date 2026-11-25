@@ -1,0 +1,14 @@
+{
+  "exit": 0,
+  "elapsed": 5.083279874001164,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-103/orch9248/beam",
+    "5",
+    "9248",
+    "8",
+    "4",
+    "results/orch9248/search/structured-pool.txt",
+    "results/orch9248/search/first-orbits.txt",
+    "results/orch9248/search/beam-diagnostic-witness.json"
+  ]
+}

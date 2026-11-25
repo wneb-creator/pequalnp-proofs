@@ -1,0 +1,16 @@
+PROGRESS restart=1 depth=1 states=4 nodes=1 actions=7 seconds=0.00303832 best=26524.6
+PROGRESS restart=1 depth=2 states=8 nodes=5 actions=10321 seconds=0.214564 best=34749.6
+PROGRESS restart=1 depth=3 states=8 nodes=13 actions=33345 seconds=0.74499 best=42960.4
+PROGRESS restart=1 depth=4 states=8 nodes=21 actions=58445 seconds=1.2956 best=157767
+PROGRESS restart=1 depth=5 states=8 nodes=29 actions=85609 seconds=1.90886 best=166526
+PROGRESS restart=1 depth=6 states=8 nodes=37 actions=114699 seconds=2.63097 best=179362
+PROGRESS restart=1 depth=7 states=8 nodes=45 actions=147600 seconds=3.44388 best=293150
+PROGRESS restart=1 depth=8 states=8 nodes=53 actions=159824 seconds=3.775 best=303936
+PROGRESS restart=1 depth=9 states=8 nodes=61 actions=164533 seconds=3.92025 best=420260
+PROGRESS restart=1 depth=10 states=8 nodes=69 actions=166617 seconds=3.99405 best=534023
+PROGRESS restart=1 depth=11 states=8 nodes=77 actions=167407 seconds=4.03196 best=751799
+PROGRESS restart=2 depth=1 states=4 nodes=78 actions=167414 seconds=4.03297 best=26524.5
+PROGRESS restart=2 depth=2 states=8 nodes=82 actions=177728 seconds=4.22596 best=34750.1
+PROGRESS restart=2 depth=3 states=8 nodes=90 actions=200752 seconds=4.70436 best=42972.3
+PROGRESS restart=2 depth=4 states=8 nodes=95 actions=216480 seconds=5.05729 best=52749.4
+NO_WITNESS seconds=5.05733 nodes=95 actions=216480 stopped=0

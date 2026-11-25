@@ -1,0 +1,95 @@
+{
+  "provenance": "search-alt/run-best-15.json; clauses converted; traces regenerated in harness database order",
+  "steps": [
+    {
+      "clause": [
+        3,
+        30,
+        24,
+        16
+      ]
+    },
+    {
+      "clause": [
+        23,
+        12,
+        10
+      ]
+    },
+    {
+      "clause": [
+        37,
+        23
+      ]
+    },
+    {
+      "clause": [
+        7,
+        34,
+        26,
+        32
+      ]
+    },
+    {
+      "clause": [
+        26,
+        28,
+        7
+      ]
+    },
+    {
+      "clause": [
+        35,
+        12,
+        20
+      ]
+    },
+    {
+      "clause": [
+        19,
+        28,
+        4
+      ]
+    },
+    {
+      "clause": [
+        21,
+        26,
+        2
+      ]
+    },
+    {
+      "clause": [
+        35
+      ]
+    },
+    {
+      "clause": [
+        23
+      ]
+    },
+    {
+      "clause": [
+        11
+      ]
+    },
+    {
+      "clause": [
+        37
+      ]
+    },
+    {
+      "clause": [
+        13
+      ]
+    },
+    {
+      "clause": [
+        14
+      ]
+    },
+    {
+      "clause": []
+    }
+  ]
+}

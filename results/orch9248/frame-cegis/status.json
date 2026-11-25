@@ -1,0 +1,12 @@
+{
+  "iteration": 25,
+  "elapsed": 15.558585669999957,
+  "frames": 158,
+  "variables": 168457,
+  "clauses": 574385,
+  "solver_exit": 10,
+  "invalid_steps": 5,
+  "new_frames": 5,
+  "non_tautological_steps": 10,
+  "verdict": "REFINING"
+}

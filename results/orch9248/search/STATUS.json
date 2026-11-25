@@ -1,0 +1,23 @@
+{
+  "time_utc": "2026-11-25T17:15:33.522829+00:00",
+  "gap": "L-meta-9248",
+  "stop_reason": "Root confirmedHTTP410 at17:14:26 UTC",
+  "active_owned_search_processes": [],
+  "twenty_minute_beam_status": "PREPARED_NOT_RUN",
+  "completed_runs": [
+    {
+      "name": "beam-diagnostic",
+      "duration_seconds": 5.083,
+      "status": "NO_WITNESS",
+      "scope": "Heuristic8-state beam over11404-clause pool; not exhaustive."
+    },
+    {
+      "name": "beam-diagnostic2",
+      "duration_seconds": 5.0,
+      "status": "NO_WITNESS",
+      "scope": "Same limited pool plus greedy unit-completion attempts; not exhaustive."
+    }
+  ],
+  "final_source_status": "Compiled successfully after adding skip-already-forced unit completion; final12664-clause strengthened pool was prepared but no search used it.",
+  "baseline": "Exact20-learned-clause trace extracted from L_meta_9250, replayed by independent Python checker with actual falsified-clause hints; not a new upper bound."
+}

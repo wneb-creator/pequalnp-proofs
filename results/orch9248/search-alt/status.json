@@ -1,0 +1,20 @@
+{
+  "started": "2026-11-25T17:11:00.979138+00:00",
+  "command": "/tmp/oec/pequalnp-pilot-103/search9248_cdcl 924803 1200",
+  "lease_expiry_last_report": "2026-11-25T17:30:35.868Z",
+  "diagnostic_best": 16,
+  "exact_target_refutation_found": false,
+  "updated": "2026-11-25T17:15:06.715514+00:00",
+  "sessions": {},
+  "proof_opt": {
+    "diagnostic_trials": 51608,
+    "best": 16,
+    "status": "LONG RUN NOT STARTED; two5second diagnostics completed"
+  },
+  "lean_checked_best": 16,
+  "status": "FROZEN after root confirmed410 at17:14:26",
+  "final_cdcl_line": "DONE trials=477864 best=15",
+  "best_validated": 15,
+  "watcher_stop": "SIGINT exit130, preserves complete diagnostics including KeyboardInterrupt",
+  "optimizer15_diagnostic_final": "DONE trials=56837 best=15"
+}

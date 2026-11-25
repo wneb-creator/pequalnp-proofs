@@ -1,0 +1,252 @@
+{
+  "utc": "2026-11-25T17:12:36.013068+00:00",
+  "verdict": "PASS independent complete replay; no new Lean compilation",
+  "reports": [
+    {
+      "source": "results/orch9248/lemmas/Witness16.lean",
+      "sha256": "eb629fcc9a0d759852c4fa661cd45e59b393f014f193bf241e76acd1dd1e4cf0",
+      "count": 16,
+      "independent_exact_replay": "PASS",
+      "source_matches_trace_json": true,
+      "all_literal_codes_in0_39": true,
+      "empty_clause_last": true,
+      "trace_reports": [
+        {
+          "step": 0,
+          "actual_conflict_clause": 34,
+          "trail_entries_used": 17,
+          "learned_clause_size": 4
+        },
+        {
+          "step": 1,
+          "actual_conflict_clause": 38,
+          "trail_entries_used": 18,
+          "learned_clause_size": 3
+        },
+        {
+          "step": 2,
+          "actual_conflict_clause": 19,
+          "trail_entries_used": 13,
+          "learned_clause_size": 4
+        },
+        {
+          "step": 3,
+          "actual_conflict_clause": 43,
+          "trail_entries_used": 17,
+          "learned_clause_size": 4
+        },
+        {
+          "step": 4,
+          "actual_conflict_clause": 42,
+          "trail_entries_used": 17,
+          "learned_clause_size": 4
+        },
+        {
+          "step": 5,
+          "actual_conflict_clause": 30,
+          "trail_entries_used": 18,
+          "learned_clause_size": 3
+        },
+        {
+          "step": 6,
+          "actual_conflict_clause": 36,
+          "trail_entries_used": 19,
+          "learned_clause_size": 1
+        },
+        {
+          "step": 7,
+          "actual_conflict_clause": 38,
+          "trail_entries_used": 18,
+          "learned_clause_size": 3
+        },
+        {
+          "step": 8,
+          "actual_conflict_clause": 27,
+          "trail_entries_used": 18,
+          "learned_clause_size": 3
+        },
+        {
+          "step": 9,
+          "actual_conflict_clause": 43,
+          "trail_entries_used": 20,
+          "learned_clause_size": 1
+        },
+        {
+          "step": 10,
+          "actual_conflict_clause": 44,
+          "trail_entries_used": 18,
+          "learned_clause_size": 3
+        },
+        {
+          "step": 11,
+          "actual_conflict_clause": 21,
+          "trail_entries_used": 18,
+          "learned_clause_size": 3
+        },
+        {
+          "step": 12,
+          "actual_conflict_clause": 38,
+          "trail_entries_used": 20,
+          "learned_clause_size": 1
+        },
+        {
+          "step": 13,
+          "actual_conflict_clause": 26,
+          "trail_entries_used": 20,
+          "learned_clause_size": 1
+        },
+        {
+          "step": 14,
+          "actual_conflict_clause": 26,
+          "trail_entries_used": 20,
+          "learned_clause_size": 1
+        },
+        {
+          "step": 15,
+          "actual_conflict_clause": 38,
+          "trail_entries_used": 21,
+          "learned_clause_size": 0
+        }
+      ],
+      "empty_archived_logs": [
+        "results/orch9248/witness16-checked.stdout",
+        "results/orch9248/witness16-checked.stderr"
+      ]
+    },
+    {
+      "source": "results/orch9248/lemmas/Baseline20.lean",
+      "sha256": "332455fdc338e992ac256767219207b8346d2d88699a30e1ef57e91ec71f2f29",
+      "count": 20,
+      "independent_exact_replay": "PASS",
+      "source_matches_trace_json": true,
+      "all_literal_codes_in0_39": true,
+      "empty_clause_last": true,
+      "trace_reports": [
+        {
+          "step": 0,
+          "actual_conflict_clause": 42,
+          "trail_entries_used": 17,
+          "learned_clause_size": 3
+        },
+        {
+          "step": 1,
+          "actual_conflict_clause": 36,
+          "trail_entries_used": 17,
+          "learned_clause_size": 2
+        },
+        {
+          "step": 2,
+          "actual_conflict_clause": 42,
+          "trail_entries_used": 18,
+          "learned_clause_size": 2
+        },
+        {
+          "step": 3,
+          "actual_conflict_clause": 26,
+          "trail_entries_used": 17,
+          "learned_clause_size": 2
+        },
+        {
+          "step": 4,
+          "actual_conflict_clause": 37,
+          "trail_entries_used": 19,
+          "learned_clause_size": 1
+        },
+        {
+          "step": 5,
+          "actual_conflict_clause": 42,
+          "trail_entries_used": 17,
+          "learned_clause_size": 3
+        },
+        {
+          "step": 6,
+          "actual_conflict_clause": 36,
+          "trail_entries_used": 17,
+          "learned_clause_size": 2
+        },
+        {
+          "step": 7,
+          "actual_conflict_clause": 42,
+          "trail_entries_used": 18,
+          "learned_clause_size": 2
+        },
+        {
+          "step": 8,
+          "actual_conflict_clause": 26,
+          "trail_entries_used": 17,
+          "learned_clause_size": 2
+        },
+        {
+          "step": 9,
+          "actual_conflict_clause": 37,
+          "trail_entries_used": 19,
+          "learned_clause_size": 1
+        },
+        {
+          "step": 10,
+          "actual_conflict_clause": 42,
+          "trail_entries_used": 17,
+          "learned_clause_size": 3
+        },
+        {
+          "step": 11,
+          "actual_conflict_clause": 36,
+          "trail_entries_used": 17,
+          "learned_clause_size": 2
+        },
+        {
+          "step": 12,
+          "actual_conflict_clause": 42,
+          "trail_entries_used": 18,
+          "learned_clause_size": 2
+        },
+        {
+          "step": 13,
+          "actual_conflict_clause": 16,
+          "trail_entries_used": 18,
+          "learned_clause_size": 2
+        },
+        {
+          "step": 14,
+          "actual_conflict_clause": 37,
+          "trail_entries_used": 19,
+          "learned_clause_size": 1
+        },
+        {
+          "step": 15,
+          "actual_conflict_clause": 44,
+          "trail_entries_used": 18,
+          "learned_clause_size": 3
+        },
+        {
+          "step": 16,
+          "actual_conflict_clause": 26,
+          "trail_entries_used": 18,
+          "learned_clause_size": 2
+        },
+        {
+          "step": 17,
+          "actual_conflict_clause": 32,
+          "trail_entries_used": 19,
+          "learned_clause_size": 2
+        },
+        {
+          "step": 18,
+          "actual_conflict_clause": 16,
+          "trail_entries_used": 19,
+          "learned_clause_size": 2
+        },
+        {
+          "step": 19,
+          "actual_conflict_clause": 27,
+          "trail_entries_used": 21,
+          "learned_clause_size": 0
+        }
+      ],
+      "empty_archived_logs": [
+        "results/orch9248/baseline20-checked.stdout",
+        "results/orch9248/baseline20-checked.stderr"
+      ]
+    }
+  ]
+}

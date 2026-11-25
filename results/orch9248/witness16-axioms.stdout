@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_9248.Witness16.run' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_9248.Witness16.contains_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_9248.Witness16.count' depends on axioms: [propext, Classical.choice, Quot.sound]

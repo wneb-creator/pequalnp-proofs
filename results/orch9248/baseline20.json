@@ -1,0 +1,123 @@
+{
+  "provenance": "L_meta_9250 c0 through c19; existing proof baseline, not a 12-step witness",
+  "steps": [
+    {
+      "clause": [
+        3,
+        20,
+        33
+      ]
+    },
+    {
+      "clause": [
+        29,
+        33
+      ]
+    },
+    {
+      "clause": [
+        11,
+        33
+      ]
+    },
+    {
+      "clause": [
+        12,
+        33
+      ]
+    },
+    {
+      "clause": [
+        33
+      ]
+    },
+    {
+      "clause": [
+        1,
+        20,
+        35
+      ]
+    },
+    {
+      "clause": [
+        29,
+        35
+      ]
+    },
+    {
+      "clause": [
+        9,
+        35
+      ]
+    },
+    {
+      "clause": [
+        12,
+        35
+      ]
+    },
+    {
+      "clause": [
+        35
+      ]
+    },
+    {
+      "clause": [
+        1,
+        18,
+        37
+      ]
+    },
+    {
+      "clause": [
+        27,
+        37
+      ]
+    },
+    {
+      "clause": [
+        9,
+        37
+      ]
+    },
+    {
+      "clause": [
+        10,
+        37
+      ]
+    },
+    {
+      "clause": [
+        37
+      ]
+    },
+    {
+      "clause": [
+        1,
+        18,
+        39
+      ]
+    },
+    {
+      "clause": [
+        27,
+        39
+      ]
+    },
+    {
+      "clause": [
+        9,
+        39
+      ]
+    },
+    {
+      "clause": [
+        10,
+        39
+      ]
+    },
+    {
+      "clause": []
+    }
+  ]
+}

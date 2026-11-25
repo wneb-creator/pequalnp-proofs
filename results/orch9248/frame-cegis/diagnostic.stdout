@@ -1,0 +1,26 @@
+{"iteration": 1, "elapsed": 0.20868480399985856, "frames": 41, "variables": 50125, "clauses": 167441, "solver_exit": 10, "invalid_steps": 4, "new_frames": 4, "non_tautological_steps": 4, "verdict": "REFINING"}
+{"iteration": 2, "elapsed": 0.5092221260001679, "frames": 45, "variables": 54109, "clauses": 181169, "solver_exit": 10, "invalid_steps": 4, "new_frames": 4, "non_tautological_steps": 5, "verdict": "REFINING"}
+{"iteration": 3, "elapsed": 0.7167579739998473, "frames": 49, "variables": 58885, "clauses": 197273, "solver_exit": 10, "invalid_steps": 4, "new_frames": 4, "non_tautological_steps": 4, "verdict": "REFINING"}
+{"iteration": 4, "elapsed": 0.9309595279992209, "frames": 53, "variables": 63085, "clauses": 211649, "solver_exit": 10, "invalid_steps": 4, "new_frames": 4, "non_tautological_steps": 4, "verdict": "REFINING"}
+{"iteration": 5, "elapsed": 1.211724864999269, "frames": 57, "variables": 67357, "clauses": 226241, "solver_exit": 10, "invalid_steps": 4, "new_frames": 4, "non_tautological_steps": 4, "verdict": "REFINING"}
+{"iteration": 6, "elapsed": 1.4804180510000151, "frames": 61, "variables": 71341, "clauses": 239969, "solver_exit": 10, "invalid_steps": 4, "new_frames": 4, "non_tautological_steps": 4, "verdict": "REFINING"}
+{"iteration": 7, "elapsed": 1.736287061999974, "frames": 65, "variables": 75541, "clauses": 254345, "solver_exit": 10, "invalid_steps": 4, "new_frames": 4, "non_tautological_steps": 4, "verdict": "REFINING"}
+{"iteration": 8, "elapsed": 2.051754512998741, "frames": 69, "variables": 79813, "clauses": 268937, "solver_exit": 10, "invalid_steps": 4, "new_frames": 4, "non_tautological_steps": 4, "verdict": "REFINING"}
+{"iteration": 9, "elapsed": 2.357832210998822, "frames": 73, "variables": 83941, "clauses": 283097, "solver_exit": 10, "invalid_steps": 4, "new_frames": 4, "non_tautological_steps": 4, "verdict": "REFINING"}
+{"iteration": 10, "elapsed": 2.7691070509990823, "frames": 77, "variables": 87925, "clauses": 296825, "solver_exit": 10, "invalid_steps": 4, "new_frames": 4, "non_tautological_steps": 4, "verdict": "REFINING"}
+{"iteration": 11, "elapsed": 3.2770926029988914, "frames": 81, "variables": 91909, "clauses": 310553, "solver_exit": 10, "invalid_steps": 6, "new_frames": 6, "non_tautological_steps": 7, "verdict": "REFINING"}
+{"iteration": 12, "elapsed": 4.584333135999259, "frames": 87, "variables": 98317, "clauses": 332441, "solver_exit": 10, "invalid_steps": 5, "new_frames": 5, "non_tautological_steps": 7, "verdict": "REFINING"}
+{"iteration": 13, "elapsed": 5.241575351999927, "frames": 92, "variables": 103225, "clauses": 349385, "solver_exit": 10, "invalid_steps": 5, "new_frames": 5, "non_tautological_steps": 6, "verdict": "REFINING"}
+{"iteration": 14, "elapsed": 5.781018976000269, "frames": 97, "variables": 108565, "clauses": 367625, "solver_exit": 10, "invalid_steps": 4, "new_frames": 4, "non_tautological_steps": 4, "verdict": "REFINING"}
+{"iteration": 15, "elapsed": 6.228002750998712, "frames": 101, "variables": 112837, "clauses": 382217, "solver_exit": 10, "invalid_steps": 5, "new_frames": 5, "non_tautological_steps": 5, "verdict": "REFINING"}
+{"iteration": 16, "elapsed": 6.687467191999531, "frames": 106, "variables": 118249, "clauses": 400673, "solver_exit": 10, "invalid_steps": 5, "new_frames": 5, "non_tautological_steps": 5, "verdict": "REFINING"}
+{"iteration": 17, "elapsed": 7.237819680998655, "frames": 111, "variables": 123589, "clauses": 418913, "solver_exit": 10, "invalid_steps": 5, "new_frames": 5, "non_tautological_steps": 6, "verdict": "REFINING"}
+{"iteration": 18, "elapsed": 7.9367829599996185, "frames": 116, "variables": 128137, "clauses": 434777, "solver_exit": 10, "invalid_steps": 5, "new_frames": 5, "non_tautological_steps": 6, "verdict": "REFINING"}
+{"iteration": 19, "elapsed": 8.531197203999909, "frames": 121, "variables": 133333, "clauses": 452585, "solver_exit": 10, "invalid_steps": 6, "new_frames": 6, "non_tautological_steps": 6, "verdict": "REFINING"}
+{"iteration": 20, "elapsed": 9.211848775999897, "frames": 127, "variables": 139093, "clauses": 472529, "solver_exit": 10, "invalid_steps": 6, "new_frames": 6, "non_tautological_steps": 8, "verdict": "REFINING"}
+{"iteration": 21, "elapsed": 9.80280106399914, "frames": 133, "variables": 144349, "clauses": 490961, "solver_exit": 10, "invalid_steps": 6, "new_frames": 6, "non_tautological_steps": 6, "verdict": "REFINING"}
+{"iteration": 22, "elapsed": 10.691708455999105, "frames": 139, "variables": 150109, "clauses": 510905, "solver_exit": 10, "invalid_steps": 5, "new_frames": 5, "non_tautological_steps": 5, "verdict": "REFINING"}
+{"iteration": 23, "elapsed": 11.844136612999137, "frames": 144, "variables": 155233, "clauses": 528497, "solver_exit": 10, "invalid_steps": 7, "new_frames": 7, "non_tautological_steps": 11, "verdict": "REFINING"}
+{"iteration": 24, "elapsed": 12.880637418998958, "frames": 151, "variables": 161629, "clauses": 550793, "solver_exit": 10, "invalid_steps": 7, "new_frames": 7, "non_tautological_steps": 7, "verdict": "REFINING"}
+{"iteration": 25, "elapsed": 15.558585669999957, "frames": 158, "variables": 168457, "clauses": 574385, "solver_exit": 10, "invalid_steps": 5, "new_frames": 5, "non_tautological_steps": 10, "verdict": "REFINING"}
+{"verdict": "TIME_CAP", "iterations": 25, "frames": 163}

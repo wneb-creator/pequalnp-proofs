@@ -1,0 +1,14 @@
+usage: emit_rup_certificate.py [-h] [--module MODULE]
+                               [--normalized-json NORMALIZED_JSON]
+                               certificate output
+
+Validate a PHP(5,4) RUP certificate and emit a kernel-checkable Lean module.
+
+positional arguments:
+  certificate
+  output
+
+options:
+  -h, --help            show this help message and exit
+  --module MODULE
+  --normalized-json NORMALIZED_JSON

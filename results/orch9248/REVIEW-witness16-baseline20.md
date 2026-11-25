@@ -1,0 +1,9 @@
+UTC: 2026-11-25T17:12:36.013068+00:00
+
+Independent semantic/finite-data review: PASS for Witness16 and Baseline20. Exact source hashes match the authors reported checked versions: Witness16 eb629fcc9a0d759852c4fa661cd45e59b393f014f193bf241e76acd1dd1e4cf0; Baseline20 332455fdc338e992ac256767219207b8346d2d88699a30e1ef57e91ec71f2f29. Both original stdout/stderr pairs are empty and archived here; successful Lean check/export is author-reported. No new Lean build was run.
+
+An independent Python replay read the literal-and-trail tables directly from the Lean sources, checked exact equality to the archived trace JSON, constructed the45 actualPHP5,4 input clauses in the harness database order, and replayed every propagation of all36 learned steps. Every step ends by falsifying a real earlier database clause. All references are to input or previously learned clauses, all literal codes lie in0..39, all clauses are duplicate-free and non-tautological, and the last learned clause is empty. There is no reliance on bare contradictory assumptions. Exact trace details are saved in witness16-baseline20-independent.json.
+
+The generic harness soundness was independently reviewed separately. Each source kernel-checks verify=true, derives the actual RUP run, checks empty membership and proves its exact learned length,16 or20. The witness count includes the final empty clause; input clauses are free. These are valid upper bounds and search baselines. Neither refutes the posted no-at-most12 statement nor proves that lower bound.
+
+Both sources use only scoped permitted limits, own L_meta_9248 namespaces, no root marker, string literal, prohibited attribute, admitted proof, new axiom or native decision procedure. They import the local RUPHarness module, so a permitted final single-file submission would need that checked body inlined and rechecked. The source/data sizes are small.

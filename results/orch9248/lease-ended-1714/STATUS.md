@@ -1,0 +1,4 @@
+The owned L-meta-9248 lease9dc943a3-73cd-4318-8eee-47ddbcce228c returned HTTP410 in the background timer at2026-11-25T17:13:21Z. Root observed the same failure on manual renewal at17:14:26Z and immediately stopped all jobs. Each exact curl -si diagnostic replay is preserved in full. The last successful manual renewal at17:10:35Z reported expiry17:30:35.868Z. The expired lease was not released. The15-clause candidate was found at17:13:42Z and its Lean check completed before the observed manual410 stop; this was after the earlier background error. Both15- and16-clause Lean-checked refutations are upper-bound partials only; no12-clause witness or requested lower bound was established. All results are pushed before a new desk request.
+
+Sub-agents: circuit_search, counterexample, fresh_proof, lean_setup, lower_bound, status_check, partial_lean
+TIMING total=197 subagents=7

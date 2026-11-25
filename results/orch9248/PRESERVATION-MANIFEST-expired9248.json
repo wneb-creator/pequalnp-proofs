@@ -1,0 +1,1499 @@
+{
+  "utc": "2026-11-25T17:17:04.594924+00:00",
+  "verdict": "PASS preservation-only; posted9248unresolved",
+  "entries": [
+    {
+      "path": "results/orch9248/FINAL_STATUS_9248_410.md",
+      "bytes": 2736,
+      "sha256": "9b36700eae5ed065b273e401725068ba0f53712c48577522c7c8d69c2bf0540b"
+    },
+    {
+      "path": "results/orch9248/NOTES.md",
+      "bytes": 1922,
+      "sha256": "795e1fa7c69e734d4c2e71dc3b915e167d10e0068e30387e1ce3e0d8549b7585"
+    },
+    {
+      "path": "results/orch9248/REFUTATION-PACKAGING.md",
+      "bytes": 3937,
+      "sha256": "0e12d927fc0cbdf1912cf2110ca00659152bde992655e3e24dabf173e7d73aff"
+    },
+    {
+      "path": "results/orch9248/REVIEW-frame-cegis.md",
+      "bytes": 2300,
+      "sha256": "ea4f4614f9407aa043dd41dd9f15034b350b3524192449fbb32955b37a44b3d2"
+    },
+    {
+      "path": "results/orch9248/REVIEW-preservation-expired9248.md",
+      "bytes": 1249,
+      "sha256": "3cc405e0e6b53d169f75669b2eaec2e76c3bb2b1b293d80eae5b08d48b2f61f1"
+    },
+    {
+      "path": "results/orch9248/REVIEW-rup-emitter.md",
+      "bytes": 2050,
+      "sha256": "691829e4ae14da7f672de56150d9e5a8a2d6e68af8576fceca6191339e3ba384"
+    },
+    {
+      "path": "results/orch9248/REVIEW-witness15.md",
+      "bytes": 1423,
+      "sha256": "5ac676dfa09d3501d7d12fc395fe45ae4c0f332a41eb36837a94ab056ba598ad"
+    },
+    {
+      "path": "results/orch9248/REVIEW-witness16-baseline20.md",
+      "bytes": 1888,
+      "sha256": "00c8fab64750827dc4bb3e27e80a33cd9e3fef6def0efda3cc39f1fab040fdf8"
+    },
+    {
+      "path": "results/orch9248/RUP-CERTIFICATES.md",
+      "bytes": 5107,
+      "sha256": "7dd5988b0d02c89e5a8a9d590c3b200571c1b759ea010b4862d41973639905e8"
+    },
+    {
+      "path": "results/orch9248/TIMELINE.md",
+      "bytes": 393,
+      "sha256": "050bc5b0a071e306230e45b3cf9ffbccaebb6288a26a4ebc1212e72767985434"
+    },
+    {
+      "path": "results/orch9248/author-certificate-validation.json",
+      "bytes": 3180,
+      "sha256": "ff35c5082b6e84442bb1c96fdb10619f8487228a2cce6b09674a9b71fceafce7"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-baseline-emitter.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-baseline-emitter.stdout",
+      "bytes": 125,
+      "sha256": "bbe07cd69b2a4bdf9bd0c4b4d7bce5d56ac8b853401cf55e8e868012af9116a2"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-baseline20-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-baseline20-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-rup-harness-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-rup-harness-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-witness15-emitter.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-witness15-emitter.stdout",
+      "bytes": 124,
+      "sha256": "b6079a819e749f6b5358cb00a8e4671253cc7e102994ba07fe442d6464b2d288"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-witness15-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-witness15-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-witness16-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-witness16-axioms.stdout",
+      "bytes": 325,
+      "sha256": "841526aac180f2939f508569398dd7a053f324ccc5f69f82a55b82b7aac94ad5"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-witness16-emitter.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-witness16-emitter.stdout",
+      "bytes": 124,
+      "sha256": "8a57da3333810c82f168a5958bd499ccff9f2005d590af1856af4b513385e069"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-witness16-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/author-checks/9248-witness16-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/baseline20-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/baseline20-checked.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/baseline20-traces.json",
+      "bytes": 5961,
+      "sha256": "44db1e396353fc7add6d6c91686a0f917343aa76b1ece64d8ad427511fa7482d"
+    },
+    {
+      "path": "results/orch9248/baseline20.json",
+      "bytes": 1329,
+      "sha256": "3c365219fb4a9dc99f22979f1d96c8f7cb65bb01cc6b9fd592b98224329d327a"
+    },
+    {
+      "path": "results/orch9248/checked-rup-source-census.json",
+      "bytes": 3067,
+      "sha256": "f838e0704055fa5c5717a2bb7b1ff29c7d2905928e22c1a0bfe79b242e687c17"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-baseline-emitter.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-baseline-emitter.stdout",
+      "bytes": 125,
+      "sha256": "bbe07cd69b2a4bdf9bd0c4b4d7bce5d56ac8b853401cf55e8e868012af9116a2"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-baseline20-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-baseline20-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-emitter-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-emitter-help.stdout",
+      "bytes": 415,
+      "sha256": "185712720acbdbc9890c663c85855a5c49ab69e8dd099577427d691748ac33f7"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-named-partial-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-named-partial-001.stdout",
+      "bytes": 57630,
+      "sha256": "88370b489451585cadc7967ceb005de9adfba7e54a109fe0d1ec4df70ea6a295"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-rup-harness-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-rup-harness-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness15-emitter.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness15-emitter.stdout",
+      "bytes": 124,
+      "sha256": "b6079a819e749f6b5358cb00a8e4671253cc7e102994ba07fe442d6464b2d288"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness15-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness15-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness16-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness16-axioms.stdout",
+      "bytes": 325,
+      "sha256": "841526aac180f2939f508569398dd7a053f324ccc5f69f82a55b82b7aac94ad5"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness16-emitter.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness16-emitter.stdout",
+      "bytes": 124,
+      "sha256": "8a57da3333810c82f168a5958bd499ccff9f2005d590af1856af4b513385e069"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness16-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness16-first.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/checkpoint-expired9248-diagnostics/MANIFEST.json",
+      "bytes": 5976,
+      "sha256": "5e7509d9c276234ec484e0e450a0dc55c0e6bacde46fadc08ba077d2354f02a0"
+    },
+    {
+      "path": "results/orch9248/emit_rup_certificate.py",
+      "bytes": 5167,
+      "sha256": "e9fb4e759dd38576bf2660f842cb9e7db852b7f864ccab0170fbd9f10f58fb07"
+    },
+    {
+      "path": "results/orch9248/exact-gap-history.txt",
+      "bytes": 59,
+      "sha256": "ee2bf18c9da24a462647ca565541327b81226356842e8c6a928b821b3e94e43b"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/diagnostic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/diagnostic.stdout",
+      "bytes": 5311,
+      "sha256": "5591846a900becd8b7a2c325457b293d66acece8c1bae2c9a908c014cd27db53"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/frames.json",
+      "bytes": 1924,
+      "sha256": "414820400e0acb9dac46417ba33863de86c475e5c2747413bd2fa68421fdc7fa"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0001.model.json",
+      "bytes": 153,
+      "sha256": "00f881a777fdc9a5c0c2a8c6cdb8985f7f9148dbca5a1da32c468f3b96654908"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0001.stdout",
+      "bytes": 315519,
+      "sha256": "0cef252b6a2f203b098198c49280ebf3113315b9f5b853c0fcee851ae6545c8d"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0002.model.json",
+      "bytes": 137,
+      "sha256": "59407f1223cef3a002f733e98bb369dc595ccccfd4389710faed2bffd7867f2e"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0002.stdout",
+      "bytes": 339056,
+      "sha256": "6d3576d7604284dc2d3af747bfb447e161ed0d0ee1b99a38d910510a99e3e1aa"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0003.model.json",
+      "bytes": 101,
+      "sha256": "87d66c2c6f4474033406542a837bec1f82d0dbd93bb55f079c9d6e87dd04eca9"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0003.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0003.stdout",
+      "bytes": 367798,
+      "sha256": "32dd6cd452d41476e69ae271f94af8b7991f36e3e8eda38ddbeef9830969c1c1"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0004.model.json",
+      "bytes": 148,
+      "sha256": "c2821f8dd206f91813fe2edc93b6231955300d7fa532759c83a975b0ee6f9065"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0004.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0004.stdout",
+      "bytes": 396448,
+      "sha256": "326124fabf135d62c141ef779c59d89d8ad362588b385b70887a95ff0171f188"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0005.model.json",
+      "bytes": 101,
+      "sha256": "cc6638081c075c80e489ad02a65b7e1ac7bb8ba9313fbcd70eb03bb33ee6ffe2"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0005.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0005.stdout",
+      "bytes": 418320,
+      "sha256": "f4e7c8c65d941b84c54b7f8457dd27ec7a2408483afe05ab69f90195b3bb462d"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0006.model.json",
+      "bytes": 74,
+      "sha256": "56b7ad5f7805056bf2a1bbfe4570ff732c23ac88f22df58600f051dd1fbe85d7"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0006.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0006.stdout",
+      "bytes": 445814,
+      "sha256": "99cc9391b454d6e4824a10edc926ae835a073699b2cfd9110f1da7939168eb02"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0007.model.json",
+      "bytes": 49,
+      "sha256": "32e457c7591bde995b881337187b831d6a34a1756a36a4cc238b67e7664cbb4e"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0007.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0007.stdout",
+      "bytes": 469767,
+      "sha256": "ff6fbc049dd7c39e7eb181de499dbab2d28ca9444c8a3442a7cef5a3019c4747"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0008.model.json",
+      "bytes": 73,
+      "sha256": "ba6596081fadb443a090757baf69c5955566c71dea13e9960fe834e7d258950d"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0008.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0008.stdout",
+      "bytes": 499631,
+      "sha256": "651306c2cdded3fd22bb939a6b890ec6ea772ee4bb319662bdf61cbe2695e6dc"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0009.model.json",
+      "bytes": 68,
+      "sha256": "95d4aa47ab1c33a5622656c6b3697307782a4493fd611c99b455382324a052b1"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0009.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0009.stdout",
+      "bytes": 525613,
+      "sha256": "f6f8dcbc60463dfe0d3eb636e90703073ab9f52848b33dd549692a191956bd6f"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0010.model.json",
+      "bytes": 75,
+      "sha256": "268755685900d83fc1895d27da70a3c39ca374f6620688c7adeefa3fcee96223"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0010.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0010.stdout",
+      "bytes": 550400,
+      "sha256": "95218a9895daf87dfc6ee6d5b45a4bbdd986454106d6d0f415beb0685a8374c6"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0011.model.json",
+      "bytes": 136,
+      "sha256": "6cab57b01c9a0e125a1857490f786cf7e245e5dfa1d002e0c8e0fbb6e482b1ab"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0011.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0011.stdout",
+      "bytes": 585491,
+      "sha256": "a5e1b2662303ea25733d9ceffc637aeb51fcd899c8c499f4f46b26c35d662ed3"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0012.model.json",
+      "bytes": 122,
+      "sha256": "31bfd4b826e97a52d2fa2dc5543d7c7c669f18d80d379424a19f1739e3502b1d"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0012.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0012.stdout",
+      "bytes": 630818,
+      "sha256": "6ebee0e56da64fc28c3736a36c613acbd7c58f19f0efe8d80bbcf514588a7136"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0013.model.json",
+      "bytes": 92,
+      "sha256": "1bb51ca8bf2bc957744119f82ae64c99c3c1b3bcce05f591e1cb9dd9d0533a85"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0013.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0013.stdout",
+      "bytes": 655968,
+      "sha256": "34388e1f8ca606ff2a05c3d4b01dcc458dab86edeab46b6246b88ddac1f2f929"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0014.model.json",
+      "bytes": 151,
+      "sha256": "45bd60437780dab035cce384ca6ec73da472317c4a75ba9cc7866536a92a0582"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0014.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0014.stdout",
+      "bytes": 694785,
+      "sha256": "bddeaf99c5da979e842a391f22757c5596557fbbe534cb9cd814bb9902e3ff05"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0015.model.json",
+      "bytes": 122,
+      "sha256": "f7a165ba5ed40669fd1bf212af91d308f18eedc548506d8841b1b9d412bf6278"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0015.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0015.stdout",
+      "bytes": 729942,
+      "sha256": "3a5750c83fb041804004ab4fb44fbf051f511e4deee4f4669e1b34e68b80cb89"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0016.model.json",
+      "bytes": 109,
+      "sha256": "9a2c62039939db7e7290723c149851f08483f27051c1194ad5d5138fdb1593b9"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0016.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0016.stdout",
+      "bytes": 770000,
+      "sha256": "a9a7dcfac473ee4f5df79890683b5e58edf34f04b69545d464562c06d0706766"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0017.model.json",
+      "bytes": 86,
+      "sha256": "bfad44728bd51c82acb2b9fcf78c8c0219453c67a5a19a2e7c0a73f410753492"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0017.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0017.stdout",
+      "bytes": 806295,
+      "sha256": "2479405e4e9e601a3c67eeeed8f7fad09e469fc88b437fc04682dae2f8d0da93"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0018.model.json",
+      "bytes": 92,
+      "sha256": "6e0c4a447bde240610de18bdf43eca32682edcce8b8aa225e6f6ccdf29a0fd51"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0018.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0018.stdout",
+      "bytes": 840364,
+      "sha256": "7226379b49dd6a6264463d548c520702ee1ff453009a083e3cb8918aa6b9886e"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0019.model.json",
+      "bytes": 76,
+      "sha256": "e5ac3cd5beae502b2cfe5752517cfb073da7f23b349ab508ae2276cab2bff544"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0019.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0019.stdout",
+      "bytes": 878760,
+      "sha256": "6c9f12a857c926c8b9ee22406302d124e0ee1df4e588e759ea48fc40a1162378"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0020.model.json",
+      "bytes": 100,
+      "sha256": "b0faf7ec162b8fefacbd25dedcf6afe8bc05aacf9178635a319ebd8cea76b2ce"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0020.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0020.stdout",
+      "bytes": 932009,
+      "sha256": "4a6cbc5833289ee4a1e2db59a1a2454a373d3c99b8b60859295c5e5a12c7e661"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0021.model.json",
+      "bytes": 81,
+      "sha256": "95a22297f47471846e17d54f87b6b20adfd585cdf68425e900b1b196e32d73a2"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0021.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0021.stdout",
+      "bytes": 964913,
+      "sha256": "65c75b7cd55bb1ccc952a8dfdaf4ab426c58e3d63a177dbf12535a8e8d71dfcd"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0022.model.json",
+      "bytes": 100,
+      "sha256": "e551a7a49ffbc335181b5370248a08e87eb900483cb2f5ff7eefa97f9823b49c"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0022.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0022.stdout",
+      "bytes": 1007050,
+      "sha256": "1560bd0daed256d1d915db03955b058f4385bc881a5e799b9033f23608e8aac3"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0023.model.json",
+      "bytes": 99,
+      "sha256": "db6cbd551232ce6107db6a46dca8d5e73a1c1b63a933a8e3c7508ea32cafca00"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0023.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0023.stdout",
+      "bytes": 1065167,
+      "sha256": "9423c73db8a218bb8286165afd96d7e0891f63f3e112b05db8d46df9ee207ff6"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0024.model.json",
+      "bytes": 87,
+      "sha256": "3d8bc2fd4c58a625c8009b54787afd8baae87da539702fd44f18e584f4fd8f11"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0024.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0024.stdout",
+      "bytes": 1091040,
+      "sha256": "7db3d844497aa8b178259091aaba01d4ece4b9c2ba0a8ab5fc655a97809fe715"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0025.model.json",
+      "bytes": 103,
+      "sha256": "79cc962293b134d75e34b7736e8da8b762d4a89a28585815b93b5e7e1656195d"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0025.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/iteration-0025.stdout",
+      "bytes": 1178666,
+      "sha256": "002a46c2ccd51a6fdb841771f27707dc4818f05160cbcbd03a32288b422e7b84"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/search.py",
+      "bytes": 5885,
+      "sha256": "6ed18729781d8dafca9689102c4ca982e6143c46f130cda3688924de10ae1255"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/status.json",
+      "bytes": 235,
+      "sha256": "f601a48b52aae7075b148d6f3f77905d6a1abed75c817b024b0ecbc522d0d6f3"
+    },
+    {
+      "path": "results/orch9248/frame-cegis/stopped-summary.json",
+      "bytes": 715,
+      "sha256": "2c568640d0c4a538927958b01c0de0ea791db9ccca0aa768cc9aa1b693a73c3c"
+    },
+    {
+      "path": "results/orch9248/lease-ended-1714/STATUS.md",
+      "bytes": 880,
+      "sha256": "3bfd34e5feadd4026bf9e665ac691eb0ddfad378c483b59e31f7db11a1a5331a"
+    },
+    {
+      "path": "results/orch9248/lease-ended-1714/beat-9248-manual-001.json",
+      "bytes": 695,
+      "sha256": "e9ed044641456987aa3e67863a8b15629a4b16dd08bb969ec08de04a6684eebf"
+    },
+    {
+      "path": "results/orch9248/lease-ended-1714/beat-9248-manual-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/lease-ended-1714/beat-9248-manual-002.full.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/lease-ended-1714/beat-9248-manual-002.full.txt",
+      "bytes": 786,
+      "sha256": "15d0900c97419129497ed4c9a6ffc354c4bbc4170bc7f0e5525fabfc001733d2"
+    },
+    {
+      "path": "results/orch9248/lease-ended-1714/beat-9248-manual-002.json",
+      "bytes": 86,
+      "sha256": "97f85ec6b780a9bd0afc580e62035c532bcb369f640609e8f11be91e8e8abc74"
+    },
+    {
+      "path": "results/orch9248/lease-ended-1714/beat-9248-manual-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/lease-ended-1714/beat-9248-timer-002.full.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/lease-ended-1714/beat-9248-timer-002.full.txt",
+      "bytes": 776,
+      "sha256": "fcafa84980af8d0083d430f16bbb08acb3078049d2c51febae437e175265dcd5"
+    },
+    {
+      "path": "results/orch9248/lease-ended-1714/beat-9248-timer-002.json",
+      "bytes": 86,
+      "sha256": "97f85ec6b780a9bd0afc580e62035c532bcb369f640609e8f11be91e8e8abc74"
+    },
+    {
+      "path": "results/orch9248/lease-ended-1714/beat-9248-timer-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/lease-ended-1714/heartbeat9248-state.json",
+      "bytes": 187,
+      "sha256": "4e8da059a9ceb0f8af354727384947365c99dffb600197e77a120e3b5c893193"
+    },
+    {
+      "path": "results/orch9248/lemmas/Baseline20.lean",
+      "bytes": 2416,
+      "sha256": "332455fdc338e992ac256767219207b8346d2d88699a30e1ef57e91ec71f2f29"
+    },
+    {
+      "path": "results/orch9248/lemmas/Witness15.lean",
+      "bytes": 2014,
+      "sha256": "c6a7a29f251b4a836f4b127981caeff543d26c4ba9e1cb2ffc9418b49adada1c"
+    },
+    {
+      "path": "results/orch9248/lemmas/Witness16.lean",
+      "bytes": 2104,
+      "sha256": "eb629fcc9a0d759852c4fa661cd45e59b393f014f193bf241e76acd1dd1e4cf0"
+    },
+    {
+      "path": "results/orch9248/lemmas/notes/fresh_proof.md",
+      "bytes": 5070,
+      "sha256": "fcad95a81af31978b7becef66f24d225889d47d81a7223fe60d515b99e7b9c0c"
+    },
+    {
+      "path": "results/orch9248/lemmas/notes/hall_schemas.json",
+      "bytes": 5263,
+      "sha256": "604112698fd4ac71fe9cd5908331bc542deed832b4692d028806ccccf32862cc"
+    },
+    {
+      "path": "results/orch9248/lemmas/notes/hall_schemas.py",
+      "bytes": 1811,
+      "sha256": "fcc05eec29812c9748ec7b8b6cd1e64fd9ed06c3b8cf59d56c883d9f679571f9"
+    },
+    {
+      "path": "results/orch9248/lemmas/notes/strengthen_runs.py",
+      "bytes": 2637,
+      "sha256": "1ee3b5964093f2ebfbf718d0347296a6b853d7880298c7f6e099a481ff01fcfd"
+    },
+    {
+      "path": "results/orch9248/lower_bound.md",
+      "bytes": 1651,
+      "sha256": "4d2c4f59aa7c084dc5c6ada889a0ce22632ab0fe24dff5de484e10b78cc7fd82"
+    },
+    {
+      "path": "results/orch9248/rup-emitter-review.json",
+      "bytes": 952,
+      "sha256": "b9b43b0510c583e06dd94fad533a82da7f8f08ea6877c4afc2a6aa3888bb8983"
+    },
+    {
+      "path": "results/orch9248/rup-history.txt",
+      "bytes": 164,
+      "sha256": "45781ce43c62c09a95e3578cda236a201d4c8f6f245a9036b77d3faa156af793"
+    },
+    {
+      "path": "results/orch9248/search-alt/FREEZE-1714-manifest.json",
+      "bytes": 9330,
+      "sha256": "6afd8ede2bcf99514bc4c65913d15cb55144397a364d637ccd80a6a14bca9a64"
+    },
+    {
+      "path": "results/orch9248/search-alt/README.md",
+      "bytes": 2469,
+      "sha256": "586db2ccc69e438a1169a93201eaabf9dff28ea0a818a2350be2792bb7c76e6f"
+    },
+    {
+      "path": "results/orch9248/search-alt/baseline-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/baseline-validation.stdout",
+      "bytes": 31,
+      "sha256": "8c7f3fdcee6375e558794278fb3240882f9c92884d5d3af96b63ba5317462ea9"
+    },
+    {
+      "path": "results/orch9248/search-alt/baseline20.json",
+      "bytes": 4612,
+      "sha256": "bec5724117df7baf3cf0892fc2e826f5bc3b0b6fd3e2301b1e0d4144c5183a6b"
+    },
+    {
+      "path": "results/orch9248/search-alt/cdcl_search.cpp",
+      "bytes": 5098,
+      "sha256": "4c746f2e0e29943d7ec539ce439280bd58f03b929e50abda5d4831bb04218ed3"
+    },
+    {
+      "path": "results/orch9248/search-alt/compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/diagnostic-best.json",
+      "bytes": 3685,
+      "sha256": "4f8f77187d4637242cf2c91cb7e3224fca239c5e692b43ab1e17af5283ec24fc"
+    },
+    {
+      "path": "results/orch9248/search-alt/diagnostic-validation.json",
+      "bytes": 435,
+      "sha256": "2b221520a239e9e6ba0c60b2ec45829e5da077bcfed3f8336b76e138a9731c37"
+    },
+    {
+      "path": "results/orch9248/search-alt/diagnostic-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/diagnostic-validation.stdout",
+      "bytes": 307,
+      "sha256": "4798b2106993091e4c4322cb428c1e1897b385153e6f5ececf81b572a05f72b1"
+    },
+    {
+      "path": "results/orch9248/search-alt/diagnostic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/diagnostic.stdout",
+      "bytes": 1747,
+      "sha256": "d663ae4656917848ad56de27ccbb69eed79e585aeea74a731b4c28a5806751da"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt-compile-final.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt-compile-final.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt-diagnostic-best.json",
+      "bytes": 3682,
+      "sha256": "802ea869cc75fb907ee19fd466f2828906d07653b3d8303baac7963e6cce13d7"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt-diagnostic-validation.json",
+      "bytes": 64,
+      "sha256": "340cc60816388edd585243ce50f43c07ca6760ec12b7f2d01cc317b60da321b9"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt-diagnostic-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt-diagnostic-validation.stdout",
+      "bytes": 44,
+      "sha256": "14f319a31b764b70b4fecf18e2c45b79b95b128d0978e3992b75f7a9205a7939"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt-diagnostic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt-diagnostic.stdout",
+      "bytes": 231,
+      "sha256": "fabb8c384bb1f3349d878b2637765d64d743a02932ed60a0fe0437b2530cc56e"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt-seed15.txt",
+      "bytes": 129,
+      "sha256": "9fb5f4ab361c40df0b4c6b9a0f39f5a8e5e8ac7476e55f2972656e0c03c87ec9"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt-seed16.txt",
+      "bytes": 148,
+      "sha256": "f2159e2ca8930058916a9d8680200350bca3fd44d98fcb35f0a32c10a257d8db"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt15-diagnostic-best.json",
+      "bytes": 3511,
+      "sha256": "fb81f4459ed6a8224080f66ead3376dcb87a9868c1510502a2dfd95786f1489c"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt15-diagnostic-validation.json",
+      "bytes": 64,
+      "sha256": "b50a24f5a2df31240e899bd03096ccfd8e7070dedf867f8db2f69fb5833126eb"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt15-diagnostic-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt15-diagnostic-validation.stdout",
+      "bytes": 44,
+      "sha256": "5a4a366667aae3711fb2ca541f30230389012f2d863f35e1dd686354bb13170b"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt15-diagnostic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/opt15-diagnostic.stdout",
+      "bytes": 212,
+      "sha256": "ffe345157052a8ce02783b431389e18438f9aa4b4095b7f2d0acdc00fd39b2e6"
+    },
+    {
+      "path": "results/orch9248/search-alt/proof_opt.cpp",
+      "bytes": 4465,
+      "sha256": "b66faee380ad51566c38f170366905f67530098ee4797e606aa1f4b56134f032"
+    },
+    {
+      "path": "results/orch9248/search-alt/run-best-15.json",
+      "bytes": 3570,
+      "sha256": "3271fd6d0a3c9267971a4b93a30490d4eeb309ab97ee0163c686f028de15ed7f"
+    },
+    {
+      "path": "results/orch9248/search-alt/run-best-16.json",
+      "bytes": 3793,
+      "sha256": "1430bb52cf3273743d920184eb6602c49fabade5902fcffb259a82c285be26b2"
+    },
+    {
+      "path": "results/orch9248/search-alt/run-best-17.json",
+      "bytes": 3889,
+      "sha256": "c0dfc32a525ef9995a71a526f86fc94f67a992fa0373d9fd927f2fedc64660c7"
+    },
+    {
+      "path": "results/orch9248/search-alt/run-best-18.json",
+      "bytes": 4248,
+      "sha256": "b721e7ffb945282d50303742fa56f74747e03a1a3e5285e111efe2e8a8ac699f"
+    },
+    {
+      "path": "results/orch9248/search-alt/run-best-21.json",
+      "bytes": 4847,
+      "sha256": "0794da6f06e772777899f10038fab4706e1774f6da5831170053c2ec9af37023"
+    },
+    {
+      "path": "results/orch9248/search-alt/run-best-22.json",
+      "bytes": 4990,
+      "sha256": "e3a5492d40381f2b574682b3a5598d9ca373b2c08c2f21f0378c869381429de8"
+    },
+    {
+      "path": "results/orch9248/search-alt/run-best.json",
+      "bytes": 3570,
+      "sha256": "3271fd6d0a3c9267971a4b93a30490d4eeb309ab97ee0163c686f028de15ed7f"
+    },
+    {
+      "path": "results/orch9248/search-alt/run-final-best.json",
+      "bytes": 3516,
+      "sha256": "7e69ef543b5c1af8b4dd139eba038ba91ddfb9c4c19384de1b479c53ece94226"
+    },
+    {
+      "path": "results/orch9248/search-alt/run-final-validation.json",
+      "bytes": 381,
+      "sha256": "5afa22b74b3bc346b184767e3d6cf70910a5cb68e2197e5f3a3e99e8dc71ca90"
+    },
+    {
+      "path": "results/orch9248/search-alt/run-final-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/run-final-validation.stdout",
+      "bytes": 271,
+      "sha256": "864b8d8b78a0e34bf5407facde6c619314a561e8e7c502636457d48edeeb94c3"
+    },
+    {
+      "path": "results/orch9248/search-alt/run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search-alt/run.stdout",
+      "bytes": 1496,
+      "sha256": "fbd67bb3705cf2faf1eb3011f034593f77e22f661ba26e2b5ca7c2b7d14557db"
+    },
+    {
+      "path": "results/orch9248/search-alt/rup_tools.py",
+      "bytes": 2256,
+      "sha256": "5b9d6e9f1d229466aa5f557a30c8de6cc7742fa226cdca4fcc246e6db336b9fc"
+    },
+    {
+      "path": "results/orch9248/search-alt/status.json",
+      "bytes": 775,
+      "sha256": "904a00daa698a842d4fa3c72c6f99f58e695243f51bac559b43aac0eec4c86ee"
+    },
+    {
+      "path": "results/orch9248/search-alt/validate_log.py",
+      "bytes": 791,
+      "sha256": "461beb6cd9ace632ae8956e7802673f94e85e517f039429264518f6963339514"
+    },
+    {
+      "path": "results/orch9248/search-alt/watch.stderr",
+      "bytes": 170,
+      "sha256": "29afc7419d1a4ae62986d984e5f52388bdd65d068aac9fa52bfc5fc57fd2dd2e"
+    },
+    {
+      "path": "results/orch9248/search-alt/watch.stdout",
+      "bytes": 486,
+      "sha256": "ced7fd3e618ccbc34d4f5929308088babf269a656746aa9960b297cebdd6bbb4"
+    },
+    {
+      "path": "results/orch9248/search-alt/watch_log.py",
+      "bytes": 1395,
+      "sha256": "ac0b4811465536a7ac985fd04275624495ccac00fe6f4105022111071e89f5a6"
+    },
+    {
+      "path": "results/orch9248/search/MANIFEST.json",
+      "bytes": 3275,
+      "sha256": "5736eab680c5d514d52953d28374189e517ab91ac3dd0e832a4ca88a1a85d7ba"
+    },
+    {
+      "path": "results/orch9248/search/README.md",
+      "bytes": 3733,
+      "sha256": "a1f75ac1dea23e454dc1b76997b38be8e6522913a3bb06f8a73526537ae13862"
+    },
+    {
+      "path": "results/orch9248/search/STATUS.json",
+      "bytes": 978,
+      "sha256": "6dd6343b199edf668784484a2e733436270729f40a840ab063e874cacb8a517c"
+    },
+    {
+      "path": "results/orch9248/search/baseline20.json",
+      "bytes": 7173,
+      "sha256": "d2ca98321a7af69cf185fdd18904fb6847621a5c93f9990c6f0bda10aa2c3b09"
+    },
+    {
+      "path": "results/orch9248/search/beam-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search/beam-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search/beam-diagnostic.json",
+      "bytes": 314,
+      "sha256": "21449cf75d12262935632a0a9448a56b52047bb1a207fab43d12d43744751b7f"
+    },
+    {
+      "path": "results/orch9248/search/beam-diagnostic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search/beam-diagnostic.stdout",
+      "bytes": 1380,
+      "sha256": "4763c81a7454297af6b73b8055eb19948290de38dd6c4550384d4e3a66fe43cc"
+    },
+    {
+      "path": "results/orch9248/search/beam-diagnostic2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search/beam-diagnostic2.stdout",
+      "bytes": 1294,
+      "sha256": "3129453252da79f8b7f17491ed094da103c83b5473fe9cefda5bc744c1a7bf16"
+    },
+    {
+      "path": "results/orch9248/search/beam.cpp",
+      "bytes": 9935,
+      "sha256": "a04d50fc3e7a1b76857b0e71984db9b13fc79fedcc4602f382925da594d5c24b"
+    },
+    {
+      "path": "results/orch9248/search/check-baseline.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search/check-baseline.stdout",
+      "bytes": 119,
+      "sha256": "8939a2ea8e13dcc3a04ad9a4cdbdba0256c117a4de42035a54f7b6a78b245701"
+    },
+    {
+      "path": "results/orch9248/search/compiler-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/search/compiler-version.stdout",
+      "bytes": 232,
+      "sha256": "5f6798e87440f1e8b88bf6822c33bebe434f83374640a7f8ba967902ee1ea098"
+    },
+    {
+      "path": "results/orch9248/search/first-orbits.txt",
+      "bytes": 40,
+      "sha256": "695805edbd6d7255a7185cfabf877c22b982ae42de8ff68e6c6d905c6657557e"
+    },
+    {
+      "path": "results/orch9248/search/initial-short-orbits.json",
+      "bytes": 685,
+      "sha256": "e49b2264873b727cb98f7c003278944530be4859ce732b30aebea9cc34a71e16"
+    },
+    {
+      "path": "results/orch9248/search/initial-short-pool.json",
+      "bytes": 60404,
+      "sha256": "a1c2dea451d9bb48a222ad263508901d1a6a7b4282ab3a6b8c7367dbde823f7e"
+    },
+    {
+      "path": "results/orch9248/search/rup.py",
+      "bytes": 4142,
+      "sha256": "b1276ef94b466e3ab921514666287de08d76d7ee602e33d815470e7e600f31b2"
+    },
+    {
+      "path": "results/orch9248/search/structured-pool-metadata.json",
+      "bytes": 700,
+      "sha256": "f452b9a384f68589223b5d164a2a9eb36d71cc5f11bc2ea28e6951cf9a5703ae"
+    },
+    {
+      "path": "results/orch9248/search/structured-pool.txt",
+      "bytes": 135805,
+      "sha256": "e6b11cfbf570c06b3473ffdbbce22e9f1a03c28e616d32442c9962fda9614852"
+    },
+    {
+      "path": "results/orch9248/witness15-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/witness15-checked.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/witness15-independent.json",
+      "bytes": 2171,
+      "sha256": "baadd4a8dee50fe069bfc3f2fc65cf2b3608e4e830c6ab2a8e0fe9cb4b60ff15"
+    },
+    {
+      "path": "results/orch9248/witness15-input.json",
+      "bytes": 1063,
+      "sha256": "eee5342c6e5b232d6b8cdb22d224af728dfc22d6183e9cf04d15545cf588ef44"
+    },
+    {
+      "path": "results/orch9248/witness15-traces.json",
+      "bytes": 4584,
+      "sha256": "b1785b64f60b4995e6a4298c6dc3691e3506178a4468e0e2c791f4312349402e"
+    },
+    {
+      "path": "results/orch9248/witness16-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/witness16-axioms.stdout",
+      "bytes": 325,
+      "sha256": "841526aac180f2939f508569398dd7a053f324ccc5f69f82a55b82b7aac94ad5"
+    },
+    {
+      "path": "results/orch9248/witness16-baseline20-independent.json",
+      "bytes": 6682,
+      "sha256": "a7357462d2de9952b51a54db549468b7283627b71aca09be9577e7eb39865a26"
+    },
+    {
+      "path": "results/orch9248/witness16-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/witness16-checked.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch9248/witness16-input.json",
+      "bytes": 1202,
+      "sha256": "cbdb2dc6d77277c0558a1e5d9bc8b263d1b07f425d43ff04d740d34a91a2825b"
+    },
+    {
+      "path": "results/orch9248/witness16-traces.json",
+      "bytes": 4895,
+      "sha256": "4a2fc635297ac4488a03a75c3e040cd210d2c54dac75b91f96da3e9dd2db70b7"
+    }
+  ],
+  "stage_paths": [
+    "results/orch9248/FINAL_STATUS_9248_410.md",
+    "results/orch9248/NOTES.md",
+    "results/orch9248/PRESERVATION-MANIFEST-expired9248.json",
+    "results/orch9248/PRESERVATION-STAGE-expired9248.txt",
+    "results/orch9248/REFUTATION-PACKAGING.md",
+    "results/orch9248/REVIEW-frame-cegis.md",
+    "results/orch9248/REVIEW-preservation-expired9248.md",
+    "results/orch9248/REVIEW-rup-emitter.md",
+    "results/orch9248/REVIEW-witness15.md",
+    "results/orch9248/REVIEW-witness16-baseline20.md",
+    "results/orch9248/RUP-CERTIFICATES.md",
+    "results/orch9248/TIMELINE.md",
+    "results/orch9248/author-certificate-validation.json",
+    "results/orch9248/author-checks/9248-baseline-emitter.stderr",
+    "results/orch9248/author-checks/9248-baseline-emitter.stdout",
+    "results/orch9248/author-checks/9248-baseline20-first.stderr",
+    "results/orch9248/author-checks/9248-baseline20-first.stdout",
+    "results/orch9248/author-checks/9248-rup-harness-first.stderr",
+    "results/orch9248/author-checks/9248-rup-harness-first.stdout",
+    "results/orch9248/author-checks/9248-witness15-emitter.stderr",
+    "results/orch9248/author-checks/9248-witness15-emitter.stdout",
+    "results/orch9248/author-checks/9248-witness15-first.stderr",
+    "results/orch9248/author-checks/9248-witness15-first.stdout",
+    "results/orch9248/author-checks/9248-witness16-axioms.stderr",
+    "results/orch9248/author-checks/9248-witness16-axioms.stdout",
+    "results/orch9248/author-checks/9248-witness16-emitter.stderr",
+    "results/orch9248/author-checks/9248-witness16-emitter.stdout",
+    "results/orch9248/author-checks/9248-witness16-first.stderr",
+    "results/orch9248/author-checks/9248-witness16-first.stdout",
+    "results/orch9248/baseline20-checked.stderr",
+    "results/orch9248/baseline20-checked.stdout",
+    "results/orch9248/baseline20-traces.json",
+    "results/orch9248/baseline20.json",
+    "results/orch9248/checked-rup-source-census.json",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-baseline-emitter.stderr",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-baseline-emitter.stdout",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-baseline20-first.stderr",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-baseline20-first.stdout",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-emitter-help.stderr",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-emitter-help.stdout",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-named-partial-001.stderr",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-named-partial-001.stdout",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-rup-harness-first.stderr",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-rup-harness-first.stdout",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness15-emitter.stderr",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness15-emitter.stdout",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness15-first.stderr",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness15-first.stdout",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness16-axioms.stderr",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness16-axioms.stdout",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness16-emitter.stderr",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness16-emitter.stdout",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness16-first.stderr",
+    "results/orch9248/checkpoint-expired9248-diagnostics/9248-witness16-first.stdout",
+    "results/orch9248/checkpoint-expired9248-diagnostics/MANIFEST.json",
+    "results/orch9248/emit_rup_certificate.py",
+    "results/orch9248/exact-gap-history.txt",
+    "results/orch9248/frame-cegis/diagnostic.stderr",
+    "results/orch9248/frame-cegis/diagnostic.stdout",
+    "results/orch9248/frame-cegis/frames.json",
+    "results/orch9248/frame-cegis/iteration-0001.model.json",
+    "results/orch9248/frame-cegis/iteration-0001.stderr",
+    "results/orch9248/frame-cegis/iteration-0001.stdout",
+    "results/orch9248/frame-cegis/iteration-0002.model.json",
+    "results/orch9248/frame-cegis/iteration-0002.stderr",
+    "results/orch9248/frame-cegis/iteration-0002.stdout",
+    "results/orch9248/frame-cegis/iteration-0003.model.json",
+    "results/orch9248/frame-cegis/iteration-0003.stderr",
+    "results/orch9248/frame-cegis/iteration-0003.stdout",
+    "results/orch9248/frame-cegis/iteration-0004.model.json",
+    "results/orch9248/frame-cegis/iteration-0004.stderr",
+    "results/orch9248/frame-cegis/iteration-0004.stdout",
+    "results/orch9248/frame-cegis/iteration-0005.model.json",
+    "results/orch9248/frame-cegis/iteration-0005.stderr",
+    "results/orch9248/frame-cegis/iteration-0005.stdout",
+    "results/orch9248/frame-cegis/iteration-0006.model.json",
+    "results/orch9248/frame-cegis/iteration-0006.stderr",
+    "results/orch9248/frame-cegis/iteration-0006.stdout",
+    "results/orch9248/frame-cegis/iteration-0007.model.json",
+    "results/orch9248/frame-cegis/iteration-0007.stderr",
+    "results/orch9248/frame-cegis/iteration-0007.stdout",
+    "results/orch9248/frame-cegis/iteration-0008.model.json",
+    "results/orch9248/frame-cegis/iteration-0008.stderr",
+    "results/orch9248/frame-cegis/iteration-0008.stdout",
+    "results/orch9248/frame-cegis/iteration-0009.model.json",
+    "results/orch9248/frame-cegis/iteration-0009.stderr",
+    "results/orch9248/frame-cegis/iteration-0009.stdout",
+    "results/orch9248/frame-cegis/iteration-0010.model.json",
+    "results/orch9248/frame-cegis/iteration-0010.stderr",
+    "results/orch9248/frame-cegis/iteration-0010.stdout",
+    "results/orch9248/frame-cegis/iteration-0011.model.json",
+    "results/orch9248/frame-cegis/iteration-0011.stderr",
+    "results/orch9248/frame-cegis/iteration-0011.stdout",
+    "results/orch9248/frame-cegis/iteration-0012.model.json",
+    "results/orch9248/frame-cegis/iteration-0012.stderr",
+    "results/orch9248/frame-cegis/iteration-0012.stdout",
+    "results/orch9248/frame-cegis/iteration-0013.model.json",
+    "results/orch9248/frame-cegis/iteration-0013.stderr",
+    "results/orch9248/frame-cegis/iteration-0013.stdout",
+    "results/orch9248/frame-cegis/iteration-0014.model.json",
+    "results/orch9248/frame-cegis/iteration-0014.stderr",
+    "results/orch9248/frame-cegis/iteration-0014.stdout",
+    "results/orch9248/frame-cegis/iteration-0015.model.json",
+    "results/orch9248/frame-cegis/iteration-0015.stderr",
+    "results/orch9248/frame-cegis/iteration-0015.stdout",
+    "results/orch9248/frame-cegis/iteration-0016.model.json",
+    "results/orch9248/frame-cegis/iteration-0016.stderr",
+    "results/orch9248/frame-cegis/iteration-0016.stdout",
+    "results/orch9248/frame-cegis/iteration-0017.model.json",
+    "results/orch9248/frame-cegis/iteration-0017.stderr",
+    "results/orch9248/frame-cegis/iteration-0017.stdout",
+    "results/orch9248/frame-cegis/iteration-0018.model.json",
+    "results/orch9248/frame-cegis/iteration-0018.stderr",
+    "results/orch9248/frame-cegis/iteration-0018.stdout",
+    "results/orch9248/frame-cegis/iteration-0019.model.json",
+    "results/orch9248/frame-cegis/iteration-0019.stderr",
+    "results/orch9248/frame-cegis/iteration-0019.stdout",
+    "results/orch9248/frame-cegis/iteration-0020.model.json",
+    "results/orch9248/frame-cegis/iteration-0020.stderr",
+    "results/orch9248/frame-cegis/iteration-0020.stdout",
+    "results/orch9248/frame-cegis/iteration-0021.model.json",
+    "results/orch9248/frame-cegis/iteration-0021.stderr",
+    "results/orch9248/frame-cegis/iteration-0021.stdout",
+    "results/orch9248/frame-cegis/iteration-0022.model.json",
+    "results/orch9248/frame-cegis/iteration-0022.stderr",
+    "results/orch9248/frame-cegis/iteration-0022.stdout",
+    "results/orch9248/frame-cegis/iteration-0023.model.json",
+    "results/orch9248/frame-cegis/iteration-0023.stderr",
+    "results/orch9248/frame-cegis/iteration-0023.stdout",
+    "results/orch9248/frame-cegis/iteration-0024.model.json",
+    "results/orch9248/frame-cegis/iteration-0024.stderr",
+    "results/orch9248/frame-cegis/iteration-0024.stdout",
+    "results/orch9248/frame-cegis/iteration-0025.model.json",
+    "results/orch9248/frame-cegis/iteration-0025.stderr",
+    "results/orch9248/frame-cegis/iteration-0025.stdout",
+    "results/orch9248/frame-cegis/search.py",
+    "results/orch9248/frame-cegis/status.json",
+    "results/orch9248/frame-cegis/stopped-summary.json",
+    "results/orch9248/lease-ended-1714/STATUS.md",
+    "results/orch9248/lease-ended-1714/beat-9248-manual-001.json",
+    "results/orch9248/lease-ended-1714/beat-9248-manual-001.stderr",
+    "results/orch9248/lease-ended-1714/beat-9248-manual-002.full.stderr",
+    "results/orch9248/lease-ended-1714/beat-9248-manual-002.full.txt",
+    "results/orch9248/lease-ended-1714/beat-9248-manual-002.json",
+    "results/orch9248/lease-ended-1714/beat-9248-manual-002.stderr",
+    "results/orch9248/lease-ended-1714/beat-9248-timer-002.full.stderr",
+    "results/orch9248/lease-ended-1714/beat-9248-timer-002.full.txt",
+    "results/orch9248/lease-ended-1714/beat-9248-timer-002.json",
+    "results/orch9248/lease-ended-1714/beat-9248-timer-002.stderr",
+    "results/orch9248/lease-ended-1714/heartbeat9248-state.json",
+    "results/orch9248/lemmas/Baseline20.lean",
+    "results/orch9248/lemmas/Witness15.lean",
+    "results/orch9248/lemmas/Witness16.lean",
+    "results/orch9248/lemmas/notes/fresh_proof.md",
+    "results/orch9248/lemmas/notes/hall_schemas.json",
+    "results/orch9248/lemmas/notes/hall_schemas.py",
+    "results/orch9248/lemmas/notes/strengthen_runs.py",
+    "results/orch9248/lower_bound.md",
+    "results/orch9248/rup-emitter-review.json",
+    "results/orch9248/rup-history.txt",
+    "results/orch9248/search-alt/FREEZE-1714-manifest.json",
+    "results/orch9248/search-alt/README.md",
+    "results/orch9248/search-alt/baseline-validation.stderr",
+    "results/orch9248/search-alt/baseline-validation.stdout",
+    "results/orch9248/search-alt/baseline20.json",
+    "results/orch9248/search-alt/cdcl_search.cpp",
+    "results/orch9248/search-alt/compile.stderr",
+    "results/orch9248/search-alt/compile.stdout",
+    "results/orch9248/search-alt/diagnostic-best.json",
+    "results/orch9248/search-alt/diagnostic-validation.json",
+    "results/orch9248/search-alt/diagnostic-validation.stderr",
+    "results/orch9248/search-alt/diagnostic-validation.stdout",
+    "results/orch9248/search-alt/diagnostic.stderr",
+    "results/orch9248/search-alt/diagnostic.stdout",
+    "results/orch9248/search-alt/opt-compile-final.stderr",
+    "results/orch9248/search-alt/opt-compile-final.stdout",
+    "results/orch9248/search-alt/opt-compile.stderr",
+    "results/orch9248/search-alt/opt-compile.stdout",
+    "results/orch9248/search-alt/opt-diagnostic-best.json",
+    "results/orch9248/search-alt/opt-diagnostic-validation.json",
+    "results/orch9248/search-alt/opt-diagnostic-validation.stderr",
+    "results/orch9248/search-alt/opt-diagnostic-validation.stdout",
+    "results/orch9248/search-alt/opt-diagnostic.stderr",
+    "results/orch9248/search-alt/opt-diagnostic.stdout",
+    "results/orch9248/search-alt/opt-seed15.txt",
+    "results/orch9248/search-alt/opt-seed16.txt",
+    "results/orch9248/search-alt/opt15-diagnostic-best.json",
+    "results/orch9248/search-alt/opt15-diagnostic-validation.json",
+    "results/orch9248/search-alt/opt15-diagnostic-validation.stderr",
+    "results/orch9248/search-alt/opt15-diagnostic-validation.stdout",
+    "results/orch9248/search-alt/opt15-diagnostic.stderr",
+    "results/orch9248/search-alt/opt15-diagnostic.stdout",
+    "results/orch9248/search-alt/proof_opt.cpp",
+    "results/orch9248/search-alt/run-best-15.json",
+    "results/orch9248/search-alt/run-best-16.json",
+    "results/orch9248/search-alt/run-best-17.json",
+    "results/orch9248/search-alt/run-best-18.json",
+    "results/orch9248/search-alt/run-best-21.json",
+    "results/orch9248/search-alt/run-best-22.json",
+    "results/orch9248/search-alt/run-best.json",
+    "results/orch9248/search-alt/run-final-best.json",
+    "results/orch9248/search-alt/run-final-validation.json",
+    "results/orch9248/search-alt/run-final-validation.stderr",
+    "results/orch9248/search-alt/run-final-validation.stdout",
+    "results/orch9248/search-alt/run.stderr",
+    "results/orch9248/search-alt/run.stdout",
+    "results/orch9248/search-alt/rup_tools.py",
+    "results/orch9248/search-alt/status.json",
+    "results/orch9248/search-alt/validate_log.py",
+    "results/orch9248/search-alt/watch.stderr",
+    "results/orch9248/search-alt/watch.stdout",
+    "results/orch9248/search-alt/watch_log.py",
+    "results/orch9248/search/MANIFEST.json",
+    "results/orch9248/search/README.md",
+    "results/orch9248/search/STATUS.json",
+    "results/orch9248/search/baseline20.json",
+    "results/orch9248/search/beam-build.stderr",
+    "results/orch9248/search/beam-build.stdout",
+    "results/orch9248/search/beam-diagnostic.json",
+    "results/orch9248/search/beam-diagnostic.stderr",
+    "results/orch9248/search/beam-diagnostic.stdout",
+    "results/orch9248/search/beam-diagnostic2.stderr",
+    "results/orch9248/search/beam-diagnostic2.stdout",
+    "results/orch9248/search/beam.cpp",
+    "results/orch9248/search/check-baseline.stderr",
+    "results/orch9248/search/check-baseline.stdout",
+    "results/orch9248/search/compiler-version.stderr",
+    "results/orch9248/search/compiler-version.stdout",
+    "results/orch9248/search/first-orbits.txt",
+    "results/orch9248/search/initial-short-orbits.json",
+    "results/orch9248/search/initial-short-pool.json",
+    "results/orch9248/search/rup.py",
+    "results/orch9248/search/structured-pool-metadata.json",
+    "results/orch9248/search/structured-pool.txt",
+    "results/orch9248/witness15-checked.stderr",
+    "results/orch9248/witness15-checked.stdout",
+    "results/orch9248/witness15-independent.json",
+    "results/orch9248/witness15-input.json",
+    "results/orch9248/witness15-traces.json",
+    "results/orch9248/witness16-axioms.stderr",
+    "results/orch9248/witness16-axioms.stdout",
+    "results/orch9248/witness16-baseline20-independent.json",
+    "results/orch9248/witness16-checked.stderr",
+    "results/orch9248/witness16-checked.stdout",
+    "results/orch9248/witness16-input.json",
+    "results/orch9248/witness16-traces.json"
+  ],
+  "excluded": [
+    {
+      "path": "results/orch9248/search-alt/__pycache__/rup_tools.cpython-312.pyc",
+      "reason": "generated binary artifact"
+    }
+  ],
+  "new_lean_source_status": [
+    {
+      "path": "results/orch9248/lemmas/Baseline20.lean",
+      "status": "AuthorLeancheck/export0; independentcompleteactualclausereplayPASS; exactupperboundonly"
+    },
+    {
+      "path": "results/orch9248/lemmas/Witness15.lean",
+      "status": "AuthorLeancheck/export0; independentcompleteactualclausereplayPASS; exactupperboundonly"
+    },
+    {
+      "path": "results/orch9248/lemmas/Witness16.lean",
+      "status": "AuthorLeancheck/export0; independentcompleteactualclausereplayPASS; exactupperboundonly"
+    }
+  ],
+  "frozen_search_hashes_verified": 72,
+  "json_files_parsed": 70,
+  "credential_or_integrity_findings": [],
+  "source_format_findings": [],
+  "chronology": "TimerHTTP41017:13:21; candidate15found17:13:42; manualHTTP410observed17:14:26; completed15certificatepreservedafterbackgroundleaseerror."
+}

@@ -1,0 +1,21 @@
+{
+  "stopped_utc": "2026-11-25T17:15:04.705012+00:00",
+  "reason": "Root reported lease HTTP410; no long run started",
+  "last_status": {
+    "iteration": 25,
+    "elapsed": 15.558585669999957,
+    "frames": 158,
+    "variables": 168457,
+    "clauses": 574385,
+    "solver_exit": 10,
+    "invalid_steps": 5,
+    "new_frames": 5,
+    "non_tautological_steps": 10,
+    "verdict": "REFINING"
+  },
+  "saved_frames": 158,
+  "source_sha256": "6ed18729781d8dafca9689102c4ca982e6143c46f130cda3688924de10ae1255",
+  "source_bytes": 5885,
+  "source_lines": 129,
+  "result": "No proof and no counterexample. Fifteen-second diagnostic only. All sampled SAT models checked directly against frame semantics. No active process."
+}
