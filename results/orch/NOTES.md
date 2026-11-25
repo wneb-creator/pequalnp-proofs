@@ -13,3 +13,6 @@ Each agent owns one strategy note in lemmas/. Root consolidates here. No agent m
 - Counterexample agent: all 30 labelled-point Fano designs satisfy expected design properties; searching 26-gate circuits.
 - No preinstalled Lean or Mathlib cache despite kit setup note. Installing pinned Lean in authorized scratch; ~6.7GiB initially free limits full checker.
 - Agents used: repo_recon, structural_proof, structural_proof/dirty_blocks, counterexample, lemma_search (5 total sub-agents).
+
+## Current lease after 410 recovery
+L-meta-2590: Petersen graph monotone circuits need at least20 gates. New lease issued15:07:28 UTC; expires15:27:28. Reductions_open=true, reductions_live=3; investigate cut availability before submission. Previous2583 work stopped and preserved in86f6ec25.

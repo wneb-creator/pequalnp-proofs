@@ -1,0 +1,4 @@
+/tmp/oec/pequalnp-pilot-144/counterexample/FanoDesign.lean:16:2: error: failed to synthesize
+  Decidable (∀ (p p' : Fin 7), p ≠ p' → ∃! l, fanoIncidence p l ∧ fanoIncidence p' l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

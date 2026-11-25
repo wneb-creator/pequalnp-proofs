@@ -18,3 +18,10 @@ Exact message: no such live lease: it expired or was released. Ask /desk/next ag
 Full response headers/body are in logs/desk-error-full.txt. No release request was made.
 
 KIT-MESSAGE-ID msg-dff04cd5f8d997249819b16b
+
+Lease recovery after checkpoint: assigned L-meta-2590 at15:07:28 UTC, reductions_open=true. Work continues only on the new gap.
+Additional checked partial: FanoDesign.lean incidence axioms, size27 and AO2 only; correctness/read1 not proved there.
+Independent SAT search: one-edit and two-edit neighborhoods UNSAT; broader searches interrupted, no counterexample.
+
+Checkpoint2: independently reviewed compiled components PetersenSamples, PetersenFormula (formula lower bound21 leaves), CountDichotomy. Combined named2590 build is still running; no success claimed yet.
+RAM overlay setup: first mount denied, attempt stopped; full-checker cache remains unavailable.

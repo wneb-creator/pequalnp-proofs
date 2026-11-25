@@ -1,0 +1,19 @@
+{
+  "stopped_at": "2026-11-25T15:06:27.359714+00:00",
+  "reason": "Root ordered stop: lease renewal returned no such live lease; no further proof work.",
+  "terminated_pids": [
+    4219,
+    4632
+  ],
+  "completed": [
+    "27-gate baseline exhaustively validated on16384 inputs",
+    "unchanged26-gate near-witness UNSAT",
+    "one-gate repair UNSAT3.61s",
+    "two-gate repair UNSAT22.60s"
+  ],
+  "interrupted": [
+    "three-gate repair",
+    "unrestricted26-gate canonical connected synthesis"
+  ],
+  "counterexample_found": false
+}
