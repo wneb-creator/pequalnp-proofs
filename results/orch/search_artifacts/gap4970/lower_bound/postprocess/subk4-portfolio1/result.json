@@ -1,0 +1,118 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1.best-hyp.json",
+  "sha256": "41e1035b5caf0c32fd6675d6c1add8a4751e56ea95aea2a1bfa9ee34317557fe",
+  "original_graph": "subk4",
+  "n": 10,
+  "p": 4,
+  "original_gates": 14,
+  "derived_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "removed_edges": [
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 1024,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 13,
+  "tau": 4,
+  "minimum_cover_mask": 15,
+  "posted_bound": 13,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 2,
+      "support_mask": 160,
+      "coverage": 48
+    },
+    {
+      "gate": 1,
+      "center": 4,
+      "support_mask": 3,
+      "coverage": 9
+    },
+    {
+      "gate": 2,
+      "center": 0,
+      "support_mask": 96,
+      "coverage": 6
+    },
+    {
+      "gate": 4,
+      "center": 3,
+      "support_mask": 320,
+      "coverage": 384
+    },
+    {
+      "gate": 5,
+      "center": 2,
+      "support_mask": 672,
+      "coverage": 112
+    },
+    {
+      "gate": 8,
+      "center": 3,
+      "support_mask": 832,
+      "coverage": 896
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 13,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 16319,
+  "is_counterexample": false
+}

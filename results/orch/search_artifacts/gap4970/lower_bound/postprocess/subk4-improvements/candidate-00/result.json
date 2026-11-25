@@ -1,0 +1,89 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1-candidates/candidate-00.json",
+  "sha256": "0cbbcd0a3f6a311c0bd51fcd54620c79182845e24625c057ea5983523497dcc4",
+  "original_graph": "subk4",
+  "n": 10,
+  "p": 4,
+  "original_gates": 14,
+  "derived_edges": [],
+  "removed_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 1024,
+  "quadratic_wrong_rows": 310,
+  "first_wrong_rows": [
+    19,
+    23,
+    27,
+    31,
+    51,
+    55,
+    59,
+    63,
+    73,
+    75,
+    77,
+    79,
+    83,
+    87,
+    89,
+    91,
+    93,
+    95,
+    105,
+    107
+  ],
+  "tCount": 0,
+  "output_cone_size": 11
+}

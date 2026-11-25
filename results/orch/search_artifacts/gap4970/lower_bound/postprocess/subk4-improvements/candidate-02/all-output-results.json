@@ -1,0 +1,171 @@
+[
+  {
+    "output": 15,
+    "edges": [
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        9
+      ]
+    ],
+    "tau": 1,
+    "bound": 3,
+    "cover_mask": 4,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 3,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "output": 16,
+    "edges": [
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ]
+    ],
+    "tau": 1,
+    "bound": 3,
+    "cover_mask": 2,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 3,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "output": 20,
+    "edges": [
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ]
+    ],
+    "tau": 1,
+    "bound": 3,
+    "cover_mask": 1,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 3,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "output": 21,
+    "edges": [
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        9
+      ]
+    ],
+    "tau": 2,
+    "bound": 7,
+    "cover_mask": 5,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 7,
+    "tCount": 0,
+    "margin": 0,
+    "is_counterexample": false
+  },
+  {
+    "output": 23,
+    "edges": [
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        2,
+        9
+      ]
+    ],
+    "tau": 2,
+    "bound": 7,
+    "cover_mask": 5,
+    "has_star_cover": true,
+    "detail": {
+      "search_states": 1,
+      "distinct_states": 1
+    },
+    "pruned_gates": 9,
+    "tCount": 0,
+    "margin": 2,
+    "is_counterexample": false
+  }
+]

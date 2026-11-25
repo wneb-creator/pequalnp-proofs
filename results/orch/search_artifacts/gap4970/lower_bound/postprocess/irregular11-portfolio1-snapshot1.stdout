@@ -1,0 +1,140 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1.best-hyp.json",
+  "sha256": "223a56f97d96c745d6aa7afc08d2a38db1d7f3d840a199ac493d3ced35ddb057",
+  "original_graph": "irregular11",
+  "n": 11,
+  "p": 5,
+  "original_gates": 17,
+  "derived_edges": [
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "removed_edges": [
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 2048,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 15,
+  "tau": 4,
+  "minimum_cover_mask": 30,
+  "posted_bound": 15,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 4,
+      "support_mask": 320,
+      "coverage": 1536
+    },
+    {
+      "gate": 1,
+      "center": 4,
+      "support_mask": 1344,
+      "coverage": 3584
+    },
+    {
+      "gate": 2,
+      "center": 3,
+      "support_mask": 192,
+      "coverage": 192
+    },
+    {
+      "gate": 4,
+      "center": 2,
+      "support_mask": 1056,
+      "coverage": 40
+    },
+    {
+      "gate": 5,
+      "center": 3,
+      "support_mask": 704,
+      "coverage": 448
+    },
+    {
+      "gate": 6,
+      "center": 2,
+      "support_mask": 1568,
+      "coverage": 56
+    },
+    {
+      "gate": 7,
+      "center": 1,
+      "support_mask": 160,
+      "coverage": 3
+    },
+    {
+      "gate": 9,
+      "center": 1,
+      "support_mask": 416,
+      "coverage": 7
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 15,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 125951,
+  "is_counterexample": false
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/irregular11-portfolio1-snapshot1/irregular11-portfolio1.best-hyp/input.circuit.json", "quadratic_C4free_outputs": 7, "star_covered_outputs": 7, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 953, "quadratic_C4free": 328, "star_covered": 56, "counterexamples": 0, "seconds": 0.06253792399911617, "distinct_graphs": 35, "minimum_margin": 0}

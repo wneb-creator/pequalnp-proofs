@@ -1,0 +1,118 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1-candidates/candidate-03.json",
+  "sha256": "ee0f7d51e4d46af4094be9e22eccffc7c7c8846b38d866303217cc3f7ea6fe41",
+  "original_graph": "subk4",
+  "n": 10,
+  "p": 4,
+  "original_gates": 14,
+  "derived_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "removed_edges": [
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      9
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 1024,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 11,
+  "tau": 3,
+  "minimum_cover_mask": 11,
+  "posted_bound": 11,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 1,
+      "support_mask": 384,
+      "coverage": 48
+    },
+    {
+      "gate": 1,
+      "center": 1,
+      "support_mask": 400,
+      "coverage": 56
+    },
+    {
+      "gate": 2,
+      "center": 0,
+      "support_mask": 96,
+      "coverage": 6
+    },
+    {
+      "gate": 3,
+      "center": 3,
+      "support_mask": 768,
+      "coverage": 384
+    },
+    {
+      "gate": 6,
+      "center": 3,
+      "support_mask": 832,
+      "coverage": 448
+    },
+    {
+      "gate": 8,
+      "center": 0,
+      "support_mask": 112,
+      "coverage": 7
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 11,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 16207,
+  "is_counterexample": false
+}

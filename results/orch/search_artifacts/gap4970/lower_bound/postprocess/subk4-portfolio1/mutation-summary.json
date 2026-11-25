@@ -1,0 +1,9 @@
+{
+  "variants": 680,
+  "quadratic_C4free": 216,
+  "star_covered": 52,
+  "counterexamples": 0,
+  "seconds": 0.019887864000338595,
+  "distinct_graphs": 36,
+  "minimum_margin": 0
+}

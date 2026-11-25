@@ -1,0 +1,11 @@
+fano_minus_incident-portfolio1-snapshot1/fano_minus_incident-portfolio1.best-hyp PASS
+incident-smoke PASS
+irregular11-portfolio1-snapshot1/irregular11-portfolio1.best-hyp PASS
+subk4-improvements/candidate-00 PASS
+subk4-improvements/candidate-01 PASS
+subk4-improvements/candidate-02 PASS
+subk4-improvements/candidate-03 PASS
+subk4-improvements/candidate-04 PASS
+subk4-portfolio1 PASS
+{"files": 93, "inputs": 9, "recorded_outputs": 61, "recorded_rewires": 438, "saved_pruned": 7}
+All saved positive claims verified; rejected heuristic variants not rerun. No counterexample or general proof.

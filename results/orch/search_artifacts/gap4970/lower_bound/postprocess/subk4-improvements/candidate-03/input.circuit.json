@@ -1,0 +1,80 @@
+{
+  "gates": [
+    [
+      1,
+      7,
+      8
+    ],
+    [
+      1,
+      10,
+      4
+    ],
+    [
+      1,
+      6,
+      5
+    ],
+    [
+      1,
+      9,
+      8
+    ],
+    [
+      1,
+      5,
+      9
+    ],
+    [
+      1,
+      14,
+      7
+    ],
+    [
+      1,
+      13,
+      6
+    ],
+    [
+      0,
+      2,
+      16
+    ],
+    [
+      1,
+      12,
+      4
+    ],
+    [
+      0,
+      0,
+      18
+    ],
+    [
+      0,
+      1,
+      11
+    ],
+    [
+      0,
+      3,
+      16
+    ],
+    [
+      1,
+      19,
+      20
+    ],
+    [
+      1,
+      22,
+      21
+    ]
+  ],
+  "output": 23,
+  "boundary_false_negatives": 3,
+  "boundary_false_positives": 0,
+  "missing_star_edges": 0,
+  "tCount": 0,
+  "source_header": "BEST_WITH_HYPOTHESES fn=3 fp=0 missing=0 mixed=0 iterations=180 seconds=0.00 output=23"
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-portfolio1.best-hyp.json",
+    "wrong_rows": 0,
+    "derived_edges": 14,
+    "tau": 5,
+    "pruned_gates": 18,
+    "bound": 18,
+    "outputs_checked": 10,
+    "mutations": {
+      "variants": 1271,
+      "quadratic_C4free": 402,
+      "star_covered": 76,
+      "counterexamples": 0,
+      "seconds": 0.07041931400090107,
+      "distinct_graphs": 52,
+      "minimum_margin": 0
+    },
+    "counterexample_found": false
+  }
+]

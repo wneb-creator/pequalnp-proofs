@@ -1,0 +1,21 @@
+[
+  {
+    "candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-portfolio1.best-hyp.json",
+    "wrong_rows": 0,
+    "derived_edges": 12,
+    "tau": 4,
+    "pruned_gates": 15,
+    "bound": 15,
+    "outputs_checked": 7,
+    "mutations": {
+      "variants": 953,
+      "quadratic_C4free": 328,
+      "star_covered": 56,
+      "counterexamples": 0,
+      "seconds": 0.06253792399911617,
+      "distinct_graphs": 35,
+      "minimum_margin": 0
+    },
+    "counterexample_found": false
+  }
+]

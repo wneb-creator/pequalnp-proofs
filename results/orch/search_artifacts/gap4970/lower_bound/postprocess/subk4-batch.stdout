@@ -1,0 +1,587 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1-candidates/candidate-00.json",
+  "sha256": "0cbbcd0a3f6a311c0bd51fcd54620c79182845e24625c057ea5983523497dcc4",
+  "original_graph": "subk4",
+  "n": 10,
+  "p": 4,
+  "original_gates": 14,
+  "derived_edges": [],
+  "removed_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 1024,
+  "quadratic_wrong_rows": 310,
+  "first_wrong_rows": [
+    19,
+    23,
+    27,
+    31,
+    51,
+    55,
+    59,
+    63,
+    73,
+    75,
+    77,
+    79,
+    83,
+    87,
+    89,
+    91,
+    93,
+    95,
+    105,
+    107
+  ],
+  "tCount": 0,
+  "output_cone_size": 11
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-improvements/candidate-00/input.circuit.json", "quadratic_C4free_outputs": 5, "star_covered_outputs": 5, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 680, "quadratic_C4free": 29, "star_covered": 12, "counterexamples": 0, "seconds": 0.015431457999511622, "distinct_graphs": 7, "minimum_margin": 0}
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1-candidates/candidate-01.json",
+  "sha256": "3352e173004d50c9ed4771a2799a93196f3475306755075cb21e8c2a73babed3",
+  "original_graph": "subk4",
+  "n": 10,
+  "p": 4,
+  "original_gates": 14,
+  "derived_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      7,
+      9
+    ]
+  ],
+  "removed_edges": [
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      9
+    ]
+  ],
+  "extra_pairs": [
+    [
+      0,
+      7
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      7,
+      9
+    ]
+  ],
+  "bipartite": false,
+  "c4free": false,
+  "singleton_true_inputs": [
+    7
+  ],
+  "full_rows_checked": 1024,
+  "quadratic_wrong_rows": 1,
+  "first_wrong_rows": [
+    128
+  ],
+  "tCount": 0,
+  "output_cone_size": 12
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-improvements/candidate-01/input.circuit.json", "quadratic_C4free_outputs": 4, "star_covered_outputs": 4, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 680, "quadratic_C4free": 25, "star_covered": 12, "counterexamples": 0, "seconds": 0.008312248999573058, "distinct_graphs": 10, "minimum_margin": 0}
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1-candidates/candidate-02.json",
+  "sha256": "df301903b68fb21fecb5d1e25db58d4360b65eec3fe76b29dc83c54a9b6c5598",
+  "original_graph": "subk4",
+  "n": 10,
+  "p": 4,
+  "original_gates": 14,
+  "derived_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      9
+    ]
+  ],
+  "removed_edges": [
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 1024,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 9,
+  "tau": 2,
+  "minimum_cover_mask": 5,
+  "posted_bound": 7,
+  "valid_witnesses": [
+    {
+      "gate": 2,
+      "center": 2,
+      "support_mask": 640,
+      "coverage": 48
+    },
+    {
+      "gate": 3,
+      "center": 2,
+      "support_mask": 672,
+      "coverage": 56
+    },
+    {
+      "gate": 8,
+      "center": 0,
+      "support_mask": 48,
+      "coverage": 3
+    },
+    {
+      "gate": 9,
+      "center": 0,
+      "support_mask": 112,
+      "coverage": 7
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 9,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 16172,
+  "is_counterexample": false
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-improvements/candidate-02/input.circuit.json", "quadratic_C4free_outputs": 5, "star_covered_outputs": 5, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 680, "quadratic_C4free": 360, "star_covered": 58, "counterexamples": 0, "seconds": 0.019334354999955394, "distinct_graphs": 42, "minimum_margin": 0}
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1-candidates/candidate-03.json",
+  "sha256": "ee0f7d51e4d46af4094be9e22eccffc7c7c8846b38d866303217cc3f7ea6fe41",
+  "original_graph": "subk4",
+  "n": 10,
+  "p": 4,
+  "original_gates": 14,
+  "derived_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "removed_edges": [
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      9
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 1024,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 11,
+  "tau": 3,
+  "minimum_cover_mask": 11,
+  "posted_bound": 11,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 1,
+      "support_mask": 384,
+      "coverage": 48
+    },
+    {
+      "gate": 1,
+      "center": 1,
+      "support_mask": 400,
+      "coverage": 56
+    },
+    {
+      "gate": 2,
+      "center": 0,
+      "support_mask": 96,
+      "coverage": 6
+    },
+    {
+      "gate": 3,
+      "center": 3,
+      "support_mask": 768,
+      "coverage": 384
+    },
+    {
+      "gate": 6,
+      "center": 3,
+      "support_mask": 832,
+      "coverage": 448
+    },
+    {
+      "gate": 8,
+      "center": 0,
+      "support_mask": 112,
+      "coverage": 7
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 11,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 16207,
+  "is_counterexample": false
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-improvements/candidate-03/input.circuit.json", "quadratic_C4free_outputs": 6, "star_covered_outputs": 6, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 680, "quadratic_C4free": 274, "star_covered": 52, "counterexamples": 0, "seconds": 0.019389970999327488, "distinct_graphs": 35, "minimum_margin": 0}
+{
+  "source": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-portfolio1-candidates/candidate-04.json",
+  "sha256": "595d8b39e8bfba6438d9fe3f1970a958063515759e7d3499db0d5ddf0c4d5505",
+  "original_graph": "subk4",
+  "n": 10,
+  "p": 4,
+  "original_gates": 14,
+  "derived_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ]
+  ],
+  "removed_edges": [
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ]
+  ],
+  "extra_pairs": [],
+  "bipartite": true,
+  "c4free": true,
+  "singleton_true_inputs": [],
+  "full_rows_checked": 1024,
+  "quadratic_wrong_rows": 0,
+  "first_wrong_rows": [],
+  "tCount": 0,
+  "output_cone_size": 13,
+  "tau": 4,
+  "minimum_cover_mask": 15,
+  "posted_bound": 13,
+  "valid_witnesses": [
+    {
+      "gate": 0,
+      "center": 2,
+      "support_mask": 160,
+      "coverage": 48
+    },
+    {
+      "gate": 1,
+      "center": 4,
+      "support_mask": 3,
+      "coverage": 9
+    },
+    {
+      "gate": 2,
+      "center": 0,
+      "support_mask": 96,
+      "coverage": 6
+    },
+    {
+      "gate": 4,
+      "center": 3,
+      "support_mask": 320,
+      "coverage": 384
+    },
+    {
+      "gate": 5,
+      "center": 2,
+      "support_mask": 672,
+      "coverage": 112
+    },
+    {
+      "gate": 8,
+      "center": 3,
+      "support_mask": 832,
+      "coverage": 896
+    }
+  ],
+  "pruning": {
+    "search_states": 1,
+    "distinct_states": 1
+  },
+  "pruned_gates": 13,
+  "pruned_tCount": 0,
+  "kept_gate_mask": 16319,
+  "is_counterexample": false
+}
+{"candidate": "/tmp/oec/pequalnp-pilot-99/gap4970/lower_bound/postprocess/subk4-improvements/candidate-04/input.circuit.json", "quadratic_C4free_outputs": 7, "star_covered_outputs": 7, "counterexamples": 0, "minimum_margin": 0}
+{"variants": 680, "quadratic_C4free": 216, "star_covered": 52, "counterexamples": 0, "seconds": 0.01863437599968165, "distinct_graphs": 36, "minimum_margin": 0}
