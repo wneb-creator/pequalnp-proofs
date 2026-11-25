@@ -1,0 +1,34 @@
+import took 2.54s
+/tmp/oec/pequalnp-pilot-178/proof-route-normalized-init.lean:20:36: warning: exponent 501 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-178/proof-route-normalized-init.lean:23:36: warning: exponent 501 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-178/proof-route-normalized-init.lean:32:68: warning: exponent 501 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+tactic execution of Lean.Parser.Tactic.eqRefl took 162ms
+type checking took 103ms
+tactic execution of Lean.Parser.Tactic.change took 216ms
+cumulative profiling times:
+	attribute application 0.146ms
+	compilation (IR) 2.14ms
+	compilation (LCNF base) 47.3ms
+	compilation (LCNF impure) 20.1ms
+	compilation (LCNF mono) 25.1ms
+	congr simp thm 0.495ms
+	declTypeLinter 47.6ms
+	elaboration 64.4ms
+	fix level params 0.223ms
+	import 2.54s
+	initialization 35.8ms
+	instantiate metavars 0.766ms
+	interpretation 350ms
+	let-to-have transformation 0.116ms
+	linting 41.2ms
+	module linting 0.0479ms
+	parsing 6.58ms
+	process pre-definitions 5.68ms
+	share common exprs 1.72ms
+	simp 15.3ms
+	tactic execution 680ms
+	tacticAnalysis 31.5ms
+	type checking 150ms
+	typeclass inference 14.7ms
+
+exit_code=0

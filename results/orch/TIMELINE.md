@@ -19,3 +19,5 @@
 -2026-11-25 19:15 UTC: full tracked bridge passed.
 -2026-11-25 19:15:40 UTC: fixed-NOT endpoint checked.
 -2026-11-25 19:18 UTC: conditional final wrapper checked; monolithic computation stopped at7.7GB RSS; splitting certificate.
+-2026-11-25 19:23 UTC: re-plan: focus solely on split one-NOT certificate; switch expensive proof lemmas to synchronous proof-valued definitions based on Lean source audit.
+-2026-11-25 19:39 UTC: generic continuation replacement and initial-state normalization checked; proceeding to independently checked search leaves.

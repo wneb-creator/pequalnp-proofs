@@ -64,3 +64,17 @@ The prior suspected delete0 bound11 was indeed invalid: a concrete monotone10gat
 ## Independent review of unique_not_count
 
 Reviewed root helper `/tmp/oec/pequalnp-pilot-178/root_helpers/NotCount.lean`, SHA256 `8431b42887b252cfb9216e36ec7d64c295921c84dd5799d8f18263b73e701529`. Verdict: PASS. The count definition matches the tracked bridge. Indexed uniqueness is exactly the posted assumption. A NOT at the list head rules out all tail NOT positions by contradiction between index zero and a successor; otherwise the induction passes uniqueness to the tail through Fin.succ injectivity. Repeated equal Gate values are counted correctly because the assumption concerns positions. No extra hypotheses or unsafe declarations found. Root reported successful kernel compilation.
+
+## Tracked gate/NOT extraction implemented and checked
+
+Implemented 168-line supplement `/tmp/oec/pequalnp-pilot-178/gate_elimination/Tracked.lean`, SHA256 `66544a07b48f4a02189f5b76462caa054c364e92a6e67f20d9399e5ff513b671`.
+
+- `SolCount` tracks concrete gate count q and NOT count n. Padding accounts for unused gates and semantically redundant/constant NOT gates.
+- `SolCount.live` extracts Live k t S0 with t ≤ n and k + (n - t) ≤ q. Discarding a NOT therefore consumes one unit of the size gap.
+- `notCount` is the requested List.countP of decide(op=not).
+- `ex_solCount` proves the count-preserving abstract execution of the concrete circuit, including empty NOT gates and ignored extra NOT inputs.
+- `bridgeCount` and `circuit_live_count` connect the actual circuit to the graph's sample engine.
+
+Lightweight core compiled successfully, then the full supplement compiled successfully against the built target module. Both outputs were empty; both exit codes were zero. Preserved sources/logs: `results/orch/lemmas/TrackedCore.lean`, `results/orch/tracked-core-build.txt`, `results/orch/lemmas/TrackedFull.lean`, `results/orch/tracked-full-build.txt`.
+
+Final deduction: if a concrete circuit has size≤13 and exactly one NOT, global lower13 forces extracted k≥13; k+(1−t)≤13 and t≤1 then give k=13,t=1. The new fixed-one-NOT checker endpoint excludes precisely this Live state. Original zero-NOT circuits can be returned unchanged, and circuits of size≥14 use the existing monotone14gate witness.

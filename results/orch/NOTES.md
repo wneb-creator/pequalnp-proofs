@@ -15,3 +15,7 @@ No isomorphic graph among997 analogous replacement proofs.14gate AND/OR witness 
 ##19:05 UTC
 
 Simple gate elimination route only reaches8, theoretical restriction route ceiling11. Target has independence number2 (17false assignments). MILP found14 optimal in shared-OR biclique product class; not a general lower bound. Packed-engine Python bug (self-collisions) was independently exposed and fixed; all earlier numerical lower bounds discarded. LRAT alternative helper assembly prepared in scratch; exact LinkN2 CNF generator independently checked. No full lower bound Lean-checked yet.
+
+##19:23 UTC re-plan
+
+Lower13, upper14, trackedNOT extraction, and conditional final wrapper are kernelchecked and pushed. Root t1 search succeeds. Stop all SAT/alternate searches; focus on fitting the final finite certificate within memory. Split23checks initially exceeded6000MB because theorem elaboration may run concurrently. Pinned Lean source confirms proof-valued defs serialize expensive decide+kernel work while retaining synchronous auxiliary kernel checks; trying this now. Final assembly, format guard, local checker and capped cleanup follow.

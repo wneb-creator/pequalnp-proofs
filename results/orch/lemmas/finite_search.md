@@ -20,3 +20,23 @@ At 19:07 UTC: the MILP allowing all OR-subset DAG sharing and biclique-product c
 Initial SMT and CaDiCaL runs at 13/14 monotone gates timed out; no SAT or UNSAT verdict was obtained. Full logs retained. Native solver process CPU was only about 30 seconds during each 120-second wall timeout, indicating heavy shared CPU contention. All solvers stopped at root request to prioritize the initial Lean build.
 
 A Python exact translation of LinkN.enc ++ LinkN2.fLex lives in finite_search/linkn_enc2.py. It preserves clause family order and uses the natural-to-DIMACS literal conversion. Independent reviewer found no mismatch. For n=7,s=13 and all 128 rows, it emits 107942 clauses, variable maximum 16501. The LRAT-generating search can restart after the initial build completes; no verdict yet.
+
+At 19:33 UTC, the checked-proof resource task replaced SAT work. Instrumenting the Python engine at its first continuation boundary produced:
+
+- Unary first: 54 distinct `look(13,11,0,z,v,0)` states; every result false. Independent recursive costs range from 112 to 519 states, summing to 12,642 with a fresh cache per child.
+- Binary first: 42 distinct `look(13,12,1,z,v,1)` states; every result false. Costs range from 2,885 to 32,450, summing to 647,198 with fresh caches. Many binary pieces still need finer subdivision.
+- Both roots have exactly one accepted initial wire subset.
+- `children-packed.json` (132 KB) interns 104 W records; every record has initial-input, NOT, AND, or OR parent provenance. State lists refer to W-table indices.
+
+Artifacts: `finite_search/unary-children.json`, `binary-children.json`, `children-packed.json`, and their trace scripts/logs under the task scratch directory. Reviewer and certificate_search have the paths. No SAT workers remain active.
+
+At 19:38 UTC, an additional one-step split of all 42 binary children completed:
+
+- 3,199 unique continuation states, all false in Python.
+- Largest subtree: 4,061 calls; 135 states exceed 1,000; total fresh-cache calls: 556,417.
+- State shapes: `(fuel,k,t,mode) = (12,11,1,1), (13,10,0,0), (13,11,1,0)`.
+- 1,984 distinct z budgets. 763 W records including intermediate parents; every W has initial/NOT/AND/OR provenance, found within three layers.
+- Compact source estimate: W provenance 11.8 KB, z limbs 140.9 KB, states 97.1 KB. Removing the fixed high bit from each five-bit z counter should save about 30 KB before decoder overhead.
+- Artifacts: `binary-depth2.json`, `binary-depth2-packed.json`, `split_binary.py`, `pack_depth2.py`, complete logs in task scratch.
+
+Simple modulo hashing of child state values was poorly balanced and needed many buckets; explicit packed states currently offer a more predictable route. No worker remains running.
