@@ -1,0 +1,7 @@
+{
+  "solver": "Z3",
+  "version": "5.3.3",
+  "source": "https://github.com/Z3Prover/z3/releases/download/z3-5.3.3/z3_solver-5.3.3.0-py3-none-manylinux_2_27_x86_64.whl",
+  "sha256": "0431023a82278dab706c02a320f63178ee0755fb8f10a5c980f0bfe3c84f6f96",
+  "certification": "computational only; no Lean or LRAT proof generated"
+}

@@ -1,0 +1,6 @@
+{"graph": "cycle6", "n": 6, "edges": [[0, 1], [0, 5], [1, 2], [2, 3], [3, 4], [4, 5]], "tau": 3, "cover_upper": 8, "samples": 11, "max_independent_sets": 5, "gates": 7, "require_bad_own": false, "build_seconds": 0.00949406623840332}
+{
+  "result": "unsat",
+  "seconds": 7.6299614906311035,
+  "reason_unknown": null
+}

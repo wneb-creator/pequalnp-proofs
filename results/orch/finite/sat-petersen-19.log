@@ -1,0 +1,6 @@
+{"graph": "petersen", "n": 10, "edges": [[0, 1], [0, 4], [0, 5], [1, 2], [1, 6], [2, 3], [2, 7], [3, 4], [3, 8], [4, 9], [5, 7], [5, 8], [6, 8], [6, 9], [7, 9]], "tau": 6, "cover_upper": 20, "samples": 30, "max_independent_sets": 15, "gates": 19, "require_bad_own": false, "build_seconds": 0.04525947570800781}
+{
+  "result": "unknown",
+  "seconds": 90.13649535179138,
+  "reason_unknown": "timeout"
+}

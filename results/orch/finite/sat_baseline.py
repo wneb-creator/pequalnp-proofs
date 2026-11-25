@@ -1,0 +1,115 @@
+import argparse
+import itertools
+import json
+import math
+import time
+import z3
+
+parser=argparse.ArgumentParser()
+parser.add_argument('graph',choices=['path4','cycle5','cycle6','theta233','petersen','fano'])
+parser.add_argument('gates',type=int)
+parser.add_argument('--timeout',type=int,default=120)
+parser.add_argument('--require-bad-own',action='store_true')
+args=parser.parse_args()
+
+if args.graph=='path4':
+    n=4;edges=[(0,1),(1,2),(2,3)]
+elif args.graph=='cycle5':
+    n=5;edges=[(i,(i+1)%5) for i in range(5)]
+elif args.graph=='cycle6':
+    n=6;edges=[(i,(i+1)%6) for i in range(6)]
+elif args.graph=='theta233':
+    n=7;edges=[(0,2),(2,1),(0,3),(3,4),(4,1),(0,5),(5,6),(6,1)]
+elif args.graph=='petersen':
+    n=10;edges=[(i,(i+1)%5) for i in range(5)]+[(i,i+5) for i in range(5)]+[(i+5,(i+2)%5+5) for i in range(5)]
+elif args.graph=='fano':
+    n=14;lines=[(0,1,2),(0,3,4),(0,5,6),(1,3,5),(1,4,6),(2,3,6),(2,4,5)]
+    edges=[(p,7+j) for j,line in enumerate(lines) for p in line]
+
+edges=sorted({tuple(sorted(e)) for e in edges})
+edge_masks=[(1<<a)|(1<<b) for a,b in edges]
+neighbors=[0]*n
+for a,b in edges:
+    neighbors[a]|=1<<b;neighbors[b]|=1<<a
+independent=[]
+for x in range(1<<n):
+    if any(x&e==e for e in edge_masks):continue
+    if all(x&(1<<i) or x&neighbors[i] for i in range(n)):
+        independent.append(x)
+tau=n-max(x.bit_count() for x in independent)
+samples=edge_masks+independent
+bits=len(samples)
+mask=(1<<bits)-1
+base_values=[sum(1<<j for j,x in enumerate(samples) if x&(1<<i)) for i in range(n)]+[0,mask]
+target=(1<<len(edges))-1
+k=args.gates
+idxbits=max(1,(n+k+1).bit_length())
+solver=z3.SolverFor('QF_BV')
+solver.set(timeout=args.timeout*1000)
+values=[z3.BitVecVal(v,bits) for v in base_values]
+aa=[];bb=[];oo=[]
+
+def select(index,signals):
+    result=signals[0]
+    for i,value in enumerate(signals[1:],1):
+        result=z3.If(index==i,value,result)
+    return result
+
+start=time.time()
+for i in range(k):
+    a=z3.BitVec('a'+str(i),idxbits);b=z3.BitVec('b'+str(i),idxbits)
+    op=z3.Bool('and'+str(i))
+    value=z3.BitVec('v'+str(i),bits)
+    solver.add(z3.ULE(a,b),z3.ULT(b,len(values)))
+    lhs=select(a,values);rhs=select(b,values)
+    solver.add(value==z3.If(op,lhs&rhs,lhs|rhs))
+    # Free constants can be removed from a circuit for a nonconstant graph function;
+    # padding with copies of its output permits an exact k-gate encoding.
+    solver.add(value!=0,value!=mask)
+    aa.append(a);bb.append(b);oo.append(op);values.append(value)
+for i in range(k-1):
+    solver.add(z3.Or([z3.Or(aa[j]==n+2+i,bb[j]==n+2+i) for j in range(i+1,k)]))
+solver.add(values[-1]==target)
+
+if args.require_bad_own:
+    # Exact ancestor relation in a topologically ordered circuit.
+    cones=[]
+    for j in range(k):
+        row=[]
+        for i in range(j):
+            direct=z3.Or(aa[j]==n+2+i,bb[j]==n+2+i)
+            indirect=[z3.And(z3.Or(aa[j]==n+2+t,bb[j]==n+2+t),cones[t][i]) for t in range(i+1,j)]
+            row.append(z3.Or([direct]+indirect))
+        cones.append(row)
+    bad=[]
+    for j in range(k):
+        not_owned=[]
+        for e in range(len(edges)):
+            earlier=[z3.And(cones[j][i],oo[i],z3.Extract(e,e,values[n+2+i])==1) for i in range(j)]
+            not_owned.append(z3.Or(z3.Extract(e,e,values[n+2+j])==0,z3.Or(earlier)))
+        bad.append(z3.And([oo[j]]+not_owned))
+    solver.add(z3.Or(bad))
+
+print(json.dumps({'graph':args.graph,'n':n,'edges':edges,'tau':tau,'cover_upper':len(edges)+tau-1,'samples':bits,'max_independent_sets':len(independent),'gates':k,'require_bad_own':args.require_bad_own,'build_seconds':time.time()-start}),flush=True)
+result=solver.check()
+report={'result':str(result),'seconds':time.time()-start,'reason_unknown':solver.reason_unknown() if result==z3.unknown else None}
+if result==z3.sat:
+    model=solver.model()
+    gates=[]
+    semantic=[sum(1<<x for x in range(1<<n) if x&(1<<i)) for i in range(n)]+[0,(1<<(1<<n))-1]
+    cone_list=[set() for _ in semantic]
+    for j in range(k):
+        a=model.eval(aa[j]).as_long();b=model.eval(bb[j]).as_long();op=z3.is_true(model.eval(oo[j]))
+        value=(semantic[a]&semantic[b]) if op else (semantic[a]|semantic[b])
+        cone=cone_list[a]|cone_list[b]
+        for operand in [a,b]:
+            if operand>=n+2 and gates[operand-n-2]['op']=='and':cone.add(operand-n-2)
+        owned=[]
+        if op:
+            for (u,v),x in zip(edges,edge_masks):
+                if (value>>x)&1 and all(not ((semantic[n+2+i]>>x)&1) for i in cone):owned.append([u,v])
+        gates.append({'op':'and' if op else 'or','a':a,'b':b,'owned':owned,'singleton_true':[i for i in range(n) if (value>>(1<<i))&1]})
+        semantic.append(value);cone_list.append(cone)
+    exact_target=sum(1<<x for x in range(1<<n) if any(x&e==e for e in edge_masks))
+    report.update(gates=gates,exact_function_verified=semantic[-1]==exact_target,all_ands_own=all(g['owned'] for g in gates if g['op']=='and'))
+print(json.dumps(report,indent=2),flush=True)

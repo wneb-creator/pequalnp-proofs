@@ -1509,3 +1509,8 @@ Command: lake env lean ../results/orch/lemmas/sharing_route.lean
 Exit: 0
 Complete stdout/stderr:
 
+
+Ninth partial review: PASS for finite-OR-side sharing rewrite and audited SAT artifacts. No full-statement verdict.
+sharing_linear_route.lean: lake env lean, exit0. Complete stdout/stderr:
+
+SAT evidence reviewed and five cases independently reproduced. Timeout/unknown is not UNSAT. SAT results have no Lean/LRAT certificate. Exact reviewed file hashes are in finite/SAT_REVIEW_MANIFEST.json.

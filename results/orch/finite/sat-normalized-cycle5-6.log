@@ -1,0 +1,7 @@
+{"automorphisms": 10, "first_pair_representatives": [[0, 1], [0, 2]]}
+{"graph": "cycle5", "n": 5, "edges": [[0, 1], [0, 4], [1, 2], [2, 3], [3, 4]], "tau": 3, "cover_upper": 7, "samples": 10, "max_independent_sets": 5, "gates": 6, "require_bad_own": false, "require_singleton_and": false, "ordered": true, "distinct_prefix": true, "pair_orbits": true, "build_seconds": 0.0157468318939209}
+{
+  "result": "unsat",
+  "seconds": 0.2234640121459961,
+  "reason_unknown": null
+}

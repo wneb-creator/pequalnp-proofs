@@ -1,0 +1,6 @@
+{"graph": "fano", "n": 14, "edges": [[0, 7], [0, 8], [0, 9], [1, 7], [1, 10], [1, 11], [2, 7], [2, 12], [2, 13], [3, 8], [3, 10], [3, 12], [4, 8], [4, 11], [4, 13], [5, 9], [5, 10], [5, 13], [6, 9], [6, 11], [6, 12]], "tau": 7, "cover_upper": 27, "samples": 58, "max_independent_sets": 37, "gates": 26, "require_bad_own": false, "build_seconds": 0.0845484733581543}
+{
+  "result": "unknown",
+  "seconds": 90.15420341491699,
+  "reason_unknown": "timeout"
+}

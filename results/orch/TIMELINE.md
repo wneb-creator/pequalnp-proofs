@@ -22,3 +22,5 @@
 - 2026-11-25T08:58:27.838891+00:00: batch6 pushed 5eea8e3b16af7e1d88f9e572d35af1c7bbaa977c; absorption and singleton pivotal lemmas reviewed.
 
 - 2026-11-25T09:02:34.372373+00:00: batch7 pushed 4975c8b2c9fc913cc36802b8d4d353feee5030c7; safe filter and mixed-reader restrictions reviewed.
+
+- 2026-11-25T09:07:33.241791+00:00: batch8 pushed 3148473edd924d08b4e9ce2d633b7ddbc263a5ba; finite-OR-side sharing and SAT archives reviewed.
