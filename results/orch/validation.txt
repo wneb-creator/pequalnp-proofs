@@ -1,0 +1,8 @@
+L-meta-2592 partial preservation; not a full proof or refutation.
+Structural.lean: lake env lean succeeded, exit 0.
+Counterexample.lean: lake env lean succeeded, exit 0; explicit 20-gate monotone upper bound, not a counterexample.
+Library.lean: lake env lean succeeded, exit 0; any Petersen circuit needs at least 15 non-NOT gates.
+Independent source review passed for all three components. Upper witness separately verified on 1024 assignments.
+Local gap checker: not run; exact posted theorem is not yet proved.
+Sub-agents: 6 (submission rules/review, structural proof, counterexample, library route, restriction route, certificate search)
+TIMING total=10 subagents=6
