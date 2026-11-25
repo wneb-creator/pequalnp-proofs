@@ -1218,4 +1218,59 @@ lemma rejection_from_45_64 (budget : ℕ)
 
 end S64
 
+def swapColor (a b c : ℕ) : ℕ := if c = a then b else if c = b then a else c
+
+lemma swapColor_involutive (a b : ℕ) : Function.Involutive (swapColor a b) := by
+  intro c
+  by_cases hab : a = b
+  · subst b
+    by_cases hca : c = a
+    · subst c
+      simp [swapColor]
+    · simp [swapColor, hca]
+  · by_cases hca : c = a
+    · subst c
+      simp [swapColor, Ne.symm hab]
+    · by_cases hcb : c = b
+      · subst c
+        simp [swapColor, Ne.symm hab]
+      · simp [swapColor, hca, hcb]
+
+lemma swapColor_injective (a b : ℕ) : Function.Injective (swapColor a b) := by
+  intro c d h
+  have he := congrArg (swapColor a b) h
+  simpa only [swapColor_involutive a b c, swapColor_involutive a b d] using he
+
+lemma swapColor_lt {a b c colors : ℕ}
+    (ha : a < colors) (hb : b < colors) (hc : c < colors) :
+    swapColor a b c < colors := by
+  unfold swapColor
+  split_ifs <;> assumption
+
+lemma swapColor_fix_below {a used c : ℕ} (ha : used ≤ a) (hc : c < used) :
+    swapColor a used c = c := by
+  have hca : c ≠ a := by omega
+  have hcu : c ≠ used := by omega
+  simp only [swapColor, hca, hcu, ite_false]
+
+lemma color_first_unused {α : Type} (D : α → Prop) (E : α → α → Prop)
+    (f : α → ℕ) (used colors : ℕ) (v : α) (hv : D v)
+    (bound : ∀ x, D x → f x < colors)
+    (proper : ∀ x y, D x → D y → E x y → f x ≠ f y)
+    (fresh : used ≤ f v) :
+    ∃ g : α → ℕ,
+      (∀ x, D x → g x < colors) ∧
+      (∀ x y, D x → D y → E x y → g x ≠ g y) ∧
+      (∀ x, f x < used → g x = f x) ∧ g v = used := by
+  have hfv : f v < colors := bound v hv
+  have hu : used < colors := by omega
+  refine ⟨fun x => swapColor (f v) used (f x), ?_, ?_, ?_, ?_⟩
+  · intro x hx
+    exact swapColor_lt hfv hu (bound x hx)
+  · intro x y hx hy hedge he
+    exact proper x y hx hy hedge (swapColor_injective (f v) used he)
+  · intro x hx
+    exact swapColor_fix_below fresh hx
+  · simp only [swapColor, ite_true]
+
 end PEqualNP.Outside.L_meta_10760
