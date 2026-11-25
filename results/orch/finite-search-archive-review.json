@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS",
+  "reviewer": "status_review",
+  "artifact_count": 111,
+  "bytes": 1048866,
+  "checks": [
+    "all manifest hashes",
+    "exact 4x4 graph census",
+    "two 65-gate witnesses and traces",
+    "tree truth table",
+    "12-gate theta3 control on all 256 assignments",
+    "UNKNOWN versus UNSAT scope"
+  ],
+  "limitations": [
+    "No full-gap result",
+    "New two-root search pending outside frozen archive"
+  ]
+}

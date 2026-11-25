@@ -1,0 +1,52 @@
+{
+  "gates": [
+    [
+      "or",
+      4,
+      0
+    ],
+    [
+      "and",
+      5,
+      6
+    ],
+    [
+      "or",
+      0,
+      2
+    ],
+    [
+      "and",
+      1,
+      8
+    ],
+    [
+      "or",
+      7,
+      9
+    ],
+    [
+      "or",
+      10,
+      2
+    ],
+    [
+      "or",
+      4,
+      11
+    ],
+    [
+      "or",
+      3,
+      10
+    ],
+    [
+      "and",
+      12,
+      13
+    ]
+  ],
+  "truth_table_bad_rows": [],
+  "derivative_at_0_toward_1": false,
+  "derivative_at_1_toward_0": false
+}

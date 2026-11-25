@@ -1,0 +1,10 @@
+{"prefix": 39, "theta": 17, "base_gates": 57, "missing": 8, "source_count": 65}
+{"safe_actions": 576, "best_singles": [[7, 0, 1], [7, 0, 9], [7, 16, 7], [7, 16, 10], [7, 17, 7], [7, 17, 10], [7, 28, 7], [7, 28, 10], [8, 0, 3], [8, 0, 29], [8, 0, 33], [8, 0, 37], [8, 0, 41], [8, 0, 45], [8, 0, 49], [8, 0, 53], [8, 0, 57], [8, 0, 58], [8, 0, 59], [8, 0, 60], [8, 0, 61], [8, 0, 62], [8, 0, 63], [8, 0, 64], [8, 1, 3], [8, 1, 17], [8, 1, 23], [8, 1, 25], [8, 1, 29], [8, 1, 33]]}
+{"depth": 1, "tested": 576, "candidates": 220, "beam": 220, "best_missing": 7, "secs": 0.04467686499992851}
+{"depth": 2, "tested": 126500, "candidates": 23887, "beam": 512, "best_missing": 6, "secs": 2.8049019999998563}
+{"depth": 3, "tested": 293888, "candidates": 90151, "beam": 512, "best_missing": 5, "secs": 10.78611646399986}
+{"depth": 4, "tested": 293376, "candidates": 107074, "beam": 512, "best_missing": 4, "secs": 19.56327806099989}
+{"depth": 5, "tested": 292864, "candidates": 112380, "beam": 512, "best_missing": 4, "secs": 28.798675801000172}
+{"depth": 6, "tested": 292352, "candidates": 113406, "beam": 512, "best_missing": 4, "secs": 38.5999835130001}
+{"depth": 7, "tested": 291840, "candidates": 112402, "beam": 512, "best_missing": 4, "secs": 49.89773511400017}
+NO WITNESS 49.89780897399987

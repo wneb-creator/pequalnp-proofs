@@ -1,0 +1,16 @@
+best=7 run=0 iters=1
+best=5 run=0 iters=24
+best=4 run=0 iters=85
+best=3 run=0 iters=27803
+best=2 run=0 iters=172962
+best=1 run=21 iters=4074906
+FOUND run=47 iters=8863274
+0 4 0
+1 5 6
+0 0 2
+1 1 8
+0 7 9
+0 10 2
+0 4 11
+0 3 10
+1 12 13

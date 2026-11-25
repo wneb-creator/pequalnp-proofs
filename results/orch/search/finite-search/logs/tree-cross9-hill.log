@@ -1,0 +1,10 @@
+best=10 run=0 iters=1
+best=9 run=0 iters=73
+best=8 run=0 iters=435
+best=7 run=0 iters=450
+best=6 run=0 iters=644
+best=5 run=0 iters=15053
+best=2 run=1 iters=194565
+best=1 run=4 iters=778268
+
+Stopped stochastic search to reserve CPU for independent signature-DP strategy. No witness reported.
