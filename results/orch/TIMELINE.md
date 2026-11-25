@@ -17,3 +17,5 @@
 - 2026-11-25T18:11:08.075586+00:00: 8777-line aggregate builds; exact private-buffer merge and paid singleton-mixed OR charge integrated. Separate masked-region strict simplification and explicit13-gate shortcut regression also compile.
 
 - 2026-11-25T18:15:28.872401+00:00: Named aggregate9363lines builds; masked-region dirty-witness extraction and distinct-AND accepted-trace counting integrated. Shared identity-buffer cut relocation checked separately. Full residual certificate remains open.
+
+- 2026-11-25T18:24:26.427273+00:00: Snapshot14 authentication failure recovered with safe read and expected-old-SHA fenced push. Current exact checker rejects absent target. New multi-root and buffer-boundary results checked; incompatible OR-choice payment remains unresolved.

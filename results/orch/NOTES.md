@@ -48,3 +48,10 @@ New promising local fact: semantically two-colour OR gates cannot belong to lamb
 Potential normalization identity: a OR h equals a OR h with a forced false inside h. Applying it to a shared circuit requires proving every external use is shielded by a; without that boundary hypothesis the transformation is invalid.
 
 The checked semantic-mixing charge specifically concerns OR gates accepting singleton inputs of both colours; it does not classify arbitrary semantic dependency support. Such gates lie outside lambda and can be charged to its complement.
+
+## Replan: shared charges and cover union
+Actual masked regions now admit a strict T0-preserving cofactor simplification, and private singleton buffers can be merged or moved across a shared compatible OR region. The checked boundary injection charges each colour to OR gates with original raw inputs of the opposite colour; T0 makes these paid sets disjoint. The minimum-circuit wrapper is being checked.
+
+Actual accepted traces now count distinct AND ancestors, and TopForm puts payload-cone ANDs in junk when the payload feeds a later AND. A common independent witness allows many roots to share this charge once. Separate incompatible witnesses require explicit OR-disagreement charges; unique lambda centres and C4 alone do not eliminate those charges. The newer experimental selector-payload construction used to study incompatible witnesses is edge-inactive, so minimum edge activity may still supply a needed restriction there. This is separate from the checked 13-gate bank-factoring regression, whose gates are pivotal on edge inputs.
+
+Retaining the actual already-selected cover K weakens the residual sufficient condition: residual edges incident to K need no additional cover vertex. Algebraic is formalizing a cover-union certificate rather than paying a fresh cover of all Ustar. The full residual edge-cost inequality remains unproved.

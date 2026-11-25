@@ -98,3 +98,11 @@ Seven-input supplement 02602bb1a1190b6529e032ab094d1f8f01f680eaee6207edc61b3db47
 results/orch/lemmas/structural-reader-centres.lean SHA256 76db865b448220121cbc726888dd54a6e13589df446f0817503a4d67817ea613, compiled exit0, independent review PASS; logs structural-reader-centres.stdout/.stderr.
 results/orch/lemmas/library-mask-cut-flex.lean SHA256 100eb999fb1aa2fb7455510e49e2da1f954abfa89c08c5365ee9e5eacd726de4, compiled exit0, independent review PASS; logs library-mask-cut-flex-build.stdout/.stderr.
 results/orch/lemmas/algebraic-and-cone.lean SHA256 c383489ea8e30593b3c2e034914a38b8be85d9a45683c73bd842667a0e204066, compiled exit0, independent review PASS; logs algebraic-and-cone-3.stdout/.stderr.
+
+Snapshot15 2026-11-25T18:24:26.427273+00:00
+results/orch/lemmas/structural-buffer-paid.lean SHA256 5a6564d55a95e0266da4d41978c12c45f1d676371b99df83fc2923a8c0da0cc7, compiled exit0; complete structural-buffer-paid.stdout/.stderr.
+results/orch/lemmas/library-pin-and.lean SHA256 67359384abefffe48701c28b8adba6232d13f8661d4053b2fc459c71202e2a28, compiled exit0; complete library-pin-and-build.stdout/.stderr.
+results/orch/lemmas/algebraic-reader-charge.lean SHA256 1e43f511f78c2627eb827fac2e8dd0ca066f5ff1b70039da27cbcf2b39a1e331, compiled exit0; complete algebraic-reader-charge-2.stdout/.stderr.
+results/orch/lemmas/algebraic-cluster-charge.lean SHA256 ce18dc8cdfb07caf99d8e48eb5daeda4394e13822b02647dfef1c1ff9fddb4b2, compiled exit0; complete algebraic-cluster-charge-1.stdout/.stderr.
+results/orch/lemmas/semantic-cluster-disagreement.lean SHA256 ff63e428a7b7909965781e2927d9dc4c6725a59864ecdeb9b5b6d542872fc9d8, compiled exit0; complete semantic-cluster-disagreement.stdout/.stderr.
+Exact checker002 on unchanged9363line aggregate: REJECTED(no-theorem). Snapshot14 initialpush authenticationfailed, safe-readhelper succeeded, fencedretry toexpectedold e2bab88 succeeded; eed58e5 preserved remotely. No credentials changed or exposed.
