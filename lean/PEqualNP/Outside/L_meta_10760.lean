@@ -393,4 +393,263 @@ lemma replace_from_samples {inputCount replacementSize : Nat} {goal : BitVec wid
     exact ⟨op.elim Or.inl (fun h => h.elim Or.inr
       (fun eq => (present ⟨g, member, eq⟩).elim)), arity⟩
 
+
+namespace SearchKernel
+
+open PEqualNP.Outside.L_meta_10760
+
+variable {width : Nat}
+
+def singles {α : Type} : List α → List (α × List α)
+  | [] => []
+  | a :: rest => (a, rest) :: (singles rest).map (fun (b, bs) => (b, a :: bs))
+
+def pairs {α : Type} : List α → List (α × α × List α)
+  | [] => []
+  | a :: rest => (singles rest).map (fun (b, bs) => (a, b, bs)) ++
+      (pairs rest).map (fun (b, c, bs) => (b, c, a :: bs))
+
+set_option maxRecDepth 100000 in
+lemma pick_one {α : Type} {a : α} {ws : List α} (h : a ∈ ws) :
+    ∃ rest, (a, rest) ∈ singles ws ∧ ws.Perm (a :: rest) := by
+  induction ws with
+  | nil => simp at h
+  | cons x xs ih =>
+    rcases List.mem_cons.mp h with e | h
+    · subst x; exact ⟨xs, by simp [singles], .refl _⟩
+    · obtain ⟨rest, hm, hp⟩ := ih h
+      refine ⟨x :: rest, List.mem_cons_of_mem _ (List.mem_map.mpr ⟨(a, rest), hm, rfl⟩), ?_⟩
+      exact (hp.cons x).trans (.swap _ _ _)
+
+set_option maxRecDepth 100000 in
+lemma pick_two {α : Type} {a b : α} {ws : List α} (ha : a ∈ ws) (hb : b ∈ ws) (hne : a ≠ b) :
+    ∃ rest, ((a, b, rest) ∈ pairs ws ∨ (b, a, rest) ∈ pairs ws) ∧
+      ws.Perm (a :: b :: rest) := by
+  induction ws with
+  | nil => simp at ha
+  | cons x xs ih =>
+    rcases List.mem_cons.mp ha with h | ha
+    · subst x
+      obtain ⟨r, hm, hp⟩ := pick_one ((List.mem_cons.mp hb).resolve_left (Ne.symm hne))
+      exact ⟨r, .inl (List.mem_append_left _ (List.mem_map.mpr ⟨(b, r), hm, rfl⟩)), hp.cons a⟩
+    · rcases List.mem_cons.mp hb with h | hb
+      · subst x
+        obtain ⟨r, hm, hp⟩ := pick_one (ws := xs) (a := a) (by assumption)
+        exact ⟨r, .inr (List.mem_append_left _ (List.mem_map.mpr ⟨(a, r), hm, rfl⟩)),
+          (hp.cons b).trans (.swap _ _ _)⟩
+      · obtain ⟨r, hm, hp⟩ := ih ha hb
+        refine ⟨x :: r, ?_,
+          (hp.cons x).trans ((List.Perm.swap _ _ _).trans ((List.Perm.swap _ _ _).cons a))⟩
+        rcases hm with hm | hm
+        · exact .inl (List.mem_append_right _ (List.mem_map.mpr ⟨(a, b, r), hm, rfl⟩))
+        · exact .inr (List.mem_append_right _ (List.mem_map.mpr ⟨(b, a, r), hm, rfl⟩))
+
+lemma ops_swap (a b : (BitVec width)) : basicOps a b = basicOps b a := by
+  ext z
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false]
+  rw [BitVec.and_comm a b, BitVec.or_comm a b]
+  tauto
+
+def keepChoices (a b : (BitVec width)) (r : List (BitVec width)) : List (List (BitVec width)) := [r, a :: r, b :: r, a :: b :: r]
+
+set_option maxRecDepth 100000 in
+lemma recover_kept {ws r : List (BitVec width)} {a b : (BitVec width)} {needed : Finset (BitVec width)}
+    (hp : ws.Perm (a :: b :: r)) (hn : ws.Nodup)
+    (hs : ws.toFinset = insert a (insert b needed)) :
+    ∃ kept ∈ keepChoices a b r, kept.Nodup ∧ kept.toFinset = needed := by
+  have habr := hp.nodup_iff.mp hn
+  have hbase : ws.toFinset = insert a (insert b r.toFinset) := by
+    ext v
+    simp [hp.mem_iff]
+  have henne : ∀ v, v ∈ r ↔ v ∈ needed ∧ v ≠ a ∧ v ≠ b := by
+    intro v
+    have he : (v ∈ insert a (insert b r.toFinset)) ↔ v ∈ insert a (insert b needed) := by
+      rw [← hbase, ← hs]
+    simp only [Finset.mem_insert, List.mem_toFinset] at he
+    simp only [List.nodup_cons, List.mem_cons, not_or] at habr
+    grind
+  by_cases ha : a ∈ needed <;> by_cases hb : b ∈ needed
+  · refine ⟨a :: b :: r, by simp [keepChoices], habr, ?_⟩
+    ext v; simp [henne]; grind
+  · refine ⟨a :: r, by simp [keepChoices], ?_, ?_⟩
+    · simp_all [List.nodup_cons]
+    · ext v; simp [henne]; grind
+  · refine ⟨b :: r, by simp [keepChoices], (List.nodup_cons.mp habr).2, ?_⟩
+    ext v; simp [henne]; grind
+  · refine ⟨r, by simp [keepChoices], (List.nodup_cons.mp (List.nodup_cons.mp habr).2).2, ?_⟩
+    ext v; simp [henne]; grind
+
+set_option maxRecDepth 100000 in
+lemma singleton_list {goal : (BitVec width)} {ws : List (BitVec width)} (hn : ws.Nodup) (hs : ws.toFinset = {goal}) : ws = [goal] := by
+  have hc := List.toFinset_card_of_nodup hn
+  rw [hs] at hc
+  cases ws with
+  | nil => simp at hc
+  | cons w ws =>
+    cases ws with
+    | nil => simpa using hs
+    | cons => simp at hc
+
+def rowClass (j : Fin width) (w : BitVec width) : BitVec width :=
+  if w[j.val] then w else ~~~w
+
+def survivors (goal : BitVec width) (j : Fin width) (ws : List (BitVec width)) : BitVec width :=
+  ws.foldr (fun w r => rowClass j w &&& r) goal
+
+def separates (goal : BitVec width) (rows : List (Fin width))
+    (ws : List (BitVec width)) : Bool :=
+  rows.all (fun j => goal[j.val] || (survivors goal j ws == 0))
+
+lemma rowClass_bit (i j : Fin width) (w : BitVec width) :
+    (rowClass j w)[i.val] = true ↔ w[i.val] = w[j.val] := by
+  unfold rowClass
+  split <;> simp_all
+
+lemma survivors_bit (goal : BitVec width) (i j : Fin width) (ws : List (BitVec width)) :
+    (survivors goal j ws)[i.val] = true ↔
+      goal[i.val] = true ∧ ∀ w ∈ ws, w[i.val] = w[j.val] := by
+  induction ws with
+  | nil => simp [survivors]
+  | cons w ws ih =>
+    simp only [survivors, List.foldr_cons, BitVec.getElem_and, Bool.and_eq_true]
+    change (rowClass j w)[i.val] = true ∧ (survivors goal j ws)[i.val] = true ↔ _
+    rw [rowClass_bit, ih]
+    simp only [List.mem_cons, forall_eq_or_imp]
+    tauto
+
+lemma ops_separate (i j : Fin width) (a b z : BitVec width) (hz : z ∈ basicOps a b)
+    (hd : z[i.val] ≠ z[j.val]) : a[i.val] ≠ a[j.val] ∨ b[i.val] ≠ b[j.val] := by
+  by_contra h
+  push Not at h
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons, List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;> apply hd <;>
+    simp only [BitVec.getElem_and, BitVec.getElem_or, BitVec.getElem_not, h.1, h.2]
+
+lemma separates_complete {goal g : BitVec width} (hg : g = goal ∨ g = ~~~goal)
+    (rows : List (Fin width))
+    {k : Nat} {ws : List (BitVec width)} (h : live basicOps g k ws.toFinset) :
+    separates goal rows ws = true := by
+  rw [separates, List.all_eq_true]
+  intro j hj
+  cases he : goal[j.val] with
+  | true => simp [he]
+  | false =>
+    simp only [he, Bool.false_or, beq_iff_eq]
+    apply BitVec.eq_of_getElem_eq
+    intro i hi
+    have zi : (0 : BitVec width)[i] = false := by simp
+    rw [zi]
+    cases hs : (survivors goal j ws)[i] with
+    | false => rfl
+    | true =>
+      obtain ⟨hgoal, hagree⟩ := (survivors_bit goal ⟨i,hi⟩ j ws).mp hs
+      have diff : g[i] ≠ g[j.val] := by
+        rcases hg with rfl | rfl <;> simp [hgoal, he]
+      obtain ⟨w, hw, hd⟩ := live_separates (fun w : BitVec width => w[i] ≠ w[j.val])
+        diff (ops_separate ⟨i,hi⟩ j) h
+      exact False.elim (hd (hagree w (List.mem_toFinset.mp hw)))
+
+
+def dispatch (goal : BitVec width) (rows : List (Fin width)) (extra : Nat)
+    (next : Nat → List (BitVec width) → Bool) (a b : BitVec width)
+    (r : List (BitVec width)) : Bool :=
+  (ops a b).any fun z => !(a :: b :: r).contains z &&
+    (keepChoices a b r).any fun kept =>
+    decide (kept.length ≤ extra + r.length) && separates goal rows (z :: kept) &&
+      next (extra + r.length - kept.length) (z :: kept)
+
+def optimized (goal : BitVec width) (rows : List (Fin width)) : Nat → Nat → List (BitVec width) → Bool
+  | 0, _, ws => (ws == [goal] || ws == [~~~goal])
+  | k + 1, extra, ws => (ws == [goal] || ws == [~~~goal]) ||
+    (pairs ws).any (fun (a, b, r) => dispatch goal rows extra (optimized goal rows k) a b r)
+
+lemma dispatch_complete {goal : BitVec width} {rows : List (Fin width)} {k extra : Nat} {a b z : BitVec width}
+    {r kept : List (BitVec width)} (next : Nat → List (BitVec width) → Bool)
+    (hz : z ∈ basicOps a b) (hnew : z ∉ a :: b :: r) (hk : kept ∈ keepChoices a b r)
+    (he : extra + r.length = k) (hn : kept.length ≤ k)
+    (hc : separates goal rows (z :: kept) = true)
+    (ht : next (k - kept.length) (z :: kept) = true) :
+    dispatch goal rows extra next a b r = true := by
+  apply List.any_eq_true.mpr
+  refine ⟨z, List.mem_toFinset.mp hz, ?_⟩
+  rw [Bool.and_eq_true]
+  refine ⟨by simpa using hnew, ?_⟩
+  apply List.any_eq_true.mpr
+  refine ⟨kept, hk, ?_⟩
+  simp only [Bool.and_eq_true, decide_eq_true_eq]
+  exact ⟨⟨by omega, hc⟩, by simpa only [he] using ht⟩
+
+set_option maxRecDepth 100000 in
+lemma optimized_complete {goal g : (BitVec width)} (hg : g = goal ∨ g = ~~~goal) (rows : List (Fin width)) (n : ℕ) (ws : List (BitVec width)) (extra : ℕ) (hn : ws.Nodup)
+    (room : extra + ws.length = n + 1) (h : live basicOps g n ws.toFinset) :
+    optimized goal rows n extra ws = true := by
+  induction n generalizing ws extra with
+  | zero => rcases hg with rfl | rfl <;> simp [optimized, singleton_list hn h]
+  | succ k ih =>
+    rcases first_live h with done | ⟨a, ha, b, hb, hab, z, hz, hout, needed, hs, tail⟩
+    · rcases hg with rfl | rfl <;> simp [optimized, singleton_list hn done]
+    · obtain ⟨r, hm, hp⟩ := pick_two (List.mem_toFinset.mp ha) (List.mem_toFinset.mp hb) hab
+      have go {a b : (BitVec width)} (perm : ws.Perm (a :: b :: r))
+          (hset : ws.toFinset = insert a (insert b needed)) (hop : z ∈ basicOps a b) :
+          dispatch goal rows extra (optimized goal rows k) a b r = true := by
+        obtain ⟨kept, hk, hnk, hfin⟩ := recover_kept perm hn hset
+        have hznew : z ∉ kept := by
+          intro hu
+          apply hout
+          rw [hset]
+          exact Finset.mem_insert_of_mem (Finset.mem_insert_of_mem (hfin ▸ (List.mem_toFinset.mpr hu)))
+        have hnd : (z :: kept).Nodup := List.nodup_cons.mpr ⟨hznew, hnk⟩
+        have hl : live basicOps g k (z :: kept).toFinset := by
+          simpa [hfin] using tail
+        have hc := live_card hl
+        rw [List.toFinset_card_of_nodup hnd, List.length_cons] at hc
+        have len := perm.length_eq
+        simp only [List.length_cons] at len
+        apply dispatch_complete (k := k) (extra := extra) (optimized goal rows k) hop (by
+          intro hz
+          exact hout (List.mem_toFinset.mpr (perm.mem_iff.mpr hz))) hk (by omega) (by omega) (separates_complete hg rows hl)
+        apply ih _ _ hnd _ hl
+        simp; omega
+      simp only [optimized, Bool.or_eq_true, List.any_eq_true]
+      right
+      rcases hm with direct | swap
+      · exact ⟨(a, b, r), direct, go hp hs hz⟩
+      · exact ⟨(b, a, r), swap, go (hp.trans (.swap _ _ _)) (by rw [hs, Finset.insert_comm]) (ops_swap a b ▸ hz)⟩
+
+def falseRows (goal : BitVec width) : List (Fin width) :=
+  (List.finRange width).filter (fun j => !goal[j.val])
+
+def search (goal : BitVec width) (n : ℕ) (inputs : List (BitVec width)) : Bool :=
+  let rows := falseRows goal
+  inputs.sublists.any fun ws =>
+    decide (ws.length ≤ n+1) && separates goal rows ws && optimized goal rows n (n+1-ws.length) ws
+
+set_option maxRecDepth 100000 in
+lemma search_complete {goal g : (BitVec width)} (hg : g = goal ∨ g = ~~~goal) (n : ℕ) (inputs : List (BitVec width))
+    (hn : inputs.Nodup) (h : build basicOps g n inputs.toFinset) : search goal n inputs = true := by
+  classical
+  obtain ⟨s,hs,hl⟩ := compress h
+  let ws := inputs.filter (· ∈ s)
+  have eq : ws.toFinset = s := by
+    ext w
+    simp only [ws, List.mem_toFinset, List.mem_filter, decide_eq_true_eq, and_iff_right_iff_imp]
+    exact fun hw => List.mem_toFinset.mp (hs hw)
+  have hnd : ws.Nodup := hn.filter _
+  have hl' : live basicOps g n ws.toFinset := eq.symm ▸ hl
+  have sz := live_card hl'
+  rw [List.toFinset_card_of_nodup hnd] at sz
+  exact List.any_eq_true.mpr ⟨ws,List.mem_sublists.mpr (List.filter_sublist ..),
+    by simp [sz, separates_complete hg (falseRows goal) hl', optimized_complete hg (falseRows goal) n ws _ hnd (by omega : n+1-ws.length+ws.length=n+1) hl']⟩
+
+lemma no_build {goal g : BitVec width} (hg : g = goal ∨ g = ~~~goal)
+    (n : Nat) (inputs : List (BitVec width)) (hn : inputs.Nodup)
+    (rejected : search goal n inputs = false) :
+    ¬ build basicOps g n inputs.toFinset := by
+  intro h
+  have found := search_complete hg n inputs hn h
+  rw [rejected] at found
+  contradiction
+
+end SearchKernel
+
 end PEqualNP.Outside.L_meta_10760
