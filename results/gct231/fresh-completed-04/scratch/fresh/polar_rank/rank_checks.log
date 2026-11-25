@@ -1,0 +1,9 @@
+Start UTC 2026-11-25T11:02:43.637236+00:00
+GENERAL_IDENTITY (a+b+2)(x^2-4x+6)y+(ab+1)(4x^2-4x+2)y^2
+center0_difference polar_rank 5 diagonal_rank 1 stable_transpositions [(1, 2)]
+center3_difference polar_rank 5 diagonal_rank 1 stable_transpositions [(1, 2)]
+center1_triple polar_rank 6 diagonal_rank 1 stable_transpositions []
+center2_triple polar_rank 6 diagonal_rank 1 stable_transpositions []
+two_block_diagonal_rank2 polar_rank 4 diagonal_rank 2 stable_transpositions []
+Finish UTC 2026-11-25T11:02:44.253615+00:00
+PASS

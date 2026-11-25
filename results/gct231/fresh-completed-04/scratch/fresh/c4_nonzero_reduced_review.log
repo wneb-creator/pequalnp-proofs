@@ -1,0 +1,14 @@
+Start UTC 2026-11-25T11:15:57.683613+00:00
+CASE 2 original necessary equations independently reproduced
+CASE 2 reduced substitutions, monomial denominators, variable/equation order, saturation, term count 134 PASS
+ORIGINAL_SHA256 2 a04e12050ab4eed1235869d81b1107ef6ba5b1f7ec51839d766767ee11398467
+REDUCED_SHA256 2 0ab9ffa48a2b21f637556a635ff1f835fd59836ad48c77cec594a1751f7dc87b
+CASE 3 original necessary equations independently reproduced
+CASE 3 reduced substitutions, monomial denominators, variable/equation order, saturation, term count 132 PASS
+ORIGINAL_SHA256 3 d82ea8e4d1e006e9e71ecc49fbfe535d5c41b9b938e1118748d03aea455f01c0
+REDUCED_SHA256 3 72b12e2f543766e57aec78a88717f5133442553a207566956022363aa89a867f
+S:(e,f,a,b,H,X,Y)->(-e,-f,b,a,H,X,-Y) preserves q and negates c: PASS
+Case2 maps to4 with scales(alpha,-beta,-gamma); case3 maps to5 with unchanged scales
+Scope: necessary systems conditional on nonzero scales and nondegenerateW; no degenerateW coverage, no solver verdict
+Finish UTC 2026-11-25T11:15:59.344721+00:00
+PASS

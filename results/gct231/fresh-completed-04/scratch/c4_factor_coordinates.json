@@ -1,0 +1,15 @@
+{
+  "variables": [
+    "e",
+    "f",
+    "a",
+    "b",
+    "H",
+    "X",
+    "Y"
+  ],
+  "Q4": "-H**2 - X**2 - X*a - X*b - Y**2 - Y*a + Y*b + a**2 + b**2 + 6*e**2 + 2*f**2",
+  "C16": "-2*H*X*Y - 4*X**2*e + 4*X*a*e + 4*X*b*e - 4*Y**2*e + 4*Y*a*e - 4*Y*b*e - a**2*e + 2*a*b*f - b**2*e - 4*e**3 + 4*e*f**2",
+  "e_zero_cubic_half": "-H*X*Y + a*b*f",
+  "scope": "Exact rational change of coordinates for fixed C4 support; no classification claim."
+}

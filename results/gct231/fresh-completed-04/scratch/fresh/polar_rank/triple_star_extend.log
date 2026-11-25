@@ -1,0 +1,16 @@
+Start UTC 2026-11-25T11:02:04.817330+00:00
+NORMALIZED_LINEAR_SOLUTION {c00: c33*(2*sqrt(2) + 3), c01: 0, c02: c33*(sqrt(2)/2 + 1), c03: 0, c11: -2*c12 + c33*(-9 - 9*sqrt(2)/2), c12: c12, c13: 0, c22: c33*(sqrt(2)/2 + 1), c23: c33*(sqrt(2)/2 + 1), c33: c33}
+COEFFICIENT (0, 0, 2) 2*(c12 + c33*(3 + 9*sqrt(2)/2))*(c12 + c33*(-15*sqrt(2)/2 - 9))
+COEFFICIENT (0, 0, 3) c33*(2*sqrt(2) + 4)*(c12**2 + c12*c33*(-6 - 3*sqrt(2)) + c33**2*(-117/2 - 39*sqrt(2)))
+COEFFICIENT (0, 0, 4) c33**2*(2*sqrt(2) + 3)*(c12 + c33*(-9 - 9*sqrt(2)/2))*(c12 + c33*(3*sqrt(2)/2 + 3))
+RESIDUAL 2*(c12 + c33*(3 + 9*sqrt(2)/2))*(c12 + c33*(-15*sqrt(2)/2 - 9))
+RESIDUAL c33*(2*sqrt(2) + 4)*(c12**2 + c12*c33*(-6 - 3*sqrt(2)) + c33**2*(-117/2 - 39*sqrt(2)))
+RESIDUAL c33**2*(2*sqrt(2) + 3)*(c12 + c33*(-9 - 9*sqrt(2)/2))*(c12 + c33*(3*sqrt(2)/2 + 3))
+ELEMENTARY_CERTIFICATE cubic - (2+sqrt2)*C33*quadratic = (240+168sqrt2)*C33^3
+GROEBNER [c12**2 + c12*c33*(-6 - 3*sqrt(2)) + c33**2*(-189/2 - 63*sqrt(2)), c33**3]
+NILPOTENT c12 4
+NILPOTENT c33 3
+PROJECTIVE_CHART c12 basis [1]
+PROJECTIVE_CHART c33 basis [1]
+Finish UTC 2026-11-25T11:02:05.641850+00:00
+PASS

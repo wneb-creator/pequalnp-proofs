@@ -1,0 +1,2 @@
+CASE 2 VARS ['P', 'B', 'U', 'V', 'sat'] TERM_COUNTS [6, 9, 11, 68, 35, 5] DEGREES [4, 5, 5, 9, 7, 6] DET 9*B**2 - 6*B*P**2 - 12*B + 10*P**2
+CASE 3 VARS ['A', 'beta', 'U', 'V', 'sat'] TERM_COUNTS [7, 10, 11, 59, 38, 7] DEGREES [4, 5, 6, 10, 8, 6] DET -4*A*beta**2 - 4*A*beta + 5*A + 6*beta**2 + 6*beta - 6

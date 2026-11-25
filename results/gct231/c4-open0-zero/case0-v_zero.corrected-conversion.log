@@ -1,0 +1,1 @@
+{"source": "/tmp/oec/pequalnp-pilot-75/gct231/c4-small-certificates/case0-v_zero.f4.in", "source_sha256": "00a123763069cae18f56651342a6d4ddbef75511b1446ac86420f29849ffc2ef", "original_variables": ["beta", "gamma"], "companion_variables": ["x0", "x1"], "input_sha256": "244bc9ff4595f8d0ed15ff80b590ba74bd6a885ab3ad3d9f964b538964dbc607", "generators": 4, "terms": 145}

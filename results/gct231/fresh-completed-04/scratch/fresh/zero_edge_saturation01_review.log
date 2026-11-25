@@ -1,0 +1,8 @@
+Start UTC 2026-11-25T11:09:35.178920+00:00
+Exact12equationprefix,13variableorder,basehash,minor01,saturation sign: PASS
+All12 base coefficients and order independently reproduced by Ryser: PASS
+BASE_SHA256 68694af7231339f727f58f0ecee44361318f2e7161335daa60b1c7089e528f3b
+SATURATION01_SHA256 ccbb2c3a608ed6d3637d45954c35f370615c2e16bcdfbd87c98282f33ea28d7c
+Scope: one rank-two diagonal-minor open chart; no solver or mathematical verdict
+Finish UTC 2026-11-25T11:09:35.854111+00:00
+PASS

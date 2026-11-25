@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_gct_231_aux.binaryLinear_three_factors_match' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

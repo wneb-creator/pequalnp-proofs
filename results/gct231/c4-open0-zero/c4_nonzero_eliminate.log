@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/c4_nonzero_eliminate.py", line 23, in <module>
+    eq={k:strip(p.subs(alpha,1/(beta*gamma))) for k,p in polys.items() if k!='square_cubic'}
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-75/gct231/c4_nonzero_eliminate.py", line 17, in strip
+    p=primitive(p)
+      ^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-75/gct231/c4_nonzero_eliminate.py", line 13, in primitive
+    p=S.Poly(S.together(p).as_numer_denom()[0],*variables,domain=S.QQ)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/polytools.py", line 190, in __new__
+    return cls._from_expr(rep, opt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/polytools.py", line 320, in _from_expr
+    return cls._from_dict(rep, opt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/polytools.py", line 267, in _from_dict
+    rep[monom] = domain.convert(coeff)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/domains/domain.py", line 456, in convert
+    return self.from_sympy(element)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/domains/rationalfield.py", line 76, in from_sympy
+    raise CoercionFailed("expected `Rational` object, got %s" % a)
+sympy.polys.polyerrors.CoercionFailed: expected `Rational` object, got 36 - 4*v**2

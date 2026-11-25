@@ -1,0 +1,24 @@
+SYMMETRIES_S_AND_T_PASS
+CASE 0 NORMAL_H_COLUMN [alpha**2/2 - 1, 0, 0]
+GRAM3 0 Matrix([[2 - alpha**2, 0, 0], [0, -beta**2 - beta + 1, -beta/2 - gamma/2], [0, -beta/2 - gamma/2, -gamma**2 + gamma + 1]])
+CASE 1 NORMAL_H_COLUMN [alpha**2/2 - 1, 0, 0]
+GRAM3 1 Matrix([[2 - alpha**2, 0, 0], [0, -gamma**2 - gamma + 1, -beta/2 + gamma/2], [0, -beta/2 + gamma/2, -beta**2 - beta + 1]])
+CASE 2 NORMAL_H_COLUMN [2*alpha**2/3 - 1, alpha/3, alpha/3]
+GRAM3 2 Matrix([[2 - beta**2, -beta/2, -beta/2], [-beta/2, 1 - alpha**2, -gamma/2], [-beta/2, -gamma/2, -gamma**2 + gamma + 1]])
+RANK_AT_MOST_ONE_IMPOSSIBLE 2
+CASE 3 NORMAL_H_COLUMN [2*alpha**2/3 - 1, alpha/3, alpha/3]
+GRAM3 3 Matrix([[2 - gamma**2, -gamma/2, gamma/2], [-gamma/2, 1 - alpha**2, -beta/2], [gamma/2, -beta/2, -beta**2 - beta + 1]])
+RANK_AT_MOST_ONE_IMPOSSIBLE 3
+CASE 4 NORMAL_H_COLUMN [2*alpha**2/3 - 1, alpha/3, -alpha/3]
+GRAM3 4 Matrix([[2 - beta**2, -beta/2, -beta/2], [-beta/2, -gamma**2 - gamma + 1, gamma/2], [-beta/2, gamma/2, 1 - alpha**2]])
+RANK_AT_MOST_ONE_IMPOSSIBLE 4
+CASE 5 NORMAL_H_COLUMN [2*alpha**2/3 - 1, alpha/3, -alpha/3]
+GRAM3 5 Matrix([[2 - gamma**2, -gamma/2, gamma/2], [-gamma/2, -beta**2 - beta + 1, -beta/2], [gamma/2, -beta/2, 1 - alpha**2]])
+RANK_AT_MOST_ONE_IMPOSSIBLE 5
+RANK_ONE_BRANCHES_PASS
+PURE_fH_DIRECTION_CUBIC_R_SQUARED_W_IS_4e
+CASE2_GAMMA 2 ALPHA2 2 BETA2 8/3 SQUARED_PRODUCT 64/3
+CASE2_GAMMA -1/2 ALPHA2 3/4 BETA2 1 SQUARED_PRODUCT 3/16
+CASE3_BETA 1/2 ALPHA2 3/4 GAMMA2 1 SQUARED_PRODUCT 3/16
+CASE3_BETA -2 ALPHA2 2 GAMMA2 8/3 SQUARED_PRODUCT 64/3
+ALL_BOUNDARY_SCALAR_CHECKS_PASS

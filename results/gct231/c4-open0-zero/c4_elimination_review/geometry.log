@@ -1,0 +1,3 @@
+PASS 0 Gram, determinant, orthogonality, direct cubic coefficients, three normal equations
+PASS 1 Gram, determinant, orthogonality, direct cubic coefficients, three normal equations
+PASS: geometric equation formulas; linear-algebra implication reviewed separately.

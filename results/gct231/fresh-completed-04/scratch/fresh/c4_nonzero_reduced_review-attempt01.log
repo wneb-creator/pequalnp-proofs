@@ -1,0 +1,25 @@
+Start UTC 2026-11-25T11:15:33.492680+00:00
+ValueError: Error from parse_expr with transformed code: "-beta *Symbol ('v' )/Integer (2 )"
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/fresh/c4_nonzero_reduced_review.py", line 30, in <module>
+    assert all(s.expand(w[i]-s.sympify(original['w'][str(z)]))==0 for i,z in enumerate(zs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-75/gct231/fresh/c4_nonzero_reduced_review.py", line 30, in <genexpr>
+    assert all(s.expand(w[i]-s.sympify(original['w'][str(z)]))==0 for i,z in enumerate(zs))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/sympify.py", line 507, in sympify
+    expr = parse_expr(a, local_dict=locals, transformations=transformations, evaluate=evaluate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/parsing/sympy_parser.py", line 1090, in parse_expr
+    raise e from ValueError(f"Error from parse_expr with transformed code: {code!r}")
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/parsing/sympy_parser.py", line 1081, in parse_expr
+    rv = eval_expr(code, local_dict, global_dict)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/parsing/sympy_parser.py", line 905, in eval_expr
+    expr = eval(
+           ^^^^^
+  File "<string>", line 1, in <module>
+TypeError: bad operand type for unary -: 'FunctionClass'

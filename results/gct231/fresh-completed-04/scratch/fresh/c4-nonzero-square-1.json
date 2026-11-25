@@ -1,0 +1,101 @@
+{
+  "variables": [
+    "alpha",
+    "beta",
+    "gamma",
+    "u",
+    "v"
+  ],
+  "permutation": [
+    "f",
+    "b",
+    "a"
+  ],
+  "equations": [
+    "alpha*beta*gamma - 1",
+    "(3*alpha**2*u**2 + 4*beta**2*v**2 + 4*beta*v**2 - 6*u**2 - 4*v**2 + 36)/6",
+    "(9*alpha**2*u**2 - 2*alpha*beta*u*v**2 - alpha*u*v**2 - 2*beta**2*u*v**2 - 28*beta**2*v**2 + 4*beta*u*v**2 + 20*beta*v**2 - 2*v**2 - 36)/9",
+    "-(alpha**2 - 2)*(4*beta**2*gamma**2 + 4*beta**2*gamma - 5*beta**2 + 4*beta*gamma**2 + 6*beta*gamma - 4*beta - 5*gamma**2 - 4*gamma + 4)/4",
+    "-(120*alpha**9*beta**3*u**3 + 180*alpha**9*beta**2*u**3 - 90*alpha**9*beta*u**3 - 75*alpha**9*u**3 + 360*alpha**8*beta**4*u**3 - 2736*alpha**8*beta**4*u**2 + 360*alpha**8*beta**3*u**3 - 8352*alpha**8*beta**3*u**2 - 450*alpha**8*beta**2*u**3 - 540*alpha**8*beta**2*u**2 + 180*alpha**8*beta*u**3 + 10116*alpha**8*beta*u**2 - 3690*alpha**8*u**2 + 192*alpha**7*beta**7*u*v**2 - 288*alpha**7*beta**6*u*v**2 - 360*alpha**7*beta**5*u**3 + 6048*alpha**7*beta**5*u**2 - 1376*alpha**7*beta**5*u*v**2 + 20448*alpha**7*beta**5*u - 900*alpha**7*beta**4*u**3 + 15120*alpha**7*beta**4*u**2 + 1120*alpha**7*beta**4*u*v**2 + 51120*alpha**7*beta**4*u - 1440*alpha**7*beta**3*u**3 - 8064*alpha**7*beta**3*u**2 + 1280*alpha**7*beta**3*u*v**2 - 57888*alpha**7*beta**3*u - 360*alpha**7*beta**2*u**3 - 6120*alpha**7*beta**2*u**2 - 1984*alpha**7*beta**2*u*v**2 - 26784*alpha**7*beta**2*u + 540*alpha**7*beta*u**3 + 2448*alpha**7*beta*u**2 + 896*alpha**7*beta*u*v**2 + 35784*alpha**7*beta*u + 450*alpha**7*u**3 - 128*alpha**7*u*v**2 - 7524*alpha**7*u - 960*alpha**6*beta**8*u*v**2 - 2688*alpha**6*beta**8*v**2 - 192*alpha**6*beta**7*u*v**2 + 4608*alpha**6*beta**7*v**2 - 600*alpha**6*beta**6*u**3 - 12240*alpha**6*beta**6*u**2 + 2496*alpha**6*beta**6*u*v**2 - 57888*alpha**6*beta**6*u + 10816*alpha**6*beta**6*v**2 - 79296*alpha**6*beta**6 + 720*alpha**6*beta**5*u**3 + 4464*alpha**6*beta**5*u**2 - 960*alpha**6*beta**5*u*v**2 + 35712*alpha**6*beta**5*u - 14016*alpha**6*beta**5*v**2 + 91584*alpha**6*beta**5 - 720*alpha**6*beta**4*u**3 + 29016*alpha**6*beta**4*u**2 - 960*alpha**6*beta**4*u*v**2 + 18432*alpha**6*beta**4*u - 13120*alpha**6*beta**4*v**2 - 72288*alpha**6*beta**4 - 3120*alpha**6*beta**3*u**3 + 41184*alpha**6*beta**3*u**2 + 1920*alpha**6*beta**3*u*v**2 - 15264*alpha**6*beta**3*u + 10496*alpha**6*beta**3*v**2 + 118272*alpha**6*beta**3 + 2700*alpha**6*beta**2*u**3 + 5184*alpha**6*beta**2*u**2 - 576*alpha**6*beta**2*u*v**2 + 6840*alpha**6*beta**2*u + 10624*alpha**6*beta**2*v**2 - 98352*alpha**6*beta**2 - 1080*alpha**6*beta*u**3 - 63936*alpha**6*beta*u**2 - 192*alpha**6*beta*u*v**2 - 2736*alpha**6*beta*u - 9472*alpha**6*beta*v**2 + 30384*alpha**6*beta + 23940*alpha**6*u**2 + 1792*alpha**6*v**2 - 2424*alpha**6 - 1920*alpha**5*beta**7*u*v**2 - 4864*alpha**5*beta**7*v**2 - 384*alpha**5*beta**6*u*v**2 + 14848*alpha**5*beta**6*v**2 + 2160*alpha**5*beta**5*u**3 - 33408*alpha**5*beta**5*u**2 + 5504*alpha**5*beta**5*u*v**2 - 128448*alpha**5*beta**5*u + 37760*alpha**5*beta**5*v**2 + 5400*alpha**5*beta**4*u**3 - 83520*alpha**5*beta**4*u**2 - 5440*alpha**5*beta**4*u*v**2 - 321120*alpha**5*beta**4*u - 22400*alpha**5*beta**4*v**2 + 5760*alpha**5*beta**3*u**3 + 46944*alpha**5*beta**3*u**2 - 4160*alpha**5*beta**3*u*v**2 + 331776*alpha**5*beta**3*u - 28160*alpha**5*beta**3*v**2 - 2160*alpha**5*beta**2*u**3 + 29520*alpha**5*beta**2*u**2 + 8800*alpha**5*beta**2*u*v**2 + 169056*alpha**5*beta**2*u + 16768*alpha**5*beta**2*v**2 - 1080*alpha**5*beta*u**3 - 11808*alpha**5*beta*u**2 - 4832*alpha**5*beta*u*v**2 - 189648*alpha**5*beta*u - 896*alpha**5*beta*v**2 - 900*alpha**5*u**3 + 992*alpha**5*u*v**2 + 32760*alpha**5*u + 4096*alpha**4*beta**8*u*v**2 + 3328*alpha**4*beta**8*v**2 + 2560*alpha**4*beta**7*u*v**2 - 51200*alpha**4*beta**7*v**2 + 3600*alpha**4*beta**6*u**3 + 66240*alpha**4*beta**6*u**2 - 6016*alpha**4*beta**6*u*v**2 + 313920*alpha**4*beta**6*u - 75264*alpha**4*beta**6*v**2 + 446976*alpha**4*beta**6 - 4320*alpha**4*beta**5*u**3 - 39744*alpha**4*beta**5*u**2 + 6400*alpha**4*beta**5*u*v**2 - 221184*alpha**4*beta**5*u + 89344*alpha**4*beta**5*v**2 - 442368*alpha**4*beta**5 - 4320*alpha**4*beta**4*u**3 - 98352*alpha**4*beta**4*u**2 + 1600*alpha**4*beta**4*u*v**2 - 7488*alpha**4*beta**4*u + 92160*alpha**4*beta**4*v**2 + 533952*alpha**4*beta**4 + 10080*alpha**4*beta**3*u**3 - 29376*alpha**4*beta**3*u**2 - 10432*alpha**4*beta**3*u*v**2 + 79488*alpha**4*beta**3*u - 68096*alpha**4*beta**3*v**2 - 959616*alpha**4*beta**3 - 5400*alpha**4*beta**2*u**3 - 27504*alpha**4*beta**2*u**2 + 2880*alpha**4*beta**2*u*v**2 - 113040*alpha**4*beta**2*u - 50880*alpha**4*beta**2*v**2 + 632448*alpha**4*beta**2 + 2160*alpha**4*beta*u**3 + 134352*alpha**4*beta*u**2 + 1152*alpha**4*beta*u*v**2 + 45216*alpha**4*beta*u + 48448*alpha**4*beta*v**2 - 105408*alpha**4*beta - 51480*alpha**4*u**2 - 10048*alpha**4*v**2 - 12816*alpha**4 + 5376*alpha**3*beta**7*u*v**2 + 17920*alpha**3*beta**7*v**2 + 4992*alpha**3*beta**6*u*v**2 - 71680*alpha**3*beta**6*v**2 - 4320*alpha**3*beta**5*u**3 + 61056*alpha**3*beta**5*u**2 - 5504*alpha**3*beta**5*u*v**2 + 271872*alpha**3*beta**5*u - 166400*alpha**3*beta**5*v**2 - 10800*alpha**3*beta**4*u**3 + 152640*alpha**3*beta**4*u**2 + 8320*alpha**3*beta**4*u*v**2 + 679680*alpha**3*beta**4*u + 104960*alpha**3*beta**4*v**2 - 9600*alpha**3*beta**3*u**3 - 91008*alpha**3*beta**3*u**2 + 1280*alpha**3*beta**3*u*v**2 - 632448*alpha**3*beta**3*u + 128000*alpha**3*beta**3*v**2 + 7200*alpha**3*beta**2*u**3 - 44640*alpha**3*beta**2*u**2 - 11392*alpha**3*beta**2*u*v**2 - 363456*alpha**3*beta**2*u - 79360*alpha**3*beta**2*v**2 + 720*alpha**3*beta*u**3 + 17856*alpha**3*beta*u**2 + 8576*alpha**3*beta*u*v**2 + 329184*alpha**3*beta*u + 5120*alpha**3*beta*v**2 + 600*alpha**3*u**3 - 2432*alpha**3*u*v**2 - 39024*alpha**3*u - 4864*alpha**2*beta**8*u*v**2 + 20480*alpha**2*beta**8*v**2 - 7936*alpha**2*beta**7*u*v**2 + 137216*alpha**2*beta**7*v**2 - 7200*alpha**2*beta**6*u**3 - 118080*alpha**2*beta**6*u**2 - 5888*alpha**2*beta**6*u*v**2 - 557568*alpha**2*beta**6*u + 143616*alpha**2*beta**6*v**2 - 801792*alpha**2*beta**6 + 8640*alpha**2*beta**5*u**3 + 105408*alpha**2*beta**5*u**2 - 14080*alpha**2*beta**5*u*v**2 + 456192*alpha**2*beta**5*u - 150784*alpha**2*beta**5*v**2 + 691200*alpha**2*beta**5 + 14400*alpha**2*beta**4*u**3 + 132768*alpha**2*beta**4*u**2 + 5120*alpha**2*beta**4*u*v**2 - 208512*alpha**2*beta**4*u - 153600*alpha**2*beta**4*v**2 - 1382400*alpha**2*beta**4 - 14400*alpha**2*beta**3*u**3 - 109440*alpha**2*beta**3*u**2 + 18688*alpha**2*beta**3*u*v**2 - 134784*alpha**2*beta**3*u + 97280*alpha**2*beta**3*v**2 + 2433024*alpha**2*beta**3 + 3600*alpha**2*beta**2*u**3 + 65088*alpha**2*beta**2*u**2 - 4608*alpha**2*beta**2*u*v**2 + 387360*alpha**2*beta**2*u + 50688*alpha**2*beta**2*v**2 - 1235520*alpha**2*beta**2 - 1440*alpha**2*beta*u**3 - 93888*alpha**2*beta*u**2 - 2304*alpha**2*beta*u*v**2 - 154944*alpha**2*beta*u - 55552*alpha**2*beta*v**2 - 25920*alpha**2*beta + 36720*alpha**2*u**2 + 14848*alpha**2*v**2 + 97632*alpha**2 - 4608*alpha*beta**7*u*v**2 - 16384*alpha*beta**7*v**2 - 6144*alpha*beta**6*u*v**2 + 83968*alpha*beta**6*v**2 + 2880*alpha*beta**5*u**3 - 36864*alpha*beta**5*u**2 - 193536*alpha*beta**5*u + 181760*alpha*beta**5*v**2 + 7200*alpha*beta**4*u**3 - 92160*alpha*beta**4*u**2 - 3840*alpha*beta**4*u*v**2 - 483840*alpha*beta**4*u - 120320*alpha*beta**4*v**2 + 5760*alpha*beta**3*u**3 + 58752*alpha*beta**3*u**2 + 3840*alpha*beta**3*u*v**2 + 400896*alpha*beta**3*u - 143360*alpha*beta**3*v**2 - 5760*alpha*beta**2*u**3 + 20160*alpha*beta**2*u**2 + 3456*alpha*beta**2*u*v**2 + 264960*alpha*beta**2*u + 91648*alpha*beta**2*v**2 - 8064*alpha*beta*u**2 - 4992*alpha*beta*u*v**2 - 186048*alpha*beta*u - 6656*alpha*beta*v**2 + 1920*alpha*u*v**2 + 7200*alpha*u + 1024*beta**8*u*v**2 - 32768*beta**8*v**2 + 7168*beta**7*u*v**2 - 106496*beta**7*v**2 + 4800*beta**6*u**3 + 69120*beta**6*u**2 + 15872*beta**6*u*v**2 + 322560*beta**6*u - 72704*beta**6*v**2 + 491520*beta**6 - 5760*beta**5*u**3 - 87552*beta**5*u**2 + 10240*beta**5*u*v**2 - 313344*beta**5*u + 56320*beta**5*v**2 - 221184*beta**5 - 11520*beta**4*u**3 - 60480*beta**4*u**2 - 8960*beta**4*u*v**2 + 299520*beta**4*u + 43520*beta**4*v**2 + 1207296*beta**4 + 7680*beta**3*u**3 + 140544*beta**3*u**2 - 11008*beta**3*u*v**2 + 73728*beta**3*u - 6144*beta**3*v**2 - 2181120*beta**3 - 52992*beta**2*u**2 + 2304*beta**2*u*v**2 - 377280*beta**2*u + 17152*beta**2*v**2 + 728064*beta**2 + 1536*beta*u*v**2 + 150912*beta*u - 6912*beta*v**2 + 354816*beta - 3840*v**2 - 166080)/192",
+    "(alpha**2 - 2)**2*(8*alpha*beta**3*gamma**2*u + 8*alpha*beta**3*gamma*u + 2*alpha*beta**3*u + 12*alpha*beta**2*gamma**2*u + 4*alpha*beta**2*gamma*u - alpha*beta**2*u - 6*alpha*beta*gamma**2*u - 14*alpha*beta*gamma*u - 8*alpha*beta*u - 5*alpha*gamma**2*u + 8*alpha*gamma*u + 4*alpha*u + 8*beta**4*gamma**2*u - 112*beta**4*gamma**2 - 16*beta**4*gamma*u + 80*beta**4*gamma - 10*beta**4*u - 76*beta**4 + 16*beta**3*gamma**2*u - 224*beta**3*gamma**2 - 28*beta**3*gamma*u + 296*beta**3*gamma + 12*beta**3*u - 36*beta**3 - 2*beta**2*gamma**2*u + 44*beta**2*gamma**2 - 8*beta**2*gamma*u - 40*beta**2*gamma + 24*beta**2*u + 46*beta**2 - 4*beta*gamma**2*u + 204*beta*gamma**2 + 16*beta*gamma*u - 236*beta*gamma - 16*beta*u + 16*beta - 74*gamma**2 + 80*gamma - 8)/16",
+    "v*(alpha**2 - 2)*(4*alpha*beta**3*gamma*u + 2*alpha*beta**3*u + 6*alpha*beta**2*gamma*u + 4*alpha*beta**2*u - 4*alpha*beta*gamma*u - alpha*beta*u - 3*alpha*gamma*u + 6*beta**3*u + 48*beta**3 + 2*beta**2*gamma*u - 48*beta**2*gamma - 8*beta**2*u + 8*beta*gamma*u - 12*beta*u - 18*beta - 4*gamma*u + 18*gamma + 8*u)/6"
+  ],
+  "equation_labels": [
+    "product_scales",
+    "q_w",
+    "c_w",
+    "normal_q",
+    "square_cubic",
+    "normal_R",
+    "normal_L"
+  ],
+  "det_W": "-3*(alpha**2 - 2)*(beta**2 + beta - 1)/2",
+  "w": {
+    "e": "1",
+    "f": "-alpha*u/2",
+    "a": "-v/3",
+    "b": "-2*beta*v/3 - v/3",
+    "H": "-u",
+    "X": "beta*v/3 - 2*v/3",
+    "Y": "-beta*v/3"
+  },
+  "gram_W": [
+    [
+      "2 - alpha**2",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "-beta/2",
+      "-1/2"
+    ],
+    [
+      "0",
+      "-beta/2",
+      "-beta**2 - beta + 1",
+      "1/2"
+    ],
+    [
+      "0",
+      "-1/2",
+      "1/2",
+      "-1"
+    ]
+  ],
+  "gram_R": [
+    [
+      "4",
+      "-2*beta*v/3 - v/3",
+      "alpha*beta**2*v/3 - v/3",
+      "-alpha*beta*v/3 + 2*alpha*v/3"
+    ],
+    [
+      "-2*beta*v/3 - v/3",
+      "-1",
+      "-alpha*u/2 + 2*beta",
+      "2"
+    ],
+    [
+      "alpha*beta**2*v/3 - v/3",
+      "-alpha*u/2 + 2*beta",
+      "-4*beta**2 + 4*beta - 1",
+      "beta*u - 2"
+    ],
+    [
+      "-alpha*beta*v/3 + 2*alpha*v/3",
+      "2",
+      "beta*u - 2",
+      "-4"
+    ]
+  ],
+  "normal": [
+    "0",
+    "-gamma",
+    "0",
+    "1"
+  ],
+  "scope": "Necessary equations for nonzero product branch, conditional on det_W nonzero. No consistency claim."
+}

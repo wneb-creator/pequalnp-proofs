@@ -1,0 +1,7 @@
+PERM (f, a, b) EQUATIONS [2 - alpha**2, -beta**2 - beta + 1, -beta - gamma, -gamma**2 + gamma + 1, alpha*beta*gamma - 1] BASIS [1]
+PERM (f, b, a) EQUATIONS [2 - alpha**2, -gamma**2 - gamma + 1, -beta + gamma, -beta**2 - beta + 1, alpha*beta*gamma - 1] BASIS [1]
+PERM (a, f, b) EQUATIONS [2 - beta**2, -beta, -beta, -(alpha - 1)*(alpha + 1), -gamma, -gamma**2 + gamma + 1, alpha*beta*gamma - 1] BASIS [1]
+PERM (a, b, f) EQUATIONS [2 - gamma**2, -gamma, gamma, -(alpha - 1)*(alpha + 1), -beta, -beta**2 - beta + 1, alpha*beta*gamma - 1] BASIS [1]
+PERM (b, f, a) EQUATIONS [2 - beta**2, -beta, -beta, -gamma**2 - gamma + 1, gamma, -(alpha - 1)*(alpha + 1), alpha*beta*gamma - 1] BASIS [1]
+PERM (b, a, f) EQUATIONS [2 - gamma**2, -gamma, gamma, -beta**2 - beta + 1, -beta, -(alpha - 1)*(alpha + 1), alpha*beta*gamma - 1] BASIS [1]
+ALL_SIX_NONZERO_PRODUCT_CASES_EXCLUDED

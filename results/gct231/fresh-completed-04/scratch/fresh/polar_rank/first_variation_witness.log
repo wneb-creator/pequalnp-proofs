@@ -1,0 +1,5 @@
+UTC 2026-11-25T11:04:51.281795+00:00
+A Matrix([[0, 1, 0, 0], [1, 0, 1, -2], [0, 1, 0, 0], [0, -2, 0, 0]]) B Matrix([[-sqrt(2) - 1, 0, 1, 0], [0, 0, 0, 0], [1, 0, -1 + sqrt(2), 0], [0, 0, 0, 0]]) C Matrix([[sqrt(2) + 2, 0, 0, 1], [0, -9, 0, 0], [0, 0, 2 - sqrt(2), 1], [1, 0, 1, 1]])
+EXACT_REMAINDER -6*z**2*(9*z**2 + 26*z + 21)
+All pencil and first-variation coefficients vanish; canonical01,02,03 pivots are x,y,z: PASS
+Higher-z coefficients do not vanish; this is not a three-plane solution

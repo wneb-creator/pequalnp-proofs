@@ -1,0 +1,9 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/fresh/LinearFactorMatchingFull.lean",
+  "source_sha256": "eb9de3de6915c657561b3e59966d28fae23cbc3e151f3027c87c0b7fd5c318a3",
+  "bytes": 9528,
+  "log": "/tmp/oec/pequalnp-pilot-75/gct231/fresh/linear-factor-full-build01.log",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "exit_code": 0,
+  "utc": "2026-11-25T11:27:10.255537+00:00"
+}

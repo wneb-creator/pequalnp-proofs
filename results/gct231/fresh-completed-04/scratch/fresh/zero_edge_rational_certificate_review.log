@@ -1,0 +1,16 @@
+Start UTC 2026-11-25T11:21:03.862844+00:00
+SHA256 zero-edge-pencil.json 68694af7231339f727f58f0ecee44361318f2e7161335daa60b1c7089e528f3b
+SHA256 zero-edge-high-precision.json f6c593f7f88a75e1e6750dffd35312483a8441fd7a833a705bc1a459e56f922a
+SHA256 zero-edge-rational-certificate.json a77384ac990daf4fcad3c17812b7942b4a6c97336c89bc66ebc0c206782b6f6a
+SHA256 zero_edge_rational_certificate.py 42667ff82cd2cd63a6e253fff5294f78e17a26f20cc58b532ffb189b741fcc7b
+EXACT_MATCH radius approx 1e-20
+EXACT_MATCH newton_residual_bound approx 2.25384207745903e-92
+EXACT_MATCH inverse_error_bound approx 1.142157563921164e-72
+EXACT_MATCH jacobian_lipschitz_bound approx 6866467.954503159
+EXACT_MATCH contraction_bound approx 6.866467954503159e-14
+EXACT_MATCH minor_real_center approx -3.763170441785765
+EXACT_MATCH minor_variation_bound approx 5.080146200717321e-20
+Strict rational invertibility, contraction, self-map and nonzero-minor inequalities: PASS
+Polynomial lineage is the independently Ryser-verified12-coefficient normalized pencil source
+Finish UTC 2026-11-25T11:21:04.863628+00:00
+PASS

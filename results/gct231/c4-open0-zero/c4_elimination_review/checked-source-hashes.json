@@ -1,0 +1,14 @@
+{
+  "fresh/c4-nonzero-square-0.json": "faa7b3e162657bc37d220f052fb57093062fbfd4a16731a409ed186e55c511d5",
+  "c4-nonzero-bivariate-0.json": "93569350d367de07aa5962a7aa532e41dd665756694914ace3ef06e80defa230",
+  "c4-small-certificates/case0-v_zero.f4.in": "00a123763069cae18f56651342a6d4ddbef75511b1446ac86420f29849ffc2ef",
+  "c4-small-certificates/case0-v_zero.sparse.in": "244bc9ff4595f8d0ed15ff80b590ba74bd6a885ab3ad3d9f964b538964dbc607",
+  "c4-small-certificates/case0-v_nonzero.f4.in": "01d9799293f501c4643671340ac767f20aa5b6410c7854d9567e2497d699020d",
+  "c4-small-certificates/case0-v_nonzero.sparse.in": "70a7e7da0e8b76a22607031f4f361de0ed640078aff9749f57816227a02d47bc",
+  "fresh/c4-nonzero-square-1.json": "8483e3eb0436a1189d4aa514ca146400f568edbff57afd0bcda32c43a0a74b01",
+  "c4-nonzero-bivariate-1.json": "71d2434e0a5a697afd7be3014bc420e54683545d8bac02b8e38ab83fa3001575",
+  "c4-small-certificates/case1-v_zero.f4.in": "93702762bb2fd8c010535c637e9812b41aea48697242096c66674e362daab947",
+  "c4-small-certificates/case1-v_zero.sparse.in": "e146f6a52f75639072a335dbd5e4e0f07bbd385b88680e52df39053e2b094ed2",
+  "c4-small-certificates/case1-v_nonzero.f4.in": "13aedcacd6cca96b85d60330c57248fe8ff4fc7008fd3ea29a87026161185e03",
+  "c4-small-certificates/case1-v_nonzero.sparse.in": "d3b7950e2b86682ae88261faf52ed985b13f3151a55391db7873ee2d27a74d3a"
+}

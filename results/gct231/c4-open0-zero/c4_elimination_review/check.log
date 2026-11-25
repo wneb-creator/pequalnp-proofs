@@ -1,0 +1,35 @@
+SCALING 0:normal_q (2*beta**2*gamma**2 - 1)/(4*beta**2*gamma**2)
+SCALING 0:normal_R (4*beta**4*gamma**4 - 4*beta**2*gamma**2 + 1)/(16*beta**5*gamma**5)
+SCALING 0:normal_L=v*L (2*beta**2*gamma**2 - 1)/(6*beta**3*gamma**3)
+SCALING 0:q_w 1/(6*beta**2*gamma**2)
+SCALING 0:c_w 1/(9*beta**2*gamma**2)
+H_SCALE 0 3
+SCALING 0:v_zero:0 1
+SCALING 0:v_zero:1 24*beta**2*gamma**2
+SCALING 0:v_zero:2 144*beta**2*gamma**2
+SCALING 0:v_zero:3 46656*beta**4*gamma**4
+INPUT_PASS 0 v_zero 2 4 145
+SCALING 0:v_nonzero:0 1
+SCALING 0:v_nonzero:1 8*beta**3*gamma + 8*beta**2*gamma - 8*beta*gamma
+SCALING 0:v_nonzero:2 -64*beta**6*gamma**4 - 64*beta**5*gamma**4 + 64*beta**4*gamma**4
+SCALING 0:v_nonzero:3 -576*beta**8*gamma**4 - 576*beta**7*gamma**4 + 576*beta**6*gamma**4
+INPUT_PASS 0 v_nonzero 3 5 254
+CASE_PASS 0
+SCALING 1:normal_q (2*beta**2*gamma**2 - 1)/(4*beta**2*gamma**2)
+SCALING 1:normal_R (4*beta**4*gamma**4 - 4*beta**2*gamma**2 + 1)/(16*beta**5*gamma**5)
+SCALING 1:normal_L=v*L (2*beta**2*gamma**2 - 1)/(6*beta**3*gamma**3)
+SCALING 1:q_w 1/(6*beta**2*gamma**2)
+SCALING 1:c_w 1/(9*beta**2*gamma**2)
+H_SCALE 1 3
+SCALING 1:v_zero:0 1
+SCALING 1:v_zero:1 24*beta**2*gamma**2
+SCALING 1:v_zero:2 144*beta**2*gamma**2
+SCALING 1:v_zero:3 46656*beta**4*gamma**4
+INPUT_PASS 1 v_zero 2 4 145
+SCALING 1:v_nonzero:0 1
+SCALING 1:v_nonzero:1 8*beta**3*gamma + 8*beta**2*gamma - 8*beta*gamma
+SCALING 1:v_nonzero:2 -64*beta**6*gamma**4 - 64*beta**5*gamma**4 + 64*beta**4*gamma**4
+SCALING 1:v_nonzero:3 -576*beta**8*gamma**4 - 576*beta**7*gamma**4 + 576*beta**6*gamma**4
+INPUT_PASS 1 v_nonzero 3 5 254
+CASE_PASS 1
+PASS: exact factors, polynomial-resultant identities and four unreduced certificate input systems.

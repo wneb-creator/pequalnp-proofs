@@ -1,0 +1,29 @@
+import took 1.17s
+'PEqualNP.Outside.L_gct_231_aux.exists_adapted_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.determinant_pencil_square_of_common_isotropic_plane' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	attribute application 0.169ms
+	blocked (unaccounted) 701ms
+	congr simp thm 4.25ms
+	declTypeLinter 7.05ms
+	elaboration 102ms
+	fix level params 1.08ms
+	import 1.17s
+	initialization 37.8ms
+	instantiate metavars 1.49ms
+	interpretation 226ms
+	let-to-have transformation 0.438ms
+	linting 21.5ms
+	module linting 0.0235ms
+	norm_num 0.758ms
+	parsing 11.4ms
+	process pre-definitions 7.91ms
+	ring 12.6ms
+	share common exprs 7.3ms
+	simp 113ms
+	tactic execution 187ms
+	tacticAnalysis 3.56ms
+	type checking 59.7ms
+	typeclass inference 278ms

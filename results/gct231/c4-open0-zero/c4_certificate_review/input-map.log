@@ -1,0 +1,4 @@
+PASS exact original-to-trace input mapping 0 v_zero 2 4
+PASS exact original-to-trace input mapping 0 v_nonzero 3 5
+PASS exact original-to-trace input mapping 1 v_zero 2 4
+PASS exact original-to-trace input mapping 1 v_nonzero 3 5

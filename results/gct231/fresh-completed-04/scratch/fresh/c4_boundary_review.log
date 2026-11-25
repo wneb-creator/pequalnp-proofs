@@ -1,0 +1,25 @@
+Start UTC 2026-11-25T11:18:38.570820+00:00
+Parent source SHA256 096d68ab6418eb51792ccd500faaa533f75e36d70073525c40875295b02b15d9
+Both stated symmetries verified
+NORMAL_H_COLUMN 0 [alpha**2/2 - 1, 0, 0]
+GRAM3 0 Matrix([[2 - alpha**2, 0, 0], [0, -beta**2 - beta + 1, -beta/2 - gamma/2], [0, -beta/2 - gamma/2, -gamma**2 + gamma + 1]])
+NORMAL_H_COLUMN 1 [alpha**2/2 - 1, 0, 0]
+GRAM3 1 Matrix([[2 - alpha**2, 0, 0], [0, -gamma**2 - gamma + 1, -beta/2 + gamma/2], [0, -beta/2 + gamma/2, -beta**2 - beta + 1]])
+NORMAL_H_COLUMN 2 [2*alpha**2/3 - 1, alpha/3, alpha/3]
+GRAM3 2 Matrix([[2 - beta**2, -beta/2, -beta/2], [-beta/2, 1 - alpha**2, -gamma/2], [-beta/2, -gamma/2, -gamma**2 + gamma + 1]])
+NORMAL_H_COLUMN 3 [2*alpha**2/3 - 1, alpha/3, alpha/3]
+GRAM3 3 Matrix([[2 - gamma**2, -gamma/2, gamma/2], [-gamma/2, 1 - alpha**2, -beta/2], [gamma/2, -beta/2, -beta**2 - beta + 1]])
+NORMAL_H_COLUMN 4 [2*alpha**2/3 - 1, alpha/3, -alpha/3]
+GRAM3 4 Matrix([[2 - beta**2, -beta/2, -beta/2], [-beta/2, -gamma**2 - gamma + 1, gamma/2], [-beta/2, gamma/2, 1 - alpha**2]])
+NORMAL_H_COLUMN 5 [2*alpha**2/3 - 1, alpha/3, -alpha/3]
+GRAM3 5 Matrix([[2 - gamma**2, -gamma/2, gamma/2], [-gamma/2, -beta**2 - beta + 1, -beta/2], [gamma/2, -beta/2, 1 - alpha**2]])
+Forbidden fH line has first cubic variation4e(w)
+CASE2 rank1 alternative 2 alpha² 2 beta² 8/3 scale product squared 64/3
+CASE2 rank1 alternative -1/2 alpha² 3/4 beta² 1 scale product squared 3/16
+CASE3 rank1 alternative 1/2 alpha² 3/4 gamma² 1 scale product squared 3/16
+CASE3 rank1 alternative -2 alpha² 2 gamma² 8/3 scale product squared 64/3
+H=f rank0 scalar contradiction verified; rank1 splits into productzero or forbidden fH direction
+Rank2 radical extension determinant=-(det nondegenerate2block)*radical_pairing²: PASS
+Cases4/5 follow the exact S symmetry; no Groebner computation used
+Finish UTC 2026-11-25T11:18:38.798451+00:00
+PASS

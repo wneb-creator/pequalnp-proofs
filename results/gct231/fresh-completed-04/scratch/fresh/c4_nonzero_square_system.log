@@ -1,0 +1,6 @@
+CASE 0 PERM (f, a, b) DET_W -3*(alpha**2 - 2)*(beta**2 + beta - 1)/2 TERMS [2, 6, 9, 18, 299, 117, 36] DEGREES [3, 4, 5, 6, 17, 11, 9] SECONDS 1.2553829080006835
+CASE 1 PERM (f, b, a) DET_W -3*(alpha**2 - 2)*(beta**2 + beta - 1)/2 TERMS [2, 6, 9, 18, 299, 117, 36] DEGREES [3, 4, 5, 6, 17, 11, 9] SECONDS 2.330440469999303
+CASE 2 PERM (a, f, b) DET_W -(6*alpha**2*beta**2 - 10*alpha**2 - 9*beta**2 + 12)/4 TERMS [2, 6, 9, 12, 258, 103, 40] DEGREES [3, 4, 5, 6, 17, 11, 9] SECONDS 3.5273572730002343
+CASE 3 PERM (a, b, f) DET_W -(4*alpha**2*beta**2 + 4*alpha**2*beta - 5*alpha**2 - 6*beta**2 - 6*beta + 6)/2 TERMS [2, 7, 10, 12, 292, 80, 46] DEGREES [3, 4, 5, 6, 17, 10, 9] SECONDS 4.709081996999885
+CASE 4 PERM (b, f, a) DET_W -(6*alpha**2*beta**2 - 10*alpha**2 - 9*beta**2 + 12)/4 TERMS [2, 6, 9, 12, 258, 103, 40] DEGREES [3, 4, 5, 6, 17, 11, 9] SECONDS 5.793896963999941
+CASE 5 PERM (b, a, f) DET_W -(4*alpha**2*beta**2 + 4*alpha**2*beta - 5*alpha**2 - 6*beta**2 - 6*beta + 6)/2 TERMS [2, 7, 10, 12, 292, 80, 46] DEGREES [3, 4, 5, 6, 17, 10, 9] SECONDS 6.9706117719997565

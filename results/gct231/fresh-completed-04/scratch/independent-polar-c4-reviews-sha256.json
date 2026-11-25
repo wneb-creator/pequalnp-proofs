@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-25T11:07:08.136654+00:00",
+  "files": {
+    "fresh/polar_rank/block_companions.py": "aadb9a898dc01a0efdd6a987afc6930da907039c6eff4b633aefb51503ac6a30",
+    "fresh/polar_rank/block_companions.log": "7c5202f3ef2159d940dfba2ecb671dacac20453c4d9af1b9efeaa55809439a5a",
+    "fresh/polar_rank/rank_checks.py": "d15fbba210e742b64a27e170ab23b912ee6b2bc4c3d643ff0cf873d2e6852e08",
+    "fresh/polar_rank/rank_checks.log": "68bf97c57d60a45b85db896e8b5ca0360af77419eef665d44fd6dfcc9db86ebf",
+    "fresh/polar_rank/rank-check-results.json": "562a9f3dfb50ac56773f4e5d36aa66cb56196c496b7d11cb003ce960003b6c1d",
+    "fresh/polar_rank/triple_star_extend.py": "44da9450e5705f48e368f6e66f7501f6ebb96c3a9ad915a73fdd67052f7a55cf",
+    "fresh/polar_rank/triple_star_extend.log": "5f9c03e8799ee694e3f50248b8fa23af64cf67476ac85483e9f29380c9cf92ad",
+    "fresh/polar_rank/first_variation_witness.py": "323724bdb04d3fb5e303eda35aa1c8a08e8235c7f89f368b78a32586f89fee32",
+    "fresh/polar_rank/first_variation_witness.log": "e36160df06dda19bb58a1034ecfed81c8df31081018b97410fd94e50a7f996f8",
+    "c4_factor_coordinates_review.py": "309e23b96db282806eef7d304c49b74f45420eea5bfa906c6f1ef72ded06294d",
+    "c4_factor_coordinates_review.log": "45ccb8c2e624c2bdeb84f32ee21d566ba6bf6ec5a159e448b4affc1163c5c143",
+    "c4-factor-zero-branch-review.json": "8bff4d492f0bfa0fd5736417383d798a1fb904f3e29f7989dc19e14d16322412",
+    "c4_fH_zero_extension_review.py": "a84043f02eb255937c03821f53437885098eb4c984848d34b033cd2df8f920dc",
+    "c4_fH_zero_extension_review.log": "8520097c901aa61e6c7915839dd5d1667d1dfba2975ac97a5e6d46ad60dcde2e"
+  }
+}

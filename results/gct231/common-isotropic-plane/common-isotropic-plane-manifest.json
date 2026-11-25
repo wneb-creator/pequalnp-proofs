@@ -1,0 +1,21 @@
+{
+  "source": "CommonIsotropicPlane.lean",
+  "sha256": "ddd00bd47c8437801018a3ecb47e1929f2527ad63efdfd88ee328ed611838756",
+  "status": "PASS",
+  "build_log": "common-isotropic-plane-build01.log",
+  "build_status": "common-isotropic-plane-build01.run.json",
+  "axiom_log": "common-isotropic-plane-audit01.log",
+  "axioms": {
+    "PEqualNP.Outside.L_gct_231_aux.exists_adapted_matrix": [
+      "propext,",
+      "Classical.choice,",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_gct_231_aux.determinant_pencil_square_of_common_isotropic_plane": [
+      "propext,",
+      "Classical.choice,",
+      "Quot.sound"
+    ]
+  },
+  "scope": "Two symmetric complex four-by-four forms with a common finrank2 subspace of quadratic vanishing have a polynomial-square determinant pencil. The adapted basis is constructed and no invertible-P hypothesis remains. This is a reusable geometric criterion, not the full L-gct-231 statement."
+}

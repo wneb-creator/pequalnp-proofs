@@ -1,0 +1,18 @@
+Start UTC 2026-11-25T11:04:50.984092+00:00
+SHA256 c4_factor_coordinates.py 84b65061502ea629673ccbe40e0348df3d65f88de5b834762cee6a820dc61512
+SHA256 c4_factor_coordinates.json ccc69c39cdb0afb1065f494051e5c2306313c55360835537b3835dc3e8c58fe3
+SHA256 c4_opposite_recentered.json 53b00819a802eeca56af4051dbd851969a916f9eb12cc7bb4954b3c2ef0ef739
+Coordinate map invertible, determinant 1/1024
+Corrected scaled Q4 and C16 independently verified by Ryser
+ZERO_FACTOR f H rank4 determinant 9/4
+ZERO_FACTOR f X rank4 determinant 3/2
+ZERO_FACTOR f Y rank4 determinant 3/2
+ZERO_FACTOR a H rank4 determinant 3
+ZERO_FACTOR a X rank4 determinant 5/2
+ZERO_FACTOR a Y rank4 determinant 5/2
+ZERO_FACTOR b H rank4 determinant 3
+ZERO_FACTOR b X rank4 determinant 5/2
+ZERO_FACTOR b Y rank4 determinant 5/2
+Every zero-product branch has Witt index2; no isotropic3-plane
+Finish UTC 2026-11-25T11:04:51.534707+00:00
+PASS

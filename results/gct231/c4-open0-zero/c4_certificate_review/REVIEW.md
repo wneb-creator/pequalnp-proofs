@@ -1,0 +1,11 @@
+# Independent exact QQ certificate review for C4 open cases 0 and 1
+
+Verdict: PASS. All four exported polynomial DAGs derive a nonzero rational constant from the exact, unsquarefreed branch equations previously reviewed in `c4_elimination_review`. They therefore certify that the four necessary polynomial systems have no complex solution. This is an exact arithmetic certificate review, not yet a Lean build verdict.
+
+The independent verifier imports no author verifier. It parses the actual renamed flat inputs, checks every generator polynomial, then reconstructs each consequence as a rational linear combination of monomial multiples of earlier established polynomials. It checks exponent nonnegativity, references, distinct indices, every coefficient, the final constant, and the complete required dependency closure. Across the four certificates this checked 158 entries: 18 generator entries and 140 derived polynomial identities, totaling 45,994 rational coefficient-term products. The two unsaturated v-zero DAGs each have 23 entries; the two saturated v-nonzero DAGs each have 56 entries, with 55 needed for their constant.
+
+A separate parser check confirms that all renamed trace-root inputs equal the reviewed original inputs coefficient for coefficient, merely replacing variable names by x0,x1[,x2]. No source assumption is replaced by its squarefree part. The v-nonzero saturation equation is included as an actual generator.
+
+This proves the two open nonzero-product C4 cases under beta*gamma and det_W nonvanishing, by the separately reviewed geometric normalization and necessary-equation reduction. It does not by itself address other permutations, degenerate boundaries, zero factors, arbitrary supports, or the full L-gct-231 statement. The absence of a completed Lean proof must remain explicit until compilation succeeds.
+
+Frozen certificate hashes and all individual PASS records are in `certificate-verdicts.json`; complete diagnostics are `dag.log` and `input-map.log`. The verifier is a byte-for-byte copy of the independent verifier previously used for OpenF4/QQ trace audits. It proves these exported identities directly, so this review does not need to trust a Groebner claim or replay the raw row-operation traces. No certificate or Lean source was changed.

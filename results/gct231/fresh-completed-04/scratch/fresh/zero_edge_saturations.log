@@ -1,0 +1,7 @@
+EXPORTED zero-edge-saturated-minor-01.json VARS 13 EQUATIONS 13 TERMS 734 MINOR v0*v3 - v1*v2 SHA256 ccbb2c3a608ed6d3637d45954c35f370615c2e16bcdfbd87c98282f33ea28d7c
+EXPORTED zero-edge-saturated-minor-02.json VARS 13 EQUATIONS 13 TERMS 734 MINOR v0*v5 - v1*v4 SHA256 50ed487501a3705eb0d8cfa5c946ad4cc505a934f3a0c1a50307c3065e95116f
+EXPORTED zero-edge-saturated-minor-03.json VARS 13 EQUATIONS 13 TERMS 744 MINOR -2*v0*v11 - v0*v3 - v0*v5 - 2*v0*v7 - 2*v0*v9 - 2*v0 + 2*v1*v10 + v1*v2 + v1*v4 + 2*v1*v6 + 2*v1*v8 + 2*v1 SHA256 057e6bc01c505d242852197a6e0cd0a8dbbad9ebd4ffd6c21f97457048a81134
+EXPORTED zero-edge-saturated-minor-12.json VARS 13 EQUATIONS 13 TERMS 734 MINOR v2*v5 - v3*v4 SHA256 be495329462cfbfc2d61ab00e92b6656a83643853121c9601f5ba3e65c04c7fb
+EXPORTED zero-edge-saturated-minor-13.json VARS 13 EQUATIONS 13 TERMS 744 MINOR v0*v3 - v1*v2 + 2*v10*v3 - 2*v11*v2 - v2*v5 - 2*v2*v7 - 2*v2*v9 - 2*v2 + v3*v4 + 2*v3*v6 + 2*v3*v8 + 2*v3 SHA256 82bb23859d5e5e76faa5ed83a447b41686640e30993b9375ecce42176125c92b
+EXPORTED zero-edge-saturated-minor-23.json VARS 13 EQUATIONS 13 TERMS 744 MINOR v0*v5 - v1*v4 + 2*v10*v5 - 2*v11*v4 + v2*v5 - v3*v4 - 2*v4*v7 - 2*v4*v9 - 2*v4 + 2*v5*v6 + 2*v5*v8 + 2*v5 SHA256 b4d310aa5a5804ff1685f75a9f172234c6db5f9959ea60446234981cbb4a48d9
+DIAGONAL_COEFFICIENT_MATRIX Matrix([[v0, v1], [v2, v3], [v4, v5], [-v0 - 2*v10 - v2 - v4 - 2*v6 - 2*v8 - 2, -v1 - 2*v11 - v3 - v5 - 2*v7 - 2*v9 - 2]])

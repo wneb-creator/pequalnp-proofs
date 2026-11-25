@@ -1,0 +1,31 @@
+Start UTC 2026-11-25T11:15:47.351424+00:00
+ValueError: Error from parse_expr with transformed code: 'Integer (2 )-beta **Integer (2 )'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/fresh/c4_nonzero_reduced_review.py", line 40, in <module>
+    assert (GW-s.Matrix(original['gram_W']).applyfunc(parse)).applyfunc(s.expand)==s.zeros(4)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/matrices/repmatrix.py", line 567, in __new__
+    return cls._new(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/matrices/repmatrix.py", line 578, in _new
+    rows, cols, flat_list = cls._handle_creation_inputs(*args, **kwargs)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/matrices/matrixbase.py", line 3977, in _handle_creation_inputs
+    flat = [cls._sympify(i) for i in row]
+            ^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/core/sympify.py", line 507, in sympify
+    expr = parse_expr(a, local_dict=locals, transformations=transformations, evaluate=evaluate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/parsing/sympy_parser.py", line 1090, in parse_expr
+    raise e from ValueError(f"Error from parse_expr with transformed code: {code!r}")
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/parsing/sympy_parser.py", line 1081, in parse_expr
+    rv = eval_expr(code, local_dict, global_dict)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/parsing/sympy_parser.py", line 905, in eval_expr
+    expr = eval(
+           ^^^^^
+  File "<string>", line 1, in <module>
+TypeError: unsupported operand type(s) for ** or pow(): 'FunctionClass' and 'Integer'

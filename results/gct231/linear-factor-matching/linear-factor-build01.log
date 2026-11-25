@@ -1,0 +1,26 @@
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/LinearFactorMatching.lean:2:0: warning: 
+'Mathlib.Data.Complex.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Complex.Basic
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/LinearFactorMatching.lean:9:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'AddMonoidAlgebra.semiring', which is 'noncomputable'
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/LinearFactorMatching.lean:26:6: error: Tactic `apply` failed: could not unify the conclusion of `(eq_div_iff h₀).mp`
+  ?m.115 * a₀ = ?m.113
+with the goal
+  d₁ = d₀ / a₀ * a₁
+
+Note: The full type of `(eq_div_iff h₀).mp` is
+  ?m.115 = ?m.113 / a₀ → ?m.115 * a₀ = ?m.113
+
+case neg.refine_2
+a₀ a₁ d₀ d₁ : ℂ
+ha : a₀ ≠ 0 ∨ a₁ ≠ 0
+h : d₀ * -a₁ + d₁ * a₀ = 0
+h₀ : ¬a₀ = 0
+⊢ d₁ = d₀ / a₀ * a₁
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/LinearFactorMatching.lean:37:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
