@@ -6325,3 +6325,331 @@ lemma no_strict_competitor {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.A
   exact Nat.not_lt_of_ge (hmin D hD hF hs) hm
 
 end PEqualNP.Outside.L_meta_3566.MonoProjection
+
+namespace PEqualNP.Outside.L_meta_3566.RailObstruction
+
+def rails {p k : ℕ} (support : Fin k → Finset (Fin p))
+    (x : Fin p → Bool) : Fin k → Bool :=
+  fun i => decide (∃ u ∈ support i, x u = true)
+
+def edgeFun {p q : ℕ} (E : Fin p → Fin q → Prop) [DecidableRel E]
+    (x : Fin p → Bool) (y : Fin q → Bool) : Bool :=
+  decide (∃ u v, E u v ∧ x u = true ∧ y v = true)
+
+lemma large_support_survives {p k : ℕ} (support : Fin k → Finset (Fin p))
+    (N : Finset (Fin p)) (hlarge : ∀ i, N.card < (support i).card) :
+    rails support (fun u => decide (u ∉ N)) = rails support (fun _ => true) := by
+  classical
+  funext i
+  have hnot : ¬ support i ⊆ N := by
+    intro hsub
+    exact Nat.not_lt_of_ge (Finset.card_le_card hsub) (hlarge i)
+  obtain ⟨u, hu, hn⟩ := Finset.not_subset.mp hnot
+  have hb : rails support (fun u => decide (u ∉ N)) i = true := by
+    simp only [rails, decide_eq_true_eq]
+    exact ⟨u,hu,by simp [hn]⟩
+  have hg : rails support (fun _ => true) i = true := by
+    simp only [rails, decide_eq_true_eq]
+    exact ⟨u,hu,True.intro⟩
+  exact hb.trans hg.symm
+
+lemma no_large_rail_factorization {p q k : ℕ}
+    (E : Fin p → Fin q → Prop) [DecidableRel E]
+    (support : Fin k → Finset (Fin p))
+    (post : (Fin k → Bool) → (Fin q → Bool) → Bool)
+    (v : Fin q) (hedge : ∃ u, E u v)
+    (hlarge : ∀ i, (Finset.univ.filter (fun u => E u v)).card < (support i).card)
+    (hcorrect : ∀ x y, post (rails support x) y = edgeFun E x y) : False := by
+  classical
+  let N : Finset (Fin p) := Finset.univ.filter (fun u => E u v)
+  let x : Fin p → Bool := fun u => decide (u ∉ N)
+  let y : Fin q → Bool := fun w => decide (w = v)
+  have hsame : rails support x = rails support (fun _ => true) :=
+    large_support_survives support N hlarge
+  have hfalse : edgeFun E x y = false := by
+    apply Bool.eq_false_iff.mpr
+    intro h
+    have h' : ∃ u w, E u w ∧ x u = true ∧ y w = true := by
+      simpa [edgeFun] using h
+    obtain ⟨u,w,he,hx,hy⟩ := h'
+    have hw : w = v := by simpa [y] using hy
+    subst w
+    have hu : u ∉ N := by simpa [x] using hx
+    exact hu (Finset.mem_filter.mpr ⟨Finset.mem_univ u,he⟩)
+  have htrue : edgeFun E (fun _ => true) y = true := by
+    obtain ⟨u,hu⟩ := hedge
+    simp only [edgeFun, decide_eq_true_eq]
+    exact ⟨u,v,hu,True.intro,by simp [y]⟩
+  have heq := congrArg (fun z => post z y) hsame
+  rw [hcorrect,hcorrect,hfalse,htrue] at heq
+  cases heq
+
+lemma exists_small_rail {p q k : ℕ}
+    (E : Fin p → Fin q → Prop) [DecidableRel E]
+    (support : Fin k → Finset (Fin p))
+    (post : (Fin k → Bool) → (Fin q → Bool) → Bool)
+    (hcorrect : ∀ x y, post (rails support x) y = edgeFun E x y)
+    (v : Fin q) (hedge : ∃ u, E u v) :
+    ∃ i, (support i).card ≤ (Finset.univ.filter (fun u => E u v)).card := by
+  classical
+  by_contra h
+  have hlarge : ∀ i, (Finset.univ.filter (fun u => E u v)).card < (support i).card := by
+    intro i
+    by_contra hi
+    exact h ⟨i,Nat.le_of_not_gt hi⟩
+  exact no_large_rail_factorization E support post v hedge hlarge hcorrect
+
+lemma exists_nonempty_rail_subset {p q k : ℕ}
+    (E : Fin p → Fin q → Prop) [DecidableRel E]
+    (support : Fin k → Finset (Fin p))
+    (post : (Fin k → Bool) → (Fin q → Bool) → Bool)
+    (hcorrect : ∀ x y, post (rails support x) y = edgeFun E x y)
+    (v : Fin q) (hedge : ∃ u, E u v) :
+    ∃ i, (support i).Nonempty ∧ support i ⊆ Finset.univ.filter (fun u => E u v) := by
+  classical
+  let N : Finset (Fin p) := Finset.univ.filter (fun u => E u v)
+  let x : Fin p → Bool := fun u => decide (u ∉ N)
+  let y : Fin q → Bool := fun w => decide (w = v)
+  by_contra h
+  have hsame : rails support x = rails support (fun _ => true) := by
+    funext i
+    by_cases hi : (support i).Nonempty
+    · have hn : ¬ support i ⊆ N := fun hs => h ⟨i, hi, hs⟩
+      obtain ⟨u, hu, hout⟩ := Finset.not_subset.mp hn
+      have hb : rails support x i = true := by
+        simp only [rails, decide_eq_true_eq]
+        exact ⟨u, hu, by simp [x, hout]⟩
+      have hg : rails support (fun _ => true) i = true := by
+        simp only [rails, decide_eq_true_eq]
+        exact ⟨u, hu, True.intro⟩
+      exact hb.trans hg.symm
+    · have hempty : support i = ∅ := Finset.not_nonempty_iff_eq_empty.mp hi
+      simp [rails, hempty]
+  have hfalse : edgeFun E x y = false := by
+    apply Bool.eq_false_iff.mpr
+    intro he
+    have he' : ∃ u w, E u w ∧ x u = true ∧ y w = true := by
+      simpa [edgeFun] using he
+    obtain ⟨u, w, huw, hx, hy⟩ := he'
+    have hw : w = v := by simpa [y] using hy
+    subst w
+    have hu : u ∉ N := by simpa [x] using hx
+    exact hu (Finset.mem_filter.mpr ⟨Finset.mem_univ u, huw⟩)
+  have htrue : edgeFun E (fun _ => true) y = true := by
+    obtain ⟨u, hu⟩ := hedge
+    simp only [edgeFun, decide_eq_true_eq]
+    exact ⟨u, v, hu, True.intro, by simp [y]⟩
+  have heq := congrArg (fun z => post z y) hsame
+  rw [hcorrect, hcorrect, hfalse, htrue] at heq
+  cases heq
+
+lemma exists_rail_for_edge_general {p q k : ℕ}
+    (E : Fin p → Fin q → Prop) [DecidableRel E]
+    (support : Fin k → Finset (Fin p))
+    (post : (Fin k → Bool) → (Fin q → Bool) → Bool)
+    (hcorrect : ∀ x y, post (rails support x) y = edgeFun E x y)
+    (u : Fin p) (v : Fin q) (huv : E u v) :
+    ∃ i, u ∈ support i ∧ support i ⊆ Finset.univ.filter (fun w => E w v) := by
+  classical
+  let N : Finset (Fin p) := Finset.univ.filter (fun w => E w v)
+  let x₀ : Fin p → Bool := fun w => decide (w ∉ N)
+  let x₁ : Fin p → Bool := fun w => decide (w ∉ N ∨ w = u)
+  let y : Fin q → Bool := fun w => decide (w = v)
+  by_contra h
+  have hsame : rails support x₀ = rails support x₁ := by
+    funext i
+    by_cases hi : ∃ w ∈ support i, w ∉ N
+    · obtain ⟨w, hw, hn⟩ := hi
+      have h₀ : rails support x₀ i = true := by
+        simp only [rails, decide_eq_true_eq]
+        exact ⟨w, hw, by simp [x₀, hn]⟩
+      have h₁ : rails support x₁ i = true := by
+        simp only [rails, decide_eq_true_eq]
+        exact ⟨w, hw, by simp [x₁, hn]⟩
+      exact h₀.trans h₁.symm
+    · have hsub : support i ⊆ N := by
+        intro w hw
+        by_contra hn
+        exact hi ⟨w, hw, hn⟩
+      have hun : u ∉ support i := fun hui => h ⟨i, hui, hsub⟩
+      have h₀ : rails support x₀ i = false := by
+        apply Bool.eq_false_iff.mpr
+        intro ht
+        have ht' : ∃ w ∈ support i, x₀ w = true := by simpa [rails] using ht
+        obtain ⟨w, hw, hx⟩ := ht'
+        have hn : w ∉ N := by simpa [x₀] using hx
+        exact hn (hsub hw)
+      have h₁ : rails support x₁ i = false := by
+        apply Bool.eq_false_iff.mpr
+        intro ht
+        have ht' : ∃ w ∈ support i, x₁ w = true := by simpa [rails] using ht
+        obtain ⟨w, hw, hx⟩ := ht'
+        have hn : w ∉ N ∨ w = u := by simpa [x₁] using hx
+        rcases hn with hn | rfl
+        · exact hn (hsub hw)
+        · exact hun hw
+      exact h₀.trans h₁.symm
+  have hfalse : edgeFun E x₀ y = false := by
+    apply Bool.eq_false_iff.mpr
+    intro ht
+    have ht' : ∃ a b, E a b ∧ x₀ a = true ∧ y b = true := by
+      simpa [edgeFun] using ht
+    obtain ⟨a, b, hab, ha, hb⟩ := ht'
+    have hbv : b = v := by simpa [y] using hb
+    subst b
+    have han : a ∉ N := by simpa [x₀] using ha
+    exact han (Finset.mem_filter.mpr ⟨Finset.mem_univ a, hab⟩)
+  have htrue : edgeFun E x₁ y = true := by
+    simp only [edgeFun, decide_eq_true_eq]
+    exact ⟨u, v, huv, by simp [x₁], by simp [y]⟩
+  have heq := congrArg (fun z => post z y) hsame
+  rw [hcorrect, hcorrect, hfalse, htrue] at heq
+  cases heq
+
+lemma neighborhood_eq_union_contained_rails {p q k : ℕ}
+    (E : Fin p → Fin q → Prop) [DecidableRel E]
+    (support : Fin k → Finset (Fin p))
+    (post : (Fin k → Bool) → (Fin q → Bool) → Bool)
+    (hcorrect : ∀ x y, post (rails support x) y = edgeFun E x y)
+    (v : Fin q) :
+    (Finset.univ.filter (fun i => support i ⊆
+      Finset.univ.filter (fun u => E u v))).biUnion support =
+      Finset.univ.filter (fun u => E u v) := by
+  classical
+  ext u
+  constructor
+  · intro hu
+    obtain ⟨i, hi, hui⟩ := Finset.mem_biUnion.mp hu
+    exact (Finset.mem_filter.mp hi).2 hui
+  · intro hu
+    have huv : E u v := (Finset.mem_filter.mp hu).2
+    obtain ⟨i, hui, hi⟩ := exists_rail_for_edge_general E support post hcorrect u v huv
+    exact Finset.mem_biUnion.mpr ⟨i, Finset.mem_filter.mpr ⟨Finset.mem_univ i, hi⟩, hui⟩
+
+lemma matching_rail_injective {p q k m : ℕ}
+    (E : Fin p → Fin q → Prop) [DecidableRel E]
+    (support : Fin k → Finset (Fin p))
+    (left : Fin m → Fin p) (right : Fin m → Fin q)
+    (hl : Function.Injective left) (hr : Function.Injective right)
+    (hfour : ∀ a b v w, a ≠ b → v ≠ w →
+      E a v → E a w → E b v → E b w → False)
+    (choose : Fin m → Fin k)
+    (hcover : ∀ t, left t ∈ support (choose t) ∧
+      support (choose t) ⊆ Finset.univ.filter (fun a => E a (right t))) :
+    Function.Injective choose := by
+  intro s t hst
+  by_contra hne
+  have hls : left s ∈ support (choose s) := (hcover s).1
+  have hlt : left t ∈ support (choose s) := hst ▸ (hcover t).1
+  have hrs : left s ∈ support (choose t) := hst ▸ hls
+  have hrt : left t ∈ support (choose t) := (hcover t).1
+  have hss := Finset.mem_filter.mp ((hcover s).2 hls)
+  have hst' := Finset.mem_filter.mp ((hcover t).2 hrs)
+  have hts := Finset.mem_filter.mp ((hcover s).2 hlt)
+  have htt := Finset.mem_filter.mp ((hcover t).2 hrt)
+  exact hfour (left s) (left t) (right s) (right t)
+    (fun h => hne (hl h)) (fun h => hne (hr h)) hss.2 hst'.2 hts.2 htt.2
+
+lemma matching_bound_of_cover {p q k m : ℕ}
+    (E : Fin p → Fin q → Prop) [DecidableRel E]
+    (support : Fin k → Finset (Fin p))
+    (left : Fin m → Fin p) (right : Fin m → Fin q)
+    (hl : Function.Injective left) (hr : Function.Injective right)
+    (hfour : ∀ a b v w, a ≠ b → v ≠ w →
+      E a v → E a w → E b v → E b w → False)
+    (hcover : ∀ t, ∃ i, left t ∈ support i ∧
+      support i ⊆ Finset.univ.filter (fun a => E a (right t))) : m ≤ k := by
+  classical
+  choose f hf using hcover
+  have hinj := matching_rail_injective E support left right hl hr hfour f hf
+  simpa using Fintype.card_le_of_injective f hinj
+
+def singletonInput {p : ℕ} (u : Fin p) : Fin p → Bool :=
+  fun a => decide (a = u)
+
+def singletonSupport {p : ℕ} (f : (Fin p → Bool) → Bool) : Finset (Fin p) :=
+  Finset.univ.filter (fun u => f (singletonInput u) = true)
+
+lemma edge_covered_monotone_frontier {p q k : ℕ}
+    (E : Fin p → Fin q → Prop) [DecidableRel E]
+    (pre : Fin k → (Fin p → Bool) → Bool)
+    (post : (Fin k → Bool) → (Fin q → Bool) → Bool)
+    (hpre : ∀ i, Monotone (pre i))
+    (hpost : ∀ y, Monotone (fun z => post z y))
+    (hcorrect : ∀ x y, post (fun i => pre i x) y = edgeFun E x y)
+    (u : Fin p) (v : Fin q) (huv : E u v) :
+    ∃ i, u ∈ singletonSupport (pre i) ∧
+      singletonSupport (pre i) ⊆ Finset.univ.filter (fun a => E a v) := by
+  classical
+  let N : Finset (Fin p) := Finset.univ.filter (fun a => E a v)
+  let bad : Fin p → Bool := fun a => decide (a ∉ N)
+  let y : Fin q → Bool := fun b => decide (b = v)
+  by_contra h
+  have hle : (fun i => pre i (singletonInput u)) ≤ (fun i => pre i bad) := by
+    intro i
+    change pre i (singletonInput u) ≤ pre i bad
+    cases hi : pre i (singletonInput u) with
+    | false => simp
+    | true =>
+      have hui : u ∈ singletonSupport (pre i) := by simp [singletonSupport, hi]
+      have hn : ¬ singletonSupport (pre i) ⊆ N := fun hs => h ⟨i, hui, hs⟩
+      obtain ⟨a, ha, hout⟩ := Finset.not_subset.mp hn
+      have hia : pre i (singletonInput a) = true := (Finset.mem_filter.mp ha).2
+      have hab : singletonInput a ≤ bad := by
+        intro b
+        by_cases hba : b = a
+        · subst b
+          simp [singletonInput, bad, hout]
+        · simp [singletonInput, hba]
+      have hb := hpre i hab
+      rw [hia] at hb
+      exact hb
+  have hfalse : edgeFun E bad y = false := by
+    apply Bool.eq_false_iff.mpr
+    intro he
+    have he' : ∃ a b, E a b ∧ bad a = true ∧ y b = true := by
+      simpa [edgeFun] using he
+    obtain ⟨a, b, hab, hx, hy⟩ := he'
+    have hb : b = v := by simpa [y] using hy
+    subst b
+    have ha : a ∉ N := by simpa [bad] using hx
+    exact ha (Finset.mem_filter.mpr ⟨Finset.mem_univ a, hab⟩)
+  have htrue : edgeFun E (singletonInput u) y = true := by
+    simp only [edgeFun, decide_eq_true_eq]
+    exact ⟨u, v, huv, by simp [singletonInput], by simp [y]⟩
+  have hp := hpost y hle
+  change post (fun i => pre i (singletonInput u)) y ≤ post (fun i => pre i bad) y at hp
+  rw [hcorrect, hcorrect, htrue, hfalse] at hp
+  exact (by decide : ¬ (true : Bool) ≤ false) hp
+
+lemma matching_bound_monotone_frontier {p q k m : ℕ}
+    (E : Fin p → Fin q → Prop) [DecidableRel E]
+    (pre : Fin k → (Fin p → Bool) → Bool)
+    (post : (Fin k → Bool) → (Fin q → Bool) → Bool)
+    (hpre : ∀ i, Monotone (pre i))
+    (hpost : ∀ y, Monotone (fun z => post z y))
+    (hcorrect : ∀ x y, post (fun i => pre i x) y = edgeFun E x y)
+    (left : Fin m → Fin p) (right : Fin m → Fin q)
+    (hl : Function.Injective left) (hr : Function.Injective right)
+    (hedges : ∀ t, E (left t) (right t))
+    (hfour : ∀ a b v w, a ≠ b → v ≠ w →
+      E a v → E a w → E b v → E b w → False) : m ≤ k := by
+  apply matching_bound_of_cover E (fun i => singletonSupport (pre i)) left right hl hr hfour
+  intro t
+  exact edge_covered_monotone_frontier E pre post hpre hpost hcorrect (left t) (right t) (hedges t)
+
+lemma matching_bound_of_rail_factorization {p q k m : ℕ}
+    (E : Fin p → Fin q → Prop) [DecidableRel E]
+    (support : Fin k → Finset (Fin p))
+    (post : (Fin k → Bool) → (Fin q → Bool) → Bool)
+    (hcorrect : ∀ x y, post (rails support x) y = edgeFun E x y)
+    (left : Fin m → Fin p) (right : Fin m → Fin q)
+    (hl : Function.Injective left) (hr : Function.Injective right)
+    (hedges : ∀ t, E (left t) (right t))
+    (hfour : ∀ a b v w, a ≠ b → v ≠ w →
+      E a v → E a w → E b v → E b w → False) : m ≤ k := by
+  apply matching_bound_of_cover E support left right hl hr hfour
+  intro t
+  exact exists_rail_for_edge_general E support post hcorrect (left t) (right t) (hedges t)
+
+end PEqualNP.Outside.L_meta_3566.RailObstruction
