@@ -1,0 +1,6 @@
+{
+  "results/orch/lemmas/counter_validate.py": "6f4c68c61083d8479fef4078e665d8a50a76a8429ae87b625cc16ac468ac5116",
+  "results/orch/lemmas/counter_fano_cnf.py": "5e8ac2a9a7d44f3783c1149e77265a4ce2e88cfb9a01cdc279fb30a785b84caa",
+  "results/orch/lemmas/counter_fano_search.cpp": "fc47e739fae405c719dd1daa3d5282e973f258a1801f29cbfc63c245da5663c6",
+  "results/orch/lemmas/counter_q3_search.cpp": "6a673fac4d2593f3e2b109a5db0c7546747094f219be10d696c05d93c080286a"
+}

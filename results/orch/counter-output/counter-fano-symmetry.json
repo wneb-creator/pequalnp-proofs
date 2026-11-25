@@ -1,0 +1,24 @@
+{
+  "color_preserving_automorphisms": 168,
+  "full_automorphisms": 336,
+  "representatives": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      0,
+      8
+    ]
+  ],
+  "orbit_sizes": [
+    42,
+    21,
+    28
+  ],
+  "all_distinct_input_pairs_covered": true
+}

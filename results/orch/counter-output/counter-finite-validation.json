@@ -1,0 +1,78 @@
+{
+  "rows": [
+    {
+      "q": 2,
+      "n": 7,
+      "offsets": [
+        0,
+        1,
+        3
+      ],
+      "points_per_line": 3,
+      "lines_per_point": [
+        3
+      ],
+      "edges": 21,
+      "maximal_false": 37,
+      "critical_count": 58,
+      "false_size_counts": {
+        "4": 21,
+        "5": 14,
+        "7": 2
+      },
+      "standard_star_gate_count": 27,
+      "full_truth_table_verified": true
+    },
+    {
+      "q": 3,
+      "n": 13,
+      "offsets": [
+        0,
+        1,
+        3,
+        9
+      ],
+      "points_per_line": 4,
+      "lines_per_point": [
+        4
+      ],
+      "edges": 52,
+      "maximal_false": 704,
+      "critical_count": 756,
+      "false_size_counts": {
+        "6": 52,
+        "7": 468,
+        "8": 156,
+        "10": 26,
+        "13": 2
+      },
+      "standard_star_gate_count": 64,
+      "full_truth_table_verified": false
+    }
+  ],
+  "symmetry": {
+    "color_preserving_automorphisms": 168,
+    "full_automorphisms": 336,
+    "representatives": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        8
+      ]
+    ],
+    "orbit_sizes": [
+      42,
+      21,
+      28
+    ],
+    "all_distinct_input_pairs_covered": true
+  },
+  "source_sha256": "6f4c68c61083d8479fef4078e665d8a50a76a8429ae87b625cc16ac468ac5116"
+}

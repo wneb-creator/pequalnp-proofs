@@ -11,3 +11,4 @@
 2026-11-25T15:07:49.302627+00:00 readk_strategy local-elimination follow-up stopped by lease loss. No new Lean theorem beyond previously checked criterion.
 2026-11-25T15:07:57.402284+00:00 library_route stopped after root lease-loss instruction; child gate_count_theory told to stop.
 2026-11-25T15:07:58.143104+00:00 Latest named partial compiled (2524 lines), independent review PASS. Lease renewal rejected despite previously announced future expiry; stopping searches and preserving results.
+2026-11-25T15:09:26.675164+00:00 HTTP410 confirmed by one diagnostic repeat. All searches stopped; archive being pushed before one same-gap recovery request.

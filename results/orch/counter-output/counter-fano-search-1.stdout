@@ -1,0 +1,33 @@
+samples 58 gates 26
+best 9 attempts 1 restarts 1
+best 8 attempts 100010 restarts 2
+best 6 attempts 100054 restarts 2
+best 5 attempts 114312 restarts 2
+best 1 attempts 200001 restarts 3
+finished attempts 2603749153 restarts 26038 best 1
+14 or 6 0
+15 or 14 2
+16 and 15 13
+17 or 6 1
+18 or 17 5
+19 and 18 12
+20 or 2 5
+21 or 20 3
+22 and 21 9
+23 or 4 2
+24 and 23 8
+25 or 1 3
+26 or 25 0
+27 and 26 7
+28 or 4 0
+29 or 28 5
+30 and 29 11
+31 or 4 3
+32 or 31 6
+33 and 32 10
+34 or 16 19
+35 or 22 33
+36 or 35 30
+37 or 34 27
+38 or 36 24
+39 or 38 37

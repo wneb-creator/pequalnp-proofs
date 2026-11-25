@@ -30,3 +30,13 @@ Latest source still intentionally contains no final theorem. No proof PR is warr
 Cleanup pass not started: full checker acceptance has not occurred.
 Sub-agents: 7 total (status review, ReadK, library route, counterexample, normal forms, toolchain, delegated gate-count theory).
 TIMING total=14.87 subagents=7
+
+Lease failure: HTTP410 at15:07:06 UTC; prior announced expiry15:22:42.727Z. Diagnostic repeat15:08:11 UTC returned same error.
+Exact message: no such live lease: it expired or was released. Ask /desk/next again.
+No null desk responses (0); no release request sent for the lost lease.
+No full proof or refutation; no PR opened.
+Latest checked build2524lines; cleanup not attempted because no checker acceptance.
+
+Archive status: all research stopped after HTTP410; preserved solver results are exploratory, not Lean certificates.
+Current standalone normal_prereq line count:105 (earlier107 count was inaccurate).
+Named partial line count before/after cleanup:2524/2524; cleanup skipped because exact theorem not proved.

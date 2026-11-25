@@ -1,0 +1,18 @@
+best 3 iter 0 seconds 2.8904e-05
+g 6 8 16
+g 7 16 32
+g 8 65 130
+g 9 257 12
+out 512
+best 2 iter 2 seconds 0.0001064
+g 6 8 16
+g 7 16 32
+g 8 65 130
+g 9 256 14
+out 512
+best 1 iter 6 seconds 0.000111278
+g 6 8 16
+g 7 16 32
+g 8 65 130
+g 9 256 76
+out 512
