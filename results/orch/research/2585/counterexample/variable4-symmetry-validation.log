@@ -1,8 +1,0 @@
-ITERATION 0 rows 37 variables 867 clauses 2880 cap 29
-STATUS 10 elapsed 0.02
-MODEL edges 7 false_positives 12
-ADDED_CUTS 5
-ITERATION 1 rows 46 variables 1047 clauses 3651 cap 29
-STATUS 20 elapsed 0.25
-FINISH 0.25 iterations 2
-SYMMETRY VALIDATION PASS

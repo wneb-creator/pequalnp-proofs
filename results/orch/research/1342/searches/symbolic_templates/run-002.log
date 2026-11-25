@@ -1,2 +1,0 @@
-START eleven-two-dirty P 11 L 0 edges 16 baseline 22 p4 63 actions 546 blocks 132
-RESULT {"name": "eleven-two-dirty", "P": 11, "L": 0, "baseline": 22, "solver_status": 1, "solver_message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)", "seconds": 45.01822534299936, "p4_templates": 63, "actions": 546, "blocks": 132, "lower_bound": null}

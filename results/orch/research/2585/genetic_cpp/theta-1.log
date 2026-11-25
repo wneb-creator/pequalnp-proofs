@@ -1,6 +1,0 @@
-START theta seed=1 mode=1 target_size=11 rows=18 covers=2
-BEST errors=6 active=11 attempts=1 elapsed=0.000249767
-BEST errors=1 active=11 attempts=2 elapsed=0.000570759
-PROGRESS seconds=10 attempts=53436861 accepted=5712104 best=1 restarts=18
-PROGRESS seconds=20 attempts=109607354 accepted=11817178 best=1 restarts=34
-FINISH seconds=30.0001 attempts=171187174 best=1 restarts=51 rss_kib=1664 status=heuristic_no_witness

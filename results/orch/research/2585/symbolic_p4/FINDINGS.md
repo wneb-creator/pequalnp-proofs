@@ -1,9 +1,0 @@
-# Shared P4-CNF template search for L-meta-2585
-
-The symbolic family includes arbitrary unions of edge/star blocks and three-edge-path CNF blocks. It shares Boolean-equivalent gate functions, pair OR clauses, AND intermediates, and alternative selector constructions. The binary integer model pays once per chosen gate construction plus one OR per output block minus one. Every parent is either an input or a chosen earlier logical construction; reconstruction checks for cycles. Every feasible constructed circuit is independently evaluated on all input assignments.
-
-Targets: incidence graph of K4 (4+6 inputs), two Fano point/line deletions (6+6), and twelve greedily constructed C4-free 6+6 graphs. A direct feasibility bound requires one gate fewer than |E| + minimum-cover-size - 1. Installed SciPy/HiGHS was used, no new packages. Each feasibility run had a five-second limit and the process had a 900 MiB address-space cap.
-
-Result: no improved witness. K4 incidence was infeasible within this template family. Fourteen other feasibility runs timed out without a feasible result. These results are not lower bounds for arbitrary AO2 circuits. Initial unrestricted optimization reconstructed three valid circuits and exhaustive truth tables confirmed their functions; none improved the read1 bound.
-
-Paper-level observation, NOT Lean-checked: each P4 CNF has two pure OR clauses that connect its three incidence edges via their shared point and line. C4-freeness pins a shared pure OR clause to a unique center, suggesting a connectivity accounting that forces at least |E|-1 OR gates for this entire template family. The dirty mixed selector x OR (y AND z) retains one residual edge yz across all readers, suggesting a compatible vertex-cover accounting by AND gates. This may explain the lack of improvements, but it is not a completed formal proof.

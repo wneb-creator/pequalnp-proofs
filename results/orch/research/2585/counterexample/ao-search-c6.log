@@ -1,2 +1,0 @@
-start c6-size7 vars 1477 clauses 14322 inputs 6 gates 7
-finish c6-size7 elapsed 3.406 return 20 status ['s UNSATISFIABLE']

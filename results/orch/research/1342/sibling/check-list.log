@@ -1,6 +1,0 @@
-List.getElem_ofFn.{u_1} {n : ℕ} {α : Type u_1} {i : ℕ} {f : Fin n → α} (h : i < (List.ofFn f).length) :
-  (List.ofFn f)[i] = f ⟨i, ⋯⟩
-List.getElem?_ofFn.{u_1} {n : ℕ} {α : Type u_1} {i : ℕ} {f : Fin n → α} :
-  (List.ofFn f)[i]? = if h : i < n then some (f ⟨i, h⟩) else none
-/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/CheckList.lean:4:7: error(lean.unknownIdentifier): Unknown constant `List.getD_ofFn`
-List.getElem?_eq_getElem.{u_1} {α : Type u_1} {l : List α} {i : ℕ} (h : i < l.length) : l[i]? = some l[i]

@@ -1,8 +1,0 @@
-{
-  "graphs": 512,
-  "cover_cases": 13009,
-  "assignments_per_case": 64,
-  "read1_verified_for_all_edges": true,
-  "cost_bound": "m + |A| + |B| - 1 (Nat subtraction)",
-  "seconds": 0.202
-}

@@ -1,3 +1,0 @@
-/tmp/oec/pequalnp-pilot-46/join.txt
-/tmp/oec/pequalnp-pilot-46/head.json
-/tmp/oec/pequalnp-pilot-46/gap-2585/head-current.json
