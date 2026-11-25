@@ -1,0 +1,63 @@
+======== ABC command line "read_aiger /tmp/oec/pequalnp-pilot-109/audit/abc-runs/r00000.aig; &get; &eslim2 -D 0 -S 10 -T 180 -N 109 -Z 1 -V 2 -0; &put; strash; print_stats; write_aiger /tmp/oec/pequalnp-pilot-109/audit/eslim2-10.aig"
+eSLIM2: budget 180 s, seed 109
+Apply eSLIM2 (overall timeout: 180) 1 times.
+Apply inprocessing
+Consider subcircuits with up to 10 gates.
+When expanding subcircuits, select gates with a probability of 50.00 %.
+Start eslim2 run 1
+eslim2 -- size: 20 levels: 8
+Start final inprocessing (remaining: 2.04272 sec).
+inprocessing -- size: 20 levels: 8
+eSLIM2: nodes 20 -> 20, levels 6 -> 8, 177.911 s, 160476 iterations; time limit.
+Interrupted synthesis queries: 2696; relation attempts: 0
+Final size: 20 change: 0
+Final depth: 8 change: 2
+Gate change from search/native passes: 0/0
+Failed-cut cache hits/extended retries/exhausted searches: 13134/0/0
+Total #iterations: 160476
+Neighborhood roots/unproductive root draws skipped: 136388/82923
+Preferred-output selections/hits; MFFC gates added: 0/0; 0
+Gates added to approach preferred outputs: 0
+Total relation generation time (s): 38.0252
+Total synthesis time (s): 135.369
+Relation phases window/sampling/encoding/SAT/other (s): 1.52483/5.03267/8.88686/12.7476/9.83326
+Synthesis phases encoding/SAT/refinement-check/other (s): 45.8677/78.4273/0.475645/10.5988
+Total native rewrite time (s): 1.18999
+Total final inprocessing time (s): 0.0051294
+Relation SAT attempts: 147587
+Relation exits total/max/any-exit queries: 147587/1/147587
+Single-output core SAT calls avoided: 779187
+Relation incomplete attempts/retries/completed fallbacks: 0/0/0
+Sampled relations/patterns: 147587/92217344
+Cuts proven optimal before relation SAT: 0
+Local relations: 147587; max window gates/inputs: 20/10
+Sampled relation seeds/tuples/time (s): 147587/5480614/5.03267
+Replacement checks passed/rejected/timed out: 144699/0/0
+Structurally unchanged replacements skipped: 101001
+Complete local relation cache hits: 0
+Relation context reuse/full-cap probes: 142974/4612
+Synthesis cache hits: 102493
+Cuts proven area/arrival optimal: 0
+Cuts with existing divisors: 160476
+Divisor candidates/sample duplicates/signature time (s): 681491/0/0.075253
+Synthesis refinement rounds: 23168
+Synthesis small exact replacements: 1513
+Synthesis cache input permutations: 0
+Synthesis cache timing improvements: 0
+Synthesis depth refinement improvements/calls: 0/0
+Synthesis relation rows encoded/available: 1513023/3550045
+Rewriting calls/gain: 151/0
+Rewriting calls without area/depth gain: 22
+Resubstitution calls/gain within rewriting: 0/0
+Resubstitution time (s): 0
+Synthesis searches with unrestricted timing: 0/44849
+Synthesis SAT searches: 43336
+Analyzed cuts by gate count: 2:74290 3:40579 4:20339 5:8767 6:2878 7:662 8:72
+Analyzed cuts by output count: 1:147587
+SAT calls by gate count (SAT/UNSAT/interrupted): 2:2/2015/0 3:16250/2039/1 4:23648/935/25 5:17991/301/218 6:4756/9/1698 7:1089/0/524 8:125/0/60
+Synthesis normal budget searches/smaller models: 40628/0; queries SAT/UNSAT/interrupted/error: 38009/4975/2672/0; reduction queries/interrupted: 5028/53; query time (s): 74.8532
+Synthesis extended budget searches/smaller models: 2708/0; queries SAT/UNSAT/interrupted/error: 2684/324/24/0; reduction queries/interrupted: 324/0; query time (s): 8.13848
+#Iterations with forbidden pairs: 0
+Relation generation: #SAT-calls: 1074361, Total SAT-time: 12.75 sec, Max SAT-time: 0.0304 sec Avg. SAT-time: 0.0000 sec
+Synthesis: #SAT-calls: 71686, Total SAT-time: 78.42 sec, Max SAT-time: 0.1017 sec Avg. SAT-time: 0.0011 sec
+[1;37m/tmp/oec/pequalnp-pilot-109/audit/abc-runs/r00000:[0m i/o =   10/    1  lat =    0  and =     20  lev =  8

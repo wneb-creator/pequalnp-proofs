@@ -1,0 +1,1028 @@
+[
+  {
+    "file": "checked/library/FormulaOccurrences.lean",
+    "status": "checked component or support",
+    "sha256": "cf5ac79380df2a0a6b753b25484c1556d009b85194384ffdfb4f3cfeff3bb4a2",
+    "bytes": 2787
+  },
+  {
+    "file": "checked/library/FormulaOccurrences.log",
+    "status": "checked component or support",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "checked/library/FormulaOccurrences-snippet.lean",
+    "status": "checked component or support",
+    "sha256": "b8ade5f840c8cab3e1029b45f53d3b700e5a4fa2ea5802d0dab461b563bc1452",
+    "bytes": 1953
+  },
+  {
+    "file": "checked/library/ProjectionCounts.lean",
+    "status": "checked component or support",
+    "sha256": "8efacb34949d6d0d5293d76f22e45898521dcd7213d13aaa43e99820ace18f05",
+    "bytes": 6128
+  },
+  {
+    "file": "checked/library/ProjectionCounts.log",
+    "status": "checked component or support",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "checked/library/ProjectionCounts-snippet.lean",
+    "status": "checked component or support",
+    "sha256": "1e24e07fbda9f05303beee7c890596d073b6c62d155f10c022223492e8a88624",
+    "bytes": 2099
+  },
+  {
+    "file": "checked/library/PetersenCofactorsProduct.lean",
+    "status": "checked component or support",
+    "sha256": "9544599293e86c48d5e5388ac329fcae8873f6373ed0099dc148c59afc0e0d75",
+    "bytes": 3191
+  },
+  {
+    "file": "checked/library/PetersenCofactorsProduct.log",
+    "status": "checked component or support",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "checked/library/CofactorMultiplicity.lean",
+    "status": "checked component or support",
+    "sha256": "87004b21dbb281780f1908c2b1030f6e2fe98dc1c241cba0cba57394cdeda634",
+    "bytes": 4639
+  },
+  {
+    "file": "checked/library/CofactorMultiplicity.log",
+    "status": "checked component or support",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "checked/library/CofactorMultiplicity-snippet.lean",
+    "status": "checked component or support",
+    "sha256": "4d14de242dcd548e050c9b3d13740d34437284a5ffec9098a17103f0e204c2e3",
+    "bytes": 1425
+  },
+  {
+    "file": "checked/finite/FormulaProjectionBridge.lean",
+    "status": "checked component or support",
+    "sha256": "9ad54fdcf5a11130bca643a833d76bb53101438a21cbf5e76477007bf45e8651",
+    "bytes": 6436
+  },
+  {
+    "file": "checked/finite/formula-projection-build.log",
+    "status": "checked component or support",
+    "sha256": "de22cb90388ef9d42a2d00afd1c5e669117df62b2468e51c9d6e27c2144afaeb",
+    "bytes": 569
+  },
+  {
+    "file": "checked/finite/FormulaProjectionBridge-snippet.lean",
+    "status": "checked component or support",
+    "sha256": "4f6d411e388f30688cc7f1e769ef43f97c7c18d33f32f57d87993ddd51124f64",
+    "bytes": 4361
+  },
+  {
+    "file": "checked/structural/FormulaPruningEnum.lean",
+    "status": "checked component or support",
+    "sha256": "1057ebb568466c156989148b7e86cd83db0975366a867e723723763632c9d87e",
+    "bytes": 3489
+  },
+  {
+    "file": "checked/structural/FormulaPruningEnum.log",
+    "status": "checked component or support",
+    "sha256": "e7f00fd7815c1d272ffbd35c59853438f7de3c1fb6e4187226d630ccdee1b047",
+    "bytes": 458
+  },
+  {
+    "file": "checked/structural/FormulaPruningDefs.lean",
+    "status": "checked component or support",
+    "sha256": "4be4b9523690c81d12d50f119f3716f34e99560d67b43e7d3b0565bac8c09465",
+    "bytes": 833
+  },
+  {
+    "file": "drafts/finite/FormulaProjectionFull.lean",
+    "status": "NOT CHECKED; failed or interrupted",
+    "sha256": "f40de1ae59e61e6567d74bddb970ffb7a0de5aa9a0dd943c24a1e58d46ec30dc",
+    "bytes": 9176
+  },
+  {
+    "file": "drafts/finite/formula-projection-full-build.log",
+    "status": "NOT CHECKED; failed or interrupted",
+    "sha256": "74fbc25dcb4505d786c700c96e433301ba5c88c96686946b3d2b9764636fe440",
+    "bytes": 1548
+  },
+  {
+    "file": "drafts/finite/FormulaProjectionDefs.lean",
+    "status": "NOT CHECKED; failed or interrupted",
+    "sha256": "35330d2bc3f6efd1896524d87e0f5d35912879918f7333444b05bb6e8c0d3252",
+    "bytes": 1240
+  },
+  {
+    "file": "drafts/finite/FormulaTableBounds-snippet.lean",
+    "status": "NOT CHECKED; failed or interrupted",
+    "sha256": "74b629d13d1f45a7ff8b2f755c5d905e19f4b824f8c5b1dc96320652c0ec34b7",
+    "bytes": 2739
+  },
+  {
+    "file": "drafts/structural/FormulaPruningCertificate.lean",
+    "status": "NOT CHECKED; failed or interrupted",
+    "sha256": "4a7d83a647cbdb9a64bb2644b152992d144cfafb4eac216f0cdb30b5dedc1245",
+    "bytes": 3899
+  },
+  {
+    "file": "drafts/structural/FormulaPruningCertificate.log",
+    "status": "NOT CHECKED; failed or interrupted",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "drafts/counterexample/NoComplementaryInputs.lean",
+    "status": "NOT CHECKED; failed or interrupted",
+    "sha256": "6b1b8ff1d43ca0698b6a2214d05aebfe2abb1b155cdae9c76844d46e15c3ff76",
+    "bytes": 2938
+  },
+  {
+    "file": "search/counterexample/local-5.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e7e6ce1574704a276d89228754a3b535960b6c28971ce570606a5c3304e0c3cf",
+    "bytes": 947
+  },
+  {
+    "file": "search/counterexample/local-factored.log",
+    "status": "research artifact; not a proof",
+    "sha256": "70ab3415e67c1aca5711830c72bf86cfd3e57a56b92ca408a194d1153e1ffeed",
+    "bytes": 33
+  },
+  {
+    "file": "search/counterexample/local.py",
+    "status": "research artifact; not a proof",
+    "sha256": "685c14e5e96ec798f55bb04ae1200573a7d6ebcc2d57f552fe39284ec02c1ffd",
+    "bytes": 1614
+  },
+  {
+    "file": "search/counterexample/local_factored.cpp",
+    "status": "research artifact; not a proof",
+    "sha256": "df396c9593a1b9bc0507af8a1c02cb02fdeb6276186e955081c65a3b4c883e9e",
+    "bytes": 1230
+  },
+  {
+    "file": "search/counterexample/near-circuit.json",
+    "status": "research artifact; not a proof",
+    "sha256": "cab58e774590adf05ec1dbafe42d52f046a5d641ed892625289786eba2c0abc8",
+    "bytes": 229
+  },
+  {
+    "file": "search/counterexample/near-pairs-circuit.json",
+    "status": "research artifact; not a proof",
+    "sha256": "ec06a2cfcbeb412d163e73c048ad92c0167053e442909d883f770e00718ad6ec",
+    "bytes": 231
+  },
+  {
+    "file": "search/counterexample/near-three-extra.json",
+    "status": "research artifact; not a proof",
+    "sha256": "8f562d728e9e44ce56682d497a612c44e35a84b488d93b8c2fe9fb041df3f8c7",
+    "bytes": 229
+  },
+  {
+    "file": "search/counterexample/red-team-guard.log",
+    "status": "research artifact; not a proof",
+    "sha256": "264a9368195efa845acc75a56202b8038d74d02f9b9c7ef95d745e32462d44ec",
+    "bytes": 279
+  },
+  {
+    "file": "search/counterexample/repair-3.log",
+    "status": "research artifact; not a proof",
+    "sha256": "8fc8f3bd77e22f678a39165844a8d789329e13b1b9dea3cc6231adf7d95bee09",
+    "bytes": 957
+  },
+  {
+    "file": "search/counterexample/repair-four-extra-2.log",
+    "status": "research artifact; not a proof",
+    "sha256": "5980fa920c3e5dd38e830be8f44d1ac6336943bf2d2d02a8f6d7db0f6eab45fb",
+    "bytes": 994
+  },
+  {
+    "file": "search/counterexample/repair-pure-3.log",
+    "status": "research artifact; not a proof",
+    "sha256": "9c2307f0c0096855a1c67b5c3c94d6f98a49b0460ee996888b221755317b65ea",
+    "bytes": 1088
+  },
+  {
+    "file": "search/counterexample/repair-two-exhaustive.log",
+    "status": "research artifact; not a proof",
+    "sha256": "f8da1e14ab960d2c2eba93db022649a72016c78a7b3e3627cbd8c22996ac65c9",
+    "bytes": 59
+  },
+  {
+    "file": "search/counterexample/repair.py",
+    "status": "research artifact; not a proof",
+    "sha256": "39a952eaf134957d0f9d56e016cc355f17c94a1e3ecadbb6f83d2154ed479c53",
+    "bytes": 3292
+  },
+  {
+    "file": "search/counterexample/repair_four_extra.py",
+    "status": "research artifact; not a proof",
+    "sha256": "18f9dc0b911ff99fafc6cb0d912fd0c7fa798afe31c579531ca7aba857d8fec1",
+    "bytes": 3411
+  },
+  {
+    "file": "search/counterexample/repair_pure.py",
+    "status": "research artifact; not a proof",
+    "sha256": "18950e7a5a8c5570cbd17001bf2275533c72fc5ebc172ae57212f1cba9a240c3",
+    "bytes": 3407
+  },
+  {
+    "file": "search/counterexample/repair_two.cpp",
+    "status": "research artifact; not a proof",
+    "sha256": "a13d45ab7fb86acb93d062f7ea52d3e001ff907aede9560af546ecdeb6bb4a65",
+    "bytes": 1791
+  },
+  {
+    "file": "search/counterexample/search.cpp",
+    "status": "research artifact; not a proof",
+    "sha256": "a8efa5a92c6248ee5e29e1a016900ee74c2218527ce647d7f3454f2cc07d94a7",
+    "bytes": 3240
+  },
+  {
+    "file": "search/counterexample/search_near.cpp",
+    "status": "research artifact; not a proof",
+    "sha256": "31f8642897673c8e695a609c1d57cf544c5a7c4e74dc36cfefb5e471f11bd3d2",
+    "bytes": 3822
+  },
+  {
+    "file": "search/counterexample/search_pairs.cpp",
+    "status": "research artifact; not a proof",
+    "sha256": "b286ba32f0c67c3a7d4db9cde8d0550094c2acf9d119856eca1c250b96ffc127",
+    "bytes": 3324
+  },
+  {
+    "file": "search/counterexample/signed16-n3-boundary.log",
+    "status": "research artifact; not a proof",
+    "sha256": "6f6756691a6668a61385728ce8cc48818d2578b65b6a1db0121626c9b3576a15",
+    "bytes": 1292
+  },
+  {
+    "file": "search/counterexample/signed16_branch.py",
+    "status": "research artifact; not a proof",
+    "sha256": "f6715c90cafa4e8236ef30285e961d876b6865798af457cfc935b654c27923ba",
+    "bytes": 7021
+  },
+  {
+    "file": "search/counterexample/stochastic-near.log",
+    "status": "research artifact; not a proof",
+    "sha256": "c228ae155db37cab58d749dfa539898e4a42c4a79cf333fea7c0e0e613ae5a13",
+    "bytes": 242
+  },
+  {
+    "file": "search/counterexample/stochastic-pairs.log",
+    "status": "research artifact; not a proof",
+    "sha256": "5c3bbbae6cfa3fb4cf7c9633a47d98285f50cb98f2dbf2c11a8914e6e384d71f",
+    "bytes": 5106
+  },
+  {
+    "file": "search/counterexample/stochastic.log",
+    "status": "research artifact; not a proof",
+    "sha256": "290d6f86606a4dde46efd2df9e2fb496dd5a123e8f64f4f47f6afdbd18ba66e8",
+    "bytes": 5500
+  },
+  {
+    "file": "search/counterexample/structural-pinned20.json",
+    "status": "research artifact; not a proof",
+    "sha256": "ffcc4899a358a18bac076d0ae9beec7b969041f6d156f65bfe4b3e31a7edc2bd",
+    "bytes": 1381
+  },
+  {
+    "file": "search/counterexample/structural-pinned20.log",
+    "status": "research artifact; not a proof",
+    "sha256": "f4ad7539f5f06db946c4d994333ff50807e3b4e7d6496a700e5b626990c7785f",
+    "bytes": 1292
+  },
+  {
+    "file": "search/counterexample/synth-19-1-normal.log",
+    "status": "research artifact; not a proof",
+    "sha256": "ea030a067b0d6a08164d3f127c154fdfd81d6b65acdf5d014ea13c47d7fae8e7",
+    "bytes": 963
+  },
+  {
+    "file": "search/counterexample/synth-19-1.log",
+    "status": "research artifact; not a proof",
+    "sha256": "6d5cb728dece140005d49bef04253fd59996908a1a1c76931eca1d39b9813a89",
+    "bytes": 967
+  },
+  {
+    "file": "search/counterexample/synth-19-4-andedge.log",
+    "status": "research artifact; not a proof",
+    "sha256": "6632fcf6fdb873eed72811456ad32b67bcb0744245b9d085f7ce27e5f6f17ddf",
+    "bytes": 972
+  },
+  {
+    "file": "search/counterexample/synth-pure-19-1.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e61c5391e7504d5526292e55589473e86194d29da071aaecb7bc3c1f8bf13121",
+    "bytes": 1196
+  },
+  {
+    "file": "search/counterexample/synth-pure-19-2.log",
+    "status": "research artifact; not a proof",
+    "sha256": "ae50a09eca906eadb206b4315f2f5be9f11d98ce563e0644d82b6e9200dab37c",
+    "bytes": 1196
+  },
+  {
+    "file": "search/counterexample/synth-pure-19-3.log",
+    "status": "research artifact; not a proof",
+    "sha256": "659aad427b90b68002d1afe15cf20733c39d75ef4a0fcbc88be6d947618717bb",
+    "bytes": 1195
+  },
+  {
+    "file": "search/counterexample/synth.py",
+    "status": "research artifact; not a proof",
+    "sha256": "e8a600a298e19f655f8b94e53af4ec50aec9524f58fb72490c5ec1f3c9bf627d",
+    "bytes": 3235
+  },
+  {
+    "file": "search/counterexample/synth_pure.py",
+    "status": "research artifact; not a proof",
+    "sha256": "c7f5847712801bfba513c7270ece9570a2f7c18cc9f499b708fe544e83e28909",
+    "bytes": 3289
+  },
+  {
+    "file": "search/counterexample/z3-release.json",
+    "status": "research artifact; not a proof",
+    "sha256": "26e4fcbe7a45da1af1025e12c9b70906d6234e2adcbf6e43074da4389e19d2f3",
+    "bytes": 12491
+  },
+  {
+    "file": "search/finite/compile-signed-gauge.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/finite/compile-signed-search.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/finite/formula-projection-build.log",
+    "status": "research artifact; not a proof",
+    "sha256": "de22cb90388ef9d42a2d00afd1c5e669117df62b2468e51c9d6e27c2144afaeb",
+    "bytes": 569
+  },
+  {
+    "file": "search/finite/formula-projection-full-build.log",
+    "status": "research artifact; not a proof",
+    "sha256": "74fbc25dcb4505d786c700c96e433301ba5c88c96686946b3d2b9764636fe440",
+    "bytes": 1548
+  },
+  {
+    "file": "search/finite/high-not-build.log",
+    "status": "research artifact; not a proof",
+    "sha256": "60724194e0f347cb7c4e3d1632e86714a826f669571a92b7901800c02cb9e3c4",
+    "bytes": 6409
+  },
+  {
+    "file": "search/finite/known20-signed.json",
+    "status": "research artifact; not a proof",
+    "sha256": "f4e7ff88581d4b601bf9931e1add9ce1b0502ec50dbb22baaf3de93db28f4711",
+    "bytes": 545
+  },
+  {
+    "file": "search/finite/least-budget-build.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/finite/pinned20-validation.log",
+    "status": "research artifact; not a proof",
+    "sha256": "531c50ef86db80edbbccdf949b134b68b091d4563575cb11260291dfd1832771",
+    "bytes": 1257
+  },
+  {
+    "file": "search/finite/pinned20-verified.json",
+    "status": "research artifact; not a proof",
+    "sha256": "ffcc4899a358a18bac076d0ae9beec7b969041f6d156f65bfe4b3e31a7edc2bd",
+    "bytes": 1381
+  },
+  {
+    "file": "search/finite/read-two-cofactors-build.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/finite/search_signed.cpp",
+    "status": "research artifact; not a proof",
+    "sha256": "b4d935167dd7bb2e99b66654f3089565238ea99c0463f8cb1b558709358f44cc",
+    "bytes": 3779
+  },
+  {
+    "file": "search/finite/signed15-covered.log",
+    "status": "research artifact; not a proof",
+    "sha256": "83b2e5d7b8b82f98542b61190762aa54b2ecb37732f000a7fe76013f840d48fe",
+    "bytes": 1291
+  },
+  {
+    "file": "search/finite/signed15-fan2.log",
+    "status": "research artifact; not a proof",
+    "sha256": "077312829457d69d22ac2d8705246512777576d642390ad8d299655caafc5408",
+    "bytes": 1250
+  },
+  {
+    "file": "search/finite/signed15-stochastic.log",
+    "status": "research artifact; not a proof",
+    "sha256": "6e8fa5c2278c206a36dee2ad4b0c26c24544d99c6aaae6285061d3d0cf6f3264",
+    "bytes": 2831
+  },
+  {
+    "file": "search/finite/signed15-twins-resumed.log",
+    "status": "research artifact; not a proof",
+    "sha256": "45d1c78df659acae302ca401b6a7cc36fc6ffd8012388ec22eee6e6595704830",
+    "bytes": 1445
+  },
+  {
+    "file": "search/finite/signed15-twins.log",
+    "status": "research artifact; not a proof",
+    "sha256": "aab55b6a95a5a0abfba2985f2e1eed1b908c43f4e1082e80d64ae02373a51800",
+    "bytes": 1322
+  },
+  {
+    "file": "search/finite/signed18-gauge.log",
+    "status": "research artifact; not a proof",
+    "sha256": "996bcca2662f077b3e37ec790bf67731c62f43b7d69e81659ee187ec0ab12fad",
+    "bytes": 3925
+  },
+  {
+    "file": "search/finite/signed18-stochastic.log",
+    "status": "research artifact; not a proof",
+    "sha256": "37962af7a348af0fec00e834f3e3ae6ffff109cd7962a9d09cefd9b65b28a50a",
+    "bytes": 4153
+  },
+  {
+    "file": "search/finite/stopped-solver-pids.txt",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/finite/synth_signed.py",
+    "status": "research artifact; not a proof",
+    "sha256": "62fa5c59b0c0297afb7ae26b5e69d2fcb0e16e1c8502c04afe4c35ea22a09fcf",
+    "bytes": 6987
+  },
+  {
+    "file": "search/finite/verify-formula-pruning.log",
+    "status": "research artifact; not a proof",
+    "sha256": "244df161a4c1fcb7ed2adc01f0178c3885d322fb5daf571cb53eaff701ac214f",
+    "bytes": 365
+  },
+  {
+    "file": "search/finite/verify_formula_pruning.py",
+    "status": "research artifact; not a proof",
+    "sha256": "6c8cc464f051d8f8c1c8ded9acb57a365f99385ca29665b0625fa447d8af5482",
+    "bytes": 1686
+  },
+  {
+    "file": "search/structural/BranchBudget.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/structural/BranchCovered.log",
+    "status": "research artifact; not a proof",
+    "sha256": "981bb64cb3bd18856771fa5f4b50d3d8c6a648c9632ebc5db1a6ec9c92ae46c8",
+    "bytes": 7025
+  },
+  {
+    "file": "search/structural/BranchLocal.log",
+    "status": "research artifact; not a proof",
+    "sha256": "ad5118129da2bd5812fc41ddf2915491e8fb24e27e493557880c260b5a6903f0",
+    "bytes": 6971
+  },
+  {
+    "file": "search/structural/Endpoint.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/structural/FormulaPruningCertificate.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/structural/FormulaPruningEnum.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e7f00fd7815c1d272ffbd35c59853438f7de3c1fb6e4187226d630ccdee1b047",
+    "bytes": 458
+  },
+  {
+    "file": "search/structural/UnaryBranch.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/structural/formula_cofactors.log",
+    "status": "research artifact; not a proof",
+    "sha256": "5af87a4094a74c826b971a94bb64d08249672a45a50646d1898143f709ff912d",
+    "bytes": 498
+  },
+  {
+    "file": "search/structural/formula_cofactors.py",
+    "status": "research artifact; not a proof",
+    "sha256": "33fef531d5e5492fa5ebc83a362f9e37b8bfdfd1d2e09a04d78288eac402f617",
+    "bytes": 681
+  },
+  {
+    "file": "search/structural/formula_min_family.log",
+    "status": "research artifact; not a proof",
+    "sha256": "fcbde8bd15b28bfd2bb6f56f16080b92d3eeee099948d5417b842ab004fc61f9",
+    "bytes": 321
+  },
+  {
+    "file": "search/structural/formula_min_family.py",
+    "status": "research artifact; not a proof",
+    "sha256": "a60f7e75cc41d18fdcb723cfd6137fa3a6ac6a685abb2295b14520f43c6d68e2",
+    "bytes": 1205
+  },
+  {
+    "file": "search/structural/formula_min_family_unrestricted.log",
+    "status": "research artifact; not a proof",
+    "sha256": "68ae1bfa649522237abc01d1ca5729ddbe9c470268ffdf1dafd77b33aefd5998",
+    "bytes": 322
+  },
+  {
+    "file": "search/structural/formula_min_family_unrestricted.py",
+    "status": "research artifact; not a proof",
+    "sha256": "14fd3edad7cfea35152af280f4106742eac7fdad255750d50f3a838001329521",
+    "bytes": 1179
+  },
+  {
+    "file": "search/structural/formula_pruning.py",
+    "status": "research artifact; not a proof",
+    "sha256": "a78ee4153564ca7083c056f8940ca15fee84eb3fac284dacec1cb46998a1e00e",
+    "bytes": 1016
+  },
+  {
+    "file": "search/structural/formula_pruning3.log",
+    "status": "research artifact; not a proof",
+    "sha256": "3537f0814587fa33e9e9e4d3fe76e159a7a51feed9b073ccf7bb0ecd2e8fc36c",
+    "bytes": 566
+  },
+  {
+    "file": "search/structural/formula_pruning_signed.py",
+    "status": "research artifact; not a proof",
+    "sha256": "3c921d0b63efd01d160dc15250b5cd2bd525f03405ef7cbc3c4df93aa68e25ca",
+    "bytes": 1075
+  },
+  {
+    "file": "search/structural/formula_pruning_signed3.log",
+    "status": "research artifact; not a proof",
+    "sha256": "7b98ad4ae34b8831b36ec7b8f36ab0630af0cc8c02024e1560dd744f06d980f7",
+    "bytes": 428
+  },
+  {
+    "file": "search/structural/path_edge_multicover.log",
+    "status": "research artifact; not a proof",
+    "sha256": "2d2dc6edcae3b76f646d8cc3b73342a5a10f6425bcfd2cf263768db3c3737a1a",
+    "bytes": 157
+  },
+  {
+    "file": "search/structural/path_edge_multicover.py",
+    "status": "research artifact; not a proof",
+    "sha256": "66ee90dfda358bd5a388f17e12f6511da5eb17d6bd322b83c263802c119ef52d",
+    "bytes": 695
+  },
+  {
+    "file": "search/structural/path_multicover.log",
+    "status": "research artifact; not a proof",
+    "sha256": "fbf1806c3a09a66546d1c73ed12484accdee281527348752215b189ad99f0d61",
+    "bytes": 156
+  },
+  {
+    "file": "search/structural/path_multicover.py",
+    "status": "research artifact; not a proof",
+    "sha256": "d8cb3ff48740e1def996130a1809e8d4285580c1028908157e772e8d16793d78",
+    "bytes": 658
+  },
+  {
+    "file": "search/structural/restriction_bound.log",
+    "status": "research artifact; not a proof",
+    "sha256": "38f89bb8a08df7829fa3dcc406feb76d33d638d4d6459030a04e7b6cc2e41c39",
+    "bytes": 163
+  },
+  {
+    "file": "search/structural/restriction_bound.py",
+    "status": "research artifact; not a proof",
+    "sha256": "2b79eee1eee922bc1e7271665a98170b2e7b90ac4a4b8406b7725382b302be21",
+    "bytes": 1507
+  },
+  {
+    "file": "search/structural/twin_sequence.log",
+    "status": "research artifact; not a proof",
+    "sha256": "6d47afe07a07537ab17b8227c8573629e414a119c50638a93538a81a7652c171",
+    "bytes": 280
+  },
+  {
+    "file": "search/structural/twin_sequence.py",
+    "status": "research artifact; not a proof",
+    "sha256": "f928ecfcc1bb530378eb19994831101d0ba569012e996d8ed7eac1afb0a22b87",
+    "bytes": 772
+  },
+  {
+    "file": "search/library/CofactorMultiplicity.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/library/DecidableProbe.log",
+    "status": "research artifact; not a proof",
+    "sha256": "a5864afa37a1eba485f1837e86fd352d6cb85f2a89b75eba5291e8a27e642c68",
+    "bytes": 1264
+  },
+  {
+    "file": "search/library/EssentialFiveCases.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/library/FormulaOccurrences.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/library/GraphSeparator.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/library/MaximalIndependent.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/library/NotComparable.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/library/OrbitCover.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/library/PetersenCofactors.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/library/PetersenCofactorsProduct.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/library/ProjectionCounts.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/library/cofactor_generate.py",
+    "status": "research artifact; not a proof",
+    "sha256": "c5189e85a07417ca29dea972f6b16d6a9cde2b1c666de379bfb38e2ab9b1d30d",
+    "bytes": 3396
+  },
+  {
+    "file": "search/library/essential-maximal-orbits.json",
+    "status": "research artifact; not a proof",
+    "sha256": "0e301106dd1bdcb3d09705a056e0eac5de26031b2e72d51753c99983368dbc04",
+    "bytes": 420
+  },
+  {
+    "file": "search/library/essential-orbits.json",
+    "status": "research artifact; not a proof",
+    "sha256": "825ac9073d497e69554d73ef3e5c8d983fd56a512d797a271d085f8543732965",
+    "bytes": 1423
+  },
+  {
+    "file": "search/library/petersen20.json",
+    "status": "research artifact; not a proof",
+    "sha256": "b38da349aed1497ecc228c63b7b9c995fb96f396e29b0384dd21f7875ae7c2b6",
+    "bytes": 400
+  },
+  {
+    "file": "search/audit/abc-search.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e99eeca588ee7ce85ad4b9001f4fb726701f2639d79b617de28bf48cb0221163",
+    "bytes": 3483
+  },
+  {
+    "file": "search/audit/abc_phase.py",
+    "status": "research artifact; not a proof",
+    "sha256": "03b0a184a2ae99850b84d4d0dd53bd62bbf33a3eaab6af807d9fa1069c4c526c",
+    "bytes": 2568
+  },
+  {
+    "file": "search/audit/abc_search.py",
+    "status": "research artifact; not a proof",
+    "sha256": "0c09223226cf3d0a84e4e021b4f84b87e2cba5e97696beb683a41c914e685e9e",
+    "bytes": 2911
+  },
+  {
+    "file": "search/audit/baseline-circuit.json",
+    "status": "research artifact; not a proof",
+    "sha256": "88f33300e0271f50b79ea655909cbcce0de48f93cbba3b96f07a42f2074fcce6",
+    "bytes": 548
+  },
+  {
+    "file": "search/audit/baseline.aig",
+    "status": "research artifact; not a proof",
+    "sha256": "0d03975d5064ad5c1d00114e223bb0ed47962f0a4762b9e9330a15cbaae3b83d",
+    "bytes": 200
+  },
+  {
+    "file": "search/audit/baseline.stderr",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/audit/baseline.stdout",
+    "status": "research artifact; not a proof",
+    "sha256": "9de18b6bc0daf6dd52cb3a9b05895ad7ace8867c5ac7331f65a5b403de8e6fde",
+    "bytes": 263
+  },
+  {
+    "file": "search/audit/build.stderr",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/audit/build.stdout",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/audit/eslim2-10-circuit.json",
+    "status": "research artifact; not a proof",
+    "sha256": "613d3fdfd72f89a3d60415d086f0958772c52d0a83d5ee89bdddaeb29edf7915",
+    "bytes": 529
+  },
+  {
+    "file": "search/audit/eslim2-10.aig",
+    "status": "research artifact; not a proof",
+    "sha256": "90a1db589872fc59719ebce80fe13e032602c24b90967ad2cf336770d7fdda5a",
+    "bytes": 239
+  },
+  {
+    "file": "search/audit/eslim2-10.stderr",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/audit/eslim2-10.stdout",
+    "status": "research artifact; not a proof",
+    "sha256": "13f586e230dfc771e3e068e518df5fbf2a37b799fe63798c385da29335509707",
+    "bytes": 3686
+  },
+  {
+    "file": "search/audit/eslim2-20-circuit.json",
+    "status": "research artifact; not a proof",
+    "sha256": "a2e8b8beabbdd61e4c449840b5ea1dbdc6cb5f1b52df194ed7b86197c60b6798",
+    "bytes": 529
+  },
+  {
+    "file": "search/audit/eslim2-20.aig",
+    "status": "research artifact; not a proof",
+    "sha256": "503510f32c29e9e79b7e6239a15024b5c44d5b577a478dbc9bbf26feb3ecc61e",
+    "bytes": 233
+  },
+  {
+    "file": "search/audit/eslim2-20.stderr",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/audit/eslim2-20.stdout",
+    "status": "research artifact; not a proof",
+    "sha256": "ca78e6accb2d4e9dc1450e678ab1bf354f060c4c8757847c2af75c3732dd9331",
+    "bytes": 3533
+  },
+  {
+    "file": "search/audit/family-11-1-partial.log",
+    "status": "research artifact; not a proof",
+    "sha256": "b5e489a38ec3f71838c8e8f74fc239c8c408eda3dc639bcafe7b1d0e48e634c3",
+    "bytes": 947
+  },
+  {
+    "file": "search/audit/family-pool.log",
+    "status": "research artifact; not a proof",
+    "sha256": "e7b403d790f54b6e0885430c9339bdd724b5927796cc6d4f1ca0d92c2b0c58cd",
+    "bytes": 131
+  },
+  {
+    "file": "search/audit/family-pure-11-1-partial.log",
+    "status": "research artifact; not a proof",
+    "sha256": "d257bf373b30961f807f7ff6b08567f4a864dfee3c556cc056a27bfbdb653d00",
+    "bytes": 1160
+  },
+  {
+    "file": "search/audit/family-pure-11-2-partial.log",
+    "status": "research artifact; not a proof",
+    "sha256": "4128999dec97fd9d34248501895f5846f548344b6c1745527f0b56560108e59a",
+    "bytes": 54
+  },
+  {
+    "file": "search/audit/family-search.log",
+    "status": "research artifact; not a proof",
+    "sha256": "3f8649ee672976e11345f0b1e74c42cbe3e94f1b9555fa481fca59f680121d48",
+    "bytes": 303
+  },
+  {
+    "file": "search/audit/family_pool.cpp",
+    "status": "research artifact; not a proof",
+    "sha256": "fb0f214976f8a5d3d6acaa86c9396ab32ca18743bfb1c7856a7a3cc473dc00a9",
+    "bytes": 2638
+  },
+  {
+    "file": "search/audit/family_search.cpp",
+    "status": "research artifact; not a proof",
+    "sha256": "31c9d576e51577826206ef4379fcf0af79b16220b9df860704af45ea3cffb649",
+    "bytes": 2444
+  },
+  {
+    "file": "search/audit/family_synth.py",
+    "status": "research artifact; not a proof",
+    "sha256": "ce982a740f42346b97af62f2b9842704175f2cc7fb9326a8655e6f5a4e4b473b",
+    "bytes": 2695
+  },
+  {
+    "file": "search/audit/make_seeds.py",
+    "status": "research artifact; not a proof",
+    "sha256": "255223f90a8746be116a8872b538db259282656c24ea2666ff8bc7ec04f7c253",
+    "bytes": 1461
+  },
+  {
+    "file": "search/audit/minterms.stderr",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/audit/minterms.stdout",
+    "status": "research artifact; not a proof",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "search/audit/sanity.aig",
+    "status": "research artifact; not a proof",
+    "sha256": "cd044ac63c271408a15d7739f01f62237b350853a4750f775e9b5ddbd861dc86",
+    "bytes": 78
+  },
+  {
+    "file": "search/audit/termination-status.txt",
+    "status": "research artifact; not a proof",
+    "sha256": "c32d6dbe5b8bc298331b16154acd8fb05e962d33f98f64113e4f212246b1f7fa",
+    "bytes": 424
+  },
+  {
+    "file": "search/counterexample/five_cases/README.md",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "9490137d9aa7bba149ea4f6a8c8e03d038a5e0ec81d562749cc75d13169e0758",
+    "bytes": 4120
+  },
+  {
+    "file": "search/counterexample/five_cases/search.py",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "d2146b29bfd4d47878d4d6af4666648f67087635654d5c1c1bbfba4e231d7f3e",
+    "bytes": 10058
+  },
+  {
+    "file": "search/library/repair/fixed13-bv.log",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "221474e89b855833e5be5e8ed91453b788700051ea5f46ec9336e39a17bfb256",
+    "bytes": 996
+  },
+  {
+    "file": "search/library/repair/fixed13.log",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "156d159e3c20cc81901626cd79d5785a98690d4fc1e63a347325fed27dfbf61b",
+    "bytes": 52
+  },
+  {
+    "file": "search/library/repair/flexible13-bv.log",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "4df1e59e94d0114062a22c4523904ea380a59e2252c8b05279a7b5cd4015f3df",
+    "bytes": 997
+  },
+  {
+    "file": "search/library/repair/flexible13-many.log",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "43c7dee4cc854a834f7bec9a99adde1b7b50dcd088bc7d58f4d42e133d16d19d",
+    "bytes": 1090
+  },
+  {
+    "file": "search/library/repair/flexible8-one.log",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "76ab9285e4848a7f875e081b639398435c9d39204c798379849c063ea0cd44d5",
+    "bytes": 1189
+  },
+  {
+    "file": "search/library/repair/raw-not19.log",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "cf9c980484e72ea78c5089b25540ee370f96f9a7ae6ae0faec2e0d1261c28abe",
+    "bytes": 1195
+  },
+  {
+    "file": "search/library/repair/raw_not.py",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "83af995e5695221e0402583669709b22222246864d7f0d83fc36cb7ada8f0243",
+    "bytes": 3363
+  },
+  {
+    "file": "search/library/repair/repair.py",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "b0e2e12d2062c7354fb4b2ae9fa937ec6612aa107b9b6b8d047896f82db8ba1e",
+    "bytes": 2779
+  },
+  {
+    "file": "search/library/repair/repair_bv.py",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "668c3e6ce55b5b8449dd69e3e958b5ef1084216647405faa4a01203cd90f2744",
+    "bytes": 2844
+  },
+  {
+    "file": "search/library/repair/repair_flex.py",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "0bce33fbf7d1ff93c78f2d5870350f5ce1853842d3a77e7e86c69d67449f8b94",
+    "bytes": 3342
+  },
+  {
+    "file": "search/library/repair/repair_flex_many.py",
+    "status": "prepared or bounded search; not a proof",
+    "sha256": "7f249c4d12cec7c79f097e12131f276d2b5d69678698676dfffd4caaca093161",
+    "bytes": 3271
+  },
+  {
+    "file": "search/audit/abc-runs/r00000-circuit.json",
+    "status": "20-gate baseline; not a refutation",
+    "sha256": "95feaa76e0cf53517e273462a5d7d6e2ffcbc2ab8f5cfb9dac5da898a8bd8a90",
+    "bytes": 529
+  },
+  {
+    "file": "search/audit/abc-runs/r00000.aig",
+    "status": "20-gate baseline; not a refutation",
+    "sha256": "114f2227ea008a4d4277a747af7ad74b901118c10e194c03962af4d73c4c87ee",
+    "bytes": 198
+  },
+  {
+    "file": "search/audit/abc-runs/r00000.stdout",
+    "status": "20-gate baseline; not a refutation",
+    "sha256": "e21f3498d2b88464b4265345ce46303edc12fdfb3ae28baa1e1e88bf19756fdd",
+    "bytes": 310
+  },
+  {
+    "file": "search/audit/abc-runs/r00000.stderr",
+    "status": "20-gate baseline; not a refutation",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "desk/desk-error-full.txt",
+    "status": "desk response; no live lease",
+    "sha256": "a7fb162b7cc65521e940620d68f8ca0ec8e23eed270d7a4538ed06708e6e6bc6",
+    "bytes": 784
+  },
+  {
+    "file": "desk/desk-log.txt",
+    "status": "desk response; no live lease",
+    "sha256": "1050e817582f876f0d18f0babfd851293b32ee7691841cc455408dfc703750fd",
+    "bytes": 11560
+  },
+  {
+    "file": "desk/timer-beat-003.json",
+    "status": "desk response; no live lease",
+    "sha256": "ede478701d7c9642de058b2936e39c61eb1ac1e9ab6f9421e07a6799ee0bd642",
+    "bytes": 694
+  }
+]

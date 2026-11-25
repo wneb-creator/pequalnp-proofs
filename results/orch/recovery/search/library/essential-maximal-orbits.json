@@ -1,0 +1,32 @@
+[
+  {
+    "independent": 50,
+    "edge": 3,
+    "size": 3,
+    "orbit_size": 30
+  },
+  {
+    "independent": 50,
+    "edge": 6,
+    "size": 3,
+    "orbit_size": 60
+  },
+  {
+    "independent": 50,
+    "edge": 12,
+    "size": 3,
+    "orbit_size": 60
+  },
+  {
+    "independent": 116,
+    "edge": 3,
+    "size": 4,
+    "orbit_size": 15
+  },
+  {
+    "independent": 116,
+    "edge": 6,
+    "size": 4,
+    "orbit_size": 60
+  }
+]

@@ -1,0 +1,15 @@
+/tmp/oec/pequalnp-pilot-109/library/DecidableProbe.lean:9:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable
+    ((∀ (u v : Fin 10), p u = p v → u = v) ∧
+      (∀ (v : Fin 10), ∃ u, p u = v) ∧
+        ∀ (u v : Fin 10), (p u, p v) ∈ edges ∨ (p v, p u) ∈ edges ↔ (u, v) ∈ edges ∨ (v, u) ∈ edges)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-109/library/DecidableProbe.lean:10:160: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (∀ (u v : Fin 10), (p u, p v) ∈ edges ∨ (p v, p u) ∈ edges ↔ (u, v) ∈ edges ∨ (v, u) ∈ edges)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-109/library/DecidableProbe.lean:11:173: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Decidable (∀ (u v : Fin 10), (p u, p v) ∈ edges ∨ (p v, p u) ∈ edges ↔ (u, v) ∈ edges ∨ (v, u) ∈ edges)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

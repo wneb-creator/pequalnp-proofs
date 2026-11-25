@@ -1,0 +1,3 @@
+2026-11-25T14:31:30.792776+00:00 family-sat-two-not SIGTERM sent to 44903; resource-priority stop requested by root
+2026-11-25T14:31:30.802962+00:00 family-pool SIGTERM sent to 46273; resource-priority stop requested by root
+2026-11-25T14:36:39.741762+00:00 ABC standard-flow search stopped with SIGTERM after progress 1140 seconds 96.0 best 20 best_binary 20 pool 150; switching to larger SAT-based subcircuit optimization

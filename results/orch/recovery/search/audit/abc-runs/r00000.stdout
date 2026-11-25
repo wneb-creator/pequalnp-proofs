@@ -1,0 +1,2 @@
+======== ABC command line "read_blif /tmp/oec/pequalnp-pilot-109/audit/seeds/seed-00.blif; strash; dc2; dc2; rewrite -z; dc2; strash; print_stats; write_aiger /tmp/oec/pequalnp-pilot-109/audit/abc-runs/r00000.aig"
+[1;37mpetersen                      :[0m i/o =   10/    1  lat =    0  and =     20  lev =  6

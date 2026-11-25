@@ -1,0 +1,104 @@
+[
+  {
+    "independent": 1,
+    "edge": 6,
+    "size": 1,
+    "orbit_size": 60
+  },
+  {
+    "independent": 1,
+    "edge": 12,
+    "size": 1,
+    "orbit_size": 60
+  },
+  {
+    "independent": 5,
+    "edge": 3,
+    "size": 2,
+    "orbit_size": 60
+  },
+  {
+    "independent": 5,
+    "edge": 12,
+    "size": 2,
+    "orbit_size": 120
+  },
+  {
+    "independent": 5,
+    "edge": 24,
+    "size": 2,
+    "orbit_size": 60
+  },
+  {
+    "independent": 5,
+    "edge": 66,
+    "size": 2,
+    "orbit_size": 30
+  },
+  {
+    "independent": 5,
+    "edge": 264,
+    "size": 2,
+    "orbit_size": 120
+  },
+  {
+    "independent": 5,
+    "edge": 320,
+    "size": 2,
+    "orbit_size": 60
+  },
+  {
+    "independent": 42,
+    "edge": 3,
+    "size": 3,
+    "orbit_size": 120
+  },
+  {
+    "independent": 42,
+    "edge": 17,
+    "size": 3,
+    "orbit_size": 60
+  },
+  {
+    "independent": 42,
+    "edge": 24,
+    "size": 3,
+    "orbit_size": 60
+  },
+  {
+    "independent": 42,
+    "edge": 528,
+    "size": 3,
+    "orbit_size": 60
+  },
+  {
+    "independent": 50,
+    "edge": 3,
+    "size": 3,
+    "orbit_size": 30
+  },
+  {
+    "independent": 50,
+    "edge": 6,
+    "size": 3,
+    "orbit_size": 60
+  },
+  {
+    "independent": 50,
+    "edge": 12,
+    "size": 3,
+    "orbit_size": 60
+  },
+  {
+    "independent": 116,
+    "edge": 3,
+    "size": 4,
+    "orbit_size": 15
+  },
+  {
+    "independent": 116,
+    "edge": 6,
+    "size": 4,
+    "orbit_size": 60
+  }
+]

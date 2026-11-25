@@ -1,0 +1,7 @@
+r 1 states 3 covered 0 of 7 seconds 1.574399993842235e-05
+r 2 states 9 covered 0 of 7 seconds 5.57540001864254e-05
+r 3 states 26 covered 1 of 7 seconds 0.00010618000032991404
+r 4 states 69 covered 4 of 7 seconds 0.0005324429998836422
+r 5 states 159 covered 7 of 7 seconds 0.0016501400000379363
+r 6 states 121 covered 7 of 7 seconds 0.0036715199998980097
+RESULTS [((5, 7, 9), (5, (1, 2, 2))), ((5, 8, 9), (4, (2, 1, 1))), ((6, 8, 9), (5, (2, 2, 1))), ((5, 6, 9), (4, (1, 1, 2))), ((7, 8, 9), (4, (2, 1, 1))), ((4, 7, 8), (3, (1, 1, 1))), ((6, 7, 9), (5, (2, 2, 1)))]

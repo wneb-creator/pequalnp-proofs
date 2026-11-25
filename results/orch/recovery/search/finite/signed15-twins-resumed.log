@@ -1,0 +1,39 @@
+start 1795617332.5408435 binary 15 negations 4 fan2 False collapsed_fan2 False covered False twins True first -1 samples 91
+check 0 unknown seconds 600.1069800853729 samples 91
+reason timeout
+(:max-memory              221.46
+ :memory                  61.18
+ :num-allocs              150255398481.00
+ :rlimit-count            3067613904
+ :sat-ate                 11528
+ :sat-backjumps           900256
+ :sat-backtracks          212
+ :sat-bce                 460
+ :sat-conflicts           900468
+ :sat-decisions           1968047
+ :sat-del-clause          1239490
+ :sat-elim-bool-vars-res  51106
+ :sat-elim-clauses        45369
+ :sat-elim-literals       466554
+ :sat-gc-clause           821199
+ :sat-minimized-lits      64256692
+ :sat-mk-clause-2ary      212096
+ :sat-mk-clause-3ary      104289
+ :sat-mk-clause-nary      1365428
+ :sat-mk-var              104402
+ :sat-probing-assigned    2723
+ :sat-propagations-2ary   1048593358
+ :sat-propagations-nary   2109854290
+ :sat-restarts            101606
+ :sat-scc-elim-binary     2608
+ :sat-scc-elim-vars       5955
+ :sat-subs-resolution     15288
+ :sat-subs-resolution-dyn 7206744
+ :sat-subsumed            49528
+ :sat-tr                  5428
+ :sat-units               13539
+ :solve-eqs-elim-vars     95
+ :solve-eqs-steps         19512
+ :time                    600.11)
+
+2026-11-25T14:45:55.408337+00:00 STOP requested after desk HTTP410; no further proof/search work authorized without live lease.

@@ -1,0 +1,14 @@
+/tmp/oec/pequalnp-pilot-109/finite/FormulaProjectionBridge.lean:146:30: warning: This simp argument is unused:
+  Nat.testBit_land
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hfu r, hgv r]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-109/finite/FormulaProjectionBridge.lean:154:30: warning: This simp argument is unused:
+  Nat.testBit_lor
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hfu r, hgv r]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

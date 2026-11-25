@@ -1,0 +1,31 @@
+start 1795615890.3019109 gates 5
+unsat
+(:max-memory              34.93
+ :memory                  20.18
+ :num-allocs              107033743
+ :rlimit-count            2957197
+ :sat-backjumps           5651
+ :sat-conflicts           5652
+ :sat-decisions           11736
+ :sat-del-clause          59926
+ :sat-elim-bool-vars-res  8175
+ :sat-elim-clauses        16278
+ :sat-elim-literals       26031
+ :sat-minimized-lits      50270
+ :sat-mk-clause-2ary      27766
+ :sat-mk-clause-3ary      13700
+ :sat-mk-clause-nary      61724
+ :sat-mk-var              11350
+ :sat-probing-assigned    3
+ :sat-propagations-2ary   462235
+ :sat-propagations-nary   2270277
+ :sat-restarts            291
+ :sat-scc-elim-binary     17
+ :sat-scc-elim-vars       1
+ :sat-subs-resolution     80
+ :sat-subs-resolution-dyn 3594
+ :sat-subsumed            1499
+ :sat-units               767
+ :solve-eqs-elim-vars     9
+ :solve-eqs-steps         803
+ :time                    1.84)

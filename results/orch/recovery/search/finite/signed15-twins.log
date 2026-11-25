@@ -1,0 +1,36 @@
+start 1795617082.0512738 binary 15 negations 4 fan2 False collapsed_fan2 False covered False twins True first -1 samples 91
+check 0 unknown seconds 25.314708948135376 samples 91
+reason interrupted from keyboard
+(:max-memory              201.27
+ :memory                  61.18
+ :num-allocs              5584159996.00
+ :rlimit-count            52469266
+ :sat-backjumps           24993
+ :sat-backtracks          47
+ :sat-conflicts           25040
+ :sat-decisions           72550
+ :sat-del-clause          286523
+ :sat-elim-bool-vars-res  45096
+ :sat-elim-clauses        35456
+ :sat-elim-literals       59601
+ :sat-gc-clause           9317
+ :sat-minimized-lits      1163858
+ :sat-mk-clause-2ary      154209
+ :sat-mk-clause-3ary      96525
+ :sat-mk-clause-nary      462433
+ :sat-mk-var              104402
+ :sat-probing-assigned    3250
+ :sat-propagations-2ary   14569820
+ :sat-propagations-nary   35610036
+ :sat-restarts            4505
+ :sat-scc-elim-binary     49
+ :sat-scc-elim-vars       425
+ :sat-subs-resolution     1685
+ :sat-subs-resolution-dyn 232062
+ :sat-subsumed            36365
+ :sat-units               6358
+ :solve-eqs-elim-vars     95
+ :solve-eqs-steps         19512
+ :time                    25.31)
+
+2026-11-25T14:31:53.192076+00:00 STOPPED by coordinator for resource scheduling; no satisfiability verdict.

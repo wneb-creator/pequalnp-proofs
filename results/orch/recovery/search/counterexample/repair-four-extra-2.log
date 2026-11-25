@@ -1,0 +1,30 @@
+start 1795616257.956376 gates 19 nots 1 samples 192
+check 0 unsat seconds 47.587087869644165
+(:max-memory              188.82
+ :memory                  47.31
+ :num-allocs              4868682982.00
+ :rlimit-count            43603566
+ :sat-backjumps           5596
+ :sat-conflicts           5597
+ :sat-decisions           15057
+ :sat-del-clause          314054
+ :sat-elim-bool-vars-res  43291
+ :sat-elim-clauses        57388
+ :sat-elim-literals       82868
+ :sat-minimized-lits      104334
+ :sat-mk-clause-2ary      138917
+ :sat-mk-clause-3ary      75517
+ :sat-mk-clause-nary      600477
+ :sat-mk-var              108838
+ :sat-propagations-2ary   3080943
+ :sat-propagations-nary   37867219
+ :sat-restarts            562
+ :sat-scc-elim-binary     67
+ :sat-scc-elim-vars       14
+ :sat-subs-resolution     810
+ :sat-subs-resolution-dyn 3409
+ :sat-subsumed            10418
+ :sat-units               2690
+ :solve-eqs-elim-vars     33
+ :solve-eqs-steps         3569
+ :time                    47.55)

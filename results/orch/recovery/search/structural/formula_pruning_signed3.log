@@ -1,0 +1,5 @@
+r 1 states 6 covered 0 of 7 seconds 1.5833000361453742e-05
+r 2 states 33 covered 0 of 7 seconds 0.00014262499962569564
+r 3 states 184 covered 1 of 7 seconds 0.0008435830000053102
+r 4 states 1056 covered 4 of 7 seconds 0.009894561999772122
+SIGNED RESULTS [((5, 7, 9), None), ((5, 8, 9), (4, (1, 2, 1))), ((6, 8, 9), None), ((5, 6, 9), (4, (1, 1, 2))), ((7, 8, 9), (4, (1, 1, 2))), ((4, 7, 8), (3, (1, 1, 1))), ((6, 7, 9), None)]

@@ -1,0 +1,44 @@
+/tmp/oec/pequalnp-pilot-109/finite/FormulaProjectionFull.lean:146:30: warning: This simp argument is unused:
+  Nat.testBit_land
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hfu r, hgv r]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-109/finite/FormulaProjectionFull.lean:154:30: warning: This simp argument is unused:
+  Nat.testBit_lor
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hfu r, hgv r]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-109/finite/FormulaProjectionFull.lean:212:66: error: Application type mismatch: The argument
+  hv
+has type
+  u.land v ∈ List.map u.land (pruningTables b)
+but is expected to have type
+  v ∈ pruningTables b
+in the application
+  hb v hv
+/tmp/oec/pequalnp-pilot-109/finite/FormulaProjectionFull.lean:224:66: error: Application type mismatch: The argument
+  hv
+has type
+  u.lor v ∈ List.map u.lor (pruningTables b)
+but is expected to have type
+  v ∈ pruningTables b
+in the application
+  hb v hv
+/tmp/oec/pequalnp-pilot-109/finite/FormulaProjectionFull.lean:219:4: error: unsolved goals
+case or.inr
+a b : DMFormula 3
+ha : ∀ t ∈ pruningTables a, t < 256
+hb : ∀ t ∈ pruningTables b, t < 256
+u : ℕ
+hu : u ∈ pruningTables a
+v : ℕ
+hv✝ : v ∈ pruningTables b
+ht : u.lor v ∈ List.flatMap (fun x => List.map x.lor (pruningTables b)) (pruningTables a)
+hv : u.lor v ∈ List.map u.lor (pruningTables b)
+i : ℕ
+hi : i ≥ 8
+⊢ v.testBit i = false

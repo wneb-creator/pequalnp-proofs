@@ -1,0 +1,5 @@
+r 1 states 6 covered 0 of 7 seconds 1.817700012907153e-05
+r 2 states 33 covered 0 of 7 seconds 0.00015022699972178089
+r 3 states 184 covered 1 of 7 seconds 0.0009615819999453379
+r 4 states 1056 covered 4 of 7 seconds 0.01082929599988347
+minimal forbidden subfamilies 3 [(200, 234, 254), (200, 248, 254), (234, 248, 254)]

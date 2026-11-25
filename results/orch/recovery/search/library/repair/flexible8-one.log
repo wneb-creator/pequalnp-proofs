@@ -1,0 +1,36 @@
+start 1795616338.0064769 fixed 8 free 11 samples 125
+iteration 0 unknown seconds 180.27157616615295
+(:max-memory              85.87
+ :memory                  22.46
+ :num-allocs              3724745651
+ :rlimit-count            164977483
+ :sat-ate                 506
+ :sat-backjumps           134990
+ :sat-backtracks          11
+ :sat-bce                 210
+ :sat-conflicts           135001
+ :sat-decisions           359934
+ :sat-del-clause          264200
+ :sat-elim-bool-vars-res  25686
+ :sat-elim-clauses        2589
+ :sat-elim-literals       133956
+ :sat-gc-clause           102643
+ :sat-minimized-lits      3455330
+ :sat-mk-clause-2ary      78049
+ :sat-mk-clause-3ary      45668
+ :sat-mk-clause-nary      349772
+ :sat-mk-var              40581
+ :sat-probing-assigned    7
+ :sat-propagations-2ary   25553333
+ :sat-propagations-nary   145158957
+ :sat-restarts            11677
+ :sat-scc-elim-binary     75
+ :sat-scc-elim-vars       123
+ :sat-subs-resolution     21199
+ :sat-subs-resolution-dyn 139355
+ :sat-subsumed            10232
+ :sat-tr                  79
+ :sat-units               85
+ :solve-eqs-elim-vars     11
+ :solve-eqs-steps         2333
+ :time                    180.27)

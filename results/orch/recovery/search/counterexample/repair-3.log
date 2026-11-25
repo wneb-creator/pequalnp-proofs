@@ -1,0 +1,32 @@
+start 1795615744.3932765 gates 19 nots 1 samples 192
+check 0 unknown seconds 180.08099579811096
+(:added-eqs           40044932
+ :binary-propagations 119288552
+ :bv-bit2core         316510152
+ :bv-diseqs           20736
+ :bv-dynamic-diseqs   904820
+ :bv-dynamic-eqs      3616
+ :bv->core-eq         989176
+ :conflicts           149408
+ :decisions           837810
+ :del-clause          49598864
+ :max-memory          46.31
+ :memory              22.24
+ :minimized-lits      3251586
+ :mk-bool-var         21171726
+ :mk-clause           49695284
+ :mk-clause-binary    42918
+ :num-allocs          56166436134.00
+ :num-checks          2
+ :pb-conflicts        396
+ :pb-predicates       122
+ :pb-propagations     515126
+ :pb-resolves         394
+ :propagations        184416328
+ :random-seed         2
+ :restarts            590
+ :rlimit-count        455416970
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 19
+ :solve-eqs-steps     3555
+ :time                180.07)

@@ -1,0 +1,37 @@
+start 1795615998.8133361 binary 15 negations 4 fan2 True first -1 samples 91
+check 0 unknown seconds 300.19121408462524 samples 91
+reason timeout
+(:max-memory              113.01
+ :memory                  35.96
+ :num-allocs              7868723593.00
+ :rlimit-count            330820087
+ :sat-ate                 1253
+ :sat-backjumps           134867
+ :sat-backtracks          134
+ :sat-bce                 70
+ :sat-conflicts           135001
+ :sat-decisions           351212
+ :sat-del-clause          264662
+ :sat-elim-bool-vars-res  19312
+ :sat-elim-clauses        14705
+ :sat-elim-literals       110246
+ :sat-gc-clause           100399
+ :sat-minimized-lits      5958423
+ :sat-mk-clause-2ary      94213
+ :sat-mk-clause-3ary      40786
+ :sat-mk-clause-nary      379082
+ :sat-mk-var              54623
+ :sat-probing-assigned    3339
+ :sat-propagations-2ary   85713321
+ :sat-propagations-nary   251434367
+ :sat-restarts            20553
+ :sat-scc-elim-binary     150
+ :sat-scc-elim-vars       3760
+ :sat-subs-resolution     12401
+ :sat-subs-resolution-dyn 671536
+ :sat-subsumed            11434
+ :sat-tr                  291
+ :sat-units               8173
+ :solve-eqs-elim-vars     55
+ :solve-eqs-steps         10924
+ :time                    300.19)

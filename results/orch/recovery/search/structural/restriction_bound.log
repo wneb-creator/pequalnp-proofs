@@ -1,0 +1,3 @@
+lower 11 seconds 0.20571625499997026 cache CacheInfo(hits=13754, misses=1169, maxsize=None, currsize=1169)
+cofactor 0 0 vars 9 bound 9
+cofactor 0 1 vars 9 bound 9

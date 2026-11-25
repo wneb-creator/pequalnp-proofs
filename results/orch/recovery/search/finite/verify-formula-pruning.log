@@ -1,0 +1,5 @@
+Independent enumeration verified: 1279 distinct signatures across occurrence vectors; no ≤4-leaf signed skeleton covers {200,234,254}.
+occurrence vector (1, 2, 1) signatures 288
+occurrence vector (1, 1, 2) signatures 288
+occurrence vector (2, 1, 1) signatures 288
+Confirmed two-function pruning counterexample; three cofactors are necessary for this certificate.

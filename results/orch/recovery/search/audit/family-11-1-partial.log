@@ -1,0 +1,32 @@
+start 1795616327.2003973 gates 11 nots 1 partial True
+result unknown time 1795616507.2875586
+(:added-eqs           48509180
+ :binary-propagations 38121998
+ :bv-bit2core         71690366
+ :bv-diseqs           7236
+ :bv-dynamic-diseqs   950876
+ :bv-dynamic-eqs      29258
+ :bv->core-eq         7556498
+ :conflicts           130164
+ :decisions           754672
+ :del-clause          15050806
+ :max-memory          36.89
+ :memory              20.08
+ :minimized-lits      1063340
+ :mk-bool-var         10708976
+ :mk-clause           15113974
+ :mk-clause-binary    27098
+ :num-allocs          8696124579.00
+ :num-checks          2
+ :pb-conflicts        44
+ :pb-predicates       50
+ :pb-propagations     43202
+ :pb-resolves         42
+ :propagations        60487150
+ :random-seed         2
+ :restarts            478
+ :rlimit-count        141051846
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 11
+ :solve-eqs-steps     1332
+ :time                180.09)
