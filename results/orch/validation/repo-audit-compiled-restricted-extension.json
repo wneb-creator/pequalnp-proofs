@@ -1,0 +1,91 @@
+{
+  "scope": "Compiled restricted39 support-Scheme bound and compiled abstract98-table extension obstruction; neither proves the posted51 statement. Actual old-circuit-to98-table bridge remains separate.",
+  "checks": [
+    "Geometry APIs unchanged; three finite facts split into13 closed coordinate cases each",
+    "Four-cap avoiding-cardinality3 follows checked incidence double counting",
+    "RestrictedUnionBound source byte-identical to reviewed draft and all dependencies checked",
+    "Generic extension delta only explicit Fin.ext injectivity and BooleanOR parentheses",
+    "Finite nine-cover and table extension sources byte-identical to reviewed drafts",
+    "All five complete logs show exit0 and no resource stop; no forbidden mechanisms"
+  ],
+  "reproduction_existing_dependencies": [
+    {
+      "module": "GuardCharging",
+      "source": "results/orch/checked/guard-charging.lean",
+      "sha256": "6e2c31baa3ce2f08339feb65bfaa9e5f13da150da828e5bd7f669ca63b52d9be"
+    },
+    {
+      "module": "GeometryRowsDefs",
+      "source": "results/orch/checked/modules/GeometryRowsDefs.lean",
+      "sha256": "3b206cf10d7acd0196a5ad5dd32df658d448cad6d99861469e60a2f5ee6978cf"
+    },
+    {
+      "module": "PureUnionAncestry",
+      "source": "results/orch/checked/pure-union-ancestry.lean",
+      "sha256": "a32671d59adbd49c58b0772d542d44b6f8247fb6f573c5de6391918da114ee92"
+    },
+    {
+      "module": "CanonicalCompilerDefs",
+      "source": "results/orch/checked/modules/CanonicalCompilerAliasDefs.lean",
+      "sha256": "dc9fc17b0b48ae7caa20f941e7a9949547133a90950b49f655a7b12b4556ccb5"
+    }
+  ],
+  "files": [
+    {
+      "path": "results/orch/checked/extension-shadow-20261125T0638/CanonicalExtensionCover.lean",
+      "sha256": "eb618705044b72327db562f385589cde5ffe362304d56ced37eafc7f2ecee1ef"
+    },
+    {
+      "path": "results/orch/checked/extension-shadow-20261125T0638/CanonicalExtensionCover.log",
+      "sha256": "92b8cde1e2e022a357f3cc44d1b2a28e4ad9b7311c736df4211a04f1ad57550b"
+    },
+    {
+      "path": "results/orch/checked/extension-shadow-20261125T0638/MarginalCoverFinite.lean",
+      "sha256": "bdeb3d0cc2af3b6d0a3eb40bd545eaaf10acb2364efca6957ad19b1a4c25df7b"
+    },
+    {
+      "path": "results/orch/checked/extension-shadow-20261125T0638/MarginalCoverFinite.log",
+      "sha256": "b28351c511e71e95008ee60a21c60eca794c36671f34f3b078e89a64ec0ca062"
+    },
+    {
+      "path": "results/orch/checked/extension-shadow-20261125T0638/MarginalExtensionObstruction.lean",
+      "sha256": "07237b08b6e37c0b6fccc665ac70411fb74e74c1d2ab751b2eabfbd07090e4cb"
+    },
+    {
+      "path": "results/orch/checked/extension-shadow-20261125T0638/MarginalExtensionObstruction.log",
+      "sha256": "8439efeb16059f5baff7b11dacf05871b40ba8b2329ecd940d30d7ccaeba55b6"
+    },
+    {
+      "path": "results/orch/checked/modules/GuardGeometry.json",
+      "sha256": "609c8bc7fb4f541e2f27fa607e1e1ef278fe48249df0c8453712859fef677717"
+    },
+    {
+      "path": "results/orch/checked/modules/GuardGeometry.lean",
+      "sha256": "e4b9ff52fd31e90936007c5c61e61a1ddae5bbc1ab71868ca4d147a7d2d00589"
+    },
+    {
+      "path": "results/orch/checked/modules/GuardGeometry.log",
+      "sha256": "6084076b16162780b3b2b1cd427be4427baa06f5b3c2cfdff94ca91e4d116946"
+    },
+    {
+      "path": "results/orch/checked/modules/GuardGeometry.sha256",
+      "sha256": "4eb171a48f53049400f36926ce5b737da7f4649b02c45417021cfb29ecba448a"
+    },
+    {
+      "path": "results/orch/checked/restricted-union-bound.json",
+      "sha256": "09cbba0f9f294462439ea3b7850ed964b45ff848de7918ecf4e7c21e2e165905"
+    },
+    {
+      "path": "results/orch/checked/restricted-union-bound.lean",
+      "sha256": "cc9d08b8e1e098eb94ab0bd454ee0bfbd324467b036d8f373fe2dff6913b5bba"
+    },
+    {
+      "path": "results/orch/checked/restricted-union-bound.log",
+      "sha256": "e27d179fcb8f92ec3ddcc8c2973b9302479c68c8ae97ace066ba1db3b9046d48"
+    },
+    {
+      "path": "results/orch/checked/restricted-union-bound.runner.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

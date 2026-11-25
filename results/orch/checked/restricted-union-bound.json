@@ -1,0 +1,23 @@
+{
+  "source": "results/orch/lemmas/RestrictedUnionBound.lean",
+  "sha256": "cc9d08b8e1e098eb94ab0bd454ee0bfbd324467b036d8f373fe2dff6913b5bba",
+  "lines": 155,
+  "exit_code": 0,
+  "status": "checked restricted39 lower bound for explicit backward literal-union support Scheme and13 cap-separated pencil outputs; not the posted51 theorem",
+  "finished_utc": "2026-11-25T06:36:37.562155+00:00",
+  "olean": "/tmp/oec/pequalnp-pilot-62/lean-modules/RestrictedUnionBound.olean",
+  "olean_bytes": 247776,
+  "metrics": {
+    "WALL_SECONDS": "3.5023359290007647",
+    "USER_SECONDS": "2.32435",
+    "SYS_SECONDS": "1.199976",
+    "PEAK_RSS_KIB": "2916220",
+    "PEAK_CGROUP_BYTES": "4539723776",
+    "RESOURCE_STOPPED": "False"
+  },
+  "dependencies": {
+    "GuardCharging.lean": "6e2c31baa3ce2f08339feb65bfaa9e5f13da150da828e5bd7f669ca63b52d9be",
+    "GuardGeometry.lean": "e4b9ff52fd31e90936007c5c61e61a1ddae5bbc1ab71868ca4d147a7d2d00589",
+    "PureUnionAncestry.lean": "a32671d59adbd49c58b0772d542d44b6f8247fb6f573c5de6391918da114ee92"
+  }
+}

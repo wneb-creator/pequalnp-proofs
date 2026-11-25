@@ -1,0 +1,43 @@
+import took 1.25s
+/workspace/pequalnp-proofs/results/orch/lemmas/RestrictedUnionBound.lean:67:22: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/RestrictedUnionBound.lean:94:22: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+cumulative profiling times:
+	.olean serialization 10.3ms
+	attribute application 0.0661ms
+	compilation (IR) 0.714ms
+	compilation (LCNF base) 14.5ms
+	compilation (LCNF impure) 2.71ms
+	compilation (LCNF mono) 5.06ms
+	congr simp thm 1.98ms
+	declTypeLinter 3.68ms
+	elaboration 23.4ms
+	fix level params 0.292ms
+	import 1.25s
+	initialization 32.9ms
+	instantiate metavars 1.33ms
+	interpretation 285ms
+	let-to-have transformation 0.0897ms
+	linting 22.4ms
+	module linting 0.0201ms
+	parsing 5.86ms
+	process pre-definitions 4.48ms
+	share common exprs 2.13ms
+	simp 86ms
+	tactic execution 550ms
+	tacticAnalysis 3.88ms
+	type checking 23.3ms
+	typeclass inference 245ms
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 3.5023359290007647
+USER_SECONDS 2.32435
+SYS_SECONDS 1.199976
+PEAK_RSS_KIB 2916220
+PEAK_CGROUP_BYTES 4539723776

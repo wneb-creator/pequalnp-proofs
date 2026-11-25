@@ -1,0 +1,91 @@
+import took 2.13s
+type checking took 155ms
+type checking took 413ms
+type checking took 877ms
+type checking took 719ms
+type checking took 847ms
+type checking took 764ms
+type checking took 697ms
+type checking took 688ms
+type checking took 818ms
+type checking took 769ms
+type checking took 758ms
+type checking took 780ms
+type checking took 706ms
+type checking took 821ms
+type checking took 847ms
+type checking took 2.4s
+type checking took 291ms
+type checking took 270ms
+type checking took 285ms
+type checking took 277ms
+type checking took 283ms
+type checking took 268ms
+type checking took 255ms
+type checking took 269ms
+type checking took 480ms
+type checking took 284ms
+type checking took 303ms
+type checking took 310ms
+type checking took 290ms
+type checking took 2.83s
+type checking took 2.8s
+type checking took 2.79s
+type checking took 2.61s
+type checking took 2.8s
+type checking took 3.17s
+type checking took 2.87s
+type checking took 3.1s
+type checking took 3.49s
+type checking took 2.91s
+type checking took 2.97s
+type checking took 3.5s
+type checking took 3.03s
+/workspace/pequalnp-proofs/results/orch/lemmas/GuardGeometry.lean:442:26: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GuardGeometry.lean:453:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GuardGeometry.lean:468:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+type checking took 149ms
+cumulative profiling times:
+	.olean serialization 35.8ms
+	attribute application 1.51ms
+	blocked (unaccounted) 834s
+	compilation (IR) 0.511ms
+	compilation (LCNF base) 11.8ms
+	compilation (LCNF impure) 2.96ms
+	compilation (LCNF mono) 5.39ms
+	congr simp thm 8.87ms
+	declTypeLinter 41.3ms
+	elaboration 399ms
+	fix level params 1.83ms
+	import 2.13s
+	initialization 35.1ms
+	instantiate metavars 2.87ms
+	interpretation 530ms
+	let-to-have transformation 2.07ms
+	linting 103ms
+	module linting 0.148ms
+	parsing 33.6ms
+	process pre-definitions 40.7ms
+	share common exprs 12.2ms
+	simp 648ms
+	tactic execution 633ms
+	tacticAnalysis 15.1ms
+	type checking 56.2s
+	typeclass inference 967ms
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 61.09978586099896
+USER_SECONDS 56.301761
+SYS_SECONDS 5.35001
+PEAK_RSS_KIB 3497660
+PEAK_CGROUP_BYTES 5388914688
