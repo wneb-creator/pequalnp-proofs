@@ -540,4 +540,196 @@ lemma no_injective_assignment :
 
 end Hall
 
+namespace CrossRectangleCover
+
+variable {α β : Type*} [DecidableEq α] [DecidableEq β]
+
+def NoFour (R : α → β → Prop) : Prop :=
+  ∀ a a' b b', a ≠ a' → b ≠ b' → ¬ (R a b ∧ R a b' ∧ R a' b ∧ R a' b')
+
+def Cross (U0 U A : Finset α) (V0 V B : Finset β) (a : α) (b : β) : Prop :=
+  (a ∈ U0 ∧ b ∈ V0) ∨ (a ∈ A ∧ b ∈ V) ∨ (a ∈ U ∧ b ∈ B)
+
+lemma rectangle_cover (R : α → β → Prop) (hno : NoFour R)
+    (U : Finset α) (V : Finset β)
+    (hr : ∀ a ∈ U, ∀ b ∈ V, R a b) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ a ∈ U, ∀ b ∈ V, a ∈ P ∨ b ∈ Q) ∧ P.card + Q.card ≤ 1 := by
+  by_cases hu : U.card ≤ 1
+  · exact ⟨U, ∅, fun a ha b hb => Or.inl ha, by simpa using hu⟩
+  · have hv : V.card ≤ 1 := by
+      apply Finset.card_le_one.mpr
+      intro b hb b' hb'
+      by_contra hbb
+      obtain ⟨a, ha, a', ha', haa⟩ := Finset.one_lt_card.mp (by omega : 1 < U.card)
+      exact hno a a' b b' haa hbb ⟨hr a ha b hb, hr a ha b' hb', hr a' ha' b hb, hr a' ha' b' hb'⟩
+    exact ⟨∅, V, fun a ha b hb => Or.inr hb, by simpa using hv⟩
+
+lemma two_rectangles_cover (R : α → β → Prop) (hno : NoFour R)
+    (U0 U1 : Finset α) (V0 V1 : Finset β)
+    (hr0 : ∀ a ∈ U0, ∀ b ∈ V0, R a b)
+    (hr1 : ∀ a ∈ U1, ∀ b ∈ V1, R a b)
+    (hcover : ∀ a b, R a b → (a ∈ U0 ∧ b ∈ V0) ∨ (a ∈ U1 ∧ b ∈ V1)) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ a b, R a b → a ∈ P ∨ b ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  obtain ⟨P0, Q0, hc0, hb0⟩ := rectangle_cover R hno U0 V0 hr0
+  obtain ⟨P1, Q1, hc1, hb1⟩ := rectangle_cover R hno U1 V1 hr1
+  refine ⟨P0 ∪ P1, Q0 ∪ Q1, ?_, ?_⟩
+  · intro a b hab
+    rcases hcover a b hab with ⟨ha, hb⟩ | ⟨ha, hb⟩
+    · rcases hc0 a ha b hb with hp | hq
+      · exact Or.inl (Finset.mem_union_left P1 hp)
+      · exact Or.inr (Finset.mem_union_left Q1 hq)
+    · rcases hc1 a ha b hb with hp | hq
+      · exact Or.inl (Finset.mem_union_right P0 hp)
+      · exact Or.inr (Finset.mem_union_right Q0 hq)
+  · have hp := Finset.card_union_le P0 P1
+    have hq := Finset.card_union_le Q0 Q1
+    omega
+
+lemma cross_baseline_cover (U0 U A : Finset α) (V0 V B : Finset β)
+    (hu0 : U0 ⊆ U) (hv0 : V0 ⊆ V) (haU : A ⊆ U) (hbV : B ⊆ V)
+    (hno : NoFour (Cross U0 U A V0 V B)) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ a b, Cross U0 U A V0 V B a b → a ∈ P ∨ b ∈ Q) ∧
+      P.card + Q.card ≤ 2 := by
+  by_cases ha : A.Nonempty
+  · by_cases hb : B.Nonempty
+    · obtain ⟨a, ha⟩ := ha
+      obtain ⟨b, hb⟩ := hb
+      refine ⟨{a}, {b}, ?_, by simp⟩
+      intro u v huv
+      by_cases hua : u = a
+      · exact Or.inl (by simp [hua])
+      by_cases hvb : v = b
+      · exact Or.inr (by simp [hvb])
+      have huv' : u ∈ U ∧ v ∈ V := by
+        rcases huv with ⟨hu, hv⟩ | ⟨hu, hv⟩ | ⟨hu, hv⟩
+        · exact ⟨hu0 hu, hv0 hv⟩
+        · exact ⟨haU hu, hv⟩
+        · exact ⟨hu, hbV hv⟩
+      exact False.elim (hno a u b v (Ne.symm hua) (Ne.symm hvb)
+        ⟨Or.inr (Or.inl ⟨ha, hbV hb⟩), Or.inr (Or.inl ⟨ha, huv'.2⟩),
+          Or.inr (Or.inr ⟨huv'.1, hb⟩), huv⟩)
+    · apply two_rectangles_cover (Cross U0 U A V0 V B) hno U0 A V0 V
+      · intro a ha b hb
+        exact Or.inl ⟨ha, hb⟩
+      · intro a ha b hb
+        exact Or.inr (Or.inl ⟨ha, hb⟩)
+      · intro a b hab
+        rcases hab with h0 | hA | hB
+        · exact Or.inl h0
+        · exact Or.inr hA
+        · exact (hb ⟨b, hB.2⟩).elim
+  · apply two_rectangles_cover (Cross U0 U A V0 V B) hno U0 U V0 B
+    · intro a ha b hb
+      exact Or.inl ⟨ha, hb⟩
+    · intro a ha b hb
+      exact Or.inr (Or.inr ⟨ha, hb⟩)
+    · intro a b hab
+      rcases hab with h0 | hA | hB
+      · exact Or.inl h0
+      · exact (ha ⟨a, hA.1⟩).elim
+      · exact Or.inr hB
+
+lemma cross_baseline_cover_of_subrelation (R : α → β → Prop) (hno : NoFour R)
+    (U0 U A : Finset α) (V0 V B : Finset β)
+    (hu0 : U0 ⊆ U) (hv0 : V0 ⊆ V) (haU : A ⊆ U) (hbV : B ⊆ V)
+    (hsub : ∀ a b, Cross U0 U A V0 V B a b → R a b) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ a b, Cross U0 U A V0 V B a b → a ∈ P ∨ b ∈ Q) ∧
+      P.card + Q.card ≤ 2 := by
+  apply cross_baseline_cover U0 U A V0 V B hu0 hv0 haU hbV
+  intro a a' b b' haa hbb h
+  exact hno a a' b b' haa hbb
+    ⟨hsub a b h.1, hsub a b' h.2.1, hsub a' b h.2.2.1, hsub a' b' h.2.2.2⟩
+
+end CrossRectangleCover
+
+namespace BooleanFactorCover
+
+open CrossRectangleCover
+
+variable {α β : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
+
+def support (f : α → Bool) : Finset α := Finset.univ.filter (fun a => f a = true)
+
+lemma mixed_factor_cover (R : α → β → Prop) (hno : NoFour R)
+    (g : α → Bool → Bool) (h : β → Bool → Bool) (u : α → Bool) (v : β → Bool)
+    (hg : ∀ a, g a false = true → g a true = true)
+    (hh : ∀ b, h b false = true → h b true = true)
+    (hr : ∀ a b, R a b ↔ g a (u a || v b) && h b (u a || v b) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ a b, R a b → a ∈ P ∨ b ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  let U0 := support (fun a => g a false)
+  let U := support (fun a => g a true)
+  let A := support (fun a => u a && g a true)
+  let V0 := support (fun b => h b false)
+  let V := support (fun b => h b true)
+  let B := support (fun b => v b && h b true)
+  have hu0 : U0 ⊆ U := by simpa [U0, U, support, Finset.subset_iff] using hg
+  have hv0 : V0 ⊆ V := by simpa [V0, V, support, Finset.subset_iff] using hh
+  have haU : A ⊆ U := by simp [A, U, support, Finset.subset_iff]
+  have hbV : B ⊆ V := by simp [B, V, support, Finset.subset_iff]
+  have heq : ∀ a b, R a b ↔ Cross U0 U A V0 V B a b := by
+    intro a b
+    rw [hr]
+    simp only [Cross, U0, U, A, V0, V, B, support, Finset.mem_filter,
+      Finset.mem_univ, true_and, Bool.and_eq_true]
+    have hga := hg a
+    have hhb := hh b
+    cases hu : u a <;> cases hv : v b <;> simp [hu, hv] <;> tauto
+  obtain ⟨P, Q, hc, hcard⟩ := cross_baseline_cover U0 U A V0 V B hu0 hv0 haU hbV
+    (by intro a a' b b' haa hbb hfour
+        exact hno a a' b b' haa hbb
+          ⟨(heq a b).mpr hfour.1, (heq a b').mpr hfour.2.1,
+           (heq a' b).mpr hfour.2.2.1, (heq a' b').mpr hfour.2.2.2⟩)
+  exact ⟨P, Q, fun a b hab => hc a b ((heq a b).mp hab), hcard⟩
+
+lemma one_sided_factor_cover (R : α → β → Prop) (hno : NoFour R)
+    (g : α → Bool → Bool) (h : β → Bool)
+    (u v : α → Bool) (w : β → Bool)
+    (hg : ∀ a, g a false = true → g a true = true)
+    (hr : ∀ a b, R a b ↔ g a (u a || (v a && w b)) && h b = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ a b, R a b → a ∈ P ∨ b ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  let U0 := support (fun a => g a false || (u a && g a true))
+  let U1 := support (fun a => v a && g a true)
+  let V0 := support h
+  let V1 := support (fun b => w b && h b)
+  have heq : ∀ a b, R a b ↔ (a ∈ U0 ∧ b ∈ V0) ∨ (a ∈ U1 ∧ b ∈ V1) := by
+    intro a b
+    rw [hr]
+    simp only [U0, U1, V0, V1, support, Finset.mem_filter, Finset.mem_univ,
+      true_and, Bool.and_eq_true, Bool.or_eq_true]
+    have hga := hg a
+    cases hu : u a <;> cases hv : v a <;> cases hw : w b <;>
+      simp [hu, hv, hw] <;> tauto
+  exact two_rectangles_cover R hno U0 U1 V0 V1
+    (fun a ha b hb => (heq a b).mpr (Or.inl ⟨ha, hb⟩))
+    (fun a ha b hb => (heq a b).mpr (Or.inr ⟨ha, hb⟩))
+    (fun a b hab => (heq a b).mp hab)
+
+lemma empty_support_factor_cover (R : α → β → Prop) (hno : NoFour R)
+    (g u v : α → Bool) (h s t : β → Bool)
+    (hr : ∀ a b, R a b ↔ ((u a && s b) || (v a && t b)) && g a && h b = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ a b, R a b → a ∈ P ∨ b ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  let U0 := support (fun a => u a && g a)
+  let U1 := support (fun a => v a && g a)
+  let V0 := support (fun b => s b && h b)
+  let V1 := support (fun b => t b && h b)
+  have heq : ∀ a b, R a b ↔ (a ∈ U0 ∧ b ∈ V0) ∨ (a ∈ U1 ∧ b ∈ V1) := by
+    intro a b
+    rw [hr]
+    simp only [U0, U1, V0, V1, support, Finset.mem_filter, Finset.mem_univ,
+      true_and, Bool.and_eq_true, Bool.or_eq_true]
+    tauto
+  exact two_rectangles_cover R hno U0 U1 V0 V1
+    (fun a ha b hb => (heq a b).mpr (Or.inl ⟨ha, hb⟩))
+    (fun a ha b hb => (heq a b).mpr (Or.inr ⟨ha, hb⟩))
+    (fun a b hab => (heq a b).mp hab)
+
+end BooleanFactorCover
+
 end PEqualNP.Outside.L_meta_4970.H9RedTeam

@@ -6,7 +6,7 @@ Status: checked helper diagnostics only; no proof or refutation of the posted st
 
 Pinned Lean: v4.36.0.
 Validation: lake env lean ../results/swarm/H9RedTeam.lean passed with PEqualNP.Defs.
-All 57 helper lemmas passed an independent compile and axiom audit.
+All 64 helper lemmas compile and pass an axiom audit.
 Axioms are restricted to propext, Classical.choice, and Quot.sound.
 Independent exhaustive circuit evaluation passed.
 Independent mathematical and plain-file review passed.
@@ -41,6 +41,14 @@ two matching edges have the same sole eligible AND gate when eligibility uses
 only point-row cofactors and raw line reach. This does not refute the repaired
 doubled-slot argument, which also uses the opposite orientation, or the gap.
 
+CrossRectangleCover and BooleanFactorCover prove seven conditional cover lemmas.
+A C4-free union of a baseline rectangle and two nested cross rectangles has a
+cover of size at most two. The Boolean wrappers give the same bound for three
+explicit factorization equations, covering the empty-support, one-colour, and
+mixed-support exceptional-OR cases. The circuit-to-factorization induction is
+not included in these results. Independent exact-diff mathematical and source
+review passed; all seven new lemmas use only the three standard axioms.
+
 Independent review of peer h1 4348340c and h3 a7ec7e53: mathematical source audit,
 plain-file audit, and exact unchanged-source Lean compilation all passed.
 Both remain helper artifacts with additional hypotheses or an unresolved ledger.
@@ -53,5 +61,5 @@ after deleting only the redundant Mathlib umbrella line, with the same cache
 limitation. The exact posted hypotheses and actual OR witnesses are preserved.
 
 No PR opened; no desk lease requested or released.
-Sub-agents: 2 (toolchain restoration and independent diagnostic audit; peer lemma review and normalization analysis)
-TIMING total=45.0 subagents=2
+Sub-agents: 2 (toolchain restoration, independent diagnostic and peer theorem audit; peer lemma review and cut-circuit analysis)
+TIMING total=55.0 subagents=2
