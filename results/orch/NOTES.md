@@ -58,3 +58,19 @@ Exact C++ exhaustive search stores every wire as its complete truth table and OR
 `results/orch/lemmas/Support.lean` (201 lines) compiles with Mathlib + PEqualNP.Defs only. Namespace `PEqualNP.Outside.L_meta_4675.Support`; final lemmas `essential_card_le` and `incident_card_le`. Hash de3b61906d0bb6a82a44dfcf95b41e71d07514e7e5037daa7799ff93bb8bfda6. Bare fan-in at most two suffices; no AO or ReadsBack needed. Full Lean output is empty at `/tmp/oec/pequalnp-pilot-161/support-build.log`.
 
 Normalization/Masking compiled successfully at 2026-11-25T17:13:47.932649+00:00. Build logs: scratch normalization-lean.log and masking-lean.log. Only unnecessarySimpa warning; all finite masking examples kernel-checked with decide. Masking now includes prior_wire_singletons_same_colour (before first dirty AND all wire singleton supports are monochromatic).
+
+## Star partial compiled 2026-11-25T17:15:55.213887+00:00
+
+`results/orch/lemmas/StarNext.lean` (335 lines) compiles with Mathlib + Defs only; includes unchanged Support source plus Star.row_incident_card/row_bound/column_incident_card/column_bound. Both star orientations prove the exact target cover conclusion, using only fanin<=2 and computed edge-function equality. No C4-free, AO2, or tCount hypothesis required in these special cases. SHA256 fa00116fb39a56e38f5c5be45e0a2fd7bf2ddd7d4bcc9d0131486acd32af56fa. Lean output empty, exit0: `/tmp/oec/pequalnp-pilot-161/star-next-build.log`. Row-only Star.lean remains stable at271 lines.
+
+## First dirty AND classification (2026-11-25T17:17:07.757241+00:00)
+
+`FirstDirty.lean` compiled successfully. `first_dirty_pair_witness` proves: under AO2 and exact edge-function behavior, if all earlier ANDs are below output but gate g is not, then there are vertices a,b in its two child OR-reaches such that g is true on pairInput a b while output is false. Thus the earliest dirty AND always has a witness of size at most two. This does not require C4-freeness or tCount.
+
+Correction to an attempted simplification: on edge inputs, earlier BelowF ANDs need not vanish; replacing a same-colour first dirty AND by the OR of intersected child supports may lose carried edge terms. The exact OR-reach characterization applies only to rejected inputs.
+
+### Counterexample search complete on six inputs (2026-11-25T17:17:14.265965+00:00)
+
+3x3 exhaustive search completed: 333 nonempty C4-free edge sets; 9,281,809,818 canonical depth-seven extensions; no violation, 299 seconds. Together with 2x4 and trivial stars this covers all bipartite graphs on at most six inputs below the claimed bound. Full log: `/tmp/oec/pequalnp-pilot-161/counterexample-3x3.log`.
+
+Split-bound evidence: exhaustive 2x3 through5 gates has AND >= tau and OR >= edges-1. Native `libz3.so.4` is available through ctypes despite absent Python bindings. `/tmp/oec/pequalnp-pilot-161/freegate-synth.py` tests one gate count with the other type free: AND operands become arbitrary ORs of prior AND outputs and raw inputs of a single colour; OR operands become arbitrary ANDs of inputs/prior OR outputs. Repeated functions and AND input buffers are allowed. Positive edge assignments plus all maximal independent-set negative assignments exactly characterize the monotone edge function. C6 with at most4 ORs and arbitrary ANDs: UNSAT (no colour restriction, hence stronger); theta(3,3,3) with at most3 ANDs and arbitrary tCount0 ORs: UNSAT. Theta OR7 and Fano AND6 underway. These are exploratory solver results, not Lean proofs.

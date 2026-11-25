@@ -6,3 +6,5 @@
 - 2026-11-25T17:11:39.001937+00:00: combinatorial strategy rectangle/star-cover helper file compiled (113 lines).
 - 2026-11-25T17:12:10.417496+00:00: Rectangle helper lemmas compiled; first partial checkpoint prepared.
 - 2026-11-25T17:14:44.909402+00:00: named helper file, Support, Normalization, Masking compiled and independently reviewed.
+- 2026-11-25T17:17:07.757241+00:00: first-dirty-AND two-input false-positive witness helper compiled.
+- 2026-11-25T17:17:27.476019+00:00: consolidated1053-line partial compiled and independently reviewed.

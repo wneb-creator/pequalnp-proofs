@@ -12,3 +12,9 @@ Named build: lake build PEqualNP.Outside.L_meta_4675, exit 0.
 Masking proves semantic colour mixing requires an earlier AND not below output; it does not prove the global bound.
 All four source files independently reviewed before push.
 TIMING total=10 subagents=6
+
+Checkpoint 3: consolidated named file, 1053 lines, lake build succeeds.
+Includes both star orientations and rejected-input OR-reach semantics.
+Independent review SHA256: 47ba2ffa4e4436fd9bee598c94078425c6492f14d861efe8ac76537778585efc.
+Still partial: no theorem of the posted statement.
+TIMING total=14 subagents=6
