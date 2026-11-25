@@ -2766,21 +2766,21 @@ lemma flipPatternBits_bit {i p : Nat} (hi : i < 10) (hp : p < 1024) (x : Nat) :
 
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 100000000 in
-theorem lowMask_bit_checked : ∀ (i : Fin 10) (p : Fin 1024),
+lemma lowMask_bit_checked : ∀ (i : Fin 10) (p : Fin 1024),
     (lowMasks[i.val]!).testBit p.val = !(p.val.testBit i.val) := by decide +kernel
 
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 100000000 in
-theorem highMask_bit_checked : ∀ (i : Fin 10) (p : Fin 1024),
+lemma highMask_bit_checked : ∀ (i : Fin 10) (p : Fin 1024),
     ((lowMasks[i.val]!) <<< (1 <<< i.val)).testBit p.val = p.val.testBit i.val := by decide +kernel
 
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 100000000 in
-theorem lowMask_lt_checked : ∀ (i : Fin 10), lowMasks[i.val]! < 2 ^ 1024 := by decide +kernel
+lemma lowMask_lt_checked : ∀ (i : Fin 10), lowMasks[i.val]! < 2 ^ 1024 := by decide +kernel
 
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 100000000 in
-theorem highMask_lt_checked : ∀ (i : Fin 10),
+lemma highMask_lt_checked : ∀ (i : Fin 10),
     ((lowMasks[i.val]!) <<< (1 <<< i.val)) < 2 ^ 1024 := by decide +kernel
 
 lemma fastForkPhaseWitness {positive negative fi fj li lj i j : Nat} {a b : Bool}
