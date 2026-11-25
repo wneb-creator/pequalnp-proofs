@@ -1,0 +1,25 @@
+{"value": 0, "exit_code": 0, "reused_previously_checked_case": true}
+{"value": 1, "exit_code": 0, "wall_seconds": 6.130201088999911, "max_rss_kb": 2814348}
+{"value": 2, "exit_code": 0, "wall_seconds": 5.7148565210000015, "max_rss_kb": 2811916}
+{"value": 3, "exit_code": 0, "wall_seconds": 6.593938976000118, "max_rss_kb": 2969548}
+{"value": 4, "exit_code": 0, "wall_seconds": 6.054218432000198, "max_rss_kb": 2812112}
+{"value": 5, "exit_code": 0, "wall_seconds": 6.455599386000358, "max_rss_kb": 2973888}
+{"value": 6, "exit_code": 0, "wall_seconds": 6.619110686000113, "max_rss_kb": 2969820}
+{"value": 8, "exit_code": 0, "wall_seconds": 5.821052551000321, "max_rss_kb": 2811356}
+{"value": 9, "exit_code": 0, "wall_seconds": 6.509165205000045, "max_rss_kb": 2969788}
+{"value": 10, "exit_code": 0, "wall_seconds": 6.5314038709998385, "max_rss_kb": 2971628}
+{"value": 12, "exit_code": 0, "wall_seconds": 6.813306470999578, "max_rss_kb": 2969560}
+{"value": 16, "exit_code": 0, "wall_seconds": 5.774703920999855, "max_rss_kb": 2812128}
+{"value": 17, "exit_code": 0, "wall_seconds": 7.03243055799976, "max_rss_kb": 2970688}
+{"value": 18, "exit_code": 0, "wall_seconds": 8.43242956999984, "max_rss_kb": 2969760}
+{"value": 20, "exit_code": 0, "wall_seconds": 6.914113450000059, "max_rss_kb": 2971632}
+{"value": 24, "exit_code": 0, "wall_seconds": 6.654075631000069, "max_rss_kb": 2969988}
+{"value": 32, "exit_code": 0, "wall_seconds": 6.002034041000115, "max_rss_kb": 2810744}
+{"value": 33, "exit_code": 0, "wall_seconds": 6.617784986000061, "max_rss_kb": 2971012}
+{"value": 34, "exit_code": 0, "wall_seconds": 6.787452036000104, "max_rss_kb": 2970068}
+{"value": 36, "exit_code": 0, "wall_seconds": 6.874370300999999, "max_rss_kb": 2970000}
+{"value": 40, "exit_code": 0, "wall_seconds": 6.666574386999855, "max_rss_kb": 2969716}
+{"value": 48, "exit_code": 0, "wall_seconds": 6.83422596399987, "max_rss_kb": 2968328}
+{"value": 64, "exit_code": 0, "wall_seconds": 5.94826977799994, "max_rss_kb": 2812468}
+{"value": 65, "exit_code": 0, "wall_seconds": 7.786246666000352, "max_rss_kb": 2967836}
+{"value": 66, "exit_code": 0, "wall_seconds": 7.486897562999729, "max_rss_kb": 2969888}
