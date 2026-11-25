@@ -12,3 +12,7 @@ Independent source review: rules_review PASS for partial publication.
 
 Sub-agents: six; rules and independent review, minimality proof, conditional normalizer, finite counterexample search, algebraic route, soundness and ownership rewrites.
 TIMING total=11.9 subagents=6
+
+AlgebraicRoute.lean: lake env lean ../results/orch/lemmas/AlgebraicRoute.lean
+Exit 0; stdout and stderr empty. Checked at-most-four killing vertices from two disjoint false-positive pairs and NoFourCycle.
+Independent source review: rules_review PASS. Repository checker not run on this partial lemma.

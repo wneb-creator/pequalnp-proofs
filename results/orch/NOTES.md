@@ -62,3 +62,11 @@ R_meta_1904_137 reduces sound existence to singleton normalization and the sharp
 - `minimum_sound_to_owned` preserves minimality and yields the exact desired conclusion from a minimum sound-AND circuit. Triangle and four-cycle restrictions are needed only for the remaining soundness existence problem.
 - Command: `ELAN_HOME=/tmp/oec/pequalnp-pilot-66/elan PATH=/tmp/oec/pequalnp-pilot-66/elan/bin:$PATH lake env lean ../results/orch/lemmas/NormalForm.lean` from `lean/`; exit 0; full output `/tmp/oec/pequalnp-pilot-66/normal-form-build.log` is empty.
 - Research read 2026-11-25: Jukna, Disproving the Single Level Conjecture, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf. Its separating constructions are saturated graphs with triangles, so do not refute this target. Page 10 discusses a lower bound of edge count for single-level circuits on K2,2-free graphs; this cannot be assumed for unrestricted circuits.
+
+## Algebraic route — 2026-11-25T03:37:35.434266+00:00
+
+A gate false-positive on two vertex-disjoint nonedge pairs has at most four killing centers in a C4-free graph. Proved in `results/orch/lemmas/AlgebraicRoute.lean` (`wmax_card_le_four`), using monotonicity adapted from L_meta_5403 and four common-neighbor bounds. `lake env lean` passed; full log in job scratch `algebraic-route-build.log`. This is a local support restriction, not the posted theorem.
+
+Odd-cycle obstruction: the dirty gate `(a OR c) AND (b OR d)` can have three killing centers in a C7. Put graph edges `bc`, `a-w1`, `c-w1`, `b-w2`, `d-w2`, `a-w3`, `d-w3`; each gate AND x_wi is below graphFun, despite no triangle or C4. Thus two-center restrictions cannot be assumed from girth>=5 alone. This observation is mathematical, not yet Lean checked.
+
+Broad degree-two projection fails to preserve gate count automatically: later AND gates can filter false-positive pairs and singleton terms from earlier products. Existing L_meta_1733 gives TopForm but permits multiple dirty ANDs; L_meta_3760 eliminates one dirty AND under bipartiteness, and L_meta_4846 controls disjoint owned edges. No complete normalization argument obtained.
