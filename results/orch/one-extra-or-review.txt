@@ -1,0 +1,14 @@
+Independent pre-push review: PASS as a conditional research lemma, not a proof of the posted gap.
+Source: results/orch/lemmas/OneExtraOR.lean
+SHA256: 4e25c9972a546d0fce0b1429104580c15bfd8e67d42b8b119951715a445155eb
+2214 lines,102863 bytes.
+
+Assembly: exact embedded copies of approved GeneralExistence, MonochromeRectangle (namespace onward), and RectangularTop (namespace onward). The orient_edge lemma is the same reviewed bipartite orientation argument.
+
+Generic integration: entry_rectangle applies the checked strong AND induction to T itself, without bounding the number of AND gates or clauses. Monochromatic clauses therefore give exact rectangular pair-input semantics, after filtering the two vertex classes. one_extra_or_uncovered_le_two handles empty junk using junk_empty_uncovered_empty. For nonempty junk, exists_dirty_entry supplies an actual entry from a maximal junk gate using correctness and output-cone membership. The generic partner package supplies z and B subset N(z). Flipping the bipartition makes z false. The rectangle I x (J intersect B) consists of graph edges; each uncovered graph edge is T-true, avoids z, and meets B. Its false endpoint cannot be in B. Thus the actual Sym2 uncovered-edge set is an image of the off-center rectangle, bounded by two using C4-freeness and degree at most three. No injectivity of ordered-to-unordered pairs is assumed; card_image_le suffices.
+
+Scope: AO2, TopForm, correct graph function, every gate in the output cone, no centreless tops, at most one extra OR, bipartiteness, NoFourCycle and maximum degree three are explicit. No junk-count or entry hypothesis remains in the final statement. This neither handles arbitrary NOT circuits nor discharges normalization/counting conditions for the posted 24-gate impossibility.
+
+Validation: independent scratch-copy Lean run with two #print axioms commands exited0. Both entry_rectangle and one_extra_or_uncovered_le_two depend exactly on [propext, Classical.choice, Quot.sound]. Full stdout/stderr retained at one-extra-or-axiom-probe.log, SHA2565bab978d707db5e29abd31a37c9031fb6cd730b2115dde520e3572e8bc66e595;22 inherited warnings,zero errors. Author original build log also22warnings/zeroerrors. Source hash rechecked unchanged.
+
+Format: no _root_, quotes/strings, sorry, newaxioms, native_decide, attributes, set_options or helper theorem declarations. Namespace layout accepted by outside-guard; its only errors are the intentionally absent final posted theorem. This research snapshot must not be represented as a PR-ready solution. Guard output retained at one-extra-or-guard.txt. Scratch probe contains #print only for review and must not replace the artifact.

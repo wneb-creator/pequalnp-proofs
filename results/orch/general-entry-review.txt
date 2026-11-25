@@ -1,0 +1,49 @@
+Independent semantic and format review by /root/toolchain
+Verdict: PASS for the stated helper extension, not a complete proof of L-meta-9811.
+
+File: results/orch/lemmas/GeneralEntry.lean
+SHA256 b4a5dd2a51e0601e821ada52ef73bcbedf5495b42a24f1aeea705eca059006f4
+1751 lines, 81146 bytes. New delta: 144 lines.
+
+The previously reviewed PartnerData prefix is unchanged: removing the new
+entry_* block reconstructs PartnerData.lean byte for byte, with SHA256
+444cb2174e2f36ff932132b66c0130f5e9a94487860d82f4a7ec5cbff392d38b.
+
+entry_top_side_decomposition correctly removes the exact-two-junk premise.
+For any AND gate on a clean top side's OR frontier, TopForm rules out BelowF
+at that earlier AND. Hence it is dirty. The already proved
+unique_top_dirty_entry identifies it with T, using the explicit existing
+T-entry witness, empty centreless set, two-input gates, and at most one extra
+OR. This supplies exactly the unique-AND premise of one_and_wire_eval.
+
+entry_common_primary applies dirty_support and the previously checked
+common_entry_primary. The entry side and every other clean top side are
+nonempty by centreless=empty, so a member of the common reader's support
+provides the required z. It does not assume that z already exists.
+
+The generalized uncovered-top and uncovered-edge lemmas repeat the checked
+mixed-side argument with the new decomposition: two primary witnesses would
+make the edge covered, and two T-reaching sides would make dirty T clean.
+With the derived common z, uncovered edges avoid z and meet the opposite
+support, which lies in the neighborhood of z.
+
+entry_partner_data builds B as the union of these opposite supports. A
+T-true pair meeting B activates a corresponding clean top and is therefore
+a graph edge. Conversely, each uncovered graph edge has a true T, avoids z,
+and meets B by the generalized witness lemma. Both implications use their
+required hypotheses explicitly.
+
+Retained scope: IsAO2, TopForm, T in junk, centreless=empty, extra-OR count
+at most one, an actual clean-top entry of T, and equality to graphFun where
+needed. No least-size assumption, arbitrary-NOT normalization, replacement
+cost bound, or complete gap proof is asserted.
+
+Full-source format scan found no prohibited root-namespace text, double
+quotes, prohibited commands, hash commands, attributes, or options. Imports
+and helper namespace remain as in the approved prefix. This is a partial
+helper artifact without the final posted theorem.
+
+The complete author build log was inspected: 21 warnings, no error lines;
+the author reports exit 0. Log SHA256
+9da3e17fb103cde99f8e7c08ba6ad189dfa1e8fa71732c364e130c4299fab481.
+Per request, no build was rerun and no source file was edited.
