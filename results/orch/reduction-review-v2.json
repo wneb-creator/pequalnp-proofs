@@ -1,0 +1,110 @@
+{
+  "target_sha256": "cf29bddc7ae40dc8aa007917066eb6d8905c95704c12fc895312bec5adf18e97",
+  "manifest_hash_matches": true,
+  "base_unchanged": true,
+  "entries": [
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/seed_not_operands.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/dominated_source.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/dominated_source_witness.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/independent_guard.fragment.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/prefix_monotone.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/source_guard.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/or_seed_conjunction.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/or_seed_conjunction_used.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/negative_seed_paid.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/dominating_source.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/dominating_source_witness.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/negative_seed_transport.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/overlapping_or.fragment.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/edge_guard.fragment.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/source_edge_guard.lean",
+      "source_hash_matches": true,
+      "body_matches": true,
+      "body_hash_matches": true
+    }
+  ],
+  "imports": [
+    "import Mathlib.Data.Fintype.EquivFin\n",
+    "import Mathlib.Data.Fin.VecNotation\n",
+    "import Mathlib.Data.List.Forall2\n",
+    "import PEqualNP.Defs\n"
+  ],
+  "forbidden_found": [],
+  "options": [
+    "maxHeartbeats",
+    "maxRecDepth"
+  ],
+  "attributes": [],
+  "exact_target_theorem_absent": true
+}

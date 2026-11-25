@@ -1,0 +1,55 @@
+{
+  "utc": "2026-11-25T15:04:56.536840+00:00",
+  "gap": "L-meta-1886",
+  "verdict": "No witness in three restricted finite repair searches; not a Lean result",
+  "files": {
+    "local-improved-seed.json": {
+      "bytes": 1703,
+      "sha256": "2d55724fcc68ea59948ff64de6c3c0fd5c4b0f562aa0f9dd6313576d9a57766e"
+    },
+    "local1886-near-bank.py": {
+      "bytes": 2036,
+      "sha256": "fa2f9cb0138d94c735dfaafc99056b83dc0c8be8c5393a953f25bfe802112916"
+    },
+    "local1886-near-bank-analysis.json": {
+      "bytes": 827,
+      "sha256": "04440e6a4132a56a57a1621cf42eb53543b0b594780961b1bd69b601ae3e3d6d"
+    },
+    "local1886-near-bank-seeds.json": {
+      "bytes": 54464,
+      "sha256": "cbf42ee31403bc66152805f10b8d0238b74069f6f74d81c6eac583cc50fb8bd6"
+    },
+    "local1886-near-bank.log": {
+      "bytes": 639,
+      "sha256": "fad4fa0f5ae77dd2184e9d232ec34b56eb53fd16b902965fccb097c28345893e"
+    },
+    "local1886-near-residual.py": {
+      "bytes": 2371,
+      "sha256": "c137c89284bfb9888615a3139bdcc03f74a84e0e54dfe4539cd294b31baf8e7b"
+    },
+    "local1886-near-residual.json": {
+      "bytes": 10246,
+      "sha256": "ea8015b281b93bcdd21ddb184c22e820582755e26fddc244f1bab1a49b31b1df"
+    },
+    "local1886-near-residual.log": {
+      "bytes": 3428,
+      "sha256": "f72578a9bca21ecb54803666cc00c0da14638f8509ad4c369a26dc1373b967d0"
+    },
+    "local1886-near-allpairs.cpp": {
+      "bytes": 2343,
+      "sha256": "038c7a6ca39c2b7cc5d01ab0be748560ff87579a2a1febe340ef26679b373c24"
+    },
+    "local1886-near-allpairs-build.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "local1886-near-allpairs.log": {
+      "bytes": 1543,
+      "sha256": "3d3989cf092d470f8009309894e43511604667c3d1a44324fafd2e2c498ae5de"
+    },
+    "README.md": {
+      "bytes": 2214,
+      "sha256": "c923b1d0bee0bf8169f4ad1812cfd1fd6d93ea31a1e7ac7a1655637533d8d57d"
+    }
+  }
+}

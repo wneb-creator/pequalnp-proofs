@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-25T15:07:36.874430+00:00",
+  "verdict": "PASS",
+  "files": 13,
+  "bytes": 83750,
+  "hashes_match": true,
+  "source_semantics_reviewed": true,
+  "near_witness_verified_errors": 4,
+  "independently_recomputed_bank_substitutions": 540,
+  "minimum_errors": 21,
+  "preserved_near_functions": 0,
+  "fixed_prefix_count_verified": 1762560,
+  "all_pair_prefix_count_verified": 8611200,
+  "residual_bank_scope": "three residual matching edges only; excludes center banks",
+  "exhaustive_scope": "two added gates over exactly declared finite signal banks, as README states; not arbitrary circuits or Lean proof",
+  "hygiene": "UTF8 only, no executable/environment/credential dumps"
+}

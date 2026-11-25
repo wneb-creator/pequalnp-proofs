@@ -102,3 +102,8 @@ MonoNine firstbuild failed on10missing field-notation dependencies; full failure
 Initial1886 search archive independently reviewedPASS:34textfiles,32manifesthashes, completeUNKNOWN600secondlogs and full1024-row oversized controls; no counterexample/proof claim.
 Sub-agents:6
 TIMING total=83 subagents=6
+
+Generic-mode extraction, realization, bank/floor and actual-circuit wrappers compiled exit0 and independently reviewed PASS. Their stronger monotone18/AND18/OR17 conclusions still take pending MonoNine16 premise explicitly; no unconditional bound is yet claimed from that premise. NineActual similarly exposes pending monoRoot.
+Reviewed local1886-repair archive preserves exact restricted exhaustive failures; no generalcircuit exclusion or Lean certificate claimed. Shared notes/timeline preserved through latest completed components.
+Sub-agents:6
+TIMING total=92 subagents=6

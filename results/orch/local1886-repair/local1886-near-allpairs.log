@@ -1,0 +1,25 @@
+bank_op 0 edge 0 5 factored_star 0 best_errors 4 solutions 0
+bank_op 0 edge 0 5 factored_star 1 best_errors 4 solutions 0
+bank_op 0 edge 0 5 factored_star 2 best_errors 4 solutions 0
+bank_op 0 edge 0 5 factored_star 3 best_errors 4 solutions 0
+bank_op 0 edge 2 3 factored_star 0 best_errors 4 solutions 0
+bank_op 0 edge 2 3 factored_star 1 best_errors 4 solutions 0
+bank_op 0 edge 2 3 factored_star 2 best_errors 4 solutions 0
+bank_op 0 edge 2 3 factored_star 3 best_errors 4 solutions 0
+bank_op 0 edge 6 9 factored_star 0 best_errors 4 solutions 0
+bank_op 0 edge 6 9 factored_star 1 best_errors 4 solutions 0
+bank_op 0 edge 6 9 factored_star 2 best_errors 4 solutions 0
+bank_op 0 edge 6 9 factored_star 3 best_errors 4 solutions 0
+bank_op 1 edge 0 5 factored_star 0 best_errors 4 solutions 0
+bank_op 1 edge 0 5 factored_star 1 best_errors 4 solutions 0
+bank_op 1 edge 0 5 factored_star 2 best_errors 4 solutions 0
+bank_op 1 edge 0 5 factored_star 3 best_errors 4 solutions 0
+bank_op 1 edge 2 3 factored_star 0 best_errors 4 solutions 0
+bank_op 1 edge 2 3 factored_star 1 best_errors 4 solutions 0
+bank_op 1 edge 2 3 factored_star 2 best_errors 4 solutions 0
+bank_op 1 edge 2 3 factored_star 3 best_errors 4 solutions 0
+bank_op 1 edge 6 9 factored_star 0 best_errors 4 solutions 0
+bank_op 1 edge 6 9 factored_star 1 best_errors 4 solutions 0
+bank_op 1 edge 6 9 factored_star 2 best_errors 4 solutions 0
+bank_op 1 edge 6 9 factored_star 3 best_errors 4 solutions 0
+all_pair_ORs 12 base_functions 22 tested 8611200 solutions 0 seconds 0.0502827

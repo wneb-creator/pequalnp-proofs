@@ -160,3 +160,29 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 2026-11-25T14:34:57.337594+00:00 first C6/free3OR local batch finished:2865736646 evaluations,no exact circuit. Started300second pass with strictly1..2NOT under new17binary floor.
 
 - 2026-11-25T14:36:09.441896+00:00: generic bank realization and syntactic firstAND18 component compiled PASS; independent review PASS; root notified forpreservation.
+2026-11-25T14:39:30.347723+00:00 all local searches stopped; reproducibility archive saved in results/orch/local-search after root lease410 notice.
+
+2026-11-25T14:42:24.127695+00:00 [petersen_search] End old 2592 search processes; begin new 1886 free-edge OR/NOT-x0 exact shard.
+
+- 2026-11-25T14:42:44.731791+00:00 reduction_design: L1886 consumed supplied-AND NOT exclusion compiled and independently reviewed PASS.
+2026-11-25T14:44:58.628330+00:00 renewed; expiry 2026-11-25T15:04:58.633Z
+2026-11-25T14:49:59.056586+00:00 renewed; expiry 2026-11-25T15:09:59.066Z
+
+2026-11-25T14:52:35.754979+00:00 [petersen_search] L-meta-1886 first-NOT-x0/free-OR shard timed out at 600 seconds (CaDiCaL exit 0; no SAT/UNSAT). Started distinct ordered/live free-AND final-OR shard, 600-second cap.
+
+- 2026-11-25T14:53:14.156887+00:00: suppliedOR seedconjunction16remaining bound compiledPASS usingexisting8vertex signedfloor13; rootnotified.
+2026-11-25T14:54:59.459783+00:00 renewed; expiry 2026-11-25T15:14:59.242Z
+
+- 2026-11-25T14:58:41+00:00: reduction_design independently approved four-constant OR-seed conjunction strengthening; independent-guard component exported and edge-guard companion drafted.
+2026-11-25T15:00:01.642343+00:00 renewed; expiry 2026-11-25T15:20:01.587Z
+
+- 2026-11-25T15:03:55+00:00: reduction_design completed checked overlapping-OR residual16 and15-edge guard classification components; sent frozen bodies for v2 integration.
+2026-11-25T15:05:02.054856+00:00 renewed; expiry 2026-11-25T15:25:02.137Z
+2026-11-25T15:10:02.666387+00:00 renewed; expiry 2026-11-25T15:30:02.520Z
+
+- 2026-11-25T15:12:57.837946+00:00: status agent recorded checked v2 splice, generic monotone-bank bounds, actual-nine mode split, archive audits; MonoNine heavy build pending.
+
+2026-11-25T14:38:14Z historical event: old2592 renewal rejected410 despite confirmed14:53expiry; diagnostic retry matched.
+2026-11-25T14:39:11.360Z historical event: recovery request assigned newOWN L-meta-1886 lease after checked2592 checkpoint push.
+2026-11-25T14:58:01Z observed named1886 v1 fullbuildPASS; exacttheoremabsent.
+2026-11-25T15:14:51.724315+00:00 v2 namedbuild and MonoNine build running; generic monotone components compiled/reviewed; exactgap unresolved.
