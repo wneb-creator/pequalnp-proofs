@@ -2949,4 +2949,765 @@ lemma copies_from_star_ports {n : ℕ} {α : Type} {D : Dag}
   have hcard : A.card = I.card := Finset.card_image_of_injOn hinj
   omega
 
+section NeighborhoodPrerequisites
+
+variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+
+def sem_W (n : ℕ) (D : Dag) (x : Fin n) : Finset (ℕ × Bool) := exitArcs n D (carrierT n D {x})
+
+lemma sem_mem_W {x : Fin n} {e : ℕ × Bool} : e ∈ sem_W n D x ↔
+    e.1 < D.length ∧ x ∈ supp n D (src D e) ∧ x ∉ supp n D (n + e.1) := sem_mem_exit1
+
+lemma sem_W_and (hS : Strict n D) {x : Fin n} {e : ℕ × Bool} (he : e ∈ sem_W n D x) :
+    tag D e.1 = true := by
+  obtain ⟨hj, h1, h2⟩ := sem_mem_W.mp he
+  by_contra ht
+  rw [Bool.not_eq_true] at ht
+  apply h2
+  rw [sem_supp_or hS hj ht, Finset.mem_union]
+  obtain ⟨j, s⟩ := e
+  cases s
+  · left; simpa [src] using h1
+  · right; simpa [src] using h1
+
+lemma sem_dom_split (hS : Strict n D) (hC : sem_Comp n G D) (x : Fin n → Bool) (v : Fin n)
+    (b : ℕ) (hdom : sem_Dom n D b v.val) (h0 : ¬ sem_Edge G x) (h1 : sem_Edge G (sem_ins v x)) :
+    val D x b = false ∧ val D (sem_ins v x) b = true := by
+  have hne : val D x b ≠ val D (sem_ins v x) b := by
+    intro heq
+    have h2 := sem_dom_eq hS x _ v (sem_ins_agree v x) b hdom heq
+    exact h0 ((hC x).mp (by rw [h2]; exact (hC _).mpr h1))
+  have hmono := val_mono hS x (sem_ins v x) (sem_ins_ge v x) b
+  cases hx : val D x b
+  · refine ⟨rfl, ?_⟩
+    cases hy : val D (sem_ins v x) b
+    · exact absurd (hx.trans hy.symm) hne
+    · rfl
+  · exact absurd (hx.trans (hmono hx).symm) hne
+
+lemma sem_branch_empty (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D) {i : Fin n}
+    (hi : i ∈ ineligSet n D) {b : ℕ} (hch : sem_Chain n D i.val b) (hf : 2 ≤ fanout D b) :
+    supp n D b = ∅ := by
+  have hsub := sem_dom_pure hG hS hC i b (sem_chain_dom hS hch)
+  refine Finset.eq_empty_of_forall_notMem (fun x hx => ?_)
+  have h1 := hsub hx
+  rw [Finset.mem_singleton] at h1
+  have h2 := mem_ineligSet.mp hi b (h1 ▸ hx)
+  omega
+
+lemma sem_path_chain {a t : ℕ} (hp : Relation.ReflTransGen (sem_step n D) a t) :
+    sem_Chain n D a t ∨ ∃ b, sem_Chain n D a b ∧ 2 ≤ fanout D b := by
+  induction hp using Relation.ReflTransGen.head_induction_on with
+  | refl => exact Or.inl Relation.ReflTransGen.refl
+  | @head a a' hstep _ ih =>
+    by_cases hf : fanout D a = 1
+    · rcases ih with h1 | ⟨b, h1, h2⟩
+      · exact Or.inl (Relation.ReflTransGen.head ⟨hstep, hf⟩ h1)
+      · exact Or.inr ⟨b, Relation.ReflTransGen.head ⟨hstep, hf⟩ h1, h2⟩
+    · have := sem_step_fanout hstep
+      exact Or.inr ⟨a, Relation.ReflTransGen.refl, by omega⟩
+
+lemma sem_bzero_mem (hS : Strict n D) {b : ℕ} (hf : 2 ≤ fanout D b) (he : supp n D b = ∅) :
+    b ∈ (inner n D).filter (fun w => ¬ (supp n D w).Nonempty) :=
+  Finset.mem_filter.mpr ⟨sb_mem_inner.mpr (lt_of_fanout_pos hS (w := b) (by omega)),
+    by rw [he]; exact Finset.not_nonempty_empty⟩
+
+lemma sem_bzero_branch (hS : Strict n D) (hB0 : Bzero n D = 0) {b : ℕ} (hf : 2 ≤ fanout D b) :
+    (supp n D b).Nonempty := by
+  by_contra hne
+  rw [Finset.not_nonempty_iff_eq_empty] at hne
+  have h1 : fanout D b - 1 ≤ ∑ w ∈ (inner n D).filter (fun w => ¬ (supp n D w).Nonempty),
+      (fanout D w - 1) :=
+    Finset.single_le_sum (f := fun w => fanout D w - 1) (fun _ _ => Nat.zero_le _)
+      (sem_bzero_mem hS hf hne)
+  unfold Bzero surplusOn at hB0
+  omega
+
+lemma sem_noempty_unique (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
+    (hB0 : Bzero n D = 0) {i : Fin n} (hi : i ∈ ineligSet n D) {w : ℕ}
+    (hp : Relation.ReflTransGen (sem_step n D) i.val w) : sem_Chain n D i.val w := by
+  rcases sem_path_chain hp with h1 | ⟨b, h1, h2⟩
+  · exact h1
+  · have h3 := sem_bzero_branch h.1 hB0 h2
+    rw [sem_branch_empty hG h.1 hC hi h1 h2] at h3
+    exact absurd h3 Finset.not_nonempty_empty
+
+def k4_Pos (n : ℕ) (G : Fin n → Fin n → Prop) (D : Dag) (pos : Fin n → ℕ × Bool) : Prop :=
+  (∀ i ∈ ineligSet n D, (pos i).1 < D.length ∧ supp n D (n + (pos i).1) = ∅ ∧
+    (∀ a, G i a → a ∈ supp n D (src D (pos i))) ∧
+    supp n D (src D ((pos i).1, !(pos i).2)) = {i}) ∧
+  ∀ i ∈ ineligSet n D, ∀ i' ∈ ineligSet n D, pos i = pos i' → i = i'
+
+lemma k4_assigned (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D) :
+    ∃ pos : Fin n → ℕ × Bool, k4_Pos n G D pos := by
+  classical
+  have hex : ∀ i : Fin n, ∃ e : ℕ × Bool, i ∈ ineligSet n D → (e.1 < D.length ∧
+      supp n D (n + e.1) = ∅ ∧ (∀ a, G i a → a ∈ supp n D (src D e)) ∧
+      supp n D (src D (e.1, !e.2)) = {i}) := by
+    intro i
+    by_cases hi : i ∈ ineligSet n D
+    · obtain ⟨e, h1, -, h3, h4, h5, -, -⟩ := sem_inelig_consumer hG h hC hi
+      exact ⟨(e.1, !e.2), fun _ => ⟨h1, h4, h5, by simpa using h3⟩⟩
+    · exact ⟨(0, false), fun hc => absurd hc hi⟩
+  choose pos hpos using hex
+  refine ⟨pos, hpos, fun i hi i' hi' he => ?_⟩
+  have h1 := (hpos i hi).2.2.2
+  rw [he, (hpos i' hi').2.2.2] at h1
+  exact (Finset.singleton_injective h1).symm
+
+abbrev V := Fin 10
+
+def neighbors (v : V) : Nat :=
+  [50, 69, 138, 276, 521, 385, 770, 548, 104, 208].getD v.val 0
+
+abbrev adj (u v : V) : Prop := (neighbors u).testBit v.val = true
+
+lemma graph_ok : sem_Gr adj := by
+  unfold sem_Gr
+  decide +kernel
+
+end NeighborhoodPrerequisites
+
+lemma false_input_reaches {n : ℕ} {D : Dag} (hS : Strict n D) (x : Fin n → Bool) :
+    ∀ w, w < n + D.length → val D x w = false →
+      ∃ i : Fin n, x i = false ∧ Relation.ReflTransGen (sem_step n D) i.val w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+      intro hw hv
+      by_cases hn : w < n
+      · refine ⟨⟨w, hn⟩, ?_, Relation.ReflTransGen.refl⟩
+        simpa only [val_input D x w hn] using hv
+      · let j := w - n
+        have hwj : w = n + j := by omega
+        have hj : j < D.length := by omega
+        obtain ⟨ha, hb, _⟩ := hS j hj
+        have hop : val D x (opA D j) = false ∨ val D x (opB D j) = false := by
+          rw [hwj, val_gate hS x j hj] at hv
+          cases ht : tag D j
+          · rw [ht, gop_false, Bool.or_eq_false_iff] at hv
+            exact Or.inl hv.1
+          · rw [ht, gop_true, Bool.and_eq_false_iff] at hv
+            exact hv
+        rcases hop with hop | hop
+        · obtain ⟨i, hxi, hp⟩ := ih (opA D j) (by omega) (by omega) hop
+          refine ⟨i, hxi, ?_⟩
+          rw [hwj]
+          exact Relation.ReflTransGen.tail hp (by simpa [src] using sem_step_src (n := n) hj false)
+        · obtain ⟨i, hxi, hp⟩ := ih (opB D j) (by omega) (by omega) hop
+          refine ⟨i, hxi, ?_⟩
+          rw [hwj]
+          exact Relation.ReflTransGen.tail hp (by simpa [src] using sem_step_src (n := n) hj true)
+
+lemma ineligible_reachable_no_neighbor_support {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (hz : Bzero n D = 0) {i z : Fin n} (hi : i ∈ ineligSet n D) (hiz : G i z)
+    {w : ℕ} (hp : Relation.ReflTransGen (sem_step n D) i.val w) :
+    z ∉ supp n D w := by
+  have hchain := sem_noempty_unique hG h hc hz hi hp
+  have he : sem_Edge G (sem_ins i (single z)) :=
+    ⟨i, z, hiz, sem_ins_self i _, by simp [sem_ins, single]⟩
+  have hv := (sem_dom_split h.1 hc (single z) i w (sem_chain_dom h.1 hchain)
+    (sem_single_no_edge hG z) he).1
+  intro hmem
+  have hh := mem_supp.mp hmem
+  rw [hv] at hh
+  contradiction
+
+lemma zero_boundary_no_neighbor_support {n : ℕ} {α : Type}
+    {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (hz : Bzero n D = 0) (rows : α → Fin n → Bool)
+    (I : Finset (Fin n)) (hI : I ⊆ ineligSet n D)
+    (r0 : α) (hr0 : ∀ i, rows r0 i = false → i ∈ I)
+    (z : Fin n) (hIz : ∀ i ∈ I, G i z) :
+    ∀ j ∈ copyBoundary n D (zeroWires D rows), z ∉ supp n D (n + j) := by
+  intro j hj
+  obtain ⟨hj, hcase⟩ := Finset.mem_filter.mp hj
+  have hjlt := Finset.mem_range.mp hj
+  have hp : opA D j ∈ zeroWires D rows ∨ opB D j ∈ zeroWires D rows := by
+    rcases hcase with hh | hh
+    · exact Or.inl hh.1
+    · exact hh.1
+  have hcand {w : ℕ} (hw : w ∈ zeroWires D rows)
+      (hstep : sem_step n D w (n + j)) : z ∉ supp n D (n + j) := by
+    obtain ⟨hwlt, hwzero⟩ := mem_zeroWires.mp hw
+    obtain ⟨i, hif, hip⟩ := false_input_reaches h.1 (rows r0) w hwlt (hwzero r0)
+    have hi := hr0 i hif
+    exact ineligible_reachable_no_neighbor_support hG h hc hz (hI hi) (hIz i hi)
+      (Relation.ReflTransGen.tail hip hstep)
+  rcases hp with hp | hp
+  · exact hcand hp (by simpa [src] using sem_step_src (n := n) hjlt false)
+  · exact hcand hp (by simpa [src] using sem_step_src (n := n) hjlt true)
+
+noncomputable def centerGates {n : ℕ} (D : Dag) (z : Fin n) : Finset ℕ := by
+  classical
+  exact (Finset.range D.length).filter (fun j => z ∈ supp n D (n + j))
+
+lemma zero_boundary_copies {n : ℕ} {α : Type} {D : Dag}
+    (hS : Strict n D) (rows : α → Fin n → Bool) :
+    copyBoundary n D (zeroWires D rows) ⊆ rowCopies D rows := by
+  classical
+  intro j hj
+  obtain ⟨hj, hcase⟩ := Finset.mem_filter.mp hj
+  have hjlt := Finset.mem_range.mp hj
+  obtain ⟨ha, hb, _⟩ := hS j hjlt
+  refine Finset.mem_filter.mpr ⟨hj, ?_⟩
+  rcases hcase with ⟨hka, hkb⟩ | ⟨hk, hko⟩
+  · refine ⟨opA D j, ha, ?_⟩
+    intro r
+    rw [val_gate hS _ j hjlt, (mem_zeroWires.mp hka).2 r, (mem_zeroWires.mp hkb).2 r]
+    cases tag D j <;> rfl
+  · have hop : tag D j = false := by
+      cases ht : tag D j with
+      | false => rfl
+      | true =>
+          exfalso
+          apply hko
+          refine mem_zeroWires.mpr ⟨by omega, ?_⟩
+          intro r
+          rw [val_gate hS _ j hjlt, ht, gop_true]
+          rcases hk with hk | hk
+          · rw [(mem_zeroWires.mp hk).2 r]; rfl
+          · rw [(mem_zeroWires.mp hk).2 r]; simp
+    rcases hk with hk | hk
+    · refine ⟨opB D j, hb, ?_⟩
+      intro r
+      rw [val_gate hS _ j hjlt, hop, gop_false, (mem_zeroWires.mp hk).2 r]
+      rfl
+    · refine ⟨opA D j, ha, ?_⟩
+      intro r
+      rw [val_gate hS _ j hjlt, hop, gop_false, (mem_zeroWires.mp hk).2 r]
+      simp
+
+lemma copies_plus_center_gates {n : ℕ} {α : Type}
+    {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (hz : Bzero n D = 0) (rows : α → Fin n → Bool)
+    (hout : ∃ r, val D (rows r) (outW n D) = true)
+    (I : Finset (Fin n)) (hI : I ⊆ ineligSet n D)
+    (hIf : ∀ i ∈ I, ∀ r, rows r i = false)
+    (r0 : α) (hr0 : ∀ i, rows r0 i = false → i ∈ I)
+    (z : Fin n) (hIz : ∀ i ∈ I, G i z) (hzr : ∀ r, rows r z = true)
+    (A : Finset ℕ) (hA : ∀ j ∈ A, j < D.length ∧ tag D j = true ∧
+      ((∀ r, val D (rows r) (opA D j) = true) ∨
+       (∀ r, val D (rows r) (opB D j) = true)) ∧ z ∉ supp n D (n + j)) :
+    I.card + A.card + (centerGates D z).card ≤ (rowCopies D rows).card := by
+  classical
+  let K := zeroWires D rows
+  let Z := copyBoundary n D K
+  let B := centerGates D z
+  obtain ⟨rp, hrp⟩ := hout
+  have hK : K ⊆ inner n D := by
+    intro w hw
+    obtain ⟨hw, hv⟩ := mem_zeroWires.mp hw
+    apply sb_mem_inner.mpr
+    by_contra hn
+    have heq : w = outW n D := by unfold outW; omega
+    have hh := hv rp
+    rw [heq, hrp] at hh
+    contradiction
+  have hclosed : ∀ j < D.length, opA D j ∈ K → opB D j ∈ K → n + j ∈ K := by
+    intro j hj ha hb
+    refine mem_zeroWires.mpr ⟨by omega, ?_⟩
+    intro r
+    rw [val_gate h.1 _ j hj, (mem_zeroWires.mp ha).2 r, (mem_zeroWires.mp hb).2 r]
+    cases tag D j <;> rfl
+  have hsource : I.card ≤ (sources n K).card := by
+    have hs : I.image Fin.val ⊆ sources n K := by
+      intro w hw
+      obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hw
+      refine Finset.mem_filter.mpr ⟨mem_zeroWires.mpr ⟨by omega, ?_⟩, i.isLt⟩
+      intro r
+      rw [val_input D _ i.val i.isLt]
+      exact hIf i hi r
+    have hh := Finset.card_le_card hs
+    simpa only [Finset.card_image_of_injective _ Fin.val_injective] using hh
+  have hIZ : I.card ≤ Z.card := hsource.trans (source_le_copyBoundary h K hK hclosed)
+  have hZC : Z ⊆ rowCopies D rows := zero_boundary_copies h.1 rows
+  have hAC : A ⊆ rowCopies D rows := by
+    intro j hj
+    obtain ⟨hlt, hop, ht, _⟩ := hA j hj
+    obtain ⟨ha, hb, _⟩ := h.1 j hlt
+    refine Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hlt, ?_⟩
+    rcases ht with ht | ht
+    · refine ⟨opB D j, hb, ?_⟩
+      intro r
+      rw [val_gate h.1 _ j hlt, hop, gop_true, ht r]; rfl
+    · refine ⟨opA D j, ha, ?_⟩
+      intro r
+      rw [val_gate h.1 _ j hlt, hop, gop_true, ht r]; simp
+  have hBC : B ⊆ rowCopies D rows := by
+    intro j hj
+    obtain ⟨hj, hzs⟩ := Finset.mem_filter.mp hj
+    refine Finset.mem_filter.mpr ⟨hj, z.val, by omega, ?_⟩
+    intro r
+    rw [true_support_on_rows h.1 rows hzr hzs r, val_input D _ z.val z.isLt, hzr r]
+  have hZA : Disjoint Z A := by
+    rw [Finset.disjoint_left]
+    intro j hj ha
+    obtain ⟨hlt, hop, ht, _⟩ := hA j ha
+    obtain ⟨_, hcase⟩ := Finset.mem_filter.mp hj
+    rcases hcase with ⟨hka, hkb⟩ | ⟨hk, hko⟩
+    · rcases ht with ht | ht
+      · have hh := (mem_zeroWires.mp hka).2 rp; rw [ht rp] at hh; contradiction
+      · have hh := (mem_zeroWires.mp hkb).2 rp; rw [ht rp] at hh; contradiction
+    · apply hko
+      refine mem_zeroWires.mpr ⟨by omega, ?_⟩
+      intro r
+      rw [val_gate h.1 _ j hlt, hop, gop_true]
+      rcases hk with hk | hk
+      · rw [(mem_zeroWires.mp hk).2 r]; rfl
+      · rw [(mem_zeroWires.mp hk).2 r]; simp
+  have hZB : Disjoint Z B := by
+    rw [Finset.disjoint_left]
+    intro j hj hb
+    exact zero_boundary_no_neighbor_support hG h hc hz rows I hI r0 hr0 z hIz j hj
+      (Finset.mem_filter.mp hb).2
+  have hAB : Disjoint A B := by
+    rw [Finset.disjoint_left]
+    intro j ha hb
+    exact (hA j ha).2.2.2 (Finset.mem_filter.mp hb).2
+  have hU : (Z ∪ A) ∪ B ⊆ rowCopies D rows :=
+    Finset.union_subset (Finset.union_subset hZC hAC) hBC
+  have hcard := Finset.card_le_card hU
+  rw [Finset.card_union_of_disjoint (Finset.disjoint_union_left.mpr ⟨hZB, hAB⟩),
+    Finset.card_union_of_disjoint hZA] at hcard
+  change I.card + A.card + B.card ≤ _
+  omega
+
+lemma copies_from_ineligible_neighbors {n : ℕ} {α : Type}
+    {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (rows : α → Fin n → Bool) (hout : ∃ r, val D (rows r) (outW n D) = true)
+    (I : Finset (Fin n)) (hI : I ⊆ ineligSet n D)
+    (hIf : ∀ i ∈ I, ∀ r, rows r i = false)
+    (z : Fin n) (hIz : ∀ i ∈ I, G i z) (hzr : ∀ r, rows r z = true) :
+    2 * I.card ≤ (rowCopies D rows).card := by
+  obtain ⟨pos, hpos⟩ := k4_assigned hG h hc
+  apply copies_from_star_ports h rows hout I hIf z hzr pos
+  intro i hi
+  obtain ⟨hlt, hempty, hnb, hsingle⟩ := hpos.1 i (hI hi)
+  have hzi := hnb z (hIz i hi)
+  refine ⟨hlt, ?_, hzi, hsingle⟩
+  apply sem_W_and h.1 (x := z)
+  refine sem_mem_W.mpr ⟨hlt, hzi, ?_⟩
+  rw [hempty]
+  exact Finset.notMem_empty z
+
+lemma copies_from_ineligible_neighbors_and_center {n : ℕ} {α : Type}
+    {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (hz : Bzero n D = 0) (rows : α → Fin n → Bool)
+    (hout : ∃ r, val D (rows r) (outW n D) = true)
+    (I : Finset (Fin n)) (hI : I ⊆ ineligSet n D)
+    (hIf : ∀ i ∈ I, ∀ r, rows r i = false)
+    (r0 : α) (hr0 : ∀ i, rows r0 i = false → i ∈ I)
+    (z : Fin n) (hIz : ∀ i ∈ I, G i z) (hzr : ∀ r, rows r z = true) :
+    2 * I.card + (centerGates D z).card ≤ (rowCopies D rows).card := by
+  classical
+  obtain ⟨pos, hpos⟩ := k4_assigned hG h hc
+  have hinj : Set.InjOn (fun i => (pos i).1) (↑I : Set (Fin n)) := by
+    intro i hi j hj heq
+    change (pos i).1 = (pos j).1 at heq
+    by_cases hs : (pos i).2 = (pos j).2
+    · exact hpos.2 i (hI hi) j (hI hj) (Prod.ext heq hs)
+    · have he : src D (pos i) = src D ((pos j).1, !(pos j).2) := by
+        unfold src
+        rw [heq]
+        cases ha : (pos i).2 <;> cases hb : (pos j).2 <;> simp_all
+      have hh := (hpos.1 i (hI hi)).2.2.1 z (hIz i hi)
+      rw [he, (hpos.1 j (hI hj)).2.2.2, Finset.mem_singleton] at hh
+      have hjz := hIz j hj
+      rw [hh] at hjz
+      exact (hG.2.1 j hjz).elim
+  let A := I.image (fun i => (pos i).1)
+  have hA : ∀ j ∈ A, j < D.length ∧ tag D j = true ∧
+      ((∀ r, val D (rows r) (opA D j) = true) ∨
+       (∀ r, val D (rows r) (opB D j) = true)) ∧ z ∉ supp n D (n + j) := by
+    intro j hj
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hj
+    obtain ⟨hlt, hempty, hnb, _⟩ := hpos.1 i (hI hi)
+    have hzi := hnb z (hIz i hi)
+    have hzn : z ∉ supp n D (n + (pos i).1) := by rw [hempty]; exact Finset.notMem_empty z
+    have hop := sem_W_and h.1 (sem_mem_W.mpr ⟨hlt, hzi, hzn⟩)
+    have ht := true_support_on_rows h.1 rows hzr hzi
+    refine ⟨hlt, hop, ?_, hzn⟩
+    cases hs : (pos i).2
+    · exact Or.inl (by simpa [src, hs] using ht)
+    · exact Or.inr (by simpa [src, hs] using ht)
+  have hh := copies_plus_center_gates hG h hc hz rows hout I hI hIf r0 hr0 z hIz hzr A hA
+  have hcard : A.card = I.card := Finset.card_image_of_injOn hinj
+  omega
+
+def neighborhoodResidualRows (x : Fin 6 → Bool) (v : Fin 10) : Bool :=
+  match v.val with
+  | 0 => true
+  | 2 => x 0
+  | 8 => x 1
+  | 9 => x 2
+  | 3 => x 3
+  | 7 => x 4
+  | 6 => x 5
+  | _ => false
+
+def residualC6 (x : Fin 6 → Bool) : Bool :=
+  x 0 && x 3 || x 0 && x 4 || x 1 && x 3 || x 1 && x 5 ||
+    x 2 && x 4 || x 2 && x 5
+
+def neighborhoodI : Finset (Fin 10) := {1, 4, 5}
+
+lemma neighborhood_rows_false (x : Fin 6 → Bool) :
+    ∀ i ∈ neighborhoodI, neighborhoodResidualRows x i = false := by
+  intro i hi
+  simp only [neighborhoodI, Finset.mem_insert, Finset.mem_singleton] at hi
+  rcases hi with rfl | rfl | rfl <;> rfl
+
+lemma neighborhood_rows_top (v : Fin 10) :
+    neighborhoodResidualRows (fun _ => true) v = false ↔ v ∈ neighborhoodI := by
+  fin_cases v <;> decide
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma neighborhood_residual_edges : ∀ x : Fin 6 → Bool,
+    sem_Edge adj (neighborhoodResidualRows x) ↔ residualC6 x = true := by
+  unfold sem_Edge
+  decide +kernel
+
+lemma neighborhood_residual_correct {D : Dag} (hc : sem_Comp 10 adj D)
+    (x : Fin 6 → Bool) :
+    val D (neighborhoodResidualRows x) (outW 10 D) = residualC6 x := by
+  apply Bool.eq_iff_iff.mpr
+  exact (hc _).trans (neighborhood_residual_edges x)
+
+lemma neighborhood_six_copies {D : Dag} (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (hi : neighborhoodI ⊆ ineligSet 10 D) :
+    6 ≤ (rowCopies D neighborhoodResidualRows).card := by
+  have hout : ∃ x, val D (neighborhoodResidualRows x) (outW 10 D) = true :=
+    ⟨fun _ => true, neighborhood_residual_correct hc _⟩
+  have hh := copies_from_ineligible_neighbors graph_ok h hc neighborhoodResidualRows
+    hout neighborhoodI hi (fun i hi x => neighborhood_rows_false x i hi) (0 : Fin 10)
+    (by decide +kernel) (fun _ => rfl)
+  have hcard : neighborhoodI.card = 3 := by decide
+  omega
+
+lemma neighborhood_six_plus_center_copies {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0)
+    (hi : neighborhoodI ⊆ ineligSet 10 D) :
+    6 + (centerGates D (0 : Fin 10)).card ≤ (rowCopies D neighborhoodResidualRows).card := by
+  have hout : ∃ x, val D (neighborhoodResidualRows x) (outW 10 D) = true :=
+    ⟨fun _ => true, neighborhood_residual_correct hc _⟩
+  have hh := copies_from_ineligible_neighbors_and_center graph_ok h hc hz
+    neighborhoodResidualRows hout neighborhoodI hi (fun i hi x => neighborhood_rows_false x i hi)
+    (fun _ => true) (fun i hi => (neighborhood_rows_top i).mp hi) (0 : Fin 10)
+    (by decide +kernel) (fun _ => rfl)
+  have hcard : neighborhoodI.card = 3 := by decide
+  omega
+
+lemma petersen_adj_iff : ∀ u v : Fin 10,
+    adj u v ↔ (u, v) ∈ petersenEdges ∨ (v, u) ∈ petersenEdges := by
+  decide +kernel
+
+lemma petersen_semEdge_iff (x : Fin 10 → Bool) :
+    sem_Edge adj x ↔ edgeFunction petersenEdges x = true := by
+  rw [edgeFunction_true_iff]
+  constructor
+  · rintro ⟨u, v, huv, hu, hv⟩
+    rcases (petersen_adj_iff u v).mp huv with h | h
+    · exact ⟨(u, v), h, by simp [edgeTerm, hu, hv]⟩
+    · exact ⟨(v, u), h, by simp [edgeTerm, hu, hv]⟩
+  · rintro ⟨⟨u, v⟩, huv, h⟩
+    have hh : x u = true ∧ x v = true := by simpa [edgeTerm] using h
+    exact ⟨u, v, (petersen_adj_iff u v).mpr (Or.inl huv), hh.1, hh.2⟩
+
+lemma support_exit_on_path {n : ℕ} {D : Dag} {z : Fin n} {w : ℕ}
+    (hp : Relation.ReflTransGen (sem_step n D) z.val w) (hw : z ∉ supp n D w) :
+    ∃ e ∈ sem_W n D z, Relation.ReflTransGen (sem_step n D) (n + e.1) w := by
+  revert hw
+  induction hp with
+  | refl =>
+      intro hz
+      rw [supp_input] at hz
+      exact (hz (Finset.mem_singleton_self z)).elim
+  | @tail a b hp hs ih =>
+      intro hb
+      by_cases ha : z ∈ supp n D a
+      · obtain ⟨j, s, hj, rfl, hsrc⟩ := sem_step_iff.mp hs
+        refine ⟨(j, s), sem_mem_W.mpr ⟨hj, ?_, hb⟩, Relation.ReflTransGen.refl⟩
+        simpa only [hsrc] using ha
+      · obtain ⟨e, he, hep⟩ := ih ha
+        exact ⟨e, he, Relation.ReflTransGen.tail hep hs⟩
+
+lemma center_exits_reachable_from_neighbors {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (I : Finset (Fin n)) (hI : I ⊆ ineligSet n D) (z : Fin n)
+    (hIz : ∀ i ∈ I, G i z) (hW : (sem_W n D z).card = I.card) :
+    ∀ e ∈ sem_W n D z, ∃ i ∈ I,
+      Relation.ReflTransGen (sem_step n D) i.val (n + e.1) := by
+  classical
+  obtain ⟨pos, hpos⟩ := k4_assigned hG h hc
+  have hinj : Set.InjOn pos (↑I : Set (Fin n)) :=
+    fun i hi j hj he => hpos.2 i (hI hi) j (hI hj) he
+  have hsub : I.image pos ⊆ sem_W n D z := by
+    intro e he
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp he
+    obtain ⟨hj, hempty, hnb, _⟩ := hpos.1 i (hI hi)
+    refine sem_mem_W.mpr ⟨hj, hnb z (hIz i hi), ?_⟩
+    rw [hempty]
+    exact Finset.notMem_empty z
+  have heq : I.image pos = sem_W n D z :=
+    Finset.eq_of_subset_of_card_le hsub (by rw [hW, Finset.card_image_of_injOn hinj])
+  intro e he
+  rw [← heq] at he
+  obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp he
+  obtain ⟨hj, _, _, hsingle⟩ := hpos.1 i (hI hi)
+  have hmem : i ∈ supp n D (src D ((pos i).1, !(pos i).2)) := by
+    rw [hsingle]
+    exact Finset.mem_singleton_self i
+  have hchain := sem_inelig_chain h.1 (hI hi) hmem
+  have hp := sem_rtg_mono (fun _ _ hh => hh.1) hchain
+  exact ⟨i, hi, Relation.ReflTransGen.tail hp (sem_step_src hj _)⟩
+
+lemma center_ancestor_no_center_path {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D) (hz : Bzero n D = 0)
+    (I : Finset (Fin n)) (hI : I ⊆ ineligSet n D) (z : Fin n)
+    (hIz : ∀ i ∈ I, G i z) (hW : (sem_W n D z).card = I.card)
+    {w v : ℕ} (hwv : Relation.ReflTransGen (sem_step n D) w v)
+    (hv : z ∈ supp n D v) (hw : z ∉ supp n D w) :
+    ¬ Relation.ReflTransGen (sem_step n D) z.val w := by
+  intro hp
+  obtain ⟨e, he, hew⟩ := support_exit_on_path hp hw
+  obtain ⟨i, hi, hie⟩ := center_exits_reachable_from_neighbors hG h hc I hI z hIz hW e he
+  exact ineligible_reachable_no_neighbor_support hG h hc hz (hI hi) (hIz i hi)
+    (hie.trans (hew.trans hwv)) hv
+
+lemma value_eq_if_ancestors_agree {n : ℕ} {D : Dag} (hS : Strict n D)
+    (x y : Fin n → Bool) : ∀ w,
+      (∀ i : Fin n, Relation.ReflTransGen (sem_step n D) i.val w → x i = y i) →
+      val D x w = val D y w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+      intro hagree
+      by_cases hn : w < n
+      · rw [val_input D x w hn, val_input D y w hn]
+        exact hagree ⟨w, hn⟩ Relation.ReflTransGen.refl
+      · by_cases hw : w < n + D.length
+        · let j := w - n
+          have hwj : w = n + j := by omega
+          have hj : j < D.length := by omega
+          obtain ⟨ha, hb, _⟩ := hS j hj
+          have hsa : sem_step n D (opA D j) (n + j) :=
+            by simpa [src] using sem_step_src (n := n) hj false
+          have hsb : sem_step n D (opB D j) (n + j) :=
+            by simpa [src] using sem_step_src (n := n) hj true
+          have hea := ih (opA D j) (by omega) (fun i hp => hagree i
+            (by rw [hwj]; exact Relation.ReflTransGen.tail hp hsa))
+          have heb := ih (opB D j) (by omega) (fun i hp => hagree i
+            (by rw [hwj]; exact Relation.ReflTransGen.tail hp hsb))
+          rw [hwj, val_gate hS x j hj, val_gate hS y j hj, hea, heb]
+        · rw [val_ge D x w (by omega), val_ge D y w (by omega)]
+
+lemma center_ancestor_independent {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D) (hz : Bzero n D = 0)
+    (I : Finset (Fin n)) (hI : I ⊆ ineligSet n D) (z : Fin n)
+    (hIz : ∀ i ∈ I, G i z) (hW : (sem_W n D z).card = I.card)
+    {w v : ℕ} (hwv : Relation.ReflTransGen (sem_step n D) w v)
+    (hv : z ∈ supp n D v) (hw : z ∉ supp n D w)
+    (x y : Fin n → Bool) (hxy : ∀ i, i ∉ insert z I → x i = y i) :
+    val D x w = val D y w := by
+  classical
+  apply value_eq_if_ancestors_agree h.1 x y w
+  intro i hip
+  apply hxy i
+  intro hi
+  rcases Finset.mem_insert.mp hi with hiz | hi
+  · subst i
+    exact center_ancestor_no_center_path hG h hc hz I hI z hIz hW hwv hv hw hip
+  · exact ineligible_reachable_no_neighbor_support hG h hc hz (hI hi) (hIz i hi)
+      (hip.trans hwv) hv
+
+def petersenResidualProjection (x : Fin 10 → Bool) (v : Fin 6) : Bool :=
+  match v.val with
+  | 0 => x 2
+  | 1 => x 8
+  | 2 => x 9
+  | 3 => x 3
+  | 4 => x 7
+  | _ => x 6
+
+lemma residual_projection_agrees (x : Fin 10 → Bool) (i : Fin 10)
+    (hi : i ∉ insert 0 neighborhoodI) :
+    x i = neighborhoodResidualRows (petersenResidualProjection x) i := by
+  fin_cases i <;> simp_all [neighborhoodResidualRows, petersenResidualProjection, neighborhoodI]
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma residual_projection_edge : ∀ x : Fin 10 → Bool,
+    residualC6 (petersenResidualProjection x) = true → sem_Edge adj x := by
+  unfold sem_Edge
+  decide +kernel
+
+lemma residual_pure_ancestor_globally_pure {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0)
+    (hi : neighborhoodI ⊆ ineligSet 10 D) (hW : (sem_W 10 D (0 : Fin 10)).card = 3)
+    {w v : ℕ} (hwv : Relation.ReflTransGen (sem_step 10 D) w v)
+    (hv : (0 : Fin 10) ∈ supp 10 D v) (hw : (0 : Fin 10) ∉ supp 10 D w)
+    (hpure : ∀ x : Fin 6 → Bool,
+      val D (neighborhoodResidualRows x) w = true → residualC6 x = true) :
+    ∀ x : Fin 10 → Bool, val D x w = true → sem_Edge adj x := by
+  intro x hx
+  have hW' : (sem_W 10 D (0 : Fin 10)).card = neighborhoodI.card := by
+    rw [hW]; rfl
+  have heq := center_ancestor_independent graph_ok h hc hz neighborhoodI hi (0 : Fin 10)
+    (by decide +kernel) hW' hwv hv hw x
+    (neighborhoodResidualRows (petersenResidualProjection x)) (residual_projection_agrees x)
+  rw [heq] at hx
+  exact residual_projection_edge x (hpure _ hx)
+
+def outerCycleInput (x : Fin 10 → Bool) : Fin 6 → Bool :=
+  ![x 2, x 8, x 9, x 3, x 7, x 6]
+
+lemma petersen_star_decomposition (x : Fin 10 → Bool) :
+    edgeFunction petersenEdges x = (
+      residualC6 (outerCycleInput x) ||
+      x 1 && (x 0 || (x 2 || x 6)) ||
+      x 4 && (x 0 || (x 3 || x 9)) ||
+      x 5 && (x 0 || (x 7 || x 8))) := by
+  simp [edgeFunction, petersenEdges, residualC6, outerCycleInput,
+    Bool.and_or_distrib_left, Bool.or_assoc, Bool.or_left_comm,
+    Bool.or_comm, Bool.and_comm]
+
+lemma noisy_pair_eq_of_cycle_false (p q f : Bool)
+    (hlower : p ≤ q) (hupper : q ≤ (p || f)) (hf : f = false) : q = p := by
+  rw [hf, Bool.or_false] at hupper
+  exact le_antisymm hupper hlower
+
+lemma petersen_multioutput_lift
+    (Paf Pbe Pcd : (Fin 6 → Bool) → Bool)
+    (haf : ∀ y, (y 0 || y 5) ≤ Paf y ∧ Paf y ≤ ((y 0 || y 5) || residualC6 y))
+    (hbe : ∀ y, (y 1 || y 4) ≤ Pbe y ∧ Pbe y ≤ ((y 1 || y 4) || residualC6 y))
+    (hcd : ∀ y, (y 2 || y 3) ≤ Pcd y ∧ Pcd y ≤ ((y 2 || y 3) || residualC6 y))
+    (x : Fin 10 → Bool) :
+    (residualC6 (outerCycleInput x) ||
+      x 1 && (x 0 || Paf (outerCycleInput x)) ||
+      x 4 && (x 0 || Pcd (outerCycleInput x)) ||
+      x 5 && (x 0 || Pbe (outerCycleInput x))) =
+        edgeFunction petersenEdges x := by
+  rw [petersen_star_decomposition]
+  cases hf : residualC6 (outerCycleInput x) with
+  | true => simp
+  | false =>
+      have ha := noisy_pair_eq_of_cycle_false _ _ _
+        (haf (outerCycleInput x)).1 (haf (outerCycleInput x)).2 hf
+      have hb := noisy_pair_eq_of_cycle_false _ _ _
+        (hbe (outerCycleInput x)).1 (hbe (outerCycleInput x)).2 hf
+      have hc := noisy_pair_eq_of_cycle_false _ _ _
+        (hcd (outerCycleInput x)).1 (hcd (outerCycleInput x)).2 hf
+      rw [ha, hb, hc]
+      simp [outerCycleInput, Bool.or_comm]
+
+lemma zero_wire_support_subset {n : ℕ} {α : Type} {D : Dag}
+    (hS : Strict n D) (rows : α → Fin n → Bool)
+    (I : Finset (Fin n)) (r : α) (hr : ∀ v, v ∉ I → rows r v = true)
+    {w : ℕ} (hw : w ∈ zeroWires D rows) : supp n D w ⊆ I := by
+  intro v hv
+  by_contra hvi
+  have hvtrue := hr v hvi
+  have hwtrue : val D (rows r) w = true := by
+    apply val_mono hS (single v) (rows r) _ w (mem_supp.mp hv)
+    intro u hu
+    have huv : u = v := by simpa [single] using hu
+    simpa only [huv] using hvtrue
+  have hwfalse := (mem_zeroWires.mp hw).2 r
+  rw [hwtrue] at hwfalse
+  contradiction
+
+lemma earlier_wire_not_first_support {n : ℕ} {D : Dag} {j : ℕ}
+    {S : Finset (Fin n)} (hcard : 2 ≤ S.card)
+    (hfirst : ∀ k < j, supp n D (n + k) ≠ S) :
+    ∀ w < n + j, supp n D w ≠ S := by
+  intro w hw heq
+  by_cases hn : w < n
+  · have hc : S.card = 1 := by
+      rw [← heq]
+      change (supp n D (⟨w, hn⟩ : Fin n).val).card = 1
+      rw [supp_input]
+      simp
+    omega
+  · have hh := hfirst (w - n) (by omega)
+    apply hh
+    simpa only [Nat.add_sub_of_le (Nat.le_of_not_gt hn)] using heq
+
+lemma first_support_gate_no_zero_input {n : ℕ} {α : Type} {D : Dag}
+    (hS : Strict n D) (rows : α → Fin n → Bool)
+    (I : Finset (Fin n)) (r : α) (hr : ∀ v, v ∉ I → rows r v = true)
+    {j : ℕ} (hj : j < D.length) {S : Finset (Fin n)}
+    (hcard : 2 ≤ S.card) (hdis : Disjoint S I)
+    (hs : supp n D (n + j) = S)
+    (hfirst : ∀ k < j, supp n D (n + k) ≠ S) :
+    opA D j ∉ zeroWires D rows ∧ opB D j ∉ zeroWires D rows := by
+  have hearly := earlier_wire_not_first_support hcard hfirst
+  obtain ⟨ha, hb, _⟩ := hS j hj
+  have hnotzero : n + j ∉ zeroWires D rows := by
+    intro hz
+    have hsub := zero_wire_support_subset hS rows I r hr hz
+    rw [hs] at hsub
+    have hempty : S = ∅ := by
+      ext v
+      simp only [Finset.notMem_empty, iff_false]
+      intro hv
+      exact Finset.disjoint_left.mp hdis hv (hsub hv)
+    simp [hempty] at hcard
+  have hg := supp_gate hS j hj
+  rw [hs] at hg
+  have hor_empty : tag D j = false →
+      ∀ w, w ∈ zeroWires D rows → supp n D w ⊆ S → supp n D w = ∅ := by
+    intro _ w hw hwS
+    have hwI := zero_wire_support_subset hS rows I r hr hw
+    ext v
+    simp only [Finset.notMem_empty, iff_false]
+    intro hv
+    exact Finset.disjoint_left.mp hdis (hwS hv) (hwI hv)
+  cases hop : tag D j with
+  | true =>
+      constructor <;> intro hz <;> apply hnotzero
+      · refine mem_zeroWires.mpr ⟨by omega, ?_⟩
+        intro t
+        rw [val_gate hS _ j hj, hop, gop_true, (mem_zeroWires.mp hz).2 t]
+        rfl
+      · refine mem_zeroWires.mpr ⟨by omega, ?_⟩
+        intro t
+        rw [val_gate hS _ j hj, hop, gop_true, (mem_zeroWires.mp hz).2 t]
+        simp
+  | false =>
+      simp only [hop, Bool.false_eq_true, ↓reduceIte] at hg
+      constructor
+      · intro hz
+        have hsub : supp n D (opA D j) ⊆ S := by rw [hg]; exact Finset.subset_union_left
+        have he := hor_empty hop _ hz hsub
+        have hbS : supp n D (opB D j) = S := by simpa [he] using hg.symm
+        exact hearly _ hb hbS
+      · intro hz
+        have hsub : supp n D (opB D j) ⊆ S := by rw [hg]; exact Finset.subset_union_right
+        have he := hor_empty hop _ hz hsub
+        have haS : supp n D (opA D j) = S := by simpa [he] using hg.symm
+        exact hearly _ ha haS
+
+lemma first_support_gate_not_copyBoundary {n : ℕ} {α : Type} {D : Dag}
+    (hS : Strict n D) (rows : α → Fin n → Bool)
+    (I : Finset (Fin n)) (r : α) (hr : ∀ v, v ∉ I → rows r v = true)
+    {j : ℕ} (hj : j < D.length) {S : Finset (Fin n)}
+    (hcard : 2 ≤ S.card) (hdis : Disjoint S I)
+    (hs : supp n D (n + j) = S)
+    (hfirst : ∀ k < j, supp n D (n + k) ≠ S) :
+    j ∉ copyBoundary n D (zeroWires D rows) := by
+  obtain ⟨ha, hb⟩ := first_support_gate_no_zero_input hS rows I r hr hj hcard hdis hs hfirst
+  intro hjb
+  have hcase := (Finset.mem_filter.mp hjb).2
+  rcases hcase with ⟨hza, _⟩ | ⟨hza | hzb, _⟩
+  · exact ha hza
+  · exact ha hza
+  · exact hb hzb
+
 end PEqualNP.Outside.L_meta_2590.EssentialPruning
