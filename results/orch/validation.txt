@@ -31,3 +31,9 @@ Root independently reviewed each new statement/proof and exact circuit identitie
 StarForest extends the exact bound to degree-one on either side. RowSharing disproves a candidate per-row OR-charge shortcut, not the posted statement. Buffering proves any AO2 circuit has an equivalent T0 circuit with n additional AND gates.
 Sub-agents: seven total, including a focused AND-count child.
 TIMING total=20 subagents=7
+
+Checkpoint6: OneSidedBuffering, Lattice, ReaderPath compile.
+Root independently reviewed all new source and hypotheses.
+One-sided buffering overhead is p; Lattice gives exact min/max interpretation; ReaderPath is a checked counterexample to a normalization shortcut, not to L-meta-4675.
+Still no theorem of posted statement; no PR.
+TIMING total=27 subagents=7

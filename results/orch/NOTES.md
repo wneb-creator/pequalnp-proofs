@@ -93,3 +93,15 @@ Boolean equality also implies equality of the corresponding min/max lattice poly
 
 ## Root: one-sided buffering idea
 Buffer only all point inputs, leaving raw line inputs unchanged. Original OR reaches then contain only lines, so T=0 with p extra AND gates (symmetrically l). This strengthens the n-buffer construction; normalization agent formalizing. For tau=p on balanced graphs, the target would imply arbitrary AO circuit size >= |E|-1.
+
+### One-sided buffering (compiled)
+
+`OneSidedBuffering.lean` extends the frozen Buffering foundation in the same namespace. `one_sided_buffering` proves an equivalent IsAO2 circuit for a p+l input circuit, with overhead p only, and tCount zero for the point/line split. Only point inputs receive identity AND buffers; raw lines remain directly readable. Prefix relocation is oneMap, with all mapped old gate input indices at least p. Compile clean exit0 at 2026-11-25T17:26:30.194679+00:00. This sharpens the full n buffer conversion; does not prove the requested lower bound.
+
+### Exact min/max translation compiled (2026-11-25T17:27:06.449520+00:00)
+
+`Lattice.lean` (99 lines) proves threshold commutation for the original AO2 circuit DAG evaluated over natural numbers with AND=min and OR=max. Its `edge_value` lemma derives `natFun C x = E.sup (fun e => min (x point(e)) (x line(e)))` from the exact Boolean edge-function semantics. No C4-freeness or colour hypothesis is needed; no gates are changed or duplicated. This gives a rigorous comparison-network formulation. Complete Lean log is scratch/lattice.log (empty, exit0). This is a bridge, not the missing gate lower bound.
+
+## Independent computational review 2026-11-25T17:27:59.656826+00:00
+
+lemma_inventory reviewed exhaustive C++ pruning, free-gate SMT encodings, archived input restrictions, graph/isomorphism coverage and four SAT controls. No flaw found in main reported scopes. Important caveat: synth.py exact irredundant-size UNSAT is not automatically <=k; author added caveat. Exact SMT inputs/stdout and hashes were initially missing from archive and now included. Full review: `/tmp/oec/pequalnp-pilot-161/SEARCH_REVIEW.md`; small independent checks: `search-review-small-validation.txt`. All results remain exploratory, not Lean verification or certified UNSAT.

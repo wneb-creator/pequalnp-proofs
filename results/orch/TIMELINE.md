@@ -11,3 +11,6 @@
 - 2026-11-25T17:19:19.615014+00:00: first-dirty-AND classification and extended OR-reach lemmas compiled and reviewed.
 - 2026-11-25T17:22:52.459285+00:00: RowSharing.lean compiled, refuting naive no-sharing-of-row-OR-gates subclaim. No diagnostics.
 - 2026-11-25T17:24:23.528979+00:00: star-forest bounds, row-sharing obstacle, additive buffering compiled and reviewed.
+- 2026-11-25T17:25:03.787233+00:00: first replan: abandon per-row OR charging and one-dirty star-reader shortcut after explicit counterexamples; focus AND-count invariant, one-sided buffering, min/max transfer, and direct Fano26 synthesis.
+- 2026-11-25T17:27:06.449520+00:00: Lattice.lean exact edge bottleneck translation compiled; no diagnostics.
+- 2026-11-25T17:30:03.945574+00:00: one-sided buffering, min/max equivalence, one-dirty nonstar reader compiled and reviewed.
