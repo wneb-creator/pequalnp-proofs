@@ -91,3 +91,114 @@ lemma reviewBoundary_notComputes :
   contradiction
 
 end PEqualNP.Outside.L_meta_3566
+
+namespace PEqualNP.Outside.L_meta_3566.BipartiteBoundary
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
+
+/-- A selected subset of the enumerated vertices, together with every true-color
+  vertex having no neighbor in the selected subset. -/
+def negativeInput {n p : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (c : Fin n → Bool) (e : Fin p → Fin n) (s : Fin p → Bool) : Fin n → Bool :=
+  fun i => decide (∃ j, e j = i ∧ s j = true) ||
+    (c i && decide (∀ j, s j = true → ¬ G.Adj (e j) i))
+
+lemma graph_true_iff {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (x : Fin n → Bool) :
+    graphFun G ∅ x = true ↔ ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+  simp [graphFun]
+
+/-- Every negative input is below a canonical input. This implication needs
+  only enumeration of the false-color vertices, not a proper coloring. -/
+lemma negative_le_canonical {n p : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (c : Fin n → Bool) (e : Fin p → Fin n)
+    (hcover : ∀ i, c i = false → ∃ j, e j = i)
+    (x : Fin n → Bool) (hx : graphFun G ∅ x = false) :
+    x ≤ negativeInput G c e (fun j => x (e j)) := by
+  intro i
+  apply Bool.le_iff_imp.mpr
+  intro hi
+  simp only [negativeInput, Bool.or_eq_true, decide_eq_true_eq, Bool.and_eq_true]
+  by_cases hci : c i = false
+  · obtain ⟨j, hj⟩ := hcover i hci
+    exact Or.inl ⟨j, hj, by rw [hj]; exact hi⟩
+  · have hcit : c i = true := by cases h : c i <;> simp_all
+    right
+    refine ⟨hcit, ?_⟩
+    intro j hj hadj
+    have htrue := (graph_true_iff G x).2 ⟨e j, i, hadj, hj, hi⟩
+    rw [hx] at htrue
+    cases htrue
+
+/-- Edge pairs and this family of at most 2^p canonical inputs suffice to
+  check a monotone function. Bipartiteness is not needed for this direction. -/
+lemma eq_graph_of_boundary {n p : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (c : Fin n → Bool) (e : Fin p → Fin n)
+    (hcover : ∀ i, c i = false → ∃ j, e j = i)
+    (f : (Fin n → Bool) → Bool) (hf : Monotone f)
+    (hedges : ∀ u v, G.Adj u v → f (pairInput u v) = true)
+    (hnegative : ∀ s : Fin p → Bool, f (negativeInput G c e s) = false) :
+    f = graphFun G ∅ := by
+  funext x
+  by_cases hx : graphFun G ∅ x = true
+  · obtain ⟨u, v, huv, hu, hv⟩ := (graph_true_iff G x).1 hx
+    have hpair : pairInput u v ≤ x := by
+      intro i
+      apply Bool.le_iff_imp.mpr
+      intro hi
+      have hmem : i = u ∨ i = v := by simpa [pairInput] using hi
+      rcases hmem with rfl | rfl
+      · exact hu
+      · exact hv
+    have hfx : f x = true := by
+      have h := hf hpair
+      rw [hedges u v huv] at h
+      exact Bool.le_iff_imp.mp h rfl
+    exact hfx.trans hx.symm
+  · have hgx : graphFun G ∅ x = false := Bool.eq_false_iff.mpr hx
+    have h := hf (negative_le_canonical G c e hcover x hgx)
+    rw [hnegative] at h
+    have hfx : f x = false := by
+      cases hfx : f x <;> simp_all [Bool.le_iff_imp]
+    exact hfx.trans hgx.symm
+
+/-- Proper coloring and false-color enumeration make every canonical input
+  negative. Neither surjectivity nor injectivity of e is needed here. -/
+lemma canonical_negative {n p : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (c : Fin n → Bool) (e : Fin p → Fin n)
+    (hproper : ∀ u v, G.Adj u v → c u ≠ c v)
+    (hleft : ∀ j, c (e j) = false) (s : Fin p → Bool) :
+    graphFun G ∅ (negativeInput G c e s) = false := by
+  apply Bool.eq_false_iff.mpr
+  intro h
+  obtain ⟨u, v, huv, hu, hv⟩ := (graph_true_iff G _).1 h
+  simp only [negativeInput, Bool.or_eq_true, decide_eq_true_eq, Bool.and_eq_true] at hu hv
+  rcases hu with ⟨j, rfl, hj⟩ | ⟨hcu, hnu⟩
+  · rcases hv with ⟨k, rfl, hk⟩ | ⟨hcv, hnv⟩
+    · exact hproper _ _ huv ((hleft j).trans (hleft k).symm)
+    · exact hnv j hj huv
+  · rcases hv with ⟨k, rfl, hk⟩ | ⟨hcv, hnv⟩
+    · exact hnu k hk huv.symm
+    · exact hproper _ _ huv (hcu.trans hcv.symm)
+
+lemma eq_graph_iff_boundary {n p : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (c : Fin n → Bool) (e : Fin p → Fin n)
+    (hcover : ∀ i, c i = false → ∃ j, e j = i)
+    (hproper : ∀ u v, G.Adj u v → c u ≠ c v)
+    (hleft : ∀ j, c (e j) = false)
+    (f : (Fin n → Bool) → Bool) (hf : Monotone f) :
+    f = graphFun G ∅ ↔
+      (∀ u v, G.Adj u v → f (pairInput u v) = true) ∧
+      (∀ s : Fin p → Bool, f (negativeInput G c e s) = false) := by
+  constructor
+  · intro h
+    subst f
+    constructor
+    · intro u v huv
+      apply (graph_true_iff G _).2
+      exact ⟨u, v, huv, by simp [pairInput], by simp [pairInput]⟩
+    · exact canonical_negative G c e hproper hleft
+  · rintro ⟨hedges, hnegative⟩
+    exact eq_graph_of_boundary G c e hcover f hf hedges hnegative
+
+end PEqualNP.Outside.L_meta_3566.BipartiteBoundary
