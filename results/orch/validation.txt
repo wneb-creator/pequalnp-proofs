@@ -14,3 +14,5 @@ GraphFacts.lean and GraphFactsCover.lean: Lean exit0, complete output empty. Exa
 Still no size63 witness and no exact-target checker acceptance.
 
 Geometry.lean: Lean exit0, complete stdout/stderr empty. Proves incidence-free rectangle side bound<=3 via four-neighborhood inclusion-exclusion; independent review passed. Still partial only.
+
+Attach.lean: Lean exit0; generic shifted-gate run semantics and runlength. Independent review passed; partial only.
