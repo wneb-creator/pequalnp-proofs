@@ -1,0 +1,11 @@
+L-meta-670 partial preservation snapshot; exact posted lower bound not yet proved.
+
+Lean 4.36.0. Mathlib cache: all 9117 files downloaded/decompressed, exit 0.
+Base checker executable and PEqualNP.Defs build: exit 0.
+Normalization.lean: lake env lean, exit 0, stdout/stderr empty.
+NormalizationFull.lean: lake env lean, exit 0, stdout/stderr empty.
+Search.lean: lake env lean, exit 0, stdout/stderr empty.
+Full gap checker: not run; partial results only.
+Independent review: status_review approved symmetry and upper-bound partial snapshot.
+Sub-agents: status/inventory/review, toolchain/search, structural, finite verification, normalization, restriction mathematics (6 total).
+TIMING total=21.9 subagents=6
