@@ -1259,4 +1259,164 @@ lemma not_live_of_orientationCheck {width k : ℕ} (goal : BitVec width)
   rw [hcheck] at hh
   cases hh
 
+
+def graphEdge (graph : List ℕ) (i j : ℕ) : Bool :=
+  (graph.getD i 0).testBit j || (graph.getD j 0).testBit i
+
+def colorPrefix (f : ℕ → ℕ) (n : ℕ) : List ℕ := (List.range n).map f
+
+lemma colorPrefix_length (f : ℕ → ℕ) (n : ℕ) : (colorPrefix f n).length = n := by
+  simp [colorPrefix]
+
+lemma colorPrefix_get (f : ℕ → ℕ) (n i : ℕ) (hi : i < n) :
+    (colorPrefix f n).getD i 0 = f i := by
+  simp [colorPrefix, List.getD_eq_getElem?_getD, hi]
+
+lemma colorPrefix_succ (f : ℕ → ℕ) (n : ℕ) :
+    colorPrefix f (n + 1) = colorPrefix f n ++ [f n] := by
+  simp [colorPrefix, List.range_succ]
+
+def fitsColor (graph assigned : List ℕ) (c : ℕ) : Bool :=
+  !(graphEdge graph assigned.length assigned.length) &&
+    (List.range assigned.length).all (fun i =>
+      !(graphEdge graph assigned.length i) || assigned.getD i 0 != c)
+
+def colorSearch (graph : List ℕ) (colors : ℕ) : ℕ → List ℕ → Bool
+  | 0, _ => true
+  | k + 1, assigned => (List.range colors).any (fun c =>
+      fitsColor graph assigned c && colorSearch graph colors k (assigned ++ [c]))
+
+def graphColorable (graph : List ℕ) (colors : ℕ) : Prop :=
+  ∃ f : ℕ → ℕ, (∀ i < graph.length, f i < colors) ∧
+    ∀ i < graph.length, ∀ j < graph.length,
+      (graph.getD i 0).testBit j = true → f i ≠ f j
+
+def graphColorCheck (graph : List ℕ) (colors : ℕ) : Bool :=
+  colorSearch graph colors graph.length []
+
+lemma graphEdge_colors {graph : List ℕ} {f : ℕ → ℕ}
+    (hproper : ∀ i < graph.length, ∀ j < graph.length,
+      (graph.getD i 0).testBit j = true → f i ≠ f j)
+    {i j : ℕ} (hi : i < graph.length) (hj : j < graph.length)
+    (h : graphEdge graph i j = true) : f i ≠ f j := by
+  simp only [graphEdge, Bool.or_eq_true] at h
+  rcases h with h | h
+  · exact hproper i hi j hj h
+  · exact Ne.symm (hproper j hj i hi h)
+
+lemma fitsColor_prefix {graph : List ℕ} {f : ℕ → ℕ}
+    (hproper : ∀ i < graph.length, ∀ j < graph.length,
+      (graph.getD i 0).testBit j = true → f i ≠ f j)
+    {n : ℕ} (hn : n < graph.length) :
+    fitsColor graph (colorPrefix f n) (f n) = true := by
+  have hself : graphEdge graph n n = false := by
+    cases he : graphEdge graph n n with
+    | false => rfl
+    | true => exact False.elim ((graphEdge_colors hproper hn hn he) rfl)
+  simp only [fitsColor, colorPrefix_length, hself, Bool.not_false, Bool.true_and]
+  apply List.all_eq_true.mpr
+  intro i hi
+  have hin : i < n := List.mem_range.mp hi
+  rw [colorPrefix_get f n i hin]
+  cases he : graphEdge graph n i with
+  | false => simp
+  | true =>
+    have hh : f i ≠ f n := Ne.symm (graphEdge_colors hproper hn (by omega) he)
+    simp [hh]
+
+lemma colorSearch_complete {graph : List ℕ} {colors : ℕ} {f : ℕ → ℕ}
+    (hbound : ∀ i < graph.length, f i < colors)
+    (hproper : ∀ i < graph.length, ∀ j < graph.length,
+      (graph.getD i 0).testBit j = true → f i ≠ f j)
+    (k n : ℕ) (hsize : n + k ≤ graph.length) :
+    colorSearch graph colors k (colorPrefix f n) = true := by
+  induction k generalizing n with
+  | zero => rfl
+  | succ k ih =>
+    have hn : n < graph.length := by omega
+    apply List.any_eq_true.mpr
+    refine ⟨f n, List.mem_range.mpr (hbound n hn), ?_⟩
+    simp only [Bool.and_eq_true]
+    constructor
+    · exact fitsColor_prefix hproper hn
+    · simpa only [colorPrefix_succ] using ih (n + 1) (by omega)
+
+lemma graphColorCheck_complete {graph : List ℕ} {colors : ℕ}
+    (h : graphColorable graph colors) : graphColorCheck graph colors = true := by
+  obtain ⟨f, hbound, hproper⟩ := h
+  simpa [graphColorCheck, colorPrefix] using
+    colorSearch_complete hbound hproper graph.length 0 (by omega)
+
+lemma not_graphColorable_of_check {graph : List ℕ} {colors : ℕ}
+    (h : graphColorCheck graph colors = false) : ¬ graphColorable graph colors := by
+  intro hc
+  have hh := graphColorCheck_complete hc
+  rw [h] at hh
+  cases hh
+
+def graphEmptyCheck (graph : List ℕ) : Bool :=
+  graph.all (fun row => decide (BitVec.ofNat graph.length row = 0))
+
+lemma graphEmptyCheck_complete {graph : List ℕ} (h : graphColorable graph 1) :
+    graphEmptyCheck graph = true := by
+  obtain ⟨f, hbound, hproper⟩ := h
+  apply List.all_eq_true.mpr
+  intro row hrow
+  obtain ⟨i, hin, hroweq⟩ := List.mem_iff_getElem.mp hrow
+  have hr : graph.getD i 0 = row := by
+    simp [List.getD_eq_getElem?_getD, hin, hroweq]
+  apply decide_eq_true
+  rw [← hr]
+  apply BitVec.eq_of_getLsbD_eq_iff.mpr
+  intro j hj
+  have hfalse : (graph.getD i 0).testBit j = false := by
+    cases he : (graph.getD i 0).testBit j with
+    | false => rfl
+    | true =>
+      have hh := hproper i hin j hj he
+      have hb1 := hbound i hin
+      have hb2 := hbound j hj
+      omega
+  simp only [BitVec.getLsbD_ofNat, hj, decide_true, Bool.true_and, hfalse]
+  change false = (BitVec.ofNat graph.length 0).getLsbD j
+  simp [BitVec.getLsbD_ofNat]
+
+def graphColorFast (graph : List ℕ) (colors : ℕ) : Bool :=
+  if colors = 1 then graphEmptyCheck graph else graphColorCheck graph colors
+
+lemma graphColorFast_complete {graph : List ℕ} {colors : ℕ}
+    (h : graphColorable graph colors) : graphColorFast graph colors = true := by
+  unfold graphColorFast
+  split
+  next hc => subst colors; exact graphEmptyCheck_complete h
+  next hc => exact graphColorCheck_complete h
+
+lemma not_graphColorable_of_fast {graph : List ℕ} {colors : ℕ}
+    (h : graphColorFast graph colors = false) : ¬ graphColorable graph colors := by
+  intro hc
+  have hh := graphColorFast_complete hc
+  rw [h] at hh
+  cases hh
+
+lemma graphColorable_of_fin {graph : List ℕ} {colors : ℕ}
+    (f : Fin graph.length → Fin colors)
+    (hproper : ∀ i j, (graph.getD i.val 0).testBit j.val = true → f i ≠ f j) :
+    graphColorable graph colors := by
+  let g : ℕ → ℕ := fun i => if hi : i < graph.length then (f ⟨i, hi⟩).val else 0
+  refine ⟨g, ?_, ?_⟩
+  · intro i hi
+    simp [g, hi]
+  · intro i hi j hj he
+    have hh := hproper ⟨i, hi⟩ ⟨j, hj⟩ he
+    simp only [g, hi, hj, dite_true]
+    intro eq
+    apply hh
+    exact Fin.ext eq
+
+lemma not_fin_coloring_of_fast {graph : List ℕ} {colors : ℕ}
+    (h : graphColorFast graph colors = false)
+    (f : Fin graph.length → Fin colors)
+    (hproper : ∀ i j, (graph.getD i.val 0).testBit j.val = true → f i ≠ f j) : False :=
+  not_graphColorable_of_fast h (graphColorable_of_fin f hproper)
+
 end PEqualNP.Outside.L_meta_10760
