@@ -1,0 +1,82 @@
+BEST 27 NOT 0 run 0 elapsed 0.07
+PROGRESS 0 best 27 valid 1 unique 2 elapsed 0.07
+BEST 25 NOT 0 run 4 elapsed 0.79
+PROGRESS 20 best 25 valid 21 unique 22 elapsed 2.73
+BEST_NONMONOTONE 34 NOT 7 run 23
+BEST_NONMONOTONE 32 NOT 6 run 34
+PROGRESS 40 best 25 valid 41 unique 42 elapsed 4.68
+PROGRESS 60 best 25 valid 61 unique 62 elapsed 7.18
+PROGRESS 80 best 25 valid 81 unique 82 elapsed 9.3
+PROGRESS 100 best 25 valid 101 unique 102 elapsed 11.66
+PROGRESS 120 best 25 valid 121 unique 122 elapsed 14.23
+PROGRESS 140 best 25 valid 141 unique 142 elapsed 16.61
+PROGRESS 160 best 25 valid 161 unique 162 elapsed 19.83
+PROGRESS 180 best 25 valid 181 unique 182 elapsed 22.62
+PROGRESS 200 best 25 valid 201 unique 202 elapsed 25.28
+PROGRESS 220 best 25 valid 221 unique 222 elapsed 27.77
+PROGRESS 240 best 25 valid 241 unique 242 elapsed 31.15
+PROGRESS 260 best 25 valid 261 unique 262 elapsed 33.78
+PROGRESS 280 best 25 valid 281 unique 282 elapsed 36.14
+PROGRESS 300 best 25 valid 301 unique 302 elapsed 38.64
+PROGRESS 320 best 25 valid 321 unique 322 elapsed 41.6
+PROGRESS 340 best 25 valid 341 unique 342 elapsed 44.47
+PROGRESS 360 best 25 valid 361 unique 362 elapsed 46.78
+PROGRESS 380 best 25 valid 381 unique 382 elapsed 48.83
+PROGRESS 400 best 25 valid 401 unique 402 elapsed 51.1
+PROGRESS 420 best 25 valid 421 unique 422 elapsed 53.03
+PROGRESS 440 best 25 valid 441 unique 442 elapsed 55.52
+BEST_NONMONOTONE 30 NOT 1 run 459
+PROGRESS 460 best 25 valid 461 unique 462 elapsed 58.31
+PROGRESS 480 best 25 valid 481 unique 482 elapsed 61.29
+PROGRESS 500 best 25 valid 501 unique 500 elapsed 64.5
+PROGRESS 520 best 25 valid 521 unique 520 elapsed 66.79
+PROGRESS 540 best 25 valid 541 unique 540 elapsed 68.69
+PROGRESS 560 best 25 valid 561 unique 560 elapsed 71.35
+PROGRESS 580 best 25 valid 581 unique 580 elapsed 73.59
+PROGRESS 600 best 25 valid 601 unique 600 elapsed 75.69
+PROGRESS 620 best 25 valid 621 unique 620 elapsed 78.14
+PROGRESS 640 best 25 valid 641 unique 639 elapsed 80.53
+PROGRESS 660 best 25 valid 661 unique 659 elapsed 83.23
+PROGRESS 680 best 25 valid 681 unique 678 elapsed 85.57
+PROGRESS 700 best 25 valid 701 unique 698 elapsed 88.2
+BEST_NONMONOTONE 29 NOT 1 run 718
+PROGRESS 720 best 25 valid 721 unique 718 elapsed 90.46
+PROGRESS 740 best 25 valid 741 unique 738 elapsed 93.12
+PROGRESS 760 best 25 valid 761 unique 758 elapsed 95.52
+PROGRESS 780 best 25 valid 781 unique 778 elapsed 98.09
+PROGRESS 800 best 25 valid 801 unique 798 elapsed 101.06
+PROGRESS 820 best 25 valid 821 unique 818 elapsed 103.48
+PROGRESS 840 best 25 valid 841 unique 838 elapsed 105.66
+PROGRESS 860 best 25 valid 861 unique 858 elapsed 108.0
+PROGRESS 880 best 25 valid 881 unique 877 elapsed 110.36
+PROGRESS 900 best 25 valid 901 unique 896 elapsed 112.7
+PROGRESS 920 best 25 valid 921 unique 916 elapsed 114.86
+PROGRESS 940 best 25 valid 941 unique 936 elapsed 117.25
+PROGRESS 960 best 25 valid 961 unique 956 elapsed 119.34
+PROGRESS 980 best 25 valid 981 unique 976 elapsed 121.35
+PROGRESS 1000 best 25 valid 1001 unique 996 elapsed 124.22
+PROGRESS 1020 best 25 valid 1021 unique 1016 elapsed 126.94
+PROGRESS 1040 best 25 valid 1041 unique 1036 elapsed 129.03
+PROGRESS 1060 best 25 valid 1061 unique 1055 elapsed 131.55
+PROGRESS 1080 best 25 valid 1081 unique 1075 elapsed 134.45
+PROGRESS 1100 best 25 valid 1101 unique 1095 elapsed 136.97
+PROGRESS 1120 best 25 valid 1121 unique 1115 elapsed 138.96
+PROGRESS 1140 best 25 valid 1141 unique 1135 elapsed 141.12
+PROGRESS 1160 best 25 valid 1161 unique 1155 elapsed 143.78
+PROGRESS 1180 best 25 valid 1181 unique 1175 elapsed 145.98
+PROGRESS 1200 best 25 valid 1201 unique 1195 elapsed 148.19
+PROGRESS 1220 best 25 valid 1221 unique 1215 elapsed 151.02
+PROGRESS 1240 best 25 valid 1241 unique 1235 elapsed 153.58
+PROGRESS 1260 best 25 valid 1261 unique 1255 elapsed 156.37
+PROGRESS 1280 best 25 valid 1281 unique 1275 elapsed 158.93
+PROGRESS 1300 best 25 valid 1301 unique 1295 elapsed 161.8
+PROGRESS 1320 best 25 valid 1321 unique 1315 elapsed 164.02
+PROGRESS 1340 best 25 valid 1341 unique 1335 elapsed 166.12
+PROGRESS 1360 best 25 valid 1361 unique 1355 elapsed 168.64
+PROGRESS 1380 best 25 valid 1381 unique 1375 elapsed 170.77
+PROGRESS 1400 best 25 valid 1401 unique 1395 elapsed 173.25
+PROGRESS 1420 best 25 valid 1421 unique 1415 elapsed 175.75
+PROGRESS 1440 best 25 valid 1441 unique 1434 elapsed 178.21
+PROGRESS 1460 best 25 valid 1461 unique 1454 elapsed 180.51
+PROGRESS 1480 best 25 valid 1481 unique 1474 elapsed 182.69
+SUMMARY {"best": 25, "best_nonmonotone": 29, "valid": 1500, "unique": 1493, "histogram": {"27": 373, "173": 1, "28": 282, "25": 203, "30": 26, "26": 84, "79": 10, "84": 25, "34": 7, "37": 5, "83": 27, "32": 7, "29": 64, "66": 1, "87": 22, "81": 16, "35": 6, "89": 36, "78": 8, "146": 1, "109": 1, "91": 16, "40": 1, "90": 20, "98": 4, "77": 4, "180": 1, "93": 5, "85": 35, "72": 5, "31": 17, "41": 1, "39": 4, "38": 4, "88": 11, "92": 16, "94": 6, "82": 17, "44": 1, "107": 5, "76": 4, "143": 1, "58": 1, "33": 8, "95": 4, "80": 12, "100": 2, "86": 34, "96": 5, "134": 1, "140": 1, "155": 1, "149": 2, "164": 1, "160": 2, "36": 5, "145": 2, "186": 1, "42": 2, "168": 1, "97": 2, "75": 1, "99": 2, "54": 2, "130": 1, "115": 1, "151": 1, "156": 1, "147": 1, "103": 1, "62": 1, "172": 1, "47": 2, "74": 2, "182": 1, "131": 1, "67": 1, "43": 2, "56": 1, "194": 1, "71": 1, "112": 1, "125": 1, "114": 1, "120": 1, "69": 1}, "errors": [], "elapsed_seconds": 185.1182778309999, "seed": 8519816}

@@ -1,0 +1,8 @@
+{
+  "star": 25,
+  "dnf": 37,
+  "cnf": 280,
+  "shannon_one_example": 48,
+  "shannon_two_example": 66,
+  "all_seeds_validated_inputs": 16384
+}

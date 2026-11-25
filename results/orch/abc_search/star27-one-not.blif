@@ -1,0 +1,32 @@
+.model star25
+.inputs x6 x12 x8 x1 x5 x0 x13 x3 x11 x7 x10 x9 x2 x4
+.outputs f
+.gate OR2 A=x13 B=x7 Y=n14
+.gate AND2 A=x1 B=n14 Y=n15
+.gate OR2 A=x13 B=x11 Y=n16
+.gate OR2 A=n16 B=x10 Y=n17
+.gate INV A=n17 Y=n18
+.gate OR2 A=x4 B=n18 Y=n19
+.gate AND2 A=n19 B=n17 Y=n20
+.gate OR2 A=x10 B=x8 Y=n21
+.gate AND2 A=x0 B=n21 Y=n22
+.gate OR2 A=x8 B=x12 Y=n23
+.gate OR2 A=x13 B=n23 Y=n24
+.gate AND2 A=x2 B=n24 Y=n25
+.gate OR2 A=x7 B=x11 Y=n26
+.gate OR2 A=x12 B=n26 Y=n27
+.gate AND2 A=x3 B=n27 Y=n28
+.gate OR2 A=x9 B=x8 Y=n29
+.gate OR2 A=x11 B=n29 Y=n30
+.gate AND2 A=x6 B=n30 Y=n31
+.gate OR2 A=x12 B=x10 Y=n32
+.gate OR2 A=x9 B=n32 Y=n33
+.gate AND2 A=x5 B=n33 Y=n34
+.gate OR2 A=n22 B=n34 Y=n35
+.gate OR2 A=n31 B=n25 Y=n36
+.gate OR2 A=n36 B=n15 Y=n37
+.gate OR2 A=n28 B=n20 Y=n38
+.gate OR2 A=n38 B=n37 Y=n39
+.gate OR2 A=n39 B=n35 Y=n40
+.gate BUF A=n40 Y=f
+.end

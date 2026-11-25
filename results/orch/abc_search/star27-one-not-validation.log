@@ -1,0 +1,9 @@
+{
+  "output": 40,
+  "gate_count": 27,
+  "not_count": 1,
+  "errors": 0,
+  "first_errors": [],
+  "source": "/tmp/oec/pequalnp-pilot-85/abc-search/star27-one-not.blif",
+  "sha256": "e372426329880ac3076720fcb3a99ba1991a46866b56226275d5d70641e7085f"
+}

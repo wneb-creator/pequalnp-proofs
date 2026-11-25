@@ -1,0 +1,13 @@
+[
+  "dc2",
+  "dc2 -b",
+  "dc2 -l",
+  "dch; strash",
+  "collapse; sop; fx; strash",
+  "collapse -o; sop -n; fx; strash",
+  "collapse; aig; bidec; strash",
+  "renode -K 8 -a; aig; bidec; strash",
+  "renode -K 12 -a; aig; bidec; strash",
+  "renode -K 14 -a; aig; bidec; strash",
+  "renode -K 8 -a; mfs2 -e -a -L 4 -W 10 -C 100000; strash"
+]

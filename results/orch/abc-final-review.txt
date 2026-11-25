@@ -1,0 +1,5 @@
+Final ABC preservation audit: all63manifest filehashes match; all7 aggregate batches matchtheir saved summaries andhistogramcounts. Total8631validmappedoutputs.
+wide-3/BEST.json: 25gates,0NOT; independently correctonall16384inputs.
+wide-3/BEST_NONMONOTONE.json: 29gates,1NOT; independently correctonall16384inputs.
+Combined with prior independent12circuitcheck, all14retainedbatchbestcircuits have passedfullindependent evaluation. Bestprimitive25,besttransformedNOT28; the27gate redundantNOTseed is correctly distinguishedinREADME.
+README scope accurate: no24gatecounterexample,no unrestricted lowerbound. wide-2runtime failure andinterruptedwide-1exclusion explicit; wide-3completed1500valid mappings without errors. Preservedsource usesoriginal scratchpaths, so replayneeds adaptingpaths/toolbinary.

@@ -1,0 +1,49 @@
+# Benchmark "shannon_seed" written by ABC on Wed Nov 25 12:30:48 2026
+.model shannon_seed
+.inputs x12 x6 x10 x4 x3 x13 x2 x0 x11 x7 x8 x9 x1 x5
+.outputs f
+.gate OR2  A=new_n66 B=new_n69 Y=new_n23
+.gate OR2  A=new_n72 B=new_n76 Y=new_n29
+.gate OR2  A=new_n23 B=new_n29 Y=new_n30
+.gate OR2  A=new_n77 B=new_n80 Y=new_n34
+.gate AND2 A=new_n82 B=new_n84 Y=new_n39
+.gate OR2  A=new_n34 B=new_n39 Y=new_n40
+.gate OR2  A=new_n30 B=new_n40 Y=new_n41
+.gate OR2  A=new_n63 B=new_n41 Y=new_n42
+.gate OR2  A=new_n81 B=new_n87 Y=new_n45
+.gate OR2  A=new_n77 B=new_n90 Y=new_n48
+.gate OR2  A=new_n60 B=new_n94 Y=new_n52
+.gate OR2  A=new_n93 B=new_n52 Y=new_n53
+.gate AND2 A=new_n83 B=new_n96 Y=new_n55
+.gate OR2  A=new_n53 B=new_n55 Y=new_n56
+.gate OR2  A=new_n48 B=new_n56 Y=new_n57
+.gate OR2  A=new_n45 B=new_n57 Y=new_n58
+.gate AND2 A=new_n42 B=new_n58 Y=f
+.gate INV  A=x4 Y=new_n60
+.gate OR2  A=x11 B=x9 Y=new_n62
+.gate AND2 A=new_n62 B=x6 Y=new_n63
+.gate OR2  A=x11 B=x7 Y=new_n65
+.gate AND2 A=new_n65 B=x3 Y=new_n66
+.gate OR2  A=x10 B=x9 Y=new_n68
+.gate AND2 A=new_n68 B=x5 Y=new_n69
+.gate OR2  A=x3 B=x5 Y=new_n71
+.gate AND2 A=new_n71 B=x12 Y=new_n72
+.gate OR2  A=x8 B=x10 Y=new_n75
+.gate AND2 A=new_n75 B=x0 Y=new_n76
+.gate AND2 A=x7 B=x1 Y=new_n77
+.gate AND2 A=x13 B=x1 Y=new_n79
+.gate OR2  A=new_n79 B=x4 Y=new_n80
+.gate AND2 A=x6 B=x8 Y=new_n81
+.gate OR2  A=x2 B=new_n81 Y=new_n82
+.gate OR2  A=x12 B=x8 Y=new_n83
+.gate OR2  A=x13 B=new_n83 Y=new_n84
+.gate OR2  A=x12 B=x7 Y=new_n86
+.gate AND2 A=new_n86 B=x3 Y=new_n87
+.gate OR2  A=x10 B=x13 Y=new_n89
+.gate OR2  A=new_n89 B=x11 Y=new_n90
+.gate OR2  A=x12 B=x9 Y=new_n92
+.gate AND2 A=new_n92 B=x5 Y=new_n93
+.gate AND2 A=x6 B=x9 Y=new_n94
+.gate AND2 A=x0 B=x8 Y=new_n95
+.gate OR2  A=new_n95 B=x2 Y=new_n96
+.end

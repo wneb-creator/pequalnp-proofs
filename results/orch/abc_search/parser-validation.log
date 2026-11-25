@@ -1,0 +1,9 @@
+{
+  "output": 50,
+  "gate_count": 37,
+  "not_count": 0,
+  "errors": 0,
+  "first_errors": [],
+  "source": "/tmp/oec/pequalnp-pilot-85/abc-tool/target.blif",
+  "sha256": "eaac7f6e54a36bd2fc28b07c7eddd0fd078d0904d70176dc07e3e0437700c6e3"
+}

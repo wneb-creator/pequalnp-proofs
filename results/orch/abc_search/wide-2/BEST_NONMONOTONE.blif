@@ -1,0 +1,20 @@
+# Benchmark "shannon_seed" written by ABC on Wed Nov 25 12:38:32 2026
+.model shannon_seed
+.inputs x12 x4 x0 x9 x13 x11 x8 x1 x3 x2 x6 x5 x7 x10
+.outputs f
+.gate AND4    A=new_n38 B=new_n47 C=new_n43 D=new_n24 Y=new_n16
+.gate AND3    A=new_n42 B=new_n48 C=new_n49 Y=new_n24
+.gate AO21    A=new_n51 B=x4 C=new_n40 Y=f
+.gate NAND2   A=x12 B=x3 Y=new_n38
+.gate AND2    A=x5 B=new_n50 Y=new_n39
+.gate ORNOT2  A=new_n39 B=new_n16 Y=new_n40
+.gate AOI22   A=x9 B=x6 C=x12 D=x2 Y=new_n42
+.gate OAI21   A=x13 B=x7 C=x1 Y=new_n43
+.gate OA21    A=x11 B=x7 C=x3 Y=new_n45
+.gate OA21    A=x8 B=x10 C=x0 Y=new_n46
+.gate NOR2    A=new_n45 B=new_n46 Y=new_n47
+.gate OAI21   A=x11 B=x8 C=x6 Y=new_n48
+.gate OAI21   A=x13 B=x8 C=x2 Y=new_n49
+.gate OR3     A=x10 B=x12 C=x9 Y=new_n50
+.gate OR3     A=x10 B=x11 C=x13 Y=new_n51
+.end

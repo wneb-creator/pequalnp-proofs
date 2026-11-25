@@ -1,0 +1,16 @@
+results/orch/abc_search/expanded-1/BEST.json: 25 gates, 0 NOT, all16384 inputs correct.
+results/orch/abc_search/expanded-1/BEST_NONMONOTONE.json: 28 gates, 1 NOT, all16384 inputs correct.
+results/orch/abc_search/expanded-2/BEST.json: 25 gates, 0 NOT, all16384 inputs correct.
+results/orch/abc_search/expanded-2/BEST_NONMONOTONE.json: 28 gates, 1 NOT, all16384 inputs correct.
+results/orch/abc_search/global-smoke/BEST.json: 25 gates, 0 NOT, all16384 inputs correct.
+results/orch/abc_search/global-smoke/BEST_NONMONOTONE.json: 29 gates, 1 NOT, all16384 inputs correct.
+results/orch/abc_search/unit-2/BEST.json: 25 gates, 0 NOT, all16384 inputs correct.
+results/orch/abc_search/unit-2/BEST_NONMONOTONE.json: 28 gates, 1 NOT, all16384 inputs correct.
+results/orch/abc_search/unit-smoke/BEST.json: 25 gates, 0 NOT, all16384 inputs correct.
+results/orch/abc_search/unit-smoke/BEST_NONMONOTONE.json: 44 gates, 1 NOT, all16384 inputs correct.
+results/orch/abc_search/wide-2/BEST.json: 28 gates, 0 NOT, all16384 inputs correct.
+results/orch/abc_search/wide-2/BEST_NONMONOTONE.json: 35 gates, 7 NOT, all16384 inputs correct.
+Six saved search batches report 7131 validated mappings; best total25, best with NOT28. These are finite heuristic searches, not lower-bound certificates.
+wide-2 stopped after six valid mappings because run6 produced no mapped output; its summary records the failure. No completed or exhaustive claim is justified for that batch.
+Saved exporter SHA297f5584 matches previously audited macro expansion version. Driver accepts only full16384-input validated primitive circuits, with each mapped macro expanded first. It preserves best candidates and no size24 witness appears in saved summaries.
+Paths in saved scripts are original scratch locations; replay requires adapting BASE/library/seed paths and obtaining the original ABC binary. Source/results alone do not imply self-contained replay.

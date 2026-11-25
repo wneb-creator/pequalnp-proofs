@@ -1,0 +1,30 @@
+# Benchmark "star25" written by ABC on Wed Nov 25 12:30:48 2026
+.model star25
+.inputs x6 x7 x0 x13 x2 x11 x3 x1 x12 x4 x5 x8 x9 x10
+.outputs f
+.gate OR2  A=x2 B=x0 Y=new_n16
+.gate OR2  A=new_n16 B=x6 Y=new_n17
+.gate AND2 A=new_n17 B=x8 Y=new_n18
+.gate OR2  A=x5 B=x4 Y=new_n19
+.gate OR2  A=new_n19 B=x0 Y=new_n20
+.gate AND2 A=new_n20 B=x10 Y=new_n21
+.gate OR2  A=new_n21 B=new_n18 Y=new_n22
+.gate OR2  A=x5 B=x3 Y=new_n23
+.gate OR2  A=new_n23 B=x2 Y=new_n24
+.gate AND2 A=new_n24 B=x12 Y=new_n25
+.gate OR2  A=x5 B=x6 Y=new_n26
+.gate AND2 A=new_n26 B=x9 Y=new_n27
+.gate OR2  A=x1 B=x3 Y=new_n28
+.gate AND2 A=new_n28 B=x7 Y=new_n29
+.gate OR2  A=new_n29 B=new_n27 Y=new_n30
+.gate OR2  A=new_n30 B=new_n25 Y=new_n31
+.gate OR2  A=x1 B=x2 Y=new_n32
+.gate OR2  A=new_n32 B=x4 Y=new_n33
+.gate AND2 A=new_n33 B=x13 Y=new_n34
+.gate OR2  A=x4 B=x3 Y=new_n35
+.gate OR2  A=new_n35 B=x6 Y=new_n36
+.gate AND2 A=new_n36 B=x11 Y=new_n37
+.gate OR2  A=new_n37 B=new_n34 Y=new_n38
+.gate OR2  A=new_n38 B=new_n31 Y=new_n39
+.gate OR2  A=new_n39 B=new_n22 Y=f
+.end

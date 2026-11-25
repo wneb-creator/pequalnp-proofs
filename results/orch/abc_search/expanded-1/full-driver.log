@@ -1,0 +1,58 @@
+BEST 27 NOT 0 run 0 elapsed 0.07
+PROGRESS 0 best 27 valid 1 unique 1 elapsed 0.07
+BEST_NONMONOTONE 32 NOT 5 run 2
+BEST 25 NOT 0 run 4 elapsed 0.34
+BEST_NONMONOTONE 31 NOT 1 run 10
+PROGRESS 20 best 25 valid 21 unique 21 elapsed 1.45
+PROGRESS 40 best 25 valid 41 unique 41 elapsed 2.84
+PROGRESS 60 best 25 valid 61 unique 61 elapsed 4.53
+PROGRESS 80 best 25 valid 81 unique 81 elapsed 5.98
+PROGRESS 100 best 25 valid 101 unique 101 elapsed 7.84
+PROGRESS 120 best 25 valid 121 unique 121 elapsed 9.54
+BEST_NONMONOTONE 30 NOT 1 run 123
+PROGRESS 140 best 25 valid 141 unique 141 elapsed 11.25
+PROGRESS 160 best 25 valid 161 unique 161 elapsed 12.83
+PROGRESS 180 best 25 valid 181 unique 181 elapsed 14.38
+PROGRESS 200 best 25 valid 201 unique 201 elapsed 16.28
+PROGRESS 220 best 25 valid 221 unique 221 elapsed 17.78
+PROGRESS 240 best 25 valid 241 unique 241 elapsed 19.48
+PROGRESS 260 best 25 valid 261 unique 261 elapsed 21.12
+PROGRESS 280 best 25 valid 281 unique 281 elapsed 22.82
+PROGRESS 300 best 25 valid 301 unique 301 elapsed 24.67
+BEST_NONMONOTONE 29 NOT 1 run 305
+PROGRESS 320 best 25 valid 321 unique 321 elapsed 26.76
+BEST_NONMONOTONE 28 NOT 1 run 322
+PROGRESS 340 best 25 valid 341 unique 341 elapsed 28.41
+PROGRESS 360 best 25 valid 361 unique 361 elapsed 30.07
+PROGRESS 380 best 25 valid 381 unique 381 elapsed 31.77
+PROGRESS 400 best 25 valid 401 unique 401 elapsed 33.31
+PROGRESS 420 best 25 valid 421 unique 421 elapsed 35.16
+PROGRESS 440 best 25 valid 441 unique 441 elapsed 37.15
+PROGRESS 460 best 25 valid 461 unique 461 elapsed 39.19
+PROGRESS 480 best 25 valid 481 unique 481 elapsed 40.96
+PROGRESS 500 best 25 valid 501 unique 501 elapsed 43.55
+PROGRESS 520 best 25 valid 521 unique 521 elapsed 45.71
+PROGRESS 540 best 25 valid 541 unique 541 elapsed 47.19
+PROGRESS 560 best 25 valid 561 unique 561 elapsed 49.03
+PROGRESS 580 best 25 valid 581 unique 581 elapsed 50.46
+PROGRESS 600 best 25 valid 601 unique 601 elapsed 52.41
+PROGRESS 620 best 25 valid 621 unique 621 elapsed 54.05
+PROGRESS 640 best 25 valid 641 unique 641 elapsed 55.84
+PROGRESS 660 best 25 valid 661 unique 661 elapsed 57.58
+PROGRESS 680 best 25 valid 681 unique 681 elapsed 59.38
+PROGRESS 700 best 25 valid 701 unique 701 elapsed 60.92
+PROGRESS 720 best 25 valid 721 unique 721 elapsed 62.4
+PROGRESS 740 best 25 valid 741 unique 741 elapsed 63.97
+PROGRESS 760 best 25 valid 761 unique 761 elapsed 65.52
+PROGRESS 780 best 25 valid 781 unique 781 elapsed 66.88
+PROGRESS 800 best 25 valid 801 unique 801 elapsed 68.28
+PROGRESS 820 best 25 valid 821 unique 821 elapsed 69.8
+PROGRESS 840 best 25 valid 841 unique 841 elapsed 71.37
+PROGRESS 860 best 25 valid 861 unique 861 elapsed 72.92
+PROGRESS 880 best 25 valid 881 unique 881 elapsed 74.71
+PROGRESS 900 best 25 valid 901 unique 901 elapsed 76.58
+PROGRESS 920 best 25 valid 921 unique 921 elapsed 79.0
+PROGRESS 940 best 25 valid 941 unique 941 elapsed 80.91
+PROGRESS 960 best 25 valid 961 unique 961 elapsed 82.45
+PROGRESS 980 best 25 valid 981 unique 981 elapsed 83.7
+SUMMARY {"best": 25, "best_nonmonotone": 28, "valid": 1000, "unique": 1000, "histogram": {"27": 171, "196": 1, "32": 14, "34": 10, "25": 585, "31": 6, "26": 53, "39": 4, "101": 3, "28": 29, "126": 2, "113": 5, "29": 9, "33": 10, "119": 1, "91": 1, "106": 2, "41": 2, "108": 2, "45": 1, "42": 5, "30": 9, "99": 1, "37": 3, "38": 4, "40": 4, "107": 2, "133": 1, "135": 1, "145": 2, "112": 4, "78": 1, "104": 2, "50": 1, "146": 1, "140": 2, "35": 5, "111": 1, "83": 1, "51": 1, "118": 1, "43": 4, "56": 1, "44": 1, "123": 1, "46": 1, "36": 1, "102": 2, "110": 1, "77": 1, "94": 1, "121": 1, "105": 1, "134": 1, "131": 1, "130": 1, "125": 1, "86": 1, "80": 1, "120": 1, "103": 1, "47": 1, "176": 1, "52": 1, "132": 1, "184": 1, "53": 1, "115": 1, "159": 1, "62": 1, "95": 1, "150": 1, "142": 1, "109": 1}, "errors": [], "elapsed_seconds": 85.22765075000007, "seed": 98085}

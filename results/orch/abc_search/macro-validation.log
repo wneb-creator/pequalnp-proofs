@@ -1,0 +1,21 @@
+NAND2 gates 2 assignments 4
+NOR2 gates 2 assignments 4
+ANDNOT2 gates 2 assignments 4
+ORNOT2 gates 2 assignments 4
+XOR2 gates 4 assignments 4
+XNOR2 gates 4 assignments 4
+AND3 gates 2 assignments 8
+OR3 gates 2 assignments 8
+AND4 gates 3 assignments 16
+OR4 gates 3 assignments 16
+AO21 gates 2 assignments 8
+OA21 gates 2 assignments 8
+AO22 gates 3 assignments 16
+OA22 gates 3 assignments 16
+AOI21 gates 3 assignments 8
+OAI21 gates 3 assignments 8
+AOI22 gates 4 assignments 16
+OAI22 gates 4 assignments 16
+MUX2 gates 4 assignments 8
+MAJ3 gates 4 assignments 8
+PASS: 184 macro truth-table rows; all advertised costs equal explicit unit-gate expansions

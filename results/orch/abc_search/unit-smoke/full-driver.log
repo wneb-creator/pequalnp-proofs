@@ -1,0 +1,7 @@
+BEST 27 NOT 0 run 0 elapsed 0.07
+PROGRESS 0 best 27 valid 1 unique 1 elapsed 0.07
+BEST 26 NOT 0 run 6 elapsed 1.17
+BEST 25 NOT 0 run 8 elapsed 1.47
+BEST_NONMONOTONE 44 NOT 1 run 10
+PROGRESS 20 best 25 valid 21 unique 21 elapsed 2.29
+SUMMARY {"best": 25, "best_nonmonotone": 44, "valid": 25, "unique": 25, "histogram": {"27": 4, "140": 1, "163": 1, "155": 1, "28": 1, "26": 3, "25": 10, "118": 1, "44": 1, "138": 1, "63": 1}, "errors": [], "elapsed_seconds": 2.5580291620003663, "seed": 9811}

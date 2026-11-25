@@ -1,0 +1,18 @@
+# Benchmark "shuffled_dnf" written by ABC on Wed Nov 25 12:38:32 2026
+.model shuffled_dnf
+.inputs x3 x0 x13 x5 x6 x10 x8 x11 x2 x7 x1 x12 x4 x9
+.outputs f
+.gate OA21    A=x8 B=x10 C=x0 Y=new_n16
+.gate OA21    A=x4 B=x5 C=x10 Y=new_n17
+.gate OA21    A=x9 B=x12 C=x5 Y=new_n18
+.gate OA21    A=x2 B=x6 C=x8 Y=new_n19
+.gate OA21    A=x9 B=x11 C=x6 Y=new_n20
+.gate OA21    A=x4 B=x3 C=x11 Y=new_n21
+.gate OA21    A=x12 B=x7 C=x3 Y=new_n22
+.gate OA21    A=x12 B=x13 C=x2 Y=new_n23
+.gate OA21    A=x4 B=x1 C=x13 Y=new_n24
+.gate AND2    A=x1 B=x7 Y=new_n25
+.gate OR4     A=new_n25 B=new_n24 C=new_n23 D=new_n22 Y=new_n26
+.gate OR4     A=new_n26 B=new_n21 C=new_n20 D=new_n19 Y=new_n27
+.gate OR4     A=new_n27 B=new_n18 C=new_n17 D=new_n16 Y=f
+.end
