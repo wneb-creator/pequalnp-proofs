@@ -19,3 +19,6 @@ All timestamps are UTC.
 - 2026-11-25T20:01:47Z: Helper 8 first verification result: existing bit-parallel table semantics can support the finite test checker.
 - 2026-11-25T20:02:42Z: Orchestrator definitions build completed successfully; observed at 20:03:09Z. Six-row 28-gate search continues with one failing positive test.
 - 2026-11-25T20:06:29Z: Optional renewal of supplied lease returned HTTP 410. Launcher alerted on bus; no new lease requested and none released.
+- 2026-11-25T20:08:25Z: Checker executable built successfully in restored pinned environment.
+- 2026-11-25T20:11:49Z: Orchestrator independently built helper 8 finite verifier and 64-gate baseline. This is supporting code only; the exact 63-gate theorem remains absent.
+- 2026-11-25T20:14:07Z: Search coverage expanded to all proper-core sizes through twelve rows plus the full problem; no exact candidate yet.
