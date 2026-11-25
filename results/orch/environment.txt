@@ -1,0 +1,90 @@
+pequalnp-pilot-60: Lean/cache environment
+
+Toolchain
+  Lean 4.36.0, x86_64-unknown-linux-gnu, release commit
+  611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9.
+  Downloaded the official leanprover/lean4 GitHub release into job scratch.
+  The downloaded release archive was removed after successful extraction.
+  Executable directory:
+    /tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin
+  Real Lake executable:
+    /tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin/lake
+  No global/home installation; no repository configuration changes.
+
+Cache setup
+  Mathlib remains pinned to fc4f59e577feb1a4956671bc04ac18aaaf8cd842.
+  Environment for cache commands:
+    MATHLIB_CACHE_DIR=/tmp/oec/pequalnp-pilot-60/mathlib-cache
+    XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-60/xdg-cache
+    LAKE_HOME=/tmp/oec/pequalnp-pilot-60/lake-home
+  The first selective cache get downloaded/decompressed 2,480 modules,
+  covering all 67 direct Mathlib imports found across PEqualNP.Defs.
+  The full cache get subsequently downloaded all 9,117 archives from
+  https://cache.mathlib.org/mathlib4-master.
+  No Mathlib library source compilation and no lake update were used.
+
+Full-cache completion
+  Disk guards stopped earlier cache attempts before filesystem exhaustion.
+  All complete stdout/stderr logs were retained in job scratch.
+  After full download, the official cache lookup mapped all 8,713 Mathlib
+  modules to their archives. 8,672 archives were identified as redundant
+  using the cache tool's header/trace depHash comparison, together with
+  required-artifact existence checks. Removing those completed archives
+  reclaimed 427,169,116 bytes; the 41 pending Mathlib archives were retained.
+  Official `lake exe cache unpack` then exited 0 with exactly:
+    Decompressing 43 file(s) (402 already decompressed)
+    Decompressed in 482 ms
+    Completed successfully!
+  Mathlib.olean is present. The full-Mathlib preflight requirement of
+  tools/check-lean.mjs is now satisfied.
+
+Memory-backed artifact storage
+  Filesystem capacity is about 7.9 GiB, insufficient for the entire
+  toolchain plus the full unpacked cache.
+  Required Mathlib .olean and .olean.private files were copied into Linux
+  memfd files, verified against their original SHA-256 hashes, sealed against writes,
+  and reached through symlinks at their original cache paths.
+  Original modes and mtimes were preserved. No source/checker/configuration
+  bytes were changed, and no required artifact was discarded.
+  A direct Lean compile of the existing PEqualNP/Defs/Base.lean exited 0,
+  confirming normal importing of these sealed artifacts.
+  Keeper PID 4179 holds 7,658 files, totaling 2,499,999,960 bytes.
+  Keeper PID 5976 holds 6,375 files, totaling 1,999,999,912 bytes.
+  Aggregate: 14,033 files, 4,499,999,872 bytes.
+  Keep BOTH keeper processes alive; their descriptors back these cache
+  files. They are detached and idle at their caps.
+  Keeper source and PID/status files are in job scratch:
+    memfd-cache-keeper.py
+    memfd-cache-keeper.pid / memfd-cache-status.json
+    memfd-cache-keeper2.pid / memfd-cache-status2.json
+  The additional keeper refuses migrations that would raise cgroup
+  anon+shmem above 6,000,000,000 bytes.
+  Cgroup memory limit: 8,589,934,592 bytes (8 GiB).
+  At the last requested memory snapshot, anon+shmem was 6,022,578,176 bytes,
+  leaving 2,567,356,416 bytes before the limit, excluding reclaimable file
+  cache/slab. OOM and oom_kill counters were both zero.
+  Proof processes share mappings, but simultaneous Lean/checker runs still
+  need monitoring. No further cache downloads/decompression are active.
+
+Logs
+  /tmp/oec/pequalnp-pilot-60/toolchain-logs/
+  Includes download/extraction logs, cache-help, selective cache-get,
+  all full-cache attempt logs/results, cache-lookup-all, cleanup manifests,
+  cache-final-unpack, memfd keeper logs, and memfd-import-probe logs.
+
+Verifier preparation (not started; waiting for a memory slot)
+  lean/CheckLemma.lean imports only Lean.
+  lakefile.toml declares checklemma with root CheckLemma and
+  supportInterpreter = true. Building this executable compiles the project
+  verifier and links the installed Lean runtime; it does not require native
+  compilation of Mathlib. Mathlib is loaded later by the running verifier.
+  Workdir: /workspace/pequalnp-proofs/lean
+  Command:
+    PATH="/tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin:$PATH" \
+    PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin/lake \
+    XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-60/xdg-cache \
+    LAKE_HOME=/tmp/oec/pequalnp-pilot-60/lake-home \
+    /tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin/lake build checklemma
+  tools/check-lean.mjs invokes this same `lake build checklemma` target,
+  then builds the named proof module and PEqualNP.Defs, and finally runs
+  the verifier. No final proof has been submitted to it at this stage.

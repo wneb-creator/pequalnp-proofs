@@ -1,10 +1,10 @@
 L-meta-2602 partial progress; original target remains unproved. No proof PR opened.
 Named file: lean/PEqualNP/Outside/L_meta_2602.lean
-SHA256: 8beea314304b679fa6a04fdfee1f7da40931a55fb7c4f2af6b39129281cc72c1
-Lines: 1923. Cleanup: not yet applicable to a full proof.
+SHA256: 3c2755fbd8cf4ecf94c9a51be7e792faa103c4c6ee008aa7a2c32479a312b81d
+Lines: 2394. Cleanup: not yet applicable to a full proof.
 Build: lake build PEqualNP.Outside.L_meta_2602 exited 0; Build completed successfully (5149 jobs).
-Partial results: Derivative/path equivalence, clean/flat exclusions, and finite projective-plane geometry.
+Partial results: 65-gate feasibility witness; derivative and path certificates; clean/flat exclusions; geometry; canonical false inputs; flag and substitution lemmas.
 Checker: not run on this partial artifact; original target theorem is not declared.
 Independent review: PASS for this exact snapshot before pushing.
 Sub-agents: checker_review, structural_proof, counterexample, lemma_search, reduction_design, derivative_lemmas
-TIMING total=23.5 subagents=6
+TIMING total=30.6 subagents=6

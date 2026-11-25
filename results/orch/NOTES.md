@@ -29,3 +29,9 @@ Toolchain: /tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin. Cache set
 - 2026-11-25T03:02:14.586488+00:00: Geometry.lean CHECKED (lake env lean exit0; empty complete log geometry-build-2.log). Degree4, common-neighbor uniqueness,52edges,45faceedges,face diagonal matching12 andfacevertexcover≥12 proved without newinstances. Root notified for preservation.
 
 - 2026-11-25T03:06:06.969090+00:00 lemma_search: Transform.lean COMPILED exit0/no warnings. Formalderivative preservation under factor substitution now proved under explicit value+derivative source domination; droppedfactor true at both target singletonseeds is sufficient. Finding suitable dirtygate remainsopen.
+
+- 2026-11-25T03:07:16.110859+00:00: Counterexample.lean COMPILED. Concrete65gate witness satisfies exactly all posted existential conditions except upperboundchanged64to65. `tightness65` is checked by lakeenvlean. Rootnotifiedforimmediatepush.
+
+- Structural strategy checked two new partials: FlagFragment.lean proves at most two safe line guards for two point sets each of size at least two; CanonicalFragment.lean replaces an arbitrary dirty-AND witness by a canonical false input determined by 13 point bits. Standalone Flag.lean and Canonical.lean compile, with full logs in job scratch.
+
+2026-11-25T03:12:52.448792+00:00 Re-plan: checked partial4 includes a65-gate witness, derivative/path certificates, clean/flat exclusions, plane geometry, canonical falseinputs, a two-line flag bound, and derivative-safe substitution. Original64-gate target remains open. Generic dirtyAND-count increase is false (P4counterexample); unrestricted dirtynormalform is an existing openproblem. Active routes: complete-test heuristic64 search; global OR-count/equality analysis; firstdirtyAND structure; semantic rewiring followed by derivative-preserving dead-gate compaction. Reduction capacity is alreadyfull, so nofourthreduction willbe submitted.

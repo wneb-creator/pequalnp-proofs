@@ -1921,3 +1921,474 @@ lemma deleted_neighbourhood_no_edge (p l : Fin 13) (hp : p ≠ 0) (hl : l ≠ 0)
   exact hl e.symm
 
 end PEqualNP.Outside.L_meta_2602_aux.Geometry
+
+namespace PEqualNP.Outside.L_meta_2602_aux.Transform
+
+open PEqualNP.CircuitLowerBounds
+
+def Proper (n : ℕ) (C : Circuit) : Prop :=
+  ∀ j g, C.gates[j]? = some g →
+    (g.op = .and ∨ g.op = .or) ∧
+      ∃ a b : ℕ, g.inputs = [a, b] ∧ a < n + j ∧ b < n + j
+
+def ValueRules (n : ℕ) (C : Circuit) (v : ℕ → Bool) : Prop :=
+  ∀ j g a b, C.gates[j]? = some g → g.inputs = [a, b] →
+    (g.op = .and → v (n + j) = (v a && v b)) ∧
+    (g.op = .or → v (n + j) = (v a || v b))
+
+def DerivativeRules (n : ℕ) (C : Circuit) (v d : ℕ → Bool) : Prop :=
+  ∀ j g a b, C.gates[j]? = some g → g.inputs = [a, b] →
+    (g.op = .and → d (n + j) = (v a && d b || d a && v b)) ∧
+    (g.op = .or → d (n + j) = (d a || d b))
+
+lemma and_mono {a b c d : Bool} (ha : a = true → c = true)
+    (hb : b = true → d = true) : a && b = true → c && d = true := by
+  intro h
+  exact Bool.and_eq_true_iff.mpr ⟨ha (Bool.and_eq_true_iff.mp h).1,
+    hb (Bool.and_eq_true_iff.mp h).2⟩
+
+lemma or_mono {a b c d : Bool} (ha : a = true → c = true)
+    (hb : b = true → d = true) : a || b = true → c || d = true := by
+  intro h
+  rcases Bool.or_eq_true_iff.mp h with h | h
+  · exact Bool.or_eq_true_iff.mpr (Or.inl (ha h))
+  · exact Bool.or_eq_true_iff.mpr (Or.inr (hb h))
+
+lemma product_mono {a b c d da db dc dd : Bool}
+    (ha : a = true → c = true) (hb : b = true → d = true)
+    (hda : da = true → dc = true) (hdb : db = true → dd = true) :
+    (a && db || da && b) = true → (c && dd || dc && d) = true :=
+  or_mono (and_mono ha hdb) (and_mono hda hb)
+
+lemma substitution_monotone (n : ℕ) (C : Circuit) (c : ℕ) (sigma : ℕ → ℕ)
+    (hC : Proper n C) (hs : ∀ r, sigma r < n + c)
+    (v d w e : ℕ → Bool) (hv : ValueRules n C v) (hd : DerivativeRules n C v d)
+    (hw : ValueRules n (PEqualNP.FactorSubst.substReads C n c sigma) w)
+    (he : DerivativeRules n (PEqualNP.FactorSubst.substReads C n c sigma) w e)
+    (hi : ∀ i < n, (w i = true → v i = true) ∧ (e i = true → d i = true))
+    (hr : ∀ j g, C.gates[j]? = some g → n + c ∈ g.inputs →
+      (v (sigma j) = true → v (n + c) = true) ∧
+        (d (sigma j) = true → d (n + c) = true)) :
+    ∀ i < n + C.gates.length, (w i = true → v i = true) ∧
+      (e i = true → d i = true) := by
+  let D := PEqualNP.FactorSubst.substReads C n c sigma
+  have len : D.gates.length = C.gates.length := by
+    simp [D, PEqualNP.FactorSubst.substReads]
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hib
+    by_cases hin : i < n
+    · exact hi i hin
+    obtain ⟨j, rfl⟩ : ∃ j, i = n + j := ⟨i - n, by omega⟩
+    have hj : j < C.gates.length := by omega
+    let g := C.gates[j]
+    have hg : C.gates[j]? = some g := List.getElem?_eq_getElem hj
+    obtain ⟨hop, a, b, hab, ha, hb⟩ := hC j g hg
+    let sub := fun k : ℕ => if k = n + c then sigma j else k
+    let gg : Gate := ⟨g.op, g.inputs.map sub⟩
+    have hgg : D.gates[j]? = some gg := by
+      rw [List.getElem?_eq_getElem (by omega)]
+      simp [D, PEqualNP.FactorSubst.substReads, gg, g, sub]
+    have hggab : gg.inputs = [sub a, sub b] := by simp [gg, hab]
+    have source (k : ℕ) (hk : k ∈ g.inputs) (hlt : k < n + j) :
+        (w (sub k) = true → v k = true) ∧ (e (sub k) = true → d k = true) := by
+      by_cases heq : k = n + c
+      · subst k
+        have hsig := hs j
+        have hprev := ih (sigma j) (by omega) (by omega)
+        have carry := hr j g hg hk
+        simp only [sub, ite_eq_left rfl]
+        exact ⟨fun h => carry.1 (hprev.1 h), fun h => carry.2 (hprev.2 h)⟩
+      · simpa only [sub, ite_eq_right heq] using ih k hlt (by omega)
+    have sa := source a (by simp [hab]) ha
+    have sb := source b (by simp [hab]) hb
+    have vr := hv j g a b hg hab
+    have dr := hd j g a b hg hab
+    have wr := hw j gg (sub a) (sub b) hgg hggab
+    have er := he j gg (sub a) (sub b) hgg hggab
+    rcases hop with hop | hop
+    · have hop' : gg.op = .and := hop
+      rw [vr.1 hop, dr.1 hop, wr.1 hop', er.1 hop']
+      exact ⟨and_mono sa.1 sb.1, product_mono sa.1 sb.1 sa.2 sb.2⟩
+    · have hop' : gg.op = .or := hop
+      rw [vr.2 hop, dr.2 hop, wr.2 hop', er.2 hop']
+      exact ⟨or_mono sa.1 sb.1, or_mono sa.2 sb.2⟩
+
+lemma active_factor (n : ℕ) (C : Circuit) (v d : ℕ → Bool)
+    (hv : ValueRules n C v) (hd : DerivativeRules n C v d)
+    (c : ℕ) (g : Gate) (a b : ℕ) (hg : C.gates[c]? = some g)
+    (hab : g.inputs = [a, b]) (hop : g.op = .and) (ha : v a = true) :
+    (v b = true → v (n + c) = true) ∧ (d b = true → d (n + c) = true) := by
+  rw [(hv c g a b hg hab).1 hop, (hd c g a b hg hab).1 hop, ha]
+  constructor
+  · intro h
+    simpa only [Bool.true_and] using h
+  · intro h
+    simp [h]
+
+lemma substitution_keeps_zero (n : ℕ) (C : Circuit) (c : ℕ) (sigma : ℕ → ℕ)
+    (hC : Proper n C) (hs : ∀ r, sigma r < n + c)
+    (v d w e : ℕ → Bool) (hv : ValueRules n C v) (hd : DerivativeRules n C v d)
+    (hw : ValueRules n (PEqualNP.FactorSubst.substReads C n c sigma) w)
+    (he : DerivativeRules n (PEqualNP.FactorSubst.substReads C n c sigma) w e)
+    (hi : ∀ i < n, (w i = true → v i = true) ∧ (e i = true → d i = true))
+    (hr : ∀ j g, C.gates[j]? = some g → n + c ∈ g.inputs →
+      (v (sigma j) = true → v (n + c) = true) ∧
+        (d (sigma j) = true → d (n + c) = true))
+    (ho : C.output < n + C.gates.length) (hz : d C.output = false) :
+    e C.output = false := by
+  have h := (substitution_monotone n C c sigma hC hs v d w e hv hd hw he hi hr C.output ho).2
+  cases heq : e C.output with
+  | false => rfl
+  | true => have bad := h heq; rw [hz] at bad; cases bad
+
+end PEqualNP.Outside.L_meta_2602_aux.Transform
+
+namespace PEqualNP.Outside.L_meta_2602.Canonical
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+
+def input (a : Fin 13 → Bool) : Fin 26 → Bool :=
+  @Fin.addCases 13 13 (fun _ => Bool) a (fun l => decide (∀ p : Fin 13,
+    (p = l ∨ p = l + 1 ∨ p = l + 3 ∨ p = l + 9) → a p = false))
+
+lemma input_left (a : Fin 13 → Bool) (p : Fin 13) :
+    input a (Fin.castAdd 13 p) = a p := by
+  simp [input]
+
+lemma input_right (a : Fin 13 → Bool) (l : Fin 13) :
+    input a (Fin.natAdd 13 l) = true ↔ ∀ p : Fin 13, incidence p l → a p = false := by
+  simp only [input, Fin.addCases_right, decide_eq_true_eq, incidence]
+
+lemma input_false (C : Circuit) (hc : computes C) (a : Fin 13 → Bool) :
+    C.eval (List.ofFn (input a)) = false := by
+  apply Bool.eq_false_iff.mpr
+  intro h
+  obtain ⟨p, l, edge, hp, hl⟩ := (hc _).mp h
+  rw [input_left] at hp
+  have hf := (input_right a l).mp hl p edge
+  rw [hp] at hf
+  contradiction
+
+lemma extends_false_input (C : Circuit) (hc : computes C) (x : Fin 26 → Bool)
+    (hx : C.eval (List.ofFn x) = false) :
+    ∀ i : Fin 26, x i = true → input (fun p => x (Fin.castAdd 13 p)) i = true := by
+  intro i
+  refine @Fin.addCases 13 13
+    (fun i => x i = true → input (fun p => x (Fin.castAdd 13 p)) i = true)
+    (fun p hp => ?_) (fun l hl => ?_) i
+  · simpa only [input_left] using hp
+  · apply (input_right _ l).mpr
+    intro p edge
+    apply Bool.eq_false_iff.mpr
+    intro hp
+    have ht := (hc x).mpr ⟨p, l, edge, hp, hl⟩
+    rw [hx] at ht
+    contradiction
+
+lemma dirty_witness (C : Circuit) (hg : wellFormed C) (hc : computes C)
+    (j : ℕ) (x : Fin 26 → Bool)
+    (hgate : (C.wires (List.ofFn x)).getD (26 + j) false = true)
+    (hout : C.eval (List.ofFn x) = false) :
+    ∃ a : Fin 13 → Bool,
+      (C.wires (List.ofFn (input a))).getD (26 + j) false = true ∧
+        C.eval (List.ofFn (input a)) = false := by
+  let a := fun p : Fin 13 => x (Fin.castAdd 13 p)
+  refine ⟨a, ?_, input_false C hc a⟩
+  have legal : ∀ g ∈ C.gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2 := by
+    intro g mem
+    obtain ⟨k, hk⟩ := List.mem_iff_getElem?.mp mem
+    obtain ⟨ops, u, v, ins, _⟩ := hg k g hk
+    exact ⟨ops, by simp [ins]⟩
+  exact CleanCase.val_mono C.gates legal x (input a)
+    (extends_false_input C hc x hout) (26 + j) hgate
+
+lemma counterexample_canonical_shape (C : Circuit) (hs : C.size ≤ 64)
+    (hg : wellFormed C) (hc : computes C) (v u : ℕ → Bool)
+    (hv : directional C 0 13 v) (hu : directional C 13 0 u)
+    (hvo : v C.output = false) (huo : u C.output = false) :
+    0 < PEqualNP.TopForm.andPairs 26 C ∧
+      ∃ j < C.gates.length, (gateAt C j).op = .and ∧ ∃ a : Fin 13 → Bool,
+        (C.wires (List.ofFn (input a))).getD (26 + j) false = true ∧
+          C.eval (List.ofFn (input a)) = false := by
+  obtain ⟨nest, j, hj, op, x, hgate, hout⟩ :=
+    counterexample_shape C hs hg hc v u hv hu hvo huo
+  exact ⟨nest, j, hj, op, dirty_witness C hg hc j x hgate hout⟩
+
+end PEqualNP.Outside.L_meta_2602.Canonical
+
+namespace PEqualNP.Outside.L_meta_2602_aux.Structural
+
+open PEqualNP.Outside.L_meta_2602_aux.Geometry
+
+def commonLines (A : Finset (Fin 13)) : Finset (Fin 13) :=
+  Finset.univ.filter fun l => ∀ p ∈ A, incident p l
+
+def guardedLines (A B : Finset (Fin 13)) : Finset (Fin 13) :=
+  Finset.univ.filter fun l => ∀ p ∈ A, ∀ q ∈ B, incident p l ∨ incident q l
+
+lemma guarded_lines_eq (A B : Finset (Fin 13)) :
+    guardedLines A B = commonLines A ∪ commonLines B := by
+  classical
+  ext l
+  simp only [guardedLines, commonLines, Finset.mem_union, Finset.mem_filter,
+    Finset.mem_univ, true_and]
+  constructor
+  · intro h
+    by_cases ha : ∀ p ∈ A, incident p l
+    · exact Or.inl ha
+    · right
+      push_neg at ha
+      obtain ⟨p, hp, hn⟩ := ha
+      intro q hq
+      exact (h p hp q hq).resolve_left (by simpa only [incident, not_or] using hn)
+  · rintro (ha | hb) p hp q hq
+    · exact Or.inl (ha p hp)
+    · exact Or.inr (hb q hq)
+
+lemma common_lines_card_le_one (A : Finset (Fin 13)) (hA : 2 ≤ A.card) :
+    (commonLines A).card ≤ 1 := by
+  obtain ⟨p, hp, q, hq, hpq⟩ := Finset.one_lt_card.mp (by omega : 1 < A.card)
+  apply Finset.card_le_one.mpr
+  intro l hl m hm
+  have hl' : ∀ v ∈ A, incident v l := (Finset.mem_filter.mp hl).2
+  have hm' : ∀ v ∈ A, incident v m := (Finset.mem_filter.mp hm).2
+  exact no_rectangle p q l m hpq (hl' p hp) (hl' q hq) (hm' p hp) (hm' q hq)
+
+lemma guarded_lines_card_le_two (A B : Finset (Fin 13))
+    (hA : 2 ≤ A.card) (hB : 2 ≤ B.card) :
+    (guardedLines A B).card ≤ 2 := by
+  rw [guarded_lines_eq]
+  have h := Finset.card_union_le (commonLines A) (commonLines B)
+  have ha := common_lines_card_le_one A hA
+  have hb := common_lines_card_le_one B hB
+  omega
+
+end PEqualNP.Outside.L_meta_2602_aux.Structural
+
+namespace PEqualNP.Outside.L_meta_2602_aux
+
+open PEqualNP.CircuitLowerBounds
+
+def tightCircuit : Circuit :=
+  ⟨[
+    ⟨.or, [0, 1]⟩,
+    ⟨.or, [3, 9]⟩,
+    ⟨.or, [26, 27]⟩,
+    ⟨.and, [13, 28]⟩,
+    ⟨.or, [2, 3]⟩,
+    ⟨.or, [5, 11]⟩,
+    ⟨.or, [30, 31]⟩,
+    ⟨.and, [15, 32]⟩,
+    ⟨.or, [3, 4]⟩,
+    ⟨.or, [6, 12]⟩,
+    ⟨.or, [34, 35]⟩,
+    ⟨.and, [16, 36]⟩,
+    ⟨.or, [4, 5]⟩,
+    ⟨.or, [7, 0]⟩,
+    ⟨.or, [38, 39]⟩,
+    ⟨.and, [17, 40]⟩,
+    ⟨.or, [5, 6]⟩,
+    ⟨.or, [8, 1]⟩,
+    ⟨.or, [42, 43]⟩,
+    ⟨.and, [18, 44]⟩,
+    ⟨.or, [6, 7]⟩,
+    ⟨.or, [9, 2]⟩,
+    ⟨.or, [46, 47]⟩,
+    ⟨.and, [19, 48]⟩,
+    ⟨.or, [7, 8]⟩,
+    ⟨.or, [10, 3]⟩,
+    ⟨.or, [50, 51]⟩,
+    ⟨.and, [20, 52]⟩,
+    ⟨.or, [8, 9]⟩,
+    ⟨.or, [11, 4]⟩,
+    ⟨.or, [54, 55]⟩,
+    ⟨.and, [21, 56]⟩,
+    ⟨.or, [9, 10]⟩,
+    ⟨.or, [12, 5]⟩,
+    ⟨.or, [58, 59]⟩,
+    ⟨.and, [22, 60]⟩,
+    ⟨.or, [10, 11]⟩,
+    ⟨.or, [0, 6]⟩,
+    ⟨.or, [62, 63]⟩,
+    ⟨.and, [23, 64]⟩,
+    ⟨.or, [11, 12]⟩,
+    ⟨.or, [1, 7]⟩,
+    ⟨.or, [66, 67]⟩,
+    ⟨.and, [24, 68]⟩,
+    ⟨.or, [12, 0]⟩,
+    ⟨.or, [2, 8]⟩,
+    ⟨.or, [70, 71]⟩,
+    ⟨.and, [25, 72]⟩,
+    ⟨.or, [29, 33]⟩,
+    ⟨.or, [74, 37]⟩,
+    ⟨.or, [75, 41]⟩,
+    ⟨.or, [76, 45]⟩,
+    ⟨.or, [77, 49]⟩,
+    ⟨.or, [78, 53]⟩,
+    ⟨.or, [79, 57]⟩,
+    ⟨.or, [80, 61]⟩,
+    ⟨.or, [81, 65]⟩,
+    ⟨.or, [82, 69]⟩,
+    ⟨.or, [83, 73]⟩,
+    ⟨.or, [1, 2]⟩,
+    ⟨.or, [4, 10]⟩,
+    ⟨.or, [85, 86]⟩,
+    ⟨.or, [84, 14]⟩,
+    ⟨.or, [84, 87]⟩,
+    ⟨.and, [88, 89]⟩
+  ], 90⟩
+
+def tightColumns : List (Fin 13) := [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1]
+
+def tightStar (x : Fin 26 → Bool) (j : Fin 13) : Bool :=
+  x (Fin.natAdd 13 j) &&
+    ((x (Fin.castAdd 13 j) || x (Fin.castAdd 13 (j+1))) ||
+      (x (Fin.castAdd 13 (j+3)) || x (Fin.castAdd 13 (j+9))))
+
+def tightPlane (x : Fin 26 → Bool) : Bool :=
+  (tightColumns.map (tightStar x)).any id
+
+lemma tightSize : tightCircuit.size = 65 := rfl
+
+lemma tightColumns_mem (j : Fin 13) : j ∈ tightColumns := by
+  revert j
+  decide
+
+lemma tight_bool_eta (b : Bool) : Bool.rec false true b = b := by
+  cases b <;> rfl
+
+lemma tight_distrib (a b c : Bool) : ((a || b) && (a || c)) = (a || (b && c)) := by
+  cases a <;> cases b <;> cases c <;> rfl
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 2000000 in
+lemma tight_eval_formula (x : Fin 26 → Bool) :
+  tightCircuit.eval (List.ofFn x) = ((((((((((((((x 13 && ((x 0 || x 1) || (x 3 || x 9))) || (x 15 && ((x 2 || x 3) || (x 5 || x 11)))) || (x 16 && ((x 3 || x 4) || (x 6 || x 12)))) || (x 17 && ((x 4 || x 5) || (x 7 || x 0)))) || (x 18 && ((x 5 || x 6) || (x 8 || x 1)))) || (x 19 && ((x 6 || x 7) || (x 9 || x 2)))) || (x 20 && ((x 7 || x 8) || (x 10 || x 3)))) || (x 21 && ((x 8 || x 9) || (x 11 || x 4)))) || (x 22 && ((x 9 || x 10) || (x 12 || x 5)))) || (x 23 && ((x 10 || x 11) || (x 0 || x 6)))) || (x 24 && ((x 11 || x 12) || (x 1 || x 7)))) || (x 25 && ((x 12 || x 0) || (x 2 || x 8)))) || x 14) && (((((((((((((x 13 && ((x 0 || x 1) || (x 3 || x 9))) || (x 15 && ((x 2 || x 3) || (x 5 || x 11)))) || (x 16 && ((x 3 || x 4) || (x 6 || x 12)))) || (x 17 && ((x 4 || x 5) || (x 7 || x 0)))) || (x 18 && ((x 5 || x 6) || (x 8 || x 1)))) || (x 19 && ((x 6 || x 7) || (x 9 || x 2)))) || (x 20 && ((x 7 || x 8) || (x 10 || x 3)))) || (x 21 && ((x 8 || x 9) || (x 11 || x 4)))) || (x 22 && ((x 9 || x 10) || (x 12 || x 5)))) || (x 23 && ((x 10 || x 11) || (x 0 || x 6)))) || (x 24 && ((x 11 || x 12) || (x 1 || x 7)))) || (x 25 && ((x 12 || x 0) || (x 2 || x 8)))) || ((x 1 || x 2) || (x 4 || x 10)))) := by
+  cbv
+  simp only [tight_bool_eta]
+  rfl
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 2000000 in
+lemma tight_eval_plane (x : Fin 26 → Bool) :
+    tightCircuit.eval (List.ofFn x) = tightPlane x := by
+  rw [tight_eval_formula, tight_distrib]
+  simp only [tightPlane, tightColumns, List.map_cons, List.map_nil,
+    List.any_cons, List.any_nil, id_eq, tightStar, Bool.or_false, Bool.or_assoc]
+  rfl
+
+lemma tightPlane_spec (x : Fin 26 → Bool) : tightPlane x = true ↔
+    ∃ p l : Fin 13, (p=l ∨ p=l+1 ∨ p=l+3 ∨ p=l+9) ∧
+      x (Fin.castAdd 13 p) = true ∧ x (Fin.natAdd 13 l) = true := by
+  constructor
+  · intro h
+    obtain ⟨v, hv, hvtrue⟩ := List.any_eq_true.mp h
+    obtain ⟨j, _, rfl⟩ := List.mem_map.mp hv
+    change tightStar x j = true at hvtrue
+    simp only [tightStar, Bool.and_eq_true, Bool.or_eq_true] at hvtrue
+    obtain ⟨hj, hp⟩ := hvtrue
+    rcases hp with (h | h) | (h | h)
+    · exact ⟨j, j, Or.inl rfl, h, hj⟩
+    · exact ⟨j+1, j, Or.inr (Or.inl rfl), h, hj⟩
+    · exact ⟨j+3, j, Or.inr (Or.inr (Or.inl rfl)), h, hj⟩
+    · exact ⟨j+9, j, Or.inr (Or.inr (Or.inr rfl)), h, hj⟩
+  · rintro ⟨p, l, hp, hx, hy⟩
+    apply List.any_eq_true.mpr
+    refine ⟨tightStar x l, List.mem_map.mpr ⟨l, tightColumns_mem l, rfl⟩, ?_⟩
+    change tightStar x l = true
+    simp only [tightStar, Bool.and_eq_true, Bool.or_eq_true]
+    refine ⟨hy, ?_⟩
+    rcases hp with rfl | rfl | rfl | rfl
+    · exact Or.inl (Or.inl hx)
+    · exact Or.inl (Or.inr hx)
+    · exact Or.inr (Or.inl hx)
+    · exact Or.inr (Or.inr hx)
+
+lemma tightCorrect (x : Fin 26 → Bool) : tightCircuit.eval (List.ofFn x) = true ↔
+    ∃ p l : Fin 13, (p=l ∨ p=l+1 ∨ p=l+3 ∨ p=l+9) ∧
+      x (Fin.castAdd 13 p) = true ∧ x (Fin.natAdd 13 l) = true := by
+  rw [tight_eval_plane]
+  exact tightPlane_spec x
+
+def tightTraceLeft (i : ℕ) : Bool := decide (i ∈ ([13, 29, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 88, 89] : List ℕ))
+
+def tightTraceRight (i : ℕ) : Bool := decide (i ∈ ([0, 26, 28, 29, 39, 40, 63, 64, 70, 72, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 88, 89] : List ℕ))
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 2000000 in
+lemma tight_wf_table : ∀ j : Fin tightCircuit.gates.length,
+    let g := tightCircuit.gates[j.val]
+    (g.op = .and ∨ g.op = .or) ∧
+    g.inputs = [g.inputs.getD 0 0, g.inputs.getD 1 0] ∧
+    g.inputs.getD 0 0 ≠ g.inputs.getD 1 0 ∧
+    g.inputs.getD 0 0 < 26+j.val ∧ g.inputs.getD 1 0 < 26+j.val := by
+  letI : DecidableEq GateOp := PEqualNP.MetaComplexity.NestedCover.gateOpDecEq
+  decide
+
+lemma tightProper : ∀ j g, tightCircuit.gates[j]? = some g →
+    (g.op = .and ∨ g.op = .or) ∧ ∃ a b : ℕ,
+    g.inputs = [a,b] ∧ a ≠ b ∧ a < 26+j ∧ b < 26+j := by
+  intro j g hg
+  obtain ⟨hj, hval⟩ := List.getElem?_eq_some_iff.mp hg
+  have h := tight_wf_table ⟨j,hj⟩
+  dsimp only at h
+  rw [hval] at h
+  exact ⟨h.1, g.inputs.getD 0 0, g.inputs.getD 1 0, h.2⟩
+
+def TightTrace (base target : ℕ) (d : ℕ → Bool) : Prop :=
+  (∀ i < 26, d i = decide (i=target)) ∧
+  (∀ j g a b, tightCircuit.gates[j]? = some g → g.inputs = [a,b] →
+    (g.op = .and → d (26+j) =
+      ((tightCircuit.wires (List.ofFn fun i : Fin 26 => decide (i.val=base))).getD a false && d b ||
+      d a && (tightCircuit.wires (List.ofFn fun i : Fin 26 => decide (i.val=base))).getD b false)) ∧
+    (g.op = .or → d (26+j) = (d a || d b))) ∧
+  d tightCircuit.output = false
+
+lemma tight_trace_of_table (base target : ℕ) (d : ℕ → Bool)
+    (init : ∀ i : Fin 26, d i.val = decide (i.val=target))
+    (step : ∀ j : Fin tightCircuit.gates.length,
+      let g := tightCircuit.gates[j.val]
+      let a := g.inputs.getD 0 0
+      let b := g.inputs.getD 1 0
+      (g.op = .and → d (26+j.val) =
+        ((tightCircuit.wires (List.ofFn fun i : Fin 26 => decide (i.val=base))).getD a false && d b ||
+        d a && (tightCircuit.wires (List.ofFn fun i : Fin 26 => decide (i.val=base))).getD b false)) ∧
+      (g.op = .or → d (26+j.val) = (d a || d b)))
+    (last : d tightCircuit.output = false) : TightTrace base target d := by
+  refine ⟨fun i hi => init ⟨i,hi⟩, ?_, last⟩
+  intro j g a b hg hab
+  obtain ⟨hj, hval⟩ := List.getElem?_eq_some_iff.mp hg
+  have h := step ⟨j,hj⟩
+  dsimp only at h
+  rw [hval, hab] at h
+  simpa using h
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 2000000 in
+lemma tightTraceLeft_correct : TightTrace 0 13 tightTraceLeft := by
+  apply tight_trace_of_table
+  · decide
+  · letI : DecidableEq GateOp := PEqualNP.MetaComplexity.NestedCover.gateOpDecEq
+    decide
+  · decide
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 2000000 in
+lemma tightTraceRight_correct : TightTrace 13 0 tightTraceRight := by
+  apply tight_trace_of_table
+  · decide
+  · letI : DecidableEq GateOp := PEqualNP.MetaComplexity.NestedCover.gateOpDecEq
+    decide
+  · decide
+
+lemma tightness65 : ∃ (x1 : PEqualNP.CircuitLowerBounds.Circuit), (63 : ℕ) ≤ x1.size ∧ x1.size ≤ (65 : ℕ) ∧ (∀ (x2 : ℕ) (x3 : PEqualNP.CircuitLowerBounds.Gate), x1.gates[x2]? = Option.some x3 → (x3.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ x3.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ ∃ (x5 : ℕ) (x6 : ℕ), x3.inputs = [x5, x6] ∧ x5 ≠ x6 ∧ x5 < (26 : ℕ) + x2 ∧ x6 < (26 : ℕ) + x2) ∧ (∀ (x2 : Fin (26 : ℕ) → Bool), x1.eval (List.ofFn x2) = Bool.true ↔ ∃ (x3 : Fin (13 : ℕ)) (x4 : Fin (13 : ℕ)), (x3 = x4 ∨ x3 = x4 + (1 : Fin (13 : ℕ)) ∨ x3 = x4 + (3 : Fin (13 : ℕ)) ∨ x3 = x4 + (9 : Fin (13 : ℕ))) ∧ x2 (Fin.castAdd (13 : ℕ) x3) = Bool.true ∧ x2 (Fin.natAdd (13 : ℕ) x4) = Bool.true) ∧ (∃ (x2 : ℕ → Bool), (∀ x3 < (26 : ℕ), x2 x3 = Decidable.decide (x3 = (13 : ℕ))) ∧ (∀ (x3 : ℕ) (x4 : PEqualNP.CircuitLowerBounds.Gate) (x5 x6 : ℕ), x1.gates[x3]? = Option.some x4 → x4.inputs = [x5, x6] → (x4.op = PEqualNP.CircuitLowerBounds.GateOp.and → x2 ((26 : ℕ) + x3) = ((x1.wires (List.ofFn fun (x10 : Fin (26 : ℕ)) => Decidable.decide (↑x10 = (0 : ℕ)))).getD x5 Bool.false && x2 x6 || x2 x5 && (x1.wires (List.ofFn fun (x10 : Fin (26 : ℕ)) => Decidable.decide (↑x10 = (0 : ℕ)))).getD x6 Bool.false)) ∧ (x4.op = PEqualNP.CircuitLowerBounds.GateOp.or → x2 ((26 : ℕ) + x3) = (x2 x5 || x2 x6))) ∧ x2 x1.output = Bool.false) ∧ ∃ (x2 : ℕ → Bool), (∀ x3 < (26 : ℕ), x2 x3 = Decidable.decide (x3 = (0 : ℕ))) ∧ (∀ (x3 : ℕ) (x4 : PEqualNP.CircuitLowerBounds.Gate) (x5 x6 : ℕ), x1.gates[x3]? = Option.some x4 → x4.inputs = [x5, x6] → (x4.op = PEqualNP.CircuitLowerBounds.GateOp.and → x2 ((26 : ℕ) + x3) = ((x1.wires (List.ofFn fun (x10 : Fin (26 : ℕ)) => Decidable.decide (↑x10 = (13 : ℕ)))).getD x5 Bool.false && x2 x6 || x2 x5 && (x1.wires (List.ofFn fun (x10 : Fin (26 : ℕ)) => Decidable.decide (↑x10 = (13 : ℕ)))).getD x6 Bool.false)) ∧ (x4.op = PEqualNP.CircuitLowerBounds.GateOp.or → x2 ((26 : ℕ) + x3) = (x2 x5 || x2 x6))) ∧ x2 x1.output = Bool.false := by
+  refine ⟨tightCircuit, ?_, ?_, tightProper, tightCorrect, ?_, ?_⟩
+  · decide
+  · decide
+  · exact ⟨tightTraceLeft, tightTraceLeft_correct⟩
+  · exact ⟨tightTraceRight, tightTraceRight_correct⟩
+
+end PEqualNP.Outside.L_meta_2602_aux

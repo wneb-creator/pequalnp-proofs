@@ -14,3 +14,7 @@
 - 2026-11-25T03:03:13.563645+00:00: Combined derivative and clean/flat exclusion partial built and independently reviewed.
 - 2026-11-25T03:06:06.969090+00:00: lemma_search factor-substitution derivative simulation compiled.
 - 2026-11-25T03:06:18.565841+00:00: Partial 3 built and independently reviewed: Derivative/path equivalence, clean/flat exclusions, and finite projective-plane geometry.
+- 2026-11-25T03:07:16.110859+00:00: Counterexample route produced Lean-checked65gate tightness witness; no64gatecounterexample.
+- 2026-11-25T03:08:08.141515+00:00: Structural Flag and Canonical partials compiled; root notified for independent review and preservation push.
+- 2026-11-25T03:12:52.448792+00:00: Re-planned strategies around global counting and admissible gate elimination.
+- 2026-11-25T03:13:24.440999+00:00: Partial 4 built and independently reviewed: 65-gate feasibility witness; derivative and path certificates; clean/flat exclusions; geometry; canonical false inputs; flag and substitution lemmas.

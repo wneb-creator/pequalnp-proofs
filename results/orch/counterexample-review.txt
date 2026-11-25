@@ -1,0 +1,55 @@
+Independent review: Counterexample.lean
+Reviewer: checker_review
+Job: pequalnp-pilot-60
+Gap: L-meta-2602
+
+VERDICT: PARTIAL — checked 65-gate feasibility witness for the proposed
+threshold. This neither proves nor refutes the posted L-meta-2602 statement.
+It does not establish that 65 is the minimum without the missing lower bound.
+
+Frozen candidate:
+  results/orch/lemmas/Counterexample.lean
+  SHA-256: 46feedcaad1a33f8eb4a635b36cb0cb4507469ce7b77e0812c566bc57f48213b
+  226 lines; 11,128 UTF-8 bytes.
+
+Exact statement comparison:
+  Extracted the type of tightness65 and compared it directly with the desk's
+  statement.txt after exactly two edits: remove the initial negation and
+  change x1.size <= 64 to x1.size <= 65. The strings match exactly after
+  those edits. The lower bound 63, well-formedness clauses, full Boolean
+  incidence-function specification, and both derivative clauses are unchanged.
+
+Witness review:
+  26 input wires, 65 binary gates: 13 AND and 52 OR; output wire 90.
+  Independent reconstruction checked every gate has two distinct earlier
+  input indices and an allowed AND/OR operation.
+  Twelve column stars are combined into t; the last column is column 1,
+  with factors input 14 and the OR of inputs 1, 2, 4, 10. The final gate
+  computes (t OR a) AND (t OR b), equal to t OR (a AND b).
+  This accounts for every column of the stated incidence function.
+  Independent Boolean propagation reconstructed both complete formal
+  derivative tables, exactly matching the source lists: 15 true wires for
+  base 0 / target 13, and 23 for base 13 / target 0. Both output derivatives
+  are false. These finite calculations supplement the Lean proof.
+
+Lean/axiom audit:
+  Recompiled the frozen source with a diagnostic axiom print appended in
+  job scratch, using lake env lean -j 1. Exit code 0.
+  Output:
+    'PEqualNP.Outside.L_meta_2602_aux.tightness65' depends on axioms:
+    [propext, Classical.choice, Quot.sound]
+  Full logs:
+    /tmp/oec/pequalnp-pilot-60/toolchain-logs/tightness65-axioms.stdout
+    /tmp/oec/pequalnp-pilot-60/toolchain-logs/tightness65-axioms.stderr
+  The diagnostic print was not added to the candidate or the proof file.
+
+Source-format audit:
+  The sole import is the permitted PEqualNP.Defs.
+  Helpers are contained in PEqualNP.Outside.L_meta_2602_aux, with a matching
+  named end. Only permitted declaration-local numeric limits are used.
+  The official raw-source/import guard and namespace guard reported only
+  the expected partial-file omissions: no theorem and no final, top-level
+  theorem PEqualNP.Outside.L_meta_2602. No forbidden source token was found.
+  Therefore this is suitable as checked helper material, not a finished
+  single-file proof PR. The full local checker has not accepted this
+  candidate against the posted statement, and no such acceptance is claimed.
