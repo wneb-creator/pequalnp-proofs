@@ -1,0 +1,115 @@
+import took 1.6s
+type checking took 103ms
+ring took 122ms
+share common exprs took 146ms
+type checking took 170ms
+linting took 125ms
+simp took 115ms
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+tactic execution of Lean.Parser.Tactic.congr took 10.3s
+type checking took 102ms
+/tmp/oec/pequalnp-pilot-79/SparseStarPairComplete.lean:371:18: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+tactic execution of Lean.Parser.Tactic.congr took 22.7s
+tactic execution of Lean.Parser.Tactic.congr took 6.13s
+tactic execution of Lean.Parser.Tactic.congr took 463ms
+simp took 102ms
+simp took 109ms
+simp took 105ms
+simp took 106ms
+ring took 232ms
+ring took 239ms
+ring took 301ms
+share common exprs took 740ms
+process pre-definitions took 251ms
+elaboration took 344ms
+type checking took 869ms
+linting took 837ms
+tactic execution of Lean.Parser.Tactic.congr took 176ms
+/tmp/oec/pequalnp-pilot-79/SparseStarPairComplete.lean:690:65: warning: This simp argument is unused:
+  Pi.zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/SparseStarPairComplete.lean:716:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-79/SparseStarPairComplete.lean:724:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-79/SparseStarPairComplete.lean:711:36: warning: Variable name `hS` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hS
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/SparseStarPairComplete.lean:772:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-79/SparseStarPairComplete.lean:780:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-79/SparseStarPairComplete.lean:767:13: warning: Variable name `hS` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hS
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+cumulative profiling times:
+	attribute application 0.378ms
+	compilation (IR) 2.08ms
+	compilation (LCNF base) 23.5ms
+	compilation (LCNF impure) 8.84ms
+	compilation (LCNF mono) 17.3ms
+	congr simp thm 17.8ms
+	declTypeLinter 26.4ms
+	dsimp 2.56ms
+	elaboration 815ms
+	fix level params 51.1ms
+	import 1.6s
+	initialization 65.5ms
+	instantiate metavars 240ms
+	interpretation 2.35s
+	let-to-have transformation 0.843ms
+	linting 1.36s
+	module linting 0.0373ms
+	norm_num 125ms
+	parsing 32.7ms
+	process pre-definitions 518ms
+	ring 2.03s
+	share common exprs 1.24s
+	simp 2.81s
+	tactic execution 40.7s
+	tacticAnalysis 16.4ms
+	type checking 1.99s
+	typeclass inference 879ms

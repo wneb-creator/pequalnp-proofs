@@ -1,0 +1,10 @@
+{
+  "pid": 40334,
+  "mode": "pair-complete",
+  "exit": 0,
+  "timeout": false,
+  "over_memory": false,
+  "peak_rss_bytes": 2932826112,
+  "seconds": 57.22054551099973,
+  "memory_limit_bytes": 4294967296
+}
