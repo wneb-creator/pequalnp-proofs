@@ -1,3 +1,8 @@
 'PEqualNP.Outside.L_meta_9502.unique_or_repair' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PEqualNP.Outside.L_meta_9502.unique_or_pair_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PEqualNP.Outside.L_meta_9502.unique_or_partner_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_9502.unique_or_rows_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_9502.unique_or_partner_left_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_9502.unique_or_partner_neighbor_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -190,4 +190,105 @@ lemma unique_or_partner_false (pre post : List Gate) (N i p out c : Nat)
     have h := unique_or_single_transfer pre post N i p out c hops havoid hp hout hedge
     simp only [hsingle, Bool.false_eq_true] at h
 
+lemma orInput_oneEach (n m : Nat) (u : Fin n) (v : Fin m) :
+    orInput (n + m) {u.val, n + v.val} = oneEach u v := by
+  unfold orInput oneEach
+  rw [List.ofFn_add]
+  congr 1
+  · apply congrArg List.ofFn
+    funext i
+    have hi : i.val ≠ n + v.val := by omega
+    simp [Fin.ext_iff, hi]
+  · apply congrArg List.ofFn
+    funext i
+    have hi : n + i.val ≠ u.val := by omega
+    simp [Fin.ext_iff, hi]
+
+
+lemma unique_or_rows_subset (pre post : List Gate) (n m : Nat)
+    (A : Fin n → Fin m → Bool) (i j : Fin n) (p out : Nat)
+    (hops : ∀ g ∈ pre ++ post, g.op = .and ∨ g.op = .or)
+    (havoid : ∀ g ∈ pre ++ post, i.val ∉ g.inputs) (hout : out ≠ i.val)
+    (hrep : Represents A (Circuit.mk (pre ++ [⟨.or, [i.val, p]⟩] ++ post) out))
+    (hp : (orRun pre (orInput (n + m) {j.val})).getD p false = true) :
+    ∀ c, A i c = true → A j c = true := by
+  intro c hc
+  have hci : (Circuit.mk (pre ++ [⟨.or, [i.val, p]⟩] ++ post) out).eval
+      (orInput (n + m) {i.val, n + c.val}) = true := by
+    rw [orInput_oneEach, hrep]
+    exact hc
+  have hcj := unique_or_pair_transfer pre post (n + m) i.val p out j.val
+    (n + c.val) hops havoid hp hout hci
+  rw [orInput_oneEach, hrep] at hcj
+  exact hcj
+
+lemma unique_or_partner_left_false (pre post : List Gate) (n m : Nat)
+    (A : Fin n → Fin m → Bool) (i j : Fin n) (p out : Nat)
+    (hops : ∀ g ∈ pre ++ post, g.op = .and ∨ g.op = .or)
+    (havoid : ∀ g ∈ pre ++ post, i.val ∉ g.inputs) (hout : out ≠ i.val)
+    (hrep : Represents A (Circuit.mk (pre ++ [⟨.or, [i.val, p]⟩] ++ post) out))
+    (hsep : ∃ c, A i c = true ∧ A j c = false) :
+    (orRun pre (orInput (n + m) {j.val})).getD p false = false := by
+  cases hp : (orRun pre (orInput (n + m) {j.val})).getD p false with
+  | false => rfl
+  | true =>
+    obtain ⟨c, hci, hcj⟩ := hsep
+    have h := unique_or_rows_subset pre post n m A i j p out hops havoid hout hrep hp c hci
+    simp only [hcj, Bool.false_eq_true] at h
+
+lemma orCircuit_mono (C : Circuit) (hmono : Monotone2 C) (N : Nat)
+    (S T : Finset Nat) (hST : S ⊆ T) :
+    C.eval (orInput N S) = true → C.eval (orInput N T) = true := by
+  have h := orRun_mono C.gates (orInput N S) (orInput N T)
+    (fun g hg => by simpa using (hmono g hg).1)
+    (by simp [orInput]) (orInput_mono N S T hST) C.output
+  simpa only [Circuit.eval, Circuit.wires, ← orRun_fold] using h
+
+lemma orInput_left_false {n m : Nat} {A : Fin n → Fin m → Bool} {C : Circuit}
+    (hmono : Monotone2 C) (hrep : Represents A C)
+    (hproper : ∀ u, ∃ v, A u v = false) (u : Fin n) :
+    C.eval (orInput (n + m) {u.val}) = false := by
+  cases h : C.eval (orInput (n + m) {u.val}) with
+  | false => rfl
+  | true =>
+    obtain ⟨v, hv⟩ := hproper u
+    have ht := orCircuit_mono C hmono (n + m) {u.val} {u.val, n + v.val}
+      (by simp) h
+    rw [orInput_oneEach, hrep u v, hv] at ht
+    contradiction
+
+lemma orInput_right_false {n m : Nat} {A : Fin n → Fin m → Bool} {C : Circuit}
+    (hmono : Monotone2 C) (hrep : Represents A C)
+    (hproper : ∀ v, ∃ u, A u v = false) (v : Fin m) :
+    C.eval (orInput (n + m) {n + v.val}) = false := by
+  cases h : C.eval (orInput (n + m) {n + v.val}) with
+  | false => rfl
+  | true =>
+    obtain ⟨u, hu⟩ := hproper v
+    have ht := orCircuit_mono C hmono (n + m) {n + v.val} {u.val, n + v.val}
+      (by simp) h
+    rw [orInput_oneEach, hrep u v, hu] at ht
+    contradiction
+
+
+lemma unique_or_partner_neighbor_false (pre post : List Gate) (n m : Nat)
+    (A : Fin n → Fin m → Bool) (i : Fin n) (p out : Nat)
+    (hmono : Monotone2 (Circuit.mk (pre ++ [⟨.or, [i.val, p]⟩] ++ post) out))
+    (havoid : ∀ g ∈ pre ++ post, i.val ∉ g.inputs) (hout : out ≠ i.val)
+    (hrep : Represents A (Circuit.mk (pre ++ [⟨.or, [i.val, p]⟩] ++ post) out))
+    (hproper : ∀ v, ∃ u, A u v = false) (c : Fin m) (hc : A i c = true) :
+    (orRun pre (orInput (n + m) {n + c.val})).getD p false = false := by
+  have hops : ∀ g ∈ pre ++ post, g.op = .and ∨ g.op = .or := by
+    intro g hg
+    have hg' : g ∈ pre ++ [⟨.or, [i.val, p]⟩] ++ post := by
+      rcases List.mem_append.mp hg with hg | hg
+      · exact List.mem_append_left _ (List.mem_append_left _ hg)
+      · exact List.mem_append_right _ hg
+    simpa using (hmono g hg').1
+  apply unique_or_partner_false pre post (n + m) i.val p out (n + c.val)
+    hops havoid hout
+  · rw [orInput_oneEach, hrep]
+    exact hc
+  · exact orInput_right_false hmono hrep hproper c
+
 end PEqualNP.Outside.L_meta_9502
