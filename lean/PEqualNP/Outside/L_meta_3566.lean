@@ -172,4 +172,89 @@ lemma falseCircuit_size (n : ℕ) : (falseCircuit n).size = 0 := rfl
 
 end SemanticAudit
 
+namespace K6Subdivision
+
+open PEqualNP.MetaComplexity PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+abbrev graph : SimpleGraph (Fin 21) :=
+  edgeGraph 21
+    [(0, 6), (1, 6), (0, 7), (2, 7), (0, 8), (3, 8), (0, 9), (4, 9),
+     (0, 10), (5, 10), (1, 11), (2, 11), (1, 12), (3, 12), (1, 13), (4, 13),
+     (1, 14), (5, 14), (2, 15), (3, 15), (2, 16), (4, 16), (2, 17), (5, 17),
+     (3, 18), (4, 18), (3, 19), (5, 19), (4, 20), (5, 20)]
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma bipartite : ∃ c : Fin 21 → Bool, ∀ u v, graph.Adj u v → c u ≠ c v := by
+  refine ⟨fun v => decide (v.val < 6), ?_⟩
+  decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma noFourCycle : NoFourCycle graph := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma card_edges : graph.edgeFinset.card = 30 := by decide
+
+def originalCover : Finset (Fin 21) := {0, 1, 2, 3, 4, 5}
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma originalCover_isCover : CoverPromise.IsVertexCover graph originalCover := by
+  unfold CoverPromise.IsVertexCover
+  decide
+
+lemma originalCover_card : originalCover.card = 6 := by decide
+
+lemma matching_card_le_cover {n k : ℕ} (G : SimpleGraph (Fin n))
+    (l r : Fin k → Fin n) (hl : Function.Injective l) (hr : Function.Injective r)
+    (hd : ∀ i j, l i ≠ r j) (he : ∀ i, G.Adj (l i) (r i))
+    (S : Finset (Fin n)) (hS : CoverPromise.IsVertexCover G S) : k ≤ S.card := by
+  classical
+  let f : Fin k → {v : Fin n // v ∈ S} := fun i =>
+    if h : l i ∈ S then ⟨l i, h⟩
+    else ⟨r i, (hS _ _ (he i)).resolve_left h⟩
+  have hf : Function.Injective f := by
+    intro i j hij
+    have hv := congrArg Subtype.val hij
+    by_cases hi : l i ∈ S <;> by_cases hj : l j ∈ S
+    · apply hl
+      simpa [f, hi, hj] using hv
+    · have hbad : l i = r j := by simpa [f, hi, hj] using hv
+      exact False.elim (hd i j hbad)
+    · have hbad : r i = l j := by simpa [f, hi, hj] using hv
+      exact False.elim (hd j i hbad.symm)
+    · apply hr
+      simpa [f, hi, hj] using hv
+  have hcard := Fintype.card_le_of_injective f hf
+  simpa using hcard
+
+def leftEndpoint (i : Fin 6) : Fin 21 := i.castLE (by decide)
+
+def rightEndpoint : Fin 6 → Fin 21 := ![6, 11, 15, 18, 20, 10]
+
+lemma leftEndpoint_injective : Function.Injective leftEndpoint := by decide
+
+lemma rightEndpoint_injective : Function.Injective rightEndpoint := by decide
+
+lemma endpoints_disjoint : ∀ i j, leftEndpoint i ≠ rightEndpoint j := by decide
+
+set_option maxRecDepth 10000 in
+lemma matching_edges : ∀ i, graph.Adj (leftEndpoint i) (rightEndpoint i) := by decide
+
+lemma cover_card_lower (S : Finset (Fin 21))
+    (hS : CoverPromise.IsVertexCover graph S) : 6 ≤ S.card :=
+  matching_card_le_cover graph leftEndpoint rightEndpoint leftEndpoint_injective
+    rightEndpoint_injective endpoints_disjoint matching_edges S hS
+
+lemma minimum_cover : ∃ S : Finset (Fin 21), CoverPromise.IsVertexCover graph S ∧
+    S.card = 6 ∧ ∀ T : Finset (Fin 21), CoverPromise.IsVertexCover graph T → S.card ≤ T.card := by
+  refine ⟨originalCover, originalCover_isCover, originalCover_card, ?_⟩
+  intro T hT
+  rw [originalCover_card]
+  exact cover_card_lower T hT
+
+end K6Subdivision
+
 end PEqualNP.Outside.L_meta_3566
