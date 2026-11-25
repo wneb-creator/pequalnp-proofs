@@ -23,3 +23,6 @@ Strategies are tracked in TIMELINE.md. Agents append findings to their own resul
 - Existing L4033 proves9vertex totalgatefloor16; it is near512KiB and does not directly strengthen signedbinaryfloor15.
 - SAT searches have no witness or UNSAT result; focus compact signed17/18 searches. Extra processes paused/stopped to keep CPU available.
 - Three live reductions already fill the desk limit; no fourth reduction can be submitted. Continue toward fullproof/refutation with onelease.
+
+## 14:40 UTC checked milestone
+BinarySeventeen.lean has compiled:17+notCount<=size. Remaining cases are exactly1NOT with17or18binary, or2NOT with17binary; the two-NOT case saturates total size19 and the signed compiler is minimum. Full target is still open.

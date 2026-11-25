@@ -13,7 +13,7 @@ SHA256: bc9fc6ca6a0cbf394a18eac12cc4a0eee5d65370660dfbfeb030a3dab5d9c161
 Line count: 86
 
 Sub-agents: 6 (status review, semantic proof, counterexample search, combinatorial bound, toolchain setup, few-NOT cases)
-TIMING total=9.90 subagents=6
+TIMING total=41.88 subagents=6
 
 Artifact: results/orch/lemmas/EmbedExtra.lean
 Scope: Extra input embedding preserves evaluation, fan-in, size, and NOT count.
@@ -86,3 +86,41 @@ Independent source review: status_review and root PASS as partial.
 SHA256: 43b2a4982158384b3a514645634d6eebd86a11249dce5685182541fa9ea05c25
 
 Combinatorial inverse automorphisms compiled and independently audited. SHA256: 99a121d1581840f39eabc4de32490e15a079c967470fd75d1d482444a1e9e590
+
+Artifact: results/orch/lemmas/Duplicate.lean
+Scope: Conditional first-gate duplicate and double-source exclusion.
+Lean exit0; stdout/stderr empty.
+Independent source review: status_review PASS as partial.
+SHA256: c665b60d97bb3b6139fbc179bb1e56c4b43f32c83a2c90897b9a7cb3c8deaed4
+
+Artifact: results/orch/lemmas/ReadBudgetGeneral.lean
+Scope: Reader budget from well-formedness and computation, without minimality.
+Lean exit0; stdout/stderr empty.
+Independent source review: status_review PASS as partial.
+SHA256: 56687177f06f9a87f1dcf5e9ad9a17ba2fa52ac6013e88b9c0cf100f80a6990d
+
+Artifact: results/orch/lemmas/Promotion.lean
+Scope: Conditional universal17 signed bound and minimality of all computing circuits at most17.
+Lean exit0; stdout/stderr empty.
+Independent source review: status_review PASS as partial.
+SHA256: 106d2abea95bbea7e2eb9ff54f4eaea6d76ac83996b0bb56d76770b3f0046ad1
+
+Artifact: results/orch/lemmas/MixedC6.lean
+Scope: Closed-neighborhood mixed restriction equals its all-zero version; no standalone C6 lower bound claimed.
+Lean exit0; stdout/stderr empty.
+Independent source review: status_review PASS as partial.
+SHA256: c88b64521bf9655a5f6ed73ccedc6890570a06311622d05dc9371630f5f79a1d
+
+Artifact: results/orch/lemmas/OneNotEndpoints.lean
+Scope: Generic single-NOT endpoint obstructions and restricted OR-family masking identities.
+Lean exit0; stdout/stderr empty.
+Independent source review: status_review PASS as partial.
+SHA256: 3fc0e008ad4801243ba512a2868e981899ddee77dd58a9aa9d185b34389d92a8
+
+Artifact: results/orch/lemmas/BinarySeventeen.lean
+Scope: every FanInTwo Petersen circuit has17+notCount<=size; under size19 and a NOT, count is exactly1 or2.
+Full Lean build: exit0 at2026-11-25T14:40:26UTC. stdout contains inherited warnings; stderr empty. Complete logs saved beside validation.
+Independent source review: status_review PASS at exact final hash.
+SHA256: 15b60a43cd2acaf95c1a2b90783b4ee0c69e07e0c4300de918dd120758526321
+Line count:6870; bytes:396474.
+Full posted goal remains unproved; this is a checked partial, not a submitted proof PR.

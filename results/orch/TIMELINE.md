@@ -13,3 +13,5 @@
 - 2026-11-25T14:23:30.820959+00:00: plain signed model, first-gate savings, conditional phase cases, and Reach bridge compiled and independently audited; preserving all.
 - 2026-11-25T14:26:45.040088+00:00: BinarySixteen.lean compiled with exit0; immediate preservation push. BinarySeventeen integration assigned to semantic agent.
 - 2026-11-25T14:32:46.676065+00:00: false-cofactor transport and conditional reader-budget components compiled and reviewed; preserved.
+- 2026-11-25T14:40:42.651090+00:00: generalized reader budget, minimality promotion, duplicate exclusion, mixed cuts, and one-NOT endpoint components compiled and independently reviewed; preserving partials.
+- 2026-11-25T14:40:26Z: BinarySeventeen full compilation passed, same independently audited hash; preserving immediately.

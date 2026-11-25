@@ -1,0 +1,61 @@
+Validation at 2026-11-25T14:33:43.560226+00:00
+Pinned Lean 4.36.0; each listed full artifact passed lake env lean with exit code 0.
+These are partial components for L-meta-2592, not a full proof of the posted statement.
+Conditional components explicitly assume ZeroFloor15; the parent integration must supply it.
+No local checker verdict is claimed for these partial artifacts.
+
+FewNots.lean
+sha256 e16b752e23303f60a81220e87760b5175cfc6baca279b6e1ce2604a7545d116d
+lines 147
+build: exit 0
+stdout: (empty)
+stderr: (empty)
+
+FirstGate.lean
+sha256 37f0c9f21197191856c59671ff1c32018797ab52d9cf808615434128736dbd89
+lines 1967
+build: exit 0
+stdout: (empty)
+stderr: (empty)
+
+FirstGatePlain.lean
+sha256 3f92659d0d405ec744207e49e6e268dea588e1ab90c080c107b4337b97302f82
+lines 1968
+build: exit 0
+stdout: (empty)
+stderr: (empty)
+
+FirstGateCases.lean
+sha256 f2cce06b05949cf5556694bdebd1e6ffc4942b279034a90b9d3c500658ba1b89
+lines 2137
+build: exit 0
+stdout: (empty)
+stderr: (empty)
+
+ReadBudget.lean
+sha256 43b2a4982158384b3a514645634d6eebd86a11249dce5685182541fa9ea05c25
+lines 2212
+build: exit 0
+stdout: (empty)
+stderr: (empty)
+
+Duplicate.lean
+sha256 c665b60d97bb3b6139fbc179bb1e56c4b43f32c83a2c90897b9a7cb3c8deaed4
+lines 2269
+build: exit 0
+stdout: (empty)
+stderr: (empty)
+
+ReadBudgetGeneral.lean
+sha256 56687177f06f9a87f1dcf5e9ad9a17ba2fa52ac6013e88b9c0cf100f80a6990d
+lines 2248
+build: exit 0
+stdout: (empty)
+stderr: (empty)
+
+Promotion.lean
+sha256 106d2abea95bbea7e2eb9ff54f4eaea6d76ac83996b0bb56d76770b3f0046ad1
+lines 2285
+build: exit 0
+stdout: (empty)
+stderr: (empty)
