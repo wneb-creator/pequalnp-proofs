@@ -1,5 +1,0 @@
-Core34.lean
-Lean compiler exit code: 0
-Named theorem: PEqualNP.Outside.Core34_check
-This checks only the 34-gate baseline. The reduction requires a 33-gate core, which remains open.
-Full stdout and stderr: core34-build.log (empty).
