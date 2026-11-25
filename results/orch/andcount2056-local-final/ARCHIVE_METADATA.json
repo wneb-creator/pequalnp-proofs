@@ -1,0 +1,431 @@
+{
+  "created_utc": "2026-11-25T19:56:03.568487+00:00",
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/analyze_local66.py",
+      "archive": "analyze_local66.py",
+      "bytes": 2849,
+      "sha256": "9b6b1c81492913f9b0b88ced294e973be0522dd668c2d2142b80fc78687c4edf"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/build.stderr",
+      "archive": "build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/build.stdout",
+      "archive": "build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/build66-69.stderr",
+      "archive": "build66-69.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/build66-69.stdout",
+      "archive": "build66-69.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/control-dump-build.stderr",
+      "archive": "control-dump-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/control-dump-build.stdout",
+      "archive": "control-dump-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/control-dump.stderr",
+      "archive": "control-dump.stderr",
+      "bytes": 181,
+      "sha256": "d7fdb58c7ac165cd688fb924fbb769cfde88539430002e0eae1c8563ce834604"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/control-dump.stdout",
+      "archive": "control-dump.stdout",
+      "bytes": 730,
+      "sha256": "d7b6aa2714653b601c00a513c35482fbd7a4235584b2227ebaf29e435d22b98a"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/control-structural-check.json",
+      "archive": "control-structural-check.json",
+      "bytes": 487,
+      "sha256": "fe2c4e16f357f41628225c52aa5dc96eba280ec9505b171d36c03bb080453854"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/control-structural-check.stderr",
+      "archive": "control-structural-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/control-structural-check.stdout",
+      "archive": "control-structural-check.stdout",
+      "bytes": 133,
+      "sha256": "7e3735006772ef26da4a3fc2bf11fe6411b022a801f778b92d613e63d001a076"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/control.stderr",
+      "archive": "control.stderr",
+      "bytes": 181,
+      "sha256": "d7fdb58c7ac165cd688fb924fbb769cfde88539430002e0eae1c8563ce834604"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/control.stdout",
+      "archive": "control.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/control66-69.stderr",
+      "archive": "control66-69.stderr",
+      "bytes": 181,
+      "sha256": "91924c59c2f808a650a4af329805ed5175f79ed3c0bfc860b2b4fa389357764b"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/control66-69.stdout",
+      "archive": "control66-69.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66-single-record.jsonl",
+      "archive": "exact66-single-record.jsonl",
+      "bytes": 1013,
+      "sha256": "b2636123b717c5f0a3ff03b1be2a803061e210f40a010d7d410690dc934899e6"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66-structural-check.json",
+      "archive": "exact66-structural-check.json",
+      "bytes": 585,
+      "sha256": "d31482bac638d8f955e94d42ac349c8b693455e8ce374dd43fdd90bf6222ed24"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66-structural-check.stderr",
+      "archive": "exact66-structural-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66-structural-check.stdout",
+      "archive": "exact66-structural-check.stdout",
+      "bytes": 139,
+      "sha256": "81ac50b1ff9da075cd1993da3d0abe9c404720647d8190d282263ac3a7c41946"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66_69_local",
+      "archive": "exact66_69_local",
+      "bytes": 85600,
+      "sha256": "2cf1d2c49c4e2ebee1a889633ed3ed41459d71744247df278896a8ccda87431a"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66_69_local.cpp",
+      "archive": "exact66_69_local.cpp",
+      "bytes": 9201,
+      "sha256": "79f7abdd4d8171bc60e357f9176ebad697a19ff7493fa49ec075b4ea4b4c67a8"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66_69_seeds.hpp",
+      "archive": "exact66_69_seeds.hpp",
+      "bytes": 3885,
+      "sha256": "18b99fe7a0ad0026dfd4016f2903ea4932b488088e13c7ca7eba7795e49d8d8b"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66_control_dump",
+      "archive": "exact66_control_dump",
+      "bytes": 85568,
+      "sha256": "c3537a4544dfff75f5ea5a33f340388e9d2a2c1e1f62bba64a0e217675f0d43d"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66_control_dump.cpp",
+      "archive": "exact66_control_dump.cpp",
+      "bytes": 9236,
+      "sha256": "ed935ccd3a5d0bafa2c6a7417cad36902374a495ab121799b22a8f80be210414"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66_local",
+      "archive": "exact66_local",
+      "bytes": 85568,
+      "sha256": "ea2d686aae39bb28589a7b42402915d84d9539657f51adb9b7420e85d3c8805c"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66_local.cpp",
+      "archive": "exact66_local.cpp",
+      "bytes": 9198,
+      "sha256": "e8c26582b9f65f7c65fd39c4cf03227af0e84b7c2db11f4cfa768ecbecf044ca"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66_seeds.hpp",
+      "archive": "exact66_seeds.hpp",
+      "bytes": 3205,
+      "sha256": "cb63f59d266a32eb95bfb5f2cbcb13fe55e9a0d42988d489acd58c288b3dd653"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056-wrapper.stderr",
+      "archive": "final-local66-69-2056-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056-wrapper.stdout",
+      "archive": "final-local66-69-2056-wrapper.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.analysis.json",
+      "archive": "final-local66-69-2056.analysis.json",
+      "bytes": 42962,
+      "sha256": "37186b37ea56a9226e282de8699bf9eec9d2b4c02aee8f0b5352ea16187f5be8"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.analysis.stderr",
+      "archive": "final-local66-69-2056.analysis.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.analysis.stdout",
+      "archive": "final-local66-69-2056.analysis.stdout",
+      "bytes": 141,
+      "sha256": "b164ce9ffc60e7d0a499eba1290f146761ff4e987aecd10cde5a0e1ea8ef544e"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.best-nonread1.exhaustive.stderr",
+      "archive": "final-local66-69-2056.best-nonread1.exhaustive.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.best-nonread1.exhaustive.stdout",
+      "archive": "final-local66-69-2056.best-nonread1.exhaustive.stdout",
+      "bytes": 40,
+      "sha256": "dd929c8e576688a6059643d3c90777359497f54d56973a7954d464a52cb08c08"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.best-nonread1.json",
+      "archive": "final-local66-69-2056.best-nonread1.json",
+      "bytes": 2791,
+      "sha256": "c7376855e79341d54df17d147c5d51bdcbe9736ac0a8dc7981ec98afa44e2f8c"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.best-nonread1.txt",
+      "archive": "final-local66-69-2056.best-nonread1.txt",
+      "bytes": 490,
+      "sha256": "12a7f761e68d842a53c88277a1f105c8269b3b1aa66dcf68f96bfc1098b86b2e"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.best-overall.exhaustive.stderr",
+      "archive": "final-local66-69-2056.best-overall.exhaustive.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.best-overall.exhaustive.stdout",
+      "archive": "final-local66-69-2056.best-overall.exhaustive.stdout",
+      "bytes": 40,
+      "sha256": "eacf34dcb7cfc163daf9338dfbb5ea0a69e42096b7371694093232fed32b38c7"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.best-overall.json",
+      "archive": "final-local66-69-2056.best-overall.json",
+      "bytes": 2755,
+      "sha256": "d00def41a03b544fe10313a90a773e5da9cd8a9982d66b668a9e8aa28edb0778"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.best-overall.txt",
+      "archive": "final-local66-69-2056.best-overall.txt",
+      "bytes": 483,
+      "sha256": "c77bef1b850bc4a604240b2ba2b2414b09579f0ff0316652d8320d0d5fa302ee"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.completion-observation.json",
+      "archive": "final-local66-69-2056.completion-observation.json",
+      "bytes": 747,
+      "sha256": "e5f3792d64b6641cedb34c4f7395519a582aa3226bceda181338abb0e308aa29"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.launch.json",
+      "archive": "final-local66-69-2056.launch.json",
+      "bytes": 1114,
+      "sha256": "98708f55e3a30e5c48a9772f59e26578195d29fb05ddb53ffe2874d2f1057142"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.proc-46416.stat",
+      "archive": "final-local66-69-2056.proc-46416.stat",
+      "bytes": 173,
+      "sha256": "421991a5bcd603acbc4d56fcc60cfd918bab8d8d1cea0ea03196b2276ac2882d"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.proc-46424.stat",
+      "archive": "final-local66-69-2056.proc-46424.stat",
+      "bytes": 177,
+      "sha256": "594ae743bf53066309b2f5f8ebf60ac7cb9e251aa7e28709cf5b1f7872ba405e"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.progress-analysis.json",
+      "archive": "final-local66-69-2056.progress-analysis.json",
+      "bytes": 3211,
+      "sha256": "0840fcc5b6c23ba8fe8484f936d8bac8ed14cd4fbd20c02a8a098c40988a498c"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.progress-analysis.stderr",
+      "archive": "final-local66-69-2056.progress-analysis.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.progress-analysis.stdout",
+      "archive": "final-local66-69-2056.progress-analysis.stdout",
+      "bytes": 140,
+      "sha256": "4e90e4c132d139f1b8b7ba787a8c4d152091053008fa1a20e4cdca9435e12fb6"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.stderr",
+      "archive": "final-local66-69-2056.stderr",
+      "bytes": 329,
+      "sha256": "5ac6e2233f1ff5c2f445a60d76e055ddb7db55a7b616b87acad64165776537c6"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/final-local66-69-2056.stdout",
+      "archive": "final-local66-69-2056.stdout",
+      "bytes": 57794,
+      "sha256": "f7e950c67b59a10fce45e28a77195be6da6a5021c848e2f820b5791c69b142ec"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/independent-data-review.json",
+      "archive": "independent-data-review.json",
+      "bytes": 798,
+      "sha256": "8efb5f640c3593a1dfc47212d98f2c37b11377d0be6932fadc2821c3756b813a"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/independent-six-seed-review.json",
+      "archive": "independent-six-seed-review.json",
+      "bytes": 1231,
+      "sha256": "a526453ecab4aa9505ee959c4a09d7f1701af4f9d20255fe6443a4571e5288f6"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/launch-ready66-69.json",
+      "archive": "launch-ready66-69.json",
+      "bytes": 1221,
+      "sha256": "e13d20cad98af3505eefc59c93f983be5334234923d88b4c117eedb5fe7bd3b8"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/nested69-exhaustive.stderr",
+      "archive": "nested69-exhaustive.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/nested69-exhaustive.stdout",
+      "archive": "nested69-exhaustive.stdout",
+      "bytes": 40,
+      "sha256": "3033111408e6dbad14a45017f84cb928d9eb490911915bb6cc41cbaec579ef85"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/nested69-source-record.json",
+      "archive": "nested69-source-record.json",
+      "bytes": 3503,
+      "sha256": "0d00a9bae29bf66b2951947b5a9650f717ce460d5e33c2365b093b0a3dd4cb04"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/nested69.txt",
+      "archive": "nested69.txt",
+      "bytes": 539,
+      "sha256": "60a5b51617430fea0046a11ee806b17e7729ecb7b5e86a4f4b541986737ebda4"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/neutral_pair_care_full.hpp",
+      "archive": "neutral_pair_care_full.hpp",
+      "bytes": 2488,
+      "sha256": "b71c28ebe7959f62031c4f5e1874410a02780107c448f7ee1bb2ba4e936b099f"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/preparation.json",
+      "archive": "preparation.json",
+      "bytes": 1839,
+      "sha256": "7f8cb778140ebb3b7b5d9af52383d2b611a15017aa3f191bca3fe785fdc8ea2b"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/preparation66-69.json",
+      "archive": "preparation66-69.json",
+      "bytes": 684,
+      "sha256": "9240bd65d03a25b8f68f2008b79c6b7bb3c8d08881d5bf92f07c70cef3358181"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/repair_shrink_full.hpp",
+      "archive": "repair_shrink_full.hpp",
+      "bytes": 2913,
+      "sha256": "3e55cb3b72e8eedfc8c535052e7906dbf6f4df2be2d43986b90e6f58a83466b3"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/rows.txt",
+      "archive": "rows.txt",
+      "bytes": 6314,
+      "sha256": "535859e22fe4f5f187c9655d3ba3ad15e4b6d967b51b4981eba9d56925f62f48"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/run_final_local.py",
+      "archive": "run_final_local.py",
+      "bytes": 3236,
+      "sha256": "486e684c9c7ee31f18d1d03e6d8dff95fa0d293701be8e845fef7e5f39d8ec86"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/scatter_spares_full.hpp",
+      "archive": "scatter_spares_full.hpp",
+      "bytes": 1035,
+      "sha256": "71900b15fffab2f1c094bf208a686520a048b40f307519040ec9128db26e4d14"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/seeds.json",
+      "archive": "seeds.json",
+      "bytes": 4135,
+      "sha256": "64d3683921ca7de857bb76992f8eb4319f2803bc9adc66bd5e364007ede676b0"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/seeds66-69.json",
+      "archive": "seeds66-69.json",
+      "bytes": 5021,
+      "sha256": "a96cd18e1d4a18033a05c52e7409f4fa7a4e82b019d5a7a83311e9b04550ea54"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/startup-control65.json",
+      "archive": "startup-control65.json",
+      "bytes": 2777,
+      "sha256": "aa58cca7899c9aa8520d7a713b506fbc87ec02d8d0a3eb6b52417c3c9566da98"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/structural-scope.json",
+      "archive": "structural-scope.json",
+      "bytes": 1100,
+      "sha256": "2a1e4d9a81f90936105ef62b6df7ab351b891e7061f12630266b47bfbe0ce570"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/k13-final-archive-independent-review.json",
+      "archive": "independent-audits/k13-final-archive-independent-review.json",
+      "bytes": 496,
+      "sha256": "dc40e2f499553b74263a6a5131b1715db2a98d6ba9d2d09dd6b8c578d277b40b"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/k13-completed-run-independent-review.json",
+      "archive": "independent-audits/k13-completed-run-independent-review.json",
+      "bytes": 528,
+      "sha256": "1558467f9cc2219fd65970bb448d10540062d004dcaa294ddeacc4fac75553d9"
+    }
+  ],
+  "file_count": 70,
+  "bytes": 451225,
+  "status": "Completed598.002s local search;445916272 proposals; best65Read1, bestnonRead1_66, no63witness",
+  "native_return_status": "Linux zombie proc-stat field52=0; complete finalrecord",
+  "wrapper_return_status": "Linux zombie proc-stat field52=9 (SIGKILL); original tool-session exit unavailable",
+  "no_active_outputs": true
+}

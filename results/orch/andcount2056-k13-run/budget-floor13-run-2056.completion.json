@@ -1,0 +1,11 @@
+{
+  "completed_observed_utc": "2026-11-25T19:44:54.571345+00:00",
+  "wrapper_session": 27221,
+  "wrapper_exit_code": 0,
+  "native_pid_reaped": true,
+  "status": "UNKNOWN at native2400s limit; noSAT/UNSAT verdict",
+  "source_query_unchanged": true,
+  "stdout_complete": true,
+  "stderr_complete": true,
+  "scope": "Restricted independentOR-cost model, not arbitrary sharedOR circuits"
+}

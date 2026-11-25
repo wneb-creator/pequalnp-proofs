@@ -1,0 +1,22 @@
+{
+  "read_completed_utc": "2026-11-25T19:52:53.533128+00:00",
+  "canonical_repository": "open-goat/pequalnp-proofs",
+  "repository_id": 1468025030,
+  "default_branch": "main",
+  "target_file": {
+    "present": false,
+    "http_status": 404,
+    "path": "lean/PEqualNP/Outside/L_meta_2056.lean",
+    "checked_ref": "main"
+  },
+  "open_PR_census": {
+    "query": "repo:open-goat/pequalnp-proofs is:pr is:open 2056",
+    "pages": 1,
+    "total_count": 0,
+    "collected": 0,
+    "complete": true,
+    "items": []
+  },
+  "capability_note": "Installed gh supports --paginate but not --slurp. The initial unsupported-flag failure is retained; the documented --paginate response was parsed as consecutive complete JSON objects.",
+  "scope": "Read-only exact main-file lookup and complete open-PR search; absent results do not prove mathematical nonexistence."
+}

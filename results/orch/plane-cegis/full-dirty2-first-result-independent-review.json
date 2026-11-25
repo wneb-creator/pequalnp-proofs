@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-25T19:57:21.134534+00:00",
+  "verdict": "APPROVED",
+  "manifest_sha256": "7b70a73cda4234493d7c426732ac847ba01b42013767b550ece16ef7bfd3150c",
+  "payload_hashes_verified": 17,
+  "result": "UNKNOWN; no target model",
+  "evidence": "Complete native stdout reports real time and exit0; solution file is c UNKNOWN. Reviewed posthoc checker pins source/CNF/mapping and records native kernel exit0 separately from original wrapper SIGKILL. No automatic wrapper validation or waitpid recovery claimed.",
+  "scope": "Full ordinary63 search with compiled necessary normalizations; bounded unsuccessful run, no external UNSAT or target Lean result."
+}

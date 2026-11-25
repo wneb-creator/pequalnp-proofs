@@ -223,3 +223,8 @@ Exit0/134.637s/peak7,592,764KiB; full52 inherited-warning stdout, empty stderr a
 Scope: normalized correct≤63 circuits require two distinct dirtyANDs. No singleton premise; normalization/full correctness remain explicit. No posted target proof, refutation, accepted target checker, PR or cleanup. Named partial remains728lines.
 Sub-agents: circuit_search, gate_elimination, not_elimination, proof_route, status_review, toolchain_setup
 TIMING total=316.41 subagents=6
+
+FINAL SEARCH CHECKPOINT 2026-11-25T19:59:41.891270+00:00
+All final searches completed before20:00UTC: five SAT configurations returned UNKNOWN; general local optimizer found no63-gate witness. Complete reviewed logs and wrapper-loss/recovery evidence preserved. No full target proof or refutation, no target checker acceptance, no PR. Named partial728lines before/after, cleanup not attempted. All compiled partials already pushed; strongest6865-line TwoDirtyNecessary retains explicit normalization hypotheses. Final report: FINAL-REPORT-2056.md.
+Sub-agents: circuit_search, gate_elimination, not_elimination, proof_route, status_review, toolchain_setup
+TIMING total=344.55 subagents=6

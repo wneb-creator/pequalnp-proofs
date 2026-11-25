@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-25T19:19:07.277031+00:00",
+  "archive": "results/orch/andcount2056-k13-final",
+  "manifest_sha256": "fdeedaf33975ef083f706efadd27edade3fe18f9496a633d33e608a414ac3fca",
+  "files": 134,
+  "bytes": 34008586,
+  "payload_bytes": 33948014,
+  "json_files": 46,
+  "errors": [],
+  "privacy_matches": [],
+  "unexpected_files": [],
+  "scope": "Completed restricted K13 preparation/controls; exact66\u219265 postprocessing; no target witness or active runtime",
+  "verdict": "APPROVED"
+}

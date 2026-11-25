@@ -1,0 +1,23 @@
+{
+  "source_hashes": {
+    "exact66_69_local.cpp": "79f7abdd4d8171bc60e357f9176ebad697a19ff7493fa49ec075b4ea4b4c67a8",
+    "exact66_69_seeds.hpp": "18b99fe7a0ad0026dfd4016f2903ea4932b488088e13c7ca7eba7795e49d8d8b",
+    "exact66_69_local": "2cf1d2c49c4e2ebee1a889633ed3ed41459d71744247df278896a8ccda87431a",
+    "rows.txt": "535859e22fe4f5f187c9655d3ba3ad15e4b6d967b51b4981eba9d56925f62f48"
+  },
+  "command": [
+    "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/exact66_69_local",
+    "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/rows.txt",
+    "598",
+    "205666"
+  ],
+  "seconds_requested": 598,
+  "absolute_stop_utc": "2026-11-25T19:55:00+00:00",
+  "root_renewal_utc": "2026-11-25T19:43:41+00:00",
+  "root_lease_expiry_utc": "2026-11-25T20:03:40.804+00:00",
+  "scope": "Exact-function local search; no nonRead1 or shared-dirty retention constraint.",
+  "starting_state": "66 gates with seven jointRead1 failures and one dirty AND; restart pool also includes audited69 and read1 startup65.",
+  "native_pid": 46424,
+  "wrapper_pid": 46416,
+  "started_utc": "2026-11-25T19:44:58.830115+00:00"
+}

@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-25T19:52:28.286925+00:00",
+  "source": "/tmp/oec/pequalnp-pilot-121/publish_reviewed.py",
+  "sha256": "e35a360443ae26ffd9dc4155f650cc696b9da85bb18b780b5cfde88d29bd3cb4",
+  "verdict": "Static publisher flow approved conditional on separately approved exact manifest",
+  "checked": [
+    "Explicit immutable manifest SHA256 binds file inventory and expected oldHEAD.",
+    "Fixed pnp/pilot-121 branch and origin destination; independently verified origin is exactly specified fork without exposing any credential.",
+    "Existing staged files rejected; only manifest-named paths staged; current and cached blob hashes rechecked.",
+    "git status saved before explicit-message commit; full stdout/stderr preserved for mutations.",
+    "OldHEAD must be ancestor ofnewHEAD; push uses exactoldSHA force-with-lease andexactnewSHA ononlyownbranch.",
+    "Installedretryhelper receives only same expected-SHA-fenced idempotentargv, inheritedcredentials unchanged; no credential printing orfilewriting in publisher."
+  ],
+  "conditions": [
+    "Manifest filepaths/content/baseSHA andactive-outputexclusions require separate independent approval.",
+    "Reviewer does not authorize any unreviewed manifest/source revision and executes no commit/push."
+  ]
+}

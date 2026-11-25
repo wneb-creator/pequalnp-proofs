@@ -90,3 +90,7 @@
 2026-11-25T19:25:50+00:00 (rounded): TwoDirtyNecessary2056 compiled first try,6865lines,exit0/134.637seconds/peak7,592,764KiB. It proves normalized≤63 requires two distinct dirtyANDs, without a singleton premise.
 
 2026-11-25T19:28:04.624567+00:00: independently reviewed TwoDirtyNecessary helper and complete records pushed ata773b4693bf1da13ef3fa39125345578a2071f19.
+
+2026-11-25T19:46:48.598343+00:00 Environment briefly transitioned through starting. At19:46:25 all four native workers and repository files survived. Root prior timer execsession was unavailable and its process was absent; manual renewal succeeded with expiry20:06:48.151Z, then timer restarted as session33191. No search result or interruption is inferred from the tool-session transition.
+
+2026-11-25T19:59:41.891270+00:00 All final native searches finished before20:00UTC. K13/componentV5/K16/main dirty2/nested dirty2 returned UNKNOWN; local optimizer no63candidate. No full target theorem, refutation, checker acceptance or PR. Final reviewed preservation and own-lease release pending.

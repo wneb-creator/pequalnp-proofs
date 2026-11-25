@@ -1,0 +1,175 @@
+{
+  "scope": "Complementary phase only; no target witness or native target verdict",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1219,
+      "sha256": "2448b51461e461544def7f9db9bf96693222283cd8040a41b590958f510c8016"
+    },
+    {
+      "path": "audit_dirty2_phase.py",
+      "bytes": 2856,
+      "sha256": "cfca3411ddc8d26e1afa48c6ba0dcf17fdeae73bb1cfd1c52287128080193294"
+    },
+    {
+      "path": "audit_joint_profiles.py",
+      "bytes": 2348,
+      "sha256": "5b59f96d0c922d1533d8f34efde8957f3fa3868ab315cfc5ebfc512b5cf03390"
+    },
+    {
+      "path": "audit_nested63_phase_equivalence.py",
+      "bytes": 2661,
+      "sha256": "6a2f382f9b6344700aef9ec273dcadddc967b5dcbb50252ae26efe77dd0e147b"
+    },
+    {
+      "path": "audit_nested63_phase_semantics.py",
+      "bytes": 3238,
+      "sha256": "0de0092b9204942886c9f60c86a8c1f8404fa432ffdb691eb55e4365a7822dee"
+    },
+    {
+      "path": "canonical_topology.py",
+      "bytes": 1465,
+      "sha256": "09dc9af287bd539de032dc44f344ae164cd07cc6627f909320fb92749c7e3605"
+    },
+    {
+      "path": "direct_cnf_warm_dirty2.py",
+      "bytes": 16970,
+      "sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226"
+    },
+    {
+      "path": "map_first_gate.py",
+      "bytes": 2377,
+      "sha256": "d9c1b99f6908eca08c2a380dde67bfbb966025ae5fd5f385a8ecab59e5657443"
+    },
+    {
+      "path": "nested-near63-canonical.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nested-near63-canonical.stdout",
+      "bytes": 138,
+      "sha256": "8a4f10e58f8622b5c86edff33492d2e4fc48406fe43f44ff9d5a92ee1e31f969"
+    },
+    {
+      "path": "nested-near63-gates-mapped.json",
+      "bytes": 807,
+      "sha256": "522420a94002fc9b8ba57eab4657e9fefa4fe601beacc5a7ab77cc2b9b0710e4"
+    },
+    {
+      "path": "nested-near63-gates-raw.json",
+      "bytes": 1944,
+      "sha256": "a49588c59982ed550afe4414b3c6ca39ab79af60c04765c1b25fd3fb0ac5908e"
+    },
+    {
+      "path": "nested-near63-gates.json",
+      "bytes": 807,
+      "sha256": "81b4e6b304e263ab4057028c84969fd3f52c966d9213afc7b290e77da4ea7724"
+    },
+    {
+      "path": "nested-near63-joint-audit.json",
+      "bytes": 1417,
+      "sha256": "2b9694f9c08fd14fb831454baf757363419a614816011b1775575d36cc1f71e5"
+    },
+    {
+      "path": "nested-near63-joint-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nested-near63-joint-audit.stdout",
+      "bytes": 637,
+      "sha256": "2cf1f2516675942e01b38ad1cf193b49f784e21438d0997ed9504b3c756a248b"
+    },
+    {
+      "path": "nested-near63-map.json",
+      "bytes": 432,
+      "sha256": "ca906cf98e4096743bf5bd194d2d5f8ec5f2a48af968b355c57b357704450c24"
+    },
+    {
+      "path": "nested-near63-map.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nested-near63-map.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nested63-phase-equivalence-independent-review.json",
+      "bytes": 1334,
+      "sha256": "1d1c554e53514dd0dbd49040a1d6440442a21f50ddc71bed7a65a9edd3b0cfef"
+    },
+    {
+      "path": "nested63-phase-equivalence-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nested63-phase-equivalence-independent-review.stdout",
+      "bytes": 1334,
+      "sha256": "1d1c554e53514dd0dbd49040a1d6440442a21f50ddc71bed7a65a9edd3b0cfef"
+    },
+    {
+      "path": "nested63-phase-semantics-independent-review.json",
+      "bytes": 664,
+      "sha256": "ca5e518a07582ad38943c4597d1a43acc6010fdb3a37827c26faeeee0ffebd93"
+    },
+    {
+      "path": "nested63-phase-semantics-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nested63-phase-semantics-independent-review.stdout",
+      "bytes": 664,
+      "sha256": "ca5e518a07582ad38943c4597d1a43acc6010fdb3a37827c26faeeee0ffebd93"
+    },
+    {
+      "path": "plane2056-data.json",
+      "bytes": 34435,
+      "sha256": "4081d42537366e1e623bd478fef4a4ae9f8cb5de3e8bfc74cc64a4f488545a74"
+    },
+    {
+      "path": "rows-all756.json",
+      "bytes": 7071,
+      "sha256": "ca7b6c7c697be2aaf13b24021b68dd265a66a3ab907f1010a4cf838e985e97b9"
+    },
+    {
+      "path": "warm-dirty2-nested63-query-phase-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-dirty2-nested63-query-phase-audit.stdout",
+      "bytes": 710,
+      "sha256": "44d04a6792f4beb434fe81cd0641debdc8a1d6a42e7ef918ac48e12909edb77f"
+    },
+    {
+      "path": "warm-dirty2-nested63-query-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-dirty2-nested63-query-wrapper.stdout",
+      "bytes": 913,
+      "sha256": "168d33491ff2144756428c7d12a99bbc15275859faa075c9b2007abe5efc2b06"
+    },
+    {
+      "path": "warm-dirty2-nested63-query.json",
+      "bytes": 1488,
+      "sha256": "e319379ea73353f7ef311737ab9a1bd83ce90f3aad9d38759befb71d108273d6"
+    },
+    {
+      "path": "warm-dirty2-nested63-query.mapping.json",
+      "bytes": 640847,
+      "sha256": "20d490d772c4f2ae864d3d952cd6c286c4f0b163c626ef74a704a76fe1877da3"
+    },
+    {
+      "path": "warm-dirty2-nested63-query.phase-check.json",
+      "bytes": 940,
+      "sha256": "984dab21f51bff6e50f1c2708760ad00fd8587f91474389b1c04fb4bac7094f6"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "scope": "Independent final preservation/report checklist prepared before remaining native queries finish; this is not a result report.",
+  "outcome_labels": [
+    "UNKNOWN at a native limit means no SAT model and no UNSAT result; preserve the actual exit code and complete logs.",
+    "Parent SIGTERM replacement is interrupted/stopped, not a completed UNKNOWN or UNSAT result; retain wrapper/native exit codes and absence of a model file.",
+    "A fixed negative control returning external UNSAT rejects only that fixed control. A restricted grammar or membership-cost UNSAT does not refute arbitrary63-gate circuits.",
+    "The old12-AND configuration was ruled out by existing L1898 and stopped; this does not refute L-meta-2056.",
+    "Keep publication pauses/resumptions as historical intervals, with actual wall-time behavior. Do not count a resumed process as a second independent run."
+  ],
+  "compiled_scope": {
+    "named_file": "lean/PEqualNP/Outside/L_meta_2056.lean remains728 lines, SHA19c0e60b53f255ed800c96b51539473d84a44c65da699e1838c61542a85fd38d, partial verifier plus64-gate control; no posted target theorem.",
+    "OneDirtyPlane2056": "3231 lines, SHA5bb805978ab235aa4d6aa60dc10aaabdfccd74c55da77bb11ef897988a1a9cab: normalized at-most-one-dirty lower bound64 with explicit all-AND-singleton-false hypothesis.",
+    "TwoDirtyNecessary2056": "6865 lines, SHAe00a0687d35485871019237256b3c901e27d782ce26510ef54ded344fd560f9f: correct normalized AO2 circuits of size<=63 require two distinct dirty AND gates. Full-function correctness, lift-fixedness, all-live and no-clean-AND-operand assumptions remain explicit; no singleton premise. This is neither unrestricted64 lower bound nor63-gate existence/refutation.",
+    "L1898": "Existing unchanged7334-line source locally rebuilt successfully; it proves13 actual AND gates for the equivalent plane, not total size64.",
+    "SumAndCountTransport2056": "178-line compiled transport takes the difference-plane lower bound as an explicit premise; do not describe it as a self-contained new13-AND proof."
+  },
+  "candidate_and_checker": [
+    "If a new SAT model appears, independently verify every original clause, backward binary AND/OR syntax, actual final output, complete756 boundary rows, ordinary gate count and claimed trace properties before labeling it a candidate.",
+    "Any final posted proof needs the named-file build and actual tools/check-lean.mjs result. A helper build or successful64-gate control is not target checker acceptance.",
+    "Until a full target proof exists, report no PR and no accepted target checker verdict. Do not turn expected control rejection, an unrun checker, or a necessary search condition into a gap refutation."
+  ],
+  "archive_checks": [
+    "Include each closed run's full native/wrapper stdout and stderr, final result/status, model when one actually exists, source/data/mapping/phase identities, exact parameters and stop/pause history.",
+    "Exclude live runtime paths until closed, or explicitly label any prefix snapshot as incomplete; never describe a running prefix as the final outcome.",
+    "Hash-check all approved paths again immediately before staging. Check JSON shape before parsing; verify gzip decompression hashes and omitted raw-CNF identities/regeneration recipes.",
+    "Review files over50MB before staging. Preserve complete diagnostics, not only excerpts. No credential, lease identifier or lease-control URL may enter a public archive.",
+    "Reconcile report timestamps with actual start/finish records; a timestamped older snapshot can remain historical but must not masquerade as the latest state."
+  ],
+  "remaining_run_groups_at_preparation": [
+    "K13 bounded-cost/nonRead1/floor, expected19:44:30 completion",
+    "Component V5/nonRead1/seed67, expected19:47:13 completion",
+    "K16 final bounded-cost cuts, expected19:53:28 completion",
+    "Ordinary dirty2 full query, expected19:56:11 completion",
+    "Any separately authorized short final phase: record actual launch/result independently; prepared-only artifacts are not native runs"
+  ],
+  "final_delivery": [
+    "Root alone owns lease lifecycle and git/network delivery. Verify final publication commit and branch; preserve exact publication diagnostics without credentials.",
+    "State the actual gap outcome plainly, with no target proof/PR/checker acceptance if none exists. Preserve the compiled partials' explicit scope.",
+    "Include Sub-agents and TIMING total/subagents measurement, acknowledge msg-61f9b55d28c5586ddb66ac34, and end with the user's exact gap/pr/checker three-line format."
+  ]
+}

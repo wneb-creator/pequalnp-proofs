@@ -1,0 +1,25 @@
+{
+  "scope": "Complementary incomplete nested63 phase preparation only; no witness or phase substitution yet",
+  "canonical_sha256": "81b4e6b304e263ab4057028c84969fd3f52c966d9213afc7b290e77da4ea7724",
+  "input_permutation_edge_and_row_action_verified": true,
+  "raw_and_canonical_output_match_under_permutation": true,
+  "regenerated_boundary_rows": 756,
+  "size": 63,
+  "ANDs": 16,
+  "dirty_AND_wires": [
+    68,
+    70
+  ],
+  "singleton_accepting_ANDs": [],
+  "missing_positive_rows": [
+    65600,
+    131584,
+    524416,
+    4194336,
+    33554436,
+    33554448
+  ],
+  "false_positives": [],
+  "normalization_violations": [],
+  "verdict": "APPROVED semantics"
+}

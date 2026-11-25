@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-121/gate-elimination/audit_nested_literal63.py", line 39, in <module>
+    r={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'scope':'Independent finite replay of incomplete nested63 warm circuit; no exact witness','literal_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'model_sha256':hashlib.sha256(modelp.read_bytes()).hexdigest(),'gates':len(gates),'AND_gates':sum(g[0]==0 for g in gates),'complete_boundary_rows':756,'singleton_rows':26,'positive_missed_masks':misses,'false_positive_masks':falsepos,'dirty_AND_wires':dirty,'singleton_accepting_AND_wires':single,'compact_model_matches_literal_on_all782_test_rows':True}
+                                                                                                                                                                                                ^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'read_bytes'

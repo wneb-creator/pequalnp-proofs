@@ -1,0 +1,117 @@
+{
+  "utc": "2026-11-25T19:50:23.685198+00:00",
+  "n": 26,
+  "size": 63,
+  "sampled_rows": 756,
+  "variables": 164672,
+  "clauses": 8860275,
+  "conversion_seconds": 39.833495263999794,
+  "seconds_limit": 480,
+  "fixed_prefix": 0,
+  "warm_true_variables": 45964,
+  "complete_negative_rows": 704,
+  "minimum_and_gates": 13,
+  "warm_joint_bad_edges": [
+    [
+      0,
+      13
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      1,
+      13
+    ],
+    [
+      2,
+      25
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      3,
+      23
+    ],
+    [
+      4,
+      25
+    ],
+    [
+      5,
+      22
+    ],
+    [
+      6,
+      16
+    ],
+    [
+      7,
+      19
+    ],
+    [
+      9,
+      17
+    ]
+  ],
+  "warm_accepted_bad_edges": [
+    [
+      0,
+      13
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      1,
+      13
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      3,
+      23
+    ]
+  ],
+  "phase_selected_bad_edge": [
+    0,
+    13
+  ],
+  "existential_non_read1_edge": true,
+  "minimum_dirty_ands": 2,
+  "dirty_cut_scope": "additional two-dirty stratum; necessity assessed outside solver",
+  "first_gate_orbit_representatives": [
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      13
+    ],
+    [
+      1,
+      0,
+      15
+    ],
+    [
+      0,
+      0,
+      13
+    ]
+  ],
+  "primary_input_dominance_excluded": true,
+  "encoder": "full-boundary polarity-warm AO2 with lex, clean rules, AND>=13 and primary dominance exclusion",
+  "exit_code": 0,
+  "status": "UNKNOWN; time or resource limit",
+  "elapsed_seconds": 520.0619103429999,
+  "max_rss_kb": 1677016
+}

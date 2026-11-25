@@ -1,0 +1,17 @@
+{
+  "observed_utc": "2026-11-25T19:54:54.744545+00:00",
+  "status": "APPROVED",
+  "summary_sha256": "414d5022b6953d271ee9fe18519e4c77efd61c13904b0b3a5b3c79d31f1b7f14",
+  "completed_artifact_hashes_and_sizes_verified": 8,
+  "source_query_hashes_verified": 14,
+  "raw_solution_exact": "c UNKNOWN",
+  "native_reported_metrics_verified": {
+    "native_reported_conflicts": 275381,
+    "native_reported_decisions": 2079034,
+    "native_reported_cpu_seconds": 2178.59,
+    "native_reported_real_seconds": 2406.11,
+    "native_reported_maxrss_mb": 887.61
+  },
+  "exit_scope": "Native text self-reports exit0; parent-observed exit remains null. Unchanged original metadata still says running; saved process observation shows PPID1/Zs. No invented wait result or exact process-end timestamp.",
+  "scope": "Recovery summary only. UNKNOWN from finite component grammar is neither a63-gate witness nor an unrestricted impossibility result. No solver, build or checker rerun."
+}

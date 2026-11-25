@@ -1,0 +1,65 @@
+{
+  "scope": "Completed UNKNOWN complementary search; no target model or proof",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1234,
+      "sha256": "38efe2addb9e2c3618b8be4dbc0b4d142c66ef52e3ac9e17011b3099722e0520"
+    },
+    {
+      "path": "direct_cnf_warm_dirty2.py",
+      "bytes": 16970,
+      "sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226"
+    },
+    {
+      "path": "nested-near63-gates.json",
+      "bytes": 807,
+      "sha256": "81b4e6b304e263ab4057028c84969fd3f52c966d9213afc7b290e77da4ea7724"
+    },
+    {
+      "path": "warm-dirty2-nested63-final-run-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-dirty2-nested63-final-run-wrapper.stdout",
+      "bytes": 1950,
+      "sha256": "b0dd94584bef7118168f4bcc64ff40ce244d8b12ecba0f78419bedb45ea4b7b9"
+    },
+    {
+      "path": "warm-dirty2-nested63-final-run.cnf-identity.json",
+      "bytes": 983,
+      "sha256": "ebbbc0283e567d0ea780cce1ac93202fe586477985899f48ed8a79bd7421361f"
+    },
+    {
+      "path": "warm-dirty2-nested63-final-run.json",
+      "bytes": 1576,
+      "sha256": "b37623ca79e331f1393765365e8d35afd20c5013820e80f33bba1d4f4460d0b3"
+    },
+    {
+      "path": "warm-dirty2-nested63-final-run.mapping.json",
+      "bytes": 640847,
+      "sha256": "20d490d772c4f2ae864d3d952cd6c286c4f0b163c626ef74a704a76fe1877da3"
+    },
+    {
+      "path": "warm-dirty2-nested63-final-run.process.json",
+      "bytes": 96,
+      "sha256": "5ce970b5aadbf0418e221cc9bf94b69a98a0840e7fb31c25f538d075668c46b2"
+    },
+    {
+      "path": "warm-dirty2-nested63-final-run.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "warm-dirty2-nested63-final-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-dirty2-nested63-final-run.stdout",
+      "bytes": 13654,
+      "sha256": "29d782d4a1baeb4bb5d2eca73eaa1ddfb6fc073dd577d0b5ae822c5a1a6e67b4"
+    }
+  ]
+}

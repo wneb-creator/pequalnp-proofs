@@ -1,0 +1,25 @@
+{
+  "observed_utc": "2026-11-25T19:55:26.955597+00:00",
+  "processes": [
+    {
+      "pid": 46416,
+      "state": "Z",
+      "ppid": 1,
+      "field52_kernel_wait_status": 9,
+      "decoded_exitcode": -9
+    },
+    {
+      "pid": 46424,
+      "state": "Z",
+      "ppid": 1,
+      "field52_kernel_wait_status": 0,
+      "decoded_exitcode": 0
+    }
+  ],
+  "original_tool_session": 45589,
+  "original_tool_session_exit_status": null,
+  "session_unavailable_after_environment_transition": true,
+  "wrapper_result_file_exists": false,
+  "native_stdout_has_final_record": true,
+  "note": "Both processes are orphan zombies underPID1, not running. Native terminal status is read directly from Linux proc-stat field52; no session exit status inferred."
+}

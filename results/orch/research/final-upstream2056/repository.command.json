@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "gh",
+    "api",
+    "--method",
+    "GET",
+    "repos/brilliant-hq/pequalnp-proofs"
+  ],
+  "started_utc": "2026-11-25T19:52:00.822056+00:00",
+  "ended_utc": "2026-11-25T19:52:02.374746+00:00",
+  "exit_code": 0,
+  "attempts": 1,
+  "failure_class": "OK",
+  "http_status": null
+}

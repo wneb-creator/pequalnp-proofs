@@ -1,0 +1,55 @@
+{
+  "scope": "Incomplete warm circuit; six missing edges, no target witness",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 923,
+      "sha256": "820d32fe513b206c81da5a39720bf5f0a9a0bc0cc24df4dd4313d2a384adc60e"
+    },
+    {
+      "path": "andbudget-prefix-nested63-model.json",
+      "bytes": 1897,
+      "sha256": "00bdaeb50a4f21f2cfe1f1ca12830f505d258dfa0f48be22d598744f45a42720"
+    },
+    {
+      "path": "audit_nested_literal63.py",
+      "bytes": 2637,
+      "sha256": "2d56fd2dd3f30a0b938b34908fd9dbc68b3349d1a7c42a5cf975d68f12b19f3c"
+    },
+    {
+      "path": "final-budget-nested-dirty-classification.json",
+      "bytes": 537,
+      "sha256": "6eec63e56b12361c3a1974e144c78c4f16e06375dfe13dde23ac1d20468f6d55"
+    },
+    {
+      "path": "final-budget-nested-literal63-independent-review.json",
+      "bytes": 690,
+      "sha256": "01366ee03e7f3a3516d8ebba22f0d0de68b2a0e251e0cd691f1ad19b2d9c38e9"
+    },
+    {
+      "path": "final-budget-nested-literal63.json",
+      "bytes": 2648,
+      "sha256": "8b1ca2c5feede0bbacbf78bbf851e4aebdf04b7ed9f0b523476935a325230d71"
+    },
+    {
+      "path": "nested-literal63-audit.stderr",
+      "bytes": 976,
+      "sha256": "5f43dcdce9fbf083708938808cc72a89b4c6ce0e08adb8f6d242f31519be5996"
+    },
+    {
+      "path": "nested-literal63-audit.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nested-literal63-audit2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nested-literal63-audit2.stdout",
+      "bytes": 622,
+      "sha256": "074d731583216b53c1fdff322b7ba1ecbbc307d83be581892d26acb3dc678871"
+    }
+  ]
+}

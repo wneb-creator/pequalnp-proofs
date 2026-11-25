@@ -1,0 +1,137 @@
+{
+  "completed_summary": {
+    "completed_observed_utc": "2026-11-25T19:44:54.571345+00:00",
+    "wrapper_session": 27221,
+    "wrapper_exit_code": 0,
+    "native_pid_reaped": true,
+    "status": "UNKNOWN at native2400s limit; noSAT/UNSAT verdict",
+    "source_query_unchanged": true,
+    "stdout_complete": true,
+    "stderr_complete": true,
+    "scope": "Restricted independentOR-cost model, not arbitrary sharedOR circuits"
+  },
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056-wrapper.stderr",
+      "archive": "budget-floor13-run-2056-wrapper.stderr",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056-wrapper.stdout",
+      "archive": "budget-floor13-run-2056-wrapper.stdout",
+      "source_bytes": 1234,
+      "source_sha256": "85d3bc4e78021bdedbdba11629e95658f1c63736ac6781f96ddfa303d3a0e0f0",
+      "archive_sha256": "85d3bc4e78021bdedbdba11629e95658f1c63736ac6781f96ddfa303d3a0e0f0",
+      "archive_bytes": 1234
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.cnf",
+      "archive": "budget-floor13-run-2056.cnf.gz",
+      "source_bytes": 20024368,
+      "source_sha256": "bb4d016550f85423724bb39d2581efa168eb832627aff12c4d55d15209017526",
+      "archive_sha256": "5769e5bfc733b845a4de9467b0d575c768326801401016b1a387cc1bde56a581",
+      "archive_bytes": 4002917
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.completion.json",
+      "archive": "budget-floor13-run-2056.completion.json",
+      "source_bytes": 386,
+      "source_sha256": "06c6eb72182e6b1418d85161b13ab0ab8383882fb35abc1cab67049d2fab4059",
+      "archive_sha256": "06c6eb72182e6b1418d85161b13ab0ab8383882fb35abc1cab67049d2fab4059",
+      "archive_bytes": 386
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.json",
+      "archive": "budget-floor13-run-2056.json",
+      "source_bytes": 1298,
+      "source_sha256": "9716cec234a4bb70b956506620c9d8d9fea29df348fa2109cac5f2f17cf74af3",
+      "archive_sha256": "9716cec234a4bb70b956506620c9d8d9fea29df348fa2109cac5f2f17cf74af3",
+      "archive_bytes": 1298
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.launch-intent.json",
+      "archive": "budget-floor13-run-2056.launch-intent.json",
+      "source_bytes": 1273,
+      "source_sha256": "6b4d21f7d0d3afaa882aee56995f7db235f5b146ce725f13749a24045a3666d4",
+      "archive_sha256": "6b4d21f7d0d3afaa882aee56995f7db235f5b146ce725f13749a24045a3666d4",
+      "archive_bytes": 1273
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.launch.json",
+      "archive": "budget-floor13-run-2056.launch.json",
+      "source_bytes": 1902,
+      "source_sha256": "a7be5f6faf4eb050f0cfc748aad2ebd876731bf904ba573d3c2fb87181d1ec40",
+      "archive_sha256": "a7be5f6faf4eb050f0cfc748aad2ebd876731bf904ba573d3c2fb87181d1ec40",
+      "archive_bytes": 1902
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.mapping.json",
+      "archive": "budget-floor13-run-2056.mapping.json",
+      "source_bytes": 510123,
+      "source_sha256": "63ab705e4aa8b291975a4c5fa66d8935edaf547bb7e3e5f45b99d5f22a97fa38",
+      "archive_sha256": "63ab705e4aa8b291975a4c5fa66d8935edaf547bb7e3e5f45b99d5f22a97fa38",
+      "archive_bytes": 510123
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.phase.json",
+      "archive": "budget-floor13-run-2056.phase.json",
+      "source_bytes": 360744,
+      "source_sha256": "754c155df1113f766c4702621dd27f9c50a6440489fc0bfa3532394e9bc05d55",
+      "archive_sha256": "754c155df1113f766c4702621dd27f9c50a6440489fc0bfa3532394e9bc05d55",
+      "archive_bytes": 360744
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.process.json",
+      "archive": "budget-floor13-run-2056.process.json",
+      "source_bytes": 130,
+      "source_sha256": "7c86107044deae073ab095fccdc7238d7cd29a72645c47d3c63942bc42a3d63b",
+      "archive_sha256": "7c86107044deae073ab095fccdc7238d7cd29a72645c47d3c63942bc42a3d63b",
+      "archive_bytes": 130
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.progress.json",
+      "archive": "budget-floor13-run-2056.progress.json",
+      "source_bytes": 132,
+      "source_sha256": "ac2a300c7853946b828da32c261aeb5932c42c132ef7c057300ee0fe27465c13",
+      "archive_sha256": "ac2a300c7853946b828da32c261aeb5932c42c132ef7c057300ee0fe27465c13",
+      "archive_bytes": 132
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.sol",
+      "archive": "budget-floor13-run-2056.sol",
+      "source_bytes": 10,
+      "source_sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "archive_sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "archive_bytes": 10
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.stderr",
+      "archive": "budget-floor13-run-2056.stderr",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.stdout",
+      "archive": "budget-floor13-run-2056.stdout",
+      "source_bytes": 23064,
+      "source_sha256": "fe30fb0ed5007a5ff7be26f72db8269d9bf6cdca1ec6995021a4de0305dec6ab",
+      "archive_sha256": "fe30fb0ed5007a5ff7be26f72db8269d9bf6cdca1ec6995021a4de0305dec6ab",
+      "archive_bytes": 23064
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056.warm.json",
+      "archive": "budget-floor13-run-2056.warm.json",
+      "source_bytes": 1682,
+      "source_sha256": "0dffd4dcbcdac55fbbe642a878f696c51c4787e93527af16f0d6c2250afceffd",
+      "archive_sha256": "0dffd4dcbcdac55fbbe642a878f696c51c4787e93527af16f0d6c2250afceffd",
+      "archive_bytes": 1682
+    }
+  ],
+  "file_count": 15,
+  "archive_bytes": 4904895
+}

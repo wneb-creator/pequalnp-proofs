@@ -1,0 +1,9 @@
+{
+  "native_limit_seconds": 1320,
+  "hard_absolute_stop_utc": "2026-11-25T20:00:00+00:00",
+  "reviewed_source_sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226",
+  "reviewed_cnf_sha256": "bc3c04d5e26d21bf8b62770e405115f34bff91687d9d5f6b64e710e33cf6a347",
+  "replaces": "warm-nonread-and13-near63-full-run",
+  "reason": "Compiled necessary at-least-two-dirty-AND condition; independent source, exact mapping and native controls passed",
+  "metadata_written_at_utc": "2026-11-25T19:33:55.934502+00:00"
+}

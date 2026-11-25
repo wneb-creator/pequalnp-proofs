@@ -1,0 +1,65 @@
+{
+  "scope": "Interrupted query; no UNSAT claim",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 868,
+      "sha256": "18d5fb02f63e42ebbb67e14d4d1bd823862fe2863c82e94133cf44227a3b2bbd"
+    },
+    {
+      "path": "direct_cnf_warm_nonread_and13.py",
+      "bytes": 15768,
+      "sha256": "07a2518da34378cdba0775406c384990515969c393932e748ab9f42fe26c9a53"
+    },
+    {
+      "path": "first-near63-gates.json",
+      "bytes": 806,
+      "sha256": "931ea96b38f4a2be9a95b39b791d7f2086204dc0019f5195b40201edb91d40be"
+    },
+    {
+      "path": "warm-nonread-and13-near63-full-run-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-nonread-and13-near63-full-run-wrapper.stdout",
+      "bytes": 1755,
+      "sha256": "5f143dc40ff3f46024b0770667962c9f85179933ca720d50734735b61b97af6b"
+    },
+    {
+      "path": "warm-nonread-and13-near63-full-run.cnf-identity.json",
+      "bytes": 837,
+      "sha256": "78bee530e7dedf2c8eaf23fefa18416d6bf34104bbb954e75503a34daf39e424"
+    },
+    {
+      "path": "warm-nonread-and13-near63-full-run.json",
+      "bytes": 1503,
+      "sha256": "68f3d6b07f3bb7ee56140c54ae86a91ecb9ad8fd96468a788b20eadd44955c6b"
+    },
+    {
+      "path": "warm-nonread-and13-near63-full-run.mapping.json",
+      "bytes": 700967,
+      "sha256": "57b66ad5448aed0d36d11f45af8b2caa80724f3a3abc2a690f4df2f36aa63965"
+    },
+    {
+      "path": "warm-nonread-and13-near63-full-run.process.json",
+      "bytes": 100,
+      "sha256": "772a78d409c961f55484b81f537765ca40bc72fa98a74650173ae5ea3da620e5"
+    },
+    {
+      "path": "warm-nonread-and13-near63-full-run.replacement-stop.json",
+      "bytes": 562,
+      "sha256": "dc3f3e5d47845f7786e26acf18b6c6b1bba462d871a10055e5a8324358530660"
+    },
+    {
+      "path": "warm-nonread-and13-near63-full-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-nonread-and13-near63-full-run.stdout",
+      "bytes": 18376,
+      "sha256": "bdf21d146bd8df28f8ef1c099ea8fe97ba3d9510adfac4150a158a4241613b78"
+    }
+  ]
+}

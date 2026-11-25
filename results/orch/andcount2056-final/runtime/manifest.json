@@ -1,0 +1,81 @@
+{
+  "created_utc": "2026-11-25T19:55:20.920129+00:00",
+  "entries": [
+    {
+      "path": "42873.proc-stat.txt",
+      "bytes": 176,
+      "sha256": "3e38b763ae797d0ae3b65f414909d359245787743e2a1e79636743395d8b786e"
+    },
+    {
+      "path": "43170.proc-stat.txt",
+      "bytes": 171,
+      "sha256": "f2ad8116901386f6eac7c8fe188ec9a4f7e459aaf19121ee873e84fb12cffb09"
+    },
+    {
+      "path": "CNF-REGENERATION.json",
+      "bytes": 754,
+      "sha256": "34f3488b74eefe6f7b8fc5ad4ce8284d9c90d47645847ddc02057ace7e6c5253"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1096,
+      "sha256": "8f64eeb51507c84f2b6aaa68d62a74ad77d41920d30341eb995e32f9edfe9e4a"
+    },
+    {
+      "path": "SUMMARY.json",
+      "bytes": 1878,
+      "sha256": "9f7e6317dc50e5214ebfd889a63b553f313d3e648e5744f570d67fb24f01af86"
+    },
+    {
+      "path": "final-budget16-nested-run.launch.json",
+      "bytes": 1470,
+      "sha256": "63606ac9bc1ac200b09eb94515cc8a884a02b65c82b6f8b92b8fca525b393702"
+    },
+    {
+      "path": "final-budget16-nested-run.mapping.json",
+      "bytes": 1173065,
+      "sha256": "c71ad87759a8dff8146a5488b24993f3e39aad95ac1988dac49743a7f8977388"
+    },
+    {
+      "path": "final-budget16-nested-run.prepared.json",
+      "bytes": 915,
+      "sha256": "415f5e0ad96997800ad0049698fdcc90c2a7d16a93aca6fc73ed9347d9cc8e70"
+    },
+    {
+      "path": "final-budget16-nested-run.process.json",
+      "bytes": 132,
+      "sha256": "99a51cbb731f57a118f297a4b17d01372b694da55cad807fdc60ab4c64b43ea2"
+    },
+    {
+      "path": "final-budget16-nested-run.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "final-budget16-nested-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final-budget16-nested-run.stdout",
+      "bytes": 18734,
+      "sha256": "1b51e6a9fe57ac56d06ad9230724eb4cc018e9ee851fa84bc596e6f957413a87"
+    },
+    {
+      "path": "final-budget16-nested-run.warm.json",
+      "bytes": 1897,
+      "sha256": "00bdaeb50a4f21f2cfe1f1ca12830f505d258dfa0f48be22d598744f45a42720"
+    },
+    {
+      "path": "final-budget16-nested-run.wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "final-budget16-nested-run.wrapper.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "entry_bytes": 1200298
+}

@@ -1,0 +1,20 @@
+{
+  "source_sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226",
+  "reviewed_cnf_sha256": "e429b42998d21b924eea58d52c1471db23ff1ad71251183cf4349118d89bdf05",
+  "actual_cnf_sha256": "e429b42998d21b924eea58d52c1471db23ff1ad71251183cf4349118d89bdf05",
+  "byte_identity": true,
+  "variables": 164672,
+  "clauses": 8860275,
+  "conversion_seconds": 39.833495263999794,
+  "native_launch_record_utc": "2026-11-25T19:50:23.685198+00:00",
+  "native_limit_seconds": 480,
+  "nominal_native_deadline_utc": "2026-11-25T19:58:23.685198+00:00",
+  "hard_absolute_stop_utc": "2026-11-25T20:00:00+00:00",
+  "processes": {
+    "wrapper_pid": 46657,
+    "solver_pid": 46702,
+    "prefix": "warm-dirty2-nested63-final-run"
+  },
+  "unchanged_phase_input_sha256": "81b4e6b304e263ab4057028c84969fd3f52c966d9213afc7b290e77da4ea7724",
+  "duration_reason": "Reduced from authorized maximum600 to480 because environment recovery delayed launch until19:49; preserves absolute20:00 stop"
+}

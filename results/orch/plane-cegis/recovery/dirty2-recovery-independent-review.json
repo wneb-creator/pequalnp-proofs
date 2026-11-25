@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-25T19:55:58.925490+00:00",
+  "verdict": "APPROVED",
+  "source_sha256": "42a6ea7ff42a70bd81d0d30483e0fe6663b954558b7823ad405ca58d3be64447",
+  "control_record_sha256": "52632bc6c4e726bed98a7c295ecec57ae546503741d79ca3454219c4898dd229",
+  "review": "Full static source review, explicit report-consistency fixes, final actual69 replay record and complete log reviewed. Native69 model and clauses had already been independently audited. No new native solve.",
+  "scope": "Posthoc verifier only; original wrapper loss retained. Actual69 is a control above target; no63 witness claim. UNKNOWN does not imply UNSAT or a normal recovered parent exit."
+}

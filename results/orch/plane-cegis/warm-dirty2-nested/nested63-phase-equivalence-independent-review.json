@@ -1,0 +1,53 @@
+{
+  "scope": "Equivalent CNF with complementary nested63 preference; no native target result",
+  "source_sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226",
+  "clauses_compared": 8860275,
+  "variables": 164672,
+  "all_clauses_exact_after_polarity_translation": true,
+  "mapping_fields_identical_except_warm_and_mask": true,
+  "changed_polarity_variables": 52742,
+  "old_cnf_sha256": "bc3c04d5e26d21bf8b62770e405115f34bff91687d9d5f6b64e710e33cf6a347",
+  "new_cnf_sha256": "e429b42998d21b924eea58d52c1471db23ff1ad71251183cf4349118d89bdf05",
+  "phase_failures": [
+    {
+      "index": 8752291,
+      "clause": [
+        154929
+      ]
+    },
+    {
+      "index": 8752299,
+      "clause": [
+        154937
+      ]
+    },
+    {
+      "index": 8752302,
+      "clause": [
+        154940
+      ]
+    },
+    {
+      "index": 8752304,
+      "clause": [
+        154942
+      ]
+    },
+    {
+      "index": 8752309,
+      "clause": [
+        154947
+      ]
+    },
+    {
+      "index": 8752317,
+      "clause": [
+        154955
+      ]
+    }
+  ],
+  "only_six_expected_positive_failures": true,
+  "dirty2_unit_satisfied": true,
+  "native_control_basis": "Same underlying formula as previously independently checked69-positive/67-negative controls; no new native control claimed",
+  "verdict": "APPROVED phase equivalence"
+}

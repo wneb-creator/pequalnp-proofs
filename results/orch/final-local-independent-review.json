@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-25T19:56:56.878639+00:00",
+  "verdict": "APPROVED",
+  "archive_metadata_sha256": "b8c3cb5b9d9426886407ea3731ba27c6d84540b7a95596b018f13b08f36ee328",
+  "payload_hashes_verified": 70,
+  "distinct_actual_networks_checked": 75,
+  "independently_regenerated_boundary_rows": 756,
+  "all_actual_outputs_correct": true,
+  "best_gate_count": 65,
+  "best_nonread1_gate_count": 66,
+  "final_seconds": 598.002,
+  "proposals": 445916272,
+  "scope": "Bounded unsuccessful optimizer search. Source/controls previously reviewed. Independent boundary and capped trace replay on every recorded distinct network; exhaustive67m best logs inspected, not rerun. Original wrapper/tool exit unavailable; raw orphan-zombie evidence and native final records accurately distinguished."
+}

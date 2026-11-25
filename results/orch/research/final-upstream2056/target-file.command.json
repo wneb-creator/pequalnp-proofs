@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "gh",
+    "api",
+    "--method",
+    "GET",
+    "repos/open-goat/pequalnp-proofs/contents/lean/PEqualNP/Outside/L_meta_2056.lean",
+    "-f",
+    "ref=main"
+  ],
+  "started_utc": "2026-11-25T19:52:02.375230+00:00",
+  "ended_utc": "2026-11-25T19:52:03.523197+00:00",
+  "exit_code": 1,
+  "attempts": 1,
+  "failure_class": "OTHER",
+  "http_status": 404
+}

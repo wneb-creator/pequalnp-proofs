@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-25T19:52:00.575589+00:00",
+  "metadata_sha256": "26b90d35d2559fa6c58bc609350974f30ed7437330c8a237d941890101963795",
+  "files": 16,
+  "bytes": 4911421,
+  "archive_and_decompressed_hashes_verified": true,
+  "json_files": 9,
+  "privacy_matches": false,
+  "native_stdout_real_seconds": 2400.01,
+  "solver_output": "c UNKNOWN",
+  "status": "Completed UNKNOWN; noSAT/UNSAT result",
+  "scope": "Restricted K13 independent-OR-cost model, not arbitrary shared-OR circuits",
+  "verdict": "APPROVED for preservation"
+}

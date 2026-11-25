@@ -1,0 +1,25 @@
+{
+  "utc": "2026-11-25T19:39:14.748943+00:00",
+  "scope": "Independent finite replay of incomplete nested63 warm circuit; no exact witness",
+  "literal_sha256": "8b1ca2c5feede0bbacbf78bbf851e4aebdf04b7ed9f0b523476935a325230d71",
+  "model_sha256": "00bdaeb50a4f21f2cfe1f1ca12830f505d258dfa0f48be22d598744f45a42720",
+  "gates": 63,
+  "AND_gates": 16,
+  "complete_boundary_rows": 756,
+  "singleton_rows": 26,
+  "positive_missed_masks": [
+    16640,
+    264192,
+    4194432,
+    8392704,
+    33554434,
+    33554436
+  ],
+  "false_positive_masks": [],
+  "dirty_AND_wires": [
+    28,
+    31
+  ],
+  "singleton_accepting_AND_wires": [],
+  "compact_model_matches_literal_on_all782_test_rows": true
+}

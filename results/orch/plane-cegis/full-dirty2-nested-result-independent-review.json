@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-25T19:59:24.165053+00:00",
+  "verdict": "APPROVED",
+  "manifest_sha256": "e0d41c1e7b0da26ffe2887a4f27d7a9bf2a7bcccbf59d1a8a203b91cdf28c65e",
+  "payload_hashes_verified": 12,
+  "native_solution": "c UNKNOWN",
+  "result_json_exit_code": 0,
+  "elapsed_seconds": 520.0619103429999,
+  "processes_absent_now": {
+    "46657": true,
+    "46702": true
+  },
+  "scope": "Complementary sign phase of independently reviewed full63 formula; complete UNKNOWN output and normal wrapper final JSON, no model and no target proof. Source, phase and CNF identities match reviewed preparation."
+}

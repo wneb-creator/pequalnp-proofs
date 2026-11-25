@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "gh",
+    "api",
+    "--method",
+    "GET",
+    "--paginate",
+    "--slurp",
+    "search/issues",
+    "-f",
+    "q=repo:open-goat/pequalnp-proofs is:pr is:open 2056",
+    "-f",
+    "per_page=100"
+  ],
+  "started_utc": "2026-11-25T19:52:03.523391+00:00",
+  "ended_utc": "2026-11-25T19:52:04.110217+00:00",
+  "exit_code": 1,
+  "attempts": 1,
+  "failure_class": "OTHER",
+  "http_status": null
+}

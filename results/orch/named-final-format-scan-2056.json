@@ -1,0 +1,12 @@
+{
+  "file": "lean/PEqualNP/Outside/L_meta_2056.lean",
+  "sha256": "19c0e60b53f255ed800c96b51539473d84a44c65da699e1838c61542a85fd38d",
+  "lines": 728,
+  "forbidden_text_present": {
+    "_root_": false,
+    "\"": false,
+    "sorry": false,
+    "native_decide": false
+  },
+  "attribute_lines": []
+}

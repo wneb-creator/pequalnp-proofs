@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-25T19:55:43.118047+00:00",
+  "records": [
+    {
+      "archive": "andcount2056-final/runtime",
+      "manifest_sha256": "bb8d51ee291ceb4f14fd78a2ff535e535f9ddf90130b0acd20826d81e7e09a60",
+      "entries_verified": 15,
+      "semantic_verdict": "APPROVED",
+      "scope": "Native UNKNOWN supported by complete log/solution, unavailable wrapper wait distinguished"
+    },
+    {
+      "archive": "research/final-upstream2056",
+      "manifest_sha256": "fb8649c8c74744f22caa07b89f0b9c62fcd3e92ea85314df610239a817dcc191",
+      "entries_verified": 26,
+      "semantic_verdict": "APPROVED",
+      "scope": "Exact main-file absence and complete zero-result open-PR query only; no mathematical nonexistence claim"
+    }
+  ],
+  "reviewer": "status_review",
+  "git_mutations": false
+}

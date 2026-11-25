@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "git",
+    "push",
+    "--force-with-lease=refs/heads/pnp/pilot-121:a773b4693bf1da13ef3fa39125345578a2071f19",
+    "origin",
+    "710e8d23a45c214bc902ea661801d4a6931e552b:refs/heads/pnp/pilot-121"
+  ],
+  "old": "a773b4693bf1da13ef3fa39125345578a2071f19",
+  "new": "710e8d23a45c214bc902ea661801d4a6931e552b",
+  "started_utc": "2026-11-25T19:35:14.140432+00:00",
+  "scope": "Reviewed completed research snapshot008; same origin/branch, ancestry-preserving expected-old-SHA fence; argv saved before execution."
+}

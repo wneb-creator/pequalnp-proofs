@@ -1,0 +1,29 @@
+{
+  "launch_intent_utc": "2026-11-25T19:04:16.301618+00:00",
+  "root_renewal_utc": "2026-11-25T19:03:35.144414+00:00",
+  "lease_expiry_utc": "2026-11-25T19:23:35.188+00:00",
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-121/andcount2056/andcount_budget_nonread_floor2056.py",
+    "--ands",
+    "13",
+    "--ordinary-limit",
+    "63",
+    "--warm-model",
+    "/tmp/oec/pequalnp-pilot-121/not-elimination/andbudget-nonread13-near63-model.json",
+    "--seconds",
+    "2400",
+    "--prefix",
+    "/tmp/oec/pequalnp-pilot-121/andcount2056/budget-floor13-run-2056"
+  ],
+  "source_sha256": "bfc344998a495deadbce49b7ddb05560600d0fef0b41f4e1626a9856c11449c8",
+  "prepared_cnf_sha256": "bb4d016550f85423724bb39d2581efa168eb832627aff12c4d55d15209017526",
+  "prepared_mapping_sha256": "63ab705e4aa8b291975a4c5fa66d8935edaf547bb7e3e5f45b99d5f22a97fa38",
+  "warm_sha256": "0dffd4dcbcdac55fbbe642a878f696c51c4787e93527af16f0d6c2250afceffd",
+  "native_seconds_limit": 2400,
+  "absolute_native_stop_utc": "2026-11-25T20:00:00+00:00",
+  "expected_variables": 216606,
+  "expected_clauses": 1016019,
+  "source_and_query_frozen": true,
+  "scope": "Restricted unshared OR-membership cost<=63 with atmost13 ANDrecords; not an exhaustive arbitrary OR-sharing lower-bound encoding."
+}

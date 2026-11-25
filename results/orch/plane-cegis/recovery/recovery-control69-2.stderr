@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-121/plane2056-cegis/recover_dirty2_result.py", line 73, in <module>
+    assert all(tuple(original[v] for v in ids)==value for ids,value in zip(m['joint_profiles'],joint))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-121/plane2056-cegis/recover_dirty2_result.py", line 73, in <genexpr>
+    assert all(tuple(original[v] for v in ids)==value for ids,value in zip(m['joint_profiles'],joint))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-121/plane2056-cegis/recover_dirty2_result.py", line 73, in <genexpr>
+    assert all(tuple(original[v] for v in ids)==value for ids,value in zip(m['joint_profiles'],joint))
+                     ~~~~~~~~^^^
+KeyError: False

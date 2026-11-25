@@ -1,0 +1,150 @@
+{
+  "observed_utc": "2026-11-25T19:51:00.944880+00:00",
+  "result": "UNKNOWN",
+  "scope": "Finite component-library SAT search only; no63-gate witness and no unrestricted impossibility claim.",
+  "started_utc_recorded": "2026-11-25T19:07:12.583577+00:00",
+  "requested_native_seconds": 2400,
+  "native_reported_real_seconds": 2406.11,
+  "native_reported_cpu_seconds": 2178.59,
+  "native_reported_maxrss_mb": 887.61,
+  "native_reported_conflicts": 275381,
+  "native_reported_decisions": 2079034,
+  "native_self_reported_exit_line": "c exit 0",
+  "parent_observed_exit_code": null,
+  "parent_observed_exit_explanation": "Original exec session and wrapper were lost during the environment transition; native process survived and completed. No wait/reap exit code is invented. Original wrapper metadata and empty wrapper logs are preserved unchanged.",
+  "native_pid": 41666,
+  "process_observation": "PPID1, Zs (zombie); consumes no CPU slot.",
+  "stdout_last_modified_utc": "2026-11-25T19:47:19.086572+00:00",
+  "end_timestamp_note": "File modification time is recorded as evidence, not asserted as an observed process-end timestamp.",
+  "candidate_exists": false,
+  "postsolver_validation": "Not invoked: UNKNOWN produces no SAT model.",
+  "source_and_query_identities_reverified": [
+    {
+      "role": "cnf",
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-seed67warm.cnf",
+      "sha256": "8fb79e27b8ea488ecd9263bf0d80e76c490125bed922ccbc7d54c58f1f1f2c54",
+      "currently_verified": true
+    },
+    {
+      "role": "original_cnf",
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63.cnf",
+      "sha256": "42dc7c44a6d99d6cea4acfd67754e30b0e2454f8d69b19b84bf77b04f8307565",
+      "currently_verified": true
+    },
+    {
+      "role": "mapping",
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63.mapping.json",
+      "sha256": "5a6c9aecacb10edec14304115d835be9f280848ae6ffa88462f3fda1c1a411eb",
+      "currently_verified": true
+    },
+    {
+      "role": "library",
+      "path": "results/orch/components2056/v5-library.json",
+      "sha256": "e731fe5e465ae28ba320dd3a562a7f7a2b0998076caec6d74d517e8926ec89dd",
+      "currently_verified": true
+    },
+    {
+      "role": "phase",
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-seed67warm.phase.json",
+      "sha256": "b869b86a694135300d980779ff4bbfe292a82cd8d2a69ad1819e1ee8e1a95889",
+      "currently_verified": true
+    },
+    {
+      "role": "mask",
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-seed67warm.mask.bin",
+      "sha256": "44e75ec5af3340562510044ef0b87fb7d30a7886c0c26c6b878fe855c1631dc1",
+      "currently_verified": true
+    },
+    {
+      "role": "encoder",
+      "path": "/workspace/pequalnp-proofs/results/orch/components2056/encode_reachable.py",
+      "sha256": "d26d36eb0bbb77b5ad8da3ab5cec839184dd2836d86c89cbd92729afe8f159e6",
+      "currently_verified": true
+    },
+    {
+      "role": "phase_builder",
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/extend_nonread_phase67.py",
+      "sha256": "0c41b31903ceec2f08933136d51298dca83c0861e73741478edb4703de0e0452",
+      "currently_verified": true
+    },
+    {
+      "role": "nonread_appender",
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/add_nonread.py",
+      "sha256": "cb8b50bc0baa0c9ba235835539adbea7c401051df6cf2b7abf3cc60c0cf9082b",
+      "currently_verified": true
+    },
+    {
+      "role": "unrenamer",
+      "path": "/workspace/pequalnp-proofs/results/orch/components2056/unrename_model.py",
+      "sha256": "a6aabcee2d4ccabf1658dd3fa657f43c1a008a847a6168e6114e7a0d8d9f3afd",
+      "currently_verified": true
+    },
+    {
+      "role": "clause_checker",
+      "path": "/workspace/pequalnp-proofs/results/orch/components2056/verify_cnf_model.py",
+      "sha256": "2f213c905d6425f1673de0dc5dd3ae63adf340cb36936594628fcc4e07b8e0ed",
+      "currently_verified": true
+    },
+    {
+      "role": "decoder",
+      "path": "/workspace/pequalnp-proofs/results/orch/components2056/decode.py",
+      "sha256": "6ee4ef6ab6ab6ccd45aa1bba975be6c8c18225074ed0c5a347c7c319bf03307c",
+      "currently_verified": true
+    },
+    {
+      "role": "runner",
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/run_sat_nonread_warm.py",
+      "sha256": "a8824dea49180a56884f6300b8633f7b05db942e0477b1285c947281edf1c819",
+      "currently_verified": true
+    },
+    {
+      "role": "cadical",
+      "path": "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/cadical",
+      "sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+      "currently_verified": true
+    }
+  ],
+  "completed_artifacts": [
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.metadata.json",
+      "bytes": 3056,
+      "sha256": "f9a35b8408b3c22f86044d9b6ac4a9bf6919273b9647bc4f743736f8878d69dd"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.recovery-process.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.recovery-process.stdout",
+      "bytes": 100,
+      "sha256": "5600749899df46fb85f34fa6715c7919bbf331697324e48fa7254ca2c7df5dd3"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.stdout",
+      "bytes": 13900,
+      "sha256": "3d71e8fd30e2fa1c00313015452ad46ae88d76ee52e6bd1f952ac82d1d9e09fa"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm-run.wrapper.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "frozen": true
+}

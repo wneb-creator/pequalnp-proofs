@@ -1,0 +1,19 @@
+{
+  "source_sha256": "07a2518da34378cdba0775406c384990515969c393932e748ab9f42fe26c9a53",
+  "reviewed_cnf_sha256": "87f29c4e0498819c10e64f6ade005a46399eac3b434cbd39a075d474aef613e8",
+  "actual_cnf_sha256": "87f29c4e0498819c10e64f6ade005a46399eac3b434cbd39a075d474aef613e8",
+  "byte_identity": true,
+  "variables": 164483,
+  "clauses": 8859647,
+  "conversion_seconds": 53.14225196799816,
+  "native_launch_record_utc": "2026-11-25T19:11:26.388448+00:00",
+  "native_limit_seconds": 2700,
+  "nominal_native_deadline_utc": "2026-11-25T19:56:26.388448+00:00",
+  "hard_absolute_stop_utc": "2026-11-25T20:00:00+00:00",
+  "processes": {
+    "wrapper_pid": 42509,
+    "solver_pid": 42634,
+    "prefix": "warm-nonread-and13-near63-full-run"
+  },
+  "unchanged_phase_input_sha256": "931ea96b38f4a2be9a95b39b791d7f2086204dc0019f5195b40201edb91d40be"
+}

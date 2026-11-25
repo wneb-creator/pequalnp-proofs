@@ -1,0 +1,13 @@
+{
+  "utc": "2026-11-25T19:33:01.148387+00:00",
+  "action": "SIGTERM parent wrapper; its reviewed handler forwards to native solver",
+  "reason": "Parent-authorized replacement after compiled necessary two-dirty-AND condition and independent controls; no UNSAT claim",
+  "wrapper_pid": 42509,
+  "solver_pid": 42634,
+  "no_completed_result_or_sat_unsat_before_stop": true,
+  "reaped_utc": "2026-11-25T19:33:27.321795+00:00",
+  "wrapper_exit_code": 143,
+  "native_exit_code": -15,
+  "complete_elapsed_seconds": 1348.0539529179987,
+  "both_processes_reaped": true
+}

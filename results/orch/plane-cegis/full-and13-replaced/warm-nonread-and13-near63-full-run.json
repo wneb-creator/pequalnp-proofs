@@ -1,0 +1,120 @@
+{
+  "utc": "2026-11-25T19:11:26.388448+00:00",
+  "n": 26,
+  "size": 63,
+  "sampled_rows": 756,
+  "variables": 164483,
+  "clauses": 8859647,
+  "conversion_seconds": 53.14225196799816,
+  "seconds_limit": 2700,
+  "fixed_prefix": 0,
+  "warm_true_variables": 51297,
+  "complete_negative_rows": 704,
+  "minimum_and_gates": 13,
+  "warm_joint_bad_edges": [
+    [
+      0,
+      13
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      1,
+      13
+    ],
+    [
+      2,
+      20
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      3,
+      19
+    ],
+    [
+      3,
+      23
+    ],
+    [
+      3,
+      24
+    ],
+    [
+      8,
+      21
+    ],
+    [
+      9,
+      13
+    ]
+  ],
+  "warm_accepted_bad_edges": [
+    [
+      0,
+      13
+    ],
+    [
+      1,
+      13
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      3,
+      19
+    ],
+    [
+      3,
+      23
+    ],
+    [
+      3,
+      24
+    ],
+    [
+      9,
+      13
+    ]
+  ],
+  "phase_selected_bad_edge": [
+    0,
+    13
+  ],
+  "existential_non_read1_edge": true,
+  "first_gate_orbit_representatives": [
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      13
+    ],
+    [
+      1,
+      0,
+      15
+    ],
+    [
+      0,
+      0,
+      13
+    ]
+  ],
+  "primary_input_dominance_excluded": true,
+  "encoder": "full-boundary polarity-warm AO2 with lex, clean rules, AND>=13 and primary dominance exclusion",
+  "exit_code": -15,
+  "status": "interrupted",
+  "termination_signal": 15,
+  "elapsed_seconds": 1348.0539529179987,
+  "max_rss_kb": 1673408
+}

@@ -1,0 +1,19 @@
+{
+  "source_sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226",
+  "reviewed_cnf_sha256": "bc3c04d5e26d21bf8b62770e405115f34bff91687d9d5f6b64e710e33cf6a347",
+  "actual_cnf_sha256": "bc3c04d5e26d21bf8b62770e405115f34bff91687d9d5f6b64e710e33cf6a347",
+  "byte_identity": true,
+  "variables": 164672,
+  "clauses": 8860275,
+  "conversion_seconds": 38.93104872099866,
+  "native_launch_record_utc": "2026-11-25T19:34:11.562156+00:00",
+  "native_limit_seconds": 1320,
+  "nominal_native_deadline_utc": "2026-11-25T19:56:11.562156+00:00",
+  "hard_absolute_stop_utc": "2026-11-25T20:00:00+00:00",
+  "processes": {
+    "wrapper_pid": 45361,
+    "solver_pid": 45416,
+    "prefix": "warm-dirty2-near63-final-run"
+  },
+  "unchanged_phase_input_sha256": "931ea96b38f4a2be9a95b39b791d7f2086204dc0019f5195b40201edb91d40be"
+}

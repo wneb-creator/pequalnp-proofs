@@ -1,0 +1,1960 @@
+{
+  "scope": "PENDING independent preservation008: completed final query preparations/controls and prior UNKNOWN diagnostics, compiled-result reports and publication records; no target proof/checker/PR",
+  "created_utc": "2026-11-25T19:33:08.852625+00:00",
+  "base_sha": "a773b4693bf1da13ef3fa39125345578a2071f19",
+  "excluded": [
+    "results/orch/components2056/v5-nonread-target63-seed67warm-run.metadata.json",
+    "results/orch/components2056/v5-nonread-target63-seed67warm-run.stderr",
+    "results/orch/components2056/v5-nonread-target63-seed67warm-run.stdout",
+    "results/orch/components2056/v5-nonread-target63-seed67warm-run.wrapper.stderr",
+    "results/orch/components2056/v5-nonread-target63-seed67warm-run.wrapper.stdout",
+    "results/orch/lemmas/AllCleanBudget2056.lean"
+  ],
+  "files": [
+    {
+      "path": "results/orch/NOTES.md",
+      "bytes": 14616,
+      "sha256": "a0cff2395f9df15d5a8627c638cd298e8f9238fc2c5d2d0748c8e9fe6dcd35f0"
+    },
+    {
+      "path": "results/orch/STATE-2056-final-round.md",
+      "bytes": 3918,
+      "sha256": "d8b1dbd066e8d87963313d33c2e0bedd1a13d39d12924d67085a6b3ef4b6b650"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "bytes": 11327,
+      "sha256": "211e0cce40d4a742eb2e3e5a0fac660cffed27cec6f17c0d2ae37fb92b5183f1"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/ARCHIVE_METADATA.json",
+      "bytes": 56568,
+      "sha256": "fdeedaf33975ef083f706efadd27edade3fe18f9496a633d33e608a414ac3fca"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/README.md",
+      "bytes": 4004,
+      "sha256": "8664ff71c07237d2533ad02ff42fc2954bcd93620b3fd32e3e7a6eae807c866f"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/and13-and-budget-nonread-phases-independent-review.json",
+      "bytes": 3457,
+      "sha256": "296fbd15dce482a8e48af8e75fef873a826f415b00a1829b51c3b4472f4f77f7"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/and13-and-budget-nonread-phases-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/and13-and-budget-nonread-phases-independent-review.stdout",
+      "bytes": 3458,
+      "sha256": "97bbcded1c968b651ef2db69b440116bfb81daa920d8e064a9a621f0656ffde9"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/andcount2056.py",
+      "bytes": 13253,
+      "sha256": "dead97d08741c098a5263c361f3309a0a118886563ebb36ac261255ecc0e3342"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/andcount_budget_nonread_floor2056.py",
+      "bytes": 21472,
+      "sha256": "bfc344998a495deadbce49b7ddb05560600d0fef0b41f4e1626a9856c11449c8"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/andcount_budget_profile_nonread2056.py",
+      "bytes": 21318,
+      "sha256": "4cd6d7789276a67250f6e01bd13df4eb13f738675008af7bf8fcf77959027085"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/andcount_budget_profile_prefix2056.py",
+      "bytes": 17668,
+      "sha256": "1acc9485a918f97b95ec05d1188dadd1a3888243f630218bd6ba3ac2e3e6cea2"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/audit_component_nonread_phase2056.json",
+      "bytes": 1584,
+      "sha256": "cdc235c2a96179dbe8167cbdfd66731072e042fb13cf04709765988a8ee8bb1c"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/audit_component_nonread_phase2056.py",
+      "bytes": 4993,
+      "sha256": "1d8f5c5050110fc7dfb367ed2480642a4b9dc21deb7ac0fd329a18dd0e233aad"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/audit_component_nonread_phase2056.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/audit_component_nonread_phase2056.stdout",
+      "bytes": 1375,
+      "sha256": "d2e834953e7772da3fe61e75740fc7c70911fc5ac1e7a46981ef2492083e711c"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/boundary_cleanup2056.py",
+      "bytes": 4602,
+      "sha256": "3e3240e6c8e1c09d943606d761656573d42d45b12a73618b31a7a9465068800e"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-control13-star64-negative-emit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-control13-star64-negative-emit.stdout",
+      "bytes": 1010,
+      "sha256": "0e62dd7e57ebaecd10caaf732b6645d871d76c3a10c72f7568d0fc2b327bdbe2"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-control13-star64-negative.cnf.gz",
+      "bytes": 4010403,
+      "sha256": "e9fd03b408825a9fc76a542f4f897c580e70556caa587e18a295c804d1ca5858"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-control13-star64-negative.json",
+      "bytes": 1060,
+      "sha256": "3fd773b8053ce9644b2fecf5a76d52d5d7d21f49bec1fde802db560e4840a868"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-control13-star64-negative.mapping.json",
+      "bytes": 515932,
+      "sha256": "01306f400197f43600c57bb5dd0e0861efef8d350ddcce9484db3bd9af927583"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-control13-star64-negative.warm.json",
+      "bytes": 1694,
+      "sha256": "2be2558b6110924729d715b101596627f99e6334ed60fb795817745803745acb"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-control16-cap67-emit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-control16-cap67-emit.stdout",
+      "bytes": 1160,
+      "sha256": "17feea1712222cf71de3fa927e620cdb4ab182d78a56f366ca63187a413dfd9f"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-control16-cap67.cnf.gz",
+      "bytes": 5774145,
+      "sha256": "d322cc75226b64ebb7118ce3a1f62b7e8b8eca054dfae25e80f2d8ab112404f9"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-control16-cap67.json",
+      "bytes": 1226,
+      "sha256": "0580291dea3b4124cd7c572866f73838841e0ca86dd0dcec1e29cdd9bf0ea4fc"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-control16-cap67.mapping.json",
+      "bytes": 710707,
+      "sha256": "2f01ba49dc166cfce9e59b0f2e96f61d2bc84872d3755bd0da78632ef380bb32"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-control16-cap67.warm.json",
+      "bytes": 1918,
+      "sha256": "74c8e25457335babee4d68ead49b318fc31ed4b83b587057cfbcc8aef6310cfb"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-target13-cap63-emit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-target13-cap63-emit.stdout",
+      "bytes": 1152,
+      "sha256": "034ceed06710ff48c0960488effd4446f4ac4a2dd8efda170b211c3e33a9a2f0"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-target13-cap63.cnf.gz",
+      "bytes": 4002917,
+      "sha256": "5769e5bfc733b845a4de9467b0d575c768326801401016b1a387cc1bde56a581"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-target13-cap63.json",
+      "bytes": 1210,
+      "sha256": "4782c072372e3f5fa6e34b36775b4a4dabe865cdf8ea0860f5384f752f1297e2"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-target13-cap63.mapping.json",
+      "bytes": 510123,
+      "sha256": "63ab705e4aa8b291975a4c5fa66d8935edaf547bb7e3e5f45b99d5f22a97fa38"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor-target13-cap63.warm.json",
+      "bytes": 1682,
+      "sha256": "0dffd4dcbcdac55fbbe642a878f696c51c4787e93527af16f0d6c2250afceffd"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-floor13-independent-delta-audit.json",
+      "bytes": 2294,
+      "sha256": "5bf76733891ec256b43bc99a48d216fc6cd9f46ed087a71a4ff3a1d65ac539af"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control13-star64-negative-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control13-star64-negative-wrapper.stdout",
+      "bytes": 1075,
+      "sha256": "93cf043af10a7ac7713258c9ece9dc61c7e6a4a6eb96cf8e8b183f9612608258"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control13-star64-negative.cnf.gz",
+      "bytes": 4010398,
+      "sha256": "f22c34535d4ab635f309b5ed05daec0787980b85a6a12e59f2a9d1107fdb4553"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control13-star64-negative.json",
+      "bytes": 1129,
+      "sha256": "85eb231e4ba745ccd30009a6b1c189de685f457fc08ef31a451212434eb66478"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control13-star64-negative.mapping.json",
+      "bytes": 515932,
+      "sha256": "01306f400197f43600c57bb5dd0e0861efef8d350ddcce9484db3bd9af927583"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control13-star64-negative.process.json",
+      "bytes": 147,
+      "sha256": "242aad702b86fd2e07a35f5dead877b0ca8335adb3e3988102a8bfdd96acd569"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control13-star64-negative.sol",
+      "bytes": 16,
+      "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control13-star64-negative.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control13-star64-negative.stdout",
+      "bytes": 2943,
+      "sha256": "bf5be3513d2493c9a5008f1a97605bc2e1792e1c771b783811d06f0532d2f216"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control13-star64-negative.warm.json",
+      "bytes": 1694,
+      "sha256": "2be2558b6110924729d715b101596627f99e6334ed60fb795817745803745acb"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67-wrapper.stdout",
+      "bytes": 1573,
+      "sha256": "a516f2db84d0b86d1e3a9ee1b7f29963fce4984f55123c71095a46b59f24916e"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.and-model.json",
+      "bytes": 1918,
+      "sha256": "74c8e25457335babee4d68ead49b318fc31ed4b83b587057cfbcc8aef6310cfb"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.cnf.gz",
+      "bytes": 5774142,
+      "sha256": "19603326a65369cd7fb4eb2fa4ed2c6fad93b86d62a9440a367cb82cecc74834"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.json",
+      "bytes": 1707,
+      "sha256": "0528dbb124cc983d0fc10adf10300c6e0d05d8ff78574c65517c5a612726a9cb"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.literal.exhaustive.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.literal.exhaustive.stdout",
+      "bytes": 40,
+      "sha256": "77e17a830362310fbfc22b7e873e2ae9d71fee457cc077f713428df6d07ba399"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.literal.json",
+      "bytes": 2810,
+      "sha256": "1c665e0acf7b3be7c496660fa8a543c1b7dd94310e2e75632d55abbb1e567791"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.literal.txt",
+      "bytes": 522,
+      "sha256": "b1ffcae3947c109dd88d4ccc4ce775e370dba6d87709011eee0a7a72705b1607"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.mapping.json",
+      "bytes": 710707,
+      "sha256": "2f01ba49dc166cfce9e59b0f2e96f61d2bc84872d3755bd0da78632ef380bb32"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.ordinary.exhaustive.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.ordinary.exhaustive.stdout",
+      "bytes": 40,
+      "sha256": "77e17a830362310fbfc22b7e873e2ae9d71fee457cc077f713428df6d07ba399"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.ordinary.json",
+      "bytes": 2810,
+      "sha256": "1c665e0acf7b3be7c496660fa8a543c1b7dd94310e2e75632d55abbb1e567791"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.ordinary.txt",
+      "bytes": 522,
+      "sha256": "b1ffcae3947c109dd88d4ccc4ce775e370dba6d87709011eee0a7a72705b1607"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.process.json",
+      "bytes": 137,
+      "sha256": "b863a741f58c12671d9e65f9c9904cda63c21b85582e55cf0c2426825ca16373"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.sol",
+      "bytes": 2469651,
+      "sha256": "a8720d05b9a2998484df0a6609c7737917355db0d73566415cf19333c87efc20"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.stdout",
+      "bytes": 3123,
+      "sha256": "32095191c9eaf3d0b173a8347c56757f8939e87a36d793a77ea4e854ef06c50e"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-control16-cap67.warm.json",
+      "bytes": 1918,
+      "sha256": "74c8e25457335babee4d68ead49b318fc31ed4b83b587057cfbcc8aef6310cfb"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-target13-cap63-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-target13-cap63-wrapper.stdout",
+      "bytes": 1118,
+      "sha256": "a01f31d8aecc465c33577f889f8c1e425a516c14a17f365dabf969d130adeeec"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-target13-cap63.cnf.gz",
+      "bytes": 4002911,
+      "sha256": "edf1f0f6580240e177e68554271e80973d1eaf1b01dd719a8af8e6ecf5b5578e"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-target13-cap63.json",
+      "bytes": 1174,
+      "sha256": "69b03e81adcf9caa4bc7570440e8e21acd4b1255c07a52f7d84cea3c90909f7a"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-target13-cap63.mapping.json",
+      "bytes": 510123,
+      "sha256": "63ab705e4aa8b291975a4c5fa66d8935edaf547bb7e3e5f45b99d5f22a97fa38"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/budget-nonread-target13-cap63.warm.json",
+      "bytes": 1682,
+      "sha256": "0dffd4dcbcdac55fbbe642a878f696c51c4787e93527af16f0d6c2250afceffd"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/classify_exact66.py",
+      "bytes": 3911,
+      "sha256": "25250de9b46fd9e6db426360b39f81ed7613f0ae2cbc23a0910dcdc58516a4fc"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/component-seed67-phase-static-review.json",
+      "bytes": 1248,
+      "sha256": "f7a4007d4f11ff5be023fc3873594af86b2cd7e60e9c88e17d6fec092aa4d20b"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-directed-cleanup-exhaustive.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-directed-cleanup-exhaustive.stdout",
+      "bytes": 40,
+      "sha256": "dd929c8e576688a6059643d3c90777359497f54d56973a7954d464a52cb08c08"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-directed-cleanup.json",
+      "bytes": 2885,
+      "sha256": "7510497e0fa486e12de2da6b9631dd9c842aa1c84a2fb7b7f13f386097704703"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-directed-cleanup.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-directed-cleanup.stdout",
+      "bytes": 123,
+      "sha256": "9ccc29dc5486120b20537f95cf071cf6c4fe55011df04c417705cc6c99973fa1"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-directed-cleanup.txt",
+      "bytes": 490,
+      "sha256": "12a7f761e68d842a53c88277a1f105c8269b3b1aa66dcf68f96bfc1098b86b2e"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-dnf65-exhaustive.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-dnf65-exhaustive.stdout",
+      "bytes": 40,
+      "sha256": "eacf34dcb7cfc163daf9338dfbb5ea0a69e42096b7371694093232fed32b38c7"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-dnf65.json",
+      "bytes": 2900,
+      "sha256": "677dd6391773b9dcc6a9d44cc8c88beade2537d26defd9f4afac2650af9151cd"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-dnf65.txt",
+      "bytes": 482,
+      "sha256": "0fb965f996f17c806ef3e0251dc0f4e9d3092e98de1e4dc4f00e4d5f83ab77e2"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/analyze_local66.py",
+      "bytes": 2849,
+      "sha256": "9b6b1c81492913f9b0b88ced294e973be0522dd668c2d2142b80fc78687c4edf"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/control-dump-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/control-dump-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/control-dump.stderr",
+      "bytes": 181,
+      "sha256": "d7fdb58c7ac165cd688fb924fbb769cfde88539430002e0eae1c8563ce834604"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/control-dump.stdout",
+      "bytes": 730,
+      "sha256": "d7b6aa2714653b601c00a513c35482fbd7a4235584b2227ebaf29e435d22b98a"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/control-structural-check.json",
+      "bytes": 487,
+      "sha256": "fe2c4e16f357f41628225c52aa5dc96eba280ec9505b171d36c03bb080453854"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/control-structural-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/control-structural-check.stdout",
+      "bytes": 133,
+      "sha256": "7e3735006772ef26da4a3fc2bf11fe6411b022a801f778b92d613e63d001a076"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/control.stderr",
+      "bytes": 181,
+      "sha256": "d7fdb58c7ac165cd688fb924fbb769cfde88539430002e0eae1c8563ce834604"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/control.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/exact66-single-record.jsonl",
+      "bytes": 1013,
+      "sha256": "b2636123b717c5f0a3ff03b1be2a803061e210f40a010d7d410690dc934899e6"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/exact66-structural-check.json",
+      "bytes": 585,
+      "sha256": "d31482bac638d8f955e94d42ac349c8b693455e8ce374dd43fdd90bf6222ed24"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/exact66-structural-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/exact66-structural-check.stdout",
+      "bytes": 139,
+      "sha256": "81ac50b1ff9da075cd1993da3d0abe9c404720647d8190d282263ac3a7c41946"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/exact66_control_dump",
+      "bytes": 85568,
+      "sha256": "c3537a4544dfff75f5ea5a33f340388e9d2a2c1e1f62bba64a0e217675f0d43d"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/exact66_control_dump.cpp",
+      "bytes": 9236,
+      "sha256": "ed935ccd3a5d0bafa2c6a7417cad36902374a495ab121799b22a8f80be210414"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/exact66_local",
+      "bytes": 85568,
+      "sha256": "ea2d686aae39bb28589a7b42402915d84d9539657f51adb9b7420e85d3c8805c"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/exact66_local.cpp",
+      "bytes": 9198,
+      "sha256": "e8c26582b9f65f7c65fd39c4cf03227af0e84b7c2db11f4cfa768ecbecf044ca"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/exact66_seeds.hpp",
+      "bytes": 3205,
+      "sha256": "cb63f59d266a32eb95bfb5f2cbcb13fe55e9a0d42988d489acd58c288b3dd653"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/independent-data-review.json",
+      "bytes": 798,
+      "sha256": "8efb5f640c3593a1dfc47212d98f2c37b11377d0be6932fadc2821c3756b813a"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/neutral_pair_care_full.hpp",
+      "bytes": 2488,
+      "sha256": "b71c28ebe7959f62031c4f5e1874410a02780107c448f7ee1bb2ba4e936b099f"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/preparation.json",
+      "bytes": 1839,
+      "sha256": "7f8cb778140ebb3b7b5d9af52383d2b611a15017aa3f191bca3fe785fdc8ea2b"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/repair_shrink_full.hpp",
+      "bytes": 2913,
+      "sha256": "3e55cb3b72e8eedfc8c535052e7906dbf6f4df2be2d43986b90e6f58a83466b3"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/rows.txt",
+      "bytes": 6314,
+      "sha256": "535859e22fe4f5f187c9655d3ba3ad15e4b6d967b51b4981eba9d56925f62f48"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/scatter_spares_full.hpp",
+      "bytes": 1035,
+      "sha256": "71900b15fffab2f1c094bf208a686520a048b40f307519040ec9128db26e4d14"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/seeds.json",
+      "bytes": 4135,
+      "sha256": "64d3683921ca7de857bb76992f8eb4319f2803bc9adc66bd5e364007ede676b0"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/startup-control65.json",
+      "bytes": 2777,
+      "sha256": "aa58cca7899c9aa8520d7a713b506fbc87ec02d8d0a3eb6b52417c3c9566da98"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-local/structural-scope.json",
+      "bytes": 1100,
+      "sha256": "2a1e4d9a81f90936105ef62b6df7ab351b891e7061f12630266b47bfbe0ce570"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-nonlinear-circuit.json",
+      "bytes": 2745,
+      "sha256": "4dea5aef9f85f14a69a58013fe1a6dee609e43b6be6fea5b2c17b282e08bf6e1"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-nonlinear-model.json",
+      "bytes": 1862,
+      "sha256": "3eccf0d253d1ea99b65f4b0e1e617f507bd1a315b1f5b01dc6e2ccb4b6e46f7a"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-shared-or.json",
+      "bytes": 15953,
+      "sha256": "31b395a67c5fff59b8eac386900da9e82c26925840ab521402b933c8445ae0cc"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-shared-or.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-shared-or.stdout",
+      "bytes": 129,
+      "sha256": "b0188c27dcc19e31f24fd60b09663ff773cc9be858a72a451d093c9990f42603"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-shared-or.txt",
+      "bytes": 490,
+      "sha256": "12a7f761e68d842a53c88277a1f105c8269b3b1aa66dcf68f96bfc1098b86b2e"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-structural-analysis.json",
+      "bytes": 1804,
+      "sha256": "b4cfbaf54a08f8a6f3c6f72f6d1708df0f1876c0d642030b6247089720c67e40"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-structural-analysis.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/exact66-structural-analysis.stdout",
+      "bytes": 1804,
+      "sha256": "b4cfbaf54a08f8a6f3c6f72f6d1708df0f1876c0d642030b6247089720c67e40"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/output_sink_model2056.py",
+      "bytes": 2953,
+      "sha256": "22ffe11a5b131e8190e38c729d666723cd45307895d93b84c386e1b49c2a31be"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/andcount2056/shared_or2056.py",
+      "bytes": 7741,
+      "sha256": "a2bb57526433757e48d7117d36ca226927f78aded5124ef3e3d9751123f48543"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/audit_and13_and_budget_nonread_phases.py",
+      "bytes": 2960,
+      "sha256": "2939990319f75b310eb1f279daa5fc88b4f3cd0ee4e42f68bfd7239988311ea6"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/audit_budget_nonread_native.py",
+      "bytes": 5084,
+      "sha256": "5245e9ad48efbf6bf118e7d2e363e4bba852cea03c44e68d257f99b1d3ad764c"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/budget-nonread-native-independent-review.json",
+      "bytes": 3732,
+      "sha256": "e8db2c7c693509473560a21f2fa449c1be5067cafd9eb8579d01e395b1b6f187"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/budget-nonread-native-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/budget-nonread-native-independent-review.stdout",
+      "bytes": 3733,
+      "sha256": "675ee482148da8eba33382e4f5f7bd07690f5285b77e4f967ccea408c7d63a9f"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/components2056/exact66-hoisted.best.json",
+      "bytes": 2804,
+      "sha256": "c17eff97292a2f62c167c0ab48525a811303d89a0fafc41729bbd66203b5ce39"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/components2056/exact66-hoisted.exact.jsonl",
+      "bytes": 934,
+      "sha256": "c7ffd8dd190f17ab627084723a0c9093ea34b356ffe04dce4505f6e301205372"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/components2056/exact66-hoisted.report.json",
+      "bytes": 104,
+      "sha256": "291ea231c9e8bead5e9541917ebc6a8ba926c03a569a4a1ec14ce45b5b4646f7"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/components2056/exact66-hoisted.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/components2056/exact66-hoisted.stdout",
+      "bytes": 92,
+      "sha256": "53f57f7986cbd39dd335bc0b8b24adc13eb7aef8527b19e4b30d91e751deaec5"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/not-elimination/andbudget-nonread-control67-model.json",
+      "bytes": 1918,
+      "sha256": "74c8e25457335babee4d68ead49b318fc31ed4b83b587057cfbcc8aef6310cfb"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/not-elimination/andbudget-nonread13-near63-model.json",
+      "bytes": 1682,
+      "sha256": "0dffd4dcbcdac55fbbe642a878f696c51c4787e93527af16f0d6c2250afceffd"
+    },
+    {
+      "path": "results/orch/andcount2056-k13-final/proof-route/output-sink-independent-review.json",
+      "bytes": 1124,
+      "sha256": "8fffec480c932d7e96837095cda6ade6cfac11c9729c0ff547ef7764b0b2d508"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/CNF-REGENERATION.json",
+      "bytes": 419,
+      "sha256": "c9382c1cd0e21de934b40f1aadc1191a32bfe81a6f9b5157e1b228db0159320a"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/README.md",
+      "bytes": 932,
+      "sha256": "374c4f1a259d0555db3a9b0b1ff235ca65b3b1e91271075d6fca376f655b467e"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/andcount_budget2056.py",
+      "bytes": 16351,
+      "sha256": "0b7a5652d1891b11b956f93e949c7dca9d923e5f677c69723e93d222194efe3b"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/budget16-nested-run.json",
+      "bytes": 920,
+      "sha256": "aa3abaf4e9978f3dc2cff63e42468e8d2b8fdbe50ac48dc7e6168dd7e3eb143e"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/budget16-nested-run.launch.json",
+      "bytes": 1337,
+      "sha256": "106cfa4566eef188e3c4ec21c5d5bb4ecd7dad344e5ed9f4f04c0b3f53498dba"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/budget16-nested-run.mapping.json",
+      "bytes": 672605,
+      "sha256": "3f71309010aaebffde03f485d71b3425b2f760e483db79f9cfe86e9f55860783"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/budget16-nested-run.pause.json",
+      "bytes": 353,
+      "sha256": "16d519b60a3030f5812ec81ad04399c13cf6743f4c221956c3de0dca82b198ad"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/budget16-nested-run.process.json",
+      "bytes": 126,
+      "sha256": "32f436865e03c67ae1ae13b1f1b280eed42d2b26156da776313e86610c7d7e16"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/budget16-nested-run.resume.json",
+      "bytes": 450,
+      "sha256": "4e07f59cab1e4f4c35391118aaadfc340813b396d06e3aef66aafd0fad992d0c"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/budget16-nested-run.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/budget16-nested-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/budget16-nested-run.stdout",
+      "bytes": 20474,
+      "sha256": "0c29832969596086f20fd6d27c9c9ba77afafdaf7ef075b71157912eef7a83fe"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/budget16-nested-run.warm.json",
+      "bytes": 1897,
+      "sha256": "00bdaeb50a4f21f2cfe1f1ca12830f505d258dfa0f48be22d598744f45a42720"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/budget16-nested-run.wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/budget16-nested-run.wrapper.stdout",
+      "bytes": 874,
+      "sha256": "723df1cb9b08de1cf84baa20cd42537e3423827636d321641345ad2796dfba1d"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/manifest.json",
+      "bytes": 2680,
+      "sha256": "3c1d95f1833a471ca8d0ecb4f042880306e66c673681960fa6db25a227c48ed2"
+    },
+    {
+      "path": "results/orch/andcount2056/budget-run/completed-original/summary.json",
+      "bytes": 1070,
+      "sha256": "b630a9a3aa6015ad735c862c2fc2384085c182e68522bb32796308af0e405bc2"
+    },
+    {
+      "path": "results/orch/components2056/add_nonread.py",
+      "bytes": 7981,
+      "sha256": "cb8b50bc0baa0c9ba235835539adbea7c401051df6cf2b7abf3cc60c0cf9082b"
+    },
+    {
+      "path": "results/orch/components2056/audit_component_nonread_phase2056.json",
+      "bytes": 1584,
+      "sha256": "cdc235c2a96179dbe8167cbdfd66731072e042fb13cf04709765988a8ee8bb1c"
+    },
+    {
+      "path": "results/orch/components2056/audit_component_nonread_phase2056.py",
+      "bytes": 4993,
+      "sha256": "1d8f5c5050110fc7dfb367ed2480642a4b9dc21deb7ac0fd329a18dd0e233aad"
+    },
+    {
+      "path": "results/orch/components2056/audit_component_nonread_phase2056.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/audit_component_nonread_phase2056.stdout",
+      "bytes": 1375,
+      "sha256": "d2e834953e7772da3fe61e75740fc7c70911fc5ac1e7a46981ef2492083e711c"
+    },
+    {
+      "path": "results/orch/components2056/audit_component_seed67_phase.py",
+      "bytes": 3095,
+      "sha256": "c7d84fa7085e04f9aebaf6eeb75486a878c12dc45671b73fa34063f81ddb578b"
+    },
+    {
+      "path": "results/orch/components2056/audit_nonread_control.py",
+      "bytes": 4416,
+      "sha256": "e3959707158c774620109c0fb55a59ac4aa5a05464e708977a4b4087d0cbc77a"
+    },
+    {
+      "path": "results/orch/components2056/component-seed67-archive-independent-review.json",
+      "bytes": 1575,
+      "sha256": "ab9d4ae5b3c5a6e2d355c1854538dc16ca691550e7f9eff9689b2044320925ab"
+    },
+    {
+      "path": "results/orch/components2056/component-seed67-finalize-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/component-seed67-finalize-review.stdout",
+      "bytes": 2226,
+      "sha256": "8e18a813a230d9f8713bf7810d49c0b331a502b913dfcfc5b931046afbf35418"
+    },
+    {
+      "path": "results/orch/components2056/component-seed67-phase-independent-review.json",
+      "bytes": 2146,
+      "sha256": "5a4be676232456435455df609b6820f2e1c9809a92b6f1b3ea802627e5f9c214"
+    },
+    {
+      "path": "results/orch/components2056/component-seed67-phase-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/component-seed67-phase-independent-review.stdout",
+      "bytes": 1812,
+      "sha256": "ce7b222732f1ee15be15d1ef3566b1f5185812eec1df5bc2932328f8b2c0314d"
+    },
+    {
+      "path": "results/orch/components2056/component-seed67-phase-static-review.json",
+      "bytes": 1248,
+      "sha256": "f7a4007d4f11ff5be023fc3873594af86b2cd7e60e9c88e17d6fec092aa4d20b"
+    },
+    {
+      "path": "results/orch/components2056/component-seed67-preservation.json",
+      "bytes": 52954,
+      "sha256": "2385318645bb8279efbcf341de52c4838a1e4383c98dd461bf65855ce83973f2"
+    },
+    {
+      "path": "results/orch/components2056/extend_nonread_phase.py",
+      "bytes": 5151,
+      "sha256": "56ac964379fea7eef14e7ee358db123e3fbda833aee574c399792252cc55024a"
+    },
+    {
+      "path": "results/orch/components2056/extend_nonread_phase67.py",
+      "bytes": 6354,
+      "sha256": "0c41b31903ceec2f08933136d51298dca83c0861e73741478edb4703de0e0452"
+    },
+    {
+      "path": "results/orch/components2056/finalize_component_seed67_review.py",
+      "bytes": 1595,
+      "sha256": "7c7b06413dc5e38fc42eef9512610626e428134d5e09dcbe21482716d771b6c0"
+    },
+    {
+      "path": "results/orch/components2056/nonread-control67-clauses-independent.json",
+      "bytes": 277,
+      "sha256": "7a5ff02fdef4df72b4cac7fddaccddab97eb34135d424620701c92b1d05036de"
+    },
+    {
+      "path": "results/orch/components2056/nonread-control67-clauses-independent.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/nonread-control67-clauses-independent.stdout",
+      "bytes": 265,
+      "sha256": "fa0b5dd1555af5ae431f64de29c52333c208c3c5ad13b5d8099c68cf5bec6053"
+    },
+    {
+      "path": "results/orch/components2056/nonread-control67-input.json",
+      "bytes": 3098,
+      "sha256": "3533b5858eded4a525a7fa80c1f40a1e3a08610cd5eb62c83dbf1ca2d76e86ed"
+    },
+    {
+      "path": "results/orch/components2056/nonread-control67-semantic-independent.json",
+      "bytes": 574,
+      "sha256": "a85fe709de635f57bbdc3fcc09fd577691f57d8f105fbeddcc6bb0f499d56722"
+    },
+    {
+      "path": "results/orch/components2056/nonread-control67-semantic-independent.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/nonread-control67-semantic-independent.stdout",
+      "bytes": 538,
+      "sha256": "313f4d0614dbfee99666183cc823a588b731b580e5ba056109a21d7360f1a17d"
+    },
+    {
+      "path": "results/orch/components2056/nonread-preparation.json",
+      "bytes": 3215,
+      "sha256": "672543c70c5fd7dac5a46b25b27f27edac9e7577d2a61293f8bf8f875e748a4d"
+    },
+    {
+      "path": "results/orch/components2056/run_sat_nonread_warm.py",
+      "bytes": 5348,
+      "sha256": "a8824dea49180a56884f6300b8633f7b05db942e0477b1285c947281edf1c819"
+    },
+    {
+      "path": "results/orch/components2056/v3-completion-summary.json",
+      "bytes": 1406,
+      "sha256": "77d6d3b61df810ae84becff5e8936f693247227cf852f26b0d1f957c48e91a45"
+    },
+    {
+      "path": "results/orch/components2056/v3-target63-run.metadata.json",
+      "bytes": 1625,
+      "sha256": "b591702d49e2c4b57e5e33cd331281e90b7ed532cc68b0d9f2d4d0f84e03710e"
+    },
+    {
+      "path": "results/orch/components2056/v3-target63-run.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/components2056/v3-target63-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v3-target63-run.stdout",
+      "bytes": 20506,
+      "sha256": "b1d7bc72d107cfec91d777c08b5a5ca65392072df7365eea937bd895788faed2"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-base67.emit.json",
+      "bytes": 485,
+      "sha256": "357b336cadefe24e76e73773d7a430d3b6be63668ab108d6edfadf741bd72969"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-base67.emit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-base67.emit.stdout",
+      "bytes": 280,
+      "sha256": "14ade0e836977f29b7da69c3ea417bc9b3f0714c7b00a45728b2dfa8b5cf55b6"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-base67.mapping.json",
+      "bytes": 1294534,
+      "sha256": "c3e6de0922f53fa0ec7a0554c3727dfd509e6062d6a2cb66c7336715c540cd66"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-base67.summary.json",
+      "bytes": 306,
+      "sha256": "885d8c9732cf1572b26e2268d95220faa9db9fa5509f9b6ed9d5aabb2005846b"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control64.emit.json",
+      "bytes": 728,
+      "sha256": "ae943bc2638cc4b2370a322a9331d43c405c07cd69370e1d0315eaa0a82a427f"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control64.emit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control64.emit.stdout",
+      "bytes": 515,
+      "sha256": "94c5c4bdca2ff56198b54460c4b54a3e120b9d51cd414578246c019d3ada7510"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control64.mapping.json",
+      "bytes": 1447751,
+      "sha256": "e04402d421c8196f1c9aecb1e9e0a780c140813c333f3438e3f2be66e9c64da3"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control64.run.json",
+      "bytes": 680,
+      "sha256": "5ea3431179778b306164785039ec3b5276e585df4a948545486bdd16678eb920"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control64.sol",
+      "bytes": 16,
+      "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control64.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control64.stdout",
+      "bytes": 3744,
+      "sha256": "25d9b40832dbd121de20b6f47ccca15906d1937d101fccb7bddbfdbb5bd8d3fa"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control64.summary.json",
+      "bytes": 539,
+      "sha256": "6f2779594b72165408b0c71cb66a310061047e949c32fbe2e0d40102fcb14187"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-circuit.json",
+      "bytes": 3464,
+      "sha256": "0a751f1c6fbf2e5e6209239443d122f3b8334e84519ed3139ba4373f0fb33f35"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.candidate.json",
+      "bytes": 3464,
+      "sha256": "0a751f1c6fbf2e5e6209239443d122f3b8334e84519ed3139ba4373f0fb33f35"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.decode.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.decode.stdout",
+      "bytes": 104,
+      "sha256": "f594ebbbadef0ee4b6e69b5012a079e6bb256cdd5d3e918d4af1f79562e0d56c"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.metadata.json",
+      "bytes": 3637,
+      "sha256": "9fcfb84633f4ad14ea7f2345033db5daaa2fd9332c00406e2e4d4f7bfe01ea1c"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.original-check.json",
+      "bytes": 277,
+      "sha256": "a4eb811428730d13c815e2e74272214741c73b9fd59b875bb6bb8b8f4d7fcfe5"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.original-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.original-check.stdout",
+      "bytes": 265,
+      "sha256": "316245815159b2ec6e1c10b5712e4b9a5aa6f54d638143874084a4b748744291"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.sol.gz",
+      "bytes": 2136257,
+      "sha256": "e2fd197bbcb7ed64eba6858ad070902418c2b3fe390dd1613abbb0485c100568"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.stdout",
+      "bytes": 3114,
+      "sha256": "64268e870828fe35e8534d7c32e5aa65e3756c7e66b2d3aebbfe9c687782b632"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.unrename.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.unrename.stdout",
+      "bytes": 107,
+      "sha256": "b2c6aaddad7a27753393dd1a02679be4805311124e18599f6a17cb0f59b8a6c8"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.unrenamed.sol.gz",
+      "bytes": 2171465,
+      "sha256": "0b9a44a10f10f8e4eddaf15654a84ad46b09c435f342609884da9ab7cfe7d714"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.warm-check.json",
+      "bytes": 277,
+      "sha256": "293edb51cd7104a30298db3a3195325c5b8e3f937b142ceb23b7813616383bf0"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.warm-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.warm-check.stdout",
+      "bytes": 265,
+      "sha256": "c4e503f59c23a2cd9684bf2717a9fc3ddb624f3bcd87be2c2c1cddd0d4a80cd0"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.wrapper.stdout",
+      "bytes": 3277,
+      "sha256": "b47158fcd882aa5c427f1e16295a748c9fd22b9b539b4a83dc905975a57a8392"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm.mask.bin",
+      "bytes": 118484,
+      "sha256": "6096497a0192b830499cd561824d15c32297124d62f2ebca2d5699dd5331c215"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm.phase.json",
+      "bytes": 1296,
+      "sha256": "35c15bad321615e48b327a83a80bd423e187c182581baa372ea931285227ad0f"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm.prepare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-seed67warm.prepare.stdout",
+      "bytes": 1240,
+      "sha256": "124907b63a4be3d0420aa8cb1c378ce8be21ec064f7bc18a7a16c135408c9b9e"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.candidate.json",
+      "bytes": 3464,
+      "sha256": "0a751f1c6fbf2e5e6209239443d122f3b8334e84519ed3139ba4373f0fb33f35"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.decode.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.decode.stdout",
+      "bytes": 104,
+      "sha256": "f594ebbbadef0ee4b6e69b5012a079e6bb256cdd5d3e918d4af1f79562e0d56c"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.metadata.json",
+      "bytes": 3617,
+      "sha256": "5b0703e826ce6294823523208bf2290601dca924ff06bdbedc29dbcad47b92a6"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.original-check.json",
+      "bytes": 277,
+      "sha256": "5f4f58f79b082905f00e0bb18cd0fbdb50b40d9ccd3a293bea3ef0017ae61bf0"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.original-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.original-check.stdout",
+      "bytes": 265,
+      "sha256": "a51bed940440b0d95672400e37675887a9506e9a6527f4aeabf9fd5ac3122e18"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.sol.gz",
+      "bytes": 2136257,
+      "sha256": "e2fd197bbcb7ed64eba6858ad070902418c2b3fe390dd1613abbb0485c100568"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.stdout",
+      "bytes": 3096,
+      "sha256": "9125d144574ff15e387cc070ad5418d3575d336be7d394cdd8752874743a8d85"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.unrename.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.unrename.stdout",
+      "bytes": 107,
+      "sha256": "b182fe36cf91461c204e2eefc2d7d1765a89fd8390f2e26ef40324dfabdb20a4"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.unrenamed.sol.gz",
+      "bytes": 2170721,
+      "sha256": "e560613654a9592e274d995610f7381706c9d88f48d75a577e5d02d1b70a43ba"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.warm-check.json",
+      "bytes": 277,
+      "sha256": "e891b6751135b73a448527737727132725217628c93654bd24776baff294cf17"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.warm-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.warm-check.stdout",
+      "bytes": 265,
+      "sha256": "9a0b5f8a12e085ee5f3714d180a48259b3cfc5ee357b8a6ae680d02e477fb46f"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm-checked.wrapper.stdout",
+      "bytes": 3257,
+      "sha256": "d83b9046c38b96e4fbd8977e7785fb4300238a0d805ed93c4e900d003fea6525"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm.mask.bin",
+      "bytes": 118484,
+      "sha256": "cf4176d6f0808d1868265efa8e9cd079112934c444aa11c93600ee5883d6941e"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm.phase.json",
+      "bytes": 1034,
+      "sha256": "119b1e669832ec57927708053de3df8679a2451d383ccb91e5f4f7caabb798b1"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm.prepare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67-warm.prepare.stdout",
+      "bytes": 1000,
+      "sha256": "8fec13bc0a568affb7ce141e8f40da531abf0e8db0b78c1366078b6d96355b8d"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67.decode.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67.decode.stdout",
+      "bytes": 104,
+      "sha256": "f594ebbbadef0ee4b6e69b5012a079e6bb256cdd5d3e918d4af1f79562e0d56c"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67.emit.json",
+      "bytes": 839,
+      "sha256": "58dca7b33951636c0ed624b2e678c69f7d816a14173042fa280758c7b1d5dbc3"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67.emit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67.emit.stdout",
+      "bytes": 623,
+      "sha256": "50c74dd71f1efddb9f7b6a01fb47580e1bab801739a6d3949a4a5a9b4a53f413"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67.mapping.json",
+      "bytes": 1447857,
+      "sha256": "f87e13eef610b7eeec2a35a9dc419ac7bd796729bf7a6c54fb4365c255fe1d50"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67.run.json",
+      "bytes": 680,
+      "sha256": "41e1f53ee8550d9be3bfb61d0755c5e2f528f3a9134718b7a9395be6df7f88de"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67.sol.gz",
+      "bytes": 2176008,
+      "sha256": "404a48450527702932c44fd92436a2f4280a4b510733d6e63994c0d7fa3acfe9"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67.stdout",
+      "bytes": 3073,
+      "sha256": "2bb88ac42b2e1a74429c9de7590be8143969e767940a5338a65d014c0be63d03"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-control67.summary.json",
+      "bytes": 659,
+      "sha256": "67140a1ffbadf3e55cdec4a518f91b14846a6050f3afe8e8dec431b02012caad"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm.mask.bin",
+      "bytes": 112049,
+      "sha256": "44e75ec5af3340562510044ef0b87fb7d30a7886c0c26c6b878fe855c1631dc1"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm.phase.json",
+      "bytes": 1681,
+      "sha256": "b869b86a694135300d980779ff4bbfe292a82cd8d2a69ad1819e1ee8e1a95889"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm.prepare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-seed67warm.prepare.stdout",
+      "bytes": 1437,
+      "sha256": "76928fc5fbbba6cb1974c53e31ab7c587139ca451f7451395446590a201b9bef"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-warm.mask.bin",
+      "bytes": 112049,
+      "sha256": "146f7b07fb8edfe155c09531bdc0742f75f9bc24041e3a4bb7d7d44d20815fb4"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-warm.phase.json",
+      "bytes": 1333,
+      "sha256": "48ceec0f655c593fa4ef46b932a6dd3c2fb75cecd803479fd4965b8775f6c598"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-warm.prepare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63-warm.prepare.stdout",
+      "bytes": 1207,
+      "sha256": "3b4791e19c4ebee1aa5c39aafc797bdedbba285ca5eb6725ddbceec326c41f62"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63.emit.json",
+      "bytes": 725,
+      "sha256": "7ce3439e340578b1cc995ad9ceeeb5002636a813cdaca71429a5bda0b4afdd93"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63.emit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63.emit.stdout",
+      "bytes": 515,
+      "sha256": "e27c9a14d9680c89040ae9d3e6d71fa63cccfb45489729cea4a91f16ff67b5ae"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63.mapping.json",
+      "bytes": 1401621,
+      "sha256": "5a6c9aecacb10edec14304115d835be9f280848ae6ffa88462f3fda1c1a411eb"
+    },
+    {
+      "path": "results/orch/components2056/v5-nonread-target63.summary.json",
+      "bytes": 539,
+      "sha256": "74fd833ed98fff82f5321e4d90e8bb87589117015a4a25bb6cadc3570108d92e"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/README.md",
+      "bytes": 1295,
+      "sha256": "9eda8f414e6ecc7804b212f4bb79bd7e9964329fc1d8892b476fb5d9a54df433"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/direct_cnf_warm_first.py",
+      "bytes": 12644,
+      "sha256": "b9b6a04cf8b0458ef835e42944e3dc852c270b222c4f3c4a90b485be5baf155f"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/full-first-result-independent-review.json",
+      "bytes": 670,
+      "sha256": "af21b9211b40643e7b639211c37ddfe9d476c9192630e893141024d27435b1b8"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/manifest.json",
+      "bytes": 2248,
+      "sha256": "54227efd9249eaf52f44e43015e717bed0b7b322ee4f5833de57000daf121976"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/publication-pause-20261125.json",
+      "bytes": 1067,
+      "sha256": "e4b2a0b6fa1da11e09dbd0e84ad2e6b77ab5108ba61bdb8f4c150c91400cf590"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/warm-first-near63-full-run-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/warm-first-near63-full-run-wrapper.stdout",
+      "bytes": 1187,
+      "sha256": "be98c50ee661744cc542603dba9bee06a75eec5ebce6c881d815b2234635a4e5"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/warm-first-near63-full-run.cnf-identity.json",
+      "bytes": 197,
+      "sha256": "950e194c5320e04e4291c984f01558d16922a0f14bd333f64243262656e009bd"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/warm-first-near63-full-run.json",
+      "bytes": 811,
+      "sha256": "8dfdb2ff1bc9e8910fc96d16dbff7a7df45a47924284d2bf92a83e4e50125bc4"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/warm-first-near63-full-run.mapping.json",
+      "bytes": 692468,
+      "sha256": "df1a9fdb941acb193c722c175fda5f56374c0c1535dadb5425611bde662c4d00"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/warm-first-near63-full-run.process.json",
+      "bytes": 136,
+      "sha256": "9ab60005077b864352309c1a0109c8fff61f98b557b68d5978a21706b3997e07"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/warm-first-near63-full-run.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/warm-first-near63-full-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/full-first-result/warm-first-near63-full-run.stdout",
+      "bytes": 27846,
+      "sha256": "7d8e2ca3abf8f3f0b8e8f09922cd5afd2e7e27c62d615bc482591e71a14d8695"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/README.md",
+      "bytes": 1356,
+      "sha256": "235239b8f6d1ff5fbe88623f30cb34af90a3c00e3c5aee125dcd8afee1e8096e"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/audit_dirty2_native69.py",
+      "bytes": 4296,
+      "sha256": "6b6cfcc77d5072cd9deb6a90cfe940fd0cbe09b5735bc43f9b4dac0defc7a76a"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/audit_dirty2_negative67.py",
+      "bytes": 2257,
+      "sha256": "15d3e55ef9d06b3ccfb409c685d204df31cf9082f2d2cc1a187f45d8dc413c61"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/audit_dirty2_phase.py",
+      "bytes": 2856,
+      "sha256": "cfca3411ddc8d26e1afa48c6ba0dcf17fdeae73bb1cfd1c52287128080193294"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/audit_dirty2_target_delta.py",
+      "bytes": 2642,
+      "sha256": "5124a34ab0028ae7709299997c346b5de654bbf2e6f3307cda3bcc9d75a0ca29"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/direct_cnf_warm_dirty2.py",
+      "bytes": 16970,
+      "sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/dirty2-native69-independent-review.json",
+      "bytes": 732,
+      "sha256": "22104016a0faf1c86c7efbfc0d92566fb3663da8c8875a5d540f736a1c80283a"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/dirty2-native69-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/dirty2-native69-independent-review.stdout",
+      "bytes": 732,
+      "sha256": "22104016a0faf1c86c7efbfc0d92566fb3663da8c8875a5d540f736a1c80283a"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/dirty2-negative67-independent-review.json",
+      "bytes": 526,
+      "sha256": "609cc496986fe3883cab7b9542c84f100ab26f08aa22216c296d8c3dae6754d3"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/dirty2-negative67-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/dirty2-negative67-independent-review.stdout",
+      "bytes": 526,
+      "sha256": "609cc496986fe3883cab7b9542c84f100ab26f08aa22216c296d8c3dae6754d3"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/dirty2-normal-form-mapping-review.json",
+      "bytes": 2351,
+      "sha256": "ac1b53ed3358975aaf2263bc2fa6d9668f06f35725d81ef1fdc1246b2e11acd1"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/dirty2-phase-scanner-independent-review.json",
+      "bytes": 952,
+      "sha256": "939a2e24ab04d94c2e6ea5c6919e42aa60657745a7cc1760196859b9d67a0eaf"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/dirty2-source-control-independent-review.json",
+      "bytes": 876,
+      "sha256": "41585e2f40a5a81e2e764eb1eac270daa43e85ab3acc58919b39c9ac73ef1101"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/dirty2-target-delta-independent-review.json",
+      "bytes": 850,
+      "sha256": "4600805a5a5c0dde6a7dfebdeb9e07f4ed8460b1d89eec7c0fa29ff7b8044a08"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/dirty2-target-delta-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/dirty2-target-delta-independent-review.stdout",
+      "bytes": 850,
+      "sha256": "4600805a5a5c0dde6a7dfebdeb9e07f4ed8460b1d89eec7c0fa29ff7b8044a08"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/first-near63-gates.json",
+      "bytes": 806,
+      "sha256": "931ea96b38f4a2be9a95b39b791d7f2086204dc0019f5195b40201edb91d40be"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/frozen-hint-singleton-dirty-audit.json",
+      "bytes": 914,
+      "sha256": "544dd91d1189f3a0e273ccf5c1fd9824cc0469df7058596c0c032352ec041e77"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/frozen-hint-singleton-dirty-independent-review.json",
+      "bytes": 1221,
+      "sha256": "dbda9222881d2eec773eb519261a7350fe9bc87303a7abba6e87f5dd958cd0bf"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/manifest.json",
+      "bytes": 10411,
+      "sha256": "434af1b750aeb6a353934b2f398c1ee01e04f8a51cf0d93b356d920bb2366b8f"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/nested-control69-canonical.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/nested-control69-canonical.stdout",
+      "bytes": 138,
+      "sha256": "e4ce8bb44ed436799e535a8654e1d1d6d6981a119ee775f08e27a2912118d007"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/nested-control69-gates-mapped.json",
+      "bytes": 885,
+      "sha256": "b5da3540e72effa059ac7f2b8d82c61c9c26326cc85bb9a3f79458ed41888db1"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/nested-control69-gates-raw.json",
+      "bytes": 2129,
+      "sha256": "1e08b503a65da9d3c641fe578be6a29fba04a99b5f755ef5e2d5ae47ba909994"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/nested-control69-gates.json",
+      "bytes": 885,
+      "sha256": "d198b4fd3f7fc62c59d3123f725d2aec6f17626ce4a16cf51bee020d67ced1b1"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/nested-control69-joint-audit.json",
+      "bytes": 1032,
+      "sha256": "f55d862396191b402db1fbf0846be28840d159512c822dda666f44db3d61fd7a"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/nested-control69-joint-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/nested-control69-joint-audit.stdout",
+      "bytes": 536,
+      "sha256": "5c4da8936d281edcf7559183f6a154e5a8be3a54d51bfafce379d2b20b18d655"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/nested-control69-map.json",
+      "bytes": 431,
+      "sha256": "859a21719b32d45afb6c16203564d09c0437a57bd64b79e9d2d5ea57560fc8e2"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/nested-control69-map.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/nested-control69-map.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/nested-control69-normalization-audit.json",
+      "bytes": 387,
+      "sha256": "01fa14ec636d698964227b0022bda6f424f5ba05b3199ab0d3dc7a9e11ad2adc"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/plane2056-data.json",
+      "bytes": 34435,
+      "sha256": "4081d42537366e1e623bd478fef4a4ae9f8cb5de3e8bfc74cc64a4f488545a74"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/read1-control67-gates.json",
+      "bytes": 858,
+      "sha256": "1113558eb5a40836a278560b9ff6084a9cb480550f40e4efcaf55106467bc088"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/rows-all756.json",
+      "bytes": 7071,
+      "sha256": "ca7b6c7c697be2aaf13b24021b68dd265a66a3ab907f1010a4cf838e985e97b9"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control67-fixed-negative-phase-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control67-fixed-negative-phase-audit.stdout",
+      "bytes": 367,
+      "sha256": "a241e66bf5e370aa1e00525a3043f07caf85cc98dab70d9da75c22b78ca79340"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control67-fixed-negative-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control67-fixed-negative-wrapper.stdout",
+      "bytes": 1785,
+      "sha256": "bf2fcbe25b546493853bd2f9d7ba3d3c323d317deb046725bea15e7572ccd187"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control67-fixed-negative.json",
+      "bytes": 1281,
+      "sha256": "523ab39cdfebe725dddaaf70de22696aadb69d0d772c696e018024ff5fbe47fd"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control67-fixed-negative.mapping.json",
+      "bytes": 736849,
+      "sha256": "34f5fc114f8f368276551604f688520f9c7180c2dbbcd085db279eb879e2011e"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control67-fixed-negative.phase-check.json",
+      "bytes": 419,
+      "sha256": "09f4d46221b6d91c7c08092e60e498262ae5887ad9cd896f3a1294cafa06c790"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control67-fixed-negative.sol",
+      "bytes": 16,
+      "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control67-fixed-negative.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control67-fixed-negative.stdout",
+      "bytes": 2810,
+      "sha256": "43954daf83c4e12542b18d1848d7e1eb1b4712a64fa4d315f43bf765ff324905"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control69-free3-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control69-free3-wrapper.stdout",
+      "bytes": 1994,
+      "sha256": "a6d3ddbe07bec38d91d8db85def11f696003211b327205258ca4648fef0019ed"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control69-free3.json",
+      "bytes": 4441,
+      "sha256": "62224d1d30168bea96f2ab5a83d8fbb1e43f50b25faaf9112deec1531a2a9604"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control69-free3.mapping.json",
+      "bytes": 754959,
+      "sha256": "99187e7108f1f21c2a9736df6215687763b83895c29d3944b7860a9da6a810d8"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control69-free3.sol",
+      "bytes": 1377725,
+      "sha256": "7eb2bbe4b35c0aa59833278ad4a19856555519a6501603be600b45a1a9e800ea"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control69-free3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-control69-free3.stdout",
+      "bytes": 2995,
+      "sha256": "73c2a16c40ec9a094e07877b7695c7feb3d074dc0a288577efc422d375a28a22"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-near63-query-phase-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-near63-query-phase-audit.stdout",
+      "bytes": 551,
+      "sha256": "1c194a3d1841af95414148cb1038432c6c95e6c0d7fc12850614de7c61fcb205"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-near63-query-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-near63-query-wrapper.stdout",
+      "bytes": 922,
+      "sha256": "cfb1d5454513f93d7d8d55c41f1f134b902a4ad3cf2399e0d19c1221cafa65cc"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-near63-query.json",
+      "bytes": 1519,
+      "sha256": "c64854a43795b2892a20b63d34c860c6b363908cba581a2c389ce61c6b088e41"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-near63-query.mapping.json",
+      "bytes": 702750,
+      "sha256": "04a1a7b00c20c2b4162024066b76bfa725c4c6e498b2b8a8cae8234248b53cd0"
+    },
+    {
+      "path": "results/orch/plane-cegis/warm-dirty2/warm-dirty2-near63-query.phase-check.json",
+      "bytes": 707,
+      "sha256": "09808133d4df6bd820a7b7783b94cab5d6ac7d239e2eec46087926fcef34798c"
+    },
+    {
+      "path": "results/orch/publication040/README.md",
+      "bytes": 481,
+      "sha256": "604c99e819c192308a2f84489e096720d7ff716823ca152f58cbc602787512ba"
+    },
+    {
+      "path": "results/orch/publication040/archive2056-review-007-scan.json",
+      "bytes": 1517,
+      "sha256": "19e1ddfc2a8a2edc063b8530121319cd57bb518f173059285e6ac2bd9af4fb71"
+    },
+    {
+      "path": "results/orch/publication040/commit039.json",
+      "bytes": 247,
+      "sha256": "72f3e3d618616a1a9221ca658d2f3954e55e5597e4708cc1c923d54289ba42d2"
+    },
+    {
+      "path": "results/orch/publication040/commit040.json",
+      "bytes": 694,
+      "sha256": "09ce24b20d3e77da6ecc8f8748e61a4c72e52f934a8eb5ae4369c6f3e7542c60"
+    },
+    {
+      "path": "results/orch/publication040/push040-command.json",
+      "bytes": 523,
+      "sha256": "e37c9925ca2881da44b30ef1185dbda92e385313ce37bf4f0549311cc9f57765"
+    },
+    {
+      "path": "results/orch/publication040/push040-result.json",
+      "bytes": 593,
+      "sha256": "b3a19a3b38b4a756f089419021e564a39103d86a51678432db7101739d6b26cb"
+    },
+    {
+      "path": "results/orch/publication040/push040.stderr",
+      "bytes": 136,
+      "sha256": "60abff6ed72a759c592f7d3b69fbbce0d56802ba223be750279249f53abda052"
+    },
+    {
+      "path": "results/orch/publication040/push040.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/publication041/README.md",
+      "bytes": 355,
+      "sha256": "a472fe483234ac78bf3f3d56420951444a8fcbb1614c9915b69195954ff57137"
+    },
+    {
+      "path": "results/orch/publication041/commit041.json",
+      "bytes": 666,
+      "sha256": "1e32b2aa67bf684c768e6ade853328b37d794a7a0b491fabfdabfe08d946e2c9"
+    },
+    {
+      "path": "results/orch/publication041/push041-command.json",
+      "bytes": 543,
+      "sha256": "6bbccac480a6ff203a2bf6ae54d339b09b6ec183f0e3612bf5090ba9a2767618"
+    },
+    {
+      "path": "results/orch/publication041/push041-result.json",
+      "bytes": 613,
+      "sha256": "cf3558da670f8ab578bdd56edf2d18913a367bbf139459101331e6d8693106b6"
+    },
+    {
+      "path": "results/orch/publication041/push041.stderr",
+      "bytes": 136,
+      "sha256": "18b35360d3f17449ac3f0bd42de02215dbf141355e963ba3ec2f2a0c97590e29"
+    },
+    {
+      "path": "results/orch/publication041/push041.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/publication042/README.md",
+      "bytes": 438,
+      "sha256": "d1959b6ee2baa739f1289c140da52d5b07cd3291e5c35d33719bb123d548033a"
+    },
+    {
+      "path": "results/orch/publication042/commit042.json",
+      "bytes": 629,
+      "sha256": "64a7de70b74dec393c4855f3548661abf3674de976dfb78f243692441b373fa5"
+    },
+    {
+      "path": "results/orch/publication042/push042-command.json",
+      "bytes": 528,
+      "sha256": "598ddffa627112887dc93155fb472196a5fe0686e3a1331c65af6f2aef80a2d3"
+    },
+    {
+      "path": "results/orch/publication042/push042-result.json",
+      "bytes": 598,
+      "sha256": "2b0d13672b0271fc4af6d2fde77ad1572829bee1c666a0fd0caf43058364091f"
+    },
+    {
+      "path": "results/orch/publication042/push042.stderr",
+      "bytes": 136,
+      "sha256": "dd5bef667c5bdbe06a517150c0ba00a896e95300a483e80a159a10eac17aa637"
+    },
+    {
+      "path": "results/orch/publication042/push042.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/publication042/two-dirty-approved-preservation-manifest.json",
+      "bytes": 1237,
+      "sha256": "f01f02e0588e1fffa298a061cfaf5e7e7588e267ebfab91d8ce6e8568fef6936"
+    },
+    {
+      "path": "results/orch/research/checker-readiness2056-independent-spot-review.json",
+      "bytes": 960,
+      "sha256": "b4a882cdb4d04e6cef4ec93e253d30cb0922071c522cf03f79e985027b067fdf"
+    },
+    {
+      "path": "results/orch/research/checker-readiness2056.json",
+      "bytes": 2029,
+      "sha256": "9273bc8d699c2410629c36c9badeeb8fc6d5bbe1986982360641509bd5acc109"
+    },
+    {
+      "path": "results/orch/research/checker-readiness2056.md",
+      "bytes": 4048,
+      "sha256": "85e2da0177f2e6dc09029857dd055e4753d2a9383b9c2ada2d6c0cb2fe8cdcfe"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/README.md",
+      "bytes": 1455,
+      "sha256": "2ca15b355ba00f6a707ac2cff1b18314bfed55fa74ac105c87a96a4cedaae6ad"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/REPORT.json",
+      "bytes": 1798,
+      "sha256": "c546631704b16ebe87dad65d4a9a93505a6bee5627a88842544679cbf79efb95"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/census_upstream1913.py",
+      "bytes": 3625,
+      "sha256": "7dbdbd00543872b45be8b0ddfee14de61aed2aaac8a19b29fe43aa3a58fe3d7b"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/manifest.json",
+      "bytes": 2547,
+      "sha256": "2a086bdce873194b66e526909dfd3994160df83a8d0abfce9dba41d8b37b9b3c"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/upstream-export-006.json",
+      "bytes": 50883,
+      "sha256": "aff0e3b481cbd5229c8580526f8324be9fb1da3e8b031844702ebf78de92305d"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/upstream1913-census-summary.json",
+      "bytes": 293,
+      "sha256": "001aa8e249a4d99b50d53203db9fb334162ca544ea6c8f6b5407cbd27bda0f6c"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/upstream1913-census-summary.json.initial-by-only",
+      "bytes": 8619,
+      "sha256": "65e87cc2106b948b9d917ae2f0e80e62833d744c36d3410cfafd089e6f1181fa"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/upstream1913-census.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/upstream1913-census.stderr.initial-by-only",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/upstream1913-census.stdout",
+      "bytes": 6364,
+      "sha256": "d936535d27d8cea59ac416a9c0becada886814a6e231be887daa242685b952ab"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/upstream1913-census.stdout.initial-by-only",
+      "bytes": 13006,
+      "sha256": "1154f5ad809f85a63b208991fa4bcb410e36e744af283b17c8076fdc1448d64b"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/upstream1913-extraction-failures.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/upstream1913-extraction-failures.json.initial-by-only",
+      "bytes": 7687,
+      "sha256": "d00d8b4466b8fa8d6ebd3c49a01d9a7a21654caebffdb57ebbcbc48c6ac46bf5"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/upstream1913-files.txt",
+      "bytes": 24772,
+      "sha256": "f03e56380e4239ae31c1e0f9777892bc086c3e18158f49f6a491b57acd7f3bb8"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/upstream1913-final-statements.json",
+      "bytes": 588989,
+      "sha256": "9cf6ed7e1b1d105360e8beefe4b98c95e15e55bf586ada4252aa4a06b9db6b54"
+    },
+    {
+      "path": "results/orch/research/upstream-1913-final-census/upstream1913-header-families.json",
+      "bytes": 20245,
+      "sha256": "aa4d2572e00cc07dc1839e6cbabc8cb9d2b2bb0900440a29c7b9ef54b4525d8f"
+    },
+    {
+      "path": "results/orch/review-andcount2056-final.json",
+      "bytes": 1659,
+      "sha256": "7fe61eb5fff97d3e192e4c09cade8e72fde9c3bc450a4d42ac4571b95bb83d8b"
+    },
+    {
+      "path": "results/orch/review-andcount2056-original.json",
+      "bytes": 729,
+      "sha256": "95b8c5f37438239b1960cc459d92b03829857deab5b96d6c6904ba42a3fd647a"
+    },
+    {
+      "path": "results/orch/review-upstream1913-final-census.json",
+      "bytes": 665,
+      "sha256": "d83676fc274a3d3aa0d98bf47329148a527655594307e08bd95bcb297e515dee"
+    },
+    {
+      "path": "results/orch/strategy2056-search.md",
+      "bytes": 21717,
+      "sha256": "da2fe4f65fe91158bb73607ebebe7a188fc96a7cde80efc740af504f60922d3c"
+    },
+    {
+      "path": "results/orch/validation.txt",
+      "bytes": 22465,
+      "sha256": "deb2d254b961c7c295da29ae3349c0def3f52ee1454b5826e3491138a7110ec2"
+    }
+  ]
+}

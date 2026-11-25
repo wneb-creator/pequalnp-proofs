@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-25T19:33:45.334753+00:00",
+  "manifest_sha256": "5f1a5817848a56c547919c8d5bf536a9b00c5d05fcf48838500c4f6fdf08959b",
+  "file_count": 389,
+  "total_bytes": 57024315,
+  "decoded_bytes": 191266726,
+  "json_files": 153,
+  "hash_errors": [],
+  "privacy_matches": [],
+  "over50MB_files": [],
+  "symlinks": [],
+  "active_runtime_paths": [],
+  "scope": "Preservation008 of completed artifacts and timestamped reports; no target theorem/checker/PR",
+  "scan_verdict": "PASS"
+}

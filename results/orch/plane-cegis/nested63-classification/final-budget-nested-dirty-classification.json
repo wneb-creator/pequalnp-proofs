@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-25T19:19:44.813713+00:00",
+  "status": "finite classification only; incomplete warm model",
+  "literal_gates": 63,
+  "dirty_AND_wires": [
+    28,
+    31
+  ],
+  "singleton_accepting_AND_wires": [],
+  "positive_misses": 6,
+  "false_positives": 0,
+  "model_sha256": "00bdaeb50a4f21f2cfe1f1ca12830f505d258dfa0f48be22d598744f45a42720",
+  "literal_sha256": "8b1ca2c5feede0bbacbf78bbf851e4aebdf04b7ed9f0b523476935a325230d71",
+  "expansion_source_sha256": "7bc8492ef53299193408b0d9b29fb3b1bd755b6c403852591d56fb3a7f3b12e4"
+}

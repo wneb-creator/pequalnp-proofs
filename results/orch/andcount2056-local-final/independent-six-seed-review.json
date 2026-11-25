@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-25T19:38:03.542851+00:00",
+  "verdict": "APPROVED narrow data/source delta",
+  "source_sha256": "79f7abdd4d8171bc60e357f9176ebad697a19ff7493fa49ec075b4ea4b4c67a8",
+  "header_sha256": "18b99fe7a0ad0026dfd4016f2903ea4932b488088e13c7ca7eba7795e49d8d8b",
+  "reviewed_base_sha256": "e8c26582b9f65f7c65fd39c4cf03227af0e84b7c2db11f4cfa768ecbecf044ca",
+  "seed_source_sha256": "cd15b9876b4f2bb6d225b4d8db786c0841dabc09e1416de419b0afe32b7db6f7",
+  "seed_sizes": [
+    66,
+    66,
+    66,
+    66,
+    69,
+    66
+  ],
+  "checked": [
+    "Engine equals approved5-seed version after only include filename and startup PASS5-to-PASS6 label substitutions.",
+    "Actual C++ header parses to five original circuits plus exact audited nested69 record0 inserted before unchanged final66.",
+    "All6 actual header circuits independently replayed on all756 boundary rows with valid backward references.",
+    "Startuporiginal66 and maininitial66 retained; array70slot bound accommodates69.",
+    "Observed0-second controls pass6 exact seeds,1000 scalar/bitset+compaction,66to65 shrink and100 CNF/DNF expansions."
+  ],
+  "scope": "No new search run or witness claim; shared engine/helper review remains the approved base review."
+}

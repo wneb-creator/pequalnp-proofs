@@ -1,0 +1,33 @@
+{
+  "status": "native running; frozen final target verified",
+  "prepared_utc": "2026-11-25T19:06:42.814430+00:00",
+  "argv": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-121/andcount2056/andcount_budget_final2056.py",
+    "--ands",
+    "16",
+    "--ordinary-limit",
+    "63",
+    "--warm-model",
+    "/tmp/oec/pequalnp-pilot-121/not-elimination/andbudget-prefix-nested63-model.json",
+    "--prefix",
+    "/tmp/oec/pequalnp-pilot-121/andcount2056/final-budget16-nested-run",
+    "--seconds",
+    "2400"
+  ],
+  "source_sha256": "7bc8492ef53299193408b0d9b29fb3b1bd755b6c403852591d56fb3a7f3b12e4",
+  "warm_model_sha256": "00bdaeb50a4f21f2cfe1f1ca12830f505d258dfa0f48be22d598744f45a42720",
+  "expected_cnf_sha256": "e42404f6305da9ecf29c910da15f6efae829737ba5a91cb799929172f130d41d",
+  "gates": "await original query completion and parent fresh renewal before launch",
+  "absolute_search_stop_utc": "2026-11-25T20:00:00+00:00",
+  "launch_utc": "2026-11-25T19:13:20.600888+00:00",
+  "parent_renewal_utc": "2026-11-25T19:12:10.413313+00:00",
+  "parent_reported_expiry_utc": "2026-11-25T19:32:10.413+00:00",
+  "cpu_workers": 1,
+  "wrapper_pid": 42873,
+  "solver_pid": 43170,
+  "native_start_observed_utc": "2026-11-25T19:13:28.609608+00:00",
+  "native_deadline_utc": "2026-11-25T19:53:28.609608+00:00",
+  "native_start_observation": "process metadata file timestamp immediately after Popen",
+  "cnf_sha256": "e42404f6305da9ecf29c910da15f6efae829737ba5a91cb799929172f130d41d"
+}

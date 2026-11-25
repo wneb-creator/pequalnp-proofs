@@ -1,0 +1,65 @@
+{
+  "scope": "Standalone recovery checker and69-gate replay control; no target witness",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1649,
+      "sha256": "738179c513b5adcf4c4431a1499aa5e58aeb2980f4e4b39cbb17638984ac7dda"
+    },
+    {
+      "path": "dirty2-recovery-independent-review.json",
+      "bytes": 665,
+      "sha256": "7064b9f2226920ce7908cff70e1e61aa0b9d12d2438b31f367111c62d79a5408"
+    },
+    {
+      "path": "recover_dirty2_result.py",
+      "bytes": 6757,
+      "sha256": "42a6ea7ff42a70bd81d0d30483e0fe6663b954558b7823ad405ca58d3be64447"
+    },
+    {
+      "path": "recovery-control69-2.stderr",
+      "bytes": 845,
+      "sha256": "9c09083991b293dff4f9664ce73f05b5e7a9af8003f0682d81d752315d65131c"
+    },
+    {
+      "path": "recovery-control69-2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "recovery-control69-3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "recovery-control69-3.stdout",
+      "bytes": 880,
+      "sha256": "6667de32a770150ad460b4bb445ee0dc49af87cbbe65527849717bce09bdc25c"
+    },
+    {
+      "path": "recovery-control69-4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "recovery-control69-4.stdout",
+      "bytes": 1179,
+      "sha256": "f619d5127fcb3c93410ad02f132b6576038434314772c08bfd7f4ac7cf2f3bc6"
+    },
+    {
+      "path": "recovery-control69.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "recovery-control69.stdout",
+      "bytes": 502,
+      "sha256": "2ba3a564dca7b26927ed1c7a1aad88b481f42d225ab7b54011ae75d35217605b"
+    },
+    {
+      "path": "warm-dirty2-control69-free3.recovered.json",
+      "bytes": 4092,
+      "sha256": "52632bc6c4e726bed98a7c295ecec57ae546503741d79ca3454219c4898dd229"
+    }
+  ]
+}

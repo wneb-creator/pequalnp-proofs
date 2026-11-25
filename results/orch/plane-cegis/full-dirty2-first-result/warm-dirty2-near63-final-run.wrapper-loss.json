@@ -1,0 +1,11 @@
+{
+  "observed_utc": "2026-11-25T19:53:25.440664+00:00",
+  "wrapper_pid": 45361,
+  "wrapper_state": "Z",
+  "kernel_wait_status_field52": 9,
+  "decoded_wrapper_exit": -9,
+  "native_pid": 45416,
+  "native_alive_at_observation": true,
+  "context": "Wrapper death observed after environment transition; cause of SIGKILL not established",
+  "recovery": "Use separately reviewed posthoc CNF/model verifier; original automatic wrapper validation did not complete"
+}

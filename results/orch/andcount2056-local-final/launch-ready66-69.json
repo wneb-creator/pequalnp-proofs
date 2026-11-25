@@ -1,0 +1,30 @@
+{
+  "source_seed_file": "/workspace/pequalnp-proofs/results/orch/patch2056/full-nested-dirty-seeds.json",
+  "source_seed_file_sha256": "cd15b9876b4f2bb6d225b4d8db786c0841dabc09e1416de419b0afe32b7db6f7",
+  "record": 0,
+  "source_sha256": "79f7abdd4d8171bc60e357f9176ebad697a19ff7493fa49ec075b4ea4b4c67a8",
+  "header_sha256": "18b99fe7a0ad0026dfd4016f2903ea4932b488088e13c7ca7eba7795e49d8d8b",
+  "seed_sizes": [
+    66,
+    66,
+    66,
+    66,
+    69,
+    66
+  ],
+  "changes_from_approved_5_seed_variant": [
+    "seed header include filename",
+    "count message5to6",
+    "inserted audited69 seed before last66"
+  ],
+  "main_start_unchanged": true,
+  "runtime_logic_unchanged": true,
+  "binary_sha256": "2cf1d2c49c4e2ebee1a889633ed3ed41459d71744247df278896a8ccda87431a",
+  "rows_sha256": "535859e22fe4f5f187c9655d3ba3ad15e4b6d967b51b4981eba9d56925f62f48",
+  "independent_review_sha256": "a526453ecab4aa9505ee959c4a09d7f1701af4f9d20255fe6443a4571e5288f6",
+  "native_seconds_limit": 600,
+  "absolute_stop_utc": "2026-11-25T19:55:00+00:00",
+  "starting_main_seed": "exact66 with7 jointRead1 failures,1 dirtyAND",
+  "retained_structural_constraints": false,
+  "status": "ready; requires completedK13 and fresh root renewal"
+}
