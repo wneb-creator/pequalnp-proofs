@@ -40,3 +40,5 @@ GenericDefEqualities.lean: exit 0; 151 unconditional definitional equalities, ea
 BinaryCofactorProbe.lean: exit 0, 22.445 s; full normalized lower bound 14 and non-NOT gate count from the existing checked low383 premise. Independent status_review audit passed. Full log logs/binary-cofactor-check-2.log. This is a conditional component, not the full gap theorem.
 
 FastStateCodecProbe.lean: exit 0 in 40.524 s. Root independent review passed: optimized state decoder uses the new cmpNode/cmpOps interface and proves equality to the unchanged semantic stateSet. Full log logs/fast-state-codec-check.log.
+
+Width768Probe.lean: Lean exit 0, full generic core and g15/g31 certificate replay. Root independent review passed: sample row 90 is repeated through rows 91..767; generic bit width and packed-lane stride change consistently, while opcode/witness data remain unchanged. Full log width768-probe-build.log. Remaining widened certificates are not yet replayed.

@@ -38,3 +38,7 @@
 - 2026-11-25T04:03:49.801975+00:00: Independently reviewed generic equalities and cofactor argument preserved for early push.
 
 - 2026-11-25T04:07:34.519026+00:00: Checked fastState codec repair independently reviewed for preservation.
+
+- 2026-11-25T04:09:51+00:00: widened 5120 core + two certificate forests passed Lean; small-probe slot released to root bounded-batch test.
+
+- 2026-11-25T04:10:41.688966+00:00: Wider5120 verifier and two certificate families checked and independently reviewed.
