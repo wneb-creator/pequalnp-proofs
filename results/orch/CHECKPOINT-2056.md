@@ -1,6 +1,6 @@
 # L-meta-2056 checkpoint
 
-As of 2026-11-25T18:12:27.952027+00:00. This is research in progress, not a submitted proof.
+As of 2026-11-25T18:20:26.018015+00:00. This is research in progress, not a submitted proof.
 
 The posted goal is a monotone circuit with at most 63 two-input gates for the order-three projective-plane incidence function. No 63-gate witness or full refutation has been found. No PR has been opened. The local target checker has not accepted a proof, and the final cleanup pass has not started.
 
@@ -9,6 +9,8 @@ The named partial `lean/PEqualNP/Outside/L_meta_2056.lean` remains 728 lines, id
 Compiled and independently reviewed supporting results now include directed dominance deletion, exact patch extension, geometric cover facts, and the equivalence between the posted tests and the full incidence function. RectangleCover2056 excludes only a restricted weighted rectangle-cover model; it is not a general circuit lower bound.
 
 New compiled helpers establish a general upper bound of 2 to the AND-gate count on the number of maximal false inputs, via CircuitMaxFalse2056. PlaneFalseCount2056 kernel-checks 513 distinct bounded masks that are false on the literal 52 incidence edges and become true after adding any absent variable. MaskFalseRows2056 proves the finite-mask to maximal-false-cardinality bridge. These independently reviewed files and full build records are pushed at 1bbb11feef0c63b1ff58d5481d1f7cb4e4304c01. The combined concrete ten-AND theorem subsequently compiled and passed independent review: `PlaneAndCountLower2056.lean`, 1019 lines, SHA256 `044bff5c51b463811d3811ceb36894bd58a6f1d6f7ff0994f1e3d0f5f3e40a49`, pushed at `2ce707ab18d8b6a952f0ba14784d5cfaf34ee297`. This is a lower bound on AND count only; it does not decide the total-gate target.
+
+SumPlaneReadOne2056.lean compiled at18:19:48.837 UTC in97.09 seconds,2019 lines,SHA256 c7225eb37c0b218f063959cb7d92bc437d3ad4caa29fda1833f1ac543d29d7b9. It directly instantiates the generic read-one bound for the exact Nat-sum incidence function: IsAO2 26 C, full correctness, and IsReadK 26 C 1 imply64≤C.size. This closes the sum/difference labeling bridge. It does not prove an unrestricted64-gate lower bound or the posted63-gate existence statement. Full stdout/stderr/command metadata are preserved.
 
 Four CPU workers now run stable, hour-long SAT queries. The first is the full 63-gate/756-row model with proved necessary conditions and independently justified symmetry rules; its frozen first-gate variant started natively at 18:09:32.155 UTC with a 3600-second limit and 8,820,813 clauses. The second searches for at most 12 AND gates while allowing OR subsets at no cost; any model still needs its ordinary gate count measured. The third selects an acyclic circuit from a finite library of observed wire profiles, augmented by valid final-OR recombinations. The fourth searches up to 16 active AND records with a membership cap that guarantees at most 63 ordinary binary gates when the OR operands are expanded independently. These are different search models; an UNKNOWN outcome is not UNSAT, and an UNSAT result in either restricted construction model would not refute the posted statement.
 
@@ -25,4 +27,4 @@ The latest upstream refresh is ed419030b2f93e3f357003611f865f28e436bd9a. Indepen
 There were 3 null desk replies before this assignment; their exact messages are in null-polls-2056.json. The root alone holds and renews the lease on a five-minute timer, with additional renewals before long work. The latest recorded renewal at this checkpoint was 2026-11-25T18:11:04.721933+00:00, expiry 2026-11-25T18:31:03.887Z. Lease control values are not included here.
 
 Sub-agents: circuit_search, gate_elimination, not_elimination, proof_route, status_review, toolchain_setup
-TIMING total=237.32 subagents=6
+TIMING total=245.28 subagents=6

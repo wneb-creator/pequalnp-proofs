@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lake",
+    "env",
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lean",
+    "../results/orch/lemmas/SumPlaneReadOne2056.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-25T18:18:11.752053+00:00",
+  "ended_utc": "2026-11-25T18:19:48.837146+00:00",
+  "wall_seconds": 97.0851446329998,
+  "exit_code": 0,
+  "source_sha256": "c7225eb37c0b218f063959cb7d92bc437d3ad4caa29fda1833f1ac543d29d7b9",
+  "lines": 2019,
+  "scope": "Conditional sum-incidence lower bound64 for IsAO2 circuits computing the full plane function with IsReadK1; not an unrestricted63-gate proof or refutation"
+}

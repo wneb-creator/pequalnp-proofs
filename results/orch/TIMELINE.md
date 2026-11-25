@@ -62,3 +62,5 @@
 2026-11-25T18:11:23+00:00: four-stratum local search finished normally,265012058 proposals, no witness;148 retained networks archived, including128 nested candidates.
 
 2026-11-25T18:12:24.026+00:00: frozen K16 bounded-membership size63 SAT began,3600-second native cap,309088 variables/1324820 clauses, nested6-miss phase. All cost clauses pass; native64 controls and target phase independently reviewed.
+
+2026-11-25T18:19:48.837146+00:00: SumPlaneReadOne2056.lean compiled at18:19:48.837 UTC in97.09 seconds,2019 lines,SHA256 c7225eb37c0b218f063959cb7d92bc437d3ad4caa29fda1833f1ac543d29d7b9. It directly instantiates the generic read-one bound for the exact Nat-sum incidence function: IsAO2 26 C, full correctness, and IsReadK 26 C 1 imply64≤C.size. This closes the sum/difference labeling bridge. It does not prove an unrestricted64-gate lower bound or the posted63-gate existence statement. Full stdout/stderr/command metadata are preserved.
