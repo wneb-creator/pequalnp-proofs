@@ -1137,4 +1137,86 @@ lemma restrict_essential_input_false {n : ℕ} {C : Circuit} (hM : Monotone2 C)
 
 end Pruning
 
+namespace MixedSixBoundary
+
+abbrev graph : SimpleGraph (Fin 26) :=
+  SimpleGraph.fromRel fun u v => u.val < 13 ∧ 13 ≤ v.val ∧
+    (u.val + v.val) % 13 ∈ ([0, 1, 3, 9] : List ℕ)
+
+def support : Finset (Fin 26) := {0, 15, 17, 18, 19, 20}
+
+def neighbors : Finset (Fin 26) :=
+  Finset.univ.filter fun v => ∃ u ∈ support, graph.Adj u v
+
+def edge (A : Finset (Fin 26)) : Bool :=
+  decide (∃ p ∈ A, ∃ q ∈ A, graph.Adj p q)
+
+def preMask (A : Finset (Fin 26)) : Bool :=
+  edge A || decide (support ⊆ A)
+
+def mask (A : Finset (Fin 26)) : Bool :=
+  decide (∃ v ∈ A, v ∈ neighbors)
+
+theorem support_size : support.card = 6 := by decide +kernel
+
+theorem support_shores :
+    (support.filter fun v => v.val < 13).card = 1 ∧
+    (support.filter fun v => 13 ≤ v.val).card = 5 := by decide +kernel
+
+theorem support_independent :
+    ∀ u ∈ support, ∀ v ∈ support, ¬ graph.Adj u v := by decide +kernel
+
+set_option synthInstance.maxSize 1000 in
+theorem neighborhood_covers_edges : ∀ a b, graph.Adj a b →
+    (∃ u ∈ support, graph.Adj u a) ∨ (∃ u ∈ support, graph.Adj u b) := by
+  decide +kernel
+
+theorem neighborhood_size : neighbors.card = 16 := by decide +kernel
+
+theorem not_dominating_witness :
+    (21 : Fin 26) ∉ support ∧ ∀ u ∈ support, ¬ graph.Adj u 21 := by
+  decide +kernel
+
+theorem edge_support : edge support = false := by decide +kernel
+
+theorem preMask_support : preMask support = true := by
+  simp [preMask]
+
+theorem preMask_mono (A B : Finset (Fin 26)) (hAB : A ⊆ B)
+    (h : preMask A = true) : preMask B = true := by
+  simp only [preMask, Bool.or_eq_true, edge, decide_eq_true_eq] at h ⊢
+  rcases h with ⟨p, hp, q, hq, hpq⟩ | hs
+  · exact Or.inl ⟨p, hAB hp, q, hAB hq, hpq⟩
+  · exact Or.inr (fun u hu => hAB (hs hu))
+
+lemma neighborhood_cover_mask_identity
+    {α : Type*} [Fintype α] [DecidableEq α]
+    (G : SimpleGraph α) [DecidableRel G.Adj] (U : Finset α)
+    (cover : ∀ a b, G.Adj a b →
+      (∃ u ∈ U, G.Adj u a) ∨ (∃ u ∈ U, G.Adj u b))
+    (A : Finset α) :
+    ((decide (∃ a ∈ A, ∃ b ∈ A, G.Adj a b) || decide (U ⊆ A)) &&
+      decide (∃ v ∈ A, ∃ u ∈ U, G.Adj u v)) =
+        decide (∃ a ∈ A, ∃ b ∈ A, G.Adj a b) := by
+  by_cases he : ∃ a ∈ A, ∃ b ∈ A, G.Adj a b
+  · have hit : ∃ v ∈ A, ∃ u ∈ U, G.Adj u v := by
+      obtain ⟨a, ha, b, hb, hab⟩ := he
+      rcases cover a b hab with h | h
+      · exact ⟨a, ha, h⟩
+      · exact ⟨b, hb, h⟩
+    simp [he, hit]
+  · by_cases hs : U ⊆ A
+    · have miss : ¬ ∃ v ∈ A, ∃ u ∈ U, G.Adj u v := by
+        rintro ⟨v, hv, u, hu, huv⟩
+        exact he ⟨u, hs hu, v, hv, huv⟩
+      simp [he, miss]
+    · simp [he, hs]
+
+theorem masked_eq (A : Finset (Fin 26)) :
+    (preMask A && mask A) = edge A := by
+  have h := neighborhood_cover_mask_identity graph support neighborhood_covers_edges A
+  simpa [preMask, mask, edge, neighbors] using h
+
+end MixedSixBoundary
+
 end PEqualNP.Outside.L_meta_2056
