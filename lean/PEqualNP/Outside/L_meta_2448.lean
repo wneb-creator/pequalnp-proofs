@@ -672,3 +672,443 @@ lemma bad_pair_of_not_star (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.A
   exact hn ⟨j, hj, hop, u, v, hadj, hv⟩
 
 end PEqualNP.Outside.L_meta_2448_aux.PairSound
+
+
+namespace PEqualNP.Outside.L_meta_2448_aux.StarExistence
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2448_aux.Existence
+
+lemma and_reads_input (n : ℕ) (C : Circuit) (j : ℕ) (u : Fin n)
+    (hj : j < C.gates.length) (hop : (gateAt C j).op = GateOp.and)
+    (hu : u.val ∈ (gateAt C j).inputs) (x : Fin n → Bool)
+    (hx : gateVal n C j x = true) : x u = true := by
+  let pre := C.gates.take j
+  let post := C.gates.drop (j + 1)
+  let g := C.gates[j]'hj
+  have hpre : pre.length = j := by
+    simp [pre, Nat.min_eq_left (Nat.le_of_lt hj)]
+  have hga : gateAt C j = g := by
+    simp [gateAt, g, List.getD_eq_getElem?_getD, hj]
+  have hgs : C.gates = (pre ++ [g]) ++ post := by
+    dsimp [pre, post, g]
+    rw [List.append_assoc]
+    change C.gates = C.gates.take j ++ C.gates[j] :: C.gates.drop (j + 1)
+    rw [List.cons_getElem_drop_succ, List.take_append_drop]
+  let W := wf pre (List.ofFn x)
+  have hW : W.length = n + j := by
+    dsimp [W]
+    rw [wf_len, List.length_ofFn, hpre]
+  have hval : gateVal n C j x =
+      g.op.eval (g.inputs.map fun i => W.getD i false) := by
+    change (wf C.gates (List.ofFn x)).getD (n + j) false = _
+    rw [hgs, wf_prefix (pre ++ [g]) post (List.ofFn x) (n + j)
+      (by simp [hpre]), wf_snoc]
+    change (W ++ [g.op.eval (g.inputs.map fun i => W.getD i false)]).getD
+      (n + j) false = _
+    rw [← hW, getD_snoc_eq]
+  rw [hga] at hop hu
+  rw [hval, hop] at hx
+  change (g.inputs.map fun i => W.getD i false).all id = true at hx
+  have hraw := List.all_eq_true.mp hx _ (List.mem_map.mpr ⟨u.val, hu, rfl⟩)
+  have hinput : W.getD u.val false = x u := by
+    dsimp [W]
+    rw [wf_keep _ _ _ (by simp)]
+    simp
+  rw [hinput] at hraw
+  exact hraw
+
+lemma raw_ands_star (n : ℕ) (G : SimpleGraph (Fin n)) (C : Circuit)
+    (hraw : ∀ g ∈ C.gates, g.op = GateOp.and →
+      ∃ u : Fin n, u.val ∈ g.inputs) : HasStarProfile n G C := by
+  intro j hj hop
+  have hmem : gateAt C j ∈ C.gates := by
+    have he : gateAt C j = C.gates[j]'hj := by
+      simp [gateAt, List.getD_eq_getElem?_getD, hj]
+    rw [he]
+    exact List.getElem_mem hj
+  obtain ⟨u, hu⟩ := hraw (gateAt C j) hmem hop
+  right
+  refine ⟨u, ?_⟩
+  intro a b _hab hown
+  have h := and_reads_input n C j u hj hop hu (pairInput a b) hown.2.2.1
+  have he : u = a ∨ u = b := of_decide_eq_true h
+  exact he.imp Eq.symm Eq.symm
+
+lemma build_and_raw (n : ℕ) : ∀ E : List (Fin n × Fin n),
+    ∀ g ∈ build n E, g.op = GateOp.and → ∃ u : Fin n, u.val ∈ g.inputs := by
+  intro E
+  induction E with
+  | nil =>
+    intro g hg hop
+    simp only [build, List.mem_cons, List.not_mem_nil, or_false] at hg
+    subst g
+    cases hop
+  | cons e es ih =>
+    intro g hg hop
+    simp only [build, List.mem_append, List.mem_cons, List.not_mem_nil, or_false] at hg
+    rcases hg with hg | rfl | rfl
+    · exact ih g hg hop
+    · exact ⟨e.1, by simp⟩
+    · cases hop
+
+lemma build_profile (n : ℕ) (G : SimpleGraph (Fin n)) (E : List (Fin n × Fin n)) :
+    HasStarProfile n G ⟨build n E, n + 2 * E.length⟩ := by
+  apply raw_ands_star
+  exact build_and_raw n E
+
+lemma graph_star_exists (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] :
+    ∃ C : Circuit, Monotone2 C ∧ circuitFun n C = graphFun G ∅ ∧ HasStarProfile n G C := by
+  classical
+  let E : List (Fin n × Fin n) :=
+    ((List.finRange n).product (List.finRange n)).filter (fun e => decide (G.Adj e.1 e.2))
+  refine ⟨⟨build n E, n + 2 * E.length⟩, build_mono n E, ?_, build_profile n G E⟩
+  funext x
+  show (wf (build n E) (List.ofFn x)).getD (n + 2 * E.length) false = _
+  rw [build_val, Bool.eq_iff_iff]
+  simp only [graphFun, List.any_eq_true, Bool.and_eq_true,
+    Bool.or_eq_true, decide_eq_true_eq, Finset.notMem_empty, false_and, exists_false, false_or]
+  constructor
+  · rintro ⟨e, he, h1, h2⟩
+    have := (List.mem_filter.mp he).2
+    exact ⟨e.1, e.2, by simpa using this, h1, h2⟩
+  · rintro ⟨u, v, huv, h1, h2⟩
+    exact ⟨(u, v), List.mem_filter.mpr ⟨by simp [List.pair_mem_product], by simpa using huv⟩, h1, h2⟩
+
+lemma star_minimal_exists (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] :
+    ∃ C : Circuit, Monotone2 C ∧ circuitFun n C = graphFun G ∅ ∧ HasStarProfile n G C ∧
+      ∀ D : Circuit, Monotone2 D → circuitFun n D = graphFun G ∅ →
+        HasStarProfile n G D → C.size ≤ D.size := by
+  classical
+  obtain ⟨C, hC, hCf, hCs⟩ := graph_star_exists n G
+  have hex : ∃ s : ℕ, ∃ D : Circuit, Monotone2 D ∧ circuitFun n D = graphFun G ∅ ∧
+      HasStarProfile n G D ∧ D.size = s := ⟨C.size, C, hC, hCf, hCs, rfl⟩
+  obtain ⟨D, hD, hDf, hDs, hs⟩ := Nat.find_spec hex
+  refine ⟨D, hD, hDf, hDs, ?_⟩
+  intro E hE hEf hEs
+  rw [hs]
+  exact Nat.find_min' hex ⟨E, hE, hEf, hEs, rfl⟩
+
+end PEqualNP.Outside.L_meta_2448_aux.StarExistence
+
+
+namespace PEqualNP.Outside.L_meta_2448_aux.EdgePruning
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
+
+lemma graph_true_iff (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (x : Fin n → Bool) :
+    graphFun G ∅ x = true ↔ ∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true := by
+  simp [graphFun]
+
+lemma pair_below (n : ℕ) (x : Fin n → Bool) (u v : Fin n)
+    (hu : x u = true) (hv : x v = true) :
+    ∀ w, pairInput u v w = true → x w = true := by
+  intro w hw
+  have he : w = u ∨ w = v := of_decide_eq_true hw
+  rcases he with rfl | rfl
+  · exact hu
+  · exact hv
+
+theorem exact_of_decreasing_and_edge_preserving (n : ℕ) (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (f h : (Fin n → Bool) → Bool)
+    (hmono : ∀ x y, (∀ v, x v = true → y v = true) → h x = true → h y = true)
+    (hcorrect : f = graphFun G ∅)
+    (hdecrease : ∀ x, h x = true → f x = true)
+    (hedges : ∀ u v : Fin n, G.Adj u v → h (pairInput u v) = f (pairInput u v)) :
+    h = graphFun G ∅ := by
+  funext x
+  apply Bool.eq_iff_iff.mpr
+  constructor
+  · intro hx
+    rw [← hcorrect]
+    exact hdecrease x hx
+  · intro hx
+    obtain ⟨u, v, huv, hu, hv⟩ := (graph_true_iff n G x).mp hx
+    have hp : h (pairInput u v) = true := by
+      rw [hedges u v huv, hcorrect]
+      apply (graph_true_iff n G (pairInput u v)).mpr
+      exact ⟨u, v, huv, by simp [pairInput], by simp [pairInput]⟩
+    exact hmono (pairInput u v) x (pair_below n x u v hu hv) hp
+
+end PEqualNP.Outside.L_meta_2448_aux.EdgePruning
+
+
+namespace PEqualNP.Outside.L_meta_2448_aux.EdgeContext
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2448_aux.EdgePruning
+
+lemma graph_pair_true_adj (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (u v : Fin n) (h : graphFun G ∅ (pairInput u v) = true) : G.Adj u v := by
+  obtain ⟨a, b, hab, ha, hb⟩ := (graph_true_iff n G (pairInput u v)).mp h
+  have ha' : a = u ∨ a = v := of_decide_eq_true ha
+  have hb' : b = u ∨ b = v := of_decide_eq_true hb
+  rcases ha' with rfl | rfl <;> rcases hb' with rfl | rfl
+  · exact (hab.ne rfl).elim
+  · exact hab
+  · exact hab.symm
+  · exact (hab.ne rfl).elim
+
+theorem context_rejects_singletons (n : ℕ) (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj]
+    (htri : ∀ a b c : Fin n, G.Adj a b → G.Adj b c → ¬G.Adj c a)
+    (f k : (Fin n → Bool) → Bool)
+    (fm : ∀ x y, (∀ z, x z = true → y z = true) → f x = true → f y = true)
+    (km : ∀ x y, (∀ z, x z = true → y z = true) → k x = true → k y = true)
+    (sound : ∀ x, f x = true → k x = true → graphFun G ∅ x = true)
+    (u v : Fin n) (huv : G.Adj u v)
+    (hu : f (pairInput u u) = true) (hv : f (pairInput v v) = true) :
+    ∀ w : Fin n, k (pairInput w w) = false := by
+  intro w
+  cases hc : k (pairInput w w) with
+  | false => rfl
+  | true =>
+    have adjacent (a : Fin n) (ha : f (pairInput a a) = true) : G.Adj a w := by
+      have hfa : f (pairInput a w) = true := fm _ _
+        (pair_below n (pairInput a w) a a (by simp [pairInput]) (by simp [pairInput])) ha
+      have hkw : k (pairInput a w) = true := km _ _
+        (pair_below n (pairInput a w) w w (by simp [pairInput]) (by simp [pairInput])) hc
+      exact graph_pair_true_adj n G a w (sound _ hfa hkw)
+    exact (htri u v w huv (adjacent v hv) (adjacent u hu).symm).elim
+
+end PEqualNP.Outside.L_meta_2448_aux.EdgeContext
+
+
+namespace PEqualNP.Outside.L_meta_2448_aux.PrivateExchange
+
+lemma product_with_literal_context (a b A B : Bool)
+    (ha : a = true → A = true) (hb : b = true → B = true) :
+    ((A && B) && (a || b)) = ((a && B) || (b && A)) := by
+  cases a <;> cases b <;> cases A <;> cases B <;> simp_all
+
+lemma shared_literal_absorption (a A B : Bool) :
+    ((a || A) && (a || B)) = (a || (A && B)) := by
+  cases a <;> cases A <;> cases B <;> rfl
+
+lemma path_four_identity (a b c d : Bool) :
+    (((a || c) && (b || d)) && (b || c)) =
+      ((b && (a || c)) || (c && (b || d))) := by
+  cases a <;> cases b <;> cases c <;> cases d <;> rfl
+
+end PEqualNP.Outside.L_meta_2448_aux.PrivateExchange
+
+
+namespace PEqualNP.Outside.L_meta_2448_aux.LinearCleanup
+
+variable {α : Type*}
+
+def Hit (S : Set α) (x : α → Prop) : Prop := ∃ v ∈ S, x v
+
+def Edge (G : SimpleGraph α) (x : α → Prop) : Prop :=
+  ∃ u v, G.Adj u v ∧ x u ∧ x v
+
+def Product (A B : Set α) (x : α → Prop) : Prop := Hit A x ∧ Hit B x
+
+def Cleanup (A B T : Set α) (x : α → Prop) : Prop := Product A B x ∧ Hit T x
+
+def Reduced (A B T : Set α) (x : α → Prop) : Prop :=
+  (Hit (A ∩ T) x ∧ Hit B x) ∨ (Hit (B ∩ T) x ∧ Hit A x)
+
+def Centers (G : SimpleGraph α) (A B : Set α) : Set α :=
+  {a | a ∈ A ∧ ∀ b ∈ B, G.Adj a b}
+
+def PairSound (G : SimpleGraph α) (A B T : Set α) : Prop :=
+  ∀ s t, Cleanup A B T (fun v => v = s ∨ v = t) → G.Adj s t
+
+lemma edge_pair_iff (G : SimpleGraph α) (s t : α) :
+    Edge G (fun v => v = s ∨ v = t) ↔ G.Adj s t := by
+  constructor
+  · rintro ⟨u, v, huv, hu, hv⟩
+    rcases hu with rfl | rfl <;> rcases hv with rfl | rfl
+    · exact (huv.ne rfl).elim
+    · exact huv
+    · exact huv.symm
+    · exact (huv.ne rfl).elim
+  · intro h
+    exact ⟨s, t, h, Or.inl rfl, Or.inr rfl⟩
+
+lemma reduced_le_cleanup (A B T : Set α) (x : α → Prop) :
+    Reduced A B T x → Cleanup A B T x := by
+  rintro (⟨⟨a, ha, hax⟩, hb⟩ | ⟨⟨b, hb, hbx⟩, ha⟩)
+  · exact ⟨⟨⟨a, ha.1, hax⟩, hb⟩, ⟨a, ha.2, hax⟩⟩
+  · exact ⟨⟨ha, ⟨b, hb.1, hbx⟩⟩, ⟨b, hb.2, hbx⟩⟩
+
+lemma cleanup_pair_reduced (A B T : Set α) (hdis : Disjoint A B) (s t : α) :
+    Cleanup A B T (fun v => v = s ∨ v = t) ↔
+      Reduced A B T (fun v => v = s ∨ v = t) := by
+  constructor
+  · rintro ⟨⟨⟨a, ha, hax⟩, ⟨b, hb, hbx⟩⟩, c, hc, hcx⟩
+    have hab : a ≠ b := by
+      intro heq
+      subst b
+      exact Set.disjoint_left.mp hdis ha hb
+    have hca : c = a ∨ c = b := by
+      rcases hax with rfl | rfl <;> rcases hbx with rfl | rfl
+      · exact (hab rfl).elim
+      · exact hcx
+      · exact hcx.symm
+      · exact (hab rfl).elim
+    rcases hca with hca | hcb
+    · exact Or.inl ⟨⟨a, ⟨ha, hca ▸ hc⟩, hax⟩, ⟨b, hb, hbx⟩⟩
+    · exact Or.inr ⟨⟨b, ⟨hb, hcb ▸ hc⟩, hbx⟩, ⟨a, ha, hax⟩⟩
+  · exact reduced_le_cleanup A B T _
+
+lemma sound_context_left (G : SimpleGraph α) (A B T : Set α)
+    (hsound : PairSound G A B T) :
+    A ∩ T ⊆ Centers G A B := by
+  intro a ha
+  refine ⟨ha.1, ?_⟩
+  intro b hb
+  apply hsound a b
+  exact ⟨⟨⟨a, ha.1, Or.inl rfl⟩, ⟨b, hb, Or.inr rfl⟩⟩,
+    ⟨a, ha.2, Or.inl rfl⟩⟩
+
+lemma sound_context_right (G : SimpleGraph α) (A B T : Set α)
+    (hsound : PairSound G A B T) :
+    B ∩ T ⊆ Centers G B A := by
+  intro b hb
+  refine ⟨hb.1, ?_⟩
+  intro a ha
+  apply hsound b a
+  exact ⟨⟨⟨a, ha, Or.inr rfl⟩, ⟨b, hb.1, Or.inl rfl⟩⟩,
+    ⟨b, hb.2, Or.inl rfl⟩⟩
+
+lemma centers_subsingleton (G : SimpleGraph α) (A B : Set α)
+    (hfour : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d →
+      G.Adj d a → a = c ∨ b = d)
+    (b d : α) (hb : b ∈ B) (hd : d ∈ B) (hbd : b ≠ d) :
+    (Centers G A B).Subsingleton := by
+  intro a ha c hc
+  rcases hfour a b c d (ha.2 b hb) (hc.2 b hb).symm
+    (hc.2 d hd) (ha.2 d hd).symm with hac | hbd'
+  · exact hac
+  · exact (hbd hbd').elim
+
+theorem shared_linear_cleanup (G : SimpleGraph α) (A B : Set α)
+    (hdis : Disjoint A B)
+    (hfour : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d →
+      G.Adj d a → a = c ∨ b = d)
+    (a c b d : α) (ha : a ∈ A) (hc : c ∈ A) (hac : a ≠ c)
+    (hb : b ∈ B) (hd : d ∈ B) (hbd : b ≠ d) :
+    (Centers G A B).Subsingleton ∧ (Centers G B A).Subsingleton ∧
+      ∀ T : Set α, PairSound G A B T →
+        A ∩ T ⊆ Centers G A B ∧ B ∩ T ⊆ Centers G B A ∧
+        (∀ x, Reduced A B T x → Cleanup A B T x) ∧
+        ∀ s t, Cleanup A B T (fun v => v = s ∨ v = t) ↔
+          Reduced A B T (fun v => v = s ∨ v = t) := by
+  refine ⟨centers_subsingleton G A B hfour b d hb hd hbd,
+    centers_subsingleton G B A hfour a c ha hc hac, ?_⟩
+  intro T hsound
+  exact ⟨sound_context_left G A B T hsound, sound_context_right G A B T hsound,
+    reduced_le_cleanup A B T, cleanup_pair_reduced A B T hdis⟩
+
+lemma reduced_sound (G : SimpleGraph α) (A B T : Set α)
+    (hsound : PairSound G A B T) (x : α → Prop) :
+    Reduced A B T x → Edge G x := by
+  rintro (⟨⟨a, ha, hax⟩, b, hb, hbx⟩ | ⟨⟨b, hb, hbx⟩, a, ha, hax⟩)
+  · exact ⟨a, b, (sound_context_left G A B T hsound ha).2 b hb, hax, hbx⟩
+  · exact ⟨b, a, (sound_context_right G A B T hsound hb).2 a ha, hbx, hax⟩
+
+end PEqualNP.Outside.L_meta_2448_aux.LinearCleanup
+
+
+namespace PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair
+
+open PEqualNP.Outside.L_meta_2448_aux.LinearCleanup
+
+variable {α : Type*}
+
+def Repair (A B : Set α) (c d : α) (x : α → Prop) : Prop :=
+  (x c ∧ Hit B x) ∨ (x d ∧ Hit A x)
+
+lemma repair_mono (A B : Set α) (c d : α) (x y : α → Prop)
+    (hxy : ∀ v, x v → y v) : Repair A B c d x → Repair A B c d y := by
+  rintro (⟨hc, b, hb, hbx⟩ | ⟨hd, a, ha, hax⟩)
+  · exact Or.inl ⟨hxy c hc, b, hb, hxy b hbx⟩
+  · exact Or.inr ⟨hxy d hd, a, ha, hxy a hax⟩
+
+lemma disjoint_of_centers (G : SimpleGraph α) (A B : Set α) (c d : α)
+    (htri : ∀ a b e, G.Adj a b → G.Adj b e → ¬G.Adj e a)
+    (hc : c ∈ Centers G A B) (hd : d ∈ Centers G B A) : Disjoint A B := by
+  apply Set.disjoint_left.mpr
+  intro v hvA hvB
+  exact htri c d v (hc.2 d hd.1) (hd.2 v hvA) (hc.2 v hvB).symm
+
+lemma cross_edge_centered (G : SimpleGraph α) (A B : Set α) (c d : α)
+    (hfour : ∀ a b e f, G.Adj a b → G.Adj b e → G.Adj e f →
+      G.Adj f a → a = e ∨ b = f)
+    (hc : c ∈ Centers G A B) (hd : d ∈ Centers G B A)
+    (a b : α) (ha : a ∈ A) (hb : b ∈ B) (hab : G.Adj a b) : a = c ∨ b = d := by
+  rcases hfour c b a d (hc.2 b hb) hab.symm (hd.2 a ha).symm
+    (hc.2 d hd.1).symm with hca | hbd
+  · exact Or.inl hca.symm
+  · exact Or.inr hbd
+
+lemma repair_le_product (G : SimpleGraph α) (A B : Set α) (c d : α)
+    (hc : c ∈ Centers G A B) (hd : d ∈ Centers G B A) (x : α → Prop) :
+    Repair A B c d x → Product A B x := by
+  rintro (⟨hcx, hb⟩ | ⟨hdx, ha⟩)
+  · exact ⟨⟨c, hc.1, hcx⟩, hb⟩
+  · exact ⟨ha, ⟨d, hd.1, hdx⟩⟩
+
+lemma repair_sound (G : SimpleGraph α) (A B : Set α) (c d : α)
+    (hc : c ∈ Centers G A B) (hd : d ∈ Centers G B A) (x : α → Prop) :
+    Repair A B c d x → Edge G x := by
+  rintro (⟨hcx, b, hb, hbx⟩ | ⟨hdx, a, ha, hax⟩)
+  · exact ⟨c, b, hc.2 b hb, hcx, hbx⟩
+  · exact ⟨d, a, hd.2 a ha, hdx, hax⟩
+
+lemma repair_preserves_edges (G : SimpleGraph α) (A B : Set α) (c d : α)
+    (hdis : Disjoint A B)
+    (hfour : ∀ a b e f, G.Adj a b → G.Adj b e → G.Adj e f →
+      G.Adj f a → a = e ∨ b = f)
+    (hc : c ∈ Centers G A B) (hd : d ∈ Centers G B A)
+    (s t : α) (hst : G.Adj s t) :
+    Product A B (fun v => v = s ∨ v = t) ↔
+      Repair A B c d (fun v => v = s ∨ v = t) := by
+  constructor
+  · rintro ⟨⟨a, ha, hax⟩, ⟨b, hb, hbx⟩⟩
+    have hab : a ≠ b := by
+      intro heq
+      subst b
+      exact Set.disjoint_left.mp hdis ha hb
+    have hedge : G.Adj a b := by
+      rcases hax with rfl | rfl <;> rcases hbx with rfl | rfl
+      · exact (hab rfl).elim
+      · exact hst
+      · exact hst.symm
+      · exact (hab rfl).elim
+    rcases cross_edge_centered G A B c d hfour hc hd a b ha hb hedge with hac | hbd
+    · exact Or.inl ⟨hac ▸ hax, b, hb, hbx⟩
+    · exact Or.inr ⟨hbd ▸ hbx, a, ha, hax⟩
+  · exact repair_le_product G A B c d hc hd _
+
+theorem cofactor_repair (G : SimpleGraph α) (A B : Set α) (c d : α)
+    (hdis : Disjoint A B)
+    (hfour : ∀ a b e f, G.Adj a b → G.Adj b e → G.Adj e f →
+      G.Adj f a → a = e ∨ b = f)
+    (hc : c ∈ Centers G A B) (hd : d ∈ Centers G B A)
+    (R K : (α → Prop) → Prop)
+    (hR : ∀ x y, (∀ v, x v → y v) → R x → R y)
+    (hF : ∀ x, Edge G x ↔ R x ∨ (Product A B x ∧ K x)) :
+    ∀ x, Edge G x ↔ R x ∨ Repair A B c d x := by
+  intro x
+  constructor
+  · rintro ⟨s, t, hst, hsx, htx⟩
+    have hxy : ∀ v, (v = s ∨ v = t) → x v := by
+      intro v hv
+      rcases hv with rfl | rfl
+      · exact hsx
+      · exact htx
+    have he := (edge_pair_iff G s t).mpr hst
+    rcases (hF _).mp he with hr | ⟨hp, _⟩
+    · exact Or.inl (hR _ x hxy hr)
+    · exact Or.inr (repair_mono A B c d _ x hxy
+        ((repair_preserves_edges G A B c d hdis hfour hc hd s t hst).mp hp))
+  · rintro (hr | hh)
+    · exact (hF x).mpr (Or.inl hr)
+    · exact repair_sound G A B c d hc hd x hh
+
+end PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair

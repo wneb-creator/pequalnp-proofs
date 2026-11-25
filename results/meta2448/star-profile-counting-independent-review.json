@@ -1,0 +1,12 @@
+{
+  "review": "PASS mathematical source note and accepted-theorem citations",
+  "source": "results/meta2448/star-profile-counting-obstruction.md",
+  "sha256": "ad9a4b2fad02a96df933f51209262d8abdd354abf753ff8deb8b9982d49fb51d",
+  "findings": [
+    "Prepending one nonnullary AND input copy per input preserves function/OR count and makes all later true ANDs have a true AND in their strict cone; their owned-edge sets are empty.",
+    "Copy gates own incident edges, so resulting circuit has a star profile; the n added AND gates prevent any total-size/minimality conclusion.",
+    "The note explicitly excludes nullary AND and silently unproved constant normalization.",
+    "Checked final statements of L1407/4767/599/4837/1491/4183/1599 support the distinctions between global gate soundness, total accepted edges and only owned edges."
+  ],
+  "scope": "Mathematical observation only; not Lean-compiled and not a proof or refutation of the held gap."
+}

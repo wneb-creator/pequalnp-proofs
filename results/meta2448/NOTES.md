@@ -14,3 +14,10 @@
 - Next finite searches are theta(2,3,3) and theta(3,3,3) total-gate models, after independent dataset/control review. The theory work concentrates on the size-preserving cleanup/exchange step; no classical unrestricted normalization theorem has been established from the literature check.
 - The exec transport briefly failed around07:19–07:20 and the environment was marked unavailable, then recovered. Files, the renewal timer and the current small solver survived. The final push639f was confirmed in its complete push log after recovery. No successful check is inferred from a failed tool launch.
 - Fresh renewal07:21:34 UTC expires07:41:34 UTC. Seven sub-agents used cumulatively, including the prior completed child. Whole-job budget ends around08:43 UTC.
+
+## Replan 2026-11-25T07:52:51.169722+00:00
+- Consolidated1114-line named partial passed lake build in27.09s; all74 theorem/lemma declarations have only standard axioms. Actual official checker again returned FAULT/exit3, missing Batteries.olean. Full target remains unproved; no PR.
+- Two-center pure-product semantic repair is checked, including arbitrary monotone cofactors. Its high-fanout cost argument is still an unformalized DAG argument and does not cover general nonlinear operands or low fanout.
+- Star profile alone cannot strengthen an OR-only lower bound: input-AND copies enforce the profile while preserving ORcount, at the cost of extra ANDs. Accepted total-count bounds use stronger hypotheses on all accepted edges.
+- The8-vertex Petersen deletion core at-most12 search ended UNKNOWN after300.026s. Petersen at-most19 continues to07:56:27. Next diagnostic is an independently reviewed earliest-exact-nonstar-prefix search, explicitly not a refutation by itself.
+- Environment restarted briefly07:50; exact solver identities survived, detached shared-memory watchdog was restored, and renewal timer was restarted detached. Fresh renewal07:51:46 expires08:11:47.

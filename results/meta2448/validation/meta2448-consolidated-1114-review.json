@@ -1,0 +1,56 @@
+{
+  "frozen_utc": "2026-11-25T07:49:52.106122+00:00",
+  "files": [
+    {
+      "path": "results/meta2448/assembly/Checkpoint2448.lean",
+      "sha256": "c07fd292cd75f1ea0d2559fce42619023cb477c203ff82b36f4c881a124a25e2",
+      "bytes": 47473
+    },
+    {
+      "path": "results/meta2448/assembly/Checkpoint2448.log",
+      "sha256": "2adf9efff831356a062d2428c167ff1d10041c9b8a24bb7042dfd7acbecf3a98",
+      "bytes": 4073
+    },
+    {
+      "path": "results/meta2448/assembly/Checkpoint2448.sha256",
+      "sha256": "60aea0f6fcaf56ff9ff0cb091e1182ba19a2475a437c99d0d6868a47f288019b",
+      "bytes": 86
+    },
+    {
+      "path": "results/meta2448/assembly/CheckpointAxioms.lean",
+      "sha256": "a4a5fed68f6cd4d6f3af20dfaf9fe8ff53b300beae2e8f0ea2652c710bdbb53d",
+      "bytes": 5510
+    },
+    {
+      "path": "results/meta2448/assembly/CheckpointAxioms.log",
+      "sha256": "94f87209b1395ee43b0d0ff15cb3beb7beeeb175c1e850b8a46fcd1e2f3b60b7",
+      "bytes": 8508
+    },
+    {
+      "path": "results/meta2448/assembly/README.md",
+      "sha256": "09f82b4dfc3f1502120f16b7acb3d2cb6db74d58e2144ace724e4783a3691368",
+      "bytes": 1070
+    },
+    {
+      "path": "results/meta2448/assembly/axiom-audit.json",
+      "sha256": "4ea3b68f7fc3f45c3563c1bf7deb309dfbda601430fe1ece2c7c9479b9e6f0d9",
+      "bytes": 8905
+    },
+    {
+      "path": "results/meta2448/assembly/candidate-manifest.json",
+      "sha256": "5e0022cbaf61c5e3aecce451af4a302ce0344a0c77cf1c0a4563897523f896d1",
+      "bytes": 2694
+    },
+    {
+      "path": "results/meta2448/assembly/checkpoint-axiom-names.json",
+      "sha256": "f59d513e66803307526fe631324d405cc51cc723de0a43e23cb361b6ab6c5c6c",
+      "bytes": 4824
+    },
+    {
+      "path": "results/meta2448/validation/consolidated-1114-independent-review.json",
+      "sha256": "46378acff4ae1969c89561aa153807d5ef03e79c9bfae800b43e27e74777e3d6",
+      "bytes": 2731
+    }
+  ],
+  "review": "PASS independent consolidated partial review"
+}

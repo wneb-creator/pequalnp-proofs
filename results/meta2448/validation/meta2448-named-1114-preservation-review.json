@@ -1,0 +1,40 @@
+{
+  "review": "PASS named1114 compiled partial preservation; not full-proof submission",
+  "files": [
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_2448.lean",
+      "sha256": "c07fd292cd75f1ea0d2559fce42619023cb477c203ff82b36f4c881a124a25e2",
+      "bytes": 47473
+    },
+    {
+      "path": "results/meta2448/validation/named-1114-build.log",
+      "sha256": "f7d8c1215494ddab1091f6668783747c311810f2b77e5755498bd2b5f3fe09b8",
+      "bytes": 60209
+    },
+    {
+      "path": "results/meta2448/validation/named-1114-posted-checker.log",
+      "sha256": "1d3e76976178ff42b39fc945b300204c957892305c1230582a7fc0385f1e9456",
+      "bytes": 443
+    },
+    {
+      "path": "results/meta2448/validation.txt",
+      "sha256": "56160c182db155c1df38a222db941760689dca9d95c2b619c99f9886c0118b8a",
+      "bytes": 1930
+    },
+    {
+      "path": "results/meta2448/NOTES.md",
+      "sha256": "fc25c421879c9463decd9ae7707ae308a5d09f485606dbb4823ea74d51e5736e",
+      "bytes": 4051
+    },
+    {
+      "path": "results/meta2448/TIMELINE.md",
+      "sha256": "7242cc18a2fc758e0829e131a43d9d7590fbcb92f9a6f3f0941571b63d17b9ec",
+      "bytes": 1995
+    },
+    {
+      "path": "results/meta2448/validation/named-1114-independent-review.json",
+      "sha256": "96e43e2a10912962a920ec0750b4943b1f47758833635be29e9b2be68e1fc443",
+      "bytes": 1034
+    }
+  ]
+}

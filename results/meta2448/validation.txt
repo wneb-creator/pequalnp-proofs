@@ -1,13 +1,15 @@
 PARTIAL CHECKPOINT — L-meta-2448
-UTC: 2026-11-25T07:17:15.616435+00:00
+UTC: 2026-11-25T07:52:51.169722+00:00
 Posted target remains unproved: a globally minimum circuit with HasStarProfile.
 Named file: lean/PEqualNP/Outside/L_meta_2448.lean
-SHA256: 4e4f595a35b121261524f1f3e7753f63da8994ca052b534b105e3eedcfffdac3
-Lines:674. Cleanup not run because the full target and checker have not passed; before/after674/674.
-Checked components: minimum-circuit existence; triangle-free star profile iff owned edges intersect; pair-soundness implies star profile and a nonstar nonedge-pair witness.
-Named lake build PASS (exit0,12.52s); full output validation/named-partial-build.log.
-Axiom audit: propext, Classical.choice, Quot.sound only.
-Actual tools/check-lean.mjs returned FAULT/exit3 before a verdict; full output validation/posted-checker.log. The complete Mathlib statement environment is not cached (same missing Batteries.olean limitation as the prior gap). This is separate from the still-unproved target.
-No PR opened.
+SHA256: c07fd292cd75f1ea0d2559fce42619023cb477c203ff82b36f4c881a124a25e2
+Lines:1114. Consolidation changed674 to1114 lines. Cleanup not run because the full target and checker have not passed; before/after cleanup1114/1114.
+Checked components: minimum-circuit existence; triangle-free ownership classification; pair-soundness implies star profile; explicit star-profile circuit and minimum within that subclass; semantic edge pruning; singleton-context obstruction; private Boolean identities; linear cleanup classification; two-center semantic repair in monotone cofactors.
+The restricted repair is not a Circuit-size exchange. The full theorem and a valid refutation remain absent.
+Named lake build PASS (exit0,27.0908s,5149 jobs); full output validation/named-1114-build.log.
+All74 theorem/lemma declarations audited: propext, Classical.choice, Quot.sound only. Full audit assembly/CheckpointAxioms.log; source is byte-identical to assembly/Checkpoint2448.lean.
+Actual tools/check-lean.mjs returned FAULT/exit3 before a verdict; full output validation/named-1114-posted-checker.log. The complete Mathlib statement environment is not cached (missing Batteries.olean). This is separate from the still-unproved target.
+Finite searches are normalized-model evidence, not Lean-checked lower bounds. No valid counterexample found. The8-vertex Petersen core at-most12 query ended UNKNOWN after300.026s; the15-minute Petersen at-most19 query is still running at this checkpoint.
+No PR opened. This branch preserves research and partials; it is not a one-file proof PR.
 Sub-agents: repo_audit, lean_setup, or_lower_bound, counterexample, proof_routes, algebraic_witness, proof_routes/quadratic_shadow
-TIMING total=273.8 subagents=7
+TIMING total=309.4 subagents=7

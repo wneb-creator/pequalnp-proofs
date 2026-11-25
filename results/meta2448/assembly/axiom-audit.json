@@ -1,0 +1,302 @@
+{
+  "source_sha256": "c07fd292cd75f1ea0d2559fce42619023cb477c203ff82b36f4c881a124a25e2",
+  "declarations_audited": 74,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "actual_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "all_axioms_allowed": true,
+  "declarations": {
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.eval_eq": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.wf_snoc": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.wf_len": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.wf_keep": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.wf_prefix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.getD_snoc_lt": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.getD_snoc_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.getD_snoc_gt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.wf_append": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.build_len": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.build_mono": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.build_val": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.graph_minimal_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.minimal_size_eq": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.Existence.minimal_transfer": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.intersecting_edge_family": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.star_iff_owned_edges_intersect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.nonstar_disjoint_owned_edges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.wires_eq_foldl": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.foldl_stepWire_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.foldl_stepWire_getD_lt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.getD_ge_length": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.wires_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.split_gates": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.gateAt_eq": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.W_gate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.W_input": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.W_or": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.W_and": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.coneFold_length": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.coneStep_getD_last": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.coneStep_getD_lt": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.coneFold_getD_lt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.inCone_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.ite_true_iff": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.W_and_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.W_or_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.inCone_lt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.gate_mono2": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.descent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.owns_dom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.dom_adj": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.pair_sound_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.star_profile_of_pair_sound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PairSound.bad_pair_of_not_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.StarExistence.and_reads_input": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.StarExistence.raw_ands_star": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.StarExistence.build_and_raw": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.StarExistence.build_profile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.StarExistence.graph_star_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.StarExistence.star_minimal_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.EdgePruning.graph_true_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.EdgePruning.exact_of_decreasing_and_edge_preserving": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.EdgeContext.graph_pair_true_adj": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.EdgeContext.context_rejects_singletons": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.PrivateExchange.product_with_literal_context": [
+      "propext"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.cleanup_pair_reduced": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.shared_linear_cleanup": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.disjoint_of_centers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.repair_preserves_edges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.cofactor_repair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2448_aux.EdgePruning.pair_below": [],
+    "PEqualNP.Outside.L_meta_2448_aux.PrivateExchange.shared_literal_absorption": [],
+    "PEqualNP.Outside.L_meta_2448_aux.PrivateExchange.path_four_identity": [],
+    "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.edge_pair_iff": [],
+    "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.reduced_le_cleanup": [],
+    "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.sound_context_left": [],
+    "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.sound_context_right": [],
+    "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.centers_subsingleton": [],
+    "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.reduced_sound": [],
+    "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.repair_mono": [],
+    "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.cross_edge_centered": [],
+    "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.repair_le_product": [],
+    "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.repair_sound": []
+  }
+}

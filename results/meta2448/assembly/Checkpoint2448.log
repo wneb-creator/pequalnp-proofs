@@ -1,0 +1,98 @@
+import took 16.7s
+.olean serialization took 181ms
+simp took 169ms
+simp took 184ms
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448.lean:121:69: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448.lean:180:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448.lean:184:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448.lean:204:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 316ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 358ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 299ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 617ms
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448.lean:256:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+simp took 122ms
+simp took 101ms
+simp took 195ms
+simp took 108ms
+simp took 150ms
+simp took 173ms
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448.lean:576:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448.lean:628:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+cumulative profiling times:
+	.olean serialization 181ms
+	aesop 159ms
+	attribute application 2.16ms
+	compilation (IR) 1.31ms
+	compilation (LCNF base) 55.7ms
+	compilation (LCNF impure) 4.53ms
+	compilation (LCNF mono) 13.8ms
+	congr simp thm 27.8ms
+	declTypeLinter 333ms
+	dsimp 12.6ms
+	elaboration 1.39s
+	fix level params 14.4ms
+	import 16.7s
+	initialization 116ms
+	instantiate metavars 21.6ms
+	interpretation 4.29s
+	let-to-have transformation 0.913ms
+	linting 560ms
+	module linting 0.113ms
+	parsing 221ms
+	process pre-definitions 197ms
+	share common exprs 36.4ms
+	simp 2.91s
+	tactic execution 2.6s
+	tacticAnalysis 152ms
+	type checking 1.1s
+	typeclass inference 2.28s
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 30.072923177998746
+USER_SECONDS 11.976375
+SYS_SECONDS 4.235814
+PEAK_RSS_KIB 2986552
+PEAK_CGROUP_BYTES 4796526592

@@ -1,0 +1,27 @@
+{
+  "review": "PASS independent source delta and completed control replay",
+  "scope": "Finite computational controls and source audit only; no Lean lower bound, full L-meta-2448 proof or refutation.",
+  "v8_source_sha256": "a2be11eb3c03796f9f55909a3a187d4e315dfcd03b7a9470026e0b452dd564d3",
+  "v8_guardian_sha256": "da715a7c6c12a6dd64c19e2aee8a0b05b3820ace3127b283184f86ada2ccab7b",
+  "v8_delta": "Only skips definitional cone/ownership SAT variables in profile=any. Actual independent witness reconstruction is retained.",
+  "v8_petersen_replay": {
+    "file": "petersen-any21-v8-padded-control.witness.json",
+    "sha256": "072581eddf5e76595c5e85faa44f962b0ba993b115023285bde5b524626fe517",
+    "assignments": 1024,
+    "gates": 21,
+    "prefix_gates": 20,
+    "star": true
+  },
+  "v8_c5_result": "UNSAT in the explicitly encoded normalized at-most-six model, solver exit20; no certificate or Lean theorem claimed.",
+  "v9_source_sha256": "1a1e9e27dbd659e6edf59b4984c4626ec8bf36b4e6c0ec0eb154439749a39491",
+  "v9_guardian_sha256": "5ebcec57df4f76f3a450e80af0e704d91f6a2fb0bf592d5510a7d50404cc64d8",
+  "v9_delta": "Only adds Petersen minus adjacent vertices0,1, relabelled2..9 to0..7; guardian allowlist-only.",
+  "v9_graph": {
+    "vertices": 8,
+    "edges": 10,
+    "alpha": 4,
+    "tau": 4,
+    "constructive_star_upper_bound": 13,
+    "control_status": "Not yet supplied for independent review."
+  }
+}

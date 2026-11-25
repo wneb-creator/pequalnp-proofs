@@ -1,0 +1,30 @@
+{
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-62/meta2448/synthesize_v8.py",
+    "--graph",
+    "petersen",
+    "--gates",
+    "21",
+    "--profile",
+    "any",
+    "--fixed-star-baseline",
+    "--padding-gates",
+    "1",
+    "--symmetry-first",
+    "--essential-gates",
+    "--ordered-independent",
+    "--undominated-signatures",
+    "--at-most",
+    "--seconds",
+    "30",
+    "--tag",
+    "petersen-any21-v8-padded-control"
+  ],
+  "pid": 40186,
+  "owned_process_group": 40186,
+  "process_start_ticks": 1777484,
+  "started_utc": "2026-11-25T07:39:07.642303+00:00",
+  "synthesis_address_space_limit_bytes": 1073741824,
+  "shared_stop_limit_bytes": 6979321856
+}

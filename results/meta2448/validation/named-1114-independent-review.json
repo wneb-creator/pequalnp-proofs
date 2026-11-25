@@ -1,0 +1,20 @@
+{
+  "review": "PASS named1114 compiled partial preservation; not full-proof submission",
+  "named_source_sha256": "c07fd292cd75f1ea0d2559fce42619023cb477c203ff82b36f4c881a124a25e2",
+  "named_equals_independently_audited_assembly": true,
+  "lines": 1114,
+  "build": {
+    "exit": 0,
+    "wall_seconds": 27.090785852997215,
+    "jobs": 5149,
+    "complete_log_bytes": 60209
+  },
+  "checker": {
+    "exit": 3,
+    "verdict": "FAULT before verdict: missing Batteries.olean in complete Mathlib statement environment",
+    "complete_log_bytes": 443
+  },
+  "axiom_audit": "All74 theorem/lemma declarations, only propext/Classical.choice/Quot.sound, unchanged assembly source",
+  "metadata": "Explicit target unproved/no valid refutation/noPR; cleanup1114\u21921114 skipped because target/checker incomplete; historical674 checkpoint remains timestamped. Search outcomes labelled normalized computational evidence.",
+  "scope": "Preserve authorized checked partials only; final posted theorem absent and official checker has not accepted."
+}

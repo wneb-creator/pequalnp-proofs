@@ -1,0 +1,158 @@
+{
+  "petersen-any19-run180": {
+    "result": "unknown",
+    "solver_exit": 0,
+    "elapsed": 180.0119355349998,
+    "peak_child_KiB": 74940
+  },
+  "petersen-star21-padded-dominance-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.030179857996699866,
+    "peak_child_KiB": 31436
+  },
+  "theta333-star12-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.007490975000109756,
+    "peak_child_KiB": 15360
+  },
+  "c5-nonstar7": {
+    "result": "unsat",
+    "solver_exit": 20,
+    "elapsed": 1.7356833489993733,
+    "peak_child_KiB": 12544
+  },
+  "c5-star7-strong-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.025751930003025336,
+    "peak_child_KiB": 12672
+  },
+  "c5-star7-dominance-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.1199010329983139,
+    "peak_child_KiB": 13392
+  },
+  "c5-star7-ordered-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.016354561998014105,
+    "peak_child_KiB": 13056
+  },
+  "c5-star7-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.011795861000791774,
+    "peak_child_KiB": 12544
+  },
+  "c6-any7": {
+    "result": "unsat",
+    "solver_exit": 20,
+    "elapsed": 1.410508877999746,
+    "peak_child_KiB": 12672
+  },
+  "theta233-star11-ordered-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.00701372299954528,
+    "peak_child_KiB": 14848
+  },
+  "theta233-star11-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.018171031999372644,
+    "peak_child_KiB": 14464
+  },
+  "petersen-any19-strong-run180": {
+    "result": "unknown",
+    "solver_exit": 0,
+    "elapsed": 180.01859809000234,
+    "peak_child_KiB": 69084
+  },
+  "c7-star10-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.0060092489984526765,
+    "peak_child_KiB": 13568
+  },
+  "theta233-any10-run180": {
+    "result": "unknown",
+    "solver_exit": 0,
+    "elapsed": 180.01707960199928,
+    "peak_child_KiB": 46268
+  },
+  "petersen-star20-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.022016773000359535,
+    "peak_child_KiB": 24832
+  },
+  "c6-star8-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.007596485000249231,
+    "peak_child_KiB": 12800
+  },
+  "petersen-any21-v8-padded-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.02810842200051411,
+    "peak_child_KiB": 27000
+  },
+  "p4-nonstar5-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.01388674100053322,
+    "peak_child_KiB": 12160
+  },
+  "c5-star8-padded-dominance-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.02392068400149583,
+    "peak_child_KiB": 13644
+  },
+  "c5-atmost6-v8-control": {
+    "result": "unsat",
+    "solver_exit": 20,
+    "elapsed": 0.04322052100178553,
+    "peak_child_KiB": 13148
+  },
+  "p4-nonstar5-strong-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.004764962999615818,
+    "peak_child_KiB": 12288
+  },
+  "c5-any6": {
+    "result": "unsat",
+    "solver_exit": 20,
+    "elapsed": 0.2498546360002365,
+    "peak_child_KiB": 12416
+  },
+  "p4-nonstar5-ordered-control": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.004415286999574164,
+    "peak_child_KiB": 12672
+  },
+  "theta333-any11-run180": {
+    "result": "unknown",
+    "solver_exit": 0,
+    "elapsed": 180.0185772320001,
+    "peak_child_KiB": 53664
+  },
+  "c7-any9-run60": {
+    "result": "unknown",
+    "solver_exit": 0,
+    "elapsed": 60.0140318019985,
+    "peak_child_KiB": 32128
+  },
+  "c6-nonstar8": {
+    "result": "unsat",
+    "solver_exit": 20,
+    "elapsed": 21.949195428000166,
+    "peak_child_KiB": 20152
+  }
+}

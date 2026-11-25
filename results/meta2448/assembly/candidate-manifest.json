@@ -1,0 +1,78 @@
+{
+  "created_utc": "2026-11-25T07:46:55.161491+00:00",
+  "candidate": "/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448.lean",
+  "sha256": "c07fd292cd75f1ea0d2559fce42619023cb477c203ff82b36f4c881a124a25e2",
+  "lines": 1114,
+  "bytes": 47473,
+  "inputs": [
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_2448.lean",
+      "sha256": "4e4f595a35b121261524f1f3e7753f63da8994ca052b534b105e3eedcfffdac3",
+      "lines": 674,
+      "dependency_lines": [
+        "import PEqualNP.Defs"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/StarExistence.lean",
+      "sha256": "9ecf19031659759a112528a7a61e7da29b341cc0d0c9479e6eb09404435501a8",
+      "lines": 119,
+      "dependency_lines": [
+        "import Existence"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/edge-pruning.lean",
+      "sha256": "667ced05be03d95c0933a49603b7c3eeb9990a1d82897767b4b3d75f98f0ccea",
+      "lines": 42,
+      "dependency_lines": [
+        "import PEqualNP.Defs"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/edge-context.lean",
+      "sha256": "5eae25128b70ac757f400dbc829f31713e69dc0a74baf0d02de19b166c739fbf",
+      "lines": 41,
+      "dependency_lines": [
+        "import EdgePruning"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/PrivateProductIdentity.lean",
+      "sha256": "7b14d8a5ddf76acc1a53b75dcf2952a6c6015094c7dbbb6bf8b86283812305fd",
+      "lines": 19,
+      "dependency_lines": [
+        "import PEqualNP.Defs"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/linear-cleanup.lean",
+      "sha256": "5eded49fcfbe8e21b395df4e6e82546ae825df9f52f9cdc911d5f50cdabcc2f3",
+      "lines": 119,
+      "dependency_lines": [
+        "import PEqualNP.Defs"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/two-center-repair.lean",
+      "sha256": "24be9cb42033acde8bb05d79a58cd1948c4e2ece81364122ca764031dcb664f2",
+      "lines": 100,
+      "dependency_lines": [
+        "import LinearCleanup"
+      ]
+    }
+  ],
+  "modification": "Unmodified named674-line base plus six checked bodies with only their dependency lines removed.",
+  "target_proved": false,
+  "scope": "Portable partial checkpoint only; no theorem proves the posted global-minimum star-profile statement.",
+  "kernel_checked": true,
+  "checked_utc": "2026-11-25T07:49:52.105440+00:00",
+  "snapshot": "results/meta2448/assembly/Checkpoint2448.lean",
+  "build_log": "results/meta2448/assembly/Checkpoint2448.log",
+  "build_wall_seconds": 30.072923177998746,
+  "build_peak_cgroup_bytes": 4796526592,
+  "axiom_audit_log": "results/meta2448/assembly/CheckpointAxioms.log",
+  "axiom_audit_declarations": 74,
+  "axiom_audit_passed": true,
+  "named_target_unchanged": true
+}

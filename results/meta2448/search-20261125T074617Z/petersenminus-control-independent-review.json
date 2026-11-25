@@ -1,0 +1,21 @@
+{
+  "review": "PASS independent exhaustive replay",
+  "source_sha256": "1a1e9e27dbd659e6edf59b4984c4626ec8bf36b4e6c0ec0eb154439749a39491",
+  "witness_sha256": "cd6296137cb02d8cde598d80cdaf1bdcb5d7ca067c7118e50ead31aaeca6a1a6",
+  "graph": "Petersen minus adjacent vertices0,1",
+  "assignments": 256,
+  "gate_count": 13,
+  "earliest_exact_prefix_gate_count": 13,
+  "star_profile": true,
+  "owned_edges_independently_recomputed": true,
+  "signed_domination_and_operand_incomparability_replayed": true,
+  "maximal_independent_negative_count": 9,
+  "status": {
+    "result": "sat",
+    "solver_exit": 10,
+    "elapsed": 0.010861966999073047,
+    "peak_child_KiB": 16500
+  },
+  "guardian_group_empty": true,
+  "scope": "Finite 13-gate constructive control only; no circuit lower bound, global minimality, or full held-gap proof/refutation."
+}

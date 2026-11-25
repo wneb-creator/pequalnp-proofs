@@ -1,0 +1,133 @@
+import took 3.46s
+'PEqualNP.Outside.L_meta_2448_aux.Existence.eval_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.wf_snoc' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.wf_len' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.wf_keep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.wf_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.getD_snoc_lt' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.getD_snoc_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.getD_snoc_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.wf_append' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.build_len' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.build_mono' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.build_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.graph_minimal_exists' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.minimal_size_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2448_aux.Existence.minimal_transfer' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2448_aux.intersecting_edge_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.star_iff_owned_edges_intersect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.nonstar_disjoint_owned_edges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.wires_eq_foldl' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.foldl_stepWire_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.foldl_stepWire_getD_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.getD_ge_length' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.wires_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.split_gates' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.gateAt_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.W_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.W_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.W_or' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.W_and' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.coneFold_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.coneStep_getD_last' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.coneStep_getD_lt' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.coneFold_getD_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.inCone_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.ite_true_iff' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.W_and_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.W_or_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.inCone_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.gate_mono2' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.descent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.owns_dom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.dom_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.pair_sound_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.star_profile_of_pair_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PairSound.bad_pair_of_not_star' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.StarExistence.and_reads_input' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.StarExistence.raw_ands_star' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.StarExistence.build_and_raw' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2448_aux.StarExistence.build_profile' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.StarExistence.graph_star_exists' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.StarExistence.star_minimal_exists' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.EdgePruning.graph_true_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.EdgePruning.pair_below' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.EdgePruning.exact_of_decreasing_and_edge_preserving' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.EdgeContext.graph_pair_true_adj' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.EdgeContext.context_rejects_singletons' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PrivateExchange.product_with_literal_context' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2448_aux.PrivateExchange.shared_literal_absorption' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.PrivateExchange.path_four_identity' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.edge_pair_iff' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.reduced_le_cleanup' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.cleanup_pair_reduced' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.sound_context_left' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.sound_context_right' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.centers_subsingleton' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.shared_linear_cleanup' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.reduced_sound' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.repair_mono' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.disjoint_of_centers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.cross_edge_centered' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.repair_le_product' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.repair_sound' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.repair_preserves_edges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.cofactor_repair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	declTypeLinter 3.03ms
+	elaboration 2.55ms
+	import 3.46s
+	initialization 54.9ms
+	interpretation 604ms
+	linting 115ms
+	module linting 0.223ms
+	parsing 38.2ms
+	tacticAnalysis 6.86ms
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 7.0094474269972125
+USER_SECONDS 2.5804929999999997
+SYS_SECONDS 1.7623739999999999
+PEAK_RSS_KIB 2882732
+PEAK_CGROUP_BYTES 4736737280
