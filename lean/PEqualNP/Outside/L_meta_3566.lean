@@ -1970,3 +1970,428 @@ lemma witness_of_direct_readers {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRe
   exact ⟨D, hD, hgraph, by omega, fun _ => by omega⟩
 
 end PEqualNP.Outside.L_meta_3566.FanoutStep
+
+
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateCone
+
+open PEqualNP.EdgeOwnership
+
+lemma input_card_le_gates_add_one (n : ℕ) (K : Finset ℕ) (r : ℕ) (hr : r ∈ K)
+    (port : ℕ → Fin 2 → ℕ) (S : Finset (Fin n))
+    (hInputs : ∀ v ∈ S, ∃ g ∈ K, ∃ b : Fin 2, port g b = v.val)
+    (hRead : ∀ g ∈ K.erase r, ∃ h ∈ K, ∃ b : Fin 2, port h b = n + g) :
+    S.card ≤ K.card + 1 := by
+  classical
+  let slots := K ×ˢ (Finset.univ : Finset (Fin 2))
+  let I := slots.image (fun p => port p.1 p.2)
+  have hS : S.card ≤ (I.filter (fun w => w < n)).card := by
+    apply Finset.card_le_card_of_injOn (fun v : Fin n => v.val)
+    · intro v hv
+      obtain ⟨g, hg, b, hb⟩ := hInputs v hv
+      apply Finset.mem_filter.mpr
+      refine ⟨?_, v.isLt⟩
+      exact Finset.mem_image.mpr ⟨(g, b), Finset.mem_product.mpr ⟨hg, Finset.mem_univ _⟩, hb⟩
+    · intro a _ b _ h
+      exact Fin.ext h
+  have hK : (K.erase r).card ≤ (I.filter (fun w => ¬ w < n)).card := by
+    apply Finset.card_le_card_of_injOn (fun g : ℕ => n + g)
+    · intro g hg
+      obtain ⟨h, hh, b, hb⟩ := hRead g hg
+      apply Finset.mem_filter.mpr
+      refine ⟨?_, by change ¬ n + g < n; omega⟩
+      exact Finset.mem_image.mpr ⟨(h, b), Finset.mem_product.mpr ⟨hh, Finset.mem_univ _⟩, hb⟩
+    · intro a _ b _ h
+      exact Nat.add_left_cancel h
+  have hSplit := Finset.card_filter_add_card_filter_not (s := I) (fun w => w < n)
+  have hPorts : slots.card = K.card * 2 := by simp [slots]
+  have hImage : I.card ≤ slots.card := Finset.card_image_le
+  have hErase := Finset.card_erase_of_mem hr
+  have hPos := Finset.card_pos.mpr ⟨r, hr⟩
+  omega
+
+lemma degree_le_support {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (z : Fin n) (S : Finset (Fin n)) (hz : z ∉ S)
+    (H : (Fin n → Bool) → Bool) (hZero : H (fun _ => false) = false)
+    (hSupport : ∀ x y : Fin n → Bool, (∀ i ∈ S, x i = y i) → H x = H y)
+    (hEdges : ∀ w : Fin n, G.Adj z w → H (pairInput z w) = true) :
+    G.degree z ≤ S.card := by
+  change (G.neighborFinset z).card ≤ S.card
+  apply Finset.card_le_card
+  intro w hw
+  have hzw := (G.mem_neighborFinset z w).mp hw
+  by_contra hwS
+  have heq : H (pairInput z w) = H (fun _ => false) := by
+    apply hSupport
+    intro i hi
+    have hiz : i ≠ z := by rintro rfl; exact hz hi
+    have hiw : i ≠ w := by rintro rfl; exact hwS hi
+    simp [pairInput, hiz, hiw]
+  have htrue := hEdges w hzw
+  rw [heq, hZero] at htrue
+  exact Bool.false_ne_true htrue
+
+lemma degree_le_singleton_support {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (z : Fin n) (S : Finset (Fin n))
+    (H : (Fin n → Bool) → Bool) (hZero : H (fun _ => false) = false)
+    (hSupport : ∀ x y : Fin n → Bool, (∀ i ∈ S, x i = y i) → H x = H y)
+    (hEdges : ∀ w : Fin n, G.Adj z w → H (pairInput w w) = true) :
+    G.degree z ≤ S.card := by
+  change (G.neighborFinset z).card ≤ S.card
+  apply Finset.card_le_card
+  intro w hw
+  have hzw := (G.mem_neighborFinset z w).mp hw
+  by_contra hwS
+  have heq : H (pairInput w w) = H (fun _ => false) := by
+    apply hSupport
+    intro i hi
+    have hiw : i ≠ w := by rintro rfl; exact hwS hi
+    simp [pairInput, hiw]
+  have htrue := hEdges w hzw
+  rw [heq, hZero] at htrue
+  exact Bool.false_ne_true htrue
+
+lemma degree_le_private_gates {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (z : Fin n) (K : Finset ℕ) (r : ℕ) (hr : r ∈ K)
+    (port : ℕ → Fin 2 → ℕ) (S : Finset (Fin n)) (hz : z ∉ S)
+    (hInputs : ∀ v ∈ S, ∃ g ∈ K, ∃ b : Fin 2, port g b = v.val)
+    (hRead : ∀ g ∈ K.erase r, ∃ h ∈ K, ∃ b : Fin 2, port h b = n + g)
+    (H : (Fin n → Bool) → Bool) (hZero : H (fun _ => false) = false)
+    (hSupport : ∀ x y : Fin n → Bool, (∀ i ∈ S, x i = y i) → H x = H y)
+    (hEdges : ∀ w : Fin n, G.Adj z w → H (pairInput z w) = true) :
+    G.degree z ≤ K.card + 1 :=
+  (degree_le_support G z S hz H hZero hSupport hEdges).trans
+    (input_card_le_gates_add_one n K r hr port S hInputs hRead)
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open PEqualNP.Outside.L_meta_3566.LeafStep.Pruning
+
+lemma port_mem (n : ℕ) (C : Circuit) (hC : IsAO2 n C) (j : ℕ) (hj : j < C.size)
+    (b : Fin 2) : opnd C j b ∈ (gateAt C j).inputs := by
+  have hg : gateAt C j ∈ C.gates :=
+    PEqualNP.Outside.L_meta_3566.FalseRestrict.list_getD_mem C.gates j _ hj
+  obtain ⟨a, d, h⟩ := List.length_eq_two.mp (hC.2.2 _ hg)
+  fin_cases b <;> simp [opnd, h]
+
+lemma gate_zero (n : ℕ) (C : Circuit) (hC : IsAO2 n C) :
+    ∀ j, j < C.size → gateVal n C j (fun _ => false) = false := by
+  intro j
+  induction j using Nat.strong_induction_on with
+  | ind j ih =>
+    intro hj
+    rw [gate_eq C hC j hj]
+    have hsrc (b : Fin 2) : wireVal n C (opnd C j b) (fun _ => false) = false := by
+      by_cases hw : opnd C j b < n
+      · rw [wireVal_lt C _ hw]
+      · have hback := hC.2.1 j hj (opnd C j b) (port_mem n C hC j hj b)
+        have he : n + (opnd C j b - n) = opnd C j b := by omega
+        rw [← he]
+        change gateVal n C (opnd C j b - n) (fun _ => false) = false
+        exact ih _ (by omega) (by omega)
+    rw [hsrc 0, hsrc 1]
+    simp [opv]
+
+lemma cone_agree (n : ℕ) (C : Circuit) (hC : IsAO2 n C) (K : Finset ℕ)
+    (hK : ∀ j ∈ K, j < C.size)
+    (hClosed : ∀ j ∈ K, ∀ b : Fin 2, n ≤ opnd C j b → opnd C j b - n ∈ K)
+    (S : Finset (Fin n))
+    (hInputs : ∀ j ∈ K, ∀ b : Fin 2, ∀ hw : opnd C j b < n,
+      (⟨opnd C j b, hw⟩ : Fin n) ∈ S)
+    (x y : Fin n → Bool) (hxy : ∀ v ∈ S, x v = y v) :
+    ∀ r ∈ K, gateVal n C r x = gateVal n C r y := by
+  intro r
+  induction r using Nat.strong_induction_on with
+  | ind r ih =>
+    intro hr
+    have hrlt := hK r hr
+    have hsrc (b : Fin 2) : wireVal n C (opnd C r b) x = wireVal n C (opnd C r b) y := by
+      by_cases hw : opnd C r b < n
+      · rw [wireVal_lt C _ hw x, wireVal_lt C _ hw y]
+        exact hxy _ (hInputs r hr b hw)
+      · have hback := hC.2.1 r hrlt (opnd C r b) (port_mem n C hC r hrlt b)
+        have he : n + (opnd C r b - n) = opnd C r b := by omega
+        rw [← he]
+        change gateVal n C (opnd C r b - n) x = gateVal n C (opnd C r b - n) y
+        exact ih _ (by omega) (hClosed r hr b (by omega))
+    rw [gate_eq C hC r hrlt x, gate_eq C hC r hrlt y, hsrc 0, hsrc 1]
+
+lemma degree_le_closed_cone {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (z : Fin n) (C : Circuit) (hC : IsAO2 n C)
+    (K : Finset ℕ) (r : ℕ) (hr : r ∈ K)
+    (hK : ∀ j ∈ K, j < C.size)
+    (hClosed : ∀ j ∈ K, ∀ b : Fin 2, n ≤ opnd C j b → opnd C j b - n ∈ K)
+    (hRead : ∀ g ∈ K.erase r, ∃ h ∈ K, ∃ b : Fin 2, opnd C h b = n + g)
+    (hEdges : ∀ w : Fin n, G.Adj z w → gateVal n C r (pairInput w w) = true) :
+    G.degree z ≤ K.card + 1 := by
+  classical
+  let S : Finset (Fin n) := Finset.univ.filter fun v => ∃ g ∈ K, ∃ b : Fin 2, opnd C g b = v.val
+  have hInputs : ∀ v ∈ S, ∃ g ∈ K, ∃ b : Fin 2, opnd C g b = v.val := by
+    intro v hv
+    exact (Finset.mem_filter.mp hv).2
+  have hBare : ∀ j ∈ K, ∀ b : Fin 2, ∀ hw : opnd C j b < n,
+      (⟨opnd C j b, hw⟩ : Fin n) ∈ S := by
+    intro j hj b hw
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, j, hj, b, rfl⟩
+  have hDegree : G.degree z ≤ S.card :=
+    degree_le_singleton_support G z S (gateVal n C r) (gate_zero n C hC r (hK r hr))
+      (fun x y hxy => cone_agree n C hC K hK hClosed S hBare x y hxy r hr) hEdges
+  exact hDegree.trans (input_card_le_gates_add_one n K r hr (opnd C) S hInputs hRead)
+
+end PEqualNP.Outside.L_meta_3566.PrivateCone
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateDelete
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open PEqualNP.Outside.L_meta_3566.LeafStep.Pruning
+
+lemma erase_private_cone (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (z : Fin n) (j : ℕ) (hj : j < C.size)
+    (hop : (gateAt C j).op = GateOp.and)
+    (hz : z.val ∈ (gateAt C j).inputs)
+    (J : Finset ℕ) (hJ : J ⊆ Finset.range C.size) (_hjJ : j ∈ J)
+    (hclosed : ∀ i < C.size, i ∉ J → ∀ w ∈ (gateAt C i).inputs,
+      n ≤ w → w - n ∈ J → w = n + j)
+    (ho : C.output < n + C.size)
+    (hout : n ≤ C.output → C.output - n ∈ J → C.output = n + j)
+    (k : ℕ) (hk : k < C.size) (hkJ : k ∉ J)
+    (hreader : n + j ∈ (gateAt C k).inputs) :
+    ∃ D : Circuit, IsAO2 n D ∧
+      circuitFun n D = (fun y : Fin n → Bool =>
+        circuitFun n C (Function.update y z false)) ∧
+      D.size + J.card + 1 ≤ C.size := by
+  classical
+  let K := Finset.range C.size \ J
+  let red : ℕ → Src n ℕ := fun w =>
+    if w = z.val ∨ w = n + j then none else srcOf n w
+  let P : Prog n ℕ := progOf C fun i b => red (opnd C i b)
+  let v : ℕ → (Fin n → Bool) → Bool := fun i y =>
+    PEqualNP.EdgeOwnership.gateVal n C i (Function.update y z false)
+  have hmem (i : ℕ) (hi : i < C.size) (b : Fin 2) :
+      opnd C i b ∈ (gateAt C i).inputs := by
+    have hg : gateAt C i ∈ C.gates :=
+      PEqualNP.Outside.L_meta_3566.FalseRestrict.list_getD_mem C.gates i _ hi
+    have hlen := hC.2.2 _ hg
+    obtain ⟨a, d, h⟩ := List.length_eq_two.mp hlen
+    fin_cases b <;> simp [opnd, h]
+  have hred (w q : ℕ) (hw : w < n + C.size)
+      (hcut : n ≤ w → w - n ∈ J → w = n + j)
+      (h : red w = some (Sum.inr q)) : q ∈ K := by
+    have hcase : ¬ (w = z.val ∨ w = n + j) := by
+      intro hc
+      simp [red, hc] at h
+    have hs : srcOf n w = some (Sum.inr q) := by
+      simpa only [red, ite_eq_right hcase] using h
+    have hq := srcOf_inr w q hs
+    apply Finset.mem_sdiff.mpr
+    constructor
+    · exact Finset.mem_range.mpr (by omega)
+    · intro hqJ
+      have hwJ : w - n ∈ J := by simpa [hq] using hqJ
+      exact hcase (Or.inr (hcut (by omega) hwJ))
+  have hcl : Closed P id K := by
+    intro i hi b q h
+    obtain ⟨hiRange, hiJ⟩ := Finset.mem_sdiff.mp hi
+    have hi' : i < C.size := Finset.mem_range.mp hiRange
+    have hb := hC.2.1 i hi' (opnd C i b) (hmem i hi' b)
+    change red (opnd C i b) = some (Sum.inr q) at h
+    refine ⟨hred _ q (by omega) (hclosed i hi' hiJ _ (hmem i hi' b)) h, ?_⟩
+    have hcase : ¬ (opnd C i b = z.val ∨ opnd C i b = n + j) := by
+      intro hc
+      simp [red, hc] at h
+    have hs : srcOf n (opnd C i b) = some (Sum.inr q) := by
+      simpa only [red, ite_eq_right hcase] using h
+    have hq := srcOf_inr (opnd C i b) q hs
+    change q < i
+    omega
+  have hval (w : ℕ) (y : Fin n → Bool) :
+      srcAt y (fun q => v q y) (red w) =
+        wireVal n C w (Function.update y z false) := by
+    dsimp [red]
+    split_ifs with hcase
+    · rcases hcase with hcase | hcase
+      · subst w
+        change false = wireVal n C z.val (Function.update y z false)
+        rw [wireVal_lt C z.val z.isLt]
+        simp
+      · rw [hcase]
+        change false = (C.wires (List.ofFn (Function.update y z false))).getD (n + j) false
+        exact (PEqualNP.Outside.L_meta_3566.LeafStep.and_input_false
+          C j hj hop z hz _ (by simp)).symm
+    · unfold srcOf
+      split_ifs with hw
+      · rw [wireVal_lt C w hw]
+        have hne : (⟨w, hw⟩ : Fin n) ≠ z := by
+          intro he
+          exact hcase (Or.inl (congrArg Fin.val he))
+        change y ⟨w, hw⟩ = Function.update y z false ⟨w, hw⟩
+        simp [hne]
+      · change PEqualNP.EdgeOwnership.gateVal n C (w - n) (Function.update y z false) = _
+        have hidx : n + (w - n) = w := by omega
+        unfold PEqualNP.EdgeOwnership.gateVal wireVal
+        rw [hidx]
+  have hsol : Sol P K v := by
+    intro y i hi
+    have hi' : i < C.size := Finset.mem_range.mp (Finset.mem_sdiff.mp hi).1
+    change PEqualNP.EdgeOwnership.gateVal n C i (Function.update y z false) =
+      opv (isA (gateAt C i).op)
+        (srcAt y (fun q => v q y) (red (opnd C i 0)))
+        (srcAt y (fun q => v q y) (red (opnd C i 1)))
+    rw [hval, hval]
+    exact gate_eq C hC i hi' (Function.update y z false)
+  have hout' : ∀ q, red C.output = some (Sum.inr q) → q ∈ K :=
+    fun q h => hred C.output q ho hout h
+  obtain ⟨D, hD, hsize, hfun⟩ := fold_total P id v K hcl hsol (red C.output) hout'
+  have hkK : k ∈ K := Finset.mem_sdiff.mpr ⟨Finset.mem_range.mpr hk, hkJ⟩
+  have hpos : ∃ b : Fin 2, opnd C k b = n + j := by
+    have hkmem : gateAt C k ∈ C.gates :=
+      PEqualNP.Outside.L_meta_3566.FalseRestrict.list_getD_mem C.gates k _ hk
+    obtain ⟨a, b, hab⟩ := List.length_eq_two.mp (hC.2.2 _ hkmem)
+    simp only [hab, List.mem_cons, List.not_mem_nil, or_false] at hreader
+    rcases hreader with hreader | hreader
+    · exact ⟨0, by simp [opnd, hab, ← hreader]⟩
+    · exact ⟨1, by simp [opnd, hab, ← hreader]⟩
+  have hknot : k ∉ kept P v K := by
+    intro hkeep
+    have hp := (Finset.mem_filter.mp hkeep).2
+    obtain ⟨b, hb⟩ := hpos
+    have hsrc : P.src k b = none := by
+      change red (opnd C k b) = none
+      simp [red, hb]
+    have htrue : srcAt (fun _ => true) (fun q => v q (fun _ => true)) (P.src k b) = true := by
+      fin_cases b
+      · exact hp.1
+      · exact hp.2
+    rw [hsrc] at htrue
+    simp [srcAt] at htrue
+  have hkept : (kept P v K).card + 1 ≤ K.card := by
+    rw [← Finset.card_insert_of_notMem hknot]
+    exact Finset.card_le_card (Finset.insert_subset hkK (Finset.filter_subset _ _))
+  have hcard : K.card + J.card = C.size := by
+    simpa [K] using Finset.card_sdiff_add_card_eq_card hJ
+  refine ⟨D, hD, ?_, by omega⟩
+  funext y
+  rw [hfun y, hval]
+  rfl
+
+end PEqualNP.Outside.L_meta_3566.PrivateDelete
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateStep
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open PEqualNP.Outside.L_meta_3566.AO2Upper PEqualNP.Outside.L_meta_3566.LeafStep
+
+lemma private_and_restriction {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C) (z : Fin n)
+    (hnon : (G.deleteEdges (G.incidenceSet z)).edgeFinset.Nonempty)
+    (j : ℕ) (hj : j < C.size) (hop : (gateAt C j).op = GateOp.and)
+    (hz : z.val ∈ (gateAt C j).inputs)
+    (K : Finset ℕ) (hK : K ⊆ Finset.range j) (r : ℕ) (hr : r ∈ K)
+    (_hroot : n + r ∈ (gateAt C j).inputs)
+    (hClosed : ∀ i ∈ K, ∀ b : Fin 2, n ≤ opnd C i b → opnd C i b - n ∈ K)
+    (hRead : ∀ g ∈ K.erase r, ∃ h ∈ K, ∃ b : Fin 2, opnd C h b = n + g)
+    (hEdges : ∀ w : Fin n, G.Adj z w → PEqualNP.EdgeOwnership.gateVal n C r
+      (PEqualNP.EdgeOwnership.pairInput w w) = true)
+    (hPrivate : ∀ i < C.size, i ∉ insert j K → ∀ w ∈ (gateAt C i).inputs,
+      n ≤ w → w - n ∈ insert j K → w = n + j) :
+    ∃ D : Circuit, IsAO2 n D ∧
+      circuitFun n D = (fun y : Fin n → Bool => circuitFun n C (Function.update y z false)) ∧
+      D.size + G.degree z + 1 ≤ C.size := by
+  classical
+  obtain ⟨e, he⟩ := hnon
+  have hadj : ∃ a b : Fin n, (G.deleteEdges (G.incidenceSet z)).Adj a b := by
+    revert he
+    refine Sym2.ind (fun a b => ?_) e
+    intro he
+    exact ⟨a, b, by simpa using he⟩
+  obtain ⟨a, b, hab⟩ := hadj
+  obtain ⟨hab, haz, hbz⟩ := (cut_adj G z a b).mp hab
+  let x : Fin n → Bool := Function.update (fun _ => true) z false
+  have hx : x z = false := by simp [x]
+  have hxa : x a = true := by simp [x, haz]
+  have hxb : x b = true := by simp [x, hbz]
+  have htrue : circuitFun n C x = true := by
+    rw [hC.2.1]
+    simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false, Bool.false_or,
+      decide_eq_true_eq]
+    exact ⟨a, b, hab, hxa, hxb⟩
+  have hfalse := and_input_false C j hj hop z hz x hx
+  have hjo : C.output ≠ n + j := by
+    intro h
+    change (C.wires (List.ofFn x)).getD C.output false = true at htrue
+    rw [h, hfalse] at htrue
+    exact Bool.false_ne_true htrue
+  have ho : C.output < n + C.size := by
+    by_contra h
+    have hlen : (C.wires (List.ofFn x)).length = n + C.size := by
+      exact (length_wiresFrom C.gates (List.ofFn x)).trans (by simp [Circuit.size])
+    change (C.wires (List.ofFn x)).getD C.output false = true at htrue
+    rw [List.getD_eq_default _ _ (by omega)] at htrue
+    exact Bool.false_ne_true htrue
+  have hLast : C.output = n + (C.size - 1) := by
+    by_contra h
+    obtain ⟨k, hlk, hk, _⟩ := reader_of_least G C hC (C.size - 1) (by omega) ho h
+    omega
+  have hKlt : ∀ i ∈ K, i < j := fun i hi => Finset.mem_range.mp (hK hi)
+  have hjK : j ∉ K := by intro h; have := hKlt j h; omega
+  have hJ : insert j K ⊆ Finset.range C.size := by
+    intro i hi
+    rcases Finset.mem_insert.mp hi with rfl | hi
+    · exact Finset.mem_range.mpr hj
+    · exact Finset.mem_range.mpr (lt_trans (hKlt i hi) hj)
+  have hout : n ≤ C.output → C.output - n ∈ insert j K → C.output = n + j := by
+    intro hn hi
+    rcases Finset.mem_insert.mp hi with hi | hi
+    · omega
+    · have hlt := hKlt (C.output - n) hi
+      omega
+  obtain ⟨k, hjk, hk, hreader⟩ := reader_of_least G C hC j hj ho hjo
+  have hkJ : k ∉ insert j K := by
+    intro hi
+    rcases Finset.mem_insert.mp hi with hi | hi
+    · omega
+    · have hlt := hKlt k hi
+      omega
+  obtain ⟨D, hD, hFun, hSize⟩ := PrivateDelete.erase_private_cone n C hC.1 z j hj hop hz
+    (insert j K) hJ (Finset.mem_insert_self _ _) hPrivate ho hout k hk hkJ hreader
+  have hDegree := PrivateCone.degree_le_closed_cone G z C hC.1 K r hr
+    (fun i hi => lt_trans (hKlt i hi) hj) hClosed hRead hEdges
+  have hCard : (insert j K).card = K.card + 1 := Finset.card_insert_of_notMem hjK
+  exact ⟨D, hD, hFun, by omega⟩
+
+lemma witness_of_private_cone {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C) (z : Fin n) (hpos : 0 < G.degree z)
+    (hnon : (G.deleteEdges (G.incidenceSet z)).edgeFinset.Nonempty)
+    (j : ℕ) (hj : j < C.size) (hop : (gateAt C j).op = GateOp.and)
+    (hz : z.val ∈ (gateAt C j).inputs)
+    (K : Finset ℕ) (hK : K ⊆ Finset.range j) (r : ℕ) (hr : r ∈ K)
+    (hroot : n + r ∈ (gateAt C j).inputs)
+    (hClosed : ∀ i ∈ K, ∀ b : Fin 2, n ≤ opnd C i b → opnd C i b - n ∈ K)
+    (hRead : ∀ g ∈ K.erase r, ∃ h ∈ K, ∃ b : Fin 2, opnd C h b = n + g)
+    (hEdges : ∀ w : Fin n, G.Adj z w → PEqualNP.EdgeOwnership.gateVal n C r
+      (PEqualNP.EdgeOwnership.pairInput w w) = true)
+    (hPrivate : ∀ i < C.size, i ∉ insert j K → ∀ w ∈ (gateAt C i).inputs,
+      n ≤ w → w - n ∈ insert j K → w = n + j) :
+    0 < G.degree z ∧ ∀ C' : Circuit, IsAO2 n C' → circuitFun n C' = graphFun G ∅ →
+      ∃ D : Circuit, IsAO2 n D ∧
+        circuitFun n D = (fun y : Fin n → Bool => @decide (∃ a b : Fin n,
+          (G.deleteEdges (G.incidenceSet z)).Adj a b ∧ y a = true ∧ y b = true)
+            (Classical.propDecidable _)) ∧
+        D.size + G.degree z ≤ C'.size ∧
+        ((∃ S : Finset (Fin n), CoverPromise.IsVertexCover (G.deleteEdges (G.incidenceSet z)) S ∧
+          ∀ T : Finset (Fin n), CoverPromise.IsVertexCover G T → S.card < T.card) →
+          D.size + G.degree z + 1 ≤ C'.size) := by
+  obtain ⟨D, hD, hFun, hSize⟩ := private_and_restriction G C hC z hnon j hj hop hz
+    K hK r hr hroot hClosed hRead hEdges hPrivate
+  have hGraph : circuitFun n D = (fun y : Fin n → Bool => @decide (∃ a b : Fin n,
+      (G.deleteEdges (G.incidenceSet z)).Adj a b ∧ y a = true ∧ y b = true)
+        (Classical.propDecidable _)) := by
+    rw [hFun, hC.2.1, FanoutStep.graphFun_update_false]
+  refine ⟨hpos, ?_⟩
+  intro C' hC' hFun'
+  have hMin := hC.2.2 C' hC' hFun'
+  exact ⟨D, hD, hGraph, by omega, fun _ => by omega⟩
+
+end PEqualNP.Outside.L_meta_3566.PrivateStep
