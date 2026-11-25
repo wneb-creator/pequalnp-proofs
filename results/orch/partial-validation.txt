@@ -1,0 +1,7 @@
+L-meta-1770 PARTIAL ONLY: generic 3-core peeling lemma.
+Command: source /tmp/oec/pequalnp-pilot-63/tool-env.sh && lake env lean ../results/orch/lemmas/LemmaSearch.lean
+Compiler exit: 0. Compiler stdout/stderr: empty.
+Independent review: status_review PASS for preserving partial, not a completed gap proof.
+Full gap checker: not yet run.
+Sub-agents: status_review, structural_proof, counterexample, reduction_design, lemma_search, alternative_route
+TIMING total=9.2 subagents=6
