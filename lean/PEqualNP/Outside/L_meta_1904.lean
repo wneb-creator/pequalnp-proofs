@@ -645,4 +645,163 @@ lemma minimal_signed_boundary_obstruction {n : ℕ} (G : SimpleGraph (Fin n))
   have hle := hmin.2 D hD heq
   omega
 
+lemma signed_boundary_delete_any_index {n : ℕ} (G : SimpleGraph (Fin n))
+    (pre rest : List Gate) (g : Gate) (out r : ℕ)
+    (hm : Monotone2 ⟨pre ++ g :: rest, out⟩)
+    (hcorrect : ∀ x : Fin n → Bool,
+      (⟨pre ++ g :: rest, out⟩ : Circuit).eval (List.ofFn x) = edgeFunction G x)
+    (hpositive : ∀ u v, G.Adj u v →
+      g.op.eval (g.inputs.map fun i =>
+        (run pre (List.ofFn (setInput ({u, v} : Set (Fin n))))).getD i false) = true →
+      (run pre (List.ofFn (setInput ({u, v} : Set (Fin n))))).getD r false = true)
+    (hnegative : ∀ s, Maximal G.IsIndepSet s →
+      (run pre (List.ofFn (setInput s))).getD r false = true →
+      g.op.eval (g.inputs.map fun i =>
+        (run pre (List.ofFn (setInput s))).getD i false) = true) :
+    ∃ D : Circuit, Monotone2 D ∧
+      D.size + 1 = (⟨pre ++ g :: rest, out⟩ : Circuit).size ∧
+      ∀ x : Fin n → Bool, D.eval (List.ofFn x) = edgeFunction G x := by
+  by_cases hr : r < n + pre.length
+  · exact signed_boundary_delete G pre rest g out r hr hm hcorrect hpositive hnegative
+  · have hm' := signed_alias_monotone pre rest g out r hm
+    have hcorrect' := signed_alias_correct G pre rest g out r hm hcorrect hpositive hnegative
+    have hzero (x : Fin n → Bool) :
+        (Circuit.wires ⟨pre ++ ⟨.or, [r]⟩ :: rest, out⟩ (List.ofFn x)).getD
+          (n + pre.length) false = false := by
+      have he := deletionRun_gate_value pre rest ⟨.or, [r]⟩ (List.ofFn x)
+      have hz : (deletionRun pre (List.ofFn x)).getD r false = false :=
+        List.getD_eq_default _ _ (by simp [deletionRun_length]; omega)
+      have hw :
+          (Circuit.wires ⟨pre ++ ⟨.or, [r]⟩ :: rest, out⟩ (List.ofFn x)).getD
+            (n + pre.length) false = (deletionRun pre (List.ofFn x)).getD r false := by
+        simpa [Circuit.wires, deletionRun, GateOp.eval] using he
+      exact hw.trans hz
+    obtain ⟨D, hD, hsize, hvalue⟩ :=
+      delete_false_gate_split n pre rest ⟨.or, [r]⟩ out hm' hzero
+    refine ⟨D, hD, ?_, fun x => (hvalue x).trans (hcorrect' x)⟩
+    simpa [Circuit.size] using hsize
+
+lemma minimal_gate_true_on_edge_pair {n : ℕ} (G : SimpleGraph (Fin n))
+    (pre rest : List Gate) (g : Gate) (out : ℕ)
+    (hmin : IsMinimalMonoCircuit n ⟨pre ++ g :: rest, out⟩)
+    (hcorrect : ∀ x : Fin n → Bool,
+      (⟨pre ++ g :: rest, out⟩ : Circuit).eval (List.ofFn x) = edgeFunction G x) :
+    ∃ u v, G.Adj u v ∧
+      g.op.eval (g.inputs.map fun i =>
+        (run pre (List.ofFn (setInput ({u, v} : Set (Fin n))))).getD i false) = true := by
+  classical
+  by_contra hnone
+  have hpositive : ∀ u v, G.Adj u v →
+      g.op.eval (g.inputs.map fun i =>
+        (run pre (List.ofFn (setInput ({u, v} : Set (Fin n))))).getD i false) = true →
+      (run pre (List.ofFn (setInput ({u, v} : Set (Fin n))))).getD
+        (n + pre.length) false = true := by
+    intro u v huv htrue
+    exact (hnone ⟨u, v, huv, htrue⟩).elim
+  have hnegative : ∀ s, Maximal G.IsIndepSet s →
+      (run pre (List.ofFn (setInput s))).getD (n + pre.length) false = true →
+      g.op.eval (g.inputs.map fun i =>
+        (run pre (List.ofFn (setInput s))).getD i false) = true := by
+    intro s hs htrue
+    have hz : (run pre (List.ofFn (setInput s))).getD (n + pre.length) false = false :=
+      List.getD_eq_default _ _ (by simp [run_length])
+    rw [hz] at htrue
+    cases htrue
+  obtain ⟨D, hD, hsize, hvalue⟩ := signed_boundary_delete_any_index G pre rest g out
+    (n + pre.length) hmin.1 hcorrect hpositive hnegative
+  have heq : circuitFun n D = circuitFun n ⟨pre ++ g :: rest, out⟩ := by
+    funext x
+    exact (hvalue x).trans (hcorrect x).symm
+  have hle := hmin.2 D hD heq
+  omega
+
+-- Finite checks of local replacement and gate-index arguments.
+open PEqualNP.CircuitLowerBounds
+
+def reviewTriple : Circuit :=
+  ⟨[⟨GateOp.and, [0, 1]⟩, ⟨GateOp.and, [3, 2]⟩], 5⟩
+
+lemma reviewTriple_computes_empty_graph : ∀ x : Fin 3 → Bool,
+    reviewTriple.eval (List.ofFn x) = false := by
+  decide +kernel
+
+lemma reviewTriple_large_witness :
+    (reviewTriple.wires (List.ofFn (fun _ : Fin 3 => true))).getD 4 false = true := by
+  decide +kernel
+
+lemma reviewTriple_no_small_witness :
+    ∀ S : Finset (Fin 3), S.card ≤ 2 →
+      (reviewTriple.wires (List.ofFn (fun i => decide (i ∈ S)))).getD 4 false = false := by
+  decide +kernel
+
+lemma reviewTriple_earlier_witness :
+    (reviewTriple.wires [true, true, false]).getD 3 false = true := by
+  decide +kernel
+
+def reviewForward : Circuit :=
+  ⟨[⟨GateOp.or, [2]⟩, ⟨GateOp.and, [0, 0]⟩], 1⟩
+
+def reviewRedirected : Circuit :=
+  ⟨[⟨GateOp.or, [0]⟩], 1⟩
+
+lemma review_forward_redirect_changes_value :
+    reviewForward.eval [true] = false ∧ reviewRedirected.eval [true] = true := by
+  decide +kernel
+
+lemma review_forward_is_monotone2 : PEqualNP.MetaComplexity.Monotone2 reviewForward := by
+  intro g hg
+  simp only [reviewForward, List.mem_cons, List.not_mem_nil, or_false] at hg
+  rcases hg with rfl | rfl <;>
+    simp
+
+def reviewP4 : Circuit :=
+  ⟨[⟨GateOp.or, [0, 2]⟩, ⟨GateOp.or, [1, 3]⟩,
+    ⟨GateOp.and, [4, 5]⟩, ⟨GateOp.or, [1, 2]⟩,
+    ⟨GateOp.and, [6, 7]⟩], 8⟩
+
+def reviewP4First : Circuit :=
+  ⟨[⟨GateOp.or, [0, 2]⟩, ⟨GateOp.or, [1, 3]⟩,
+    ⟨GateOp.or, [4]⟩, ⟨GateOp.or, [1, 2]⟩,
+    ⟨GateOp.and, [6, 7]⟩], 8⟩
+
+def reviewP4Second : Circuit :=
+  ⟨[⟨GateOp.or, [0, 2]⟩, ⟨GateOp.or, [1, 3]⟩,
+    ⟨GateOp.or, [5]⟩, ⟨GateOp.or, [1, 2]⟩,
+    ⟨GateOp.and, [6, 7]⟩], 8⟩
+
+lemma reviewP4_correct : ∀ x : Fin 4 → Bool,
+    reviewP4.eval (List.ofFn x) = ((x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3)) := by
+  decide +kernel
+
+lemma reviewP4_bad :
+    (reviewP4.wires [true, false, false, true]).getD 6 false = true ∧
+    reviewP4.eval [true, false, false, true] = false := by
+  decide +kernel
+
+lemma reviewP4_bypass_first_wrong :
+    reviewP4.eval [false, false, true, false] = false ∧
+    reviewP4First.eval [false, false, true, false] = true := by
+  decide +kernel
+
+lemma reviewP4_bypass_second_wrong :
+    reviewP4.eval [false, true, false, false] = false ∧
+    reviewP4Second.eval [false, true, false, false] = true := by
+  decide +kernel
+
+def reviewEight (badGate : Gate) : Circuit :=
+  ⟨[⟨GateOp.or, [3, 4]⟩, ⟨GateOp.or, [4, 6]⟩, ⟨GateOp.and, [8, 7]⟩,
+    ⟨GateOp.or, [10, 1]⟩, ⟨GateOp.or, [6, 7]⟩, badGate,
+    ⟨GateOp.or, [0, 13]⟩, ⟨GateOp.and, [14, 9]⟩, ⟨GateOp.or, [5, 12]⟩,
+    ⟨GateOp.and, [11, 16]⟩, ⟨GateOp.or, [15, 17]⟩], 18⟩
+
+lemma reviewEight_bypass_first_wrong :
+    (reviewEight ⟨GateOp.and, [2, 12]⟩).eval [false, false, true, false, true, false, false, false] = false ∧
+    (reviewEight ⟨GateOp.or, [2]⟩).eval [false, false, true, false, true, false, false, false] = true := by
+  decide +kernel
+
+lemma reviewEight_bypass_second_wrong :
+    (reviewEight ⟨GateOp.and, [2, 12]⟩).eval [false, false, false, false, false, false, true, false] = false ∧
+    (reviewEight ⟨GateOp.or, [12]⟩).eval [false, false, false, false, false, false, true, false] = true := by
+  decide +kernel
+
 end PEqualNP.Outside.L_meta_1904_aux
