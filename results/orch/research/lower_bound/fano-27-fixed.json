@@ -1,0 +1,151 @@
+{
+  "result": "sat",
+  "elapsed_seconds": 0.1687253850000161,
+  "problem": "fano",
+  "gates": 27,
+  "tests": 58,
+  "clauses": 165783,
+  "z3": "5.3.3",
+  "fixed_seed": true,
+  "allow_dead": false,
+  "seed": 0,
+  "statistics": "(:card2bv-rewrites      90967\n :max-memory            75.91\n :memory                75.91\n :num-allocs            24397845\n :rlimit-count          2334186\n :sat-decisions         1\n :sat-mk-clause-2ary    74737\n :sat-mk-clause-nary    90907\n :sat-mk-var            6184\n :sat-propagations-2ary 3028\n :sat-propagations-nary 3016\n :sat-units             139\n :time                  0.17)",
+  "gates_data": [
+    [
+      false,
+      0,
+      1
+    ],
+    [
+      false,
+      3,
+      14
+    ],
+    [
+      true,
+      7,
+      15
+    ],
+    [
+      false,
+      1,
+      2
+    ],
+    [
+      false,
+      4,
+      17
+    ],
+    [
+      true,
+      8,
+      18
+    ],
+    [
+      false,
+      2,
+      3
+    ],
+    [
+      false,
+      5,
+      20
+    ],
+    [
+      true,
+      9,
+      21
+    ],
+    [
+      false,
+      3,
+      4
+    ],
+    [
+      false,
+      6,
+      23
+    ],
+    [
+      true,
+      10,
+      24
+    ],
+    [
+      false,
+      0,
+      4
+    ],
+    [
+      false,
+      5,
+      26
+    ],
+    [
+      true,
+      11,
+      27
+    ],
+    [
+      false,
+      1,
+      5
+    ],
+    [
+      false,
+      6,
+      29
+    ],
+    [
+      true,
+      12,
+      30
+    ],
+    [
+      false,
+      0,
+      2
+    ],
+    [
+      false,
+      6,
+      32
+    ],
+    [
+      true,
+      13,
+      33
+    ],
+    [
+      false,
+      16,
+      19
+    ],
+    [
+      false,
+      22,
+      35
+    ],
+    [
+      false,
+      25,
+      36
+    ],
+    [
+      false,
+      28,
+      37
+    ],
+    [
+      false,
+      31,
+      38
+    ],
+    [
+      false,
+      34,
+      39
+    ]
+  ],
+  "full_truth_table_verified": 16384
+}

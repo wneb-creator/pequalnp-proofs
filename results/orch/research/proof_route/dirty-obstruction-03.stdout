@@ -1,0 +1,17 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/dirty_obstruction.lean:75:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/pequalnp-proofs/results/orch/lemmas/dirty_obstruction.lean:76:2: error: failed to synthesize
+  Decidable
+    (∀ k < dirty.gates.length,
+      (gateAt dirty k).op = GateOp.and →
+        ∀ t ∈ (gateAt dirty k).inputs,
+          ¬∀ (z : Fin 4 → Bool),
+              { gates := dirty.gates, output := t }.eval (List.ofFn z) = true → graphFun pathGraph ∅ z = true)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

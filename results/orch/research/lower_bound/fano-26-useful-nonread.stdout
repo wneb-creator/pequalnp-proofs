@@ -1,0 +1,1 @@
+{"utc": "2026-11-25T14:53:58.951291+00:00", "problem": "fano", "gates": 26, "tests": 58, "clauses": 162012, "z3": "5.3.3", "fixed_seed": false, "allow_dead": false, "seed": 2583, "useful_gates": true, "nonread_edge": 0, "first_pair": null, "first_op": null}

@@ -1,0 +1,23 @@
+In function ‘void search(int, int)’,
+    inlined from ‘void search(int, int)’ at /tmp/oec/pequalnp-pilot-137/proof_route/enumerate_p4.cpp:38:18,
+    inlined from ‘void search(int, int)’ at /tmp/oec/pequalnp-pilot-137/proof_route/enumerate_p4.cpp:38:18:
+/tmp/oec/pequalnp-pilot-137/proof_route/enumerate_p4.cpp:18:5: warning: iteration 9 invokes undefined behavior [-Waggressive-loop-optimizations]
+   18 |     for (int k=0;k<w;k++) if (values[k]==value) redundant=true;
+      |     ^~~
+/tmp/oec/pequalnp-pilot-137/proof_route/enumerate_p4.cpp:18:19: note: within this loop
+   18 |     for (int k=0;k<w;k++) if (values[k]==value) redundant=true;
+      |                  ~^~
+In function ‘void search(int, int)’,
+    inlined from ‘void search(int, int)’ at /tmp/oec/pequalnp-pilot-137/proof_route/enumerate_p4.cpp:38:18:
+/tmp/oec/pequalnp-pilot-137/proof_route/enumerate_p4.cpp:18:5: warning: iteration 9 invokes undefined behavior [-Waggressive-loop-optimizations]
+   18 |     for (int k=0;k<w;k++) if (values[k]==value) redundant=true;
+      |     ^~~
+/tmp/oec/pequalnp-pilot-137/proof_route/enumerate_p4.cpp:18:19: note: within this loop
+   18 |     for (int k=0;k<w;k++) if (values[k]==value) redundant=true;
+      |                  ~^~
+/tmp/oec/pequalnp-pilot-137/proof_route/enumerate_p4.cpp: In function ‘void search(int, int)’:
+/tmp/oec/pequalnp-pilot-137/proof_route/enumerate_p4.cpp:18:40: warning: iteration 8 invokes undefined behavior [-Waggressive-loop-optimizations]
+   18 |     for (int k=0;k<w;k++) if (values[k]==value) redundant=true;
+/tmp/oec/pequalnp-pilot-137/proof_route/enumerate_p4.cpp:18:19: note: within this loop
+   18 |     for (int k=0;k<w;k++) if (values[k]==value) redundant=true;
+      |                  ~^~

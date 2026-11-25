@@ -1,0 +1,23 @@
+{
+  "utc": "2026-11-25T15:06:30.657653+00:00",
+  "reason": "Parent reported desk HTTP 410; proof and search work stopped",
+  "compiled_source": "/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_delete_checked.lean",
+  "sha256": "9d8ca7a088b682cc72e48f36571bcfa1fabcfe84901796bcc85b785059014f2b",
+  "lines": 459,
+  "build_stdout": "/tmp/oec/pequalnp-pilot-137/lower_bound/constant-folding-delete-002.stdout",
+  "build_stderr": "/tmp/oec/pequalnp-pilot-137/lower_bound/constant-folding-delete-002.stderr",
+  "build_exit": 0,
+  "searches": [
+    {
+      "run": "fano-26-seed137",
+      "result": "unknown",
+      "reason": "timeout",
+      "elapsed_seconds": 900.00469995
+    },
+    {
+      "run": "fano-26-useful-nonread",
+      "result": "interrupted",
+      "reason": "lease lost; no conclusion"
+    }
+  ]
+}

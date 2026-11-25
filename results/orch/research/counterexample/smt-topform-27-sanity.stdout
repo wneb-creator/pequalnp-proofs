@@ -1,0 +1,40 @@
+{"z3": "5.3.3", "gates": 27, "patterns": 58, "timeout_ms": 60000, "fixed_seed": true, "assertions": 297, "require_bad_edge": false, "useful_gates": true, "balanced_mux": true, "top_form": true, "first_op": null, "first_pair": null, "start_utc": "2026-11-25T14:59:17Z"}
+VERDICT sat seconds 0.017946449000191933
+STATISTICS (:max-memory          17.78
+ :memory              17.52
+ :num-allocs          248719
+ :rlimit-count        40904
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 108
+ :solve-eqs-steps     108
+ :time                0.01)
+output 40
+14 OR 0 1
+15 OR 3 14
+16 AND 7 15
+17 OR 1 2
+18 OR 4 17
+19 AND 8 18
+20 OR 2 3
+21 OR 5 20
+22 AND 9 21
+23 OR 3 4
+24 OR 6 23
+25 AND 10 24
+26 OR 0 4
+27 OR 5 26
+28 AND 11 27
+29 OR 1 5
+30 OR 6 29
+31 AND 12 30
+32 OR 0 2
+33 OR 6 32
+34 AND 13 33
+35 OR 16 19
+36 OR 22 35
+37 OR 25 36
+38 OR 28 37
+39 OR 31 38
+40 OR 34 39
+
+FULL_VALIDATION PASS wrong 0

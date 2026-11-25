@@ -1,0 +1,37 @@
+{"z3": "5.3.3", "gates": 26, "patterns": 58, "timeout_ms": 900000, "fixed_seed": false, "assertions": 211, "require_bad_edge": false, "useful_gates": true, "balanced_mux": true, "top_form": true, "first_op": "OR", "first_pair": "same", "start_utc": "2026-11-25T15:03:58Z"}
+VERDICT unknown seconds 136.133731399
+STATISTICS (:max-memory              132.00
+ :memory                  27.99
+ :num-allocs              24208856650.00
+ :rlimit-count            619897932
+ :sat-ate                 14656
+ :sat-backjumps           381521
+ :sat-backtracks          458
+ :sat-bce                 183
+ :sat-conflicts           381979
+ :sat-decisions           1045711
+ :sat-del-clause          489694
+ :sat-elim-bool-vars-res  16670
+ :sat-elim-clauses        3296
+ :sat-elim-literals       37156
+ :sat-gc-clause           345370
+ :sat-minimized-lits      5677747
+ :sat-mk-clause-2ary      50888
+ :sat-mk-clause-3ary      49278
+ :sat-mk-clause-nary      691627
+ :sat-mk-var              54923
+ :sat-probing-assigned    17
+ :sat-propagations-2ary   81390354
+ :sat-propagations-nary   558069081
+ :sat-restarts            38983
+ :sat-scc-elim-binary     390
+ :sat-scc-elim-vars       1053
+ :sat-subs-resolution     6410
+ :sat-subs-resolution-dyn 208697
+ :sat-subsumed            18512
+ :sat-tr                  639
+ :sat-units               162
+ :solve-eqs-elim-vars     69
+ :solve-eqs-steps         4185
+ :time                    136.13)
+REASON interrupted from keyboard

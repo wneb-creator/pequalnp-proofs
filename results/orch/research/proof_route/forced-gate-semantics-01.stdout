@@ -1,0 +1,34 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/forced_gate_semantics.lean:61:4: error(lean.invalidField): Invalid field `append`: The environment does not contain `List.Forall₂.append`, so it is not possible to project the field `append` from an expression
+  h
+of type
+  List.Forall₂ (fun x1 x2 => x1 ≤ x2) xs ys
+/workspace/pequalnp-proofs/results/orch/lemmas/forced_gate_semantics.lean:86:39: error(lean.invalidField): Invalid field `append`: The environment does not contain `List.Forall₂.append`, so it is not possible to project the field `append` from an expression
+  run_le pre hp (ofFn_le x y hxy)
+of type
+  List.Forall₂ (fun x1 x2 => x1 ≤ x2) (run pre (List.ofFn x)) (run pre (List.ofFn y))
+/workspace/pequalnp-proofs/results/orch/lemmas/forced_gate_semantics.lean:106:43: error(lean.invalidField): Invalid field `append`: The environment does not contain `List.Forall₂.append`, so it is not possible to project the field `append` from an expression
+  hsame
+of type
+  List.Forall₂ (fun x1 x2 => x1 ≤ x2) (run pre (List.ofFn x)) (run pre (List.ofFn x))
+/workspace/pequalnp-proofs/results/orch/lemmas/forced_gate_semantics.lean:103:48: error: unsolved goals
+n : ℕ
+pre post : List Gate
+g : Gate
+out : ℕ
+hs : ∀ g' ∈ post, g'.op = GateOp.and ∨ g'.op = GateOp.or
+x : Fin n → Bool
+hsame : List.Forall₂ (fun x1 x2 => x1 ≤ x2) (run pre (List.ofFn x)) (run pre (List.ofFn x))
+⊢ forcedEval n pre post false out x ≤ circuitFun n { gates := pre ++ g :: post, output := out } x
+/workspace/pequalnp-proofs/results/orch/lemmas/forced_gate_semantics.lean:117:43: error(lean.invalidField): Invalid field `append`: The environment does not contain `List.Forall₂.append`, so it is not possible to project the field `append` from an expression
+  hsame
+of type
+  List.Forall₂ (fun x1 x2 => x1 ≤ x2) (run pre (List.ofFn x)) (run pre (List.ofFn x))
+/workspace/pequalnp-proofs/results/orch/lemmas/forced_gate_semantics.lean:114:42: error: unsolved goals
+n : ℕ
+pre post : List Gate
+g : Gate
+out : ℕ
+hs : ∀ g' ∈ post, g'.op = GateOp.and ∨ g'.op = GateOp.or
+x : Fin n → Bool
+hsame : List.Forall₂ (fun x1 x2 => x1 ≤ x2) (run pre (List.ofFn x)) (run pre (List.ofFn x))
+⊢ circuitFun n { gates := pre ++ g :: post, output := out } x ≤ forcedEval n pre post true out x

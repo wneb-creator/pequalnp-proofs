@@ -22,3 +22,4 @@ Forced gate semantics:134lines, exit0, independent review PASS.
 Gate pruning semantics:322lines, exit0, independent review PASS.
 Desk status: HTTP410; error body and complete headers preserved.
 Desk null responses:0.
+Search archive:144reviewedtextfiles,1158879bytes; no Fano witness or UNSAT result.

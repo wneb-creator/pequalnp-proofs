@@ -1,0 +1,99 @@
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:103:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:105:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:107:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:103:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:105:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:107:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:122:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:122:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:128:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:128:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:260:81: warning: This simp argument is unused:
+  GateAO
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:263:80: warning: This simp argument is unused:
+  GateAO
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:260:55: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:260:67: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:263:54: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:263:66: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:260:55: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:260:67: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:263:54: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:263:66: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:338:75: error: unsolved goals
+n : ℕ
+y : List Bool
+hy : y.length = n
+pre : List Gate
+b : Bool
+hl : (wiresFrom pre y).length = n + pre.length
+i : ℕ
+hi : i < n + pre.length
+⊢ (List.map Sum.inr (List.range (n + pre.length)) ++ [Sum.inl b])[i]?.getD (Sum.inl false) = Sum.inr i
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:342:40: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ 0
+  c ≥ 0
+  a ≥ 0
+  a - c ≥ 0
+  a - d ≥ 1
+where
+ a := ↑(wiresFrom pre y).length
+ c := ↑pre.length
+ d := ↑i
+ e := ↑(wiresFrom (initForced n pre b).2 y).length
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:339:24: warning: This simp argument is unused:
+  hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [initForced]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

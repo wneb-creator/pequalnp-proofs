@@ -1,0 +1,13 @@
+{
+  "result": "unsat",
+  "elapsed_seconds": 0.0014835850000736173,
+  "problem": "p4",
+  "gates": 3,
+  "tests": 6,
+  "clauses": 431,
+  "z3": "5.3.3",
+  "fixed_seed": false,
+  "allow_dead": false,
+  "seed": 0,
+  "statistics": "(:card2bv-rewrites        186\n :max-memory              16.78\n :memory                  16.78\n :num-allocs              4828\n :rlimit-count            7385\n :sat-backjumps           42\n :sat-conflicts           43\n :sat-decisions           64\n :sat-minimized-lits      62\n :sat-mk-clause-2ary      239\n :sat-mk-clause-nary      227\n :sat-mk-var              88\n :sat-propagations-2ary   452\n :sat-propagations-nary   561\n :sat-subs-resolution-dyn 4\n :sat-units               6\n :time                    0.00)"
+}

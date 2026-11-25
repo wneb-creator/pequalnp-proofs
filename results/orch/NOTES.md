@@ -41,3 +41,5 @@ The constant-folding extension now proves AO2 gate-list preservation: emitted ga
 ## Lease interruption
 
 A renewal succeeded at15:04:54UTC, extending expiry to15:24:53UTC. At15:05:21UTC the desk instead reported no live lease; curl-si confirmed HTTP410. All agents stopped. No proof or refutation was obtained. The original target remains absent, and the exact checker verdict remains REJECTED(no-theorem). Already compiled strict gate-deletion and forcing-semantics lemmas are preserved.
+
+Search archive: three heuristic runs performed8967290883mutations and all stopped at one incorrect characterization test. Both unrestricted26-gate SMT encodings timed out with UNKNOWN; pruned variants were interrupted afterlease410. SAT controls at27gates passed exhaustive16384-input validation. Complete sources, solverinputs, statusrecords and logs are underresearch/.

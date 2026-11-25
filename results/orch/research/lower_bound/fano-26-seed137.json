@@ -1,0 +1,14 @@
+{
+  "result": "unknown",
+  "elapsed_seconds": 900.00469995,
+  "problem": "fano",
+  "gates": 26,
+  "tests": 58,
+  "clauses": 155355,
+  "z3": "5.3.3",
+  "fixed_seed": false,
+  "allow_dead": false,
+  "seed": 137,
+  "statistics": "(:card2bv-rewrites        84506\n :max-memory              302.88\n :memory                  166.85\n :num-allocs              348071032217.00\n :rlimit-count            1639265325\n :sat-backjumps           7402210\n :sat-backtracks          1925\n :sat-conflicts           7404135\n :sat-decisions           16091885\n :sat-del-clause          7312528\n :sat-elim-clauses        2970\n :sat-elim-literals       29382\n :sat-gc-clause           7308450\n :sat-minimized-lits      148196535\n :sat-mk-clause-2ary      75665\n :sat-mk-clause-nary      7487244\n :sat-mk-var              5929\n :sat-probing-assigned    59\n :sat-propagations-2ary   540729094\n :sat-propagations-nary   1283803460\n :sat-restarts            652872\n :sat-scc-elim-binary     3757\n :sat-scc-elim-vars       812\n :sat-subs-resolution     8919\n :sat-subs-resolution-dyn 23426549\n :sat-subsumed            595\n :sat-tr                  1262\n :sat-units               117\n :time                    900.00)",
+  "reason_unknown": "timeout"
+}

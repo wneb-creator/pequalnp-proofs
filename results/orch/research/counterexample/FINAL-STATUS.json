@@ -1,0 +1,65 @@
+{
+  "stopped_utc": "2026-11-25T15:06:24.083449+00:00",
+  "reason": "Parent reported desk HTTP410; searches stopped immediately",
+  "results": [
+    {
+      "file": "search-001.stdout",
+      "results": [
+        "Finished seconds=300 iterations=3283484673 restarts=16417 best=1"
+      ]
+    },
+    {
+      "file": "search-002.stdout",
+      "results": [
+        "Finished seconds=300.002 iterations=2872508417 restarts=14362 best=1"
+      ]
+    },
+    {
+      "file": "search-003.stdout",
+      "results": [
+        "Finished seconds=300.003 iterations=2811297793 restarts=14056 best=1"
+      ]
+    },
+    {
+      "file": "smt-27-sanity.stdout",
+      "results": [
+        "VERDICT sat seconds 0.00826988899996195",
+        "FULL_VALIDATION PASS wrong 0"
+      ]
+    },
+    {
+      "file": "smt-26-001.stdout",
+      "results": [
+        "VERDICT unknown seconds 900.0871981419999",
+        "REASON timeout"
+      ]
+    },
+    {
+      "file": "smt-pruned-27-sanity.stdout",
+      "results": [
+        "VERDICT sat seconds 0.004874959999938255",
+        "FULL_VALIDATION PASS wrong 0"
+      ]
+    },
+    {
+      "file": "smt-pruned-27-negative.stdout",
+      "results": [
+        "VERDICT unsat seconds 0.012666015000036168"
+      ]
+    },
+    {
+      "file": "smt-topform-27-sanity.stdout",
+      "results": [
+        "VERDICT sat seconds 0.017946449000191933",
+        "FULL_VALIDATION PASS wrong 0"
+      ]
+    },
+    {
+      "file": "smt-normalized-or-same.stdout",
+      "results": [
+        "VERDICT unknown seconds 136.133731399",
+        "REASON interrupted from keyboard"
+      ]
+    }
+  ]
+}

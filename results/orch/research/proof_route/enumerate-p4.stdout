@@ -1,0 +1,9 @@
+size=1 visited=12 solutions=0 nonread1=0
+size=2 visited=192 solutions=0 nonread1=0
+size=3 visited=3576 solutions=0 nonread1=0
+NONREAD1 size=4
+0 0 2
+1 0 3
+1 1 4
+0 5 6
+size=4 visited=81984 solutions=12 nonread1=6

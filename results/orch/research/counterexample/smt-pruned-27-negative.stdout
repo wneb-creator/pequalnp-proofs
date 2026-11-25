@@ -1,0 +1,8 @@
+{"z3": "5.3.3", "gates": 27, "patterns": 58, "timeout_ms": 60000, "fixed_seed": true, "assertions": 298, "require_bad_edge": true, "useful_gates": true, "balanced_mux": true, "start_utc": "2026-11-25T14:53:04Z"}
+VERDICT unsat seconds 0.012666015000036168
+STATISTICS (:max-memory   18.04
+ :memory       17.70
+ :num-allocs   349285
+ :rlimit-count 58251
+ :sat-mk-var   1
+ :time         0.01)

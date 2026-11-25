@@ -1,0 +1,5 @@
+size=1 visited=0 solutions=0 nonread1=0 nonread1_fixed=0 and_operand_below=0
+size=2 visited=20 solutions=0 nonread1=0 nonread1_fixed=0 and_operand_below=0
+size=3 visited=520 solutions=0 nonread1=0 nonread1_fixed=0 and_operand_below=0
+size=4 visited=16000 solutions=0 nonread1=0 nonread1_fixed=0 and_operand_below=0
+size=5 visited=600646 solutions=6 nonread1=0 nonread1_fixed=0 and_operand_below=0

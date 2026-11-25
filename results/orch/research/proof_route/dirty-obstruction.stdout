@@ -1,0 +1,20 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/dirty_obstruction.lean:50:50: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableRel pathGraph.Adj
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/dirty_obstruction.lean:55:31: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableRel pathGraph.Adj
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/dirty_obstruction.lean:57:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableRel pathGraph.Adj
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/dirty_obstruction.lean:66:25: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableRel pathGraph.Adj
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/dirty_obstruction.lean:74:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableRel pathGraph.Adj
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

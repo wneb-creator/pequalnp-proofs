@@ -1,0 +1,37 @@
+{"utc": "2026-11-25T14:49:44.464798+00:00", "problem": "p4", "gates": 4, "tests": 6, "clauses": 665, "z3": "5.3.3", "fixed_seed": true, "allow_dead": false, "seed": 0}
+{
+  "result": "sat",
+  "elapsed_seconds": 0.001998555000000124,
+  "problem": "p4",
+  "gates": 4,
+  "tests": 6,
+  "clauses": 665,
+  "z3": "5.3.3",
+  "fixed_seed": true,
+  "allow_dead": false,
+  "seed": 0,
+  "statistics": "(:card2bv-rewrites      306\n :max-memory            16.84\n :memory                16.84\n :num-allocs            6720\n :rlimit-count          9716\n :sat-decisions         1\n :sat-mk-clause-2ary    349\n :sat-mk-clause-nary    298\n :sat-mk-var            121\n :sat-propagations-2ary 66\n :sat-propagations-nary 36\n :sat-units             18\n :time                  0.00)",
+  "gates_data": [
+    [
+      false,
+      0,
+      2
+    ],
+    [
+      true,
+      1,
+      4
+    ],
+    [
+      true,
+      2,
+      3
+    ],
+    [
+      false,
+      5,
+      6
+    ]
+  ],
+  "full_truth_table_verified": 16
+}

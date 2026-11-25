@@ -1,0 +1,31 @@
+{
+  "result": "sat",
+  "elapsed_seconds": 0.0011355890000004365,
+  "problem": "c4",
+  "gates": 3,
+  "tests": 6,
+  "clauses": 431,
+  "z3": "5.3.3",
+  "fixed_seed": false,
+  "allow_dead": false,
+  "seed": 0,
+  "statistics": "(:card2bv-rewrites        186\n :max-memory              16.78\n :memory                  16.78\n :num-allocs              4827\n :rlimit-count            7175\n :sat-backjumps           29\n :sat-conflicts           29\n :sat-decisions           56\n :sat-minimized-lits      31\n :sat-mk-clause-2ary      239\n :sat-mk-clause-nary      215\n :sat-mk-var              88\n :sat-propagations-2ary   360\n :sat-propagations-nary   452\n :sat-subs-resolution-dyn 3\n :sat-units               6)",
+  "gates_data": [
+    [
+      false,
+      0,
+      1
+    ],
+    [
+      false,
+      2,
+      3
+    ],
+    [
+      true,
+      4,
+      5
+    ]
+  ],
+  "full_truth_table_verified": 16
+}

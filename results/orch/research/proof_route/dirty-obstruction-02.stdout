@@ -1,0 +1,9 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/dirty_obstruction.lean:74:49: error: failed to synthesize
+  Decidable
+    (∀ k < dirty.gates.length,
+      (gateAt dirty k).op = GateOp.and →
+        ∀ t ∈ (gateAt dirty k).inputs,
+          ¬∀ (z : Fin 4 → Bool),
+              { gates := dirty.gates, output := t }.eval (List.ofFn z) = true → graphFun pathGraph ∅ z = true)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

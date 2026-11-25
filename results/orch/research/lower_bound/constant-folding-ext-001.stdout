@@ -1,0 +1,46 @@
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:103:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:105:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:107:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:103:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:105:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:107:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:122:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:122:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:128:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:128:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:258:2: error: unsolved goals
+case inl.cons.cons.nil.inr.inr
+m : ℕ
+g : Gate
+val✝¹ val✝ : ℕ
+hv : val✝¹ < m ∧ val✝ < m
+hg : { op := GateOp.and, inputs := [val✝¹, val✝] } = g
+⊢ (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2 ∧ ∀ i ∈ g.inputs, i < m
+/tmp/oec/pequalnp-pilot-137/lower_bound/constant_folding_work.lean:261:2: error: unsolved goals
+case inr.cons.cons.nil.inr.inr
+m : ℕ
+g : Gate
+val✝¹ val✝ : ℕ
+hv : val✝¹ < m ∧ val✝ < m
+hg : { op := GateOp.or, inputs := [val✝¹, val✝] } = g
+⊢ (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2 ∧ ∀ i ∈ g.inputs, i < m
