@@ -1,0 +1,7 @@
+{
+  "sha256": "5d0386a8a852c08ec94a7aad7d72ccdeb029a1dcd83a4a2d91931dc05a2985d5",
+  "lines": 78,
+  "exit_code": 0,
+  "log": "ResidualCoverCounting.build.log",
+  "scope": "Generic graph cover extension and bounded-degree counting, with all premises explicit."
+}
