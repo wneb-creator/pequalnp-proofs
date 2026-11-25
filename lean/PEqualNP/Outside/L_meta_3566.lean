@@ -521,6 +521,47 @@ lemma erase_unread (C : Circuit) (hC : IsAO2 n C) (j : ℕ)
     have heq : C.output - n = j := by simpa using hmem
     exact hjo (by omega)
 
+def WireStep (n : ℕ) (C : Circuit) (a b : ℕ) : Prop :=
+  ∃ k < C.size, a = n + k ∧ b ∈ (gateAt C k).inputs
+
+noncomputable def liveGates (n : ℕ) (C : Circuit) : Finset ℕ := by
+  classical
+  exact (Finset.range C.size).filter fun k =>
+    Relation.ReflTransGen (WireStep n C) C.output (n + k)
+
+lemma prune_reachable (C : Circuit) (hC : IsAO2 n C)
+    (ho : C.output < n + C.size) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size ≤ (liveGates n C).card ∧
+      circuitFun n D = circuitFun n C := by
+  classical
+  apply prune_closed C hC (liveGates n C)
+  · intro k hk
+    exact Finset.mem_range.mp (Finset.mem_filter.mp hk).1
+  · intro k hk w hw hwn
+    obtain ⟨hkr, hreach⟩ := Finset.mem_filter.mp hk
+    have hkl := Finset.mem_range.mp hkr
+    have hwl := hC.2.1 k hkl w hw
+    apply Finset.mem_filter.mpr
+    refine ⟨Finset.mem_range.mpr (by omega), ?_⟩
+    have hnext : WireStep n C (n + k) w := ⟨k, hkl, rfl, hw⟩
+    have hfull := hreach.tail hnext
+    simpa [Nat.add_sub_of_le hwn] using hfull
+  · intro j hj
+    have heq := srcOf_inr C.output j hj
+    apply Finset.mem_filter.mpr
+    refine ⟨Finset.mem_range.mpr (by omega), ?_⟩
+    rw [heq]
+
+lemma least_all_live (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C) (ho : C.output < n + C.size) :
+    liveGates n C = Finset.range C.size := by
+  classical
+  obtain ⟨D, hD, hs, hf⟩ := prune_reachable C hC.1 ho
+  have hmin := hC.2.2 D hD (hf.trans hC.2.1)
+  have hsub : liveGates n C ⊆ Finset.range C.size := Finset.filter_subset _ _
+  apply Finset.eq_of_subset_of_card_le hsub
+  simpa using hmin.trans hs
+
 end Pruning
 
 end PEqualNP.Outside.L_meta_3566
