@@ -1,0 +1,71 @@
+
+namespace PEqualNP.Outside.L_meta_2373.ZeroProfiles
+
+open PEqualNP.Outside.L_meta_2373
+
+lemma slice {u : Bool} (v : Fin 10) :
+    Live1024.Slice u Live1024.inputs Live1024.graph (domain v) 15 := by
+  apply Live1024.Slice_from_nine (rowMap v) Live1024.inputs Live1024.graph (domain v)
+    NineSigned.inputs NineSigned.graph 15
+  · exact rows_domain v
+  · funext r
+    exact rowMap_graph v r
+  · intro a ha
+    rw [← Live1024.input_list] at ha
+    obtain ⟨i, rfl⟩ := List.mem_ofFn.mp ha
+    exact rows_available v i
+  · exact NineSigned.graph_proper
+  · exact NineSigned.lower_mode_of_signed NineSigned.nine_reach_lower
+
+end PEqualNP.Outside.L_meta_2373.ZeroProfiles
+
+namespace PEqualNP.Outside.L_meta_2373.PositiveProfiles
+
+open PEqualNP.Outside.L_meta_2373
+
+lemma slice {u : Bool} (c : Fin 4) :
+    Live1024.Slice u Live1024.inputs Live1024.graph (domain c) (bound c) := by
+  apply Live1024.Slice_from_nine (rows c) Live1024.inputs Live1024.graph (domain c)
+    (roots c) (target c) (bound c)
+  · exact rows_domain c
+  · funext r
+    exact rows_goal c r
+  · intro a ha
+    rw [← Live1024.input_list] at ha
+    obtain ⟨i, rfl⟩ := List.mem_ofFn.mp ha
+    exact rows_available c i
+  · exact target_proper c
+  · exact target_lower c
+
+end PEqualNP.Outside.L_meta_2373.PositiveProfiles
+
+namespace PEqualNP.Outside.L_meta_2373.SliceProfiles
+
+open PEqualNP.Outside.L_meta_2373
+
+def domains : List Live1024.Sig :=
+  List.ofFn ZeroProfiles.domain ++ List.ofFn PositiveProfiles.domain
+
+def bounds : List Nat := List.replicate 10 15 ++ [11, 10, 10, 10]
+
+lemma all_slices {u : Bool} : ∀ i : Fin 14,
+    Live1024.Slice u Live1024.inputs Live1024.graph
+      (domains.getD i.val Live1024.zero) (bounds.getD i.val 0) := by
+  intro i
+  fin_cases i
+  · exact ZeroProfiles.slice 0
+  · exact ZeroProfiles.slice 1
+  · exact ZeroProfiles.slice 2
+  · exact ZeroProfiles.slice 3
+  · exact ZeroProfiles.slice 4
+  · exact ZeroProfiles.slice 5
+  · exact ZeroProfiles.slice 6
+  · exact ZeroProfiles.slice 7
+  · exact ZeroProfiles.slice 8
+  · exact ZeroProfiles.slice 9
+  · exact PositiveProfiles.slice 0
+  · exact PositiveProfiles.slice 1
+  · exact PositiveProfiles.slice 2
+  · exact PositiveProfiles.slice 3
+
+end PEqualNP.Outside.L_meta_2373.SliceProfiles

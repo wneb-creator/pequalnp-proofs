@@ -1,0 +1,14 @@
+Independent review by lean_setup, 2026-11-25 UTC
+
+Verdict: PASS for the checked cofactor extension, not a proof of the posted gap.
+Source: results/orch/lemmas/SliceProfiles.lean
+SHA256: e8e2182d04ca6c8ca030e240b4883d65cb38b7f84c3965894a3bfa835f994da8
+Size: 15321 bytes, 388 lines. Author cache build EXIT0; complete 770-byte log contains three warnings and no errors.
+
+Read the full source. Its first96 lines exactly match the independently reviewed SliceFromNine bridge. The signed-nine C6 and essential-literal lower bounds match the reviewed PositiveCofactors extension. The four positive profiles transport the exact Petersen graph into positiveNine or positiveAdjacentZero, with explicit domain, target, properness and input-availability proofs. The zero profiles use existing checked rowMap identities and cover both the removed constant input and every remaining variable. All14 constructors apply Slice_from_nine with exactly the corresponding checked lower bound. The final domains/bounds lists are indexed consistently: ten lower15 zero profiles, then lower11,10,10,10.
+
+Independently checked with Python: all four displayed permutations and inverses preserve the Petersen edge set; all2048 positive-profile domain/target rows and all20480 input rows agree with their stated functions. This arithmetic check is supporting evidence; Lean kernel proofs establish the conclusions.
+
+The Available/Reach mode weakening is in the correct direction: a signed lower bound yields a lower bound in either mode. Domain constraints do not stand in for target equality; the source proves both. No hidden circuit-size assumption enters the bridge.
+
+No sorry, axiom, native_decide, bv_decide, custom datatype/instance, unsafe mechanism, string literal, _root_ or attribute appears. Every limit option is declaration-local. All declarations are target-namespaced. Cached test import PetersenSeventeenFull must be replaced by inlining the reviewed dependency source for a final single-file PR; it is appropriate for this branch archive.

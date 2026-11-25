@@ -67,3 +67,19 @@
 - 2026-11-25T14:21:25+00:00 finite_invariants: all fourteen concrete cofactor Slice instances compiled; cached module handed to proof_structure for unconditional branch replay.
 
 - 2026-11-25T14:21:47.750868+00:00: Named17 build and trustLevel0 checker completed (no-theorem); direct gap disjunction, forest composition, positive/zero profiles, and complete linked OR-edge computation preserved. Combined restriction target build underway.
+
+- 2026-11-25 14:25:06 UTC — counterexample: concrete state4/copy14 positive-depth cofactor forest exclusion compiled EXIT0.
+
+- 2026-11-25T14:27:58.305758+00:00: proof_structure: actual trace subtree126663 fully Lean-certified, including all1440ordered branches/720unique children,180cofactor leaves and540row cuts; final Slice hypotheses discharged. Derived exact frontier Reach lower13.
+
+- 2026-11-25 14:31:21 UTC — counterexample: intermediate copied-basis cofactor exclusion for actual double-retention steps compiled EXIT0.
+
+- 2026-11-25 14:36:32 UTC — counterexample: compressed-wire forest exclusion validating local closure-entry cofactor pruning compiled EXIT0.
+
+- 2026-11-25T14:37:10+00:00 proof_structure: complete compressed kernel replay of subtree126663;59,138-byte inline package, all component compiles exit0.
+
+- 2026-11-25T14:37:45+00:00 finite_invariants: exact adjacent-OR monotone formula lower bound 20 leaves compiled from a reconstructed signed-weight rectangle certificate.
+
+2026-11-25T14:42:50.111094+00:00 finite_invariants: RectangleBinaryPrefixes compiled EXIT0, three restricted monotone formula lower bounds, archived for early push.
+
+- 2026-11-25T14:43:40.502201+00:00: Combined7674-line target build passed. Preserving checked concrete subtree,45.5KB certificate compression, both complete signed17 computational cases, formula restriction and cofactor-cut bridges. Full gap still unproved.

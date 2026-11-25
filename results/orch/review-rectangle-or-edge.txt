@@ -1,0 +1,12 @@
+Independent immutable mathematical/source review by status_review: PASS.
+
+RectangleOrEdge.lean SHA256 71e0644fa278a1921c61d114e889ce20a9bb8c2eb7bff434a33ff2d8d9ce560f
+197lines; author reports exit0 and the frozen complete log is empty. Sole import is PEqualNP.Defs.
+
+The formula receives the ten original inputs plus x0 OR x1 as an eleventh freely reusable input. The theorem explicitly requires a positive DMFormula and equality with the Petersen edge function on all augmented assignments. It claims at least20 leaves, not an arbitrary circuit lower bound.
+
+The15 positive edge assignments and15 negative assignments are correct. I independently checked all225 integer weights, total79, all165 position-coverage cases and all704 six-bit row subsets. Every allowed leaf rectangle has weight at most4. Negative weights are handled correctly: the leaf bound maximizes each eligible column contribution against zero, then uses nonnegativity only after taking that maximum.
+
+The inductive formula proof partitions negative columns exactly at AND gates and positive rows exactly at OR gates. Each partition is disjoint and exhaustive, so signed rectangle weights add exactly; no monotonicity assumption on weights is needed. Both children satisfy the necessary truth constraints. Thus total79≤4*leaves implies20≤leaves by integer arithmetic.
+
+No circuit-to-formula normalization or sharing claim is assumed. This is a checked formula subcase that can support future structural work. No forbidden proof form, extra axiom, global attribute or unpreserved module dependency was found.

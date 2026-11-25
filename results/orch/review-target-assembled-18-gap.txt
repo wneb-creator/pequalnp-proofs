@@ -1,0 +1,30 @@
+Independent assembly review by status_review, 2026-11-25.
+
+Target: lean/PEqualNP/Outside/L_meta_2373.lean
+SHA256: 8c4c7d99c9079fb7fe118236e2cd7f9f248273a82071a29e349a62ddf81bb85f
+Size: 353,344 bytes; 7,674 lines.
+
+The source matches the declared assembly byte for byte: checked
+PetersenSeventeenFull.lean, newline, EighteenFullExtension.txt, newline, and
+GapBridge.lean with only its first import line removed. Namespace boundaries
+remain closed between components. The sole import is PEqualNP.Defs.
+Checks found no forbidden root text, strings, axioms, sorry, native_decide,
+unsupported attributes/options, metaprogramming commands, or stray imports.
+
+The eighteen extension uses two distinct constant projected roots; freshness
+justifies their distinctness even though both project to the same constant.
+It applies the checked nine-variable lower bound plus mass two. The resulting
+first-non-OR bound and first-OR normal form retain their exact hypotheses.
+The subsequent two-NOT corollaries correctly use the binary/NOT partition.
+
+GapBridge appends a final OR after the first gate and C, with output index
+11+C.size and total size C.size+2. Its cover/evaluation correspondence and
+fanin proof are unchanged. The final disjunction uses the checked17 binary
+lower bound: failure to find a missed positive input makes this glued circuit
+compute the graph, so its size <=19 permits at most two NOT gates.
+This is a weaker auxiliary disjunction, not the posted missed-input theorem.
+No exact gap theorem has been added or claimed.
+
+Verdict: PASS for the assembled partial source and checkpoint backup.
+The root owns the running named lake build; this review does not assert its
+completion or an accepted posted-statement checker result.

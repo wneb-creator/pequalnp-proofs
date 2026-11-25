@@ -1,0 +1,47 @@
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+theorem first_copy_run {u : Bool} {T a b : Sig} {k d : Nat} {U : Finset Sig}
+    (tail : Live u T k (insert (bin d a b) U)) (hd : allowed u d)
+    (hb : b ∈ U) (fresh : bin d a b ∉ U) :
+    Run u (observe T) (k + 1)
+      ((insert (bin d a b) U).toList.map
+        (fun v => observe (if v = bin d a b then a else v))) := by
+  classical
+  let z := bin d a b
+  let value : Sig → Sig := fun v => if v = z then a else v
+  let rest := (U.erase b).toList
+  let vs := z :: b :: rest
+  have bz : b ≠ z := by
+    intro h
+    exact fresh (Eq.mp (congrArg (fun v : Sig => v ∈ U) h) hb)
+  have zr : z ∉ rest := by
+    simpa only [rest, Finset.mem_toList, Finset.mem_erase, not_and] using
+      (fun _ h => fresh h)
+  have br : b ∉ rest := by simp [rest]
+  have restnd : rest.Nodup := Finset.nodup_toList _
+  have nd : vs.Nodup := by simp [vs, Ne.symm bz, zr, br, restnd]
+  have eqv : vs.toFinset = insert z U := by
+    simp [vs, rest, Finset.insert_erase hb]
+  have progress := list_run tail vs nd eqv
+  have finish : Run u (observe T) (k + 1)
+      (observe a :: observe b :: rest.map observe) :=
+    Run.two d hd false true (by simpa [vs, kept, z, obs_bin] using progress)
+  have untouched (v : Sig) (hv : v ∈ U) : value v = v := by
+    have vz : v ≠ z := by
+      intro h
+      exact fresh (Eq.mp (congrArg (fun v : Sig => v ∈ U) h) hv)
+    simp [value, vz]
+  have mappedRest : rest.map (fun v => observe (value v)) = rest.map observe := by
+    apply List.map_congr_left
+    intro v hv
+    rw [untouched v (Finset.mem_erase.mp (Finset.mem_toList.mp hv)).2]
+  have source : Run u (observe T) (k + 1)
+      (vs.map (fun v => observe (value v))) := by
+    simpa only [vs, List.map_cons, show value z = a by simp [value],
+      untouched b hb, mappedRest] using finish
+  have perm : vs.Perm (insert z U).toList := by
+    apply List.perm_of_nodup_nodup_toFinset_eq nd (Finset.nodup_toList _)
+    simpa using eqv
+  exact Run.perm (perm.map (fun v => observe (value v))) source
+
+end PEqualNP.Outside.L_meta_2373.Live1024

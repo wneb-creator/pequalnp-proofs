@@ -2,20 +2,23 @@ L-meta-2373 PARTIAL CHECKPOINT — TARGET UNPROVED
 
 The required top-level theorem remains absent. No proof PR is open and no ACCEPTED verdict is claimed.
 
-Latest completed named-target validation: 7156 lines, SHA25667329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721.
+Current named target:7674 lines, SHA2568c4c7d99c9079fb7fe118236e2cd7f9f248273a82071a29e349a62ddf81bb85f. Its lake build exited0 (5149 jobs); full output: build-restrictions.txt.
+Latest checker run was on the earlier7156-line target, SHA25667329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721.
 Lake build exited0: Build completed successfully (5149 jobs). Full output: build-seventeen.txt.
 The repository checker completed its trustLevel0 import without a fault, then exited1:
 REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2373 (one lemma, one file: the theorem carries the module's name)
 Full output: check-seventeen.txt. Separate axiom audit of the two main partial bounds reports only propext, Classical.choice, Quot.sound; full output: seventeen-axioms.txt.
 
-This source proves that17 plus the NOT-gate count is at most Petersen circuit size, excluding size-at-most19 circuits with at least3NOT gates. The reviewed compiled18 extension proves a necessary first-OR condition at binary budget17. GapBridge proves that the posted soundness/size setup yields a missed positive input or at most2NOT gates in the glued circuit. These statements do not prove the original theorem. The combined7674-line named target is now building locally; that validation is pending.
+This source proves that17 plus the NOT-gate count is at most Petersen circuit size, excluding size-at-most19 circuits with at least3NOT gates. The reviewed compiled18 extension proves a necessary first-OR condition at binary budget17. GapBridge proves that the posted soundness/size setup yields a missed positive input or at most2NOT gates in the glued circuit. These statements do not prove the original theorem. The combined7674-line named target has now built successfully and passed independent source-assembly review. The exact gap theorem is still absent; no accepted checker result is claimed for this extension.
 
 The archived certificate machinery includes exact Run composition, read-once forest composition, arbitrary-depth sharing-tower soundness, finite successor/cofactor checking, memo symmetry transport, and checked positive/zero cofactor profiles. Each frozen checked source has a full compiler log and an independent review. Some small extension modules import frozen scratch modules; their reviews identify the required checked prefixes. GapBridge was compiled against the7156-line named target preserved in this branch history and as PetersenSeventeenFull.lean.
 
-The signed17 first-OR-edge computational case is complete with no circuit found. Both linked traces passed independent semantic replay. This is not yet a Lean certificate:2831 formula leaves and the finite replay remain kernel obligations. The first-OR-nonedge search is ongoing. The original zero/one-NOT cases remain unresolved. Complete compressed traces, sources, manifests, and bounded SAT logs are preserved. Both new small-row SAT runs returned UNKNOWN, including the known20-gate control; no counterexample was found.
+The signed17 first-OR-edge computational case is complete with no circuit found. Both linked traces passed independent semantic replay. This is not yet a Lean certificate:2831 formula leaves and the finite replay remain kernel obligations. The first-OR-nonedge computational search is also complete with no circuit found and passed independent replay. Both whole cases still lack Lean certificates. The original zero/one-NOT cases remain unresolved. Complete compressed traces, sources, manifests, and bounded SAT logs are preserved. Both new small-row SAT runs returned UNKNOWN, including the known20-gate control; no counterexample was found.
 
 The final post-acceptance cleanup pass has not been reached. Earlier partial trim:135 to98lines, with the old source and full successful log preserved. The later growth consists of checked lower-bound/certificate components, not a cleanup result.
 Desk null replies:0. Only the L-meta-2373 lease is held; it is renewed every5minutes.
 
 Sub-agents: status_review, proof_structure, counterexample, library_route, lean_setup, finite_invariants
-TIMING total=89.9 subagents=6
+TIMING total=111.8 subagents=6
+
+A real ten-wire subtree is now fully kernel-checked: all1440 ordered branches are excluded, giving signed Lower13 for that frontier. Its exact symbolic-word compression reduces the append-only proof package104656→59138bytes, with both versions and full logs preserved. The adjacent-OR positive-formula lower bound20 leaves is independently checked; it does not cover arbitrary circuit sharing. Indexed/intermediate/compressed-wire cofactor bridges and the positive-width generic foundation are also checked partials.

@@ -1,0 +1,1 @@
+live_search_resume --signed --cap 17 --first ornonedge --seconds 600 --nodes 5000000 --resume signed17-oredge-resume.txt --trace signed17-ornonedge-trace.jsonl

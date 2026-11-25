@@ -1,0 +1,73 @@
+import PEqualNP.Defs
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+abbrev Sig := BitVec 1024
+def LabelPartition {α : Type} [DecidableEq α] (roots : Finset α)
+    (S : Finset Sig) (label : Sig → Finset α) : Prop :=
+  (∀ v ∈ S, label v ⊆ roots) ∧
+  (∀ v ∈ S, ∀ w ∈ S, v ≠ w → Disjoint (label v) (label w)) ∧
+  (∀ r ∈ roots, ∃ v ∈ S, r ∈ label v)
+def liftLabels {α : Type} [DecidableEq α] (A : Finset α) : Finset (Sum α Bool) :=
+  A.image Sum.inl
+end PEqualNP.Outside.L_meta_2373.Live1024
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+def compressLabels {α : Type} [DecidableEq α] (label : Sig → Finset α)
+    (z v : Sig) : Finset (Sum α Bool) :=
+  if v = z then {Sum.inr false} else liftLabels (label v)
+
+def compressRoots {α : Type} [DecidableEq α] (roots A : Finset α) :
+    Finset (Sum α Bool) := liftLabels (roots \ A) ∪ {Sum.inr false}
+
+theorem compress_partition {α : Type} [DecidableEq α]
+    (roots : Finset α) (S : Finset Sig) (label : Sig → Finset α)
+    (z : Sig) (part : LabelPartition roots S label) (hz : z ∈ S) :
+    LabelPartition (compressRoots roots (label z)) S (compressLabels label z) := by
+  classical
+  let next := compressLabels label z
+  have leftMem (v : Sig) (r : α) :
+      Sum.inl r ∈ next v ↔ v ≠ z ∧ r ∈ label v := by
+    by_cases vz : v = z <;> simp [next, compressLabels, liftLabels, vz]
+  have falseMem (v : Sig) : Sum.inr false ∈ next v ↔ v = z := by
+    by_cases vz : v = z <;> simp [next, compressLabels, liftLabels, vz]
+  have trueNotMem (v : Sig) : Sum.inr true ∉ next v := by
+    by_cases vz : v = z <;> simp [next, compressLabels, liftLabels, vz]
+  change LabelPartition (compressRoots roots (label z)) S next
+  refine ⟨?_, ?_, ?_⟩
+  · intro v hv q hq
+    cases q with
+    | inl r =>
+      obtain ⟨vz, hr⟩ := (leftMem v r).mp hq
+      have rRoot := part.1 v hv hr
+      have notZ : r ∉ label z := fun h =>
+        Finset.disjoint_left.mp (part.2.1 v hv z hz vz) hr h
+      simp [compressRoots, liftLabels, rRoot, notZ]
+    | inr bit =>
+      cases bit with
+      | false => simp [compressRoots]
+      | true => exact False.elim (trueNotMem v hq)
+  · intro v hv w hw hne
+    apply Finset.disjoint_left.mpr
+    intro q hqv hqw
+    cases q with
+    | inl r =>
+      exact Finset.disjoint_left.mp (part.2.1 v hv w hw hne)
+        ((leftMem v r).mp hqv).2 ((leftMem w r).mp hqw).2
+    | inr bit =>
+      cases bit with
+      | false => exact hne (((falseMem v).mp hqv).trans ((falseMem w).mp hqw).symm)
+      | true => exact trueNotMem v hqv
+  · intro q hq
+    cases q with
+    | inl r =>
+      have hr : r ∈ roots ∧ r ∉ label z := by
+        simpa [compressRoots, liftLabels] using hq
+      obtain ⟨v, hv, hrv⟩ := part.2.2 r hr.1
+      have vz : v ≠ z := by rintro rfl; exact hr.2 hrv
+      exact ⟨v, hv, (leftMem v r).mpr ⟨vz, hrv⟩⟩
+    | inr bit =>
+      cases bit with
+      | false => exact ⟨z, hz, (falseMem z).mpr rfl⟩
+      | true => simpa [compressRoots, liftLabels] using hq
+
+end PEqualNP.Outside.L_meta_2373.Live1024

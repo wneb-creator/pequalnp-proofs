@@ -1,0 +1,12 @@
+Independent source and mathematical review: PASS.
+Reviewer: finite_invariants, 2026-11-25 UTC.
+SuccessorChecker SHA256 8dfa045440873ed1931c1672b8f712d4aacdebc834317502ffec2b292a210097, archived log errors 0
+CofactorCheck SHA256 5e273b84fc35d1453e5a9e469cf90e02ba178d094acea1a2882c600f4dc882bd, archived log errors 0
+
+SuccessorChecker enumerates every allowed operation, both ordered input choices, and both retention booleans for each operand. Its guard excludes only choices impossible in a Live step: equal operands, an already present output, a constant output, or excessive child cardinality. successorLists_complete proves coverage under exactly those conditions; enum_step supplies them from any Live run.
+
+The row rejection rule uses undirected distinction in signed mode and directed positive/negative distinction in monotone mode, matching the checked Live row-separation lemmas. Therefore every rejected child is impossible at every budget. A listed known child is accepted only under an explicit Impossible premise at cap-1. No unproved search normalization or symmetry is used by this checker.
+
+CofactorCheck requires a nodup frontier, successful makePool, and the existing poolCut inequality and availability test. Its soundness wrapper delegates directly to checked poolCut_sound and the explicit Slice hypothesis. The wrapper does not infer a Slice or a lower bound merely from untrusted search data.
+
+This is generic conditional certificate infrastructure. Full search exhaustion depends on concrete finite checks and supplied lower-bound slices; the generic modules alone do not prove the posted theorem. This review read both complete modules and did not rerun Lean.

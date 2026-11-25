@@ -1,0 +1,13 @@
+{
+  "compact_sha256": "3087d43617db1aeef4e30c871797592c3d2ff8c25eff31634acead71fccc2925",
+  "original_sha256": "4205676376be92ecac5c39d2d125c274ba3926a6b2627f7d74fe5f23f5e0ffff",
+  "words": 193,
+  "bit_comparisons": 197632,
+  "all_expressions_equal": true,
+  "remaining_source_unchanged": true,
+  "compact_bytes": 36604,
+  "saved_bytes": 45518,
+  "compact_compile_exit": 0,
+  "compact_compile_log_sha256": "ce715eb088a2c07ef325992982d97b9dbe11b632f93fa0b11dd1199a2342bd26",
+  "compiler_scope": "conditional replay, final unconditional wrapper separately checked"
+}

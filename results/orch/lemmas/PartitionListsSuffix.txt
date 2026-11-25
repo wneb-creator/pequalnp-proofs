@@ -1,0 +1,49 @@
+lemma partition_flatMap_perm {α : Type} [DecidableEq α]
+    (roots : Finset α) (S : Finset Sig) (label : Sig → Finset α)
+    (part : LabelPartition roots S label) :
+    (S.toList.flatMap fun v => (label v).toList).Perm roots.toList := by
+  have pair : List.Pairwise
+      (fun v w => List.Disjoint (label v).toList (label w).toList) S.toList := by
+    apply List.Pairwise.imp_of_mem _ (Finset.nodup_toList S)
+    intro v w hv hw hne
+    apply List.disjoint_left.mpr
+    intro r hrv hrw
+    exact Finset.disjoint_left.mp
+      (part.2.1 v (Finset.mem_toList.mp hv) w (Finset.mem_toList.mp hw) hne)
+      (Finset.mem_toList.mp hrv) (Finset.mem_toList.mp hrw)
+  have nodup : (S.toList.flatMap fun v => (label v).toList).Nodup :=
+    List.nodup_flatMap.mpr ⟨fun v _ => Finset.nodup_toList (label v), pair⟩
+  apply (List.perm_ext_iff_of_nodup nodup (Finset.nodup_toList roots)).mpr
+  intro r
+  constructor
+  · intro hr
+    obtain ⟨v, hv, hrv⟩ := List.mem_flatMap.mp hr
+    exact Finset.mem_toList.mpr
+      (part.1 v (Finset.mem_toList.mp hv) (Finset.mem_toList.mp hrv))
+  · intro hr
+    obtain ⟨v, hv, hrv⟩ := part.2.2 r (Finset.mem_toList.mp hr)
+    exact List.mem_flatMap.mpr
+      ⟨v, Finset.mem_toList.mpr hv, Finset.mem_toList.mpr hrv⟩
+
+lemma partition_cost_sum {α : Type} [DecidableEq α]
+    (roots : Finset α) (S : Finset Sig) (label : Sig → Finset α)
+    (part : LabelPartition roots S label)
+    (nonempty : ∀ v ∈ S, (label v).Nonempty) :
+    (S.toList.map fun v => (label v).card - 1).sum + S.card = roots.card := by
+  have cardinal : (S.toList.map fun v => (label v).card).sum = roots.card := by
+    simpa only [List.length_flatMap, Finset.length_toList] using
+      (partition_flatMap_perm roots S label part).length_eq
+  have sumIdentity (vs : List Sig) : (∀ v ∈ vs, v ∈ S) →
+      (vs.map fun v => (label v).card - 1).sum + vs.length =
+        (vs.map fun v => (label v).card).sum := by
+    induction vs with
+    | nil => intro _; simp
+    | cons v vs ih =>
+      intro hv
+      have positive : 0 < (label v).card :=
+        Finset.card_pos.mpr (nonempty v (hv v (by simp)))
+      have tail := ih (fun w hw => hv w (List.mem_cons_of_mem v hw))
+      simp only [List.map_cons, List.sum_cons, List.length_cons]
+      omega
+  have total := sumIdentity S.toList (fun v hv => Finset.mem_toList.mp hv)
+  simpa only [Finset.length_toList] using total.trans cardinal

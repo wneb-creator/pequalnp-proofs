@@ -1,0 +1,36 @@
+namespace State4Copy14
+
+def rawValues : Array Sig := #[s1, s11, s3, s4, s5, s14, s6, s7, s8, s15, s9, s16]
+def baseRaw (i : Fin 12) : Sig := rawValues.getD i.val zero
+def roots : Finset (Sum (Fin 12) Bool) :=
+  duplicateRoots (Finset.univ : Finset (Fin 12)) {5, 9, 11}
+def raw : Sum (Fin 12) Bool → Sig := duplicateRaw baseRaw s20
+
+def basisLabels : List (Sum (Fin 12) Bool) :=
+  [Sum.inl 0, Sum.inl 1, Sum.inl 2, Sum.inl 3, Sum.inl 4,
+   Sum.inl 6, Sum.inl 7, Sum.inl 8, Sum.inl 10, Sum.inr false, Sum.inr true]
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+theorem forest_excluded {u : Bool} {k : Nat} {S : Finset Sig}
+    (run : Live u graph k S) (cap : k + 1 ≤ S.card + 1)
+    (label : Sig → Finset (Sum (Fin 12) Bool))
+    (part : LabelPartition roots S label)
+    (entries : ∀ v ∈ S, ReadOnce raw u (label v) v) : False := by
+  apply readOnce_forest_exclusion_state roots raw u graph 1 ?_ run cap label part entries
+  intro n hn trace
+  have count : roots.card = 11 := by decide +kernel
+  have noRun := excluded (u := u) (k := n) (by omega)
+  have labelsEqual : basisLabels.toFinset = roots := by decide +kernel
+  have distinct : basisLabels.Nodup := by decide +kernel
+  have perm : roots.toList.Perm basisLabels := by
+    apply List.perm_of_nodup_nodup_toFinset_eq (Finset.nodup_toList roots) distinct
+    simpa using labelsEqual.symm
+  have rawEqual : basisLabels.map raw = ws := by decide +kernel
+  have observed : basisLabels.map (fun r => observe (raw r)) = ws.map observe := by
+    simpa only [List.map_map, Function.comp_def] using congrArg (List.map observe) rawEqual
+  have moved := Run.perm (perm.map (fun r => observe (raw r))) trace
+  apply noRun
+  simpa only [observed] using moved
+
+end State4Copy14

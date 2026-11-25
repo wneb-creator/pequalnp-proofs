@@ -1,0 +1,6 @@
+Independent unary input-copy partition review
+Reviewer: /root/counterexample
+Full source SHA256: 833b07143298eb34d2dd8fa0fe963dff5e915013163a5cdb8c133d9399cc8875
+Verdict: PASS.
+
+The standalone module uses the same Sig/LabelPartition/liftLabels/duplicateRoots definitions as the checked hierarchy. copyInputLabels replaces the old a-label support by two fresh singleton copy labels, assigned separately to index a and new index z; every other label is lifted. The proof establishes exact membership characterizations for left labels and each Bool copy, then derives subset, pairwise disjointness, and coverage from the original partition. Fresh z excludes its collision with a and every old index; old labels disjoint from label(a) survive root subtraction. This theorem partitions indices and makes no injectivity claim about their wire values, which is necessary for the duplicate-a consumer. No axiom, sorry, native_decide, unsafe/meta operation, custom instance, option, attribute, or string is added. Complete compiler log is empty; author reported EXIT0.

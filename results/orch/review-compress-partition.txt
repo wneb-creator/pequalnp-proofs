@@ -1,0 +1,6 @@
+Independent formula-support compression partition review
+Reviewer: /root/counterexample
+Full source SHA256: 12e4d26552e98c21861fb9dbf50a5b20d3d7aae66541ee0744579a03c1165b6d
+Verdict: PASS.
+
+The definitions retain exactly the old roots outside label(z), lifted into Sum.inl, and one false-copy label for the precomputed wire z. Labels of other live wires lift unchanged; z gets that singleton. The partition proof uses original disjointness to show outside wires never retain removed labels, and original coverage to cover every remaining old root. The true-copy label is explicitly excluded. No root/signature injectivity is assumed, and no gate-cost statement is smuggled into this set-theoretic helper. Existing Sig, LabelPartition and liftLabels definitions are unchanged. Full log has0errors and one unnecessary-simpa warning; author reported EXIT0. No forbidden trust/format construct is added.

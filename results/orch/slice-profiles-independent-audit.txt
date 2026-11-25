@@ -1,0 +1,1 @@
+PASS: all four permutations and inverses preserve the Petersen edge set; all 2048 projected graph/domain rows and all 20480 projected input rows match the stated positive or adjacent-zero targets.

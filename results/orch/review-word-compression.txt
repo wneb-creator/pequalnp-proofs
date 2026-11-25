@@ -1,0 +1,3 @@
+Independent root review: PASS.
+WordCompression126663.lean SHA256 be8649f1d56ba27b393da2f414cc5014bb6f447df4414d0481b0bcef8bf7d15f,5381bytes.
+The only import is the preserved checked Expansion126663Conditional. The words_exact theorem asserts equality of the complete generated193-word list with the original list and uses decide +kernel under declaration-local permitted limits. The full compiler log records exit0. The corresponding193 symbolic formulas were independently compared against all197632 original truth-table bits by status_review. No axiom, sorry, native_decide, unsafe/meta command, forbidden namespace text, string literal, or attribute appears. This is equality evidence for the compact subtree data, not the posted theorem.

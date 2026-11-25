@@ -1,0 +1,82 @@
+import PEqualNP.Defs
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+abbrev Sig := BitVec 1024
+def LabelPartition {α : Type} [DecidableEq α] (roots : Finset α)
+    (S : Finset Sig) (label : Sig → Finset α) : Prop :=
+  (∀ v ∈ S, label v ⊆ roots) ∧
+  (∀ v ∈ S, ∀ w ∈ S, v ≠ w → Disjoint (label v) (label w)) ∧
+  (∀ r ∈ roots, ∃ v ∈ S, r ∈ label v)
+def liftLabels {α : Type} [DecidableEq α] (A : Finset α) : Finset (Sum α Bool) :=
+  A.image Sum.inl
+def duplicateRoots {α : Type} [DecidableEq α] (roots A : Finset α) :
+    Finset (Sum α Bool) :=
+  liftLabels (roots \ A) ∪ {Sum.inr false, Sum.inr true}
+end PEqualNP.Outside.L_meta_2373.Live1024
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+def copyInputLabels {α : Type} [DecidableEq α] (label : Sig → Finset α)
+    (a z v : Sig) : Finset (Sum α Bool) :=
+  if v = z then {Sum.inr true}
+  else if v = a then {Sum.inr false} else liftLabels (label v)
+
+theorem copy_input_partition {α : Type} [DecidableEq α]
+    (roots : Finset α) (S : Finset Sig) (label : Sig → Finset α)
+    (a z : Sig) (part : LabelPartition roots S label)
+    (ha : a ∈ S) (fresh : z ∉ S) :
+    LabelPartition (duplicateRoots roots (label a)) (insert z S)
+      (copyInputLabels label a z) := by
+  classical
+  let next := copyInputLabels label a z
+  have anz : a ≠ z := by rintro rfl; exact fresh ha
+  have leftMem (v : Sig) (r : α) : Sum.inl r ∈ next v ↔
+      v ≠ z ∧ v ≠ a ∧ r ∈ label v := by
+    by_cases vz : v = z <;> by_cases va : v = a <;>
+      simp [next, copyInputLabels, liftLabels, vz, va, anz]
+  have falseMem (v : Sig) : Sum.inr false ∈ next v ↔ v ≠ z ∧ v = a := by
+    by_cases vz : v = z <;> by_cases va : v = a <;>
+      simp [next, copyInputLabels, liftLabels, vz, va, anz]
+  have trueMem (v : Sig) : Sum.inr true ∈ next v ↔ v = z := by
+    by_cases vz : v = z <;> by_cases va : v = a <;>
+      simp [next, copyInputLabels, liftLabels, vz, va, anz]
+  change LabelPartition (duplicateRoots roots (label a)) (insert z S) next
+  refine ⟨?_, ?_, ?_⟩
+  · intro v hv q hq
+    cases q with
+    | inl r =>
+      obtain ⟨vz, va, hr⟩ := (leftMem v r).mp hq
+      have hvS := (Finset.mem_insert.mp hv).resolve_left vz
+      have rRoot := part.1 v hvS hr
+      have notA : r ∉ label a := fun h =>
+        Finset.disjoint_left.mp (part.2.1 v hvS a ha va) hr h
+      simp [duplicateRoots, liftLabels, rRoot, notA]
+    | inr bit => cases bit <;> simp [duplicateRoots]
+  · intro v hv w hw hne
+    apply Finset.disjoint_left.mpr
+    intro q hqv hqw
+    cases q with
+    | inl r =>
+      obtain ⟨vz, _, hrv⟩ := (leftMem v r).mp hqv
+      obtain ⟨wz, _, hrw⟩ := (leftMem w r).mp hqw
+      exact Finset.disjoint_left.mp
+        (part.2.1 v ((Finset.mem_insert.mp hv).resolve_left vz)
+          w ((Finset.mem_insert.mp hw).resolve_left wz) hne) hrv hrw
+    | inr bit =>
+      cases bit with
+      | false => exact hne (((falseMem v).mp hqv).2.trans ((falseMem w).mp hqw).2.symm)
+      | true => exact hne (((trueMem v).mp hqv).trans ((trueMem w).mp hqw).symm)
+  · intro q hq
+    cases q with
+    | inl r =>
+      have hr : r ∈ roots ∧ r ∉ label a := by
+        simpa [duplicateRoots, liftLabels] using hq
+      obtain ⟨v, hv, hrv⟩ := part.2.2 r hr.1
+      have vz : v ≠ z := by rintro rfl; exact fresh hv
+      have va : v ≠ a := by rintro rfl; exact hr.2 hrv
+      exact ⟨v, Finset.mem_insert_of_mem hv, (leftMem v r).mpr ⟨vz, va, hrv⟩⟩
+    | inr bit =>
+      cases bit with
+      | false => exact ⟨a, Finset.mem_insert_of_mem ha, (falseMem a).mpr ⟨anz, rfl⟩⟩
+      | true => exact ⟨z, Finset.mem_insert_self _ _, (trueMem z).mpr rfl⟩
+
+end PEqualNP.Outside.L_meta_2373.Live1024

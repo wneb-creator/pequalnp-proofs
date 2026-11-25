@@ -1,0 +1,6 @@
+Independent concrete state4/copy14 cofactor review
+Reviewer: /root/counterexample
+Full source SHA256: fd39b89f43366d11c19cf085027a3fed69c8746187953d319bfc8b5717e40e61
+Verdict: PASS.
+
+All21 declared1024-bit signatures exactly match exported state-4.json. The11-entry starting list is exactly copy candidate14 with A=2592 and w=20, retaining both s20 copies. Independently checked the4 replay gates on all1024rows and verified that every starting root restricted to x8=false is available from the ten inputs/four replay outputs/constants. Exactly one listed root becomes constant; checked inequality15+1>11+4. The Lean replay and cut proofs use kernel decide for both allowed modes. The final excluded theorem invokes the independently reviewed Run-level pool-cut soundness theorem and the checked ZeroProfiles vertex8 lower bound, excluding every Run with k≤11. It states a concrete raw-basis Run exclusion, not the full posted gap. Imports have a shared PetersenSeventeenFull ancestor without duplicate SliceFromNine declarations; resource options are declaration-local. Complete archived log has0errors and0warnings (queue diagnostic only); author reported EXIT0. No forbidden trust/format construct found.

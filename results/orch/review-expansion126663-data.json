@@ -1,0 +1,28 @@
+{
+  "source_sha256": "4205676376be92ecac5c39d2d125c274ba3926a6b2627f7d74fe5f23f5e0ffff",
+  "words": 193,
+  "certificates": 180,
+  "profile_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    14,
+    76,
+    101,
+    123
+  ],
+  "row_witnesses": 74,
+  "all_literal_data_match": true,
+  "fixture_enumerated_branches": 1440,
+  "fixture_unique_children": 720,
+  "fixture_row_children": 540,
+  "fixture_known_children": 180,
+  "visited_children_explanation": "The C++ trace visited 306 children (180 cofactor and 126 row). Lean explicitly enumerates all 1,440 ordered branches and 720 distinct children, including 414 additional row-rejected children skipped by the sampled-row filter. All 540 row-rejected children use the 74 listed witnesses."
+}

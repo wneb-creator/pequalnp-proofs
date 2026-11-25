@@ -1,0 +1,13 @@
+Independent complete computation and archive audit by status_review: PASS within the stated computational scope.
+
+Artifact: results/orch/search/signed17-or-nonedge/manifest.json
+All5 file sizes/SHA256 values and the gzip decompressed size/hash match. The87,882,701-byte trace compresses to6,365,757bytes.
+Raw SHA256 9cfb275df0ebbc20d1c66afaed0df459a2b11a966206f10546eedab576aeaa5e
+Gzip SHA256 e348cf8250dac95dd3ffe3e7a74ef77efa3fb00514f380e6d1aa36e20019ec8a
+The exact C++ source is byte-identical to the previously independently reviewed resume implementation (b4ef1668bcf6c8f6cbdfb71e7d8c99f317a9b6e27c5a2cae7112839e1b383314).
+
+The independent audit completed with exit0. It checks all440569 node transitions, all183776 row witnesses, all248807 cofactor replay masks/masses/inequalities, all5653 memo isomorphisms, and all440568 child cases at804 expanded nodes. The initial gate is OR(x0,x2), retains both operands, and leaves16 gates. Root enumeration contains445 children. Every node has a final status; none is open or found.
+
+All3265 resumed pools/budgets match the frozen OR-edge cache, whose source dependency SHA256 is95ac0317b254cb8d0532bc6c730fae33e01bf28067d2e694a6ae1bc539b9c3fb. The earlier archive audit established those cache entries were closed and their memo dependencies completed. Each new memo isomorphism was explicitly matched against the120 Petersen graph automorphisms. Both sibling archives are needed for the linked computation.
+
+The exact trace census is626 formula0 leaves and903 formula1 leaves. These1529 leaves, the earlier resume formula dependencies, and the transported cofactor lower bounds still require Lean instantiation. The replay audit validates finite computation but is not a Lean certificate. The original gap remains unproved. The README accurately states this limitation; source/options/logs contain no credential material or network operations.

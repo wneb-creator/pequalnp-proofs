@@ -1,0 +1,1213 @@
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+theorem restrict_available {R S : Type} {u : Bool} (rows : S → R)
+    {pool : List (Wire R)} {v : Wire R} (h : Available u pool v) :
+    Available u (pool.map (restrictRows rows)) (restrictRows rows v) := by
+  rcases h with h | ⟨b, rfl⟩ | ⟨hu, h⟩
+  · exact Or.inl (List.mem_map.mpr ⟨v, h, rfl⟩)
+  · exact Or.inr (Or.inl ⟨b, rfl⟩)
+  · exact Or.inr (Or.inr ⟨hu, List.mem_map.mpr ⟨inv v, h, rfl⟩⟩)
+
+theorem restrict_combine {R S : Type} (rows : S → R) (op : Bool) (a b : Wire R) :
+    restrictRows rows (combine op a b) =
+      combine op (restrictRows rows a) (restrictRows rows b) := by
+  cases op <;> rfl
+
+theorem restrict_reach {R S : Type} {u : Bool} (rows : S → R)
+    {roots : List (Wire R)} {p bank} (h : Reach u roots p bank) :
+    Reach u (roots.map (restrictRows rows)) p (bank.map (restrictRows rows)) := by
+  induction h using Reach.ind with
+  | start => exact Reach.start
+  | two op h ha hb ih =>
+    simpa only [List.map_cons, restrict_combine] using
+      Reach.two op ih (restrict_available rows ha) (restrict_available rows hb)
+
+def sliceNineCoarse (r : Row) : NineSigned.Row := Fin.ofNat 512 r.val
+
+def sliceNineSection (r : NineSigned.Row) : Row := ⟨r.val, by omega⟩
+
+theorem sliceNineCoarse_section (r : NineSigned.Row) :
+    sliceNineCoarse (sliceNineSection r) = r := by
+  apply Fin.ext
+  simp [sliceNineCoarse, sliceNineSection, Nat.mod_eq_of_lt r.isLt]
+
+def sliceNineLift (a : NineSigned.Sig) : Sig :=
+  table (restrictRows sliceNineCoarse (NineSigned.observe a))
+
+theorem observe_sliceNineLift (a : NineSigned.Sig) :
+    observe (sliceNineLift a) = restrictRows sliceNineCoarse (NineSigned.observe a) :=
+  observe_table _
+
+theorem restrict_sliceNineLift (a : NineSigned.Sig) :
+    restrictRows sliceNineSection (observe (sliceNineLift a)) = NineSigned.observe a := by
+  rw [observe_sliceNineLift]
+  funext r
+  simp only [restrictRows, sliceNineCoarse_section]
+
+theorem nine_reach_of_reach {u : Bool} {roots : List (Wire NineSigned.Row)}
+    {p bank} (h : Reach u roots p bank) : NineSigned.Reach u roots p bank := by
+  induction h using Reach.ind with
+  | start => exact NineSigned.Reach.start
+  | two op h ha hb ih => exact NineSigned.Reach.two op ih ha hb
+
+theorem Slice_from_nine {u : Bool}
+    (rows : NineSigned.Row → Row) (raw : List Sig) (T d : Sig)
+    (roots9 : List NineSigned.Sig) (G9 : NineSigned.Sig) (L : Nat)
+    (domain : ∀ r, bit (rows r) d = true)
+    (goal : restrictRows rows (observe T) = NineSigned.observe G9)
+    (covered : ∀ a ∈ raw, NineSigned.Available u (roots9.map NineSigned.observe)
+      (restrictRows rows (observe a)))
+    (properG : NineSigned.proper G9)
+    (prior : NineSigned.Lower u roots9 G9 L) : Slice u raw T d L := by
+  let f : Row → Row := fun r => rows (sliceNineCoarse r)
+  let roots10 := roots9.map sliceNineLift
+  have roots_lift : roots10.map observe =
+      (roots9.map NineSigned.observe).map (restrictRows sliceNineCoarse) := by
+    simp only [roots10, List.map_map, Function.comp_def, observe_sliceNineLift]
+  have roots_section : (roots10.map observe).map (restrictRows sliceNineSection) =
+      roots9.map NineSigned.observe := by
+    simp only [roots10, List.map_map, Function.comp_def, restrict_sliceNineLift]
+  have target_section : restrictRows sliceNineSection (restrictRows f (observe T)) =
+      NineSigned.observe G9 := by
+    calc
+      _ = restrictRows rows (observe T) := by
+        funext r
+        simp only [restrictRows, f, sliceNineCoarse_section]
+      _ = _ := goal
+  refine ⟨f, roots10, fun r => domain _, ?_, ?_, ?_⟩
+  · intro a ha
+    rw [roots_lift]
+    exact restrict_available sliceNineCoarse (covered a ha)
+  · intro h
+    obtain ⟨b, hb⟩ := h
+    apply NineSigned.observe_proper properG
+    refine ⟨b, ?_⟩
+    rw [← target_section, hb]
+    rfl
+  · intro p bank hp hv
+    have hp' := restrict_reach sliceNineSection hp
+    rw [roots_section] at hp'
+    have hv' := restrict_available sliceNineSection hv
+    rw [target_section] at hv'
+    exact prior p _ (nine_reach_of_reach hp') hv'
+
+end PEqualNP.Outside.L_meta_2373.Live1024
+
+namespace PEqualNP.Outside.L_meta_2373.NineSigned
+
+def positiveNine : Sig :=
+  graph ||| inputs.getD 4 zero ||| inputs.getD 6 zero ||| inputs.getD 7 zero
+
+def positiveNineRaw : List Sig := inputs
+
+def positiveAdjacentZero : Sig :=
+  graphGoal 495 ||| inputs.getD 6 zero ||| inputs.getD 7 zero
+
+def positiveAdjacentZeroRaw : List Sig := vars 495
+
+def zeroPositiveMoves : List Move :=
+  [(inputs.getD 4 zero, zero, 496),
+   (inputs.getD 6 zero, zero, 448),
+   (inputs.getD 7 zero, zero, 384)]
+
+def positiveNineWitnesses : List (Sig × Row × Row) :=
+  [(inputs.getD 4 zero, 0, 16), (inputs.getD 6 zero, 0, 64),
+   (inputs.getD 7 zero, 0, 128)]
+
+def positiveAdjacentZeroWitnesses : List (Sig × Row × Row) :=
+  [(inputs.getD 6 zero, 0, 64), (inputs.getD 7 zero, 0, 128)]
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma cofactor_cycle_lower8 : Lower true (vars 303) (graphGoal 303) 8 := by
+  have h := valid189 (303, 8) (by decide +kernel)
+  simpa only [varsX, show (303 : Nat) < 512 from by decide, ite_true] using h
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma positiveNine_lower11 : Lower true positiveNineRaw positiveNine 11 := by
+  have h := lift_ok (u := true) (ms := zeroPositiveMoves)
+    (T := positiveNine) (raw := positiveNineRaw) (base := vars 303)
+    (G := graphGoal 303) (xs := positiveNineWitnesses) (L := 8)
+    (by decide +kernel) (by unfold proper; decide +kernel) (by unfold proper; decide +kernel) cofactor_cycle_lower8
+  have count : (positiveNineWitnesses.map Prod.fst).toFinset.card = 3 := by decide +kernel
+  simpa only [count] using h
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma positiveAdjacentZero_lower10 : Lower true positiveAdjacentZeroRaw positiveAdjacentZero 10 := by
+  have h := lift_ok (u := true) (ms := zeroPositiveMoves)
+    (T := positiveAdjacentZero) (raw := positiveAdjacentZeroRaw) (base := vars 303)
+    (G := graphGoal 303) (xs := positiveAdjacentZeroWitnesses) (L := 8)
+    (by decide +kernel) (by unfold proper; decide +kernel) (by unfold proper; decide +kernel) cofactor_cycle_lower8
+  have count : (positiveAdjacentZeroWitnesses.map Prod.fst).toFinset.card = 2 := by decide +kernel
+  simpa only [count] using h
+
+lemma available_signed_of_available {R : Type} {u : Bool} {bank : List (Wire R)}
+    {w : Wire R} (h : Available u bank w) : Available true bank w := by
+  rcases h with h | h | ⟨_, h⟩
+  · exact Or.inl h
+  · exact Or.inr (Or.inl h)
+  · exact Or.inr (Or.inr ⟨rfl, h⟩)
+
+lemma reach_signed_of_reach {R : Type} {u : Bool} {roots bank : List (Wire R)}
+    {p : Nat} (h : Reach u roots p bank) : Reach true roots p bank := by
+  induction h using Reach.ind with
+  | start => exact Reach.start
+  | two op _ ha hb ih =>
+    exact Reach.two op ih (available_signed_of_available ha) (available_signed_of_available hb)
+
+lemma lower_mode_of_signed {u : Bool} {roots : List Sig} {T : Sig} {L : Nat}
+    (h : Lower true roots T L) : Lower u roots T L := by
+  intro p bank run available
+  exact h p bank (reach_signed_of_reach run) (available_signed_of_available available)
+
+lemma positiveNine_mono_lower11 : Lower false positiveNineRaw positiveNine 11 :=
+  lower_mode_of_signed positiveNine_lower11
+
+lemma positiveAdjacentZero_mono_lower10 : Lower false positiveAdjacentZeroRaw positiveAdjacentZero 10 :=
+  lower_mode_of_signed positiveAdjacentZero_lower10
+
+end PEqualNP.Outside.L_meta_2373.NineSigned
+
+namespace PEqualNP.Outside.L_meta_2373.PositiveProfiles
+
+open PEqualNP.Outside.L_meta_2373
+
+def permutation (c : Fin 4) : Fin 10 → Fin 10 :=
+  ![![1, 2, 7, 5, 0, 6, 3, 9, 8, 4],
+    ![7, 2, 3, 8, 5, 9, 1, 4, 6, 0],
+    ![8, 3, 4, 9, 6, 5, 2, 0, 7, 1],
+    ![5, 0, 4, 9, 7, 8, 1, 3, 6, 2]] c
+
+def inverse (c : Fin 4) : Fin 10 → Fin 10 :=
+  ![![4, 0, 1, 6, 9, 3, 5, 2, 8, 7],
+    ![9, 6, 1, 2, 7, 4, 8, 0, 3, 5],
+    ![7, 9, 6, 1, 2, 5, 4, 8, 0, 3],
+    ![1, 6, 9, 7, 2, 0, 8, 4, 5, 3]] c
+
+def rows (c : Fin 4) (r : NineSigned.Row) : Live1024.Row :=
+  Fin.ofNat 1024 (2 ^ (permutation c 9).val + ∑ i : Fin 9,
+    if (c = 0 ∨ i ≠ 4) ∧ r.val.testBit i.val then
+      2 ^ (permutation c i.castSucc).val else 0)
+
+def domain (c : Fin 4) : Live1024.Sig :=
+  Live1024.inputs.getD (permutation c 9).val Live1024.zero &&&
+    (if c = 0 then Live1024.one else
+      ~~~(Live1024.inputs.getD (permutation c 4).val Live1024.zero))
+
+def target (c : Fin 4) : NineSigned.Sig :=
+  if c = 0 then NineSigned.positiveNine else NineSigned.positiveAdjacentZero
+
+def roots (c : Fin 4) : List NineSigned.Sig :=
+  if c = 0 then NineSigned.positiveNineRaw else NineSigned.positiveAdjacentZeroRaw
+
+def bound (c : Fin 4) : Nat := if c = 0 then 11 else 10
+
+def inputMap (c : Fin 4) (i : Fin 10) : NineSigned.Sig :=
+  if inverse c i = 9 then NineSigned.one
+  else if c ≠ 0 ∧ inverse c i = 4 then NineSigned.zero
+  else NineSigned.inputs.getD (inverse c i).val NineSigned.zero
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma rows_domain : ∀ (c : Fin 4) (r : NineSigned.Row),
+    Live1024.bit (rows c r) (domain c) = true := by
+  intro c
+  fin_cases c <;> decide +kernel
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma rows_goal : ∀ (c : Fin 4) (r : NineSigned.Row),
+    Live1024.observe Live1024.graph (rows c r) = NineSigned.observe (target c) r := by
+  intro c
+  fin_cases c <;> decide +kernel
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma rows_input : ∀ (c : Fin 4) (i : Fin 10) (r : NineSigned.Row),
+    Live1024.observe (Live1024.inputs.getD i.val Live1024.zero) (rows c r) =
+      NineSigned.observe (inputMap c i) r := by
+  intro c i
+  fin_cases c <;> fin_cases i <;> decide +kernel
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma inputMap_free : ∀ (c : Fin 4) (i : Fin 10),
+    NineSigned.freeWord (roots c) (inputMap c i) = true := by
+  decide +kernel
+
+lemma rows_available {u : Bool} (c : Fin 4) (i : Fin 10) :
+    NineSigned.Available u ((roots c).map NineSigned.observe)
+      (Live1024.restrictRows (rows c)
+        (Live1024.observe (Live1024.inputs.getD i.val Live1024.zero))) := by
+  have heq : Live1024.restrictRows (rows c)
+      (Live1024.observe (Live1024.inputs.getD i.val Live1024.zero)) =
+      NineSigned.observe (inputMap c i) := by
+    funext r
+    exact rows_input c i r
+  rw [heq]
+  exact NineSigned.freeWord_ok (inputMap_free c i)
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma target_proper : ∀ c : Fin 4, NineSigned.proper (target c) := by
+  unfold NineSigned.proper
+  decide +kernel
+
+lemma target_lower {u : Bool} (c : Fin 4) :
+    NineSigned.Lower u (roots c) (target c) (bound c) := by
+  by_cases h : c = 0
+  · simpa only [roots, target, bound, if_pos h] using
+      (NineSigned.lower_mode_of_signed (u := u) NineSigned.positiveNine_lower11)
+  · simpa only [roots, target, bound, if_neg h] using
+      (NineSigned.lower_mode_of_signed (u := u) NineSigned.positiveAdjacentZero_lower10)
+
+end PEqualNP.Outside.L_meta_2373.PositiveProfiles
+
+namespace PEqualNP.Outside.L_meta_2373.ZeroProfiles
+
+open PEqualNP.Outside.L_meta_2373
+
+def domain (v : Fin 10) : Live1024.Sig :=
+  ~~~(Live1024.inputs.getD v.val Live1024.zero)
+
+lemma rows_domain (v : Fin 10) (r : NineSigned.Row) :
+    Live1024.bit (rowMap v r) (domain v) = true := by
+  have hm := rowMap_missing v r
+  change Live1024.bit (rowMap v r) (Live1024.inputs.getD v.val Live1024.zero) = false at hm
+  simpa [domain, Live1024.bit, (rowMap v r).isLt] using congrArg Bool.not hm
+
+lemma rows_available {u : Bool} (v i : Fin 10) :
+    NineSigned.Available u (NineSigned.inputs.map NineSigned.observe)
+      (Live1024.restrictRows (rowMap v)
+        (Live1024.observe (Live1024.inputs.getD i.val Live1024.zero))) := by
+  by_cases hi : i = v
+  · subst i
+    exact Or.inr (Or.inl ⟨false, funext (rowMap_missing v)⟩)
+  · obtain ⟨j, hj⟩ := (relabel_bijective v).2 i
+    have hne : j ≠ (9 : Fin 10) := by
+      intro h
+      subst j
+      exact hi (hj.symm.trans (relabel_last v))
+    have hjlt : j.val < 9 := by
+      have hlt := j.isLt
+      have hn : j.val ≠ 9 := fun h => hne (Fin.ext h)
+      omega
+    let k : Fin 9 := ⟨j.val, hjlt⟩
+    have hk : relabel v k.castSucc = i := hj
+    have heq : Live1024.restrictRows (rowMap v)
+        (Live1024.observe (Live1024.inputs.getD i.val Live1024.zero)) =
+          NineSigned.observe (NineSigned.inputs.getD k.val NineSigned.zero) := by
+      funext r
+      rw [← hk]
+      exact rowMap_input v k r
+    apply Or.inl
+    rw [heq]
+    apply List.mem_map.mpr
+    refine ⟨NineSigned.inputs.getD k.val NineSigned.zero, ?_, rfl⟩
+    have hm : NineSigned.inputs.getD k.val NineSigned.zero ∈
+        List.ofFn (fun j : Fin 9 => NineSigned.inputs.getD j.val NineSigned.zero) :=
+      List.mem_ofFn.mpr ⟨k, rfl⟩
+    rw [NineSigned.input_list] at hm
+    exact hm
+
+end PEqualNP.Outside.L_meta_2373.ZeroProfiles
+
+namespace PEqualNP.Outside.L_meta_2373.ZeroProfiles
+
+open PEqualNP.Outside.L_meta_2373
+
+lemma slice {u : Bool} (v : Fin 10) :
+    Live1024.Slice u Live1024.inputs Live1024.graph (domain v) 15 := by
+  apply Live1024.Slice_from_nine (rowMap v) Live1024.inputs Live1024.graph (domain v)
+    NineSigned.inputs NineSigned.graph 15
+  · exact rows_domain v
+  · funext r
+    exact rowMap_graph v r
+  · intro a ha
+    rw [← Live1024.input_list] at ha
+    obtain ⟨i, rfl⟩ := List.mem_ofFn.mp ha
+    exact rows_available v i
+  · exact NineSigned.graph_proper
+  · exact NineSigned.lower_mode_of_signed NineSigned.nine_reach_lower
+
+end PEqualNP.Outside.L_meta_2373.ZeroProfiles
+
+namespace PEqualNP.Outside.L_meta_2373.PositiveProfiles
+
+open PEqualNP.Outside.L_meta_2373
+
+lemma slice {u : Bool} (c : Fin 4) :
+    Live1024.Slice u Live1024.inputs Live1024.graph (domain c) (bound c) := by
+  apply Live1024.Slice_from_nine (rows c) Live1024.inputs Live1024.graph (domain c)
+    (roots c) (target c) (bound c)
+  · exact rows_domain c
+  · funext r
+    exact rows_goal c r
+  · intro a ha
+    rw [← Live1024.input_list] at ha
+    obtain ⟨i, rfl⟩ := List.mem_ofFn.mp ha
+    exact rows_available c i
+  · exact target_proper c
+  · exact target_lower c
+
+end PEqualNP.Outside.L_meta_2373.PositiveProfiles
+
+namespace PEqualNP.Outside.L_meta_2373.SliceProfiles
+
+open PEqualNP.Outside.L_meta_2373
+
+def domains : List Live1024.Sig :=
+  List.ofFn ZeroProfiles.domain ++ List.ofFn PositiveProfiles.domain
+
+def bounds : List Nat := List.replicate 10 15 ++ [11, 10, 10, 10]
+
+lemma all_slices {u : Bool} : ∀ i : Fin 14,
+    Live1024.Slice u Live1024.inputs Live1024.graph
+      (domains.getD i.val Live1024.zero) (bounds.getD i.val 0) := by
+  intro i
+  fin_cases i
+  · exact ZeroProfiles.slice 0
+  · exact ZeroProfiles.slice 1
+  · exact ZeroProfiles.slice 2
+  · exact ZeroProfiles.slice 3
+  · exact ZeroProfiles.slice 4
+  · exact ZeroProfiles.slice 5
+  · exact ZeroProfiles.slice 6
+  · exact ZeroProfiles.slice 7
+  · exact ZeroProfiles.slice 8
+  · exact ZeroProfiles.slice 9
+  · exact PositiveProfiles.slice 0
+  · exact PositiveProfiles.slice 1
+  · exact PositiveProfiles.slice 2
+  · exact PositiveProfiles.slice 3
+
+end PEqualNP.Outside.L_meta_2373.SliceProfiles
+
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+def successorOps (u : Bool) : List Nat := if u then [0, 1, 2, 3] else [0, 1]
+
+lemma successorOps_complete {u : Bool} {d : Nat} (h : allowed u d) :
+    d ∈ successorOps u := by
+  cases u <;> simp [successorOps, allowed] at * <;> omega
+
+def successorGuard (ws : List Sig) (cap : Nat) (a b : Sig) (d : Nat) (ka kb : Bool) : Bool :=
+  decide (a ≠ b) && decide (bin d a b ∉ ws) &&
+    decide (bin d a b ≠ zero) && decide (bin d a b ≠ one) &&
+    decide ((childTwo ws a b d ka kb).length ≤ cap)
+
+def successorLists (u : Bool) (ws : List Sig) (cap : Nat) : List (List Sig) :=
+  ws.flatMap fun a => ws.flatMap fun b => (successorOps u).flatMap fun d =>
+    [false, true].flatMap fun ka => [false, true].filterMap fun kb =>
+      if successorGuard ws cap a b d ka kb then some (childTwo ws a b d ka kb) else none
+
+lemma successorLists_complete {u ws cap a b d ka kb}
+    (ha : a ∈ ws) (hb : b ∈ ws) (hd : allowed u d) (hab : a ≠ b)
+    (fresh : bin d a b ∉ ws) (hp : proper (bin d a b))
+    (sz : (childTwo ws a b d ka kb).length ≤ cap) :
+    childTwo ws a b d ka kb ∈ successorLists u ws cap := by
+  have guard : successorGuard ws cap a b d ka kb = true := by
+    simp [successorGuard, hab, fresh, hp.1, hp.2, sz]
+  unfold successorLists
+  apply List.mem_flatMap.mpr
+  refine ⟨a, ha, ?_⟩
+  apply List.mem_flatMap.mpr
+  refine ⟨b, hb, ?_⟩
+  apply List.mem_flatMap.mpr
+  refine ⟨d, successorOps_complete hd, ?_⟩
+  apply List.mem_flatMap.mpr
+  refine ⟨ka, by cases ka <;> simp, ?_⟩
+  apply List.mem_filterMap.mpr
+  exact ⟨kb, by cases kb <;> simp, by simp [guard]⟩
+
+def rowSeparates (u : Bool) (r s : Row) (w : Sig) : Bool :=
+  if u then bit r w != bit s w else bit r w && !(bit s w)
+
+lemma live_rowSeparates {u T k S r s} (h : Live u T k S)
+    (sep : rowSeparates u r s T = true) : ∃ w ∈ S, rowSeparates u r s w = true := by
+  cases u with
+  | true =>
+    have diff : bit r T ≠ bit s T := by simpa [rowSeparates] using sep
+    obtain ⟨w, hw, hd⟩ := live_row_difference h diff
+    exact ⟨w, hw, by simpa [rowSeparates] using hd⟩
+  | false =>
+    have bits : bit r T = true ∧ bit s T = false := by simpa [rowSeparates] using sep
+    obtain ⟨w, hw, yes, no⟩ := mono_row_difference h rfl bits.1 bits.2
+    exact ⟨w, hw, by simp [rowSeparates, yes, no]⟩
+
+def rowReject (u : Bool) (T : Sig) (ws : List Sig) (pair : Row × Row) : Bool :=
+  rowSeparates u pair.1 pair.2 T && ws.all (fun w => !(rowSeparates u pair.1 pair.2 w))
+
+lemma rowReject_sound {u T ws pair} (check : rowReject u T ws pair = true) :
+    ∀ k, ¬ Live u T k ws.toFinset := by
+  intro k run
+  have both := Bool.and_eq_true_iff.mp check
+  obtain ⟨w, hw, hsep⟩ := live_rowSeparates run both.1
+  have hn := List.all_eq_true.mp both.2 w (List.mem_toFinset.mp hw)
+  simp [hsep] at hn
+
+def successorCheck (u : Bool) (T : Sig) (ws : List Sig) (cap : Nat)
+    (known : List (Finset Sig)) (rows : List (Row × Row)) : Bool :=
+  (successorLists u ws cap).all fun child =>
+    decide (child.toFinset ∈ known) || rows.any (rowReject u T child)
+
+lemma successorCheck_sound {u T ws cap known rows} (nd : ws.Nodup) (out : T ∉ ws)
+    (knownSound : ∀ S ∈ known, Impossible u T (cap - 1) S)
+    (check : successorCheck u T ws cap known rows = true) :
+    Impossible u T cap ws.toFinset := by
+  apply enum_step nd out
+  intro a ha b hb d hd ka kb hab fresh hp sz
+  have mem := successorLists_complete ha hb hd hab fresh hp sz
+  have done := List.all_eq_true.mp check _ mem
+  rcases Bool.or_eq_true_iff.mp done with hit | cut
+  · exact knownSound _ (of_decide_eq_true hit)
+  · obtain ⟨pair, hpair, good⟩ := List.any_eq_true.mp cut
+    exact fun k _ => rowReject_sound good k
+
+end PEqualNP.Outside.L_meta_2373.Live1024
+
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+def cofactorCheck (u : Bool) (raw : List Sig) (d : Sig) (L cap : Nat)
+    (ws : List Sig) (cs : List Choice) : Bool :=
+  decide ws.Nodup && match makePool u d raw cs with
+    | none => false
+    | some pool => poolCut u d L cap cs.length pool ws
+
+lemma cofactorCheck_sound {u raw T d L cap ws cs} (slice : Slice u raw T d L)
+    (check : cofactorCheck u raw d L cap ws cs = true) :
+    Impossible u T cap ws.toFinset := by
+  have both := Bool.and_eq_true_iff.mp check
+  have nd : ws.Nodup := of_decide_eq_true both.1
+  cases built : makePool u d raw cs with
+  | none => simp [built] at both
+  | some pool =>
+    have cut : poolCut u d L cap cs.length pool ws = true := by simpa [built] using both.2
+    exact poolCut_sound slice cs built nd cut
+
+end PEqualNP.Outside.L_meta_2373.Live1024
+
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024.Expansion126663
+
+def words : List Sig := [
+  0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,
+  0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc,
+  0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0,
+  0xff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00,
+  0xffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000,
+  0xffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000,
+  0xffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000,
+  0xffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee,
+  0xffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaaffffffffaaaaaaaa,
+  0xfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfcfc,
+  0xffffffffffffffffccccccccccccccccffffffffffffffffccccccccccccccccffffffffffffffffccccccccccccccccffffffffffffffffccccccccccccccccffffffffffffffffccccccccccccccccffffffffffffffffccccccccccccccccffffffffffffffffccccccccccccccccffffffffffffffffcccccccccccccccc,
+  0xffffffffffffffffffffffffffffffffffffffff00000000ffffffff00000000ffffffffffffffffffffffffffffffffffffffff00000000ffffffff00000000ffffffffffffffffffffffffffffffffffffffff00000000ffffffff00000000ffffffffffffffffffffffffffffffffffffffff00000000ffffffff00000000,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000,
+  0xfff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0fff0,
+  0xfffffffffffffffffffffffffffffffff0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0fffffffffffffffffffffffffffffffff0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0fffffffffffffffffffffffffffffffff0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0fffffffffffffffffffffffffffffffff0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000ffffffffffffffff0000000000000000,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000,
+  0x8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888,
+  0x2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222,
+  0x4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444,
+  0xa0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0,
+  0xfafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafa,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00,
+  0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000,
+  0xc0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0,
+  0x0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c,
+  0x3030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030,
+  0xcc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00,
+  0xffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffccffcc,
+  0x00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc00cc,
+  0x3300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300330033003300,
+  0xcccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000,
+  0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000,
+  0xf000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000,
+  0x00f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f0,
+  0x0f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f000f00,
+  0xf0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000,
+  0xff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000,
+  0xffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00ffffffffff00ff00,
+  0xffffffffccccccccffffffffccccccccffffffffccccccccffffffffccccccccffffffffccccccccffffffffccccccccffffffffccccccccffffffffccccccccffffffffccccccccffffffffccccccccffffffffccccccccffffffffccccccccffffffffccccccccffffffffccccccccffffffffccccccccffffffffcccccccc,
+  0x00000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff00,
+  0x00ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff0000000000ff00ff00000000,
+  0xff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000,
+  0xffffffffffffffffff00ff00ff00ff00ffffffffffffffffff00ff00ff00ff00ffffffffffffffffff00ff00ff00ff00ffffffffffffffffff00ff00ff00ff00ffffffffffffffffff00ff00ff00ff00ffffffffffffffffff00ff00ff00ff00ffffffffffffffffff00ff00ff00ff00ffffffffffffffffff00ff00ff00ff00,
+  0x0000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff00,
+  0x00ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff000000000000000000ff00ff00ff00ff0000000000000000,
+  0xff00ff00ff00ff00ff00ff00ff00ff0000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff0000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff0000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff0000000000000000000000000000000000,
+  0xffffffffffffffffffffffffffffffffff00ff00ff00ff00ff00ff00ff00ff00ffffffffffffffffffffffffffffffffff00ff00ff00ff00ff00ff00ff00ff00ffffffffffffffffffffffffffffffffff00ff00ff00ff00ff00ff00ff00ff00ffffffffffffffffffffffffffffffffff00ff00ff00ff00ff00ff00ff00ff00,
+  0xffffffffffffffffffffffff00000000ffffffffffffffffffffffff00000000ffffffffffffffffffffffff00000000ffffffffffffffffffffffff00000000ffffffffffffffffffffffff00000000ffffffffffffffffffffffff00000000ffffffffffffffffffffffff00000000ffffffffffffffffffffffff00000000,
+  0xffffffffffffffffaaaaaaaaaaaaaaaaffffffffffffffffaaaaaaaaaaaaaaaaffffffffffffffffaaaaaaaaaaaaaaaaffffffffffffffffaaaaaaaaaaaaaaaaffffffffffffffffaaaaaaaaaaaaaaaaffffffffffffffffaaaaaaaaaaaaaaaaffffffffffffffffaaaaaaaaaaaaaaaaffffffffffffffffaaaaaaaaaaaaaaaa,
+  0xfffffffffffffffff0f0f0f0f0f0f0f0fffffffffffffffff0f0f0f0f0f0f0f0fffffffffffffffff0f0f0f0f0f0f0f0fffffffffffffffff0f0f0f0f0f0f0f0fffffffffffffffff0f0f0f0f0f0f0f0fffffffffffffffff0f0f0f0f0f0f0f0fffffffffffffffff0f0f0f0f0f0f0f0fffffffffffffffff0f0f0f0f0f0f0f0,
+  0xffffffffffffffffffffffffffffffffccccccccccccccccccccccccccccccccffffffffffffffffffffffffffffffffccccccccccccccccccccccccccccccccffffffffffffffffffffffffffffffffccccccccccccccccccccccccccccccccffffffffffffffffffffffffffffffffcccccccccccccccccccccccccccccccc,
+  0xffffffffffffffffffffffffffffffffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaffffffffffffffffffffffffffffffffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaffffffffffffffffffffffffffffffffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaffffffffffffffffffffffffffffffffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,
+  0xfffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0fffffffff0f0f0f0,
+  0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc,
+  0x00000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff0000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff0000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff0000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff00,
+  0x0000000000000000000000000000000000000000000000000000000000000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff000000000000000000000000000000000000000000000000000000000000000000000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000,
+  0x0000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000,
+  0x00ff00ff00ff00ff00ff00ff00ff00ff0000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff0000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff0000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff00000000000000000000000000000000,
+  0xff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff000000000000000000000000000000000000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff000000000000000000000000000000000000000000000000000000000000000000,
+  0x0000000000000000000000000000000000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff000000000000000000000000000000000000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00,
+  0x00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff000000000000000000000000000000000000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff0000000000000000000000000000000000000000000000000000000000000000,
+  0xff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00,
+  0x00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0xffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000,
+  0x0000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff00000000,
+  0x00000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff0000000000000000,
+  0xffffffff00000000ffffffff0000000000000000000000000000000000000000ffffffff00000000ffffffff0000000000000000000000000000000000000000ffffffff00000000ffffffff0000000000000000000000000000000000000000ffffffff00000000ffffffff0000000000000000000000000000000000000000,
+  0x00000000000000000000000000000000ffffffff00000000ffffffff0000000000000000000000000000000000000000ffffffff00000000ffffffff0000000000000000000000000000000000000000ffffffff00000000ffffffff0000000000000000000000000000000000000000ffffffff00000000ffffffff00000000,
+  0x00000000ffffffff00000000ffffffff0000000000000000000000000000000000000000ffffffff00000000ffffffff0000000000000000000000000000000000000000ffffffff00000000ffffffff0000000000000000000000000000000000000000ffffffff00000000ffffffff00000000000000000000000000000000,
+  0xffffffff00000000ffffffff00000000ffffffff00000000ffffffff000000000000000000000000000000000000000000000000000000000000000000000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000,
+  0x00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff000000000000000000000000000000000000000000000000000000000000000000000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff0000000000000000000000000000000000000000000000000000000000000000,
+  0xffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000,
+  0x00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0xffffffffffffffff000000000000000000000000000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000,
+  0x00000000000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000ffffffffffffffff0000000000000000,
+  0x0000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000ffffffffffffffff00000000000000000000000000000000,
+  0xffffffffffffffff0000000000000000ffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff0000000000000000ffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x0000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff0000000000000000ffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000,
+  0x0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000,
+  0xffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000,
+  0x0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0xffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0xffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaaffaa,
+  0xffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000,
+  0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000,
+  0x0000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee,
+  0x0000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f0,
+  0xf0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000,
+  0xff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000,
+  0x0000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff00,
+  0x0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc0000cccc,
+  0xffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x00000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f0,
+  0x0000333300003333000033330000333300003333000033330000333300003333000033330000333300003333000033330000333300003333000033330000333300003332000033320000333200003332000033320000333200003332000033320000333200003332000033320000333200003332000033320000333200003332,
+  0x0f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f000000000f0f0f0f00000000,
+  0xf0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000,
+  0x0000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f0,
+  0x0f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f00000000000000000f0f0f0f0f0f0f0f0000000000000000,
+  0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000,
+  0x00000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0,
+  0x0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f00000000000000000000000000000000,
+  0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f00000000000000000000000000000000000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f00000000000000000000000000000000000000000000000000000000000000000,
+  0x0000000000000000000000000000000000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f00000000000000000000000000000000000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0,
+  0x0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f00000000000000000000000000000000000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0000000000000000000000000000000000000000000000000000000000000000,
+  0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0,
+  0x0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a,
+  0xcccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000,
+  0x00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc00000000cccccccc,
+  0x3333333300000000333333330000000033333333000000003333333300000000333333330000000033333333000000003333333300000000333333330000000033333333000000003333333300000000333333330000000033333333000000003333333300000000333333330000000033333333000000003333333300000000,
+  0xcccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000,
+  0x0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc,
+  0x3333333333333333000000000000000033333333333333330000000000000000333333333333333300000000000000003333333333333333000000000000000033333333333333330000000000000000333333333333333300000000000000003333333333333333000000000000000033333333333333330000000000000000,
+  0xcccccccccccccccccccccccccccccccc00000000000000000000000000000000cccccccccccccccccccccccccccccccc00000000000000000000000000000000cccccccccccccccccccccccccccccccc00000000000000000000000000000000cccccccccccccccccccccccccccccccc00000000000000000000000000000000,
+  0x00000000000000000000000000000000cccccccccccccccccccccccccccccccc00000000000000000000000000000000cccccccccccccccccccccccccccccccc00000000000000000000000000000000cccccccccccccccccccccccccccccccc00000000000000000000000000000000cccccccccccccccccccccccccccccccc,
+  0x3333333333333333333333333333333300000000000000000000000000000000333333333333333333333333333333330000000000000000000000000000000033333333333333333333333333333333000000000000000000000000000000003333333333333333333333333333333300000000000000000000000000000000,
+  0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc0000000000000000000000000000000000000000000000000000000000000000cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc0000000000000000000000000000000000000000000000000000000000000000,
+  0x0000000000000000000000000000000000000000000000000000000000000000cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc0000000000000000000000000000000000000000000000000000000000000000cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc,
+  0x3333333333333333333333333333333333333333333333333333333333333333000000000000000000000000000000000000000000000000000000000000000033333333333333333333333333333333333333333333333333333333333333330000000000000000000000000000000000000000000000000000000000000000,
+  0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc,
+  0x3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0f00000f0e00000f0e00000f0e00000f0e00000f0e00000f0e00000f0e00000f0e00000f0e00000f0e00000f0e00000f0e00000f0e00000f0e00000f0e00000f0e,
+  0x5050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050,
+  0xaa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00,
+  0x00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa00aa,
+  0x5500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500550055005500,
+  0xaaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000,
+  0x0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa0000aaaa,
+  0xaaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000,
+  0x00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa,
+  0x5555555500000000555555550000000055555555000000005555555500000000555555550000000055555555000000005555555500000000555555550000000055555555000000005555555500000000555555550000000055555555000000005555555500000000555555550000000055555555000000005555555500000000,
+  0xaaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000,
+  0x0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa0000000000000000aaaaaaaaaaaaaaaa,
+  0x5555555555555555000000000000000055555555555555550000000000000000555555555555555500000000000000005555555555555555000000000000000055555555555555550000000000000000555555555555555500000000000000005555555555555555000000000000000055555555555555550000000000000000,
+  0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000000000000000000000,
+  0x00000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,
+  0x5555555555555555555555555555555500000000000000000000000000000000555555555555555555555555555555550000000000000000000000000000000055555555555555555555555555555555000000000000000000000000000000005555555555555555555555555555555500000000000000000000000000000000,
+  0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000000000000000000000000000000000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000000000000000000000000000000000000000000000000000000000000,
+  0x0000000000000000000000000000000000000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0000000000000000000000000000000000000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,
+  0x5555555555555555555555555555555555555555555555555555555555555555000000000000000000000000000000000000000000000000000000000000000055555555555555555555555555555555555555555555555555555555555555550000000000000000000000000000000000000000000000000000000000000000,
+  0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,
+  0x5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+  0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffefffe,
+  0x000000000000000000000000000000000000ffff0000ffff0000ffff0000ffff000000000000000000000000000000000000ffff0000ffff0000ffff0000ffff000000000000000000000000000000000000fffe0000fffe0000fffe0000fffe000000000000000000000000000000000000fffe0000fffe0000fffe0000fffe,
+  0x000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000fffe000000000000fffe000000000000fffe000000000000fffe000000000000fffe000000000000fffe000000000000fffe000000000000fffe,
+  0x00000000000000000000000000000000000000000000000000000000000000000000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff00000000000000000000000000000000000000000000000000000000000000000000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe,
+  0x0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe,
+  0x0000555500005555000055550000555500005555000055550000555500005555000055550000555500005555000055550000555500005555000055550000555500005554000055540000555400005554000055540000555400005554000055540000555400005554000055540000555400005554000055540000555400005554,
+  0xaaaaffffaaaaffffaaaaffffaaaaffffaaaaffffaaaaffffaaaaffffaaaaffffaaaaffffaaaaffffaaaaffffaaaaffffaaaaffffaaaaffffaaaaffffaaaaffffaaaafffeaaaafffeaaaafffeaaaafffeaaaafffeaaaafffeaaaafffeaaaafffeaaaafffeaaaafffeaaaafffeaaaafffeaaaafffeaaaafffeaaaafffeaaaafffe,
+  0x0000ffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000fffe000000000000fffe000000000000fffe000000000000fffe000000000000fffe000000000000fffe000000000000fffe000000000000fffe00000000,
+  0xffffffff0000ffffffffffff0000ffffffffffff0000ffffffffffff0000ffffffffffff0000ffffffffffff0000ffffffffffff0000ffffffffffff0000ffffffffffff0000fffeffffffff0000fffeffffffff0000fffeffffffff0000fffeffffffff0000fffeffffffff0000fffeffffffff0000fffeffffffff0000fffe,
+  0xffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000000000000ffff000100000000ffff000100000000ffff000100000000ffff000100000000ffff000100000000ffff000100000000ffff000100000000ffff000100000000,
+  0xffffffffffffffffffffffffffffffff0000ffff0000ffff0000ffff0000ffffffffffffffffffffffffffffffffffff0000ffff0000ffff0000ffff0000ffffffffffffffffffffffffffffffffffff0000fffe0000fffe0000fffe0000fffeffffffffffffffffffffffffffffffff0000fffe0000fffe0000fffe0000fffe,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe,
+  0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe,
+  0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe,
+  0x00000000000000000000ffff0000ffff00000000000000000000ffff0000ffff00000000000000000000ffff0000ffff00000000000000000000ffff0000ffff00000000000000000000fffe0000fffe00000000000000000000fffe0000fffe00000000000000000000fffe0000fffe00000000000000000000fffe0000fffe,
+  0xccccffffccccffffccccffffccccffffccccffffccccffffccccffffccccffffccccffffccccffffccccffffccccffffccccffffccccffffccccffffccccffffccccfffeccccfffeccccfffeccccfffeccccfffeccccfffeccccfffeccccfffeccccfffeccccfffeccccfffeccccfffeccccfffeccccfffeccccfffeccccfffe,
+  0x0000ffff0000ffff00000000000000000000ffff0000ffff00000000000000000000ffff0000ffff00000000000000000000ffff0000ffff00000000000000000000fffe0000fffe00000000000000000000fffe0000fffe00000000000000000000fffe0000fffe00000000000000000000fffe0000fffe0000000000000000,
+  0xffffffffffffffff0000ffff0000ffffffffffffffffffff0000ffff0000ffffffffffffffffffff0000ffff0000ffffffffffffffffffff0000ffff0000ffffffffffffffffffff0000fffe0000fffeffffffffffffffff0000fffe0000fffeffffffffffffffff0000fffe0000fffeffffffffffffffff0000fffe0000fffe,
+  0xffff0000ffff00000000000000000000ffff0000ffff00000000000000000000ffff0000ffff00000000000000000000ffff0000ffff00000000000000000000ffff0001ffff00010000000000000000ffff0001ffff00010000000000000000ffff0001ffff00010000000000000000ffff0001ffff00010000000000000000,
+  0xf0f0fffff0f0fffff0f0fffff0f0fffff0f0fffff0f0fffff0f0fffff0f0fffff0f0fffff0f0fffff0f0fffff0f0fffff0f0fffff0f0fffff0f0fffff0f0fffff0f0fffef0f0fffef0f0fffef0f0fffef0f0fffef0f0fffef0f0fffef0f0fffef0f0fffef0f0fffef0f0fffef0f0fffef0f0fffef0f0fffef0f0fffef0f0fffe,
+  0xff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00fffeff00fffeff00fffeff00fffeff00fffeff00fffeff00fffeff00fffeff00fffeff00fffeff00fffeff00fffeff00fffeff00fffeff00fffeff00fffe,
+  0x000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000ff000000fe000000fe000000fe000000fe000000fe000000fe000000fe000000fe000000fe000000fe000000fe000000fe000000fe000000fe000000fe000000fe,
+  0x0000ffff0000ffff0000ffff0000ffff000000000000000000000000000000000000ffff0000ffff0000ffff0000ffff000000000000000000000000000000000000fffe0000fffe0000fffe0000fffe000000000000000000000000000000000000fffe0000fffe0000fffe0000fffe00000000000000000000000000000000,
+  0xffff0000ffff0000ffff0000ffff000000000000000000000000000000000000ffff0000ffff0000ffff0000ffff000000000000000000000000000000000000ffff0001ffff0001ffff0001ffff000100000000000000000000000000000000ffff0001ffff0001ffff0001ffff000100000000000000000000000000000000,
+  0x0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff00000000000000000000000000000000000000000000000000000000000000000000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000fffe0000000000000000000000000000000000000000000000000000000000000000,
+  0xffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff00000000000000000000000000000000000000000000000000000000000000000000ffff0001ffff0001ffff0001ffff0001ffff0001ffff0001ffff0001ffff00010000000000000000000000000000000000000000000000000000000000000000]
+
+def word (i : Nat) : Sig := words.getD i zero
+def state (ids : List Nat) : List Sig := ids.map word
+def choices (cs : List (Nat × Nat × Nat)) : List Choice :=
+  cs.map fun c => (c.1, word c.2.1, word c.2.2)
+
+def profiles : List (Sig × Nat) := [
+  (0x5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555, 15),
+  (0x3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333, 15),
+  (0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f, 15),
+  (0xff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff00ff, 15),
+  (0xffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff, 15),
+  (0xffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff00000000ffffffff, 15),
+  (0xffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff0000000000000000ffffffffffffffff, 15),
+  (0xffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff, 15),
+  (0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff, 15),
+  (0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff, 15),
+  (0xffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000, 11),
+  (0xaaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa00000000aaaaaaaa, 10),
+  (0xcccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc0000000000000000cccccccccccccccc, 10),
+  (0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f000000000000000000000000000000000f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0, 10)]
+
+def domain (i : Nat) : Sig := (profiles.getD i (zero, 0)).1
+def lower (i : Nat) : Nat := (profiles.getD i (zero, 0)).2
+
+def certificateGroup0 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 22, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 23, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 24, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 25, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 26, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 129, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 146, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup1 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 147, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 99, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 148, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 149, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 152, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 11, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 153, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 154, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup2 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 155, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 59, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 156, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 157, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 158, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 62, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 159, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 160, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup3 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 161, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 63, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 162, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 163, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 164, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 27, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 165, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 166, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup4 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 151, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 173], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 150, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 172], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 33, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 12, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 34, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 35, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup5 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 36, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 37, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 38, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 39, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 130, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 49, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 131, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 132, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup6 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 133, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 13, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 134, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 135, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 136, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 61, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 137, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 138, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup7 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 139, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 66, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 140, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 141, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 142, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 28, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 143, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 144, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup8 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 111, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 182], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 40, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (1, [0, 1, 2, 3, 5, 6, 7, 8, 9, 115, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 42, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (0, [0, 1, 2, 3, 5, 6, 7, 8, 9, 16, 171], [(1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 43, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 44, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup9 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 108, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 64, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 114, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 116, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 117, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 60, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 118, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 119, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup10 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 120, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 17, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 121, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 122, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 123, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 65, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 124, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 125, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup11 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 126, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 31, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 127, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 128, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 107, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 186], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 45, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (2, [0, 1, 2, 3, 5, 6, 7, 8, 9, 145, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup12 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 47, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 48, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 50, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 51, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 52, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 53, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 54, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 55, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup13 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 56, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 57, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 67, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 70, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 71, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 20, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 72, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 73, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup14 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 74, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 30, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 75, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 76, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 110, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 187], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 109, 171], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (3, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 188], [(1, 0, 1), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup15 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (5, [0, 1, 2, 3, 5, 6, 7, 8, 9, 77, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (11, [0, 1, 2, 3, 5, 6, 7, 8, 9, 58, 171], []),
+  (5, [0, 1, 2, 3, 5, 6, 7, 8, 9, 78, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (6, [0, 1, 2, 3, 5, 6, 7, 8, 9, 79, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (5, [0, 1, 2, 3, 5, 6, 7, 8, 9, 80, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (11, [0, 1, 2, 3, 5, 6, 7, 8, 9, 14, 171], []),
+  (5, [0, 1, 2, 3, 5, 6, 7, 8, 9, 81, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (7, [0, 1, 2, 3, 5, 6, 7, 8, 9, 82, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup16 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (5, [0, 1, 2, 3, 5, 6, 7, 8, 9, 83, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (11, [0, 1, 2, 3, 5, 6, 7, 8, 9, 15, 171], []),
+  (5, [0, 1, 2, 3, 5, 6, 7, 8, 9, 68, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (8, [0, 1, 2, 3, 5, 6, 7, 8, 9, 85, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (5, [0, 1, 2, 3, 5, 6, 7, 8, 9, 86, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (9, [0, 1, 2, 3, 5, 6, 7, 8, 9, 29, 171], [(1, 0, 1), (1, 2, 3), (1, 16, 106), (3, 4, 167)]),
+  (5, [0, 1, 2, 3, 5, 6, 7, 8, 9, 87, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (9, [0, 1, 2, 3, 5, 6, 7, 8, 9, 88, 171], [(1, 0, 1), (1, 2, 3), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup17 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (5, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 174], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (10, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 175], []),
+  (5, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 176], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (10, [0, 1, 2, 3, 5, 6, 7, 8, 9, 169, 171], []),
+  (6, [0, 1, 2, 3, 5, 6, 7, 8, 9, 89, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (12, [0, 1, 2, 3, 5, 6, 7, 8, 9, 41, 171], []),
+  (6, [0, 1, 2, 3, 5, 6, 7, 8, 9, 90, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (7, [0, 1, 2, 3, 5, 6, 7, 8, 9, 91, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup18 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (6, [0, 1, 2, 3, 5, 6, 7, 8, 9, 92, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (12, [0, 1, 2, 3, 5, 6, 7, 8, 9, 18, 171], []),
+  (6, [0, 1, 2, 3, 5, 6, 7, 8, 9, 93, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (8, [0, 1, 2, 3, 5, 6, 7, 8, 9, 94, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (6, [0, 1, 2, 3, 5, 6, 7, 8, 9, 95, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (9, [0, 1, 2, 3, 5, 6, 7, 8, 9, 19, 171], [(1, 0, 1), (1, 2, 3), (1, 16, 106), (3, 4, 167)]),
+  (6, [0, 1, 2, 3, 5, 6, 7, 8, 9, 96, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (9, [0, 1, 2, 3, 5, 6, 7, 8, 9, 97, 171], [(1, 0, 1), (1, 2, 3), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup19 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (6, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 183], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (10, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 184], []),
+  (6, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 185], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (10, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 181], []),
+  (7, [0, 1, 2, 3, 5, 6, 7, 8, 9, 98, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (13, [0, 1, 2, 3, 5, 6, 7, 8, 9, 46, 171], []),
+  (7, [0, 1, 2, 3, 5, 6, 7, 8, 9, 69, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (8, [0, 1, 2, 3, 5, 6, 7, 8, 9, 84, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)])]
+
+def certificateGroup20 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (7, [0, 1, 2, 3, 5, 6, 7, 8, 9, 100, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (9, [0, 1, 2, 3, 5, 6, 7, 8, 9, 21, 171], [(1, 0, 1), (1, 2, 3), (1, 16, 106), (3, 4, 167)]),
+  (7, [0, 1, 2, 3, 5, 6, 7, 8, 9, 101, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (9, [0, 1, 2, 3, 5, 6, 7, 8, 9, 102, 171], [(1, 0, 1), (1, 2, 3), (1, 16, 106), (3, 4, 167)]),
+  (7, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 189], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (10, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 177], []),
+  (7, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 190], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (10, [0, 1, 2, 3, 5, 6, 7, 8, 9, 168, 171], [])]
+
+def certificateGroup21 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (8, [0, 1, 2, 3, 5, 6, 7, 8, 9, 103, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (9, [0, 1, 2, 3, 5, 6, 7, 8, 9, 32, 171], [(1, 0, 1), (1, 2, 3), (1, 16, 106), (3, 4, 167)]),
+  (8, [0, 1, 2, 3, 5, 6, 7, 8, 9, 104, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (9, [0, 1, 2, 3, 5, 6, 7, 8, 9, 105, 171], [(1, 0, 1), (1, 2, 3), (1, 16, 106), (3, 4, 167)]),
+  (8, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 191], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (10, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 178], []),
+  (8, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 192], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106), (3, 4, 167)]),
+  (10, [0, 1, 2, 3, 5, 6, 7, 8, 9, 170, 171], [])]
+
+def certificateGroup22 : List (Nat × List Nat × List (Nat × Nat × Nat)) := [
+  (9, [0, 1, 2, 3, 5, 6, 7, 8, 9, 113, 171], [(1, 0, 1), (1, 2, 3), (1, 16, 106), (3, 4, 167)]),
+  (9, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 180], [(1, 0, 1), (1, 2, 3), (1, 16, 106), (3, 4, 167)]),
+  (4, [0, 1, 2, 3, 5, 6, 7, 8, 9, 112, 171], [(1, 0, 1), (1, 2, 3), (1, 9, 10), (1, 16, 106)]),
+  (9, [0, 1, 2, 3, 5, 6, 7, 8, 9, 171, 179], [(1, 0, 1), (1, 2, 3), (1, 16, 106), (3, 4, 167)])]
+
+def certificates : List (Nat × List Nat × List (Nat × Nat × Nat)) :=
+  certificateGroup0 ++ certificateGroup1 ++ certificateGroup2 ++ certificateGroup3 ++ certificateGroup4 ++ certificateGroup5 ++ certificateGroup6 ++ certificateGroup7 ++ certificateGroup8 ++ certificateGroup9 ++ certificateGroup10 ++ certificateGroup11 ++ certificateGroup12 ++ certificateGroup13 ++ certificateGroup14 ++ certificateGroup15 ++ certificateGroup16 ++ certificateGroup17 ++ certificateGroup18 ++ certificateGroup19 ++ certificateGroup20 ++ certificateGroup21 ++ certificateGroup22
+
+def rawState : List Sig := state [0, 1, 2, 3, 5, 6, 7, 8, 9, 171]
+
+def known : List (Finset Sig) := certificates.map fun c => (state c.2.1).toFinset
+
+def rowWitnesses : List (Row × Row) :=
+  [(320, 256), (132, 4), (12, 4), (264, 8), (33, 1), (131, 130), (3, 1), (528, 0), (24, 8), (6, 2), (81, 64), (194, 130), (26, 18), (160, 32), (577, 65), (288, 256), (38, 36), (320, 64), (133, 129), (21, 5), (292, 36), (265, 257), (76, 72), (162, 130), (545, 513), (38, 34), (97, 65), (530, 18), (392, 136), (776, 520), (259, 258), (76, 68), (168, 40), (44, 36), (518, 514), (524, 516), (131, 129), (259, 257), (641, 129), (22, 20), (67, 65), (56, 40), (81, 65), (37, 5), (22, 18), (560, 32), (528, 512), (324, 260), (321, 257), (152, 128), (145, 129), (41, 9), (273, 257), (21, 20), (265, 9), (11, 10), (388, 260), (11, 9), (196, 68), (515, 514), (162, 34), (576, 512), (26, 10), (584, 72), (262, 258), (515, 513), (266, 10), (35, 34), (98, 34), (133, 5), (74, 10), (784, 256), (532, 20), (640, 512)]
+
+def entryCheck (c : Nat × List Nat × List (Nat × Nat × Nat)) : Bool :=
+  decide (c.1 < 14) && cofactorCheck true inputs (domain c.1) (lower c.1) 11
+    (state c.2.1) (choices c.2.2)
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup0 : certificateGroup0.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup1 : certificateGroup1.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup2 : certificateGroup2.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup3 : certificateGroup3.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup4 : certificateGroup4.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup5 : certificateGroup5.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup6 : certificateGroup6.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup7 : certificateGroup7.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup8 : certificateGroup8.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup9 : certificateGroup9.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup10 : certificateGroup10.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup11 : certificateGroup11.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup12 : certificateGroup12.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup13 : certificateGroup13.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup14 : certificateGroup14.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup15 : certificateGroup15.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup16 : certificateGroup16.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup17 : certificateGroup17.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup18 : certificateGroup18.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup19 : certificateGroup19.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup20 : certificateGroup20.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup21 : certificateGroup21.all entryCheck = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedGroup22 : certificateGroup22.all entryCheck = true := by
+  decide +kernel
+
+lemma allCertificatesChecked : certificates.all entryCheck = true := by
+  simp only [certificates, List.all_append, checkedGroup0, checkedGroup1, checkedGroup2, checkedGroup3, checkedGroup4, checkedGroup5, checkedGroup6, checkedGroup7, checkedGroup8, checkedGroup9, checkedGroup10, checkedGroup11, checkedGroup12, checkedGroup13, checkedGroup14, checkedGroup15, checkedGroup16, checkedGroup17, checkedGroup18, checkedGroup19, checkedGroup20, checkedGroup21, checkedGroup22, Bool.and_self]
+
+def coverageFor (a : Sig) : Bool :=
+  (rawState.flatMap fun b => (successorOps true).flatMap fun d =>
+    [false, true].flatMap fun ka => [false, true].filterMap fun kb =>
+      if successorGuard rawState 12 a b d ka kb then some (childTwo rawState a b d ka kb) else none).all
+    (fun child => decide (child.toFinset ∈ known) || rowWitnesses.any (rowReject true graph child))
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedOperand0 : coverageFor (word 0) = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedOperand1 : coverageFor (word 1) = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedOperand2 : coverageFor (word 2) = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedOperand3 : coverageFor (word 3) = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedOperand4 : coverageFor (word 5) = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedOperand5 : coverageFor (word 6) = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedOperand6 : coverageFor (word 7) = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedOperand7 : coverageFor (word 8) = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedOperand8 : coverageFor (word 9) = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma checkedOperand9 : coverageFor (word 171) = true := by
+  decide +kernel
+
+lemma allSuccessorsChecked : successorCheck true graph rawState 12 known rowWitnesses = true := by
+  unfold successorCheck successorLists
+  rw [List.all_flatMap]
+  change rawState.all coverageFor = true
+  simp only [rawState, state, List.map_cons, List.map_nil, List.all_cons, List.all_nil, checkedOperand0, checkedOperand1, checkedOperand2, checkedOperand3, checkedOperand4, checkedOperand5, checkedOperand6, checkedOperand7, checkedOperand8, checkedOperand9, Bool.and_self]
+
+theorem closed_of_slices
+    (slices : ∀ i : Fin 14, Slice true inputs graph (domain i.val) (lower i.val)) :
+    Impossible true graph 12 rawState.toFinset := by
+  apply successorCheck_sound (by decide +kernel) (by decide +kernel) ?_ allSuccessorsChecked
+  intro S hS
+  obtain ⟨c, hc, rfl⟩ := List.mem_map.mp hS
+  have check := List.all_eq_true.mp allCertificatesChecked c hc
+  have both := Bool.and_eq_true_iff.mp check
+  have hlt : c.1 < 14 := of_decide_eq_true both.1
+  exact cofactorCheck_sound (slices ⟨c.1, hlt⟩) both.2
+
+end PEqualNP.Outside.L_meta_2373.Live1024.Expansion126663
+
+
+namespace PEqualNP.Outside.L_meta_2373.Live1024.Expansion126663
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 5000000 in
+lemma profile_matches : ∀ i : Fin 14,
+    domain i.val = SliceProfiles.domains.getD i.val zero ∧
+    lower i.val = SliceProfiles.bounds.getD i.val 0 := by
+  decide +kernel
+
+theorem completed_subtree : Impossible true graph 12 rawState.toFinset := by
+  apply closed_of_slices
+  intro i
+  rw [(profile_matches i).1, (profile_matches i).2]
+  exact SliceProfiles.all_slices i
+
+def foldedFour : Sig :=
+  bin 3 (inputs.getD 4 zero)
+    (bin 1 (bin 1 (inputs.getD 2 zero) (inputs.getD 3 zero))
+      (bin 1 (inputs.getD 9 zero) (bin 1 (inputs.getD 0 zero) (inputs.getD 1 zero))))
+
+def frontier : List Sig :=
+  [inputs.getD 0 zero, inputs.getD 1 zero, inputs.getD 2 zero, inputs.getD 3 zero,
+   inputs.getD 5 zero, inputs.getD 6 zero, inputs.getD 7 zero, inputs.getD 8 zero,
+   inputs.getD 9 zero, foldedFour]
+
+lemma rawState_eq_frontier : rawState = frontier := by decide +kernel
+
+theorem frontier_impossible : Impossible true graph 12 frontier.toFinset :=
+  rawState_eq_frontier ▸ completed_subtree
+
+def essentialRows : Fin 10 → Row × Row :=
+  ![(3, 2), (3, 1), (6, 2), (12, 4), (33, 1), (66, 2), (132, 4), (264, 8), (528, 0), (17, 1)]
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 5000000 in
+lemma frontier_required :
+    (∀ i : Fin 10, bit (essentialRows i).1 graph ≠ bit (essentialRows i).2 graph) ∧
+    ∀ i j : Fin 10, i ≠ j →
+      bit (essentialRows i).1 (frontier.getD j.val zero) =
+        bit (essentialRows i).2 (frontier.getD j.val zero) := by
+  decide +kernel
+
+lemma frontier_index (a : Sig) (ha : a ∈ frontier) :
+    ∃ i : Fin 10, frontier.getD i.val zero = a := by
+  obtain ⟨i, hi, hv⟩ := List.mem_iff_getElem.mp ha
+  have hi10 : i < 10 := by simpa only [frontier, List.length_cons, List.length_nil] using hi
+  refine ⟨⟨i, hi10⟩, ?_⟩
+  have he : frontier[i]? = some a := List.getElem?_eq_some_iff.mpr ⟨hi, hv⟩
+  change frontier.getD i zero = a
+  rw [List.getD_eq_getElem?_getD, he]
+  rfl
+
+theorem frontier_lower_thirteen : Lower true frontier graph 13 := by
+  apply lower_impossible graph_proper (by decide +kernel) (by decide +kernel) ?_ frontier_impossible
+  intro a ha
+  obtain ⟨i, rfl⟩ := frontier_index a ha
+  refine ⟨(essentialRows i).1, (essentialRows i).2, frontier_required.1 i, ?_⟩
+  intro v hv hn
+  obtain ⟨j, rfl⟩ := frontier_index v hv
+  exact frontier_required.2 i j (fun hij =>
+    hn (congrArg (fun t : Fin 10 => frontier.getD t.val zero) hij.symm))
+
+end PEqualNP.Outside.L_meta_2373.Live1024.Expansion126663

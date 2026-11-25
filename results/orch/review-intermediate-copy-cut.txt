@@ -1,0 +1,13 @@
+Independent immutable review by status_review: PASS.
+
+Artifact: results/orch/lemmas/IntermediateCopyCut.lean
+SHA256 acc521f908285615caa02a59d67ddab85cbab894f4bd6914d9362b829d97bef4
+7392 bytes,163 lines. Author reports compiler exit0. The complete396-byte log has one unused-variable warning (fresh in copy_input_readOnce) and no errors.
+
+Exact assembly checked: cached IndexedForest import followed by the unchanged, independently reviewed FirstCopyRunSuffix and CopyInputPartitionSuffix, then the44-line IntermediateCopyCutSuffix. The two earlier helpers were authored by this reviewer and independently reviewed by counterexample; this report reviews their byte-identical integration and the new consumer.
+
+copy_input_readOnce creates two distinct singleton labels for the same value a. Existing entries lift through injective Sum.inl; no equal function values are merged. The modified explicit equality case split is sound and only fixes elaboration. Its fresh hypothesis happens to be unnecessary locally but is needed by the subsequent partition construction.
+
+first_copy_forest_exclusion starts from actual Live tail, retains both a and b in U, and uses first_copy_run to replace the new gate result by an extra a-copy at cost k+1. The copied-root partition and indexed forest then preserve multiplicities. Because the indexed state has cardinality |U|+1, the required cap is k+2≤|U|+1+depth, exactly the supplied k+1≤|U|+depth. The blocked assumption remains explicit and applies to the same duplicated raw pool and target; no unconditional search exclusion is asserted here.
+
+No forbidden proof forms or new trust assumptions occur. This cached-import backup must be inlined for an eventual single-file proof. Ready for checkpoint.

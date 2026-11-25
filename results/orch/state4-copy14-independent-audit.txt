@@ -1,0 +1,1 @@
+PASS: input truth tables, derived signal provenance, all four projected replay gates, all eleven copied basis entries, one constant mass, and strict cap11+paid4 < lower15+mass1 independently checked. Duplicate signal20 occurs twice and is preserved.

@@ -1,0 +1,12 @@
+Independent review by lean_setup, 2026-11-25 UTC
+
+Verdict: PASS for the concrete positive-depth forest cut. This is a proof component, not the complete posted gap.
+Source: results/orch/lemmas/State4ReadOnceForest.lean
+SHA256: 776cd1f2bafd8dcd9bf3e1050d1ed76f654492a906d8912db7da684abbaf8572
+Size: 13977 bytes, 276 lines. Author compile EXIT0; complete log empty. The compiled source is unchanged from the full draft I reviewed.
+
+The appended Run substitution and ReadOnce definitions match the previously checked interfaces. List substitution frames all untouched wires, preserves multiplicity and adds exact per-tree costs. LabelPartition gives disjoint supports, complete coverage and containment; ReadOnce supplies nonempty supports. These establish the concatenated-leaf permutation and the exact identity sum(card(label)-1)+card(S)=card(roots), so the later natural-number subtraction is justified. Expanding every live wire therefore produces a Run of length k+card(roots)-card(S) over the full original root list, including duplicate signatures.
+
+The concrete copied basis uses Sum(Fin12)Bool, removes old labels5,9,11 and inserts two different copy labels for s20. Its11 labels are enumerated explicitly. Kernel checks verify root cardinality, label equality, nodup and raw-list equality to the independently reviewed State4Copy14.ws. The two s20 entries survive the list mapping; no invalid raw-signature injectivity assumption is used. The forest depth1 hypothesis implies expanded Run length at most11, contradicted by the checked signed-or-monotone State4Copy14.excluded cofactor bound.
+
+No sorry, axiom, native_decide, bv_decide, custom datatype/instance, unsafe mechanism, string literal, _root_ or attribute appears. Limit options are declaration-local. Names are target-prefixed. Cached import State4Copy14 and dependency fragments must be inlined once into a final Defs-only single-file proof; duplicate full-base imports are avoided in this checked module.

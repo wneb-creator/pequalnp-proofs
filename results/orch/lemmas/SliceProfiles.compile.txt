@@ -1,0 +1,15 @@
+/tmp/oec/pequalnp-pilot-87/finite_invariants/SliceProfiles.lean:34:43: warning: This simp argument is unused:
+  Nat.mod_eq_of_lt r.isLt
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sliceNineCoarse, sliceNineSection]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-87/finite_invariants/SliceProfiles.lean:263:38: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-87/finite_invariants/SliceProfiles.lean:265:38: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲

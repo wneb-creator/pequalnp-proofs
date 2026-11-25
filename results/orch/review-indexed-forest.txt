@@ -1,0 +1,12 @@
+Independent review by status_review: PASS.
+
+Artifact: results/orch/lemmas/IndexedForest.lean
+SHA256 f165642bc68f4686e8a182aec14b5bcb3e0ce3a116f5d8a41e6e7abadd9657b9
+4161 bytes, 74 lines. The exact suffix matches inside the namespace wrapper after the single cached helper import.
+The supplied complete compile log is empty; counterexample reported exit 0.
+
+Run.substitute_indexed inducts over indices rather than wire functions. It permutes each occurrence to the head, substitutes the corresponding checked Run, and adds its cost. Distinct indices may deliberately map to equal functions; no deduplication or false function-injectivity assumption occurs.
+
+readOnce_indexed_forest_run uses the reviewed partition permutation and nonempty-label cost sum. Every index has its own ReadOnce label set and cost. The final root list contains all labels exactly once, even when values coincide. The budget identity follows from the exact cost sum, so natural-number subtraction cannot underflow improperly.
+
+The exclusion wrapper applies the resulting Run to an explicitly supplied blocked hypothesis; it does not claim the target lower bound by itself. No forbidden proof form or new trust assumption was found. This standalone backup imports the cached State4ReadOnceForest module and must be inlined for the eventual single-file submission.

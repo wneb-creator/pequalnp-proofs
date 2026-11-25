@@ -1,0 +1,6 @@
+/tmp/oec/pequalnp-pilot-87/status_review/CompressPartition.lean:71:16: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [compressRoots, liftLabels] at hq
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

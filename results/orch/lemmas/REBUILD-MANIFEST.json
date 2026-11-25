@@ -1,0 +1,739 @@
+{
+  "audited_utc": "2026-11-25T14:39:00.484742+00:00",
+  "repository_head_at_audit": "846ec83d828c4fc012d639e096a89016885e851e",
+  "scope": "source import closure for the explicitly selected pushed snapshot; no rebuild or independent compiler rerun in this audit",
+  "modules": {
+    "Automorphisms": {
+      "source": "Automorphisms.lean",
+      "bytes": 1254,
+      "sha256": "57ef8ced98c54e6c69133b7110e16c22708f46664a74723041ad02967f1d154f",
+      "imports": [
+        "Mathlib"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "BinaryLower": {
+      "source": "BinaryLower.lean",
+      "bytes": 146765,
+      "sha256": "8f3f7098e38a6e84ee3f96515594eb165adfb88532e63dc26d7856cd72e19931",
+      "imports": [
+        "Mathlib.Tactic",
+        "Mathlib.Combinatorics.SimpleGraph.Basic",
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Bridge": {
+      "source": "Bridge.lean",
+      "bytes": 4007,
+      "sha256": "27ff0189f00902e6fa49900776c0c32cd511b5e4a6dc7901c6df999734ce003b",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "CofactorCheck": {
+      "source": "CofactorCheck.lean",
+      "bytes": 862,
+      "sha256": "5e273b84fc35d1453e5a9e469cf90e02ba178d094acea1a2882c600f4dc882bd",
+      "imports": [
+        "SuccessorChecker"
+      ],
+      "local_dependencies": [
+        "SuccessorChecker"
+      ],
+      "historical_project_dependencies": []
+    },
+    "CompressPartition": {
+      "source": "CompressPartition.lean",
+      "bytes": 3084,
+      "sha256": "12e4d26552e98c21861fb9dbf50a5b20d3d7aae66541ee0744579a03c1165b6d",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "CompressedWireCut": {
+      "source": "CompressedWireCut.lean",
+      "bytes": 4226,
+      "sha256": "d933f1f320c8933bcd0115ad82f055341d56c8f319b3638fdfa1c0885ebfe753",
+      "imports": [
+        "IntermediateCopyCut"
+      ],
+      "local_dependencies": [
+        "IntermediateCopyCut"
+      ],
+      "historical_project_dependencies": []
+    },
+    "ConditionalInfluence": {
+      "source": "ConditionalInfluence.lean",
+      "bytes": 2776,
+      "sha256": "9db9e34f3b717c7b3d07cda8f434e02117780708a25b0ab98aa23cac93f6d1d9",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "ConditionalRows": {
+      "source": "ConditionalRows.lean",
+      "bytes": 9626,
+      "sha256": "b2bfd97823586e4da8ee913603b4b295eeb461ff04ae1f9521f6492b2f2ce3bf",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "ConditionalSeventeen": {
+      "source": "ConditionalSeventeen.lean",
+      "bytes": 77150,
+      "sha256": "99bbed41d37da112ea613c9cebeb9ef159cbf4f720eaf18cc8868e90795ee061",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "CopyInputPartition": {
+      "source": "CopyInputPartition.lean",
+      "bytes": 3746,
+      "sha256": "833b07143298eb34d2dd8fa0fe963dff5e915013163a5cdb8c133d9399cc8875",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "DoubleSharing": {
+      "source": "DoubleSharing.lean",
+      "bytes": 119450,
+      "sha256": "666aaf62af086de249bffb3c855e0932846c62ac20066868d9b5e78563d730b2",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Expansion126663": {
+      "source": "Expansion126663.lean",
+      "bytes": 2687,
+      "sha256": "721c55954438d3b4a105c97fee5b6e90b393574c104588d08b486adf2830658e",
+      "imports": [
+        "Expansion126663Conditional",
+        "SliceProfiles"
+      ],
+      "local_dependencies": [
+        "Expansion126663Conditional",
+        "SliceProfiles"
+      ],
+      "historical_project_dependencies": []
+    },
+    "Expansion126663Compact": {
+      "source": "Expansion126663Compact.lean",
+      "bytes": 36604,
+      "sha256": "3087d43617db1aeef4e30c871797592c3d2ff8c25eff31634acead71fccc2925",
+      "imports": [
+        "CofactorCheck"
+      ],
+      "local_dependencies": [
+        "CofactorCheck"
+      ],
+      "historical_project_dependencies": []
+    },
+    "Expansion126663CompactFinal": {
+      "source": "Expansion126663CompactFinal.lean",
+      "bytes": 2683,
+      "sha256": "dbba52a4bf9422a9612d64c67836262d70139c3153c66872d92ed11b54409f2b",
+      "imports": [
+        "Expansion126663Compact",
+        "SliceProfiles"
+      ],
+      "local_dependencies": [
+        "Expansion126663Compact",
+        "SliceProfiles"
+      ],
+      "historical_project_dependencies": []
+    },
+    "Expansion126663Conditional": {
+      "source": "Expansion126663Conditional.lean",
+      "bytes": 82122,
+      "sha256": "4205676376be92ecac5c39d2d125c274ba3926a6b2627f7d74fe5f23f5e0ffff",
+      "imports": [
+        "CofactorCheck"
+      ],
+      "local_dependencies": [
+        "CofactorCheck"
+      ],
+      "historical_project_dependencies": []
+    },
+    "FiniteInvariants": {
+      "source": "FiniteInvariants.lean",
+      "bytes": 6219,
+      "sha256": "c02d55b9e90eb3c0627899f82189b6bfa47605f2e857f9db1e60b93f0b9c1266",
+      "imports": [
+        "Mathlib"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "FirstCopyRun": {
+      "source": "FirstCopyRun.lean",
+      "bytes": 65626,
+      "sha256": "e9b54255c9080df89acc884fca8e8d4c561ab23611684cdb1bee5f2327b8595f",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "FirstOperandsRetained": {
+      "source": "FirstOperandsRetained.lean",
+      "bytes": 71650,
+      "sha256": "3eec04a916fb18e60f6f87f7a419392fb435f0dbdfb3481f32f6b49c53203d61",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "GapBridge": {
+      "source": "GapBridge.lean",
+      "bytes": 5550,
+      "sha256": "aab159186ab5d8187b41a4ccbb4a9de394e800603d7445a1942d9f12add1e8ae",
+      "imports": [
+        "PEqualNP.Outside.L_meta_2373"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": [
+        "PEqualNP.Outside.L_meta_2373"
+      ]
+    },
+    "IndexedForest": {
+      "source": "IndexedForest.lean",
+      "bytes": 4161,
+      "sha256": "f165642bc68f4686e8a182aec14b5bcb3e0ce3a116f5d8a41e6e7abadd9657b9",
+      "imports": [
+        "State4ReadOnceForest"
+      ],
+      "local_dependencies": [
+        "State4ReadOnceForest"
+      ],
+      "historical_project_dependencies": []
+    },
+    "IntermediateCopyCut": {
+      "source": "IntermediateCopyCut.lean",
+      "bytes": 7392,
+      "sha256": "acc521f908285615caa02a59d67ddab85cbab894f4bd6914d9362b829d97bef4",
+      "imports": [
+        "IndexedForest"
+      ],
+      "local_dependencies": [
+        "IndexedForest"
+      ],
+      "historical_project_dependencies": []
+    },
+    "Live1024": {
+      "source": "Live1024.lean",
+      "bytes": 61643,
+      "sha256": "ff6605ddff5663cec2f175069edab7ad015c18e1f641da70d82b6151ec116e1b",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024CertificateTower": {
+      "source": "Live1024CertificateTower.lean",
+      "bytes": 139048,
+      "sha256": "261401f9c324ac1991a2285df47063f2746cc18f5771f7012580712632098b66",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024Closure": {
+      "source": "Live1024Closure.lean",
+      "bytes": 74720,
+      "sha256": "d5325b37a5b30122a2d9bc40d1f741174e287e22d8d7f58095a3deef0655b499",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024ClosureFresh": {
+      "source": "Live1024ClosureFresh.lean",
+      "bytes": 79318,
+      "sha256": "b48532d73a1eb0529a4b454118bbb0b83e4953dfb59612a51a0f0b66b69817ef",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024Count": {
+      "source": "Live1024Count.lean",
+      "bytes": 63551,
+      "sha256": "686e0602a87a99ee2fed49ec3809d8e99cff0227d6b5664eb6e42b7f620302f0",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024DeltaOne": {
+      "source": "Live1024DeltaOne.lean",
+      "bytes": 108068,
+      "sha256": "6032bb5579426da3fd9f6b50cf04d57b0665fd659212268fbedc17821d1bee46",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024FirstRetention": {
+      "source": "Live1024FirstRetention.lean",
+      "bytes": 112481,
+      "sha256": "a2122aef06514264db749fbcd43187a07e942da0c6977bee78c4a7ba707866de",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024HierarchyDraft": {
+      "source": "Live1024HierarchyDraft.lean",
+      "bytes": 120048,
+      "sha256": "bff332a4ffe4c0d095aaf6cd26e5226ab54c7e512f4accc415225e2f1682057b",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024ReadOnce": {
+      "source": "Live1024ReadOnce.lean",
+      "bytes": 68633,
+      "sha256": "0203de82d93aed8b85fadc1d1b5d0c3b2f09b0a782b3bc5a09bae460d6690887",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024ReadOnceForest": {
+      "source": "Live1024ReadOnceForest.lean",
+      "bytes": 150503,
+      "sha256": "4abb09b3d0ac362a96d2e325001e383b2c9c87e9bf4812c855134ad4d16c30a1",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024RunCompose": {
+      "source": "Live1024RunCompose.lean",
+      "bytes": 65362,
+      "sha256": "4d5016fe2ea5cfd2bcddb347c53fc5cc9e981aca93d60179ba50736d8f7b1921",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024Terminal0": {
+      "source": "Live1024Terminal0.lean",
+      "bytes": 245134,
+      "sha256": "44d4eeedc4fa48cd1f7d8b3048f3d4ddd4be435e6e0de44aa24e1e4633ce7b4a",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024Tight": {
+      "source": "Live1024Tight.lean",
+      "bytes": 64906,
+      "sha256": "2daff846abfa08a7efbeca1bf3038d07fb4da042ce611be86ff31ec1fdfd5070",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "Live1024WitnessTables": {
+      "source": "Live1024WitnessTables.lean",
+      "bytes": 87770,
+      "sha256": "95ed9bee401c2672d58bb092947853f326700c9e322c85163a1502052647eba4",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "MemoRename": {
+      "source": "MemoRename.lean",
+      "bytes": 65469,
+      "sha256": "5bc70bea8656b8a237d5ff615309a8609b6c09de3883e55568c75a3a21fa2739",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "NineSignedReach": {
+      "source": "NineSignedReach.lean",
+      "bytes": 247029,
+      "sha256": "deb15cf662bca636e857802ca0b3fdbc1e97508f716dafe1a1d7e526f27a5548",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "NoOrIdentification": {
+      "source": "NoOrIdentification.lean",
+      "bytes": 1116,
+      "sha256": "a0a312fa453bc277724b150264c525e5726870ad06b7383974eef62053e1dbd1",
+      "imports": [
+        "Mathlib"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "NoOrRows": {
+      "source": "NoOrRows.lean",
+      "bytes": 4431,
+      "sha256": "d839f6db1f8423f0bae37f9448d4eddb8f5118e32f4354db35f0ce797c6d6061",
+      "imports": [
+        "Mathlib"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "PartitionLists": {
+      "source": "PartitionLists.lean",
+      "bytes": 2842,
+      "sha256": "0758f2c1d8eb9cbf965cb65455bba2b792dc9dae9b7735c1f0e222b7884a5da7",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "PetersenEighteenExtension": {
+      "source": "PetersenEighteenExtension.lean",
+      "bytes": 17676,
+      "sha256": "d9ec9bfa4d4fd27f1d6f24bbc58d815b1dae4c3d39926d106709af3a3ba68d08",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "historical_project_dependencies": []
+    },
+    "PetersenSeventeenFull": {
+      "source": "PetersenSeventeenFull.lean",
+      "bytes": 330182,
+      "sha256": "67329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "PositiveCofactors": {
+      "source": "PositiveCofactors.lean",
+      "bytes": 3454,
+      "sha256": "5ea7cbcf46b3a52c85755114a2502aeeb17e841473b406e8b35d3be2429641ed",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "historical_project_dependencies": []
+    },
+    "PositiveProfiles": {
+      "source": "PositiveProfiles.lean",
+      "bytes": 7029,
+      "sha256": "9ec79cac7fc493916ac9e1d9bcec1a67ada6455bb1ade4cb7fbe5194e61b2763",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "historical_project_dependencies": []
+    },
+    "RectangleOrEdge": {
+      "source": "RectangleOrEdge.lean",
+      "bytes": 8192,
+      "sha256": "71e0644fa278a1921c61d114e889ce20a9bb8c2eb7bff434a33ff2d8d9ce560f",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "RowAvailability": {
+      "source": "RowAvailability.lean",
+      "bytes": 8210,
+      "sha256": "7d5d7a504c3b41f15f0a3a89c45b34c5bbc86bd05fd06b72d66c09b6496c962f",
+      "imports": [
+        "Mathlib"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "RowProjection": {
+      "source": "RowProjection.lean",
+      "bytes": 6977,
+      "sha256": "7cb5db298b8b3c36f742c9006aa38e6aa275a7b27d9c288d231345c07eefc375",
+      "imports": [
+        "Mathlib"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "RunPoolCut": {
+      "source": "RunPoolCut.lean",
+      "bytes": 1073,
+      "sha256": "fd5370aff12a84242060bb7ec15d8d6cfc74acff5766f768feaf625c4c4bf050",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "historical_project_dependencies": []
+    },
+    "SliceFromNine": {
+      "source": "SliceFromNine.lean",
+      "bytes": 4173,
+      "sha256": "2dcddf4c4ce871ec6b7a1bdea4645e9c6f3648b597befa7a4f40c7a849094871",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "historical_project_dependencies": []
+    },
+    "SliceProfiles": {
+      "source": "SliceProfiles.lean",
+      "bytes": 15321,
+      "sha256": "e8e2182d04ca6c8ca030e240b4883d65cb38b7f84c3965894a3bfa835f994da8",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "historical_project_dependencies": []
+    },
+    "State4Copy14": {
+      "source": "State4Copy14.lean",
+      "bytes": 6713,
+      "sha256": "fd39b89f43366d11c19cf085027a3fed69c8746187953d319bfc8b5717e40e61",
+      "imports": [
+        "SliceProfiles",
+        "RunPoolCut"
+      ],
+      "local_dependencies": [
+        "SliceProfiles",
+        "RunPoolCut"
+      ],
+      "historical_project_dependencies": []
+    },
+    "State4ReadOnceForest": {
+      "source": "State4ReadOnceForest.lean",
+      "bytes": 13977,
+      "sha256": "776cd1f2bafd8dcd9bf3e1050d1ed76f654492a906d8912db7da684abbaf8572",
+      "imports": [
+        "State4Copy14"
+      ],
+      "local_dependencies": [
+        "State4Copy14"
+      ],
+      "historical_project_dependencies": []
+    },
+    "SuccessorChecker": {
+      "source": "SuccessorChecker.lean",
+      "bytes": 3818,
+      "sha256": "8dfa045440873ed1931c1672b8f712d4aacdebc834317502ffec2b292a210097",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "historical_project_dependencies": []
+    },
+    "TargetPartial135": {
+      "source": "TargetPartial135.lean",
+      "bytes": 4688,
+      "sha256": "035d745690cb8381247388ebd8989dd40bd8dd6db2e118e9b230be49a2a53db1",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "WidthPrototype": {
+      "source": "WidthPrototype.lean",
+      "bytes": 39758,
+      "sha256": "ed18ec77987d3c9ef05208110e773fc20f604a0a1e40cf98d605248575979912",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "historical_project_dependencies": []
+    },
+    "WordCompression126663": {
+      "source": "WordCompression126663.lean",
+      "bytes": 5381,
+      "sha256": "be8649f1d56ba27b393da2f414cc5014bb6f447df4414d0481b0bcef8bf7d15f",
+      "imports": [
+        "Expansion126663Conditional"
+      ],
+      "local_dependencies": [
+        "Expansion126663Conditional"
+      ],
+      "historical_project_dependencies": []
+    },
+    "ZeroProfiles": {
+      "source": "ZeroProfiles.lean",
+      "bytes": 1909,
+      "sha256": "15800acb689c783a25f23791ce7fc7a499a4febba98e5a122f6204b0777a4ddc",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "historical_project_dependencies": []
+    }
+  },
+  "local_dependency_topological_order": [
+    "Automorphisms",
+    "BinaryLower",
+    "Bridge",
+    "PetersenSeventeenFull",
+    "SuccessorChecker",
+    "CofactorCheck",
+    "CompressPartition",
+    "SliceProfiles",
+    "RunPoolCut",
+    "State4Copy14",
+    "State4ReadOnceForest",
+    "IndexedForest",
+    "IntermediateCopyCut",
+    "CompressedWireCut",
+    "ConditionalInfluence",
+    "ConditionalRows",
+    "ConditionalSeventeen",
+    "CopyInputPartition",
+    "DoubleSharing",
+    "Expansion126663Conditional",
+    "Expansion126663",
+    "Expansion126663Compact",
+    "Expansion126663CompactFinal",
+    "FiniteInvariants",
+    "FirstCopyRun",
+    "FirstOperandsRetained",
+    "GapBridge",
+    "Live1024",
+    "Live1024CertificateTower",
+    "Live1024Closure",
+    "Live1024ClosureFresh",
+    "Live1024Count",
+    "Live1024DeltaOne",
+    "Live1024FirstRetention",
+    "Live1024HierarchyDraft",
+    "Live1024ReadOnce",
+    "Live1024ReadOnceForest",
+    "Live1024RunCompose",
+    "Live1024Terminal0",
+    "Live1024Tight",
+    "Live1024WitnessTables",
+    "MemoRename",
+    "NineSignedReach",
+    "NoOrIdentification",
+    "NoOrRows",
+    "PartitionLists",
+    "PetersenEighteenExtension",
+    "PositiveCofactors",
+    "PositiveProfiles",
+    "RectangleOrEdge",
+    "RowAvailability",
+    "RowProjection",
+    "SliceFromNine",
+    "TargetPartial135",
+    "WordCompression126663",
+    "ZeroProfiles",
+    "WidthPrototype"
+  ],
+  "missing_local_imports": [],
+  "pins": {
+    "lean/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "582a63f8f9c5128067b688778c1051cf1464c3ca9d57b9325025c051c29b774a"
+    },
+    "lean/lake-manifest.json": {
+      "bytes": 3155,
+      "sha256": "d0af863cde532caaef1b1bee0d63ec47100208e33e488309cb80abc88b8f1509"
+    }
+  },
+  "historical_context": {
+    "GapBridge": {
+      "original_module": "PEqualNP.Outside.L_meta_2373",
+      "preserved_source": "PetersenSeventeenFull.lean",
+      "preserved_sha256": "67329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721",
+      "preserved_lines": 7156,
+      "warning": "Use the historical frozen target prefix, not the current target containing GapBridge declarations."
+    }
+  },
+  "assembly_recipes": {
+    "original_subtree_extension": {
+      "output": "Subtree126663Extension.txt",
+      "components": [
+        "SliceProfiles.lean",
+        "SuccessorChecker.lean",
+        "CofactorCheck.lean",
+        "Expansion126663Conditional.lean",
+        "Expansion126663.lean"
+      ],
+      "transform": "remove each component initial import lines; join resulting texts with one newline"
+    },
+    "compact_subtree_extension": {
+      "output": "Subtree126663CompactExtension.txt",
+      "components": [
+        "SliceProfiles.lean",
+        "SuccessorChecker.lean",
+        "CofactorCheck.lean",
+        "Expansion126663Compact.lean",
+        "Expansion126663CompactFinal.lean"
+      ],
+      "transform": "remove each component initial import lines; join resulting texts with one newline"
+    },
+    "target_17_18_gapbridge": {
+      "sha256": "8c4c7d99c9079fb7fe118236e2cd7f9f248273a82071a29e349a62ddf81bb85f",
+      "bytes": 353344,
+      "transform": "PetersenSeventeenFull.lean + newline + EighteenFullExtension.txt + newline + GapBridge.lean with only first import line removed"
+    }
+  },
+  "excluded_local_files": {
+    "Live1024Terminal0Closure.lean": "Obsolete unpushed prototype with global resource options; superseded by checked localized Live1024Terminal0."
+  },
+  "snapshot_frozen": true
+}

@@ -1,0 +1,23 @@
+Independent final wrapper review by status_review: PASS.
+
+Artifact: results/orch/lemmas/Expansion126663.lean
+SHA256 721c55954438d3b4a105c97fee5b6e90b393574c104588d08b486adf2830658e
+2687 bytes. Supplied compile log records Compiler exit code: 0.
+Finite replay dependency: Expansion126663Conditional.lean
+SHA256 4205676376be92ecac5c39d2d125c274ba3926a6b2627f7d74fe5f23f5e0ffff.
+Its literal data were independently audited by finite_invariants (review-expansion126663-data.json); its finite checker compiled. SliceProfiles was independently reviewed by lean_setup.
+
+The wrapper discharges every one of the 14 Slice hypotheses using exact domain-and-bound equality. I independently recomputed all14 profiles: ten single-zero lower15 domains, then x4 lower11 and x0/not-x5, x1/not-x6, x2/not-x7 lower10 domains. No domain or lower bound is weakened during rewriting.
+
+The ten raw inputs equal nine original variables (all except x4) plus !x4 && (x0 || x1 || x2 || x3 || x9). I compared this expression with word171 across all1024 rows. All10 essential row pairs have opposite Petersen outputs; all90 other-input equalities were independently checked. These witnesses ensure none of the ten supplied roots may be discarded when converting arbitrary Reach to Live. The checked lower_impossible theorem therefore turns the unconditional cap12 Live exclusion into signed Lower13 from exactly this frontier.
+
+completed_subtree/frontier_impossible and frontier_lower_thirteen are unconditional checked partial results. They do not exclude the whole signed17 OR-first search or prove the posted gap. Cached helper imports must be inlined for any eventual single-file PR. No forbidden proof forms or hidden trust assumptions were found in the wrapper.
+
+Combined extension assembly audit: PASS.
+Subtree126663Extension.txt SHA256 bdfd69da2cfde45d111764a789277c7d411612783a4c6bf8ae0842e4edc45a14
+104656 bytes, 1213 lines. It is byte-for-byte the newline-joined contents of SliceProfiles.lean, SuccessorChecker.lean, CofactorCheck.lean, Expansion126663Conditional.lean and Expansion126663.lean, after removing only each component's initial import lines. All namespace boundaries remain intact. No import remains, and all limit options retain declaration-local permitted form. With the current353344-byte target this remains below512KiB. The combined extension is ready for integration and the named-file build; this review does not replace that build.
+
+Compact checked replacement: PASS.
+Expansion126663Compact.lean SHA3087d43617db1aeef4e30c871797592c3d2ff8c25eff31634acead71fccc2925 compiled exit0. The separate compression audit checked all193 expressions against the original truth tables and unchanged replay source.
+Expansion126663CompactFinal.lean SHA dbba52a4bf9422a9612d64c67836262d70139c3153c66872d92ed11b54409f2b compiled exit0. Its only byte change from the previously reviewed final wrapper is the conditional dependency import name.
+Subtree126663CompactExtension.txt SHA1e0ceb5f11a2d53a9fb231eaab59efedc87f03e3763846184ea2bbe5848ab9eb is59138bytes1221lines. Verified exact five-component newline concatenation with initial import lines removed. Namespaces and declaration-local limits remain intact; no forbidden forms. This compact package retains the same unconditional Impossible12 and Lower13 theorems.

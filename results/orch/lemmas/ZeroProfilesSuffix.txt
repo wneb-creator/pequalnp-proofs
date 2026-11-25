@@ -1,0 +1,49 @@
+
+namespace PEqualNP.Outside.L_meta_2373.ZeroProfiles
+
+open PEqualNP.Outside.L_meta_2373
+
+def domain (v : Fin 10) : Live1024.Sig :=
+  ~~~(Live1024.inputs.getD v.val Live1024.zero)
+
+lemma rows_domain (v : Fin 10) (r : NineSigned.Row) :
+    Live1024.bit (rowMap v r) (domain v) = true := by
+  have hm := rowMap_missing v r
+  change Live1024.bit (rowMap v r) (Live1024.inputs.getD v.val Live1024.zero) = false at hm
+  simpa [domain, Live1024.bit, (rowMap v r).isLt] using congrArg Bool.not hm
+
+lemma rows_available {u : Bool} (v i : Fin 10) :
+    NineSigned.Available u (NineSigned.inputs.map NineSigned.observe)
+      (Live1024.restrictRows (rowMap v)
+        (Live1024.observe (Live1024.inputs.getD i.val Live1024.zero))) := by
+  by_cases hi : i = v
+  · subst i
+    exact Or.inr (Or.inl ⟨false, funext (rowMap_missing v)⟩)
+  · obtain ⟨j, hj⟩ := (relabel_bijective v).2 i
+    have hne : j ≠ (9 : Fin 10) := by
+      intro h
+      subst j
+      exact hi (hj.symm.trans (relabel_last v))
+    have hjlt : j.val < 9 := by
+      have hlt := j.isLt
+      have hn : j.val ≠ 9 := fun h => hne (Fin.ext h)
+      omega
+    let k : Fin 9 := ⟨j.val, hjlt⟩
+    have hk : relabel v k.castSucc = i := hj
+    have heq : Live1024.restrictRows (rowMap v)
+        (Live1024.observe (Live1024.inputs.getD i.val Live1024.zero)) =
+          NineSigned.observe (NineSigned.inputs.getD k.val NineSigned.zero) := by
+      funext r
+      rw [← hk]
+      exact rowMap_input v k r
+    apply Or.inl
+    rw [heq]
+    apply List.mem_map.mpr
+    refine ⟨NineSigned.inputs.getD k.val NineSigned.zero, ?_, rfl⟩
+    have hm : NineSigned.inputs.getD k.val NineSigned.zero ∈
+        List.ofFn (fun j : Fin 9 => NineSigned.inputs.getD j.val NineSigned.zero) :=
+      List.mem_ofFn.mpr ⟨k, rfl⟩
+    rw [NineSigned.input_list] at hm
+    exact hm
+
+end PEqualNP.Outside.L_meta_2373.ZeroProfiles

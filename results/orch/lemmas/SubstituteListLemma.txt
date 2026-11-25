@@ -1,0 +1,24 @@
+theorem Run.substitute_list {R : Type} {u : Bool} {target : Wire R}
+    (xs : List (Wire R)) (leaves : Wire R → List (Wire R)) (cost : Wire R → Nat)
+    (traces : ∀ v ∈ xs, Run u v (cost v) (leaves v))
+    {rest : List (Wire R)} {k : Nat} (tail : Run u target k (xs ++ rest)) :
+    Run u target ((xs.map cost).sum + k) (xs.flatMap leaves ++ rest) := by
+  induction xs generalizing rest k with
+  | nil => simpa using tail
+  | cons v xs ih =>
+    have perm : ((v :: xs) ++ rest).Perm (xs ++ v :: rest) := by
+      have small : ([v] ++ xs).Perm (xs ++ [v]) := List.perm_append_comm
+      simpa only [List.cons_append, List.nil_append, List.append_assoc] using
+        small.append_right rest
+    have shifted := Run.perm perm tail
+    have expanded := ih (fun w hw => traces w (List.mem_cons_of_mem v hw)) shifted
+    have permBack : (xs.flatMap leaves ++ v :: rest).Perm
+        (v :: (xs.flatMap leaves ++ rest)) := by
+      have small : (xs.flatMap leaves ++ [v]).Perm ([v] ++ xs.flatMap leaves) :=
+        List.perm_append_comm
+      simpa only [List.cons_append, List.nil_append, List.append_assoc] using
+        small.append_right rest
+    have atHead := Run.perm permBack expanded
+    have result := Run.substitute (traces v (by simp)) atHead
+    simpa only [List.map_cons, List.sum_cons, List.flatMap_cons, List.append_assoc,
+      Nat.add_assoc] using result

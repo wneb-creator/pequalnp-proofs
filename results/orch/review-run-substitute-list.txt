@@ -1,0 +1,10 @@
+Independent Run list-substitution fragment review by lean_setup, 2026-11-25 UTC
+
+Fragment: /tmp/oec/pequalnp-pilot-87/counterexample/forest/SubstituteList.txt
+SHA256:d4a7f491fa9ae8378da98a2f350299546b1801543abea557706d6a07f22fc28f
+Size:24lines. Author reports complete containing-module compile EXIT0.
+Verdict: PASS mathematical/source review of the fragment.
+
+The induction moves the current head wire behind the remaining roots by a proved list permutation, expands the remaining roots while retaining that head as framed context, moves the head back to the front, then applies checked Run.substitute to its own trace. The result orders leaf blocks as xs.flatMap leaves, leaves arbitrary rest untouched, and adds exactly the sum of per-root gate counts. No distinct-wire or disjoint-leaf assumption is needed for this constructive Run composition; repeated roots simply duplicate their computations and their accounted cost. The arithmetic and append reassociation are exact. No new assumptions, axioms, datatype or unsafe mechanism is introduced.
+
+A final whole-source/hash/log audit is still needed for any containing artifact not identical to already reviewed bases.

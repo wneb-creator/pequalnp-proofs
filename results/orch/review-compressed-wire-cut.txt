@@ -1,0 +1,10 @@
+Independent immutable review by status_review: PASS.
+
+CompressedWireCut.lean SHA256 d933f1f320c8933bcd0115ad82f055341d56c8f319b3638fdfa1c0885ebfe753
+4226bytes96lines. Author reports exit0; complete296-byte log has one inherited unnecessary-simpa warning and no errors.
+
+Exact assembly is the IntermediateCopyCut cached import, the unchanged CompressPartitionSuffix, and the32-line CompressedWireCutSuffix. The partition was authored by this reviewer and independently reviewed by counterexample; this review checks its unchanged integration and the new consumer.
+
+compress_wire_readOnce replaces the selected formula support by one singleton root whose value is exactly z. Every other ReadOnce entry relabels injectively through Sum.inl. compressed_wire_forest_exclusion applies the previously checked forest theorem to the same live state and cap, with the compressed basis cardinal appearing explicitly in the blocked premise. Costs are derived by the forest sum, not assumed or subtracted without proof. Equal function values retain their separate labels. This is a conditional cofactor-pruning helper; it does not by itself prove a concrete exclusion or the posted gap.
+
+No forbidden proof forms or hidden trust assumptions were found. Cached imports must be assembled from the preserved sources for eventual single-file use.

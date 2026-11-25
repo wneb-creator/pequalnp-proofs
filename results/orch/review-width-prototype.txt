@@ -1,0 +1,5 @@
+Independent review: PASS
+Reviewed by finite_invariants
+UTC 2026-11-25T14:41:01.696168+00:00
+Artifact SHA256 ed18ec77987d3c9ef05208110e773fc20f604a0a1e40cf98d605248575979912
+Read the complete delta against Live1024Count before concrete inputs and the full compile log. The generalization replaces BitVec1024/Fin1024 with BitVec(width+1)/Fin(width+1), preserving a nonempty row type for normalization at row zero. Explicit width arguments resolve inference only. The two extra Nat.le_of_lt_succ facts justify index bounds in bit_one and bit_bin. After reversing these changes, the entire source prefix is whitespace-equivalent to the reviewed original. No new assumptions, axioms, evaluation escape hatches, or concrete target theorem. Compile report EXIT0 with 14 warnings and no errors. No new Lean build was needed for this independent source review.

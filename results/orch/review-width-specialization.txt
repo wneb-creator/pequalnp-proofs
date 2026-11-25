@@ -1,0 +1,4 @@
+Independent review: PASS
+Reviewed by finite_invariants at 2026-11-25T14:43:09.325976+00:00
+SHA256 3d2b39719cf0f8f6a4f39deecaf9629ab2c3635624d73906d207a8e736f13400
+Read all54 lines and confirmed empty success log. The artifact checks16 definitional equalities for zero, one, bin, nrm, gv, execute, table and observe at widths511 and1023 against NineSigned and Live1024. Six Live/Reach/Run equivalences are proved by induction on remaining steps, unfolding only the two corresponding recursive definitions and the induction hypothesis, followed by rfl. No input or target-specific conclusion is asserted, and the exact source contains no assumptions, sorry, axioms or native_decide. These are explicit semantic specialization checks for the reviewed WidthPrototype; the examples serve as evidence rather than exported named lemmas.

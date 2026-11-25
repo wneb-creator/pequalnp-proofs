@@ -1,0 +1,17 @@
+Independent Terminal0 closure review by lean_setup, 2026-11-25 UTC
+
+Source: results/orch/lemmas/Live1024Terminal0Closure.lean
+SHA256: 7b8ccd2b8e5c38716ec6f972a942fb7b7788f114fa58b716c0bdc3b5fff4f331
+Size: 234701 bytes, 3169 lines.
+Build: author EXIT0; complete archived compiler log inspected, no errors and29linterwarnings.
+Verdict: PASS for preserving the checked initial-table closure partial. Final PR formatting requires the limit-option fix below. This source does not yet prove the13copy checks or final terminal exclusion.
+
+Concrete linkage: twelve raw entries are selected from85declared1024-bit signatures. They are distinct and proper. The target s17 equals the exact15-edge Petersen function over all1024input rows. The fifteen positive rows are exactly edge assignments; the fifteen negative rows are maximal independent sets. Pair indexes enumerate the225positive/negative combinations. The Boolean col computes oriented monotone separation, proved equal to separationColumn false by col_eq; target_eq and target_valid are kernel checked. All selected row pairs therefore provide valid Live cover obligations.
+
+I independently parsed and evaluated the complete initial/copy data and all encoded row witnesses in Python. The thirteen-entry initial table contains all twelve roots. Its two successful fresh combinations and286rejected combinations match the checker. All thirteen copy tables,318entries in total, pass their complete fresh-closure checks, bridge checks, copied singleton leaves and target-absence tests in this independent evaluator. This computational audit does not replace the outstanding Lean copy proofs. Full audit output is preserved beside this review as terminal0-independent-audit.txt.
+
+Witnesses are untrusted input. Array findIdx and packed-byte decoding only select a row; witnessClosedCheck verifies the required row and all outside-root failures. Out-of-range/default lookup behavior cannot establish an unchecked exclusion. Initial old_checked is the only fresh-closure certificate theorem in this early artifact; copy table data are declared but not yet used as established theorems.
+
+Trust scan: import PEqualNP.Defs only; no sorry, axioms, native_decide, bv_decide, unsafe/extern/run_tac, custom datatype/instance, _root_, strings or attributes.
+
+Final-format issue: lines2251–2252 use global maxHeartbeats/maxRecDepth options. CONTRIBUTING.md:64 requires declaration-local set_option ... in directly above the served declaration. Author notified to move them to the computational theorems in the final source. This does not affect soundness of the preserved historical partial.

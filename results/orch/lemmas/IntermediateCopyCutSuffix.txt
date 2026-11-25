@@ -1,0 +1,45 @@
+namespace PEqualNP.Outside.L_meta_2373.Live1024
+
+theorem copy_input_readOnce {α : Type} [DecidableEq α]
+    (raw : α → Sig) (u : Bool) (S : Finset Sig) (label : Sig → Finset α) (a z : Sig)
+    (fresh : z ∉ S) (entries : ∀ v ∈ S, ReadOnce raw u (label v) v) :
+    ∀ v ∈ insert z S,
+      ReadOnce (duplicateRaw raw a) u (copyInputLabels label a z v)
+        (if v = z then a else v) := by
+  intro v hv
+  by_cases hvz : v = z
+  · subst v
+    simpa [copyInputLabels, duplicateRaw] using
+      ReadOnce.leaf (duplicateRaw raw a) u (Sum.inr true)
+  · have hvS : v ∈ S := (Finset.mem_insert.mp hv).resolve_left hvz
+    by_cases hva : v = a
+    · subst v
+      simpa [copyInputLabels, hvz, duplicateRaw] using
+        ReadOnce.leaf (duplicateRaw raw a) u (Sum.inr false)
+    · have mapped := ReadOnce.map raw (duplicateRaw raw a) u Sum.inl
+        (by intro x y h; cases h; rfl) (by intro r; rfl) (entries v hvS)
+      simpa [copyInputLabels, hvz, hva, liftLabels] using mapped
+
+theorem first_copy_forest_exclusion {α : Type} [DecidableEq α]
+    (roots : Finset α) (raw : α → Sig) (u : Bool) (T : Sig) (depth : Nat)
+    {k d : Nat} {U : Finset Sig} {a b : Sig}
+    (tail : Live u T k (insert (bin d a b) U)) (hd : allowed u d)
+    (ha : a ∈ U) (hb : b ∈ U) (fresh : bin d a b ∉ U)
+    (cap : k + 1 ≤ U.card + depth)
+    (label : Sig → Finset α) (part : LabelPartition roots U label)
+    (entries : ∀ v ∈ U, ReadOnce raw u (label v) v)
+    (blocked : ∀ n, n + 1 ≤ (duplicateRoots roots (label a)).card + depth →
+      ¬ Run u (observe T) n
+        ((duplicateRoots roots (label a)).toList.map
+          (fun r => observe (duplicateRaw raw a r)))) : False := by
+  have part2 := copy_input_partition roots U label a (bin d a b) part ha fresh
+  have entries2 := copy_input_readOnce raw u U label a (bin d a b) fresh entries
+  have run := first_copy_run tail hd hb fresh
+  apply readOnce_indexed_forest_exclusion_state
+    (duplicateRoots roots (label a)) (duplicateRaw raw a) u T depth blocked
+    (fun v => if v = bin d a b then a else v) run ?_
+    (copyInputLabels label a (bin d a b)) part2 entries2
+  rw [Finset.card_insert_of_notMem fresh]
+  omega
+
+end PEqualNP.Outside.L_meta_2373.Live1024

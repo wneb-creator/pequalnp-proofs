@@ -1,0 +1,24 @@
+{
+  "sha256": "71e0644fa278a1921c61d114e889ce20a9bb8c2eb7bff434a33ff2d8d9ce560f",
+  "positive_rows": 15,
+  "negative_rows": 15,
+  "weights": 225,
+  "total_weight": 79,
+  "positions_coverage_checks": 165,
+  "leaf_subset_checks": 704,
+  "leaf_maxima": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "compiler_exit_reported": 0,
+  "scope": "monotone formulas on ten inputs plus adjacent-input OR, not arbitrary circuits"
+}
