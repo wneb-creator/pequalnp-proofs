@@ -1,4 +1,6 @@
 import PEqualNP.Defs
+import Mathlib.Combinatorics.Hall.Basic
+import Mathlib.Combinatorics.Enumerative.DoubleCounting
 
 namespace PEqualNP.Outside.L_meta_4970.H4OrBlock
 
@@ -738,3 +740,565 @@ lemma size_six : circuit.size = 6 := by
   rfl
 
 end PEqualNP.Outside.L_meta_4970.BirthObstruction
+
+namespace PEqualNP.Outside.L_meta_4970.FamilySafety
+
+variable {α β ι : Type*} [Fintype ι]
+
+lemma whole_factor_of_choice_hitting (E : α → β → Prop)
+    (A : ι → Finset α) (b : β)
+    (hhit : ∀ f : ι → α, (∀ i, f i ∈ A i) → ∃ i, E (f i) b) :
+    ∃ i, ∀ a ∈ A i, E a b := by
+  classical
+  by_contra h
+  push Not at h
+  choose f hf hbad using h
+  obtain ⟨i, hi⟩ := hhit f hf
+  exact hbad i hi
+
+lemma choice_hitting_bound (E : α → β → Prop)
+    (hfour : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ (E a b ∧ E a b' ∧ E a' b ∧ E a' b'))
+    (A : ι → Finset α) (hlarge : ∀ i, 2 ≤ (A i).card)
+    (B : Finset β)
+    (hhit : ∀ b ∈ B, ∀ f : ι → α,
+      (∀ i, f i ∈ A i) → ∃ i, E (f i) b) :
+    B.card ≤ Fintype.card ι := by
+  classical
+  have hfull (b : {b // b ∈ B}) : ∃ i, ∀ a ∈ A i, E a b :=
+    whole_factor_of_choice_hitting E A b (hhit b b.property)
+  choose factor hfactor using hfull
+  have hinj : Function.Injective factor := by
+    intro b b' heq
+    apply Subtype.ext
+    by_contra hne
+    obtain ⟨a, ha, a', ha', haa⟩ :=
+      Finset.one_lt_card.mp (show 1 < (A (factor b)).card by
+        have := hlarge (factor b)
+        omega)
+    apply hfour a a' b b' haa hne
+    have ha2 : a ∈ A (factor b') := heq ▸ ha
+    have ha2' : a' ∈ A (factor b') := heq ▸ ha'
+    exact ⟨hfactor b a ha, hfactor b' a ha2,
+      hfactor b a' ha', hfactor b' a' ha2'⟩
+  simpa using Fintype.card_le_of_injective factor hinj
+
+lemma safe_left_factors_right_bound (E : α → β → Prop)
+    (hfour : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ (E a b ∧ E a b' ∧ E a' b ∧ E a' b'))
+    (A : ι → Finset α) (hlarge : ∀ i, 2 ≤ (A i).card)
+    (B : Finset β)
+    (hsafe : ∀ x : α ⊕ β → Bool,
+      (∀ i, ∃ a ∈ A i, x (.inl a) = true) →
+      (∃ b ∈ B, x (.inr b) = true) →
+      ∃ a b, E a b ∧ x (.inl a) = true ∧ x (.inr b) = true) :
+    B.card ≤ Fintype.card ι := by
+  classical
+  apply choice_hitting_bound E hfour A hlarge B
+  intro b hb f hf
+  let x : α ⊕ β → Bool
+    | .inl a => decide (∃ i, f i = a)
+    | .inr b' => decide (b' = b)
+  have hleft : ∀ i, ∃ a ∈ A i, x (.inl a) = true := by
+    intro i
+    exact ⟨f i, hf i, by simp [x]⟩
+  have hright : ∃ b ∈ B, x (.inr b) = true := ⟨b, hb, by simp [x]⟩
+  obtain ⟨a, b', hab, ha, hb'⟩ := hsafe x hleft hright
+  have hbb : b' = b := by simpa [x] using hb'
+  have hfa : ∃ i, f i = a := by simpa [x] using ha
+  obtain ⟨i, rfl⟩ := hfa
+  exact ⟨i, hbb ▸ hab⟩
+
+lemma triple_hitting_bound (E : α → β → Prop)
+    (hfour : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ (E a b ∧ E a b' ∧ E a' b ∧ E a' b'))
+    (A Q : Finset α) (hA : 2 ≤ A.card) (hQ : 2 ≤ Q.card)
+    (B : Finset β)
+    (hhit : ∀ a ∈ A, ∀ q ∈ Q, ∀ b ∈ B, E a b ∨ E q b) :
+    B.card ≤ 2 := by
+  let family : Bool → Finset α := fun i => if i then Q else A
+  have hlarge : ∀ i, 2 ≤ (family i).card := by
+    intro i
+    cases i <;> simp [family, hA, hQ]
+  have h := choice_hitting_bound E hfour family hlarge B
+    (fun b hb f hf => by
+      have ha : f false ∈ A := by simpa [family] using hf false
+      have hq : f true ∈ Q := by simpa [family] using hf true
+      rcases hhit (f false) ha (f true) hq b hb with h | h
+      · exact ⟨false, h⟩
+      · exact ⟨true, h⟩)
+  simpa using h
+
+end PEqualNP.Outside.L_meta_4970.FamilySafety
+
+namespace PEqualNP.Outside.L_meta_4970.H4OrErase
+
+def conjunction {α : Type*} [DecidableEq α] (M : Finset α) (x : α → Bool) : Bool :=
+  decide (∀ i ∈ M, x i = true)
+
+def singleton {α : Type*} [DecidableEq α] (i : α) : α → Bool :=
+  fun j => decide (j = i)
+
+def star {α : Type*} [DecidableEq α] (Q : Finset α) (x : α → Bool) : Bool :=
+  decide (∃ i ∈ Q, x i = true)
+
+def before {α : Type*} [DecidableEq α] (F : (α → Bool) → Bool → Bool)
+    (A : (α → Bool) → Bool) (M : Finset α) (x : α → Bool) : Bool :=
+  F x (A x || conjunction M x)
+
+def after {α : Type*} (F : (α → Bool) → Bool → Bool)
+    (A : (α → Bool) → Bool) (x : α → Bool) : Bool := F x (A x)
+
+lemma conjunction_singleton_false {α : Type*} [DecidableEq α]
+    (M : Finset α) (hM : 2 ≤ M.card) (i : α) :
+    conjunction M (singleton i) = false := by
+  apply decide_eq_false
+  intro h
+  have hs : M ⊆ {i} := by
+    intro j hj
+    have hj' := h j hj
+    simpa [singleton] using hj'
+  have hc := Finset.card_le_card hs
+  simp only [Finset.card_singleton] at hc
+  omega
+
+lemma before_eq_after_singleton {α : Type*} [DecidableEq α]
+    (F : (α → Bool) → Bool → Bool) (A : (α → Bool) → Bool)
+    (M : Finset α) (hM : 2 ≤ M.card) (i : α) :
+    before F A M (singleton i) = after F A (singleton i) := by
+  simp [before, after, conjunction_singleton_false M hM]
+
+lemma after_le_before {α : Type*} [DecidableEq α]
+    (F : (α → Bool) → Bool → Bool) (A : (α → Bool) → Bool)
+    (M : Finset α) (hF : ∀ x, Monotone (F x)) (x : α → Bool) :
+    after F A x ≤ before F A M x := by
+  apply hF x
+  cases A x <;> cases conjunction M x <;> decide
+
+lemma after_monotone {α : Type*}
+    (F : (α → Bool) → Bool → Bool) (A : (α → Bool) → Bool)
+    (hF : Monotone (fun z : (α → Bool) × Bool => F z.1 z.2))
+    (hA : Monotone A) : Monotone (after F A) := by
+  intro x y hxy
+  change F x (A x) ≤ F y (A y)
+  exact hF (a := (x, A x)) (b := (y, A y)) ⟨hxy, hA hxy⟩
+
+lemma pure_star_preserved {α : Type*} [DecidableEq α]
+    (F : (α → Bool) → Bool → Bool) (A : (α → Bool) → Bool)
+    (M Q : Finset α) (hM : 2 ≤ M.card)
+    (hF : Monotone (fun z : (α → Bool) × Bool => F z.1 z.2))
+    (hA : Monotone A) (hstar : ∀ x, before F A M x = star Q x) :
+    ∀ x, after F A x = star Q x := by
+  intro x
+  apply le_antisymm
+  · rw [← hstar x]
+    apply after_le_before F A M _ x
+    intro y b c hbc
+    exact hF (a := (y, b)) (b := (y, c)) ⟨le_refl y, hbc⟩
+  · cases hx : star Q x with
+    | false => exact Bool.false_le _
+    | true =>
+        have hex : ∃ i ∈ Q, x i = true := of_decide_eq_true hx
+        obtain ⟨i, hi, hxi⟩ := hex
+        have hle : singleton i ≤ x := by
+          intro j
+          by_cases hji : j = i
+          · subst j
+            simp [singleton, hxi]
+          · simp [singleton, hji]
+        have hpos : after F A (singleton i) = true := by
+          rw [← before_eq_after_singleton F A M hM i, hstar]
+          simp [star, singleton, hi]
+        have hh := after_monotone F A hF hA hle
+        rw [hpos] at hh
+        exact hh
+
+def edgeInput {p l : ℕ} (e : Fin p × Fin l) : Fin (p + l) → Bool :=
+  fun i => decide (i = Fin.castAdd l e.1 ∨ i = Fin.natAdd p e.2)
+
+lemma opposite_ne {p l : ℕ} (a : Fin p) (b : Fin l) :
+    Fin.castAdd l a ≠ Fin.natAdd p b := by
+  intro h
+  have hh := congrArg Fin.val h
+  simp only [Fin.val_castAdd, Fin.val_natAdd] at hh
+  have ha := a.isLt
+  omega
+
+lemma conjunction_edge_eq {p l : ℕ} (M : Finset (Fin (p + l)))
+    (hM : 2 ≤ M.card) (e : Fin p × Fin l)
+    (he : conjunction M (edgeInput e) = true) :
+    M = {Fin.castAdd l e.1, Fin.natAdd p e.2} := by
+  have hs : M ⊆ {Fin.castAdd l e.1, Fin.natAdd p e.2} := by
+    intro i hi
+    have hforall : ∀ j ∈ M, edgeInput e j = true := by
+      simpa only [conjunction, decide_eq_true_eq] using he
+    have hx : edgeInput e i = true := hforall i hi
+    simpa [edgeInput] using hx
+  apply Finset.eq_of_subset_of_card_le hs
+  simpa [opposite_ne] using hM
+
+lemma conjunction_edge_unique {p l : ℕ} (M : Finset (Fin (p + l)))
+    (hM : 2 ≤ M.card) (e f : Fin p × Fin l)
+    (he : conjunction M (edgeInput e) = true)
+    (hf : conjunction M (edgeInput f) = true) : e = f := by
+  have hp := (conjunction_edge_eq M hM e he).symm.trans (conjunction_edge_eq M hM f hf)
+  have hl : Fin.castAdd l e.1 ∈ ({Fin.castAdd l f.1, Fin.natAdd p f.2} :
+      Finset (Fin (p + l))) := by
+    rw [← hp]
+    simp
+  have hr : Fin.natAdd p e.2 ∈ ({Fin.castAdd l f.1, Fin.natAdd p f.2} :
+      Finset (Fin (p + l))) := by
+    rw [← hp]
+    simp
+  have ha : e.1 = f.1 := by
+    have hh : Fin.castAdd l e.1 = Fin.castAdd l f.1 ∨
+        Fin.castAdd l e.1 = Fin.natAdd p f.2 := by simpa using hl
+    exact Fin.castAdd_injective _ _ (hh.resolve_right (opposite_ne _ _))
+  have hb : e.2 = f.2 := by
+    have hh : Fin.natAdd p e.2 = Fin.castAdd l f.1 ∨
+        Fin.natAdd p e.2 = Fin.natAdd p f.2 := by simpa using hr
+    exact Fin.natAdd_injective _ _ (hh.resolve_left (opposite_ne _ _).symm)
+  exact Prod.ext ha hb
+
+lemma lost_edges_card_le_one {p l : ℕ}
+    (F : (Fin (p + l) → Bool) → Bool → Bool)
+    (A : (Fin (p + l) → Bool) → Bool)
+    (M : Finset (Fin (p + l))) (hM : 2 ≤ M.card)
+    (E : Finset (Fin p × Fin l)) :
+    (E.filter fun e => before F A M (edgeInput e) = true ∧
+      after F A (edgeInput e) = false).card ≤ 1 := by
+  apply Finset.card_le_one.mpr
+  intro e he f hf
+  have monomial_true (e : Fin p × Fin l)
+      (h : before F A M (edgeInput e) = true ∧ after F A (edgeInput e) = false) :
+      conjunction M (edgeInput e) = true := by
+    cases hm : conjunction M (edgeInput e) with
+    | false =>
+        have hh : before F A M (edgeInput e) = after F A (edgeInput e) := by
+          simp [before, after, hm]
+        rw [hh, h.2] at h
+        simp at h
+    | true => rfl
+  exact conjunction_edge_unique M hM e f
+    (monomial_true e (Finset.mem_filter.mp he).2)
+    (monomial_true f (Finset.mem_filter.mp hf).2)
+
+lemma accepted_edge_budget {p l : ℕ}
+    (F : (Fin (p + l) → Bool) → Bool → Bool)
+    (A : (Fin (p + l) → Bool) → Bool)
+    (M : Finset (Fin (p + l))) (hM : 2 ≤ M.card)
+    (E : Finset (Fin p × Fin l))
+    (hE : ∀ e ∈ E, before F A M (edgeInput e) = true) :
+    E.card ≤ (E.filter fun e => after F A (edgeInput e) = true).card + 1 := by
+  let good := E.filter fun e => after F A (edgeInput e) = true
+  let bad := E.filter fun e => before F A M (edgeInput e) = true ∧
+    after F A (edgeInput e) = false
+  have hb : bad.card ≤ 1 := lost_edges_card_le_one F A M hM E
+  have hdisj : Disjoint good bad := by
+    apply Finset.disjoint_left.mpr
+    intro e he hf
+    have ht := (Finset.mem_filter.mp he).2
+    have hz := (Finset.mem_filter.mp hf).2.2
+    exact Bool.noConfusion (ht.symm.trans hz)
+  have heq : E = good ∪ bad := by
+    ext e
+    constructor
+    · intro he
+      cases hv : after F A (edgeInput e) with
+      | false => exact Finset.mem_union_right _ (Finset.mem_filter.mpr ⟨he, hE e he, hv⟩)
+      | true => exact Finset.mem_union_left _ (Finset.mem_filter.mpr ⟨he, hv⟩)
+    · intro he
+      rcases Finset.mem_union.mp he with he | he
+      · exact (Finset.mem_filter.mp he).1
+      · exact (Finset.mem_filter.mp he).1
+  have hc : E.card = good.card + bad.card := by rw [heq, Finset.card_union_of_disjoint hdisj]
+  change E.card ≤ good.card + 1
+  omega
+
+end PEqualNP.Outside.L_meta_4970.H4OrErase
+
+namespace PEqualNP.Outside.L_meta_4970.H4SingletonMerge
+
+def singleton {α : Type*} [DecidableEq α] (i : α) : α → Bool :=
+  fun j => decide (j = i)
+
+def edgeInput {p l : ℕ} (e : Fin p × Fin l) : Fin (p + l) → Bool :=
+  fun i => decide (i = Fin.castAdd l e.1 ∨ i = Fin.natAdd p e.2)
+
+def mergeBefore {p l : ℕ} (F : (Fin (p + l) → Bool) → Bool → Bool)
+    (u v : Fin p) (x : Fin (p + l) → Bool) : Bool :=
+  F x (x (Fin.castAdd l u) || x (Fin.castAdd l v))
+
+def mergeAfter {p l : ℕ} (F : (Fin (p + l) → Bool) → Bool → Bool)
+    (u : Fin p) (x : Fin (p + l) → Bool) : Bool := F x (x (Fin.castAdd l u))
+
+lemma opposite_ne {p l : ℕ} (a : Fin p) (b : Fin l) :
+    Fin.castAdd l a ≠ Fin.natAdd p b := by
+  intro h
+  have hh := congrArg Fin.val h
+  simp only [Fin.val_castAdd, Fin.val_natAdd] at hh
+  have ha := a.isLt
+  omega
+
+lemma edge_left {p l : ℕ} (e : Fin p × Fin l) (a : Fin p) :
+    edgeInput e (Fin.castAdd l a) = decide (a = e.1) := by
+  simp [edgeInput, opposite_ne, (Fin.castAdd_injective p l).eq_iff]
+
+lemma singleton_right_le_edge {p l : ℕ} (a : Fin p) (b : Fin l) :
+    singleton (Fin.natAdd p b) ≤ edgeInput (a, b) := by
+  intro i
+  by_cases hi : i = Fin.natAdd p b
+  · subst i
+    simp [singleton, edgeInput]
+  · simp [singleton, hi]
+
+private lemma true_of_le {b : Bool} (h : true ≤ b) : b = true := by
+  cases b with
+  | false => exact False.elim ((by decide : ¬ (true ≤ false)) h)
+  | true => rfl
+
+lemma lost_edge_left_eq {p l : ℕ}
+    (F : (Fin (p + l) → Bool) → Bool → Bool) (u v : Fin p)
+    (e : Fin p × Fin l)
+    (hbefore : mergeBefore F u v (edgeInput e) = true)
+    (hafter : mergeAfter F u (edgeInput e) = false) : e.1 = v := by
+  by_cases hv : v = e.1
+  · exact hv.symm
+  · have hxv : edgeInput e (Fin.castAdd l v) = false := by simp [edge_left, hv]
+    have heq : mergeBefore F u v (edgeInput e) = mergeAfter F u (edgeInput e) := by
+      simp [mergeBefore, mergeAfter, hxv]
+    rw [heq, hafter] at hbefore
+    contradiction
+
+lemma context_singleton_common_neighbor {p l : ℕ}
+    (F : (Fin (p + l) → Bool) → Bool → Bool) (u v : Fin p)
+    (G : Finset (Fin p × Fin l))
+    (hF : Monotone (fun x => F x true))
+    (hsound : ∀ e : Fin p × Fin l, mergeBefore F u v (edgeInput e) = true → e ∈ G)
+    (b : Fin l) (hb : F (singleton (Fin.natAdd p b)) true = true) :
+    (u, b) ∈ G ∧ (v, b) ∈ G := by
+  have ht (a : Fin p) : F (edgeInput (a, b)) true = true := by
+    have hh := hF (singleton_right_le_edge a b)
+    dsimp only at hh
+    rw [hb] at hh
+    exact true_of_le hh
+  constructor
+  · apply hsound (u, b)
+    simpa [mergeBefore, edge_left] using ht u
+  · apply hsound (v, b)
+    simpa [mergeBefore, edge_left] using ht v
+
+lemma linear_lost_edges_card_le_one {p l : ℕ}
+    (F : (Fin (p + l) → Bool) → Bool → Bool) (u v : Fin p) (huv : u ≠ v)
+    (G E : Finset (Fin p × Fin l))
+    (hc4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a, b) ∈ G ∧ (a, b') ∈ G ∧ (a', b) ∈ G ∧ (a', b') ∈ G))
+    (hF : Monotone (fun x => F x true))
+    (hsound : ∀ e : Fin p × Fin l, mergeBefore F u v (edgeInput e) = true → e ∈ G) :
+    (E.filter fun e => mergeBefore F u v (edgeInput e) = true ∧
+      mergeAfter F u (edgeInput e) = false ∧
+      F (singleton (Fin.natAdd p e.2)) true = true).card ≤ 1 := by
+  apply Finset.card_le_one.mpr
+  intro e he f hf
+  obtain ⟨_, heb, hea, hec⟩ := Finset.mem_filter.mp he
+  obtain ⟨_, hfb, hfa, hfc⟩ := Finset.mem_filter.mp hf
+  have hev := lost_edge_left_eq F u v e heb hea
+  have hfv := lost_edge_left_eq F u v f hfb hfa
+  have heN := context_singleton_common_neighbor F u v G hF hsound e.2 hec
+  have hfN := context_singleton_common_neighbor F u v G hF hsound f.2 hfc
+  have hright : e.2 = f.2 := by
+    by_contra hne
+    exact hc4 u v e.2 f.2 huv hne ⟨heN.1, hfN.1, heN.2, hfN.2⟩
+  exact Prod.ext (hev.trans hfv.symm) hright
+
+lemma lost_edge_pair_context {p l : ℕ}
+    (F : (Fin (p + l) → Bool) → Bool → Bool) (u v : Fin p)
+    (e : Fin p × Fin l)
+    (hsingle : ∀ i : Fin (p + l), mergeBefore F u v (singleton i) = false)
+    (hbefore : mergeBefore F u v (edgeInput e) = true)
+    (hafter : mergeAfter F u (edgeInput e) = false)
+    (hcontext : F (singleton (Fin.natAdd p e.2)) true = false) :
+    F (edgeInput e) true = true ∧
+      F (singleton (Fin.castAdd l e.1)) true = false ∧
+      F (singleton (Fin.natAdd p e.2)) true = false := by
+  have hev := lost_edge_left_eq F u v e hbefore hafter
+  have hxv : edgeInput e (Fin.castAdd l v) = true := by simp [edge_left, hev]
+  refine ⟨?_, ?_, hcontext⟩
+  · simpa [mergeBefore, hxv] using hbefore
+  · rw [hev]
+    simpa [mergeBefore, singleton] using hsingle (Fin.castAdd l v)
+
+end PEqualNP.Outside.L_meta_4970.H4SingletonMerge
+
+namespace PEqualNP.Outside.L_meta_4970.H4ContextBound
+
+def mergeBefore {p l : ℕ} (F : (Fin (p + l) → Bool) → Bool → Bool)
+    (u v : Fin p) (x : Fin (p + l) → Bool) : Bool :=
+  F x (x (Fin.castAdd l u) || x (Fin.castAdd l v))
+
+def addPoint {p l : ℕ} (u : Fin p) (x : Fin (p + l) → Bool) : Fin (p + l) → Bool :=
+  fun i => x i || decide (i = Fin.castAdd l u)
+
+lemma opposite_ne {p l : ℕ} (a : Fin p) (b : Fin l) :
+    Fin.castAdd l a ≠ Fin.natAdd p b := by
+  intro h
+  have hh := congrArg Fin.val h
+  simp only [Fin.val_castAdd, Fin.val_natAdd] at hh
+  have ha := a.isLt
+  omega
+
+lemma addPoint_le {p l : ℕ} (u : Fin p) (x : Fin (p + l) → Bool) :
+    x ≤ addPoint u x := by
+  intro i
+  change x i ≤ x i ⊔ decide (i = Fin.castAdd l u)
+  exact le_sup_left
+
+lemma addPoint_self {p l : ℕ} (u : Fin p) (x : Fin (p + l) → Bool) :
+    addPoint u x (Fin.castAdd l u) = true := by simp [addPoint]
+
+lemma addPoint_right {p l : ℕ} (u : Fin p) (x : Fin (p + l) → Bool) (b : Fin l) :
+    addPoint u x (Fin.natAdd p b) = x (Fin.natAdd p b) := by
+  simp [addPoint, (opposite_ne u b).symm]
+
+lemma addPoint_left {p l : ℕ} (u : Fin p) (x : Fin (p + l) → Bool) (a : Fin p) :
+    addPoint u x (Fin.castAdd l a) = (x (Fin.castAdd l a) || decide (a = u)) := by
+  simp [addPoint, (Fin.castAdd_injective p l).eq_iff]
+
+private lemma true_of_le {b : Bool} (h : true ≤ b) : b = true := by
+  cases b with
+  | false => exact False.elim ((by decide : ¬ (true ≤ false)) h)
+  | true => rfl
+
+lemma independent_context_neighbors {p l : ℕ}
+    (F : (Fin (p + l) → Bool) → Bool → Bool) (u v : Fin p)
+    (G : Finset (Fin p × Fin l))
+    (hF : Monotone (fun x => F x true))
+    (hsound : ∀ x : Fin (p + l) → Bool, mergeBefore F u v x = true →
+      ∃ a b, (a, b) ∈ G ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true)
+    (x : Fin (p + l) → Bool) (hx : F x true = true)
+    (hind : ¬ ∃ a b, (a, b) ∈ G ∧ x (Fin.castAdd l a) = true ∧
+      x (Fin.natAdd p b) = true) :
+    (∃ b, (u, b) ∈ G ∧ x (Fin.natAdd p b) = true) ∧
+      (∃ b, (v, b) ∈ G ∧ x (Fin.natAdd p b) = true) := by
+  have ht (w : Fin p) : F (addPoint w x) true = true := by
+    have hh := hF (addPoint_le w x)
+    dsimp only at hh
+    rw [hx] at hh
+    exact true_of_le hh
+  have hu : mergeBefore F u v (addPoint u x) = true := by
+    simpa [mergeBefore, addPoint_self] using ht u
+  have hv : mergeBefore F u v (addPoint v x) = true := by
+    simpa [mergeBefore, addPoint_self] using ht v
+  have extract (w : Fin p)
+      (hw : ∃ a b, (a, b) ∈ G ∧ addPoint w x (Fin.castAdd l a) = true ∧
+        addPoint w x (Fin.natAdd p b) = true) :
+      ∃ b, (w, b) ∈ G ∧ x (Fin.natAdd p b) = true := by
+    obtain ⟨a, b, hab, ha, hb⟩ := hw
+    rw [addPoint_right] at hb
+    by_cases haw : a = w
+    · subst a
+      exact ⟨b, hab, hb⟩
+    · have hax : x (Fin.castAdd l a) = true := by
+        simpa [addPoint_left, haw] using ha
+      exact False.elim (hind ⟨a, b, hab, hax, hb⟩)
+  exact ⟨extract u (hsound _ hu), extract v (hsound _ hv)⟩
+
+lemma context_upper_bound {p l : ℕ}
+    (F : (Fin (p + l) → Bool) → Bool → Bool) (u v : Fin p)
+    (G : Finset (Fin p × Fin l))
+    (hF : Monotone (fun x => F x true))
+    (hsound : ∀ x : Fin (p + l) → Bool, mergeBefore F u v x = true →
+      ∃ a b, (a, b) ∈ G ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true)
+    (x : Fin (p + l) → Bool) (hx : F x true = true) :
+    (∃ a b, (a, b) ∈ G ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true) ∨
+      ((∃ b, (u, b) ∈ G ∧ x (Fin.natAdd p b) = true) ∧
+        (∃ b, (v, b) ∈ G ∧ x (Fin.natAdd p b) = true)) := by
+  by_cases h : ∃ a b, (a, b) ∈ G ∧ x (Fin.castAdd l a) = true ∧
+    x (Fin.natAdd p b) = true
+  · exact Or.inl h
+  · exact Or.inr (independent_context_neighbors F u v G hF hsound x hx h)
+
+end PEqualNP.Outside.L_meta_4970.H4ContextBound
+
+namespace PEqualNP.Outside.L_meta_4970.Orientation
+
+lemma distinct_representatives_of_two
+    {α β : Type*} [Fintype α] [DecidableEq α] [DecidableEq β]
+    (t : α → Finset β) (hlarge : ∀ a, 2 ≤ (t a).card)
+    (hdegree : ∀ b, (Finset.univ.filter fun a => b ∈ t a).card ≤ 2) :
+    ∃ f : α → β, Function.Injective f ∧ ∀ a, f a ∈ t a := by
+  apply (Finset.all_card_le_biUnion_card_iff_exists_injective t).mp
+  intro s
+  let r : α → β → Prop := fun a b => b ∈ t a
+  have hleft : ∀ a ∈ s, 2 ≤ ((s.biUnion t).bipartiteAbove r a).card := by
+    intro a ha
+    have heq : (s.biUnion t).bipartiteAbove r a = t a := by
+      ext b
+      simp only [Finset.mem_bipartiteAbove, Finset.mem_biUnion, r]
+      constructor
+      · exact fun h => h.2
+      · exact fun hb => ⟨⟨a, ha, hb⟩, hb⟩
+    rw [heq]
+    exact hlarge a
+  have hright : ∀ b ∈ s.biUnion t, (s.bipartiteBelow r b).card ≤ 2 := by
+    intro b _
+    apply le_trans (Finset.card_le_card ?_) (hdegree b)
+    intro a ha
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ a,
+      (Finset.mem_filter.mp ha).2⟩
+  have hcount := Finset.card_nsmul_le_card_nsmul (R := ℕ) r hleft hright
+  simp only [nsmul_eq_mul, Nat.cast_id] at hcount
+  omega
+
+lemma surjective_serving_orientation
+    {α β : Type*} [Fintype α] [DecidableEq α] [DecidableEq β]
+    (t : α → Finset β) (hlarge : ∀ a, 2 ≤ (t a).card)
+    (hdegree : ∀ b, (Finset.univ.filter fun a => b ∈ t a).card ≤ 2)
+    (hcover : ∀ b, ∃ a, b ∈ t a) :
+    ∃ orient : β → α, Function.Surjective orient ∧ ∀ b, b ∈ t (orient b) := by
+  classical
+  obtain ⟨f, hf, hft⟩ := distinct_representatives_of_two t hlarge hdegree
+  let orient : β → α := fun b =>
+    if h : ∃ a, f a = b then Classical.choose h else Classical.choose (hcover b)
+  have hleft : ∀ a, orient (f a) = a := by
+    intro a
+    have he : ∃ a', f a' = f a := ⟨a, rfl⟩
+    dsimp only [orient]
+    rw [dite_eq_left he]
+    exact hf (Classical.choose_spec he)
+  refine ⟨orient, fun a => ⟨f a, hleft a⟩, ?_⟩
+  intro b
+  dsimp only [orient]
+  split_ifs with h
+  · have heq := Classical.choose_spec h
+    simpa only [heq] using hft (Classical.choose h)
+  · exact Classical.choose_spec (hcover b)
+
+lemma serving_orientation_of_endpoints
+    {V B : Type*} [Fintype V] [Fintype B] [DecidableEq V] [DecidableEq B]
+    (A : Finset V) (serves : V → B → Prop) [DecidableRel serves]
+    (ends : B → Finset V) (hends : ∀ b, (ends b).card ≤ 2)
+    (hinc : ∀ a b, serves a b → a ∈ ends b)
+    (hlarge : ∀ a ∈ A, 2 ≤ (Finset.univ.filter fun b => serves a b).card)
+    (hcover : ∀ b, ∃ a ∈ A, serves a b) :
+    ∃ orient : B → A, Function.Surjective orient ∧ ∀ b, serves (orient b) b := by
+  classical
+  let t : A → Finset B := fun a => Finset.univ.filter fun b => serves a b
+  have ht : ∀ a, 2 ≤ (t a).card := fun a => hlarge a a.property
+  have hd : ∀ b, (Finset.univ.filter fun a : A => b ∈ t a).card ≤ 2 := by
+    intro b
+    have hi : (Finset.univ.filter fun a : A => b ∈ t a).card ≤ (ends b).card := by
+      apply Finset.card_le_card_of_injOn (fun a : A => (a : V))
+      · intro a ha
+        exact hinc a b (Finset.mem_filter.mp (Finset.mem_filter.mp ha).2).2
+      · intro a _ a' _ h
+        exact Subtype.ext h
+    exact hi.trans (hends b)
+  have hc : ∀ b, ∃ a, b ∈ t a := by
+    intro b
+    obtain ⟨a, ha, hab⟩ := hcover b
+    exact ⟨⟨a, ha⟩, Finset.mem_filter.mpr ⟨Finset.mem_univ b, hab⟩⟩
+  obtain ⟨orient, ho, ht⟩ := surjective_serving_orientation t ht hd hc
+  exact ⟨orient, ho, fun b => (Finset.mem_filter.mp (ht b)).2⟩
+
+end PEqualNP.Outside.L_meta_4970.Orientation
