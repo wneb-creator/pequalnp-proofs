@@ -52,3 +52,7 @@
 
 - 2026-11-25T03:33:33.717339+00:00: reduction_analysis compiled weaker-care pair-tap bridge and requested review.
 2026-11-25T03:34:49.361570+00:00 Renewed lease; expiry 2026-11-25T03:54:49.763Z.
+
+2026-11-25T03:37:46.420605+00:00 manual renewal before narrowed-import verifier calibration; expires_at=2026-11-25T03:57:46.205Z
+
+- 2026-11-25T03:37:56.279584+00:00: reduction_analysis completed checked43-gate nine-row to63-gate full-target bridge.

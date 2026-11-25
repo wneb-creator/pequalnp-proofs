@@ -1,0 +1,39 @@
+import took 4.88s
+simp took 550ms
+simp took 1.87s
+type checking took 497ms
+type checking took 232ms
+simp took 2.63s
+results/orch/lemmas/lower_bound/AugmentedCandidate17.lean:77:40: warning: This simp argument is unused:
+  and_or_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [edgeExpr, augmentedEdges, targetEdges, extraEdges, Fin.exists_iff, Prod.mk.injEq, or_and_right,
+    exists_or, and_assoc, or_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+cumulative profiling times:
+	attribute application 2.08ms
+	compilation (IR) 1.04ms
+	compilation (LCNF base) 60.5ms
+	compilation (LCNF impure) 9.08ms
+	compilation (LCNF mono) 33ms
+	congr simp thm 51.4ms
+	declTypeLinter 8.01ms
+	elaboration 142ms
+	fix level params 1.93ms
+	import 4.88s
+	initialization 24.6ms
+	instantiate metavars 0.246ms
+	interpretation 519ms
+	let-to-have transformation 0.16ms
+	linting 30.2ms
+	module linting 0.122ms
+	parsing 28.3ms
+	process pre-definitions 17ms
+	share common exprs 18.1ms
+	simp 5.05s
+	tactic execution 81.5ms
+	tacticAnalysis 4.15ms
+	type checking 825ms
+	typeclass inference 219ms

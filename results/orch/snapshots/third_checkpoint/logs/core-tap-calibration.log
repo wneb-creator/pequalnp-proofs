@@ -1,0 +1,3 @@
+2026-11-25T03:24:59.815188+00:00 CASE outside9_pair6_11 SEED 0 gates 30 initial-tap-errors 0 vars 12337 clauses 281009
+2026-11-25T03:24:59.828975+00:00 SOLVER 10
+2026-11-25T03:24:59.847079+00:00 BASELINE 30 gates validated-all-inputs 131072

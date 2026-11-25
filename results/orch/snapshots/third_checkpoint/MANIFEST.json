@@ -1,0 +1,1314 @@
+[
+  {
+    "file": "lemmas/circuit_search/circuit-search-k6-atoms.log",
+    "source": "lemmas/circuit_search/circuit-search-k6-atoms.log",
+    "sha256": "8ebf0d99b0874d60a9144dda4dbd7f38737033bcf8b977f4cc48e41074b8913a",
+    "bytes": 12264,
+    "stored_sha256": "8ebf0d99b0874d60a9144dda4dbd7f38737033bcf8b977f4cc48e41074b8913a",
+    "stored_bytes": 12264
+  },
+  {
+    "file": "lemmas/circuit_search/k6hard-pool-frozen.json",
+    "source": "lemmas/circuit_search/k6hard-pool-frozen.json",
+    "sha256": "d17178380d1a441829ba7afe44a9e1937b5783d1db8bca62996b32172f174d17",
+    "bytes": 166762,
+    "stored_sha256": "d17178380d1a441829ba7afe44a9e1937b5783d1db8bca62996b32172f174d17",
+    "stored_bytes": 166762
+  },
+  {
+    "file": "lemmas/circuit_search/k6-maxsat-25-original.json",
+    "source": "lemmas/circuit_search/k6-maxsat-25-original.json",
+    "sha256": "0bed2474198ea3319102dc2803e9789b506f8d1918ecf28ce3c7442e25d4ec7c",
+    "bytes": 350,
+    "stored_sha256": "0bed2474198ea3319102dc2803e9789b506f8d1918ecf28ce3c7442e25d4ec7c",
+    "stored_bytes": 350
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-k6-hard.log",
+    "source": "lemmas/circuit_search/circuit-search-k6-hard.log",
+    "sha256": "0d3c26f958053accb7db9acb6453a05577f93d1241046e08f616d6704872ad32",
+    "bytes": 7229,
+    "stored_sha256": "0d3c26f958053accb7db9acb6453a05577f93d1241046e08f616d6704872ad32",
+    "stored_bytes": 7229
+  },
+  {
+    "file": "lemmas/circuit_search/k6-rectangle-pool.json",
+    "source": "lemmas/circuit_search/k6-rectangle-pool.json",
+    "sha256": "e92e5a3fc753b06d4e0c91a4e84787176de396b35cf073339e4c0a29002990da",
+    "bytes": 8402,
+    "stored_sha256": "e92e5a3fc753b06d4e0c91a4e84787176de396b35cf073339e4c0a29002990da",
+    "stored_bytes": 8402
+  },
+  {
+    "file": "lemmas/circuit_search/k6-partition-seeds.txt",
+    "source": "lemmas/circuit_search/k6-partition-seeds.txt",
+    "sha256": "331599a4bbd2401c0dfbaaf41876a2f3b4c3db4a192166b02b3ebed693c02743",
+    "bytes": 43345,
+    "stored_sha256": "331599a4bbd2401c0dfbaaf41876a2f3b4c3db4a192166b02b3ebed693c02743",
+    "stored_bytes": 43345
+  },
+  {
+    "file": "lemmas/circuit_search/k6-hard-seeds.txt",
+    "source": "lemmas/circuit_search/k6-hard-seeds.txt",
+    "sha256": "7c96464dcb17ff7a19af0456d1aa793fd5ce61fc203a9237065c9ebfc044484c",
+    "bytes": 132290,
+    "stored_sha256": "7c96464dcb17ff7a19af0456d1aa793fd5ce61fc203a9237065c9ebfc044484c",
+    "stored_bytes": 132290
+  },
+  {
+    "file": "lemmas/circuit_search/k6maxsat-pool.json",
+    "source": "lemmas/circuit_search/k6maxsat-pool.json",
+    "sha256": "d7746ac9be97f6d1aa30b19cd140bad1c2c9e7222cf0cc30b1dd15378d54b1a4",
+    "bytes": 166743,
+    "stored_sha256": "d7746ac9be97f6d1aa30b19cd140bad1c2c9e7222cf0cc30b1dd15378d54b1a4",
+    "stored_bytes": 166743
+  },
+  {
+    "file": "lemmas/circuit_search/k6-completion-tests.txt",
+    "source": "lemmas/circuit_search/k6-completion-tests.txt",
+    "sha256": "e9329f81838971315e1f76ecaf5316a67b31c4f59b31ee3a82e80d1e87c9aa45",
+    "bytes": 675,
+    "stored_sha256": "e9329f81838971315e1f76ecaf5316a67b31c4f59b31ee3a82e80d1e87c9aa45",
+    "stored_bytes": 675
+  },
+  {
+    "file": "lemmas/circuit_search/tests.txt",
+    "source": "lemmas/circuit_search/tests.txt",
+    "sha256": "241c1f364dc8ecb77e0352006b9c7ce38df62155042dcbeabf43084d465135ef",
+    "bytes": 8105,
+    "stored_sha256": "241c1f364dc8ecb77e0352006b9c7ce38df62155042dcbeabf43084d465135ef",
+    "stored_bytes": 8105
+  },
+  {
+    "file": "lemmas/circuit_search/k6-maxsat-25-normalized.json",
+    "source": "lemmas/circuit_search/k6-maxsat-25-normalized.json",
+    "sha256": "0bed2474198ea3319102dc2803e9789b506f8d1918ecf28ce3c7442e25d4ec7c",
+    "bytes": 350,
+    "stored_sha256": "0bed2474198ea3319102dc2803e9789b506f8d1918ecf28ce3c7442e25d4ec7c",
+    "stored_bytes": 350
+  },
+  {
+    "file": "lemmas/circuit_search/full-guard-seeds.txt.gz",
+    "source": "lemmas/circuit_search/full-guard-seeds.txt",
+    "sha256": "2694db9de021cb6aa4c0d76ce1c8a364eda453dc27c4418bbd8dd3ec5bffd69b",
+    "bytes": 6567130,
+    "stored_sha256": "da3de044899ab5482c7df152caf909249960abc3140e6615cf99171675e1fcc0",
+    "stored_bytes": 664385
+  },
+  {
+    "file": "lemmas/circuit_search/two-rectangle-augmentations.log",
+    "source": "lemmas/circuit_search/two-rectangle-augmentations.log",
+    "sha256": "a755ddc6d18b9807f5414b8d2a440d66584157c2e4386c4b4cea6832e9238d1b",
+    "bytes": 75,
+    "stored_sha256": "a755ddc6d18b9807f5414b8d2a440d66584157c2e4386c4b4cea6832e9238d1b",
+    "stored_bytes": 75
+  },
+  {
+    "file": "lemmas/circuit_search/k6-live-seeds.txt",
+    "source": "lemmas/circuit_search/k6-live-seeds.txt",
+    "sha256": "d34c6ece2b4700bfafad5d9e92c50565ba5a7692a1f151a7029f71ef5dbfdb02",
+    "bytes": 4465,
+    "stored_sha256": "d34c6ece2b4700bfafad5d9e92c50565ba5a7692a1f151a7029f71ef5dbfdb02",
+    "stored_bytes": 4465
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-full-merge.log",
+    "source": "lemmas/circuit_search/circuit-search-full-merge.log",
+    "sha256": "0659822311dd40b5530aa9bd137b3ef9bf964670da831f6bbbb1cd85c61b4522",
+    "bytes": 11698,
+    "stored_sha256": "0659822311dd40b5530aa9bd137b3ef9bf964670da831f6bbbb1cd85c61b4522",
+    "stored_bytes": 11698
+  },
+  {
+    "file": "lemmas/circuit_search/search_fixed_generic.cpp",
+    "source": "lemmas/circuit_search/search_fixed_generic.cpp",
+    "sha256": "ba5e5534aad1186637cae3dc65c8cd257471059ce7586042d238b80ac24fa62f",
+    "bytes": 9476,
+    "stored_sha256": "ba5e5534aad1186637cae3dc65c8cd257471059ce7586042d238b80ac24fa62f",
+    "stored_bytes": 9476
+  },
+  {
+    "file": "lemmas/circuit_search/k6-maxsat-25-seeds.txt",
+    "source": "lemmas/circuit_search/k6-maxsat-25-seeds.txt",
+    "sha256": "d00676f9524a8c20a6890dc81e5651eaa5d742aa8b00088e515be9a08464ba57",
+    "bytes": 215,
+    "stored_sha256": "d00676f9524a8c20a6890dc81e5651eaa5d742aa8b00088e515be9a08464ba57",
+    "stored_bytes": 215
+  },
+  {
+    "file": "lemmas/circuit_search/k6biclique-best.json",
+    "source": "lemmas/circuit_search/k6biclique-best.json",
+    "sha256": "155bcbdb9217ae9db70af2156c30a5940e35ad31a25ff021e259184c3a6bcf3c",
+    "bytes": 297,
+    "stored_sha256": "155bcbdb9217ae9db70af2156c30a5940e35ad31a25ff021e259184c3a6bcf3c",
+    "stored_bytes": 297
+  },
+  {
+    "file": "lemmas/circuit_search/search_two_rectangles.py",
+    "source": "lemmas/circuit_search/search_two_rectangles.py",
+    "sha256": "e161efa684cf0af1c5d1a5ce3648e904f0aa88f8f56f56625594ffa1bb4610bf",
+    "bytes": 3360,
+    "stored_sha256": "e161efa684cf0af1c5d1a5ce3648e904f0aa88f8f56f56625594ffa1bb4610bf",
+    "stored_bytes": 3360
+  },
+  {
+    "file": "lemmas/circuit_search/residual-tests-seed.txt",
+    "source": "lemmas/circuit_search/residual-tests-seed.txt",
+    "sha256": "5a9b84c781e5c81b52caa253e9b6c8d62abf850a84436ba219378a46f081d410",
+    "bytes": 10191,
+    "stored_sha256": "5a9b84c781e5c81b52caa253e9b6c8d62abf850a84436ba219378a46f081d410",
+    "stored_bytes": 10191
+  },
+  {
+    "file": "lemmas/circuit_search/search_rectangle_augmentations.py",
+    "source": "lemmas/circuit_search/search_rectangle_augmentations.py",
+    "sha256": "39dc0f2a72941581fc277dcc507fc3573a1f1ee3bea4dc0d0765887c3c16ffb9",
+    "bytes": 3744,
+    "stored_sha256": "39dc0f2a72941581fc277dcc507fc3573a1f1ee3bea4dc0d0765887c3c16ffb9",
+    "stored_bytes": 3744
+  },
+  {
+    "file": "lemmas/circuit_search/k6hard-best.json",
+    "source": "lemmas/circuit_search/k6hard-best.json",
+    "sha256": "6f9650f2af11fe7178cdda2c0f9800def93843c8f9bd71b40e75e321e4cb890d",
+    "bytes": 297,
+    "stored_sha256": "6f9650f2af11fe7178cdda2c0f9800def93843c8f9bd71b40e75e321e4cb890d",
+    "stored_bytes": 297
+  },
+  {
+    "file": "lemmas/circuit_search/full-multiguard-seeds.txt",
+    "source": "lemmas/circuit_search/full-multiguard-seeds.txt",
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "bytes": 2,
+    "stored_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "stored_bytes": 2
+  },
+  {
+    "file": "lemmas/circuit_search/fullpairs-pool.json",
+    "source": "lemmas/circuit_search/fullpairs-pool.json",
+    "sha256": "8f63472546a588d81affe796a93a4ffb409f42bf7cfdff21408b97613ef667cd",
+    "bytes": 344900,
+    "stored_sha256": "8f63472546a588d81affe796a93a4ffb409f42bf7cfdff21408b97613ef667cd",
+    "stored_bytes": 344900
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-k6-maxsat.log",
+    "source": "lemmas/circuit_search/circuit-search-k6-maxsat.log",
+    "sha256": "8caf7245e3244ba9e31aa296e2893ca774f742684e83809d00fa07619cdb3960",
+    "bytes": 2295,
+    "stored_sha256": "8caf7245e3244ba9e31aa296e2893ca774f742684e83809d00fa07619cdb3960",
+    "stored_bytes": 2295
+  },
+  {
+    "file": "lemmas/circuit_search/k6-singleton-tests.txt",
+    "source": "lemmas/circuit_search/k6-singleton-tests.txt",
+    "sha256": "8eff48445232c32a8560a7f1e341d9823cf053adb15a8e940fb669baaa817c40",
+    "bytes": 662,
+    "stored_sha256": "8eff48445232c32a8560a7f1e341d9823cf053adb15a8e940fb669baaa817c40",
+    "stored_bytes": 662
+  },
+  {
+    "file": "lemmas/circuit_search/full-multiguard-summary.json",
+    "source": "lemmas/circuit_search/full-multiguard-summary.json",
+    "sha256": "a201ee8f8c6c16276be45043cf27b9082bef246018dc80e9c1e08441def98d51",
+    "bytes": 103,
+    "stored_sha256": "a201ee8f8c6c16276be45043cf27b9082bef246018dc80e9c1e08441def98d51",
+    "stored_bytes": 103
+  },
+  {
+    "file": "lemmas/circuit_search/fullmerge-pool.json",
+    "source": "lemmas/circuit_search/fullmerge-pool.json",
+    "sha256": "a0f9301cf69bdaa44d03d84bc4a89041b8a39e9c8ae66d38c983de0aa4658661",
+    "bytes": 344082,
+    "stored_sha256": "a0f9301cf69bdaa44d03d84bc4a89041b8a39e9c8ae66d38c983de0aa4658661",
+    "stored_bytes": 344082
+  },
+  {
+    "file": "lemmas/circuit_search/fullsmoke-best.json",
+    "source": "lemmas/circuit_search/fullsmoke-best.json",
+    "sha256": "26c23f6d6dc3e399436f2d8e9977c594dfd0f9a863e0de51977cb0ad5af2abcb",
+    "bytes": 680,
+    "stored_sha256": "26c23f6d6dc3e399436f2d8e9977c594dfd0f9a863e0de51977cb0ad5af2abcb",
+    "stored_bytes": 680
+  },
+  {
+    "file": "lemmas/circuit_search/k6-mixed-seeds.txt",
+    "source": "lemmas/circuit_search/k6-mixed-seeds.txt",
+    "sha256": "08199388c9e2d66f938745e7881557365ed34ac29dd1528f40429794074d81e2",
+    "bytes": 4333,
+    "stored_sha256": "08199388c9e2d66f938745e7881557365ed34ac29dd1528f40429794074d81e2",
+    "stored_bytes": 4333
+  },
+  {
+    "file": "lemmas/circuit_search/k6-atom-seeds.txt",
+    "source": "lemmas/circuit_search/k6-atom-seeds.txt",
+    "sha256": "d00b87d12c8270ba74ce028298526c1dcd986368cc30983ac5172db70e4cbfec",
+    "bytes": 102209,
+    "stored_sha256": "d00b87d12c8270ba74ce028298526c1dcd986368cc30983ac5172db70e4cbfec",
+    "stored_bytes": 102209
+  },
+  {
+    "file": "lemmas/circuit_search/k6-fixed-seeds.txt",
+    "source": "lemmas/circuit_search/k6-fixed-seeds.txt",
+    "sha256": "c9127c134775e39dd713c63186a4fc5c0a2a618f27be95aac399023de6bfe925",
+    "bytes": 63044,
+    "stored_sha256": "c9127c134775e39dd713c63186a4fc5c0a2a618f27be95aac399023de6bfe925",
+    "stored_bytes": 63044
+  },
+  {
+    "file": "lemmas/circuit_search/fullpairs-best.json",
+    "source": "lemmas/circuit_search/fullpairs-best.json",
+    "sha256": "0c357096da8ad83b3028d51cacfa4182aac470a0587f2f20c187b5b1218c01e0",
+    "bytes": 671,
+    "stored_sha256": "0c357096da8ad83b3028d51cacfa4182aac470a0587f2f20c187b5b1218c01e0",
+    "stored_bytes": 671
+  },
+  {
+    "file": "lemmas/circuit_search/k6-rectangle-best.json",
+    "source": "lemmas/circuit_search/k6-rectangle-best.json",
+    "sha256": "333bc055809f1a6e4e57cd60e869c3982aca827b9b28bf1b98f5e5af9ac09428",
+    "bytes": 350,
+    "stored_sha256": "333bc055809f1a6e4e57cd60e869c3982aca827b9b28bf1b98f5e5af9ac09428",
+    "stored_bytes": 350
+  },
+  {
+    "file": "lemmas/circuit_search/k6live-next-all-positive.json",
+    "source": "lemmas/circuit_search/k6live-next-all-positive.json",
+    "sha256": "d19c354655f84d27b8236081ca69d4a44b1f483ff07dc76b703ee3f7fd0b6283",
+    "bytes": 297,
+    "stored_sha256": "d19c354655f84d27b8236081ca69d4a44b1f483ff07dc76b703ee3f7fd0b6283",
+    "stored_bytes": 297
+  },
+  {
+    "file": "lemmas/circuit_search/k6maxsat-best.json",
+    "source": "lemmas/circuit_search/k6maxsat-best.json",
+    "sha256": "bc7f3d41de9560622e701daaca2f3c511062ec736a2667717b3b639bbd3eeb1b",
+    "bytes": 296,
+    "stored_sha256": "bc7f3d41de9560622e701daaca2f3c511062ec736a2667717b3b639bbd3eeb1b",
+    "stored_bytes": 296
+  },
+  {
+    "file": "lemmas/circuit_search/full-multiguard-seeds.json",
+    "source": "lemmas/circuit_search/full-multiguard-seeds.json",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2,
+    "stored_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "stored_bytes": 2
+  },
+  {
+    "file": "lemmas/circuit_search/generate_full_multiguard.py",
+    "source": "lemmas/circuit_search/generate_full_multiguard.py",
+    "sha256": "5da513d4f67f36f9d194a28f26979d42dbbcd3902afecf099b2ddafd54c375de",
+    "bytes": 3530,
+    "stored_sha256": "5da513d4f67f36f9d194a28f26979d42dbbcd3902afecf099b2ddafd54c375de",
+    "stored_bytes": 3530
+  },
+  {
+    "file": "lemmas/circuit_search/k6-algebra-17-normalized.json",
+    "source": "lemmas/circuit_search/k6-algebra-17-normalized.json",
+    "sha256": "19684604e53288e043616f3f958559b43e151d5f46f6924b7bb08cd3a15c46a4",
+    "bytes": 350,
+    "stored_sha256": "19684604e53288e043616f3f958559b43e151d5f46f6924b7bb08cd3a15c46a4",
+    "stored_bytes": 350
+  },
+  {
+    "file": "lemmas/circuit_search/alternate-seeds.txt",
+    "source": "lemmas/circuit_search/alternate-seeds.txt",
+    "sha256": "ba0abe73f07a8b8837990ee049f5dfb7b1409e5cedf59c12243bc8689fafc122",
+    "bytes": 13149,
+    "stored_sha256": "ba0abe73f07a8b8837990ee049f5dfb7b1409e5cedf59c12243bc8689fafc122",
+    "stored_bytes": 13149
+  },
+  {
+    "file": "lemmas/circuit_search/search_fixed_generic_v1.cpp",
+    "source": "lemmas/circuit_search/search_fixed_generic_v1.cpp",
+    "sha256": "3b36db71fa32c4e3757dcfed040e9f0cb2550842a623fd06d2cb9f9c69dda6cd",
+    "bytes": 8983,
+    "stored_sha256": "3b36db71fa32c4e3757dcfed040e9f0cb2550842a623fd06d2cb9f9c69dda6cd",
+    "stored_bytes": 8983
+  },
+  {
+    "file": "lemmas/circuit_search/full-merge-seeds.txt",
+    "source": "lemmas/circuit_search/full-merge-seeds.txt",
+    "sha256": "d5da52cf607dfcf9de2cc5d69498244b9f4b3bfb3fd62447e89f053f1d06902b",
+    "bytes": 75256,
+    "stored_sha256": "d5da52cf607dfcf9de2cc5d69498244b9f4b3bfb3fd62447e89f053f1d06902b",
+    "stored_bytes": 75256
+  },
+  {
+    "file": "lemmas/circuit_search/full-singleton-tests.txt",
+    "source": "lemmas/circuit_search/full-singleton-tests.txt",
+    "sha256": "63e0603c25310db7c3614595e63f1183b3f7d78721b743deb56ab59d0e9d7436",
+    "bytes": 8020,
+    "stored_sha256": "63e0603c25310db7c3614595e63f1183b3f7d78721b743deb56ab59d0e9d7436",
+    "stored_bytes": 8020
+  },
+  {
+    "file": "lemmas/circuit_search/fullsmoke-pool.json",
+    "source": "lemmas/circuit_search/fullsmoke-pool.json",
+    "sha256": "3e8ca8a11b81cb9037dbfc8930ee5e708db687cc6515f3e07535f7df1d32b96f",
+    "bytes": 687,
+    "stored_sha256": "3e8ca8a11b81cb9037dbfc8930ee5e708db687cc6515f3e07535f7df1d32b96f",
+    "stored_bytes": 687
+  },
+  {
+    "file": "lemmas/circuit_search/k6live-next-best.json",
+    "source": "lemmas/circuit_search/k6live-next-best.json",
+    "sha256": "a087db8c61be662f66edf7e9534bf3c3969949711a2d3d67f1e97e1f9b9b55f0",
+    "bytes": 297,
+    "stored_sha256": "a087db8c61be662f66edf7e9534bf3c3969949711a2d3d67f1e97e1f9b9b55f0",
+    "stored_bytes": 297
+  },
+  {
+    "file": "lemmas/circuit_search/k6live-next-pool.json",
+    "source": "lemmas/circuit_search/k6live-next-pool.json",
+    "sha256": "4ccd32ed30c4881258a3ed2a30fe17471b7fef1bbe181ff7c7f3dcaca0b34735",
+    "bytes": 166776,
+    "stored_sha256": "4ccd32ed30c4881258a3ed2a30fe17471b7fef1bbe181ff7c7f3dcaca0b34735",
+    "stored_bytes": 166776
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-k6-live.log",
+    "source": "lemmas/circuit_search/circuit-search-k6-live.log",
+    "sha256": "3e7adaceca886ea9093379303cb94dd3b3e98da4c346c7023bdadf1b64f7af85",
+    "bytes": 3172,
+    "stored_sha256": "3e7adaceca886ea9093379303cb94dd3b3e98da4c346c7023bdadf1b64f7af85",
+    "stored_bytes": 3172
+  },
+  {
+    "file": "lemmas/circuit_search/full-guard-summary.json",
+    "source": "lemmas/circuit_search/full-guard-summary.json",
+    "sha256": "52f882ed7c85b6c3a27871634c61a5384f4950be810c7503a2951e47339fad25",
+    "bytes": 117,
+    "stored_sha256": "52f882ed7c85b6c3a27871634c61a5384f4950be810c7503a2951e47339fad25",
+    "stored_bytes": 117
+  },
+  {
+    "file": "lemmas/circuit_search/k6biclique-pool-frozen.json",
+    "source": "lemmas/circuit_search/k6biclique-pool-frozen.json",
+    "sha256": "28d8f5ca08ee949d384d42927fe144844e03b424061f01b4fb9adee59414bf7b",
+    "bytes": 166696,
+    "stored_sha256": "28d8f5ca08ee949d384d42927fe144844e03b424061f01b4fb9adee59414bf7b",
+    "stored_bytes": 166696
+  },
+  {
+    "file": "lemmas/circuit_search/k6hard-all-positive-best.json",
+    "source": "lemmas/circuit_search/k6hard-all-positive-best.json",
+    "sha256": "25299b7f3c793c1a2d524f96bf8db4986576e8ae8cbcefbc42a41e32eb5c0898",
+    "bytes": 349,
+    "stored_sha256": "25299b7f3c793c1a2d524f96bf8db4986576e8ae8cbcefbc42a41e32eb5c0898",
+    "stored_bytes": 349
+  },
+  {
+    "file": "lemmas/circuit_search/k6biclique-pool.json",
+    "source": "lemmas/circuit_search/k6biclique-pool.json",
+    "sha256": "28d8f5ca08ee949d384d42927fe144844e03b424061f01b4fb9adee59414bf7b",
+    "bytes": 166696,
+    "stored_sha256": "28d8f5ca08ee949d384d42927fe144844e03b424061f01b4fb9adee59414bf7b",
+    "stored_bytes": 166696
+  },
+  {
+    "file": "lemmas/circuit_search/generate_full_guard_seeds.py",
+    "source": "lemmas/circuit_search/generate_full_guard_seeds.py",
+    "sha256": "45d56adbba627f774cff276881b07648f60bd573dde475c15a10f3aecefcd82e",
+    "bytes": 6178,
+    "stored_sha256": "45d56adbba627f774cff276881b07648f60bd573dde475c15a10f3aecefcd82e",
+    "stored_bytes": 6178
+  },
+  {
+    "file": "lemmas/circuit_search/k6-and-seeds.txt",
+    "source": "lemmas/circuit_search/k6-and-seeds.txt",
+    "sha256": "84fa4b6b8562d75e59c1a33d81546a05e357b45de7f335f111a36565a3ca70dc",
+    "bytes": 4113,
+    "stored_sha256": "84fa4b6b8562d75e59c1a33d81546a05e357b45de7f335f111a36565a3ca70dc",
+    "stored_bytes": 4113
+  },
+  {
+    "file": "lemmas/circuit_search/full-guard-seeds.json.gz",
+    "source": "lemmas/circuit_search/full-guard-seeds.json",
+    "sha256": "160e2c428889009b12bd7a755150b483bfeaca2d3022b718c54e0a50f90df722",
+    "bytes": 12334144,
+    "stored_sha256": "37cf470d8296996e4feb7fd0943e6fe3bd4d361282d319cad5f32169c87b694b",
+    "stored_bytes": 1036266
+  },
+  {
+    "file": "lemmas/circuit_search/fullmerge-best.json",
+    "source": "lemmas/circuit_search/fullmerge-best.json",
+    "sha256": "edc6abfaec52a767ec031dcd2e48a8c57285f4db45939c25e7099d656d355d72",
+    "bytes": 658,
+    "stored_sha256": "edc6abfaec52a767ec031dcd2e48a8c57285f4db45939c25e7099d656d355d72",
+    "stored_bytes": 658
+  },
+  {
+    "file": "lemmas/circuit_search/rectangle-augmentations.log",
+    "source": "lemmas/circuit_search/rectangle-augmentations.log",
+    "sha256": "1752c0af82a5232329e1769539d51660236e78b62ee0f29015e8f354647a77d9",
+    "bytes": 299,
+    "stored_sha256": "1752c0af82a5232329e1769539d51660236e78b62ee0f29015e8f354647a77d9",
+    "stored_bytes": 299
+  },
+  {
+    "file": "lemmas/circuit_search/fullpairs-all-positive.json",
+    "source": "lemmas/circuit_search/fullpairs-all-positive.json",
+    "sha256": "155855cacb91be0c196f76ca9564078e6aebb6df0353b43f752c293efc65caa5",
+    "bytes": 661,
+    "stored_sha256": "155855cacb91be0c196f76ca9564078e6aebb6df0353b43f752c293efc65caa5",
+    "stored_bytes": 661
+  },
+  {
+    "file": "lemmas/circuit_search/k6-two-rectangle-pool.json",
+    "source": "lemmas/circuit_search/k6-two-rectangle-pool.json",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2,
+    "stored_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "stored_bytes": 2
+  },
+  {
+    "file": "lemmas/circuit_search/search_completion.cpp",
+    "source": "lemmas/circuit_search/search_completion.cpp",
+    "sha256": "4b2f2c3e67f8a55bbf797c8af81464b59c0f6b38842c32011b136e1f0293bb6e",
+    "bytes": 5620,
+    "stored_sha256": "4b2f2c3e67f8a55bbf797c8af81464b59c0f6b38842c32011b136e1f0293bb6e",
+    "stored_bytes": 5620
+  },
+  {
+    "file": "lemmas/circuit_search/k6live-best.json",
+    "source": "lemmas/circuit_search/k6live-best.json",
+    "sha256": "6d55fdb91d410a1d2f569449092a3b5d4c08f2c12d3f5543998a40a5f2d2bf3f",
+    "bytes": 296,
+    "stored_sha256": "6d55fdb91d410a1d2f569449092a3b5d4c08f2c12d3f5543998a40a5f2d2bf3f",
+    "stored_bytes": 296
+  },
+  {
+    "file": "lemmas/circuit_search/search_pair_priority.cpp",
+    "source": "lemmas/circuit_search/search_pair_priority.cpp",
+    "sha256": "ceae5d08e8af35d56f0f97656045ff19c3d3b02a839c42b0713ed89103e87415",
+    "bytes": 10004,
+    "stored_sha256": "ceae5d08e8af35d56f0f97656045ff19c3d3b02a839c42b0713ed89103e87415",
+    "stored_bytes": 10004
+  },
+  {
+    "file": "lemmas/circuit_search/k6-tests.txt",
+    "source": "lemmas/circuit_search/k6-tests.txt",
+    "sha256": "07ae226e12fd207cf6863457980e44734cfad0169924a8ab1c0d2fd33f7d7613",
+    "bytes": 561,
+    "stored_sha256": "07ae226e12fd207cf6863457980e44734cfad0169924a8ab1c0d2fd33f7d7613",
+    "stored_bytes": 561
+  },
+  {
+    "file": "lemmas/circuit_search/full-pair-tests.txt",
+    "source": "lemmas/circuit_search/full-pair-tests.txt",
+    "sha256": "6ed6d5e15842c0faac198c21600a921239f7b849548cc218b3aa4a9ce8ddab9c",
+    "bytes": 9102,
+    "stored_sha256": "6ed6d5e15842c0faac198c21600a921239f7b849548cc218b3aa4a9ce8ddab9c",
+    "stored_bytes": 9102
+  },
+  {
+    "file": "lemmas/circuit_search/k6live-pool.json",
+    "source": "lemmas/circuit_search/k6live-pool.json",
+    "sha256": "8e2619e0975999e8ce30ceb84cad0d5f43511c3191a669e69531d5ce916fcbc5",
+    "bytes": 166637,
+    "stored_sha256": "8e2619e0975999e8ce30ceb84cad0d5f43511c3191a669e69531d5ce916fcbc5",
+    "stored_bytes": 166637
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-k6-biclique.log",
+    "source": "lemmas/circuit_search/circuit-search-k6-biclique.log",
+    "sha256": "dcbee9dbddd92b4b52c96df56d6f8ef21e76c86f0d8e2cc0f887be550ea7c5b7",
+    "bytes": 3610,
+    "stored_sha256": "dcbee9dbddd92b4b52c96df56d6f8ef21e76c86f0d8e2cc0f887be550ea7c5b7",
+    "stored_bytes": 3610
+  },
+  {
+    "file": "lemmas/circuit_search/k6hard-pool.json",
+    "source": "lemmas/circuit_search/k6hard-pool.json",
+    "sha256": "d17178380d1a441829ba7afe44a9e1937b5783d1db8bca62996b32172f174d17",
+    "bytes": 166762,
+    "stored_sha256": "d17178380d1a441829ba7afe44a9e1937b5783d1db8bca62996b32172f174d17",
+    "stored_bytes": 166762
+  },
+  {
+    "file": "lemmas/circuit_search/k6-internal-seeds.txt",
+    "source": "lemmas/circuit_search/k6-internal-seeds.txt",
+    "sha256": "83ff3ca53e5f11640b073dae0525c60c1c0430329d14d838480d4ed2193c3c24",
+    "bytes": 41044,
+    "stored_sha256": "83ff3ca53e5f11640b073dae0525c60c1c0430329d14d838480d4ed2193c3c24",
+    "stored_bytes": 41044
+  },
+  {
+    "file": "lemmas/reduction_analysis/geometry-check.txt",
+    "source": "lemmas/reduction_analysis/geometry-check.txt",
+    "sha256": "d3bd9ef5e4088dd1ab76dea6d486aa5c5049fc965b3f9203b20a25ce42520010",
+    "bytes": 342,
+    "stored_sha256": "d3bd9ef5e4088dd1ab76dea6d486aa5c5049fc965b3f9203b20a25ce42520010",
+    "stored_bytes": 342
+  },
+  {
+    "file": "lemmas/k6_outside_pair_taps.json",
+    "source": "lemmas/k6_outside_pair_taps.json",
+    "sha256": "2f1de1e47f4857a781da8db9fe8e86d9782873de91fddab7506174016b9ac242",
+    "bytes": 238594,
+    "stored_sha256": "2f1de1e47f4857a781da8db9fe8e86d9782873de91fddab7506174016b9ac242",
+    "stored_bytes": 238594
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/internal_padding.py",
+    "source": "lemmas/lean_baseline/sat/internal_padding.py",
+    "sha256": "124c6b0fdf9b7f62bd6f5b5edf4395b09cafe48d93a8f3734cd9e54f52144499",
+    "bytes": 2288,
+    "stored_sha256": "124c6b0fdf9b7f62bd6f5b5edf4395b09cafe48d93a8f3734cd9e54f52144499",
+    "stored_bytes": 2288
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/core_tap_synthesis.py",
+    "source": "lemmas/lean_baseline/sat/core_tap_synthesis.py",
+    "sha256": "f82a9df226292ea3c515aa2dbb2c9ec9d8ba22fbbc868e3fb59786c4d855344b",
+    "bytes": 4879,
+    "stored_sha256": "f82a9df226292ea3c515aa2dbb2c9ec9d8ba22fbbc868e3fb59786c4d855344b",
+    "stored_bytes": 4879
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/core_tap_maxsat.py",
+    "source": "lemmas/lean_baseline/sat/core_tap_maxsat.py",
+    "sha256": "fa6ba31d4aec6e2725761381c9de048ac0a224e9507ca5f3c0c038b975cc3198",
+    "bytes": 5774,
+    "stored_sha256": "fa6ba31d4aec6e2725761381c9de048ac0a224e9507ca5f3c0c038b975cc3198",
+    "stored_bytes": 5774
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/incremental_edits.py",
+    "source": "lemmas/lean_baseline/sat/incremental_edits.py",
+    "sha256": "9c77e3db31db96535e26df72ce92d417218bc9aae98431a7b9cf8a1f67963364",
+    "bytes": 5875,
+    "stored_sha256": "9c77e3db31db96535e26df72ce92d417218bc9aae98431a7b9cf8a1f67963364",
+    "stored_bytes": 5875
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/k6-internal-padded-seeds.json",
+    "source": "lemmas/lean_baseline/sat/k6-internal-padded-seeds.json",
+    "sha256": "5a79852406bc1771b6c1d069dd3d8d7556c14d8efbc7599da50ca27df49c9308",
+    "bytes": 57569,
+    "stored_sha256": "5a79852406bc1771b6c1d069dd3d8d7556c14d8efbc7599da50ca27df49c9308",
+    "stored_bytes": 57569
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/grid_taps_synthesis.py",
+    "source": "lemmas/lean_baseline/sat/grid_taps_synthesis.py",
+    "sha256": "8ce5d1ce9c10fef063c39ceb2b0f78b7070f8fe489658a8f798b0fd2f0124787",
+    "bytes": 9148,
+    "stored_sha256": "8ce5d1ce9c10fef063c39ceb2b0f78b7070f8fe489658a8f798b0fd2f0124787",
+    "stored_bytes": 9148
+  },
+  {
+    "file": "lemmas/lean_baseline/form.txt",
+    "source": "lemmas/lean_baseline/form.txt",
+    "sha256": "96fead6eeeb08931c356c1d6029526ec4da9c35a1f4776de43d5f0c4029a56f5",
+    "bytes": 558,
+    "stored_sha256": "96fead6eeeb08931c356c1d6029526ec4da9c35a1f4776de43d5f0c4029a56f5",
+    "stored_bytes": 558
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6_pair_line_guard_seeds.json",
+    "source": "lemmas/algebra_strategy/k6_pair_line_guard_seeds.json",
+    "sha256": "49899a05047392ee55789d1c749b5af8ca342764ff314135782c8732482edbd6",
+    "bytes": 7479,
+    "stored_sha256": "49899a05047392ee55789d1c749b5af8ca342764ff314135782c8732482edbd6",
+    "stored_bytes": 7479
+  },
+  {
+    "file": "lemmas/algebra_strategy/outside-triple-tap.log",
+    "source": "lemmas/algebra_strategy/outside-triple-tap.log",
+    "sha256": "0d0772349ce555aec19bc7abedac8c1e47b0d825cc9c632eea7af2ee9786fac6",
+    "bytes": 106,
+    "stored_sha256": "0d0772349ce555aec19bc7abedac8c1e47b0d825cc9c632eea7af2ee9786fac6",
+    "stored_bytes": 106
+  },
+  {
+    "file": "lemmas/algebra_strategy/cover17-pairs.log",
+    "source": "lemmas/algebra_strategy/cover17-pairs.log",
+    "sha256": "e746aa71a05c48cee91277a823fcd3bbe5c565ba8f7bf2439c561aa03d29899b",
+    "bytes": 3514,
+    "stored_sha256": "e746aa71a05c48cee91277a823fcd3bbe5c565ba8f7bf2439c561aa03d29899b",
+    "stored_bytes": 3514
+  },
+  {
+    "file": "lemmas/algebra_strategy/merge-guard-validation.txt",
+    "source": "lemmas/algebra_strategy/merge-guard-validation.txt",
+    "sha256": "8aaa242466e9b122a6d4ad9a6740b3d836c073e87aed3b9a36c45c8ecee39191",
+    "bytes": 736,
+    "stored_sha256": "8aaa242466e9b122a6d4ad9a6740b3d836c073e87aed3b9a36c45c8ecee39191",
+    "stored_bytes": 736
+  },
+  {
+    "file": "lemmas/algebra_strategy/generate_outside_triple_tap.py",
+    "source": "lemmas/algebra_strategy/generate_outside_triple_tap.py",
+    "sha256": "b2c7bb28594bd9d50b8fb0de3dc9a088a96b41b12cf8f0504f355ea36cd6fe5e",
+    "bytes": 3319,
+    "stored_sha256": "b2c7bb28594bd9d50b8fb0de3dc9a088a96b41b12cf8f0504f355ea36cd6fe5e",
+    "stored_bytes": 3319
+  },
+  {
+    "file": "lemmas/algebra_strategy/check_partition_pair_guards.py",
+    "source": "lemmas/algebra_strategy/check_partition_pair_guards.py",
+    "sha256": "e9c1ffeff3656c32fc6982140eebabb70ae8970d38f9c5cde3eb09171b9d6447",
+    "bytes": 1836,
+    "stored_sha256": "e9c1ffeff3656c32fc6982140eebabb70ae8970d38f9c5cde3eb09171b9d6447",
+    "stored_bytes": 1836
+  },
+  {
+    "file": "lemmas/algebra_strategy/repair_budget25.py",
+    "source": "lemmas/algebra_strategy/repair_budget25.py",
+    "sha256": "ab29bf3b8bf41e5e624cab348bbb626a93a7acf5961f53fd7716a9cce35a72dd",
+    "bytes": 1824,
+    "stored_sha256": "ab29bf3b8bf41e5e624cab348bbb626a93a7acf5961f53fd7716a9cce35a72dd",
+    "stored_bytes": 1824
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6_partition_pair_guards.json",
+    "source": "lemmas/algebra_strategy/k6_partition_pair_guards.json",
+    "sha256": "d1e2fd6abd98cd71c885a63e71751434461a92b09f11b38039a197abf89d7c86",
+    "bytes": 696,
+    "stored_sha256": "d1e2fd6abd98cd71c885a63e71751434461a92b09f11b38039a197abf89d7c86",
+    "stored_bytes": 696
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6-cover17-sharing-redundant.json",
+    "source": "lemmas/algebra_strategy/k6-cover17-sharing-redundant.json",
+    "sha256": "24fc524e703db8ea9f81b9cbf3d71db6973701b488406e4e9f35ae39557f4ed2",
+    "bytes": 350,
+    "stored_sha256": "24fc524e703db8ea9f81b9cbf3d71db6973701b488406e4e9f35ae39557f4ed2",
+    "stored_bytes": 350
+  },
+  {
+    "file": "lemmas/algebra_strategy/compile_cover17.py",
+    "source": "lemmas/algebra_strategy/compile_cover17.py",
+    "sha256": "aad42459d0a5d6658a8eb9de65ff05d2f406bbb2aef3d1ad4cfc7e71eb7764bf",
+    "bytes": 2186,
+    "stored_sha256": "aad42459d0a5d6658a8eb9de65ff05d2f406bbb2aef3d1ad4cfc7e71eb7764bf",
+    "stored_bytes": 2186
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6_outside_pair_taps.json",
+    "source": "lemmas/algebra_strategy/k6_outside_pair_taps.json",
+    "sha256": "2f1de1e47f4857a781da8db9fe8e86d9782873de91fddab7506174016b9ac242",
+    "bytes": 238594,
+    "stored_sha256": "2f1de1e47f4857a781da8db9fe8e86d9782873de91fddab7506174016b9ac242",
+    "stored_bytes": 238594
+  },
+  {
+    "file": "lemmas/algebra_strategy/outside-pair-taps.log",
+    "source": "lemmas/algebra_strategy/outside-pair-taps.log",
+    "sha256": "8203c482d63595b9c2b6a1403ffdbad56e256f72d9c982e607493098dd3cb9e6",
+    "bytes": 943,
+    "stored_sha256": "8203c482d63595b9c2b6a1403ffdbad56e256f72d9c982e607493098dd3cb9e6",
+    "stored_bytes": 943
+  },
+  {
+    "file": "lemmas/algebra_strategy/pendant-validation.txt",
+    "source": "lemmas/algebra_strategy/pendant-validation.txt",
+    "sha256": "01f5f3f8d6003da5119ec67dde1b11fa0841f3f533b83f4c9a68adfcf05335a9",
+    "bytes": 844,
+    "stored_sha256": "01f5f3f8d6003da5119ec67dde1b11fa0841f3f533b83f4c9a68adfcf05335a9",
+    "stored_bytes": 844
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6-cover17-sharing-lines.json",
+    "source": "lemmas/algebra_strategy/k6-cover17-sharing-lines.json",
+    "sha256": "e33179b87a5bce6f23546af42998703eccad5cf88733c50848ed58dd856b4055",
+    "bytes": 349,
+    "stored_sha256": "e33179b87a5bce6f23546af42998703eccad5cf88733c50848ed58dd856b4055",
+    "stored_bytes": 349
+  },
+  {
+    "file": "lemmas/algebra_strategy/merge-guard-check.log",
+    "source": "lemmas/algebra_strategy/merge-guard-check.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_bytes": 0
+  },
+  {
+    "file": "lemmas/algebra_strategy/cover17-subset.log",
+    "source": "lemmas/algebra_strategy/cover17-subset.log",
+    "sha256": "8ff041ef15203ffeeec1ddadf0c848a0c1b93237cf45a8abd26a41214c07dedc",
+    "bytes": 3219,
+    "stored_sha256": "8ff041ef15203ffeeec1ddadf0c848a0c1b93237cf45a8abd26a41214c07dedc",
+    "stored_bytes": 3219
+  },
+  {
+    "file": "lemmas/algebra_strategy/repair-budget25.log",
+    "source": "lemmas/algebra_strategy/repair-budget25.log",
+    "sha256": "4e795523ba9f0ef55df450b89008cdeaa69b80508d2e38bce128707d7320bbf1",
+    "bytes": 456,
+    "stored_sha256": "4e795523ba9f0ef55df450b89008cdeaa69b80508d2e38bce128707d7320bbf1",
+    "stored_bytes": 456
+  },
+  {
+    "file": "lemmas/algebra_strategy/cover17-pairs-result.json",
+    "source": "lemmas/algebra_strategy/cover17-pairs-result.json",
+    "sha256": "49e87ab700ce237e2c3848118acf8e665e89b3767ec30d1cb4d155d94d7fd0f5",
+    "bytes": 1241,
+    "stored_sha256": "49e87ab700ce237e2c3848118acf8e665e89b3767ec30d1cb4d155d94d7fd0f5",
+    "stored_bytes": 1241
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6_outside_triple_tap.json",
+    "source": "lemmas/algebra_strategy/k6_outside_triple_tap.json",
+    "sha256": "40d3786ac2d27b994fb6cb53ba5b1a56114c56106368599c6a8df7518f436712",
+    "bytes": 14021,
+    "stored_sha256": "40d3786ac2d27b994fb6cb53ba5b1a56114c56106368599c6a8df7518f436712",
+    "stored_bytes": 14021
+  },
+  {
+    "file": "lemmas/algebra_strategy/cover17-result.json",
+    "source": "lemmas/algebra_strategy/cover17-result.json",
+    "sha256": "62b20c1f263ac7e3cca5cd8e1e94f7aee63e030c5358f27ac9741459df0e2842",
+    "bytes": 771,
+    "stored_sha256": "62b20c1f263ac7e3cca5cd8e1e94f7aee63e030c5358f27ac9741459df0e2842",
+    "stored_bytes": 771
+  },
+  {
+    "file": "lemmas/algebra_strategy/partition-pair-guards.log",
+    "source": "lemmas/algebra_strategy/partition-pair-guards.log",
+    "sha256": "7721b4a481591aa41972abc561d4f5066acd64975e20139450815602fc02176c",
+    "bytes": 697,
+    "stored_sha256": "7721b4a481591aa41972abc561d4f5066acd64975e20139450815602fc02176c",
+    "stored_bytes": 697
+  },
+  {
+    "file": "lemmas/algebra_strategy/cover17.log",
+    "source": "lemmas/algebra_strategy/cover17.log",
+    "sha256": "eb977048a7c07c2cc448f5aff8ee338832d316da4eb411730ac1d534bff9c948",
+    "bytes": 2520,
+    "stored_sha256": "eb977048a7c07c2cc448f5aff8ee338832d316da4eb411730ac1d534bff9c948",
+    "stored_bytes": 2520
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6-budget25-peeled16.json",
+    "source": "lemmas/algebra_strategy/k6-budget25-peeled16.json",
+    "sha256": "19684604e53288e043616f3f958559b43e151d5f46f6924b7bb08cd3a15c46a4",
+    "bytes": 350,
+    "stored_sha256": "19684604e53288e043616f3f958559b43e151d5f46f6924b7bb08cd3a15c46a4",
+    "stored_bytes": 350
+  },
+  {
+    "file": "lemmas/algebra_strategy/cover17_pairs.py",
+    "source": "lemmas/algebra_strategy/cover17_pairs.py",
+    "sha256": "c7c4ae74c77b3f830a7716d7346176e06e97868a7cdf06441de75644c84a10d6",
+    "bytes": 2392,
+    "stored_sha256": "c7c4ae74c77b3f830a7716d7346176e06e97868a7cdf06441de75644c84a10d6",
+    "stored_bytes": 2392
+  },
+  {
+    "file": "lemmas/algebra_strategy/cover17-subset-result.json",
+    "source": "lemmas/algebra_strategy/cover17-subset-result.json",
+    "sha256": "7c1d5da6c5fe33b85b867c10fbd1351ab2668082d8e00759e60978548b559c0d",
+    "bytes": 2017,
+    "stored_sha256": "7c1d5da6c5fe33b85b867c10fbd1351ab2668082d8e00759e60978548b559c0d",
+    "stored_bytes": 2017
+  },
+  {
+    "file": "lemmas/algebra_strategy/residual_tap_obstacles.md",
+    "source": "lemmas/algebra_strategy/residual_tap_obstacles.md",
+    "sha256": "87658f0ec32886ace48c8af9bf8780ee06a9bc9ddc3214546f928011fb7704b9",
+    "bytes": 3039,
+    "stored_sha256": "87658f0ec32886ace48c8af9bf8780ee06a9bc9ddc3214546f928011fb7704b9",
+    "stored_bytes": 3039
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6-budget25-original.json",
+    "source": "lemmas/algebra_strategy/k6-budget25-original.json",
+    "sha256": "0bed2474198ea3319102dc2803e9789b506f8d1918ecf28ce3c7442e25d4ec7c",
+    "bytes": 350,
+    "stored_sha256": "0bed2474198ea3319102dc2803e9789b506f8d1918ecf28ce3c7442e25d4ec7c",
+    "stored_bytes": 350
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6_pair_line_guard_shared33.json",
+    "source": "lemmas/algebra_strategy/k6_pair_line_guard_shared33.json",
+    "sha256": "7581f3ca9635717cd89f5786d11f85c75e40e54972dfdb6cdb2e04eb97d00c65",
+    "bytes": 7284,
+    "stored_sha256": "7581f3ca9635717cd89f5786d11f85c75e40e54972dfdb6cdb2e04eb97d00c65",
+    "stored_bytes": 7284
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6_triangle_guard_seeds.json",
+    "source": "lemmas/algebra_strategy/k6_triangle_guard_seeds.json",
+    "sha256": "f2cb0500ce2ace78b77e9a0bc25b48be5c196c98411c6ab164e8085ef80e3329",
+    "bytes": 11480,
+    "stored_sha256": "f2cb0500ce2ace78b77e9a0bc25b48be5c196c98411c6ab164e8085ef80e3329",
+    "stored_bytes": 11480
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6_grid_taps.json",
+    "source": "lemmas/algebra_strategy/k6_grid_taps.json",
+    "sha256": "506b18cb75aaa3763b391c2c4fc56c66bdc49ddbb57e3da5b2afe6c2eee6574d",
+    "bytes": 11313,
+    "stored_sha256": "506b18cb75aaa3763b391c2c4fc56c66bdc49ddbb57e3da5b2afe6c2eee6574d",
+    "stored_bytes": 11313
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6-budget25-reordered.json",
+    "source": "lemmas/algebra_strategy/k6-budget25-reordered.json",
+    "sha256": "947c98be0d153c096d9d0460123db75169130934a4fda387519a2912bdf49847",
+    "bytes": 350,
+    "stored_sha256": "947c98be0d153c096d9d0460123db75169130934a4fda387519a2912bdf49847",
+    "stored_bytes": 350
+  },
+  {
+    "file": "lemmas/algebra_strategy/cover17.py",
+    "source": "lemmas/algebra_strategy/cover17.py",
+    "sha256": "98d1d29afcafc0cee6ea715ba577faf90daec4998fa163e10f293daecc5dc0fd",
+    "bytes": 1498,
+    "stored_sha256": "98d1d29afcafc0cee6ea715ba577faf90daec4998fa163e10f293daecc5dc0fd",
+    "stored_bytes": 1498
+  },
+  {
+    "file": "lemmas/algebra_strategy/generate_grid_taps.py",
+    "source": "lemmas/algebra_strategy/generate_grid_taps.py",
+    "sha256": "085857c7effa762d372069ac74f1358d56b8de35b1527939a1317eb115aa6fd0",
+    "bytes": 2956,
+    "stored_sha256": "085857c7effa762d372069ac74f1358d56b8de35b1527939a1317eb115aa6fd0",
+    "stored_bytes": 2956
+  },
+  {
+    "file": "lemmas/algebra_strategy/cover17_subset.py",
+    "source": "lemmas/algebra_strategy/cover17_subset.py",
+    "sha256": "24de494c5a4eaed991f7870c72c009618c2cf47089fc914b28b4106a88f2ce24",
+    "bytes": 3175,
+    "stored_sha256": "24de494c5a4eaed991f7870c72c009618c2cf47089fc914b28b4106a88f2ce24",
+    "stored_bytes": 3175
+  },
+  {
+    "file": "lemmas/algebra_strategy/generate_outside_pair_taps.py",
+    "source": "lemmas/algebra_strategy/generate_outside_pair_taps.py",
+    "sha256": "82456d54d208eeade26cf7e9756bc6855639e20c1baa5bb1f283d52497b71dba",
+    "bytes": 3264,
+    "stored_sha256": "82456d54d208eeade26cf7e9756bc6855639e20c1baa5bb1f283d52497b71dba",
+    "stored_bytes": 3264
+  },
+  {
+    "file": "lemmas/algebra_strategy/compile-cover17.log",
+    "source": "lemmas/algebra_strategy/compile-cover17.log",
+    "sha256": "88b81acb4b699047ce8b834fae25821f0f56f85e52d10c3b25d3567406ef8d47",
+    "bytes": 176,
+    "stored_sha256": "88b81acb4b699047ce8b834fae25821f0f56f85e52d10c3b25d3567406ef8d47",
+    "stored_bytes": 176
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6_grid_taps.md",
+    "source": "lemmas/algebra_strategy/k6_grid_taps.md",
+    "sha256": "fcf0eb58b937d489fbbf3e47509f30c7826f65656e6ffb615bd46323aaee6787",
+    "bytes": 1758,
+    "stored_sha256": "fcf0eb58b937d489fbbf3e47509f30c7826f65656e6ffb615bd46323aaee6787",
+    "stored_bytes": 1758
+  },
+  {
+    "file": "lemmas/algebra_strategy/fourrow-validation.txt",
+    "source": "lemmas/algebra_strategy/fourrow-validation.txt",
+    "sha256": "f98a090f00853b4c7d211b9c2d98e18e753f5ee48ae10ebaa2c0c535e465f56f",
+    "bytes": 949,
+    "stored_sha256": "f98a090f00853b4c7d211b9c2d98e18e753f5ee48ae10ebaa2c0c535e465f56f",
+    "stored_bytes": 949
+  },
+  {
+    "file": "lemmas/lower_bound/sat/k6_maxsat_best.json",
+    "source": "lemmas/lower_bound/sat/k6_maxsat_best.json",
+    "sha256": "bd1a8ffff91f577c3dcdb4f2bd8f8aa8705f11a2d51707797e156bf5a7e3eb6c",
+    "bytes": 564,
+    "stored_sha256": "bd1a8ffff91f577c3dcdb4f2bd8f8aa8705f11a2d51707797e156bf5a7e3eb6c",
+    "stored_bytes": 564
+  },
+  {
+    "file": "lemmas/lower_bound/sat/incremental_cegis.py",
+    "source": "lemmas/lower_bound/sat/incremental_cegis.py",
+    "sha256": "4f49be3b8695ca1e61984d2c554f4568d409b9d48c85a57ba2b09d8daa0361b9",
+    "bytes": 8905,
+    "stored_sha256": "4f49be3b8695ca1e61984d2c554f4568d409b9d48c85a57ba2b09d8daa0361b9",
+    "stored_bytes": 8905
+  },
+  {
+    "file": "lemmas/lower_bound/sat/cadical_wrapper.cpp",
+    "source": "lemmas/lower_bound/sat/cadical_wrapper.cpp",
+    "sha256": "bcb4ca5d6401718fe5a130059dcba303c1aca27c4e455e60234e58997f1be4d5",
+    "bytes": 1227,
+    "stored_sha256": "bcb4ca5d6401718fe5a130059dcba303c1aca27c4e455e60234e58997f1be4d5",
+    "stored_bytes": 1227
+  },
+  {
+    "file": "lemmas/lower_bound/sat/k6_pair_boundary_problem.json",
+    "source": "lemmas/lower_bound/sat/k6_pair_boundary_problem.json",
+    "sha256": "d369a73f0e2e3d7569191d3856eb4303193e3c4c66c364499f47e47dcd79f409",
+    "bytes": 2469,
+    "stored_sha256": "d369a73f0e2e3d7569191d3856eb4303193e3c4c66c364499f47e47dcd79f409",
+    "stored_bytes": 2469
+  },
+  {
+    "file": "lemmas/lower_bound/sat/k6_maxsat_quad_best.json",
+    "source": "lemmas/lower_bound/sat/k6_maxsat_quad_best.json",
+    "sha256": "dd33f98cb321b87786ed3910c1e41b1db5f8d7fcdc1ceb09562ca671d2736a4c",
+    "bytes": 585,
+    "stored_sha256": "dd33f98cb321b87786ed3910c1e41b1db5f8d7fcdc1ceb09562ca671d2736a4c",
+    "stored_bytes": 585
+  },
+  {
+    "file": "lemmas/lower_bound/sat/k6_merge_padded_15.json",
+    "source": "lemmas/lower_bound/sat/k6_merge_padded_15.json",
+    "sha256": "564ebf51dc08fb9bf02002eeae4e5e29b3bc2b853b6efb30c0ea0864826dcfc2",
+    "bytes": 453,
+    "stored_sha256": "564ebf51dc08fb9bf02002eeae4e5e29b3bc2b853b6efb30c0ea0864826dcfc2",
+    "stored_bytes": 453
+  },
+  {
+    "file": "lemmas/lower_bound/sat/incremental_maxsat.py",
+    "source": "lemmas/lower_bound/sat/incremental_maxsat.py",
+    "sha256": "a56f186230075ce02632e0ec93d4a626d2c22ccaf1bae75396cd12b9c40cd960",
+    "bytes": 4136,
+    "stored_sha256": "a56f186230075ce02632e0ec93d4a626d2c22ccaf1bae75396cd12b9c40cd960",
+    "stored_bytes": 4136
+  },
+  {
+    "file": "lemmas/lower_bound/sat/build_cadical_bridge.py",
+    "source": "lemmas/lower_bound/sat/build_cadical_bridge.py",
+    "sha256": "277968e8cd476434885c91f06128d1d92366a7283d5f75b2ddcaa87163931d6a",
+    "bytes": 881,
+    "stored_sha256": "277968e8cd476434885c91f06128d1d92366a7283d5f75b2ddcaa87163931d6a",
+    "stored_bytes": 881
+  },
+  {
+    "file": "lemmas/lower_bound/sat/full_problem.json",
+    "source": "lemmas/lower_bound/sat/full_problem.json",
+    "sha256": "032ce04375c61104db3c6a18db92ae31df34656c041c104858c302ae043e3860",
+    "bytes": 11471,
+    "stored_sha256": "032ce04375c61104db3c6a18db92ae31df34656c041c104858c302ae043e3860",
+    "stored_bytes": 11471
+  },
+  {
+    "file": "lemmas/lower_bound/sat/subset_synthesis.py",
+    "source": "lemmas/lower_bound/sat/subset_synthesis.py",
+    "sha256": "3badd2396b9a1ff46742f2f1e88140fe925c05e62604788e826977ec49ff4bea",
+    "bytes": 4295,
+    "stored_sha256": "3badd2396b9a1ff46742f2f1e88140fe925c05e62604788e826977ec49ff4bea",
+    "stored_bytes": 4295
+  },
+  {
+    "file": "lemmas/lower_bound/sat/k6_algebra17_seed.json",
+    "source": "lemmas/lower_bound/sat/k6_algebra17_seed.json",
+    "sha256": "81a5f370f9a766ac6c449b3b7708847060932fa482c656373031fafe648a12ca",
+    "bytes": 566,
+    "stored_sha256": "81a5f370f9a766ac6c449b3b7708847060932fa482c656373031fafe648a12ca",
+    "stored_bytes": 566
+  },
+  {
+    "file": "lemmas/lower_bound/sat/k6_baseline29.json",
+    "source": "lemmas/lower_bound/sat/k6_baseline29.json",
+    "sha256": "39cad3dbb023ef291fbc23f65458b6f7fe8a94c85903aa423c7a42ffa0ad6ec8",
+    "bytes": 387,
+    "stored_sha256": "39cad3dbb023ef291fbc23f65458b6f7fe8a94c85903aa423c7a42ffa0ad6ec8",
+    "stored_bytes": 387
+  },
+  {
+    "file": "lemmas/lower_bound/sat/k6_algebra23_seed.json",
+    "source": "lemmas/lower_bound/sat/k6_algebra23_seed.json",
+    "sha256": "746cab8576c8fe18746123c76aab5a31ab8135eedb691e70aad41af536281cfe",
+    "bytes": 595,
+    "stored_sha256": "746cab8576c8fe18746123c76aab5a31ab8135eedb691e70aad41af536281cfe",
+    "stored_bytes": 595
+  },
+  {
+    "file": "lemmas/lower_bound/sat/global_synthesis.py",
+    "source": "lemmas/lower_bound/sat/global_synthesis.py",
+    "sha256": "3704cccdcc82810f3571274af3259aad04ca7f04b26dde6ade9f2f1d6e3ae989",
+    "bytes": 16352,
+    "stored_sha256": "3704cccdcc82810f3571274af3259aad04ca7f04b26dde6ade9f2f1d6e3ae989",
+    "stored_bytes": 16352
+  },
+  {
+    "file": "lemmas/lower_bound/sat/k6_merge_padded_0.json",
+    "source": "lemmas/lower_bound/sat/k6_merge_padded_0.json",
+    "sha256": "ddefa7c64214e7c0d195c004ea040c0102e4eb55c246cce97e7dabae38832226",
+    "bytes": 449,
+    "stored_sha256": "ddefa7c64214e7c0d195c004ea040c0102e4eb55c246cce97e7dabae38832226",
+    "stored_bytes": 449
+  },
+  {
+    "file": "lemmas/lower_bound/sat/subset_cegis.py",
+    "source": "lemmas/lower_bound/sat/subset_cegis.py",
+    "sha256": "853d30aa02e3889320037b47b26923783cf0bc96df527a7b1b21ea5b0e7c51bf",
+    "bytes": 4665,
+    "stored_sha256": "853d30aa02e3889320037b47b26923783cf0bc96df527a7b1b21ea5b0e7c51bf",
+    "stored_bytes": 4665
+  },
+  {
+    "file": "lemmas/lower_bound/sat/k6_merge_padded_16.json",
+    "source": "lemmas/lower_bound/sat/k6_merge_padded_16.json",
+    "sha256": "c980d5fcdeca687f8587a3c0db1ca722d23cc852f0159b09fb4b8499de59b56a",
+    "bytes": 453,
+    "stored_sha256": "c980d5fcdeca687f8587a3c0db1ca722d23cc852f0159b09fb4b8499de59b56a",
+    "stored_bytes": 453
+  },
+  {
+    "file": "logs/k6-algebra17-fullcheck.log",
+    "source": "logs/k6-algebra17-fullcheck.log",
+    "sha256": "2c55ee740922ad8fd60c7969ea966142ae5a59fa972c5b5907df3083add40c09",
+    "bytes": 97,
+    "stored_sha256": "2c55ee740922ad8fd60c7969ea966142ae5a59fa972c5b5907df3083add40c09",
+    "stored_bytes": 97
+  },
+  {
+    "file": "logs/pair-tap-completion-build.log",
+    "source": "logs/pair-tap-completion-build.log",
+    "sha256": "d90a97e1b93c586133f58909e205651cd122fa697e83f306464ac2afc4b12ada",
+    "bytes": 2376,
+    "stored_sha256": "d90a97e1b93c586133f58909e205651cd122fa697e83f306464ac2afc4b12ada",
+    "stored_bytes": 2376
+  },
+  {
+    "file": "logs/k6-incremental-maxsat-balanced.log",
+    "source": "logs/k6-incremental-maxsat-balanced.log",
+    "sha256": "40d851f9f5faeec235a79f6a5717b713775959c135937a87a9138851ec7b4783",
+    "bytes": 616,
+    "stored_sha256": "40d851f9f5faeec235a79f6a5717b713775959c135937a87a9138851ec7b4783",
+    "stored_bytes": 616
+  },
+  {
+    "file": "logs/verifier-calibration-003.log",
+    "source": "logs/verifier-calibration-003.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_bytes": 0
+  },
+  {
+    "file": "logs/six-leaf-cycle-lower-build.log",
+    "source": "logs/six-leaf-cycle-lower-build.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_bytes": 0
+  },
+  {
+    "file": "logs/k6-boundary-algebra17.log",
+    "source": "logs/k6-boundary-algebra17.log",
+    "sha256": "6f37e21ef5808184344b0dcdf1d61b30213ff4d70997ff45870b41a2e7d1e94e",
+    "bytes": 640,
+    "stored_sha256": "6f37e21ef5808184344b0dcdf1d61b30213ff4d70997ff45870b41a2e7d1e94e",
+    "stored_bytes": 640
+  },
+  {
+    "file": "logs/full-incremental-pair.log",
+    "source": "logs/full-incremental-pair.log",
+    "sha256": "39943b5d41d00fa25c4f99360a56095a7d6d83112f203463ef152828798c29b7",
+    "bytes": 497,
+    "stored_sha256": "39943b5d41d00fa25c4f99360a56095a7d6d83112f203463ef152828798c29b7",
+    "stored_bytes": 497
+  },
+  {
+    "file": "logs/k6-incremental-pair.log",
+    "source": "logs/k6-incremental-pair.log",
+    "sha256": "2c531d488c985ed7a156abddf28996c0340c4a0a02b2d43b0c5e03047b267d5c",
+    "bytes": 1276,
+    "stored_sha256": "2c531d488c985ed7a156abddf28996c0340c4a0a02b2d43b0c5e03047b267d5c",
+    "stored_bytes": 1276
+  },
+  {
+    "file": "logs/k6-edits0-calibration.log",
+    "source": "logs/k6-edits0-calibration.log",
+    "sha256": "793446dcb08c901b8e472355e4cc56960cd6b4098dc8014c567e4151c2b6be40",
+    "bytes": 231,
+    "stored_sha256": "793446dcb08c901b8e472355e4cc56960cd6b4098dc8014c567e4151c2b6be40",
+    "stored_bytes": 231
+  },
+  {
+    "file": "logs/core-tap-hubs-and7.log",
+    "source": "logs/core-tap-hubs-and7.log",
+    "sha256": "e0b230c1dece25273e0c8f6d5a47f677bb781d419fd15150aa1afa663bb76196",
+    "bytes": 161,
+    "stored_sha256": "e0b230c1dece25273e0c8f6d5a47f677bb781d419fd15150aa1afa663bb76196",
+    "stored_bytes": 161
+  },
+  {
+    "file": "logs/verifier-calibration-005.log",
+    "source": "logs/verifier-calibration-005.log",
+    "sha256": "5f5c26bbdb2a801ec3abc8274e8302cdcbf2e62182ad075b0655d6b49cf07f9d",
+    "bytes": 32049,
+    "stored_sha256": "5f5c26bbdb2a801ec3abc8274e8302cdcbf2e62182ad075b0655d6b49cf07f9d",
+    "stored_bytes": 32049
+  },
+  {
+    "file": "logs/k6-cegis-merge-pair.log",
+    "source": "logs/k6-cegis-merge-pair.log",
+    "sha256": "c8f25b972e3f48a7d5230e29542b82bce20843d733e245dbb743f00add55863c",
+    "bytes": 1413,
+    "stored_sha256": "c8f25b972e3f48a7d5230e29542b82bce20843d733e245dbb743f00add55863c",
+    "stored_bytes": 1413
+  },
+  {
+    "file": "logs/k6-incremental-crosspair.log",
+    "source": "logs/k6-incremental-crosspair.log",
+    "sha256": "4aae9b49cb5bce9bcf0f9f4cd892b5d4ffb87315067027424658561697f8f15f",
+    "bytes": 1249,
+    "stored_sha256": "4aae9b49cb5bce9bcf0f9f4cd892b5d4ffb87315067027424658561697f8f15f",
+    "stored_bytes": 1249
+  },
+  {
+    "file": "logs/k6-cegis-merge-triple.log",
+    "source": "logs/k6-cegis-merge-triple.log",
+    "sha256": "ba3e231fa1b83116ac02df8c24712653c464a81cb94a59372c93df8180ef5208",
+    "bytes": 645,
+    "stored_sha256": "ba3e231fa1b83116ac02df8c24712653c464a81cb94a59372c93df8180ef5208",
+    "stored_bytes": 645
+  },
+  {
+    "file": "logs/core-tap-calibration.log",
+    "source": "logs/core-tap-calibration.log",
+    "sha256": "b97b751f7e2dc29d7c04ec1d558db271af3ee418f81d83b1dca62642b19c6b4e",
+    "bytes": 241,
+    "stored_sha256": "b97b751f7e2dc29d7c04ec1d558db271af3ee418f81d83b1dca62642b19c6b4e",
+    "stored_bytes": 241
+  },
+  {
+    "file": "logs/k6-boundary-maxsat-internal.log",
+    "source": "logs/k6-boundary-maxsat-internal.log",
+    "sha256": "2b6937c2728fd6a7dddc49cbc5227848aa4ee401d2616dc379364ef9054d6880",
+    "bytes": 904,
+    "stored_sha256": "2b6937c2728fd6a7dddc49cbc5227848aa4ee401d2616dc379364ef9054d6880",
+    "stored_bytes": 904
+  },
+  {
+    "file": "logs/k6-cegis-edits-triple.log",
+    "source": "logs/k6-cegis-edits-triple.log",
+    "sha256": "1e9f8a64fe79969a82354f4fdf8ce80a4157cfd49daa646d6ab990c1e354fd12",
+    "bytes": 357,
+    "stored_sha256": "1e9f8a64fe79969a82354f4fdf8ce80a4157cfd49daa646d6ab990c1e354fd12",
+    "stored_bytes": 357
+  },
+  {
+    "file": "logs/verifier-calibration-006.log",
+    "source": "logs/verifier-calibration-006.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_bytes": 0
+  },
+  {
+    "file": "logs/k6-incremental-triple.log",
+    "source": "logs/k6-incremental-triple.log",
+    "sha256": "800664a4f6089223ac3d0837084048e31afafecdd13d4fb8e99579f553d8947e",
+    "bytes": 351,
+    "stored_sha256": "800664a4f6089223ac3d0837084048e31afafecdd13d4fb8e99579f553d8947e",
+    "stored_bytes": 351
+  },
+  {
+    "file": "logs/pair-tap-completion-weak-build.log",
+    "source": "logs/pair-tap-completion-weak-build.log",
+    "sha256": "8d6e6e32b67b211dc1a03377104d04b059c2722e079062a7debf61e12f5c1557",
+    "bytes": 2400,
+    "stored_sha256": "8d6e6e32b67b211dc1a03377104d04b059c2722e079062a7debf61e12f5c1557",
+    "stored_bytes": 2400
+  },
+  {
+    "file": "logs/verifier-calibration-007.log",
+    "source": "logs/verifier-calibration-007.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_bytes": 0
+  },
+  {
+    "file": "logs/verifier-calibration-004.log",
+    "source": "logs/verifier-calibration-004.log",
+    "sha256": "ac6070425b3cdb4abe5d5c7aa37c73d5a7be1413de2f0af0d347687ad6951e52",
+    "bytes": 1245,
+    "stored_sha256": "ac6070425b3cdb4abe5d5c7aa37c73d5a7be1413de2f0af0d347687ad6951e52",
+    "stored_bytes": 1245
+  },
+  {
+    "file": "logs/k6-maxsat-best-fullcheck.log",
+    "source": "logs/k6-maxsat-best-fullcheck.log",
+    "sha256": "eb7e05a81eef30954cc0726278a374de2616ddb240eb0f00d76db8eecb70e9df",
+    "bytes": 112,
+    "stored_sha256": "eb7e05a81eef30954cc0726278a374de2616ddb240eb0f00d76db8eecb70e9df",
+    "stored_bytes": 112
+  },
+  {
+    "file": "logs/core-tap-hubs-and6.log",
+    "source": "logs/core-tap-hubs-and6.log",
+    "sha256": "0e0349c1262b3a946e9ce9171b90b9e9b1baf09af1a893724afa3b823aee0158",
+    "bytes": 161,
+    "stored_sha256": "0e0349c1262b3a946e9ce9171b90b9e9b1baf09af1a893724afa3b823aee0158",
+    "stored_bytes": 161
+  },
+  {
+    "file": "logs/k6-maxsat-algebra17.log",
+    "source": "logs/k6-maxsat-algebra17.log",
+    "sha256": "3997f47f7df4352c450103607a4a72d611b45ae8a405f13553e3ab77965588a1",
+    "bytes": 647,
+    "stored_sha256": "3997f47f7df4352c450103607a4a72d611b45ae8a405f13553e3ab77965588a1",
+    "stored_bytes": 647
+  },
+  {
+    "file": "logs/verifier-calibration-002.log",
+    "source": "logs/verifier-calibration-002.log",
+    "sha256": "61c2a0fcc13a0bf3f3c074bc68e699caf88952bc8e2a0d953718245bdbed011b",
+    "bytes": 6477,
+    "stored_sha256": "61c2a0fcc13a0bf3f3c074bc68e699caf88952bc8e2a0d953718245bdbed011b",
+    "stored_bytes": 6477
+  },
+  {
+    "file": "logs/verifier-calibration.log",
+    "source": "logs/verifier-calibration.log",
+    "sha256": "cb2ef5ee70caa46178dbf096da89d96763e0536bebaf420e23e6b1935f2e999f",
+    "bytes": 135,
+    "stored_sha256": "cb2ef5ee70caa46178dbf096da89d96763e0536bebaf420e23e6b1935f2e999f",
+    "stored_bytes": 135
+  },
+  {
+    "file": "logs/k6-algebra23-fullcheck.log",
+    "source": "logs/k6-algebra23-fullcheck.log",
+    "sha256": "1460c9707c5fe38af92e2033303e63cfc3ed38ee9f9bc01762ddbd6d0eea9745",
+    "bytes": 97,
+    "stored_sha256": "1460c9707c5fe38af92e2033303e63cfc3ed38ee9f9bc01762ddbd6d0eea9745",
+    "stored_bytes": 97
+  },
+  {
+    "file": "logs/k6-incremental-maxsat.log",
+    "source": "logs/k6-incremental-maxsat.log",
+    "sha256": "0a5c1ffafd75762fc28a71746fe55b2b1efa9132fc5e345d0d608f918bd98cf9",
+    "bytes": 630,
+    "stored_sha256": "0a5c1ffafd75762fc28a71746fe55b2b1efa9132fc5e345d0d608f918bd98cf9",
+    "stored_bytes": 630
+  },
+  {
+    "file": "logs/core-tap-hubs-maxsat.log",
+    "source": "logs/core-tap-hubs-maxsat.log",
+    "sha256": "e034df9eecb1148fa6da2b34e611f2cc58bdaf35c283036551d532ca8e84e209",
+    "bytes": 290,
+    "stored_sha256": "e034df9eecb1148fa6da2b34e611f2cc58bdaf35c283036551d532ca8e84e209",
+    "stored_bytes": 290
+  },
+  {
+    "file": "logs/k6-full-edits6-triple.log",
+    "source": "logs/k6-full-edits6-triple.log",
+    "sha256": "7e09ed401b4d8eb919bf8485a754f71e9562a41668f8e282a8297fcbbe0178d5",
+    "bytes": 181,
+    "stored_sha256": "7e09ed401b4d8eb919bf8485a754f71e9562a41668f8e282a8297fcbbe0178d5",
+    "stored_bytes": 181
+  },
+  {
+    "file": "logs/augmented-candidate17-build.log",
+    "source": "logs/augmented-candidate17-build.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_bytes": 0
+  },
+  {
+    "file": "logs/k6-incremental-maxsat-quad.log",
+    "source": "logs/k6-incremental-maxsat-quad.log",
+    "sha256": "cb1209a2b973f37d4594da52dfdeab870624e4191d70998db7c92469c6aa54f9",
+    "bytes": 1407,
+    "stored_sha256": "cb1209a2b973f37d4594da52dfdeab870624e4191d70998db7c92469c6aa54f9",
+    "stored_bytes": 1407
+  }
+]

@@ -1,0 +1,16 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/verification/VerifierCalibration.lean:310:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidablePred fun j => ∀ i ∈ s, ¬calibrationNear i j
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/verification/VerifierCalibration.lean:320:2: error: failed to synthesize
+  Decidable (∀ (p l : Fin 13), calibrationNear p l → baseline.eval (List.ofFn (calibrationVec {p} {l})) = true)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/verification/VerifierCalibration.lean:325:2: error: failed to synthesize
+  Decidable (calibrationNegative ∅)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/verification/VerifierCalibration.lean:330:2: error: failed to synthesize
+  Decidable (∀ (p : Fin 13), calibrationNegative {p})
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

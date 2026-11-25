@@ -1,0 +1,7 @@
+UTC: 2026-11-25T03:09:59.775140+00:00
+MergeGuard.lean: standalone Lean check exit0; import Mathlib only; no warnings/output.
+Generic triangle_guard Bool identity is kernel checked with decide.
+k6_triangle_guard_seeds.json:20 exact41gate candidates, all76 complete k6 basis tests pass. These are overbudget diversity seeds, not28gate witnesses.
+check_partition_pair_guards.py: computational census, exit0; fullstdout/stderr at partition-pair-guards.log.
+Census checks20,301 pairs among202 proper point-row partitions. None of the two-output ANDs computes the target; the least remaining false-negative-basis acceptance count is12.
+This census is not a Lean lower-bound theorem, and excludes only these frozen partition-output AND pairs.

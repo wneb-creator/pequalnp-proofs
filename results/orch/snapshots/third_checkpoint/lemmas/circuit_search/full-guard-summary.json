@@ -1,0 +1,6 @@
+{
+  "seeds": 13564,
+  "minimum_size": 56,
+  "minimum_nonedge_errors": 11,
+  "minimum_maximal_negative_errors": 391
+}

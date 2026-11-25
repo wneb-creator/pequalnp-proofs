@@ -1,0 +1,4 @@
+UTC 2026-11-25T02:17:02.333949+00:00
+Max compatible opposite side by point-set size: {0: 13, 1: 9, 2: 6, 3: 4, 4: 3, 5: 2, 6: 2, 7: 1, 8: 1, 9: 1, 10: 0, 11: 0, 12: 0, 13: 0}
+Maximal incidence-free rectangles: 704
+Rectangle sizes: {(0, 13): 1, (1, 9): 13, (2, 6): 78, (3, 4): 234, (3, 3): 52, (4, 3): 234, (6, 2): 78, (9, 1): 13, (13, 0): 1}

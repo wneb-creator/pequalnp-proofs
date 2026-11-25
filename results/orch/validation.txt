@@ -57,3 +57,7 @@ TIMING total=64.3 subagents=6
 2026-11-25T03:31:22.308609+00:00 PairTapCompletion.lean compiled and independently approved. It derives the exact posted target from a≤29gate k6 core and a conditional tap for local lines6,11 (full13,20), with valid indices. Gate count29+4+6*5=63. The witness remains unproved. Full compiler log includes only unused-item warnings.
 
 2026-11-25T03:36:21.552962+00:00 PairTapCompletionWeak.lean compiled and independently approved. Its lower tap premise is conditional on the core beingfalse, matching search care semantics; exact63-gate conclusion remains conditional on the witness. Log contains only unused-item warnings.
+
+2026-11-25T03:38:45.832384+00:00 AugmentedCandidate17.lean compiled, Defs-only; independently checked all131072 inputs. It proves a28gate circuit for24desired+4extra edges, not the gap. Third checkpoint preserves164 changed artifacts with original/stored hashes; RESULTS.md indexes checked components and limits. Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review. TIMING total=98 subagents=6 (checkpoint; work continues).
+
+2026-11-25T03:39:17.828770+00:00 NineRowCompletion.lean compiled and independently reviewed: a monotone exact nine-row circuit with at most 43 gates extends by four stars to the exact posted circuit with at most 63 gates. The core witness is still missing.

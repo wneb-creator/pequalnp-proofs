@@ -1,0 +1,8 @@
+2026-11-25T03:12:57.086652+00:00 INITIAL [0, 2] errors 26 variables 19099 clauses 273940
+2026-11-25T03:12:57.272675+00:00 SOLVER budget 26 attempt 0 result 10 seconds 0.19
+2026-11-25T03:12:57.274407+00:00 CANDIDATE observed_errors 26
+2026-11-25T03:14:57.278163+00:00 SOLVER budget 25 attempt 0 result 0 seconds 120.0
+2026-11-25T03:16:18.473181+00:00 SOLVER budget 25 attempt 1 result 10 seconds 81.19
+2026-11-25T03:16:18.513178+00:00 CANDIDATE observed_errors 25
+2026-11-25T03:18:18.521107+00:00 SOLVER budget 24 attempt 0 result 0 seconds 120.01
+2026-11-25T03:20:18.525525+00:00 SOLVER budget 24 attempt 1 result 0 seconds 120.0

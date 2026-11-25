@@ -1,0 +1,8 @@
+Research artifact only; not a proof or refutation of L-meta-650.
+File: PendantCycleLower.lean
+Theorem: PEqualNP.Outside.L_meta_650_aux.PendantCycle.no_ten
+Statement: no fan-in-two AND/OR/NOT circuit of at most10 gates computes the9-input pendant-cycle function f9.
+Method: fix the3 private inputs false; each restriction eliminates at least1 gate; relabel the residual6-cycle; apply the existing checked8-gate lowerbound.
+Validation: lake build PEqualNP.MetaComplexity.Helpers.Elim PEqualNP.MetaComplexity.Helpers.PermInputs PEqualNP.MetaComplexity.L106 exited0.
+Validation: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PendantCycleLower.lean exited0, no output.
+The local gap checker was not run: this is not the desk-named proof file and imports existing helper modules outside the final gap allowed imports.

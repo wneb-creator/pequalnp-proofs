@@ -1,0 +1,59 @@
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 8e+00]
+  Cost   [1e+00, 1e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 3e+01]
+Presolving model
+2308 rows, 1382 cols, 8997 nonzeros  0s
+1611 rows, 978 cols, 6286 nonzeros  0s
+1605 rows, 972 cols, 6254 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   1605 rows
+   972 cols (972 binary, 0 integer, 0 implied int., 0 continuous)
+   6254 nonzeros
+MIP-Timing:        0.52 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.5s
+         0       0         0   0.00%   0               inf                  inf        0      0      0       789     0.6s
+
+Symmetry detection completed in 0.0s
+Found 2 generator(s)
+
+         2       0         1  50.00%   1               inf                  inf     1761     16     89      6608     5.6s
+ B      24       1        11  99.66%   1               4                 75.00%     1792     21    221     11108     7.1s
+        62       2        31  99.80%   1               4                 75.00%     2425     30    879     23870    10.1s
+
+Solving report
+  Status            Time limit reached
+  Primal bound      4
+  Dual bound        1
+  Gap               75%
+  P-D integral      2.28459495306
+  Solution status   feasible
+                    4 (objective)
+                    0 (bound viol.)
+                    0 (int. viol.)
+                    0 (row viol.)
+  Timing            10.14 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 4
+  Nodes             62
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     23870 (total)
+                    7150 (strong br.)
+                    1165 (separation)
+                    4427 (heuristics)
+variables 1390 status 1 objective 4.0 dual 1.0000000000000002
+{"objective": 4.0, "status": 1, "actual_edges": [[0, 6], [0, 7], [0, 9], [0, 11], [0, 13], [1, 6], [1, 8], [1, 12], [1, 16], [2, 6], [2, 7], [2, 9], [2, 11], [2, 13], [2, 15], [2, 16], [3, 6], [3, 10], [3, 14], [3, 15], [4, 9], [4, 11], [4, 12], [4, 14], [5, 8], [5, 10], [5, 11], [5, 13]], "bad_edge_objective": 4.0, "rectangles": [{"rows": [1], "lines": [6, 8, 12, 16], "pairs": [[6, 16]]}, {"rows": [2], "lines": [6, 15, 16], "pairs": [[6, 16]]}, {"rows": [0, 2], "lines": [6, 7, 9, 11, 13], "pairs": [[9, 11]]}, {"rows": [3], "lines": [6, 10, 14, 15], "pairs": []}, {"rows": [4], "lines": [9, 11, 12, 14], "pairs": [[9, 11]]}, {"rows": [5], "lines": [8, 10, 11, 13], "pairs": []}]}

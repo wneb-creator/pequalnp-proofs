@@ -1,0 +1,11 @@
+Research artifact: FourRowLower.lean
+UTC: 2026-11-25T02:54:07.062634+00:00
+Line count: 255
+Dependency build: lake build PEqualNP.Outside.L_meta_723, exit0.
+Proof check: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FourRowLower.lean, exit0.
+Proof log: fourrow-check.log; only inherited generic-proof linter warnings.
+Theorem: original_lower proves19<=C.size for every Monotone2 circuit computing the exact k4_p2 function in its JSON input order.
+Method: four essential private-leaf false restrictions, each saves a gate preserving Monotone2, then checked L_meta_723 subdivided-K4 lower15.
+Research-only import extension: PEqualNP.Outside.L_meta_723, Helpers.PermInputs, Helpers.Elim.
+This is not a proof/refutation of L-meta-650, and cannot be pasted as its final file under the posted imports restriction.
+Local gap checker not invoked: this is an auxiliary research artifact, not an eligible submitted gap theorem.

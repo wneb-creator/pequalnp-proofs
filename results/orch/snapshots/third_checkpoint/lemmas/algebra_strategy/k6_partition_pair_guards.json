@@ -1,0 +1,47 @@
+{
+  "kind": "computational census, not a Lean lower-bound theorem",
+  "source_sha256": "da765cf0edcc4bffaef432742332cf71fb2d92fd3e50bdac684fe7985593661c",
+  "case_sha256": "24862892b7e189052d713ee8b562a029fac4604ca56130937a0ed92c1a21233a",
+  "proper_partition_count": 202,
+  "pair_count": 20301,
+  "exact_AND_pairs": [],
+  "best_common_negative_count": 12,
+  "best_blocks": [
+    [
+      [
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        3
+      ],
+      [
+        4
+      ],
+      [
+        5
+      ]
+    ],
+    [
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        5
+      ]
+    ]
+  ]
+}

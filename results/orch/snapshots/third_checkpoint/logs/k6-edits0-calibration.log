@@ -1,0 +1,3 @@
+2026-11-25T03:01:54.550538+00:00 k6_p3 inputs 17 gates 29 samples 76 variables 10267 clauses 218057 generation_seconds 0.78
+2026-11-25T03:01:54.624244+00:00 RESULT 10 elapsed 0.85
+EXACT FUNCTION WITNESS 29 gates; EXCEEDS TARGET 28

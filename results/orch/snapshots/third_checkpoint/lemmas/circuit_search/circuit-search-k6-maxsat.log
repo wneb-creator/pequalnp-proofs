@@ -1,0 +1,34 @@
+seconds 6e-08 iterations 0 restarts 0 best 100000 current miss 0 false 25 pool 1
+BEST 63 miss 1 false 60 at 6e-08
+BEST 34 miss 3 false 25 at 0.000185164
+BEST 32 miss 0 false 32 at 0.000294495
+BEST 28 miss 1 false 25 at 0.000727064
+BEST 27 miss 9 false 0 at 0.0627816
+BEST 24 miss 8 false 0 at 0.0708197
+BEST 21 miss 7 false 0 at 0.0710572
+BEST 18 miss 6 false 0 at 0.0881607
+BEST 15 miss 5 false 0 at 0.831907
+BEST 12 miss 4 false 0 at 0.871606
+seconds 10.0005 iterations 32995549 restarts 1 best 12 current miss 11 false 1 pool 279
+BEST 9 miss 3 false 0 at 10.8001
+seconds 20.0005 iterations 65147374 restarts 2 best 9 current miss 10 false 0 pool 512
+seconds 30 iterations 93586482 restarts 3 best 9 current miss 23 false 0 pool 512
+BEST 6 miss 2 false 0 at 39.7874
+seconds 40 iterations 126500375 restarts 4 best 6 current miss 18 false 4 pool 512
+seconds 50 iterations 158730393 restarts 5 best 6 current miss 3 false 4 pool 512
+seconds 60 iterations 191611561 restarts 6 best 6 current miss 0 false 48 pool 512
+seconds 70 iterations 224139231 restarts 7 best 6 current miss 0 false 50 pool 512
+seconds 80.0005 iterations 256644026 restarts 8 best 6 current miss 24 false 0 pool 512
+seconds 90.0029 iterations 281362139 restarts 9 best 6 current miss 0 false 50 pool 512
+seconds 100 iterations 307952608 restarts 10 best 6 current miss 0 false 46 pool 512
+seconds 110 iterations 336734804 restarts 11 best 6 current miss 24 false 4 pool 512
+seconds 120 iterations 376154344 restarts 12 best 6 current miss 24 false 0 pool 512
+seconds 130 iterations 415385399 restarts 13 best 6 current miss 0 false 44 pool 512
+seconds 140 iterations 478214347 restarts 15 best 6 current miss 0 false 42 pool 512
+seconds 150 iterations 542462652 restarts 18 best 6 current miss 24 false 0 pool 512
+seconds 160 iterations 606871655 restarts 20 best 6 current miss 24 false 1 pool 512
+seconds 170 iterations 671432129 restarts 22 best 6 current miss 0 false 50 pool 512
+seconds 180 iterations 733760594 restarts 24 best 6 current miss 0 false 50 pool 512
+seconds 190 iterations 799973341 restarts 26 best 6 current miss 23 false 2 pool 512
+seconds 200 iterations 864602221 restarts 28 best 6 current miss 0 false 50 pool 512
+seconds 210 iterations 912656776 restarts 30 best 6 current miss 0 false 50 pool 512

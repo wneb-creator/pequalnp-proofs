@@ -1,0 +1,3 @@
+BEST 22 gates 28 group (0, 1) lines [6, 7, 8, 9, 13] added [(0, 8), (1, 7), (1, 9), (1, 13)] seconds 0.0010686700006772298
+BEST 17 gates 28 group (0, 2) lines [6, 7, 9, 11, 13] added [(0, 11), (2, 6), (2, 9), (2, 13)] seconds 0.03244345700022677
+DONE 4396 best 17 pool 18 seconds 0.7430037600006472

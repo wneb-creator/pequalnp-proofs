@@ -1,0 +1,418 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/verification/VerifierCalibration.lean:317:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidablePred fun j => ∀ i ∈ s, ¬calibrationNear i j
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/verification/VerifierCalibration.lean:328:2: error: failed to synthesize
+  Decidable
+    (∀ (p l : Fin 13),
+      calibrationNear p l →
+        (calibrationVec {p} {l} 0 &&
+                                    (calibrationVec {p} {l} 13 || calibrationVec {p} {l} 14 ||
+                                        calibrationVec {p} {l} 16 ||
+                                      calibrationVec {p} {l} 22) ||
+                                  calibrationVec {p} {l} 1 &&
+                                    (calibrationVec {p} {l} 13 || calibrationVec {p} {l} 15 ||
+                                        calibrationVec {p} {l} 21 ||
+                                      calibrationVec {p} {l} 25) ||
+                                calibrationVec {p} {l} 2 &&
+                                  (calibrationVec {p} {l} 14 || calibrationVec {p} {l} 20 ||
+                                      calibrationVec {p} {l} 24 ||
+                                    calibrationVec {p} {l} 25) ||
+                              calibrationVec {p} {l} 3 &&
+                                (calibrationVec {p} {l} 13 || calibrationVec {p} {l} 19 || calibrationVec {p} {l} 23 ||
+                                  calibrationVec {p} {l} 24) ||
+                            calibrationVec {p} {l} 4 &&
+                              (calibrationVec {p} {l} 18 || calibrationVec {p} {l} 22 || calibrationVec {p} {l} 23 ||
+                                calibrationVec {p} {l} 25) ||
+                          calibrationVec {p} {l} 5 &&
+                            (calibrationVec {p} {l} 17 || calibrationVec {p} {l} 21 || calibrationVec {p} {l} 22 ||
+                              calibrationVec {p} {l} 24) ||
+                        calibrationVec {p} {l} 6 &&
+                          (calibrationVec {p} {l} 16 || calibrationVec {p} {l} 20 || calibrationVec {p} {l} 21 ||
+                            calibrationVec {p} {l} 23) ||
+                      calibrationVec {p} {l} 7 &&
+                        (calibrationVec {p} {l} 15 || calibrationVec {p} {l} 19 || calibrationVec {p} {l} 20 ||
+                          calibrationVec {p} {l} 22) ||
+                    calibrationVec {p} {l} 8 &&
+                      (calibrationVec {p} {l} 14 || calibrationVec {p} {l} 18 || calibrationVec {p} {l} 19 ||
+                        calibrationVec {p} {l} 21) ||
+                  calibrationVec {p} {l} 9 &&
+                    (calibrationVec {p} {l} 13 || calibrationVec {p} {l} 17 || calibrationVec {p} {l} 18 ||
+                      calibrationVec {p} {l} 20) ||
+                calibrationVec {p} {l} 10 &&
+                  (calibrationVec {p} {l} 16 || calibrationVec {p} {l} 17 || calibrationVec {p} {l} 19 ||
+                    calibrationVec {p} {l} 25) ||
+              calibrationVec {p} {l} 11 &&
+                (calibrationVec {p} {l} 15 || calibrationVec {p} {l} 16 || calibrationVec {p} {l} 18 ||
+                  calibrationVec {p} {l} 24) ||
+            calibrationVec {p} {l} 12 &&
+              (calibrationVec {p} {l} 14 || calibrationVec {p} {l} 15 || calibrationVec {p} {l} 17 ||
+                calibrationVec {p} {l} 23)) =
+          true)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/verification/VerifierCalibration.lean:334:2: error: Tactic `decide` failed to reduce
+  @decide
+    ((calibrationVec ∅ (calibrationOff ∅) 0 &&
+                                  (calibrationVec ∅ (calibrationOff ∅) 13 || calibrationVec ∅ (calibrationOff ∅) 14 ||
+                                      calibrationVec ∅ (calibrationOff ∅) 16 ||
+                                    calibrationVec ∅ (calibrationOff ∅) 22) ||
+                                calibrationVec ∅ (calibrationOff ∅) 1 &&
+                                  (calibrationVec ∅ (calibrationOff ∅) 13 || calibrationVec ∅ (calibrationOff ∅) 15 ||
+                                      calibrationVec ∅ (calibrationOff ∅) 21 ||
+                                    calibrationVec ∅ (calibrationOff ∅) 25) ||
+                              calibrationVec ∅ (calibrationOff ∅) 2 &&
+                                (calibrationVec ∅ (calibrationOff ∅) 14 || calibrationVec ∅ (calibrationOff ∅) 20 ||
+                                    calibrationVec ∅ (calibrationOff ∅) 24 ||
+                                  calibrationVec ∅ (calibrationOff ∅) 25) ||
+                            calibrationVec ∅ (calibrationOff ∅) 3 &&
+                              (calibrationVec ∅ (calibrationOff ∅) 13 || calibrationVec ∅ (calibrationOff ∅) 19 ||
+                                  calibrationVec ∅ (calibrationOff ∅) 23 ||
+                                calibrationVec ∅ (calibrationOff ∅) 24) ||
+                          calibrationVec ∅ (calibrationOff ∅) 4 &&
+                            (calibrationVec ∅ (calibrationOff ∅) 18 || calibrationVec ∅ (calibrationOff ∅) 22 ||
+                                calibrationVec ∅ (calibrationOff ∅) 23 ||
+                              calibrationVec ∅ (calibrationOff ∅) 25) ||
+                        calibrationVec ∅ (calibrationOff ∅) 5 &&
+                          (calibrationVec ∅ (calibrationOff ∅) 17 || calibrationVec ∅ (calibrationOff ∅) 21 ||
+                              calibrationVec ∅ (calibrationOff ∅) 22 ||
+                            calibrationVec ∅ (calibrationOff ∅) 24) ||
+                      calibrationVec ∅ (calibrationOff ∅) 6 &&
+                        (calibrationVec ∅ (calibrationOff ∅) 16 || calibrationVec ∅ (calibrationOff ∅) 20 ||
+                            calibrationVec ∅ (calibrationOff ∅) 21 ||
+                          calibrationVec ∅ (calibrationOff ∅) 23) ||
+                    calibrationVec ∅ (calibrationOff ∅) 7 &&
+                      (calibrationVec ∅ (calibrationOff ∅) 15 || calibrationVec ∅ (calibrationOff ∅) 19 ||
+                          calibrationVec ∅ (calibrationOff ∅) 20 ||
+                        calibrationVec ∅ (calibrationOff ∅) 22) ||
+                  calibrationVec ∅ (calibrationOff ∅) 8 &&
+                    (calibrationVec ∅ (calibrationOff ∅) 14 || calibrationVec ∅ (calibrationOff ∅) 18 ||
+                        calibrationVec ∅ (calibrationOff ∅) 19 ||
+                      calibrationVec ∅ (calibrationOff ∅) 21) ||
+                calibrationVec ∅ (calibrationOff ∅) 9 &&
+                  (calibrationVec ∅ (calibrationOff ∅) 13 || calibrationVec ∅ (calibrationOff ∅) 17 ||
+                      calibrationVec ∅ (calibrationOff ∅) 18 ||
+                    calibrationVec ∅ (calibrationOff ∅) 20) ||
+              calibrationVec ∅ (calibrationOff ∅) 10 &&
+                (calibrationVec ∅ (calibrationOff ∅) 16 || calibrationVec ∅ (calibrationOff ∅) 17 ||
+                    calibrationVec ∅ (calibrationOff ∅) 19 ||
+                  calibrationVec ∅ (calibrationOff ∅) 25) ||
+            calibrationVec ∅ (calibrationOff ∅) 11 &&
+              (calibrationVec ∅ (calibrationOff ∅) 15 || calibrationVec ∅ (calibrationOff ∅) 16 ||
+                  calibrationVec ∅ (calibrationOff ∅) 18 ||
+                calibrationVec ∅ (calibrationOff ∅) 24) ||
+          calibrationVec ∅ (calibrationOff ∅) 12 &&
+            (calibrationVec ∅ (calibrationOff ∅) 14 || calibrationVec ∅ (calibrationOff ∅) 15 ||
+                calibrationVec ∅ (calibrationOff ∅) 17 ||
+              calibrationVec ∅ (calibrationOff ∅) 23)) =
+        false ∧
+      (calibrationVec (calibrationOff ∅) ∅ 0 &&
+                                  (calibrationVec (calibrationOff ∅) ∅ 13 || calibrationVec (calibrationOff ∅) ∅ 14 ||
+                                      calibrationVec (calibrationOff ∅) ∅ 16 ||
+                                    calibrationVec (calibrationOff ∅) ∅ 22) ||
+                                calibrationVec (calibrationOff ∅) ∅ 1 &&
+                                  (calibrationVec (calibrationOff ∅) ∅ 13 || calibrationVec (calibrationOff ∅) ∅ 15 ||
+                                      calibrationVec (calibrationOff ∅) ∅ 21 ||
+                                    calibrationVec (calibrationOff ∅) ∅ 25) ||
+                              calibrationVec (calibrationOff ∅) ∅ 2 &&
+                                (calibrationVec (calibrationOff ∅) ∅ 14 || calibrationVec (calibrationOff ∅) ∅ 20 ||
+                                    calibrationVec (calibrationOff ∅) ∅ 24 ||
+                                  calibrationVec (calibrationOff ∅) ∅ 25) ||
+                            calibrationVec (calibrationOff ∅) ∅ 3 &&
+                              (calibrationVec (calibrationOff ∅) ∅ 13 || calibrationVec (calibrationOff ∅) ∅ 19 ||
+                                  calibrationVec (calibrationOff ∅) ∅ 23 ||
+                                calibrationVec (calibrationOff ∅) ∅ 24) ||
+                          calibrationVec (calibrationOff ∅) ∅ 4 &&
+                            (calibrationVec (calibrationOff ∅) ∅ 18 || calibrationVec (calibrationOff ∅) ∅ 22 ||
+                                calibrationVec (calibrationOff ∅) ∅ 23 ||
+                              calibrationVec (calibrationOff ∅) ∅ 25) ||
+                        calibrationVec (calibrationOff ∅) ∅ 5 &&
+                          (calibrationVec (calibrationOff ∅) ∅ 17 || calibrationVec (calibrationOff ∅) ∅ 21 ||
+                              calibrationVec (calibrationOff ∅) ∅ 22 ||
+                            calibrationVec (calibrationOff ∅) ∅ 24) ||
+                      calibrationVec (calibrationOff ∅) ∅ 6 &&
+                        (calibrationVec (calibrationOff ∅) ∅ 16 || calibrationVec (calibrationOff ∅) ∅ 20 ||
+                            calibrationVec (calibrationOff ∅) ∅ 21 ||
+                          calibrationVec (calibrationOff ∅) ∅ 23) ||
+                    calibrationVec (calibrationOff ∅) ∅ 7 &&
+                      (calibrationVec (calibrationOff ∅) ∅ 15 || calibrationVec (calibrationOff ∅) ∅ 19 ||
+                          calibrationVec (calibrationOff ∅) ∅ 20 ||
+                        calibrationVec (calibrationOff ∅) ∅ 22) ||
+                  calibrationVec (calibrationOff ∅) ∅ 8 &&
+                    (calibrationVec (calibrationOff ∅) ∅ 14 || calibrationVec (calibrationOff ∅) ∅ 18 ||
+                        calibrationVec (calibrationOff ∅) ∅ 19 ||
+                      calibrationVec (calibrationOff ∅) ∅ 21) ||
+                calibrationVec (calibrationOff ∅) ∅ 9 &&
+                  (calibrationVec (calibrationOff ∅) ∅ 13 || calibrationVec (calibrationOff ∅) ∅ 17 ||
+                      calibrationVec (calibrationOff ∅) ∅ 18 ||
+                    calibrationVec (calibrationOff ∅) ∅ 20) ||
+              calibrationVec (calibrationOff ∅) ∅ 10 &&
+                (calibrationVec (calibrationOff ∅) ∅ 16 || calibrationVec (calibrationOff ∅) ∅ 17 ||
+                    calibrationVec (calibrationOff ∅) ∅ 19 ||
+                  calibrationVec (calibrationOff ∅) ∅ 25) ||
+            calibrationVec (calibrationOff ∅) ∅ 11 &&
+              (calibrationVec (calibrationOff ∅) ∅ 15 || calibrationVec (calibrationOff ∅) ∅ 16 ||
+                  calibrationVec (calibrationOff ∅) ∅ 18 ||
+                calibrationVec (calibrationOff ∅) ∅ 24) ||
+          calibrationVec (calibrationOff ∅) ∅ 12 &&
+            (calibrationVec (calibrationOff ∅) ∅ 14 || calibrationVec (calibrationOff ∅) ∅ 15 ||
+                calibrationVec (calibrationOff ∅) ∅ 17 ||
+              calibrationVec (calibrationOff ∅) ∅ 23)) =
+        false)
+    instDecidableAnd
+to `true` or `false`.
+
+Reduction got stuck at
+  ⋯ ▸
+    (Quot.lift
+        (Quot.indep fun a =>
+          (fun l => { decide := decide (List.elem (Fin.ofNat 13 ↑0) l = true), reflects_decide := ⋯ }) a)
+        ⋯ (calibrationOff ∅).val).snd
+
+Hint: Reduction got stuck on `▸` (Eq.rec), which suggests that one of the `Decidable` instances is defined using tactics such as `rw` or `simp`. To avoid tactics, make use of functions such as `«inferInstanceAs»` or `decidable_of_decidable_of_iff` to alter a proposition.
+/workspace/pequalnp-proofs/results/orch/lemmas/verification/VerifierCalibration.lean:340:2: error: Tactic `decide` failed to reduce
+  @decide
+    (∀ (p : Fin 13),
+      (calibrationVec {p} (calibrationOff {p}) 0 &&
+                                    (calibrationVec {p} (calibrationOff {p}) 13 ||
+                                          calibrationVec {p} (calibrationOff {p}) 14 ||
+                                        calibrationVec {p} (calibrationOff {p}) 16 ||
+                                      calibrationVec {p} (calibrationOff {p}) 22) ||
+                                  calibrationVec {p} (calibrationOff {p}) 1 &&
+                                    (calibrationVec {p} (calibrationOff {p}) 13 ||
+                                          calibrationVec {p} (calibrationOff {p}) 15 ||
+                                        calibrationVec {p} (calibrationOff {p}) 21 ||
+                                      calibrationVec {p} (calibrationOff {p}) 25) ||
+                                calibrationVec {p} (calibrationOff {p}) 2 &&
+                                  (calibrationVec {p} (calibrationOff {p}) 14 ||
+                                        calibrationVec {p} (calibrationOff {p}) 20 ||
+                                      calibrationVec {p} (calibrationOff {p}) 24 ||
+                                    calibrationVec {p} (calibrationOff {p}) 25) ||
+                              calibrationVec {p} (calibrationOff {p}) 3 &&
+                                (calibrationVec {p} (calibrationOff {p}) 13 ||
+                                      calibrationVec {p} (calibrationOff {p}) 19 ||
+                                    calibrationVec {p} (calibrationOff {p}) 23 ||
+                                  calibrationVec {p} (calibrationOff {p}) 24) ||
+                            calibrationVec {p} (calibrationOff {p}) 4 &&
+                              (calibrationVec {p} (calibrationOff {p}) 18 ||
+                                    calibrationVec {p} (calibrationOff {p}) 22 ||
+                                  calibrationVec {p} (calibrationOff {p}) 23 ||
+                                calibrationVec {p} (calibrationOff {p}) 25) ||
+                          calibrationVec {p} (calibrationOff {p}) 5 &&
+                            (calibrationVec {p} (calibrationOff {p}) 17 || calibrationVec {p} (calibrationOff {p}) 21 ||
+                                calibrationVec {p} (calibrationOff {p}) 22 ||
+                              calibrationVec {p} (calibrationOff {p}) 24) ||
+                        calibrationVec {p} (calibrationOff {p}) 6 &&
+                          (calibrationVec {p} (calibrationOff {p}) 16 || calibrationVec {p} (calibrationOff {p}) 20 ||
+                              calibrationVec {p} (calibrationOff {p}) 21 ||
+                            calibrationVec {p} (calibrationOff {p}) 23) ||
+                      calibrationVec {p} (calibrationOff {p}) 7 &&
+                        (calibrationVec {p} (calibrationOff {p}) 15 || calibrationVec {p} (calibrationOff {p}) 19 ||
+                            calibrationVec {p} (calibrationOff {p}) 20 ||
+                          calibrationVec {p} (calibrationOff {p}) 22) ||
+                    calibrationVec {p} (calibrationOff {p}) 8 &&
+                      (calibrationVec {p} (calibrationOff {p}) 14 || calibrationVec {p} (calibrationOff {p}) 18 ||
+                          calibrationVec {p} (calibrationOff {p}) 19 ||
+                        calibrationVec {p} (calibrationOff {p}) 21) ||
+                  calibrationVec {p} (calibrationOff {p}) 9 &&
+                    (calibrationVec {p} (calibrationOff {p}) 13 || calibrationVec {p} (calibrationOff {p}) 17 ||
+                        calibrationVec {p} (calibrationOff {p}) 18 ||
+                      calibrationVec {p} (calibrationOff {p}) 20) ||
+                calibrationVec {p} (calibrationOff {p}) 10 &&
+                  (calibrationVec {p} (calibrationOff {p}) 16 || calibrationVec {p} (calibrationOff {p}) 17 ||
+                      calibrationVec {p} (calibrationOff {p}) 19 ||
+                    calibrationVec {p} (calibrationOff {p}) 25) ||
+              calibrationVec {p} (calibrationOff {p}) 11 &&
+                (calibrationVec {p} (calibrationOff {p}) 15 || calibrationVec {p} (calibrationOff {p}) 16 ||
+                    calibrationVec {p} (calibrationOff {p}) 18 ||
+                  calibrationVec {p} (calibrationOff {p}) 24) ||
+            calibrationVec {p} (calibrationOff {p}) 12 &&
+              (calibrationVec {p} (calibrationOff {p}) 14 || calibrationVec {p} (calibrationOff {p}) 15 ||
+                  calibrationVec {p} (calibrationOff {p}) 17 ||
+                calibrationVec {p} (calibrationOff {p}) 23)) =
+          false ∧
+        (calibrationVec (calibrationOff {p}) {p} 0 &&
+                                    (calibrationVec (calibrationOff {p}) {p} 13 ||
+                                          calibrationVec (calibrationOff {p}) {p} 14 ||
+                                        calibrationVec (calibrationOff {p}) {p} 16 ||
+                                      calibrationVec (calibrationOff {p}) {p} 22) ||
+                                  calibrationVec (calibrationOff {p}) {p} 1 &&
+                                    (calibrationVec (calibrationOff {p}) {p} 13 ||
+                                          calibrationVec (calibrationOff {p}) {p} 15 ||
+                                        calibrationVec (calibrationOff {p}) {p} 21 ||
+                                      calibrationVec (calibrationOff {p}) {p} 25) ||
+                                calibrationVec (calibrationOff {p}) {p} 2 &&
+                                  (calibrationVec (calibrationOff {p}) {p} 14 ||
+                                        calibrationVec (calibrationOff {p}) {p} 20 ||
+                                      calibrationVec (calibrationOff {p}) {p} 24 ||
+                                    calibrationVec (calibrationOff {p}) {p} 25) ||
+                              calibrationVec (calibrationOff {p}) {p} 3 &&
+                                (calibrationVec (calibrationOff {p}) {p} 13 ||
+                                      calibrationVec (calibrationOff {p}) {p} 19 ||
+                                    calibrationVec (calibrationOff {p}) {p} 23 ||
+                                  calibrationVec (calibrationOff {p}) {p} 24) ||
+                            calibrationVec (calibrationOff {p}) {p} 4 &&
+                              (calibrationVec (calibrationOff {p}) {p} 18 ||
+                                    calibrationVec (calibrationOff {p}) {p} 22 ||
+                                  calibrationVec (calibrationOff {p}) {p} 23 ||
+                                calibrationVec (calibrationOff {p}) {p} 25) ||
+                          calibrationVec (calibrationOff {p}) {p} 5 &&
+                            (calibrationVec (calibrationOff {p}) {p} 17 || calibrationVec (calibrationOff {p}) {p} 21 ||
+                                calibrationVec (calibrationOff {p}) {p} 22 ||
+                              calibrationVec (calibrationOff {p}) {p} 24) ||
+                        calibrationVec (calibrationOff {p}) {p} 6 &&
+                          (calibrationVec (calibrationOff {p}) {p} 16 || calibrationVec (calibrationOff {p}) {p} 20 ||
+                              calibrationVec (calibrationOff {p}) {p} 21 ||
+                            calibrationVec (calibrationOff {p}) {p} 23) ||
+                      calibrationVec (calibrationOff {p}) {p} 7 &&
+                        (calibrationVec (calibrationOff {p}) {p} 15 || calibrationVec (calibrationOff {p}) {p} 19 ||
+                            calibrationVec (calibrationOff {p}) {p} 20 ||
+                          calibrationVec (calibrationOff {p}) {p} 22) ||
+                    calibrationVec (calibrationOff {p}) {p} 8 &&
+                      (calibrationVec (calibrationOff {p}) {p} 14 || calibrationVec (calibrationOff {p}) {p} 18 ||
+                          calibrationVec (calibrationOff {p}) {p} 19 ||
+                        calibrationVec (calibrationOff {p}) {p} 21) ||
+                  calibrationVec (calibrationOff {p}) {p} 9 &&
+                    (calibrationVec (calibrationOff {p}) {p} 13 || calibrationVec (calibrationOff {p}) {p} 17 ||
+                        calibrationVec (calibrationOff {p}) {p} 18 ||
+                      calibrationVec (calibrationOff {p}) {p} 20) ||
+                calibrationVec (calibrationOff {p}) {p} 10 &&
+                  (calibrationVec (calibrationOff {p}) {p} 16 || calibrationVec (calibrationOff {p}) {p} 17 ||
+                      calibrationVec (calibrationOff {p}) {p} 19 ||
+                    calibrationVec (calibrationOff {p}) {p} 25) ||
+              calibrationVec (calibrationOff {p}) {p} 11 &&
+                (calibrationVec (calibrationOff {p}) {p} 15 || calibrationVec (calibrationOff {p}) {p} 16 ||
+                    calibrationVec (calibrationOff {p}) {p} 18 ||
+                  calibrationVec (calibrationOff {p}) {p} 24) ||
+            calibrationVec (calibrationOff {p}) {p} 12 &&
+              (calibrationVec (calibrationOff {p}) {p} 14 || calibrationVec (calibrationOff {p}) {p} 15 ||
+                  calibrationVec (calibrationOff {p}) {p} 17 ||
+                calibrationVec (calibrationOff {p}) {p} 23)) =
+          false)
+    (Nat.decidableForallFin fun p =>
+      (calibrationVec {p} (calibrationOff {p}) 0 &&
+                                    (calibrationVec {p} (calibrationOff {p}) 13 ||
+                                          calibrationVec {p} (calibrationOff {p}) 14 ||
+                                        calibrationVec {p} (calibrationOff {p}) 16 ||
+                                      calibrationVec {p} (calibrationOff {p}) 22) ||
+                                  calibrationVec {p} (calibrationOff {p}) 1 &&
+                                    (calibrationVec {p} (calibrationOff {p}) 13 ||
+                                          calibrationVec {p} (calibrationOff {p}) 15 ||
+                                        calibrationVec {p} (calibrationOff {p}) 21 ||
+                                      calibrationVec {p} (calibrationOff {p}) 25) ||
+                                calibrationVec {p} (calibrationOff {p}) 2 &&
+                                  (calibrationVec {p} (calibrationOff {p}) 14 ||
+                                        calibrationVec {p} (calibrationOff {p}) 20 ||
+                                      calibrationVec {p} (calibrationOff {p}) 24 ||
+                                    calibrationVec {p} (calibrationOff {p}) 25) ||
+                              calibrationVec {p} (calibrationOff {p}) 3 &&
+                                (calibrationVec {p} (calibrationOff {p}) 13 ||
+                                      calibrationVec {p} (calibrationOff {p}) 19 ||
+                                    calibrationVec {p} (calibrationOff {p}) 23 ||
+                                  calibrationVec {p} (calibrationOff {p}) 24) ||
+                            calibrationVec {p} (calibrationOff {p}) 4 &&
+                              (calibrationVec {p} (calibrationOff {p}) 18 ||
+                                    calibrationVec {p} (calibrationOff {p}) 22 ||
+                                  calibrationVec {p} (calibrationOff {p}) 23 ||
+                                calibrationVec {p} (calibrationOff {p}) 25) ||
+                          calibrationVec {p} (calibrationOff {p}) 5 &&
+                            (calibrationVec {p} (calibrationOff {p}) 17 || calibrationVec {p} (calibrationOff {p}) 21 ||
+                                calibrationVec {p} (calibrationOff {p}) 22 ||
+                              calibrationVec {p} (calibrationOff {p}) 24) ||
+                        calibrationVec {p} (calibrationOff {p}) 6 &&
+                          (calibrationVec {p} (calibrationOff {p}) 16 || calibrationVec {p} (calibrationOff {p}) 20 ||
+                              calibrationVec {p} (calibrationOff {p}) 21 ||
+                            calibrationVec {p} (calibrationOff {p}) 23) ||
+                      calibrationVec {p} (calibrationOff {p}) 7 &&
+                        (calibrationVec {p} (calibrationOff {p}) 15 || calibrationVec {p} (calibrationOff {p}) 19 ||
+                            calibrationVec {p} (calibrationOff {p}) 20 ||
+                          calibrationVec {p} (calibrationOff {p}) 22) ||
+                    calibrationVec {p} (calibrationOff {p}) 8 &&
+                      (calibrationVec {p} (calibrationOff {p}) 14 || calibrationVec {p} (calibrationOff {p}) 18 ||
+                          calibrationVec {p} (calibrationOff {p}) 19 ||
+                        calibrationVec {p} (calibrationOff {p}) 21) ||
+                  calibrationVec {p} (calibrationOff {p}) 9 &&
+                    (calibrationVec {p} (calibrationOff {p}) 13 || calibrationVec {p} (calibrationOff {p}) 17 ||
+                        calibrationVec {p} (calibrationOff {p}) 18 ||
+                      calibrationVec {p} (calibrationOff {p}) 20) ||
+                calibrationVec {p} (calibrationOff {p}) 10 &&
+                  (calibrationVec {p} (calibrationOff {p}) 16 || calibrationVec {p} (calibrationOff {p}) 17 ||
+                      calibrationVec {p} (calibrationOff {p}) 19 ||
+                    calibrationVec {p} (calibrationOff {p}) 25) ||
+              calibrationVec {p} (calibrationOff {p}) 11 &&
+                (calibrationVec {p} (calibrationOff {p}) 15 || calibrationVec {p} (calibrationOff {p}) 16 ||
+                    calibrationVec {p} (calibrationOff {p}) 18 ||
+                  calibrationVec {p} (calibrationOff {p}) 24) ||
+            calibrationVec {p} (calibrationOff {p}) 12 &&
+              (calibrationVec {p} (calibrationOff {p}) 14 || calibrationVec {p} (calibrationOff {p}) 15 ||
+                  calibrationVec {p} (calibrationOff {p}) 17 ||
+                calibrationVec {p} (calibrationOff {p}) 23)) =
+          false ∧
+        (calibrationVec (calibrationOff {p}) {p} 0 &&
+                                    (calibrationVec (calibrationOff {p}) {p} 13 ||
+                                          calibrationVec (calibrationOff {p}) {p} 14 ||
+                                        calibrationVec (calibrationOff {p}) {p} 16 ||
+                                      calibrationVec (calibrationOff {p}) {p} 22) ||
+                                  calibrationVec (calibrationOff {p}) {p} 1 &&
+                                    (calibrationVec (calibrationOff {p}) {p} 13 ||
+                                          calibrationVec (calibrationOff {p}) {p} 15 ||
+                                        calibrationVec (calibrationOff {p}) {p} 21 ||
+                                      calibrationVec (calibrationOff {p}) {p} 25) ||
+                                calibrationVec (calibrationOff {p}) {p} 2 &&
+                                  (calibrationVec (calibrationOff {p}) {p} 14 ||
+                                        calibrationVec (calibrationOff {p}) {p} 20 ||
+                                      calibrationVec (calibrationOff {p}) {p} 24 ||
+                                    calibrationVec (calibrationOff {p}) {p} 25) ||
+                              calibrationVec (calibrationOff {p}) {p} 3 &&
+                                (calibrationVec (calibrationOff {p}) {p} 13 ||
+                                      calibrationVec (calibrationOff {p}) {p} 19 ||
+                                    calibrationVec (calibrationOff {p}) {p} 23 ||
+                                  calibrationVec (calibrationOff {p}) {p} 24) ||
+                            calibrationVec (calibrationOff {p}) {p} 4 &&
+                              (calibrationVec (calibrationOff {p}) {p} 18 ||
+                                    calibrationVec (calibrationOff {p}) {p} 22 ||
+                                  calibrationVec (calibrationOff {p}) {p} 23 ||
+                                calibrationVec (calibrationOff {p}) {p} 25) ||
+                          calibrationVec (calibrationOff {p}) {p} 5 &&
+                            (calibrationVec (calibrationOff {p}) {p} 17 || calibrationVec (calibrationOff {p}) {p} 21 ||
+                                calibrationVec (calibrationOff {p}) {p} 22 ||
+                              calibrationVec (calibrationOff {p}) {p} 24) ||
+                        calibrationVec (calibrationOff {p}) {p} 6 &&
+                          (calibrationVec (calibrationOff {p}) {p} 16 || calibrationVec (calibrationOff {p}) {p} 20 ||
+                              calibrationVec (calibrationOff {p}) {p} 21 ||
+                            calibrationVec (calibrationOff {p}) {p} 23) ||
+                      calibrationVec (calibrationOff {p}) {p} 7 &&
+                        (calibrationVec (calibrationOff {p}) {p} 15 || calibrationVec (calibrationOff {p}) {p} 19 ||
+                            calibrationVec (calibrationOff {p}) {p} 20 ||
+                          calibrationVec (calibrationOff {p}) {p} 22) ||
+                    calibrationVec (calibrationOff {p}) {p} 8 &&
+                      (calibrationVec (calibrationOff {p}) {p} 14 || calibrationVec (calibrationOff {p}) {p} 18 ||
+                          calibrationVec (calibrationOff {p}) {p} 19 ||
+                        calibrationVec (calibrationOff {p}) {p} 21) ||
+                  calibrationVec (calibrationOff {p}) {p} 9 &&
+                    (calibrationVec (calibrationOff {p}) {p} 13 || calibrationVec (calibrationOff {p}) {p} 17 ||
+                        calibrationVec (calibrationOff {p}) {p} 18 ||
+                      calibrationVec (calibrationOff {p}) {p} 20) ||
+                calibrationVec (calibrationOff {p}) {p} 10 &&
+                  (calibrationVec (calibrationOff {p}) {p} 16 || calibrationVec (calibrationOff {p}) {p} 17 ||
+                      calibrationVec (calibrationOff {p}) {p} 19 ||
+                    calibrationVec (calibrationOff {p}) {p} 25) ||
+              calibrationVec (calibrationOff {p}) {p} 11 &&
+                (calibrationVec (calibrationOff {p}) {p} 15 || calibrationVec (calibrationOff {p}) {p} 16 ||
+                    calibrationVec (calibrationOff {p}) {p} 18 ||
+                  calibrationVec (calibrationOff {p}) {p} 24) ||
+            calibrationVec (calibrationOff {p}) {p} 12 &&
+              (calibrationVec (calibrationOff {p}) {p} 14 || calibrationVec (calibrationOff {p}) {p} 15 ||
+                  calibrationVec (calibrationOff {p}) {p} 17 ||
+                calibrationVec (calibrationOff {p}) {p} 23)) =
+          false)
+to `true` or `false`.
+
+Reduction got stuck at
+  ⋯ ▸
+    (Quot.lift
+        (Quot.indep fun a =>
+          (fun l => { decide := decide (List.elem (Fin.ofNat 13 ↑13) l = true), reflects_decide := ⋯ }) a)
+        ⋯ (calibrationOff {⟨0, ⋯⟩}).val).snd
+
+Hint: Reduction got stuck on `▸` (Eq.rec), which suggests that one of the `Decidable` instances is defined using tactics such as `rw` or `simp`. To avoid tactics, make use of functions such as `«inferInstanceAs»` or `decidable_of_decidable_of_iff` to alter a proposition.
