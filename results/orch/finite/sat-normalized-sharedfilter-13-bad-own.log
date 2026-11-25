@@ -1,0 +1,7 @@
+{"automorphisms": 8, "first_pair_representatives": [[0, 1], [0, 2], [0, 4], [1, 4], [4, 5], [4, 6]]}
+{"graph": "sharedfilter", "n": 8, "edges": [[0, 1], [0, 4], [0, 6], [1, 5], [1, 7], [2, 3], [2, 4], [2, 7], [3, 5], [3, 6]], "tau": 4, "cover_upper": 13, "samples": 19, "max_independent_sets": 9, "gates": 13, "require_bad_own": true, "require_singleton_and": false, "ordered": true, "distinct_prefix": true, "pair_orbits": true, "build_seconds": 0.12913942337036133}
+{
+  "result": "unknown",
+  "seconds": 180.2464838027954,
+  "reason_unknown": "timeout"
+}

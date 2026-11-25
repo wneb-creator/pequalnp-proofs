@@ -1,0 +1,27 @@
+{"depth": 1, "states": 13, "found": 7, "targets": 64, "elapsed": 0.0001010894775390625}
+{"depth": 2, "states": 126, "found": 19, "targets": 64, "elapsed": 0.0009107589721679688}
+{"depth": 3, "states": 1102, "found": 29, "targets": 64, "elapsed": 0.007977008819580078}
+{"depth": 4, "states": 9279, "found": 45, "targets": 64, "elapsed": 0.06546831130981445}
+{"depth": 5, "states": 78165, "found": 63, "targets": 64, "elapsed": 0.8385426998138428}
+{"depth": 6, "states": 665812, "found": 63, "targets": 64, "elapsed": 8.167317867279053}
+{"seventh_gate_remaining": 0, "elapsed": 10.50795841217041}
+{
+  "bad_minimum": []
+}
+{
+  "n": 4,
+  "all_found": true,
+  "targets": 64,
+  "sizes": {
+    "0": 1,
+    "1": 6,
+    "2": 12,
+    "3": 10,
+    "4": 16,
+    "5": 18,
+    "7": 1
+  },
+  "constant_witnesses": 0,
+  "and_singleton_witnesses": 0,
+  "bad_stored_witnesses": []
+}

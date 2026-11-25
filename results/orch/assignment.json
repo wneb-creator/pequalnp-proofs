@@ -1,0 +1,22 @@
+{
+  "id": "L-meta-1772",
+  "title": "A step toward: On graphs with no triangle and no 4-cycle, some least AND/OR circuit of fan-in two for the edge function has every AND gate owning a star of edges (step 1 of 2)",
+  "statement": "∀ (x1 : ℕ) (x2 : SimpleGraph (Fin x1)) [x3 : DecidableRel x2.Adj], (∀ (x4 x5 x6 : Fin x1), x2.Adj x4 x5 → x2.Adj x5 x6 → ¬x2.Adj x6 x4) → PEqualNP.TopForm.NoFourCycle x2 → ∃ (x6 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.IsMinimalMonoCircuit x1 x6 ∧ PEqualNP.MetaComplexity.circuitFun x1 x6 = PEqualNP.MetaComplexity.NestedCover.graphFun x2 ∅ ∧ ∀ x7 < x6.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt x6 x7).op = PEqualNP.CircuitLowerBounds.GateOp.and → ∃ (x10 : Fin x1) (x11 : Fin x1), x2.Adj x10 x11 ∧ PEqualNP.EdgeOwnership.Owns x1 x6 x7 x10 x11",
+  "file": "lean/PEqualNP/Outside/L_meta_1772.lean",
+  "module": "PEqualNP.Outside.L_meta_1772",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "unlocks": "With its 1 sibling(s) it proves a posted step.",
+  "context": "A hypothesis of a checked reduction, as Lean printed it.",
+  "dead": [],
+  "weight": 5,
+  "parallel": 6,
+  "lane": "main",
+  "depth": 1,
+  "reductions": true,
+  "reductions_live": 3,
+  "sketch": "Step 1 of 2 of a checked cut of L-meta-1031. Its sibling steps: L-meta-1774. Together they give the parent; the parent's own sketch: no proof is expected here: propose a reduction (a cut into smaller statements that together give this one). exhaust the least circuits of small graphs with no triangle and no 4-cycle and test ownership; then an exchange argument moving an AND gate's owned edges to one vertex without growing the circuit. Computed on small graphs, not checked. Namespace: PEqualNP.MetaComplexity. No sorry, no new axiom. Own namespace for every declaration..",
+  "pr_open": 0,
+  "pr_numbers": []
+}

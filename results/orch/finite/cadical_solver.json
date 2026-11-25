@@ -1,0 +1,38 @@
+{
+  "solver": "CaDiCaL",
+  "version": "3.1.0",
+  "source": "https://github.com/arminbiere/cadical/archive/refs/tags/rel-3.1.0.tar.gz",
+  "source_sha256": "187fb83106e8d7964f1d409ebf056f3853105c2a8ec32427472eff734c9ccb01",
+  "build": "./configure && make -j2",
+  "limits": "-t uses wall-clock seconds",
+  "cnf_conversion": [
+    "simplify",
+    "propagate-values",
+    "solve-eqs",
+    "bit-blast",
+    "tseitin-cnf"
+  ],
+  "certification": "computational only; no kernel certificate generated",
+  "instances": {
+    "path4-3": {
+      "bytes": 29094,
+      "sha256": "529e79d62fd2dff4dd8906fba889020512e7810b40063b06aa4147ec83b6cf85",
+      "header": "p cnf 255 1822"
+    },
+    "path4-4": {
+      "bytes": 43164,
+      "sha256": "222cea7188d0d96c02ab67b1cb4f6777bfb3e8e0a1cdd2330714ba41ce606c8e",
+      "header": "p cnf 368 2590"
+    },
+    "theta233-10": {
+      "bytes": 557209,
+      "sha256": "1fd59914ff54e88147ec4b4f4a796a92ec2f56fc539d1794fb7854a733210c47",
+      "header": "p cnf 2639 25424"
+    },
+    "augmented12-18": {
+      "bytes": 4405805,
+      "sha256": "d34e801d98b1c804a22c986a7b44b31f4837c069fd894b3b9b2d3a40e0911b96",
+      "header": "p cnf 13266 144204"
+    }
+  }
+}

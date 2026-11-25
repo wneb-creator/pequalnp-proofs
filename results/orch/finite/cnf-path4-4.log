@@ -1,0 +1,3 @@
+{"automorphisms": 2, "first_pair_representatives": [[0, 1], [0, 2], [0, 3], [1, 2]]}
+{"graph": "path4", "n": 4, "edges": [[0, 1], [1, 2], [2, 3]], "tau": 2, "cover_upper": 4, "samples": 6, "max_independent_sets": 3, "gates": 4, "require_bad_own": false, "require_singleton_and": false, "ordered": true, "distinct_prefix": true, "pair_orbits": true, "build_seconds": 0.015669822692871094}
+{"dimacs": "/tmp/oec/pequalnp-pilot-77/path4-4.cnf", "bytes": 43164, "export_seconds": 0.03286027908325195}

@@ -32,3 +32,5 @@
 - 2026-11-25T09:20:42.740404+00:00: factor adapter and augmented data checkpoint reviewed; lease latest expiry09:39:38UTC.
 
 - 2026-11-25T09:22:37.790668+00:00: protected edge/product patches and four-corner semantic patch independently reviewed; partial preservation continues.
+
+- 2026-11-25T09:30:45.562737+00:00: batch12 pushed b1bed96ffef94f013f4ffbfcf8f0fa4496c752f9; reviewed statement/finite archive and hybrid/girth checkpoints preserved.

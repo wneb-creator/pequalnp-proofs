@@ -50,3 +50,11 @@ In a minimum circuit the first gate combines two distinct input vertices. Among 
 ## Limits of property-constrained conclusions
 
 Signature pruning and first-pair restrictions are justified for globally minimum circuits. A SAT model with a non-owning AND is not a refutation of the target, which asks for the existence of a good minimum circuit. A property-constrained UNSAT result at a size not established as minimum does not claim that all arbitrary circuits of that size satisfy the property. Search timeouts remain unresolved.
+
+## Alternate SAT engine
+
+`sat_external.py` accepts graph data from `--graph-json`, using the same normalized encoding. `sat_cadical.py` additionally exports its assertions to DIMACS through Z3's simplify, propagate-values, solve-eqs, bit-blast and Tseitin-CNF tactics. `cadical_solver.json` records the CaDiCaL release, source digest, conversion pipeline and exact CNF digests. The CNF files themselves remain in scratch and can be regenerated with `--dimacs`.
+
+For example, append `--dimacs <file.cnf>` to a normalized query, then run `cadical -t 300 <file.cnf>`. Exit 10 means SAT, 20 means UNSAT, and an interrupted/limited run is unresolved. Complete solver logs are retained. No DRAT or Lean certificate has been generated.
+
+For a SAT result, rerun the same query with both `--dimacs <file.cnf>` and `--cadical-output <solver.log>`. The recovery code first requires the regenerated CNF bytes to be identical. It verifies every DIMACS clause under the printed assignment, constructs the Boolean model using the actual auxiliary declarations, converts it through the tactic model converter, and checks every original constraint. It then runs the same full Boolean truth-table and ownership checks as the direct solver. This recovery path was validated on the four-gate path circuit.
