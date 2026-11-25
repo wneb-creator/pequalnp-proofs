@@ -38,3 +38,7 @@ Checked partial snapshot 5:
 semantic-least-active.lean: lake env lean exit 0; SHA256 a3a3d827117bc716484b886976bfd288850cdaafb8e33697aa1ec27531d98701
 library-topform.lean: lake env lean exit 0; SHA256 2de4d927600579aeaa3d45ed330251b31e58350681ead64c39ff68f1eacbbc5c
 structural-negative-rectangle.lean: lake env lean exit 0; SHA256 15712b10d7199ef169115a5ee05cfd777563c7a5770791b02ee60a6485955ce9
+
+Checked partial snapshot 6:
+library-topform-final.lean: lake env lean exit 0; SHA256 7b718ffc337811be0a17781273292887d89d085dd895046627f62326baf1107a
+structural-top-rectangle.lean: lake env lean exit 0; SHA256 4409044f715e9bfff13b5ae65f126c3b3cf80e271f253cbcb1c610000d2c224b
