@@ -6688,4 +6688,530 @@ lemma independent_semimixed_impossible {n : ℕ} (G : SimpleGraph (Fin n)) [Deci
 
 end CompleteRestricted
 
+namespace BothMono
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+open CriticalEdge MixedFrontier MixedReach MixedCut
+
+lemma both_mono_not_or_output {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hfun : circuitFun n C = graphFun G ∅) (j : ℕ)
+    (hboth : ∀ c : Bool, gateVal n C j (mono s c) = true) :
+    ¬ OrReaches n C C.output j := by
+  intro hr
+  have hv := reach_up n C (mono s false) C.output j hr (hboth false)
+  change circuitFun n C (mono s false) = true at hv
+  rw [hfun, graphFun_mono_false G s hbip false] at hv
+  cases hv
+
+lemma both_mono_frontier_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hAO : IsAO2 n C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (j : ℕ) (hboth : ∀ c : Bool, gateVal n C j (mono s c) = true)
+    (a : ℕ) (ha : a < C.gates.length) (hop : (gateAt C a).op = GateOp.and)
+    (b : Fin 2) (hr : OrReaches n C (opnd C a b) j) : a ∈ junk G C := by
+  obtain ⟨c, hc⟩ := operand_mono_activity G C s hAO hT hJ a ha hop (1 - b)
+  have hb := reach_up n C (mono s c) _ j hr (hboth c)
+  have hv : W n C (mono s c) (n + a) = true := by
+    apply W_and n C (mono s c) a ha hop
+    intro z hz
+    obtain ⟨_, hin, h0, h1, _⟩ := gate2 hAO ha
+    rw [hin] at hz
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hz
+    have hall : ∀ d : Fin 2, W n C (mono s c) (opnd C a d) = true := by
+      intro d
+      have hd : d = b ∨ d = 1 - b := by fin_cases b <;> fin_cases d <;> simp
+      rcases hd with rfl | rfl <;> assumption
+    rcases hz with rfl | rfl
+    · exact ⟨h0, hall 0⟩
+    · exact ⟨h1, hall 1⟩
+  exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr ha, hop, ha, mono s c, hv,
+    graphFun_mono_false G s hbip c⟩
+
+lemma junk_empty_of_all_both_mono {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hboth : ∀ j ∈ junk G C, ∀ c : Bool, gateVal n C j (mono s c) = true) :
+    junk G C = ∅ := by
+  classical
+  by_contra hne
+  have hne := Finset.nonempty_iff_ne_empty.mpr hne
+  let j := (junk G C).max' hne
+  have hj : j ∈ junk G C := Finset.max'_mem _ hne
+  have hjlt := (junk_data G C j hj).1
+  have hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true :=
+    fun k hk => ⟨false, hboth k hk false⟩
+  obtain ⟨a, ha, hop, b, hr⟩ := and_frontier_of_live C hL.1
+    (fun k hk hn => least_has_reader G C hL k hk hn) j hjlt
+    (both_mono_not_or_output G C s hbip hL.2.1 j (hboth j hj))
+  have haj := both_mono_frontier_junk G C s hbip hL.1 hT hJ j (hboth j hj) a ha hop b hr
+  have hread := operand_mem C hL.1 a ha b
+  have hcone := reach_cone n C a ha _ hread (hL.1.2.1 a ha _ hread) j hr
+  have hlt := inCone_lt n C a j hcone
+  have hmax := Finset.le_max' (junk G C) a haj
+  change a ≤ j at hmax
+  omega
+
+lemma and_both_mono_of_mixed_sides {n : ℕ} (C : Circuit) (s : Fin n → Bool)
+    (hAO : IsAO2 n C) (j : ℕ) (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = GateOp.and)
+    (hmix : ∀ b : Fin 2, ∀ c : Bool, ∃ i ∈ side (n := n) C j b, s i = c) :
+    ∀ c : Bool, gateVal n C j (mono s c) = true := by
+  intro c
+  have hv : ∀ b : Fin 2, W n C (mono s c) (opnd C j b) = true := by
+    intro b
+    obtain ⟨i, hi, hc⟩ := hmix b c
+    exact side_val n C (mono s c) j b i hi (by simp [mono, hc])
+  apply W_and n C (mono s c) j hj hop
+  intro z hz
+  obtain ⟨_, hin, h0, h1, _⟩ := gate2 hAO hj
+  rw [hin] at hz
+  simp only [List.mem_cons, List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl
+  · exact ⟨h0, hv 0⟩
+  · exact ⟨h1, hv 1⟩
+
+lemma junk_empty_of_all_mixed_sides {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hmix : ∀ j ∈ junk G C, ∀ b : Fin 2, ∀ c : Bool,
+      ∃ i ∈ side (n := n) C j b, s i = c) : junk G C = ∅ := by
+  apply junk_empty_of_all_both_mono G C s hbip hL hT
+  intro j hj
+  obtain ⟨hjlt, hop⟩ := junk_data G C j hj
+  exact and_both_mono_of_mixed_sides C s hL.1 j hjlt hop (hmix j hj)
+
+lemma exists_junk_monochromatic_side {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hne : (junk G C).Nonempty) :
+    ∃ j ∈ junk G C, ∃ b : Fin 2, ∃ c : Bool, ∀ i ∈ side (n := n) C j b, s i = c := by
+  classical
+  by_contra hnone
+  have hempty := junk_empty_of_all_mixed_sides G C s hbip hL hT (by
+    intro j hj b
+    apply not_monochromatic_mixed s _
+    intro hmono
+    exact hnone ⟨j, hj, b, hmono⟩)
+  rw [hempty] at hne
+  exact Finset.not_nonempty_empty hne
+
+lemma both_mono_reaches_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (j : ℕ) (hj : j < C.gates.length)
+    (hboth : ∀ c : Bool, gateVal n C j (mono s c) = true) :
+    ∃ a ∈ junk G C, InCone n C j a := by
+  obtain ⟨a, ha, hop, b, hr⟩ := and_frontier_of_live C hL.1
+    (fun k hk hn => least_has_reader G C hL k hk hn) j hj
+    (both_mono_not_or_output G C s hbip hL.2.1 j hboth)
+  have haj := both_mono_frontier_junk G C s hbip hL.1 hT hJ j hboth a ha hop b hr
+  have hread := operand_mem C hL.1 a ha b
+  exact ⟨a, haj, reach_cone n C a ha _ hread (hL.1.2.1 a ha _ hread) j hr⟩
+
+lemma two_junk_both_mono_forces_cone {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (hboth : ∀ c : Bool, gateVal n C g (mono s c) = true) : InCone n C g h := by
+  have hgj : g ∈ junk G C := by rw [hpair]; simp
+  obtain ⟨a, haj, hcone⟩ := both_mono_reaches_junk G C s hbip hL hT hJ g
+    (junk_data G C g hgj).1 hboth
+  rw [hpair] at haj
+  simp only [Finset.mem_insert, Finset.mem_singleton] at haj
+  rcases haj with rfl | rfl
+  · have := inCone_lt n C _ _ hcone
+    omega
+  · exact hcone
+
+lemma independent_junk_not_both_mono {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h)
+    (hboth : ∀ c : Bool, gateVal n C g (mono s c) = true) : False := by
+  exact hgh (two_junk_both_mono_forces_cone G C s hbip hL hT hJ g h hpair hboth)
+
+end BothMono
+
+namespace CompleteRestricted
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open MixedFrontier MixedCut
+
+lemma opposite_pure_of_mixed_side {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (bg : Fin 2) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h)
+    (hmix : ∀ c : Bool, ∃ i ∈ side (n := n) C g bg, s i = c) :
+    ∃ c : Bool, ∀ i ∈ side (n := n) C g (1-bg), s i = c := by
+  by_contra hpure
+  have hother := not_monochromatic_mixed s _ hpure
+  have hgj : g ∈ junk G C := by rw [hpair]; simp
+  obtain ⟨hglt, hgop⟩ := junk_data G C g hgj
+  apply BothMono.independent_junk_not_both_mono G C s hbip hL hT hJ g h hpair hgh
+  apply BothMono.and_both_mono_of_mixed_sides C s hL.1 g hglt hgop
+  intro b
+  have hb : b = bg ∨ b = 1-bg := by fin_cases b <;> fin_cases bg <;> simp
+  rcases hb with rfl | rfl
+  · exact hmix
+  · exact hother
+
+lemma independent_mixed_sides_impossible {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (g h : ℕ) (bg bh : Fin 2) (hpair : junk G C = {g,h}) (hne : g ≠ h)
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (hmixg : ∀ c : Bool, ∃ i ∈ side (n := n) C g bg, s i = c)
+    (hmixh : ∀ c : Bool, ∃ i ∈ side (n := n) C h bh, s i = c)
+    (hdisg : Disjoint (side (n := n) C g (1-bg)) (side (n := n) C g bg))
+    (hdish : Disjoint (side (n := n) C h (1-bh)) (side (n := n) C h bh)) : False := by
+  have hJ := JunkActivity.two_mixed_active G C s hL.1 hT g h bg bh hpair hgh hhg hmixg hmixh
+  have hpair' : junk G C = {h,g} := by simpa [Finset.pair_comm] using hpair
+  exact independent_semimixed_impossible G C s hbip hL hT g h bg bh hpair hne hgh hhg
+    (opposite_pure_of_mixed_side G C s hbip hL hT hJ g h bg hpair hgh hmixg)
+    (opposite_pure_of_mixed_side G C s hbip hL hT hJ h g bh hpair' hhg hmixh)
+    hmixg hmixh hdisg hdish
+
+end CompleteRestricted
+
+namespace SingleMixedRoot
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+open MixedCut MixedReach MixedFrontier ActualCut
+
+lemma pure_mixed_activity {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C)
+    (g h : ℕ) (bh : Fin 2) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (cg : Bool) (hpureg : ∀ b : Fin 2, ∀ i ∈ side (n := n) C g b, s i = cg)
+    (hmixh : ∀ c : Bool, ∃ i ∈ side (n := n) C h bh, s i = c) :
+    ∀ a ∈ junk G C, ∃ c : Bool, gateVal n C a (mono s c) = true := by
+  intro a ha
+  have hamem : a ∈ ({g, h} : Finset ℕ) := by rwa [← hpair]
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hamem
+  rcases hamem with hag | hah
+  · subst a
+    obtain ⟨u, hu⟩ := JunkActivity.independent_side_nonempty G C hAO hT g h hpair hgh hhg g ha 0
+    obtain ⟨v, hv⟩ := JunkActivity.independent_side_nonempty G C hAO hT g h hpair hgh hhg g ha 1
+    apply product_active_mono_of_common_color C s g _ _
+      (JunkActivity.independent_product G C hAO hT g h hpair hgh hhg g ha 0) u v hu hv
+    exact (hpureg 0 u hu).trans (hpureg 1 v hv).symm
+  · subst a
+    exact JunkActivity.independent_mixed_active G C s hAO hT g h hpair hgh hhg h ha bh hmixh
+
+lemma least_mixed_one_operand_coverage {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (s : Fin n → Bool)
+    (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (bh : Fin 2) (hpair : junk G C = {g, h})
+    (hpureg : ∀ b : Fin 2, ∃ c : Bool, ∀ i ∈ side (n := n) C g b, s i = c)
+    (hpureh : ∃ c : Bool, ∀ i ∈ side (n := n) C h (1 - bh), s i = c)
+    (j : ℕ) (hj : j < C.gates.length)
+    (hmixed : ∀ c : Bool, ∃ i ∈ orIn n C (n + j), s i = c) :
+    OrReaches n C (opnd C h bh) j := by
+  obtain ⟨a, ha, b, hr, hm⟩ := least_mixed_reaches_mixed_junk_operand G C s hbip hL hT hJ
+    j hj hmixed
+  rw [hpair] at ha
+  simp only [Finset.mem_insert, Finset.mem_singleton] at ha
+  rcases ha with hag | hah
+  · subst a
+    exact (mixed_not_monochromatic s _ hm (hpureg b)).elim
+  · subst a
+    have he := mixed_slot_unique C s h b bh hpureh hm
+    exact he ▸ hr
+
+lemma wires_one_root {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (bh : Fin 2) (hpair : junk G C = {g, h})
+    (hpureg : ∀ b : Fin 2, ∃ c : Bool, ∀ i ∈ side (n := n) C g b, s i = c)
+    (hpureh : ∃ c : Bool, ∀ i ∈ side (n := n) C h (1 - bh), s i = c) :
+    ∀ w ∈ wires n C s g h,
+      Relation.ReflTransGen (CountCut.cutOrStep n C (wires n C s g h)) w (opnd C h bh) := by
+  intro w hw
+  obtain ⟨k, hk, rfl⟩ := Finset.mem_image.mp hw
+  have hmem : n + k ∈ wires n C s g h := Finset.mem_image.mpr ⟨k, hk, rfl⟩
+  obtain ⟨hkK, hmix⟩ := (mixedRegion_mem C s g h k).mp hk
+  have hklt := ((region_mem C g h k).mp hkK).1
+  have hr := least_mixed_one_operand_coverage G C s hbip hL hT hJ g h bh hpair hpureg hpureh
+    k hklt hmix
+  exact (CountCut.closed_path_is_cutPath n C _
+    (wires_forward_closed G C s hbip hL hT hJ g h hpair) hmem
+    (CountCut.orReaches_path n C _ k hr)).2
+
+lemma sources_eq_boundary {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (bh : Fin 2) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (hpureg : ∀ b : Fin 2, ∃ c : Bool, ∀ i ∈ side (n := n) C g b, s i = c)
+    (hpureh : ∃ c : Bool, ∀ i ∈ side (n := n) C h (1 - bh), s i = c) :
+    BoundarySources.sources n C (boundary n C s g h) (wires n C s g h) (opnd C h bh) =
+      boundary n C s g h := by
+  have hroot := wires_one_root G C s hbip hL hT hJ g h bh hpair hpureg hpureh
+  have hu := BoundarySources.two_sources_union n C (boundary n C s g h) (wires n C s g h)
+    (opnd C h bh) (opnd C h bh)
+    (boundary_used G C s hL.1 hT g h hpair hgh hhg)
+    (fun j hj => Or.inl (hroot j hj))
+  simpa only [Finset.union_self] using hu
+
+lemma same_root_pairCost_le_mixedRegion {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (bh : Fin 2) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (hpureg : ∀ b : Fin 2, ∃ c : Bool, ∀ i ∈ side (n := n) C g b, s i = c)
+    (hpureh : ∃ c : Bool, ∀ i ∈ side (n := n) C h (1 - bh), s i = c)
+    (hmixh : ∀ c : Bool, ∃ i ∈ side (n := n) C h bh, s i = c) :
+    TwoOrBuild.pairCost
+      (BoundarySources.sources n C (boundary n C s g h) (wires n C s g h) (opnd C h bh))
+      (BoundarySources.sources n C (boundary n C s g h) (wires n C s g h) (opnd C h bh)) ≤
+      (mixedRegion n C s g h).card := by
+  have hhj : h ∈ junk G C := by rw [hpair]; simp
+  have hrh := mixed_operand_mem G C s hbip hL hT hJ g h hpair h hhj bh hmixh
+  have hroot := wires_one_root G C s hbip hL hT hJ g h bh hpair hpureg hpureh
+  have hbound := BoundarySources.pairCost_le_gates n C hL.1
+    (boundary n C s g h) (wires n C s g h) (boundary_disjoint C s g h)
+    (opnd C h bh) (opnd C h bh) hrh hrh
+    (boundary_parents C s hL.1 g h)
+    (boundary_used G C s hL.1 hT g h hpair hgh hhg)
+    (fun j hj => Or.inl (hroot j hj))
+    (sources_nonempty G C s hL.1 hT g h hpair hgh hhg _ hrh)
+    (sources_nonempty G C s hL.1 hT g h hpair hgh hhg _ hrh)
+  simpa only [wires_card] using hbound
+
+lemma pure_junk_operand_raw_or_pure {n : ℕ} (C : Circuit) (s : Fin n → Bool)
+    (hAO : IsAO2 n C) (g h : ℕ) (hg : g < C.gates.length)
+    (hpureg : ∀ b : Fin 2, ∃ c : Bool, ∀ i ∈ side (n := n) C g b, s i = c) (b : Fin 2) :
+    opnd C g b < n ∨ ∃ k ∈ pureRegion n C s g h, opnd C g b = n + k := by
+  rcases JunkActivity.operand_raw_or_region C hAO g h g (by simp) hg b with hraw | ⟨k, hk, heq⟩
+  · exact Or.inl hraw
+  · obtain ⟨c, hc⟩ := hpureg b
+    have hc' : ∀ i ∈ orIn n C (n + k), s i = c := by
+      rw [← heq]
+      exact hc
+    exact Or.inr ⟨k, Finset.mem_filter.mpr ⟨hk, c, hc'⟩, heq⟩
+
+end SingleMixedRoot
+
+namespace CompleteSingleMixed
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open Reorder HoistTransport MixedFrontier MixedCut TwoOrBuild
+
+lemma independent_pure_semimixed_impossible {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (g h : ℕ) (bh : Fin 2) (hpair : junk G C = {g,h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (cg : Bool) (hpureg : ∀ b : Fin 2, ∀ i ∈ side (n := n) C g b, s i = cg)
+    (hpureh : ∃ c : Bool, ∀ i ∈ side (n := n) C h (1-bh), s i = c)
+    (hmixh : ∀ c : Bool, ∃ i ∈ side (n := n) C h bh, s i = c)
+    (hdish : Disjoint (side (n := n) C h (1-bh)) (side (n := n) C h bh)) : False := by
+  have hJ := SingleMixedRoot.pure_mixed_activity G C s hL.1 hT g h bh hpair hgh hhg cg hpureg hmixh
+  obtain ⟨ch,hch⟩ := hpureh
+  have hpureg' : ∀ b : Fin 2, ∃ c : Bool, ∀ i ∈ side (n := n) C g b, s i = c :=
+    fun b => ⟨cg,hpureg b⟩
+  let P := boundedSet C.gates.length (pureRegion n C s g h)
+  let K := boundedSet C.gates.length (region n C g h)
+  let π := sortPerm (blockKey P K)
+  have hPK : P ⊆ K := pureRegion_fin_subset C s g h
+  have hPc : PredecessorClosed n C P := pureRegion_fin_closed G C s hL.1 hT g h hpair hgh hhg
+  have hKc : PredecessorClosed n C K := region_fin_closed G C hL.1 hT g h hpair hgh hhg
+  have hdep : DependencyOrder n C π := two_closed_hoist_dependency C hL.1 P K hPc hKc
+  have hP : ∀ i, (π i).val < P.card ↔ i ∈ P := two_closed_hoist_prefix_small P K
+  have hK : ∀ i, (π i).val < K.card ↔ i ∈ K := two_closed_hoist_prefix_large P K hPK
+  have hgJ : g ∈ junk G C := by rw [hpair]; simp
+  have hhJ : h ∈ junk G C := by rw [hpair]; simp
+  let hf : Fin C.gates.length := ⟨h,(junk_data G C h hhJ).1⟩
+  let J : Finset (Fin C.gates.length) := {hf}
+  have hJK : Disjoint J K := by
+    apply Finset.disjoint_left.mpr
+    intro j hj hk
+    have heq : j = hf := Finset.mem_singleton.mp hj
+    subst j
+    exact junk_not_mem_region G C hL.1 hT g h hpair hgh hhg h hhJ
+      ((boundedSet_mem _ _ _).mp hk)
+  have hroot := ActualCut.mixed_operand_mem G C s hbip hL hT hJ g h hpair h hhJ bh hmixh
+  let S := BoundarySources.sources n C (ActualCut.boundary n C s g h)
+    (ActualCut.wires n C s g h) (opnd C h bh)
+  let color := BoundaryColors.color (orIn n C) s
+  have hS : ∀ w ∈ S, w < n ∨ ∃ j ∈ P, w = n + j.val := by
+    intro w hw
+    exact raw_or_pure_fin C s g h w
+      (ActualBoundary.source_boundary_data G C s hL.1 hT g h hpair hgh hhg _ w hw).1
+  have hSmix : HasBoth color S :=
+    ActualBoundary.sources_hasBoth G C s hL.1 hT g h hpair hgh hhg _ hroot
+  have hcost : pairCost S S ≤ K.card - P.card := by
+    rw [← mixedRegion_card_sub C s g h]
+    exact SingleMixedRoot.same_root_pairCost_le_mixedRegion G C s hbip hL hT hJ
+      g h bh hpair hgh hhg hpureg' ⟨ch,hch⟩ hmixh
+  obtain ⟨hs,wS,wT,hAO1,hAO2,hops,hlen,hwS,hwT,heval⟩ :=
+    CompleteMixedCase.smaller_projection_prefix C hL.1 P K hPc hKc S S hS hS
+      color (!ch) (!ch) hSmix hSmix hcost
+  let targetWire : ℕ → ℕ := fun _ => wS
+  have houtLo := OutputSupport.output_not_raw G C hL.2.1
+  have houtHi := CriticalEdge.output_lt G C hL.2.1
+    (CriticalEdge.least_nonempty_of_gate G C hL h hf.isLt)
+  have hout := two_closed_hoist_output_suffix C P K hPK houtLo houtHi (by
+    intro j hj
+    exact OutputSupport.region_not_output G C hL.1 hL.2.1 hT g h hpair hgh hhg
+      j.val ((boundedSet_mem _ _ _).mp hj))
+  have hraw : ∀ b : Fin 2, ∀ x : Fin n → Bool,
+      wireVal n C (opnd C h b) x = ColorProjection.setOr (side (n := n) C h b) x := by
+    intro b x
+    exact raw_or_region_wire_semantics G C hL.1 hT g h hpair hgh hhg _
+      (JunkActivity.operand_raw_or_region C hL.1 g h h (by simp) hf.isLt b) x
+  apply RegionProjection.projected_target_hoist_contradiction G C hL s hbip π hdep
+    P K J hPK hP hK hJK ?_ hout hs targetWire hAO1 hlen (fun _ _ => hwS) ?_
+  · intro i hi hip j hj hread
+    have hjjunk := ActualStructure.external_reader_fin G C s hbip hL hT hJ g h hpair i j hi hip hj hread
+    have hjpair : j.val ∈ ({g,h} : Finset ℕ) := by
+      rw [← hpair]; exact (boundedSet_mem _ _ _).mp hjjunk
+    simp only [Finset.mem_insert,Finset.mem_singleton] at hjpair
+    rcases hjpair with hjg | hjh
+    · have hnotread : ∀ b : Fin 2, n + i.val ≠ opnd C g b := by
+        intro b heq
+        rcases SingleMixedRoot.pure_junk_operand_raw_or_pure C s hL.1 g h
+          (junk_data G C g hgJ).1 hpureg' b with hraw | ⟨k,hk,hkval⟩
+        · omega
+        · have hki : k = i.val := by omega
+          apply hip
+          exact (boundedSet_mem _ _ _).mpr (hki ▸ hk)
+      rw [hjg] at hread
+      rcases ActualStructure.operand_pair C hL.1 g (junk_data G C g hgJ).1 0 with hin | hin
+      · rw [hin] at hread
+        simp only [List.mem_cons,List.not_mem_nil,or_false] at hread
+        exact (hread.elim (hnotread (1-0)) (hnotread 0)).elim
+      · rw [hin] at hread
+        simp only [List.mem_cons,List.not_mem_nil,or_false] at hread
+        exact (hread.elim (hnotread 0) (hnotread (1-0))).elim
+    · exact Finset.mem_singleton.mpr (Fin.ext hjh)
+  · intro j hj
+    have heq : j = hf := Finset.mem_singleton.mp hj
+    subst j
+    refine ⟨opnd C h (1-bh),opnd C h bh,side C h (1-bh),side C h bh,ch,
+      (junk_data G C h hhJ).2, ActualStructure.operand_pair C hL.1 h hf.isLt bh,
+      ActualStructure.pure_operand_fin G C s hL.1 g h h hpair hhJ (1-bh) ⟨ch,hch⟩,
+      ActualStructure.mixed_operand_fin C s g h _ hroot,hch,hdish,hraw (1-bh),hraw bh,?_⟩
+    intro x
+    exact (heval x).1.trans
+      (ActualBoundary.source_projection_semantics G C s hL.1 hT g h hpair hgh hhg _ hroot (!ch) x)
+
+end CompleteSingleMixed
+
+namespace CompleteSingleMixed
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open MixedFrontier MixedCut
+
+lemma independent_pure_mixed_impossible {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (g h : ℕ) (bh : Fin 2) (hpair : junk G C = {g,h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (cg : Bool) (hpureg : ∀ b : Fin 2, ∀ i ∈ side (n := n) C g b, s i = cg)
+    (hmixh : ∀ c : Bool, ∃ i ∈ side (n := n) C h bh, s i = c)
+    (hdish : Disjoint (side (n := n) C h (1-bh)) (side (n := n) C h bh)) : False := by
+  have hJ := SingleMixedRoot.pure_mixed_activity G C s hL.1 hT g h bh hpair hgh hhg cg hpureg hmixh
+  have hpair' : junk G C = {h,g} := by simpa only [Finset.pair_comm] using hpair
+  have hpureh := CompleteRestricted.opposite_pure_of_mixed_side G C s hbip hL hT hJ
+    h g bh hpair' hhg hmixh
+  exact independent_pure_semimixed_impossible G C s hbip hL hT g h bh hpair hgh hhg
+    cg hpureg hpureh hmixh hdish
+
+end CompleteSingleMixed
+
+namespace DisjointColorCases
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open MixedFrontier MixedCut
+
+lemma side_pair_disjoint {n : ℕ} (C : Circuit) (g : ℕ)
+    (hdis : Disjoint (side (n := n) C g 0) (side (n := n) C g 1)) (b : Fin 2) :
+    Disjoint (side (n := n) C g (1-b)) (side (n := n) C g b) := by
+  fin_cases b
+  · exact hdis.symm
+  · exact hdis
+
+lemma mixed_side_forces_other_opposite_pure {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (s : Fin n → Bool)
+    (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (g h : ℕ) (bg : Fin 2) (hpair : junk G C = {g,h}) (hne : g ≠ h)
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (hmixg : ∀ c : Bool, ∃ i ∈ side (n := n) C g bg, s i = c)
+    (hdisg : Disjoint (side (n := n) C g 0) (side (n := n) C g 1))
+    (hdish : Disjoint (side (n := n) C h 0) (side (n := n) C h 1)) :
+    ∃ c : Bool, (∀ i ∈ side (n := n) C h 0, s i = c) ∧
+      (∀ i ∈ side (n := n) C h 1, s i = !c) := by
+  have hallpure : ∀ b : Fin 2, ∃ c : Bool, ∀ i ∈ side (n := n) C h b, s i = c := by
+    intro b
+    by_contra hpure
+    have hmixh := not_monochromatic_mixed s _ hpure
+    exact CompleteRestricted.independent_mixed_sides_impossible G C s hbip hL hT g h bg b
+      hpair hne hgh hhg hmixg hmixh (side_pair_disjoint C g hdisg bg) (side_pair_disjoint C h hdish b)
+  obtain ⟨c0,hc0⟩ := hallpure 0
+  obtain ⟨c1,hc1⟩ := hallpure 1
+  have hnecolor : c0 ≠ c1 := by
+    intro heq
+    have hpure : ∀ b : Fin 2, ∀ i ∈ side (n := n) C h b, s i = c0 := by
+      intro b
+      fin_cases b
+      · exact hc0
+      · intro i hi
+        exact (hc1 i hi).trans heq.symm
+    have hpair' : junk G C = {h,g} := by simpa only [Finset.pair_comm] using hpair
+    exact CompleteSingleMixed.independent_pure_mixed_impossible G C s hbip hL hT h g bg
+      hpair' hhg hgh c0 hpure hmixg (side_pair_disjoint C g hdisg bg)
+  have hc1eq : c1 = !c0 := by cases c0 <;> cases c1 <;> simp_all
+  exact ⟨c0,hc0,fun i hi => (hc1 i hi).trans hc1eq⟩
+
+
+lemma independent_disjoint_color_cases {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (s : Fin n → Bool)
+    (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (g h : ℕ) (hpair : junk G C = {g,h}) (hne : g ≠ h)
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (hdisg : Disjoint (side (n := n) C g 0) (side (n := n) C g 1))
+    (hdish : Disjoint (side (n := n) C h 0) (side (n := n) C h 1)) :
+    (∀ a ∈ junk G C, ∀ b : Fin 2, ∃ c : Bool, ∀ i ∈ side (n := n) C a b, s i = c) ∨
+    ((∃ bg : Fin 2, ∀ c : Bool, ∃ i ∈ side (n := n) C g bg, s i = c) ∧
+      ∃ c : Bool, (∀ i ∈ side (n := n) C h 0, s i = c) ∧
+        (∀ i ∈ side (n := n) C h 1, s i = !c)) ∨
+    ((∃ bh : Fin 2, ∀ c : Bool, ∃ i ∈ side (n := n) C h bh, s i = c) ∧
+      ∃ c : Bool, (∀ i ∈ side (n := n) C g 0, s i = c) ∧
+        (∀ i ∈ side (n := n) C g 1, s i = !c)) := by
+  by_cases hgmix : ∃ bg : Fin 2, ∀ c : Bool, ∃ i ∈ side (n := n) C g bg, s i = c
+  · obtain ⟨bg,hmix⟩ := hgmix
+    exact Or.inr (Or.inl ⟨⟨bg,hmix⟩, mixed_side_forces_other_opposite_pure G C s hbip hL hT
+      g h bg hpair hne hgh hhg hmix hdisg hdish⟩)
+  by_cases hhmix : ∃ bh : Fin 2, ∀ c : Bool, ∃ i ∈ side (n := n) C h bh, s i = c
+  · obtain ⟨bh,hmix⟩ := hhmix
+    have hpair' : junk G C = {h,g} := by simpa only [Finset.pair_comm] using hpair
+    exact Or.inr (Or.inr ⟨⟨bh,hmix⟩, mixed_side_forces_other_opposite_pure G C s hbip hL hT
+      h g bh hpair' (Ne.symm hne) hhg hgh hmix hdish hdisg⟩)
+  apply Or.inl
+  intro a ha b
+  rw [hpair] at ha
+  simp only [Finset.mem_insert,Finset.mem_singleton] at ha
+  rcases ha with rfl | rfl
+  · by_contra hpure
+    exact hgmix ⟨b,not_monochromatic_mixed s _ hpure⟩
+  · by_contra hpure
+    exact hhmix ⟨b,not_monochromatic_mixed s _ hpure⟩
+
+end DisjointColorCases
+
 end PEqualNP.Outside.L_meta_5012
