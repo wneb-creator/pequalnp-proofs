@@ -8,5 +8,9 @@ Final-file cleanup not run because the full statement/checker did not pass; 2430
 Desk: initial next returned one gap/lease; null count0. Renewal failed HTTP410 at15:05UTC after successful15:02:27 renewal had promised15:22:27 expiry. Complete response and desk log preserved.
 All searches stopped; no counterexample or UNSAT certificate.
 Sub-agents:6 (status/review, toolchain/order3 search, construction, semantic/search, lower-bound/geometry, delegated read-once obstruction).
-TIMING total=28.0 subagents=6
 KIT-MESSAGE-ID msg-015d6a72296b37de400fc5b9
+Same-gap re-request and one retry returned identical pre-existing L-meta-2590 lease issued15:07:28 before either request, holding5. No work, renewal, or release performed on that lease.
+Exact capacity message: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Desk next/reacquire calls:3; null count0. Full responses preserved. No release call was made for the invalid original lease.
+Final result: checked partials preserved, exact L-meta-2583 theorem unproved, no proof PR, no acceptance.
+TIMING total=30.2 subagents=6

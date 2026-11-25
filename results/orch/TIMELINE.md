@@ -16,3 +16,4 @@
 
 2026-11-25T15:07:31.676275+00:00 PG3 searches terminated on root instruction after confirmed HTTP410; complete sources/logs/validation archived in results/orch/pg3. No witness.
 2026-11-25T15:08:25.673857+00:00 lease-loss archive ready; all work stopped; preserve before one same-gap re-request under user410rule. No proof accepted.
+2026-11-25T15:10:37.396014+00:00 same-gap re-request and allowed retry returned same pre-existing different lease at handle capacity; left untouched and stopped.
