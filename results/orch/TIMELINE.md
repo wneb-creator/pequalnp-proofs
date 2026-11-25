@@ -44,3 +44,6 @@
 
 2026-11-25T03:58:39.352675+00:00 inactive_gate_smaller compiled: first global gate-elimination result, no conditional factor-choice premise.
 - 2026-11-25T04:01:59.422672+00:00: Partial 9 built and independently reviewed: Unconditional edge-inactive gate removal, minimum realization with every gate active on an edge, prior frontier elimination, and the checked 65-gate witness. Original 63-64 exclusion remains open.
+
+2026-11-25T04:11:24.891594+00:00 stronger clamp/essential normalization compiled exit0; source signatures need not vanish.
+- 2026-11-25T04:14:34.079185+00:00: Partial 11 built and independently reviewed: Minimum marked-zero circuits can be made essential on minimal edges; unconditional residual gate removal with derivative domination; normalized dirty/nested-AND obstruction; checked 65-gate feasibility witness. Original 63-64 exclusion remains unproved.

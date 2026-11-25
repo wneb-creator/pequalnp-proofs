@@ -4662,3 +4662,321 @@ lemma minimum_all_active (C : Circuit) (hC : Proper 26 C)
   omega
 
 end PEqualNP.Outside.L_meta_2602_aux.Clamp
+
+namespace PEqualNP.Outside.L_meta_2602_aux.DerivativeWitness
+
+open PEqualNP.CircuitLowerBounds
+open PEqualNP.Outside.L_meta_2602_aux.Derivative
+
+def gateDerivative (v : ℕ → Bool) (ins : List Bool) (g : Gate) : Bool :=
+  match g.op, g.inputs, ins with
+  | .and, [a, b], [da, db] => v a && db || da && v b
+  | .or, _, [da, db] => da || db
+  | _, _, _ => false
+
+def canonical (n : ℕ) (C : Circuit) (v seed : ℕ → Bool) (w : ℕ) : Bool :=
+  (C.gates.foldl (fun R g =>
+    R ++ [gateDerivative v (g.inputs.map fun i => R.getD i false) g])
+    (List.ofFn fun i : Fin n => seed i.val)).getD w false
+
+lemma canonical_input (n : ℕ) (C : Circuit) (v seed : ℕ → Bool)
+    (i : ℕ) (hi : i < n) : canonical n C v seed i = seed i := by
+  unfold canonical
+  rw [foldl_snoc_init (gateDerivative v) false _ _ _ (by simpa using hi)]
+  simp [List.getD_eq_getElem?_getD, hi]
+
+lemma canonical_rules (n : ℕ) (C : Circuit) (hC : Proper n C)
+    (v seed : ℕ → Bool) : DerivativeRules n C v (canonical n C v seed) := by
+  intro j g a b hg hin
+  have hj : j < C.gates.length := (List.getElem?_eq_some_iff.mp hg).1
+  have hget : C.gates[j] = g := by simpa [List.getElem?_eq_getElem hj] using hg
+  obtain ⟨_, c, d, hcd, _, hc, hd⟩ := hC j g hg
+  have hab : a = c ∧ b = d := by simpa [hin] using hcd
+  obtain ⟨rfl, rfl⟩ := hab
+  have earlier : ∀ i ∈ C.gates[j].inputs,
+      i < (List.ofFn fun k : Fin n => seed k.val).length + j := by
+    intro i hi
+    rw [hget, hin] at hi
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+    rcases hi with rfl | rfl
+    · simpa using hc
+    · simpa using hd
+  have hrec := foldl_snoc_gate (gateDerivative v) false
+    (List.ofFn fun i : Fin n => seed i.val) C.gates j hj earlier
+  simp only [List.length_ofFn] at hrec
+  change canonical n C v seed (n + j) = gateDerivative v
+    (C.gates[j].inputs.map (canonical n C v seed)) C.gates[j] at hrec
+  rw [hget, hin] at hrec
+  constructor
+  · intro hop
+    simpa [gateDerivative, hop, hin] using hrec
+  · intro hop
+    simpa [gateDerivative, hop, hin] using hrec
+
+lemma exists_derivative (n : ℕ) (C : Circuit) (hC : Proper n C)
+    (v seed : ℕ → Bool) :
+    ∃ d : ℕ → Bool, (∀ i < n, d i = seed i) ∧ DerivativeRules n C v d :=
+  ⟨canonical n C v seed, canonical_input n C v seed, canonical_rules n C hC v seed⟩
+
+end PEqualNP.Outside.L_meta_2602_aux.DerivativeWitness
+
+namespace PEqualNP.Outside.L_meta_2602_aux.Clamp
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover Derivative
+
+lemma plan_gate_derivatives {n c z₀ z₁ : ℕ} {C : Circuit} {pad : ℕ → ℕ}
+    (P : Plan n C c pad z₀ z₁) (V e : ℕ → Bool)
+    (he : DerivativeRules n P.circuit V e) (j : ℕ) (hj : j < P.circuit.gates.length)
+    (op : GateOp) (a b : ℕ) (hg : gateAt P.circuit j = ⟨op, [a, b]⟩) :
+    (op = .and → e (n + j) = (V a && e b || e a && V b)) ∧
+    (op = .or → e (n + j) = (e a || e b)) := by
+  have get := gateAt_some hj
+  rw [hg] at get
+  exact he j _ a b get rfl
+
+lemma plan_derivative_le {n c z₀ z₁ : ℕ} {C : Circuit} {pad : ℕ → ℕ}
+    (P : Plan n C c pad z₀ z₁) (hC : Proper n C)
+    (v V d e : ℕ → Bool)
+    (hv : ValueRules n C v) (hV : ValueRules n P.circuit V)
+    (hd : DerivativeRules n C v d) (he : DerivativeRules n P.circuit V e)
+    (hinputV : ∀ i < n, V i = v i) (hinputD : ∀ i < n, e i = d i)
+    (hpadV : ∀ q, V (pad q) = false) (hpadD : ∀ q, e (pad q) = false) :
+    ∀ w < n + C.gates.length, repValue e (P.rep w) = true → d w = true := by
+  have values := plan_value_relation P hC v V hv hV hinputV
+  have vup (w : ℕ) (hw : w < n + C.gates.length) (q : ℕ)
+      (hr : P.rep w = some q) : V q = true → v w = true := by
+    simpa only [hr, repValue] using (values w hw).1
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw ht
+    by_cases low : w < n
+    · rw [P.inputs w low] at ht
+      simpa only [repValue, hinputD w low] using ht
+    obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+    have hj : j < C.gates.length := by omega
+    have hjD : j < P.circuit.gates.length := by rw [P.length_eq]; exact hj
+    let g := C.gates[j]
+    have hg : C.gates[j]? = some g := List.getElem?_eq_getElem hj
+    obtain ⟨op, a, b, hab, _, ha, hb⟩ := hC j g hg
+    have habound : a < n + C.gates.length := by omega
+    have hbbound : b < n + C.gates.length := by omega
+    have ia := ih a ha habound
+    have ib := ih b hb hbbound
+    cases P.rule j g a b hg hab with
+    | source _ hr _ | zero _ _ hr _ => simp [hr, repValue] at ht
+    | orAlias q _ hor _ _ hn hr _ =>
+      rw [hr] at ht
+      change e q = true at ht
+      rw [(hd j g a b hg hab).2 hor]
+      rcases hn with ea | eb
+      · have da := ia (by simpa only [ea, repValue] using ht)
+        simp [da]
+      · have db := ib (by simpa only [eb, repValue] using ht)
+        simp [db]
+    | binary u t _ ea eb _ hr hgate =>
+      rw [hr] at ht
+      change e (n + j) = true at ht
+      rcases op with op | op
+      · rw [(plan_gate_derivatives P V e he j hjD g.op u t hgate).1 op] at ht
+        rw [(hd j g a b hg hab).1 op]
+        rcases Bool.or_eq_true_iff.mp ht with ht | ht
+        · obtain ⟨vu, et⟩ := Bool.and_eq_true_iff.mp ht
+          have va := vup a habound u ea vu
+          have db := ib (by simpa only [eb, repValue] using et)
+          simp [va, db]
+        · obtain ⟨eu, vt⟩ := Bool.and_eq_true_iff.mp ht
+          have da := ia (by simpa only [ea, repValue] using eu)
+          have vb := vup b hbbound t eb vt
+          simp [da, vb]
+      · rw [(plan_gate_derivatives P V e he j hjD g.op u t hgate).2 op] at ht
+        rw [(hd j g a b hg hab).2 op]
+        rcases Bool.or_eq_true_iff.mp ht with eu | et
+        · have da := ia (by simpa only [ea, repValue] using eu)
+          simp [da]
+        · have db := ib (by simpa only [eb, repValue] using et)
+          simp [db]
+    | andAlias q u _ hand ea eb hu hne hr hgate =>
+      have hurep : P.rep u = some q := by rcases hu with rfl | rfl <;> assumption
+      have hubound : u < n + C.gates.length := by rcases hu with rfl | rfl <;> omega
+      obtain ⟨k, hk, huk, hkpad, _⟩ := P.strictAlias u hubound q hurep hne
+      have vu : V u = V q := by
+        rw [huk, (plan_gate_values P V hV k hk .or q (pad q) hkpad).2 rfl, hpadV q]
+        exact Bool.or_false _
+      have eu : e u = e q := by
+        rw [huk, (plan_gate_derivatives P V e he k hk .or q (pad q) hkpad).2 rfl, hpadD q]
+        exact Bool.or_false _
+      rw [hr] at ht
+      change e (n + j) = true at ht
+      rw [(plan_gate_derivatives P V e he j hjD .and q u hgate).1 rfl, vu, eu] at ht
+      have pair : V q = true ∧ e q = true := by
+        cases vq : V q <;> cases eq : e q <;> simp_all
+      have va := vup a habound q ea pair.1
+      have db := ib (by simpa only [eb, repValue] using pair.2)
+      rw [(hd j g a b hg hab).1 hand]
+      simp [va, db]
+
+lemma plan_new_derivative_zero {n c z₀ z₁ : ℕ} {C : Circuit} {pad : ℕ → ℕ}
+    (P : Plan n C c pad z₀ z₁) (hC : Proper n C)
+    (base : Fin n → Bool) (initial d : ℕ → Bool)
+    (hinit : ∀ i < n, d i = initial i)
+    (hd : DerivativeRules n C (WireValue C base) d)
+    (hpadLt : ∀ q, pad q < n)
+    (hpadV : ∀ q, base ⟨pad q, hpadLt q⟩ = false)
+    (hpadD : ∀ q, initial (pad q) = false)
+    (out : ℕ) (ho : C.output < n + C.gates.length)
+    (hout : P.rep C.output = some out) (hzero : d C.output = false) :
+    ∃ e : ℕ → Bool, (∀ i < n, e i = initial i) ∧
+      DerivativeRules n P.circuit (WireValue P.circuit base) e ∧ e out = false := by
+  obtain ⟨e, hei, he⟩ := DerivativeWitness.exists_derivative n P.circuit P.proper
+    (WireValue P.circuit base) initial
+  refine ⟨e, hei, he, ?_⟩
+  have le := plan_derivative_le P hC (WireValue C base) (WireValue P.circuit base) d e
+    (wire_value_rules C hC base) (wire_value_rules P.circuit P.proper base) hd he
+    (by intro i hi; rw [wire_value_input _ _ _ hi, wire_value_input _ _ _ hi])
+    (fun i hi => (hei i hi).trans (hinit i hi).symm)
+    (fun q => (wire_value_input _ _ _ (hpadLt q)).trans (hpadV q))
+    (fun q => (hei _ (hpadLt q)).trans (hpadD q)) C.output ho
+  cases hz : e out with
+  | false => rfl
+  | true =>
+    have bad := le (by simpa only [hout, repValue] using hz)
+    rw [hzero] at bad
+    cases bad
+
+end PEqualNP.Outside.L_meta_2602_aux.Clamp
+
+namespace PEqualNP.Outside.L_meta_2602_aux.Clamp
+
+open PEqualNP.CircuitLowerBounds Derivative ClampSemantic
+
+def residualValue (C : Circuit) (c : ℕ) (x : Fin 26 → Bool) : Bool :=
+  repValue (WireValue (ClampPlan.rewritten 26 C c ClampPlan.pad 1 2) x)
+    (ClampPlan.represent 26 C (26 + c) C.output)
+
+lemma residual_smaller (C : Circuit) (hC : Proper 26 C) (hF : PlaneSpec C)
+    (c : ℕ) (hc : c < C.gates.length)
+    (hkeep : ∀ p l : Fin 13, incident p l → residualValue C c (edgeInput p l) = true)
+    (d : Fin 2 → ℕ → Bool)
+    (hinit : ∀ q i, i < 26 → d q i = markedInitial q i)
+    (hd : ∀ q, DerivativeRules 26 C (WireValue C (markedBase q)) (d q))
+    (hzero : ∀ q, d q C.output = false) :
+    ∃ D : Circuit, Proper 26 D ∧ D.size + 1 = C.size ∧ PlaneSpec D ∧ MarkedZero D := by
+  let P := ClampPlan.buildPlan 26 C hC c ClampPlan.pad 1 2
+    (fun r => ⟨ClampPlan.pad_lt r, ClampPlan.pad_ne r⟩) (by decide) (by decide) (by decide)
+  have keep (p l : Fin 13) (hpl : incident p l) :
+      repValue (WireValue P.circuit (edgeInput p l)) (P.rep C.output) = true := hkeep p l hpl
+  have edge00 : incident (0 : Fin 13) 0 := Or.inl rfl
+  have ho : C.output < 26 + C.gates.length := by
+    simpa using output_lt_of_eval_true C (List.ofFn (edgeInput 0 0)) (edge_positive C hF 0 0 edge00)
+  obtain ⟨out, hout⟩ : ∃ out, P.rep C.output = some out := by
+    have k := keep 0 0 edge00
+    cases hrep : P.rep C.output with
+    | none => simp [hrep, repValue] at k
+    | some out => exact ⟨out, rfl⟩
+  have hne : out ≠ 26 + c := by
+    intro h
+    have fixed := P.fixed C.output ho out hout
+    rw [h, P.source] at fixed
+    contradiction
+  let E : Circuit := ⟨P.circuit.gates, out⟩
+  have hE : Proper 26 E := P.proper
+  have hlen : E.gates.length = C.gates.length := P.length_eq
+  have hEc : c < E.gates.length := by rw [hlen]; exact hc
+  have hdead : ∀ g ∈ E.gates, 26 + c ∉ g.inputs := P.unread
+  have hEF : PlaneSpec E := by
+    apply plane_semantics_from_edges C E hF hE
+    · intro x hy
+      have up := (plan_wire_relation P hC x C.output ho).1
+      rw [hout] at up
+      exact up hy
+    · intro p l hpl
+      change WireValue P.circuit (edgeInput p l) out = true
+      simpa only [hout, repValue] using keep p l hpl
+  have newDerivatives (q : Fin 2) : ∃ e : ℕ → Bool,
+      (∀ i < 26, e i = markedInitial q i) ∧
+      DerivativeRules 26 E (WireValue E (markedBase q)) e ∧ e E.output = false := by
+    apply plan_new_derivative_zero P hC (markedBase q) (markedInitial q) (d q)
+      (hinit q) (hd q) ClampPlan.pad_lt
+    · intro r
+      by_cases hq : q = 0 <;> by_cases hr : r = 1 <;>
+        simp [markedBase, ClampPlan.pad, hq, hr]
+    · intro r
+      by_cases hq : q = 0 <;> by_cases hr : r = 1 <;>
+        simp [markedInitial, ClampPlan.pad, hq, hr]
+    · exact ho
+    · exact hout
+    · exact hzero q
+  let D := DeadGate.erase 26 E c
+  have hD : Proper 26 D := DeadGate.erase_proper 26 E c hE hdead
+  have hsize : D.size + 1 = C.size := by
+    change (DeadGate.erase 26 E c).gates.length + 1 = C.gates.length
+    rw [DeadGate.erase_length 26 E c hEc, hlen]
+  have hDF : PlaneSpec D := by
+    intro x
+    rw [DeadGate.erase_eval 26 E c hE hEc hdead hne x]
+    exact hEF x
+  have witnesses (q : Fin 2) : ∃ e : ℕ → Bool,
+      (∀ i < 26, e i = markedInitial q i) ∧
+      DerivativeRules 26 D (WireValue D (markedBase q)) e ∧ e D.output = false := by
+    obtain ⟨e, hei, her, hez⟩ := newDerivatives q
+    exact DeadGate.erase_witness 26 E c hE hdead hne (markedBase q) (markedInitial q) e hei her hez
+  let e (q : Fin 2) : ℕ → Bool := Classical.choose (witnesses q)
+  have ep (q : Fin 2) := Classical.choose_spec (witnesses q)
+  exact ⟨D, hD, hsize, hDF,
+    e, fun q i hi => (ep q).1 i hi, fun q => (ep q).2.1, fun q => (ep q).2.2⟩
+
+def AllEssential (C : Circuit) : Prop :=
+  ∀ c < C.gates.length, ∃ p l : Fin 13, incident p l ∧
+    residualValue C c (edgeInput p l) = false
+
+lemma minimum_all_essential (C : Circuit) (hC : Proper 26 C)
+    (hF : PlaneSpec C) (hZ : MarkedZero C) :
+    ∃ D : Circuit, Proper 26 D ∧ PlaneSpec D ∧ MarkedZero D ∧ D.size ≤ C.size ∧
+      (∀ E : Circuit, Proper 26 E → PlaneSpec E → MarkedZero E → D.size ≤ E.size) ∧
+      AllActive D ∧ AllEssential D := by
+  classical
+  obtain ⟨D, hD, hDF, hDZ, hsize, hmin, hactive⟩ := minimum_all_active C hC hF hZ
+  refine ⟨D, hD, hDF, hDZ, hsize, hmin, hactive, ?_⟩
+  intro c hc
+  by_contra no
+  have keep : ∀ p l : Fin 13, incident p l → residualValue D c (edgeInput p l) = true := by
+    intro p l hpl
+    cases hv : residualValue D c (edgeInput p l) with
+    | false => exact (no ⟨p, l, hpl, hv⟩).elim
+    | true => rfl
+  obtain ⟨d, hinit, hd, hz⟩ := hDZ
+  obtain ⟨E, hE, hsm, hEF, hEZ⟩ := residual_smaller D hD hDF c hc keep d hinit hd hz
+  have small := hmin E hE hEF hEZ
+  omega
+
+end PEqualNP.Outside.L_meta_2602_aux.Clamp
+
+namespace PEqualNP.Outside.L_meta_2602_aux.Normalized
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+open Derivative Clamp ClampSemantic
+
+lemma minimum_obstruction (C : Circuit) (hs : C.size ≤ 64)
+    (hC : Proper 26 C) (hF : PlaneSpec C) (hZ : MarkedZero C) :
+    ∃ D : Circuit, Proper 26 D ∧ PlaneSpec D ∧ MarkedZero D ∧ D.size ≤ C.size ∧
+      (∀ E : Circuit, Proper 26 E → PlaneSpec E → MarkedZero E → D.size ≤ E.size) ∧
+      AllActive D ∧ 0 < PEqualNP.TopForm.andPairs 26 D ∧
+      ∃ j < D.gates.length, (gateAt D j).op = .and ∧ ∃ x : Fin 26 → Bool,
+        (D.wires (List.ofFn x)).getD (26 + j) false = true ∧
+          D.eval (List.ofFn x) = false := by
+  obtain ⟨D, hD, hDF, hDZ, hsize, hmin, hactive⟩ := minimum_all_active C hC hF hZ
+  obtain ⟨d, hinit, hd, hz⟩ := hDZ
+  have hleft : PEqualNP.Outside.L_meta_2602.directional D 0 13 (d 0) := by
+    constructor
+    · simpa [markedInitial] using hinit (0 : Fin 2)
+    · simpa [DerivativeRules, WireValue, markedBase] using hd (0 : Fin 2)
+  have hright : PEqualNP.Outside.L_meta_2602.directional D 13 0 (d 1) := by
+    constructor
+    · simpa [markedInitial] using hinit (1 : Fin 2)
+    · simpa [DerivativeRules, WireValue, markedBase] using hd (1 : Fin 2)
+  have shape := PEqualNP.Outside.L_meta_2602.counterexample_shape D
+    (hsize.trans hs) hD hDF (d 0) (d 1) hleft hright (hz 0) (hz 1)
+  exact ⟨D, hD, hDF, ⟨d, hinit, hd, hz⟩, hsize, hmin, hactive, shape⟩
+
+end PEqualNP.Outside.L_meta_2602_aux.Normalized

@@ -1,0 +1,27 @@
+Independent source/integration review by structural_proof, 2026-11-25.
+Verdict: PASS as a compiled partial. This is not a proof or refutation of L-meta-2602.
+
+The new canonical derivative evaluator processes the original proper gate list with the stated input seed and supplies recurrence witnesses without added axioms. The new domination theorem compares the NEW derivative at surviving representatives with the OLD derivative, rather than wrongly requiring equality. It uses ordinary representative-value domination, equal input seeds, and zero padding values/tangents. Source/zero representatives contribute false; the duplicate-AND case uses the strict OR alias and the zero padding hypotheses, so it retains the repeated-value factor needed to prevent derivative growth. It does not require a zero original derivative at the clamped source, correctly strengthening the earlier inactive-gate result.
+
+residualValue reads the surviving representative, not the potentially enlarged physical alias slot. residual_smaller explicitly assumes every minimal positive edge survives that residual. A surviving marked edge supplies a valid non-source output representative. Monotonicity and pointwise domination preserve the exact plane function on all inputs. Both newly generated derivative witnesses remain zero, and dead-gate erasure reduces the size by exactly one; source validity and output exclusion are explicit.
+
+minimum_all_essential applies natural-number minimality over all proper plane circuits with both zero marked derivatives. It preserves size at most the starting circuit and proves every valid gate loses some positive edge when clamped. It neither asserts size at least63 nor uses an unproved ordinary lower bound at62. AllActive remains present as a separate already-proved property.
+
+Only PEqualNP.Defs is imported, all declarations stay under the intended auxiliary namespaces, and plaintext forbidden scans are clear. The custom Rule inductive and Plan structure remain ordinary kernel definitions with the previously noted repository manual-review caveat. No Lean or axiom audit was rerun for this independent source review; root supplied the successful frozen check.
+
+{
+  "sha256": "4867660c19fac4f75c5f3b3cd57d7e1f921a3cb74f5fd59bc92ffc524eeae09d",
+  "lines": 2127,
+  "bytes": 93303,
+  "forbidden_matches": {
+    "proof_shortcuts": false,
+    "forbidden_namespace": false,
+    "strings": false,
+    "attributes": false,
+    "options": false,
+    "commands": false
+  },
+  "only_imports": [
+    "import PEqualNP.Defs"
+  ]
+}

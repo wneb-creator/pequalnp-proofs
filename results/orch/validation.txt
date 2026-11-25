@@ -1,12 +1,12 @@
 L-meta-2602 partial progress; original target remains unproved. No proof PR opened.
 Named file: lean/PEqualNP/Outside/L_meta_2602.lean
-SHA256: 6005df01664bf5e96b8d1f478d25e1b24aff6ebf111e8687e8be4beea0a1f29a
-Lines: 4664. Cleanup: not yet applicable to a full proof.
+SHA256: 39f5496ce1d2459e5bde0f2b113f1f4fbf4192aa8222ac81b011e562f132a984
+Lines: 4982. Cleanup: not yet applicable to a full proof.
 Build: lake build PEqualNP.Outside.L_meta_2602 exited 0; Build completed successfully (5149 jobs).
-Partial results: Unconditional edge-inactive gate removal, minimum realization with every gate active on an edge, prior frontier elimination, and the checked 65-gate witness. Original 63-64 exclusion remains open.
+Partial results: Minimum marked-zero circuits can be made essential on minimal edges; unconditional residual gate removal with derivative domination; normalized dirty/nested-AND obstruction; checked 65-gate feasibility witness. Original 63-64 exclusion remains unproved.
 Checker: not run on this partial artifact; original target theorem is not declared.
 Independent review: PASS for this exact snapshot before pushing.
 Sub-agents: checker_review, structural_proof, counterexample, lemma_search, reduction_design, derivative_lemmas
-TIMING total=79.2 subagents=6
-Original-statement checker was attempted twice on earlier snapshots: FAULT, verifier exit137 from confirmed cgroup OOM, no theorem verdict. Complete logs preserved. Current source guard refuses only the missing final target theorem/full-name declaration, as expected for partials.
-Custom Rule/Plan types are accepted by the current source guard, but CONTRIBUTING routes custom data types to manual review.
+TIMING total=91.7 subagents=6
+Full original-statement checker was attempted twice on earlier snapshots: FAULT, verifier exit137 from cgroup OOM; no theorem verdict. Both full logs and resource records are preserved. Current outside source guard rejects only the absent final target theorem/full-name declaration.
+Cleanup line count: not applicable because the full proof/checker has not passed; current named partial4982lines.
