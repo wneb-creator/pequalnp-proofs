@@ -1,0 +1,8 @@
+{
+  "reviewer": "root, independent of author counterexample",
+  "verdict": "PASS for compiled partial preservation",
+  "sha256": "6fc36382a13dc36048f35dd80c908a966367205918e5efc9a0e770cf7bce9449",
+  "lines": 159,
+  "reason": "Earlier-wire induction proves mergeInput: on free gates common left-side bits resolve crossed witnesses; on nonfree gates a bare common variable forces one side true in both rows. Maximality then makes left-side codes injective. Finite Boolean function cardinality gives the exact power-of-two bound.",
+  "scope": "Generic bound for finite families of distinct maximal false inputs containing S. No WellFormed premise is needed because evaluator itself ignores non-earlier references. This does not prove the posted total gate bound."
+}

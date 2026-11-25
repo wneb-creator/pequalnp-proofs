@@ -1,0 +1,12 @@
+{
+  "reviewer": "root, independent of author counterexample",
+  "verdict": "PASS for compiled partial preservation",
+  "sha256": "a87be81f8c1cc595e1ea8016bd0cb672c3c1709a8e44b82235e4f08636552346",
+  "lines": 650,
+  "rows": 704,
+  "independent_full_maximal_row_enumeration": true,
+  "singleton_counts": 197,
+  "same_side_pair_counts": 52,
+  "cross_nonedge_pair_counts": 70,
+  "scope": "Finite geometry certificate; does not prove an AND or total gate-count lower bound. No new axioms; every computation uses kernel decide."
+}
