@@ -29,3 +29,9 @@
 
 2026-11-25T01:02:01.399393+00:00 direct bv_decide route rejected by source audit (new axiom + unavailable allowed import).
 2026-11-25T01:02:29.730981+00:00 fullN2 normalization named-file build passed,2061lines
+2026-11-25T01:03:11.225823+00:00 arbitraryN normalization supported on two rows and two columns compiled cleanly.
+2026-11-25T01:05:33.002896+00:00 renewed; expiry 2026-11-25T01:25:32.789Z
+2026-11-25T01:08:01.763049+00:00 singleton worker finished checked generic formula normalization; arbitrary shared circuits remain open.
+
+2026-11-25T01:08:02.797610+00:00 essential-input support and incidence-active bounds completed and Lean checked.
+2026-11-25T01:09:19.507246+00:00 named-file build passed: supported, 2273 lines
