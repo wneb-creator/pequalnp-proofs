@@ -43,3 +43,6 @@ TIMING total=47.29 subagents=6
 Checked actual circuit lower13, exact-NOT preservation at minimal size, fixed-NOT-count soundness and conditional full closing proof. All six sources compiled exit0 and independently audited. Full outputs preserved. The remaining finite checker equation is not yet kernel-checked; no full gap claim.
 Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
 TIMING total=51.34 subagents=6
+
+Complete proof CANDIDATE checkpoint (5735 lines): exact posted theorem, independently reviewed source and format. Remaining full kernel validation is running. First two parallel builds exited137 from memory pressure without Lean source errors. Current candidate changes only281 closed certificate declarations from lemma to def to serialize elaboration; statement/types/proof bodies unchanged. No full proof/checker acceptance claimed.
+Candidate SHA256 04788182ab82dba35b6d4e9d730cae29d0a3e98c271c02555306855e6f8c0867.

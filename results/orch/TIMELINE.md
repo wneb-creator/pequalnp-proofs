@@ -17,3 +17,4 @@ Pilot pequalnp-pilot-180
 2026-11-25T19:38:34.658868+00:00 Computational: 91 zero-restriction facts checked in full soundness engine (checkpoint444e348). Additional98 true-restriction Boolean certificates plus7 six-input Boolean certificates checked; soundness extension compiling. Graph_search independently reproduced zero/six candidates with repaired native evaluator and is scouting root bounds.
 2026-11-25T19:54:30.195780+00:00 Checkpointing extended restrictions and NOT-aware bridge after independent audit.
 2026-11-25T19:58:33.547953+00:00 Checkpointing lower13 and complete checked semantic chain; finite one-NOT13 certificate passed native scout, kernel splitting underway.
+2026-11-25T20:11:30.976421+00:00 Preserving independently reviewed complete candidate while serialized named-module build runs.
