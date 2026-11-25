@@ -70,3 +70,5 @@ Sub-agents: six agents, reused across the old and current lease.
 TIMING total=94.6 subagents=6
 
 2026-11-25T16:58:09.833558+00:00 PARTIAL: weighted reader compiler, 411 lines, Lean build2 exit0. Independent reviews by toolchain_setup and status_review approve exact false/true restriction, invalid-wire semantics, arbitrary gate weights, and explicit lower-bound premises. Conditional paid-NOT bound is not the posted theorem. SHA256 3c9e7bc1d341acc1ed8b0897a0533802439a8e33bd88cfb47ffa6bac5f2ff86d.
+
+2026-11-25T17:01:14.513395+00:00 PARTIAL: first signed binary gate retains both raw operands, standalone 138 lines, Lean exit0 with empty logs before attribution-only comment. Root independently read the full proof and verified the exact finite target/pins, probe conclusion, omitted-input argument and operand swap. Only Defs import; no scratch dependency. SHA256 53f57ffdc5846d5cd5bd0cbb9ae6678e7da485cdead3c536ccba4b3e6da3c126.
