@@ -76,12 +76,10 @@ theorem PEqualNP.Outside.R_meta_3178_52
       · exact hfan g hg
   have fullEval (x : Fin 9 → Bool) :
       full.eval (List.ofFn x) = C.eval (List.ofFn x ++ [!x 0, x 0 || x j]) := by
-    have first : (List.ofFn x).getD 0 false = x 0 := by
-      rw [List.getD_eq_getElem?_getD, List.getElem?_ofFn]
-      simp
-    simp only [Circuit.eval, Circuit.wires, full, List.foldl_cons, g0, g1, GateOp.eval,
-      List.map_cons, List.map_nil, List.headD, List.any_cons, List.any_nil, id, Bool.or_false]
-    rw [first, hget0 x, hget x j]
+    change C.eval ((List.ofFn x ++ [!x 0]) ++
+      [(List.ofFn x ++ [!x 0]).getD 0 false ||
+        ((List.ofFn x ++ [!x 0]).getD j.val false || false)]) = _
+    rw [Bool.or_false, hget0 x, hget x j]
     simp only [List.append_assoc, List.cons_append, List.nil_append]
   have fullComputes : ∀ x : Fin 9 → Bool, full.eval (List.ofFn x) = F x := by
     intro x
