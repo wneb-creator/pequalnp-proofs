@@ -8363,3 +8363,689 @@ lemma not_of_least_size {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
   omega
 
 end PEqualNP.Outside.L_meta_3566.PrivateCopy
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateCone
+
+lemma image_card_lt_of_collision {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (A : Finset α) (f : α → β) (p q : α) (hp : p ∈ A) (hq : q ∈ A)
+    (hpq : p ≠ q) (hdup : f p = f q) : (A.image f).card < A.card := by
+  have hImage : A.image f = (A.erase p).image f := by
+    ext y
+    constructor
+    · intro hy
+      obtain ⟨a, ha, hfa⟩ := Finset.mem_image.mp hy
+      by_cases hap : a = p
+      · subst a
+        exact Finset.mem_image.mpr ⟨q, Finset.mem_erase.mpr ⟨hpq.symm, hq⟩, hdup.symm.trans hfa⟩
+      · exact Finset.mem_image.mpr ⟨a, Finset.mem_erase.mpr ⟨hap, ha⟩, hfa⟩
+    · intro hy
+      obtain ⟨a, ha, hfa⟩ := Finset.mem_image.mp hy
+      exact Finset.mem_image.mpr ⟨a, Finset.mem_of_mem_erase ha, hfa⟩
+  rw [hImage]
+  have hle : ((A.erase p).image f).card ≤ (A.erase p).card := Finset.card_image_le
+  have hcard := Finset.card_erase_of_mem hp
+  have hpos := Finset.card_pos.mpr ⟨p, hp⟩
+  omega
+
+lemma input_card_le_gates_of_duplicate_port (n : ℕ) (K : Finset ℕ) (r : ℕ) (hr : r ∈ K)
+    (port : ℕ → Fin 2 → ℕ) (S : Finset (Fin n))
+    (hInputs : ∀ v ∈ S, ∃ g ∈ K, ∃ b : Fin 2, port g b = v.val)
+    (hRead : ∀ g ∈ K.erase r, ∃ h ∈ K, ∃ b : Fin 2, port h b = n + g)
+    (p q : ℕ × Fin 2) (hp : p.1 ∈ K) (hq : q.1 ∈ K)
+    (hpq : p ≠ q) (hDup : port p.1 p.2 = port q.1 q.2) :
+    S.card ≤ K.card := by
+  classical
+  let slots := K ×ˢ (Finset.univ : Finset (Fin 2))
+  let I := slots.image (fun p => port p.1 p.2)
+  have hS : S.card ≤ (I.filter (fun w => w < n)).card := by
+    apply Finset.card_le_card_of_injOn (fun v : Fin n => v.val)
+    · intro v hv
+      obtain ⟨g, hg, b, hb⟩ := hInputs v hv
+      apply Finset.mem_filter.mpr
+      refine ⟨?_, v.isLt⟩
+      exact Finset.mem_image.mpr ⟨(g, b), Finset.mem_product.mpr ⟨hg, Finset.mem_univ _⟩, hb⟩
+    · intro a _ b _ h
+      exact Fin.ext h
+  have hK : (K.erase r).card ≤ (I.filter (fun w => ¬ w < n)).card := by
+    apply Finset.card_le_card_of_injOn (fun g : ℕ => n + g)
+    · intro g hg
+      obtain ⟨h, hh, b, hb⟩ := hRead g hg
+      apply Finset.mem_filter.mpr
+      refine ⟨?_, by change ¬ n + g < n; omega⟩
+      exact Finset.mem_image.mpr ⟨(h, b), Finset.mem_product.mpr ⟨hh, Finset.mem_univ _⟩, hb⟩
+    · intro a _ b _ h
+      exact Nat.add_left_cancel h
+  have hSplit := Finset.card_filter_add_card_filter_not (s := I) (fun w => w < n)
+  have hPorts : slots.card = K.card * 2 := by simp [slots]
+  have hpSlot : p ∈ slots := Finset.mem_product.mpr ⟨hp, Finset.mem_univ _⟩
+  have hqSlot : q ∈ slots := Finset.mem_product.mpr ⟨hq, Finset.mem_univ _⟩
+  have hImage : I.card < slots.card :=
+    image_card_lt_of_collision slots (fun p => port p.1 p.2) p q hpSlot hqSlot hpq hDup
+  have hErase := Finset.card_erase_of_mem hr
+  have hPos := Finset.card_pos.mpr ⟨r, hr⟩
+  omega
+
+lemma two_cone_input_card_le_private_of_duplicate_port (n : ℕ)
+    (K₁ K₂ : Finset ℕ) (r₁ r₂ H : ℕ) (port : ℕ → Fin 2 → ℕ)
+    (S T : Finset (Fin n))
+    (hInputs₁ : ∀ v ∈ S, ∃ g ∈ K₁, ∃ b : Fin 2, port g b = v.val)
+    (hInputs₂ : ∀ v ∈ T, ∃ g ∈ K₂, ∃ b : Fin 2, port g b = v.val)
+    (hRead₁ : ∀ g ∈ K₁.erase r₁, ∃ h ∈ K₁, ∃ b : Fin 2, port h b = n + g)
+    (hRead₂ : ∀ g ∈ K₂.erase r₂, ∃ h ∈ K₂, ∃ b : Fin 2, port h b = n + g)
+    (hRoot₁ : port H 0 = n + r₁) (hRoot₂ : port H 1 = n + r₂)
+    (p q : ℕ × Fin 2) (hp : p.1 ∈ insert H (K₁ ∪ K₂))
+    (hq : q.1 ∈ insert H (K₁ ∪ K₂)) (hpq : p ≠ q)
+    (hDup : port p.1 p.2 = port q.1 q.2) :
+    (S ∪ T).card ≤ (insert H (K₁ ∪ K₂)).card := by
+  apply input_card_le_gates_of_duplicate_port n (insert H (K₁ ∪ K₂)) H
+    (Finset.mem_insert_self _ _) port (S ∪ T) ?_ ?_ p q hp hq hpq hDup
+  · intro v hv
+    rcases Finset.mem_union.mp hv with hv | hv
+    · obtain ⟨g, hg, b, hb⟩ := hInputs₁ v hv
+      exact ⟨g, Finset.mem_insert_of_mem (Finset.mem_union_left _ hg), b, hb⟩
+    · obtain ⟨g, hg, b, hb⟩ := hInputs₂ v hv
+      exact ⟨g, Finset.mem_insert_of_mem (Finset.mem_union_right _ hg), b, hb⟩
+  · intro g hg
+    obtain ⟨hgH, hg⟩ := Finset.mem_erase.mp hg
+    have hgUnion : g ∈ K₁ ∪ K₂ := (Finset.mem_insert.mp hg).resolve_left hgH
+    rcases Finset.mem_union.mp hgUnion with hg₁ | hg₂
+    · by_cases hgr : g = r₁
+      · subst g
+        exact ⟨H, Finset.mem_insert_self _ _, 0, hRoot₁⟩
+      · obtain ⟨h, hh, b, hb⟩ := hRead₁ g (Finset.mem_erase.mpr ⟨hgr, hg₁⟩)
+        exact ⟨h, Finset.mem_insert_of_mem (Finset.mem_union_left _ hh), b, hb⟩
+    · by_cases hgr : g = r₂
+      · subst g
+        exact ⟨H, Finset.mem_insert_self _ _, 1, hRoot₂⟩
+      · obtain ⟨h, hh, b, hb⟩ := hRead₂ g (Finset.mem_erase.mpr ⟨hgr, hg₂⟩)
+        exact ⟨h, Finset.mem_insert_of_mem (Finset.mem_union_right _ hh), b, hb⟩
+
+end PEqualNP.Outside.L_meta_3566.PrivateCone
+
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateOverlap
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge OnePureFrontier
+
+lemma orSet_subset_le {n : ℕ} (S T : Finset (Fin n)) (hST : S ⊆ T) (x : Fin n → Bool) :
+    orSet S x ≤ orSet T x := by
+  apply Bool.le_iff_imp.mpr
+  simp only [orSet, decide_eq_true_eq]
+  rintro ⟨v, hv, hx⟩
+  exact ⟨v, hST hv, hx⟩
+
+lemma and_orSet_eq_left {n : ℕ} (S T : Finset (Fin n)) (hST : S ⊆ T)
+    (x : Fin n → Bool) : (orSet S x && orSet T x) = orSet S x := by
+  have h := orSet_subset_le S T hST x
+  cases hs : orSet S x <;> cases ht : orSet T x <;> simp_all [Bool.le_iff_imp]
+
+lemma and_roots_value (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (H r₁ r₂ : ℕ) (hH : H < C.size)
+    (hAnd : gateAt C H = ⟨GateOp.and, [n + r₁, n + r₂]⟩) (x : Fin n → Bool) :
+    gateVal n C H x = (gateVal n C r₁ x && gateVal n C r₂ x) := by
+  have heq := LeafStep.Pruning.gate_eq C hC H hH x
+  simp only [hAnd, LeafStep.Pruning.isA, LeafStep.Pruning.opv, opnd] at heq
+  exact heq
+
+lemma not_and_comparable_or_roots {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hLeast : IsLeastAO G C) (H r₁ r₂ : ℕ) (hH : H < C.size)
+    (hAnd : gateAt C H = ⟨GateOp.and, [n + r₁, n + r₂]⟩)
+    (S T : Finset (Fin n))
+    (hRoot₁ : ∀ x : Fin n → Bool, gateVal n C r₁ x = orSet S x)
+    (hRoot₂ : ∀ x : Fin n → Bool, gateVal n C r₂ x = orSet T x)
+    (hCompare : S ⊆ T ∨ T ⊆ S) : False := by
+  have hOutput := InputAlias.least_output_bound_of_gate G C hLeast H hH
+  have hEarlier₁ : n + r₁ < n + H :=
+    hLeast.1.2.1 H hH _ (by simp [hAnd])
+  have hEarlier₂ : n + r₂ < n + H :=
+    hLeast.1.2.1 H hH _ (by simp [hAnd])
+  have hValue (x : Fin n → Bool) : gateVal n C H x = (orSet S x && orSet T x) := by
+    rw [and_roots_value n C hLeast.1 H r₁ r₂ hH hAnd, hRoot₁, hRoot₂]
+  rcases hCompare with hST | hTS
+  · apply Absorption.least_no_equivalent n G C hLeast H (n + r₁) hH hEarlier₁ hOutput
+    intro x
+    change gateVal n C H x = gateVal n C r₁ x
+    rw [hValue, hRoot₁]
+    exact and_orSet_eq_left S T hST x
+  · apply Absorption.least_no_equivalent n G C hLeast H (n + r₂) hH hEarlier₂ hOutput
+    intro x
+    change gateVal n C H x = gateVal n C r₂ x
+    rw [hValue, hRoot₂, Bool.and_comm]
+    exact and_orSet_eq_left T S hTS x
+
+end PEqualNP.Outside.L_meta_3566.PrivateOverlap
+
+
+namespace PEqualNP.Outside.L_meta_3566.OverlapCode
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_3566.OnePureFrontier
+open PrivateColorTree PrivateCode
+
+lemma overlap_value {n : ℕ} (S T : Finset (Fin n)) (x : Fin n → Bool) :
+    (orSet (S ∩ T) x || (orSet (S \ T) x && orSet (T \ S) x)) =
+      (orSet S x && orSet T x) := by
+  classical
+  apply Bool.eq_iff_iff.mpr
+  simp only [Bool.or_eq_true, Bool.and_eq_true, orSet, decide_eq_true_eq,
+    Finset.mem_inter, Finset.mem_sdiff]
+  constructor
+  · rintro (⟨v, ⟨hvS, hvT⟩, hx⟩ | ⟨⟨u, ⟨huS, _⟩, hxu⟩, ⟨v, ⟨hvT, _⟩, hxv⟩⟩)
+    · exact ⟨⟨v, hvS, hx⟩, ⟨v, hvT, hx⟩⟩
+    · exact ⟨⟨u, huS, hxu⟩, ⟨v, hvT, hxv⟩⟩
+  · rintro ⟨⟨u, huS, hxu⟩, ⟨v, hvT, hxv⟩⟩
+    by_cases huT : u ∈ T
+    · exact Or.inl ⟨u, ⟨huS, huT⟩, hxu⟩
+    by_cases hvS : v ∈ S
+    · exact Or.inl ⟨v, ⟨hvS, hvT⟩, hxv⟩
+    exact Or.inr ⟨⟨u, ⟨huS, huT⟩, hxu⟩, ⟨v, ⟨hvT, hvS⟩, hxv⟩⟩
+
+lemma overlap_card {n : ℕ} (S T : Finset (Fin n)) :
+    (S ∩ T).card + (S \ T).card + (T \ S).card = (S ∪ T).card := by
+  have h₁ := Finset.card_sdiff_add_card_inter S T
+  have h₂ := Finset.card_sdiff_add_card T S
+  rw [Finset.union_comm T S] at h₂
+  omega
+
+lemma exists_or_circuit {n : ℕ} (S : Finset (Fin n)) (hS : S.Nonempty) :
+    ∃ Q : Circuit, IsAO2 n Q ∧ Q.size + 1 = S.card ∧
+      circuitFun n Q = orSet S ∧ Q.output < n + Q.size := by
+  obtain ⟨t, hVars, hSize⟩ := exists_tree_of_nonempty S hS
+  obtain ⟨hQ, hFun, hLen, _⟩ := compiled_spec t
+  refine ⟨PrivateColorTree.compiled t, hQ, ?_, ?_, ?_⟩
+  · rw [hLen]
+    exact hSize
+  · rw [hFun]
+    funext x
+    rw [eval_eq_orSet, hVars]
+  · change (emit t n).2 < n + (PrivateColorTree.compiled t).size
+    rw [hLen]
+    exact (emit_good t n le_rfl).2
+
+lemma exists_overlap_circuit {n : ℕ} (S T : Finset (Fin n))
+    (hA : (S ∩ T).Nonempty) (hB : (S \ T).Nonempty) (hD : (T \ S).Nonempty) :
+    ∃ Q : Circuit, IsAO2 n Q ∧ Q.size + 1 = (S ∪ T).card ∧
+      circuitFun n Q = (fun x => orSet S x && orSet T x) ∧ Q.output < n + Q.size := by
+  obtain ⟨a, hVa, hSa⟩ := exists_tree_of_nonempty (S ∩ T) hA
+  obtain ⟨b, hVb, hSb⟩ := exists_tree_of_nonempty (S \ T) hB
+  obtain ⟨d, hVd, hSd⟩ := exists_tree_of_nonempty (T \ S) hD
+  let bd := binary GateOp.and (ofTree b) (ofTree d)
+  let code := binary GateOp.or (ofTree a) bd
+  have hBD := valid_binary GateOp.and (Or.inl rfl) (· && ·) (by intros; simp [GateOp.eval])
+    (ofTree b) (ofTree d) (eval b) (eval d) (activeCount b) (activeCount d)
+    (valid_ofTree b) (valid_ofTree d)
+  have hCode := valid_binary GateOp.or (Or.inr rfl) (· || ·) (by intros; simp [GateOp.eval])
+    (ofTree a) bd (eval a) _ (activeCount a) _ (valid_ofTree a) hBD
+  obtain ⟨hQ, hSize, hFun, _⟩ := circuit_spec code _ _ hCode
+  refine ⟨circuit n code, hQ, ?_, ?_, ?_⟩
+  · rw [hSize]
+    have hCard := overlap_card S T
+    simp only [code, bd, binary, ofTree, Code.size]
+    omega
+  · rw [hFun]
+    funext x
+    rw [eval_eq_orSet, eval_eq_orSet, eval_eq_orSet, hVa, hVb, hVd]
+    exact overlap_value S T x
+  · change (code.emit n).2 < n + (circuit n code).size
+    rw [hSize]
+    exact (hCode n le_rfl).2.2.1
+
+end PEqualNP.Outside.L_meta_3566.OverlapCode
+
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateOverlap
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+
+lemma root_not_mem_of_difference {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (K₁ K₂ : Finset ℕ) (r₁ r₂ : ℕ) (S T : Finset (Fin n))
+    (hCone₁ : PrivateMixed.OrCone C K₁ r₁ S) (hCone₂ : PrivateMixed.OrCone C K₂ r₂ T)
+    (hOnly : (S \ T).Nonempty) : r₁ ∉ K₂ := by
+  classical
+  obtain ⟨v, hv⟩ := hOnly
+  obtain ⟨hvS, hvT⟩ := Finset.mem_sdiff.mp hv
+  obtain ⟨hr₁, hK₁, hOr₁, hClosed₁, hRead₁, hInputs₁, hAll₁⟩ := hCone₁
+  obtain ⟨hr₂, hK₂, hOr₂, hClosed₂, hRead₂, hInputs₂, hAll₂⟩ := hCone₂
+  intro hrIn
+  have hOn : gateVal n C r₁ (pairInput v v) = true := by
+    rw [PrivateCone.closed_or_cone_value n C hC K₁ r₁ hr₁ hK₁ hOr₁ hClosed₁ hRead₁ S hInputs₁ hAll₁]
+    exact (OnePureFrontier.orSet_pair S v v).mpr (Or.inl hvS)
+  have hZero : ∀ u ∈ T, pairInput v v u = (fun _ : Fin n => false) u := by
+    intro u hu
+    have huv : u ≠ v := by intro he; subst u; exact hvT hu
+    simp [pairInput, huv]
+  have hEq := PrivateCone.cone_agree n C hC K₂ hK₂ hClosed₂ T hAll₂
+    (pairInput v v) (fun _ => false) hZero r₁ hrIn
+  rw [PrivateCone.gate_zero n C hC r₁ (hK₂ r₁ hrIn)] at hEq
+  rw [hEq] at hOn
+  exact Bool.false_ne_true hOn
+
+lemma duplicate_port_of_common_input (n : ℕ) (K₁ K₂ : Finset ℕ) (r₁ r₂ : ℕ)
+    (port : ℕ → Fin 2 → ℕ)
+    (hRead₁ : ∀ g ∈ K₁.erase r₁, ∃ h ∈ K₁, ∃ b : Fin 2, port h b = n + g)
+    (hRead₂ : ∀ g ∈ K₂.erase r₂, ∃ h ∈ K₂, ∃ b : Fin 2, port h b = n + g)
+    (hBack₁ : ∀ g ∈ K₁, ∀ b : Fin 2, port g b < n + g)
+    (_hBack₂ : ∀ g ∈ K₂, ∀ b : Fin 2, port g b < n + g)
+    (hr₁ : r₁ ∉ K₂) (hr₂ : r₂ ∉ K₁) (v : Fin n)
+    (hv₁ : ∃ g ∈ K₁, ∃ b : Fin 2, port g b = v.val)
+    (hv₂ : ∃ g ∈ K₂, ∃ b : Fin 2, port g b = v.val) :
+    ∃ p q : ℕ × Fin 2, p.1 ∈ K₁ ∪ K₂ ∧ q.1 ∈ K₁ ∪ K₂ ∧ p ≠ q ∧
+      port p.1 p.2 = port q.1 q.2 := by
+  classical
+  by_cases hInter : (K₁ ∩ K₂).Nonempty
+  · let g := (K₁ ∩ K₂).max' hInter
+    have hg : g ∈ K₁ ∩ K₂ := Finset.max'_mem _ _
+    obtain ⟨hg₁, hg₂⟩ := Finset.mem_inter.mp hg
+    have hgr₁ : g ≠ r₁ := by
+      intro h
+      apply hr₁
+      rw [← h]
+      exact hg₂
+    have hgr₂ : g ≠ r₂ := by
+      intro h
+      apply hr₂
+      rw [← h]
+      exact hg₁
+    obtain ⟨h₁, hh₁, b₁, hb₁⟩ := hRead₁ g (Finset.mem_erase.mpr ⟨hgr₁, hg₁⟩)
+    obtain ⟨h₂, hh₂, b₂, hb₂⟩ := hRead₂ g (Finset.mem_erase.mpr ⟨hgr₂, hg₂⟩)
+    have hgh₁ : g < h₁ := by have hb := hBack₁ h₁ hh₁ b₁; rw [hb₁] at hb; omega
+    have hDistinct : h₁ ≠ h₂ := by
+      intro h
+      have hh₁₂ : h₁ ∈ K₂ := h ▸ hh₂
+      have hle : h₁ ≤ g := Finset.le_max' _ h₁ (Finset.mem_inter.mpr ⟨hh₁, hh₁₂⟩)
+      omega
+    refine ⟨(h₁, b₁), (h₂, b₂), Finset.mem_union_left _ hh₁,
+      Finset.mem_union_right _ hh₂, ?_, hb₁.trans hb₂.symm⟩
+    intro he
+    exact hDistinct (congrArg Prod.fst he)
+  · obtain ⟨g₁, hg₁, b₁, hb₁⟩ := hv₁
+    obtain ⟨g₂, hg₂, b₂, hb₂⟩ := hv₂
+    have hDistinct : g₁ ≠ g₂ := by
+      intro he
+      exact hInter ⟨g₁, Finset.mem_inter.mpr ⟨hg₁, he ▸ hg₂⟩⟩
+    refine ⟨(g₁, b₁), (g₂, b₂), Finset.mem_union_left _ hg₁,
+      Finset.mem_union_right _ hg₂, ?_, hb₁.trans hb₂.symm⟩
+    intro he
+    exact hDistinct (congrArg Prod.fst he)
+
+lemma overlap_support_card_le_private {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (K₁ K₂ : Finset ℕ) (r₁ r₂ H : ℕ) (S T : Finset (Fin n))
+    (hCone₁ : PrivateMixed.OrCone C K₁ r₁ S) (hCone₂ : PrivateMixed.OrCone C K₂ r₂ T)
+    (hAnd : gateAt C H = ⟨GateOp.and, [n + r₁, n + r₂]⟩)
+    (hBoth : (S ∩ T).Nonempty) (hSOnly : (S \ T).Nonempty) (hTOnly : (T \ S).Nonempty) :
+    (S ∪ T).card ≤ (insert H (K₁ ∪ K₂)).card := by
+  classical
+  have hr₁Not := root_not_mem_of_difference C hC K₁ K₂ r₁ r₂ S T hCone₁ hCone₂ hSOnly
+  have hr₂Not := root_not_mem_of_difference C hC K₂ K₁ r₂ r₁ T S hCone₂ hCone₁ hTOnly
+  obtain ⟨hr₁, hK₁, hOr₁, hClosed₁, hRead₁, hInputs₁, hAll₁⟩ := hCone₁
+  obtain ⟨hr₂, hK₂, hOr₂, hClosed₂, hRead₂, hInputs₂, hAll₂⟩ := hCone₂
+  have hBack₁ (g : ℕ) (hg : g ∈ K₁) (b : Fin 2) : opnd C g b < n + g :=
+    hC.2.1 g (hK₁ g hg) _ (PrivateCone.port_mem n C hC g (hK₁ g hg) b)
+  have hBack₂ (g : ℕ) (hg : g ∈ K₂) (b : Fin 2) : opnd C g b < n + g :=
+    hC.2.1 g (hK₂ g hg) _ (PrivateCone.port_mem n C hC g (hK₂ g hg) b)
+  obtain ⟨v, hv⟩ := hBoth
+  obtain ⟨hvS, hvT⟩ := Finset.mem_inter.mp hv
+  obtain ⟨p, q, hp, hq, hpq, hDup⟩ := duplicate_port_of_common_input n K₁ K₂ r₁ r₂ (opnd C)
+    hRead₁ hRead₂ hBack₁ hBack₂ hr₁Not hr₂Not v (hInputs₁ v hvS) (hInputs₂ v hvT)
+  apply PrivateCone.two_cone_input_card_le_private_of_duplicate_port n K₁ K₂ r₁ r₂ H (opnd C) S T
+    hInputs₁ hInputs₂ hRead₁ hRead₂ ?_ ?_ p q (Finset.mem_insert_of_mem hp)
+    (Finset.mem_insert_of_mem hq) hpq hDup
+  · simp [opnd, hAnd]
+  · simp [opnd, hAnd]
+
+end PEqualNP.Outside.L_meta_3566.PrivateOverlap
+
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateOverlap
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge OnePureFrontier
+
+lemma no_private_overlapping_or_cones {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hLeast : IsLeastAO G C)
+    (K₁ K₂ : Finset ℕ) (r₁ r₂ H : ℕ) (S T : Finset (Fin n))
+    (hCone₁ : PrivateMixed.OrCone C K₁ r₁ S) (hCone₂ : PrivateMixed.OrCone C K₂ r₂ T)
+    (hH : H < C.size) (hAnd : gateAt C H = ⟨GateOp.and, [n + r₁, n + r₂]⟩)
+    (hOverlap : (S ∩ T).Nonempty)
+    (hPrivate : ∀ i < C.size, i ∉ insert H (K₁ ∪ K₂) → ∀ j ∈ insert H (K₁ ∪ K₂),
+      n + j ∈ (gateAt C i).inputs → j = H)
+    (hOutput : ∀ j ∈ insert H (K₁ ∪ K₂), C.output = n + j → j = H) : False := by
+  classical
+  obtain ⟨hr₁, hK₁, hOr₁, hClosed₁, hRead₁, hInputs₁, hAll₁⟩ := hCone₁
+  obtain ⟨hr₂, hK₂, hOr₂, hClosed₂, hRead₂, hInputs₂, hAll₂⟩ := hCone₂
+  have hRoot₁ (x : Fin n → Bool) : gateVal n C r₁ x = orSet S x :=
+    PrivateCone.closed_or_cone_value n C hLeast.1 K₁ r₁ hr₁ hK₁ hOr₁ hClosed₁
+      hRead₁ S hInputs₁ hAll₁ x
+  have hRoot₂ (x : Fin n → Bool) : gateVal n C r₂ x = orSet T x :=
+    PrivateCone.closed_or_cone_value n C hLeast.1 K₂ r₂ hr₂ hK₂ hOr₂ hClosed₂
+      hRead₂ T hInputs₂ hAll₂ x
+  by_cases hST : S ⊆ T
+  · exact not_and_comparable_or_roots G C hLeast H r₁ r₂ hH hAnd S T hRoot₁ hRoot₂ (Or.inl hST)
+  by_cases hTS : T ⊆ S
+  · exact not_and_comparable_or_roots G C hLeast H r₁ r₂ hH hAnd S T hRoot₁ hRoot₂ (Or.inr hTS)
+  have hSOnly : (S \ T).Nonempty := by
+    by_contra hNo
+    apply hST
+    intro v hv
+    by_contra hvT
+    exact hNo ⟨v, Finset.mem_sdiff.mpr ⟨hv, hvT⟩⟩
+  have hTOnly : (T \ S).Nonempty := by
+    by_contra hNo
+    apply hTS
+    intro v hv
+    by_contra hvS
+    exact hNo ⟨v, Finset.mem_sdiff.mpr ⟨hv, hvS⟩⟩
+  obtain ⟨Q, hQ, hSize, hFun, hq⟩ := OverlapCode.exists_overlap_circuit S T hOverlap hSOnly hTOnly
+  have hCard := overlap_support_card_le_private C hLeast.1 K₁ K₂ r₁ r₂ H S T
+    ⟨hr₁, hK₁, hOr₁, hClosed₁, hRead₁, hInputs₁, hAll₁⟩
+    ⟨hr₂, hK₂, hOr₂, hClosed₂, hRead₂, hInputs₂, hAll₂⟩ hAnd hOverlap hSOnly hTOnly
+  have hJ : insert H (K₁ ∪ K₂) ⊆ Finset.range C.size := by
+    intro j hj
+    apply Finset.mem_range.mpr
+    rcases Finset.mem_insert.mp hj with rfl | hj
+    · exact hH
+    · rcases Finset.mem_union.mp hj with hj | hj
+      · exact hK₁ j hj
+      · exact hK₂ j hj
+  have hValue (x : Fin n → Bool) : gateVal n C H x = (orSet S x && orSet T x) := by
+    rw [and_roots_value n C hLeast.1 H r₁ r₂ hH hAnd, hRoot₁, hRoot₂]
+  apply PrivateCopy.not_of_least_size G Q C (insert H (K₁ ∪ K₂)) H hLeast hQ hq hJ hPrivate hOutput
+  · intro x
+    rw [hFun, hValue]
+  · intro a b _hab
+    rw [hFun, hValue]
+  · omega
+
+end PEqualNP.Outside.L_meta_3566.PrivateOverlap
+
+
+namespace PEqualNP.Outside.L_meta_3566.OnePurePrivate
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+open PrivateColorTree PrivateCode PrivateColorShell OnePureFrontier
+
+lemma exists_and_or_sets {n : ℕ} (S T : Finset (Fin n)) (hS : S.Nonempty) (hT : T.Nonempty) :
+    ∃ Q : Circuit, IsAO2 n Q ∧ Q.size + 1 = S.card + T.card ∧
+      circuitFun n Q = (fun x => orSet S x && orSet T x) ∧ Q.output < n + Q.size := by
+  obtain ⟨s, hvs, hss⟩ := exists_tree_of_nonempty S hS
+  obtain ⟨t, hvt, hst⟩ := exists_tree_of_nonempty T hT
+  let c := binary GateOp.and (ofTree s) (ofTree t)
+  have hc : Valid n c (fun x => eval s x && eval t x)
+      (fun x => activeCount s x + activeCount t x + if eval s x && eval t x then 1 else 0) :=
+    valid_binary GateOp.and (Or.inl rfl) (· && ·) (by intros; simp [GateOp.eval])
+      (ofTree s) (ofTree t) (eval s) (eval t) (activeCount s) (activeCount t)
+      (valid_ofTree s) (valid_ofTree t)
+  obtain ⟨hAO, hSize, hFun, _⟩ := circuit_spec c _ _ hc
+  refine ⟨circuit n c, hAO, ?_, ?_, ?_⟩
+  · rw [hSize]
+    simp only [c, binary, ofTree, Code.size]
+    omega
+  · rw [hFun]
+    funext x
+    simp only [eval_eq_orSet, hvs, hvt]
+  · have hOut := (hc n le_rfl).2.2.1
+    change (c.emit n).2 < n + (circuit n c).size
+    rw [hSize]
+    exact hOut
+
+lemma cross_eq_of_pure_left {n : ℕ} (color : Fin n → Bool) (b : Bool)
+    (S T : Finset (Fin n)) (hPure : ∀ v ∈ S, color v = b) (x : Fin n → Bool) :
+    cross color S T x = (orSet S x && orSet (part color (!b) T) x) := by
+  have hSame : part color b S = S := by
+    ext v
+    simp only [part, Finset.mem_filter]
+    exact ⟨And.left, fun hv => ⟨hv, hPure v hv⟩⟩
+  have hOther : part color (!b) S = ∅ := by
+    ext v
+    constructor
+    · intro hv
+      obtain ⟨hvS, hc⟩ := Finset.mem_filter.mp hv
+      rw [hPure v hvS] at hc
+      cases b <;> cases hc
+    · intro hv
+      simp at hv
+  cases b <;> simp only [Bool.not_false, Bool.not_true] at hOther ⊢
+  · simp [cross, hSame, hOther, orSet]
+  · simp [cross, hSame, hOther, orSet]
+
+lemma part_card_lt_of_both {n : ℕ} (color : Fin n → Bool) (b : Bool)
+    (T : Finset (Fin n)) (hBoth : ∀ c : Bool, ∃ v ∈ T, color v = c) :
+    (part color (!b) T).card < T.card := by
+  apply Finset.card_lt_card
+  apply Finset.ssubset_iff_subset_ne.mpr
+  refine ⟨Finset.filter_subset _ _, ?_⟩
+  intro heq
+  obtain ⟨v, hv, hc⟩ := hBoth b
+  have hv' : v ∈ part color (!b) T := heq.symm ▸ hv
+  have hvColor := (Finset.mem_filter.mp hv').2
+  rw [hc] at hvColor
+  cases b <;> cases hvColor
+
+lemma no_private_disjoint_pure_mixed_or_cones {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (color : Fin n → Bool)
+    (hBip : ∀ a b : Fin n, G.Adj a b → color a ≠ color b)
+    (C : Circuit) (hLeast : IsLeastAO G C)
+    (K₁ K₂ : Finset ℕ) (r₁ r₂ H : ℕ) (S T : Finset (Fin n))
+    (hCone₁ : PrivateMixed.OrCone C K₁ r₁ S) (hCone₂ : PrivateMixed.OrCone C K₂ r₂ T)
+    (hH : H < C.size)
+    (hAnd : gateAt C H = ⟨GateOp.and, [n + r₁, n + r₂]⟩ ∨
+      gateAt C H = ⟨GateOp.and, [n + r₂, n + r₁]⟩)
+    (hDisjS : Disjoint S T) (b : Bool)
+    (hPureS : ∀ v ∈ S, color v = b)
+    (hBothT : ∀ c : Bool, ∃ v ∈ T, color v = c)
+    (hPrivate : ∀ i < C.size, i ∉ insert H (K₁ ∪ K₂) → ∀ j ∈ insert H (K₁ ∪ K₂),
+      n + j ∈ (gateAt C i).inputs → j = H)
+    (hOutput : ∀ j ∈ insert H (K₁ ∪ K₂), C.output = n + j → j = H) : False := by
+  classical
+  obtain ⟨hr₁, hK₁, hOr₁, hClosed₁, hRead₁, hInputs₁, hAll₁⟩ := hCone₁
+  obtain ⟨hr₂, hK₂, hOr₂, hClosed₂, hRead₂, hInputs₂, hAll₂⟩ := hCone₂
+  have hDisjK : Disjoint K₁ K₂ :=
+    PrivateCone.closed_cones_disjoint_of_supports n C hLeast.1 K₁ K₂ hK₁ hK₂ hClosed₁ hClosed₂
+      S T hDisjS hAll₁ hAll₂
+  have hOp : (gateAt C H).op = GateOp.and := by
+    rcases hAnd with h | h <;> simp [h]
+  have hHNot : H ∉ K₁ ∪ K₂ := by
+    intro h
+    rcases Finset.mem_union.mp h with h | h
+    · have hh := hOr₁ H h
+      rw [hOp] at hh
+      cases hh
+    · have hh := hOr₂ H h
+      rw [hOp] at hh
+      cases hh
+  have hS : S.Nonempty := by
+    have hVal := PrivateCone.closed_or_cone_value n C hLeast.1 K₁ r₁ hr₁ hK₁ hOr₁ hClosed₁
+      hRead₁ S hInputs₁ hAll₁ (fun _ => true)
+    have hOn := PrivateCone.gate_all_true n C hLeast.1 r₁ (hK₁ r₁ hr₁)
+    have hSet : orSet S (fun _ => true) = true := hVal.symm.trans hOn
+    obtain ⟨v, hv, _⟩ : ∃ v ∈ S, (fun _ : Fin n => true) v = true := of_decide_eq_true hSet
+    exact ⟨v, hv⟩
+  have hTPart : (part color (!b) T).Nonempty := by
+    obtain ⟨v, hv, hc⟩ := hBothT (!b)
+    exact ⟨v, Finset.mem_filter.mpr ⟨hv, hc⟩⟩
+  obtain ⟨Q, hQ, hQSize, hQFun, hq⟩ := exists_and_or_sets S (part color (!b) T) hS hTPart
+  have hQCross : circuitFun n Q = cross color S T := by
+    rw [hQFun]
+    funext x
+    exact (cross_eq_of_pure_left color b S T hPureS x).symm
+  have hHFun (x : Fin n → Bool) :
+      gateVal n C H x = (orSet S x && orSet T x) := by
+    have heq := LeafStep.Pruning.gate_eq C hLeast.1 H hH x
+    have hr₁Fun := PrivateCone.closed_or_cone_value n C hLeast.1 K₁ r₁ hr₁ hK₁ hOr₁ hClosed₁
+      hRead₁ S hInputs₁ hAll₁ x
+    have hr₂Fun := PrivateCone.closed_or_cone_value n C hLeast.1 K₂ r₂ hr₂ hK₂ hOr₂ hClosed₂
+      hRead₂ T hInputs₂ hAll₂ x
+    rcases hAnd with h | h
+    · simp only [h, LeafStep.Pruning.isA, LeafStep.Pruning.opv, opnd] at heq
+      change gateVal n C H x = (gateVal n C r₁ x && gateVal n C r₂ x) at heq
+      rw [heq, hr₁Fun, hr₂Fun]
+    · simp only [h, LeafStep.Pruning.isA, LeafStep.Pruning.opv, opnd] at heq
+      change gateVal n C H x = (gateVal n C r₂ x && gateVal n C r₁ x) at heq
+      rw [heq, hr₁Fun, hr₂Fun, Bool.and_comm]
+  have hJ : insert H (K₁ ∪ K₂) ⊆ Finset.range C.size := by
+    intro j hj
+    apply Finset.mem_range.mpr
+    rcases Finset.mem_insert.mp hj with rfl | hj
+    · exact hH
+    · rcases Finset.mem_union.mp hj with hj | hj
+      · exact hK₁ j hj
+      · exact hK₂ j hj
+  have hCard : (insert H (K₁ ∪ K₂)).card = K₁.card + K₂.card + 1 := by
+    rw [Finset.card_insert_of_notMem hHNot, Finset.card_union_of_disjoint hDisjK]
+  have hSize : Q.size < (insert H (K₁ ∪ K₂)).card := by
+    have hs := PrivateCone.input_card_le_gates_add_one n K₁ r₁ hr₁ (opnd C) S hInputs₁ hRead₁
+    have ht := PrivateCone.input_card_le_gates_add_one n K₂ r₂ hr₂ (opnd C) T hInputs₂ hRead₂
+    have hProper := part_card_lt_of_both color b T hBothT
+    omega
+  apply PrivateCopy.not_of_least_size G Q C (insert H (K₁ ∪ K₂)) H hLeast hQ hq hJ
+    hPrivate hOutput
+  · intro x
+    rw [hQCross, hHFun]
+    exact cross_le color S T x
+  · intro a c hac
+    rw [hQCross, hHFun]
+    exact cross_pair_eq color S T hDisjS a c (hBip a c hac)
+  · exact hSize
+
+end PEqualNP.Outside.L_meta_3566.OnePurePrivate
+
+
+namespace PEqualNP.Outside.L_meta_3566.SameColorFactors
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm OnePureFrontier
+
+lemma edge_false {n : ℕ} (G : SimpleGraph (Fin n))
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (S T : Finset (Fin n)) (hDisjoint : Disjoint S T) (b : Bool)
+    (hS : ∀ u ∈ S, color u = b) (hT : ∀ u ∈ T, color u = b)
+    (u v : Fin n) (huv : G.Adj u v) :
+    (orSet S (pairInput u v) && orSet T (pairInput u v)) = false := by
+  apply Bool.eq_false_iff.mpr
+  intro hOn
+  have hBoth : orSet S (pairInput u v) = true ∧
+      orSet T (pairInput u v) = true := by simpa using hOn
+  rcases (orSet_pair S u v).mp hBoth.1 with huS | hvS
+  · rcases (orSet_pair T u v).mp hBoth.2 with huT | hvT
+    · exact Finset.disjoint_left.mp hDisjoint huS huT
+    · exact hBip u v huv ((hS u huS).trans (hT v hvT).symm)
+  · rcases (orSet_pair T u v).mp hBoth.2 with huT | hvT
+    · exact hBip u v huv ((hT u huT).trans (hS v hvS).symm)
+    · exact Finset.disjoint_left.mp hDisjoint hvS hvT
+
+lemma not_in_mono_normalized {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (color : Fin n → Bool)
+    (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (hE : ∃ u v : Fin n, G.Adj u v)
+    (C : Circuit) (hC : MonoNormalize.IsMonoJunkLeastAO G color C)
+    (j : ℕ) (hj : j < C.gates.length) (hAnd : (gateAt C j).op = GateOp.and)
+    (S T : Finset (Fin n)) (hDisjoint : Disjoint S T)
+    (hSNonempty : S.Nonempty) (hTNonempty : T.Nonempty) (b : Bool)
+    (hS : ∀ u ∈ S, color u = b) (hT : ∀ u ∈ T, color u = b)
+    (hVal : ∀ x, gateVal n C j x = (orSet S x && orSet T x)) : False := by
+  have hMonoOn : (orSet S (MonoNormalize.input color b) &&
+      orSet T (MonoNormalize.input color b)) = true := by
+    obtain ⟨u, hu⟩ := hSNonempty
+    obtain ⟨v, hv⟩ := hTNonempty
+    have hs : orSet S (MonoNormalize.input color b) = true := by
+      apply decide_eq_true_eq.mpr
+      exact ⟨u, hu, by simp [MonoNormalize.input, hS u hu]⟩
+    have ht : orSet T (MonoNormalize.input color b) = true := by
+      apply decide_eq_true_eq.mpr
+      exact ⟨v, hv, by simp [MonoNormalize.input, hT v hv]⟩
+    simp [hs, ht]
+  have hDirty : j ∈ junk G C := by
+    apply (JunkNormalize.mem_junk_iff G C j).mpr
+    exact ⟨hj, hAnd, MonoNormalize.input color b, (hVal _).trans hMonoOn,
+      MonoNormalize.input_false G color hBip b⟩
+  obtain ⟨u, v, _, _, huv, _, hp, _, _⟩ :=
+    MonoNormalize.dirty_has_two_pivotal_edges G color hBip hE C hC j hDirty
+  have hOn := JunkPivotal.pivotal_on G C hC.1.1 hC.1.2.1 j hj u v huv hp
+  rw [hVal, edge_false G color hBip S T hDisjoint b hS hT u v huv] at hOn
+  exact Bool.false_ne_true hOn
+
+end PEqualNP.Outside.L_meta_3566.SameColorFactors
+
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateClassification
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge OnePureFrontier
+
+lemma pure_or_mixed {n : ℕ} (S : Finset (Fin n)) (color : Fin n → Bool) :
+    (∃ b : Bool, ∀ v ∈ S, color v = b) ∨ (∀ b : Bool, ∃ v ∈ S, color v = b) := by
+  classical
+  by_cases hPure : ∃ b : Bool, ∀ v ∈ S, color v = b
+  · exact Or.inl hPure
+  right
+  intro b
+  by_contra hNo
+  apply hPure
+  refine ⟨!b, ?_⟩
+  intro v hv
+  have hne : color v ≠ b := fun hc => hNo ⟨v, hv, hc⟩
+  cases hb : b <;> cases hc : color v <;> simp_all
+
+lemma orCone_nonempty {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (K : Finset ℕ) (r : ℕ) (S : Finset (Fin n))
+    (hCone : PrivateMixed.OrCone C K r S) : S.Nonempty := by
+  obtain ⟨hr, hK, hOr, hClosed, hRead, hInputs, hAll⟩ := hCone
+  have hVal := PrivateCone.closed_or_cone_value n C hAO K r hr hK hOr hClosed
+    hRead S hInputs hAll (fun _ => true)
+  have hOn := PrivateCone.gate_all_true n C hAO r (hK r hr)
+  have hSet : orSet S (fun _ => true) = true := hVal.symm.trans hOn
+  obtain ⟨v, hv, _⟩ : ∃ v ∈ S, (fun _ : Fin n => true) v = true := of_decide_eq_true hSet
+  exact ⟨v, hv⟩
+
+lemma private_or_factors_pure_opposite {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (color : Fin n → Bool)
+    (hBip : ∀ a b : Fin n, G.Adj a b → color a ≠ color b)
+    (hE : ∃ a b : Fin n, G.Adj a b)
+    (C : Circuit) (hMin : MonoNormalize.IsMonoJunkLeastAO G color C)
+    (K₁ K₂ : Finset ℕ) (r₁ r₂ H : ℕ) (S T : Finset (Fin n))
+    (hCone₁ : PrivateMixed.OrCone C K₁ r₁ S) (hCone₂ : PrivateMixed.OrCone C K₂ r₂ T)
+    (hH : H < C.size) (hAnd : gateAt C H = ⟨GateOp.and, [n + r₁, n + r₂]⟩)
+    (hPrivate : ∀ i < C.size, i ∉ insert H (K₁ ∪ K₂) → ∀ j ∈ insert H (K₁ ∪ K₂),
+      n + j ∈ (gateAt C i).inputs → j = H)
+    (hOutput : ∀ j ∈ insert H (K₁ ∪ K₂), C.output = n + j → j = H) :
+    Disjoint S T ∧ ∃ b : Bool, (∀ v ∈ S, color v = b) ∧ (∀ v ∈ T, color v = !b) := by
+  classical
+  have hDisj : Disjoint S T := by
+    apply Finset.disjoint_left.mpr
+    intro v hvS hvT
+    exact PrivateOverlap.no_private_overlapping_or_cones G C hMin.1 K₁ K₂ r₁ r₂ H S T
+      hCone₁ hCone₂ hH hAnd ⟨v, Finset.mem_inter.mpr ⟨hvS, hvT⟩⟩ hPrivate hOutput
+  refine ⟨hDisj, ?_⟩
+  have hSNon := orCone_nonempty C hMin.1.1 K₁ r₁ S hCone₁
+  have hTNon := orCone_nonempty C hMin.1.1 K₂ r₂ T hCone₂
+  have hValue (x : Fin n → Bool) : gateVal n C H x = (orSet S x && orSet T x) := by
+    obtain ⟨hr₁, hK₁, hOr₁, hClosed₁, hRead₁, hInputs₁, hAll₁⟩ := hCone₁
+    obtain ⟨hr₂, hK₂, hOr₂, hClosed₂, hRead₂, hInputs₂, hAll₂⟩ := hCone₂
+    rw [PrivateOverlap.and_roots_value n C hMin.1.1 H r₁ r₂ hH hAnd,
+      PrivateCone.closed_or_cone_value n C hMin.1.1 K₁ r₁ hr₁ hK₁ hOr₁ hClosed₁ hRead₁ S hInputs₁ hAll₁,
+      PrivateCone.closed_or_cone_value n C hMin.1.1 K₂ r₂ hr₂ hK₂ hOr₂ hClosed₂ hRead₂ T hInputs₂ hAll₂]
+  rcases pure_or_mixed S color with ⟨b, hPureS⟩ | hBothS
+  · rcases pure_or_mixed T color with ⟨c, hPureT⟩ | hBothT
+    · by_cases hbc : b = c
+      · subst c
+        exact (SameColorFactors.not_in_mono_normalized G color hBip hE C hMin H hH
+          (by simp [hAnd]) S T hDisj hSNon hTNon b hPureS hPureT hValue).elim
+      · refine ⟨b, hPureS, ?_⟩
+        intro v hv
+        have hc := hPureT v hv
+        cases b <;> cases c <;> simp_all
+    · exact (OnePurePrivate.no_private_disjoint_pure_mixed_or_cones G color hBip C hMin.1
+        K₁ K₂ r₁ r₂ H S T hCone₁ hCone₂ hH (Or.inl hAnd) hDisj b hPureS hBothT
+        hPrivate hOutput).elim
+  · rcases pure_or_mixed T color with ⟨c, hPureT⟩ | hBothT
+    · apply (OnePurePrivate.no_private_disjoint_pure_mixed_or_cones G color hBip C hMin.1
+        K₂ K₁ r₂ r₁ H T S hCone₂ hCone₁ hH (Or.inr hAnd) hDisj.symm c hPureT hBothS ?_ ?_).elim
+      · simpa only [Finset.union_comm] using hPrivate
+      · simpa only [Finset.union_comm] using hOutput
+    · exact (PrivateMixed.no_private_disjoint_mixed_or_cones G color hBip C hMin
+        K₁ K₂ r₁ r₂ H S T hCone₁ hCone₂ hH hAnd hDisj hBothS hBothT hPrivate hOutput).elim
+
+end PEqualNP.Outside.L_meta_3566.PrivateClassification
