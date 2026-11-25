@@ -1,0 +1,5 @@
+import PEqualNP.Outside.L_gct_231
+#print axioms PEqualNP.Outside.L_gct_231_aux.total_entry_sum_zero
+#print axioms PEqualNP.Outside.L_gct_231_aux.submodule_total_entry_sum_zero
+#print axioms PEqualNP.Outside.L_gct_231_aux.diagonal33_of_total_entry_sum_zero
+#print axioms PEqualNP.Outside.L_gct_231_aux.three_edge_orbits

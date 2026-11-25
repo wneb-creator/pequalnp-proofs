@@ -1,0 +1,4 @@
+SHA256 e00208d33be08325120dce94fa9632031bb0cfbe1cb3595f8e90982e1b11b8ea
+PASS exact Chart prefix, DiagonalElimination declarations/options, EdgeOrbits declarations/options
+PASS two allowed imports, one auxiliary namespace, permitted options, absent forbidden constructs
+SCOPE partial necessary conditions and conditional construction wrapper; no main gap theorem

@@ -1,0 +1,8 @@
+'PEqualNP.Outside.L_gct_231_aux.total_entry_sum_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.submodule_total_entry_sum_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.diagonal33_of_total_entry_sum_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.three_edge_orbits' depends on axioms: [propext, Classical.choice, Quot.sound]

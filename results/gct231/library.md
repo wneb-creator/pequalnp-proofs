@@ -63,3 +63,23 @@ Both supplied star artifacts passed exact independent verification:
 The verification independently reconstructed the entire permanent polynomial using Ryser inclusion-exclusion, compared all 31 expected coefficient equations in degrees 2–4 exactly, checked matrix symmetry and every normalization constraint, and performed 24 exact integer sample comparisons against the direct 24-permutation definition for each artifact. Complete verifier: `/tmp/oec/pequalnp-pilot-75/gct231/library/verify_chart_equations.py`; full successful log: `chart-equations-review.log`, exit 0.
 
 This review validates the equation generation only. It does not certify the reported support-only Groebner basis, rerun that calculation, establish a full-chart contradiction, or produce a Lean refutation.
+
+## Finite edge-orbit review
+
+`EdgeOrbits.lean`, SHA256 `39b4bc343d440e27c44b802ff35948abcbcee6a52815ea0546e29d5d1251e2fd`: PASS. Independently compiled with exit 0; complete log `gct231/library/edge-orbits-review-build.log` is empty. The proof uses ordinary kernel-checked `decide` and only the permitted limit options.
+
+The endpoint order is 01,02,03,12,13,23. The canonical triples are consequently star 01/02/03, triangle 01/02/12, and path 01/12/23, exactly the three solver charts. The permutation p relabels vertices, q reorders the selected coordinates, and equality up to endpoint flip is appropriate for symmetric matrices. The theorem proves coverage by these representatives, sufficient for chart reduction; it does not separately assert uniqueness of the orbit type.
+
+An additional independent Python enumeration checks all 120 ordered injective coordinate triples and finds a unique orbit type for each: 24 star, 24 triangle, 72 path. Equivalently the 20 unordered triples divide into 4 stars, 4 triangles, and 12 paths. Source `gct231/library/verify_edge_orbits.py`, complete log `edge-orbits-enumeration.log`, exit 0. This auxiliary enumeration is not part of the Lean proof.
+
+## Total-entry condition review
+
+`TotalEntry.lean`, SHA256 `cccbec5cd97f35fef3c3c6dba7044faef40d284fe66738210a4666fe880db7d5`: PASS. Independently compiled with exit 0 and empty complete log `gct231/library/total-entry-review-build.log`. The frozen Helpers prefix is unchanged. For any matrix, without symmetry assumptions, constancy of permanent(J+zt) on its scalar line implies total-entry sum zero. The ±1 and ±2 evaluations use the same odd-coefficient interpolation as diagonal rigidity: the cubic coefficient cancels and the linear coefficient, equal to six times the entry sum, survives with coefficient 1/6. The submodule specialization correctly invokes scalar closure. This supplies the Lean justification for eliminating diagonal33 in the solver charts. Format review passes.
+
+`DiagonalElimination.lean`, SHA256 `38f3337461e392e7974b3dc8b98a97912186ac12aa2e23079a16ddb2bebb92f1`: PASS. Independently compiled with exit 0 and empty complete log `gct231/library/diagonal-elimination-review-build.log`. The previous TotalEntry prefix is byte-preserved. The new corollary uses only symmetry and total-entry sum zero to give t33 as minus the other three diagonal entries minus twice the sum of the six upper entries, exactly matching the solver chart substitution. Format review passes.
+
+## Integrated partial checkpoint review
+
+Named file `lean/PEqualNP/Outside/L_gct_231.lean`, 283 lines / 11845 bytes, SHA256 `e00208d33be08325120dce94fa9632031bb0cfbe1cb3595f8e90982e1b11b8ea`: integration and red-team format review PASS. Exact comparison verifies the Chart prefix, all three new DiagonalElimination declarations with their options, and the EdgeOrbits bodies/options are preserved. Every component was independently compiled during the reviews above; the root is running integrated build04. There is one auxiliary namespace, two permitted imports, no prohibited constructs or text, and only allowed limit options. The source remains partial necessary conditions plus the conditional range construction wrapper; it does not declare the required main theorem. The reported checker rejection `no-theorem` is therefore expected and must not be represented as acceptance.
+
+Review script `gct231/library/review_integration.py`; complete successful log `integration-review04.log`, exit 0.

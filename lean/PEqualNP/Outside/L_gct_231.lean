@@ -222,4 +222,62 @@ theorem candidate_three_coordinate_chart
   exact select_three_coordinates (offDiagonal.comp L.subtype)
     (offDiagonal_injective L hs hp) hdim
 
+set_option maxHeartbeats 4000000 in
+set_option maxRecDepth 100000 in
+theorem total_entry_sum_zero (t : Fin 4 × Fin 4 → ℂ)
+    (h : ∀ z : ℂ, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + z * t (i,j)) = 24) :
+    ∑ i : Fin 4, ∑ j : Fin 4, t (i,j) = 0 := by
+  have h1 := h 1
+  have hm1 := h (-1)
+  have h2 := h 2
+  have hm2 := h (-2)
+  rw [perm4] at h1 hm1 h2 hm2
+  simp only [Matrix.of_apply] at h1 hm1 h2 hm2
+  simp only [Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero, Fin.succ_zero_eq_one,
+    Fin.succ_one_eq_two, show (2 : Fin 3).succ = (3 : Fin 4) from rfl]
+  linear_combination (1/9 : ℂ)*h1 - (1/9 : ℂ)*hm1 - (1/72 : ℂ)*h2 + (1/72 : ℂ)*hm2
+
+theorem submodule_total_entry_sum_zero
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hp : ∀ t ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => (1 : ℂ) + t (i,j)) = 24)
+    (t : Fin 4 × Fin 4 → ℂ) (ht : t ∈ L) :
+    ∑ i : Fin 4, ∑ j : Fin 4, t (i,j) = 0 := by
+  apply total_entry_sum_zero
+  intro z
+  simpa only [Pi.smul_apply, smul_eq_mul] using hp (z • t) (L.smul_mem z ht)
+
+
+theorem diagonal33_of_total_entry_sum_zero
+    (t : Fin 4 × Fin 4 → ℂ)
+    (hs : ∀ i j : Fin 4, t (i,j) = t (j,i))
+    (hsum : ∑ i : Fin 4, ∑ j : Fin 4, t (i,j) = 0) :
+    t (3,3) = -(t (0,0) + t (1,1) + t (2,2) +
+      2 * (t (0,1) + t (0,2) + t (0,3) + t (1,2) + t (1,3) + t (2,3))) := by
+  simp only [Fin.sum_univ_succ, Fin.sum_univ_zero, add_zero, Fin.succ_zero_eq_one,
+    Fin.succ_one_eq_two, show (2 : Fin 3).succ = (3 : Fin 4) from rfl] at hsum
+  rw [hs 1 0, hs 2 0, hs 3 0, hs 2 1, hs 3 1, hs 3 2] at hsum
+  linear_combination hsum
+
+def edgeEnds : Fin 6 → Fin 4 × Fin 4 :=
+  ![(0,1), (0,2), (0,3), (1,2), (1,3), (2,3)]
+
+def canonicalEdges : Fin 3 → Fin 3 → Fin 6 :=
+  ![![0,1,2], ![0,1,3], ![0,3,5]]
+
+def SameUnorderedEnds (a b : Fin 4 × Fin 4) : Prop :=
+  (a.1 = b.1 ∧ a.2 = b.2) ∨ (a.1 = b.2 ∧ a.2 = b.1)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 4000000 in
+theorem three_edge_orbits :
+    ∀ pick : Fin 3 → Fin 6, Function.Injective pick →
+      ∃ p : Equiv.Perm (Fin 4), ∃ q : Equiv.Perm (Fin 3), ∃ kind : Fin 3,
+        ∀ k : Fin 3, SameUnorderedEnds
+          (p (edgeEnds (pick (q k))).1, p (edgeEnds (pick (q k))).2)
+          (edgeEnds (canonicalEdges kind k)) := by
+  unfold SameUnorderedEnds
+  decide
+
 end PEqualNP.Outside.L_gct_231_aux
