@@ -1,0 +1,61 @@
+{
+  "scope": "Accepted-repository theorem census, independent finite replay and source audits only. No new Lean theorem or held-gap solution.",
+  "files": [
+    {
+      "path": "results/meta2448/accepted-and-count-bounds.md",
+      "sha256": "35f5d5282898063a136cdbb854bde3ba8fb661a1c2f53b389d8d6ca32bd9cbe9",
+      "bytes": 3713
+    },
+    {
+      "path": "results/meta2448/and-count-mis-diagnostic.json",
+      "sha256": "3bd74b69a360fcf08d228c677072f4ded66c88196cf7e2e420d7d0cb47394d82",
+      "bytes": 995
+    },
+    {
+      "path": "results/meta2448/shadow-sensitivity-independent-review.json",
+      "sha256": "e0ddbdb670d99760ef6a05d06f016cf57e6a08752c4b0f57334f971c153acfa6",
+      "bytes": 1934
+    },
+    {
+      "path": "results/meta2448/count-dp-independent-review.json",
+      "sha256": "a886a04cf2a24dbcb94fd8be7b9efd3037c77d212fc076e1385ae53aa04a68ff",
+      "bytes": 1778
+    },
+    {
+      "path": "results/meta2448/petersen-minus-known-lower-bound.json",
+      "sha256": "bbacd6501885cda55844708c66eb864855272923dc9d58231f1b6a4dc018e6db",
+      "bytes": 1018
+    },
+    {
+      "path": "results/meta2448/petersen-minus-known-lower-bound-independent-review.json",
+      "sha256": "e5837478ce6f125336982d719d680b930509eac77a32bd2f37fa59a0bea42cad",
+      "bytes": 1051
+    },
+    {
+      "path": "results/meta2448/petersen-L584-exact20-independent-replay.json",
+      "sha256": "1efdd76094c1a00702d6a5730970e77f6d7d6e7fe2b94311bad20529f0ce9625",
+      "bytes": 3138
+    },
+    {
+      "path": "results/meta2448/petersen-L584-star-copy-independent-replay.json",
+      "sha256": "3774bfa5e0b56d69090bdb05d6abe1645836e1fea76699689e90f734b4f6a2e6",
+      "bytes": 2780
+    },
+    {
+      "path": "results/meta2448/petersen-total-bound-census.json",
+      "sha256": "93c9465355b690c05fd0cc4b8c09ccc777e72e5f7a00123cccbab65b3d3f0e40",
+      "bytes": 15829
+    },
+    {
+      "path": "results/meta2448/petersen-or-count-counterexample.md",
+      "sha256": "95836e1a406e63ae14cce7312733d1aa08ca26494b5758e40a5c5164250560d1",
+      "bytes": 2667
+    },
+    {
+      "path": "results/meta2448/L584-research-preservation-independent-review.json",
+      "sha256": "955ee059ab93171c833faa6c4a5a3bfc7cd9d4cf536337f6c6ab472560f8fefd",
+      "bytes": 1186
+    }
+  ],
+  "review": "PASS independent accepted L584 source extraction and exhaustive input-copy replay"
+}

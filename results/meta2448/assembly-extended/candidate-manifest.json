@@ -1,0 +1,968 @@
+{
+  "created_utc": "2026-11-25T08:12:53.250919+00:00",
+  "candidate": "/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean",
+  "sha256": "28805ce6e3525299659954c30efb774b3488ae6c97e230f1b4549bebd4e218ee",
+  "lines": 2234,
+  "bytes": 98226,
+  "inputs": [
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_2448.lean",
+      "sha256": "c07fd292cd75f1ea0d2559fce42619023cb477c203ff82b36f4c881a124a25e2",
+      "lines": 1114,
+      "dependency_lines": [
+        "import PEqualNP.Defs"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/reader-deletion.lean",
+      "sha256": "5290542f7c2e0783f6b28c17a3cde6495875413a7ab55c1d498ac7715bc0f3ed",
+      "lines": 427,
+      "dependency_lines": [
+        "import PEqualNP.Defs"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/repair-assembly.lean",
+      "sha256": "c99d2cb53449221180f6ec10cfab53cd3e8a4f15021d8db3db76026ad47f225e",
+      "lines": 189,
+      "dependency_lines": [
+        "import ReaderDeletion",
+        "import TwoCenterRepair"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/reader-deletion-count.lean",
+      "sha256": "dda9444ec5f6dd992340d4a08f25f84bd35ce1f3dbf5884ceea53c33f5d24a1b",
+      "lines": 205,
+      "dependency_lines": [
+        "import ReaderDeletion"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/graph-repair.lean",
+      "sha256": "f643f7dc83c05e16a17866def758d63d43b8a4a9e2a462086e593417174ba164",
+      "lines": 94,
+      "dependency_lines": [
+        "import RepairAssembly",
+        "import EdgePruning"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/forced-eval.lean",
+      "sha256": "4200a42b6712349ef209f93c7a6bbc0003a92446a5388b5d16050186db70395e",
+      "lines": 76,
+      "dependency_lines": [
+        "import ReaderDeletionCount"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/concrete-graph-repair.lean",
+      "sha256": "91888d0d3b1718a4e0d12c80f1385a8e29a86d13bbb0a15568e6be182563b423",
+      "lines": 58,
+      "dependency_lines": [
+        "import GraphRepair",
+        "import ForcedEval"
+      ]
+    },
+    {
+      "path": "results/meta2448/checked/reader-repair-count.lean",
+      "sha256": "1a3a2c7a0ccd9f97d8911a78d7d6ebd5b062a5300a74c49951b43a71abfc9ab1",
+      "lines": 75,
+      "dependency_lines": [
+        "import ReaderDeletionCount",
+        "import RepairAssembly"
+      ]
+    }
+  ],
+  "modification": "Unmodified first source followed by remaining checked bodies with only dependency lines removed.",
+  "target_proved": false,
+  "kernel_checked": true,
+  "scope": "Portable partial checkpoint only; the posted global-minimum star-profile statement remains unproved.",
+  "declarations": [
+    {
+      "line": 10,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.wf"
+    },
+    {
+      "line": 13,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.eval_eq"
+    },
+    {
+      "line": 16,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.wf_snoc"
+    },
+    {
+      "line": 20,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.wf_len"
+    },
+    {
+      "line": 29,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.wf_keep"
+    },
+    {
+      "line": 40,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.wf_prefix"
+    },
+    {
+      "line": 47,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.getD_snoc_lt"
+    },
+    {
+      "line": 51,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.getD_snoc_eq"
+    },
+    {
+      "line": 54,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.getD_snoc_gt"
+    },
+    {
+      "line": 58,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.wf_append"
+    },
+    {
+      "line": 61,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.build"
+    },
+    {
+      "line": 66,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.build_len"
+    },
+    {
+      "line": 72,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.build_mono"
+    },
+    {
+      "line": 85,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.build_val"
+    },
+    {
+      "line": 121,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.graph_minimal_exists"
+    },
+    {
+      "line": 146,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.minimal_size_eq"
+    },
+    {
+      "line": 153,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.Existence.minimal_transfer"
+    },
+    {
+      "line": 171,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.intersecting_edge_family"
+    },
+    {
+      "line": 221,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.OwnedEdgesIntersect"
+    },
+    {
+      "line": 225,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.star_iff_owned_edges_intersect"
+    },
+    {
+      "line": 247,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.nonstar_disjoint_owned_edges"
+    },
+    {
+      "line": 266,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.stepWire"
+    },
+    {
+      "line": 269,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.wires_eq_foldl"
+    },
+    {
+      "line": 272,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.foldl_stepWire_length"
+    },
+    {
+      "line": 281,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.foldl_stepWire_getD_lt"
+    },
+    {
+      "line": 291,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.getD_ge_length"
+    },
+    {
+      "line": 295,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.wires_length"
+    },
+    {
+      "line": 299,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.split_gates"
+    },
+    {
+      "line": 305,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.W"
+    },
+    {
+      "line": 308,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.gateAt_eq"
+    },
+    {
+      "line": 311,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.W_gate"
+    },
+    {
+      "line": 336,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.W_input"
+    },
+    {
+      "line": 342,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.W_or"
+    },
+    {
+      "line": 349,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.W_and"
+    },
+    {
+      "line": 357,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.coneFold_length"
+    },
+    {
+      "line": 367,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.coneStep_getD_last"
+    },
+    {
+      "line": 374,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.coneStep_getD_lt"
+    },
+    {
+      "line": 379,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.coneFold_getD_lt"
+    },
+    {
+      "line": 390,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.inCone_iff"
+    },
+    {
+      "line": 434,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.ite_true_iff"
+    },
+    {
+      "line": 438,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.W_and_iff"
+    },
+    {
+      "line": 449,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.W_or_iff"
+    },
+    {
+      "line": 461,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.inCone_lt"
+    },
+    {
+      "line": 473,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.gate_mono2"
+    },
+    {
+      "line": 482,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.Dom"
+    },
+    {
+      "line": 486,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.descent"
+    },
+    {
+      "line": 518,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.owns_dom"
+    },
+    {
+      "line": 557,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.dom_adj"
+    },
+    {
+      "line": 571,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.pair_sound_star"
+    },
+    {
+      "line": 650,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.star_profile_of_pair_sound"
+    },
+    {
+      "line": 660,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PairSound.bad_pair_of_not_star"
+    },
+    {
+      "line": 683,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.StarExistence.and_reads_input"
+    },
+    {
+      "line": 722,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.StarExistence.raw_ands_star"
+    },
+    {
+      "line": 739,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.StarExistence.build_and_raw"
+    },
+    {
+      "line": 756,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.StarExistence.build_profile"
+    },
+    {
+      "line": 761,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.StarExistence.graph_star_exists"
+    },
+    {
+      "line": 779,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.StarExistence.star_minimal_exists"
+    },
+    {
+      "line": 800,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.EdgePruning.graph_true_iff"
+    },
+    {
+      "line": 805,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.EdgePruning.pair_below"
+    },
+    {
+      "line": 814,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.EdgePruning.exact_of_decreasing_and_edge_preserving"
+    },
+    {
+      "line": 843,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.EdgeContext.graph_pair_true_adj"
+    },
+    {
+      "line": 854,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.EdgeContext.context_rejects_singletons"
+    },
+    {
+      "line": 881,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PrivateExchange.product_with_literal_context"
+    },
+    {
+      "line": 886,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PrivateExchange.shared_literal_absorption"
+    },
+    {
+      "line": 890,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.PrivateExchange.path_four_identity"
+    },
+    {
+      "line": 902,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.Hit"
+    },
+    {
+      "line": 904,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.Edge"
+    },
+    {
+      "line": 907,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.Product"
+    },
+    {
+      "line": 909,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.Cleanup"
+    },
+    {
+      "line": 911,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.Reduced"
+    },
+    {
+      "line": 914,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.Centers"
+    },
+    {
+      "line": 917,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.PairSound"
+    },
+    {
+      "line": 920,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.edge_pair_iff"
+    },
+    {
+      "line": 932,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.reduced_le_cleanup"
+    },
+    {
+      "line": 938,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.cleanup_pair_reduced"
+    },
+    {
+      "line": 958,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.sound_context_left"
+    },
+    {
+      "line": 968,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.sound_context_right"
+    },
+    {
+      "line": 978,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.centers_subsingleton"
+    },
+    {
+      "line": 989,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.shared_linear_cleanup"
+    },
+    {
+      "line": 1007,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.LinearCleanup.reduced_sound"
+    },
+    {
+      "line": 1023,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.Repair"
+    },
+    {
+      "line": 1026,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.repair_mono"
+    },
+    {
+      "line": 1032,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.disjoint_of_centers"
+    },
+    {
+      "line": 1039,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.cross_edge_centered"
+    },
+    {
+      "line": 1049,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.repair_le_product"
+    },
+    {
+      "line": 1056,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.repair_sound"
+    },
+    {
+      "line": 1063,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.repair_preserves_edges"
+    },
+    {
+      "line": 1088,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.TwoCenterRepair.cofactor_repair"
+    },
+    {
+      "line": 1123,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.wiresFrom"
+    },
+    {
+      "line": 1126,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.wiresFrom_append"
+    },
+    {
+      "line": 1130,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.wiresFrom_prefix"
+    },
+    {
+      "line": 1142,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.length_wiresFrom"
+    },
+    {
+      "line": 1147,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.getD_wiresFrom"
+    },
+    {
+      "line": 1152,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.Ok"
+    },
+    {
+      "line": 1155,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.getD_snoc_ne"
+    },
+    {
+      "line": 1161,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.getD_snoc_eq"
+    },
+    {
+      "line": 1164,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.NOk"
+    },
+    {
+      "line": 1166,
+      "kind": "abbrev",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.Stat"
+    },
+    {
+      "line": 1168,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.Stat.val"
+    },
+    {
+      "line": 1172,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.Stat.Valid"
+    },
+    {
+      "line": 1176,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.simpNot"
+    },
+    {
+      "line": 1181,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.simpAnd"
+    },
+    {
+      "line": 1191,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.simpOr"
+    },
+    {
+      "line": 1201,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.simplify"
+    },
+    {
+      "line": 1208,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.simplify_ok"
+    },
+    {
+      "line": 1221,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.simplify_count"
+    },
+    {
+      "line": 1234,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.simplify_sound"
+    },
+    {
+      "line": 1257,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.elimStep"
+    },
+    {
+      "line": 1263,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.elim"
+    },
+    {
+      "line": 1266,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.getD_snoc_len"
+    },
+    {
+      "line": 1270,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.elim_getD"
+    },
+    {
+      "line": 1280,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.toList_length_le"
+    },
+    {
+      "line": 1283,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.elim_ok"
+    },
+    {
+      "line": 1295,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.elim_len"
+    },
+    {
+      "line": 1310,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.Stat.valid_mono"
+    },
+    {
+      "line": 1314,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.Stat.val_append"
+    },
+    {
+      "line": 1319,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.Inv"
+    },
+    {
+      "line": 1324,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.inv_elim"
+    },
+    {
+      "line": 1367,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.MonoGate"
+    },
+    {
+      "line": 1370,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.mono_nok"
+    },
+    {
+      "line": 1378,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.simplify_mono"
+    },
+    {
+      "line": 1388,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.elim_mono"
+    },
+    {
+      "line": 1401,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.readerCount"
+    },
+    {
+      "line": 1404,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.elim_readers"
+    },
+    {
+      "line": 1440,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.seed"
+    },
+    {
+      "line": 1444,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.lowered"
+    },
+    {
+      "line": 1447,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.lowered_size"
+    },
+    {
+      "line": 1457,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.seed_inv"
+    },
+    {
+      "line": 1475,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.forcedEval"
+    },
+    {
+      "line": 1478,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.lowered_correct"
+    },
+    {
+      "line": 1487,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.reader_deletion_circuit"
+    },
+    {
+      "line": 1521,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletion.three_readers_delete_four"
+    },
+    {
+      "line": 1549,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.RepairAssembly.fourGates"
+    },
+    {
+      "line": 1554,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.RepairAssembly.getD_snoc_lt"
+    },
+    {
+      "line": 1557,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.RepairAssembly.four_eval"
+    },
+    {
+      "line": 1607,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.RepairAssembly.attach"
+    },
+    {
+      "line": 1610,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.RepairAssembly.attach_size"
+    },
+    {
+      "line": 1614,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.RepairAssembly.attach_mono"
+    },
+    {
+      "line": 1622,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.RepairAssembly.attach_eval"
+    },
+    {
+      "line": 1636,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.RepairAssembly.elim_preserves_prefix"
+    },
+    {
+      "line": 1649,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.RepairAssembly.deletion_with_prefix"
+    },
+    {
+      "line": 1685,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.RepairAssembly.prefix_wire"
+    },
+    {
+      "line": 1694,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.RepairAssembly.repair_circuit"
+    },
+    {
+      "line": 1737,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.step"
+    },
+    {
+      "line": 1740,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.weight"
+    },
+    {
+      "line": 1745,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.contribution"
+    },
+    {
+      "line": 1748,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.count"
+    },
+    {
+      "line": 1752,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.count_append"
+    },
+    {
+      "line": 1759,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.simplify_count_le"
+    },
+    {
+      "line": 1771,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.elim_step_count_le"
+    },
+    {
+      "line": 1790,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.elim_count_le"
+    },
+    {
+      "line": 1814,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.lowered_count_le"
+    },
+    {
+      "line": 1822,
+      "kind": "def",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.Below"
+    },
+    {
+      "line": 1825,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.gate_mono"
+    },
+    {
+      "line": 1843,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.step_below"
+    },
+    {
+      "line": 1860,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.contribution_mono"
+    },
+    {
+      "line": 1872,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.count_mono"
+    },
+    {
+      "line": 1884,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.lowered_count_plus_removed_le"
+    },
+    {
+      "line": 1910,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.weighted_lowered_count_le"
+    },
+    {
+      "line": 1920,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderDeletionCount.weighted_lowered_count_lt"
+    },
+    {
+      "line": 1947,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.GraphRepair.graph_repair_circuit"
+    },
+    {
+      "line": 2036,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ForcedEval.wiresFrom_below"
+    },
+    {
+      "line": 2046,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ForcedEval.ofFn_below"
+    },
+    {
+      "line": 2053,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ForcedEval.snoc_below"
+    },
+    {
+      "line": 2066,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ForcedEval.forced_mono"
+    },
+    {
+      "line": 2077,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ForcedEval.forced_le"
+    },
+    {
+      "line": 2091,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ForcedEval.forced_eq_of_gate_false"
+    },
+    {
+      "line": 2119,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ConcreteGraphRepair.pure_product_repair_circuit"
+    },
+    {
+      "line": 2170,
+      "kind": "lemma",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderRepairCount.four_count"
+    },
+    {
+      "line": 2183,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderRepairCount.attach_count_eq"
+    },
+    {
+      "line": 2205,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderRepairCount.weighted_attach_count_eq"
+    },
+    {
+      "line": 2218,
+      "kind": "theorem",
+      "name": "PEqualNP.Outside.L_meta_2448_aux.ReaderRepairCount.weighted_repair_count_lt"
+    }
+  ],
+  "checked_utc": "2026-11-25T08:14:05.052863+00:00",
+  "snapshot": "results/meta2448/assembly-extended/Checkpoint2448Extended.lean",
+  "build_log": "results/meta2448/assembly-extended/Checkpoint2448Extended.log",
+  "build": {
+    "EXIT": "0",
+    "RESOURCE_STOPPED": "False",
+    "WALL_SECONDS": "10.583583385003294",
+    "USER_SECONDS": "15.249886",
+    "SYS_SECONDS": "1.804501",
+    "PEAK_RSS_KIB": "3089536",
+    "PEAK_CGROUP_BYTES": "4145782784"
+  },
+  "axiom_audit_log": "results/meta2448/assembly-extended/Checkpoint2448ExtendedAxioms.log",
+  "axiom_audit": {
+    "EXIT": "0",
+    "RESOURCE_STOPPED": "False",
+    "WALL_SECONDS": "3.0091481669987843",
+    "USER_SECONDS": "1.523669",
+    "SYS_SECONDS": "1.27722",
+    "PEAK_RSS_KIB": "2879320",
+    "PEAK_CGROUP_BYTES": "3957424128"
+  },
+  "axiom_audit_declarations": 172,
+  "axiom_audit_passed": true,
+  "named_target_unchanged": true
+}

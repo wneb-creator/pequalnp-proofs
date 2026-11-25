@@ -1,0 +1,24 @@
+{
+  "review": "PASS independent accepted L584 source extraction and exhaustive input-copy replay",
+  "results": [
+    {
+      "case": "exact20",
+      "assignments": 1024,
+      "AND": 7,
+      "OR": 13,
+      "star": false
+    },
+    {
+      "case": "star_copy30",
+      "assignments": 1024,
+      "AND": 17,
+      "OR": 13,
+      "star": true
+    }
+  ],
+  "source_extraction": "All20 gate tuples match accepted L_meta_584 literal source; transformed circuit adds exactly10 idempotent AND copies and shifts every old reference by10. Full truth/ownership/cone checks completed successfully before a nonsemantic census-metadata shape print error.",
+  "conclusion": "The13-OR exact Petersen circuit, and its30-total-gate star-profile variant, disprove the auxiliary OR>=14 inequality. Neither is a held-gap refutation; copied variant is nonminimum and a20-gate star circuit exists.",
+  "census_scope": "Bounded statement census explicitly does not prove absence of another lower-bound formulation.",
+  "other_reviews": "v11/v12 source reports were author-separated and already used for launch approval; core isomorphism independently rechecked previously.",
+  "no_new_Lean_claim": true
+}

@@ -1,0 +1,7 @@
+{
+  "reviewer": "algebraic_witness",
+  "source": "results/meta2448/checked/forced-eval.lean",
+  "sha256": "4200a42b6712349ef209f93c7a6bbc0003a92446a5388b5d16050186db70395e",
+  "verdict": "PASS",
+  "scope": "Independent source/math review. Equal-length Below propagation preserves appended wire positions. Forced false is below original gate output; evaluation agrees when the cut gate is already false. No circuit-size or ownership claim is made."
+}

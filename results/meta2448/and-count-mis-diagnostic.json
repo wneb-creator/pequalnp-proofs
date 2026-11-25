@@ -1,0 +1,41 @@
+{
+  "scope": "Finite graph counts combined mathematically with accepted L_meta_216; specializations not yet Lean checked.",
+  "cases": [
+    {
+      "graph": "C5",
+      "maximal_independent_sets": 5,
+      "AND_lower_bound_from_L216": 3,
+      "vertex_cover": 3
+    },
+    {
+      "graph": "C6",
+      "maximal_independent_sets": 5,
+      "AND_lower_bound_from_L216": 3,
+      "vertex_cover": 3
+    },
+    {
+      "graph": "C7",
+      "maximal_independent_sets": 7,
+      "AND_lower_bound_from_L216": 3,
+      "vertex_cover": 4
+    },
+    {
+      "graph": "Petersen-minus-[0]",
+      "maximal_independent_sets": 12,
+      "AND_lower_bound_from_L216": 4,
+      "vertex_cover": 5
+    },
+    {
+      "graph": "Petersen-minus-[0, 1]",
+      "maximal_independent_sets": 9,
+      "AND_lower_bound_from_L216": 4,
+      "vertex_cover": 4
+    },
+    {
+      "graph": "Petersen-minus-[0, 2]",
+      "maximal_independent_sets": 9,
+      "AND_lower_bound_from_L216": 4,
+      "vertex_cover": 4
+    }
+  ]
+}

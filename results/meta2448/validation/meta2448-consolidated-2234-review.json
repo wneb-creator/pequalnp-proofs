@@ -1,0 +1,55 @@
+{
+  "review": "PASS exact composition, format, complete build and all172-declaration axiom audit",
+  "files": [
+    {
+      "path": "results/meta2448/assembly-extended/Checkpoint2448Extended.lean",
+      "sha256": "28805ce6e3525299659954c30efb774b3488ae6c97e230f1b4549bebd4e218ee",
+      "bytes": 98226
+    },
+    {
+      "path": "results/meta2448/assembly-extended/Checkpoint2448Extended.log",
+      "sha256": "bdf51f50974c9c67ff7b77fc98ade26a080b37afbbd3c53faed361740ff24b12",
+      "bytes": 8938
+    },
+    {
+      "path": "results/meta2448/assembly-extended/Checkpoint2448Extended.sha256",
+      "sha256": "ec507dc69e04ca90ea0df8021994434182191db871103b0fba4d34f347246ec0",
+      "bytes": 94
+    },
+    {
+      "path": "results/meta2448/assembly-extended/Checkpoint2448ExtendedAxioms.lean",
+      "sha256": "1642654be9da41d38f753211e21cbec1142f4f066a9ce879f546d11ad651fad2",
+      "bytes": 12835
+    },
+    {
+      "path": "results/meta2448/assembly-extended/Checkpoint2448ExtendedAxioms.log",
+      "sha256": "10b2314f7ccebd7c92793b14df6b4bcd762beab8b7e66dbd8b58a8366afd1ff0",
+      "bytes": 18909
+    },
+    {
+      "path": "results/meta2448/assembly-extended/README.md",
+      "sha256": "f64fe486c67e171420e8fde2c64c4d034da6a02f6185b481fa6905a3c78897da",
+      "bytes": 1387
+    },
+    {
+      "path": "results/meta2448/assembly-extended/assemble-checkpoint.py",
+      "sha256": "fc1c3ae1051f53b14047b8683d7abfc54f3aae0e24fbcf0c5640602d771db50c",
+      "bytes": 2763
+    },
+    {
+      "path": "results/meta2448/assembly-extended/axiom-audit.json",
+      "sha256": "6fa5a53f0dbe66dd42071bacb34867ec6ae274155cab772f4ae1be69418caf8a",
+      "bytes": 19514
+    },
+    {
+      "path": "results/meta2448/assembly-extended/candidate-manifest.json",
+      "sha256": "a3aa4ecf5c422f061746e1ada499780acc1bb47d8b6ef2ef976fffbe59a43424",
+      "bytes": 26310
+    },
+    {
+      "path": "results/meta2448/validation/consolidated-2234-independent-review.json",
+      "sha256": "5d033458f64d848a55fab7dac8c87539453189c88bd17a1e66cdd06eea8f0f7d",
+      "bytes": 903
+    }
+  ]
+}

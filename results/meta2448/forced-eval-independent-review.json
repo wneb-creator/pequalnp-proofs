@@ -1,0 +1,14 @@
+{
+  "source": "results/meta2448/checked/forced-eval.lean",
+  "sha256": "4200a42b6712349ef209f93c7a6bbc0003a92446a5388b5d16050186db70395e",
+  "status": "Independent mathematical and source review PASS at compiled exact hash",
+  "reviewer": "/root/or_lower_bound",
+  "scope": "Generic monotonicity and comparison properties of forcing one gate output to false; no graph or size normalization claim.",
+  "findings": [
+    "wiresFrom_below propagates Boolean pointwise order with equal list lengths through monotone gates.",
+    "forced_mono preserves the false forced bit under input monotonicity.",
+    "forced_le compares the false bit with the original gate value and uses only monotonicity of the suffix.",
+    "forced_eq_of_gate_false is literal equality of the two suffix initial states when the removed gate already evaluates to false."
+  ],
+  "validation": "Reported EXIT0 in validation/forced-eval-002.log; exact immutable hash verified."
+}

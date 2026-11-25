@@ -1,0 +1,13 @@
+# Exact Petersen circuits invalidate the auxiliary OR-only bound
+
+This corrects the earlier status in star-profile-counting-obstruction.md: the proposed OR>=|E|-1 inequality is false, not just unresolved. It is not a refutation of held step L-meta-2448.
+
+Accepted L_meta_584 explicitly supplies a20-gate exact Petersen circuit with13 ORs and7 ANDs; the Petersen graph has15 edges. The78-line source proves Monotone2, size20, exact OR count13, and correctness on every Boolean input. An independent replay in petersen-L584-exact20-independent-replay.json verifies all1024 assignments and every strict gate cone. Its sole nonstar owner is gate9 (wire19), which owns edges05,16,68,69.
+
+The earlier input-copy construction gives a literal star-profile variant: prepend AND[v,v] for v=0,...,9, and add10 to every original wire reference and to the output. The resulting30-gate circuit has17 ANDs and the same13 ORs. The only nonempty owning gates are the10 input copies, each owning its vertex star. The independent replay petersen-L584-star-copy-independent-replay.json checks all1024 values and all ownership conditions. This30-gate variant has not been newly checked in Lean. It demonstrates the exact logical obstruction, while accepted584 already refutes the unconditional OR bound.
+
+The extra ANDs matter: a20-gate star construction is accepted as L_meta_587 (14 ORs,6 ANDs), so neither20-gate584 nor the30-gate copied variant refutes the existence of a minimum star circuit. The arbitrary AND/OR total-size tradeoff cannot be separated into AND>=tau and OR>=|E|-1.
+
+The bounded final census searched exact Fin10/DNF and literal15-edge Petersen representations, in addition to name terms. It found no accepted full20-gate Petersen lower bound in this checkout. There is no L_meta_651.lean; R_meta_651_1, _2 and _7 are conditional reductions. Accepted relevant results are L1755/L587 (20-gate constructions), L584 (the13-OR construction), L4725 (size>=15+NOTcount), L4015/L5238/L5367 (additional-input or NOT-count restrictions), and L635 (AND-count>=6 under the MIS boundary promise). The statement census is saved as petersen-total-bound-census.json. Absence from this bounded census is not a proof that no other formulation exists.
+
+Separately, the adjacent-Petersen-deletion8-vertex core DOES have an accepted full lower bound: L1007 and L2036 exclude HasCircuitSize8 F12. Our exact input relabeling is [0,1,5,6,3,4,2,7]. HasCircuitSize is defined at Defs/MetaComplexity.lean:37 as a FanInTwo AND/OR/NOT circuit of size<=s, so this excludes even nonmonotone12-gate circuits. The relabeling was checked on every edge; a new Lean specialization has not been built.

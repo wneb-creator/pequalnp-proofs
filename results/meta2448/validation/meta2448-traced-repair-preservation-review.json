@@ -1,0 +1,30 @@
+{
+  "review": "PASS independently checked TracedRepair source and scope",
+  "files": [
+    {
+      "path": "results/meta2448/checked/traced-repair.lean",
+      "sha256": "96904483f9bf43457e531362916e17079fbc3d6e30fcc69dfe20b7a14b5bcd39",
+      "bytes": 5128
+    },
+    {
+      "path": "results/meta2448/validation/traced-repair-result.json",
+      "sha256": "be7749c246270ed75659367d53bda4ce7013ba1c8e6a313814cbdf336b9c006c",
+      "bytes": 664
+    },
+    {
+      "path": "results/meta2448/validation/traced-repair-001.log",
+      "sha256": "9bf88a0a3644064d675f38d89fbf217b38987bc4a1a48af772accb27716f14e2",
+      "bytes": 715
+    },
+    {
+      "path": "results/meta2448/validation/traced-repair-001.guard.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/validation/traced-repair-preservation-independent-review.json",
+      "sha256": "8c68733ba5a0631daf656e8c5e1b7fbd5acaa9c04a883c83e30872b258095082",
+      "bytes": 1037
+    }
+  ]
+}

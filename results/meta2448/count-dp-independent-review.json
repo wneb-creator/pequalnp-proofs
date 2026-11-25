@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS independent count-DP source review",
+  "source": "/tmp/oec/pequalnp-pilot-62/meta2448/synthesize_v12.py",
+  "source_sha256": "adfb808e5d4ba0eafb8f7f6d2658526c555a16c8032637e84811a786098a4cec",
+  "exhaustive_boolean_DP_prefix_checks": 25102,
+  "tested_operation_lengths": "0..8",
+  "tested_thresholds": "0..6",
+  "findings": [
+    "Both DP arrays are initially true exactly at threshold0. Each list-comprehension RHS reads the previous prefix array before assignment, so one operation increases its own count by exactly1.",
+    "Operation=true denotes AND; neg(operation) denotes OR. Each state encodes count>=threshold, not count=threshold.",
+    "Both lower bounds are guarded by first_target_flags[g], so all required counted gates must lie before or at the earliest original exact output. Padding cannot satisfy a missing count.",
+    "The negative-row list contains all maximal independent sets of each current catalog graph; n minus the largest such set is its vertex-cover number.",
+    "(m-1).bit_length() equals ceil(log2(m)) for the positive counts used here. All current catalog graphs are nonempty and C4-free, as independently reviewed in graph controls.",
+    "AND bound uses accepted216 and217: max(ceil(log2(numberMIS)),min(5,tau)). OR bound is the proper-backward-binary De Morgan dual of216 on the edge minimaltrue assignments.",
+    "Final witness replay checks both counts in gates[:first_target_gate+1], matching the CNF scope."
+  ],
+  "scope": "Count cuts apply to every exact prefix, independently of minimality/profile. Other sensitivity/dominance cuts retain their separately reviewed global-minimum limitations. This review does not authorize adding non-C4-free or edgeless graph datasets without adapting the bound assumptions."
+}

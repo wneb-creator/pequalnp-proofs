@@ -1,0 +1,175 @@
+import took 1.48s
+simp took 140ms
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:121:69: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:180:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:184:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:204:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 141ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 129ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 126ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 211ms
+typeclass inference of Nonempty took 104ms
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:256:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:576:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:628:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1213:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1215:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1217:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1213:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Ch.olean serialization took 169ms
+eckpoint2448Extended.lean:1215:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1217:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 144ms
+simp took 110ms
+simp took 109ms
+simp took 134ms
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1244:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1244:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1250:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1250:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1384:37: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1386:36: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1384:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1386:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 245ms
+simp took 245ms
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1558:25: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1559:5: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+simp took 154ms
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1769:59: warning: This simp argument is unused:
+  Stat.val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [simplify, simpOr, count, contribution, weight, GateOp.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:1769:69: warning: This simp argument is unused:
+  GateOp.eval
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [simplify, simpOr, count, contribution, weight, Stat.val]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-62/meta2448/Checkpoint2448Extended.lean:2178:53: warning: This simp argument is unused:
+  Nat.zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fourGates, count, contribution, weight, Nat.add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+cumulative profiling times:
+	.olean serialization 169ms
+	aesop 158ms
+	attribute application 2.28ms
+	blocked (unaccounted) 107ms
+	compilation (IR) 2.59ms
+	compilation (LCNF base) 26.8ms
+	compilation (LCNF impure) 10.2ms
+	compilation (LCNF mono) 15ms
+	congr simp thm 48.1ms
+	declTypeLinter 91.2ms
+	dsimp 2.2ms
+	elaboration 975ms
+	fix level params 43.2ms
+	import 1.48s
+	initialization 45.4ms
+	instantiate metavars 67.2ms
+	interpretation 2.19s
+	let-to-have transformation 1.93ms
+	linting 433ms
+	module linting 0.0285ms
+	parsing 147ms
+	process pre-definitions 146ms
+	share common exprs 69.3ms
+	simp 7.35s
+	tactic execution 4.06s
+	tacticAnalysis 62.6ms
+	type checking 1.19s
+	typeclass inference 2.39s
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 10.583583385003294
+USER_SECONDS 15.249886
+SYS_SECONDS 1.804501
+PEAK_RSS_KIB 3089536
+PEAK_CGROUP_BYTES 4145782784

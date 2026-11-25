@@ -1,0 +1,8 @@
+{
+  "source": "results/meta2448/checked/reader-repair-count.lean",
+  "sha256": "1a3a2c7a0ccd9f97d8911a78d7d6ebd5b062a5300a74c49951b43a71abfc9ab1",
+  "lines": 75,
+  "exit_code": 0,
+  "log": "results/meta2448/validation/reader-repair-count-002.log",
+  "scope": "Four-gate attachment contributes zero true-AND count when both repair terms are false on the sampled input; the finite-sum strict cofactor decrease therefore survives attachment, assuming D.gates equals the explicitly compiled lowered gate list. No global normal form or secondary-minimality selection is claimed."
+}

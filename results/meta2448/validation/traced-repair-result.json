@@ -1,0 +1,9 @@
+{
+  "source": "results/meta2448/TracedRepair.lean",
+  "checked_source": "results/meta2448/checked/traced-repair.lean",
+  "sha256": "96904483f9bf43457e531362916e17079fbc3d6e30fcc69dfe20b7a14b5bcd39",
+  "lines": 107,
+  "exit": 0,
+  "build_log": "results/meta2448/validation/traced-repair-001.log",
+  "scope": "Traced compiler exposes exact lowered gate list; same repaired E satisfies Monotone2, full function equality, size+readerCount<=oldsize+3, and strict sampled true-AND count decrease. Assumes explicit hzero/hrepair, both repair terms false on every sample, and positive removed-gate contribution on one sample. No minimum selection or ownership theorem."
+}

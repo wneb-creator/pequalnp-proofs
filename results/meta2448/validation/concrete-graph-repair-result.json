@@ -1,0 +1,9 @@
+{
+  "source": "results/meta2448/ConcreteGraphRepair.lean",
+  "checked_source": "results/meta2448/checked/concrete-graph-repair.lean",
+  "sha256": "91888d0d3b1718a4e0d12c80f1385a8e29a86d13bbb0a15568e6be182563b423",
+  "lines": 58,
+  "exit": 0,
+  "build_log": "results/meta2448/validation/concrete-graph-repair-002.log",
+  "scope": "Actual pure two-center AND repair with all cofactor premises discharged from gate identity and Monotone2. Exact graph function preserved and size+readerCount<=oldsize+3. Pure OR operands, two centers, and geometry assumptions remain explicit; no ownership normalization."
+}

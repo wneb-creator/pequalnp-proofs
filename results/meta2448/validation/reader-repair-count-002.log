@@ -1,0 +1,38 @@
+import took 1.35s
+/workspace/pequalnp-proofs/results/meta2448/ReaderRepairCount.lean:19:53: warning: This simp argument is unused:
+  Nat.zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fourGates, count, contribution, weight, Nat.add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+cumulative profiling times:
+	.olean serialization 5.88ms
+	attribute application 0.0367ms
+	congr simp thm 2.27ms
+	declTypeLinter 2.97ms
+	elaboration 30.5ms
+	fix level params 0.164ms
+	import 1.35s
+	initialization 37ms
+	instantiate metavars 1.44ms
+	interpretation 195ms
+	let-to-have transformation 0.204ms
+	linting 11.2ms
+	module linting 0.0137ms
+	parsing 3.59ms
+	process pre-definitions 1.78ms
+	share common exprs 2.47ms
+	simp 41.3ms
+	tactic execution 43.3ms
+	tacticAnalysis 2.07ms
+	type checking 21.6ms
+	typeclass inference 12.6ms
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 3.0059091099974466
+USER_SECONDS 1.554383
+SYS_SECONDS 1.2535699999999999
+PEAK_RSS_KIB 2900412
+PEAK_CGROUP_BYTES 4043087872

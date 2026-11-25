@@ -1,0 +1,15 @@
+{
+  "review": "PASS independently checked TracedRepair source and scope",
+  "source": "results/meta2448/checked/traced-repair.lean",
+  "sha256": "96904483f9bf43457e531362916e17079fbc3d6e30fcc69dfe20b7a14b5bcd39",
+  "lines": 107,
+  "build_exit": 0,
+  "wall_seconds": 4.004250686000887,
+  "findings": [
+    "deletion_traced makes the exact lowered gate-list equality explicit in both constant and wire output cases, using the same already checked construction.",
+    "The same existential D/E is used for function equality, size inequality and finite-sum decrease; there is no mismatch between independently chosen witnesses.",
+    "Retained prefix transport proves both added ANDs false on the sample family, so the prior strict decrease survives attachment.",
+    "hzero, pointwise hrepair, sample falsity of both repair terms, and a removed contribution1 witness all remain explicit."
+  ],
+  "scope": "Conditional actual-circuit repair with strict sampled count decrease; no global minimum selection or star-ownership normalization."
+}

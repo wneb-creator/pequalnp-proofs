@@ -1,0 +1,32 @@
+import took 1.34s
+/workspace/pequalnp-proofs/results/meta2448/ConcreteGraphRepair.lean:54:31: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`
+/workspace/pequalnp-proofs/results/meta2448/ConcreteGraphRepair.lean:55:19: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`
+cumulative profiling times:
+	attribute application 0.0144ms
+	congr simp thm 0.361ms
+	declTypeLinter 6.23ms
+	elaboration 27.6ms
+	fix level params 0.0674ms
+	import 1.34s
+	initialization 34.9ms
+	instantiate metavars 0.142ms
+	interpretation 168ms
+	let-to-have transformation 0.0319ms
+	linting 7.57ms
+	module linting 0.0317ms
+	parsing 2.91ms
+	process pre-definitions 0.654ms
+	share common exprs 0.938ms
+	simp 2.33ms
+	tactic execution 15.2ms
+	tacticAnalysis 1.49ms
+	type checking 2.66ms
+	typeclass inference 5.69ms
+
+EXIT 1
+RESOURCE_STOPPED False
+WALL_SECONDS 3.0063766879975446
+USER_SECONDS 1.45805
+SYS_SECONDS 1.25585
+PEAK_RSS_KIB 2890696
+PEAK_CGROUP_BYTES 4201435136

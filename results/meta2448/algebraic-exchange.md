@@ -65,3 +65,38 @@ A concrete unformalized budget applies when g has at least three distinct immedi
 Deleting g can increase ownership at remaining later AND gates, because ownership considers all earlier true ANDs in the strict cone. Thus this is not an all-gates ownership-preserving exchange. Two potential secondary orders avoid that unsupported claim: (1) total true entries on nonedge-pair inputs over all AND gates strictly decreases when the removed product is pair-dirty, because old gates only decrease and H is sound; (2) if g is the first nonstar gate, insert H's two sound ANDs immediately after the old A/B predecessors at g's position, preserving the earlier good prefix and moving any remaining first bad gate later. Neither secondary-order argument supplies the missing existence of the required two-center pure product.
 
 The precise nonlinear obstruction is visible from K: any pure-A independent set accepted by K must dominate every vertex in B, or adding an undominated b would produce an independent input accepted by gK. Such dominating sets can have degree greater than one; they are not captured by the two singleton centers. The full exchange must handle these contexts, products with only one or no universal center, and products whose operands contain earlier ANDs.
+
+
+## Checked actual size repair, 2026-11-25 08:11 UTC
+
+The compiler and repair are now connected to actual Circuit.size. ReaderDeletion
+forces one gate false, propagates constants, retains the entire earlier prefix,
+and saves that gate plus every distinct later gate directly reading it. The
+four-gate repair explicitly redirects an invalid old output beyond all appended
+gates, so the old false sentinel cannot accidentally become a live repair gate.
+
+ConcreteGraphRepair.pure_product_repair_circuit has no free cofactor assumptions.
+It assumes an actual AND gate with two prefix wire inputs computing Hit A and
+Hit B, two universal centers c in A and d in B, triangle/C4 freeness, and exact
+original graph-function computation. It constructs a Monotone2 exact graph
+circuit E satisfying E.size + readerCount <= C.size + 3. Consequently four or
+more direct readers are incompatible with a globally minimum circuit in this
+restricted two-center pure-product configuration; three readers allow a
+size-preserving repair. The proof still does not classify every nonstar owner
+into this configuration, and it does not establish ownership preservation.
+
+Checked immutable sources: reader-deletion.lean (427 lines),
+repair-assembly.lean (189), graph-repair.lean (94), and
+concrete-graph-repair.lean (58), all under checked/. Full validation logs and
+SHA256 records are under validation/. Independent reviews are separate JSON
+files; the parent owns preservation and integration into the named checkpoint.
+
+
+The follow-up TracedRepair component (107 lines, checked 08:15 UTC) now exposes
+D.gates = (lowered n pre post).2. Its repair_with_count theorem returns a single
+repaired circuit E with the size bound, exact function equality, and strict
+finite-sample true-AND-count decrease simultaneously. The theorem explicitly
+assumes the pointwise repair identity, that both new AND terms are false on
+every sampled input, and that the deleted gate contributes one at some sample.
+This closes the compiler-trace interface gap. It does not select a secondary
+minimum or establish the remaining global structural hypotheses.

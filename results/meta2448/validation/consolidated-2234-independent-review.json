@@ -1,0 +1,19 @@
+{
+  "review": "PASS exact composition, format, complete build and all172-declaration axiom audit",
+  "candidate": "results/meta2448/assembly-extended/Checkpoint2448Extended.lean",
+  "sha256": "28805ce6e3525299659954c30efb774b3488ae6c97e230f1b4549bebd4e218ee",
+  "lines": 2234,
+  "bytes": 98226,
+  "declarations": 172,
+  "theorems_and_lemmas": 133,
+  "composition": "Byte-preserved nonblank source lines from named1114 base and seven reviewed checked components, with appended dependency lines removed.",
+  "scope": "Still no final posted theorem. Restricted actual-circuit cofactor/repair and conditional count measures do not establish a globally minimum star-profile circuit.",
+  "format": "OnlyDefs, auxiliary namespaces, no prohibited proof/source mechanisms.",
+  "build_exit": 0,
+  "axiom_audit_exit": 0,
+  "all_declarations_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ]
+}

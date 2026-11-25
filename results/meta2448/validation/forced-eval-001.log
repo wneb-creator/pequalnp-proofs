@@ -1,0 +1,31 @@
+import took 1.37s
+/workspace/pequalnp-proofs/results/meta2448/ForcedEval.lean:72:84: error: Invalid field notation: Identifier or numeral expected
+cumulative profiling times:
+	attribute application 0.0765ms
+	congr simp thm 1.53ms
+	declTypeLinter 2.81ms
+	elaboration 29ms
+	fix level params 0.21ms
+	import 1.37s
+	initialization 35.2ms
+	instantiate metavars 0.491ms
+	interpretation 189ms
+	let-to-have transformation 0.06ms
+	linting 10.5ms
+	module linting 0.0368ms
+	parsing 4.71ms
+	process pre-definitions 2.34ms
+	share common exprs 1.24ms
+	simp 68.6ms
+	tactic execution 57.2ms
+	tacticAnalysis 1.93ms
+	type checking 21.1ms
+	typeclass inference 16.6ms
+
+EXIT 1
+RESOURCE_STOPPED False
+WALL_SECONDS 3.0023868950011092
+USER_SECONDS 1.6399309999999998
+SYS_SECONDS 1.241636
+PEAK_RSS_KIB 2889644
+PEAK_CGROUP_BYTES 4310220800

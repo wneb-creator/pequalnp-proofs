@@ -1,0 +1,10 @@
+{
+  "checked_utc": "2026-11-25T08:10:11.190384+00:00",
+  "source": "results/meta2448/ForcedEval.lean",
+  "checked_source": "results/meta2448/checked/forced-eval.lean",
+  "sha256": "4200a42b6712349ef209f93c7a6bbc0003a92446a5388b5d16050186db70395e",
+  "lines": 76,
+  "build_log": "results/meta2448/validation/forced-eval-002.log",
+  "exit": 0,
+  "scope": "Forced-false cofactor is monotone for Monotone2 prefix/suffix, pointwise below the original output, and identical to it on inputs where the removed gate evaluates false. No whole-target claim."
+}

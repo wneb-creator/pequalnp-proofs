@@ -1,0 +1,8 @@
+{
+  "reviewer": "algebraic_witness",
+  "source": "results/meta2448/checked/reader-repair-count.lean",
+  "sha256": "1a3a2c7a0ccd9f97d8911a78d7d6ebd5b062a5300a74c49951b43a71abfc9ab1",
+  "verdict": "PASS",
+  "scope": "Independent source and mathematical review of all75 lines. The first repair AND reads the old wire list; the second preserves its two old references by the explicit a,d bounds. OR gates contribute zero. Corrected hU/hV parentheses state that each whole conjunction is false. The finite-sum decrease follows from exact equality of D.gates with the lowered compiler result plus one positive removed contribution. No secondary-minimum selection or global star-normalization claim is made.",
+  "interface_note": "A later combined existential repair theorem must expose D.gates=(lowered...).2, which the current deletion_with_prefix theorem does not state even though its implementation constructs that circuit."
+}

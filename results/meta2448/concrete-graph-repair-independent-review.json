@@ -1,0 +1,14 @@
+{
+  "source": "results/meta2448/checked/concrete-graph-repair.lean",
+  "sha256": "91888d0d3b1718a4e0d12c80f1385a8e29a86d13bbb0a15568e6be182563b423",
+  "status": "Independent mathematical and source review PASS at compiled exact hash",
+  "reviewer": "/root/or_lower_bound",
+  "scope": "Actual size-bounded graph-function repair for an AND gate whose two prefix operands are exactly linear OR functions with two universal centers. All generic cofactor premises are discharged; the specialized operand/center assumptions remain. No ownership or full-normalization theorem.",
+  "findings": [
+    "The original gate is explicitly AND with exactly operands a,b, both in the retained prefix.",
+    "The cofactor input monotonicity and <=original properties follow from checked ForcedEval and Monotone2.",
+    "When Product A B is false, hA/hB imply that the actual removed AND gate evaluates false, so the forced cofactor equals the original output.",
+    "The returned E inherits the exact graph function and reader-count size bound from graph_repair_circuit."
+  ],
+  "validation": "Reported EXIT0 in second wrapper check; immutable exact hash verified."
+}
