@@ -341,3 +341,85 @@ x-envoy-upstream-service-time: 247
  "retry_after_s": 600
 }
 
+2026-11-25T15:40:21.760328+00:00 next poll {
+ "gap": {
+  "id": "L-meta-4970",
+  "title": "Bare-free T = 0: a bipartite 4-cycle-free graph's AND/OR edge-function circuit with no mixed OR, every edge served by a star OR, has >= |E| + tau - 1 gates",
+  "statement": "∀ (p l : ℕ) (E : Finset (Fin p × Fin l)) (C : PEqualNP.CircuitLowerBounds.Circuit), (∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' → ¬ ((a, b) ∈ E ∧ (a, b') ∈ E ∧ (a', b) ∈ E ∧ (a', b') ∈ E)) → PEqualNP.TopForm.IsAO2 (p + l) C → (∀ x : Fin (p + l) → Bool, PEqualNP.MetaComplexity.circuitFun (p + l) C x = decide (∃ (a : Fin p) (b : Fin l), (a, b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true)) → PEqualNP.TwoColour.tCount (p + l) C (fun i => decide (p ≤ i)) = 0 → (∀ (a : Fin p) (b : Fin l), (a, b) ∈ E → (∃ (j : ℕ) (Q : Finset (Fin l)), j < C.gates.length ∧ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ 2 ≤ Q.card ∧ b ∈ Q ∧ (∀ b' ∈ Q, (a, b') ∈ E) ∧ ∀ x : Fin (p + l) → Bool, (C.wires (List.ofFn x)).getD (p + l + j) false = decide (∃ b' ∈ Q, x (Fin.natAdd p b') = true)) ∨ (∃ (j : ℕ) (P : Finset (Fin p)), j < C.gates.length ∧ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ 2 ≤ P.card ∧ a ∈ P ∧ (∀ a' ∈ P, (a', b) ∈ E) ∧ ∀ x : Fin (p + l) → Bool, (C.wires (List.ofFn x)).getD (p + l + j) false = decide (∃ a' ∈ P, x (Fin.castAdd l a') = true))) → ∃ S : Finset (Fin (p + l)), (∀ (a : Fin p) (b : Fin l), (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S) ∧ E.card + S.card ≤ C.size + 1",
+  "file": "lean/PEqualNP/Outside/L_meta_4970.lean",
+  "module": "PEqualNP.Outside.L_meta_4970",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "a case of the class bound that looks within reach tonight: every edge delivered through a star OR",
+  "context": "SKETCH: A ledger, sketched and not yet written out in full. A star OR for the edge (a, b) is an OR of at least two lines all adjacent to a; with no 4-cycle two points share at most one line, so such an OR has exactly one centre a. Count three disjoint kinds of gate: the OR gates that build the star ORs, at least the sum over centres of (leaves minus one); the AND gates that join a centre to its star OR, at least a vertex cover since every edge is served; Size: 3 hours. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 92,
+  "parallel": 6,
+  "lane": "main",
+  "depth": 0,
+  "sketch": "A ledger, sketched and not yet written out in full. A star OR for the edge (a, b) is an OR of at least two lines all adjacent to a; with no 4-cycle two points share at most one line, so such an OR has exactly one centre a. Count three disjoint kinds of gate: the OR gates that build the star ORs, at least the sum over centres of (leaves minus one); the AND gates that join a centre to its star OR, at least a vertex cover since every edge is served; Size: 3 hours. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 0,
+  "pr_numbers": [],
+  "level": "hard"
+ },
+ "lease": {
+  "id": "fe8dc4d4-d568-4909-a49a-a241b3015ec1",
+  "expires_at": "2026-11-25T15:58:22.911Z",
+  "renew": "POST /desk/beat?lease=fe8dc4d4-d568-4909-a49a-a241b3015ec1",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=fe8dc4d4-d568-4909-a49a-a241b3015ec1&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 233,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T15:22:04.914Z"
+  }
+ },
+ "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final.",
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}
+
+2026-11-25T15:40:42.179208+00:00 next existing-lease retry {
+ "gap": {
+  "id": "L-meta-4970",
+  "title": "Bare-free T = 0: a bipartite 4-cycle-free graph's AND/OR edge-function circuit with no mixed OR, every edge served by a star OR, has >= |E| + tau - 1 gates",
+  "statement": "∀ (p l : ℕ) (E : Finset (Fin p × Fin l)) (C : PEqualNP.CircuitLowerBounds.Circuit), (∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' → ¬ ((a, b) ∈ E ∧ (a, b') ∈ E ∧ (a', b) ∈ E ∧ (a', b') ∈ E)) → PEqualNP.TopForm.IsAO2 (p + l) C → (∀ x : Fin (p + l) → Bool, PEqualNP.MetaComplexity.circuitFun (p + l) C x = decide (∃ (a : Fin p) (b : Fin l), (a, b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true)) → PEqualNP.TwoColour.tCount (p + l) C (fun i => decide (p ≤ i)) = 0 → (∀ (a : Fin p) (b : Fin l), (a, b) ∈ E → (∃ (j : ℕ) (Q : Finset (Fin l)), j < C.gates.length ∧ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ 2 ≤ Q.card ∧ b ∈ Q ∧ (∀ b' ∈ Q, (a, b') ∈ E) ∧ ∀ x : Fin (p + l) → Bool, (C.wires (List.ofFn x)).getD (p + l + j) false = decide (∃ b' ∈ Q, x (Fin.natAdd p b') = true)) ∨ (∃ (j : ℕ) (P : Finset (Fin p)), j < C.gates.length ∧ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ 2 ≤ P.card ∧ a ∈ P ∧ (∀ a' ∈ P, (a', b) ∈ E) ∧ ∀ x : Fin (p + l) → Bool, (C.wires (List.ofFn x)).getD (p + l + j) false = decide (∃ a' ∈ P, x (Fin.castAdd l a') = true))) → ∃ S : Finset (Fin (p + l)), (∀ (a : Fin p) (b : Fin l), (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S) ∧ E.card + S.card ≤ C.size + 1",
+  "file": "lean/PEqualNP/Outside/L_meta_4970.lean",
+  "module": "PEqualNP.Outside.L_meta_4970",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "a case of the class bound that looks within reach tonight: every edge delivered through a star OR",
+  "context": "SKETCH: A ledger, sketched and not yet written out in full. A star OR for the edge (a, b) is an OR of at least two lines all adjacent to a; with no 4-cycle two points share at most one line, so such an OR has exactly one centre a. Count three disjoint kinds of gate: the OR gates that build the star ORs, at least the sum over centres of (leaves minus one); the AND gates that join a centre to its star OR, at least a vertex cover since every edge is served; Size: 3 hours. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 92,
+  "parallel": 6,
+  "lane": "main",
+  "depth": 0,
+  "sketch": "A ledger, sketched and not yet written out in full. A star OR for the edge (a, b) is an OR of at least two lines all adjacent to a; with no 4-cycle two points share at most one line, so such an OR has exactly one centre a. Count three disjoint kinds of gate: the OR gates that build the star ORs, at least the sum over centres of (leaves minus one); the AND gates that join a centre to its star OR, at least a vertex cover since every edge is served; Size: 3 hours. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 0,
+  "pr_numbers": [],
+  "level": "hard"
+ },
+ "lease": {
+  "id": "fe8dc4d4-d568-4909-a49a-a241b3015ec1",
+  "expires_at": "2026-11-25T16:00:40.412Z",
+  "renew": "POST /desk/beat?lease=fe8dc4d4-d568-4909-a49a-a241b3015ec1",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=fe8dc4d4-d568-4909-a49a-a241b3015ec1&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 233,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T15:22:04.914Z"
+  }
+ },
+ "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final.",
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}
+

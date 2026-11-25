@@ -16,3 +16,5 @@
 - 2026-11-25T15:25:56.695359+00:00 Desk returned HTTP410; preserving checked partials before the expressly requested recovery attempt.
 
 2026-11-25T15:37:00.890751+00:00 readtwice: SignedBounds.lean compiled exit0; compact ordinary nine-input lower15 checked (217712bytes).
+
+2026-11-25T15:41:14.408499+00:00 readtwice: parent stop; interrupted full Bounds build exit143,no verdict. SignedBounds217712B previously checked and reviewed; complete logs and identifier map preserved.

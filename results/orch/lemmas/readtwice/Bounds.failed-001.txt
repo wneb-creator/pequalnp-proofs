@@ -1,0 +1,1130 @@
+../results/orch/lemmas/readtwice/Bounds.lean:7:19: error: unexpected token ':=~'; expected ':=', 'where' or '|'
+../results/orch/lemmas/readtwice/Bounds.lean:71:56: error: unsolved goals
+i : Fin 512
+a : Sig
+⊢ (sorry a)[↑i] = !a[↑i]
+../results/orch/lemmas/readtwice/Bounds.lean:71:69: warning: declaration uses `sorry`
+../results/orch/lemmas/readtwice/Bounds.lean:84:35: error: unsolved goals
+a : Sig
+⊢ sorry (sorry a) = a
+../results/orch/lemmas/readtwice/Bounds.lean:84:44: warning: declaration uses `sorry`
+../results/orch/lemmas/readtwice/Bounds.lean:90:15: error: unsolved goals
+h : qcQ (neg zero)
+⊢ sorry 0#512 =
+    13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084095#512
+../results/orch/lemmas/readtwice/Bounds.lean:92:15: error: unsolved goals
+h : qcQ (neg one)
+⊢ sorry
+      13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084095#512 =
+    0#512
+../results/orch/lemmas/readtwice/Bounds.lean:90:24: warning: declaration uses `sorry`
+../results/orch/lemmas/readtwice/Bounds.lean:109:39: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, q1q, ha, hb, q1i, q1o, Bool.false_and, Bool.and_true, Bool.and_false, Bool.false_or,
+    Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:109:53: warning: This simp argument is unused:
+  Bool.false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, q1q, ha, hb, q1i, q1o, Bool.true_and, Bool.and_true, Bool.and_false, Bool.false_or,
+    Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:109:97: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, q1q, ha, hb, q1i, q1o, Bool.true_and, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:110:22: warning: This simp argument is unused:
+  Bool.true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, q1q, ha, hb, q1i, q1o, Bool.true_and, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:111:54: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy, q1o, q1q]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:111:57: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, q1o, q1q]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:111:60: warning: This simp argument is unused:
+  q1o
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, q1q]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:111:64: warning: This simp argument is unused:
+  q1q
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, q1o]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:131:45: error: unsolved goals
+⊢ sorry 0#512 =
+      13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084095#512 ∧
+    sorry
+        13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084095#512 =
+      0#512
+../results/orch/lemmas/readtwice/Bounds.lean:131:54: warning: declaration uses `sorry`
+../results/orch/lemmas/readtwice/Bounds.lean:417:20: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/readtwice/Bounds.lean:417:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/readtwice/Bounds.lean:418:20: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/readtwice/Bounds.lean:418:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/readtwice/Bounds.lean:571:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [eqv]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/readtwice/Bounds.lean:601:56: warning: This simp argument is unused:
+  er
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:796:41: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/readtwice/Bounds.lean:932:6: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q26, ite_true, BitVec.getLsbD_and, BitVec.getLsbD_not, i.isLt, decide_true, (correct.2 a i).1,
+    (correct.2 a i).2, hp, hn, Bool.not_false, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:1282:22: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+../results/orch/lemmas/readtwice/Bounds.lean:1284:22: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+../results/orch/lemmas/readtwice/Bounds.lean:1282:15: warning: This simp argument is unused:
+  q23
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_true, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:1284:15: warning: This simp argument is unused:
+  q23
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_false, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:1311:18: warning: Variable name `raw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _raw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:1454:14: warning: This simp argument is unused:
+  List.length_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:1677:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/readtwice/Bounds.lean:1901:65: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q1O, hp, hq, BitVec.getLsbD_allOnes, i.isLt, decide_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:1912:12: warning: `List.Sublist.cons₂` has been deprecated: Use `List.Sublist.cons_cons` instead
+
+Hint: Replace the deprecated name:
+  List.Sublist.cons₂̵_̲c̲o̲n̲s̲
+../results/orch/lemmas/readtwice/Bounds.lean:1933:25: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:1935:6: warning: Variable name `width` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _width
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2031:7: warning: Variable name `num` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _num
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2031:17: warning: Variable name `cw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _cw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2031:20: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2031:23: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2031:26: warning: Variable name `offw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _offw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2031:31: warning: Variable name `lw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _lw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2031:34: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2055:70: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+../results/orch/lemmas/readtwice/Bounds.lean:2084:15: warning: This simp argument is unused:
+  Nat.add_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q1w, Bool.and_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:2230:17: warning: This simp argument is unused:
+  ge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_false, di, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:2230:20: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ge, di, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:2230:30: warning: This simp argument is unused:
+  di
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ge, ite_false, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:2262:21: error: unexpected token ':~'; expected ':=' or '|'
+../results/orch/lemmas/readtwice/Bounds.lean:2262:9: error: Missing cases:
+../results/orch/lemmas/readtwice/Bounds.lean:2315:43: warning: This simp argument is unused:
+  List.getElem?_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [q8Q, qai, List.getD_eq_getElem?_getD, List.getElem?_range, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:2315:61: warning: This simp argument is unused:
+  List.getElem?_range
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [q8Q, qai, List.getD_eq_getElem?_getD, List.getElem?_map, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:2319:17: warning: declaration uses `sorry`
+../results/orch/lemmas/readtwice/Bounds.lean:2316:8: warning: declaration uses `sorry`
+../results/orch/lemmas/readtwice/Bounds.lean:2319:44: warning: This simp argument is unused:
+  BitVec.getLsbD_not
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [qaq, neg, bit, BitVec.getLsbD_and, BitVec.getLsbD_xor, r.isLt, decide_true, Bool.true_and]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:2319:82: warning: This simp argument is unused:
+  r.isLt
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [qaq, neg, bit, BitVec.getLsbD_and, BitVec.getLsbD_not, BitVec.getLsbD_xor, decide_true,
+    Bool.true_and]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:2319:89: warning: This simp argument is unused:
+  decide_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [qaq, neg, bit, BitVec.getLsbD_and, BitVec.getLsbD_not, BitVec.getLsbD_xor, r.isLt, Bool.true_and]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:2319:101: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [qaq, neg, bit, BitVec.getLsbD_and, BitVec.getLsbD_not, BitVec.getLsbD_xor, r.isLt, decide_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/readtwice/Bounds.lean:2320:54: warning: Unused tactic linter: `rfl` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/readtwice/Bounds.lean:2361:29: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+../results/orch/lemmas/readtwice/Bounds.lean:2500:26: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+../results/orch/lemmas/readtwice/Bounds.lean:2536:22: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+../results/orch/lemmas/readtwice/Bounds.lean:2536:32: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+../results/orch/lemmas/readtwice/Bounds.lean:2542:17: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+../results/orch/lemmas/readtwice/Bounds.lean:2536:22: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+../results/orch/lemmas/readtwice/Bounds.lean:2536:32: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+../results/orch/lemmas/readtwice/Bounds.lean:2542:17: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+../results/orch/lemmas/readtwice/Bounds.lean:2539:13: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/readtwice/Bounds.lean:2544:13: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/readtwice/Bounds.lean:2576:85: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+../results/orch/lemmas/readtwice/Bounds.lean:2576:95: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+../results/orch/lemmas/readtwice/Bounds.lean:2576:85: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+../results/orch/lemmas/readtwice/Bounds.lean:2576:95: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+../results/orch/lemmas/readtwice/Bounds.lean:2576:85: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+../results/orch/lemmas/readtwice/Bounds.lean:2576:95: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+../results/orch/lemmas/readtwice/Bounds.lean:2576:85: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+../results/orch/lemmas/readtwice/Bounds.lean:2576:95: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+../results/orch/lemmas/readtwice/Bounds.lean:2624:29: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+../results/orch/lemmas/readtwice/Bounds.lean:2796:25: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2807:4: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+../results/orch/lemmas/readtwice/Bounds.lean:2860:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/readtwice/Bounds.lean:2871:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/readtwice/Bounds.lean:2871:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/readtwice/Bounds.lean:2850:50: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/readtwice/Bounds.lean:2850:50: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/readtwice/Bounds.lean:2918:7: warning: Variable name `num` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _num
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2918:17: warning: Variable name `cw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _cw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2918:20: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2918:23: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2918:26: warning: Variable name `offw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _offw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2918:31: warning: Variable name `lw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _lw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2918:34: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/readtwice/Bounds.lean:2942:24: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+../results/orch/lemmas/readtwice/Bounds.lean:2952:46: error: unexpected token '→'; expected term
+../results/orch/lemmas/readtwice/Bounds.lean:2970:19: error: unexpected token ')'; expected term
+../results/orch/lemmas/readtwice/Bounds.lean:2984:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c - e ≥ 1
+  c + d - e ≥ 1
+where
+ c := ↑a
+ d := ↑b
+ e := ↑j
+../results/orch/lemmas/readtwice/Bounds.lean:2985:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c - e ≤ 0
+  c + d - e ≥ 1
+where
+ c := ↑a
+ d := ↑b
+ e := ↑j
+../results/orch/lemmas/readtwice/Bounds.lean:2996:28: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  b ≥ 0
+  a ≥ 0
+  a - b ≤ -1
+where
+ a := ↑num
+ b := ↑ar
+../results/orch/lemmas/readtwice/Bounds.lean:3003:8: error(lean.unknownIdentifier): Unknown identifier `qaj`
+../results/orch/lemmas/readtwice/Bounds.lean:3004:8: error: No goals to be solved
+../results/orch/lemmas/readtwice/Bounds.lean:3147:21: error: Application type mismatch: The argument
+  owns v p n
+has type
+  Prop
+of sort `Type` but is expected to have type
+  Type ?u.44
+of sort `Type (?u.44 + 1)` in the application
+  OrderHom (owns v p n)
+../results/orch/lemmas/readtwice/Bounds.lean:3147:33: error: Function expected at
+  wns
+but this term has type
+  ?m.15
+
+Note: Expected a function because this term is being applied to the argument
+  w
+
+Hint: The identifier `wns` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3148:23: error: Application type mismatch: The argument
+  owns v p n'
+has type
+  Prop
+of sort `Type` but is expected to have type
+  Type ?u.58
+of sort `Type (?u.58 + 1)` in the application
+  OrderHom (owns v p n')
+../results/orch/lemmas/readtwice/Bounds.lean:3148:36: error: Function expected at
+  wns
+but this term has type
+  ?m.25
+
+Note: Expected a function because this term is being applied to the argument
+  v
+
+Hint: The identifier `wns` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3148:48: error: Function expected at
+  wns
+but this term has type
+  ?m.25
+
+Note: Expected a function because this term is being applied to the argument
+  v
+
+Hint: The identifier `wns` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3149:16: error: Function expected at
+  q0c
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  { T }
+
+Hint: The identifier `q0c` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3157:7: error: Function expected at
+  q0c
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (insert (bin d a b) U)
+
+Hint: The identifier `q0c` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3157:37: error: Function expected at
+  q0c
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (insert a (insert b U))
+
+Hint: The identifier `q0c` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3178:2: error: No goals to be solved
+../results/orch/lemmas/readtwice/Bounds.lean:3226:14: error: Function expected at
+  q0c
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0c` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3254:27: error: Function expected at
+  q0c
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0c` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3255:9: error: Tactic `rcases` failed: `x✝ : Sort u_3` is not an inductive datatype
+../results/orch/lemmas/readtwice/Bounds.lean:3264:14: error: don't know how to synthesize implicit argument `q0c`
+  @q8H ?m.58 ?m.59 T j S run tight
+context:
+S : Finset Sig
+T : Sig
+k : ℕ
+a b : Sig
+p n pa pb na nb : Row
+size : k + 1 = S.card
+different : a ≠ b
+A : qbD S T a p na
+B : qbD S T b p nb
+C : qbD S T a pa n
+D : qbD S T b pb n
+j : ℕ
+hj : j ≤ k
+run : Live false T j S
+lb : S.card ≤ j + 1
+tight : S.card = j + 1
+⊢ ?m.58
+../results/orch/lemmas/readtwice/Bounds.lean:3264:14: error: don't know how to synthesize implicit argument
+  @q8H ?m.58 ?m.59 T j S run tight
+context:
+S : Finset Sig
+T : Sig
+k : ℕ
+a b : Sig
+p n pa pb na nb : Row
+size : k + 1 = S.card
+different : a ≠ b
+A : qbD S T a p na
+B : qbD S T b p nb
+C : qbD S T a pa n
+D : qbD S T b pb n
+j : ℕ
+hj : j ≤ k
+run : Live false T j S
+lb : S.card ≤ j + 1
+tight : S.card = j + 1
+⊢ Sort ?u.39
+../results/orch/lemmas/readtwice/Bounds.lean:3263:2: error: don't know how to synthesize placeholder
+context:
+S : Finset Sig
+T : Sig
+k : ℕ
+a b : Sig
+p n pa pb na nb : Row
+size : k + 1 = S.card
+different : a ≠ b
+A : qbD S T a p na
+B : qbD S T b p nb
+C : qbD S T a pa n
+D : qbD S T b pb n
+j : ℕ
+hj : j ≤ k
+run : Live false T j S
+lb : S.card ≤ j + 1
+tight : S.card = j + 1
+⊢ False
+../results/orch/lemmas/readtwice/Bounds.lean:3262:2: error: don't know how to synthesize placeholder
+context:
+S : Finset Sig
+T : Sig
+k : ℕ
+a b : Sig
+p n pa pb na nb : Row
+size : k + 1 = S.card
+different : a ≠ b
+A : qbD S T a p na
+B : qbD S T b p nb
+C : qbD S T a pa n
+D : qbD S T b pb n
+j : ℕ
+hj : j ≤ k
+run : Live false T j S
+lb : S.card ≤ j + 1
+⊢ False
+../results/orch/lemmas/readtwice/Bounds.lean:3271:21: error: Application type mismatch: The argument
+  owns v p n
+has type
+  Prop
+of sort `Type` but is expected to have type
+  Type ?u.47
+of sort `Type (?u.47 + 1)` in the application
+  OrderHom (owns v p n)
+../results/orch/lemmas/readtwice/Bounds.lean:3271:33: error: Function expected at
+  wns
+but this term has type
+  ?m.17
+
+Note: Expected a function because this term is being applied to the argument
+  w
+
+Hint: The identifier `wns` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3272:23: error: Application type mismatch: The argument
+  owns v p n'
+has type
+  Prop
+of sort `Type` but is expected to have type
+  Type ?u.61
+of sort `Type (?u.61 + 1)` in the application
+  OrderHom (owns v p n')
+../results/orch/lemmas/readtwice/Bounds.lean:3272:36: error: Function expected at
+  wns
+but this term has type
+  ?m.27
+
+Note: Expected a function because this term is being applied to the argument
+  v
+
+Hint: The identifier `wns` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3272:48: error: Function expected at
+  wns
+but this term has type
+  ?m.27
+
+Note: Expected a function because this term is being applied to the argument
+  v
+
+Hint: The identifier `wns` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3279:9: error: Function expected at
+  q0c
+but this term has type
+  ?m.7
+
+Note: Expected a function because this term is being applied to the argument
+  inner
+
+Hint: The identifier `q0c` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3280:10: error: Function expected at
+  q0b
+but this term has type
+  ?m.10
+
+Note: Expected a function because this term is being applied to the argument
+  outer
+
+Hint: The identifier `q0b` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3281:17: error: Function expected at
+  q0c
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0c` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3281:34: error: Function expected at
+  q0b
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0b` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3287:19: error: Function expected at
+  q0b
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0b` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3287:30: error: Function expected at
+  q0b
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (S.erase h)
+
+Hint: The identifier `q0b` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3301:17: error: Function expected at
+  q0c
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0c` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3301:26: error: Function expected at
+  q0k
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3316:7: error: Function expected at
+  q0b
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (insert (bin d a b) U)
+
+Hint: The identifier `q0b` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3316:39: error: Function expected at
+  q0b
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (insert a (insert b U))
+
+Hint: The identifier `q0b` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3337:2: error: No goals to be solved
+../results/orch/lemmas/readtwice/Bounds.lean:3407:28: error: Function expected at
+  q0k
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (insert (bin d a b) U)
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3408:4: error: Function expected at
+  q0k
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (insert a (insert b U))
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3408:35: error: unsolved goals
+x✝ : Sort ?u.1
+q0k : x✝
+U : ?m.34
+T : ?m.35
+a b : Sig
+d : ℕ
+hd : d = 0 ∨ d = 1
+freshA : a ∉ insert (bin d a b) U
+freshB : b ∉ insert (bin d a b) U
+freshZ : bin d a b ∉ U
+F : sorry
+z : Sig := bin d a b
+⊢ sorry
+../results/orch/lemmas/readtwice/Bounds.lean:3425:47: error: Function expected at
+  q0c
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (insert (bin d a b) U)
+
+Hint: The identifier `q0c` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3426:4: error: Function expected at
+  q0k
+but this term has type
+  ?m.2
+
+Note: Expected a function because this term is being applied to the argument
+  (insert a (insert b U))
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3431:4: error: Type mismatch
+  Finset.mem_insert.mpr (Or.inl eq)
+has type
+  z ∈ insert a ?m.53
+but is expected to have type
+  bin d a b ∈ insert a (insert b U)
+../results/orch/lemmas/readtwice/Bounds.lean:3432:28: error: Application type mismatch: The argument
+  Finset.mem_insert_of_mem (Finset.mem_insert_of_mem ?m.74)
+has type
+  ?m.72 ∈ insert ?m.68 (insert ?m.73 ?m.71)
+but is expected to have type
+  bin d a b ∈ insert a (insert b U)
+in the application
+  fresh (Finset.mem_insert_of_mem (Finset.mem_insert_of_mem ?m.74))
+../results/orch/lemmas/readtwice/Bounds.lean:3451:14: error: Function expected at
+  q0k
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3455:11: error(lean.unknownIdentifier): Unknown identifier `q3g`
+../results/orch/lemmas/readtwice/Bounds.lean:3470:15: error(lean.unknownIdentifier): Unknown identifier `q3f`
+../results/orch/lemmas/readtwice/Bounds.lean:3476:16: error(lean.unknownIdentifier): Unknown identifier `q0c`
+../results/orch/lemmas/readtwice/Bounds.lean:3478:16: error(lean.unknownIdentifier): Unknown identifier `q3f`
+../results/orch/lemmas/readtwice/Bounds.lean:3487:15: error(lean.unknownIdentifier): Unknown identifier `q3d`
+../results/orch/lemmas/readtwice/Bounds.lean:3488:38: error: Function expected at
+  q0k
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3493:10: error(lean.unknownIdentifier): Unknown identifier `h`
+../results/orch/lemmas/readtwice/Bounds.lean:3494:27: error(lean.unknownIdentifier): Unknown identifier `v`
+../results/orch/lemmas/readtwice/Bounds.lean:3491:44: error: unsolved goals
+case succ.succ
+x✝ : Sort u_1
+q0k : x✝
+S : Finset Sig
+T : Sig
+F : sorry
+p n : Row
+hp : bit p T = true
+hn : bit n T = false
+none : ∀ v ∈ ?m.9, bit p v = true → bit n v = false → False
+n✝ : ℕ
+isLt✝ : n✝ + 1 + 1 < 2 ^ 512
+⊢ bit p { toFin := ⟨n✝ + 1 + 1, isLt✝⟩ } = true ∧ bit n { toFin := ⟨n✝ + 1 + 1, isLt✝⟩ } = false
+../results/orch/lemmas/readtwice/Bounds.lean:3495:38: error: Function expected at
+  q0k
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3497:48: error: Tactic `rcases` failed: `x✝ : Sort u_4` is not an inductive datatype
+../results/orch/lemmas/readtwice/Bounds.lean:3508:38: error: Function expected at
+  q0k
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3514:38: error: Function expected at
+  q0k
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3519:38: error: Function expected at
+  q0k
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3522:10: error(lean.unknownIdentifier): Unknown identifier `q3e`
+../results/orch/lemmas/readtwice/Bounds.lean:3523:10: error: No goals to be solved
+../results/orch/lemmas/readtwice/Bounds.lean:3530:38: error: Function expected at
+  q0k
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3533:11: error(lean.unknownIdentifier): Unknown identifier `q6Z`
+../results/orch/lemmas/readtwice/Bounds.lean:3532:45: error: unsolved goals
+x✝ : Sort u_1
+q0k : x✝
+S : Finset Sig
+T : Sig
+F : sorry
+a b c : Sig
+p n pa na : Row
+ar : qbD S T a p na
+br : qbD S T b pa n
+cr : qbD S T c p n
+ia : a ∈ sorry
+ib : b ∈ sorry
+⊢ c ∈ sorry
+../results/orch/lemmas/readtwice/Bounds.lean:3539:38: error: Function expected at
+  q0k
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  S
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3545:20: error(lean.unknownIdentifier): Unknown identifier `q6Z`
+../results/orch/lemmas/readtwice/Bounds.lean:3545:34: error(lean.unknownIdentifier): Unknown identifier `q6Z`
+../results/orch/lemmas/readtwice/Bounds.lean:3546:7: error(lean.unknownIdentifier): Unknown identifier `q6Z`
+../results/orch/lemmas/readtwice/Bounds.lean:3546:21: error(lean.unknownIdentifier): Unknown identifier `q6Z`
+../results/orch/lemmas/readtwice/Bounds.lean:3626:13: error(lean.unknownIdentifier): Unknown identifier `q0k`
+../results/orch/lemmas/readtwice/Bounds.lean:3662:11: error(lean.unknownIdentifier): Unknown identifier `qcp`
+../results/orch/lemmas/readtwice/Bounds.lean:3651:23: error: unsolved goals
+S : Finset Sig
+T : Sig
+F : sorry
+w : ℕ → Sig
+p n : ℕ → Row
+mem : ∀ i < 4, w i ∈ S
+diff : ∀ i < 4, ∀ j < 4, i ≠ j → w i ≠ w j
+q1K : ∀ t ∈ qbT, qbD S T (w t.1) (p t.2.1) (n t.2.2)
+c0 : qbD S T (w (0, 0, 2).1) (p (0, 0, 2).2.1) (n (0, 0, 2).2.2)
+c1 : qbD S T (w (1, 1, 2).1) (p (1, 1, 2).2.1) (n (1, 1, 2).2.2)
+c2 : qbD S T (w (2, 2, 3).1) (p (2, 2, 3).2.1) (n (2, 2, 3).2.2)
+c3 : qbD S T (w (3, 3, 3).1) (p (3, 3, 3).2.1) (n (3, 3, 3).2.2)
+c4 : qbD S T (w (0, 4, 1).1) (p (0, 4, 1).2.1) (n (0, 4, 1).2.2)
+c5 : qbD S T (w (1, 4, 3).1) (p (1, 4, 3).2.1) (n (1, 4, 3).2.2)
+c6 : qbD S T (w (2, 5, 0).1) (p (2, 5, 0).2.1) (n (2, 5, 0).2.2)
+c7 : qbD S T (w (3, 5, 1).1) (p (3, 5, 1).2.1) (n (3, 5, 1).2.2)
+c8 : qbD S T (w (3, 5, 2).1) (p (3, 5, 2).2.1) (n (3, 5, 2).2.2)
+⊢ False
+../results/orch/lemmas/readtwice/Bounds.lean:3699:11: error(lean.unknownIdentifier): Unknown identifier `qcp`
+../results/orch/lemmas/readtwice/Bounds.lean:3689:23: error: unsolved goals
+S : Finset Sig
+T : Sig
+F : sorry
+w : ℕ → Sig
+p n : ℕ → Row
+mem : ∀ i < 4, w i ∈ S
+diff : ∀ i < 4, ∀ j < 4, i ≠ j → w i ≠ w j
+q1K : ∀ t ∈ qbW, qbD S T (w t.1) (p t.2.1) (n t.2.2)
+c0 : qbD S T (w (0, 0, 1).1) (p (0, 0, 1).2.1) (n (0, 0, 1).2.2)
+c1 : qbD S T (w (1, 1, 3).1) (p (1, 1, 3).2.1) (n (1, 1, 3).2.2)
+c2 : qbD S T (w (2, 2, 0).1) (p (2, 2, 0).2.1) (n (2, 2, 0).2.2)
+c3 : qbD S T (w (1, 2, 2).1) (p (1, 2, 2).2.1) (n (1, 2, 2).2.2)
+c4 : qbD S T (w (3, 3, 1).1) (p (3, 3, 1).2.1) (n (3, 3, 1).2.2)
+c5 : qbD S T (w (2, 3, 3).1) (p (2, 3, 3).2.1) (n (2, 3, 3).2.2)
+c6 : qbD S T (w (3, 4, 2).1) (p (3, 4, 2).2.1) (n (3, 4, 2).2.2)
+c7 : qbD S T (w (0, 4, 3).1) (p (0, 4, 3).2.1) (n (0, 4, 3).2.2)
+⊢ False
+../results/orch/lemmas/readtwice/Bounds.lean:3732:11: error(lean.unknownIdentifier): Unknown identifier `qcp`
+../results/orch/lemmas/readtwice/Bounds.lean:3722:23: error: unsolved goals
+S : Finset Sig
+T : Sig
+F : sorry
+w : ℕ → Sig
+p n : ℕ → Row
+mem : ∀ i < 4, w i ∈ S
+diff : ∀ i < 4, ∀ j < 4, i ≠ j → w i ≠ w j
+q1K : ∀ t ∈ qbZ, qbD S T (w t.1) (p t.2.1) (n t.2.2)
+c0 : qbD S T (w (0, 0, 2).1) (p (0, 0, 2).2.1) (n (0, 0, 2).2.2)
+c1 : qbD S T (w (1, 1, 1).1) (p (1, 1, 1).2.1) (n (1, 1, 1).2.2)
+c2 : qbD S T (w (2, 2, 0).1) (p (2, 2, 0).2.1) (n (2, 2, 0).2.2)
+c3 : qbD S T (w (1, 2, 2).1) (p (1, 2, 2).2.1) (n (1, 2, 2).2.2)
+c4 : qbD S T (w (3, 3, 0).1) (p (3, 3, 0).2.1) (n (3, 3, 0).2.2)
+c5 : qbD S T (w (0, 3, 1).1) (p (0, 3, 1).2.1) (n (0, 3, 1).2.2)
+c6 : qbD S T (w (2, 4, 1).1) (p (2, 4, 1).2.1) (n (2, 4, 1).2.2)
+c7 : qbD S T (w (3, 4, 2).1) (p (3, 4, 2).2.1) (n (3, 4, 2).2.2)
+⊢ False
+../results/orch/lemmas/readtwice/Bounds.lean:3769:11: error(lean.unknownIdentifier): Unknown identifier `qcp`
+../results/orch/lemmas/readtwice/Bounds.lean:3758:23: error: unsolved goals
+S : Finset Sig
+T : Sig
+F : sorry
+w : ℕ → Sig
+p n : ℕ → Row
+mem : ∀ i < 4, w i ∈ S
+diff : ∀ i < 4, ∀ j < 4, i ≠ j → w i ≠ w j
+q1K : ∀ t ∈ qc2, qbD S T (w t.1) (p t.2.1) (n t.2.2)
+c0 : qbD S T (w (0, 0, 0).1) (p (0, 0, 0).2.1) (n (0, 0, 0).2.2)
+c1 : qbD S T (w (1, 1, 0).1) (p (1, 1, 0).2.1) (n (1, 1, 0).2.2)
+c2 : qbD S T (w (2, 2, 3).1) (p (2, 2, 3).2.1) (n (2, 2, 3).2.2)
+c3 : qbD S T (w (3, 3, 3).1) (p (3, 3, 3).2.1) (n (3, 3, 3).2.2)
+c4 : qbD S T (w (2, 4, 1).1) (p (2, 4, 1).2.1) (n (2, 4, 1).2.2)
+c5 : qbD S T (w (3, 4, 2).1) (p (3, 4, 2).2.1) (n (3, 4, 2).2.2)
+c6 : qbD S T (w (1, 5, 1).1) (p (1, 5, 1).2.1) (n (1, 5, 1).2.2)
+c7 : qbD S T (w (1, 5, 2).1) (p (1, 5, 2).2.1) (n (1, 5, 2).2.2)
+c8 : qbD S T (w (0, 5, 3).1) (p (0, 5, 3).2.1) (n (0, 5, 3).2.2)
+⊢ False
+../results/orch/lemmas/readtwice/Bounds.lean:3809:11: error(lean.unknownIdentifier): Unknown identifier `qcp`
+../results/orch/lemmas/readtwice/Bounds.lean:3798:23: error: unsolved goals
+S : Finset Sig
+T : Sig
+F : sorry
+w : ℕ → Sig
+p n : ℕ → Row
+mem : ∀ i < 4, w i ∈ S
+diff : ∀ i < 4, ∀ j < 4, i ≠ j → w i ≠ w j
+q1K : ∀ t ∈ qc5, qbD S T (w t.1) (p t.2.1) (n t.2.2)
+c0 : qbD S T (w (0, 0, 3).1) (p (0, 0, 3).2.1) (n (0, 0, 3).2.2)
+c1 : qbD S T (w (1, 1, 3).1) (p (1, 1, 3).2.1) (n (1, 1, 3).2.2)
+c2 : qbD S T (w (2, 2, 3).1) (p (2, 2, 3).2.1) (n (2, 2, 3).2.2)
+c3 : qbD S T (w (3, 3, 3).1) (p (3, 3, 3).2.1) (n (3, 3, 3).2.2)
+c4 : qbD S T (w (0, 4, 1).1) (p (0, 4, 1).2.1) (n (0, 4, 1).2.2)
+c5 : qbD S T (w (1, 4, 2).1) (p (1, 4, 2).2.1) (n (1, 4, 2).2.2)
+c6 : qbD S T (w (2, 5, 0).1) (p (2, 5, 0).2.1) (n (2, 5, 0).2.2)
+c7 : qbD S T (w (3, 5, 1).1) (p (3, 5, 1).2.1) (n (3, 5, 1).2.2)
+c8 : qbD S T (w (3, 5, 2).1) (p (3, 5, 2).2.1) (n (3, 5, 2).2.2)
+⊢ False
+../results/orch/lemmas/readtwice/Bounds.lean:3848:11: error(lean.unknownIdentifier): Unknown identifier `qcp`
+../results/orch/lemmas/readtwice/Bounds.lean:3836:23: error: unsolved goals
+S : Finset Sig
+T : Sig
+F : sorry
+w : ℕ → Sig
+p n : ℕ → Row
+mem : ∀ i < 5, w i ∈ S
+diff : ∀ i < 5, ∀ j < 5, i ≠ j → w i ≠ w j
+q1K : ∀ t ∈ qc8, qbD S T (w t.1) (p t.2.1) (n t.2.2)
+c0 : qbD S T (w (0, 0, 2).1) (p (0, 0, 2).2.1) (n (0, 0, 2).2.2)
+c1 : qbD S T (w (1, 1, 3).1) (p (1, 1, 3).2.1) (n (1, 1, 3).2.2)
+c2 : qbD S T (w (2, 2, 0).1) (p (2, 2, 0).2.1) (n (2, 2, 0).2.2)
+c3 : qbD S T (w (1, 2, 4).1) (p (1, 2, 4).2.1) (n (1, 2, 4).2.2)
+c4 : qbD S T (w (3, 3, 1).1) (p (3, 3, 1).2.1) (n (3, 3, 1).2.2)
+c5 : qbD S T (w (2, 3, 3).1) (p (2, 3, 3).2.1) (n (2, 3, 3).2.2)
+c6 : qbD S T (w (0, 3, 4).1) (p (0, 3, 4).2.1) (n (0, 3, 4).2.2)
+c7 : qbD S T (w (3, 4, 2).1) (p (3, 4, 2).2.1) (n (3, 4, 2).2.2)
+c8 : qbD S T (w (4, 4, 3).1) (p (4, 4, 3).2.1) (n (4, 4, 3).2.2)
+c9 : qbD S T (w (4, 4, 4).1) (p (4, 4, 4).2.1) (n (4, 4, 4).2.2)
+⊢ False
+../results/orch/lemmas/readtwice/Bounds.lean:3883:11: error(lean.unknownIdentifier): Unknown identifier `qcp`
+../results/orch/lemmas/readtwice/Bounds.lean:3872:23: error: unsolved goals
+S : Finset Sig
+T : Sig
+F : sorry
+w : ℕ → Sig
+p n : ℕ → Row
+mem : ∀ i < 4, w i ∈ S
+diff : ∀ i < 4, ∀ j < 4, i ≠ j → w i ≠ w j
+q1K : ∀ t ∈ qcb, qbD S T (w t.1) (p t.2.1) (n t.2.2)
+c0 : qbD S T (w (0, 0, 0).1) (p (0, 0, 0).2.1) (n (0, 0, 0).2.2)
+c1 : qbD S T (w (1, 1, 0).1) (p (1, 1, 0).2.1) (n (1, 1, 0).2.2)
+c2 : qbD S T (w (2, 2, 3).1) (p (2, 2, 3).2.1) (n (2, 2, 3).2.2)
+c3 : qbD S T (w (2, 3, 1).1) (p (2, 3, 1).2.1) (n (2, 3, 1).2.2)
+c4 : qbD S T (w (3, 3, 2).1) (p (3, 3, 2).2.1) (n (3, 3, 2).2.2)
+c5 : qbD S T (w (1, 4, 2).1) (p (1, 4, 2).2.1) (n (1, 4, 2).2.2)
+c6 : qbD S T (w (0, 4, 3).1) (p (0, 4, 3).2.1) (n (0, 4, 3).2.2)
+c7 : qbD S T (w (1, 5, 1).1) (p (1, 5, 1).2.1) (n (1, 5, 1).2.2)
+c8 : qbD S T (w (3, 5, 3).1) (p (3, 5, 3).2.1) (n (3, 5, 3).2.2)
+⊢ False
+../results/orch/lemmas/readtwice/Bounds.lean:3905:31: error: Function expected at
+  q0k
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (List.toFinset ws)
+
+Hint: The identifier `q0k` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/readtwice/Bounds.lean:3929:8: error: don't know how to synthesize implicit argument `q0k`
+  @qcf ?m.51 ?m.52 (qcd ((fun i => rec >>> (4 * i) &&& 15) 0)) ws T
+    (fun i => ws.getD ((fun i => rec >>> (4 * i) &&& 15) (1 + i)) zero)
+    (fun i => q8F pos ((fun i => rec >>> (4 * i) &&& 15) (6 + i)))
+    (fun i => q8F neg ((fun i => rec >>> (4 * i) &&& 15) (12 + i))) F check
+context:
+pos neg : ℕ
+ws : List Sig
+T : Sig
+k rec : ℕ
+ok : qcn pos neg ws T k rec = true
+bound : decide (k ≤ ws.toFinset.card) = true
+check :
+  (qce (qcd ((fun i => rec >>> (4 * i) &&& 15) 0)) ws T
+      (fun i => ws.getD ((fun i => rec >>> (4 * i) &&& 15) (1 + i)) zero)
+      (fun i => q8F pos ((fun i => rec >>> (4 * i) &&& 15) (6 + i))) fun i =>
+      q8F neg ((f

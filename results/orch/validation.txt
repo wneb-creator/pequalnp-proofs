@@ -7,7 +7,7 @@ Checker: not run against the posted statement; the final theorem is intentionall
 Independent review: status_review checked mathematics, allowed imports, helper namespaces, forbidden syntax and whitespace.
 Cleanup: not yet applicable to a complete proof; 50 lines in the first checked partial.
 Sub-agents: status_review, toolchain, structural_proof, counterexample, finite_certificate, readtwice, finite_certificate/search_audit
-TIMING total=58.5 subagents=7
+TIMING total=65.3 subagents=7
 
 Additional checked partial: results/orch/lemmas/structural/SeedErase.lean (125 lines).
 Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/structural/SeedErase.lean
@@ -57,3 +57,5 @@ Recovery desk request002 returned gap null, checker backlog521, estimate59minute
 Archive checkpoint: current Live1024/LiveRun1024/Bridge1024 drafts all exited1; complete diagnostics explicitly mark them unverified. ReaderSavings also exited1. Four audited v2 exploratory checkpoints and full logs archived with root-verified SHA256 hashes; all searches unfinished. Invalid earlier checkpoints excluded and documented. Both incomplete DRAT files losslessly compressed with original-byte SHA256 verification.
 
 SignedBounds.lean now compiles successfully (exit0), 3878 lines/217712 bytes. Full compiler output in SignedBounds.validation.txt. Independent status_review PASS: all755 inherited declarations match L670, signed extraction matches compiled SignedBridge, actual signedRoot discharges the previous hypothesis. This proves the ordinary nine-input graph needs at least15 gates; it is not the stronger16-gate bound or the posted gap1890.
+
+Final state: no complete theorem/checker acceptance/PR. Own lease revoked HTTP410; after3 nulls, desk twice returned another pilot's existing lease and holding-cap message. Stopped per user instruction. See FINAL_REPORT.md and complete desk transcript.

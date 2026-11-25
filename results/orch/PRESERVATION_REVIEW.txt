@@ -27,3 +27,5 @@ Also preserve tracked results/orch/NOTES.md.
 Exclude __pycache__ directories and both .pyc files. No binaries/cache files included.
 
 Late addition: results/orch/lemmas/status_review/Erase4093.validation.txt (full compiler diagnostics, successful exit0; reviewed safe text).
+
+Late addition: results/orch/lemmas/readtwice/SignedBounds.validation.txt (complete successful compiler output; reviewed safe text). SignedBounds source now compiled and independently reviewed for the ordinary-nine≥15 claim.

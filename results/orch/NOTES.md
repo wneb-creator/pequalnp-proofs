@@ -206,3 +206,11 @@ Erase4093 build finished exit0 at 2026-11-25T15:28:12+00:00; full diagnostics in
 ## readtwice 2026-11-25T15:37:00.890145+00:00 — signed nine bound CHECKED
 
 SignedBounds.lean compiled exit0,217712bytes3878lines, SHA256 e4fe84e1479d34553b00827d77f2b33dd2f686cc3ac9677b5c377f72261cdb8e. It includes actual finite signedRoot certificate and unconditional BoundsNine.minor_lower15 (C) (legal) (computes):15≤C.size for the exact nine-vertex Petersen minor. Complete validation and compiler output saved beside source. Temporary SignedBounds.olean is ready for development imports; final source remains Defs-only. Full nine≥16 Bounds compile remains active.
+
+### Signed nine-bound final independent review 2026-11-25T15:38:12+00:00
+- PASS compiled SignedBounds.lean217712B3878lines,SHA256e4fe84e1479d34553b00827d77f2b33dd2f686cc3ac9677b5c377f72261cdb8e. All755 inherited declarations exactly match L670 after inverse identifier renaming and comment/whitespace normalization. New signedRealize is exactly compiled SignedBridge; final minor_lower15 differs only by discharging hroot with the actual signedRoot certificate.
+- This proves unconditional ordinary-nine circuit size at least15 (no-size14), not at least16 and not the full1890 statement. Format/import/options/regular-file checks pass. Full validation file is safe text for preservation.
+
+## readtwice 2026-11-25T15:41:14.408387+00:00 — final status
+
+Root instructed stop after own lease410 and unsuccessful recovery returning another pilot lease. Full Bounds.lean build terminated cleanly (SIGTERM,exit143): INTERRUPTED,no verdict,no errors reported before interruption. Complete current and prior build logs preserved beside source; Bounds.name-map.json preserved. SignedBounds.lean passed exit0 and independent review,unconditional ordinary-nine lower15; SignedBridge.lean passed exit0; FormulaLower and Counts passed earlier. No compiled result lost.
