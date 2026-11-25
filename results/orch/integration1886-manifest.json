@@ -1,0 +1,146 @@
+[
+  {
+    "source": "lean/PEqualNP/Outside/L_meta_2592.lean",
+    "sha256": "f320fa99f594e6d7c05b436b2ed0080ce58e79e7501bb05bf84bfac39511b4fa",
+    "role": "base renamed2592 to1886"
+  },
+  {
+    "source": "results/orch/lemmas/conjunction_bound.lean",
+    "sha256": "feb7fba230b6500f968875152bdfae5dccd0fe902f37fcb54c12221697b49619",
+    "start_line": 5249,
+    "end_line": 5367,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/bank_all_pins.fragment.lean",
+    "sha256": "afa724775728328d8bae7ccd36dc21ff343b20f5ce7ae173412dce7802b3c657",
+    "start_line": 5369,
+    "end_line": 5424,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/second_root_bound.lean",
+    "sha256": "28329204d3b520139190a3ec14b594f995db61c65ec6f9897d03f024de346ac7",
+    "start_line": 5426,
+    "end_line": 5495,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/first_and_circuit.fragment.lean",
+    "sha256": "86cdf5f08fce4dd8a0157443c22a8d7651177671c72233da0952c70fccfc70ed",
+    "start_line": 5497,
+    "end_line": 5573,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/constant_sweep.lean",
+    "sha256": "30cd3cbe31c466ffa4ea7257fc10346881d489a3cd5bfd668c6255e635dd02b8",
+    "start_line": 5575,
+    "end_line": 5797,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/one_not_semantics.lean",
+    "sha256": "a9df4c1b0efd9b3aa67fee5e7cefc862f90f3a3fcb6dbd459b4a226b1f4ef1de",
+    "start_line": 5799,
+    "end_line": 5890,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/one_not_compile.lean",
+    "sha256": "2836ff947f2fef59e8466a67040cbb8aa064b8345a3365f7931da08af41a353e",
+    "start_line": 5892,
+    "end_line": 5993,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/one_not_eliminate.lean",
+    "sha256": "980c56d6dd708d202d78c89581b31753d24561d6e598eb61f66184378ad12559",
+    "start_line": 5995,
+    "end_line": 6051,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/one_not_petersen.lean",
+    "sha256": "a2a54beb7fb18a552c77812f4de42bd286225e56e340b36e925694227322ea2b",
+    "start_line": 6053,
+    "end_line": 6111,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/two_not_structure.fragment.lean",
+    "sha256": "430e7c6af50b509c795148d5f1af70c4ea8054bf369a874e414b924f55719bd2",
+    "start_line": 6113,
+    "end_line": 6175,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/map_rigidity.lean",
+    "sha256": "a8d8c97e711a62086d823b77d8821f7347136d0572652b6529b3c154403fc99e",
+    "start_line": 6177,
+    "end_line": 6236,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/input_relabel.lean",
+    "sha256": "bb9c987030bab6012347e0739c9456bbb4c73b3c1e6d2730ee85dd7cde81b3dc",
+    "start_line": 6238,
+    "end_line": 6335,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/supplied_and_not.fragment.lean",
+    "sha256": "5cba967f99965d8b922472340b275ce62cbbd408bdd28b3eac8c07fc5ed56492",
+    "start_line": 6337,
+    "end_line": 6380,
+    "renames": [
+      "L_meta_2592 to L_meta_1886",
+      "second_root_nonOr_lower to second_rt_nonOr_lower"
+    ]
+  },
+  {
+    "source": "results/orch/lemmas/arbitrary_map_seed_not.lean",
+    "sha256": "3301814eda043946b8269415ed00ddafd5eb3b45f6be3da105e065eef5e5cc01",
+    "start_line": 6382,
+    "end_line": 6436,
+    "renames": [
+      "L_meta_2592 to L_meta_1886"
+    ]
+  }
+]
