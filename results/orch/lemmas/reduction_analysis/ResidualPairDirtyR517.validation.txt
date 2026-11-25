@@ -1,0 +1,12 @@
+ResidualPairDirtyR517.lean
+Lean exit code: 0.
+Complete stdout/stderr preserved in ResidualPairDirtyR517.build.log.
+One unnecessary-simpa linter warning; no errors.
+Research-only dependency PEqualNP.Outside.L_meta_2656.
+Rebuild with the isolated dependency setup documented in PairDirtyNecessary.rebuild.txt,
+substituting ResidualPairDirtyR517.lean for the final adapter filename; cap6144MB,j1.
+Statement: every circuit satisfying the exact joint61-gate residual/tap assumptions
+of R_meta_650_517 has an AND gate true on a residual independent input with at most
+two true variables. No output-cone relevance or distinct-operand claim is made here.
+This is a necessary condition, not a proof or refutation of the full posted gap.
+No local target-checker acceptance is claimed.

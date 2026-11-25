@@ -1,0 +1,6 @@
+../results/orch/lemmas/reduction_analysis/ResidualPairDirtyR517.lean:486:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [Bool.false_or, Bool.and_eq_true, hr, false_or]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

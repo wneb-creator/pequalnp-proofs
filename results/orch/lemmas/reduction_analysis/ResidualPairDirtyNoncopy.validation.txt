@@ -1,0 +1,15 @@
+ResidualPairDirtyNoncopy.lean
+Lean exit code: 0.
+Complete stdout/stderr preserved in ResidualPairDirtyNoncopy.build.log.
+Two unnecessary-simpa linter warnings; no errors.
+Research-only dependency PEqualNP.Outside.L_meta_2656.
+Rebuild with PairDirtyNecessary.rebuild.txt isolated dependency setup,
+substituting ResidualPairDirtyNoncopy.lean for the adapter filename; cap6144MB,j1.
+Assumptions: exact R650_517 joint61-gate residual/tap semantics, Monotone2,
+valid output/tap indices, and exactly two input wires per gate.
+Conclusion: an AND gate with distinct operand indices is true on an independent
+residual input containing at most two true variables. No H-cone relevance is claimed.
+Proof: replacing each AND(w,w) by OR(w,w) preserves every wire, output, tap, and size;
+apply residual pair-dirty necessity and recover a distinct-input original AND.
+This is a necessary condition, not the posted full proof or refutation.
+No local target-checker acceptance is claimed.
