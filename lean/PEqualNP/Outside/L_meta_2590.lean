@@ -4407,4 +4407,109 @@ lemma no_seven_with_three_free_pairs {R : Dag} (hl : R.length ≤ 7)
 
 end C6
 
+namespace C6
+open DagTools CircuitLowerBounds MetaComplexity
+
+lemma edgeBool_not_constant : ∀ b : Bool, ∃ x : V → Bool, edgeBool x ≠ b := by
+  decide +kernel
+
+lemma extendThree_not_target : ∀ i : Fin 9, ∃ x : V → Bool,
+    extendThree x i ≠ edgeBool x := by
+  decide +kernel
+
+lemma no_seven_circuit_with_three_free_pairs (C : Circuit) (hm : Monotone2 C)
+    (hl : C.size ≤ 7)
+    (hc : ∀ x : V → Bool,
+      C.eval (List.ofFn (extendThree x)) = true ↔ sem_Edge adj x) : False := by
+  have heq (x : V → Bool) : C.eval (List.ofFn (extendThree x)) = edgeBool x :=
+    Bool.eq_iff_iff.mpr ((hc x).trans (edgeBool_spec x).symm)
+  rcases exists_strict_of_monotone2 (n := 9) C hm with
+    ⟨b, hb⟩ | ⟨i, hi⟩ | ⟨D, hS, _, hlen, hD⟩
+  · obtain ⟨x, hx⟩ := edgeBool_not_constant b
+    exact hx ((heq x).symm.trans (hb (extendThree x)))
+  · obtain ⟨x, hx⟩ := extendThree_not_target i
+    exact hx ((hi (extendThree x)).symm.trans (heq x))
+  · apply no_seven_with_three_free_pairs (hlen.trans hl) hS
+    intro x
+    rw [hD]
+    exact hc x
+
+end C6
+
+namespace C6.CenterNoise
+open DagTools
+
+lemma dominated_true_neighbor_completion {n : ℕ} {G : Fin n → Fin n → Prop}
+    {D : Dag} (hS : Strict n D) (hc : sem_Comp n G D)
+    (v : Fin n) (b : ℕ) (hdom : sem_Dom n D b v.val)
+    (x : Fin n → Bool) (hb : val D x b = true)
+    (z : Fin n) (hvz : G v z) : sem_Edge G (sem_ins z x) := by
+  have hzb : val D (sem_ins z x) b = true :=
+    val_mono hS x (sem_ins z x) (sem_ins_ge z x) b hb
+  have hvb : val D (sem_ins v (sem_ins z x)) b = true :=
+    val_mono hS (sem_ins z x) (sem_ins v (sem_ins z x))
+      (sem_ins_ge v (sem_ins z x)) b hzb
+  have he := sem_dom_eq hS (sem_ins z x) (sem_ins v (sem_ins z x)) v
+    (sem_ins_agree v (sem_ins z x)) b hdom (by rw [hzb, hvb])
+  have htarget : sem_Edge G (sem_ins v (sem_ins z x)) :=
+    ⟨v, z, hvz, sem_ins_self v _, sem_ins_ge v _ z (sem_ins_self z _)⟩
+  apply (hc _).mp
+  rw [he]
+  exact (hc _).mpr htarget
+
+def pAdj (u v : Fin 10) : Prop :=
+  (u.val, v.val) ∈ [(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),
+    (3,8),(4,9),(5,7),(7,9),(9,6),(6,8),(8,5)] ∨
+  (v.val, u.val) ∈ [(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),
+    (3,8),(4,9),(5,7),(7,9),(9,6),(6,8),(8,5)]
+
+-- Canonical C6 coordinates are Petersen vertices [2,8,9,3,7,6].
+def embed (x : V → Bool) : Fin 10 → Bool :=
+  ![false, false, x 0, x 3, false, false, x 5, x 4, x 1, x 2]
+
+def alternatingTriple (x : V → Bool) : Prop :=
+  (x 0 = true ∧ x 1 = true ∧ x 2 = true) ∨
+    (x 3 = true ∧ x 4 = true ∧ x 5 = true)
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 10000000 in
+set_option synthInstance.maxSize 8192 in
+lemma center_completion_classification : ∀ x : V → Bool,
+    sem_Edge pAdj (sem_ins 1 (embed x)) →
+    sem_Edge pAdj (sem_ins 4 (embed x)) →
+    sem_Edge pAdj (sem_ins 5 (embed x)) →
+    sem_Edge adj x ∨ alternatingTriple x := by
+  unfold sem_Edge pAdj sem_ins embed adj alternatingTriple
+  decide +kernel
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 10000000 in
+set_option synthInstance.maxSize 8192 in
+lemma center_insertion_restriction : ∀ x : V → Bool,
+    sem_Edge pAdj (sem_ins 0 (embed x)) ↔ sem_Edge adj x := by
+  unfold sem_Edge pAdj sem_ins embed adj
+  decide +kernel
+
+lemma dominated_center_restriction {D : Dag} (hS : Strict 10 D)
+    (hc : sem_Comp 10 pAdj D) (b : ℕ) (hdom : sem_Dom 10 D b 0)
+    (x : V → Bool) (hb : val D (embed x) b = true) :
+    sem_Edge adj x ∨ alternatingTriple x := by
+  apply center_completion_classification x
+  · exact dominated_true_neighbor_completion hS hc 0 b hdom (embed x) hb 1
+      (by unfold pAdj; decide)
+  · exact dominated_true_neighbor_completion hS hc 0 b hdom (embed x) hb 4
+      (by unfold pAdj; decide)
+  · exact dominated_true_neighbor_completion hS hc 0 b hdom (embed x) hb 5
+      (by unfold pAdj; decide)
+
+lemma dominated_neighbor_restriction {D : Dag} (hS : Strict 10 D)
+    (hc : sem_Comp 10 pAdj D) (v : Fin 10) (hv : v = 1 ∨ v = 4 ∨ v = 5)
+    (b : ℕ) (hdom : sem_Dom 10 D b v.val)
+    (x : V → Bool) (hb : val D (embed x) b = true) : sem_Edge adj x := by
+  apply (center_insertion_restriction x).mp
+  apply dominated_true_neighbor_completion hS hc v b hdom (embed x) hb 0
+  rcases hv with rfl | rfl | rfl <;> unfold pAdj <;> decide
+
+end C6.CenterNoise
+
 end PEqualNP.Outside.L_meta_2590_aux
