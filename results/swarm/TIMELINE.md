@@ -14,7 +14,7 @@ Sub-agents: 9 external helpers via pnp-orch-5012; 2 local agents (toolchain reco
 - 2026-11-25 20:02:09 UTC: helper-2 first result: counterexample search initialized; no candidate yet.
 - 2026-11-25 20:03:20 UTC: Local independent reviewer cleared orchestration log for push, keeping final proof branch one-file-only.
 
-TIMING total=47.2 subagents=11 (interim)
+TIMING total=62.6 subagents=11 (interim)
 
 - 2026-11-25 20:04:22 UTC: Pushed orchestration log commit 3fc5c46a to origin/pnp/swarm-L-meta-5012-orch.
 - 2026-11-25 20:02:45 UTC: helper-3 first result: online and route accepted; tooling recovery in progress.
@@ -45,3 +45,7 @@ TIMING total=47.2 subagents=11 (interim)
 - 2026-11-25 20:43 UTC: Helpers reported complete large-pure independent case and complete no-unassigned-OR case; exact final5012 still absent.
 - 2026-11-25 20:46 UTC: Named lake build passed for152842-byte partial integration; independent review cleared exact source. Pushed af21211ef to origin/pnp/swarm-L-meta-5012, explicitly PARTIAL, containing tight nested closure/resource bound and boundary geometry.
 - 2026-11-25 20:46:39 UTC: Preserved compiled boundary geometry and independently reviewed dirty-cross-pair filter geometry support. General nested, mixed, singleton and overlap coverage remains incomplete. No FINAL, no PR, no new lease.
+- 2026-11-25 20:59 UTC: Third replan split general nested work by earlier-junk monochrome behavior. Helpers reported complete independent both-mono, two-semimixed and same-color-center overlap cases; all-pure wrapper packaging remained pending.
+- 2026-11-25 20:59 UTC: Public registry snapshot20:58:10 still posted unchanged L-meta-5012 with pr_open=0. Supplied lease remains unavailable; no replacement requested.
+- 2026-11-25 21:02:06 UTC: Root replayed new pure/semi center geometry and mixed-semi output-preservation support. Actual constant-propagating circuit construction remains in progress. No full target theorem or FINAL.
+- 2026-11-25 21:06:54 UTC: Independent root replays passed for complete restricted helper5 case6d59af62 and helper6 case4a967a4a. Documentation coverage snapshot independently reviewed.
