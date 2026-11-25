@@ -35,3 +35,7 @@ Development source imports cached modules and has global limit settings; named-f
 Eighth checkpoint: NonOrSeed compiled exit 0 and independently reviewed by one_not_route. Residual signed circuit bound17 holds for distinct-input AND/difference seeds; OR is explicitly excluded. No circular use of the new bound; absent-seed case uses prior global Live17. Still not the full posted theorem.
 
 Ninth checkpoint: TwoNotOrFirst compiled and independently reviewed/axiom-checked by toolchain agent. An exact two-NOT candidate under19 gates must have size19, exactly17 non-NOTs, and an extracted Live16 tail seeded by OR of distinct input pins. This is not a statement about its syntactic first gate. Only standard axioms; full gap remains unresolved.
+
+Tenth checkpoint: required named file now proves unconditional17+NOT-count bound. lake build PEqualNP.Outside.L_meta_2592 exit0; target355s; full output archived. Independent assembled-file red-team PASS.
+Named file before assembly3245lines; after5210lines/309284bytes. This was integration, not the requested final cleanup pass; that pass awaits an exact main proof and checker acceptance.
+Only importPEqualNP.Defs, one outer namespace, scoped permitted limits. Exact module-named main theorem remains absent; checker not run for incomplete statement.

@@ -21,3 +21,4 @@
 2026-11-25T14:18:24.664907+00:00: allfive explicitNOT essentialorbit SAT cases UNKNOWN300s each; signed1NOTorbit69 UNKNOWN300s; standardfull2NOT UNKNOWN600s. Signedgenerator smoke tests (20binary0NOT and21binary1NOT withnegativefalsewireuse) passedall1024rows. Delete2binary+insert1sharedNOT neighborhood over40correct20gatecircuits exhausted183,416,922 configurations, none matched32criticalrows.
 2026-11-25T14:19:48.902464+00:00: non-OR seeded residual bound17 compiled and independently reviewed.
 2026-11-25T14:22:06.607128+00:00: exact two-NOT normalized OR-first characterization compiled and independently reviewed.
+2026-11-25T14:23:25.498960+00:00: named5210-line partial module build passed, replacing weaker15-bound checkpoint.

@@ -1,0 +1,32 @@
+{
+  "before_lines": 3245,
+  "inputs": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-97/FewNotBase.lean",
+      "sha256": "f788f732f3d5cae2f225fe2394375191a9ca23e77cbd292a1db69718570e8a86",
+      "lines": 4583
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-97/PermutationSupport.lean",
+      "sha256": "45843d06fddf7554a28d6dd3b8017f3655d22057f8d19280708b9e0ffab86cc7",
+      "lines": 166
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-97/RowEmbeddingSupport.lean",
+      "sha256": "0b3b5fdc76b40ff300a5fb0a2dab4c5a46418bc5e5be878feafd7d47b8cea510",
+      "lines": 80
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/FewNotGeneric.lean",
+      "sha256": "24ae3c463105ce2f62e6d2ea109bc5a5e0097b4eb15666afa696bc2ead2f8e3d",
+      "lines": 231
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/GlobalSeventeen.lean",
+      "sha256": "72b5cbd06ce78cb393dec0102ac6e76108cf6181da9004c7783002470be8bac7",
+      "lines": 125
+    }
+  ],
+  "after_lines": 5210,
+  "sha256": "9389dd60a783de695646467b32ad566358b595976d6a9f4d96d0fc099c879f3d"
+}
