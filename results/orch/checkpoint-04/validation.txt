@@ -1,0 +1,10 @@
+PARTIAL CHECKPOINT — not a proof submission
+Gap:L-meta-2592
+New checked source:results/orch/lemmas/approximation.lean
+Lean exit0; pure Boolean identity and circuit evaluation checked.
+18-gate circuit agrees with Petersen except four false positives, exactly the maximal independent triples {1,3,7},{0,7,8},{0,3,9},{1,8,9}. It is NOT a counterexample to the posted lower bound.
+Independent all1024-input review:PASS, results/orch/approximation-review.md
+Main named file unchanged from checkpoint03; full target theorem absent.
+Local checker running against the posted statement; no acceptance claimed.
+Sub-agents:6
+TIMING total=29.6 subagents=6
