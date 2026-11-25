@@ -9,7 +9,7 @@ Checker: not accepted; target theorem is absent.
 Independent source review: PASS for partial preservation.
 Lines: 659 before cleanup; 659 after (cleanup not started).
 Sub-agents: intake_review, proof_route, counterexample, combinatorial_route, lower_bound
-TIMING total=9.6 subagents=5
+TIMING total=28.1 subagents=5
 Supporting partial: results/orch/lemmas/dirty_obstruction.lean
 Supporting partial build: lake env lean, exit0; independent finite semantics/source review PASS.
 Supporting partial: results/orch/lemmas/semantic_frontier.lean, lake env lean exit0, independent review PASS.
@@ -17,3 +17,8 @@ Actual checker verdict: REJECTED (no-theorem): the file declares no theorem name
 Supporting partial: results/orch/lemmas/semantic_frontier_dual.lean, lake env lean exit0, independent review PASS.
 Supporting partial: results/orch/lemmas/constant_folding.lean, lake env lean exit0, independent review PASS; generic semantics only.
 Constant-folding extension:327lines, lake env lean exit0, independent review PASS; AO2 gate-list preservation proved.
+Constant-folding final:459lines, strict forced-gate deletion and minimal_forced_ne compile; independent review PASS.
+Forced gate semantics:134lines, exit0, independent review PASS.
+Gate pruning semantics:322lines, exit0, independent review PASS.
+Desk status: HTTP410; error body and complete headers preserved.
+Desk null responses:0.

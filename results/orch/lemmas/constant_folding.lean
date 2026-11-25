@@ -324,4 +324,136 @@ theorem elim_AO (n : ℕ) (y : List Bool) (hy : y.length = n) (gs : List Gate) :
       exact (hinv.2 a).1
     exact ih _ _ (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg')) hi' ha
 
+def initForced (n : ℕ) (pre : List Gate) (b : Bool) : List Stat × List Gate :=
+  ((List.range (n + pre.length)).map Sum.inr ++ [Sum.inl b], pre)
+
+theorem inv_initForced (n : ℕ) (y : List Bool) (hy : y.length = n)
+    (pre : List Gate) (b : Bool) :
+    Inv n y (wiresFrom pre y ++ [b]) (initForced n pre b) := by
+  have hl : (wiresFrom pre y).length = n + pre.length := by
+    rw [length_wiresFrom, hy]
+  refine ⟨by simp [initForced, hl], ?_⟩
+  intro i
+  by_cases hi : i < n + pre.length
+  · have hs : (initForced n pre b).1.getD i (Sum.inl false) = Sum.inr i := by
+      change ((List.range (n + pre.length)).map Sum.inr ++ [Sum.inl b]).getD i
+        (Sum.inl false) = Sum.inr i
+      rw [List.getD_append _ _ _ _ (by simpa using hi)]
+      simp [List.getD_eq_getElem?_getD, List.getElem?_range hi]
+    rw [hs]
+    refine ⟨hi, ?_⟩
+    change (wiresFrom pre y).getD i false = (wiresFrom pre y ++ [b]).getD i false
+    exact (List.getD_append _ _ _ _ (by omega)).symm
+  · by_cases he : i = n + pre.length
+    · subst i
+      simp [initForced, Stat.Valid, Stat.val, ← hl]
+    · have hs : (initForced n pre b).1.length ≤ i := by
+        simp [initForced]
+        omega
+      have hw : (wiresFrom pre y ++ [b]).length ≤ i := by
+        simp [hl]
+        omega
+      rw [List.getD_eq_default _ _ hs, List.getD_eq_default _ _ hw]
+      simp [Stat.Valid, Stat.val]
+
+def forcedEval (n : ℕ) (pre post : List Gate) (b : Bool) (out : ℕ)
+    (x : Fin n → Bool) : Bool :=
+  (wiresFrom post (wiresFrom pre (List.ofFn x) ++ [b])).getD out false
+
+theorem forced_replacement (n : ℕ) (pre post : List Gate) (b : Bool) (out : ℕ)
+    (hpre : PEqualNP.TopForm.IsAO2 n ⟨pre, 0⟩)
+    (hpost : ∀ g ∈ post, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hnonconstant : ∃ x y : Fin n → Bool,
+      forcedEval n pre post b out x ≠ forcedEval n pre post b out y) :
+    ∃ D : Circuit, PEqualNP.TopForm.IsAO2 n D ∧ D.size ≤ pre.length + post.length ∧
+      ∀ x : Fin n → Bool,
+        PEqualNP.MetaComplexity.circuitFun n D x = forcedEval n pre post b out x := by
+  let acc := elim n post (initForced n pre b)
+  have hok : ∀ g ∈ post, Ok g := by
+    intro g hg
+    have h := hpost g hg
+    exact ⟨h.1.elim Or.inl (fun e => Or.inr (Or.inl e)), h.2⟩
+  have hinv : ∀ x : Fin n → Bool,
+      Inv n (List.ofFn x) (wiresFrom post (wiresFrom pre (List.ofFn x) ++ [b])) acc := by
+    intro x
+    exact inv_elim n (List.ofFn x) (by simp) post _ _ hok
+      (inv_initForced n (List.ofFn x) (by simp) pre b)
+  have hao : PEqualNP.TopForm.IsAO2 n ⟨acc.2, 0⟩ :=
+    elim_AO n (List.ofFn (fun _ : Fin n => false)) (by simp) post _ _ hpost
+      (inv_initForced n (List.ofFn (fun _ : Fin n => false)) (by simp) pre b) hpre
+  have hsize : acc.2.length ≤ pre.length + post.length :=
+    elim_len n post (initForced n pre b)
+  cases hs : acc.1.getD out (Sum.inl false) with
+  | inl c =>
+    obtain ⟨x, y, hxy⟩ := hnonconstant
+    have hx := (hinv x).2 out |>.2
+    have hy := (hinv y).2 out |>.2
+    rw [hs] at hx hy
+    exact (hxy (hx.symm.trans hy)).elim
+  | inr j =>
+    refine ⟨⟨acc.2, j⟩, hao, hsize, ?_⟩
+    intro x
+    have hx := (hinv x).2 out |>.2
+    rw [hs] at hx
+    exact hx
+
+theorem AO_prefix (n : ℕ) (pre tail : List Gate) (out : ℕ)
+    (h : PEqualNP.TopForm.IsAO2 n ⟨pre ++ tail, out⟩) :
+    PEqualNP.TopForm.IsAO2 n ⟨pre, 0⟩ := by
+  obtain ⟨hops, hback, hlen⟩ := h
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    exact hops g (List.mem_append_left _ hg)
+  · intro j hj i hi
+    change j < pre.length at hj
+    have he : PEqualNP.MetaComplexity.NestedCover.gateAt ⟨pre ++ tail, out⟩ j =
+        PEqualNP.MetaComplexity.NestedCover.gateAt ⟨pre, 0⟩ j :=
+      List.getD_append _ _ _ _ hj
+    apply hback j (by simp; omega) i
+    rwa [he]
+  · intro g hg
+    exact hlen g (List.mem_append_left _ hg)
+
+theorem delete_forced_gate (n : ℕ) (C : Circuit) (pre : List Gate) (g : Gate)
+    (post : List Gate) (b : Bool)
+    (hC : PEqualNP.TopForm.IsAO2 n C) (hgs : C.gates = pre ++ g :: post)
+    (hnonconstant : ∃ x y : Fin n → Bool,
+      forcedEval n pre post b C.output x ≠ forcedEval n pre post b C.output y) :
+    ∃ D : Circuit, PEqualNP.TopForm.IsAO2 n D ∧ D.size < C.size ∧
+      ∀ x : Fin n → Bool,
+        PEqualNP.MetaComplexity.circuitFun n D x = forcedEval n pre post b C.output x := by
+  rcases C with ⟨gs, out⟩
+  dsimp at hgs
+  subst gs
+  have hp : PEqualNP.TopForm.IsAO2 n ⟨pre, 0⟩ := AO_prefix n pre (g :: post) out hC
+  have ht : ∀ g' ∈ post, (g'.op = GateOp.and ∨ g'.op = GateOp.or) ∧
+      g'.inputs.length ≤ 2 := by
+    intro g' hg'
+    have hm : g' ∈ pre ++ g :: post := List.mem_append_right _ (List.mem_cons_of_mem _ hg')
+    exact ⟨hC.1 g' hm, (hC.2.2 g' hm).le⟩
+  obtain ⟨D, hD, hs, he⟩ := forced_replacement n pre post b out hp ht hnonconstant
+  refine ⟨D, hD, ?_, he⟩
+  change D.gates.length ≤ pre.length + post.length at hs
+  change D.gates.length < (pre ++ g :: post).length
+  simp only [List.length_append, List.length_cons]
+  omega
+
+theorem minimal_forced_ne (n : ℕ) (C : Circuit) (pre : List Gate) (g : Gate)
+    (post : List Gate) (b : Bool)
+    (hC : PEqualNP.TopForm.IsAO2 n C) (hgs : C.gates = pre ++ g :: post)
+    (hnonconstant : ∃ x y : Fin n → Bool,
+      PEqualNP.MetaComplexity.circuitFun n C x ≠ PEqualNP.MetaComplexity.circuitFun n C y)
+    (hminimal : ∀ D : Circuit, PEqualNP.TopForm.IsAO2 n D →
+      (∀ x : Fin n → Bool,
+        PEqualNP.MetaComplexity.circuitFun n D x = PEqualNP.MetaComplexity.circuitFun n C x) →
+      C.size ≤ D.size) :
+    forcedEval n pre post b C.output ≠ PEqualNP.MetaComplexity.circuitFun n C := by
+  intro heq
+  have hnc : ∃ x y : Fin n → Bool,
+      forcedEval n pre post b C.output x ≠ forcedEval n pre post b C.output y := by
+    simpa only [heq] using hnonconstant
+  obtain ⟨D, hD, hsize, hfun⟩ := delete_forced_gate n C pre g post b hC hgs hnc
+  have hm := hminimal D hD (fun x => (hfun x).trans (congrFun heq x))
+  exact (not_lt_of_ge hm) hsize
+
 end PEqualNP.Outside.L_meta_2583_aux.ConstantFolding
