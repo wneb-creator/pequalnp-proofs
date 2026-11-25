@@ -1,0 +1,13 @@
+checkpoint-test-97-e0 partial membership and resumed reduced basis equal baseline
+checkpoint-test-97-e1 partial membership and resumed reduced basis equal baseline
+checkpoint-test-257-e0 partial membership and resumed reduced basis equal baseline
+checkpoint-test-257-e1 partial membership and resumed reduced basis equal baseline
+checkpoint-test-65537-e0 partial membership and resumed reduced basis equal baseline
+checkpoint-test-65537-e1 partial membership and resumed reduced basis equal baseline
+periodic save continues and rotates previous
+size-cap failure preserves latest and previous, removes temporary
+original input hash mismatch rejected
+completion before stop remains complete
+previous compressed snapshot retained only below 16MiB cap
+whole-polynomial bounded subset resumes to identical baseline
+ALL CHECKPOINT TESTS PASSED

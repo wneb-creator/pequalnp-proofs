@@ -1,0 +1,68 @@
+--- a/gb.c
++++ b/gb.c
+@@ -44,6 +44,7 @@
+ #include "symbol.c"   /* symbolic preprocessing */
+ #include "io.c"       /* input and output data handling */
+ #include "engine.c"   /* global, shared parts of gb engine */
++#include "checkpoint.c"
+ #include "f4.c"       /* implemenation of f4 algorithm */
+ #include "sba.c"      /* implemenation of sba algorithm */
+ #include "nf.c"       /* implemenation of normal form algorithm */
+--- a/f4.c
++++ b/f4.c
+@@ -430,6 +430,7 @@
+     convert_hashes_to_columns(mat, md, sht);
+     sort_matrix_rows_decreasing(mat->rr, mat->nru);
+     linear_algebra(mat, bs, bs, md);
++    md->np = mat->np; /* keep rational F4 pivot count in sync, as finite-field LA does */
+ 
+     /* check for bad prime */
+     if (md->trace_level == APPLY_TRACER) {
+@@ -713,6 +714,7 @@
+         }
+ 
+         print_round_timings(VERBSTREAM, md, rrt, crt);
++        if (!*errp && cp_round_end(bs, md, done)) break;
+     }
+     if (*errp > 0) {
+         free_basis_and_only_local_hash_table_data(&bs);
+@@ -720,15 +722,15 @@
+         print_round_information_footer(VERBSTREAM, md);
+ 
+         /* remove possible redudant elements */
+-        process_redundant_elements(bs, md);
++        if (!cp_partial) process_redundant_elements(bs, md);
+ 
+         /* reduce final basis? */
+-        reduce_final_basis(bs, mat, md);
++        if (!cp_partial) reduce_final_basis(bs, mat, md);
+ 
+         md->f4_rtime = realtime() - rt;
+         md->f4_ctime = cputime() - ct;
+ 
+-        get_and_print_final_statistics(VERBSTREAM, md, bs);
++        if (!cp_partial) get_and_print_final_statistics(VERBSTREAM, md, bs);
+ 
+         finalize_f4(gmd, gbs, &bs, &md, &mat, *errp);
+     }
+@@ -831,8 +833,10 @@
+         exit(1);
+     }
+ 
+-    int64_t nterms  = export_results_from_f4(bld, blen, bexp,
++    int64_t nterms = -2;
++    if (!cp_partial) nterms = export_results_from_f4(bld, blen, bexp,
+             bcf, mallocp, &bs, &bht, &md);
++    else { *bld = 0; *blen = NULL; *bexp = NULL; *bcf = NULL; }
+ 
+     /* timings */
+     ct1 = cputime();
+@@ -840,7 +844,7 @@
+     md->f4_ctime = ct1 - ct0;
+     md->f4_rtime = rt1 - rt0;
+ 
+-    get_and_print_final_statistics(ERRSTREAM, md, bs);
++    if (!cp_partial) get_and_print_final_statistics(ERRSTREAM, md, bs);
+ 
+     /* free and clean up */
+     free_shared_hash_data(bht);

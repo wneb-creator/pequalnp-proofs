@@ -1,0 +1,68 @@
+Standalone finite-field F4 checkpoint extension (diagnostic computation only)
+
+Files: neogb-checkpoint-src/{checkpoint.c,f4.c,gb.c}, libneogb-checkpoint.so,
+neogb-run-checkpoint.py. Original standalone engines/wrappers remain unchanged.
+
+Upstream source is msolve v0.11.0, downloaded from:
+https://github.com/algebraic-solving/msolve/releases/download/v0.11.0/msolve-0.11.0.tar.gz
+To reconstruct the separate engine, unpack that release under job scratch, copy
+its src/neogb directory to neogb-checkpoint-src, apply neogb-checkpoint.patch with
+strip level 1 inside that copied directory, then copy archived checkpoint.c into
+it. The patch includes the earlier rational pivot-count synchronization repair.
+Keep the original release tree: its src/msolve/streams.h is an include dependency.
+Copy the archived Python drivers to job scratch with their original basenames.
+Dependencies are GCC with OpenMP, GMP, zlib, Python3, and SymPy for toy tests.
+The archive does not vendor upstream msolve code or compiled shared libraries.
+
+Build (from repository workdir; all paths are scratch):
+gcc -O3 -march=native -fopenmp -fPIC -shared -I /tmp/oec/pequalnp-pilot-79/msolve-0.11.0/src/neogb /tmp/oec/pequalnp-pilot-79/neogb-checkpoint-src/gb.c -lgmp -lm -lz -o /tmp/oec/pequalnp-pilot-79/libneogb-checkpoint.so
+
+Driver options in addition to ordinary finite-field wrapper:
+ --checkpoint PATH.gz         latest atomic gzip generator snapshot
+ --checkpoint-seconds 300     save at first stable round boundary after interval
+ --checkpoint-max-mib 512     UNCOMPRESSED snapshot limit (hard, no truncation)
+ --stop-after-seconds 3300    save and gracefully stop at next stable round
+ --stop-after-rounds N        toy tests / round-bounded experiments
+ --resume PATH.gz             original input UNION these saved generators
+
+SIGUSR1 sets a save-and-continue flag; SIGUSR2 sets save-and-stop flags. Signal
+handlers only write volatile sig_atomic_t flags. All I/O occurs after a complete
+F4 round, after update. Periodic checkpoints CONTINUE the same pairset in the
+same process. A naturally completed computation also saves before final output.
+
+Each checkpoint considers ALL non-null polynomials in bs->hm[0..bs->ld), including
+redundant marked polynomials, then sorts by length and degree and retains whole
+shortest polynomials within a conservative uncompressed size bound. Header and
+status explicitly record subset=true when progress was omitted, and retained/total
+generator and term counts. No polynomial is truncated. ANY subset of derived
+polynomials union the original input has the original ideal. Coefficients and
+original ordered exponent vectors of selected polynomials are streamed exactly.
+The header says PARTIAL, not a Groebner-basis verdict. Resume checks characteristic,
+ordered variable names, and SHA256 of the unchanged ORIGINAL input. The original
+input is always included on resume. Checkpoints contain derived generators, not
+S-pair state, so resuming may redo substantial work. No certificate is exported.
+
+Data is streamed directly to gzip without polynomial/export-array duplication.
+The atomic temporary snapshot is fsynced before rename. Latest is preserved on
+failure; a compressed previous snapshot is kept only if at most 16MiB. Snapshot
+failure causes a graceful PARTIAL stop. The size cap is uncompressed and normally selects a smaller valid generator
+subset. Header-too-small, allocation, I/O, and unexpected format failures include
+an explicit reason/code/byte count, discard the new snapshot, and stop gracefully. A PARTIAL return skips final
+basis redundancy removal/reduction and skips all C export-array allocation.
+Python status has status=PARTIAL, is_groebner_basis=false and no unit_ideal field.
+
+The wrapper deletes all nonordinary environment variables without reading or
+printing their values, disables core dumps, and uses compact shared array buffers
+for input, then streams completed JSON. The external supervisor MUST set CPU,
+address-space and wall-clock caps; checkpoint boundaries can be delayed by a long
+linear-algebra round. Finite-field/probabilistic results are diagnostics only and
+never prove the complex target without separate exact certificates/Lean checks.
+
+Validation: neogb-checkpoint-test.py plus neogb-checkpoint-signal-test.py, complete
+logs neogb-checkpoint-tests.log, checkpoint-signal-save.log,
+checkpoint-signal-stop.log. Six configurations: 97/257/65537 fields and zero/one
+elimination variables. Every partial generator reduces to zero under independent
+Sympy GB; original+partial resumed basis equals uninterrupted baseline. Also tests
+periodic continuation/rotation, size-cap failure preservation and graceful stop,
+SHA mismatch refusal, early completion, oversized previous removal, and both
+signal handlers, and whole-polynomial subset restart equality. Tests use small ideals and are not a mathematical target proof.

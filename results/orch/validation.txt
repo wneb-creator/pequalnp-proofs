@@ -99,3 +99,5 @@ TIMING total=108.6 subagents=7
 Command: lake env lean --threads=1 --memory=3000 ../results/orch/lemmas/Diagonal.lean (pinned Lean4.36.0, documented task environment).
 SHA256 5ade3e3d5394381f0ec2842cbabad4b8cab0d3190e895bcef478a5af0559e0ab;70lines. Independent exact-source review: rules_review approved.
 Scope: per(J+z·diag(u))=24 for all complexz impliesu=0. Partial only; target unresolved, no target checker verdict.
+
+2026-11-25T10:33:38.198437+00:00 Checkpoint infrastructure:36files/58722bytes independently reviewed by geometry_route; exact hashes and pristine-source patch reproduction verified. Six finite-field/elimination restart tests, signal tests, subset-size tests pass. This is diagnostic infrastructure, no target proof. Manifest checkpoint/ARCHIVE-MANIFEST.json.

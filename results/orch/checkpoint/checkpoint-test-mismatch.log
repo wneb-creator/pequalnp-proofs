@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-79/neogb-run-checkpoint.py", line 218, in <module>
+    main()
+  File "/tmp/oec/pequalnp-pilot-79/neogb-run-checkpoint.py", line 135, in main
+    append_input(a.resume, lens, coeffs, exps, (names, prime), original_sha)
+  File "/tmp/oec/pequalnp-pilot-79/neogb-run-checkpoint.py", line 81, in append_input
+    raise ValueError('checkpoint original input SHA256 mismatch')
+ValueError: checkpoint original input SHA256 mismatch

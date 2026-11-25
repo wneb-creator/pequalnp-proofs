@@ -1,0 +1,5 @@
+{"stage": "parsed", "variables": 3, "generators": 3, "terms": 8, "prime": 97, "original_sha256": "0d8c055f14ec1dd055b330b4dc2f0127ed69953fb2124be71b50f6731a0487df", "resume_union": false}
+CHECKPOINT PARTIAL subset=0 round=1 generators=4/4 terms=11/11 bytes=319 conservative_bound=910 cap=268435456
+CHECKPOINT PARTIAL subset=0 round=7 generators=6/6 terms=13/13 bytes=335 conservative_bound=984 cap=268435456
+{"stage": "finished", "variables": ["x", "y", "z"], "prime": 97, "status": "COMPLETE", "is_groebner_basis": true, "diagnostic_only": true, "original_sha256": "0d8c055f14ec1dd055b330b4dc2f0127ed69953fb2124be71b50f6731a0487df", "seconds": 0.0029494762420654297, "checkpoint": "/tmp/oec/pequalnp-pilot-79/checkpoint-signal-10.gz", "checkpoint_write_failed": false, "linear_algebra": 2, "checkpoint_progress_subset": false, "checkpoint_generators_retained": 6, "checkpoint_generators_total": 6, "terms": 11, "basis_size": 6, "unit_ideal": false}
+SIGNAL TEST PASSED SIGUSR1
