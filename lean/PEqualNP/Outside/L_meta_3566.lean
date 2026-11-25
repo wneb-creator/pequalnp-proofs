@@ -688,4 +688,81 @@ lemma cover_lower_of_matching {n k : ℕ} (G : SimpleGraph (Fin n))
   have hcard := Finset.card_le_card hsub
   simpa [Finset.card_image_of_injective _ hpick] using hcard
 
+namespace BoundaryBudget
+
+lemma weighted_union_bound {α : Type*} [DecidableEq α]
+    (support : ℕ → Finset α) (cost : ℕ → ℕ) (m : ℕ)
+    (step : ∀ w < m, ∃ atoms : Finset α, ∃ parents : Finset ℕ,
+      parents ⊆ Finset.range w ∧
+      support w ⊆ atoms ∪ parents.biUnion support ∧
+      atoms.card + parents.card ≤ 1 + cost w)
+    (roots : Finset ℕ) (hr : roots ⊆ Finset.range m) :
+    (roots.biUnion support).card ≤ roots.card + ∑ w ∈ Finset.range m, cost w := by
+  classical
+  induction m generalizing roots with
+  | zero =>
+      have hroots : roots = ∅ := by simpa using hr
+      simp [hroots]
+  | succ m ih =>
+      have old := ih (fun w hw => step w (by omega))
+      have hpre : roots.erase m ⊆ Finset.range m := by
+        intro w hw
+        have ⟨hne, hmem⟩ := Finset.mem_erase.mp hw
+        have hlt := Finset.mem_range.mp (hr hmem)
+        exact Finset.mem_range.mpr (by omega)
+      rw [Finset.sum_range_succ]
+      by_cases hm : m ∈ roots
+      · obtain ⟨atoms, parents, hparents, hsupport, hbudget⟩ := step m (by omega)
+        have hrootcard := Finset.card_erase_add_one hm
+        have hnext := old ((roots.erase m) ∪ parents)
+          (Finset.union_subset hpre hparents)
+        have hsub : roots.biUnion support ⊆
+            atoms ∪ (((roots.erase m) ∪ parents).biUnion support) := by
+          intro x hx
+          obtain ⟨w, hw, hxs⟩ := Finset.mem_biUnion.mp hx
+          by_cases heq : w = m
+          · subst w
+            rcases Finset.mem_union.mp (hsupport hxs) with ha | hp
+            · exact Finset.mem_union_left _ ha
+            · obtain ⟨p, hp, hxp⟩ := Finset.mem_biUnion.mp hp
+              exact Finset.mem_union_right _ (Finset.mem_biUnion.mpr
+                ⟨p, Finset.mem_union_right _ hp, hxp⟩)
+          · exact Finset.mem_union_right _ (Finset.mem_biUnion.mpr
+              ⟨w, Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨heq, hw⟩), hxs⟩)
+        have hcard := Finset.card_le_card hsub
+        have hatoms := Finset.card_union_le atoms (((roots.erase m) ∪ parents).biUnion support)
+        have hparentcard := Finset.card_union_le (roots.erase m) parents
+        omega
+      · rw [Finset.erase_eq_of_notMem hm] at hpre
+        have hnext := old roots hpre
+        omega
+
+lemma boundary_union_bound {α : Type*} [DecidableEq α]
+    (support : ℕ → Finset α) (boundary paid roots : Finset ℕ) (m : ℕ)
+    (step : ∀ w < m, w ∉ boundary → 1 < (support w).card →
+      ∃ parents : Finset ℕ, parents ⊆ Finset.range w ∧
+        support w ⊆ parents.biUnion support ∧
+        parents.card ≤ 1 + (if w ∈ paid then 1 else 0))
+    (hr : roots ⊆ Finset.range m) :
+    (roots.biUnion support).card ≤ roots.card +
+      ∑ w ∈ Finset.range m,
+        ((if w ∈ paid then 1 else 0) +
+          (if w ∈ boundary then (support w).card - 1 else 0)) := by
+  classical
+  apply weighted_union_bound support _ m ?_ roots hr
+  intro w hw
+  by_cases hb : w ∈ boundary
+  · refine ⟨support w, ∅, by simp, by simp, ?_⟩
+    simp only [Finset.card_empty, Nat.add_zero, hb, ite_true]
+    omega
+  · by_cases hs : 1 < (support w).card
+    · obtain ⟨parents, hparents, hsupport, hbudget⟩ := step w hw hb hs
+      refine ⟨∅, parents, hparents, by simpa using hsupport, ?_⟩
+      simpa [hb] using hbudget
+    · refine ⟨support w, ∅, by simp, by simp, ?_⟩
+      simp only [Finset.card_empty, Nat.add_zero, hb, ite_false]
+      omega
+
+end BoundaryBudget
+
 end PEqualNP.Outside.L_meta_3566
