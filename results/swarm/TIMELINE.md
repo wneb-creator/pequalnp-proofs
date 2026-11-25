@@ -31,3 +31,5 @@ Sub-agents: nine external helper jobs (helper-1 through helper-9), plus one loca
 - 2026-11-25T21:45:38+00:00: Exact semantic trace compression independently reviewed and compiled; it preserves outputs and proves an exact deletion-count identity. Still no full gap proof.
 
 - 2026-11-25T21:50:33+00:00: Second re-plan retained all full-proof routes; root added and independently reviewed a linear-wire/AND-closure obstruction for the seven-row residual problem. Kernel and standard-axiom checks passed. Full gap remains open.
+
+- 2026-11-25T22:03:23+00:00: Confirmed partial push 27a5e33c6 (commit 21:50:33Z). Root generalized zero-row gate counting, allowed exact copies in the linear barrier, and generalized the one-mixing-OR condition without a junk-count bound. All three helper sources passed independent kernel, axiom, and source review. No full gap theorem yet.

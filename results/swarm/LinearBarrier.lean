@@ -135,4 +135,78 @@ lemma seven_target_impossible {n m d : ℕ}
   rw [hcorrect] at hh
   contradiction
 
+lemma barrier_with_copies {n m d : ℕ} {α : Type}
+    (positive : α → Prop) (input : Fin d → α → Bool)
+    (value : α → ℕ → Bool) (label : ℕ → Finset (Fin d))
+    (left right : ℕ → ℕ) (tag : ℕ → Bool)
+    (hpast : ∀ j < m, left j < n + j ∧ right j < n + j)
+    (hbase : ∀ w < n, ∀ r, value r w = linear input (label w) r)
+    (hvalue : ∀ j < m, ∀ r, value r (n + j) =
+      combine (tag j) (value r (left j)) (value r (right j)))
+    (hand : ∀ j < m, tag j = true → label (n + j) = ∅)
+    (hor : ∀ j < m, tag j = false →
+      ((label (left j)).Nonempty ∧ (label (right j)).Nonempty ∧
+        label (n + j) = label (left j) ∪ label (right j)) ∨
+      ∃ k < n + j, label (n + j) = label k ∧
+        ∀ r, value r (n + j) = value r k)
+    (hlabels : ∀ w < n + m,
+      (∀ r, positive r → linear input (label w) r = true) →
+      ∀ r, linear input (label w) r = true) :
+    ∀ w < n + m,
+      ((label w).Nonempty → ∀ r, value r w = linear input (label w) r) ∧
+      ((∀ r, positive r → value r w = true) → ∀ r, value r w = true) := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw
+    by_cases hi : w < n
+    · refine ⟨fun _ => hbase w hi, ?_⟩
+      intro hp r
+      rw [hbase w hi r]
+      exact hlabels w hw (fun q hq => by rw [← hbase w hi q]; exact hp q hq) r
+    · let j := w - n
+      have hj : j < m := by omega
+      have hwj : w = n + j := by omega
+      have il := ih (left j) (by have := (hpast j hj).1; omega)
+        (by have := (hpast j hj).1; omega)
+      have ir := ih (right j) (by have := (hpast j hj).2; omega)
+        (by have := (hpast j hj).2; omega)
+      cases ht : tag j with
+      | true =>
+        refine ⟨?_, ?_⟩
+        · intro hn
+          rw [hwj, hand j hj ht] at hn
+          exact (Finset.not_nonempty_empty hn).elim
+        · intro hp r
+          have hp' : ∀ q, positive q →
+              value q (left j) = true ∧ value q (right j) = true := by
+            intro q hq
+            have hh := hp q hq
+            rw [hwj, hvalue j hj q, ht, combine_true, Bool.and_eq_true] at hh
+            exact hh
+          rw [hwj, hvalue j hj r, ht, combine_true,
+            il.2 (fun q hq => (hp' q hq).1) r,
+            ir.2 (fun q hq => (hp' q hq).2) r]
+          rfl
+      | false =>
+        rcases hor j hj ht with hm | ⟨k, hk, hl, he⟩
+        · obtain ⟨ha, hb, hl⟩ := hm
+          have hlin : ∀ r, value r w = linear input (label w) r := by
+            intro r
+            rw [hwj, hvalue j hj r, ht, combine_false,
+              il.1 ha r, ir.1 hb r, hl, linear_union]
+          refine ⟨fun _ => hlin, ?_⟩
+          intro hp r
+          rw [hlin r]
+          exact hlabels w hw (fun q hq => by rw [← hlin q]; exact hp q hq) r
+        · have ik := ih k (by omega) (by omega)
+          refine ⟨?_, ?_⟩
+          · intro hn r
+            rw [hwj, hl] at hn
+            rw [hwj, he r, hl]
+            exact ik.1 hn r
+          · intro hp r
+            rw [hwj, he r]
+            exact ik.2 (fun q hq => by rw [← he q, ← hwj]; exact hp q hq) r
+
 end PEqualNP.Outside.L_meta_2590_aux.LinearBarrier
