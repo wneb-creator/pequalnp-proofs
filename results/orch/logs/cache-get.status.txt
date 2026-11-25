@@ -1,0 +1,2 @@
+Initial required lake exe cache get succeeded for the transitive closure of the67 Mathlib imports used by PEqualNP.Defs (2480modules). No Mathlib library source build was run.
+The official checker additionally requires the entire prebuilt Mathlib library. That full cache does not fit alongside the Lean toolchain in this approximately7.84GiB filesystem; final observed free space was approximately0.88GiB before final archive.

@@ -1,0 +1,1 @@
+Lean exit0. Seven main partial endpoints audited. Dependencies only propext, Classical.choice, Quot.sound. No extra axioms appeared. This is not the official statement checker.

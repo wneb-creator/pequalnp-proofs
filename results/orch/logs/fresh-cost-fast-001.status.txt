@@ -1,0 +1,1 @@
+Interrupted deliberately: exit 130. Root requested one aggregate named-file build to avoid repeating expensive finite decisions. No compilation success claimed for this run.

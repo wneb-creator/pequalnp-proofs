@@ -1,0 +1,17 @@
+'PEqualNP.Outside.L_meta_2585.single_point_replacement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2585.Merge.replacement_of_star_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2585.LeastNormalized.exists_least_normalized_essential' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2585_aux.MixedLinear.pure_family_ao_bound_active' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2585.FreshCostExample.replacement_optimal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2585.FreshCostExample.all_edges_double_reread' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2585.CleanReadOne.clean_topform_read_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,12 @@
+Partial normalization validation
+UTC: 2026-11-25T12:37:28.961952+00:00
+Source: results/orch/lemmas/Normalization.lean
+SHA256: 7a3aefa03887152b8ac808a508f8a5fcbb2327a36bcb41eef02787616953b87c
+Lines: 713
+Command: lake env lean ../results/orch/lemmas/Normalization.lean
+Working directory: lean/
+Exit status: 0
+stdout: empty
+stderr: empty
+Independent static reviewer: status_review
+Full gap theorem: not proved by this partial.

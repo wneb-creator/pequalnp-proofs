@@ -1,0 +1,12 @@
+Partial validation
+UTC: 2026-11-25T12:44:50.560962+00:00
+Source: results/orch/lemmas/CleanTopForm.lean
+SHA256: 1b26d1a4bc8021c48400635a94efefbb5684d409f85e0b43908f97ba0afeaf56
+Lines: 33
+Command: lake env lean ../results/orch/lemmas/CleanTopForm.lean
+Working directory: lean/
+Exit status: 0
+stdout: empty
+stderr: empty
+Independent static reviewer: proof_route passed
+Full gap theorem: not proved by this partial.

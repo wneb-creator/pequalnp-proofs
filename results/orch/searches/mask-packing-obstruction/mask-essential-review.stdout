@@ -1,0 +1,2 @@
+PASS: each of18gates is essential on an incident pair; point-relative witness leaf per gate: [0, 0, 2, 2, 0, 0, 0, 2, 2, 0, 0, 3, 3, 6, 6, 3, 0, 0]
+PASS: formal StrictLive reader condition covers all inputs and every nonoutput gate

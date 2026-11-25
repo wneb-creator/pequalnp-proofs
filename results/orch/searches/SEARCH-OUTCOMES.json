@@ -1,0 +1,10 @@
+{
+  "k5-23-sym-orbit": {
+    "status": "UNKNOWN",
+    "exit_code": 0,
+    "reason": "wall-clock limit",
+    "wall_seconds": 3600.01,
+    "cpu_seconds": 1337.73,
+    "interpretation": "No SAT or UNSAT result; not a lower-bound proof."
+  }
+}

@@ -1,0 +1,12 @@
+Partial validation
+UTC: 2026-11-25T12:44:50.560962+00:00
+Source: results/orch/lemmas/CircuitMonotone.lean
+SHA256: 0e7ea608a2cda1ef727eaa3587198eaef3070ba4d99fdd3dc9e5ad9379f34155
+Lines: 80
+Command: lake env lean ../results/orch/lemmas/CircuitMonotone.lean
+Working directory: lean/
+Exit status: 0
+stdout: empty
+stderr: empty
+Independent static reviewer: counterexample passed
+Full gap theorem: not proved by this partial.

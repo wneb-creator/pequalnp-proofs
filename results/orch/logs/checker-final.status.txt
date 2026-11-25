@@ -1,0 +1,3 @@
+Exit3: CHECKER FAULT, missing full prebuilt Mathlib cache. No verdict on the proof.
+Named source SHA256 531e373e4f1294d246ae74facb8840e3e1c3f32c18dde7ad98da848b6bf9df95.
+The full posted theorem is absent independently of this infrastructure fault.

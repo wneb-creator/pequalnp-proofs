@@ -1,0 +1,9 @@
+import PEqualNP.Outside.L_meta_2585
+
+#print axioms PEqualNP.Outside.L_meta_2585.single_point_replacement
+#print axioms PEqualNP.Outside.L_meta_2585.Merge.replacement_of_star_cover
+#print axioms PEqualNP.Outside.L_meta_2585.LeastNormalized.exists_least_normalized_essential
+#print axioms PEqualNP.Outside.L_meta_2585_aux.MixedLinear.pure_family_ao_bound_active
+#print axioms PEqualNP.Outside.L_meta_2585.FreshCostExample.replacement_optimal
+#print axioms PEqualNP.Outside.L_meta_2585.FreshCostExample.all_edges_double_reread
+#print axioms PEqualNP.Outside.L_meta_2585.CleanReadOne.clean_topform_read_one

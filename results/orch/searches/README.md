@@ -15,3 +15,24 @@ Every candidate must still be independently evaluated and Lean-checked.
 Complete logs are retained; `SHA256.json` identifies archived bytes. See adjacent `NOTES.md` for timestamped outcomes and limitations.
 
 `decode_solution.py` independently checks SAT clauses and all Boolean assignments for any candidate, prunes dead gates, computes maximum matching, and identifies missing squarefree edge witnesses. It passed known C6 and K5 star controls. `SEARCH-BUILD.json` preserves dense-search compile flags and hashes; assertions must remain enabled.
+
+Exact principal invocations, from the named job scratch directory (with `cadical` resolved to the installed Lean toolchain binary):
+
+```sh
+python3 synthesis.py k5 23 --sym --orbit
+cadical -t 3600 -w k5-23-sym-orbit.solution k5-23-sym-orbit.cnf
+python3 synthesis.py mk 30 --sym --orbit
+cadical -t 3600 -w mk-30-sym-orbit.solution mk-30-sym-orbit.cnf
+python3 synthesis_semantic.py k5 23 --sym --orbit --semantic --edge-active
+cadical -t 1800 -w k5-23-sym-orbit-semantic-edge-active.solution k5-23-sym-orbit-semantic-edge-active.cnf
+g++ -O3 -std=c++17 evolve_graph_slack.cpp -o evolve_graph_slack
+./evolve_graph_slack 1800 8605
+```
+
+All long workers run at nice10. Assertions remain enabled in C++ and Python.
+
+`synthesis_essential.py --edge-essential` adds exact minimum-circuit edge-essentiality: every nonfinal gate chooses a positive edge and the circuit forcedfalse at that gate must reject that edge. The24gate K5 star is SAT; its model satisfies every CNF clause, all32768 truth assignments, and all23 chosen forced-zero witnesses. A15gate C6 control with four globally redundant, edge-active, locally-incomparable OR gates is SAT before this new constraint and UNSAT after it. Independent full truth and forced-gate replay identify exactly four nonessential gates. These controls test the encoding; they do not prove a target lower bound. Large generated control CNFs are reproducible using `pin_gates.py` and the archived verified gate JSON; the K5 essentiality control reproduces byte-for-byte with SHA25680c9db90de8856c0fb1cd6c109586821b62d37c1c09e7c2abfa81fefd427368d.
+
+The compact edge-essentiality block passed independent review at source SHA256af3a25897085936f07e63d584e55ee02eecce88845b90e0794382049b4953a30. Fresh independent decoder/positive/negative-control logs are `essential-review-*`. The next prepared K5-23 instance has10414 variables and245197 clauses; generate it with `python3 synthesis_essential.py k5 23 --sym --orbit --semantic --edge-active --edge-essential`. Root authorized one30minute run after the original K5 worker reaches its wall-clock cap.
+
+Original K5-23 sym+orbit run reached its3600second wall cap with UNKNOWN/exit0 (3600.01s wall,1337.73s CPU). The reviewed stronger edge-essential run started2026-11-25T13:36:04.275826Z with1800s cap; exact argv/start/PID are in its `.run.json`, currently a running checkpoint. See SEARCH-OUTCOMES.json for completed long runs.

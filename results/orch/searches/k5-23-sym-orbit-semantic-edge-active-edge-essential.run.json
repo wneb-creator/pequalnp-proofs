@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/tmp/oec/pequalnp-pilot-86/lean-4.36.0-linux/bin/cadical",
+    "-t",
+    "1800",
+    "-w",
+    "k5-23-sym-orbit-semantic-edge-active-edge-essential.solution",
+    "k5-23-sym-orbit-semantic-edge-active-edge-essential.cnf"
+  ],
+  "started_utc": "2026-11-25T13:36:04.275826+00:00",
+  "wall_cap_seconds": 1800,
+  "status": "running",
+  "nice": 10,
+  "pid": 15831
+}

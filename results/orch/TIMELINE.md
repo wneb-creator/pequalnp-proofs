@@ -38,3 +38,7 @@
 2026-11-25T13:30:42.422718+00:00 proof_route fresh joint-cost phase closed without full proof; Fano generalization obstruction and independent Katz-based support-count counterexample audit recorded in NOTES. Checked MixedLinear source unchanged.
 
 - 2026-11-25T13:33:27.317595+00:00: final4752-line partial assembly built and independently reviewed; finite-example optimality now checked.
+
+- 2026-11-25T13:35:05.751671+00:00: final-source checker fault reproduced; seven main partial endpoints passed standard-axiom dependency audit.
+
+- 2026-11-25T13:37:35.534035+00:00: final audit, reviewed search constraints, auxiliary mask obstruction and interrupted drafts preserved; general theorem unresolved.
