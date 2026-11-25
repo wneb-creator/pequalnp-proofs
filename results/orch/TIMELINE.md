@@ -48,3 +48,9 @@
 - 2026-11-25T04:18:09.009280+00:00: Re-plan: retain the uncapped raw/v7 replays; semantic sharing and the common-width interface remain active. New lanes target live-mask codec deltas, T-forest traversal reuse, OR01 verifier reuse for OR04, and checked short tactic proofs. All completed proof components have been pushed; complete gap checker remains pending.
 
 - 2026-11-25T04:21:38.855976+00:00: The final297 generic equalities completed a clean recheck and independent preservation review.
+
+- 2026-11-25T04:22:55+00:00: scoped uncapped raw replay interrupted exit130 after~30min; first two cases passed, C1673 failed due unrewritten relative namespace L_meta_1673 references. Complete log full-raw-scoped-j1-build.log preserved. No clean full baseline/olean claimed.
+
+- 2026-11-25T04:23:54+00:00: IdentifierMinificationProbe passed exit0; conservative imported-name blacklist minification validated on generic core plus small numerical certificate.
+
+- 2026-11-25T04:26:35.224758+00:00: Checked identifier-minification probe independently reviewed for early preservation.
