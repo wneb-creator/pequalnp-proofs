@@ -58,3 +58,8 @@ OneNotPetersen.first_adjacent_and_not_lower compiled and independently reviewed 
 Previous2592lease was rejectedHTTP410 at14:38 despite confirmed14:53expiry; diagnostic same410. Checked results pushed before recovery. Recovery desk assigned newOWNgapL-meta-1886 at14:39:11UTC, which is now the active task. Requests2,nulls0.
 Sub-agents:6
 TIMING total=59 subagents=6
+
+ACTIVE L-meta-1886: map_rigidity and supplied_and_not compiled exit0 and independently reviewed PASS. Successful maps must be bijective. SuppliedAND with explicit consumed NOT of seed followed by monotone suffix needs19 gates. Both are partial; exact theorem not yet proved.
+SharedC6 search archive independently reviewed PASS: exact64row restricted completion UNSAT; positive control independently checked64rows and20gatePetersen lift1024rows. Computed result only, no Lean certificate.
+Sub-agents:6
+TIMING total=60 subagents=6

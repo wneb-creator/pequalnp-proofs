@@ -1,0 +1,10 @@
+{
+  "scope": "C6 with opposite-pair ORs (0,3),(2,5),(1,4) supplied; <=7 new AND/OR/NOT gates,1..3NOT",
+  "verdict": "UNSAT computed by Z3 only; no Lean certificate; not a general Petersen bound",
+  "rows": 64,
+  "variables": 1533,
+  "seconds": 390.14708852767944,
+  "started": "2026-11-25T14:28:55Z",
+  "finished": "2026-11-25T14:35:25Z",
+  "sha256": "8f7da04b9c9c8e56cd7a64421d8c82e98fc332cc3c58bf90e07e0c442d467713"
+}

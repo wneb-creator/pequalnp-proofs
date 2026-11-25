@@ -1,0 +1,149 @@
+{
+  "gates": [
+    {
+      "op": "or",
+      "inputs": [
+        0,
+        2
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        3,
+        5
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        4,
+        7
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        4,
+        5
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        0,
+        13
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        4,
+        2
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        3,
+        15
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        2,
+        5
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        7,
+        17
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        14,
+        16
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        18,
+        19
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        10,
+        6
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        1,
+        21
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        11,
+        6
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        8,
+        23
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        12,
+        6
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        9,
+        25
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        20,
+        22
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        27,
+        24
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        28,
+        26
+      ]
+    }
+  ],
+  "output": 29,
+  "size": 20,
+  "not_gates": 0,
+  "truth_table_errors": [],
+  "qualifies_for_L_meta_2592_counterexample": false
+}
