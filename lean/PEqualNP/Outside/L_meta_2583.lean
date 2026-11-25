@@ -531,4 +531,182 @@ lemma circuit_incidence_envelope_complete {m n : ℕ}
       decide (∃ p l, I p l ∧ x (Fin.castAdd n p) = true ∧ x (Fin.natAdd m l) = true) := by
   exact incidence_envelope_complete I _ (DominanceErase.circuitFun_monotone hAO.1) hpos hneg
 
+namespace InputRelabel
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+def wireMap {n : ℕ} (σ : Fin n → Fin n) (i : ℕ) : ℕ :=
+  if h : i < n then (σ ⟨i, h⟩).val else i
+
+def gateMap {n : ℕ} (σ : Fin n → Fin n) (g : Gate) : Gate :=
+  ⟨g.op, g.inputs.map (wireMap σ)⟩
+
+def relabel {n : ℕ} (σ : Fin n → Fin n) (C : Circuit) : Circuit :=
+  ⟨C.gates.map (gateMap σ), wireMap σ C.output⟩
+
+lemma wireMap_ge {n : ℕ} (σ : Fin n → Fin n) {i : ℕ} (h : n ≤ i) :
+    wireMap σ i = i := by simp [wireMap, Nat.not_lt.mpr h]
+
+lemma wireMap_lt {n : ℕ} (σ : Fin n → Fin n) {i : ℕ} (h : i < n) :
+    wireMap σ i < n := by
+  rw [wireMap, dif_pos h]
+  exact (σ ⟨i, h⟩).isLt
+
+lemma size_eq {n : ℕ} (σ : Fin n → Fin n) (C : Circuit) :
+    (relabel σ C).size = C.size := by simp [relabel, Circuit.size]
+
+lemma op_list_eq {n : ℕ} (σ : Fin n → Fin n) (C : Circuit) :
+    (relabel σ C).gates.map Gate.op = C.gates.map Gate.op := by
+  simp [relabel, gateMap, List.map_map]
+
+lemma op_count_eq {n : ℕ} (σ : Fin n → Fin n) (C : Circuit) (op : GateOp) :
+    Set.ncard {j : Fin (relabel σ C).gates.length |
+      ((relabel σ C).gates.get j).op = op} =
+    Set.ncard {j : Fin C.gates.length | (C.gates.get j).op = op} := by
+  refine Set.ncard_congr
+    (fun j _ => (⟨j.val, by simpa [relabel] using j.isLt⟩ : Fin C.gates.length)) ?_ ?_ ?_
+  · intro j hj
+    have hjlt : j.val < C.gates.length := by simpa [relabel] using j.isLt
+    change ((relabel σ C).gates[j.val]'j.isLt).op = op at hj
+    change (C.gates[j.val]'hjlt).op = op
+    simpa only [relabel, List.getElem_map, gateMap] using hj
+  · intro a b ha hb hab
+    apply Fin.ext
+    exact congrArg (fun z : Fin C.gates.length => z.val) hab
+  · intro j hj
+    let k : Fin (relabel σ C).gates.length := ⟨j.val, by simpa [relabel] using j.isLt⟩
+    refine ⟨k, ?_, ?_⟩
+    · change ((relabel σ C).gates[k.val]'k.isLt).op = op
+      change (C.gates[j.val]'j.isLt).op = op at hj
+      simpa only [relabel, List.getElem_map, gateMap, k] using hj
+    · apply Fin.ext
+      rfl
+
+lemma monotone2 {n : ℕ} (σ : Fin n → Fin n) {C : Circuit} (hC : Monotone2 C) :
+    Monotone2 (relabel σ C) := by
+  intro g hg
+  obtain ⟨g', hg', rfl⟩ := List.mem_map.mp hg
+  obtain ⟨hop, hlen⟩ := hC g' hg'
+  exact ⟨hop, by simpa [gateMap] using hlen⟩
+
+lemma isAO2 {n : ℕ} (σ : Fin n → Fin n) {C : Circuit} (hC : IsAO2 n C) :
+    IsAO2 n (relabel σ C) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    obtain ⟨g', hg', rfl⟩ := List.mem_map.mp hg
+    exact hC.1 g' hg'
+  · intro j hj i hi
+    have hj' : j < C.gates.length := by simpa [relabel] using hj
+    simp only [gateAt, relabel, List.getD_eq_getElem?_getD, List.getElem?_map,
+      List.getElem?_eq_getElem hj', Option.map_some, Option.getD_some, gateMap,
+      List.mem_map] at hi
+    obtain ⟨k, hk, rfl⟩ := hi
+    have hk' : k < n + j := hC.2.1 j hj' k (by
+      simpa only [gateAt, List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hj',
+        Option.getD_some] using hk)
+    by_cases hkn : k < n
+    · have := wireMap_lt σ hkn
+      omega
+    · rw [wireMap_ge σ (by omega)]
+      exact hk'
+  · intro g hg
+    obtain ⟨g', hg', rfl⟩ := List.mem_map.mp hg
+    simpa [gateMap] using hC.2.2 g' hg'
+
+def step (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+lemma fold_map {n : ℕ} (σ : Fin n → Fin n) (gs : List Gate) :
+    ∀ w w' : List Bool, w.length = w'.length → n ≤ w.length →
+    (∀ i, w'.getD (wireMap σ i) false = w.getD i false) →
+    ∀ i, ((gs.map (gateMap σ)).foldl step w').getD (wireMap σ i) false =
+      (gs.foldl step w).getD i false := by
+  induction gs with
+  | nil => intro w w' _ _ h i; exact h i
+  | cons g gs ih =>
+    intro w w' hl hn h i
+    simp only [List.map_cons, List.foldl_cons]
+    apply ih
+    · simp [step, hl]
+    · simp [step]; omega
+    · intro j
+      have hv : g.op.eval ((g.inputs.map (wireMap σ)).map fun i => w'.getD i false) =
+          g.op.eval (g.inputs.map fun i => w.getD i false) := by
+        rw [List.map_map]
+        congr 1
+        apply List.map_congr_left
+        intro a _
+        exact h a
+      simp only [step, gateMap]
+      rw [hv]
+      rcases Nat.lt_trichotomy j w.length with hj | hj | hj
+      · have hj' : wireMap σ j < w'.length := by
+          by_cases h' : j < n
+          · have := wireMap_lt σ h'; omega
+          · rw [wireMap_ge σ (by omega)]; omega
+        have e := h j
+        simp only [List.getD_eq_getElem?_getD] at e ⊢
+        rw [List.getElem?_append_left hj', List.getElem?_append_left hj]
+        exact e
+      · subst hj
+        rw [wireMap_ge σ hn]
+        simp [List.getD_eq_getElem?_getD, hl]
+      · rw [wireMap_ge σ (by omega)]
+        rw [List.getD_eq_default _ _ (by simp; omega),
+          List.getD_eq_default _ _ (by simp; omega)]
+
+lemma circuitFun_eq {n : ℕ} (σ : Fin n → Fin n) (C : Circuit) (y : Fin n → Bool) :
+    circuitFun n (relabel σ C) y = circuitFun n C (fun i => y (σ i)) := by
+  change ((C.gates.map (gateMap σ)).foldl step (List.ofFn y)).getD
+      (wireMap σ C.output) false =
+    (C.gates.foldl step (List.ofFn fun i => y (σ i))).getD C.output false
+  apply fold_map σ C.gates _ _ (by simp) (by simp)
+  intro i
+  by_cases hi : i < n
+  · simp [wireMap, hi, List.getD_eq_getElem?_getD, List.getElem?_ofFn]
+  · rw [wireMap_ge σ (by omega), List.getD_eq_default _ _ (by simp; omega),
+      List.getD_eq_default _ _ (by simp; omega)]
+
+def blockMap {m n : ℕ} (σ : Fin m → Fin m) (τ : Fin n → Fin n) :
+    Fin (m + n) → Fin (m + n) :=
+  Fin.addCases (fun p => Fin.castAdd n (σ p)) (fun l => Fin.natAdd m (τ l))
+
+lemma incidence_transport {m n : ℕ} (σ : Equiv.Perm (Fin m)) (τ : Equiv.Perm (Fin n))
+    (I J : Fin m → Fin n → Prop) [DecidableRel I] [DecidableRel J]
+    (hI : ∀ p l, I p l ↔ J (σ p) (τ l)) (C : Circuit)
+    (hC : ∀ x, circuitFun (m + n) C x = decide
+      (∃ p l, I p l ∧ x (Fin.castAdd n p) = true ∧ x (Fin.natAdd m l) = true)) :
+    ∀ y, circuitFun (m + n) (relabel (blockMap σ τ) C) y = decide
+      (∃ p l, J p l ∧ y (Fin.castAdd n p) = true ∧ y (Fin.natAdd m l) = true) := by
+  intro y
+  rw [circuitFun_eq, hC]
+  apply decide_eq_decide.mpr
+  constructor
+  · rintro ⟨p, l, hpl, hp, hl⟩
+    exact ⟨σ p, τ l, (hI p l).mp hpl,
+      by simpa [blockMap] using hp, by simpa [blockMap] using hl⟩
+  · rintro ⟨p, l, hpl, hp, hl⟩
+    obtain ⟨p', rfl⟩ := σ.surjective p
+    obtain ⟨l', rfl⟩ := τ.surjective l
+    exact ⟨p', l', (hI p' l').mpr hpl,
+      by simpa [blockMap] using hp, by simpa [blockMap] using hl⟩
+
+lemma incidence_transport_exists {m n : ℕ}
+    (σ : Equiv.Perm (Fin m)) (τ : Equiv.Perm (Fin n))
+    (I J : Fin m → Fin n → Prop) [DecidableRel I] [DecidableRel J]
+    (hI : ∀ p l, I p l ↔ J (σ p) (τ l)) (C : Circuit) (hAO : IsAO2 (m + n) C)
+    (hC : ∀ x, circuitFun (m + n) C x = decide
+      (∃ p l, I p l ∧ x (Fin.castAdd n p) = true ∧ x (Fin.natAdd m l) = true)) :
+    ∃ D : Circuit, IsAO2 (m + n) D ∧ D.size = C.size ∧
+      (∀ y, circuitFun (m + n) D y = decide
+        (∃ p l, J p l ∧ y (Fin.castAdd n p) = true ∧ y (Fin.natAdd m l) = true)) ∧
+      ∀ op : GateOp,
+        Set.ncard {j : Fin D.gates.length | (D.gates.get j).op = op} =
+        Set.ncard {j : Fin C.gates.length | (C.gates.get j).op = op} := by
+  exact ⟨relabel (blockMap σ τ) C, isAO2 _ hAO, size_eq _ _,
+    incidence_transport σ τ I J hI C hC, op_count_eq _ _⟩
+
+end InputRelabel
+
 end PEqualNP.Outside.L_meta_2583
