@@ -1,0 +1,9 @@
+L-meta-2592 PARTIAL CHECKPOINT, NOT A PROOF OF POSTED STATEMENT
+
+Named file: lean/PEqualNP/Outside/L_meta_2592.lean
+Build: lake build PEqualNP.Outside.L_meta_2592 passed, 5149 jobs.
+Independent red-team review: status_review passed CutLast semantic/format review; missing main theorem explicitly expected.
+Local checker: not run for incomplete theorem at first checkpoint.
+Line count: 81. Cleanup pending full proof.
+Sub-agents: 5 (status_review, lower_bound, counterexample, library_route, reduction_strategy)
+TIMING total=14 subagents=5
