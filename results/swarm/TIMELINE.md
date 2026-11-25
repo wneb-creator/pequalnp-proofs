@@ -59,4 +59,8 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 - 2026-11-25 22:28 UTC: Pushed reviewed negative-wire-mass checkpoint 636c07276905e58b20ac3b217dea50dd4c42f6d1; remote SHA verified; bus 3611 marked PARTIAL.
 - 2026-11-25 22:33:56 UTC: Generic gate-injection mass comparison and joint size/junk/wire minimum passed independent source/axiom reviews and combined named build. Rewrites retain explicit AO2/full-function/size hypotheses. Main target remains absent.
 
-TIMING total=92.6 subagents=10
+
+- 2026-11-25 22:35 UTC: Pushed reviewed profile/joint-minimum checkpoint 13d734a790685423d8d320e429cc7bab7c157016; remote SHA verified; bus 3760 marked PARTIAL.
+- 2026-11-25 22:39:03 UTC: Earliest dirty AND raw-OR-cone theorem and separate wire-first minimum passed independent source/axiom reviews and combined named build. Mixed-shell projection route explicitly requires singleton-clean support or edge agreement; first-dirty does not supply that premise. No final target theorem.
+
+TIMING total=97.8 subagents=10
