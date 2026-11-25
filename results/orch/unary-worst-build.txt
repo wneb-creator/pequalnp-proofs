@@ -1,0 +1,31 @@
+import took 4.85s
+type checking took 1.18s
+/tmp/oec/pequalnp-pilot-178/certificate_search/UnaryChildWorst.lean:133:0: warning: Definition `unaryOK18` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+cumulative profiling times:
+	attribute application 0.706ms
+	blocked (unaccounted) 145ms
+	compilation (IR) 6.69ms
+	compilation (LCNF base) 166ms
+	compilation (LCNF impure) 31ms
+	compilation (LCNF mono) 205ms
+	congr simp thm 0.591ms
+	declTypeLinter 78.9ms
+	elaboration 441ms
+	fix level params 0.859ms
+	import 4.85s
+	initialization 39.9ms
+	instantiate metavars 4.43ms
+	interpretation 927ms
+	let-to-have transformation 0.545ms
+	linting 108ms
+	module linting 0.103ms
+	parsing 29.1ms
+	process pre-definitions 49.8ms
+	share common exprs 25.6ms
+	simp 8.03ms
+	tactic execution 19.8ms
+	tacticAnalysis 23.5ms
+	type checking 1.26s
+	typeclass inference 121ms

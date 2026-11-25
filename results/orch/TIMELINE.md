@@ -21,3 +21,7 @@
 -2026-11-25 19:18 UTC: conditional final wrapper checked; monolithic computation stopped at7.7GB RSS; splitting certificate.
 -2026-11-25 19:23 UTC: re-plan: focus solely on split one-NOT certificate; switch expensive proof lemmas to synchronous proof-valued definitions based on Lean source audit.
 -2026-11-25 19:39 UTC: generic continuation replacement and initial-state normalization checked; proceeding to independently checked search leaves.
+
+- 2026-11-25 19:46 UTC: Resumed three interrupted proof workers after environment/session interruption. Restarted lease timer after19:45:51 manual renewal (expiry20:05:51). Resource plan remains small continuation-cut leaves, with proof-valued definitions for serial kernel evaluation. Generic cut and normalized initialization already saved in e0db457.
+
+- 2026-11-25 19:47 UTC: Largest unary leaf (519 recursive search states) kernel-checked under6000MB cap; kernel time1.18seconds. Independent source review by root confirmed ordinary kernel equality, no extra hypotheses, no banned declarations; parent coverage still being completed.
