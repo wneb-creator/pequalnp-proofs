@@ -1,7 +1,0 @@
-/tmp/oec/pequalnp-pilot-47/reduction/R_meta_4340_47_topo.lean:51:69: warning: This simp argument is unused:
-  List.getD_nil
-
-Hint: Omit it from the simp argument list.
-  [apply] simp [cg, hget w hw, List.getD_cons_zero, List.getD_cons_succ, -List.getD_eq_getElem?_getD]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

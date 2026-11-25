@@ -1,9 +1,0 @@
-Independent checkpoint review: PASS
-UTC: 2026-11-24T23:18:30.131724+00:00
-File: lean/PEqualNP/Outside/R_meta_4340_47.lean
-SHA256: d6e7e2f85cf3eb2671a686880c6be2865fdec8df57737f1231f301b04d6e1116
-Conclusion equals posted statement byte-for-byte.
-Single theorem, allowed import only, plain non-executable file below512KiB.
-Forbidden text/attribute scan passed; independent outside-guard reduce passed.
-Proof inspected: clipping24, arity padding, special gate condition, evaluation preservation, and 5+1 case split are coherent.
-This approves early checkpoint push, not a final accepted proof claim. Full check-lean reduce verdict and single-file final PR diff remain required.
