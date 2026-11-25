@@ -105,4 +105,42 @@ lemma read_one_iff_incident_pairs {N : Nat} (I : Fin N → Fin N → Prop) [Deci
     obtain ⟨p, l, hil, rfl⟩ := (prime_incidence_pair I C computes S).1 hs
     exact h p l hil
 
+
+-- The sorted-list argument is adapted from the checked L-meta-7639 proof.
+lemma setList_pair_sorted {n : Nat} (a b : Fin n) (hab : a < b) :
+    setList ({a, b} : Finset (Fin n)) = [a.val, b.val] := by
+  have key : ∀ x y : Fin n, x < y → y < x → x = y :=
+    fun x y h1 h2 => absurd h1 (lt_asymm h2)
+  have hp1 : List.Pairwise (fun x y : Fin n => x < y)
+      ((List.finRange n).filter (fun i => decide (i ∈ ({a, b} : Finset (Fin n))))) :=
+    List.Pairwise.filter _ (List.pairwise_lt_finRange n)
+  have hp2 : List.Pairwise (fun x y : Fin n => x < y) [a, b] := by simp [hab]
+  have hperm : List.Perm
+      ((List.finRange n).filter (fun i => decide (i ∈ ({a, b} : Finset (Fin n))))) [a, b] := by
+    apply List.perm_of_nodup_nodup_toFinset_eq
+    · exact List.Nodup.filter _ (List.nodup_finRange n)
+    · simp [ne_of_lt hab]
+    · ext x
+      simp
+  have h : (List.finRange n).filter (fun i => decide (i ∈ ({a, b} : Finset (Fin n)))) = [a, b] :=
+    List.Perm.eq_of_pairwise (fun x y _ _ => key x y) hp1 hp2 hperm
+  unfold setList
+  rw [h]
+  rfl
+
+lemma setList_incidence_pair {N : Nat} (p l : Fin N) :
+    setList ({Fin.castAdd N p, Fin.natAdd N l} : Finset (Fin (N + N))) =
+      [p.val, N + l.val] := by
+  apply setList_pair_sorted
+  change p.val < N + l.val
+  have hp := p.isLt
+  omega
+
+lemma read_one_iff_pair_vectors {N : Nat} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (C : Circuit) (computes : ∀ z : Fin (N + N) → Bool, circuitFun (N + N) C z = incidence I z) :
+    IsReadK (N + N) C 1 ↔
+      ∀ p l : Fin N, I p l → readsAtMost C (N + N) [p.val, N + l.val] 1 = true := by
+  rw [read_one_iff_incident_pairs I C computes]
+  simp only [setList_incidence_pair]
+
 end PEqualNP.Outside.L_meta_2583
