@@ -1,0 +1,42 @@
+{
+  "reviewed_utc": "2026-11-25T18:05:37.122533+00:00",
+  "source": "lean/PEqualNP/Outside/L_meta_9775.lean",
+  "source_sha256": "5ceb73446dabfc7085ede651dd0b863bf362bf6fc51ad43eae156ff261f85923",
+  "bytes": 513216,
+  "lines": 7441,
+  "lake_build": "PASS:5149jobs",
+  "named_build_seconds_reported": 327,
+  "local_checker_mode": "refute",
+  "local_checker_verdict": "ACCEPTED (refute): PEqualNP.Outside.L_meta_9775",
+  "kernel_constants": 4219,
+  "axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "checker_completion_utc_reported_by_root": "2026-11-25T18:03:51Z",
+  "heartbeat_error_utc": "2026-11-25T18:03:59.066818Z",
+  "heartbeat_error_observed_utc": "2026-11-25T18:04:14.755Z",
+  "cleanup_before_lines": 7441,
+  "cleanup_after_lines": 7441,
+  "cleanup_result": "Read-only candidate review; unchangedoriginalretained. Noalternativecompiled.",
+  "records": {
+    "results/orch9775/standalone-build-first.stdout": {
+      "bytes": 59372,
+      "sha256": "02052f1084fd48ca05098ccdebdadc8f0c967fc0af7e6ff74c3c1ecde71b7708"
+    },
+    "results/orch9775/standalone-build-first.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/orch9775/standalone-checker-refute.stdout": {
+      "bytes": 12778,
+      "sha256": "02ba3aa592730ea9014abf4a52d381a7445563c2dd17274fe098b43c2b383f7b"
+    },
+    "results/orch9775/standalone-checker-refute.stderr": {
+      "bytes": 222,
+      "sha256": "86a8dfe3711335bb6ada07103d9f45bea3a80be7290e40375be12d4d4dffedf3"
+    }
+  },
+  "scope": "Passed local mathematical refutation check. Public accepted submission still requires the posted negative twin L-meta-9777 and proper lease/routing; no remoteacceptance/PR claim."
+}

@@ -1,0 +1,62 @@
+{
+  "lean/PEqualNP/Outside/L_meta_9775.lean": {
+    "bytes": 513216,
+    "sha256": "5ceb73446dabfc7085ede651dd0b863bf362bf6fc51ad43eae156ff261f85923"
+  },
+  "results/orch9775/standalone-build-first.stdout": {
+    "bytes": 59372,
+    "sha256": "02052f1084fd48ca05098ccdebdadc8f0c967fc0af7e6ff74c3c1ecde71b7708"
+  },
+  "results/orch9775/standalone-build-first.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/standalone-checker-refute.stdout": {
+    "bytes": 12778,
+    "sha256": "02ba3aa592730ea9014abf4a52d381a7445563c2dd17274fe098b43c2b383f7b"
+  },
+  "results/orch9775/standalone-checker-refute.stderr": {
+    "bytes": 222,
+    "sha256": "86a8dfe3711335bb6ada07103d9f45bea3a80be7290e40375be12d4d4dffedf3"
+  },
+  "results/orch9775/standalone-final-validation-independent.json": {
+    "bytes": 1756,
+    "sha256": "8adf3e6bd01985963ee44582ad2b6cab23097a2273b7364f2108d439f1fa3fc3"
+  },
+  "results/orch9775/REVIEW-standalone-final-validation.md": {
+    "bytes": 2324,
+    "sha256": "604ea5b74d46a0ba37b86c2f3bba063212ab565eee49636d726f991ca27130b6"
+  },
+  "results/orch9775/validation.txt": {
+    "bytes": 1457,
+    "sha256": "13ec2696c8272b7523d3cc2e1dc7f9592135a7c16817f5bc1d7a649d9714df82"
+  },
+  "results/orch9775/CLEANUP.md": {
+    "bytes": 627,
+    "sha256": "b541f44f0aa1d7c14d77eb37f49c6f013e56471b0bd2bc7cab08c3b37fbe00ba"
+  },
+  "results/orch9775/lease-ended-1804/STATUS.md": {
+    "bytes": 808,
+    "sha256": "3771fe80bacdb5f3fb8fdc08ba52a5926eb05343531fbfd2b655bcf0a5f0d589"
+  },
+  "results/orch9775/lease-ended-1804/beat-9775-timer-010.full.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/lease-ended-1804/beat-9775-timer-010.full.txt": {
+    "bytes": 784,
+    "sha256": "e6fe8302b73b1728c3a3cdea6c5770f1eaffc438354a3231d17db8ee3feb21a5"
+  },
+  "results/orch9775/lease-ended-1804/beat-9775-timer-010.json": {
+    "bytes": 237,
+    "sha256": "cc8c629533c1071c7535298731e184ee228bffa0db455dc3dbd95d06d0554f69"
+  },
+  "results/orch9775/lease-ended-1804/beat-9775-timer-010.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/lease-ended-1804/heartbeat9775-state.json": {
+    "bytes": 76,
+    "sha256": "c1145fc403aa75c51df179dd2109fd356e597d4bed2396fb6aaab71630a44a4b"
+  }
+}

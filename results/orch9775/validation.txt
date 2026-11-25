@@ -1,9 +1,14 @@
-L-meta-9775 partial checkpoint; not a completed posted proof.
-Named lake build PEqualNP.Outside.L_meta_9775: PASS, 5149 jobs.
-Contents: exact 25-gate witness and 26-leaf formula lower bound.
-Separate GraphFacts + ReadOneFloor dependency check: PASS.
-Independent reviews: PASS; each scope is stated in REVIEW files.
-Full posted-statement checker: not run; no 24-gate witness or general lower bound yet.
-Cleanup: not started; named file 241 lines before and after preservation.
+L-meta-9775: COMPLETE LEAN-CHECKED REFUTATION.
+Exact posted existential statement is false: no Monotone2 circuit of at most24gates computes the specified14-input19-edge function.
+Source: lean/PEqualNP/Outside/L_meta_9775.lean
+SHA256: 5ceb73446dabfc7085ede651dd0b863bf362bf6fc51ad43eae156ff261f85923
+Size:513216bytes; within512KiB.
+Named lake build: PASS;5149jobs; named module327seconds. Full stdout/stderr preserved.
+Local tools/check-lean.mjs mode refute: ACCEPTED(refute); exit0; kernel rechecked4219constants; axiomspropext,Quot.sound,Classical.choice only.
+Checker completion observed2026-11-25T18:03:51Z.
+Cleanup: read-only review found duplicate scheme proofs requiring substantial revalidation; retained accepted original. Lines before7441, after7441. No alternate cleanup source kept.
+Independent source, finite-case, symmetry, certificate, packing, full-wrapper, assembly and final-output reviews: PASS.
+Submission routing: exact negative twinL-meta-9777 required checkmode. Own9775lease withdrawn18:03:59because9777wascheckedbyanothercontribution; no duplicateclosed-stepPRopened.
+Public provenance: generic framework adaptedfromcheckedL_meta_9774; one4293argumentadaptedwithattributionfromithurtstom PR18338. Our full certificate-based refutation was independently built and checked.
 Sub-agents: circuit_search, counterexample, fresh_proof, lean_setup, lower_bound, status_check; partial_lean earlier in this job.
-TIMING total=208.5 subagents=7
+TIMING total=247.0 subagents=7
