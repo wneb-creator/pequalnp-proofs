@@ -1,22 +1,24 @@
 L-meta-2089: PARTIAL preservation only.
 The posted theorem is unproved and is not declared. No proof PR has been opened.
 
-Latest source: lean/PEqualNP/Outside/L_meta_2089.lean, 1444 lines.
+Latest source: lean/PEqualNP/Outside/L_meta_2089.lean, 1743 lines.
 Build: lake build PEqualNP.Outside.L_meta_2089 passed.
-Local checker checkpoint: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2089.
+Latest completed local checker checkpoint (before the new OR-bound merge; new run pending): REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2089.
 Format checkpoint: REFUSED because the main theorem is absent.
 Independent reviews: PASS for the supporting helper lemmas and source restrictions, not for the full gap statement.
 Axiom audit: five principal helper lemmas use only propext, Classical.choice, and Quot.sound.
-Cleanup pass: not started, because the target checker has not passed. Line counts before/after: 1444/1444.
+Cleanup pass: not started, because the target checker has not passed. Line counts before/after: 1743/1743.
 
 Preserved components: false-OR certificate quota; exact behavior on thin inputs; one operand has at most twelve nonincident pairs and at most one singleton; a merged-pair pattern forces the other bad family into one column with at most nine entries.
 Experimental scripts and outputs are computational research artifacts, not Lean certificates. No valid counterexample was found in completed searches.
 
 Sub-agents: status_review, toolchain_setup, structural_proof, library_route, counterexample, normal_form, fresh_attack, fresh_count, final_audit, linear_bound
-TIMING total=72 subagents=10
+TIMING total=77 subagents=10
 
 Desk nulls: 1
 Exact null message: no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes
 
 Additional checked limitation artifact: lemmas/OperandWitness.lean (164 lines), exact posted orientation. Its 62-gate circuit accepts all 52 positive pairs and exactly 12 nonincident pairs, and rejects every singleton. Lean also verifies that wire 87 is the only wire accepting all positive pairs. This is NOT a refutation of L-meta-2089. Fresh independent Lean compilation and independent Python evaluation passed.
 Completed 20-minute search: strict 15,140,404 mutations; relaxed 181,506,495 mutations; no valid witness. Best strict candidate misses 2 positive pairs and has 0 false positives. Full logs, configurations, and validators are preserved.
+
+New merged component: arbitrary monotone circuits providing thirteen prescribed plane-neighbor linear outputs require at least39 OR gates. Output hypotheses are explicit; extracting those outputs from the original two-factor circuit remains unproved. Independent compilation, source review, and standard-axiom audit passed. PrivateQuota artifact namespace changed to PrivateQuotaSnapshot to avoid duplicate declarations after merging; recompilation passed.

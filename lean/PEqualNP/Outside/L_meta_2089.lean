@@ -1442,3 +1442,302 @@ lemma bad_family_column_and_card
   simpa [Finset.card_product, nonincident_point_count] using hcard
 
 end PEqualNP.Outside.L_meta_2089.MergedPair
+
+namespace PEqualNP.Outside.L_meta_2089.LinearBound
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open Structural
+
+private def BitsLE (xs ys : List Bool) : Prop :=
+  ∀ i, xs.getD i false = true → ys.getD i false = true
+
+private lemma append_mono {xs ys as bs : List Bool}
+    (hlen : xs.length = ys.length) (hxy : BitsLE xs ys) (hab : BitsLE as bs) :
+    BitsLE (xs ++ as) (ys ++ bs) := by
+  intro i hi
+  by_cases h : i < xs.length
+  · rw [List.getD_append _ _ _ _ h] at hi
+    rw [List.getD_append _ _ _ _ (hlen ▸ h)]
+    exact hxy i hi
+  · rw [List.getD_append_right _ _ _ _ (by omega)] at hi
+    rw [List.getD_append_right _ _ _ _ (by omega), ← hlen]
+    exact hab _ hi
+
+private lemma gate_mono {g : Gate} (hop : g.op = GateOp.and ∨ g.op = GateOp.or)
+    {xs ys : List Bool} (hxy : BitsLE xs ys) :
+    g.op.eval (g.inputs.map fun i => xs.getD i false) = true →
+      g.op.eval (g.inputs.map fun i => ys.getD i false) = true := by
+  rcases hop with hop | hop
+  · rw [hop]
+    simp only [GateOp.eval, List.all_eq_true, List.mem_map, id_eq]
+    rintro h _ ⟨i, hi, rfl⟩
+    exact hxy i (h _ ⟨i, hi, rfl⟩)
+  · rw [hop]
+    simp only [GateOp.eval, List.any_eq_true, List.mem_map, id_eq]
+    rintro ⟨_, ⟨i, hi, rfl⟩, h⟩
+    exact ⟨_, ⟨i, hi, rfl⟩, hxy i h⟩
+
+private def step (xs : List Bool) (g : Gate) : List Bool :=
+  xs ++ [g.op.eval (g.inputs.map fun i => xs.getD i false)]
+
+private lemma fold_mono (gs : List Gate)
+    (hgs : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (xs ys : List Bool) (hlen : xs.length = ys.length) (hxy : BitsLE xs ys) :
+    BitsLE (gs.foldl step xs) (gs.foldl step ys) := by
+  induction gs generalizing xs ys with
+  | nil => exact hxy
+  | cons g gs ih =>
+    rw [List.foldl_cons, List.foldl_cons]
+    apply ih (fun g' hg' => hgs g' (List.mem_cons_of_mem _ hg'))
+    · simp [step, hlen]
+    · apply append_mono hlen hxy
+      intro i hi
+      cases i with
+      | zero => exact gate_mono (hgs g List.mem_cons_self) hxy hi
+      | succ i => simp at hi
+
+private lemma wire_true_mono {C : Circuit} (hC : Monotone2 C) {xs ys : List Bool}
+    (hlen : xs.length = ys.length) (hxy : BitsLE xs ys) (i : ℕ) :
+    (C.wires xs).getD i false = true → (C.wires ys).getD i false = true := by
+  apply fold_mono C.gates _ xs ys hlen hxy i
+  intro g hg
+  simpa only [Set.mem_insert_iff, Set.mem_singleton_iff] using (hC g hg).1
+
+private lemma ofFn_mono {n : ℕ} {f g : Fin n → Bool}
+    (hfg : ∀ i, f i = true → g i = true) : BitsLE (List.ofFn f) (List.ofFn g) := by
+  intro i hi
+  by_cases h : i < n
+  · rw [List.getD_eq_getElem _ _ (by simpa using h), List.getElem_ofFn] at hi
+    rw [List.getD_eq_getElem _ _ (by simpa using h), List.getElem_ofFn]
+    exact hfg ⟨i, h⟩ hi
+  · have h' : (List.ofFn f).length ≤ i := by simpa using Nat.le_of_not_gt h
+    rw [List.getD_eq_getElem?_getD, List.getElem?_eq_none h'] at hi
+    cases hi
+
+lemma wire_monotone {n : ℕ} (C : Circuit) (hm : Monotone2 C) (w : ℕ) :
+    Monotone (fun x : Fin n → Bool => value C x w) := by
+  intro x y hxy
+  cases hx : value C x w with
+  | false => simp [hx]
+  | true =>
+    have hh : value C y w = true := by
+      apply wire_true_mono hm (by simp) (ofFn_mono ?_) w hx
+      intro i hi
+      have h := hxy i
+      rw [hi] at h
+      exact Bool.eq_true_of_true_le h
+    simp [hx, hh]
+
+def single {n : ℕ} (i : Fin n) : Fin n → Bool := fun j => decide (j = i)
+
+def support {n : ℕ} (C : Circuit) (w : ℕ) : Finset (Fin n) :=
+  Finset.univ.filter (fun i => value C (single i) w = true)
+
+lemma single_le {n : ℕ} (x : Fin n → Bool) (i : Fin n) (hi : x i = true) :
+    single i ≤ x := by
+  intro j
+  by_cases h : j = i
+  · subst j
+    simp [single, hi]
+  · simp [single, h]
+
+lemma private_quota {n : ℕ} (C : Circuit) (hm : Monotone2 C)
+    (hmono : ∀ w, Monotone (fun x : Fin n → Bool => value C x w))
+    (x : Fin n → Bool) (a : ℕ) (hoff : value C x a = false) :
+    ∃ I : Finset ℕ, (support (n := n) C a).card ≤ I.card + 1 ∧
+      ∀ i ∈ I, n ≤ i ∧ i < n + C.size ∧ i ≤ a ∧
+        (gateAt C (i - n)).op = GateOp.or ∧ value C x i = false ∧
+        2 ≤ (support (n := n) C i).card := by
+  classical
+  let G := (Finset.Ico n (n + C.size)).filter (fun w => value C x w = false)
+  let O := G.filter (fun w => (gateAt C (w - n)).op = GateOp.or ∧
+    2 ≤ (support (n := n) C w).card)
+  let V : Option (Fin n) → ℕ → Bool := fun z w =>
+    value C (z.elim x single) w
+  have ginfo (w : ℕ) (hw : w ∈ G) :
+      n ≤ w ∧ w < n + C.size ∧ value C x w = false := by
+    simpa only [G, Finset.mem_filter, Finset.mem_Ico, and_assoc] using hw
+  have step (w : ℕ) (hw : w ∈ G) : ∃ P : Finset ℕ,
+      P.card ≤ 1 + (if w ∈ O then 1 else 0) ∧
+      (∀ r ∈ P, r < w) ∧ (∀ r ∈ P, V none r = false) ∧
+      ∀ y, (∀ r ∈ P, V y r = false) → V y w = false := by
+    obtain ⟨hn, hlt, hx⟩ := ginfo w hw
+    by_cases hs : 2 ≤ (support (n := n) C w).card
+    · obtain ⟨P, hc, hb, hp, ht⟩ := gate_false_step C hm x w hn hlt hx
+      have hweight : orCharge (gateAt C (w - n)).op = (if w ∈ O then 1 else 0) := by
+        cases h : (gateAt C (w - n)).op <;> simp [orCharge, O, hw, hs, h]
+      refine ⟨P, by simpa only [hweight] using hc, hb, hp, ?_⟩
+      intro y hy
+      exact ht (y.elim x single) hy
+    · let P := (support (n := n) C w).image Fin.val
+      refine ⟨P, ?_, ?_, ?_, ?_⟩
+      · have hc := Finset.card_image_le (f := Fin.val) (s := support (n := n) C w)
+        change P.card ≤ _ at hc
+        omega
+      · intro r hr
+        obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hr
+        omega
+      · intro r hr
+        obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hr
+        change value C x i.val = false
+        rw [input_value]
+        have htrue : value C (single i) w = true := (Finset.mem_filter.mp hi).2
+        cases hxi : x i with
+        | false => rfl
+        | true =>
+          have hle := hmono w (single_le x i hxi)
+          change value C (single i) w ≤ value C x w at hle
+          rw [htrue, hx] at hle
+          exact Bool.noConfusion (Bool.eq_true_of_true_le hle)
+      · intro y hy
+        cases y with
+        | none => exact hx
+        | some i =>
+          change value C (single i) w = false
+          cases hv : value C (single i) w with
+          | false => rfl
+          | true =>
+            have hi : i ∈ support (n := n) C w := Finset.mem_filter.mpr ⟨Finset.mem_univ _, hv⟩
+            have hh := hy i.val (Finset.mem_image.mpr ⟨i, hi, rfl⟩)
+            change value C (single i) i.val = false at hh
+            rw [input_value] at hh
+            simp [single] at hh
+  obtain ⟨B, hd, hc, hBx, hp⟩ := weighted_cut V none G O step (a + 1) {a}
+    (by intro w hw _; obtain rfl := Finset.mem_singleton.mp hw; omega)
+    (by intro w hw; obtain rfl := Finset.mem_singleton.mp hw; exact hoff)
+  let I := O.filter (· < a + 1)
+  let T := Finset.univ.filter (fun i : Fin n => i.val ∈ B)
+  have hsub : support (n := n) C a ⊆ T := by
+    intro i hi
+    by_contra hn
+    have hout : value C (single i) a = false := by
+      apply hp (some i) ?_ a (by simp)
+      intro w hw
+      by_cases hwin : w < n
+      · let j : Fin n := ⟨w, hwin⟩
+        change value C (single i) j.val = false
+        rw [input_value]
+        have hne : j ≠ i := by
+          intro h
+          have : i.val ∈ B := h ▸ hw
+          exact hn (Finset.mem_filter.mpr ⟨Finset.mem_univ _, this⟩)
+        simp [single, hne]
+      · by_cases htot : w < n + C.size
+        · have hg : w ∈ G := Finset.mem_filter.mpr
+            ⟨Finset.mem_Ico.mpr ⟨by omega, htot⟩, hBx w hw⟩
+          exact (Finset.disjoint_left.mp hd hw hg).elim
+        · exact missing_value C (single i) w (by omega)
+    have hin : value C (single i) a = true := (Finset.mem_filter.mp hi).2
+    exact Bool.noConfusion (hin.symm.trans hout)
+  have hTc : T.card ≤ B.card := by
+    rw [← Finset.card_image_of_injective T Fin.val_injective]
+    apply Finset.card_le_card
+    intro w hw
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hw
+    exact (Finset.mem_filter.mp hi).2
+  refine ⟨I, ?_, ?_⟩
+  · have hBc : B.card ≤ I.card + 1 := by
+      simpa only [Finset.card_singleton, I, Nat.add_comm] using hc
+    exact (Finset.card_le_card hsub).trans (hTc.trans hBc)
+  · intro i hi
+    obtain ⟨hO, hia⟩ := Finset.mem_filter.mp hi
+    obtain ⟨hG, hop, hs⟩ := Finset.mem_filter.mp hO
+    obtain ⟨hni, hlt, hx⟩ := ginfo i hG
+    exact ⟨hni, hlt, by omega, hop, hx, hs⟩
+
+
+def complementInput {n : ℕ} (U : Finset (Fin n)) : Fin n → Bool :=
+  fun i => decide (i ∉ U)
+
+lemma support_subset {n : ℕ} (C : Circuit)
+    (hmono : ∀ w, Monotone (fun x : Fin n → Bool => value C x w))
+    (U : Finset (Fin n)) (w : ℕ) (hf : value C (complementInput U) w = false) :
+    support (n := n) C w ⊆ U := by
+  classical
+  intro i hi
+  by_contra hn
+  have hx : complementInput U i = true := by simp [complementInput, hn]
+  have hle := hmono w (single_le (complementInput U) i hx)
+  change value C (single i) w ≤ value C (complementInput U) w at hle
+  have ht := (Finset.mem_filter.mp hi).2
+  rw [ht, hf] at hle
+  exact Bool.noConfusion (Bool.eq_true_of_true_le hle)
+
+noncomputable def orGates (C : Circuit) (n : ℕ) : Finset ℕ := by
+  classical
+  exact (Finset.Ico n (n + C.size)).filter (fun w => (gateAt C (w - n)).op = GateOp.or)
+
+lemma linear_outputs_bound {n m : ℕ} (C : Circuit) (hm : Monotone2 C)
+    (U : Fin m → Finset (Fin n)) (a : Fin m → ℕ)
+    (hcard : ∀ j, 4 ≤ (U j).card)
+    (hinter : ∀ i j, i ≠ j → (U i ∩ U j).card ≤ 1)
+    (hpos : ∀ j i, i ∈ U j → value C (single i) (a j) = true)
+    (hneg : ∀ j, value C (complementInput (U j)) (a j) = false) :
+    3 * m ≤ (orGates C n).card := by
+  classical
+  have hmono := fun w => wire_monotone (n := n) C hm w
+  choose I hI using fun j => private_quota C hm hmono (complementInput (U j)) (a j) (hneg j)
+  have hquota : ∀ j, 3 ≤ (I j).card := by
+    intro j
+    have hs : U j ⊆ support (n := n) C (a j) := by
+      intro i hi
+      exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hpos j i hi⟩
+    have hc := Finset.card_le_card hs
+    have hb := (hI j).1
+    have hu := hcard j
+    omega
+  have hdisj : ∀ i ∈ (Finset.univ : Finset (Fin m)), ∀ j ∈ Finset.univ,
+      i ≠ j → Disjoint (I i) (I j) := by
+    intro i _ j _ hij
+    apply Finset.disjoint_left.mpr
+    intro w hwi hwj
+    have hi := (hI i).2 w hwi
+    have hj := (hI j).2 w hwj
+    have hs : support (n := n) C w ⊆ U i ∩ U j :=
+      Finset.subset_inter (support_subset C hmono (U i) w hi.2.2.2.2.1)
+        (support_subset C hmono (U j) w hj.2.2.2.2.1)
+    have hc := Finset.card_le_card hs
+    have hlarge := hi.2.2.2.2.2
+    have hsmall := hinter i j hij
+    omega
+  let J := Finset.univ.biUnion I
+  have hJ : J.card = ∑ i : Fin m, (I i).card := by
+    exact Finset.card_biUnion hdisj
+  have hlow : 3 * m ≤ J.card := by
+    rw [hJ]
+    calc
+      3 * m = ∑ _i : Fin m, 3 := by simp [Nat.mul_comm]
+      _ ≤ ∑ i : Fin m, (I i).card := Finset.sum_le_sum fun i _ => hquota i
+  apply hlow.trans
+  apply Finset.card_le_card
+  intro w hw
+  obtain ⟨j, _, hj⟩ := Finset.mem_biUnion.mp hw
+  have hi := (hI j).2 w hj
+  exact Finset.mem_filter.mpr ⟨Finset.mem_Ico.mpr ⟨hi.1, hi.2.1⟩, hi.2.2.2.1⟩
+
+
+def planeSupport (p : Fin 13) : Finset (Fin 13) :=
+  Finset.univ.filter fun l => ∃ d ∈ ({0, 1, 3, 9} : Finset (Fin 13)), p = l + d
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 2000000 in
+lemma plane_support_properties :
+    (∀ p, (planeSupport p).card = 4) ∧
+    (∀ p q, p ≠ q → (planeSupport p ∩ planeSupport q).card = 1) := by
+  unfold planeSupport
+  decide +kernel
+
+lemma plane_linear_outputs_bound (C : Circuit) (hm : Monotone2 C)
+    (a : Fin 13 → ℕ)
+    (hpos : ∀ p l, l ∈ planeSupport p → value C (single l) (a p) = true)
+    (hneg : ∀ p, value C (complementInput (planeSupport p)) (a p) = false) :
+    39 ≤ (orGates C 13).card := by
+  apply linear_outputs_bound C hm planeSupport a
+  · intro p
+    exact (plane_support_properties.1 p).ge
+  · intro p q hpq
+    exact (plane_support_properties.2 p q hpq).le
+  · exact hpos
+  · exact hneg
+
+end PEqualNP.Outside.L_meta_2089.LinearBound

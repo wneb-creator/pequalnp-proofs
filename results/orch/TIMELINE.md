@@ -15,3 +15,5 @@
 - 2026-11-25T07:40:04.622449+00:00: Independent recompilation and data review passed for the 164-line single-operand example, including uniqueness of its hot wire. Three fresh agents continued joint-count research, artifact review, and a multioutput linear-form bound.
 
 - 2026-11-25T07:44:24.587147+00:00: A stronger 125-line singleton-support OR quota compiled and independently passed source, semantics, and axiom review. It allows arbitrary AND gates. Preserved as PrivateQuota.lean; target remains unproved.
+
+- 2026-11-25T07:47:11.840001+00:00: Merged the independently reviewed300line linear-output lower-bound component. Main1743line file built successfully (18423jobs). New local checker run pending; target theorem still absent.

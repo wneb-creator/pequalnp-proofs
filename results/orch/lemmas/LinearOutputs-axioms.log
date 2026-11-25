@@ -1,0 +1,7 @@
+'PEqualNP.Outside.L_meta_2089.LinearBound.linear_outputs_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2089.LinearBound.plane_linear_outputs_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2089.LinearBound.wire_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]

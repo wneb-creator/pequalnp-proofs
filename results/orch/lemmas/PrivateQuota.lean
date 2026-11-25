@@ -1,6 +1,6 @@
 import PEqualNP.Outside.L_meta_2089
 
-namespace PEqualNP.Outside.L_meta_2089.LinearBound
+namespace PEqualNP.Outside.L_meta_2089.PrivateQuotaSnapshot
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
 open Structural
@@ -122,4 +122,4 @@ lemma private_quota {n : ℕ} (C : Circuit) (hm : Monotone2 C)
     obtain ⟨hni, hlt, hx⟩ := ginfo i hG
     exact ⟨hni, hlt, by omega, hop, hx, hs⟩
 
-end PEqualNP.Outside.L_meta_2089.LinearBound
+end PEqualNP.Outside.L_meta_2089.PrivateQuotaSnapshot
