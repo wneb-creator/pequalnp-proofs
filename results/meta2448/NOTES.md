@@ -21,3 +21,10 @@
 - Star profile alone cannot strengthen an OR-only lower bound: input-AND copies enforce the profile while preserving ORcount, at the cost of extra ANDs. Accepted total-count bounds use stronger hypotheses on all accepted edges.
 - The8-vertex Petersen deletion core at-most12 search ended UNKNOWN after300.026s. Petersen at-most19 continues to07:56:27. Next diagnostic is an independently reviewed earliest-exact-nonstar-prefix search, explicitly not a refutation by itself.
 - Environment restarted briefly07:50; exact solver identities survived, detached shared-memory watchdog was restored, and renewal timer was restarted detached. Fresh renewal07:51:46 expires08:11:47.
+
+## Final integration 2026-11-25T08:21:19.474551+00:00
+- Named2341-line partial now passes lake build (20.56s); all174 declarations have standard axioms only. Actual checker again reports FAULT/exit3 missing Batteries.olean. The posted theorem is absent and unresolved.
+- Checked concrete repair now discharges cofactor premises for actual AND operands. Under the pure two-center configuration its exact graph circuit obeys newsize+readers≤oldsize+3. TracedRepair separately couples size and strict sampled true-AND decrease in one repaired circuit under explicit repair/sample assumptions. No global minimum star-profile theorem follows yet.
+- A reviewed graph isomorphism identifies the8vertex core with accepted L_meta_1007; its12gate impossibility was already known. Completed local UNKNOWNs add no lower bound.
+- Accepted L584 has an exact20gate Petersen circuit with13OR+7AND and a nonstar owner. Its input-copy extension has30gates,13OR and star profile. Hence OR≥14 is false even with star profile absent a minimum-size requirement. This is not a refutation of2448.
+- Last strengthened Petersen19 model uses accepted AND≥6 plus reviewed earliest-prefix substitution cuts; running under a detached guardian until about08:36:47. Limited local seed-deletion/two-edit searches have found no witness.

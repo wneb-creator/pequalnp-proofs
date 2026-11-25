@@ -1,15 +1,17 @@
 PARTIAL CHECKPOINT — L-meta-2448
-UTC: 2026-11-25T07:52:51.169722+00:00
-Posted target remains unproved: a globally minimum circuit with HasStarProfile.
+UTC: 2026-11-25T08:21:19.474551+00:00
+The posted theorem remains unproved. No full proof, valid refutation, or PR exists.
 Named file: lean/PEqualNP/Outside/L_meta_2448.lean
-SHA256: c07fd292cd75f1ea0d2559fce42619023cb477c203ff82b36f4c881a124a25e2
-Lines:1114. Consolidation changed674 to1114 lines. Cleanup not run because the full target and checker have not passed; before/after cleanup1114/1114.
-Checked components: minimum-circuit existence; triangle-free ownership classification; pair-soundness implies star profile; explicit star-profile circuit and minimum within that subclass; semantic edge pruning; singleton-context obstruction; private Boolean identities; linear cleanup classification; two-center semantic repair in monotone cofactors.
-The restricted repair is not a Circuit-size exchange. The full theorem and a valid refutation remain absent.
-Named lake build PASS (exit0,27.0908s,5149 jobs); full output validation/named-1114-build.log.
-All74 theorem/lemma declarations audited: propext, Classical.choice, Quot.sound only. Full audit assembly/CheckpointAxioms.log; source is byte-identical to assembly/Checkpoint2448.lean.
-Actual tools/check-lean.mjs returned FAULT/exit3 before a verdict; full output validation/named-1114-posted-checker.log. The complete Mathlib statement environment is not cached (missing Batteries.olean). This is separate from the still-unproved target.
-Finite searches are normalized-model evidence, not Lean-checked lower bounds. No valid counterexample found. The8-vertex Petersen core at-most12 query ended UNKNOWN after300.026s; the15-minute Petersen at-most19 query is still running at this checkpoint.
-No PR opened. This branch preserves research and partials; it is not a one-file proof PR.
+SHA256: 511dbd91a7d713a368e5bcb3d09bbc30971dc12eeb0f1fbcd46f5cc04aeaf6a3
+Lines:2341. The final expected theorem declaration is intentionally absent; these are checked helpers only.
+Cleanup not performed because the posted theorem and checker have not passed. Before/after cleanup2341/2341.
+Named lake build PASS: exit0,20.5618s,5149jobs. Complete output: validation/named-2341-build.log.
+All174 declarations (including definitions) audited: only propext, Classical.choice, Quot.sound. Complete output: assembly-traced/Checkpoint2448TracedAxioms.log. Source is byte-identical to assembly-traced/Checkpoint2448Traced.lean.
+Official tools/check-lean.mjs: FAULT/exit3, missing Batteries.olean, no verdict. Complete output: validation/named-2341-posted-checker.log. This cache limitation is separate from the unresolved mathematics.
+Format: onlyDefs import; no forbidden root text, double quotes, or unsupported attributes. Full scan: validation/named-2341-format.json.
+Main checked progress: minimum existence; ownership/pair-soundness; explicit star-profile construction; semantic pruning; pure two-center repair; actual constant-propagation reader deletion; actual four-gate repair; weighted true-AND count; concrete cofactor properties; traced size-and-count repair for the same circuit. Structural and sample hypotheses remain explicit. No unrestricted star normalization is proved.
+The concrete two-center exchange gives newsize+readerCount≤oldsize+3 and preserves the exact graph function; it excludes at least4 readers in that restricted configuration for a minimum circuit. The traced conditional exchange also gives a strict sampled count decrease. The low-fanout, nonlinear-operand, and missing-center cases remain unresolved.
+Finite search status: completed Petersen19/900s, core12/300s and core-nonstar13/300s queries ended UNKNOWN. The core12 impossibility was subsequently found already proved by accepted L_meta_1007 under an independently checked isomorphism; no new lower-bound result is claimed. Accepted L584 gives a20-gate Petersen circuit with13ORs, so the proposed OR-only lower bound14 is false; this does not refute L-meta-2448. The final strengthened Petersen19 query is running to about08:36:47UTC.
+Research branch includes prior L-meta-1896 work archived before its lease returned410. It is not a one-file proof PR.
 Sub-agents: repo_audit, lean_setup, or_lower_bound, counterexample, proof_routes, algebraic_witness, proof_routes/quadratic_shadow
-TIMING total=309.4 subagents=7
+TIMING total=337.9 subagents=7

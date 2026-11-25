@@ -1,0 +1,18 @@
+{
+  "review": "PASS exact final2341 partial composition, full build and all174-declaration axiom audit",
+  "source": "results/meta2448/assembly-traced/Checkpoint2448Traced.lean",
+  "sha256": "511dbd91a7d713a368e5bcb3d09bbc30971dc12eeb0f1fbcd46f5cc04aeaf6a3",
+  "lines": 2341,
+  "bytes": 103330,
+  "composition": "Independently verified unchanged2234 source plus reviewed107lineTracedRepair with only its dependency line removed.",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "declarations": 174,
+  "build_exit": 0,
+  "axiom_audit_exit": 0,
+  "format": "Only PEqualNP.Defs import; no prohibited mechanisms/strings/root qualification.",
+  "scope": "No posted theorem declaration. Conditional local circuit repair/measure results only; global minimum star-profile conclusion remains unproved."
+}

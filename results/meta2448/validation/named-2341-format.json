@@ -1,0 +1,12 @@
+{
+  "source_sha256": "511dbd91a7d713a368e5bcb3d09bbc30971dc12eeb0f1fbcd46f5cc04aeaf6a3",
+  "lines": 2341,
+  "bytes": 103330,
+  "forbidden_root_text": false,
+  "double_quotes": false,
+  "bad_attributes": [],
+  "imports": [
+    "import PEqualNP.Defs"
+  ],
+  "expected_full_theorem_present": false
+}

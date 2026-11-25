@@ -1,0 +1,17 @@
+{
+  "review": "PASS final named2341 partial preservation and full build/checker provenance",
+  "named_sha256": "511dbd91a7d713a368e5bcb3d09bbc30971dc12eeb0f1fbcd46f5cc04aeaf6a3",
+  "lines": 2341,
+  "bytes": 103330,
+  "named_equals_audited_assembly": true,
+  "build": {
+    "exit": 0,
+    "wall_seconds": 20.56181439700231,
+    "jobs": 5149,
+    "complete_log_bytes": 64374
+  },
+  "axioms": "All174 helper declarations independently audited in identical assembly; standard3 only.",
+  "official_checker": "Actual FAULT/exit3 missing Batteries.olean before verdict. Full posted theorem absent independently of this environment limitation.",
+  "previous2234": "Complete build13.532s EXIT0 and actual checkerFAULT logs preserved as prior checkpoint evidence.",
+  "metadata": "No full proof/refutation/PR; expected theorem absent; cleanup2341\u21922341 skipped; finite searches and local repair assumptions accurately scoped. Current live search output excluded."
+}
