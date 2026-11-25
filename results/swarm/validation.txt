@@ -1,0 +1,39 @@
+Gap: L-meta-3668
+Outcome: already refuted upstream before this orchestrator started.
+This job claims no new proof credit and creates no duplicate proof PR.
+
+Public desk snapshot updated 2026-11-25T23:02:10.434Z explicitly withdraws L-meta-3668 because its exact opposite L-meta-3669 was checked.
+Existing accepted PR: https://github.com/open-goat/pequalnp-proofs/pull/20641
+Merged: 2026-11-25T22:54:55Z
+Merge commit: d69df0809e0f4ce1ad114274255cf1189014acf4
+Authoritative checker: ACCEPTED (checker exit 0)
+Evidence: https://github.com/open-goat/pequalnp-proofs/pull/20641#issuecomment-7175141976
+Successful authoritative run: https://github.com/open-goat/pequalnp-proofs/actions/runs/45692973795
+Existing proof: lean/PEqualNP/Outside/L_meta_3669.lean
+Source SHA256: 4bbaee372fc60b5871c34e3b263b18273f87429b45b47f9df6f3eb2c691fa424
+This hash matches the official checked record and merged source.
+
+Independent review:
+- Verified structured PR/run evidence, source identity and official withdrawal.
+- Audited source for trust escapes, namespace shadowing, forbidden commands and imports; none found.
+- Inspected the circuit bridge for constants, unary gates, unused wires and out-of-range wires.
+- Enumerated the 17-gate core on all 2,048 inputs and all 14 outputs successfully.
+- Multioutput core alone is not the full counterexample. The checked proof uses replicated bipartite gadgets and the lower bound of 18 union gates to contradict extraction of at most 17.
+- Local source-format/import guard passed with only PEqualNP.Defs allowed.
+
+Local toolchain: Lean 4.36.0; pinned Mathlib fc4f59e577feb1a4956671bc04ac18aaaf8cd842.
+Cache: lake exe cache get passed, 9,117 files; no Mathlib source build.
+Targeted build: PASS (exit 0), lake build checklemma +PEqualNP.Outside.L_meta_3669 +PEqualNP.Defs; 5,155 jobs.
+Local repository checker: ACCEPTED (refute): PEqualNP.Outside.L_meta_3669 (exit 0).
+Axioms: propext, Quot.sound, Classical.choice; kernel re-checked 2,446 constants.
+Full build and checker stdout/stderr: /tmp/oec/pnp-swarm-3668-orch/build.log and checker.log.
+
+Evidence limitation: the current desk omits the original withdrawn statement text. The local positive statement was extracted from the checked negative theorem; exact linkage to posted L-meta-3668 rests on the official withdrawal and authoritative checker. Helpers 1, 3 and 6 separately reported comparisons with prewithdrawal copies; those copies were not available to this orchestrator.
+
+Delivery: records only on pnp/swarm-L-meta-3668-orch; no new Lean source or PR, and no shared lease request or release.
+Sub-agents: 9 existing bus helper jobs plus 2 local agents (toolchain setup and independent review).
+TIMING total=6.4 subagents=11
+Timing uses the minute-precision 23:02 UTC start.
+Acknowledged: msg-7baeaa3ef7f55d99b8825bf5
+
+Pre-push independent records review: PASS; no substantive corrections.
