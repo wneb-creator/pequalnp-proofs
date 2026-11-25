@@ -114,3 +114,10 @@ MinimalAO2.lean: standalone Lean exit0; independent review PASS; SHA256 3aed86b6
 PivotalPairMeasure.lean: standalone Lean exit0; independent review PASS; SHA256 d10bef688a31052ad278c22a9e5c7c273f0edb7b140a0361f9c3fa0a3e7be696; full log pivotal-pair-measure-build.log.
 MinimalAO2 proves every public minimum graph circuit already reads earlier wires with exactly two inputs per gate. PivotalPairMeasure proves singleton repair cannot increase junk, AND-cone pairs or bad count. Simultaneous TopForm normal form is being integrated separately. Full ownership theorem and repository-checker acceptance remain absent.
 Stress heuristic v2 archive independently reviewed at manifestc52c6ef7522c6029f7eba74bf061c7765f3d7ec35a7c98c8d33a45eb2c5eeeaa. INTERRUPTED_UNKNOWN; last recorded progress390.0168s,210428000 iterations,10521 restarts, not final totals. Best circuit incorrect:1 scored error/6 full false negatives.
+
+2026-11-25T04:56:06.147479+00:00 integrated normal form
+IntegratedNormalForm.lean:3849 lines; standalone Lean exit0; independent review PASS; SHA256 5087c25c4ff3a391bfedde349db25043366c1a01a641bc70d7cfa3ff190a17bc; full log integrated-normal-form-build-003.log.
+For every nonempty finite graph, constructs a public minimum satisfying TopForm and lexicographic least(junk,andPairs,bad), with two pivotal edges at each dirty or unowned AND. No girth restriction needed. This resolves simultaneous mathematical normal-form assumptions for the experimental combined search, but not generic CNF/order/symmetry certification. Full L-meta-1772 ownership remains unproved; no repository-checker ACCEPTED verdict and no proof PR. Partial-file cleanup not attempted; line count remains3849.
+Exact assigned statement and independently reviewed progress guide are preserved.
+Sub-agents: six; independent review, minimality, normal forms, counterexample search, algebraic replacement, ownership rewrites.
+TIMING total=90.5 subagents=6
