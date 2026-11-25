@@ -2241,4 +2241,30 @@ lemma dirty_extremal_no_two_singleton_cover {n : ℕ} (G : SimpleGraph (Fin n))
   rw [decide_eq_true_iff]
   exact he x
 
+lemma exists_first_dirty_split {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit)
+    (hex : ∃ j, PEqualNP.CleanedNonEdge.IsDirtyAnd n G C j) :
+    ∃ pre g post, C.gates = pre ++ g :: post ∧ g.op = GateOp.and ∧
+      PEqualNP.CleanedNonEdge.IsDirtyAnd n G C pre.length ∧
+      ∀ i < pre.length, ¬ PEqualNP.CleanedNonEdge.IsDirtyAnd n G C i := by
+  classical
+  let j := Nat.find hex
+  have hbad : PEqualNP.CleanedNonEdge.IsDirtyAnd n G C j := Nat.find_spec hex
+  have hj : j < C.gates.length := hbad.2.1
+  let pre := C.gates.take j
+  let g := C.gates[j]
+  let post := C.gates.drop (j+1)
+  have hlen : pre.length = j := by simp [pre, Nat.min_eq_left hj.le]
+  have hsplit : C.gates = pre ++ g :: post := by
+    dsimp [pre, g, post]
+    rw [← List.drop_eq_getElem_cons hj, List.take_append_drop]
+  refine ⟨pre, g, post, hsplit, ?_, hlen.symm ▸ hbad, ?_⟩
+  · have h := hbad.1
+    simpa [PEqualNP.MetaComplexity.NestedCover.gateAt, g,
+      List.getD_eq_getElem?_getD, hj] using h
+  · intro i hi
+    apply Nat.find_min hex
+    change i < j
+    omega
+
 end PEqualNP.Outside.L_meta_1904_aux

@@ -43,3 +43,4 @@
 - 2026-11-25 22:06:13 UTC: triangle-free edge-family star-or-disjoint classification compiled and independently source-reviewed; assembled named build passed 5149 jobs after generated-artifact permission repair. Full posted theorem remains absent.
 - 2026-11-25 22:15:06 UTC: root integrated checked two-singleton repair and proved minimum-dirty-count exclusion of all non-AND patches and two-singleton critical covers. Independent source review passed; direct Lean diagnostics empty; named build passed 5149 jobs with shared artifact caching disabled.
 - 2026-11-25 22:15:06 UTC: previous partial push confirmed at 08e2c613c; full theorem remains open, counterexample searches ongoing.
+- 2026-11-25 22:21:09 UTC: first-dirty-gate take/get/drop decomposition elaborated with empty diagnostics and passed independent review; named build passed. Previous partial8cef7d9f3 pushed.
