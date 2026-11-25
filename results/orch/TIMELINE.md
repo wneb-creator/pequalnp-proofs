@@ -36,3 +36,4 @@
 
 - 2026-11-25T12:42:38.374876+00:00: linear_network completed seven ABC synthesis batches (8631 valid outputs), no <=24 result; preserved reviewable source/log/best-circuit artifacts.
 2026-11-25T12:42:43.279482+00:00 two-dirty-gate chain and sole-reader bridge compiled and independently reviewed; preserving conditional monotone result.
+2026-11-25T12:44:45.636113+00:00 strengthened replacement helper compiled, independently reviewed, and preserved; remaining normal-form hypotheses explicit.
