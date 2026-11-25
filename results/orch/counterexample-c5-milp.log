@@ -1,0 +1,58 @@
+{"n": 5, "gates": 6, "samples": [[3, 1], [6, 1], [12, 1], [24, 1], [17, 1], [5, 0], [9, 0], [10, 0], [18, 0], [20, 0]], "variables": 276, "constraints": 2193}
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 9e+00]
+  Cost   [0e+00, 0e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 2e+00]
+Presolving model
+1583 rows, 266 cols, 4338 nonzeros  0s
+1161 rows, 226 cols, 3059 nonzeros  0s
+869 rows, 226 cols, 2597 nonzeros  0s
+864 rows, 222 cols, 2591 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   864 rows
+   222 cols (222 binary, 0 integer, 0 implied int., 0 continuous)
+   2591 nonzeros
+MIP-Timing:       0.019 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.0s
+         0       0         0   0.00%   0               inf                  inf        0      0      3       119     0.0s
+      2746      94      1020  22.16%   0               inf                  inf     6295     49   8586     79899     5.0s
+      5539     101      2078  38.30%   0               inf                  inf     6057     60   9890    174519    11.2s
+      8470     102      3228  48.83%   0               inf                  inf     6257     37   9841    257293    16.2s
+     11261     129      4300  58.08%   0               inf                  inf     6064     22   9959    344618    21.2s
+     13745     119      5297  71.52%   0               inf                  inf     5334     34   9913    428340    26.2s
+     16157      99      6236  82.92%   0               inf                  inf     5150     23   9972    513486    31.2s
+     18395      85      7126  88.63%   0               inf                  inf     6419     37   9888    591951    37.0s
+     21484      54      8316  95.82%   0               inf                  inf     4561     42   9924    683855    42.0s
+     23135       0      8993 100.00%   inf             inf                  inf     4459     52   9827    737016    45.0s
+
+Solving report
+  Status            Infeasible
+  Primal bound      inf
+  Dual bound        inf
+  Gap               inf
+  P-D integral      0
+  Solution status   -
+  Timing            44.99 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 3
+  Nodes             23135
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     737016 (total)
+                    0 (strong br.)
+                    19898 (separation)
+                    46706 (heuristics)
+time 45.000472527 status 2 message The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)

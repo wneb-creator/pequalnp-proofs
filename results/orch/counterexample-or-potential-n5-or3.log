@@ -1,0 +1,4 @@
+{"n": 5, "graphs": 1024, "max_proposed_bound": 5, "initial_meet_functions": 33, "max_or": 3}
+{"or_gates": 1, "states_examined": 1, "next_states": 285, "new_functions": 285, "transitions": 285, "seconds": 0.002335571000003256}
+{"or_gates": 2, "states_examined": 285, "next_states": 60775, "new_functions": 1665, "transitions": 102285, "seconds": 1.4405414709999604}
+TIMEOUT seconds 60.000574559999905 completed_levels 2 transitions 9303889

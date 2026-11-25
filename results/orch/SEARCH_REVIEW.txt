@@ -1,0 +1,120 @@
+Independent search review for L-meta-1031
+Reviewer: reductions_review sub-agent
+UTC: 2026-11-25T01:33:32.041506+00:00
+
+Verdict: no blocking modeling or reporting error found in the reviewed finite-case claims. These are computational research results, not Lean-certified lower bounds. In particular, a floating-point MILP solver status is not a kernel proof or a checked UNSAT certificate.
+
+Scope and safety
+- Read the six Counterexample*.py scripts listed below, COUNTEREXAMPLES.md, target JSON files, completed solver logs, and the additional search/potential logs in scratch.
+- The reviewed scripts contain no credential access, environment reads, network clients, subprocess calls, or git/desk mutations. Writes are confined to explicitly named scratch JSON files. Solver libraries are used locally.
+- Did not edit the author scripts and did not replay long MILP or SAT solves.
+
+Semantic BFS
+- Truth-table inputs and AND/OR updates are correct. Girth filtering considers every triangle and all three undirected 4-cycles on each four-element vertex set.
+- Semantic state sets are sufficient for reachability: any gate can select any already available function. Repeated functions and unary, constant, or future-wire-dependent gates can be eliminated from a minimum nonconstant positive circuit. Thus their exclusion is appropriate for the minimum-size and unsafe-minimum questions.
+- The flagged BFS combines history flags by existential union. This is correct separately for each target: a flagged history reaching a given semantic state can realize every future successor of that state. It does not assert that all flags share one history.
+- JSON records contain 1, 2, 7, 38 targets for n=1..4 and 291 five-vertex forests. Independently rechecked graph simplicity/girth, cover validity/minimality, target-record uniqueness, and all recorded min=star_upper equalities. This consistency check does not independently re-prove BFS exhaustion.
+- All 303 labeled girth-at-least-five graphs on five vertices consist of these 291 forests and 12 relabelings of C5. Reusing the cycle result across relabelings is valid.
+
+MILP and SAT models
+- One-hot selector constraints, operand truth-value selection, and the conditional AND/OR constraints were checked algebraically and match the intended operations.
+- Requiring true on edge pairs and false on all maximal independent sets is sufficient for exact graph-function correctness for a monotone circuit: every positive input contains an edge pair, and every independent input extends to a maximal independent set.
+- The unsafe-AND condition is also exact in this model: a monotone AND signal is unsafe iff it is true on some maximal independent set. Excluding the output gate from the unsafe witness is harmless because the output is constrained correct.
+- Distinct ordered predecessors remove only commutativity and idempotent redundancy. Every non-output gate being used later is valid for a minimum circuit; in the acyclic model this forces every gate to reach the final output.
+- Searching exactly s gates can support a lower bound through s: any smaller nonconstant circuit can be padded one gate at a time by applying its final operation to its output and one of that final gate's operands, preserving the function and predecessor distinctness.
+- Cycle symmetry fixing the first operands to 0 and a distance in 1..floor(n/2) is valid under dihedral automorphisms. Petersen representatives [0,1] and [0,7] represent intersecting and disjoint 2-subsets respectively. Theta symmetry enumerates all vertex permutations preserving its edges and keeps one representative for every unordered first-input pair.
+
+Recorded solver outcomes
+- C5, 6 gates: HiGHS infeasible, 45.000s.
+- C5, 7 gates: witness, 6.919s. Independently evaluated all 32 inputs; no AND signal is unsafe.
+- C6, 7 gates: original run timed out at 300.012s; symmetry-reduced run reports infeasible at 294.104s.
+- C5, 7 gates with unsafe AND: original run timed out at 300.043s; symmetry-reduced run reports infeasible at 242.669s; independent SAT timed out at 120s and supplies no corroborating UNSAT verdict.
+- C6, 8 gates with unsafe AND: timeout, no verdict.
+- C5, 8 gates with unsafe AND: witness, 7.438s. Independently evaluated all 32 inputs; exactly gate index 2 is unsafe, with independent input mask 20 (vertices 2 and 4). The script's full-cube evaluator validates output correctness; this reviewer additionally validated unsafety.
+- Theta and Petersen annealing runs found no witness in 300s. They are heuristic failures to find a witness, not exhaustive lower bounds. Their MILP runs also timed out without a verdict.
+- OR-potential enumerations completed budgets 2 for n=4 and n=5. The n=5 budget-3 run timed out after completing two levels; it does not establish the third level. Its meet-closure update is mathematically valid because the prior state is already meet-closed.
+
+Nonblocking reproducibility limitations
+- The decisive MILP infeasibility logs contain solver versions/status and complete diagnostics but no checked proof certificate. Keep the wording solver reports infeasible, never Lean-checked lower bound.
+- Historical unsymmetrized runs cannot be reproduced verbatim from the current MILP source alone: symmetry is now applied unconditionally, and logs do not capture a source hash or full invocation. The current source and its hash below do describe the symmetry-reduced model. Future runs should record argv and source hash alongside logs.
+- COUNTEREXAMPLES.md correctly distinguishes timeout, witness, and infeasibility, and explicitly says the eight-gate unsafe C5 example is not minimum and not a refutation of L-meta-1031. No stronger global conclusion is justified.
+
+Reviewed source SHA256 values
+56c81ba182a31533fef7443fbd4d80949b01769e0076d0525335aafa1e5b8b3d  results/orch/lemmas/Counterexample.py
+09fe7294d8d7ac5439513b488cbf6838c47450ce9567e0a860021f5207ee5a4a  results/orch/lemmas/CounterexampleBfsUnsafe.py
+7b54e2958626b5916a92115ab7bc89e192f515f960c12a52c51e342441d80088  results/orch/lemmas/CounterexampleMilp.py
+393f0f85692f532a9027616823d189631dfb624a25aca00ec8be7f4b0d2f82d3  results/orch/lemmas/CounterexampleSat.py
+2574f5528cb317e09086ffb5b1d3a566f6dc1e00bf6006ca6bc4b217419030b7  results/orch/lemmas/CounterexampleSearch.py
+d2603a8e7e9e46c90a4120b3490003c812e9f2dc4e9a089d271921defe4b83b6  results/orch/lemmas/CounterexampleOrPotential.py
+
+
+Independent OR-count MILP review
+UTC: 2026-11-25T01:38:33.139966+00:00
+Source: results/orch/lemmas/CounterexampleOrMilp.py
+SHA256: 1bf2efa1815417b8f96046ca4b4db0d14b156d3939980a439ddaa1d8ecdd5f18
+Verdict: PASS as an exploratory model of at most k OR gates and unrestricted AND gates. No solver run was launched during this review.
+
+Completeness of representation:
+- Order the original OR gates topologically. Each operand's intervening AND-only region flattens, by associativity and idempotence, into a conjunction of input variables, earlier OR outputs, and constants. Sharing or duplicating AND-only regions affects no charged OR count.
+- Conversely, every selected conjunction is realizable by a finite fan-in-two AND circuit with unrestricted AND count, and each modeled OR is one binary OR gate. The final conjunction adds no OR gate.
+- Empty conjunction represents true (a permitted constant AND in the public circuit model); the explicit false source represents false. A singleton conjunction represents an input or earlier OR wire. Thus constants and direct/unused outputs are covered.
+- The model permits unused OR gates. A circuit with fewer than k OR gates can be padded with unused ORs, so exactly k modeled OR nodes covers all circuits with at most k OR gates.
+- Ordering the selection bitmasks of the two operands imposes only OR commutativity. No graph-specific symmetry or mandatory-use restriction removes additional possibilities.
+
+Constraint audit:
+- For an earlier OR source q, auxiliary bad is exactly selected AND NOT q, enforced by the three binary inequalities.
+- For each sample, meet is true exactly when no selected source is false; the upper bounds and meet+sum(bad)>=1 enforce both directions, including empty conjunctions and selected true inputs.
+- OR output constraints enforce the binary OR truth table. All modeled variables have binary integrality and bounds.
+- Independently enumerated all local truth assignments for the bad-variable constraints, meet constraints with zero through four blockers, and OR-output constraints. Every feasible assignment matches the intended Boolean function.
+
+Samples and witness scope:
+- In the default mode, edge-pair positives and maximal-independent-set negatives characterize the entire monotone graph function. Returned witnesses are additionally evaluated on the entire Boolean cube.
+- The optional --pair-only mode is explicitly weaker: it tests only empty input, singletons, and pairs. A SAT witness in this mode is not a full graph-function circuit unless separately checked on all inputs. UNSAT for this relaxed model would imply UNSAT for the full model, still subject to solver trust.
+- Any claimed lower bound concerns only OR count, with arbitrary AND count. This is not yet a lower bound on total gate count or a Lean certificate.
+
+Safety and numerical limitations:
+- No credential/environment access, network clients, subprocess calls, external mutations, or file writes occur in the reviewed script.
+- Commutativity coefficients are powers of two. At the planned small graph/count budgets they are exactly representable in binary64, though their coefficient range can affect numerical solver behavior. Extremely large budgets would require a different encoding to avoid loss of exact integer representation.
+- Infeasibility remains an unverified HiGHS conclusion unless an exact proof certificate is separately checked. Source hash and invocation should accompany every new run.
+
+
+Independent pair-signature OR-potential census review
+Reviewer: reductions_review
+UTC: 2026-11-25T01:45:20.410814+00:00
+Source SHA256: 8c1d7c5a5ded71ba53cbdc123010a5c5a9dec66a92a57139f00256f322e00eb9
+Verdict: PASS as an exact finite computational search, not a Lean proof certificate.
+
+Reviewed CounterexampleOrPotential.py and OR_POTENTIAL_CENSUS.md. Restriction to empty, singleton, and two-element assignments preserves both Boolean operations and constants. Every actual monotone circuit therefore induces a projected circuit with the same OR count. Every proper monotone function has a projected signature determined exactly by its pair graph, so enumerating all 1,024 graph signatures on five inputs also covers all proper monotone full functions, irrespective of higher-order minterms. A projected witness would need independent reconstruction and full evaluation before being described as an actual counterexample.
+
+The search stores jointly available AND-closed sets, rather than independently attainable outputs. Initially all input conjunctions and both constants are included. For an AND-closed S containing true, adjoining OR value c gives exactly S union {c AND x : x in S}: any meet of several new factors reduces to one such expression. This enumerates all circuits with at most the specified OR count and unrestricted AND count. State deduplication and duplicate OR-value elimination are semantic quotients and do not remove any continuation. ORs whose value is already available can be replaced by a free conjunction, so skipping them is valid for minimum-OR search. Checking newly added targets only is sound: a target previously available was checked at a smaller budget. Initial proper targets have candidate bound zero (single-edge conjunction or empty pair graph), so the absent explicit budget-zero check does not miss a violation.
+
+The four-cycle enumeration gives the three distinct cycle edge sets on every four-vertex subset; GF(2) elimination computes their exact rank when all four edges are present. Full-function monotone recursion enumerates lower/upper truth-table halves with lower <= upper and then removes empty/singleton acceptance correctly. All arithmetic and set comparison in this census are exact integer operations. No symmetry assumption or floating-point solver is used. Script has no external mutation, network access, subprocess, or credential inspection.
+
+Observed completed full n5 projected budget-4 log: 85, 5,045, and 271,780 intermediate states; cumulative transitions 85, 8,740, 624,170, and 40,230,740; final elapsed 98.67455241000016 seconds; NO_COUNTEREXAMPLE_WITHIN_OR_BUDGET 4. Since maximum proposed lower bound is 5, this checks every possible violation on five vertices in the model. This remains computational evidence only, with no Lean certificate. An independent short rerun of n5 projected budget3 reproduced 624,170 transitions and no counterexample; independent n4 full proper-monotone budget2 reproduced 114 targets and 3,568 transitions. Logs: /tmp/oec/pequalnp-pilot-54/review-or-potential-pair-n5-k3.log and review-or-potential-relaxed-n4-k2.log. The author budget4 log is or_potential_pair_n5_k4_full.log in that directory.
+
+Documentation correction requested: OR_POTENTIAL_CENSUS.md still says the full n5 budget4 run is in progress and the source needs independent review. Both have now completed; root/author notified. Source was not edited by reviewer.
+
+
+Independent CNF OR-budget encoder and RUP certificate review
+Reviewer: reductions_review
+UTC: 2026-11-25T01:48:35.742384+00:00
+Encoder SHA256: 80735f2cfcb1a00ed671158596100e214781cd85693bc34c00485e4b5d788fd6
+Verifier SHA256: a80c1159fcafb74f393d8bc9dc1fd7d0baf468814aef94a3af84ac2637dab87a
+Verdict: PASS for observed ordinary Python3 runs with assertions enabled. This is independently checked finite computational evidence, not a Lean theorem or Lean certificate.
+
+Encoder completeness and soundness:
+- Every circuit with at most k OR gates can be topologically ordered by its OR gates. Each intervening AND-only region flattens to a conjunction of inputs, constants, and earlier OR outputs. Empty conjunction is true; a selectable false source represents false, including out-of-range reads. Extra unused OR slots pad fewer than k gates. This covers arbitrary sharing and unbounded AND-gate count.
+- The Boolean clauses define bad = selected AND NOT earlier_OR_value, meet = NOT(disjunction of all selected false factors), and OR output = left_meet OR right_meet by equivalences, not one-way relaxations.
+- Prefix-equality auxiliary clauses exactly express equality of the more significant selector bits. The ordering constraint imposes the left selector mask <= right selector mask. Swapping the two OR operands always achieves it without changing the circuit, so it introduces no completeness loss.
+- For the full graph-function model, positive edge pairs and negative maximal independent sets suffice: monotonicity extends acceptance above edges and rejection below maximal independent sets to all inputs. The --pair-only model is explicitly a relaxation; its SAT witness does not assert correct values on larger independent sets, while its UNSAT conclusion remains a valid lower bound.
+- Decoding validates every generated CNF clause and every required Boolean input. Independent reviewer evaluation of the C5 four-OR witness also checked all 1,404 clauses and all 32 inputs, truth-table integer 4293589192. All 394 variables were assigned.
+
+RUP verifier soundness:
+- Clauses are deduplicated as sets of literals. To validate a new clause, its literals are negated into a partial assignment. A tautological proposed clause is immediately sound. Every used non-satisfied hint must be unit or conflicting; unit assignment preserves satisfiability of the old formula plus negated proposed clause, and a conflict proves the proposed clause is entailed. Added clauses therefore preserve logical consequence inductively. Deletions only weaken the available database; deriving any empty clause proves the original CNF unsatisfiable even if that clause is later deleted.
+- Missing/deleted used hints, needed negative RAT hints, non-unit hints, failed RUP checks, absent derived empty clauses, bad hint terminators, nonincreasing addition IDs, malformed CNF counts, dangling clauses, and out-of-range input variables are rejected. Sixteen focused valid/invalid parser and logical tests behaved as expected. Complete test inputs and stdout/stderr: /tmp/oec/pequalnp-pilot-54/review_lrat/; summary.json records each result.
+- This is deliberately not strict validation of every LRAT grammar detail: after a contradiction or tautological proposed clause, unused trailing hints are not inspected; satisfied hints may be skipped; some otherwise harmless record/header details are tolerated. Such acceptance does not undermine the RUP entailment argument. All actual C5 proof hints are positive and its largest variable is 265, matching the CNF header, so the unused-RAT caveat is not exercised.
+- Validation relies on Python assert statements. Assertions were independently confirmed enabled (__debug__ true) for the actual ordinary python3 invocations. Optimized Python must not be used with this verifier or decoder.
+
+Rechecked C5 three-OR certificate: 939 input clauses, 794 checked additions, 362 deleted clauses; verifier exit 0. CNF SHA256 58e4a29f4385ccdecc796051462029ab07b4e1ca443e3f9d1213dcae143f288e. LRAT SHA256 a05cbfec00cb5b3c54b8c50b9702cbabe766220f313934383121834140738667, 108281 bytes. Complete independent log: /tmp/oec/pequalnp-pilot-54/review-c5-or3-lrat.log. Independent SAT/model and proof-shape checks: review-c5-model-and-proof-shape.json in the same directory. C5 four-OR CNF SHA256 dfa6d550169625d0c7894c2ecc376212bddaa6e83f8ed4bfd0454a33aec12503.
+
+No source was changed by reviewer. The encoder and verifier contain no network, credential, subprocess, or git/desk operations; writes are to explicit caller-supplied artifact paths.

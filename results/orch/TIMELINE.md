@@ -14,3 +14,6 @@
 - 2026-11-25T01:33:48.196179+00:00: lease renewed; expiry 2026-11-25T01:53:48.356Z.
 
 - 2026-11-25T01:36:03.770604+00:00: ownership_lemma: OneJunkProfile.lean compiled first attempt; exact public-model posted conclusion conditional on a globally least AO2 circuit with exactly one junk AND. Frozen for independentreview/partialpush.
+- 2026-11-25T01:42:48.501609+00:00: lease renewed; expiry 2026-11-25T02:02:48.642Z.
+
+2026-11-25T01:50:00Z: Namespace-normalized conditional target compiled; FreshCore914 concrete circuit repair and numerical research checkpoint prepared. No unconditional theorem.

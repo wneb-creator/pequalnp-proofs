@@ -1,0 +1,24 @@
+'PEqualNP.Outside.L_meta_1031.FreshCore.selectedContext_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.selected_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.selected_size' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.FreshCore.selected_ao2' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.FreshCore.selected_computes_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.selectedSignal_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.selected_first_owns_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.selected_first_center_repair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.selected_rewire_path' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.selected_owned_survives' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.selected_center_repair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.selected_prior_owns_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

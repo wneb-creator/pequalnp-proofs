@@ -1,0 +1,14 @@
+Independent reviewer: counterexample_search
+Snapshot: results/orch/lemmas/StarCover.lean, 648 lines, 30189 bytes
+SHA256: e837e390c0626d0fb76721a2cb15b00fcfd69d76458c876bcdc96bee73d22743
+Verdict: PASS for early partial push.
+
+Reviewed all construction, shape-invariant, wire-stability, and AND-ancestor arguments. The size result describes the constructed circuit; it does not claim minimality. Empty ownership lists and the first-block lead flag are handled correctly. Full declarations are scoped under PEqualNP.Outside.L_meta_1031.StarCover, with a named nested Shape namespace.
+
+No sorry, axioms, native_decide, unsafe code, initialization, compiler commands, quotes, attributes, instances, options, forbidden namespace text, or credential-like text appeared. Imports are Mathlib and PEqualNP.Defs only.
+
+Independently compiled the exact saved snapshot using the pinned Lean through lake env lean: exit 0. Warnings concern deprecated conditional simp names and unused arguments only. This helper file is partial research output, not a proof of the complete desk statement and not eligible for a standalone proof PR.
+
+Extended snapshot independently reviewed and compiled: 759 lines, SHA256 4638b520617a73522a9e7bc46448665de4c28542eaf05c9143ad9dc113d45d93. Appended encodeOwners, OwnsDirect, cover_owned_stars, cover_monotone and single_star_data are mathematically coherent. The direct ownership relation matches the posted statement definitionally; graph adjacency is supplied explicitly by witnesses. Single-star data states size U.length and does not assert minimality. Forbidden scan remains clean. Independent compile exit 0, no errors, ten benign warnings. Verdict PASS for partial push.
+
+Extended snapshot independently reviewed and compiled: 888 lines, 42335 bytes, SHA256 c0da28bb073dec49980eee3cddb79bafc067547f3557a6a92db36a772ad0cc24. The previously reviewed 759-line prefix is byte-identical. Owner-neighborhood orientation assigns edges uniquely to a vertex-cover endpoint; the sigma-to-Sym2 injection correctly handles reversed pairs using looplessness. Filtering empty neighborhoods preserves edge coverage and guarantees nonempty owned stars. Generic cover_data proves exact edge-function semantics. The bound is only an upper bound and remains valid under natural-number truncated subtraction for empty graphs. No minimum claim. Forbidden scan clean; independent compile exit0. Verdict PASS for partial push.

@@ -1,0 +1,53 @@
+ M lean/PEqualNP/Outside/L_meta_1031.lean
+ M results/orch/FRESHCORE_REVIEW.txt
+ M results/orch/NOTES.md
+ M results/orch/TIMELINE.md
+ M results/orch/lemmas/FreshCore.lean
+ M results/orch/partial-build.log
+ M results/orch/validation.txt
+?? results/orch/COUNTEREXAMPLES.md
+?? results/orch/NATIVE_SEARCH.md
+?? results/orch/OR_POTENTIAL_CENSUS.md
+?? results/orch/SEARCH_REVIEW.txt
+?? results/orch/STAR_COVER_REVIEW.txt
+?? results/orch/counterexample-c5-eight-unsafe-milp.log
+?? results/orch/counterexample-c5-milp.log
+?? results/orch/counterexample-c5-seven-milp.log
+?? results/orch/counterexample-c5-unsafe-milp.log
+?? results/orch/counterexample-c5-unsafe-sat.log
+?? results/orch/counterexample-c5-unsafe-sym-milp.log
+?? results/orch/counterexample-c6-seven-milp.log
+?? results/orch/counterexample-c6-seven-sym-milp.log
+?? results/orch/counterexample-c6-unsafe-milp.log
+?? results/orch/counterexample-five-forest-results.json
+?? results/orch/counterexample-five-forest.log
+?? results/orch/counterexample-lean-c5.log
+?? results/orch/counterexample-lean-seven.log
+?? results/orch/counterexample-or-potential-n4.log
+?? results/orch/counterexample-or-potential-n5-or3.log
+?? results/orch/counterexample-or-potential-n5.log
+?? results/orch/counterexample-or-potential-relaxed-n4.log
+?? results/orch/counterexample-or-potential-relaxed-n5.log
+?? results/orch/counterexample-small-results.json
+?? results/orch/counterexample-unsafe-small-results.json
+?? results/orch/counterexample-unsafe-small.log
+?? results/orch/freshcore-concrete-audit.log
+?? results/orch/lemmas/Counterexample.py
+?? results/orch/lemmas/CounterexampleBfsUnsafe.py
+?? results/orch/lemmas/CounterexampleLratCheck.py
+?? results/orch/lemmas/CounterexampleMilp.py
+?? results/orch/lemmas/CounterexampleOrMilp.py
+?? results/orch/lemmas/CounterexampleOrPotential.py
+?? results/orch/lemmas/CounterexampleOrSat.py
+?? results/orch/lemmas/CounterexampleSat.py
+?? results/orch/lemmas/CounterexampleSearch.py
+?? results/orch/lemmas/__pycache__/
+?? results/orch/native-c5/
+?? results/orch/or_potential_pair_n5_k3_smoke.log
+?? results/orch/or_potential_pair_n5_k4_full.log
+?? results/orch/search-run-manifest.jsonl
+?? results/orch/starcover-independent-review-build-759.log
+?? results/orch/starcover-independent-review-build-888.log
+?? results/orch/starcover-independent-review-build.log
+?? results/orch/theta15_or6_full_900.log
+?? results/orch/theta15_or6_pairs_900.log

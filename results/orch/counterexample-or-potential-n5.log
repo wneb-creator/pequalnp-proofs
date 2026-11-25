@@ -1,0 +1,4 @@
+{"n": 5, "graphs": 1024, "max_proposed_bound": 5, "initial_meet_functions": 33, "max_or": 2}
+{"or_gates": 1, "states_examined": 1, "next_states": 285, "new_functions": 285, "transitions": 285, "seconds": 0.003189203999909296}
+{"or_gates": 2, "states_examined": 285, "next_states": 0, "new_functions": 1665, "transitions": 102285, "seconds": 0.887735942000063}
+NO_COUNTEREXAMPLE_WITHIN_OR_BUDGET 2

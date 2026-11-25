@@ -1,0 +1,101 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 5 seconds real time (due to '-t 5')
+c 
+c --- [ proof tracing ] ------------------------------------------------------
+c 
+c opening file to write '/tmp/oec/pequalnp-pilot-54/c5_or4_cnf.lrat'
+c writing non-binary proof trace to '/tmp/oec/pequalnp-pilot-54/c5_or4_cnf.lrat'
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-54/c5_or4_cnf.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-54/c5_or4_cnf.cnf'
+c found 'p cnf 394 1404' header
+c parsed 1404 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c   --binary=false                 (different from default 'true')
+c   --lrat=true                    (different from default 'false')
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0 1386 354 90%
+c {  0.00  3  0 0   0    0    0  0% 0 1386 354 90%
+c i  0.00  3 25 0   0   12   11 80% 1 1386 353 90%
+c }  0.00  3 19 0  27  167  153 68% 4 1386 353 90%
+c 1  0.00  3 19 0  27  167  153 68% 4 1386 353 90%
+c 
+c --- [ closing proof ] ------------------------------------------------------
+c 
+c LRAT proof file '/tmp/oec/pequalnp-pilot-54/c5_or4_cnf.lrat' closed
+c LRAT 204 added clauses 87.93%
+c LRAT 28 deleted clauses 12.07%
+c LRAT 19012 bytes (0.02 MB)
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-54/c5_or4_cnf.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.00   96.93% search
+c         0.00   91.00% unstable
+c         0.00   23.13% parse
+c         0.00    4.53% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.00   72.78% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:                99        59.28 %  of conflicts
+c conflicts:                   167    111333.33    per second
+c decisions:                   787    524666.67    per second
+c fixed:                        41        10.41 %  of all variables
+c learned:                     163        97.60 %  per conflict
+c learned_lits:               1419       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                    257        18.11 %  learned literals
+c minishrunken:                 31         2.18 %  learned literals
+c otfs:                          3         1.80 %  of conflict
+c propagations:              11209         7.47 M  per second
+c restarts:                     27         6.19    interval
+c subsumed:                      9         0.58 %  of all clauses
+c strengthened:                  3         0.19 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.00    seconds
+c total real time since initialization:            0.00    seconds
+c maximum resident set size of process:            3.15    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

@@ -1,0 +1,62 @@
+{"n": 5, "gates": 8, "samples": [[3, 1], [6, 1], [12, 1], [24, 1], [17, 1], [5, 0], [9, 0], [10, 0], [18, 0], [20, 0]], "variables": 419, "constraints": 3314}
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 1e+01]
+  Cost   [0e+00, 0e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 2e+00]
+Presolving model
+2451 rows, 393 cols, 6835 nonzeros  0s
+1869 rows, 361 cols, 5503 nonzeros  0s
+1772 rows, 361 cols, 5397 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   1772 rows
+   361 cols (361 binary, 0 integer, 0 implied int., 0 continuous)
+   5397 nonzeros
+MIP-Timing:        0.03 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.0s
+         0       0         0   0.00%   0               inf                  inf        0      0      6       173     0.0s
+
+4.2% inactive integer columns, restarting
+Model after restart has 1567 rows, 336 cols (336 bin., 0 int., 0 impl., 0 cont.), and 4740 nonzeros
+
+MIP-Timing:         3.1 - starting analytic centre calculation
+         0       0         0   0.00%   0               inf                  inf       29      0      0      9700     3.1s
+         0       0         0   0.00%   0               inf                  inf       29      8      2      9758     3.1s
+ T     818       0       291 100.00%   0               0                  0.00%     4282     20   3449     39422     7.4s
+       823       0       292 100.00%   0               0                  0.00%     4282     20   3449     39524     7.4s
+
+Solving report
+  Status            Optimal
+  Primal bound      0
+  Dual bound        0
+  Gap               0% (tolerance: 0.01%)
+  P-D integral      0
+  Solution status   feasible
+                    0 (objective)
+                    0 (bound viol.)
+                    3.33066907388e-15 (int. viol.)
+                    0 (row viol.)
+  Timing            7.43 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 4
+  Nodes             823
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     39524 (total)
+                    0 (strong br.)
+                    1599 (separation)
+                    21075 (heuristics)
+time 7.437679215999992 status 0 message Optimization terminated successfully. (HiGHS Status 7: Optimal)
+WITNESS [('or', [0, 2]), ('or', [1, 4]), ('and', [5, 6]), ('or', [0, 1]), ('or', [2, 4]), ('and', [3, 9]), ('and', [7, 8]), ('or', [10, 11])]

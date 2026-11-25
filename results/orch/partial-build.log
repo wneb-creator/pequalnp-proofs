@@ -1,94 +1,94 @@
-⚠ [18247/18259] Replayed PEqualNP.Defs.Base
+⚠ [18247/18321] Replayed PEqualNP.Defs.Base
 warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18248/18259] Ran PEqualNP.Defs.Base:irArts
+⚠ [18248/18321] Ran PEqualNP.Defs.Base:irArts
 warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Base.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18252/18423] Replayed PEqualNP.Defs.CircuitLowerBounds
+⚠ [18251/18321] Replayed PEqualNP.Defs.CircuitLowerBounds
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.Polynomial.Eval.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18253/18423] Ran PEqualNP.Defs.CircuitLowerBounds:irArts
+⚠ [18252/18321] Ran PEqualNP.Defs.CircuitLowerBounds:irArts
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.Polynomial.Eval.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CircuitLowerBounds.lean: imports `Mathlib.Computability.TuringMachine.Computable` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18254/18423] Replayed PEqualNP.Defs.MetaComplexity
+⚠ [18253/18321] Replayed PEqualNP.Defs.MetaComplexity
 warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Data.Set.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18255/18423] Ran PEqualNP.Defs.MetaComplexity:irArts
+⚠ [18254/18321] Ran PEqualNP.Defs.MetaComplexity:irArts
 warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/MetaComplexity.lean: imports `Mathlib.Data.Set.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18256/18423] Replayed PEqualNP.Defs.MetaComplexityLocal
+⚠ [18255/18321] Replayed PEqualNP.Defs.MetaComplexityLocal
 warning: PEqualNP/Defs/MetaComplexityLocal.lean: imports `Mathlib.Data.Nat.Log` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18257/18423] Ran PEqualNP.Defs.MetaComplexityLocal:irArts
+⚠ [18256/18321] Ran PEqualNP.Defs.MetaComplexityLocal:irArts
 warning: PEqualNP/Defs/MetaComplexityLocal.lean: imports `Mathlib.Data.Nat.Log` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18258/18423] Replayed PEqualNP.Defs.MetaComplexitySparse
+⚠ [18257/18321] Replayed PEqualNP.Defs.MetaComplexitySparse
 warning: PEqualNP/Defs/MetaComplexitySparse.lean: imports `Mathlib.Data.List.OfFn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18259/18423] Ran PEqualNP.Defs.MetaComplexitySparse:irArts
+⚠ [18258/18321] Ran PEqualNP.Defs.MetaComplexitySparse:irArts
 warning: PEqualNP/Defs/MetaComplexitySparse.lean: imports `Mathlib.Data.List.OfFn` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18270/18423] Replayed PEqualNP.Defs.ProofComplexity
+⚠ [18269/18321] Replayed PEqualNP.Defs.ProofComplexity
 warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Finset.Image` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18271/18423] Ran PEqualNP.Defs.ProofComplexity:irArts
+⚠ [18270/18321] Ran PEqualNP.Defs.ProofComplexity:irArts
 warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Finset.Image` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexity.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18272/18423] Replayed PEqualNP.Defs.ProofComplexityLin
+⚠ [18271/18321] Replayed PEqualNP.Defs.ProofComplexityLin
 warning: PEqualNP/Defs/ProofComplexityLin.lean: imports `Mathlib.Algebra.Ring.Parity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18273/18423] Ran PEqualNP.Defs.ProofComplexityLin:irArts
+⚠ [18272/18321] Ran PEqualNP.Defs.ProofComplexityLin:irArts
 warning: PEqualNP/Defs/ProofComplexityLin.lean: imports `Mathlib.Algebra.Ring.Parity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18276/18423] Replayed PEqualNP.Defs.ProofComplexityLift
+⚠ [18275/18321] Replayed PEqualNP.Defs.ProofComplexityLift
 warning: PEqualNP/Defs/ProofComplexityLift.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18277/18423] Ran PEqualNP.Defs.ProofComplexityLift:irArts
+⚠ [18276/18321] Ran PEqualNP.Defs.ProofComplexityLift:irArts
 warning: PEqualNP/Defs/ProofComplexityLift.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18282/18423] Replayed PEqualNP.Defs.ProofComplexityBit
+⚠ [18281/18321] Replayed PEqualNP.Defs.ProofComplexityBit
 warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.LinearAlgebra.Dimension.Finrank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.LinearAlgebra.Span.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18283/18423] Ran PEqualNP.Defs.ProofComplexityBit:irArts
+⚠ [18282/18321] Ran PEqualNP.Defs.ProofComplexityBit:irArts
 warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.LinearAlgebra.Dimension.Finrank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityBit.lean: imports `Mathlib.LinearAlgebra.Span.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18284/18423] Replayed PEqualNP.Defs.ProofComplexityPC
+⚠ [18283/18321] Replayed PEqualNP.Defs.ProofComplexityPC
 warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18285/18423] Ran PEqualNP.Defs.ProofComplexityPC:irArts
+⚠ [18284/18321] Ran PEqualNP.Defs.ProofComplexityPC:irArts
 warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityPC.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18286/18423] Replayed PEqualNP.Defs.ProofComplexityMoment
+⚠ [18285/18321] Replayed PEqualNP.Defs.ProofComplexityMoment
 warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18287/18423] Ran PEqualNP.Defs.ProofComplexityMoment:irArts
+⚠ [18286/18321] Ran PEqualNP.Defs.ProofComplexityMoment:irArts
 warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityMoment.lean: imports `Mathlib.Data.Fintype.Prod` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18288/18423] Replayed PEqualNP.Defs.ProofComplexityChain
+⚠ [18287/18321] Replayed PEqualNP.Defs.ProofComplexityChain
 warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Algebra.MvPolynomial.Rename` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Algebra.MvPolynomial.Eval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Data.Nat.Bitwise` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18289/18423] Ran PEqualNP.Defs.ProofComplexityChain:irArts
+⚠ [18288/18321] Ran PEqualNP.Defs.ProofComplexityChain:irArts
 warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Algebra.MvPolynomial.Rename` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Algebra.MvPolynomial.Eval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/ProofComplexityChain.lean: imports `Mathlib.Data.Nat.Bitwise` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18292/18423] Replayed PEqualNP.Defs.Search
+⚠ [18291/18321] Replayed PEqualNP.Defs.Search
 warning: PEqualNP/Defs/Search.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Search.lean: imports `Mathlib.Data.Nat.Bits` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18293/18423] Ran PEqualNP.Defs.Search:irArts
+⚠ [18292/18321] Ran PEqualNP.Defs.Search:irArts
 warning: PEqualNP/Defs/Search.lean: imports `Mathlib.Computability.Language` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Search.lean: imports `Mathlib.Data.Nat.Bits` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18294/18423] Replayed PEqualNP.Defs.SearchQ
+⚠ [18293/18321] Replayed PEqualNP.Defs.SearchQ
 warning: PEqualNP/Defs/SearchQ.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchQ.lean: imports `Mathlib.Data.Nat.Size` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18295/18423] Ran PEqualNP.Defs.SearchQ:irArts
+⚠ [18294/18321] Ran PEqualNP.Defs.SearchQ:irArts
 warning: PEqualNP/Defs/SearchQ.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchQ.lean: imports `Mathlib.Data.Nat.Size` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18304/18423] Replayed PEqualNP.Defs.SearchSoS
+⚠ [18303/18321] Replayed PEqualNP.Defs.SearchSoS
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.MvPolynomial.Eval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.Order.Ring.Star` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
@@ -98,14 +98,14 @@ warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Order.SymmDiff` from pac
 warning: PEqualNP/Defs/SearchSoS.lean:4:0: 'Mathlib.Data.Real.Basic' has been deprecated: please replace this import by
 
 import Mathlib.Basic.Real.Basic
-⚠ [18305/18423] Ran PEqualNP.Defs.SearchSoS:irArts
+⚠ [18304/18321] Ran PEqualNP.Defs.SearchSoS:irArts
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.MvPolynomial.Eval` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Algebra.Order.Ring.Star` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Data.Real.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.LinearAlgebra.Span.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/SearchSoS.lean: imports `Mathlib.Order.SymmDiff` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18306/18423] Replayed PEqualNP.Defs.Gct
+⚠ [18305/18321] Replayed PEqualNP.Defs.Gct
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.Permanent` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.MvPolynomial` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
@@ -115,7 +115,7 @@ warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.RingTheory.MvPolynomial.Homoge
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Analysis.Complex.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Algebra.MvPolynomial.PDeriv` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.Rank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18307/18423] Ran PEqualNP.Defs.Gct:irArts
+⚠ [18306/18321] Ran PEqualNP.Defs.Gct:irArts
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.Permanent` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.MvPolynomial` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
@@ -125,23 +125,23 @@ warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.RingTheory.MvPolynomial.Homoge
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Analysis.Complex.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.Algebra.MvPolynomial.PDeriv` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Gct.lean: imports `Mathlib.LinearAlgebra.Matrix.Rank` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18310/18423] Replayed PEqualNP.Defs.Algebraic
+⚠ [18309/18321] Replayed PEqualNP.Defs.Algebraic
 warning: PEqualNP/Defs/Algebraic.lean: imports `Mathlib.FieldTheory.Finite.GaloisField` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Algebraic.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18311/18423] Ran PEqualNP.Defs.Algebraic:irArts
+⚠ [18310/18321] Ran PEqualNP.Defs.Algebraic:irArts
 warning: PEqualNP/Defs/Algebraic.lean: imports `Mathlib.FieldTheory.Finite.GaloisField` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/Algebraic.lean: imports `Mathlib.Algebra.MvPolynomial.Degrees` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18314/18423] Replayed PEqualNP.Defs.RiffleRank
+⚠ [18313/18321] Replayed PEqualNP.Defs.RiffleRank
 warning: PEqualNP/Defs/RiffleRank.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/RiffleRank.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18315/18423] Ran PEqualNP.Defs.RiffleRank:irArts
+⚠ [18314/18321] Ran PEqualNP.Defs.RiffleRank:irArts
 warning: PEqualNP/Defs/RiffleRank.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/RiffleRank.lean: imports `Mathlib.Data.Fintype.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18318/18423] Replayed PEqualNP.Defs.CoverPromise
+⚠ [18317/18321] Replayed PEqualNP.Defs.CoverPromise
 warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Data.Finset.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18319/18423] Ran PEqualNP.Defs.CoverPromise:irArts
+⚠ [18318/18321] Ran PEqualNP.Defs.CoverPromise:irArts
 warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Combinatorics.SimpleGraph.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Data.Finset.Sum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
 warning: PEqualNP/Defs/CoverPromise.lean: imports `Mathlib.Data.Finset.Lattice.Fold` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
@@ -354,296 +354,296 @@ warning: PEqualNP/Defs/Represents.lean:56:4: The namespace `Represents` is dupli
 Note: This linter can be disabled with `set_option linter.dupNamespace false`
 ⚠ [18417/18423] Ran PEqualNP.Defs.Represents:irArts
 warning: PEqualNP/Defs/Represents.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [18422/18423] Built PEqualNP.Outside.L_meta_1031 (47s)
+⚠ [18422/18423] Built PEqualNP.Outside.L_meta_1031 (37s)
 warning: PEqualNP/Outside/L_meta_1031.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: PEqualNP/Outside/L_meta_1031.lean:95:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:97:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:232:54: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:234:54: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:239:57: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:241:57: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:249:30: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:251:30: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:250:30: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:252:30: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:252:30: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:254:30: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:252:49: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:254:49: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:253:30: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:255:30: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:322:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:324:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:329:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:331:6: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:336:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:338:6: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:349:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:351:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:466:33: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:468:33: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:466:52: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:468:52: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:471:24: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:473:24: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:599:70: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:601:70: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:603:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:605:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:604:53: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:606:53: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:608:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:610:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:610:14: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:612:14: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:611:55: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:613:55: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:622:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:624:14: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:623:59: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:625:59: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:643:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:645:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:646:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:648:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:648:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:650:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:650:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:652:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:672:43: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:674:43: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:673:47: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:675:47: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:870:47: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:872:47: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:1090:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:1092:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:1092:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:1094:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:1142:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:1144:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:1143:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:1145:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:1145:25: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:1147:25: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:1155:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:1157:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:1156:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:1158:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:1158:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:1160:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:2743:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:2745:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:4581:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:4583:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:4590:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:4592:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:7061:48: Variable name `hw` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:7063:48: Variable name `hw` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hw
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:7989:5: Variable name `htri` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:7991:5: Variable name `htri` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _htri
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:7994:5: Variable name `hformU` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:7996:5: Variable name `hformU` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hformU
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:7994:32: Variable name `hformZ` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:7996:32: Variable name `hformZ` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hformZ
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:8100:5: Variable name `htri` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:8102:5: Variable name `htri` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _htri
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:8105:5: Variable name `hformU` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:8107:5: Variable name `hformU` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hformU
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:8105:32: Variable name `hformZ` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:8107:32: Variable name `hformZ` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hformZ
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:8111:5: Variable name `hP2` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:8113:5: Variable name `hP2` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hP2
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:8111:44: Variable name `hQ2` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:8113:44: Variable name `hQ2` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hQ2
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:8197:5: Variable name `hformU` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:8199:5: Variable name `hformU` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hformU
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:8197:32: Variable name `hformZ` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:8199:32: Variable name `hformZ` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hformZ
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:8201:5: Variable name `hUne` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:8203:5: Variable name `hUne` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hUne
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:8596:5: Variable name `htri` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:8598:5: Variable name `htri` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _htri
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:8716:5: Variable name `hformU` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:8718:5: Variable name `hformU` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hformU
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:8716:32: Variable name `hformZ` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:8718:32: Variable name `hformZ` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hformZ
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:9404:17: `if_true` has been deprecated: Use `ite_true` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:9406:17: `if_true` has been deprecated: Use `ite_true` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
-warning: PEqualNP/Outside/L_meta_1031.lean:9413:37: `if_false` has been deprecated: Use `ite_false` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:9415:37: `if_false` has been deprecated: Use `ite_false` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
-warning: PEqualNP/Outside/L_meta_1031.lean:9473:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:9475:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:9499:43: `if_true` has been deprecated: Use `ite_true` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:9501:43: `if_true` has been deprecated: Use `ite_true` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
-warning: PEqualNP/Outside/L_meta_1031.lean:9509:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: PEqualNP/Outside/L_meta_1031.lean:9511:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
   i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
-warning: PEqualNP/Outside/L_meta_1031.lean:9773:53: This simp argument is unused:
+warning: PEqualNP/Outside/L_meta_1031.lean:9775:53: This simp argument is unused:
   Nat.add_assoc
 
 Hint: Omit it from the simp argument list.
   [apply] simp [List.foldl_cons, ih, step, Nat.add_comm, Nat.add_left_comm]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: PEqualNP/Outside/L_meta_1031.lean:9799:15: Variable name `hB` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:9801:15: Variable name `hB` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _hB
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: PEqualNP/Outside/L_meta_1031.lean:9800:7: Variable name `ha` is not explicitly referenced.
+warning: PEqualNP/Outside/L_meta_1031.lean:9802:7: Variable name `ha` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _ha

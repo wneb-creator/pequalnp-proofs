@@ -1,0 +1,4 @@
+{"n": 4, "targets": 114, "relaxed": true, "max_proposed_bound": 3, "initial_meet_functions": 17, "max_or": 2}
+{"or_gates": 1, "states_examined": 1, "next_states": 55, "new_functions": 55, "transitions": 55, "seconds": 0.0003699659998801508}
+{"or_gates": 2, "states_examined": 55, "next_states": 0, "new_functions": 123, "transitions": 3568, "seconds": 0.0258428519998688}
+NO_COUNTEREXAMPLE_WITHIN_OR_BUDGET 2

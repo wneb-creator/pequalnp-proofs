@@ -1,0 +1,6 @@
+{"n": 5, "targets": 1024, "relaxed": true, "pair_signatures": true, "max_proposed_bound": 5, "initial_meet_functions": 17, "max_or": 4}
+{"or_gates": 1, "states_examined": 1, "next_states": 85, "new_functions": 85, "transitions": 85, "seconds": 0.0006514980000247306}
+{"or_gates": 2, "states_examined": 85, "next_states": 5045, "new_functions": 335, "transitions": 8740, "seconds": 0.05701452600033008}
+{"or_gates": 3, "states_examined": 5045, "next_states": 271780, "new_functions": 790, "transitions": 624170, "seconds": 3.2844575100002658}
+{"or_gates": 4, "states_examined": 271780, "next_states": 0, "new_functions": 1293, "transitions": 40230740, "seconds": 98.67455241000016}
+NO_COUNTEREXAMPLE_WITHIN_OR_BUDGET 4

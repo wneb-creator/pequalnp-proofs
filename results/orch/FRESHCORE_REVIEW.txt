@@ -26,3 +26,22 @@ Validation:
 - Audited exact_iff_interval, least_signal_exact, greatest_signal_exact, center_rewire, residual_side_subsingleton, failed_bypass_certificate, pivotal_repair_cases, disjoint_support_repair, realize_exact, realize_pivotal, realize_negative.
 - Every audited declaration uses only propext, Classical.choice, Quot.sound; realize_negative uses no axioms.
 - Complete audit output: /tmp/oec/pequalnp-pilot-54/freshcore-review-axioms.log.
+
+
+Independent concrete extension review
+Reviewer: reductions_review
+UTC: 2026-11-25T01:45:20.410814+00:00
+SHA256: 2acb5f0f035d8cb16963240e75e78cf35e50a786c1ed8fc77dede55fc5a1c60f
+Verdict: PASS for a compiled partial artifact; not a completed L-meta-1031 proof.
+
+Reviewed full 914-line frozen source; the first 444 lines match the previously audited semantic prefix. The new extension constructs an actual circuit context by evaluating the prefix, substituting one Boolean gate result, and evaluating the suffix. selected_eval and selected_computes_iff relate this context exactly to public Circuit.eval and graph-edge existence. selected_size preserves the number of gates under the one-gate substitution. selected_ao2 preserves the public AND/OR, fan-in-at-most-two legality predicate; its name does not mean the stronger TopForm.IsAO2 predicate with backward-wire and exact-arity requirements.
+
+SelectedRead is the posted wire-read relation. SelectedOwn is the posted truth/no-earlier-true-AND-ancestor predicate; by itself it does not assert that the selected gate exists or is an AND. The repair lemmas apply it to an explicitly present AND gate. The earlier-ownership theorem correctly preserves this raw ownership predicate; earlier gate identities are unchanged as well.
+
+selected_center_repair retains explicit assumptions: old circuit public legality and correctness, the first operand accepting the singleton center, a graph edge incident to the center already owned at the selected gate, and every pivotal edge incident to that center. Under those assumptions it changes the first operand to the center input, preserving gate count, public legality, and exact graph evaluation, and proves a nonempty star of owned edges. The new literal wire cannot create an earlier-gate dependency; selected_rewire_path uses the source-index lower bound to establish the needed path containment. selected_owned_survives proves preservation of a specified center-incident owned edge. selected_prior_owns_iff preserves ownership at every earlier gate for an arbitrary selected-gate substitution.
+
+No implicit existence, strict cost improvement, minimum-circuit theorem, or global descent/potential argument is claimed. Finding a center with the stated hypotheses remains open. The all-prefix-OR first-gate variants correctly keep their stronger hypothesis explicit.
+
+Format/security checks remain clean: imports only at top, all declarations under PEqualNP.Outside.L_meta_1031.FreshCore, no sorry/new axioms/native_decide, no forbidden root spelling, strings, attributes, unsafe code, custom syntax, or option changes.
+
+Independent recompilation of the exact source plus twelve #print axioms commands passed with exit 0. Audited selectedContext_mono, selected_eval, selected_size, selected_ao2, selected_computes_iff, selectedSignal_at, selected_first_owns_iff, selected_first_center_repair, selected_rewire_path, selected_owned_survives, selected_center_repair, selected_prior_owns_iff. Dependencies are only propext, Classical.choice, Quot.sound. Complete audit log: /tmp/oec/pequalnp-pilot-54/freshcore-concrete-review-axioms-confirm.log.

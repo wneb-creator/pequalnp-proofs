@@ -442,4 +442,473 @@ lemma realize_negative {V : Type*} {G H : SimpleGraph V} (hHG : H ≤ G)
     · exact hn
   · exact fun hn => Or.inr ⟨trivial, Or.inr hn⟩
 
+open PEqualNP.CircuitLowerBounds
+
+def selectedLe (x y : List Bool) : Prop :=
+  List.Forall₂ (fun a b => a = true → b = true) x y
+
+lemma selectedLe_get {x y : List Bool} (h : selectedLe x y) (i : ℕ) :
+    x.getD i false = true → y.getD i false = true := by
+  induction h generalizing i with
+  | nil => cases i <;> simp
+  | cons hab _ ih =>
+    cases i with
+    | zero => exact hab
+    | succ j => exact ih j
+
+def selectedValue (g : Gate) (w : List Bool) : Bool :=
+  g.op.eval (g.inputs.map fun i => w.getD i false)
+
+def selectedStep (w : List Bool) (g : Gate) : List Bool := w ++ [selectedValue g w]
+
+lemma selectedValue_mono {g : Gate} (hgate : g.op = GateOp.and ∨ g.op = GateOp.or)
+    {x y : List Bool} (h : selectedLe x y) :
+    selectedValue g x = true → selectedValue g y = true := by
+  rcases hgate with hop | hop
+  · simp only [selectedValue, hop, GateOp.eval, List.all_map, List.all_eq_true,
+      Function.comp_apply, id_eq]
+    intro hx i hi
+    exact selectedLe_get h i (hx i hi)
+  · simp only [selectedValue, hop, GateOp.eval, List.any_map, List.any_eq_true,
+      Function.comp_apply, id_eq]
+    rintro ⟨i, hi, hx⟩
+    exact ⟨i, hi, selectedLe_get h i hx⟩
+
+lemma selectedFold_mono (s : List Gate)
+    (hgate : ∀ g ∈ s, g.op = GateOp.and ∨ g.op = GateOp.or)
+    {x y : List Bool} (h : selectedLe x y) :
+    selectedLe (s.foldl selectedStep x) (s.foldl selectedStep y) := by
+  induction s generalizing x y with
+  | nil => exact h
+  | cons g gs ih =>
+    exact ih (fun i hi => hgate i (List.mem_cons_of_mem _ hi))
+      (List.rel_append h (.cons (selectedValue_mono (hgate g (by simp)) h) .nil))
+
+noncomputable def selectedInput {n : ℕ} (X : Set (Fin n)) : List Bool := by
+  classical
+  exact List.ofFn (fun i : Fin n => decide (i ∈ X))
+
+lemma selectedInput_mono {n : ℕ} {X Y : Set (Fin n)} (h : X ⊆ Y) :
+    selectedLe (selectedInput X) (selectedInput Y) := by
+  classical
+  apply List.forall₂_of_length_eq_of_get
+  · simp [selectedInput]
+  · intro i hi hj
+    simp only [selectedInput, List.get_eq_getElem, List.getElem_ofFn,
+      decide_eq_true_eq]
+    exact fun hx => h hx
+
+def selectedCircuit (pre : List Gate) (g : Gate) (post : List Gate) (out : ℕ) :
+    Circuit := ⟨pre ++ g :: post, out⟩
+
+noncomputable def selectedSignal {n : ℕ} (pre : List Gate) (g : Gate)
+    (X : Set (Fin n)) : Prop :=
+  selectedValue g (pre.foldl selectedStep (selectedInput X)) = true
+
+noncomputable def selectedContext {n : ℕ} (pre post : List Gate) (out : ℕ)
+    (X : Set (Fin n)) (p : Prop) : Prop := by
+  classical
+  exact (post.foldl selectedStep
+    (pre.foldl selectedStep (selectedInput X) ++ [decide p])).getD out false = true
+
+lemma selectedSignal_mono {n : ℕ} (pre : List Gate) (g : Gate)
+    (hp : ∀ a ∈ pre, a.op = GateOp.and ∨ a.op = GateOp.or)
+    (hg : g.op = GateOp.and ∨ g.op = GateOp.or) : SignalMono (selectedSignal (n := n) pre g) := by
+  intro X Y h
+  exact selectedValue_mono hg (selectedFold_mono pre hp (selectedInput_mono h))
+
+lemma selectedContext_mono {n : ℕ} (pre post : List Gate) (out : ℕ)
+    (hp : ∀ a ∈ pre, a.op = GateOp.and ∨ a.op = GateOp.or)
+    (hs : ∀ a ∈ post, a.op = GateOp.and ∨ a.op = GateOp.or) :
+    ContextMono (selectedContext (n := n) pre post out) := by
+  classical
+  intro X Y p q hXY hpq
+  apply selectedLe_get (i := out)
+  apply selectedFold_mono post hs
+  apply List.rel_append (selectedFold_mono pre hp (selectedInput_mono hXY))
+  apply List.Forall₂.cons _ .nil
+  simpa using hpq
+
+lemma selected_eval {n : ℕ} (pre post : List Gate) (out : ℕ) (g : Gate)
+    (X : Set (Fin n)) :
+    (selectedCircuit pre g post out).eval (selectedInput X) = true ↔
+      selectedContext pre post out X (selectedSignal pre g X) := by
+  classical
+  let w := pre.foldl selectedStep (selectedInput X)
+  let b := selectedValue g w
+  change ((pre ++ g :: post).foldl selectedStep (selectedInput X)).getD out false = true ↔ _
+  rw [List.foldl_append, List.foldl_cons]
+  change (post.foldl selectedStep (w ++ [b])).getD out false = true ↔
+    (post.foldl selectedStep (w ++ [@decide (b = true) (Classical.propDecidable _)] )).getD
+      out false = true
+  have hdec : @decide (b = true) (Classical.propDecidable _) = b := by
+    cases b <;> simp
+  rw [hdec]
+
+lemma selected_size (pre post : List Gate) (out : ℕ) (g h : Gate) :
+    (selectedCircuit pre g post out).size = (selectedCircuit pre h post out).size := by
+  simp [selectedCircuit, Circuit.size]
+
+lemma selected_ao2 (pre post : List Gate) (out : ℕ) (g h : Gate)
+    (hC : ∀ i ∈ (selectedCircuit pre g post out).gates,
+      (i.op = GateOp.and ∨ i.op = GateOp.or) ∧ i.inputs.length ≤ 2)
+    (hh : (h.op = GateOp.and ∨ h.op = GateOp.or) ∧ h.inputs.length ≤ 2) :
+    ∀ i ∈ (selectedCircuit pre h post out).gates,
+      (i.op = GateOp.and ∨ i.op = GateOp.or) ∧ i.inputs.length ≤ 2 := by
+  intro i hi
+  change i ∈ pre ++ h :: post at hi
+  rcases List.mem_append.mp hi with hi | hi
+  · exact hC i (List.mem_append_left _ hi)
+  · rcases List.mem_cons.mp hi with rfl | hi
+    · exact hh
+    · exact hC i (List.mem_append_right _ (List.mem_cons_of_mem _ hi))
+
+lemma selected_split {C : Circuit} {t : ℕ} {g : Gate} (ht : C.gates[t]? = some g) :
+    selectedCircuit (C.gates.take t) g (C.gates.drop (t + 1)) C.output = C := by
+  obtain ⟨hlt, hg⟩ := List.getElem?_eq_some_iff.mp ht
+  have hlist : C.gates.take t ++ g :: C.gates.drop (t + 1) = C.gates := by
+    rw [← hg, ← List.drop_eq_getElem_cons hlt, List.take_append_drop]
+  cases C
+  simp only [selectedCircuit, hlist]
+
+lemma selectedFold_append (pre : List Gate) (w : List Bool) :
+    ∃ tail, pre.foldl selectedStep w = w ++ tail := by
+  induction pre generalizing w with
+  | nil => exact ⟨[], by simp⟩
+  | cons g gs ih =>
+    obtain ⟨tail, ht⟩ := ih (selectedStep w g)
+    refine ⟨[selectedValue g w] ++ tail, ?_⟩
+    simpa only [List.foldl_cons, selectedStep, List.append_assoc] using ht
+
+noncomputable def selectedWire {n : ℕ} (pre : List Gate) (i : ℕ)
+    (X : Set (Fin n)) : Prop :=
+  (pre.foldl selectedStep (selectedInput X)).getD i false = true
+
+lemma selectedWire_literal {n : ℕ} (pre : List Gate) (c : Fin n) (X : Set (Fin n)) :
+    selectedWire pre c X ↔ c ∈ X := by
+  classical
+  obtain ⟨tail, ht⟩ := selectedFold_append pre (selectedInput X)
+  have hc : c.val < (selectedInput X).length := by simp [selectedInput]
+  unfold selectedWire
+  rw [ht, List.getD_eq_getElem?_getD, List.getElem?_append_left hc,
+    List.getElem?_eq_getElem hc, Option.getD_some]
+  simp [selectedInput]
+
+lemma selectedSignal_binaryAnd {n : ℕ} (pre : List Gate) (i j : ℕ) (X : Set (Fin n)) :
+    selectedSignal pre ⟨GateOp.and, [i, j]⟩ X ↔ selectedWire pre i X ∧ selectedWire pre j X := by
+  simp [selectedSignal, selectedValue, GateOp.eval, selectedWire]
+
+lemma selectedSignal_literalAnd {n : ℕ} (pre : List Gate) (c : Fin n) (j : ℕ)
+    (X : Set (Fin n)) :
+    selectedSignal pre ⟨GateOp.and, [c, j]⟩ X ↔ c ∈ X ∧ selectedWire pre j X := by
+  rw [selectedSignal_binaryAnd, selectedWire_literal]
+
+lemma selectedInput_support {n : ℕ} (x : Fin n → Bool) :
+    selectedInput {i | x i = true} = List.ofFn x := by
+  classical
+  unfold selectedInput
+  congr 1
+  funext i
+  change @decide (x i = true) (Classical.propDecidable _) = x i
+  cases x i <;> simp
+
+lemma selectedWire_mono {n : ℕ} (pre : List Gate) (i : ℕ)
+    (hp : ∀ a ∈ pre, a.op = GateOp.and ∨ a.op = GateOp.or) :
+    SignalMono (selectedWire (n := n) pre i) := by
+  intro X Y h
+  exact selectedLe_get (selectedFold_mono pre hp (selectedInput_mono h)) i
+
+lemma selected_computes_iff {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (pre post : List Gate) (out : ℕ) (g : Gate) :
+    (∀ x : Fin n → Bool, (selectedCircuit pre g post out).eval (List.ofFn x) =
+      decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true)) ↔
+    ∀ X : Set (Fin n), selectedContext pre post out X (selectedSignal pre g X) ↔
+      ∃ u ∈ X, ∃ v ∈ X, G.Adj u v := by
+  classical
+  constructor
+  · intro h X
+    rw [← selected_eval]
+    unfold selectedInput
+    rw [h]
+    simp only [decide_eq_true_eq]
+    constructor
+    · rintro ⟨u, v, he, hu, hv⟩
+      exact ⟨u, hu, v, hv, he⟩
+    · rintro ⟨u, hu, v, hv, he⟩
+      exact ⟨u, v, he, hu, hv⟩
+  · intro h x
+    specialize h {i | x i = true}
+    rw [← selected_eval, selectedInput_support] at h
+    rw [Bool.eq_iff_iff, h, decide_eq_true_eq]
+    constructor
+    · rintro ⟨u, hu, v, hv, he⟩
+      exact ⟨u, v, he, hu, hv⟩
+    · rintro ⟨u, v, he, hu, hv⟩
+      exact ⟨u, hu, v, hv, he⟩
+
+lemma selectedFold_length (pre : List Gate) (w : List Bool) :
+    (pre.foldl selectedStep w).length = w.length + pre.length := by
+  induction pre generalizing w with
+  | nil => simp
+  | cons a s ih =>
+    rw [List.foldl_cons, ih]
+    simp [selectedStep, Nat.add_comm, Nat.add_left_comm]
+
+lemma selectedSignal_at {n : ℕ} (pre post : List Gate) (out : ℕ) (g : Gate)
+    (X : Set (Fin n)) : selectedSignal pre g X ↔
+    ((selectedCircuit pre g post out).wires (selectedInput X)).getD (n + pre.length) false = true := by
+  change _ ↔ (((pre ++ g :: post).foldl selectedStep (selectedInput X)).getD _ false = true)
+  rw [List.foldl_append, List.foldl_cons]
+  obtain ⟨tail, ht⟩ := selectedFold_append post (selectedStep (pre.foldl selectedStep (selectedInput X)) g)
+  rw [ht]
+  have hw : (pre.foldl selectedStep (selectedInput X)).length = n + pre.length := by
+    simp [selectedFold_length, selectedInput]
+  have hw' : n + pre.length < (selectedStep (pre.foldl selectedStep (selectedInput X)) g).length := by
+    simp [selectedStep, hw]
+  rw [List.getD_eq_getElem?_getD, List.getElem?_append_left hw']
+  simp [selectedSignal, selectedStep, hw]
+
+lemma selectedInput_pair {n : ℕ} (u v : Fin n) :
+    selectedInput {u, v} = List.ofFn (fun k : Fin n => decide (k = u ∨ k = v)) := by
+  classical
+  unfold selectedInput
+  congr 1
+  funext k
+  simp
+
+def SelectedRead (n : ℕ) (C : Circuit) (a b : ℕ) : Prop :=
+  a < b ∧ ∃ k h, b = n + k ∧ C.gates[k]? = some h ∧ a ∈ h.inputs
+
+lemma selectedRead_lt {n : ℕ} {C : Circuit} {a b : ℕ}
+    (hp : Relation.TransGen (SelectedRead n C) a b) : a < b := by
+  induction hp with
+  | single h => exact h.1
+  | tail _ h ih => exact ih.trans h.1
+
+def SelectedOwn {n : ℕ} (C : Circuit) (t : ℕ) (u v : Fin n) : Prop :=
+  ((C.wires (List.ofFn (fun k : Fin n => decide (k = u ∨ k = v)))).getD (n + t) false = true) ∧
+  ∀ t' (g' : Gate), C.gates[t']? = some g' → g'.op = GateOp.and →
+    Relation.TransGen (SelectedRead n C) (n + t') (n + t) →
+    (C.wires (List.ofFn (fun k : Fin n => decide (k = u ∨ k = v)))).getD (n + t') false = false
+
+lemma selected_first_owns_iff {n : ℕ} (pre post : List Gate) (out : ℕ)
+    (g : Gate) (hp : ∀ a ∈ pre, a.op = GateOp.or) (u v : Fin n) :
+    SelectedOwn (selectedCircuit pre g post out) pre.length u v ↔ selectedSignal pre g {u, v} := by
+  constructor
+  · intro h
+    apply (selectedSignal_at pre post out g {u,v}).2
+    rw [selectedInput_pair]
+    exact h.1
+  · intro h
+    constructor
+    · rw [← selectedInput_pair]
+      exact (selectedSignal_at pre post out g {u,v}).1 h
+    · intro t' g' ht' ha hpath
+      have hlt : t' < pre.length := by
+        have h' := selectedRead_lt hpath
+        omega
+      change (pre ++ g :: post)[t']? = some g' at ht'
+      rw [List.getElem?_append_left hlt] at ht'
+      have hmem : g' ∈ pre := List.mem_of_getElem? ht'
+      have hh := hp g' hmem
+      simp_all
+
+lemma selected_first_center_repair {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (pre post : List Gate) (out i j : ℕ) (c : Fin n)
+    (hC : ∀ a ∈ (selectedCircuit pre ⟨GateOp.and, [i, j]⟩ post out).gates,
+      (a.op = GateOp.and ∨ a.op = GateOp.or) ∧ a.inputs.length ≤ 2)
+    (hp : ∀ a ∈ pre, a.op = GateOp.or)
+    (hold : ∀ x : Fin n → Bool, (selectedCircuit pre ⟨GateOp.and, [i,j]⟩ post out).eval
+      (List.ofFn x) = decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true))
+    (hdom : selectedWire pre i {c})
+    (hne : ∃ u v, Pivotal G (selectedContext pre post out) u v)
+    (hstar : ∀ u v, Pivotal G (selectedContext pre post out) u v → u = c ∨ v = c) :
+    let D := selectedCircuit pre ⟨GateOp.and, [c,j]⟩ post out
+    D.size = (selectedCircuit pre ⟨GateOp.and, [i,j]⟩ post out).size ∧
+    (∀ a ∈ D.gates, (a.op = GateOp.and ∨ a.op = GateOp.or) ∧ a.inputs.length ≤ 2) ∧
+    (∀ x : Fin n → Bool, D.eval (List.ofFn x) =
+      decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true)) ∧
+    (∃ u v, G.Adj u v ∧ SelectedOwn D pre.length u v) ∧
+    (∀ u v, G.Adj u v → SelectedOwn D pre.length u v → u = c ∨ v = c) := by
+  dsimp only
+  have hp' : ∀ a ∈ pre, a.op = GateOp.and ∨ a.op = GateOp.or := fun a ha => Or.inr (hp a ha)
+  have hpost : ∀ a ∈ post, a.op = GateOp.and ∨ a.op = GateOp.or := by
+    intro a ha
+    exact (hC a (List.mem_append_right _ (List.mem_cons_of_mem _ ha))).1
+  have hm : ContextMono (selectedContext (n := n) pre post out) :=
+    selectedContext_mono _ _ _ hp' hpost
+  have hA := (selected_computes_iff G pre post out ⟨GateOp.and,[i,j]⟩).1 hold
+  have hE : Exact G (selectedContext pre post out) (fun X => selectedWire pre i X ∧ selectedWire pre j X) := by
+    simpa only [Exact, HasEdge, selectedSignal_binaryAnd] using hA
+  have hnew := center_rewire hm hE (selectedWire_mono pre j hp')
+    (fun X hc => selectedWire_mono pre i hp' (Set.singleton_subset_iff.mpr hc) hdom) hstar
+  have hD : Exact G (selectedContext pre post out) (selectedSignal pre ⟨GateOp.and,[c,j]⟩) := by
+    simpa only [Exact, selectedSignal_literalAnd] using hnew
+  refine ⟨selected_size _ _ _ _ _, selected_ao2 _ _ _ _ _ hC (by simp),
+    (selected_computes_iff G pre post out _).2 hD, ?_, ?_⟩
+  · obtain ⟨u,v,he⟩ := hne
+    exact ⟨u, v, he.1, (selected_first_owns_iff _ _ _ _ hp _ _).2 (pivotal_requires hm hD he)⟩
+  · intro u v _ h
+    have hc := ((selectedSignal_literalAnd pre c j {u,v}).1
+      ((selected_first_owns_iff _ _ _ _ hp _ _).1 h)).1
+    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hc
+    exact hc.imp Eq.symm Eq.symm
+
+lemma selected_lookup_ne (pre post : List Gate) (out : ℕ) (g h : Gate) {k : ℕ}
+    (hk : k ≠ pre.length) :
+    (selectedCircuit pre g post out).gates[k]? = (selectedCircuit pre h post out).gates[k]? := by
+  change (pre ++ g :: post)[k]? = (pre ++ h :: post)[k]?
+  by_cases hlt : k < pre.length
+  · rw [List.getElem?_append_left hlt, List.getElem?_append_left hlt]
+  · obtain ⟨r, hr⟩ : ∃ r, k - pre.length = r+1 := ⟨k - pre.length - 1, by omega⟩
+    rw [List.getElem?_append_right (Nat.le_of_not_gt hlt),
+      List.getElem?_append_right (Nat.le_of_not_gt hlt), hr]
+    rfl
+
+lemma selected_rewire_step {n : ℕ} (pre post : List Gate) (out i j : ℕ) (c : Fin n)
+    {a b : ℕ} (ha : n ≤ a)
+    (he : SelectedRead n (selectedCircuit pre ⟨GateOp.and,[c,j]⟩ post out) a b) :
+    SelectedRead n (selectedCircuit pre ⟨GateOp.and,[i,j]⟩ post out) a b := by
+  obtain ⟨hab,k,h,hb,hk,hh⟩ := he
+  by_cases ht : k = pre.length
+  · subst k
+    simp [selectedCircuit] at hk
+    subst h
+    refine ⟨hab,pre.length,⟨GateOp.and,[i,j]⟩,hb,by simp [selectedCircuit],?_⟩
+    have haj : a = j := by
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hh
+      exact hh.resolve_left (fun h => by have h' := c.isLt; omega)
+    simp [haj]
+  · exact ⟨hab,k,h,hb,(selected_lookup_ne pre post out _ _ ht).trans hk,hh⟩
+
+lemma selected_rewire_path {n : ℕ} (pre post : List Gate) (out i j : ℕ) (c : Fin n)
+    {a b : ℕ} (ha : n ≤ a)
+    (hp : Relation.TransGen (SelectedRead n (selectedCircuit pre ⟨GateOp.and,[c,j]⟩ post out)) a b) :
+    Relation.TransGen (SelectedRead n (selectedCircuit pre ⟨GateOp.and,[i,j]⟩ post out)) a b := by
+  induction hp with
+  | single h => exact .single (selected_rewire_step pre post out i j c ha h)
+  | tail h e ih => exact ih.tail (selected_rewire_step pre post out i j c
+      (ha.trans (selectedRead_lt h).le) e)
+
+lemma selected_prefix_at {n : ℕ} (pre post : List Gate) (out : ℕ) (g : Gate)
+    (X : Set (Fin n)) {r : ℕ} (hr : r < n + pre.length) :
+    ((selectedCircuit pre g post out).wires (selectedInput X)).getD r false =
+    (pre.foldl selectedStep (selectedInput X)).getD r false := by
+  change ((pre ++ g :: post).foldl selectedStep (selectedInput X)).getD _ _ = _
+  rw [List.foldl_append]
+  obtain ⟨tail, ht⟩ := selectedFold_append (g :: post) (pre.foldl selectedStep (selectedInput X))
+  have hw : r < (pre.foldl selectedStep (selectedInput X)).length := by
+    simpa [selectedFold_length, selectedInput] using hr
+  rw [ht, List.getD_eq_getElem?_getD, List.getElem?_append_left hw, ← List.getD_eq_getElem?_getD]
+
+lemma selected_owned_survives {n : ℕ} (pre post : List Gate) (out i j : ℕ)
+    (c u v : Fin n) (hc : u = c ∨ v = c)
+    (ho : SelectedOwn (selectedCircuit pre ⟨GateOp.and,[i,j]⟩ post out) pre.length u v) :
+    SelectedOwn (selectedCircuit pre ⟨GateOp.and,[c,j]⟩ post out) pre.length u v := by
+  obtain ⟨hs, hp⟩ := ho
+  rw [← selectedInput_pair] at hs
+  have hg := (selectedSignal_at pre post out _ {u,v}).2 hs
+  have hj := ((selectedSignal_binaryAnd pre i j {u,v}).1 hg).2
+  constructor
+  · rw [← selectedInput_pair]
+    apply (selectedSignal_at pre post out _ {u,v}).1
+    apply (selectedSignal_literalAnd pre c j {u,v}).2
+    refine ⟨?_, hj⟩
+    rcases hc with rfl | rfl <;> simp
+  · intro t g ht ha hpath
+    have hlt : t < pre.length := by
+      have h := selectedRead_lt hpath
+      omega
+    have ht' := (selected_lookup_ne pre post out ⟨GateOp.and,[i,j]⟩ ⟨GateOp.and,[c,j]⟩ hlt.ne).trans ht
+    have hval := hp t g ht' ha (selected_rewire_path pre post out i j c (by omega) hpath)
+    have hwn : n + t < n + pre.length := by omega
+    rw [← selectedInput_pair, selected_prefix_at pre post out _ _ hwn] at hval ⊢
+    exact hval
+
+lemma selected_center_repair {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (pre post : List Gate) (out i j : ℕ) (c : Fin n)
+    (hC : ∀ a ∈ (selectedCircuit pre ⟨GateOp.and, [i,j]⟩ post out).gates,
+      (a.op = GateOp.and ∨ a.op = GateOp.or) ∧ a.inputs.length ≤ 2)
+    (hold : ∀ x : Fin n → Bool, (selectedCircuit pre ⟨GateOp.and,[i,j]⟩ post out).eval
+      (List.ofFn x) = decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true))
+    (hdom : selectedWire pre i {c})
+    (hne : ∃ u v, G.Adj u v ∧ (u = c ∨ v = c) ∧
+      SelectedOwn (selectedCircuit pre ⟨GateOp.and,[i,j]⟩ post out) pre.length u v)
+    (hstar : ∀ u v, Pivotal G (selectedContext pre post out) u v → u = c ∨ v = c) :
+    let D := selectedCircuit pre ⟨GateOp.and, [c,j]⟩ post out
+    D.size = (selectedCircuit pre ⟨GateOp.and, [i,j]⟩ post out).size ∧
+    (∀ a ∈ D.gates, (a.op = GateOp.and ∨ a.op = GateOp.or) ∧ a.inputs.length ≤ 2) ∧
+    (∀ x : Fin n → Bool, D.eval (List.ofFn x) =
+      decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true)) ∧
+    (∃ u v, G.Adj u v ∧ SelectedOwn D pre.length u v) ∧
+    (∀ u v, G.Adj u v → SelectedOwn D pre.length u v → u = c ∨ v = c) := by
+  dsimp only
+  have hp : ∀ a ∈ pre, a.op = GateOp.and ∨ a.op = GateOp.or := by
+    intro a ha
+    exact (hC a (List.mem_append_left _ ha)).1
+  have hs : ∀ a ∈ post, a.op = GateOp.and ∨ a.op = GateOp.or := by
+    intro a ha
+    exact (hC a (List.mem_append_right _ (List.mem_cons_of_mem _ ha))).1
+  have hm : ContextMono (selectedContext (n := n) pre post out) :=
+    selectedContext_mono _ _ _ hp hs
+  have hA := (selected_computes_iff G pre post out ⟨GateOp.and,[i,j]⟩).1 hold
+  have hE : Exact G (selectedContext pre post out) (fun X => selectedWire pre i X ∧ selectedWire pre j X) := by
+    simpa only [Exact, HasEdge, selectedSignal_binaryAnd] using hA
+  have hnew := center_rewire hm hE (selectedWire_mono pre j hp)
+    (fun X hc => selectedWire_mono pre i hp (Set.singleton_subset_iff.mpr hc) hdom) hstar
+  have hD : Exact G (selectedContext pre post out) (selectedSignal pre ⟨GateOp.and,[c,j]⟩) := by
+    simpa only [Exact, selectedSignal_literalAnd] using hnew
+  refine ⟨selected_size _ _ _ _ _, selected_ao2 _ _ _ _ _ hC (by simp),
+    (selected_computes_iff G pre post out _).2 hD, ?_, ?_⟩
+  · obtain ⟨u,v,he,hc,ho⟩ := hne
+    exact ⟨u,v,he,selected_owned_survives pre post out i j c u v hc ho⟩
+  · intro u v _ h
+    have hw := h.1
+    rw [← selectedInput_pair] at hw
+    have hc := ((selectedSignal_literalAnd pre c j {u,v}).1
+      ((selectedSignal_at pre post out _ {u,v}).2 hw)).1
+    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hc
+    exact hc.imp Eq.symm Eq.symm
+
+lemma selected_prior_step {n : ℕ} (pre post : List Gate) (out : ℕ) (g h : Gate)
+    {a b : ℕ} (hlt : b < n + pre.length)
+    (he : SelectedRead n (selectedCircuit pre g post out) a b) :
+    SelectedRead n (selectedCircuit pre h post out) a b := by
+  obtain ⟨hab,k,z,hb,hk,hz⟩ := he
+  exact ⟨hab,k,z,hb,(selected_lookup_ne pre post out h g (by omega : k ≠ pre.length)).trans hk,hz⟩
+
+lemma selected_prior_path {n : ℕ} (pre post : List Gate) (out : ℕ) (g h : Gate)
+    {a b : ℕ} (hp : Relation.TransGen (SelectedRead n (selectedCircuit pre g post out)) a b)
+    (hlt : b < n + pre.length) :
+    Relation.TransGen (SelectedRead n (selectedCircuit pre h post out)) a b := by
+  induction hp with
+  | single e => exact .single (selected_prior_step pre post out g h hlt e)
+  | tail _ e ih =>
+    exact .tail (ih (lt_trans e.1 hlt)) (selected_prior_step pre post out g h hlt e)
+
+lemma selected_prior_owns {n : ℕ} (pre post : List Gate) (out : ℕ) (g h : Gate)
+    {t : ℕ} (ht : t < pre.length) (u v : Fin n)
+    (ho : SelectedOwn (selectedCircuit pre g post out) t u v) :
+    SelectedOwn (selectedCircuit pre h post out) t u v := by
+  obtain ⟨hw,hp⟩ := ho
+  have hwlt : n + t < n + pre.length := by omega
+  constructor
+  · rw [← selectedInput_pair, selected_prefix_at pre post out _ _ hwlt] at hw ⊢
+    exact hw
+  · intro t' z hz ha hpath
+    have hlt : t' < pre.length := by
+      have h := selectedRead_lt hpath
+      omega
+    have hz' := (selected_lookup_ne pre post out g h hlt.ne).trans hz
+    have hval := hp t' z hz' ha (selected_prior_path pre post out h g hpath hwlt)
+    have hwn : n + t' < n + pre.length := by omega
+    rw [← selectedInput_pair, selected_prefix_at pre post out _ _ hwn] at hval ⊢
+    exact hval
+
+lemma selected_prior_owns_iff {n : ℕ} (pre post : List Gate) (out : ℕ) (g h : Gate)
+    {t : ℕ} (ht : t < pre.length) (u v : Fin n) :
+    SelectedOwn (selectedCircuit pre g post out) t u v ↔
+      SelectedOwn (selectedCircuit pre h post out) t u v :=
+  ⟨selected_prior_owns pre post out g h ht u v, selected_prior_owns pre post out h g ht u v⟩
+
 end PEqualNP.Outside.L_meta_1031.FreshCore

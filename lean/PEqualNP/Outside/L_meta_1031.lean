@@ -1,7 +1,9 @@
 import Mathlib
 import PEqualNP.Defs
 
-namespace PEqualNP.Outside.L_meta_1031.OneJunkProfile.OneJunk
+namespace PEqualNP.Outside.L_meta_1031.OneJunkProfile
+
+namespace OneJunk
 
 namespace M1501
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
@@ -9305,10 +9307,10 @@ lemma one_junk_cover_cost (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Ad
 
 end Close
 
-end PEqualNP.Outside.L_meta_1031.OneJunkProfile.OneJunk
+end OneJunk
 
 
-namespace PEqualNP.Outside.L_meta_1031.OneJunkProfile.StarCover
+namespace StarCover
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
@@ -10192,9 +10194,7 @@ lemma vertex_cover_upper {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj
   rw [hsize, hsum, hlen]
   omega
 
-end PEqualNP.Outside.L_meta_1031.OneJunkProfile.StarCover
-
-namespace PEqualNP.Outside.L_meta_1031.OneJunkProfile
+end StarCover
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
 
