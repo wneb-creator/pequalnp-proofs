@@ -9,4 +9,6 @@ Independent review: helper mathematics and forbidden-form audit passed; last-NOT
 SAT positive control: checked20gate L_meta_587 witness accepted on all1024 rows. Search UNSAT would not yet be a Lean proof.
 
 Sub-agents:5 (rules and independent review, lower bounds, counterexample search, library search, formal symmetry/invariants)
-TIMING total=13 subagents=5
+TIMING total=16 subagents=5
+
+Second checkpoint: input-renaming helpers and run-agreement helper compile. Input-renaming source independently reviewed; combined193line named partial lake build passed.

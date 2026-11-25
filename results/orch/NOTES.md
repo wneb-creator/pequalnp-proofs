@@ -34,3 +34,13 @@ Formal invariants route: drafted explicit Petersen automorphism certificate (100
 - Sent explicit20gate seeds L_meta_584 and L_meta_587 to counterexample agent.
 
 Counterexample search update: CaDiCaL source cloned from github.com/arminbiere/cadical and built in scratch. Incremental CEGIS searches on19gates started for first AND(edge) and first NOT(input),20minute limits each. Initial41 rows are empty input,10singletons,15edge minterms,and15maximal independent sets; each SAT model is tested on all1024 rows before acceptance. Encoding has normalization/symmetry restrictions; UNSAT would be restricted search evidence until formally justified. No witness yet. Stochastic search has found only approximate circuits; best enforced-NOT candidate so far has15false negatives and a deadNOT, so it is not a result. A newer variant requires reachableNOTs and capsNOTs3, using checked16non-NOT floor reported by library agent.
+
+Counterexample search, first completed stochastic run: 1,605,580,001 candidate evaluations in 600 seconds; no exact circuit. Best had 9 false negatives and no NOT (weighted score10 included a no-NOT penalty). This is non-exhaustive search, not a lower-bound proof. A second run retains NOT gates; a third now requires a reachable NOT, allows at most3NOTs, and adds the checked nonlinear L_meta_58420-gate seed. Independent rules_review validated the CaDiCaL encoding positively against the checked L_meta_58720-gate circuit on all1024 inputs. Berkeley ABC was cloned from github.com and is building for a separate technology-mapping search in the AND2/OR2/NOT basis.
+
+2026-11-25 14:25 UTC correction: LastNot decomposition already exists as checked L_meta_8295 (66 lines). Our independently derived helper is sound but redundant. Remaining open direct children are L-meta-4727, L-meta-7391, L-meta-8297.
+
+2026-11-25T14:26:09.909869+00:00
+Correction: public catalogue search by root found L_meta_8295 already proves the exact last-NOT cut (66 lines). Our independently compiled LastNot helper is sound but redundant; it does not close a new subproblem. Current effort is the stronger first-AND signed-binary lower bound18.
+
+2026-11-25T14:27:04.616786+00:00
+Formal invariant result: Rename.lean compiled with exit 0 and empty log; independent rules_review audit passed (SHA256 6a334e82fe4d654a7d63aa6dc78f4bcfc28a6c2abe748f3e95b62a485ec4bf66). Input renaming preserves arbitrary gate semantics, total size, fan-in-two, and presence of NOT. Automorphism certificate switched from elaborator decide to ordinary kernel decide for resource use; canonical first-gate lemmas drafted for the five symmetry cases, conditional on nontrivial raw-input first gates.
