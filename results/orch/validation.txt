@@ -37,3 +37,5 @@ Checkpoint9: named lake build passes (5189 jobs), 2139 lines approximately; targ
 Final L4970 partial preservation: 2581lines, lake build passes5189jobs. Independent review APPROVED for preservation only; exact target theorem remains absent. Source guard rejects missing theorem. Official checker still running. No cleanup performed because no complete proof. C6 files are external finite search evidence and positivecontrol, not Lean proof.
 Sub-agents: 7 (structural proof, global bridge, combinatorial ledger, lemma search, counterexample search, Lean setup, independent review)
 TIMING total=77.8 subagents=7
+
+Official checker final4970 outcome: CHECKER FAULT: verifier ended without a verdict (exit137). The failure log is checker-partial-final-4970.txt. This does not establish or refute the theorem; source guard already reports target theorem absent.
